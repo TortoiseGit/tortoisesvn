@@ -1,0 +1,89 @@
+<preface id="tsvn-ch-0">
+	<title>Preface</title>
+
+	<simplesect>
+			<graphic srccredit="TortoiseSVN Logo" fileref="tortoisesvn_logo_hor468x64.png"/>
+	</simplesect>
+	<simplesect>
+		<para>
+			When working on a project, may it be an open-source project where
+			several people review your code or a commercial
+			project where you sell a component with your sourcecode there will
+			be people and customers who find bugs or want to improve your 
+			project. To do that they send you patches which you have to review
+			and decide if you want to apply them.
+		</para>
+		<para>
+			TortoiseMerge helps you with both those tasks:
+			<itemizedlist>
+				<listitem>
+					<para>Reviewing patches</para>
+				</listitem>
+				<listitem>
+					<para>Applying the patches</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+		<para>
+			TortoiseMerge also helps you eliminating conflicted files which can
+			occur if you're working with a source control system and others
+			are working on the same files as you.
+		</para>
+	</simplesect>
+	<!-- ================================================================= -->
+	<!-- ========================	SECTION	1 ============================ -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-0-sect-1">
+		<title>TortoiseMerge is free!</title>
+		<para>
+			TortoiseMerge is free. You don't have to pay for it, you can use it
+			any way you want. It is developed under the GP license (GPL).
+		</para>
+		<para>
+			TortoiseMerge is an Open Source project. That means you have full
+			access to the source code of this program. You can browse it
+			on this link <ulink url="http://svn.collab.net/repos/tortoisesvn/">
+				<citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle>
+			</ulink>. The most recent version (where we're working on) is
+			located under <emphasis>/trunk/</emphasis>, the released versions
+			are located under <emphasis>/tags/</emphasis>.
+		</para>
+		<para>
+			Even though TortoiseMerge is free, you can support the developers
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ========================	SECTION	2 ============================ -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-ch-0-sect-3">
+		<title>Acknowledgments</title>
+		<para>
+			<variablelist>
+				<varlistentry>
+					<term>
+						Stefan K&uuml;ng
+					</term>
+					<listitem>
+						<para>for the hard work on TortoiseMerge</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						L&uuml;bbe Onken
+					</term>
+					<listitem>
+						<para>for the beautiful icons, logo, bughunting and taking care of the documentation</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						The Tigris Style project
+					</term>
+					<listitem>
+						<para>for some of the styles which are reused in this documentation</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+	</sect1>
+</preface>

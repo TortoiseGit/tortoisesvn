@@ -1,0 +1,1085 @@
+Index: Subversion/subversion/include/svn_error_codes.h
+===================================================================
+--- Subversion/subversion/include/svn_error_codes.h	(revision 6459)
++++ Subversion/subversion/include/svn_error_codes.h	(working copy)
+@@ -692,6 +692,14 @@
+               SVN_ERR_CLIENT_CATEGORY_START + 9,
+               "Inter-repository relocation not allowed")
+ 
++  SVN_ERRDEF (SVN_ERR_CLIENT_INVALID_TARBALLS_DESCRIPTION,
++              SVN_ERR_CLIENT_CATEGORY_START + 10,
++              "Format of an " SVN_PROP_TARBALLS " property was invalid.")
++
++  SVN_ERRDEF (SVN_ERR_CLIENT_CONNECTION_IO_ERROR,
++              SVN_ERR_CLIENT_CATEGORY_START + 11,
++              "Error getting tarball.")
++
+   /* misc errors */
+ 
+   SVN_ERRDEF (SVN_ERR_BASE,
+Index: Subversion/subversion/include/svn_props.h
+===================================================================
+--- Subversion/subversion/include/svn_props.h	(revision 6459)
++++ Subversion/subversion/include/svn_props.h	(working copy)
+@@ -198,6 +198,22 @@
+  */
+ #define SVN_PROP_EXTERNALS  SVN_PROP_PREFIX "externals"
+ 
++/** Describes tarball items to check out into this directory.
++ *
++ * The format is a series of lines, such as:
++ *
++ *<pre>   localdir1           http://url.for.external.source/etc/
++ *   localdir1/foo       http://url.for.external.source/foo
++ *   localdir1/bar       http://blah.blah.blah/repositories/theirproj
++ *   localdir1/bar/baz   http://blorg.blorg.blorg/basement/code
++ *   localdir2           http://another.url/blah/blah/blah
++ *   localdir3           http://and.so.on/and/so/forth</pre>
++ *
++ * The subdir names on the left side are relative to the directory on
++ * which this property is set.
++ */
++#define SVN_PROP_TARBALLS  SVN_PROP_PREFIX "tarballs"
++
+ /** @} */
+ 
+ /** WC props are props that are invisible to users:  they're generated
+Index: Subversion/subversion/include/svn_config.h
+===================================================================
+--- Subversion/subversion/include/svn_config.h	(revision 6459)
++++ Subversion/subversion/include/svn_config.h	(working copy)
+@@ -78,6 +78,8 @@
+ #define SVN_CONFIG_OPTION_DIFF_CMD                  "diff-cmd"
+ #define SVN_CONFIG_OPTION_DIFF3_CMD                 "diff3-cmd"
+ #define SVN_CONFIG_OPTION_DIFF3_HAS_PROGRAM_ARG     "diff3-has-program-arg"
++#define SVN_CONFIG_OPTION_DECOMPRESS_CMD            "decompress-cmd"
++#define SVN_CONFIG_OPTION_DECOMPRESS_ARGS           "decompress-args"
+ #define SVN_CONFIG_SECTION_MISCELLANY           "miscellany"
+ #define SVN_CONFIG_OPTION_GLOBAL_IGNORES            "global-ignores"
+ #define SVN_CONFIG_OPTION_LOG_ENCODING              "log-encoding"
+Index: Subversion/subversion/include/svn_wc.h
+===================================================================
+--- Subversion/subversion/include/svn_wc.h	(revision 6459)
++++ Subversion/subversion/include/svn_wc.h	(working copy)
+@@ -251,10 +251,15 @@
+   svn_wc_notify_update_completed,
+ 
+   /** About to update an external module, use for checkouts and switches too,
+-   * end with @c svn_wc_update_completed.
++   * end with @c svn_wc_notify_update_completed.
+    */
+   svn_wc_notify_update_external,
+ 
++  /** About to update a tarball, use for checkouts and switches too,
++   * end with @c svn_wc_notify_update_completed.
++   */
++  svn_wc_notify_update_tarball,
++
+   svn_wc_notify_commit_modified,
+   svn_wc_notify_commit_added,
+   svn_wc_notify_commit_deleted,
+@@ -1270,7 +1275,30 @@
+                               apr_hash_t **externals_new,
+                               svn_wc_traversal_info_t *traversal_info);
+ 
++/** Set @a *tarballs_old and @a *tarballs_new to hash tables representing
++ * changes to values of the svn:tarballs property on directories
++ * traversed by @a traversal_info.
++ *
++ * @a traversal_info is obtained from @c svn_wc_init_traversal_info, but is
++ * only useful after it has been passed through another function, such
++ * as @c svn_wc_crawl_revisions, @c svn_wc_get_update_editor,
++ * @c svn_wc_get_checkout_editor, @c svn_wc_get_switch_editor, etc.
++ *
++ * Each hash maps <tt>const char *</tt> directory names onto 
++ * <tt>const char *</tt> values of the tarballs property for that directory.  
++ * The dir names are full paths -- that is, anchor plus target, not target 
++ * alone. The values are not parsed, they are simply copied raw, and are
++ * never null: directories that acquired or lost the property are
++ * simply omitted from the appropriate table.  Directories whose value
++ * of the property did not change show the same value in each hash.
++ *
++ * The hashes, keys, and values have the same lifetime as @a traversal_info.
++ */
++void svn_wc_edited_tarballs (apr_hash_t **tarballs_old,
++                             apr_hash_t **tarballs_new,
++                             svn_wc_traversal_info_t *traversal_info);
+ 
++
+ 
+ 
+ /** Do a depth-first crawl in a working copy, beginning at @a path.
+Index: Subversion/subversion/libsvn_wc/wc.h
+===================================================================
+--- Subversion/subversion/libsvn_wc/wc.h	(revision 6459)
++++ Subversion/subversion/libsvn_wc/wc.h	(working copy)
+@@ -76,6 +76,16 @@
+    */
+   apr_hash_t *externals_old;
+   apr_hash_t *externals_new;
++
++  /* The before and after values of the SVN_PROP_TARBALLS property,
++   * for each directory on which that property changed.  These have
++   * the same layout as those returned by svn_wc_edited_tarballs(). 
++   *
++   * The hashes, their keys, and their values are allocated in the
++   * above pool.
++   */
++  apr_hash_t *tarballs_old;
++  apr_hash_t *tarballs_new;
+ };
+ 
+ 
+Index: Subversion/subversion/libsvn_wc/adm_crawler.c
+===================================================================
+--- Subversion/subversion/libsvn_wc/adm_crawler.c	(revision 6459)
++++ Subversion/subversion/libsvn_wc/adm_crawler.c	(working copy)
+@@ -158,19 +158,33 @@
+      in traversal_info. */
+   if (traversal_info)
+     {
+-      const svn_string_t *val;
+-      SVN_ERR (svn_wc_prop_get (&val, SVN_PROP_EXTERNALS, full_path, adm_access,
++      const svn_string_t *extval;
++      const svn_string_t *tarval;
++      SVN_ERR (svn_wc_prop_get (&extval, SVN_PROP_EXTERNALS, full_path, adm_access,
+                                 subpool));
+-      if (val)
++      if (extval)
+         {
+           apr_pool_t *dup_pool = traversal_info->pool;
+           const char *dup_path = apr_pstrdup (dup_pool, full_path);
+-          const char *dup_val = apr_pstrmemdup (dup_pool, val->data, val->len);
++          const char *dup_val = apr_pstrmemdup (dup_pool, extval->data, extval->len);
+           apr_hash_set (traversal_info->externals_old,
+                         dup_path, APR_HASH_KEY_STRING, dup_val);
+           apr_hash_set (traversal_info->externals_new,
+                         dup_path, APR_HASH_KEY_STRING, dup_val);
+         }
++
++      SVN_ERR (svn_wc_prop_get (&tarval, SVN_PROP_TARBALLS, full_path, adm_access,
++                                subpool));
++      if (tarval)
++        {
++          apr_pool_t *dup_pool = traversal_info->pool;
++          const char *dup_path = apr_pstrdup (dup_pool, full_path);
++          const char *dup_val = apr_pstrmemdup (dup_pool, tarval->data, tarval->len);
++          apr_hash_set (traversal_info->tarballs_old,
++                        dup_path, APR_HASH_KEY_STRING, dup_val);
++          apr_hash_set (traversal_info->tarballs_new,
++                        dup_path, APR_HASH_KEY_STRING, dup_val);
++        }
+     }
+ 
+   /* Looping over current directory's SVN entries: */
+Index: Subversion/subversion/libsvn_wc/update_editor.c
+===================================================================
+--- Subversion/subversion/libsvn_wc/update_editor.c	(revision 6459)
++++ Subversion/subversion/libsvn_wc/update_editor.c	(working copy)
+@@ -884,6 +884,25 @@
+   return NULL;
+ }
+ 
++/* If any of the svn_prop_t objects in PROPCHANGES represents a change
++   to the SVN_PROP_TARBALLS property, return that change, else return
++   null.  If PROPCHANGES contains more than one such change, return
++   the first. */
++static const svn_prop_t *
++tarballs_prop_changed (apr_array_header_t *propchanges)
++{
++  int i;
++
++  for (i = 0; i < propchanges->nelts; i++)
++    {
++      const svn_prop_t *p = &(APR_ARRAY_IDX(propchanges, i, svn_prop_t));
++      if (strcmp (p->name, SVN_PROP_TARBALLS) == 0)
++        return p;
++    }
++
++  return NULL;
++}
++
+ static svn_error_t *
+ close_directory (void *dir_baton,
+                  apr_pool_t *pool)
+@@ -926,11 +945,12 @@
+           if (db->edit_baton->traversal_info)
+             {
+               svn_wc_traversal_info_t *ti = db->edit_baton->traversal_info;
+-              const svn_prop_t *change = externals_prop_changed (regular_props);
++              const svn_prop_t *extchange = externals_prop_changed (regular_props);
++              const svn_prop_t *tarchange = tarballs_prop_changed (regular_props);
+ 
+-              if (change)
++              if (extchange)
+                 {
+-                  const svn_string_t *new_val_s = change->value;
++                  const svn_string_t *new_val_s = extchange->value;
+                   const svn_string_t *old_val_s;
+ 
+                   SVN_ERR (svn_wc_prop_get
+@@ -966,8 +986,46 @@
+                                                       new_val_s->len));
+                     }
+                 }
+-            }
++               if (tarchange)
++                {
++                  const svn_string_t *new_val_s = tarchange->value;
++                  const svn_string_t *old_val_s;
+ 
++                  SVN_ERR (svn_wc_prop_get
++                           (&old_val_s, SVN_PROP_TARBALLS,
++                            db->path, adm_access, db->pool));
++
++                  if ((new_val_s == NULL) && (old_val_s == NULL))
++                    ; /* No value before, no value after... so do nothing. */
++                  else if (new_val_s && old_val_s
++                           && (svn_string_compare (old_val_s, new_val_s)))
++                    ; /* Value did not change... so do nothing. */
++                  else  /* something changed, record the change */
++                    {
++                      /* We can't assume that ti came pre-loaded with the
++                         old values of the svn:externals property.  Yes,
++                         most callers will have already initialized ti by
++                         sending it through svn_wc_crawl_revisions, but we
++                         shouldn't count on that here -- so we set both the
++                         old and new values again. */
++
++                      if (old_val_s)
++                        apr_hash_set (ti->tarballs_old,
++                                      apr_pstrdup (ti->pool, db->path),
++                                      APR_HASH_KEY_STRING,
++                                      apr_pstrmemdup (ti->pool, old_val_s->data,
++                                                      old_val_s->len));
++
++                      if (new_val_s)
++                        apr_hash_set (ti->tarballs_new,
++                                      apr_pstrdup (ti->pool, db->path),
++                                      APR_HASH_KEY_STRING,
++                                      apr_pstrmemdup (ti->pool, new_val_s->data,
++                                                      new_val_s->len));
++                    }
++                }
++           }
++
+           /* Merge pending properties into temporary files (ignoring
+              conflicts). */
+           SVN_ERR_W (svn_wc__merge_prop_diffs (&prop_state,
+@@ -2112,7 +2170,8 @@
+   ti->pool           = pool;
+   ti->externals_old  = apr_hash_make (pool);
+   ti->externals_new  = apr_hash_make (pool);
+-  
++  ti->tarballs_old   = apr_hash_make (pool);
++  ti->tarballs_new   = apr_hash_make (pool);
+   return ti;
+ }
+ 
+@@ -2127,7 +2186,17 @@
+ }
+ 
+ 
++void
++svn_wc_edited_tarballs (apr_hash_t **tarballs_old,
++                         apr_hash_t **tarballs_new,
++                         svn_wc_traversal_info_t *traversal_info)
++{
++  *tarballs_old = traversal_info->tarballs_old;
++  *tarballs_new = traversal_info->tarballs_new;
++}
+ 
++
++
+ /* THE GOAL
+ 
+    Note the following actions, where X is the thing we wish to update,
+Index: Subversion/subversion/libsvn_subr/config_file.c
+===================================================================
+--- Subversion/subversion/libsvn_subr/config_file.c	(revision 6459)
++++ Subversion/subversion/libsvn_subr/config_file.c	(working copy)
+@@ -923,11 +923,18 @@
+         "###   Subversion's internal diff3 implementation.\n"
+         "### Set diff3-has-program-arg to `true' or `yes' if your `diff3'\n"
+         "###   program accepts the `--diff-program' option.\n"
++        "### Set decompress-cmd to the absolute path of your untar/unzip program.\n"
++        "###   This will be used for the svn:tarballs property to extract the tarball.\n"
++        "### Set decompress-args to the arguments your untar/unzip program needs.\n"
++        "###   Read the docs of your favourite untar/unzip program to find out\n"
++        "###   which arguments you need to pass.\n"
+         "# [helpers]\n"
+         "# editor-cmd = editor (vi, emacs, notepad, etc.)\n"
+         "# diff-cmd = diff_program (diff, gdiff, etc.)\n"
+         "# diff3-cmd = diff3_program (diff3, gdiff3, etc.)\n"
+         "# diff3-has-program-arg = [true | false]\n"
++        "# decompress-cmd = extract-program\n"
++        "# decompress-args = command_line_arguments_for_extract_program\n"
+         "\n"
+         "### Section for configuring tunnel agents.\n"
+         "# [tunnels]\n"
+Index: Subversion/subversion/libsvn_client/switch.c
+===================================================================
+--- Subversion/subversion/libsvn_client/switch.c	(revision 6459)
++++ Subversion/subversion/libsvn_client/switch.c	(working copy)
+@@ -209,6 +209,9 @@
+                                              &timestamp_sleep,
+                                              ctx,
+                                              pool));
++      SVN_ERR (svn_client__handle_tarballs (traversal_info,
++                                            ctx,
++                                            pool));
+     }
+   
+   else if (entry->kind == svn_node_file)
+Index: Subversion/subversion/libsvn_client/checkout.c
+===================================================================
+--- Subversion/subversion/libsvn_client/checkout.c	(revision 6459)
++++ Subversion/subversion/libsvn_client/checkout.c	(working copy)
+@@ -172,9 +172,13 @@
+   */
+   SVN_ERR (svn_client__handle_externals (traversal_info, FALSE, use_sleep,
+                                          ctx, pool));
++
+   if (sleep_here)
+     svn_sleep_for_timestamps ();
+ 
++  SVN_ERR (svn_client__handle_tarballs (traversal_info, 
++                                        ctx, pool));
++
+   return SVN_NO_ERROR;
+ }
+ 
+Index: Subversion/subversion/libsvn_client/tarball.c
+===================================================================
+--- Subversion/subversion/libsvn_client/tarball.c	(working copy)
++++ Subversion/subversion/libsvn_client/tarball.c	(working copy)
+@@ -0,0 +1,645 @@
++/*
++ * tarball.c:  handle the svn:tarball property
++ *
++ * ====================================================================
++ * Copyright (c) 2000-2003 CollabNet.  All rights reserved.
++ *
++ * This software is licensed as described in the file COPYING, which
++ * you should have received as part of this distribution.  The terms
++ * are also available at http://subversion.tigris.org/license-1.html.
++ * If newer versions of this license are posted there, you may use a
++ * newer version instead, at your option.
++ *
++ * This software consists of voluntary contributions made by many
++ * individuals.  For exact contribution history, see the revision
++ * history and logs, available at http://subversion.tigris.org/.
++ * ====================================================================
++ */
++
++/* ==================================================================== */
++
++
++
++/*** Includes. ***/
++
++#include <assert.h>
++#include "svn_wc.h"
++#include "svn_pools.h"
++#include "svn_delta.h"
++#include "svn_client.h"
++#include "svn_config.h"
++#include "svn_string.h"
++#include "svn_hash.h"
++#include "svn_types.h"
++#include "svn_error.h"
++#include "svn_path.h"
++#include "client.h"
++
++#include <curl/curl.h>
++#include <curl/types.h> 
++#include <curl/easy.h> 
++
++
++
++/* Set *PROXY_HOST, *PROXY_PORT, *PROXY_USERNAME, *PROXY_PASSWORD,
++ * *TIMEOUT_SECONDS to the information for REQUESTED_HOST,
++ * allocated in POOL, if there is any applicable information.  If there is
++ * no applicable information or if there is an error, then set *PROXY_PORT
++ * to (unsigned int) -1, *TIMEOUT_SECONDS to zero, and the
++ * rest to NULL.  This function can return an error, so before checking any
++ * values, check the error return value.
++ */
++static svn_error_t *
++get_proxy_settings (const char **proxy_host,
++                    unsigned long *proxy_port,
++                    const char **proxy_username,
++                    const char **proxy_password,
++                    int *timeout_seconds,
++                    apr_hash_t *config,
++                    const char *requested_host,
++                    apr_pool_t *pool)
++{
++  const char *exceptions, *port_str, *timeout_str, *server_group;
++  svn_boolean_t is_exception = FALSE;
++  svn_config_t *cfg;
++
++  /* If we find nothing, default to nulls. */
++  *proxy_host     = NULL;
++  *proxy_port     = (unsigned int) -1;
++  *proxy_username = NULL;
++  *proxy_password = NULL;
++  port_str        = NULL;
++  timeout_str     = NULL;
++
++  cfg = config ? apr_hash_get (config, 
++                               SVN_CONFIG_CATEGORY_SERVERS,
++                               APR_HASH_KEY_STRING) : NULL;
++
++  /* If there are defaults, use them, but only if the requested host
++     is not one of the exceptions to the defaults. */
++  svn_config_get(cfg, &exceptions, SVN_CONFIG_SECTION_GLOBAL, 
++                 SVN_CONFIG_OPTION_HTTP_PROXY_EXCEPTIONS, NULL);
++  if (exceptions)
++    {
++      apr_array_header_t *l = svn_cstring_split (exceptions, ",", TRUE, pool);
++      is_exception = svn_cstring_match_glob_list (requested_host, l);
++    }
++  if (! is_exception)
++    {
++      svn_config_get (cfg, proxy_host, SVN_CONFIG_SECTION_GLOBAL, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_HOST, NULL);
++      svn_config_get (cfg, &port_str, SVN_CONFIG_SECTION_GLOBAL, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_PORT, NULL);
++      svn_config_get (cfg, proxy_username, SVN_CONFIG_SECTION_GLOBAL, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_USERNAME, NULL);
++      svn_config_get (cfg, proxy_password, SVN_CONFIG_SECTION_GLOBAL, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_PASSWORD, NULL);
++      svn_config_get (cfg, &timeout_str, SVN_CONFIG_SECTION_GLOBAL, 
++                      SVN_CONFIG_OPTION_HTTP_TIMEOUT, NULL);
++    }
++
++  if (cfg)
++    server_group = svn_config_find_group (cfg, requested_host, 
++                                          SVN_CONFIG_SECTION_GROUPS, pool);
++  else
++    server_group = NULL;
++
++  if (server_group)
++    {
++      svn_config_get (cfg, proxy_host, server_group, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_HOST, *proxy_host);
++      svn_config_get (cfg, &port_str, server_group, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_PORT, port_str);
++      svn_config_get (cfg, proxy_username, server_group, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_USERNAME, *proxy_username);
++      svn_config_get (cfg, proxy_password, server_group, 
++                      SVN_CONFIG_OPTION_HTTP_PROXY_PASSWORD, *proxy_password);
++      svn_config_get (cfg, &timeout_str, server_group, 
++                      SVN_CONFIG_OPTION_HTTP_TIMEOUT, timeout_str);
++    }
++
++  /* Special case: convert the port value, if any. */
++  if (port_str)
++    {
++      char *endstr;
++      const long int port = strtol (port_str, &endstr, 10);
++
++      if (*endstr)
++        return svn_error_create (SVN_ERR_RA_ILLEGAL_URL, NULL,
++                                 "illegal character in proxy port number");
++      if (port < 0)
++        return svn_error_create (SVN_ERR_RA_ILLEGAL_URL, NULL,
++                                 "negative proxy port number");
++      if (port > 65535)
++        return svn_error_create (SVN_ERR_RA_ILLEGAL_URL, NULL,
++                                 "proxy port number greater than maximum TCP "
++                                 "port number 65535");
++      *proxy_port = port;
++    }
++  else
++    *proxy_port = 80;
++
++  if (timeout_str)
++    {
++      char *endstr;
++      const long int timeout = strtol (timeout_str, &endstr, 10);
++
++      if (*endstr)
++        return svn_error_create (SVN_ERR_RA_DAV_INVALID_CONFIG_VALUE, NULL,
++                                 "illegal character in timeout value");
++      if (timeout < 0)
++        return svn_error_create (SVN_ERR_RA_DAV_INVALID_CONFIG_VALUE, NULL,
++                                 "negative timeout value");
++      *timeout_seconds = timeout;
++    }
++  else
++    *timeout_seconds = 0;
++
++  return SVN_NO_ERROR;
++}
++
++/* callback function, used by libcurl during the download. If the
++   return value is nonzero then libcurl aborts the download. */
++static int 
++url_progress_func (svn_client_ctx_t *ctx,
++                   double t, /* dltotal */
++                   double d, /* dlnow */
++                   double ultotal,
++                   double ulnow)
++{
++  svn_error_t * err = NULL;
++  err = ctx->cancel_func (ctx->cancel_baton);
++  return (err != NULL);
++}
++
++/* callback function, used by libcurl to read data. */
++static size_t 
++url_read_func (void *ptr, size_t size, size_t nmemb, FILE *stream)
++{
++  return fread(ptr, size, nmemb, stream);
++}
++
++/* downloads an URL and saves it in a file. */
++static svn_error_t *
++fetch_url_to_file (const char * url,
++                   const char * file,
++                   svn_client_ctx_t * ctx,
++                   apr_pool_t * pool)
++{
++  svn_error_t * err = NULL;
++  CURL *curl;
++  FILE *outfile;
++  char errbuf[CURL_ERROR_SIZE];
++  const char * proxy_host = NULL;
++  unsigned long proxy_port;
++  const char * proxy_username = NULL;
++  const char * proxy_password = NULL;
++  const char * proxy_userpwd = NULL;
++  int timeout_seconds;
++
++  SVN_ERR (get_proxy_settings (&proxy_host, 
++                               &proxy_port,
++                               &proxy_username,
++                               &proxy_password,
++                               &timeout_seconds,
++                               ctx->config,
++                               url,
++                               pool));
++  curl = curl_easy_init ();
++  if(curl)
++    {
++      outfile = fopen (file, "wb+");
++     
++      curl_easy_setopt (curl, CURLOPT_URL, url);
++      curl_easy_setopt (curl, CURLOPT_FILE, outfile);
++      curl_easy_setopt (curl, CURLOPT_READFUNCTION, url_read_func);
++      curl_easy_setopt (curl, CURLOPT_ERRORBUFFER, errbuf);
++      curl_easy_setopt (curl, CURLOPT_NOPROGRESS, FALSE);
++      curl_easy_setopt (curl, CURLOPT_PROGRESSFUNCTION, url_progress_func);
++      curl_easy_setopt (curl, CURLOPT_PROGRESSDATA, ctx);
++      curl_easy_setopt (curl, CURLOPT_FAILONERROR, TRUE);
++      curl_easy_setopt (curl, CURLOPT_FOLLOWLOCATION, TRUE);
++      if (proxy_host)
++        {
++          curl_easy_setopt (curl, CURLOPT_PROXY, proxy_host);
++          curl_easy_setopt (curl, CURLOPT_PROXYPORT, proxy_port);
++        }
++      if ((proxy_username)&&(proxy_password))
++        {
++          apr_pstrcat (pool, proxy_userpwd, proxy_username, ":", proxy_password);
++          curl_easy_setopt (curl, CURLOPT_PROXYUSERPWD, proxy_userpwd);
++        }
++         
++      if (curl_easy_perform (curl))
++        {
++          err = svn_error_create (SVN_ERR_CLIENT_CONNECTION_IO_ERROR, NULL, errbuf);
++        }
++     
++      fclose (outfile);
++      /* always cleanup */
++      curl_easy_cleanup (curl);
++    } 
++    return err;
++}
++
++/* Checks if a untar/unzip program is set in the config
++   file. If yes then the compressed file \c tarballfile 
++   is extracted using the given program. 
++   If no program is set then this function returns without
++   an error and leaves the tarball untouched. */
++static svn_error_t *
++decompress_tarball (const char * tarballfile,
++                    const char * targetdir,
++                    svn_client_ctx_t * ctx,
++                    apr_pool_t * pool)
++{
++  const char *args[5];
++  const char * decompress_cmd = NULL;
++  const char * decompress_args = NULL;
++  const char * folder;
++  apr_finfo_t finfo;
++  apr_dir_t * new_dir;
++  int filecount = 0;
++  int dircount = 0;
++  int i = 0;
++
++  svn_config_t *cfg = apr_hash_get (ctx->config,
++                                    SVN_CONFIG_CATEGORY_CONFIG,
++                                    APR_HASH_KEY_STRING);
++
++  svn_config_get (cfg, &decompress_cmd,
++                  SVN_CONFIG_SECTION_HELPERS,
++                  SVN_CONFIG_OPTION_DECOMPRESS_CMD,
++                  NULL);
++  if (! decompress_cmd)
++    {
++      /* if no decompressing program is specified, we
++         just return without error. That way the user
++         can decompress the tarball later manually */
++      return SVN_NO_ERROR;
++    }
++  args[i++] = decompress_cmd;
++  svn_config_get (cfg, &decompress_args,
++                  SVN_CONFIG_SECTION_HELPERS,
++                  SVN_CONFIG_OPTION_DECOMPRESS_ARGS,
++                  NULL);
++  if (decompress_args)
++    args[i++] = decompress_args;
++  args[i++] = tarballfile;
++  args[i++] = targetdir;
++  args[i] = 0;
++  
++  /* Run decompress program, output to the targetdir */
++  SVN_ERR (svn_io_run_cmd (NULL, decompress_cmd, args, 
++                           NULL, NULL, 
++                           FALSE, /* clean environment */
++                           NULL, NULL, NULL,
++                           pool));
++  /* depending on how the tarball was compressed, it already may
++     have placed all the files into an own folder. If we would do
++     nothing about that, we could end up with a structure like this:
++     /subversion/neon/neon-0.23.9/
++     instead of 
++     /subversion/neon/
++     
++     So we first check if in the destination folder is only one
++     folder and no other files. If that is the case then we
++     move that single folder over the destination folder */
++  if (apr_dir_open (&new_dir, targetdir, pool) == APR_SUCCESS)
++    {
++       while (apr_dir_read (&finfo, APR_FINFO_TYPE, new_dir) == APR_SUCCESS)
++         {
++           if (finfo.filetype == APR_DIR)
++             {
++               dircount++;
++               folder = finfo.name;
++             }
++          if (finfo.filetype == APR_REG)
++             filecount++;
++         } 
++      apr_dir_close (new_dir);
++   }
++
++ if ((dircount == 3)&&(filecount == 0)) /* the first two folders are always . and .. */
++   {
++     /* yes, the tarball got it's content extracted in a subfolder */
++     const char * folderpath;
++     const char * folderpathtemp;
++     const char * parentdir;
++     const char * dir;
++     svn_path_split (targetdir, &parentdir, &dir, pool);
++     folderpath = svn_path_join (targetdir, folder, pool);
++     /* This is not the best way to do that. A function which returns a
++        temporary filename should be used for that. */
++     folderpathtemp = svn_path_join (parentdir, "___svntempdir___123456789", pool);
++     apr_file_rename (folderpath, folderpathtemp, pool);
++     apr_dir_remove (targetdir, pool);
++     apr_file_rename (folderpathtemp, targetdir, pool);
++   }
++  /* at last delete the downloaded tarball since it's no longer needed */
++  apr_file_remove(tarballfile, pool);
++  return SVN_NO_ERROR;
++}
++
++/* One tarball item.  This usually represents one line from an
++   svn:tarball description but with the path and URL canonicalized. */
++struct tarball_item
++{
++  /* The name of the subdirectory into which this tarball should be
++     extracted.  This is relative to the parent directory that holds
++     this tarball item.  (Note that these structs are often stored in
++     hash tables with the target dirs as keys, so this field will
++     often be redundant.) */
++  const char *target_dir;
++
++  /* Where to download from. */
++  const char *url;
++
++};
++
++/* downloads and extracts a tarball */
++static svn_error_t *
++fetch_and_decompress (struct tarball_item * item,
++                      const char * path,
++                      svn_client_ctx_t * ctx,
++                      apr_pool_t * pool)
++{
++  const char * downloadpath;
++  const char * dir;
++  const char * file;
++  const char * dummyfile;
++  /* First notify that we're about to handle a tarball. */
++  if (ctx->notify_func)
++    {
++      (*ctx->notify_func) (ctx->notify_baton,
++                           item->url,
++                           svn_wc_notify_update_tarball,
++                           svn_node_unknown,
++                           NULL,
++                           svn_wc_notify_state_unknown,
++                           svn_wc_notify_state_unknown,
++                           SVN_INVALID_REVNUM);
++    }
++  /* create a path to where the tarball should be downloaded
++     before decompressing it to the target directory */
++  svn_path_split (item->url, &dir, &file, pool);
++  svn_path_split (path, &dir, &dummyfile, pool);
++  downloadpath = svn_path_join (dir, file, pool);
++
++  SVN_ERR (fetch_url_to_file (item->url, downloadpath, ctx, pool));
++  SVN_ERR (decompress_tarball (downloadpath, path, ctx, pool));
++  return SVN_NO_ERROR;
++}
++
++/* Set *TARBALLS_P to a hash table whose keys are target subdir
++ * names, and values are `struct external_item *' objects,
++ * based on DESC.
++ *
++ * The format of TARBALLS is the same as for values of the directory
++ * property SVN_PROP_TARBALLS, which see.
++ *
++ * Allocate the table, keys, and values in POOL.
++ *
++ * If the format of DESC is invalid, don't touch *TARBALLS_P and
++ * return SVN_ERR_CLIENT_INVALID_TARBALLS_DESCRIPTION.
++ *
++ * Use PARENT_DIRECTORY only in constructing error strings.
++ */
++static svn_error_t *
++parse_tarballs_description (apr_hash_t **tarballs_p,
++                            const char *parent_directory,
++                            const char *desc,
++                            apr_pool_t *pool)
++{
++  apr_hash_t *tarballs = apr_hash_make (pool);
++  apr_array_header_t *lines = svn_cstring_split (desc, "\n\r", TRUE, pool);
++  int i;
++  
++  for (i = 0; i < lines->nelts; i++)
++    {
++      const char *line = APR_ARRAY_IDX (lines, i, const char *);
++      apr_array_header_t *line_parts;
++      struct tarball_item *item;
++
++      if ((! line) || (line[0] == '#'))
++        continue;
++
++      /* else proceed */
++
++      line_parts = svn_cstring_split (line, " \t", TRUE, pool);
++
++      item = apr_palloc (pool, sizeof (*item));
++
++      if (line_parts->nelts < 2)
++        goto parse_error;
++
++      else if (line_parts->nelts == 2)
++        {
++          item->target_dir = APR_ARRAY_IDX (line_parts, 0, const char *);
++          item->url = APR_ARRAY_IDX (line_parts, 1, const char *);
++        }
++      else    /* too many items on line */
++        goto parse_error;
++
++      if (0)
++        {
++        parse_error:
++          return svn_error_createf
++            (SVN_ERR_CLIENT_INVALID_TARBALLS_DESCRIPTION, NULL,
++             "error parsing " SVN_PROP_TARBALLS " property on '%s':\n"
++             "Invalid line: '%s'", parent_directory, line);
++        }
++
++      item->target_dir = svn_path_canonicalize (item->target_dir, pool);
++      item->url = svn_path_canonicalize (item->url, pool);
++
++      apr_hash_set (tarballs, item->target_dir, APR_HASH_KEY_STRING, item);
++    }
++
++  *tarballs_p = tarballs;
++
++  return SVN_NO_ERROR;
++}
++
++/* Closure for handle_tarballs_item_change. */
++struct handle_tarballs_item_change_baton
++{
++  /* As returned by parse_tarballs_description(). */
++  apr_hash_t *new_desc;
++  apr_hash_t *old_desc;
++
++  /* The directory that has this tarballs property. */
++  const char *parent_dir;
++
++  svn_client_ctx_t *ctx;
++
++  apr_pool_t *pool;
++};
++
++/* Return true if NEW_ITEM and OLD_ITEM represent the same tarball
++   item extracted into the same target subdir, else return false. */
++static svn_boolean_t
++compare_tarball_items (struct tarball_item *new_item,
++                        struct tarball_item *old_item)
++{
++  if ((strcmp (new_item->target_dir, old_item->target_dir) != 0)
++      || (strcmp (new_item->url, old_item->url) != 0))
++    return FALSE;
++    
++  /* Else. */
++  return TRUE;
++}
++
++
++/* Remove PATH from disk, and do the same to any underneath PATH 
++ * Use POOL for all temporary allocation.
++ */
++static svn_error_t *
++relegate_tarball (const char *path,
++                   apr_pool_t *pool)
++{
++  SVN_ERR (svn_io_remove_dir (path, pool));
++  return SVN_NO_ERROR;
++}
++
++/* This implements the `svn_hash_diff_func_t' interface.
++   BATON is of type `struct handle_tarball_item_change_baton *'.  */
++static svn_error_t *
++handle_tarball_item_change (const void *key, apr_ssize_t klen,
++                            enum svn_hash_diff_key_status status,
++                            void *baton)
++{
++  struct handle_tarballs_item_change_baton *ib = baton;
++  struct tarball_item *old_item, *new_item;
++  const char *path = svn_path_join (ib->parent_dir,
++                                    (const char *) key, ib->pool);
++
++  if (ib->old_desc)
++    old_item = apr_hash_get (ib->old_desc, key, klen);
++  else
++    old_item = NULL;
++
++  if (ib->new_desc)
++    new_item = apr_hash_get (ib->new_desc, key, klen);
++  else
++    new_item = NULL;
++
++  /* We couldn't possibly be here if both values were null, right? */
++  assert (old_item || new_item);
++
++  if (! old_item)
++    {
++      /* The target dir might have multiple components.  Guarantee
++         the path leading down to the last component. */
++      {
++        const char *checkout_parent;
++        svn_path_split (path, &checkout_parent, NULL, ib->pool);
++        SVN_ERR (svn_io_make_dir_recursively (checkout_parent, ib->pool));
++      }
++
++      fetch_and_decompress(new_item, path, ib->ctx, ib->pool);
++    }
++  else if (! new_item)
++    {
++      SVN_ERR (relegate_tarball (old_item->target_dir, ib->pool));
++    }
++  else if (! compare_tarball_items (new_item, old_item))
++    {
++
++      SVN_ERR (relegate_tarball (old_item->target_dir,
++                                 ib->pool));
++      fetch_and_decompress (new_item, path, ib->ctx, ib->pool);      
++    }
++  else if (compare_tarball_items (new_item, old_item))
++    {
++      /* the property hasn't changed, but maybe the extracted folder
++         is missing and needs to be downloaded again */
++      svn_node_kind_t kind;
++      SVN_ERR (svn_io_check_path (new_item->target_dir, &kind, ib->pool));
++      if (kind != svn_node_dir)
++      {
++        /* the extracted directory doesn't exist, but maybe the tarball? */
++        const char * dir;
++        const char * file;
++        const char * dummyfile;
++        svn_path_split (new_item->url, &dir, &file, ib->pool);
++        svn_path_split (path, &dir, &dummyfile, ib->pool);
++        dummyfile = svn_path_join (dir, file, ib->pool);
++        SVN_ERR (svn_io_check_path (dummyfile, &kind, ib->pool));
++        if (kind != svn_node_file)
++          fetch_and_decompress(new_item, path, ib->ctx, ib->pool);
++      }
++    }
++  return SVN_NO_ERROR;
++}
++
++/* Closure for handle_tarballs_change. */
++struct handle_tarballs_desc_change_baton
++{
++  /* As returned by svn_wc_edited_tarballs(). */
++  apr_hash_t *tarballs_new;
++  apr_hash_t *tarballs_old;
++
++  /* Passed through to handle_tarballs_item_change_baton. */
++  svn_client_ctx_t *ctx;
++
++  apr_pool_t *pool;
++};
++
++/* This implements the `svn_hash_diff_func_t' interface.
++   BATON is of type `struct handle_tarballs_desc_change_baton *'.  
++*/
++static svn_error_t *
++handle_tarballs_desc_change (const void *key, apr_ssize_t klen,
++                              enum svn_hash_diff_key_status status,
++                              void *baton)
++{
++  struct handle_tarballs_desc_change_baton *cb = baton;
++  struct handle_tarballs_item_change_baton ib;
++  const char *old_desc_text, *new_desc_text;
++  apr_hash_t *old_desc, *new_desc;
++
++  if ((old_desc_text = apr_hash_get (cb->tarballs_old, key, klen)))
++    SVN_ERR (parse_tarballs_description (&old_desc, (const char *) key,
++                                          old_desc_text, cb->pool));
++  else
++    old_desc = NULL;
++
++  if ((new_desc_text = apr_hash_get (cb->tarballs_new, key, klen)))
++    SVN_ERR (parse_tarballs_description (&new_desc, (const char *) key,
++                                          new_desc_text, cb->pool));
++  else
++    new_desc = NULL;
++
++  ib.old_desc          = old_desc;
++  ib.new_desc          = new_desc;
++  ib.parent_dir        = (const char *) key;
++  ib.ctx               = cb->ctx;
++  ib.pool              = cb->pool;
++
++  SVN_ERR (svn_hash_diff (old_desc, new_desc,
++                          handle_tarball_item_change, &ib, cb->pool));
++
++  return SVN_NO_ERROR;
++}
++
++svn_error_t *
++svn_client__handle_tarballs (svn_wc_traversal_info_t *traversal_info,
++                              svn_client_ctx_t *ctx,
++                              apr_pool_t *pool)
++{
++  apr_hash_t *tarballs_old, *tarballs_new;
++  struct handle_tarballs_desc_change_baton cb;
++
++  svn_wc_edited_tarballs (&tarballs_old, &tarballs_new, traversal_info);
++
++  cb.tarballs_new      = tarballs_new;
++  cb.tarballs_old      = tarballs_old;
++  cb.ctx               = ctx;
++  cb.pool              = pool;
++
++  SVN_ERR (svn_hash_diff (tarballs_old, tarballs_new,
++                          handle_tarballs_desc_change, &cb, pool));
++
++  return SVN_NO_ERROR;
++}
+Index: Subversion/subversion/libsvn_client/update.c
+===================================================================
+--- Subversion/subversion/libsvn_client/update.c	(revision 6459)
++++ Subversion/subversion/libsvn_client/update.c	(working copy)
+@@ -169,12 +169,17 @@
+      handling external items (and any errors therefrom) doesn't delay
+      the primary operation.  */
+   if (recurse)
++    {
+     SVN_ERR (svn_client__handle_externals (traversal_info,
+                                            TRUE, /* update unchanged ones */
+                                            use_sleep,
+                                            ctx,
+                                            pool));
+ 
++    SVN_ERR (svn_client__handle_tarballs (traversal_info,
++                                          ctx,
++                                          pool));
++	}
+   if (sleep_here)
+     svn_sleep_for_timestamps ();
+ 
+Index: Subversion/subversion/libsvn_client/client.h
+===================================================================
+--- Subversion/subversion/libsvn_client/client.h	(revision 6459)
++++ Subversion/subversion/libsvn_client/client.h	(working copy)
+@@ -536,7 +536,24 @@
+     svn_client_ctx_t *ctx,
+     apr_pool_t *pool);
+ 
++/* Handle changes to the svn:tarballs property in the tree traversed
++   by TRAVERSAL_INFO (obtained from svn_wc_get_checkout_editor,
++   svn_wc_get_update_editor, svn_wc_get_switch_editor, for example).
+ 
++   For each changed value of the property, discover the nature of the
++   change and behave appropriately -- either download the tarball
++   again, or delete the tarball and/or the directory where the tarball
++   was extracted to.
++
++   Pass NOTIFY_FUNC with NOTIFY_BATON along to svn_client_checkout().
++
++   Use POOL for temporary allocation. */
++svn_error_t *svn_client__handle_tarballs
++   (svn_wc_traversal_info_t *traversal_info,
++    svn_client_ctx_t *ctx,
++    apr_pool_t *pool);
++
++
+ 
+ #ifdef __cplusplus
+ }
+Index: Subversion/subversion/clients/cmdline/main.c
+===================================================================
+--- Subversion/subversion/clients/cmdline/main.c	(revision 6459)
++++ Subversion/subversion/clients/cmdline/main.c	(working copy)
+@@ -407,7 +407,12 @@
+     "      each of which consists of a relative directory path, optional\n"
+     "      revision flags, and an URL.  For example\n"
+     "        foo             http://example.com/repos/zig\n"
+-    "        foo/bar -r 1234 http://example.com/repos/zag\n",
++    "        foo/bar -r 1234 http://example.com/repos/zag\n"
++    "    svn:tarballs   - A newline separated list of tarballs,\n"
++    "      each of which consists of a relative directory path and an URL.\n"
++    "      for example\n"
++    "        foo       http://example.com/tarball.zip\n"
++    "        foo/bar   http://example.com/dir/project.tar.gz\n",
+     {'F', 'q', 'r', svn_cl__targets_opt, 'R', svn_cl__revprop_opt,
+      SVN_CL__AUTH_OPTIONS, svn_cl__encoding_opt} },
+   
+Index: Subversion/subversion/clients/cmdline/feedback.c
+===================================================================
+--- Subversion/subversion/clients/cmdline/feedback.c	(revision 6459)
++++ Subversion/subversion/clients/cmdline/feedback.c	(working copy)
+@@ -165,7 +165,9 @@
+          want different output, we'll have to add new actions. */
+       printf ("\nFetching external item into %s\n", path_native);
+       break;
+-
++    case svn_wc_notify_update_tarball:
++	  printf ("\nDownloading tarball from %s\n", path_native);
++      break;
+     case svn_wc_notify_update_completed:
+       {
+         if (! nb->suppress_final_line)
