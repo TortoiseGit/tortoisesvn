@@ -405,7 +405,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
 	if (m_pThread==NULL)
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_ICONERROR);
+		ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
 	}
 	else
 	{
@@ -430,10 +430,45 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CSVNProgressDlg::ReportSVNError() const
+void CSVNProgressDlg::ReportSVNError()
 {
-	TRACE(_T("%s"), (LPCTSTR)m_pSvn->GetLastErrorMessage());
-	CMessageBox::Show(m_hWnd, m_pSvn->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+	ReportError(m_pSvn->GetLastErrorMessage());
+}
+
+void CSVNProgressDlg::ReportError(const CString& sError)
+{
+	ReportString(sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), RGB(255, 0, 0));
+}
+
+void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, COLORREF color)
+{
+	//instead of showing a dialog box with the error message or notification,
+	//just insert the error text into the list control.
+	//that way the user isn't 'interrupted' by a dialog box popping up!
+
+	//the message may be split up into different lines
+	//so add a new entry for each line of the message
+	while (!sMessage.IsEmpty())
+	{
+		NotificationData * data = new NotificationData();
+		data->bAuxItem = true;
+		data->sActionColumnText = sMsgKind;
+		if (sMessage.Find('\n')>=0)
+			data->sPathColumnText = sMessage.Left(sMessage.Find('\n'));
+		else
+			data->sPathColumnText = sMessage;		
+		data->sPathColumnText.Trim(_T("\n\r"));
+		data->color = color;
+		if (sMessage.Find('\n')>=0)
+		{
+			sMessage = sMessage.Mid(sMessage.Find('\n'));
+			sMessage.Trim(_T("\n\r"));
+		}
+		else
+			sMessage.Empty();
+		m_arData.push_back(data);
+		AddItemToList(data);
+	}
 }
 
 UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
@@ -650,7 +685,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					TRACE(_T("CFileException in Resolve!\n"));
 					TCHAR error[10000] = {0};
 					pE->GetErrorMessage(error, 10000);
-					CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
+					ReportError(error);
 					pE->Delete();
 				}
 				if (bMarkers)
@@ -737,9 +772,9 @@ UINT CSVNProgressDlg::ProgressThread()
 				ReportSVNError();
 				break;
 			}
-			CString sTemp;
-			sTemp.LoadString(IDS_PROGRS_COPY_WARNING);
-			CMessageBox::Show(m_hWnd, sTemp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+			CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_WARNING));
+			CString sKind(MAKEINTRESOURCE(IDS_WARN_NOTE));
+			ReportString(sMsg, sKind);
 			break;
 	}
 	temp.LoadString(IDS_PROGRS_TITLEFIN);

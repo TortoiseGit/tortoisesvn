@@ -24,8 +24,8 @@
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
-/** Options which can be used to configure the way the dialog box works
- *
+/** 
+ * Options which can be used to configure the way the dialog box works
  */
 typedef enum
 {
@@ -167,16 +167,15 @@ protected:
 	static BOOL	m_bAscending;
 	static int	m_nSortedColumn;
 	CStringList m_ExtStack;
-public:			//need to be public for the thread to access
 
 private:
 	static UINT ProgressThreadEntry(LPVOID pVoid);
 	UINT ProgressThread();
 	virtual void OnOK();
-	void ReportSVNError() const;
+	void ReportSVNError();
+	void ReportError(const CString& sError);
+	void ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
 	void AddItemToList(const NotificationData* pData);
-
-public:
 
 private:
 	/**

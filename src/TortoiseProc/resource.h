@@ -374,11 +374,14 @@
 #define IDS_ERR_INVALIDREV              1304
 #define IDS_ERR_EMPTYDIFF               1305
 #define IDS_ERR_NOTHINGTOADD            1306
+#define IDS_ERR_ERROR                   1307
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
 #define IDS_WARN_UPDATETOREV_WITHMODS   1403
 #define IDS_WARN_FOLDERNOTEMPTY         1404
+#define IDS_WARN_WARNING                1405
+#define IDS_WARN_NOTE                   1406
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510
