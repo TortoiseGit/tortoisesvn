@@ -122,7 +122,7 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 	int slength = 0;
 	int reallength = 0;
 	size_t len = 0;
-	wchar_t wbuf[MAX_LOG_LENGTH];
+	wchar_t wbuf[MAX_LOG_LENGTH+4];
 	for (;;)
 	{
 		len = fread(&rev, sizeof(LONG), 1, File);
