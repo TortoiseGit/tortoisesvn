@@ -43,23 +43,23 @@ void CSetColorPage::SaveData()
 		COLORREF cBk;
 		COLORREF cFg;
 
-		cBk = m_cBkUnknown.GetColor();
-		cFg = m_cFgUnknown.GetColor();
+		cBk = m_cBkUnknown.GetColor(TRUE);
+		cFg = m_cFgUnknown.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_UNKNOWN, cBk, cFg);
-		cBk = m_cBkNormal.GetColor();
-		cFg = m_cFgNormal.GetColor();
+		cBk = m_cBkNormal.GetColor(TRUE);
+		cFg = m_cFgNormal.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_NORMAL, cBk, cFg);
-		cBk = m_cBkRemoved.GetColor();
-		cFg = m_cFgRemoved.GetColor();
+		cBk = m_cBkRemoved.GetColor(TRUE);
+		cFg = m_cFgRemoved.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_REMOVED, cBk, cFg);
-		cBk = m_cBkWhitespaceRemoved.GetColor();
-		cFg = m_cFgWhitespaceRemoved.GetColor();
+		cBk = m_cBkWhitespaceRemoved.GetColor(TRUE);
+		cFg = m_cFgWhitespaceRemoved.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_REMOVEDWHITESPACE, cBk, cFg);
-		cBk = m_cBkAdded.GetColor();
-		cFg = m_cFgAdded.GetColor();
+		cBk = m_cBkAdded.GetColor(TRUE);
+		cFg = m_cFgAdded.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_ADDED, cBk, cFg);
-		cBk = m_cBkWhitespaceAdded.GetColor();
-		cFg = m_cFgWhitespaceAdded.GetColor();
+		cBk = m_cBkWhitespaceAdded.GetColor(TRUE);
+		cFg = m_cFgWhitespaceAdded.GetColor(TRUE);
 		diffdata.SetColors(CDiffData::DIFFSTATE_ADDEDWHITESPACE, cBk, cFg);
 	}
 }
