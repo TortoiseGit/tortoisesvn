@@ -167,6 +167,8 @@ void save_open_settings(void *sesskey, int do_host, Config *cfg)
     write_setting_filename(sesskey, "LogFileName", cfg->logfilename);
     write_setting_i(sesskey, "LogType", cfg->logtype);
     write_setting_i(sesskey, "LogFileClash", cfg->logxfovr);
+    write_setting_i(sesskey, "SSHLogOmitPasswords", cfg->logomitpass);
+    write_setting_i(sesskey, "SSHLogOmitData", cfg->logomitdata);
     p = "raw";
     for (i = 0; backends[i].name != NULL; i++)
 	if (backends[i].protocol == cfg->protocol) {
@@ -226,6 +228,7 @@ void save_open_settings(void *sesskey, int do_host, Config *cfg)
 	   cfg->ssh_cipherlist);
     write_setting_i(sesskey, "AuthTIS", cfg->try_tis_auth);
     write_setting_i(sesskey, "AuthKI", cfg->try_ki_auth);
+    write_setting_i(sesskey, "SshNoShell", cfg->ssh_no_shell);
     write_setting_i(sesskey, "SshProt", cfg->sshprot);
     write_setting_i(sesskey, "SSH2DES", cfg->ssh2_des_cbc);
     write_setting_filename(sesskey, "PublicKeyFile", cfg->keyfile);
@@ -308,6 +311,7 @@ void save_open_settings(void *sesskey, int do_host, Config *cfg)
 	write_setting_s(sesskey, buf, buf2);
     }
     write_setting_s(sesskey, "LineCodePage", cfg->line_codepage);
+    write_setting_i(sesskey, "UTF8Override", cfg->utf8_override);
     write_setting_s(sesskey, "Printer", cfg->printer);
     write_setting_i(sesskey, "CapsLockCyr", cfg->xlat_capslockcyr);
     write_setting_i(sesskey, "ScrollBar", cfg->scrollbar);
@@ -386,6 +390,8 @@ void load_open_settings(void *sesskey, int do_host, Config *cfg)
     gppfile(sesskey, "LogFileName", &cfg->logfilename);
     gppi(sesskey, "LogType", 0, &cfg->logtype);
     gppi(sesskey, "LogFileClash", LGXF_ASK, &cfg->logxfovr);
+    gppi(sesskey, "SSHLogOmitPasswords", 1, &cfg->logomitpass);
+    gppi(sesskey, "SSHLogOmitData", 0, &cfg->logomitdata);
 
     gpps(sesskey, "Protocol", "default", prot, 10);
     cfg->protocol = default_protocol;
@@ -483,6 +489,7 @@ void load_open_settings(void *sesskey, int do_host, Config *cfg)
     gppi(sesskey, "SSH2DES", 0, &cfg->ssh2_des_cbc);
     gppi(sesskey, "AuthTIS", 0, &cfg->try_tis_auth);
     gppi(sesskey, "AuthKI", 1, &cfg->try_ki_auth);
+    gppi(sesskey, "SshNoShell", 0, &cfg->ssh_no_shell);
     gppfile(sesskey, "PublicKeyFile", &cfg->keyfile);
     gpps(sesskey, "RemoteCommand", "", cfg->remote_cmd,
 	 sizeof(cfg->remote_cmd));
@@ -596,6 +603,7 @@ void load_open_settings(void *sesskey, int do_host, Config *cfg)
      */
     gpps(sesskey, "LineCodePage", "", cfg->line_codepage,
 	 sizeof(cfg->line_codepage));
+    gppi(sesskey, "UTF8Override", 1, &cfg->utf8_override);
     gpps(sesskey, "Printer", "", cfg->printer, sizeof(cfg->printer));
     gppi (sesskey, "CapsLockCyr", 0, &cfg->xlat_capslockcyr);
     gppi(sesskey, "ScrollBar", 1, &cfg->scrollbar);

@@ -836,7 +836,7 @@ msgstr ""
 msgid "Command failed."
 msgstr ""
 
-#: Control-ID:1125,#: Control-ID:1125,#: Control-ID:1125,
+#: Control-ID:1125,#: Control-ID:1125,
 msgid "Comment History:"
 msgstr ""
 
@@ -1116,6 +1116,10 @@ msgstr ""
 msgid "Don't convert files when diffing against BASE"
 msgstr ""
 
+#: ID:73,
+msgid "Don't show this message again"
+msgstr ""
+
 #: Control-ID:1079,
 msgid "Drive Types"
 msgstr ""
@@ -1308,10 +1312,6 @@ msgstr ""
 msgid "Generating Patchfile..."
 msgstr ""
 
-#: Control-ID:1031,
-msgid "Get &All"
-msgstr ""
-
 #: ID:119,
 msgid "Getting File %s"
 msgstr ""
@@ -1490,6 +1490,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Log Message"
+msgstr ""
+
+#: Control-ID:1125,
+msgid "Log Message History:"
 msgstr ""
 
 #: Dlg-ID:130,
@@ -2192,10 +2196,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ID:115,
-msgid "Shall the log stop on a copy?\nClick <b>Yes</b> if you need to find out where a branch started.\nClick <b>No</b> if you want to see all log entries."
-msgstr ""
-
 #: ID:101,
 msgid "Sho&w Properties"
 msgstr ""
@@ -2206,6 +2206,10 @@ msgstr ""
 
 #: ID:12,
 msgid "Short Url of subversion items"
+msgstr ""
+
+#: Control-ID:1031,
+msgid "Show &All"
 msgstr ""
 
 #: ID:113,
@@ -2298,6 +2302,10 @@ msgstr ""
 
 #: ID:11,
 msgid "Status of item in SVN"
+msgstr ""
+
+#: Control-ID:1130,
+msgid "Stop On Copy"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2754,6 +2762,10 @@ msgstr ""
 
 #: ID:78,
 msgid "Your working copy appears to be on a <b>tag</b> path!\nYou should first switch to a branch or the main trunk before committing."
+msgstr ""
+
+#: ID:88,
+msgid "Your working copy has local modifications!\nNote: updating to another revision won't loose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
 msgstr ""
 
 #: ID:10,

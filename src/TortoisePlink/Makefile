@@ -12,6 +12,7 @@ SOURCE=\
 	be_all.c \
 	cmdline.c \
 	console.c \
+	cproxy.c \
 	ldisc.c \
 	logging.c \
 	misc.c \
@@ -60,8 +61,8 @@ ifeq ($(DEBUG),1)
 CXXFLAGS+=-D_DEBUG 
 CCFLAGS+=-DDEBUG
 else
-CXXFLAGS+=-DNDEBUG -DRELEASE="0.54"
-CCFLAGS+=-DDEBUG -DRELEASE="0.54"
+CXXFLAGS+=-DNDEBUG -DRELEASE="0.56"
+CCFLAGS+=-DDEBUG -DRELEASE="0.56"
 endif
 
 # Linker flags

@@ -129,13 +129,23 @@ struct unicode_data {
 #define LGTYP_PACKETS 3		       /* logmode: SSH data packets */
 
 typedef enum {
+    /* Actual special commands. Originally Telnet, but some codes have
+     * been re-used for similar specials in other protocols. */
     TS_AYT, TS_BRK, TS_SYNCH, TS_EC, TS_EL, TS_GA, TS_NOP, TS_ABORT,
     TS_AO, TS_IP, TS_SUSP, TS_EOR, TS_EOF, TS_LECHO, TS_RECHO, TS_PING,
-    TS_EOL
+    TS_EOL,
+    /* POSIX-style signals. (not Telnet) */
+    TS_SIGABRT, TS_SIGALRM, TS_SIGFPE,  TS_SIGHUP,  TS_SIGILL,
+    TS_SIGINT,  TS_SIGKILL, TS_SIGPIPE, TS_SIGQUIT, TS_SIGSEGV,
+    TS_SIGTERM, TS_SIGUSR1, TS_SIGUSR2,
+    /* Pseudo-specials used for constructing the specials menu. */
+    TS_SEP,	    /* Separator */
+    TS_SUBMENU,	    /* Start a new submenu with specified name */
+    TS_EXITMENU	    /* Exit current submenu or end of specials */
 } Telnet_Special;
 
 struct telnet_special {
-    const char *name;		       /* NULL==end, ""==separator */
+    const char *name;
     int code;
 };
 
@@ -338,8 +348,8 @@ struct config_tag {
     int proxy_type;
     char proxy_host[512];
     int proxy_port;
-    char proxy_username[32];
-    char proxy_password[32];
+    char proxy_username[128];
+    char proxy_password[128];
     char proxy_telnet_command[512];
     /* SSH options */
     char remote_cmd[512];
@@ -361,6 +371,7 @@ struct config_tag {
     int try_ki_auth;
     int ssh_subsys;		       /* run a subsystem rather than a command */
     int ssh_subsys2;		       /* fallback to go with remote_cmd2 */
+    int ssh_no_shell;		       /* avoid running a shell */
     /* Telnet options */
     char termtype[32];
     char termspeed[32];
@@ -425,6 +436,8 @@ struct config_tag {
     Filename logfilename;
     int logtype;
     int logxfovr;
+    int logomitpass;
+    int logomitdata;
     int hide_mouseptr;
     int sunken_edge;
     int window_border;
@@ -445,6 +458,7 @@ struct config_tag {
     /* translations */
     int vtmode;
     char line_codepage[128];
+    int utf8_override;
     int xlat_capslockcyr;
     /* X11 forwarding */
     int x11_forward;
@@ -558,6 +572,10 @@ void sys_cursor(void *frontend, int x, int y);
 void request_paste(void *frontend);
 void frontend_keypress(void *frontend);
 void ldisc_update(void *frontend, int echo, int edit);
+/* It's the backend's responsibility to invoke this at the start of a
+ * connection, if necessary; it can also invoke it later if the set of
+ * special commands changes. It does not need to invoke it at session
+ * shutdown. */
 void update_specials_menu(void *frontend);
 int from_backend(void *frontend, int is_stderr, const char *data, int len);
 #define OPTIMISE_IS_SCROLL 1
@@ -654,10 +672,18 @@ void log_reconfig(void *logctx, Config *cfg);
 void logfopen(void *logctx);
 void logfclose(void *logctx);
 void logtraffic(void *logctx, unsigned char c, int logmode);
+void logflush(void *logctx);
 void log_eventlog(void *logctx, const char *string);
 enum { PKT_INCOMING, PKT_OUTGOING };
+enum { PKTLOG_EMIT, PKTLOG_BLANK, PKTLOG_OMIT };
+struct logblank_t {
+    int offset;
+    int len;
+    int type;
+};
 void log_packet(void *logctx, int direction, int type,
-		char *texttype, void *data, int len);
+		char *texttype, void *data, int len,
+		int n_blanks, const struct logblank_t *blanks);
 
 /*
  * Exports from testback.c
