@@ -98,6 +98,7 @@ void tsvn_read_from_registry(std::string key, BYTE ** data, DWORD * len)
 	RegQueryValueExA(hKey, _key.c_str(), NULL, &type, NULL, (LPDWORD) &size);
 	*data = (BYTE *)LocalAlloc(LPTR, size);
 	RegQueryValueExA(hKey, _key.c_str(), NULL, &type, *data, (LPDWORD) &size);
+	*len = size;
 	RegCloseKey(hKey);
 }
 
