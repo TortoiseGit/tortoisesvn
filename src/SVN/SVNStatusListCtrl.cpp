@@ -1299,7 +1299,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_IGNOREMASK:
 					{
-						CString name = _T("*.")+filepath.GetFileExtension();
+						CString name = _T("*")+filepath.GetFileExtension();
 						CTSVNPath parentFolder = filepath.GetDirectory(); 
 						SVNProperties props(parentFolder.GetSVNPathString());
 						CStringA value;
@@ -1346,7 +1346,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								// folder (IsAncestorOf() returns TRUE for _all_ children, 
 								// not just the immediate ones) which match the
 								// mask and remove them from the list too.
-								if (parentFolder.IsAncestorOf(entry->path))
+								if ((entry->status == svn_wc_status_unversioned)&&(parentFolder.IsAncestorOf(entry->path)))
 								{
 									CString f = entry->path.GetSVNPathString();
 									if (f.Mid(parentFolder.GetSVNPathString().GetLength()).Find('/')<=0)
@@ -1358,6 +1358,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 											m_nTotal--;
 											RemoveListEntry(i);
 											i--;
+											nListboxEntries--;
 										}
 									}
 								}
@@ -1373,30 +1374,44 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 							if (s!=0)
 							{
-								FileEntry * entry = new FileEntry();
-								entry->path = svnPath;
-								entry->basepath = basepath;
-								entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-								entry->textstatus = s->text_status;
-								entry->propstatus = s->prop_status;
-								entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
-								entry->remotetextstatus = s->repos_text_status;
-								entry->remotepropstatus = s->repos_prop_status;
-								entry->inunversionedfolder = false;
-								entry->checked = true;
-								entry->inexternal = false;
-								entry->direct = false;
-								if (s->entry)
+								// first check if the folder isn't already present in the list
+								bool bFound = false;
+								for (int i=0; i<nListboxEntries; ++i)
 								{
-									if (s->entry->url)
+									FileEntry * entry = GetListEntry(i);
+									if (entry->path.IsEquivalentTo(svnPath))
 									{
-										CUtils::Unescape((char *)s->entry->url);
-										entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+										bFound = true;
+										break;
 									}
 								}
-								m_arStatusArray.push_back(entry);
-								m_arListArray.push_back(m_arStatusArray.size()-1);
-								AddEntry(entry, langID, GetItemCount());
+								if (!bFound)
+								{
+									FileEntry * entry = new FileEntry();
+									entry->path = svnPath;
+									entry->basepath = basepath;
+									entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+									entry->textstatus = s->text_status;
+									entry->propstatus = s->prop_status;
+									entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+									entry->remotetextstatus = s->repos_text_status;
+									entry->remotepropstatus = s->repos_prop_status;
+									entry->inunversionedfolder = false;
+									entry->checked = true;
+									entry->inexternal = false;
+									entry->direct = false;
+									if (s->entry)
+									{
+										if (s->entry->url)
+										{
+											CUtils::Unescape((char *)s->entry->url);
+											entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+										}
+									}
+									m_arStatusArray.push_back(entry);
+									m_arListArray.push_back(m_arStatusArray.size()-1);
+									AddEntry(entry, langID, GetItemCount());
+								}
 							}
 
 						}
@@ -1448,32 +1463,47 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							s = status.GetFirstFileStatus(parentfolder.GetSVNPathString(), &pSVNItemPath, FALSE);
 							svnPath.SetFromSVN(pSVNItemPath);
 						}
-						if (s!=0)
+						// first check if the folder isn't already present in the list
+						bool bFound = false;
+						int nListboxEntries = GetItemCount();
+						for (int i=0; i<nListboxEntries; ++i)
 						{
-							FileEntry * entry = new FileEntry();
-							entry->path = svnPath;
-							entry->basepath = basepath;
-							entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-							entry->textstatus = s->text_status;
-							entry->propstatus = s->prop_status;
-							entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
-							entry->remotetextstatus = s->repos_text_status;
-							entry->remotepropstatus = s->repos_prop_status;
-							entry->inunversionedfolder = FALSE;
-							entry->checked = true;
-							entry->inexternal = false;
-							entry->direct = false;
-							if (s->entry)
+							FileEntry * entry = GetListEntry(i);
+							if (entry->path.IsEquivalentTo(svnPath))
 							{
-								if (s->entry->url)
-								{
-									CUtils::Unescape((char *)s->entry->url);
-									entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
-								}
+								bFound = true;
+								break;
 							}
-							m_arStatusArray.push_back(entry);
-							m_arListArray.push_back(m_arStatusArray.size()-1);
-							AddEntry(entry, langID, GetItemCount());
+						}
+						if (!bFound)
+						{
+							if (s!=0)
+							{
+								FileEntry * entry = new FileEntry();
+								entry->path = svnPath;
+								entry->basepath = basepath;
+								entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+								entry->textstatus = s->text_status;
+								entry->propstatus = s->prop_status;
+								entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+								entry->remotetextstatus = s->repos_text_status;
+								entry->remotepropstatus = s->repos_prop_status;
+								entry->inunversionedfolder = FALSE;
+								entry->checked = true;
+								entry->inexternal = false;
+								entry->direct = false;
+								if (s->entry)
+								{
+									if (s->entry->url)
+									{
+										CUtils::Unescape((char *)s->entry->url);
+										entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+									}
+								}
+								m_arStatusArray.push_back(entry);
+								m_arListArray.push_back(m_arStatusArray.size()-1);
+								AddEntry(entry, langID, GetItemCount());
+							}
 						}
 					}
 					break;
