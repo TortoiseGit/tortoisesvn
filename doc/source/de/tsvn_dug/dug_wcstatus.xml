@@ -107,6 +107,33 @@
 			blockieren wollen.
 		</para>
 	</sect2>
+	<sect2>
+		<title>TortoiseSVN Spalten Im Explorer</title>
+		<indexterm>
+			<primary>Explorer Spalten</primary>
+		</indexterm>
+		<para>
+			Dieselben Informationen, die durch die überlagerten Icons angezeigt 
+			werden, können auch als zusätzliche Spalten in der Explorer-Ansicht 
+			"Details" dargestellt werden.
+		</para>
+		<para>
+			Klicken Sie einfach eine der vorhandenen Spalten mit der 
+			rechten Maustaste an und wählen Sie <guimenuitem>Weitere...</guimenuitem> 
+			aus dem Kontextmenü. In diesem Dialog können Sie die Spalten festlegen, 
+			die in der Ansicht "Details" angezeigt werden sollen. Die Einträge, 
+			die mit SVN beginnen gehören zu TortoiseSVN. Setzen Sie den Haken 
+			vor jeden Eintrag, den Sie wünschen. Klicken Sie dann auf <guibutton>OK</guibutton>.
+			Die Spalten werden rechts an die bestehenden angehängt. Nutzen Sie 
+			Klicken und Ziehen, um Sie an die gewünschte Position zu bekommen.
+		</para>
+		<tip>
+			<para>
+				Wenn das aktuelle Layout in allen Arbeitskopien angezeigt werden 
+				soll, müssen Sie es als Standard-Layout festlegen.
+			</para>
+		</tip>
+	</sect2>
 	<sect2 id="tsvn-DUG-wcstatus-2">
 		<title>Zustand des Projektarchivs</title>
 		<indexterm>
@@ -129,7 +156,7 @@
 			eventuell Konflikte geben kann.
 		</para>
 		<para>
-			Aus dem Kontext-Menu des Dialogs heraus können Sie die Änderungen
+			Aus dem Kontextmenü des Dialogs heraus können Sie die Änderungen
 			anzeigen (Diff), sowohl die Änderungen die Sie lokal gemacht haben
 			als auch die Änderungen von anderen im Projektarchiv. TortoiseSVN
 			lädt automatisch die entsprechende Datei aus dem Projektarchiv, um
@@ -156,6 +183,35 @@
 				<guibutton>Abbrechen</guibutton>
 				statt auf
 				<guibutton>Ok</guibutton>.
+			</para>
+		</tip>
+	</sect2>
+	<sect2 id="tsvn-DUG-diffing">
+		<title>Unterschiede ermitteln</title>
+		<indexterm>
+			<primary>Unterschied</primary>
+		</indexterm>
+		<para>			
+			Oft möchten Sie in einer Datei sehen, was Sie geändert haben. Das 
+			können Sie durch das auswählen einer Datei und dem Kontextmenübefehl 
+			<guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN. Dies 
+			startet das TortoiseMerge (oder ein externes Diff-Programm), das Ihnen
+			die Änderungen seit dem letzten Auschecken oder Aktualisieren anzeigt.
+		</para>
+		<tip>
+			<para>
+				Even when not inside a working copy or when you have multiple
+				versions of the file lying around, you can still display diffs:
+				
+				Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder 
+				mehrere Versionen einer Datei haben, können Sie diese vergleichen:
+			</para>
+			<para>				
+				Wählen Sie die beiden Dateien aus (z.B. durch das 
+				gedrückthalten von <keycap>Strg</keycap>), die Sie vergleichen wollen 
+				und wählen Sie <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN 
+				im Kontextmenü. Die zuletzt markierte Datei (die mit dem Fokus, 
+				der gestrichelte Rahmen) wird als die aktuellere erkannt.
 			</para>
 		</tip>
 	</sect2>
