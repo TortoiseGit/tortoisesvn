@@ -252,7 +252,8 @@ DWORD WINAPI CCrashHandler::DialogThreadExecute(LPVOID pParam)
 				   // add report files to zip
 				   TStrStrVector::iterator cur = self->m_files.begin();
 				   for (cur = self->m_files.begin(); cur != self->m_files.end(); cur++)
-					  zlib.AddFile((*cur).first);
+					   if (PathFileExists((*cur).first))
+						zlib.AddFile((*cur).first);
 
 				   zlib.Close();
 			   }

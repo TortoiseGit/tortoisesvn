@@ -39,7 +39,7 @@ typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
  * Then you can either declare an instance of the class CCrashReport
  * somewhere globally in your application like this:
  * \code
- * CCrashReport g_crasher("report@mycompany.com", "Crashreport for MyApplication")
+ * CCrashReport g_crasher("report@mycompany.com", "Crashreport for MyApplication");
  * \endcode
  * that way you can't add registry keys or additional files to the report, but
  * it's the fastest and easiest way to use the library.
