@@ -17,6 +17,9 @@
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)
+- BUG: When adding files in a directory with svn:externals
+       in it already controlled files got shown in
+       the add dialog. (Stefan)
 - BUG: Some patchfiles were not parsed correctly. (Stefan)
 - BUG: Fixed a massive memory leak when showing logs,
        also reduced memory consumption when 

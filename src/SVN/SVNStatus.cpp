@@ -220,11 +220,10 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 			return 1;
 		case svn_wc_status_ignored:
 			return 2;
-		case svn_wc_status_external:
-			return 3;
 		case svn_wc_status_incomplete:
 			return 4;
 		case svn_wc_status_normal:
+		case svn_wc_status_external:
 			return 5;
 		case svn_wc_status_added:
 			return 6;

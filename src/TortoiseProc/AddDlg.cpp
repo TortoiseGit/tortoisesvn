@@ -75,7 +75,7 @@ void CAddDlg::OnPaint()
 
 		// Draw the icon
 		dc.DrawIcon(x, y, m_hIcon);
-	}
+	} // if (IsIconic()) 
 	else
 	{
 		CResizableDialog::OnPaint();
@@ -145,7 +145,7 @@ void CAddDlg::OnOK()
 			{
 				file.WriteString(m_arFileList.GetAt(i)+_T("\n"));
 			}
-		}
+		} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++) 
 		file.Close();
 	}
 	catch (CFileException* pE)
@@ -203,10 +203,10 @@ void CAddDlg::OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					m_addListCtrl.SetCheck(i, TRUE);
 					return;
-				}
+				} // if (folderpath.CompareNoCase(m_arFileList.GetAt(i))==0) 
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
-		}
-	}
+		} // if (!PathIsDirectory(m_arFileList.GetAt(index))) 
+	} 
 }
 
 DWORD WINAPI AddThread(LPVOID pVoid)
@@ -237,7 +237,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 				CString temp = strbuf;
 				svn_wc_status_kind stat;
 				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-				if (!SVNStatus::IsImportant(stat))
+				if (SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)
 				{
 					if ((!CCheckTempFiles::IsTemp(strLine))||(!bIsDir))
 					{
@@ -261,15 +261,15 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 								pDlg->m_arFileList.Add(filename);
 								pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
 								pDlg->m_addListCtrl.SetCheck(count++);
-							}
-						}
-					}
-				}
+							} // if (!CCheckTempFiles::IsTemp(filename)) 
+						} // for (int i=0; i<filelist.GetSize(); i++) 
+					} // if (bIsDir) 
+				} // if (!SVNStatus::IsImportant(stat)) 
 				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
 				{
 					temp = strbuf;
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-					if (!SVNStatus::IsImportant(stat))
+					if (SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)
 					{
 						if ((!CCheckTempFiles::IsTemp(temp))||(!bIsDir))
 						{
@@ -277,7 +277,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 							int count = pDlg->m_addListCtrl.GetItemCount();
 							pDlg->m_addListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 							pDlg->m_addListCtrl.SetCheck(count);
-						}
+						} // if ((!CCheckTempFiles::IsTemp(temp))||(!bIsDir)) 
 						if (bIsDir)
 						{
 							//we have an unversioned folder -> get all files in it recursively!
@@ -292,10 +292,10 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 									pDlg->m_arFileList.Add(filename);
 									pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
 									pDlg->m_addListCtrl.SetCheck(count++);
-								}
-							}
-						}
-					}
+								} // if (!CCheckTempFiles::IsTemp(filename)) 
+							} // for (int i=0; i<filelist.GetSize(); i++) 
+						} // if (bIsDir) 
+					} // if (!SVNStatus::IsImportant(stat)) 
 				} // while ((s = status.GetNextFileStatus(buf)) != NULL)
 			} // if (s!=0) 
 		} // while (file.ReadString(strLine)) 
