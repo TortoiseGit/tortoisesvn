@@ -136,7 +136,7 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 			if (m_nRevisionEnd == 0)
 				m_nRevisionEnd = rev;
 		}
-		m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
+		//m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
 		Data * data = new Data();
 		data->path = path;
 		data->action = action;
@@ -212,7 +212,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	temp.LoadString(IDS_PROGRS_PATH);
 	m_ProgList.InsertColumn(1, temp);
 	temp.LoadString(IDS_PROGRS_MIMETYPE);
-	m_ProgList.InsertColumn(2, temp);
+	//m_ProgList.InsertColumn(2, temp);
 
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
@@ -226,10 +226,6 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	// Call this early so that the column headings aren't hidden before any
 	// text gets added.
 	ResizeColumns();
-
-	//m_arActions.RemoveAll();
-	//m_arActionCStates.RemoveAll();
-	//m_arActionPStates.RemoveAll();
 
 	AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -251,8 +247,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
 
 	CString temp;
-	//temp.LoadString(IDS_MSGBOX_CANCEL);
-	//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
@@ -769,7 +763,7 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 			temp.Format(IDS_PROGRS_ATREV, data->rev);
 			m_ProgList.SetItemText(i, 1, temp);
 		}
-		m_ProgList.SetItemText(i, 2, data->mime_type);
+		//m_ProgList.SetItemText(i, 2, data->mime_type);
 	} // for (int i=0; i<m_arData.GetCount(); i++) 
 	
 	m_ProgList.SetRedraw(TRUE);
