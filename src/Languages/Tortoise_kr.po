@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-07-20 17:24+0900\n"
+"PO-Revision-Date: 2004-07-21 19:50+0900\n"
 "Last-Translator: Hojin Choi <pynoos@users.kldp.net>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -958,7 +958,7 @@ msgstr "새 버전 확인"
 msgid ""
 "Check if you want the progress dialog to close\n"
 "automatically after the operation finishes."
-msgstr "명령이 수행된 후 대화상자를 종료시킵니다."
+msgstr "명령을 수행한 후 대화상자를 닫습니다"
 
 # ID:9,
 #: ID:9
@@ -982,7 +982,7 @@ msgstr "하위메뉴에 나타내지 않고 컨텍스트 메뉴에 바로 나타
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 이용하시려면 표시하세요."
+msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시하려면 선택하세요"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1776,7 +1776,7 @@ msgstr "아이콘/설계/코딩:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "활성화 되면 다른 이름으로 저장.. 또는 열기 대화 상자에 겹쳐 나타나는 것을 방지합니다."
+msgstr "다른 이름으로 저장.. 또는 열기 대화 상자에 겹쳐 나타나는 것을 방지하려면 선택하세요"
 
 # ID:95,
 #: ID:95
@@ -2330,7 +2330,7 @@ msgid ""
 msgstr ""
 "주의하세요.\n"
 "작업 사본은 이전 경로에 남아 있습니다. 만약 다음 작업을 새로운 사본에서 하려면\n"
-"이전 사본으로 스위치하셔야합니다."
+"이전 사본으로 전환하셔야합니다."
 
 # ID:3858,#:
 # ID:3858,
@@ -2916,7 +2916,7 @@ msgstr "설정"
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "로그 메시지를 날짜(&D)/시간 순으로 정렬 합니다."
+msgstr "로그 메시지를 날짜/시간 순으로 정렬 합니다.(&D)"
 
 # ID:12,
 #: ID:12
@@ -3083,12 +3083,12 @@ msgstr "Subversion 구성 파일:"
 # Control-ID:65535,
 #: ID:14
 msgid "Subversion export all here"
-msgstr "svn은 모두 여기에 익스포트합니다"
+msgstr "Subversion은 모두 여기에 익스포트합니다"
 
 # ID:13,
 #: ID:14
 msgid "Subversion export here"
-msgstr "svn은 여기에 익스포트합니다"
+msgstr "Subversion은 여기에 익스포트합니다"
 
 # ID:79,
 #: ID:79
@@ -3113,7 +3113,7 @@ msgstr ""
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
-msgstr "다른 브랜치나 태그로 스위치하기"
+msgstr "다른 브랜치나 태그로 전환하기"
 
 # ID:3606,
 #: ID:3606
@@ -3155,12 +3155,12 @@ msgstr "이전 문서창으로 전환"
 # ID:9,
 #: ID:9
 msgid "Switch working copy to another branch / tag"
-msgstr "현재 작업 사본을 다른 브랜치나 태그로 스위치"
+msgstr "현재 작업 사본을 다른 브랜치나 태그로 전환"
 
 # ID:9,
 #: ID:9
 msgid "Switch..."
-msgstr "스위치..."
+msgstr "전환..."
 
 # ID:3857,#:
 # ID:3857,
@@ -3775,7 +3775,8 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"네트워크 공유 드라이브에 있는 저장소에 file:/// 로 접근하고 있습니다. 이 방법은 보관소를 망가뜨릴 위험이 있습니다.\n"
+"네트워크 공유 드라이브에 있는 저장소에 file:/// 로 접근하고 있습니다. \n"
+"이 방법은 보관소를 망가뜨릴 위험이 있습니다.\n"
 "계속 하시겠습니까?"
 
 # ID:77,
@@ -3799,7 +3800,7 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
 "현재 작업 사본은 <b>태그</b> 된 곳에서 작업하고 있습니다.\n"
-"브랜치나 주 트렁크로 스위치한다음 커밋하시기 바랍니다."
+"브랜치나 주 트렁크로 전환한 다음 커밋하시기 바랍니다."
 
 # ID:10,
 #: ID:10
