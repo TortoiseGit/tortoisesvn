@@ -371,13 +371,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CSwitchDlg dlg;
 			CString path = parser.GetVal(_T("path"));
-			SVNStatus status;
-			status.GetStatus(path);
-			if (status.status->entry != NULL)
-			{
-				dlg.m_path = status.status->entry->url;
-				dlg.m_URL = dlg.m_path;
-			}
+			dlg.m_path = path;
 
 			if (dlg.DoModal() == IDOK)
 			{

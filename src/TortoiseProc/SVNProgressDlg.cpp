@@ -317,12 +317,14 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				if (pDlg->Update(pDlg->m_sPath, rev, true))
 				{
 					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+					break;
 				}
 				else
 				{
 					TRACE(_T("%s"), pDlg->GetLastErrorMessage());
 					CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
+				pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			}
 			break;
 		case Commit:
@@ -465,11 +467,26 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			pDlg->Resolve(pDlg->m_sPath, true);
 			break;
 		case Switch:
-			temp.LoadString(IDS_PROGRS_TITLE_SWITCH);
-			pDlg->SetWindowText(temp);
-			if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, true))
 			{
-				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				SVNStatus st;
+				temp.LoadString(IDS_PROGRS_TITLE_SWITCH);
+				pDlg->SetWindowText(temp);
+				LONG rev = 0;
+				if (st.GetStatus(pDlg->m_sPath) != (-2))
+				{
+					if (st.status->entry != NULL)
+					{
+						rev = st.status->entry->revision;
+					}
+				}
+				if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, true))
+				{
+					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					break;
+				} // if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, true))
+				pDlg->m_nRevision = rev;
+				if (pDlg->m_nRevisionEnd > pDlg->m_nRevision)
+					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			}
 			break;
 		case Export:

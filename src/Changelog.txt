@@ -24,6 +24,10 @@
 - ADD: Commands "diff", "gnudiff" in the "Changed Files"
        dialog work now for wc-changes too.
        Also added a "revert" command. (Stefan)
+- ADD: The "show log" button is activated not only
+       after updates but also after switch (if the
+       revision number after the switch is higher
+       than before). (Stefan)
 
 Version 0.18
 - BUG: The repository browser didn't escape the url

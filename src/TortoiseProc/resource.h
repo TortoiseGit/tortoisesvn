@@ -240,6 +240,11 @@
 #define IDS_ERR_SSL_UNKNOWNCA           1295
 #define IDS_ERR_SSL_CNMISMATCH          1296
 #define IDS_ERR_SSL_EXPIREDORNOTYETVALID 1297
+#define IDS_SSL_ACCEPTALWAYS            1298
+#define IDS_SSL_ACCEPTTEMP              1299
+#define IDS_SSL_REJECT                  1300
+#define IDS_ERR_SSL_NOTYETVALID         1301
+#define IDS_ERR_SSL_EXPIRED             1302
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510

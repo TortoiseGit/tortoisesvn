@@ -103,6 +103,15 @@ BOOL CSwitchDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	SVNStatus status;
+	status.GetStatus(m_path);
+	if (status.status->entry != NULL)
+	{
+		m_path = status.status->entry->url;
+		m_URL = m_path;
+	}
+	UpdateData(FALSE);
+
 	// set head revision as default revision
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
 
