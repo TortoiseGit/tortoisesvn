@@ -1057,8 +1057,8 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 				tempfile += _T(".jpg");
 				GetEncoderClsid(L"image/jpeg", &encoderClsid);
 			}
-
-			bitmap.Save(tempfile, &encoderClsid, NULL);
+			CStringW tfile = CStringW(tempfile);
+			bitmap.Save(tfile, &encoderClsid, NULL);
 		}   
 		GdiplusShutdown(gdiplusToken);
 		dc.SelectObject(oldbm);
