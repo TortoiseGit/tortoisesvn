@@ -1256,11 +1256,9 @@ LRESULT CFlatHeaderCtrl::OnDeleteItem(WPARAM wParam, LPARAM lParam)
 
 LRESULT CFlatHeaderCtrl::OnSetImageList(WPARAM wParam, LPARAM lParam)
 {
-	CImageList* pImageList;
-	pImageList = CImageList::FromHandle((HIMAGELIST)lParam);
-
 	IMAGEINFO info;
-	if(pImageList->GetImageInfo(0, &info))
+	ZeroMemory(&info, sizeof info);
+	if(lParam != NULL && ImageList_GetImageInfo((HIMAGELIST)lParam, 0, &info))
 	{
 		m_sizeImage.cx = info.rcImage.right - info.rcImage.left;
 		m_sizeImage.cy = info.rcImage.bottom - info.rcImage.top;
