@@ -44,6 +44,19 @@ void CUtils::StringExtend(LPTSTR str)
 			*(cPos+1) = 't';
 		}
 	} while (cPos != NULL);
+	cPos = str;
+	do
+	{
+		cPos = _tcschr(cPos, '"');
+		if (cPos)
+		{
+			memmove(cPos+1, cPos, _tcslen(cPos)*sizeof(TCHAR));
+			*cPos = '\\';
+			*(cPos+1) = '"';
+			cPos++;
+			cPos++;
+		}
+	} while (cPos != NULL);
 }
 
 void CUtils::StringCollapse(LPTSTR str)
@@ -67,6 +80,11 @@ void CUtils::StringCollapse(LPTSTR str)
 			else if (*(cPos+1) == 't')
 			{
 				*cPos = '\t';
+				memmove(cPos+1, cPos+2, (_tcslen(cPos+2)+1)*sizeof(TCHAR));
+			}
+			else if (*(cPos+1) == '"')
+			{
+				*cPos = '"';
 				memmove(cPos+1, cPos+2, (_tcslen(cPos+2)+1)*sizeof(TCHAR));
 			}
 		}
