@@ -162,33 +162,10 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	else
 		com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
 
-	STARTUPINFO startup;
-	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-	//remove possible double quotes
-	//(depends on if the user added them in the settings him/herself or not)
-	while (com.Find(_T("\"\""))>=0)
-		com.Replace(_T("\"\""), _T("\""));
-	if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	if(!LaunchApplication(com, IDS_ERR_EXTMERGESTART, false))
 	{
-		LPVOID lpMsgBuf;
-		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-			);
-		CString temp;
-		temp.Format(IDS_ERR_EXTMERGESTART, lpMsgBuf);
-		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-		LocalFree( lpMsgBuf );
-	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+		return FALSE;
+	}
 
 	return TRUE;
 }
@@ -314,43 +291,16 @@ BOOL CUtils::StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir, BOOL b
 		viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
 	}
 
-	STARTUPINFO startup;
-	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-	//remove possible double quotes
-	//(depends on if the user added them in the settings him/herself or not)
-	while (viewer.Find(_T("\"\""))>=0)
-		viewer.Replace(_T("\"\""), _T("\""));
-	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	UINT idErrMessageFormat;
+	if ((dir.IsDirectory()) || (dir.IsEmpty()))
+		idErrMessageFormat = IDS_ERR_DIFFVIEWSTART;
+	else
+		idErrMessageFormat = IDS_ERR_EXTDIFFSTART;
+
+	if(!LaunchApplication(viewer, idErrMessageFormat, !!bWait))
 	{
-		LPVOID lpMsgBuf;
-		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-			);
-		CString temp;
-		if ((dir.IsDirectory()) || (dir.IsEmpty()))
-			temp.Format(IDS_ERR_DIFFVIEWSTART, lpMsgBuf);
-		else
-			temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-		LocalFree( lpMsgBuf );
 		return FALSE;
-	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
-
-	if (bWait)
-	{
-		WaitForInputIdle(process.hProcess, 10000);
 	}
-
 	return TRUE;
 }
 
@@ -426,35 +376,10 @@ BOOL CUtils::StartTextViewer(CString file)
 		viewer += _T("\"")+file+_T("\"");
 	}
 
-	STARTUPINFO startup;
-	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
-	//remove possible double quotes
-	//(depends on if the user added them in the settings him/herself or not)
-	while (viewer.Find(_T("\"\""))>=0)
-		viewer.Replace(_T("\"\""), _T("\""));
-	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, false))
 	{
-		LPVOID lpMsgBuf;
-		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-			FORMAT_MESSAGE_FROM_SYSTEM | 
-			FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL,
-			GetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-			(LPTSTR) &lpMsgBuf,
-			0,
-			NULL 
-			);
-		CString temp;
-		temp.Format(IDS_ERR_DIFFVIEWSTART, lpMsgBuf);
-		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-		LocalFree( lpMsgBuf );
 		return FALSE;
-	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
-
+	}
 	return TRUE;
 }
 
@@ -773,4 +698,67 @@ void CUtils::CreateFontForLogs(CFont& fontToCreate)
 	logFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
 	_tcscpy(logFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
 	VERIFY(fontToCreate.CreateFontIndirect(&logFont));
+}
+
+bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup)
+{
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	memset(&startup, 0, sizeof(startup));
+	startup.cb = sizeof(startup);
+	memset(&process, 0, sizeof(process));
+
+	//remove possible double quotes
+	//(depends on if the user added them in the settings him/herself or not)
+	CString cleanCommandLine(sCommandLine);
+	while (cleanCommandLine.Replace(_T("\"\""), _T("\"")) > 0)
+	{
+		;
+	}
+	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)cleanCommandLine), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	{
+		if(idErrMessageFormat != 0)
+		{
+			LPVOID lpMsgBuf;
+			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL 
+				);
+			CString temp;
+			temp.Format(idErrMessageFormat, lpMsgBuf);
+			CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+			LocalFree( lpMsgBuf );
+		}
+		return false;
+	} // if (CreateProcess(NULL /*(LPCTSTR)cleanCommandLine*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+
+	if (bWaitForStartup)
+	{
+		WaitForInputIdle(process.hProcess, 10000);
+	}
+
+	return true;
+}
+
+/**
+* Launch the external blame viewer
+*/
+bool CUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile)
+{
+	TCHAR tblame[MAX_PATH];
+	GetModuleFileName(NULL, tblame, MAX_PATH);
+
+	CString viewer = tblame;
+	viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseBlame.exe"));
+	viewer += _T(" \"") + sBlameFile + _T("\"");
+	viewer += _T(" \"") + sLogFile + _T("\"");
+	viewer += _T(" \"") + sOriginalFile + _T("\"");
+	
+	return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, false);
 }

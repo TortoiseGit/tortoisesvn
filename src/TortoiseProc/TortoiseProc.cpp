@@ -252,15 +252,13 @@ BOOL CTortoiseProcApp::InitInstance()
 				if ((DWORD)week != oldweek)
 				{
 					oldweek = week;
-					STARTUPINFO startup;
-					PROCESS_INFORMATION process;
-					memset(&startup, 0, sizeof(startup));
-					startup.cb = sizeof(startup);
-					memset(&process, 0, sizeof(process));
+
 					TCHAR com[MAX_PATH+100];
 					GetModuleFileName(NULL, com, MAX_PATH);
 					_tcscat(com, _T(" /command:updatecheck"));
-					CreateProcess(NULL, com, NULL, NULL, FALSE, 0, 0, 0, &startup, &process);
+
+//BUGBUG - Should this really have an error message string resource ID?
+					CUtils::LaunchApplication(com, 0, false);
 				}
 			}
 		}
@@ -1245,38 +1243,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 					else
 					{
-						TCHAR tblame[MAX_PATH];
-						GetModuleFileName(NULL, tblame, MAX_PATH);
-						CString viewer = tblame;
-						viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseBlame.exe"));
-						viewer += _T(" \"") + tempfile + _T("\"");
-						viewer += _T(" \"") + logfile + _T("\"");
-						viewer += _T(" \"") + CUtils::GetFileNameFromPath(path) + _T("\"");
-						STARTUPINFO startup;
-						PROCESS_INFORMATION process;
-						memset(&startup, 0, sizeof(startup));
-						startup.cb = sizeof(startup);
-						memset(&process, 0, sizeof(process));
-
-						if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-						{
-							LPVOID lpMsgBuf;
-							FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-								FORMAT_MESSAGE_FROM_SYSTEM | 
-								FORMAT_MESSAGE_IGNORE_INSERTS,
-								NULL,
-								GetLastError(),
-								MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-								(LPTSTR) &lpMsgBuf,
-								0,
-								NULL 
-								);
-							CString temp;
-							temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-							CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-							LocalFree( lpMsgBuf );
-							return FALSE;
-						} 
+						CUtils::LaunchTortoiseBlame(tempfile, logfile, CUtils::GetFileNameFromPath(path));
 					}
 				} // if (!tempfile.IsEmpty()) 
 				else

@@ -710,38 +710,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							}
 							else
 							{
-								TCHAR tblame[MAX_PATH];
-								GetModuleFileName(NULL, tblame, MAX_PATH);
-								CString viewer = tblame;
-								viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseBlame.exe"));
-								viewer += _T(" \"") + tempfile + _T("\"");
-								viewer += _T(" \"") + logfile + _T("\"");
-								viewer += _T(" \"") + CUtils::GetFileNameFromPath(url) + _T("\"");
-								STARTUPINFO startup;
-								PROCESS_INFORMATION process;
-								memset(&startup, 0, sizeof(startup));
-								startup.cb = sizeof(startup);
-								memset(&process, 0, sizeof(process));
-
-								if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+								if(!CUtils::LaunchTortoiseBlame(tempfile, logfile, CUtils::GetFileNameFromPath(url)))
 								{
-									LPVOID lpMsgBuf;
-									FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-										FORMAT_MESSAGE_FROM_SYSTEM | 
-										FORMAT_MESSAGE_IGNORE_INSERTS,
-										NULL,
-										GetLastError(),
-										MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-										(LPTSTR) &lpMsgBuf,
-										0,
-										NULL 
-										);
-									CString strMessage;
-									strMessage.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-									CMessageBox::Show(NULL, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-									LocalFree( lpMsgBuf );
 									break;
-								} 
+								}
 							}
 						} // if (!tempfile.IsEmpty()) 
 						else

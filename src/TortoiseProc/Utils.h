@@ -157,6 +157,16 @@ public:
 	/**
 	 * Create a font which can is used for log messages, etc
 	 */
-	static void CUtils::CreateFontForLogs(CFont& fontToCreate);
+	static void CreateFontForLogs(CFont& fontToCreate);
+
+	/**
+	* Launch an external application (usually the diff viewer)
+	*/
+	static bool LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup);
+
+	/**
+	* Launch the external blame viewer
+	*/
+	static bool LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile);
 
 };
