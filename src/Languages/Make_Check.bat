@@ -47,7 +47,8 @@ rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po only-o
   SET /A wf=200*!fuz!/!total!
   SET /A wu=200*!unt!/!total!
 
-  echo ^<td class="lang"^>%~3 ^(%1^)^</td^>>> %OFile%
+  echo ^<td class="lang"^>%~3^</td^>>> %OFile%
+  echo ^<td class="lang"^>%1^</td^>>> %OFile%
   echo ^<td class="untrans"^>!errors!^</td^>>> %OFile%
   echo ^<td class="trans"^>!tra!^</td^>>> %OFile%
   echo ^<td class="fuzzy"^>!fuz!^</td^>>> %OFile%
