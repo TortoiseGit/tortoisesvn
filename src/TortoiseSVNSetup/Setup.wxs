@@ -148,7 +148,7 @@
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\_TortoiseSVN4" Value="{C035134B-7B7D-4fcc-81B4-1E394CA267EB}" Id="_BE50C516B3444976864879716C66A602" />
 		</Component>
 		<Component Id="C__userregistry" Guid="0CF9CCE2-5C2A-455d-AABE-031A553D12F0" >
-			<Registry Root="HKU" Key="Software\[Manufacturer]" Name="SSH" Value="[TARGETDIR]TortoisePlink.exe" KeyPath="yes" Id="_54C6201AF7B54DCF87A9224014D0D0C7" />
+			<Registry Root="HKCU" Key="Software\[Manufacturer]" Name="SSH" Value="[TARGETDIR]TortoisePlink.exe" KeyPath="yes" Id="_54C6201AF7B54DCF87A9224014D0D0C7" />
 		</Component>
 		<Component Id="C__machineregistry" Guid="4913F361-DE93-490c-81D0-1FB002EBF141" >
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\TortoiseAdded.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" />
