@@ -18,6 +18,7 @@
 
 #pragma once
 #include "HistoryCombo.h"
+#include "afxcmn.h"
 
 
 /**
@@ -75,14 +76,20 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;
+	CLogDlg *	m_pLogDlg2;
 	CString		m_sStartRev;
 	CString		m_sEndRev;
 	BOOL		m_bFile;
 public:
-	CString m_URL;
-	CString m_BranchURL;
+	CString m_URLFrom;
+	CString m_URLTo;
 	CHistoryCombo m_URLCombo;
 	SVNRev StartRev;
 	SVNRev EndRev;
+	CHistoryCombo m_URLCombo2;
+	afx_msg void OnBnClickedFindbranchend();
+	afx_msg void OnBnClickedBrowse2();
+	afx_msg void OnBnClickedRevisionHead1();
+	afx_msg void OnBnClickedRevisionN1();
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));

@@ -603,13 +603,13 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CMergeDlg dlg;
 			CString path = parser.GetVal(_T("path"));
-			dlg.m_URL = path;
+			dlg.m_URLFrom = path;
 			if (dlg.DoModal() == IDOK)
 			{
 				CSVNProgressDlg progDlg;
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Merge, false, path, dlg.m_URL, dlg.m_URL, dlg.StartRev);		//use the message as the second url
+				progDlg.SetParams(Merge, false, path, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
 				progDlg.m_RevisionEnd = dlg.EndRev;
 				progDlg.DoModal();
 			}

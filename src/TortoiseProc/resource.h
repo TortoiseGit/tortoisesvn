@@ -102,6 +102,7 @@
 #define IDC_REVISION_N                  1033
 #define IDC_MENU11                      1033
 #define IDC_REVISION_NUM                1034
+#define IDC_FINDBRANCHEND               1034
 #define IDC_BROWSE                      1035
 #define IDC_EDIT2                       1036
 #define IDC_BROWSE2                     1036
@@ -206,11 +207,15 @@
 #define IDC_SUMMARYTEXT                 1106
 #define IDC_STATISTICS                  1108
 #define IDC_COMBOBOXEX1                 1109
+#define IDC_URLCOMBO2                   1109
 #define IDC_COMMITLABEL                 1110
 #define IDC_PROGRESS                    1111
 #define IDC_YOURVERSION                 1112
 #define IDC_CURRENTVERSION              1113
 #define IDC_CHECKRESULT                 1114
+#define IDC_REVISION_HEAD1              1115
+#define IDC_REVISION_N1                 1116
+#define IDC_REVISION_START              1118
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -422,7 +427,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        175
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1115
+#define _APS_NEXT_CONTROL_VALUE         1119
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
