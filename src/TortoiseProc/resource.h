@@ -28,6 +28,7 @@
 #define IDD_CHANGEDFILES                158
 #define IDD_SETTINGSMENU                159
 #define IDD_SIMPLEPROMPT                160
+#define IDD_INPUTDLG                    161
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -129,6 +130,8 @@
 #define IDC_NOREMOVELOGMSG              1061
 #define IDC_MENU2                       1061
 #define IDC_MENU23                      1063
+#define IDC_INPUTTEXT                   1064
+#define IDC_HINTTEXT                    1065
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -269,14 +272,21 @@
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902
+#define IDS_INPUT_ENTERLOG              2000
+#define IDS_INPUT_LOGTITLE              2001
+#define IDS_INPUT_REMOVELOGMSG          2002
+#define IDS_INPUT_ADDLOGMSG             2003
+#define IDS_INPUT_COPYLOGMSG            2004
+#define IDS_INPUT_MKDIRLOGMSG           2005
+#define IDS_INPUT_MOVELOGMSG            2006
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        161
+#define _APS_NEXT_RESOURCE_VALUE        162
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1064
+#define _APS_NEXT_CONTROL_VALUE         1066
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

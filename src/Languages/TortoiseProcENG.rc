@@ -914,6 +914,17 @@ BEGIN
     IDS_PROC_ENTERURL       "Enter URL"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_INPUT_ENTERLOG      "Enter Log-Message:"
+    IDS_INPUT_LOGTITLE      "Log"
+    IDS_INPUT_REMOVELOGMSG  "Removed file/folder"
+    IDS_INPUT_ADDLOGMSG     "Added a file remotely"
+    IDS_INPUT_COPYLOGMSG    "Copied remotely"
+    IDS_INPUT_MKDIRLOGMSG   "Created folder remotely"
+    IDS_INPUT_MOVELOGMSG    "Moved remotely"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -926,6 +937,43 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INPUTDLG DIALOGEX 0, 0, 237, 113
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Input"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,94,92,50,14
+    EDITTEXT        IDC_INPUTTEXT,7,17,223,69,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Enter Log-Message:",IDC_HINTTEXT,7,7,223,11
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_INPUTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

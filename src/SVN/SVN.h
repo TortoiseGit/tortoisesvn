@@ -115,7 +115,7 @@ public:
 	 * \param force if TRUE, all files including those not versioned are deleted. If FALSE the operation
 	 * will fail if a directory contains unversioned files or if the file itself is not versioned.
 	 */
-	BOOL Remove(CString path, BOOL force);
+	BOOL Remove(CString path, BOOL force, CString message = _T(""));
 	/**
 	 * Reverts a file/directory to its pristine state. I.e. its reverted to the state where it
 	 * was last updated with the repository.
@@ -205,7 +205,7 @@ public:
 	 * \param revision 
 	 * \param force 
 	 */
-	BOOL Move(CString srcPath, CString destPath, BOOL force);
+	BOOL Move(CString srcPath, CString destPath, BOOL force, CString message = _T(""));
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the

@@ -21,6 +21,7 @@
 #include "RepositoryBrowser.h"
 
 #include "MessageBox.h"
+#include "InputDlg.h"
 #include "LogDlg.h"
 
 
@@ -252,7 +253,12 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 					SVN svn;
 					svn.m_app = &theApp;
 					theApp.DoWaitCursor(1);
-					if (!svn.Remove(url, TRUE))
+					CInputDlg dlg(this);
+					dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+					dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+					dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
+					dlg.DoModal();
+					if (!svn.Remove(url, TRUE, dlg.m_sInputText))
 					{
 						theApp.DoWaitCursor(-1);
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -293,7 +299,12 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						svn.m_app = &theApp;
 						theApp.DoWaitCursor(1);
 						CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
-						if (!svn.Import(path, url+_T("/")+filename, _T("adding file remotely"), FALSE))
+						CInputDlg input(this);
+						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
+						input.DoModal();
+						if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
 						{
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -316,7 +327,12 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						SVN svn;
 						svn.m_app = &theApp;
 						theApp.DoWaitCursor(1);
-						if (!svn.Move(url, filepath, TRUE))
+						CInputDlg input(this);
+						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
+						input.DoModal();
+						if (!svn.Move(url, filepath, TRUE, input.m_sInputText))
 						{
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -336,7 +352,12 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						SVN svn;
 						svn.m_app = &theApp;
 						theApp.DoWaitCursor(1);
-						if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, _T("copy remotely")))
+						CInputDlg input(this);
+						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+						input.DoModal();
+						if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, input.m_sInputText))
 						{
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -357,7 +378,12 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						SVN svn;
 						svn.m_app = &theApp;
 						theApp.DoWaitCursor(1);
-						if (!svn.MakeDir(url+_T("/")+dlg.m_name, _T("created directory remotely")))
+						CInputDlg input(this);
+						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
+						input.DoModal();
+						if (!svn.MakeDir(url+_T("/")+dlg.m_name, input.m_sInputText))
 						{
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
