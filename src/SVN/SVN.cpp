@@ -1451,22 +1451,16 @@ BOOL SVN::IsBDBRepository(CString url)
 
 CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 {
-	svn_ra_plugin_t *ra_lib;
-	void *ra_baton, *session;
 	const char * returl;
+	svn_ra_session_t *ra_session;
 
 	SVNPool localpool(pool);
-	/* Get the RA library that handles URL. */
-	if (svn_ra_init_ra_libs (&ra_baton, localpool))
+	
+	/* use subpool to create a temporary RA session */
+	if (svn_client__open_ra_session (&ra_session, url.GetSVNApiPath(), NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
 		return _T("");
-	if (svn_ra_get_ra_library (&ra_lib, ra_baton, url.GetSVNApiPath(), localpool))
-		return _T("");
-
-	/* Open a repository session to the URL. */
-	if (svn_client__open_ra_session (&session, ra_lib, url.GetSVNApiPath(), NULL, NULL, NULL, FALSE, FALSE, m_pctx, localpool))
-		return _T("");
-
-	if (ra_lib->get_repos_root(session, &returl, localpool))
+	
+	if (svn_ra_get_repos_root(ra_session, &returl, localpool))
 		return _T("");
 
 	return CString(returl);
@@ -1474,8 +1468,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 
 LONG SVN::GetHEADRevision(const CTSVNPath& url)
 {
-	svn_ra_plugin_t *ra_lib;
-	void *ra_baton, *session;
+	svn_ra_session_t *ra_session;
 	const char * urla;
 	LONG rev;
 
@@ -1488,17 +1481,11 @@ LONG SVN::GetHEADRevision(const CTSVNPath& url)
 	if (urla == NULL)
 		return -1;
 
-	/* Get the RA library that handles URL. */
-	if (svn_ra_init_ra_libs (&ra_baton, localpool))
-		return -1;
-	if (svn_ra_get_ra_library (&ra_lib, ra_baton, urla, localpool))
+	/* use subpool to create a temporary RA session */
+	if (svn_client__open_ra_session (&ra_session, urla, NULL, /* no base dir */NULL, NULL, FALSE, TRUE, m_pctx, localpool))
 		return -1;
 
-	/* Open a repository session to the URL. */
-	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, m_pctx, localpool))
-		return -1;
-
-	if (ra_lib->get_latest_revnum(session, &rev, localpool))
+	if (svn_ra_get_latest_revnum(ra_session, &rev, localpool))
 		return -1;
 	return rev;
 }

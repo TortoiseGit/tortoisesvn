@@ -23,6 +23,7 @@
 #include "registry.h"
 #include "Utils.h"
 #include "SVN.h"
+#include "TSVNPath.h"
 #include ".\revisiongraph.h"
 
 #ifdef _DEBUG
@@ -204,9 +205,13 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 		url = CUtils::PathEscape(url);
 
 	// we have to get the log from the repository root
-	if (!GetRepositoryRoot(url))
+	CTSVNPath urlpath;
+	urlpath.SetFromSVN(url);
+	SVN svn;
+	m_sRepoRoot = svn.GetRepositoryRoot(urlpath);
+	if (m_sRepoRoot.IsEmpty())
 		return FALSE;
-	m_sRepoRoot = url;
+
 	apr_array_header_t *targets = apr_array_make (pool, 1, sizeof (const char *));
 	const char * target = apr_pstrdup (pool, url);
 	(*((const char **) apr_array_push (targets))) = target;
@@ -859,26 +864,3 @@ CString CRevisionGraph::GetLastErrorMessage()
 	return SVN::GetErrorString(Err);
 }
 
-BOOL CRevisionGraph::GetRepositoryRoot(CStringA& url)
-{
-	svn_ra_plugin_t *ra_lib;
-	void *ra_baton, *session;
-	const char * returl;
-
-	apr_pool_t * localpool = svn_pool_create(pool);
-	/* Get the RA library that handles URL. */
-	if ((Err = svn_ra_init_ra_libs (&ra_baton, localpool))!=0)
-		return FALSE;
-	if ((Err = svn_ra_get_ra_library (&ra_lib, ra_baton, url, localpool))!=0)
-		return FALSE;
-
-	/* Open a repository session to the URL. */
-	if ((Err = svn_client__open_ra_session (&session, ra_lib, url, NULL, NULL, NULL, FALSE, FALSE, &m_ctx, localpool))!=0)
-		return FALSE;
-
-	if ((Err = ra_lib->get_repos_root(session, &returl, localpool))!=0)
-		return FALSE;
-	url = CStringA(returl);
-	svn_pool_clear(localpool);
-	return TRUE;
-}

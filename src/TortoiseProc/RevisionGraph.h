@@ -110,7 +110,6 @@ public:
 	SVNPrompt					m_prompt;
 
 private:
-	BOOL						GetRepositoryRoot(CStringA& url);
 	BOOL						AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev);
 	BOOL						CheckForwardCopies();
 	BOOL						IsParentOrItself(const char * parent, const char * child) const;
