@@ -35,9 +35,9 @@ set _DOC_SRC=
 if "%OS%"=="Windows_NT" set _DOC_SRC=%~dp0
 
 set _DOC_HOME=%_DOC_SRC%..\
-SET _DOCTOOLS=c:\DocTools\
-SET _XSLTPROC=%_DOCTOOLS%bin\xsltproc.exe
-SET _HHCPROC=%_DOCTOOLS%bin\hhc.exe
+SET _DOCTOOLS=%_DOC_HOME%tools\
+SET _XSLTPROC=%_DOCTOOLS%xsltproc.exe
+SET _HHCPROC=%_DOCTOOLS%hhc.exe
 SET _FOPPROC=%_DOCTOOLS%fop\fop.bat 
 
 set _OUTPUT=%_DOC_HOME%output
