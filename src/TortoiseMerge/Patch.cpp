@@ -24,6 +24,12 @@
 #include "TortoiseMerge.h"
 #include ".\patch.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
 CPatch::CPatch(void)
 {
 }
@@ -312,7 +318,10 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					chunk->lRemoveLength == (nRemoveLineCount + nContextLineCount))
 				{
 					//chunk is finished
-					chunks->chunks.Add(chunk);
+					if (chunks)
+						chunks->chunks.Add(chunk);
+					else
+						delete chunk;
 					chunk = NULL;
 					nAddLineCount = 0;
 					nContextLineCount = 0;
