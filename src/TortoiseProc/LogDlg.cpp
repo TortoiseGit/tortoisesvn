@@ -67,6 +67,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, OnLvnKeydownLogmsg)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
+	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkLogmsg)
+	ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
 END_MESSAGE_MAP()
 
 
@@ -665,6 +667,62 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	} // if (selIndex >= 0)
 }
 
+void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	int selIndex = pNMLV->iItem;
+
+	if (selIndex >= 0)
+	{
+		CString temp;
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+		this->m_app = &theApp;
+		theApp.DoWaitCursor(1);
+		if (!PathIsDirectory(m_path))
+		{
+			long rev = m_arRevs.GetAt(selIndex);
+			//next step is to create a temporary file to hold the required revision
+			TCHAR path[MAX_PATH];
+			TCHAR tempF[MAX_PATH];
+			DWORD len = ::GetTempPath (MAX_PATH, path);
+			UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
+			CString tempfile = CString(tempF);
+
+			SVN svn;
+			if (!svn.Cat(m_path, rev, tempfile))
+			{
+				CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				GetDlgItem(IDOK)->EnableWindow(TRUE);
+			} // if (!svn.Cat(m_path, rev, tempfile))
+			else
+			{
+				m_templist.Add(tempfile);
+				CUtils::StartDiffViewer(tempfile, m_path);
+			}
+		} // if (!PathIsDirectory(m_path))
+		else
+		{
+			long rev = m_arRevs.GetAt(selIndex);
+			this->m_bCancelled = FALSE;
+			CString tempfile = CUtils::GetTempFile();
+			tempfile += _T(".diff");
+			if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+			{
+				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				DeleteFile(tempfile);
+			} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+			else
+			{
+				m_templist.Add(tempfile);
+				CUtils::StartDiffViewer(tempfile);
+			}
+		}
+		theApp.DoWaitCursor(-1);
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	} // if (selIndex >= 0)
+}
+
 LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
 {
     ASSERT(m_pFindDialog != NULL);
@@ -855,6 +913,51 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	} // if (selIndex >= m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 }
 
+void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	int selIndex = pNMLV->iItem;
+	if (selIndex < 0)
+		return;
+	long rev = m_arRevs.GetAt(selIndex);
+	if (selIndex >= (int)m_arFileListStarts.GetAt(selIndex))
+	{
+		CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+		temp = temp.Left(temp.Find(' '));
+		CString t, tt;
+		t.LoadString(IDS_SVNACTION_ADD);
+		tt.LoadString(IDS_SVNACTION_DELETE);
+		if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
+		{
+			GetDlgItem(IDOK)->EnableWindow(FALSE);
+			this->m_app = &theApp;
+			theApp.DoWaitCursor(1);
+			//get the filename
+			SVNStatus status;
+			if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
+			{
+				theApp.DoWaitCursor(-1);
+				CString temp;
+				temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+				CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+				TRACE(_T("could not retrieve the URL of the file!\n"));
+				return;		//exit
+			} // if ((rev == (-2))||(status.status->entry == NULL))
+			temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+			CString filepath = CString(status.status->entry->url);
+			m_bCancelled = FALSE;
+			filepath = GetRepositoryRoot(filepath);
+			temp = temp.Mid(temp.Find(' '));
+			temp = temp.Trim();
+			filepath += temp;
+			StartDiff(filepath, rev, filepath, rev-1);
+			theApp.DoWaitCursor(-1);
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+		}
+	} // if (selIndex >= m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+}
+
 BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 {
 	TCHAR path[MAX_PATH];
@@ -913,6 +1016,8 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	theApp.DoWaitCursor(-1);
 	return CUtils::StartDiffViewer(tempfile2, tempfile1);
 }
+
+
 
 
 

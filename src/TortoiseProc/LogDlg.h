@@ -137,6 +137,9 @@ public:
 	afx_msg void OnBnClickedGetall();
 protected:
 	virtual void OnCancel();
+public:
+	afx_msg void OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);
