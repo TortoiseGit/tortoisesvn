@@ -798,6 +798,24 @@
 		Datei in der Liste an und ermöglicht es Ihnen, diese Datei auch aus
 		der Versionskontrolle zu löschen.
 		</para>
+		<para>
+			<caution>
+				<title>Den höheren Ordner übertragen</title>
+				<para>
+				Umbenennen und Verschieben einer Datei führt dazu, dass
+				die alte Datei gelöscht wird und dieselbe an einem neuen Ort und/oder
+				unter einem neuen Namen wieder zur Versionkontrolle hinzugefügt
+				wird. Die alte, gelöschte Datei ist daher zwar nicht mehr
+				im Explorer sichtbar, aber dennoch als gelöscht markiert
+				vorhanden. Diese gelöschte Datei muss ebenfalls zum Server
+				übertragen werden. Dies geschieht am besten, indem der
+				übergeordnete Ordner für die Übertragung ausgewählt wird. Dann
+				erscheint die gelöschte Datei auch im Übertragungsdialog.
+				Wird dies nicht gemacht, bleibt die alte Datei im Projektarchiv
+				bestehen!
+				</para>
+			</caution>
+		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 8 ============================== -->

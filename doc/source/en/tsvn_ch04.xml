@@ -744,6 +744,19 @@
 		matter, if you forget to delete the file with TortoiseSVN as
 		you are supposed to do.
 		</para>
+		<para>
+			<caution>
+				<title>Commit the parent folder</title>
+				<para>
+				Since renames and moves are done as a delete followed by an
+				add you must commit the parent folder of the renamed/moved
+				file. Only that way the deleted part of the rename/move will
+				show up in the commit dialog. If you don't commit the removed
+				part of the rename/move, it will stay behind in the repository
+				and an update of your coworkers won't remove the old file.
+				</para>
+			</caution>
+		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 8 ============================== -->
