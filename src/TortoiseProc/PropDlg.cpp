@@ -105,6 +105,10 @@ DWORD WINAPI PropThread(LPVOID pVoid)
 {
 	CPropDlg*	pDlg;
 	pDlg = (CPropDlg*)pVoid;
+
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	SVNProperties props(pDlg->m_sPath, pDlg->m_rev);
 	pDlg->m_proplist.SetRedraw(false);
 	for (int i=0; i<props.GetCount(); ++i)

@@ -241,6 +241,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	CSVNProgressDlg*	pDlg;
 	pDlg = (CSVNProgressDlg*)pVoid;
 
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	int updateFileCounter = 0;
 	CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
 

@@ -6,7 +6,9 @@ rem build script for TortoiseSVN
 rem
 @if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call TortoiseVars.bat
-echo %~dp0
+
+set INCLUDE=%~dp0ext\gettext\include;%INCLUDE%
+set LIB=%~dp0ext\gettext\lib;%LIB%
 
 if "%1"=="" (
   SET _RELEASE=ON
@@ -30,6 +32,8 @@ if "%1"=="SETUP" SET _SETUP=ON
 shift
 if NOT "%1"=="" goto :getparam
 
+rem patch apr-iconv
+copy ext\apr-iconv\lib\iconv_module.c ..\Subversion\apr-iconv\lib /Y
 
 rem OpenSSL
 echo ================================================================================
@@ -82,8 +86,7 @@ if %_DEBUG%==ON (
   if EXIST bin\debug\bin rmdir /S /Q bin\debug\bin > NUL
   mkdir bin\debug\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\debug\bin /Y > NUL
-  copy ..\Common\gettext\bin\intl.dll bin\debug\bin /Y > NUL
-  copy ..\Common\gettext\bin\iconv.dll bin\debug\bin /Y > NUL
+  copy .\ext\gettext\bin\intl.dll bin\debug\bin /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42d.dll bin\debug\bin /Y > NUL
   copy ..\Subversion\apr\Debug\libapr.dll bin\Debug\bin /Y > NUL 
   copy ..\Subversion\apr-util\Debug\libaprutil.dll bin\Debug\bin /Y > NUL 
@@ -96,8 +99,7 @@ if %_RELEASE%==ON (
   if EXIST bin\release\bin rmdir /S /Q bin\release\bin > NUL
   mkdir bin\release\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release\bin /Y > NUL
-  copy ..\Common\gettext\bin\intl.dll bin\release\bin /Y > NUL
-  copy ..\Common\gettext\bin\iconv.dll bin\release\bin /Y > NUL
+  copy .\ext\gettext\bin\intl.dll bin\release\bin /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42.dll bin\release\bin /Y > NUL
   copy ..\Subversion\apr\Release\libapr.dll bin\Release\bin /Y > NUL 
   copy ..\Subversion\apr-util\Release\libaprutil.dll bin\Release\bin /Y > NUL 
@@ -110,8 +112,7 @@ if %_RELEASE_MBCS%==ON (
   if EXIST bin\release_mbcs\bin rmdir /S /Q bin\release_mbcs\bin > NUL
   mkdir bin\release_mbcs\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release_mbcs\bin /Y > NUL
-  copy ..\Common\gettext\bin\intl.dll bin\release_mbcs\bin /Y > NUL
-  copy ..\Common\gettext\bin\iconv.dll bin\release_mbcs\bin /Y > NUL
+  copy .\ext\gettext\bin\intl.dll bin\release_mbcs\bin /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42.dll bin\release_mbcs\bin /Y > NUL
   copy ..\Subversion\apr\Release\libapr.dll bin\Release_MBCS\bin /Y > NUL 
   copy ..\Subversion\apr-util\Release\libaprutil.dll bin\Release_MBCS\bin /Y > NUL 

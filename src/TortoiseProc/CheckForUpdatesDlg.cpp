@@ -125,6 +125,9 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 	pDlg = (CCheckForUpdatesDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
 
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	CString temp;
 	CString tempfile = CUtils::GetTempFile();
 

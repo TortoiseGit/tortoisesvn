@@ -26,6 +26,8 @@
 #include "SVNProperties.h"
 #include "Blame.h"
 
+#include "libintl.h"
+
 #include "..\version.h"
 
 #ifndef UNICODE
@@ -72,16 +74,26 @@ void CTortoiseProcApp::CrashProgram()
 }
 BOOL CTortoiseProcApp::InitInstance()
 {
+	CString temp;
 	//set the resource dll for the required language
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
 	CString langDll;
+	char procpath[MAX_PATH] = {0};
+	GetModuleFileNameA(NULL, procpath, MAX_PATH);
+	CStringA langpath = procpath;
+	langpath = langpath.Left(langpath.ReverseFind('\\'));
+	langpath = langpath.Left(langpath.ReverseFind('\\')+1);
+	langpath += "Languages";
+	bindtextdomain("subversion", (LPCSTR)langpath);
+	SetThreadLocale(1033); 
 	HINSTANCE hInst = NULL;
 	do
 	{
 		langDll.Format(_T("Languages\\TortoiseProc%d.dll"), langId);
 		
 		hInst = LoadLibrary(langDll);
+
 		CString sVer = _T(STRPRODUCTVER);
 		sVer = sVer.Left(sVer.ReverseFind(','));
 		CString sFileVer = CUtils::GetVersionFromFile(langDll);
@@ -94,7 +106,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (hInst != NULL)
 		{
 			AfxSetResourceHandle(hInst);
-			//SetThreadLocale(langId);
+			SetThreadLocale(langId);
 		}
 		else
 		{
@@ -178,19 +190,6 @@ BOOL CTortoiseProcApp::InitInstance()
 	}
 	else
 	{
-		//set the APR_ICONV_PATH environment variable for UTF8-conversions
-		//we don't set the environment variable in the registry or otherwise globally
-		//since it would break other subversion clients. 
-		TCHAR procpathbuf[MAX_PATH];
-		GetModuleFileName(NULL, procpathbuf, MAX_PATH);
-		CString temp = procpathbuf;
-		temp = temp.Left(temp.ReverseFind('\\'));
-		temp = temp.Left(temp.ReverseFind('\\')+1);
-		if (!temp.IsEmpty())
-		{
-			temp += _T("iconv");
-			SetEnvironmentVariable(_T("APR_ICONV_PATH"), temp);
-		}
 		if (comVal.Compare(_T("test"))==0)
 		{
 			CMessageBox::Show(NULL, _T("Test command successfully executed"), _T("Info"), MB_OK);

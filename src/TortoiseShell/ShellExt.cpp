@@ -32,6 +32,7 @@
 #include "atltrace.h"
 #include "Accctrl.h"
 #include "Aclapi.h"
+#include "libintl.h"
 
 // *********************** CShellExt *************************
 CShellExt::CShellExt(FileState state)
@@ -59,13 +60,6 @@ CShellExt::CShellExt(FileState state)
     };
     InitCommonControlsEx(&used);
 	LoadLangDll();
-	//set the APR_ICONV_PATH environment variable for UTF8-conversions
-	//we don't set the environment variable in the registry or otherwise globally
-	//since it would break other subversion clients. 
-	CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\Directory"), _T(" "), false, HKEY_LOCAL_MACHINE);
-	stdstring temp = tortoiseProcPath;
-	temp += _T("iconv");
-	SetEnvironmentVariable(_T("APR_ICONV_PATH"), temp.c_str());
 	apr_initialize();
 }
 
@@ -84,10 +78,22 @@ void LoadLangDll()
 		DWORD langId = g_langid;
 		TCHAR langDll[MAX_PATH];
 		HINSTANCE hInst = NULL;
-		CRegStdString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
+		TCHAR langdir[MAX_PATH] = {0};
+		char langdirA[MAX_PATH] = {0};
+		GetModuleFileName(NULL, langdir, MAX_PATH);
+		GetModuleFileNameA(NULL, langdirA, MAX_PATH);
+		TCHAR * dirpoint = _tcsrchr(langdir, '\\');
+		char * dirpointA = strrchr(langdirA, '\\');
+		if (dirpoint)
+			*dirpoint = 0;
+		if (dirpointA)
+			*dirpointA = 0;
+		strcat(langdirA, "\\Languages");
+		bindtextdomain ("subversion", langdirA);
+
 		do
 		{
-			_stprintf(langDll, _T("%s\\Languages\\TortoiseProc%d.dll"), (LPCTSTR)str, langId);
+			_stprintf(langDll, _T("%s\\Languages\\TortoiseProc%d.dll"), langdir, langId);
 			BOOL versionmatch = TRUE;
 
 			struct TRANSARRAY

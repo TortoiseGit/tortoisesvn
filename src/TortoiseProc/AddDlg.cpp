@@ -172,6 +172,9 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
 
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	pDlg->m_addListCtrl.GetStatus(pDlg->m_sPath);
 	pDlg->m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED);
 	pDlg->m_addListCtrl.CheckAll(SVNSLC_SHOWUNVERSIONED);

@@ -1,0 +1,74 @@
+2002-12-13  Perry Rapp  <puddle@users.sourceforge.net>
+
+	Changed libintl.dsp to link to MSVCRT.DLL, which is needed
+	because iconv passes back E2BIG via errno. So previously
+	gettext was not always doing full codeset conversions, because
+	it thought iconv failed when it merely ran out of room.
+	Bumped FILEVERSION to 2002,12,13,0 (PRODUCTVERSION still 0,11,5,0).
+
+2002-11-21  Perry Rapp  <puddle@users.sourceforge.net>
+
+	Fixed some incorrect source file names in MSVC6 projects.
+
+2002-11-20  Perry Rapp  <puddle@users.sourceforge.net>
+
+	Built gettext-0.11.5-w32 by combining gettext-0.11.5 with win32 stuff
+	from gettext-0.11.2-w32.
+	Defined uintmax_t in win32/config.h (VC6 lacks C99 types).
+	Removed DOS carriage returns from win32/config.h.
+	Fixed def file for latest function names.
+	Improve version reporting functions.
+
+2002-11-11  Perry Rapp  <puddle@users.sourceforge.net>
+
+	Added newer version of iconvshim, which checks for both iconv.dll
+	and libiconv.dll.
+
+2002-06-29  Perry Rapp  <puddle@users.sourceforge.net>
+
+	Added some newer Microsoft LANG ids (Maldivian, Krygyz, Galician,
+	Mongolian) to localename.c.
+
+2002-06-18  Perry Rapp  <puddle@users.sourceforge.net>
+
+	Imported code into http://sourceforge.net/gettext/gettext-0.11.2-w32/
+
+2002-06-15  Perry Rapp  <puddle@users.sourceforge.net>
+
+	Imported gettext-0.10.35-w32/win32 into gettext-0.11.2 source.
+	Added intl-w32/ code (shim to connect to iconv dll).
+	Revised version info to use 0.11.2.x version number (& to reflect
+	compilation by Perry). Revisions to win32/config.h to get libintl.dll 
+	to compile. libintl.dll compiles & works now -- tools do not.
+
+2001-04-12 23:00  Muraoka Taro  <koron@tka.att.ne.jp>
+
+	* Makefile: Not for build. Just for support.
+
+2001-04-10 23:00  Muraoka Taro  <koron@tka.att.ne.jp>
+
+	* resource.h: Resource file header for libintl.dll.
+	* libintl.rc: Resource file for libintl.dll.
+
+	* getenv.c: Win32 own getenv().
+	* config.h: Add definitions getenv() and enable_mbyte.
+	* mbyte.c: Instance of enable_mbyte.
+
+2001-02-19 02:00  Muraoka Taro  <koron@tka.att.ne.jp>
+
+	* libintl.h: A copy of intl/libgettext.h.
+	* libintl.def: Definition file of export functions.
+
+	* config.h: Configuration file for Windows(VC++6.0).
+	* pwd.h, sys/param.h: Dummy empty header file.
+
+	* gettext.dsw: VC++6.0 Project Workspace file.
+	* libintl.dsp: VC++6.0 Project file for "libintl.dll"
+	* nlsut.dsp: VC++6.0 Project file for "nlsut.lib"
+	* gettext.dsp: VC++6.0 Project file for "gettext.exe"
+	* msgcmp.dsp: VC++6.0 Project file for "msgcmp.exe"
+	* msgcomm.dsp: VC++6.0 Project file for "msgcomm.exe"
+	* msgfmt.dsp: VC++6.0 Project file for "msgfmt.exe"
+	* msgmerge.dsp: VC++6.0 Project file for "msgmerge.exe"
+	* msgunfmt.dsp: VC++6.0 Project file for "msgunfmt.exe"
+	* xgettext.dsp: VC++6.0 Project file for "xgettext.exe"

@@ -1,0 +1,6 @@
+#ifndef ICONV_FORWARDER_TO_SHIM_H_INCLUDED
+#define ICONV_FORWARDER_TO_SHIM_H_INCLUDED
+
+#include "iconvshim.h"
+
+#endif /* ICONV_FORWARDER_TO_SHIM_H_INCLUDED */

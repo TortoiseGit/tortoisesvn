@@ -313,6 +313,9 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->m_bBlock = TRUE;
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
 
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	pDlg->m_ListCtrl.GetStatus(pDlg->m_sPath);
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
 	dwShow |= DWORD(pDlg->m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;

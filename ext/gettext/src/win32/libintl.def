@@ -1,0 +1,31 @@
+; dllint.def : Declares the module parameters for the DLL.
+
+DESCRIPTION  'gettext Windows Dynamic Link Library'
+
+EXPORTS
+	dcgettext
+	dcgettext__=dcgettext
+	dgettext
+	dgettext__=dgettext
+	gettext
+	gettext__=gettext
+	ngettext
+	ngettext__=ngettext
+	dngettext
+	dngettext__=dngettext
+	dcngettext
+	dcngettext__=dcngettext
+	textdomain
+	textdomain__=textdomain
+	bindtextdomain
+	bindtextdomain__=bindtextdomain
+	bind_textdomain_codeset
+	bind_textdomain_codeset__=bind_textdomain_codeset
+	gt_notify_language_change
+	gti_iconv_open=iconv_open
+	gti_iconv=iconv
+	gti_iconv_close=iconv_close
+	gti_iconvctl=libiconvctl
+	gt_iconvshim_get_property=iconvshim_get_property
+	gt_iconvshim_set_property=iconvshim_set_property
+	gt_getProperty

@@ -116,6 +116,9 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	CChangedDlg * pDlg;
 	pDlg = (CChangedDlg *)pVoid;
 
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	if (!pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, TRUE))
 	{
 		pDlg->m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, FALSE);

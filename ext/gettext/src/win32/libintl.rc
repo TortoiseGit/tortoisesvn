@@ -1,0 +1,146 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Japanese resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_JAPANESE VERSIONINFO
+ FILEVERSION 2002,12,13,0
+ PRODUCTVERSION 0,11,5,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x9L
+#else
+ FILEFLAGS 0x8L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "メッセージ多言語化ライブラリ  gettext-0.11.2. See http://gettext.sourceforge.net/\0"
+            VALUE "CompanyName", "GNU\0"
+            VALUE "FileDescription", "libintl\0"
+            VALUE "FileVersion", "2002, 12, 13, 0\0"
+            VALUE "InternalName", "libintl\0"
+            VALUE "LegalCopyright", "Copyright (C) 2001 GNU\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "libintl.dll\0"
+            VALUE "PrivateBuild", "Perry Rapp, 2002.11.20.1700\0"
+            VALUE "ProductName", "libintl\0"
+            VALUE "ProductVersion", "0, 11, 5, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+VS_VERSION_ENGLISH_US VERSIONINFO
+ FILEVERSION 2002,12,13,0
+ PRODUCTVERSION 0,11,5,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x9L
+#else
+ FILEFLAGS 0x8L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Message i18n runtime libary (based on gettext-0.11.2). See http://gettext.sourceforge.net/\0"
+            VALUE "CompanyName", "GNU\0"
+            VALUE "FileDescription", "libintl\0"
+            VALUE "FileVersion", "2002, 12, 13, 0\0"
+            VALUE "InternalName", "libintl\0"
+            VALUE "LegalCopyright", "Copyright (C) 2001 GNU\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "libintl.dll\0"
+            VALUE "PrivateBuild", "Perry Rapp, 2002.11.20.1700\0"
+            VALUE "ProductName", "libintl\0"
+            VALUE "ProductVersion", "0, 11, 5, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Japanese resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

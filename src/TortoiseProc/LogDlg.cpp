@@ -350,6 +350,10 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CLogDlg*	pDlg;
 	pDlg = (CLogDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
+
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);

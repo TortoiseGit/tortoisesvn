@@ -143,8 +143,7 @@
 	      </Component>
 
 	      <Component Id="C__gettext" Guid="A0CCA4FD-553C-465f-8E73-1BE7B3AFB83D" >
-	        <File Id="F__intl" Name="INTL.DLL" LongName="intl.dll" DiskId="1" src="..\..\..\Common\gettext\bin\intl.dll" KeyPath="yes" />
-	        <File Id="F__gtxiconv" Name="ICONV.DLL" LongName="iconv.dll" DiskId="1" src="..\..\..\Common\gettext\bin\iconv.dll" />
+	        <File Id="F__intl" Name="INTL.DLL" LongName="intl.dll" DiskId="1" src="..\..\ext\gettext\bin\intl.dll" KeyPath="yes" />
 	      </Component>
 	
 	      <Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
