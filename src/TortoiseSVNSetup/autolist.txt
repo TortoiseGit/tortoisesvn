@@ -4,3 +4,4 @@
 (MULTILINE) .py .pyw = ^\s*(?:class|def)\s+(\w+)
 .pl, .pm, .cgi = (?<=sub[\s]+)\b\w+\b
 .bas, .frm, .cls = (?<=(Public |Private )?(Sub|Function|Property Get|Property Set|Property Let) )(\w+)(?=\(.*\))
+(MULTILINE) .php = \s+class|(?<=(?=public|private|)\s+function)\s(\w+)|::(\w+)|->(\w+)
