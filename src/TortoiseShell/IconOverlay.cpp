@@ -118,10 +118,10 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 			*pPriority = 0;
 			break;
 		case Modified:
-			*pPriority = 30;
+			*pPriority = 1;
 			break;
 		case Versioned:
-			*pPriority = 90;
+			*pPriority = 2;
 			break;
 		default:
 			*pPriority = 100;
