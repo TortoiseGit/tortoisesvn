@@ -99,3 +99,4 @@ private:
 };
 
 extern CTortoiseProcApp theApp;
+extern HWND hWndExplorer;

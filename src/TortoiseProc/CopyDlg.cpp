@@ -101,7 +101,7 @@ BOOL CCopyDlg::OnInitDialog()
 	m_URLCombo.SelectString(-1, m_URL);
 
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_URL);
-
+	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RelocateDlg.h"
+#include ".\relocatedlg.h"
 
 
 // CRelocateDlg dialog
@@ -33,3 +34,12 @@ END_MESSAGE_MAP()
 
 
 // CRelocateDlg message handlers
+
+BOOL CRelocateDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	return TRUE;  // return TRUE unless you set the focus to a control
+	// EXCEPTION: OCX Property Pages should return FALSE
+}

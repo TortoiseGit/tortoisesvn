@@ -73,5 +73,8 @@ public:
 	 */
 	static BOOL StartDiffViewer(CString file);
 
+	/**
+	 * returns a path to a temporary file
+	 */
 	static CString GetTempFile();
 };

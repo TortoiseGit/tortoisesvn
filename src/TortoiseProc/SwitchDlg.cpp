@@ -107,7 +107,7 @@ BOOL CSwitchDlg::OnInitDialog()
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
 
 	m_revctrl.SetWindowText(_T(""));
-
+	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

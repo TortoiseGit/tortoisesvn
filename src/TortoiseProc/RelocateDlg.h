@@ -21,4 +21,5 @@ protected:
 public:
 	CString m_sToUrl;
 	CString m_sFromUrl;
+	virtual BOOL OnInitDialog();
 };

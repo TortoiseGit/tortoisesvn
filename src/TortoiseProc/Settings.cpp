@@ -75,5 +75,6 @@ END_MESSAGE_MAP()
 BOOL CSettings::OnInitDialog()
 {
 	BOOL bResult = CPropertySheet::OnInitDialog();
+	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return bResult;
 }
