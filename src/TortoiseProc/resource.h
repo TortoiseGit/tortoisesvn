@@ -391,6 +391,8 @@
 #define IDS_CHECKUPDATE_SUMMARY         2600
 #define IDS_LOGPROMPT_EXTERNALS         2700
 #define IDS_LOGPROMPT_STATISTICSFORMAT  2701
+#define IDS_SPELLEDIT_THESAURUS         3000
+#define IDS_SPELLEDIT_CORRECTIONS       3001
 
 // Next default values for new objects
 // 

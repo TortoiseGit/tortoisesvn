@@ -190,74 +190,90 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 {
 	if ((pThesaur==NULL)&&(pChecker==NULL))
 		return CEdit::OnContextMenu(pWnd, point);
-		
+
 	SetFocus();
 	CMenu menu;
-	menu.CreatePopupMenu();
-	BOOL bReadOnly = GetStyle() & ES_READONLY;
-	DWORD flags = CanUndo() && !bReadOnly ? 0 : MF_GRAYED;
+
+	HINSTANCE hInstance = GetModuleHandle(_T("User32.dll"));
+	ASSERT(hInstance);     
+	HMENU hMenu = ::LoadMenu(        
+		hInstance,              // handle to application instance
+		MAKEINTRESOURCE(1));    // menu name string or menu-resource identifier
+	// check if we actually found the menu
+	if (hMenu)
+	{
+		// yes, we found one
+		hMenu = GetSubMenu(hMenu, 0);
+		menu.Attach(hMenu);
+	}
+	else
+	{
+		menu.CreatePopupMenu();
+		BOOL bReadOnly = GetStyle() & ES_READONLY;
+		DWORD flags = CanUndo() && !bReadOnly ? 0 : MF_GRAYED;
 #ifdef IDS_SPELLEDIT_UNDO
-	m_i18l.LoadString(IDS_SPELLEDIT_UNDO);
-	menu.InsertMenu(0, MF_BYPOSITION | flags, EM_UNDO,
-		m_i18l);
+		m_i18l.LoadString(IDS_SPELLEDIT_UNDO);
+		menu.InsertMenu(0, MF_BYPOSITION | flags, EM_UNDO,
+			m_i18l);
 #else
-	menu.InsertMenu(0, MF_BYPOSITION | flags, EM_UNDO,
-		MES_UNDO);
+		menu.InsertMenu(0, MF_BYPOSITION | flags, EM_UNDO,
+			MES_UNDO);
 #endif
 
-	menu.InsertMenu(1, MF_BYPOSITION | MF_SEPARATOR);
+		menu.InsertMenu(1, MF_BYPOSITION | MF_SEPARATOR);
 
-	DWORD sel = GetSel();
-	flags = LOWORD(sel) == HIWORD(sel) ? MF_GRAYED : 0;
+		DWORD sel = GetSel();
+		flags = LOWORD(sel) == HIWORD(sel) ? MF_GRAYED : 0;
 #ifdef IDS_SPELLEDIT_COPY
-	m_i18l.LoadString(IDS_SPELLEDIT_COPY);
-	menu.InsertMenu(2, MF_BYPOSITION | flags, WM_COPY,
-		m_i18l);
+		m_i18l.LoadString(IDS_SPELLEDIT_COPY);
+		menu.InsertMenu(2, MF_BYPOSITION | flags, WM_COPY,
+			m_i18l);
 #else
-	menu.InsertMenu(2, MF_BYPOSITION | flags, WM_COPY,
-		MES_COPY);
+		menu.InsertMenu(2, MF_BYPOSITION | flags, WM_COPY,
+			MES_COPY);
 #endif
 
-	flags = (flags == MF_GRAYED || bReadOnly) ? MF_GRAYED : 0;
+		flags = (flags == MF_GRAYED || bReadOnly) ? MF_GRAYED : 0;
 #ifdef IDS_SPELLEDIT_CUT
-	m_i18l.LoadString(IDS_SPELLEDIT_CUT);
-	menu.InsertMenu(2, MF_BYPOSITION | flags, WM_CUT,
-		m_i18l);
+		m_i18l.LoadString(IDS_SPELLEDIT_CUT);
+		menu.InsertMenu(2, MF_BYPOSITION | flags, WM_CUT,
+			m_i18l);
 #else
-	menu.InsertMenu(2, MF_BYPOSITION | flags, WM_CUT,
-		MES_CUT);
+		menu.InsertMenu(2, MF_BYPOSITION | flags, WM_CUT,
+			MES_CUT);
 #endif
 #ifdef IDS_SPELLEDIT_DELETE
-	m_i18l.LoadString(IDS_SPELLEDIT_DELETE);
-	menu.InsertMenu(4, MF_BYPOSITION | flags, WM_CLEAR,
-		m_i18l);
+		m_i18l.LoadString(IDS_SPELLEDIT_DELETE);
+		menu.InsertMenu(4, MF_BYPOSITION | flags, WM_CLEAR,
+			m_i18l);
 #else
-	menu.InsertMenu(4, MF_BYPOSITION | flags, WM_CLEAR,
-		MES_DELETE);
+		menu.InsertMenu(4, MF_BYPOSITION | flags, WM_CLEAR,
+			MES_DELETE);
 #endif
-	flags = IsClipboardFormatAvailable(CF_TEXT) &&
-		!bReadOnly ? 0 : MF_GRAYED;
+		flags = IsClipboardFormatAvailable(CF_TEXT) &&
+			!bReadOnly ? 0 : MF_GRAYED;
 #ifdef IDS_SPELLEDIT_PASTE
-	m_i18l.LoadString(IDS_SPELLEDIT_PASTE);
-	menu.InsertMenu(4, MF_BYPOSITION | flags, WM_PASTE,
-		m_i18l);
+		m_i18l.LoadString(IDS_SPELLEDIT_PASTE);
+		menu.InsertMenu(4, MF_BYPOSITION | flags, WM_PASTE,
+			m_i18l);
 #else
-	menu.InsertMenu(4, MF_BYPOSITION | flags, WM_PASTE,
-		MES_PASTE);
+		menu.InsertMenu(4, MF_BYPOSITION | flags, WM_PASTE,
+			MES_PASTE);
 #endif
-	menu.InsertMenu(6, MF_BYPOSITION | MF_SEPARATOR);
+		menu.InsertMenu(6, MF_BYPOSITION | MF_SEPARATOR);
 
-	int len = GetWindowTextLength();
-	flags = (!len || (LOWORD(sel) == 0 && HIWORD(sel) ==
-		len)) ? MF_GRAYED : 0;
+		int len = GetWindowTextLength();
+		flags = (!len || (LOWORD(sel) == 0 && HIWORD(sel) ==
+			len)) ? MF_GRAYED : 0;
 #ifdef IDS_SPELLEDIT_SELECTALL
-	m_i18l.LoadString(IDS_SPELLEDIT_SELECTALL);
-	menu.InsertMenu(7, MF_BYPOSITION | flags, ME_SELECTALL,
-		m_i18l);
+		m_i18l.LoadString(IDS_SPELLEDIT_SELECTALL);
+		menu.InsertMenu(7, MF_BYPOSITION | flags, ME_SELECTALL,
+			m_i18l);
 #else
-	menu.InsertMenu(7, MF_BYPOSITION | flags, ME_SELECTALL,
-		MES_SELECTALL);
+		menu.InsertMenu(7, MF_BYPOSITION | flags, ME_SELECTALL,
+			MES_SELECTALL);
 #endif
+	}
 
 	//find the word under the cursor
 	CString word;
@@ -299,8 +315,13 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 
 		if ((ns > 0)&&(point.x >= 0))
 		{
-			menu.InsertMenu(8, MF_BYPOSITION | MF_SEPARATOR);
+			menu.InsertMenu(-1, MF_BYPOSITION | MF_SEPARATOR);
+#ifdef IDS_SPELLEDIT_CORRECTIONS
+			m_i18l.LoadString(IDS_SPELLEDIT_CORRECTIONS);
+			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, m_i18l);
+#else
 			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, _T("Corrections"));
+#endif
 			nCorrections = ns;
 		}
 	} // if (pChecker)
@@ -332,7 +353,12 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 		}  
 		if ((count > 0)&&(point.x >= 0))
 		{
+#ifdef IDS_SPELLEDIT_THESAURUS
+			m_i18l.LoadString(IDS_SPELLEDIT_THESAURUS);
+			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, m_i18l);
+#else
 			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, _T("Thesaurus"));
+#endif
 			nThesaurs = menuid;
 		}
 
@@ -350,7 +376,9 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	// delete the submenu's
 	for (int i=0; i<menuArray.GetCount(); i++)
+	{
 		delete menuArray.GetAt(i);
+	}
 
 	if (nCmd < 0)      
 		return;    
@@ -360,10 +388,13 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 	case WM_CUT:    
 	case WM_COPY:    
 	case WM_CLEAR:    
-	case WM_PASTE:        
-		SendMessage(nCmd);    
+	case WM_PASTE:  
+	case WM_UNDO:
+		SendMessage(nCmd);  
+		break;
 	case ME_SELECTALL:        
-		SendMessage(EM_SETSEL, 0, -1);    
+		SendMessage(EM_SETSEL, 0, -1);  
+		break;
 	default:
 		{
 			if (nCmd)
