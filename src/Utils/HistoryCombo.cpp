@@ -282,6 +282,8 @@ CString CHistoryCombo::GetString()
 	CString str;
 	int sel;
 	sel = GetCurSel();
+	if (sel == CB_ERR)
+		return str;
 	GetLBText(sel, str.GetBuffer(GetLBTextLen(sel)));
 	str.ReleaseBuffer();
 	return str;
