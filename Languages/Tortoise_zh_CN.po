@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-01 22:52+0800\n"
-"Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
+"PO-Revision-Date: 2004-10-19 10:28+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -691,6 +691,11 @@ msgstr "加入的"
 msgid "Added a file remotely"
 msgstr "远程加入档案完成"
 
+# ID:126,
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "远程加入数据夹完成"
+
 # ID:13,
 #: ID:145
 msgid ""
@@ -914,11 +919,6 @@ msgstr "浏览(&R)..."
 msgid "B&uiltin"
 msgstr "内建(&U)"
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -928,6 +928,11 @@ msgstr "备份原始档"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "基础档案:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "柏克莱数据库(BDB)"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
@@ -1052,7 +1057,7 @@ msgstr "凭证尚未生效. 起始日期: %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "凭证|*.p12;*.pkcs12|所有档案|*.*||"
 
 # ID:3825,
@@ -1431,6 +1436,11 @@ msgid "Create Patch..."
 msgstr "建立补缀..."
 
 # ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "建立档案库"
+
+# ID:8,
 #: ID:8
 msgid "Create Repository here"
 msgstr "在此建立档案库"
@@ -1795,11 +1805,6 @@ msgstr "外部"
 msgid "External Program:"
 msgstr "外部程序:"
 
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
-
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -1953,6 +1958,11 @@ msgid ""
 msgstr ""
 "跳至前一个差异处\n"
 "前一差异"
+
+# ID:12,
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "档案库中的最新版本是: %d"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -2299,6 +2309,11 @@ msgstr "编修冲突"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "原生档案系统(FSFS)"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2479,11 +2494,6 @@ msgstr "口令:"
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
 msgstr "异动过的档案"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "以英文贴上讯息模版(&T)"
 
 # ID:376,
 #: ID:376
@@ -3042,6 +3052,11 @@ msgstr "另存新档..."
 msgid "Save changes to %1?"
 msgstr "是否储存 %1 的变动?"
 
+# ID:76,
+#: ID:232
+msgid "Save client certificate path"
+msgstr "储存用户端凭证路径"
+
 # ID:3601,#:
 # ID:3601,
 #: ID:3601
@@ -3137,6 +3152,11 @@ msgstr ""
 "选取整份文件\n"
 "全选"
 
+# ID:213,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "选择你要建立的档案库类型:"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -3174,9 +3194,10 @@ msgstr "设定"
 #: ID:115
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
 msgstr ""
-"要在复制时停止记录讯息吗?\n"
+"要在有复制记录时停止抓取记录讯息吗?\n"
 "如果你需要查询分支从何时开始, 请点选 <b>是</b>."
 
 # Control-ID:65535,
@@ -3929,6 +3950,11 @@ msgstr "优先使用本地(y&ours)的而非远程(theirs)的文字区块"
 msgid "Use th&is text block"
 msgstr "使用此文字区块"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "使用整个档案(&W)"
+
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
@@ -3999,11 +4025,6 @@ msgstr "浏览我们的网站"
 #: ID:219
 msgid "Warning!"
 msgstr "警告!"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "你要建立什么型式的档案库?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4118,6 +4139,18 @@ msgstr "无名档案"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "并请支持开发者"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"设为 \"false\" 时, bug 编号会加在记录讯息最\n"
+"开头. 预设值是 \"true\", 表示 bug 编号是加在记录讯息的最后."
 
 # ID:14,
 #: ID:14
@@ -4352,6 +4385,17 @@ msgstr "至 %s"
 # ID:15,
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"如果你不想要异动档案列表以英文贴入送交对话窗,\n"
+"请设定为 \"false\"."
+
+# ID:15,
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -4379,6 +4423,15 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "设定记录讯息一行的最大字元数.\n"
 "送交窗口中会在指定位置显示一条淡淡的直线. 预设是 80 字."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"如果设为 \"yes\", 在送交对话窗没有输入问题时, 会显示警告讯息."
 
 # Control-ID:1112,
 #: Control-ID:1112
