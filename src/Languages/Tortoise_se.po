@@ -9,22 +9,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-15 09:21+0100\n"
+"PO-Revision-Date: 2004-07-15 12:15+0100\n"
 "Last-Translator: Johan Stenqvist <johan@stenqvist.se>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-# ID:10,#:
-# ID:126,#:
-# ID:126,
 #: ID:10
 #: ID:126
 msgid " "
 msgstr " "
 
-# ID:188,
 #: ID:188
 msgid "! %d"
 msgstr "! %d"
@@ -78,20 +74,17 @@ msgstr ""
 "Hittar inte filen %1\n"
 "Kontrollera att sökvägen och filnamnet är korrekt."
 
-# ID:169,
 #: ID:169
 msgid "%d files selected, %d files total"
 msgstr "%d filer markerade, %d filer totalt"
 
-# ID:151,
+# Osäker på var denna visas
 #: ID:151
-#, fuzzy
 msgid "%s : Working Base"
 msgstr "%s : Arbetsbas"
 
-# ID:151,
+# Osäker på var denna visas
 #: ID:151
-#, fuzzy
 msgid "%s : Working Copy"
 msgstr "%s : Arbetskopia"
 
@@ -111,13 +104,11 @@ msgstr "&Om TortoiseMerge..."
 msgid "&Add..."
 msgstr "&Lägg till..."
 
-# Control-ID:1090,
 #: Control-ID:1090
 msgid "&Advanced..."
 msgstr "&Avancerat..."
 
 #: Control-ID:1013
-#, fuzzy
 msgid "&Apply Unified Diff"
 msgstr "Applicera patch (\"Unified Diff\")"
 
@@ -125,12 +116,10 @@ msgstr "Applicera patch (\"Unified Diff\")"
 msgid "&Browse..."
 msgstr "&Bläddra..."
 
-# Control-ID:1091,
 #: Control-ID:1091
 msgid "&Builtin"
 msgstr "&Inbyggd"
 
-# Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
@@ -147,12 +136,10 @@ msgstr "Mapp för &uthämtning:"
 msgid "&Close windows automatically"
 msgstr "&Stäng fönster automatiskt"
 
-# Control-ID:1099,
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Redigera"
 
-# Control-ID:1023,
 #: Control-ID:1023
 msgid "&Enable Proxy Server (Don't use the IE settings)"
 msgstr "&Aktivera proxyserver (använd inte inställningar från IE)"
@@ -213,9 +200,8 @@ msgstr "&Språk:"
 msgid "&Merge"
 msgstr "&Förena"
 
-# Control-ID:65535,
+# Hur översätta "merge"
 #: Control-ID:65535
-#, fuzzy
 msgid "&Merge changes into the current working copy from URL:"
 msgstr "&Förena ändringar i arbetskopian från URL:"
 
@@ -231,13 +217,11 @@ msgstr "&Nätverksenheter"
 msgid "&New "
 msgstr "&Ny"
 
+# Hur översätta "difference"
 #: MenuEntry
-#, fuzzy
 msgid "&Next Difference"
 msgstr "&Nästa avvikelse"
 
-# Control-ID:1,#:
-# Control-ID:1,
 #: Control-ID:1
 msgid "&OK"
 msgstr "&OK"
@@ -250,13 +234,12 @@ msgstr "&Öppna\tCtrl-O"
 msgid "&Password:"
 msgstr "&Lösenord:"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
 msgstr "&Port:"
 
+# Hur översätta "difference"
 #: MenuEntry
-#, fuzzy
 msgid "&Previous Difference"
 msgstr "&Föregående avvikelse"
 
@@ -324,27 +307,19 @@ msgstr "Användar&namn: "
 msgid "&View"
 msgstr "&Visa"
 
+# Hur översätta "whitespace"
 #: MenuEntry
-#, fuzzy
 msgid "&Whitespaces"
 msgstr "Whitespace"
 
-# ID:188,
 #: ID:188
 msgid "+ %d"
 msgstr "+ %d"
 
-# ID:188,
 #: ID:188
 msgid "- %d"
 msgstr "- %d"
 
-# Control-ID:1035,#:
-# Control-ID:1036,#:
-# Control-ID:1021,#:
-# Control-ID:1022,#:
-# Control-ID:1089,#:
-# Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1021
@@ -362,7 +337,6 @@ msgstr "Ett hårdvarufel inträffade vid åtkomst av %1."
 msgid "A locking violation occurred while accessing %1."
 msgstr "Ett låsningsfel inträffade vid åtkomst av %1."
 
-# ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "En nyare version finns tillgänglig. Surfa till http://tortoisesvn.tigris.org och ladda hem den nya versionen!"
@@ -376,7 +350,6 @@ msgid "A sharing violation occurred while accessing %1."
 msgstr "Ett delningsfel inträffade vid åtkomst av %1."
 
 #: ID:79
-#, fuzzy
 msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
@@ -384,7 +357,6 @@ msgstr ""
 "En applikation för att visa GNU avvikelsefiler (patchfiler).\n"
 "Använd tex Notepad om du inte har någon."
 
-# Control-ID:1093,
 #: Control-ID:1093
 msgid "A&dvanced..."
 msgstr "A&vancerat..."
@@ -440,15 +412,13 @@ msgstr ""
 msgid "Add"
 msgstr "Lägg till"
 
-# ID:110,
+# Hur översätta "diff"
 #: ID:110
-#, fuzzy
 msgid "Add Extension Specific Diff Program"
-msgstr "Ändra filändelsebaserat föreningsprogram"
+msgstr "Ändra filändelsebaserat avvikelseprogram"
 
-# ID:110,
+# Hur översätta "merge"
 #: ID:110
-#, fuzzy
 msgid "Add Extension Specific Merge Program"
 msgstr "Ändra filändelsebaserat föreningsprogram"
 
@@ -468,9 +438,8 @@ msgstr "Lägg till filer här i arkivet"
 msgid "Add folder..."
 msgstr "Lägg till mapp..."
 
-# Dlg-ID:171,
+# Hur översätta "diff/merge"
 #: Dlg-ID:171
-#, fuzzy
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Lägg till/ändra filändelsebaserat avvikelse-/föreningsprogram"
 
@@ -498,21 +467,18 @@ msgstr ""
 "Ändra inställningar\n"
 "Inställningar"
 
-# ID:110,
+# Hur översätta "diff"
 #: ID:110
-#, fuzzy
 msgid "Advanced Diff Settings"
 msgstr "Avancerade avvikelseinställningar"
 
-# Dlg-ID:170,
+# Hur översätta "diff/merge"
 #: Dlg-ID:170
-#, fuzzy
 msgid "Advanced Diff/Merge Settings"
 msgstr "Avancerade avvikelse-/föreningsinställningar"
 
-# ID:110,
+# Hur översätta "merge"
 #: ID:110
-#, fuzzy
 msgid "Advanced Merge Settings"
 msgstr "Avancerade föreningsinställningar"
 
@@ -650,7 +616,6 @@ msgstr "Upphovsmän: Stefan Kueng, Tim Kemp"
 msgid "B&rowse..."
 msgstr "B&läddra..."
 
-# Control-ID:1094,
 #: Control-ID:1094
 msgid "B&uiltin"
 msgstr "&Intern"
@@ -703,8 +668,8 @@ msgstr "Bläddr&a..."
 msgid "Browse Repository"
 msgstr "Utforska arkivet"
 
+# Hur översätta "diff"
 #: ID:78
-#, fuzzy
 msgid "Browse for the external diff program"
 msgstr "Välj applikation för avvikelsehantering"
 
@@ -712,12 +677,10 @@ msgstr "Välj applikation för avvikelsehantering"
 msgid "Browse..."
 msgstr "Bläddra..."
 
-# Control-ID:1096,
 #: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "I&ntern"
 
-# ID:3697,
 #: ID:3697
 msgid "CAP"
 msgstr "CAP"
@@ -755,7 +718,6 @@ msgstr "Certifikatet har gått ut. Giltigt till: %s"
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certifikatet inte giltigt ännu. Giltigt från: %s"
 
-# ID:157,
 #: ID:157
 msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
 msgstr "Certifikat|*.p12;*.pkcs12|Alla|*.*||"
@@ -792,7 +754,6 @@ msgstr "Leta efter uppdateringar..."
 msgid "Check for Updates"
 msgstr "Leta efter uppdateringar"
 
-# Control-ID:1073,
 #: Control-ID:1073
 msgid "Check for newer versions"
 msgstr "Sök efter nya versioner"
@@ -819,12 +780,10 @@ msgstr "Markera de filer som du vill ta bort innan importen."
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr "Markera de alternativ du vill ska visas i den översta högerknappsmenyn istället för i TSVNs undermeny"
 
-# ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kryssa i för att använda ett mindre utförligt format för datum och tid i loggmeddelanden"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Kontrollerar om det finns en nyare version av TortoiseSVN tillgänglig..."
@@ -849,15 +808,13 @@ msgstr "Rensning klar"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rensar bort efter avbrutna åtgärder; låsta filer etc"
 
-# Control-ID:65535,
+# Hur översätta "diff"
 #: Control-ID:65535
-#, fuzzy
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
 msgstr "Klicka på \"Avancerat...\" för att ange olika avvikelseprogram baserat på filändelse"
 
-# Control-ID:65535,
+# Hur översätta "merge"
 #: Control-ID:65535
-#, fuzzy
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "Klicka på \"Avancerat...\" för att ange olika föreningsprogram baserat på filändelse"
 
@@ -897,10 +854,10 @@ msgstr "Jämför whitespace"
 msgid "Compare revisions"
 msgstr "Jämför versioner"
 
+# Hur översätta "Base"
 #: ID:138
-#, fuzzy
 msgid "Compare with Base"
-msgstr "Jämför med arbetskopia"
+msgstr "Jämför med basversion"
 
 #: ID:76
 msgid "Compare with working copy"
@@ -962,7 +919,6 @@ msgstr "Korrigeringar"
 msgid "Could not add %s to the ignore list!"
 msgstr "Kunde inte lägga till %s på undtantagslistan!"
 
-# ID:201,
 #: ID:201
 msgid "Could not check for a newer version!"
 msgstr "Kunde inte leta efter nyare version!"
@@ -1007,8 +963,8 @@ msgstr ""
 msgid "Could not save the file %s!"
 msgstr "Kunde inte spara filen %s!"
 
+# Hur översätta "diff"
 #: ID:81
-#, fuzzy
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
@@ -1018,8 +974,8 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+# Hur översätta "diff"
 #: ID:81
-#, fuzzy
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
@@ -1109,8 +1065,8 @@ msgstr "Tar bort filer / mappar ur arkivet"
 msgid "Destination disk drive is full."
 msgstr "Otillräckligt diskutrymme på målenheten."
 
+# Hur översätta "diff"
 #: ID:12
-#, fuzzy
 msgid "Diff"
 msgstr "Avvikelse"
 
@@ -1122,18 +1078,18 @@ msgstr "Patchfil:"
 msgid "Diff Program"
 msgstr "Redigeringsprogram för avvikelser"
 
+# Hur översätta "diff"
 #: Control-ID:65535
-#, fuzzy
 msgid "Diff Viewer"
 msgstr "Avvikelsevisare"
 
+# Hur översätta "diff/merge"
 #: Dlg-ID:163
-#, fuzzy
 msgid "Diff/Merge"
 msgstr "Avvikelse/förening"
 
+# Hur översätta "diffing"
 #: Control-ID:1022
-#, fuzzy
 msgid "Diffing"
 msgstr "Kontrollerar avvikelser"
 
@@ -1221,10 +1177,10 @@ msgstr "Vill du spara dina ändringar?"
 msgid "Don't &remove log messages when cancelling a commit"
 msgstr "&Ta inte bort loggmeddelanden vid avbruten arkivering"
 
+# Hur översätta "diff" och "BASE"
 #: Control-ID:1073
-#, fuzzy
 msgid "Don't convert files when diffing against BASE"
-msgstr "Konvertera inte filer vid kontroll av avvikelse mot BASE"
+msgstr "Konvertera inte filer vid kontroll av avvikelse mot basversion"
 
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1238,7 +1194,6 @@ msgstr "&Avsluta"
 msgid "E&xternal"
 msgstr "&Extern"
 
-# ID:3697,
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
@@ -1251,13 +1206,11 @@ msgstr "Redigera"
 msgid "Edit Conflicts"
 msgstr "Editera konflikt"
 
-# ID:110,
+# Hur översätta "diff"
 #: ID:110
-#, fuzzy
 msgid "Edit Extension Specific Diff Program"
 msgstr "Ändra filändelsebaserat avvikelseprogram"
 
-# ID:110,
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "Ändra filändelsebaserat föreningsprogram"
@@ -1339,17 +1292,14 @@ msgstr "Exporterar..."
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Exporterar en 'ren' kopia från arkivet, utan .svn mappar"
 
-# ID:74,
 #: ID:74
 msgid "Extension"
 msgstr "Filändelse"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "Extension specific programs"
 msgstr "Filändelsespecifika program"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "Extension:"
 msgstr "Filändelse:"
@@ -1417,7 +1367,6 @@ msgstr "Klar!"
 msgid "Font for log messages:"
 msgstr "Font för loggmeddelanden:"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "Font:"
 msgstr "Font:"
@@ -1450,8 +1399,8 @@ msgstr "Hämtar fil %s"
 msgid "Getting file info..."
 msgstr "Hämtar filinformation..."
 
+# Hur översätta "diff"
 #: ID:2049
-#, fuzzy
 msgid ""
 "Go to the next difference\n"
 "next difference"
@@ -1459,8 +1408,8 @@ msgstr ""
 "Gå till nästa avvikelse\n"
 "nästa avvikelse"
 
+# Hur översätta "diff"
 #: ID:2049
-#, fuzzy
 msgid ""
 "Go to the previous difference\n"
 "previous difference"
@@ -1485,7 +1434,6 @@ msgstr "Ikonsymboler"
 msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr "Ikoner/Design/Kodning: Luebbe Onken"
 
-# ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "Förhindra att ikonsymboler visas i \"spara som...\" och \"öppna\" dialoger"
@@ -1502,7 +1450,6 @@ msgstr ""
 msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
 msgstr "Om markerad, skapar TortoiseSVN inte en temporär fil för järmförelsen, utan jämför originalfilen mot BASE"
 
-# ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare version tillgänglig"
@@ -1578,7 +1525,6 @@ msgstr "Internt fel."
 msgid "Invalid filename."
 msgstr "Felaktigt filnamn."
 
-# ID:82,
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
@@ -1613,8 +1559,8 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+# Hur översätta "diff"
 #: Control-ID:1016
-#, fuzzy
 msgid "Jump to first difference when loading"
 msgstr "Hoppa till första avvikelse när programmet startas"
 
@@ -1682,8 +1628,8 @@ msgstr "Meny"
 msgid "Merge"
 msgstr "Förena"
 
+# Hur översätta "merge"
 #: Control-ID:65535
-#, fuzzy
 msgid "Merge Program"
 msgstr "Föreningsprogram"
 
@@ -1705,9 +1651,8 @@ msgstr "Loggmeddelande"
 
 #: ID:78
 msgid "Mime Type"
-msgstr "Mimetyp"
+msgstr "Mime-typ"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "Minimum logsize in chars"
 msgstr "Minsta antal tecken för loggmeddelanden"
@@ -1741,7 +1686,6 @@ msgstr "Flyttar %s"
 msgid "Moving..."
 msgstr "Flyttar..."
 
-# ID:3697,
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
@@ -1800,30 +1744,24 @@ msgstr "Normal"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Alla registryinställningar eller .ini-filen togs inte bort."
 
-# Control-ID:1,#:
-# ID:73,#:
-# Control-ID:1,
 #: ID:73
 #: Control-ID:1
 msgid "OK"
 msgstr "OK"
 
-# ID:3697,
 #: ID:3697
 msgid "OVR"
 msgstr "OVR"
 
+# Hur översätta "diff"
 #: MenuEntry
-#, fuzzy
 msgid "Oneway &Diff"
 msgstr "&1-vägs avvikelse"
 
-# Control-ID:1073,
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Hämta endast översta mappen"
 
-# Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Uppdatera endast översta mappen"
@@ -1857,12 +1795,10 @@ msgstr "Visar utforskaren för arkivet"
 msgid "Out of memory."
 msgstr "Slut på tillgängligt minne."
 
-# ID:76,
 #: ID:76
 msgid "PEM"
 msgstr "PEM"
 
-# ID:76,
 #: ID:76
 msgid "PKCS12"
 msgstr "PKCS12"
@@ -1875,8 +1811,6 @@ msgstr "Lösenord:"
 msgid "Patch All"
 msgstr "Patcha allt"
 
-# ID:157,#:
-# ID:157,
 #: ID:157
 msgid "Patchfiles|*.diff;*.patch|All|*.*||"
 msgstr "Patchfiler|*.diff;*.patch|Alla|*.*||"
@@ -1973,7 +1907,6 @@ msgstr "Processar version %d av %d..."
 msgid "Program"
 msgstr "Program"
 
-# ID:157,
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Program (*.exe)|*.exe|Alla Files (*.*)|*.*||"
@@ -2019,7 +1952,6 @@ msgstr ""
 msgid "RAM drives"
 msgstr "RAM enheter"
 
-# ID:3697,
 #: ID:3697
 msgid "REC"
 msgstr "REC"
@@ -2053,7 +1985,6 @@ msgstr "Avslå"
 msgid "Reload"
 msgstr "Ladda om"
 
-# ID:2050,
 #: ID:2050
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
@@ -2208,12 +2139,10 @@ msgstr "Version:"
 msgid "S&ettings"
 msgstr "&Inställningar"
 
-# ID:3697,
 #: ID:3697
 msgid "SCRL"
 msgstr "SCRL"
 
-# Control-ID:1081,
 #: Control-ID:1081
 msgid "SSH"
 msgstr "SSH"
@@ -2278,11 +2207,12 @@ msgstr "Växlar..."
 msgid "SVN Update..."
 msgstr "Uppdaterar..."
 
+# Var används denna?
 #: ID:12
 msgid "SVN Url"
-msgstr "SVN URL"
+msgstr "SVN Url"
 
-# ID:14,
+# Var används denna?
 #: ID:14
 msgid "SVN mime-type"
 msgstr "SVN mime-type"
@@ -2336,8 +2266,8 @@ msgstr "Sökning misslyckades i %1"
 msgid "Select / Deselect &All"
 msgstr "Markera / avmarkera &allt"
 
+# Hur översätta "diff"
 #: ID:78
-#, fuzzy
 msgid "Select Diff Application"
 msgstr "Välj avvikelseapplikation"
 
@@ -2361,8 +2291,8 @@ msgstr "Välj SSH klient"
 msgid "Select Text Editor Application"
 msgstr "Välj applikation för textredigering"
 
+# Hur översätta "diff"
 #: ID:78
-#, fuzzy
 msgid "Select Viewer for Diff-Files"
 msgstr "Välj applikation för att visa avvikelsefiler"
 
@@ -2370,8 +2300,8 @@ msgstr "Välj applikation för att visa avvikelsefiler"
 msgid "Select an object on which to get Help"
 msgstr "Markera ett objekt för att få hjälp"
 
+# Hur översätta "diff"
 #: ID:313
-#, fuzzy
 msgid "Select diff file..."
 msgstr "Välj avvikelsefil..."
 
@@ -2403,7 +2333,6 @@ msgstr "Skickar innehåll"
 msgid "Server &address:"
 msgstr "Server&adress:"
 
-# Control-ID:1088,
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
 msgstr "Sätt fildatum till \"senaste arkiveringsdatum\""
@@ -2438,23 +2367,21 @@ msgstr "Visa &logg..."
 msgid "Show &log"
 msgstr "Visa &logg"
 
-# Control-ID:1065,
+# Hur översätta "diff"
 #: Control-ID:1065
-#, fuzzy
 msgid "Show Diff Bar"
 msgstr "Visa avvikelserad"
 
+# Hur översätta "differences"
 #: ID:113
-#, fuzzy
 msgid "Show Differences"
 msgstr "Visa avvikelser"
 
+# Hur översätta "diff" och "Unified diff"
 #: ID:113
-#, fuzzy
 msgid "Show Differences as Unified Diff"
 msgstr "Visa avvikelser som \"Unified Diff\""
 
-# Control-ID:1063,
 #: Control-ID:1063
 msgid "Show Linenumbers"
 msgstr "Visa radnummer"
@@ -2487,7 +2414,6 @@ msgstr ""
 "Visa eller dölj verktygsrad\n"
 "Växla verktygsrad"
 
-# Control-ID:1088,
 #: Control-ID:1088
 msgid "Show overlays only in explorer"
 msgstr "Visa ikonsymboler endast i Utforskaren"
@@ -2516,7 +2442,6 @@ msgstr "Visar information om TortoiseSVN"
 msgid "Shows the log for the selected file / folder"
 msgstr "Visar historik för den valda filen / mappen"
 
-# ID:14,
 #: ID:14
 msgid "Shows the mime type of the versioned file"
 msgstr "Visar mime-typen för den versionshanterade filen"
@@ -2557,7 +2482,6 @@ msgstr "Status"
 msgid "Status of item in SVN"
 msgstr "Status"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Konfigurationsfil för Subversion:"
@@ -2754,7 +2678,6 @@ msgstr ""
 "%s\n"
 " matchar inte!"
 
-# ID:78,
 #: ID:78
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -2785,7 +2708,6 @@ msgstr ""
 msgid "Their File:"
 msgstr "\"Deras\" fil:"
 
-# ID:169,
 #: ID:169
 msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
@@ -2804,17 +2726,13 @@ msgstr ""
 
 # ID:188,
 #: ID:188
-#, fuzzy
 msgid "Thesaurus"
 msgstr "Ordbok"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "Den här produkten innehåller programvara utvecklad av CollabNet (http://www.Collab.Net/)"
 
-# ID:3857,#:
-# ID:3857,
 #: ID:3857
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "Det här programmet är länkad med den saknade exprten %s i filen %s. Den här datorn kan ha en inkompatibel version av %s."
@@ -2827,7 +2745,6 @@ msgstr "Den här applikationen kräver filen %s, som inte kunde hittas."
 msgid "Three File Diff"
 msgstr "3-filershantering av avvikelser"
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
 msgstr "För att förena ändringar från en specifik gren, måste du ange samma URL i både \"Från:\" och \"Till:\"."
@@ -2836,7 +2753,6 @@ msgstr "För att förena ändringar från en specifik gren, måste du ange samma
 msgid "To see the changes you made, double click on the files above."
 msgstr "Dubbelklicka på filerna ovan för att se de ändringar som är gjorda."
 
-# Control-ID:65535,
 #: Control-ID:65535
 msgid "To:"
 msgstr "Till:"
@@ -2847,12 +2763,10 @@ msgstr "Till:"
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
-# ID:107,
 #: ID:107
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
-# ID:107,
 #: ID:107
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
@@ -2872,12 +2786,10 @@ msgstr ""
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
-# ID:107,
 #: ID:107
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
-# ID:107,
 #: ID:107
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
@@ -2916,7 +2828,6 @@ msgstr "Ändra inställningar för TortoiseSVN"
 msgid "Two File Diff"
 msgstr "2-filers avvikelsehantering"
 
-# Dlg-ID:164,
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
@@ -3016,9 +2927,8 @@ msgstr "Url"
 
 #: ID:144
 msgid "Url:"
-msgstr "URL:"
+msgstr "Url:"
 
-# Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Använd förstoring på översikten"
@@ -3027,7 +2937,6 @@ msgstr "Använd förstoring på översikten"
 msgid "Use one-pane view as default"
 msgstr "Använd enkel vy som standard"
 
-# Control-ID:1066,
 #: Control-ID:1066
 msgid "Use strikeout for deleted lines"
 msgstr "Använd överstrykning för borttagna rader"
@@ -3037,7 +2946,6 @@ msgid "Use text block from \"theirs\""
 msgstr "Använd \"deras\" textblock"
 
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"theirs\" before \"yours\""
 msgstr "Använd \"deras\" textblock istället för \"ditt\""
 
@@ -3046,7 +2954,6 @@ msgid "Use text block from \"yours\""
 msgstr "Använd \"ditt\" textblock"
 
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"yours\" before \"theirs\""
 msgstr "Använd \"ditt\" textblock istället för \"deras\""
 
@@ -3100,8 +3007,8 @@ msgstr "Värde"
 msgid "Version"
 msgstr "Version"
 
+# Hur översätta "diff", menas det "unified diff" här tro?
 #: Control-ID:65535
-#, fuzzy
 msgid "Viewer program for GNU diff files (patch files)."
 msgstr "Applikation för att visa GNU avvikelsefiler (patchfiler)."
 
@@ -3109,8 +3016,8 @@ msgstr "Applikation för att visa GNU avvikelsefiler (patchfiler)."
 msgid "Visit our website"
 msgstr "Besök vår webbsida"
 
+# Hur översätta "diff" och "whitespace"
 #: Control-ID:65535
-#, fuzzy
 msgid "Whitespace diff"
 msgstr "Whitespace avvikelser"
 
@@ -3130,17 +3037,14 @@ msgstr ""
 msgid "Yes"
 msgstr "Ja"
 
-# ID:145,
 #: ID:145
 msgid "Yes to all"
 msgstr "Ja på allt"
 
-# ID:201,
 #: ID:201
 msgid "You already have the most current version installed."
 msgstr "Du har redan den senaste versionen installerad."
 
-# ID:144,
 #: ID:144
 msgid ""
 "You are creating a repository on a network share.\n"
@@ -3153,7 +3057,6 @@ msgstr ""
 "Arkivåtkomst via file:/// på en delad nätverksenhet kan förstöra dina data!\n"
 "Vill du skapa arkivet i alla fall?"
 
-# ID:88,
 #: ID:88
 msgid ""
 "You are trying to access a repository via file:/// on\n"
@@ -3206,12 +3109,10 @@ msgstr "rensar"
 msgid "conflicted"
 msgstr "I konflikt"
 
-# Control-ID:1113,
 #: Control-ID:1113
 msgid "current version is:"
 msgstr "nuvarande version är:"
 
-# ID:201,
 #: ID:201
 msgid "current version is: %s"
 msgstr "nuvarande version är: %s"
@@ -3293,7 +3194,6 @@ msgstr "Ersatt"
 msgid "save authentication"
 msgstr "Spara"
 
-# ID:14,
 #: ID:14
 msgid ""
 "svn:eol-style\n"
@@ -3302,7 +3202,6 @@ msgstr ""
 "svn:eol-style\n"
 "En av 'native', 'LF', 'CR', 'CRLF'."
 
-# ID:14,
 #: ID:14
 msgid ""
 "svn:executable\n"
@@ -3311,7 +3210,6 @@ msgstr ""
 "svn:executable\n"
 "Markerar en fil som körbar. Den här egenskapen kan inte sättas på en mapp. Den går inte att sätta som icke-rekursiv, och rekursivt sätts egenskapen endast på filer."
 
-# ID:14,
 #: ID:14
 msgid ""
 "svn:externals\n"
@@ -3324,7 +3222,6 @@ msgstr ""
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
-# ID:14,
 #: ID:14
 msgid ""
 "svn:ignore\n"
@@ -3333,7 +3230,6 @@ msgstr ""
 "svn:ignore\n"
 "En lista ett filmatchningsmönster att utesluta per rad."
 
-# ID:14,
 #: ID:14
 msgid ""
 "svn:keywords\n"
@@ -3352,7 +3248,6 @@ msgstr ""
 "Rev, LastChangedRevision\tSenaste versionsnummret för filen.\n"
 "Id\t\t\t\tEn kompakt sammanställning av ovan nämnda nyckelord."
 
-# ID:14,
 #: ID:14
 msgid ""
 "svn:mime-type\n"
@@ -3369,7 +3264,6 @@ msgstr "till %s"
 msgid "your version is:"
 msgstr "din version är:"
 
-# ID:201,
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "din version är: %d.%d.%d.%d"
