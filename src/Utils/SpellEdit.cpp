@@ -91,7 +91,7 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 						word = line.Mid(oldpos, line.GetLength()-oldpos);
 						wordsize = dc.GetTextExtent(word);
 					}
-					CString worda = CStringA(word);
+					CStringA worda = CStringA(word);
 					worda.Trim(".!_#$%&()* +,-/:;<=>[]\\^`{|}~\t \x0a\x0d\x01\'\"");
 
 					if (!pChecker->spell(worda))
@@ -327,7 +327,7 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 					CString sug = CString(pm->psyns[j]);
 					submenu->InsertMenu(-1, 0, menuid++, sug);
 				}
-				thesaurs.InsertMenu(-1, MF_POPUP, (UINT_PTR)(submenu->m_hMenu), pm->defn);
+				thesaurs.InsertMenu(-1, MF_POPUP, (UINT_PTR)(submenu->m_hMenu), CString(pm->defn));
 				pm++;
 			}
 		}  
