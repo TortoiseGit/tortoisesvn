@@ -463,9 +463,19 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				m_pMainWnd = NULL;
 				TRACE(_T("copy %s to %s\n"), path, dlg.m_URL);
-				CSVNProgressDlg progDlg;
-				progDlg.SetParams(Copy, FALSE, path, dlg.m_URL);
-				progDlg.DoModal();
+				if (SVNStatus::GetTextStatusRecursive(path)==svn_wc_status_normal)
+				{
+					//no changes in the working copy, so just do a repo->repo copy
+					CSVNProgressDlg progDlg;
+					progDlg.SetParams(Copy, FALSE, url, dlg.m_URL);
+					progDlg.DoModal();
+				}
+				else
+				{
+					CSVNProgressDlg progDlg;
+					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL);
+					progDlg.DoModal();
+				}
 			}
 		}
 		//#endregion

@@ -13,6 +13,10 @@ Version 0.9.2
        from now on (Stefan)
 - CHG: The menu items now are properly aligned
        for both with and without icons (Stefan)
+- CHG: merge/tag uses again an url->url copy
+       command instead of a wc->url copy since
+       this doesn't work for working copy root
+       folders. (Stefan)
 
 Version 0.9.1
 - BUG: the zlib dll lead to some crashes, so
