@@ -72,7 +72,12 @@ BOOL WINAPI DllMain(HINSTANCE hInst, DWORD fdwReason, LPVOID lpvReserved)
 		if (dirend)
 		{
 			*dirend = 0;
-			strcat(moduledir2, "\\iconv");
+			dirend = strrchr(moduledir2, '\\');
+			if (dirend)
+			{
+				*dirend = 0;
+				strcat(moduledir2, "\\iconv");
+			}
 		}
 	}
 	return TRUE;
@@ -83,7 +88,7 @@ BOOL WINAPI DllMain(HINSTANCE hInst, DWORD fdwReason, LPVOID lpvReserved)
 static apr_status_t
 iconv_getpathname(char *buffer, const char *dir, const char *name, apr_pool_t *ctx)
 {
-        apr_status_t rv;
+    apr_status_t rv;
 	apr_finfo_t sb;
 
 	apr_snprintf(buffer, APR_PATH_MAX, "%s/%s.so", dir, name);
