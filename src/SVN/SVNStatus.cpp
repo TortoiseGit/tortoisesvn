@@ -670,11 +670,23 @@ void SVNFolderStatus::BuildCache(LPCTSTR folderpath)
 		{
 			if (tempstatus->entry->kind == svn_node_dir)
 			{
-				_tcscpy(m_pStatusCache[i].filename, _tcsrchr(CUnicodeUtils::StdGetUnicode(tempstatus->entry->url).c_str(), _T('/')) + sizeof(TCHAR));
+				if (tempstatus->entry->url)
+					_tcscpy(m_pStatusCache[i].filename, _tcsrchr(CUnicodeUtils::StdGetUnicode(tempstatus->entry->url).c_str(), _T('/')) + sizeof(TCHAR));
+				else
+				{
+					_tcscpy(m_pStatusCache[i].filename, _T(" "));
+					m_pStatusCache[i].status = svn_wc_status_unversioned;
+				}
 			}
 			else
 			{
-				_tcscpy(m_pStatusCache[i].filename, CUnicodeUtils::StdGetUnicode(tempstatus->entry->name).c_str());
+				if (tempstatus->entry->name)
+					_tcscpy(m_pStatusCache[i].filename, CUnicodeUtils::StdGetUnicode(tempstatus->entry->name).c_str());
+				else
+				{
+					_tcscpy(m_pStatusCache[i].filename, _T(" "));
+					m_pStatusCache[i].status = svn_wc_status_unversioned;
+				}
 			}
 			i++;
 		}
