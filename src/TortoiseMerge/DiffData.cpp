@@ -404,7 +404,7 @@ BOOL CDiffData::Load()
 					if (modified_length-- <= 0)
 					{
 						m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline++));
-						m_arStateYourBaseLeft.Add(DIFFSTATE_ADDED);
+						m_arStateYourBaseLeft.Add(DIFFSTATE_REMOVED);
 						m_arDiffYourBaseRight.Add(_T(""));
 						m_arStateYourBaseRight.Add(DIFFSTATE_EMPTY);
 					} // if (tempdiff->original_length == 0)
