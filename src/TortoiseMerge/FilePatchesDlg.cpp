@@ -39,6 +39,20 @@ void CFilePatchesDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_FILELIST, m_cFileList);
 }
 
+BOOL CFilePatchesDlg::SetFileStatusAsPatched(CString sPath)
+{
+	for (int i=0; i<m_arFileStates.GetCount(); i++)
+	{
+		if (sPath.CompareNoCase(GetFullPath(i))==0)
+		{
+			m_arFileStates.SetAt(i, FPDLG_FILESTATE_PATCHED);
+			Invalidate();
+			return TRUE;
+		} // if (sPath.CompareNoCase(GetFullPath(i))==0) 
+	} // for (int i=0; i<m_arFileStates.GetCount(); i++) 
+	return FALSE;
+}
+
 CString CFilePatchesDlg::GetFullPath(int nIndex)
 {
 	CString temp = m_pPatch->GetFilename(nIndex);
@@ -80,7 +94,12 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 		CString sFile = m_pPatch->GetFilename(i);
 		sFile.Replace('/', '\\');
 		sFile = sFile.Mid(sFile.ReverseFind('\\')+1);
-		m_arFileStates.Add(m_pPatch->PatchFile(GetFullPath(i)));
+		DWORD state;
+		if (m_pPatch->PatchFile(GetFullPath(i)))
+			state = FPDLG_FILESTATE_GOOD;
+		else
+			state = FPDLG_FILESTATE_CONFLICTED;
+		m_arFileStates.Add(state);
 		SHFILEINFO    sfi;
 		SHGetFileInfo(
 			GetFullPath(i), 
@@ -138,7 +157,7 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
-	if (m_pCallBack)
+	if ((m_pCallBack)&&(m_arFileStates.GetAt(pNMLV->iItem)!=FPDLG_FILESTATE_PATCHED))
 	{
 		m_pCallBack->PatchFile(GetFullPath(pNMLV->iItem), m_pPatch->GetRevision(pNMLV->iItem));
 	} // if ((m_pCallBack)&&(!temp.IsEmpty())) 
@@ -169,10 +188,14 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		if (m_arFileStates.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
-			if (!m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec))
+			if (m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec)==FPDLG_FILESTATE_CONFLICTED)
 			{
 				crText = RGB(200, 0, 0);
-			} 
+			}
+			else if (m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec)==FPDLG_FILESTATE_PATCHED)
+			{
+				crText = ::GetSysColor(COLOR_GRAYTEXT);
+			}
 			// Store the color back in the NMLVCUSTOMDRAW struct.
 			pLVCD->clrText = crText;
 		} // if (m_arFileStates.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec) 

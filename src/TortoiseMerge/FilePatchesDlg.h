@@ -41,6 +41,9 @@ public:
 	virtual BOOL PatchFile(CString sFilePath, CString sVersion) = 0;
 };
 
+#define	FPDLG_FILESTATE_GOOD		0x0000
+#define	FPDLG_FILESTATE_CONFLICTED	0x0001
+#define FPDLG_FILESTATE_PATCHED		0x0002
 
 /**
  * \ingroup TortoiseMerge
@@ -64,6 +67,7 @@ public:
 	 */
 	BOOL	Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath);
 
+	BOOL	SetFileStatusAsPatched(CString sPath);
 	enum { IDD = IDD_FILEPATCHES };
 protected:
 	CPatch *					m_pPatch;
@@ -77,10 +81,9 @@ protected:
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 
 	CString GetFullPath(int nIndex);
-public:
-	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };

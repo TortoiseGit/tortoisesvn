@@ -614,6 +614,7 @@ void CMainFrame::SaveFile(CString sFilePath)
 			} // switch (state) 
 		} // for (int i=0; i<arText->GetCount(); i++) 
 		file.Save(sFilePath);
+		m_dlgFilePatches.SetFileStatusAsPatched(sFilePath);
 	} // if ((arText)&&(arStates)&&(pOriginFile)) 
 }
 
