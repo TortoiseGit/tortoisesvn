@@ -72,3 +72,17 @@ python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Com
 Now, if you got some time left you can run the build.bat script to compile
 TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
 how fast your computer is (on mine, it takes 1 hour and 50 minutes)!
+
+Note: you may notice some compiler errors when the build script compiles 
+Subversion. The errors you will see are:
+> error C2065: 'SVN_FS_WANT_DB_MAJOR' : undeclared identifier
+> error C2065: 'SVN_FS_WANT_DB_MINOR' : undeclared identifier
+> error C2065: 'SVN_FS_WANT_DB_PATCH' : undeclared identifier
+This is expected and you don't have to worry about that. The reason for those
+erros is that TortoiseSVN builds the Subversion library twice. Once with 
+all the ra-layers and all dbs, and once without those. The errors come
+from that 'raw' build, but from libraries which aren't used in that build
+anyway. Sure, the build script could just compile the libraries which
+are really needed for that build, but it's much easier to just build the
+whole solution instead of individual projects.
+If you want to improve the build script to get rid of those errors, be our guest!

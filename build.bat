@@ -40,7 +40,7 @@ if DEFINED _RELEASE (
 )
 
 rem patch apr-iconv
-copy ext\apr-iconv_patched\lib\iconv_module.c ..\Subversion\apr-iconv\lib /Y
+copy ext\apr-iconv_patch\lib\iconv_module.c ..\Subversion\apr-iconv\lib /Y
 
 rem OpenSSL
 echo ================================================================================
