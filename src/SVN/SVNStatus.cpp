@@ -447,7 +447,7 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
 			buf = _T("conflicted\0");
 			break;
 		case svn_wc_status_obstructed:
-			buf = _T("conflicted\0");
+			buf = _T("obstructed\0");
 			break;
 		case svn_wc_status_ignored:
 			buf = _T("ignored");
