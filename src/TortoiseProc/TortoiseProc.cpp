@@ -21,6 +21,7 @@
 #include "TortoiseProc.h"
 #include "CheckTempFiles.h"
 #include "messagebox.h"
+#include "SysImageList.h"
 #include "UnicodeUtils.h"
 #include "CrashReport.h"
 #include "DirFileList.h"
@@ -1124,6 +1125,9 @@ BOOL CTortoiseProcApp::InitInstance()
 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);
+
+		// Eventually clean up resources used by CSysImageList
+		SYS_IMAGE_LIST().Cleanup();
 	} 
 
 	// Since the dialog has been closed, return FALSE so that we exit the

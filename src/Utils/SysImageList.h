@@ -15,14 +15,18 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
 #pragma once
 
-#include "ReportCtrl/ReportCtrl.h"
 
 /**
- * \ingroup TortoiseProc
- * Implements a CTreeCtrl which browses a subversion repository. The constructor
- * takes the URL of the repository.
+ * \ingroup Utils
+ * Provides simplified access to the system icons. Only small system icons
+ * are supported.
+ *
+ * \note This class is implemented as a singleton.
+ * The singleton instance is created when first accessed. See SYS_IMAGE_LIST() function
+ * easy access of the singleton instance. All 
  *
  * \par requirements
  * win95 or later
@@ -32,9 +36,9 @@
  * \version 1.0
  * first version
  *
- * \date 02-07-2003
+ * \date MAR-2004
  *
- * \author Tim Kemp
+ * \author Thomas Epting
  *
  * \par license
  * This code is absolutely free to use and modify. The code is provided "as is" with
@@ -43,37 +47,48 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CRepositoryTree : public CReportCtrl
+class CSysImageList : public CImageList
 {
-	DECLARE_DYNAMIC(CRepositoryTree)
+// Singleton constructor and destructor (private)
+private:
+	CSysImageList();
+	~CSysImageList();
 
+// Singleton specific operations
 public:
-	CRepositoryTree(const CString& strUrl);
-	virtual ~CRepositoryTree();
+	/**
+	 * Returns a reference to the one and only instance of this class.
+	 */
+	static CSysImageList& GetInstance();
+	/**
+	 * Frees all allocated resources (if necessary). Don't call this
+	 * function when the image list is currently bound to any control!
+	 */
+	static void Cleanup();
 
-protected:
-	DECLARE_MESSAGE_MAP()
+// Operations
 public:
-	afx_msg void OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult);
-	//afx_msg void OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
-
-	void Init(LONG revision);
-	CString MakeUrl(HTREEITEM hItem);
-	CString GetFolderUrl(HTREEITEM hItem);
-	BOOL IsFolder(HTREEITEM hItem);
-	HTREEITEM ItemExists(HTREEITEM parent, CString item);
-	void Refresh(HTREEITEM hItem);
-	void RefreshMe(HTREEITEM hItem);
+	/**
+	 * Returns the icon index for a directory.
+	 */
+	int GetDirIconIndex() const;
+	/**
+	 * Returns the icon index for a file which has no special icon associated.
+	 */
+	int GetDefaultIconIndex() const;
+	/**
+	 * Returns the icon index for the specified \a file. Only the file extension
+	 * is used to determine the file's icon.
+	 */
+	int GetFileIconIndex(const CString& file) const;
 
 private:
-	CString		m_strUrl;
-	SVN			m_svn;
-	BOOL		bInit;
-	LONG		m_nRevision;
-
-public:
-	int			m_nIconFolder;
+	static CSysImageList *instance;
 };
 
 
+/**
+ * \relates CSysImageList
+ * Singleton access for CSysImageList.
+ */
+inline CSysImageList& SYS_IMAGE_LIST() { return CSysImageList::GetInstance(); }

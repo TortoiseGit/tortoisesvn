@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "RepositoryTree.h"
+#include "SysImageList.h"
 #include "UnicodeUtils.h"
 
 #include "shlobj.h"
@@ -40,7 +41,6 @@ CRepositoryTree::CRepositoryTree(const CString& strUrl) :
 
 CRepositoryTree::~CRepositoryTree()
 {
-	m_ImageList.Detach();
 }
 
 
@@ -91,14 +91,8 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 						//perhaps the user specified a file instead of a directory!
 						//try to expand the parent
 						HTREEITEM hParent = GetNextItem(pNMTreeView->hItem, RVGN_PARENT);
-						SHFILEINFO    sfi;
-						SHGetFileInfo(
-							(LPCTSTR)temp.Mid(1), 
-							FILE_ATTRIBUTE_NORMAL,
-							&sfi, 
-							sizeof(SHFILEINFO), 
-							SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-						SetItemImage(GetItemIndex(pNMTreeView->hItem), sfi.iIcon, sfi.iIcon);
+						int iIcon = SYS_IMAGE_LIST().GetFileIconIndex(temp.Mid(1));
+						SetItemImage(GetItemIndex(pNMTreeView->hItem), iIcon, iIcon);
 						Expand(hParent, RVE_EXPAND);
 						theApp.DoWaitCursor(-1);
 						return;
@@ -135,15 +129,8 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 						{
 							DeleteItem(item);
 						} 
-						SHFILEINFO    sfi;
-						SHGetFileInfo(
-							(LPCTSTR)temp, 
-							FILE_ATTRIBUTE_NORMAL,
-							&sfi, 
-							sizeof(SHFILEINFO), 
-							SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-
-						HTREEITEM hItem = InsertItem(temp, sfi.iIcon, -1, -1, pNMTreeView->hItem, RVTI_SORT);
+						int iIcon = SYS_IMAGE_LIST().GetFileIconIndex(temp);
+						HTREEITEM hItem = InsertItem(temp, iIcon, -1, -1, pNMTreeView->hItem, RVTI_SORT);
 						// insert other columns text
 						for (int col=1; col<GetActiveSubItemCount(); col++)
 						{
@@ -220,28 +207,11 @@ void CRepositoryTree::Init(LONG revision)
 {
 	m_nRevision = revision;
 	bInit = TRUE;
-	HIMAGELIST  hSystemImageList; 
-	SHFILEINFO    ssfi; 
-	hSystemImageList = 
-		(HIMAGELIST)SHGetFileInfo( 
-		(LPCTSTR)_T("c:\\"), 
-		0, 
-		&ssfi, 
-		sizeof(SHFILEINFO), 
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON); 
-	SHFILEINFO    sfi;
-	SHGetFileInfo(
-		(LPCTSTR)"Doesn't matter", 
-		FILE_ATTRIBUTE_DIRECTORY,
-		&sfi, 
-		sizeof(SHFILEINFO), 
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 
-	m_nIconFolder = sfi.iIcon;
+	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 
 	//Set the list control image list 
-	m_ImageList.Attach(hSystemImageList);
-	SetImageList(&m_ImageList);
+	SetImageList(&SYS_IMAGE_LIST());
 
 	RVSUBITEM rvs;
 	CString temp;
@@ -294,14 +264,6 @@ void CRepositoryTree::Init(LONG revision)
 	temp = m_strUrl;
 	while ((temp.ReverseFind('/')>=0)&&(temp.GetAt(temp.ReverseFind('/')-1)!='/'))
 	{
-		SHFILEINFO    sfi;
-		SHGetFileInfo(
-			(LPCTSTR)temp, 
-			FILE_ATTRIBUTE_NORMAL,
-			&sfi, 
-			sizeof(SHFILEINFO), 
-			SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-
 		arPaths.Add(temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
 		temp = temp.Left(temp.ReverseFind('/'));
 	} // while ((temp.ReverseFind('/')>=0)&&(temp.GetAt(temp.ReverseFind('/')-1)!='/'))
