@@ -183,13 +183,6 @@ public:
       re.StreamIn(SF_RTF, es);
       re.Detach();
 
-	  static char username[_MAX_PATH];
-	  DWORD size = sizeof username;
-	  if (::GetUserName(username, &size)) {
-	      HWND     hWndEmail = GetDlgItem(IDC_EMAIL);
-		  ::SetWindowText(hWndEmail, username);
-	  }
-
       //
       // Hook dead link
       //
