@@ -72,11 +72,7 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOO
 
 CRepositoryBrowser::~CRepositoryBrowser()
 {
-	for (int i=0; i<m_templist.GetCount(); i++)
-	{
-		DeleteFile(m_templist.GetAt(i));
-	}
-	m_templist.RemoveAll();
+	m_templist.DeleteAllFiles();
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -163,8 +159,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 		CRect rect;
 		m_treeRepository.GetItemRect(m_treeRepository.GetFirstSelectedItem(), 0, &rect, RVIR_TEXT);
 		m_treeRepository.ClientToScreen(&rect);
-		point.x = rect.left + rect.Width()/2;
-		point.y = rect.top + rect.Height()/2;
+		point = rect.CenterPoint();
 	}
 	LRESULT Result = 0;
 	ShowContextMenu(point, &Result);
@@ -653,7 +648,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					} // if (!Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile)) 
 					else
 					{
-						m_templist.Add(tempfile.GetWinPathString());
+						m_templist.AddPath(tempfile);
 						CUtils::StartDiffViewer(tempfile, CTSVNPath());
 					}
 					theApp.DoWaitCursor(-1); //???
@@ -670,7 +665,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						::DeleteFile(tempfile1.GetWinPath());
 						break;		//exit
 					} // if (!Cat(url1, GetRevision(), tempfile1))
-					m_templist.Add(tempfile1.GetWinPathString());
+					m_templist.AddPath(tempfile1);
 					CTSVNPath tempfile2 = CUtils::GetTempFilePath();
 					tempfile2.AppendRawString(url2.GetFileExtension());
 					if (!svn.Cat(url2, GetRevision(), CTSVNPath(tempfile2)))
@@ -679,8 +674,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						::DeleteFile(tempfile2.GetWinPath());
 						break;		//exit
 					} // if (!Cat(url2, GetRevision(), tempfile2)) 
-					CString ext = url1.GetFileExtension();
-					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1.GetUIPathString(), url2.GetUIPathString(), ext);
+					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1.GetUIPathString(), url2.GetUIPathString(), url1.GetFileExtension());
 					theApp.DoWaitCursor(-1); //???
 				}
 				break;
