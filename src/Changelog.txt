@@ -6,6 +6,8 @@
 - ADD: Document the command line params of TSVN. (Stefan)
 - ADD: The add and revert command can now be cancelled
        during operation. (Stefan)
+- CHG: Performance improvement when committing a lot of 
+       deleted/renamed/moved files. (Stefan)
 - CHG: The "add before commit" option in the settings dialog is
        gone, this option is now in the commit dialog where it
        belongs. (Stefan)

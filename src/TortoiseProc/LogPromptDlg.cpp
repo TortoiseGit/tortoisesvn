@@ -625,28 +625,6 @@ void CLogPromptDlg::OnOK()
 		}
 	} // for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 
-	//the next step: find all deleted files and check if they're 
-	//inside a deleted folder. If that's the case, then remove those
-	//files from the list since they'll get deleted by the parent
-	//folder automatically.
-	for (int i=0; i<arDeleted.GetCount(); i++)
-	{
-		CString path = ((Data *)(m_arData.GetAt(arDeleted.GetAt(i))))->path;
-		path += _T("/");
-		//now check if there's a "parent folder"
-		for (int j=0; j<arDeleted.GetCount(); j++)
-		{
-			CString folder = ((Data *)(m_arData.GetAt(arDeleted.GetAt(j))))->path;
-			if ((PathIsDirectory(folder))&&(i!=j))
-			{
-				if (folder.CompareNoCase(path.Left(folder.GetLength()))==0)
-				{
-					m_ListCtrl.SetCheck(arDeleted.GetAt(i), FALSE);
-				} 
-			} // if (PathIsDirectory(folder)) 
-		} // for (j=i; j<arDeleted.GetCount(); j++) 
-	} // for (int i=0; i<arDeleted.GetCount(); i++) 
-
 	if ((nUnchecked == 0)&&(m_nTargetCount == 1))
 	{
 		m_bRecursive = TRUE;
@@ -654,6 +632,37 @@ void CLogPromptDlg::OnOK()
 	else
 	{
 		m_bRecursive = FALSE;
+
+		//the next step: find all deleted files and check if they're 
+		//inside a deleted folder. If that's the case, then remove those
+		//files from the list since they'll get deleted by the parent
+		//folder automatically.
+		for (int i=0; i<arDeleted.GetCount(); i++)
+		{
+			if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
+			{
+				CString path = ((Data *)(m_arData.GetAt(arDeleted.GetAt(i))))->path;
+				path += _T("/");
+				if (PathIsDirectory(path))
+				{
+					//now find all children of this directory
+					for (int j=0; j<arDeleted.GetCount(); j++)
+					{
+						if (i!=j)
+						{
+							if (m_ListCtrl.GetCheck(arDeleted.GetAt(j)))
+							{
+								if (path.CompareNoCase(((Data *)(m_arData.GetAt(arDeleted.GetAt(j))))->path.Left(path.GetLength()))==0)
+								{
+									m_ListCtrl.SetCheck(arDeleted.GetAt(j), FALSE);
+								}
+							}
+						} // if (i!=j) 
+					} // for (int j=0; j<arDeleted.GetCount(); j++) 
+				} // if (PathIsDirectory(path)) 
+			} // if (m_ListCtrl.GetCheck(i)) 
+		} // for (int i=0; i<arDeleted.GetCount(); i++) 
+
 		//save only the files the user has selected into the temporary file
 		try
 		{
