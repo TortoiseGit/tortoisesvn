@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetOverlayPage.h"
+#include ".\setoverlaypage.h"
 
 
 // CSetOverlayPage dialog
@@ -26,14 +27,17 @@
 IMPLEMENT_DYNAMIC(CSetOverlayPage, CPropertyPage)
 CSetOverlayPage::CSetOverlayPage()
 	: CPropertyPage(CSetOverlayPage::IDD)
+	, m_bInitialized(FALSE)
 	, m_bRemovable(FALSE)
 	, m_bNetwork(FALSE)
 	, m_bFixed(FALSE)
 	, m_bCDROM(FALSE)
 	, m_bRAM(FALSE)
 	, m_bUnknown(FALSE)
+	, m_bOnlyExplorer(FALSE)
 {
 	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
+	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
 	m_regDriveMaskFixed = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"), TRUE);
@@ -42,6 +46,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regDriveMaskUnknown = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 
 	m_bShowChangedDirs = m_regShowChangedDirs;
+	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
 	m_bNetwork = m_regDriveMaskRemote;
 	m_bFixed = m_regDriveMaskFixed;
@@ -65,6 +70,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_RAM, m_bRAM);
 	DDX_Check(pDX, IDC_UNKNOWN, m_bUnknown);
 	DDX_Control(pDX, IDC_DRIVEGROUP, m_cDriveGroup);
+	DDX_Check(pDX, IDC_ONLYEXPLORER, m_bOnlyExplorer);
 }
 
 
@@ -76,18 +82,23 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_CDROM, OnBnClickedCdrom)
 	ON_BN_CLICKED(IDC_UNKNOWN, OnBnClickedUnknown)
 	ON_BN_CLICKED(IDC_RAM, OnBnClickedRam)
+	ON_BN_CLICKED(IDC_ONLYEXPLORER, OnBnClickedOnlyexplorer)
 END_MESSAGE_MAP()
 
 
 void CSetOverlayPage::SaveData()
 {
-	m_regShowChangedDirs = m_bShowChangedDirs;
-	m_regDriveMaskRemovable = m_bRemovable;
-	m_regDriveMaskRemote = m_bNetwork;
-	m_regDriveMaskFixed = m_bFixed;
-	m_regDriveMaskCDROM = m_bCDROM;
-	m_regDriveMaskRAM = m_bRAM;
-	m_regDriveMaskUnknown = m_bUnknown;
+	if (m_bInitialized)
+	{
+		m_regShowChangedDirs = m_bShowChangedDirs;
+		m_regOnlyExplorer = m_bOnlyExplorer;
+		m_regDriveMaskRemovable = m_bRemovable;
+		m_regDriveMaskRemote = m_bNetwork;
+		m_regDriveMaskFixed = m_bFixed;
+		m_regDriveMaskCDROM = m_bCDROM;
+		m_regDriveMaskRAM = m_bRAM;
+		m_regDriveMaskUnknown = m_bUnknown;
+	}
 }
 
 BOOL CSetOverlayPage::OnInitDialog()
@@ -98,6 +109,9 @@ BOOL CSetOverlayPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
+	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
+
+	m_bInitialized = TRUE;
 
 	UpdateData(FALSE);
 
@@ -146,6 +160,11 @@ void CSetOverlayPage::OnBnClickedUnknown()
 	SetModified();
 }
 
+void CSetOverlayPage::OnBnClickedOnlyexplorer()
+{
+	SetModified();
+}
+
 BOOL CSetOverlayPage::OnApply()
 {
 	UpdateData();
@@ -153,3 +172,4 @@ BOOL CSetOverlayPage::OnApply()
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+

@@ -70,6 +70,7 @@ public:
 
 private:
 	BOOL			m_bShowChangedDirs;
+	BOOL			m_bOnlyExplorer;
 	BOOL			m_bRemovable;
 	BOOL			m_bNetwork;
 	BOOL			m_bFixed;
@@ -77,6 +78,7 @@ private:
 	BOOL			m_bRAM;
 	BOOL			m_bUnknown;
 	CRegDWORD		m_regShowChangedDirs;
+	CRegDWORD		m_regOnlyExplorer;
 	CRegDWORD		m_regDriveMaskRemovable;
 	CRegDWORD		m_regDriveMaskRemote;
 	CRegDWORD		m_regDriveMaskFixed;
@@ -85,6 +87,8 @@ private:
 	CRegDWORD		m_regDriveMaskUnknown;
 	CBalloon		m_tooltips;
 	CIconStatic		m_cDriveGroup;
+	BOOL			m_bInitialized;
+
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedChangeddirs();
@@ -95,4 +99,5 @@ public:
 	afx_msg void OnBnClickedRam();
 	afx_msg void OnBnClickedUnknown();
 	virtual BOOL OnApply();
+	afx_msg void OnBnClickedOnlyexplorer();
 };

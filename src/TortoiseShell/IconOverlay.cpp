@@ -43,14 +43,13 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
         (osv.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS &&
         osv.dwMajorVersion == 4 && osv.dwMinorVersion > 0); // plus Windows 98/Me
     // Test if we are in Explorer
-    if (!allowExplorer)
+    if ((!allowExplorer)||(!CRegStdWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE)))
     {
         TCHAR buf[_MAX_PATH + 1];
         GetModuleFileName(NULL, buf, _MAX_PATH);
-        stdstring filename = buf;
-        // Does this need case insensitivity?
-        if (filename.find(_T("explorer"), 0) == std::string::npos)
-            return S_FALSE;
+		_tcslwr(buf);
+		if (_tcsstr(buf, _T("explorer.exe")))
+			return S_FALSE;
     }
 
     // Get folder icons from registry

@@ -391,18 +391,20 @@ BEGIN
                     IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
                     13,286,10
     CONTROL         "&Removable drives",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,48,262,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,65,262,10
     CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,62,262,10
+                    WS_TABSTOP,13,79,262,10
     CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,76,262,10
+                    WS_TABSTOP,13,93,262,10
     CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,90,262,10
-    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,7,30,286,110
+                    WS_TABSTOP,13,107,262,10
+    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,7,47,286,110
     CONTROL         "RAM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,104,262,10
+                    WS_TABSTOP,13,121,262,10
     CONTROL         "Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,118,262,10
+                    WS_TABSTOP,13,135,262,10
+    CONTROL         "Show overlays only in explorer",IDC_ONLYEXPLORER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,29,268,10
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 199
@@ -1327,6 +1329,8 @@ STRINGTABLE
 BEGIN
     IDS_SETTINGS_CHECKNEWER_TT 
                             "If enabled, TortoiseSVN checks once a week if a newer version is available"
+    IDS_SETTINGS_ONLYEXPLORER_TT 
+                            "If activated, prevents the overlays from showing in ""save as.."" or ""open"" dialogs"
 END
 
 STRINGTABLE 

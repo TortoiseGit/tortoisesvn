@@ -184,6 +184,7 @@
 #define IDC_REVTEXT                     1087
 #define IDC_CHECK3                      1088
 #define IDC_COMMITFILETIMES             1088
+#define IDC_ONLYEXPLORER                1088
 #define IDC_DIFFVIEWERBROWSE            1089
 #define IDC_EXTDIFFADVANCED             1090
 #define IDC_EXTDIFF_OFF                 1091
@@ -415,6 +416,7 @@
 #define IDS_SPELLEDIT_THESAURUS         3000
 #define IDS_SPELLEDIT_CORRECTIONS       3001
 #define IDS_SETTINGS_CHECKNEWER_TT      3100
+#define IDS_SETTINGS_ONLYEXPLORER_TT    3101
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202
