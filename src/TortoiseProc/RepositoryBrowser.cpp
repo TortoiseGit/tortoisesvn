@@ -47,7 +47,7 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url)
 	: CResizableDialog(CRepositoryBrowser::IDD, NULL)
 	, m_treeRepository(svn_url.GetPath())
 	, m_cnrRepositoryBar(&m_barRepository)
-	, m_SvnUrl(svn_url)
+	, m_InitialSvnUrl(svn_url)
 	, m_bStandAlone(true)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -57,7 +57,7 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent)
 	: CResizableDialog(CRepositoryBrowser::IDD, pParent)
 	, m_treeRepository(svn_url.GetPath())
 	, m_cnrRepositoryBar(&m_barRepository)
-	, m_SvnUrl(svn_url)
+	, m_InitialSvnUrl(svn_url)
 	, m_bStandAlone(false)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -93,17 +93,17 @@ END_MESSAGE_MAP()
 
 SVNUrl CRepositoryBrowser::GetURL() const
 {
-	return m_SvnUrl;
+	return m_barRepository.GetCurrentUrl();
 }
 
 SVNRev CRepositoryBrowser::GetRevision() const
 {
-	return m_SvnUrl.GetRevision();
+	return GetURL().GetRevision();
 }
 
 CString CRepositoryBrowser::GetPath(bool escaped) const
 {
-	return m_SvnUrl.GetPath(escaped);
+	return GetURL().GetPath(escaped);
 }
 
 
@@ -155,10 +155,10 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_barRepository.AssocTree(&m_treeRepository);
 	m_treeRepository.Init(GetRevision());
 
-	if (m_SvnUrl.GetPath().IsEmpty())
-		m_SvnUrl = m_barRepository.GetCurrentUrl();
+	if (m_InitialSvnUrl.GetPath().IsEmpty())
+		m_InitialSvnUrl = m_barRepository.GetCurrentUrl();
 
-	m_barRepository.GotoUrl(m_SvnUrl);
+	m_barRepository.GotoUrl(m_InitialSvnUrl);
 
 	if (m_bStandAlone)
 	{
@@ -591,7 +591,6 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 
 void CRepositoryBrowser::OnOK()
 {
-	m_SvnUrl = m_barRepository.GetCurrentUrl();
 	m_barRepository.SaveHistory();
 	CResizableDialog::OnOK();
 }

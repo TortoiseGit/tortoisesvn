@@ -89,7 +89,7 @@ protected:
 
 private:
 	bool m_bStandAlone;
-	SVNUrl m_SvnUrl;
+	SVNUrl m_InitialSvnUrl;
 };
 
 #endif /*__RepositoryBrowser_h*/
