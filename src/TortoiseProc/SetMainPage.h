@@ -81,8 +81,6 @@ private:
 	DWORD			m_dwLanguage;
 	BOOL			m_bShortDateFormat;
 	CRegDWORD		m_regShortDateFormat;
-	CRegDWORD		m_regAddBeforeCommit;
-	BOOL			m_bAddBeforeCommit;
 	CRegDWORD		m_regNoRemoveLogMsg;
 	BOOL			m_bNoRemoveLogMsg;
 	CRegDWORD		m_regAutoClose;
@@ -108,7 +106,6 @@ public:
 	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnEnChangeTempextensions();
 	virtual BOOL OnApply();
-	afx_msg void OnBnClickedAddbeforecommit();
 	afx_msg void OnBnClickedNoremovelogmsg();
 	afx_msg void OnBnClickedAutoclose();
 	afx_msg void OnEnChangeDefaultlog();

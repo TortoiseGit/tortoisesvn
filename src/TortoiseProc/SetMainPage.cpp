@@ -41,7 +41,6 @@ CSetMainPage::CSetMainPage()
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
-	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_regNoRemoveLogMsg = CRegDWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -60,7 +59,6 @@ void CSetMainPage::SaveData()
 {
 	m_regLanguage = m_dwLanguage;
 	m_regExtensions = m_sTempExtensions;
-	m_regAddBeforeCommit = m_bAddBeforeCommit;
 	m_regNoRemoveLogMsg = m_bNoRemoveLogMsg;
 	m_regAutoClose = m_bAutoClose;
 	m_regShortDateFormat = m_bShortDateFormat;
@@ -85,7 +83,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
 	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
-	DDX_Check(pDX, IDC_ADDBEFORECOMMIT, m_bAddBeforeCommit);
 	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
 	DDX_Check(pDX, IDC_AUTOCLOSE, m_bAutoClose);
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
@@ -100,7 +97,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnEnChangeTempextensions)
-	ON_BN_CLICKED(IDC_ADDBEFORECOMMIT, OnBnClickedAddbeforecommit)
 	ON_BN_CLICKED(IDC_NOREMOVELOGMSG, OnBnClickedNoremovelogmsg)
 	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
@@ -129,7 +125,6 @@ BOOL CSetMainPage::OnInitDialog()
 	EnableToolTips();
 
 	m_sTempExtensions = m_regExtensions;
-	m_bAddBeforeCommit = m_regAddBeforeCommit;
 	m_bNoRemoveLogMsg = m_regNoRemoveLogMsg;
 	m_bAutoClose = m_regAutoClose;
 	m_dwLanguage = m_regLanguage;
@@ -147,7 +142,6 @@ BOOL CSetMainPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
-	m_tooltips.AddTool(IDC_ADDBEFORECOMMIT, IDS_SETTINGS_ADDBEFORECOMMIT_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSE, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_NOREMOVELOGMSG, IDS_SETTINGS_NOREMOVELOGMSG_TT);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
@@ -220,11 +214,6 @@ void CSetMainPage::OnCbnSelchangeLanguagecombo()
 }
 
 void CSetMainPage::OnEnChangeTempextensions()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedAddbeforecommit()
 {
 	SetModified();
 }

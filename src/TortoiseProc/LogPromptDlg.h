@@ -120,6 +120,10 @@ private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;
 	CFont			m_logFont;
+	BOOL			m_bShowUnversioned;
+	CRegDWORD		m_regAddBeforeCommit;
+public:
+	afx_msg void OnBnClickedShowunversioned();
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

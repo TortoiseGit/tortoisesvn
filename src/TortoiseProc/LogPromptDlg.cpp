@@ -40,6 +40,7 @@ CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	, m_nSelected(0)
 	, m_bRecursive(FALSE)
 	, m_nTargetCount(0)
+	, m_bShowUnversioned(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_templist.RemoveAll();
@@ -67,6 +68,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
 	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_LogMessage);
+	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 }
 
 
@@ -82,6 +84,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickFilelist)
 	ON_WM_CONTEXTMENU()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 END_MESSAGE_MAP()
 
 
@@ -147,6 +150,9 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_logFont.CreateFontIndirect(&LogFont);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
 
+	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
+	m_bShowUnversioned = m_regAddBeforeCommit;
+
 	CString temp = m_sPath;
 
 	//set the listcontrol to support checkboxes
@@ -186,6 +192,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HINTLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -659,7 +666,8 @@ void CLogPromptDlg::OnOK()
 			pE->Delete();
 		}
 	}
-
+	UpdateData();
+	m_regAddBeforeCommit = m_bShowUnversioned;
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	CResizableDialog::OnOK();
 }
@@ -1233,6 +1241,14 @@ int CLogPromptDlg::SortCompare(const void * pElem1, const void * pElem2)
 void CLogPromptDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CLogPromptDlg::OnBnClickedShowunversioned()
+{
+	UpdateData();
+	m_regAddBeforeCommit = m_bShowUnversioned;
+	if (GetDlgItem(IDOK)->IsWindowEnabled())
+		Refresh();
 }
 
 

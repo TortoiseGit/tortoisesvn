@@ -229,7 +229,7 @@ BEGIN
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
                     93,287,109
-    LTEXT           "",IDC_STATISTICS,6,202,287,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_STATISTICS,149,202,144,8,0,WS_EX_RIGHT
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,6,213,230,10
     LTEXT           "To see the changes you made, double click on the files above.",
@@ -237,6 +237,8 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,187,244,50,14
     PUSHBUTTON      "&Help",IDHELP,243,244,50,14
     DEFPUSHBUTTON   "&OK",IDOK,129,244,50,14
+    CONTROL         "Show unversioned files",IDC_SHOWUNVERSIONED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,6,203,143,10
 END
 
 IDD_MERGE DIALOGEX 0, 0, 300, 163
@@ -333,7 +335,7 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,99
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,106
     LTEXT           "&Language:",IDC_STATIC,13,17,60,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,15,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
@@ -349,13 +351,10 @@ BEGIN
     PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,77,51,14
     CONTROL         "Check for newer versions",IDC_CHECKNEWERVERSION,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,92,267,10
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,109,286,83
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,122,286,70
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,120,267,10
-    CONTROL         "&Show unversioned files before committing",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,13,134,267,
-                    10
+                    WS_TABSTOP,13,133,267,10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     13,148,267,10
@@ -737,6 +736,7 @@ BEGIN
     BEGIN
         LEFTMARGIN, 6
         RIGHTMARGIN, 293
+        VERTGUIDE, 149
         VERTGUIDE, 236
         TOPMARGIN, 7
         BOTTOMMARGIN, 258
@@ -1064,8 +1064,6 @@ STRINGTABLE
 BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "Specify the files or folders wich TortoiseSVN\n should exclude from version control.\nSeparate the patterns with a space."
-    IDS_SETTINGS_ADDBEFORECOMMIT_TT 
-                            "Shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 
                             "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "Either the name or IP of the proxy server"
