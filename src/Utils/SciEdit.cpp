@@ -19,7 +19,15 @@
 #include "StdAfx.h"
 #include "resource.h"
 #include "Utils.h"
+#include <string>
+#include "regexpr2.h"
 #include ".\sciedit.h"
+
+using namespace std;
+using namespace regex;
+
+#define STYLE_BOLD			11
+#define STYLE_BOLDITALIC	12
 
 IMPLEMENT_DYNAMIC(CSciEdit, CWnd)
 
@@ -51,9 +59,8 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_SETUSETABS, 0);		//pressing TAB inserts spaces
 	Call(SCI_SETWRAPVISUALFLAGS, SC_WRAPVISUALFLAG_END);
 	Call(SCI_AUTOCSETIGNORECASE, 1);
-	
+	Call(SCI_SETLEXER, SCLEX_CONTAINER);
 	Call(SCI_SETCODEPAGE, SC_CP_UTF8);
-	
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
 	if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
@@ -73,6 +80,25 @@ void CSciEdit::Init(LONG lLanguage)
 				langId = 1033;
 		} while ((langId)&&((pChecker==NULL)||(pThesaur==NULL)));
 	}
+}
+
+void CSciEdit::Init(const ProjectProperties& props)
+{
+	Init(props.lProjectLanguage);
+	m_sCommand = props.sCheckRe;
+	m_sBugID = props.sBugIDRe;
+	if (props.nLogWidthMarker)
+	{
+		Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
+		Call(SCI_SETEDGEMODE, EDGE_LINE);
+		Call(SCI_SETEDGECOLUMN, props.nLogWidthMarker);
+	}
+	else
+	{
+		Call(SCI_SETEDGEMODE, EDGE_NONE);
+		Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+	}
+	SetText(props.sLogTemplate);
 }
 
 BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
@@ -220,6 +246,12 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 	Call(SCI_STYLESETFONT, STYLE_DEFAULT, (LPARAM)(LPCSTR)StringForControl(sFontName));
 	Call(SCI_STYLESETSIZE, STYLE_DEFAULT, iFontSizeInPoints);
 	Call(SCI_STYLECLEARALL);
+	// set the styles for the bug ID strings
+	Call(SCI_STYLESETBOLD, STYLE_BOLD, TRUE);
+	Call(SCI_STYLESETFORE, STYLE_BOLD, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
+	Call(SCI_STYLESETBOLD, STYLE_BOLDITALIC, (LPARAM)TRUE);
+	Call(SCI_STYLESETITALIC, STYLE_BOLDITALIC, (LPARAM)TRUE);
+	Call(SCI_STYLESETFORE, STYLE_BOLDITALIC, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
 }
 
 void CSciEdit::SetAutoCompletionList(const CAutoCompletionList& list, const TCHAR separator)
@@ -375,6 +407,10 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				CheckSpelling();
 				DoAutoCompletion();
 			}
+			return TRUE;
+			break;
+		case SCN_STYLENEEDED:
+			MarkEnteredBugID(lpnmhdr);
 			return TRUE;
 			break;
 		}
@@ -570,6 +606,90 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	// restore the anchor and cursor position
 	Call(SCI_SETCURRENTPOS, currentpos);
 	Call(SCI_SETANCHOR, anchor);
+}
+
+BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
+{
+	if (m_sBugID.IsEmpty() || m_sCommand.IsEmpty())
+		return FALSE;
+	SCNotification* notify = (SCNotification*)nmhdr;
+	// get the text between the start and end position we have to style
+	const int line_number = Call(SCI_LINEFROMPOSITION, Call(SCI_GETENDSTYLED));
+	const int start_pos = Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
+	const int end_pos = notify->position;
+
+	if (start_pos == end_pos)
+		return FALSE;
+	
+	char * textbuffer = new char[end_pos - start_pos + 2];
+	TEXTRANGEA textrange;
+	textrange.lpstrText = textbuffer;
+	textrange.chrg.cpMin = start_pos;
+	textrange.chrg.cpMax = end_pos;
+	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+	CString msg = StringFromControl(textbuffer);
+	
+	int offset1 = 0;
+	int offset2 = 0;
+	
+	Call(SCI_STARTSTYLING, start_pos, 0x1f);
+	
+	try
+	{
+		match_results results;
+		rpattern pat( (LPCTSTR)m_sCommand );
+		match_results::backref_type br;
+		do 
+		{
+			br = pat.match( (LPCTSTR)msg.Mid(offset1), results );
+			if( br.matched ) 
+			{
+				// clear the styles up to the match position
+				Call(SCI_SETSTYLING, results.rstart(0) - offset1, STYLE_DEFAULT);
+				ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0)-offset1);
+				offset1 += results.rstart(0);
+				offset2 = offset1 + results.rlength(0);
+				ATLTRACE("matched string : %ws\n", msg.Mid(offset1, offset2-offset1));
+				{
+					int idoffset1=offset1;
+					int idoffset2=offset2;
+					match_results idresults;
+					rpattern idpat( (LPCTSTR)m_sBugID );
+					match_results::backref_type idbr;
+					do 
+					{
+						idbr = idpat.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+						if (idbr.matched)
+						{
+							// bold style up to the id match
+							Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_BOLD);
+							idoffset1 += idresults.rstart(0);
+							idoffset2 = idoffset1 + idresults.rlength(0);
+							ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
+							// bold and recursive style for the bug ID itself
+							Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_BOLDITALIC);
+							idoffset1 = idoffset2;
+						}
+						else
+						{
+							// bold style for the rest of the string which isn't matched
+							Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_BOLD);
+						}
+					} while(idbr.matched);
+				}
+				offset1 = offset2;
+			}
+			else
+			{
+				// bold style for the rest of the string which isn't matched
+				Call(SCI_SETSTYLING, end_pos-offset2, STYLE_DEFAULT);
+			}
+		} while(br.matched);
+		return TRUE;
+	}
+	catch (bad_alloc) {}
+	catch (bad_regexpr){}
+	return FALSE;
 }
 
 //////////////////////////////////////////////////////////////////////////

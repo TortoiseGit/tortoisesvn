@@ -54,9 +54,10 @@ BOOL CInputDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	if (m_pProjectProperties)
-		m_cInput.Init(m_pProjectProperties->lProjectLanguage);
+		m_cInput.Init(*m_pProjectProperties);
 	else
 		m_cInput.Init();
+
 	m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
 	if (m_pProjectProperties)

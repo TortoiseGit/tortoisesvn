@@ -89,7 +89,7 @@ BOOL CCopyDlg::OnInitDialog()
 	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 
 	m_ProjectProperties.ReadProps(m_path);
-	m_cLogMessage.Init(m_ProjectProperties.lProjectLanguage);
+	m_cLogMessage.Init(m_ProjectProperties);
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 	if (m_ProjectProperties.sMessage.IsEmpty())
 	{
@@ -105,18 +105,6 @@ BOOL CCopyDlg::OnInitDialog()
 			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
-	if (m_ProjectProperties.nLogWidthMarker)
-	{
-		m_cLogMessage.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
-		m_cLogMessage.Call(SCI_SETEDGEMODE, EDGE_LINE);
-		m_cLogMessage.Call(SCI_SETEDGECOLUMN, m_ProjectProperties.nLogWidthMarker);
-	}
-	else
-	{
-		m_cLogMessage.Call(SCI_SETEDGEMODE, EDGE_NONE);
-		m_cLogMessage.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
-	}
-	m_cLogMessage.SetText(m_ProjectProperties.sLogTemplate);
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -128,29 +116,12 @@ void CCopyDlg::OnOK()
 {
 	CString id;
 	GetDlgItem(IDC_BUGID)->GetWindowText(id);
-	if (m_ProjectProperties.bNumber)
+	if (!m_ProjectProperties.CheckBugID(id))
 	{
-		TCHAR c = 0;
-		BOOL bInvalid = FALSE;
-		int len = id.GetLength();
-		for (int i=0; i<len; ++i)
-		{
-			c = id.GetAt(i);
-			if ((c < '0')&&(c != ','))
-			{
-				bInvalid = TRUE;
-				break;
-			}
-			if (c > '9')
-				bInvalid = TRUE;
-		}
-		if (bInvalid)
-		{
-			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
-			return;
-		}
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
+		return;
 	}
-	if ((m_ProjectProperties.bWarnIfNoIssue)&&(id.IsEmpty()))
+	if ((m_ProjectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_ProjectProperties.HasBugID(m_sLogMessage)))
 	{
 		if (CMessageBox::Show(this->m_hWnd, IDS_LOGPROMPT_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
 			return;

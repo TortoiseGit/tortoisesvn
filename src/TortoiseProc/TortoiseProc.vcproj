@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\gettext\include;..\Utils\scintilla\include"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\gettext\include;..\Utils\scintilla\include;..\..\ext\GRETA"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;APU_HAVE_DB=1;ENABLE_NLS"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
@@ -82,7 +82,7 @@
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\gettext\include;..\Utils\scintilla\include"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\gettext\include;..\Utils\scintilla\include;..\..\ext\GRETA"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APU_HAVE_DB=1"
 				StringPooling="TRUE"
 				MinimalRebuild="FALSE"
@@ -543,6 +543,52 @@
 					</File>
 					<File
 						RelativePath="..\Utils\ReportCtrl\ReportOptionsCtrl.h">
+					</File>
+				</Filter>
+				<Filter
+					Name="GRETA"
+					Filter="">
+					<File
+						RelativePath="..\..\ext\Greta\regexpr2.cpp">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\ext\Greta\regexpr2.h">
+					</File>
+					<File
+						RelativePath="..\..\ext\Greta\reimpl2.h">
+					</File>
+					<File
+						RelativePath="..\..\ext\Greta\restack.h">
+					</File>
+					<File
+						RelativePath="..\..\ext\Greta\syntax2.cpp">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\..\ext\Greta\syntax2.h">
 					</File>
 				</Filter>
 			</Filter>

@@ -23,6 +23,14 @@
 #include "SVNProperties.h"
 #include "TSVNPath.h"
 
+#include <iostream>
+#include <string>
+#include "regexpr2.h"
+using namespace std;
+using namespace regex;
+
+
+
 ProjectProperties::ProjectProperties(void)
 {
 	bNumber = TRUE;
@@ -56,6 +64,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 	BOOL bFoundBugtraqLabel = FALSE;
 	BOOL bFoundBugtraqMessage = FALSE;
 	BOOL bFoundBugtraqNumber = FALSE;
+	BOOL bFoundBugtraqLogRe = FALSE;
 	BOOL bFoundBugtraqURL = FALSE;
 	BOOL bFoundBugtraqWarnIssue = FALSE;
 	BOOL bFoundBugtraqAppend = FALSE;
@@ -107,6 +116,17 @@ BOOL ProjectProperties::ReadProps(CString path)
 				else
 					bNumber = TRUE;
 				bFoundBugtraqNumber = TRUE;
+			}
+			if ((!bFoundBugtraqLogRe)&&(sPropName.Compare(BUGTRAQPROPNAME_LOGREGEX)==0))
+			{
+#ifdef UNICODE
+				sCheckRe = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				sCheckRe = sPropVal.c_str();
+#endif
+				sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
+				sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
+				bFoundBugtraqLogRe = TRUE;
 			}
 			if ((!bFoundBugtraqURL)&&(sPropName.Compare(BUGTRAQPROPNAME_URL)==0))
 			{
@@ -220,7 +240,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 		{
 			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
-				| bFoundLogTemplate)
+				| bFoundLogTemplate | bFoundBugtraqLogRe)
 				return TRUE;
 			return FALSE;
 		}
@@ -230,9 +250,63 @@ BOOL ProjectProperties::ReadProps(CString path)
 
 BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 {
-	int offset1, offset2;
+	int offset1 = 0;
+	int offset2 = 0;
+
 	if (sUrl.IsEmpty())
 		return FALSE;
+
+	// first use the checkre string to find bug ID's in the message
+	if (!sCheckRe.IsEmpty() && !sBugIDRe.IsEmpty())
+	{
+		try
+		{
+			match_results results;
+			rpattern pat( (LPCTSTR)sCheckRe ); 
+			match_results::backref_type br;
+			do 
+			{
+				br = pat.match( (LPCTSTR)msg.Mid(offset1), results );
+				if( br.matched ) 
+				{
+					offset1 += results.rstart(0);
+					offset2 = offset1 + results.rlength(0);
+					ATLTRACE("matched %ws\n", msg.Mid(offset1, offset2-offset1));
+					// now we have a full match. To create the links we need to extract the
+					// bare bug ID's first.
+					{
+						int idoffset1=offset1;
+						int idoffset2=offset2;
+						match_results idresults;
+						rpattern idpat( (LPCTSTR)sBugIDRe );
+						match_results::backref_type idbr;
+						do 
+						{
+							idbr = idpat.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+							if (idbr.matched)
+							{
+								idoffset1 += idresults.rstart(0);
+								idoffset2 = idoffset1 + idresults.rlength(0);
+								ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
+								CHARRANGE range = {idoffset1, idoffset2};
+								pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+								CHARFORMAT2 format;
+								ZeroMemory(&format, sizeof(CHARFORMAT2));
+								format.cbSize = sizeof(CHARFORMAT2);
+								format.dwMask = CFM_LINK;
+								format.dwEffects = CFE_LINK;
+								pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+								idoffset1 = idoffset2;
+							}
+						} while(idbr.matched);
+					}
+					offset1 = offset2;
+				}
+			} while(br.matched);
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr){}
+	}
 
 	if (!sMessage.IsEmpty())
 	{
@@ -301,19 +375,105 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 	return FALSE;
 }
 
-CString ProjectProperties::GetBugIDUrl(const CString& msg)
+CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
 {
 	CString ret;
 	if (sUrl.IsEmpty())
 		return ret;
-	if (!sMessage.IsEmpty())
+	if (!sMessage.IsEmpty() || (!sCheckRe.IsEmpty()&&!sBugIDRe.IsEmpty()))
 	{
 		ret = sUrl;
-		ret.Replace(_T("%BUGID%"), msg);
+		ret.Replace(_T("%BUGID%"), sBugID);
 	}
 	return ret;
 }
 
+BOOL ProjectProperties::CheckBugID(const CString& sID)
+{
+	if (bNumber)
+	{
+		// check if the revision actually _is_ a number
+		// or a list of numbers separated by colons
+		TCHAR c = 0;
+		int len = sID.GetLength();
+		for (int i=0; i<len; ++i)
+		{
+			c = sID.GetAt(i);
+			if ((c < '0')&&(c != ','))
+			{
+				return FALSE;
+			}
+			if (c > '9')
+				return FALSE;
+		}
+	}
+	return TRUE;
+}
 
+BOOL ProjectProperties::HasBugID(const CString& sMessage)
+{
+	if (!sCheckRe.IsEmpty())
+	{
+		try
+		{
+			match_results results;
+			rpattern pat( (LPCTSTR)sCheckRe ); 
+			match_results::backref_type br;
+			br = pat.match( (LPCTSTR)sMessage, results );
+			return br.matched;
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr) {}
+	}
+	return FALSE;
+}
+
+#ifdef DEBUG
+static class PropTest
+{
+public:
+	PropTest()
+	{
+		int offset1 = 0;
+		int offset2 = 0;
+		CString sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+		CString sCheckRe = _T("[Ii]ssue #?(\\d+)(,? ?#?(\\d+))+");
+		CString sBugIDRe = _T("(\\d+)");
+		CString msg = _T("this is a test logmessage: issue 222\nIssue #456, #678, 901  #456");
+		match_results results;
+		rpattern pat( (LPCTSTR)sCheckRe ); 
+		match_results::backref_type br;
+		do 
+		{
+			br = pat.match( (LPCTSTR)msg.Mid(offset1), results );
+			if( br.matched ) 
+			{
+				offset1 += results.rstart(0);
+				offset2 = offset1 + results.rlength(0);
+				ATLTRACE("matched : %ws\n", msg.Mid(offset1, offset2-offset1));
+				{
+					int idoffset1=offset1;
+					int idoffset2=offset2;
+					match_results idresults;
+					rpattern idpat( (LPCTSTR)sBugIDRe );
+					match_results::backref_type idbr;
+					do 
+					{
+						idbr = idpat.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+						if (idbr.matched)
+						{
+							idoffset1 += idresults.rstart(0);
+							idoffset2 = idoffset1 + idresults.rlength(0);
+							ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
+							idoffset1 = idoffset2;
+						}
+					} while(idbr.matched);
+				}
+				offset1 = offset2;
+			}
+		} while(br.matched);
+	}
+} PropTest;
+#endif
 
 

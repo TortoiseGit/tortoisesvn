@@ -48,19 +48,43 @@ information.
 
 The information a client needs is:
 
-- the URL pointing to the bug tracking tool - the format of the issue number it 
-has to add to the log messages so the bug tracking tool can recognize it
+- the URL pointing to the bug tracking tool 
+- the format of the issue number it has to add to the log messages so the 
+  bug tracking tool can recognize it. Or
+- a regular expression to parse the log message with to extract the issue number
 
 There are other things a Subversion (GUI) client could use to make the 
-integration with bug tracking tools easier for the user, but these two are 
+integration with bug tracking tools easier for the user, but these are 
 essential for the integration to work.
 
 IV. Implementation
 ------------------
-The required information for the clients is stored in folder properties. The 
+The required information for the clients is stored in *folder* properties. The 
 reason we chose this path is explained in the FAQ at the end of this document.
 
-The following properties are defined:
+There are two different ways a client can integrate with an issue tracker. One
+is very basic but provides the user with a separate GUI to enter bug ID's,
+and the other one is based on regular expressions where the user has to enter
+the bug ID's directly into the log message.
+
+The following properties are defined which are used by both ways:
+
+name  : bugtraq:url
+value : (string)
+This value is the URL pointing to the bug tracking tool. The URL string should 
+contain the substring "%BUGID%" which the client replaces with the issue number. 
+That way the resulting URL will point directly to the correct issue.
+NOTE: The URL must be properly URI encoded by the user.
+This URL can be used by clients to create a link to the bug tracking tool when
+showing the logmessage of a revision.
+
+name  : bugtraq:warnifnoissue
+value : "true"/"yes" or "false"/"no"
+If set to "true", then the clients will warn the user if the issue text box is
+left empty. But it must not block the commit, only give the user a chance to
+enter an issue number in case (s)he forgot it.
+
+Properties used with the basic integration:
 
 name  : bugtraq:label
 value : (string)
@@ -73,8 +97,7 @@ keep the size of the label string below 20-25 chars.
 name  : bugtraq:message
 value : (string)
 If this property is set, then the client should show a text box in the commit 
-window where the user can enter an issue number. If the property is missing, 
-then the client can assume that no bug tracking tool is used. 
+window where the user can enter an issue number.  
 The value string of this property is used by the client to create an additional 
 line added to the log message. The string must contain the substring "%BUGID%" 
 which is replaced with the issue number the user entered before applied to the 
@@ -95,26 +118,21 @@ used to separate multiple issues.
 The client must never complain if the text box is left empty, i.e. if no issue
 number is given. Not all commits are assigned to an issue!
 
-name  : bugtraq:url
+Properties used with the regex integration:
+
+name  : bugtraq:logregex
 value : (string)
-This value is the URL pointing to the bug tracking tool. The URL string should 
-contain the substring "%BUGID%" which the client replaces with the issue number. 
-That way the resulting URL will point directly to the correct issue.
-The URL must be properly URI encoded by the user.
-This URL can be used by clients to create a link to the bug tracking tool when
-showing the logmessage of a revision.
+This property contains two regular expressions, separated by a newline. The
+first expression is used to find a string which relates to a bug ID but may
+contain more than just the bug ID (e.g. "Issue #123" or "resolves issue 123").
+The second expression is then used to extract the bare bug ID from the string
+extracted with the first expression.
+An example:
+if you want to catch every pattern "issue #XXX" and "issue #890, #789" inside
+a log message you could use the following regex strings:
+[Ii]ssue #?(\d+)(,? ?#?(\d+))+
+(\d+)
 
-name  : bugtraq:warnifnoissue
-value : "true" or "false"
-If set to "true", then the clients will warn the user if the issue text box is
-left empty. But it must not block the commit, only give the user a chance to
-enter an issue number in case (s)he forgot it.
-
-name  : bugtraq:append
-value : "true" or "false"
-If set to "false", then the bugtraq:message part is inserted at the top of
-the log message, if "yes" or not set, then it's appended to the log message at
-the bottom.
 
 Please note:
 - All property names and values must be properly UTF8 encoded. The client should

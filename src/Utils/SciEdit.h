@@ -18,8 +18,10 @@
 //
 #pragma once
 #include "scintilla.h"
+#include "SciLexer.h"
 #include "myspell\\myspell.hxx"
 #include "myspell\\mythes.hxx"
+#include "ProjectProperties.h"
 
 /**
  * \ingroup Utils
@@ -76,6 +78,7 @@ public:
 	 * Initialize the scintilla control. Must be called prior to any other
 	 * method!
 	 */
+	void		Init(const ProjectProperties& props);
 	void		Init(LONG lLanguage = 0);
 	/**
 	 * Execute a scintilla command, e.g. SCI_GETLINE.
@@ -110,6 +113,7 @@ public:
 	
 	CStringA	StringForControl(const CString& text);
 	CString		StringFromControl(const CStringA& text);
+	
 private:
 	HMODULE		m_hModule;
 	LRESULT		m_DirectFunction;
@@ -118,12 +122,15 @@ private:
 	MyThes *	pThesaur;
 	CAutoCompletionList m_autolist;
 	TCHAR		m_separator;
+	CString		m_sCommand;
+	CString		m_sBugID;
 protected:
 	virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
 	void		CheckSpelling(void);
 	void		SuggestSpellingAlternatives(void);
 	void		DoAutoCompletion(void);
 	BOOL		LoadDictionaries(LONG lLanguageID);
+	BOOL		MarkEnteredBugID(NMHDR* nmhdr);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	DECLARE_MESSAGE_MAP()

@@ -74,21 +74,8 @@ BOOL CImportDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 	m_ProjectProperties.ReadProps(m_path);
-	m_cMessage.Init(m_ProjectProperties.lProjectLanguage);
+	m_cMessage.Init(m_ProjectProperties);
 	m_cMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
-
-	if (m_ProjectProperties.nLogWidthMarker)
-	{
-		m_cMessage.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
-		m_cMessage.Call(SCI_SETEDGEMODE, EDGE_LINE);
-		m_cMessage.Call(SCI_SETEDGECOLUMN, m_ProjectProperties.nLogWidthMarker);
-	}
-	else
-	{
-		m_cMessage.Call(SCI_SETEDGEMODE, EDGE_NONE);
-		m_cMessage.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
-	}
-	m_cMessage.SetText(m_ProjectProperties.sLogTemplate);
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC4, TOP_LEFT);
