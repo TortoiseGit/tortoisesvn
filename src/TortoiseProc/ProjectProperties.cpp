@@ -127,8 +127,8 @@ BOOL ProjectProperties::ReadProps(CString path)
 						{
 							patBugIDRe.init((LPCTSTR)sBugIDRe, MULTILINE);
 						}
-						catch (bad_alloc){}
-						catch (bad_regexpr){}
+						catch (bad_alloc){sBugIDRe.Empty();}
+						catch (bad_regexpr){sBugIDRe.Empty();}
 					}
 				}
 				if (!sCheckRe.IsEmpty())
@@ -138,8 +138,8 @@ BOOL ProjectProperties::ReadProps(CString path)
 					{
 						patCheckRe.init((LPCTSTR)sCheckRe, MULTILINE);
 					}
-					catch (bad_alloc){}
-					catch (bad_regexpr){}
+					catch (bad_alloc){sCheckRe.Empty();}
+					catch (bad_regexpr){sCheckRe.Empty();}
 				}
 				bFoundBugtraqLogRe = TRUE;
 			}

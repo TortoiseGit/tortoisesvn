@@ -94,8 +94,8 @@ void CSciEdit::Init(const ProjectProperties& props)
 		if (!m_sCommand.IsEmpty())
 			m_patCommand.init((LPCTSTR)m_sCommand);
 	}
-	catch (bad_alloc){}
-	catch (bad_regexpr){}
+	catch (bad_alloc){m_sBugID.Empty();m_sCommand.Empty();}
+	catch (bad_regexpr){m_sBugID.Empty();m_sCommand.Empty();}
 	
 	if (props.nLogWidthMarker)
 	{
