@@ -131,8 +131,8 @@ void CCheckoutDlg::OnOK()
 			if (SVN::IsBDBRepository(m_URL))
 				if (CMessageBox::Show(this->m_hWnd, IDS_WARN_SHAREFILEACCESS, IDS_APPNAME, MB_ICONWARNING | MB_YESNO)==IDNO)
 					return;
-		} // if (GetDriveType(temp)==DRIVE_REMOTE) 
-	} // if (m_url.Left(7).CompareNoCase(_T("file://"))==0) 
+		}
+	}
 
 	if (m_strCheckoutDirectory.IsEmpty())
 	{
@@ -148,7 +148,13 @@ void CCheckoutDlg::OnOK()
 		}
 		else
 			return;		//don't dismiss the dialog
-	} // if (!PathFileExists(m_strCheckoutDirectory))
+	}
+	if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
+	{
+		CString message(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY));
+		if (CMessageBox::Show(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDNO)
+			return;		//don't dismiss the dialog
+	}
 	UpdateData(FALSE);
 	CStandAloneDialog::OnOK();
 }
