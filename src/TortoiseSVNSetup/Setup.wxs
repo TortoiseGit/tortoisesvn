@@ -86,7 +86,7 @@
       <Component Id="C__TortoiseSVN" Guid="2F1FD4CC-32F0-51FB-A9CE-9DB539518655" >
         <File Id="F__TortoiseProc" Name="TORTOI~1.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoiseProc.exe" KeyPath="yes" />
         <File Id="F__TortoiseShell" Name="TORTOI~1.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoiseSVN.dll" />
-        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoisePlink.exe" />
+        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\TortoisePlink.exe" />
         
         <Shortcut Id="S__TortoiseProc" Directory="D_TortoisePrgMenu" Name="HELP" LongName="Help" Advertise="no"
 					Target="[TARGETDIR]TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
@@ -167,7 +167,7 @@
 	
       <Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
         <Component Id="C__iconv" Guid="582E4865-CC41-4689-BC77-20AD85017BBC" >
-          <FileGroup Prefix="" filter="*.so" src="..\..\bin\release\iconv" DiskId="1"/>
+          <FileGroup Prefix="" filter="*.so" src="..\..\..\Subversion\apr-iconv\LibR\iconv" DiskId="1"/>
         </Component>
       </Directory>
 
