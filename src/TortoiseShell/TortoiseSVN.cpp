@@ -32,6 +32,15 @@ HINSTANCE			g_hResInst;
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 {
+#ifdef _DEBUG
+	// if no debugger is present, then don't load the dll.
+	// this prevents other apps from loading the dll and locking
+	// it.
+	if (!::IsDebuggerPresent())
+	{
+		return FALSE;
+	}
+#endif
     if (dwReason == DLL_PROCESS_ATTACH)
     {
         // Extension DLL one-time initialization
