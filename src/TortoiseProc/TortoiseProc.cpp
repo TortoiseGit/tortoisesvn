@@ -580,7 +580,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				TRACE(_T("rename file %s to %s\n"), path, dlg.m_name);
 				filepath =  filepath + dlg.m_name;
 				SVN svn;
-				if (!svn.Move(path, filepath, FALSE))
+				if (!svn.Move(path, filepath, TRUE))
 				{
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
