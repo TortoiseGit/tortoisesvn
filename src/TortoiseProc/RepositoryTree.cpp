@@ -240,10 +240,7 @@ BOOL CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
 
 void CRepositoryTree::Refresh(HTREEITEM hItem)
 {
-	if (!ItemHasChildren(hItem))
-	{
-		hItem = GetParentItem(hItem);
-	}
+	hItem = GetParentItem(hItem);
 	Expand(hItem, TVE_COLLAPSERESET | TVE_COLLAPSE);
 	SetItemData(hItem, 0);
 	Expand(hItem, TVE_EXPAND);

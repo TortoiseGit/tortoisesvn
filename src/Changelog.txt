@@ -14,6 +14,9 @@
        deletion. (Stefan)
 - BUG: The log message when creating a new
        folder was always the same. (Stefan)
+- BUG: Changes made on folders in the repo-
+       browser weren't shown (refresh did
+       not work). (Stefan)
 
 Version 0.20.2
 - BUG: crash bug not fixed in 0.20.1 (one Ctrl-Z
