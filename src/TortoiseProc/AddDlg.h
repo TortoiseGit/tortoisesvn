@@ -61,22 +61,22 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedSelectall();
+	virtual BOOL OnInitDialog();
 	virtual void OnOK();
+	virtual void OnCancel();
 
 	DECLARE_MESSAGE_MAP()
 public:
 	CListCtrl		m_addListCtrl;
 	CString			m_sPath;
 	CStringArray	m_arFileList;
+	BOOL			m_bThreadRunning;
 
-	virtual BOOL OnInitDialog();
 private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;
-
-public:
-	afx_msg void OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedSelectall();
 };
 
 DWORD WINAPI AddThread(LPVOID pVoid);

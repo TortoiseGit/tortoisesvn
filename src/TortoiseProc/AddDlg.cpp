@@ -122,6 +122,7 @@ BOOL CAddDlg::OnInitDialog()
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+	m_bThreadRunning = TRUE;
 	m_addListCtrl.UpdateData(FALSE);
 
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
@@ -135,6 +136,8 @@ BOOL CAddDlg::OnInitDialog()
 
 void CAddDlg::OnOK()
 {
+	if (m_bThreadRunning)
+		return;
 	//save only the files the user has selected into the temporary file
 	try
 	{
@@ -155,6 +158,14 @@ void CAddDlg::OnOK()
 	}
 
 	CResizableDialog::OnOK();
+}
+
+void CAddDlg::OnCancel()
+{
+	if (m_bThreadRunning)
+		return;
+
+	CResizableDialog::OnCancel();
 }
 
 void CAddDlg::OnBnClickedSelectall()
@@ -315,8 +326,10 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	pDlg->m_bThreadRunning = FALSE;
 	return 0;
 }
+
 
 
 
