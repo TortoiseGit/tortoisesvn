@@ -1,3 +1,8 @@
+- ADD: A new entry in the main settings page can be
+       used to tell TSVN to reuse the entered log-message
+       in the commit dialog even if the user cancelles
+       the dialog. This was a user request. (Stefan)
+
 Version 0.17
 - BUG: the "Add" and "Add to ignore list" commands were
        shown even if there was no working copy. (Stefan)

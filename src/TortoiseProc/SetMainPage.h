@@ -87,7 +87,8 @@ private:
 	DWORD			m_dwLanguage;
 	CRegDWORD		m_regAddBeforeCommit;
 	BOOL			m_bAddBeforeCommit;
-
+	CRegDWORD		m_regNoRemoveLogMsg;
+	BOOL			m_bNoRemoveLogMsg;
 public:
 	afx_msg void OnBnClickedExtdiffbrowse();
 	virtual BOOL OnInitDialog();
@@ -101,4 +102,5 @@ public:
 	afx_msg void OnEnChangeExtmerge();
 	afx_msg void OnBnClickedDiffviewerrowse();
 	afx_msg void OnEnChangeDiffviewer();
+	afx_msg void OnBnClickedNoremovelogmsg();
 };

@@ -79,6 +79,8 @@ private:
 public:
 	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+protected:
+	virtual void OnCancel();
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -294,7 +294,7 @@ BEGIN
                     WS_EX_CLIENTEDGE
 END
 
-IDD_SETTINGSMAIN DIALOGEX 0, 0, 287, 151
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 287, 166
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
@@ -315,6 +315,9 @@ BEGIN
     LTEXT           "Diff Viewer:",IDC_STATIC,7,48,66,8
     EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,230,45,50,14
+    CONTROL         "Don't remove log messages when cancelling a commit",
+                    IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,140,273,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
@@ -535,7 +538,7 @@ BEGIN
         VERTGUIDE, 80
         VERTGUIDE, 220
         TOPMARGIN, 7
-        BOTTOMMARGIN, 144
+        BOTTOMMARGIN, 159
         HORZGUIDE, 18
     END
 
@@ -829,12 +832,12 @@ BEGIN
     IDS_LOG_COPY_SUCCESS    "Tag created successfully!"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -877,7 +880,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

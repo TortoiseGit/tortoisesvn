@@ -32,6 +32,7 @@ CSetMainPage::CSetMainPage()
 	, m_sDiffViewerPath(_T(""))
 	, m_sTempExtensions(_T(""))
 	, m_sMergePath(_T(""))
+	, m_bNoRemoveLogMsg(FALSE)
 {
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
@@ -40,7 +41,7 @@ CSetMainPage::CSetMainPage()
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
 	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"));
-
+	m_regNoRemoveLogMsg = CRegDWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
 }
 
 CSetMainPage::~CSetMainPage()
@@ -55,6 +56,7 @@ void CSetMainPage::SaveData()
 	m_regLanguage = m_dwLanguage;
 	m_regExtensions = m_sTempExtensions;
 	m_regAddBeforeCommit = m_bAddBeforeCommit;
+	m_regNoRemoveLogMsg = m_bNoRemoveLogMsg;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -67,6 +69,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
 	DDX_Check(pDX, IDC_ADDBEFORECOMMIT, m_bAddBeforeCommit);
 	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
+	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
 }
 
 
@@ -80,6 +83,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_EXTMERGE, OnEnChangeExtmerge)
 	ON_BN_CLICKED(IDC_DIFFVIEWERROWSE, OnBnClickedDiffviewerrowse)
 	ON_EN_CHANGE(IDC_DIFFVIEWER, OnEnChangeDiffviewer)
+	ON_BN_CLICKED(IDC_NOREMOVELOGMSG, OnBnClickedNoremovelogmsg)
 END_MESSAGE_MAP()
 
 
@@ -190,6 +194,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_sMergePath = m_regMergePath;
 	m_sTempExtensions = m_regExtensions;
 	m_bAddBeforeCommit = m_regAddBeforeCommit;
+	m_bNoRemoveLogMsg = m_regNoRemoveLogMsg;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
@@ -276,12 +281,18 @@ void CSetMainPage::OnBnClickedAddbeforecommit()
 	SetModified();
 }
 
+void CSetMainPage::OnBnClickedNoremovelogmsg()
+{
+	SetModified();
+}
+
 BOOL CSetMainPage::OnApply()
 {
 	SaveData();
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+
 
 
 

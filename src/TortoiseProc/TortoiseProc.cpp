@@ -272,7 +272,13 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.DoModal();
 			} // if (dlg.DoModal() == IDOK)
 			else
-				logmessage.removeValue();
+			{
+				CRegStdWORD nodelete = CRegStdWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
+				if (!nodelete)
+					logmessage.removeValue();
+				else
+					logmessage = dlg.m_sLogMessage;
+			}
 		}
 		//#endregion
 		//#region add

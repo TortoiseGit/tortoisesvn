@@ -23,6 +23,7 @@
 #include "CheckTempFiles.h"
 #include "LogPromptDlg.h"
 #include "UnicodeUtils.h"
+#include ".\logpromptdlg.h"
 
 
 // CLogPromptDlg dialog
@@ -390,6 +391,13 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	}
 	return 0;
 }
+
+void CLogPromptDlg::OnCancel()
+{
+	UpdateData(TRUE);
+	CResizableDialog::OnCancel();
+}
+
 
 
 
