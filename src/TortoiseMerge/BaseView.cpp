@@ -413,7 +413,7 @@ int CBaseView::GetScreenLines()
 	{
 		CRect rect;
 		GetClientRect(&rect);
-		m_nScreenLines = rect.Height() / GetLineHeight();
+		m_nScreenLines = (rect.Height() - HEADERHEIGHT) / GetLineHeight();
 	} // if (m_nScreenLines == -1) 
 	return m_nScreenLines;
 }
@@ -1225,7 +1225,7 @@ void CBaseView::GoToFirstDifference()
 				break;
 			nCenterPos++;
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
-		int nTopPos = nCenterPos - (m_nScreenLines/2);
+		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos);
@@ -1234,7 +1234,7 @@ void CBaseView::GoToFirstDifference()
 
 void CBaseView::OnMergeNextdifference()
 {
-	int nCenterPos = m_nTopLine + (m_nScreenLines/2);
+	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
@@ -1251,7 +1251,7 @@ void CBaseView::OnMergeNextdifference()
 				break;
 			nCenterPos++;
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
-		int nTopPos = nCenterPos - (m_nScreenLines/2);
+		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos);
@@ -1260,7 +1260,7 @@ void CBaseView::OnMergeNextdifference()
 
 void CBaseView::OnMergePreviousdifference()
 {
-	int nCenterPos = m_nTopLine + (m_nScreenLines/2);
+	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
@@ -1277,7 +1277,7 @@ void CBaseView::OnMergePreviousdifference()
 				break;
 			nCenterPos--;
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
-		int nTopPos = nCenterPos - (m_nScreenLines/2);
+		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos);
