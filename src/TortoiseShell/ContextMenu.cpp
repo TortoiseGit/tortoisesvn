@@ -322,10 +322,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 	}
 
-//missing commands:
-//Create Patch		//to create patch files
-//Apply Patch		//whats the complement of Diff?
-
 	PreserveChdir preserveChdir;
 
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
