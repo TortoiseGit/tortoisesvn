@@ -394,8 +394,6 @@ BOOL CMainFrame::LoadViews()
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			UpdateLayout();
-			if (bGoFirstDiff)
-				m_pwndLeftView->GoToFirstDifference();
 			m_pwndLeftView->SetHidden(FALSE);
 			m_pwndRightView->SetHidden(FALSE);
 			m_pwndBottomView->SetHidden(TRUE);
@@ -434,8 +432,6 @@ BOOL CMainFrame::LoadViews()
 			m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
-			if (bGoFirstDiff)
-				m_pwndLeftView->GoToFirstDifference();
 			m_pwndLeftView->SetHidden(FALSE);
 			m_pwndRightView->SetHidden(TRUE);
 			m_pwndBottomView->SetHidden(TRUE);
@@ -460,8 +456,6 @@ BOOL CMainFrame::LoadViews()
 			m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
-			if (bGoFirstDiff)
-				m_pwndLeftView->GoToFirstDifference();
 			m_pwndLeftView->SetHidden(FALSE);
 			m_pwndRightView->SetHidden(FALSE);
 			m_pwndBottomView->SetHidden(TRUE);
@@ -496,8 +490,6 @@ BOOL CMainFrame::LoadViews()
 			m_wndSplitter2.ShowColumn();
 		if (m_wndSplitter.IsRowHidden(1))
 			m_wndSplitter.ShowRow();
-		if (bGoFirstDiff)
-			m_pwndLeftView->GoToFirstDifference();
 		UpdateLayout();
 		m_pwndLeftView->SetHidden(FALSE);
 		m_pwndRightView->SetHidden(FALSE);
@@ -513,6 +505,8 @@ BOOL CMainFrame::LoadViews()
 	m_wndLocatorBar.DocumentUpdated();
 	m_wndLineDiffBar.DocumentUpdated();
 	SetActiveView(m_pwndLeftView);
+	if (bGoFirstDiff)
+		m_pwndLeftView->GoToFirstDifference();
 	return TRUE;
 }
 
