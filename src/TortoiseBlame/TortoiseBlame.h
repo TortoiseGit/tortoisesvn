@@ -95,6 +95,7 @@ protected:
 	LONG						m_revwidth;
 	LONG						m_datewidth;
 	LONG						m_authorwidth;
+	LONG						m_linewidth;
 
 	COLORREF					m_mouserevcolor;
 	COLORREF					m_mouseauthorcolor;

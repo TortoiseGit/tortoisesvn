@@ -26,6 +26,10 @@ TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
 TCHAR szOrigFilename[MAX_PATH];
 
+const bool ShowDate = false;
+const bool ShowAuthor = true;
+const bool ShowLine = true;
+
 static TortoiseBlame app;
 
 TortoiseBlame::TortoiseBlame()
@@ -40,6 +44,7 @@ TortoiseBlame::TortoiseBlame()
 	m_revwidth = 0;
 	m_datewidth = 0;
 	m_authorwidth = 0;
+	m_linewidth = 0;
 
 	m_windowcolor = ::GetSysColor(COLOR_WINDOW);
 	m_textcolor = ::GetSysColor(COLOR_WINDOWTEXT);
@@ -291,20 +296,33 @@ LONG TortoiseBlame::GetBlameWidth()
 	_stprintf(buf, _T("%8ld "), 88888888);
 	::GetTextExtentPoint(hDC, buf, _tcslen(buf), &width);
 	m_revwidth = width.cx + BLAMESPACE;
-	blamewidth += width.cx + BLAMESPACE;
-	_stprintf(buf, _T("%20s"), _T("31.08.2001 06:24:14"));
-	::GetTextExtentPoint32(hDC, buf, _tcslen(buf), &width);
-	m_datewidth = width.cx + BLAMESPACE;
-	blamewidth += width.cx + BLAMESPACE;
-	SIZE maxwidth = {0};
-	for (std::vector<std::string>::iterator I = authors.begin(); I != authors.end(); ++I)
+	blamewidth += m_revwidth;
+	if (ShowDate)
 	{
-		::GetTextExtentPoint32(hDC, I->c_str(), I->size(), &width);
-		if (width.cx > maxwidth.cx)
-			maxwidth = width;
+		_stprintf(buf, _T("%20s"), _T("31.08.2001 06:24:14"));
+		::GetTextExtentPoint32(hDC, buf, _tcslen(buf), &width);
+		m_datewidth = width.cx + BLAMESPACE;
+		blamewidth += m_datewidth;
 	}
-	m_authorwidth = maxwidth.cx + BLAMESPACE;
-	blamewidth += maxwidth.cx + BLAMESPACE;
+	if (ShowAuthor)
+	{
+		SIZE maxwidth = {0};
+		for (std::vector<std::string>::iterator I = authors.begin(); I != authors.end(); ++I)
+		{
+			::GetTextExtentPoint32(hDC, I->c_str(), I->size(), &width);
+			if (width.cx > maxwidth.cx)
+				maxwidth = width;
+		}
+		m_authorwidth = maxwidth.cx + BLAMESPACE;
+		blamewidth += m_authorwidth;
+	}
+	if (ShowLine)
+	{
+		_stprintf(buf, _T("%6ld"), 888888);
+		::GetTextExtentPoint(hDC, buf, _tcslen(buf), &width);
+		m_linewidth = width.cx + BLAMESPACE / 2;
+		blamewidth += m_linewidth;
+	}
 	::SelectObject(hDC, oldfont);
 	POINT pt = {blamewidth, 0};
 	LPtoDP(hDC, &pt, 1);
@@ -370,12 +388,27 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 			_stprintf(buf, _T("%8ld       "), revs[i]);
 			rc.right = rc.left + m_revwidth;
 			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
-			rc.right = rc.left + m_revwidth + m_datewidth;
-			_stprintf(buf, _T("%20s            "), dates[i].c_str());
-			::ExtTextOut(hDC, m_revwidth, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
-			rc.right = rc.left + m_revwidth + m_datewidth + m_authorwidth;
-			_stprintf(buf, _T("%-30s            "), authors[i].c_str());
-			::ExtTextOut(hDC, m_revwidth + m_datewidth, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+			int Left = m_revwidth;
+			if (ShowDate)
+			{
+				rc.right = rc.left + Left + m_datewidth;
+				_stprintf(buf, _T("%20s            "), dates[i].c_str());
+				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+				Left += m_datewidth;
+			}
+			if (ShowAuthor)
+			{
+				rc.right = rc.left + Left + m_authorwidth;
+				_stprintf(buf, _T("%-30s            "), authors[i].c_str());
+				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+				Left += m_authorwidth;
+			}
+			if (ShowLine)
+			{
+				_stprintf(buf, _T("%6ld       "), i + 1);
+				rc.right = rc.left + Left + m_linewidth;
+				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+			}
 			Y += heigth;
 		}
 		else
@@ -728,23 +761,32 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 
 				ZeroMemory(app.m_szTip, sizeof(app.m_szTip));
 				ZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
-				if (pNMHDR->code == TTN_NEEDTEXTA)
+				std::map<LONG, std::string>::iterator iter;
+				if ((iter = app.logmessages.find(rev)) != app.logmessages.end())
 				{
-					std::map<LONG, std::string>::iterator iter;
-					if ((iter = app.logmessages.find(rev)) != app.logmessages.end())
+					std::string msg;
+					if (!ShowAuthor)
 					{
-						lstrcpyn(app.m_szTip, iter->second.c_str(), MAX_LOG_LENGTH+5);
+						msg += app.authors[line];
+					}
+					if (!ShowDate)
+					{
+						if (!ShowAuthor) msg += "  ";
+						msg += app.dates[line];
+					}
+					if (!ShowAuthor || !ShowDate)
+						msg += '\n';
+					msg += iter->second;
+					if (pNMHDR->code == TTN_NEEDTEXTA)
+					{
+						lstrcpyn(app.m_szTip, msg.c_str(), MAX_LOG_LENGTH+5);
 						app.StringExpand(app.m_szTip);
 						pTTTA->lpszText = app.m_szTip;
 					}
-				}
-				else
-				{
-					std::map<LONG, std::string>::iterator iter;
-					if ((iter = app.logmessages.find(rev)) != app.logmessages.end())
+					else
 					{
 						pTTTW->lpszText = app.m_wszTip;
-						::MultiByteToWideChar( CP_ACP , 0, iter->second.c_str(), -1, app.m_wszTip, MAX_LOG_LENGTH+5);
+						::MultiByteToWideChar( CP_ACP , 0, msg.c_str(), -1, app.m_wszTip, MAX_LOG_LENGTH+5);
 						app.StringExpand(app.m_wszTip);
 					}
 				}
