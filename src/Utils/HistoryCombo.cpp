@@ -27,6 +27,7 @@ CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
 	m_nMaxHistoryItems = MAX_HISTORY_ITEMS;
 	m_bAllowSortStyle = bAllowSortStyle;
 	m_bURLHistory = FALSE;
+	m_bPathHistory = FALSE;
 }
 
 CHistoryCombo::~CHistoryCombo()
@@ -91,7 +92,16 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 		cbei.iSelectedImage = cbei.iImage;
 		cbei.mask |= CBEIF_IMAGE | CBEIF_SELECTEDIMAGE;
 	}
-
+	if (m_bPathHistory)
+	{
+		cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(str);
+		if (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex())
+		{
+			cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
+		}
+		cbei.iSelectedImage = cbei.iImage;
+		cbei.mask |= CBEIF_IMAGE | CBEIF_SELECTEDIMAGE;
+	}
 	int nRet = InsertItem(&cbei);
 
 	//search the Combo for another string like this
@@ -224,6 +234,34 @@ void CHistoryCombo::SetURLHistory(BOOL bURLHistory)
 		} // if (NULL == hwndEdit) 
 		if (hwndEdit)
 			SHAutoComplete(hwndEdit, SHACF_URLALL);
+	} // if (bUseShellURLHistory) 
+
+	SetImageList(&SYS_IMAGE_LIST());
+}
+
+void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
+{
+	m_bPathHistory = bPathHistory;
+
+	if (m_bPathHistory)
+	{
+		HWND hwndEdit;
+		// use for ComboEx
+		hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
+		if (NULL == hwndEdit)
+		{
+			//if not, try the old standby
+			if(hwndEdit==NULL)
+			{
+				CWnd* pWnd = this->GetDlgItem(1001);
+				if(pWnd)
+				{
+					hwndEdit = pWnd->GetSafeHwnd();
+				}
+			} // if(hwndEdit==NULL) 
+		} // if (NULL == hwndEdit) 
+		if (hwndEdit)
+			SHAutoComplete(hwndEdit, SHACF_FILESYSTEM);
 	} // if (bUseShellURLHistory) 
 
 	SetImageList(&SYS_IMAGE_LIST());

@@ -98,6 +98,13 @@ public:
 	 */
 	void SetURLHistory(BOOL bURLHistory);
 	/**
+	 * When \a bPathHistory is TRUE, treat the combo box entries
+	 * as Paths. This activates Shell Path auto completion and
+	 * the display of special icons in front of the combobox
+	 * entries. Default is FALSE.
+	 */
+	void SetPathHistory(BOOL bPathHistory);
+	/**
 	 * Sets the maximum numbers of entries in the history list.
 	 * If the history is larger as \em nMaxItems then the last
 	 * items in the history are deleted.
@@ -138,6 +145,7 @@ protected:
 	int m_nMaxHistoryItems;
 	BOOL m_bAllowSortStyle;
 	BOOL m_bURLHistory;
+	BOOL m_bPathHistory;
 
 	DECLARE_MESSAGE_MAP()
 };
