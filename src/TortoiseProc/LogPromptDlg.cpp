@@ -515,7 +515,7 @@ void CLogPromptDlg::OnBnClickedFilllog()
 			logmsg += line;
 		}
 	}
-	m_cLogMessage.Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)CStringA(logmsg));
+	m_cLogMessage.InsertText(logmsg);
 }
 
 void CLogPromptDlg::OnCbnSelchangeOldlogs()
