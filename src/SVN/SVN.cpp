@@ -123,6 +123,7 @@ void SVN::SaveAuthentication(BOOL save)
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
 BOOL SVN::Log(LONG rev, CString author, CString date, CString message, CString& cpaths) {return TRUE;};
+BOOL SVN::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CString line) {return TRUE;}
 
 struct log_msg_baton
 {
@@ -694,7 +695,101 @@ BOOL SVN::CreateRepository(CString path)
 	return TRUE;
 }
 
+BOOL SVN::Blame(CString path, LONG startrev, LONG endrev, BOOL strict)
+{
+	svn_opt_revision_t revEnd;
+	memset (&revEnd, 0, sizeof (revEnd));
+	if(endrev == -1)
+	{
+		revEnd.kind = svn_opt_revision_head;
+		endrev = 0;
+	}
+	else
+	{
+		revEnd.kind = svn_opt_revision_number;
+	}
+	revEnd.value.number = endrev;
 
+	preparePath(path);
+	Err = svn_client_blame ( CUnicodeUtils::GetUTF8(path),
+							 getRevision (startrev),  
+							 &revEnd,  
+							 strict,  
+							 blameReceiver,  
+							 (void *)this,  
+							 &ctx,  
+							 pool );
+
+	if(Err != NULL)
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+svn_error_t* SVN::blameReceiver(void* baton,
+								apr_off_t line_no,
+								svn_revnum_t revision,
+								const char * author,
+								const char * date,
+								const char * line,
+								apr_pool_t * pool)
+{
+	svn_error_t * error = NULL;
+	CString author_native;
+	CString line_native;
+	TCHAR date_native[MAX_PATH] = {0};
+
+	SVN * svn = (SVN *)baton;
+
+	if (author)
+		author_native = CUnicodeUtils::GetUnicode(author);
+	if (line)
+		line_native = CUnicodeUtils::GetUnicode(line);
+
+	if (date && date[0])
+	{
+		//Convert date to a format for humans.
+		apr_time_t time_temp;
+
+		error = svn_time_from_cstring (&time_temp, date, pool);
+		if (error)
+			return error;
+		__time64_t ttime = time_temp/1000000L;
+
+		struct tm * newtime;
+		SYSTEMTIME systime;
+		TCHAR timebuf[MAX_PATH];
+		TCHAR datebuf[MAX_PATH];
+
+		LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
+		locale = MAKELCID(locale, SORT_DEFAULT);
+
+		newtime = _localtime64(&ttime);
+
+		systime.wDay = newtime->tm_mday;
+		systime.wDayOfWeek = newtime->tm_wday;
+		systime.wHour = newtime->tm_hour;
+		systime.wMilliseconds = 0;
+		systime.wMinute = newtime->tm_min;
+		systime.wMonth = newtime->tm_mon+1;
+		systime.wSecond = newtime->tm_sec;
+		systime.wYear = newtime->tm_year+1900;
+		GetDateFormat(locale, 0, &systime, NULL, datebuf, MAX_PATH);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+		_tcsncat(date_native, timebuf, MAX_PATH);
+		_tcsncat(date_native, _T(", "), MAX_PATH);
+		_tcsncat(date_native, datebuf, MAX_PATH);
+	}
+	else
+		_tcscat(date_native, _T("(no date)"));
+
+	if (svn->BlameCallback((LONG)line_no, revision, author_native, date_native, line_native))
+	{
+		return error;
+	}
+	return error;
+}
 
 svn_error_t* SVN::logReceiver(void* baton, 
 								apr_hash_t* ch_paths, 
