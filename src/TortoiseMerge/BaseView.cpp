@@ -1020,10 +1020,18 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
 
 void CBaseView::ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar)
 {
-	if (m_pwndLeft)
+	if ((m_pwndLeft)&&(m_pwndRight))
+	{
 		m_pwndLeft->ScrollToLine(nNewTopLine, bTrackScrollBar);
-	if (m_pwndRight)
-		m_pwndRight->ScrollToLine(nNewTopLine, bTrackScrollBar);
+		m_pwndRight->ScrollToLine(nNewTopLine, FALSE);
+	}
+	else
+	{
+		if (m_pwndLeft)
+			m_pwndLeft->ScrollToLine(nNewTopLine, bTrackScrollBar);
+		if (m_pwndRight)
+			m_pwndRight->ScrollToLine(nNewTopLine, bTrackScrollBar);
+	}
 	if (m_pwndBottom)
 		m_pwndBottom->ScrollToLine(nNewTopLine, bTrackScrollBar);
 	if (m_pwndLocator)
