@@ -168,6 +168,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_CLEARAUTH, IDS_SETTINGS_CLEARAUTH_TT);
 	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
 	m_tooltips.AddTool(IDC_FORCESHELLREFRESH, IDS_SETTINGS_SHELLFORCEREFRESH_TT);
+	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
 
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
