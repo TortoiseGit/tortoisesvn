@@ -39,6 +39,7 @@
 #define IDSVNLC_UPDATE			7
 #define IDSVNLC_LOG				8
 #define IDSVNLC_EDITCONFLICT	9
+#define IDSVNLC_IGNOREMASK	   10
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCLICKA, 0, OnHdnItemclick)
@@ -1174,8 +1175,24 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
 					if (GetSelectedCount() == 1)
 					{
-						temp.LoadString(IDS_MENUIGNORE);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
+						CString filename = filepath.Mid(filepath.ReverseFind('/')+1);
+						if (filename.ReverseFind('.')>=0)
+						{
+							CMenu submenu;
+							if (submenu.CreateMenu())
+							{
+								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, filename);
+								filename = _T("*")+filename.Mid(filename.ReverseFind('.'));
+								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, filename);
+								temp.LoadString(IDS_MENUIGNORE);
+								popup.InsertMenu(-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
+							}
+						}
+						else
+						{
+							temp.LoadString(IDS_MENUIGNORE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
+						}
 					}
 				}
 				if (wcStatus == svn_wc_status_conflicted)
@@ -1291,6 +1308,45 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								RemoveListEntry(index);
 							}
 						}
+					}
+					break;
+				case IDSVNLC_IGNOREMASK:
+					{
+						filepath.Replace('\\', '/');
+						CString name = _T("*")+filepath.Mid(filepath.ReverseFind('.'));
+						CString parentfolder = filepath.Left(filepath.ReverseFind('/'));
+						SVNProperties props(parentfolder);
+						CStringA value;
+						for (int i=0; i<props.GetCount(); i++)
+						{
+							CString propname(props.GetItemName(i).c_str());
+							if (propname.CompareNoCase(_T("svn:ignore"))==0)
+							{
+								stdstring stemp;
+								stdstring tmp = props.GetItemValue(i);
+								//treat values as normal text even if they're not
+								value = (char *)tmp.c_str();
+							}
+						}
+						if (value.IsEmpty())
+							value = name;
+						else
+						{
+							value = value.Trim("\n\r");
+							value += "\n";
+							value += name;
+							value.Remove('\r');
+						}
+						if (!props.Add(_T("svn:ignore"), value))
+						{
+							CString temp;
+							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+						}
+						if (GetCheck(selIndex))
+							m_nSelected--;
+						m_nTotal--;
+						RemoveListEntry(selIndex);
 					}
 					break;
 				case IDSVNLC_IGNORE:
