@@ -184,7 +184,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	//Fill in the cache with
 	//all files inside the same folder as the asked file/folder is
 	//since subversion can do this in one step
-	TCHAR pathbuf[MAX_PATH+4];
+	TCHAR * pathbuf = new TCHAR[_tcslen(filepath)+4];
 	_tcscpy(pathbuf, filepath);
 	const TCHAR * p = _tcsrchr(filepath, '\\');
 	if (p)
@@ -193,7 +193,6 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	{
 		_tcscpy(pathbuf, filepath);
 	}
-
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
 	ctx->auth_baton = NULL;
 
@@ -224,6 +223,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	{
 		svn_pool_destroy (pool);				//free allocated memory
 		ClearPool();
+		delete pathbuf;
 		return &invalidstatus;	
 	}
 
@@ -255,6 +255,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 		}		
 	}
 	ClearPool();
+	delete pathbuf;
 	if (ret)
 		return ret;
 	return &invalidstatus;
@@ -411,16 +412,8 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	stdstring str;
 	if (path)
 	{
-		char osPath[MAX_PATH+1];
-		for (UINT i=0; path[i] != '\0'; i++)
-		{
-			if (path[i] =='/')
-				osPath[i] = '\\';
-			else
-				osPath[i] = path[i];
-		}
-		osPath[i] = 0;
-		str = CUnicodeUtils::StdGetUnicode(osPath);
+		str = CUnicodeUtils::StdGetUnicode(path);
+		std::replace(str.begin(), str.end(), '/', '\\');
 	}
 	else
 		str = _T(" ");

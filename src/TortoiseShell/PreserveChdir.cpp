@@ -21,17 +21,22 @@
 
 PreserveChdir::PreserveChdir()
 {
-	GetCurrentDirectory(MAX_PATH, originalCurrentDirectory);
+	DWORD len = GetCurrentDirectory(0, NULL);
+	originalCurrentDirectory = new TCHAR[len];
+	GetCurrentDirectory(len, originalCurrentDirectory);
 }
 
 PreserveChdir::~PreserveChdir()
 {
-	TCHAR currentDirectory[MAX_PATH + 1];
+	DWORD len = GetCurrentDirectory(0, NULL);
+	TCHAR * currentDirectory = new TCHAR[len];
 
 	// _tchdir is an expensive function - don't call it unless we really have to
-	GetCurrentDirectory(MAX_PATH, currentDirectory);
+	GetCurrentDirectory(len, currentDirectory);
 	if(_tcscmp(currentDirectory, originalCurrentDirectory) != 0)
 	{
 		SetCurrentDirectory(originalCurrentDirectory);
 	}
+	delete currentDirectory;
+	delete originalCurrentDirectory;
 }

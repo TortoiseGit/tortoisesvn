@@ -399,10 +399,10 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						ULONGLONG all = filenames.size();
 						ULONGLONG count = 0;
 						CProgressDlg dlg;
-						TCHAR s[MAX_PATH];
-						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PATH);
+						TCHAR s[MAX_PROP_STRING_LENGTH];
+						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PROP_STRING_LENGTH);
 						dlg.SetTitle(s);
-						LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PATH);
+						LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PROP_STRING_LENGTH);
 						dlg.SetCancelMsg(s);
 						dlg.SetTime(TRUE);
 						dlg.SetShowProgressBar(TRUE);
@@ -439,10 +439,10 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						ULONGLONG all = filenames.size();
 						ULONGLONG count = 0;
 						CProgressDlg dlg;
-						TCHAR s[MAX_PATH];
-						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PATH);
+						TCHAR s[MAX_PROP_STRING_LENGTH];
+						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PROP_STRING_LENGTH);
 						dlg.SetTitle(s);
-						LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PATH);
+						LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PROP_STRING_LENGTH);
 						dlg.SetCancelMsg(s);
 						dlg.SetTime(TRUE);
 						dlg.SetShowProgressBar(TRUE);

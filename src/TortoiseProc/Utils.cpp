@@ -39,9 +39,10 @@ CUtils::~CUtils(void)
 
 CString CUtils::GetTempFile(const CString& origfilename)
 {
-	TCHAR path[MAX_PATH];
-	TCHAR tempF[MAX_PATH];
-	::GetTempPath (MAX_PATH, path);
+	DWORD len = ::GetTempPath(0, NULL);
+	TCHAR * path = new TCHAR[len+1];
+	TCHAR * tempF = new TCHAR[len+50];
+	::GetTempPath (len+1, path);
 	CString tempfile;
 	if (origfilename.IsEmpty())
 	{
@@ -61,6 +62,8 @@ CString CUtils::GetTempFile(const CString& origfilename)
 	//different filenames.
 	HANDLE hFile = CreateFile(tempfile, GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
 	CloseHandle(hFile);
+	delete path;
+	delete tempF;
 	return tempfile;
 }
 
@@ -280,9 +283,11 @@ BOOL CUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
 			CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
 			viewer = txtexe;
 		}
-		TCHAR buf[MAX_PATH];
-		ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
+		DWORD len = ExpandEnvironmentStrings(viewer, NULL, 0);
+		TCHAR * buf = new TCHAR[len+1];
+		ExpandEnvironmentStrings(viewer, buf, len);
 		viewer = buf;
+		delete buf;
 	}
 	if (viewer.Find(_T("%1"))>=0)
 	{
@@ -309,16 +314,22 @@ BOOL CUtils::StartTextViewer(CString file)
 	viewer = viewer + _T("\\Shell\\Open\\Command\\");
 	CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
 	viewer = txtexe;
-	TCHAR buf[32*1024];
-	ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
+
+	DWORD len = ExpandEnvironmentStrings(viewer, NULL, 0);
+	TCHAR * buf = new TCHAR[len+1];
+	ExpandEnvironmentStrings(viewer, buf, len);
 	viewer = buf;
-	ExpandEnvironmentStrings(file, buf, MAX_PATH);
+	delete buf;
+	len = ExpandEnvironmentStrings(file, NULL, 0);
+	buf = new TCHAR[len+1];
+	ExpandEnvironmentStrings(file, buf, len);
 	file = buf;
+	delete buf;
 	file = _T("\"")+file+_T("\"");
 	if (viewer.IsEmpty())
 	{
 		OPENFILENAME ofn;		// common dialog box structure
-		TCHAR szFile[MAX_PATH];  // buffer for file name
+		TCHAR szFile[MAX_PATH];  // buffer for file name, let's hope the user doesn't want a path longer than MAX_PATH!
 		ZeroMemory(szFile, sizeof(szFile));
 		// Initialize OPENFILENAME
 		ZeroMemory(&ofn, sizeof(OPENFILENAME));
@@ -572,20 +583,28 @@ CString CUtils::GetLongPathname(const CString& path)
 {
 	if (path.IsEmpty())
 		return path;
-	TCHAR pathbuf[MAX_PATH];
 	TCHAR pathbufcanonicalized[MAX_PATH];
 	DWORD ret = 0;
+	CString sRet;
 	if (PathCanonicalize(pathbufcanonicalized, path))
 	{
-		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, MAX_PATH);
+		ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
+		TCHAR * pathbuf = new TCHAR[ret+2];	
+		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
+		sRet = CString(pathbuf, ret);
+		delete pathbuf;
 	}
 	else
 	{
-		ret = ::GetLongPathName(path, pathbuf, MAX_PATH);
+		ret = ::GetLongPathName(path, NULL, 0);
+		TCHAR * pathbuf = new TCHAR[ret+2];
+		ret = ::GetLongPathName(path, pathbuf, ret+1);
+		sRet = CString(pathbuf, ret);
+		delete pathbuf;
 	}
-	if ((ret == 0)||(ret > MAX_PATH))
+	if (ret == 0)
 		return path;
-	return CString(pathbuf, ret);
+	return sRet;
 }
 
 BOOL CUtils::FileCopy(CString srcPath, CString destPath, BOOL force)

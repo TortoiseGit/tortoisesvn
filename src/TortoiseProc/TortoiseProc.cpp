@@ -1334,8 +1334,9 @@ BOOL CTortoiseProcApp::InitInstance()
 	// remove them. But only delete 'old' files because the some
 	// apps might still be needing the recent ones.
 	{
-		TCHAR path[MAX_PATH];
-		DWORD len = ::GetTempPath (MAX_PATH, path);
+		DWORD len = ::GetTempPath(0, NULL);
+		TCHAR * path = new TCHAR[len + 100];
+		len = ::GetTempPath (len+100, path);
 		if (len != 0)
 		{
 			CSimpleFileFind finder = CSimpleFileFind(path, _T("svn*.*"));
@@ -1362,7 +1363,8 @@ BOOL CTortoiseProcApp::InitInstance()
 						::CloseHandle(hFile);
 				}
 			}
-		}			
+		}	
+		delete path;		
 	}
 
 

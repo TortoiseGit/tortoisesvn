@@ -162,6 +162,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
 	const char *				internalpath;
 	BOOL						isDir;
 
+//TODO: replace this MAX_PATH when we change GetAllStatus() to use CTSVNPath
 	TCHAR						pathbuf[MAX_PATH];
 	_tcscpy(pathbuf, path);
 	isDir = PathIsDirectory(path);

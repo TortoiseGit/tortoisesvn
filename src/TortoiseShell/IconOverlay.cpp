@@ -53,15 +53,26 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	if(!bAllowOverlayInFileDialogs)
 	{
 		// Test if we are in Explorer
-		TCHAR buf[_MAX_PATH + 1];
-		DWORD pathLength = GetModuleFileName(NULL, buf, _MAX_PATH);
+		DWORD modpathlen = 0;
+		TCHAR * buf = NULL;
+		DWORD pathLength = 0;
+		do 
+		{
+			modpathlen += MAX_PATH;		// MAX_PATH is not the limit here!
+			if (buf)
+				delete buf;
+			buf = new TCHAR[modpathlen];
+			pathLength = GetModuleFileName(NULL, buf, modpathlen);
+		} while (pathLength == modpathlen);
 		if(pathLength >= 13)
 		{
 			if ((_tcsicmp(&buf[pathLength-13], _T("\\explorer.exe"))) != 0)
 			{
+				delete buf;
 				return S_FALSE;
 			}
 		}
+		delete buf;
 	}
 
     // Get folder icons from registry

@@ -188,8 +188,8 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
 		// reserve for the path + trailing \0
 
-		TCHAR buf[MAX_PATH+1];
-		ZeroMemory(buf, MAX_PATH);
+		TCHAR buf[MAX_STATUS_STRING_LENGTH+1];
+		ZeroMemory(buf, MAX_STATUS_STRING_LENGTH);
 		switch (pscid->pid) 
 		{
 			case 0:

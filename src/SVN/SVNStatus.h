@@ -33,6 +33,9 @@ typedef std::basic_string<wchar_t> wide_string;
 
 class CTSVNPathList;
 
+#define MAX_STATUS_STRING_LENGTH		100
+
+
 /**
  * \ingroup TortoiseShell
  * Provides Subversion commands, some of them as static methods for easier and

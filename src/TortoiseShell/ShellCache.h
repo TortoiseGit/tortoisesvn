@@ -168,7 +168,7 @@ public:
 			if ((drivetype == -1)||((GetTickCount() - DRIVETYPETIMEOUT)>drivetypeticker))
 			{
 				drivetypeticker = GetTickCount();
-				TCHAR pathbuf[MAX_PATH+4];
+				TCHAR pathbuf[MAX_PATH+4];		// MAX_PATH ok here. PathStripToRoot works with partial paths too.
 				_tcscpy(pathbuf, path);
 				PathStripToRoot(pathbuf);
 				PathAddBackslash(pathbuf);
@@ -179,7 +179,7 @@ public:
 		} // if ((drivenumber >=0)&&(drivenumber < 25)) 
 		else
 		{
-			TCHAR pathbuf[MAX_PATH+4];
+			TCHAR pathbuf[MAX_PATH+4];		// MAX_PATH ok here. PathIsUNCServer works with partial paths too.
 			_tcscpy(pathbuf, path);
 			if (PathIsUNCServer(pathbuf))
 				drivetype = DRIVE_REMOTE;
@@ -256,7 +256,8 @@ public:
 	}
 	BOOL HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
 	{
-		TCHAR buf[MAX_PATH];
+		size_t len = _tcslen(path);
+		TCHAR * buf = new TCHAR[len+1];
 		BOOL hasAdminDir = FALSE;
 		_tcscpy(buf, path);
 		if (! bIsDir)
@@ -273,10 +274,11 @@ public:
 			sAdminDirCacheKey.assign(buf);
 			if ((iter = admindircache.find(sAdminDirCacheKey)) != admindircache.end())
 			{
+				delete buf;
 				return iter->second;
 			}
 		}
-		TCHAR buf2[MAX_PATH];
+		TCHAR * buf2 = new TCHAR[len+10];		//BUGBUG: what if SVN_WC_ADM_DIR_NAME suddenly is bigger than 10 chars?
 		_tcscpy(buf2, buf);
 		_tcscat(buf2, _T("\\"));
 		_tcscat(buf2, _T(SVN_WC_ADM_DIR_NAME));
@@ -284,6 +286,8 @@ public:
 		admindirticker = GetTickCount();
 		admindircache.clear();
 		admindircache[buf] = hasAdminDir;
+		delete buf;
+		delete buf2;
 		return hasAdminDir;
 	}
 private:

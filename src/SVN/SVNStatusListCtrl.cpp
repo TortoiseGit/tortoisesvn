@@ -1685,7 +1685,7 @@ CString CSVNStatusListCtrl::GetStatisticsString()
 {
 	CString sNormal, sAdded, sDeleted, sModified, sConflicted, sUnversioned;
 	WORD langID = (WORD)(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-	TCHAR buf[MAX_PATH];
+	TCHAR buf[MAX_STATUS_STRING_LENGTH];
 	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, buf, sizeof(buf)/sizeof(TCHAR), langID);
 	sNormal = buf;
 	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, buf, sizeof(buf)/sizeof(TCHAR), langID);

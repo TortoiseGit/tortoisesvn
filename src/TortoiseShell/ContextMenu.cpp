@@ -65,7 +65,6 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					return E_INVALIDARG;
 
 
-				TCHAR m_szFileName[MAX_PATH];
 				HDROP drop = (HDROP)GlobalLock(stg.hGlobal);
 				if ( NULL == drop )
 				{
@@ -76,9 +75,16 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				int count = DragQueryFile(drop, (UINT)-1, NULL, 0);
 				for (int i = 0; i < count; i++)
 				{
-					if (0 == DragQueryFile(drop, i, m_szFileName, sizeof(m_szFileName)))
+					// find the path length in chars
+					UINT len = DragQueryFile(drop, i, NULL, 0);
+					TCHAR * szFileName = new TCHAR[len+1];
+					if (0 == DragQueryFile(drop, i, szFileName, len+1))
+					{
+						delete szFileName;
 						continue;
-					stdstring str = stdstring(m_szFileName);
+					}
+					stdstring str = stdstring(szFileName);
+					delete szFileName;
 					if (str.empty() == false)
 					{
 						files_.push_back(str);
@@ -127,8 +133,9 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				ItemIDList parent( GetPIDLFolder (cida));
 
 				int count = cida->cidl;
-				TCHAR buf[MAX_PATH+1];
 				BOOL statfetched = FALSE;
+				stdstring sAdm = _T("\\");
+				sAdm += _T(SVN_WC_ADM_DIR_NAME);
 				for (int i = 0; i < count; ++i)
 				{
 					ItemIDList child (GetPIDLItem (cida, i), &parent);
@@ -136,14 +143,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					if (str.empty() == false)
 					{
 						//check if our menu is requested for a subversion admin directory
-						_tcscpy(buf, str.c_str());
-						TCHAR * lastpart = NULL;
-						if ((lastpart = _tcsrchr(buf, '\\'))!=0)
-						{
-							*lastpart++ = 0;
-							if (_tcscmp(lastpart, _T(SVN_WC_ADM_DIR_NAME))==0)
-								continue;
-						}
+						if (str.compare(str.length()-sAdm.length(), sAdm.length(), sAdm)==0)
+							continue;
 
 						files_.push_back(str);
 						if (!statfetched)
@@ -366,12 +367,13 @@ stdstring CShellExt::WriteFileListToTempFile()
 {
 	//write all selected files and paths to a temporary file
 	//for TortoiseProc.exe to read out again.
-	TCHAR path[MAX_PATH];
-	TCHAR tempFile[MAX_PATH];
-
-	GetTempPath (MAX_PATH, path);
+	DWORD pathlength = GetTempPath(0, NULL);
+	TCHAR * path = new TCHAR[pathlength+1];
+	TCHAR * tempFile = new TCHAR[pathlength + 100];
+	GetTempPath (pathlength+1, path);
 	GetTempFileName (path, _T("svn"), 0, tempFile);
-
+	stdstring retFilePath = stdstring(tempFile);
+	
 	HANDLE file = ::CreateFile (tempFile,
 								GENERIC_WRITE, 
 								FILE_SHARE_READ, 
@@ -380,6 +382,11 @@ stdstring CShellExt::WriteFileListToTempFile()
 								FILE_ATTRIBUTE_TEMPORARY,
 								0);
 
+	delete path;
+	delete tempFile;
+	if (file == INVALID_HANDLE_VALUE)
+		return stdstring();
+		
 	DWORD written = 0;
 	if (files_.empty())
 	{
@@ -418,11 +425,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 		if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
 			return NOERROR;
-		//check if our menu is requested for the start menu
-		//TCHAR buf[MAX_PATH];
-		//SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE);
-		//if (_tcscmp(buf, folder_.c_str())==0)
-		//	return NOERROR;
 
 		//the drophandler only has four commands, but not all are visible at the same time:
 		//if the source file(s) are under version control then those files can be moved
@@ -461,7 +463,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
 		return NOERROR;
 	//check if our menu is requested for the start menu
-	TCHAR buf[MAX_PATH];
+	TCHAR buf[MAX_PATH];	//MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
 	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE))
 	{
 		if (_tcscmp(buf, folder_.c_str())==0)
@@ -499,14 +501,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 	
 	//check if our menu is requested for a subversion admin directory
-	_tcscpy(buf, folder_.c_str());
-	TCHAR * lastpart = NULL;
-	if ((lastpart = _tcsrchr(buf, '\\'))!=0)
-	{
-		*lastpart++ = 0;
-		if (_tcscmp(lastpart, _T(SVN_WC_ADM_DIR_NAME))==0)
-			return NOERROR;
-	}
+	stdstring sAdm = _T("\\");
+	sAdm += _T(SVN_WC_ADM_DIR_NAME);
+	if (folder_.compare(folder_.length()-sAdm.length(), sAdm.length(), sAdm)==0)
+		return NOERROR;
 
 	LoadLangDll();
 	//bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
@@ -620,8 +618,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	{
 		HMENU ignoresubmenu = CreateMenu();
 		int indexignoresub = 0;
-		TCHAR maskbuf[MAX_PATH];
-		TCHAR ignorepath[MAX_PATH];
+		TCHAR maskbuf[MAX_PATH];		// MAX_PATH is ok, since this only holds a filename
+		TCHAR ignorepath[MAX_PATH];		// MAX_PATH is ok, since this only holds a filename
 		std::vector<stdstring>::iterator I = files_.begin();
 		if (_tcsrchr(I->c_str(), '\\'))
 			_tcscpy(ignorepath, _tcsrchr(I->c_str(), '\\')+1);

@@ -43,12 +43,12 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath)
 void CTSVNPath::SetFromSVN(const char* pPath)
 {
 	Reset();
-
-	WCHAR buf[MAX_PATH*4];
-	if (!MultiByteToWideChar(CP_UTF8, 0, pPath, -1, buf, MAX_PATH*4))
-		buf[0] = 0;
-
-	m_sFwdslashPath = CString(buf);
+	int len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, NULL, 0);
+	if (len)
+	{
+		MultiByteToWideChar(CP_UTF8, 0, pPath, -1, m_sFwdslashPath.GetBuffer(len+1), len+1);
+		m_sFwdslashPath.ReleaseBuffer(len);
+	}
 }
 
 void CTSVNPath::SetFromSVN(const char* pPath, bool bIsDirectory)
@@ -330,7 +330,7 @@ CString CTSVNPath::GetRootPathString() const
 {
 	EnsureBackslashPathSet();
 	CString workingPath = m_sBackslashPath;
-	LPTSTR pPath = workingPath.GetBuffer(MAX_PATH);
+	LPTSTR pPath = workingPath.GetBuffer(MAX_PATH);		// MAX_PATH ok here.
 	ATLVERIFY(::PathStripToRoot(pPath));
 	workingPath.ReleaseBuffer();
 	return workingPath;

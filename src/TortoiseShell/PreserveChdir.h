@@ -49,6 +49,6 @@ public:
 	~PreserveChdir();
 
 private:
-	TCHAR originalCurrentDirectory[MAX_PATH + 1];
+	TCHAR  * originalCurrentDirectory;
 };
 

@@ -21,8 +21,9 @@
 
 BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 {
-	TCHAR buf[MAX_PATH];
-	TCHAR internalpathbuf[MAX_PATH];
+	size_t len = _tcslen(path);
+	TCHAR * buf = new TCHAR[len+10];
+	TCHAR * internalpathbuf = new TCHAR[len+10];
 	TCHAR * pPath = internalpathbuf;
 	SECURITY_ATTRIBUTES attribs;
 
@@ -40,8 +41,11 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 		pPath = _tcschr(pPath, '\\');
 		pPath++;
 	} while (_tcschr(pPath, '\\'));
-
-	return CreateDirectory(internalpathbuf, &attribs);
+	
+	BOOL bRet = CreateDirectory(internalpathbuf, &attribs);
+	delete buf;
+	delete internalpathbuf;
+	return bRet;
 }
 
 void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src)

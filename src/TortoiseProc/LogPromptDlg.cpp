@@ -514,7 +514,7 @@ void CLogPromptDlg::OnBnClickedFilllog()
 	if (m_bBlock)
 		return;
 	CString logmsg;
-	TCHAR buf[MAX_PATH];
+	TCHAR buf[MAX_STATUS_STRING_LENGTH];
 	int nListItems = m_ListCtrl.GetItemCount();
 	for (int i=0; i<nListItems; ++i)
 	{
