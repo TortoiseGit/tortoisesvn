@@ -1274,7 +1274,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_COMMONFILEFILTER    "All Files (*.*)|*.*||"
-    IDS_PROGRAMSFILEFILTER  "Programs (*.exe)|*.*|All Files (*.*)|*.*||"
+    IDS_PROGRAMSFILEFILTER  "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
     IDS_CERTIFICATESFILEFILTER "Certificates|*.p12;*.pkcs12|All|*.*||"
     IDS_PATCHFILEFILTER     "Patchfiles|*.diff;*.patch|All|*.*||"
 END
