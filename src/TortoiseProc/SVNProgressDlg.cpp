@@ -22,6 +22,7 @@
 #include "messagebox.h"
 #include "SVNProgressDlg.h"
 #include "UnicodeUtils.h"
+#include ".\svnprogressdlg.h"
 
 
 // CSVNProgressDlg dialog
@@ -209,6 +210,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	m_arActionPStates.RemoveAll();
 
 	AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -226,8 +228,12 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
 
 	CString temp;
-	temp.LoadString(IDS_MSGBOX_CANCEL);
-	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+	//temp.LoadString(IDS_MSGBOX_CANCEL);
+	//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+
+	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
+	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
+
 	pDlg->m_bThreadRunning = TRUE;
 	switch (pDlg->m_Command)
 	{
@@ -350,8 +356,12 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						temp.LoadString(IDS_PROGRS_TITLEFIN);
 						pDlg->SetWindowText(temp);
 						temp.LoadString(IDS_MSGBOX_OK);
-						pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-						pDlg->m_bCancelled = TRUE;
+						//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+						//pDlg->m_bCancelled = TRUE;
+
+						pDlg->GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
+						pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+
 						pDlg->m_bThreadRunning = FALSE;
 						pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 						return 0;
@@ -494,14 +504,16 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	}
 	temp.LoadString(IDS_PROGRS_TITLEFIN);
 	pDlg->SetWindowText(temp);
-	temp.LoadString(IDS_MSGBOX_OK);
-	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+	//temp.LoadString(IDS_MSGBOX_OK);
+	//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+
+	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
+	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+
 	pDlg->m_bCancelled = TRUE;
 	pDlg->m_bThreadRunning = FALSE;
 	return 0;
 }
-
-
 
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
@@ -510,11 +522,29 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
 	dlg.DoModal();
 }
 
+void CSVNProgressDlg::OnClose()
+{
+	if (m_bCancelled)
+		TerminateThread(m_hThread, -1);
+	else
+	{
+		m_bCancelled = TRUE;
+		return;
+	}
+	__super::OnClose();
+}
 
 void CSVNProgressDlg::OnOK()
 {
 	if ((m_bCancelled)&&(!m_bThreadRunning))
 		__super::OnOK();
+	m_bCancelled = TRUE;
+}
+
+void CSVNProgressDlg::OnCancel()
+{
+	if ((m_bCancelled)&&(!m_bThreadRunning))
+		__super::OnCancel();
 	m_bCancelled = TRUE;
 }
 
@@ -582,14 +612,4 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
-void CSVNProgressDlg::OnClose()
-{
-	if (m_bCancelled)
-		TerminateThread(m_hThread, -1);
-	else
-	{
-		m_bCancelled = TRUE;
-		return;
-	}
-	__super::OnClose();
-}
+

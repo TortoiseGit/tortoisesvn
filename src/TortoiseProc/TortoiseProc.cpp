@@ -248,7 +248,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			CSVNProgressDlg progDlg;
 			m_pMainWnd = &progDlg;
-			progDlg.SetParams(Update, true, path, _T(""), _T(""), rev);
+			progDlg.SetParams(Update, false, path, _T(""), _T(""), rev);
 			progDlg.DoModal();
 		}
 		//#endregion

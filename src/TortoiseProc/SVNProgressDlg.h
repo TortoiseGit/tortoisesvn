@@ -137,5 +137,7 @@ private:
 public:
 	afx_msg void OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnClose();
+protected:
+	virtual void OnCancel();
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);
