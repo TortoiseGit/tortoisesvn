@@ -144,6 +144,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
 	LoadLangDll();
+	DWORD dwWaitResult = 0;
 	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 4) 
 	{
 		PreserveChdir preserveChdir;
@@ -155,7 +156,6 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 #endif
 
 		TCHAR buf[MAX_PATH];
-		DWORD dwWaitResult = 0;
 		switch (pscid->pid) 
 		{
 			case 0:
@@ -225,8 +225,13 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		switch (pscid->pid)
 		{
 			case PIDSI_AUTHOR:			// author
-				GetColumnStatus(path);
-				szInfo = columnauthor;
+				dwWaitResult = WaitForSingleObject(hMutex, 10);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					GetColumnStatus(path);
+					szInfo = columnauthor;
+					ReleaseMutex(hMutex);
+				}
 				break;
 			default:
 				return S_FALSE;
