@@ -1742,6 +1742,16 @@ BEGIN
                             "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_SCIEDIT_UNDO        "&Undo"
+    IDS_SCIEDIT_REDO        "&Redo"
+    IDS_SCIEDIT_CUT         "Cu&t"
+    IDS_SCIEDIT_COPY        "Cop&y"
+    IDS_SCIEDIT_PASTE       "&Paste"
+    IDS_SCIEDIT_SELECTALL   "Select &All"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

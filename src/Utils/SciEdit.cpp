@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #include "StdAfx.h"
+#include "resource.h"
 #include ".\sciedit.h"
 
 IMPLEMENT_DYNAMIC(CSciEdit, CWnd)
@@ -172,7 +173,6 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 	if (bSelectWord)
 	{
 		Call(SCI_SETSEL, textrange.chrg.cpMin, textrange.chrg.cpMax);
-		Call(SCI_SETCURRENTPOS, textrange.chrg.cpMin);
 	}
 	return StringFromControl(textbuffer);
 }
@@ -259,6 +259,7 @@ void CSciEdit::SuggestSpellingAlternatives()
 	if (pChecker == NULL)
 		return;
 	CString word = GetWordUnderCursor(true);
+	Call(SCI_SETCURRENTPOS, Call(SCI_WORDSTARTPOSITION, Call(SCI_GETCURRENTPOS), TRUE));
 	if (word.IsEmpty())
 		return;
 	char ** wlst;
@@ -333,6 +334,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 
 BEGIN_MESSAGE_MAP(CSciEdit, CWnd)
 	ON_WM_KEYDOWN()
+	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -361,6 +363,99 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
+void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
+{
+	if ((point.x == -1) && (point.y == -1))
+	{
+		CRect rect;
+		GetClientRect(&rect);
+		ClientToScreen(&rect);
+		point = rect.CenterPoint();
+	}
+	CString sMenuItemText;
+	CMenu popup;
+	if (popup.CreatePopupMenu())
+	{
+		bool bCanUndo = !!Call(SCI_CANUNDO);
+		bool bCanRedo = !!Call(SCI_CANREDO);
+		bool bHasSelection = (Call(SCI_GETANCHOR) != Call(SCI_GETCURRENTPOS));
+		bool bCanPaste = !!Call(SCI_CANPASTE);
+		UINT uEnabledMenu = MF_STRING | MF_ENABLED;
+		UINT uDisabledMenu = MF_STRING | MF_GRAYED;
+		
+		sMenuItemText.LoadString(IDS_SCIEDIT_UNDO);
+		popup.AppendMenu(bCanUndo ? uEnabledMenu : uDisabledMenu, SCI_UNDO, sMenuItemText);
+		sMenuItemText.LoadString(IDS_SCIEDIT_REDO);
+		popup.AppendMenu(bCanRedo ? uEnabledMenu : uDisabledMenu, SCI_REDO, sMenuItemText);
+		
+		popup.AppendMenu(MF_SEPARATOR);
+		
+		sMenuItemText.LoadString(IDS_SCIEDIT_CUT);
+		popup.AppendMenu(bHasSelection ? uEnabledMenu : uDisabledMenu, SCI_CUT, sMenuItemText);
+		sMenuItemText.LoadString(IDS_SCIEDIT_COPY);
+		popup.AppendMenu(bHasSelection ? uEnabledMenu : uDisabledMenu, SCI_COPY, sMenuItemText);
+		sMenuItemText.LoadString(IDS_SCIEDIT_PASTE);
+		popup.AppendMenu(bCanPaste ? uEnabledMenu : uDisabledMenu, SCI_PASTE, sMenuItemText);
+
+		popup.AppendMenu(MF_SEPARATOR);
+		
+		sMenuItemText.LoadString(IDS_SCIEDIT_SELECTALL);
+		popup.AppendMenu(uEnabledMenu, SCI_SELECTALL, sMenuItemText);
+
+		popup.AppendMenu(MF_SEPARATOR);
+
+		CMenu corrections;
+		corrections.CreatePopupMenu();
+		CStringA worda = StringForControl(GetWordUnderCursor());
+		int nCorrections = 0;
+		if ((pChecker)&&(!worda.IsEmpty()))
+		{
+			char ** wlst;
+			int ns = pChecker->suggest(&wlst,worda);
+			if (ns > 0)
+			{
+				for (int i=0; i < ns; i++) 
+				{
+					CString sug = CString(wlst[i]);
+					corrections.InsertMenu((UINT)-1, 0, i+1, sug);
+					free(wlst[i]);
+				} 
+				free(wlst);
+			}
+
+			if ((ns > 0)&&(point.x >= 0))
+			{
+				sMenuItemText.LoadString(IDS_SPELLEDIT_CORRECTIONS);
+				popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, sMenuItemText);
+				nCorrections = ns;
+			}
+		} // if (pChecker)
+
+		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		switch (cmd)
+		{
+		case 0:
+			break;	// no command selected
+		case SCI_UNDO:
+		case SCI_REDO:
+		case SCI_CUT:
+		case SCI_COPY:
+		case SCI_PASTE:
+		case SCI_SELECTALL:
+			Call(cmd);
+			break;
+		default:
+			if (cmd <= nCorrections)
+			{
+				GetWordUnderCursor(true);
+				CString temp;
+				corrections.GetMenuString(cmd, temp, 0);
+				Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(temp));
+			}
+		}
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= true*/)
@@ -384,3 +479,4 @@ void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= 
 	}
 	return InsertAt(nMin, elem);
 }
+

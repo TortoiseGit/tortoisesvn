@@ -265,7 +265,6 @@
 #define IDS_SVNACTION_STATUS            1176
 #define IDS_SVNACTION_SKIP              1177
 #define IDS_PROGS_EXTCOL                1178
-#define IDC_CUSTOM1                     1178
 #define IDS_PROGS_TOOLCOL               1179
 #define IDS_LOG_FILE                    1180
 #define IDS_SVN_USERCANCELLED           1181
@@ -516,6 +515,12 @@
 #define IDS_REVGRAPH_BOXREVISIONTITLE   4320
 #define IDS_REVGRAPH_BOXTOOLTIP         4340
 #define IDS_REVGRAPH_SAVEPIC            4350
+#define IDS_SCIEDIT_UNDO                6000
+#define IDS_SCIEDIT_REDO                6001
+#define IDS_SCIEDIT_CUT                 6002
+#define IDS_SCIEDIT_COPY                6003
+#define IDS_SCIEDIT_PASTE               6004
+#define IDS_SCIEDIT_SELECTALL           6005
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
