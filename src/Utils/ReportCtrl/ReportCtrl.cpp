@@ -3747,6 +3747,8 @@ BOOL CReportCtrl::DeleteItemImpl(INT iItem)
 
 BOOL CReportCtrl::DeleteItemImpl(LPTREEITEM lpti, BOOL bChildrenOnly)
 {
+	if (lpti == NULL)
+		return FALSE;
 	LPTREEITEM lptiSibling = lpti->lptiChildren;
 
 	while(lptiSibling != NULL)
