@@ -198,7 +198,6 @@ void CTortoiseProcApp::CrashProgram()
 BOOL CTortoiseProcApp::InitInstance()
 {
 	CheckUpgrade();
-	CSoundUtils::RegisterTSVNSounds();
 	//set the resource dll for the required language
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
@@ -1540,8 +1539,9 @@ void CTortoiseProcApp::CheckUpgrade()
 		regval.removeKey();
 	}
 
-	if (lVersion < 0x01010300)
+	if (lVersion <= 0x01010300)
 	{
+		CSoundUtils::RegisterTSVNSounds();
 		// remove all saved dialog positions
 		CRegString(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\")).removeKey();
 	}
