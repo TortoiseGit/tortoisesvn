@@ -12,6 +12,11 @@ copy ..\images\*.png ..\output\TortoiseMerge\html-chunk\
 mkdir ..\output\TortoiseMerge\html-help
 ..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseMerge\html-help\ htmlhelp.xsl merge.xml
 
+mkdir ..\output\TortoiseMerge\pdf
+copy ..\images\*.png ..\output\TortoiseMerge\pdf\
+..\tools\xsltproc.exe  --output ..\output\TortoiseMerge\pdf\TortoiseMerge.fo fo-stylesheet.xsl merge.xml
+call ..\tools\fop\fop -fo ..\output\TortoiseMerge\pdf\TortoiseMerge.fo -pdf ..\output\TortoiseMerge\TortoiseMerge.pdf -q
+
 rem now start the dev command to overwrite the context.h file
 echo // Generated Help Map file. > "..\output\TortoiseMerge\html-help\context.h"
 echo. >> "..\output\TortoiseMerge\html-help\context.h"

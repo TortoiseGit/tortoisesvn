@@ -15,6 +15,12 @@ copy ..\images\*.png ..\output\TortoiseSVN\html\
 mkdir ..\output\TortoiseSVN\html-help
 ..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html-help\ htmlhelp.xsl book.xml
 
+mkdir ..\output\TortoiseSVN\pdf
+copy ..\images\*.png ..\output\TortoiseSVN\pdf\
+..\tools\xsltproc.exe  --output ..\output\TortoiseSVN\pdf\TortoiseSVN.fo fo-stylesheet.xsl book.xml
+call ..\tools\fop\fop -fo ..\output\TortoiseSVN\pdf\TortoiseSVN.fo -pdf ..\output\TortoiseSVN\TortoiseSVN.pdf -q
+
+
 rem now start the dev command to overwrite the context.h file
 echo // Generated Help Map file. > "..\output\TortoiseSVN\html-help\context.h"
 echo. >> "..\output\TortoiseSVN\html-help\context.h"
