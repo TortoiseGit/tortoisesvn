@@ -614,6 +614,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 
 	pDlg->m_ListCtrl.SetRedraw(false);
 
+	pDlg->m_nTotal = 0;
+	pDlg->m_nSelected = 0;
 	// Since svn_client_status() returns all files, even those in
 	// folders included with svn:externals we need to check if all
 	// files we get here belong to the same repository.
