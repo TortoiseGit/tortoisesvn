@@ -82,6 +82,7 @@ BOOL CInputDlg::OnInitDialog()
 void CInputDlg::OnOK()
 {
 	m_sInputText = m_cInput.GetText();
+	CResizableDialog::OnOK();
 }
 
 BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
