@@ -22,7 +22,6 @@
 #include "CheckTempFiles.h"
 #include "messagebox.h"
 #include "CrashHandler.h"
-#include "CrashReport.h"
 #include "UnicodeUtils.h"
 
 #ifdef _DEBUG
@@ -547,7 +546,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					file.Close();
 					CFile::Remove(path);
 				}
-				catch (CFileException )
+				catch (CFileException* )
 				{
 					TRACE(_T("CFileException in Update!\n"));
 				}

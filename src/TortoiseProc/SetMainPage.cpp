@@ -127,6 +127,8 @@ BOOL CSetMainPage::OnInitDialog()
 	m_LanguageCombo.SetItemData(1, 1031);
 	m_LanguageCombo.AddString(_T("Italiano"));
 	m_LanguageCombo.SetItemData(2, 1040);
+	m_LanguageCombo.AddString(_T("Russian"));
+	m_LanguageCombo.SetItemData(3, 1049);
 
 	int index = 0;
 	switch ((int)m_regLanguage)
@@ -139,6 +141,9 @@ BOOL CSetMainPage::OnInitDialog()
 		break;
 	case 1040:	//italian
 		index = 2;
+		break;
+	case 1049:	//russian
+		index = 3;
 		break;
 	default:
 		break;

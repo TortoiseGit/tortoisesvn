@@ -269,9 +269,10 @@ void CLogPromptDlg::OnOK()
 		}
 		file.Close();
 	}
-	catch (CFileException)
+	catch (CFileException* pE)
 	{
 		TRACE(_T("CFileException in Commit!\n"));
+		pE->Delete();
 	}
 
 	CDialog::OnOK();
@@ -364,9 +365,10 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		} // while (file.ReadString(strLine)) 
 		file.Close();
 	}
-	catch (CFileException)
+	catch (CFileException* pE)
 	{
 		TRACE("CFileException in Commit!\n");
+		pE->Delete();
 	}
 
 

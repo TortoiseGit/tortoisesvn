@@ -49,6 +49,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CDialog)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 BEGIN_RESIZER_MAP(CRepositoryBrowser)
@@ -126,4 +127,11 @@ void CRepositoryBrowser::OnSize(UINT nType, int cx, int cy)
 	CDialog::OnSize(nType, cx, cy);
 
 	UPDATE_RESIZER;
+}
+
+void CRepositoryBrowser::OnSizing(UINT fwSide, LPRECT pRect)
+{
+	CDialog::OnSizing(fwSide, pRect);
+
+	RESIZER_MINSIZE(300, 300, fwSide, pRect);
 }

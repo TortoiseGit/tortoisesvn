@@ -32,25 +32,25 @@ CString CUtils::GetDiffPath()
 	CString diffpath;
 	//now get the path to the diff program
 	CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
-	if (diffexe == _T(""))
+	if (static_cast<CString>(diffexe).IsEmpty())
 	{
 		//no registry entry for a diff program
 		//sad but true so let's search for one
 
 		//first check if there's a WinSDK
 		CRegString sdk(_T("Software\\Microsoft\\Win32SDK\\Directories\\Install Dir"));
-		if (sdk == _T(""))
+		if (static_cast<CString>(sdk).IsEmpty())
 		{
 			//shit, no SDK installed
 			//try VisualStudio
 			CRegString vs(_T("Software\\Microsoft\\VisualStudio\\6.0\\InstallDir"));
-			if (vs == _T(""))
+			if (static_cast<CString>(vs).IsEmpty())
 			{
 				//try VisualStudio 7
 				vs = CRegString(_T("Software\\Microsoft\\VisualStudio\\7.0\\InstallDir"));
-				if (vs == _T(""))
+				if (static_cast<CString>(vs).IsEmpty())
 					vs = CRegString(_T("Software\\Microsoft\\VisualStudio\\7.1\\InstallDir"));
-				if (vs != _T(""))
+				if (!static_cast<CString>(vs).IsEmpty())
 				{
 					//the visual studio install dir looks like C:\programs\Microsoft Visual Studio\Common\IDE
 					//so we have to remove the last part of the path

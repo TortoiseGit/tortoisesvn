@@ -155,9 +155,10 @@ void CAddDlg::OnOK()
 		}
 		file.Close();
 	}
-	catch (CFileException)
+	catch (CFileException* pE)
 	{
 		TRACE("CFileException in Add!\n");
+		pE->Delete();
 	}
 
 	CDialog::OnOK();
@@ -297,9 +298,10 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 		} // while (file.ReadString(strLine)) 
 		file.Close();
 	}
-	catch (CFileException)
+	catch (CFileException* pE)
 	{
 		TRACE("CFileException in Commit!\n");
+		pE->Delete();
 	}
 
 

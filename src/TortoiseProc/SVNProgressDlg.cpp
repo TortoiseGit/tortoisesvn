@@ -304,9 +304,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					CFile::Remove(pDlg->m_sPath);
 					pDlg->m_sPath = sfile;		// the log would be shown for the last selected file/dir in the list
 				}
-				catch (CFileException )
+				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Update!\n"));
+					pE->Delete();
 				}
 				// after an update, show the user the log button, but only if only one single item was updated
 				// (either a file or a directory)
@@ -389,9 +390,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					file.Close();
 					CFile::Remove(pDlg->m_sPath);
 				}
-				catch (CFileException)
+				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Commit!\n"));
+					pE->Delete();
 				}
 			}
 			else
@@ -421,9 +423,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					file.Close();
 					CFile::Remove(pDlg->m_sPath);
 				}
-				catch (CFileException)
+				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Commit!\n"));
+					pE->Delete();
 				}
 			}
 			else
@@ -453,9 +456,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					file.Close();
 					CFile::Remove(pDlg->m_sPath);
 				}
-				catch (CFileException)
+				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Commit!\n"));
+					pE->Delete();
 				}
 			}
 			else

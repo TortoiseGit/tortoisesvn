@@ -75,4 +75,5 @@ public:
 	afx_msg void OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	CString m_strUrl;
 	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 };

@@ -324,8 +324,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
 	menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
 	menuiteminfo.fType = MFT_OWNERDRAW;
-	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
-	menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
+ 	//menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
+	//menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
 	menuiteminfo.hSubMenu = subMenu;
 	menuiteminfo.wID = idCmd;
 	InsertMenuItem(hMenu, indexMenu++, TRUE, &menuiteminfo);
@@ -689,7 +689,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 	LRESULT res;
 	if (pResult == NULL)
 		pResult = &res;
-
+	*pResult = FALSE;
 
 	switch (uMsg)
 	{
@@ -714,6 +714,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 
 			lpmis->itemWidth = size.x + size.y + 6;						//width of string + height of string (~ width of icon) + space between
 			lpmis->itemHeight = max(size.y + 4, ncm.iMenuHeight);		//two pixels on both sides
+			*pResult = TRUE;
 		}
 		break;
 		case WM_DRAWITEM:
@@ -737,7 +738,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 				{
 					COLORREF crText;
 					if (lpdis->itemState & ODS_GRAYED)
-						crText = SetTextColor(lpdis->hDC, RGB(128, 128, 128));
+						crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_GRAYTEXT)); //RGB(128, 128, 128));
 					else
 						crText = SetTextColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHTTEXT));
 					SetBkColor(lpdis->hDC, GetSysColor(COLOR_HIGHLIGHT));
@@ -771,7 +772,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 
 					DeleteDC(hDCTemp);
 					DeleteObject(hbmItem);
-				}
+				} // if (hbmItem)
 				ix = rt.right + 6;//GetSystemMetrics(SM_CXFRAME) - 4;
 
 				//free memory
@@ -798,14 +799,16 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 				else
 					DrawText( lpdis->hDC, szItem, lstrlen(szItem), &rt, DT_LEFT|DT_EXPANDTABS );
 			}
+			*pResult = TRUE;
 		}
 		break;
 		default:
-		return S_OK;
+		return NOERROR;
 	}
 
-	return S_OK;
+	return NOERROR;
 }
+
 LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 {
 	LPCTSTR resource = NULL;

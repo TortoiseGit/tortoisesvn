@@ -80,7 +80,7 @@ class CShellExt : public IContextMenu3,
 protected:
 	enum SVNCommands
 	{
-		SubMenu = 0,
+		SubMenu = 1,
 		Checkout,
 		Update,
 		Commit,
