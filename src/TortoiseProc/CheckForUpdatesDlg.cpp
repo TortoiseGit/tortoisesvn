@@ -44,6 +44,7 @@ void CCheckForUpdatesDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CCheckForUpdatesDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_STN_CLICKED(IDC_CHECKRESULT, OnStnClickedCheckresult)
 END_MESSAGE_MAP()
 
 
@@ -172,3 +173,13 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 	return 0;
 }
 
+
+void CCheckForUpdatesDlg::OnStnClickedCheckresult()
+{
+	//user clicked on the label, start the browser with our webpage
+	HINSTANCE result = ShellExecute(NULL, _T("opennew"), _T("http://tortoisesvn.tigris.org"), NULL,NULL, SW_SHOWNORMAL);
+	if ((UINT)result <= HINSTANCE_ERROR)
+	{
+		result = ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.tigris.org"), NULL,NULL, SW_SHOWNORMAL);
+	}
+}

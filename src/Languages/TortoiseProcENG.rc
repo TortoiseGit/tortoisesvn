@@ -648,7 +648,7 @@ BEGIN
                     IDC_STATIC,7,7,172,19
     LTEXT           "your version is:",IDC_YOURVERSION,7,28,172,8
     LTEXT           "current version is:",IDC_CURRENTVERSION,7,40,172,8
-    LTEXT           "",IDC_CHECKRESULT,7,55,172,37
+    LTEXT           "",IDC_CHECKRESULT,7,55,172,37,SS_NOTIFY
 END
 
 
