@@ -126,18 +126,6 @@ void SVN::ReleasePool()
 	svn_pool_clear (pool);
 }
 
-void SVN::SaveAuthentication(BOOL save)
-{
-	if (save)
-	{
-		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
-	}
-	else
-	{
-		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
-	}
-}
-
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
 BOOL SVN::Log(LONG rev, CString author, CString date, CString message, CString& cpaths) {return TRUE;};
@@ -1165,7 +1153,7 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 	svn_boolean_t is_url = svn_path_is_url (target);
 
 	if (is_url)
-		*URL = target;
+		*URL = apr_pstrdup(pool, target);
 
 	else
 	{

@@ -167,12 +167,6 @@ friend class SVN;
 	 */
 	CString GetLastErrorMsg();
 
-	/**
-	 * Call this method before any other method which might require authentication
-	 * (e.g. GetStatus with update).
-	 * \param save if TRUE, the authentication data is stored in the users %APPDATA% folder.
-	 */
-	void SaveAuthentication(BOOL save);
 #else
 	/**
 	 * Returns the last error message as a CString object.

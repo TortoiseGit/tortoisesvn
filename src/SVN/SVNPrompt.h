@@ -40,9 +40,8 @@ class SVNPrompt
 public:
 	svn_client_ctx_t 	ctx;
 
-	virtual void SaveAuthentication(BOOL save) = 0;
-	virtual BOOL Prompt(CString& info, BOOL hide, CString promptphrase);
-	virtual BOOL SimplePrompt(CString& username, CString& password);
+	virtual BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
+	virtual BOOL SimplePrompt(CString& username, CString& password, BOOL& may_save);
 
 	static svn_error_t* userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, svn_boolean_t may_save, apr_pool_t *pool);
 	static svn_error_t* simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, svn_boolean_t may_save, apr_pool_t *pool);

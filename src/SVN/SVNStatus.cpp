@@ -117,18 +117,6 @@ void SVNStatus::ClearPool()
 }
 
 #ifdef _MFC_VER
-void SVNStatus::SaveAuthentication(BOOL save)
-{
-	if (save)
-	{
-		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
-	}
-	else
-	{
-		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
-	}
-}
-
 CString SVNStatus::GetLastErrorMsg()
 {
 	CString msg;

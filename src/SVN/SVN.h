@@ -544,7 +544,6 @@ private:
 					const char * date,
 					const char * line,
 					apr_pool_t * pool);
-	void SaveAuthentication(BOOL save);
 	static void formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt = false);
 
 };

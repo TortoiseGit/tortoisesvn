@@ -25,7 +25,7 @@
 #include <shlwapi.h>
 #include "MessageBox.h"
 
-BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase) 
+BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save) 
 {
 	CPromptDlg dlg;
 	dlg.SetHide(hide);
@@ -61,7 +61,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase)
 	return FALSE;
 }
 
-BOOL SVNPrompt::SimplePrompt(CString& username, CString& password) 
+BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, BOOL& may_save) 
 {
 	CSimplePrompt dlg;
 	dlg.m_hParentWnd = this->hWnd;
@@ -70,7 +70,7 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password)
 	{
 		username = dlg.m_sUsername;
 		password = dlg.m_sPassword;
-		SaveAuthentication(dlg.m_bSaveAuthentication);
+		may_save = dlg.m_bSaveAuthentication;
 		if (m_app)
 			m_app->DoWaitCursor(0);
 		return TRUE;
@@ -99,12 +99,12 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password)
 
 svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, svn_boolean_t may_save, apr_pool_t *pool)
 {
-	SVN * svn = (SVN *)baton;
+	SVNPrompt * svn = (SVNPrompt *)baton;
 	svn_auth_cred_username_t *ret = (svn_auth_cred_username_t *)apr_pcalloc (pool, sizeof (*ret));
 	CString username;
 	CString temp;
 	temp.LoadString(IDS_AUTH_USERNAME);
-	if (svn->Prompt(username, FALSE, temp))
+	if (svn->Prompt(username, FALSE, temp, may_save))
 	{
 		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username));
 		ret->may_save = may_save;
@@ -123,7 +123,7 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 	svn_auth_cred_simple_t *ret = (svn_auth_cred_simple_t *)apr_pcalloc (pool, sizeof (*ret));
 	CString UserName = CUnicodeUtils::GetUnicode(username);
 	CString PassWord;
-	if (svn->SimplePrompt(UserName, PassWord))
+	if (svn->SimplePrompt(UserName, PassWord, may_save))
 	{
 		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(UserName));
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(PassWord));
@@ -282,7 +282,7 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
 	CString password;
 	CString temp;
 	temp.LoadString(IDS_AUTH_PASSWORD);
-	if (svn->Prompt(password, TRUE, temp))
+	if (svn->Prompt(password, TRUE, temp, may_save))
 	{
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(password));
 		ret->may_save = may_save;
