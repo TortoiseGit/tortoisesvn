@@ -27,7 +27,8 @@ CTSVNPath::CTSVNPath(void) :
 	m_bDirectoryKnown(false),
 	m_bIsDirectory(false),
 	m_bIsURL(false),
-	m_bURLKnown(false)
+	m_bURLKnown(false),
+	m_bHasAdminDirKnown(false)
 {
 }
 
@@ -35,7 +36,12 @@ CTSVNPath::~CTSVNPath(void)
 {
 }
 // Create a TSVNPath object from an unknown path type (same as using SetFromUnknown)
-CTSVNPath::CTSVNPath(const CString& sUnknownPath)
+CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
+	m_bDirectoryKnown(false),
+	m_bIsDirectory(false),
+	m_bIsURL(false),
+	m_bURLKnown(false),
+	m_bHasAdminDirKnown(false)
 {
 	SetFromUnknown(sUnknownPath);
 }
@@ -481,6 +487,14 @@ void CTSVNPath::AppendPathString(const CString& sAppend)
 	SetFromWin(strCopy);
 }
 
+bool CTSVNPath::HasAdminDir() const
+{
+	if (m_bHasAdminDirKnown)
+		return m_bHasAdminDir;
+	m_bHasAdminDir = !!PathFileExists(GetDirectory().GetWinPathString() + _T("\\") + _T(SVN_WC_ADM_DIR_NAME));
+	m_bHasAdminDirKnown = true;
+	return m_bHasAdminDir;
+}
 
 
 //////////////////////////////////////////////////////////////////////////

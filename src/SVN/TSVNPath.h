@@ -176,6 +176,13 @@ public:
 	* Returns a FILETIME structure cast to an __int64, for easy comparisons
 	*/
 	__int64 GetLastWriteTime() const;
+	
+	/**
+	 * Checks if a Subversion admin directory is present. For files, the check
+	 * is done in the same directory. For folders, it checks if the folder itself
+	 * contains an admin directory.
+	 */
+	bool HasAdminDir() const;
 
 private:
 	// All these functions are const, and all the data
@@ -210,6 +217,8 @@ private:
 	mutable bool m_bURLKnown;
 	mutable bool m_bIsURL;
 	mutable __int64 m_lastWriteTime;
+	mutable bool m_bHasAdminDirKnown;
+	mutable bool m_bHasAdminDir;
 
 	friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };
