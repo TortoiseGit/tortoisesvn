@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-07-20 10:33+0900\n"
-"Last-Translator: Hojin Choi <pynoos@naver.com>\n"
+"PO-Revision-Date: 2004-07-20 15:26+0900\n"
+"Last-Translator: Hojin Choi <pynoos@users.kldp.net>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -18,8 +18,8 @@ msgstr ""
 
 # ID:126,#:
 # ID:10,
-#: ID:126
 #: ID:10
+#: ID:126
 msgid " "
 msgstr " "
 
@@ -179,8 +179,8 @@ msgstr "편집(&E)..."
 
 # Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server"
-msgstr "프록시 서버 사용(&E)"
+msgid "&Enable Proxy Server (Don't use the IE settings)"
+msgstr "프록시 서버 활성화(&E) (IE 설정을 사용하지 않음)"
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -215,6 +215,7 @@ msgstr "현재 작업 중인 URL(&F):"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
+#: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
 msgstr "&HEAD 리비전"
@@ -223,8 +224,9 @@ msgstr "&HEAD 리비전"
 # MenuEntry#:
 # Control-ID:9,#:
 # Control-ID:57670,
-#: Control-ID:57670
 #: Control-ID:9
+#: Control-ID:57670
+#: MenuEntry
 msgid "&Help"
 msgstr "도움말(&H)"
 
@@ -875,8 +877,8 @@ msgstr ""
 # Control-ID:2,#:
 # ID:73,#:
 # Control-ID:2,
-#: Control-ID:2
 #: ID:73
+#: Control-ID:2
 msgid "Cancel"
 msgstr "취소"
 
@@ -1572,6 +1574,11 @@ msgstr "제외 패턴:"
 msgid "Export Directory:"
 msgstr "디렉토리 익스포트:"
 
+# Control-ID:1073,
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "비관리대상 파일 보기"
+
 # ID:9,
 #: ID:9
 msgid "Export..."
@@ -1657,6 +1664,7 @@ msgstr "%s 버전 가져오기:"
 #: ID:63
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "File"
 msgstr "파일"
 
@@ -1742,15 +1750,10 @@ msgstr ""
 "이전 차이점으로 돌아감\n"
 "이전 차이"
 
-# Control-ID:1115,
-#: Control-ID:1115
-msgid "Head Revision"
-msgstr "최신(HEAD) 리비전"
-
 # Control-ID:1004,#:
 # ID:12,
-#: Control-ID:1004
 #: ID:12
+#: Control-ID:1004
 msgid "Help"
 msgstr "도움말"
 
@@ -2036,8 +2039,8 @@ msgstr "최소 로그 사이즈"
 
 # Control-ID:1023,#:
 # Control-ID:1082,
-#: Control-ID:1023
 #: Control-ID:1082
+#: Control-ID:1023
 msgid "Misc"
 msgstr "기타"
 
@@ -2152,8 +2155,8 @@ msgstr "일부 레지스트리(혹은 INI파일)이 삭제되지 않았습니다
 # Control-ID:1,#:
 # ID:73,#:
 # Control-ID:1,
-#: Control-ID:1
 #: ID:73
+#: Control-ID:1
 msgid "OK"
 msgstr "확인"
 
@@ -2179,8 +2182,8 @@ msgstr "최상위 폴더만 업데이트"
 # ID:3841,#:
 # ID:101,#:
 # ID:3841,
-#: ID:3841
 #: ID:101
+#: ID:3841
 msgid "Open"
 msgstr "열기"
 
@@ -2372,6 +2375,7 @@ msgstr "프로그램 (*.exe)|*.exe|모든 파일들 (*.*)|*.*||"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "속성"
 
@@ -2384,6 +2388,11 @@ msgstr "속성"
 #: Dlg-ID:107
 msgid "Property Page"
 msgstr "속성 페이지"
+
+# Control-ID:65535,
+#: ID:207
+msgid "Property Status"
+msgstr "속성 상태"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2478,9 +2487,20 @@ msgstr "재배치..."
 msgid "Relocating..."
 msgstr "재배치 중..."
 
+# Control-ID:65535,
+#: ID:207
+msgid "Remote Property Status"
+msgstr "원격지 속성 상태"
+
 # ID:63,
 #: ID:63
+#: ID:207
 msgid "Remote Status"
+msgstr "원격 상태"
+
+# ID:63,
+#: ID:207
+msgid "Remote Text Status"
 msgstr "원격 상태"
 
 # Control-ID:65535,
@@ -2749,8 +2769,8 @@ msgstr "다른 이름으로 저장"
 
 # ID:313,#:
 # ID:101,
-#: ID:313
 #: ID:101
+#: ID:313
 msgid "Save as..."
 msgstr "다른 이름으로 저장..."
 
@@ -2888,8 +2908,8 @@ msgstr "속성 설정..."
 
 # ID:107,#:
 # ID:9,
-#: ID:107
 #: ID:9
+#: ID:107
 msgid "Settings"
 msgstr "설정"
 
@@ -2944,6 +2964,11 @@ msgstr "줄 번호 보기"
 #: ID:12
 msgid "Show Log"
 msgstr "로그 보기"
+
+# Control-ID:65535,
+#: ID:101
+msgid "Show Properties"
+msgstr "속성 보이기"
 
 # ID:101,
 #: ID:101
@@ -3041,6 +3066,7 @@ msgstr ""
 # ID:77,
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "Status"
 msgstr "상태"
 
@@ -3053,6 +3079,16 @@ msgstr "SVN내의 아이템 상태"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Subversion 구성 파일:"
+
+# Control-ID:65535,
+#: ID:14
+msgid "Subversion export all here"
+msgstr "svn은 모두 여기에 익스포트합니다"
+
+# ID:13,
+#: ID:14
+msgid "Subversion export here"
+msgstr "svn은 여기에 익스포트합니다"
 
 # ID:79,
 #: ID:79
@@ -3141,6 +3177,11 @@ msgstr "탭 크기:"
 #: ID:79
 msgid "Tagged the working copy to %s"
 msgstr "현재 작업 사본에 태그를 붙입니다. (%s)"
+
+# Control-ID:65535,
+#: ID:207
+msgid "Text Status"
+msgstr "텍스트 상태"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3564,6 +3605,11 @@ msgid "Updates the working copy to the current revision"
 msgstr "작업 사본을 최신 리비전으로 업데이트 합니다."
 
 # ID:144,
+#: ID:207
+msgid "Url"
+msgstr "Url"
+
+# ID:144,
 #: ID:144
 msgid "Url:"
 msgstr "Url:"
@@ -3809,11 +3855,6 @@ msgstr ""
 "%s\n"
 "에서\n"
 "%s"
-
-# ID:79,
-#: ID:79
-msgid "exporting %s to"
-msgstr "%s에 익스포트 중"
 
 # ID:13,
 #: ID:13
