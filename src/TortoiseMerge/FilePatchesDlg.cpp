@@ -146,9 +146,7 @@ void CFilePatchesDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
 
-	CString temp = m_pPatch->GetFilename(pGetInfoTip->iItem);
-	temp.Replace('/', '\\');
-	temp = m_sPath + temp;
+	CString temp = GetFullPath(pGetInfoTip->iItem);
 	_tcsncpy(pGetInfoTip->pszText, temp, pGetInfoTip->cchTextMax);
 	*pResult = 0;
 }
