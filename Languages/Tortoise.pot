@@ -124,10 +124,6 @@ msgstr ""
 msgid "&Cancel"
 msgstr ""
 
-#: Control-ID:1074,
-msgid "&Checkout directory:"
-msgstr ""
-
 #: Control-ID:1066,
 msgid "&Close windows automatically"
 msgstr ""
@@ -180,7 +176,7 @@ msgstr ""
 msgid "&From WC at URL:"
 msgstr ""
 
-#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1115,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
+#: Control-ID:1032,#: Control-ID:1115,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
 msgid "&Head Revision"
 msgstr ""
 
@@ -280,6 +276,10 @@ msgstr ""
 msgid "&Save Ctrl-S"
 msgstr ""
 
+#: Control-ID:1023,
+msgid "&Save authentication"
+msgstr ""
+
 #: Control-ID:1012,
 msgid "&Set"
 msgstr ""
@@ -354,6 +354,10 @@ msgstr ""
 
 #: ID:151,
 msgid ": Revision %d"
+msgstr ""
+
+#: ID:151,
+msgid ": working base"
 msgstr ""
 
 #: ID:151,
@@ -444,7 +448,7 @@ msgstr ""
 msgid "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
 msgstr ""
 
-#: ID:8,#: ID:73,#: Dlg-ID:155,
+#: ID:8,#: Dlg-ID:155,
 msgid "Add"
 msgstr ""
 
@@ -472,7 +476,7 @@ msgstr ""
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr ""
 
-#: Control-ID:65535,
+#: ID:73,#: Control-ID:65535,
 msgid "Added"
 msgstr ""
 
@@ -522,6 +526,10 @@ msgstr ""
 
 #: ID:157,#: ID:157,
 msgid "All Files (*.*)|*.*||"
+msgstr ""
+
+#: ID:82,
+msgid "All files are already under version control. There's nothing to add!"
 msgstr ""
 
 #: ID:3867,#: ID:3868,#: ID:3867,#: ID:3868,
@@ -586,6 +594,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Apply Unified Diff"
+msgstr ""
+
+#: ID:145,
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr ""
 
 #: ID:79,
@@ -752,8 +764,12 @@ msgstr ""
 msgid "Check For Updates..."
 msgstr ""
 
+#: Control-ID:1132,
+msgid "Check Repository"
+msgstr ""
+
 #: ID:13,
-msgid "Check for Updates"
+msgid "Check for Modifications"
 msgstr ""
 
 #: Control-ID:1073,
@@ -790,6 +806,10 @@ msgstr ""
 
 #: Dlg-ID:133,
 msgid "Checkout"
+msgstr ""
+
+#: Control-ID:1074,
+msgid "Checkout &directory:"
 msgstr ""
 
 #: ID:8,
@@ -900,12 +920,12 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: ID:126,
-msgid "Copied remotely"
+#: ID:73,
+msgid "Copied"
 msgstr ""
 
-#: ID:73,
-msgid "Copy"
+#: ID:126,
+msgid "Copied remotely"
 msgstr ""
 
 #: ID:101,
@@ -1032,8 +1052,12 @@ msgstr ""
 msgid "Default &number of log messages"
 msgstr ""
 
-#: ID:11,#: ID:73,
+#: ID:11,
 msgid "Delete"
+msgstr ""
+
+#: ID:73,
+msgid "Deleted"
 msgstr ""
 
 #: ID:11,
@@ -1352,6 +1376,10 @@ msgstr ""
 msgid "Graph type:"
 msgstr ""
 
+#: Control-ID:1032,
+msgid "H&ead Revision"
+msgstr ""
+
 #: ID:238,
 msgid "Head revision of the repository is: %d"
 msgstr ""
@@ -1398,6 +1426,10 @@ msgstr ""
 
 #: ID:73,
 msgid "Ignore"
+msgstr ""
+
+#: ID:15,
+msgid "Ignore %d item(s)"
 msgstr ""
 
 #: Control-ID:1021,
@@ -1952,15 +1984,11 @@ msgstr ""
 msgid "Repository Browser"
 msgstr ""
 
-#: ID:74,
-msgid "Resolve"
-msgstr ""
-
 #: Control-ID:1067,
 msgid "Resolve conflicted subversion status on save"
 msgstr ""
 
-#: ID:8,
+#: ID:8,#: ID:74,
 msgid "Resolved"
 msgstr ""
 
@@ -1968,20 +1996,24 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr ""
 
-#: ID:73,
-msgid "Restore"
-msgstr ""
-
 #: ID:3826,
 msgid "Restore the window to normal size"
+msgstr ""
+
+#: ID:73,
+msgid "Restored"
 msgstr ""
 
 #: ID:73,
 msgid "Retry"
 msgstr ""
 
-#: ID:8,#: ID:73,#: Dlg-ID:175,
+#: ID:8,#: Dlg-ID:175,
 msgid "Revert"
+msgstr ""
+
+#: ID:73,
+msgid "Reverted"
 msgstr ""
 
 #: ID:9,
@@ -2301,7 +2333,7 @@ msgid "Size"
 msgstr ""
 
 #: ID:74,
-msgid "Skip"
+msgid "Skipped"
 msgstr ""
 
 #: ID:79,
@@ -2620,12 +2652,16 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
-#: ID:8,#: ID:74,#: Dlg-ID:152,
+#: ID:8,#: Dlg-ID:152,
 msgid "Update"
 msgstr ""
 
 #: ID:11,
 msgid "Update To Revision..."
+msgstr ""
+
+#: ID:74,
+msgid "Updated"
 msgstr ""
 
 #: ID:11,
@@ -2908,7 +2944,7 @@ msgstr ""
 msgid "replaced"
 msgstr ""
 
-#: Control-ID:1023,#: Control-ID:1023,
+#: Control-ID:1023,
 msgid "save authentication"
 msgstr ""
 
