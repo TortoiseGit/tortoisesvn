@@ -19,6 +19,7 @@
        instead of an interrupting dialog box. (Stefan)
 - CHG: The URL history is now kept per working copy. Only checkout/import still
        use a global history of the URL's. (Stefan)
+- BUG: The explorer context menu showed the wrong entries for nested layouts. (Stefan)
 - BUG: 'extended export' would also copy all the .svn folders. (Stefan)
 - BUG: the progress dialog wouldn't close by clicking on the 'X'. (Stefan)
 - BUG: Special/Invalid chars could be entered for log messages. (Stefan)
