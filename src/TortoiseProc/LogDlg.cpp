@@ -56,6 +56,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LOGLIST, m_LogList);
 	DDX_Control(pDX, IDC_LOGMSG, m_LogMsgCtrl);
+	DDX_Control(pDX, IDC_PROGRESS, m_LogProgress);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -188,6 +189,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MSGVIEW, TOP_LEFT, MIDDLE_RIGHT);
 	AddAnchor(IDC_LOGMSG, MIDDLE_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -270,6 +272,9 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 	int line = 0;
 	CString temp;
 	m_logcounter += 1;
+	if (m_startrev == -1)
+		m_startrev = rev;
+	m_LogProgress.SetPos(m_startrev-rev+m_endrev);
 	int count = m_LogList.GetItemCount();
 	temp.Format(_T("%d"),rev);
 	m_LogList.InsertItem(count, temp);
@@ -342,10 +347,12 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+	SVNStatus status;
+	long r = status.GetStatus(pDlg->m_path, TRUE);
+	if (pDlg->m_startrev == -1)
+		pDlg->m_startrev = r;
 	if (pDlg->m_endrev < (-5))
 	{
-		SVNStatus status;
-		long r = status.GetStatus(pDlg->m_path, TRUE);
 		if (r != (-2))
 		{
 			pDlg->m_endrev = r + pDlg->m_endrev;
@@ -363,7 +370,9 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	//disable the "Get All" button while we're receiving
 	//log messages.
 	pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
-
+	pDlg->m_LogProgress.SetRange32(pDlg->m_endrev, pDlg->m_startrev);
+	pDlg->m_LogProgress.SetPos(0);
+	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
 	if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -383,6 +392,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
 	if (!pDlg->m_bShowedAll)
 		pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
+	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	pDlg->m_bCancelled = TRUE;
 	pDlg->m_bThreadRunning = FALSE;
 	POINT pt;

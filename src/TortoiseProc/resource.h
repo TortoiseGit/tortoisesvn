@@ -202,6 +202,8 @@
 #define IDC_STATISTICS                  1108
 #define IDC_COMBOBOXEX1                 1109
 #define IDC_COMMITLABEL                 1110
+#define IDC_PROGRESS1                   1111
+#define IDC_PROGRESS                    1111
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -406,7 +408,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        174
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1111
+#define _APS_NEXT_CONTROL_VALUE         1112
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
