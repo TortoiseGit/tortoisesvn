@@ -31,8 +31,8 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-CRevisionGraph::CRevisionGraph(void) : SVNPrompt()
-	, m_bCancelled(FALSE)
+CRevisionGraph::CRevisionGraph(void) :
+	m_bCancelled(FALSE)
 {
 	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
@@ -53,7 +53,7 @@ CRevisionGraph::CRevisionGraph(void) : SVNPrompt()
 	} // if (Err != 0) 
 
 	// set up authentication
-	Init(pool, &m_ctx);
+	m_prompt.Init(pool, &m_ctx);
 
 	m_ctx.cancel_func = cancel;
 	m_ctx.cancel_baton = this;

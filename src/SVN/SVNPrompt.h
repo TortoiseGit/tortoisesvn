@@ -27,8 +27,6 @@ public:
 public:
 	void SetParentWindow(HWND hWnd)				{ m_hParentWnd = hWnd; }
 	void SetApp(CWinApp* pApp)					{ m_app = pApp; }
-
-protected:
 	void Init(apr_pool_t *pool, svn_client_ctx_t* ctx);
 
 private:

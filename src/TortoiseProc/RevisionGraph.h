@@ -89,7 +89,7 @@ public:
 	CPtrArray		sourcearray;
 };
 
-class CRevisionGraph : public SVNPrompt
+class CRevisionGraph
 {
 public:
 	CRevisionGraph(void);
@@ -104,6 +104,7 @@ public:
 	apr_array_header_t *		m_logdata;
 	apr_pool_t *				pool;			///< memory pool
 	svn_client_ctx_t 			m_ctx;
+	SVNPrompt					m_prompt;
 
 private:
 	BOOL						GetRepositoryRoot(CStringA& url);

@@ -30,9 +30,6 @@
 #endif
 
 SVNStatus::SVNStatus(void)
-#ifdef _MFC_VER
-: SVNPrompt()
-#endif
 {
 	m_pool = svn_pool_create (NULL);
 
@@ -45,7 +42,7 @@ SVNStatus::SVNStatus(void)
 	svn_config_ensure(NULL, m_pool);
 	
 	// set up authentication
-	Init(m_pool, &ctx);
+	m_prompt.Init(m_pool, &ctx);
 
 	svn_utf_initialize(m_pool);
 

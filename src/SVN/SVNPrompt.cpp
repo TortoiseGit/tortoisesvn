@@ -23,7 +23,6 @@
 #include "Dlgs.h"
 
 #include "TortoiseProc.h"
-#include "svn.h"
 #include "UnicodeUtils.h"
 #include "MessageBox.h"
 
@@ -181,7 +180,7 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
 
 svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char * /*realm*/, const char *username, svn_boolean_t may_save, apr_pool_t *pool)
 {
-	SVN * svn = (SVN *)baton;
+	SVNPrompt * svn = (SVNPrompt *)baton;
 	svn_auth_cred_simple_t *ret = (svn_auth_cred_simple_t *)apr_pcalloc (pool, sizeof (*ret));
 	CString UserName = CUnicodeUtils::GetUnicode(username);
 	CString PassWord;
@@ -201,7 +200,7 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 
 svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_p, void *baton, const char *realm, apr_uint32_t failures, const svn_auth_ssl_server_cert_info_t *cert_info, svn_boolean_t may_save, apr_pool_t *pool)
 {
-	SVN * svn = (SVN *)baton;
+	SVNPrompt * svn = (SVNPrompt *)baton;
 
 	BOOL prev = FALSE;
 
@@ -282,7 +281,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 
 svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, void *baton, const char * realm, svn_boolean_t /*may_save*/, apr_pool_t *pool)
 {
-	SVN * svn = (SVN *)baton;
+	SVNPrompt * svn = (SVNPrompt *)baton;
 	const char *cert_file = NULL;
 
 	CString filename;
@@ -380,7 +379,7 @@ UINT_PTR CALLBACK SVNPrompt::OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM /*wParam*
 
 svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, void *baton, const char * /*realm*/, svn_boolean_t may_save, apr_pool_t *pool)
 {
-	SVN * svn = (SVN *)baton;
+	SVNPrompt* svn = (SVNPrompt *)baton;
 	svn_auth_cred_ssl_client_cert_pw_t *ret = (svn_auth_cred_ssl_client_cert_pw_t *)apr_pcalloc (pool, sizeof (*ret));
 	CString password;
 	CString temp;

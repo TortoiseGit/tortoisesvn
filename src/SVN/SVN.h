@@ -59,7 +59,7 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class SVN : public SVNPrompt
+class SVN
 {
 public:
 	SVN(void);
@@ -511,6 +511,17 @@ public:
 	 * Creates the Subversion config file if it doesn't already exist.
 	 */
 	static BOOL EnsureConfigFile();
+
+	/** 
+	* Set the parent window of an authentication prompt dialog
+	*/
+	void SetPromptParentWindow(HWND hWnd);
+	/** 
+	* Set the MFC Application object for a prompt dialog
+	*/
+	void SetPromptApp(CWinApp* pWinApp);
+
+
 	static CString GetErrorString(svn_error_t * Err);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
@@ -526,6 +537,7 @@ private:
 	apr_pool_t *				parentpool;
 	apr_pool_t *				pool;			///< memory pool
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
+	SVNPrompt					m_prompt;
 
 	static CString				cpaths;
 	svn_opt_revision_t *	getRevision (long revNumber);

@@ -391,7 +391,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
-	this->SetParentWindow(this->m_hWnd);
+	this->SetPromptParentWindow(this->m_hWnd);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -1181,7 +1181,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 						int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 						GetDlgItem(IDOK)->EnableWindow(FALSE);
-						this->SetApp(&theApp);
+						this->SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						switch (cmd)
 						{

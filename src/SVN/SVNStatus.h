@@ -58,7 +58,7 @@ class CTSVNPathList;
  */
 class SVNStatus
 #ifdef _MFC_VER
-	: public SVNPrompt
+	/*: public SVNPrompt*/
 #endif
 {
 public:
@@ -188,8 +188,11 @@ private:
 
 	svn_client_ctx_t 			ctx;
 	svn_wc_status_kind			m_allstatus;	///< used by GetAllStatus and GetAllStatusRecursive
-	svn_auth_baton_t *			m_auth_baton;	///< authentication baton
 	svn_error_t *				m_err;			///< Subversion error baton
+
+#ifdef _MFC_VER
+	SVNPrompt					m_prompt;
+#endif
 
 	/**
 	 * Returns a numeric value indicating the importance of a status. 

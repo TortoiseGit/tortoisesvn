@@ -48,9 +48,6 @@
  * This code has no bugs, just undocumented features!
  */
 class SVNProperties
-#ifdef _MFC_VER
-	: public SVNPrompt
-#endif
 {
 public:
 
@@ -138,7 +135,10 @@ private:		//members
 	svn_error_t *				m_error;
 #ifdef _MFC_VER
 	SVNRev						m_rev;
+	SVNPrompt					m_prompt;
 #endif
 	svn_client_ctx_t 			m_ctx;
+
+
 
 };

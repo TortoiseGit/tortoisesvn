@@ -396,7 +396,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						tempfile = CString(ofn.lpstrFile);
 						SVN svn;
-						svn.SetApp(&theApp);
+						svn.SetPromptApp(&theApp);
 						if (!svn.Cat(url, GetRevision(), tempfile))
 						{
 							delete [] pszFilters;
@@ -437,7 +437,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					if (folderBrowser.Show(GetSafeHwnd(), path)==CBrowseFolder::OK)
 					{
 						SVN svn;
-						svn.SetApp(&theApp);
+						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
 						CInputDlg input(this);
@@ -501,7 +501,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					{
 						CString path = ofn.lpstrFile;
 						SVN svn;
-						svn.SetApp(&theApp);
+						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
 						CInputDlg input(this);
@@ -536,7 +536,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					{
 						filepath =  filepath + dlg.m_name;
 						SVN svn;
-						svn.SetApp(&theApp);
+						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
@@ -567,7 +567,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					if (dlg.DoModal() == IDOK)
 					{
 						SVN svn;
-						svn.SetApp(&theApp);
+						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
@@ -637,7 +637,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						tempfile = CString(ofn.lpstrFile);
 						SVN svn;
-						svn.SetApp(&theApp);
+						svn.SetPromptApp(&theApp);
 						if (!svn.Copy(url, tempfile, GetRevision()))
 						{
 							delete [] pszFilters;
@@ -658,7 +658,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					if (dlg.DoModal() == IDOK)
 					{
 						SVN svn;
-						svn.SetApp(&theApp);
+						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
@@ -854,7 +854,7 @@ void CRepositoryBrowser::OnBnClickedHelp()
 void CRepositoryBrowser::DeleteSelectedEntries()
 {
 	SVN svn;
-	svn.SetApp(&theApp);
+	svn.SetPromptApp(&theApp);
 	CWaitCursorEx wait_cursor;
 	CInputDlg dlg(this);
 	dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);

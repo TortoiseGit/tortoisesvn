@@ -34,7 +34,7 @@ static char THIS_FILE[] = __FILE__;
 
 CString	SVN::cpaths;
 
-SVN::SVN(void) : SVNPrompt()
+SVN::SVN(void)
 {
 	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
@@ -58,7 +58,7 @@ SVN::SVN(void) : SVNPrompt()
 	} // if (Err != 0) 
 
 	// set up authentication
-	Init(pool, &m_ctx);
+	m_prompt.Init(pool, &m_ctx);
 
 	m_ctx.log_msg_func = svn_cl__get_log_message;
 	m_ctx.log_msg_baton = logMessage("");
@@ -1880,3 +1880,19 @@ ERROR_LABEL:
 		GlobalFree(Option[4].Value.pszValue);
 	return;
 }
+
+/** 
+* Set the parent window of an authentication prompt dialog
+*/
+void SVN::SetPromptParentWindow(HWND hWnd)
+{
+	m_prompt.SetParentWindow(hWnd);
+}
+/** 
+* Set the MFC Application object for a prompt dialog
+*/
+void SVN::SetPromptApp(CWinApp* pWinApp)
+{
+	m_prompt.SetApp(pWinApp);
+}
+

@@ -209,7 +209,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
-	SetParentWindow(m_hWnd);
+	SetPromptParentWindow(m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("LogDlg"));
@@ -612,7 +612,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				GetDlgItem(IDOK)->EnableWindow(FALSE);
-				SetApp(&theApp);
+				SetPromptApp(&theApp);
 				theApp.DoWaitCursor(1);
 				switch (cmd)
 				{
@@ -983,7 +983,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_POPPROPS:
 					{
 						GetDlgItem(IDOK)->EnableWindow(FALSE);
-						SetApp(&theApp);
+						SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						CString filepath;
 						if (SVN::PathIsURL(m_path))
@@ -1025,7 +1025,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_SAVEAS:
 					{
 						GetDlgItem(IDOK)->EnableWindow(FALSE);
-						SetApp(&theApp);
+						SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						CString filepath;
 						if (SVN::PathIsURL(m_path))
@@ -1120,7 +1120,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_OPEN:
 					{
 						GetDlgItem(IDOK)->EnableWindow(FALSE);
-						SetApp(&theApp);
+						SetPromptApp(&theApp);
 						theApp.DoWaitCursor(1);
 						CString filepath;
 						if (SVN::PathIsURL(m_path))
@@ -1188,7 +1188,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		CString temp;
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
-		SetApp(&theApp);
+		SetPromptApp(&theApp);
 		theApp.DoWaitCursor(1);
 		if ((!PathIsDirectory(m_path))&&(m_hasWC))
 		{
@@ -1246,7 +1246,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		CString name;
 		CString text;
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
-		SetApp(&theApp);
+		SetPromptApp(&theApp);
 		theApp.DoWaitCursor(1);
 		if (SVN::PathIsURL(m_path))
 			url = m_path;
@@ -1440,7 +1440,7 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 {
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
-	SetApp(&theApp);
+	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 	//get the filename
 	CString filepath;
@@ -1506,7 +1506,7 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 		progDlg.ShowModeless(this);
 	}
 	m_bCancelled = FALSE;
-	SetApp(&theApp);
+	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 	if (!Cat(path1, rev1, tempfile1))
 	{

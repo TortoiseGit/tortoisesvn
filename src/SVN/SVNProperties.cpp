@@ -79,7 +79,7 @@ svn_error_t*	SVNProperties::Refresh()
 #ifdef _MFC_VER
 
 SVNProperties::SVNProperties(const TCHAR * filepath, SVNRev rev)
-: m_rev(SVNRev::REV_WC) , SVNPrompt()
+: m_rev(SVNRev::REV_WC)
 {
 	m_rev = rev;
 #else
@@ -109,7 +109,7 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	m_path = UTF8ToString(svn_path_internal_style (StringToUTF8(filepath).c_str(), m_pool));
 
 #ifdef _MFC_VER
-	Init(m_pool, &m_ctx);
+	m_prompt.Init(m_pool, &m_ctx);
 
 	CString path = filepath;
 	path.Trim();
