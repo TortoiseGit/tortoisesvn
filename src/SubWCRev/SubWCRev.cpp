@@ -74,7 +74,8 @@ int DateDefine(char * def, char * pBuf, unsigned long & index, unsigned long & f
 		// Replace the $WCDATE$ string with the actual commit date
 		__time64_t ttime = date_svn/1000000L;
 		struct tm *newtime = _localtime64(&ttime);
-
+		if (newtime == NULL)
+			return FALSE;
 		// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
 		char destbuf[32];
 		sprintf(destbuf, "%04d/%02d/%02d %02d:%02d:%02d",
