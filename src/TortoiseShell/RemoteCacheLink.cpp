@@ -150,7 +150,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 		}
 	}
 
-	DWORD dwWait = WaitForSingleObject(m_hEvent, 5000);
+	DWORD dwWait = WaitForSingleObject(m_hEvent, INFINITE);
 	if (dwWait == WAIT_OBJECT_0)
 	{
 		if (GetOverlappedResult(m_hPipe, &m_Overlapped, &nBytesRead, FALSE))
