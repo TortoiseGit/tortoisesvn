@@ -5,14 +5,21 @@
 #
 # Translation dictionary:
 #
+# branch - forgrening
+# blame - inneholds-historikk
 # checkout - hente ut, uthenting
+# cleanup - Rydd opp
 # client - klient
 # commit - sende inn, innsending
-# daemon - daemon, demon(?)
+# daemon - tjeneste
 # deprecated - avlegs
 # destination - mål
+# diff -
 # directory - katalog
+# folder - mappe
 # hook - påhakning
+# head revision - hovedrevisjon
+# icon overlays - ikonlag
 # item - element
 # merge - flette
 # module - modul
@@ -28,19 +35,18 @@
 # source - kilde
 # stack - stabel
 # subcommand - delkommando
+# tag - merke
 # target - mål
 # URL - URL
 # usage - bruk
 # working copy - arbeidskopi
 #
-# Authors:
-# Jostein Chr. Andersen <jostein@josander.net>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-20 14:41+0100\n"
+"PO-Revision-Date: 2004-12-20 16:20+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -527,7 +533,7 @@ msgstr "&Legg til mappe..."
 
 #: Control-ID:1093
 msgid "A&dvanced..."
-msgstr "&Avansert..."
+msgstr "A&vansert..."
 
 #: ID:73
 msgid "Abort"
@@ -715,11 +721,11 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"Et eksternt fletteprogram som brukes\n"
-"for å løse filkonflikter.\n"
+"Et eksternt fletteprogram som brukes for å\n"
+"løse filkonflikter.\n"
 "<hr=100%>\n"
 "Du kan angi følgende parametere til filstien:\n"
-"%merged\tTil filen som er i konflikt, hvor man kan lagre\n"
+"%merged\tTil filen som er i konflikt, hvor man kan lagre.\n"
 "%theirs\t\tFilen som den er i depoet\n"
 "%mine\t\tDin fil, med dine endringer\n"
 "%base\t\tOrginalfilen uten dine endringer"
@@ -813,7 +819,7 @@ msgstr "&Utforsk..."
 
 #: Control-ID:1094
 msgid "B&uiltin"
-msgstr "&Innebygget"
+msgstr "I&nnebygget"
 
 #: Control-ID:1015
 msgid "Backup original file"
@@ -874,7 +880,7 @@ msgstr "Utforsk..."
 
 #: Control-ID:1096
 msgid "Bu&iltin"
-msgstr "&Innebygget"
+msgstr "Inne&bygget"
 
 # Control-ID:1119,#:
 # Control-ID:1119,
@@ -1046,7 +1052,7 @@ msgstr "Rensker opp avbrutte operasjoner, låste filer, ..."
 # Control-ID:1059,
 #: Control-ID:1059
 msgid "Clear &Auth Cache"
-msgstr "Slett mellomlager for &autentisering"
+msgstr "&Slett autentisering fra mellomlager"
 
 # ID:195,
 #: ID:195
@@ -1331,7 +1337,7 @@ msgstr "Dato"
 
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "&Standard antall med loggmeldinger"
+msgstr "&Standard antall med loggmeldinger:"
 
 #: ID:11
 msgid "Delete"
@@ -1564,7 +1570,7 @@ msgstr "Stier å ekskludere:"
 
 #: Control-ID:65535
 msgid "Exclude/Ignore pattern:"
-msgstr "Ignorér-sti:"
+msgstr "Ignorérings-sti:"
 
 #: ID:94
 msgid "Export Directory:"
@@ -1926,7 +1932,7 @@ msgstr "Språk:"
 
 #: Control-ID:65535
 msgid "Last commit revision:"
-msgstr "Siste innsendte revisjon:"
+msgstr "Siste innsendte rev.:"
 
 #: ID:11
 msgid "Last saved revision of item"
@@ -2370,7 +2376,7 @@ msgstr "Programmer"
 
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr "Programer (*.exe)|*.exe|Alle Filer (*.*)|*.*||"
+msgstr "Programmer (*.exe)|*.exe|Alle Filer (*.*)|*.*||"
 
 #: Control-ID:65535
 #: Dlg-ID:177
@@ -2823,7 +2829,7 @@ msgstr "Sender innehold"
 
 #: Control-ID:65535
 msgid "Server &address:"
-msgstr "Tjener&adresse"
+msgstr "Tjener&adresse:"
 
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
@@ -3487,7 +3493,7 @@ msgstr "Uten tittel"
 #: ID:8
 #: Dlg-ID:152
 msgid "Update"
-msgstr "Oppdater"
+msgstr "Oppdatering"
 
 #: ID:11
 msgid "Update To Revision..."
