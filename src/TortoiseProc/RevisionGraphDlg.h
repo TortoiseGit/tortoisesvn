@@ -88,6 +88,8 @@ protected:
 	int				m_node_space_bottom;
 	CPoint			m_RoundRectPt;
 	int				m_nZoomFactor;
+	
+	HACCEL			m_hAccel;
 
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
@@ -125,5 +127,4 @@ private:
 	static UINT WorkerThread(LPVOID pVoid);
 
 
-public:
 };

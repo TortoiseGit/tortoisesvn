@@ -49,6 +49,7 @@
 #define IDD_REVISIONGRAPH               182
 #define IDR_REVISIONGRAPH               183
 #define IDD_OVERLAYICONS                184
+#define IDR_ACC_REVISIONGRAPH           185
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -532,8 +533,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        185
-#define _APS_NEXT_COMMAND_VALUE         32774
+#define _APS_NEXT_RESOURCE_VALUE        186
+#define _APS_NEXT_COMMAND_VALUE         32779
 #define _APS_NEXT_CONTROL_VALUE         1179
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

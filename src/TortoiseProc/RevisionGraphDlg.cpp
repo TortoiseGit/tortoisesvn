@@ -24,6 +24,7 @@
 #include "SVN.h"
 #include "Utils.h"
 #include "UnicodeUtils.h"
+#include ".\revisiongraphdlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -57,6 +58,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 		m_apFonts[i] = NULL;
 	}
 	m_nZoomFactor = 10;
+	m_hAccel = 0;
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -127,6 +129,8 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_Progress.SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	m_Progress.SetTime();
 
+	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REVISIONGRAPH));
+	
 	m_dwTicks = GetTickCount();
 	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{
@@ -964,6 +968,10 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 			break;
 		}
 	}
+	if ((m_hAccel)&&(pMsg->message >= WM_KEYFIRST && pMsg->message <= WM_KEYLAST))
+	{
+		return TranslateAccelerator(m_hWnd,m_hAccel,pMsg);
+	}
 	return __super::PreTranslateMessage(pMsg);
 }
 
@@ -1330,5 +1338,6 @@ void CRevisionGraphDlg::FillTestData()
 	m_arEntryPtrs.Add(e);
 }
 #endif //DEBUG
+
 
 

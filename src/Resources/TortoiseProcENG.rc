@@ -1216,6 +1216,20 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Accelerator
+//
+
+IDR_ACC_REVISIONGRAPH ACCELERATORS 
+BEGIN
+    VK_UP,          ID_VIEW_ZOOMIN,         VIRTKEY, CONTROL, NOINVERT
+    VK_DOWN,        ID_VIEW_ZOOMOUT,        VIRTKEY, CONTROL, NOINVERT
+    VK_ADD,         ID_VIEW_ZOOMIN,         VIRTKEY, CONTROL, NOINVERT
+    VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
