@@ -1129,28 +1129,28 @@ void SVN::UpdateShell(CString path)
 	preparePath(path);
 	if (PathIsDirectory(path))
 	{
-		SHChangeNotify(SHCNE_ATTRIBUTES, SHCNF_PATH, path, NULL);
+		SHChangeNotify(SHCNE_ATTRIBUTES | SHCNF_FLUSHNOWAIT, SHCNF_PATH, path, NULL);
 		//if recursive overlay is set, then all folders above 
 		//and below this folder also "changed" and need to be updated
 
 		//first check all folders below
-		CDirFileList list;
-		list.BuildList(path, TRUE, TRUE);
-		for (int i=0; i<list.GetCount(); i++)
-		{
-			CString folder = list.GetAt(i);
-			if (PathIsDirectory(folder))
-			{
-				SHChangeNotify(SHCNE_ATTRIBUTES, SHCNF_PATH, folder, NULL);
-			}
-		} // for (int i=0; i<list.GetCount(); i++) 
+		//CDirFileList list;
+		//list.BuildList(path, TRUE, TRUE);
+		//for (int i=0; i<list.GetCount(); i++)
+		//{
+		//	CString folder = list.GetAt(i);
+		//	if (PathIsDirectory(folder))
+		//	{
+		//		SHChangeNotify(SHCNE_ATTRIBUTES, SHCNF_PATH, folder, NULL);
+		//	}
+		//} // for (int i=0; i<list.GetCount(); i++) 
 
 		//check the folders above
 		CString folder = path;
 		do
 		{
 			folder = folder.Left(folder.ReverseFind('/'));
-			SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH, folder, NULL);
+			SHChangeNotify(SHCNE_ATTRIBUTES | SHCNF_FLUSHNOWAIT, SHCNF_PATH, folder, NULL);
 		} while (PathFileExists(folder + _T("/.svn")));
 	}
 	else
