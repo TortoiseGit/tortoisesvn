@@ -1117,9 +1117,10 @@ BOOL CReportCtrl::GetItem(LPRVITEM lprvi)
 	if(lprvi->iTextColor >= 0)
 		lprvi->nMask |= RVIM_TEXTCOLOR;
 
-	lprvi->nMask |= RVIM_STATE|RVIM_LPARAM;
+	lprvi->nMask |= RVIM_STATE|RVIM_LPARAM|RVIM_PARAM64;
 	lprvi->nState = item.nState;
 	lprvi->lParam = item.lParam;
+	lprvi->Param64 = item.Param64;
 
 	return TRUE;
 }
@@ -1193,6 +1194,9 @@ BOOL CReportCtrl::SetItem(LPRVITEM lprvi)
 	if(lprvi->nMask&RVIM_LPARAM)
 		rvi.lParam = lprvi->lParam;
 
+	if(lprvi->nMask&RVIM_PARAM64)
+		rvi.Param64 = lprvi->Param64;
+
 	ITEM& item = GetItemStruct(rvi.iItem, rvi.iSubItem);
 
 	VERIFY(item.rdData.InsertSubItem(rvi.iSubItem, rvi.iImage, rvi.iOverlay, rvi.iCheck, rvi.iTextColor, rvi.lpszText));
@@ -1203,6 +1207,7 @@ BOOL CReportCtrl::SetItem(LPRVITEM lprvi)
 	item.iIndent = rvi.iIndent;
 	item.nState = rvi.nState;
 	item.lParam = rvi.lParam;
+	item.Param64 = rvi.Param64;
 	SetItemStruct(rvi.iItem, item);
 
 	ScrollWindow(SB_VERT, GetScrollPos32(SB_VERT));

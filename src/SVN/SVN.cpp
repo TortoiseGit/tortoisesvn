@@ -1221,14 +1221,15 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 		temp = temp + MakeUIUrlOrPath(key);
 		if (extended)
 		{
-			CString author, revnum, size;
+			CString author, revnum, size, dateval;
 			TCHAR date_native[_MAX_PATH];
 			author = CUnicodeUtils::GetUnicode(val->last_author);
 			revnum.Format(_T("%u"), val->created_rev);
 			if (val->kind != svn_node_dir)
 				size.Format(_T("%u KB"), (val->size+1023)/1024);
 			formatDate(date_native, val->time, true);
-			temp = temp + _T("\t") + revnum + _T("\t") + author + _T("\t") + size + _T("\t") + date_native;
+			dateval.Format(_T("%I64u"), val->time);
+			temp = temp + _T("\t") + revnum + _T("\t") + author + _T("\t") + size + _T("\t") + date_native + _T("\t") + dateval;;
 		}
 		entries.Add(temp);
     }

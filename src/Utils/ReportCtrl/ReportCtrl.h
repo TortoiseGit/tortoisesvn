@@ -140,6 +140,7 @@ typedef struct _RVSUBITEM
 #define RVIM_LPARAM			0x0080
 #define RVIM_INDENT			0x0100
 #define RVIM_OVERLAY		0x0200
+#define RVIM_PARAM64		0x0400
 
 // Item Index
 #define RVI_INVALID		-2
@@ -188,10 +189,11 @@ typedef struct _RVITEM
 	UINT		nState;
 
 	LPARAM		lParam;
+	UINT64		Param64;
 
 	INT			iOverlay;
 
-	_RVITEM() : nMask(0), iItem(RVI_INVALID), iSubItem(-1), lpszText(NULL), iTextMax(0), iTextColor(-1), iImage(-1), iCheck(-1), iBkColor(-1), nPreview(0), iIndent(-1), nState(0), lParam(0), iOverlay(0) {};
+	_RVITEM() : nMask(0), iItem(RVI_INVALID), iSubItem(-1), lpszText(NULL), iTextMax(0), iTextColor(-1), iImage(-1), iCheck(-1), iBkColor(-1), nPreview(0), iIndent(-1), nState(0), lParam(0), Param64(0), iOverlay(0) {};
 
 } RVITEM, FAR* LPRVITEM;
 
@@ -867,6 +869,7 @@ protected:
 		INT iIndent;
 		UINT nState;
 		LPARAM lParam;
+		UINT64 Param64;
 
 		LPTREEITEM lptiItem;
 

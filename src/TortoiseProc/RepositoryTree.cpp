@@ -111,11 +111,21 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force)
 		SetItemData(GetItemIndex(hItem), 0);
 	}
 	// insert other columns text
+	CString temp;
 	for (int col=1; col<GetActiveSubItemCount(); col++)
 	{
-		CString temp;
 		if (AfxExtractSubString(temp, folder, col, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);
+	}
+	// get the time value and store that in the Param64
+	if (AfxExtractSubString(temp, folder, col, '\t'))
+	{
+		RVITEM rvi;
+		rvi.nMask = RVIM_PARAM64;
+		rvi.iItem = GetItemIndex(hItem);
+		rvi.iSubItem = col-1;
+		rvi.Param64 = _ttoi64(temp);
+		SetItem(&rvi);
 	}
 
 	return hItem;
@@ -157,13 +167,22 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 	}
 
 	// insert other columns text
+	CString temp;
 	for (int col=1; col<GetActiveSubItemCount(); col++)
 	{
-		CString temp;
 		if (AfxExtractSubString(temp, file, col, '\t'))
 			SetItemText(GetItemIndex(hItem), col, temp);
 	}
-
+	// get the time value and store that in the Param64
+	if (AfxExtractSubString(temp, file, col, '\t'))
+	{
+		RVITEM rvi;
+		rvi.nMask = RVIM_PARAM64;
+		rvi.iItem = GetItemIndex(hItem);
+		rvi.iSubItem = col-1;
+		rvi.Param64 = _ttoi64(temp);
+		SetItem(&rvi);
+	}
 	return hItem;
 }
 
@@ -382,14 +401,14 @@ static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSub
 	RVITEM rvi1, rvi2;
 	TCHAR szText1[REPORTCTRL_MAX_TEXT], szText2[REPORTCTRL_MAX_TEXT];
 
-	rvi1.nMask = RVIM_TEXT;
+	rvi1.nMask = RVIM_TEXT | RVIM_LPARAM;
 	rvi1.iItem = iItem1;
 	rvi1.iSubItem = iSubItem1;
 	rvi1.lpszText = szText1;
 	rvi1.iTextMax = REPORTCTRL_MAX_TEXT;
 	VERIFY(rctrl->GetItem(&rvi1));
 
-	rvi2.nMask = RVIM_TEXT;
+	rvi2.nMask = RVIM_TEXT | RVIM_LPARAM;
 	rvi2.iItem = iItem2;
 	rvi2.iSubItem = iSubItem2;
 	rvi2.lpszText = szText2;
@@ -415,8 +434,11 @@ static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSub
 	case 3:
 		return _tstoi(szText1) - _tstoi(szText2);
 	case 4:
-		// TODO: cannot sort by date...
-		return _tcsicmp(szText1, szText2);
+		if (rvi2.Param64 > rvi1.Param64)
+			return -11;
+		if (rvi2.Param64 < rvi1.Param64)
+			return 1;
+		return 0;
 	}
 
 	return 0;
