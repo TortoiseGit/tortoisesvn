@@ -326,14 +326,24 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,96
+    LTEXT           "&Language:",IDC_STATIC,13,20,60,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,18,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,13,37,60,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,37,200,14,ES_AUTOHSCROLL
+    LTEXT           "Default &number of log messages",IDC_STATIC,13,59,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,57,51,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
-    LTEXT           "&Language:",IDC_STATIC,13,20,60,8
-    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,13,37,60,18
-    LTEXT           "Default &number of log messages",IDC_STATIC,13,59,204,8
+    CONTROL         "Don't convert files when diffing against BASE",
+                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
+                    74,267,10
+    LTEXT           "Subversion configuration file:",IDC_STATIC,13,87,210,8
+    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,84,51,14
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,105,286,88
+    CONTROL         "Set filedates to the ""last commit time""",
+                    IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,118,267,10
     CONTROL         "&Show unversioned files before committing",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,13,132,267,
                     10
@@ -342,22 +352,12 @@ BEGIN
                     13,146,267,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,160,267,10
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,96
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,105,286,88
-    CONTROL         "Don't convert files when diffing against BASE",
-                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
-                    74,267,10
-    LTEXT           "Font for log messages:",IDC_STATIC,13,175,105,8
-    COMBOBOX        IDC_FONTNAMES,117,173,112,90,CBS_DROPDOWNLIST | 
+    LTEXT           "Font for log messages:",IDC_STATIC,13,175,115,8
+    COMBOBOX        IDC_FONTNAMES,130,172,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,241,174,40,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,248,173,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,84,51,14
-    LTEXT           "Subversion configuration file:",IDC_STATIC,13,87,210,8
-    CONTROL         "Set filedates to the ""last commit time""",
-                    IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,118,267,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199
@@ -1086,12 +1086,12 @@ BEGIN
     IDS_PROC_RENAME         "Rename %s"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1134,7 +1134,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
