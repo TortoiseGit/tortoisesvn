@@ -1704,29 +1704,36 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 
 	newtime = _localtime64(&ttime);
 
-	systime.wDay = (WORD)newtime->tm_mday;
-	systime.wDayOfWeek = (WORD)newtime->tm_wday;
-	systime.wHour = (WORD)newtime->tm_hour;
-	systime.wMilliseconds = 0;
-	systime.wMinute = (WORD)newtime->tm_min;
-	systime.wMonth = (WORD)newtime->tm_mon+1;
-	systime.wSecond = (WORD)newtime->tm_sec;
-	systime.wYear = (WORD)newtime->tm_year+1900;
-	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
+	if (newtime)
 	{
-		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PATH);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
-		_tcsncat(date_native, datebuf, MAX_PATH);
-		_tcsncat(date_native, _T(" "), MAX_PATH);
-		_tcsncat(date_native, timebuf, MAX_PATH);
+		systime.wDay = (WORD)newtime->tm_mday;
+		systime.wDayOfWeek = (WORD)newtime->tm_wday;
+		systime.wHour = (WORD)newtime->tm_hour;
+		systime.wMilliseconds = 0;
+		systime.wMinute = (WORD)newtime->tm_min;
+		systime.wMonth = (WORD)newtime->tm_mon+1;
+		systime.wSecond = (WORD)newtime->tm_sec;
+		systime.wYear = (WORD)newtime->tm_year+1900;
+		if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
+		{
+			GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PATH);
+			GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+			_tcsncat(date_native, datebuf, MAX_PATH);
+			_tcsncat(date_native, _T(" "), MAX_PATH);
+			_tcsncat(date_native, timebuf, MAX_PATH);
+		}
+		else
+		{
+			GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
+			GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+			_tcsncat(date_native, timebuf, MAX_PATH);
+			_tcsncat(date_native, _T(", "), MAX_PATH);
+			_tcsncat(date_native, datebuf, MAX_PATH);
+		}
 	}
 	else
 	{
-		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
-		_tcsncat(date_native, timebuf, MAX_PATH);
-		_tcsncat(date_native, _T(", "), MAX_PATH);
-		_tcsncat(date_native, datebuf, MAX_PATH);
+		date_native[0] = 0;
 	}
 }
 

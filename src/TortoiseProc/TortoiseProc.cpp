@@ -47,6 +47,7 @@
 #include "RepositoryBrowser.h"
 #include "BlameDlg.h"
 #include "CheckForUpdatesDlg.h"
+#include "RevisionGraphDlg.h"
 
 #include "libintl.h"
 
@@ -1344,7 +1345,16 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (parser.HasKey(_T("visible")))
 				dlg.m_bShowInfo = TRUE;
 			dlg.DoModal();
-		} // if (comVal.Compare(_T("updatecheck"))==0)
+		}
+		//#endregion
+		//#region revisiongraph
+		if (comVal.Compare(_T("revisiongraph"))==0)
+		{
+			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
+			CRevisionGraphDlg dlg;
+			dlg.m_sPath = path;
+			dlg.DoModal();
+		} 
 		//#endregion
 
 		if (TSVNMutex)

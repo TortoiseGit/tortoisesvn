@@ -794,6 +794,15 @@ BEGIN
     PUSHBUTTON      "Save To Clipboard",IDC_PATCH_TO_CLIPBOARD,7,7,80,14
 END
 
+IDD_REVISIONGRAPH DIALOGEX 0, 0, 263, 231
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_VSCROLL | WS_HSCROLL | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "RevisionGraph"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1138,6 +1147,14 @@ BEGIN
         RIGHTMARGIN, 87
         TOPMARGIN, 7
         BOTTOMMARGIN, 21
+    END
+
+    IDD_REVISIONGRAPH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 214
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -1625,6 +1642,32 @@ BEGIN
     IDS_SVNACTION_SKIPMISSING "Skipped missing target"
     IDS_SVNACTION_ADDING    "Adding"
     IDS_SVNACTION_DELETING  "Deleting"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_REVGRAPH_PROGTITLE  "Revision Graph"
+    IDS_REVGRAPH_PROGGETREVS "Getting information from repository..."
+    IDS_REVGRAPH_PROGCURRENTREV "Revision %ld"
+    IDS_REVGRAPH_PROGANALYZE "Analyze revision data..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_REVGRAPH_PROGANALYZEREV "Revision %ld"
+    IDS_REVGRAPH_PROGCANCEL "Cancelling operation..."
+    IDS_REVGRAPH_PROGCHECKFORWARD "Checking for forward copies"
+    IDS_REVGRAPH_PROGCHECKFORWARDREV "Revision %ld"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_REVGRAPH_BOXREVISIONTITLE "Revision %ld"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_REVGRAPH_BOXTOOLTIP "Author: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
 END
 
 #endif    // English (U.S.) resources
