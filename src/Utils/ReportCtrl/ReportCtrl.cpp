@@ -2483,6 +2483,8 @@ BOOL CReportCtrl::DeleteItem(HTREEITEM hItem)
 		else
 			lptiFocus = NULL;
 	}
+	else
+		lptiFocus = NULL;
 
 	BOOL bResult = DeleteItemImpl((LPTREEITEM)hItem, FALSE);
 
@@ -4070,7 +4072,9 @@ CReportCtrl::LPTREEITEM CReportCtrl::GetTreeFocus()
 		SetState(m_iFocusRow, 0, RVIS_FOCUSED);
 
 	m_iFocusRow = RVI_INVALID;
-	return iFocusItem >= RVI_FIRST ? m_arrayItems[iFocusItem].lptiItem:NULL;
+	if (iFocusItem < m_arrayItems.GetCount())
+		return iFocusItem >= RVI_FIRST ? m_arrayItems[iFocusItem].lptiItem:NULL;
+	return NULL;
 }
 
 void CReportCtrl::SetTreeFocus(LPTREEITEM lptiFocus)
