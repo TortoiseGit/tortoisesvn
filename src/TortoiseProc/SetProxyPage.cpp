@@ -306,9 +306,10 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 
 	if (GetOpenFileName(&ofn)==TRUE)
 	{
+		UpdateData();
 		m_SSHClient = CString(ofn.lpstrFile);
 		UpdateData(FALSE);
 		SetModified();
-	} // if (GetOpenFileName(&ofn)==TRUE)
+	}
 	delete [] pszFilters;
 }
