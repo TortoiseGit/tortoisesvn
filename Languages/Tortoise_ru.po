@@ -32,8 +32,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-02-08 08:23+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2005-02-21 17:08+0500\n"
+"Last-Translator: Alexander <brambo@inbox.ru>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -204,11 +204,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Отменить"
 
-# Control-ID:1066,
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "&Закрывать окна автоматически"
-
 # ID:76,
 #: ID:76
 msgid "&Compare Revisions"
@@ -226,7 +221,6 @@ msgstr "&Удалить"
 
 # Control-ID:1061,
 #: Control-ID:1179
-#, fuzzy
 msgid "&Dry Run"
 msgstr "Пробный запуск"
 
@@ -481,9 +475,8 @@ msgstr "&Назад\tCtrl+Z"
 
 # Control-ID:65535,
 #: Control-ID:1180
-#, fuzzy
 msgid "&Unified Diff"
-msgstr "Применить патч-файл"
+msgstr "Патч-файл"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -1018,6 +1011,21 @@ msgstr "Автор:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Авторы:                      Stefan Kueng, Tim Kemp"
 
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "Автоматически закрывать при отстутствии к&онфликтов"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "Автоматически закрывать при отстутствии ошибок"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "Автоматически закрывать при отстутствии слияний, добавлений и удалений"
+
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Automatically resolve conflicted subversion status on save"
@@ -1236,16 +1244,6 @@ msgstr "Проверить на наличие обновлений"
 msgid "Check for newer &versions"
 msgstr "Проверить на наличие новых &версий"
 
-# Отметьте -- орфографическая ошибка?
-# ID:79,
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr ""
-"Пометьте, если Вы хотите, чтобы диалоги закрывались\n"
-"автоматически после завершения операции."
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1277,9 +1275,8 @@ msgstr "Веберите, если хотите менее подробных д
 
 # ID:270,
 #: ID:270
-#, fuzzy
 msgid "Checking for forward copies"
-msgstr "Проверка копий"
+msgstr "Проверка пересланных копий"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1345,6 +1342,11 @@ msgstr "Нажмите на \"Дополнительно\" для определ
 msgid "Clipboard"
 msgstr "Буфер обмена"
 
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "Закрывать вручную"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1352,9 +1354,8 @@ msgstr "Закрывает активное окно и приглашает с�
 
 # Control-ID:1068,
 #: Control-ID:1068
-#, fuzzy
 msgid "Color code in-line changes"
-msgstr "Color code in-line changes"
+msgstr "Помечать цветом изменения внутри строк"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -1449,6 +1450,12 @@ msgstr "Контекстное меню"
 msgid "Continue"
 msgstr "Продолжить"
 
+# или Через Базу?
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Convert files when diffing against BASE"
+msgstr "Преобразовывать файлы при сравнении с Базой"
+
 # ID:376,
 #: ID:376
 msgid "Cop&y"
@@ -1467,7 +1474,7 @@ msgstr "Скопировано удаленно"
 # ID:76,
 #: ID:76
 msgid "Copy From Path"
-msgstr ""
+msgstr "Копировать из пути"
 
 # ID:101,
 #: ID:101
@@ -1660,11 +1667,6 @@ msgstr ""
 "Вырезать выбранное и положить в Буфер обмена\n"
 "Вырезать"
 
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "Не закрывать при к&онфликтах"
-
 # ID:76,
 #: ID:76
 msgid "Date"
@@ -1829,12 +1831,6 @@ msgstr ""
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Вы хотите сохранить изменения?"
-
-# или Через Базу?
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Don't convert files when diffing against BASE"
-msgstr "Не преобразовывать файлы при сравнении с Базой"
 
 # ID:73,
 #: ID:73
@@ -2249,8 +2245,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "Если выбрано, TortoiseSVN не будет создавать временного файла, а будет сравнивать прямо через базу."
+msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
+msgstr "Если выбрано, TortoiseSVN создает временный файл для сравнения, в коором ключевые слова не заменены их значениями."
 
 # ID:194,
 #: ID:194
@@ -2367,7 +2363,6 @@ msgstr "Неправильное имя файла."
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
@@ -2388,7 +2383,7 @@ msgstr ""
 "Неправильный номер ревизии! Правильные ревизии:\n"
 "HEAD, BASE, PREV, COMMITTED, WC\n"
 "положительные десятичные числа\n"
-"даты в нижеследующих форматах:\n"
+"даты в одном из нижеследующих форматов:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
@@ -2938,7 +2933,6 @@ msgstr "Пожалуйста,  выполите команду \"Очистка\
 
 # ID:78,
 #: ID:78
-#, fuzzy
 msgid ""
 "Please note:\n"
 "your working copy remains on the previous path. If you want your next changes\n"
@@ -2946,7 +2940,7 @@ msgid ""
 "to that copy path. Use the Switch command to do that."
 msgstr ""
 "Обратите внимание:\n"
-"Ваша рабочая копия осталась на прежней ветке. Если Вы хотите, чтобы\n"
+"Ваша рабочая копия осталась по прежнему пути. Если Вы хотите, чтобы\n"
 "следующие изменения были в только что созданной копии, вы должны\n"
 "<b>переключиться</b> на путь этой копии. Используйте для этого\n"
 "команду <b>Переключиться</b>"
@@ -2991,6 +2985,11 @@ msgstr "Программа"
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Программы (*.exe)|*.exe|Все файлы (*.*)|*.*||"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "Диалог прогресса"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
@@ -3352,7 +3351,6 @@ msgstr "SVN Прогресс"
 
 # ID:101,
 #: ID:221
-#, fuzzy
 msgid "SVN Rename/Move"
 msgstr "&Переименовать/Переместить..."
 
@@ -3543,6 +3541,11 @@ msgid ""
 msgstr ""
 "Выберите папку для экспорта.\n"
 "Можете создать новую папку перед выполнением экспорта."
+
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "Выберите поведение диалога прогресса операций по их завершению"
 
 # ID:3603,
 #: ID:3603
@@ -3794,7 +3797,6 @@ msgstr "Состояние объекта в SVN"
 
 # Control-ID:1130,
 #: Control-ID:1130
-#, fuzzy
 msgid "Stop On Copy/Rename"
 msgstr "Остановиться на копировании/переименовании"
 
@@ -4075,7 +4077,7 @@ msgstr ""
 #: ID:88
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "Указанная папка не пустая!\n"
 "Вы уверены что извлекать файлы надо сюда?"
@@ -4172,7 +4174,6 @@ msgstr "Чтобы посмотреть изменения, которые Вы 
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "В: (конечный URL и ревизия области слияния)"
 
@@ -4686,13 +4687,12 @@ msgstr "Ваш файл:"
 
 # ID:78,
 #: ID:78
-#, fuzzy
 msgid ""
 "Your working copy appears to be on a tag path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
 "Похоже, Ваша рабочая копия находится на <b>tag</b> пути!\n"
-"Вы должны переключиться на ветку либо главный корень перед фиксированием."
+"Вы должны переключиться на ветку либо главный путь перед фиксированием."
 
 # ID:88,
 #: ID:88
@@ -4757,6 +4757,17 @@ msgid ""
 msgstr ""
 "bugtraq:label\n"
 "Текст заголовка для ввода issue номера."
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"Два регулярных выпажения, разделенный символом новой строки\n"
+"Первое выражение используется для поиска строки, ссылающейся на обращение, второе выражение используется для извлечения  ID из этой строки."
 
 # ID:14,
 #: ID:14
