@@ -67,14 +67,36 @@ rem call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zl
 copy build\generator\vcnet_sln7.ezt build\generator\vcnet_sln.ezt /Y
 del build\generator\vcnet_sln7.ezt
 if %_DEBUG%==ON (
+  rem first, compile without any network/repository support
+  ren subversion\svn_private_config.h  svn_private_config_copy.h
+  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
+  rmdir /s /q Debug > NUL
+  devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__"
+  ren Debug\subversion subversion_netless
+  del subversion\svn_private_config.h
+  ren subversion\svn_private_config_copy.h svn_private_config.h
   devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__")
 if %_RELEASE%==ON (
+  rem first, compile without any network/repository support
+  ren subversion\svn_private_config.h  svn_private_config_copy.h
+  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
+  rmdir /s /q Release > NUL
+  devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
+  ren Release\subversion subversion_netless
+  del subversion\svn_private_config.h
+  ren subversion\svn_private_config_copy.h svn_private_config.h
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
 ) else if %_RELEASE_MBCS%==ON (
+  rem first, compile without any network/repository support
+  ren subversion\svn_private_config.h  svn_private_config_copy.h
+  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
+  rmdir /s /q Release > NUL
+  devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
+  ren Release\subversion subversion_netless
+  del subversion\svn_private_config.h
+  ren subversion\svn_private_config_copy.h svn_private_config.h
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__")
-
 @echo off
-
 rem TortoiseSVN
 echo ================================================================================
 echo copying files
@@ -122,7 +144,7 @@ echo ===========================================================================
 echo building TortoiseSVN
 cd src
 devenv TortoiseSVN.sln /rebuild release /project SubWCRev
-..\bin\release\SubWCRev.exe .. version.in version.h
+..\bin\release\bin\SubWCRev.exe .. version.in version.h
 if %_RELEASE%==ON (
   devenv TortoiseSVN.sln /rebuild release )
 if %_RELEASE_MBCS%==ON (
