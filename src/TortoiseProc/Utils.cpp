@@ -543,7 +543,9 @@ CString CUtils::GetFileNameFromPath(CString sPath)
 CString CUtils::GetFileExtFromPath(const CString& sPath)
 {
 	int dotPos = sPath.ReverseFind('.');
-	int slashPos = sPath.ReverseFind('/');
+	int slashPos = sPath.ReverseFind('\\');
+	if (slashPos < 0)
+		slashPos = sPath.ReverseFind('/');
 	if (dotPos > slashPos)
 		return sPath.Mid(dotPos);
 	return CString();
