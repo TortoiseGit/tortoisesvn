@@ -13,7 +13,50 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Russian resources
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Russisch resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
 #ifdef _WIN32
@@ -262,8 +305,7 @@ BEGIN
     LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,83,72,17
     COMBOBOX        IDC_LANGUAGECOMBO,100,84,168,71,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,103,72,
-                    18
+    LTEXT           "Include/Exclude pattern:",IDC_STATIC,7,92,73,18
     EDITTEXT        IDC_TEMPEXTENSIONS,100,104,168,14,ES_AUTOHSCROLL
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
@@ -784,55 +826,12 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "remote status"
 END
 
-#endif    // Russian resources
+#endif    // Russisch resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AVI
-//
-
-IDR_ANIMATION           AVI                     "res\\bin168.avi"
-IDR_MOVEANI             AVI                     "res\\bin167.avi"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
-#endif    // Neutral resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -875,7 +874,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

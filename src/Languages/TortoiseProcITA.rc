@@ -302,7 +302,7 @@ BEGIN
     LTEXT           "Lingua:",IDC_STATIC,7,73,66,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,73,200,68,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,95,66,8
+    LTEXT           "Include/Exclude pattern:",IDC_STATIC,7,92,73,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
     CONTROL         "Allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,119,273,10
@@ -706,7 +706,7 @@ BEGIN
     IDS_SETTINGS_CHANGEDDIRS_TT 
                             "selezionare se desideri che l'icona delle cartelle mostri lo stato dei files contenuti.\n<ct=0x0000ff><b>Attenzione:</b> l'operazione potrebbe rallentare explorer.</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "specificare l'estensione da utilizzare per i files temporanei"
+                            "specify the files or folders wich TortoiseSVN\n should include or exclude from version control.\nInclude patterns are prefixed with a '+'\nPriority order is from left to right"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 

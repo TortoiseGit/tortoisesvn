@@ -302,9 +302,8 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Include/Exclude pattern:",IDC_STATIC,7,92,73,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
-    CONTROL         "Allow add before commit",
-                    IDC_ADDBEFORECOMMIT,"Button", BS_AUTOCHECKBOX 
-                    WS_TABSTOP,7,124,273,10
+    CONTROL         "Allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
+                    BS_AUTOCHECKBOX,7,124,273,10
     LTEXT           "External Merge:",IDC_STATIC,7,29,66,8
     EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,230,25,50,14
@@ -704,7 +703,7 @@ BEGIN
     IDS_SETTINGS_CHANGEDDIRS_TT 
                             "activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "specify the file extensions which are\neither temporary or generated"
+                            "specify the files or folders wich TortoiseSVN\n should include or exclude from version control.\nInclude patterns are prefixed with a '+'\nPriority order is from left to right"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 
