@@ -263,6 +263,8 @@ void CSetOverlayIcons::ShowIconSet()
 	AddFileTypeGroup(_T(".frx"));
 	AddFileTypeGroup(_T(".bas"));
 	AddFileTypeGroup(_T(".config"));
+	AddFileTypeGroup(_T(".css"));
+	AddFileTypeGroup(_T(".acsx"));
 	m_cIconList.RedrawItems(0, m_cIconList.GetItemCount());
 }
 void CSetOverlayIcons::AddFileTypeGroup(CString sFileType)
