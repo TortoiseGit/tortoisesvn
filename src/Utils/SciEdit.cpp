@@ -214,12 +214,14 @@ CStringA CSciEdit::StringForControl(const CString& text)
 
 void CSciEdit::SetText(const CString& sText)
 {
-	Call(SCI_SETTEXT, 0, (LPARAM)(LPCSTR)StringForControl(sText));
+	CStringA sTextA = StringForControl(sText);
+	Call(SCI_SETTEXT, 0, (LPARAM)(LPCSTR)sTextA);
 }
 
 void CSciEdit::InsertText(const CString& sText, bool bNewLine)
 {
-	Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(sText));
+	CStringA sTextA = StringForControl(sText);
+	Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)sTextA);
 	if (bNewLine)
 		Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)"\n");
 }

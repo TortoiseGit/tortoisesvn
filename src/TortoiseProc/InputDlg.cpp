@@ -75,7 +75,10 @@ BOOL CInputDlg::OnInitDialog()
 		}
 		m_cInput.SetText(m_pProjectProperties->sLogTemplate);
 	}
-
+	if (!m_sInputText.IsEmpty())
+	{
+		m_cInput.SetText(m_sInputText);
+	}
 	if (!m_sHintText.IsEmpty())
 	{
 		GetDlgItem(IDC_HINTTEXT)->SetWindowText(m_sHintText);
