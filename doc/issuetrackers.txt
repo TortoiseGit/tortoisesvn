@@ -86,7 +86,8 @@ name  : bugtraq:number
 value : "true" or "false"
 If this property is set to "false", then the client allows any character entered 
 in the issue text box. Any other value or if the property is missing then only 
-numbers are allowed as the issue number.
+numbers are allowed as the issue number. One exception is the ',' char, which is
+used to separate multiple issues.
 The client must never complain if the text box is left empty, i.e. if no issue
 number is given. Not all commits are assigned to an issue!
 
