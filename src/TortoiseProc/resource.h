@@ -284,7 +284,12 @@
 #define IDC_COPYREVTEXT                 1186
 #define IDC_BROWSEFROM                  1187
 #define IDS_REPO_BROWSEREV              1190
+#define IDC_SLIDERBOTTOM                1190
+#define IDC_SLIDERTOP                   1191
 #define IDS_REPO_BROWSEURL              1191
+#define IDC_SPLITTERTOP                 1191
+#define IDC_SPLITTERBOTTOM              1192
+#define IDC_SPLITTER                    1193
 #define IDS_SSL_CERTIFICATETYPE         1200
 #define IDS_SSL_ACCEPTQUESTION          1201
 #define IDS_SSL_CLIENTCERTIFICATEFILENAME 1202
@@ -575,7 +580,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        186
 #define _APS_NEXT_COMMAND_VALUE         32779
-#define _APS_NEXT_CONTROL_VALUE         1188
+#define _APS_NEXT_CONTROL_VALUE         1194
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

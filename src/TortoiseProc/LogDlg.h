@@ -22,6 +22,8 @@
 #include "ProjectProperties.h"
 #include "StandAloneDlg.h"
 #include "TSVNPath.h"
+#include "SplitterControl.h"
+#include "afxwin.h"
 
 #define ID_COMPARE		1
 #define ID_SAVEAS		2
@@ -120,6 +122,11 @@ private:
 	BOOL DiffPossible(LogChangedPath * changedpath, long rev);
 	void EditAuthor(int index);
 	void EditLogMessage(int index);
+	void DoSizeV1(int delta);
+	void DoSizeV2(int delta);
+	void SetSplitterRange();
+
+	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 public:
 	CWnd *		m_pNotifyWindow;
@@ -153,6 +160,8 @@ private:
 	CTSVNPathList m_tempFileList;
 	CFont		m_logFont;
 	CString		m_sMessageBuf;
+	CSplitterControl m_wndSplitter1;
+	CSplitterControl m_wndSplitter2;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 

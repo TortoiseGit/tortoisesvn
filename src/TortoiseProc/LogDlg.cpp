@@ -75,6 +75,8 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOGLIST, m_LogList);
 	DDX_Control(pDX, IDC_LOGMSG, m_LogMsgCtrl);
 	DDX_Control(pDX, IDC_PROGRESS, m_LogProgress);
+	DDX_Control(pDX, IDC_SPLITTERTOP, m_wndSplitter1);
+	DDX_Control(pDX, IDC_SPLITTERBOTTOM, m_wndSplitter2);
 	DDX_Check(pDX, IDC_CHECK_STOPONCOPY, m_bStrict);
 }
 
@@ -184,8 +186,12 @@ BOOL CLogDlg::OnInitDialog()
 		SetWindowText(sTitle + _T(" - ") + m_path.GetFilename());
 	}
 
+	SetSplitterRange();
+
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
+	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
 	AddAnchor(IDC_MSGVIEW, ANCHOR(0, 40), ANCHOR(100, 90));
+	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
 	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
 	
 	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -1837,10 +1843,99 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
+void CLogDlg::DoSizeV1(int delta)
+{
+	RemoveAnchor(IDC_LOGLIST);
+	RemoveAnchor(IDC_SPLITTERTOP);
+	RemoveAnchor(IDC_MSGVIEW);
+	RemoveAnchor(IDC_SPLITTERBOTTOM);
+	RemoveAnchor(IDC_LOGMSG);
+	CSplitterControl::ChangeHeight(&m_LogList, delta, CW_TOPALIGN);
+	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGVIEW), -delta, CW_BOTTOMALIGN);
+	//CSplitterControl::ChangePos(&m_wndSplitter1, 0, delta);
+	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
+	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
+	AddAnchor(IDC_MSGVIEW, ANCHOR(0, 40), ANCHOR(100, 90));
+	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
+	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
+	ArrangeLayout();
+	SetSplitterRange();
+}
 
+void CLogDlg::DoSizeV2(int delta)
+{
+	RemoveAnchor(IDC_LOGLIST);
+	RemoveAnchor(IDC_SPLITTERTOP);
+	RemoveAnchor(IDC_MSGVIEW);
+	RemoveAnchor(IDC_SPLITTERBOTTOM);
+	RemoveAnchor(IDC_LOGMSG);
+	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGVIEW), delta, CW_TOPALIGN);
+	CSplitterControl::ChangeHeight(&m_LogMsgCtrl, -delta, CW_BOTTOMALIGN);
+	//CSplitterControl::ChangePos(&m_wndSplitter2, 0, delta);
+	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
+	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
+	AddAnchor(IDC_MSGVIEW, ANCHOR(0, 40), ANCHOR(100, 90));
+	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
+	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
+	ArrangeLayout();
+	SetSplitterRange();
+}
 
+LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
+{
+	switch (message) {
+	case WM_NOTIFY:
+		if (wParam == IDC_SPLITTERTOP)
+		{ 
+			SPC_NMHDR* pHdr = (SPC_NMHDR*) lParam;
+			DoSizeV1(pHdr->delta);
+		}
+		else if (wParam == IDC_SPLITTERBOTTOM)
+		{ 
+			SPC_NMHDR* pHdr = (SPC_NMHDR*) lParam;
+			DoSizeV2(pHdr->delta);
+		}
+		break;
+	case WM_WINDOWPOSCHANGED : 
+		{
+			CRect rcW;
+			GetWindowRect(rcW);
+			ScreenToClient(rcW);
 
+			if (m_wndSplitter1 && rcW.Height()>0) Invalidate();
+			if (m_wndSplitter2 && rcW.Height()>0) Invalidate();
+			break;
+		}
+	case WM_SIZE:
+		{
+			// first, let the resizing take place
+			LRESULT res = CResizableDialog::DefWindowProc(message, wParam, lParam);
+			//set range
+			SetSplitterRange();
+			return res;
+		}
+	}
 
+	return CResizableDialog::DefWindowProc(message, wParam, lParam);
+}
+
+void CLogDlg::SetSplitterRange()
+{
+	if ((m_LogList)&&(m_LogMsgCtrl))
+	{
+		CRect rcTop;
+		m_LogList.GetWindowRect(rcTop);
+		ScreenToClient(rcTop);
+		CRect rcMiddle;
+		GetDlgItem(IDC_MSGVIEW)->GetWindowRect(rcMiddle);
+		ScreenToClient(rcMiddle);
+		m_wndSplitter1.SetRange(rcTop.top+20, rcMiddle.bottom-20);
+		CRect rcBottom;
+		m_LogMsgCtrl.GetWindowRect(rcBottom);
+		ScreenToClient(rcBottom);
+		m_wndSplitter2.SetRange(rcMiddle.top+20, rcBottom.bottom-20);
+	}
+}
 
 
 
