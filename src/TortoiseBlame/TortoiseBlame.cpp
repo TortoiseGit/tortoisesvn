@@ -471,6 +471,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	if (_tcslen(blamefile)==0)
 		return 0;
 
+	app.SendEditor(SCI_SETCODEPAGE, GetACP());
 	app.OpenLogFile(logfile);
 	if (_tcslen(logfile)>0)
 		app.OpenFile(blamefile);
