@@ -54,10 +54,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 
 CLogDlg::~CLogDlg()
 {
-	for (int i=0; i<m_tempFileList.GetCount(); i++)
-	{
-		::DeleteFile(m_tempFileList[i].GetWinPath());
-	}
+	m_tempFileList.DeleteAllFiles();
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)

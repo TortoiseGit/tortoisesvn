@@ -223,6 +223,9 @@ public:
 	bool AreAllPathsFilesInOneDirectory() const;
 	CTSVNPath GetCommonDirectory() const;
 	void SortByPathname();
+	/** Delete all the files in the list, then clear the list
+	 */
+	void DeleteAllFiles();
 
 private:
 	typedef std::vector<CTSVNPath> PathVector;

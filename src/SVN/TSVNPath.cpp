@@ -505,8 +505,24 @@ void CTSVNPathList::SortByPathname()
 	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::ComparisonPredicate);
 }
 
+void CTSVNPathList::DeleteAllFiles()
+{
+	PathVector::const_iterator it;
+	for(it = m_paths.begin(); it != m_paths.end(); ++it)
+	{
+		ASSERT(!it->IsDirectory());
+		::DeleteFile(it->GetWinPath());
+	}
+	Clear();
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
 #if defined(_DEBUG)
-// Some test cases for this class
+// Some test cases for these classes
 static class CPathTests
 {
 public:

@@ -51,11 +51,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 
 CSVNProgressDlg::~CSVNProgressDlg()
 {
-	for (int i=0; i<m_templist.GetCount(); i++)
-	{
-		DeleteFile(m_templist.GetAt(i));
-	}
-	m_templist.RemoveAll();
+	m_templist.DeleteAllFiles();
 	for (int i=0; i<m_arData.GetCount(); i++)
 	{
 		delete m_arData.GetAt(i);
@@ -218,7 +214,7 @@ CString CSVNProgressDlg::BuildInfoString()
 
 	for (INT_PTR i=0; i<m_arData.GetCount(); ++i)
 	{
-		NotificationData * dat = m_arData.GetAt(i);
+		const NotificationData * dat = m_arData.GetAt(i);
 		switch (dat->action)
 		{
 		case svn_wc_notify_add:
@@ -833,7 +829,7 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 
 		if (m_arData.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
-			NotificationData * data = m_arData.GetAt(pLVCD->nmcd.dwItemSpec);
+			const NotificationData * data = m_arData.GetAt(pLVCD->nmcd.dwItemSpec);
 			if (data == NULL)
 				return;
 				
@@ -876,7 +872,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (pNMLV->iItem < 0)
 		return;
-	NotificationData * data = m_arData.GetAt(pNMLV->iItem);
+	const NotificationData * data = m_arData.GetAt(pNMLV->iItem);
 	if ((data->action == svn_wc_notify_update_update) &&
 		((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted)))
 	{
@@ -920,7 +916,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 
 		if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(sWC, sWC)))
 		{
-			m_templist.Add(sWC.GetWinPathString());
+			m_templist.AddPath(sWC);
 		}
 		CString name = data->path.GetFileOrDirectoryName();
 		CString ext = data->path.GetFileExtension();
@@ -949,7 +945,7 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	m_ProgList.DeleteAllItems();
 	for (int i=0; i<m_arData.GetCount(); i++)
 	{
-		NotificationData * data = m_arData.GetAt(i);
+		const NotificationData * data = m_arData.GetAt(i);
 		m_ProgList.InsertItem(i, m_pSvn->GetActionText(data->action, data->content_state, data->prop_state));
 		if (data->action != svn_wc_notify_update_completed)
 		{
@@ -1101,7 +1097,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				CString temp;
 				if (m_ProgList.GetSelectedCount() == 1)
 				{
-					NotificationData * data = m_arData.GetAt(selIndex);
+					const NotificationData * data = m_arData.GetAt(selIndex);
 					if ((data)&&(!data->path.IsDirectory())&&(data->action == svn_wc_notify_update_update))
 					{
 						temp.LoadString(IDS_LOG_POPUP_COMPARE);
@@ -1116,7 +1112,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						case ID_COMPARE:
 							{
 								CTSVNPath tempfile = CUtils::GetTempFilePath();
-								m_templist.Add(tempfile.GetWinPathString());
+								m_templist.AddPath(tempfile);
 								SVN svn;
 								if (!svn.Cat(data->path, m_nUpdateStartRev, tempfile))
 								{
