@@ -1348,7 +1348,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "Specify the files or folders which TortoiseSVN\n should exclude from version control.\nSeparate the patterns with a space."
+                            "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
     IDS_SETTINGS_FOLDERSTATUS_TT 
                             "Indicates the status of a folder with the overlay icon.\nIf deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
     IDS_SETTINGS_EXTMERGE_TT 
@@ -1643,7 +1643,7 @@ BEGIN
     IDS_CHECKNEWER_YOURVERSION "your version is: %d.%d.%d.%d"
     IDS_CHECKNEWER_CURRENTVERSION "current version is: %s"
     IDS_CHECKNEWER_YOURUPTODATE 
-                            "You already have the most current version installed."
+                            "You already have the latest version installed."
     IDS_CHECKNEWER_NEWERVERSIONAVAILABLE 
                             "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
     IDS_CHECKNEWER_NETERROR "Could not check for a newer version!"
