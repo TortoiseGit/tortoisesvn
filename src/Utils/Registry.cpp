@@ -176,7 +176,7 @@ CString	CRegString::read()
 		{
 			m_value = CString(pStr);
 			delete [] pStr;
-			ASSERT(type==REG_SZ);
+			ASSERT(type==REG_SZ || type==REG_EXPAND_SZ);
 			m_read = TRUE;
 			RegCloseKey(m_hKey);
 			m_hKey = NULL;
