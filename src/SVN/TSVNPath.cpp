@@ -446,9 +446,9 @@ CString CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL
 int 
 CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
 {
-	left.EnsureFwdslashPathSet();
-	right.EnsureFwdslashPathSet();
-	return left.m_sFwdslashPath.CompareNoCase(right.m_sFwdslashPath);
+	left.EnsureBackslashPathSet();
+	right.EnsureBackslashPathSet();
+	return left.m_sBackslashPath.CompareNoCase(right.m_sBackslashPath);
 }
 
 bool
