@@ -1,5 +1,6 @@
 /************************************************************************/
-/* Custom style-sheet stuffs for the Subversion book in HTML form.      */
+/* Custom style-sheet stuffs for the TortoiseSVN documentation in       */
+/* Windows CHM Help File format                                         */
 /*                                                                      */
 /* If you prefer sans-serif fonts, just replace all the instances of    */
 /* 'times new roman,times,serif' with 'arial,helvetica,sans-serif'.     */
@@ -12,50 +13,12 @@ body {
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	background: #fff;
 	color: #000;
+	margin: 0;
+	padding: 0;
 }
 
-/* Don't override these styles, because they interfere with standard tigris.org styles and munge the appearance of the website.
-H1
-{
-    font-size: 30pt;
-    font-style: normal;
-    font-weight: bold;
-    color: black;
-}
 
-H2
-{
-    font-size: 24px;
-    font-style: normal;
-    font-weight: bold;
-    color: black;
-}
 
-H3
-{
-    font-size: 20px;
-    font-style: normal;
-    font-weight: bold;
-    color: black;
-}
-
-H4
-{
-    font-size: 16px;
-    font-style: normal;
-    font-weight: bold;
-    color: black;
-}
-
-P,LI,UL,OL,DD,DT,TD
-{
-    font-size: 12pt;
-    font-style: normal;
-    font-weight: normal;
-    color: black;
-}
-
-*/
 PRE
 {
     font-size: 10pt;
@@ -69,15 +32,14 @@ TT.Filename, TT.Literal{
 	font-weight: bold;
 }
 
-A {
-    color: blue;
-    text-decoration: underline;
-}	
-
-A:hover {
+a {
 	color: blue;
+	text-decoration: none;
+}
+
+a:hover {
 	text-decoration: underline;
-	background-color: #DCDCDC;
+	color: black;
 }
 
 IMG {
@@ -89,7 +51,7 @@ div.figure {
 	clear: both;
 	text-align: center;
 	margin: 0px 0px 5px 10px;
-} 
+}
 
 div.figure p {
 	margin-top: 2px;
@@ -106,23 +68,105 @@ div.figure p {
     color: black;
 }
 
-.navfooter
- {
-  clear: both;	
-}
-
-.preface, .chapter, .simplesect, .sect1, .sect2, .sect3 {
-	margin: 0 1em 0 1em;
+div.navheader, 
+div.navfooter {
+	background-color: #809BC8;
+	color: white;
 	clear: both;
 }
-.chapter .sect1 {
-	margin: 0 1em 0 1.5em;
+
+div.navheader table th {
+	font-size: medium;
 }
-.sect1 .sect2 {
-	margin: 0 1em 0 2em;
+
+div.navheader table, 
+div.navfooter table {
+    border: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+  }
+
+/* normal text in the footer */
+div.navfooter table td {
+	color: white;
 }
-.sect1 .sect2 .sect3 {
-	margin: 0 1em 0 2.5em;
+    
+div.navheader table td a,
+div.navfooter table td a {
+	color: #fff5b0;
+	text-decoration: none;
+}
+
+/* links in header and footer */
+div.navheader table td a:hover,
+div.navfooter table td a:hover {
+	text-decoration: underline;
+	background-color: transparent;
+}
+
+div.navheader table td a:visited,
+div.navfooter table td a:visited {
+	color: #fff5b0;
+}
+
+div.navheader hr, div.navfooter hr{
+	display: none;
+}
+
+div.book,
+div.chapter,
+div.sect1, 
+div.sect2,
+div.sect3,
+div.appendix, 
+div.section, 
+div.glossary {
+	margin: 20px;
+}
+
+/* table of contents */
+div.toc {
+	border: 1px solid black;
+	padding: 0px 10px;
+	background-color: #fff9cd;
+	color: black;
+	margin-bottom: 1cm;
+	width: 80%;
+}
+
+div.toc b { font-size: 140%; }
+
+div.toc a {
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+/* toc definitions for different sections and chapters */
+div.book div.toc {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	font-size: medium;
+}
+
+div.table title { background-color: #FFFFFF; width:100%; border: 0px; }
+div.table p { text-align: center; }
+div.table table {
+	background-color: #7099C5;
+	color: #ffffff;
+	font-size: 90%;
+	border-width: 0px;
+}
+div.table th {
+	text-align: center;
+	padding: 1px 4px 1px 4px;
+	border: none;
+}
+div.table td {
+	background-color: #f0f0ff;
+	color: black;
+	padding: 1px 4px 1px 4px;
+	border: none;
 }
 
 .caution, .important, .note, .tip, .warning {
@@ -131,7 +175,7 @@ div.figure p {
 }
 
 .action, .guibutton, .guimenu, .guimenuitem {
-  font-weight: bold;	
+  font-weight: bold;
 }
 
 .guimenu, .guimenuitem, .guilabel {
@@ -148,9 +192,9 @@ div.figure p {
 	padding-right: 0.5em;
 	background-color: #CCCCCC;
 	border-left: #E0E0E0;
-	border-top-color: #E0E0E0;
-	border-right-color: Gray;
-	border-bottom-color: Gray;
+	border-top: #E0E0E0;
+	border-right: Gray;
+	border-bottom: Gray;
 }
 
 .tip {
@@ -172,4 +216,6 @@ div.figure p {
 .warning {
 	border-color: #900;
 }
+
+.term { border-bottom: 1px dotted black; }
 

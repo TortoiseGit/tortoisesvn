@@ -29,7 +29,7 @@ SetCompressor lzma
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "..\..\bin\LanguagePack_${PRODUCT_VERSION}_cn.exe"
+OutFile ".\bin\LanguagePack_${PRODUCT_VERSION}_cn.exe"
 ShowInstDetails show
 
 Section "Hauptgruppe" SEC01
@@ -47,7 +47,7 @@ Proceed:
   StrCpy $INSTDIR "$0\Languages"
   SetOutPath $INSTDIR
   SetOverwrite ifnewer
-  File "..\..\bin\*2052.dll"
+  File ".\bin\*2052.dll"
 SectionEnd
 
 Section -Post
