@@ -93,6 +93,9 @@ public:
 	BOOL GetItemEx(INT iPos, HDITEMEX* phditemex) const;
 	BOOL SetItemEx(INT iPos, HDITEMEX* phditemex);
 
+	UINT GetItemStyle(INT iPos);
+	BOOL SetItemStyle(INT iPos, UINT nStyle);
+
 	UINT GetItemExStyle(INT iPos);
 	BOOL SetItemExStyle(INT iPos, UINT nStyle);
 

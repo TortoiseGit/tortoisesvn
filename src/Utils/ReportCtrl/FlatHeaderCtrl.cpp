@@ -80,6 +80,64 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#ifndef HDF_SORTUP
+#define HDF_SORTUP              0x0400
+#endif
+
+#ifndef HDF_SORTDOWN
+#define HDF_SORTDOWN            0x0200
+#endif
+
+
+#include <shlwapi.h>
+//#include <Uxtheme.h>
+
+class CThemeHelper {
+
+	bool initialized;
+	bool theme_available;
+
+public:
+
+	CThemeHelper()
+	{
+		initialized = false;
+		theme_available = false;
+	}
+
+	/**
+	 * Check if the Themes API is available on this computer.
+	 */
+	bool IsThemeAvailable()
+	{
+		if (!initialized)
+		{
+			HMODULE hUxThemeDll = AfxLoadLibrary(_T("uxtheme.dll"));
+			if (hUxThemeDll != 0)
+			{
+				theme_available = true;
+				AfxFreeLibrary(hUxThemeDll);
+			}
+		}
+
+		return theme_available;
+	}
+
+	/**
+	 * Check if any Windows Theme is currently active.
+	 *
+	 * \note To avoid linking to (and even not delayed loading of) uxtheme.dll,
+	 *       we currently check only for the availability of this DLL. So under
+	 *		 Windows XP and higher, always the default drawing is used.
+	 */
+	bool IsThemeActive()
+	{
+		return IsThemeAvailable(); // && ::IsThemeActive();
+	}
+
+};
+
+
 /////////////////////////////////////////////////////////////////////////////
 // CFHDragWnd
 
@@ -515,6 +573,28 @@ BOOL CFlatHeaderCtrl::SetItemEx(INT iPos, HDITEMEX* phditemex)
 	return TRUE;
 }
 
+UINT CFlatHeaderCtrl::GetItemStyle(INT iPos)
+{
+	ASSERT(iPos >= 0 && iPos < GetItemCount());
+
+	HDITEM hdi;
+	hdi.mask = HDI_FORMAT;
+	VERIFY(GetItem(iPos, &hdi));
+
+	return hdi.fmt;
+}
+
+BOOL CFlatHeaderCtrl::SetItemStyle(INT iPos, UINT nStyle)
+{
+	ASSERT(iPos >= 0 && iPos < GetItemCount());
+
+	HDITEM hdi;
+	hdi.mask = HDI_FORMAT;
+	hdi.fmt = nStyle;
+	return SetItem(iPos, &hdi);
+}
+
+
 UINT CFlatHeaderCtrl::GetItemExStyle(INT iPos)
 {
 	ASSERT(iPos < m_arrayHdrItemEx.GetSize());
@@ -568,8 +648,27 @@ void CFlatHeaderCtrl::SetSortColumn(INT iPos, BOOL bSortAscending)
 {
 	ASSERT(iPos < GetItemCount());
 
+	if (m_iSortColumn >= 0 && m_iSortColumn < GetItemCount())
+	{
+		UINT style = GetItemStyle(m_iSortColumn) & ~(HDF_SORTUP|HDF_SORTDOWN);
+		SetItemStyle(m_iSortColumn, style);
+	}
+
 	m_bSortAscending = bSortAscending;
 	m_iSortColumn = iPos;
+
+	if (m_iSortColumn >= 0 && m_iSortColumn < GetItemCount())
+	{
+		UINT style = GetItemStyle(m_iSortColumn) & ~(HDF_SORTUP|HDF_SORTDOWN);
+
+		if (bSortAscending)
+			style |= HDF_SORTUP;
+		else
+			style |= HDF_SORTDOWN;
+
+		SetItemStyle(m_iSortColumn, style);
+	}
+
 	Invalidate();
 }
 
@@ -1321,15 +1420,25 @@ BOOL CFlatHeaderCtrl::OnEraseBkgnd(CDC* pDC)
 
 void CFlatHeaderCtrl::OnPaint() 
 {
-    CPaintDC dc(this);
+	static CThemeHelper themes;
 
-    if (m_bDoubleBuffer)
-    {
-        CMemDC MemDC(&dc);
-        DrawCtrl(&MemDC);
-    }
-    else
-        DrawCtrl(&dc);
+	if (themes.IsThemeActive())
+	{
+		// Use theme drawing when possible
+		CHeaderCtrl::OnPaint();
+	}
+	else
+	{
+		CPaintDC dc(this);
+
+		if (m_bDoubleBuffer)
+		{
+			CMemDC MemDC(&dc);
+			DrawCtrl(&MemDC);
+		}
+		else
+			DrawCtrl(&dc);
+	}
 }
 
 UINT CFlatHeaderCtrl::OnNcHitTest(CPoint point) 
@@ -1709,6 +1818,10 @@ void CFlatHeaderCtrl::OnMouseMove(UINT nFlags, CPoint point)
 				}
 			}
 		}
+	}
+	else
+	{
+		CHeaderCtrl::OnMouseMove(nFlags, point);
 	}
 }
 
