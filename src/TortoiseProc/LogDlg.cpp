@@ -190,6 +190,7 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
 	m_logcounter = 0;
+	m_sMessageBuf.Preallocate(100000);
 
 	CString sTitle;
 	GetWindowText(sTitle);
@@ -209,7 +210,7 @@ BOOL CLogDlg::OnInitDialog()
 	return FALSE;
 }
 
-void CLogDlg::FillLogMessageCtrl(CString msg, CString paths)
+void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 {
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(msg);
@@ -293,7 +294,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CString& cpaths)
+BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths)
 {
 	int line = 0;
 	CString temp;
@@ -342,14 +343,14 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 		temp = "";
 		if (message.GetLength()>0)
 		{
-			message.Replace(_T("\n\r"), _T("\n"));
-			message.Replace(_T("\r\n"), _T("\n"));
-			//message.Replace(_T("\n"), _T("\r\n"));
+			m_sMessageBuf = message;
+			m_sMessageBuf.Replace(_T("\n\r"), _T("\n"));
+			m_sMessageBuf.Replace(_T("\r\n"), _T("\n"));
 			int pos = 0;
-			if (message.Right(1).Compare(_T("\n"))==0)
-				message = message.Left(message.GetLength()-1);
+			if (m_sMessageBuf.Right(1).Compare(_T("\n"))==0)
+				m_sMessageBuf = m_sMessageBuf.Left(m_sMessageBuf.GetLength()-1);
 		} // if (message.GetLength()>0)
-		m_arLogMessages.Add(message);
+		m_arLogMessages.Add(m_sMessageBuf);
 		m_arLogPaths.Add(cpaths);
 		m_arRevs.Add(rev);
 	}

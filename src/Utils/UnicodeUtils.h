@@ -35,17 +35,17 @@ public:
 	CUnicodeUtils(void);
 	~CUnicodeUtils(void);
 #ifdef _MFC_VER
-	static CStringA GetUTF8(CStringW string);
-	static CStringA GetUTF8(CStringA string);
+	static CStringA GetUTF8(const CStringW& string);
+	static CStringA GetUTF8(const CStringA& string);
 #ifdef UNICODE
-	static CStringW GetUnicode(CStringA string);
+	static CStringW GetUnicode(const CStringA& string);
 #else
-	static CStringA GetUnicode(CStringA string);
+	static CStringA GetUnicode(const CStringA& string);
 #endif
 #endif
 #ifdef UNICODE
-	static std::string StdGetUTF8(wide_string wide);
-	static wide_string StdGetUnicode(std::string multibyte);
+	static std::string StdGetUTF8(const wide_string& wide);
+	static wide_string StdGetUnicode(const std::string& multibyte);
 #else
 	static std::string StdGetUTF8(std::string str) {return str;}
 	static std::string StdGetUnicode(std::string multibyte) {return multibyte;}

@@ -27,6 +27,8 @@
 #include <shlwapi.h>
 #include "wininet.h"
 
+CString	SVN::cpaths;
+
 SVN::SVN(void) : SVNPrompt()
 {
 	m_app = NULL;
@@ -85,9 +87,9 @@ void SVN::ReleasePool()
 }
 
 BOOL SVN::Cancel() {return FALSE;};
-BOOL SVN::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
-BOOL SVN::Log(LONG rev, CString author, CString date, CString message, CString& cpaths) {return TRUE;};
-BOOL SVN::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CStringA line) {return TRUE;}
+BOOL SVN::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
+BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths) {return TRUE;};
+BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 
 struct log_msg_baton
 {
@@ -777,6 +779,7 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 
 BOOL SVN::ReceiveLog(CString path, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
 {
+	cpaths.Preallocate(10000);		//allocate 10kB memory
 	preparePath(path);
 	Err = svn_client_log (target ((LPCTSTR)path), 
 						revisionStart, 
@@ -1019,10 +1022,8 @@ svn_error_t* SVN::logReceiver(void* baton,
 
 	msg_native = CUnicodeUtils::GetUnicode(msg);
 
-	CString cpaths;
 	try
 	{
-		cpaths.Preallocate(10000);		//allocate 10kB memory
 		if (ch_paths)
 		{
 			CString sModifiedStatus, sReplacedStatus, sAddStatus, sDeleteStatus;
@@ -1032,6 +1033,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 			sDeleteStatus.LoadString(IDS_SVNACTION_DELETE);
 			apr_array_header_t *sorted_paths;
 			sorted_paths = svn_sort__hash(ch_paths, svn_sort_compare_items_as_paths, pool);
+			cpaths = _T("");
 			for (int i = 0; i < sorted_paths->nelts; i++)
 			{
 				svn_sort__item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_sort__item_t));
@@ -1453,7 +1455,7 @@ CString SVN::RevPropertyGet(CString sName, CString sURL, SVNRev rev)
 	return CUnicodeUtils::GetUnicode(propval->data);
 }
 
-CString SVN::GetPristinePath(CString wcPath)
+CString SVN::GetPristinePath(const CString& wcPath)
 {
 	apr_pool_t * localpool;
 	svn_error_t * err;
@@ -1560,7 +1562,7 @@ void SVN::UpdateShell(CString path)
 	} while (pos >= 0);
 }
 
-BOOL SVN::PathIsURL(CString path)
+BOOL SVN::PathIsURL(const CString& path)
 {
 	return svn_path_is_url(MakeSVNUrlOrPath(path));
 }
@@ -1606,7 +1608,7 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	}
 }
 
-CStringA SVN::MakeSVNUrlOrPath(CString UrlOrPath)
+CStringA SVN::MakeSVNUrlOrPath(const CString& UrlOrPath)
 {
 	CStringA url = CUnicodeUtils::GetUTF8(UrlOrPath);
 	if (svn_path_is_url(url))

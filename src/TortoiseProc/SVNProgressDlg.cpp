@@ -120,7 +120,7 @@ BOOL CSVNProgressDlg::Cancel()
 	return m_bCancelled;
 }
 
-BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+BOOL CSVNProgressDlg::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
 {
 	CString temp;
 

@@ -81,9 +81,9 @@ public:
 	~SVN(void);
 
 	virtual BOOL Cancel();
-	virtual BOOL Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
-	virtual BOOL Log(LONG rev, CString author, CString date, CString message, CString& cpaths);
-	virtual BOOL BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CStringA line);
+	virtual BOOL Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
+	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths);
+	virtual BOOL BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
 
 	/**
 	 * If a method of this class returns FALSE then you can
@@ -491,7 +491,7 @@ public:
 	 * Returns the path to the text-base file of the working copy file.
 	 * If no text base exists for the file then the returned string is empty.
 	 */
-	static CString GetPristinePath(CString wcPath);
+	static CString GetPristinePath(const CString& wcPath);
 
 	/**
 	 * Returns the path to a translated version of sFile. If no translation of the
@@ -517,9 +517,9 @@ public:
 	/**
 	 * Checks if a given path is a valid URL.
 	 */	 	 	 	
-	static BOOL PathIsURL(CString path);
+	static BOOL PathIsURL(const CString& path);
 
-	static CStringA MakeSVNUrlOrPath(CString UrlOrPath);
+	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
 
 	static void UseIEProxySettings(apr_hash_t * cfg);
@@ -533,6 +533,7 @@ private:
 	apr_pool_t *				pool;			///< memory pool
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
 
+	static CString				cpaths;
 	svn_opt_revision_t *	getRevision (long revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 	apr_array_header_t * target (LPCTSTR path);

@@ -38,9 +38,9 @@ public:
 	 */
 	CString		BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, BOOL showprogress = TRUE);
 private:
-	BOOL		BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CStringA line);
+	BOOL		BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
 	BOOL		Cancel();
-	BOOL		Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
+	BOOL		Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
 
 private:
 	BOOL		m_bCancelled;			///< TRUE if the operation should be cancelled

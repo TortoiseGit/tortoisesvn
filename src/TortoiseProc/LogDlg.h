@@ -84,7 +84,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(LONG rev, CString author, CString date, CString message, CString& cpaths);
+	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths);
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -107,7 +107,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-	void	FillLogMessageCtrl(CString msg, CString paths);
+	void	FillLogMessageCtrl(const CString& msg, const CString& paths);
 	BOOL	StartDiff(CString path1, LONG rev1, CString path2, LONG rev2);
 	void	DoDiffFromLog(int selIndex, long rev);
 
@@ -144,6 +144,7 @@ private:
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
 	CFont		m_logFont;
+	CString		m_sMessageBuf;
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

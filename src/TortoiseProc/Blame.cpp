@@ -31,13 +31,14 @@ CBlame::~CBlame()
 	m_progressDlg.Stop();
 }
 
-BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CStringA line)
+BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line)
 {
-	line = line.TrimRight("\n\r");
 	CString fullline;
 	CString fulllineA;
 	fullline.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, date, author);
-	fulllineA = line + "\n";
+	fulllineA = line;
+	fulllineA.TrimRight(_T("\r\n"));
+	fulllineA += "\n";
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 	{
 		m_saveFile.WriteString(fullline);
@@ -97,7 +98,7 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, BO
 	return m_sSavePath;
 }
 
-BOOL CBlame::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+BOOL CBlame::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
 {
 	CString temp;
 	temp.Format(IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
