@@ -92,9 +92,11 @@ public:
 	 * \param moduleName the path/url of the repository
 	 * \param destPath the path to the local working copy
 	 * \param revision the revision number to check out
+	 * \param pegrev the peg revision to use
 	 * \param recurse TRUE if you want to check out all subdirs and files (recommended)
+	 * \param bIgnoreExternals if TRUE, do not check out externals
 	 */
-	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev revision, BOOL recurse);
+	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev pegrev, SVNRev revision, BOOL recurse, BOOL bIgnoreExternals);
 	/**
 	 * If pathlist contains an URL, use the MESSAGE to immediately attempt 
 	 * to commit a deletion of the URL from the repository. 

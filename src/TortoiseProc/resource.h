@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -300,6 +300,7 @@
 #define IDS_SSL_ACCEPTQUESTION          1201
 #define IDC_TOLABEL                     1201
 #define IDS_SSL_CLIENTCERTIFICATEFILENAME 1202
+#define IDC_NOEXTERNALS                 1202
 #define IDS_SSL_PEM                     1203
 #define IDS_SSL_PKCS12                  1204
 #define IDS_IMPORT_DEFAULTMSG           1205
@@ -595,7 +596,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        187
 #define _APS_NEXT_COMMAND_VALUE         32783
-#define _APS_NEXT_CONTROL_VALUE         1202
+#define _APS_NEXT_CONTROL_VALUE         1203
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

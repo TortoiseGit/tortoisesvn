@@ -507,7 +507,10 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(CSVNProgressDlg::Checkout, dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
+				int opts = dlg.m_bNonRecursive ? ProgOptNonRecursive : ProgOptRecursive;
+				if (dlg.m_bNoExternals)
+					opts |= ProgOptIgnoreExternals;
+				progDlg.SetParams(CSVNProgressDlg::Checkout, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
 				progDlg.DoModal();
 			}
 		}

@@ -33,7 +33,8 @@ typedef enum
 	ProgOptRecursive = 0x01,
 	ProgOptNonRecursive = 0x00,
 	// Don't actually do the merge - just practice it
-	ProgOptDryRun = 0x04
+	ProgOptDryRun = 0x04,
+	ProgOptIgnoreExternals = 0x08
 } ProgressOptions;
 
 typedef enum

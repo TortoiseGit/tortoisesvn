@@ -85,6 +85,7 @@ public:
 	SVNRev			Revision;
 	BOOL			IsExport;
 	BOOL			m_bNonRecursive;
+	BOOL			m_bNoExternals;
 	CButton			m_butBrowse;
 	CEdit			m_editRevision;
 	CString			m_strCheckoutDirectory;
