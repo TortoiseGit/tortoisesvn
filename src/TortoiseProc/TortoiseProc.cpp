@@ -24,6 +24,7 @@
 #include "UnicodeUtils.h"
 #include "CrashReport.h"
 #include "DirFileList.h"
+#include "SVNProperties.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -820,6 +821,55 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.DoModal();
 		} // if (comVal.Compare(_T("repostatus"))==0)
 		//#endregion 
+		//#region ignore
+		if (comVal.Compare(_T("ignore"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			SVN svn;
+			CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
+			CString strLine = _T("");
+			while (file.ReadString(strLine))
+			{
+				//strLine = _T("F:\\Development\\SVN\\tortoisesvn\\src\\TortoiseShell\\Resource.aps");
+				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
+				CString parentfolder = strLine.Left(strLine.ReverseFind('\\'));
+				SVNProperties props(parentfolder);
+				CString value;
+				for (int i=0; i<props.GetCount(); i++)
+				{
+					CString propname(props.GetItemName(i).c_str());
+					if (propname.CompareNoCase(_T("svn:ignore"))==0)
+					{
+						TCHAR tbuf[4096];
+						stdstring stemp;
+						stdstring tmp = props.GetItemValue(i);
+						//treat values as normal text even if they're not
+						_tcsncpy(tbuf, tmp.c_str(), 4095);
+#ifdef UNICODE
+						stemp = MultibyteToWide((char *)tbuf);
+#else
+						stemp = stdstring((char *)tbuf);
+#endif
+						value = CString(stemp.c_str());
+					}
+				}
+				if (value.IsEmpty())
+					value = name;
+				else
+				{
+					value = value.Trim(_T("\n\r"));
+					value += _T("\n");
+					value += name;
+				}
+				if (!props.Add(_T("svn:ignore"), CUnicodeUtils::GetUTF8(value)))
+				{
+					CString temp;
+					temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+					CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_ICONERROR);
+				}
+			}
+		}
+		//#endregion
 	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the

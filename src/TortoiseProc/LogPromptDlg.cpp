@@ -304,7 +304,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->m_arFileStatus.Add(stat);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
-					SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+					SVNStatus::GetStatusString(stat, buf);
+					//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					pDlg->m_ListCtrl.SetCheck(count);
 				} // if (stat > svn_wc_status_normal)
@@ -316,7 +317,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						pDlg->m_arFileStatus.Add(stat);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
-						SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+						SVNStatus::GetStatusString(stat, buf);
+						//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						//unversioned items are NOT checked by default, 'cause they need to be added before committing!
 					}
@@ -334,7 +336,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 						else
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
-						SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+						SVNStatus::GetStatusString(stat, buf);
+						//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						pDlg->m_ListCtrl.SetCheck(count);
 					}
@@ -349,7 +352,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 							else
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
-							SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+							SVNStatus::GetStatusString(stat, buf);
+							//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 							pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 							//unversioned items are NOT checked by default, 'cause they need to be added before committing!
 						}

@@ -191,6 +191,10 @@ STRINGTABLE
 BEGIN
     IDS_MENUSHOWCHANGED     "Check for Updates"
     IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
+    IDS_MENUIGNORE          "Add To Ignore List"
+    IDS_MENUDESCIGNORE      "adds the selected fil(s) to the ""ignore"" list"
+    IDS_STATUSINCOMPLETE    "incomplete"
+    IDS_STATUSIGNORED       "ignored"
 END
 
 #endif    // Russian resources
@@ -238,6 +242,7 @@ IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
 IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
 IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
 IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
+IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -430,6 +435,10 @@ STRINGTABLE
 BEGIN
     IDS_MENUSHOWCHANGED     "Auf Änderungen überprüfen"
     IDS_MENUDESCSHOWCHANGED "Zeigt alle Dateien welche verändert wurden, lokal und auf dem Server"
+    IDS_MENUIGNORE          "Ignorieren"
+    IDS_MENUDESCIGNORE      "zur Liste der ignorierten Dateien hinzufügen"
+    IDS_STATUSINCOMPLETE    "incomplete"
+    IDS_STATUSIGNORED       "ignoriert"
 END
 
 #endif    // German (Germany) resources
@@ -643,6 +652,10 @@ STRINGTABLE
 BEGIN
     IDS_MENUSHOWCHANGED     "Check for Updates"
     IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
+    IDS_MENUIGNORE          "Add To Ignore List"
+    IDS_MENUDESCIGNORE      "adds the selected fil(s) to the ""ignore"" list"
+    IDS_STATUSINCOMPLETE    "incomplete"
+    IDS_STATUSIGNORED       "ignored"
 END
 
 #endif    // English (U.S.) resources
@@ -883,6 +896,10 @@ STRINGTABLE
 BEGIN
     IDS_MENUSHOWCHANGED     "Check for Updates"
     IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
+    IDS_MENUIGNORE          "Add To Ignore List"
+    IDS_MENUDESCIGNORE      "adds the selected fil(s) to the ""ignore"" list"
+    IDS_STATUSINCOMPLETE    "incomplete"
+    IDS_STATUSIGNORED       "ignored"
 END
 
 #endif    // Italian (Italy) resources

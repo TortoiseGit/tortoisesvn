@@ -4,6 +4,12 @@ Repository
        its own child ...". (Stefan)
 - ADD: Select the files you want to delete before
        importing a project. (Stefan)
+- ADD: New command "ignore" to set the svn:ignore
+       property for selected files. This addition also
+       includes the necessary changes for other 
+       commands to respect the ignored status of
+       subversioned files. This fixes 
+       issues 38 and 60. (Stefan)
 
 Version 0.14
 - BUG: A Path inside a local repository wasn't recognized

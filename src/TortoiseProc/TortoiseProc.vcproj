@@ -20,7 +20,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
@@ -80,7 +80,7 @@
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				StringPooling="TRUE"
 				MinimalRebuild="FALSE"
@@ -144,7 +144,7 @@
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				StringPooling="TRUE"
 				MinimalRebuild="FALSE"
@@ -288,6 +288,27 @@
 					RelativePath="..\Utils\StringUtils.cpp">
 				</File>
 				<File
+					RelativePath="..\TortoiseShell\UnicodeStrings.cpp">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
 					RelativePath="..\Utils\UnicodeUtils.cpp">
 				</File>
 				<File
@@ -352,6 +373,9 @@
 					RelativePath="..\Utils\StringUtils.h">
 				</File>
 				<File
+					RelativePath="..\TortoiseShell\UnicodeStrings.h">
+				</File>
+				<File
 					RelativePath="..\Utils\UnicodeUtils.h">
 				</File>
 				<File
@@ -370,6 +394,27 @@
 				Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
 				<File
 					RelativePath="..\SVN\SVN.cpp">
+				</File>
+				<File
+					RelativePath="..\Svn\SVNProperties.cpp">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\SVN\SVNStatus.cpp">
@@ -398,6 +443,9 @@
 				Filter="h;hpp;hxx;hm;inl;inc">
 				<File
 					RelativePath="..\SVN\SVN.h">
+				</File>
+				<File
+					RelativePath="..\Svn\SVNProperties.h">
 				</File>
 				<File
 					RelativePath="..\SVN\SVNStatus.h">

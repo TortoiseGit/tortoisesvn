@@ -75,7 +75,9 @@
 #define IDS_STATUSCONFLICTED            200
 #define IDS_STATUSOBSTRUCTED            201
 #define IDS_STRING202                   202
+#define IDS_STATUSINCOMPLETE            202
 #define IDS_STRING203                   203
+#define IDS_STATUSIGNORED               203
 #define IDS_STRING204                   204
 #define IDS_IMPORT_DEFAULTMSG           205
 #define IDS_STRING206                   206
@@ -182,6 +184,7 @@
 #define IDS_STRING291                   291
 #define IDS_ERR_NOTUPTODATE             291
 #define IDS_STRING292                   292
+#define IDS_ERR_FAILEDIGNOREPROPERTY    292
 #define IDS_STRING293                   293
 #define IDS_STRING294                   294
 #define IDS_STRING295                   295

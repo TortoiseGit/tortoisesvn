@@ -58,6 +58,7 @@
 #define IDS_MENUDESCSWITCH              143
 #define IDI_SHOWCHANGED                 143
 #define IDS_MENUDESCIMPORT              144
+#define IDI_IGNORE                      144
 #define IDS_MENUDESCEXPORT              145
 #define IDS_MENUDESCABOUT               146
 #define IDS_MENUDESCCREATEREPOS         147
@@ -107,6 +108,10 @@
 #define IDS_MENUDESCHELP                191
 #define IDS_MENUSHOWCHANGED             192
 #define IDS_MENUDESCSHOWCHANGED         193
+#define IDS_MENUIGNORE                  194
+#define IDS_MENUDESCIGNORE              195
+#define IDS_STATUSINCOMPLETE            196
+#define IDS_STATUSIGNORED               197
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -130,7 +135,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        144
+#define _APS_NEXT_RESOURCE_VALUE        145
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101

@@ -43,6 +43,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isFolder = false;
 	isFolderInSVN = false;
 	isNormal = false;
+	isIgnored = false;
 
 	// get selected files/folders
 	if (pDataObj)
@@ -86,6 +87,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						svn_wc_status_kind status = SVNStatus::GetAllStatus(str.c_str());
 						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 							isInSVN = true;
+						if (status == svn_wc_status_ignored)
+							isIgnored = true;
 						if (status == svn_wc_status_normal)
 							isNormal = true;
 						if (status == svn_wc_status_conflicted)
@@ -112,6 +115,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						svn_wc_status_kind status = SVNStatus::GetAllStatus(str.c_str());
 						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 							isInSVN = true;
+						if (status == svn_wc_status_ignored)
+							isIgnored = true;
 						if (status == svn_wc_status_normal)
 							isNormal = true;
 						if (status == svn_wc_status_conflicted)
@@ -140,6 +145,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			isFolderInSVN = true;
 			isInSVN = true;
 		}
+		if (status == svn_wc_status_ignored)
+			isIgnored = true;
 		isFolder = true;
 	}
 	if ((files_.size() == 1)&&(m_State != DropHandler))
@@ -151,6 +158,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			svn_wc_status_kind status = SVNStatus::GetAllStatus(folder_.c_str());
 			if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 				isFolderInSVN = true;
+			if (status == svn_wc_status_ignored)
+				isIgnored = true;
 			isFolder = true;
 		}
 	}
@@ -466,6 +475,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIMPORT, idCmdFirst, Import);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
+	if ((!isInSVN)&&(!isIgnored))
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIGNORE, idCmdFirst, Ignore);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Add);
 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
@@ -583,6 +597,12 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					case Add:
 						tempfile = WriteFileListToTempFile();
 						svnCmd += _T("add /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						break;
+					case Ignore:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("ignore /path:\"");
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						break;
@@ -849,6 +869,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			break;
 		case ShowChanged:
 			MAKESTRING(IDS_MENUDESCSHOWCHANGED);
+			break;
+		case Ignore:
+			MAKESTRING(IDS_MENUDESCIGNORE);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1135,6 +1158,10 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case ShowChanged:
 			MAKESTRING(IDS_MENUSHOWCHANGED);
 			resource = MAKEINTRESOURCE(IDI_SHOWCHANGED);
+			break;
+		case Ignore:
+			MAKESTRING(IDS_MENUIGNORE);
+			resource = MAKEINTRESOURCE(IDI_IGNORE);
 			break;
 		default:
 			return NULL;

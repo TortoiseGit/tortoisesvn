@@ -310,6 +310,9 @@ svn_wc_status_kind SVNStatus::GetTextStatusRecursive(const TCHAR * path)
 		{
 			statuskind = tempstatus->text_status;
 		}
+		if ((statuskind == svn_wc_status_unversioned)
+			 &&(tempstatus->text_status == svn_wc_status_ignored))
+			statuskind = svn_wc_status_ignored;
 	}
 	svn_pool_destroy (pool);				//free allocated memory
 	apr_terminate();
@@ -319,7 +322,10 @@ svn_wc_status_kind SVNStatus::GetTextStatusRecursive(const TCHAR * path)
 //static method
 svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 {
-	svn_wc_status_t *			status;
+	svn_auth_baton_t *			auth_baton;
+	svn_client_ctx_t 			ctx;
+	apr_hash_t *				statushash;
+	svn_wc_status_kind			statuskind;
 	apr_pool_t *				pool;
 	svn_error_t *				err;
 	const char *				internalpath;
@@ -341,53 +347,80 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
+	memset (&ctx, 0, sizeof (ctx));
+	svn_config_ensure(pool);
 
 	//we need to convert the path to subversion internal format
 	//the internal format uses '/' instead of the windows '\'
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(path).c_str(), pool);
 
+	// set up authentication
+
+    /* The whole list of registered providers */
+    apr_array_header_t *providers
+      = apr_array_make (pool, 1, sizeof (svn_auth_provider_object_t *));
+
+    /* The main disk-caching auth providers, for both
+       'username/password' creds and 'username' creds.  */
+    svn_auth_provider_object_t *simple_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (pool, sizeof(*simple_wc_provider));
+
+    svn_auth_provider_object_t *username_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (pool, sizeof(*username_wc_provider));
+
+    svn_client_get_simple_provider (&(simple_wc_provider), pool);
+    *(svn_auth_provider_object_t **)apr_array_push (providers) = simple_wc_provider;
+
+    svn_client_get_username_provider(&(username_wc_provider), pool);
+    *(svn_auth_provider_object_t **)apr_array_push (providers) = username_wc_provider;
+
+	svn_auth_open (&auth_baton, providers, pool);
+
+	// set up the configuration
+	svn_config_get_config (&(ctx.config), pool);
+
+	ctx.auth_baton = auth_baton;
+
 	svn_revnum_t			youngest;
 	youngest = SVN_INVALID_REVNUM;				//always get status from newest revision
+	err = svn_client_status (&statushash,
+							&youngest,
+							internalpath,
+							FALSE,				//don't descend to subitems
+							1,
+							false,				//don't update with repository
+							1,
+							&ctx,
+							pool);
 
-
-	svn_wc_adm_access_t *adm_access;
-
-	// Need to lock the tree as even a non-recursive status requires the
-	// immediate directories to be locked. 
-	err = svn_wc_adm_probe_open (&adm_access, NULL, internalpath, FALSE, FALSE, pool);
-
-	if (err != NULL)
+	// Error present if function is not under version control
+	if ((err != NULL) || (apr_hash_count(statushash) == 0))
 	{
 		svn_pool_destroy (pool);				//free allocated memory
-		apr_terminate();
-		return svn_wc_status_unversioned;		//error occured, so treat entry as unversioned
-	}
-	// Ask the wc to give us a list of svn_wc_status_t structures.
-	// These structures contain nothing but information found in the
-	// working copy. 
-	err = svn_wc_status (&status, internalpath, adm_access, pool);
-	if (err != NULL)
-	{
-		svn_wc_adm_close (adm_access);			//unlock the directory
-		svn_pool_destroy (pool);				//free allocated memory
-		apr_terminate();
-		return svn_wc_status_unversioned;		//error occured, so treat entry as unversioned
+		return svn_wc_status_unversioned;	
 	}
 
-	err = svn_wc_adm_close (adm_access);
-	if (err != NULL)
-	{
-		svn_pool_destroy (pool);				//free allocated memory
-		apr_terminate();
-		return svn_wc_status_unversioned;		//error occured, so treat entry as unversioned
+    apr_hash_index_t *hi;
+	statuskind = svn_wc_status_unversioned;
+    for (hi = apr_hash_first (pool, statushash); hi; hi = apr_hash_next (hi))
+    {
+		svn_wc_status_t * tempstatus;
+		apr_hash_this(hi, NULL, NULL, (void **)&tempstatus);
+		//check if this status has higher priority
+		//to keep things easy the higher priority is also the higher enum value...
+		if ((tempstatus->text_status > statuskind)&&(tempstatus->text_status != svn_wc_status_ignored))
+		{
+			statuskind = tempstatus->text_status;
+		}
+		if ((tempstatus->prop_status > statuskind)&&(tempstatus->prop_status != svn_wc_status_ignored))
+		{
+			statuskind = tempstatus->prop_status;
+		}
+		if ((statuskind == svn_wc_status_unversioned)
+			 &&((tempstatus->prop_status == svn_wc_status_ignored)||(tempstatus->text_status == svn_wc_status_ignored)))
+			statuskind = svn_wc_status_ignored;
 	}
-
-	svn_wc_status_kind text = status->text_status > status->prop_status ? status->text_status : status->prop_status;
-	if (text == svn_wc_status_none)
-		text = svn_wc_status_unversioned;
-	svn_pool_destroy(pool);
+	svn_pool_destroy (pool);				//free allocated memory
 	apr_terminate();
-	return text;
+	return statuskind;
 }
 
 //static method
@@ -485,6 +518,9 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
 		{
 			statuskind = tempstatus->prop_status;
 		}
+		if ((statuskind == svn_wc_status_unversioned)
+			 &&((tempstatus->prop_status == svn_wc_status_ignored)||(tempstatus->text_status == svn_wc_status_ignored)))
+			statuskind = svn_wc_status_ignored;
 	}
 	svn_pool_destroy (pool);				//free allocated memory
 	apr_terminate();
@@ -643,6 +679,12 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
 		case svn_wc_status_obstructed:
 			buf = _T("conflicted\0");
 			break;
+		case svn_wc_status_ignored:
+			buf = _T("ignored");
+			break;
+		case svn_wc_status_incomplete:
+			buf = _T("incomplete\0");
+			break;
 		default:
 			buf = _T("\0");
 			break;
@@ -684,8 +726,14 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 		case svn_wc_status_conflicted:
 			LoadStringEx(hInst, IDS_STATUSCONFLICTED, string, size, lang);
 			break;
+		case svn_wc_status_ignored:
+			LoadStringEx(hInst, IDS_STATUSIGNORED, string, size, lang);
+			break;
 		case svn_wc_status_obstructed:
 			LoadStringEx(hInst, IDS_STATUSOBSTRUCTED, string, size, lang);
+			break;
+		case svn_wc_status_incomplete:
+			LoadStringEx(hInst, IDS_STATUSINCOMPLETE, string, size, lang);
 			break;
 		default:
 			LoadStringEx(hInst, IDS_STATUSNONE, string, size, lang);

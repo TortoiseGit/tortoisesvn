@@ -107,7 +107,8 @@ protected:
 		ConflictEditor,
 		Relocate,
 		Help,
-		ShowChanged
+		ShowChanged,
+		Ignore
 	};
 
 	FileState m_State;
@@ -118,6 +119,7 @@ protected:
 	std::vector<stdstring> files_;
 	bool isOnlyOneItemSelected;
 	bool isInSVN;
+	bool isIgnored;
 	bool isConflicted;
 	bool isFolder;
 	bool isFolderInSVN;
