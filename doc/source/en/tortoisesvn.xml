@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <!DOCTYPE book SYSTEM "../../tools/dtd/dblite.dtd" [
 	<!ENTITY ch00 SYSTEM "tsvn_ch00.xml">
 	<!ENTITY ch01 SYSTEM "tsvn_ch01.xml">
@@ -6,6 +6,7 @@
 	<!ENTITY ch03 SYSTEM "tsvn_ch03.xml">
 	<!ENTITY ch04 SYSTEM "tsvn_ch04.xml">
 	<!ENTITY appa SYSTEM "tsvn_appa.xml">
+	<!ENTITY appb SYSTEM "tsvn_appb.xml">
 	<!ENTITY cursLf "<keysym>&#8592;</keysym>">
 	<!ENTITY cursUp "<keysym>&#8593;</keysym>">
 	<!ENTITY cursRt "<keysym>&#8594;</keysym>">
@@ -36,5 +37,6 @@
   &ch03;
   &ch04;
   &appa;
+  &appb;
   <index id="index"/>
 </book>
