@@ -1,3 +1,6 @@
+- BUG: The cache for the drivetypes were initialized wrong. This
+       lead to access to the diskette drive even if overlays
+       for removable drives was disabled. (Stefan)
 - BUG: Merging used always the HEAD revision, as did Blame. (Stefan)
 
 Version 1.0.4

@@ -54,7 +54,7 @@ public:
 		}
 		TCHAR szBuffer[5];
 		columnrevformatticker = GetTickCount();
-		ZeroMemory(&columnrevformatticker, sizeof(NUMBERFMT));
+		ZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], sizeof(szDecSep));
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], sizeof(szThousandsSep));
 		columnrevformat.lpDecimalSep = szDecSep;
