@@ -563,7 +563,7 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 			case svn_wc_notify_add:
 			case svn_wc_notify_update_add:
 			case svn_wc_notify_commit_added:
-				crText = RGB(0, 100, 0);
+				crText = GetSysColor(COLOR_HIGHLIGHT);
 			case svn_wc_notify_delete:
 			case svn_wc_notify_update_delete:
 			case svn_wc_notify_commit_deleted:
@@ -577,10 +577,10 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 					crText = RGB(0, 100, 0);
 				break;
 			case svn_wc_notify_commit_modified:
-				crText = RGB(0, 100, 0);
+				crText = GetSysColor(COLOR_HIGHLIGHT);
 				break;
 			default:
-				crText = RGB(0, 0, 0);
+				crText = GetSysColor(COLOR_WINDOWTEXT);
 				break;
 			} // switch (action)
 

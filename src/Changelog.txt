@@ -36,6 +36,14 @@ CVS
 - CHG: In the commit dialog the focus is now
        set to the edit control where the user
        enters the log message. (Stefan)
+- CHG: adjusted the messagebox colors to system
+       colors. (Stefan)
+- CHG: The green color in the progress dialog
+       got replaced with the system color for
+       selection background. The red color is
+       still hardcoded - I think users who set
+       the dialog background to red are crazy
+       anyway :) (Stefan)
 
 Version 0.9.2
 - BUG: In the Add dialog unversioned folders

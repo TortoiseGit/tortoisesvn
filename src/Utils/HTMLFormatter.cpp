@@ -47,6 +47,8 @@ CSize CHTMLFormatter::DrawHTML(CDC * pDC, CRect rect, CString str, LOGFONT font,
 	CPoint	pt = rect.TopLeft();
 	CPoint  ptCur = pt;
 	
+
+	pDC->SetTextColor(GetSysColor(COLOR_WINDOWTEXT));
 	COLORREF crText = pDC->GetTextColor();
 	COLORREF crBg = pDC->GetBkColor();
 
