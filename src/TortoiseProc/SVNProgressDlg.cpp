@@ -813,8 +813,8 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 			}
 		}
 		CUtils::StartExtMerge(base, theirs, mine, merge);
-	} // ify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted)))
-	else if ((data->action == svn_wc_notify_update_update) && (data->content_state == svn_wc_notify_state_merged))
+	}
+	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
 	{
 		CString sWC = data->path;
 		CString sBase = SVN::GetPristinePath(sWC);
@@ -1024,7 +1024,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 									GetDlgItem(IDOK)->EnableWindow(TRUE);
 									break;
-								} // if (!svn.Cat(m_path, rev, tempfile))
+								}
 								else
 								{
 									CString revname, wcname;
