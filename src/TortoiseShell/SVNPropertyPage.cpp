@@ -25,15 +25,15 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 	if (svn.status->entry == NULL)
 		return NOERROR;
 
-	InitCommonControls();
     PROPSHEETPAGE psp;
-    HPROPSHEETPAGE hPage;
+	ZeroMemory(&psp, sizeof(PROPSHEETPAGE));
+	HPROPSHEETPAGE hPage;
     CSVNPropertyPage *sheetpage = new CSVNPropertyPage(files_.front());
 
     psp.dwSize = sizeof (psp);
     psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK | PSP_DLGINDIRECT;	
-    psp.hInstance = g_hmodThisDll;
-    psp.pszTemplate = NULL;
+	psp.hInstance = g_hmodThisDll;
+	psp.pszTemplate = NULL;
 	psp.pResource = (PROPSHEETPAGE_RESOURCE)LockResource(LoadResource(g_hmodThisDll, FindResourceEx(g_hmodThisDll, RT_DIALOG, MAKEINTRESOURCE(IDD_PROPPAGE), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))));
     psp.pszIcon = MAKEINTRESOURCE(IDI_MENU);
     psp.pszTitle = _T("Subversion");
@@ -41,18 +41,10 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     psp.lParam = (LPARAM) sheetpage;
     psp.pfnCallback = PropPageCallbackProc;
     psp.pcRefParent = &g_cRefThisDll;
-	//ACTCTX hActCtx;
-	//HANDLE hActCtx = new ACTCTX;
-	//if (GetCurrentActCtx((HANDLE *)&hActCtx))
-	//{
-	//	psp.hActCtx = (HANDLE)hActCtx;
-	//	psp.dwFlags = psp.dwFlags | PSP_USEFUSIONCONTEXT;
-	//	::MessageBox(NULL, _T("found"),_T("TSVN"), MB_OK);
-	//}
 
     hPage = CreatePropertySheetPage (&psp);
-	//delete hActCtx;
-    if (hPage != NULL)
+
+	if (hPage != NULL)
 	{
         if (!lpfnAddPage (hPage, lParam))
         {

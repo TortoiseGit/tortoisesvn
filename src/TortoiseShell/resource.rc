@@ -250,7 +250,7 @@ IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
 // RT_MANIFEST
 //
 
-IDR_MANIFEST            RT_MANIFEST             "TortoiseShell.manifest"
+IDR_MANIFEST            RT_MANIFEST             "TortoiseSVN.dll.manifest"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -270,7 +270,8 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 //
 
 IDD_PROPPAGE DIALOGEX 0, 0, 232, 276
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+STYLE DS_SETFONT | DS_3DLOOK | DS_FIXEDSYS | WS_CHILD | WS_VISIBLE | 
+    WS_CAPTION
 CAPTION "Property Page"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
@@ -462,7 +463,8 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 IDD_PROPPAGE DIALOGEX 0, 0, 232, 276
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+STYLE DS_SETFONT | DS_3DLOOK | DS_FIXEDSYS | WS_CHILD | WS_VISIBLE | 
+    WS_CAPTION
 CAPTION "Property Page"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN

@@ -8,6 +8,8 @@
        pops up telling that. After that the main
        dialog is also closed so no more pressing
        "OK" or "Cancel" for nothing. (Stefan)
+- CHG: The property page uses the XP visual styles
+       on windows XP. (Stefan)
 - ADD: The "Browse..." Button in the relocate dialog
        works now. (Stefan)
 - ADD: Maximize button on the progress window. (Stefan)
@@ -17,6 +19,7 @@
        branch/tag. Fixes issue 63. (Stefan)
 - ADD: Information about a successful tag in the log
        dialog. (Stefan)
+       
 
 Version 0.16
 - BUG: The "open" command in the repository browser

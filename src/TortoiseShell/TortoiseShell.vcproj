@@ -46,7 +46,7 @@
 				LinkIncremental="0"
 				SuppressStartupBanner="TRUE"
 				IgnoreAllDefaultLibraries="FALSE"
-				IgnoreDefaultLibraryNames="LIBC, SHELL32"
+				IgnoreDefaultLibraryNames="LIBC"
 				ModuleDefinitionFile=".\ShellExt.def"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="..\..\bin\Debug/TortoiseSVN.pdb"
@@ -457,7 +457,7 @@
 				RelativePath="..\Icons\Tortoise13by13.ico">
 			</File>
 			<File
-				RelativePath="TortoiseShell.manifest">
+				RelativePath=".\TortoiseSVN.dll.manifest">
 			</File>
 		</Filter>
 	</Files>
