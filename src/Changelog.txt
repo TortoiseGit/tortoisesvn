@@ -8,6 +8,9 @@
 - BUG: In Import, if no temporary files were found
        or all deselected then an error message
        was shown. (Stefan)
+- BUG: In the log dialog if more than 500 files were
+       changed in a revision then it showed "and 0 more"
+       instead of the real remaining files. (Stefan)
 - CHG: Changed the behaviour of the Log and Updates
        dialog if a network timeout occured. (Stefan)
 - CHG: If the option "recursive overlays" is not set

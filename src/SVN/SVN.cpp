@@ -800,7 +800,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 				cpaths += path_native.c_str();
 				if (i == 500)
 				{
-					temp.Format(_T("\r\n.... and %d more ..."), i - 500);
+					temp.Format(_T("\r\n.... and %d more ..."), sorted_paths->nelts - 500);
 					cpaths += temp;
 					break;
 				}
