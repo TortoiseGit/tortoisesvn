@@ -733,8 +733,7 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 		{
 			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
 			{
-				if (m_pwndBottomView->IsModified() || (m_Data.m_sMergedName.Right(9).Compare(_T(": patched"))==0))
-					bEnable = TRUE;
+				bEnable = TRUE;
 			} 
 		} // if (m_pwndBottomView) 
 		if (m_pwndRightView)
