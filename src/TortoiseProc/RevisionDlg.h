@@ -56,7 +56,7 @@ public:
 
 // Dialog Data
 	enum { IDD = IDD_REVISION };
-
+	CString GetEnteredRevisionString() {return m_sRevision;}
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();

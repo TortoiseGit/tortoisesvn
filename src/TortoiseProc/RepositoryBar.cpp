@@ -233,7 +233,7 @@ void CRepositoryBar::OnBnClicked()
 
 	if (dlg.DoModal() == IDOK)
 	{
-		revision = SVNUrl::GetTextFromRev(dlg);
+		revision = dlg.GetEnteredRevisionString();
 		m_btnRevision.SetWindowText(revision);
 		GotoUrl();
 	}
