@@ -7,6 +7,11 @@
        selected if the message contained more than
        three lines. (Stefan)
 - BUG: Issue 67: Show Log + Escape = crash. fixed. (Stefan)
+- BUG: There was a memory leak which made explorer use
+       a huge amount of RAM over time. (Stefan)
+- BUG: The cache timeout wasn't calculated correctly.
+       This lead to wrong icon overlays and needed
+       several "F5" to get the right ones. (Stefan)
 - CHG: The "rename" command now uses the --force option
        by default so that modified files can be renamed
        too. (Stefan)
@@ -28,6 +33,12 @@
        after updates but also after switch (if the
        revision number after the switch is higher
        than before). (Stefan)
+- ADD: The property page is now shown for multiple
+       files too (without the information about
+       a file, since every file has different
+       status, dates, names, ...). This allows
+       to set/remove properties on multiple files
+       at once. (Stefan)
 
 Version 0.18
 - BUG: The repository browser didn't escape the url

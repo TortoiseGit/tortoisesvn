@@ -54,6 +54,13 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 
 	svn_pool_clear(this->m_pool);
 
+	if (m_pStatusCache != NULL)
+	{
+		delete[] m_pStatusCache;
+		m_pStatusCache = NULL;
+	}
+	m_nCacheCount = 0;
+
 	ATLTRACE2(_T("building cache for %s\n"), filepath);
 	BOOL isFolder = PathIsDirectory(filepath);
 
@@ -101,7 +108,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	//since subversion can do this in one step
 	TCHAR pathbuf[MAX_PATH+4];
 	_tcscpy(pathbuf, filepath);
-	//if (!isFolder)
+	if (!isFolder)
 	{
 		TCHAR * p = _tcsrchr(filepath, '/');
 		if (p)
@@ -142,8 +149,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	}
 
     apr_hash_index_t *hi;
-	if (m_pStatusCache != NULL)
-		delete[] m_pStatusCache;
 	m_nCacheCount = apr_hash_count(statushash);
 	m_pStatusCache = new filestatuscache[m_nCacheCount];
 	if (!m_pStatusCache)
@@ -264,7 +269,7 @@ int SVNFolderStatus::IsCacheValid(LPCTSTR filename)
 {
 	int i = -1;
 	DWORD now = GetTickCount();
-	if ((now - m_TimeStamp) < GetTimeoutValue())
+	if ((now >= m_TimeStamp)&&((now - m_TimeStamp) < GetTimeoutValue()))
 	{
 		i = FindFile(filename);
 	}
@@ -348,7 +353,10 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 		if (index >= SVNFOLDERSTATUS_FOLDER)
 		{
 			m_pStatusCache[index-SVNFOLDERSTATUS_FOLDER].askedcounter--;
-			ATLTRACE2(_T("cache found for %s\n"), filepath);
+#ifdef _DEBUG
+			SVNStatus::GetStatusString(m_pStatusCache[index-SVNFOLDERSTATUS_FOLDER].status, pathbuf);
+#endif
+			ATLTRACE2(_T("cache found for %s - %s\n"), filepath, pathbuf);
 			return &m_pStatusCache[index-SVNFOLDERSTATUS_FOLDER];
 		} // if (index >= SVNFOLDERSTATUS_FOLDER)
 		m_FolderCache[index].askedcounter--;
