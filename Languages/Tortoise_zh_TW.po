@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-02-11 23:21+0800\n"
+"PO-Revision-Date: 2005-02-22 09:47+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1007,11 +1007,6 @@ msgstr "無錯誤時自動關閉"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "無合併, 新增, 刪除時自動關閉"
 
-# Control-ID:1067,
-#: Control-ID:1067
-msgid "Automatically resolve conflicted subversion status on save"
-msgstr "儲存時自動解除 subversion 的衝突狀態"
-
 # Dlg-ID:141,
 #: Control-ID:1157
 msgid "Average"
@@ -1224,15 +1219,6 @@ msgstr "檢查異動"
 msgid "Check for newer &versions"
 msgstr "檢查新版本(&V)"
 
-# ID:79,
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr ""
-"勾選此選項可以讓進度視窗在作業\n"
-"完成後自動關閉."
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1437,6 +1423,11 @@ msgstr "快顯功能表"
 #: ID:73
 msgid "Continue"
 msgstr "繼續"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Convert files when diffing against BASE"
+msgstr "與 BASE 比對異動時轉換檔案"
 
 # ID:376,
 #: ID:376
@@ -1817,11 +1808,6 @@ msgstr ""
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "是否要儲存你所做的異動?"
-
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Don't convert files when diffing against BASE"
-msgstr "與 BASE 比對異動時不轉換檔案"
 
 # ID:80,
 #: ID:73
@@ -2233,8 +2219,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "勾選此選項時, TortoiseSVN 不會建立用於比對差異的暫存檔, 而是直接與原始的基礎檔比對"
+msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
+msgstr "勾選此選項時, TortoiseSVN 會建立未展開關鍵字的暫存檔進行差異比對"
 
 # ID:194,
 #: ID:194
@@ -2274,6 +2260,11 @@ msgstr "忽略開頭的空白字元"
 #: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
 msgstr "忽略行尾 (建議)"
+
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Ignore case changes"
+msgstr "無視大小寫變更"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -3528,6 +3519,11 @@ msgstr ""
 "選擇要匯出至的資料夾.\n"
 "你可能需要在進行匯出之前先建立新資料夾."
 
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "選擇作業完成時進度視窗的行為"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -4725,6 +4721,17 @@ msgid ""
 msgstr ""
 "bugtraq:標籤\n"
 "用來提示使用者輸入問題編號的訊息."
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"以換行分隔的兩組regular expression.\n"
+"第一組用於找出代表該問題的字串,第二組用於從該字串中取得bug編號."
 
 # ID:14,
 #: ID:14
