@@ -1,4 +1,16 @@
 CVS
+- BUG: entering the settings page without
+       activating the icon overlay page
+       resulted in complete loss of 
+       overlay settings if other changes
+       were saved. (Stefan)
+- BUG: in our own caching provider the
+       username/password wasn't initialized
+       on the first attempt - this lead to
+       undetermined behaviour and crashes!
+       (Stefan)
+
+Version 0.11.0
 - BUG: if all files were deselected in the commit
        dialog then the progress dialog couldn't be
        closed anymore. (Stefan)
@@ -21,6 +33,7 @@ CVS
        (DWORD)HKCU\Software\TortoiseSVN\OwnerdrawnMenus
        is set to 0 (zero) then TortoiseSVN uses
        the system to draw the icons. (Stefan)       
+- ADD: Translation to russian language added (Dimentiy).
 - ADD: in the property page it's now possible to
        select and copy/paste the information. This
        fixes issue 46. (Stefan)

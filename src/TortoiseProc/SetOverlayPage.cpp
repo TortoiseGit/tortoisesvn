@@ -22,6 +22,13 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
 	m_regDriveMaskFixed = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"));
 	m_regDriveMaskCDROM = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
+
+	m_bShowChangedDirs = m_regShowChangedDirs;
+	m_bRemovable = m_regDriveMaskRemovable;
+	m_bNetwork = m_regDriveMaskRemote;
+	m_bFixed = m_regDriveMaskFixed;
+	m_bCDROM = m_regDriveMaskCDROM;
+
 }
 
 CSetOverlayPage::~CSetOverlayPage()
@@ -60,13 +67,6 @@ void CSetOverlayPage::SaveData()
 BOOL CSetOverlayPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
-
-	m_bShowChangedDirs = m_regShowChangedDirs;
-
-	m_bRemovable = m_regDriveMaskRemovable;
-	m_bNetwork = m_regDriveMaskRemote;
-	m_bFixed = m_regDriveMaskFixed;
-	m_bCDROM = m_regDriveMaskCDROM;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
