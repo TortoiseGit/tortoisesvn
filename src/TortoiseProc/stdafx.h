@@ -5,10 +5,6 @@
 #pragma once
 #define XMESSAGEBOX_APPREGPATH "Software\\TortoiseSVN\\"
 
-#ifndef VC_EXTRALEAN
-#define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
-#endif
-
 // Modify the following defines if you have to target a platform prior to the ones specified below.
 // Refer to MSDN for the latest info on corresponding values for different platforms.
 #ifdef UNICODE

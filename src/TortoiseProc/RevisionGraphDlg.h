@@ -94,6 +94,7 @@ protected:
 	afx_msg int		OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg BOOL	OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void	OnFileSavegraphas();
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -109,6 +110,7 @@ private:
 	void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
 	void			BuildConnections();
 	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
+	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
 public:
 };

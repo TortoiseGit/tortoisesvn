@@ -16,6 +16,7 @@
 			IntermediateDirectory="..\..\obj\TortoiseProc\Debug"
 			ConfigurationType="1"
 			UseOfMFC="2"
+			UseOfATL="0"
 			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
@@ -33,9 +34,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib ../../obj\ResizableLib\Debug\ResizableLib.lib ../../../Subversion\db4-win32\lib\libdb42d.lib ../../../Subversion\Debug\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Debug\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Debug\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneonD.lib ../../../Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibD\xml.lib ../../ext/gettext/lib/intl.lib"
+				AdditionalDependencies="wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj\ResizableLib\Debug\ResizableLib.lib ../../../Subversion\db4-win32\lib\libdb42d.lib ../../../Subversion\Debug\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Debug\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Debug\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneonD.lib ../../../Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibD\xml.lib ../../ext/gettext/lib/intl.lib"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC;shell32;msvcrt.lib"
+				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
 				TargetMachine="1"/>
@@ -94,9 +96,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib ../../obj/ResizableLib/Release/ResizableLib.Lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../ext/gettext/lib/intl.lib"
+				AdditionalDependencies="wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj/ResizableLib/Release/ResizableLib.Lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../ext/gettext/lib/intl.lib"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="libcd.lib;libc;shell32;"
+				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -158,9 +161,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../ext/gettext/lib/intl.lib"
+				AdditionalDependencies="wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../ext/gettext/lib/intl.lib"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="libcd;libc;shell32"
+				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -1320,6 +1324,6 @@
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc"/>
+			Value="\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc"/>
 	</Globals>
 </VisualStudioProject>

@@ -18,7 +18,10 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "MemDC.h"
+#include <gdiplus.h>
 #include ".\revisiongraphdlg.h"
+
+using namespace Gdiplus;
 
 // CRevisionGraphDlg dialog
 
@@ -73,6 +76,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableDialog)
 	ON_WM_LBUTTONDOWN()
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
+	ON_COMMAND(ID_FILE_SAVEGRAPHAS, OnFileSavegraphas)
 END_MESSAGE_MAP()
 
 
@@ -138,11 +142,11 @@ DWORD WINAPI WorkerThread(LPVOID pVoid)
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
-	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
-	pDlg->FetchRevisionData(pDlg->m_sPath);
-	pDlg->AnalyzeRevisionData(pDlg->m_sPath);
-	pDlg->m_Progress.Stop();
-	//pDlg->FillTestData();
+	//pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
+	//pDlg->FetchRevisionData(pDlg->m_sPath);
+	//pDlg->AnalyzeRevisionData(pDlg->m_sPath);
+	//pDlg->m_Progress.Stop();
+	pDlg->FillTestData();
 	pDlg->InitView();
 	pDlg->m_bThreadRunning = FALSE;
 	pDlg->Invalidate();
@@ -243,6 +247,7 @@ void CRevisionGraphDlg::OnPaint()
 	{
 		if (m_bThreadRunning)
 		{
+			dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
 			CResizableDialog::OnPaint();
 			return;
 		}
@@ -809,6 +814,123 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void CRevisionGraphDlg::OnFileSavegraphas()
+{
+	CString temp;
+	// ask for the filename to save the picture
+	OPENFILENAME ofn;		// common dialog box structure
+	TCHAR szFile[MAX_PATH];  // buffer for file name
+	ZeroMemory(szFile, sizeof(szFile));
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	//ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+	ofn.hwndOwner = this->m_hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	temp.LoadString(IDS_REVGRAPH_SAVEPIC);
+	CUtils::RemoveAccelerators(temp);
+	if (temp.IsEmpty())
+		ofn.lpstrTitle = NULL;
+	else
+		ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_OVERWRITEPROMPT;
+
+	CString sFilter;
+	sFilter.LoadString(IDS_PICTUREFILEFILTER);
+	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	_tcscpy (pszFilters, sFilter);
+	// Replace '|' delimeters with '\0's
+	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+	while (ptr != pszFilters)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	} // while (ptr != pszFilters) 
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
+	// Display the Open dialog box. 
+	CString tempfile;
+	if (GetSaveFileName(&ofn)==TRUE)
+	{
+		tempfile = CString(ofn.lpstrFile);
+		//create dc to paint on
+		CDC dc;
+		dc.CreateCompatibleDC(NULL);
+		CRect rect;
+		rect = GetViewSize();
+		HBITMAP hbm = ::CreateCompatibleBitmap(dc.m_hDC, rect.Width(), rect.Height());
+		HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
+		//paint the whole graph
+		DrawGraph(&dc, rect, 0, 0);
+		//now use GDI+ to save the picture
+		CLSID   encoderClsid;
+		GdiplusStartupInput gdiplusStartupInput;
+		ULONG_PTR           gdiplusToken;
+		GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL );
+		{   
+			//HDC hMemDC = ::CreateCompatibleDC(dc.m_hDC);
+			//HBITMAP hbm = ::CreateCompatibleBitmap(dc.m_hDC, rect.Width(), rect.Height());
+			//::SelectObject(hMemDC, hbm);
+			//::BitBlt(hMemDC, 0, 0, rect.Width(), rect.Height(), dc.m_hDC, 0, 0, SRCCOPY);
+			Bitmap bitmap(hbm, NULL);
+
+			// Get the CLSID of the encoder.
+			if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
+				GetEncoderClsid(L"image/png", &encoderClsid);
+			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
+				GetEncoderClsid(L"image/jpeg", &encoderClsid);
+			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
+				GetEncoderClsid(L"image/jpeg", &encoderClsid);
+			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
+				GetEncoderClsid(L"image/bmp", &encoderClsid);
+			else
+			{
+				tempfile += _T(".jpg");
+				GetEncoderClsid(L"image/jpeg", &encoderClsid);
+			}
+
+			bitmap.Save(tempfile, &encoderClsid, NULL);
+		}   
+		GdiplusShutdown(gdiplusToken);
+		dc.SelectObject(oldbm);
+		dc.DeleteDC();
+	} // if (GetSaveFileName(&ofn)==TRUE)
+	delete [] pszFilters;
+}
+
+int CRevisionGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
+{
+	UINT  num = 0;          // number of image encoders
+	UINT  size = 0;         // size of the image encoder array in bytes
+
+	ImageCodecInfo* pImageCodecInfo = NULL;
+
+	GetImageEncodersSize(&num, &size);
+	if(size == 0)
+		return -1;  // Failure
+
+	pImageCodecInfo = (ImageCodecInfo*)(malloc(size));
+	if(pImageCodecInfo == NULL)
+		return -1;  // Failure
+
+	GetImageEncoders(num, size, pImageCodecInfo);
+
+	for(UINT j = 0; j < num; ++j)
+	{
+		if( wcscmp(pImageCodecInfo[j].MimeType, format) == 0 )
+		{
+			*pClsid = pImageCodecInfo[j].Clsid;
+			free(pImageCodecInfo);
+			return j;  // Success
+		}
+	}
+
+	free(pImageCodecInfo);
+	return -1;  // Failure
 }
 
 #ifdef DEBUG
