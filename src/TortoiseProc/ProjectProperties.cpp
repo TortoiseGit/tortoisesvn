@@ -23,13 +23,6 @@
 #include "SVNProperties.h"
 #include "TSVNPath.h"
 
-#include <iostream>
-#include <string>
-#include "regexpr2.h"
-using namespace std;
-using namespace regex;
-
-
 
 ProjectProperties::ProjectProperties(void)
 {
@@ -126,6 +119,24 @@ BOOL ProjectProperties::ReadProps(CString path)
 #endif
 				sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
 				sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
+				if (!sBugIDRe.IsEmpty())
+				{
+					try
+					{
+						patBugIDRe.init((LPCTSTR)sBugIDRe);
+					}
+					catch (bad_alloc){}
+					catch (bad_regexpr){}
+				}
+				if (!sCheckRe.IsEmpty())
+				{
+					try
+					{
+						patCheckRe.init((LPCTSTR)sCheckRe);
+					}
+					catch (bad_alloc){}
+					catch (bad_regexpr){}
+				}
 				bFoundBugtraqLogRe = TRUE;
 			}
 			if ((!bFoundBugtraqURL)&&(sPropName.Compare(BUGTRAQPROPNAME_URL)==0))
@@ -262,11 +273,10 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		try
 		{
 			match_results results;
-			rpattern pat( (LPCTSTR)sCheckRe ); 
 			match_results::backref_type br;
 			do 
 			{
-				br = pat.match( (LPCTSTR)msg.Mid(offset1), results );
+				br = patCheckRe.match( (LPCTSTR)msg.Mid(offset1), results );
 				if( br.matched ) 
 				{
 					offset1 += results.rstart(0);
@@ -278,11 +288,10 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 						int idoffset1=offset1;
 						int idoffset2=offset2;
 						match_results idresults;
-						rpattern idpat( (LPCTSTR)sBugIDRe );
 						match_results::backref_type idbr;
 						do 
 						{
-							idbr = idpat.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+							idbr = patBugIDRe.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
 							if (idbr.matched)
 							{
 								idoffset1 += idresults.rstart(0);
@@ -426,9 +435,8 @@ BOOL ProjectProperties::HasBugID(const CString& sMessage)
 		try
 		{
 			match_results results;
-			rpattern pat( (LPCTSTR)sCheckRe ); 
 			match_results::backref_type br;
-			br = pat.match( (LPCTSTR)sMessage, results );
+			br = patCheckRe.match( (LPCTSTR)sMessage, results );
 			return br.matched;
 		}
 		catch (bad_alloc) {}

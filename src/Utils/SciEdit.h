@@ -124,6 +124,8 @@ private:
 	TCHAR		m_separator;
 	CString		m_sCommand;
 	CString		m_sBugID;
+	rpattern	m_patCommand;
+	rpattern	m_patBugID;
 protected:
 	virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
 	void		CheckSpelling(void);

@@ -17,6 +17,11 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
+#include <iostream>
+#include <string>
+#include "regexpr2.h"
+using namespace std;
+using namespace regex;
 
 #define BUGTRAQPROPNAME_LABEL             _T("bugtraq:label")
 #define BUGTRAQPROPNAME_MESSAGE           _T("bugtraq:message")
@@ -151,4 +156,7 @@ public:
 	
 	/** The language identifier this project uses for log messages. */
 	LONG		lProjectLanguage;
+private:
+	rpattern	patCheckRe;
+	rpattern	patBugIDRe;
 };

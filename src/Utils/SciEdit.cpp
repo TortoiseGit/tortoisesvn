@@ -87,6 +87,16 @@ void CSciEdit::Init(const ProjectProperties& props)
 	Init(props.lProjectLanguage);
 	m_sCommand = props.sCheckRe;
 	m_sBugID = props.sBugIDRe;
+	try
+	{
+		if (!m_sBugID.IsEmpty())
+			m_patBugID.init((LPCTSTR)m_sBugID);
+		if (!m_sCommand.IsEmpty())
+			m_patCommand.init((LPCTSTR)m_sCommand);
+	}
+	catch (bad_alloc){}
+	catch (bad_regexpr){}
+	
 	if (props.nLogWidthMarker)
 	{
 		Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
@@ -637,11 +647,10 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 	try
 	{
 		match_results results;
-		rpattern pat( (LPCTSTR)m_sCommand );
 		match_results::backref_type br;
 		do 
 		{
-			br = pat.match( (LPCTSTR)msg.Mid(offset1), results );
+			br = m_patCommand.match( (LPCTSTR)msg.Mid(offset1), results );
 			if( br.matched ) 
 			{
 				// clear the styles up to the match position
@@ -654,11 +663,10 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 					int idoffset1=offset1;
 					int idoffset2=offset2;
 					match_results idresults;
-					rpattern idpat( (LPCTSTR)m_sBugID );
 					match_results::backref_type idbr;
 					do 
 					{
-						idbr = idpat.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+						idbr = m_patBugID.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
 						if (idbr.matched)
 						{
 							// bold style up to the id match
