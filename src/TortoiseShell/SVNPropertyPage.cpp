@@ -232,6 +232,33 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 	}
 	return FALSE;
 }
+void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
+{
+	struct tm * newtime;
+	SYSTEMTIME systime;
+	TCHAR timebuf[MAX_PROP_STRING_LENGTH];
+	TCHAR datebuf[MAX_PROP_STRING_LENGTH];
+
+	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
+	locale = MAKELCID(locale, SORT_DEFAULT);
+
+	newtime = _localtime64(&time);
+
+	systime.wDay = newtime->tm_mday;
+	systime.wDayOfWeek = newtime->tm_wday;
+	systime.wHour = newtime->tm_hour;
+	systime.wMilliseconds = 0;
+	systime.wMinute = newtime->tm_min;
+	systime.wMonth = newtime->tm_mon+1;
+	systime.wSecond = newtime->tm_sec;
+	systime.wYear = newtime->tm_year+1900;
+	GetDateFormat(locale, 0, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
+	GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PROP_STRING_LENGTH);
+	*buf = '\0';
+	_tcsncat(buf, timebuf, MAX_PROP_STRING_LENGTH);
+	_tcsncat(buf, _T(", "), MAX_PROP_STRING_LENGTH);
+	_tcsncat(buf, datebuf, MAX_PROP_STRING_LENGTH);
+}
 
 void CSVNPropertyPage::InitWorkfileView()
 {
@@ -243,6 +270,7 @@ void CSVNPropertyPage::InitWorkfileView()
 		{
 			TCHAR buf[MAX_PROP_STRING_LENGTH];
 			__time64_t	time;
+			int datelen = 0;
 			_stprintf(buf, _T("%d"), svn.status->entry->revision);
 			SetDlgItemText(m_hwnd, IDC_REVISION, buf);
 			if (svn.status->entry->url)
@@ -256,8 +284,7 @@ void CSVNPropertyPage::InitWorkfileView()
 			_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
 			SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
 			time = (__time64_t)svn.status->entry->cmt_date/1000000L;
-			_stprintf(buf, _T("%s"), _tctime64(&time));
-			buf[_tcslen(buf)-1] = '\0';
+			Time64ToTimeString(time, buf);
 			SetDlgItemText(m_hwnd, IDC_CDATE, buf);
 			if (svn.status->entry->cmt_author)
 #ifdef UNICODE
@@ -270,12 +297,10 @@ void CSVNPropertyPage::InitWorkfileView()
 			SVNStatus::GetStatusString(g_hmodThisDll, svn.status->prop_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 			SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
 			time = (__time64_t)svn.status->entry->text_time/1000000L;
-			_stprintf(buf, _T("%s"), _tctime64(&time));
-			buf[_tcslen(buf)-1] = '\0';
+			Time64ToTimeString(time, buf);
 			SetDlgItemText(m_hwnd, IDC_TEXTDATE, buf);
 			time = (__time64_t)svn.status->entry->prop_time/1000000L;
-			_stprintf(buf, _T("%s"), _tctime64(&time));
-			buf[_tcslen(buf)-1] = '\0';
+			Time64ToTimeString(time, buf);
 			SetDlgItemText(m_hwnd, IDC_PROPDATE, buf);
 			if (svn.status->locked)
 			{

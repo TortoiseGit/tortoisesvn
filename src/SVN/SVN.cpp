@@ -596,7 +596,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 								apr_pool_t* pool)
 {
 	svn_error_t * error = NULL;
-	const char * date_native;
+	TCHAR date_native[MAX_PATH] = {0};
 	stdstring author_native;
 	stdstring msg_native;
 
@@ -611,10 +611,34 @@ svn_error_t* SVN::logReceiver(void* baton,
 		error = svn_time_from_cstring (&time_temp, date, pool);
 		if (error)
 			return error;
-		date_native = svn_time_to_human_cstring(time_temp, pool);
+		__time64_t ttime = time_temp/1000000L;
+
+		struct tm * newtime;
+		SYSTEMTIME systime;
+		TCHAR timebuf[MAX_PATH];
+		TCHAR datebuf[MAX_PATH];
+
+		LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
+		locale = MAKELCID(locale, SORT_DEFAULT);
+
+		newtime = _localtime64(&ttime);
+
+		systime.wDay = newtime->tm_mday;
+		systime.wDayOfWeek = newtime->tm_wday;
+		systime.wHour = newtime->tm_hour;
+		systime.wMilliseconds = 0;
+		systime.wMinute = newtime->tm_min;
+		systime.wMonth = newtime->tm_mon+1;
+		systime.wSecond = newtime->tm_sec;
+		systime.wYear = newtime->tm_year+1900;
+		GetDateFormat(locale, 0, &systime, NULL, datebuf, MAX_PATH);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+		_tcsncat(date_native, timebuf, MAX_PATH);
+		_tcsncat(date_native, _T(", "), MAX_PATH);
+		_tcsncat(date_native, datebuf, MAX_PATH);
 	}
 	else
-		date_native = "(no date)";
+		_tcscat(date_native, _T("(no date)"));
 
 	if (msg == NULL)
 		msg = "";
