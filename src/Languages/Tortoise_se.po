@@ -9,12 +9,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-13 12:46+0100\n"
-"Last-Translator: Johan Stenqvist <johan@stenqvist.se>\n"
+"PO-Revision-Date: 2004-07-14 10:35+0100\n"
+"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+# ID:10,#:
+# ID:126,#:
+# ID:126,
+#: ID:10
+#: ID:126
+msgid " "
+msgstr " "
+
+# ID:188,
+#: ID:188
+msgid "! %d"
+msgstr "! %d"
 
 #: ID:3868
 msgid "%1 contained an unexpected object."
@@ -315,6 +328,31 @@ msgstr "&Visa"
 #, fuzzy
 msgid "&Whitespaces"
 msgstr "Whitespace"
+
+# ID:188,
+#: ID:188
+msgid "+ %d"
+msgstr "+ %d"
+
+# ID:188,
+#: ID:188
+msgid "- %d"
+msgstr "- %d"
+
+# Control-ID:1035,#:
+# Control-ID:1036,#:
+# Control-ID:1021,#:
+# Control-ID:1022,#:
+# Control-ID:1089,#:
+# Control-ID:1104,
+#: Control-ID:1035
+#: Control-ID:1036
+#: Control-ID:1021
+#: Control-ID:1022
+#: Control-ID:1089
+#: Control-ID:1104
+msgid "..."
+msgstr "..."
 
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
@@ -2809,16 +2847,16 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %sr\n"
-"libsvn_diff %d.%d.%d, %sr\n"
-"apr %d.%d.%dr\n"
-"apr-iconv %d.%d.%dr\n"
+"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %sr\n"
-"libsvn_diff %d.%d.%d, %sr\n"
-"apr %d.%d.%dr\n"
-"apr-iconv %d.%d.%dr\n"
+"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 #: ID:9
@@ -2834,24 +2872,24 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %sr\n"
-"Subversion %d.%d.%d, %sr\n"
-"apr %d.%d.%dr\n"
-"apr-iconv %d.%d.%dr\n"
-"apr-utils %d.%d.%dr\n"
-"berkeley db %d.%d.%dr\n"
-"neon %sr\n"
-"%sr\n"
+"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %sr\n"
-"Subversion %d.%d.%d, %sr\n"
-"apr %d.%d.%dr\n"
-"apr-iconv %d.%d.%dr\n"
-"apr-utils %d.%d.%dr\n"
-"berkeley db %d.%d.%dr\n"
-"neon %sr\n"
-"%sr\n"
+"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
 "zlib %s"
 
 #: ID:80
@@ -3331,5 +3369,4 @@ msgstr "din version är:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "din version är: %d.%d.%d.%d"
-
 

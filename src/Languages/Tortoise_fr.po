@@ -9,18 +9,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-06 15:38+0100\n"
-"Last-Translator: Philippe Torche <philippe.torche(no_spam)@swissonline.ch>\n"
+"PO-Revision-Date: 2004-07-14 10:40+0100\n"
+"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ID:126
+# ID:10,#:
+# ID:126,#:
+# ID:126,
 #: ID:10
+#: ID:126
 msgid " "
 msgstr " "
 
+# ID:188,
 #: ID:188
 msgid "! %d"
 msgstr "! %d"
@@ -139,9 +143,10 @@ msgstr "&Fermer la fenêtre automatiquement"
 msgid "&Edit..."
 msgstr "&Edition..."
 
+# Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server"
-msgstr "Active le &Proxy serveur"
+msgid "&Enable Proxy Server (Don't use the IE settings)"
+msgstr "&Activer le proxy serveur (Sans utiliser la configuration d'IE)"
 
 #: Control-ID:1092
 msgid "&External"
@@ -168,12 +173,14 @@ msgid "&From WC at URL:"
 msgstr "&Depuis WC à l'URL:"
 
 #: Control-ID:1032
+#: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
 msgstr "Révision &principale"
 
-#: Control-ID:57670
 #: Control-ID:9
+#: Control-ID:57670
+#: MenuEntry
 msgid "&Help"
 msgstr "&Aide"
 
@@ -305,14 +312,22 @@ msgstr "&Affichage"
 msgid "&Whitespaces"
 msgstr "&Espacements"
 
+# ID:188,
 #: ID:188
 msgid "+ %d"
 msgstr "+ %d"
 
+# ID:188,
 #: ID:188
 msgid "- %d"
 msgstr "- %d"
 
+# Control-ID:1035,#:
+# Control-ID:1036,#:
+# Control-ID:1021,#:
+# Control-ID:1022,#:
+# Control-ID:1089,#:
+# Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
 #: Control-ID:1021
@@ -685,8 +700,8 @@ msgstr ""
 "vers\n"
 "%s"
 
-#: Control-ID:2
 #: ID:73
+#: Control-ID:2
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1320,6 +1335,7 @@ msgstr "Récupération de la version %s du fichier:"
 #: ID:63
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "File"
 msgstr "Fichier"
 
@@ -1391,12 +1407,8 @@ msgstr ""
 "Aller à la précédente différence\n"
 "précédente différence"
 
-#: Control-ID:1115
-msgid "Head Revision"
-msgstr "Révision principale"
-
-#: Control-ID:1004
 #: ID:12
+#: Control-ID:1004
 msgid "Help"
 msgstr "Aide"
 
@@ -1633,8 +1645,8 @@ msgstr "Type Mime"
 msgid "Minimum logsize in chars"
 msgstr "Taille minimale du journal en caractères"
 
-#: Control-ID:1023
 #: Control-ID:1082
+#: Control-ID:1023
 msgid "Misc"
 msgstr "Divers"
 
@@ -1722,8 +1734,8 @@ msgstr "Normal"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Toutes les entrées dans le registre système (ou le fichier INI) sont effacées."
 
-#: Control-ID:1
 #: ID:73
+#: Control-ID:1
 msgid "OK"
 msgstr "OK"
 
@@ -1733,7 +1745,7 @@ msgstr "RFP"
 
 #: MenuEntry
 msgid "Oneway &Diff"
-msgstr "&Diff unidirectionnelle"
+msgstr "&Diff unidirectionnel"
 
 #: Control-ID:1073
 msgid "Only check out the top folder"
@@ -1743,8 +1755,8 @@ msgstr "Extraire seulement le répertoire de tête"
 msgid "Only update the top folder"
 msgstr "Mis à jour seulement du répertoire de tête"
 
-#: ID:3841
 #: ID:101
+#: ID:3841
 msgid "Open"
 msgstr "Ouvrir"
 
@@ -1889,6 +1901,7 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programmes (*.exe)|*.*|Tous fichiers (*.*)|*.*||"
 
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "Propriétés"
 
@@ -1899,6 +1912,10 @@ msgstr "Propriété"
 #: Dlg-ID:107
 msgid "Property Page"
 msgstr "Page des propriétés"
+
+#: ID:207
+msgid "Property Status"
+msgstr "Statut des propriétés"
 
 #: Control-ID:65535
 msgid "Property Status:"
@@ -1977,9 +1994,18 @@ msgstr "Relocaliser..."
 msgid "Relocating..."
 msgstr "Relocalisation..."
 
+#: ID:207
+msgid "Remote Property Status"
+msgstr "Statut des propriétés distantes"
+
 #: ID:63
+#: ID:207
 msgid "Remote Status"
 msgstr "Status distant"
+
+#: ID:207
+msgid "Remote Text Status"
+msgstr "Status des propriétés textes distantes"
 
 #: Control-ID:65535
 msgid "Removed"
@@ -2190,8 +2216,8 @@ msgstr "Enregistrer &sous..."
 msgid "Save As"
 msgstr "Sauver sous"
 
-#: ID:313
 #: ID:101
+#: ID:313
 msgid "Save as..."
 msgstr "Sauver sous..."
 
@@ -2299,8 +2325,8 @@ msgstr "Mets la date du fichier à la dernière date de mise à jour"
 msgid "Setting Properties..."
 msgstr "Configuration des propriétés..."
 
-#: ID:107
 #: ID:9
+#: ID:107
 msgid "Settings"
 msgstr "Configuration"
 
@@ -2344,6 +2370,10 @@ msgstr "Voir les numéros de lignes"
 #: ID:12
 msgid "Show Log"
 msgstr "Voir le journal"
+
+#: ID:101
+msgid "Show Properties"
+msgstr "Voir les propriétés"
 
 #: ID:101
 msgid "Show log"
@@ -2424,6 +2454,7 @@ msgstr ""
 
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "Status"
 msgstr "Statut"
 
@@ -2434,6 +2465,10 @@ msgstr "Statut des éléments dans SVN"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Fichier de configuration de Subversion:"
+
+#: ID:14
+msgid "Subversion export here"
+msgstr "Exporter les fichiers de Subversion à cet endroit"
 
 #: ID:79
 msgid ""
@@ -2508,6 +2543,10 @@ msgstr "Taille tabulation:"
 #: ID:79
 msgid "Tagged the working copy to %s"
 msgstr "Etiquettage de la version locale sous %s"
+
+#: ID:207
+msgid "Text Status"
+msgstr "Statut du texte"
 
 #: Control-ID:65535
 msgid "Text Status:"
@@ -2856,6 +2895,10 @@ msgstr "Mettre à jour la copie locale à une révision spécifique"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Mettre à jour la copie locale dans le repository"
+
+#: ID:207
+msgid "Url"
+msgstr "Url"
 
 #: ID:144
 msgid "Url:"
