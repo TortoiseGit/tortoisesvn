@@ -60,6 +60,7 @@ void CLocatorBar::DocumentUpdated()
 	m_arBottom.RemoveAll();
 	DWORD state = 0;
 	int identcount = 1;
+	m_nLines = 0;
 	if (m_pMainFrm->m_pwndLeftView->m_arLineStates)
 	{
 		if (m_pMainFrm->m_pwndLeftView->m_arLineStates->GetCount())
