@@ -55,6 +55,7 @@ public:
 	BOOL	ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lpszPOFilePath, BOOL bNoUpdate);
 	BOOL	CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszDestLangDllPath, LPCTSTR lpszPOFilePath);
 	void	SetQuiet(BOOL bQuiet = TRUE) {m_bQuiet = bQuiet; m_StringEntries.SetQuiet(bQuiet);}
+	void	SetLanguage(WORD wLangID) {m_wTargetLang = wLangID;}
 
 private:
 	static  BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam);
@@ -88,4 +89,6 @@ private:
 	int				m_bDefaultDialogStrings;
 	int				m_bTranslatedMenuStrings;
 	int				m_bDefaultMenuStrings;
+	
+	int				m_wTargetLang;
 };

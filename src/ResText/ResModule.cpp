@@ -8,6 +8,7 @@ CResModule::CResModule(void)
 {
 	m_hResDll = NULL;
 	m_bQuiet = FALSE;
+	m_wTargetLang = 0;
 }
 
 CResModule::~CResModule(void)
@@ -299,7 +300,14 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		}
 		p += len;
 	}
-	if (!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), wLanguage, newTable, (nMem + (nMem % 2))*2))
+
+	if (!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newTable, (nMem + (nMem % 2))*2))
+	{
+		delete [] newTable;
+		goto DONE_ERROR;
+	}
+	
+	if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
 	{
 		delete [] newTable;
 		goto DONE_ERROR;
@@ -413,12 +421,19 @@ BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
 			{
 				delete [] newMenu;
 				goto DONE_ERROR;
-			} // if (!CountMemReplaceMenuResource(p, &index, newMenu))
-			if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), wLanguage, newMenu, (nMem + (nMem % 2)+2)*2))
+			} 
+
+			if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, (nMem + (nMem % 2)+2)*2))
 			{
 				delete [] newMenu;
 				goto DONE_ERROR;
-			} // if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), 1033, newMenu, (nMem + (nMem % 2)+2)*2)) 
+			}
+
+			if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+			{
+				delete [] newMenu;
+				goto DONE_ERROR;
+			} 
 			delete [] newMenu;
 		}
 		break;
@@ -667,11 +682,18 @@ BOOL CResModule::ReplaceDialog(UINT nID, WORD wLanguage)
 		delete [] newDialog;
 		goto DONE_ERROR;
 	}
-	if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), wLanguage, newDialog, (nMem + (nMem % 2))*2))
+	
+	if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog, (nMem + (nMem % 2))*2))
 	{
 		delete [] newDialog;
 		goto DONE_ERROR;
-	} // if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), 1033, newDialog, (nMem + (nMem % 2))*2)) 
+	}
+	
+	if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+	{
+		delete [] newDialog;
+		goto DONE_ERROR;
+	}
 
 	delete [] newDialog;
 	UnlockResource(hGlblDlgTemplate);

@@ -75,6 +75,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			stdstring sSrcDllFile;
 			stdstring sDstDllFile;
 			stdstring sPoFile;
+			WORD wLang = 0;
 			++arg;
 			if (!PathFileExists(arg->c_str()))
 			{
@@ -91,8 +92,14 @@ int _tmain(int argc, _TCHAR* argv[])
 				return -1;
 			}
 			sPoFile = stdstring(arg->c_str());
+			++arg;
+			if (arg != arguments.end())
+			{
+				wLang = _ttoi(arg->c_str());
+			}
 			CResModule module;
 			module.SetQuiet(bQuiet);
+			module.SetLanguage(wLang);
 			if (!module.CreateTranslatedResources(sSrcDllFile.c_str(), sDstDllFile.c_str(), sPoFile.c_str()))
 				return -1;
 			bShowHelp = false;
@@ -108,7 +115,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		_tcprintf(_T("-quiet: don't print progress messages\n"));
 		_tcprintf(_T("-noupdate: overwrite the po-file\n"));
 		_tcprintf(_T("\n"));
-		_tcprintf(_T("ResText apply <src resource.dll> <dst resource.dll> <po-file> [-quiet]\n"));
+		_tcprintf(_T("ResText apply <src resource.dll> <dst resource.dll> <po-file> [langID] [-quiet]\n"));
 		_tcprintf(_T("Replaces all strings in the dst resource.dll with the po-file translations\n"));
 		_tcprintf(_T("-quiet: don't print progress messages\n"));
 		_tcprintf(_T("\n"));
