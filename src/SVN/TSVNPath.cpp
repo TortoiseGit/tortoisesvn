@@ -46,8 +46,8 @@ void CTSVNPath::SetFromSVN(const char* pPath)
 	int len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, NULL, 0);
 	if (len)
 	{
-		MultiByteToWideChar(CP_UTF8, 0, pPath, -1, m_sFwdslashPath.GetBuffer(len+1), len+1);
-		m_sFwdslashPath.ReleaseBuffer(len);
+		len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, m_sFwdslashPath.GetBuffer(len+1), len+1);
+		m_sFwdslashPath.ReleaseBuffer(len-1);
 	}
 }
 

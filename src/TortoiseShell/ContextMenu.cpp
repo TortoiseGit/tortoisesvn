@@ -77,6 +77,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				{
 					// find the path length in chars
 					UINT len = DragQueryFile(drop, i, NULL, 0);
+					if (len == 0)
+						continue;
 					TCHAR * szFileName = new TCHAR[len+1];
 					if (0 == DragQueryFile(drop, i, szFileName, len+1))
 					{
@@ -143,7 +145,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					if (str.empty() == false)
 					{
 						//check if our menu is requested for a subversion admin directory
-						if (str.compare(str.length()-sAdm.length(), sAdm.length(), sAdm)==0)
+						if ((str.length() > sAdm.length())&&(str.compare(str.length()-sAdm.length(), sAdm.length(), sAdm)==0))
 							continue;
 
 						files_.push_back(str);
@@ -400,7 +402,7 @@ stdstring CShellExt::WriteFileListToTempFile()
 		::WriteFile (file, _T("\n"), 2, &written, 0);
 	}
 	::CloseHandle(file);
-	return stdstring(tempFile);
+	return retFilePath;
 }
 
 STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
@@ -503,7 +505,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	//check if our menu is requested for a subversion admin directory
 	stdstring sAdm = _T("\\");
 	sAdm += _T(SVN_WC_ADM_DIR_NAME);
-	if (folder_.compare(folder_.length()-sAdm.length(), sAdm.length(), sAdm)==0)
+	if ((folder_.length() > sAdm.length())&&(folder_.compare(folder_.length()-sAdm.length(), sAdm.length(), sAdm)==0))
 		return NOERROR;
 
 	LoadLangDll();

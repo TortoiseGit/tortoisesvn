@@ -22,21 +22,33 @@
 PreserveChdir::PreserveChdir()
 {
 	DWORD len = GetCurrentDirectory(0, NULL);
-	originalCurrentDirectory = new TCHAR[len];
-	GetCurrentDirectory(len, originalCurrentDirectory);
+	if (len)
+	{
+		originalCurrentDirectory = new TCHAR[len];
+		if (GetCurrentDirectory(len, originalCurrentDirectory)==0)
+		{
+			delete originalCurrentDirectory;
+			originalCurrentDirectory = NULL;
+		}
+	}
+	else
+		originalCurrentDirectory = NULL;
 }
 
 PreserveChdir::~PreserveChdir()
 {
-	DWORD len = GetCurrentDirectory(0, NULL);
-	TCHAR * currentDirectory = new TCHAR[len];
-
-	// _tchdir is an expensive function - don't call it unless we really have to
-	GetCurrentDirectory(len, currentDirectory);
-	if(_tcscmp(currentDirectory, originalCurrentDirectory) != 0)
+	if (originalCurrentDirectory)
 	{
-		SetCurrentDirectory(originalCurrentDirectory);
+		DWORD len = GetCurrentDirectory(0, NULL);
+		TCHAR * currentDirectory = new TCHAR[len];
+
+		// _tchdir is an expensive function - don't call it unless we really have to
+		GetCurrentDirectory(len, currentDirectory);
+		if(_tcscmp(currentDirectory, originalCurrentDirectory) != 0)
+		{
+			SetCurrentDirectory(originalCurrentDirectory);
+		}
+		delete currentDirectory;
+		delete originalCurrentDirectory;
 	}
-	delete currentDirectory;
-	delete originalCurrentDirectory;
 }
