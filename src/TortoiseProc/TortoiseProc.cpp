@@ -440,13 +440,18 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CMergeDlg dlg;
 			CString path = parser.GetVal(_T("path"));
+			if (SVNStatus::GetAllStatusRecursive(path)!=svn_wc_status_normal)
+			{
+				CMessageBox::Show(NULL, IDS_ERR_WCCHANGED, IDS_APPNAME, MB_ICONERROR);
+				return FALSE;
+			}
 			SVNStatus status;
 			status.GetStatus(path);
 			if ((status.status == NULL) || (status.status->entry == NULL))
 			{
 				CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
 				return FALSE;		//exit
-			}
+			} // if ((status.status == NULL) || (status.status->entry == NULL)) // if ((status.status == NULL) || (status.status->entry == NULL))
 			CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 			dlg.m_URL = url;
 			if (dlg.DoModal() == IDOK)
@@ -478,7 +483,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				m_pMainWnd = NULL;
 				TRACE(_T("copy %s to %s\n"), path, dlg.m_URL);
-				if (SVNStatus::GetTextStatusRecursive(path)==svn_wc_status_normal)
+				if (SVNStatus::GetAllStatusRecursive(path)==svn_wc_status_normal)
 				{
 					//no changes in the working copy, so just do a repo->repo copy
 					CSVNProgressDlg progDlg;
@@ -709,6 +714,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		}
 		//#endregion
+		//#region conflicteditor
 		if (comVal.Compare(_T("conflicteditor"))==0)
 		{
 			long rev = -1;
@@ -747,10 +753,11 @@ BOOL CTortoiseProcApp::InitInstance()
 							rev = r;
 						}
 					}
-				}
+				} 
 			}
 			CUtils::StartExtMerge(base, theirs, mine, merge);
-		}
+		} 
+		//#endregion
 	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the
