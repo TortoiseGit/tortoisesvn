@@ -358,6 +358,16 @@ BOOL CMainFrame::LoadViews()
 		} // if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty()) 
 		else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)))
 		{
+			m_pwndLeftView->m_sWindowName = _T("");
+			m_pwndLeftView->m_sFullFilePath = _T("");
+			m_pwndRightView->m_sWindowName = _T("");
+			m_pwndRightView->m_sFullFilePath = _T("");
+			m_pwndBottomView->m_sWindowName = _T("");
+			m_pwndBottomView->m_sFullFilePath = _T("");
+			m_pwndLeftView->DocumentUpdated();
+			m_pwndRightView->DocumentUpdated();
+			m_pwndBottomView->DocumentUpdated();
+			m_wndLocatorBar.DocumentUpdated();
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
 		} // if (!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)) 
