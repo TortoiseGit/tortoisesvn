@@ -295,7 +295,7 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 {
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
-	const svn_sort__item_t*		item;
+	const sort_item*			item;
 	const char *				internalpath;
 
 	//we need to convert the path to subversion internal format
@@ -330,12 +330,12 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 	}
 
 	// Convert the unordered hash to an ordered, sorted array
-	statusarray = svn_sort__hash (statushash,
-								  svn_sort_compare_items_as_paths,
-								  m_pool);
+	statusarray = sort_hash (statushash,
+							  sort_compare_items_as_paths,
+							  m_pool);
 
 	//only the first entry is needed (no recurse)
-	item = &APR_ARRAY_IDX (statusarray, 0, const svn_sort__item_t);
+	item = &APR_ARRAY_IDX (statusarray, 0, const sort_item);
 	
 	status = (svn_wc_status_t *) item->value;
 	
@@ -343,7 +343,7 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 }
 svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR ** retPath, bool update)
 {
-	const svn_sort__item_t*		item;
+	const sort_item*			item;
 	const char *				internalpath;
 
 	//we need to convert the path to subversion internal format
@@ -378,13 +378,13 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 	}
 
 	// Convert the unordered hash to an ordered, sorted array
-	m_statusarray = svn_sort__hash (m_statushash,
-									svn_sort_compare_items_as_paths,
-									m_pool);
+	m_statusarray = sort_hash (m_statushash,
+								sort_compare_items_as_paths,
+								m_pool);
 
 	//only the first entry is needed (no recurse)
 	m_statushashindex = 0;
-	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const svn_sort__item_t);
+	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
 #ifdef UNICODE
 	int len = MultiByteToWideChar(CP_UTF8, 0, (const char *)item->key, -1, 0, 0);
 	*retPath = (const TCHAR *)apr_palloc(m_pool, len * sizeof(TCHAR));
@@ -398,13 +398,13 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 
 svn_wc_status_t * SVNStatus::GetNextFileStatus(const TCHAR ** retPath)
 {
-	const svn_sort__item_t*			item;
+	const sort_item*			item;
 
 	if ((m_statushashindex+1) == apr_hash_count(m_statushash))
 		return NULL;
 	m_statushashindex++;
 
-	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const svn_sort__item_t);
+	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
 #ifdef UNICODE
 	int len = MultiByteToWideChar(CP_UTF8, 0, (const char *)item->key, -1, 0, 0);
 	*retPath = (const TCHAR *)apr_palloc(m_pool, len * sizeof(TCHAR));
@@ -587,3 +587,40 @@ void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status_t *
 	svn_wc_status_t * statuscopy = svn_wc_dup_status (status, hash->pool);
 	apr_hash_set (hash->hash, apr_pstrdup(hash->pool, path), APR_HASH_KEY_STRING, statuscopy);
 }
+
+apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,
+										int (*comparison_func) (const sort_item *,
+                                        const sort_item *),
+										apr_pool_t *pool)
+{
+	apr_hash_index_t *hi;
+	apr_array_header_t *ary;
+
+	/* allocate an array with only one element to begin with. */
+	ary = apr_array_make (pool, 1, sizeof(sort_item));
+
+	/* loop over hash table and push all keys into the array */
+	for (hi = apr_hash_first (pool, ht); hi; hi = apr_hash_next (hi))
+	{
+		sort_item *item = (sort_item*)apr_array_push (ary);
+
+		apr_hash_this (hi, &item->key, &item->klen, &item->value);
+	}
+
+	/* now quicksort the array.  */
+	qsort (ary->elts, ary->nelts, ary->elt_size,
+		(int (*)(const void *, const void *))comparison_func);
+
+	return ary;
+}
+
+int SVNStatus::sort_compare_items_as_paths (const sort_item *a,
+                                 const sort_item *b)
+{
+  const char *astr, *bstr;
+
+  astr = (const char*)a->key;
+  bstr = (const char*)b->key;
+  return svn_path_compare_paths (astr, bstr);
+}
+

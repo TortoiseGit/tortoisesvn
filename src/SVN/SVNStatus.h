@@ -26,7 +26,6 @@
 #include "apr_general.h"
 #include "svn_pools.h"
 #include "svn_client.h"
-#include "svn_sorts.h"
 #include "svn_path.h"
 #include "svn_wc.h"
 #include "svn_utf.h"
@@ -46,6 +45,7 @@ typedef std::basic_string<wchar_t> wide_string;
 #endif
 #pragma warning (pop)
 
+typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /**
  * \ingroup TortoiseShell
@@ -169,6 +169,18 @@ private:
 	static int GetStatusRanking(svn_wc_status_kind status);
 	static void getallstatus (void *baton, const char *path, svn_wc_status_t *status);
 	static void getstatushash (void *baton, const char *path, svn_wc_status_t *status);
+
+	typedef struct sort_item {
+		const void *key;
+		apr_ssize_t klen;
+		void *value;
+	} sort_item;
+
+	static apr_array_header_t * sort_hash (apr_hash_t *ht, int (*comparison_func) (const sort_item *,
+										const sort_item *), apr_pool_t *pool);
+
+	static int __cdecl sort_compare_items_as_paths (const sort_item *a, const sort_item *b);
+
 	struct hashbaton_t
 	{
 		apr_hash_t *	hash;
