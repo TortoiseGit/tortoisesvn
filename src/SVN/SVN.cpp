@@ -292,13 +292,13 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 		return 0;
 	}
 	
-	UpdateShell(path);
-
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 
 	if(commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		return commit_info->revision;
+
+	UpdateShell(path);
 	return -1;
 }
 
@@ -1129,7 +1129,7 @@ void SVN::UpdateShell(CString path)
 	preparePath(path);
 	if (PathIsDirectory(path))
 	{
-		SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH, path, NULL);
+		SHChangeNotify(SHCNE_ATTRIBUTES, SHCNF_PATH, path, NULL);
 		//if recursive overlay is set, then all folders above 
 		//and below this folder also "changed" and need to be updated
 
@@ -1141,9 +1141,11 @@ void SVN::UpdateShell(CString path)
 			CString folder = list.GetAt(i);
 			if (PathIsDirectory(folder))
 			{
-				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH, folder, NULL);
+				SHChangeNotify(SHCNE_ATTRIBUTES, SHCNF_PATH, folder, NULL);
 			}
 		} // for (int i=0; i<list.GetCount(); i++) 
+
+		//check the folders above
 		CString folder = path;
 		do
 		{
