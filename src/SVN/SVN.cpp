@@ -1811,7 +1811,7 @@ BOOL SVN::DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFil
 	CTSVNPath basePath(GetPristinePath(filePath));
 	CTSVNPath wcPath;
 	// If necessary, convert the line-endings on the file before diffing
-	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(GetTranslatedFile(wcPath, filePath)))
+	if ((CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), FALSE))&&(GetTranslatedFile(wcPath, filePath)))
 	{
 		temporaryFile = wcPath;
 	}

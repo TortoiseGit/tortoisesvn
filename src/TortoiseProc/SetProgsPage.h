@@ -81,7 +81,7 @@ private:
 	CSetProgsAdvDlg m_dlgAdvMerge;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
-	CRegDWORD		m_regDontConvertBase;	///< registry value for the "Don't Convert" flag
-	BOOL			m_bDontConvertBase;		///< don't convert files when diffing agains BASE
+	CRegDWORD		m_regConvertBase;	///< registry value for the "Don't Convert" flag
+	BOOL			m_bConvertBase;		///< don't convert files when diffing agains BASE
 public:
 };

@@ -1657,7 +1657,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		m_tempFileList.AddPath(remotePath);
 	}
 
-	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(wcPath, entry->path)))
+	if ((CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), FALSE))&&(SVN::GetTranslatedFile(wcPath, entry->path)))
 	{
 		m_tempFileList.AddPath(wcPath);
 	}
