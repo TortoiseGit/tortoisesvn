@@ -965,6 +965,9 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	CString sStats;
 	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, pDlg->m_nSelected, pDlg->m_nTotal);
 	pDlg->GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	return 0;
 }
 

@@ -52,6 +52,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(NM_DBLCLK, IDC_CHANGEDLIST, OnNMDblclkChangedlist)
 	ON_WM_CONTEXTMENU()
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -226,6 +227,9 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	}
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	theApp.DoWaitCursor(-1);
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	return 0;
 }
 
@@ -451,5 +455,18 @@ void CChangedDlg::OnCancel()
 {
 	if (GetDlgItem(IDOK)->IsWindowEnabled())
 		__super::OnCancel();
+}
+
+BOOL CChangedDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if (GetDlgItem(IDOK)->IsWindowEnabled())
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+		SetCursor(hCur);
+		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	SetCursor(hCur);
+	return TRUE;
 }
 

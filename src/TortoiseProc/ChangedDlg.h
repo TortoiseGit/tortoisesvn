@@ -64,6 +64,7 @@ public:
 	CDWordArray		m_arRepoStatus;
 	CDWordArray		m_arRevisions;
 	CStringArray	m_arPaths;
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };
 
 DWORD WINAPI ChangedStatusThread(LPVOID pVoid);
