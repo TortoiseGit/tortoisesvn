@@ -15,11 +15,42 @@
 	<para>
 		Der Log-Dialog lädt alle diese Log-Meldungen aus dem Projektarchiv und
 		zeigt Ihnen diese, einschliesslich einer Liste der Dateien welche
-		in jeder Übertragung verändert wurden. Aber das ist noch nicht alles
+		in jeder Übertragung verändert wurden.
+		Die Anzeige ist in drei Teile aufgeteilt.
+		<itemizedlist>
+			<listitem>
+				<para>
+					Der oberste Abschnitt zeigt eine liste von Revisionen in
+					welchen Änderungen in der Datei/Ordner übertragen wurden.
+					Diese Liste enthält Datum, Zeit und die Person welche die
+					Übertragung gemacht hat. Ausserdem wird der erste Teil
+					der Log-Meldung angezeigt.
+				</para>
+				<para>
+					Zeilen in blau zeigen an, dass etwas in dieser Revision
+					kopiert/verschoben/umbenannt wurde (vielleicht von einem
+					anderen Zweig).
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Der mittlere Teil zeigt die ganze Log-Meldung für die
+					ausgewählte Revision an.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Der untere Teil zeigt eine Liste von Dateien und Ordnern
+					welche in der ausgewählten Revision verändert wurden.
+				</para>
+			</listitem>
+		</itemizedlist>
+		Aber das ist noch nicht alles
 		- der Log-Dialog stellt auch viele Funktionen zur Verfügung mit
 		denen Sie noch mehr und noch detailliertere Informationen über die
 		Projektgeschichte herausfinden können.
 	</para>
+	
 	<sect2 id="tsvn-DUG-showlog-1">
 		<title>Den Log-Dialog starten</title>
 		<para>
@@ -218,5 +249,23 @@
 				den alten Wert für <emphasis>immer</emphasis>.
 			</para>
 		</warning>
+	</sect2>
+	<sect2 id="tsvn-DUG-showlog-5">
+		<title>Statistiken</title>
+		<para>
+			Der <guibutton>Statistiken</guibutton> Button zeigt eine neue
+			Dialogbox an mit interessanten Informationen über die angezeigten
+			Revisionen. Es zeigt zum Beispiel wieviele Authoren (Personen welche
+			Übertragungen gemacht haben) am Werk waren, wieviele Übertragungen
+			jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt
+			und vieles mehr.
+			Endlich haben Sie die Möglichkeit zu überprüfen, wer fleissig am
+			Projekt mitarbeitet und wer hinterherhängt ;-)
+		</para>
+		<para>
+			Beachten Sie dass die Statistiken die selbe Zeitperiode überdecken
+			wie Revisionen im Log-Dialog angezeigt werden. Wenn also nur eine
+			Revision angezeigt wird, sagen die Statistiken nicht sehr viel aus.
+		</para>
 	</sect2>
 </sect1>
