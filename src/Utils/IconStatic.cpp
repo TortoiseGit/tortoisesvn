@@ -78,6 +78,7 @@ bool CIconStatic::Init(UINT nIconID)
 	pOldBMP = MemDC.SelectObject(&m_MemBMP);
 	
 	HMODULE hThemeDll = LoadLibrary(_T("UxTheme.dll"));
+	BOOL bThemeDrawn = FALSE;
 	if (hThemeDll)
 	{
 		PFNISAPPTHEMED pfnIsAppThemed = (PFNISAPPTHEMED)GetProcAddress(hThemeDll, "IsAppThemed");
@@ -117,25 +118,14 @@ bool CIconStatic::Init(UINT nIconID)
 							PFNCLOSETHEMEDATA pfnCloseThemeData = (PFNCLOSETHEMEDATA)GetProcAddress(hThemeDll, "CloseThemeData");
 							if (pfnCloseThemeData)
 								(*pfnCloseThemeData)(hTheme);
+							bThemeDrawn = TRUE;
 						} // if (pfn)
 					} // if (hTheme)
 				} // if (pfnOpenThemeData) 
 			} // if ((*pfnIsAppThemed)()) 
 		} // if (pfnIsAppThemed)
-		else
-		{
-			MemDC.FillSolidRect(rCaption, GetSysColor(COLOR_BTNFACE));
-
-			DrawState( MemDC.m_hDC, NULL, NULL,
-				(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
-				NULL, 3, 0, 16, 16, DST_ICON | DSS_NORMAL);
-
-			rCaption.left += 22;
-			MemDC.SetTextColor(pDC->GetTextColor());
-			MemDC.DrawText(m_strText, rCaption, DT_SINGLELINE | DT_LEFT | DT_END_ELLIPSIS);
-		}
 	} // if (hThemeDll)
-	else
+	if (!bThemeDrawn)
 	{
 		MemDC.FillSolidRect(rCaption, GetSysColor(COLOR_BTNFACE));
 
@@ -147,7 +137,6 @@ bool CIconStatic::Init(UINT nIconID)
 		MemDC.SetTextColor(pDC->GetTextColor());
 		MemDC.DrawText(m_strText, rCaption, DT_SINGLELINE | DT_LEFT | DT_END_ELLIPSIS);
 	}
-
 	ReleaseDC( pDC );
 
 	MemDC.SelectObject(pOldBMP);
