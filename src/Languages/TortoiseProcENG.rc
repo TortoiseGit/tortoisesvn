@@ -62,7 +62,7 @@ IDB_TTF_BMP             BITMAP                  "res\\ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -482,7 +482,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "Enter Log Message:",IDC_HINTTEXT,7,7,223,11
     EDITTEXT        IDC_INPUTTEXT,7,17,223,69,ES_MULTILINE | ES_AUTOHSCROLL | 
-                    WS_VSCROLL | WS_HSCROLL
+                    ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
     DEFPUSHBUTTON   "&OK",IDOK,121,92,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,180,92,50,14
 END
@@ -1067,12 +1067,12 @@ BEGIN
     IDS_REPO_BROWSEREV      "Browsing Revision: "
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1115,7 +1115,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
