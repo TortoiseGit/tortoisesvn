@@ -219,11 +219,17 @@ Require valid-user
 					available at http://localhost/svn/yoursubversionproject. 
 					The access is restricted to known users/passwords. 
 					<itemizedlist>
-								<listitem>
-									<para>A short explanation of what you just entered:
-						<table id="tsvn-serversetup-apache-4-table">
-					              <title>Apache httpd.conf Settings</title>
-											<tgroup cols="2">
+						<listitem>
+							<para>A short explanation of what you just entered:
+								<table id="tsvn-serversetup-apache-4-table">
+									<title>Apache httpd.conf Settings</title>
+									<tgroup cols="2">
+									<thead>
+									<row>
+										<entry>Setting</entry>
+										<entry>Explanation</entry>
+									</row>
+									</thead>
 												<tbody>
 													<row>
 														<entry>&lt;Location /svn&gt;</entry>
@@ -646,7 +652,7 @@ bin\openssl x509 &ndash;in my&ndash;server.cert &ndash;out my&ndash;server.der.c
 			form: <filename>file:///C:/SVNRepository/</filename>.
 			</para>
 			<caution>
-			<para>
+				<para>
 			Do not access a repository via the <filename>file:///</filename>
 			URL over a shared network drive! Even if you have the network
 			drive mounted to a drive letter! If you do, your repository can
