@@ -38,6 +38,9 @@
 - BUG: When creating a folder on the repository
        root in the browser the refresh function
        went too far up. (Stefan)
+- BUG: If no log entry was selected a right-click
+       or a left-click on the message area below
+       crashed the log dialog. (Stefan)
 
 Version 0.21
 - ADD: If multiple targets are selected for

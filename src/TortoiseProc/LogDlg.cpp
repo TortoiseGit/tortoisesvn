@@ -781,6 +781,9 @@ void CLogDlg::OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
+	*pResult = 0;
+	if (m_LogMsgCtrl.GetSelectionMark() < 0)
+		return;
 	if (m_LogMsgCtrl.GetSelectionMark() < (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 	{
 		//*pResult = 1;
@@ -789,7 +792,6 @@ void CLogDlg::OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 			m_LogMsgCtrl.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 		}
 	} // if (pNMLV->iItem < (m_arFileListStarts.GetAt(m_LogList.GetSelectionMark())-1))
-	*pResult = 0;
 }
 
 void CLogDlg::OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
@@ -828,6 +830,8 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	*pResult = 0;
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
+	if (selIndex < 0)
+		return;
 	long rev = m_arRevs.GetAt(m_LogList.GetSelectionMark());
 	if (selIndex >= (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 	{
