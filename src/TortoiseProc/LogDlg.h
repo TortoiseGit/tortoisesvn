@@ -30,6 +30,7 @@
 #define ID_COMPARETWO	3
 #define ID_UPDATE		4
 #define ID_COPY			5
+#define ID_REVERTREV	6
 #define ID_DIFF			20
 
 /**

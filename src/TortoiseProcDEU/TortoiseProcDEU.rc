@@ -621,7 +621,7 @@ BEGIN
     IDS_LOG_REVISION        "Revision"
     IDS_LOG_AUTHOR          "Author"
     IDS_LOG_DATE            "Datum"
-    IDS_STRING211           "dummy"
+    IDS_LOG_REVERT_CONFIRM  "Wollen Sie wirklich alle Änderungen die in dieser\nRevision gemacht wurden rückgängig machen?"
     IDS_LOG_POPUP_COMPARE   "Vergleiche mit Arbeitskopie..."
     IDS_LOG_POPUP_SAVE      "Speichere Revision unter..."
     IDS_LOG_POPUP_COMPARETWO "Vergleiche Revisionen"
@@ -762,6 +762,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_POPUP_DIFF      "Zeige Änderungen"
+    IDS_LOG_POPUP_REVERTREV "Änderungen dieser Revision rückgängig machen"
 END
 
 STRINGTABLE 

@@ -26,17 +26,18 @@
 typedef enum
 {
 	Checkout = 1,
-	Update,
-	Commit,
-	Add,
-	Revert,
-	Resolve,
-	Import,
-	Switch,
-	Export,
-	Merge,
-	Copy,
-	Relocate
+	Update = 2,
+	Commit = 3,
+	Add = 4,
+	Revert = 5,
+	Resolve = 6,
+	Import = 7,
+	Switch = 8,
+	Export = 9,
+	Merge = 10,
+	Enum_Merge = 10,
+	Copy = 11,
+	Relocate = 12
 } Command;
 
 /**

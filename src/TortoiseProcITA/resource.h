@@ -83,6 +83,7 @@
 #define IDS_LOG_AUTHOR                  209
 #define IDS_LOG_DATE                    210
 #define IDS_STRING211                   211
+#define IDS_LOG_REVERT_CONFIRM          211
 #define IDS_LOG_POPUP_COMPARE           212
 #define IDS_LOG_POPUP_SAVE              213
 #define IDS_STRING214                   214
@@ -189,6 +190,7 @@
 #define IDS_REPOBROWSE_OPEN             602
 #define IDS_ABOUTVERSION                700
 #define IDS_LOG_POPUP_DIFF              800
+#define IDS_LOG_POPUP_REVERTREV         801
 #define IDS_PROGRESSGETFILE             900
 #define IDS_PROGRESSREVISION            901
 #define IDS_PROGRESSWAIT                902

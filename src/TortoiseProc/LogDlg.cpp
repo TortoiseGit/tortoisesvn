@@ -333,6 +333,9 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				temp.LoadString(IDS_LOG_POPUP_UPDATE);
 				if (m_hasWC)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
+				if (m_hasWC)
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
 			}
 			else if (m_LogList.GetSelectedCount() == 2)
 			{
@@ -346,6 +349,28 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			CCursor(IDC_WAIT);
 			switch (cmd)
 			{
+			case ID_REVERTREV:
+				{
+					int selIndex = m_LogList.GetSelectionMark();
+					long rev = m_arRevs.GetAt(selIndex);
+					if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_ICONQUESTION) == IDOK)
+					{
+						SVNStatus status;
+						status.GetStatus(m_path);
+						if (status.status->entry == NULL)
+						{
+							CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
+							TRACE(_T("could not retrieve the URL of the folder!\n"));
+							break;		//exit
+						} // if ((rev == (-2))||(status.status->entry == NULL))
+						CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
+						CSVNProgressDlg dlg;
+						dlg.SetParams(Enum_Merge, false, m_path, url, url, rev);		//use the message as the second url
+						dlg.m_nRevisionEnd = rev-1;
+						dlg.DoModal();
+					}
+				}
+				break;
 			case ID_COPY:
 				{
 					int selIndex = m_LogList.GetSelectionMark();
