@@ -1,0 +1,69 @@
+- Install Python 2.2. You can get it from here:
+  http://www.python.org/windows/
+- Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
+- create a new folder on your harddisk, e.g. SVN.
+  Now checkout the subversion source into this folder
+  svn co http://svn.collab.net/repos/svn/trunk Subversion
+  Or if you're using TortoiseSVN to checkout the sources
+  then right-click into the SVN folder and select "checkout".
+  In the dialog enter the URL and add "\Subversion" to
+  the checkout path.
+- Download the newest source of the apache server
+  for windows from http://httpd.apache.org/download.cgi
+  Unzip the sources into SVN\Subversion
+  Now open the Apache.dsw file and compile apache. After that
+  copy (not move) the folders
+  SVN\Subversion\httpd-2.0.46\srclib\apr to SVN\Subversion\apr
+  SVN\Subversion\httpd-2.0.46\srclib\apr-iconv to SVN\Subversion\apr-iconv
+  SVN\Subversion\httpd-2.0.46\srclib\apr-util to SVN\Subversion\apr-util
+  Now open the Apache.dsw file and compile apache.
+- Download the openssl source package from
+  http://www.openssl.org/source/ and unzip it to SVN\common
+  open a dos prompt and go to SVN\common\openssl
+  run the file <installdir_of_vs.net>\Common7\Tools\vsvars32.bat
+  > perl Configure VC-WIN32
+  > ms\do_masm
+  > nmake -f ms\ntdll.mak
+  don't close the dos-prompt, you'll need it later.
+- Download the zlib source from 
+  http://www.gzip.org/zlib/ and unzip it to SVN\common\zlib
+  Copy the file zlib\msdos\Makefile.w32 to zlib\
+  > nmake /f Makefile.w32
+  > copy zlib.lib zlibstat.lib
+- Download the newest neon source from 
+  http://www.webdav.org/neon/ and unzip it into SVN\Subversion
+  then rename the folder neon-0.23.9 to neon.
+  edit the file SVN\Subversion\build\win32\build_neon.bat:
+  @rem set OPENSSL_SRC=..\..\common\openssl
+  @rem set ZLIB_SRC=..\..\common\zlib114-win32
+  to
+  set OPENSSL_SRC=..\..\common\openssl
+  set ZLIB_SRC=..\..\common\zlib
+  now in the dos-prompt go to the neon directory and type 
+  > ..\build\win32\build_neon debug
+  > ..\build\win32\build_neon release
+- Download the compiled berkeley db library from
+  the TortoiseSVN download area:
+  http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=907
+  and unzip it to SVN\Subversion\db4-win32
+- in the dos-prompt cd to SVN\Subversion. Then type
+  > python gen-make.py -t dsp
+  this will create all the project files for visual studio.
+  Double-click on the subversion_msvc.dsw file to open visual studio.
+  Build the project called __ALL__. This will build all other projects
+  in the workspace too. 
+  Maybe the first time you'll get linker errors 'cause some files
+  get generated but aren't added to the projects. Then you have
+  to run
+  > python gen-make.py -t dsp
+  again and the next time you compile it'll be fine.
+  Now you have successfully compiled Subversion!
+  (Note: as of revision 5877 you'll get an error for
+  the neon project. It won't compile with the subversion
+  workspace, but since we already compiled it earlier
+  subversion builds anyway)
+- Checkout the TortoiseSVN sources from CVS. You need a
+  CVS client to do this. I'd recommend TortoiseCVS 
+  (http://www.tortoisecvs.org). Check it out to
+  SVN\TortoiseSVN
+  Open the solution file and compile.

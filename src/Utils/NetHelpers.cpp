@@ -200,5 +200,227 @@ ULONG GetIPFromString(LPCTSTR ipstring)
 	return NULL;
 }
 
+CString GetUserName()
+{
+	HANDLE       hToken   = NULL;
+	PTOKEN_USER  ptiUser  = NULL;
+	DWORD        cbti     = 0;
+	SID_NAME_USE snu;
+	TCHAR user[1024];
+	TCHAR domain[1024];
+	OpenThreadTokenFn pfnOpenThreadToken;
+	OpenProcessTokenFn pfnOpenProcessToken;
+	GetTokenInformationFn pfnGetTokenInformation;
+	LookupAccountSidFn pfnLookupAccountSid;
+
+	ZeroMemory(user, sizeof(user));
+	ZeroMemory(domain, sizeof(domain));
+
+	HMODULE hDll = LoadLibrary(_T("Advapi32"));
+	if (!hDll)
+		return _T("");
+
+	pfnOpenThreadToken = (OpenThreadTokenFn)GetProcAddress(hDll, _T("OpenThreadToken"));
+	pfnOpenProcessToken = (OpenProcessTokenFn)GetProcAddress(hDll, _T("OpenProcessToken"));
+	pfnGetTokenInformation = (GetTokenInformationFn)GetProcAddress(hDll, _T("GetTokenInformation"));
+	pfnLookupAccountSid = (LookupAccountSidFn)GetProcAddress(hDll, _T(LOOKUPACCOUNTSIDFN));
+	if (!((pfnOpenThreadToken)&&(pfnOpenProcessToken)&&(pfnGetTokenInformation)&&(pfnLookupAccountSid)))
+		return _T("");
+
+	// Get the calling thread's access token.
+	if (!(pfnOpenThreadToken)(GetCurrentThread(), TOKEN_QUERY, TRUE, &hToken)) 
+	{
+		if (GetLastError() != ERROR_NO_TOKEN)
+		{
+			FreeLibrary(hDll);
+			return _T("");
+		}
+
+		// Retry against process token if no thread token exists.
+		if (!(pfnOpenProcessToken)(GetCurrentProcess(), TOKEN_QUERY, &hToken))
+		{
+			if (hToken)
+				CloseHandle(hToken);
+			FreeLibrary(hDll);
+			return _T("");
+		}
+	}
+
+	// Obtain the size of the user information in the token.
+	if ((pfnGetTokenInformation)(hToken, TokenUser, NULL, 0, &cbti)) 
+	{
+		if (hToken)
+			CloseHandle(hToken);
+		FreeLibrary(hDll);
+		return _T("");
+	} 
+	else 
+	{
+		// Call should have failed due to zero-length buffer.
+		if (GetLastError() != ERROR_INSUFFICIENT_BUFFER)
+		{
+			if (hToken)
+				CloseHandle(hToken);
+			FreeLibrary(hDll);
+			return _T("");
+		}
+	}
+
+	// Allocate buffer for user information in the token.
+	ptiUser = (PTOKEN_USER) HeapAlloc(GetProcessHeap(), 0, cbti);
+	if (!ptiUser)
+	{
+		if (hToken)
+			CloseHandle(hToken);
+		FreeLibrary(hDll);
+		return _T("");
+	} 
+
+	// Retrieve the user information from the token.
+	if (!(pfnGetTokenInformation)(hToken, TokenUser, ptiUser, cbti, &cbti))
+	{
+		if (hToken)
+			CloseHandle(hToken);
+
+		if (ptiUser)
+			HeapFree(GetProcessHeap(), 0, ptiUser);
+		FreeLibrary(hDll);
+		return _T("");
+	}
+
+	// Retrieve user name and domain name based on user's SID.
+	DWORD userlen = 1024;
+	DWORD domainlen = 1024;
+	if (!(pfnLookupAccountSid)(NULL, ptiUser->User.Sid, user, &userlen, domain, &domainlen, &snu))
+	{
+		if (hToken)
+			CloseHandle(hToken);
+
+		if (ptiUser)
+			HeapFree(GetProcessHeap(), 0, ptiUser);
+		FreeLibrary(hDll);
+		return _T("");
+	}
+	if (hToken)
+		CloseHandle(hToken);
+
+	if (ptiUser)
+		HeapFree(GetProcessHeap(), 0, ptiUser);
+	// Free resources.
+	FreeLibrary(hDll);
+	return CString(user);
+}
+
+CString GetDomainName()
+{
+	HANDLE       hToken   = NULL;
+	PTOKEN_USER  ptiUser  = NULL;
+	DWORD        cbti     = 0;
+	SID_NAME_USE snu;
+	TCHAR user[1024];
+	TCHAR domain[1024];
+	OpenThreadTokenFn pfnOpenThreadToken;
+	OpenProcessTokenFn pfnOpenProcessToken;
+	GetTokenInformationFn pfnGetTokenInformation;
+	LookupAccountSidFn pfnLookupAccountSid;
+
+	ZeroMemory(user, sizeof(user));
+	ZeroMemory(domain, sizeof(domain));
+
+	HMODULE hDll = LoadLibrary(_T("Advapi32"));
+	if (!hDll)
+		return _T("");
+
+	pfnOpenThreadToken = (OpenThreadTokenFn)GetProcAddress(hDll, _T("OpenThreadToken"));
+	pfnOpenProcessToken = (OpenProcessTokenFn)GetProcAddress(hDll, _T("OpenProcessToken"));
+	pfnGetTokenInformation = (GetTokenInformationFn)GetProcAddress(hDll, _T("GetTokenInformation"));
+	pfnLookupAccountSid = (LookupAccountSidFn)GetProcAddress(hDll, _T(LOOKUPACCOUNTSIDFN));
+	if (!((pfnOpenThreadToken)&&(pfnOpenProcessToken)&&(pfnGetTokenInformation)&&(pfnLookupAccountSid)))
+		return _T("");
+
+	// Get the calling thread's access token.
+	if (!(pfnOpenThreadToken)(GetCurrentThread(), TOKEN_QUERY, TRUE, &hToken)) 
+	{
+		if (GetLastError() != ERROR_NO_TOKEN)
+		{
+			FreeLibrary(hDll);
+			return _T("");
+		}
+
+		// Retry against process token if no thread token exists.
+		if (!(pfnOpenProcessToken)(GetCurrentProcess(), TOKEN_QUERY, &hToken))
+		{
+			if (hToken)
+				CloseHandle(hToken);
+			FreeLibrary(hDll);
+			return _T("");
+		}
+	}
+
+	// Obtain the size of the user information in the token.
+	if ((pfnGetTokenInformation)(hToken, TokenUser, NULL, 0, &cbti)) 
+	{
+		if (hToken)
+			CloseHandle(hToken);
+		FreeLibrary(hDll);
+		return _T("");
+	} 
+	else 
+	{
+		// Call should have failed due to zero-length buffer.
+		if (GetLastError() != ERROR_INSUFFICIENT_BUFFER)
+		{
+			if (hToken)
+				CloseHandle(hToken);
+			FreeLibrary(hDll);
+			return _T("");
+		}
+	}
+
+	// Allocate buffer for user information in the token.
+	ptiUser = (PTOKEN_USER) HeapAlloc(GetProcessHeap(), 0, cbti);
+	if (!ptiUser)
+	{
+		if (hToken)
+			CloseHandle(hToken);
+		FreeLibrary(hDll);
+		return _T("");
+	} 
+
+	// Retrieve the user information from the token.
+	if (!(pfnGetTokenInformation)(hToken, TokenUser, ptiUser, cbti, &cbti))
+	{
+		if (hToken)
+			CloseHandle(hToken);
+
+		if (ptiUser)
+			HeapFree(GetProcessHeap(), 0, ptiUser);
+		FreeLibrary(hDll);
+		return _T("");
+	}
+
+	// Retrieve user name and domain name based on user's SID.
+	DWORD userlen = 1024;
+	DWORD domainlen = 1024;
+	if (!(pfnLookupAccountSid)(NULL, ptiUser->User.Sid, user, &userlen, domain, &domainlen, &snu))
+	{
+		if (hToken)
+			CloseHandle(hToken);
+
+		if (ptiUser)
+			HeapFree(GetProcessHeap(), 0, ptiUser);
+		FreeLibrary(hDll);
+		return _T("");
+	}
+	if (hToken)
+		CloseHandle(hToken);
+
+	if (ptiUser)
+		HeapFree(GetProcessHeap(), 0, ptiUser);
+	// Free resources.
+	FreeLibrary(hDll);
+	return CString(domain);
+}
+
 
 

@@ -56,3 +56,12 @@ CString GetMACAddress(int adapternumber = 0);
  */   
 ULONG GetIPFromString(LPCTSTR ipstring);
 
+/**
+ * Returns the login name of the current user. If not available an empty string is returned.
+ */	 	 		
+static CString GetUserName();
+
+/**
+ * Returns the domain name the current user is logged on. If not available an empty string is returned.
+ */	 	 		
+static CString GetDomainName();
