@@ -566,14 +566,14 @@ BOOL CPatch::HasExpandedKeyWords(const CString& line)
 CString	CPatch::CheckPatchPath(const CString& path)
 {
 	//first check if the path already matches
-	if (CountMatches(path) > 0)
+	if (CountMatches(path) > (GetNumberOfFiles()/3))
 		return path;
 	//now go up the tree and try again
 	CString upperpath = path;
 	while (upperpath.ReverseFind('\\')>0)
 	{
 		upperpath = upperpath.Left(upperpath.ReverseFind('\\'));
-		if (CountMatches(upperpath) > 0)
+		if (CountMatches(upperpath) > (GetNumberOfFiles()/3))
 			return upperpath;
 	}
 	//still no match found. So try subfolders
@@ -588,7 +588,7 @@ CString	CPatch::CheckPatchPath(const CString& path)
 			continue;
 		if (subpath.Find(sAdminDir) >= 0)
 			continue;
-		if (CountMatches(subpath) > 0)
+		if (CountMatches(subpath) > (GetNumberOfFiles()/3))
 			return subpath;
 	}
 	return path;
