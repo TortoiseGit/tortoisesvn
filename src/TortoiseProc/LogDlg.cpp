@@ -325,6 +325,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				if (!svn.Cat(m_path, rev, tempfile))
 				{
 					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					GetDlgItem(IDOK)->EnableWindow(TRUE);
 					return;
 				}
 
@@ -390,11 +391,13 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				if (!svn.Cat(m_path, rev1, tempfile1))
 				{
 					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					GetDlgItem(IDOK)->EnableWindow(TRUE);
 					return;
 				}
 				if (!svn.Cat(m_path, rev2, tempfile2))
 				{
 					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					GetDlgItem(IDOK)->EnableWindow(TRUE);
 					return;
 				}
 
@@ -476,6 +479,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					if (!svn.Cat(m_path, rev, tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						return;
 					}
 				} // if (GetSaveFileName(&ofn)==TRUE)
@@ -490,6 +494,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				if (!svn.Update(m_path, rev, TRUE))
 				{
 					CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					GetDlgItem(IDOK)->EnableWindow(TRUE);
 					return;
 				}
 			}
