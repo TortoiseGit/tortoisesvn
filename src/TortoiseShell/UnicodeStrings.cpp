@@ -21,7 +21,7 @@
 
 std::string WideToMultibyte(wide_string wide)
 {
-	char * narrow = new char[wide.length()*3];
+	char * narrow = new char[wide.length()*3+2];
 	BOOL defaultCharUsed;
 	int ret = (int)WideCharToMultiByte(CP_ACP, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, ".", &defaultCharUsed);
 	narrow[ret] = 0;
@@ -32,7 +32,7 @@ std::string WideToMultibyte(wide_string wide)
 
 std::string WideToUTF8(wide_string wide)
 {
-	char * narrow = new char[wide.length()*3];
+	char * narrow = new char[wide.length()*3+2];
 	int ret = (int)WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, NULL, NULL);
 	narrow[ret] = 0;
 	std::string str = narrow;
@@ -42,7 +42,7 @@ std::string WideToUTF8(wide_string wide)
 
 wide_string MultibyteToWide(std::string multibyte)
 {
-	wchar_t * wide = new wchar_t[multibyte.length()*2];
+	wchar_t * wide = new wchar_t[multibyte.length()*2+2];
 	int ret = (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
 	wide[ret] = 0;
 	wide_string str = wide;
@@ -52,7 +52,7 @@ wide_string MultibyteToWide(std::string multibyte)
 
 wide_string UTF8ToWide(std::string multibyte)
 {
-	wchar_t * wide = new wchar_t[multibyte.length()*2];
+	wchar_t * wide = new wchar_t[multibyte.length()*2+2];
 	int ret = (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
 	wide[ret] = 0;
 	wide_string str = wide;
