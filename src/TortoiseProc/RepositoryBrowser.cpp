@@ -323,7 +323,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDIFF, temp);
 				} // if (!bFolder1 && !bFolder2) 
 			} // if (uSelCount == 2) 
-
+			if (uSelCount >= 2)
+			{
+				temp.LoadString(IDS_REPOBROWSE_DELETE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
+			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
 
@@ -400,27 +404,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPDELETE:
 				{
-					SVN svn;
-					svn.m_app = &theApp;
-					CWaitCursorEx wait_cursor;
-					CInputDlg dlg(this);
-					dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-					CUtils::RemoveAccelerators(dlg.m_sHintText);
-					dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-					CUtils::RemoveAccelerators(dlg.m_sTitle);
-					dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
-					CUtils::RemoveAccelerators(dlg.m_sInputText);
-					if (dlg.DoModal()==IDOK)
-					{
-						if (!svn.Remove(url, TRUE, dlg.m_sInputText))
-						{
-							wait_cursor.Hide();
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							return;
-						} // if (!svn.Remove(url, TRUE)) 
-						m_treeRepository.DeleteUrl(url);
-						*pResult = 1; // mark HTREEITEM as deleted
-					} // if (dlg.DoModal()==IDOK) 
+					DeleteSelectedEntries();
+					*pResult = 1; // mark HTREEITEM as deleted
 				}
 				break;
 			case ID_POPIMPORT:
@@ -726,6 +711,10 @@ void CRepositoryBrowser::OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 		*pResult = 1;
 		break;
+	case VK_DELETE:
+		DeleteSelectedEntries();
+		*pResult = 1;
+		break;	
 	default:
 		break;
 	}
@@ -742,3 +731,40 @@ void CRepositoryBrowser::OnBnClickedHelp()
 	OnHelp();
 }
 
+void CRepositoryBrowser::DeleteSelectedEntries()
+{
+	SVN svn;
+	svn.m_app = &theApp;
+	CWaitCursorEx wait_cursor;
+	CInputDlg dlg(this);
+	dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+	CUtils::RemoveAccelerators(dlg.m_sHintText);
+	dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+	CUtils::RemoveAccelerators(dlg.m_sTitle);
+	dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
+	CUtils::RemoveAccelerators(dlg.m_sInputText);
+	if (dlg.DoModal()==IDOK)
+	{
+		int selItem = m_treeRepository.GetFirstSelectedItem();
+		CString url;
+		do
+		{
+			url += m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem));
+			url += _T("*");
+			selItem = m_treeRepository.GetNextSelectedItem(selItem);
+		} while (selItem != RVI_INVALID);
+		url = url.Left(url.GetLength()-1);		//remove the trailing '*'
+		if (!svn.Remove(url, TRUE, dlg.m_sInputText))
+		{
+			wait_cursor.Hide();
+			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			return;
+		} // if (!svn.Remove(url, TRUE)) 
+		while (url.Find('*')>=0)
+		{
+			m_treeRepository.DeleteUrl(url.Left(url.Find('*')));
+			url = url.Mid(url.Find('*')+1);
+		}
+		m_treeRepository.DeleteUrl(url);
+	} // if (dlg.DoModal()==IDOK) 
+}

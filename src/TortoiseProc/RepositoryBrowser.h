@@ -88,6 +88,8 @@ protected:
 	void ShowContextMenu(CPoint pt, LRESULT *pResult);
 	DECLARE_MESSAGE_MAP()
 
+	void DeleteSelectedEntries();
+
 	CRepositoryTree		m_treeRepository;
 	CRepositoryBar		m_barRepository;
 	CRepositoryBarCnr	m_cnrRepositoryBar;
