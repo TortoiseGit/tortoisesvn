@@ -450,6 +450,16 @@
 		</guimenuitem> und öffnet zuerst einen Dialog, wo Sie die Revisionsnummer
 		eingeben können, auf welche die Arbeitskopie aktualisiert werden soll.
 		</para>
+		<warning>
+		Wenn Sie eine Datei oder Ordner auf eine bestimmte Revision aktualisieren,
+		werden Sie <literal>out of date</literal> Fehlermeldungen erhalten wenn
+		Sie versuchen, diese Dateien oder Ordner später zu übertragen.
+		Wenn Sie Änderungen an Dateien rückgängig machen wollen dann
+		müssen Sie entweder den Befehl <menuchoice><guimenuitem>Änderungen dieser
+		Revision rückgängig machen</guimenuitem></menuchoice> im Log-Dialog oder
+		den Befehl <menuchoice><guimenuitem>Mischen...</guimenuitem></menuchoice>
+		verwenden.
+		</warning>
 		<para>
 		Der Befehl <guimenuitem>Aktualisieren zu Revision...</guimenuitem> 
 		ermöglicht es Ihnen, Ihre Arbeitskopie auf einen früheren Stand
