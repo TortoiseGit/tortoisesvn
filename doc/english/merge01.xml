@@ -14,7 +14,6 @@
 	<sect1 id="tmerge-ch-1-sect-1">
 		
 		<title>Overview</title>
-		<?dbhh topicname="HIDD_OPENDLG"?>
 	
 		<para>
 		TortoiseMerge is a free/open-source application. It let's you see
@@ -92,7 +91,7 @@
 		
 		<para>
 		Since TortoiseSVN already uses the Subversion library, which has a
-		nice diffing engine built in it was just logical to use this library
+		nice diffing engine built in it was just natural to use this library
 		instead of the GNU diff. Also it reduces the size of the executable
 		since TortoiseSVN and TortoiseMerge can both use the same dll's.
 		</para>
@@ -101,8 +100,3 @@
 
 </chapter>
 
-<!--
-local variables: 
-sgml-parent-document: ("book.xml" "chapter")
-end:
--->

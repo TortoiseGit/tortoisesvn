@@ -2,6 +2,7 @@
 <!DOCTYPE book SYSTEM "../tools/dtd/dblite.dtd" [
 	<!ENTITY merge00 SYSTEM "merge00.xml">
 	<!ENTITY merge01 SYSTEM "merge01.xml">
+	<!ENTITY merge02 SYSTEM "merge02.xml">
 	<!ENTITY mergegloss SYSTEM "mergeglossary.xml">
 	<!ENTITY mergecopy SYSTEM "mergecopyright.xml">
 	<!ENTITY mergecolo SYSTEM "mergecolo.xml">
@@ -29,6 +30,7 @@
 
   &merge00;
   &merge01;
+  &merge02;
   &mergegloss;
 <!--  &mergecopy;-->
   &mergecolo;
