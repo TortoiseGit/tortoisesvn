@@ -711,6 +711,32 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 			}
 		}
 		CUtils::StartExtMerge(base, theirs, mine, merge);
+	} // ify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted)))
+	else if ((action == svn_wc_notify_update_update) && (content_state == svn_wc_notify_state_merged))
+	{
+		CString sWC = m_arPaths.GetAt(pNMLV->iItem);
+		CString sBase = SVN::GetPristinePath(sWC);
+
+		//TODO:
+		//as soon as issue 1361 of subversion 
+		//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
+		//uncomment the lines below and delete the 
+		//line above. This will then allow diff-viewers which
+		//don't ignore different line endings to work correctly
+
+		//CString path2 = CUtils::GetTempFile();
+		//SVN svn;
+		//if (!svn.Cat(path1, SVN::REV_BASE, path2))
+		//{
+		//	path2 = SVN::GetPristinePath(path1);
+		//}
+		//else
+		//{
+		//	m_templist.Add(path2);
+		//}
+
+		CUtils::StartDiffViewer(sBase, sWC);
+
 	}
 }
 
