@@ -58,11 +58,6 @@ protected:
 	CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
 	{
 		m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-
-		if(theApp.m_pMainWnd == NULL)
-		{
-			theApp.m_pMainWnd = this;
-		}
 	}
 	virtual BOOL OnInitDialog()
 	{
