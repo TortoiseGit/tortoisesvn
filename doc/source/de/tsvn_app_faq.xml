@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <appendix id="tsvn-faq" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Häufig gestellte Fragen (FAQ)</title>
 	<simplesect>
@@ -848,13 +848,40 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Wenn Sie die Revisionsnummer in Ihrem Projekt als Versionsnummer
 			verwenden möchten so benötigen Sie ein zusätzliches Tool. Sie
 			finden das Tool <literal>SubWCRev.exe</literal> auf der Download
-			Seite unserer Webseite.
+			Seite unserer Webseite oder in Ihrem <application>TortoiseSVN</application> 
+			Verzeichnis unter <filename>bin</filename>.
 			</para>
 			<para>
 			Dieses Tool durchsucht die ganze Arbeitskopie nach der jüngsten
 			Revisionsnummer. Sobald diese Revisionsnummer gefunden ist, ersetzt
-			das Tool sämtliche <literal>$WCREV$</literal> Zeichenketten einer
-			Datei durch diese Revisionsnummer.
+			das Tool folgende Zeichenketten:
+			<variablelist>
+				<varlistentry>
+					<term>$WCREV$</term>
+					<listitem>
+						Diese Zeichenkette wird durch die Revisionsnummer 
+						Ihrer Arbeitskopie ersetzt.
+					</listitem>
+				<varlistentry>
+				<varlistentry>
+					<term>$WCMODS?Modified:Not modified$</term>
+					<listitem>
+						Wenn lokale Änderungen vorgenommen 
+						wurden ohne einzuchecken, wird der Text 
+						zwischen Fragezeichen und Doppelpunkt eingefügt.
+						Wenn keine lokalen Änderungen vorhanden sind, wird
+						der Text zwischen Doppelpunkt und Dollarzeichen 
+						eingefügt. Im Beispiel <literal>Modified</literal>
+						oder <literal>Not modified</literal>.
+					</listitem>
+				<varlistentry>
+				<varlistentry>
+					<term>$WCDATE$</term>
+					<listitem>
+						Wird durch das Datum der Revision ersetzt.
+					</listitem>
+				<varlistentry>
+			</variablelist>
 			</para>
 			<para>
 			Als Beispiel sehen Sie sich bitte die Datei <filename>version.in</filename>
@@ -865,8 +892,8 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 SubWCRev.exe pfad\zur\Arbeitskopie version.in version.h
 </screen>
 			Dies erstellt eine neue Datei <filename>version.h</filename> mit
-			all den <literal>$WCREV$</literal> Zeichenketten ersetzt durch
-			die Revisionsnummer der Arbeitskopie. Die Datei <filename>version.h</filename>
+			all den obigen Zeichenketten ersetzt durch die entsprechenden 
+			Werte der Arbeitskopie. Die Datei <filename>version.h</filename>
 			schliesslich wird im TortoiseSVN Projekt und den Resource-Dateien
 			eingeschlossen für die Versions-Infos.
 			</para>

@@ -17,7 +17,7 @@
 		<para>
 		Most of these answers came from the <application>TortoiseCVS
 		</application>
-			<ulink url="http://www.tortoisecvs.org/faq.html">FAQ
+			<ulink url="http://www.tortoisecvs.org/faq.html"><citetitle>FAQ</citetitle>
 		</ulink>
 		</para>
 		<sect2 id="tsvn-faq-installation-0">
@@ -177,8 +177,8 @@
 			added
 			</para>
 			<para>
-			So most likely the "added" overlay will be missing, then the "deleted"
-			and so on.
+			So most likely the <literal>added</literal> overlay will be missing,
+			then the <literal>deleted</literal> and so on.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-2-2">
@@ -186,8 +186,8 @@
 			<para>
 			  For the same reason. There are only 15 slots for icon overlays available.
 			  We don't want to waste a slot for the least important information. That's why.
-			  If you want to distinguish "unversioned" and "ignored" files in the explorer,
-			  switch to the explorers detailed view and activate the column "SVN Status". 
+			  If you want to distinguish <literal>unversioned</literal> and <literal>ignored</literal> files in the explorer,
+			  switch to the explorers detailed view and activate the column <guilabel>SVN Status</guilabel>. 
 				Then you will see the difference.
 			</para>
 		</sect2>
@@ -200,7 +200,7 @@
 			<itemizedlist>
 					<listitem>
 						<para>Install Microsoft's <application>
-								<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">	TweakUI</ulink>
+								<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp"><citetitle>TweakUI</citetitle></ulink>
 							</application> and run the option 	to rebuild icons.</para>
 					</listitem>
 					<listitem>
@@ -212,8 +212,8 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 				 and add 
 				a new String Value called <literal>Max Cached Icons</literal>. 
 				The default value is 500 - try increasing it to 2048 
-				(see <ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">this</ulink>
-				 knowledge base article for more details).
+				(see <ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp"><citetitle>Q132668</citetitle></ulink>
+				in the Microsoft knowledge base for more details).
 				</para>
 					</listitem>
 					<listitem>
@@ -251,10 +251,10 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			so that explorer reads in the icons again. 
 			Alternatively you can flush the icon cache with the 
 			<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
-					<application>TweakUI</application>
+					<citetitle>TweakUI</citetitle>
 				</ulink>
 			tool from Microsoft. For
-			WinXP you can get it <ulink url="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp">here</ulink>.
+			WinXP you can get <ulink url="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp"><citetitle>TweakUI</citetitle></ulink> here.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-5">
@@ -798,7 +798,7 @@ Folder/File2 : revision 2
 			<para>There is a really good blog post that helps you to convert 
 			your ASP.NET web projects to ASP.NET class project. You can find it
 			<ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
-			here</ulink>. If you follow those instructions, you'll have a
+			<citetitle>here</citetitle></ulink>. If you follow those instructions, you'll have a
 			VS.NET working with ASP.NET projects and Subversion without troubles.
 			</para>
 			<para>
@@ -901,24 +901,52 @@ Folder/File2 : revision 2
 			<para>
 			If you want the revision number in your program version number you
 			need an additional tool to do that. You can find the tool 
-			<literal>SubWCRev.exe</literal> on the download page on our website.
+			<literal>SubWCRev.exe</literal> on the download page on our website 
+			or in your <application>TortoiseSVN</application> Folder under 
+			<filename>bin</filename>.
 			</para>
 			<para>
 			This tool traverses your whole working copy for the most recent
 			revision. Once that revision is found, it replaces all occurences
-			of the string <literal>$WCREV$</literal> with that revision number.
+			of the following strings:
+			<variablelist>
+				<varlistentry>
+					<term>$WCREV$</term>
+					<listitem>
+						This string will be replaced by the revision 
+						number of your working copy. 
+					</listitem>
+				<varlistentry>
+				<varlistentry>
+					<term>$WCMODS?Modified:Not modified$</term>
+					<listitem>
+						If you have local modifications, the string between 
+						Question mark and colon will be inserted. If you 
+						haven't local modifications, the string between colon 
+						dollar sign will be inserted. In our example above 
+						<literal>Modified</literal>
+						or <literal>Not modified</literal>.
+					</listitem>
+				<varlistentry>
+				<varlistentry>
+					<term>$WCDATE$</term>
+					<listitem>
+						Will be replaced by the date of your revision. 
+					</listitem>
+				<varlistentry>
+			</variablelist>
 			</para>
 			<para>
 			As an example, have a look at the file <filename>version.in</filename>
-			in the TortoiseSVN source tree <ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">here</ulink>.
+			in the <ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in"><citetitle>TortoiseSVN source tree</citetitle></ulink>.
 			This file is used in TortoiseSVN and its resource files. The
 			SubWCRev.exe tool is called from the build script like this:
 <screen>
 SubWCRev.exe path\to\working\copy version.in version.h
 </screen>
 			This creates a new file <filename>version.h</filename> with all
-			the <literal>$WCREV$</literal> strings replaced with the revision
-			number of the working copy. The <filename>version.h</filename>
+			the strings above replaced with the values of the working copy. 
+			The <filename>version.h</filename>
 			file is then used in the project itself and included in the 
 			resource files for the version information.
 			</para>
@@ -950,31 +978,31 @@ SubWCRev.exe path\to\working\copy version.in version.h
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
-				WinMerge</ulink>, a great open-source viewer</para>
+				<citetitle>WinMerge</citetitle></ulink>, a great open-source viewer</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4diff.zip">
-				Perforce Win Diff</ulink>, a free tool from Perforce. 
-				You can find the full installer 
+				<citetitle>Perforce Win Diff</citetitle></ulink>, a free tool from Perforce. 
+				You can download the full
 				<ulink url="http://www.perforce.com/perforce/loadprog.html">
-				here</ulink>
+				<citetitle>installer</citetitle></ulink> here.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							<ulink url="http://www.prestosoft.com/">Examdiff or Examdiff Pro</ulink>, an excellent Free or 
+							<ulink url="http://www.prestosoft.com/"><citetitle>Examdiff or Examdiff Pro</citetitle></ulink>, an excellent Free or 
 				Shareware tool, The 3.2 Version can handle unicode</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.scootersoftware.com/">
-				Beyond Compare</ulink>, an excellent Shareware tool, can handle Unicode</para>
+				<citetitle>Beyond Compare</citetitle></ulink>, an excellent Shareware tool, can handle Unicode</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.scintilla.org/SciTEDownload.html">
-				SciTE</ulink>, for showing unified diffs, it has 
+				<citetitle>SciTE</citetitle></ulink>, for showing unified diffs, it has 
 				built-in support for syntax-coloring, since it's 
 				not only a viewer but a Text Editor as well.</para>
 					</listitem>
@@ -990,26 +1018,26 @@ SubWCRev.exe path\to\working\copy version.in version.h
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
-				WinMerge</ulink>, a great open-source viewer</para>
+				<citetitle>WinMerge</citetitle></ulink>, a great open-source viewer</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4winmrg.zip">
-				Perforce Win Diff</ulink>, a free tool from Perforce. 
-				You can find the full installer 
+				<citetitle>Perforce Win Diff</citetitle></ulink>, a free tool from Perforce. 
+				You can find the full
 				<ulink url="http://www.perforce.com/perforce/loadprog.html">
-				here</ulink>
+				<citetitle>installer</citetitle></ulink> here.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.accurev.com/free/tkdiff/">
-				TkDiff</ulink>, uses TCL/TK</para>
+				<citetitle>TkDiff</citetitle></ulink>, uses TCL/TK</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://sourceforge.net/projects/conflicteditor/">
-				CvsConflictEditor</ulink>, buggy but has potential</para>
+				<citetitle>CvsConflictEditor</citetitle></ulink>, buggy but has potential</para>
 					</listitem>
 				</itemizedlist>
 			</para>
