@@ -1179,7 +1179,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				cmdLinePath.SetFromUnknown(cmdLinePath.GetUIPathString().Mid(8));
 			}
-			bFile = !cmdLinePath.IsDirectory();
+			bFile = PathFileExists(cmdLinePath.GetWinPath()) ? !cmdLinePath.IsDirectory() : FALSE;
 
 			if (url.IsEmpty())
 			{
