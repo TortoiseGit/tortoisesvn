@@ -449,4 +449,5 @@ public:
 	virtual BOOL OnInitDialog();
 protected:
 	virtual void OnCancel();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

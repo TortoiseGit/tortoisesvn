@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "resource.h"			//if you defined some IDS_MSGBOX_xxxx this include is needed!
 #include "messagebox.h"
+#include ".\messagebox.h"
 
 
 CMessageBox::CMessageBox(void)
@@ -765,6 +766,38 @@ BOOL CMessageBox::OnInitDialog()
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
+BOOL CMessageBox::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case 'C':
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					CStringA sClipboard = CStringA(m_sMessage);
+					if (OpenClipboard())
+					{
+						EmptyClipboard();
+						HGLOBAL hClipboardData;
+						hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipboard.GetLength()+1);
+						char * pchData;
+						pchData = (char*)GlobalLock(hClipboardData);
+						strcpy(pchData, (LPCSTR)sClipboard);
+						GlobalUnlock(hClipboardData);
+						SetClipboardData(CF_TEXT,hClipboardData);
+						CloseClipboard();
+					}
+					return TRUE;
+				}
+			}
+		}
+	}
+
+	return __super::PreTranslateMessage(pMsg);
 }
 
 
