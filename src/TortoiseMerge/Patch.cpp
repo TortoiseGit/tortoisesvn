@@ -301,8 +301,9 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 	{
 		m_sErrorMessage.LoadString(IDS_ERR_PATCH_CHUNKMISMATCH);
 		goto errorcleanup;
-	}
-	m_arFileDiffs.Add(chunks);
+	} // if (chunk)
+	if (chunks)
+		m_arFileDiffs.Add(chunks);
 	return TRUE;
 errorcleanup:
 	if (chunk)
