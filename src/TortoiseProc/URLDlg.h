@@ -29,7 +29,7 @@
  *
  * \author kueng
  */
-class CURLDlg : public CStandAloneDialog
+class CURLDlg : public CDialog
 {
 	DECLARE_DYNAMIC(CURLDlg)
 

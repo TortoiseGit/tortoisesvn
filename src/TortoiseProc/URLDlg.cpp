@@ -24,9 +24,9 @@
 
 // CURLDlg dialog
 
-IMPLEMENT_DYNAMIC(CURLDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CURLDlg, CDialog)
 CURLDlg::CURLDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CURLDlg::IDD, pParent)
+	: CDialog(CURLDlg::IDD, pParent)
 {
 	m_url = _T("");
 }
@@ -37,18 +37,18 @@ CURLDlg::~CURLDlg()
 
 void CURLDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CURLDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CURLDlg, CDialog)
 END_MESSAGE_MAP()
 
 
 BOOL CURLDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -66,6 +66,6 @@ void CURLDlg::OnOK()
 		UpdateData();
 	} // if (m_URLCombo.IsWindowEnabled()) 
 
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }
 

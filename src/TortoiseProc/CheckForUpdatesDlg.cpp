@@ -27,9 +27,9 @@
 
 // CCheckForUpdatesDlg dialog
 
-IMPLEMENT_DYNAMIC(CCheckForUpdatesDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCheckForUpdatesDlg, CDialog)
 CCheckForUpdatesDlg::CCheckForUpdatesDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CCheckForUpdatesDlg::IDD, pParent)
+	: CDialog(CCheckForUpdatesDlg::IDD, pParent)
 {
 	m_bShowInfo = FALSE;
 	m_bVisible = FALSE;
@@ -41,11 +41,11 @@ CCheckForUpdatesDlg::~CCheckForUpdatesDlg()
 
 void CCheckForUpdatesDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CCheckForUpdatesDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCheckForUpdatesDlg, CDialog)
 	ON_STN_CLICKED(IDC_CHECKRESULT, OnStnClickedCheckresult)
 	ON_WM_TIMER()
 	ON_WM_WINDOWPOSCHANGING()
@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 
 BOOL CCheckForUpdatesDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	CString temp;
 	temp.Format(IDS_CHECKNEWER_YOURVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
@@ -75,14 +75,14 @@ void CCheckForUpdatesDlg::OnOK()
 {
 	if (m_bThreadRunning)
 		return;
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }
 
 void CCheckForUpdatesDlg::OnCancel()
 {
 	if (m_bThreadRunning)
 		return;
-	CStandAloneDialog::OnCancel();
+	CDialog::OnCancel();
 }
 
 UINT CCheckForUpdatesDlg::CheckThreadEntry(LPVOID pVoid)
@@ -196,12 +196,12 @@ void CCheckForUpdatesDlg::OnTimer(UINT nIDEvent)
 			}
 		}
 	}
-	CStandAloneDialog::OnTimer(nIDEvent);
+	CDialog::OnTimer(nIDEvent);
 }
 
 void CCheckForUpdatesDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 {
-	CStandAloneDialog::OnWindowPosChanging(lpwndpos);
+	CDialog::OnWindowPosChanging(lpwndpos);
 	if (m_bVisible == FALSE)
 		lpwndpos->flags &= ~SWP_SHOWWINDOW;
 }

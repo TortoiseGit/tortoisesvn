@@ -27,9 +27,9 @@
 
 // CCheckoutDlg dialog
 
-IMPLEMENT_DYNAMIC(CCheckoutDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCheckoutDlg, CDialog)
 CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CCheckoutDlg::IDD, pParent)
+	: CDialog(CCheckoutDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_strCheckoutDirectory(_T(""))
 	, IsExport(FALSE)
@@ -43,7 +43,7 @@ CCheckoutDlg::~CCheckoutDlg()
 
 void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_REVISION_NUM, m_editRevision);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
@@ -53,7 +53,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCheckoutDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCheckoutDlg, CDialog)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
@@ -64,7 +64,7 @@ END_MESSAGE_MAP()
 
 BOOL CCheckoutDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -93,9 +93,8 @@ BOOL CCheckoutDlg::OnInitDialog()
 		GetDlgItem(IDC_NON_RECURSIVE)->ShowWindow(SW_HIDE);
 	} // if (IsExport)
 
-	if (hWndExplorer)
+	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("CheckoutDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -158,7 +157,7 @@ void CCheckoutDlg::OnOK()
 			return;		//don't dismiss the dialog
 	}
 	UpdateData(FALSE);
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }
 
 void CCheckoutDlg::OnBnClickedRevisionN()
@@ -251,7 +250,7 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
-	return CStandAloneDialog::PreTranslateMessage(pMsg);
+	return CDialog::PreTranslateMessage(pMsg);
 }
 
 void CCheckoutDlg::OnEnChangeCheckoutdirectory()

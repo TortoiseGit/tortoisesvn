@@ -29,9 +29,9 @@
 
 // CCopyDlg dialog
 
-IMPLEMENT_DYNAMIC(CCopyDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCopyDlg, CDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CCopyDlg::IDD, pParent)
+	: CDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
 	, m_bDirectCopy(TRUE)
@@ -45,7 +45,7 @@ CCopyDlg::~CCopyDlg()
 
 void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
@@ -55,7 +55,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCopyDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCopyDlg, CDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
@@ -64,7 +64,7 @@ END_MESSAGE_MAP()
 
 BOOL CCopyDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	CTSVNPath path(m_path);
 
@@ -118,9 +118,8 @@ BOOL CCopyDlg::OnInitDialog()
 	}
 	m_cLogMessage.SetText(m_ProjectProperties.sLogTemplate);
 
-	if (hWndExplorer)
+	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("CopyDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -186,7 +185,7 @@ void CCopyDlg::OnOK()
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 		UpdateData(FALSE);		
 	}
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }
 
 void CCopyDlg::OnBnClickedBrowse()
@@ -249,7 +248,7 @@ void CCopyDlg::OnCancel()
 {
 	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
-	CStandAloneDialog::OnCancel();
+	CDialog::OnCancel();
 }
 
 BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
@@ -268,5 +267,5 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return CStandAloneDialog::PreTranslateMessage(pMsg);
+	return CDialog::PreTranslateMessage(pMsg);
 }

@@ -25,9 +25,9 @@
 #include "MessageBox.h"
 #include "registry.h"
 
-IMPLEMENT_DYNAMIC(CMergeDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CMergeDlg, CDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CMergeDlg::IDD, pParent)
+	: CDialog(CMergeDlg::IDD, pParent)
 	, m_URLFrom(_T(""))
 	, m_URLTo(_T(""))
 	, StartRev(0)
@@ -50,7 +50,7 @@ CMergeDlg::~CMergeDlg()
 
 void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
@@ -60,7 +60,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_BROWSE2, OnBnClickedBrowse2)
@@ -80,7 +80,7 @@ END_MESSAGE_MAP()
 
 BOOL CMergeDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
@@ -141,9 +141,8 @@ BOOL CMergeDlg::OnInitDialog()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 	}
-	if (hWndExplorer)
+	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("MergeDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -189,7 +188,7 @@ void CMergeDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }
 
 void CMergeDlg::OnBnClickedBrowse()

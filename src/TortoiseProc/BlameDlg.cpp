@@ -24,9 +24,9 @@
 
 // CBlameDlg dialog
 
-IMPLEMENT_DYNAMIC(CBlameDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CBlameDlg, CDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CBlameDlg::IDD, pParent)
+	: CDialog(CBlameDlg::IDD, pParent)
 	, StartRev(1)
 	, EndRev(0)
 	, m_sStartRev(_T("1"))
@@ -42,14 +42,14 @@ CBlameDlg::~CBlameDlg()
 
 void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Check(pDX, IDC_CHECK1, m_bTextView);
 }
 
 
-BEGIN_MESSAGE_MAP(CBlameDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CBlameDlg, CDialog)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -59,15 +59,14 @@ END_MESSAGE_MAP()
 
 BOOL CBlameDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	m_bTextView = m_regTextView;
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 
-	if (hWndExplorer)
+	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("BlameDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -108,7 +107,7 @@ void CBlameDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }
 
 void CBlameDlg::OnBnClickedHelp()

@@ -46,7 +46,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CRevisionDlg : public CStandAloneDialog, public SVNRev
+class CRevisionDlg : public CDialog, public SVNRev
 {
 	DECLARE_DYNAMIC(CRevisionDlg)
 

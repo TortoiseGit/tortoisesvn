@@ -24,9 +24,9 @@
 
 // CRevisionDlg dialog
 
-IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CRevisionDlg, CDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CRevisionDlg::IDD, pParent)
+	: CDialog(CRevisionDlg::IDD, pParent)
 	, SVNRev(_T("HEAD"))
 {
 }
@@ -37,24 +37,25 @@ CRevisionDlg::~CRevisionDlg()
 
 void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevisionDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CRevisionDlg, CDialog)
 	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CRevisionDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	// set head revision as default revision
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
 	GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if ((m_pParentWnd==NULL)&&(hWndExplorer))
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -91,5 +92,5 @@ void CRevisionDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }

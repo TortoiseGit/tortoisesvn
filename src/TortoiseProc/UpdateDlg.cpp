@@ -24,9 +24,9 @@
 
 // CUpdateDlg dialog
 
-IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
+IMPLEMENT_DYNAMIC(CUpdateDlg, CDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
-	: CStandAloneDialog(CUpdateDlg::IDD, pParent)
+	: CDialog(CUpdateDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_bNonRecursive(FALSE)
 {
@@ -38,20 +38,20 @@ CUpdateDlg::~CUpdateDlg()
 
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CStandAloneDialog::DoDataExchange(pDX);
+	CDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
 
 
-BEGIN_MESSAGE_MAP(CUpdateDlg, CStandAloneDialog)
+BEGIN_MESSAGE_MAP(CUpdateDlg, CDialog)
 	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
 {
-	CStandAloneDialog::OnInitDialog();
+	CDialog::OnInitDialog();
 
 	// Since this dialog is called to update to a specific revision, we should
 	// enable and set focus to the edit control so that the user can enter the
@@ -59,9 +59,8 @@ BOOL CUpdateDlg::OnInitDialog()
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
 	GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
 	GetDlgItem(IDC_REVNUM)->SetFocus();
-	if (hWndExplorer)
+	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("UpdateDlg"));
 	return FALSE;  // return TRUE unless you set the focus to a control
 	               // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -95,5 +94,5 @@ void CUpdateDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CStandAloneDialog::OnOK();
+	CDialog::OnOK();
 }
