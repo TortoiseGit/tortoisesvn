@@ -264,7 +264,10 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			// is there an extension specific diff tool?
 			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + ext.MakeLower());
 			if (CString(difftool) != "")
+			{
 				viewer = difftool;
+				viewer = _T("\"") + viewer + _T("\"");
+			}
 		}
 		if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
 		{
@@ -286,19 +289,9 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 		{
 			viewer.Replace(_T("%base"),  _T("\"")+file+_T("\""));
 		}
-		else
-		{
-			viewer += _T(" ");
-			viewer += _T("\"") +file + _T("\"");
-		}
 		if (viewer.Find(_T("%mine")) >= 0)
 		{
 			viewer.Replace(_T("%mine"),  _T("\"")+dir+_T("\""));
-		}
-		else
-		{
-			viewer += _T(" ");
-			viewer += _T("\"") + dir + _T("\"");
 		}
 		if (name1.IsEmpty())
 		{
