@@ -5,6 +5,8 @@ While you are working on the docs, please oberve the following rules for your ma
 The markup is processed by XSL Transformations, FO Processors and the like. Always
 remember that you define the structure and leave the formatting to the processors
 For more information about tags in docbook read http://www.docbook.org/tdg/index.html.
+If you want to translate the german or french docs you have to enable UTF-8 BOM's in 
+your editor.
 
 Rules
 =====
@@ -30,14 +32,21 @@ Rules
   If you want to say: "Select the URL from the URL Combobox", use the following markup:
   "Select the URL from the <guilabel>URL</guilabel> Combobox"
 
-- Links
-  Use ulink for extern links <ulink url="http://svnbook.red-bean.com/">svn book</ulink>.
+- User input, system output and properties are marked with <literal> like: 
+  "Enter <literal>something</literal> to continue"
+  "The <literal>svn:ignore</literal> property"
+
+- Links:
+  Use ulink for external links <ulink url="http://svnbook.red-bean.com/">svn book</ulink>.
   Use this <xref linkend="tsvn-DUG-import-4"/> to reference internal sections.
 
 - Lists
   A list is declared with <itemizedlist> and a listitem with <listitem>
 
 - Mark Filenames with <filename>Hacking.txt</filename>
+
+- Avoid quotes (" or ').
+  Use <literal> instead, because normally you refer to input or output text
 
 Use the out of line info boxes:
 ===============================
