@@ -30,6 +30,8 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bNetwork(FALSE)
 	, m_bFixed(FALSE)
 	, m_bCDROM(FALSE)
+	, m_bRAM(FALSE)
+	, m_bUnknown(FALSE)
 {
 	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
@@ -60,6 +62,8 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_NETWORK, m_bNetwork);
 	DDX_Check(pDX, IDC_FIXED, m_bFixed);
 	DDX_Check(pDX, IDC_CDROM, m_bCDROM);
+	DDX_Check(pDX, IDC_RAM, m_bRAM);
+	DDX_Check(pDX, IDC_UNKNOWN, m_bUnknown);
 	DDX_Control(pDX, IDC_DRIVEGROUP, m_cDriveGroup);
 }
 
