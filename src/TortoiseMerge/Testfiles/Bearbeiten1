@@ -1,0 +1,114 @@
+// ======================================================================
+// Füllt alle Treeviews aus den Listen
+//
+
+procedure TFormAuswahl.FuelleEinzelAuswahl;
+var
+  i                 : integer;
+  Arbeitspaket      : TArbeitspaket;
+
+  procedure FuelleProArbeitspaket(
+    Arbeitspaket: TArbeitspaket;
+    var ParentAlle, ParentAusw: PVirtualNode;
+    tvwAlle, tvwAusw: TVirtualStringTree;
+    Alle, Ausw: TBasisListe);
+  var
+    I, SearchIndex  : Integer;
+    Node            : PVirtualNode;
+    NodeData        : PNodeData;
+  begin
+    ParentAlle := nil;
+    ParentAusw := nil;
+    if Assigned(Alle) and Assigned(Ausw) then
+      try
+        tvwAlle.BeginUpdate;
+        tvwAusw.BeginUpdate;
+
+        ParentAlle := tvwAlle.AddChild(nil);
+        NodeData := tvwAlle.GetNodeData(ParentAlle);
+        NodeData.Typ := tnArbeitspaket;
+        NodeData.Name := Arbeitspaket.Programmstand;
+        NodeData.Kommentar := '';
+        NodeData.Arbeitspaket := Arbeitspaket;
+
+        ParentAusw := tvwAusw.AddChild(nil);
+        NodeData := tvwAusw.GetNodeData(ParentAusw);
+        NodeData.Typ := tnArbeitspaket;
+        NodeData.Name := Arbeitspaket.Programmstand;
+        NodeData.Kommentar := '';
+        NodeData.Arbeitspaket := Arbeitspaket;
+        NodeData.ZielListe := Ausw;     // Zielliste zum Speichern der Daten beim Schließen des Formulars festlegen.
+
+        for i := 0 to Alle.Count - 1 do
+          begin
+            if Ausw.Find(TBasisObjekt(Alle[i]), SearchIndex) then
+              begin
+                Node := tvwAusw.AddChild(ParentAusw);
+                NodeData := tvwAusw.GetNodeData(Node);
+              end
+            else
+              begin
+                Node := tvwAlle.AddChild(ParentAlle);
+                NodeData := tvwAlle.GetNodeData(Node);
+              end;
+            NodeData.Typ := tnAuswLabel;
+            NodeData.ParentAlle := ParentAlle;
+            NodeData.ParentAusw := ParentAusw;
+            NodeData.ZielListe := Ausw;
+            NodeData.Objekt := TMessVerstell(Alle[i]);
+          end;
+
+      finally
+        with tvwAlle do
+          begin
+            Header.SortColumn := 0;
+            Header.SortDirection := sdAscending;
+            SortTree(Header.SortColumn, Header.SortDirection);
+            Expanded[ParentAlle] := true;
+            EndUpdate;
+          end;
+
+        with tvwAusw do
+          begin
+            Header.SortColumn := 0;
+            Header.SortDirection := sdAscending;
+            SortTree(Header.SortColumn, Header.SortDirection);
+            Expanded[ParentAusw] := true;
+            EndUpdate;
+          end;
+
+        Alle.Reload := false;
+        Ausw.Reload := false;
+      end
+  end;
+
+begin
+  try
+    tvwAlleRamzellen.Clear;
+    tvwAuswRamzellen.Clear;
+    tvwAlleBitKanaele.Clear;
+    tvwAuswBitKanaele.Clear;
+    tvwAlleKonstanten.Clear;
+    tvwAuswKonstanten.Clear;
+    tvwAlleKennfelder.Clear;
+    tvwAuswKennfelder.Clear;
+    tvwAlleStuetzstellen.Clear;
+    tvwAuswStuetzstellen.Clear;
+
+    for i := 0 to OptionenProjekt.Arbeitspakete.Count - 1 do
+      begin
+        Arbeitspaket := TArbeitspaket(OptionenProjekt.Arbeitspakete.Objects[i]);
+        with Arbeitspaket do
+          if Anzeigen then
+            begin
+              FuelleProArbeitspaket(Arbeitspaket, fRootAlle[i].RamRoot, fRootAusw[i].RamRoot, tvwAlleRamzellen, tvwAuswRamzellen, QuellListen.Ramzellen, fAuswahlClone[i].Ramzellen);
+              FuelleProArbeitspaket(Arbeitspaket, fRootAlle[i].BitRoot, fRootAusw[i].BitRoot, tvwAlleBitKanaele, tvwAuswBitKanaele, QuellListen.Bitkanaele, fAuswahlClone[i].Bitkanaele);
+              FuelleProArbeitspaket(Arbeitspaket, fRootAlle[i].KonstRoot, fRootAusw[i].KonstRoot, tvwAlleKonstanten, tvwAuswKonstanten, QuellListen.Konstanten, fAuswahlClone[i].Konstanten);
+              FuelleProArbeitspaket(Arbeitspaket, fRootAlle[i].KennfRoot, fRootAusw[i].KennfRoot, tvwAlleKennfelder, tvwAuswKennfelder, QuellListen.Kennfelder, fAuswahlClone[i].Kennfelder);
+              FuelleProArbeitspaket(Arbeitspaket, fRootAlle[i].SSVRoot, fRootAusw[i].SSVRoot, tvwAlleStuetzstellen, tvwAuswStuetzstellen, QuellListen.Stuetzstellen, fAuswahlClone[i].Stuetzstellen);
+            end;
+      end;
+  finally
+  end;
+end;
+
