@@ -456,8 +456,11 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						DeleteFile(tempfile);
 						break;		//exit
 					} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
-					m_templist.Add(tempfile);
-					CUtils::StartDiffViewer(tempfile);
+					else
+					{
+						m_templist.Add(tempfile);
+						CUtils::StartDiffViewer(tempfile);
+					}
 				}
 				break;
 			case ID_GNUDIFF2:
@@ -474,8 +477,11 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						DeleteFile(tempfile);
 						break;		//exit
 					} // if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
-					m_templist.Add(tempfile);
-					CUtils::StartDiffViewer(tempfile);
+					else
+					{
+						m_templist.Add(tempfile);
+						CUtils::StartDiffViewer(tempfile);
+					}
 				}
 				break;
 			case ID_REVERTREV:
@@ -488,15 +494,20 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						status.GetStatus(m_path);
 						if (status.status->entry == NULL)
 						{
-							CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
+							CString temp;
+							temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 							TRACE(_T("could not retrieve the URL of the folder!\n"));
 							break;		//exit
 						} // if ((rev == (-2))||(status.status->entry == NULL))
-						CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
-						CSVNProgressDlg dlg;
-						dlg.SetParams(Enum_Merge, false, m_path, url, url, rev);		//use the message as the second url
-						dlg.m_nRevisionEnd = rev-1;
-						dlg.DoModal();
+						else
+						{
+							CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
+							CSVNProgressDlg dlg;
+							dlg.SetParams(Enum_Merge, false, m_path, url, url, rev);		//use the message as the second url
+							dlg.m_nRevisionEnd = rev-1;
+							dlg.DoModal();
+						}
 					}
 				}
 				break;
@@ -509,24 +520,29 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					status.GetStatus(m_path);
 					if (status.status->entry == NULL)
 					{
-						CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
+						CString temp;
+						temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						TRACE(_T("could not retrieve the URL of the folder!\n"));
 						break;		//exit
 					} // if (status.status->entry == NULL) 
-					CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
-					dlg.m_URL = url;
-					if (dlg.DoModal() == IDOK)
+					else
 					{
-						SVN svn;
-						if (!svn.Copy(url, dlg.m_URL, rev))
+						CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
+						dlg.m_URL = url;
+						if (dlg.DoModal() == IDOK)
 						{
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						}
-						else
-						{
-							CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
-						}
-					} // if (dlg.DoModal() == IDOK) 
+							SVN svn;
+							if (!svn.Copy(url, dlg.m_URL, rev))
+							{
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							}
+							else
+							{
+								CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
+							}
+						} // if (dlg.DoModal() == IDOK) 
+					}
 				} 
 				break;
 			case ID_COMPARE:
@@ -547,49 +563,52 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
-						return;
-					}
-					m_templist.Add(tempfile);
-					CString diffpath = CUtils::GetDiffPath();
-					if (diffpath != "")
+						break;
+					} // if (!svn.Cat(m_path, rev, tempfile))
+					else
 					{
-
-						CString cmdline;
-						cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
-						cmdline += _T("\" ");
-						cmdline += _T(" \"") + tempfile;
-						cmdline += _T("\" "); 
-						cmdline += _T(" \"") + m_path;
-						cmdline += _T("\"");
-						STARTUPINFO startup;
-						PROCESS_INFORMATION process;
-						memset(&startup, 0, sizeof(startup));
-						startup.cb = sizeof(startup);
-						memset(&process, 0, sizeof(process));
-						if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						m_templist.Add(tempfile);
+						CString diffpath = CUtils::GetDiffPath();
+						if (diffpath != "")
 						{
-							LPVOID lpMsgBuf;
-							FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-								FORMAT_MESSAGE_FROM_SYSTEM | 
-								FORMAT_MESSAGE_IGNORE_INSERTS,
-								NULL,
-								GetLastError(),
-								MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-								(LPTSTR) &lpMsgBuf,
-								0,
-								NULL 
-								);
-							CString temp;
-							//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
-							temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-							LocalFree( lpMsgBuf );
-						} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-						//wait for the process to end
-						WaitForSingleObject(process.hProcess, INFINITE);
-						//now delete the temporary file
-						DeleteFile(tempfile);
-					} // if (diffpath != "")
+
+							CString cmdline;
+							cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
+							cmdline += _T("\" ");
+							cmdline += _T(" \"") + tempfile;
+							cmdline += _T("\" "); 
+							cmdline += _T(" \"") + m_path;
+							cmdline += _T("\"");
+							STARTUPINFO startup;
+							PROCESS_INFORMATION process;
+							memset(&startup, 0, sizeof(startup));
+							startup.cb = sizeof(startup);
+							memset(&process, 0, sizeof(process));
+							if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+							{
+								LPVOID lpMsgBuf;
+								FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+									FORMAT_MESSAGE_FROM_SYSTEM | 
+									FORMAT_MESSAGE_IGNORE_INSERTS,
+									NULL,
+									GetLastError(),
+									MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+									(LPTSTR) &lpMsgBuf,
+									0,
+									NULL 
+									);
+								CString temp;
+								//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
+								temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+								LocalFree( lpMsgBuf );
+							} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+							//wait for the process to end
+							WaitForSingleObject(process.hProcess, INFINITE);
+							//now delete the temporary file
+							DeleteFile(tempfile);
+						} // if (diffpath != "")
+					}
 				}
 				break;
 			case ID_COMPARETWO:
@@ -640,7 +659,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
-							return;
+							break;
 						}
 					} // if (GetSaveFileName(&ofn)==TRUE)
 				}
@@ -656,7 +675,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
-						return;
+						break;
 					}
 				}
 				break;
@@ -665,10 +684,13 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					m_nSearchIndex = m_LogList.GetSelectionMark();
 					if (m_pFindDialog)
 					{
-						return;
+						break;
 					}
-					m_pFindDialog = new CFindReplaceDialog();
-					m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+					else
+					{
+						m_pFindDialog = new CFindReplaceDialog();
+						m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+					}
 				}
 				break;
 			default:
@@ -836,7 +858,9 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 				if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
 				{
 					theApp.DoWaitCursor(-1);
-					CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
+					CString temp;
+					temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+					CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 					TRACE(_T("could not retrieve the URL of the file!\n"));
 					return;		//exit
 				} // if ((rev == (-2))||(status.status->entry == NULL))

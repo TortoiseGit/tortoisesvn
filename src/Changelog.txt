@@ -19,6 +19,9 @@
        for a specific filetype (e.g. *.txt)
        the environement variables weren't
        expanded. (Stefan)
+- BUG: TSVN could crash in the log dialog if
+       the status of a file or folder could
+       not be read. (Stefan)
 
 Version 0.21
 - ADD: If multiple targets are selected for

@@ -113,7 +113,9 @@ BOOL CMergeDlg::OnInitDialog()
 	status.GetStatus(m_URL);
 	if ((status.status == NULL) || (status.status->entry == NULL))
 	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
+		CString temp;
+		temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		this->EndDialog(IDCANCEL);
 	} // if ((status.status == NULL) || (status.status->entry == NULL))
 	m_URL = CUnicodeUtils::GetUnicode(status.status->entry->url);
