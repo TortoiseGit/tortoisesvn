@@ -281,7 +281,7 @@
 			since you last updated your working copy and need to be commited.
 			If during an update a <literal>conflict</literal> occurs then 
 			the icon changes to a yellow exclamation mark.
-			<figure id="tsvn-DUG-overlays-dia-1">
+			<figure id="tsvn-DUG-wcstatus-dia-1">
 				<title>Explorer showing icon overlays</title>
 				<graphic fileref="Overlays.png"/>
 			</figure>
@@ -328,8 +328,10 @@
 			It's often very useful to know which files got changed and
 			committed by others. That's where the command <guimenuitem>Check
 			For Updates...</guimenuitem> comes in handy.
-			<!-- we definitely need a picture here of the CheckForUpdates -->
-			<!-- dialog   ### TODO ###                                    -->
+			<figure id="tsvn-DUG-wcstatus-dia-2">
+				<title>Check for Updates</title>
+				<graphic fileref="RepoStatus.png"/>
+			</figure>
 			This dialog will show you every file that has changed in any
 			way either in your working copy and in the repository. That way
 			you can check before an update if there's a possible conflict.
@@ -340,6 +342,20 @@
 			downloads the most recent version from the repository to do
 			the diff.
 			</para>
+			
+			<sidebar>
+				<title>Other Ways</title>
+				<para>
+				The "Check for Updates.." dialog is propably not the best
+				choice if you don't have a network connection available.
+				In this case you can also get the local status of all your
+				files by clicking <guimenuitem>Commit...</guimenuitem>. The
+				commit dialog shows you a similar list of files like the
+				"Check for Updates..." dialog, but without contacting the
+				repository. if you dont' want to commit just press <guibutton>
+				Cancel</guibutton>.
+				</para>
+			</sidebar>
 		</sect2>
 	</sect1>
 	
@@ -1008,6 +1024,48 @@
 	
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 15 ============================= -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-blame">
+		<title>Who Changed Which Line?</title>
+		
+		<para>
+		Sometimes you need to know not only what lines have changed, but also
+		who exactly changed specific lines in a file. That's when the 
+		<guimenuitem>Blame...</guimenuitem> command comes in handy.
+		</para>
+		<para>
+		This command lists for every line in a file the author and the revision
+		the line was changed.
+		<figure id="tsvn-DUG-blame-dia-1">
+			<title>The Blame Dialog</title>
+			<graphic fileref="BlameDialog.png"/>
+		</figure>
+		If you're only interested in changes from earlier revisions you can
+		set the revision from which the blame should start. Set this to 1 if
+		you want the blame for <emphasis>every</emphasis> line.
+		</para>
+		<para>
+		Once you press <guibutton>Ok</guibutton> TortoiseSVN starts retreiving
+		the data to create the blame file. Please note: This can take several
+		minutes to finish, depending on how much the file has changed and
+		of course your network connection to the repository. Once the blame
+		process has finished the result is written into a temporary file and
+		TortoiseSVN opens your default text editor to show you the result.
+		<figure id="tsvn-DUG-blame-dia-2">
+			<title>The Blame Result</title>
+			<graphic fileref="BlameResult.png"/>
+		</figure>
+		The example shows part of the file <filename>
+		/Subversion/include/svn_io.h</filename> as of Revision 7566 from 
+		the Subversion source. It shows for each line the <literal>linenumber
+		</literal>, <literal>Revision</literal>, <literal>date of last commit
+		</literal>, the <literal>author</literal> and of course the actual
+		<literal>line</literal> in the file.
+		</para>
+	</sect1>
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 16 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-donate">
 		<title>Final Step</title>
