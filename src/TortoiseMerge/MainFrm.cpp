@@ -746,7 +746,7 @@ void CMainFrame::OnFileSave()
 		MoveFile(m_Data.m_sMergedFile, m_Data.m_sMergedFile + _T(".bak"));
 	}
 	SaveFile(this->m_Data.m_sMergedFile);
-	if ((nConflictLine>=0)&&(((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Resolve"))) != 0))
+	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible())&&(((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Resolve"))) != 0))
 	{
 		TCHAR buf[MAX_PATH*3];
 		GetModuleFileName(NULL, buf, MAX_PATH);
