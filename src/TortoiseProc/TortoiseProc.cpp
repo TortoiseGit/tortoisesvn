@@ -481,13 +481,13 @@ BOOL CTortoiseProcApp::InitInstance()
 				TRACE(_T("could not retrieve the URL of the file!\n"));
 				return FALSE;		//exit
 			} // if ((rev == (-2))||(status.status->entry == NULL))
-			long revupdated = status.GetStatus(path, TRUE);
-			if (rev != revupdated)
-			{
-				CMessageBox::Show(NULL, IDS_ERR_NOTUPTODATE, IDS_APPNAME, MB_ICONERROR);
-				TRACE(_T("working copy is not up to date\n"));
-				return FALSE;
-			}
+			//long revupdated = status.GetStatus(path, TRUE);
+			//if (rev != revupdated)
+			//{
+			//	CMessageBox::Show(NULL, IDS_ERR_NOTUPTODATE, IDS_APPNAME, MB_ICONERROR);
+			//	TRACE(_T("working copy is not up to date\n"));
+			//	return FALSE;
+			//}
 			CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 			dlg.m_URL = url;
 			if (dlg.DoModal() == IDOK)
