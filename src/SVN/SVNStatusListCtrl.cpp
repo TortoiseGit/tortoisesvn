@@ -158,7 +158,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 {
 	BOOL bRet = TRUE;
 	m_nTargetCount = 0;
-
+	m_bHasExternalsFromDifferentRepos = FALSE;
+	
 	m_bBlock = TRUE;
 
 	SVNConfig config;
@@ -823,6 +824,7 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	Sort();
 
+#ifdef UNICODE
 	CHeaderCtrl * pHeader = GetHeaderCtrl();
 	HDITEM HeaderItem = {0};
 	HeaderItem.mask = HDI_FORMAT;
@@ -835,6 +837,7 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	pHeader->GetItem(m_nSortedColumn, &HeaderItem);
 	HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
 	pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+#endif
 	m_bBlock = FALSE;
 }
 
