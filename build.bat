@@ -65,6 +65,9 @@ rem Workaround: execute that line, then open subversion_vcnet.sln and add "..\db
 rem to the libaprutil project as an additional link
 rem call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls
 copy build\generator\vcnet_sln7.ezt build\generator\vcnet_sln.ezt /Y
+del neon\config.h
+del neon\config.hw
+copy ..\TortoiseSVN\neonconfig.hw neon\config.hw
 del build\generator\vcnet_sln7.ezt
 if %_DEBUG%==ON (
   rem first, compile without any network/repository support

@@ -182,9 +182,9 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 			{
 				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
 				if (m_error != NULL)
-					return NULL;
+					return _T("");
 			}
-		} 
+		}
 	}
 
 	if (name)
