@@ -416,8 +416,6 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 	if (pNMTreeView->hItem == NULL)
 		return;
 
-	CString strStartUrl = GetFolderUrl(pNMTreeView->hItem);
-
 	RVITEM rvi;
 	rvi.iItem = GetItemIndex(pNMTreeView->hItem);
 	rvi.iSubItem = pNMTreeView->iSubItem;
@@ -429,10 +427,6 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			DeleteDummyItem(pNMTreeView->hItem);
 			LoadChildItems(pNMTreeView->hItem, GetKeyState(VK_CONTROL)&0x8000);
-
-			HTREEITEM hFocusItem = FindUrl(strStartUrl);
-			if (hFocusItem != 0)
-				SetSelection(hFocusItem);
 		}
 	}
 }

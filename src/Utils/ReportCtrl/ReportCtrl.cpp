@@ -2483,8 +2483,11 @@ BOOL CReportCtrl::DeleteItem(HTREEITEM hItem)
 		else
 			lptiFocus = NULL;
 	}
-	else
-		lptiFocus = NULL;
+//	else
+//  if we get here then:
+//  - the focused item isn't a descendent of the "to be deleted" item
+//  - the focused item isn't the deleted item iself
+//		lptiFocus = NULL; // then why o why was the focus being reset over here???
 
 	BOOL bResult = DeleteItemImpl((LPTREEITEM)hItem, FALSE);
 
