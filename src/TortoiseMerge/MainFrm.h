@@ -54,6 +54,10 @@ protected:
 	afx_msg void	OnFileSave();
 	afx_msg void	OnFileSaveAs();
 	afx_msg void	OnFileOpen();
+	afx_msg void	OnFileReload();
+	afx_msg void	OnClose();
+	afx_msg void	OnEditFind();
+	afx_msg void	OnEditFindnext();
 	afx_msg void	OnViewWhitespaces();
 	afx_msg int		OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
@@ -97,9 +101,6 @@ public:
 	BOOL			m_bOneWay;
 	CDiffData		m_Data;
 	BOOL			LoadViews();
-	afx_msg void OnClose();
-	afx_msg void OnEditFind();
-	afx_msg void OnEditFindnext();
 };
 
 

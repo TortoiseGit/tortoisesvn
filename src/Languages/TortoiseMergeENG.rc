@@ -339,6 +339,8 @@ BEGIN
         MENUITEM "&Save Ctrl-S",                ID_FILE_SAVE
         MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
+        MENUITEM "Reload",                      ID_FILE_RELOAD
+        MENUITEM SEPARATOR
         MENUITEM "E&xit",                       ID_APP_EXIT
     END
     POPUP "&View"
@@ -398,6 +400,7 @@ BEGIN
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
     "D",            ID_VIEW_ONEWAYDIFF,     VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_FILE_RELOAD,         VIRTKEY, CONTROL, NOINVERT
 END
 
 
@@ -568,8 +571,10 @@ BEGIN
     IDS_GETVERSIONOFFILETITLE "Fetching File..."
     IDS_GETVERSIONOFFILE    "Fetching version %s of file:"
     IDS_WARNMODIFIEDLOOSECHANGES 
-                            "Do you want to reload the documents to reflect the settings changes?\nNote: you will loose all changes you've made!"
+                            "Do you want to reload the documents?\nYou will loose all changes you've made!"
     IDS_ASKFORSAVE          "Do you want to save your changes?"
+    IDS_WARNMODIFIEDLOOSECHANGESOPTIONS 
+                            "Do you want to reload the documents to reflect the settings changes?\nNote: you will loose all changes you've made!"
 END
 
 STRINGTABLE 

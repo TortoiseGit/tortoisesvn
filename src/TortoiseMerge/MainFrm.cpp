@@ -58,6 +58,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_COMMAND(ID_EDIT_FINDNEXT, OnEditFindnext)
+	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -785,7 +786,7 @@ void CMainFrame::OnViewOptions()
 		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
 	{
 		CString sTemp;
-		sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
+		sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGESOPTIONS);
 		if (MessageBox(sTemp, 0, MB_YESNO | MB_ICONQUESTION)==IDNO)
 		{
 			return;
@@ -920,4 +921,20 @@ void CMainFrame::OnEditFindnext()
 			m_nSearchIndex = 0;
 		}
 	} // if ((m_pwndLeftView)&&(m_pwndLeftView->m_arDiffLines)) 
+}
+
+void CMainFrame::OnFileReload()
+{
+	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
+		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
+	{
+		CString sTemp;
+		sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
+		if (MessageBox(sTemp, 0, MB_YESNO | MB_ICONQUESTION)==IDNO)
+		{
+			return;
+		}
+	} // ified())))
+	m_Data.LoadRegistry();
+	LoadViews();
 }
