@@ -918,15 +918,20 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 						origin.x += nCharWidth;
 						sOtherLine = sOtherLine.Mid(1);
 						line = line.Mid(1);
-					} // if (line2.GetAt(0) == line.GetAt(0))
+					}
 					else
 					{
 						sOtherLine = sOtherLine.TrimLeft(_T(" \t"));
 						sOtherLine = sOtherLine.TrimLeft(TAB_CHARACTER);
 						sOtherLine = sOtherLine.TrimLeft(SPACE_CHARACTER);
 						nCount = line.GetLength() - sOtherLine.GetLength();
-						pDC->SetBkColor(crWhiteDiffBk);
-						pDC->SetTextColor(crWhiteDiffFg);
+						if (nCount < 0)
+							nCount = -nCount;
+						else
+						{
+							pDC->SetBkColor(crWhiteDiffBk);
+							pDC->SetTextColor(crWhiteDiffFg);
+						}
 						VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
 						pDC->SetBkColor(crBkgnd);
 						pDC->SetTextColor(crText);
@@ -935,7 +940,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 						line = line.TrimLeft(TAB_CHARACTER);
 						line = line.TrimLeft(SPACE_CHARACTER);
 					}
-				} // while (!line2.IsEmpty()) 
+				} // while (!line.IsEmpty())
 			}
 			else
 				VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
