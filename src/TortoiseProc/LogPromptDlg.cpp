@@ -316,14 +316,6 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->m_ListCtrl.Show(dwShow);
 	pDlg->m_ListCtrl.CheckAll(SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED);
 
-	if (pDlg->m_ListCtrl.GetItemCount()==0)
-	{
-		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
-		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-		pDlg->m_bBlock = FALSE;
-		pDlg->EndDialog(0);
-		return -1;
-	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
 	if (pDlg->m_ListCtrl.HasExternalsFromDifferentRepos()||pDlg->m_ListCtrl.HasExternals())
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
@@ -345,6 +337,14 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	{
 		pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
+	if (pDlg->m_ListCtrl.GetItemCount()==0)
+	{
+		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+		pDlg->m_bBlock = FALSE;
+		pDlg->EndDialog(0);
+		return -1;
+	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
 	pDlg->m_bBlock = FALSE;
 	return 0;
 }
