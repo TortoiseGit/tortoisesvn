@@ -259,7 +259,7 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 	sRepoRoot.ReleaseBuffer();
 	url = url.Mid(sRepoRoot.GetLength());
 	m_nRecurseLevel = 0;
-	if (AnalyzeRevisions(url, m_lHeadRevision, 1))
+	if (AnalyzeRevisions(url, m_lHeadRevision, 0))
 	{
 		return CheckForwardCopies();
 	}
