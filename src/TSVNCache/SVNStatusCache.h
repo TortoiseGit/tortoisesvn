@@ -40,21 +40,24 @@ public:
 	static void Destroy();
 
 public:
-	// Clear the entire cache
+	/// Clear the entire cache
 	void Clear();
 
-	// Get the status for a single path (main entry point, called from named-pipe code
+	/// Get the status for a single path (main entry point, called from named-pipe code
 	CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, DWORD flags);
 
-	// Find a directory in the cache (a new entry will be created if there isn't an existing entry)
+	/// Find a directory in the cache (a new entry will be created if there isn't an existing entry)
 	CCachedDirectory& GetDirectoryCacheEntry(const CTSVNPath& path);
 
-	// Add a folder to the background crawler's work list
+	/// Add a folder to the background crawler's work list
 	void AddFolderForCrawling(const CTSVNPath& path);
 
-	// Add an item to the list of paths which need a shell update
+	/// Removes the cache for a specific path, e.g. if a folder got deleted/renamed
+	void RemoveCacheForPath(const CTSVNPath& path);
+
+	/// Add an item to the list of paths which need a shell update
 	void AddPathForShellUpdate(const CTSVNPath& path);
-	// Flush the shell update list
+	/// Flush the shell update list
 	void FlushShellUpdateList();
 
 private:

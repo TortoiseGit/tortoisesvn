@@ -157,6 +157,14 @@ void CSVNStatusCache::Clear()
 
 }
 
+void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
+{
+	// Stop the crawler starting on a new folder
+	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
+	m_directoryCache.erase(path);
+	ATLTRACE("removed path %ws from cache\n", path.GetWinPath());
+}
+
 CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 {
 	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));

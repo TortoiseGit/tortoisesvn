@@ -58,6 +58,13 @@ CFolderCrawler::Initialise()
 void 
 CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 {
+	if (!PathFileExists(path.GetWinPath()))
+	{
+		// the path doesn't exist anymore (e.g. directory deleted, renamed, moved)
+		CSVNStatusCache::Instance().RemoveCacheForPath(path);
+		return;
+	}
+	
 	ATLASSERT(path.IsDirectory());
 
 	{
