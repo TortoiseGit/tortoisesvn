@@ -579,7 +579,7 @@ void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status_t *
 }
 
 apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,
-										int (*comparison_func) (const sort_item *, const sort_item *),
+										int (*comparison_func) (const SVNStatus::sort_item *, const SVNStatus::sort_item *),
 										apr_pool_t *pool)
 {
 	apr_hash_index_t *hi;
