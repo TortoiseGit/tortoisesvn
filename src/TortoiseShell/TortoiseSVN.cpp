@@ -22,6 +22,7 @@
 
 UINT      g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE g_hmodThisDll = NULL;				///< handle to this DLL itself.
+//std::auto_ptr<SVNFolderStatus> g_pCachedStatus;				///< status cache
 SVNFolderStatus g_CachedStatus;				///< status cache
 ShellCache g_ShellCache;					///< caching of registry entries, ...
 CRegStdWORD			g_regLang;
@@ -43,13 +44,30 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		return FALSE;
 	}
 #endif
+
+/*
+	// Don't load into TortoiseProc - there's no point
+	// And it makes it look there's an APR memory leak, even though there isn't.
+	// (The shelliconcache stuff causes the us to load, normally)
+	TCHAR buf[_MAX_PATH + 1];
+	DWORD pathLength = GetModuleFileName(NULL, buf, _MAX_PATH);
+	if(pathLength >= 17)
+	{
+		if ((_tcsicmp(&buf[pathLength-17], _T("\\TortoiseProc.exe"))) == 0)
+		{
+			return FALSE;
+		}
+	}
+*/
     if (dwReason == DLL_PROCESS_ATTACH)
     {
         // Extension DLL one-time initialization
         g_hmodThisDll = hInstance;
+//		g_pCachedStatus.reset(new SVNFolderStatus);
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
+//		g_pCachedStatus.reset();
     }
     return 1;   // ok
 }

@@ -185,7 +185,7 @@ void CRevertDlg::OnOK()
 			{
 				if (m_RevertList.GetCheck(i))
 				{
-					file.WriteString(m_RevertList.GetListEntry(i)->path+_T("\n"));
+					file.WriteString(m_RevertList.GetListEntry(i)->GetPathString()+_T("\n"));
 				}
 			} 
 			file.Close();

@@ -631,19 +631,23 @@ CString CUtils::GetFileExtFromPath(const CString& sPath)
 	return CString();
 }
 
-BOOL CUtils::PathIsParent(CString sPath1, CString sPath2)
+BOOL CUtils::PathIsParent(CString sParent, CString sChild)
 {
-	sPath1.Replace('\\', '/');
-	sPath2.Replace('\\', '/');
-	if (sPath1.Right(1).Compare(_T("/"))==0)
-		sPath1 = sPath1.Left(sPath1.GetLength()-1);
+	sParent.Replace('\\', '/');
+	sChild.Replace('\\', '/');
+	sParent.TrimRight('/');
+
+	// Keep chopping the last section off 'sChild' until
+	// we find a match against parent
 	int pos = 0;
 	do
 	{
-		pos = sPath2.ReverseFind('/');
+		pos = sChild.ReverseFind('/');
 		if (pos >= 0)
-			sPath2 = sPath2.Left(pos);
-		if (sPath2.CompareNoCase(sPath1)==0)
+			sChild = sChild.Left(pos);
+		// sChild is now a directory
+
+		if (sChild.CompareNoCase(sParent)==0)
 			return TRUE;
 	} while (pos >= 0);
 	return FALSE;

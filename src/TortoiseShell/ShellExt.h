@@ -29,7 +29,9 @@
 
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
-extern	SVNFolderStatus		g_CachedStatus;			// status cache
+//extern	std::auto_ptr<SVNFolderStatus>	g_pCachedStatus;		// status cache
+extern	SVNFolderStatus		g_CachedStatus;		// status cache
+//#define g_CachedStatus		(*(g_pCachedStatus.get()))
 extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
 extern	CRegStdWORD			g_regLang;
 extern	DWORD				g_langid;

@@ -116,9 +116,10 @@ public:
 	static CString GetFileExtFromPath(const CString& sPath);
 
 	/**
-	 * Checks if \a sPath1 is the parent path of \a sPath2
+	 * Checks if \a sParent is the parent path of \a sChild
+	 * [Actually checks if sParent is any ancestor, not just a parent]
 	 */
-	static BOOL PathIsParent(CString sPath1, CString sPath2);
+	static BOOL PathIsParent(CString sParent, CString sChild);
 
 	/**
 	 * Writes all paths, separated by a '*' char into a tempfile. 

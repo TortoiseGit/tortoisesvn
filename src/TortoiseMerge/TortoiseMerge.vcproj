@@ -76,6 +76,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
+				InlineFunctionExpansion="2"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
 				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\"
@@ -493,6 +494,9 @@
 		</Filter>
 	</Files>
 	<Globals>
+		<Global
+			Name="DevPartner_IsInstrumented"
+			Value="1"/>
 		<Global
 			Name="RESOURCE_FILE"
 			Value="\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc"/>

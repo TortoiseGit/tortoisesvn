@@ -199,7 +199,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
+	if ((m_hThread = CreateThread(NULL, 0, StatusThreadEntry, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -253,20 +253,21 @@ void CLogPromptDlg::OnOK()
 	//first add all the unversioned files the user selected
 	//and check if all versioned files are selected
 	int nUnchecked = 0;
-	for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
+	int nListBoxItems = m_ListCtrl.GetItemCount();
+	for (int j=0; j<nListBoxItems; j++)
 	{
-		CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(j);
-		if (m_ListCtrl.GetCheck(j))
+		const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(j);
+		if (entry->IsChecked())
 		{
 			if (entry->status == svn_wc_status_unversioned)
 			{
 				SVN svn;
-				svn.Add(entry->path, FALSE);
+				svn.Add(entry->GetPathString(), FALSE);
 			} 
 			if (entry->status == svn_wc_status_missing)
 			{
 				SVN svn;
-				svn.Remove(entry->path, TRUE);
+				svn.Remove(entry->GetPathString(), TRUE);
 			}
 			if (entry->status == svn_wc_status_deleted)
 			{
@@ -298,20 +299,21 @@ void CLogPromptDlg::OnOK()
 		{
 			if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
 			{
-				CString path = ((CSVNStatusListCtrl::FileEntry *)(m_ListCtrl.GetListEntry(arDeleted.GetAt(i))))->path;
-				path += _T("/");
-				if (PathIsDirectory(path))
+				const CTSVNPath& path = m_ListCtrl.GetListEntry(arDeleted.GetAt(i))->GetPath();
+//				path += _T("/");
+				if (path.IsDirectory())
 				{
 					//now find all children of this directory
 					for (int j=0; j<arDeleted.GetCount(); j++)
 					{
 						if (i!=j)
 						{
-							if (m_ListCtrl.GetCheck(arDeleted.GetAt(j)))
+							CSVNStatusListCtrl::FileEntry* childEntry = m_ListCtrl.GetListEntry(arDeleted.GetAt(j));
+							if (childEntry->IsChecked())
 							{
-								if (path.CompareNoCase(((CSVNStatusListCtrl::FileEntry *)(m_ListCtrl.GetListEntry(arDeleted.GetAt(j))))->path.Left(path.GetLength()))==0)
+								if (path.IsAncestorOf(childEntry->GetPath()))
 								{
-									m_ListCtrl.SetCheck(arDeleted.GetAt(j), FALSE);
+									m_ListCtrl.SetEntryCheck(childEntry, arDeleted.GetAt(j), false);
 								}
 							}
 						}
@@ -325,11 +327,12 @@ void CLogPromptDlg::OnOK()
 		try
 		{
 			CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
+			int nListBoxItems = m_ListCtrl.GetItemCount();
+			for (int i=0; i<nListBoxItems; i++)
 			{
-				if (m_ListCtrl.GetCheck(i))
+				if (m_ListCtrl.GetListEntry(i)->IsChecked())
 				{
-					file.WriteString(m_ListCtrl.GetListEntry(i)->path + _T("\n"));
+					file.WriteString(m_ListCtrl.GetListEntry(i)->GetPathString() + _T("\n"));
 				}
 			} // for (int i=0; i<m_ListCtrl.GetItemCount(); i++) 
 			file.Close();
@@ -361,83 +364,90 @@ void CLogPromptDlg::OnOK()
 	CResizableDialog::OnOK();
 }
 
-DWORD WINAPI StatusThread(LPVOID pVoid)
+DWORD WINAPI 
+CLogPromptDlg::StatusThreadEntry(LPVOID pVoid)
+{
+	return ((CLogPromptDlg*)pVoid)->StatusThread();
+}
+
+DWORD CLogPromptDlg::StatusThread()
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	CLogPromptDlg*	pDlg;
-	pDlg = (CLogPromptDlg*)pVoid;
-	pDlg->m_bBlock = TRUE;
-	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
-	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
-	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(false);
+	m_bBlock = TRUE;
+	GetDlgItem(IDCANCEL)->EnableWindow(false);
+	GetDlgItem(IDOK)->EnableWindow(false);
+	GetDlgItem(IDC_FILLLOG)->EnableWindow(false);
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
-	BOOL success = pDlg->m_ListCtrl.GetStatus(pDlg->m_sPath);
-	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS;
-	dwShow |= DWORD(pDlg->m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
-	pDlg->m_ListCtrl.Show(dwShow, SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED);
 
-	if (pDlg->m_ListCtrl.HasExternalsFromDifferentRepos())
+	// Initialise the list control with the status of the files/folders below us
+	BOOL success = m_ListCtrl.GetStatus(m_sPath);
+
+	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS;
+	dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
+	m_ListCtrl.Show(dwShow, SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED);
+
+	if (m_ListCtrl.HasExternalsFromDifferentRepos())
 	{
-		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
+		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
 	} // if (bHasExternalsFromDifferentRepos) 
-	pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(pDlg->m_ListCtrl.m_sURL);
-	pDlg->m_tooltips.AddTool(pDlg->GetDlgItem(IDC_STATISTICS), pDlg->m_ListCtrl.GetStatistics());
+	GetDlgItem(IDC_COMMIT_TO)->SetWindowText(m_ListCtrl.m_sURL);
+	m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(true);
+	GetDlgItem(IDCANCEL)->EnableWindow(true);
+	GetDlgItem(IDC_FILLLOG)->EnableWindow(true);
 	CString logmsg;
-	pDlg->GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
-	if (pDlg->m_ProjectProperties.nMinLogSize > logmsg.GetLength())
+	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
+	if (m_ProjectProperties.nMinLogSize > logmsg.GetLength())
 	{
-		pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
 	else
 	{
-		pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
 	if (!success)
 	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
-		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-		pDlg->m_bBlock = FALSE;
-		pDlg->EndDialog(0);
+		CMessageBox::Show(m_hWnd, m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		GetDlgItem(IDCANCEL)->EnableWindow(true);
+		m_bBlock = FALSE;
+		EndDialog(0);
 		return (DWORD)-1;
 	}
-	if ((pDlg->m_ListCtrl.GetItemCount()==0)&&(!pDlg->m_ListCtrl.HasUnversionedItems()))
+	if ((m_ListCtrl.GetItemCount()==0)&&(!m_ListCtrl.HasUnversionedItems()))
 	{
-		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
-		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-		pDlg->EndDialog(0);
+		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		GetDlgItem(IDCANCEL)->EnableWindow(true);
+		EndDialog(0);
 		return (DWORD)-1;
 	}
 	else
 	{
-		if (pDlg->m_ListCtrl.GetItemCount()==0)
+		if (m_ListCtrl.GetItemCount()==0)
 		{
-			if (CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
+			if (CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
 			{
-				pDlg->m_bShowUnversioned = TRUE;
-				pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
+				m_bShowUnversioned = TRUE;
+				GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
 				DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWUNVERSIONED;
-				pDlg->m_ListCtrl.Show(dwShow);
+				m_ListCtrl.Show(dwShow);
 			}
 			else
 			{
-				pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-				pDlg->EndDialog(0);
+				GetDlgItem(IDCANCEL)->EnableWindow(true);
+				EndDialog(0);
 				return (DWORD)-1;
 			}
 		}
 	}
 	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)pDlg->m_ListCtrl.m_sUUID);
-	pDlg->m_OldLogs.LoadHistory(reg, _T("logmsgs"));
-	pDlg->m_bBlock = FALSE;
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_ListCtrl.m_sUUID);
+	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
+	m_bBlock = FALSE;
 	return 0;
 }
 
@@ -503,7 +513,7 @@ void CLogPromptDlg::Refresh()
 {
 	m_bBlock = TRUE;
 	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
+	if ((m_hThread = CreateThread(NULL, 0, StatusThreadEntry, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -631,3 +641,4 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 	}
 	return 0;
 }
+
