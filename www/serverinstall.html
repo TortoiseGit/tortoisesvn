@@ -7,7 +7,7 @@
 	<META NAME="AUTHOR" CONTENT="Stefan K&uuml;ng">
 	<META NAME="CREATED" CONTENT="20030603;8410000">
 	<META NAME="CHANGEDBY" CONTENT="Stefan K&uuml;ng">
-	<META NAME="CHANGED" CONTENT="20030616;17582414">
+	<META NAME="CHANGED" CONTENT="20030618;17442982">
 	<STYLE>
 	<!--
 		@page { margin-left: 2cm; margin-right: 2.5cm; margin-top: 2.5cm; margin-bottom: 2cm }
@@ -93,10 +93,10 @@ Notepad):</P>
 	<LI><P LANG="de-CH" STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif">At
 	the end of all those LoadModule lines add the line<BR><FONT FACE="Courier New, monospace">LoadModule
 	dav_svn_module modules/mod_dav_svn.so<BR>LoadModule authz_svn_module
-	modules/mod_authz_svn.so<BR></FONT><FONT FACE="Times New Roman, serif">alternatively
-	you can specify a complete path to the directory where Subversion is
-	installed. That way you don't have to copy the *.so files to the
-	apache directory for every update.</FONT></FONT></P>
+	modules/mod_authz_svn.so<BR></FONT>alternatively you can specify a
+	complete path to the directory where Subversion is installed. That
+	way you don't have to copy the *.so files to the apache directory
+	for every update.</FONT></P>
 	<LI><P LANG="de-CH" STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif">Restart
 	the apache service.</FONT></P>
 	<LI><P LANG="de-CH" STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif">At
@@ -244,6 +244,10 @@ inside a LAN with a windows domain controller: mod_auth_sspi</P>
 apache authentication module from <A HREF="http://www.syneapps.com/software/mod_auth_sspi/">syneapps</A>
 for free. </SPAN>
 </P>
+<P LANG="de-CH" STYLE="margin-bottom: 0cm">Vladimir Berezniker found
+a small bug in the module from syneapps and sent in a <A HREF="/mod_auth_sspi.diff">patch</A>
+and also a <A HREF="/mod_auth_sspi.zip">compiled version</A>
+which fixes this bug. Thanks!</P>
 <UL>
 	<LI><P LANG="de-CH" STYLE="margin-bottom: 0cm">Download the module,
 	place the file mod_auth_sspi.so in the apache modules folder</P>
