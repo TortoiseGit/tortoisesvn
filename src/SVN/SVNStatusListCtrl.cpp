@@ -202,6 +202,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 		CStringA sUUID;					// holds the repo UUID
 		CStringArray arExtPaths;		// list of svn:external paths
 
+		SVNConfig config;
+
 		CString strLine;
 		m_sURL.Empty();
 
@@ -219,7 +221,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				strLine.Delete(strLine.GetLength()-1,1);
 			}
 
-			if(!FetchStatusForSinglePathLine(strLine, bUpdate, sUUID, arExtPaths))
+			if(!FetchStatusForSinglePathLine(config, strLine, bUpdate, sUUID, arExtPaths))
 			{
 				bRet = FALSE;
 			}
@@ -241,13 +243,13 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 // Work on a single item from the list of paths which is provided to us
 //
 bool CSVNStatusListCtrl::FetchStatusForSinglePathLine(
+							SVNConfig& config,
 							const CString& strLine, 
 							bool bFetchStatusFromRepository,
 							CStringA& strCurrentRepositoryUUID,
 							CStringArray& arExtPaths
 							)
 {
-	SVNConfig config;
 	apr_array_header_t* pIgnorePatterns = NULL;
 	//BUGBUG - Some error handling needed here
 	config.GetDefaultIgnores(&pIgnorePatterns);

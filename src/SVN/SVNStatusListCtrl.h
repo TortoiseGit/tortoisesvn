@@ -20,6 +20,7 @@
 #include "SVN.h"
 #include "SVNStatus.h"
 
+class SVNConfig;
 
 #define SVNSLC_COLSTATUS		0x000000002
 #define SVNSLC_COLREMOTESTATUS	0x000000004
@@ -224,7 +225,7 @@ private:
 	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
 
 	///< Process one line of the command file supplied to GetStatus
-	bool FetchStatusForSinglePathLine(const CString& strLine, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CStringArray& arExtPaths); 
+	bool FetchStatusForSinglePathLine(SVNConfig& config, const CString& strLine, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CStringArray& arExtPaths); 
 
 	///< Create 'status' data for each item in an unversioned folder
 	void AddUnversionedFolder(const CString& strFolderName, const CString& strBasePath, apr_array_header_t *pIgnorePatterns);
