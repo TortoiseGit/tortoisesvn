@@ -965,6 +965,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
+				temp.LoadString(IDS_LOG_POPUP_SAVE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				switch (cmd)
 				{
@@ -1011,6 +1013,100 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						dlg.m_rev = rev;
 						dlg.m_sPath = filepath;
 						dlg.DoModal();
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						theApp.DoWaitCursor(-1);
+					}
+					break;
+				case ID_SAVEAS:
+					{
+						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						this->m_app = &theApp;
+						theApp.DoWaitCursor(1);
+						CString filepath;
+						if (SVN::PathIsURL(m_path))
+						{
+							filepath = m_path;
+						}
+						else
+						{
+							SVN svn;
+							filepath = svn.GetURLFromPath(m_path);
+							if (filepath.IsEmpty())
+							{
+								theApp.DoWaitCursor(-1);
+								CString temp;
+								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								TRACE(_T("could not retrieve the URL of the file!\n"));
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								break;
+							}
+						}
+						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+						filepath = GetRepositoryRoot(filepath);
+						temp = temp.Mid(temp.Find(' '));
+						if (temp.Find('(')>=0)
+						{
+							temp = temp.Left(temp.Find('(')-1);
+						}
+						temp = temp.Trim();
+						filepath += temp;
+
+						OPENFILENAME ofn;		// common dialog box structure
+						TCHAR szFile[MAX_PATH];  // buffer for file name
+						ZeroMemory(szFile, sizeof(szFile));
+						CString revFilename;
+						temp = CUtils::GetFileNameFromPath(filepath);
+						int rfind = filepath.ReverseFind('.');
+						if (rfind > 0)
+							revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev, temp.Mid(rfind));
+						else
+							revFilename.Format(_T("%s-%ld"), temp, rev);
+						_tcscpy(szFile, revFilename);
+						// Initialize OPENFILENAME
+						ZeroMemory(&ofn, sizeof(OPENFILENAME));
+						//ofn.lStructSize = sizeof(OPENFILENAME);
+						ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+						ofn.hwndOwner = this->m_hWnd;
+						ofn.lpstrFile = szFile;
+						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+						temp.LoadString(IDS_LOG_POPUP_SAVE);
+						if (temp.IsEmpty())
+							ofn.lpstrTitle = NULL;
+						else
+							ofn.lpstrTitle = temp;
+						ofn.Flags = OFN_OVERWRITEPROMPT;
+
+						CString sFilter;
+						sFilter.LoadString(IDS_COMMONFILEFILTER);
+						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+						_tcscpy (pszFilters, sFilter);
+						// Replace '|' delimeters with '\0's
+						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+						while (ptr != pszFilters)
+						{
+							if (*ptr == '|')
+								*ptr = '\0';
+							ptr--;
+						} // while (ptr != pszFilters) 
+						ofn.lpstrFilter = pszFilters;
+						ofn.nFilterIndex = 1;
+						// Display the Open dialog box. 
+						CString tempfile;
+						if (GetSaveFileName(&ofn)==TRUE)
+						{
+							tempfile = CString(ofn.lpstrFile);
+							SVN svn;
+							if (!svn.Cat(filepath, rev, tempfile))
+							{
+								delete [] pszFilters;
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								theApp.DoWaitCursor(-1);
+								break;
+							} // if (!svn.Cat(m_path, rev, tempfile)) 
+						} // if (GetSaveFileName(&ofn)==TRUE)
+						delete [] pszFilters;
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
 					}
