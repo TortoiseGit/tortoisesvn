@@ -1208,7 +1208,7 @@ BEGIN
     IDS_WARN_FOLDERNOTEXIST "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
     IDS_WARN_SHAREFILEACCESS 
                             "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
-    IDS_WARN_RELOCATEREALLY "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\nIf you use Relocate to direct you working copy to another repository or branch,\nthis <b>will corrupt your working copy!</b>\nTo associate your working copy with another branch, use the Switch command.\nAre you sure you want to relocate?"
+    IDS_WARN_RELOCATEREALLY "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\nIf you use Relocate to direct your working copy to another repository or branch,\nthis <b>will corrupt your working copy!</b>\nTo associate your working copy with another branch, use the Switch command.\nAre you sure you want to relocate?"
 END
 
 STRINGTABLE 
