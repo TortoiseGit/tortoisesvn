@@ -85,6 +85,14 @@ set _FO_TARGET=%_HTML_TARGET%\%_APP%.fo
 set _PDF_TARGET=%_OUTPUT%\%_APP%_%_LANG%.pdf
 set _HELP_TARGET=%_OUTPUT%\%_APP%_%_LANG%.chm
 
+if exist ..\..\bin\Release\bin\SubWCRev.exe (
+   ..\..\bin\Release\bin\SubWCRev.exe %_DOC_SRC%%_LANG% %_DOC_SRC%%_LANG%\tortoisemerge.tmpl %_DOC_SRC%%_LANG%\tortoisemerge.xml
+   ..\..\bin\Release\bin\SubWCRev.exe %_DOC_SRC%%_LANG% %_DOC_SRC%%_LANG%\tortoisesvn.tmpl %_DOC_SRC%%_LANG%\tortoisesvn.xml
+) else (
+   copy %_DOC_SRC%%_LANG%\tortoisemerge.tmpl %_DOC_SRC%%_LANG%\tortoisemerge.xml /Y
+   copy %_DOC_SRC%%_LANG%\tortoisesvn.tmpl %_DOC_SRC%%_LANG%\tortoisesvn.xml /Y
+)
+
 rem exit if no source exists
 if not exist %_DOC_SRC%\%_LANG%\%_DOC_XML_SRC% goto :EOF
 
