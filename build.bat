@@ -149,8 +149,9 @@ if %_SETUP%==ON (
   echo building installers
 
   call MakeMsi.bat
-  cd ..\..\..\Languages
+  cd ..\..\Languages
   call Make_Installer.bat
+  cd ..\src\TortoiseSVNSetup
 )
 
 cd ..\..

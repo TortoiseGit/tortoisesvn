@@ -45,7 +45,7 @@ NotInstalled:
   Abort
 Proceed:
 !ifdef LangHelp
-  StrCpy $INSTDIR "$0"
+  StrCpy $INSTDIR "$0\bin"
   SetOutPath "$INSTDIR"
   File "..\doc\output\TortoiseSVN_${CountryCode}.chm"
 !endif
@@ -53,6 +53,11 @@ Proceed:
   SetOutPath $INSTDIR
   SetOverwrite ifnewer
   File "..\bin\*${CountryID}.dll"
+!ifdef MoFile
+  StrCpy $INSTDIR "$0\Languages\${CountryCode}"
+  SetOutPath "$INSTDIR"
+  File "subversion.mo"
+!endif
 SectionEnd
 
 Section -Post
