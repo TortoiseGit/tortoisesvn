@@ -153,7 +153,9 @@ protected:
 	CBitmap *		m_pCacheBitmap;
 	CDC *			m_pDC;
 	CToolTipCtrl	m_ToolTips;
-
+	
+	char			m_szTip[MAX_PATH+1];
+	wchar_t			m_wszTip[MAX_PATH+1];
 	// These three pointers lead to the three parent
 	// classes CLeftView, CRightView and CBottomView
 	// and are used for the communication between

@@ -1175,21 +1175,20 @@ BOOL CBaseView::OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult)
 		strTipText = m_sFullFilePath;
 	}
 	
+	*pResult = 0;
+	if (strTipText.IsEmpty())
+		return TRUE;
+
 	if (pNMHDR->code == TTN_NEEDTEXTA)
 	{
-		char * szTip = new char[strTipText.GetLength()+1];
-		lstrcpyn(szTip, strTipText, strTipText.GetLength()+1);
-		pTTTA->lpszText = szTip;
-		//lstrcpyn(pTTTA->szText, strTipText, sizeof(pTTTA->szText));
-	}
+		lstrcpyn(m_szTip, strTipText, strTipText.GetLength()+1);
+		pTTTA->lpszText = m_szTip;
+	} // if (pNMHDR->code == TTN_NEEDTEXTA)
 	else
 	{
-		wchar_t * szTip = new wchar_t[strTipText.GetLength()+1];
-		pTTTW->lpszText = szTip;
-		::MultiByteToWideChar( CP_ACP , 0, strTipText, -1, szTip, strTipText.GetLength()+1 );
-		//::MultiByteToWideChar( CP_ACP , 0, strTipText, -1, pTTTW->szText, sizeof(pTTTW->szText) );
+		pTTTW->lpszText = m_wszTip;
+		::MultiByteToWideChar( CP_ACP , 0, strTipText, -1, m_wszTip, strTipText.GetLength()+1 );
 	}
-	*pResult = 0;
 
 	return TRUE;    // message was handled
 }
