@@ -19,6 +19,8 @@
 - CHG: Don't use the %APPDATA% env but the shell API to
        get the path to the config file in the settings
        dialog. (Stefan)
+- BUG: The context menu key didn't work in the
+       repository browser. (Stefan)
 - BUG: TSVN could crash if a revprop did not exist. (Stefan)
 - BUG: Newlines weren't shown correctly when editing
        the revprops. (Stefan)

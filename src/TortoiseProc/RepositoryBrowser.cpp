@@ -89,6 +89,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
 	ON_NOTIFY(RVN_ITEMRCLICKUP, IDC_REPOS_TREE, OnRVNItemRClickUpReposTree)
 	ON_NOTIFY(RVN_KEYDOWN, IDC_REPOS_TREE, OnRVNKeyDownReposTree)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 
@@ -191,12 +192,31 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 	*pResult = 0;	// Force standard behaviour
 }
 
+void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
+{
+	if ((point.x == -1) && (point.y == -1))
+	{
+		CRect rect;
+		m_treeRepository.GetItemRect(m_treeRepository.GetFirstSelectedItem(), 0, &rect, RVIR_TEXT);
+		m_treeRepository.ClientToScreen(&rect);
+		point.x = rect.left + rect.Width()/2;
+		point.y = rect.top + rect.Height()/2;
+	}
+	LRESULT Result = 0;
+	ShowContextMenu(point, &Result);
+}
+
 void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	LPNMREPORTVIEW pNMTreeView = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
+	POINT point;
+	GetCursorPos(&point);
+	ShowContextMenu(point, pResult);
+}
 
+void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
+{
 	*pResult = 0;
-	HTREEITEM hSelItem = pNMTreeView->hItem;
+	HTREEITEM hSelItem = m_treeRepository.GetItemHandle(m_treeRepository.GetFirstSelectedItem());
 	UINT uSelCount = m_treeRepository.GetSelectedCount();
 	CString url = m_treeRepository.MakeUrl(hSelItem);
 
@@ -214,8 +234,6 @@ void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pRes
 		BOOL bFolder = m_treeRepository.IsFolder(hSelItem);
 
 		CMenu popup;
-		POINT point;
-		GetCursorPos(&point);
 		if (popup.CreatePopupMenu())
 		{
 			CString temp;
@@ -302,7 +320,7 @@ void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pRes
 				} // if (!bFolder1 && !bFolder2) 
 			} // if (uSelCount == 2) 
 
-			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
 
 			switch (cmd)
@@ -627,3 +645,4 @@ void CRepositoryBrowser::OnBnClickedHelp()
 {
 	OnHelp();
 }
+

@@ -80,9 +80,11 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg void OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
 
+	void ShowContextMenu(CPoint pt, LRESULT *pResult);
 	DECLARE_MESSAGE_MAP()
 
 	CRepositoryTree		m_treeRepository;
@@ -93,6 +95,7 @@ protected:
 private:
 	bool m_bStandAlone;
 	SVNUrl m_InitialSvnUrl;
+public:
 };
 
 #endif /*__RepositoryBrowser_h*/
