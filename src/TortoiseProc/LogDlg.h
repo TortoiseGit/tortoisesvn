@@ -40,6 +40,8 @@
 #define ID_IGNORE	   15
 #define	ID_LOG		   16
 #define ID_POPPROPS	   17
+#define ID_EDITAUTHOR  18
+#define ID_EDITLOG     19
 
 #define ID_DIFF			20
 
@@ -116,6 +118,8 @@ private:
 	static UINT LogThreadEntry(LPVOID pVoid);
 	UINT LogThread();
 	BOOL DiffPossible(LogChangedPath * changedpath, long rev);
+	void EditAuthor(int index);
+	void EditLogMessage(int index);
 
 public:
 	CWnd *		m_pNotifyWindow;

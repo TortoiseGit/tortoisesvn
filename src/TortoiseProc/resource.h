@@ -280,7 +280,6 @@
 #define IDC_COPYHEAD                    1182
 #define IDC_COPYWC                      1183
 #define IDC_AUTOCOMPLETION              1184
-#define IDC_RADIO2                      1185
 #define IDC_COPYREV                     1185
 #define IDC_COPYREVTEXT                 1186
 #define IDS_REPO_BROWSEREV              1190
@@ -429,6 +428,8 @@
 #define IDS_LOG_POPUP_GNUDIFF           1802
 #define IDS_LOG_POPUP_FIND              1803
 #define IDS_LOG_POPUP_OPEN              1804
+#define IDS_LOG_POPUP_EDITAUTHOR        1805
+#define IDS_LOG_POPUP_EDITLOG           1806
 #define IDS_LOG_COPY_SUCCESS            1830
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901

@@ -636,6 +636,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 				}
 				popup.AppendMenu(MF_SEPARATOR, NULL);
+				
+				temp.LoadString(IDS_LOG_POPUP_EDITAUTHOR);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, temp);
+				temp.LoadString(IDS_LOG_POPUP_EDITLOG);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
+				
+				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_FIND);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
 
@@ -946,12 +953,22 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								GetDlgItem(IDOK)->EnableWindow(TRUE);
 								break;
 							}
-						} // if (m_hasWC)
+						}
 
 						CRepositoryBrowser dlg(SVNUrl(url, SVNRev(rev)));
 						dlg.DoModal();
 					}
 					break;
+				case ID_EDITLOG:
+				{
+					EditLogMessage(selIndex);
+				}
+				break;
+				case ID_EDITAUTHOR:
+				{
+					EditAuthor(selIndex);
+				}
+				break;
 				default:
 					break;
 				} // switch (cmd)
@@ -1251,97 +1268,10 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	if (isSpecial)
 	{
-		CString url;
-		CString name;
-		CString text;
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-		SetPromptApp(&theApp);
-		theApp.DoWaitCursor(1);
-		if (SVN::PathIsURL(m_path.GetSVNPathString()))
-			url = m_path.GetSVNPathString();
-		else
-		{
-			SVN svn;
-			url = svn.GetURLFromPath(m_path);
-		}
 		if (selSub == 1)
-		{
-			text.LoadString(IDS_LOG_AUTHOR);
-			name = SVN_PROP_REVISION_AUTHOR;
-		}
-		else if (selSub == 3)
-		{
-			text.LoadString(IDS_LOG_MESSAGE);
-			name = SVN_PROP_REVISION_LOG;
-		}
-
-		CString value = RevPropertyGet(name, url, m_arRevs.GetAt(selIndex));
-		value.Replace(_T("\n"), _T("\r\n"));
-		CInputDlg dlg;
-		dlg.m_sHintText = text;
-		dlg.m_sInputText = value;
-		if (dlg.DoModal() == IDOK)
-		{
-			dlg.m_sInputText.Replace(_T("\r"), _T(""));
-			if (!RevPropertySet(name, dlg.m_sInputText, url, m_arRevs.GetAt(selIndex)))
-			{
-				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			}
-			else
-			{
-				if (selSub == 1)
-				{
-					m_arAuthors.SetAt(selIndex, dlg.m_sInputText);
-					m_LogList.SetItemText(selIndex, 1, dlg.m_sInputText);
-				}
-				if (selSub == 3)
-				{
-					// Add as many characters from the log message to the list control
-					// so it has a fixed width. If the log message is longer than
-					// this predefined fixed with, add "..." as an indication.
-					CString sShortMessage = dlg.m_sInputText;
-					// Remove newlines 'cause those are not shown nicely in the listcontrol
-					sShortMessage.Replace(_T("\r"), _T(""));
-					sShortMessage.Replace('\n', ' ');
-
-					int found = sShortMessage.Find(_T("\n\n"));
-					if (found >=0)
-					{
-						if (found <=80)
-							sShortMessage = sShortMessage.Left(found);
-						else
-						{
-							found = sShortMessage.Find(_T("\n"));
-							if ((found >= 0)&&(found <=80))
-								sShortMessage = sShortMessage.Left(found);
-						}
-					}
-					else if (sShortMessage.GetLength() > 80)
-						sShortMessage = sShortMessage.Left(77) + _T("...");
-					m_LogList.SetItemText(selIndex, 3, sShortMessage);
-					//split multiline logentries and concatenate them
-					//again but this time with \r\n as line separators
-					//so that the edit control recognizes them
-					if (dlg.m_sInputText.GetLength()>0)
-					{
-						m_sMessageBuf = dlg.m_sInputText;
-						dlg.m_sInputText.Replace(_T("\n\r"), _T("\n"));
-						dlg.m_sInputText.Replace(_T("\r\n"), _T("\n"));
-						if (dlg.m_sInputText.Right(1).Compare(_T("\n"))==0)
-							dlg.m_sInputText = dlg.m_sInputText.Left(dlg.m_sInputText.GetLength()-1);
-					} 
-					else
-						dlg.m_sInputText.Empty();
-					m_arLogMessages.SetAt(selIndex, dlg.m_sInputText);
-					CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
-					pMsgView->SetWindowText(_T(" "));
-					pMsgView->SetWindowText(dlg.m_sInputText);
-					m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
-				}
-			}
-		}
-		theApp.DoWaitCursor(-1);
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
+			EditAuthor(selIndex);
+		if (selIndex == 3)
+			EditLogMessage(selIndex);
 	}
 }
 
@@ -1631,6 +1561,121 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	revname1.Format(_T("%s Revision %ld"), (LPCTSTR)path1.GetFileOrDirectoryName(), rev1);
 	revname2.Format(_T("%s Revision %ld"), (LPCTSTR)path2.GetFileOrDirectoryName(), rev2);
 	return CUtils::StartExtDiff(tempfile2, tempfile1, revname2, revname1);
+}
+
+void CLogDlg::EditAuthor(int index)
+{
+	CString url;
+	CString name;
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	SetPromptApp(&theApp);
+	theApp.DoWaitCursor(1);
+	if (SVN::PathIsURL(m_path.GetSVNPathString()))
+		url = m_path.GetSVNPathString();
+	else
+	{
+		SVN svn;
+		url = svn.GetURLFromPath(m_path);
+	}
+	name = SVN_PROP_REVISION_AUTHOR;
+
+	CString value = RevPropertyGet(name, url, m_arRevs.GetAt(index));
+	value.Replace(_T("\n"), _T("\r\n"));
+	CInputDlg dlg;
+	dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
+	dlg.m_sInputText = value;
+	if (dlg.DoModal() == IDOK)
+	{
+		dlg.m_sInputText.Replace(_T("\r"), _T(""));
+		if (!RevPropertySet(name, dlg.m_sInputText, url, m_arRevs.GetAt(index)))
+		{
+			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
+		else
+		{
+			m_arAuthors.SetAt(index, dlg.m_sInputText);
+			m_LogList.SetItemText(index, 1, dlg.m_sInputText);
+		}
+	}
+	theApp.DoWaitCursor(-1);
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
+}
+
+void CLogDlg::EditLogMessage(int index)
+{
+	CString url;
+	CString name;
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	SetPromptApp(&theApp);
+	theApp.DoWaitCursor(1);
+	if (SVN::PathIsURL(m_path.GetSVNPathString()))
+		url = m_path.GetSVNPathString();
+	else
+	{
+		SVN svn;
+		url = svn.GetURLFromPath(m_path);
+	}
+	name = SVN_PROP_REVISION_LOG;
+
+	CString value = RevPropertyGet(name, url, m_arRevs.GetAt(index));
+	value.Replace(_T("\n"), _T("\r\n"));
+	CInputDlg dlg;
+	dlg.m_sHintText.LoadString(IDS_LOG_MESSAGE);
+	dlg.m_sInputText = value;
+	if (dlg.DoModal() == IDOK)
+	{
+		dlg.m_sInputText.Replace(_T("\r"), _T(""));
+		if (!RevPropertySet(name, dlg.m_sInputText, url, m_arRevs.GetAt(index)))
+		{
+			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
+		else
+		{
+			// Add as many characters from the log message to the list control
+			// so it has a fixed width. If the log message is longer than
+			// this predefined fixed with, add "..." as an indication.
+			CString sShortMessage = dlg.m_sInputText;
+			// Remove newlines 'cause those are not shown nicely in the listcontrol
+			sShortMessage.Replace(_T("\r"), _T(""));
+			sShortMessage.Replace('\n', ' ');
+
+			int found = sShortMessage.Find(_T("\n\n"));
+			if (found >=0)
+			{
+				if (found <=80)
+					sShortMessage = sShortMessage.Left(found);
+				else
+				{
+					found = sShortMessage.Find(_T("\n"));
+					if ((found >= 0)&&(found <=80))
+						sShortMessage = sShortMessage.Left(found);
+				}
+			}
+			else if (sShortMessage.GetLength() > 80)
+				sShortMessage = sShortMessage.Left(77) + _T("...");
+			m_LogList.SetItemText(index, 3, sShortMessage);
+			//split multiline logentries and concatenate them
+			//again but this time with \r\n as line separators
+			//so that the edit control recognizes them
+			if (dlg.m_sInputText.GetLength()>0)
+			{
+				m_sMessageBuf = dlg.m_sInputText;
+				dlg.m_sInputText.Replace(_T("\n\r"), _T("\n"));
+				dlg.m_sInputText.Replace(_T("\r\n"), _T("\n"));
+				if (dlg.m_sInputText.Right(1).Compare(_T("\n"))==0)
+					dlg.m_sInputText = dlg.m_sInputText.Left(dlg.m_sInputText.GetLength()-1);
+			} 
+			else
+				dlg.m_sInputText.Empty();
+			m_arLogMessages.SetAt(index, dlg.m_sInputText);
+			CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+			pMsgView->SetWindowText(_T(" "));
+			pMsgView->SetWindowText(dlg.m_sInputText);
+			m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
+		}
+	}
+	theApp.DoWaitCursor(-1);
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 }
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
