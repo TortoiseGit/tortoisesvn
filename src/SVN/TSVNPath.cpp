@@ -145,11 +145,6 @@ const char* CTSVNPath::GetSVNApiPath() const
 		if (!CUtils::IsEscaped(m_sUTF8FwdslashPath))
 		{
 			m_sUTF8FwdslashPathEscaped = CUtils::PathEscape(m_sUTF8FwdslashPath);
-//BUGBUG: this will only work if the return value is either used immediately after
-//a call to GetSVNApiPath or a copy of the returned path is created!
-//two subsequent calls to GetSVNApiPath will return the same address, the last call
-//would overwrite the paths of previous calls!
-//maybe we should just return a CStringA object instead of a (const char *)?
 			return m_sUTF8FwdslashPathEscaped;
 		}
 	}
