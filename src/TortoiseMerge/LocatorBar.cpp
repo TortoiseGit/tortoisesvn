@@ -320,11 +320,11 @@ void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 		if (nLine < 0)
 			nLine = 0;
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndBottomView))
-			m_pMainFrm->m_pwndBottomView->GoToLine(nLine);
+			m_pMainFrm->m_pwndBottomView->GoToLine(nLine, FALSE);
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
-			m_pMainFrm->m_pwndLeftView->GoToLine(nLine);
+			m_pMainFrm->m_pwndLeftView->GoToLine(nLine, FALSE);
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndRightView))
-			m_pMainFrm->m_pwndRightView->GoToLine(nLine);
+			m_pMainFrm->m_pwndRightView->GoToLine(nLine, FALSE);
 	} // if (nFlags & MK_LBUTTON)
 	Invalidate();
 }
