@@ -816,7 +816,10 @@ void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), data->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 		if ((data->status == data->propstatus)&&(!SVNStatus::IsImportant(data->textstatus)))
 			_tcscat(buf, _T("(P only)"));
-		m_ListCtrl.InsertItem(i, data->path.Right(data->path.GetLength() - data->line.GetLength() - 1));
+		if (data->path.GetLength() == data->line.GetLength())
+			m_ListCtrl.InsertItem(i, data->line.Right(data->line.GetLength() - data->line.ReverseFind('/') - 1));
+		else
+			m_ListCtrl.InsertItem(i, data->path.Right(data->path.GetLength() - data->line.GetLength() - 1));
 		m_ListCtrl.SetItemText(i, 1, buf);
 		m_ListCtrl.SetCheck(i, data->checked);
 	} // for (int i=0; i<m_arData.GetCount(); i++) 
