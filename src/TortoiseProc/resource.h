@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcITA.rc
+// Used by d:\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseProcRUS.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -79,6 +79,7 @@
 #define IDS_STRING203                   203
 #define IDS_STATUSIGNORED               203
 #define IDS_STRING204                   204
+#define IDS_STATUSEXTERNAL              204
 #define IDS_IMPORT_DEFAULTMSG           205
 #define IDS_STRING206                   206
 #define IDS_STRING207                   207

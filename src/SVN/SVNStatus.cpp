@@ -304,12 +304,7 @@ svn_wc_status_kind SVNStatus::GetTextStatusRecursive(const TCHAR * path)
     {
 		svn_wc_status_t * tempstatus;
 		apr_hash_this(hi, NULL, NULL, (void **)&tempstatus);
-		//check if this status has higher priority
-		//to keep things easy the higher priority is also the higher enum value...
-		if ((tempstatus->text_status > statuskind)&&(tempstatus->text_status != svn_wc_status_ignored))
-		{
-			statuskind = tempstatus->text_status;
-		}
+		statuskind = GetMoreImportant(statuskind, tempstatus->text_status);
 		if ((statuskind == svn_wc_status_unversioned)
 			 &&(tempstatus->text_status == svn_wc_status_ignored))
 			statuskind = svn_wc_status_ignored;
@@ -404,16 +399,8 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
     {
 		svn_wc_status_t * tempstatus;
 		apr_hash_this(hi, NULL, NULL, (void **)&tempstatus);
-		//check if this status has higher priority
-		//to keep things easy the higher priority is also the higher enum value...
-		if ((tempstatus->text_status > statuskind)&&(tempstatus->text_status != svn_wc_status_ignored))
-		{
-			statuskind = tempstatus->text_status;
-		}
-		if ((tempstatus->prop_status > statuskind)&&(tempstatus->prop_status != svn_wc_status_ignored))
-		{
-			statuskind = tempstatus->prop_status;
-		}
+		statuskind = GetMoreImportant(statuskind, tempstatus->text_status);
+		statuskind = GetMoreImportant(statuskind, tempstatus->prop_status);
 		if ((statuskind == svn_wc_status_unversioned)
 			 &&((tempstatus->prop_status == svn_wc_status_ignored)||(tempstatus->text_status == svn_wc_status_ignored)))
 			statuskind = svn_wc_status_ignored;
@@ -508,16 +495,9 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
     {
 		svn_wc_status_t * tempstatus;
 		apr_hash_this(hi, NULL, NULL, (void **)&tempstatus);
-		//check if this status has higher priority
-		//to keep things easy the higher priority is also the higher enum value...
-		if ((tempstatus->text_status > statuskind)&&(tempstatus->text_status != svn_wc_status_ignored))
-		{
-			statuskind = tempstatus->text_status;
-		}
-		if ((tempstatus->prop_status > statuskind)&&(tempstatus->prop_status != svn_wc_status_ignored))
-		{
-			statuskind = tempstatus->prop_status;
-		}
+		
+		statuskind = GetMoreImportant(statuskind, tempstatus->text_status);
+		statuskind = GetMoreImportant(statuskind, tempstatus->prop_status);
 		if ((statuskind == svn_wc_status_unversioned)
 			 &&((tempstatus->prop_status == svn_wc_status_ignored)||(tempstatus->text_status == svn_wc_status_ignored)))
 			statuskind = svn_wc_status_ignored;
@@ -525,6 +505,50 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
 	svn_pool_destroy (pool);				//free allocated memory
 	apr_terminate();
 	return statuskind;
+}
+
+//static method
+svn_wc_status_kind SVNStatus::GetMoreImportant(svn_wc_status_kind status1, svn_wc_status_kind status2)
+{
+	if (GetStatusRanking(status1) > GetStatusRanking(status2))
+		return status1;
+	return status2;
+}
+//static private method
+int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
+{
+	switch (status)
+	{
+		case svn_wc_status_none:
+			return 0;
+		case svn_wc_status_unversioned:
+			return 1;
+		case svn_wc_status_ignored:
+			return 2;
+		case svn_wc_status_external:
+			return 3;
+		case svn_wc_status_incomplete:
+			return 4;
+		case svn_wc_status_normal:
+			return 5;
+		case svn_wc_status_added:
+			return 6;
+		case svn_wc_status_absent:
+			return 7;
+		case svn_wc_status_deleted:
+			return 8;
+		case svn_wc_status_replaced:
+			return 9;
+		case svn_wc_status_modified:
+			return 10;
+		case svn_wc_status_merged:
+			return 11;
+		case svn_wc_status_conflicted:
+			return 12;
+		case svn_wc_status_obstructed:
+			return 13;
+	} // switch (status)
+	return 0;
 }
 
 svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */)
@@ -682,6 +706,9 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
 		case svn_wc_status_ignored:
 			buf = _T("ignored");
 			break;
+		case svn_wc_status_external:
+			buf = _T("external");
+			break;
 		case svn_wc_status_incomplete:
 			buf = _T("incomplete\0");
 			break;
@@ -731,6 +758,9 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 			break;
 		case svn_wc_status_obstructed:
 			LoadStringEx(hInst, IDS_STATUSOBSTRUCTED, string, size, lang);
+			break;
+		case svn_wc_status_external:
+			LoadStringEx(hInst, IDS_STATUSEXTERNAL, string, size, lang);
 			break;
 		case svn_wc_status_incomplete:
 			LoadStringEx(hInst, IDS_STATUSINCOMPLETE, string, size, lang);
@@ -855,12 +885,8 @@ void SVNFolderStatus::BuildCache(LPCTSTR folderpath)
 		svn_wc_status_t * tempstatus;
 		apr_hash_this(hi, NULL, NULL, (void **)&tempstatus);
 		m_pStatusCache[i].status = svn_wc_status_unversioned;
-		//check if this status has higher priority
-		//to keep things easy the higher priority is also the higher enum value...
-		if (m_pStatusCache[i].status < tempstatus->text_status)
-			m_pStatusCache[i].status = tempstatus->text_status;
-		if (m_pStatusCache[i].status < tempstatus->prop_status)
-			m_pStatusCache[i].status = tempstatus->prop_status;
+		m_pStatusCache[i].status = SVNStatus::GetMoreImportant(m_pStatusCache[i].status, tempstatus->text_status);
+		m_pStatusCache[i].status = SVNStatus::GetMoreImportant(m_pStatusCache[i].status, tempstatus->prop_status);
 		m_pStatusCache[i].askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 		if (tempstatus->entry)
 		{

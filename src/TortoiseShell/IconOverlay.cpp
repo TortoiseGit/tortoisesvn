@@ -209,6 +209,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 		case svn_wc_status_unversioned:
 			return S_FALSE;
 		case svn_wc_status_normal:
+		case svn_wc_status_external:
+		case svn_wc_status_incomplete:
 			if (m_State == Versioned)
 				return S_OK;
 			else

@@ -117,6 +117,14 @@ public:
 	static svn_wc_status_kind GetAllStatusRecursive(const TCHAR * path);
 
 	/**
+	 * Returns the status which is more "important" of the two statuses specified.
+	 * This is used for the "recursive" status functions on folders - i.e. which status
+	 * should be returned for a folder which has several files with different statuses
+	 * in it.
+	 */	 	 	 	 	
+	static svn_wc_status_kind GetMoreImportant(svn_wc_status_kind status1, svn_wc_status_kind status2);
+	
+	/**
 	 * Reads the Subversion text status of the working copy entry. No
 	 * recurse is done, even if the entry is a directory.
 	 * The result is stored in the public member variable status.
@@ -168,6 +176,7 @@ private:
 					void *baton, 
 					apr_pool_t *pool);
 #endif
+	static int GetStatusRanking(svn_wc_status_kind status);
 	//for GetFirstFileStatus and GetNextFileStatus
 	apr_hash_t *				m_statushash;
 	apr_array_header_t *		m_statusarray;
