@@ -64,6 +64,13 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 		// use TortoiseMerge
 		CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 		com = tortoiseMergePath;
+		if (com.IsEmpty())
+		{
+			TCHAR tmerge[MAX_PATH];
+			GetModuleFileName(NULL, tmerge, MAX_PATH);
+			com = tmerge;
+			com.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+		}
 		com = _T("\"") + com + _T("\"");
 		com = com + _T(" /base:%base /theirs:%theirs /yours:%mine /merged:%merged");
 		com = com + _T(" /basename:%bname /theirsname:%tname /yoursname:%yname /mergedname:%mname");
@@ -142,6 +149,13 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			// use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
+			if (viewer.IsEmpty())
+			{
+				TCHAR tmerge[MAX_PATH];
+				GetModuleFileName(NULL, tmerge, MAX_PATH);
+				viewer = tmerge;
+				viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+			}
 			viewer = _T("\"") + viewer + _T("\"");
 			viewer = viewer + _T(" /patchpath:%path /diff:%base");
 		} // if (viewer.IsEmpty() && !dir.IsEmpty())
@@ -183,6 +197,13 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			//use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
+			if (viewer.IsEmpty())
+			{
+				TCHAR tmerge[MAX_PATH];
+				GetModuleFileName(NULL, tmerge, MAX_PATH);
+				viewer = tmerge;
+				viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+			}
 			viewer = _T("\"") + viewer + _T("\"");
 			viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
 		} // if (diffexe == "")

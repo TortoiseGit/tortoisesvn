@@ -152,9 +152,11 @@ BOOL CSetMainPage::OnInitDialog()
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
 	m_LanguageCombo.SetItemData(0, 1033);
-	CRegString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
-	CString path = str;
-	path = path + _T("\\Languages\\");
+	TCHAR procpathbuf[MAX_PATH];
+	GetModuleFileName(NULL, procpathbuf, MAX_PATH);
+	CString path = procpathbuf;
+	path = path.Left(temp.ReverseFind('\\')+1);
+	path = path + _T("Languages\\");
 	CSimpleFileFind finder(path, _T("*.dll"));
 	int langcount = 1;
 	while (finder.FindNextFileNoDirectories())
