@@ -28,6 +28,7 @@ CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CRenameDlg::IDD, pParent)
 	, m_name(_T(""))
 {
+	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CRenameDlg::~CRenameDlg()
