@@ -373,6 +373,8 @@
 #define IDS_PROC_YESTOALL               2306
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
+#define IDS_DIFF_WORKINGCOPY            2402
+#define IDS_DIFF_REVISIONPATCHED        2403
 #define IDS_COMMONFILEFILTER            2500
 #define IDS_PROGRAMSFILEFILTER          2501
 #define IDS_CERTIFICATESFILEFILTER      2502

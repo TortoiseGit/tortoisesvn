@@ -287,7 +287,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		this->m_Data.m_sBaseFile = sBaseFile;
 		this->m_Data.m_sBaseName = temp;
 		this->m_Data.m_sTheirFile = sTempFile;
-		temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
+		temp.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
 		this->m_Data.m_sTheirName = temp;
 		this->m_Data.m_sYourFile = sFilePath;
 		this->m_Data.m_sYourName = CUtils::GetFileNameFromPath(sFilePath);
@@ -308,19 +308,19 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		{
 			this->m_Data.m_sBaseFile = sTempFile;
 			CString temp;
-			temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
+			temp.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
 			this->m_Data.m_sBaseName = temp;
 			this->m_Data.m_sYourFile = sFilePath;
-			this->m_Data.m_sYourName = CUtils::GetFileNameFromPath(sFilePath);;
+			this->m_Data.m_sYourName.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchOriginal);
 			this->m_Data.m_sTheirFile.Empty();
 		}
 		else
 		{
 			this->m_Data.m_sBaseFile = sFilePath;
-			this->m_Data.m_sBaseName = CUtils::GetFileNameFromPath(sFilePath);
+			this->m_Data.m_sBaseName.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchOriginal);
 			this->m_Data.m_sYourFile = sTempFile;
 			CString temp;
-			temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
+			temp.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
 			this->m_Data.m_sYourName = temp;
 			this->m_Data.m_sTheirFile.Empty();
 			this->m_Data.m_sMergedFile = sFilePath;

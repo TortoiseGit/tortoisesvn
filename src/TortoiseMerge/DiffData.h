@@ -110,6 +110,8 @@ public:
 	CString						m_sMergedName;
 	CString						m_sDiffFile;
 	CString						m_sPatchPath;
+	CString						m_sPatchOriginal;
+	CString						m_sPatchPatched;
 
 	svn_diff_t *				m_diffYourBase;
 	svn_diff_t *				m_diffTheirBase;

@@ -743,7 +743,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							} 
 							else
 							{
-								CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')));
+								CString sWC, sRev;
+								sWC.LoadString(IDS_DIFF_WORKINGCOPY);
+								sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
+								CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev);
 							}
 						}
 						else
@@ -997,7 +1000,10 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			else
 			{
-				CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE); 
+				CString sWC, sRev;
+				sWC.LoadString(IDS_DIFF_WORKINGCOPY);
+				sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
+				CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev); 
 			}
 		}
 		theApp.DoWaitCursor(-1);

@@ -1,7 +1,7 @@
-Index: model/yourShoppingCart.cfc
+Index: yourShoppingCart.cfc
 ===================================================================
---- model/yourShoppingCart.cfc	(revision 25)
-+++ model/yourShoppingCart.cfc	(working copy)
+--- yourShoppingCart.cfc	(revision 25)
++++ yourShoppingCart.cfc	(working copy)
 @@ -1,13 +0,0 @@
 -<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 -
@@ -16,10 +16,10 @@ Index: model/yourShoppingCart.cfc
 -
 -</body>
 -</html>
-Index: model/ShellCache.h
+Index: ShellCache.h
 ===================================================================
---- model/ShellCache.h	(revision 906)
-+++ model/ShellCache.h	(working copy)
+--- ShellCache.h	(revision 906)
++++ ShellCache.h	(working copy)
 @@ -30,6 +30,7 @@
  public:
  	ShellCache()
@@ -59,10 +59,10 @@ Index: model/ShellCache.h
 -};
 \ No newline at end of file
 +};
-Index: model/file1.txt
+Index: file1.txt
 ===================================================================
---- model/file1.txt	(revision 20)
-+++ model/file1.txt	(working copy)
+--- file1.txt	(revision 20)
++++ file1.txt	(working copy)
 @@ -0,0 +1 @@
 +vhjhgf
 \ No newline at end of file

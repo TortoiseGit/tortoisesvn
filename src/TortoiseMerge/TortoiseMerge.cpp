@@ -169,6 +169,10 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->m_Data.m_sMergedName = parser.GetVal(_T("mergedname"));
 	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));
 	pFrame->m_Data.m_sPatchPath.Replace('/', '\\');
+	if (parser.HasKey(_T("patchoriginal")))
+		pFrame->m_Data.m_sPatchOriginal = parser.GetVal(_T("patchoriginal"));
+	if (parser.HasKey(_T("patchpatched")))
+		pFrame->m_Data.m_sPatchPatched = parser.GetVal(_T("patchpatched"));
 	pFrame->m_Data.m_sDiffFile = parser.GetVal(_T("diff"));
 	pFrame->m_Data.m_sDiffFile.Replace('/', '\\');
 	if (parser.HasKey(_T("oneway")))
