@@ -1341,7 +1341,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (!PathIsDirectory(path))
 			{
 				SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
-				path.Mid(path.ReverseFind('\\')+1);
+				sDir = path.Mid(path.ReverseFind('\\')+1);
 			}
 			else
 				SetCurrentDirectory(path);
