@@ -563,6 +563,8 @@ BOOL CTortoiseProcApp::InitInstance()
 				folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
 				temp.LoadString(IDS_PROC_EXPORT_2);
 				folderBrowser.SetCheckBoxText(temp);
+				CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
+				folderBrowser.m_bCheck = regExtended;
 				if (folderBrowser.Show(EXPLORERHWND, saveto)==CBrowseFolder::OK)
 				{
 					CString saveplace = CString(saveto);
@@ -589,6 +591,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						temp.Format(IDS_PROC_EXPORT_4, path, saveplace);
 						CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 					}
+					regExtended = folderBrowser.m_bCheck;
 				}
 			}
 		}
