@@ -95,6 +95,7 @@ protected:
 
 	void	FillLogMessageCtrl(CString msg);
 	BOOL	StartDiff(CString path1, LONG rev1, CString path2, LONG rev2);
+	void	DoDiffFromLog(int selIndex, CString temp,long rev);
 
 	DECLARE_MESSAGE_MAP()
 public:

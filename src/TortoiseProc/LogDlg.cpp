@@ -879,39 +879,16 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
 				}
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-				GetDlgItem(IDOK)->EnableWindow(FALSE);
-				this->m_app = &theApp;
-				theApp.DoWaitCursor(1);
 				switch (cmd)
 				{
 				case ID_DIFF:
 					{
-						//get the filename
-						SVNStatus status;
-						if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
-						{
-							theApp.DoWaitCursor(-1);
-							CString temp;
-							temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
-							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-							TRACE(_T("could not retrieve the URL of the file!\n"));
-							return;		//exit
-						} // if ((rev == (-2))||(status.status->entry == NULL))
-						temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-						CString filepath = CString(status.status->entry->url);
-						m_bCancelled = FALSE;
-						filepath = GetRepositoryRoot(filepath);
-						temp = temp.Mid(temp.Find(' '));
-						temp = temp.Trim();
-						filepath += temp;
-						StartDiff(filepath, rev, filepath, rev-1);
+						DoDiffFromLog(selIndex,temp,rev);
 					}
 					break;
 				default:
 					break;
 				} // switch (cmd)
-				theApp.DoWaitCursor(-1);
-				GetDlgItem(IDOK)->EnableWindow(TRUE);
 			} // if (m_LogMsgCtrl.GetSelectedCount() == 1)
 		} // if (popup.CreatePopupMenu())
 	} // if (selIndex >= m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
@@ -919,13 +896,12 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
-	int selIndex = pNMLV->iItem;
+	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
-	long rev = m_arRevs.GetAt(selIndex);
-	if (selIndex >= (int)m_arFileListStarts.GetAt(selIndex))
+	long rev = m_arRevs.GetAt(m_LogList.GetSelectionMark());
+	if (selIndex >= (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 	{
 		CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 		temp = temp.Left(temp.Find(' '));
@@ -934,32 +910,37 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 		tt.LoadString(IDS_SVNACTION_DELETE);
 		if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
 		{
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
-			this->m_app = &theApp;
-			theApp.DoWaitCursor(1);
-			//get the filename
-			SVNStatus status;
-			if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
-			{
-				theApp.DoWaitCursor(-1);
-				CString temp;
-				temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
-				CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-				TRACE(_T("could not retrieve the URL of the file!\n"));
-				return;		//exit
-			} // if ((rev == (-2))||(status.status->entry == NULL))
-			temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-			CString filepath = CString(status.status->entry->url);
-			m_bCancelled = FALSE;
-			filepath = GetRepositoryRoot(filepath);
-			temp = temp.Mid(temp.Find(' '));
-			temp = temp.Trim();
-			filepath += temp;
-			StartDiff(filepath, rev, filepath, rev-1);
-			theApp.DoWaitCursor(-1);
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			DoDiffFromLog(selIndex,temp,rev);
 		}
 	} // if (selIndex >= m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+}
+
+void CLogDlg::DoDiffFromLog(int selIndex, CString temp, long rev)
+{
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	this->m_app = &theApp;
+	theApp.DoWaitCursor(1);
+	//get the filename
+	SVNStatus status;
+	if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
+	{
+		theApp.DoWaitCursor(-1);
+		CString temp;
+		temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+		TRACE(_T("could not retrieve the URL of the file!\n"));
+		return;		//exit
+	} // if ((rev == (-2))||(status.status->entry == NULL))
+	temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+	CString filepath = CString(status.status->entry->url);
+	m_bCancelled = FALSE;
+	filepath = GetRepositoryRoot(filepath);
+	temp = temp.Mid(temp.Find(' '));
+	temp = temp.Trim();
+	filepath += temp;
+	StartDiff(filepath, rev, filepath, rev-1);
+	theApp.DoWaitCursor(-1);
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 }
 
 BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
