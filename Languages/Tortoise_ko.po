@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-03-07 05:05+0900\n"
+"PO-Revision-Date: 2005-03-15 11:03+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -133,6 +133,17 @@ msgid ""
 msgstr ""
 "%s\n"
 "삭제하시겠습니까?"
+
+# ID:69,
+#: ID:69
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"는 디렉토리이며, 파일이 아닙니다.\n"
+"TortoiseMerge는 디렉토리에 대한 diff를 지원하지 않습니다."
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
@@ -517,6 +528,7 @@ msgstr "- %d"
 # Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -752,10 +764,12 @@ msgstr "원격지에 디렉토리 추가됨"
 #: ID:145
 msgid ""
 "Added the file(s)\n"
-"%sto the ignore list."
+"%s\n"
+"to the ignore list."
 msgstr ""
-"파일 추가\n"
-"무시 목록: %s "
+"다음 파일을\n"
+"%s\n"
+"무시 목록에 추가하였습니다. "
 
 # ID:8,#:
 # ID:73,#:
@@ -1056,16 +1070,6 @@ msgstr "브랜치 / 태그 만들기"
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "브랜치 / 태그가 만들어졌습니다."
-
-# Control-ID:1073,
-#: Control-ID:1182
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "서버에 직접 브랜치/태그 만들기 (HEAD 리비전)"
-
-# ID:79,
-#: Control-ID:1183
-msgid "Branch/Tag the working copy"
-msgstr "현재 작업 사본으로부터 태그/브랜치를 만듭니다."
 
 # ID:9,
 #: ID:9
@@ -1396,8 +1400,8 @@ msgstr "리비전 비교(&w)"
 
 # ID:12,
 #: ID:12
-msgid "Compares the file with the last commited version to show you the changes you made"
-msgstr "작업한 내용을 마지막 커밋된 버전과 비교"
+msgid "Compares the file with the last committed revision to show you the changes you made"
+msgstr "작업한 내용을 마지막 커밋된 버전과 비교하여 보여줍니다."
 
 # ID:74,
 #: ID:74
@@ -1520,6 +1524,11 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:82
+msgid "Could not remove %s from the ignored list"
+msgstr "무시 목록에서 %s를 제거할 수 없습니다."
+
+# ID:81,
 #: ID:81
 msgid ""
 "Could not retrieve URL of the file!\n"
@@ -1531,7 +1540,7 @@ msgstr ""
 # ID:66,
 #: ID:66
 msgid ""
-"Could not retrieve version %s of the file %s.\n"
+"Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
 "리비전 %s을 가져올 수 없습니다. (파일: %s)\n"
@@ -1585,6 +1594,11 @@ msgstr "프린트 작업을 시작할 수 없습니다."
 #: ID:81
 msgid "Could not start thread!"
 msgstr "쓰레드를 시작시킬 수 없습니다!"
+
+# Control-ID:1073,
+#: Control-ID:65535
+msgid "Create Branch/Tag on the server from:"
+msgstr "서버에 직접 브랜치/태그 만들기 원본:"
 
 # ID:13,
 #: ID:13
@@ -1828,6 +1842,11 @@ msgstr "외부(&X)"
 msgid "EXT"
 msgstr "EXT"
 
+# ID:76,
+#: ID:113
+msgid "Edit Author"
+msgstr "작성자 수정"
+
 # ID:12,
 #: ID:12
 msgid "Edit Conflicts"
@@ -1842,6 +1861,21 @@ msgstr "확장자별 비교 프로그램 편집"
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "확장자별 병합 프로그램 편집"
+
+# Dlg-ID:135,
+#: ID:113
+msgid "Edit Log Message"
+msgstr "로그 메시지 입력"
+
+# ID:115,
+#: ID:115
+msgid "Edit author name"
+msgstr "작성자 이름 수정"
+
+# Dlg-ID:135,
+#: ID:115
+msgid "Edit log message"
+msgstr "로그 메시지 입력"
 
 # ID:79,
 #: ID:79
@@ -2009,8 +2043,8 @@ msgstr "파일 가져오기..."
 
 # ID:313,
 #: ID:313
-msgid "Fetching version %s of file:"
-msgstr "리비전 %s 가져오기:"
+msgid "Fetching revision %s of file:"
+msgstr "리비전 %s 가져오기 파일명:"
 
 # ID:63,#:
 # ID:74,#:
@@ -2156,6 +2190,11 @@ msgstr "그래프 종류:"
 #: Control-ID:1032
 msgid "H&ead Revision"
 msgstr "H&EAD 리비전"
+
+# ID:12,
+#: Control-ID:1182
+msgid "HEAD revision on the server"
+msgstr "저장소의 최신 리비전"
 
 # ID:12,
 #: ID:238
@@ -2803,8 +2842,8 @@ msgid "Password:"
 msgstr "암호:"
 
 # Dlg-ID:158,
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
+#: ID:172
+msgid "Paste filename list"
 msgstr "바뀐 파일 이름 붙이기"
 
 # ID:376,
@@ -3101,6 +3140,11 @@ msgstr "원격 상태"
 msgid "Remote Text Status"
 msgstr "원격 상태"
 
+# ID:13,
+#: ID:15
+msgid "Remove From Ignore List"
+msgstr "무시 목록에서 제거"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
@@ -3110,6 +3154,22 @@ msgstr "삭제됨"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "삭제된 파일/폴더"
+
+# ID:13,
+#: ID:145
+msgid ""
+"Removed the file(s)\n"
+"%s\n"
+"from the ignored list."
+msgstr ""
+"다음 파일을\n"
+"%s\n"
+"무시 목록에 제거하였습니다. "
+
+# ID:13,
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "선택된 파일 또는 파일 마스크를 무시 목록에서 제거"
 
 # Dlg-ID:151,
 #: Dlg-ID:151
@@ -3580,8 +3640,8 @@ msgstr "로그 메시지에 짧은 형태의 날짜/시간 형식 사용(&D)"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of subversion items"
-msgstr "Subversion 아이템의 짧은 URL"
+msgid "Short Url of Subversion items"
+msgstr "버전 관리 대상의 짧은 URL"
 
 # ID:101,#:
 # Control-ID:1016,
@@ -3715,11 +3775,16 @@ msgstr "넘김"
 msgid "Skipped missing target"
 msgstr "없는 개체는 건너뜀"
 
+# Control-ID:1185,
+#: Control-ID:1185
+msgid "Specific revision on the server"
+msgstr "서버상 특정 리비전"
+
 # ID:79,
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-" should exclude from version control.\n"
+"should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "TortoiseSVN이 버전컨트롤 하지 않을\n"
@@ -4273,8 +4338,8 @@ msgstr "URL"
 
 # ID:12,
 #: ID:12
-msgid "URL of subversion items"
-msgstr "Subversion 아이템의 URL"
+msgid "URL of Subversion items"
+msgstr "버전 관리 대상의 URL"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -4580,6 +4645,11 @@ msgstr "공백 비교"
 msgid "Whitespaces"
 msgstr "공백"
 
+# ID:151,
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "작업 사본"
+
 # ID:80,
 #: ID:80
 msgid ""
@@ -4601,7 +4671,7 @@ msgstr "모두 예"
 
 # ID:201,
 #: ID:201
-msgid "You already have the most current version installed."
+msgid "You already have the latest version installed."
 msgstr "이미 최신 버전이 설치되어 있습니다."
 
 # ID:144,
@@ -4687,12 +4757,12 @@ msgstr ""
 "업데이트 후, 작업 사본은 원하는 리비전의 모습대로 보이지 않을 수 있습니다."
 
 #: MenuEntry
-msgid "Zoom &In"
-msgstr "크게 보기(&I)"
+msgid "Zoom &In\tCtrl-+"
+msgstr "크게 보기(&I)\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out"
-msgstr "작게 보기(&O)"
+msgid "Zoom &Out\tCtrl--"
+msgstr "작게 보기(&O)\tCtrl--"
 
 # ID:10,
 #: ID:10
@@ -4948,14 +5018,14 @@ msgstr ""
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
 "Author, LastChangedBy\t\tThe last person to modify the file.\n"
 "Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\n"
-"확장가능한 키워드. 가능한 것은 다음과 같습니다. :\n"
+"확장할 키워드를 지정합니다. 가능한 것은 다음과 같습니다. :\n"
 "URL, HeadURL\t\t\t개체의 HEAD 버전 URL.\n"
 "Author, LastChangedBy\t\t마지막 수정자.\n"
 "Date, LastChangedDate\t\t마지막 수정시각.\n"

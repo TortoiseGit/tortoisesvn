@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-02-22 09:47+0800\n"
+"PO-Revision-Date: 2005-03-15 11:14+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "%1 含有不正確的綱要."
 # ID:3867,
 #: ID:3867
 msgid "%1 contains an invalid path."
-msgstr "%1 含有不合法的路徑."
+msgstr "%1 含有不正確的路徑."
 
 # ID:3867,#:
 # ID:3867,
@@ -133,6 +133,17 @@ msgid ""
 msgstr ""
 "%s\n"
 "確定真的要移除嗎?"
+
+# ID:69,
+#: ID:69
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"是目錄, 不是檔案!\n"
+"TortoiseMerge無法比對目錄差異."
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
@@ -525,6 +536,7 @@ msgstr "- %d"
 # Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -761,10 +773,12 @@ msgstr "遠端加入資料夾完成"
 #: ID:145
 msgid ""
 "Added the file(s)\n"
-"%sto the ignore list."
+"%s\n"
+"to the ignore list."
 msgstr ""
-"將選定的檔案(們)\n"
-"%s忽略列表"
+"加入選取的檔案(們)\n"
+"%s\n"
+"至忽略列表"
 
 # ID:8,#:
 # ID:73,#:
@@ -890,13 +904,13 @@ msgstr ""
 # ID:3843,
 #: ID:3843
 msgid "An invalid argument was encountered."
-msgstr "發現不合法參數."
+msgstr "發現不正確的參數."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "An invalid file handle was associated with %1."
-msgstr "%1 關聯到不合法的檔案代碼."
+msgstr "%1 關聯到不正確的檔案代碼."
 
 # ID:3859,#:
 # ID:3859,
@@ -1156,7 +1170,7 @@ msgstr "憑證已到期或尚未生效."
 # ID:82,
 #: ID:82
 msgid "Certificate expired. Valid until: %s"
-msgstr "憑證已到期. 合法期限: %s"
+msgstr "憑證已到期. 有效期限: %s"
 
 # ID:82,
 #: ID:82
@@ -1395,7 +1409,7 @@ msgstr "與工作複本比對(&W)"
 
 # ID:12,
 #: ID:12
-msgid "Compares the file with the last commited version to show you the changes you made"
+msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "比對此檔案與上次送交的版本並列出你所做的異動"
 
 # ID:74,
@@ -1519,6 +1533,11 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:82
+msgid "Could not remove %s from the ignored list"
+msgstr "無法從忽略列表中移除 %s!"
+
+# ID:81,
 #: ID:81
 msgid ""
 "Could not retrieve URL of the file!\n"
@@ -1530,7 +1549,7 @@ msgstr ""
 # ID:66,
 #: ID:66
 msgid ""
-"Could not retrieve version %s of the file %s.\n"
+"Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
 "無法取得 %s 版本的 %s 檔案.\n"
@@ -1585,6 +1604,11 @@ msgstr "無法啟動列印工作."
 msgid "Could not start thread!"
 msgstr "無法啟動執行緒!"
 
+# Control-ID:1073,
+#: Control-ID:65535
+msgid "Create Branch/Tag on the server from:"
+msgstr "建立分支/標記於伺服器端:"
+
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
@@ -1599,11 +1623,6 @@ msgstr "建立檔案庫"
 #: ID:8
 msgid "Create Repository here"
 msgstr "在此建立檔案庫"
-
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Create the branch/tag directly on the server"
-msgstr "直接在伺服器端建立分支/標記"
 
 # ID:126,
 #: ID:126
@@ -1833,6 +1852,11 @@ msgstr "外部(&X)"
 msgid "EXT"
 msgstr "EXT"
 
+# ID:76,
+#: ID:113
+msgid "Edit Author"
+msgstr "編輯作者"
+
 # ID:12,
 #: ID:12
 msgid "Edit Conflicts"
@@ -1847,6 +1871,21 @@ msgstr "編輯根據副檔名的差異比對程式"
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "編輯根據副檔名的合併程式"
+
+# Dlg-ID:135,
+#: ID:113
+msgid "Edit Log Message"
+msgstr "編輯紀錄訊息"
+
+# ID:115,
+#: ID:115
+msgid "Edit author name"
+msgstr "編輯作者姓名"
+
+# Dlg-ID:135,
+#: ID:115
+msgid "Edit log message"
+msgstr "編輯紀錄訊息"
 
 # ID:79,
 #: ID:79
@@ -2014,7 +2053,7 @@ msgstr "正在取得檔案..."
 
 # ID:313,
 #: ID:313
-msgid "Fetching version %s of file:"
+msgid "Fetching revision %s of file:"
 msgstr "正在取得第 %s 版的:"
 
 # ID:63,#:
@@ -2066,11 +2105,6 @@ msgstr "字型:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "按下 F1 可取得說明"
-
-# Control-ID:1168,
-#: Control-ID:1168
-msgid "Force shell icon refresh"
-msgstr "強制更新圖示."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2164,6 +2198,11 @@ msgstr "圖型類別:"
 #: Control-ID:1032
 msgid "H&ead Revision"
 msgstr "最新版本(&E)"
+
+# ID:12,
+#: Control-ID:1182
+msgid "HEAD revision on the server"
+msgstr "伺服器上最新版本"
 
 # ID:12,
 #: ID:238
@@ -2679,6 +2718,12 @@ msgstr ""
 "什麼事可做...\n"
 "要檢視未加入版本控制的檔案嗎?"
 
+# ID:3843,#:
+# ID:3843,
+#: ID:273
+msgid "No graph available"
+msgstr "無圖表"
+
 # ID:273,
 #: ID:273
 msgid "No image encoder found for %s."
@@ -2809,9 +2854,9 @@ msgid "Password:"
 msgstr "密碼:"
 
 # Dlg-ID:158,
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
-msgstr "異動過的檔案"
+#: ID:172
+msgid "Paste filename list"
+msgstr "貼上檔名列表"
 
 # ID:376,
 #: ID:376
@@ -3105,6 +3150,11 @@ msgstr "遠端狀態"
 msgid "Remote Text Status"
 msgstr "遠端文字狀態:"
 
+# ID:13,
+#: ID:15
+msgid "Remove From Ignore List"
+msgstr "自忽略列表移除"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
@@ -3114,6 +3164,22 @@ msgstr "移除"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "已移除檔案/資料夾"
+
+# ID:13,
+#: ID:145
+msgid ""
+"Removed the file(s)\n"
+"%s\n"
+"from the ignored list."
+msgstr ""
+"移除選定的檔案(們)\n"
+"%s\n"
+"自忽略列表."
+
+# ID:13,
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "從忽略列表中移除檔案或檔案遮罩"
 
 # Dlg-ID:151,
 #: Dlg-ID:151
@@ -3588,7 +3654,7 @@ msgstr "記錄訊息使用簡短日期/時間格式(&D)"
 
 # ID:12,
 #: ID:12
-msgid "Short Url of subversion items"
+msgid "Short Url of Subversion items"
 msgstr "Subversion 項目的短 URL"
 
 # Control-ID:1016,
@@ -3721,11 +3787,16 @@ msgstr "略過"
 msgid "Skipped missing target"
 msgstr "已跳過的缺少目標"
 
+# Control-ID:1185,
+#: Control-ID:1185
+msgid "Specific revision on the server"
+msgstr "伺服器上特定版本"
+
 # ID:79,
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-" should exclude from version control.\n"
+"should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "指定 TortoiseSVN 不需要納入版本控制的\n"
@@ -4013,6 +4084,20 @@ msgstr ""
 "%s\n"
 "行不符合!"
 
+# ID:88,
+#: ID:88
+msgid ""
+"The path/url you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"您輸入的路徑/URL在Windows上有錯誤!\n"
+"您可以照用, 但有可能發生錯誤.\n"
+"檔案名稱中不可以包含下列字元 '<>|\"?*:' 或是下列的裝置名:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # ID:314,
 #: ID:314
 msgid ""
@@ -4104,6 +4189,17 @@ msgstr ""
 #: ID:188
 msgid "Thesaurus"
 msgstr "倉庫"
+
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"路徑錯誤!\n"
+"正確的路徑不可以包含'<>|\"?*:' 或是下列的裝置名:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4253,7 +4349,7 @@ msgstr "URL"
 
 # ID:12,
 #: ID:12
-msgid "URL of subversion items"
+msgid "URL of Subversion items"
 msgstr "Subversion 項目的 URL"
 
 # Control-ID:65535,#:
@@ -4424,6 +4520,11 @@ msgstr "使用文字編輯器檢視譴責"
 msgid "Use \"From:\" URL"
 msgstr "使用 \"從:\" 的URL"
 
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "Use autocompletion of filepaths and keywords"
+msgstr "自動完成檔案名稱及關鍵字"
+
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4545,15 +4646,6 @@ msgstr "警告"
 msgid "Warning!"
 msgstr "警告!"
 
-# ID:195,
-#: ID:195
-msgid ""
-"When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"勾選時, 會在每次操作後強制更新覆蓋圖示.\n"
-"<ct=0x0000ff><b>注意:</b>本功能會拖慢檔案總管執行效率.</ct>"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -4563,6 +4655,11 @@ msgstr "空白字元差異"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "空白字元"
+
+# ID:151,
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "工作複本"
 
 # ID:80,
 #: ID:80
@@ -4585,7 +4682,7 @@ msgstr "全部皆是"
 
 # ID:201,
 #: ID:201
-msgid "You already have the most current version installed."
+msgid "You already have the latest version installed."
 msgstr "你已經安裝了最新版."
 
 # ID:144,
@@ -4672,12 +4769,14 @@ msgstr ""
 "所以更新後不會得到與目標版本完全相同的檔案!"
 
 #: MenuEntry
-msgid "Zoom &In"
-msgstr "放大(&I)"
+msgid "Zoom &In\tCtrl-+"
+msgstr "放大(&I)\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out"
-msgstr "縮小(&O)"
+msgid "Zoom &Out\tCtrl--"
+msgstr ""
+"縮小(&O)\n"
+"Ctrl--"
 
 # ID:10,
 #: ID:10
@@ -4932,14 +5031,14 @@ msgstr ""
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
 "Author, LastChangedBy\t\tThe last person to modify the file.\n"
 "Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\r\n"
-"要展開的關鍵字.合法的關鍵字有:\r\n"
+"要展開的關鍵字.可用的關鍵字有:\r\n"
 "URL, HeadURL\t\t\t此物件最新版本的 URL.\r\n"
 "Author, LastChangedBy\t\t最後一個修改此檔案的人.\r\n"
 "Date, LastChangedDate\t\t此檔案最後修改日期.\r\n"
