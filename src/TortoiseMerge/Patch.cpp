@@ -362,7 +362,7 @@ CString CPatch::GetRevision(int nIndex)
 
 BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 {
-	if (!PathFileExists(sPath) || PathIsDirectory(sPath))
+	if (/*!PathFileExists(sPath) || */PathIsDirectory(sPath))
 	{
 		m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, sPath);
 		return FALSE;
