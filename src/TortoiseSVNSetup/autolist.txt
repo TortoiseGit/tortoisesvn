@@ -2,6 +2,6 @@
 (MULTILINE) .cpp = ::(\w+)
 .js = (?:(?:prototype\.|this\.)(\w+)\s*=\s*)?function\s*(?:(\w*)\s*)\(
 (MULTILINE) .py .pyw = ^\s*(?:class|def)\s+(\w+)
-.pl, .pm, .cgi = (?<=sub[\s]+)\b\w+\b
+(MULTILINE) .pl, .pm, .cgi = ^\s*sub\s+(\w+)
 .bas, .frm, .cls = (?<=(Public |Private )?(Sub|Function|Property Get|Property Set|Property Let) )(\w+)(?=\(.*\))
 (MULTILINE) .php = \s+class|(?<=(?=public|private|)\s+function)\s(\w+)|::(\w+)|->(\w+)
