@@ -44,6 +44,7 @@
 #define SVNSLC_SHOWEXTERNAL		0x000000800
 #define SVNSLC_SHOWINCOMPLETE	0x000001000
 #define SVNSLC_SHOWINEXTERNALS	0x000002000
+#define SVNSLC_SHOWDIRECTS		0x000004000
 
 #define SVNSLC_SHOWVERSIONED (SVNSLC_SHOWNORMAL|SVNSLC_SHOWMODIFIED|\
 SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
@@ -113,6 +114,7 @@ public:
 		BOOL					checked;				///< if the file is checked in the list control
 		BOOL					inunversionedfolder;	///< if the file is inside an unversioned folder
 		BOOL					inexternal;				///< if the item is in an external folder
+		BOOL					direct;					///< directly included (TRUE) or just a child of a folder
 	};
 
 	/**

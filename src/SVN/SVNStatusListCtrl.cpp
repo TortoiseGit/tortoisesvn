@@ -270,6 +270,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				entry->inunversionedfolder = FALSE;
 				entry->checked = FALSE;
 				entry->inexternal = m_bHasExternals;
+				entry->direct = TRUE;
 				if (s->entry)
 				{
 					if (s->entry->url)
@@ -302,6 +303,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							entry->inunversionedfolder = FALSE;
 							entry->checked = FALSE;
 							entry->inexternal = FALSE;
+							entry->direct = FALSE;
 							m_arStatusArray.Add(entry);
 						}
 					} // while (filefinder.NextFile(filename))
@@ -371,6 +373,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					entry->inunversionedfolder = FALSE;
 					entry->checked = FALSE;
 					entry->inexternal = m_bHasExternals;
+					entry->direct = FALSE;
 					if (s->entry)
 					{
 						if (s->entry->url)
@@ -404,6 +407,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 									entry->inunversionedfolder = FALSE;
 									entry->checked = FALSE;
 									entry->inexternal = FALSE;
+									entry->direct = FALSE;
 									m_arStatusArray.Add(entry);
 								}
 							} // while (filefinder.NextFile(filename))
@@ -454,6 +458,11 @@ void CSVNStatusListCtrl::Show(DWORD dwShow)
 			}
 			break;
 		case svn_wc_status_ignored:
+			if ((entry->direct) && (dwShow & SVNSLC_SHOWDIRECTS))
+			{
+				m_arListArray.Add(i);
+				AddEntry(entry);
+			}
 			break;
 		case svn_wc_status_incomplete:
 			if (dwShow & SVNSLC_SHOWINCOMPLETE)
