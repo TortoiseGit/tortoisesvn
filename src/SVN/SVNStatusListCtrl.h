@@ -188,6 +188,8 @@ public:
 	 */
 	void CheckAll(DWORD dwCheck);
 
+	CString GetLastErrorMessage() {return m_sLastError;}
+
 	LONG						m_nTargetCount;		///< number of targets in the file passed to GetStatus()
 
 	CString						m_sURL;				///< the URL of the target or "(multiple targets)"

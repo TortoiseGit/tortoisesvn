@@ -353,8 +353,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(false);
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
-
-	pDlg->m_ListCtrl.GetStatus(pDlg->m_sPath);
+	BOOL success = pDlg->m_ListCtrl.GetStatus(pDlg->m_sPath);
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS;
 	dwShow |= DWORD(pDlg->m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
 	pDlg->m_ListCtrl.Show(dwShow);
@@ -380,6 +379,14 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	else
 	{
 		pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
+	if (!success)
+	{
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+		pDlg->m_bBlock = FALSE;
+		pDlg->EndDialog(0);
+		return -1;
 	}
 	if (pDlg->m_ListCtrl.GetItemCount()==0)
 	{
