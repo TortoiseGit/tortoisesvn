@@ -118,7 +118,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	unsigned long readlength = 0;
 	unsigned long filelength = 0;
 	HANDLE hFile = INVALID_HANDLE_VALUE;
-	if (argc == 4)
+	if ((argc == 4)||(argc == 5))
 	{
 		// open the file and read the contents
 		hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
