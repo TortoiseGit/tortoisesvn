@@ -42,7 +42,9 @@
        or a left-click on the message area below
        crashed the log dialog. (Stefan)
 - BUG: The repository browser handled the "+" sign
-       in e.g svn+ssh:// url incorrectly. (Stefan)
+       in e.g svn+ssh:// url incorrectly.
+       Also the "+" sign was missing in the
+       explorer property page. (Stefan)
 - BUG: svn+ssh didn't work at all until now. Thanks
        to Bjoern Kuenstig we were able to make
        it work. (Stefan)
