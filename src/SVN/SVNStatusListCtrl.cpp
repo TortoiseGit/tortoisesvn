@@ -1221,9 +1221,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
 						}
-						temp.LoadString(IDS_MENUREVERT);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REVERT, temp);
 					}
+					temp.LoadString(IDS_MENUREVERT);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REVERT, temp);
 				}
 				if (entry->remotestatus > svn_wc_status_normal)
 				{
@@ -1283,26 +1283,40 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 						{
+							POSITION pos = GetFirstSelectedItemPosition();
+							int index;
+							CString filelist;
+							while ((index = GetNextSelectedItem(pos)) >= 0)
+							{
+								filelist += GetListEntry(index)->path;
+								filelist += _T("*");
+							}
 							SVN svn;
-							if (!svn.Revert(filepath, FALSE))
+							if (!svn.Revert(filelist, FALSE))
 							{
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							}
 							else
 							{
-								//since the entry got reverted we need to remove
-								//it from the list too, if no remote changes are shown
-								FileEntry * fentry = m_arStatusArray.GetAt(m_arListArray.GetAt(selIndex));
-								if (fentry->propstatus <= svn_wc_status_normal)
+								//since the entries got reverted we need to remove
+								//them from the list too, if no remote changes are shown
+								POSITION pos;
+								while ((pos = GetFirstSelectedItemPosition())!=0)
 								{
-									m_nTotal--;
-									if (GetCheck(selIndex))
-										m_nSelected--;
-									RemoveListEntry(selIndex);
-								}
-								else
-								{
-									Show(m_dwShow);
+									int index;
+									index = GetNextSelectedItem(pos);
+									FileEntry * fentry = m_arStatusArray.GetAt(m_arListArray.GetAt(index));
+									if (fentry->propstatus <= svn_wc_status_normal)
+									{
+										m_nTotal--;
+										if (GetCheck(index))
+											m_nSelected--;
+										RemoveListEntry(index);
+									}
+									else
+									{
+										Show(m_dwShow);
+									}
 								}
 							}
 						}  
