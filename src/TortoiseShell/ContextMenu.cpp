@@ -496,6 +496,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
 	else
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU| MIIM_DATA;
+	menuiteminfo.fType = MFT_OWNERDRAW;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
 	menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
 	HBITMAP bmp = IconToBitmap(IDI_MENU, (COLORREF)GetSysColor(COLOR_MENU));
