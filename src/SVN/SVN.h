@@ -460,6 +460,8 @@ public:
 	 */
 	CString	RevPropertyGet(CString sName, CString sURL, SVNRev rev);
 
+	
+
 	CString GetURLFromPath(const CTSVNPath& path);
 	CString GetUUIDFromPath(const CTSVNPath& path);
 

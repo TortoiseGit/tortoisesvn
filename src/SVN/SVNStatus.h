@@ -108,7 +108,7 @@ public:
 	 * \return If update is set to true the HEAD revision of the repository is returned. If update is false then -1 is returned.
 	 * \remark If the return value is -2 then the status could not be obtained.
 	 */
-	svn_revnum_t GetStatus(const CTSVNPath& path, bool update = false, bool noignore = false);
+	svn_revnum_t GetStatus(const CTSVNPath& path, bool update = false, bool noignore = false, bool noexternals = false);
 
 	/**
 	 * Returns a string representation of a Subversion status.
@@ -126,14 +126,14 @@ public:
 	 * \param update set this to true if you want the status to be updated with the repository (needs network access)
 	 * \return the status
 	 */
-	svn_wc_status_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false);
+	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false);
 	unsigned int GetFileCount() {return apr_hash_count(m_statushash);}
 	unsigned int GetVersionedCount();
 	/**
 	 * Returns the status of the next file in the filelist. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileStatus() for details.
 	 */
-	svn_wc_status_t * GetNextFileStatus(CTSVNPath& retPath);
+	svn_wc_status2_t * GetNextFileStatus(CTSVNPath& retPath);
 
 	/**
 	 * Clears the memory pool.
@@ -143,7 +143,7 @@ public:
 	/**
 	 * This member variable hold the status of the last call to GetStatus().
 	 */
-	svn_wc_status_t *			status;				///< the status result of GetStatus()
+	svn_wc_status2_t *			status;				///< the status result of GetStatus()
 
 	svn_revnum_t				headrev;			///< the head revision fetched with GetFirstStatus()
 
@@ -202,13 +202,13 @@ private:
 	/**
 	 * Callback function which collects the raw status from a svn_client_status() function call
 	 */
-	static void getallstatus (void *baton, const char *path, svn_wc_status_t *status);
+	static void getallstatus (void *baton, const char *path, svn_wc_status2_t *status);
 
 	/**
 	 * Callback function which stores the raw status from a svn_client_status() function call
 	 * in a hashtable.
 	 */
-	static void getstatushash (void *baton, const char *path, svn_wc_status_t *status);
+	static void getstatushash (void *baton, const char *path, svn_wc_status2_t *status);
 
 	/**
 	 * helper function to sort a hash to an array

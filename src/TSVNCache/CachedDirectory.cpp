@@ -287,7 +287,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	if(!bThisDirectoryIsUnversioned)
 	{
 		ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
-		svn_error_t* pErr = svn_client_status (
+		svn_error_t* pErr = svn_client_status2 (
 			NULL,
 			m_directoryPath.GetSVNApiPath(),
 			&revision,
@@ -297,6 +297,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			TRUE,									//getall
 			FALSE,
 			TRUE,									//noignore
+			FALSE,									//ignore externals
 			mainCache.m_svnHelp.ClientContext(),
 			subPool
 			);
@@ -356,7 +357,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 }
 
 void 
-CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status_t* pSVNStatus)
+CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNStatus)
 {
 	if(path.IsDirectory())
 	{
@@ -385,7 +386,7 @@ CCachedDirectory::GetFullPathString(const CString& cacheKey)
 	return m_directoryPath.GetWinPathString() + _T("\\") + cacheKey;
 }
 
-void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_status_t *status)
+void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_status2_t *status)
 {
 	CCachedDirectory* pThis = (CCachedDirectory*)baton;
 

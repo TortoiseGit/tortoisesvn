@@ -35,9 +35,10 @@ struct TSVNCacheRequest
 // The structure returned as a response
 struct TSVNCacheResponse
 {
-	svn_wc_status_t m_status;
+	svn_wc_status2_t m_status;
 	svn_wc_entry_t m_entry;
 	char m_url[INTERNET_MAX_URL_LENGTH+1];
+	char m_owner[255];		///< owner of the lock
 };
 
 struct TSVNCacheCommand

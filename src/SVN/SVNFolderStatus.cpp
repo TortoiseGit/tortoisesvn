@@ -191,7 +191,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	rev.kind = svn_opt_revision_unspecified;
 	try
 	{
-		err = svn_client_status (&youngest,
+		err = svn_client_status2 (&youngest,
 			filepath.GetDirectory().GetSVNApiPath(),
 			&rev,
 			fillstatusmap,
@@ -200,6 +200,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			TRUE,		//getall
 			FALSE,		//update
 			TRUE,		//noignore
+			FALSE,		//ignore externals
 			ctx,
 			pool);
 	}
@@ -369,7 +370,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
 	return NULL;
 }
 
-void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)
+void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status2_t * status)
 {
 	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
 	if ((status->entry)&&(g_ShellCache.IsRecursive())&&(status->entry->kind == svn_node_dir))
@@ -394,6 +395,7 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	{
 		s.status = SVNStatus::GetMoreImportant(s.status, status->text_status);
 		s.status = SVNStatus::GetMoreImportant(s.status, status->prop_status);
+		s.lock = status->repos_lock;
 	}
 	s.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 	stdstring str;

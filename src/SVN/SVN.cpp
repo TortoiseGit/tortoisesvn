@@ -545,7 +545,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 		else
 		{
 			CTSVNPath statusPath;
-			svn_wc_status_t * s;
+			svn_wc_status2_t * s;
 			SVNStatus status;
 			if ((s = status.GetFirstFileStatus(srcPath, statusPath))!=0)
 			{

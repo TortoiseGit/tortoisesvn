@@ -95,9 +95,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	
 	OnEnChangeLogmessage();
 
-//	CString temp = m_sPath;
-
-	m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS);
+	m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLOWNER);
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
 	m_ProjectProperties.ReadPropsPathList(m_pathList);

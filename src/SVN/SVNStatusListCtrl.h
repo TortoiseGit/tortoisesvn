@@ -32,6 +32,7 @@ class SVNStatus;
 #define SVNSLC_COLREMOTEPROP	0x000000040
 #define SVNSLC_COLURL			0x000000080
 #define SVNSLC_COLEXT			0x000000100
+#define SVNSLC_COLOWNER			0x000000200
 
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
@@ -128,6 +129,9 @@ public:
 		CTSVNPath				path;					///< full path of the file
 		CTSVNPath				basepath;				///< common ancestor path of all files
 		CString					url;					///< Subversion URL of the file
+		CString					lock_token;				///< universally unique URI representing lock 
+		CString					lock_owner;				///< the username which owns the lock
+		
 	public:
 		svn_wc_status_kind		status;					///< local status
 	private:
@@ -276,7 +280,7 @@ private:
 
 	/// Build a FileEntry item and add it to the FileEntry array
 	const FileEntry* AddNewFileEntry(
-		const svn_wc_status_t* pSVNStatus,  // The return from the SVN GetStatus functions
+		const svn_wc_status2_t* pSVNStatus,  // The return from the SVN GetStatus functions
 		const CTSVNPath& path,				// The path of the item we're adding
 		const CTSVNPath& basePath,			// The base directory for this status build
 		bool bDirectItem,					// Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call

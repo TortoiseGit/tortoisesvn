@@ -98,6 +98,7 @@ typedef struct FileStatusCacheEntry
 	const char*				url;		///< points to a (possibly) shared value
 	svn_revnum_t			rev;
 	int						askedcounter;
+	svn_lock_t *			lock;
 } FileStatusCacheEntry;
 
 #define SVNFOLDERSTATUS_CACHETIMES				10
@@ -150,7 +151,7 @@ public:
 private:
 	const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
 	DWORD				GetTimeoutValue();
-	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
+	static void			fillstatusmap (void *baton, const char *path, svn_wc_status2_t *status);
 	void				ClearCache();
 	
 	int					m_nCounter;

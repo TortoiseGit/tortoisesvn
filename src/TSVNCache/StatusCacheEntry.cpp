@@ -31,7 +31,7 @@ CStatusCacheEntry::CStatusCacheEntry()
 	m_bSVNEntryFieldSet = false;
 }
 
-CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status_t* pSVNStatus,__int64 lastWriteTime)
+CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus,__int64 lastWriteTime)
 {
 	SetStatus(pSVNStatus);
 	m_lastWriteTime = lastWriteTime;
@@ -43,7 +43,7 @@ bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
 #define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
 #define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (!WriteFile(hFile, x, value, &written, NULL)) return false;}
 	DWORD written = 0;
-	int value = 0;
+	int value = 1;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
 	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
 	WRITEVALUETOFILE(m_lastWriteTime);
@@ -51,6 +51,7 @@ bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
 	WRITEVALUETOFILE(m_bSVNEntryFieldSet);
 	WRITEVALUETOFILE(m_commitRevision);
 	WRITESTRINGTOFILE(m_sUrl);
+	WRITESTRINGTOFILE(m_sOwner);
 
 	// now save the status struct (without the entry field, because we don't use that)
 	WRITEVALUETOFILE(m_svnStatus.copied);
@@ -69,7 +70,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	DWORD read = 0;
 	int value = 0;
 	LOADVALUEFROMFILE(value);
-	if (value != 0)
+	if (value != 1)
 		return false;		// not the correct version
 	LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
 	LOADVALUEFROMFILE(m_lastWriteTime);
@@ -87,6 +88,13 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 			return false;
 		}
 		m_sUrl.ReleaseBuffer(value);
+		
+		if (!ReadFile(hFile, m_sOwner.GetBuffer(value), value, &read, NULL))
+		{
+			m_sOwner.ReleaseBuffer(0);
+			return false;
+		}
+		m_sOwner.ReleaseBuffer(value);
 	}
 	LOADVALUEFROMFILE(m_svnStatus.copied);
 	LOADVALUEFROMFILE(m_svnStatus.locked);
@@ -100,7 +108,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	return true;
 }
 
-void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
+void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus)
 {
 	if(pSVNStatus == NULL)
 	{
@@ -123,6 +131,10 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 			m_sUrl.Empty();
 			m_commitRevision = 0;
 			m_bSVNEntryFieldSet = false;
+		}
+		if ((pSVNStatus->repos_lock)&&(pSVNStatus->repos_lock->owner))
+		{
+			m_sOwner = pSVNStatus->repos_lock->owner;
 		}
 		m_svnStatus.entry = NULL;
 	}
@@ -165,7 +177,7 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 
 		// The whole of response has been zero'd, so this will copy safely 
 		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-1);
-
+		strncat(response.m_owner, m_sOwner, sizeof(response.m_owner)-1);
 		responseLength = sizeof(response);
 	}
 	else

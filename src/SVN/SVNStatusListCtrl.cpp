@@ -162,6 +162,11 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, bool bHasCheckboxes /* = TRUE */)
 		temp.LoadString(IDS_STATUSLIST_COLURL);
 		InsertColumn(nCol++, temp);
 	}
+	if (dwColumns & SVNSLC_COLOWNER)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLOWNER);
+		InsertColumn(nCol++, temp);
+	}
 
 	SetRedraw(false);
 	int mincol = 0;
@@ -259,7 +264,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 	CTSVNPath workingTarget(target);
 
-	svn_wc_status_t * s;
+	svn_wc_status2_t * s;
 	CTSVNPath svnPath;
 	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository);
 
@@ -357,7 +362,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 const CSVNStatusListCtrl::FileEntry* 
 CSVNStatusListCtrl::AddNewFileEntry(
-			const svn_wc_status_t* pSVNStatus,  // The return from the SVN GetStatus functions
+			const svn_wc_status2_t* pSVNStatus,  // The return from the SVN GetStatus functions
 			const CTSVNPath& path,				// The path of the item we're adding
 			const CTSVNPath& basePath,			// The base directory for this status build
 			bool bDirectItem,					// Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call
@@ -400,6 +405,14 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	else
 	{
 		entry->isfolder = path.IsDirectory();
+	}
+
+	if (pSVNStatus->repos_lock)
+	{
+		if (pSVNStatus->repos_lock->owner)
+			entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
+		if (pSVNStatus->repos_lock->token)
+			entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
 	}
 
 	// Pass ownership of the entry to the array
@@ -452,7 +465,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 										  CStringA& strCurrentRepositoryUUID, 
 										  CTSVNPathList& arExtPaths, apr_array_header_t *pIgnorePatterns, bool bAllDirect)
 {
-	svn_wc_status_t * s;
+	svn_wc_status2_t * s;
 
 	CTSVNPath lastexternalpath;
 	CTSVNPath svnPath;
@@ -710,6 +723,13 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 	int result = 0;
 	switch (m_nSortedColumn)
 	{
+	case 9:
+		{
+			if (result == 0)
+			{
+				result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
+			}
+		}
 	case 8:
 		{
 			if (result == 0)
@@ -834,6 +854,11 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 	if (m_nSortedColumn != phdr->iItem)
 	{
 		if (m_dwColumns & SVNSLC_COLURL)
+			m_nSortedColumn++;
+	}
+	if (m_nSortedColumn != phdr->iItem)
+	{
+		if (m_dwColumns & SVNSLC_COLOWNER)
 			m_nSortedColumn++;
 	}
 	Sort();
@@ -1404,7 +1429,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 							}
 							SVNStatus status;
-							svn_wc_status_t * s;
+							svn_wc_status2_t * s;
 							CTSVNPath svnPath;
 							s = status.GetFirstFileStatus(parentFolder, svnPath, FALSE);
 
@@ -1515,7 +1540,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
 						RemoveListEntry(selIndex);
 						SVNStatus status;
-						svn_wc_status_t * s;
+						svn_wc_status2_t * s;
 						CTSVNPath svnPath;
 						s = status.GetFirstFileStatus(parentfolder, svnPath, FALSE);
 

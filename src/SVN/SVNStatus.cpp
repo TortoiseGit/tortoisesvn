@@ -178,7 +178,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 	svn_opt_revision_t rev;
 	rev.kind = svn_opt_revision_unspecified;
 	statuskind = svn_wc_status_none;
-	err = svn_client_status (&youngest,
+	err = svn_client_status2 (&youngest,
 							path.GetSVNApiPath(),
 							&rev,
 							getallstatus,
@@ -187,6 +187,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, BOOL recursive
 							TRUE,		//getall
 							FALSE,		//update
 							TRUE,		//noignore
+							FALSE,		//ignore externals
 							&ctx,
 							pool);
 
@@ -250,7 +251,7 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 	return 0;
 }
 
-svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false */, bool noignore /* = false */)
+svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false */, bool noignore /* = false */, bool noexternals /* = false */)
 {
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
@@ -263,7 +264,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = statushash;
 	hashbaton.pThis = this;
-	m_err = svn_client_status (&youngest,
+	m_err = svn_client_status2 (&youngest,
 							path.GetSVNApiPath(),
 							&rev,
 							getstatushash,
@@ -272,6 +273,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 							TRUE,		//getall
 							update,		//update
 							noignore,		//noignore
+							noexternals,
 							&ctx,
 							m_pool);
 
@@ -291,11 +293,11 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	//only the first entry is needed (no recurse)
 	item = &APR_ARRAY_IDX (statusarray, 0, const sort_item);
 	
-	status = (svn_wc_status_t *) item->value;
+	status = (svn_wc_status2_t *) item->value;
 	
 	return youngest;
 }
-svn_wc_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update)
+svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update)
 {
 	const sort_item*			item;
 
@@ -306,7 +308,7 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = m_statushash;
 	hashbaton.pThis = this;
-	m_err = svn_client_status (&headrev,
+	m_err = svn_client_status2 (&headrev,
 							path.GetSVNApiPath(),
 							&rev,
 							getstatushash,
@@ -315,6 +317,7 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath
 							TRUE,		//getall
 							update,		//update
 							TRUE,		//noignore
+							FALSE,		//noexternals
 							&ctx,
 							m_pool);
 
@@ -334,7 +337,7 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath
 	m_statushashindex = 0;
 	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
 	retPath.SetFromSVN((const char*)item->key);
-	return (svn_wc_status_t *) item->value;
+	return (svn_wc_status2_t *) item->value;
 }
 
 unsigned int SVNStatus::GetVersionedCount()
@@ -353,7 +356,7 @@ unsigned int SVNStatus::GetVersionedCount()
 	return count;
 }
 
-svn_wc_status_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
+svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 {
 	const sort_item*			item;
 
@@ -363,7 +366,7 @@ svn_wc_status_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 
 	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
 	retPath.SetFromSVN((const char*)item->key);
-	return (svn_wc_status_t *) item->value;
+	return (svn_wc_status2_t *) item->value;
 }
 
 void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
@@ -526,14 +529,14 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 	return ret;
 }
 
-void SVNStatus::getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
+void SVNStatus::getallstatus(void * baton, const char * /*path*/, svn_wc_status2_t * status)
 {
 	svn_wc_status_kind * s = (svn_wc_status_kind *)baton;
 	*s = SVNStatus::GetMoreImportant(*s, status->text_status);
 	*s = SVNStatus::GetMoreImportant(*s, status->prop_status);
 }
 
-void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status_t * status)
+void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status2_t * status)
 {
 	hashbaton_t * hash = (hashbaton_t *)baton;
 	const StdStrAVector& filterList = hash->pThis->m_filterFileList;
@@ -547,7 +550,7 @@ void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status_t *
 			return;
 		}
 	}
-	svn_wc_status_t * statuscopy = svn_wc_dup_status (status, hash->pThis->m_pool);
+	svn_wc_status2_t * statuscopy = svn_wc_dup_status2 (status, hash->pThis->m_pool);
 	apr_hash_set (hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statuscopy);
 }
 

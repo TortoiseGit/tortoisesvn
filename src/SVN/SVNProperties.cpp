@@ -289,7 +289,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 		//The bugtraq and tsvn properties must only be set on folders.
 		CTSVNPath path;
 		SVNStatus stat;
-		svn_wc_status_t * status = NULL;
+		svn_wc_status2_t * status = NULL;
 		status = stat.GetFirstFileStatus(m_path, path);
 		do 
 		{

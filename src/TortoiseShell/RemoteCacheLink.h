@@ -20,6 +20,6 @@ private:
 	OVERLAPPED m_Overlapped;
 	HANDLE m_hEvent;
 	CComCriticalSection m_critSec;
-	svn_wc_status_t m_dummyStatus;
+	svn_wc_status2_t m_dummyStatus;
 	long m_lastTimeout;
 };
