@@ -24,4 +24,16 @@
 			<graphic fileref="images/Revert.png"/>
 		</figure>
 	</para>
+	<tip>
+	<title>Undoing Changes which have been Committed</title>
+		<para>
+			<menuchoice>
+				<guimenuitem>Revert</guimenuitem>
+			</menuchoice>
+			will only undo your local changes. It does <emphasis>not</emphasis>
+			undo any changes which have already been committed. If you want to
+			undo all the changes which were committed in a particular revision,
+			read <xref linkend="tsvn-DUG-showlog"/> for further information.
+		</para>
+	</tip>
 </sect1>

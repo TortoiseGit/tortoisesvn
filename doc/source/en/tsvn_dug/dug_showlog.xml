@@ -102,11 +102,10 @@
 				</listitem>
 				<listitem>
 					<para>
-						Save the selected revision to a file so you
-						have an older version of that file. If the Log Dialog is shown
-						for a folder this command is available from the filelist in
-						the window where the log message is shown!
-						This option is only available when you access the log for a file.
+						Save the selected revision to a file so you have an older
+						version of that file. This option is only available when
+						you access the log for a file, and it saves a version of
+						that one file only.
 					</para>
 				</listitem>
 				<listitem>
@@ -161,9 +160,27 @@
 				<title>The Log Dialog Bottom Pane with Context Menu</title>
 				<graphic fileref="images/LogContextMenu2.png"/>
 			</figure>
-			The bottom pane of the Log Dialog has a context menu that allows you to
-			show differences made in the selected revision for the selected file.
-			This context menu is only available for files shown as <literal>Modified</literal>.
+			The bottom pane of the Log Dialog also has a context menu that allows you to
+			<itemizedlist>
+				<listitem>
+					<para>
+						Show differences made in the selected revision for the
+						selected file. This context menu is only available for
+						files shown as <literal>Modified</literal>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Save the selected revision to a file so you
+						have an older version of that file.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						View the subversion properties for the selected item.
+					</para>
+				</listitem>
+			</itemizedlist>
 		</para>
 	</sect2>
 

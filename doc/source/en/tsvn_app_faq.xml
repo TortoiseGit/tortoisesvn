@@ -43,10 +43,10 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-00">
-			<title>When upgrading TortoiseSVN, do I have to deinstall the existing version first?</title>
+			<title>When upgrading TortoiseSVN, do I have to uninstall the existing version first?</title>
 			<para>
 			No. You can just install the new version over the old one. The 
-			installer will take care of deinstalling the old version first
+			installer will take care of uninstalling the old version first
 			automatically.
 			</para>
 			<para>
@@ -556,7 +556,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			If you want to have different subdirectories to come 
 			from different repositories you can set a 
 			special Subversion property called <literal>svn:externals</literal>.
-			Please look at the chapter <ulink url="http://svnbook.red-bean.com/html-chunk/ch07s03.html">
+			Please look at the chapter <ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.3.6">
 					<citetitle>External Definitions</citetitle>
 				</ulink>
 			in the <ulink url="http://svnbook.red-bean.com/">

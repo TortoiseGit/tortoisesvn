@@ -8,9 +8,9 @@
 		<primary>bugtracker</primary>
 	</indexterm>
 	<para>
-			You could integrate a Bugtracking Tool of your choice in <application>TortoiseSVN</application>. 
-			Therefore you have to define some Properties, which start with <literal>bugtraq:</literal>. They must be set on 
-			Directories: (<xref linkend="tsvn-DUG-propertypage"/>)
+			You can integrate a Bugtracking Tool of your choice in <application>TortoiseSVN</application>. 
+			To do this, you have to define some properties, which start with <literal>bugtraq:</literal>.
+			They must be set on Folders: (<xref linkend="tsvn-DUG-propertypage"/>)
 			<variablelist>
 			<varlistentry>
 				<term>bugtraq:message</term>
@@ -83,17 +83,20 @@
 			</varlistentry>
 		</variablelist>
 		<important>
-			<title>Set the Properties on Directories</title>
+			<title>Set the Properties on Folders</title>
 			<para>
-					These properties must be set on directories for the system to work. 
-					If you can be sure that each user checks out only from e.g <filename>trunk/</filename>
-					and not some subfolder, then it's enough if you set the properties on <filename>trunk/</filename>.
-					<application>TortoiseSVN</application> will then search for those properties 
-					the path up to the working copy root for those properties.
-					If you can't be sure, you have to set the properties recursively on each subfolder.
-					A property setting deeper in the project hierarchy overrides settings on
-					higher levels (closer to <filename>trunk/</filename>).
-				</para>
+				These properties must be set on folders for the system to work. 
+				When you commit a file or folder the properties are read from that folder.
+				If the properties are not found there, TortoiseSVN will search upwards
+				through the folder tree to find them until it comes to an unversioned
+				folder, or the tree root (eg. <literal>C:\</literal>) is found.
+				If you can be sure that each user checks out only from e.g
+				<filename>trunk/</filename> and not some subfolder, then it's enough if
+				you set the properties on <filename>trunk/</filename>.
+				If you can't be sure, you should set the properties recursively on each subfolder.
+				A property setting deeper in the project hierarchy overrides settings on
+				higher levels (closer to <filename>trunk/</filename>).
+			</para>
 		</important>
 	</para>
 </sect1>

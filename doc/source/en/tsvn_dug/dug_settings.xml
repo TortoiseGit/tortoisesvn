@@ -77,6 +77,13 @@
 						<para>
 							... the subversion configuration file directly.
 							Some settings cannot be modified by TortoiseSVN.
+							For more information about the subversion
+							<filename>config</filename> file see the  
+							<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07.html#svn-ch-7-sect-1.3.2">
+							<citetitle>Subversion Manual</citetitle></ulink>. The section on
+							<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.4">
+							<citetitle>Automatic Property Setting</citetitle></ulink>
+							is of particular interest, and that is configured here.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -85,7 +92,7 @@
 					<listitem>
 						<para>
 							If the standard long messages use up too much 
-							space on your sceen use the short format.
+							space on your screen use the short format.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -113,32 +120,20 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Don't close on conflicts</term>
+					<listitem>
+						<para>
+							Automatic window closing is suppressed if there were
+							conflicts during an update. This option is highly
+							recommended to avoid missing conflict reports.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Check for newer versions</term>
 					<listitem>
 						<para>
 							If checked, TortoiseSVN will check once a week if an update is available
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Minimum logsize in chars</term>
-					<listitem>
-						<para>
-							The minimum length of a log message for a commit.
-							If you enter a shorter message than specified here, the commit is disabled.
-							This feature is very useful for reminding you to supply a proper
-							descriptive message for every commit.
-							A value of zero allows empty log messages.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Don't remove log messages when cancelling a commit</term>
-					<listitem>
-						<para>
-							If for some reason the commit is cancelled (User cancel or commit error), 
-							then TortoiseSVN will preserve the last commit message you typed if
-							you try to commit again.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -161,6 +156,8 @@
 							the log template in the commit dialog, the status of each
 							file is pasted in the selected language. With this option
 							checked, the status is pasted in english.
+							This is useful if your project requires all log messages
+							to be in english.
 						</para>
 					</listitem>
 				</varlistentry>

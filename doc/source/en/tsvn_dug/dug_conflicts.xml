@@ -25,7 +25,7 @@
 			additional files in your directory:
 			<variablelist>
 			<varlistentry>
-				<term>filename.ext.working</term>
+				<term>filename.ext.mine</term>
 				<listitem>
 					<para>
 							This is your file as it existed in your
@@ -36,7 +36,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>filename.ext.merge-left.rOLDREV</term>
+				<term>filename.ext.rOLDREV</term>
 				<listitem>
 					<para>
 							This is the file that was the BASE
@@ -47,7 +47,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>filename.ext.merge-right.rNEWREV</term>
+				<term>filename.ext.rNEWREV</term>
 				<listitem>
 					<para>
 							This is the file that your Subversion
@@ -58,9 +58,6 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
-			Here <literal>*</literal> represents some random digits that Subversion chooses,
-			OLDREV is the revision number of the file in your .svn directory,
-			and NEWREV is the revision number of the repository HEAD.
 		</para>
 	<para>
 			You can either launch an external merge tool / conflict
@@ -70,7 +67,7 @@
 		</menuchoice>
 			context menu or you can use any other editor to manually
 			resolve the conflict. You should decide what the code
-			should look like and do the necessary changes.
+			should look like, do the necessary changes and save the file.
 		</para>
 	<para>
 			Afterwards execute the command
@@ -78,9 +75,9 @@
 			<guimenuitem>Resolved</guimenuitem>
 		</menuchoice>
 			from the context menu and commit your modifications to the
-			repository. Please note that the Resolve command does not-really
-			resolve the conflict. It just removes the <filename>filename.ext.working
-			</filename> and <filename>filename.ext.merge-*.r*</filename> files, to
+			repository. Please note that the Resolve command does not really
+			resolve the conflict. It just removes the <filename>filename.ext.mine
+			</filename> and <filename>filename.ext.r*</filename> files, to
 			allow you to commit your changes.
 		</para>
 </sect1>

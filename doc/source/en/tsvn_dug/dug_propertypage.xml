@@ -26,19 +26,71 @@
 		On the Subversion page you can see all relevant
 		information about the selected file/directory. In
 		addition you can read and set the subversion properties.
-		You can add your own properties or some properties with a 
-		special meaning in subversion, they begin with <literal>svn:</literal>. 
-		The <literal>svn:externals</literal> is such a property see how to handle externals in 
+		You can add your own properties, or some properties with a 
+		special meaning in subversion. These begin with <literal>svn:</literal>. 
+		The <literal>svn:externals</literal> is such a property; see how to handle externals in 
 		<xref linkend="tsvn-DUG-import-4"/>.
 		For more information about properties in subversion see the  
-		<ulink url="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
+		<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.3">
 			<citetitle>Subversion Manual</citetitle>
 		</ulink>.
-		</para>
-	<note>
-		<title>commit properties</title>
+	</para>
+	<para>
+		TortoiseSVN has a few special properties of its own, and these begin
+		with <literal>tsvn:</literal>.
+		<itemizedlist>
+		<listitem>
+			<para>
+				<literal>tsvn:minlogmsgsize</literal>
+				sets the minimum length of a log message for a commit.
+				If you enter a shorter message than specified here, the commit is disabled.
+				This feature is very useful for reminding you to supply a proper
+				descriptive message for every commit. If this property is not set,
+				or the value is zero, empty log messages are allowed.
+			</para>
+			<para>
+				<literal>tsvn:logwidthmarker</literal> is used with projects which
+				require log messages to be formatted with some maximum width
+				(typically 80 characters) before a line break. Setting this
+				property to a non-zero will do 2 things in the log message
+				entry dialog: it places a marker to indicate the maximum width,
+				and it disables word wrap in the display, so that you can see
+				whether the text you entered is too long. Note: this feature
+				will only work correctly if you have a fixed-width font
+				selected for log messages.
+			</para>
+			<para>
+				<literal>tsvn:logtemplate</literal> is used with projects which
+				have rules about log message formatting. The property holds
+				a multi-line text string which will be inserted in the commit
+				message box when you start a commit. You can then edit it to
+				include the required information. Note: if you are also using
+				<literal>tsvn:minlogmsgsize</literal>, be sure to set the length
+				longer than the template or you will lose the protection mechanism.
+			</para>
+		</listitem>
+		</itemizedlist>
+	</para>
+	<important>
+		<title>Set the properties on folders</title>
 		<para>
-			Subversion properties are versioned. After you changed or added a 
+			These <literal>tsvn:</literal> properties must be set on folders for the system to work. 
+			When you commit a file or folder the properties are read from that folder.
+			If the properties are not found there, TortoiseSVN will search upwards
+			through the folder tree to find them until it comes to an unversioned
+			folder, or the tree root (eg. <literal>C:\</literal>) is found.
+			If you can be sure that each user checks out only from e.g
+			<filename>trunk/</filename> and not some subfolder, then it's enough if
+			you set the properties on <filename>trunk/</filename>.
+			If you can't be sure, you should set the properties recursively on each subfolder.
+			A property setting deeper in the project hierarchy overrides settings on
+			higher levels (closer to <filename>trunk/</filename>).
+		</para>
+	</important>
+	<note>
+		<title>Commit properties</title>
+		<para>
+			Subversion properties are versioned. After you change or add a 
 			property you have to commit your changes.
 		</para>
 	</note>
@@ -46,14 +98,22 @@
 		<title>Conflicts on properties</title>
 		<para>
 			If there's a conflict on committing the changes, because another 
-			user has changed the same property Subversion generates a 
+			user has changed the same property, Subversion generates a 
 			<filename>.prej</filename> file. Delete this file after you 
-			resolved the conflict. 
+			have resolved the conflict. 
+		</para>
+	</tip>
+	<tip>
+		<title>Automatic property setting</title>
+		<para>
+			You can configure subversion to set properties automatically 
+			on files and folders when they are added to the repository.
+			Read <xref linkend="tsvn-DUG-settings"/> for further information. 
 		</para>
 	</tip>
 	<para>
-		<application>TortoiseSVN</application> could integrate with some bugtracking 
-		tools. This happens with properties, which start with <literal>bugtraq:</literal>. Please read 
-		on <xref linkend="tsvn-DUG-bugtracker"/> for further information. 
+		<application>TortoiseSVN</application> can integrate with some bugtracking 
+		tools. This uses properties, which start with <literal>bugtraq:</literal>.
+		Read <xref linkend="tsvn-DUG-bugtracker"/> for further information. 
 	</para>
 </sect1>

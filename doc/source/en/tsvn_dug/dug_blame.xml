@@ -48,13 +48,20 @@
 	<para>
 		TortoiseBlame, which is included with TortoiseSVN, makes the blame file
 		easier to read. When you hover the mouse over a line in the blame info
-		column, all lines with the same revision are shown with a slightly darker
+		column, all lines with the same revision are shown with a darker
 		background. Lines from other revisions which were changed by the same author
-		are shown with a much darker background. If you <action>left-click</action>
+		are shown with a light background.
+		The colouring may not work as clearly if you have your display set to
+		256 colour mode.
+	</para>
+	<para>
+		If you <action>left-click</action>
 		on a line, all lines with the same revision are highlighted, and lines from
 		other revisions by the same author are highlighted in a lighter colour.
 		This highlighting is sticky, allowing you to move the mouse without losing
 		the highlights. Click on that revision again to turn off highlighting.
+	</para>
+	<para>
 		The revision comments are shown in a hint box whenever the mouse hovers over
 		the blame info column.
 	</para>
