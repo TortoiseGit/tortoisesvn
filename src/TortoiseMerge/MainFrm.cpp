@@ -429,18 +429,12 @@ BOOL CMainFrame::LoadViews()
 			else
 				m_pwndLeftView->m_sWindowName = m_Data.m_sBaseName + _T(" - ") + m_Data.m_sYourName;
 			m_pwndLeftView->m_sFullFilePath = m_pwndLeftView->m_sWindowName;
-			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
-			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
-			if (m_Data.m_sYourName.IsEmpty())
-				m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
-			else
-				m_pwndRightView->m_sWindowName = m_Data.m_sYourName;
-			m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			m_pwndLeftView->SetHidden(FALSE);
 			m_pwndRightView->SetHidden(TRUE);
 			m_pwndBottomView->SetHidden(TRUE);
+			::SetWindowPos(m_pwndLeftView->m_hWnd, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
 		} // if (m_bOneWay)
 		else
 		{
