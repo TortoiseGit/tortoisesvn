@@ -170,12 +170,20 @@ DWORD WINAPI WorkerThread(LPVOID pVoid)
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
 	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
-	pDlg->FetchRevisionData(pDlg->m_sPath);
-	pDlg->AnalyzeRevisionData(pDlg->m_sPath);
-	pDlg->m_Progress.Stop();
+	if (!pDlg->FetchRevisionData(pDlg->m_sPath))
+	{
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		goto cleanup;
+	}
+	if (!pDlg->AnalyzeRevisionData(pDlg->m_sPath))
+	{
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+	}
 #ifdef DEBUG
 	//pDlg->FillTestData();
 #endif
+cleanup:
+	pDlg->m_Progress.Stop();
 	pDlg->InitView();
 	pDlg->m_bThreadRunning = FALSE;
 	pDlg->Invalidate();

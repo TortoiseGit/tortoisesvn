@@ -104,6 +104,8 @@ protected:
 	afx_msg BOOL	OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnFileSavegraphas();
 	afx_msg BOOL	OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
+	afx_msg void	OnViewZoomin();
+	afx_msg void	OnViewZoomout();
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -122,7 +124,5 @@ private:
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
 public:
-	afx_msg void OnViewZoomin();
-	afx_msg void OnViewZoomout();
 };
 DWORD WINAPI WorkerThread(LPVOID pVoid);

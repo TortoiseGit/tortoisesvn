@@ -522,6 +522,7 @@ public:
 	 */	 	 	 	
 	static BOOL PathIsURL(const CString& path);
 
+	static CString GetErrorString(svn_error_t * Err);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
 	static void formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt = false);

@@ -254,9 +254,11 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 		url = CUtils::PathEscape(url);
 	url = url.Mid(m_sRepoRoot.GetLength());
 	m_nRecurseLevel = 0;
-	AnalyzeRevisions(url, m_lHeadRevision, 1);
-	CheckForwardCopies();
-	return TRUE;
+	if (AnalyzeRevisions(url, m_lHeadRevision, 1))
+	{
+		return CheckForwardCopies();
+	}
+	return FALSE;
 }
 
 BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
@@ -274,7 +276,12 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 			temp.LoadString(IDS_REVGRAPH_PROGANALYZE);
 			temp2.Format(IDS_REVGRAPH_PROGANALYZEREV, currentrev);
 			if (!ProgressCallback(temp, temp2, forward==1 ? endrev-currentrev : startrev-currentrev, forward==1 ? endrev-startrev : startrev-endrev))
+			{
+				CStringA temp;
+				temp.LoadString(IDS_SVN_USERCANCELLED);
+				Err = svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
 				return FALSE;
+			}
 		}
 		log_entry * logentry = APR_ARRAY_IDX(m_logdata, m_lHeadRevision-currentrev, log_entry *);
 		if ((logentry)&&(logentry->ch_paths))
@@ -403,7 +410,12 @@ BOOL CRevisionGraph::CheckForwardCopies()
 	{
 		temp2.Format(IDS_REVGRAPH_PROGCHECKFORWARDREV, i);
 		if (!ProgressCallback(temp, temp2, i, m_arEntryPtrs.GetCount()))
+		{
+			CStringA temp;
+			temp.LoadString(IDS_SVN_USERCANCELLED);
+			Err = svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
 			return FALSE;
+		}
 		CRevisionEntry * logentry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
 		if ((logentry->pathfrom)&&(logentry->revisionfrom))
 		{
@@ -629,46 +641,7 @@ BOOL CRevisionGraph::IsParentOrItself(const char * parent, const char * child)
 
 CString CRevisionGraph::GetLastErrorMessage()
 {
-	CString msg;
-	CString temp;
-	char errbuf[256];
-
-	if (Err != NULL)
-	{
-		svn_error_t * ErrPtr = Err;
-		if (ErrPtr->message)
-			msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
-		else
-		{
-			/* Is this a Subversion-specific error code? */
-			if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-				&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-				msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
-			/* Otherwise, this must be an APR error code. */
-			else
-			{
-				svn_error_t *temp_err = NULL;
-				const char * err_string = NULL;
-				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)), ErrPtr->pool);
-				if (temp_err)
-				{
-					svn_error_clear (temp_err);
-					msg = _T("Can't recode error string from APR");
-				}
-				else
-				{
-					msg = CUnicodeUtils::GetUnicode(err_string);
-				}
-			}
-		}
-		while (ErrPtr->child)
-		{
-			ErrPtr = ErrPtr->child;
-			msg += _T("\n");
-			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
-		}
-	}
-	return _T("");
+	return SVN::GetErrorString(Err);
 }
 
 BOOL CRevisionGraph::GetRepositoryRoot(CStringA& url)

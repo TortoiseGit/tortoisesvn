@@ -147,6 +147,11 @@ struct log_msg_baton
 
 CString SVN::GetLastErrorMessage()
 {
+	return GetErrorString(Err);
+}
+
+CString SVN::GetErrorString(svn_error_t * Err)
+{
 	CString msg;
 	CString temp;
 	char errbuf[256];

@@ -85,71 +85,7 @@ void SVNStatus::ClearPool()
 #ifdef _MFC_VER
 CString SVNStatus::GetLastErrorMsg()
 {
-	CString msg;
-	CString temp;
-	char errbuf[256];
-
-	if (m_err != NULL)
-	{
-		svn_error_t * ErrPtr = m_err;
-		if (ErrPtr->message)
-			msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
-		else
-		{
-			/* Is this a Subversion-specific error code? */
-			if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-				&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-				msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
-			/* Otherwise, this must be an APR error code. */
-			else
-			{
-				svn_error_t *temp_err = NULL;
-				const char * err_string = NULL;
-				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)), ErrPtr->pool);
-				if (temp_err)
-				{
-					svn_error_clear (temp_err);
-					msg = _T("Can't recode error string from APR");
-				}
-				else
-				{
-					msg = CUnicodeUtils::GetUnicode(err_string);
-				}
-			}
-		}
-
-		while (ErrPtr->child)
-		{
-			ErrPtr = ErrPtr->child;
-			msg += _T("\n");
-			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
-			temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
-			while (temp.GetLength() > 80)
-			{
-				int pos=0;
-				while ((pos>=0)&&(temp.Find(' ', pos)<80))
-				{
-					pos = temp.Find(' ', pos+1);
-				}
-				if (pos==0)
-					pos = temp.Find(' ');
-				if (pos<0)
-				{
-					msg += temp;
-					temp.Empty();
-				}
-				else
-				{
-					msg += temp.Left(pos+1);
-					temp = temp.Mid(pos+1);
-				}
-				msg += _T("\n");
-			}
-			msg += temp;
-		}
-		return msg;
-	}
-	return _T("");
+	return SVN::GetErrorString(m_err);
 }
 #else
 stdstring SVNStatus::GetLastErrorMsg()
