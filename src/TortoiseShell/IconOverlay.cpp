@@ -170,56 +170,53 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	//if recursive is set in the registry then check directories recursive for status and show
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
-	DWORD dwWaitResult = WaitForSingleObject(g_hMutex, 1000);
-	if (dwWaitResult == WAIT_OBJECT_0)
+	EnterCriticalSection(&g_csCacheGuard);
+	// Look in our caches for this item 
+	const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
+	if (s)
 	{
-		// Look in our caches for this item 
-		const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
-		if (s)
-		{
-			status = s->status;
-		}
-		else
-		{
-			// No cached status available 
+		status = s->status;
+	}
+	else
+	{
+		// No cached status available 
 
-			// Check if we fetch icon overlays for this type of path
-			if (! g_ShellCache.IsPathAllowed(pPath))
+		// Check if we fetch icon overlays for this type of path
+		if (! g_ShellCache.IsPathAllowed(pPath))
+		{
+			LeaveCriticalSection(&g_csCacheGuard);
+			return S_FALSE;
+		}
+		// since the dwAttrib param of the IsMemberOf() function does not
+		// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
+		// we have to check if the path is a folder ourselves :(
+		if (PathIsDirectory(pPath))
+		{
+			if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
 			{
-				ReleaseMutex(g_hMutex);
-				return S_FALSE;
-			}
-			// since the dwAttrib param of the IsMemberOf() function does not
-			// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
-			// we have to check if the path is a folder ourselves :(
-			if (PathIsDirectory(pPath))
-			{
-				if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
+				if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
 				{
-					if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
-					{
-						status = svn_wc_status_normal;
-					}
-					else
-					{
-						const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
-						status = s->status;
-						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
-					}
+					status = svn_wc_status_normal;
 				}
 				else
 				{
-					status = svn_wc_status_unversioned;
+					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+					status = s->status;
+					status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 				}
-			} // if (PathIsDirectory(g_filepath))
+			}
 			else
 			{
-				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
-				status = s->status;
+				status = svn_wc_status_unversioned;
 			}
+		} // if (PathIsDirectory(g_filepath))
+		else
+		{
+			const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+			status = s->status;
 		}
 	}
-	ReleaseMutex(g_hMutex);
+	LeaveCriticalSection(&g_csCacheGuard);
 
 
 	ATLTRACE("Status %d for file %ws\n", status, pwszPath);

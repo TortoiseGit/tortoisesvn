@@ -32,8 +32,7 @@ extern	CRegStdWORD			g_regLang;
 extern	DWORD				g_langid;
 extern	HINSTANCE			g_hResInst;
 extern	void				LoadLangDll();
-extern  HANDLE				g_hMutex;
-
+extern  CRITICAL_SECTION	g_csCacheGuard;
 
 // The actual OLE Shell context menu handler
 /**
