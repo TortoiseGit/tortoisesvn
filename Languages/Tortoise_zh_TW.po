@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-12-01 15:58+0800\n"
+"PO-Revision-Date: 2004-12-09 11:07+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -658,7 +658,7 @@ msgstr "目前工作列表"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "如果你想要資料夾圖示顯示 Subversion\n"
 "的狀態, 請啟用此選項.\n"
@@ -896,6 +896,11 @@ msgstr "在第 %d 行發現不明型態資料!"
 msgid "An unsupported operation was attempted."
 msgstr "試圖進行不支援的作業."
 
+# ID:76,
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "分析版本資料..."
+
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
@@ -942,6 +947,21 @@ msgstr "作者"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "作者:                        Stefan Kueng"
+
+# ID:272,
+#: ID:272
+msgid ""
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"作者: %s\r\n"
+"日期: %s\r\n"
+"\r\n"
+"記錄訊息:\r\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1084,6 +1104,11 @@ msgstr "取消"
 msgid "Cancelling SVN Blame..."
 msgstr "正在取消 SVN 譴責..."
 
+# ID:132,
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "正在取消作業..."
+
 # ID:82,
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1192,6 +1217,11 @@ msgstr "勾選你希望出現在快顯功能表, 而不是子選單中的選單�
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "勾選可在記錄訊息中使用較簡短的日期及時間"
+
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr "正在檢查更新的版本"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2010,19 +2040,15 @@ msgstr "正在取得檔案 %s"
 msgid "Getting file info..."
 msgstr "正在取得檔案資訊..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "正在從檔案庫取得資訊..."
+
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
 msgstr "正在取得紀錄資訊..."
-
-# ID:2049,
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"跳至下一個差異處\n"
-"下一差異"
 
 # ID:2049,
 #: ID:2049
@@ -3052,15 +3078,34 @@ msgstr "版本"
 msgid "Revision %d"
 msgstr "版本 %d"
 
+# ID:119,
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "版本 %ld"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "版本 / 作者:"
 
 # ID:75,
+#: ID:269
+msgid "Revision Graph"
+msgstr "版本圖"
+
+# ID:75,
 #: ID:75
 msgid "Revision: "
 msgstr "版本: "
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Dlg-ID:182
+msgid "RevisionGraph"
+msgstr "版本圖"
 
 # ID:188,
 #: ID:188
@@ -4090,6 +4135,11 @@ msgstr "URL"
 msgid "Url:"
 msgstr "Url:"
 
+# ID:251,
+#: ID:251
+msgid "Use &other text block"
+msgstr "使用其它區塊(&O)"
+
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -4220,10 +4270,10 @@ msgstr "警告!"
 #: ID:195
 msgid ""
 "When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"Since this can slow down the explorer use it only on fast systems."
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "勾選時, 會在每次操作後強制更新覆蓋圖示.\n"
-"這會使檔案總管變慢, 請在夠快的電腦上使用."
+"<ct=0x0000ff><b>注意:</b>本功能會拖慢檔案總管執行效率.</ct>"
 
 # Control-ID:65535,
 #: Control-ID:65535

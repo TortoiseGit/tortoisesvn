@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-11-30 18:08+0100\n"
+"PO-Revision-Date: 2004-12-08 17:35+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -656,11 +656,11 @@ msgstr "Lista dei Task attivi"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
-"Selezionare questa opzione se si vuole che il programma mostri lo stato dei file contenuti in una cartella\n"
-"con una icona aggiuntiva sulla cartella madre.\n"
-"<ct=0x0000ff><b>Attenzione:</b> ciò potrebbe rallentare explorer</ct>"
+"Attivare questa opzione se si vuole che le icone di stato di una cartella\n"
+"mostrino lo stato dei file contenuti al suo interno.\n"
+"<ct=0x0000ff><b>Attenzione:</b> ciò potrebbe rallentare explorer!</ct>"
 
 # ID:8,#:
 # ID:73,#:
@@ -895,6 +895,11 @@ msgstr "Un tipo di linea sconosciuto è stato trovato alla linea %d !"
 msgid "An unsupported operation was attempted."
 msgstr "È stata tentata un'operazione non supportata."
 
+# ID:76,
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "Analizza i dati della revisione..."
+
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
@@ -941,6 +946,21 @@ msgstr "Autore"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "Autore:                        Stefan Kueng"
+
+# ID:272,
+#: ID:272
+msgid ""
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Autore: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Commento:\r\n"
+"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1083,6 +1103,11 @@ msgstr "Annulla"
 msgid "Cancelling SVN Blame..."
 msgstr "Annullamento della biasma SVN..."
 
+# ID:132,
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "Annullamento operazione..."
+
 # ID:82,
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1191,6 +1216,11 @@ msgstr "Selezionare le voci di menu che si vogliono far apparire direttamente ne
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Seleziona per usare un formato di data e ora meno dettagliato per i commenti"
+
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr "Verifica dell'esistenza di copie seguenti"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2010,19 +2040,15 @@ msgstr "Ottenimento file %s"
 msgid "Getting file info..."
 msgstr "Ottenimeno informazioni sul file..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "Ottenimento informazioni dal repository..."
+
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
 msgstr "Ottenimeno informazioni..."
-
-# ID:2049,
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"Vai alla prossimo conflitto\n"
-"Prossimo conflitto"
 
 # ID:2049,
 #: ID:2049
@@ -3054,15 +3080,34 @@ msgstr "Revisione"
 msgid "Revision %d"
 msgstr "Revisione %d"
 
+# ID:119,
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "Revisione %ld"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Revisione / Autore:"
 
 # ID:75,
+#: ID:269
+msgid "Revision Graph"
+msgstr "Grafico delle revisioni"
+
+# ID:75,
 #: ID:75
 msgid "Revision: "
 msgstr "Revisione:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Dlg-ID:182
+msgid "RevisionGraph"
+msgstr "RevisionGraph"
 
 # ID:188,
 #: ID:188
@@ -4094,6 +4139,11 @@ msgstr "Url"
 msgid "Url:"
 msgstr "Url:"
 
+# ID:251,
+#: ID:251
+msgid "Use &other text block"
+msgstr "Usa un'altr&o blocco di testo"
+
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -4224,10 +4274,10 @@ msgstr "Attenzione!"
 #: ID:195
 msgid ""
 "When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"Since this can slow down the explorer use it only on fast systems."
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
-"Quando selezionato, forza l'aggiornamento delle icone di stato dopo ogni operazione.\n"
-"Questa opzione può rallentare il sistema; utilizzarlo solo su computer veloci."
+"Quando selezionato forza l'aggiornamento delle icone di stato dopo ogni operazione.\n"
+"<ct=0x0000ff><b>Attenzione:</b> questo può comportare un rallentamento di explorer!</ct>"
 
 # Control-ID:65535,
 #: Control-ID:65535

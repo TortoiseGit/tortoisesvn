@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-11-30 14:37+0100\n"
+"PO-Revision-Date: 2004-12-07 10:46+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -536,10 +536,10 @@ msgstr "Liste des tâches courantes"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
-"Activer ceci si vous voulez l'affichage du statut sur les répertoires\n"
-"pour voir le statut des fichiers en dessous.\n"
+"Activer ceci si vous voulez que le recouvrement d'affichage sur les répertoires\n"
+"affiche le statut sous subversion des fichiers en dessous.\n"
 "<ct=0x0000ff><b>Attention:</b> ceci peut ralentir l'explorateur</ct>"
 
 #: ID:8
@@ -721,6 +721,10 @@ msgstr "Un type de ligne inconnu a été trouvé à la ligne %d !"
 msgid "An unsupported operation was attempted."
 msgstr "Une opération non supportée est survenue."
 
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "Analyser les données de révision..."
+
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
 msgstr "Appliquer un fichier de différence, au format unifié, sur la copie locale"
@@ -758,6 +762,21 @@ msgstr "Auteur"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "Auteur:                        Stefan Kueng"
+
+# ID:272,
+#: ID:272
+msgid ""
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Auteur: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Commentaire:\r\n"
+"%s"
 
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -874,6 +893,10 @@ msgstr "Annuler"
 msgid "Cancelling SVN Blame..."
 msgstr "Appel SVN Reproche..."
 
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "Annulation de l'opération..."
+
 #: ID:82
 msgid "Certificate expired or not yet valid"
 msgstr "Certificat expiré ou pas encore valide"
@@ -962,6 +985,11 @@ msgstr "Sélectionner les entrées de menu, apparaissant directement dans le men
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Sélectionner pour utiliser un format de date et heure moins détaillé dans le journal"
+
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr "Vérification les copies vers l'avant"
 
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -1634,17 +1662,14 @@ msgstr "Obtention du fichier %s"
 msgid "Getting file info..."
 msgstr "Réception fichier info..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "Obtention d'informations depuis le repository..."
+
 #: ID:132
 msgid "Getting log info..."
 msgstr "Réception des infos du journal..."
-
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"Aller au prochain conflit\n"
-"prochain conflit"
 
 #: ID:2049
 msgid ""
@@ -2473,13 +2498,27 @@ msgstr "Révision"
 msgid "Revision %d"
 msgstr "Révision %d"
 
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "Révision %ld"
+
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Révision / Auteur:"
 
+#: ID:269
+msgid "Revision Graph"
+msgstr "Graphique de révision "
+
 #: ID:75
 msgid "Revision: "
 msgstr "Révision: "
+
+#: Dlg-ID:182
+msgid "RevisionGraph"
+msgstr "Graphique de révision"
 
 # ID:188,
 #: ID:188
@@ -3326,6 +3365,10 @@ msgstr "Url"
 msgid "Url:"
 msgstr "Url:"
 
+#: ID:251
+msgid "Use &other text block"
+msgstr "Utilisez un autre bl&oc de texte"
+
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Utiliser la mise en évidence sur la barre de positionnement"
@@ -3435,10 +3478,10 @@ msgstr "Avertissement!"
 #: ID:195
 msgid ""
 "When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"Since this can slow down the explorer use it only on fast systems."
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Si cochée, force un rafraîchissement des icônes de recouvrement du shell après chaque opération.\n"
-"Puisque ceci peut ralentir l'utilisation de l'explorateur utilisez le seulement sur les systèmes rapides."
+"<ct=0x0000ff><b>Attention:</b> ceci peut ralentir l'utilisation de l'explorateur!</ct>"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
