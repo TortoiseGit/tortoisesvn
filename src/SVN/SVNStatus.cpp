@@ -71,9 +71,9 @@ SVNStatus::SVNStatus(void)
 	and client-cert-passphrases.  */
 	svn_client_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, m_pool);
+	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, m_pool);
+	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Build an authentication baton to give to libsvn_client. */
@@ -286,7 +286,7 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 {
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
-	const svn_item_t*			item;
+	const svn_sort__item_t*		item;
 	const char *				internalpath;
 
 	//we need to convert the path to subversion internal format
@@ -321,12 +321,12 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 	}
 
 	// Convert the unordered hash to an ordered, sorted array
-	statusarray = apr_hash_sorted_keys (statushash,
-										svn_sort_compare_items_as_paths,
-										m_pool);
+	statusarray = svn_sort__hash (statushash,
+								  svn_sort_compare_items_as_paths,
+								  m_pool);
 
 	//only the first entry is needed (no recurse)
-	item = &APR_ARRAY_IDX (statusarray, 0, const svn_item_t);
+	item = &APR_ARRAY_IDX (statusarray, 0, const svn_sort__item_t);
 	
 	status = (svn_wc_status_t *) item->value;
 	
@@ -334,7 +334,7 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 }
 svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR ** retPath, bool update)
 {
-	const svn_item_t*			item;
+	const svn_sort__item_t*		item;
 	const char *				internalpath;
 
 	//we need to convert the path to subversion internal format
@@ -369,13 +369,13 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 	}
 
 	// Convert the unordered hash to an ordered, sorted array
-	m_statusarray = apr_hash_sorted_keys (m_statushash,
-											svn_sort_compare_items_as_paths,
-											m_pool);
+	m_statusarray = svn_sort__hash (m_statushash,
+									svn_sort_compare_items_as_paths,
+									m_pool);
 
 	//only the first entry is needed (no recurse)
 	m_statushashindex = 0;
-	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const svn_item_t);
+	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const svn_sort__item_t);
 #ifdef UNICODE
 	int len = MultiByteToWideChar(CP_UTF8, 0, (const char *)item->key, -1, 0, 0);
 	*retPath = (const TCHAR *)apr_palloc(m_pool, len * sizeof(TCHAR));
@@ -389,13 +389,13 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 
 svn_wc_status_t * SVNStatus::GetNextFileStatus(const TCHAR ** retPath)
 {
-	const svn_item_t*			item;
+	const svn_sort__item_t*			item;
 
 	if ((m_statushashindex+1) == apr_hash_count(m_statushash))
 		return NULL;
 	m_statushashindex++;
 
-	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const svn_item_t);
+	item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const svn_sort__item_t);
 #ifdef UNICODE
 	int len = MultiByteToWideChar(CP_UTF8, 0, (const char *)item->key, -1, 0, 0);
 	*retPath = (const TCHAR *)apr_palloc(m_pool, len * sizeof(TCHAR));

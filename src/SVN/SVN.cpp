@@ -70,9 +70,9 @@ SVN::SVN(void)
 	and client-cert-passphrases.  */
 	svn_client_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, pool);
+	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, pool);
+	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Build an authentication baton to give to libsvn_client. */
@@ -200,7 +200,7 @@ BOOL SVN::Remove(CString path, BOOL force, CString message)
 BOOL SVN::Revert(CString path, BOOL recurse)
 {
 	preparePath(path);
-	Err = svn_client_revert (CUnicodeUtils::GetUTF8(path), recurse, &ctx, pool);
+	Err = svn_client_revert (target(path), recurse, &ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -860,10 +860,10 @@ svn_error_t* SVN::logReceiver(void* baton,
 		if (ch_paths)
 		{
 			apr_array_header_t *sorted_paths;
-			sorted_paths = apr_hash_sorted_keys(ch_paths, svn_sort_compare_items_as_paths, pool);
+			sorted_paths = svn_sort__hash(ch_paths, svn_sort_compare_items_as_paths, pool);
 			for (int i = 0; i < sorted_paths->nelts; i++)
 			{
-				svn_item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_item_t));
+				svn_sort__item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_sort__item_t));
 				stdstring path_native;
 				const char *path = (const char *)item->key;
 				svn_log_changed_path_t *log_item = (svn_log_changed_path_t *)apr_hash_get (ch_paths, item->key, item->klen);
