@@ -363,17 +363,18 @@ BOOL CUtils::StartTextViewer(CString file)
 			return FALSE;
 		}
 	}
-	if (viewer.Find(_T("%1")) >= 0)
+	if (viewer.Find(_T("\"%1\"")) >= 0)
 	{
-		if (viewer.Find(_T("\"%1\"")) >= 0)
-			viewer.Replace(_T("%1"), file);
-		else
-			viewer.Replace(_T("%1"),  _T("\"")+file+_T("\""));
+		viewer.Replace(_T("\"%1\""), file);
+	}
+	else if (viewer.Find(_T("%1")) >= 0)
+	{
+		viewer.Replace(_T("%1"),  file);
 	}
 	else
 	{
 		viewer += _T(" ");
-		viewer += _T("\"")+file+_T("\"");
+		viewer += file;
 	}
 
 	if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, false))
