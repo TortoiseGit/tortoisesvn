@@ -1,6 +1,6 @@
 #
-# Dutch translation for TortoiseSVN
-# Copyright (C) 2004-2005 the TortoiseSVN team
+# Dutch translations for TortoiseSVN package
+# Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Note: Lines starting with #: are required, they are the link to the resource IDs
@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-20 22:49+0100\n"
+"PO-Revision-Date: 2005-01-17 22:58+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # A single space
@@ -221,6 +221,10 @@ msgid "&Language:"
 msgstr "&Taal:"
 
 #: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Markeer als opgelost"
+
+#: MenuEntry
 msgid "&Merge"
 msgstr "&Samenvoegen"
 
@@ -261,6 +265,10 @@ msgstr "&Openen\tCtrl-O"
 msgid "&Password:"
 msgstr "&Wachtwoord:"
 
+#: ID:376
+msgid "&Paste"
+msgstr "&Plakken"
+
 #: Control-ID:65535
 msgid "&Port:"
 msgstr "&Poort:"
@@ -272,6 +280,10 @@ msgstr "V&orig verschil"
 #: Control-ID:1023
 msgid "&Recurse into folders to fetch the status"
 msgstr "Mappen &recursief doorlopen om de status op te halen"
+
+#: ID:376
+msgid "&Redo"
+msgstr "&Opnieuw"
 
 #: Control-ID:1013
 #: Control-ID:1100
@@ -340,6 +352,10 @@ msgstr "&Werkbalk"
 msgid "&URL of repository:"
 msgstr "&URL van bibliotheek:"
 
+#: ID:376
+msgid "&Undo"
+msgstr "&Ongedaan maken"
+
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Ongedaan maken\tCtrl-Z"
@@ -368,6 +384,10 @@ msgstr "&Spaties en lege regels"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(meerdere doelen geselecteerd)"
+
+#: ID:314
+msgid "(not found)"
+msgstr "(niet gevonden)"
 
 #: ID:208
 msgid "(property change only)"
@@ -755,6 +775,10 @@ msgstr "Auteur:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Auteurs:\tStefan Kueng, Tim Kemp"
 
+#: Control-ID:1067
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "Meldt subversion conflict automatisch als opgelost bij opslaan"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Gemiddelde"
@@ -1075,6 +1099,7 @@ msgstr "Vergelijkt het bestand met de laatste vastgelegde versie om de door u ge
 msgid "Completed"
 msgstr "Gereed"
 
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "In conflict"
@@ -1090,6 +1115,10 @@ msgstr "Context Menu"
 #: ID:73
 msgid "Continue"
 msgstr "Doorgaan"
+
+#: ID:376
+msgid "Cop&y"
+msgstr "&Kopiëren"
 
 #: ID:73
 msgid "Copied"
@@ -1246,6 +1275,10 @@ msgstr "Maakt een bibliotheek op de huidige locatie"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Maakt een universeel diff bestand met al uw wijzigingen"
+
+#: ID:376
+msgid "Cu&t"
+msgstr "Kn&ippen"
 
 #: ID:3603
 msgid ""
@@ -1610,7 +1643,15 @@ msgstr "Forceer verversen van ikonen"
 
 #: Control-ID:65535
 msgid "From:"
-msgstr "Van URL:"
+msgstr "Start:"
+
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "GDI+ kon niet gestart worden!"
+
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ kon geen bitmap object maken. Er is waarschijnlijk te weinig geheugen."
 
 #: Dlg-ID:107
 msgid "General"
@@ -1635,6 +1676,14 @@ msgstr "Informatie wordt opgehaald uit bibliotheek..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "Ophalen logboek informatie..."
+
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Ga naar volgend conflict\n"
+"volgend conflict"
 
 #: ID:2049
 msgid ""
@@ -1925,6 +1974,14 @@ msgstr "De DLL van het mailsysteem is ongeldig."
 msgid "Main"
 msgstr "Algemeen"
 
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Markeert een bestand als opgelost in Subversion\n"
+"Markeer als opgelost"
+
 #: Control-ID:1159
 msgid "Max"
 msgstr "Max"
@@ -1940,6 +1997,10 @@ msgstr "Merge-programma"
 #: ID:9
 msgid "Merge..."
 msgstr "Samenvoegen..."
+
+#: ID:263
+msgid "Merged"
+msgstr "Samengevoegd"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
@@ -2070,6 +2131,10 @@ msgstr ""
 "de laatste vastlegging.\n"
 "TortoiseSVN heeft hier niets te doen...\n"
 "Wilt u de bestanden zonder versiebeheer zien?"
+
+#: ID:273
+msgid "No image encoder found for %s."
+msgstr "Geen beeldvertaler gevonden voor %s."
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2449,10 +2514,6 @@ msgstr "Bibliotheek"
 msgid "Repository Browser"
 msgstr "Biblio-bladeraar"
 
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "Lost conflicten in bestanden op bij opslaan"
-
 #: ID:8
 #: ID:74
 msgid "Resolved"
@@ -2648,6 +2709,12 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr "Patchbestand opslaan in:"
 
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+msgid "Scintilla"
+msgstr "Scintilla"
+
 #: ID:113
 msgid "Search &log messages..."
 msgstr "Doorzoek &logboekberichten..."
@@ -2655,6 +2722,10 @@ msgstr "Doorzoek &logboekberichten..."
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "Positioneren mislukt in %1"
+
+#: ID:376
+msgid "Select &All"
+msgstr "&Alles selecteren"
 
 #: Control-ID:1067
 msgid "Select / Deselect &All"
@@ -2861,7 +2932,7 @@ msgstr "Ontbrekend doel overgeslagen"
 
 #: ID:79
 msgid ""
-"Specify the files or folders wich TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\n"
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
@@ -2894,8 +2965,8 @@ msgid "Status of item in SVN"
 msgstr "Status van het onderdeel in SVN"
 
 #: Control-ID:1130
-msgid "Stop On Copy"
-msgstr "Stoppen bij kopie"
+msgid "Stop On Copy/Rename"
+msgstr "Stoppen bij kopie/hernoemd bestand"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3124,6 +3195,14 @@ msgstr ""
 "Het geselecteerde bestand lijkt nog conflict-markeringen te bevatten.\n"
 "Weet u zeker dat u het bestand als opgelost wilt markeren?"
 
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"De doelmap is niet leeg!\n"
+"Weet u zeker dat u naar die map wilt ophalen?"
+
 #: ID:81
 msgid ""
 "The working copy has changed!\n"
@@ -3201,7 +3280,7 @@ msgstr "Dubbelklik op de bovenstaande bestanden om uw wijzigingen te zien."
 
 #: Control-ID:65535
 msgid "To:"
-msgstr "Naar:"
+msgstr "Doel:"
 
 #: ID:7
 #: ID:3585
@@ -3401,6 +3480,16 @@ msgstr "URL:"
 #: ID:251
 msgid "Use &other text block"
 msgstr "Gebruik &ander tekstgedeelte"
+
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Gebruik '*' als jokerteken als u een uitzondering wilt opgeven\n"
+"Meerdere uitzonderingen moeten met komma's (',') gescheiden worden\n"
+"Voorbeeld: *.mylan.com, *.company.com"
 
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -3891,6 +3980,16 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Stel dit op de gewenste maximale breedte van de logboodschap. In het venster voor\n"
 "de logboodschap wordt een verticale lijn getoond op die positie. De standaard is 80 karakters."
+
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Stel deze eigenschap in met het gewenste taalnummer voor de logboekboodschappen.\n"
+"TortoiseSVN gebruikt dan de juiste module voor spellingscontrole (indien beschikbaar)."
 
 #: ID:15
 msgid ""

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-10 16:27+0100\n"
+"PO-Revision-Date: 2005-01-17 17:08+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -225,6 +225,10 @@ msgstr "&Ocultar"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Idioma:"
+
+#: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Marcar como resuelto"
 
 #: MenuEntry
 msgid "&Merge"
@@ -805,6 +809,10 @@ msgstr "Autor:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autores:                      Stefan Kueng, Tim Kemp"
 
+#: Control-ID:1067
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "Resolver automáticamente el estado de conflicto en subversion al guardar"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Media"
@@ -1145,6 +1153,7 @@ msgstr "Compara el archivo con la última versión confirmada para mostrar los c
 msgid "Completed"
 msgstr "Completado"
 
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "Conflicto"
@@ -1705,6 +1714,16 @@ msgstr "Forzar refresco de las sobreimpresiones"
 msgid "From:"
 msgstr "Desde:"
 
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "¡No se puede inicializar GDI+!"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ no puede crear un objeto bitmap. Probablemente no haya suficiente memoria."
+
 #: Dlg-ID:107
 msgid "General"
 msgstr "General"
@@ -1729,6 +1748,14 @@ msgstr "Obteniendo información del repositorio..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "Obteniendo información de seguimiento..."
+
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Ir al conflicto previo\n"
+"conflicto previo"
 
 #: ID:2049
 msgid ""
@@ -2031,6 +2058,15 @@ msgstr "La DLL del sistema de correo no es válida."
 msgid "Main"
 msgstr "Principal"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Marca un fichero como resuelto en Subversion\n"
+"Marcar como resuelto"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -2047,6 +2083,10 @@ msgstr "Programa de Combinación"
 #: ID:9
 msgid "Merge..."
 msgstr "Combinar..."
+
+#: ID:263
+msgid "Merged"
+msgstr "Combinado"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
@@ -2183,6 +2223,11 @@ msgstr ""
 "la última confirmación. No hay nada\n"
 "que TortoiseSVN pueda hacer...\n"
 "¿Desea ver los ficheros sin versionar?"
+
+# ID:273,
+#: ID:273
+msgid "No image encoder found for %s."
+msgstr "No se encuentra un codificador de imagen para %s."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2576,10 +2621,6 @@ msgstr "Repositorio"
 #: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "Navegador de Repositorio"
-
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "Resolver estados de subversion en conflicto al guardar"
 
 #: ID:8
 #: ID:74
@@ -3045,8 +3086,8 @@ msgstr "Estado de un item en SVN"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "Stop On Copy"
-msgstr "Parar en Copia"
+msgid "Stop On Copy/Rename"
+msgstr "Parar en Copia/Cambio de Nombre"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3279,6 +3320,15 @@ msgid ""
 msgstr ""
 "El fichero seleccionado parece tener todavía una o más marcas de conflicto.\n"
 " ¿Estás seguro de marcar el archivo como resuelto?"
+
+# ID:88,
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"¡La carpeta de destino no está vacía!\n"
+"¿Está seguro de querer obtener en esa carpeta?"
 
 #: ID:81
 msgid ""
@@ -3572,6 +3622,17 @@ msgstr "Url:"
 #: ID:251
 msgid "Use &other text block"
 msgstr "Utilizar el otro &bloque de texto"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Use '*' como un carácter comodín cuando especifique una excepción\n"
+"Para separar múltiples excepciones, utilice comas (',').\n"
+"Por ejemplo: *.mired.com, *.empresa.com"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -4095,6 +4156,17 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Establezca esta propiedad al número máximo de caracteres por línea que debería haber en los mensajes de registro.\n"
 "Aparecerá una linea vertical en los diálogos de confirmación en esa posición. Por defecto son 80 caracteres."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Establezca esto al número del idioma en el que desea escribir sus mensajes de registro.\n"
+"TortoiseSVN intentará entonces cargar el módulo del corrector ortográfico apropiado si está disponible."
 
 # ID:15,
 #: ID:15

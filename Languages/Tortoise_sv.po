@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-21 17:06+0100\n"
+"PO-Revision-Date: 2005-01-17 23:09+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -165,7 +165,7 @@ msgstr "&Redigera"
 
 #: Control-ID:1099
 msgid "&Edit..."
-msgstr "&Redigera"
+msgstr "&Redigera..."
 
 #: Control-ID:1023
 msgid "&Enable Proxy Server"
@@ -185,7 +185,7 @@ msgstr "&Fasta enheter"
 
 #: Control-ID:65535
 msgid "&From Revision"
-msgstr "&Från version:"
+msgstr "&Från version"
 
 #: Control-ID:65535
 msgid "&From URL:"
@@ -218,6 +218,10 @@ msgstr "&Dölj"
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Språk:"
+
+#: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Markera som löst"
 
 #: MenuEntry
 msgid "&Merge"
@@ -255,11 +259,16 @@ msgstr "&Öppna"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
-msgstr "&Öppna\tCtrl-O"
+msgstr "&Öppna Ctrl-O"
 
 #: Control-ID:65535
 msgid "&Password:"
 msgstr "&Lösenord:"
+
+# ID:376,
+#: ID:376
+msgid "&Paste"
+msgstr "K&listra in"
 
 #: Control-ID:65535
 msgid "&Port:"
@@ -273,6 +282,10 @@ msgstr "&Föregående avvikelse"
 #: Control-ID:1023
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Sök status rekursivt i undermappar"
+
+#: ID:376
+msgid "&Redo"
+msgstr "G&ör om"
 
 #: Control-ID:1013
 #: Control-ID:1100
@@ -342,6 +355,11 @@ msgstr "&Verktygsrad"
 msgid "&URL of repository:"
 msgstr "&URL till arkiv:"
 
+# ID:376,
+#: ID:376
+msgid "&Undo"
+msgstr "&Ångra"
+
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Ångra\tCtrl+Z"
@@ -371,6 +389,10 @@ msgstr "&Whitespace"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(flera mål är markerade)"
+
+#: ID:314
+msgid "(not found)"
+msgstr "(inte hittad)"
 
 #: ID:208
 msgid "(property change only)"
@@ -771,6 +793,11 @@ msgstr "Upphovsman: Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Upphovsmän: Stefan Kueng, Tim Kemp"
 
+#: Control-ID:1067
+#, fuzzy
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "Markera konflikten automatiskt som löst vid spara"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Medel"
@@ -1105,6 +1132,7 @@ msgstr "Jämför filen med den senaste versionen och visar de ändringar du gjor
 msgid "Completed"
 msgstr "Klar"
 
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "I konflikt"
@@ -1120,6 +1148,11 @@ msgstr "Snabbvalsmeny"
 #: ID:73
 msgid "Continue"
 msgstr "Fortsätt"
+
+# ID:376,
+#: ID:376
+msgid "Cop&y"
+msgstr "K&opiera"
 
 #: ID:73
 msgid "Copied"
@@ -1277,6 +1310,11 @@ msgstr "Skapar ett nytt arkiv på vald plats"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Skapar en patchfil med dina ändringar i \"Unified Diff\"-format"
+
+# ID:376,
+#: ID:376
+msgid "Cu&t"
+msgstr "&Klipp ut"
 
 #: ID:3603
 msgid ""
@@ -1655,6 +1693,16 @@ msgstr "Uppdatera statusikoner i Utforskaren"
 msgid "From:"
 msgstr "Från:"
 
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "Det gick inte att initiera GDI+!"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ kunde inte skapa ett bitmap objekt. Du har antagligen inte tillräckligt med ledigt minne."
+
 #: Dlg-ID:107
 msgid "General"
 msgstr "Generella inställningar"
@@ -1679,6 +1727,15 @@ msgstr "Hämtar information från arkiv..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "Hämtar logginformation..."
+
+# Hur översätta "diff"
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Gå till nästa avvikelse\n"
+"nästa avvikelse"
 
 # Hur översätta "diff"
 #: ID:2049
@@ -1941,9 +1998,8 @@ msgstr ""
 "Hjälpavsnitt"
 
 #: Control-ID:1172
-#, fuzzy
 msgid "List View"
-msgstr "Vänster vy:"
+msgstr "List vy"
 
 #: ID:63
 msgid "Local Status"
@@ -1986,6 +2042,15 @@ msgstr "Felaktig DLL för mailsystem."
 msgid "Main"
 msgstr "Generella"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Markerar filen som löst i Subversion\n"
+"Markera som löst"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -2003,6 +2068,10 @@ msgstr "Föreningsprogram"
 #: ID:9
 msgid "Merge..."
 msgstr "Förena..."
+
+#: ID:263
+msgid "Merged"
+msgstr "Förenad"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
@@ -2136,6 +2205,12 @@ msgstr ""
 "senaste arkiveringen. Det finns inget\n"
 "för TortoiseSVN att göra här...\n"
 "Vill du se filer som inte är versionshanterade?"
+
+# ID:273,
+#: ID:273
+#, fuzzy
+msgid "No image encoder found for %s."
+msgstr "Ingen bild encoder hittat för %s."
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2519,10 +2594,6 @@ msgstr "Arkiv"
 msgid "Repository Browser"
 msgstr "Arkivutforskaren"
 
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "Markera konflikten som löst vid spara"
-
 #: ID:8
 #: ID:74
 msgid "Resolved"
@@ -2652,7 +2723,7 @@ msgstr "SVN Version"
 
 #: ID:11
 msgid "SVN Status"
-msgstr "SVN-status"
+msgstr "SVN Status"
 
 #: ID:78
 msgid "SVN Switch..."
@@ -2674,7 +2745,7 @@ msgstr "SVN mime-type"
 
 #: ID:12
 msgid "SVN short Url"
-msgstr "SVN URL (kort)"
+msgstr "SVN Url (kort)"
 
 #: MenuEntry
 msgid "Save &As..."
@@ -2721,6 +2792,15 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr "Sparar patchfil till:"
 
+# Control-ID:1014,#:
+# Control-ID:1017,#:
+# Control-ID:1064,
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+msgid "Scintilla"
+msgstr "Scintilla"
+
 #: ID:113
 msgid "Search &log messages..."
 msgstr "Sök &loggmeddelanden..."
@@ -2728,6 +2808,10 @@ msgstr "Sök &loggmeddelanden..."
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "Sökning misslyckades i %1"
+
+#: ID:376
+msgid "Select &All"
+msgstr "Markera &allt"
 
 #: Control-ID:1067
 msgid "Select / Deselect &All"
@@ -2941,8 +3025,9 @@ msgid "Skipped missing target"
 msgstr "Hoppade över mål som saknades"
 
 #: ID:79
+#, fuzzy
 msgid ""
-"Specify the files or folders wich TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\n"
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
@@ -2971,12 +3056,14 @@ msgid "Status"
 msgstr "Status"
 
 #: ID:11
+#, fuzzy
 msgid "Status of item in SVN"
-msgstr "Status"
+msgstr "Objektets status i SVN"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "Stop On Copy"
+#, fuzzy
+msgid "Stop On Copy/Rename"
 msgstr "Följ inte kopieringshistorik"
 
 #: Control-ID:65535
@@ -3076,7 +3163,7 @@ msgstr "Textstatus"
 
 #: Control-ID:65535
 msgid "Text Status:"
-msgstr "Status:"
+msgstr "Textstatus:"
 
 #: ID:69
 msgid ""
@@ -3209,6 +3296,15 @@ msgid ""
 msgstr ""
 "Den valda filen verkar fortfarande ha en eller flera konfliktmarkörer i sig.\n"
 "Är du säker på att du vill markera konflikten som löst?"
+
+# ID:88,
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"Målmappen är inte tom!\n"
+"Är du säker på att du vill hämta ut till den mappen?"
 
 #: ID:81
 msgid ""
@@ -3490,9 +3586,19 @@ msgid "Url:"
 msgstr "Url:"
 
 #: ID:251
-#, fuzzy
 msgid "Use &other text block"
 msgstr "Använd det &andra textblocket"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Använd '*' som jokertecken när undantag specifieras\n"
+"Separera flera undantag med komma (',').\n"
+"Exempel: *.mylan.com, *.company.com"
 
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -3686,7 +3792,6 @@ msgstr ""
 
 # ID:195,
 #: ID:195
-#, fuzzy
 msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
@@ -3727,7 +3832,7 @@ msgstr "Zooma &ut"
 
 #: ID:10
 msgid "added"
-msgstr "Tillagd"
+msgstr "tillagd"
 
 #: ID:3841
 msgid "an unnamed file"
@@ -3740,7 +3845,7 @@ msgstr "och stöd utvecklarna"
 #: ID:245
 #, fuzzy
 msgid "author"
-msgstr "Ändrad av"
+msgstr "ändrad av"
 
 # ID:15,
 #: ID:15
@@ -3803,7 +3908,7 @@ msgstr "arkiveringar"
 
 #: ID:11
 msgid "conflicted"
-msgstr "I konflikt"
+msgstr "i konflikt"
 
 #: Control-ID:1113
 msgid "current version is:"
@@ -3815,7 +3920,7 @@ msgstr "nuvarande version är: %s"
 
 #: ID:10
 msgid "deleted"
-msgstr "Borttagen"
+msgstr "borttagen"
 
 #: ID:79
 msgid ""
@@ -3824,55 +3929,55 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"Exporterade\n"
+"exporterade\n"
 "%s\n"
 "till\n"
 "%s"
 
 #: ID:13
 msgid "external"
-msgstr "Extern"
+msgstr "extern"
 
 #: ID:13
 msgid "ignored"
-msgstr "Undantagen"
+msgstr "undantagen"
 
 #: ID:13
 msgid "incomplete"
-msgstr "Ofullständig"
+msgstr "ofullständig"
 
 #: ID:11
 #: Control-ID:1002
 msgid "locked"
-msgstr "Låst"
+msgstr "låst"
 
 #: ID:11
 msgid "merged"
-msgstr "Förenad"
+msgstr "förenad"
 
 #: ID:10
 msgid "missing"
-msgstr "Saknas"
+msgstr "saknas"
 
 #: ID:10
 msgid "modified"
-msgstr "Ändrad"
+msgstr "ändrad"
 
 #: ID:10
 msgid "no description for this command is available"
-msgstr "Beskrivning för detta kommando saknas"
+msgstr "beskrivning för detta kommando saknas"
 
 #: ID:10
 msgid "non-versioned"
-msgstr "Ej i arkivet"
+msgstr "ej i arkivet"
 
 #: ID:10
 msgid "normal"
-msgstr "Normal"
+msgstr "normal"
 
 #: ID:11
 msgid "obstructed"
-msgstr "Blockerad"
+msgstr "blockerad"
 
 #: ID:3869
 msgid "pixels"
@@ -3884,11 +3989,11 @@ msgstr "re&kursivt"
 
 #: ID:10
 msgid "replaced"
-msgstr "Ersatt"
+msgstr "ersatt"
 
 #: Control-ID:1023
 msgid "save authentication"
-msgstr "Spara autentisering"
+msgstr "spara autentisering"
 
 #: ID:14
 msgid ""
@@ -3998,6 +4103,17 @@ msgstr ""
 
 # ID:15,
 #: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Sätt detta till språknumret du vill att dina logmeddeladnen skall fyllas i med.\n"
+"TortoiseSVN kommer sen att ladda in passande språkkontrollsmodul om den är tillgänglig."
+
+# ID:15,
+#: ID:15
 #, fuzzy
 msgid ""
 "tsvn:warnifnoissue\n"
@@ -4018,5 +4134,4 @@ msgstr "din version är:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "din version är: %d.%d.%d.%d"
-
 
