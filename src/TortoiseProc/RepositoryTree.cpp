@@ -57,10 +57,17 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 	if (pNMTreeView->action == TVE_EXPAND)
 	{
 		CWaitCursor wait;
-		HTREEITEM hChild = GetChildItem(pNMTreeView->itemNew.hItem);
-		if (hChild && GetItemText(hChild).Compare(_T("Dummy")) == 0)
+		if (GetItemData(pNMTreeView->itemNew.hItem)==0)
 		{
-			DeleteItem(hChild);
+			if (bInit)
+				return;
+			HTREEITEM hChild = GetChildItem(pNMTreeView->itemNew.hItem);
+			if (hChild && GetItemText(hChild).Compare(_T("Dummy")) == 0)
+			{
+				DeleteItem(hChild);
+			}
+			
+			SetItemData(pNMTreeView->itemNew.hItem, 1);
 			CStringArray entries;
 			if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), -1, entries))
 			{
@@ -71,31 +78,34 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 					if (temp.GetAt(0) == 'd')
 					{
 						temp = temp.Right(temp.GetLength()-1);
-						HTREEITEM hItem = InsertItem(temp, m_nIconFolder, m_nIconFolder, pNMTreeView->itemNew.hItem);
-						SetItemState(hItem, 1, TVIF_CHILDREN);
-						InsertItem(_T("Dummy"), hItem);
+						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp)))
+						{
+							HTREEITEM hItem = InsertItem(temp, m_nIconFolder, m_nIconFolder, pNMTreeView->itemNew.hItem, TVI_SORT);
+							SetItemState(hItem, 1, TVIF_CHILDREN);
+							InsertItem(_T("Dummy"), hItem);
+							SetItemData(hItem, 0);
+						}
 					}
 					if (temp.GetAt(0) == 'f')
 					{
 						temp = temp.Right(temp.GetLength()-1);
-						SHFILEINFO    sfi;
-						SHGetFileInfo(
-							(LPCTSTR)temp, 
-							FILE_ATTRIBUTE_NORMAL,
-							&sfi, 
-							sizeof(SHFILEINFO), 
-							SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp)))
+						{
+							SHFILEINFO    sfi;
+							SHGetFileInfo(
+								(LPCTSTR)temp, 
+								FILE_ATTRIBUTE_NORMAL,
+								&sfi, 
+								sizeof(SHFILEINFO), 
+								SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 
-						HTREEITEM hItem = InsertItem(temp, sfi.iIcon, sfi.iIcon, pNMTreeView->itemNew.hItem, TVI_SORT);
+							HTREEITEM hItem = InsertItem(temp, sfi.iIcon, sfi.iIcon, pNMTreeView->itemNew.hItem, TVI_SORT);
+						}
 					}
-				}
-			}
-			else
-			{
-				CMessageBox::Show(this->m_hWnd, m_svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-			}
-		}
-	}
+				} // for (int i = 0; i < entries.GetCount(); ++i) 
+			} // if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), -1, entries)) 
+		} // if (GetItemData(pNMTreeView->itemNew.hItem)==0) 
+	} // if (pNMTreeView->action == TVE_EXPAND) 
 
 	*pResult = 0;
 }
@@ -115,6 +125,7 @@ void CRepositoryTree::OnTvnSelchanging(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CRepositoryTree::Init()
 {
+	bInit = TRUE;
 	HIMAGELIST  hSystemImageList; 
 	SHFILEINFO    ssfi; 
 	hSystemImageList = 
@@ -138,9 +149,32 @@ void CRepositoryTree::Init()
 	m_ImageList.Attach(hSystemImageList);
 	SetImageList(&m_ImageList, TVSIL_NORMAL); 
 
-	HTREEITEM hItem = InsertItem(m_strUrl, m_nIconFolder, m_nIconFolder);
-	SetItemState(hItem, 1, TVIF_CHILDREN);
+	CStringArray arPaths;
+	CString temp = m_strUrl;
+	while ((temp.ReverseFind('/')>=0)&&(temp.GetAt(temp.ReverseFind('/')-1)!='/'))
+	{
+		SHFILEINFO    sfi;
+		SHGetFileInfo(
+			(LPCTSTR)temp, 
+			FILE_ATTRIBUTE_NORMAL,
+			&sfi, 
+			sizeof(SHFILEINFO), 
+			SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+
+		arPaths.Add(temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
+		temp = temp.Left(temp.ReverseFind('/'));
+	} // while ((temp.ReverseFind('/')>=0)&&(temp.GetAt(temp.ReverseFind('/')-1)!='/'))
+	arPaths.Add(temp);
+	HTREEITEM hItem = TVI_ROOT;
+	for (int i=arPaths.GetUpperBound(); i>=0; i--)
+	{
+		hItem = InsertItem(arPaths.GetAt(i), m_nIconFolder, m_nIconFolder, hItem, TVI_LAST);
+		EnsureVisible(hItem);
+		SetItemState(hItem, 1, TVIF_CHILDREN);
+		SetItemData(hItem, 0);
+	} // for (int i=arPaths.GetUpperBound(); i>=0; i--)
 	InsertItem(_T("Dummy"), hItem);
+	bInit = FALSE;
 }
 
 CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
@@ -163,3 +197,14 @@ void CRepositoryTree::OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
+BOOL CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
+{
+	HTREEITEM hCurrent = GetNextItem(parent, TVGN_CHILD);
+	while (hCurrent != NULL)
+	{
+		if (GetItemText(hCurrent).CompareNoCase(item)==0)
+			return TRUE;
+		hCurrent = GetNextItem(hCurrent, TVGN_NEXT);
+	} // while (hCurrent != NULL)
+	return FALSE;
+}

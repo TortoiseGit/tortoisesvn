@@ -35,6 +35,11 @@ CVS
        as long as a dialog is open. This prevents
        the user from entering username/password
        multiple times in the repository browser. (Stefan)
+- ADD: the repository browser now always shows
+       the full path so the user can select
+       elements "above" the one initially entered.
+       This fixes issue 47 (but not with an "up"
+       button). (Stefan)
        
 Version 0.10.0
 - BUG: if several files are selected for committing

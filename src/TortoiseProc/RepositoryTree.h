@@ -64,12 +64,14 @@ private:
 	int			m_nIconFolder;
 	CImageList	m_ImageList;
 	SVN			m_svn;
+	BOOL		bInit;
 
 public:
 	void Init();
 	CString MakeUrl(HTREEITEM hItem);
 	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTvnSelchanging(NMHDR *pNMHDR, LRESULT *pResult);
+	BOOL ItemExists(HTREEITEM parent, CString item);
 };
 
 
