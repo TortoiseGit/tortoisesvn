@@ -201,6 +201,11 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 		return CEdit::OnContextMenu(pWnd, point);
 
 	SetFocus();
+	CPoint clientpoint = point;
+	ScreenToClient(&clientpoint);
+	int n = CharFromPos(clientpoint);
+	int nCharIndex = LOWORD(n);
+	SetSel(nCharIndex, nCharIndex);
 	CMenu menu;
 
 	HINSTANCE hInstance = GetModuleHandle(_T("User32.dll"));
