@@ -247,6 +247,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
 
 	CString temp;
+	CString sWindowTitle;
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
@@ -255,16 +256,16 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	switch (pDlg->m_Command)
 	{
 		case Checkout:			//no tempfile!
-			temp.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
+			pDlg->SetWindowText(sWindowTitle);
 			if (!pDlg->Checkout(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_nRevision, true))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
 			break;
 		case Import:			//no tempfile!
-			temp.LoadString(IDS_PROGRS_TITLE_IMPORT);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
+			pDlg->SetWindowText(sWindowTitle);
 			if (!pDlg->Import(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_sMessage, true))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -273,8 +274,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				logmessage.removeValue();
 			break;
 		case Update:
-			temp.LoadString(IDS_PROGRS_TITLE_UPDATE);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_UPDATE);
+			pDlg->SetWindowText(sWindowTitle);
 			if (pDlg->m_IsTempFile)
 			{
 				try
@@ -373,8 +374,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			}
 			break;
 		case Commit:
-			temp.LoadString(IDS_PROGRS_TITLE_COMMIT);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COMMIT);
+			pDlg->SetWindowText(sWindowTitle);
 			if (pDlg->m_IsTempFile)
 			{
 				try
@@ -402,7 +403,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					if (commitString.IsEmpty())
 					{
 						temp.LoadString(IDS_PROGRS_TITLEFIN);
-						pDlg->SetWindowText(temp);
+						sWindowTitle = sWindowTitle + _T(" ") + temp;
+						pDlg->SetWindowText(sWindowTitle);
 						temp.LoadString(IDS_MSGBOX_OK);
 						//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
 						//pDlg->m_bCancelled = TRUE;
@@ -441,8 +443,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			}
 			break;
 		case Add:
-			temp.LoadString(IDS_PROGRS_TITLE_ADD);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
+			pDlg->SetWindowText(sWindowTitle);
 			if (pDlg->m_IsTempFile)
 			{
 				try
@@ -474,8 +476,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			}
 			break;
 		case Revert:
-			temp.LoadString(IDS_PROGRS_TITLE_REVERT);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
+			pDlg->SetWindowText(sWindowTitle);
 			if (pDlg->m_IsTempFile)
 			{
 				try
@@ -507,15 +509,15 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			}
 			break;
 		case Resolve:
-			temp.LoadString(IDS_PROGRS_TITLE_RESOLVE);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
+			pDlg->SetWindowText(sWindowTitle);
 			pDlg->Resolve(pDlg->m_sPath, true);
 			break;
 		case Switch:
 			{
 				SVNStatus st;
-				temp.LoadString(IDS_PROGRS_TITLE_SWITCH);
-				pDlg->SetWindowText(temp);
+				sWindowTitle.LoadString(IDS_PROGRS_TITLE_SWITCH);
+				pDlg->SetWindowText(sWindowTitle);
 				LONG rev = 0;
 				if (st.GetStatus(pDlg->m_sPath) != (-2))
 				{
@@ -535,24 +537,24 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			}
 			break;
 		case Export:
-			temp.LoadString(IDS_PROGRS_TITLE_EXPORT);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
+			pDlg->SetWindowText(sWindowTitle);
 			if (!pDlg->Export(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_nRevision))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
 			break;
 		case Merge:
-			temp.LoadString(IDS_PROGRS_TITLE_MERGE);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
+			pDlg->SetWindowText(sWindowTitle);
 			if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_nRevision, pDlg->m_sMessage, pDlg->m_nRevisionEnd, pDlg->m_sPath, true, true))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
 			break;
 		case Copy:
-			temp.LoadString(IDS_PROGRS_TITLE_COPY);
-			pDlg->SetWindowText(temp);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
+			pDlg->SetWindowText(sWindowTitle);
 			if (!pDlg->Copy(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, pDlg->m_sMessage))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -566,7 +568,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			break;
 	}
 	temp.LoadString(IDS_PROGRS_TITLEFIN);
-	pDlg->SetWindowText(temp);
+	sWindowTitle = sWindowTitle + _T(" ") + temp;
+	pDlg->SetWindowText(sWindowTitle);
 	//temp.LoadString(IDS_MSGBOX_OK);
 	//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
 
