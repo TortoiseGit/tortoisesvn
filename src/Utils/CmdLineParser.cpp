@@ -19,7 +19,7 @@
 #include "CmdLineParser.h"
 
 const TCHAR CCmdLineParser::m_sDelims[] = _T("-/");
-const TCHAR CCmdLineParser::m_sQuotes[] = _T("\"\'");
+const TCHAR CCmdLineParser::m_sQuotes[] = _T("\"");
 const TCHAR CCmdLineParser::m_sValueSep[] = _T(" :"); // don't forget space!!
 
 
