@@ -77,6 +77,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LOGLIST, OnLvnItemchangedLoglist)
 	ON_NOTIFY(EN_LINK, IDC_MSGVIEW, OnEnLinkMsgview)
 	ON_BN_CLICKED(IDC_STATBUTTON, OnBnClickedStatbutton)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGLIST, OnNMCustomdrawLoglist)
 END_MESSAGE_MAP()
 
 
@@ -1608,6 +1609,41 @@ void CLogDlg::OnBnClickedStatbutton()
 	dlg.m_parFileChanges = &m_arFileChanges;
 	dlg.DoModal();
 		
+}
+
+void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+	// Take the default processing unless we set this to something else below.
+	*pResult = CDRF_DODEFAULT;
+
+	// First thing - check the draw stage. If it's the control's prepaint
+	// stage, then tell Windows we want messages for every item.
+
+	if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+	{
+		*pResult = CDRF_NOTIFYITEMDRAW;
+	}
+	else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
+	{
+		// This is the prepaint stage for an item. Here's where we set the
+		// item's text color. Our return value will tell Windows to draw the
+		// item itself, but it will use the new color we set here.
+
+		// Tell Windows to paint the control itself.
+		*pResult = CDRF_DODEFAULT;
+
+		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+
+		if (m_arLogPaths.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		{
+			if (m_arLogPaths.GetAt(pLVCD->nmcd.dwItemSpec).Find(_T("(from "))>=0)
+				crText = GetSysColor(COLOR_HIGHLIGHT);
+
+			// Store the color back in the NMLVCUSTOMDRAW struct.
+			pLVCD->clrText = crText;
+		}
+	}
 }
 
 

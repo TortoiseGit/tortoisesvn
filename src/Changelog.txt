@@ -6,6 +6,9 @@
        clipboard. (Will Dean)
 - ADD: Column header for TortoiseBlame. (Stefan)
 - ADD: The status file list shows file/folder icons for each item. (Stefan)
+- ADD: The log dialog is a lot faster when fetching the logs, and
+       revisions where a rename/move of one or more files/folders was
+       done are shown highlighted. (Stefan)
 - CHG: The log message history is kept separately by repository. (Stefan)
 - CHG: The 'check for updates' dialog now is called
        'check for modifications' and doesn't contact the repository
