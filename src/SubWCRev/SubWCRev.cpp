@@ -15,8 +15,11 @@
 
 
 #define VERDEF		"$WCREV$"
+#define DATEDEF		"$WCDATE$"
+#define MODDEF		"$WCMODS?"
 
 BOOL bHasMods;
+apr_time_t WCDate;
 
 svn_error_t *
 svn_status (       const char *path,
@@ -57,6 +60,99 @@ int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 	return TRUE;
 }
 
+int DateDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, apr_time_t date_svn)
+{ 
+	char * pBuild = pBuf + index;
+	int bEof = pBuild - pBuf >= (int)filelength;
+	while (memcmp( pBuild, def, strlen(def)) && !bEof)
+	{
+		pBuild++;
+		bEof = pBuild - pBuf >= (int)filelength;
+	}
+	if (!bEof)
+	{
+		// Replace the $WCDATE$ string with the actual commit date
+		__time64_t ttime = date_svn/1000000L;
+		struct tm *newtime = _localtime64(&ttime);
+
+		// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
+		char destbuf[32];
+		sprintf(destbuf, "%04d/%02d/%02d %02d:%02d:%02d",
+				newtime->tm_year + 1900,
+				newtime->tm_mon + 1,
+				newtime->tm_mday,
+				newtime->tm_hour,
+				newtime->tm_min,
+				newtime->tm_sec);
+
+		if (strlen(def) > strlen(destbuf))
+		{
+			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - abs((long)(pBuf - pBuild)));
+			filelength = filelength - (strlen(def)-strlen(destbuf));
+		}
+		else if (strlen(def) < strlen(destbuf))
+		{
+			memmove(pBuild+strlen(destbuf)-strlen(def),pBuild, filelength - abs((long)(pBuf - pBuild)));
+			filelength = filelength + (strlen(destbuf)-strlen(def));
+		}
+		memmove(pBuild, destbuf, strlen(destbuf));
+	} // if (!bEof)
+	else
+		return FALSE;
+	index = (unsigned long)(pBuild - pBuf);
+	return TRUE;
+}
+
+int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL mods)
+{ 
+	char * pBuild = pBuf + index;
+	int bEof = pBuild - pBuf >= (int)filelength;
+	while (memcmp( pBuild, def, strlen(def)) && !bEof)
+	{
+		pBuild++;
+		bEof = pBuild - pBuf >= (int)filelength;
+	}
+	if (!bEof)
+	{
+		// Look for the terminating '$' character
+		char * pEnd = pBuild + 1;
+		while (*pEnd != '$')
+		{
+			pEnd++;
+			if (pEnd - pBuild >= (int)filelength)
+				return FALSE;	// No terminator - malformed so give up.
+		}
+		
+		// Look for the ':' dividing TrueText from FalseText
+		char *pSplit = pBuild + 1;
+		// This loop is guaranteed to terminate due to test above.
+		while (*pSplit != ':' && *pSplit != '$')
+			pSplit++;
+
+		if (*pSplit == '$')
+			return FALSE;		// No split - malformed so give up.
+
+		if (bHasMods)
+		{
+			// Replace $WCMODS?TrueText:FalseText$ with TrueText
+			memmove(pSplit, pEnd + 1, filelength - abs((long)(pBuf - pBuild)));
+			memmove(pBuild, pBuild + strlen(def), filelength - abs((long)(pBuf - pBuild)));
+			filelength = filelength - strlen(def) - (pEnd - pSplit) - 1;
+		}
+		else
+		{
+			// Replace $WCMODS?TrueText:FalseText$ with FalseText
+			memmove(pEnd, pEnd + 1, filelength - abs((long)(pBuf - pBuild)));
+			memmove(pBuild, pSplit + 1, filelength - abs((long)(pBuf - pBuild)));
+			filelength = filelength - (pSplit - pBuild) - 2;
+		} // if (bHasMods)
+	} // if (!bEof)
+	else
+		return FALSE;
+	index = (unsigned long)(pBuild - pBuf);
+	return TRUE;
+}
+
 int abort_on_pool_failure (int retcode)
 {
 	abort ();
@@ -69,8 +165,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		printf(_T("SubWCRev reads the Subversion status of all files in a\n"));
 		printf(_T("working copy, excluding externals. Then the highest revision\n"));
-		printf(_T("number found is used to replace all occurences of \"$WCREV$\"\n"));
-		printf(_T("in SrcVersionFile and save the result to DstVersionFile\n\n"));
+		printf(_T("number found is used to replace all occurrences of \"$WCREV$\"\n"));
+		printf(_T("in SrcVersionFile and the result is saved to DstVersionFile.\n"));
+		printf(_T("The commit date/time of the highest revision is used to replace\n"));
+		printf(_T("all occurrences of \"$WCDATE$\". The modification status is used\n"));
+		printf(_T("to replace all occurrences of \"$WCMODS?TrueText:FalseText$\" with\n"));
+		printf(_T("TrueText if there are local modifications, or FalseText if not.\n\n"));
 		printf(_T("usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-n|-d]\n\n"));
 		printf(_T("Params:\n"));
 		printf(_T("WorkingCopyPath    :   path to a Subversion working copy\n"));
@@ -78,7 +178,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf(_T("DstVersionFile     :   path to where to save the resulting header file\n"));
 		printf(_T("-n                 :   if given, then SubWCRev will error if the working\n"));
 		printf(_T("                       copy contains local modifications\n"));
-		printf(_T("-d                 :   if given, then SubWCRev only do its job if the\n"));
+		printf(_T("-d                 :   if given, then SubWCRev will only do its job if\n"));
 		printf(_T("                       DstVersionFile does not exist\n"));
 		return 1;
 	}
@@ -88,6 +188,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	const TCHAR * wc;
 	BOOL bErrOnMods = FALSE;
 	bHasMods = FALSE;
+	WCDate = 0;
 	if (argc == 2)
 	{
 		wc = argv[1];
@@ -182,7 +283,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 7;
 	}
 
-	printf("%s is at revision: %Ld\n", wcfullpath, highestrev);
+	printf("%s is at revision: %Ld%s\n", wcfullpath, highestrev,
+		bHasMods ? " with local modifications" : "");
 	
 	if (argc==2)
 	{
@@ -194,6 +296,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	unsigned long index = 0;
 	
 	while (RevDefine(VERDEF, pBuf, index, filelength, highestrev));
+	
+	index = 0;
+	while (DateDefine(DATEDEF, pBuf, index, filelength, WCDate));
+	
+	index = 0;
+	while (ModDefine(MODDEF, pBuf, index, filelength, bHasMods));
 	
 	hFile = CreateFile(dst, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)

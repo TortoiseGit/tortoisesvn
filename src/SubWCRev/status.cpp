@@ -6,6 +6,7 @@
 #include "svn_path.h"
 
 extern BOOL bHasMods;
+extern apr_time_t WCDate;
 
 void getallstatus(void * baton, const char * path, svn_wc_status_t * status)
 {
@@ -13,7 +14,10 @@ void getallstatus(void * baton, const char * path, svn_wc_status_t * status)
 	{
 		LONG * rev = (LONG *)baton;
 		if ((*rev)<status->entry->cmt_rev)
+		{
 			*rev = status->entry->cmt_rev;
+			WCDate = status->entry->cmt_date;
+		}
 		switch (status->text_status)
 		{
 		case svn_wc_status_none:

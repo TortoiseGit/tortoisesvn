@@ -1,0 +1,12 @@
+// Test file for SubWCRev
+
+char *Revision = "$WCREV$";
+char *Modified = "$WCMODS?Modified:Not modified$";
+char *Date     = "$WCDATE$";
+
+#if $WCMODS?1:0$
+#error Source is modified
+#endif
+
+// EndOfFile
+
