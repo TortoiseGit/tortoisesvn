@@ -1360,7 +1360,7 @@ STRINGTABLE
 BEGIN
     IDS_COMMONFILEFILTER    "All Files (*.*)|*.*||"
     IDS_PROGRAMSFILEFILTER  "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-    IDS_CERTIFICATESFILEFILTER "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+    IDS_CERTIFICATESFILEFILTER "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
     IDS_PATCHFILEFILTER     "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 END
 
@@ -1479,6 +1479,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROGRS_PATHATREV    "%s - at revision: %d"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SSL_SAVE_CERTPATH   "Save client certificate path"
 END
 
 #endif    // English (U.S.) resources
