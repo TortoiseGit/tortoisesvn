@@ -96,7 +96,7 @@ iconv_getpath(char *buf, const char *name, apr_pool_t *ctx)
             ;
 
 #ifdef WIN32
-        if (GetModuleFileName(NULL, moduledir, APR_PATH_MAX))
+        if (GetModuleFileName(GetModuleHandle("libapriconv.dll"), moduledir, APR_PATH_MAX))
         {
             char * dirend = strrchr(moduledir, '\\');
             if (dirend)
