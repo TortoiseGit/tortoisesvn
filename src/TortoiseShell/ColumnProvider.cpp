@@ -159,7 +159,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		switch (pscid->pid) 
 		{
 			case 0:
-				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
 					GetColumnStatus(path);
@@ -169,7 +169,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 				break;
 			case 1:
-				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
 					GetColumnStatus(path);
@@ -182,7 +182,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				szInfo = buf;
 				break;
 			case 2:
-				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
 					GetColumnStatus(path);
@@ -191,7 +191,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				}
 				break;
 			case 3:
-				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
 					GetColumnStatus(path);
