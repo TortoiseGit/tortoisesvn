@@ -599,18 +599,26 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region merge
 		if (comVal.Compare(_T("merge"))==0)
 		{
+			BOOL repeat = FALSE;
 			CMergeDlg dlg;
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			dlg.m_URLFrom = path;
-			if (dlg.DoModal() == IDOK)
-			{
-				CSVNProgressDlg progDlg;
-				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
-				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Merge, false, path, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev, dlg.m_bDryRun ? _T("dryrun") : _T(""));		//use the message as the second url
-				progDlg.m_RevisionEnd = dlg.EndRev;
-				progDlg.DoModal();
-			}
+			do 
+			{	
+				if (dlg.DoModal() == IDOK)
+				{
+					CSVNProgressDlg progDlg;
+					progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
+					//m_pMainWnd = &progDlg;
+					progDlg.SetParams(Merge, false, path, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev, dlg.m_bDryRun ? _T("dryrun") : _T(""));		//use the message as the second url
+					progDlg.m_RevisionEnd = dlg.EndRev;
+					progDlg.DoModal();
+					repeat = dlg.m_bDryRun;
+					dlg.bRepeating = TRUE;
+				}
+				else
+					repeat = FALSE;
+			} while(repeat);
 		}
 		//#endregion
 		//#region copy

@@ -94,5 +94,6 @@ public:
 	SVNRev		StartRev;
 	SVNRev		EndRev;
 	BOOL		m_bDryRun;
+	BOOL		bRepeating;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));

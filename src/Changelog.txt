@@ -12,6 +12,9 @@
        a project property (tsvn:logfilelistenglish). Set
        this property to "false" if you want that template
        pasted in your local language. (Stefan)
+- CHG: When doing a dry-run merge, after the merge is done
+       the merge dialog is shown again with the same settings
+       as before so the real merge can be done right away. (Stefan)
 - BUG: The log message history in the commit dialog could
        get emptied when no log message was entered. (Stefan)
 

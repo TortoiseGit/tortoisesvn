@@ -40,6 +40,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pLogDlg = NULL;
 	m_pLogDlg2 = NULL;
+	bRepeating = FALSE;
 }
 
 CMergeDlg::~CMergeDlg()
@@ -138,8 +139,11 @@ BOOL CMergeDlg::OnInitDialog()
 	} // if ((status.status == NULL) || (status.status->entry == NULL))
 	else
 	{
-		m_URLFrom = url;
-		m_URLTo = url;
+		if (!bRepeating)
+		{
+			m_URLFrom = url;
+			m_URLTo = url;
+		}
 		GetDlgItem(IDC_WCURL)->SetWindowText(url);
 	}
 
@@ -150,10 +154,31 @@ BOOL CMergeDlg::OnInitDialog()
 	m_URLCombo2.LoadHistory(_T("repoURLS"), _T("url"));
 	m_URLCombo2.SetWindowText(m_URLTo);
 
-	GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
-	// set head revision as default revision
-	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-	CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+	if (bRepeating)
+	{
+		if (StartRev.IsHead())
+			CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
+		else
+			CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+		if (EndRev.IsHead())
+			CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+		else
+			CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		if (m_bUseFromURL)
+			GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
+		else
+		{
+			GetDlgItem(IDC_URLCOMBO2)->EnableWindow(TRUE);
+			GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLTo);
+		}
+	}
+	else
+	{
+		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
+		// set head revision as default revision
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
+	}
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
