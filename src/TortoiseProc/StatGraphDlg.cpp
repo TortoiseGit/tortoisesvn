@@ -218,15 +218,21 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 	//first find the number of authors available
 	int numAuthors = 0;
+
 	std::map<stdstring, LONG> authors;
 	for (int i=0; i<m_parAuthors->GetCount(); ++i)
 	{
 		stdstring author = stdstring(m_parAuthors->GetAt(i));
-		if (authors.find(author) == authors.end())
-		{
-			authors[author] = m_graph.AppendGroup(author.c_str());
-			numAuthors++;
-		}
+		authors[author] = -11;
+	}
+	numAuthors = authors.size();
+	
+	std::map<stdstring, LONG>::iterator iter;
+	iter = authors.begin();
+	while (iter != authors.end()) 
+	{
+		authors[iter->first] = m_graph.AppendGroup(iter->first.c_str());
+		iter++;
 	}
 
 	int week = 0;
@@ -265,6 +271,8 @@ void CStatGraphDlg::ShowCommitsByDate()
 			{
 				lasttime += oneweek;
 				week = GetWeek(lasttime);
+				if (week == timeweek)
+					break;		//year lap
 				std::map<stdstring, LONG>::iterator iter;
 				MyGraphSeries * graphData = new MyGraphSeries();
 				iter = authors.begin();
@@ -290,7 +298,7 @@ void CStatGraphDlg::ShowCommitsByDate()
 		else
 			authorcommits[author] = 1;
 	}
-	std::map<stdstring, LONG>::iterator iter;
+
 	MyGraphSeries * graphData = new MyGraphSeries();
 	iter = authors.begin();
 	while (iter != authors.end()) 
