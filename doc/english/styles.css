@@ -8,15 +8,14 @@
 
 /* Generic tag-level style definitions */
 
-BODY
-{
-    background: white;
-    padding: 0.5in;
+body {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	background: #fff;
+	color: #000;
 }
 
 H1
 {
-    font-family: times new roman,times,serif;
     font-size: 30pt;
     font-style: normal;
     font-weight: bold;
@@ -25,7 +24,6 @@ H1
 
 H2
 {
-    font-family: times new roman,times,serif;
     font-size: 24px;
     font-style: normal;
     font-weight: bold;
@@ -34,7 +32,6 @@ H2
 
 H3
 {
-    font-family: times new roman,times,serif;
     font-size: 20px;
     font-style: normal;
     font-weight: bold;
@@ -43,7 +40,6 @@ H3
 
 H4
 {
-    font-family: times new roman,times,serif;
     font-size: 16px;
     font-style: normal;
     font-weight: bold;
@@ -52,20 +48,29 @@ H4
 
 P,LI,UL,OL,DD,DT,TD
 {
-    font-family: times new roman,times,serif;
     font-size: 12pt;
     font-style: normal;
     font-weight: normal;
     color: black;
 }
 
-TT,PRE
+PRE	
 {
-    font-family: courier new,courier,fixed;
-    font-size: 10pt;
-    font-style: normal;
-    font-weight: normal;
-    color: black;
+    font-size: 12pt;
+}
+
+TT
+{
+    font-size: 12pt;
+}
+
+/* This needs some tweaking, to apply only to TT */
+.Filename, .Literal{
+	font-weight: bold;
+}
+
+.action, .guibutton, .guimenuitem {
+  font-weight: bold;	
 }
 
 A
@@ -76,67 +81,86 @@ A
 
 A:hover 
 {
-    background: rgb(75%,75%,100%);
-    color: blue;
-    text-decoration: underline;
+	color: blue;
+	text-decoration: underline;
+	background-color: #DCDCDC;
 }
 
 IMG
 {
-    border: none;
-    padding: 0.5in;
+  border: none;
+  margin: 4px
 }
 
-/* Overrides for individual classes */
+div.figure {
+	padding: 4px;
+	float: right;
+	text-align: center;
+	margin: 10px 0px 5px 10px;
+} 
+
+div.figure p {
+	margin-top: 2px;
+	margin-bottom: 0px;
+	font-size: 80%;
+	text-align: center;
+}
 
 .author
 {
-    font-family: times new roman,times,serif;
     font-size: 12pt;
     font-style: italic;
     font-weight: normal;
     color: black;
 }
 
-.sidebar 
-{
-    border: 1px solid;
-    border-color: black;
-    background: rgb(75%,75%,75%);
-    padding: 0.12in;
+.preface, .chapter, .sect1, .sect2, .sect3 {
+	margin: 0 1em 0 1em;
+	clear: both;
+}
+.chapter .sect1 {
+	margin: 0 1em 0 1.5em;
+}
+.sect1 .sect2 {
+	margin: 0 1em 0 2em;
+}
+.sect1 .sect2 .sect3 {
+	margin: 0 1em 0 2.5em;
 }
 
-.tip
-{
-    border: none;
-    background: rgb(50%,100%,50%);
+.navfooter {
+  clear: both;	
 }
 
-.warning
-{
-    border: none;
-    background: rgb(100%,100%,50%);
+.tip, .error, .caution, .done {
+	border-top: 5px solid;
+	border-left: 1px solid;
+	background-repeat: no-repeat;
+	background-position: 5px 1.33em;
+	margin: .67em 0 0 1em;
+	padding: .33em 0 .67em 42px;
+	min-height: 52px;
+	width: 80%;
+	clear: both;
 }
 
-.caution
-{
-	border: 2px solid;
-	border-color: red;
-	background: rgb(100%,100%,50%);
-    padding: 0.12in;
+.error {
+	background-image: url(icon_error_lrg.png);
+	border-color: #900;
 }
 
-.guimenuitem
-{
-    font-family: courier new,courier,fixed;
-    font-size: 10pt;
-    font-style: normal;
-    font-weight: bold;
-    color: black;    
+.tip {
+	background-image: url(icon_info_lrg.png);
+	border-color: #069;
 }
 
-.sect1
-{
-    background: rgb(95%,95%,100%);
+.caution {
+	background-image: url(icon_warning_lrg.png);
+	border-color: #c60;
+}
+
+.done {
+	background-image: url(icon_success_lrg.png);
+	border-color: #090;
 }
 
