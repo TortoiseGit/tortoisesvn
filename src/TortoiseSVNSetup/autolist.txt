@@ -1,6 +1,7 @@
 (MULTILINE) .h, .hpp = ^\sclass\s(\w+)|(\w+)\([^\)]+\);
 (MULTILINE) .cpp = ::(\w+)
 .js = (?:(?:prototype\.|this\.)(\w+)\s*=\s*)?function\s*(?:(\w*)\s*)\(
+(NOCASE) .pas = (\w+)\s+=\s+(?:class)|(?:procedure|function|property)\s+(\w+)
 (MULTILINE) .py .pyw = ^\s*(?:class|def)\s+(\w+)
 (MULTILINE) .pl, .pm, .cgi = ^\s*sub\s+(\w+)
 .bas, .frm, .cls = (?<=(Public |Private )?(Sub|Function|Property Get|Property Set|Property Let) )(\w+)(?=\(.*\))
