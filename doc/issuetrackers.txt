@@ -98,6 +98,12 @@ contain the substring "%BUGID%" which the client replaces with the issue number.
 That way the resulting URL will point directly to the correct issue.
 The URL must be properly URI encoded by the user.
 
+name  : bugtraq:warnifnoissue
+value : "true" or "false"
+If set to "true", then the clients will warn the user if the issue text box is
+left empty. But it must not block the commit, only give the user a chance to
+enter an issue number in case (s)he forgot it.
+
 Please note:
 - All property names and values must be properly UTF8 encoded. The client should
   take care of that when setting the properties.
