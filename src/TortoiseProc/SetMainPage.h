@@ -75,6 +75,8 @@ protected:
 private:
 	CString			m_sDiffPath;
 	CRegString		m_regDiffPath;
+	CString			m_sMergePath;
+	CRegString		m_regMergePath;
 	CRegString		m_regExtensions;
 	CString			m_sTempExtensions;
 	CBalloon		m_tooltips;
@@ -93,4 +95,6 @@ public:
 	afx_msg void OnEnChangeTempextensions();
 	virtual BOOL OnApply();
 	afx_msg void OnBnClickedAddbeforecommit();
+	afx_msg void OnBnClickedExtmergebrowse();
+	afx_msg void OnEnChangeExtmerge();
 };

@@ -23,6 +23,7 @@
 #include "messagebox.h"
 #include "UnicodeUtils.h"
 #include "CrashReport.h"
+#include "DirFileList.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -704,10 +705,52 @@ BOOL CTortoiseProcApp::InitInstance()
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
 					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return FALSE;		//get out of here
-				}
+				} // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE))
 			}
 		}
 		//#endregion
+		if (comVal.Compare(_T("conflicteditor"))==0)
+		{
+			long rev = -1;
+			CString theirs;
+			CString mine;
+			CString base;
+			CString merge = parser.GetVal(_T("path"));
+
+			//we have the conflicted file (%merged)
+			//now look for the other required files
+			CDirFileList list;
+			list.BuildList(merge.Left(merge.ReverseFind('\\')), FALSE, FALSE);
+			for (int i=0; i<list.GetCount(); i++)
+			{
+				CString temp = list.GetAt(i);
+				if (merge.CompareNoCase(temp.Left(merge.GetLength()))==0)
+				{
+					//we have one of the "conflict" files
+					CString ends = temp.Right(temp.GetLength() - temp.ReverseFind('.') - 1);
+					if (ends.CompareNoCase(_T("mine"))==0)
+					{
+						mine = temp;
+					}
+					if (ends.Left(1).CompareNoCase(_T("r"))==0)
+					{
+						long r = _tstol(ends.Right(ends.GetLength() - 1));
+						if (r < rev)
+						{
+							base = temp;
+							rev = r;
+						}
+						else
+						{
+							base = theirs;
+							theirs = temp;
+							rev = r;
+						}
+					}
+				}
+			}
+			CUtils::StartExtMerge(base, theirs, mine, merge);
+		}
 	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the

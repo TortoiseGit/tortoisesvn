@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by TortoiseProc.rc
+// Used by TortoiseProcITA.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -127,6 +127,7 @@
 #define IDS_STRING249                   249
 #define IDS_SETTINGS_ADDBEFORECOMMIT_TT 249
 #define IDS_STRING250                   250
+#define IDS_SETTINGS_EXTMERGE_TT        250
 #define IDS_SETTINGS_PROXYSERVER_TT     251
 #define IDS_STRING252                   252
 #define IDS_STRING253                   253
@@ -170,6 +171,7 @@
 #define IDS_ERR_WCCHANGED               288
 #define IDS_ERR_COPYFILES               289
 #define IDS_STRING290                   290
+#define IDS_ERR_EXTMERGESTART           290
 #define IDS_STRING291                   291
 #define IDS_STRING292                   292
 #define IDS_STRING293                   293
@@ -193,11 +195,13 @@
 #define IDC_TOURL                       1015
 #define IDC_EXTDIFF                     1015
 #define IDC_MODNAME                     1016
+#define IDC_EXTMERGE                    1016
 #define IDC_MESSAGE                     1017
 #define IDC_REV                         1018
 #define IDC_NEWEST                      1019
 #define IDC_BRANCH                      1020
 #define IDC_EXTDIFFBROWSE               1021
+#define IDC_EXTMERGEBROWSE              1022
 #define IDC_CHECK1                      1023
 #define IDC_CHANGEDDIRS                 1023
 #define IDC_ENABLE                      1023

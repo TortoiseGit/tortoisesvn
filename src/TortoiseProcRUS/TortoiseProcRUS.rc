@@ -201,7 +201,7 @@ BEGIN
     LTEXT           "",IDC_FROMURL,60,7,226,8
 END
 
-IDD_SETTINGSMAIN DIALOGEX 0, 0, 252, 100
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 252, 130
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Основные"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
@@ -210,15 +210,18 @@ BEGIN
                     7,93,18
     EDITTEXT        IDC_EXTDIFF,100,7,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,195,7,50,14
-    LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,27,72,17
-    COMBOBOX        IDC_LANGUAGECOMBO,100,28,145,30,CBS_DROPDOWNLIST | 
+    LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,51,72,17
+    COMBOBOX        IDC_LANGUAGECOMBO,100,52,145,30,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,47,72,
+    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,71,72,
                     18
-    EDITTEXT        IDC_TEMPEXTENSIONS,100,48,145,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEMPEXTENSIONS,100,72,145,14,ES_AUTOHSCROLL
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
-                    BS_MULTILINE | WS_TABSTOP,7,72,238,18
+                    BS_MULTILINE | WS_TABSTOP,7,96,238,18
+    LTEXT           "External Merge:",IDC_STATIC,7,30,52,8
+    EDITTEXT        IDC_EXTMERGE,100,27,50,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,195,27,50,14
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
@@ -420,7 +423,7 @@ BEGIN
         RIGHTMARGIN, 245
         VERTGUIDE, 100
         TOPMARGIN, 7
-        BOTTOMMARGIN, 93
+        BOTTOMMARGIN, 123
     END
 
     IDD_SETTINGSPROXY, DIALOG
@@ -607,7 +610,8 @@ BEGIN
                             "Здесь можно указать расширение для временных и\nавтоматически сгенерированных файлов."
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Показывать перед фиксированием изменений список файлов,\nне добавленных в репозиторий,\nчтобы Вы могли их сразу добавить."
-    IDS_STRING250           "dummy"
+    IDS_SETTINGS_EXTMERGE_TT 
+                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merge\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "Введите имя или IP-адрес прокси-сервера"
     IDS_STRING252           "dummy"
     IDS_STRING253           "dummy"
@@ -661,7 +665,7 @@ STRINGTABLE
 BEGIN
     IDS_ERR_WCCHANGED       "Содержимое рабочей копии изменено!\n<hr=100%>\nСначала зафиксируйте изменения\nили произведите откат."
     IDS_ERR_COPYFILES       "Невозможно скопировать файлы!\n<hr=100%>\n%s"
-    IDS_STRING290           "dummy"
+    IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>\n%s"
     IDS_STRING291           "dummy"
     IDS_STRING292           "dummy"
     IDS_STRING293           "dummy"

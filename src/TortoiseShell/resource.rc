@@ -179,6 +179,8 @@ BEGIN
     IDS_COLDESCURL          "URL of subversion items"
     IDS_COLTITLESHORTURL    "SVN short Url"
     IDS_COLDESCSHORTURL     "short Url of subversion items"
+    IDS_MENUCONFLICT        "edit conflicts"
+    IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
 END
 
 #endif    // Russian resources
@@ -222,6 +224,7 @@ IDI_LOG                 ICON                    "..\\Icons\\menulog.ico"
 IDI_ABOUT               ICON                    "..\\Icons\\menuabout.ico"
 IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
 IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
+IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -441,6 +444,8 @@ BEGIN
     IDS_COLDESCURL          "URL von Subversion Dateien/Ordnern"
     IDS_COLTITLESHORTURL    "SVN kurze Url"
     IDS_COLDESCSHORTURL     "abgekürzte URL von Subversion Dateien/Ordnern"
+    IDS_MENUCONFLICT        "löse Konflikt"
+    IDS_MENUDESCCONFLICT    "startet den externen Diff/Merge Editor um den Konflikt zu lösen"
 END
 
 #endif    // German (Germany) resources
@@ -642,6 +647,8 @@ BEGIN
     IDS_COLDESCURL          "URL of subversion items"
     IDS_COLTITLESHORTURL    "SVN short Url"
     IDS_COLDESCSHORTURL     "short Url of subversion items"
+    IDS_MENUCONFLICT        "edit conflicts"
+    IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
 END
 
 #endif    // English (U.S.) resources
@@ -843,6 +850,8 @@ BEGIN
     IDS_COLDESCURL          "URL of subversion items"
     IDS_COLTITLESHORTURL    "SVN short Url"
     IDS_COLDESCSHORTURL     "short Url of subversion items"
+    IDS_MENUCONFLICT        "edit conflicts"
+    IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
 END
 
 #endif    // Italian (Italy) resources

@@ -29,9 +29,11 @@ CSetMainPage::CSetMainPage()
 	: CPropertyPage(CSetMainPage::IDD)
 	, m_sDiffPath(_T(""))
 	, m_sTempExtensions(_T(""))
+	, m_sMergePath(_T(""))
 {
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+	m_regMergePath = CRegString(_T("Software\\TortoiseSVN\\Merge"));
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
 	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"));
@@ -45,6 +47,7 @@ CSetMainPage::~CSetMainPage()
 void CSetMainPage::SaveData()
 {
 	m_regDiffPath = m_sDiffPath;
+	m_regMergePath = m_sMergePath;
 	m_regLanguage = m_dwLanguage;
 	m_regExtensions = m_sTempExtensions;
 	m_regAddBeforeCommit = m_bAddBeforeCommit;
@@ -58,6 +61,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
 	DDX_Check(pDX, IDC_ADDBEFORECOMMIT, m_bAddBeforeCommit);
+	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
 }
 
 
@@ -67,6 +71,8 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnEnChangeTempextensions)
 	ON_BN_CLICKED(IDC_ADDBEFORECOMMIT, OnBnClickedAddbeforecommit)
+	ON_BN_CLICKED(IDC_EXTMERGEBROWSE, OnBnClickedExtmergebrowse)
+	ON_EN_CHANGE(IDC_EXTMERGE, OnEnChangeExtmerge)
 END_MESSAGE_MAP()
 
 
@@ -102,6 +108,36 @@ void CSetMainPage::OnBnClickedExtdiffbrowse()
 		UpdateData(FALSE);
 	}
 }
+void CSetMainPage::OnBnClickedExtmergebrowse()
+{
+	OPENFILENAME ofn;		// common dialog box structure
+	TCHAR szFile[MAX_PATH];  // buffer for file name
+	ZeroMemory(szFile, sizeof(szFile));
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	//ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+	ofn.hwndOwner = this->m_hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
+	ofn.nFilterIndex = 1;
+	ofn.lpstrFileTitle = NULL;
+	ofn.nMaxFileTitle = 0;
+	ofn.lpstrInitialDir = NULL;
+	CString temp;
+	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
+	ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+	// Display the Open dialog box. 
+
+	if (GetOpenFileName(&ofn)==TRUE)
+	{
+		m_sMergePath = CString(ofn.lpstrFile);
+		UpdateData(FALSE);
+	}
+}
 
 BOOL CSetMainPage::OnInitDialog()
 {
@@ -109,11 +145,13 @@ BOOL CSetMainPage::OnInitDialog()
 	EnableToolTips();
 
 	m_sDiffPath = m_regDiffPath;
+	m_sMergePath = m_regMergePath;
 	m_sTempExtensions = m_regExtensions;
 	m_bAddBeforeCommit = m_regAddBeforeCommit;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
+	m_tooltips.AddTool(IDC_EXTMERGE, IDS_SETTINGS_EXTMERGE_TT);
 	m_tooltips.AddTool(IDC_EXTDIFFBROWSE, IDS_SETTINGS_EXTDIFFBROWSE_TT);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
 	m_tooltips.AddTool(IDC_ADDBEFORECOMMIT, IDS_SETTINGS_ADDBEFORECOMMIT_TT);
@@ -165,6 +203,11 @@ void CSetMainPage::OnEnChangeExtdiff()
 	SetModified();
 }
 
+void CSetMainPage::OnEnChangeExtmerge()
+{
+	SetModified();
+}
+
 void CSetMainPage::OnCbnSelchangeLanguagecombo()
 {
 	SetModified();
@@ -186,4 +229,6 @@ BOOL CSetMainPage::OnApply()
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+
+
 

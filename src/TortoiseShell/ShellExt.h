@@ -103,7 +103,8 @@ protected:
 		DropCopyAdd,
 		DropMoveAdd,
 		DropMove,
-		Log
+		Log,
+		ConflictEditor
 	};
 
 	FileState m_State;

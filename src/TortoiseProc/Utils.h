@@ -59,4 +59,10 @@ public:
 	 * Returns the path of the external diff program.
 	 */
 	static CString GetDiffPath();
+
+	/**
+	 * launches the external merge program if there is one.
+	 * \return TRUE if the program could be started
+	 */
+	static BOOL StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile);
 };

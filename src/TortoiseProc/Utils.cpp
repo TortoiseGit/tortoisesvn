@@ -17,7 +17,10 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #include "StdAfx.h"
+#include "resource.h"
 #include "utils.h"
+
+#include "MessageBox.h"
 
 CUtils::CUtils(void)
 {
@@ -75,9 +78,61 @@ CString CUtils::GetDiffPath()
 	else
 	{
 		diffpath = diffexe;
-		//even the our own registry entry could point to a nonexistent file
+		//even our own registry entry could point to a nonexistent file
 		if (!PathFileExists((LPCTSTR)diffpath))
 			diffpath = "";
 	}
 	return diffpath;
+}
+
+BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile)
+{
+	CString com;
+	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
+	com = regCom;
+	
+	TCHAR buf[MAX_PATH];
+	_tcscpy(buf, basefile);
+	PathQuoteSpaces(buf);
+	basefile = CString(buf);
+	_tcscpy(buf, theirfile);
+	PathQuoteSpaces(buf);
+	theirfile = CString(buf);
+	_tcscpy(buf, yourfile);
+	PathQuoteSpaces(buf);
+	yourfile = CString(buf);
+	_tcscpy(buf, mergedfile);
+	PathQuoteSpaces(buf);
+	mergedfile = CString(buf);
+
+	com.Replace(_T("%base"), basefile);
+	com.Replace(_T("%theirs"), theirfile);
+	com.Replace(_T("%mine"), yourfile);
+	com.Replace(_T("%merged"), mergedfile);
+
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	memset(&startup, 0, sizeof(startup));
+	startup.cb = sizeof(startup);
+	memset(&process, 0, sizeof(process));
+	if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	{
+		LPVOID lpMsgBuf;
+		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM | 
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+			(LPTSTR) &lpMsgBuf,
+			0,
+			NULL 
+			);
+		CString temp;
+		temp.Format(IDS_ERR_EXTMERGESTART, lpMsgBuf);
+		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+		LocalFree( lpMsgBuf );
+	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+
+	return TRUE;
 }

@@ -396,6 +396,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURESOLVE, idCmdFirst, Resolve);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENURESOLVE, IDI_RESOLVE, idCmdFirst, Resolve);
+	if ((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected))
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCONFLICT, idCmdFirst, ConflictEditor);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUCONFLICT, IDI_CONFLICT, idCmdFirst, ConflictEditor);
 	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
 		if (ownerdrawn)
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSWITCH, idCmdFirst, Switch);
@@ -657,6 +662,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 							svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
 						break;
+					case ConflictEditor:
+						svnCmd += _T("conflicteditor /path:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
 					default:
 						break;
 					//#endregion
@@ -761,6 +774,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			break;
 		case Log:
 			MAKESTRING(IDS_MENUDESCLOG);
+			break;
+		case ConflictEditor:
+			MAKESTRING(IDS_MENUDESCCONFLICT);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1024,6 +1040,9 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			MAKESTRING(IDS_MENUDIFF);
 			resource = MAKEINTRESOURCE(IDI_DIFF);
 			break;
+		case ConflictEditor:
+			MAKESTRING(IDS_MENUCONFLICT);
+			resource = MAKEINTRESOURCE(IDI_CONFLICT);
 		case Settings:
 			MAKESTRING(IDS_MENUSETTINGS);
 			resource = MAKEINTRESOURCE(IDI_SETTINGS);

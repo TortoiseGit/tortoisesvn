@@ -280,16 +280,19 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "External Diff:",IDC_STATIC,6,10,44,8
+    LTEXT           "External Diff:",IDC_STATIC,7,10,44,8
     EDITTEXT        IDC_EXTDIFF,80,7,50,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Browse...",IDC_EXTDIFFBROWSE,138,7,50,14
-    LTEXT           "Language:",IDC_STATIC,7,31,35,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,31,108,68,CBS_DROPDOWNLIST | 
+    LTEXT           "Language:",IDC_STATIC,7,49,35,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,49,108,68,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Temp File Extensions:",IDC_STATIC,7,52,70,8
-    EDITTEXT        IDC_TEMPEXTENSIONS,80,50,108,14,ES_AUTOHSCROLL
+    LTEXT           "Temp File Extensions:",IDC_STATIC,7,71,70,8
+    EDITTEXT        IDC_TEMPEXTENSIONS,80,68,108,14,ES_AUTOHSCROLL
     CONTROL         "allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,77,181,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,95,181,10
+    LTEXT           "External Merge:",IDC_STATIC,7,29,52,8
+    EDITTEXT        IDC_EXTMERGE,80,26,50,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,138,25,50,14
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
@@ -491,6 +494,7 @@ BEGIN
         VERTGUIDE, 80
         TOPMARGIN, 7
         BOTTOMMARGIN, 120
+        HORZGUIDE, 18
     END
 
     IDD_SETTINGSPROXY, DIALOG
@@ -676,7 +680,8 @@ BEGIN
                             "specify the file extensions which are\neither temporary or generated"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "shows unversioned files before committing so\nyou can choose to add them if you want"
-    IDS_STRING250           "dummy"
+    IDS_SETTINGS_EXTMERGE_TT 
+                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merge\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "either the name or IP of the proxy server"
     IDS_STRING252           "dummy"
     IDS_STRING253           "dummy"
@@ -729,7 +734,7 @@ STRINGTABLE
 BEGIN
     IDS_ERR_WCCHANGED       "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
     IDS_ERR_COPYFILES       "Could not copy the files!\n<hr=100%>\n%s"
-    IDS_STRING290           "dummy"
+    IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>\n%s"
     IDS_STRING291           "dummy"
     IDS_STRING292           "dummy"
     IDS_STRING293           "dummy"

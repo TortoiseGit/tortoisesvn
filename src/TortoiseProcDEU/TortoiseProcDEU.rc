@@ -353,14 +353,17 @@ BEGIN
     LTEXT           "Externes Diff:",IDC_STATIC,6,10,46,8
     EDITTEXT        IDC_EXTDIFF,80,7,50,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Suchen...",IDC_EXTDIFFBROWSE,138,7,50,14
-    LTEXT           "Sprache:",IDC_STATIC,7,31,30,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,31,108,30,CBS_DROPDOWNLIST | 
+    LTEXT           "Sprache:",IDC_STATIC,7,50,30,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,50,108,30,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Temp Dateiendungen:",IDC_STATIC,7,52,72,8
-    EDITTEXT        IDC_TEMPEXTENSIONS,80,50,108,14,ES_AUTOHSCROLL
+    LTEXT           "Temp Dateiendungen:",IDC_STATIC,7,71,72,8
+    EDITTEXT        IDC_TEMPEXTENSIONS,80,69,108,14,ES_AUTOHSCROLL
     CONTROL         "Erlaube Hinzufügen vor dem Übertragen",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,77,181,10
+                    WS_TABSTOP,7,96,181,10
+    LTEXT           "External Merge:",IDC_STATIC,7,29,52,8
+    EDITTEXT        IDC_EXTMERGE,80,26,50,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Suchen...",IDC_EXTMERGEBROWSE,138,25,50,14
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
@@ -672,7 +675,8 @@ BEGIN
                             "geben Sie die Dateiendungen für\ntemporäre oder erzeugte Dateien an"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Zeigt alle unkontrollierten Dateien vor dem Übertragen an\nso dass Sie diese zur Versionskontrolle hinzufügen können"
-    IDS_STRING250           "dummy"
+    IDS_SETTINGS_EXTMERGE_TT 
+                            "Ein externes Merge Programm\num Konflikte in Dateien zu lösen\n<hr=100%>\nSie können folgende Parameter für das Programm angeben:\n%merge\tDie Datei mit Konflikt, wo zu speichern\n%theirs\t\tDie Datei wie sie in der Datenbank ist\n%mine\t\tIhre eigene Datei, mit Ihren Änderungen\n%base\t\tDie Originaldatei, ohne Ihre Änderungen"
     IDS_SETTINGS_PROXYSERVER_TT 
                             "Entweder der Name oder die IP Nummer des Proxyservers"
     IDS_STRING252           "dummy"
@@ -726,7 +730,7 @@ STRINGTABLE
 BEGIN
     IDS_ERR_WCCHANGED       "Die Arbeitskopie wurde verändert!\n<hr=100%>\nBitte Übertragen Sie zuerst Ihre Änderungen\noder machen Sie Ihre Änderungen rückgängig."
     IDS_ERR_COPYFILES       "Konnte Dateien nicht kopieren!\n<hr=100%>\n%s"
-    IDS_STRING290           "dummy"
+    IDS_ERR_EXTMERGESTART   "Konnte externes Merge Programm nicht starten!\n<hr=100%>\n%s"
     IDS_STRING291           "dummy"
     IDS_STRING292           "dummy"
     IDS_STRING293           "dummy"

@@ -318,14 +318,17 @@ BEGIN
     LTEXT           "Programma per i Diff:",IDC_STATIC,7,7,46,17
     EDITTEXT        IDC_EXTDIFF,70,7,59,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Sfoglia...",IDC_EXTDIFFBROWSE,138,7,50,14
-    LTEXT           "Lingua:",IDC_STATIC,7,31,35,8
-    COMBOBOX        IDC_LANGUAGECOMBO,70,30,118,30,CBS_DROPDOWNLIST | 
+    LTEXT           "Lingua:",IDC_STATIC,7,53,35,8
+    COMBOBOX        IDC_LANGUAGECOMBO,70,52,118,30,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,47,63,
+    LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,69,63,
                     19
-    EDITTEXT        IDC_TEMPEXTENSIONS,70,49,118,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEMPEXTENSIONS,70,71,118,14,ES_AUTOHSCROLL
     CONTROL         "allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,77,181,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,99,181,10
+    LTEXT           "External Merge:",IDC_STATIC,7,29,52,8
+    EDITTEXT        IDC_EXTMERGE,70,26,58,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Sfoglia...",IDC_EXTMERGEBROWSE,138,25,50,14
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
@@ -704,8 +707,9 @@ BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "specificare l'estensione da utilizzare per i files temporanei"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
-                            "*********************************************************"
-    IDS_STRING250           "dummy"
+                            "shows unversioned files before committing so\nyou can choose to add them if you want"
+    IDS_SETTINGS_EXTMERGE_TT 
+                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merge\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "il nome o l'indirizzo ip del server proxy"
     IDS_STRING252           "dummy"
     IDS_STRING253           "dummy"
@@ -758,7 +762,7 @@ STRINGTABLE
 BEGIN
     IDS_ERR_WCCHANGED       "La copia locale e' stata modificata!\n<hr=100%>Prima di procedere e' necessario annullare o inviare le modifiche apportate."
     IDS_ERR_COPYFILES       "Impossible copiare i files\n<hr=100%>\n%s"
-    IDS_STRING290           "dummy"
+    IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>\n%s"
     IDS_STRING291           "dummy"
     IDS_STRING292           "dummy"
     IDS_STRING293           "dummy"

@@ -48,6 +48,8 @@
 #define IDI_ICON1                       139
 #define IDI_CREATEREPOS                 139
 #define IDS_MENUDESCREVERT              140
+#define IDI_ICON2                       140
+#define IDI_CONFLICT                    140
 #define IDS_MENUDESCCLEANUP             141
 #define IDS_MENUDESCRESOLVE             142
 #define IDS_MENUDESCSWITCH              143
@@ -93,6 +95,8 @@
 #define IDS_COLDESCURL                  183
 #define IDS_COLTITLESHORTURL            184
 #define IDS_COLDESCSHORTURL             185
+#define IDS_MENUCONFLICT                186
+#define IDS_MENUDESCCONFLICT            187
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -116,7 +120,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_RESOURCE_VALUE        141
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101
