@@ -113,7 +113,7 @@ CAPTION "Auschecken"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Datenbank",IDC_STATIC,7,7,255,55
-    LTEXT           "&URL der Datenbank:",IDC_STATIC,13,23,60,8
+    LTEXT           "&URL der Datenbank:",IDC_STATIC,13,19,60,17
     COMBOBOX        IDC_URLCOMBO,78,22,159,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
@@ -122,7 +122,7 @@ BEGIN
     PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,241,41,14,12
     GROUPBOX        "Revision",IDC_STATIC,7,68,255,51
     CONTROL         "&Neueste Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,13,82,61,10
+                    BS_AUTORADIOBUTTON,13,82,74,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,98,43,10
     EDITTEXT        IDC_REVISION_NUM,78,97,58,14,ES_AUTOHSCROLL | 
@@ -155,7 +155,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,157,257,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,212,257,50,14
-    LTEXT           "&URL der Datenbank:",IDC_STATIC4,13,24,60,8
+    LTEXT           "&URL der Datenbank:",IDC_STATIC4,13,19,60,18
     EDITTEXT        IDC_MESSAGE,13,59,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN
     GROUPBOX        "Import Log-Eintrag",IDC_STATIC2,7,46,255,78
@@ -183,33 +183,33 @@ BEGIN
                     LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,148,275,69
 END
 
-IDD_LOGPROMPT DIALOGEX 0, 0, 186, 252
+IDD_LOGPROMPT DIALOGEX 0, 0, 220, 252
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
 CAPTION "Log-Eintrag eingeben"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,6,231,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,129,231,50,14
-    EDITTEXT        IDC_LOGMESSAGE,6,31,173,56,ES_MULTILINE | ES_AUTOVSCROLL | 
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,163,231,50,14
+    EDITTEXT        IDC_LOGMESSAGE,6,31,207,56,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
-                    93,173,109
-    LTEXT           "",IDC_COMMIT_TO,6,16,173,11,SS_WORDELLIPSIS
-    LTEXT           "Übertragen nach:",IDC_STATIC,6,7,173,8
+                    93,207,109
+    LTEXT           "",IDC_COMMIT_TO,6,16,207,11,SS_WORDELLIPSIS
+    LTEXT           "Übertragen nach:",IDC_STATIC,6,7,207,8
     LTEXT           "Um ihre Änderungen zu sehen doppelklicken Sie auf die obigen Dateien.",
-                    IDC_HINTLABEL,6,209,173,16
+                    IDC_HINTLABEL,6,209,207,16
 END
 
-IDD_MERGE DIALOGEX 0, 0, 281, 146
+IDD_MERGE DIALOGEX 0, 0, 281, 153
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Mischen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,125,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,224,125,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,7,132,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,224,132,50,14
     LTEXT           "Mische aktuellen Zweig mit:",IDC_STATIC,7,17,88,8
     COMBOBOX        IDC_URLCOMBO,99,15,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
@@ -219,13 +219,13 @@ BEGIN
     LTEXT           "Bis:",IDC_STATIC,99,55,29,8
     GROUPBOX        "Revision",IDC_STATIC,138,34,136,46
     CONTROL         "&Neueste Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,145,46,61,10
+                    BS_AUTORADIOBUTTON,145,46,74,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     145,62,43,10
     EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
     LTEXT           "Um spezifische Änderungen von einem Zweig zum aktuellen hinzuzufügen müssen Sie beide Revisionen angeben zwischen denen die Änderung stattfand.", IDC_STATIC,7,84,267,17
-    LTEXT           "Um einen kompletten Zweig zurück in den Hauptzweig zu mischen müssen Sie die Revision angeben in der Sie den Zweig erstellt haben und die 'Neueste Revision' wählen", IDC_STATIC,7,103,267,17
+    LTEXT           "Um einen kompletten Zweig zurück in den Hauptzweig zu mischen müssen Sie die Revision angeben in der Sie den Zweig erstellt haben und die 'Neueste Revision' wählen", IDC_STATIC,7,103,267,25
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 220, 94
@@ -243,19 +243,19 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,61,206,10
 END
 
-IDD_RELOCATE DIALOGEX 0, 0, 186, 76
+IDD_RELOCATE DIALOGEX 0, 0, 197, 76
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Arbeitskopie umhängen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,55,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,129,55,50,14
-    LTEXT           "von URL:",IDC_STATIC,7,7,18,8
-    LTEXT           "zu URL:",IDC_STATIC,7,31,10,8
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,140,55,50,14
+    LTEXT           "von URL:",IDC_STATIC,7,7,35,8
+    LTEXT           "zu URL:",IDC_STATIC,7,31,32,8
     EDITTEXT        IDC_FROMURL,33,6,146,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    EDITTEXT        IDC_TOURL,33,28,146,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOURL,44,28,146,14,ES_AUTOHSCROLL
 END
 
 IDD_RENAME DIALOGEX 0, 0, 234, 55
@@ -266,7 +266,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,34,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,177,34,50,14
-    LTEXT           "neuer Name:",IDC_STATIC,7,14,36,8
+    LTEXT           "neuer Name:",IDC_STATIC,7,14,46,8
     EDITTEXT        IDC_NAME,56,11,171,14,ES_AUTOHSCROLL
 END
 
@@ -291,20 +291,20 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Allgemein"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "Externes Diff:",IDC_STATIC,7,10,44,8
+    LTEXT           "Externes Diff:",IDC_STATIC,7,10,73,8
     EDITTEXT        IDC_EXTDIFF,80,7,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Suchen...",IDC_EXTDIFFBROWSE,230,7,50,14
     LTEXT           "Sprache:",IDC_STATIC,7,73,35,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,73,200,68,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Temp. Dateiendungen:",IDC_STATIC,7,95,70,8
+    LTEXT           "Temp. Dateiendungen:",IDC_STATIC,7,91,70,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
     CONTROL         "Erlaube Hinzufügen vor dem Übertragen",IDC_ADDBEFORECOMMIT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,119,273,10
-    LTEXT           "Externes Merge:",IDC_STATIC,7,29,52,8
+    LTEXT           "Externes Merge:",IDC_STATIC,7,119,273,10
     EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Suchen...",IDC_EXTMERGEBROWSE,230,25,50,14
-    LTEXT           "GNU Diff Viewer:",IDC_STATIC,7,48,38,8
+    LTEXT           "GNU Diff Viewer:",IDC_STATIC,7,48,65,8
     EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Suchen...",IDC_DIFFVIEWERROWSE,230,45,50,14
 END
@@ -315,13 +315,13 @@ CAPTION "Status Icons"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     CONTROL         "zeige veränderte Ordner",IDC_CHANGEDDIRS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,16,97,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,16,153,10
     CONTROL         "Wechseldatenträger",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,30,71,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,30,120,10
     CONTROL         "Netzlaufwerke",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,44,63,10
     CONTROL         "Lokale Laufwerke",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,58,53,10
+                    WS_TABSTOP,7,58,113,10
     CONTROL         "CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     7,72,41,10
 END
@@ -335,15 +335,15 @@ BEGIN
     EDITTEXT        IDC_SERVERADDRESS,71,34,119,14,ES_AUTOHSCROLL
     LTEXT           "Port:",IDC_STATIC,201,37,17,8
     EDITTEXT        IDC_SERVERPORT,225,34,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Benutzername:",IDC_STATIC,17,55,36,8
+    LTEXT           "Benutzername:",IDC_STATIC,17,55,54,8
     EDITTEXT        IDC_USERNAME,71,52,72,14,ES_AUTOHSCROLL
     LTEXT           "Passwort:",IDC_STATIC,146,55,34,8
     EDITTEXT        IDC_PASSWORD,189,52,66,14,ES_PASSWORD | ES_AUTOHSCROLL
-    LTEXT           "Proxy timeout in Sekunden:",IDC_STATIC,17,74,84,8
-    EDITTEXT        IDC_TIMEOUT,103,71,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Proxy timeout in Sekunden:",IDC_STATIC,17,73,92,12
+    EDITTEXT        IDC_TIMEOUT,112,71,31,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Proxy Einstellungen",IDC_STATIC,7,22,264,74
     CONTROL         "Verwende Proxy Server",IDC_ENABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,81,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,122,10
 END
 
 IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
@@ -371,7 +371,7 @@ BEGIN
     PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
     GROUPBOX        "Revision",IDC_STATIC,7,24,214,51
     CONTROL         "&Neueste Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
-                    13,38,61,10
+                    13,38,80,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,54,43,10
     EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -387,7 +387,7 @@ BEGIN
     PUSHBUTTON      "&Abbrechen",IDCANCEL,99,65,50,14
     GROUPBOX        "Revision",IDC_STATIC,7,7,142,51
     CONTROL         "&Neueste Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
-                    13,21,61,10
+                    13,21,88,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,43,10
     EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -471,7 +471,7 @@ BEGIN
     IDD_LOGPROMPT, DIALOG
     BEGIN
         LEFTMARGIN, 6
-        RIGHTMARGIN, 179
+        RIGHTMARGIN, 213
         TOPMARGIN, 7
         BOTTOMMARGIN, 245
     END
@@ -482,7 +482,7 @@ BEGIN
         RIGHTMARGIN, 274
         VERTGUIDE, 99
         TOPMARGIN, 7
-        BOTTOMMARGIN, 139
+        BOTTOMMARGIN, 146
     END
 
     IDD_PROMPT, DIALOG
@@ -496,7 +496,7 @@ BEGIN
     IDD_RELOCATE, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 179
+        RIGHTMARGIN, 190
         TOPMARGIN, 6
         BOTTOMMARGIN, 69
     END
@@ -660,7 +660,7 @@ BEGIN
     IDS_LOG_POPUP_UPDATE    "Wechsle Datei/Ordner zu Revision"
     IDS_LOG_POPUP_COPY      "Erstelle Markierung von Revision"
     IDS_LOGPROMPT_FILE      "Datei"
-    IDS_LOGPROMPT_STATUS    "Status"
+    IDS_LOGPROMPT_STATUS    "@IDS_LOGPROMPT_STATUS"
     IDS_LOGPROMPT_ASKADD    "Sie haben eine unkontrollierte Datei gewählt.\nDie Datei wird vor dem Übertragen zur Versionskontrolle hinzugefügt."
     IDS_STRING220           "dummy"
     IDS_PROGRS_ATREV        "In Revision: %d"
@@ -698,13 +698,13 @@ BEGIN
     IDS_SETTINGS_EXTDIFF_TT "Ein externes Diff Programm um verschiedene\nRevisionen von Dateien zu vergleichen."
     IDS_SETTINGS_EXTDIFFBROWSE_TT "suche externes Diff Programm"
     IDS_SETTINGS_CHANGEDDIRS_TT 
-                            "Aktivieren Sie dies um den Subversion Status von Dateien und Unterordnern\nauf dem Ordnersymbol anzuzeigen.\n<ct=0x0000ff><b>Achtung:</b>Dies kann den Explorer ausbremsen!</ct>"
+                            "@IDS_SETTINGS_CHANGEDDIRS_TT"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "geben Sie die Dateiendungen für\ntemporäre oder erzeugte Dateien an"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Zeigt alle unkontrollierten Dateien vor dem Übertragen an\nso dass Sie diese zur Versionskontrolle hinzufügen können"
     IDS_SETTINGS_EXTMERGE_TT 
-                            "Ein externes Merge Programm\num Konflikte in Dateien zu lösen\n<hr=100%>\nSie können folgende Parameter für das Programm angeben:\n%merged\tDie Datei mit Konflikt, wo zu speichern\n%theirs\t\tDie Datei wie sie in der Datenbank ist\n%mine\t\tIhre eigene Datei, mit Ihren Änderungen\n%base\t\tDie Originaldatei, ohne Ihre Änderungen"
+                            "@IDS_SETTINGS_EXTMERGE_TT"
     IDS_SETTINGS_PROXYSERVER_TT "Entweder der Name oder die IP Nummer des Proxyservers"
     IDS_SETTINGS_DIFFVIEWER_TT 
                             "Ein Anzeigeprogramm für GNU-diff-Dateien (patch files).\nFalls Sie keines haben wählen Sie einen normalen Texteditor"
@@ -724,7 +724,7 @@ BEGIN
     IDS_PROC_EXPORT_4       "%s\nzu %s\n exportiert"
     IDS_PROC_COPY_SUCCESS   "Arbeitskopie in %s markiert"
     IDS_PROC_SETTINGS_TITLE "TortoiseSVN Einstellungen"
-    IDS_PROC_DELETE_CONFIRM "Sind Sie sicher dass Sie die ausgewählten Dateien / Ordner löschen möchten?\n<hr=100%>\nFalls Sie an Dateien Änderungen gemacht aber noch nicht\nübertragen haben werden diese verloren sein.\nAlle Dateien die sich nicht unter Versionskontrolle befinden, werden ebenfalls verloren gehen."
+    IDS_PROC_DELETE_CONFIRM "@IDS_PROC_DELETE_CONFIRM"
     IDS_PROC_OVERWRITE_CONFIRM 
                             "Die Datei\n%s\nexistiert bereits! Möchten Sie sie überschreiben?"
     IDS_PROC_REPOCREATEFINISHED "Datenbank ist erstellt"
@@ -746,19 +746,19 @@ BEGIN
     IDS_STRING279           "dummy"
     IDS_STRING280           "dummy"
     IDS_ERR_THREADSTARTFAILED "Thread konnte nicht gestartet werden!"
-    IDS_ERR_EXTDIFFSTART    "Konnte externes Diff Programm nicht starten!\n<hr=100%>\n%s"
-    IDS_ERR_NOCOMMAND       "Kein Befehl angegeben!\n<hr=100%>\nTortoiseProc.exe wird vom Shell-Teil benutzt und sollte nicht direkt gestartet werden."
+    IDS_ERR_EXTDIFFSTART    "@IDS_ERR_EXTDIFFSTART"
+    IDS_ERR_NOCOMMAND       "@IDS_ERR_NOCOMMAND"
     IDS_ERR_NOCOMMANDVALUE  "Kein Befehlswert angegeben!"
     IDS_ERR_NOSTATUS        "Konnte Status nicht auslesen!"
-    IDS_ERR_CLEANUP         "Subversion hat während des Aufräumens einen Fehler gemeldet!\n<hr=100%>\n%s"
+    IDS_ERR_CLEANUP         "@IDS_ERR_CLEANUP"
     IDS_ERR_NOURLOFFILE     "Konnte die URL der Datei nicht auslesen!"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ERR_WCCHANGED       "Die Arbeitskopie wurde verändert!\n<hr=100%>\nBitte Übertragen Sie zuerst Ihre Änderungen\noder machen Sie Ihre Änderungen rückgängig."
-    IDS_ERR_COPYFILES       "Konnte Dateien nicht kopieren!\n<hr=100%>\n%s"
-    IDS_ERR_EXTMERGESTART   "Konnte externes Merge Programm nicht starten!\n<hr=100%>\n%s"
+    IDS_ERR_WCCHANGED       "@IDS_ERR_WCCHANGED"
+    IDS_ERR_COPYFILES       "@IDS_ERR_COPYFILES"
+    IDS_ERR_EXTMERGESTART   "@IDS_ERR_EXTMERGESTART"
     IDS_ERR_NOTUPTODATE     "Die Arbeitskopie ist nicht aktuell.\nBitte aktualisieren Sie diese."
     IDS_ERR_FAILEDIGNOREPROPERTY "Konnte %s nicht zur ignorieren Liste hinzufügen"
     IDS_STRING293           "dummy"
@@ -807,7 +807,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CHSTAT_FILECOL      "Datei"
+    IDS_CHSTAT_FILECOL      "@IDS_CHSTAT_FILECOL"
     IDS_CHSTAT_WCCOL        "Lokaler Status"
     IDS_CHSTAT_REPOCOL      "Server Status"
 END
