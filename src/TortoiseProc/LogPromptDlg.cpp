@@ -427,12 +427,20 @@ void CLogPromptDlg::OnBnClickedFilllog()
 	if (m_bBlock)
 		return;
 	CString logmsg;
+	TCHAR buf[MAX_PATH];
 	for (int i=0; i<m_ListCtrl.GetItemCount(); ++i)
 	{
 		if (m_ListCtrl.GetCheck(i))
 		{
 			CString line;
-			line.Format(_T("%-10s %s\r\n"), m_ListCtrl.GetItemText(i, 1), m_ListCtrl.GetItemText(i,0));
+			CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
+			svn_wc_status_kind status = entry->status;
+			if (status == svn_wc_status_unversioned)
+				status = svn_wc_status_added;
+			if (status == svn_wc_status_missing)
+				status = svn_wc_status_deleted;
+			SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+			line.Format(_T("%-10s %s\r\n"), buf, m_ListCtrl.GetItemText(i,0));
 			logmsg += line;
 		}
 	}
