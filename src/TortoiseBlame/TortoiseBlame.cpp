@@ -44,8 +44,8 @@ TortoiseBlame::TortoiseBlame()
 	m_windowcolor = ::GetSysColor(COLOR_WINDOW);
 	m_textcolor = ::GetSysColor(COLOR_WINDOWTEXT);
 	m_texthighlightcolor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
-	m_mouserevcolor = InterColor(m_windowcolor, m_textcolor, 10);
-	m_mouseauthorcolor = InterColor(m_windowcolor, m_textcolor, 20);
+	m_mouserevcolor = InterColor(m_windowcolor, m_textcolor, 20);
+	m_mouseauthorcolor = InterColor(m_windowcolor, m_textcolor, 10);
 	m_selectedrevcolor = ::GetSysColor(COLOR_HIGHLIGHT);
 	m_selectedauthorcolor = InterColor(m_selectedrevcolor, m_texthighlightcolor, 35);
 
