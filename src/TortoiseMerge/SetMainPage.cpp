@@ -1,5 +1,3 @@
-#include "..\tortoiseproc\setmainpage.h"
-#include "..\tortoiseproc\setmainpage.h"
 // TortoiseMerge - a Diff/Patch program
 
 // Copyright (C) 2004 - Stefan Kueng
@@ -387,6 +385,7 @@ void CSetMainPage::OnCbnSelchangeFontnames()
 {
 	SetModified();
 }
+
 
 
 

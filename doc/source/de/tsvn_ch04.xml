@@ -1726,89 +1726,116 @@ Rev Log-Meldungen
 ### Translate ###
 
 				<varlistentry>
-					<term>Default number of log messages</term>
+					<term>Anzahl der angezeigten Log-Meldungen</term>
 					<listitem>
-					<para>Limits the number of log messages that TortoiseSVN fetches when you first select
+					<para>Beschränkt die Anzahl der angezeigten Log-Meldungen welche
+					TortoiseSVN vom Projektarchiv holt wenn Sie
 					<menuchoice>
-						<guimenuitem>Show Log</guimenuitem>
+						<guimenuitem>Zeige Log</guimenuitem>
 					</menuchoice>
-					Useful for slow connections / servers. You can always  <guibutton>Fetch All</guibutton> messages.
+					ausführen. Nützlich bei langsamen Verbindungen zum Projektarchiv.
+					Sie können jederzeit alle Log-Meldungen mittels <guibutton>Hole Alle</guibutton>
+					anzeigen lassen.
 					</para>
 					</listitem>
 				</varlistentry>
 			
 				<varlistentry>
-					<term>Edit...</term>
+					<term>Bearbeiten</term>
 					<listitem>
-					<para>... the subversion configuration file directly. Some settings cannot be modified by TortoiseSVN.</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Short date / time format in log messages</term>
-					<listitem>
-					<para>If the standard long messages use up too much space on your sceen use the short format.</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Set filedates to "last commit time"</term>
-					<listitem>
-					<para>
-					This option tells TortoiseSVN to set the filedates to the last commit time 
-					when doing a checkout or an update. Otherwise TortoiseSVN will use 
-					the current date.
+					<para>Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor.
+					Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden
+					sondern nur mittels Bearbeitung der Konfigurationsdatei.
 					</para>
 					</listitem>
 				</varlistentry>
 
 				<varlistentry>
-					<term>Close windows automatically</term>
+					<term>Kurzes Datum/Zeit Format in Log-Meldungen</term>
 					<listitem>
-					<para>
-					TortoiseSVN will automatically close all progress dialogs when the action is finished.
+					<para>Wenn die standarmässig angezeigten langen Datums/Zeitangaben
+					zu viel Platz einnehmen können Sie hier angeben das kurze
+					Format zu verwenden.
 					</para>
 					</listitem>
 				</varlistentry>
 
 				<varlistentry>
-					<term>Check for newer versions</term>
-					<listitem>
-					<para>If checked, TortoiseSVN will check once a week if an update is available</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Minimum logsize in chars</term>
+					<term>Dateidatum auf "Datum der letzten Übertragung" setzen</term>
 					<listitem>
 					<para>
-					The minimum length of a log message for a commit. If you enter
-					a shorter message than specified here, the commit is disabled.
+					Diese Einstellung zwingt TortoiseSVN das Dateidatum auf das 
+					Datum der letzen Übertragung der Datei zu setzen bei einem
+					Auschecken oder einer Aktualisierung. Ansonsten setzt 
+					TortoiseSVN das aktuelle Datum.
 					</para>
 					</listitem>
 				</varlistentry>
 
 				<varlistentry>
-					<term>Don't remove log messages when cancelling a commit</term>
+					<term>Fenster automatisch schliessen</term>
 					<listitem>
 					<para>
-					If for some reason the commit is cancelled (User cancel or commit error), 
-					then TortoiseSVN will preserve the last commit message you typed if
-					you try to commit again.
+					TortoiseSVN wird das Fortschritts-Fenster automatisch schliessen
+					wenn die Operation abgeschlossen ist.
 					</para>
 					</listitem>
 				</varlistentry>
 
 				<varlistentry>
-					<term>Show BugID/Issue-Nr. Box</term>
+					<term>Prüfe auf Aktualisierung</term>
 					<listitem>
-					<para>
-					Shows a textbox in the commit dialog where you can enter
-					a BugID or Issue-Nr. from a bugtracker to associate the
-					commit with that ID/number.
+					<para>Wenn gewählt wird TortoiseSVN einmal pro Woche
+					überprüfen, ob eine neuere Version vorhanden ist.
 					</para>
 					</listitem>
 				</varlistentry>
+
+				<varlistentry>
+					<term>Minimale Log Grösse in Zeichen</term>
+					<listitem>
+					<para>
+					Die mindestlänge einer Log-Meldung für eine Übertragung.
+					Wenn Sie weniger Zeichen für die Log-Meldung (oder gar keine)
+					eingeben, bleibt der <guibutton>OK</guibutton> Button deaktiviert.
+					</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Log-Meldungen beim Abbruch einer Übertragung nicht löschen</term>
+					<listitem>
+					<para>
+					Wenn aus irgendeinem Grund eine Übertragung abgebrochen wird
+					wird die Log-Meldung gespeichert und beim erneuten Aufruf
+					des Übertragungsdialogs automatisch wieder eingefügt.
+					</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Zeige BugID/Issue-Nr. Box</term>
+					<listitem>
+					<para>
+					Zeigt eine Textbox im Übertragungsdialog wo Sie eine Bug-ID
+					oder Issue-Nummer für einen Bugtracker eingeben können.
+					</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Paste Log template in english</term>
+					<listitem>
+					<para>
+					This only applies if you have selected another language
+					than english for TortoiseSVN. In that case, when pasting
+					the log template in the commit dialog, the status of each
+					file is pasted in the selected language. Whith this option
+					checked, the status is pasted in english.
+					</para>
+					</listitem>
+				</varlistentry>
+				
 			</variablelist>
 			</para>
 		</sect2>

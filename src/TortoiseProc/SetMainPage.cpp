@@ -40,6 +40,7 @@ CSetMainPage::CSetMainPage()
 	, m_bCheckNewer(TRUE)
 	, m_nMinLogSize(10)
 	, m_bShowBugBox(FALSE)
+	, m_bEnglishTemplate(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
@@ -53,6 +54,7 @@ CSetMainPage::CSetMainPage()
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
 	m_regMinLogSize = CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0);
 	m_regShowBugBox = CRegDWORD(_T("Software\\TortoiseSVN\\UseBugTracker"), FALSE);
+	m_regEnglishTemplate = CRegDWORD(_T("Software\\TortoiseSVN\\EnglishTemplate"), FALSE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -78,6 +80,7 @@ void CSetMainPage::SaveData()
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 	m_regMinLogSize = m_nMinLogSize;
 	m_regShowBugBox = m_bShowBugBox;
+	m_regEnglishTemplate = m_bEnglishTemplate;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -106,6 +109,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_MINLOGSIZE, m_nMinLogSize);
 	DDV_MinMaxUInt(pDX, m_nMinLogSize, 0, 100);
 	DDX_Check(pDX, IDC_SHOWBUGIDBOX, m_bShowBugBox);
+	DDX_Check(pDX, IDC_ENGLISHTEMPLATE, m_bEnglishTemplate);
 }
 
 
@@ -124,6 +128,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_MINLOGSIZE, OnEnChangeMinlogsize)
 	ON_BN_CLICKED(IDC_SHOWBUGIDBOX, OnBnClickedShowbugidbox)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
+	ON_BN_CLICKED(IDC_ENGLISHTEMPLATE, OnBnClickedEnglishtemplate)
 END_MESSAGE_MAP()
 
 
@@ -152,6 +157,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bCheckNewer = m_regCheckNewer;
 	m_nMinLogSize = m_regMinLogSize;
 	m_bShowBugBox = m_regShowBugBox;
+	m_bEnglishTemplate = m_regEnglishTemplate;
 
 	CString temp;
 	temp = m_regLastCommitTime;
@@ -295,6 +301,11 @@ void CSetMainPage::OnBnClickedChecknewerversion()
 }
 
 void CSetMainPage::OnBnClickedShowbugidbox()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedEnglishtemplate()
 {
 	SetModified();
 }

@@ -389,8 +389,10 @@ BEGIN
     LTEXT           "Minimum logsize in chars",IDC_STATIC,13,144,216,8
     EDITTEXT        IDC_MINLOGSIZE,239,142,40,12,ES_AUTOHSCROLL | ES_NUMBER
     CONTROL         "Show BugID/Issue-Nr. Box",IDC_SHOWBUGIDBOX,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,183,271,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,196,271,10
     PUSHBUTTON      "Clear Auth Cache",IDC_CLEARAUTH,196,111,88,14
+    CONTROL         "Paste Log template in english",IDC_ENGLISHTEMPLATE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,183,271,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217

@@ -229,6 +229,8 @@
 #define IDC_REVISION_START              1118
 #define IDC_BUGIDLABEL                  1119
 #define IDC_SHOWBUGIDBOX                1120
+#define IDC_CHECK4                      1121
+#define IDC_ENGLISHTEMPLATE             1121
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -461,7 +463,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        178
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1121
+#define _APS_NEXT_CONTROL_VALUE         1122
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

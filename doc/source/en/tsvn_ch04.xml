@@ -1683,6 +1683,19 @@ Rev Comments
 					</para>
 					</listitem>
 				</varlistentry>
+
+				<varlistentry>
+					<term>Paste Log template in english</term>
+					<listitem>
+					<para>
+					This only applies if you have selected another language
+					than english for TortoiseSVN. In that case, when pasting
+					the log template in the commit dialog, the status of each
+					file is pasted in the selected language. Whith this option
+					checked, the status is pasted in english.
+					</para>
+					</listitem>
+				</varlistentry>
 			</variablelist>
 			</para>
 		</sect2>
