@@ -449,8 +449,12 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	else
 		_tcsncpy(blamefile, lpCmdLine, MAX_PATH);
 
+	if (_tcslen(blamefile)==0)
+		return 0;
+
 	app.OpenLogFile(logfile);
-	app.OpenFile(blamefile);
+	if (_tcslen(logfile)>0)
+		app.OpenFile(blamefile);
 
 	hAccelTable = LoadAccelerators(hInstance, (LPCTSTR)IDC_TORTOISEBLAME);
 
