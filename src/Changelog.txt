@@ -11,6 +11,9 @@
        the view title. (Stefan)
 - BUG: Bring the progress window to front even after
        a confirmation dialog. (Stefan)
+- BUG: Pressing a key while the log dialog fetches
+       all messages (or even after that) could
+       throw an error. (Stefan)
        
 Version 0.24
 - ADD: A new separate program to apply patches,

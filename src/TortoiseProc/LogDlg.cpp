@@ -840,7 +840,7 @@ void CLogDlg::OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
 
-	if (m_LogMsgCtrl.GetSelectionMark() < (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	if ((m_LogList.GetSelectionMark()>=0)&&(m_LogMsgCtrl.GetSelectionMark() < (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark())))
 	{
 		if (pLVKeyDow->wVKey == 0x43)		// c-key
 		{
