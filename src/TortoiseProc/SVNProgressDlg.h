@@ -89,20 +89,43 @@ public:
 		Relocate = 12
 	} Command;
 
-	DECLARE_DYNAMIC(CSVNProgressDlg)
-
-public:
+private:
 	class NotificationData
 	{
 	public:
+		NotificationData() :
+			action((svn_wc_notify_action_t)-1),
+			kind(svn_node_none),
+			content_state(svn_wc_notify_state_inapplicable),
+			prop_state(svn_wc_notify_state_inapplicable),
+			rev(0),
+			color(::GetSysColor(COLOR_WINDOWTEXT)),
+			bConflictedActionItem(false),
+			bAuxItem(false)
+		{
+		}
+	public:
+		// The text we put into the first column (the SVN action for normal items, just text for aux items)
+		CString					sActionColumnText;	
 		CTSVNPath				path;
+
 		svn_wc_notify_action_t	action;
 		svn_node_kind_t			kind;
 		CString					mime_type;
 		svn_wc_notify_state_t	content_state;
 		svn_wc_notify_state_t	prop_state;
 		LONG					rev;
+		COLORREF				color;
+
+		bool					bConflictedActionItem;		// Is this item a conflict?
+		bool					bAuxItem;					// Set if this item is not a true 'SVN action' 
+		CString					sPathColumnText;	
+
 	};
+
+	DECLARE_DYNAMIC(CSVNProgressDlg)
+
+public:
 
 	CSVNProgressDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CSVNProgressDlg();
@@ -131,7 +154,7 @@ protected:
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	void Sort();
-	static int __cdecl SortCompare(const void * pElem1, const void * pElem2);
+	static bool SortCompare(const NotificationData* pElem1, const NotificationData* pElem2);
 
 	afx_msg void OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
@@ -155,6 +178,8 @@ private:
 	UINT ProgressThread();
 	virtual void OnOK();
 	void ReportSVNError() const;
+	void AddItemToList(const NotificationData* pData);
+
 public:
 
 private:
@@ -163,13 +188,18 @@ private:
 	*/
 	void ResizeColumns();
 
+	// Predicate function to tell us if a notification data item is auxiliary or not
+	static bool NotificationDataIsAux(const NotificationData* pData);
+
+
 public:
 	BOOL		m_bCloseOnEnd;
 	SVNRev		m_RevisionEnd;
 
 private:
 
-	CArray<NotificationData *, NotificationData *>		m_arData;
+	typedef std::vector<NotificationData *> NotificationDataVect;
+	NotificationDataVect	m_arData;
 
 	CListCtrl	m_ProgList;
 	CWinThread* m_pThread;
@@ -184,7 +214,7 @@ private:
 	LONG		m_nUpdateStartRev;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
-	BOOL		m_bRedEvents;
+	bool		m_bConflictsOccurred;
 	int			iFirstResized;
 	BOOL		bSecondResized;
 	// The path of the item we will offer to show a log for, after an 'update' is complete

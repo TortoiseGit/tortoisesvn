@@ -43,7 +43,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bCloseOnEnd = FALSE;
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
-	m_bRedEvents = FALSE;
+	m_bConflictsOccurred = FALSE;
 	m_nUpdateStartRev = -1;
 	m_pThread = NULL;
 	m_options = ProgOptNone;
@@ -54,11 +54,10 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 CSVNProgressDlg::~CSVNProgressDlg()
 {
 	m_templist.DeleteAllFiles();
-	for (int i=0; i<m_arData.GetCount(); i++)
+	for (size_t i=0; i<m_arData.size(); i++)
 	{
-		delete m_arData.GetAt(i);
+		delete m_arData[i];
 	} // for (int i=0; i<m_arData.GetCount(); i++)
-	m_arData.RemoveAll();
 	if(m_pThread != NULL)
 	{
 		delete m_pThread;
@@ -88,55 +87,17 @@ BOOL CSVNProgressDlg::Cancel()
 	return m_bCancelled;
 }
 
-BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 {
-	CString temp;
-
 	int count = m_ProgList.GetItemCount();
 
-	int iInsertedAt = m_ProgList.InsertItem(count, m_pSvn->GetActionText(action, content_state, prop_state));
+	int iInsertedAt = m_ProgList.InsertItem(count, pData->sActionColumnText);
 	if (iInsertedAt != -1)
 	{
-		if (action == svn_wc_notify_update_external)
-		{
-			m_ExtStack.AddHead(path.GetUIPathString());
-		}
-		if (action == svn_wc_notify_update_completed)
-		{
-			if (!m_ExtStack.IsEmpty())
-				temp.Format(IDS_PROGRS_PATHATREV, (LPCTSTR)m_ExtStack.RemoveHead(), rev);
-			else
-				temp.Format(IDS_PROGRS_ATREV, rev);
-			m_ProgList.SetItemText(count, 1, temp);
-			m_RevisionEnd = rev;
-			if ((m_bRedEvents)&&(m_ExtStack.IsEmpty()))
-			{
-				temp.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
-				m_ProgList.InsertItem(count+1, temp);
-				temp.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
-				m_ProgList.SetItemText(count+1, 1, temp);
-			}
-		}
-		else
-		{
-			m_ProgList.SetItemText(iInsertedAt, 1, path.GetUIPathString());
-		}
+		m_ProgList.SetItemText(iInsertedAt, 1, pData->sPathColumnText);
+		m_ProgList.SetItemText(iInsertedAt, 2, pData->mime_type);
 
-		m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
-		NotificationData * data = new NotificationData();
-		data->path = path;
-		data->action = action;
-		data->kind = kind;
-		data->mime_type = mime_type;
-		data->content_state = content_state;
-		data->prop_state = prop_state;
-		data->rev = rev;
-		m_arData.Add(data);
-		if (action == svn_wc_notify_update_update)
-			if ((content_state == svn_wc_notify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted))
-				m_bRedEvents = TRUE;
-
-		//make colums width fit
+		//make columns width fit
 		if (iFirstResized < 30)
 		{
 			//only resize the columns for the first 30 or so entries.
@@ -146,17 +107,107 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			ResizeColumns();
 			iFirstResized++;
 		}
-		if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
-		{
-			ResizeColumns();
-			bSecondResized = TRUE;
-		}
-
+	
 		// Make sure the item is *entirely* visible even if the horizontal
 		// scroll bar is visible.
 		m_ProgList.EnsureVisible(iInsertedAt, false);
-
 	}
+}
+
+BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+{
+	NotificationData * data = new NotificationData();
+	data->path = path;
+	data->action = action;
+	data->kind = kind;
+	data->mime_type = mime_type;
+	data->content_state = content_state;
+	data->prop_state = prop_state;
+	data->rev = rev;
+
+	switch (data->action)
+	{
+	case svn_wc_notify_add:
+	case svn_wc_notify_update_add:
+	case svn_wc_notify_commit_added:
+		data->color = GetSysColor(COLOR_HIGHLIGHT);
+		break;
+	case svn_wc_notify_delete:
+	case svn_wc_notify_update_delete:
+	case svn_wc_notify_commit_deleted:
+	case svn_wc_notify_commit_replaced:
+		data->color = RGB(100,0,0);
+		break;
+	case svn_wc_notify_update_update:
+		if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
+		{
+			data->color = RGB(255, 0, 0);
+			data->bConflictedActionItem = true;
+			m_bConflictsOccurred = true;
+		}
+		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
+		{
+			data->color = RGB(0, 100, 0);
+		}
+		break;
+	case svn_wc_notify_commit_modified:
+		data->color = GetSysColor(COLOR_HIGHLIGHT);
+		break;
+
+	case svn_wc_notify_update_external:
+		// For some reason we build a list of externals...
+		m_ExtStack.AddHead(path.GetUIPathString());
+		break;
+
+	case svn_wc_notify_update_completed:
+		{
+			data->bAuxItem = true;
+
+			if (!m_ExtStack.IsEmpty())
+				data->sActionColumnText.Format(IDS_PROGRS_PATHATREV, (LPCTSTR)m_ExtStack.RemoveHead(), rev);
+			else
+				data->sActionColumnText.Format(IDS_PROGRS_ATREV, rev);
+
+			if ((m_bConflictsOccurred)&&(m_ExtStack.IsEmpty()))
+			{
+				// We're going to add another aux item - let's shove this current onto the list first
+				// I don't really like this, but it will do for the moment.
+				m_arData.push_back(data);
+				AddItemToList(data);
+
+				data = new NotificationData();
+				data->bAuxItem = true;
+				data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
+				data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
+				data->color = RGB(255,0,0);
+
+				// This item will now be added after the switch statement
+			}
+			m_RevisionEnd = rev;
+
+		}
+		break;
+
+	default:
+		// Lots of actions fall through here
+		break;
+	} // switch (action)
+
+	if(!data->bAuxItem)
+	{
+		data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
+		data->sPathColumnText = path.GetUIPathString();
+	}
+
+	m_arData.push_back(data);
+	AddItemToList(data);
+
+	if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
+	{
+		ResizeColumns();
+		bSecondResized = TRUE;
+	}
+
 	return TRUE;
 }
 
@@ -175,13 +226,14 @@ CString CSVNProgressDlg::BuildInfoString()
 	int merged = 0;
 	int modified = 0;
 
-	for (INT_PTR i=0; i<m_arData.GetCount(); ++i)
+	for (size_t i=0; i<m_arData.size(); ++i)
 	{
-		const NotificationData * dat = m_arData.GetAt(i);
+		const NotificationData * dat = m_arData[i];
 		switch (dat->action)
 		{
 		case svn_wc_notify_add:
 		case svn_wc_notify_update_add:
+//BUGBUG -  Should svn_wc_notify_commit_added be here too?
 			added++;
 			break;
 		case svn_wc_notify_copy:
@@ -201,7 +253,7 @@ CString CSVNProgressDlg::BuildInfoString()
 			resolved++;
 			break;
 		case svn_wc_notify_update_update:
-			if ((dat->content_state == svn_wc_notify_state_conflicted) || (dat->prop_state == svn_wc_notify_state_conflicted))
+			if (dat->bConflictedActionItem)
 				conflicted++;
 			else if ((dat->content_state == svn_wc_notify_state_merged) || (dat->prop_state == svn_wc_notify_state_merged))
 				merged++;
@@ -224,64 +276,55 @@ CString CSVNProgressDlg::BuildInfoString()
 	{
 		temp.LoadString(IDS_STATUSMERGED);
 		infotext += temp;
-		temp.Format(_T(":%d "), merged);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), merged);
 	}
 	if (added)
 	{
 		temp.LoadString(IDS_SVNACTION_ADD);
 		infotext += temp;
-		temp.Format(_T(":%d "), added);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), added);
 	}
 	if (deleted)
 	{
 		temp.LoadString(IDS_SVNACTION_DELETE);
 		infotext += temp;
-		temp.Format(_T(":%d "), deleted);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), deleted);
 	}
 	if (modified)
 	{
 		temp.LoadString(IDS_SVNACTION_MODIFIED);
 		infotext += temp;
-		temp.Format(_T(":%d "), modified);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), modified);
 	}
 	if (copied)
 	{
 		temp.LoadString(IDS_SVNACTION_COPY);
 		infotext += temp;
-		temp.Format(_T(":%d "), copied);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), copied);
 	}
 	if (updated)
 	{
 		temp.LoadString(IDS_SVNACTION_UPDATE);
 		infotext += temp;
-		temp.Format(_T(":%d "), updated);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), updated);
 	}
 	if (restored)
 	{
 		temp.LoadString(IDS_SVNACTION_RESTORE);
 		infotext += temp;
-		temp.Format(_T(":%d "), restored);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), restored);
 	}
 	if (reverted)
 	{
 		temp.LoadString(IDS_SVNACTION_REVERT);
 		infotext += temp;
-		temp.Format(_T(":%d "), reverted);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), reverted);
 	}
 	if (resolved)
 	{
 		temp.LoadString(IDS_SVNACTION_RESOLVE);
 		infotext += temp;
-		temp.Format(_T(":%d "), resolved);
-		infotext += temp;
+		infotext.AppendFormat(_T(":%d "), resolved);
 	}
 	return infotext;
 }
@@ -708,7 +751,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE) ||
 		m_bCloseOnEnd)
 	{
-		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!m_bRedEvents) || m_bCloseOnEnd) 
+		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!m_bConflictsOccurred) || m_bCloseOnEnd) 
 			PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 	}
 	//Don't do anything here which might cause messages to be sent to the window
@@ -784,49 +827,18 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		// Tell Windows to paint the control itself.
 		*pResult = CDRF_DODEFAULT;
 
-		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-
-		if (m_arData.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		ASSERT(pLVCD->nmcd.dwItemSpec <  m_arData.size());
+		if(pLVCD->nmcd.dwItemSpec >= m_arData.size())
 		{
-			const NotificationData * data = m_arData.GetAt(pLVCD->nmcd.dwItemSpec);
-			if (data == NULL)
-				return;
-				
-			switch (data->action)
-			{
-			case svn_wc_notify_add:
-			case svn_wc_notify_update_add:
-			case svn_wc_notify_commit_added:
-				crText = GetSysColor(COLOR_HIGHLIGHT);
-				break;
-			case svn_wc_notify_delete:
-			case svn_wc_notify_update_delete:
-			case svn_wc_notify_commit_deleted:
-			case svn_wc_notify_commit_replaced:
-				crText = RGB(100,0,0);
-				break;
-			case svn_wc_notify_update_update:
-				if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
-					crText = RGB(255, 0, 0);
-				else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
-					crText = RGB(0, 100, 0);
-				break;
-			case svn_wc_notify_commit_modified:
-				crText = GetSysColor(COLOR_HIGHLIGHT);
-				break;
-			default:
-				crText = GetSysColor(COLOR_WINDOWTEXT);
-				break;
-			} // switch (action)
-
-			// Store the color back in the NMLVCUSTOMDRAW struct.
-			pLVCD->clrText = crText;
+			return;
 		}
-		else
-			//The only element exceedint the data array is the warning about
-			//critical events during the update/commit/...
-			//so draw that one red as hell.
-			pLVCD->clrText = RGB(255, 0, 0);
+		const NotificationData * data = m_arData[pLVCD->nmcd.dwItemSpec];
+		ASSERT(data != NULL);
+		if (data == NULL)
+			return;
+
+		// Store the color back in the NMLVCUSTOMDRAW struct.
+		pLVCD->clrText = data->color;
 	}
 }
 
@@ -836,45 +848,19 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (pNMLV->iItem < 0)
 		return;
-	const NotificationData * data = m_arData.GetAt(pNMLV->iItem);
-	if ((data->action == svn_wc_notify_update_update) &&
-		((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted)))
-	{
-		SVNStatus status;
-		CString merge = data->path.GetSVNPathString();
-		CString path = merge.Left(merge.ReverseFind('/'));
-		path = path + _T("/");
-		status.GetStatus(merge);
-		CString theirs;
-		CString mine;
-		CString base;
 
-		//we have the conflicted file (%merged)
-		//now look for the other required files
-		SVNStatus stat;
-		stat.GetStatus(merge);
-		if (stat.status->entry)
-		{
-			if (stat.status->entry->conflict_new)
-			{
-				theirs = CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new);
-				theirs = path + theirs;
-			}
-			if (stat.status->entry->conflict_old)
-			{
-				base = CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old);
-				base = path + base;
-			}
-			if (stat.status->entry->conflict_wrk)
-			{
-				mine = CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk);
-				mine = path + mine;
-			}
-		}
-		CUtils::StartExtMerge(base, theirs, mine, merge);
+	const NotificationData * data = m_arData[pNMLV->iItem];
+	ASSERT(data != NULL);
+	if (data->bConflictedActionItem)
+	{
+		// We've double-clicked on a conflicted item - do a three-way merge on it
+		SVN::StartConflictMerge(data->path);
 	}
 	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
 	{
+		// This is a modified file which has been merged on update
+		// Diff it against base
+
 		CTSVNPath sWC = data->path;
 		CString sBase = SVN::GetPristinePath(data->path.GetSVNPathString());
 
@@ -907,70 +893,76 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	CString temp;
 	m_ProgList.SetRedraw(FALSE);
 	m_ProgList.DeleteAllItems();
-	for (int i=0; i<m_arData.GetCount(); i++)
+	for (size_t i=0; i<m_arData.size(); i++)
 	{
-		const NotificationData * data = m_arData.GetAt(i);
-		m_ProgList.InsertItem(i, m_pSvn->GetActionText(data->action, data->content_state, data->prop_state));
-		if (data->action != svn_wc_notify_update_completed)
-		{
-			m_ProgList.SetItemText(i, 1, data->path.GetUIPathString());
-		} // if (action != svn_wc_notify_update_completed)
-		else
-		{
-			temp.Format(IDS_PROGRS_ATREV, data->rev);
-			m_ProgList.SetItemText(i, 1, temp);
-		}
-		//m_ProgList.SetItemText(i, 2, data->mime_type);
-	} // for (int i=0; i<m_arData.GetCount(); i++) 
+		AddItemToList(m_arData[i]);
+	} 
 	
 	m_ProgList.SetRedraw(TRUE);
 
 	*pResult = 0;
 }
 
-void CSVNProgressDlg::Sort()
+bool CSVNProgressDlg::NotificationDataIsAux(const NotificationData* pData)
 {
-	qsort(m_arData.GetData(), m_arData.GetSize(), sizeof(NotificationData *), (GENERICCOMPAREFN)SortCompare);
+	return pData->bAuxItem;
 }
 
-int CSVNProgressDlg::SortCompare(const void * pElem1, const void * pElem2)
+void CSVNProgressDlg::Sort()
 {
-	NotificationData * pData1 = *((NotificationData**)pElem1);
-	NotificationData * pData2 = *((NotificationData**)pElem2);
+	if(m_arData.size() < 2)
+	{
+		return;
+	}
+
+	// We need to sort the blocks which lie between the auxiliary entries
+	// This is so that any aux data stays where it was
+	NotificationDataVect::iterator actionBlockBegin;
+	NotificationDataVect::iterator actionBlockEnd = m_arData.begin();	// We start searching from here
+
+	for(;;)
+	{
+		// Search to the start of the non-aux entry in the next block
+		actionBlockBegin = std::find_if(actionBlockEnd, m_arData.end(), std::not1(std::ptr_fun(&CSVNProgressDlg::NotificationDataIsAux)));
+		if(actionBlockBegin == m_arData.end())
+		{
+			// There are no more actions
+			break;
+		}
+		// Now search to find the end of the block
+		actionBlockEnd = std::find_if(actionBlockBegin+1, m_arData.end(), std::ptr_fun(&CSVNProgressDlg::NotificationDataIsAux));
+		// Now sort the block
+		std::sort(actionBlockBegin, actionBlockEnd, &CSVNProgressDlg::SortCompare);
+	}
+}
+
+bool CSVNProgressDlg::SortCompare(const NotificationData * pData1, const NotificationData * pData2)
+{
 	int result = 0;
 	switch (m_nSortedColumn)
 	{
 	case 0:		//action column
-		{
-			CString t1 = SVN::GetActionText(pData1->action, pData1->content_state, pData1->prop_state);
-			CString t2 = SVN::GetActionText(pData2->action, pData2->content_state, pData2->prop_state);
-			result = t1.Compare(t2);
-			if (result == 0)
-			{
-				result = CTSVNPath::Compare(pData1->path, pData2->path);
-			}
-		}
+		result = pData1->sActionColumnText.Compare(pData2->sActionColumnText);
 		break;
 	case 1:		//path column
-		{
-			result = CTSVNPath::Compare(pData1->path, pData2->path);
-		}
+		// Compare happens after switch()
 		break;
 	case 2:		//mime-type column
-		{
-			result = pData1->mime_type.Compare(pData2->mime_type);
-			if (result == 0)
-			{
-				result = CTSVNPath::Compare(pData1->path, pData2->path);
-			}
-		}
+		result = pData1->mime_type.Compare(pData2->mime_type);
 		break;
 	default:
 		break;
 	} // switch (m_nSortedColumn)
+
+	// Sort by path if everything else is equal
+	if (result == 0)
+	{
+		result = CTSVNPath::Compare(pData1->path, pData2->path);
+	}
+
 	if (!m_bAscending)
 		result = -result;
-	return result;
+	return result < 0;
 }
 
 BOOL CSVNProgressDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
@@ -1061,7 +1053,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				CString temp;
 				if (m_ProgList.GetSelectedCount() == 1)
 				{
-					const NotificationData * data = m_arData.GetAt(selIndex);
+					const NotificationData * data = m_arData[selIndex];
 					if ((data)&&(!data->path.IsDirectory())&&(data->action == svn_wc_notify_update_update))
 					{
 						temp.LoadString(IDS_LOG_POPUP_COMPARE);

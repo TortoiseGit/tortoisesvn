@@ -1779,5 +1779,35 @@ apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList)
 	return targets;
 }
 
+void SVN::StartConflictMerge(const CTSVNPath& conflictedFilePath)
+{
+	CTSVNPath merge = conflictedFilePath;
+	CTSVNPath directory = merge.GetDirectory();
+	CTSVNPath theirs(directory);
+	CTSVNPath mine(directory);
+	CTSVNPath base(directory);
+
+	//we have the conflicted file (%merged)
+	//now look for the other required files
+	SVNStatus stat;
+	stat.GetStatus(merge.GetSVNPathString());
+	if (stat.status->entry)
+	{
+		if (stat.status->entry->conflict_new)
+		{
+			theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
+		}
+		if (stat.status->entry->conflict_old)
+		{
+			base.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
+		}
+		if (stat.status->entry->conflict_wrk)
+		{
+			mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+		}
+	}
+	CUtils::StartExtMerge(base.GetWinPathString(),theirs.GetWinPathString(),mine.GetWinPathString(),merge.GetWinPathString());
+}
+
 
 

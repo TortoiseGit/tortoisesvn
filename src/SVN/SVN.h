@@ -525,6 +525,10 @@ public:
 	* Set the MFC Application object for a prompt dialog
 	*/
 	void SetPromptApp(CWinApp* pWinApp);
+	/**
+	* Do the conflict-resolving 3-way merge on the specified file
+	*/
+	static void StartConflictMerge(const CTSVNPath& conflictedFilePath);
 
 
 	static CString GetErrorString(svn_error_t * Err);

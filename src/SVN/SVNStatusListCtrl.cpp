@@ -1087,7 +1087,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			ASSERT(entry != NULL);
 			if (entry == NULL)
 				return;
-			CTSVNPath filepath = entry->path;
+			const CTSVNPath& filepath = entry->path;
 			svn_wc_status_kind wcStatus = entry->status;
 			//entry is selected, now show the popup menu
 			CMenu popup;
@@ -1475,34 +1475,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					break;
 				case IDSVNLC_EDITCONFLICT:
-					{
-						CTSVNPath merge = filepath;
-						CTSVNPath directory = merge.GetDirectory();
-						CTSVNPath theirs(directory);
-						CTSVNPath mine(directory);
-						CTSVNPath base(directory);
-
-						//we have the conflicted file (%merged)
-						//now look for the other required files
-						SVNStatus stat;
-						stat.GetStatus(merge.GetSVNPathString());
-						if (stat.status->entry)
-						{
-							if (stat.status->entry->conflict_new)
-							{
-								theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
-							}
-							if (stat.status->entry->conflict_old)
-							{
-								base.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
-							}
-							if (stat.status->entry->conflict_wrk)
-							{
-								mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
-							}
-						}
-						CUtils::StartExtMerge(base.GetWinPathString(),theirs.GetWinPathString(),mine.GetWinPathString(),merge.GetWinPathString());
-					}
+					SVN::StartConflictMerge(filepath);
 					break;
 				case IDSVNLC_ADD:
 					{
