@@ -811,15 +811,13 @@
 		Wenn Sie Änderungen, welche Sie an Dateien vorgenommen haben wieder
 		rückgängig machen wollen, wählen Sie diese Datei aus und wählen
 		dann den Befehl <guimenuitem>Rückgängig...</guimenuitem> aus dem
-		Kontextmenu aus. Stellen Sie jedoch sicher, dass Sie diese Änderungen
-		wirklich rückgängig machen wollen!
-		</para>
-		<para>
-		Wenn Sie irrtümlich eine Datei gelöscht haben und diese wieder zurück
-		haben wollen, dann können Sie den <guimenuitem>Rückgängig...</guimenuitem>
-		Befehl auf dem übergeordneten Ordner ausführen. Dies bringt alle
-		gelöschten Dateien seit der letzten Aktualisierung wieder zurück, macht
-		aber auch alle Änderungen an Dateien rückgängig!
+		Kontextmenu aus. Ein Dialog erscheint wo alle Dateien, welche geändert
+		wurden aufgelistet sind. Sie können nun auswählen, welche von diesen
+		Dateien Sie in den Ursprungszustand zurückversetzen wollen.
+			<figure id="tsvn-DUG-revert-dia-1">
+				<title>Änderungen Rückgängig machen</title>
+				<graphic fileref="images/Revert.png"/>
+			</figure>
 		</para>
 	</sect1>
 	<!-- ================================================================= -->

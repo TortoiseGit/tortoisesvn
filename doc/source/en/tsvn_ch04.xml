@@ -755,23 +755,13 @@
 		the last update you need to select the file, <action>right&ndash;click
 		</action> to pop up the context menu and then select
 		the command <menuchoice><guimenuitem>revert</guimenuitem></menuchoice> in the TortoiseSVN
-		submenu. But be sure that you really want to do that because
-		all your changes to the selected file or the entire directory tree since
-		your last commit will be lost!
-		</para>
-		<para>
-		If you are not sure about your changes, copy your working
-		directory to a safe location, <action>revert</action> and use a
-		tool that's capable of diffing directories like <application>WinDiff
-		</application>, <application>BeyondCompare</application> or
-		<application>ExamDiff</application>, to see what has happened.
-		</para>
-		<para>
-		If you accidentally deleted a file and want to get it
-		back without reverting everything, you can commit all
-		changed files inside the directory to the repository and
-		do a revert on the working directory. This will retrieve
-		all files you deleted since your last commit.
+		submenu. A dialog will pop up showing you the files you've changed
+		and you can revert. Select those you want to revert and press
+		<guibutton>ok</guibutton>.
+			<figure id="tsvn-DUG-revert-dia-1">
+				<title>Revert dialog</title>
+				<graphic fileref="images/Revert.png"/>
+			</figure>
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
