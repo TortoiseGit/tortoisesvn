@@ -20,8 +20,14 @@
 #include "stdafx.h"
 #include "SVNStatusCache.h"
 #include "CacheInterface.h"
+#include "..\crashrpt\CrashReport.h"
+
+#include "..\version.h"
 
 #define BUFSIZE 4096
+
+CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache : " STRPRODUCTVER);// crash
+
 
 VOID InstanceThread(LPVOID); 
 
