@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-15 15:01+0100\n"
+"PO-Revision-Date: 2005-03-16 10:11+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -88,7 +88,7 @@ msgstr "%s - in Revision: %d"
 # ID:151,
 #: ID:151
 msgid "%s : Remote File"
-msgstr "%s : Datei auf dem Server"
+msgstr "%s : Datei im Projektarchiv"
 
 #: ID:151
 msgid "%s : Working Base"
@@ -866,10 +866,6 @@ msgstr "Zeigt, welcher Autor eine Zeile zuletzt geändert hat."
 msgid "Br&owse..."
 msgstr "Su&chen..."
 
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "Verzweigen / Markieren"
-
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Verzweigung / Markierung erfolgreich erstellt!"
@@ -1189,6 +1185,10 @@ msgstr "Kopiert"
 msgid "Copied remotely"
 msgstr "Datei im Projektarchiv kopiert"
 
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Kopieren (Verzweigen / Markieren)"
+
 # ID:76,
 #: ID:76
 msgid "Copy From Path"
@@ -1315,10 +1315,6 @@ msgstr "Konnte Druckauftrag nicht starten."
 msgid "Could not start thread!"
 msgstr "Thread konnte nicht gestartet werden!"
 
-#: Control-ID:65535
-msgid "Create Branch/Tag on the server from:"
-msgstr "Erstelle Verzweigung / Markierung auf dem Server aus:"
-
 #: ID:13
 msgid "Create Patch..."
 msgstr "Erzeuge Patch..."
@@ -1330,6 +1326,10 @@ msgstr "Projektarchiv erstellen"
 #: ID:8
 msgid "Create Repository here"
 msgstr "Projektarchiv hier erstellen"
+
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "Erstelle Kopie im Projektarchiv aus:"
 
 #: ID:126
 msgid "Created folder remotely"
@@ -1802,8 +1802,8 @@ msgid "H&ead Revision"
 msgstr "&Neueste Revision"
 
 #: Control-ID:1182
-msgid "HEAD revision on the server"
-msgstr "HEAD (neueste) Revision auf dem Server"
+msgid "HEAD revision of repository"
+msgstr "HEAD Revision des Projektarchivs"
 
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -2571,7 +2571,7 @@ msgstr "Umplazieren..."
 
 #: ID:207
 msgid "Remote Property Status"
-msgstr "Eigenschaften Server"
+msgstr "Eigenschaften Projektarchiv"
 
 #: ID:63
 #: ID:207
@@ -2580,7 +2580,7 @@ msgstr "Projektarchiv Status"
 
 #: ID:207
 msgid "Remote Text Status"
-msgstr "Inhalt Server"
+msgstr "Inhalt Projektarchiv"
 
 #: ID:15
 msgid "Remove From Ignore List"
@@ -3095,8 +3095,8 @@ msgstr "Fehlendes Ziel übersprungen"
 
 # Control-ID:1185,
 #: Control-ID:1185
-msgid "Specific revision on the server"
-msgstr "Revisionsnummer auf dem Server"
+msgid "Specific repository revision"
+msgstr "Revisionsnummer des Projektarchivs"
 
 #: ID:79
 msgid ""

@@ -720,10 +720,6 @@ msgstr ""
 msgid "Br&owse..."
 msgstr ""
 
-#: Dlg-ID:142,
-msgid "Branch / Tag"
-msgstr ""
-
 #: ID:115,
 msgid "Branch / Tag created successfully!"
 msgstr ""
@@ -1012,6 +1008,10 @@ msgstr ""
 msgid "Copied remotely"
 msgstr ""
 
+#: Dlg-ID:142,
+msgid "Copy (Branch / Tag)"
+msgstr ""
+
 #: ID:76,
 msgid "Copy From Path"
 msgstr ""
@@ -1096,10 +1096,6 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr ""
 
-#: Control-ID:65535,
-msgid "Create Branch/Tag on the server from:"
-msgstr ""
-
 #: ID:13,
 msgid "Create Patch..."
 msgstr ""
@@ -1110,6 +1106,10 @@ msgstr ""
 
 #: ID:8,
 msgid "Create Repository here"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Create copy in the repository from:"
 msgstr ""
 
 #: ID:126,
@@ -1509,7 +1509,7 @@ msgid "H&ead Revision"
 msgstr ""
 
 #: Control-ID:1182,
-msgid "HEAD revision on the server"
+msgid "HEAD revision of repository"
 msgstr ""
 
 #: ID:238,
@@ -2597,7 +2597,7 @@ msgid "Skipped missing target"
 msgstr ""
 
 #: Control-ID:1185,
-msgid "Specific revision on the server"
+msgid "Specific repository revision"
 msgstr ""
 
 #: ID:79,

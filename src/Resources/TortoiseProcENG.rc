@@ -62,7 +62,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -161,7 +161,7 @@ END
 IDD_COPY DIALOGEX 0, 0, 300, 291
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Branch / Tag"
+CAPTION "Copy (Branch / Tag)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC,7,7,286,122
@@ -172,11 +172,11 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,52,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,52,14,14
-    GROUPBOX        "Create Branch/Tag on the server from:",IDC_STATIC,13,69,
+    GROUPBOX        "Create copy in the repository from:",IDC_STATIC,13,69,
                     267,55
-    CONTROL         "HEAD revision on the server",IDC_COPYHEAD,"Button",
+    CONTROL         "HEAD revision of repository",IDC_COPYHEAD,"Button",
                     BS_AUTORADIOBUTTON,19,81,249,10
-    CONTROL         "Specific revision on the server",IDC_COPYREV,"Button",
+    CONTROL         "Specific repository revision",IDC_COPYREV,"Button",
                     BS_AUTORADIOBUTTON,19,94,174,10
     CONTROL         "Working copy",IDC_COPYWC,"Button",BS_AUTORADIOBUTTON,19,
                     108,249,10
@@ -1826,12 +1826,12 @@ BEGIN
     IDS_LOGPROMPT_POPUP_PASTEFILELIST "Paste filename list"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1874,7 +1874,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
