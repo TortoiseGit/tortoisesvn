@@ -97,6 +97,7 @@ public:
 		BOOL					checked;
 	};
 	CArray<Data *, Data *>		m_arData;
+	CArray<Data *, Data *>		m_arAllData;
 
 	CString			m_sLogMessage;
 	CSpellEdit			m_LogMessage;

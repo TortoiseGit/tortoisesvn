@@ -667,7 +667,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	// To check if all files belong to the same repository, we compare the
 	// UUID's - if they're identical then the files belong to the same
 	// repository and can be committed. But if they're different, then
-	// tell the user to committ all changes in the external folders
+	// tell the user to commit all changes in the external folders
 	// first and exit.
 	CStringA sUUID;
 	BOOL bHasExternalsFromDifferentRepos = FALSE;
@@ -763,10 +763,26 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 				} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
+				CLogPromptDlg::Data * alldata = new CLogPromptDlg::Data();
+				alldata->checked = FALSE;
+				alldata->path = strLine;
+				alldata->line = strLine;
+				alldata->status = stat;
+				alldata->textstatus = s->text_status;
+				alldata->propstatus = s->prop_status;
+				pDlg->m_arAllData.Add(alldata);
 				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
 				{
 					temp = strbuf;
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+					CLogPromptDlg::Data * alldata = new CLogPromptDlg::Data();
+					alldata->checked = FALSE;
+					alldata->path = temp;
+					alldata->line = strLine;
+					alldata->status = stat;
+					alldata->textstatus = s->text_status;
+					alldata->propstatus = s->prop_status;
+					pDlg->m_arAllData.Add(alldata);
 					if ((stat == svn_wc_status_unversioned) && (PathIsDirectory(temp)))
 					{
 						//check if the unversioned folder is maybe versioned. This
@@ -943,7 +959,26 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 			case svn_wc_status_obstructed:
 				pDlg->m_nConflicted++;
 			default:
-				pDlg->m_nUnversioned++;
+				{
+					pDlg->m_nUnversioned++;
+					// check if the unversioned item is just
+					// a file differing in case but still versioned
+					for (int j=0; j<pDlg->m_arAllData.GetCount(); j++)
+					{
+						CLogPromptDlg::Data * d = pDlg->m_arAllData.GetAt(j);
+						if ((d->status != svn_wc_status_unversioned)&&(data->path.CompareNoCase(d->path)==0))
+						{
+							// adjust the case of the filename
+							MoveFileEx(data->path, d->path, MOVEFILE_REPLACE_EXISTING);
+							pDlg->m_ListCtrl.DeleteItem(i);
+							pDlg->m_arData.RemoveAt(i);
+							delete data;
+							i--;
+							pDlg->m_nUnversioned--;
+							break;
+						}
+					}
+				}
 				break;
 			} // switch (data->status) 
 		} // if (data) 

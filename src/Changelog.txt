@@ -1,3 +1,5 @@
+- ADD: Before a commit, TSVN scans all files in the working copy
+       and adjusts the case if it got changed. (Stefan)
 - ADD: Enhanced repository browser by a set of controls which allow
        changing of URL and revision from within the browser (Thomas)
 - ADD: Actions like delete and copy in repo browser now immediately
