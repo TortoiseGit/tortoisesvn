@@ -510,15 +510,14 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					this->m_bCancelled = FALSE;
 					CString tempfile = CUtils::GetTempFile();
 					tempfile += _T(".diff");
+					m_templist.Add(tempfile);
 					if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						DeleteFile(tempfile);
 						break;		//exit
 					} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 					else
 					{
-						m_templist.Add(tempfile);
 						CUtils::StartDiffViewer(tempfile);
 					}
 				}
@@ -531,15 +530,14 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					this->m_bCancelled = FALSE;
 					CString tempfile = CUtils::GetTempFile();
 					tempfile += _T(".diff");
+					m_templist.Add(tempfile);
 					if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						DeleteFile(tempfile);
 						break;		//exit
 					} // if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 					else
 					{
-						m_templist.Add(tempfile);
 						CUtils::StartDiffViewer(tempfile);
 					}
 				}
@@ -612,13 +610,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					//now first get the revision which is selected
 					int selIndex = m_LogList.GetSelectionMark();
 					long rev = m_arRevs.GetAt(selIndex);
-					//next step is to create a temporary file to hold the required revision
-					TCHAR path[MAX_PATH];
-					TCHAR tempF[MAX_PATH];
-					DWORD len = ::GetTempPath (MAX_PATH, path);
-					UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
-					CString tempfile = CString(tempF);
-
+					CString tempfile = CUtils::GetTempFile();
+					m_templist.Add(tempfile);
 					SVN svn;
 					if (!svn.Cat(m_path, rev, tempfile))
 					{
@@ -628,7 +621,6 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					} // if (!svn.Cat(m_path, rev, tempfile))
 					else
 					{
-						m_templist.Add(tempfile);
 						CString revname, wcname;
 						CString ext = CUtils::GetFileExtFromPath(m_path);
 						revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
@@ -786,12 +778,8 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		if (!PathIsDirectory(m_path))
 		{
 			long rev = m_arRevs.GetAt(selIndex);
-			//next step is to create a temporary file to hold the required revision
-			TCHAR path[MAX_PATH];
-			TCHAR tempF[MAX_PATH];
-			DWORD len = ::GetTempPath (MAX_PATH, path);
-			UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
-			CString tempfile = CString(tempF);
+			CString tempfile = CUtils::GetTempFile();
+			m_templist.Add(tempfile);
 
 			SVN svn;
 			if (!svn.Cat(m_path, rev, tempfile))
@@ -801,7 +789,6 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			} // if (!svn.Cat(m_path, rev, tempfile))
 			else
 			{
-				m_templist.Add(tempfile);
 				CString revname, wcname;
 				CString ext = CUtils::GetFileExtFromPath(m_path);
 				revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
@@ -815,14 +802,13 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			this->m_bCancelled = FALSE;
 			CString tempfile = CUtils::GetTempFile();
 			tempfile += _T(".diff");
+			m_templist.Add(tempfile);
 			if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				DeleteFile(tempfile);
 			} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			else
 			{
-				m_templist.Add(tempfile);
 				CUtils::StartDiffViewer(tempfile);
 			}
 		}
@@ -1010,14 +996,8 @@ void CLogDlg::DoDiffFromLog(int selIndex, CString temp, long rev)
 
 BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 {
-	TCHAR path[MAX_PATH];
-	TCHAR tempF[MAX_PATH];
-	DWORD len = ::GetTempPath (MAX_PATH, path);
-	UINT unique = ::GetTempFileName (path, _T("svn"), 0, tempF);
-	CString tempfile1 = CString(tempF);
-	len = ::GetTempPath (MAX_PATH, path);
-	unique = ::GetTempFileName (path, _T("svn"), 0, tempF);
-	CString tempfile2 = CString(tempF);
+	CString tempfile1 = CUtils::GetTempFile();
+	CString tempfile2 = CUtils::GetTempFile();
 	m_templist.Add(tempfile1);
 	m_templist.Add(tempfile2);
 	CProgressDlg progDlg;
