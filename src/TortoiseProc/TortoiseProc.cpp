@@ -335,7 +335,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		CTSVNPathList pathList;
 		if(bPathIsTempfile)
 		{
-			pathList.LoadFromTemporaryFile(cmdLinePath);
+			if (pathList.LoadFromTemporaryFile(cmdLinePath)==false)
+				return FALSE;		// no path specified!
 			if(cmdLinePath.GetFileExtension().CompareNoCase(_T(".tmp")) == 0)
 			{
 				// We can delete the temporary path file, now that we've loaded it
@@ -1187,7 +1188,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					return FALSE;
 				}
 				url = urldlg.m_url;
-			} // if (dlg.m_strUrl.IsEmpty())
+			}
 
 			CString val = parser.GetVal(_T("rev"));
 			long rev_val = _tstol(val);
@@ -1195,7 +1196,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (rev_val != 0)
 				rev = SVNRev(rev_val);
 			CRepositoryBrowser dlg(SVNUrl(url, rev), bFile);
-			dlg.m_ProjectProperties.ReadProps(cmdLinePath.GetUIPathString());
+			dlg.m_ProjectProperties.ReadProps(cmdLinePath.GetWinPathString());
 			dlg.DoModal();
 		}
 		//#endregion 
