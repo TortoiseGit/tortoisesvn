@@ -16,7 +16,17 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "StdAfx.h"
+#include <windowsx.h>
+#include< commctrl.h>
+#include <shlobj.h>
 #include "BrowseFolder.h"
+
+BOOL CBrowseFolder::m_bCheck = FALSE;
+WNDPROC CBrowseFolder::CBProc = NULL;
+HWND CBrowseFolder::checkbox = NULL;
+HWND CBrowseFolder::ListView = NULL;
+TCHAR CBrowseFolder::m_CheckText[MAX_PATH];		
+
 
 CBrowseFolder::CBrowseFolder(void)
 :	m_style(0),
@@ -24,6 +34,7 @@ CBrowseFolder::CBrowseFolder(void)
 {
 	memset(m_displayName, 0, sizeof(m_displayName));
 	memset(m_title, 0, sizeof(m_title));
+	memset(m_CheckText, 0, sizeof(m_CheckText));
 }
 
 CBrowseFolder::~CBrowseFolder(void)
@@ -58,7 +69,12 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path)
 	browseInfo.lpszTitle		= m_title;
 	browseInfo.ulFlags			= m_style;
 	browseInfo.lpfn				= NULL;
-	browseInfo.lParam			= 0;
+	browseInfo.lParam			= (LPARAM)this;
+	
+	if (_tcslen(m_CheckText) > 0)
+	{
+		browseInfo.lpfn = BrowseCallBackProc;
+	}
 	
 	itemIDList = SHBrowseForFolder(&browseInfo);
 
@@ -96,3 +112,107 @@ void CBrowseFolder::SetInfo(LPCTSTR title)
 	if (title)
 		_tcscpy(m_title, title);
 }
+
+void CBrowseFolder::SetCheckBoxText(LPCTSTR checktext)
+{
+	ASSERT(checktext);
+	
+	if (checktext)
+		_tcscpy(m_CheckText, checktext);
+}
+
+void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize)
+{
+
+	HFONT hf;
+	LOGFONT lf={0};
+	HDC hdc=GetDC(hwnd);
+
+	GetObject(GetWindowFont(hwnd),sizeof(lf),&lf);
+	lf.lfWeight = FW_REGULAR;
+	lf.lfHeight = (LONG)FontSize;
+	lstrcpy( lf.lfFaceName, FontName );
+	hf=CreateFontIndirect(&lf);
+	SetBkMode(hdc,OPAQUE);
+	SendMessage(hwnd,WM_SETFONT,(WPARAM)hf,TRUE);
+	ReleaseDC(hwnd,hdc);
+
+}
+
+int CBrowseFolder::BrowseCallBackProc(HWND  hwnd,UINT  uMsg,LPARAM  lParam,LPARAM  lpData)
+{
+	RECT ListViewRect,Dialog;
+	CBrowseFolder * pDlg = (CBrowseFolder *)lpData;
+	//Initialization callback message
+	if (uMsg == BFFM_INITIALIZED)
+	{
+		//Rectangles for getting the positions
+		checkbox = CreateWindowEx(	0,
+									_T("BUTTON"),
+									m_CheckText,
+									WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|BS_AUTOCHECKBOX,
+									0,100,100,50,
+									hwnd,
+									0,
+									NULL,
+									NULL);
+		if (checkbox == NULL)
+			return 0;
+		ListView = FindWindowEx(hwnd,NULL,_T("SysTreeView32"),NULL);
+		if (ListView == NULL)
+			ListView = FindWindowEx(hwnd,NULL,_T("SHBrowseForFolder ShellNameSpace Control"),NULL);
+			
+		if (ListView == NULL)
+			return 0;
+
+		//Gets the dimentions of the windows
+		GetWindowRect(hwnd,&Dialog);
+		GetWindowRect(ListView,&ListViewRect);
+		POINT pt;
+		pt.x = ListViewRect.left;
+		pt.y = ListViewRect.top;
+		ScreenToClient(hwnd, &pt);
+		ListViewRect.top = pt.y;
+		ListViewRect.left = pt.x;
+		pt.x = ListViewRect.right;
+		pt.y = ListViewRect.bottom;
+		ScreenToClient(hwnd, &pt);
+		ListViewRect.bottom = pt.y;
+		ListViewRect.right = pt.x;
+		//Sets the listview controls dimentions
+		SetWindowPos(ListView,0,ListViewRect.left,
+								ListViewRect.top+20,
+								(ListViewRect.right-ListViewRect.left),
+								(ListViewRect.bottom - ListViewRect.top)-20,
+								0);
+		//Sets the window positions of checkbox and dialog controls
+		SetWindowPos(checkbox,HWND_BOTTOM,ListViewRect.left,
+								ListViewRect.top,
+								(ListViewRect.right-ListViewRect.left),
+								14,
+								SWP_SHOWWINDOW);
+
+		//Sets the fonts of static controls
+		SetFont(checkbox,_T("MS Sans Serif"),12);
+
+		// Subclass the checkbox control. 
+		CBProc = (WNDPROC) SetWindowLong(checkbox,GWL_WNDPROC, (LONG) CheckBoxSubclassProc); 
+
+		//Sets the checkbox to checked position
+		SendMessage(checkbox,BM_SETCHECK,(WPARAM)m_bCheck,0);
+
+	}
+	
+	return 0;
+}
+
+LRESULT CBrowseFolder::CheckBoxSubclassProc(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam)
+{
+	if (uMsg == WM_LBUTTONUP)
+	{
+		m_bCheck = (SendMessage(hwnd,BM_GETCHECK,0,0)==BST_UNCHECKED);
+	}
+
+	return CallWindowProc(CBProc, hwnd, uMsg, 
+		wParam, lParam); 
+} 

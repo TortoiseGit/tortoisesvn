@@ -59,6 +59,11 @@ public:
 	 * Sets the infotext of the dialog. Call this method before calling Show().
 	 */
 	void SetInfo(LPCTSTR title);
+	/*
+	 * Sets the text to show for the checkbox. If this method is not called,
+	 * then no checkbox is added.
+	 */
+	void SetCheckBoxText(LPCTSTR checktext);
 	/**
 	 * Shows the Dialog. 
 	 * \param parent [in] window handle of the parent window.
@@ -67,9 +72,18 @@ public:
 	 */
 	CBrowseFolder::retVal Show(HWND parent, CString& path);
 	CBrowseFolder::retVal Show(HWND parent, LPTSTR path);
+	static BOOL m_bCheck;		///< state of the checkbox on closing the dialog
+	TCHAR m_title[MAX_PATH];
 protected:
+	static void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize);
+
+	static int CALLBACK BrowseCallBackProc(HWND  hwnd,UINT  uMsg,LPARAM  lParam,LPARAM  lpData);
+	static LRESULT APIENTRY CheckBoxSubclassProc(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
+		
+	static WNDPROC CBProc;
+	static HWND checkbox;
+	static HWND ListView;
 	TCHAR m_displayName[MAX_PATH];
 	LPITEMIDLIST m_root;
-	TCHAR m_title[MAX_PATH];
-		
+	static TCHAR m_CheckText[MAX_PATH];		
 };
