@@ -21,9 +21,8 @@
 #include "ResizableDialog.h"
 #include "..\\Utils\\Balloon.h"
 #include "SpellEdit.h"
+#include "SVNStatusListCtrl.h"
 #include "afxwin.h"
-
-typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /**
  * \ingroup TortoiseProc
@@ -61,8 +60,6 @@ public:
 
 protected:
 	HICON		m_hIcon;
-	static BOOL	m_bAscending;
-	static int	m_nSortedColumn;
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
@@ -72,62 +69,28 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
-	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnBnClickedSelectall();
-	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnEnChangeLogmessage();
-
-	void StartDiff(int fileindex);
 	void Refresh();
-	void Sort();
-	static int __cdecl SortCompare(const void * pElem1, const void * pElem2);
-
 	DECLARE_MESSAGE_MAP()
 public:
-	class Data
-	{
-	public:
-		CString					path;
-		CString					line;
-		svn_wc_status_kind		status;
-		svn_wc_status_kind		textstatus;
-		svn_wc_status_kind		propstatus;
-		BOOL					checked;
-		BOOL					inunversionedfolder;
-	};
-	CArray<Data *, Data *>		m_arData;
-	CArray<Data *, Data *>		m_arAllData;
-
 	CString			m_sLogMessage;
 	CSpellEdit		m_LogMessage;
-	CListCtrl		m_ListCtrl;
+	CSVNStatusListCtrl		m_ListCtrl;
 	CString			m_sPath;
-	CStringArray	m_templist;
 
-	LONG			m_nUnversioned;
-	LONG			m_nModified;
-	LONG			m_nAdded;
-	LONG			m_nDeleted;
-	LONG			m_nConflicted;
-	CBalloon		m_tooltips;
-	LONG			m_nTotal;
-	LONG			m_nSelected;
 	BOOL			m_bRecursive;
-	BOOL			m_nTargetCount;
 	BOOL			m_bBlock;
+	CBalloon		m_tooltips;
+	CRegDWORD		m_regAddBeforeCommit;
 private:
 	HANDLE			m_hThread;
 	CFont			m_logFont;
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
-	CRegDWORD		m_regAddBeforeCommit;
 public:
-	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

@@ -268,6 +268,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 						CUtils::Unescape((char *)s->entry->url);
 						entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
 					}
+					m_sURL = entry->url;
 				}
 				m_arStatusArray.Add(entry);
 

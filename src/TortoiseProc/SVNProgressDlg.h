@@ -33,6 +33,7 @@ typedef enum
 	Commit = 3,
 	Add = 4,
 	Revert = 5,
+	Enum_Revert = 5,
 	Resolve = 6,
 	Import = 7,
 	Switch = 8,
