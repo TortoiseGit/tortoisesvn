@@ -496,17 +496,128 @@ void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 
 int CStatGraphDlg::GetWeek(const CTime& time)
 {
-	CTime pTmpTime(time.GetYear(), 1, 1, 0,0,0);
+	int iWeekOfYear = 0;
 
-	// Get the first Sunday (start of year);
-	while(pTmpTime.GetDayOfWeek() != 1)
+	int iYear = time.GetYear();
+	int iFirstDayOfWeek = 0;
+	int iFirstWeekOfYear = 0;
+	TCHAR loc[2];
+	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc));
+	iFirstDayOfWeek = int(loc[0]-'0');
+	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, sizeof(loc));
+	iFirstWeekOfYear = int(loc[0]-'0');
+	CTime dDateFirstJanuary(iYear,1,1,0,0,0);
+	int iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
+
+	// Select mode
+	// 0 Week containing 1/1 is the first week of that year.
+	// 1 First full week following 1/1 is the first week of that year.
+	// 2 First week containing at least four days is the first week of that year.
+	switch (iFirstWeekOfYear)
 	{
-		pTmpTime += 86400;
+	case 0:
+		{
+			// Week containing 1/1 is the first week of that year.
+
+			// check if this week reaches into the next year
+			dDateFirstJanuary = CTime(iYear+1,1,1,0,0,0);
+
+			// Get start of week
+			iDayOfWeek = (time.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
+			CTime dStartOfWeek = time-CTimeSpan(iDayOfWeek,0,0,0);
+
+			// If this week spans over to 1/1 this is week 1
+			if (dStartOfWeek+CTimeSpan(6,0,0,0)>=dDateFirstJanuary)
+			{
+				// we are in the last week of the year that spans over 1/1
+				iWeekOfYear = 1;
+			}
+			else
+			{
+				// Get week day of 1/1
+				dDateFirstJanuary = CTime(iYear,1,1,0,0,0);
+				iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
+				// Just count from 1/1
+				iWeekOfYear = (int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) + 1;
+			}
+		}
+		break;
+	case 1:
+		{
+			// First full week following 1/1 is the first week of that year.
+
+			// If the 1.1 is the start of the week everything is ok
+			// else we need the next week is the correct result
+			iWeekOfYear =
+				(int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) +
+				(iDayOfWeek==0 ? 1:0);
+
+			// If we are in week 0 we are in the first not full week
+			// calculate from the last year
+			if (iWeekOfYear==0)
+			{
+				// Special case: we are in the week of 1.1 but 1.1. is not on the
+				// start of week. Calculate based on the last year
+				dDateFirstJanuary = CTime(iYear-1,1,1,0,0,0);
+				iDayOfWeek =
+					(dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
+				// and we correct this in the same we we done this before but 
+				// the result is now 52 or 53 and not 0
+				iWeekOfYear =
+					(int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) +
+					(iDayOfWeek<=3 ? 1:0);
+			}
+		}
+		break;
+	case 2:
+		{
+			// First week containing at least four days is the first week of that year.
+
+			// Each year can start with any day of the week. But our
+			// weeks always start with monday. So we add the day of week
+			// before calculation of the final week of year.
+			// Rule: is the 1.1 a Mo,Tu,We,Th than the week starts on the 1.1 with
+			// week==1, else a week later, so we add one for all those days if
+			// day is less <=3 Mo,Tu,We,Th. Otherwise 1.1 is in the last week of the
+			// previous year
+			iWeekOfYear =
+				(int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) +
+				(iDayOfWeek<=3 ? 1:0);
+
+			// special cases
+			if (iWeekOfYear==0)
+			{
+				// special case week 0. We got a day before the 1.1, 2.1 or 3.1, were the
+				// 1.1. is not a Mo, Tu, We, Th. So the week 1 does not start with the 1.1.
+				// So we calculate the week according to the 1.1 of the year before
+
+				dDateFirstJanuary = CTime(iYear-1,1,1,0,0,0);
+				iDayOfWeek =
+					(dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
+				// and we correct this in the same we we done this before but the result
+				// is now 52 or 53 and not 0
+				iWeekOfYear =
+					(int)(((time-dDateFirstJanuary).GetDays()+iDayOfWeek) / 7) +
+					(iDayOfWeek<=3 ? 1:0);
+			}
+			else if (iWeekOfYear==53)
+			{
+				// special case week 53. Either we got the correct week 53 or we just got the
+				// week 1 of the next year. So ist the 1.1.(year+1) also a Mo, Tu, We, Th than
+				// we alrady have the week 1, otherwise week 53 is correct
+
+				dDateFirstJanuary = CTime(iYear+1,1,1,0,0,0);
+				iDayOfWeek =
+					(dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
+				// 1.1. in week 1 or week 53?
+				iWeekOfYear = iDayOfWeek<=3 ? 1:53;
+			}
+		}
+		break;
+	default:
+		ASSERT(FALSE);
+		break;
 	}
-
-	CTimeSpan tmSpan = (time - pTmpTime);
-
-	int iResult = int(tmSpan.GetDays() / 7) + 1;
-
-	return iResult;
+	// return result
+	return iWeekOfYear;
 }
