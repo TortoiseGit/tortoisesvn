@@ -1112,6 +1112,7 @@ void CSVNStatusListCtrl::Stat()
 			case svn_wc_status_conflicted:
 			case svn_wc_status_obstructed:
 				m_nConflicted++;
+				break;
 			default:
 				{
 					m_nUnversioned++;
