@@ -1386,12 +1386,14 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 					if (br.matched)
 					{
 						bFound = true;
+						--i;
 						break;
 					}
 					br = pat.match( (LPCTSTR)cpath->sPath, results);
 					if (br.matched)
 					{
 						bFound = true;
+						--i;
 						break;
 					}
 				}
@@ -1412,11 +1414,13 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 						if (cpath->sCopyFromPath.Find(FindText)>=0)
 						{
 							bFound = true;
+							--i;
 							break;
 						}
 						if (cpath->sPath.Find(FindText)>=0)
 						{
 							bFound = true;
+							--i;
 							break;
 						}
 					}
@@ -1438,11 +1442,13 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 						if (cpath->sCopyFromPath.MakeLower().Find(find)>=0)
 						{
 							bFound = TRUE;
+							--i;
 							break;
 						}
 						if (cpath->sPath.MakeLower().Find(find)>=0)
 						{
 							bFound = TRUE;
+							--i;
 							break;
 						}
 					}
