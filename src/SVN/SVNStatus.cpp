@@ -33,6 +33,7 @@ SVNStatus::SVNStatus(void)
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
 	hWnd = NULL;
+	m_app = NULL;
 #endif
 	memset (&m_ctx, 0, sizeof (m_ctx));
 

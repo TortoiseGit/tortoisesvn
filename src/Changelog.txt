@@ -1,3 +1,9 @@
+- BUG: If the log dialog already showed all
+       revisions the first time then disable
+       the "Get All" button. (Stefan)
+- BUG: TSVN could crash during authentication
+       when fetching the remote status. (Stefan)
+
 Version 0.21
 - ADD: If multiple targets are selected for
        update the all targets which belong to
