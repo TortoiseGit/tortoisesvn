@@ -50,7 +50,7 @@ BOOL CBlame::Cancel()
 	return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL strict, BOOL showprogress /* = TRUE */)
+CString CBlame::BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL showprogress /* = TRUE */)
 {
 	CString temp;
 	m_sSavePath = CUtils::GetTempFile();
@@ -78,7 +78,7 @@ CString CBlame::BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL s
 	SVNStatus s;
 	m_nHeadRev = s.GetStatus(path, TRUE);
 	m_progressDlg.SetProgress((DWORD)0, (DWORD)m_nHeadRev);
-	if (!this->Blame(path, startrev, endrev, strict))
+	if (!this->Blame(path, startrev, endrev))
 	{
 		m_saveFile.Close();
 		DeleteFile(m_sSavePath);

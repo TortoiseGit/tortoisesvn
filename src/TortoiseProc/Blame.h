@@ -35,7 +35,7 @@ public:
 	 * \param path the path to the file to determine the required information
 	 * \return The path to the temporary file or an empty string in case of an error.
 	 */
-	CString		BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL strict, BOOL showprogress = TRUE);
+	CString		BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL showprogress = TRUE);
 private:
 	BOOL		BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CString line);
 	BOOL		Cancel();
