@@ -29,23 +29,21 @@
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableDialog)
 
-CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl)
+CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url)
 	: CResizableDialog(CRepositoryBrowser::IDD, NULL)
-	, m_treeRepository(strUrl)
+	, m_treeRepository(svn_url.GetPath())
 	, m_cnrRepositoryBar(&m_barRepository)
-	, m_strUrl(strUrl)
-	, m_Revision(SVNRev::REV_HEAD)
+	, m_SvnUrl(svn_url)
 	, m_bStandAlone(true)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl, CWnd* pParent)
+CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent)
 	: CResizableDialog(CRepositoryBrowser::IDD, pParent)
-	, m_treeRepository(strUrl)
+	, m_treeRepository(svn_url.GetPath())
 	, m_cnrRepositoryBar(&m_barRepository)
-	, m_strUrl(strUrl)
-	, m_Revision(SVNRev::REV_HEAD)
+	, m_SvnUrl(svn_url)
 	, m_bStandAlone(false)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -121,16 +119,12 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
 	m_barRepository.AssocTree(&m_treeRepository);
-	m_treeRepository.Init(m_Revision);
+	m_treeRepository.Init(m_SvnUrl.GetRevision());
 
-	if (m_strUrl.IsEmpty())
-	{
-		SVNUrl current_url = m_barRepository.GetCurrentUrl();
-		m_strUrl = current_url.GetPath();
-		m_Revision = current_url.GetRevision();
-	}
+	if (m_SvnUrl.GetPath().IsEmpty())
+		m_SvnUrl = m_barRepository.GetCurrentUrl();
 
-	m_barRepository.GotoUrl(SVNUrl(m_strUrl, m_Revision));
+	m_barRepository.GotoUrl(m_SvnUrl);
 
 	if (m_bStandAlone)
 	{
@@ -194,7 +188,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
 
-				if (m_Revision.IsHead())
+				if (m_SvnUrl.GetRevision().IsHead())
 				{
 					temp.LoadString(IDS_REPOBROWSE_OPEN);
 					if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
@@ -225,7 +219,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 
 					temp.LoadString(IDS_REPOBROWSE_COPY);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
-				} // if (m_Revision.IsHead()
+				} // if (m_SvnUrl.GetRevision().IsHead()
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
@@ -308,13 +302,13 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 						SVN svn;
 						svn.m_app = &theApp;
 						theApp.DoWaitCursor(1);
-						if (!svn.Cat(url, m_Revision, tempfile))
+						if (!svn.Cat(url, m_SvnUrl.GetRevision(), tempfile))
 						{
 							delete [] pszFilters;
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
-						} // if (!svn.Cat(url, m_Revision, tempfile)) 
+						} // if (!svn.Cat(url, m_SvnUrl.GetRevision(), tempfile)) 
 						theApp.DoWaitCursor(-1);
 					} // if (GetSaveFileName(&ofn)==TRUE) 
 					delete [] pszFilters;
@@ -323,7 +317,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 			case ID_POPSHOWLOG:
 				{
 					CLogDlg dlg;
-					dlg.SetParams(url, m_Revision, 0, FALSE);
+					dlg.SetParams(url, m_SvnUrl.GetRevision(), 0, FALSE);
 					dlg.DoModal();
 				}
 				break;
@@ -512,12 +506,12 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 					CString tempfile = CUtils::GetTempFile();
 					tempfile += _T(".diff");
 					SVN svn;
-					if (!svn.Diff(url1, m_Revision, url2, m_Revision, TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!svn.Diff(url1, m_SvnUrl.GetRevision(), url2, m_SvnUrl.GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
 						break;		//exit
-					} // if (!Diff(url1, m_Revision, url2, m_Revision, TRUE, FALSE, TRUE, _T(""), tempfile)) 
+					} // if (!Diff(url1, m_SvnUrl.GetRevision(), url2, m_SvnUrl.GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile)) 
 					else
 					{
 						m_templist.Add(tempfile);
@@ -530,20 +524,20 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 				{
 					CString tempfile1 = CUtils::GetTempFile();
 					SVN svn;
-					if (!svn.Cat(url1, m_Revision, tempfile1))
+					if (!svn.Cat(url1, m_SvnUrl.GetRevision(), tempfile1))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile1);
 						break;		//exit
-					} // if (!Cat(url1, m_Revision, tempfile1))
+					} // if (!Cat(url1, m_SvnUrl.GetRevision(), tempfile1))
 					m_templist.Add(tempfile1);
 					CString tempfile2 = CUtils::GetTempFile();
-					if (!svn.Cat(url2, m_Revision, tempfile2))
+					if (!svn.Cat(url2, m_SvnUrl.GetRevision(), tempfile2))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile2);
 						break;		//exit
-					} // if (!Cat(url2, m_Revision, tempfile2)) 
+					} // if (!Cat(url2, m_SvnUrl.GetRevision(), tempfile2)) 
 					CString ext = CUtils::GetFileExtFromPath(url1);
 					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2, ext);
 					theApp.DoWaitCursor(-1);
@@ -557,7 +551,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 
 void CRepositoryBrowser::OnOK()
 {
-	m_strUrl = m_barRepository.GetCurrentUrl().GetPath(true);
+	m_SvnUrl = m_barRepository.GetCurrentUrl();
 	m_barRepository.SaveHistory();
 	CResizableDialog::OnOK();
 }

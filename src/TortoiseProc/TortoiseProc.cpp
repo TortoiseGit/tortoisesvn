@@ -1014,13 +1014,14 @@ BOOL CTortoiseProcApp::InitInstance()
 				url = urldlg.m_url;
 			} // if (dlg.m_strUrl.IsEmpty())
 */
-			CRepositoryBrowser dlg(url);
 			CString val = parser.GetVal(_T("rev"));
-			long rev = _tstol(val);
-			if (rev != 0)
-				dlg.m_Revision = SVNRev(rev);
+			long rev_val = _tstol(val);
+			SVNRev rev(SVNRev::REV_HEAD);
+			if (rev_val != 0)
+				rev = SVNRev(rev_val);
 			else if (reporev > 0)
-				dlg.m_Revision = SVNRev(reporev);
+				rev = SVNRev(reporev);
+			CRepositoryBrowser dlg(SVNUrl(url, rev));
 			dlg.DoModal();
 		}
 		//#endregion 

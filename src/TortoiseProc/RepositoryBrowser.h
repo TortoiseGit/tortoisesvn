@@ -20,6 +20,7 @@
 #define __RepositoryBrowser_h
 
 #pragma once
+#include "SVNUrl.h"
 #include "SVNRev.h"
 #include "RepositoryTree.h"
 #include "RepositoryBar.h"
@@ -66,9 +67,12 @@ class CRepositoryBrowser : public CResizableDialog
 	DECLARE_DYNAMIC(CRepositoryBrowser)
 
 public:
-	CRepositoryBrowser(const CString& strUrl);					//!< standalone repository browser
-	CRepositoryBrowser(const CString& strUrl, CWnd* pParent);	//!< dependent repository browser
+	CRepositoryBrowser(const SVNUrl& svn_url);					//!< standalone repository browser
+	CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent);	//!< dependent repository browser
 	virtual ~CRepositoryBrowser();
+
+	//! Returns the currently displayed URL and revision.
+	SVNUrl GetCurrentUrl() const { return m_SvnUrl; }
 
 // Dialog Data
 	enum { IDD = IDD_REPOSITORY_BROWSER };
@@ -91,12 +95,9 @@ protected:
 	CRepositoryBarCnr	m_cnrRepositoryBar;
 	CStringArray		m_templist;
 
-public:
-	CString m_strUrl;
-	SVNRev m_Revision;
-
 private:
 	bool m_bStandAlone;
+	SVNUrl m_SvnUrl;
 };
 
 #endif /*__RepositoryBrowser_h*/
