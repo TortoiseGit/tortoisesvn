@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <appendix id="tsvn-faq" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Häufig gestellte Fragen (FAQ)</title>
 	<simplesect>
@@ -16,9 +16,10 @@
 			<primary>Installation</primary>
 		</indexterm>
 		<para>
-		Die meisten dieser Antworten stammen aus dem <application>TortoiseCVS
-		</application>
-			<ulink url="http://www.tortoisecvs.org/faq.html">FAQ
+		Die meisten dieser Antworten stammen aus dem
+		<application>TortoiseCVS</application>
+			<ulink url="http://www.tortoisecvs.org/faq.html">
+			<citetitle>FAQ</citetitle>
 		</ulink>
 		</para>
 		<sect2 id="tsvn-faq-installation-0">
@@ -202,27 +203,35 @@
 		<sect2 id="tsvn-faq-installation-3">
 			<title>Warum ändern sich die Icons manchmal in zufällige Grafiken?</title>
 			<para>
-			Der Windows Icon Cache ist ein fehlerhaftes Biest. Sie können das
-			Problem folgendermassen lösen:
-			<itemizedlist>
+				Der Windows Icon Cache ist ein fehlerhaftes Biest. Sie können das
+				Problem folgendermassen lösen:
+				<itemizedlist>
 					<listitem>
-						<para>Installieren Sie Microsoft's <application>
-								<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">TweakUI</ulink>
-							</application> und führen Sie die Option <literal>Icon Cache reparieren</literal> aus.
-					</para>
+						<para>
+							Installieren Sie Microsoft's
+							<application>
+								<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
+									<citetitle>TweakUI</citetitle>
+								</ulink>
+							</application>
+							und führen Sie die Option <literal>Icon Cache reparieren</literal> aus.
+						</para>
 					</listitem>
 					<listitem>
 						<para>Oder erhöhen Sie die grösse des Icon Caches. Gehen
-					Sie zu 
+						Sie zu 
 <screen>
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 </screen>
-					Und erstellen Sie einen neuen String Wert <literal>Max Cached Icons</literal>.
-					Der Standardwert ist 500 - versuchen Sie den Wert auf
-					2048 zu erhöhen. Lesen Sie auch den Knowledge-Base Artikel
-					<ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132</ulink>
-					für mehr Informationen.
-					</para>
+						Und erstellen Sie einen neuen String Wert
+						<literal>Max Cached Icons</literal>.
+						Der Standardwert ist 500 - versuchen Sie den Wert auf
+						2048 zu erhöhen. Lesen Sie auch den Knowledge-Base Artikel
+						<ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">
+							<citetitle>Q132668</citetitle>
+						</ulink>
+						für mehr Informationen.
+						</para>
 					</listitem>
 					<listitem>
 						<para>
@@ -236,7 +245,7 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 		<sect2 id="tsvn-faq-installation-4">
 			<title>Diese Icons sind scheusslich, I will schönere!</title>
 			<para>
-			Sie können Ihr eigenes Iconset erstellen und benutzen. Und wenn
+			Sie können Ihren eigenen Iconsatz erstellen und benutzen. Und wenn
 			Sie dies tun, schicken Sie uns bitte Ihre schöneren Icons an
 			die Mailingliste <email>dev@tortoisesvn.tigris.org</email>.
 			</para>
@@ -261,14 +270,17 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			Icons stimmen.
 			</para>
 			<para>
-			Anschliessend müssen Sie den Computer neu starten, damit der Explorer
-			die neuen Icons neu einliest. Als Alternative können Sie auch den
-			Icon Cache löschen mit dem 
-			<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
-					<application>TweakUI</application>
-				</ulink> Tool von Microsoft.
-			Für Windows XP gibts dieses Tool 
-			<ulink url="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp">hier</ulink>.
+				Anschliessend müssen Sie den Computer neu starten, damit der Explorer
+				die neuen Icons neu einliest. Als Alternative können Sie auch den
+				Icon Cache löschen mit dem 
+				<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
+					<citetitle>TweakUI</citetitle>
+				</ulink>
+				Tool von Microsoft. Für Windows XP gibts dieses Tool
+				<ulink url="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp">
+					<citetitle>TweakUI</citetitle>
+				</ulink>
+				hier.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-5">
@@ -580,14 +592,19 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Ordner einer Arbeitskopie weiss, zu welchem Projektarchiv er gehört.
 			</para>
 			<para>
-			Wenn Sie möchten, dass bestimmte Unterordner Ihrer Arbeitskopie
-			aus einem anderen Projektarchiv ausgecheckt werden können Sie dies
-			auch automatisieren, indem Sie die Subversion-Eigenschaft <literal>
-			svn:externals</literal> verwenden. Bitte lesen Sie dazu den Beitrag
-			im Subversion-Buch: 
-			<ulink url="http://svnbook.red-bean.com/html-chunk/ch07s03.html">
+				Wenn Sie möchten, dass bestimmte Unterordner Ihrer Arbeitskopie
+				aus einem anderen Projektarchiv ausgecheckt werden können Sie dies
+				auch automatisieren, indem Sie die Subversion-Eigenschaft
+				<literal>svn:externals</literal>
+				verwenden. Bitte lesen Sie dazu den Beitrag im Subversion-Buch: 
+
+				<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.3.6">
 					<citetitle>External Definitions</citetitle>
 				</ulink>
+				im
+				<ulink url="http://svnbook.red-bean.com/">
+					<citetitle>Subversion Buch</citetitle>
+				</ulink>. 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-8">
@@ -667,6 +684,21 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					verlangsamen Sie damit TortoiseSVN erheblich! Wenn also
 					TortoiseSVN auf Ihrer Arbeitskopie immer langsamer wird
 					hilft ein frisches Auschecken der Arbeitskopie.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					There are several Virus scanners around that interfere with TortoiseSVN.
+					Most of the time they lock files inside the <filename>.svn</filename>
+					Status directory, which can cause TortoiseSVN to hang or to become very slow. 
+					Sometimes you might even get an <emphasis>Access Denied</emphasis> error.
+					</para>
+					<para>
+					Try to configure your virus scanner so that it ignores <filename>.svn</filename>
+					directories.
+					</para>
+					<para>
+					Virus scanners that are known to behave badly are: McAfee, Norton Antivirus, ...
 					</para>
 				</listitem>
 				<listitem>
@@ -751,8 +783,11 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 			Ein wirklich guter Blog-Eintrag welcher Ihnen bei der Konvertierung
 			Ihres ASP.NET Web Projektes in ein ASP.NET Class Projekt hilft 
-			können Sie  <ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
-			hier</ulink> finden. Wenn Sie den Anweisungen folgen, werden Sie
+			können Sie
+			<ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
+				<citetitle>hier</citetitle>
+			</ulink>
+			finden. Wenn Sie den Anweisungen folgen, werden Sie
 			VS.NET mit ASP.NET Projekten ohne Probleme mit Subversion benutzen
 			können.
 			</para>
@@ -862,7 +897,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						Diese Zeichenkette wird durch die Revisionsnummer 
 						Ihrer Arbeitskopie ersetzt.
 					</listitem>
-				<varlistentry>
+				</varlistentry>
 				<varlistentry>
 					<term>$WCMODS?Modified:Not modified$</term>
 					<listitem>
@@ -874,18 +909,20 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						eingefügt. Im Beispiel <literal>Modified</literal>
 						oder <literal>Not modified</literal>.
 					</listitem>
-				<varlistentry>
+				</varlistentry>
 				<varlistentry>
 					<term>$WCDATE$</term>
 					<listitem>
 						Wird durch das Datum der Revision ersetzt.
 					</listitem>
-				<varlistentry>
+				</varlistentry>
 			</variablelist>
 			</para>
 			<para>
 			Als Beispiel sehen Sie sich bitte die Datei <filename>version.in</filename>
-			im TortoiseSVN Sourcecode <ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">hier</ulink>
+			<ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">
+				<citetitle>im TortoiseSVN Sourcecode</citetitle>
+			</ulink>
 			an. Diese Datei wird von TortoiseSVN für genau diesen Zweck benutzt.
 			SubWCRev.exe wird von unserem Build-Skript folgendermassen aufgerufen:
 <screen>
@@ -927,33 +964,45 @@ SubWCRev.exe pfad\zur\Arbeitskopie version.in version.h
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
-				WinMerge</ulink>, ein grossartiges Open-Source Programm</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4diff.zip">
-				Perforce Win Diff</ulink>, ein Gratistool von Perforce. 
-				Sie können das Installationsprogramm 
-				<ulink url="http://www.perforce.com/perforce/loadprog.html">
-				hier</ulink> finden.
+								<citetitle>WinMerge</citetitle>
+							</ulink>,
+							ein grossartiges Open-Source Programm
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							<ulink url="http://www.prestosoft.com/">Examdiff oder Examdiff Pro</ulink>, 
-							ein excellentes Free- oder Shareware Tool. Version 3.2 versteht auch UNICODE
+							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4diff.zip">
+								<citetitle>Perforce Win Diff</citetitle>
+							</ulink>,
+ 							ein Freies Tool von Perforce. Sie können das 
+							<ulink url="http://www.perforce.com/perforce/loadprog.html">
+								<citetitle>Installationsprogramm</citetitle>
+							</ulink>
+							hier finden.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<ulink url="http://www.prestosoft.com/">
+								<citetitle>Examdiff oder Examdiff Pro</citetitle>
+							</ulink>,
+							ein exzellentes Free- oder Shareware Tool. Version 3.2 versteht auch UNICODE
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.scootersoftware.com/">
-				Beyond Compare</ulink>, ein gutes Shareware Tool, versteht Unicode</para>
+								<citetitle>Beyond Compare</citetitle>
+							</ulink>,
+							ein gutes Shareware Tool, versteht Unicode
+						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.scintilla.org/SciTEDownload.html">
-							SciTE</ulink>, um Unified-Diffs farbig anzuzeigen. 
-							Auch als Texteditor gut geeignet!
+								<citetitle>SciTE</citetitle>
+							</ulink>,
+							um Unified-Diffs farbig anzuzeigen. Auch als Texteditor gut geeignet!
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -968,26 +1017,38 @@ SubWCRev.exe pfad\zur\Arbeitskopie version.in version.h
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
-				WinMerge</ulink>, ein grossartiges Open-Source Programm</para>
+								<citetitle>WinMerge</citetitle>
+							</ulink>,
+ 							ein grossartiges Open-Source Programm
+						</para>
 					</listitem>
 					<listitem>
 						<para>
-							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4diff.zip">
-				Perforce Win Diff</ulink>, ein Gratistool von Perforce. 
-				Sie können das Installationsprogramm 
-				<ulink url="http://www.perforce.com/perforce/loadprog.html">
-				hier</ulink> finden.
+							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4winmrg.zip">
+								<citetitle>Perforce Win Diff</citetitle>
+							</ulink>,
+							ein Freies Tool von Perforce. Sie können das
+							<ulink url="http://www.perforce.com/perforce/loadprog.html">
+								<citetitle>Installationsprogramm</citetitle>
+							</ulink>
+							hier finden.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.accurev.com/free/tkdiff/">
-				TkDiff</ulink>, nutzt TCL/TK</para>
+								<citetitle>TkDiff</citetitle>
+							</ulink>,
+							nutzt TCL/TK
+						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://sourceforge.net/projects/conflicteditor/">
-				CvsConflictEditor</ulink>, hat Fehler, aber auch Potential</para>
+								<citetitle>CvsConflictEditor</citetitle>
+							</ulink>,
+							hat Fehler, aber auch Potential
+						</para>
 					</listitem>
 				</itemizedlist>
 			</para>

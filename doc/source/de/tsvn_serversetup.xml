@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <chapter id="tsvn_serversetup">
 	<title>Setting Up A Server</title>
 	<simplesect>
@@ -91,7 +91,7 @@
 						<para>Download the latest version of the Apache
 					webserver from
 					<ulink url="http://httpd.apache.org/download.cgi">
-					http://httpd.apache.org/download.cgi</ulink>. Make sure
+					<citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure
 					that you download the version 2.0.xx - the version
 					1.3.xx won't work!</para>
 					</listitem>
@@ -128,7 +128,7 @@
 					<listitem>
 						<para>Download the latest version of Subversion
 					from <ulink url="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">
-					http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</ulink>.
+					<citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>.
 					</para>
 					</listitem>
 					<listitem>
@@ -183,10 +183,25 @@
 				</listitem>
 				<listitem>
 					<para>
-					Open the command prompt (or DOS-Box), change into 
+					You can create a repository with the FSFS backend or with the
+					old but stable Berkeley Database (BDB) format. The FSFS format
+					is faster and it now works on network shares and Windows 98
+					without problems. The BDB format is more stable because it has
+					been tested longer. Read
+					<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch05.html#svn-ch-5-sect-1.2.A">
+					<citetitle>Chapter 5, Repository Data-Stores</citetitle></ulink> in the SVN book for more information
+					</para>
+					<para>
+					Open the command prompt (or DOS-Box), change into
 					<filename>D:\SVN\</filename> and type
-					<command>svnadmin create MyNewRepository</command>.
-					You can also use TortoiseSVN to create a repository. See 
+<screen>
+svnadmin create --fs-type bdb MyNewRepository
+</screen>
+or
+<screen>
+svnadmin create --fs-type fsfs MyNewRepository
+</screen>
+					You can also use TortoiseSVN to create a repository. See
 					<xref linkend="tsvn-serversetup-local-2"/>.
 					</para>
 				</listitem>
@@ -195,6 +210,17 @@
 				Now you've got a new repository located at <filename>D:\SVN\MyNewRepository</filename>.
 				</para>
 			<para>
+			<warning>
+				<para>
+					Do not create or access a Berkeley DB repository on a network share.
+					It <emphasis>cannot</emphasis> exist on a remote filesystem.
+					Not even if you have the network drive mapped to a drive letter.
+					If you attempt to use Berkeley DB on a network share,
+					the results are unpredictable - you may see mysterious errors
+					right away, or it may be months before you discover that your
+					repository database is subtly corrupted.
+				</para>
+			</warning>
 			Now you have set up Apache and Subversion, but Apache doesn't
 			know how to handle Subversion clients like TortoiseSVN yet.
 			To get Apache to know which URL shall be used for Subversion
@@ -248,7 +274,7 @@ Require valid-user
 &lt;/Location&gt;
 </screen>
 					This configures Apache so that all your Subversion repositories are
-					available at http://MyServer/svn/. The access is restricted to known 
+					available at http://MyServer/svn/. The access is restricted to known
 					users/passwords.
 					</para>
 					</listitem>
@@ -435,9 +461,9 @@ docs = user5,user6,user7
 			sourcecode. But the development for it has been stopped. You can
 			still find that module on the internet - just do a
 			google search for it. We also have a compiled version of it
-			on our website, including a patch from Vladimir Berezniker. Get
-			the module from <ulink url="http://tortoisesvn.tigris.org/mod_auth_sspi.zip">
-			here</ulink>.
+			on our website, including a patch from Vladimir Berezniker. Get the module
+			<ulink url="http://tortoisesvn.tigris.org/mod_auth_sspi.zip">
+			<citetitle>here</citetitle></ulink>.
 			</para>
 			<itemizedlist>
 				<listitem>
@@ -526,7 +552,7 @@ SSPIOfferBasic On
 				<listitem>
 					<para>First you need the required files to enable
 				SSL. You can find those in the package available
-				<ulink url="http://hunter.campbus.com/">here</ulink>. Just
+				<ulink url="http://hunter.campbus.com/"><citetitle>here</citetitle></ulink>. Just
 				unzip the package and then copy <filename>mod_ssl.so</filename>
 				to the <filename>modules</filename> folder of Apache and the
 				file <filename>openssl.exe</filename> to the <filename>bin
@@ -600,7 +626,8 @@ SSLMutex  default
 				<listitem>
 					<para>Openssl needs a config file. You can download
 				a working one from
-				<ulink url="http://tud.at/programm/openssl.cnf">here</ulink>.
+				<ulink url="http://tud.at/programm/openssl.cnf">
+				<citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>.
 				Please note: the file has the type <filename>*.cnf</filename>.
 				Windows treats such files in a special way but it really is
 				just a text file!
@@ -623,9 +650,10 @@ bin\openssl req -config bin\openssl.cnf -new -out my-server.csr
 <screen>
 bin\openssl rsa -in privkey.pem -out my-server.key
 </screen>
-				and
+				and (on one line)
 <screen>
-bin\openssl x509 -in my-server.csr -out my-server.cert -req -signkey my-server.key -days 4000
+bin\openssl x509 -in my-server.csr -out my-server.cert -req
+                 -signkey my-server.key -days 4000
 </screen>
 				This will create a certificate which will expire in 4000 days.
 				And finally enter:
@@ -681,7 +709,7 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 						<para>
 						Download the latest version of Subversion
 						from <ulink url="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">
-						http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</ulink>.
+						<citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle></ulink>.
 						</para>
 					</listitem>
 					<listitem>
@@ -708,7 +736,7 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 			<title>Running svnserve</title>
 			<para>
 			Now that <filename>svnserve</filename> is installed, you need it running
-			on your server.  The simplist approach is to run the following from a dos
+			on your server.  The simplest approach is to run the following from a DOS
 			shell or create a windows shortcut:
 <screen>
 svnserve.exe -d
@@ -716,6 +744,10 @@ svnserve.exe -d
 				<filename>svnserve</filename> will now start waiting for incoming requests
 			on port 3690.	The -d switch tells <filename>svnserve</filename> to run
 			as a daemon process, so it will always exist until it is manually terminated.
+			</para>
+			<para>
+			If you have not yet created a repository, follow the instructions given
+			with the Apache server setup <xref linkend="tsvn-serversetup-apache-4"/>.
 			</para>
 			<para>
 			To test that <filename>svnserve</filename> is working, use TortoiseSVN's
@@ -732,7 +764,7 @@ svn://localhost/repos/TestRepo
 			<para>
 			You can also increase security and save time entering Url's with
 			<filename>svnserve</filename> by using the -r switch to set the root
-			location and restrict access to a specificed directory on the server:
+			location and restrict access to a specified directory on the server:
 <screen>
 svnserve.exe -d -r drive:\path\to\repository
 </screen>
@@ -748,6 +780,17 @@ svn://localhost/TestRepo
 			a different partition or drive than the location of <filename>svnserve</filename>
 			on your server.
 			</para>
+			<warning>
+				<para>
+					Do not create or access a Berkeley DB repository on a network share.
+					It <emphasis>cannot</emphasis> exist on a remote filesystem.
+					Not even if you have the network drive mapped to a drive letter.
+					If you attempt to use Berkeley DB on a network share,
+					the results are unpredictable - you may see mysterious errors
+					right away, or it may be months before you discover that your
+					repository database is subtly corrupted.
+				</para>
+			</warning>
 			<tip>
 				<title>Run svnserve as a Service</title>
 				<para>
@@ -755,8 +798,9 @@ svn://localhost/TestRepo
 				or worried about someone shutting down <filename>svnserve</filename> or
 				forgetting to restart it after a reboot, it is possible to run
 				<filename>svnserve</filename> as a windows service using a wrapper
-				like the <ulink url="http://dark.clansoft.dk/~mbn/svnservice/">SVNService</ulink> provided by Magnus Norddahl.
-				More generic tools like <ulink url="http://www.firedaemon.com/">firedaemon</ulink> will also work.
+				like the <ulink url="http://dark.clansoft.dk/~mbn/svnservice/"><citetitle>SVNService</citetitle></ulink> provided by Magnus Norddahl.
+				Note that SVNService installs svnserve as a manual service, you may want to change this to automatic.
+				More generic tools like <ulink url="http://www.firedaemon.com/"><citetitle>firedaemon</citetitle></ulink> will also work.
 				Note that you will still need to run <filename>svnserve</filename> with
 				the -d switch.
 				</para>
@@ -847,8 +891,8 @@ realm = /TestRepo
 			</para>
 			<para>
 			It is beyond the scope of this documentation to detail the installation
-			and setup of a secure shell, but one option is <ulink url="http://tech.erdelynet.com/cygwin-sshd.html">cygwin-sshd</ulink>,
-			which is an implementation of <ulink url="http://www.openssh.com/">OpenSSH</ulink>
+			and setup of a secure shell, but one option is <ulink url="http://tech.erdelynet.com/cygwin-sshd.html"><citetitle>cygwin-sshd</citetitle></ulink>,
+			which is an implementation of <ulink url="http://www.openssh.com/"><citetitle>OpenSSH</citetitle></ulink>
 			</para>
 			<para>
 			Once you can connect to a secure shell on your server,
@@ -867,7 +911,7 @@ realm = /TestRepo
 						Settings -> Network -> SSH Client under the TortoiseSVN menu in
 						windows-explorer.
 						Fortunately, TortoiseSVN comes with <filename>TortoisePLink</filename>,
-						an implementation of <ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/">plink</ulink>,
+						an implementation of <ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/"><citetitle>plink</citetitle></ulink>,
 						so normally you only have to set the SSH client as:
 <screen>
 C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername
@@ -892,7 +936,7 @@ svn+ssh://localhost/repos/TestRepo
 			</para>
 			<para>
 			Further information about <filename>svnserve</filename> can be found
-			in the <ulink url="http://svnbook.red-bean.com">svnbook</ulink>.
+			in the <ulink url="http://svnbook.red-bean.com"><citetitle>SVN book</citetitle></ulink>.
 			</para>
 		</sect2>
 	</sect1>
@@ -908,7 +952,7 @@ svn+ssh://localhost/repos/TestRepo
 			still want your work under version control you can also access
 			a repository locally. This kind of repository access is also
 			very handy if you just want to try out some Subversion commands
-			and you don't want to risk screwing your "official" repository.
+			and you don't want to change your official repository.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-serversetup-local-2">
@@ -928,13 +972,21 @@ svn+ssh://localhost/repos/TestRepo
 				</listitem>
 				<listitem>
 					<para>
-						<action>Right-click</action> on the just
+						<action>Right-click</action> on the newly
 				created folder and select <guimenuitem>Create Repository here...</guimenuitem>
-				from the TortoiseSVN submenu. You could create a repository with 
-				the fsfs backend or with the old but stable berkely database (bdb) 
-				format. The fsfs format is faster and it now works on network shares 
-				and Windows 98 without problems. The BDB format is more stable 
-				because it has been tested longer. A repository is
+				from the TortoiseSVN submenu.
+				</para>
+				<para>
+				You can create a repository with the FSFS backend or with the
+				old but stable Berkeley Database (BDB) format. The FSFS format
+				is faster and it now works on network shares and Windows 98
+				without problems. The BDB format is more stable because it has
+				been tested longer. Read
+				<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch05.html#svn-ch-5-sect-1.2.A">
+				<citetitle>Chapter 5, Repository Data-Stores</citetitle></ulink> in the SVN book for more information.
+				</para>
+				<para>
+				A repository is
 				then created inside the new folder. <emphasis>Don't edit
 				those files yourself!!!</emphasis>. If you get any errors
 				make sure that the folder is empty and not write protected.
@@ -948,15 +1000,22 @@ svn+ssh://localhost/repos/TestRepo
 			</para>
 			<warning>
 				<para>
-			If you created a BDB repository do not access a repository via the 
-			<filename>file:///</filename> URL over a shared network drive! Even 
-			if you have the network drive mounted to a drive letter! If you do, 
-			your repository can (and most likely will) get corrupted and you could 
-			lose all your data!
-			If you really need to access a repository trough a network share use the
-			Subversion Server 1.1 or higher and create a repository with the fsfs format.
-			</para>
+					Do not create or access a Berkeley DB repository on a network share.
+					It <emphasis>cannot</emphasis> exist on a remote filesystem.
+					Not even if you have the network drive mapped to a drive letter.
+					If you attempt to use Berkeley DB on a network share,
+					the results are unpredictable - you may see mysterious errors
+					right away, or it may be months before you discover that your
+					repository database is subtly corrupted.
+				</para>
 			</warning>
+			<tip>
+			<para>
+			If you really need to access a repository through a network share,
+			create the repository with fsfs format. If you need to provide
+			server access as well, you will need Subversion Server 1.1 or higher.
+			</para>
+			</tip>
 		</sect2>
 	</sect1>
 </chapter>

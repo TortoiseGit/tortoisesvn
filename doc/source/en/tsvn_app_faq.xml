@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <appendix id="tsvn-faq" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Frequently Asked Questions (FAQ)</title>
 	<simplesect>
@@ -15,9 +16,10 @@
 			<primary>install</primary>
 		</indexterm>
 		<para>
-		Most of these answers came from the <application>TortoiseCVS
-		</application>
-			<ulink url="http://www.tortoisecvs.org/faq.html"><citetitle>FAQ</citetitle>
+		Most of these answers came from the
+		<application>TortoiseCVS</application>
+			<ulink url="http://www.tortoisecvs.org/faq.html">
+			<citetitle>FAQ</citetitle>
 		</ulink>
 		</para>
 		<sect2 id="tsvn-faq-installation-0">
@@ -184,10 +186,10 @@
 		<sect2 id="tsvn-faq-installation-2-2">
 			<title>Why is there no overlay icon for unversioned files?</title>
 			<para>
-			  For the same reason. There are only 15 slots for icon overlays available.
-			  We don't want to waste a slot for the least important information. That's why.
-			  If you want to distinguish <literal>unversioned</literal> and <literal>ignored</literal> files in the explorer,
-			  switch to the explorers detailed view and activate the column <guilabel>SVN Status</guilabel>. 
+				For the same reason. There are only 15 slots for icon overlays available.
+				We don't want to waste a slot for the least important information. That's why.
+				If you want to distinguish <literal>unversioned</literal> and <literal>ignored</literal> files in the explorer,
+				switch to the explorers detailed view and activate the column <guilabel>SVN Status</guilabel>.
 				Then you will see the difference.
 			</para>
 		</sect2>
@@ -195,26 +197,34 @@
 			<title>Why do the overlay icons sometimes 
 			change to random graphics?</title>
 			<para>
-			The Windows icon cache is a fairly buggy creature. 
-			You can solve this in one of the following ways: 
-			<itemizedlist>
+				The Windows icon cache is a fairly buggy creature. 
+				You can solve this in one of the following ways: 
+				<itemizedlist>
 					<listitem>
-						<para>Install Microsoft's <application>
-								<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp"><citetitle>TweakUI</citetitle></ulink>
-							</application> and run the option 	to rebuild icons.</para>
+						<para>
+							Install Microsoft's
+							<application>
+								<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
+									<citetitle>TweakUI</citetitle>
+								</ulink>
+							</application>
+							and run the option to rebuild icons.
+						</para>
 					</listitem>
 					<listitem>
 						<para>Or increase the icon cache size. 
-				Go to 
+						Go to 
 <screen>
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 </screen>
-				 and add 
-				a new String Value called <literal>Max Cached Icons</literal>. 
-				The default value is 500 - try increasing it to 2048 
-				(see <ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp"><citetitle>Q132668</citetitle></ulink>
-				in the Microsoft knowledge base for more details).
-				</para>
+						and add a new String Value called
+						<literal>Max Cached Icons</literal>.
+						The default value is 500 - try increasing it to 2048 (see 
+						<ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">
+							<citetitle>Q132668</citetitle>
+						</ulink>
+						in the Microsoft knowledge base for more details).
+					</para>
 					</listitem>
 					<listitem>
 						<para>Or delete the file called ShellIconCache 
@@ -247,14 +257,17 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			to the path and names of your own icon set.
 			</para>
 			<para>
-			After that you need to restart (or logoff) your computer 
-			so that explorer reads in the icons again. 
-			Alternatively you can flush the icon cache with the 
-			<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
+				After that you need to restart (or logoff) your computer 
+				so that explorer reads in the icons again. 
+				Alternatively you can flush the icon cache with the 
+				<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
 					<citetitle>TweakUI</citetitle>
 				</ulink>
-			tool from Microsoft. For
-			WinXP you can get <ulink url="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp"><citetitle>TweakUI</citetitle></ulink> here.
+				tool from Microsoft. For WinXP you can get
+				<ulink url="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp">
+					<citetitle>TweakUI</citetitle>
+				</ulink>
+				here.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-5">
@@ -553,15 +566,17 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			update or commit them all at once. 
 			</para>
 			<para>
-			If you want to have different subdirectories to come 
-			from different repositories you can set a 
-			special Subversion property called <literal>svn:externals</literal>.
-			Please look at the chapter <ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.3.6">
+				If you want to have different subdirectories to come 
+				from different repositories you can set a 
+				special Subversion property called
+				<literal>svn:externals</literal>.
+				Please look at the chapter
+				<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.3.6">
 					<citetitle>External Definitions</citetitle>
 				</ulink>
-			in the <ulink url="http://svnbook.red-bean.com/">
-					<citetitle>
-			Subversion Book</citetitle>
+				in the
+				<ulink url="http://svnbook.red-bean.com/">
+					<citetitle>Subversion Book</citetitle>
 				</ulink>. 
 			</para>
 		</sect2>
@@ -798,7 +813,9 @@ Folder/File2 : revision 2
 			<para>There is a really good blog post that helps you to convert 
 			your ASP.NET web projects to ASP.NET class project. You can find it
 			<ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
-			<citetitle>here</citetitle></ulink>. If you follow those instructions, you'll have a
+				<citetitle>here</citetitle>
+			</ulink>.
+			If you follow those instructions, you'll have a
 			VS.NET working with ASP.NET projects and Subversion without troubles.
 			</para>
 			<para>
@@ -916,7 +933,7 @@ Folder/File2 : revision 2
 						This string will be replaced by the revision 
 						number of your working copy. 
 					</listitem>
-				<varlistentry>
+				</varlistentry>
 				<varlistentry>
 					<term>$WCMODS?Modified:Not modified$</term>
 					<listitem>
@@ -927,18 +944,21 @@ Folder/File2 : revision 2
 						<literal>Modified</literal>
 						or <literal>Not modified</literal>.
 					</listitem>
-				<varlistentry>
+				</varlistentry>
 				<varlistentry>
 					<term>$WCDATE$</term>
 					<listitem>
 						Will be replaced by the date of your revision. 
 					</listitem>
-				<varlistentry>
+				</varlistentry>
 			</variablelist>
 			</para>
 			<para>
 			As an example, have a look at the file <filename>version.in</filename>
-			in the <ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in"><citetitle>TortoiseSVN source tree</citetitle></ulink>.
+			in the
+			<ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">
+				<citetitle>TortoiseSVN source tree</citetitle>
+			</ulink>.
 			This file is used in TortoiseSVN and its resource files. The
 			SubWCRev.exe tool is called from the build script like this:
 <screen>
@@ -978,33 +998,47 @@ SubWCRev.exe path\to\working\copy version.in version.h
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
-				<citetitle>WinMerge</citetitle></ulink>, a great open-source viewer</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4diff.zip">
-				<citetitle>Perforce Win Diff</citetitle></ulink>, a free tool from Perforce. 
-				You can download the full
-				<ulink url="http://www.perforce.com/perforce/loadprog.html">
-				<citetitle>installer</citetitle></ulink> here.
+								<citetitle>WinMerge</citetitle>
+							</ulink>,
+							a great open-source viewer
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							<ulink url="http://www.prestosoft.com/"><citetitle>Examdiff or Examdiff Pro</citetitle></ulink>, an excellent Free or 
-				Shareware tool, The 3.2 Version can handle unicode</para>
+							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4diff.zip">
+								<citetitle>Perforce Win Diff</citetitle>
+							</ulink>,
+							a free tool from Perforce. You can download the full
+							<ulink url="http://www.perforce.com/perforce/loadprog.html">
+								<citetitle>installer</citetitle>
+							</ulink>
+							here.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<ulink url="http://www.prestosoft.com/">
+								<citetitle>Examdiff or Examdiff Pro</citetitle>
+							</ulink>,
+							an excellent Free or Shareware tool, The 3.2 Version can handle unicode
+						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.scootersoftware.com/">
-				<citetitle>Beyond Compare</citetitle></ulink>, an excellent Shareware tool, can handle Unicode</para>
+								<citetitle>Beyond Compare</citetitle>
+							</ulink>,
+							an excellent Shareware tool, can handle Unicode
+						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.scintilla.org/SciTEDownload.html">
-				<citetitle>SciTE</citetitle></ulink>, for showing unified diffs, it has 
-				built-in support for syntax-coloring, since it's 
-				not only a viewer but a Text Editor as well.</para>
+								<citetitle>SciTE</citetitle>
+							</ulink>,
+							for showing unified diffs, it has built-in support for syntax-coloring, since it's
+							not only a viewer but a Text Editor as well.
+						</para>
 					</listitem>
 				</itemizedlist>
 			</para>
@@ -1018,32 +1052,47 @@ SubWCRev.exe path\to\working\copy version.in version.h
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
-				<citetitle>WinMerge</citetitle></ulink>, a great open-source viewer</para>
+								<citetitle>WinMerge</citetitle>
+							</ulink>,
+							a great open-source viewer
+						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4winmrg.zip">
-				<citetitle>Perforce Win Diff</citetitle></ulink>, a free tool from Perforce. 
-				You can find the full
-				<ulink url="http://www.perforce.com/perforce/loadprog.html">
-				<citetitle>installer</citetitle></ulink> here.
+								<citetitle>Perforce Win Diff</citetitle>
+							</ulink>,
+ 							a free tool from Perforce. You can find the full
+							<ulink url="http://www.perforce.com/perforce/loadprog.html">
+								<citetitle>installer</citetitle>
+							</ulink>
+							here.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://www.accurev.com/free/tkdiff/">
-				<citetitle>TkDiff</citetitle></ulink>, uses TCL/TK</para>
+								<citetitle>TkDiff</citetitle>
+							</ulink>,
+ 							uses TCL/TK
+						</para>
 					</listitem>
 					<listitem>
 						<para>
 							<ulink url="http://sourceforge.net/projects/conflicteditor/">
-				<citetitle>CvsConflictEditor</citetitle></ulink>, buggy but has potential</para>
+								<citetitle>CvsConflictEditor</citetitle>
+							</ulink>,
+							buggy but has potential
+						</para>
 					</listitem>
 				</itemizedlist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-20">
 			<title>What are the hidden registry settings?</title>
+			<indexterm>
+				<primary>Registry</primary>
+			</indexterm>
 			<para>
 			There are some registry settings for TortoiseSVN which aren't
 			available through the settings dialog. These registry settings
