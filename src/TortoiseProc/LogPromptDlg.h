@@ -50,7 +50,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CLogPromptDlg : public CResizableStandAloneDialog, public CSciEditContextMenuInterface
+class CLogPromptDlg : public CResizableStandAloneDialog, public CSciEditContextMenuInterface // CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CLogPromptDlg)
 
@@ -95,6 +95,7 @@ public:
 	BOOL			m_bRecursive;
 	CSciEdit		m_cLogMessage;
 	CString			m_sLogMessage;
+	BOOL			m_bKeepLocks;
 
 private:
 	CWinThread*		m_pThread;
@@ -112,5 +113,4 @@ private:
 	CString			m_sBugID;
 	static UINT		WM_AUTOLISTREADY;
 	int				m_nPopupPasteListCmd;
-public:
 };

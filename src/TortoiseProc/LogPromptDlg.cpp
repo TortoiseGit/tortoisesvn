@@ -49,6 +49,7 @@ CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	, m_bThreadRunning(FALSE)
 	, m_bRunThread(FALSE)
 	, m_pThread(NULL)
+	, m_bKeepLocks(FALSE)
 {
 }
 
@@ -69,6 +70,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
+	DDX_Check(pDX, IDC_KEEPLOCK, m_bKeepLocks);
 }
 
 

@@ -302,6 +302,7 @@
 #define IDS_SSL_CLIENTCERTIFICATEFILENAME 1202
 #define IDC_NOEXTERNALS                 1202
 #define IDS_SSL_PEM                     1203
+#define IDC_KEEPLOCK                    1203
 #define IDS_SSL_PKCS12                  1204
 #define IDS_IMPORT_DEFAULTMSG           1205
 #define IDS_LOG_COPYFROM                1206
@@ -597,7 +598,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        187
 #define _APS_NEXT_COMMAND_VALUE         32783
-#define _APS_NEXT_CONTROL_VALUE         1203
+#define _APS_NEXT_CONTROL_VALUE         1204
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

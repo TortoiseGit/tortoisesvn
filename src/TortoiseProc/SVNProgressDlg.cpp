@@ -648,7 +648,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
 						break;
 				}
-				if (!m_pSvn->Commit(m_targetPathList, m_sMessage, (m_Revision == 0)))
+				if (!m_pSvn->Commit(m_targetPathList, m_sMessage, (m_Revision == 0), m_options & ProgOptKeeplocks))
 				{
 					ReportSVNError();
 				}

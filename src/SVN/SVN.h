@@ -159,9 +159,10 @@ public:
 	 * \param path the file/directory to commit
 	 * \param message a log message describing the changes you made
 	 * \param recurse 
-	 * \param revision the resulting revision number. return value.
+	 * \param keep_locks if TRUE, the locks are not removed on commit
+	 * \return the resulting revision number.
 	 */
-	LONG Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse);
+	LONG Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks);
 	/**
 	 * Copy srcPath to destPath.
 	 * 

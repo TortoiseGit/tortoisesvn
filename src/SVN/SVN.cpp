@@ -343,15 +343,16 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, B
 	return TRUE;
 }
 
-LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse)
+LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, BOOL keep_locks)
 {
 	svn_client_commit_info_t *commit_info = NULL;
 
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_commit (&commit_info, 
+	Err = svn_client_commit2 (&commit_info, 
 							MakePathArray(pathlist), 
-							!recurse,
+							recurse,
+							keep_locks,
 							m_pctx,
 							pool);
 	m_pctx->log_msg_baton = logMessage("");
