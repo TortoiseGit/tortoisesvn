@@ -82,10 +82,10 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 
     svn_auth_provider_object_t *username_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (m_pool, sizeof(*username_wc_provider));
 
-    svn_client_get_simple_provider (&(simple_wc_provider->vtable), &(simple_wc_provider->provider_baton), m_pool);
+    svn_client_get_simple_provider (&(simple_wc_provider), m_pool);
     *(svn_auth_provider_object_t **)apr_array_push (providers) = simple_wc_provider;
 
-    svn_client_get_username_provider(&(username_wc_provider->vtable), &(username_wc_provider->provider_baton), m_pool);
+    svn_client_get_username_provider(&(username_wc_provider), m_pool);
     *(svn_auth_provider_object_t **)apr_array_push (providers) = username_wc_provider;
 
 	svn_auth_open (&m_auth_baton, providers, m_pool);

@@ -29,24 +29,29 @@ SVNStatus::SVNStatus(void)
 	memset (&m_ctx, 0, sizeof (m_ctx));
 
 	// set up authentication
+	svn_auth_provider_object_t *provider;
 
-    /* The whole list of registered providers */
-    apr_array_header_t *providers
-      = apr_array_make (m_pool, 1, sizeof (svn_auth_provider_object_t *));
+	/* The whole list of registered providers */
+	apr_array_header_t *providers = apr_array_make (m_pool, 10, sizeof (svn_auth_provider_object_t *));
 
-    /* The main disk-caching auth providers, for both
-       'username/password' creds and 'username' creds.  */
-    svn_auth_provider_object_t *simple_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (m_pool, sizeof(*simple_wc_provider));
+	/* The main disk-caching auth providers, for both
+	'username/password' creds and 'username' creds.  */
+	svn_client_get_simple_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_username_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
-    svn_auth_provider_object_t *username_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (m_pool, sizeof(*username_wc_provider));
+	/* The server-cert, client-cert, and client-cert-password providers. */
+	svn_client_get_ssl_server_file_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_client_file_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_pw_file_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
-    svn_client_get_simple_provider (&(simple_wc_provider->vtable), &(simple_wc_provider->provider_baton), m_pool);
-    *(svn_auth_provider_object_t **)apr_array_push (providers) = simple_wc_provider;
-
-    svn_client_get_username_provider(&(username_wc_provider->vtable), &(username_wc_provider->provider_baton), m_pool);
-    *(svn_auth_provider_object_t **)apr_array_push (providers) = username_wc_provider;
-
+	/* Build an authentication baton to give to libsvn_client. */
 	svn_auth_open (&m_auth_baton, providers, m_pool);
+	m_ctx.auth_baton = m_auth_baton;
 
 	m_ctx.auth_baton = m_auth_baton;
 	m_ctx.prompt_func = NULL;
@@ -181,10 +186,10 @@ svn_wc_status_kind SVNStatus::GetTextStatusRecursive(const TCHAR * path)
 
     svn_auth_provider_object_t *username_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (pool, sizeof(*username_wc_provider));
 
-    svn_client_get_simple_provider (&(simple_wc_provider->vtable), &(simple_wc_provider->provider_baton), pool);
+    svn_client_get_simple_provider (&(simple_wc_provider), pool);
     *(svn_auth_provider_object_t **)apr_array_push (providers) = simple_wc_provider;
 
-    svn_client_get_username_provider(&(username_wc_provider->vtable), &(username_wc_provider->provider_baton), pool);
+    svn_client_get_username_provider(&(username_wc_provider), pool);
     *(svn_auth_provider_object_t **)apr_array_push (providers) = username_wc_provider;
 
 	svn_auth_open (&auth_baton, providers, pool);
@@ -352,10 +357,10 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
 
     svn_auth_provider_object_t *username_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (pool, sizeof(*username_wc_provider));
 
-    svn_client_get_simple_provider (&(simple_wc_provider->vtable), &(simple_wc_provider->provider_baton), pool);
+    svn_client_get_simple_provider (&(simple_wc_provider), pool);
     *(svn_auth_provider_object_t **)apr_array_push (providers) = simple_wc_provider;
 
-    svn_client_get_username_provider(&(username_wc_provider->vtable), &(username_wc_provider->provider_baton), pool);
+    svn_client_get_username_provider(&(username_wc_provider), pool);
     *(svn_auth_provider_object_t **)apr_array_push (providers) = username_wc_provider;
 
 	svn_auth_open (&auth_baton, providers, pool);
