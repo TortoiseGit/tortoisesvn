@@ -1,3 +1,8 @@
+- BUG: Log messages could be shown with an additional
+       empty line between the normal lines. (Stefan)
+- BUG: The filepaths in the log messages were
+       shown twice. (Stefan)       
+       
 Version 0.25
 - ADD: TME shows the differences in whitespaces
        inside a line too. (Stefan)
