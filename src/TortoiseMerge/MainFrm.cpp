@@ -685,7 +685,8 @@ void CMainFrame::OnViewOptions()
 		{
 			return;
 		}
-	} 
+	} // ified())))
+	m_Data.LoadRegistry();
 	LoadViews();
 }
 

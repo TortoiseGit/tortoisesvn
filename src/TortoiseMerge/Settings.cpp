@@ -23,18 +23,26 @@ CSettings::~CSettings()
 void CSettings::AddPropPages()
 {
 	m_pMainPage = new CSetMainPage();
+	m_pColorPage = new CSetColorPage();
+	m_pColor2Page = new CSetColor2Page();
 
 	AddPage(m_pMainPage);
+	AddPage(m_pColorPage);
+	AddPage(m_pColor2Page);
 }
 
 void CSettings::RemovePropPages()
 {
 	delete m_pMainPage;
+	delete m_pColorPage;
+	delete m_pColor2Page;
 }
 
 void CSettings::SaveData()
 {
 	m_pMainPage->SaveData();
+	m_pColorPage->SaveData();
+	m_pColor2Page->SaveData();
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)

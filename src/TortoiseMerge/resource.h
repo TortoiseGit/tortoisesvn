@@ -16,6 +16,8 @@
 #define IDD_FILEPATCHES                 135
 #define IDD_ABOUT                       136
 #define IDR_DOWNLOAD                    136
+#define IDD_SETCOLORPAGE                137
+#define IDD_SETCOLOR2PAGE               138
 #define IDB_LOGOFLIPPED                 168
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
@@ -55,9 +57,44 @@
 #define IDS_ERR_PATCH_FILESAVE          1023
 #define IDC_MISCGROUP                   1023
 #define IDC_ONEPANE                     1024
+#define IDC_BKUNKNOWN                   1027
+#define IDC_FGUNKNOWN                   1028
+#define IDC_BKNORMAL                    1029
+#define IDC_FGNORMAL                    1030
+#define IDC_BKREMOVED                   1031
+#define IDC_FGREMOVED                   1032
+#define IDC_BKWHITESPACEREMOVED         1033
+#define IDC_FGWHITESPACEREMOVED         1034
+#define IDC_BKADDED                     1035
+#define IDC_FGADDED                     1037
+#define IDC_BKWHITESPACEADDED           1038
+#define IDC_FGWHITESPACEADDED           1039
 #define IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND 1040
+#define IDC_BKEMPTY                     1040
 #define IDS_ERR_MAINFRAME_FILEHASCONFLICTS 1041
+#define IDC_FGEMPTY                     1041
+#define IDC_BKCONFLICTED                1042
+#define IDC_FGCONFLICTED                1043
+#define IDC_BKCONFLICTEDADDED           1044
+#define IDC_FGCONFLICTEDADDED           1045
+#define IDC_BKCONFLICTEDEMPTY           1046
+#define IDC_FGCONFLICTEDEMPTY           1047
+#define IDC_BKIDENTICAL                 1048
+#define IDC_FGIDENTICAL                 1049
+#define IDC_BKIDENTICALADDED            1050
+#define IDC_FGIDENTICALADDED            1051
+#define IDC_BKIDENTICALREMOVED          1052
+#define IDC_FGIDENTICALREMOVED          1053
 #define IDC_VERSIONABOUT                1054
+#define IDC_BKTHEIRSADDED               1054
+#define IDC_FGTHEIRSADDED               1055
+#define IDC_BKTHEIRSREMOVED             1056
+#define IDC_FGTHEIRSREMOVED             1057
+#define IDC_BKYOURSADDED                1058
+#define IDC_FGYOURSADDED                1059
+#define IDC_BKYOURSREMOVED              1060
+#define IDC_BUTTON22                    1061
+#define IDC_FGYOURSREMOVED              1061
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDC_WEBLINK                     1084
@@ -95,7 +132,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        137
 #define _APS_NEXT_COMMAND_VALUE         32784
-#define _APS_NEXT_CONTROL_VALUE         1025
+#define _APS_NEXT_CONTROL_VALUE         1062
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

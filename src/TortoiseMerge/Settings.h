@@ -1,6 +1,8 @@
 #pragma once
 
 #include "SetMainPage.h"
+#include "SetColorPage.h"
+#include "SetColor2Page.h"
 
 /**
  * \ingroup TortoiseMerge
@@ -27,6 +29,8 @@ private:
 
 private:
 	CSetMainPage *		m_pMainPage;
+	CSetColorPage *		m_pColorPage;
+	CSetColor2Page *	m_pColor2Page;
 
 public:
 	CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);

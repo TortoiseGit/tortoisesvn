@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge;..\crashrpt"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -75,7 +75,7 @@
 			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge;..\crashrpt"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="FALSE"
 				RuntimeLibrary="2"
@@ -145,6 +145,9 @@
 				RelativePath="..\Utils\CmdLineParser.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.cpp">
+			</File>
+			<File
 				RelativePath="..\Utils\DIB.cpp">
 			</File>
 			<File
@@ -190,6 +193,12 @@
 				RelativePath=".\RightView.cpp">
 			</File>
 			<File
+				RelativePath=".\SetColor2Page.cpp">
+			</File>
+			<File
+				RelativePath=".\SetColorPage.cpp">
+			</File>
+			<File
 				RelativePath=".\SetMainPage.cpp">
 			</File>
 			<File
@@ -223,6 +232,9 @@
 				RelativePath="..\Utils\WaterEffect.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\ColourPickerXP\XPTheme.cpp">
+			</File>
+			<File
 				RelativePath=".\XSplitter.cpp">
 			</File>
 		</Filter>
@@ -244,6 +256,9 @@
 			</File>
 			<File
 				RelativePath="..\Utils\CmdLineParser.h">
+			</File>
+			<File
+				RelativePath="..\Utils\ColourPickerXP\ColourPickerXP.h">
 			</File>
 			<File
 				RelativePath="..\Utils\DIB.h">
@@ -270,6 +285,9 @@
 				RelativePath=".\MainFrm.h">
 			</File>
 			<File
+				RelativePath="..\Utils\ColourPickerXP\MemDC.h">
+			</File>
+			<File
 				RelativePath="..\Utils\NewMenu\NewMenu.h">
 			</File>
 			<File
@@ -286,6 +304,9 @@
 			</File>
 			<File
 				RelativePath="..\Utils\registry.h">
+			</File>
+			<File
+				RelativePath="..\Languages\resource.h">
 			</File>
 			<File
 				RelativePath=".\Resource.h">
@@ -307,10 +328,13 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\Languages\resource.h">
+				RelativePath=".\RightView.h">
 			</File>
 			<File
-				RelativePath=".\RightView.h">
+				RelativePath=".\SetColor2Page.h">
+			</File>
+			<File
+				RelativePath=".\SetColorPage.h">
 			</File>
 			<File
 				RelativePath=".\SetMainPage.h">
@@ -332,6 +356,9 @@
 			</File>
 			<File
 				RelativePath="..\Utils\WaterEffect.h">
+			</File>
+			<File
+				RelativePath="..\Utils\ColourPickerXP\XPTheme.h">
 			</File>
 			<File
 				RelativePath=".\XSplitter.h">
@@ -382,6 +409,6 @@
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseMergeENG.rc"/>
+			Value="\Development\Svn\TortoiseSVN\src\Languages\TortoiseMergeENG.rc"/>
 	</Globals>
 </VisualStudioProject>
