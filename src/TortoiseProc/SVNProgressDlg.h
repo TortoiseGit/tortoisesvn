@@ -97,6 +97,8 @@ public:
 	 */
 	void SetParams(Command cmd, BOOL isTempFile, CString path, CString url = _T(""), CString message = _T(""), SVNRev revision = -1, CString modName = _T(""));
 
+	CString BuildInfoString();
+
 // Dialog Data
 	enum { IDD = IDD_SVNPROGRESS };
 

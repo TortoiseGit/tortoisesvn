@@ -180,6 +180,132 @@ BOOL CSVNProgressDlg::Notify(const CString& path, svn_wc_notify_action_t action,
 	return TRUE;
 }
 
+CString CSVNProgressDlg::BuildInfoString()
+{
+	CString infotext;
+	CString temp;
+	int added = 0;
+	int copied = 0;
+	int deleted = 0;
+	int restored = 0;
+	int reverted = 0;
+	int resolved = 0;
+	int conflicted = 0;
+	int updated = 0;
+	int merged = 0;
+	int modified = 0;
+
+	for (INT_PTR i=0; i<m_arData.GetCount(); ++i)
+	{
+		Data * dat = m_arData.GetAt(i);
+		switch (dat->action)
+		{
+		case svn_wc_notify_add:
+		case svn_wc_notify_update_add:
+			added++;
+			break;
+		case svn_wc_notify_copy:
+			copied++;
+			break;
+		case svn_wc_notify_delete:
+		case svn_wc_notify_update_delete:
+			deleted++;
+			break;
+		case svn_wc_notify_restore:
+			restored++;
+			break;
+		case svn_wc_notify_revert:
+			reverted++;
+			break;
+		case svn_wc_notify_resolved:
+			resolved++;
+			break;
+		case svn_wc_notify_update_update:
+			if ((dat->content_state == svn_wc_notify_state_conflicted) || (dat->prop_state == svn_wc_notify_state_conflicted))
+				conflicted++;
+			else if ((dat->content_state == svn_wc_notify_state_merged) || (dat->prop_state == svn_wc_notify_state_merged))
+				merged++;
+			else
+				updated++;
+			break;
+		case svn_wc_notify_commit_modified:
+			modified++;
+			break;
+		}
+	}
+	if (conflicted)
+	{
+		temp.LoadString(IDS_STATUSCONFLICTED);
+		infotext += temp;
+		temp.Format(_T(":%d "), conflicted);
+		infotext += temp;
+	}
+	if (merged)
+	{
+		temp.LoadString(IDS_STATUSMERGED);
+		infotext += temp;
+		temp.Format(_T(":%d "), conflicted);
+		infotext += temp;
+	}
+	if (added)
+	{
+		temp.LoadString(IDS_SVNACTION_ADD);
+		infotext += temp;
+		temp.Format(_T(":%d "), added);
+		infotext += temp;
+	}
+	if (deleted)
+	{
+		temp.LoadString(IDS_SVNACTION_DELETE);
+		infotext += temp;
+		temp.Format(_T(":%d "), deleted);
+		infotext += temp;
+	}
+	if (modified)
+	{
+		temp.LoadString(IDS_SVNACTION_MODIFIED);
+		infotext += temp;
+		temp.Format(_T(":%d "), modified);
+		infotext += temp;
+	}
+	if (copied)
+	{
+		temp.LoadString(IDS_SVNACTION_COPY);
+		infotext += temp;
+		temp.Format(_T(":%d "), copied);
+		infotext += temp;
+	}
+	if (updated)
+	{
+		temp.LoadString(IDS_SVNACTION_UPDATE);
+		infotext += temp;
+		temp.Format(_T(":%d "), updated);
+		infotext += temp;
+	}
+	if (restored)
+	{
+		temp.LoadString(IDS_SVNACTION_RESTORE);
+		infotext += temp;
+		temp.Format(_T(":%d "), restored);
+		infotext += temp;
+	}
+	if (reverted)
+	{
+		temp.LoadString(IDS_SVNACTION_REVERT);
+		infotext += temp;
+		temp.Format(_T(":%d "), reverted);
+		infotext += temp;
+	}
+	if (resolved)
+	{
+		temp.LoadString(IDS_SVNACTION_RESOLVE);
+		infotext += temp;
+		temp.Format(_T(":%d "), resolved);
+		infotext += temp;
+	}
+	return infotext;
+}
+
 void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, CString path, CString url /* = "" */, CString message /* = "" */, SVNRev revision /* = -1 */, CString modName /* = "" */)
 {
 	m_Command = cmd;
@@ -247,6 +373,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	ResizeColumns();
 
 	AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
@@ -664,6 +791,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!pDlg->m_bRedEvents) || pDlg->m_bCloseOnEnd) 
 			pDlg->PostMessage(WM_COMMAND, 1, (LPARAM)pDlg->GetDlgItem(IDOK)->m_hWnd);
 	}
+	CString info = pDlg->BuildInfoString();
+	pDlg->GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
 	return 0;
 }
 
