@@ -10,6 +10,7 @@ echo  ^<xsl:param name="paper.type" select="'A4'"^>^</xsl:param^> >> pdfdoc.xsl
 echo  ^<xsl:param name="double.sided" select="1"^>^</xsl:param^> >> pdfdoc.xsl
 echo  ^<xsl:param name="variablelist.as.blocks" select="1"^>^</xsl:param^> >> pdfdoc.xsl
 echo  ^<xsl:param name="symbol.font.family" select="'Symbol,ZapfDingbats'"^>^</xsl:param^> >> pdfdoc.xsl
+echo  ^<xsl:param name="draft.mode" select="no"/^> >> pdfdoc.xsl
 echo. >> pdfdoc.xsl
 echo  ^<xsl:param name="formal.title.placement"^> >> pdfdoc.xsl
 echo	figure after >> pdfdoc.xsl

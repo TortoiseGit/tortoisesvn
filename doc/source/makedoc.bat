@@ -94,7 +94,7 @@ xcopy /y %_DOC_SRC%\%_LANG%\images %_HTML_TARGET%images\ > NUL
 if %_PDF%==ON (
   echo ----------------------------------------------------------------------
   echo Generating Help as PDF File
-  %_XSLTPROC% %_DOC_PDF_XSLTPROC_OPTS% --output %_FO_TARGET% %_DOC_XSL_FO% %_DOC_XML_SRC%
+  %_XSLTPROC% %_DOC_PDF_XSLTPROC_OPTS% --nonet --output %_FO_TARGET% %_DOC_XSL_FO% %_DOC_XML_SRC%
   call %_FOPPROC% -fo %_FO_TARGET% -pdf %_PDF_TARGET%
 )
 
@@ -103,7 +103,7 @@ if %_CHM%==ON (
   echo Generating Help as CHM File
   del /q %_HTML_TARGET%
   copy %_DOC_SRC%\styles_chm.css %_HTML_TARGET% > NUL
-  %_XSLTPROC% %_DOC_HELP_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HELP% %_DOC_XML_SRC%
+  %_XSLTPROC% %_DOC_HELP_XSLTPROC_OPTS% --nonet --output %_HTML_TARGET% %_DOC_XSL_HELP% %_DOC_XML_SRC%
   call :MakeHelpContext
   %_HHCPROC% %_HTML_TARGET%\htmlhelp.hhp
   copy %_HTML_TARGET%\htmlhelp.chm %_HELP_TARGET%
@@ -114,10 +114,10 @@ if %_HTML%==ON (
   echo Generating Help as single HTML page
   del /q %_HTML_TARGET%
   copy %_DOC_SRC%\styles_*.css %_HTML_TARGET% > NUL
-  %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
+  %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --nonet --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
   echo ----------------------------------------------------------------------
   echo Generating Help as multiple HTML pages
-  %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HTMLCHUNK% %_DOC_XML_SRC%
+  %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --nonet --output %_HTML_TARGET% %_DOC_XSL_HTMLCHUNK% %_DOC_XML_SRC%
 )
 
 
