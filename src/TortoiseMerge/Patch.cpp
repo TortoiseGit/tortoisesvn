@@ -406,6 +406,11 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 		for (int j=0; j<chunk->arLines.GetCount(); j++)
 		{
 			CString sPatchLine = chunk->arLines.GetAt(j);
+			if ((lRemoveLine > PatchLines.GetCount()) || (lAddLine > PatchLines.GetCount()))
+			{
+				m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, _T(""));
+				return FALSE; 
+			}
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);
 			switch (nPatchState)
 			{
