@@ -1,3 +1,4 @@
+Version 0.22
 - ADD: A lot of improved icons. (Luebbe)
 - ADD: Hint text for the setting "don't remove
        log messages when cancelling a commit". (Stefan)
@@ -41,7 +42,9 @@
        went too far up. (Stefan)
 - BUG: If no log entry was selected a right-click
        or a left-click on the message area below
-       crashed the log dialog. (Stefan)
+       crashed the log dialog.
+       The log dialog crashed if a key was pressed
+       before any log messages got received. (Stefan)
 - BUG: The repository browser handled the "+" sign
        in e.g svn+ssh:// url incorrectly.
        Also the "+" sign was missing in the
@@ -52,8 +55,6 @@
 - BUG: The dialog presented before an export had
        some labels/title mention "Checkout" instead
        of "Export" which confused some people. (Stefan)
-- BUG: The log dialog crashed if a key was pressed
-       before any log messages got received. (Stefan)
 - BUG: Deleting the temp files in the import dialog
        did not work if a file _and_ the parent
        folder were selected for deletion. (Stefan)
