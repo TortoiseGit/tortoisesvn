@@ -422,11 +422,11 @@ AuthType SSPI
 <screen>
 SSPIAuth On
 SSPIAuthoritative On
-SSPIDomain name_of_domaincontroller
+SSPIDomain &lt;domaincontroller&gt;
 SSPIOfferBasic On
 </screen>
-				If you don't specify a domain controller then it assumes 
-				that the local server is also the domain controller.
+				If you don't have a domain controller, leave the name of the 
+                domain control as &lt;domaincontroller&gt;.
 				</para>
 				</listitem>
 			</itemizedlist>
