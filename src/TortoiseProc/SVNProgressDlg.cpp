@@ -543,7 +543,10 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
 void CSVNProgressDlg::OnClose()
 {
 	if (m_bCancelled)
+	{
 		TerminateThread(m_hThread, -1);
+		m_bThreadRunning = FALSE;
+	}
 	else
 	{
 		m_bCancelled = TRUE;
