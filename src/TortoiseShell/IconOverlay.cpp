@@ -176,7 +176,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			_tcscat(buf, _T(SVN_WC_ADM_DIR_NAME));
 			if (PathFileExists(buf))
 			{
-				if (!g_ShellCache.IsRecursive())
+				if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
 				{
 					status = svn_wc_status_normal;
 				}
@@ -187,6 +187,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 					{
 						filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
 						status = s->status;
+						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 					} // if (dwWaitResult == WAIT_OBJECT_0) 
 					else
 						status = svn_wc_status_normal;

@@ -132,36 +132,32 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 
 	if (isFolder)
 	{
-		GetStatus(filepath);
-		
-		// initialize record members
-		
-		dirstat.rev = -1;
-		dirstat.status = svn_wc_status_unversioned;
-		dirstat.author = authors.GetString(NULL);
-		dirstat.url = urls.GetString(NULL);
-		dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
-
-		if (status)
+		if (shellCache.IsRecursive())
 		{
-			if (status->entry)
+			// initialize record members
+
+			dirstat.rev = -1;
+			dirstat.status = svn_wc_status_unversioned;
+			dirstat.author = authors.GetString(NULL);
+			dirstat.url = urls.GetString(NULL);
+			dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
+			GetStatus(filepath);
+			if (status)
 			{
-				dirstat.author = authors.GetString (status->entry->cmt_author);
-				dirstat.url = authors.GetString (status->entry->url);
-				dirstat.rev = status->entry->cmt_rev;
-			} // if (status.status->entry)
-			dirstat.status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, status->text_status);
-			dirstat.status = SVNStatus::GetMoreImportant(dirstat.status, status->prop_status);
-			if (shellCache.IsRecursive())
-			{
+				if (status->entry)
+				{
+					dirstat.author = authors.GetString (status->entry->cmt_author);
+					dirstat.url = authors.GetString (status->entry->url);
+					dirstat.rev = status->entry->cmt_rev;
+				} // if (status.status->entry)
 				dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
-			}
-		} // if (status.status)
-		m_cache[filepath] = dirstat;
-		m_TimeStamp = GetTickCount();
-		svn_pool_destroy (pool);				//free allocated memory
-		ClearPool();
-		return &dirstat;
+			} // if (status)
+			m_cache[filepath] = dirstat;
+			m_TimeStamp = GetTickCount();
+			svn_pool_destroy (pool);				//free allocated memory
+			ClearPool();
+			return &dirstat;
+		} // if (shellCache.IsRecursive())
 	} // if (isFolder) 
 
 	//it's a file, not a folder. So fill in the cache with
@@ -169,12 +165,9 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	//since subversion can do this in one step
 	TCHAR pathbuf[MAX_PATH+4];
 	_tcscpy(pathbuf, filepath);
-	if (!isFolder)
-	{
-		TCHAR * p = _tcsrchr(filepath, '/');
-		if (p)
-			pathbuf[p-filepath] = '\0';
-	} // if (!isFolder)
+	TCHAR * p = _tcsrchr(filepath, '/');
+	if (p)
+		pathbuf[p-filepath] = '\0';
 
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
 

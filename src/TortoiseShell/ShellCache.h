@@ -31,6 +31,7 @@ public:
 	ShellCache()
 	{
 		showrecursive = CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
+		folderoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
 		driveremote = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
 		drivefixed = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"), TRUE);
 		drivecdrom = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
@@ -38,6 +39,7 @@ public:
 		driveram = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
 		driveunknown = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 		recursiveticker = GetTickCount();
+		folderoverlayticker = GetTickCount();
 		driveticker = recursiveticker;
 		drivetypeticker = recursiveticker;
 		langticker = recursiveticker;
@@ -75,6 +77,15 @@ public:
 			showrecursive.read();
 		} // if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker)
 		return (showrecursive);
+	}
+	BOOL IsFolderOverlay()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>folderoverlayticker)
+		{
+			folderoverlayticker = GetTickCount();
+			folderoverlay.read();
+		} // if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker) 
+		return (folderoverlay);
 	}
 	BOOL IsRemote()
 	{
@@ -180,6 +191,7 @@ private:
 	CRegStdWORD blockstatus;
 	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
+	CRegStdWORD folderoverlay;
 	CRegStdWORD driveremote;
 	CRegStdWORD drivefixed;
 	CRegStdWORD drivecdrom;
@@ -188,6 +200,7 @@ private:
 	CRegStdWORD driveunknown;
 	CRegStdWORD menulayout;
 	DWORD recursiveticker;
+	DWORD folderoverlayticker;
 	DWORD driveticker;
 	DWORD drivetypeticker;
 	DWORD layoutticker;
