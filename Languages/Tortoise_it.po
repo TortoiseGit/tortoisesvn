@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-08-16 23:16+0100\n"
+"PO-Revision-Date: 2004-08-26 00:19+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -172,6 +172,11 @@ msgstr "&Ritira directory:"
 msgid "&Close windows automatically"
 msgstr "&Chiudi automaticamente la finestra"
 
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "&Edit"
+msgstr "M&odifica"
+
 # Control-ID:1099,
 #: Control-ID:1099
 msgid "&Edit..."
@@ -239,11 +244,6 @@ msgstr "&Sommario"
 msgid "&Hide"
 msgstr "&Nascondi"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Indicate folders with changed contents"
-msgstr "&Indica cartelle con contenuti modificati"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Language:"
@@ -255,9 +255,8 @@ msgstr "&Fondi"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "&Fondi i cambiamenti con l'attuale copia di lavoro dal URL:"
+msgstr "&Fondi i cambiamenti con l'attuale copia di lavoro che punta al URL:"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -305,6 +304,12 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Differenza precedente"
+
+# Control-ID:1023,
+#: Control-ID:1023
+#, fuzzy
+msgid "&Recurse into folders to fetch the status"
+msgstr "&Analisi ricorsiva delle cartelle"
 
 # Control-ID:1048,
 #: Control-ID:1048
@@ -377,6 +382,11 @@ msgstr "&URL del repository:"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Annulla\tCtrl+Z"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "&Unknown drives"
+msgstr "Dischi sconosciuti"
+
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
@@ -392,6 +402,11 @@ msgstr "&Visualizza"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Spaziature"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(selezione multipla)"
 
 # ID:188,
 #: ID:188
@@ -432,7 +447,6 @@ msgstr "Si è verificata una violazione di blocco cercando di accedere a %1."
 
 # ID:201,
 #: ID:201
-#, fuzzy
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "È disponibile una nuova versione del software. Si consiglia di visitare il sito http://tortoisesvn.tigris.org e di scaricare la versione aggiornata."
 
@@ -520,7 +534,6 @@ msgstr "Accesso negato a %1."
 
 # ID:77,
 #: ID:77
-#, fuzzy
 msgid "Action"
 msgstr "Azione"
 
@@ -575,7 +588,7 @@ msgstr "Aggiungi file..."
 #: ID:12
 #, fuzzy
 msgid "Add files to Subversion here"
-msgstr "Aggiungi qui dei file a Subversion"
+msgstr "Aggiungi file a Subversion"
 
 # ID:101,
 #: ID:101
@@ -605,9 +618,8 @@ msgstr "Aggiunge file al controllo di Subversion"
 
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Aggiungi il/i file selezionato/i alla lista 'Ingora'"
+msgstr "Aggiungi il/i file selezionato/i alla lista 'ingora'"
 
 # ID:2049,
 #: ID:2049
@@ -667,7 +679,6 @@ msgstr "Si è tentato di leggere dal file in fase di scrittura %1."
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
-#, fuzzy
 msgid "An attempt was made to write to the reading %1."
 msgstr "Si è tentato di scrivere sul file in lettura %1."
 
@@ -777,7 +788,7 @@ msgstr "Applica confronto unificato"
 # ID:79,
 #: ID:79
 msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "Si è sicuri di voler ritornare alla versione precedente? Così facendo <b>tutte</b> le modifiche dall'ultimo aggiornamento andranno perse."
+msgstr "Si è sicuri di voler ripristinare la versione precedente? Così facendo <b>tutte</b> le modifiche dall'ultimo aggiornamento andranno perse."
 
 # ID:77,
 #: ID:77
@@ -996,8 +1007,8 @@ msgstr "Controlla aggiornamenti"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Check for newer versions"
-msgstr "Controlla la disponibilità di nuove versioni"
+msgid "Check for newer &versions"
+msgstr "Controlla la disponibilità di nuove &versioni"
 
 # ID:79,
 #: ID:79
@@ -1069,8 +1080,17 @@ msgstr "Pulisce operazioni interrotte, file bloccati, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear Auth Cache"
+msgid "Clear &Auth Cache"
 msgstr "Elimina password salvate"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"Cancella tutte le informazioni di autenticazione\n"
+"Sarà necessario specificare di nuovo nome utente e password per tutti i repository."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1084,7 +1104,6 @@ msgstr "Clicca su \"Advanzate\" per specificare un programma di fusione alternat
 
 # ID:3825,
 #: ID:3825
-#, fuzzy
 msgid "Close the active window and prompts to save the documents"
 msgstr "Chiudi la finestra con richiesta di salvataggio"
 
@@ -1141,7 +1160,6 @@ msgstr "Confronta con la copia di lavoro"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Compares the file with the last commited version to show you the changes you made"
 msgstr "Confronta il file con l'ultima versione inviata in modo da mostrare i cambiamenti apportati"
 
@@ -1365,6 +1383,11 @@ msgstr ""
 "Taglia il testo selezionato e la copia negli appunti\n"
 "Taglia"
 
+# Control-ID:1123,
+#: Control-ID:1123
+msgid "D&on't close on conflicts"
+msgstr "Non &chiudere quando vi sono conflitti"
+
 # ID:76,
 #: ID:76
 msgid "Date"
@@ -1446,12 +1469,11 @@ msgstr "Eccezione: %1"
 
 # ID:3605,
 #: ID:3605
-#, fuzzy
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr ""
-"Aiuto sull'elemento dell'interfaccia\n"
+"Visualizza l'aiuto per \n"
 "Aiuto"
 
 # ID:3605,
@@ -1539,6 +1561,11 @@ msgstr "Non convertire i file quando si sta procedendo ad un confronto con la BA
 msgid "Drive Types"
 msgstr "Tipi di disco"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "Dry Run"
+msgstr "Simula"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Esci"
@@ -1553,11 +1580,6 @@ msgstr "Esterno"
 #, fuzzy
 msgid "EXT"
 msgstr "EXT"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Edit"
-msgstr "Modifica"
 
 # ID:12,
 #: ID:12
@@ -1711,9 +1733,8 @@ msgstr "FSFS"
 
 # ID:74,
 #: ID:74
-#, fuzzy
 msgid "Failed Revert"
-msgstr "Impossibile tornare alla vecchia versione"
+msgstr "Impossibile ripristinare la vecchia versione"
 
 # ID:3857,#:
 # ID:3857,
@@ -1888,6 +1909,15 @@ msgstr "Se selezionato TortoiseSVN non creerà file temporanei per effettuare il
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Se selezionato TortoiseSVN controlla, una volta alla settimana, la disponibilità di nuove versioni"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+"Se specificato, TortoiseSVN imposterà la data e l'ora dei file alla data\n"
+"del loro ultimo invio. Se nulla viene specificato TortoiseSVN userà la data e l'ora corrente."
 
 # ID:80,
 #: ID:80
@@ -2218,7 +2248,6 @@ msgstr ""
 
 # ID:81,
 #: ID:81
-#, fuzzy
 msgid "No command value specified!"
 msgstr "Nessun valore di comando specificato!"
 
@@ -2255,9 +2284,8 @@ msgstr "Normale"
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
-#, fuzzy
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "Non tutte le chiavi del registro di sistrema (o del file INI) sono state rimosse."
+msgstr "Non tutte le chiavi di registro (o del file INI) sono state rimosse."
 
 # ID:73,#:
 # Control-ID:1,#:
@@ -2272,6 +2300,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "Uno o più file sono in conflitto."
+
 #: MenuEntry
 msgid "Oneway &Diff"
 msgstr "&Confronto unilaterale"
@@ -2280,6 +2313,15 @@ msgstr "&Confronto unilaterale"
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Controlla solo la cartella principale"
+
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"Sono ammessi solo numeri (eventualmente\n"
+"separati da virgole)!"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -2338,6 +2380,12 @@ msgstr "PKCS12"
 #: ID:69
 msgid "Password:"
 msgstr "Password:"
+
+# Control-ID:1121,
+#: Control-ID:1121
+#, fuzzy
+msgid "Paste Log &template in english"
+msgstr "Incolla il Log (in inglese)"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -2539,7 +2587,7 @@ msgstr ""
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "RAM drives"
+msgid "R&AM drives"
 msgstr "Dischi RAM"
 
 # ID:3697,
@@ -2738,9 +2786,8 @@ msgstr "Riprova"
 #: ID:8
 #: ID:73
 #: Dlg-ID:175
-#, fuzzy
 msgid "Revert"
-msgstr "Ritorna alla vecchia versione"
+msgstr "Ripristina"
 
 # ID:113,
 #: ID:113
@@ -2842,9 +2889,8 @@ msgstr "SVN Risolvi..."
 
 # ID:77,
 #: ID:77
-#, fuzzy
 msgid "SVN Revert..."
-msgstr "SVN Ritorna..."
+msgstr "SVN Ripristina..."
 
 # ID:11,
 #: ID:11
@@ -2912,7 +2958,6 @@ msgstr "Salvare la revisione in..."
 # ID:3601,#:
 # ID:3601,
 #: ID:3601
-#, fuzzy
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -2939,7 +2984,6 @@ msgstr "Cerca campo in %1"
 # Control-ID:1067,#:
 # Control-ID:1067,
 #: Control-ID:1067
-#, fuzzy
 msgid "Select / Deselect &All"
 msgstr "Seleziona / Deseleziona tutto"
 
@@ -3024,7 +3068,6 @@ msgstr "Indirizzo del server:"
 
 # Control-ID:1088,
 #: Control-ID:1088
-#, fuzzy
 msgid "Set filedates to the \"last commit time\""
 msgstr "Imposta le date dei file all'ultima data di invio"
 
@@ -3040,6 +3083,16 @@ msgstr "Impostazione delle proprietà..."
 msgid "Settings"
 msgstr "Impostazioni"
 
+# ID:115,
+#: ID:115
+#, fuzzy
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started."
+msgstr ""
+"Il log dovrebbe fermarsi durante una copia?\n"
+"Clicca <b>Sì</b> se si necessiti di capire dove ha inizio un ramo."
+
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
@@ -3047,7 +3100,6 @@ msgstr "Usa formato &corto per date e orari nei commenti"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Short Url of subversion items"
 msgstr "Url semplice degli elementi di Subversion"
 
@@ -3068,10 +3120,10 @@ msgstr "Visualizza &Log..."
 msgid "Show &log"
 msgstr "Visualizza &log"
 
-# Control-ID:1120,
-#: Control-ID:1120
-msgid "Show BugID/Issue-Nr. Box"
-msgstr "Visualizza il box BugID/Issue-Nr."
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr "Visualizza le icone di stato solo in explorer"
 
 # Control-ID:1065,
 #: Control-ID:1065
@@ -3125,11 +3177,6 @@ msgid ""
 msgstr ""
 "Mostra/Nascondi la barra degli strumenti\n"
 "Barra degli strumenti"
-
-# Control-ID:1088,
-#: Control-ID:1088
-msgid "Show overlays only in explorer"
-msgstr "Visualizza le icone di stato solo in explorer"
 
 # ID:2049,
 #: ID:2049
@@ -3188,7 +3235,6 @@ msgstr ""
 
 # ID:3604,
 #: ID:3604
-#, fuzzy
 msgid ""
 "Split the active window into panes\n"
 "Split"
@@ -3252,7 +3298,6 @@ msgstr "Spostati su un ramo / etichetta"
 
 # ID:3606,
 #: ID:3606
-#, fuzzy
 msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
@@ -3276,7 +3321,6 @@ msgstr "Vai alla finestra seguente"
 
 # ID:3606,
 #: ID:3606
-#, fuzzy
 msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
@@ -3344,7 +3388,6 @@ msgstr "Il Repository è stato creato con successo."
 
 # ID:63,
 #: ID:63
-#, fuzzy
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "La dimensione del frammeno non corrisponde al numero di linee aggiunte/eliminate!"
 
@@ -3449,7 +3492,6 @@ msgstr ""
 
 # ID:78,
 #: ID:78
-#, fuzzy
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
@@ -3466,7 +3508,7 @@ msgid ""
 msgstr ""
 "La copia di lavoro è cambiata!\n"
 "<hr=100%>\n"
-"Inviare i propri cambiamenti prima di annullare le le modifiche."
+"Inviare i propri cambiamenti oppure annullare i cambiamenti (ripristina)."
 
 # ID:81,
 #: ID:81
@@ -3479,7 +3521,6 @@ msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Their File:"
 msgstr "Loro file:"
 
@@ -3520,13 +3561,11 @@ msgstr "Quest'applicazione è connessa all'eportazione mancante %s nel file %s. 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
-#, fuzzy
 msgid "This program requires the file %s, which was not found on this system."
-msgstr "Questa applicazione richiede il file %s, il quale non è stato trovato nel sistema."
+msgstr "Questa applicazione richiede il file %s, ma il file non è stato trovato nel sistema."
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Three File Diff"
 msgstr "Confronto su tre file"
 
@@ -3636,9 +3675,8 @@ msgstr "URL"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "URL of subversion items"
-msgstr "URL dell'elemento di Subversion"
+msgstr "URL degli elementi di Subversion"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -3705,19 +3743,14 @@ msgstr "Formato del file inatteso."
 
 # ID:81,
 #: ID:81
-#, fuzzy
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 msgstr ""
-"Organo di emissione del certificato non riconosciuto:  Impronta: %s\n"
+"Organo di emissione del certificato non riconosciuto:\n"
+"  Impronta: %s\n"
 "  Nome: %s"
-
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Unknown drives"
-msgstr "Dischi sconosciuti"
 
 # ID:3841,#:
 # ID:3841,
@@ -3792,25 +3825,21 @@ msgstr "Usa il blocco di testo dal \"loro\""
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Usa il blocco di testo dal \"loro\" prima del \"vostro\""
+msgstr "Usa il blocco di testo dal \"loro\" prima del \"tuo\""
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"yours\""
-msgstr "Usa blocco di testo dal \"vostro\""
+msgstr "Usa blocco di testo dal \"tuo\""
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Usa blocco di testo dal \"vostro\""
+msgstr "Usa blocco di testo dal \"tuo\""
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Use this if the URL of the repository has changed"
 msgstr "Usa questo se l'URL  del repository è cambiato"
 
@@ -3841,7 +3870,6 @@ msgstr "Nome utente:"
 
 # ID:313,
 #: ID:313
-#, fuzzy
 msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
@@ -3851,7 +3879,7 @@ msgid ""
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
-"Le opzioni valide nella linea di comando sono:\n"
+"Nella linea di comando sono valide le seguenti opzioni:\n"
 "/base:<percorso del file base>\n"
 "/theirs:<percorso del loro file>\n"
 "/yours:<percorso del file locale>\n"
@@ -3880,6 +3908,11 @@ msgstr "Visualizza applicazione per i file di confronto GNU (file di patch)."
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Visita il nostro sito"
+
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "Attenzione!"
 
 # ID:213,
 #: ID:213
@@ -3949,6 +3982,15 @@ msgstr ""
 msgid "You have to update your working copy first."
 msgstr "Prima è necessario aggiornare la copia di lavoro."
 
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"Non è stato specificato un issue-number!\n"
+"Si è sicuri di voler inviare senza specificare tale numero?"
+
 # ID:77,
 #: ID:77
 msgid ""
@@ -3960,9 +4002,8 @@ msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Your File:"
-msgstr "Vostro file:"
+msgstr "Tuo file:"
 
 # ID:78,
 #: ID:78
@@ -3987,9 +4028,48 @@ msgstr "un file senza nome"
 # Control-ID:1085,#:
 # Control-ID:1085,
 #: Control-ID:1085
-#, fuzzy
 msgid "and support the developers"
 msgstr "e supporta gli sviluppatori"
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:label\n"
+"Campo di testo dove l'utente può specificare un issue number."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:message\n"
+"Stringa di testo aggiunta ad un commento quando viene specificato un issue number.\n"
+"La stringa deve contenere \"%BUGID%\" che verrà poi sostituito con il numero appropriato."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq:number\n"
+"Da impostare su \"false\" quando il sistema di rilevamento dei bug che si utilizza non usa numeri per identificare i bug."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"URL dove il sistema di rilevamento dei bug invia i propri report.\n"
+"La stringa deve contenere \"%BUGID%\" che verrà rimpiazzato con l'issue number."
 
 # ID:145,
 #: ID:145
@@ -4128,7 +4208,6 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
@@ -4136,7 +4215,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Una lista, separata da caratteri di a capo, dei moduli; ogniuna delle righe consiste di un percorso relativo, di un campo opzionale di revisione e di una URL. Per esempio:\n"
+"Una lista, separata da caratteri di a capo, dei moduli; ogniuna delle righe contiene un percorso relativo di directory, una flag opzionale per la revisione, e una URL. Per esempio:\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
@@ -4151,7 +4230,6 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -4162,7 +4240,7 @@ msgid ""
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\n"
-"Parole chiavi da espandere. Parole chiave valide sono:\n"
+"Parole chiavi da espandere. Le parole chiave valide sono:\n"
 "URL, HeadURL\t\t\tL'URL della versione principale dell'oggetto.\n"
 "Author, LastChangedBy\t\tL'ultima persona che ha modificato il file.\n"
 "Date, LastChangedDate\t\tLa data e l'ora di modifica dell'oggetto.\n"
@@ -4171,13 +4249,12 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Il mime-type del file. Viene usato per determinare come fondere il file e come distribuirlo con Apache. Un mime-type iniziate per 'text/' (o in caso di assenza del mime-type) viene trattato come testo. Tutto  il resto è trattato come binario."
+"Il mime-type del file. Viene usato per determinare come fondere il file e come distribuirlo con Apache. Un mime-type iniziate per 'text/' (o in caso di assenza del mime-type) viene trattato come testo. Tutto  il resto è trattato come codice binario."
 
 # ID:80,
 #: ID:80
