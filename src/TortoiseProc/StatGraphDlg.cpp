@@ -459,6 +459,8 @@ void CStatGraphDlg::ShowStats()
 		filechanges = 0;
 	} // if (!weekover)
 
+	if (nWeeks==0)
+		nWeeks = 1;
 	// we have now all data we want
 	// so fill in the labels...
 	CString number;
@@ -471,7 +473,6 @@ void CStatGraphDlg::ShowStats()
 	number.Format(_T("%ld"), nFileChanges);
 	GetDlgItem(IDC_NUMFILECHANGESVALUE)->SetWindowText(number);
 
-	//nWeeks will never be zero, so the division is safe.
 	number.Format(_T("%ld"), m_parAuthors->GetCount() / nWeeks);
 	GetDlgItem(IDC_COMMITSEACHWEEKAVG)->SetWindowText(number);
 	number.Format(_T("%ld"), nCommitsMax);
