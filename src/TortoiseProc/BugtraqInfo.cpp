@@ -61,7 +61,7 @@ BOOL BugtraqInfo::ReadProps(CString path)
 	path.Replace('/', '\\');
 	if (!PathIsDirectory(path))
 	{
-		path = path.Mid(path.ReverseFind('\\'));
+		path = path.Left(path.ReverseFind('\\'));
 	}
 	for (;;)
 	{
