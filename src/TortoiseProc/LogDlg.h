@@ -120,6 +120,7 @@ public:
 	long		m_logcounter;
 	BOOL		m_bCancelled;
 	BOOL		m_bShowedAll;
+	BOOL		m_bThreadRunning;
 private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
@@ -132,6 +133,8 @@ private:
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
 	CFont		m_logFont;
+public:
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

@@ -39,6 +39,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_bShowedAll = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pNotifyWindow = NULL;
+	m_bThreadRunning = FALSE;
 }
 
 CLogDlg::~CLogDlg()
@@ -69,6 +70,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkLogmsg)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
 	ON_WM_CONTEXTMENU()
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -334,6 +336,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 {
 	CLogDlg*	pDlg;
 	pDlg = (CLogDlg*)pVoid;
+	pDlg->m_bThreadRunning = TRUE;
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
@@ -379,6 +382,10 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	if (!pDlg->m_bShowedAll)
 		pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
 	pDlg->m_bCancelled = TRUE;
+	pDlg->m_bThreadRunning = FALSE;
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	return 0;
 }
 
@@ -1082,6 +1089,19 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 	}
 
 	return __super::PreTranslateMessage(pMsg);
+}
+
+BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if (!m_bThreadRunning)
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+		SetCursor(hCur);
+		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	SetCursor(hCur);
+	return TRUE;
 }
 
 
