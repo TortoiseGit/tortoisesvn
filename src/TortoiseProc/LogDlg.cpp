@@ -1902,6 +1902,8 @@ LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 			GetWindowRect(rcW);
 			ScreenToClient(rcW);
 
+			SetSplitterRange();
+			
 			if (m_wndSplitter1 && rcW.Height()>0) Invalidate();
 			if (m_wndSplitter2 && rcW.Height()>0) Invalidate();
 			break;
