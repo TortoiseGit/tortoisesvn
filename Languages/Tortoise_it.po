@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-16 23:22+0100\n"
+"PO-Revision-Date: 2005-03-27 18:03+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1001,6 +1001,11 @@ msgstr "Autore"
 msgid "Author:                        Stefan Kueng"
 msgstr "Autore:                        Stefan Kueng"
 
+# ID:76,
+#: ID:116
+msgid "Authors"
+msgstr "Autori"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -1614,8 +1619,8 @@ msgstr "Crea Repository"
 
 # ID:8,
 #: ID:8
-msgid "Create Repository here"
-msgstr "Crea un Repository qui"
+msgid "Create Repository here..."
+msgstr "Crea un Repository qui..."
 
 # ID:8,
 #: Control-ID:65535
@@ -2108,6 +2113,11 @@ msgid "For Help, press F1"
 msgstr "Per ottenere aiuto premere F1"
 
 # Control-ID:65535,
+#: Control-ID:1200
+msgid "From:"
+msgstr "Da:"
+
+# Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Da: (URL e revisione che iniziano l'intervallo per la fusione)"
@@ -2577,6 +2587,16 @@ msgstr "Fusione"
 msgid "Message"
 msgstr "Commento"
 
+# ID:76,
+#: ID:116
+msgid "Messages"
+msgstr "Commenti"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "Commenti, Autori e Percorsi"
+
 # ID:78,
 #: ID:78
 msgid "Mime Type"
@@ -2876,6 +2896,11 @@ msgstr "File patch (*.diff, *.patch)|*.diff;*.patch|Tutti i file (*.*)|*.*||"
 #: ID:77
 msgid "Path"
 msgstr "Percorso"
+
+# ID:77,
+#: ID:116
+msgid "Paths"
+msgstr "Percorsi"
 
 # ID:157,
 #: ID:157
@@ -3276,10 +3301,14 @@ msgstr "Riprova"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:175,
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Ripristina"
+
+# ID:77,
+#: ID:8
+msgid "Revert..."
+msgstr "Ripristina..."
 
 # ID:8,#:
 # ID:73,#:
@@ -3972,11 +4001,13 @@ msgstr "Stato del testo:"
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
 "Il file\n"
 "%s\n"
-"non è un file di testo valido!"
+"non è un file di testo valido!\n"
+"File di tipo UTF16 e UTF32 sono trattati come file binari."
 
 # ID:80,
 #: ID:80
@@ -4244,6 +4275,11 @@ msgstr "Confronto su tre file"
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "Per vedere le modifiche apportate, fare doppio click sui file."
+
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr "A:"
 
 # Control-ID:65535,
 #: Control-ID:65535
