@@ -179,13 +179,17 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			m_ownStatus.SetStatus(NULL);
 
 			// We should never have anything in our file item cache if we're unversioned
-			ATLASSERT(m_entryCache.empty());
-
+			ATLVERIFY(m_entryCache.empty());
+			
 			// However, a member *DIRECTORY* might be the top of WC
 			// so we need to ask them to get their own status
 			if(!path.IsDirectory())
 			{
-				return CStatusCacheEntry();
+				if (PathFileExists(path.GetWinPath()))
+					return CStatusCacheEntry();
+				// the entry doesn't exist anymore! Remove the cache entry
+				// of it so we never have to deal with it anymore.
+				CSVNStatusCache::Instance().RemoveCacheForPath(path);
 			}
 			else
 			{
