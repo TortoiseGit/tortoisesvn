@@ -68,6 +68,7 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 	{
 		return FALSE;
 	}
+	m_arFileStates.RemoveAll();
 	m_pPatch = pPatch;
 	m_pCallBack = pCallBack;
 	m_sPath = sPath;
@@ -190,7 +191,7 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				crText = RGB(200, 0, 0);
 			}
-			else if (m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec)==FPDLG_FILESTATE_PATCHED)
+			if (m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec)==FPDLG_FILESTATE_PATCHED)
 			{
 				crText = ::GetSysColor(COLOR_GRAYTEXT);
 			}
