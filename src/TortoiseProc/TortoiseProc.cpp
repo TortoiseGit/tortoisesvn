@@ -1171,7 +1171,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString url;
 			BOOL bFile = FALSE;
 			SVN svn;
-			url = svn.GetURLFromPath(cmdLinePath);
+			if (!cmdLinePath.IsEmpty())
+				url = svn.GetURLFromPath(cmdLinePath);
 			if (cmdLinePath.GetUIPathString().Left(8).CompareNoCase(_T("file:///"))==0)
 			{
 				cmdLinePath.SetFromUnknown(cmdLinePath.GetUIPathString().Mid(8));
