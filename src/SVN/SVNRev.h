@@ -65,6 +65,7 @@ public:
 	~SVNRev();
 
 	BOOL IsValid() {return m_bIsValid;}
+	BOOL IsHead() {return (rev.kind == svn_opt_revision_head);}
 
 	operator LONG ();
 	operator svn_opt_revision_t * ();
