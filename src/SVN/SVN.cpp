@@ -31,6 +31,9 @@ SVN::SVN(void)
 	parentpool = svn_pool_create(NULL);
 	Err = svn_config_ensure(parentpool);
 	pool = svn_pool_create (parentpool);
+	// set up the configuration
+	if (Err == 0)
+		Err = svn_config_get_config (&(ctx.config), pool);
 
 	m_username = NULL;
 	m_password = NULL;
@@ -93,9 +96,6 @@ SVN::SVN(void)
 	ctx.cancel_func = cancel;
 	ctx.cancel_baton = this;
 
-	// set up the configuration
-	if (Err == 0)
-		Err = svn_config_get_config (&(ctx.config), pool);
 }
 
 SVN::~SVN(void)
@@ -300,7 +300,7 @@ BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision)
 	preparePath(srcPath);
 	preparePath(destPath);
 	svn_client_commit_info_t *commit_info = NULL;
-
+	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
 	Err = svn_client_copy (&commit_info,
 							CUnicodeUtils::GetUTF8(srcPath),
 							getRevision (revision),
