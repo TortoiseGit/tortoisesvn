@@ -3,15 +3,6 @@
   <xsl:param name="fop.extensions" select="1" />
   <xsl:param name="section.autolabel" select="1" />
   <xsl:param name="section.label.includes.component.label" select="1" />
-<!--
-  <xsl:param name="formal.title.placement">
-	figure after
-	example after
-	equation after
-	table after
-	procedure after
-  </xsl:param>	
--->
 
 <xsl:param name="table.frame.border.thickness" select="'0pt'"></xsl:param>
 <xsl:param name="table.cell.border.thickness" select="'0pt'"></xsl:param>

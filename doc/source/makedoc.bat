@@ -1,4 +1,4 @@
-﻿@echo off
+@echo off
 
 rem +----------------------------------------------------------------------
 rem | extracting the parameters for the generation process
@@ -38,7 +38,7 @@ set _DOC_HOME=%_DOC_SRC%..\
 SET _DOCTOOLS=%_DOC_HOME%tools\
 SET _XSLTPROC=%_DOCTOOLS%xsltproc.exe
 SET _HHCPROC=%_DOCTOOLS%hhc.exe
-SET _FOPPROC=%_DOCTOOLS%fop\fop.bat 
+SET _FOPPROC=%_DOCTOOLS%fop\fop.bat
 
 set _OUTPUT=%_DOC_HOME%output
 
@@ -59,7 +59,7 @@ set _DOC_XSL_HTMLCHUNK=%_DOCTOOLS%\xsl\html\chunk.xsl
 
 set _HELP_RESOURCE=..\..\..\src\%_APP%\resource.h
 
-rem Exception for TortoiseProc, Grmpf, 
+rem Exception for TortoiseProc, Grmpf,
 rem is there a simple way to convert the content of a variable to lowercase?
 if %_APP%==TortoiseSVN  set _HELP_RESOURCE=..\..\..\src\TortoiseProc\resource.h
 if %_APP%==tortoisesvn  set _HELP_RESOURCE=..\..\..\src\TortoiseProc\resource.h
@@ -117,7 +117,7 @@ if %_HTML%==ON (
 
 
 echo ----------------------------------------------------------------------
-echo Phew, done 
+echo Phew, done
 cd %_DOC_SRC%
 Goto :EOF
 rem | End of Batch execution -> Exit script

@@ -1,4 +1,4 @@
-<xsl:stylesheet 
+<xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
   version="1.0">
@@ -9,6 +9,14 @@
   <xsl:param name="double.sided" select="1"></xsl:param>
   <xsl:param name="variablelist.as.blocks" select="1"></xsl:param>
   <xsl:param name="symbol.font.family" select="'Symbol,ZapfDingbats'"></xsl:param>
+
+  <xsl:param name="formal.title.placement">
+	figure after
+	example after
+	equation after
+	table after
+	procedure after
+  </xsl:param>
 
 <xsl:template match="menuchoice">
   <fo:inline font-family="Helvetica">
@@ -33,5 +41,5 @@
     <xsl:call-template name="inline.charseq"/>
   </fo:inline>
 </xsl:template>
-	
+
 </xsl:stylesheet>
