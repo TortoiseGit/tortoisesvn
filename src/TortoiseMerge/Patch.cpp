@@ -406,12 +406,13 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 		temppath = temppath.Right(temp.GetLength());
 		if (temp.CompareNoCase(temppath)==0)
 		{
-			if (nIndex < 0)
+			if ((nIndex < 0)&&(! temp.IsEmpty()))
 			{
 				nIndex = i;
 			}
 			else
 			{
+				m_sErrorMessage.Format(_T("The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"), temppath);
 				return FALSE;
 			}
 		} // if (temp.CompareNoCase(temppath)==0) 
@@ -492,8 +493,8 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
 						return FALSE; 
 					}
-					if ((sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0) &&
-						(sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0))
+					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0) &&
+						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0))
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
