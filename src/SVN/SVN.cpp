@@ -1274,16 +1274,17 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 {
 	svn_wc_adm_access_t *adm_access;          
 	const svn_wc_entry_t *entry;  
-	svn_boolean_t is_url = svn_path_is_url (target);
+	const char * canontarget = svn_path_canonicalize(target, pool);
+	svn_boolean_t is_url = svn_path_is_url (canontarget);
 
 	if (is_url)
-		*URL = apr_pstrdup(pool, target);
+		*URL = apr_pstrdup(pool, canontarget);
 
 	else
 	{
-		SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, target,
+		SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, canontarget,
 			FALSE, 0, pool));
-		SVN_ERR (svn_wc_entry (&entry, target, adm_access, FALSE, pool));
+		SVN_ERR (svn_wc_entry (&entry, canontarget, adm_access, FALSE, pool));
 		SVN_ERR (svn_wc_adm_close (adm_access));
 
 		*URL = entry ? entry->url : NULL;
@@ -1529,7 +1530,7 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 	const char * translatedPath = NULL;
 	preparePath(sFile);
 	CStringA temp = MakeSVNUrlOrPath(sFile);
-	const char * originPath = temp;
+	const char * originPath = svn_path_canonicalize(temp, localpool);
 	err = svn_wc_adm_probe_open2 (&adm_access, NULL, originPath, FALSE, 0, localpool);
 	if (err)
 		goto error;
