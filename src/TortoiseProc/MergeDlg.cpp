@@ -45,9 +45,9 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 CMergeDlg::~CMergeDlg()
 {
 	if (m_pLogDlg)
-		delete [] m_pLogDlg;
+		delete m_pLogDlg;
 	if (m_pLogDlg2)
-		delete [] m_pLogDlg2;
+		delete m_pLogDlg2;
 }
 
 void CMergeDlg::DoDataExchange(CDataExchange* pDX)
@@ -388,7 +388,7 @@ void CMergeDlg::OnBnClickedRevisionN1()
 void CMergeDlg::OnBnClickedFindbranchstart()
 {
 	UpdateData(TRUE);
-	if ((m_pLogDlg)&&(m_pLogDlg->IsWindowVisible()))
+	if ((m_pLogDlg)&&::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
 	CString url;
 	m_URLCombo.GetWindowText(url);
@@ -396,7 +396,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 	//now show the log dialog for the main trunk
 	if (!url.IsEmpty())
 	{
-		delete [] m_pLogDlg;
+		delete m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
 		m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
@@ -410,7 +410,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 void CMergeDlg::OnBnClickedFindbranchend()
 {
 	UpdateData(TRUE);
-	if ((m_pLogDlg2)&&(m_pLogDlg2->IsWindowVisible()))
+	if ((m_pLogDlg2)&&::IsWindow(m_pLogDlg2->GetSafeHwnd())(m_pLogDlg2->IsWindowVisible()))
 		return;
 	CString url;
 	if (m_bUseFromURL)
@@ -421,7 +421,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 	//now show the log dialog for the main trunk
 	if (!url.IsEmpty())
 	{
-		delete [] m_pLogDlg2;
+		delete m_pLogDlg2;
 		m_pLogDlg2 = new CLogDlg();
 		m_pLogDlg2->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
