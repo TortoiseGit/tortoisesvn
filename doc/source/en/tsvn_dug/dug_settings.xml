@@ -138,21 +138,41 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Close windows automatically</term>
+					<term>Progress Dialog</term>
 					<listitem>
 						<para>
-							TortoiseSVN will automatically close all progress dialogs 
-							when the action is finished without error.
+							TortoiseSVN can automatically close all progress dialogs 
+							when the action is finished without error. This setting
+							allows you to select the conditions for closing the
+							dialogs. The default (recommended) setting is
+							<literal>Close manually</literal>
+							which allows you to review all messages and check what
+							has happened. However, you may decide that you want to
+							ignore some types of message and have the dialog
+							close automatically if there are no critical changes.
 						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Don't close on conflicts</term>
-					<listitem>
 						<para>
-							Automatic window closing is suppressed if there were
-							conflicts during an update. This option is highly
-							recommended to avoid missing conflict reports.
+							<literal>Auto-close if no merges, adds or deletes</literal>
+							means that the progress dialog will close if there were
+							simple updates, but if changes from the repository were
+							merged with yours, or if any files were added or deleted,
+							the dialog will remain open.
+						</para>
+						<para>
+							<literal>Auto-close if no conflicts</literal>
+							relaxes the criteria further and will close the dialog
+							even if there were merges, adds or deletes. However,
+							if there were any conflicts or errors, the dialog
+							remains open.
+						</para>
+						<para>
+							<literal>Auto-close if no errors</literal>
+							always closes the dialog even if there were conflicts.
+							The only condition that keeps the dialog open is an
+							error condition, which occurs when subversion is unable
+							to complete the task. For example, an update fails
+							because the server is inaccessible, or a commit fails
+							because the working copy is out-of-date.
 						</para>
 					</listitem>
 				</varlistentry>
