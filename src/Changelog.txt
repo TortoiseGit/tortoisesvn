@@ -1,3 +1,4 @@
+
 - BUG: Explorer could crash when doing a column sort
        on really big working copies. Thanks a lot
        to Lübbe for helping in finding this bug. (Stefan)
@@ -11,6 +12,10 @@
        the dialog. This was a user request. (Stefan)
 - ADD: New right-drag command to copy files/folders
        inside a working copy. (Stefan)
+- ADD: Ask the user for external programs if none
+       is specified in the settings. Also if no WinDiff
+       like program is found do a unified diff and show
+       that in a text-editor. (Stefan)
 
 Version 0.17
 - BUG: the "Add" and "Add to ignore list" commands were

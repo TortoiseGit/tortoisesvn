@@ -138,7 +138,7 @@ void CSetMainPage::OnBnClickedExtmergebrowse()
 	ofn.nMaxFileTitle = 0;
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
-	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
+	temp.LoadString(IDS_SETTINGS_SELECTMERGE);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
 

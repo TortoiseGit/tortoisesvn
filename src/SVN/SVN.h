@@ -409,6 +409,7 @@ public:
 	{
 		REV_HEAD = -1,
 		REV_BASE = -2,
+		REV_WC = -3,
 	};
 private:
 	svn_auth_baton_t *			auth_baton;

@@ -530,6 +530,11 @@ BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOO
 		revEnd.kind = svn_opt_revision_base;
 		revision2 = 0;
 	}
+	else if (revision2 == REV_WC)
+	{
+		revEnd.kind = svn_opt_revision_working;
+		revision2 = 0;
+	}
 	else
 	{
 		revEnd.kind = svn_opt_revision_number;
@@ -904,6 +909,11 @@ svn_opt_revision_t*	SVN::getRevision (long revNumber)
 	else if (revNumber == SVN::REV_BASE)
 	{
 		rev.kind = svn_opt_revision_base;
+		revNumber = 0;
+	}
+	else if (revNumber == SVN::REV_WC)
+	{
+		rev.kind = svn_opt_revision_working;
 		revNumber = 0;
 	}
 	else

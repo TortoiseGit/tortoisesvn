@@ -19,7 +19,7 @@
 #include "StdAfx.h"
 #include "resource.h"
 #include "utils.h"
-
+#include "afxdlgs.h"
 #include "MessageBox.h"
 
 CUtils::CUtils(void)
@@ -72,7 +72,7 @@ CString CUtils::GetDiffPath()
 					diffpath.Left(diffpath.ReverseFind('\\'));
 					diffpath += _T("\\Tools\\Bin\\WinDiff.exe");
 				}
-			} // if (vs == "")
+			} // if (static_cast<CString>(vs).IsEmpty())
 		}
 		else
 		{
@@ -92,6 +92,39 @@ CString CUtils::GetDiffPath()
 		if (!PathFileExists((LPCTSTR)diffpath))
 			diffpath = "";
 	}
+	if (static_cast<CString>(diffpath).IsEmpty())
+	{
+		//no diff program found, so tell this to the user and
+		//ask for one
+		OPENFILENAME ofn;		// common dialog box structure
+		TCHAR szFile[MAX_PATH];  // buffer for file name
+		ZeroMemory(szFile, sizeof(szFile));
+		// Initialize OPENFILENAME
+		ZeroMemory(&ofn, sizeof(OPENFILENAME));
+		//ofn.lStructSize = sizeof(OPENFILENAME);
+		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFile;
+		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		CString temp;
+		temp.LoadString(IDS_SETTINGS_SELECTDIFF);
+		ofn.lpstrTitle = temp;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+		// Display the Open dialog box. 
+
+		if (GetOpenFileName(&ofn)==TRUE)
+		{
+			diffpath = CString(ofn.lpstrFile);
+			diffexe = diffpath;
+		}
+
+	}
 	return diffpath;
 }
 
@@ -101,6 +134,37 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
 	com = regCom;
 	
+	if (com.IsEmpty())
+	{
+		OPENFILENAME ofn;		// common dialog box structure
+		TCHAR szFile[MAX_PATH];  // buffer for file name
+		ZeroMemory(szFile, sizeof(szFile));
+		// Initialize OPENFILENAME
+		ZeroMemory(&ofn, sizeof(OPENFILENAME));
+		//ofn.lStructSize = sizeof(OPENFILENAME);
+		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFile;
+		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		CString temp;
+		temp.LoadString(IDS_SETTINGS_SELECTMERGE);
+		ofn.lpstrTitle = temp;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+		// Display the Open dialog box. 
+
+		if (GetOpenFileName(&ofn)==TRUE)
+		{
+			com = CString(ofn.lpstrFile);
+			regCom = com;
+		}
+	}
+
 	TCHAR buf[MAX_PATH];
 	_tcscpy(buf, basefile);
 	PathQuoteSpaces(buf);

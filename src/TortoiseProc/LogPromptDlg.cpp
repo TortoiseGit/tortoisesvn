@@ -222,6 +222,23 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			LocalFree( lpMsgBuf );
 		} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 	} // if (diffpath != "")
+	else
+	{
+		//there's no diff program available!
+		//as a workaround, perform a unified diff of the two files
+		//and show that to the user
+		SVN svn;
+		CString tempfile = CUtils::GetTempFile();
+		tempfile += _T(".diff");
+		if (!svn.Diff(path1, SVN::REV_BASE, path1, SVN::REV_WC, FALSE, FALSE, TRUE, _T(""), tempfile))
+		{
+			DeleteFile(tempfile);
+		}
+		else
+		{
+			CUtils::StartDiffViewer(tempfile);
+		}
+	}
 }
 
 void CLogPromptDlg::OnOK()
