@@ -676,13 +676,8 @@ bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFor
 	startup.cb = sizeof(startup);
 	memset(&process, 0, sizeof(process));
 
-	//remove possible double quotes
-	//(depends on if the user added them in the settings him/herself or not)
 	CString cleanCommandLine(sCommandLine);
-	while (cleanCommandLine.Replace(_T("\"\""), _T("\"")) > 0)
-	{
-		;
-	}
+
 	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)cleanCommandLine), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 	{
 		if(idErrMessageFormat != 0)
@@ -704,7 +699,7 @@ bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFor
 			LocalFree( lpMsgBuf );
 		}
 		return false;
-	} // if (CreateProcess(NULL /*(LPCTSTR)cleanCommandLine*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+	}
 
 	if (bWaitForStartup)
 	{
