@@ -41,7 +41,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_endrev(0),
 	m_logcounter(0),
 	m_bStrict(FALSE),
-	m_nSearchIndex(0)
+	m_nSearchIndex(0),
+	m_wParam(0)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -1417,8 +1418,8 @@ void CLogDlg::OnOK()
 				if (higherRev < rev)
 					higherRev = rev;
 			}
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, 0, lowerRev);
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, 1, higherRev);
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam, lowerRev);
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam, higherRev);
 		}
 	}
 }

@@ -401,6 +401,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
+		m_pLogDlg->m_wParam = (m_bUseFromURL ? 3 : 1);
 		m_pLogDlg->m_pNotifyWindow = this;
 	}
 	AfxGetApp()->DoWaitCursor(-1);
@@ -425,6 +426,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
+		m_pLogDlg2->m_wParam = (m_bUseFromURL ? 3 : 2);
 		m_pLogDlg2->m_pNotifyWindow = this;
 	}
 	AfxGetApp()->DoWaitCursor(-1);
@@ -433,7 +435,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
 {
 	CString temp;
-	if (wParam == 0)
+	if ((wParam == 1)||(wParam == 3))
 	{
 		lParam--;
 		temp.Format(_T("%ld"), lParam);
@@ -441,7 +443,7 @@ LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 		GetDlgItem(IDC_REVISION_START)->EnableWindow(TRUE);
 	}
-	else
+	if ((wParam == 2)||(wParam == 3))
 	{
 		temp.Format(_T("%ld"), lParam);
 		GetDlgItem(IDC_REVISION_END)->SetWindowText(temp);
