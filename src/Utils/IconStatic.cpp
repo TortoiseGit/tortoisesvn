@@ -112,25 +112,29 @@ bool CIconStatic::Init(UINT nIconID)
 					} // if (hTheme)
 				} // if (pfnOpenThemeData) 
 			} // if ((*pfnIsAppThemed)()) 
-			else
-			{
-				MemDC.FillSolidRect(rCaption, GetSysColor(COLOR_BTNFACE));
-				
-				DrawState( MemDC.m_hDC, NULL, NULL,
-					(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
-					NULL, 3, 0, 16, 16, DST_ICON | DSS_NORMAL);
-
-				rCaption.left += 22;
-			}
 		} // if (pfnIsAppThemed)
 		else
 		{
+			MemDC.FillSolidRect(rCaption, GetSysColor(COLOR_BTNFACE));
+
+			DrawState( MemDC.m_hDC, NULL, NULL,
+				(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
+				NULL, 3, 0, 16, 16, DST_ICON | DSS_NORMAL);
+
+			rCaption.left += 22;
 			MemDC.SetTextColor(pDC->GetTextColor());
 			MemDC.DrawText(m_strText, rCaption, DT_SINGLELINE | DT_LEFT | DT_END_ELLIPSIS);
 		}
 	} // if (hThemeDll)
 	else
 	{
+		MemDC.FillSolidRect(rCaption, GetSysColor(COLOR_BTNFACE));
+
+		DrawState( MemDC.m_hDC, NULL, NULL,
+			(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
+			NULL, 3, 0, 16, 16, DST_ICON | DSS_NORMAL);
+
+		rCaption.left += 22;
 		MemDC.SetTextColor(pDC->GetTextColor());
 		MemDC.DrawText(m_strText, rCaption, DT_SINGLELINE | DT_LEFT | DT_END_ELLIPSIS);
 	}
