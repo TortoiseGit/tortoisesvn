@@ -116,12 +116,23 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				ItemIDList parent( GetPIDLFolder (cida));
 
 				int count = cida->cidl;
+				TCHAR buf[MAX_PATH+1];
 				for (int i = 0; i < count; ++i)
 				{
 					ItemIDList child (GetPIDLItem (cida, i), &parent);
 					stdstring str = child.toString();
 					if (str.empty() == false)
 					{
+						//check if our menu is requested for a subversion admin directory
+						_tcscpy(buf, str.c_str());
+						TCHAR * lastpart = NULL;
+						if ((lastpart = _tcsrchr(buf, '\\'))!=0)
+						{
+							*lastpart++ = 0;
+							if (_tcscmp(lastpart, _T(SVN_WC_ADM_DIR_NAME))==0)
+								continue;
+						}
+
 						files_.push_back(str);
 						//get the Subversion status of the item
 						svn_wc_status_kind status = svn_wc_status_unversioned;
@@ -146,7 +157,6 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					}
 				} // for (int i = 0; i < count; ++i)
 				ItemIDList child (GetPIDLItem (cida, 0), &parent);
-				TCHAR buf[MAX_PATH+1];
 				_tcsncpy(buf, child.toString().c_str(), MAX_PATH);
 				TCHAR * ptr = _tcsrchr(buf, '\\');
 				if (ptr != 0)
