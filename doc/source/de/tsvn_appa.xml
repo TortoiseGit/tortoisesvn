@@ -694,8 +694,26 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			dies aber tun.
 			</para>
 			<para>
-			Um Fragen, welche uns alle paar Wochen immer wieder gestellt
-			werden ein für allemal zu Beantworten:
+			Dieser Bug betrifft jedoch nur Web Projekte, was nicht dasselbe ist
+			wie ASP.NET Projekte. Normalerweise, wenn Sie ein ASP.NET Projekt
+			erstellen wählen Sie ein Web Projekt. Aber Sie können auch ein ASP.NET
+			Projekt als Class Projekt erstellen (oder konvertieren). Mit einigen
+			kleinen Änderungen an den Einstellungen werden Sie den Unterschied
+			kaum bemerken, und Sie können TortoiseSVN und Subversion mit den
+			<filename>.svn</filename> Ordnern ohne Probleme benutzen.
+			</para>
+			<para>
+			Ein wirklich guter Blog-Eintrag welcher Ihnen bei der Konvertierung
+			Ihres ASP.NET Web Projektes in ein ASP.NET Class Projekt hilft 
+			können Sie  <ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
+			hier</ulink> finden. Wenn Sie den Anweisungen folgen, werden Sie
+			VS.NET mit ASP.NET Projekten ohne Probleme mit Subversion benutzen
+			können.
+			</para>
+ 			<para>
+ 			Falls Sie dennoch TortoiseSVN mit Web Projekten verwenden wollen
+ 			haben wir hier ein paar Antworten auf Fragen für Sie, welche uns
+ 			alle paar Wochen wieder und wieder gestellt werden:
 			<variablelist>
 				<varlistentry>
 					<term>Sie müssen dies in Subversion korrigieren!</term>

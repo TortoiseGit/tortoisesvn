@@ -694,8 +694,24 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Windows can handle such folders very well, you just can't create them
 			with the explorer.
 			</para>
-			<para>
-			To answer the questions we face every few weeks once and for all:
+			<para>However, this bug applies only when you use web projects, 
+			which is not the same as ASP.NET projects. Usually, when you want to
+			create an ASP.NET project, you choose to create a web project. But 
+			you can create or convert an ASP.NET project as a class project. 
+			With some minor tweaking, you won't notice the difference, and you 
+			then can use TortoiseSVN and SVN with <filename>.svn</filename> 
+			folders without problems.
+			</para>
+			<para>There is a really good blog post that helps you to convert 
+			your ASP.NET web projects to ASP.NET class project. You can find it
+			<ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
+			here</ulink>. If you follow those instructions, you'll have a
+			VS.NET working with ASP.NET projects and Subversion without troubles.
+			</para>
+ 			<para>
+			If you still want to use TortoiseSVN with web projects, these are
+			the questions we face every few weeks and here you are the answers 
+			once and for all:
 			<variablelist>
 				<varlistentry>
 					<term>You need to fix this in Subversion!</term>
