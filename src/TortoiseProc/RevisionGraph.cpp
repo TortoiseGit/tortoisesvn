@@ -259,14 +259,16 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 	return FALSE;
 }
 
-BOOL CRevisionGraph::AnalyzeRevisions(const CStringA& url, LONG startrev, LONG endrev)
+BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 {
+#define TRACELEVELSPACE {for (int traceloop = 1; traceloop < m_nRecurseLevel; traceloop++) TRACE(_T(" "));}
 	LONG forward = 1;
 	if (startrev > endrev)
 		forward = -1;
 	if ((startrev > m_lHeadRevision)||(endrev > m_lHeadRevision))
 		return TRUE;
 	m_nRecurseLevel++;
+	TRACELEVELSPACE;
 	TRACE(_T("Analyzing %s from %ld to %ld - recurse level %d\n"), (LPCTSTR)CString(url), startrev, endrev, m_nRecurseLevel);
 	for (long currentrev=startrev; currentrev!=endrev; currentrev += forward)
 	{
@@ -297,39 +299,118 @@ BOOL CRevisionGraph::AnalyzeRevisions(const CStringA& url, LONG startrev, LONG e
 				{
 					if (strcmp(key, url)==0)
 					{
-						if (val->action != 'M')
+						CRevisionEntry * reventry = new CRevisionEntry();
+						reventry->revision = currentrev;
+						reventry->author = logentry->author;
+						reventry->date = logentry->time;
+						reventry->message = logentry->msg;
+						reventry->url = key;
+						reventry->action = val->action;
+						reventry->level = m_nRecurseLevel;
+						if (val->copyfrom_path)
 						{
-							CRevisionEntry * reventry = new CRevisionEntry();
-							reventry->revision = currentrev;
-							reventry->author = logentry->author;
-							reventry->date = logentry->time;
-							reventry->message = logentry->msg;
-							reventry->url = key;
-							reventry->action = val->action;
-							reventry->level = m_nRecurseLevel;
-							if (val->copyfrom_path)
+							reventry->pathfrom = val->copyfrom_path;
+							reventry->revisionfrom = val->copyfrom_rev;
+						}
+						else
+						{
+							reventry->pathfrom = NULL;
+							reventry->revisionfrom = 0;
+						}
+						m_arEntryPtrs.Add(reventry);
+						TRACELEVELSPACE;
+						TRACE("revision entry(1): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
+						if ((val->action == 'R')||(val->action == 'A'))
+						{
+							if ((val->action == 'A')&&(val->copyfrom_path))
 							{
-								reventry->pathfrom = val->copyfrom_path;
-								reventry->revisionfrom = val->copyfrom_rev;
+								// the file/folder was copied to here
+								// before now checking the source of the copy too, check
+								// if the copy was actually a rename operation
+								bool bRenamed = false;
+								apr_hash_index_t* hashindex;
+								for (hashindex = apr_hash_first (pool, logentry->ch_paths); hashindex; hashindex = apr_hash_next (hashindex))
+								{
+									const char * subkey;
+									svn_log_changed_path_t *subval;
+									apr_hash_this(hashindex, (const void**)&subkey, NULL, (void**)&subval);
+									if (subval->action == 'D')
+									{
+										if (strcmp(subkey, val->copyfrom_path)==0)
+										{
+											// yes! We're renamed, not added
+											url = subkey;
+											startrev = currentrev;
+											bRenamed = true;
+											break;
+										}
+									}
+								}
+								if (bRenamed)
+								{
+									url = val->copyfrom_path;
+									startrev = currentrev;
+								}
+								else
+								{
+									// get all the information from that source too.
+									AnalyzeRevisions(val->copyfrom_path, currentrev-1, 1);
+								}
 							}
 							else
 							{
-								reventry->pathfrom = NULL;
-								reventry->revisionfrom = 0;
+								if (val->action == 'R')
+								{
+									// means we got renamed here. So from this revision on, we have
+									// a different name/url
+									url = val->copyfrom_path;
+									startrev = currentrev;
+								}
+								else
+								{	
+									// val->action == 'A' but without a copyfrom_path
+									// that means we're 'born' here. So stop analyzing.
+									m_nRecurseLevel--;
+									return TRUE;									
+								}
 							}
-							m_arEntryPtrs.Add(reventry);
-							TRACE("revision entry(1): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-							if ((val->action != 'D')&&(val->copyfrom_path))
+						}
+						else if (val->action == 'D')
+						{
+							// we got removed. Now that doesn't necessarily mean
+							// that we have to stop analyzing: we also could be
+							// just renamed/moved.
+							// To find that out, we have to check if there's an "Add"
+							// in the same revision which has a 'copyfrom' with our name
+							
+							bool bRenamed = false;
+							apr_hash_index_t* hashindex;
+							for (hashindex = apr_hash_first (pool, logentry->ch_paths); hashindex; hashindex = apr_hash_next (hashindex))
 							{
-								// the file/folder was copied to here
-								// so we have to get all the information from that source too.
-								AnalyzeRevisions(val->copyfrom_path, currentrev-1, startrev);
+								const char * key;
+								svn_log_changed_path_t *val;
+								apr_hash_this(hashindex, (const void**)&key, NULL, (void**)&val);
+								if (val->copyfrom_path)
+								{
+									if (strcmp(val->copyfrom_path, url)==0)
+									{
+										// yes! We're renamed, not deleted
+										url = val->copyfrom_path;
+										startrev = currentrev;
+										bRenamed = true;
+										break;
+									}
+								}
+							}
+							if (bRenamed == false)
+							{
+								m_nRecurseLevel--;
+								return TRUE;
 							}
 						}
 					}
-					else if (val->action != 'M')
+					else if ((val->action == 'R')||(val->action == 'A'))
 					{
-						//the parent got moved, and therefore we too
 						const char * self = apr_pstrdup(pool, val->copyfrom_path);
 						const char * child = url;
 						child += strlen(key);
@@ -353,14 +434,131 @@ BOOL CRevisionGraph::AnalyzeRevisions(const CStringA& url, LONG startrev, LONG e
 							reventry->revisionfrom = 0;
 						}
 						m_arEntryPtrs.Add(reventry);
-						if ((val->action != 'D')&&(val->copyfrom_path))
+						TRACELEVELSPACE;
+						TRACE("revision entry(2): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
+						// the parent got moved. Now that doesn't necessarily mean
+						// that we have to stop analyzing: The parent also could be
+						// just renamed/moved.
+						// To find that out, we have to check if there's an "Add"
+						// in the same revision which has a 'copyfrom' with the parents name
+						if ((val->action == 'A')&&(val->copyfrom_path))
 						{
-							TRACE("revision entry(2): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-							AnalyzeRevisions(self, currentrev-1, startrev);
+							bool bRenamed = false;
+							apr_hash_index_t* hashindex;
+							for (hashindex = apr_hash_first (pool, logentry->ch_paths); hashindex; hashindex = apr_hash_next (hashindex))
+							{
+								const char * subkey;
+								svn_log_changed_path_t *subval;
+								apr_hash_this(hashindex, (const void**)&subkey, NULL, (void**)&subval);
+								if (subval->action == 'D')
+								{
+									if (IsParentOrItself(subkey, val->copyfrom_path))
+									{
+										// yes! We're renamed, not added
+										const char * self = apr_pstrdup(pool, subkey);
+										const char * child = url;
+										child += strlen(val->copyfrom_path);
+										self = apr_pstrcat(pool, self, child, 0);
+										url = self;
+										startrev = currentrev;
+										bRenamed = true;
+										break;
+									}
+								}
+							}
+							if (bRenamed)
+							{
+								url = self;
+								startrev = currentrev;
+							}
+							else
+							{
+								// get all the information from that source too.
+								AnalyzeRevisions(self, currentrev-1, 1);
+							}
+						}
+						else
+						{
+							if (val->action == 'R')
+							{
+								// means we got renamed here. So from this revision on, we have
+								// a different name/url
+								url = self;
+								startrev = currentrev;
+							}
+							else
+							{	
+								// val->action == 'A' but without a copyfrom_path
+								// that means we're 'born' here. So stop analyzing.
+								m_nRecurseLevel--;
+								return TRUE;									
+							}
+						}
+					}
+					else if (val->action == 'D')
+					{
+						CRevisionEntry * reventry = new CRevisionEntry();
+						reventry->revision = currentrev;
+						reventry->author = logentry->author;
+						reventry->date = logentry->time;
+						reventry->message = logentry->msg;
+						reventry->url = apr_pstrdup(pool, url);
+						reventry->action = val->action;
+						reventry->level = m_nRecurseLevel;
+						if (val->copyfrom_path)
+						{
+							const char * self = apr_pstrdup(pool, val->copyfrom_path);
+							const char * child = url;
+							child += strlen(key);
+							self = apr_pstrcat(pool, self, child, 0);
+							reventry->pathfrom = self;
+							reventry->revisionfrom = val->copyfrom_rev;
+						}
+						else
+						{
+							reventry->pathfrom = NULL;
+							reventry->revisionfrom = 0;
+						}
+						m_arEntryPtrs.Add(reventry);
+						TRACELEVELSPACE;
+						TRACE("revision entry(3): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
+						// we got removed. Now that doesn't necessarily mean
+						// that we have to stop analyzing: we also could be
+						// just renamed/moved.
+						// To find that out, we have to check if there's an "Add"
+						// in the same revision which has a 'copyfrom' with our name
+
+						bool bRenamed = false;
+						apr_hash_index_t* hashindex;
+						for (hashindex = apr_hash_first (pool, logentry->ch_paths); hashindex; hashindex = apr_hash_next (hashindex))
+						{
+							const char * key;
+							svn_log_changed_path_t *val;
+							apr_hash_this(hashindex, (const void**)&key, NULL, (void**)&val);
+							if (val->copyfrom_path)
+							{
+								if (IsParentOrItself(val->copyfrom_path, url))
+								{
+									// yes! We're renamed, not deleted
+									const char * self = apr_pstrdup(pool, key);
+									const char * child = url;
+									child += strlen(val->copyfrom_path);
+									self = apr_pstrcat(pool, self, child, 0);
+									url = self;
+									startrev = currentrev;
+									bRenamed = true;
+									break;
+								}
+							}
+						}
+						if (bRenamed == false)
+						{
+							m_nRecurseLevel--;
+							return TRUE;
 						}
 					}
 				}
-				else
+				else // if (IsParentOrItself(key, url))
 				{
 					if (val->copyfrom_path)
 					{
@@ -390,8 +588,9 @@ BOOL CRevisionGraph::AnalyzeRevisions(const CStringA& url, LONG startrev, LONG e
 								reventry->revisionfrom = 0;
 							}
 							m_arEntryPtrs.Add(reventry);
-							TRACE("revision entry(3): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-							AnalyzeRevisions(self, currentrev+1, m_lHeadRevision);
+							TRACELEVELSPACE;
+							TRACE("revision entry(4): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
+							AnalyzeRevisions(self, currentrev+1, startrev > endrev ? startrev : endrev);
 						}
 					}
 				}

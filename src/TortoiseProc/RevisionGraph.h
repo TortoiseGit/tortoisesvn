@@ -110,7 +110,7 @@ public:
 
 private:
 	BOOL						GetRepositoryRoot(CStringA& url);
-	BOOL						AnalyzeRevisions(const CStringA& url, LONG startrev, LONG endrev);
+	BOOL						AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev);
 	BOOL						CheckForwardCopies();
 	BOOL						IsParentOrItself(const char * parent, const char * child) const;
 	static int __cdecl			SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
