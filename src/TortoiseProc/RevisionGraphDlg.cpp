@@ -1051,23 +1051,27 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 			Bitmap bitmap(hbm, NULL);
 
 			// Get the CLSID of the encoder.
+			int ret = 0;
 			if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
-				GetEncoderClsid(L"image/png", &encoderClsid);
+				ret = GetEncoderClsid(L"image/png", &encoderClsid);
 			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
-				GetEncoderClsid(L"image/jpeg", &encoderClsid);
+				ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
 			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
-				GetEncoderClsid(L"image/jpeg", &encoderClsid);
+				ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
 			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
-				GetEncoderClsid(L"image/bmp", &encoderClsid);
+				ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
 			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
-				GetEncoderClsid(L"image/gif", &encoderClsid);
+				ret = GetEncoderClsid(L"image/gif", &encoderClsid);
 			else
 			{
 				tempfile += _T(".jpg");
-				GetEncoderClsid(L"image/jpeg", &encoderClsid);
+				ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
 			}
-			CStringW tfile = CStringW(tempfile);
-			bitmap.Save(tfile, &encoderClsid, NULL);
+			if (ret >= 0)
+			{
+				CStringW tfile = CStringW(tempfile);
+				bitmap.Save(tfile, &encoderClsid, NULL);
+			}
 		}   
 		GdiplusShutdown(gdiplusToken);
 		dc.SelectObject(oldbm);
