@@ -2,6 +2,7 @@
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
 #include "MessageBox.h"
+#include "Utils.h"
 
 CTSVNPath::CTSVNPath(void) :
 	m_bDirectoryKnown(false),
@@ -76,7 +77,7 @@ const CString& CTSVNPath::GetSVNPathString() const
 }
 
 
-const char* CTSVNPath::GetSVNPathNarrow() const
+const char* CTSVNPath::GetSVNApiPath() const
 {
 	if(m_sFwdslashPath.IsEmpty())
 	{
@@ -85,6 +86,13 @@ const char* CTSVNPath::GetSVNPathNarrow() const
 	if(m_sUTF8FwdslashPath.IsEmpty())
 	{
 		SetUTF8FwdslashPath(m_sFwdslashPath);
+	}
+	if (svn_path_is_url(m_sUTF8FwdslashPath))
+	{
+		if (!CUtils::IsEscaped(m_sUTF8FwdslashPath))
+		{
+			return CUtils::PathEscape(m_sUTF8FwdslashPath);
+		}
 	}
 	return m_sUTF8FwdslashPath;
 }

@@ -71,9 +71,10 @@ public:
 	 */
 	const CString& GetSVNPathString() const;
 	/**
-	 * Returns the path with forward slashes in UTF8 format.
+	 * Returns the path completely prepared to be fed the the SVN APIs
+	 * It will be in UTF8, with URLs escaped, if necessary
 	 */
-	const char* GetSVNPathNarrow() const;
+	const char* GetSVNApiPath() const;
 	/**
 	 * Returns true if the path points to a directory
 	 */

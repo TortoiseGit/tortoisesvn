@@ -638,7 +638,7 @@ void SVNStatus::SetFilter(const CTSVNPathList& fileList)
 	m_filterFileList.clear();
 	for(int fileIndex = 0; fileIndex < fileList.GetCount(); fileIndex++)
 	{
-		m_filterFileList.push_back(fileList[fileIndex].GetSVNPathNarrow());
+		m_filterFileList.push_back(fileList[fileIndex].GetSVNApiPath());
 	}
 	// Sort the list so that we can do binary searches
 	std::sort(m_filterFileList.begin(), m_filterFileList.end());

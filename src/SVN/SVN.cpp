@@ -309,7 +309,7 @@ BOOL SVN::Revert(CString path, BOOL recurse)
 
 BOOL SVN::Add(const CTSVNPath& path, BOOL recurse, BOOL force)
 {
-	Err = svn_client_add2 (MakeSVNUrlOrPath(path.GetSVNPathString()), recurse, force, &m_ctx, pool);
+	Err = svn_client_add2 (path.GetSVNApiPath(), recurse, force, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -1707,7 +1707,17 @@ void SVN::UpdateShell(CString path)
 				temp = path;
 
 			temp.Replace('/', '\\');
-			SHChangeNotify(SHCNE_UPDATEITEM | SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, temp, NULL);
+			// WGD: There seems to be a great disparity between the documentation for SHChangeNotify 
+			// and the reality.  We used to make one call, with (SHCNE_UPDATEITEM | SHCNE_UPDATEDIR) as
+			// the first parameter.  Personally, I've *never* found that to work, at all.
+			// Very careful experimentation lead me to believe that one should call with *just*
+			// SHCNE_UPDATEITEM, even if the item which has changed is a folder.
+			// Anyway, I can think of no logical reason why making two calls should be *worse*
+			// than making one with the two flags combined, I think splitting the flags into 
+			// two calls is better
+			// It has the additional merit of actually working on my XP machines...
+			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, temp, NULL);
+			SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, temp, NULL);
 			path = path.Mid(pos+1);
 		} while (pos >= 0);
 	}
