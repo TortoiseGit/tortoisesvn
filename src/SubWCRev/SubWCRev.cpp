@@ -41,12 +41,12 @@ int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 		sprintf(destbuf, "%Ld", rev);
 		if (strlen(def) > strlen(destbuf))
 		{
-			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - (pBuf - pBuild));
+			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - abs(pBuf - pBuild));
 			filelength = filelength - (strlen(def)-strlen(destbuf));
 		}
 		else if (strlen(def) < strlen(destbuf))
 		{
-			memmove(pBuild+strlen(destbuf)-strlen(def),pBuild, filelength - (pBuf - pBuild));
+			memmove(pBuild+strlen(destbuf)-strlen(def),pBuild, filelength - abs(pBuf - pBuild));
 			filelength = filelength + (strlen(destbuf)-strlen(def));
 		}
 		memmove(pBuild, destbuf, strlen(destbuf));
