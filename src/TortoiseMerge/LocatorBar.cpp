@@ -179,6 +179,8 @@ void CLocatorBar::OnPaint()
 		linecount += identcount;
 	} // for (int i=0; i<m_arLeft.GetCount(); i++) 
 
+	if (m_nLines == 0)
+		m_nLines = 1;
 	cacheDC.FillSolidRect(rect.left, rect.Height()*nTopLine/m_nLines,
 		rect.Width(), 2, RGB(0,0,0));
 	cacheDC.FillSolidRect(rect.left, rect.Height()*nBottomLine/m_nLines,
