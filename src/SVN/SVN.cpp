@@ -311,7 +311,7 @@ BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision, CString logmsg)
 	return TRUE;
 }
 
-BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message)
+BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, LONG rev)
 {
 	preparePath(srcPath);
 	preparePath(destPath);
@@ -320,7 +320,7 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message)
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_move (&commit_info,
 							CUnicodeUtils::GetUTF8(srcPath),
-							getRevision (-1),
+							getRevision (rev),
 							CUnicodeUtils::GetUTF8(destPath),
 							force,
 							&ctx,

@@ -201,7 +201,7 @@ public:
 	 * \param revision 
 	 * \param force 
 	 */
-	BOOL Move(CString srcPath, CString destPath, BOOL force, CString message = _T(""));
+	BOOL Move(CString srcPath, CString destPath, BOOL force, CString message = _T(""), LONG rev = SVN::REV_HEAD);
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the
