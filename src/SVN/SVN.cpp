@@ -1726,9 +1726,8 @@ BOOL SVN::PathIsURL(const CString& path)
 void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt)
 {
 	date_native[0] = '\0';
-	__time64_t ttime = date_svn/1000000L;
-
-	struct tm * newtime;
+	apr_time_exp_t exploded_time = {0};
+	
 	SYSTEMTIME systime;
 	TCHAR timebuf[MAX_PATH];
 	TCHAR datebuf[MAX_PATH];
@@ -1736,38 +1735,31 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
 	locale = MAKELCID(locale, SORT_DEFAULT);
 
-	newtime = _localtime64(&ttime);
-
-	if (newtime)
+	apr_time_exp_gmt (&exploded_time, date_svn);
+	
+	systime.wDay = (WORD)exploded_time.tm_mday;
+	systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
+	systime.wHour = (WORD)exploded_time.tm_hour;
+	systime.wMilliseconds = (WORD)(exploded_time.tm_usec/1000);
+	systime.wMinute = (WORD)exploded_time.tm_min;
+	systime.wMonth = (WORD)exploded_time.tm_mon+1;
+	systime.wSecond = (WORD)exploded_time.tm_sec;
+	systime.wYear = (WORD)exploded_time.tm_year+1900;
+	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
 	{
-		systime.wDay = (WORD)newtime->tm_mday;
-		systime.wDayOfWeek = (WORD)newtime->tm_wday;
-		systime.wHour = (WORD)newtime->tm_hour;
-		systime.wMilliseconds = 0;
-		systime.wMinute = (WORD)newtime->tm_min;
-		systime.wMonth = (WORD)newtime->tm_mon+1;
-		systime.wSecond = (WORD)newtime->tm_sec;
-		systime.wYear = (WORD)newtime->tm_year+1900;
-		if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
-		{
-			GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PATH);
-			GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
-			_tcsncat(date_native, datebuf, MAX_PATH);
-			_tcsncat(date_native, _T(" "), MAX_PATH);
-			_tcsncat(date_native, timebuf, MAX_PATH);
-		}
-		else
-		{
-			GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
-			GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
-			_tcsncat(date_native, timebuf, MAX_PATH);
-			_tcsncat(date_native, _T(", "), MAX_PATH);
-			_tcsncat(date_native, datebuf, MAX_PATH);
-		}
+		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PATH);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+		_tcsncat(date_native, datebuf, MAX_PATH);
+		_tcsncat(date_native, _T(" "), MAX_PATH);
+		_tcsncat(date_native, timebuf, MAX_PATH);
 	}
 	else
 	{
-		date_native[0] = 0;
+		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+		_tcsncat(date_native, timebuf, MAX_PATH);
+		_tcsncat(date_native, _T(", "), MAX_PATH);
+		_tcsncat(date_native, datebuf, MAX_PATH);
 	}
 }
 
