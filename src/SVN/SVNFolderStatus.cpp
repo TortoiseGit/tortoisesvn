@@ -256,6 +256,7 @@ int SVNFolderStatus::IsCacheValid(LPCTSTR filename)
 	{
 		if ((m_pStatusCache[i-SVNFOLDERSTATUS_FOLDER].askedcounter > 0)&&((GetTickCount() - m_TimeStamp) < GetTimeoutValue()))
 			return i;
+		return -1;
 	} // if (i>=0)
 	if ((i>=0)&&(m_FolderCache[i].askedcounter > 0)&&((GetTickCount() - m_TimeStamp) < GetTimeoutValue()))
 		return i;
