@@ -253,6 +253,8 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 		*cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
 		(*cred)->cert_file = cert_file;
 	} // if (GetOpenFileName(&ofn)==TRUE) 
+	else
+		*cred = NULL;
 
 	if (svn->m_app)
 		svn->m_app->DoWaitCursor(0);
