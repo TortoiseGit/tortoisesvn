@@ -260,6 +260,11 @@
 		If you enter a folder name that does not yet exist, then a
 		directory with that name is created.
 		</para>
+		<note>
+		You can only check out into an empty directory. If you want to check out
+		a previously imported sourcetree you will have to check out into a
+		different directory or delete the existing sourcetree first.
+		</note>
 		<para>
 		It is recommended that you check out only the "trunk" part of the
 		directory tree. If you specify the parent path of the

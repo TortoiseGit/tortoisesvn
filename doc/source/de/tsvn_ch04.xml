@@ -1,29 +1,29 @@
 ﻿<chapter id="tsvn-DUG">
-	<title>Hilfe fÃ¼r die tÃ¤gliche Arbeit</title>
+	<title>Hilfe für die tägliche Arbeit</title>
 	<simplesect>
 		<para>
-			Dieses Kapitel beschreibt den tÃ¤glichen Umgang mit TortoiseSVN.
-			Es ist <emphasis>nicht</emphasis> als EinfÃ¼hrung in 
-			Versionskontrollsysteme gedacht, und auch nicht als EinfÃ¼hrung
+			Dieses Kapitel beschreibt den täglichen Umgang mit TortoiseSVN.
+			Es ist <emphasis>nicht</emphasis> als Einführung in 
+			Versionskontrollsysteme gedacht, und auch nicht als Einführung
 			in Subversion (SVN). Dies ist mehr ein Nachschlagewerk wenn Sie
-			nicht mehr genau wissen wie eine Funktion ausgefÃ¼hrt wird, sie aber
+			nicht mehr genau wissen wie eine Funktion ausgeführt wird, sie aber
 			zumindest wissen was Sie tun wollen.
 		</para>
 		<para>
-			Falls Sie eine Anleitung fÃ¼r Versionskontrolle mit Subversion
-			benÃ¶tigen, empfehlen wir das fantastische Buch
+			Falls Sie eine Anleitung für Versionskontrolle mit Subversion
+			benötigen, empfehlen wir das fantastische Buch
 			<ulink url="http://svnbook.red-bean.com/">
 				<citetitle>Subversion: The Definitive Guide</citetitle>
 			</ulink>.
 		</para>
 		<para>
-			An diesem Dokument wird stÃ¤ndig gearbeitet, wie auch an TortoiseSVN
+			An diesem Dokument wird ständig gearbeitet, wie auch an TortoiseSVN
 			und Subversion immer weitergearbeitet wird. Falls Sie Fehler 
 			feststellen, melden Sie diese an die Mailing-Liste damit wir die
-			Dokumentation aktualisieren kÃ¶nnen. Einige der Screenshots in 
+			Dokumentation aktualisieren können. Einige der Screenshots in 
 			diesem Dokument zeigen wahrscheinlich nicht den aktuellsten Stand
 			der Software. Seien Sie bitte nachsichtig. Wir arbeiten an
-			TortoiseSVN und der Dokumentation wÃ¤hrend unserer Freizeit.
+			TortoiseSVN und der Dokumentation während unserer Freizeit.
 		</para>
 		<para>
 			<itemizedlist>
@@ -59,14 +59,14 @@
 		<indexterm><primary>Kontextmenu</primary></indexterm>
 		<para>
 			<figure id="tsvn-DUG-context-dir-control">
-				<title>Kontext-Menu fÃ¼r einen Ordner unter Versionskontrolle</title>
+				<title>Kontext-Menu für einen Ordner unter Versionskontrolle</title>
 				<graphic fileref="images/ContextMenuDirControl.png"/>
 			</figure>
-		Alle Befehle von TortoiseSVN werden Ã¼ber das Kontext-Menu des Windows 
+		Alle Befehle von TortoiseSVN werden über das Kontext-Menu des Windows 
 		Exploerers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie mit
 		einem <action>Recht-Klick</action> auf eine Datei oder Ordner klicken.
-		Die vorhandenen Befehle hÃ¤ngen davon ab ob Sie auf eine Datei oder einen
-		Ordner geklickt haben oder ob der Ã¼bergeordnete Ordner unter 
+		Die vorhandenen Befehle hängen davon ab ob Sie auf eine Datei oder einen
+		Ordner geklickt haben oder ob der übergeordnete Ordner unter 
 		Versionskontrolle steht oder nicht.
 		</para>
 		<para>
@@ -93,18 +93,18 @@
 			<title>Projektarchiv Struktur</title>
 			<para>
 			Bevor Sie Daten in das Projektarchiv importieren sollten Sie sich 
-			Gedanken darÃ¼ber machen wie Sie Ihre Daten organisieren wollen.
-			Wenn Sie eines der empfohlenen Layouts verwenden werden Sie es spÃ¤ter
+			Gedanken darüber machen wie Sie Ihre Daten organisieren wollen.
+			Wenn Sie eines der empfohlenen Layouts verwenden werden Sie es später
 			viel viel einfacher haben.
 			</para>
 			<para>
 			Es gibt ein paar empfohlene Standards um die Daten innerhalb eines
 			Projektarchivs zu organisieren. Die meisten Leute erstellen einen
 			<filename>trunk</filename> Ordner welcher den Hauptast (Stamm)
-			der Entwicklung enthÃ¤lt, einen <filename>branches</filename> Ordner
-			welcher Sonder-Entwicklungszweige enthÃ¤lt und einen <filename>tags
-			</filename> Ordner, welcher markierte ZustÃ¤nde enthÃ¤lt. Wenn ein
-			Projektarchiv nur ein einziges Projekt enthÃ¤lt ist das folgende Layout
+			der Entwicklung enthält, einen <filename>branches</filename> Ordner
+			welcher Sonder-Entwicklungszweige enthält und einen <filename>tags
+			</filename> Ordner, welcher markierte Zustände enthält. Wenn ein
+			Projektarchiv nur ein einziges Projekt enthält ist das folgende Layout
 			zu empfehlen:
 			</para>
 			<screen>
@@ -113,7 +113,7 @@
 /tags
 			</screen>
 			<para>
-			Falls ein Projektarchiv jedoch mehrere Projekte enthÃ¤lt, kann das
+			Falls ein Projektarchiv jedoch mehrere Projekte enthält, kann das
 			Layout durch Verzweigungen (branch) erstellt werden:
 			</para>
 			<screen>
@@ -134,12 +134,12 @@
 /calc/tags
 			</screen>
 			<para>
-			NatÃ¼rlich kÃ¶nnen Sie diese Empfehlungen auch ignorieren. Es steht
-			Ihnen frei, ein Layout zu wÃ¤hlen welches am besten fÃ¼r Sie 
+			Natürlich können Sie diese Empfehlungen auch ignorieren. Es steht
+			Ihnen frei, ein Layout zu wählen welches am besten für Sie 
 			oder Ihr Team geeignet ist. Beachten Sie auch, dass was immer
-			fÃ¼r eine Wahl Sie treffen diese nicht fix ist. Sie kÃ¶nnen das
-			Layout spÃ¤ter immer noch reorganisieren. Weil Zweige (branches) und
-			Markierungen (tags) gewÃ¶hnliche Ordner in Subversion sind kÃ¶nnen
+			für eine Wahl Sie treffen diese nicht fix ist. Sie können das
+			Layout später immer noch reorganisieren. Weil Zweige (branches) und
+			Markierungen (tags) gewöhnliche Ordner in Subversion sind können
 			Sie diese ganz einfach mit TortoiseSVN umbenennen oder verschieben
 			wie Sie wollen.
 			</para>
@@ -153,7 +153,7 @@
 						</para>
 					</listitem>
 					<listitem>
-						<para>Erstellen Sie in diesem Ordner die gewÃ¼nschte
+						<para>Erstellen Sie in diesem Ordner die gewünschte
 						Ordnerstruktur &mdash; kopieren Sie noch keine Dateien
 						hinein!
 						</para>
@@ -169,14 +169,14 @@
 		</sect2>
 		<sect2 id="tsvn-DUG-import-2">
 			<title>Importieren</title>
-			<indexterm><primary>TemporÃ¤re Dateien</primary></indexterm>
+			<indexterm><primary>Temporäre Dateien</primary></indexterm>
 			<para>
 			Bevor Sie ein Projekt in das Projektarchiv importieren sollten Sie:
 			<orderedlist>
 					<listitem>
 						<para>
-						Alle Dateien entfernen/lÃ¶schen welche nicht unbedingt
-						fÃ¼r das Projekt notwendig sind (z.B. temporÃ¤re Dateien,
+						Alle Dateien entfernen/löschen welche nicht unbedingt
+						für das Projekt notwendig sind (z.B. temporäre Dateien,
 						Dateien welche vom Kompiler erzeugt werden wie *.obj,
 						kompilierte EXE Dateien, ...)
 						</para>
@@ -184,7 +184,7 @@
 					<listitem>
 						<para>
 						die Dateien und Ordner optimal anordnen. Obwohl es
-						auch spÃ¤ter noch immer mÃ¶glich ist die Dateien und
+						auch später noch immer möglich ist die Dateien und
 						Ordner umzubenenen oder zu verschieben ist es doch
 						empfehlenswert eine saubere Struktur schon beim
 						Importieren zu haben.
@@ -193,9 +193,9 @@
 				</orderedlist>
 			</para>
 			<para>
-			WÃ¤hlen Sie nun den <emphasis>Ã¼bergeordneten</emphasis> Ordner Ihrer
-			Ordnerstruktur im Windows Explorer und Ã¶ffnen Sie mit einem
-			<action>Rechts-Klick</action> das Kontext-Menu. WÃ¤hlen Sie den
+			Wählen Sie nun den <emphasis>übergeordneten</emphasis> Ordner Ihrer
+			Ordnerstruktur im Windows Explorer und öffnen Sie mit einem
+			<action>Rechts-Klick</action> das Kontext-Menu. Wählen Sie den
 			Befehl <guimenuitem>Importieren...</guimenuitem> worauf der 
 			folgende Dialog erscheint:
 				<figure id="tsvn-DUG-import-dia-1">
@@ -205,16 +205,16 @@
 			</para>
 			<para>
 			Geben Sie in diesem Dialog die URL Ihres Projektarchivs ein in das Sie
-			das Projekt importieren mÃ¶chten.
+			das Projekt importieren möchten.
 			</para>
 			<para>
 			Die Import-Meldung ist gedacht als Log-Meldung. Da Sie normalerweise
 			ganz zu beginn eines Projektes importieren, hat TortoiseSVN schon
-			die Meldung "erster Import" fÃ¼r Sie ausgefÃ¼llt. Sie kÃ¶nnen diese
-			Meldung jedoch nach belieben Ã¤ndern.
+			die Meldung "erster Import" für Sie ausgefüllt. Sie können diese
+			Meldung jedoch nach belieben ändern.
 			</para>
 			<para>
-				<note>Dateien, welche auf das Muster der temporÃ¤ren Dateien passen
+				<note>Dateien, welche auf das Muster der temporären Dateien passen
 				werden <emphasis>nicht</emphasis> importiert.
 				</note>
 			</para>
@@ -223,7 +223,7 @@
 			in das Projektarchiv zu importieren. Beachten Sie bitte, dass dadurch
 			Ihre Daten <emphasis>nicht</emphasis> unter Versionskontrolle
 			gestellt werden! Um eine Arbeitskopie zu erhalten, bei welcher die
-			Daten unter Versionskontrolle sind mÃ¼ssen sie diese Daten frisch
+			Daten unter Versionskontrolle sind müssen sie diese Daten frisch
 			aus dem Projektarchiv auschecken.
 			</para>
 		</sect2>
@@ -237,14 +237,14 @@
 		<indexterm><primary>checkout</primary></indexterm>
 		<?dbhh topicname="HIDD_CHECKOUT"?>
 		<para>
-		Um eine Arbeitskopie zu erhalten mÃ¼ssen Sie zunÃ¤chst eine solche aus dem
+		Um eine Arbeitskopie zu erhalten müssen Sie zunächst eine solche aus dem
 		Subversion Projektarchiv auschecken.
 		</para>
 		<para>
-		WÃ¤hlen Sie einen Ordner im Windows Explorer, wohin Sie ihre Arbeitskopie
-		haben mÃ¶chten. Ã–ffnen Sie dann mittels <action>Rechts-Klick</action> das
-		Kontext-Menu und wÃ¤hlen Sie den Befehl <guimenuitem>Auschecken...
-		</guimenuitem>, was Sie zu folgendem Dialog fÃ¼hrt:
+		Wählen Sie einen Ordner im Windows Explorer, wohin Sie ihre Arbeitskopie
+		haben möchten. Öffnen Sie dann mittels <action>Rechts-Klick</action> das
+		Kontext-Menu und wählen Sie den Befehl <guimenuitem>Auschecken...
+		</guimenuitem>, was Sie zu folgendem Dialog führt:
 			<figure id="tsvn-DUG-checkout-dia-1">
 				<title>Der Auscheck-Dialog</title>
 				<graphic fileref="images/Checkout.png"/>
@@ -252,11 +252,18 @@
 		Falls der Ordnername den Sie in diesem Dialog angeben noch nicht
 		vorhanden ist, wird dieser erstellt.
 		</para>
+		<note>
+		Sie können nur in einen leeren Ordner auschecken. Wenn Sie in einen
+		vorher importieren Ordner auschecken möchten wird Subversion eine
+		Fehlermeldung ausgeben. Sie müssen die importierten Dateien entweder
+		in einen neuen Ordner auschecken oder alle Dateien in dem vorher
+		importieren Ordner zuerst löschen.
+		</note>
 		<para>
 		Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil
-		des Projektarchivs auszuchecken. Falls Sie den Ã¼bergeordneten Pfad
+		des Projektarchivs auszuchecken. Falls Sie den übergeordneten Pfad
 		auschecken erhalten Sie den kompletten Dateibaum des Projektarchivs! So
-		kÃ¶nnen Sie sehr schnell Ihre Festplatte fÃ¼llen, da Sie z.B. fÃ¼r jede
+		können Sie sehr schnell Ihre Festplatte füllen, da Sie z.B. für jede
 		Markierung in <filename>tags</filename> eine separate Kopie der
 		Daten erhalten!
 		</para>
@@ -264,14 +271,14 @@
 			<title>Exportieren</title>
 			<indexterm><primary>exportieren</primary></indexterm>
 			<para>
-			Es kommt vor dass Sie eine Kopie Ihres Projektes mÃ¶chten, aber
+			Es kommt vor dass Sie eine Kopie Ihres Projektes möchten, aber
 			ohne die administrativen Ordner (<filename>.svn</filename>), zum
-			Beispiel weil Sie das Projekt zippen mÃ¶chten. Statt dass Sie nun
+			Beispiel weil Sie das Projekt zippen möchten. Statt dass Sie nun
 			eine Kopie von Ihrer Arbeitskopie erstellen und dann von Hand
-			alle <filename>.svn</filename> Ordner lÃ¶schen kÃ¶nnen Sie den
+			alle <filename>.svn</filename> Ordner löschen können Sie den
 			Befehl <guimenuitem>Exportieren...</guimenuitem> verwenden. Wenn
-			Sie diesen Befehl ausfÃ¼hren werden Sie nach einem Ort gefragt wo
-			Sie die Daten speichern mÃ¶chten, und Sie erhalten dann eine
+			Sie diesen Befehl ausführen werden Sie nach einem Ort gefragt wo
+			Sie die Daten speichern möchten, und Sie erhalten dann eine
 			"saubere" Kopie Ihrer Daten, ohne die <filename>.svn</filename>
 			Ordner.
 			</para>
@@ -284,13 +291,13 @@
 		<title>Status Informationen</title>
 		<indexterm><primary>Status</primary></indexterm>
 		<para>
-		WÃ¤hrend Sie an Ihrem Projekt arbeiten mÃ¼ssen Sie oft wissen, welche
-		Dateien geÃ¤nder wurden, welche Sie neu hinzugefÃ¼gt haben oder welche
-		Sie gelÃ¶scht haben, oder auch welche Dateien von anderen geÃ¤ndert
-		und zum Projektarchiv Ã¼bertragen wurden.
+		Während Sie an Ihrem Projekt arbeiten müssen Sie oft wissen, welche
+		Dateien geänder wurden, welche Sie neu hinzugefügt haben oder welche
+		Sie gelöscht haben, oder auch welche Dateien von anderen geändert
+		und zum Projektarchiv übertragen wurden.
 		</para>
 		<sect2 id="tsvn-DUG-wcstatus-1">
-			<title>Ãœberlagerte Icons</title>
+			<title>Überlagerte Icons</title>
 			<indexterm><primary>overlay</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-1">
@@ -299,57 +306,57 @@
 				</figure>
 			Nun da Sie eine frisch ausgescheckte Arbeitskopie von einem Subversion
 			Projektarchiv haben zeigt Ihnen der Explorer diese Dateien und Ordner
-			mit leicht geÃ¤nderten Icons an. Dies ist mit ein Grund weshalb
-			TortoiseSVN so populÃ¤r ist. TortoiseSVN fÃ¼gt jedem Datei/Ordnericon
-			ein kleines Ã¼berlagertes Icon hinzu. AbhÃ¤ngig vom Subversion Status
-			wird ein unterschiedliches Icon Ã¼berlagert angezeigt.
+			mit leicht geänderten Icons an. Dies ist mit ein Grund weshalb
+			TortoiseSVN so populär ist. TortoiseSVN fügt jedem Datei/Ordnericon
+			ein kleines überlagertes Icon hinzu. Abhängig vom Subversion Status
+			wird ein unterschiedliches Icon überlagert angezeigt.
 			<graphic fileref="images/InSubVersionIcon.png"/>Eine frisch ausgecheckte
-			Arbeitskopie hat nur Ã¼berlagerte Icons mit grÃ¼nem Haken. 
+			Arbeitskopie hat nur überlagerte Icons mit grünem Haken. 
 			Dies bedeutet dass der Subversion Status <literal>normal</literal>
 			ist.
 			<graphic fileref="images/ModifiedIcon.png"/>
-			Sobald Sie eine Datei Ã¤ndern, Ã¤ndert sich auch der Status der
-			Datei auf <literal>verÃ¤ndert</literal> und das Ã¼berlagerte Icon
-			Ã¤ndert sich zu einem roten Auszufezeichen. Auf diese Weise kÃ¶nnen
-			Sie mit einem Blick feststellen, welche Dateien Sie geÃ¤ndert
-			haben und noch nicht in das Projektarchiv Ã¼bertragen worden sind.
+			Sobald Sie eine Datei ändern, ändert sich auch der Status der
+			Datei auf <literal>verändert</literal> und das überlagerte Icon
+			ändert sich zu einem roten Auszufezeichen. Auf diese Weise können
+			Sie mit einem Blick feststellen, welche Dateien Sie geändert
+			haben und noch nicht in das Projektarchiv übertragen worden sind.
 			<graphic fileref="images/ConflictIcon.png"/>
-			Falls wÃ¤hrend einer Aktualisierung ein <literal>Konflikt</literal>
+			Falls während einer Aktualisierung ein <literal>Konflikt</literal>
 			auftrat, so werden solche Dateien mit einem gelben Ausrufezeichen
 			markiert.
 			<graphic fileref="images/AddedIcon.png"/> 
 			Das Pluszeichen bedeutet, dass eine Datei oder ein Ordner neu
-			<literal>hinzugefÃ¼gt</literal> wurde zur Versionskontrolle.
+			<literal>hinzugefügt</literal> wurde zur Versionskontrolle.
 			<graphic fileref="images/DeletedIcon.png"/> 
-			Dieses Ã¼berlagerte Icon zeigt, dass Dateien oder Ordner <literal>
-			gelÃ¶scht</literal> wurden aus der Versionskontrolle.
+			Dieses überlagerte Icon zeigt, dass Dateien oder Ordner <literal>
+			gelöscht</literal> wurden aus der Versionskontrolle.
 			</para>
 			<para>
-			Die Ordner-Icons haben ebenfalls Ã¼berlagerte Icons. StandardmÃ¤ssig
+			Die Ordner-Icons haben ebenfalls überlagerte Icons. Standardmässig
 			zeigen diese aber nur an, ob ein Ordner unter Versionskontrolle ist
-			oder nicht. Aber Sie kÃ¶nnen dieses Verhalten Ã¤ndern in den
+			oder nicht. Aber Sie können dieses Verhalten ändern in den
 			Einstellungen so dass das Ordner-Icon den Status der 
 			darunterliegenden Dateien anzeigt. Da dies recht viel Zeit und
 			viele Dateizugriffe erfordert kann diese Funktion den Explorer
-			ausbremsen und ist deshalb fÃ¼r langsamere Rechner oder sehr
+			ausbremsen und ist deshalb für langsamere Rechner oder sehr
 			grosse Arbeitskopien nicht zu empfehlen.
 			</para>
 			<para>
 			Mit dieser Einstellung zeigt jeder Ordner den Status der Dateien
-			darunter, wobei <literal>in Konflikt</literal> hÃ¶chste PrioritÃ¤t
-			hat, dann <literal>HinzugefÃ¼gt</literal>, <literal>gelÃ¶scht</literal>,
-			<literal>verÃ¤ndert</literal> und schlussendlich <literal>normal</literal>.
+			darunter, wobei <literal>in Konflikt</literal> höchste Priorität
+			hat, dann <literal>Hinzugefügt</literal>, <literal>gelöscht</literal>,
+			<literal>verändert</literal> und schlussendlich <literal>normal</literal>.
 			<tip>
 				<title>Langsame Overlayanzeige</title>
 				<para>
 				Sie werden feststellen, dass sobald Sie die Icon Overlays rekursiv
-				anzeigen lassen der Explorer recht langsam wird. Dies hÃ¤ngt
+				anzeigen lassen der Explorer recht langsam wird. Dies hängt
 				vorallem davon ab wie gross Ihre Arbeitskopie ist, resp. wieviele
 				Dateien Sie unter Versionskontrolle haben und davon wieviel RAM
 				Speicher Sie in Ihrem Rechner haben.
 				Normalerweise ist der Explorer nur beim ersten Mal wo Sie einen
 				solchen Ordner anzeigen sehr langsam. Wenn Sie denselben
-				Ordner spÃ¤ter nochmals anzeigen so hilft ein interner Caching-
+				Ordner später nochmals anzeigen so hilft ein interner Caching-
 				Algorithmus und der Festplattencache von Windows die Anzeige
 				zu beschleunigen.
 				</para>
@@ -357,8 +364,8 @@
 			</para>
 			<para>
 			TortoiseSVN zeigt nicht wie <application>TortoiseCVS</application> 
-			Ã¼berlagerte Icons fÃ¼r Dateien an, welche nicht unter Versionskontrolle
-			stehen. Wir tun dies nicht weil die Anzahl von Ã¼berlagerten Icons
+			überlagerte Icons für Dateien an, welche nicht unter Versionskontrolle
+			stehen. Wir tun dies nicht weil die Anzahl von überlagerten Icons
 			Systemweit limitiert sind und wir nicht andere Programme dadurch
 			blockieren wollen.
 			</para>
@@ -368,36 +375,36 @@
 			<indexterm><primary>Status</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-2">
-					<title>Auf Ã„nderungen Ã¼berprÃ¼fen</title>
+					<title>Auf Änderungen überprüfen</title>
 					<graphic fileref="images/RepoStatus.png"/>
 				</figure>
-			Oft ist es nÃ¼tzlich zu wissen, welche Dateien von anderen bereits
-			geÃ¤ndert und im Projektarchiv gespeichert wurden. Dazu gibt es
-			den Befehl <guimenuitem>Auf Ã„nderungen Ã¼berprÃ¼fen</guimenuitem>.
+			Oft ist es nützlich zu wissen, welche Dateien von anderen bereits
+			geändert und im Projektarchiv gespeichert wurden. Dazu gibt es
+			den Befehl <guimenuitem>Auf Änderungen überprüfen</guimenuitem>.
 			Dieser Dialog zeigt Ihnen alle Dateien, welche entweder von Ihnen
-			lokal und/oder von anderen im Projektarchiv geÃ¤ndert wurden. So
-			kÃ¶nnen Sie schon vor einer Aktualisierung feststellen, ob es 
+			lokal und/oder von anderen im Projektarchiv geändert wurden. So
+			können Sie schon vor einer Aktualisierung feststellen, ob es 
 			eventuell Konflikte geben kann.
 			</para>
 			<para>
-			Aus dem Kontex-Menu des Dialogs heraus kÃ¶nnen Sie die Ã„nderungen
-			anzeigen (Diff), sowohl die Ã„nderungen die Sie lokal gemacht haben
-			als auch die Ã„nderungen von anderen im Projektarchiv. TortoiseSVN
-			lÃ¤dt automatisch die entsprechende Datei aus dem Projektarchiv, um
-			Ihnen die Ã„nderungen zeigen zu kÃ¶nnen.
+			Aus dem Kontex-Menu des Dialogs heraus können Sie die Änderungen
+			anzeigen (Diff), sowohl die Änderungen die Sie lokal gemacht haben
+			als auch die Änderungen von anderen im Projektarchiv. TortoiseSVN
+			lädt automatisch die entsprechende Datei aus dem Projektarchiv, um
+			Ihnen die Änderungen zeigen zu können.
 			</para>
 			<tip>
-				<title>Weitere MÃ¶glichkeiten</title>
+				<title>Weitere Möglichkeiten</title>
 				<para>
-				Der <guimenuitem>Auf Ã„nderungen Ã¼berprÃ¼fen</guimenuitem> 
+				Der <guimenuitem>Auf Änderungen überprüfen</guimenuitem> 
 				Dialog ist vielleicht nicht die beste Wahl wenn Sie gerade
 				keine Netzwerkverbindung zu Ihrem Projektarchiv haben. In diesem
-				Falle kÃ¶nnen sie die lokalen Ã„nderungen auch mit dem
-				<guimenuitem>Ãœbertragen</guimenuitem> Dialog ansehen. Dieser
-				Dialog zeigt Ihnen eine Ã¤hnliche Liste der geÃ¤nderten Dateien,
-				jedoch ohne das Projektarchiv zu kontaktieren und benÃ¶tigt deshalb
+				Falle können sie die lokalen Änderungen auch mit dem
+				<guimenuitem>Übertragen</guimenuitem> Dialog ansehen. Dieser
+				Dialog zeigt Ihnen eine ähnliche Liste der geänderten Dateien,
+				jedoch ohne das Projektarchiv zu kontaktieren und benötigt deshalb
 				auch keine Netzwerkverbindung. Sie brauche die Daten auch
-				nicht zu Ã¼bertragen, nur weil Sie diesen Dialog benÃ¶tigten &mdash;
+				nicht zu übertragen, nur weil Sie diesen Dialog benötigten &mdash;
 				klicken Sie einfach auf <command>Abbrechen</command> statt auf
 				<guibutton>Ok</guibutton>.
 				</para>
@@ -408,73 +415,73 @@
 	<!-- ======================== SECTION 4 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-update">
-		<title>Aktualisieren der Arbeitskopie mit Ã„nderungen von anderen</title>
+		<title>Aktualisieren der Arbeitskopie mit Änderungen von anderen</title>
 		<indexterm><primary>aktualisieren</primary></indexterm>
 		<indexterm><primary>update</primary></indexterm>
 		<para>
 			<figure id="tsvn-DUG-update-dia-1">
-				<title>Aktualisierung lÃ¤uft im Fortschritss-Dialog</title>
+				<title>Aktualisierung läuft im Fortschritss-Dialog</title>
 				<graphic fileref="images/UpdateProgress.png"/>
 			</figure>
 			<figure id="tsvn-DUG-update-dia-2">
 				<title>Aktualisierung fertig im Fortschritts-Dialog</title>
 				<graphic fileref="images/UpdateFinished.png"/>
 			</figure>
-		Ã„nderungen von anderen sollten Sie regelmÃ¤ssig in Ihre eigene 
-		Arbeitskopie einfÃ¼gen. Ã„nderungen von anderen in die eigene Arbeitskopie
-		einfÃ¼gen wird auch <literal>Aktualisieren</literal> genannt. Sie kÃ¶nnen
+		Änderungen von anderen sollten Sie regelmässig in Ihre eigene 
+		Arbeitskopie einfügen. Änderungen von anderen in die eigene Arbeitskopie
+		einfügen wird auch <literal>Aktualisieren</literal> genannt. Sie können
 		einzelne Dateien, mehrere Dateien, ganze Ordner oder gleich die 
-		komplette Arbeitskopie aktualisieren. WÃ¤hlen Sie einfach die Dateien
-		oder Ordner aus, welche Sie aktualisieren mÃ¶chten und Ã¶ffnen Sie dann
+		komplette Arbeitskopie aktualisieren. Wählen Sie einfach die Dateien
+		oder Ordner aus, welche Sie aktualisieren möchten und öffnen Sie dann
 		das Kontext-Menu durch einen <action>Rechts-Klick</action>. Im 
-		Kontextmenu wÃ¤hlen Sie dann den Befehl <guimenuitem>Aktualisieren</guimenuitem>
+		Kontextmenu wählen Sie dann den Befehl <guimenuitem>Aktualisieren</guimenuitem>
 		aus und eine Dialogbox wird erscheinen welche Ihnen den Fortschritt
-		der Aktualisierung anzeigt. Ã„nderungen von anderen werden in Ihre
-		Arbeitskopie eingefÃ¼gt, wobei Ihre eigenen Ã„nderungen selbstverstÃ¤ndlich
+		der Aktualisierung anzeigt. Änderungen von anderen werden in Ihre
+		Arbeitskopie eingefügt, wobei Ihre eigenen Änderungen selbstverständlich
 		beibehalten werden. Das Projektarchiv selbst wird  durch eine Aktualisierung
-    <emphasis>nicht</emphasis> verÃ¤ndert.
+    <emphasis>nicht</emphasis> verändert.
 		</para>
 		<para>
-		Falls Sie einen <literal>Konflikt</literal> wÃ¤hrend einer Aktualisierung
+		Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierung
 		erhalten (Dies kann passieren wenn jemand anders dieselbe Stelle in
-		einer Datei geÃ¤ndert hat wie Sie und diese Ã„nderungen nicht zusammenpassen)
+		einer Datei geändert hat wie Sie und diese Änderungen nicht zusammenpassen)
 		dann zeigt der Fortschritts-Dialog diese Dateien rot markiert an. Ein
-		<action>Doppelklick</action> auf diese roten EintrÃ¤ge Ã¶ffnet ein
+		<action>Doppelklick</action> auf diese roten Einträge öffnet ein
 		sogenanntes <literal>Merge</literal>-Tool, mit welchem Sie solche
-		Konflikte ganz einfach von Hand auflÃ¶sen kÃ¶nnen.
+		Konflikte ganz einfach von Hand auflösen können.
 		</para>
 		<para>
-		TortoiseSVN ermÃ¶glicht es Ihnen auch, eine Arbeitskopie auf eine ganz
+		TortoiseSVN ermöglicht es Ihnen auch, eine Arbeitskopie auf eine ganz
 		bestimmte Revision zu aktualisieren und nicht nur immer auf die neueste
 		Revision. Dieser Befehl heisst <guimenuitem>Aktualisieren zu Revision...
-		</guimenuitem> und Ã¶ffnet zuerst einen Dialog, wo Sie die Revisionsnummer
-		eingeben kÃ¶nnen, auf welche die Arbeitskopie aktualisiert werden soll.
+		</guimenuitem> und öffnet zuerst einen Dialog, wo Sie die Revisionsnummer
+		eingeben können, auf welche die Arbeitskopie aktualisiert werden soll.
 		</para>
 		<caution>
 		Wenn Sie eine Datei oder Ordner auf eine bestimmte Revision aktualisieren,
 		werden Sie <literal>out of date</literal> Fehlermeldungen erhalten sobald
-		Sie versuchen, diese Dateien oder Ordner zu Ã¼bertragen.
-		Wenn Sie Ã„nderungen an Dateien rÃ¼ckgÃ¤ngig machen wollen, dann
-		mÃ¼ssen Sie entweder den Befehl <menuchoice><guimenuitem>Ã„nderungen dieser
-		Revision rÃ¼ckgÃ¤ngig machen</guimenuitem></menuchoice> im Log-Dialog oder
-		den Befehl <menuchoice><guimenuitem>ZusammenfÃ¼hren...</guimenuitem></menuchoice>
+		Sie versuchen, diese Dateien oder Ordner zu übertragen.
+		Wenn Sie Änderungen an Dateien rückgängig machen wollen, dann
+		müssen Sie entweder den Befehl <menuchoice><guimenuitem>Änderungen dieser
+		Revision rückgängig machen</guimenuitem></menuchoice> im Log-Dialog oder
+		den Befehl <menuchoice><guimenuitem>Zusammenführen...</guimenuitem></menuchoice>
 		verwenden.
 		</caution>
 		<para>
 		Der Befehl <guimenuitem>Aktualisieren zu Revision...</guimenuitem> 
-		ermÃ¶glicht es Ihnen, Ihre Arbeitskopie auf einen frÃ¼heren Stand
-		zu bringen. Ist z.B. Ihre Arbeitskopie auf Revision 100, aber Sie mÃ¶chten
+		ermöglicht es Ihnen, Ihre Arbeitskopie auf einen früheren Stand
+		zu bringen. Ist z.B. Ihre Arbeitskopie auf Revision 100, aber Sie möchten
 		nachsehen wie das Projekt in Revision 50 ausgesehen hat so aktualisieren
 		Sie ganz einfach die Arbeitskopie auf Revision 50.
 		</para>
 		<tip>
 			<title>Mehrere Dateien/Ordner</title>
 			<para>
-		Wenn Sie mehrere Dateien und Ordner im Explorer auswÃ¤hlen und dann
-		<guimenuitem>Aktualisieren...</guimenuitem> ausfÃ¼hren, so werden
+		Wenn Sie mehrere Dateien und Ordner im Explorer auswählen und dann
+		<guimenuitem>Aktualisieren...</guimenuitem> ausführen, so werden
 		alle Dateien und Ordner auf <emphasis>dieselbe</emphasis> Revision
 		aktualisiert, sogar dann wenn zwischen den einzelnen Aktualisierungen
-		jemand anders Ã„nderungen zum Projektarchiv Ã¼bertragen hat.
+		jemand anders Änderungen zum Projektarchiv übertragen hat.
 		</para>
 		</tip>
 	</sect1>
@@ -482,26 +489,26 @@
 	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-conflicts">
-		<title>Konflikte AuflÃ¶sen</title>
+		<title>Konflikte Auflösen</title>
 		<indexterm><primary>Konflikt</primary></indexterm>
 		<para>
 		Manchmal werden Sie einen <literal>Konflikt</literal> erhalten wenn
 		Sie Ihre Arbeitskopie aktualisieren. Ein Konflikt tritt dann auf
 		wenn mehrere Personen die gleiche(n) Stelle(n) in derselben Datei
-		verÃ¤ndert haben. Da Subversion nichts Ã¼ber Ihr Projekt weiss, Ã¼berlÃ¤sst
-		es solche FÃ¤lle Ihnen, den Konflikt aufzulÃ¶sen. Wann immer ein
-		Konflikt auftritt kÃ¶nnen Sie die entsprechende Datei Ã¶ffnen und nach
+		verändert haben. Da Subversion nichts über Ihr Projekt weiss, überlässt
+		es solche Fälle Ihnen, den Konflikt aufzulösen. Wann immer ein
+		Konflikt auftritt können Sie die entsprechende Datei öffnen und nach
 		Zeilen suchen welche beginnen mit:
 		<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;
 		</literal>. Die Zeile in Konflikt ist so markiert:
 <screen>
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; Dateiname
-    Ihre Ã„nderungen
+    Ihre Änderungen
 =======
-    Zeilen mit dem Projektarchiv zusammengefÃ¼hrt
+    Zeilen mit dem Projektarchiv zusammengeführt
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; Revision
 </screen>
-		Ausserdem wird fÃ¼r jede Datei in Konflikt drei weitere Dateien erstellt:
+		Ausserdem wird für jede Datei in Konflikt drei weitere Dateien erstellt:
 		<variablelist>
 				<varlistentry>
 					<term>filename.ext.working</term>
@@ -509,7 +516,7 @@
 						<para>
 						Dies ist die Datei, so wie Sie war bevor Sie
 						Ihre Arbeitskopie aktualisierten. Das heisst es ist 
-						Ihre eigene Originaldatei, inklusive der Ã„nderungen 
+						Ihre eigene Originaldatei, inklusive der Änderungen 
 						welche Sie selbst vorgenommen haben.
 						</para>
 					</listitem>
@@ -518,8 +525,8 @@
 					<term>filename.merge-left.rOLDREV</term>
 					<listitem>
 						<para>
-						Dies ist die Datei wie Sie ursprÃ¼nglich war, ohne
-						jegliche Ã„nderungen, auch ohne den Ã„nderungen welche
+						Dies ist die Datei wie Sie ursprünglich war, ohne
+						jegliche Änderungen, auch ohne den Änderungen welche
 						Sie selbst an der Datei vorgenommen haben.
 						</para>
 					</listitem>
@@ -529,100 +536,100 @@
 					<listitem>
 						<para>
 						Dies ist die Datei, wie sie im Projektarchiv gerade
-						aktuell ist, d.h. diese Datei hat die Ã„nderungen von
+						aktuell ist, d.h. diese Datei hat die Änderungen von
 						den anderen Mitarbeitern bereits integriert, jedoch
 						nocht nicht die Ihren.
 						</para>
 					</listitem>
 				</varlistentry>
 			</variablelist>
-		Wobei <literal>*</literal> fÃ¼r eine zufÃ¤llige Zahl steht, welche
-		Subversion wÃ¤hlt. OLDREV ist die Revisionsnummer der Datei bei
+		Wobei <literal>*</literal> für eine zufällige Zahl steht, welche
+		Subversion wählt. OLDREV ist die Revisionsnummer der Datei bei
 		ihrer letzten Aktualisierung, und NEWREV ist die neueste Revisionsnummer
 		des Projektarchivs.
 		</para>
 		<para>
-		Sie kÃ¶nnen nun entweder ein Merge-Tool benutzen, welches Sie durch
-		den Befehl <guimenuitem>Konflikteditor</guimenuitem> aufrufen kÃ¶nnen
-		oder Sie kÃ¶nnen die Datei mit einem normalen Texteditor Ã¤ndern und
-		den Konflikt auf diese Weise auflÃ¶sen.
+		Sie können nun entweder ein Merge-Tool benutzen, welches Sie durch
+		den Befehl <guimenuitem>Konflikteditor</guimenuitem> aufrufen können
+		oder Sie können die Datei mit einem normalen Texteditor ändern und
+		den Konflikt auf diese Weise auflösen.
 		</para>
 		<para>
-		Anschliessend mÃ¼ssen Sie Subversion noch mitteilen, dass Sie den
-		Konflikt aufgelÃ¶st haben. Dies geschieht mit dem Befehl <guimenuitem>
-		Konflikt aufgelÃ¶st</guimenuitem>. Bitte beachten Sie dass dieser
-		Befehl <emphasis>nicht</emphasis> den Konflikt selbst lÃ¶st, sondern
-		nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelÃ¶st
+		Anschliessend müssen Sie Subversion noch mitteilen, dass Sie den
+		Konflikt aufgelöst haben. Dies geschieht mit dem Befehl <guimenuitem>
+		Konflikt aufgelöst</guimenuitem>. Bitte beachten Sie dass dieser
+		Befehl <emphasis>nicht</emphasis> den Konflikt selbst löst, sondern
+		nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelöst
 		haben. Der Befehl macht eigentlich nichts weiter als die drei
-		zusÃ¤tzlich erstellten Dateien <filename>filename.ext.working
-		</filename> und <filename>filename.ext.merge-*.r*</filename> zu lÃ¶schen.
+		zusätzlich erstellten Dateien <filename>filename.ext.working
+		</filename> und <filename>filename.ext.merge-*.r*</filename> zu löschen.
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-commit">
-		<title>Ã„nderungen in das Projektarchiv Ã¼bertragen</title>
-		<indexterm><primary>Ã¼bertragen</primary></indexterm>
+		<title>Änderungen in das Projektarchiv übertragen</title>
+		<indexterm><primary>übertragen</primary></indexterm>
 		<indexterm><primary>commit</primary></indexterm>
 		<?dbhh topicname="HIDD_LOGPROMPT"?>
 		<para>
-		Ã„nderungen an Dateien im Projektarchiv abzuspeichern wird auch 
-		<literal>Ãœbertragen</literal> der Ã„nderungen genannt.
-		Vor dem Ãœbertragen jedoch sollten Sie sicherstellen, dass Ihre
+		Änderungen an Dateien im Projektarchiv abzuspeichern wird auch 
+		<literal>Übertragen</literal> der Änderungen genannt.
+		Vor dem Übertragen jedoch sollten Sie sicherstellen, dass Ihre
 		Arbeitskopie auch auf dem neuesten Stand ist, d.h. Sie sollten den
-		Befehl <guimenuitem>Aktualisieren...</guimenuitem> ausfÃ¼hren.
+		Befehl <guimenuitem>Aktualisieren...</guimenuitem> ausführen.
 		</para>
 		<para>
 		Wenn Ihre Arbeitskopie auf dem neuesten Stand ist und keine Konflikte
-		vorhanden sind kÃ¶nnen Sie Ihre Ã„nderungen Ã¼bertragen. WÃ¤hlen Sie
-		die Dateien/Ordner aus welche Sie Ã¼bertragen wollen und wÃ¤hlen Sie
-		den Befehl <guimenuitem>Ãœbertragen...</guimenuitem> im Kontextmenu
+		vorhanden sind können Sie Ihre Änderungen übertragen. Wählen Sie
+		die Dateien/Ordner aus welche Sie übertragen wollen und wählen Sie
+		den Befehl <guimenuitem>Übertragen...</guimenuitem> im Kontextmenu
 		aus. Der folgenden Dialog erscheint:
 			<figure id="tsvn-DUG-commit-dia-1">
-				<title>Der Ãœbertragen Dialog</title>
+				<title>Der Übertragen Dialog</title>
 				<graphic fileref="images/Commit.png"/>
 			</figure>
 		</para>
 		<para>
-		Der Dialog zeigt alle Dateien auf, welche verÃ¤ndert wurden, 
-		einschliesslich der Dateien die Sie hinzugefÃ¼gt oder gelÃ¶scht haben.
+		Der Dialog zeigt alle Dateien auf, welche verändert wurden, 
+		einschliesslich der Dateien die Sie hinzugefügt oder gelöscht haben.
 		Auch Dateien, welche noch nicht unter Versionskontrolle stehen werden
-		hier angezeigt. Wenn Sie bestimmte Dateien (noch) nicht Ã¼bertragen
-		wollen wÃ¤hlen Sie diese einfach ab. Dateien welche noch nicht unter
-		Versionskontrolle stehen kÃ¶nnen Sie durch auswÃ¤hlen vor dem Ãœbertragen
-		hinzufÃ¼gen lassen.
+		hier angezeigt. Wenn Sie bestimmte Dateien (noch) nicht übertragen
+		wollen wählen Sie diese einfach ab. Dateien welche noch nicht unter
+		Versionskontrolle stehen können Sie durch auswählen vor dem Übertragen
+		hinzufügen lassen.
 		<figure id="tsvn-DUG-commit-dia-2">
-			<title>Das Kontext-Menu des Ãœbertragen-Dialogs</title>
+			<title>Das Kontext-Menu des Übertragen-Dialogs</title>
 			<graphic fileref="images/CommitContextMenu.png"/>
 		</figure>
 		<tip>
 				<title>Zu viele Dateien werden angezeigt</title>
 				<para>
-				Falls Sie das GefÃ¼hl haben dass TortoiseSVN Ihnen viel zu viele
-				Dateien im Ãœbertragungsdialog anzeigt welche nicht unter
+				Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele
+				Dateien im Übertragungsdialog anzeigt welche nicht unter
 				Versionskontrolle stehen (z.B. vom Kompiler erzeugte Dateien
-				oder Backupdateien vom Editor) haben Sie mehrere MÃ¶glichkeiten
-				dies einzugrenzen. Sie kÃ¶nnen:
+				oder Backupdateien vom Editor) haben Sie mehrere Möglichkeiten
+				dies einzugrenzen. Sie können:
 				<itemizedlist>
 					<listitem>
 						<para>
-						diese Dateien in die Maske der temporÃ¤ren Dateien
+						diese Dateien in die Maske der temporären Dateien
 						aufnehmen im Eigenschaftsdialog. Dies hat Einfluss auf
 						<emphasis>alle</emphasis> Arbeitskopien gleichzeitig.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-						FÃ¼gen Sie diese Dateien zur Liste der ignorierten
+						Fügen Sie diese Dateien zur Liste der ignorierten
 						Dateien hinzu mit dem Befehl <guimenuitem>Zur 
-						Ignoriertenliste hinzufÃ¼gen</guimenuitem>. Dadurch
+						Ignoriertenliste hinzufügen</guimenuitem>. Dadurch
 						werden diese Dateien in die Ordner-Eigenschaft <literal>
 						svn:ignore</literal> aufgenommen, welche Sie mittels
 						des normalen Eigenschaftsdialog des Explorers (auf der
-						Subversion-Seite) ansehen und Ã¤ndern kÃ¶nnen.
+						Subversion-Seite) ansehen und ändern können.
 						Dies hat nur Einfluss auf denselben Ordner in der
-						Arbeitskopie, wo Sie diesen Befehl ausfÃ¼hren.
+						Arbeitskopie, wo Sie diesen Befehl ausführen.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -631,14 +638,14 @@
 		</para>
 		<para>
 		Durch einen <action>Doppelklick</action> auf irgendeine Datei im
-		Ãœbertragungsdialog wird das Diff-Programm gestartet so dass Sie die
-		Ã„nderungen welche Sie vorgenommen haben genauer ansehen kÃ¶nnen.
+		Übertragungsdialog wird das Diff-Programm gestartet so dass Sie die
+		Änderungen welche Sie vorgenommen haben genauer ansehen können.
 		</para>
 		<para>
 		Wenn Sie schlussendlich auf <guibutton>OK</guibutton> klicken wird die
-		Ãœbertragung gestartet.
+		Übertragung gestartet.
 		<figure id="tsvn-DUG-commit-dia-3">
-			<title>Eine laufende Ãœbertragung im Fortschrittsdialog</title>
+			<title>Eine laufende Übertragung im Fortschrittsdialog</title>
 			<graphic fileref="images/CommitProgress.png"/>
 		</figure>
 		</para>
@@ -647,53 +654,53 @@
 	<!-- ======================== SECTION 6 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-adding">
-		<title>Neue Dateien und Ordner hinzufÃ¼gen</title>
-		<indexterm><primary>hinzufÃ¼gen</primary></indexterm>
+		<title>Neue Dateien und Ordner hinzufügen</title>
+		<indexterm><primary>hinzufügen</primary></indexterm>
 		<indexterm><primary>add</primary></indexterm>
 		<?dbhh topicname="HIDD_ADD"?>
 		<para>
 			<figure id="tsvn-DUG-adding-dia-1">
-				<title>Kontextmenu fÃ¼r unkontrollierte Dateien</title>
+				<title>Kontextmenu für unkontrollierte Dateien</title>
 				<graphic fileref="images/ContextMenuFileNoControl.png"/>
 			</figure>
-		Wenn Sie neue Dateien und/oder Ordner wÃ¤hrend Ihrer Arbeit erstellen
-		mÃ¼ssen Sie diese auch zur Versionskontrolle hinzufÃ¼gen. WÃ¤hlen Sie
-		diese Dateien und/oder Ordner aus und wÃ¤hlen Sie dann den Befehl
-		<guimenuitem>HinzufÃ¼gen...</guimenuitem> im Kontextmenu.
+		Wenn Sie neue Dateien und/oder Ordner während Ihrer Arbeit erstellen
+		müssen Sie diese auch zur Versionskontrolle hinzufügen. Wählen Sie
+		diese Dateien und/oder Ordner aus und wählen Sie dann den Befehl
+		<guimenuitem>Hinzufügen...</guimenuitem> im Kontextmenu.
 		</para>
 		<para>
-		Nachdem Sie die Dateien/Ordner zur Versionskontrolle hinzugefÃ¼gt haben
-		erscheinen diese mit einem Pluszeichen als Ã¼berlagertes Icon im
-		Explorer, was bedeutet dass diese bei der nÃ¤chsten Ãœbertragung
+		Nachdem Sie die Dateien/Ordner zur Versionskontrolle hinzugefügt haben
+		erscheinen diese mit einem Pluszeichen als überlagertes Icon im
+		Explorer, was bedeutet dass diese bei der nächsten Übertragung
 		in das Projektarchiv mit aufgenommen werden. Beachten Sie dass das
-		HinzufÃ¼gen alleine die Dateien/Ordner <emphasis>nicht</emphasis>
+		Hinzufügen alleine die Dateien/Ordner <emphasis>nicht</emphasis>
 		im Projektarchiv speichert.
 		</para>
 		<para>
 			<tip>
-				<title>HinzufÃ¼gen ist rekursiv!</title>
+				<title>Hinzufügen ist rekursiv!</title>
 				<para>
-				Wenn Sie einen Ordner zur Versionskontrolle hinzufÃ¼gen, dann
-				fÃ¼gt TortoiseSVN auch automatisch alle Dateien und Unterordner
+				Wenn Sie einen Ordner zur Versionskontrolle hinzufügen, dann
+				fügt TortoiseSVN auch automatisch alle Dateien und Unterordner
 				innerhalb dieses Ordners hinzu. Also seien Sie vorsichtig und
-				stellen Sie sicher, dass Sie nicht ungewollt temporÃ¤re
-				Dateien hinzufÃ¼gen wie z.B. *.obj Dateien des Kompilers.
+				stellen Sie sicher, dass Sie nicht ungewollt temporäre
+				Dateien hinzufügen wie z.B. *.obj Dateien des Kompilers.
 			</para>
 			</tip>
 		</para>
 		<para>
 		Wenn Sie Dateien von ausserhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie
-		hinzufÃ¼gen mÃ¶chten kÃ¶nnen Sie auch den drag&ndash;and&ndash;drop
+		hinzufügen möchten können Sie auch den drag&ndash;and&ndash;drop
 		Handler verwenden:
 		<orderedlist>
 				<listitem>
-					<para>WÃ¤hlen Sie die Dateien aus welche Sie hinzufÃ¼gen
-					mÃ¶chten.
+					<para>Wählen Sie die Dateien aus welche Sie hinzufügen
+					möchten.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					<action>Ziehen</action> Sie diese Dateien mit gedrÃ¼ckter
+					<action>Ziehen</action> Sie diese Dateien mit gedrückter
 					rechter Maustaste an den neuen Ort innerhalb Ihrer
 					Arbeitskopie.
 					</para>
@@ -705,10 +712,10 @@
 				</listitem>
 				<listitem>
 					<para>
-					Im erscheinenden Popupmenu wÃ¤hlen Sie <guimenuitem>Dateien
-					zu Subversion hier hinzufÃ¼gen</guimenuitem>. Die Dateien
+					Im erscheinenden Popupmenu wählen Sie <guimenuitem>Dateien
+					zu Subversion hier hinzufügen</guimenuitem>. Die Dateien
 					werden dann in die Arbeitskopie kopiert und zur 
-					Versionskontrolle hinzugefÃ¼gt.
+					Versionskontrolle hinzugefügt.
 					</para>
 				</listitem>
 			</orderedlist>
@@ -718,8 +725,8 @@
 	<!-- ======================== SECTION 7 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-renaming">
-		<title>LÃ¶schen, Umbenennen und Verschieben</title>
-		<indexterm><primary>lÃ¶schen</primary></indexterm>
+		<title>Löschen, Umbenennen und Verschieben</title>
+		<indexterm><primary>löschen</primary></indexterm>
 		<indexterm><primary>umbenennen</primary></indexterm>
 		<indexterm><primary>verschieben</primary></indexterm>
 		<indexterm><primary>delete</primary></indexterm>
@@ -730,18 +737,18 @@
 		<para>
 		Im Gegensatz zu CVS erlaubt es Subversion, Dateien und Ordner
 		umzubenennen oder zu verschieben. Deshalb gibt es Befehle im Kontextmenu
-		fÃ¼r diese Operationen.
+		für diese Operationen.
 			<figure id="tsvn-DUG-renaming-dia-1">
-				<title>Kontextmenu fÃ¼r kontrollierte Dateien</title>
+				<title>Kontextmenu für kontrollierte Dateien</title>
 				<graphic fileref="images/ContextMenuFileControl.png"/>
 			</figure>
 		</para>
 		<para>
-		Wenn Sie eine Datei/Ordner mit TortoiseSVN lÃ¶schen, wird diese aus
-		der Arbeitskopie gelÃ¶scht und als gelÃ¶scht markiert. Solange Sie dieses
-		<literal>LÃ¶schen</literal> noch nicht zum Projektarchiv Ã¼bertragen haben
-		kÃ¶nnen Sie die Datei/Ordner mit dem <guimenuitem>RÃ¼ckgÃ¤ngig</guimenuitem> 
-    Befehl auf dem Ã¼bergeordneten Ordner wieder zurÃ¼ckholen.
+		Wenn Sie eine Datei/Ordner mit TortoiseSVN löschen, wird diese aus
+		der Arbeitskopie gelöscht und als gelöscht markiert. Solange Sie dieses
+		<literal>Löschen</literal> noch nicht zum Projektarchiv übertragen haben
+		können Sie die Datei/Ordner mit dem <guimenuitem>Rückgängig</guimenuitem> 
+    Befehl auf dem übergeordneten Ordner wieder zurückholen.
 		</para>
 		<para>
 		Um Dateien innerhalb einer Arbeitskopie zu verschieben, benutzen Sie
@@ -749,12 +756,12 @@
 		<orderedlist>
 			<listitem>
 				<para>
-				WÃ¤hlen Sie die Dateien aus welche Sie verschieben mÃ¶chten.
+				Wählen Sie die Dateien aus welche Sie verschieben möchten.
 				</para>
 			</listitem>
 			<listitem>
 				<para>
-				<action>Ziehen</action> Sie die Dateien mit gedrÃ¼ckter
+				<action>Ziehen</action> Sie die Dateien mit gedrückter
 				rechter Maustaste an den neuen Ort.
 				</para>
 			</listitem>
@@ -765,45 +772,45 @@
 			</listitem>
 			<listitem>
 				<para>
-				WÃ¤hlen Sie im erscheinenden Popupmenu den Befehl <guimenuitem>
+				Wählen Sie im erscheinenden Popupmenu den Befehl <guimenuitem>
 				Verschiebe Datei(en) in Subversion hierher</guimenuitem>
 				</para>
 			</listitem>
 		</orderedlist>
-		Falls Sie eine Datei mit dem Explorer auf normale Weise lÃ¶schen und
-		nicht mit TortoiseSVN, dann zeigt Ihnen der Ãœbertragungsdialog diese
-		Datei in der Liste an und ermÃ¶glicht es Ihnen, diese Datei auch aus
-		der Versionskontrolle zu lÃ¶schen.
+		Falls Sie eine Datei mit dem Explorer auf normale Weise löschen und
+		nicht mit TortoiseSVN, dann zeigt Ihnen der Übertragungsdialog diese
+		Datei in der Liste an und ermöglicht es Ihnen, diese Datei auch aus
+		der Versionskontrolle zu löschen.
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 8 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-revert">
-		<title>Ã„nderungen RÃ¼ckgÃ¤ngig machen</title>
-		<indexterm><primary>rÃ¼ckgÃ¤ngig</primary></indexterm>
+		<title>Änderungen Rückgängig machen</title>
+		<indexterm><primary>rückgängig</primary></indexterm>
 		<indexterm><primary>revert</primary></indexterm>
 		<indexterm><primary>undo</primary></indexterm>
 		<para>
-		Wenn Sie Ã„nderungen, welche Sie an Dateien vorgenommen haben wieder
-		rÃ¼ckgÃ¤ngig machen wollen, wÃ¤hlen Sie diese Datei aus und wÃ¤hlen
-		dann den Befehl <guimenuitem>RÃ¼ckgÃ¤ngig...</guimenuitem> aus dem
-		Kontextmenu aus. Stellen Sie jedoch sicher, dass Sie diese Ã„nderungen
-		wirklich rÃ¼ckgÃ¤ngig machen wollen!
+		Wenn Sie Änderungen, welche Sie an Dateien vorgenommen haben wieder
+		rückgängig machen wollen, wählen Sie diese Datei aus und wählen
+		dann den Befehl <guimenuitem>Rückgängig...</guimenuitem> aus dem
+		Kontextmenu aus. Stellen Sie jedoch sicher, dass Sie diese Änderungen
+		wirklich rückgängig machen wollen!
 		</para>
 		<para>
-		Wenn Sie irrtÃ¼mlich eine Datei gelÃ¶scht haben und diese wieder zurÃ¼ck
-		haben wollen, dann kÃ¶nnen Sie den <guimenuitem>RÃ¼ckgÃ¤ngig...</guimenuitem>
-		Befehl auf dem Ã¼bergeordneten Ordner ausfÃ¼hren. Dies bringt alle
-		gelÃ¶schten Dateien seit der letzten Aktualisierung wieder zurÃ¼ck, macht
-		aber auch alle Ã„nderungen an Dateien rÃ¼ckgÃ¤ngig!
+		Wenn Sie irrtümlich eine Datei gelöscht haben und diese wieder zurück
+		haben wollen, dann können Sie den <guimenuitem>Rückgängig...</guimenuitem>
+		Befehl auf dem übergeordneten Ordner ausführen. Dies bringt alle
+		gelöschten Dateien seit der letzten Aktualisierung wieder zurück, macht
+		aber auch alle Änderungen an Dateien rückgängig!
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 9 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-propertypage">
-		<title>Lesen/Schreiben von Informationen Ã¼ber Dateien/Ordner</title>
+		<title>Lesen/Schreiben von Informationen über Dateien/Ordner</title>
 		<indexterm><primary>Eigenschaften</primary></indexterm>
 		<indexterm><primary>properties</primary></indexterm>
 		<para>
@@ -811,20 +818,20 @@
 				<title>Subversion Eigenschaftsseite</title>
 				<graphic fileref="images/Properties.png"/>
 			</figure>
-		Manchmal ist es notwendig, detailliertere Informationen Ã¼ber eine
-		Datei oder Ordner zu haben als mit den Ã¼berlagerten Icons mÃ¶glich ist.
-		Sie kÃ¶nnen diese zusÃ¤tzlichen Informationen Ã¼ber den Eigenschaftsdialog
-		des Explorers anzeigen. WÃ¤hlen Sie dazu die Datei oder den Ordner
-		aus, Ã¶ffnen Sie das Kontextmenu mit der rechten Maustaste und wÃ¤hlen
+		Manchmal ist es notwendig, detailliertere Informationen über eine
+		Datei oder Ordner zu haben als mit den überlagerten Icons möglich ist.
+		Sie können diese zusätzlichen Informationen über den Eigenschaftsdialog
+		des Explorers anzeigen. Wählen Sie dazu die Datei oder den Ordner
+		aus, öffnen Sie das Kontextmenu mit der rechten Maustaste und wählen
 		Sie den Eintrag <guimenuitem>Eigenschaften</guimenuitem> aus.
 		(Beachten Sie: dies ist der normale Eintrag im Kontextmenu des
 		Explorers und <emphasis>nicht</emphasis> der Eintrag im TortoiseSVN
-		UntermenÃ¼!). Im darauffolgenden Eigenschaften-Dialog wÃ¤hlen Sie dann
+		Untermenü!). Im darauffolgenden Eigenschaften-Dialog wählen Sie dann
 		die Seite <literal>TortoiseSVN</literal> aus.
 		</para>
 		<para>
-		Auf dieser Subversion Seite kÃ¶nnen Sie alle wichtigen Informationen
-		Ã¼ber Dateien/Ordner unter Versionskontrolle ansehen und die speziellen
+		Auf dieser Subversion Seite können Sie alle wichtigen Informationen
+		über Dateien/Ordner unter Versionskontrolle ansehen und die speziellen
 		Subversion-Eigenschaften lesen und schreiben.
 		</para>
 	</sect1>
@@ -836,19 +843,19 @@
 		<indexterm><primary>Log</primary></indexterm>
 		<?dbhh topicname="HIDD_LOGMESSAGE"?>
 		<para>
-		FÃ¼r jede Ã„nderung, welche sie machen und zum Projektarchiv Ã¼bertragen
-		mÃ¼ssen Sie eine Log-Meldung eingeben, welche die Ã„nderung beschreibt.
-		Damit kÃ¶nnen Sie spÃ¤ter herausfinden, welche Ã„nderungen wer wann
+		Für jede Änderung, welche sie machen und zum Projektarchiv übertragen
+		müssen Sie eine Log-Meldung eingeben, welche die Änderung beschreibt.
+		Damit können Sie später herausfinden, welche Änderungen wer wann
 		gemacht hat. Auf diese Weise haben Sie eine detaillierte Aufzeichnung
-		Ã¼ber den Fortschritt Ihres Projektes.
+		über den Fortschritt Ihres Projektes.
 		</para>
 		<para>
-		Der Log-Dialog lÃ¤dt alle diese Log-Meldungen aus dem Projektarchiv und
+		Der Log-Dialog lädt alle diese Log-Meldungen aus dem Projektarchiv und
 		zeigt Ihnen diese, einschliesslich einer Liste der Dateien welche
-		in jeder Ãœbertragung verÃ¤ndert wurden. Aber das ist noch nicht alles
-		&mdash; der Log-Dialog stellt auch viele Funktionen zur VerfÃ¼gung mit
-		denen Sie noch mehr und noch detailliertere Informationen Ã¼ber die
-		Projektgeschichte herausfinden kÃ¶nnen.
+		in jeder Übertragung verändert wurden. Aber das ist noch nicht alles
+		&mdash; der Log-Dialog stellt auch viele Funktionen zur Verfügung mit
+		denen Sie noch mehr und noch detailliertere Informationen über die
+		Projektgeschichte herausfinden können.
 		</para>
 		<sect2 id="tsvn-DUG-showlog-1">
 			<title>Den Log-Dialog starten</title>
@@ -858,7 +865,7 @@
 					<graphic fileref="images/LogMessages.png"/>
 				</figure>
 
-			Es gibt mehrere Orte, von denen Sie den Log-Dialog starten kÃ¶nnen:
+			Es gibt mehrere Orte, von denen Sie den Log-Dialog starten können:
 			<itemizedlist>
 					<listitem>
 						<para>Aus dem TortoiseSVN Kontextmenu.
@@ -871,7 +878,7 @@
 						<para>
 						Aus dem Fortschritts-Dialog, nachdem eine Aktualisierung
 						beendet wurde. Dann jedoch zeigt der Log-Dialog nur
-						die EintrÃ¤ge, welche seit Ihrer letzten Aktualisierung
+						die Einträge, welche seit Ihrer letzten Aktualisierung
 						gemacht wurden.
 						</para>
 					</listitem>
@@ -879,7 +886,7 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-showlog-2">
-			<title>ZusÃ¤tzliche Informationen erhalten</title>
+			<title>Zusätzliche Informationen erhalten</title>
 			<para>
 				<figure id="tsvn-DUG-showlog-2-dia-1">
 					<title>Log-Dialog mit Kontextmenu</title>
@@ -894,54 +901,54 @@
 			<itemizedlist>
 				<listitem>
 					<para>
-					Ein Diff-Programm zu starten um Ihnen die Ã„nderungen
-					zu zeigen welche gemacht wurden seit der gewÃ¤hlten
-					Revision. Nur mÃ¶glich wenn der Log Dialog fÃ¼r eine
+					Ein Diff-Programm zu starten um Ihnen die Änderungen
+					zu zeigen welche gemacht wurden seit der gewählten
+					Revision. Nur möglich wenn der Log Dialog für eine
 					einzelne Datei gezeigt wird.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					Die Datei zu speichern, wie sie in der gewÃ¤hlten
-					Revision ausgesehen hat. Nur mÃ¶glich wenn der Log
-					Dialog fÃ¼r eine einzelne Datei gezeigt wird.
+					Die Datei zu speichern, wie sie in der gewählten
+					Revision ausgesehen hat. Nur möglich wenn der Log
+					Dialog für eine einzelne Datei gezeigt wird.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					Einen Zweig oder eine Markierung fÃ¼r die gewÃ¤hlte
-					Revision zu erstellen. Dies ist nÃ¼tzlich fÃ¼r den Fall
+					Einen Zweig oder eine Markierung für die gewählte
+					Revision zu erstellen. Dies ist nützlich für den Fall
 					dass sie vergessen haben eine bestimmte Version Ihres
 					Projektes zu markieren und Sie seitdem bereits weitere
-					Ã„nderungen in das Projektarchiv Ã¼bertragen haben.
+					Änderungen in das Projektarchiv übertragen haben.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					Ã„nderungen, welche Sie in einer bestimmten Revision
-					gemacht haben rÃ¼ckgÃ¤ngig zu machen. Die Ã„nderungen
-					werden in Ihrer Arbeitskopie rÃ¼ckgÃ¤ngig gemacht, das
-					Projektarchiv selbst bleibt unverÃ¤ndert.
+					Änderungen, welche Sie in einer bestimmten Revision
+					gemacht haben rückgängig zu machen. Die Änderungen
+					werden in Ihrer Arbeitskopie rückgängig gemacht, das
+					Projektarchiv selbst bleibt unverändert.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 					Ein externes Unified-Diff Anzeigeprogramm zu starten,
-					um die Ã„nderungen einer Revision zu sehen.
+					um die Änderungen einer Revision zu sehen.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					Einen Unified-Diff von zwischen zwei gewÃ¤hlten
-					Revisionen anzuzeigen. Damit kÃ¶nnen Sie herausfinden,
+					Einen Unified-Diff von zwischen zwei gewählten
+					Revisionen anzuzeigen. Damit können Sie herausfinden,
 					was genau sich zwischen zwei Zeitpunkten an Ihrem
-					Projekt geÃ¤ndert hat.
+					Projekt geändert hat.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 					Ihre Arbeitskopie auf eine bestimmte Revision zu
-					aktualisieren. NÃ¼tzlich wenn Sie mÃ¶chten dass Ihre
+					aktualisieren. Nützlich wenn Sie möchten dass Ihre
 					Arbeitskopie einen Zustand in der Vergangenheit beschreibt.
 					</para>
 				</listitem>
@@ -949,12 +956,12 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-showlog-3">
-			<title>Ändern der Log-Meldung und des Authors</title>
+			<title>îdern der Log-Meldung und des Authors</title>
 			<para>
 			Manchmal ist es notwendig, eine Log-Meldung nachträglich zu ändern.
 			Sei es weil die Meldung Rechtschreibfehler enthält oder weil Sie
-			die Meldung mit mehr Informationen erweitern möchten oder aus
-			anderen Gründen. Oder Sie möchten den Author der Revision ändern,
+			die Meldung mit mehr Informationen erweitern müssen oder aus
+			anderen Gründen Oder Sie müssen den Author der Revision ändern,
 			weil Sie vielleicht vergessen haben eine Authentifizierung für
 			Übertragungen auf dem Server einzurichten oder...
 			</para>
@@ -969,14 +976,14 @@
 			gemacht wird.
 			</para>
 			<para>
-			Sobald Sie den Server mit den benötigten Hooks eingerichtet haben
+			Sobald Sie den Server mit den erwähnten Hooks eingerichtet haben
 			können Sie sowohl den Author als auch die Log-Meldung einer 
 			jeden Revision nachträglich ändern. Um dies mit TortoiseSVN zu tun
 			müssen Sie entweder in die <emphasis>Author</emphasis> oder die
 			<emphasis>Log-Meldung</emphasis> Spalte der gewünschten Revision
 			im Log-Dialog klicken, während Sie die SHIFT-Taste gedrückt halten.
 			Wenn Sie die SHIFT-Taste nicht gedrückt halten oder auf eine andere
-			Spalte doppelklicken wird die Standardaktion für Doppelklicks
+			Spalte doppelklicken wird die Standardaktion für doppelklicks
 			ausgeführt (Anzeige der Änderungen dieser Revision).
 			</para>
 			<warning>
@@ -999,39 +1006,39 @@
 		<?dbhh topicname="HIDD_SWITCH"?>
 		<?dbhh topicname="HIDD_MERGE"?>
 		<para>
-		Eine der Funktionen von Versionskontrollsystemen ist die MÃ¶glichkeit
-		bestimmte isolierte Ã„nderungen auf einer separaten Entwicklungslinie
+		Eine der Funktionen von Versionskontrollsystemen ist die Möglichkeit
+		bestimmte isolierte Änderungen auf einer separaten Entwicklungslinie
 		zu machen. Solche Linien werden <literal>Zweige</literal> genannt.
-		Zweige werden Ã¼blicherweise dazu benutzt, um neue Funktionen auszutesten
-		ohne dadurch die normale Entwicklung am Projekt zu stÃ¶ren. Sobald dann
+		Zweige werden üblicherweise dazu benutzt, um neue Funktionen auszutesten
+		ohne dadurch die normale Entwicklung am Projekt zu stören. Sobald dann
 		eine solche neue Funktion stabil genug ist wird der Zweig mit dem
-		Hauptstamm (<filename>trunk</filename>) zusammengefÃ¼hrt.
+		Hauptstamm (<filename>trunk</filename>) zusammengeführt.
 		</para>
 		<para>
-		Eine andere wichtige Funktion ist die MÃ¶glichkeit, bestimmte ZustÃ¤nde
-		zu Markieren (z.B. eine Relese-Version), damit es jederzeit mÃ¶glich ist
-		diesen bestimmten Zustand jederzeit wieder herstellen zu kÃ¶nnen. Dieser
+		Eine andere wichtige Funktion ist die Möglichkeit, bestimmte Zustände
+		zu Markieren (z.B. eine Relese-Version), damit es jederzeit möglich ist
+		diesen bestimmten Zustand jederzeit wieder herstellen zu können. Dieser
 		Vorgang wird <literal>markieren</literal> genannt.
 		</para>
 		<para>
-		Subversion kennt keinen speziellen Befehl fÃ¼r das Verzweigen oder
-		Markieren. Subversion benutzt dafÃ¼r stattdessen sogenannte 
-		<literal>billige Kopien</literal>. Diese funktionieren Ã¤hnlich wie
+		Subversion kennt keinen speziellen Befehl für das Verzweigen oder
+		Markieren. Subversion benutzt dafür stattdessen sogenannte 
+		<literal>billige Kopien</literal>. Diese funktionieren ähnlich wie
 		Links, d.h. es wird keine richtige Kopie erstellt sondern nur eine
-		VerknÃ¼pfung auf eine bestimmte Revision.
+		Verknüpfung auf eine bestimmte Revision.
 		</para>
 		<para>
-		Wenn Sie beim Importieren die empfohlene Ordnerstruktur gewÃ¤hlt haben
+		Wenn Sie beim Importieren die empfohlene Ordnerstruktur gewählt haben
 		ist ein Verzweigen oder Markieren sehr einfach:
 		<figure id="tsvn-DUG-branchtag-dia-1">
 			<title>Der Verzweigen/Markieren Dialog</title>
 			<graphic fileref="images/Copy.png"/>
 		</figure>
-		WÃ¤hlen Sie den Ã¼bergeordneten Ordner Ihrer Arbeitskopie und wÃ¤hlen
+		Wählen Sie den übergeordneten Ordner Ihrer Arbeitskopie und wählen
 		Sie den Befehl <guimenuitem>Verzweigen/Markieren...</guimenuitem> im
-		Kontextmenu. Geben Sie die URL des Projektarchivs ein, aber Ã¤ndern Sie den
+		Kontextmenu. Geben Sie die URL des Projektarchivs ein, aber ändern Sie den
 		Pfad von <filename>trunk</filename> in <filename>branches/Name_des_Zweigs
-		</filename> um. FÃ¼r Markierungen Ã¤ndern Sie die URL in <filename>
+		</filename> um. Für Markierungen ändern Sie die URL in <filename>
 		tags/Name_der_Markierung</filename> um. Wobei <filename>Name_der_Markierung
 		</filename> z.B. <filename>Version_1.01</filename> ist.
 
@@ -1043,15 +1050,15 @@
 </screen>
 
 		Wenn Sie nun <guibutton>OK</guibutton> klicken erstellt TortoiseSVN eine
-		VerknÃ¼pfung von Ihrem gewÃ¤hlten Ordner und der aktuellen Revision
-		im Zielordner des Projektarchivs. Es werden (noch) keine Ã„nderungen an Ihrer
+		Verknüpfung von Ihrem gewählten Ordner und der aktuellen Revision
+		im Zielordner des Projektarchivs. Es werden (noch) keine Änderungen an Ihrer
 		Arbeitskopie vorgenommen.
 		</para>
 		<para>
-		Nur im Falle, dass Sie bereits lokale Ã„nderungen an Ihrer Arbeitskopie
-		gemacht haben, welche Sie noch nicht Ã¼bertragen haben wird TortoiseSVN
-		diese ebenfalls mit dem Erstellen der VerknÃ¼pfung Ã¼bertragen. Ansonsten
-		wird wirklich nur eine VerknÃ¼pfung erstellt.
+		Nur im Falle, dass Sie bereits lokale Änderungen an Ihrer Arbeitskopie
+		gemacht haben, welche Sie noch nicht übertragen haben wird TortoiseSVN
+		diese ebenfalls mit dem Erstellen der Verknüpfung übertragen. Ansonsten
+		wird wirklich nur eine Verknüpfung erstellt.
 		</para>
 		<para>
 		Von jetzt an unterscheiden sich Zweige und Markierungen ein wenig:
@@ -1059,19 +1066,19 @@
 			<listitem>
 				<para>
 				Wenn Sie eine Arbeitskopie, welche eine Markierung darstellt
-				Ã¤ndern und versuchen, diese Ã„nderungen zu Ã¼bertragen wird
+				ändern und versuchen, diese Änderungen zu übertragen wird
 				TortoiseSVN Sie warnen! Dies deshalb, weil Markierungen
-				sich <emphasis>nicht</emphasis> Ã¤ndern sollen. Schliesslich
-				verlÃ¤sst sich jeder darauf, dass eine Markierung <literal>
+				sich <emphasis>nicht</emphasis> ändern sollen. Schliesslich
+				verlässt sich jeder darauf, dass eine Markierung <literal>
 				Version_1.0</literal> auch immer genau diese Version
-				darstellt und sich nicht mehr Ã¤ndert.
+				darstellt und sich nicht mehr ändert.
 				</para>
 				<para>
-				Falls Sie dennoch einmal Ã„nderungen an einer markierten
-				Version vornehmen mÃ¼ssen, erstellen Sie zunÃ¤chst einen
-				neuen Zweig von dieser Markierung aus und Ã¼bertragen die
-				Ã„nderungen auf diesen Zweig. Sobald dann alle notwendigen
-				Ã„nderungen vorgenommen wurden, kÃ¶nnen Sie von diesem
+				Falls Sie dennoch einmal Änderungen an einer markierten
+				Version vornehmen müssen, erstellen Sie zunächst einen
+				neuen Zweig von dieser Markierung aus und übertragen die
+				Änderungen auf diesen Zweig. Sobald dann alle notwendigen
+				Änderungen vorgenommen wurden, können Sie von diesem
 				neuen Zweig wieder eine Markierung erstellen, z.B.
 				<filename>Version_1.0.1</filename>.
 				</para>
@@ -1079,8 +1086,8 @@
 			<listitem>
 				<para>
 				Wenn Sie eine Arbeitskopie, welche auf einen Zweig gewechselt
-				wurde Ã¤ndern und diese Ã„nderungen Ã¼bertragen, so gehen
-				diese Ã„nderungen auf den Zweig und <emphasis>nicht</emphasis>
+				wurde ändern und diese Änderungen übertragen, so gehen
+				diese Änderungen auf den Zweig und <emphasis>nicht</emphasis>
 				auf den Hauptstamm (<filename>trunk</filename>). 
 				</para>
 			</listitem>
@@ -1089,30 +1096,30 @@
 		<sect2 id="tsvn-DUG-switch-1">
 			<title>Auschecken oder Wechseln Zu...</title>
 			<para>
-			...das ist hier (nicht wirklich) die Frage. WÃ¤hrend beim Auschecken
+			...das ist hier (nicht wirklich) die Frage. Während beim Auschecken
 			eine neue Arbeitskopie erstellt wird (z.B. des neu estellten Zweiges)
-			verÃ¤ndert der Befehl <guimenuitem>Wechseln zu...</guimenuitem> Ihre
+			verändert der Befehl <guimenuitem>Wechseln zu...</guimenuitem> Ihre
 			bestenhende Arbeitskopie so dass diese genau wie auf dem erstellten
 			Zweig aussieht. Dabei werden nur die Unterschiede zwischen Ihrer
-			bestehenden Arbeitskopie und dem Zweig des Projektarchivs Ã¼bertragen,
-			was natÃ¼rlich gÃ¼nstig fÃ¼r die Netzwerkauslastung und Ihre Geduld ist.
+			bestehenden Arbeitskopie und dem Zweig des Projektarchivs übertragen,
+			was natürlich günstig für die Netzwerkauslastung und Ihre Geduld ist.
 			</para>
 			<para>
 			Um nun auf dem frisch erstellten Zweig zu arbeiten haben Sie wie
-			schon erwÃ¤hnt zwei MÃ¶glichkeiten. Sie kÃ¶nnen:
+			schon erwähnt zwei Möglichkeiten. Sie können:
 			<itemizedlist>
 				<listitem>
 					<para>
-					FÃ¼hren Sie den Befehl <guimenuitem>Auschecken</guimenuitem>
+					Führen Sie den Befehl <guimenuitem>Auschecken</guimenuitem>
 					aus. Damit erstellen Sie eine separate Arbeitskopie
-					fÃ¼r den Entwicklungszweig.
+					für den Entwicklungszweig.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 					Wechseln Sie Ihre Arbeitskopie auf den neuen Zweig. Dazu
-					wÃ¤hlen Sie den obersten Ordner Ihrer Arbeitskopie und
-					wÃ¤hlen dann den Befehl <guimenuitem>Wechseln zu ...</guimenuitem>
+					wählen Sie den obersten Ordner Ihrer Arbeitskopie und
+					wählen dann den Befehl <guimenuitem>Wechseln zu ...</guimenuitem>
 					aus dem Kontextmenu aus.
 					</para>
 					<para>
@@ -1130,35 +1137,35 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-merge-2">
-			<title>Einen Zweig mit dem Hauptstamm zusammenfÃ¼hren</title>
-			<indexterm><primary>zusammenfÃ¼hren</primary></indexterm>
+			<title>Einen Zweig mit dem Hauptstamm zusammenführen</title>
+			<indexterm><primary>zusammenführen</primary></indexterm>
 			<indexterm><primary>mischen</primary></indexterm>
 			<indexterm><primary>merge</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-merge-dia-1">
-					<title>Der ZusammenfÃ¼hren Dialog</title>
+					<title>Der Zusammenführen Dialog</title>
 					<graphic fileref="images/Merge.png"/>
 				</figure>
-				Um Ã„nderungen aus einem Zweig mit dem Hauptstamm zusammenzufÃ¼hren 
-				benÃ¶tigen Sie zuerst eine Arbeitskopie des Hauptstamms.
-				WÃ¤hlen Sie dann <menuchoice><guimenuitem>ZusammenfÃ¼hren...</guimenuitem>
+				Um Änderungen aus einem Zweig mit dem Hauptstamm zusammenzuführen 
+				benötigen Sie zuerst eine Arbeitskopie des Hauptstamms.
+				Wählen Sie dann <menuchoice><guimenuitem>Zusammenführen...</guimenuitem>
 				</menuchoice> aus dem Kontextmenu.
 				<orderedlist>
 					<listitem>
 						<para>
-						Im Feld <guilabel>Aktuellen Zweig zusammenfÃ¼hren mit:</guilabel>
-						geben Sie die vollstÃ¤ndige URL des Zweiges welcher die
-						Ã„nderungen enthÃ¤lt ein. Sie kÃ¶nnen auch die 
+						Im Feld <guilabel>Aktuellen Zweig zusammenführen mit:</guilabel>
+						geben Sie die vollständige URL des Zweiges welcher die
+						Änderungen enthält ein. Sie können auch die 
             <guibutton>...</guibutton> 
-            SchaltflÃ¤che verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
+            Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 						Im Feld <guilabel>Von Revision</guilabel>geben Sie die
 						Start-Revision ein. Dies ist die Revisionsnummer
-						<emphasis>vor</emphasis> der Ã„nderung welche Sie
-						zusammenfÃ¼hren mÃ¶chten. Zum Beispiel:
+						<emphasis>vor</emphasis> der Änderung welche Sie
+						zusammenführen möchten. Zum Beispiel:
 						<screen>
 Rev Log-Meldungen
 39. Arbeite an MyBranch
@@ -1169,50 +1176,50 @@ Rev Log-Meldungen
 34. Arbeite an trunk
          ...
 						</screen>
-						Wenn Sie nun die Ã„nderungen von MyBranch in den Hauptstamm
-						(trunk) zurÃ¼ckfÃ¼hren mÃ¶chten mÃ¼ssen Sie 36 in das <guilabel>
+						Wenn Sie nun die Änderungen von MyBranch in den Hauptstamm
+						(trunk) zurückführen möchten müssen Sie 36 in das <guilabel>
 						Von Revision:</guilabel> Feld eingeben, und nicht etwa
 						37 wie Sie vielleicht denken.
 						</para>
 						<para>
 						Klicken Sie <guibutton>Suche</guibutton> wenn Sie in
-						den Log-Meldungen nach der benÃ¶tigten Revisionsnummer
-						suchen mÃ¶chten. Diese Revisionsnummer wird wahrscheinlich
+						den Log-Meldungen nach der benötigten Revisionsnummer
+						suchen möchten. Diese Revisionsnummer wird wahrscheinlich
 						nie 0 sein!
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 						Im Feld <guilabel>Zu Revision</guilabel> geben Sie die 
-						die Endrevision der Ã„nderung(en) ein. Sie kÃ¶nnen auch
-						einzelne Revisionen zusammenfÃ¼hren, dies muss nicht HEAD sein!
+						die Endrevision der Änderung(en) ein. Sie können auch
+						einzelne Revisionen zusammenführen, dies muss nicht HEAD sein!
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 						Klicken Sie auf <guibutton>OK</guibutton> um den 
-						Vorgang zu starten. Wenn Sie dann die Ã„nderungen
-						zum Projektarchiv Ã¼bertragen wollen, erwÃ¤hnen Sie in der
+						Vorgang zu starten. Wenn Sie dann die Änderungen
+						zum Projektarchiv übertragen wollen, erwähnen Sie in der
 						Log-Meldung welche Revisionen Sie von welchem Zweig
-						zusammengefÃ¼hrt haben! Auf diese Weise kÃ¶nnen Sie spÃ¤ter nachlesen,
-						welche Revisionen Sie bereits zusammengefÃ¼hrt haben und welche
+						zusammengeführt haben! Auf diese Weise können Sie später nachlesen,
+						welche Revisionen Sie bereits zusammengeführt haben und welche
 						noch nicht. Dies ist notwendig, da ein nochmaliges
-						ZusammenfÃ¼hren einer bereits zusammengefÃ¼hrten Revision zu einem
-						Konflikt fÃ¼hrt.
+						Zusammenführen einer bereits zusammengeführten Revision zu einem
+						Konflikt führt.
 					</para>
 					</listitem>
 				</orderedlist>
 				Der Vorgang ist nun abgeschlossen. Sie sollten nun ihre
-				Arbeitskopie Ã¼berprÃ¼fen, ob alles so ist wie erwartet. Das
-				ZusammenfÃ¼hren ist normalerweise recht aufwendig und kompliziert.
-				Zum Beispiel kÃ¶nnen Konflikte auftreten wenn der Zweig sich
+				Arbeitskopie überprüfen, ob alles so ist wie erwartet. Das
+				Zusammenführen ist normalerweise recht aufwendig und kompliziert.
+				Zum Beispiel können Konflikte auftreten wenn der Zweig sich
 				schon zu weit vom Hauptast entfernt hat.
 				<important>
 				<para>
-				Subversion kann nicht eine Datei mit einem Ordner zusammenfÃ¼hren und
-				umgekehrt. Nur Ordner mit Ordner und Dateien mit Dateien kÃ¶nnen
-				zusammengefÃ¼hrt werden. Wenn Sie auf eine Datei klicken und den 
-        ZusammenfÃ¼hren Dialog aufrufen, dann mÃ¼ssen Sie eine URL zu einer 
+				Subversion kann nicht eine Datei mit einem Ordner zusammenführen und
+				umgekehrt. Nur Ordner mit Ordner und Dateien mit Dateien können
+				zusammengeführt werden. Wenn Sie auf eine Datei klicken und den 
+        Zusammenführen Dialog aufrufen, dann müssen Sie eine URL zu einer 
         Datei im Dialog eingeben.
 				</para>
 				</important>
@@ -1232,10 +1239,10 @@ Rev Log-Meldungen
 				<title>Der Umplazieren Dialog</title>
 				<graphic fileref="images/Relocate.png"/>
 			</figure>
-		Sollte die URL Ihres Projektarchivs sich geÃ¤ndert haben (z.B. DNS-Eintrag
-		des Servers hat sich geÃ¤ndert), so mÃ¼ssen Sie nicht erneut eine ganze
+		Sollte die URL Ihres Projektarchivs sich geändert haben (z.B. DNS-Eintrag
+		des Servers hat sich geändert), so müssen Sie nicht erneut eine ganze
 		Arbeitskopie aus dem Projektarchiv auschecken. Es reicht wenn Sie den
-		Befehl <guimenuitem>Umplazieren...</guimenuitem> ausfÃ¼hren und die
+		Befehl <guimenuitem>Umplazieren...</guimenuitem> ausführen und die
 		neue URL angeben.
 		</para>
 	</sect1>
@@ -1260,11 +1267,11 @@ Rev Log-Meldungen
 				</figure>
 
 		Abgesehen von der bevorzugten Sprache erlaubt dieser Dialog es Ihnen,
-		(fast) alle Einstellungen von TortoiseSVN zu Ã¤ndern.
+		(fast) alle Einstellungen von TortoiseSVN zu ändern.
 		</para>
 		<para>
-		Um zusÃ¤tzliche Hilfe fÃ¼r bestimmte Einstellungen zu erhalten lassen
-		Sie den Mauszeiger eine Sekunde lang Ã¼ber den Eingabefeldern, Checkboxen, ...
+		Um zusätzliche Hilfe für bestimmte Einstellungen zu erhalten lassen
+		Sie den Mauszeiger eine Sekunde lang über den Eingabefeldern, Checkboxen, ...
 		und es wird ein kleiner Tip erscheinen.
 		</para>
 		</sect2>
@@ -1276,9 +1283,9 @@ Rev Log-Meldungen
 					<graphic fileref="images/SettingsOverlay.png"/>
 				</figure>
 				
-			Diese Seite stellt ein, wie die Ã¼berlagerten Icons angezeigt werden
-			sollen. FÃ¼r den Fall, dass der Explorer zu langsam reagiert 
-			deaktivieren Sie die Einstellung <literal>Zeige verÃ¤nderte Ordner</literal>.
+			Diese Seite stellt ein, wie die überlagerten Icons angezeigt werden
+			sollen. Für den Fall, dass der Explorer zu langsam reagiert 
+			deaktivieren Sie die Einstellung <literal>Zeige veränderte Ordner</literal>.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-menu">
@@ -1288,7 +1295,7 @@ Rev Log-Meldungen
 					<title>Der Einstellungsdialog, Kontextmenuseite</title>
 					<graphic fileref="images/SettingsMenu.png"/>
 				</figure>
-			Auf dieser Seite kÃ¶nnen Sie angeben, welche Befehle im 
+			Auf dieser Seite können Sie angeben, welche Befehle im 
 			Hauptkontextmenu des Explorer angezeigt werden sollen und welche
 			Sie lieber im Untermenu haben wollen.
 			</para>
@@ -1301,12 +1308,12 @@ Rev Log-Meldungen
 					<title>Der Einstellungsdialog, Netzwerkseite</title>
 					<graphic fileref="images/SettingsProxy.png"/>
 				</figure>
-			Hier kÃ¶nnen Sie Einstellungen fÃ¼r einen Proxyserver vornehmen,
-			sofern Sie einen solchen Ã¼berhaupt benutzen.
+			Hier können Sie Einstellungen für einen Proxyserver vornehmen,
+			sofern Sie einen solchen überhaupt benutzen.
 			</para>
 			<para>
-			Sie kÃ¶nnen hier auch angeben, welche Programm TortoiseSVN benutzen
-			soll fÃ¼r eine sichere Verbindung zum Projektarchiv via SSH.
+			Sie können hier auch angeben, welche Programm TortoiseSVN benutzen
+			soll für eine sichere Verbindung zum Projektarchiv via SSH.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-progs">
@@ -1324,8 +1331,8 @@ Rev Log-Meldungen
 				<title>Der Einstellungsdialog, Diff/Merge Spezialdialog</title>
 				<graphic fileref="images/SettingsProgsAdv.png"/>
 			</figure>
-		Sie kÃ¶nnen fÃ¼r jede Dateiendung ein eigenes Merge-Programm angeben, wenn
-		Sie mÃ¶chten.
+		Sie können für jede Dateiendung ein eigenes Merge-Programm angeben, wenn
+		Sie möchten.
 		</para>
 		</sect2>
 	</sect1>
@@ -1333,7 +1340,7 @@ Rev Log-Meldungen
 	<!-- ======================== SECTION 14 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-blame">
-		<title>Wer hat welche Zeile geÃ¤ndert?</title>
+		<title>Wer hat welche Zeile geändert?</title>
 		<indexterm><primary>Blame</primary></indexterm>
 		<?dbhh topicname="HIDD_BLAME"?>
 		<para>
@@ -1341,14 +1348,14 @@ Rev Log-Meldungen
 				<title>Der Blame Dialog</title>
 				<graphic fileref="images/BlameDialog.png"/>
 			</figure>
-		Manchmal mÃ¶chten Sie nicht nur erfahren, welche Zeilen sich zwischen
-		verschiedenen Revisionen geÃ¤ndert haben sondern auch, wer genau fÃ¼r
+		Manchmal möchten Sie nicht nur erfahren, welche Zeilen sich zwischen
+		verschiedenen Revisionen geändert haben sondern auch, wer genau für
 		welche Zeile in einer Datei verantwortlich ist. Dazu gibt es den
 		Befehl <guimenuitem>Blame...</guimenuitem>.
 		</para>
 		<para>
-		Dieser Befehl listet fÃ¼r jede Zeile einer Datei den Author und die
-		Revision auf, in welcher dieser Zeile zum letzten Male geÃ¤ndert wurde.
+		Dieser Befehl listet für jede Zeile einer Datei den Author und die
+		Revision auf, in welcher dieser Zeile zum letzten Male geändert wurde.
 		</para>
 		<para>
 		Sobald Sie auf <guibutton>OK</guibutton> klicken beginnt TortoiseSVN
@@ -1361,11 +1368,11 @@ Rev Log-Meldungen
 		<para>
 		Das Beispiel zeigt die ersten dreissig Zeilen der Datei
 		<filename>/Subversion/include/svn_io.h</filename> der Revision 7566
-		des Subversion Projektes. FÃ¼r jede Zeile wird gezeigt:
+		des Subversion Projektes. Für jede Zeile wird gezeigt:
 		<literal>Zeilennummer</literal>, 
-		<literal>Revision der letzen Ã„nderung</literal>, 
-		<literal>Datum der letzten Ã„nderung</literal>, der  
-		<literal>Author</literal> und natÃ¼rlich
+		<literal>Revision der letzen Änderung</literal>, 
+		<literal>Datum der letzten Änderung</literal>, der  
+		<literal>Author</literal> und natürlich
 		<literal>die eigentliche Zeile der Datei</literal>.
 <screen>
 line   rev    date                 author     content 
@@ -1410,19 +1417,19 @@ line   rev    date                 author     content
 	<sect1 id="tsvn-DUG-donate">
 		<title>Letzter Schritt</title>
 		<para>
-		Wenn Sie TortoiseSVN mÃ¶gen und es oft benutzen, unterstÃ¼tzen Sie bitte
+		Wenn Sie TortoiseSVN mögen und es oft benutzen, unterstützen Sie bitte
 		die Entwickler!
 		</para>
 		<para>
-		Sie kÃ¶nnen uns auf viele Weise helfen: Sie kÃ¶nnen uns Patches schicken
-		und damit bei der Entwicklung direkt mithelfen, oder Sie kÃ¶nnen uns
+		Sie können uns auf viele Weise helfen: Sie können uns Patches schicken
+		und damit bei der Entwicklung direkt mithelfen, oder Sie können uns
 		bei unserer Arbeit motivieren.
 		</para>
 		<para>
-		WÃ¤hrend wir an TortoiseSVN arbeiten hÃ¶ren wir gerne Musik. Und weil wir
-		viele viele Stunden an TortoiseSVN arbeiten, benÃ¶tigen wir immer wieder
+		Während wir an TortoiseSVN arbeiten hören wir gerne Musik. Und weil wir
+		viele viele Stunden an TortoiseSVN arbeiten, benötigen wir immer wieder
 		neue Musik. Aus diesem Grund haben wir im Internet Seiten eingerichtet,
-		von wo aus Sie uns Musik-CD's und auch mal eine DVD schenken kÃ¶nnen:
+		von wo aus Sie uns Musik-CD's und auch mal eine DVD schenken können:
 		<itemizedlist>
 			<listitem>
 				<para>Die Wunschliste von Stefan ist 
@@ -1433,7 +1440,7 @@ line   rev    date                 author     content
 				</para>
 			</listitem>
 			<listitem>
-				<para>LÃ¼bbe hat ebenfalls eine 
+				<para>Lübbe hat ebenfalls eine 
 					<ulink url="href=http://amazon.com/gp/registry/13DTTC8JF4UD5">englische (Amazon.com)</ulink> und eine
 					<ulink url="href=http://www.amazon.de/exec/obidos/wishlist/3IKWLV2U0TVUA/">deutsche (Amazon.de)</ulink> Wunschliste.
 				</para>
