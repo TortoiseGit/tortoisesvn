@@ -566,6 +566,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 	if (pApp)
 		pApp->DoWaitCursor(1);
 	m_dwShow = dwShow;
+	m_nSelected = 0;
 	SetRedraw(FALSE);
 	DeleteAllItems();
 	m_arListArray.clear();
@@ -679,6 +680,8 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, entry->url);
 	}
 	SetCheck(index, entry->checked);
+	if (entry->checked)
+		m_nSelected++;
 	m_bBlock = FALSE;
 }
 
