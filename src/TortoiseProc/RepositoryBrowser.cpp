@@ -86,6 +86,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
 	ON_WM_SIZING()
 	ON_NOTIFY(RVN_ITEMRCLICK, IDC_REPOS_TREE, OnRVNItemRClickReposTree)
 	ON_NOTIFY(RVN_ITEMRCLICKUP, IDC_REPOS_TREE, OnRVNItemRClickUpReposTree)
+	ON_NOTIFY(RVN_KEYDOWN, IDC_REPOS_TREE, OnRVNKeyDownReposTree)
 END_MESSAGE_MAP()
 
 
@@ -589,6 +590,28 @@ void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pRes
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 		} // if (popup.CreatePopupMenu()) 
 	} // if (hSelItem) 
+}
+
+void CRepositoryBrowser::OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMREPORTVIEW pNMTreeView = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
+
+	*pResult = 0;
+	HTREEITEM hSelItem = m_treeRepository.GetItemHandle(m_treeRepository.GetFirstSelectedItem());
+	UINT uSelCount = m_treeRepository.GetSelectedCount();
+
+	switch (pNMTreeView->nKeys)
+	{
+	case VK_F5:
+		if (hSelItem && uSelCount == 1)
+		{
+			m_treeRepository.RefreshMe(hSelItem);
+		}
+		*pResult = 1;
+		break;
+	default:
+		break;
+	}
 }
 
 void CRepositoryBrowser::OnOK()
