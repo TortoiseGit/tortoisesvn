@@ -119,6 +119,10 @@ public:
 		{
 			return checked;
 		}
+		CString GetRelativeSVNPath() const
+		{
+			return path.GetSVNPathString().Mid(basepath.GetSVNPathString().GetLength()+1);
+		}
 	private:
 		CTSVNPath				path;					///< full path of the file
 		CTSVNPath				basepath;				///< common ancestor path of all files

@@ -584,7 +584,7 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 
 LRESULT CLogPromptDlg::OnAutoListReady(WPARAM, LPARAM)
 {
-	m_cLogMessage.SetAutoCompletionList(m_autolist, ' ');
+	m_cLogMessage.SetAutoCompletionList(m_autolist, '*');
 	return 0;
 }
 
@@ -644,6 +644,15 @@ void CLogPromptDlg::GetAutocompletionList()
 			const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
 			if (entry->IsChecked())
 			{
+				// add the path parts to the autocompletion list too
+				CString sPartPath = entry->GetRelativeSVNPath();
+				m_autolist.AddSorted(sPartPath);
+				int pos = 0;
+				while ((pos = sPartPath.Find('/', pos)) >= 0)
+				{
+					pos++;
+					m_autolist.AddSorted(sPartPath.Mid(pos));
+				}
 				CString sExt = entry->GetPath().GetFileExtension();
 				CString sRegex;
 				// find the regex string which corresponds to the file extension
@@ -721,7 +730,6 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 			{
 				offset1 += results.rstart(0);
 				offset2 = offset1 + results.rlength(0);
-				ATLTRACE("matched : %ws\n", sFileContent.Mid(offset1, offset2-offset1));
 				m_autolist.AddSorted(sFileContent.Mid(offset1, offset2-offset1));
 				offset1 = offset2;
 			}
