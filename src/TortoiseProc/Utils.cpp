@@ -134,13 +134,13 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir)
 			// use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
-			viewer = viewer + _T(" /patchpath:\"%path\" /diff:\"%1\"");
+			viewer = viewer + _T(" /patchpath:\"%path\" /diff:\"%base\"");
 		} // if (viewer.IsEmpty() && !dir.IsEmpty())
 		if (viewer.IsEmpty())
 			return FALSE;
-		if (viewer.Find(_T("%1")) >= 0)
+		if (viewer.Find(_T("%base")) >= 0)
 		{
-			viewer.Replace(_T("%1"), _T("\"")+file+_T("\""));
+			viewer.Replace(_T("%base"), _T("\"")+file+_T("\""));
 		}
 		else
 		{
@@ -163,20 +163,20 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir)
 			//use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
-			viewer = viewer + _T(" /base:\"%1\" /yours:\"%2\"");
+			viewer = viewer + _T(" /base:\"%base\" /yours:\"%mine\"");
 		} // if (diffexe == "")
-		if (viewer.Find(_T("%1")) >= 0)
+		if (viewer.Find(_T("%base")) >= 0)
 		{
-			viewer.Replace(_T("%1"), file);
+			viewer.Replace(_T("%base"),  _T("\"")+file+_T("\""));
 		}
 		else
 		{
 			viewer += _T(" ");
 			viewer += file;
 		}
-		if (viewer.Find(_T("%2")) >= 0)
+		if (viewer.Find(_T("%mine")) >= 0)
 		{
-			viewer.Replace(_T("%2"), dir);
+			viewer.Replace(_T("%mine"),  _T("\"")+dir+_T("\""));
 		}
 		else
 		{
@@ -259,9 +259,9 @@ BOOL CUtils::StartTextViewer(CString file)
 		else
 			return FALSE;
 	}
-	if (viewer.Find(_T("%1")) >= 0)
+	if (viewer.Find(_T("%base")) >= 0)
 	{
-		viewer.Replace(_T("%1"), file);
+		viewer.Replace(_T("%base"),  _T("\"")+file+_T("\""));
 	}
 	else
 	{
@@ -354,20 +354,20 @@ void CUtils::Unescape(char * psz)
 CString CUtils::PathEscape(CString path)
 {
 	CString ret = path;
-	ret.Replace(_T(" "), _T("%20"));
+	ret.Replace(_T(" "), _T("%mine0"));
 	ret.Replace(_T("^"), _T("%5E"));
-	ret.Replace(_T("&"), _T("%26"));
+	ret.Replace(_T("&"), _T("%mine6"));
 	ret.Replace(_T("`"), _T("%60"));
 	ret.Replace(_T("{"), _T("%7B"));
 	ret.Replace(_T("}"), _T("%7D"));
 	ret.Replace(_T("|"), _T("%7C"));
 	ret.Replace(_T("]"), _T("%5D"));
 	ret.Replace(_T("["), _T("%5B"));
-	ret.Replace(_T("\""), _T("%22"));
+	ret.Replace(_T("\""), _T("%mine2"));
 	ret.Replace(_T("<"), _T("%3C"));
 	ret.Replace(_T(">"), _T("%3E"));
 	ret.Replace(_T("\\"), _T("%5C"));
-	ret.Replace(_T("#"), _T("%23"));
+	ret.Replace(_T("#"), _T("%mine3"));
 	ret.Replace(_T("?"), _T("%3F"));
 	return ret;
 }

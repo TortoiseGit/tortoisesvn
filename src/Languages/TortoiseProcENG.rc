@@ -858,7 +858,7 @@ BEGIN
     IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
     IDS_SETTINGS_SELECTMERGE "Select a Merge Application"
     IDS_SETTINGS_SELECTSSH  "Select An SSH Client"
-    IDS_SETTINGS_EXTDIFF_TT "An external diff program used\nfor comparing different revisions of files"
+    IDS_SETTINGS_EXTDIFF_TT "An external diff program used\nfor comparing different revisions of files\n<hr=100%>\n%base\tthe base file\n%mine\tthe modified file"
     IDS_SETTINGS_EXTDIFFBROWSE_TT "Browse for the external diff program"
     IDS_SETTINGS_CHANGEDDIRS_TT 
                             "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
