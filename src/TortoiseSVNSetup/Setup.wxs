@@ -45,6 +45,11 @@
         <FileSearch Id="DirSearchShellDll" Name="shell32.dll" MinVersion="4.72.0.0" />
       </DirectorySearch>
     </Property>
+    <Property Id="TEXTEDITOR">
+      <DirectorySearch Id="FileSearchTextEditorExe" Path="[WindowsFolder]">
+        <FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
+      </DirectorySearch>
+    </Property>
     <Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
     <Condition Message="[ProductName] needs at least shell32.dll version 4.72">(NOT (""=VERSIONSHELL)) OR (Installed)</Condition>
 	<?if $(env.TSVNBUILD) = release ?>
@@ -224,6 +229,8 @@
     </Feature>
     
     <Media Id="1" Cabinet="TSVN.cab" EmbedCab="yes" CompressionLevel="high" />
+    <CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" />
+    <CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[TARGETDIR]changelog.txt" />
     <CustomAction Id="DIRCA_TARGETDIR" Property="TARGETDIR" Value="[ProgramFilesFolder]\[ProductName]" Execute="firstSequence" />
 
     <CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
@@ -584,6 +591,7 @@ Click "Finish" to continue.</Text>
       <Dialog Id="FinishedForm" Width="373" Height="287" Title="[ProductName]">
         <Control Id="CloseButton" Type="PushButton" X="300" Y="261" Width="66" Height="18" Default="yes" Cancel="yes">
           <Text>{\Sans_Serif13}&amp;Close</Text>
+          <Publish Event="DoAction" Value="ShowChangelogAction">ShowChangelog="Yes"</Publish>
           <Publish Event="EndDialog" Value="Return">1</Publish>
         </Control>
         <Control Id="CancelButton" Type="PushButton" X="156" Y="261" Width="66" Height="18" Disabled="yes">
@@ -604,22 +612,27 @@ Click "Finish" to continue.</Text>
         <Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
           <Text>{\Sans_Serif16}Installation Complete</Text>
         </Control>
-        <Control Id="BodyTextRemove" Type="Text" X="9" Y="63" Width="354" Height="138">
+        <Control Id="BodyTextRemove" Type="Text" X="9" Y="63" Width="354" Height="100">
           <Text>{\Sans_Serif13}[ProductName] has been successfully removed.
 
 Click "Close" to exit.</Text>
           <Condition Action="show">REMOVE&lt;&gt;""</Condition>
           <Condition Action="hide">REMOVE=""</Condition>
         </Control>
-        <Control Id="UpdateText" Type="Text" X="9" Y="216" Width="354" Height="36">
+        <Control Id="UpdateText" Type="Text" X="9" Y="180" Width="354" Height="36">
           <Text>{\Sans_Serif13}</Text>
           <Condition Action="show">REMOVE=""</Condition>
           <Condition Action="hide">REMOVE&lt;&gt;""</Condition>
         </Control>
-        <Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="138">
+        <Control Id="BodyText" Type="Text" X="9" Y="63" Width="354" Height="100">
           <Text>{\Sans_Serif13}[ProductName] has been successfully installed.
 
 Click "Close" to exit.</Text>
+          <Condition Action="show">REMOVE=""</Condition>
+          <Condition Action="hide">REMOVE&lt;&gt;""</Condition>
+        </Control>
+        <Control Id="ShowChangelogBox" Type="CheckBox" Property="ShowChangelog" X="9" Y="220" Width="354" Height="32">
+          <Text>{\Sans_Serif13}Show the changelog after installation is complete</Text>
           <Condition Action="show">REMOVE=""</Condition>
           <Condition Action="hide">REMOVE&lt;&gt;""</Condition>
         </Control>
@@ -1064,7 +1077,7 @@ To install in this folder, click "Next". To install to a different folder, enter
         <Control Id="BannerText" Type="Text" X="9" Y="9" Width="306" Height="33" Transparent="yes">
           <Text>{\Sans_Serif16}Confirm Installation</Text>
         </Control>
-        <Control Id="BodyText1" Type="Text" X="9" Y="63" Width="354" Height="180">
+        <Control Id="BodyText1" Type="Text" X="9" Y="63" Width="354" Height="100">
           <Text>{\Sans_Serif13}The installer is ready to install [ProductName] on your computer.
 
 Click "Next" to start the installation.</Text>
@@ -1191,6 +1204,7 @@ Click "Next" to start the installation.</Text>
         <Show Dialog="ResumeForm" After="IsolateComponents">Installed="" AND RESUME</Show>
         <Show Dialog="MaintenanceForm" After="ResumeForm">Installed&lt;&gt;""</Show>
         <Show Dialog="WelcomeForm" After="CostFinalize">Installed="" AND NOT RESUME</Show>
+        <Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
         <Show Dialog="ProgressForm" After="WelcomeForm" />
       </InstallUISequence>
     </UI>
