@@ -767,6 +767,10 @@ Folder/File2 : revision 2
 			here</ulink>. If you follow those instructions, you'll have a
 			VS.NET working with ASP.NET projects and Subversion without troubles.
 			</para>
+			<para>
+			Alternatively, upgrade your copy of VS.NET. The bug has been fixed
+			in VS.NET2005, so it no longer has this problem.
+			</para>
  			<para>
 			If you still want to use TortoiseSVN with web projects, these are
 			the questions we face every few weeks and here are the answers 
@@ -778,6 +782,8 @@ Folder/File2 : revision 2
 						<para>
 						No, we don't. It's a bug in VS.NET and not in Subversion.
 						So the bug has to be fixed there.
+						In fact in VS.NET2005 it has been fixed, so if you can
+						upgrade VS.NET, the problem goes away.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -805,6 +811,13 @@ Folder/File2 : revision 2
 						No, we won't. <emphasis>Your</emphasis> problems might be gone,
 						but all others which are using Subversion and TortoiseSVN would
 						get into troubles if we did that.
+						</para>
+						<para>
+						One of the big advantages in using this folder name is that it
+						is universal. i.e. you can use the same working copy from your
+						Linux box and from your Windows box. Very useful if you have a
+						dual boot computer and don't want to have two working copies
+						for each OS you boot.
 						</para>
 					</listitem>
 				</varlistentry>
