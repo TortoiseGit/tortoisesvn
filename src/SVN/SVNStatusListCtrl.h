@@ -43,14 +43,19 @@
 #define SVNSLC_SHOWOBSTRUCTED	0x000000400
 #define SVNSLC_SHOWEXTERNAL		0x000000800
 #define SVNSLC_SHOWINCOMPLETE	0x000001000
+#define SVNSLC_SHOWINEXTERNALS	0x000002000
 
 #define SVNSLC_SHOWVERSIONED (SVNSLC_SHOWNORMAL|SVNSLC_SHOWMODIFIED|\
 SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
-SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE)
+SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWINEXTERNALS)
 
 #define SVNSLC_SHOWVERSIONEDBUTNORMAL (SVNSLC_SHOWMODIFIED|\
 	SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
-	SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE)
+	SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWINEXTERNALS)
+
+#define SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS (SVNSLC_SHOWMODIFIED|\
+	SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
+	SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWINCOMPLETE)
 
 #define SVNSLC_SHOWALL (SVNSLC_SHOWVERSIONED|SVNSLC_SHOWUNVERSIONED)
 
@@ -107,6 +112,7 @@ public:
 		svn_wc_status_kind		remotepropstatus;		///< remote property status
 		BOOL					checked;				///< if the file is checked in the list control
 		BOOL					inunversionedfolder;	///< if the file is inside an unversioned folder
+		BOOL					inexternal;				///< if the item is in an external folder
 	};
 
 	/**
@@ -137,6 +143,11 @@ public:
 	 * repositories than the first one checked, then this method returns TRUE.
 	 */
 	BOOL HasExternalsFromDifferentRepos() {return m_bHasExternalsFromDifferentRepos;}
+
+	/**
+	 * If during the call to GetStatus() some svn:externals are found then this method returns TRUE.
+	 */
+	BOOL HasExternals() {return m_bHasExternals;}
 
 	/**
 	 * Returns the file entry data for the list control index.
@@ -202,6 +213,7 @@ private:
 	static BOOL					m_bAscending;		///< sort direction
 	static int					m_nSortedColumn;	///< which column to sort
 	BOOL						m_bHasExternalsFromDifferentRepos;
+	BOOL						m_bHasExternals;
 	CArray<FileEntry *, FileEntry *> m_arStatusArray;
 	CDWordArray					m_arListArray;
 	CStringArray				m_templist;

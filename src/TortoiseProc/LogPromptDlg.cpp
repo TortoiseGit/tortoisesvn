@@ -311,7 +311,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	pDlg->m_ListCtrl.GetStatus(pDlg->m_sPath);
-	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
+	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS;
 	dwShow |= DWORD(pDlg->m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
 	pDlg->m_ListCtrl.Show(dwShow);
 	pDlg->m_ListCtrl.CheckAll(SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED);
@@ -324,7 +324,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		pDlg->EndDialog(0);
 		return -1;
 	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
-	if (pDlg->m_ListCtrl.HasExternalsFromDifferentRepos())
+	if (pDlg->m_ListCtrl.HasExternalsFromDifferentRepos()||pDlg->m_ListCtrl.HasExternals())
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
 	} // if (bHasExternalsFromDifferentRepos) 
@@ -401,7 +401,7 @@ void CLogPromptDlg::OnBnClickedShowunversioned()
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	if (!m_bBlock)
 	{
-		DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
+		DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS;
 		dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
 		m_ListCtrl.Show(dwShow);
 	}

@@ -161,6 +161,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 	BOOL bRet = TRUE;
 	m_nTargetCount = 0;
 	m_bHasExternalsFromDifferentRepos = FALSE;
+	m_bHasExternals = FALSE;
 	
 	m_bBlock = TRUE;
 
@@ -255,6 +256,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					if (SVNStatus::GetAllStatus(temp) != svn_wc_status_unversioned)
 						continue;	//ignore nested layouts
 				}
+				if (s->text_status == svn_wc_status_external)
+					m_bHasExternals = TRUE;
 				FileEntry * entry = new FileEntry();
 				entry->path = strbuf;
 				entry->basepath = strLine;
@@ -266,6 +269,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				entry->remotepropstatus = s->repos_prop_status;
 				entry->inunversionedfolder = FALSE;
 				entry->checked = FALSE;
+				entry->inexternal = m_bHasExternals;
 				if (s->entry)
 				{
 					if (s->entry->url)
@@ -297,11 +301,11 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							entry->remotepropstatus = svn_wc_status_unversioned;
 							entry->inunversionedfolder = FALSE;
 							entry->checked = FALSE;
+							entry->inexternal = FALSE;
 							m_arStatusArray.Add(entry);
 						}
 					} // while (filefinder.NextFile(filename))
 				}
-
 				// for folders, get all statuses inside it too
 				while (bIsFolder && ((s = status.GetNextFileStatus(&strbuf)) != NULL))
 				{
@@ -352,6 +356,9 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 						} // if (s->entry)
 					} // if (SVNStatus::IsImportant(SVNStatus::GetMoreImportant(s->text_status, s->prop_status))) 
 
+					if (s->text_status == svn_wc_status_external)
+						m_bHasExternals = TRUE;
+
 					FileEntry * entry = new FileEntry();
 					entry->path = strbuf;
 					entry->basepath = strLine;
@@ -363,6 +370,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					entry->remotepropstatus = s->repos_prop_status;
 					entry->inunversionedfolder = FALSE;
 					entry->checked = FALSE;
+					entry->inexternal = m_bHasExternals;
 					if (s->entry)
 					{
 						if (s->entry->url)
@@ -372,7 +380,6 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 						}
 					}
 					m_arStatusArray.Add(entry);
-
 					if ((entry->status == svn_wc_status_unversioned)&&(!config.MatchIgnorePattern(strbuf)))
 					{
 						if (PathIsDirectory(strbuf))
@@ -396,6 +403,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 									entry->remotepropstatus = svn_wc_status_unversioned;
 									entry->inunversionedfolder = FALSE;
 									entry->checked = FALSE;
+									entry->inexternal = FALSE;
 									m_arStatusArray.Add(entry);
 								}
 							} // while (filefinder.NextFile(filename))
@@ -431,6 +439,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow)
 	for (int i=0; i<m_arStatusArray.GetCount(); ++i)
 	{
 		FileEntry * entry = m_arStatusArray.GetAt(i);
+		if (entry->inexternal && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
+			continue;
 		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
 		switch (status)
 		{
