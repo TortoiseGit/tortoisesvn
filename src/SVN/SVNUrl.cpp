@@ -43,7 +43,7 @@ SVNUrl::SVNUrl(const CString& path, const CString& revision) :
 {
 }
 
-SVNUrl::SVNUrl(const CString& path, LONG revision) :
+SVNUrl::SVNUrl(const CString& path, const SVNRev& revision) :
 	CString(Unescape(path + _T("?") + GetTextFromRev(revision)))
 {
 }
@@ -94,11 +94,11 @@ CString SVNUrl::GetPath(bool escaped) const
 		return path;
 }
 
-void SVNUrl::SetRevision(LONG revision)
+void SVNUrl::SetRevision(const SVNRev& revision)
 {
 	CString svn_url;
 
-	if (revision == SVNRev::REV_HEAD)
+	if (revision.IsHead())
 	{
 		svn_url = GetPath();
 	}
@@ -110,30 +110,17 @@ void SVNUrl::SetRevision(LONG revision)
 	*this = svn_url;
 }
 
-LONG SVNUrl::GetRevision() const
+SVNRev SVNUrl::GetRevision() const
 {
 	int rev_pos = ReverseFind(_T('?'));
 
 	if (rev_pos < 0)
 	{
-		return SVNRev::REV_HEAD;
+		return SVNRev(SVNRev::REV_HEAD);
 	}
 	else
 	{
-		CString revision = Mid(rev_pos + 1);
-		if (revision.CompareNoCase(_T("HEAD")) == 0)
-		{
-			return SVNRev::REV_HEAD;
-		}
-		else if (revision.CompareNoCase(_T("BASE")) == 0)
-		{
-			return SVNRev::REV_BASE;
-		}
-		else if (revision.CompareNoCase(_T("WC")) == 0)
-		{
-			return SVNRev::REV_WC;
-		}
-		return _tcstol(revision, 0, 10);
+		return SVNRev(Mid(rev_pos + 1));
 	}
 }
 
@@ -220,19 +207,19 @@ CString SVNUrl::Unescape(const CString& url)
 	return CUnicodeUtils::GetUnicode(temp);
 }
 
-CString SVNUrl::GetTextFromRev(LONG revision)
+CString SVNUrl::GetTextFromRev(const SVNRev& revision)
 {
 	CString rev_text;
 
-	if (revision == SVNRev::REV_HEAD)
+	if (revision.IsHead())
 	{
 		rev_text = _T("HEAD");
 	}
-	else if (revision == SVNRev::REV_BASE)
+	else if (revision.IsBase())
 	{
 		rev_text = _T("BASE");
 	}
-	else if (revision == SVNRev::REV_WC)
+	else if (revision.IsWorking())
 	{
 		rev_text = _T("WC");
 	}
@@ -290,17 +277,19 @@ public:
 
 		// GetRevision/SetRevision tests
 		{
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b")).GetRevision() == SVNRev::REV_HEAD );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/")).GetRevision() == SVNRev::REV_HEAD );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b")).GetRevision().IsHead() );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/")).GetRevision().IsHead() );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?42")).GetRevision() == 42 );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/?42")).GetRevision() == 42 );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?HEAD")).GetRevision() == SVNRev::REV_HEAD );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?BASE")).GetRevision() == SVNRev::REV_BASE );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?HEAD")).GetRevision().IsHead() );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?BASE")).GetRevision().IsBase() );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?WC")).GetRevision().IsWorking() );
 
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b")).GetRevisionText() == _T("HEAD") );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?42")).GetRevisionText() == _T("42") );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?HEAD")).GetRevisionText() == _T("HEAD") );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?bAsE")).GetRevisionText() == _T("BASE") );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?wC")).GetRevisionText() == _T("WC") );
 		}
 
 		// URL root tests

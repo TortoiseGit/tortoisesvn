@@ -20,6 +20,7 @@
 #define __SVNUrl_h
 
 #pragma once
+#include "SVNRev.h"
 
 
 /**
@@ -58,7 +59,7 @@ public:
 	SVNUrl();
 	SVNUrl(const CString& svn_url);
 	SVNUrl(const CString& path, const CString& revision);
-	SVNUrl(const CString& path, LONG revision);
+	SVNUrl(const CString& path, const SVNRev& revision);
 	SVNUrl(const SVNUrl& other);
 
 	SVNUrl& operator=(const CString& svn_url);
@@ -79,11 +80,11 @@ public:
 	 * the escaped form of the URL is returned. Otherwise, the unescaped form
 	 * of the URL is returned.
 	 */
-	void SetRevision(LONG revision);
+	void SetRevision(const SVNRev& revision);
 	/**
 	 * Returns the revision part of the pathname.
 	 */
-	LONG GetRevision() const;
+	SVNRev GetRevision() const;
 	/**
 	 * Returns the textual representation of the revision part of the SVNUrl.
 	 */
@@ -123,7 +124,7 @@ public:
 	/**
 	 * Returns the textual representation of \a revision.
 	 */
-	static CString GetTextFromRev(LONG revision);
+	static CString GetTextFromRev(const SVNRev& revision);
 
 };
 
