@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-01-13 09:40+0100\n"
+"PO-Revision-Date: 2005-01-14 09:42+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4078,6 +4078,18 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Wert für die maximale Breite der Log-Meldung in Zeichen.\n"
 "Eine Begrenzungslinie wird an dieser Stelle angezeigt. Der Standardwert beträgt 80 Zeichen."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Setzen Sie diese Eigenschaft auf die vierstellige Nummer der Sprache in\n"
+"der die Logmeldungen geschrieben werden sollen. TortoiseSVN lädt dann\n"
+"die entsprechende Rechtschreibprüfung, falls sie installiert ist."
 
 # ID:15,
 #: ID:15

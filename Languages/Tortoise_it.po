@@ -1,6 +1,5 @@
-#
-# Italian translation for TortoiseSVN
-# Copyright (C) 2004-2005 the TortoiseSVN team
+# Italian translations for TortoiseSVN package
+# Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Author:
@@ -9,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-07 14:30+0100\n"
+"PO-Revision-Date: 2005-01-13 23:16+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -278,6 +277,10 @@ msgid "&Language:"
 msgstr "&Lingua:"
 
 #: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Segna come risolto"
+
+#: MenuEntry
 msgid "&Merge"
 msgstr "&Fondi"
 
@@ -330,6 +333,11 @@ msgstr "&Apri Ctrl-A"
 msgid "&Password:"
 msgstr "&Password:"
 
+# ID:376,
+#: ID:376
+msgid "&Paste"
+msgstr "&Incolla"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
@@ -343,6 +351,12 @@ msgstr "&Differenza precedente"
 #: Control-ID:1023
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Analizza le sottodirectory e recuperane lo stato"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:376
+msgid "&Redo"
+msgstr "&Ripeti"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -433,6 +447,11 @@ msgstr "&Barra degli strumenti"
 msgid "&URL of repository:"
 msgstr "&URL del repository:"
 
+# ID:376,
+#: ID:376
+msgid "&Undo"
+msgstr "&Annulla"
+
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Annulla\tCtrl+Z"
@@ -467,6 +486,12 @@ msgstr "&Spaziature"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(selezione multipla)"
+
+# ID:3867,#:
+# ID:3867,
+#: ID:314
+msgid "(not found)"
+msgstr "(non trovato)"
 
 # Dlg-ID:107,
 #: ID:208
@@ -960,6 +985,11 @@ msgstr "Autore:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autori:                      Stefan Kueng, Tim Kemp"
 
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "Risolvi automaticamente lo stato di conflitto quando si salva"
+
 # Dlg-ID:141,
 #: Control-ID:1157
 msgid "Average"
@@ -1361,6 +1391,7 @@ msgid "Completed"
 msgstr "Completato"
 
 # Control-ID:65535,
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "In conflitto"
@@ -1379,6 +1410,11 @@ msgstr "Menu contestuale"
 #: ID:73
 msgid "Continue"
 msgstr "Continua"
+
+# ID:376,
+#: ID:376
+msgid "Cop&y"
+msgstr "&Copia"
 
 # ID:74,
 #: ID:73
@@ -1563,6 +1599,11 @@ msgstr "Crea un repository nella directory corrente"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Crea un file di confronto unificato per tutte le modifiche apportate"
+
+# ID:376,
+#: ID:376
+msgid "Cu&t"
+msgstr "&Taglia"
 
 # ID:3603,
 #: ID:3603
@@ -2024,6 +2065,16 @@ msgstr "Forza l'aggiornamento delle icone"
 msgid "From:"
 msgstr "Da:"
 
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "Impossibile inizializzare GDI+!"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ non riesce a creare un oggetto bitmap. Probabilmente la memoria è insufficente."
+
 # Dlg-ID:107,
 #: Dlg-ID:107
 msgid "General"
@@ -2053,6 +2104,15 @@ msgstr "Ottenimento informazioni dal repository..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "Ottenimeno informazioni..."
+
+# ID:2049,
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Vai al prossimo conflitto\n"
+"Prossimo conflitto"
 
 # ID:2049,
 #: ID:2049
@@ -2406,6 +2466,15 @@ msgstr "La DLL del sistema di mail non è valida."
 msgid "Main"
 msgstr "Principale"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Segna un file come risolto in Subversion\n"
+"Segna come risolto"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -2425,6 +2494,11 @@ msgstr "Programma di fusione"
 #: ID:9
 msgid "Merge..."
 msgstr "Fondi..."
+
+# Dlg-ID:141,
+#: ID:263
+msgid "Merged"
+msgstr "Fuso"
 
 # ID:10,
 #: ID:10
@@ -2588,6 +2662,11 @@ msgstr ""
 "invio. Non c'è niente che\n"
 "TortoiseSVN possa fare qui...\n"
 "Vuoi vedere i file non versionati?"
+
+# ID:273,
+#: ID:273
+msgid "No image encoder found for %s."
+msgstr "Non è stato trovato alcun codificatore di immagini per %s."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3073,11 +3152,6 @@ msgstr "Repository"
 msgid "Repository Browser"
 msgstr "Repository Browser"
 
-# Control-ID:1067,
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "Risolvi conflitto di versioni durante il salvataggio"
-
 # ID:8,
 #: ID:8
 #: ID:74
@@ -3328,6 +3402,15 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr "Salva la patch in:"
 
+# Control-ID:1014,#:
+# Control-ID:1017,#:
+# Control-ID:1064,
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+msgid "Scintilla"
+msgstr "Scintilla"
+
 # ID:113,
 #: ID:113
 msgid "Search &log messages..."
@@ -3338,6 +3421,12 @@ msgstr "Cerca commenti nel &log..."
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "Cerca campo in %1"
+
+# Control-ID:1067,#:
+# Control-ID:1067,
+#: ID:376
+msgid "Select &All"
+msgstr "Seleziona &tutti"
 
 # Control-ID:1067,#:
 # Control-ID:1067,
@@ -3636,8 +3725,8 @@ msgstr "Stato degli elementi in SVN"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "Stop On Copy"
-msgstr "Sospendi durante la copia"
+msgid "Stop On Copy/Rename"
+msgstr "Sospendi durante la copia o la rinomina"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3905,6 +3994,15 @@ msgid ""
 msgstr ""
 "Il file selezionato sembra contenere ancora uno o più indicatori di conflitto.\n"
 "Si è certi di voler marcare il file come \"risolto\"?"
+
+# ID:88,
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"La cartella non è vuota\n"
+"Si è sicuri di voler procedere al ritiro in questa cartella?"
 
 # ID:81,
 #: ID:81
@@ -4250,6 +4348,17 @@ msgstr "Url:"
 #: ID:251
 msgid "Use &other text block"
 msgstr "Usa un'altr&o blocco di testo"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Utilizzare '*' come carattere jolly quando si specifica un'eccezione\n"
+"In caso di eccezioni multiple, separarle usando delle virgole (',').\n"
+"Esempio: *.mylan.com, *.company.com"
 
 # Control-ID:1064,
 #: Control-ID:1064

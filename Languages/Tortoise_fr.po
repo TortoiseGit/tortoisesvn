@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-07 11:31+0100\n"
+"PO-Revision-Date: 2005-01-13 11:29+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,10 @@ msgid "&Language:"
 msgstr "&Langage:"
 
 #: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Marquer comme résolu"
+
+#: MenuEntry
 msgid "&Merge"
 msgstr "&Fusionnner"
 
@@ -264,6 +268,11 @@ msgstr "&Ouvrir Ctrl-O"
 msgid "&Password:"
 msgstr "&Mot de passe:"
 
+# ID:376,
+#: ID:376
+msgid "&Paste"
+msgstr "Co&ller"
+
 #: Control-ID:65535
 msgid "&Port:"
 msgstr "&Port:"
@@ -276,6 +285,10 @@ msgstr "&Précédente différence"
 #: Control-ID:1023
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Parcourir récursivement les répertoires pour récupérer le statut "
+
+#: ID:376
+msgid "&Redo"
+msgstr "&Refaire"
 
 #: Control-ID:1013
 #: Control-ID:1100
@@ -345,6 +358,11 @@ msgstr "&Barre d'outils"
 msgid "&URL of repository:"
 msgstr "&URL du repository:"
 
+# ID:376,
+#: ID:376
+msgid "&Undo"
+msgstr "Ann&uler"
+
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Annuler\tCtrl+Z"
@@ -374,6 +392,10 @@ msgstr "&Espacements"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(Cibles multiples sélectionnées)"
+
+#: ID:314
+msgid "(not found)"
+msgstr "(non trouvé)"
 
 #: ID:208
 msgid "(property change only)"
@@ -774,6 +796,10 @@ msgstr "Auteur:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Auteurs:                      Stefan Kueng, Tim Kemp"
 
+#: Control-ID:1067
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "Résoudre automatiquement les statuts conflictuels de subversion lors de la sauvegarde"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Moyenne"
@@ -1105,6 +1131,7 @@ msgstr "Compare le fichier avec la dernière version mise à jour pour voir vos 
 msgid "Completed"
 msgstr "Terminé"
 
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "En conflit"
@@ -1121,6 +1148,11 @@ msgstr "Menu Contextuel"
 #: ID:73
 msgid "Continue"
 msgstr "Continuer"
+
+# ID:376,
+#: ID:376
+msgid "Cop&y"
+msgstr "&Copier"
 
 #: ID:73
 msgid "Copied"
@@ -1278,6 +1310,11 @@ msgstr "Créer un repository dans le répertoire courant"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Créer un fichier de différence, au format unifié, avec toutes vos modifications"
+
+# ID:376,
+#: ID:376
+msgid "Cu&t"
+msgstr "C&ouper"
 
 #: ID:3603
 msgid ""
@@ -1649,6 +1686,16 @@ msgstr "Forcer le rafraîchissement des icônes du shell"
 msgid "From:"
 msgstr "Depuis l'URL:"
 
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "GDI+ ne peut être initialisé!"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ ne peut créer un objet bitmap. Vous n'avez probablement plus assez de mémoire."
+
 #: Dlg-ID:107
 msgid "General"
 msgstr "Général"
@@ -1673,6 +1720,14 @@ msgstr "Obtention d'informations depuis le repository..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "Réception des infos du journal..."
+
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Aller au conflit suivant\n"
+"conflit suivant"
 
 #: ID:2049
 msgid ""
@@ -1973,6 +2028,15 @@ msgstr "La DLL du système de mail n'est pas valide."
 msgid "Main"
 msgstr "Principale"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Marque un fichier comme résolu dans Subversion\n"
+"Marquer comme résolu"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -1989,6 +2053,10 @@ msgstr "Programme de fusionnement"
 #: ID:9
 msgid "Merge..."
 msgstr "Fusionner..."
+
+#: ID:263
+msgid "Merged"
+msgstr "Fusionné"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
@@ -2121,6 +2189,11 @@ msgstr ""
 "la dernière livraison. Il n'y a rien\n"
 "à faire pour TortoiseSVN ici...\n"
 "Voulez-vous voir les fichiers non versionés?"
+
+# ID:273,
+#: ID:273
+msgid "No image encoder found for %s."
+msgstr "Pas d'encodeur d'image trouvé pour %s."
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2505,10 +2578,6 @@ msgstr "Repository navigation"
 msgid "Repository Browser"
 msgstr "Navigateur de Repository"
 
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "Résoudre les statuts de subversion en conflits"
-
 #: ID:8
 #: ID:74
 msgid "Resolved"
@@ -2706,6 +2775,15 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr "Sauvegarde fichier patch vers:"
 
+# Control-ID:1014,#:
+# Control-ID:1017,#:
+# Control-ID:1064,
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+msgid "Scintilla"
+msgstr "Scintilla"
+
 #: ID:113
 msgid "Search &log messages..."
 msgstr "Recherche dans &le fichier journal..."
@@ -2713,6 +2791,10 @@ msgstr "Recherche dans &le fichier journal..."
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "Déplacement dans %1 en erreur"
+
+#: ID:376
+msgid "Select &All"
+msgstr "Sélectionner &Tout"
 
 #: Control-ID:1067
 msgid "Select / Deselect &All"
@@ -2956,8 +3038,8 @@ msgstr "Statut des éléments dans SVN"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "Stop On Copy"
-msgstr "Arret à la Copie"
+msgid "Stop On Copy/Rename"
+msgstr "Arret à la Copie/Renommage"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3189,6 +3271,15 @@ msgid ""
 msgstr ""
 "Le fichier sélectionné semble contenir un ou plusieurs marquages de conflit à l'intérieur.\n"
 "Etes-vous sûr de marquer le fichier comme conflits résolus?"
+
+# ID:88,
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"Le répertoire cible n'est pas vide!\n"
+"Etes vous sûr de vouloir extraire dans ce répertoire?"
 
 #: ID:81
 msgid ""
@@ -3473,6 +3564,17 @@ msgstr "Url:"
 #: ID:251
 msgid "Use &other text block"
 msgstr "Utilisez un autre bl&oc de texte"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Utilisez '*' comme caractère générique quand vous spécifiez une exception\n"
+"Pour séparer de multiples exceptions, utilisez les virgules (',').\n"
+"Exemple: *.monlan.com, *.compagnie.com"
 
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
