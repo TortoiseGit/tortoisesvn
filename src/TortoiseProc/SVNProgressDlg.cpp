@@ -185,10 +185,6 @@ void CSVNProgressDlg::ResizeColumns()
 	
 	m_ProgList.SetRedraw(true);
 	
-	if (IsWindowVisible())
-	{
-		Invalidate(TRUE);
-	}
 }
 
 
