@@ -214,17 +214,7 @@ void CLogDlg::FillLogMessageCtrl(CString msg, CString paths)
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(msg);
 	int offset1, offset2;
-	if (m_BugtraqInfo.FindBugID(msg, offset1, offset2))
-	{
-		CHARRANGE range = {offset1, offset2};
-		pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-		CHARFORMAT2 format;
-		ZeroMemory(&format, sizeof(CHARFORMAT2));
-		format.cbSize = sizeof(CHARFORMAT2);
-		format.dwMask = CFM_LINK;
-		format.dwEffects = CFE_LINK;
-		pMsgView->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-	}
+	m_BugtraqInfo.FindBugID(msg, pMsgView);
 
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
@@ -1368,7 +1358,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 		url = msg.Mid(pEnLink->chrg.cpMin, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
 		if (!::PathIsURL(url))
 		{
-			url = m_BugtraqInfo.GetBugIDUrl(msg);
+			url = m_BugtraqInfo.GetBugIDUrl(url);
 		}
 		if (!url.IsEmpty())
 			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);

@@ -122,8 +122,9 @@ BOOL BugtraqInfo::ReadProps(CString path)
 	return FALSE;		//never reached
 }
 
-BOOL BugtraqInfo::FindBugID(const CString& msg, int& offset1, int& offset2)
+BOOL BugtraqInfo::FindBugID(const CString& msg, CWnd * pWnd)
 {
+	int offset1, offset2;
 	if (sUrl.IsEmpty())
 		return FALSE;
 	//if we have a message format, we look for that in the last line of the log
@@ -135,13 +136,37 @@ BOOL BugtraqInfo::FindBugID(const CString& msg, int& offset1, int& offset2)
 			sLastLine = msg.Mid(msg.ReverseFind('\n')+1);
 		if (sMessage.Find(_T("%BUGID%"))<0)
 			return FALSE;
-		CString sFirstPart = sLastLine.Left(sMessage.Find(_T("%BUGID%")));
-		CString sLastPart = sLastLine.Mid(sMessage.Find(_T("%BUGID%"))+7);
+		CString sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
+		CString sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
 		CString sBugIDPart = sLastLine.Mid(sFirstPart.GetLength(), sLastLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
 		if (sBugIDPart.IsEmpty())
 			return FALSE;
-		offset1 = msg.GetLength() - sLastLine.GetLength() + sFirstPart.GetLength();
+		//the bug id part can contain several bug id's, separated by commas
+        offset1 = msg.GetLength() - sLastLine.GetLength() + sFirstPart.GetLength();
+		sBugIDPart.Trim(_T(","));
+		while (sBugIDPart.Find(',')>=0)
+		{
+			offset2 = offset1 + sBugIDPart.Find(',');
+			CHARRANGE range = {offset1, offset2};
+			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+			CHARFORMAT2 format;
+			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			format.cbSize = sizeof(CHARFORMAT2);
+			format.dwMask = CFM_LINK;
+			format.dwEffects = CFE_LINK;
+			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			sBugIDPart = sBugIDPart.Mid(sBugIDPart.Find(',')+1);
+			offset1 = offset2 + 1;
+		}
 		offset2 = offset1 + sBugIDPart.GetLength();
+		CHARRANGE range = {offset1, offset2};
+		pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+		CHARFORMAT2 format;
+		ZeroMemory(&format, sizeof(CHARFORMAT2));
+		format.cbSize = sizeof(CHARFORMAT2);
+		format.dwMask = CFM_LINK;
+		format.dwEffects = CFE_LINK;
+		pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 		return TRUE;
 	}
 	return FALSE;
@@ -152,22 +177,10 @@ CString BugtraqInfo::GetBugIDUrl(const CString& msg)
 	CString ret;
 	if (sUrl.IsEmpty())
 		return ret;
-	//if we have a message format, we look for that in the last line of the log
-	//message only
 	if (!sMessage.IsEmpty())
 	{
-		CString sLastLine;
-		if (msg.ReverseFind('\n')>=0)
-			sLastLine = msg.Mid(msg.ReverseFind('\n')+1);
-		if (sMessage.Find(_T("%BUGID%"))<0)
-			return ret;
-		CString sFirstPart = sLastLine.Left(sMessage.Find(_T("%BUGID%")));
-		CString sLastPart = sLastLine.Mid(sMessage.Find(_T("%BUGID%"))+7);
-		CString sBugIDPart = sLastLine.Mid(sFirstPart.GetLength(), sLastLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
-		if (sBugIDPart.IsEmpty())
-			return ret;
 		ret = sUrl;
-		ret.Replace(_T("%BUGID%"), sBugIDPart);
+		ret.Replace(_T("%BUGID%"), msg);
 	}
 	return ret;
 }

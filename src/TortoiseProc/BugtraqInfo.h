@@ -65,16 +65,16 @@ public:
 
 	/**
 	 * Searches for the BugID inside a log message. If one is found,
-	 * the method returns TRUE.
+	 * the method returns TRUE. The rich edit control is used to set
+	 * the CFE_LINK effect on the BugID's.
 	 * \param msg the log message
-	 * \param offset1 offset of the first char of the BugID inside the logmessage
-	 * \param offset2 offset of the last char of the BugID inside the logmessage
+	 * \param pWnd Pointer to a rich edit control
 	 */
-	BOOL FindBugID(const CString& msg, int& offset1, int& offset2);
+	BOOL FindBugID(const CString& msg, CWnd * pWnd);
 	/**
 	 * Returns the URL pointing to the Issue in the issuetracker. The URL is
 	 * created from the bugtraq:url property and the BugID found in the logmessage.
-	 * \param msg the log message
+	 * \param msg the BudID extracted from the log message
 	 */
 	CString GetBugIDUrl(const CString& msg);
 
