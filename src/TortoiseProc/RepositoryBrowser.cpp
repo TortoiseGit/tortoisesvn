@@ -29,6 +29,7 @@
 #include "Repositorybrowser.h"
 #include "BrowseFolder.h"
 #include "RenameDlg.h"
+#include "RevisionGraphDlg.h"
 #include "Utils.h"
 
 
@@ -46,6 +47,7 @@
 #define ID_POPBLAME			12
 #define ID_POPCOPYTOWC		13
 #define ID_POPIMPORTFOLDER  14
+#define ID_REVGRAPH			15
 //#define ID_POPPROPS			17		commented out because already defined to 17 in LogDlg.h
 
 // CRepositoryBrowser dialog
@@ -216,6 +218,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_MENUBLAME);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPBLAME, temp);			// "Blame..."
 				}
+				
+				temp.LoadString(IDS_MENUREVISIONGRAPH);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVGRAPH, temp);
 
 				if (bFolder)
 				{
@@ -367,6 +372,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					revend = -revend;
 					dlg.SetParams(CTSVNPath(url), GetRevision(), revend, FALSE);
 					dlg.m_ProjectProperties = m_ProjectProperties;
+					dlg.DoModal();
+				}
+				break;
+			case ID_REVGRAPH:
+				{
+					CRevisionGraphDlg dlg;
+					dlg.m_sPath = url;
 					dlg.DoModal();
 				}
 				break;
