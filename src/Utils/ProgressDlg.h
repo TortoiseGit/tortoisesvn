@@ -68,9 +68,23 @@ public:
      * \param dwLine line number on which the text is to be displayed. There are three lines possible, two lines if SetCalculateTime() is set to true.
      * \param szText NULL-terminated string that contains the line text.
      * \param bCompactPath set to true if you want the text to be compacted (if it is a path) to fit on the line.
+	 *
+	 * \remark This call should be made *after* the dialog has been shown - this allows
+	 * the system to measure the space available for the text, and do path compaction properly
      */
     void SetLine ( DWORD dwLine, LPCTSTR szText, bool bCompactPath = false );
 
+#ifdef _MFC_VER
+	/**
+	* Wrappers around set line, to do a CString::Format type operation
+	* See SetLine for more details
+	*
+	* \remark These calls should be made *after* the dialog has been shown - this allows
+	* the system to measure the space available for the text, and do path compaction properly
+	*/
+	void FormatPathLine ( DWORD dwLine, UINT idFormatText, ...);
+	void FormatNonPathLine ( DWORD dwLine, UINT idFormatText, ...);
+#endif
     /**
      * Sets a message to be displayed if the user clicks the cancel button.
      * \param szMessage pointer to a NULL-terminated string that contains the message.
@@ -86,6 +100,7 @@ public:
      */
     void SetCancelMsg ( LPCTSTR szMessage );
 #ifdef _MFC_VER
+	void SetCancelMsg ( UINT idMessage );
 	/**
 	 * Specifies an AVI-clip that will run in the dialog box.
 	 * \param uRsrcID AVI resource identifier. To create this value use the MAKEINTRESOURCE macro.
@@ -151,7 +166,7 @@ public:
 	 * \param u64Progress Application-defined value that indicates what proportion of the operation has been completed at the time the method was called
 	 * \param u64ProgressMax Application-defined value that specifies what value dwCompleted will have when the operation is complete
 	 */
-    void SetProgress ( ULONGLONG u64Progress, ULONGLONG u64ProgressMax );
+    void SetProgress64 ( ULONGLONG u64Progress, ULONGLONG u64ProgressMax );
 
 	/**
 	 * Checks whether the user has cancelled the operation.

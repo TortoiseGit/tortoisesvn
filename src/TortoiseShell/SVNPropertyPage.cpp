@@ -377,7 +377,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 							SVNProperties props = SVNProperties(I->c_str());
 							props.Remove(buf, checked);
 							count++;
-							dlg.SetProgress(count, all);
+							dlg.SetProgress64(count, all);
 							if (dlg.HasUserCancelled())
 								break;
 						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
@@ -419,7 +419,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 								::MessageBox(m_hwnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 							}
 							count++;
-							dlg.SetProgress(count, all);
+							dlg.SetProgress64(count, all);
 							if (dlg.HasUserCancelled())
 								break;
 							SVNStatus stat = SVNStatus();

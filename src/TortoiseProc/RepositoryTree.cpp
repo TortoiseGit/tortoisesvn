@@ -298,7 +298,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 	CWaitCursorEx wait_cursor;
 
 	CStringArray entries;
-	CString folder = MakeUrl(hItem);
+	CTSVNPath folder(MakeUrl(hItem));
 
 	m_svn.SetPromptApp(&theApp);
 
@@ -316,7 +316,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 				//a folder!
 				CString item = entries.GetAt(0);
 				entries.RemoveAll();
-				if (m_svn.Ls(folder.Left(folder.ReverseFind('/')), m_Revision, entries, true, recursive))
+				if (m_svn.Ls(folder.GetContainingDirectory(), m_Revision, entries, true, recursive))
 				{
 					BOOL found = FALSE;
 					for (int j=0; j<entries.GetCount(); ++j)
@@ -331,7 +331,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 					{
 						hItem = GetNextItem(hItem, RVGN_PARENT);
 						DeleteChildItems(hItem);
-						folder = folder.Left(folder.ReverseFind('/'));
+						folder = folder.GetContainingDirectory();
 					}
 					else
 					{
@@ -353,10 +353,10 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 			switch (type)
 			{
 			case 'd':
-				AddFolder(folder + _T("/") + entry);
+				AddFolder(folder.GetSVNPathString() + _T("/") + entry);
 				break;
 			case 'f':
-				AddFile(folder + _T("/") + entry);
+				AddFile(folder.GetSVNPathString() + _T("/") + entry);
 				break;
 			}
 		}

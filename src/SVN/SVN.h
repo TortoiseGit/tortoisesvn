@@ -251,7 +251,7 @@ public:
 	 * \param revision the revision number to switch to
 	 * \param recurse 
 	 */
-	BOOL Switch(CString path, CString url, SVNRev revision, BOOL recurse);
+	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse);
 	/**
 	 * Import file or directory path into repository directory url at
 	 * head and using LOG_MSG as the log message for the (implied)
@@ -302,7 +302,7 @@ public:
 	 * \param force		see description
 	 * \param recurse 
 	 */
-	BOOL Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE, BOOL dryrun = FALSE);
+	BOOL Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE, BOOL dryrun = FALSE);
 
 	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE);
 	/**
@@ -388,7 +388,7 @@ public:
 	 * \param extended Set to TRUE for entries in extended format (see above)
 	 * \param recursive Set this to TRUE to get all entries recursively
 	 */
-	BOOL Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE);
+	BOOL Ls(const CTSVNPath& url, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE);
 
 	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function
@@ -399,7 +399,7 @@ public:
 	 * \param recurse TRUE if the operation should be recursive
 	 * \return TRUE if successful
 	 */
-	BOOL Relocate(CString path, CString from, CString to, BOOL recurse);
+	BOOL Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, BOOL recurse);
 
 	/**
 	 * Determine the author for each line in a file (blame the changes on someone).

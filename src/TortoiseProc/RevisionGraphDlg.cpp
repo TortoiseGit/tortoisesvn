@@ -120,11 +120,8 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_lfBaseFont.lfQuality = DEFAULT_QUALITY;
 	m_lfBaseFont.lfPitchAndFamily = DEFAULT_PITCH;
 
-	CString temp;
-	temp.LoadString(IDS_REVGRAPH_PROGTITLE);
-	m_Progress.SetTitle(temp);
-	temp.LoadString(IDS_REVGRAPH_PROGCANCEL);
-	m_Progress.SetCancelMsg(temp);
+	m_Progress.SetTitle(IDS_REVGRAPH_PROGTITLE);
+	m_Progress.SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	m_Progress.SetTime();
 
 	m_dwTicks = GetTickCount();

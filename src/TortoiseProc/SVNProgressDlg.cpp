@@ -622,7 +622,7 @@ UINT CSVNProgressDlg::ProgressThread()
 						rev = st.status->entry->revision;
 					}
 				}
-				if (!m_pSvn->Switch(m_targetPathList[0].GetWinPathString(), m_url.GetWinPathString(), m_Revision, true))
+				if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, true))
 				{
 					ReportSVNError();
 					break;
@@ -661,7 +661,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				}
 				else
 				{
-					if (!m_pSvn->Merge(m_url.GetSVNPathString(), m_Revision, m_sMessage, m_RevisionEnd, m_targetPathList[0].GetSVNPathString(), 
+					if (!m_pSvn->Merge(m_url, m_Revision, urlTo, m_RevisionEnd, m_targetPathList[0], 
 						true, true, false, !!(m_options & ProgOptDryRun)))
 					{
 						ReportSVNError();

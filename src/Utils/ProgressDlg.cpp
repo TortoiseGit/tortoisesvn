@@ -20,13 +20,6 @@
 #include "stdafx.h"
 #include "ProgressDlg.h"
 
-#ifdef _MFC_VER
-
-extern "C" const GUID CLSID_ProgressDialog = {0xf8383852, 0xfcd3, 0x11d1, 0xa6, 0xb9, 0x0, 0x60, 0x97, 0xdf, 0x5b, 0xd4};
-extern "C" const GUID IID_IProgressDialog = {0xebbc7c04, 0x315e, 0x11d2, 0xb6, 0x2f, 0x0, 0x60, 0x97, 0xdf, 0x5b, 0xd4};
-
-#endif
-
 CProgressDlg::CProgressDlg() :
 			m_pIDlg(NULL),
 		    m_bValid(false),			//not valid by default
@@ -75,6 +68,13 @@ void CProgressDlg::SetLine(DWORD dwLine, LPCTSTR szText, bool bCompactPath /* = 
 	}
 }
 
+#ifdef _MFC_VER
+void CProgressDlg::SetCancelMsg ( UINT idMessage )
+{
+	SetCancelMsg(CString(MAKEINTRESOURCE(idMessage)));
+}
+#endif // _MFC_VER
+
 void CProgressDlg::SetCancelMsg(LPCTSTR szMessage)
 {
     USES_CONVERSION;
@@ -120,43 +120,38 @@ void CProgressDlg::SetShowProgressBar(bool bShow /* = true */)
 #ifdef _MFC_VER
 HRESULT CProgressDlg::ShowModal (CWnd* pwndParent)
 {
-	HRESULT hr;
-	ASSERT_VALID(pwndParent);
-	if (m_bValid)
-	{
-
-		hr = m_pIDlg->StartProgressDialog(pwndParent->GetSafeHwnd(),
-			NULL,
-			m_dwDlgFlags | PROGDLG_MODAL,
-			NULL);
-
-		if (SUCCEEDED(hr))
-		{
-			m_isVisible = true;
-		}
-		return hr;
-	} // if (m_bValid)
-	return E_FAIL;
+	return ShowModal(pwndParent->GetSafeHwnd());
 }
 
 HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent)
 {
-	HRESULT hr = E_FAIL;
-
-	if (m_bValid)
-	{
-		if (pwndParent == NULL)
-			hr = m_pIDlg->StartProgressDialog(NULL, NULL, m_dwDlgFlags, NULL);
-		else
-			hr = m_pIDlg->StartProgressDialog(pwndParent->GetSafeHwnd(), NULL, m_dwDlgFlags, NULL);
-
-		if (SUCCEEDED(hr))
-		{
-			m_isVisible = true;
-		}
-	}
-	return hr;
+	return ShowModeless(pwndParent->GetSafeHwnd());
 }
+
+void CProgressDlg::FormatPathLine ( DWORD dwLine, UINT idFormatText, ...)
+{
+	va_list args;
+	va_start(args, idFormatText);
+
+	CString sText;
+	sText.FormatV(CString(MAKEINTRESOURCE(idFormatText)), args);
+	SetLine(dwLine, sText, true);
+
+	va_end(args);
+}
+
+void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
+{
+	va_list args;
+	va_start(args, idFormatText);
+
+	CString sText;
+	sText.FormatV(CString(MAKEINTRESOURCE(idFormatText)), args);
+	SetLine(dwLine, sText, false);
+
+	va_end(args);
+}
+
 #endif
 HRESULT CProgressDlg::ShowModal (HWND hWndParent)
 {
@@ -189,6 +184,23 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
 		if (SUCCEEDED(hr))
 		{
 			m_isVisible = true;
+
+			// The progress window can be remarkably slow to display, particularly
+			// if its parent is blocked.
+			// This process finds the hwnd for the progress window and gives it a kick...
+			IOleWindow *pOleWindow;
+			HRESULT hr=m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
+			if(SUCCEEDED(hr))
+			{
+				HWND hDlgWnd;
+
+				hr=pOleWindow->GetWindow(&hDlgWnd);
+				if(SUCCEEDED(hr))
+				{
+					ShowWindow(hDlgWnd, SW_NORMAL);
+				}
+				pOleWindow->Release();
+			}
 		}
 	}
 	return hr;
@@ -203,7 +215,7 @@ void CProgressDlg::SetProgress(DWORD dwProgress, DWORD dwMax)
 }
 
 
-void CProgressDlg::SetProgress(ULONGLONG u64Progress, ULONGLONG u64ProgressMax)
+void CProgressDlg::SetProgress64(ULONGLONG u64Progress, ULONGLONG u64ProgressMax)
 {
 	if (m_bValid)
 	{

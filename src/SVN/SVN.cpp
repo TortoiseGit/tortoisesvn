@@ -652,14 +652,11 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 	return TRUE;
 }
 
-BOOL SVN::Switch(CString path, CString url, SVNRev revision, BOOL recurse)
+BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, BOOL recurse)
 {
-	preparePath(path);
-	preparePath(url);
-
 	Err = svn_client_switch(NULL,
-							MakeSVNUrlOrPath(path),
-							MakeSVNUrlOrPath(url),
+							path.GetSVNApiPath(),
+							url.GetSVNApiPath(),
 							revision,
 							recurse,
 							&m_ctx,
@@ -669,7 +666,7 @@ BOOL SVN::Switch(CString path, CString url, SVNRev revision, BOOL recurse)
 		return FALSE;
 	}
 	
-	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(path));
+	CShellUpdater::Instance().AddPathForUpdate(path);
 
 	return TRUE;
 }
@@ -695,17 +692,13 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, B
 	return TRUE;
 }
 
-BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry, BOOL dryrun)
+BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry, BOOL dryrun)
 {
-	preparePath(path1);
-	preparePath(path2);
-	preparePath(localPath);
-
-	Err = svn_client_merge (MakeSVNUrlOrPath(path1),
+	Err = svn_client_merge (path1.GetSVNApiPath(),
 							revision1,
-							MakeSVNUrlOrPath(path2),
+							path2.GetSVNApiPath(),
 							revision2,
-							MakeSVNUrlOrPath(localPath),
+							localPath.GetSVNApiPath(),
 							recurse,
 							ignoreanchestry,
 							force,
@@ -1355,17 +1348,15 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 	return SVN_NO_ERROR;
 }
 
-BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
+BOOL SVN::Ls(const CTSVNPath& url, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
 {
 	entries.RemoveAll();
 	SVNPool subpool(pool);
 
-	preparePath(url);
-
 	apr_hash_t* hash = apr_hash_make(subpool);
 
 	Err = svn_client_ls(&hash, 
-						MakeSVNUrlOrPath(url),
+						url.GetSVNApiPath(),
 						revision,
 						recursive, 
 						&m_ctx,
@@ -1406,12 +1397,13 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 	return Err == NULL;
 }
 
-BOOL SVN::Relocate(CString path, CString from, CString to, BOOL recurse)
+BOOL SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, BOOL recurse)
 {
-	preparePath(path);
-	preparePath(from);
-	preparePath(to);
-	Err = svn_client_relocate(MakeSVNUrlOrPath(path), MakeSVNUrlOrPath(from), MakeSVNUrlOrPath(to), recurse, &m_ctx, pool);
+	Err = svn_client_relocate(
+				path.GetSVNApiPath(), 
+				from.GetSVNApiPath(), 
+				to.GetSVNApiPath(), 
+				recurse, &m_ctx, pool);
 	if (Err != NULL)
 		return FALSE;
 	return TRUE;

@@ -63,7 +63,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 
 BOOL CBlame::Log(LONG revision, const CString& /*author*/, const CString& /*date*/, const CString& message, const CString& /*cpaths*/, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/)
 {
-	m_progressDlg.SetProgress((DWORD)m_highestrev - revision, (DWORD)m_highestrev);
+	m_progressDlg.SetProgress(m_highestrev - revision, m_highestrev);
 	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
 	{
 		CStringA msgutf8 = CUnicodeUtils::GetUTF8(message);
@@ -98,23 +98,19 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	headline.Format(_T("%-6s %-6s %-30s %-30s %-s \n"), _T("line"), _T("rev"), _T("date"), _T("author"), _T("content"));
 	m_saveFile.WriteString(headline);
 	m_saveFile.WriteString(_T("\n"));
-	temp.LoadString(IDS_BLAME_PROGRESSTITLE);
-	m_progressDlg.SetTitle(temp);
+	m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);
 	m_progressDlg.SetAnimation(IDR_SEARCH);
-	temp.LoadString(IDS_BLAME_PROGRESSINFO);
-	m_progressDlg.SetLine(1, temp, false);
-	temp.LoadString(IDS_BLAME_PROGRESSINFOSTART);
-	m_progressDlg.SetLine(2, temp, false);
-	temp.LoadString(IDS_BLAME_PROGRESSCANCEL);
-	m_progressDlg.SetCancelMsg(temp);
 	m_progressDlg.SetShowProgressBar(TRUE);
-	m_progressDlg.SetTime(FALSE);
 	if (showprogress)
 	{
 		m_progressDlg.ShowModeless(CWnd::FromHandle(hWndExplorer));
 	}
+	m_progressDlg.FormatNonPathLine(1, IDS_BLAME_PROGRESSINFO);
+	m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFOSTART);
+	m_progressDlg.SetCancelMsg(IDS_BLAME_PROGRESSCANCEL);
+	m_progressDlg.SetTime(FALSE);
 	m_nHeadRev = GetHEADRevision(path);
-	m_progressDlg.SetProgress((DWORD)0, (DWORD)m_nHeadRev);
+	m_progressDlg.SetProgress(0, m_nHeadRev);
 	if (!this->Blame(path, startrev, endrev))
 	{
 		m_saveFile.Close();
@@ -123,9 +119,8 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	}
 	if (!extBlame)
 	{
-		temp.LoadString(IDS_BLAME_PROGRESSLOGSTART);
-		m_progressDlg.SetLine(2, temp, false);
-		m_progressDlg.SetProgress((DWORD)0, (DWORD)m_highestrev);
+		m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSLOGSTART);
+		m_progressDlg.SetProgress(0, m_highestrev);
 		logfile = CUtils::GetTempFile();
 		if (!m_saveLog.Open(logfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate))
 		{
@@ -148,10 +143,8 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 
 BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/, svn_node_kind_t /*kind*/, const CString& /*myme_type*/, svn_wc_notify_state_t /*content_state*/, svn_wc_notify_state_t /*prop_state*/, LONG rev)
 {
-	CString temp;
-	temp.Format(IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
-	m_progressDlg.SetLine(2, temp, false);
-	m_progressDlg.SetProgress((DWORD)rev, (DWORD)m_nHeadRev);
+	m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
+	m_progressDlg.SetProgress(rev, m_nHeadRev);
 	return TRUE;
 }
 

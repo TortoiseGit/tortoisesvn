@@ -570,6 +570,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev = m_arRevs.GetAt(selIndex);
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath();
+						m_tempFileList.AddPath(tempfile);
 						tempfile.AppendString(_T(".diff"));
 						m_tempFileList.AddPath(tempfile);
 						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
@@ -595,6 +596,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath();
+						m_tempFileList.AddPath(tempfile);
 						tempfile.AppendString(_T(".diff"));
 						m_tempFileList.AddPath(tempfile);
 						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
@@ -679,6 +681,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							this->m_bCancelled = FALSE;
 							CTSVNPath tempfile = CUtils::GetTempFilePath();
+							m_tempFileList.AddPath(tempfile);
 							tempfile.AppendString(_T(".diff"));
 							m_tempFileList.AddPath(tempfile);
 							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
@@ -1170,6 +1173,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			long rev = m_arRevs.GetAt(selIndex);
 			this->m_bCancelled = FALSE;
 			CTSVNPath tempfile = CUtils::GetTempFilePath();
+			m_tempFileList.AddPath(tempfile);
 			tempfile.AppendString(_T(".diff"));
 			m_tempFileList.AddPath(tempfile);
 			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
@@ -1438,6 +1442,11 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 {
 	CTSVNPath tempfile1 = CUtils::GetTempFilePath();
 	CTSVNPath tempfile2 = CUtils::GetTempFilePath();
+	// The mere process of asking for a temp file creates it as a zero length file
+	// We need to clean these up after us
+	m_tempFileList.AddPath(tempfile1);
+	m_tempFileList.AddPath(tempfile2);
+	// Give the files that we diff the proper extension for the filetype
 	tempfile1.AppendString(path1.GetFileExtension());
 	tempfile2.AppendString(path2.GetFileExtension());
 	m_tempFileList.AddPath(tempfile1);
@@ -1445,16 +1454,10 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	CProgressDlg progDlg;
 	if (progDlg.IsValid())
 	{
-		CString temp;
-		temp.Format(IDS_PROGRESSGETFILE, (LPCTSTR)path1.GetUIPathString());
-		progDlg.SetLine(1, temp, true);
-		temp.Format(IDS_PROGRESSREVISION, rev1);
-		progDlg.SetLine(2, temp, false);
-		temp.LoadString(IDS_PROGRESSWAIT);
-		progDlg.SetTitle(temp);
-		progDlg.SetLine(3, _T(""));
-		progDlg.SetCancelMsg(_T(""));
+		progDlg.SetTitle(IDS_PROGRESSWAIT);
 		progDlg.ShowModeless(this);
+		progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)path1.GetUIPathString());
+		progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev1);
 	}
 	m_bCancelled = FALSE;
 	SetPromptApp(&theApp);
@@ -1467,13 +1470,9 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	} // if (!Cat(path1, rev1, tempfile1))
 	if (progDlg.IsValid())
 	{
-		progDlg.SetProgress((DWORD)1,(DWORD)2);
-		CString temp;
-//BUGBUG? - should this really be path2 which is being displayed?
-		temp.Format(IDS_PROGRESSGETFILE, (LPCTSTR)path1.GetUIPathString());
-		progDlg.SetLine(1, temp, true);
-		temp.Format(IDS_PROGRESSREVISION, rev1);
-		progDlg.SetLine(2, temp, false);
+		progDlg.SetProgress(1, 2);
+		progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)path2.GetUIPathString());
+		progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
 	}
 	if (!Cat(path2, rev2, tempfile2))
 	{
@@ -1483,7 +1482,7 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	}
 	if (progDlg.IsValid())
 	{
-		progDlg.SetProgress((DWORD)2,(DWORD)2);
+		progDlg.SetProgress(2,2);
 		progDlg.Stop();
 	}
 	theApp.DoWaitCursor(-1);
