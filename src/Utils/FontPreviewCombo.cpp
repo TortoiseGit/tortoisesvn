@@ -108,7 +108,7 @@ void CFontPreviewCombo::Init()
 	ZeroMemory(&lf, sizeof(LOGFONT));
 	lf.lfCharSet = ANSI_CHARSET;
 	lf.lfFaceName[0] = '\0';
-	EnumFontFamiliesEx (dc, 0,(FONTENUMPROC) FPC_EnumFontProc,(LPARAM)this, 0); //Enumerate font
+	EnumFontFamiliesEx (dc, &lf,(FONTENUMPROC) FPC_EnumFontProc,(LPARAM)this, 0); //Enumerate font
 
     SetCurSel(0);
 }
