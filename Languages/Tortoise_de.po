@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-01-24 11:39+0100\n"
+"PO-Revision-Date: 2005-01-26 15:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -223,13 +223,10 @@ msgstr "&Sprache:"
 msgid "&Mark as resolved"
 msgstr "Als aufgelöst &markieren"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "&Zusammenführen"
-
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "Änderungen mit der Arbeitskopie &zusammenführen welche auf die URL zeigt:"
 
 #: Control-ID:1012
 msgid "&Merging"
@@ -1480,9 +1477,9 @@ msgid "Drive Types"
 msgstr "Laufwerkstypen"
 
 # Control-ID:1061,
-#: Control-ID:1061
+#: Control-ID:1179
 msgid "Dry Run"
-msgstr "Trockenlauf"
+msgstr "&Testlauf"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1688,9 +1685,10 @@ msgstr "Drücken Sie F1, um Hilfe zu erhalten"
 msgid "Force shell icon refresh"
 msgstr "Erzwinge Iconaktualisierung"
 
+# Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "Von:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "Von: (Start-URL und Revision des zusammenzuführenden Bereichs)"
 
 # ID:273,
 #: ID:273
@@ -2894,6 +2892,10 @@ msgstr "Setze Eigenschaften..."
 msgid "Settings"
 msgstr "Einstellungen"
 
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "Zeige L&og"
+
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "Zeige &Eigenschaften"
@@ -2946,7 +2948,7 @@ msgstr "Zeige Zeilennummern"
 
 #: ID:12
 msgid "Show Log"
-msgstr "Zeige Log"
+msgstr "Zeige &Log"
 
 #: Control-ID:1169
 msgid "Show folderstatus"
@@ -3024,6 +3026,11 @@ msgstr ""
 "von der Versionskontrolle ausschließen soll.\n"
 "Trennen Sie die Muster mit einem Leerzeichen.\n"
 "Beispiel: *.bak *.[Tt]mp"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "Geben Sie den Revisionsbereich ein, den Sie zusammenführen möchten:"
 
 #: ID:3604
 msgid ""
@@ -3276,6 +3283,11 @@ msgstr ""
 "<i>%s</i>\n"
 "besser übereinstimmt. Soll der gefundene Pfad verwendet werden?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "Das Ergebnis des Zusammenführens findet sich in der Arbeitskopie in:"
+
 #: ID:78
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -3373,9 +3385,10 @@ msgstr "Leerzeichen Diff"
 msgid "To see the changes you made, double click on the files above."
 msgstr "Machen Sie einen Doppelklick, um Ihre Änderungen an einer Datei zu sehen."
 
+# Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "Bis:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "Bis: (End-URL und Revision des zusammenzuführenden Bereichs)"
 
 #: ID:7
 #: ID:3585
@@ -3530,6 +3543,10 @@ msgstr "Rückgängig|Letzte Aktuion rückgängig machen"
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Unerwartetes Dateiformat."
+
+#: Control-ID:1180
+msgid "Unified Diff"
+msgstr "&Standard Diff"
 
 #: ID:81
 msgid ""
@@ -4125,6 +4142,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "Woche"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "die auf folgendes Projektarchiv zeigt:"
 
 #: Control-ID:1112
 msgid "your version is:"

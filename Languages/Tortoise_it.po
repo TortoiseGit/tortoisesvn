@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-18 09:50+0100\n"
+"PO-Revision-Date: 2005-01-26 14:41+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -252,7 +252,7 @@ msgstr "&Da WC con URL:"
 #: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
-msgstr "&Revisione principale"
+msgstr "&Revisione di testa"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
@@ -281,14 +281,10 @@ msgstr "&Lingua:"
 msgid "&Mark as resolved"
 msgstr "&Segna come risolto"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "&Fondi"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "&Fondi i cambiamenti con l'attuale copia di lavoro persente al URL:"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -482,6 +478,11 @@ msgstr "&Visualizza"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Spaziature"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(simulazione)"
 
 # ID:208,
 #: ID:208
@@ -1808,9 +1809,9 @@ msgid "Drive Types"
 msgstr "Tipi di disco"
 
 # Control-ID:1061,
-#: Control-ID:1061
+#: Control-ID:1179
 msgid "Dry Run"
-msgstr "Simula"
+msgstr "Simulazione"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1890,6 +1891,11 @@ msgid ""
 msgstr ""
 "Cancella la selezione\n"
 "Cancella"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Errore"
 
 # ID:81,
 #: ID:81
@@ -2063,8 +2069,8 @@ msgstr "Forza l'aggiornamento delle icone"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "Da:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "Da: (URL e revisione che iniziano l'intervallo per la fusione)"
 
 # ID:273,
 #: ID:273
@@ -2158,7 +2164,7 @@ msgstr "&Revisione principale"
 # ID:12,
 #: ID:238
 msgid "Head revision of the repository is: %d"
-msgstr "La revisione principale del repository è la numero: %d"
+msgstr "La revisione di testa del repository è la numero: %d"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -2679,6 +2685,11 @@ msgstr "Normale"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Non tutte le chiavi di registro (o del file INI) sono state rimosse."
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Avviso"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -3536,6 +3547,11 @@ msgstr "Impostazione delle proprietà..."
 msgid "Settings"
 msgstr "Impostazioni"
 
+# ID:12,
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "Visualizza L&og"
+
 # ID:101,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3607,7 +3623,7 @@ msgstr "Visualizza Log"
 # ID:101,
 #: Control-ID:1169
 msgid "Show folderstatus"
-msgstr "Mostra stato delle cartelle"
+msgstr "Mostra lo stato delle cartelle"
 
 # ID:3713,
 #: ID:3713
@@ -3691,6 +3707,11 @@ msgstr ""
 "Specifica i file o le cartelle che TortoiseSVN\n"
 "deve escludere dal controllo della versione.\n"
 "Separa i percorsi con uno spazio."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "Specificare l'intervallo di revisioni che si desidera fondere:"
 
 # ID:3604,
 #: ID:3604
@@ -3987,6 +4008,11 @@ msgstr ""
 "<i>%s</i>\n"
 "sia più corretto. Si desidera usare il percorso suggerito invece di quello specificato?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "Il risultato della fusione è conservato nella copia di lavoro in:"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -4096,8 +4122,8 @@ msgstr "Per vedere le modifiche apportate, fare doppio click sui file."
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "A:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "A: (URL e revisione che terminano l'intervallo per la fusione)"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4287,6 +4313,11 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Formato del file inatteso."
+
+# Control-ID:65535,
+#: Control-ID:1180
+msgid "Unified Diff"
+msgstr "Confronto unificato"
 
 # ID:81,
 #: ID:81
@@ -4486,6 +4517,11 @@ msgstr "Visualizza applicazione per i file di confronto GNU (file di patch)."
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Visita il nostro sito"
+
+# ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "Attenzione"
 
 # ID:219,
 #: ID:219
@@ -4960,6 +4996,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "settimana"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "che punta al Repository all'indirizzo:"
 
 # Control-ID:1112,
 #: Control-ID:1112

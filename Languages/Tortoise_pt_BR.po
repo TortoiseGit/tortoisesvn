@@ -1,17 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Brazilian Portuguese translation for TortoiseSVN
+# Copyright (C) 2004-2005 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# Authors:
+# Humberto Osório <humberto@vdl.ufc.br>
+# CRAb <crab@yahoogroups.com>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TORTOISESVNPT-BR 1.0\n"
+"Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-18 11:06-0300\n"
-"Last-Translator: Emanuele Marques <emanuele@vdl.ufc.br>\n"
-"Language-Team: CRAb <crab@yahoogroups.com>\n"
+"PO-Revision-Date: 2005-01-26 15:28-0300\n"
+"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
+"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # ID:126,#:
@@ -279,14 +283,10 @@ msgstr "&Linguagem:"
 msgid "&Mark as resolved"
 msgstr "&Marcar como resolvido"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "&Combinar"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "&Combinar mudanças na cópia de trabalho atual da URL:"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -480,6 +480,11 @@ msgstr "&Exibir"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Espaços em branco"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(simulação)"
 
 # ID:208,
 #: ID:208
@@ -1212,7 +1217,7 @@ msgid ""
 "automatically after the operation finishes."
 msgstr ""
 "Marque se você quer a caixa de diálogo de progresso fechada\n"
-"automaticmente depois de encerradas as operações."
+"automaticamente depois de encerradas as operações."
 
 # ID:9,
 #: ID:9
@@ -1812,9 +1817,9 @@ msgid "Drive Types"
 msgstr "Tipos de dispositivos"
 
 # Control-ID:1061,
-#: Control-ID:1061
+#: Control-ID:1179
 msgid "Dry Run"
-msgstr "Simulação"
+msgstr "(simulação)"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1894,6 +1899,11 @@ msgid ""
 msgstr ""
 "Apagar a Seleção\n"
 "Apagar"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Erro"
 
 # ID:81,
 #: ID:81
@@ -2066,8 +2076,8 @@ msgstr "Forçar atualização de ícones pelo shell"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "De:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "De: (revisão e URL iniciais do intervalo para combinar)"
 
 # ID:273,
 #: ID:273
@@ -2682,6 +2692,11 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nem todas as entradas de registro (ou arquivo INI) foram removidas."
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Nota"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -3539,6 +3554,11 @@ msgstr "Ajuste de Propriedades..."
 msgid "Settings"
 msgstr "Preferências"
 
+# ID:12,
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "&Histórico"
+
 # Control-ID:65535,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3696,6 +3716,11 @@ msgstr ""
 "Especificar os arquivos ou pastas que o TortoiseSVN\n"
 " deve excluir do controle de versões. \n"
 "Separar os padrões com um espaço."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "Especifique o intervalo de revisões que você quer combinar:"
 
 # ID:3604,
 #: ID:3604
@@ -3995,6 +4020,11 @@ msgstr ""
 "<i>%s</i>\n"
 "e se encaixa melhor. Você quer usar o caminho sugerido?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "O resultado da combinação está armazenado na cópia de trabalho em:"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -4106,8 +4136,8 @@ msgstr "Para visualizar as modificações que você efetuou dê um duplo clique 
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "Para:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "Para: (revisão e URL fiinais do intervalo para combinar)"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4298,6 +4328,11 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Formato de arquivo inesperado."
+
+# Control-ID:65535,
+#: Control-ID:1180
+msgid "Unified Diff"
+msgstr "Comparação Unificada"
 
 # ID:81,
 #: ID:81
@@ -4497,6 +4532,11 @@ msgstr "Programa de Visualização pra arquivos de comparação do GNU (arquivos
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Visite nosso website"
+
+# ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "Aviso"
 
 # ID:219,
 #: ID:219
@@ -4974,6 +5014,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "semana"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "que aponta para o repositório na URL:"
 
 # Control-ID:1112,
 #: Control-ID:1112

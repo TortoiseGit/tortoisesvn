@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-17 11:27+0100\n"
+"PO-Revision-Date: 2005-01-25 10:06+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -231,10 +231,6 @@ msgstr "&Marquer comme résolu"
 msgid "&Merge"
 msgstr "&Fusionnner"
 
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "&Fusionner les modifications dans la copie de travail courante depuis l'URL:"
-
 #: Control-ID:1012
 msgid "&Merging"
 msgstr "&Fusionnement"
@@ -387,6 +383,11 @@ msgstr "&Affichage"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Espacements"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(execution fictive)"
 
 # ID:208,
 #: ID:208
@@ -1480,8 +1481,8 @@ msgstr "Type de disque"
 
 # Control-ID:1061,
 #: Control-ID:1061
-msgid "Dry Run"
-msgstr "Execution fictive"
+msgid "Dry Run (Does not change your working copy - use this for test runs)"
+msgstr "Execution Fictive (Ne change pas votre copie de travail - utiliser ceci pour des lancements de test)"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1547,6 +1548,11 @@ msgid ""
 msgstr ""
 "Enlever la sélection\n"
 "Enlever"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Erreur"
 
 #: ID:81
 msgid "Error validating server certificate for %s:"
@@ -1682,9 +1688,10 @@ msgstr "Pour l'aide, presser F1"
 msgid "Force shell icon refresh"
 msgstr "Forcer le rafraîchissement des icônes du shell"
 
+# Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "Depuis l'URL:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "De: (URL de début et révision de la plage a fusionner)"
 
 # ID:273,
 #: ID:273
@@ -2202,6 +2209,11 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Toutes les entrées dans le registre système (ou le fichier INI) sont effacées."
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Instructions"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -2882,6 +2894,10 @@ msgstr "Configuration des propriétés..."
 msgid "Settings"
 msgstr "Configuration"
 
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "V&oir le journal"
+
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "&Voir les propriétés"
@@ -3011,6 +3027,11 @@ msgstr ""
 "Spécifiez les fichiers ou répertoires que TortoiseSVN\n"
 " doit exclure du contrôle de version.\n"
 "Séparez les filtres avec un espace."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "Spécifiez la plage de révisions que vous voulez fusionner:"
 
 #: ID:3604
 msgid ""
@@ -3264,6 +3285,11 @@ msgstr ""
 "<i>%s</i>\n"
 "y correspond mieux. Voulez-vous utiliser le chemin suggéré à la place?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "Le résultat de la fusion est stocké dans la copie de travail à:"
+
 #: ID:78
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -3358,9 +3384,10 @@ msgstr "Différence sur trois fichiers"
 msgid "To see the changes you made, double click on the files above."
 msgstr "Pour voir les modifications que vous avez apportées, double clicker sur le fichier."
 
+# Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "Vers:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "A: (URL de fin et révision de la plage a fusionner)"
 
 #: ID:7
 #: ID:3585
@@ -3680,6 +3707,11 @@ msgstr "Visualisateur de fichier de différence GNU (fichiers patch)."
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Visitez notre site Web"
+
+# ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "Avertissement"
 
 # ID:219,
 #: ID:219
@@ -4107,6 +4139,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "semaine"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "which points to the repository at the URL:"
+msgstr "qui pointe vers le repository à l'URL"
 
 #: Control-ID:1112
 msgid "your version is:"
