@@ -824,6 +824,10 @@ msgstr ""
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr ""
 
+#: ID:257,
+msgid "Clipboard"
+msgstr ""
+
 #: ID:3825,
 msgid "Close the active window and prompts to save the documents"
 msgstr ""
@@ -836,16 +840,20 @@ msgstr ""
 msgid "Command failed."
 msgstr ""
 
-#: Control-ID:1125,#: Control-ID:1125,
-msgid "Comment History:"
-msgstr ""
-
 #: Control-ID:1110,
 msgid "Commit to:"
 msgstr ""
 
 #: ID:8,
 msgid "Commit..."
+msgstr ""
+
+#: ID:244,
+msgid "Commits by author"
+msgstr ""
+
+#: ID:244,
+msgid "Commits by week"
 msgstr ""
 
 #: ID:9,
@@ -1340,6 +1348,10 @@ msgstr ""
 msgid "Go to the previous difference\nprevious difference"
 msgstr ""
 
+#: Control-ID:1134,
+msgid "Graph type:"
+msgstr ""
+
 #: ID:238,
 msgid "Head revision of the repository is: %d"
 msgstr ""
@@ -1492,7 +1504,7 @@ msgstr ""
 msgid "Log Message"
 msgstr ""
 
-#: Control-ID:1125,
+#: Control-ID:1125,#: Control-ID:1125,#: Control-ID:1125,
 msgid "Log Message History:"
 msgstr ""
 
@@ -1628,7 +1640,7 @@ msgstr ""
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr ""
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -2092,6 +2104,10 @@ msgstr ""
 msgid "Save Revision &To..."
 msgstr ""
 
+#: Control-ID:1132,
+msgid "Save To Clipboard"
+msgstr ""
+
 #: ID:313,
 msgid "Save as..."
 msgstr ""
@@ -2294,6 +2310,10 @@ msgstr ""
 
 #: ID:3604,
 msgid "Split the active window into panes\nSplit"
+msgstr ""
+
+#: Control-ID:1132,#: Dlg-ID:179,
+msgid "Statistics"
 msgstr ""
 
 #: ID:74,#: ID:77,#: ID:207,
@@ -2765,7 +2785,7 @@ msgid "Your working copy appears to be on a <b>tag</b> path!\nYou should first s
 msgstr ""
 
 #: ID:88,
-msgid "Your working copy has local modifications!\nNote: updating to another revision won't loose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
+msgid "Your working copy has local modifications!\nNote: updating to another revision won't lose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
 msgstr ""
 
 #: ID:10,
@@ -2778,6 +2798,10 @@ msgstr ""
 
 #: Control-ID:1085,#: Control-ID:1085,
 msgid "and support the developers"
+msgstr ""
+
+#: ID:245,
+msgid "author"
 msgstr ""
 
 #: ID:15,
@@ -2802,6 +2826,10 @@ msgstr ""
 
 #: ID:145,
 msgid "cleaning up"
+msgstr ""
+
+#: ID:244,#: ID:245,
+msgid "commits"
 msgstr ""
 
 #: ID:11,
@@ -2930,6 +2958,10 @@ msgstr ""
 
 #: ID:15,
 msgid "tsvn:warnifnoissue\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+
+#: ID:244,
+msgid "week"
 msgstr ""
 
 #: Control-ID:1112,
