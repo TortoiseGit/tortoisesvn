@@ -7,11 +7,7 @@
 	<!ENTITY ch04 SYSTEM "tsvn_ch04.xml">
 	<!ENTITY appa SYSTEM "tsvn_appa.xml">
 	<!ENTITY appb SYSTEM "tsvn_appb.xml">
-	<!ENTITY cursLf "<keysym>&#8592;</keysym>">
-	<!ENTITY cursUp "<keysym>&#8593;</keysym>">
-	<!ENTITY cursRt "<keysym>&#8594;</keysym>">
-	<!ENTITY cursDn "<keysym>&#8595;</keysym>">
-	<!ENTITY ref "<keysym>&#8658;</keysym> ">
+	<!ENTITY wish SYSTEM "wishlist.xml">
 ]>
 <book id="tsvn" lang="en">
   <title>TortoiseSVN</title>
@@ -38,4 +34,5 @@
   &ch04;
   &appa;
   &appb;
+  <index id="index"/>
 </book>

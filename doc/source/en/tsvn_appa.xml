@@ -389,21 +389,21 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			do I commit it?</title>
 			<para>
 			Easy, you commit the whole directory! 
-			<action>Right&ndash;click</action> in the Explorer window 
+			<action>Right-click</action> in the Explorer window 
 			next to the file, and choose <guimenuitem>commit</guimenuitem>. 
 			I nearly always commit things from the top level 
-			directory &mdash; it is recursive through the whole project. 
+			directory - it is recursive through the whole project. 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-3">
 			<title>I always get an error when I check out a single file</title>
 			<para>
 			There's nothing wrong with it. Subversion only allows you to 
-			check out directories &mdash; not files. A warning is not 
+			check out directories - not files. A warning is not 
 			possible because TortoiseSVN has no possibility to check 
 			if a URL (e.g. <systemitem class="url">
 			http://svn.collab.net/svn/repos/trunk/README</systemitem>) 
-			is a file or a folder (ok, it could &mdash; but that would
+			is a file or a folder (ok, it could - but that would
 			take a few seconds to check...). But subversion itself 
 			complains if it's a file.... 
 			</para>
@@ -468,8 +468,8 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<title>I deleted a file and created a file with 
 			the same name. Now I can't commit?!?</title>
 			<para>
-			Your're trying to fool subversion aren't you? No &mdash; seriously 
-			&mdash; what did you expect to happen?
+			Your're trying to fool subversion aren't you? No - seriously 
+			- what did you expect to happen?
 			</para>
 			<para>
 			Assume you're in revision #55.
@@ -568,7 +568,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						<listitem>
 							<para>This is your file as it existed in your 
 					working copy before you updated your working copy
-					&mdash; that is, without conflict markers. This file has 
+					- that is, without conflict markers. This file has 
 					your latest changes in it and nothing else.
 					</para>
 						</listitem>
@@ -882,7 +882,7 @@ SubWCRev.exe path\to\working\copy version.in version.h
 			TortoiseSVN uses Subversion. Nuff said :-)
 			</para>
 			<para>
-			Seriously &mdash; No! Read the Subversion pages. You can 
+			Seriously - No! Read the Subversion pages. You can 
 			screw up your working copy any way you like, but if you 
 			commit your data regularly, you can always revert to a 
 			functional state. Just remember that TortoiseSVN was not made to protect 
@@ -928,7 +928,7 @@ SubWCRev.exe path\to\working\copy version.in version.h
 						<para>
 							<ulink url="http://www.scintilla.org/SciTEDownload.html">
 				SciTE</ulink>, for showing unified diffs, it has 
-				built&ndash;in support for syntax&ndash;coloring, since it's 
+				built-in support for syntax-coloring, since it's 
 				not only a viewer but a Text Editor as well.</para>
 					</listitem>
 				</itemizedlist>
@@ -1020,43 +1020,11 @@ SubWCRev.exe path\to\working\copy version.in version.h
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-100">
-			<title>I love TortoiseSVN, how can I do 
-			something for the developers?</title>
+			<title>I love TortoiseSVN, how can I do something for the developers?</title>
 			<para>
 			Thanks for asking!
 			</para>
-			<para>
-			If you like TortoiseSVN and use it often, 
-			please support the developers!
-			</para>
-			<para>
-			You can help us by either sending in patches and 
-			play an active role in development or you can 
-			cheer up the hard working developers.
-			</para>
-			<para>
-			While working on TortoiseSVN we love to listen to music. 
-			And since we work many hours on the project we need a 
-			<emphasis>lot</emphasis> of music. Therefore we have set 
-			up some wish-lists with our favourite music CD's and DVD's:
-	
-			<itemizedlist>
-					<listitem>
-						<para>The media wish list of 
-				Stefan is <ulink url="http://www.amazon.com/o/registry/17DKTOSXX1KJK">
-				here</ulink>, <ulink url="http://www.thinkgeek.com/brain/gimme.cgi?wid=81d0854b9">here</ulink>
-				(English) or <ulink url="http://www.amazon.de/exec/obidos/registry/26JA3LXZXY4TB/">here
-				</ulink> (Deutsch).</para>
-					</listitem>
-					<listitem>
-						<para>L&uuml;bbe has got a <ulink url="http://www.amazon.de/exec/obidos/registry/3IKWLV2U0TVUA/">
-				wishlist</ulink> too.</para>
-					</listitem>
-				</itemizedlist>
-			
-			Please have a look at the list of contributors.
-	
-			</para>
+			&wish;
 		</sect2>
 	</sect1>
 </appendix>

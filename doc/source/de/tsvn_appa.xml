@@ -57,7 +57,7 @@
 						Icons sehen. Sie können versuchen, der Anleitung für NT4
 						weiter unten zu folgen, aber es kann trotzdem sein dass
 						es nicht funktioniert. Beachten Sie bitte: TortoiseSVN
-						unterstützt Windows 95 nicht &mdash; es können also
+						unterstützt Windows 95 nicht - es können also
 						noch weitere Probleme damit auftreten.
 						</para>
 					</listitem>
@@ -203,7 +203,7 @@
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 </screen>
 					Und erstellen Sie einen neuen String Wert <literal>Max Cached Icons</literal>.
-					Der Standardwert ist 500 &mdash; versuchen Sie den Wert auf
+					Der Standardwert ist 500 - versuchen Sie den Wert auf
 					2048 zu erhöhen. Lesen Sie auch den Knowledge-Base Artikel
 					<ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132</ulink>
 					für mehr Informationen.
@@ -477,7 +477,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<title>Ich hab eine Datei gelöscht und eine neue Datei
 			mit demselben Namen erstellt. Nun kann ich nicht mehr Übertragen?</title>
 			<para>
-			Sie möchten Subversion wohl veräppeln? Nein &mdash; im Ernst &mdash;
+			Sie möchten Subversion wohl veräppeln? Nein - im Ernst -
 			was haben Sie erwartet?
 			</para>
 			<para>
@@ -848,7 +848,7 @@ SubWCRev.exe pfad\zur\Arbeitskopie version.in version.h
 			TortoiseSVn nutzt die Subversion library. Genug gesagt :-)
 			</para>
 			<para>
-			Im Ernst &mdash; Nein! Lesen Sie die Subversion
+			Im Ernst - Nein! Lesen Sie die Subversion
 			(<ulink url="http://subversion.tigris.org/">Webseite</ulink>.
 			Sie können Ihre Arbeitskopie so stark verkrüppeln wie Sie wollen,
 			aber wenn Sie Ihre Änderungen regelmässig in das Projektarchiv 
@@ -997,37 +997,7 @@ SubWCRev.exe pfad\zur\Arbeitskopie version.in version.h
 			<para>
 			Danke, das Sie gefragt haben!
 			</para>
-			<para>
-			Wenn Sie TortoiseSVN mögen und es oft benutzen, unterstützen Sie bitte
-			die Entwickler!
-			</para>
-			<para>
-			Sie können uns auf viele Weise helfen: Sie können uns Patches schicken
-			und damit bei der Entwicklung direkt mithelfen, oder Sie können uns
-			bei unserer Arbeit motivieren.
-			</para>
-			<para>
-			Während wir an TortoiseSVN arbeiten hören wir gerne Musik. Und weil wir
-			viele viele Stunden an TortoiseSVN arbeiten, benötigen wir immer wieder
-			neue Musik. Aus diesem Grund haben wir im Internet Seiten eingerichtet,
-			von wo aus Sie uns Musik-CD's und auch mal eine DVD schenken können:
-			<itemizedlist>
-				<listitem>
-					<para>Die Wunschliste von Stefan ist 
-						<ulink url="http://www.amazon.com/o/registry/17DKTOSXX1KJK">
-							hier</ulink>, <ulink url="http://www.thinkgeek.com/brain/gimme.cgi?wid=81d0854b9">hier</ulink>
-							(English) oder 
-						<ulink url="http://www.amazon.de/exec/obidos/registry/26JA3LXZXY4TB/">
-						hier</ulink> (Deutsch).
-					</para>
-				</listitem>
-				<listitem>
-					<para>L&uuml;bbe hat ebenfalls eine <ulink url="http://www.amazon.de/exec/obidos/registry/3IKWLV2U0TVUA/">
-						Wunschliste</ulink>
-					</para>
-				</listitem>
-			</itemizedlist>
-			</para>
+			&wish;
 		</sect2>
 	</sect1>
 </appendix>

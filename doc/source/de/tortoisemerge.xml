@@ -6,12 +6,12 @@
 	<!ENTITY appa SYSTEM "tme_appa.xml">
 	<!ENTITY appb SYSTEM "tme_appb.xml">
 	<!ENTITY gloss SYSTEM "tme_glossary.xml">
-	<!ENTITY copy SYSTEM "tme_copyright.xml">
+	<!ENTITY wish SYSTEM "wishlist.xml">
 ]>
 <book id="tmerge" lang="de">
 	<title>TortoiseMerge</title>
 	<?dbhh topicname="HIDR_MAINFRAME"?>
-	<subtitle>Ein Diff/Merge Programm</subtitle>
+	<subtitle>Ein Diff/Merge Programm für Windows</subtitle>
 	<bookinfo>
 		<edition>First</edition>
 		<authorgroup>
@@ -19,16 +19,18 @@
 				<firstname>Stefan</firstname>
 				<surname>Küng</surname>
 			</author>
+			<author>
+				<firstname>Lübbe</firstname>
+				<surname>Onken</surname>
+			</author>
 		</authorgroup>
 		<pubdate>$LastChangedDate$</pubdate>
 	</bookinfo>
 	<!-- External entity refs -->
-
   &ch00;
   &ch01;
   &ch02;
   &appa;
   &appb;
   &gloss;
-<!--  &mergecopy;-->
 </book>

@@ -7,6 +7,7 @@
 	<!ENTITY ch04 SYSTEM "tsvn_ch04.xml">
 	<!ENTITY appa SYSTEM "tsvn_appa.xml">
 	<!ENTITY appb SYSTEM "tsvn_appb.xml">
+	<!ENTITY wish SYSTEM "wishlist.xml">
 ]>
 <book id="tsvn" lang="de">
   <title>TortoiseSVN</title>
@@ -16,10 +17,10 @@
     <authorgroup>
     <author>
       <firstname>Stefan</firstname>
-      <surname>K&uuml;ng</surname>
+      <surname>Küng</surname>
     </author>
     <author>
-      <firstname>L&uuml;bbe</firstname>
+      <firstname>Lübbe</firstname>
       <surname>Onken</surname>
       </author>
     </authorgroup>
@@ -34,4 +35,5 @@
   &ch04;
   &appa;
   &appb;
+  <index id="index"/>
 </book>
