@@ -728,18 +728,6 @@ msgstr ""
 msgid "Branch / Tag created successfully!"
 msgstr ""
 
-#: Control-ID:1182,
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr ""
-
-#: Control-ID:1185,
-msgid "Branch/Tag from the revision:"
-msgstr ""
-
-#: Control-ID:1183,
-msgid "Branch/Tag the working copy"
-msgstr ""
-
 #: ID:9,
 msgid "Branch/Tag..."
 msgstr ""
@@ -1081,7 +1069,7 @@ msgid "Could not retrieve URL of the file!\n%s"
 msgstr ""
 
 #: ID:66,
-msgid "Could not retrieve revision %s of the file %s.\nPatching is not possible!"
+msgid "Could not retrieve version %s of the file %s.\nPatching is not possible!"
 msgstr ""
 
 #: ID:64,
@@ -1106,6 +1094,10 @@ msgstr ""
 
 #: ID:81,
 msgid "Could not start thread!"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Create Branch/Tag on the server from:"
 msgstr ""
 
 #: ID:13,
@@ -1413,7 +1405,7 @@ msgid "Fetching File..."
 msgstr ""
 
 #: ID:313,
-msgid "Fetching revision %s of file:"
+msgid "Fetching version %s of file:"
 msgstr ""
 
 #: ID:63,#: ID:74,#: ID:77,#: ID:207,
@@ -1506,6 +1498,10 @@ msgstr ""
 
 #: Control-ID:1032,
 msgid "H&ead Revision"
+msgstr ""
+
+#: Control-ID:1182,
+msgid "HEAD revision on the server"
 msgstr ""
 
 #: ID:238,
@@ -2596,6 +2592,10 @@ msgstr ""
 msgid "Skipped missing target"
 msgstr ""
 
+#: Control-ID:1185,
+msgid "Specific revision on the server"
+msgstr ""
+
 #: ID:79,
 msgid "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
 msgstr ""
@@ -3098,6 +3098,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Whitespaces"
+msgstr ""
+
+#: Control-ID:1183,
+msgid "Working copy"
 msgstr ""
 
 #: ID:80,
