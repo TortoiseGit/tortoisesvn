@@ -13,6 +13,59 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MENU                ICON                    "..\\Icons\\Tortoise13by13.ico"
+IDI_APP                 ICON                    "..\\Icons\\Tortoise.ico"
+IDI_CHECKOUT            ICON                    "..\\Icons\\menucheckout.ico"
+IDI_UPDATE              ICON                    "..\\Icons\\menuupdate.ico"
+IDI_COMMIT              ICON                    "..\\Icons\\menucommit.ico"
+IDI_ADD                 ICON                    "..\\Icons\\menuadd.ico"
+IDI_REVERT              ICON                    "..\\Icons\\menurevert.ico"
+IDI_CLEANUP             ICON                    "..\\Icons\\menucleanup.ico"
+IDI_RESOLVE             ICON                    "..\\Icons\\menuresolve.ico"
+IDI_SWITCH              ICON                    "..\\Icons\\menuswitch.ico"
+IDI_MERGE               ICON                    "..\\Icons\\menumerge.ico"
+IDI_IMPORT              ICON                    "..\\Icons\\menuimport.ico"
+IDI_EXPORT              ICON                    "..\\Icons\\menuexport.ico"
+IDI_COPY                ICON                    "..\\Icons\\menucopy.ico"
+IDI_DELETE              ICON                    "..\\icons\\menudelete.ico"
+IDI_RENAME              ICON                    "..\\icons\\menurename.ico"
+IDI_DIFF                ICON                    "..\\icons\\menucompare.ico"
+IDI_LOG                 ICON                    "..\\Icons\\menulog.ico"
+IDI_ABOUT               ICON                    "..\\Icons\\menuabout.ico"
+IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
+IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
+IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
+IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
+IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
+IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
+IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "TortoiseSVN.dll.manifest"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // Russian resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
@@ -130,7 +183,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_MENUDESCIMPORT      "Импорт файлов, находящихся в каталоге, \nв репозиторий Subversion."
-    IDS_MENUDESCEXPORT      "Экспорт файлов в другой какталог \nбез служебных директорий Subversion"
+    IDS_MENUDESCEXPORT      "Экспорт файлов в другой каталог \nбез служебных директорий Subversion"
     IDS_MENUDESCABOUT       "Вывод информации о программе TortoiseSVN"
     IDS_MENUDESCCREATEREPOS "Создание (локального) репозитория системы Subversion"
     IDS_MENUDESCCOPY        "Создание копии, используемой для новой ветки"
@@ -151,7 +204,7 @@ STRINGTABLE
 BEGIN
     IDS_STATUSMERGED        "произведено слияние"
     IDS_STATUSCONFLICTED    "конфликтует"
-    IDS_STATUSOBSTRUCTED    "obstructed"
+    IDS_STATUSOBSTRUCTED    "блокирован"
     IDS_PROPLOCKED          "заблокировано"
     IDS_PROPPROPERTY        "Свойство"
     IDS_PROPVALUE           "Значение"
@@ -181,18 +234,18 @@ BEGIN
     IDS_COLDESCSHORTURL     "short Url of subversion items"
     IDS_MENUCONFLICT        "Разрешить конфликты"
     IDS_MENUDESCCONFLICT    "Запускает внешнюю программу слияния файлов, для разрешения конфликтов"
-    IDS_MENURELOCATE        "Relocate"
-    IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
-    IDS_MENUHELP            "Daily Use Guide"
-    IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
+    IDS_MENURELOCATE        "Изменение URL репозитория"
+    IDS_MENUDESCRELOCATE    "Используйте эту команду, если местонахождение (URL) репозитория изменилось"
+    IDS_MENUHELP            "Руководство по использованию"
+    IDS_MENUDESCHELP        "Открывает окно браузера с ""Руководством по использованию"""
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUSHOWCHANGED     "Check for Updates"
-    IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
-    IDS_MENUIGNORE          "Add To Ignore List"
-    IDS_MENUDESCIGNORE      "adds the selected fil(s) to the ""ignore"" list"
+    IDS_MENUSHOWCHANGED     "Список изменённых файлов"
+    IDS_MENUDESCSHOWCHANGED "Показывает список файлов в рабочей копии и репозитории, изменённых с момента последнего обновления."
+    IDS_MENUIGNORE          "Добавить к списку игнорируемых"
+    IDS_MENUDESCIGNORE      "Добавляет выделенный файл(или несколько файлов) к списку игнорируемых файлов."
     IDS_STATUSINCOMPLETE    "incomplete"
     IDS_STATUSIGNORED       "ignored"
     IDS_DROPCOPYMENU        "copy files in Subversion to here"
@@ -200,59 +253,6 @@ BEGIN
 END
 
 #endif    // Russian resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_MENU                ICON                    "..\\Icons\\Tortoise13by13.ico"
-IDI_APP                 ICON                    "..\\Icons\\Tortoise.ico"
-IDI_CHECKOUT            ICON                    "..\\Icons\\menucheckout.ico"
-IDI_UPDATE              ICON                    "..\\Icons\\menuupdate.ico"
-IDI_COMMIT              ICON                    "..\\Icons\\menucommit.ico"
-IDI_ADD                 ICON                    "..\\Icons\\menuadd.ico"
-IDI_REVERT              ICON                    "..\\Icons\\menurevert.ico"
-IDI_CLEANUP             ICON                    "..\\Icons\\menucleanup.ico"
-IDI_RESOLVE             ICON                    "..\\Icons\\menuresolve.ico"
-IDI_SWITCH              ICON                    "..\\Icons\\menuswitch.ico"
-IDI_MERGE               ICON                    "..\\Icons\\menumerge.ico"
-IDI_IMPORT              ICON                    "..\\Icons\\menuimport.ico"
-IDI_EXPORT              ICON                    "..\\Icons\\menuexport.ico"
-IDI_COPY                ICON                    "..\\Icons\\menucopy.ico"
-IDI_DELETE              ICON                    "..\\icons\\menudelete.ico"
-IDI_RENAME              ICON                    "..\\icons\\menurename.ico"
-IDI_DIFF                ICON                    "..\\icons\\menucompare.ico"
-IDI_LOG                 ICON                    "..\\Icons\\menulog.ico"
-IDI_ABOUT               ICON                    "..\\Icons\\menuabout.ico"
-IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
-IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
-IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
-IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
-IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
-IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
-IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "TortoiseSVN.dll.manifest"
-#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -13,6 +13,49 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // Russian resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
@@ -104,7 +147,7 @@ BEGIN
     PUSHBUTTON      "...",IDC_BROWSE,268,22,18,14
     LTEXT           "Откуда (URL):",IDC_STATIC,7,7,48,8
     LTEXT           "",IDC_FROMURL,60,7,226,8
-    GROUPBOX        "log message",IDC_STATIC,7,40,279,64
+    GROUPBOX        "Комментарий",IDC_STATIC,7,40,279,64
     EDITTEXT        IDC_LOGMESSAGE,16,54,261,43,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
@@ -179,20 +222,20 @@ BEGIN
     COMBOBOX        IDC_URLCOMBO,99,13,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,13,14,12
-    LTEXT           "from:",IDC_STATIC,7,63,18,8
-    EDITTEXT        IDC_REVISON_START,37,61,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "to:",IDC_STATIC,92,63,29,8
-    GROUPBOX        "revision",IDC_STATIC,131,42,136,46
-    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,138,55,61,10
-    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    138,71,43,10
-    EDITTEXT        IDC_REVISION_END,203,70,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+    LTEXT           "Начиная с\nредакции:",IDC_STATIC,7,51,39,18
+    EDITTEXT        IDC_REVISON_START,52,53,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "и до:",IDC_STATIC,99,55,23,8
+    GROUPBOX        "Редакция",IDC_STATIC,131,34,136,46
+    CONTROL         "Головная редакция",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,138,47,83,10
+    CONTROL         "Указанная",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    138,63,52,10
+    EDITTEXT        IDC_REVISION_END,203,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
-    LTEXT           "to merge only specific changes from the other branch you have to specify the revisions between which the change occured. To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.",
-                    IDC_STATIC,7,91,267,37
-    LTEXT           "To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.",
-                    IDC_STATIC,7,103,267,17
+    LTEXT           "Для слияния с конкретными изменениями из другой ветки разработки нужно указать номера редакций, между которыми были произведены изменения.",
+                    IDC_STATIC,7,85,267,20
+    LTEXT           "Для слияния целой ветки с головной веткой разработки нужно указать редакцию ветки и выделить пункт ""Головная редакция""",
+                    IDC_STATIC,7,108,267,19
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 229, 97
@@ -213,7 +256,7 @@ END
 IDD_RELOCATE DIALOGEX 0, 0, 268, 66
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Перемещение"
+CAPTION "Изменение URL репозитория"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,45,50,14
@@ -279,7 +322,7 @@ BEGIN
                     7,50,93,21
     EDITTEXT        IDC_DIFFVIEWER,100,49,90,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_DIFFVIEWERROWSE,218,48,50,14
-    CONTROL         "Don't remove log messages when cancelling a commit",
+    CONTROL         "Не удалять логи при отмене фиксации изменений",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     7,148,261,10
 END
@@ -633,17 +676,17 @@ BEGIN
     IDS_LOG_REVISION        "Редакция"
     IDS_LOG_AUTHOR          "Автор"
     IDS_LOG_DATE            "Дата"
-    IDS_LOG_REVERT_CONFIRM  "Do you really want to revert all changes\nwhich were made in this revision?"
+    IDS_LOG_REVERT_CONFIRM  "Вы действительно хотите произвести \nоткат всех изменений, \nкоторые Вы сделали в этой редакции?"
     IDS_LOG_POPUP_COMPARE   "Сравнить с рабочей копией"
     IDS_LOG_POPUP_SAVE      "Сохранить ревизию в..."
     IDS_LOG_POPUP_COMPARETWO "Сравнить две редакции"
-    IDS_LOG_POPUP_UPDATE    "Update item to revision"
+    IDS_LOG_POPUP_UPDATE    "Обновить до редакции..."
     IDS_LOG_POPUP_COPY      "Create Tag from revision"
     IDS_LOGPROMPT_FILE      "Файл"
     IDS_LOGPROMPT_STATUS    "Состояние"
     IDS_LOGPROMPT_ASKADD    "Вы выбрали файл, ещё не находящийся в репозитории.\nПеред фиксированием изменений\nфайл будет добавлен в систему контроля версий."
     IDS_LOGPROMPT_NOTHINGTOCOMMIT 
-                            "No files were changed or added since\nthe last commit. There's nothing\nto do for TortoiseSVN here..."
+                            "Не найдено изменённых, добавленных или удалённых\nс момента последнего обновления файлов.\nТаким образом, необходимости\nв обновлении рабочей копии нет..."
     IDS_PROGRS_ATREV        "Текущая редакция: %d"
     IDS_PROGRS_ACTION       "Действие"
     IDS_PROGRS_PATH         "Путь"
@@ -661,7 +704,7 @@ BEGIN
     IDS_PROGRS_TITLE_RESOLVE "SVN - Разрешение конфликта"
     IDS_PROGRS_TITLE_SWITCH "SVN - Процесс перехода к другой ветке"
     IDS_PROGRS_TITLE_EXPORT "SVN - Экспортировать"
-    IDS_PROGRS_TITLE_MERGE  "SVN - Процесс слияния"
+    IDS_PROGRS_TITLE_MERGE  "SVN - Слияние"
     IDS_PROGRS_TITLE_COPY   "SVN - Копирование"
     IDS_STRING236           "dummy"
     IDS_STRING237           "dummy"
@@ -673,9 +716,11 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STRING240           "dummy"
-    IDS_SETTINGS_SELECTDIFF "Укажите программу для сравнения файлов."
-    IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
-    IDS_SETTINGS_SELECTMERGE "Select Merge program..."
+    IDS_SETTINGS_SELECTDIFF "Укажите программу, которая будет использоваться для процедуры сравнения файлов."
+    IDS_SETTINGS_SELECTDIFFVIEWER 
+                            "Укажите программу, которая будет использоваться для просмотра изменений."
+    IDS_SETTINGS_SELECTMERGE 
+                            "Укажите программу, которая будет использоваться для процедуры слияния файлов."
     IDS_STRING244           "dummy"
     IDS_SETTINGS_EXTDIFF_TT "Внешняя программа, используемая для сравнения файлов."
     IDS_SETTINGS_EXTDIFFBROWSE_TT 
@@ -712,19 +757,19 @@ BEGIN
     IDS_PROC_OVERWRITE_CONFIRM 
                             "Файл\n%s\nуже существует! Перезаписать существующий файл?"
     IDS_PROC_REPOCREATEFINISHED "Репозиторий создан."
-    IDS_PROC_RELOCATEFINISHED "Working copy relocated to\n%s"
-    IDS_PROC_MOVING         "Moving"
-    IDS_PROC_RELOCATING     "Relocating..."
+    IDS_PROC_RELOCATEFINISHED "Рабочая копия перенастроена \n%s"
+    IDS_PROC_MOVING         "Перемещение..."
+    IDS_PROC_RELOCATING     "Изменение URL репозитория..."
     IDS_APPNAME             "TortoiseSVN"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_MSGBOX_DONOTSHOW    "Больше не показывать это сообщение"
-    IDS_PROC_COPYING        "Copying..."
-    IDS_PROC_COPYINGPROG    "Copying %s"
-    IDS_PROC_MOVINGPROG     "Moving %s"
-    IDS_PROC_CPYMVPROG2     "to %s"
+    IDS_PROC_COPYING        "Копирование..."
+    IDS_PROC_COPYINGPROG    "Копируется %s"
+    IDS_PROC_MOVINGPROG     "Перемещается %s"
+    IDS_PROC_CPYMVPROG2     "в %s"
     IDS_STRING277           "dummy"
     IDS_STRING278           "dummy"
     IDS_STRING279           "dummy"
@@ -740,7 +785,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_ERR_WCCHANGED       "Содержимое рабочей копии изменено!\n<hr=100%>\nСначала зафиксируйте изменения\nили произведите откат."
+    IDS_ERR_WCCHANGED       "Содержимое рабочей копии изменено!\n<hr=100%>\nСначала зафиксируйте изменения в репозиторий\nили произведите откат изменений."
     IDS_ERR_COPYFILES       "Невозможно скопировать файлы!\n<hr=100%>\n%s"
     IDS_ERR_EXTMERGESTART   "Невозможно запустить внешнюю программу слияния файлов!\n<hr=100%>\n%s"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
@@ -765,14 +810,14 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOBROWSE_SAVEAS   "save as..."
-    IDS_REPOBROWSE_SHOWLOG  "show log"
-    IDS_REPOBROWSE_OPEN     "open"
+    IDS_REPOBROWSE_SAVEAS   "Сохранить..."
+    IDS_REPOBROWSE_SHOWLOG  "История изменений"
+    IDS_REPOBROWSE_OPEN     "Открыть"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ABOUTVERSION        "TortoiseSVN %d.%d.%d, Build %d - Subversion %d.%d.%d, %s"
+    IDS_ABOUTVERSION        "TortoiseSVN %d.%d.%d, сборка %d - Subversion %d.%d.%d, %s"
 END
 
 STRINGTABLE 
@@ -784,16 +829,16 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRESSGETFILE     "Getting File %s"
-    IDS_PROGRESSREVISION    "Revision %d"
-    IDS_PROGRESSWAIT        "Please wait..."
+    IDS_PROGRESSGETFILE     "Получение файла %s"
+    IDS_PROGRESSREVISION    "Редакция %d"
+    IDS_PROGRESSWAIT        "Пожалуйста подождите..."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_CHSTAT_FILECOL      "File"
-    IDS_CHSTAT_WCCOL        "local status"
-    IDS_CHSTAT_REPOCOL      "remote status"
+    IDS_CHSTAT_FILECOL      "Файл"
+    IDS_CHSTAT_WCCOL        "Состояние в локальной копии"
+    IDS_CHSTAT_REPOCOL      "Состояние в репозитории"
 END
 
 STRINGTABLE 
@@ -802,49 +847,6 @@ BEGIN
 END
 
 #endif    // Russian resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AVI
-//
-
-IDR_ANIMATION           AVI                     "res\\bin168.avi"
-IDR_MOVEANI             AVI                     "res\\bin167.avi"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
-#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
