@@ -16,6 +16,9 @@
        update first. (Stefan)
 - CHG: The Repository Browser now sorts the date column
        by the real date, not the text. (Stefan)
+- BUG: Right-drag export of more than one folder made the
+       additional folders exported inside the previous
+       ones. (Stefan)
 - BUG: Authentication when viewing remote properties lead
        to a crash. (Stefan)
 - BUG: Even if no entries are added to the right-drag context

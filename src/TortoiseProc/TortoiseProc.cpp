@@ -914,6 +914,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("dropexport"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
+			if (parser.HasKey(_T("notempfile")))
+			{
+				path = CUtils::WritePathsToTempFile(path);
+			}
 			CString droppath = parser.GetVal(_T("droptarget"));
 			SVN svn;
 			CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
@@ -928,20 +932,14 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.SetShowProgressBar(true);
 				progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 				progDlg.SetAnimation(IDR_ANIMATION);
-				droppath += strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\'));
-				if (!svn.Export(strLine, droppath, SVNRev::REV_WC, TRUE, &progDlg, parser.HasKey(_T("extended"))))
+				CString dropper = droppath + strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\'));
+				if (!svn.Export(strLine, dropper, SVNRev::REV_WC, TRUE, &progDlg, parser.HasKey(_T("extended"))))
 				{
 					progDlg.Stop();
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 				}
-				else
-				{
-					progDlg.Stop();
-					CString temp;
-					temp.Format(IDS_PROC_EXPORT_4, strLine, droppath);
-					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-				}
 			}
+			progDlg.Stop();
 		}
 		//#endregion
 		//#region dropcopy
