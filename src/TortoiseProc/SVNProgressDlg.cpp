@@ -130,6 +130,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_add:
 	case svn_wc_notify_update_add:
 	case svn_wc_notify_commit_added:
+	case svn_wc_notify_commit_modified:
 		data->color = GetSysColor(COLOR_HIGHLIGHT);
 		break;
 	case svn_wc_notify_delete:
@@ -157,9 +158,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		{
 			data->color = RGB(0, 100, 0);
 		}
-		break;
-	case svn_wc_notify_commit_modified:
-		data->color = GetSysColor(COLOR_HIGHLIGHT);
 		break;
 
 	case svn_wc_notify_update_external:
