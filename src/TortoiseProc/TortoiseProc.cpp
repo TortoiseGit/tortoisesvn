@@ -197,6 +197,7 @@ void CTortoiseProcApp::CrashProgram()
 }
 BOOL CTortoiseProcApp::InitInstance()
 {
+	CheckUpgrade();
 	CSoundUtils::RegisterTSVNSounds();
 	//set the resource dll for the required language
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
@@ -1512,5 +1513,24 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLi
 	return TRUE;
 }
 
-
+void CTortoiseProcApp::CheckUpgrade()
+{
+	CRegString regVersion = CRegString(_T("Software\\TortoiseSVN\\CurrentVersion"));
+	CString sVersion = regVersion;
+	if (sVersion.Compare(_T(STRPRODUCTVER))==0)
+		return;
+	// we're starting the first time with a new version!
+	
+	CRegDWORD regval = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), 999);
+	if ((DWORD)regval != 999)
+	{
+		// there's a leftover registry setting we have to convert and then delete it
+		CRegDWORD newregval = CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"));
+		newregval = !regval;
+		regval.removeKey();
+	}
+	
+	// set the current version so we don't come here again until the next update!
+	regVersion = _T(STRPRODUCTVER);	
+}
 
