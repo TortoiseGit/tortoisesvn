@@ -44,7 +44,7 @@ CSetMainPage::CSetMainPage()
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	m_regDontConvertBase = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), FALSE);
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
-	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 12);
+	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 10);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -73,11 +73,9 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LANGUAGECOMBO, m_LanguageCombo);
-	//DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
 	DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 	m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
-	//m_cFontNames.GetLBText(m_cFontNames.GetCurSel(), m_sFontName);
 	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
 	DDX_Check(pDX, IDC_ADDBEFORECOMMIT, m_bAddBeforeCommit);
@@ -175,7 +173,7 @@ BOOL CSetMainPage::OnInitDialog()
 	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
 
 	int count = 0;
-	for (int i=8; i<32; i=i+2)
+	for (int i=6; i<32; i=i+2)
 	{
 		temp.Format(_T("%d"), i);
 		m_cFontSizes.AddString(temp);
