@@ -1100,6 +1100,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			BOOL bFile = FALSE;
 			SVN svn;
 			url = svn.GetURLFromPath(path);
+			if (path.Left(8).CompareNoCase(_T("file:///"))==0)
+			{
+				path = path.Mid(8);
+			}
 			bFile = !PathIsDirectory(path);
 
 			if (url.IsEmpty())

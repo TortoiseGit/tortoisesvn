@@ -1191,8 +1191,7 @@ void SVN::UrlToPath(CString &url)
 	url = url.Mid(7);
 	if (url.GetAt(1) != '/')
 		url = url.Mid(1);
-	url.Replace('/','\\');
-	url.TrimRight(_T("/\\"));			//remove trailing slashes
+	SVN::preparePath(url);
 }
 
 void	SVN::preparePath(CString &path)
@@ -1203,7 +1202,11 @@ void	SVN::preparePath(CString &path)
 	//workaround for Subversions UNC-path bug
 	if (path.Left(10).CompareNoCase(_T("file://///"))==0)
 	{
-		path.Replace(_T("file://///"), _T("file:////\\"));
+		path.Replace(_T("file://///"), _T("file:///\\"));
+	}
+	else if (path.Left(9).CompareNoCase(_T("file:////"))==0)
+	{
+		path.Replace(_T("file:////"), _T("file:///\\"));
 	}
 }
 

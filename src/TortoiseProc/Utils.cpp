@@ -500,9 +500,12 @@ CStringA CUtils::PathEscape(CStringA path)
 	ret.Replace(("\""), ("%22"));
 	ret.Replace(("<"), ("%3C"));
 	ret.Replace((">"), ("%3E"));
-	ret.Replace(("\\"), ("%5C"));
 	ret.Replace(("#"), ("%23"));
 	ret.Replace(("?"), ("%3F"));
+	ret.Replace(("\\"), ("%5C"));
+	ret.Replace(("file:///%5C"), ("file:///\\"));
+	ret.Replace(("file:////%5C"), ("file:////\\"));
+
 	return ret;
 }
 
