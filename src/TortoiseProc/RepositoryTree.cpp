@@ -177,7 +177,7 @@ void CRepositoryTree::Init()
 	} // while ((temp.ReverseFind('/')>=0)&&(temp.GetAt(temp.ReverseFind('/')-1)!='/'))
 	arPaths.Add(temp);
 	HTREEITEM hItem = TVI_ROOT;
-	for (int i=arPaths.GetUpperBound(); i>=0; i--)
+	for (INT_PTR i=arPaths.GetUpperBound(); i>=0; i--)
 	{
 		hItem = InsertItem(arPaths.GetAt(i), m_nIconFolder, m_nIconFolder, hItem, TVI_LAST);
 		EnsureVisible(hItem);

@@ -540,7 +540,7 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = RGB(0,0,0);
 
-		if (m_arActions.GetCount() > pLVCD->nmcd.dwItemSpec)
+		if (m_arActions.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
 			svn_wc_notify_action_t action = (svn_wc_notify_action_t)m_arActions.GetAt(pLVCD->nmcd.dwItemSpec);
 			svn_wc_notify_state_t content_state = (svn_wc_notify_state_t)m_arActionCStates.GetAt(pLVCD->nmcd.dwItemSpec);

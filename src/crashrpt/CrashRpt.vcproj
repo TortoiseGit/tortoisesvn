@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="CrashRpt"
 	ProjectGUID="{13BC1836-2726-45C4-9249-5BA2BBBF8328}"
 	SccProjectName=""
@@ -81,9 +81,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -96,6 +104,9 @@
 			</File>
 			<File
 				RelativePath=".\CrashRpt.rc">
+			</File>
+			<File
+				RelativePath=".\excprpt.cpp">
 			</File>
 			<File
 				RelativePath=".\MailMsg.cpp">
@@ -124,9 +135,6 @@
 			<File
 				RelativePath=".\WriteRegistry.cpp">
 			</File>
-			<File
-				RelativePath=".\excprpt.cpp">
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -144,7 +152,19 @@
 				RelativePath=".\DeadLink.h">
 			</File>
 			<File
+				RelativePath=".\detaildlg.h">
+			</File>
+			<File
+				RelativePath=".\excprpt.h">
+			</File>
+			<File
 				RelativePath=".\MailMsg.h">
+			</File>
+			<File
+				RelativePath=".\maindlg.h">
+			</File>
+			<File
+				RelativePath=".\resource.h">
 			</File>
 			<File
 				RelativePath=".\StackTrace.h">
@@ -160,18 +180,6 @@
 			</File>
 			<File
 				RelativePath=".\WriteRegistry.h">
-			</File>
-			<File
-				RelativePath=".\detaildlg.h">
-			</File>
-			<File
-				RelativePath=".\excprpt.h">
-			</File>
-			<File
-				RelativePath=".\maindlg.h">
-			</File>
-			<File
-				RelativePath=".\resource.h">
 			</File>
 		</Filter>
 		<Filter

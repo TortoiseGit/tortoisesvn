@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="TortoiseShell"
 	ProjectGUID="{E873DD32-5A31-4DE1-8341-A56A2A5489EA}"
 	SccProjectName=""
@@ -45,6 +45,7 @@
 				OutputFile="..\..\bin\Debug/TortoiseSVN.dll"
 				LinkIncremental="0"
 				SuppressStartupBanner="TRUE"
+				IgnoreDefaultLibraryNames="LIBC"
 				ModuleDefinitionFile=".\ShellExt.def"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="..\..\bin\Debug/TortoiseSVN.pdb"
@@ -70,7 +71,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -141,7 +148,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release_MBCS|Win32"
@@ -212,9 +225,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -239,6 +260,18 @@
 			</File>
 			<File
 				RelativePath="..\Utils\Registry.cpp">
+			</File>
+			<File
+				RelativePath=".\ShellExt.cpp">
+			</File>
+			<File
+				RelativePath=".\ShellExt.def">
+			</File>
+			<File
+				RelativePath=".\ShellExtClassFactory.cpp">
+			</File>
+			<File
+				RelativePath="stdafx.cpp">
 			</File>
 			<File
 				RelativePath="..\SVN\SVNProperties.cpp">
@@ -268,15 +301,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\ShellExt.cpp">
-			</File>
-			<File
-				RelativePath=".\ShellExt.def">
-			</File>
-			<File
-				RelativePath=".\ShellExtClassFactory.cpp">
-			</File>
-			<File
 				RelativePath=".\TortoiseSVN.cpp">
 			</File>
 			<File
@@ -284,9 +308,6 @@
 			</File>
 			<File
 				RelativePath="..\Utils\UnicodeUtils.cpp">
-			</File>
-			<File
-				RelativePath="stdafx.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -311,6 +332,21 @@
 				RelativePath="PreserveChdir.h">
 			</File>
 			<File
+				RelativePath="..\Utils\registry.h">
+			</File>
+			<File
+				RelativePath="resource.h">
+			</File>
+			<File
+				RelativePath=".\ShellExt.h">
+			</File>
+			<File
+				RelativePath=".\ShellExtClassFactory.h">
+			</File>
+			<File
+				RelativePath="stdafx.h">
+			</File>
+			<File
 				RelativePath="..\SVN\SVNProperties.h">
 			</File>
 			<File
@@ -320,42 +356,15 @@
 				RelativePath="..\SVN\SVNStatus.h">
 			</File>
 			<File
-				RelativePath=".\ShellExt.h">
-			</File>
-			<File
-				RelativePath=".\ShellExtClassFactory.h">
-			</File>
-			<File
 				RelativePath=".\UnicodeStrings.h">
 			</File>
 			<File
 				RelativePath="..\Utils\UnicodeUtils.h">
 			</File>
-			<File
-				RelativePath="..\Utils\registry.h">
-			</File>
-			<File
-				RelativePath="resource.h">
-			</File>
-			<File
-				RelativePath="stdafx.h">
-			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest">
-			<File
-				RelativePath="Resource.rc">
-			</File>
-			<File
-				RelativePath="..\Icons\Tortoise.ico">
-			</File>
-			<File
-				RelativePath="..\Icons\Tortoise13by13.ico">
-			</File>
-			<File
-				RelativePath="TortoiseShell.manifest">
-			</File>
 			<File
 				RelativePath="..\Icons\menuabout.ico">
 			</File>
@@ -418,6 +427,18 @@
 			</File>
 			<File
 				RelativePath="..\Icons\menuupdate.ico">
+			</File>
+			<File
+				RelativePath="Resource.rc">
+			</File>
+			<File
+				RelativePath="..\Icons\Tortoise.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\Tortoise13by13.ico">
+			</File>
+			<File
+				RelativePath="TortoiseShell.manifest">
 			</File>
 		</Filter>
 	</Files>

@@ -537,7 +537,7 @@ CRegStdString::operator stdstring()
 
 CRegStdString& CRegStdString::operator =(stdstring s)
 {
-	if ((s==m_value)&&(!m_force))
+	if ((s.compare(m_value)==0)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
 		return *this;

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="TortoiseProc"
 	ProjectGUID="{50797F06-39C5-4802-8E2B-7B7A4EF03214}"
 	Keyword="MFCProj">
@@ -58,7 +58,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -115,7 +121,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release_MBCS|Win32"
@@ -172,19 +184,21 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc">
-			<File
-				RelativePath="RelocateDlg.cpp">
-			</File>
-			<File
-				RelativePath="RelocateDlg.h">
-			</File>
 			<Filter
 				Name="Source Files"
 				Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
@@ -231,10 +245,10 @@
 					RelativePath="..\Utils\Gradient.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\HTMLFormatter.cpp">
+					RelativePath="..\Utils\HistoryCombo.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\HistoryCombo.cpp">
+					RelativePath="..\Utils\HTMLFormatter.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\MessageBox.cpp">
@@ -247,18 +261,6 @@
 				</File>
 				<File
 					RelativePath="RepositoryTree.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\StringUtils.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\UnicodeUtils.cpp">
-				</File>
-				<File
-					RelativePath="Utils.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\WaterEffect.cpp">
 				</File>
 				<File
 					RelativePath="stdafx.cpp">
@@ -280,6 +282,18 @@
 							Name="VCCLCompilerTool"
 							UsePrecompiledHeader="1"/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\StringUtils.cpp">
+				</File>
+				<File
+					RelativePath="..\Utils\UnicodeUtils.cpp">
+				</File>
+				<File
+					RelativePath="Utils.cpp">
+				</File>
+				<File
+					RelativePath="..\Utils\WaterEffect.cpp">
 				</File>
 			</Filter>
 			<Filter
@@ -316,16 +330,19 @@
 					RelativePath="..\Utils\Gradient.h">
 				</File>
 				<File
-					RelativePath="..\Utils\HTMLFormatter.h">
+					RelativePath="..\Utils\HistoryCombo.h">
 				</File>
 				<File
-					RelativePath="..\Utils\HistoryCombo.h">
+					RelativePath="..\Utils\HTMLFormatter.h">
 				</File>
 				<File
 					RelativePath="..\Utils\MessageBox.h">
 				</File>
 				<File
 					RelativePath="..\Utils\PathUtils.h">
+				</File>
+				<File
+					RelativePath="..\Utils\registry.h">
 				</File>
 				<File
 					RelativePath="RepositoryTree.h">
@@ -341,9 +358,6 @@
 				</File>
 				<File
 					RelativePath="..\Utils\WaterEffect.h">
-				</File>
-				<File
-					RelativePath="..\Utils\registry.h">
 				</File>
 			</Filter>
 		</Filter>
@@ -426,13 +440,13 @@
 					RelativePath="PromptDlg.cpp">
 				</File>
 				<File
+					RelativePath="RelocateDlg.cpp">
+				</File>
+				<File
 					RelativePath="RenameDlg.cpp">
 				</File>
 				<File
 					RelativePath="RepositoryBrowser.cpp">
-				</File>
-				<File
-					RelativePath="SVNProgressDlg.cpp">
 				</File>
 				<File
 					RelativePath="SetMainPage.cpp">
@@ -445,6 +459,9 @@
 				</File>
 				<File
 					RelativePath="Settings.cpp">
+				</File>
+				<File
+					RelativePath="SVNProgressDlg.cpp">
 				</File>
 				<File
 					RelativePath="SwitchDlg.cpp">
@@ -490,13 +507,13 @@
 					RelativePath="PromptDlg.h">
 				</File>
 				<File
+					RelativePath="RelocateDlg.h">
+				</File>
+				<File
 					RelativePath="RenameDlg.h">
 				</File>
 				<File
 					RelativePath="RepositoryBrowser.h">
-				</File>
-				<File
-					RelativePath="SVNProgressDlg.h">
 				</File>
 				<File
 					RelativePath="SetMainPage.h">
@@ -509,6 +526,9 @@
 				</File>
 				<File
 					RelativePath="Settings.h">
+				</File>
+				<File
+					RelativePath="SVNProgressDlg.h">
 				</File>
 				<File
 					RelativePath="SwitchDlg.h">
@@ -524,6 +544,9 @@
 				Name="Resource Files"
 				Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest">
 				<File
+					RelativePath="charlie_flipped.bmp">
+				</File>
+				<File
 					RelativePath="res\Tortoise.ico">
 				</File>
 				<File
@@ -535,19 +558,16 @@
 				<File
 					RelativePath="res\TortoiseProc.rc2">
 				</File>
-				<File
-					RelativePath="charlie_flipped.bmp">
-				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath="res\bin168.avi">
+		</File>
 		<File
 			RelativePath="ReadMe.txt">
 		</File>
 		<File
 			RelativePath="Resource.h">
-		</File>
-		<File
-			RelativePath="res\bin168.avi">
 		</File>
 		<File
 			RelativePath="stdafx.h">

@@ -11,8 +11,11 @@ L&uuml;bbe Onken, last update 2003-06-03</font></div>
 <h3>Installation issues</h3>
 <p>Most of these are taken from the FAQ on <a href=http://www.tortoisecvs.org/faq.html>TortoiseCVS</a>.</p>
 <br><a href="#whydonticonsappear">Why don't the icon overlays appear?</a>
+<br><a href="#istillhavenoicons">I followed the instructions, but there are still no icons?!?</a>
 <br><a href="#whyisiconcachebuggy">Why do the overlay icons sometimes change to random graphics?</a>
 <br><a href="#howchangedefaulticons">Those icons are grotesque, I want better ones!</a>
+<br><a href="#thetsvnmenuismissing">The TSVN menu is missing when nothing is selected!</a>
+<br><a href="#thetsvnmenuismissing">The TSVN menus are shown as ownerdrawn (no icons, no text) in some software</a>
 <br><a href="#uninstallation">How do I uninstall TortoiseSVN?</a>
 
 <h3>Daily use questions</h3>
@@ -27,6 +30,8 @@ L&uuml;bbe Onken, last update 2003-06-03</font></div>
 <br><a href="#conflicts">How does TortoiseSVN handle conflicts?</a>
 
 <h3>Misc</h3>
+<br><a href="#sshsupport">Does TortoiseSVN support SSH?</a>
+<br><a href="#dataloss">Can I lose data, when I use TortoiseSVN?</a>
 <br><a href="#love">I love TortoiseSVN, how do I give some money towards it?</a>
 
 <h3>Introduction</h3>
@@ -95,6 +100,24 @@ icons in this case, but not when launched from the mouse.
 </tbody>
 </table>
 
+<h4><a name="istillhavenoicons">I followed the instructions, but there are still no icons?!?</a></h4>
+<table border="0" cellpadding="2" width="99%" bgcolor="white">
+<tbody>
+<tr>
+<td width="100%" height="100" bgcolor="#F0F0F0">
+You rebooted your PC off course?<br>
+So after installing the shell extensions you now have 
+WinNT / Win95 and IE >= 5.5 installed?
+<br>
+Do a doubleclick on tortoiseproc.exe. If it complains about a missing
+msimg32.dll, try to find that dll on the web / another pc and copy it to
+your system.
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
 <h4><a name="whyisiconcachebuggy">Why do the overlay icons sometimes change to random graphics?</a></h4>
 <table border="0" cellpadding="2" width="99%" bgcolor="white">
 <tbody>
@@ -136,7 +159,33 @@ tool from Microsoft. For WinXP you can get it <a href=http://www.microsoft.com/w
 </tr>
 </tbody>
 </table>
+<h4><a name="thetsvnmenuismissing">
+The TSVN menu is missing when nothing is selected!<br>
+The TSVN menus are shown as ownerdrawn (no icons, no text) in some software
+</a></h4>
+<table border="0" cellpadding="2" width="99%" bgcolor="white">
+<tbody>
+<tr>
+<td width="100%" height="100" bgcolor="#F0F0F0">
+<p>This is because the icons are completely ownerdrawn. The main menu is known
+to disappear under windows 98, ME, NT and 2000. Everything works fine under XP</p>
+<p>I you don't like the way TSVN handles it's menu entries, you can do the following:<br>
+Just create a (DWORD) registry entry under: 
+<pre>
+HKCU\Software\TortoiseSVN\OwnerdrawnMenus
+</pre>
+and set it to 0<br> This will force TSVN to use the windows standard routine to draw
+menu entries. You'll have all the menu entries any time, but you will have ugly icons,
+since windows default only allows 10x10 icons.
+If you delete this registry key (the default) or set it to something else than 0 
+you have the nice icons back.
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 
+</table>
 <h4><a name="uninstallation">How do I uninstall TortoiseSVN?</a></h4>
 <table border="0" cellpadding="2" width="99%" bgcolor="white">
 <tbody>
@@ -323,6 +372,45 @@ the command <em>resolve</em> to do that for you.
 </table>
 
 <h3>Misc</h3>
+<h4><a name="sshsupport">Does TortoiseSVN support SSH?</a></h4>
+<table border="0" cellpadding="2" width="99%" bgcolor="white">
+<tbody>
+<tr>
+<td width="100%" height="100" bgcolor="#F0F0F0">
+<p>TSVN uses subversion. And subversion supports ssh
+either via https (repository reachable via apache) or
+svn+ssh:// (repository reachable via svnserve).
+<br>Please have a look at the subversion book and
+the INSTALL file of subversion on how to use
+svn+ssh://</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4><a name="dataloss">Can I lose data, when I use TortoiseSVN?</a></h4>
+<table border="0" cellpadding="2" width="99%" bgcolor="white">
+<tbody>
+<tr>
+<td width="100%" height="100" bgcolor="#F0F0F0">
+<p>TSVN uses Subversion. Nuff said :-)<br>
+Seriously not, read the Subversion pages. You can screw up your working copy any 
+way you like, but if you commit your data regularly, you can always revert
+to a functional state. TSVN was not made to protect you against stupidity (e.g. Format C:).
+</p>
+<p>There is however one issue involved. TSVN is always built against the latest
+subversion release. If the subversion team decides to change the database layout, 
+then your TSVN client might not match your SVN repository and cause havoc.
+In this case you have to migrate the repository first. Check the subversion book
+on how to do this. <br>
+TSVN currently has no way to determine the version of the repository it is 
+accessing. This may become a feature of a post 1.0 subversion release.  
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
 <h4><a name="love">I love TortoiseSVN, how do I give some money towards it?</a></h4>
 <table border="0" cellpadding="2" width="99%" bgcolor="white">
 <tbody>
