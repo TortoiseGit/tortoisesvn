@@ -54,7 +54,7 @@ public:
 	 */
 	void			ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 	void			ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
-	void			GoToLine(int nNewLine);
+	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
 
 	void			SelectLines(int nLine1, int nLine2 = -1);
 	inline BOOL		IsHidden() {return m_bIsHidden;}

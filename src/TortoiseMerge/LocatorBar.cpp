@@ -281,19 +281,14 @@ void CLocatorBar::OnLButtonDown(UINT nFlags, CPoint point)
 	GetClientRect(rect); 
 	int nLine = point.y*m_nLines/rect.Height();
 
-	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndBottomView))
-	{
-		nLine = nLine - (m_pMainFrm->m_pwndBottomView->GetScreenLines()/2);
-	}
-
 	if (nLine < 0)
 		nLine = 0;
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndBottomView))
-		m_pMainFrm->m_pwndBottomView->ScrollToLine(nLine);
+		m_pMainFrm->m_pwndBottomView->GoToLine(nLine);
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
-		m_pMainFrm->m_pwndLeftView->ScrollToLine(nLine);
+		m_pMainFrm->m_pwndLeftView->GoToLine(nLine);
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndRightView))
-		m_pMainFrm->m_pwndRightView->ScrollToLine(nLine);
+		m_pMainFrm->m_pwndRightView->GoToLine(nLine);
 	Invalidate();
 	CDialogBar::OnLButtonDown(nFlags, point);
 }
@@ -325,11 +320,11 @@ void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 		if (nLine < 0)
 			nLine = 0;
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndBottomView))
-			m_pMainFrm->m_pwndBottomView->ScrollToLine(nLine);
+			m_pMainFrm->m_pwndBottomView->GoToLine(nLine);
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
-			m_pMainFrm->m_pwndLeftView->ScrollToLine(nLine);
+			m_pMainFrm->m_pwndLeftView->GoToLine(nLine);
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndRightView))
-			m_pMainFrm->m_pwndRightView->ScrollToLine(nLine);
+			m_pMainFrm->m_pwndRightView->GoToLine(nLine);
 	} // if (nFlags & MK_LBUTTON)
 	Invalidate();
 }

@@ -1017,16 +1017,22 @@ void CBaseView::ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar)
 		m_pwndLocator->Invalidate();
 }
 
-void CBaseView::GoToLine(int nNewLine)
+void CBaseView::GoToLine(int nNewLine, BOOL bAll)
 {
 	//almost the same as ScrollAllToLine, but try to put the line in the
 	//middle of the view, not on top
 	int nNewTopLine = nNewLine - GetScreenLines()/2;
 	if (nNewTopLine < 0)
 		nNewTopLine = 0;
-	if (nNewTopLine >= this->m_arDiffLines->GetCount())
-		nNewTopLine = m_arDiffLines->GetCount()-1;
-	ScrollAllToLine(nNewTopLine);
+	if (m_arDiffLines)
+	{
+		if (nNewTopLine >= this->m_arDiffLines->GetCount())
+			nNewTopLine = m_arDiffLines->GetCount()-1;
+		if (bAll)
+			ScrollAllToLine(nNewTopLine);
+		else
+			ScrollToLine(nNewTopLine);
+	} // if (m_arDiffLines) 
 }
 
 BOOL CBaseView::OnEraseBkgnd(CDC* pDC)
