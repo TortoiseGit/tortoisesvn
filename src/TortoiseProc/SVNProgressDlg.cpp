@@ -164,9 +164,9 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			data->bAuxItem = true;
 
 			if (!m_ExtStack.IsEmpty())
-				data->sActionColumnText.Format(IDS_PROGRS_PATHATREV, (LPCTSTR)m_ExtStack.RemoveHead(), rev);
+				data->sPathColumnText.Format(IDS_PROGRS_PATHATREV, (LPCTSTR)m_ExtStack.RemoveHead(), rev);
 			else
-				data->sActionColumnText.Format(IDS_PROGRS_ATREV, rev);
+				data->sPathColumnText.Format(IDS_PROGRS_ATREV, rev);
 
 			if ((m_bConflictsOccurred)&&(m_ExtStack.IsEmpty()))
 			{
@@ -197,6 +197,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	{
 		data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
 		data->sPathColumnText = path.GetUIPathString();
+	}
+	if (data->sActionColumnText.IsEmpty())
+	{
+		data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
 	}
 
 	m_arData.push_back(data);
