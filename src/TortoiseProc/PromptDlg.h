@@ -78,5 +78,6 @@ public:
 	CString		m_sPass;
 	CEdit		m_pass;
 	BOOL		m_hide;
-	BOOL m_saveCheck;
+	BOOL		m_saveCheck;
+	HWND		m_hParentWnd;
 };

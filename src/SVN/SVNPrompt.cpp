@@ -31,6 +31,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase)
 	CPromptDlg dlg;
 	dlg.SetHide(hide);
 	dlg.m_info = promptphrase;
+	dlg.m_hParentWnd = this->hWnd;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
@@ -64,6 +65,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase)
 BOOL SVNPrompt::SimplePrompt(CString& username, CString& password) 
 {
 	CSimplePrompt dlg;
+	dlg.m_hParentWnd = this->hWnd;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{

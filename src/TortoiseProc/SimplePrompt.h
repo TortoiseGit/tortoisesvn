@@ -43,7 +43,9 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CString m_sUsername;
-	CString m_sPassword;
-	BOOL m_bSaveAuthentication;
+	CString		m_sUsername;
+	CString		m_sPassword;
+	BOOL		m_bSaveAuthentication;
+	HWND		m_hParentWnd;
+
 };

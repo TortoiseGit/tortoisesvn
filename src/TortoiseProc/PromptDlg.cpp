@@ -79,6 +79,7 @@ BOOL CPromptDlg::OnInitDialog()
 	}
 	
 	m_pass.SetFocus();
+	CenterWindow(CWnd::FromHandle(m_hParentWnd));
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

@@ -147,6 +147,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMSG, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
+	this->hWnd = this->m_hWnd;
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

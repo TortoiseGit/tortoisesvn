@@ -66,6 +66,7 @@ BOOL CSimplePrompt::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	GetDlgItem(IDC_USEREDIT)->SetFocus();
+	CenterWindow(CWnd::FromHandle(m_hParentWnd));
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
