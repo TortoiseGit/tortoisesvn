@@ -291,8 +291,8 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	ZeroMemory(szFile, sizeof(szFile));
 	// Initialize OPENFILENAME
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
-	//ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 	ofn.hwndOwner = svn->m_hParentWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);

@@ -841,8 +841,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
-						//ofn.lStructSize = sizeof(OPENFILENAME);
-						ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+						ofn.lStructSize = sizeof(OPENFILENAME);
+						//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 						ofn.hwndOwner = this->m_hWnd;
 						ofn.lpstrFile = szFile;
 						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
@@ -1100,8 +1100,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						_tcscpy(szFile, revFilename);
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
-						//ofn.lStructSize = sizeof(OPENFILENAME);
-						ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+						ofn.lStructSize = sizeof(OPENFILENAME);
+						//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 						ofn.hwndOwner = this->m_hWnd;
 						ofn.lpstrFile = szFile;
 						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);

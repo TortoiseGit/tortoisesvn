@@ -101,8 +101,8 @@ void CToolAssocDlg::OnBnClickedToolbrowse()
 	ZeroMemory(szFile, sizeof(szFile));
 	// Initialize OPENFILENAME
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
-	//ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);

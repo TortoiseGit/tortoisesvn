@@ -1452,8 +1452,8 @@ BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLi
 		ZeroMemory(szFile, sizeof(szFile));
 		// Initialize OPENFILENAME
 		ZeroMemory(&ofn, sizeof(OPENFILENAME));
-		//ofn.lStructSize = sizeof(OPENFILENAME);
-		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+		ofn.lStructSize = sizeof(OPENFILENAME);
+		//ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
 		ofn.hwndOwner = (EXPLORERHWND);
 		ofn.lpstrFile = szFile;
 		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
