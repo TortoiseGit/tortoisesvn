@@ -840,7 +840,7 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 
 void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 {
-	pCmdUI->SetCheck(m_bOneWay);
+	pCmdUI->SetCheck(!m_bOneWay);
 	BOOL bEnable = TRUE;
 	if (m_pwndBottomView)
 	{
