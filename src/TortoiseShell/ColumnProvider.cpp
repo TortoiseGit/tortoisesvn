@@ -16,16 +16,11 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include "stdafx.h"
 #include "ShellExt.h"
 #include "guids.h"
-#include "svnstatus.h"
-#include "UnicodeStrings.h"
 #include "PreserveChdir.h"
 #include "SVNProperties.h"
-#include <string>
-#include <Shlwapi.h>
-#include <wininet.h>
-#include <atlexcept.h>
 
 
 const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
@@ -185,10 +180,10 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		PreserveChdir preserveChdir;
 		stdstring szInfo;
 #ifdef UNICODE
-		TCHAR * path = (TCHAR *)pscd->wszFile;
+		const TCHAR * path = (TCHAR *)pscd->wszFile;
 #else
 		std::string stdpath = WideToMultibyte(pscd->wszFile);
-		TCHAR * path = stdpath.c_str();
+		const TCHAR * path = stdpath.c_str();
 #endif
 
 		// reserve for the path + trailing \0
@@ -295,10 +290,10 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
 		stdstring szInfo;
 #ifdef UNICODE
-		TCHAR * path = (TCHAR *)pscd->wszFile;
+		const TCHAR * path = pscd->wszFile;
 #else
 		std::string stdpath = WideToMultibyte(pscd->wszFile);
-		TCHAR * path = stdpath.c_str();
+		const TCHAR * path = stdpath.c_str();
 #endif
 
 		switch (pscid->pid)
@@ -347,7 +342,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 	return S_OK;
 }
 
-void CShellExt::GetColumnStatus(TCHAR * path, BOOL bIsDir)
+void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 {
 	if (_tcscmp(path, columnfilepath.c_str())==0)
 		return;

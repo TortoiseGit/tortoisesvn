@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "SwitchDlg.h"
 #include "RepositoryBrowser.h"
-#include ".\switchdlg.h"
+#include "BrowseFolder.h"
 
 
 // CSwitchDlg dialog

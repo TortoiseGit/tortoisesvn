@@ -21,9 +21,6 @@
 #include "TortoiseProc.h"
 #include "MergeDlg.h"
 #include "RepositoryBrowser.h"
-#include "MessageBox.h"
-#include "UnicodeUtils.h"
-#include ".\mergedlg.h"
 
 
 

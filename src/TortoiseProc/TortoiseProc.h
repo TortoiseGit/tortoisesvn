@@ -24,33 +24,19 @@
 
 
 #include "resource.h"		// main symbols
+
+
 #include "..\\TortoiseShell\\resource.h"
 #include "Utils.h"
-#include "SVNStatus.h"
+#include "UnicodeUtils.h"
+#include "Balloon.h"
+#include "MessageBox.h"
 #include "BrowseFolder.h"
-#include "ProgressDlg.h"
-#include "CmdLineParser.h"
-#include "AboutDlg.h"
-#include "LogDlg.h"
-#include "SVNProgressDlg.h"
-#include "CheckoutDlg.h"
-#include "LogPromptDlg.h"
-#include "ImportDlg.h"
-#include "SwitchDlg.h"
-#include "MergeDlg.h"
-#include "CopyDlg.h"
-#include "Settings.h"
-#include "RenameDlg.h"
-#include "UpdateDlg.h"
-#include "AddDlg.h"
-#include "RelocateDlg.h"
-#include "ChangedDlg.h"
-#include "RepositoryBrowser.h"
-#include "BlameDlg.h"
-#include "URLDlg.h"
-#include "CheckForUpdatesDlg.h"
-#include "RevertDlg.h"
-#include "RepoCreateDlg.h"
+#include "HistoryCombo.h"
+#include "svn.h"
+#include "SVNStatus.h"
+#include "SVNRev.h"
+
 
 /**
  * \ingroup TortoiseProc
@@ -101,3 +87,4 @@ private:
 
 extern CTortoiseProcApp theApp;
 extern HWND hWndExplorer;
+

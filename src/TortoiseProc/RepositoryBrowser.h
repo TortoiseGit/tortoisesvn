@@ -16,15 +16,13 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#ifndef __RepositoryBrowser_h
-#define __RepositoryBrowser_h
-
 #pragma once
+
 #include "SVNUrl.h"
-#include "SVNRev.h"
 #include "RepositoryTree.h"
 #include "RepositoryBar.h"
 #include "ResizableDialog.h"
+#include "ProjectProperties.h"
 
 
 /**
@@ -101,4 +99,3 @@ private:
 public:
 };
 
-#endif /*__RepositoryBrowser_h*/

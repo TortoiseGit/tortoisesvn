@@ -19,13 +19,13 @@
 
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "messagebox.h"
 #include "cursor.h"
-#include "UnicodeUtils.h"
 #include "MergeDlg.h"
 #include "InputDlg.h"
 #include "PropDlg.h"
-#include ".\logdlg.h"
+#include "SVNProgressDlg.h"
+#include "RepositoryBrowser.h"
+#include "CopyDlg.h"
 
 // CLogDlg dialog
 

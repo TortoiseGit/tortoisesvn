@@ -18,10 +18,6 @@
 
 #pragma once
 
-#include <afxctl.h>
-#include <afxwin.h>
-#include <vfw.h>
-
 /**
  * \ingroup Utils
  * 

@@ -21,9 +21,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "SVNProgressDlg.h"
-#include "UnicodeUtils.h"
-#include <map>
-#include ".\svnprogressdlg.h"
+#include "LogDlg.h"
 
 
 // CSVNProgressDlg dialog

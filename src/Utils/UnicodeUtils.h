@@ -17,8 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-#include <string>
-#include <atlstr.h>
+
 
 #pragma warning (push,1)
 typedef std::basic_string<wchar_t> wide_string;

@@ -31,7 +31,6 @@
 // ReportCtrl.h : header file
 //
 
-#include <afxtempl.h>
 #include "MemDC.h"
 #include "FlatHeaderCtrl.h"
 

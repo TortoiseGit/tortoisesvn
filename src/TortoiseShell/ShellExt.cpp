@@ -21,24 +21,18 @@
 #pragma warning (disable : 4786)
 
 // Initialize GUIDs (should be done only and at-least once per DLL/EXE)
-#define INITGUID
 #include <initguid.h>
-#include <shlguid.h>
 #include "Guids.h"
-#include "Globals.h"
+
 #include "ShellExt.h"
 #include "..\\version.h"
-#include "UnicodeStrings.h"
-#include "atltrace.h"
-#include "Accctrl.h"
-#include "Aclapi.h"
 #include "libintl.h"
 
 // *********************** CShellExt *************************
 CShellExt::CShellExt(FileState state)
 {
     m_State = state;
-	
+
     m_cRef = 0L;
     g_cRefThisDll++;
 
@@ -198,8 +192,8 @@ void LoadLangDll()
 
 STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
 {
-    *ppv = NULL;
-	
+    *ppv = NULL; 
+
     if (IsEqualIID(riid, IID_IShellExtInit) || IsEqualIID(riid, IID_IUnknown))
     {
         *ppv = (LPSHELLEXTINIT)this;

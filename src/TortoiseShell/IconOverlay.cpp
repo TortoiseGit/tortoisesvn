@@ -16,12 +16,11 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-
+#include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
-#include "UnicodeStrings.h"
 #include "PreserveChdir.h"
-#include "SVNStatus.h"
+
 // "The Shell calls IShellIconOverlayIdentifier::GetOverlayInfo to request the
 //  location of the handler's icon overlay. The icon overlay handler returns
 //  the name of the file containing the overlay image, and its index within

@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "stdafx.h"
-#include <windows.h>
-
 #define MENUCHECKOUT		0x00000001
 #define MENUUPDATE			0x00000002
 #define MENUCOMMIT			0x00000004

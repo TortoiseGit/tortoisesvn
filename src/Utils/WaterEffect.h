@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "stdafx.h"
-#include <windows.h>
-
 #define random( min, max ) (( rand() % (int)((( max ) + 1 ) - ( min ))) + ( min ))
 
 /**

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include <objidl.h>
-
 /**
  * \ingroup TortoiseShell
  * Represents one entry of the class ItemIDList.

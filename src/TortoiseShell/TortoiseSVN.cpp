@@ -15,11 +15,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-#include "Globals.h"
+#include "stdafx.h"
+#include "ShellExt.h"
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
-#include "ShellCache.h"
-#include "SVNFolderStatus.h"
 
 UINT      g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE g_hmodThisDll = NULL;				///< handle to this DLL itself.
@@ -40,6 +39,7 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 	// it.
 	if (!::IsDebuggerPresent())
 	{
+		ATLTRACE("In debug load preventer\n");
 		return FALSE;
 	}
 #endif

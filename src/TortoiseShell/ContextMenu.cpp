@@ -16,14 +16,10 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include "stdafx.h"
 #include "ShellExt.h"
 #include "ItemIDList.h"
-#include <string>
-
-#include "UnicodeStrings.h"
 #include "PreserveChdir.h"
-
-#include "SVNStatus.h"
 
 
 #define GetPIDLFolder(pida) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[0])

@@ -21,11 +21,9 @@
 #include "messagebox.h"
 #include "RepositoryTree.h"
 #include "SysImageList.h"
-#include "UnicodeUtils.h"
 #include "WaitCursorEx.h"
+#include "RepositoryBar.h"
 
-#include "shlobj.h"
-#include "utils.h"
 
 
 // CRepositoryTree

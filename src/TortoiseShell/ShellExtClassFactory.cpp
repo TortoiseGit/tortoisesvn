@@ -16,9 +16,9 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-#include "Globals.h"
-#include "ShellExtClassFactory.h"
+#include "stdafx.h"
 #include "ShellExt.h"
+#include "ShellExtClassFactory.h"
 
 CShellExtClassFactory::CShellExtClassFactory(FileState state)
 {
@@ -38,7 +38,7 @@ STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,
                                                    LPVOID FAR *ppv)
 {
     *ppv = NULL;
-	
+
     // Any interface on this object is the object pointer
 	
     if (IsEqualIID(riid, IID_IUnknown) || IsEqualIID(riid, IID_IClassFactory))

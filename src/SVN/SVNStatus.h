@@ -17,20 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "stdafx.h"
-#include <windows.h>
-#include "resource.h"
-#include <tchar.h>
-#include <Shlwapi.h>
-
-#include "apr_general.h"
-#include "svn_pools.h"
-#include "svn_client.h"
-#include "svn_path.h"
-#include "svn_wc.h"
-#include "svn_utf.h"
-#include "svn_config.h"
-#include <string>
 
 #ifdef _MFC_VER
 #	include "SVNPrompt.h"
@@ -231,7 +217,7 @@ private:
 	//for GetFirstFileStatus and GetNextFileStatus
 	apr_hash_t *				m_statushash;
 	apr_array_header_t *		m_statusarray;
-	int							m_statushashindex;
+	unsigned int				m_statushashindex;
 
 #pragma warning(push)
 #pragma warning(disable: 4200)
@@ -242,7 +228,7 @@ private:
 	};
 #pragma warning(pop)	// C4200
 
-	static int LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int nBufferMax, WORD wLanguage);
+	static int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
 
 };
 

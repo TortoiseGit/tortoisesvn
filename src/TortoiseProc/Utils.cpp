@@ -19,7 +19,6 @@
 #include "StdAfx.h"
 #include "resource.h"
 #include "utils.h"
-#include "afxdlgs.h"
 #include "MessageBox.h"
 
 #ifndef COMPILE_NEWAPIS_STUBS

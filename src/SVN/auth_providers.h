@@ -17,10 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 
-#include <apr_pools.h>
-
-#include "svn_types.h"
-
 void
 tsvn_client_get_simple_provider (svn_auth_provider_object_t **provider,
 								apr_pool_t *pool);

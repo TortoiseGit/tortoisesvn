@@ -46,9 +46,6 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include <afxwin.h>
-#include <afxtempl.h>
-
 BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
 						        DWORD FontType, LPARAM lParam);	
 

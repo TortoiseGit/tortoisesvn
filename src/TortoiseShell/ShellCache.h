@@ -17,14 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "atltrace.h"
-#include "globals.h"
-#include <tchar.h>
-#include <string>
-#include <vector>
-#include <map>
-#include "registry.h"
-#include "svn_wc.h"
 
 #define REGISTRYTIMEOUT 2000
 #define EXCLUDELISTTIMEOUT 5000

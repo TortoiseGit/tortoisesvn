@@ -19,10 +19,7 @@
 
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "messagebox.h"
 #include "LogPromptDlg.h"
-#include "UnicodeUtils.h"
-#include ".\logpromptdlg.h"
 #include "DirFileEnum.h"
 #include "SVNConfig.h"
 #include "SVNProperties.h"

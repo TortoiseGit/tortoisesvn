@@ -59,6 +59,10 @@
 #include <afxcmn.h>			// MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 #include <afxdlgs.h>
+#include <afxctl.h>
+#include <afxtempl.h>
+
+//#include <atlbase.h>
 
 #ifndef UNICODE
 #include "multimon.h"
@@ -67,3 +71,36 @@
 #ifndef LVS_EX_DOUBLEBUFFER
 #define LVS_EX_DOUBLEBUFFER     0x00010000
 #endif
+
+#include "apr_general.h"
+#include "svn_pools.h"
+#include "svn_client.h"
+#include "svn_path.h"
+#include "svn_wc.h"
+#include "svn_utf.h"
+#include "svn_config.h"
+
+#pragma warning(push)
+#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
+#include <string>
+#include <vector>
+#include <map>
+#include <set>
+#pragma warning(pop)
+
+#include <vfw.h>
+#include <shlobj.h>
+#include <Shlwapi.h>
+#include <shlguid.h>
+#include <uxtheme.h>
+#include <tmschema.h>
+
+#include "..\..\..\Subversion\apr\include\apr_version.h"
+#include "..\..\..\Subversion\apr-iconv\include\api_version.h"
+#include "..\..\..\Subversion\apr-util\include\apu_version.h"
+#include "..\..\..\Subversion\db4-win32\include\db.h"
+#include "..\..\..\Subversion\neon\src\config.h"
+#include "..\..\..\common\openssl\inc32\openssl\opensslv.h"
+#include "..\..\..\common\zlib\zlib.h"
+
+

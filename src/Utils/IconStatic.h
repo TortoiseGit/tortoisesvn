@@ -18,8 +18,6 @@
 //
 
 #pragma once
-#include <uxtheme.h>
-#include <tmschema.h>
 
 class CIconStatic : public CStatic
 {

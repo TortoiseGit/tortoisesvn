@@ -24,5 +24,33 @@
 #ifdef UNICODE
 #	define ISOLATION_AWARE_ENABLED 1
 #endif
-#include "windows.h"
-#include "commctrl.h"
+
+#include <windows.h>
+
+#include <commctrl.h>
+#include <Shlobj.h>
+#include <Shlwapi.h>
+#include <tchar.h>
+#include <wininet.h>
+#include <Aclapi.h>
+
+#include <atlbase.h>
+#include <atlexcept.h>
+
+#pragma warning(push)
+#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
+#include <string>
+#include <set>
+#include <map>
+#include <vector> 
+#pragma warning(pop)
+
+#include "apr_general.h"
+#include "svn_pools.h"
+#include "svn_client.h"
+#include "svn_path.h"
+#include "svn_wc.h"
+#include "svn_utf.h"
+#include "svn_config.h"
+#include "svn_subst.h"
+

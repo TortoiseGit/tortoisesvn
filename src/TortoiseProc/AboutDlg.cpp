@@ -21,15 +21,7 @@
 #include "TortoiseProc.h"
 #include "AboutDlg.h"
 #include "svn_version.h"
-#include "..\..\..\Subversion\apr\include\apr_version.h"
-#include "..\..\..\Subversion\apr-iconv\include\api_version.h"
-#include "..\..\..\Subversion\apr-util\include\apu_version.h"
-#include "..\..\..\Subversion\db4-win32\include\db.h"
-#include "..\..\..\Subversion\neon\src\config.h"
-#include "..\..\..\common\openssl\inc32\openssl\opensslv.h"
-#include "..\..\..\common\zlib\zlib.h"
 #include "..\version.h"
-#include ".\aboutdlg.h"
 
 #ifdef UNICODE
 #	define STRINGWIDTH  "UNICODE"

@@ -18,17 +18,14 @@
 //
 
 #include "stdafx.h"
+#include "ProgressDlg.h"
+
 #ifdef _MFC_VER
 
 extern "C" const GUID CLSID_ProgressDialog = {0xf8383852, 0xfcd3, 0x11d1, 0xa6, 0xb9, 0x0, 0x60, 0x97, 0xdf, 0x5b, 0xd4};
 extern "C" const GUID IID_IProgressDialog = {0xebbc7c04, 0x315e, 0x11d2, 0xb6, 0x2f, 0x0, 0x60, 0x97, 0xdf, 0x5b, 0xd4};
 
 #endif
-
-
-#include "ProgressDlg.h"
-#include <atlconv.h>
-
 
 CProgressDlg::CProgressDlg() :
 		    m_bValid(false),			//not valid by default

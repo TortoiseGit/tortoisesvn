@@ -20,10 +20,6 @@
 #include "Watereffect.h"
 #include "Dib.h"
 #include "HyperLink.h"
-#include <afxctl.h>
-#include <afxwin.h>
-#include "afxwin.h"
-
 
 #define ID_EFFECTTIMER 1111
 #define ID_DROPTIMER 1112

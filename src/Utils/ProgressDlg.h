@@ -19,10 +19,6 @@
 
 #pragma once
 
-
-#include <shlobj.h>
-#include <shlguid.h>
-
 /**
  * \ingroup TortoiseProc
  * A wrapper class for the IProgressDialog interface. Thats

@@ -17,21 +17,15 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include <Shlobj.h>
-#include <objidl.h>
-#include <string>
-#include <tchar.h>
+
 #include "Globals.h"
 #include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 #include "registry.h"
 #include "resource.h"
+#include "ShellCache.h"
 #include "SVNStatus.h"
 #include "SVNFolderStatus.h"
-
-#pragma warning (push,1)
-#include <vector>
-#include <map>
-#pragma warning (pop)
 
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
@@ -160,7 +154,7 @@ private:
 	void InsertSVNMenu(BOOL ownerdrawn, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);
 	stdstring WriteFileListToTempFile();
 	LPCTSTR GetMenuTextFromResource(int id);
-	void GetColumnStatus(TCHAR * path, BOOL bIsDir);
+	void GetColumnStatus(const TCHAR * path, BOOL bIsDir);
 	HBITMAP IconToBitmap(UINT hIcon, COLORREF transparentColor);
 public:
 	CShellExt(FileState state);

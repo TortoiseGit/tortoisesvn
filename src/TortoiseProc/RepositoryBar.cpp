@@ -17,10 +17,10 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "stdafx.h"
+#include "TortoiseProc.h"
 #include "RepositoryBar.h"
 #include "RepositoryTree.h"
 #include "RevisionDlg.h"
-#include "UnicodeUtils.h"
 
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001

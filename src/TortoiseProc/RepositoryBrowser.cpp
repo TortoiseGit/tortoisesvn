@@ -26,7 +26,9 @@
 #include "Blame.h"
 #include "BlameDlg.h"
 #include "WaitCursorEx.h"
-#include ".\repositorybrowser.h"
+#include "Repositorybrowser.h"
+#include "BrowseFolder.h"
+#include "RenameDlg.h"
 
 
 #define ID_POPSAVEAS		1

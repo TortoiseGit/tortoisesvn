@@ -17,7 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "stdafx.h"
 #include "UnicodeStrings.h"
-#include <string.h>
 
 std::string WideToMultibyte(wide_string wide)
 {
@@ -125,7 +124,7 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax,
 	if (ret > nBufferMax)
 		ret = nBufferMax;
 	wcsncpy((wchar_t *)lpBuffer, pImage->achString, ret);
-	(wchar_t)lpBuffer[ret] = 0;
+	lpBuffer[ret] = 0;
 #else
 	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);
 	(TCHAR)lpBuffer[ret] = 0;

@@ -134,8 +134,6 @@ BOOL (CALLBACK *GetDiskFreeSpaceEx)
 
 #ifdef WANT_GETLONGPATHNAME_WRAPPER
 
-#include <shlobj.h>
-
 #undef GetLongPathName
 #define GetLongPathName _GetLongPathName
 

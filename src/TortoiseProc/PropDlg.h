@@ -18,9 +18,8 @@
 //
 
 #pragma once
-#include "afxcmn.h"
-#include "ResizableDialog.h"
 
+#include "ResizableDialog.h"
 
 // CPropDlg dialog
 

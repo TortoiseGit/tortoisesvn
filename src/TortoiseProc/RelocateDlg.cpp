@@ -20,8 +20,7 @@
 #include "TortoiseProc.h"
 #include "RelocateDlg.h"
 #include "RepositoryBrowser.h"
-#include "UnicodeUtils.h"
-#include ".\relocatedlg.h"
+#include "BrowseFolder.h"
 
 
 // CRelocateDlg dialog

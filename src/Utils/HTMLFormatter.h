@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include <afxtempl.h>
-
 /**
  * \ingroup Utils
  * Class for drawing formatted text on a device context.

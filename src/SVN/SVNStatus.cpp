@@ -18,7 +18,7 @@
 
 #include "stdafx.h"
 #include "resource.h"
-#include "..\\TortoiseShell\\resource.h"
+#include "..\TortoiseShell\resource.h"
 
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
@@ -495,7 +495,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 	} // switch (status) 
 }
 
-int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int nBufferMax, WORD wLanguage)
+int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
 {
 	const STRINGRESOURCEIMAGE* pImage;
 	const STRINGRESOURCEIMAGE* pImageEnd;
@@ -538,8 +538,8 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int
 
 #ifdef UNICODE
 	ret = pImage->nLength;
-	wcsncpy((wchar_t *)lpBuffer, pImage->achString, pImage->nLength);
-	(wchar_t)lpBuffer[ret] = 0;
+	wcsncpy(lpBuffer, pImage->achString, pImage->nLength);
+	lpBuffer[ret] = 0;
 #else
 	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);
 	(TCHAR)lpBuffer[ret] = 0;

@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "afxwin.h"
+
 #include "htmlformatter.h"
 #include "dlgtemplate.h"
 #include "cursor.h"

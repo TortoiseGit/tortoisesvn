@@ -19,6 +19,8 @@
 #pragma once
 
 
+// For base class
+#include "SVNRev.h"
 
 /**
  * \ingroup TortoiseProc

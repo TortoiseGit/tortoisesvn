@@ -17,8 +17,9 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "StdAfx.h"
-#include "shlwapi.h"
-#include ".\ProjectProperties.h"
+#include "TortoiseProc.h"
+#include "UnicodeStrings.h"
+#include "ProjectProperties.h"
 
 ProjectProperties::ProjectProperties(void)
 {

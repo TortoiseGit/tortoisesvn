@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include <unknwn.h>
-#include "Globals.h"
-
 
 /**
  * \ingroup TortoiseShell

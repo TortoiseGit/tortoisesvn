@@ -20,8 +20,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
-#include "Balloon.h"
-#include ".\blamedlg.h"
 
 
 // CBlameDlg dialog

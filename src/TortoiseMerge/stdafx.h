@@ -46,7 +46,13 @@
 #define USE_NEW_DOCK_BAR 
 #include "NewMenu.h"
 #include <afxdlgs.h>
+#include <afxctl.h>
 
 #ifndef LVS_EX_DOUBLEBUFFER
 #define LVS_EX_DOUBLEBUFFER     0x00010000
 #endif
+
+#include <vfw.h>
+
+#include <string>
+#include <map>

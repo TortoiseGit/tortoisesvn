@@ -29,10 +29,6 @@
 #endif // _MSC_VER > 1000
 // FlatHeaderCtrl.h : header file
 //
-
-#include <afxtempl.h>
-#include <tchar.h>
-
 #define FLATHEADER_TEXT_MAX	80
 #define FLATHEADER_TT_MAGIC	-13111971
 

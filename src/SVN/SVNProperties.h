@@ -18,17 +18,6 @@
 
 #pragma once
 
-#include "apr_general.h"
-#include "svn_pools.h"
-#include "svn_client.h"
-#include "svn_sorts.h"
-#include "svn_path.h"
-#include "svn_wc.h"
-#include "svn_utf.h"
-#include "svn_subst.h"
-#include "svn_config.h"
-#include <string>
-#include "UnicodeStrings.h"
 #ifdef _MFC_VER
 #	include "SVNRev.h"
 #	include "SVNPrompt.h"

@@ -15,15 +15,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
 #include "stdafx.h"
+
+#include "ShellExt.h"
 #include "svnpropertypage.h"
-#include "SVNStatus.h"
 #include "SVNProperties.h"
-#include "resource.h"
-#include <time.h>
-#include <string>
-#include <Shlwapi.h>
-#include <commctrl.h>
 #include "ProgressDlg.h"
 
 #define MAX_PROP_STRING_LENGTH		4096			//should be big enough

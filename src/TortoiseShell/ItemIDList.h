@@ -18,10 +18,6 @@
 
 #pragma once
 
-#include <shtypes.h>
-#include <string>
-#include "UnicodeStrings.h"
-
 /**
  * \ingroup TortoiseShell
  * Represents a list of directory elements like folders and files.

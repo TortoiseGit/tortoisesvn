@@ -19,7 +19,8 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "messagebox.h"
-#include ".\revertdlg.h"
+#include "Revertdlg.h"
+#include "SVN.h"
 
 
 // CRevertDlg dialog
