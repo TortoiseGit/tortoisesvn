@@ -203,20 +203,18 @@ bool CTSVNPath::IsDirectory() const
 
 void CTSVNPath::EnsureBackslashPathSet() const
 {
-	ASSERT(!IsEmpty());
 	if(m_sBackslashPath.IsEmpty())
 	{
 		SetBackslashPath(m_sFwdslashPath);
-		ASSERT(!m_sBackslashPath.IsEmpty());
+		ASSERT(IsEmpty() || !m_sBackslashPath.IsEmpty());
 	}
 }
 void CTSVNPath::EnsureFwdslashPathSet() const
 {
-	ASSERT(!IsEmpty());
 	if(m_sFwdslashPath.IsEmpty())
 	{
 		SetFwdslashPath(m_sBackslashPath);
-		ASSERT(!m_sFwdslashPath.IsEmpty());
+		ASSERT(IsEmpty() || !m_sFwdslashPath.IsEmpty());
 	}
 }
 
