@@ -161,6 +161,7 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 {
 	// Stop the crawler starting on a new folder
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
+	AutoLocker lock(m_critSec);
 	m_directoryCache.erase(path);
 	ATLTRACE("removed path %ws from cache\n", path.GetWinPath());
 }
