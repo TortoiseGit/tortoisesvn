@@ -551,12 +551,30 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 	return 0;
 }
 
+#ifdef _MFC_VER
+CString SVNStatus::GetLastErrorMsg()
+{
+	CString msg;
+	if (m_err != NULL)
+	{
+		msg = m_err->message;
+		while (m_err->child)
+		{
+			m_err = m_err->child;
+			msg += "\n";
+			msg += m_err->message;
+		}
+		return msg;
+	}
+	return _T("");
+}
+#endif
+
 svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */)
 {
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
 	const svn_item_t*			item;
-	svn_error_t *				err;
 	const char *				internalpath;
 
 	//we need to convert the path to subversion internal format
@@ -567,18 +585,18 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */)
 	svn_revnum_t			youngest;
 	youngest = SVN_INVALID_REVNUM;				//always get status from newest revision
 
-	err = svn_client_status (&statushash,
-							&youngest,
-							internalpath,
-							0,
-							1,
-							update,
-							1,
-							&m_ctx,
-							m_pool);
+	m_err = svn_client_status (&statushash,
+								&youngest,
+								internalpath,
+								0,
+								1,
+								update,
+								1,
+								&m_ctx,
+								m_pool);
 
 	// Error present if function is not under version control
-	if ((err != NULL) || (apr_hash_count(statushash) == 0))
+	if ((m_err != NULL) || (apr_hash_count(statushash) == 0))
 	{
 		return -2;	
 	}
@@ -599,7 +617,6 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */)
 svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR ** retPath, bool update)
 {
 	const svn_item_t*			item;
-	svn_error_t *				err;
 	const char *				internalpath;
 
 	//we need to convert the path to subversion internal format
@@ -610,18 +627,18 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 	svn_revnum_t			youngest;
 	youngest = SVN_INVALID_REVNUM;				//always get status from newest revision
 
-	err = svn_client_status (&m_statushash,
-							&youngest,
-							internalpath,
-							1,					//recurse
-							1,					//getall
-							update,
-							1,					//no ignore
-							&m_ctx,
-							m_pool);
+	m_err = svn_client_status (&m_statushash,
+								&youngest,
+								internalpath,
+								1,					//recurse
+								1,					//getall
+								update,
+								1,					//no ignore
+								&m_ctx,
+								m_pool);
 
 	// Error present if function is not under version control
-	if ((err != NULL) || (apr_hash_count(m_statushash) == 0))
+	if ((m_err != NULL) || (apr_hash_count(m_statushash) == 0))
 	{
 		return NULL;	
 	}

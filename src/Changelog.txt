@@ -1,6 +1,9 @@
 - BUG: The "open" command in the repository browser
        was always active, even for URL's which 
        can't be opened. (Stefan)
+- CHG: Changed the behaviour of the Log and Updates
+       dialog if a network timeout occured. (Stefan)
+       
 
 Version 0.15.2
 - BUG: The "Check for updates" dialog could

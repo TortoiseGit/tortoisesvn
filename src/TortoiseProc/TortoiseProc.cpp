@@ -145,21 +145,6 @@ BOOL CTortoiseProcApp::InitInstance()
 			//the log command line looks like this:
 			//command:log path:<path_to_file_or_directory_to_show_the_log_messages> [revstart:<startrevision>] [revend:<endrevision>]
 			CString path = parser.GetVal(_T("path"));
-			SVNStatus svn;
-			long rev = svn.GetStatus(path, true);
-			if (rev == (-2))
-			{
-				rev = svn.GetStatus(path, false);
-				if (rev == (-2))
-				{
-					CMessageBox::Show(hWnd, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
-					return FALSE;
-				} // if (rev == (-2))
-				if (svn.status->entry)
-					rev = svn.status->entry->revision;
-				else 
-					rev = -1;
-			}
 			CString val = parser.GetVal(_T("revstart"));
 			long revstart = _tstol(val);
 			val = parser.GetVal(_T("revend"));

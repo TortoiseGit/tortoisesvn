@@ -184,6 +184,10 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 			pDlg->AddEntry(CString(file), status);
 		}
 	} // if (status)
+	else
+	{
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+	}
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	return 0;
 }
