@@ -99,6 +99,10 @@ BOOL CRenameDlg::OnInitDialog()
 		this->SetWindowText(m_windowtitle);
 	if (!m_label.IsEmpty())
 		GetDlgItem(IDC_LABEL)->SetWindowText(m_label);
+	AddAnchor(IDC_LABEL, TOP_LEFT);
+	AddAnchor(IDC_NAME, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("RenameDlg"));
