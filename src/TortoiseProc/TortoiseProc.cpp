@@ -159,12 +159,11 @@ BOOL CTortoiseProcApp::InitInstance()
 		//set the APR_ICONV_PATH environment variable for UTF8-conversions
 		//we don't set the environment variable in the registry or otherwise globally
 		//since it would break other subversion clients. 
-		CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T(""), false, HKEY_LOCAL_MACHINE);
+		CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\Directory"), _T(""), false, HKEY_LOCAL_MACHINE);
 		CString temp = tortoiseProcPath;
 		if (!temp.IsEmpty())
 		{
-			temp = temp.Left(temp.ReverseFind('\\')+1);
-			temp += _T("iconv");
+			temp += _T("\\iconv");
 			SetEnvironmentVariable(_T("APR_ICONV_PATH"), temp);
 		}
 		if (comVal.Compare(_T("test"))==0)

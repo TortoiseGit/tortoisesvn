@@ -1,3 +1,6 @@
+- BUG: The shell part didn't have the APR_ICONV_PATH
+       environement variable set. (Stefan)
+
 Version 1.0
 - ADD: New option in the settings dialog to set the 
        filetimes to the last commit time. This solves

@@ -57,6 +57,13 @@ CShellExt::CShellExt(FileState state)
     };
     InitCommonControlsEx(&used);
 	LoadLangDll();
+	//set the APR_ICONV_PATH environment variable for UTF8-conversions
+	//we don't set the environment variable in the registry or otherwise globally
+	//since it would break other subversion clients. 
+	CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\Directory"), _T(" "), false, HKEY_LOCAL_MACHINE);
+	stdstring temp = tortoiseProcPath;
+	temp += _T("\\iconv");
+	SetEnvironmentVariable(_T("APR_ICONV_PATH"), temp.c_str());
 }
 
 CShellExt::~CShellExt()
