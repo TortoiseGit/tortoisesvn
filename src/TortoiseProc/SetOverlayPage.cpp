@@ -275,7 +275,7 @@ void CSetOverlayPage::InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags)
 	int nIndex = m_cMenuList.GetItemCount();
 	m_cMenuList.InsertItem(nIndex, temp, nImage);
 	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-	m_cMenuList.SetCheck(nIndex, topmenu & dwFlags);
+	m_cMenuList.SetCheck(nIndex, !(topmenu & dwFlags));
 }
 
 void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
@@ -286,33 +286,33 @@ void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *pRes
 	{
 		int i=0;
 		m_topmenu = 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCHECKOUT : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATE : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOMMIT : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFF : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENULOG : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSHOWCHANGED : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREVISIONGRAPH : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREPOBROWSE : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCONFLICTEDITOR : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURESOLVE : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATEEXT : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURENAME : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREMOVE : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREVERT : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCLEANUP : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOPY : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSWITCH : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUMERGE : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUEXPORT : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURELOCATE : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEREPOS : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUADD : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUIMPORT : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUBLAME : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUIGNORE : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEPATCH : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCHECKOUT;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUUPDATE;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCOMMIT;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUDIFF;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENULOG;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUSHOWCHANGED;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUREVISIONGRAPH;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUREPOBROWSE;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCONFLICTEDITOR;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENURESOLVE;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUUPDATEEXT;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENURENAME;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUREMOVE;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUREVERT;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCLEANUP;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCOPY;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUSWITCH;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUMERGE;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUEXPORT;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENURELOCATE;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCREATEREPOS;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUADD;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUIMPORT;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUBLAME;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUIGNORE;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUCREATEPATCH;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? 0 : MENUAPPLYPATCH;
 	} // if (m_cMenuList.GetItemCount() > 0) 
 	*pResult = 0;
 }

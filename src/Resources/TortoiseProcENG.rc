@@ -463,7 +463,7 @@ BEGIN
     CONTROL         "Show &overlays only in explorer",IDC_ONLYEXPLORER,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,42,154,10
     GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,7,7,286,147
-    GROUPBOX        "Context Menu",IDC_STATIC,7,156,286,54
+    GROUPBOX        "Cascaded Context Menu",IDC_STATIC,7,156,286,54
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
                     WS_BORDER | WS_TABSTOP,12,170,274,33
