@@ -20,6 +20,7 @@
 #include "ShellExt.h"
 #include "Guids.h"
 #include "PreserveChdir.h"
+#include "UnicodeStrings.h"
 
 // "The Shell calls IShellIconOverlayIdentifier::GetOverlayInfo to request the
 //  location of the handler's icon overlay. The icon overlay handler returns
