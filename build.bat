@@ -135,9 +135,11 @@ devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 ..\bin\release\bin\SubWCRev.exe .. version.in version.h
 if DEFINED _RELEASE (
   devenv TortoiseSVN.sln /rebuild release
+  copy TortoiseSVNSetup\autolist.txt ..\bin\release\bin
 )
 if DEFINED _DEBUG (
   devenv TortoiseSVN.sln /rebuild debug
+  copy TortoiseSVNSetup\autolist.txt ..\bin\debug\bin
 )
 
 echo ================================================================================

@@ -711,8 +711,8 @@ void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= 
 	int nMax = GetUpperBound();
 	while (nMin <= nMax)
 	{
-		UINT nHit = (UINT)(nMin + nMax) >> 1; // fast devide by 2
-		int cmp = elem.CompareNoCase(GetAt(nHit));
+		UINT nHit = (UINT)(nMin + nMax) >> 1; // fast divide by 2
+		int cmp = elem.Compare(GetAt(nHit));
 
 		if (cmp > 0)
 			nMin = nHit + 1;

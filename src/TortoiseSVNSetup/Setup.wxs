@@ -156,6 +156,7 @@
 	        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\bin\TortoisePlink.exe" />
 	        <File Id="F__SubWCRev" Name="SUBWCR~1.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release\bin\SubWCRev.exe" />
 	        <File Id="F__TSVNCache" Name="TSVNCA~1.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\release\bin\TSVNCache.exe" />
+	        <File Id="F__TSVNAutolist" Name="AUTOLIST.TXT" LongName="autolist.txt" DiskId="1" src="autolist.txt" />
 	        
 	        <Shortcut Id="S__RTFM" Directory="D_TortoisePrgMenu" Name="TORTOI~1" LongName="TortoiseSVN" Advertise="no"
 						Target="[TARGETDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:rtfm" Show="normal" />

@@ -23,6 +23,7 @@
 #include "SVNConfig.h"
 #include "SVNProperties.h"
 #include "MessageBox.h"
+#include "Utils.h"
 #include "SVN.h"
 #include "Registry.h"
 #include "SVNStatus.h"
@@ -35,17 +36,27 @@ static char THIS_FILE[] = __FILE__;
 
 // CLogPromptDlg dialog
 
+UINT CLogPromptDlg::WM_AUTOLISTREADY = RegisterWindowMessage(_T("TORTOISESVN_AUTOLISTREADY_MSG"));
+
+
 IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableStandAloneDialog)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CLogPromptDlg::IDD, pParent)
 	, m_bRecursive(FALSE)
 	, m_bShowUnversioned(FALSE)
 	, m_bBlock(FALSE)
+	, m_bThreadRunning(FALSE)
+	, m_bRunThread(FALSE)
+	, m_pThread(NULL)
 {
 }
 
 CLogPromptDlg::~CLogPromptDlg()
 {
+	if(m_pThread != NULL)
+	{
+		delete m_pThread;
+	}
 }
 
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
@@ -68,6 +79,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_FILLLOG, OnBnClickedFilllog)
 	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
+	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 END_MESSAGE_MAP()
 
 // CLogPromptDlg message handlers
@@ -75,7 +87,7 @@ END_MESSAGE_MAP()
 BOOL CLogPromptDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
-
+	
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
 
@@ -138,9 +150,15 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
-	if (AfxBeginThread(StatusThreadEntry, this)==NULL)
+	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
+	if (m_pThread==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	else
+	{
+		m_pThread->m_bAutoDelete = FALSE;
+		m_pThread->ResumeThread();
 	}
 	m_bBlock = TRUE;
 
@@ -152,6 +170,18 @@ void CLogPromptDlg::OnOK()
 {
 	if (m_bBlock)
 		return;
+	if (m_bThreadRunning)
+	{
+		m_bRunThread = FALSE;
+		WaitForSingleObject(m_pThread->m_hThread, 1000);
+		if (m_bThreadRunning)
+		{
+			// we gave the thread a chance to quit. Since the thread didn't
+			// listen to us we have to kill it.
+			TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+			m_bThreadRunning = FALSE;
+		}
+	}
 	CString id;
 	GetDlgItem(IDC_BUGID)->GetWindowText(id);
 	if (!m_ProjectProperties.CheckBugID(id))
@@ -359,9 +389,17 @@ UINT CLogPromptDlg::StatusThread()
 		m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 	}
 	m_autolist.RemoveAll();
-	GetAutocompletionList(m_autolist);
-	m_cLogMessage.SetAutoCompletionList(m_autolist, '*');
+	// we don't have to block the commit dialog while we fetch the
+	// auto completion list.
+	m_bThreadRunning = TRUE;	// so the main thread knows that this thread is still running
+	m_bRunThread = TRUE;		// if this is set to FALSE, the thread should stop
 	m_bBlock = FALSE;
+	GetAutocompletionList();
+	// we have the list, now signal the main thread about it
+	if (m_bRunThread)
+		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
+	m_bRunThread = FALSE;
+	m_bThreadRunning = FALSE;
 	return 0;
 }
 
@@ -369,6 +407,18 @@ void CLogPromptDlg::OnCancel()
 { 
 	if (m_bBlock)
 		return;
+	if (m_bThreadRunning)
+	{
+		m_bRunThread = FALSE;
+		WaitForSingleObject(m_pThread->m_hThread, 1000);
+		if (m_bThreadRunning)
+		{
+			// we gave the thread a chance to quit. Since the thread didn't
+			// listen to us we have to kill it.
+			TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+			m_bThreadRunning = FALSE;
+		}
+	}
 	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
 	CResizableStandAloneDialog::OnCancel();
@@ -531,30 +581,151 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 	return 0;
 }
 
-void CLogPromptDlg::GetAutocompletionList(CAutoCompletionList& list)
+LRESULT CLogPromptDlg::OnAutoListReady(WPARAM, LPARAM)
 {
-	TCHAR buf[MAX_PATH];
-	int nListItems = m_ListCtrl.GetItemCount();
-	for (int i=0; i<nListItems; ++i)
+	m_cLogMessage.SetAutoCompletionList(m_autolist, ' ');
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////
+// functions which run in the status thread
+//////////////////////////////////////////////////////////////////////////
+
+void CLogPromptDlg::GetAutocompletionList()
+{
+	// the autocompletion list is made of strings from each selected files.
+	// the strings used are extracted from the files with regexes found
+	// in the file "autolist.txt".
+	// the format of that file is:
+	// file extensions separated with commas '=' regular expression to use
+	// example:
+	// .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
+	// .cpp = (?<=[^\s]::)\b\w+\b
+	
+	CStringArray arExtensions;
+	CStringArray arRegexes;
+	CString sRegexFile = CUtils::GetAppDirectory();
+	sRegexFile += _T("autolist.txt");
+	if (!m_bRunThread)
+		return;
+	LONG timeout = GetTickCount()+5000;		// stop parsing after 5 seconds.
+	try
 	{
-		CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
-		svn_wc_status_kind status = entry->status;
-		if (status == svn_wc_status_unversioned)
-			status = svn_wc_status_added;
-		if (status == svn_wc_status_missing)
-			status = svn_wc_status_deleted;
-		WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-		if ((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\EnglishTemplate"), FALSE)==TRUE)
-			langID = 1033;
-		SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, sizeof(buf)/sizeof(TCHAR), langID);
-		list.AddSorted(buf);
-		CString sRelativePath = m_ListCtrl.GetItemText(i,0);
-		int slashpos = -1;
+		CString strLine;
+		CStdioFile file(sRegexFile, CFile::typeText | CFile::modeRead);
+		while (m_bRunThread && (GetTickCount()<timeout) && file.ReadString(strLine))
+		{
+			CString sRegex = strLine.Mid(strLine.Find('=')+1).Trim();
+			int pos = -1;
+			while ((pos = strLine.Find(','))>=0)
+			{
+				arExtensions.Add(strLine.Left(pos));
+				arRegexes.Add(sRegex);
+				strLine = strLine.Mid(pos+1).Trim();
+			}
+			arExtensions.Add(strLine.Left(strLine.Find('=')).Trim());
+			arRegexes.Add(sRegex);						
+		}
+		file.Close();
+		
+		// now we have two arrays of strings, where the first array contains all
+		// file extensions we can use and the second the corresponding regex strings
+		// to apply to those files.
+		
+		// the next step is to go over all files shown in the commit dialog
+		// and scan them for strings we can use
+		int nListItems = m_ListCtrl.GetItemCount();
+
+		for (int i=0; i<nListItems; ++i)
+		{
+			if ((!m_bRunThread)||(GetTickCount()>timeout))
+				return;
+			const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
+			if (entry->IsChecked())
+			{
+				CString sExt = entry->GetPath().GetFileExtension();
+				CString sRegex;
+				// find the regex string which corresponds to the file extension
+				for (int j=0; (m_bRunThread && (j<arExtensions.GetCount())); ++j)
+				{
+					if (sExt.CompareNoCase(arExtensions.GetAt(j))==0)
+					{
+						sRegex = arRegexes.GetAt(j);
+						break;
+					}
+				}
+				if (!sRegex.IsEmpty())
+					ScanFile(entry->GetPath().GetWinPathString(), sRegex);
+			}
+		}
+	}
+	catch (CFileException* pE)
+	{
+		TRACE("CFileException loading autolist regex file\n");
+		pE->Delete();
+		return;
+	}
+}
+
+void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
+{
+	CString sFileContent;
+	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+	if (hFile != INVALID_HANDLE_VALUE)
+	{
+		DWORD size = GetFileSize(hFile, NULL);
+		if (size > 1000000L)
+		{
+			// no files bigger than 1 Meg
+			CloseHandle(hFile);
+			return;
+		}
+		// allocate memory to hold file contents
+		char * buffer = new char[size];
+		DWORD readbytes;
+		ReadFile(hFile, buffer, size, &readbytes, NULL);
+		CloseHandle(hFile);
+		int opts = 0;
+		IsTextUnicode(buffer, readbytes, &opts);
+		if (opts & IS_TEXT_UNICODE_NULL_BYTES)
+		{
+			delete buffer;
+			return;
+		}
+		if (opts & IS_TEXT_UNICODE_UNICODE_MASK)
+		{
+			CString sText = CString(buffer, readbytes);
+			sFileContent = sText;
+		}
+		if ((opts & IS_TEXT_UNICODE_NOT_UNICODE_MASK)||(opts == 0))
+		{
+			CStringA sText = CStringA(buffer, readbytes);
+			sFileContent = CString(sText);
+		}
+		delete buffer;
+	}
+	if (sFileContent.IsEmpty()|| !m_bRunThread)
+		return;
+	match_results results;
+	int offset1 = 0;
+	int offset2 = 0;
+	try
+	{
+		rpattern pat( (LPCTSTR)sRegex ); 
+		match_results::backref_type br;
 		do 
 		{
-			list.AddSorted(sRelativePath);
-			slashpos = sRelativePath.Find('/');
-			sRelativePath = sRelativePath.Mid(slashpos+1);
-		} while(slashpos > 0);
+			br = pat.match( (LPCTSTR)sFileContent.Mid(offset1), results );
+			if( br.matched ) 
+			{
+				offset1 += results.rstart(0);
+				offset2 = offset1 + results.rlength(0);
+				ATLTRACE("matched : %ws\n", sFileContent.Mid(offset1, offset2-offset1));
+				m_autolist.AddSorted(sFileContent.Mid(offset1, offset2-offset1));
+				offset1 = offset2;
+			}
+		} while((br.matched)&&(m_bRunThread));
 	}
+	catch (bad_alloc) {}
+	catch (bad_regexpr) {}
 }

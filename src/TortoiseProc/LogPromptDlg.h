@@ -79,8 +79,11 @@ protected:
 	afx_msg void OnBnClickedFilllog();
 	afx_msg void OnCbnSelchangeOldlogs();
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
+	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
 	void Refresh();
-	void GetAutocompletionList(CAutoCompletionList& list);
+	void GetAutocompletionList();
+	void ScanFile(const CString& sFilePath, const CString& sRegex);
+
 	DECLARE_MESSAGE_MAP()
 
 
@@ -91,14 +94,18 @@ public:
 	CString			m_sLogMessage;
 
 private:
+	CWinThread*		m_pThread;
 	CAutoCompletionList		m_autolist;
 	CSVNStatusListCtrl		m_ListCtrl;
 	CHistoryCombo	m_OldLogs;
 	BOOL			m_bShowUnversioned;
 	BOOL			m_bBlock;
+	BOOL			m_bThreadRunning;
+	BOOL			m_bRunThread;
 	CBalloon		m_tooltips;
 	CRegDWORD		m_regAddBeforeCommit;
 	ProjectProperties		m_ProjectProperties;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
+	static UINT		WM_AUTOLISTREADY;
 };
