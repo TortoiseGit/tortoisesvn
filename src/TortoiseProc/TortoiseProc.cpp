@@ -1067,10 +1067,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString path = parser.GetVal(_T("path"));
 			CString url;
 			SVNStatus status;
+			BOOL bFile = FALSE;
 			if (!path.IsEmpty() && (status.GetStatus(path)) != -2)
 			{
 				if (status.status->entry)
+				{
 					url = status.status->entry->url;
+					bFile = (status.status->entry->kind == svn_node_file);
+				}
 			} // if (!path.IsEmpty() && status.GetStatus(path)!=-2)
 /*
 			if (url.IsEmpty())
@@ -1090,7 +1094,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVNRev rev(SVNRev::REV_HEAD);
 			if (rev_val != 0)
 				rev = SVNRev(rev_val);
-			CRepositoryBrowser dlg(SVNUrl(url, rev));
+			CRepositoryBrowser dlg(SVNUrl(url, rev), bFile);
 			dlg.DoModal();
 		}
 		//#endregion 

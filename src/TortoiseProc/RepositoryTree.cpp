@@ -31,9 +31,10 @@
 // CRepositoryTree
 
 IMPLEMENT_DYNAMIC(CRepositoryTree, CReportCtrl)
-CRepositoryTree::CRepositoryTree(const CString& strUrl) :
+CRepositoryTree::CRepositoryTree(const CString& strUrl, BOOL bFile) :
 	m_strUrl(strUrl),
-	m_Revision(SVNRev::REV_HEAD)
+	m_Revision(SVNRev::REV_HEAD),
+	m_bFile(bFile)
 {
 	m_strUrl.TrimRight('/');
 	CStringA temp = CUnicodeUtils::GetUTF8(m_strUrl);
@@ -64,7 +65,10 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 
 	DeleteAllItems();
 
-	AddFolder(m_strUrl, true);
+	if (m_bFile)
+		AddFolder(svn_url.GetParentPath(), true);
+	else
+		AddFolder(m_strUrl, true);
 
 	HTREEITEM hRoot = GetNextItem(RVTI_ROOT, RVGN_CHILD);
 	HTREEITEM hItem = FindUrl(m_strUrl);
@@ -329,7 +333,7 @@ void CRepositoryTree::OnRvnItemSelected(NMHDR *pNMHDR, LRESULT *pResult)
 	
 	if (pNMRV->nState & RVIS_FOCUSED)
 	{
-		CString path = GetFolderUrl(pNMRV->hItem);
+		CString path = m_bFile ? MakeUrl(pNMRV->hItem) : GetFolderUrl(pNMRV->hItem);
 		SVNUrl svn_url(path, m_Revision);
 		if (m_pRepositoryBar != 0)
 			m_pRepositoryBar->ShowUrl(svn_url);
@@ -470,6 +474,7 @@ void CRepositoryTree::Init(const SVNRev& revision)
 	ActivateSubItem(4, 4);
 
 	SVNUrl svn_url(m_strUrl, m_Revision);
+
 	ChangeToUrl(svn_url);
 
 	SetSortCallback(SortCallback, (LPARAM)this);

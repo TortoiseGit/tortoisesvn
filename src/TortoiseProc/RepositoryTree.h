@@ -56,7 +56,7 @@ class CRepositoryTree : public CReportCtrl
 	DECLARE_DYNAMIC(CRepositoryTree)
 
 public:
-	CRepositoryTree(const CString& strUrl);
+	CRepositoryTree(const CString& strUrl, BOOL bFile);
 	virtual ~CRepositoryTree();
 
 public:
@@ -148,7 +148,7 @@ private:
 	SVN			m_svn;
 	BOOL		bInit;
 	SVNRev		m_Revision;
-
+	BOOL		m_bFile;
 public:
 	int			m_nIconFolder;
 

@@ -44,9 +44,9 @@
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableDialog)
 
-CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url)
+CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, BOOL bFile)
 	: CResizableDialog(CRepositoryBrowser::IDD, NULL)
-	, m_treeRepository(svn_url.GetPath())
+	, m_treeRepository(svn_url.GetPath(), bFile)
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_InitialSvnUrl(svn_url)
 	, m_bStandAlone(true)
@@ -54,9 +54,9 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent)
+CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOOL bFile)
 	: CResizableDialog(CRepositoryBrowser::IDD, pParent)
-	, m_treeRepository(svn_url.GetPath())
+	, m_treeRepository(svn_url.GetPath(), bFile)
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_InitialSvnUrl(svn_url)
 	, m_bStandAlone(false)

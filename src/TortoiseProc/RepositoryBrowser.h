@@ -55,8 +55,8 @@ class CRepositoryBrowser : public CResizableDialog
 	DECLARE_DYNAMIC(CRepositoryBrowser)
 
 public:
-	CRepositoryBrowser(const SVNUrl& svn_url);					//!< standalone repository browser
-	CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent);	//!< dependent repository browser
+	CRepositoryBrowser(const SVNUrl& svn_url, BOOL bFile = FALSE);					//!< standalone repository browser
+	CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOOL bFile = FALSE);	//!< dependent repository browser
 	virtual ~CRepositoryBrowser();
 
 	//! Returns the currently displayed URL and revision.
