@@ -857,7 +857,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVNStatus svn;
 			svn.GetStatus(path);
 			CRelocateDlg dlg;
-			if ((svn.status->entry)&&(svn.status->entry->url))
+			if ((svn.status)&&(svn.status->entry)&&(svn.status->entry->url))
 			{
 				dlg.m_sFromUrl = svn.status->entry->url;
 				dlg.m_sToUrl = svn.status->entry->url;

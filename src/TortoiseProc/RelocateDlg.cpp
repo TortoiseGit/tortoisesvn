@@ -25,7 +25,7 @@ CRelocateDlg::~CRelocateDlg()
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_TOURL, m_sToUrl);
+	DDX_Control(pDX, IDC_TOURL, m_URLCombo);
 }
 
 
@@ -39,6 +39,8 @@ END_MESSAGE_MAP()
 BOOL CRelocateDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
+
+	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 
 	CString url = m_sFromUrl;
 	CUtils::Unescape(url.GetBuffer());
@@ -102,4 +104,14 @@ void CRelocateDlg::OnBnClickedBrowse()
 		}
 	}
 	UpdateData(FALSE);
+}
+
+void CRelocateDlg::OnOK()
+{
+	UpdateData(TRUE);
+	m_URLCombo.SaveHistory();
+	m_sToUrl = m_URLCombo.GetString();
+	UpdateData(FALSE);
+
+	CDialog::OnOK();
 }

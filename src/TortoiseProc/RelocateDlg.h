@@ -16,11 +16,13 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual void OnOK();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedBrowse();
 
 	DECLARE_MESSAGE_MAP()
 public:
+	CHistoryCombo m_URLCombo;
 	CString m_sToUrl;
 	CString m_sFromUrl;
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedBrowse();
 };
