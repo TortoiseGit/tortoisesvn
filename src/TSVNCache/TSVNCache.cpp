@@ -35,6 +35,8 @@ CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TS
 
 VOID				InstanceThread(LPVOID); 
 VOID				PipeThread(LPVOID);
+VOID				CommandWaitThread(LPVOID);
+VOID				CommandThread(LPVOID);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 bool				bRun = true;
 NOTIFYICONDATA		niData; 
@@ -129,6 +131,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	DWORD dwThreadId; 
 	HANDLE hPipeThread; 
+	HANDLE hCommandWaitThread;
 	MSG msg;
 	TCHAR szWindowClass[] = {_T("TSVNCacheWindow")};
 
@@ -209,6 +212,25 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 		return 0;
 	}
 	else CloseHandle(hPipeThread); 
+
+	// Create a thread which waits for incoming pipe connections 
+	hCommandWaitThread = CreateThread( 
+		NULL,              // no security attribute 
+		0,                 // default stack size 
+		(LPTHREAD_START_ROUTINE) CommandWaitThread, 
+		(LPVOID) &bRun,    // thread parameter 
+		0,                 // not suspended 
+		&dwThreadId);      // returns thread ID 
+
+	if (hCommandWaitThread == NULL) 
+	{
+		//ATLTRACE("CreateThread failed"); 
+		OutputDebugStringA("TSVNCache: Could not create command wait thread\n");
+		DebugOutputLastError();
+		return 0;
+	}
+	else CloseHandle(hCommandWaitThread); 
+
 
 	// loop to handle window messages.
 	while (bRun)
@@ -396,6 +418,89 @@ VOID PipeThread(LPVOID lpvParam)
 	ATLTRACE("Pipe thread exited\n");
 }
 
+VOID CommandWaitThread(LPVOID lpvParam)
+{
+	ATLTRACE("CommandWaitThread started\n");
+	bool * bRun = (bool *)lpvParam;
+	// The main loop creates an instance of the named pipe and 
+	// then waits for a client to connect to it. When the client 
+	// connects, a thread is created to handle communications 
+	// with that client, and the loop is repeated. 
+	DWORD dwThreadId; 
+	BOOL fConnected;
+	HANDLE hPipe = INVALID_HANDLE_VALUE;
+	HANDLE hCommandThread = INVALID_HANDLE_VALUE;
+
+	while (*bRun) 
+	{ 
+		hPipe = CreateNamedPipe( 
+			TSVN_CACHE_COMMANDPIPE_NAME,
+			PIPE_ACCESS_DUPLEX,       // read/write access 
+			PIPE_TYPE_MESSAGE |       // message type pipe 
+			PIPE_READMODE_MESSAGE |   // message-read mode 
+			PIPE_WAIT,                // blocking mode 
+			PIPE_UNLIMITED_INSTANCES, // max. instances  
+			BUFSIZE,                  // output buffer size 
+			BUFSIZE,                  // input buffer size 
+			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
+			NULL);                    // default security attribute 
+
+		if (hPipe == INVALID_HANDLE_VALUE) 
+		{
+			OutputDebugStringA("TSVNCache: CreatePipe failed\n");
+			DebugOutputLastError();
+			continue; // never leave the thread!
+		}
+		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
+		if (WaitNamedPipe(TSVN_CACHE_COMMANDPIPE_NAME, 1000))
+		{
+			// Wait for the client to connect; if it succeeds, 
+			// the function returns a nonzero value. If the function returns 
+			// zero, GetLastError returns ERROR_PIPE_CONNECTED. 
+			fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED); 
+			if (fConnected) 
+			{ 
+				// Create a thread for this client. 
+				hCommandThread = CreateThread( 
+					NULL,              // no security attribute 
+					0,                 // default stack size 
+					(LPTHREAD_START_ROUTINE) CommandThread, 
+					(LPVOID) hPipe,    // thread parameter 
+					0,                 // not suspended 
+					&dwThreadId);      // returns thread ID 
+
+				if (hCommandThread == NULL) 
+				{
+					OutputDebugStringA("TSVNCache: Could not create Command thread\n");
+					DebugOutputLastError();
+					DisconnectNamedPipe(hPipe);
+					CloseHandle(hPipe);
+					// since we're now closing this thread, we also have to close the whole application!
+					// otherwise the thread is dead, but the app is still running, refusing new instances
+					// but no pipe will be available anymore.
+					PostMessage(hWnd, WM_CLOSE, 0, 0);
+					return;
+				}
+				else CloseHandle(hCommandThread); 
+			} 
+			else
+			{
+				// The client could not connect, so close the pipe. 
+				OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+				DebugOutputLastError();
+				CloseHandle(hPipe); 
+				continue;	// don't end the thread!
+			}
+		}
+		else
+		{
+			CloseHandle(hPipe);
+			continue;		// don't end the thread!
+		}
+	}
+	ATLTRACE("CommandWait thread exited\n");
+}
+
 VOID InstanceThread(LPVOID lpvParam) 
 { 
 	ATLTRACE("InstanceThread started\n");
@@ -457,3 +562,56 @@ VOID InstanceThread(LPVOID lpvParam)
 	ATLTRACE("Instance thread exited\n");
 }
 
+VOID CommandThread(LPVOID lpvParam) 
+{ 
+	ATLTRACE("CommandThread started\n");
+	DWORD cbBytesRead; 
+	BOOL fSuccess; 
+	HANDLE hPipe; 
+
+	// The thread's parameter is a handle to a pipe instance. 
+
+	hPipe = (HANDLE) lpvParam; 
+
+	while (bRun) 
+	{ 
+		// Read client requests from the pipe. 
+		TSVNCacheCommand command;
+		fSuccess = ReadFile( 
+			hPipe,				// handle to pipe 
+			&command,			// buffer to receive data 
+			sizeof(command),	// size of buffer 
+			&cbBytesRead,		// number of bytes read 
+			NULL);				// not overlapped I/O 
+
+		if (! fSuccess || cbBytesRead == 0)
+		{
+			DisconnectNamedPipe(hPipe); 
+			CloseHandle(hPipe); 
+			ATLTRACE("Command thread exited\n");
+			return;
+		}
+		
+		switch (command.command)
+		{
+			case TSVNCACHECOMMAND_END:
+				FlushFileBuffers(hPipe); 
+				DisconnectNamedPipe(hPipe); 
+				CloseHandle(hPipe); 
+				ATLTRACE("Command thread exited\n");
+				return;				
+			case TSVNCACHECOMMAND_CRAWL:
+				CSVNStatusCache::Instance().AddFolderForCrawling(CTSVNPath(CString(command.path)));
+				break;
+		}
+	} 
+
+	// Flush the pipe to allow the client to read the pipe's contents 
+	// before disconnecting. Then disconnect the pipe, and close the 
+	// handle to this pipe instance. 
+
+	FlushFileBuffers(hPipe); 
+	DisconnectNamedPipe(hPipe); 
+	CloseHandle(hPipe); 
+	ATLTRACE("Command thread exited\n");
+}

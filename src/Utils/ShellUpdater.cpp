@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "Shellupdater.h"
+#include "../TSVNCache/CacheInterface.h"
 #include "Registry.h"
 
 CShellUpdater::CShellUpdater(void)
@@ -80,56 +81,100 @@ void CShellUpdater::UpdateShell()
 	ATLTRACE("Setting cache invalidation event %d\n", GetTickCount());
 	SetEvent(m_hInvalidationEvent);
 
-/*
-WGD - I've removed this again, because I don't like all the flickering and flashing it causes
-It would be better to do this more intelligently by telling the cache what's changed, and letting
-it decide if parent directory shell-updates are required
-
-	// For each item, we also add each of its parents
-	// This is rather inefficient, and almost all of them will be discarded by the 
-	// de-duplication, but it's a simple and reliable way of ensuring that updates occur all 
-	// the way up the hierarchy, which is important if recursive status is in use
-	int nPaths = m_pathsForUpdating.GetCount();
-	for(int nPath = 0; nPath < nPaths; nPath++)
-	{
-		CTSVNPath parentDir = m_pathsForUpdating[nPath].GetContainingDirectory();
-		while(!parentDir.IsEmpty())
-		{
-			m_pathsForUpdating.AddPath(parentDir);
-			parentDir = parentDir.GetContainingDirectory();
-		}
-	}
-*/
-
 	// We use the SVN 'notify' call-back to add items to the list
 	// Because this might call-back more than once per file (for example, when committing)
 	// it's possible that there may be duplicates in the list.
 	// There's no point asking the shell to do more than it has to, so we remove the duplicates before
 	// passing the list on
 	m_pathsForUpdating.RemoveDuplicates();
-
-	//updating the left pane (tree view) of the explorer
-	//is more difficult (if not impossible) than I thought.
-	//Using SHChangeNotify() doesn't work at all. I found that
-	//the shell receives the message, but then checks the files/folders
-	//itself for changes. And since the folders which are shown
-	//in the tree view haven't changed the icon-overlay is
-	//not updated!
-	//a workaround for this problem would be if this method would
-	//rename the folders, do a SHChangeNotify(SHCNE_RMDIR, ...),
-	//rename the folders back and do an SHChangeNotify(SHCNE_UPDATEDIR, ...)
-	//
-	//But I'm not sure if that is really a good workaround - it'll possibly
-	//slows down the explorer and also causes more HD usage.
-	//
-	//So this method only updates the files and folders in the normal
-	//explorer view by telling the explorer that the folder icon itself
-	//has changed.
-
-	for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
+	
+	BOOL bUseExternalCache = CRegStdWORD(_T("Software\\TortoiseSVN\\ExternalCache"), TRUE);
+	
+	if (bUseExternalCache)
 	{
-		ATLTRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
-		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
+		// if we use the external cache, we tell the cache directly that something
+		// has changed, without the detour via the shell.
+		HANDLE hPipe = CreateFile( 
+			TSVN_CACHE_COMMANDPIPE_NAME,	// pipe name 
+			GENERIC_READ |					// read and write access 
+			GENERIC_WRITE, 
+			0,								// no sharing 
+			NULL,							// default security attributes
+			OPEN_EXISTING,					// opens existing pipe 
+			FILE_FLAG_OVERLAPPED,			// default attributes 
+			NULL);							// no template file 
+
+
+		if (hPipe != INVALID_HANDLE_VALUE) 
+		{
+			// The pipe connected; change to message-read mode. 
+			DWORD dwMode; 
+
+			dwMode = PIPE_READMODE_MESSAGE; 
+			if(SetNamedPipeHandleState( 
+				hPipe,    // pipe handle 
+				&dwMode,  // new pipe mode 
+				NULL,     // don't set maximum bytes 
+				NULL))    // don't set maximum time 
+			{
+				for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
+				{
+					ATLTRACE("Cache Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
+
+					DWORD cbWritten; 
+					TSVNCacheCommand cmd;
+					cmd.command = TSVNCACHECOMMAND_CRAWL;
+					wcsncpy(cmd.path, m_pathsForUpdating[nPath].GetDirectory().GetWinPath(), MAX_PATH);
+					BOOL fSuccess = WriteFile( 
+						hPipe,			// handle to pipe 
+						&cmd,			// buffer to write from 
+						sizeof(cmd),	// number of bytes to write 
+						&cbWritten,		// number of bytes written 
+						NULL);			// not overlapped I/O 
+
+					if (! fSuccess || sizeof(cmd) != cbWritten)
+					{
+						DisconnectNamedPipe(hPipe); 
+						CloseHandle(hPipe); 
+						hPipe = INVALID_HANDLE_VALUE;
+						bUseExternalCache = false;		// fall back using the shell notifications
+						break;
+					}
+				}
+				if (hPipe != INVALID_HANDLE_VALUE)
+				{
+					// now tell the cache we don't need it's command thread anymore
+					DWORD cbWritten; 
+					TSVNCacheCommand cmd;
+					cmd.command = TSVNCACHECOMMAND_END;
+					WriteFile( 
+						hPipe,			// handle to pipe 
+						&cmd,			// buffer to write from 
+						sizeof(cmd),	// number of bytes to write 
+						&cbWritten,		// number of bytes written 
+						NULL);			// not overlapped I/O 
+					DisconnectNamedPipe(hPipe); 
+					CloseHandle(hPipe); 
+					hPipe = INVALID_HANDLE_VALUE;
+				}
+			}
+			else
+			{
+				ATLTRACE("SetNamedPipeHandleState failed"); 
+				CloseHandle(hPipe);
+				bUseExternalCache = false;		// fall back using the shell notifications
+			}
+		}
+		else
+			bUseExternalCache = false;		// fall back using the shell notifications
+	}
+	if (!bUseExternalCache)
+	{
+		for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
+		{
+			ATLTRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
+			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
+		}
 	}
 }
 

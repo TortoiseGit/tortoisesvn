@@ -22,6 +22,7 @@
 
 // The name of the named-pipe for the cache
 #define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache")
+#define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand")
 
 
 // A structure passed as a request from the shell (or other client) to the external cache
@@ -38,6 +39,15 @@ struct TSVNCacheResponse
 	svn_wc_entry_t m_entry;
 	char m_url[INTERNET_MAX_URL_LENGTH+1];
 };
+
+struct TSVNCacheCommand
+{
+	BYTE command;		///< the command to execute
+	WCHAR path[MAX_PATH+1];		///< path to do the command for
+};
+
+#define		TSVNCACHECOMMAND_END		0		///< ends the thread handling the pipe communication
+#define		TSVNCACHECOMMAND_CRAWL		1		///< start crawling the specified path for changes
 
 
 /// Set this flag if you already know whether or not the item is a folder
