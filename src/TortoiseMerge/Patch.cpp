@@ -445,22 +445,22 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 			{
 			case PATCHSTATE_REMOVED:
 				{
-					if (lAddLine > PatchLines.GetCount())
+					if (lRemoveLine > PatchLines.GetCount())
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
 						return FALSE; 
 					}
-					if (sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)
+					if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0)
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lRemoveLine-1));
 						return FALSE; 
 					} // if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0) 
-					if (lAddLine > PatchLines.GetCount())
+					if (lRemoveLine > PatchLines.GetCount())
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, _T(""));
 						return FALSE; 
 					} // if (lRemoveLine >= PatchLines.GetCount()) 
-					PatchLines.RemoveAt(lAddLine-1);
+					PatchLines.RemoveAt(lRemoveLine-1);
 				} 
 				break;
 			case PATCHSTATE_ADDED:
