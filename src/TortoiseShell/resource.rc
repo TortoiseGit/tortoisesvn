@@ -260,7 +260,7 @@ BEGIN
     IDS_STATUSUNVERSIONED   "non-versioned"
     IDS_STATUSNORMAL        "normal"
     IDS_STATUSADDED         "added"
-    IDS_STATUSABSENT        "absent"
+    IDS_STATUSABSENT        "missing"
     IDS_STATUSDELETED       "deleted"
     IDS_STATUSREPLACED      "replaced"
     IDS_STATUSMODIFIED      "modified"
@@ -335,7 +335,6 @@ END
 // Generated from the TEXTINCLUDE 3 resource.
 //
 
-#include "resource.rc2"
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED

@@ -214,7 +214,7 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 			return 5;
 		case svn_wc_status_added:
 			return 6;
-		case svn_wc_status_absent:
+		case svn_wc_status_missing:
 			return 7;
 		case svn_wc_status_deleted:
 			return 8;
@@ -418,8 +418,8 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
 		case svn_wc_status_added:
 			buf = _T("added\0");
 			break;
-		case svn_wc_status_absent:
-			buf = _T("absent\0");
+		case svn_wc_status_missing:
+			buf = _T("missing\0");
 			break;
 		case svn_wc_status_deleted:
 			buf = _T("deleted\0");
@@ -471,7 +471,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 		case svn_wc_status_added:
 			LoadStringEx(hInst, IDS_STATUSADDED, string, size, lang);
 			break;
-		case svn_wc_status_absent:
+		case svn_wc_status_missing:
 			LoadStringEx(hInst, IDS_STATUSABSENT, string, size, lang);
 			break;
 		case svn_wc_status_deleted:

@@ -235,7 +235,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 				return S_OK;
 			else
 				return S_FALSE;
-		case svn_wc_status_absent:
+		case svn_wc_status_missing:
 		case svn_wc_status_deleted:
 			if (m_State == Deleted)
 				return S_OK;

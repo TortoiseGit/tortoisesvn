@@ -377,7 +377,7 @@ void CLogPromptDlg::OnOK()
 				SVN svn;
 				svn.Add(m_arFileList.GetAt(j), FALSE);
 			} // if (m_arFileStatus.GetAt(j) == svn_wc_status_unversioned)
-			if (m_arFileStatus.GetAt(j) == svn_wc_status_absent)
+			if (m_arFileStatus.GetAt(j) == svn_wc_status_missing)
 			{
 				SVN svn;
 				svn.Remove(m_arFileList.GetAt(j), TRUE);
