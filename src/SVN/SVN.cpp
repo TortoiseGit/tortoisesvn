@@ -109,14 +109,12 @@ SVN::SVN(void)
 
 SVN::~SVN(void)
 {
-	svn_pool_destroy (pool);
 	svn_pool_destroy (parentpool);
 }
 
 void SVN::ReleasePool()
 {
 	svn_pool_clear (pool);
-	svn_pool_clear (parentpool);
 }
 
 void SVN::SaveAuthentication(BOOL save)

@@ -18,13 +18,10 @@
 //
 #include "StdAfx.h"
 #include "diff.h"
-#include "CApr.h"
 #include "TempFiles.h"
 #include "registry.h"
 #include "Resource.h"
 #include ".\diffdata.h"
-
-CApr theApr;
 
 int CDiffData::abort_on_pool_failure (int retcode)
 {
@@ -34,6 +31,7 @@ int CDiffData::abort_on_pool_failure (int retcode)
 
 CDiffData::CDiffData(void)
 {
+	apr_initialize();
 	m_diffYourBase = NULL;
 	m_diffTheirBase = NULL;
 	m_diffTheirYourBase = NULL;
@@ -82,6 +80,7 @@ CDiffData::CDiffData(void)
 
 CDiffData::~CDiffData(void)
 {
+	apr_terminate();
 }
 
 void CDiffData::LoadRegistry()

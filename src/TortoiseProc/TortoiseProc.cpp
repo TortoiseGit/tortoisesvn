@@ -19,7 +19,6 @@
 
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "CApr.h"
 #include "messagebox.h"
 #include "SysImageList.h"
 #include "UnicodeUtils.h"
@@ -49,13 +48,17 @@ END_MESSAGE_MAP()
 CTortoiseProcApp::CTortoiseProcApp()
 {
 	EnableHtmlHelp();
+	apr_initialize();
 }
 
+CTortoiseProcApp::~CTortoiseProcApp()
+{
+	apr_terminate();
+}
 
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
 HWND hWndExplorer;
-CApr theApr;
 
 CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TortoiseSVN : " STRPRODUCTVER);// crash
 

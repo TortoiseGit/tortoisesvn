@@ -83,6 +83,7 @@ class CTortoiseProcApp : public CWinApp
 {
 public:
 	CTortoiseProcApp();
+	~CTortoiseProcApp();
 
 // Overrides
 public:
