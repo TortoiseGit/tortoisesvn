@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "SysImageList.h"
 #include "Utils.h"
-#include "TSVNPath.h"
 
 
 // Singleton constructor and destructor (private)
@@ -106,15 +105,14 @@ int CSysImageList::GetFileIconIndex(const CString& file) const
 	return sfi.iIcon;
 }
 
-int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath) const
+int CSysImageList::GetPathIconIndex(const CString& filePath) const
 {
-	CString strExtension = filePath.GetFileExtension();
-	strExtension.MakeUpper();
+	CString strExtension = CUtils::GetFileExtFromPath(filePath);
 	IconIndexMap::const_iterator it = m_indexCache.find(strExtension);
 	if(it == m_indexCache.end())
 	{
 		// We don't have this extension in the map
-		int iconIndex = GetFileIconIndex(filePath.GetFilename());
+		int iconIndex = GetFileIconIndex(CUtils::GetFileNameFromPath(filePath));
 		m_indexCache[strExtension] = iconIndex;
 		return iconIndex;
 	}

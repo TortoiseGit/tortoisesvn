@@ -18,7 +18,6 @@
 
 #pragma once
 
-class CTSVNPath;
 
 /**
  * \ingroup Utils
@@ -87,7 +86,7 @@ public:
 	 * Get the index for a SVN-style path file.  
 	 * Uses a cache to speed things up
 	 */
-	int GetPathIconIndex(const CTSVNPath& file) const;
+	int GetPathIconIndex(const CString& file) const;
 
 private:
 	static CSysImageList *instance;
