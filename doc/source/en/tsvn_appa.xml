@@ -602,6 +602,43 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			do that for you.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-faq-dug-9">
+			<title>I tried to commit my changes and got a message telling me my
+			working copy is out-of-date</title>
+			<para>
+			That means you need to use the <guimenuitem>Update</guimenuitem>
+			command to update your working copy to the same level as the repository.
+			</para>
+			<para>
+			It may not be obvious why you need to do this, especially if you
+			<emphasis>know</emphasis> the repository has not changed. The answer
+			is simply that your working copy is not completely updated by a commit.
+			Only changed files and folders get updated automatically.
+			Consider this example on a newly created repository:
+<screen>
+Add Folder in revision 1
+Add File1 and File2 in revision 2
+Modify File1 and commit in revision 3
+</screen>
+			Now the repository is at revision 3, but in your working copy the
+			revisions look like this:
+<screen>
+Folder       : revision 1
+Folder/File1 : revision 3
+Folder/File2 : revision 2
+</screen>
+			Now if you modify File2 and try to commit, it fails. The client
+			tells the repository that File2 is at revision 2 with local
+			modifications, but the repository is already at revision 3.
+			If you then do an update, File2 will be at revision 3 as well
+			(and of course your local changes will still be there).
+			</para>
+			<para>
+			The same thing may happen if you try to create a branch or tag.
+			The answer is always the same:
+			If your working copy is out-of-date, update it!
+			</para>
+		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 3 ============================== -->

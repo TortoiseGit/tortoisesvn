@@ -182,11 +182,14 @@
 				most flexibility.
 			</para>
 			<para>
-				Another consideration is the access control for each project. Subversion
-				only controls access to the repository, not to directories within it.
-				If you want access to different projects to be restricted to different
-				groups of people, you will need to create a separate repository for
-				each project.
+				For unrelated projects you may prefer to use separate repositories.
+				When you commit changes, it is the revision number of the whole
+				repository which changes, not the revision number of the project.
+				Having 2 unrelated projects share a repository can mean large gaps
+				in the revision numbers. The Subversion and TortoiseSVN projects
+				appear at the same host address, but are completely separate
+				repositories allowing independent development, and no confusion
+				over build numbers.
 			</para>
 			<para>
 				Of course, you're free to ignore these common layouts.  You
