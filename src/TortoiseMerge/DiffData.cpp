@@ -205,7 +205,9 @@ BOOL CDiffData::Load()
 
 	if (!m_sTheirFile.IsEmpty())
 	{
-		if (!m_arTheirFile.Load(m_sTheirFile))
+		// m_arBaseFile.GetCount() is passed as a hint for the number of lines in this file
+		// It's a fair guess that the files will be roughly the same size
+		if (!m_arTheirFile.Load(m_sTheirFile,m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arTheirFile.GetErrorString();
 			return FALSE;
@@ -218,7 +220,9 @@ BOOL CDiffData::Load()
 
 	if (!m_sYourFile.IsEmpty())
 	{
-		if (!m_arYourFile.Load(m_sYourFile))
+		// m_arBaseFile.GetCount() is passed as a hint for the number of lines in this file
+		// It's a fair guess that the files will be roughly the same size
+		if (!m_arYourFile.Load(m_sYourFile,m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arYourFile.GetErrorString();
 			return FALSE;
@@ -228,6 +232,10 @@ BOOL CDiffData::Load()
 		fc3 = sTemp;
 		converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
 	} // if (!m_sYourFile.IsEmpty()) 
+
+	int lengthHint = max(m_arBaseFile.GetCount(), m_arTheirFile.GetCount());
+	lengthHint = max(lengthHint, m_arYourFile.GetCount());
+
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
 	{
@@ -250,25 +258,40 @@ BOOL CDiffData::Load()
 		LONG baseline = 0;
 		LONG yourline = 0;
 
+		m_arDiffYourBaseBoth.Reserve(lengthHint);
+		m_arStateYourBaseBoth.Reserve(lengthHint);
+		m_arDiffYourBaseLeft.Reserve(lengthHint);
+		m_arStateYourBaseLeft.Reserve(lengthHint);
+		m_arDiffYourBaseRight.Reserve(lengthHint);
+		m_arStateYourBaseRight.Reserve(lengthHint);
+		m_arDiffTheirBaseBoth.Reserve(lengthHint);
+		m_arStateTheirBaseBoth.Reserve(lengthHint);
+		m_arDiffTheirBaseLeft.Reserve(lengthHint);
+		m_arStateTheirBaseLeft.Reserve(lengthHint);
+		m_arDiffTheirBaseRight.Reserve(lengthHint);
+		m_arStateTheirBaseRight.Reserve(lengthHint);
+
 		while (tempdiff)
 		{
 			for (int i=0; i<tempdiff->original_length; i++)
 			{
+				const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
 				if (tempdiff->type == svn_diff__type_common)
 				{
-//					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-					if (m_arBaseFile.GetAt(baseline) != m_arYourFile.GetAt(yourline))
+					const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
+					m_arDiffYourBaseBoth.Add(sCurrentYourLine);
+					if (sCurrentBaseLine != sCurrentYourLine)
 					{
 						if (dwIgnoreWS == 2)
 						{
 							CString s1 = m_arBaseFile.GetAt(baseline);
 							s1 = s1.TrimLeft(_T(" \t"));
-							CString s2 = m_arYourFile.GetAt(yourline);
+							CString s2 = sCurrentYourLine;
 							s2 = s2.TrimLeft(_T(" \t"));
 							if (s1 != s2)
 							{
 								m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-								m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
+								m_arDiffYourBaseBoth.Add(sCurrentYourLine);
 								m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
 							}
 							else
@@ -279,7 +302,7 @@ BOOL CDiffData::Load()
 						else if (dwIgnoreWS == 0)
 						{
 							m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-							m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
+							m_arDiffYourBaseBoth.Add(sCurrentYourLine);
 							m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
 						}
 						else
@@ -295,7 +318,7 @@ BOOL CDiffData::Load()
 				} // if (tempdiff->type == svn_diff__type_common) 
 				else
 				{
-					m_arDiffYourBaseBoth.Add(m_arBaseFile.GetAt(baseline));
+					m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
 					m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVED);
 				}
 				baseline++;
@@ -311,6 +334,7 @@ BOOL CDiffData::Load()
 			} // if (tempdiff->type == svn_diff__type_diff_modified) 
 			tempdiff = tempdiff->next;
 		}
+
 		tempdiff = m_diffYourBase;
 		baseline = 0;
 		yourline = 0;
@@ -320,15 +344,17 @@ BOOL CDiffData::Load()
 			{
 				for (int i=0; i<tempdiff->original_length; i++)
 				{
-					m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline));
-					m_arDiffYourBaseRight.Add(m_arYourFile.GetAt(yourline));
-					if (m_arBaseFile.GetAt(baseline) != m_arYourFile.GetAt(yourline))
+					const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
+					const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
+					m_arDiffYourBaseLeft.Add(sCurrentBaseLine);
+					m_arDiffYourBaseRight.Add(sCurrentYourLine);
+					if (sCurrentBaseLine != sCurrentYourLine)
 					{
 						if (dwIgnoreWS == 2)
 						{
-							CString s1 = m_arBaseFile.GetAt(baseline);
+							CString s1 = sCurrentBaseLine;
 							s1 = s1.TrimLeft(_T(" \t"));
-							CString s2 = m_arYourFile.GetAt(yourline);
+							CString s2 = sCurrentYourLine;
 							s2 = s2.TrimLeft(_T(" \t"));
 							if (s1 != s2)
 							{
@@ -398,7 +424,7 @@ BOOL CDiffData::Load()
 	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty())) 
 	//#endregion
 
-	if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
+    if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
 	{
 		ASSERT(FALSE);
 	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty())) 
@@ -425,6 +451,10 @@ BOOL CDiffData::Load()
 		LONG baseline = 0;
 		LONG yourline = 0;
 		LONG theirline = 0;
+
+		m_arDiff3.Reserve(lengthHint);
+		m_arStateDiff3.Reserve(lengthHint);
+
 		while (tempdiff)
 		{
 			if (tempdiff->type == svn_diff__type_common)

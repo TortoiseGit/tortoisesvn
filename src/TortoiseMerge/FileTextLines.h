@@ -32,7 +32,7 @@ public:
 	void SetAt(int index, const T& strVal)	{ m_vec[index] = strVal; }
 	void Add(const T& strVal)	 { m_vec.push_back(strVal); }
 	void RemoveAll()				{ m_vec.clear(); }
-//	void Reserve(int lengthHint)	{ m_vec.reserve(lengthHint); }
+	void Reserve(int lengthHint)	{ m_vec.reserve(lengthHint); }
 
 private:
 	std::vector<T> m_vec;
@@ -76,13 +76,13 @@ public:
 	 * Loads the text file and adds each line to the array
 	 * \param sFilePath the path to the file
 	 */
-	BOOL		Load(CString sFilePath);
+	BOOL		Load(const CString& sFilePath, int lengthHint = 0);
 	/**
 	 * Saves the whole array of text lines to a file, preserving
 	 * the line endings detected at Load()
 	 * \param sFilePath the path to save the file to
 	 */
-	BOOL		Save(CString sFilePath, BOOL bIgnoreWhitespaces = FALSE, BOOL bIgnoreLineendings = FALSE);
+	BOOL		Save(const CString& sFilePath, BOOL bIgnoreWhitespaces = FALSE, BOOL bIgnoreLineendings = FALSE);
 	/**
 	 * Returns an error string of the last failed operation
 	 */
@@ -109,7 +109,10 @@ protected:
 	 */
 	CFileTextLines::UnicodeType CheckUnicodeType(LPVOID pBuffer, int cb); 
 
-	void		GetLastError();
+	void		SetErrorString();
+
+	void StripAsciiWhiteSpace(CStringA& sLine);
+
 
 	CString		m_sErrorString;
 	CFileTextLines::UnicodeType	m_UnicodeType;

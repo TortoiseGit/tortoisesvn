@@ -127,11 +127,15 @@ CFileTextLines::LineEndings CFileTextLines::CheckLineEndings(LPVOID pBuffer, int
 	return retval;	
 }
 
-BOOL CFileTextLines::Load(CString sFilePath)
+BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 {
 	m_LineEndings = CFileTextLines::AUTOLINE;
 	m_UnicodeType = CFileTextLines::AUTOTYPE;
 	RemoveAll();
+	if(lengthHint != 0)
+	{
+		Reserve(lengthHint);
+	}
 
 	if (!PathFileExists(sFilePath))
 	{
@@ -142,7 +146,7 @@ BOOL CFileTextLines::Load(CString sFilePath)
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
-		this->GetLastError();
+		SetErrorString();
 		return FALSE;
 	} // if (hFile == NULL) 
 
@@ -152,7 +156,7 @@ BOOL CFileTextLines::Load(CString sFilePath)
 	{
 		if (!ReadFile(hFile, buf, sizeof(buf), &dwReadBytes, NULL))
 		{
-			this->GetLastError();
+			SetErrorString();
 			CloseHandle(hFile);
 			return FALSE;
 		} // if (!ReadFile(hFile, buf, sizeof(buf), &dwReadBytes, NULL))
@@ -248,13 +252,35 @@ BOOL CFileTextLines::Load(CString sFilePath)
 	return bRetval;
 }
 
-BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/, BOOL bIgnoreLineendings /*= FALSE*/)
+//
+// Fast in-place removal of spaces and tabs from CStringA line
+//
+void
+CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
+{
+	int outputLen = 0;
+	char* pWriteChr = sLine.GetBuffer(sLine.GetLength());
+	const char* pReadChr = pWriteChr;
+	while(*pReadChr)
+	{
+		if(*pReadChr != ' ' && *pReadChr != '\t')
+		{
+			*pWriteChr++ = *pReadChr;
+			outputLen++;
+		}
+		++pReadChr;
+	}
+	*pWriteChr = '\0';
+	sLine.ReleaseBuffer(outputLen);
+}
+
+BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/, BOOL bIgnoreLineendings /*= FALSE*/)
 {
 	if (bIgnoreLineendings)
 		m_LineEndings = AUTOLINE;
 	try
 	{
-		CFile file;
+		CStdioFile file;			// Hugely faster the CFile for big file writes - because it uses buffering
 		if (!file.Open(sFilePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
 		{
 			m_sErrorString.Format(IDS_ERR_FILE_OPEN, sFilePath);
@@ -295,29 +321,27 @@ BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/
 		} // if (CUtils::IsFileUnicode(sPath)) 
 		else if ((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE))
 		{
-			for (int i=0; i<GetCount(); i++)
+			for (int i=0; i< GetCount(); i++)
 			{
 				CStringA sLine = CStringA(GetAt(i));
 				if (bIgnoreWhitespaces)
 				{
-					sLine.Replace(" ", "");
-					sLine.Replace("\t", "");
+					StripAsciiWhiteSpace(sLine);
 				}
-				file.Write((LPCSTR)sLine, sLine.GetLength());
 				switch (m_LineEndings)
 				{
 				case CR:
-					sLine = ("\x0d");
+					sLine += '\x0d';
 					break;
 				case CRLF:
 				case AUTOLINE:
-					sLine = ("\x0d\x0a");
+					sLine.Append("\x0d\x0a", 2);
 					break;
 				case LF:
-					sLine = ("\x0a");
+					sLine += '\x0a';
 					break;
 				case LFCR:
-					sLine = ("\x0a\x0d");
+					sLine.Append("\x0a\x0d", 2);
 					break;
 				} // switch (endings)
 				file.Write((LPCSTR)sLine, sLine.GetLength());
@@ -335,24 +359,23 @@ BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/
 				CStringA sLine = CUnicodeUtils::GetUTF8(GetAt(i));
 				if (bIgnoreWhitespaces)
 				{
-					sLine.Replace(" ", "");
-					sLine.Replace("\t", "");
+					StripAsciiWhiteSpace(sLine);
 				} // if (bIgnoreWhitespaces)
-				file.Write((LPCSTR)sLine, sLine.GetLength());
+
 				switch (m_LineEndings)
 				{
 				case CR:
-					sLine = ("\x0d");
+					sLine += '\x0d';
 					break;
 				case CRLF:
 				case AUTOLINE:
-					sLine = ("\x0d\x0a");
+					sLine.Append("\x0d\x0a",2);
 					break;
 				case LF:
-					sLine = ("\x0a");
+					sLine += '\x0a';
 					break;
 				case LFCR:
-					sLine = ("\x0a\x0d");
+					sLine.Append("\x0a\x0d",2);
 					break;
 				} // switch (endings)
 				file.Write((LPCSTR)sLine, sLine.GetLength());
@@ -370,7 +393,7 @@ BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/
 	return TRUE;
 }
 
-void CFileTextLines::GetLastError()
+void CFileTextLines::SetErrorString()
 {
 		LPVOID lpMsgBuf;
 		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 

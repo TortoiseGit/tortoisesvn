@@ -396,14 +396,16 @@ int CBaseView::GetLineActualLength(int index)
 {
 	if (m_arDiffLines == NULL)
 		return 0;
-	CString sLine = m_arDiffLines->GetAt(index);
+	const CString& sLine = m_arDiffLines->GetAt(index);
+	const TCHAR*pLine = (LPCTSTR)sLine;
+	
 	int nTabSize = GetTabSize();
-
 	int nLineLength = 0;
+
 	int len = sLine.GetLength();
 	for (int i=0; i<len; i++)
 	{
-		if (sLine[i] == _T('\t'))
+		if (pLine[i] == _T('\t'))
 			nLineLength += (nTabSize - nLineLength % nTabSize);
 		else
 			nLineLength ++;
