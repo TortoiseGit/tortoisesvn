@@ -698,6 +698,68 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 	return TRUE;
 }
 
+BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile)
+{
+	BOOL del = FALSE;
+	apr_file_t * outfile;
+	apr_file_t * errfile;
+	apr_array_header_t *opts;
+
+	apr_pool_t * localpool = svn_pool_create(pool);
+
+	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
+
+	preparePath(path);
+	preparePath(outputfile);
+	preparePath(errorfile);
+
+	Err = svn_io_file_open (&outfile, MakeSVNUrlOrPath(outputfile),
+		APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+		APR_OS_DEFAULT, localpool);
+	if (Err)
+		return FALSE;
+
+	if (errorfile.IsEmpty())
+	{
+		TCHAR path[MAX_PATH];
+		TCHAR tempF[MAX_PATH];
+		::GetTempPath (MAX_PATH, path);
+		::GetTempFileName (path, _T("svn"), 0, tempF);
+		errorfile = CString(tempF);
+		del = TRUE;
+	}
+
+	Err = svn_io_file_open (&errfile, MakeSVNUrlOrPath(errorfile),
+		APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+		APR_OS_DEFAULT, localpool);
+	if (Err)
+		return FALSE;
+
+	Err = svn_client_diff_peg (opts,
+		MakeSVNUrlOrPath(path),
+		pegrevision,
+		startrev,
+		endrev,
+		recurse,
+		ignoreancestry,
+		nodiffdeleted,
+		outfile,
+		errfile,
+		&ctx,
+		localpool);
+	if (Err)
+	{
+		svn_pool_clear(localpool);
+		return FALSE;
+	}
+	if (del)
+	{
+		svn_io_remove_file (MakeSVNUrlOrPath(errorfile), localpool);
+	}
+	svn_pool_clear(localpool);
+	return TRUE;
+}
+
 BOOL SVN::ReceiveLog(CString path, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
 {
 	preparePath(path);

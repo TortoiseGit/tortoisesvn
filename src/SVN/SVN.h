@@ -346,6 +346,16 @@ public:
 	BOOL Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile = _T(""));
 
 	/**
+	 * Produce diff output which describes the delta between the filesystem object \a path in 
+	 * peg revision \a pegrevision, as it changed between \a startrev and \a endrev. 
+	 * Print the output of the diff to outputfile, and any errors to errorfile. 
+	 * \a path can be either a working-copy path or URL.
+	 *
+	 * All other options are handled identically to Diff().
+	 */
+	BOOL PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile = _T(""));
+
+	/**
 	 * fires the Log-event on each log message from revisionStart
 	 * to revisionEnd inclusive (but never fires the event
 	 * on a given log message more than once).
