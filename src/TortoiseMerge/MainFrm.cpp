@@ -131,7 +131,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_wndLocatorBar.m_pMainFrm = this;
 	m_wndLineDiffBar.m_pMainFrm = this;
 	m_DefaultNewMenu.LoadToolBar(IDR_MAINFRAME);
-	m_DefaultNewMenu.SetXpBlendig();
+	m_DefaultNewMenu.SetXpBlending();
 	m_DefaultNewMenu.SetSelectDisableMode(FALSE);
 	return 0;
 }
@@ -731,16 +731,18 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 	{
 		if (m_pwndBottomView)
 		{
-			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines)&&(m_pwndBottomView->IsModified()))
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
 			{
-				bEnable = TRUE;
+				if (m_pwndBottomView->IsModified() || (m_Data.m_sMergedName.Right(9).Compare(_T(": patched"))==0))
+					bEnable = TRUE;
 			} 
 		} // if (m_pwndBottomView) 
 		if (m_pwndRightView)
 		{
-			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines)&&(m_pwndRightView->IsModified()))
+			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
 			{
-				bEnable = TRUE;
+				if (m_pwndRightView->IsModified() || (m_Data.m_sYourName.Right(9).Compare(_T(": patched"))==0))
+					bEnable = TRUE;
 			} 
 		} // if (m_pwndRightView)
 	} // if (!this->m_Data.m_sMergedFile.IsEmpty())
