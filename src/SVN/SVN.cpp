@@ -86,6 +86,41 @@ void SVN::ReleasePool()
 	svn_pool_clear (pool);
 }
 
+CString SVN::CheckConfigFile()
+{
+	svn_client_ctx_t 			ctx;
+	apr_pool_t *				pool;
+	svn_error_t *				Err;
+
+	pool = svn_pool_create (NULL);				// create the memory pool
+	memset (&ctx, 0, sizeof (ctx));
+
+	Err = svn_config_ensure(NULL, pool);
+	// set up the configuration
+	if (Err == 0)
+		Err = svn_config_get_config (&(ctx.config), NULL, pool);
+	CString msg;
+	CString temp;
+	if (Err != NULL)
+	{
+		svn_error_t * ErrPtr = Err;
+		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		while (ErrPtr->child)
+		{
+			ErrPtr = ErrPtr->child;
+			msg += _T("\n");
+			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
+		}
+		if (!temp.IsEmpty())
+		{
+			msg += _T("\n") + temp;
+		}
+		return msg;
+	}
+	return _T("");
+
+}
+
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
 BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths) {return TRUE;};

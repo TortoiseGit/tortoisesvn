@@ -465,6 +465,8 @@ public:
 	 */
 	void ReleasePool();
 
+	static CString CheckConfigFile();
+
 	/**
 	 * Returns a text representation of an action enum.
 	 */

@@ -248,6 +248,15 @@ BOOL CTortoiseProcApp::InitInstance()
 		}
 		//#endregion
 		HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));	
+		{
+			CString err = SVN::CheckConfigFile();
+			if (!err.IsEmpty())
+			{
+				CMessageBox::Show(EXPLORERHWND, err, _T("TortoiseSVN"), MB_ICONERROR);
+				return FALSE;
+			}
+		}
+
 		//#region about
 		if (comVal.Compare(_T("about"))==0)
 		{
