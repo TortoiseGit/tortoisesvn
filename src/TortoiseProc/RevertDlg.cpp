@@ -97,9 +97,6 @@ UINT CRevertDlg::RevertThread()
 	GetDlgItem(IDOK)->EnableWindow(false);
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
-	// to make gettext happy
-	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
-
 	m_RevertList.GetStatus(m_pathList);
 	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS);
 

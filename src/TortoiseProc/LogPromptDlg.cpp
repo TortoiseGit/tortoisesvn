@@ -320,8 +320,6 @@ UINT CLogPromptDlg::StatusThread()
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 	GetDlgItem(IDOK)->EnableWindow(false);
 	GetDlgItem(IDC_FILLLOG)->EnableWindow(false);
-	// to make gettext happy
-	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	// Initialise the list control with the status of the files/folders below us
 	BOOL success = m_ListCtrl.GetStatus(m_pathList);
