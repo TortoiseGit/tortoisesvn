@@ -52,36 +52,38 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
 
+	svn_pool_clear(this->m_pool);
+
 	ATLTRACE2(_T("building cache for %s\n"), filepath);
 	BOOL isFolder = PathIsDirectory(filepath);
 
 	if (isFolder)
 	{
-		SVNStatus stat;
-		stat.GetStatus(filepath);
+		//SVNStatus stat;
+		GetStatus(filepath);
 		int index = FindFirstInvalidFolder();
 		m_FolderCache[index].author[0] = 0;
 		m_FolderCache[index].url[0] = 0;
 		m_FolderCache[index].rev = -1;
 		m_FolderCache[index].status = svn_wc_status_unversioned;
 		_tcsncpy(m_FolderCache[index].filename, filepath, MAX_PATH);
-		if (stat.status)
+		if (status)
 		{
 			//if (status.status->entry)
-			if (stat.status->entry)
+			if (status->entry)
 			{
-				if (stat.status->entry->cmt_author)
-					strncpy(m_FolderCache[index].author, stat.status->entry->cmt_author, MAX_PATH);
+				if (status->entry->cmt_author)
+					strncpy(m_FolderCache[index].author, status->entry->cmt_author, MAX_PATH);
 				else
 					m_FolderCache[index].author[0] = 0;
-				if (stat.status->entry->url)
-					strncpy(m_FolderCache[index].url, stat.status->entry->url, MAX_PATH);
+				if (status->entry->url)
+					strncpy(m_FolderCache[index].url, status->entry->url, MAX_PATH);
 				else
 					m_FolderCache[index].url[0] = 0;
-				m_FolderCache[index].rev = stat.status->entry->cmt_rev;
+				m_FolderCache[index].rev = status->entry->cmt_rev;
 			} // if (status.status->entry)
-			m_FolderCache[index].status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, stat.status->text_status);
-			m_FolderCache[index].status = SVNStatus::GetMoreImportant(m_FolderCache[index].status, stat.status->prop_status);
+			m_FolderCache[index].status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, status->text_status);
+			m_FolderCache[index].status = SVNStatus::GetMoreImportant(m_FolderCache[index].status, status->prop_status);
 			if (shellCache.IsRecursive())
 			{
 				m_FolderCache[index].status = SVNStatus::GetAllStatusRecursive(filepath);
@@ -99,7 +101,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	//since subversion can do this in one step
 	TCHAR pathbuf[MAX_PATH+4];
 	_tcscpy(pathbuf, filepath);
-	if (!isFolder)
+	//if (!isFolder)
 	{
 		TCHAR * p = _tcsrchr(filepath, '/');
 		if (p)

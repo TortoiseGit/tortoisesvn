@@ -30,12 +30,13 @@ SVNStatus::SVNStatus(void)
 {
 	apr_initialize();
 	m_pool = svn_pool_create (NULL);				// create the memory pool
-	svn_config_ensure(NULL, m_pool);
 #ifdef _MFC_VER
+	svn_config_ensure(NULL, m_pool);
 	hWnd = NULL;
 #endif
 	memset (&m_ctx, 0, sizeof (m_ctx));
 
+#ifdef _MFC_VER
 	// set up authentication
 	svn_auth_provider_object_t *provider;
 
@@ -56,7 +57,7 @@ SVNStatus::SVNStatus(void)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_client_get_ssl_pw_file_provider (&provider, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-#ifdef _MFC_VER
+
 	/* Two prompting providers, one for username/password, one for
 	just username. */
 	svn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 2, /* retry limit */ m_pool);
@@ -72,17 +73,14 @@ SVNStatus::SVNStatus(void)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_client_get_ssl_pw_prompt_provider (&provider, (svn_auth_ssl_pw_prompt_func_t)sslpwprompt, this, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-#endif
+
 	/* Build an authentication baton to give to libsvn_client. */
 	svn_auth_open (&m_auth_baton, providers, m_pool);
 	m_ctx.auth_baton = m_auth_baton;
 
-#ifdef _MFC_VER
-	//m_ctx.prompt_func = (svn_client_prompt_t)prompt;
-	//m_ctx.prompt_baton = this;
-#endif
 	// set up the configuration
 	svn_config_get_config (&(m_ctx.config), NULL, m_pool);
+#endif
 }
 
 SVNStatus::~SVNStatus(void)
