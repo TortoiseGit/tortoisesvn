@@ -49,6 +49,9 @@
 - BUG: The dialog presented before an export had
        some labels/title mention "Checkout" instead
        of "Export" which confused some people. (Stefan)
+- BUG: The log dialog crashed if a key was pressed
+       before any log messages got received. (Stefan)
+
        
 Version 0.21
 - ADD: If multiple targets are selected for

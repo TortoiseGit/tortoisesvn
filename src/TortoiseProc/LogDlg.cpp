@@ -379,7 +379,8 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	else
 	{
 		//m_sLogMsgCtrl = "";
-		FillLogMessageCtrl(m_arLogMessages.GetAt(0));
+		if (m_arLogMessages.GetCount()>0)
+			FillLogMessageCtrl(m_arLogMessages.GetAt(0));
 		UpdateData(FALSE);
 	}
 	*pResult = 0;
