@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-propertypage">
-	<title>Project Settings</title>
+	<title>Eigenschaften</title>
 	<indexterm>
 		<primary>Eigenschaften</primary>
 	</indexterm>
@@ -16,12 +16,12 @@
 		Datei oder Ordner zu haben als mit den überlagerten Icons möglich ist.
 		Sie können diese zusätzlichen Informationen über den Eigenschaftsdialog
 		des Explorers anzeigen. Wählen Sie dazu die Datei oder den Ordner
-		aus, öffnen Sie das Kontextmenu mit der rechten Maustaste und wählen
+		aus, öffnen Sie das Kontextmenü mit der rechten Maustaste und wählen
 		Sie den Eintrag
 		<menuchoice>
 			<guimenuitem>Eigenschaften</guimenuitem>
 		</menuchoice>
-		aus. (Beachten Sie: dies ist der normale Eintrag im Kontextmenu des
+		aus. (Beachten Sie: dies ist der normale Eintrag im Kontextmenü des
 		Explorers und <emphasis>nicht</emphasis> der Eintrag im TortoiseSVN
 		Untermenü!). Im darauffolgenden Eigenschaften-Dialog wählen Sie dann
 		die Seite <literal>TortoiseSVN</literal> aus.
@@ -92,9 +92,9 @@
 			</listitem>
 			<listitem>
 				<para>
-					TortoiseSVN kann ein Wörterbücher benutzen, welche auch von
+					TortoiseSVN kann die Wörterbücher benutzen, welche auch von
 					OpenOffice oder Mozilla verwendet werden. Wenn Sie ein solches
-					installiert haben kann diese Eigenschaft festlegen, welches
+					installiert haben, kann diese Eigenschaft festlegen, welches
 					Sprachmodul für das Projekt benutzt werden soll, also in
 					welcher Sprache die Log-Meldungen geschrieben werden sollen.
 					<literal>tsvn:projectlanguage</literal> setzt die Sprache

@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-general">
-	<title>Getting Started</title>
+	<title>Die ersten Schritte</title>
 	<sect2 id="tsvn-DUG-general-menu">
 		<title>Kontextmenü</title>
 		<indexterm>
@@ -8,10 +8,10 @@
 		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-context-dir-control">
-				<title>Kontext-Menu für einen Ordner unter Versionskontrolle</title>
+				<title>Kontext-Menü für einen Ordner unter Versionskontrolle</title>
 				<graphic fileref="images/ContextMenuDirControl.png"/>
 			</figure>
-			Alle Befehle von TortoiseSVN werden über das Kontext-Menu des Windows 
+			Alle Befehle von TortoiseSVN werden über das Kontext-Menü des Windows 
 			Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie mit
 			einem <action>Recht-Klick</action> auf eine Datei oder Ordner klicken.
 			Die vorhandenen Befehle hängen davon ab ob Sie auf eine Datei oder einen
@@ -29,7 +29,7 @@
 				<primary>Drag-n-Drop</primary>
 			</indexterm>
 			<figure id="tsvn-DUG-right-drag">
-				<title>Right drag menu for a directory under version control</title>
+				<title>Rechts-Ziehen Menü für ein Objekt unter Versionskontrolle</title>
 				<graphic fileref="images/RightDragMenu.png"/>
 			</figure>
 			Andere Befehle sind als Drag-Handler vorhanden. Wenn Sie Dateien
@@ -60,9 +60,9 @@
 			entsprechende(n) Datei(en) löschen.
 		</para>
 		<para>
-			For more information on how to set up your server for
-			authentication and access control, refer to
-			<xref linkend="tsvn_serversetup"/>
+			Für weitere Informationen über Serverkonfiguration und Zugriffskontrolle
+			lesen Sie bitte
+			<xref linkend="tsvn_serversetup"/>.
 		</para>
 		<note>
 			<para>
