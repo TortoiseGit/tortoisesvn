@@ -18,6 +18,20 @@
 			<ulink url="http://www.tortoisecvs.org/faq.html">FAQ
 		</ulink>
 		</para>
+		<sect2 id="tsvn-faq-installation-0">
+			<title>Der Installer bricht mit einer Fehlermeldung ab</title>
+			<para>
+			Wenn der msi Installer mit der Fehlermeldung 
+			<literal>The installer was interrupted before TortoiseSVN could be installed. 
+			You need to restart the installer to try again. Click "Close" 
+			to exit</literal> abbricht liegt das daran dass der Benutzer SYSTEM
+			keine Zugriffsberechtigung auf den Ordner hat wo die msi Datei liegt.
+			</para>
+			<para>
+			Verschieben Sie einfach die msi-Datei an einen anderen Ort, z.B. 
+			<filename>c:\</filename> und versuchen Sie's erneut.
+			</para>
+		</sect2>
 		<sect2 id="tsvn-faq-installation-1">
 			<title>Warum erscheinen die überlagerten Icons nicht?</title>
 			<indexterm><primary>Overlays</primary></indexterm>

@@ -18,6 +18,20 @@
 			<ulink url="http://www.tortoisecvs.org/faq.html">FAQ
 		</ulink>
 		</para>
+		<sect2 id="tsvn-faq-installation-0">
+			<title>The installer aborts with an error message</title>
+			<para>
+			If the msi installer shows you the error message <literal>The 
+			installer was interrupted before TortoiseSVN could be installed. 
+			You need to restart the installer to try again. Click "Close" 
+			to exit</literal> then the user SYSTEM doesn't
+			have read access to the folder where the msi file is located.
+			</para>
+			<para>
+			Just move the msi file to another location, e.g. <filename>c:\</filename>
+			and try again.
+			</para>
+		</sect2>
 		<sect2 id="tsvn-faq-installation-1">
 			<title>Why don't the icon overlays appear?</title>
 			<indexterm><primary>overlays</primary></indexterm>
