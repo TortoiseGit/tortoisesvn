@@ -35,7 +35,7 @@ IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableDialog)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CLogPromptDlg::IDD, pParent)
 	, m_sLogMessage(_T(""))
-	, m_bSelectAll(FALSE)
+	, m_bSelectAll(TRUE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_templist.RemoveAll();

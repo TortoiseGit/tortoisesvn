@@ -255,7 +255,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	CString temp;
 	temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
 	ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 	// Display the Open dialog box. 
 

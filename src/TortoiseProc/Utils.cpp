@@ -294,7 +294,7 @@ BOOL CUtils::StartTextViewer(CString file)
 		CString temp;
 		temp.LoadString(IDS_UTILS_SELECTTEXTVIEWER);
 		ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 		// Display the Open dialog box. 
 

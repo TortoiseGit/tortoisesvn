@@ -201,7 +201,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 			ofn.lpstrTitle = NULL;
 		else
 			ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
+		ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY;
 		CString sFilter;
 		sFilter.LoadString(IDS_PATCHFILEFILTER);
 		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];

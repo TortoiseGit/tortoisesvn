@@ -4,6 +4,28 @@
 - BUG: The shell part didn't have the APR_ICONV_PATH
        environement variable set. (Stefan)
 
+- ADD: New option to use a short version of the date
+       for log messages. (Thomas Epting)
+- ADD: The property page now shows the subversion
+       properties in a combobox. (Stefan)
+- ADD: Ability to use different merge/diff programs
+       for different filetypes. (Thomas Epting)
+- ADD: Warn the user before creating a repository
+       on a network share. (Stefan)
+- ADD: Warn the user if (s)he tries to checkout/import
+       via file to a repository on a network share. (Stefan)
+- CHG: Many cosmetic changes to the UI. (Stefan)
+- CHG: The log dialog shows now the log messages
+       in the fourth column (a short version) so
+       you can see the logs without clicking on
+       the revision. (Thomas Epting)
+- BUG: If the "Check for updates" dialog is started
+       for a file (not for a folder), the filename
+       wasn't shown. (Stefan)
+- BUG: Fix various bugs with svn:externals and the
+       commit/add dialogs. (Stefan)
+- BUG: Various bugfixes for TortoiseMerge. (Stefan)
+
 Version 1.0
 - ADD: New option in the settings dialog to set the 
        filetimes to the last commit time. This solves

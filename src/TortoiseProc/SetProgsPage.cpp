@@ -135,7 +135,7 @@ void CSetProgsPage::OnBnClickedExtdiffbrowse()
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
 	ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 	// Display the Open dialog box. 
 
@@ -179,7 +179,7 @@ void CSetProgsPage::OnBnClickedExtmergebrowse()
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTMERGE);
 	ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 	// Display the Open dialog box. 
 
@@ -224,7 +224,7 @@ void CSetProgsPage::OnBnClickedDiffviewerbrowse()
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTDIFFVIEWER);
 	ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 	// Display the Open dialog box. 
 

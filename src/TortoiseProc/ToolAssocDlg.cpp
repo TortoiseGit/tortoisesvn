@@ -125,7 +125,7 @@ void CToolAssocDlg::OnBnClickedToolbrowse()
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
 	ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 	// Display the Open dialog box. 
 

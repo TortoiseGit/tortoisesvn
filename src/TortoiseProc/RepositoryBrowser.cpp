@@ -384,7 +384,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 					CString temp;
 					temp.LoadString(IDS_REPOBROWSE_IMPORT);
 					ofn.lpstrTitle = temp;
-					ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+					ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
 					// Display the Open dialog box. 
 
