@@ -120,6 +120,10 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					} // if (chunks) 
 					chunks = new Chunks();
 					chunks->sFilePath = sLine.Mid(7).Trim();
+					if (chunks->sFilePath.Right(9).Compare(_T("(deleted)"))==0)
+						chunks->sFilePath.Left(chunks->sFilePath.GetLength()-9).TrimRight();
+					if (chunks->sFilePath.Right(7).Compare(_T("(added)"))==0)
+						chunks->sFilePath.Left(chunks->sFilePath.GetLength()-7).TrimRight();
 					state++;
 				} // if (sLine.Left(7).Compare(_T("Index: "))==0)
 				else
@@ -437,20 +441,10 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 
 	CString sLine;
 	CString sPatchFile = sBaseFile.IsEmpty() ? sPath : sBaseFile;
-	if (!PathFileExists(sPatchFile))
+	if (PathFileExists(sPatchFile))
 	{
-		// The file to patch does not exist.
-		// Create an empty file so the patching process still can
-		// work, at least if the patch contains a new file.
-		HANDLE hFile = CreateFile(sPatchFile, GENERIC_WRITE, NULL, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-		if (hFile == INVALID_HANDLE_VALUE)
-		{
-			m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, sPatchFile);
-			return FALSE;
-		}
-		CloseHandle(hFile);
-	} // if (!PathFileExists(sPatchFile))
-	g_crasher.AddFile((LPCSTR)(LPCTSTR)sPatchFile, (LPCSTR)(LPCTSTR)_T("File to patch"));
+		g_crasher.AddFile((LPCSTR)(LPCTSTR)sPatchFile, (LPCSTR)(LPCTSTR)_T("File to patch"));
+	}
 	CFileTextLines PatchLines;
 	CFileTextLines PatchLinesResult;
 	PatchLines.Load(sPatchFile);

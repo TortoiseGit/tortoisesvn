@@ -132,6 +132,13 @@ BOOL CFileTextLines::Load(CString sFilePath)
 	m_LineEndings = CFileTextLines::AUTOLINE;
 	m_UnicodeType = CFileTextLines::AUTOTYPE;
 	RemoveAll();
+
+	if (!PathFileExists(sFilePath))
+	{
+		//file does not exist, so just return SUCCESS
+		return TRUE;
+	}
+
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
