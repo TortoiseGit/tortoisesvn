@@ -1401,7 +1401,7 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 #pragma warning(disable: 4127)	// conditional expression is constant
 	SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, target,
 		FALSE, 0, pool));
-	SVN_ERR (svn_client_uuid_from_path(UUID, target, adm_access, NULL, pool));
+	SVN_ERR (svn_client_uuid_from_path(UUID, target, adm_access, &ctx, pool));
 	SVN_ERR (svn_wc_adm_close (adm_access));
 #pragma warning(pop)
 
