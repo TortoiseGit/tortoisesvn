@@ -1589,6 +1589,22 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 		ScrollAllToLine(GetLineCount());
 	}
+	if (nChar==VK_DOWN)
+	{
+		if (m_nSelBlockEnd < GetLineCount())
+		{
+			m_nSelBlockEnd++;
+			Invalidate();
+		}
+	}
+	if (nChar==VK_UP)
+	{
+		if (m_nSelBlockEnd > m_nSelBlockStart)
+		{
+			m_nSelBlockEnd--;
+			Invalidate();
+		}
+	}
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
@@ -1602,7 +1618,7 @@ void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
 		{
 			if (m_nSelBlockStart > nClickedLine)
 				m_nSelBlockStart = nClickedLine;
-			else if ((m_nSelBlockEnd < nClickedLine)&&(m_nSelBlockStart > 0))
+			else if ((m_nSelBlockEnd < nClickedLine)&&(m_nSelBlockStart >= 0))
 				m_nSelBlockEnd = nClickedLine;
 			else
 			{
@@ -1636,7 +1652,7 @@ void CBaseView::OnEditCopy()
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		if (!sCopyData.IsEmpty())
-			sCopyData += _T("\n");
+			sCopyData += _T("\r\n");
 		sCopyData += this->m_arDiffLines->GetAt(i);
 	} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 	CStringA sCopyDataASCII = CStringA(sCopyData);
