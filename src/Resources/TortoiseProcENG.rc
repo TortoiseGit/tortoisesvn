@@ -406,8 +406,6 @@ BEGIN
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,95,271,10
-    CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,106,173,10
     LTEXT           "Font for log messages:",IDC_STATIC,13,177,115,8
     COMBOBOX        IDC_FONTNAMES,130,174,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
@@ -415,10 +413,11 @@ BEGIN
     COMBOBOX        IDC_FONTSIZES,252,175,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,196,122,88,14
-    CONTROL         "D&on't close on conflicts",IDC_NOCLOSEONRED,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,25,116,168,10
     CONTROL         "Force shell icon refresh",IDC_FORCESHELLREFRESH,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,140,216,10
+    COMBOBOX        IDC_AUTOCLOSECOMBO,108,106,176,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Progress dialog:",IDC_STATIC,13,109,87,8
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217
@@ -1796,6 +1795,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROGRS_TITLE_RENAME "SVN Rename/Move"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRS_CLOSE_MANUAL "Close manually"
+    IDS_PROGRS_CLOSE_NOERROR "Automatically close if no errors"
+    IDS_PROGRS_CLOSE_NOCONFLICTS "Automatically close if no conflicts"
+    IDS_PROGRS_CLOSE_NOMERGES "Automatically close if no merges"
 END
 
 #endif    // English (U.S.) resources

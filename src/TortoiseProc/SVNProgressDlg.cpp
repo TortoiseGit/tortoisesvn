@@ -40,10 +40,11 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_Revision(_T("HEAD"))
 	, m_RevisionEnd(0)
 {
-	m_bCloseOnEnd = FALSE;
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
 	m_bConflictsOccurred = FALSE;
+	m_bErrorsOccurred = FALSE;
+	m_bMergesOccurred = FALSE;
 	m_nUpdateStartRev = -1;
 	m_pThread = NULL;
 	m_options = ProgOptNone;
@@ -158,6 +159,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
 		{
 			data->color = RGB(0, 100, 0);
+			m_bMergesOccurred = true;
 		}
 		break;
 
@@ -440,6 +442,7 @@ void CSVNProgressDlg::ReportError(const CString& sError)
 {
 	CSoundUtils::PlayTSVNError();
 	ReportString(sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), RGB(255, 0, 0));
+	m_bErrorsOccurred = true;
 }
 
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)
@@ -818,12 +821,18 @@ UINT CSVNProgressDlg::ProgressThread()
 	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
 	ResizeColumns();
 
-	if (((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE)&&(!(m_options & ProgOptDryRun))
-	 ||	m_bCloseOnEnd))
-	{
-		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!m_bConflictsOccurred) || m_bCloseOnEnd) 
-			PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
-	}
+	DWORD dwAutoClose = CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"));
+	if (m_options & ProgOptDryRun)
+		dwAutoClose = 0;		// dry run means progress dialog doesn't autoclose at all
+	if (m_dwCloseOnEnd != 0)
+		dwAutoClose = m_dwCloseOnEnd;		// command line value has priority over setting value
+	if ((dwAutoClose == CLOSE_NOERRORS)&&(!m_bErrorsOccurred))
+		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+	if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred))
+		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesOccurred))
+		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+		
 	//Don't do anything here which might cause messages to be sent to the window
 	//The window thread is probably now blocked in OnOK if we've done an autoclose
 	return 0;

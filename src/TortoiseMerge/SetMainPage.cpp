@@ -397,3 +397,4 @@ void CSetMainPage::OnBnClickedUsebdiff()
 {
 	SetModified();
 }
+

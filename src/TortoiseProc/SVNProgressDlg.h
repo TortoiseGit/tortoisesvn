@@ -36,6 +36,13 @@ typedef enum
 	ProgOptDryRun = 0x04
 } ProgressOptions;
 
+typedef enum
+{
+	CLOSE_MANUAL = 0,
+	CLOSE_NOERRORS,
+	CLOSE_NOCONFLICTS,
+	CLOSE_NOMERGES
+} ProgressCloseOptions;
 
 /**
  * \ingroup TortoiseProc
@@ -191,7 +198,7 @@ private:
 
 
 public:
-	BOOL		m_bCloseOnEnd;
+	DWORD		m_dwCloseOnEnd;
 	SVNRev		m_RevisionEnd;
 
 private:
@@ -213,6 +220,8 @@ private:
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
 	bool		m_bConflictsOccurred;
+	bool		m_bErrorsOccurred;
+	bool		m_bMergesOccurred;
 	int			iFirstResized;
 	BOOL		bSecondResized;
 	// The path of the item we will offer to show a log for, after an 'update' is complete

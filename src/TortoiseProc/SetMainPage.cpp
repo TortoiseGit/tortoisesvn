@@ -21,6 +21,7 @@
 #include "SetMainPage.h"
 #include "Utils.h"
 #include "DirFileEnum.h"
+#include "SVNProgressDlg.h"
 #include "..\version.h"
 #include ".\setmainpage.h"
 #include "SVN.h"
@@ -32,24 +33,22 @@ IMPLEMENT_DYNAMIC(CSetMainPage, CPropertyPage)
 CSetMainPage::CSetMainPage()
 	: CPropertyPage(CSetMainPage::IDD)
 	, m_sTempExtensions(_T(""))
-	, m_bAutoClose(FALSE)
+	//, m_bAutoClose(FALSE)
 	, m_sDefaultLogs(_T(""))
 	, m_bShortDateFormat(FALSE)
 	, m_bLastCommitTime(FALSE)
 	, m_bCheckNewer(TRUE)
-	, m_bNoCloseOnRed(FALSE)
 	, m_bForceShellRefresh(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
-	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
+	m_regAutoClose = CRegDWORD(_T("Software\\("));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	m_regShortDateFormat = CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat"), FALSE);
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
-	m_regNoCloseOnRed = CRegDWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE);
 	m_regForceShellRefresh = CRegDWORD(_T("Software\\TortoiseSVN\\ForceShellUpdate"), FALSE);
 }
 
@@ -61,7 +60,7 @@ void CSetMainPage::SaveData()
 {
 	m_regLanguage = m_dwLanguage;
 	m_regExtensions = m_sTempExtensions;
-	m_regAutoClose = m_bAutoClose;
+	m_regAutoClose = m_dwAutoClose;
 	m_regShortDateFormat = m_bShortDateFormat;
 	m_regCheckNewer = m_bCheckNewer;
 	long val = _ttol(m_sDefaultLogs);
@@ -73,7 +72,6 @@ void CSetMainPage::SaveData()
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
-	m_regNoCloseOnRed = m_bNoCloseOnRed;
 	m_regForceShellRefresh = m_bForceShellRefresh;
 }
 
@@ -92,22 +90,20 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	}
 	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
-	DDX_Check(pDX, IDC_AUTOCLOSE, m_bAutoClose);
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
 	DDX_Control(pDX, IDC_MISCGROUP, m_cMiscGroup);
 	DDX_Control(pDX, IDC_COMMITGROUP, m_cCommitGroup);
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
-	DDX_Check(pDX, IDC_NOCLOSEONRED, m_bNoCloseOnRed);
 	DDX_Check(pDX, IDC_FORCESHELLREFRESH, m_bForceShellRefresh);
+	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnEnChangeTempextensions)
-	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
 	ON_BN_CLICKED(IDC_SHORTDATEFORMAT, OnBnClickedShortdateformat)
 	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnBnClickedCommitfiletimes)
@@ -116,8 +112,8 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
-	ON_BN_CLICKED(IDC_NOCLOSEONRED, OnBnClickedNocloseonred)
 	ON_BN_CLICKED(IDC_FORCESHELLREFRESH, OnBnClickedForceshellrefresh)
+	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
 END_MESSAGE_MAP()
 
 
@@ -136,17 +132,25 @@ BOOL CSetMainPage::OnInitDialog()
 
 	EnableToolTips();
 
+	int ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_MANUAL)));
+	m_cAutoClose.SetItemData(ind, CLOSE_MANUAL);
+	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOERROR)));
+	m_cAutoClose.SetItemData(ind, CLOSE_NOERRORS);
+	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOCONFLICTS)));
+	m_cAutoClose.SetItemData(ind, CLOSE_NOCONFLICTS);
+	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOMERGES)));
+	m_cAutoClose.SetItemData(ind, CLOSE_NOMERGES);
+
 	m_sTempExtensions = m_regExtensions;
-	m_bAutoClose = m_regAutoClose;
+	m_dwAutoClose = m_regAutoClose;
 	m_dwLanguage = m_regLanguage;
 	m_bShortDateFormat = m_regShortDateFormat;
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bCheckNewer = m_regCheckNewer;
-	m_bNoCloseOnRed = m_regNoCloseOnRed;
 	m_bForceShellRefresh = m_regForceShellRefresh;
 
-	GetDlgItem(IDC_NOCLOSEONRED)->EnableWindow(m_bAutoClose);
+	m_cAutoClose.SetCurSel(m_dwAutoClose);
 
 	CString temp;
 	temp = m_regLastCommitTime;
@@ -157,7 +161,6 @@ BOOL CSetMainPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
-	m_tooltips.AddTool(IDC_AUTOCLOSE, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
 	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
 	m_tooltips.AddTool(IDC_CLEARAUTH, IDS_SETTINGS_CLEARAUTH_TT);
@@ -240,12 +243,6 @@ void CSetMainPage::OnEnChangeTempextensions()
 	SetModified();
 }
 
-void CSetMainPage::OnBnClickedAutoclose()
-{
-	SetModified();
-	GetDlgItem(IDC_NOCLOSEONRED)->EnableWindow(IsDlgButtonChecked(IDC_AUTOCLOSE));
-}
-
 void CSetMainPage::OnBnClickedShortdateformat()
 {
 	SetModified();
@@ -272,11 +269,6 @@ void CSetMainPage::OnBnClickedCommitfiletimes()
 }
 
 void CSetMainPage::OnBnClickedChecknewerversion()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedNocloseonred()
 {
 	SetModified();
 }
@@ -323,6 +315,11 @@ void CSetMainPage::OnBnClickedClearauth()
 	}
 }
 
+void CSetMainPage::OnCbnSelchangeAutoclosecombo()
+{
+	m_dwAutoClose = m_cAutoClose.GetCurSel();
+	SetModified();
+}
 
 
 

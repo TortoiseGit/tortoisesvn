@@ -21,6 +21,7 @@
 #include "IconStatic.h"
 #include "FontPreviewCombo.h"
 #include "Registry.h"
+#include "afxwin.h"
 
 
 /**
@@ -82,7 +83,7 @@ private:
 	BOOL			m_bShortDateFormat;
 	CRegDWORD		m_regShortDateFormat;
 	CRegDWORD		m_regAutoClose;
-	BOOL			m_bAutoClose;
+	DWORD			m_dwAutoClose;
 	CRegDWORD		m_regDefaultLogs;
 	CString			m_sDefaultLogs;
 	CIconStatic		m_cMiscGroup;
@@ -97,10 +98,9 @@ private:
 	BOOL			m_bLastCommitTime;
 	CRegDWORD		m_regCheckNewer;
 	BOOL			m_bCheckNewer;
-	CRegDWORD		m_regNoCloseOnRed;
-	BOOL			m_bNoCloseOnRed;
 	CRegDWORD		m_regForceShellRefresh;
 	BOOL			m_bForceShellRefresh;
+	CComboBox		m_cAutoClose;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -108,7 +108,6 @@ public:
 	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnEnChangeTempextensions();
 	virtual BOOL OnApply();
-	afx_msg void OnBnClickedAutoclose();
 	afx_msg void OnEnChangeDefaultlog();
 	afx_msg void OnBnClickedShortdateformat();
 	afx_msg void OnCbnSelchangeFontsizes();
@@ -117,6 +116,6 @@ public:
 	afx_msg void OnBnClickedCommitfiletimes();
 	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnBnClickedClearauth();
-	afx_msg void OnBnClickedNocloseonred();
 	afx_msg void OnBnClickedForceshellrefresh();
+	afx_msg void OnCbnSelchangeAutoclosecombo();
 };

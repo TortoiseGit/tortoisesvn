@@ -56,6 +56,12 @@
 			To close the progress dialog at the end of a command automatically without
 			using the permanent setting you can pass the <option>/closeonend</option>
 			parameter.
+			<itemizedlist>
+				<listitem><para><option>/closeonend:0</option> don't close the dialog automatically</para></listitem>
+				<listitem><para><option>/closeonend:1</option> auto close if no errors</para></listitem>
+				<listitem><para><option>/closeonend:2</option> auto close if no conflicts</para></listitem>
+				<listitem><para><option>/closeonend:3</option> auto close if no merges</para></listitem>
+			</itemizedlist>
 		</para>
 		<para>
 			<table id="tsvn-automation-1-table">
