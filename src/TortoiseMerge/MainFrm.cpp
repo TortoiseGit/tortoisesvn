@@ -28,6 +28,7 @@
 #include "LeftView.h"
 #include "RightView.h"
 #include "BottomView.h"
+#include ".\mainfrm.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -64,6 +65,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
 	ON_COMMAND(ID_VIEW_LINEDOWN, OnViewLinedown)
 	ON_COMMAND(ID_VIEW_LINEUP, OnViewLineup)
+	ON_UPDATE_COMMAND_UI(ID_MERGE_MARKASRESOLVED, OnUpdateMergeMarkasresolved)
+	ON_COMMAND(ID_MERGE_MARKASRESOLVED, OnMergeMarkasresolved)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -727,38 +730,7 @@ void CMainFrame::OnFileSave()
 		MoveFile(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"));
 	}
 	SaveFile(this->m_Data.m_mergedFile.GetFilename());
-	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible())&&(((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Resolve"))) != 0))
-	{
-		TCHAR buf[MAX_PATH*3];
-		GetModuleFileName(NULL, buf, MAX_PATH);
-		TCHAR * end = _tcsrchr(buf, '\\');
-		end++;
-		(*end) = 0;
-		_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
-		_tcscat(buf, this->m_Data.m_mergedFile.GetFilename());
-		_tcscat(buf, _T("\" /closeonend /noquestion"));
-		STARTUPINFO startup;
-		PROCESS_INFORMATION process;
-		memset(&startup, 0, sizeof(startup));
-		startup.cb = sizeof(startup);
-		memset(&process, 0, sizeof(process));
-		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-		{
-			LPVOID lpMsgBuf;
-			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-				FORMAT_MESSAGE_FROM_SYSTEM | 
-				FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL,
-				GetLastError(),
-				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-				(LPTSTR) &lpMsgBuf,
-				0,
-				NULL 
-				);
-			MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
-			LocalFree( lpMsgBuf );
-		}
-	}
+	MarkAsResolved();
 }
 
 void CMainFrame::OnFileSaveAs()
@@ -1153,4 +1125,87 @@ void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 			pwp->rcNormalPosition.left, pwp->rcNormalPosition.top,
 			pwp->rcNormalPosition.right, pwp->rcNormalPosition.bottom);
 	placement = szBuffer;
+}
+
+void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
+{
+	if (pCmdUI == NULL)
+		return;
+	BOOL bEnable = FALSE;
+	if (this->m_Data.m_mergedFile.InUse())
+	{
+		if (m_pwndBottomView)
+		{
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+			{
+				bEnable = TRUE;
+			} 
+		} // if (m_pwndBottomView) 
+		if (m_pwndRightView)
+		{
+			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
+			{
+				if (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0))
+					bEnable = TRUE;
+			} 
+		} // if (m_pwndRightView)
+	} // if (!this->m_Data.m_sMergedFile.IsEmpty())
+	pCmdUI->Enable(bEnable);
+}
+
+void CMainFrame::OnMergeMarkasresolved()
+{
+	int nConflictLine = CheckResolved();
+	if (nConflictLine >= 0)
+	{
+		CString sTemp;
+		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
+		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
+		{
+			if (m_pwndBottomView)
+				m_pwndBottomView->GoToLine(nConflictLine);
+			return;
+		}
+	}
+	MarkAsResolved();
+}
+
+BOOL CMainFrame::MarkAsResolved()
+{
+	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
+	{
+		TCHAR buf[MAX_PATH*3];
+		GetModuleFileName(NULL, buf, MAX_PATH);
+		TCHAR * end = _tcsrchr(buf, '\\');
+		end++;
+		(*end) = 0;
+		_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
+		_tcscat(buf, this->m_Data.m_mergedFile.GetFilename());
+		_tcscat(buf, _T("\" /closeonend /noquestion"));
+		STARTUPINFO startup;
+		PROCESS_INFORMATION process;
+		memset(&startup, 0, sizeof(startup));
+		startup.cb = sizeof(startup);
+		memset(&process, 0, sizeof(process));
+		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+		{
+			LPVOID lpMsgBuf;
+			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL 
+				);
+			MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
+			LocalFree( lpMsgBuf );
+			return FALSE;
+		}
+	}
+	else
+		return FALSE;
+	return TRUE;
 }

@@ -69,12 +69,15 @@ protected:
 	afx_msg void	OnViewOptions();
 	afx_msg void	OnViewLinedown();
 	afx_msg void	OnViewLineup();
+	afx_msg void	OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI);
+	afx_msg void	OnMergeMarkasresolved();
 
 	DECLARE_MESSAGE_MAP()
 protected:
 	void			UpdateLayout();
 	virtual BOOL	PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch);
 	int				CheckResolved();
+	BOOL			MarkAsResolved();
 	void			SaveFile(const CString& sFilePath);
 	void			WriteWindowPlacement(WINDOWPLACEMENT * pwp);
 	BOOL			ReadWindowPlacement(WINDOWPLACEMENT * pwp);

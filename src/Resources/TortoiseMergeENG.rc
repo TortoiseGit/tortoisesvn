@@ -222,7 +222,7 @@ BEGIN
                     WS_TABSTOP,15,67,236,10
     CONTROL         "Use strikeout for deleted lines",IDC_STRIKEOUT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
-    CONTROL         "Resolve conflicted subversion status on save",
+    CONTROL         "Automatically resolve conflicted subversion status on save",
                     IDC_RESOLVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,88,
                     243,10
     CONTROL         "Color code in-line changes",IDC_USEBDIFF,"Button",
@@ -326,6 +326,8 @@ BEGIN
     BUTTON      ID_MERGE_PREVIOUSCONFLICT
     BUTTON      ID_MERGE_NEXTCONFLICT
     SEPARATOR
+    BUTTON      ID_MERGE_MARKASRESOLVED
+    SEPARATOR
     BUTTON      ID_VIEW_ONEWAYDIFF
     SEPARATOR
     BUTTON      ID_VIEW_OPTIONS
@@ -369,6 +371,8 @@ BEGIN
         MENUITEM "&Previous Difference",        ID_MERGE_PREVIOUSDIFFERENCE
         MENUITEM "N&ext Conflict",              ID_MERGE_NEXTCONFLICT
         MENUITEM "P&revious Conflict",          ID_MERGE_PREVIOUSCONFLICT
+        MENUITEM SEPARATOR
+        MENUITEM "&Mark as resolved",           ID_MERGE_MARKASRESOLVED
     END
     POPUP "&Help"
     BEGIN
@@ -648,6 +652,8 @@ END
 STRINGTABLE 
 BEGIN
     ID_MERGE_PREVIOUSCONFLICT "Go to the previous conflict\nprevious conflict"
+    ID_MERGE_NEXTCONFLICT   "Go to the next conflict\nnext conflict"
+    ID_MERGE_MARKASRESOLVED "Marks a file as resolved in Subversion\nMark as resolved"
 END
 
 STRINGTABLE 

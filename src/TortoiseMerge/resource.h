@@ -165,13 +165,15 @@
 #define ID_VIEW_LINEDOWN                32799
 #define ID_MERGE_PREVIOUSCONFLICT       32802
 #define ID_MERGE_NEXTCONFLICT           32804
+#define ID_BUTTON32807                  32807
+#define ID_MERGE_MARKASRESOLVED         32808
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
-#define _APS_NEXT_COMMAND_VALUE         32807
+#define _APS_NEXT_COMMAND_VALUE         32809
 #define _APS_NEXT_CONTROL_VALUE         1070
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

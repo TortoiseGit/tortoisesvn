@@ -197,6 +197,10 @@ msgid "&Language:"
 msgstr ""
 
 #: MenuEntry
+msgid "&Mark as resolved"
+msgstr ""
+
+#: MenuEntry
 msgid "&Merge"
 msgstr ""
 
@@ -654,6 +658,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
+msgstr ""
+
+#: Control-ID:1067,
+msgid "Automatically resolve conflicted subversion status on save"
 msgstr ""
 
 #: Control-ID:1157,
@@ -1412,6 +1420,14 @@ msgstr ""
 msgid "From:"
 msgstr ""
 
+#: ID:273,
+msgid "GDI+ couldn't be initialized!"
+msgstr ""
+
+#: ID:273,
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr ""
+
 #: Dlg-ID:107,
 msgid "General"
 msgstr ""
@@ -1434,6 +1450,10 @@ msgstr ""
 
 #: ID:132,
 msgid "Getting log info..."
+msgstr ""
+
+#: ID:2051,
+msgid "Go to the next conflict\nnext conflict"
 msgstr ""
 
 #: ID:2049,
@@ -1652,6 +1672,10 @@ msgstr ""
 msgid "Main"
 msgstr ""
 
+#: ID:2051,
+msgid "Marks a file as resolved in Subversion\nMark as resolved"
+msgstr ""
+
 #: Control-ID:1159,
 msgid "Max"
 msgstr ""
@@ -1778,6 +1802,10 @@ msgstr ""
 
 #: ID:170,
 msgid "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
+msgstr ""
+
+#: ID:273,
+msgid "No image encoder found for %s."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2114,10 +2142,6 @@ msgstr ""
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
-msgstr ""
-
-#: Control-ID:1067,
-msgid "Resolve conflicted subversion status on save"
 msgstr ""
 
 #: ID:8,#: ID:74,
@@ -2521,7 +2545,7 @@ msgid "Status of item in SVN"
 msgstr ""
 
 #: Control-ID:1130,
-msgid "Stop On Copy"
+msgid "Stop On Copy/Rename"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2670,6 +2694,10 @@ msgstr ""
 
 #: ID:78,
 msgid "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
+msgstr ""
+
+#: ID:88,
+msgid "The target folder is not empty!\nAre you sure you want to check out into that folder?"
 msgstr ""
 
 #: ID:81,
@@ -2873,7 +2901,7 @@ msgid "Use &other text block"
 msgstr ""
 
 #: ID:195,
-msgid "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use colons (',').\nExample: *.mylan.com, *.company.com"
+msgid "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use commas (',').\nExample: *.mylan.com, *.company.com"
 msgstr ""
 
 #: Control-ID:1064,
