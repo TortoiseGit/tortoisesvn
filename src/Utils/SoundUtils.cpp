@@ -66,19 +66,19 @@ void CSoundUtils::RegisterTSVNSounds()
 			CRegString errorkeyval = CRegString(errorkey);
 			if (((CString)(errorkeyval)).IsEmpty())
 			{
-				errorkeyval = apppath + _T("\\TortoiseSVNError.wav");
+				errorkeyval = apppath + _T("\\TortoiseSVN_Error.wav");
 			}
 			CString warnkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Warning\\") + name + _T("\\");
 			CRegString warnkeyval = CRegString(warnkey);
 			if (((CString)(warnkeyval)).IsEmpty())
 			{
-				warnkeyval = apppath + _T("\\TortoiseSVNWarning.wav");
+				warnkeyval = apppath + _T("\\TortoiseSVN_Warning.wav");
 			}
 			CString notificationkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Notification\\") + name + _T("\\");
 			CRegString notificationkeyval = CRegString(notificationkey);
 			if (((CString)(notificationkeyval)).IsEmpty())
 			{
-				notificationkeyval = apppath + _T("\\TortoiseSVNNotification.wav");
+				notificationkeyval = apppath + _T("\\TortoiseSVN_Notification.wav");
 			}
 		}		
 	}
