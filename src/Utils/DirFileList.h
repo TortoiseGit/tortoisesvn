@@ -17,6 +17,8 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 
+typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
+typedef int (__cdecl *STRINGCOMPAREFN)(const CString * elem1, const CString * elem2);
 
 /**
  * \ingroup Utils
@@ -54,7 +56,9 @@ public:
 	 */
 	void BuildList(const CString dirName, const BOOL recurse, const BOOL includeDirs);
 
+	void Sort(STRINGCOMPAREFN pfnCompare = Compare);
 
 protected:
+	static int __cdecl Compare(const CString * pstr1, const CString * pstr2);
 };
 

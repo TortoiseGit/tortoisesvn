@@ -55,3 +55,16 @@ void CDirFileList::BuildList(const CString dirName, const BOOL recurse, const BO
 	finder.Close();
 }
 
+int CDirFileList::Compare(const CString * pstr1, const CString * pstr2)
+{
+	ASSERT(pstr1);
+	ASSERT(pstr2);
+	return pstr1->Compare(*pstr2);
+}
+
+void CDirFileList::Sort(STRINGCOMPAREFN pfnCompare /*= Compare */)
+{
+	CString * prgstr = GetData();
+	qsort(prgstr,GetSize(),sizeof(CString),(GENERICCOMPAREFN)pfnCompare);
+}
+
