@@ -1029,40 +1029,59 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 		CLSID   encoderClsid;
 		GdiplusStartupInput gdiplusStartupInput;
 		ULONG_PTR           gdiplusToken;
-		GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL );
+		CString sErrormessage;
+		if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
 		{   
 			//HDC hMemDC = ::CreateCompatibleDC(dc.m_hDC);
 			//HBITMAP hbm = ::CreateCompatibleBitmap(dc.m_hDC, rect.Width(), rect.Height());
 			//::SelectObject(hMemDC, hbm);
 			//::BitBlt(hMemDC, 0, 0, rect.Width(), rect.Height(), dc.m_hDC, 0, 0, SRCCOPY);
 			Bitmap bitmap(hbm, NULL);
-
-			// Get the CLSID of the encoder.
-			int ret = 0;
-			if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
-				ret = GetEncoderClsid(L"image/png", &encoderClsid);
-			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
-				ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
-				ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
-				ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
-			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
-				ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+			if (bitmap.GetLastStatus()==Ok)
+			{
+				// Get the CLSID of the encoder.
+				int ret = 0;
+				if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
+					ret = GetEncoderClsid(L"image/png", &encoderClsid);
+				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
+					ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
+					ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
+					ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
+				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
+					ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+				else
+				{
+					tempfile += _T(".jpg");
+					ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+				}
+				if (ret >= 0)
+				{
+					CStringW tfile = CStringW(tempfile);
+					bitmap.Save(tfile, &encoderClsid, NULL);
+				}
+				else
+				{
+					sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CUtils::GetFileExtFromPath(tempfile));
+				}
+			}
 			else
 			{
-				tempfile += _T(".jpg");
-				ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+				sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
 			}
-			if (ret >= 0)
-			{
-				CStringW tfile = CStringW(tempfile);
-				bitmap.Save(tfile, &encoderClsid, NULL);
-			}
-		}   
-		GdiplusShutdown(gdiplusToken);
+			GdiplusShutdown(gdiplusToken);
+		}
+		else
+		{
+			sErrormessage.LoadString(IDS_REVGRAPH_ERR_GDIINIT);
+		}
 		dc.SelectObject(oldbm);
 		dc.DeleteDC();
+		if (!sErrormessage.IsEmpty())
+		{
+			CMessageBox::Show(m_hWnd, sErrormessage, _T("TortoiseSVN"), MB_ICONERROR);
+		}
 	} // if (GetSaveFileName(&ofn)==TRUE)
 	delete [] pszFilters;
 }
@@ -1074,7 +1093,8 @@ int CRevisionGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 
 	ImageCodecInfo* pImageCodecInfo = NULL;
 
-	GetImageEncodersSize(&num, &size);
+	if (GetImageEncodersSize(&num, &size)!=Ok)
+		return -1;
 	if(size == 0)
 		return -1;  // Failure
 
@@ -1082,18 +1102,19 @@ int CRevisionGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 	if(pImageCodecInfo == NULL)
 		return -1;  // Failure
 
-	GetImageEncoders(num, size, pImageCodecInfo);
-
-	for(UINT j = 0; j < num; ++j)
+	if (GetImageEncoders(num, size, pImageCodecInfo)==Ok)
 	{
-		if( wcscmp(pImageCodecInfo[j].MimeType, format) == 0 )
+		for(UINT j = 0; j < num; ++j)
 		{
-			*pClsid = pImageCodecInfo[j].Clsid;
-			free(pImageCodecInfo);
-			return j;  // Success
+			if( wcscmp(pImageCodecInfo[j].MimeType, format) == 0 )
+			{
+				*pClsid = pImageCodecInfo[j].Clsid;
+				free(pImageCodecInfo);
+				return j;  // Success
+			}
 		}
-	}
 
+	}
 	free(pImageCodecInfo);
 	return -1;  // Failure
 }

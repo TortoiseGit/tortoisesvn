@@ -1771,6 +1771,14 @@ BEGIN
     IDS_SCIEDIT_SELECTALL   "Select &All"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REVGRAPH_ERR_GDIINIT "GDI+ couldn't be initialized!"
+    IDS_REVGRAPH_ERR_NOBITMAP 
+                            "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+    IDS_REVGRAPH_ERR_NOENCODER "No image encoder found for %s."
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

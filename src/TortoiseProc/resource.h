@@ -520,6 +520,9 @@
 #define IDS_REVGRAPH_BOXREVISIONTITLE   4320
 #define IDS_REVGRAPH_BOXTOOLTIP         4340
 #define IDS_REVGRAPH_SAVEPIC            4350
+#define IDS_REVGRAPH_ERR_GDIINIT        4360
+#define IDS_REVGRAPH_ERR_NOBITMAP       4361
+#define IDS_REVGRAPH_ERR_NOENCODER      4362
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002
