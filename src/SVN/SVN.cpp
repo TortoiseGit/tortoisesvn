@@ -1068,15 +1068,8 @@ svn_error_t* SVN::logReceiver(void* baton,
 					copyfromrev.Format(_T(" (from %s:%ld)"), copyfrompath, log_item->copyfrom_rev);
 					cpaths += copyfromrev;
 				}
-				if (i == 500)
-				{
-					CString temp;
-					temp.Format(_T("\r\n.... and %d more ..."), sorted_paths->nelts - 500);
-					cpaths += temp;
-					break;
-				}
 			} // for (int i = 0; i < sorted_paths->nelts; i++) 
-		} // if (changed_paths)
+		} // if (ch_paths)
 	}
 	catch (CMemoryException * e)
 	{
