@@ -1,4 +1,8 @@
 - ADD: Option to resolve a conflicted file in the status list control. (Stefan)
+- CHG: When an entry from the log message history combo is selected, it isn't
+       inserted at the beginning of an existing text anymore but at the
+       current cursor location. A text which is selected is automatically
+       replaced with the history text. (Stefan)
 - CHG: When doing a merge dry-run, the window title in the progress dialog
        indicates that. (Stefan)
 - CHG: The 'recursive' checkbox is now disabled when the property page is

@@ -193,6 +193,13 @@ void CSciEdit::SetText(const CString& sText)
 	Call(SCI_SETTEXT, 0, (LPARAM)(LPCSTR)StringForControl(sText));
 }
 
+void CSciEdit::InsertText(const CString& sText, bool bNewLine)
+{
+	Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(sText));
+	if (bNewLine)
+		Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)"\n");
+}
+
 CString CSciEdit::GetText()
 {
 	LRESULT len = Call(SCI_GETLENGTH);

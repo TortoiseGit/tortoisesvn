@@ -67,7 +67,6 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 	ON_BN_CLICKED(IDC_FILLLOG, OnBnClickedFilllog)
 	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
-	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 END_MESSAGE_MAP()
 
@@ -524,22 +523,7 @@ void CLogPromptDlg::OnBnClickedFilllog()
 void CLogPromptDlg::OnCbnSelchangeOldlogs()
 {
 	if (m_OldLogs.GetString().Compare(m_cLogMessage.GetText().Left(m_OldLogs.GetString().GetLength()))!=0)
-		m_cLogMessage.SetText(m_OldLogs.GetString() + m_cLogMessage.GetText());
-	if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
-	else
-	{
-		if (!m_bBlock)
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
-}
-
-void CLogPromptDlg::OnCbnCloseupOldlogs()
-{
-	if (m_OldLogs.GetString().Compare(m_cLogMessage.GetText().Left(m_OldLogs.GetString().GetLength()))!=0)
-		m_cLogMessage.SetText(m_OldLogs.GetString() + m_cLogMessage.GetText());
+		m_cLogMessage.InsertText(m_OldLogs.GetString(), true);
 	if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);

@@ -75,7 +75,6 @@ protected:
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnCbnSelchangeOldlogs();
-	afx_msg void OnCbnCloseupOldlogs();
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_url;

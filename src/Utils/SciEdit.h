@@ -86,6 +86,12 @@ public:
 	 */
 	void		SetText(const CString& sText);
 	/**
+	 * The specified text is inserted at the cursor position. If a text is
+	 * selected, that text is replaced.
+	 * \param bNewLine if set to true, a newline is appended.
+	 */
+	void		InsertText(const CString& sText, bool bNewLine = false);
+	/**
 	 * Retreives the text in the scintilla control.
 	 */
 	CString		GetText(void);
