@@ -68,11 +68,11 @@ CBaseView::CBaseView()
 	{
 		m_apFonts[i] = NULL;
 	}
-	m_hConflictedIcon = (HICON)::LoadImage(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_CONFLICTEDLINE), 
+	m_hConflictedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICTEDLINE), 
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hRemovedIcon = (HICON)::LoadImage(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_REMOVEDLINE), 
+	m_hRemovedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REMOVEDLINE), 
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
-	m_hAddedIcon = (HICON)::LoadImage(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ADDEDLINE), 
+	m_hAddedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ADDEDLINE), 
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	EnableToolTips();
 	m_ToolTips.Create(this, TTS_ALWAYSTIP);

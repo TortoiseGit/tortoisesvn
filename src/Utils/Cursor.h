@@ -95,7 +95,7 @@ public:
 		HCURSOR NewCursor = ::LoadCursor(NULL, CursorName);
 		if(!NewCursor)
 			//try to load application cursor
-			NewCursor = ::LoadCursor(AfxGetInstanceHandle(), CursorName);
+			NewCursor = ::LoadCursor(AfxGetResourceHandle(), CursorName);
 		if(NewCursor)
 		{
 			m_hOldCursor = ::SetCursor(NewCursor);
