@@ -32,8 +32,6 @@ extern	CRegStdWORD			g_regLang;
 extern	DWORD				g_langid;
 extern	HINSTANCE			g_hResInst;
 extern	void				LoadLangDll();
-extern	stdstring			g_filepath;				///< holds the last file/dir path
-extern	svn_wc_status_kind	g_filestatus;			///< holds the corresponding status to the file/dir above
 
 // The actual OLE Shell context menu handler
 /**

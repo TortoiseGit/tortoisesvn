@@ -145,19 +145,17 @@ public:
 
 	FileStatusCacheEntry		invalidstatus;
 
-	bool TortoiseProcHasInvalidatedCache() const;
-
-
 private:
 	const FileStatusCacheEntry * BuildCache(LPCTSTR filepath, BOOL bIsFolder);
 	DWORD				GetTimeoutValue();
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
+	void				ClearCache();
 	
 	BOOL				m_bColumnProvider;
 	int					m_nCounter;
-	typedef std::map<stdstring, FileStatusCacheEntry> CacheMap;
-	CacheMap			m_cache;
-	DWORD				m_TimeStamp;
+	typedef std::map<stdstring, FileStatusCacheEntry> FileStatusMap;
+	FileStatusMap			m_cache;
+	DWORD					m_TimeStamp;
 	FileStatusCacheEntry	dirstat;
 	FileStatusCacheEntry	filestat;
 	
@@ -172,6 +170,10 @@ private:
 	HANDLE			hMutex;
 
 	HANDLE			m_hInvalidationEvent;
+
+	// The item we most recently supplied status for 
+	stdstring		m_mostRecentPath;
+	const FileStatusCacheEntry* m_mostRecentStatus;
 
 };
 

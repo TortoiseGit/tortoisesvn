@@ -169,55 +169,52 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	//if recursive is set in the registry then check directories recursive for status and show
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
-	//also check if we already have the status for the path so we don't have to get it again (small cache)
-	if (_tcscmp(pPath, g_filepath.c_str())==0 && !g_CachedStatus.TortoiseProcHasInvalidatedCache())
+
+	// Look in our caches for this item 
+	const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
+	if (s)
 	{
-		status = g_filestatus;
+		status = s->status;
 	}
 	else
 	{
+		// No cached status available 
+
+		// Check if we fetch icon overlays for this type of path
 		if (! g_ShellCache.IsPathAllowed(pPath))
 			return S_FALSE;
 
-		const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
-		if (s)
+		// since the dwAttrib param of the IsMemberOf() function does not
+		// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
+		// we have to check if the path is a folder ourselves :(
+		if (PathIsDirectory(pPath))
 		{
-			status = s->status;
-		}
-		else
-		{
-			// since the dwAttrib param of the IsMemberOf() function does not
-			// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
-			// we have to check if the path is a folder ourselves :(
-			if (PathIsDirectory(pPath))
+			if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
 			{
-				if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
+				if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
 				{
-					if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
-					{
-						status = svn_wc_status_normal;
-					}
-					else
-					{
-						const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
-						status = s->status;
-						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
-					}
+					status = svn_wc_status_normal;
 				}
 				else
 				{
-					status = svn_wc_status_unversioned;
+					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+					status = s->status;
+					status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 				}
-			} // if (PathIsDirectory(g_filepath))
+			}
 			else
 			{
-				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
-				status = s->status;
+				status = svn_wc_status_unversioned;
 			}
+		} // if (PathIsDirectory(g_filepath))
+		else
+		{
+			const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+			status = s->status;
 		}
-		g_filepath = pPath;
-		g_filestatus = status;
 	}
+
+	ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 
 	//the priority system of the shell doesn't seem to work as expected (or as I expected):
 	//as it seems that if one handler returns S_OK then that handler is used, no matter

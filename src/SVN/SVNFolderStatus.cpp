@@ -143,7 +143,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 
 	svn_pool_clear(this->m_pool);
 
-	m_cache.clear();
+	ClearCache();
 	
 	// strings pools are unused, now -> we may clear them
 	
@@ -238,10 +238,12 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	svn_pool_destroy (pool);				//free allocated memory
 	m_TimeStamp = GetTickCount();
 	const FileStatusCacheEntry * ret = NULL;
-	CacheMap::const_iterator iter;
+	FileStatusMap::const_iterator iter;
 	if ((iter = m_cache.find(filepath)) != m_cache.end())
 	{
 		ret = &iter->second;
+		m_mostRecentPath = filepath;
+		m_mostRecentStatus = ret;
 	}
 	ClearPool();
 	if (ret)
@@ -295,30 +297,50 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 	if (dwWaitResult == WAIT_OBJECT_0)
 	{
 		sCacheKey.assign(filepath);
-		CacheMap::const_iterator iter;
-		if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
+		FileStatusMap::const_iterator iter;
+		const FileStatusCacheEntry *retVal;
+
+		if(sCacheKey == m_mostRecentPath)
+		{
+			// We've hit the same result as we were asked for last time
+			ATLTRACE2(_T("fast cache hit for %s\n"), filepath);
+			retVal = m_mostRecentStatus;
+		}
+		else if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
 		{
 			ATLTRACE2(_T("cache found for %s\n"), filepath);
+			retVal = &iter->second;
+			m_mostRecentStatus = retVal;
+			m_mostRecentPath = sCacheKey;
+		}
+		else
+		{
+			retVal = NULL;
+		}
+
+		if(retVal != NULL)
+		{
+			// We found something in a cache - check that the cache is not timed-out or force-invalidated
 			DWORD now = GetTickCount();
 
-//BUGBUG? WGD - I am concerned about releasing this mutex here, before we've actually
-//read the value from the cache.  We're returning a pointer into data within the cache, and 
-//it seems to me that things might move around between us letting go of the mutex and the
-//caller of this function actually using the data.
-// I suspect that we should really enter and leave the mutex at a slightly higher-level up the call-chain
-			const FileStatusCacheEntry *retVal = &iter->second;
 			if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
 			{
 				// Cache is timed-out
-				m_cache.clear();
+				ClearCache();
 				retVal = NULL;
 			}
-			else if(TortoiseProcHasInvalidatedCache())
+			else if(WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0)
 			{
 				// TortoiseProc has just done something which has invalidated the cache
-				m_cache.clear();
+				ClearCache();
 				retVal = NULL;
 			}
+
+			//BUGBUG? WGD - I am concerned about releasing this mutex here, before we've actually
+			//read the value from the cache.  We're returning a pointer into data within the cache, and 
+			//it seems to me that things might move around between us letting go of the mutex and the
+			//caller of this function actually using the data.
+			// I suspect that we should really enter and leave the mutex at a slightly higher-level up the call-chain
 			ReleaseMutex(hMutex);
 			return retVal;
 		}
@@ -333,7 +355,7 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	if ((status->entry)&&(g_ShellCache.IsRecursive())&&(status->entry->kind == svn_node_dir))
 		return;
 
-	CacheMap * cache = &Stat->m_cache;
+	FileStatusMap * cache = &Stat->m_cache;
 	FileStatusCacheEntry s;
 	if ((status)&&(status->entry))
 	{
@@ -358,8 +380,7 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	if (path)
 	{
 		char osPath[MAX_PATH+1];
-		UINT len = strlen(path);
-		for (UINT i=0; i<len; i++)
+		for (UINT i=0; path[i] != '\0'; i++)
 		{
 			if (path[i] =='/')
 				osPath[i] = '\\';
@@ -374,7 +395,9 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	(*cache)[str] = s;
 }
 
-bool SVNFolderStatus::TortoiseProcHasInvalidatedCache() const
+void SVNFolderStatus::ClearCache()
 {
-	return WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0;
+	m_cache.clear();
+	m_mostRecentStatus = NULL;
+	m_mostRecentPath.clear();
 }
