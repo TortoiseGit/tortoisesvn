@@ -243,7 +243,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				// Let "Open" be the very first entry, like in Explorer
 				if (GetRevision().IsHead())
 				{
-					if (!(bFolder && url.Left(4).CompareNoCase(_T("http")) != 0))
+					if (!bFolder && (url.Left(4).CompareNoCase(_T("http")) == 0))
 					{
 						temp.LoadString(IDS_REPOBROWSE_OPEN);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);		// "open"
