@@ -55,6 +55,17 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 CLogDlg::~CLogDlg()
 {
 	m_tempFileList.DeleteAllFiles();
+	for (INT_PTR i=0; i<m_arLogPaths.GetCount(); ++i)
+	{
+		LogChangedPathArray * patharray = m_arLogPaths.GetAt(i);
+		for (INT_PTR j=0; j<patharray->GetCount(); ++j)
+		{
+			delete patharray->GetAt(j);
+		}
+		patharray->RemoveAll();
+		delete patharray;
+	}
+	m_arLogPaths.RemoveAll();
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -174,7 +185,7 @@ BOOL CLogDlg::OnInitDialog()
 	return FALSE;
 }
 
-void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
+void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths)
 {
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(" "));
@@ -185,22 +196,23 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 	m_LogMsgCtrl.DeleteAllItems();
 	m_LogMsgCtrl.SetRedraw(FALSE);
 	int line = 0;
-//	CString temp = _T("");
-	int curpos = 0;
-	int curposold = 0;
-	CString linestr;
-	while (paths.Find('\r', curpos)>=0)
+	CString sLine;
+	if (paths)
 	{
-		curposold = curpos;
-		curpos = paths.Find('\r', curposold);
-		linestr = paths.Mid(curposold, curpos-curposold);
-		linestr.Trim(_T("\n\r"));
-		m_LogMsgCtrl.InsertItem(line++, linestr);
-		curpos++;
-	} // while (msg.Find('\n', curpos)>=0) 
-	linestr = paths.Mid(curpos);
-	linestr.Trim(_T("\n\r"));
-	m_LogMsgCtrl.InsertItem(line++, linestr);
+		for (INT_PTR i=0; i<paths->GetCount(); ++i)
+		{
+			LogChangedPath * changedpath = paths->GetAt(i);
+			sLine = changedpath->sAction;
+			sLine += _T(" : ") + changedpath->sPath;
+			if (changedpath->lCopyFromRev)
+			{
+				CString temp;
+				temp.Format(_T(" (from %s:%ld)"), changedpath->sCopyFromPath, changedpath->lCopyFromRev);
+				sLine += temp;
+			}
+			m_LogMsgCtrl.InsertItem(line++, sLine);
+		}
+	}
 
 	m_LogMsgCtrl.SetColumnWidth(0,LVSCW_AUTOSIZE_USEHEADER);
 	m_LogMsgCtrl.SetRedraw();
@@ -209,6 +221,19 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 void CLogDlg::OnBnClickedGetall()
 {
 	UpdateData();
+
+	for (INT_PTR i=0; i<m_arLogPaths.GetCount(); ++i)
+	{
+		LogChangedPathArray * patharray = m_arLogPaths.GetAt(i);
+		for (INT_PTR j=0; j<patharray->GetCount(); ++j)
+		{
+			delete patharray->GetAt(j);
+		}
+		patharray->RemoveAll();
+		delete patharray;
+	}
+	m_arLogPaths.RemoveAll();
+
 	m_LogList.DeleteAllItems();
 	m_arLogMessages.RemoveAll();
 	m_arLogPaths.RemoveAll();
@@ -245,7 +270,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges, BOOL copies)
+BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies)
 {
 	CString temp;
 	int found = 0;
@@ -898,6 +923,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		if (s < 0)
 			return;
 		long rev = m_arRevs.GetAt(s);
+		LogChangedPath * changedpath = m_arLogPaths.GetAt(s)->GetAt(selIndex);
 		//entry is selected, now show the popup menu
 		CMenu popup;
 		if (popup.CreatePopupMenu())
@@ -905,12 +931,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CString temp;
 			if (m_LogMsgCtrl.GetSelectedCount() == 1)
 			{
-				temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-				temp = temp.Left(temp.Find(' '));
 				CString t, tt;
 				t.LoadString(IDS_SVNACTION_ADD);
 				tt.LoadString(IDS_SVNACTION_DELETE);
-				if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
+				if ((rev > 1)&&(changedpath->sAction.Compare(t)!=0)&&(changedpath->sAction.Compare(tt)!=0))
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
@@ -1298,7 +1322,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 		bool bFound = FALSE;
 
 		int i;
-		for (i = this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++)
+		for (i = this->m_nSearchIndex; i<m_LogList.GetItemCount()&&!bFound; i++)
 		{
 			if (bMatchCase)
 			{
@@ -1306,24 +1330,48 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				{
 					bFound = TRUE;
 					break;
-				} // if (m_arLogMessages.GetAt(i).Find(FindText) >= 0) 
-				if (m_arLogPaths.GetAt(i).Find(FindText) >= 0)
-				{
-					bFound = TRUE;
-					break;
 				}
-			} // if (bMatchCase) 
+				LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+				{
+					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+					if (cpath->sCopyFromPath.Find(FindText)>=0)
+					{
+						bFound = TRUE;
+						break;
+					}
+					if (cpath->sPath.Find(FindText)>=0)
+					{
+						bFound = TRUE;
+						break;
+					}
+				}
+			}
 			else
 			{
 				CString msg = m_arLogMessages.GetAt(i);
-				msg += m_arLogPaths.GetAt(i);
 				msg = msg.MakeLower();
 				CString find = FindText.MakeLower();
 				if (msg.Find(find) >= 0)
 				{
 					bFound = TRUE;
 					break;
-				} // if (msg.Find(FindText) >= 0) 
+				}
+				LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+				{
+					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+					if (cpath->sCopyFromPath.MakeLower().Find(find)>=0)
+					{
+						bFound = TRUE;
+						break;
+					}
+					if (cpath->sPath.MakeLower().Find(find)>=0)
+					{
+						bFound = TRUE;
+						break;
+					}
+				}
 			} 
 		} // for (int i=this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++) 
 		if (bFound)
@@ -1563,7 +1611,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		if (pNMLV->uNewState & LVIS_SELECTED)
 		{
 			if (m_LogList.GetSelectedCount() > 1)
-				FillLogMessageCtrl(_T(" "), _T(" "));
+				FillLogMessageCtrl(_T(" "), NULL);
 			else
 				FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
 			UpdateData(FALSE);

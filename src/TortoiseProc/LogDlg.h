@@ -82,7 +82,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges, BOOL copies);
+	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies);
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -104,7 +104,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
-	void	FillLogMessageCtrl(const CString& msg, const CString& paths);
+	void	FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths);
 	BOOL	StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2);
 	void	DoDiffFromLog(int selIndex, long rev);
 
@@ -134,7 +134,7 @@ private:
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
 	CStringArray m_arLogMessages;
-	CStringArray m_arLogPaths;
+	CArray<LogChangedPathArray*, LogChangedPathArray*> m_arLogPaths;
 	CDWordArray	m_arDates;
 	CStringArray m_arAuthors;
 	CDWordArray m_arFileChanges;

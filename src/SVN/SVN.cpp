@@ -38,8 +38,6 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-CString	SVN::cpaths;
-
 SVN::SVN(void)
 {
 	memset (&m_ctx, 0, sizeof (m_ctx));
@@ -132,7 +130,7 @@ CString SVN::CheckConfigFile()
 
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
-BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges, BOOL copies) {return TRUE;};
+BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
 
@@ -856,7 +854,6 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 
 BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
 {
-	cpaths.Preallocate(10000);		//allocate 10kB memory
 	Err = svn_client_log (MakePathArray(pathlist), 
 						revisionStart, 
 						revisionEnd, 
@@ -1104,6 +1101,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 	msg_native = CUnicodeUtils::GetUnicode(msg);
 	int filechanges = 0;
 	BOOL copies = FALSE;
+	LogChangedPathArray * arChangedPaths = new LogChangedPathArray;
 	try
 	{
 		if (ch_paths)
@@ -1115,60 +1113,56 @@ svn_error_t* SVN::logReceiver(void* baton,
 			sDeleteStatus.LoadString(IDS_SVNACTION_DELETE);
 			apr_array_header_t *sorted_paths;
 			sorted_paths = svn_sort__hash(ch_paths, svn_sort_compare_items_as_paths, pool);
-			cpaths = _T("");
-			if (cpaths.GetAllocLength() < (sorted_paths->nelts * MAX_PATH))
-				cpaths.Preallocate(sorted_paths->nelts * MAX_PATH);
 			filechanges = sorted_paths->nelts;
 			for (int i = 0; i < sorted_paths->nelts; i++)
 			{
+				LogChangedPath * changedpath = new LogChangedPath;
 				svn_sort__item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_sort__item_t));
 				CString path_native;
 				const char *path = (const char *)item->key;
 				svn_log_changed_path_t *log_item = (svn_log_changed_path_t *)apr_hash_get (ch_paths, item->key, item->klen);
 				path_native = MakeUIUrlOrPath(path);
-				if (!cpaths.IsEmpty())
-					cpaths += _T("\r\n");
+				changedpath->sPath = path_native;
 				switch (log_item->action)
 				{
 				case 'M':
-					cpaths += sModifiedStatus;
+					changedpath->sAction = sModifiedStatus;
 					break;
 				case 'R':
-					cpaths += sReplacedStatus;
+					changedpath->sAction = sReplacedStatus;
 					break;
 				case 'A':
-					cpaths += sAddStatus;
+					changedpath->sAction = sAddStatus;
 					break;
 				case 'D':
-					cpaths += sDeleteStatus;
+					changedpath->sAction = sDeleteStatus;
 				default:
 					break;
-				} // switch (temppath->action)
-				cpaths += _T("  ");
-				cpaths += path_native;
+				}
 				if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
 				{
-					CString copyfrompath = MakeUIUrlOrPath(log_item->copyfrom_path);
-					CString copyfromrev;
-					copyfromrev.Format(_T(" (from %s:%ld)"), copyfrompath, log_item->copyfrom_rev);
-					cpaths += copyfromrev;
+					changedpath->sCopyFromPath = MakeUIUrlOrPath(log_item->copyfrom_path);
+					changedpath->lCopyFromRev = log_item->copyfrom_rev;
 					copies = TRUE;
 				}
+				else
+				{
+					changedpath->lCopyFromRev = 0;
+				}
+				arChangedPaths->Add(changedpath);
 			} // for (int i = 0; i < sorted_paths->nelts; i++) 
 		} // if (ch_paths)
 	}
 	catch (CMemoryException * e)
 	{
-		cpaths = _T("Memory Exception!");
 		e->Delete();
 	}
-	cpaths.FreeExtra();
 #pragma warning(push)
 #pragma warning(disable: 4127)	// conditional expression is constant
 	SVN_ERR (svn->cancel(baton));
 #pragma warning(pop)
 
-	if (svn->Log(rev, author_native, date_native, msg_native, cpaths, time_temp, filechanges, copies))
+	if (svn->Log(rev, author_native, date_native, msg_native, arChangedPaths, time_temp, filechanges, copies))
 	{
 		return error;
 	}

@@ -63,7 +63,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	return TRUE;
 }
 
-BOOL CBlame::Log(LONG revision, const CString& /*author*/, const CString& /*date*/, const CString& message, const CString& /*cpaths*/, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/)
+BOOL CBlame::Log(LONG revision, const CString& /*author*/, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/)
 {
 	m_progressDlg.SetProgress(m_highestrev - revision, m_highestrev);
 	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
@@ -74,6 +74,10 @@ BOOL CBlame::Log(LONG revision, const CString& /*author*/, const CString& /*date
 		m_saveLog.Write(&length, sizeof(int));
 		m_saveLog.Write((LPCSTR)msgutf8, length);
 	}
+	for (INT_PTR i=0; i<cpaths->GetCount(); ++i)
+		delete cpaths->GetAt(i);
+	cpaths->RemoveAll();
+	delete cpaths;
 	return TRUE;
 }
 
