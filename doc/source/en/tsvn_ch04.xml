@@ -216,11 +216,9 @@
 			is filled in by TortoiseSVN.
 			</para>
 			<para>
-			The Import Dialog shows you files and folders that match the temporary
-			include / exclude patterns from the Main Settings Page. Files that you <action>check</action>
-			will be deleted prior to importing them into the repository and excluded from version control.
-			Make sure that you check all the compiler or IDE generated files. These should normally not be versioned.
-			Uncheck all the files that you want under version control.
+				<note>Files which match the exclude pattern are <emphasis>not</emphasis>
+				imported.
+				</note>
 			</para>
 			<para>
 			As soon as you press the OK button TortoiseSVN imports the

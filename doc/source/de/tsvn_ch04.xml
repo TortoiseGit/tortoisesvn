@@ -208,13 +208,9 @@
 			Meldung jedoch nach belieben ändern.
 			</para>
 			<para>
-			Der Import-Dialog zeigt Ihnen Dateien und Ordner, welche auf das
-			Muster der temporären Dateien passen. Dieses Muster können Sie im
-			Einstellungs-Dialog ansehen und ändern. Dateien welche Sie auswählen
-			werden vor dem Import gelöscht! Stellen Sie sicher dass Sie alle
-			von einem Kompiler erzeugten Dateien auswählen, da solche Dateien
-			nicht unter Versionskontrolle gehören und nur unnötig die Datenbank
-			vergrössern würden.
+				<note>Dateien, welche auf das Muster der temporären Dateien passen
+				werden <emphasis>nicht</emphasis> importiert.
+				</note>
 			</para>
 			<para>
 			Sobald Sie auf den OK-Knopf klicken beginnt TortoiseSVN die Daten
