@@ -37,6 +37,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_Revision(_T("HEAD"))
 	, m_RevisionEnd(0)
 {
+	m_bCloseOnEnd = FALSE;
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -625,7 +626,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE))
+	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE) ||
+		pDlg->m_bCloseOnEnd)
 		pDlg->PostMessage(WM_COMMAND, 1, (LPARAM)pDlg->GetDlgItem(IDOK)->m_hWnd);
 	return 0;
 }

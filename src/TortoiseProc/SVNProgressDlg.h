@@ -149,6 +149,7 @@ public:			//need to be public for the thread to access
 	BOOL		m_IsTempFile;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
+	BOOL		m_bCloseOnEnd;
 	CString		m_sModName;
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);
