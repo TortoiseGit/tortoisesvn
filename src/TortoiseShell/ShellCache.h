@@ -25,6 +25,7 @@
 
 #define REGISTRYTIMEOUT 2000
 #define DRIVETYPETIMEOUT 300000		// 5 min
+#define NUMBERFMTTIMEOUT 300000
 class ShellCache
 {
 public:
@@ -43,6 +44,7 @@ public:
 		driveticker = recursiveticker;
 		drivetypeticker = recursiveticker;
 		langticker = recursiveticker;
+		columnrevformatticker = langticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
@@ -50,6 +52,17 @@ public:
 		{
 			drivetypecache[i] = -1;
 		}
+		TCHAR szBuffer[5];
+		columnrevformatticker = GetTickCount();
+		ZeroMemory(&columnrevformatticker, sizeof(NUMBERFMT));
+		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], sizeof(szDecSep));
+		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], sizeof(szThousandsSep));
+		columnrevformat.lpDecimalSep = szDecSep;
+		columnrevformat.lpThousandSep = szThousandsSep;
+		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SGROUPING, &szBuffer[0], sizeof(szBuffer));
+		columnrevformat.Grouping = _ttoi(szBuffer);
+		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
+		columnrevformat.NegativeOrder = _ttoi(szBuffer);
 	}
 	DWORD BlockStatus()
 	{
@@ -175,7 +188,24 @@ public:
 		} // if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
 		return (langid);
 	}
-
+	NUMBERFMT * GetNumberFmt()
+	{
+		if ((GetTickCount() - NUMBERFMTTIMEOUT) > columnrevformatticker)
+		{
+			TCHAR szBuffer[5];
+			columnrevformatticker = GetTickCount();
+			ZeroMemory(&columnrevformatticker, sizeof(NUMBERFMT));
+			GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], sizeof(szDecSep));
+			GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], sizeof(szThousandsSep));
+			columnrevformat.lpDecimalSep = szDecSep;
+			columnrevformat.lpThousandSep = szThousandsSep;
+			GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SGROUPING, &szBuffer[0], sizeof(szBuffer));
+			columnrevformat.Grouping = _ttoi(szBuffer);
+			GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
+			columnrevformat.NegativeOrder = _ttoi(szBuffer);
+		} // if ((GetTickCount() - NUMBERFMTTIMEOUT) > columnrevformatticker)
+		return &columnrevformat;
+	}
 private:
 	void DriveValid()
 	{
@@ -206,6 +236,10 @@ private:
 	DWORD layoutticker;
 	DWORD langticker;
 	DWORD blockstatusticker;
+	DWORD columnrevformatticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];
+	NUMBERFMT columnrevformat;
+	TCHAR szDecSep[5];
+	TCHAR szThousandsSep[5];
 };

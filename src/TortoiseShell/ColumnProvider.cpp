@@ -24,6 +24,7 @@
 #include <string>
 #include <Shlwapi.h>
 #include <wininet.h>
+#include <atlexcept.h>
 
 // If this is set the SVN columns will always show if the current directory contains SVN content
 // Otherwise the user will have to add the columns via the "more..." button
@@ -35,11 +36,31 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR|SHCOLSTATE_ONBYDEFAULT;
 const static int ColumnFlags = SHCOLSTATE_TYPE_STR|SHCOLSTATE_SECONDARYUI;
 #endif
 
+// Defines that revision numbers occupy at most MAX_REV_STRING_LEN characters.
+// There are Perforce repositories out there that have several 100,000 revs.
+// So, don't be too restrictive by limiting this to 6 digits + 1 seperator, 
+// for instance. 
+//
+// Because shorter strings will be extended to have exactly MAX_REV_STRING_LEN 
+// characters, large numbers will produce large strings. These, in turn, will
+// affect column autosizing. This setting is a reasonable compromise.
+//
+// Max rev correctly sorted: 99,999,999 for MAX_REV_STRING_LEN == 10
+
+#define MAX_REV_STRING_LEN 10
+
 // IColumnProvider members
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
 	if (dwIndex > 4)
 		return S_FALSE;
+
+	// Read and select the system's locale settings.
+	// There seems to be no easy way to update this info (after the user
+	// changed her settings). Hence, we set it once and for all.
+
+	setlocale (LC_ALL, "");
+
 	LoadLangDll();
 	wide_string ws;
 	switch (dwIndex)
@@ -68,7 +89,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 		case 1:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
 			psci->scid.pid = dwIndex;
-			psci->vt = VT_I8;
+			psci->vt = VT_BSTR;
 			psci->fmt = LVCFMT_RIGHT;
 			psci->cChars = 15;
 			psci->csFlags = SHCOLSTATE_TYPE_INT | SHCOLSTATE_ONBYDEFAULT;
@@ -155,7 +176,10 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		std::string path = WideToUTF8(pscd->wszFile);
 #endif
 
-		TCHAR buf[MAX_PATH];
+		// reserve for the path + trailing \0
+
+		TCHAR buf[MAX_PATH+1];
+		ZeroMemory(buf, MAX_PATH);
 		switch (pscid->pid) 
 		{
 			case 0:
@@ -175,14 +199,26 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 					GetColumnStatus(path);
 					if (columnrev >= 0)
 					{
-						V_VT(pvarData) = VT_I8;
-						V_I8(pvarData) = columnrev;
-						ReleaseMutex(hMutex);
-						return S_OK;
-					} // if (columnrev >= 0)
-					buf[0] = '\0';
-					szInfo = buf;
+						// First, have to convert the revision number into a string.
+						// Allocate a "sufficient" number of bytes for that.
+						// (3 decimals per 8 bits + 1 for the trailing \0)
+
+						TCHAR plainNumber[sizeof(columnrev)* 3 + 1];
+						_i64tot (columnrev, plainNumber, 10);
+
+						if (GetNumberFormat (LOCALE_USER_DEFAULT, 0, 
+											 plainNumber, g_ShellCache.GetNumberFmt(), 
+											 buf, MAX_PATH) != 0)
+						{
+							// output:
+							// write leading spaces followed by the previously formatted number string
+							size_t spacesToAdd = max(0, (int)MAX_REV_STRING_LEN - (int)_tcslen (buf));
+							std::swap (szInfo, stdstring (spacesToAdd, _T(' ')) + buf);
+						}
+						// else: szInfo simply remains empty
+					}
 				} // if (dwWaitResult == WAIT_OBJECT_0)
+
 				ReleaseMutex(hMutex);
 				break;
 			case 2:
