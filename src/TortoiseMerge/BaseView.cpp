@@ -645,6 +645,8 @@ void CBaseView::ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar /*= TRUE*/)
 {
 	if (m_nTopLine != nNewTopLine)
 	{
+		if (nNewTopLine < 0)
+			nNewTopLine = 0;
 		int nScrollLines = m_nTopLine - nNewTopLine;
 		m_nTopLine = nNewTopLine;
 		CRect rcScroll;

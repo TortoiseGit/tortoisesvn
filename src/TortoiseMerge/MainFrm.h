@@ -104,6 +104,8 @@ public:
 	BOOL			m_bOneWay;
 	CDiffData		m_Data;
 	BOOL			LoadViews(BOOL bReload = TRUE);
+	afx_msg void OnViewLinedown();
+	afx_msg void OnViewLineup();
 };
 
 

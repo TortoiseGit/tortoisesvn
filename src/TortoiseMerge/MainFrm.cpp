@@ -59,6 +59,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_COMMAND(ID_EDIT_FINDNEXT, OnEditFindnext)
 	ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
+	ON_COMMAND(ID_VIEW_LINEDOWN, OnViewLinedown)
+	ON_COMMAND(ID_VIEW_LINEUP, OnViewLineup)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -976,6 +978,28 @@ void CMainFrame::OnEditFindnext()
 			m_nSearchIndex = 0;
 		}
 	} // if ((m_pwndLeftView)&&(m_pwndLeftView->m_arDiffLines)) 
+}
+
+void CMainFrame::OnViewLinedown()
+{
+	if (m_pwndLeftView)
+		m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine+1);
+	if (m_pwndRightView)
+		m_pwndRightView->ScrollToLine(m_pwndRightView->m_nTopLine+1);
+	if (m_pwndBottomView)
+		m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine+1);
+	m_wndLocatorBar.Invalidate();
+}
+
+void CMainFrame::OnViewLineup()
+{
+	if (m_pwndLeftView)
+		m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine-1);
+	if (m_pwndRightView)
+		m_pwndRightView->ScrollToLine(m_pwndRightView->m_nTopLine-1);
+	if (m_pwndBottomView)
+		m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine-1);
+	m_wndLocatorBar.Invalidate();
 }
 
 void CMainFrame::OnFileReload()
