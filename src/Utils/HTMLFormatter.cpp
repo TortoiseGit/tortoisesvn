@@ -246,7 +246,7 @@ CSize CHTMLFormatter::DrawHTML(CDC * pDC, CRect rect, CString str, LOGFONT font,
 				{
 				case _T('>'):
 					i --;
-					break;
+					//intended fallthrough!
 				case _T('%'):
 					//Gets the real number from the string
 					if (!strTag.IsEmpty())
