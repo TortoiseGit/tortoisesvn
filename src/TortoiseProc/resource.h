@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -279,6 +279,7 @@
 #define IDC_RADIO1                      1182
 #define IDC_COPYHEAD                    1182
 #define IDC_COPYWC                      1183
+#define IDC_AUTOCOMPLETION              1184
 #define IDS_REPO_BROWSEREV              1190
 #define IDS_REPO_BROWSEURL              1191
 #define IDS_SSL_CERTIFICATETYPE         1200
@@ -560,7 +561,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        186
 #define _APS_NEXT_COMMAND_VALUE         32779
-#define _APS_NEXT_CONTROL_VALUE         1184
+#define _APS_NEXT_CONTROL_VALUE         1185
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -33,11 +33,11 @@ IMPLEMENT_DYNAMIC(CSetMainPage, CPropertyPage)
 CSetMainPage::CSetMainPage()
 	: CPropertyPage(CSetMainPage::IDD)
 	, m_sTempExtensions(_T(""))
-	//, m_bAutoClose(FALSE)
 	, m_sDefaultLogs(_T(""))
 	, m_bShortDateFormat(FALSE)
 	, m_bLastCommitTime(FALSE)
 	, m_bCheckNewer(TRUE)
+	, m_bAutocompletion(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
@@ -48,6 +48,7 @@ CSetMainPage::CSetMainPage()
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
+	m_regAutocompletion = CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -70,6 +71,7 @@ void CSetMainPage::SaveData()
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
+	m_regAutocompletion = m_bAutocompletion;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -94,6 +96,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
+	DDX_Check(pDX, IDC_AUTOCOMPLETION, m_bAutocompletion);
 }
 
 
@@ -109,6 +112,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
+	ON_BN_CLICKED(IDC_AUTOCOMPLETION, OnBnClickedAutocompletion)
 END_MESSAGE_MAP()
 
 
@@ -143,6 +147,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bCheckNewer = m_regCheckNewer;
+	m_bAutocompletion = m_regAutocompletion;
 
 	for (int i=0; i<m_cAutoClose.GetCount(); ++i)
 		if (m_cAutoClose.GetItemData(i)==m_dwAutoClose)
@@ -265,6 +270,11 @@ void CSetMainPage::OnBnClickedCommitfiletimes()
 }
 
 void CSetMainPage::OnBnClickedChecknewerversion()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedAutocompletion()
 {
 	SetModified();
 }

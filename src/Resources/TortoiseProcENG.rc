@@ -417,6 +417,9 @@ BEGIN
     COMBOBOX        IDC_AUTOCLOSECOMBO,108,106,176,75,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Progress dialog:",IDC_STATIC,13,109,87,8
+    CONTROL         "Use autocompletion of filepaths and keywords",
+                    IDC_AUTOCOMPLETION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    13,193,271,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217

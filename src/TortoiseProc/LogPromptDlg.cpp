@@ -395,7 +395,8 @@ UINT CLogPromptDlg::StatusThread()
 	m_bThreadRunning = TRUE;	// so the main thread knows that this thread is still running
 	m_bRunThread = TRUE;		// if this is set to FALSE, the thread should stop
 	m_bBlock = FALSE;
-	GetAutocompletionList();
+	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE)==TRUE)
+		GetAutocompletionList();
 	// we have the list, now signal the main thread about it
 	if (m_bRunThread)
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
