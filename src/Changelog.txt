@@ -3,6 +3,9 @@ CVS
        as a valid repo path in the repository browser. 
        Fixes Issue 56. (Stefan)
 - BUG: Fixed issue 54. (Stefan)
+- BUG: The dependency of SHGetFolderPathA in shell32.dll
+       is removed so TSVN works again on NT4/Win98. (Stefan)
+- BUG: renaming didn't work. (Stefan)
 - CHG: Some icons are changed, some new. (Lübbe)
 - CHG: If a file is deleted from the filesystem but not
        removed from version control the icon overlay
