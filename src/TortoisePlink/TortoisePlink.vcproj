@@ -49,7 +49,7 @@
 				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="1"/>
+				SubSystem="2"/>
 			<Tool
 				Name="VCMIDLTool"
 				TypeLibraryName=".\Debug/TortoisePlink.tlb"/>
@@ -86,7 +86,7 @@
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;HAVE_ERRNO_H;RELEASE=&quot;0.53&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;HAVE_ERRNO_H;RELEASE=&quot;0.53&quot;"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="TRUE"
@@ -110,7 +110,7 @@
 				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="1"/>
+				SubSystem="2"/>
 			<Tool
 				Name="VCMIDLTool"
 				TypeLibraryName=".\Release/TortoisePlink.tlb"/>
@@ -123,7 +123,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
-				Culture="1030"/>
+				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool

@@ -15,6 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+//
 
 #include "LoginDialog.h"
 #include "resource.h"
@@ -46,7 +47,6 @@ private:
    friend BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 };
 
-
 BOOL DoLoginDialog(char* password, int maxlen, const char* prompt, BOOL is_pw)
 {
    g_hmodThisDll = GetModuleHandle(0);
@@ -57,7 +57,6 @@ BOOL DoLoginDialog(char* password, int maxlen, const char* prompt, BOOL is_pw)
       strncpy(password, passwordstr.c_str(), maxlen);
    return res;
 }
-
 
 BOOL CALLBACK LoginDialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -114,7 +113,6 @@ void LoginDialog::CreateModule(void)
 
 }
 
-
 bool LoginDialog::DoLoginDialog(std::string& password, const std::string& prompt, bool is_pw)
 {
    LoginDialog *pDlg = new LoginDialog(prompt, is_pw);
@@ -129,7 +127,6 @@ bool LoginDialog::DoLoginDialog(std::string& password, const std::string& prompt
    return ret;
 }
 
-
 std::string LoginDialog::GetPassword()
 {
    char szTxt[256];
@@ -142,7 +139,6 @@ void LoginDialog::RetrieveValues()
 {
    myPassword = GetPassword();
 }
-
 
 BOOL IsWinNT()
 {
@@ -157,8 +153,6 @@ BOOL IsWinNT()
    }
    return FALSE;
 }
-
-
 
 HWND GetParentHwnd()
 {
