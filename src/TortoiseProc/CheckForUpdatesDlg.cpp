@@ -151,11 +151,11 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 				BOOL bNewer = FALSE;
 				if (major > TSVN_VERMAJOR)
 					bNewer = TRUE;
-				else if (minor > TSVN_VERMINOR)
+				else if ((minor > TSVN_VERMINOR)&&(major == TSVN_VERMAJOR))
 					bNewer = TRUE;
-				else if (micro > TSVN_VERMICRO)
+				else if ((micro > TSVN_VERMICRO)&&(minor == TSVN_VERMINOR)&&(major == TSVN_VERMAJOR))
 					bNewer = TRUE;
-				else if (build > TSVN_VERBUILD)
+				else if ((build > TSVN_VERBUILD)&&(micro == TSVN_VERMICRO)&&(minor == TSVN_VERMINOR)&&(major == TSVN_VERMAJOR))
 					bNewer = TRUE;
 
 				if (_ttoi(ver)!=0)
