@@ -1020,6 +1020,8 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 {
 	int nLine = GetLineFromPoint(point);
 
+	if (!m_arLineStates)
+		return;
 	if ((nLine <= m_arLineStates->GetCount())&&(nLine > m_nTopLine))
 	{
 		int nIndex = nLine - 1;
