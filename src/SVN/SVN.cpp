@@ -363,11 +363,7 @@ LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse)
 
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 	{
-// BUGBUG - I don't think it's correct to do this for every item - you get one 'Completed at rev xxx' line for
-// each item which has been committed.
-		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i].GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
-
+		Notify(_T(""), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 		return commit_info->revision;
 	}
 
