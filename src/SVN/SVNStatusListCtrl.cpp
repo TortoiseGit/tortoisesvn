@@ -196,6 +196,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 
 		CString strLine = _T("");
 		const TCHAR * strbuf = NULL;
+		m_sURL.Empty();
 
 		CStdioFile file(sFilePath, CFile::typeBinary | CFile::modeRead);
 		// for every selected file/folder
@@ -278,7 +279,10 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 						CUtils::Unescape((char *)s->entry->url);
 						entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
 					}
-					m_sURL = entry->url;
+					if (m_sURL.IsEmpty())
+						m_sURL = entry->url;
+					else
+						m_sURL.LoadString(IDS_STATUSLIST_MULTIPLETARGETS);
 				}
 				m_arStatusArray.Add(entry);
 				if ((SVNStatus::GetMoreImportant(s->text_status, s->prop_status) == svn_wc_status_unversioned)&&(PathIsDirectory(strbuf)))

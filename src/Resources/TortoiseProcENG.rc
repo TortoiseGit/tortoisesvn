@@ -1436,6 +1436,11 @@ BEGIN
                             "A newline separated list of paths for which icon overlays are shown.\nIf you add an ""*"" char at the end of a path, then all files and subdirs inside that path are included too."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_STATUSLIST_MULTIPLETARGETS "(multiple targets selected)"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -190,7 +190,7 @@ public:
 
 	LONG						m_nTargetCount;		///< number of targets in the file passed to GetStatus()
 
-	CString						m_sURL;				///< the URL of the first target
+	CString						m_sURL;				///< the URL of the target or "(multiple targets)"
 
 	DECLARE_MESSAGE_MAP()
 
