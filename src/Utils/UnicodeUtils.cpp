@@ -30,9 +30,13 @@ CUnicodeUtils::~CUnicodeUtils(void)
 
 CStringA CUnicodeUtils::GetUTF8(CStringW string)
 {
-	char buf[MAX_PATH * 4];
-	WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, MAX_PATH * 4, NULL, NULL);
-	return CStringA(buf);
+	char * buf;
+	buf = new char[string.GetLength()*4 - 1];
+	//char buf[MAX_PATH * 4];
+	WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, string.GetLength()*4, NULL, NULL);
+	CStringA ret = CStringA(buf);
+	delete buf;
+	return ret;
 }
 
 CStringA CUnicodeUtils::GetUTF8(CStringA string)

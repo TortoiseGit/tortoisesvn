@@ -605,6 +605,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (path2.IsEmpty())
 			{
 				CString name = CUtils::GetFileNameFromPath(path);
+				CString ext = CUtils::GetFileExtFromPath(path);
 				path2 = SVN::GetPristinePath(path);
 				if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path, path)))
 				{
@@ -613,7 +614,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CString n1, n2;
 				n1.Format(IDS_DIFF_WCNAME, name);
 				n2.Format(IDS_DIFF_BASENAME, name);
-				CUtils::StartDiffViewer(path2, path, TRUE, n2, n1);
+				CUtils::StartDiffViewer(path2, path, TRUE, n2, n1, ext);
 			} // if (path2.IsEmpty())
 			else
 				CUtils::StartDiffViewer(path2, path, TRUE);

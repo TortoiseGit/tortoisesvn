@@ -384,10 +384,11 @@ void CLogPromptDlg::StartDiff(int fileindex)
 	}
 
 	CString name = CUtils::GetFileNameFromPath(data->path);
+	CString ext = CUtils::GetFileExtFromPath(data->path);
 	CString n1, n2;
 	n1.Format(IDS_DIFF_WCNAME, name);
 	n2.Format(IDS_DIFF_BASENAME, name);
-	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1);
+	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
 }
 
 void CLogPromptDlg::OnOK()

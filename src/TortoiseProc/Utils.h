@@ -60,14 +60,16 @@ public:
 	/**
 	 * Launches the diff viewer application.
 	 * If dir is a directory then TortoiseMerge is started.
-	 * If dir is a file then the specified diff application is started (e.g. WinMerge, TortoiseMerge, WinDiff, ...)
+	 * If dir is a file then the specified diff application is started (e.g. WinMerge, TortoiseMerge, WinDiff, ...).
+	 * If \a ext is a valid file extension (including the dot), a per extension diff application is started
+	 * when defined for the given extension. Otherwise the default diff application is started.
 	 * If dir is empty then an application which can show unified diff files is started, either
 	 * the specified one, the one associated with .diff files and as the last fallback the application
 	 * associated with .txt files.
 	 * \return TRUE if the program could be started.
 	 */
 	static BOOL StartDiffViewer(CString file, CString dir = _T(""), BOOL bWait = FALSE,
-		CString name1 = _T(""), CString name2 = _T(""));
+		CString name1 = _T(""), CString name2 = _T(""), CString ext = _T(""));
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated
@@ -85,6 +87,7 @@ public:
 	static CString PathEscape(CString path);
 	static CString GetVersionFromFile(const CString & p_strDateiname);
 	static CString GetFileNameFromPath(CString sPath);
+	static CString GetFileExtFromPath(CString sPath);
 	static BOOL PathIsParent(CString sPath1, CString sPath2);
 
 };

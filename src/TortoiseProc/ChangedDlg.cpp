@@ -272,8 +272,8 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 					//user clicked on the menu item "compare with working copy"
 					CString tempfile;
 					CString n1, n2;
-					CString name;
-					name = CUtils::GetFileNameFromPath(m_arPaths.GetAt(selIndex));
+					CString name = CUtils::GetFileNameFromPath(filepath);
+					CString ext = CUtils::GetFileExtFromPath(filepath);
 					if (repoStatus <= svn_wc_status_normal)
 					{
 						tempfile = SVN::GetPristinePath(filepath);
@@ -308,7 +308,7 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 
 					n1.Format(IDS_DIFF_WCNAME, name);
 					n2.Format(IDS_DIFF_BASENAME, name);
-					CUtils::StartDiffViewer(filepath, tempfile, FALSE, n2, n1);
+					CUtils::StartDiffViewer(filepath, tempfile, FALSE, n2, n1, ext);
 					theApp.DoWaitCursor(-1);
 					GetDlgItem(IDOK)->EnableWindow(TRUE);
 				}
@@ -407,6 +407,7 @@ void CChangedDlg::OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 
 	CString path2 = SVN::GetPristinePath(path1);
 	CString name = CUtils::GetFileNameFromPath(path1);
+	CString ext = CUtils::GetFileExtFromPath(path1);
 
 	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path1, path1)))
 	{
@@ -415,5 +416,5 @@ void CChangedDlg::OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 	CString n1, n2;
 	n1.Format(IDS_DIFF_WCNAME, name);
 	n2.Format(IDS_DIFF_BASENAME, name);
-	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1);
+	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
 }

@@ -43,9 +43,18 @@ CString CUtils::GetTempFile()
 BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile,
 						   		CString basename, CString theirname, CString yourname, CString mergedname)
 {
-	CString com;
+
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
-	com = regCom;
+	CString ext = GetFileExtFromPath(mergedfile);
+	CString com = regCom;
+
+	if (ext != "")
+	{
+		// is there an extension specific merge tool?
+		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + ext.MakeLower());
+		if (CString(mergetool) != "")
+			com = mergetool;
+	}
 	
 	if (com.IsEmpty()||(com.Left(1).Compare(_T("#"))==0))
 	{
@@ -106,7 +115,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2)
+BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2, CString ext)
 {
 	// if "dir" is actually a file, then don't start the unified diff viewer
 	// but the file diff application (e.g. TortoiseMerge, WinMerge, WinDiff, P4Diff, ...)
@@ -167,6 +176,13 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 		// not a unified diff
 		CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
 		viewer = diffexe;
+		if (ext != "")
+		{
+			// is there an extension specific diff tool?
+			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + ext.MakeLower());
+			if (CString(difftool) != "")
+				viewer = difftool;
+		}
 		if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
 		{
 			//no registry entry for a diff program
@@ -459,6 +475,15 @@ CString CUtils::GetFileNameFromPath(CString sPath)
 	sPath.Replace(_T("/"), _T("\\"));
 	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
 	return ret;
+}
+
+CString CUtils::GetFileExtFromPath(CString sPath)
+{
+	CString filename = GetFileNameFromPath(sPath);
+	int pos = filename.ReverseFind('.');
+	if (pos >= 0)
+		return filename.Mid(pos);
+	return _T("");
 }
 
 BOOL CUtils::PathIsParent(CString sPath1, CString sPath2)

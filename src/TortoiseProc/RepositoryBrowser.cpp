@@ -507,7 +507,8 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						DeleteFile(tempfile2);
 						break;		//exit
 					} // if (!Cat(url2, m_nRevision, tempfile2)) 
-					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2);
+					CString ext = CUtils::GetFileExtFromPath(url1);
+					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2, ext);
 					theApp.DoWaitCursor(-1);
 				}
 				break;
