@@ -95,6 +95,10 @@ BOOL CChangedDlg::OnInitDialog()
 	
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 
+	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
+	m_bShowUnversioned = m_regAddBeforeCommit;
+	UpdateData(FALSE);
+
 	m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLREMOTETEXT | SVNSLC_COLREMOTEPROP, FALSE);
 
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
@@ -184,6 +188,7 @@ void CChangedDlg::OnBnClickedShowunversioned()
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
 	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
 	m_FileListCtrl.Show(dwShow);
+	m_regAddBeforeCommit = m_bShowUnversioned;
 }
 
 

@@ -53,6 +53,7 @@ protected:
 protected:
 	HICON			m_hIcon;
 	HANDLE			m_hThread;
+	CRegDWORD		m_regAddBeforeCommit;
 
 public:
 	CSVNStatusListCtrl	m_FileListCtrl;
