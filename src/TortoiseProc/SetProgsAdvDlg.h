@@ -51,7 +51,6 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedAddtool();
 	afx_msg void OnBnClickedEdittool();
@@ -62,12 +61,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-	CBalloon	m_tooltips;				///< needed to display tooltips
 	CString		m_sType;				///< tool type ("Diff" or "Merge")
 	CRegKey		m_regToolKey;			///< registry key where the tools are stored
 	CListCtrl	m_ToolListCtrl;			///< list control used for viewing and editing
-	CRegDWORD	m_regDontConvertBase;	///< registry value for the "Don't Convert" flag
-	BOOL		m_bDontConvertBase;		///< don't convert files when diffing agains BASE
 
 	typedef std::map<CString,CString> TOOL_MAP;
 	TOOL_MAP	m_Tools;				///< internal storage of all tools

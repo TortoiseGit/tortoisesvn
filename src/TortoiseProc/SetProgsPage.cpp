@@ -21,6 +21,7 @@
 #include "SetProgsPage.h"
 #include "SetProgsAdvDlg.h"
 #include "Utils.h"
+#include ".\setprogspage.h"
 
 
 // CSetProgsPage dialog
@@ -37,6 +38,8 @@ CSetProgsPage::CSetProgsPage()
 	, m_dlgAdvDiff(_T("Diff"))
 	, m_dlgAdvMerge(_T("Merge"))
 	, m_bInitialized(FALSE)
+	, m_regDontConvertBase(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE)
+	, m_bDontConvertBase(false)
 {
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
 	m_regDiffViewerPath = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
@@ -61,6 +64,7 @@ void CSetProgsPage::SaveData()
 		m_regDiffPath = m_sDiffPath;
 		m_regDiffViewerPath = m_sDiffViewerPath;
 		m_regMergePath = m_sMergePath;
+		m_regDontConvertBase = m_bDontConvertBase;
 
 		m_dlgAdvDiff.SaveData();
 		m_dlgAdvMerge.SaveData();
@@ -76,6 +80,7 @@ void CSetProgsPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Radio(pDX, IDC_EXTDIFF_OFF, m_iExtDiff);
 	DDX_Radio(pDX, IDC_DIFFVIEWER_OFF, m_iDiffViewer);
 	DDX_Radio(pDX, IDC_EXTMERGE_OFF, m_iExtMerge);
+	DDX_Check(pDX, IDC_DONTCONVERT, m_bDontConvertBase);
 
 	GetDlgItem(IDC_EXTDIFF)->EnableWindow(m_iExtDiff == 1);
 	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(m_iExtDiff == 1);
@@ -101,6 +106,7 @@ BEGIN_MESSAGE_MAP(CSetProgsPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_DIFFVIEWER_ON, OnBnClickedDiffviewerOn)
 	ON_BN_CLICKED(IDC_EXTDIFFADVANCED, OnBnClickedExtdiffadvanced)
 	ON_BN_CLICKED(IDC_EXTMERGEADVANCED, OnBnClickedExtmergeadvanced)
+	ON_BN_CLICKED(IDC_DONTCONVERT, OnBnClickedDontconvert)
 END_MESSAGE_MAP()
 
 
@@ -266,11 +272,14 @@ BOOL CSetProgsPage::OnInitDialog()
 	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_DIFFVIEWER), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTMERGE), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
+	m_bDontConvertBase = m_regDontConvertBase;
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
 	m_tooltips.AddTool(IDC_DIFFVIEWER, IDS_SETTINGS_DIFFVIEWER_TT);
 	m_tooltips.AddTool(IDC_EXTMERGE, IDS_SETTINGS_EXTMERGE_TT);
 	m_tooltips.AddTool(IDC_EXTDIFFBROWSE, IDS_SETTINGS_EXTDIFFBROWSE_TT);
+	m_tooltips.AddTool(IDC_DONTCONVERT, IDS_SETTINGS_DONTCONVERTBASE_TT);
 
 	m_bInitialized = TRUE;
 	UpdateData(FALSE);
@@ -374,4 +383,9 @@ void CSetProgsPage::OnBnClickedExtmergeadvanced()
 {
 	if (m_dlgAdvMerge.DoModal() == IDOK)
 		SetModified();
+}
+
+void CSetProgsPage::OnBnClickedDontconvert()
+{
+	SetModified();
 }

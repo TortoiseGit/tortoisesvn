@@ -29,8 +29,6 @@ CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
 	: CDialog(CSetProgsAdvDlg::IDD, pParent)
 	, m_sType(type)
 	, m_regToolKey(_T("Software\\TortoiseSVN\\") + type + _T("Tools"))
-	, m_regDontConvertBase(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE)
-	, m_bDontConvertBase(false)
 	, m_ToolsValid(false)
 {
 }
@@ -63,9 +61,6 @@ void CSetProgsAdvDlg::SaveData()
 {
 	if (m_ToolsValid)
 	{
-		if (m_sType == _T("Diff"))
-			m_regDontConvertBase = m_bDontConvertBase;
-
 		// Remove all registry values which are no longer in the list
 		CStringList values;
 		if (m_regToolKey.getValues(values))
@@ -97,7 +92,6 @@ void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_TOOLLISTCTRL, m_ToolListCtrl);
-	DDX_Check(pDX, IDC_DONTCONVERT, m_bDontConvertBase);
 
 	if (pDX->m_bSaveAndValidate)
 	{
@@ -162,24 +156,10 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
 	temp.LoadString(m_sType == _T("Diff") ? IDS_DLGTITLE_ADV_DIFF : IDS_DLGTITLE_ADV_MERGE);
 	SetWindowText(temp);
 
-	m_bDontConvertBase = m_regDontConvertBase;
-
-	EnableToolTips();
-	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_DONTCONVERT, IDS_SETTINGS_DONTCONVERTBASE_TT);
-
-	GetDlgItem(IDC_DONTCONVERT)->ShowWindow(m_sType == _T("Diff"));
-
 	LoadData();
 	UpdateData(FALSE);
 	EnableBtns();
 	return TRUE;
-}
-
-BOOL CSetProgsAdvDlg::PreTranslateMessage(MSG* pMsg)
-{
-	m_tooltips.RelayEvent(pMsg);
-	return CDialog::PreTranslateMessage(pMsg);
 }
 
 int CSetProgsAdvDlg::AddExtension(const CString& ext, const CString& tool)

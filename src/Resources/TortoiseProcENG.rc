@@ -599,7 +599,7 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Diff/Merge"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Diff Program",IDC_STATIC,7,7,286,65
+    GROUPBOX        "Diff Program",IDC_STATIC,7,7,286,80
     LTEXT           "Used for comparing different revisions of files.",
                     IDC_STATIC,13,16,251,8
     CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | 
@@ -611,30 +611,33 @@ BEGIN
     LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
                     IDC_STATIC,13,49,160,19
     PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,177,50,87,14
-    GROUPBOX        "Merge Program",IDC_STATIC,7,78,286,65
-    LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,87,251,
-                    8
+    GROUPBOX        "Merge Program",IDC_STATIC,7,92,286,65
+    LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,101,
+                    251,8
     CONTROL         "B&uiltin",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,13,97,46,10
+                    WS_GROUP,13,111,46,10
     CONTROL         "E&xternal",IDC_EXTMERGE_ON,"Button",BS_AUTORADIOBUTTON,
-                    13,107,46,10
-    EDITTEXT        IDC_EXTMERGE,59,101,205,14,ES_AUTOHSCROLL | WS_GROUP
-    PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,271,100,14,14
+                    13,121,46,10
+    EDITTEXT        IDC_EXTMERGE,59,115,205,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,271,114,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
-                    IDC_STATIC,13,121,160,19
-    PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,177,121,87,14
-    GROUPBOX        "Diff Viewer",IDC_STATIC,7,149,286,61
+                    IDC_STATIC,13,135,160,19
+    PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,177,135,87,14
+    GROUPBOX        "Diff Viewer",IDC_STATIC,7,161,286,49
     LTEXT           "Viewer program for GNU diff files (patch files).",
-                    IDC_STATIC,13,160,251,8
+                    IDC_STATIC,13,175,251,8
     CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,170,46,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,185,46,10
     CONTROL         "Ex&ternal",IDC_DIFFVIEWER_ON,"Button",
-                    BS_AUTORADIOBUTTON,13,179,46,10
-    EDITTEXT        IDC_DIFFVIEWER,59,174,205,14,ES_AUTOHSCROLL | WS_GROUP
-    PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,271,172,14,14
+                    BS_AUTORADIOBUTTON,13,194,46,10
+    EDITTEXT        IDC_DIFFVIEWER,59,189,205,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,271,187,14,14
+    CONTROL         "Don't convert files when diffing against BASE",
+                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
+                    70,272,10
 END
 
-IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 230
+IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 217
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Advanced Diff/Merge Settings"
@@ -647,11 +650,8 @@ BEGIN
     PUSHBUTTON      "&Add...",IDC_ADDTOOL,14,165,51,14
     PUSHBUTTON      "&Edit...",IDC_EDITTOOL,68,165,51,14
     PUSHBUTTON      "&Remove",IDC_REMOVETOOL,122,165,51,14
-    CONTROL         "Don't convert files when diffing against BASE",
-                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
-                    192,305,10
-    DEFPUSHBUTTON   "&OK",IDOK,208,209,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,262,209,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,208,196,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,262,196,50,14
 END
 
 IDD_URL DIALOGEX 0, 0, 234, 55
@@ -1098,7 +1098,7 @@ BEGIN
         VERTGUIDE, 13
         VERTGUIDE, 304
         TOPMARGIN, 7
-        BOTTOMMARGIN, 223
+        BOTTOMMARGIN, 210
     END
 
     IDD_URL, DIALOG
