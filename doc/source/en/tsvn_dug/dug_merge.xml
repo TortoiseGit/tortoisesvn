@@ -157,7 +157,7 @@ Rev Comments
 		</important>
 	</sect2>
 
-	<sect2 id="tsvn-DUG-merge-2">
+	<sect2 id="tsvn-DUG-merge-3">
 		<title>Merging Two Different Trees</title>
 		<para>
 			This method covers the case when you have made a feature branch
@@ -211,7 +211,7 @@ Rev Comments
 				<listitem>
 					<para>
 						In both the <guilabel>From Revision</guilabel> field and
-						the <guilabel>From Revision</guilabel> field, enter the
+						the <guilabel>To Revision</guilabel> field, enter the
 						last revision number at which the two trees were
 						synchronized. If you are sure no-one else is making
 						commits you can use the HEAD revision in both cases.
