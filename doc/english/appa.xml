@@ -507,6 +507,74 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 	<sect1 id="tsvn-faq-misc">
 		<title>Misc Questions</title>
 		<sect2 id="tsvn-faq-misc-1">
+			<title>TortoiseSVN seems very slow on big directories</title>
+			<para>
+			To show you the file and folder icon overlays TortoiseSVN must 
+			fetch the status each time you open such a folder in the explorer.
+			This takes usually only a few seconds, but can take much longer
+			if you have either a slow harddisk or a very big directory.
+			</para>
+			<para>
+			Note: usually it's only very slow the first time you open a 
+			versioned folder. If you browse the same directory later again it's
+			much faster due to internal caching.
+			</para>
+			<para>You can try to speed things up by:</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+					To speed up browsing in the explorer you should 
+					first turn off the recursive overlays. Go to 
+					the settings dialog and uncheck <command>Indicate 
+					folders with changed contents</command>. This
+					will tell TortoiseSVN not to scan subfolders.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					Whenever the <emphasis>last modified time</emphasis> of
+					a file changed, TortoiseSVN needs to do a complete diff (!)
+					of that file to find out if it has changed. If you often
+					change a file, undo the changes and save the file again
+					you'll encounter a slowdown in browsing. A fresh checkout
+					of your working copy would solve that problem.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					If you're working on Windows XP then you can also disable
+					the <emphasis>zipfolders</emphasis>. This will also
+					increase the browsing speed.
+					<orderedlist>
+						<listitem><para>Select <command>Run</command> from the
+						start menu</para></listitem>
+						<listitem><para>Type <command>regsvr32 /u %windir%\system32\zipfldr.dll </command>
+						at the prompt and click ok</para></listitem>
+						<listitem><para>The change will take effect 
+						immediately, but you may have to restart Windows 
+						for all traces of the built-in ZIP support to 
+						disappear.</para></listitem>
+					</orderedlist>
+					If, at any time, you wish to re-enable Windows XP's 
+					built-in ZIP support, just follow these steps:
+					<orderedlist>
+						<listitem><para>Select <command>Run</command> from the
+						start menu</para></listitem>
+						<listitem><para>Type <command>regsvr32 %windir%\system32\zipfldr.dll </command>
+						at the prompt and click ok</para></listitem>
+						<listitem><para>The change will take effect 
+						immediately, but you may have to restart Windows 
+						for all features of the built-in ZIP support to 
+						be available. </para></listitem>						
+					</orderedlist>
+					</para>
+				</listitem>
+			</itemizedlist>
+			<para>
+			
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-misc-2">
 			<title>Does TortoiseSVN support SSH?</title>
 			<para>
 			TortoiseSVN uses Subversion. And Subversion supports SSH 
@@ -525,7 +593,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			svn+ssh://</systemitem>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-2">
+		<sect2 id="tsvn-faq-misc-3">
 			<title>Can I lose data, when I use TortoiseSVN?</title>
 			<para>
 			TortoiseSVN uses Subversion. Nuff said :-)
@@ -542,7 +610,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			of the window, if you format your harddrive, ...
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-3">
+		<sect2 id="tsvn-faq-misc-4">
 			<title>I'm looking for an external diff tool</title>
 			<para>
 			This list is by no means complete, but might help 
@@ -582,7 +650,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-4">
+		<sect2 id="tsvn-faq-misc-5">
 			<title>I'm looking for an external merge tool</title>
 			<para>
 			This list is by no means complete, but might help 
@@ -615,7 +683,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-5">
+		<sect2 id="tsvn-faq-misc-6">
 			<title>I love TortoiseSVN, how can I do 
 			something for the developers?</title>
 			<para>
