@@ -18,7 +18,8 @@
 //
 #include "StdAfx.h"
 #include "Registry.h"
-#include ".\utils.h"
+#include "Utils.h"
+#include "ProgressDlg.h"
 
 CUtils::CUtils(void)
 {

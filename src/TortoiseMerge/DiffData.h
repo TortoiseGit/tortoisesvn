@@ -22,6 +22,7 @@
 #include "apr_pools.h"
 #include "FileTextLines.h"
 #include "Registry.h"
+#include "WorkingFile.h"
 
 #define DIFFSTATE_UNKNOWN_DEFAULT_FG				::GetSysColor(COLOR_WINDOWTEXT)
 #define DIFFSTATE_NORMAL_DEFAULT_FG					::GetSysColor(COLOR_WINDOWTEXT)
@@ -97,46 +98,49 @@ public:
 	LPCTSTR						GetLineChars(int index);
 	void						GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText);
 	void						SetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText);
-	CString						GetError() {return m_sError;}
+	CString						GetError() const  {return m_sError;}
+
+	bool	IsBaseFileInUse() const		{ return m_baseFile.InUse(); }
+	bool	IsTheirFileInUse() const	{ return m_theirFile.InUse(); }
+	bool	IsYourFileInUse() const		{ return m_yourFile.InUse(); }
+
+private:
+	bool DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, apr_pool_t * pool);
+	bool DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, apr_pool_t * pool);
+
 
 public:
-	CString						m_sBaseFile;
-	CString						m_sBaseName;
-	CString						m_sTheirFile;
-	CString						m_sTheirName;
-	CString						m_sYourFile;
-	CString						m_sYourName;
-	CString						m_sMergedFile;
-	CString						m_sMergedName;
+	CWorkingFile				m_baseFile;
+	CWorkingFile				m_theirFile;
+	CWorkingFile				m_yourFile;
+	CWorkingFile				m_mergedFile;
+
 	CString						m_sDiffFile;
 	CString						m_sPatchPath;
 	CString						m_sPatchOriginal;
 	CString						m_sPatchPatched;
 
-	svn_diff_t *				m_diffYourBase;
-	svn_diff_t *				m_diffTheirBase;
-	svn_diff_t *				m_diffTheirYourBase;
-
+public:
 	CFileTextLines				m_arBaseFile;
 	CFileTextLines				m_arTheirFile;
 	CFileTextLines				m_arYourFile;
 
 	CStdCStringArray			m_arDiffYourBaseBoth;
-	CStdDWORDArray					m_arStateYourBaseBoth;
+	CStdDWORDArray				m_arStateYourBaseBoth;
 	CStdCStringArray			m_arDiffYourBaseLeft;
-	CStdDWORDArray					m_arStateYourBaseLeft;
+	CStdDWORDArray				m_arStateYourBaseLeft;
 	CStdCStringArray			m_arDiffYourBaseRight;
-	CStdDWORDArray					m_arStateYourBaseRight;
+	CStdDWORDArray				m_arStateYourBaseRight;
 
 	CStdCStringArray			m_arDiffTheirBaseBoth;
-	CStdDWORDArray					m_arStateTheirBaseBoth;
+	CStdDWORDArray				m_arStateTheirBaseBoth;
 	CStdCStringArray			m_arDiffTheirBaseLeft;
-	CStdDWORDArray					m_arStateTheirBaseLeft;
+	CStdDWORDArray				m_arStateTheirBaseLeft;
 	CStdCStringArray			m_arDiffTheirBaseRight;
-	CStdDWORDArray					m_arStateTheirBaseRight;
+	CStdDWORDArray				m_arStateTheirBaseRight;
 
 	CStdCStringArray			m_arDiff3;
-	CStdDWORDArray					m_arStateDiff3;
+	CStdDWORDArray				m_arStateDiff3;
 
 	CString						m_sError;
 

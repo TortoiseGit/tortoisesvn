@@ -18,10 +18,10 @@
 //
 #pragma once
 #include "DiffData.h"
-#include "LocatorBar.h"
-#include "LineDiffBar.h"
 
 class CMainFrame;
+class CLocatorBar;
+class CLineDiffBar;
 
 /**
  * \ingroup TortoiseMerge
@@ -57,9 +57,9 @@ public:
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
 
 	void			SelectLines(int nLine1, int nLine2 = -1);
-	inline BOOL		IsHidden() {return m_bIsHidden;}
+	inline BOOL		IsHidden() const  {return m_bIsHidden;}
 	inline void		SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
-	inline BOOL		IsModified() {return m_bModified;}
+	inline BOOL		IsModified() const  {return m_bModified;}
 	void			SetModified(BOOL bModified = TRUE) {m_bModified = bModified;}
 
 	CStdCStringArray* m_arDiffLines;		///< Array of Strings containing all lines of the text file
@@ -123,21 +123,21 @@ protected:
 	void			OnDoHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 	void			OnDoVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 
-	int				GetTabSize() {return m_nTabSize;}
+	int				GetTabSize() const {return m_nTabSize;}
 
-	int				GetLineActualLength(int index);
-	int				GetLineCount();
+	int				GetLineActualLength(int index) const;
+	int				GetLineCount() const;
 	void			CalcLineCharDim();
 	int				GetLineHeight();
 	int				GetCharWidth();
 	int				GetMaxLineLength();
-	int				GetLineLength(int index);
+	int				GetLineLength(int index) const;
 	int				GetScreenChars();
-	int				GetAllMinScreenChars();
-	int				GetAllMaxLineLength();
-	int				GetAllLineCount();
-	int				GetAllMinScreenLines();
-	LPCTSTR			GetLineChars(int index);
+	int				GetAllMinScreenChars() const;
+	int				GetAllMaxLineLength() const;
+	int				GetAllLineCount() const;
+	int				GetAllMinScreenLines() const;
+	LPCTSTR			GetLineChars(int index) const;
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
 	int				GetMarginWidth();

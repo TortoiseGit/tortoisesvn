@@ -35,7 +35,6 @@
 #include <afxext.h>         // MFC extensions
 #include <afxdisp.h>        // MFC Automation classes
 #include <afxcoll.h>		// MFC Collection templates and classes
-#include <afxtempl.h>		// MFC Collection templates and classes
 #include <shlwapi.h>		// Shell API
 
 #include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls

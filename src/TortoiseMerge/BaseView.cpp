@@ -338,7 +338,7 @@ int CBaseView::GetScreenChars()
 	return m_nScreenChars;
 }
 
-int CBaseView::GetAllMinScreenChars()
+int CBaseView::GetAllMinScreenChars() const 
 {
 	int nChars = 0;
 	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
@@ -350,7 +350,7 @@ int CBaseView::GetAllMinScreenChars()
 	return nChars;
 }
 
-int CBaseView::GetAllMaxLineLength()
+int CBaseView::GetAllMaxLineLength() const 
 {
 	int nLength = 0;
 	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
@@ -392,7 +392,7 @@ int CBaseView::GetMaxLineLength()
 	return m_nMaxLineLength;
 }
 
-int CBaseView::GetLineActualLength(int index)
+int CBaseView::GetLineActualLength(int index) const
 {
 	if (m_arDiffLines == NULL)
 		return 0;
@@ -415,7 +415,7 @@ int CBaseView::GetLineActualLength(int index)
 	return nLineLength;
 }
 
-int CBaseView::GetLineLength(int index)
+int CBaseView::GetLineLength(int index) const
 {
 	if (m_arDiffLines == NULL)
 		return 0;
@@ -424,7 +424,7 @@ int CBaseView::GetLineLength(int index)
 	return nLineLength;
 }
 
-int CBaseView::GetLineCount()
+int CBaseView::GetLineCount() const
 {
 	if (m_arDiffLines == NULL)
 		return 1;
@@ -433,7 +433,7 @@ int CBaseView::GetLineCount()
 	return nLineCount;
 }
 
-LPCTSTR CBaseView::GetLineChars(int index)
+LPCTSTR CBaseView::GetLineChars(int index) const
 {
 	if (m_arDiffLines == NULL)
 		return 0;
@@ -451,7 +451,7 @@ int CBaseView::GetScreenLines()
 	return m_nScreenLines;
 }
 
-int CBaseView::GetAllMinScreenLines()
+int CBaseView::GetAllMinScreenLines() const
 {
 	int nLines = 0;
 	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
@@ -463,7 +463,7 @@ int CBaseView::GetAllMinScreenLines()
 	return nLines;
 }
 
-int CBaseView::GetAllLineCount()
+int CBaseView::GetAllLineCount() const
 {
 	int nLines = 0;
 	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))

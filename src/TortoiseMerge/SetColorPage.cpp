@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "SetColorPage.h"
-#include ".\setcolorpage.h"
+#include "DiffData.h"
 
 
 // CSetColorPage dialog

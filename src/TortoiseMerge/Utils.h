@@ -18,7 +18,8 @@
 //
 #pragma once
 
-#include "ProgressDlg.h"
+class CProgressDlg;
+
 /**
  * \ingroup TortoiseMerge
  *

@@ -46,7 +46,7 @@ protected:
 	virtual CSize	CalcFixedLayout(BOOL bStretch, BOOL bHorz);
 	//virtual CSize	CalcDynamicLayout(int nLength, DWORD nMode);
 
-	void DrawBinaryDiff(CDC &dc, CRect *upperrect, CRect *lowerrect, int line);
+	void DrawBinaryDiff(CDC &dc, const CRect *upperrect, const CRect *lowerrect, int line);
 
 	CBitmap *		m_pCacheBitmap;
 

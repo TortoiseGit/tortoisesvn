@@ -18,9 +18,7 @@
 //
 #pragma once
 
-#include "DiffData.h"
-#include "Patch.h"
-#include "afxcmn.h"
+class CPatch;
 
 /**
  * \ingroup TortoiseMerge

@@ -19,7 +19,8 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "FilePatchesDlg.h"
-#include ".\filepatchesdlg.h"
+#include "Patch.h"
+#include "Utils.h"
 
 
 IMPLEMENT_DYNAMIC(CFilePatchesDlg, CDialog)
@@ -102,9 +103,7 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 
 	for(int i=0; i<m_pPatch->GetNumberOfFiles(); i++)
 	{
-		CString sFile = m_pPatch->GetFilename(i);
-		sFile.Replace('/', '\\');
-		sFile = sFile.Mid(sFile.ReverseFind('\\')+1);
+		CString sFile = CUtils::GetFileNameFromPath(m_pPatch->GetFilename(i));
 		DWORD state;
 		if (m_pPatch->PatchFile(GetFullPath(i)))
 			state = FPDLG_FILESTATE_GOOD;

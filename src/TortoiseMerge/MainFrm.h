@@ -18,19 +18,18 @@
 //
 #pragma once
 
-#include "BaseView.h"
-#include "LeftView.h"
-#include "RightView.h"
-#include "BottomView.h"
 #include "DiffData.h"
 #include "LocatorBar.h"
 #include "LineDiffBar.h"
 #include "FilePatchesDlg.h"
-#include "Utils.h"
 #include "TempFiles.h"
 #include "XSplitter.h"
-#include "NewMenu.h"
 #include "NewToolBar.h"
+#include "Patch.h"
+
+class CLeftView;
+class CRightView;
+class CBottomView;
 
 class CMainFrame : public CNewFrameWnd, public CPatchFilesDlgCallBack
 {
@@ -76,7 +75,7 @@ protected:
 	void			UpdateLayout();
 	virtual BOOL	PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch);
 	int				CheckResolved();
-	void			SaveFile(CString sFilePath);
+	void			SaveFile(const CString& sFilePath);
 	void			WriteWindowPlacement(WINDOWPLACEMENT * pwp);
 	BOOL			ReadWindowPlacement(WINDOWPLACEMENT * pwp);
 protected: 

@@ -20,7 +20,9 @@
 #include "TortoiseMerge.h"
 #include "MainFrm.h"
 #include "LocatorBar.h"
-#include ".\locatorbar.h"
+#include "LeftView.h"
+#include "RightView.h"
+#include "BottomView.h"
 
 
 COLORREF CLineDiffBar::m_BinDiffColors [10] = { 
@@ -275,7 +277,7 @@ void CLineDiffBar::BinDiff(CDWordArray & result, CString & base, CString & your)
 
   Use the result of a binary diff to determine what to color.
  */
-void CLineDiffBar::DrawBinaryDiff(CDC &dc, CRect *upperrect, CRect *lowerrect, int line)
+void CLineDiffBar::DrawBinaryDiff(CDC &dc, const CRect *upperrect, const CRect *lowerrect, int line)
 {
 	ASSERT(m_pMainFrm);
 	ASSERT(m_pMainFrm->m_pwndLeftView);

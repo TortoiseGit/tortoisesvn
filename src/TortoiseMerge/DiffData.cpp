@@ -21,7 +21,7 @@
 #include "TempFiles.h"
 #include "registry.h"
 #include "Resource.h"
-#include ".\diffdata.h"
+#include "Diffdata.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4702) // unreachable code
@@ -35,9 +35,9 @@ int CDiffData::abort_on_pool_failure (int /*retcode*/)
 CDiffData::CDiffData(void)
 {
 	apr_initialize();
-	m_diffYourBase = NULL;
-	m_diffTheirBase = NULL;
-	m_diffTheirYourBase = NULL;
+//	m_diffYourBase = NULL;
+//	m_diffTheirBase = NULL;
+//	m_diffTheirYourBase = NULL;
 
 	m_regForegroundColors[DIFFSTATE_UNKNOWN] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorUnknownF"), DIFFSTATE_UNKNOWN_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_NORMAL] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorNormalF"), DIFFSTATE_NORMAL_DEFAULT_FG);
@@ -152,13 +152,8 @@ LPCTSTR CDiffData::GetLineChars(int index)
 
 BOOL CDiffData::Load()
 {
-	CStringA f1, f2, f3, fc1, fc2, fc3;
-	f1 = m_sBaseFile;
-	f2 = m_sTheirFile;
-	f3 = m_sYourFile;
-	CString sLine;
+	CStringA sConvertedBaseFilename, sConvertedTheirFilename, sConvertedYourFilename;
 	apr_pool_t * pool;
-	svn_error_t * svnerr = NULL;
 
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 
@@ -180,66 +175,103 @@ BOOL CDiffData::Load()
 	m_arDiff3.RemoveAll();
 	m_arStateDiff3.RemoveAll();
 
-	m_diffYourBase = NULL;
-	m_diffTheirBase = NULL;
-	m_diffTheirYourBase = NULL;
-
-	CFileTextLines converted;
 	CTempFiles tempfiles;
 	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 	CRegDWORD regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
 	DWORD dwIgnoreWS = regIgnoreWS;
 	BOOL bIgnoreEOL = ((DWORD)regIgnoreEOL)!=0;
-	if (!m_sBaseFile.IsEmpty())
+	if (IsBaseFileInUse())
 	{
-		if (!m_arBaseFile.Load(m_sBaseFile))
+		if (!m_arBaseFile.Load(m_baseFile.GetFilename()))
 		{
 			m_sError = m_arBaseFile.GetErrorString();
 			return FALSE;
 		} // if (!m_arBaseFile.Load(m_sBaseFile))
-		converted = m_arBaseFile;
-		CString sTemp = tempfiles.GetTempFilePath();
-		fc1 = sTemp;
-		converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
-	} // if (!m_sBaseFile.IsEmpty())
+		CFileTextLines converted(m_arBaseFile);
+		sConvertedBaseFilename = tempfiles.GetTempFilePath();
+		converted.Save(sConvertedBaseFilename, dwIgnoreWS > 0, bIgnoreEOL);
+	} // if (IsBaseFileInUse())
 
-	if (!m_sTheirFile.IsEmpty())
+	if (IsTheirFileInUse())
 	{
 		// m_arBaseFile.GetCount() is passed as a hint for the number of lines in this file
 		// It's a fair guess that the files will be roughly the same size
-		if (!m_arTheirFile.Load(m_sTheirFile,m_arBaseFile.GetCount()))
+		if (!m_arTheirFile.Load(m_theirFile.GetFilename(),m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arTheirFile.GetErrorString();
 			return FALSE;
 		}
-		converted = m_arTheirFile;
-		CString sTemp = tempfiles.GetTempFilePath();
-		fc2 = sTemp;
-		converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
-	} // if (!m_sTheirFile.IsEmpty())
+		CFileTextLines converted(m_arTheirFile);
+		sConvertedTheirFilename = tempfiles.GetTempFilePath();
+		converted.Save(sConvertedTheirFilename, dwIgnoreWS > 0, bIgnoreEOL);
+	} // if (IsTheirFileInUse())
 
-	if (!m_sYourFile.IsEmpty())
+	if (IsYourFileInUse())
 	{
 		// m_arBaseFile.GetCount() is passed as a hint for the number of lines in this file
 		// It's a fair guess that the files will be roughly the same size
-		if (!m_arYourFile.Load(m_sYourFile,m_arBaseFile.GetCount()))
+		if (!m_arYourFile.Load(m_yourFile.GetFilename(),m_arBaseFile.GetCount()))
 		{
 			m_sError = m_arYourFile.GetErrorString();
 			return FALSE;
 		}
-		converted = m_arYourFile;
-		CString sTemp = tempfiles.GetTempFilePath();
-		fc3 = sTemp;
-		converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
-	} // if (!m_sYourFile.IsEmpty()) 
+		CFileTextLines converted(m_arYourFile);
+		sConvertedYourFilename = tempfiles.GetTempFilePath();
+		converted.Save(sConvertedYourFilename, dwIgnoreWS > 0, bIgnoreEOL);
+	} // if (IsYourFileInUse()) 
 
+	// Calculate the number of lines in the largest of the three files
 	int lengthHint = max(m_arBaseFile.GetCount(), m_arTheirFile.GetCount());
 	lengthHint = max(lengthHint, m_arYourFile.GetCount());
 
-	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
-	if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
+	m_arDiffYourBaseBoth.Reserve(lengthHint);
+	m_arStateYourBaseBoth.Reserve(lengthHint);
+	m_arDiffYourBaseLeft.Reserve(lengthHint);
+	m_arStateYourBaseLeft.Reserve(lengthHint);
+	m_arDiffYourBaseRight.Reserve(lengthHint);
+	m_arStateYourBaseRight.Reserve(lengthHint);
+	m_arDiffTheirBaseBoth.Reserve(lengthHint);
+	m_arStateTheirBaseBoth.Reserve(lengthHint);
+	m_arDiffTheirBaseLeft.Reserve(lengthHint);
+	m_arStateTheirBaseLeft.Reserve(lengthHint);
+	m_arDiffTheirBaseRight.Reserve(lengthHint);
+	m_arStateTheirBaseRight.Reserve(lengthHint);
+
+	//#region if ((IsBaseFileInUse()) && (IsYourFileInUse()) && !IsTheirFileInUse())
+	// Is this a two-way diff?
+	if (IsBaseFileInUse() && IsYourFileInUse() && !IsTheirFileInUse())
 	{
-		svnerr = svn_diff_file_diff(&m_diffYourBase, fc1, fc3, pool);
+		DoTwoWayDiff(sConvertedBaseFilename, sConvertedYourFilename, dwIgnoreWS, pool);
+	} // if ((IsBaseFileInUse()) && (IsYourFileInUse())) 
+	//#endregion
+
+    if (IsBaseFileInUse() && IsTheirFileInUse() && !IsYourFileInUse())
+	{
+		ASSERT(FALSE);
+	} // if ((IsBaseFileInUse()) && (IsTheirFileInUse())) 
+
+	//#region if ((IsBaseFileInUse()) && (IsTheirFileInUse()) && (IsYourFileInUse()))
+	if (IsBaseFileInUse() && IsTheirFileInUse() && IsYourFileInUse())
+	{
+		m_arDiff3.Reserve(lengthHint);
+		m_arStateDiff3.Reserve(lengthHint);
+
+		DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, pool);
+	} // if ((IsBaseFileInUse()) && (IsTheirFileInUse()))  
+	//#endregion
+
+	apr_pool_destroy (pool);					// free the allocated memory
+	return TRUE;
+}
+
+
+bool
+CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, apr_pool_t * pool)
+{
+	svn_diff_t * diffYourBase = NULL;
+	svn_error_t * svnerr = NULL;
+
+	svnerr = svn_diff_file_diff(&diffYourBase, sBaseFilename, sYourFilename, pool);
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));
@@ -252,24 +284,11 @@ BOOL CDiffData::Load()
 			} // while (m_err->child)
 			apr_pool_destroy (pool);					// free the allocated memory
 			m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
-			return FALSE;
+		return false;
 		} // if (m_svnerr)
-		svn_diff_t * tempdiff = m_diffYourBase;
+		svn_diff_t * tempdiff = diffYourBase;
 		LONG baseline = 0;
 		LONG yourline = 0;
-
-		m_arDiffYourBaseBoth.Reserve(lengthHint);
-		m_arStateYourBaseBoth.Reserve(lengthHint);
-		m_arDiffYourBaseLeft.Reserve(lengthHint);
-		m_arStateYourBaseLeft.Reserve(lengthHint);
-		m_arDiffYourBaseRight.Reserve(lengthHint);
-		m_arStateYourBaseRight.Reserve(lengthHint);
-		m_arDiffTheirBaseBoth.Reserve(lengthHint);
-		m_arStateTheirBaseBoth.Reserve(lengthHint);
-		m_arDiffTheirBaseLeft.Reserve(lengthHint);
-		m_arStateTheirBaseLeft.Reserve(lengthHint);
-		m_arDiffTheirBaseRight.Reserve(lengthHint);
-		m_arStateTheirBaseRight.Reserve(lengthHint);
 
 		while (tempdiff)
 		{
@@ -278,20 +297,20 @@ BOOL CDiffData::Load()
 				const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
 				if (tempdiff->type == svn_diff__type_common)
 				{
-					const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
-					m_arDiffYourBaseBoth.Add(sCurrentYourLine);
-					if (sCurrentBaseLine != sCurrentYourLine)
+				const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
+				m_arDiffYourBaseBoth.Add(sCurrentYourLine);
+				if (sCurrentBaseLine != sCurrentYourLine)
 					{
 						if (dwIgnoreWS == 2)
 						{
 							CString s1 = m_arBaseFile.GetAt(baseline);
 							s1 = s1.TrimLeft(_T(" \t"));
-							CString s2 = sCurrentYourLine;
+						CString s2 = sCurrentYourLine;
 							s2 = s2.TrimLeft(_T(" \t"));
 							if (s1 != s2)
 							{
 								m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-								m_arDiffYourBaseBoth.Add(sCurrentYourLine);
+							m_arDiffYourBaseBoth.Add(sCurrentYourLine);
 								m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
 							}
 							else
@@ -302,7 +321,7 @@ BOOL CDiffData::Load()
 						else if (dwIgnoreWS == 0)
 						{
 							m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
-							m_arDiffYourBaseBoth.Add(sCurrentYourLine);
+						m_arDiffYourBaseBoth.Add(sCurrentYourLine);
 							m_arStateYourBaseBoth.Add(DIFFSTATE_ADDEDWHITESPACE);
 						}
 						else
@@ -318,7 +337,7 @@ BOOL CDiffData::Load()
 				} // if (tempdiff->type == svn_diff__type_common) 
 				else
 				{
-					m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
+				m_arDiffYourBaseBoth.Add(sCurrentBaseLine);
 					m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVED);
 				}
 				baseline++;
@@ -335,7 +354,7 @@ BOOL CDiffData::Load()
 			tempdiff = tempdiff->next;
 		}
 
-		tempdiff = m_diffYourBase;
+	tempdiff = diffYourBase;
 		baseline = 0;
 		yourline = 0;
 		while (tempdiff)
@@ -344,17 +363,17 @@ BOOL CDiffData::Load()
 			{
 				for (int i=0; i<tempdiff->original_length; i++)
 				{
-					const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
-					const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
-					m_arDiffYourBaseLeft.Add(sCurrentBaseLine);
-					m_arDiffYourBaseRight.Add(sCurrentYourLine);
-					if (sCurrentBaseLine != sCurrentYourLine)
+				const CString& sCurrentYourLine = m_arYourFile.GetAt(yourline);
+				const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
+				m_arDiffYourBaseLeft.Add(sCurrentBaseLine);
+				m_arDiffYourBaseRight.Add(sCurrentYourLine);
+				if (sCurrentBaseLine != sCurrentYourLine)
 					{
 						if (dwIgnoreWS == 2)
 						{
-							CString s1 = sCurrentBaseLine;
+						CString s1 = sCurrentBaseLine;
 							s1 = s1.TrimLeft(_T(" \t"));
-							CString s2 = sCurrentYourLine;
+						CString s2 = sCurrentYourLine;
 							s2 = s2.TrimLeft(_T(" \t"));
 							if (s1 != s2)
 							{
@@ -420,19 +439,16 @@ BOOL CDiffData::Load()
 			} // if (tempdiff->type == svn_diff__type_diff_modified) 
 			tempdiff = tempdiff->next;
 		}
-		TRACE(_T("done with diff\n"));
-	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty())) 
-	//#endregion
+	TRACE(_T("done with 2-way diff\n"));
 
-    if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
-	{
-		ASSERT(FALSE);
-	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty())) 
+	return true;
+}
 
-	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && (!m_sYourFile.IsEmpty()))
-	if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && (!m_sYourFile.IsEmpty()))
+bool
+CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, apr_pool_t * pool)
 	{
-		svnerr = svn_diff_file_diff3(&m_diffTheirYourBase, fc1, fc2, fc3, pool);
+	svn_diff_t * diffTheirYourBase = NULL;
+	svn_error_t * svnerr = svn_diff_file_diff3(&diffTheirYourBase, sBaseFilename, sTheirFilename, sYourFilename, pool);
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));
@@ -445,16 +461,12 @@ BOOL CDiffData::Load()
 			} // while (m_err->child)
 			apr_pool_destroy (pool);					// free the allocated memory
 			m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
-			return FALSE;
+			return false;
 		} // if (m_svnerr)
-		svn_diff_t * tempdiff = m_diffTheirYourBase;
+		svn_diff_t * tempdiff = diffTheirYourBase;
 		LONG baseline = 0;
 		LONG yourline = 0;
 		LONG theirline = 0;
-
-		m_arDiff3.Reserve(lengthHint);
-		m_arStateDiff3.Reserve(lengthHint);
-
 		while (tempdiff)
 		{
 			if (tempdiff->type == svn_diff__type_common)
@@ -716,11 +728,6 @@ BOOL CDiffData::Load()
 		ASSERT(m_arDiff3.GetCount() == m_arDiffYourBaseBoth.GetCount());
 		ASSERT(m_arDiffTheirBaseBoth.GetCount() == m_arDiffYourBaseBoth.GetCount());
 
-		TRACE(_T("done with diff\n"));
-	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()))  
-	//#endregion
-
-	apr_pool_destroy (pool);					// free the allocated memory
-	return TRUE;
+	TRACE(_T("done with 3-way diff\n"));
+	return true;
 }
-

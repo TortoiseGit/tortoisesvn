@@ -18,8 +18,8 @@
 //
 #pragma once
 
-#include "SetMainPage.h"
-#include "SetColorPage.h"
+class CSetMainPage;
+class CSetColorPage;
 
 /**
  * \ingroup TortoiseMerge
@@ -58,7 +58,7 @@ public:
 	 */
 	void SaveData();
 
-	BOOL IsReloadNeeded();
+	BOOL IsReloadNeeded() const;
 protected:
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL OnInitDialog();

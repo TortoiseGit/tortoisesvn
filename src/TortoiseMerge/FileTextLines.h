@@ -17,7 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-//#include "afxcoll.h"
 
 // A template class to make an array which looks like a CStringArray or CDWORDArray but
 // is infact based on a STL array, which is much faster at large sizes
@@ -86,16 +85,16 @@ public:
 	/**
 	 * Returns an error string of the last failed operation
 	 */
-	CString		GetErrorString() {return m_sErrorString;}
+	CString		GetErrorString() const  {return m_sErrorString;}
 	/**
 	 * Copies the settings of a file like the line ending styles
 	 * to another CFileTextLines object.
 	 */
 	void		CopySettings(CFileTextLines * pFileToCopySettingsTo);
 
-	CFileTextLines::UnicodeType GetUnicodeType() {return m_UnicodeType;}
+	CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
 
-protected:
+private:
 	/**
 	 * Checks the line endings in a text buffer
 	 * \param pBuffer pointer to the buffer containing text
@@ -114,6 +113,7 @@ protected:
 	void StripAsciiWhiteSpace(CStringA& sLine);
 
 
+private:
 	CString		m_sErrorString;
 	CFileTextLines::UnicodeType	m_UnicodeType;
 	CFileTextLines::LineEndings m_LineEndings;

@@ -18,12 +18,11 @@
 //
 #include "StdAfx.h"
 #include "Resource.h"
-#include "Utils.h"
 #include "UnicodeUtils.h"
 #include "DirFileEnum.h"
 #include "TortoiseMerge.h"
 #include "svn_wc.h"
-#include ".\patch.h"
+#include "Patch.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -55,7 +54,7 @@ void CPatch::FreeMemory()
 	m_arFileDiffs.RemoveAll();
 }
 
-BOOL CPatch::OpenUnifiedDiffFile(CString filename)
+BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 {
 	CString sLine;
 	INT_PTR nIndex = 0;
@@ -411,11 +410,11 @@ CString CPatch::GetRevision(int nIndex)
 	return 0;
 }
 
-BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
+BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CString& sBaseFile)
 {
 	if (/*!PathFileExists(sPath) || */PathIsDirectory(sPath))
 	{
-		m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, sPath);
+		m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, (LPCTSTR)sPath);
 		return FALSE;
 	}
 	int nIndex = -1;
@@ -434,14 +433,14 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 			}
 			else
 			{
-				m_sErrorMessage.Format(_T("The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"), temppath);
+				m_sErrorMessage.Format(_T("The file %s\nwas found twice!?!\nThis usually happens if you applied a patchfile to the\nwrong folder!"), (LPCTSTR)temppath);
 				return FALSE;
 			}
 		} // if (temp.CompareNoCase(temppath)==0) 
 	} // for (int i=0; i<GetNumberOfFiles(); i++)
 	if (nIndex < 0)
 	{
-		m_sErrorMessage.Format(IDS_ERR_PATCH_FILENOTINPATCH, sPath);
+		m_sErrorMessage.Format(IDS_ERR_PATCH_FILENOTINPATCH, (LPCTSTR)sPath);
 		return FALSE;
 	}
 
@@ -481,19 +480,19 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 				{
 					if ((lAddLine > PatchLines.GetCount())||(PatchLines.GetCount()==0))
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
 						return FALSE; 
 					} // if (lRemoveLine > PatchLines.GetCount())
 					if (lAddLine == 0)
 						lAddLine = 1;
 					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)&&(!HasExpandedKeyWords(sPatchLine)))
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
 					} // if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0) 
 					if (lAddLine > PatchLines.GetCount())
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, _T(""));
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, _T(""));
 						return FALSE; 
 					} // if (lRemoveLine >= PatchLines.GetCount()) 
 					PatchLines.RemoveAt(lAddLine-1);
@@ -511,7 +510,7 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 				{
 					if (lAddLine > PatchLines.GetCount())
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), (LPCTSTR)sPatchLine);
 						return FALSE; 
 					}
 					if (lAddLine == 0)
@@ -520,7 +519,7 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0)&&
 						(!HasExpandedKeyWords(sPatchLine)))
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
 					} 
 					lAddLine++;
@@ -608,10 +607,3 @@ int CPatch::CountMatches(const CString& path)
 	}
 	return matches;
 }
-
-
-
-
-
-
-

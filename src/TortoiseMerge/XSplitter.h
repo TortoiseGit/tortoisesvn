@@ -43,7 +43,7 @@ public:
 	/**
 	 * Checks if the splitter has its bars locked.
 	 */
-	BOOL		IsBarLocked() {return m_bBarLocked;}
+	BOOL		IsBarLocked() const  {return m_bBarLocked;}
 	/**
 	 * Locks/Unlocks the bar so the user can't move it.
 	 * \param bState TRUE to lock, FALSE to unlock
@@ -68,7 +68,7 @@ public:
 	/**
 	 * Checks if a given column is hidden.
 	 */
-	BOOL		IsColumnHidden(int nCol){return (m_nHiddenCol == nCol);}
+	BOOL		IsColumnHidden(int nCol) const {return (m_nHiddenCol == nCol);}
     /**
      * Shows a splitter row which was previously hidden. Don't call
 	 * this method if the row is already visible! Check it first
@@ -84,7 +84,7 @@ public:
 	/**
 	 * Checks if a given row is hidden.
 	 */
-	BOOL		IsRowHidden(int nRow){return (m_nHiddenRow == nRow);}
+	BOOL		IsRowHidden(int nRow) const  {return (m_nHiddenRow == nRow);}
 
 protected:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);

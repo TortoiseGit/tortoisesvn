@@ -40,12 +40,12 @@ public:
 	CPatch(void);
 	~CPatch(void);
 
-	BOOL		OpenUnifiedDiffFile(CString filename);
-	BOOL		PatchFile(CString sPath, CString sSavePath = _T(""), CString sBaseFile = _T(""));
-	int			GetNumberOfFiles() {return (int)m_arFileDiffs.GetCount();}
+	BOOL		OpenUnifiedDiffFile(const CString& filename);
+	BOOL		PatchFile(const CString& sPath, const CString& sSavePath = _T(""), const CString& sBaseFile = _T(""));
+	int			GetNumberOfFiles() const  {return m_arFileDiffs.GetCount();}
 	CString		GetFilename(int nIndex);
 	CString		GetRevision(int nIndex);
-	CString		GetErrorMessage() {return m_sErrorMessage;}
+	CString		GetErrorMessage() const  {return m_sErrorMessage;}
 	CString		CheckPatchPath(const CString& path);
 protected:
 	void		FreeMemory();
@@ -57,18 +57,18 @@ protected:
 		LONG					lRemoveLength;
 		LONG					lAddStart;
 		LONG					lAddLength;
-		CStringArray			arLines;
-		CDWordArray				arLinesStates;
+		CStdCStringArray		arLines;
+		CStdDWORDArray			arLinesStates;
 	};
 
 	struct Chunks
 	{
 		CString					sFilePath;
 		CString					sRevision;
-		CArray<Chunk*, Chunk*>	chunks;
+		CStdArray<Chunk*>		chunks;
 	};
 
-	CArray<Chunks*, Chunks*>	m_arFileDiffs;
+	CStdArray<Chunks*>			m_arFileDiffs;
 	CString						m_sErrorMessage;
 	CFileTextLines::UnicodeType m_UnicodeType;
 };

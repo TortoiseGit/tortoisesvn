@@ -22,6 +22,7 @@
 #include "AboutDlg.h"
 #include "CmdLineParser.h"
 #include "version.h"
+#include "Utils.h"
 
 
 #ifdef _DEBUG
@@ -155,18 +156,14 @@ BOOL CTortoiseMergeApp::InitInstance()
 		NULL);
 
 	// Fill in the command line options
-	pFrame->m_Data.m_sBaseFile = parser.GetVal(_T("base"));
-	pFrame->m_Data.m_sBaseFile.Replace('/', '\\');
-	pFrame->m_Data.m_sBaseName = parser.GetVal(_T("basename"));
-	pFrame->m_Data.m_sTheirFile = parser.GetVal(_T("theirs"));
-	pFrame->m_Data.m_sTheirFile.Replace('/', '\\');
-	pFrame->m_Data.m_sTheirName = parser.GetVal(_T("theirsname"));
-	pFrame->m_Data.m_sYourFile = parser.GetVal(_T("yours"));
-	pFrame->m_Data.m_sYourFile.Replace('/', '\\');
-	pFrame->m_Data.m_sYourName = parser.GetVal(_T("yoursname"));
-	pFrame->m_Data.m_sMergedFile = parser.GetVal(_T("merged"));
-	pFrame->m_Data.m_sMergedFile.Replace('/', '\\');
-	pFrame->m_Data.m_sMergedName = parser.GetVal(_T("mergedname"));
+	pFrame->m_Data.m_baseFile.SetFileName(parser.GetVal(_T("base")));
+	pFrame->m_Data.m_baseFile.SetDescriptiveName(parser.GetVal(_T("basename")));
+	pFrame->m_Data.m_theirFile.SetFileName(parser.GetVal(_T("theirs")));
+	pFrame->m_Data.m_theirFile.SetDescriptiveName(parser.GetVal(_T("theirsname")));
+	pFrame->m_Data.m_yourFile.SetFileName(parser.GetVal(_T("yours")));
+	pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(_T("yoursname")));
+	pFrame->m_Data.m_mergedFile.SetFileName(parser.GetVal(_T("merged")));
+	pFrame->m_Data.m_mergedFile.SetDescriptiveName(parser.GetVal(_T("mergedname")));
 	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));
 	pFrame->m_Data.m_sPatchPath.Replace('/', '\\');
 	if (parser.HasKey(_T("patchoriginal")))
@@ -179,10 +176,9 @@ BOOL CTortoiseMergeApp::InitInstance()
         pFrame->m_bOneWay = TRUE;
 	if (parser.HasKey(_T("reversedpatch")))
 		pFrame->m_bReversedPatch = TRUE;
-	if (!pFrame->m_Data.m_sBaseFile.IsEmpty() && pFrame->m_Data.m_sYourFile.IsEmpty() && !pFrame->m_Data.m_sTheirFile.IsEmpty())
+	if (pFrame->m_Data.IsBaseFileInUse() && !pFrame->m_Data.IsYourFileInUse() && pFrame->m_Data.IsTheirFileInUse())
 	{
-		pFrame->m_Data.m_sYourFile = pFrame->m_Data.m_sTheirFile;
-		pFrame->m_Data.m_sTheirFile.Empty();
+		pFrame->m_Data.m_yourFile.TransferDetailsFrom(pFrame->m_Data.m_theirFile);
 	}
 
 	if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff"))))
@@ -238,7 +234,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->ActivateFrame();
 	pFrame->ShowWindow(SW_SHOW);
 	pFrame->UpdateWindow();
-	if (pFrame->m_Data.m_sBaseFile.IsEmpty() && pFrame->m_Data.m_sPatchPath.IsEmpty())
+	if (!pFrame->m_Data.IsBaseFileInUse() && pFrame->m_Data.m_sPatchPath.IsEmpty())
 	{
 		pFrame->OnFileOpen();
 	}

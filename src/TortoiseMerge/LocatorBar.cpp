@@ -20,7 +20,9 @@
 #include "TortoiseMerge.h"
 #include "MainFrm.h"
 #include "LocatorBar.h"
-#include ".\locatorbar.h"
+#include "LeftView.h"
+#include "RightView.h"
+#include "BottomView.h"
 
 
 IMPLEMENT_DYNAMIC(CLocatorBar, CDialogBar)

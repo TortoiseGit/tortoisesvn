@@ -18,8 +18,8 @@
 //
 #include "stdafx.h"
 #include "Settings.h"
-
-
+#include "SetMainPage.h"
+#include "SetColorPage.h"
 
 IMPLEMENT_DYNAMIC(CSettings, CPropertySheet)
 CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
@@ -59,7 +59,7 @@ void CSettings::SaveData()
 	m_pColorPage->SaveData();
 }
 
-BOOL CSettings::IsReloadNeeded()
+BOOL CSettings::IsReloadNeeded() const
 {
 	BOOL bReload = FALSE;
 	bReload = (m_pMainPage->m_bReloadNeeded || bReload);
