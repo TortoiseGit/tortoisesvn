@@ -501,7 +501,7 @@ COLORREF MakeGrayAlphablend(CBitmap* pBitmap, int weighting, COLORREF blendcolor
   return topLeftColor;
 }
 
-#if(WINVER < 0x0500)
+#if 1
 
 class CNewLoadLib
 {
@@ -526,7 +526,8 @@ public:
   }
 };
 
-BOOL GetMenuInfo( HMENU hMenu, LPMENUINFO pInfo)
+#endif
+BOOL MyGetMenuInfo( HMENU hMenu, LPMENUINFO pInfo)
 {
   static CNewLoadLib menuInfo(_T("user32.dll"),"GetMenuInfo");
   if(menuInfo.m_pProg)
@@ -537,7 +538,7 @@ BOOL GetMenuInfo( HMENU hMenu, LPMENUINFO pInfo)
   return FALSE;
 }
 
-BOOL SetMenuInfo( HMENU hMenu, LPCMENUINFO pInfo)
+BOOL MySetMenuInfo( HMENU hMenu, LPCMENUINFO pInfo)
 {
   static CNewLoadLib menuInfo(_T("user32.dll"),"SetMenuInfo");
   if(menuInfo.m_pProg)
@@ -548,7 +549,6 @@ BOOL SetMenuInfo( HMENU hMenu, LPCMENUINFO pInfo)
   return FALSE;
 }
 
-#endif
 
 class CNewBrushList : public CObList
 {
@@ -687,7 +687,7 @@ void UpdateMenuBarColor(HMENU hMenu)
   // Change color only for CNewMenu and derived classes
   if(IsMenu(hMenu) && DYNAMIC_DOWNCAST(CNewMenu,CMenu::FromHandlePermanent(hMenu))!=NULL)
   {
-    SetMenuInfo(hMenu,&menuInfo);
+    ::MySetMenuInfo(hMenu,&menuInfo);
   }
 
   CWinApp* pWinApp = AfxGetApp();
@@ -708,7 +708,7 @@ void UpdateMenuBarColor(HMENU hMenu)
           if(DYNAMIC_DOWNCAST(CNewMenu,CMenu::FromHandlePermanent(pMultiTemplate->m_hMenuShared))!=NULL)
           {
             // need for correct menubar color
-            SetMenuInfo(pMultiTemplate->m_hMenuShared,&menuInfo);
+            ::MySetMenuInfo(pMultiTemplate->m_hMenuShared,&menuInfo);
           }
         }
 
@@ -2082,7 +2082,7 @@ COLORREF CNewMenu::GetMenuColor(HMENU hMenu)
     menuInfo.cbSize = sizeof(menuInfo);
     menuInfo.fMask = MIM_BACKGROUND;
 
-    if(::GetMenuInfo(hMenu,&menuInfo) && menuInfo.hbrBack)
+    if(::MyGetMenuInfo(hMenu,&menuInfo) && menuInfo.hbrBack)
     {
       LOGBRUSH logBrush;
       if(GetObject(menuInfo.hbrBack,sizeof(LOGBRUSH),&logBrush))
@@ -2152,7 +2152,7 @@ COLORREF CNewMenu::GetMenuBarColor(HMENU hMenu)
     menuInfo.cbSize = sizeof(menuInfo);
     menuInfo.fMask = MIM_BACKGROUND;
 
-    if(::GetMenuInfo(hMenu,&menuInfo) && menuInfo.hbrBack)
+    if(::MyGetMenuInfo(hMenu,&menuInfo) && menuInfo.hbrBack)
     {
       LOGBRUSH logBrush;
       if(GetObject(menuInfo.hbrBack,sizeof(LOGBRUSH),&logBrush))
@@ -3347,7 +3347,7 @@ void CNewMenu::DrawItem_XP_2003(LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar)
       menuInfo.cbSize = sizeof(menuInfo);
       menuInfo.fMask = MIM_BACKGROUND;
 
-      if(::GetMenuInfo(m_hMenu,&menuInfo) && menuInfo.hbrBack)
+      if(::MyGetMenuInfo(m_hMenu,&menuInfo) && menuInfo.hbrBack)
       {
         CBrush *pBrush = CBrush::FromHandle(menuInfo.hbrBack);
         VERIFY(pBrush->UnrealizeObject());
@@ -4050,7 +4050,7 @@ void CNewMenu::DrawItem_Icy(LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar)
         menuInfo.cbSize = sizeof(menuInfo);
         menuInfo.fMask = MIM_BACKGROUND;
 
-        if(!bHighContrast && ::GetMenuInfo(m_hMenu,&menuInfo) && menuInfo.hbrBack)
+        if(!bHighContrast && ::MyGetMenuInfo(m_hMenu,&menuInfo) && menuInfo.hbrBack)
         {
           CBrush *pBrush = CBrush::FromHandle(menuInfo.hbrBack);
           VERIFY(pBrush->UnrealizeObject());
@@ -9525,7 +9525,7 @@ BOOL CNewDockBar::OnEraseBkgnd(CDC* pDC)
   menuInfo.cbSize = sizeof(menuInfo);
   menuInfo.fMask = MIM_BACKGROUND;
 
-  if(::GetMenuInfo(::GetMenu(::GetParent(m_hWnd)),&menuInfo) && menuInfo.hbrBack)
+  if(::MyGetMenuInfo(::GetMenu(::GetParent(m_hWnd)),&menuInfo) && menuInfo.hbrBack)
   {
     CRect rectA;
     CRect rectB;

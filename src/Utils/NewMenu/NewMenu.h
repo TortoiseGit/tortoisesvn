@@ -95,7 +95,7 @@ extern BOOL GUILIBDLLEXPORT bRemoteSession;
 /////////////////////////////////////////////////////////////////////////////
 // Support for getting menuinfo without runtime-error
 
-#if(WINVER < 0x0500)
+#ifndef MNS_NOCHECK
 
 #define MNS_NOCHECK         0x80000000
 #define MNS_MODELESS        0x40000000
@@ -124,10 +124,12 @@ typedef struct tagMENUINFO
 }   MENUINFO, FAR *LPMENUINFO;
 typedef MENUINFO CONST FAR *LPCMENUINFO;
 
-BOOL GUILIBDLLEXPORT GetMenuInfo( HMENU hMenu, LPMENUINFO pInfo);
-BOOL GUILIBDLLEXPORT SetMenuInfo( HMENU hMenu, LPCMENUINFO pInfo);
 
 #endif
+
+BOOL GUILIBDLLEXPORT MyGetMenuInfo( HMENU hMenu, LPMENUINFO pInfo);
+BOOL GUILIBDLLEXPORT MySetMenuInfo( HMENU hMenu, LPCMENUINFO pInfo);
+
 
 /////////////////////////////////////////////////////////////////////////////
 // Forwarddeclaration and global function for menu drawing
