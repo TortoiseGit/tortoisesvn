@@ -75,10 +75,10 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 		cbei.iItem = pos;
 
 	str.Trim(_T(" "));
-	m_arEntries.InsertAt(0, str);
-	str.Replace('\r', ' ');
-	str.Replace('\n', ' ');
-	cbei.pszText = const_cast<LPTSTR>(str.GetString());
+	CString combostring = str;
+	combostring.Replace('\r', ' ');
+	combostring.Replace('\n', ' ');
+	cbei.pszText = const_cast<LPTSTR>(combostring.GetString());
 
 	if (m_bURLHistory)
 	{
@@ -110,18 +110,24 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 		cbei.mask |= CBEIF_IMAGE | CBEIF_SELECTEDIMAGE;
 	}
 	int nRet = InsertItem(&cbei);
+	if (nRet >= 0)
+		m_arEntries.InsertAt(nRet, str);
 
 	//search the Combo for another string like this
 	//and delete it if one is found
 	int nIndex = FindStringExact(0, str);
 	if (nIndex != -1 && nIndex != nRet)
+	{
 		DeleteItem(nIndex);
+		m_arEntries.RemoveAt(nIndex);
+	}
 
 	//truncate list to m_nMaxHistoryItems
 	int nNumItems = GetCount();
 	for (int n = m_nMaxHistoryItems; n < nNumItems; n++)
 	{
 		DeleteItem(m_nMaxHistoryItems);
+		m_arEntries.RemoveAt(m_nMaxHistoryItems);
 	}
 
 	SetCurSel(nRet);
