@@ -23,6 +23,7 @@
 #include "Resource.h"
 #include "registry.h"
 #include "..\crashrpt\CrashReport.h"
+#include "Aclapi.h"
 
 #include "..\version.h"
 
@@ -309,7 +310,7 @@ VOID PipeThread(LPVOID lpvParam)
 			ATLTRACE("CreatePipe failed"); 
 			break;
 		}
-
+		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
 		if (WaitNamedPipe(TSVN_CACHE_PIPE_NAME, 1000))
 		{
 			// Wait for the client to connect; if it succeeds, 
