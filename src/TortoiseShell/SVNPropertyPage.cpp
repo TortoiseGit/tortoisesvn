@@ -236,6 +236,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 void CSVNPropertyPage::InitWorkfileView()
 {
 	SVNStatus svn = SVNStatus();
+	TCHAR tbuf[4096];
 	if (svn.GetStatus(filename.c_str())>(-2))
 	{
 		if (svn.status->entry != NULL)
@@ -299,7 +300,8 @@ void CSVNPropertyPage::InitWorkfileView()
 				MAKESTRING(IDS_PROPVALUE);
 				lcol2.pszText = stringtablebuffer;
 				ListView_InsertColumn(lvh, 1, &lcol2);
-			}
+			} // if (Header_GetItemCount(header)<=0)
+			stdstring stemp;
 			for (int i=0; i<props.GetCount(); i++)
 			{
 				stdstring temp;
@@ -317,12 +319,11 @@ void CSVNPropertyPage::InitWorkfileView()
 					ListView_InsertItem(lvh, &lvitem);
 					temp = props.GetItemValue(i);
 					//treat values as normal text even if they're not
-					TCHAR tbuf[4096];
 					_tcsncpy(tbuf, temp.c_str(), 4095);
 #ifdef UNICODE
-					stdstring stemp = MultibyteToWide((char *)tbuf);
+					stemp = MultibyteToWide((char *)tbuf);
 #else
-					stdstring stemp = stdstring((char *)tbuf);
+					stemp = stdstring((char *)tbuf);
 #endif
 					ListView_SetItemText(lvh, i, 1, (LPTSTR)(stemp.c_str()));
 				}
