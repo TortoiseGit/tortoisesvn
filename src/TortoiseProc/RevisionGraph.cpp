@@ -249,9 +249,15 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 
 		url = entry ? entry->url : "";
 	}
-	if (!CUtils::IsEscaped(url))
-		url = CUtils::PathEscape(url);
-	url = url.Mid(m_sRepoRoot.GetLength());
+	if (CUtils::IsEscaped(url))
+	{
+		CUtils::Unescape(url.GetBuffer(url.GetLength()+1));
+		url.ReleaseBuffer();
+	}
+	CStringA sRepoRoot = m_sRepoRoot;
+	CUtils::Unescape(sRepoRoot.GetBuffer(sRepoRoot.GetLength()+1));
+	sRepoRoot.ReleaseBuffer();
+	url = url.Mid(sRepoRoot.GetLength());
 	m_nRecurseLevel = 0;
 	if (AnalyzeRevisions(url, m_lHeadRevision, 1))
 	{
