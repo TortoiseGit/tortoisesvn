@@ -20,6 +20,7 @@
 #pragma once
 
 #include "ResizableDialog.h"
+#include "StateDlg.h"
 
 /**
 * \ingroup TortoiseProc
@@ -108,4 +109,4 @@ private:
 };
 
 typedef CStandAloneDialogTmpl<CResizableDialog> CResizableStandAloneDialog;
-typedef CStandAloneDialogTmpl<CDialog> CStandAloneDialog;
+typedef CStandAloneDialogTmpl<CStateDialog> CStandAloneDialog;

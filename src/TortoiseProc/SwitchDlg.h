@@ -46,7 +46,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CSwitchDlg : public CResizableStandAloneDialog
+class CSwitchDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CSwitchDlg)
 

@@ -24,7 +24,7 @@
 
 // CBlameDlg dialog
 
-class CBlameDlg : public CResizableStandAloneDialog
+class CBlameDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CBlameDlg)
 

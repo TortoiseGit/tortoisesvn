@@ -24,9 +24,9 @@
 
 // CUpdateDlg dialog
 
-IMPLEMENT_DYNAMIC(CUpdateDlg, CResizableStandAloneDialog)
+IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CUpdateDlg::IDD, pParent)
+	: CStandAloneDialog(CUpdateDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_bNonRecursive(FALSE)
 {
@@ -38,20 +38,20 @@ CUpdateDlg::~CUpdateDlg()
 
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
 
 
-BEGIN_MESSAGE_MAP(CUpdateDlg, CResizableStandAloneDialog)
+BEGIN_MESSAGE_MAP(CUpdateDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	// Since this dialog is called to update to a specific revision, we should
 	// enable and set focus to the edit control so that the user can enter the
@@ -99,5 +99,5 @@ void CUpdateDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CResizableStandAloneDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }

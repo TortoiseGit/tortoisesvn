@@ -22,7 +22,7 @@
 
 // CRelocateDlg dialog
 
-class CRelocateDlg : public CResizableStandAloneDialog
+class CRelocateDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRelocateDlg)
 

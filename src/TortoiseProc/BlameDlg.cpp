@@ -25,9 +25,9 @@
 
 // CBlameDlg dialog
 
-IMPLEMENT_DYNAMIC(CBlameDlg, CResizableStandAloneDialog)
+IMPLEMENT_DYNAMIC(CBlameDlg, CStandAloneDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CBlameDlg::IDD, pParent)
+	: CStandAloneDialog(CBlameDlg::IDD, pParent)
 	, StartRev(1)
 	, EndRev(0)
 	, m_sStartRev(_T("1"))
@@ -43,14 +43,14 @@ CBlameDlg::~CBlameDlg()
 
 void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Check(pDX, IDC_CHECK1, m_bTextView);
 }
 
 
-BEGIN_MESSAGE_MAP(CBlameDlg, CResizableStandAloneDialog)
+BEGIN_MESSAGE_MAP(CBlameDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -60,7 +60,7 @@ END_MESSAGE_MAP()
 
 BOOL CBlameDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	m_bTextView = m_regTextView;
 	// set head revision as default revision
@@ -117,7 +117,7 @@ void CBlameDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CResizableStandAloneDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CBlameDlg::OnBnClickedHelp()

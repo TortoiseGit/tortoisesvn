@@ -29,9 +29,9 @@
 
 // CCopyDlg dialog
 
-IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCopyDlg, CStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CCopyDlg::IDD, pParent)
+	: CStandAloneDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
 	, m_bDirectCopy(TRUE)
@@ -45,7 +45,7 @@ CCopyDlg::~CCopyDlg()
 
 void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
@@ -55,7 +55,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCopyDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
@@ -65,7 +65,7 @@ END_MESSAGE_MAP()
 
 BOOL CCopyDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	m_cLogMessage.Init();
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -192,7 +192,7 @@ void CCopyDlg::OnOK()
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 		UpdateData(FALSE);		
 	}
-	CResizableStandAloneDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CCopyDlg::OnBnClickedBrowse()
@@ -260,7 +260,7 @@ void CCopyDlg::OnCancel()
 {
 	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
-	CResizableStandAloneDialog::OnCancel();
+	CStandAloneDialog::OnCancel();
 }
 
 BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
@@ -279,5 +279,5 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+	return CStandAloneDialog::PreTranslateMessage(pMsg);
 }

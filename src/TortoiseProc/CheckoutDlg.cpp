@@ -28,9 +28,9 @@
 
 // CCheckoutDlg dialog
 
-IMPLEMENT_DYNAMIC(CCheckoutDlg, CResizableStandAloneDialog)
+IMPLEMENT_DYNAMIC(CCheckoutDlg, CStandAloneDialog)
 CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CCheckoutDlg::IDD, pParent)
+	: CStandAloneDialog(CCheckoutDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_strCheckoutDirectory(_T(""))
 	, IsExport(FALSE)
@@ -44,7 +44,7 @@ CCheckoutDlg::~CCheckoutDlg()
 
 void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_REVISION_NUM, m_editRevision);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
@@ -54,7 +54,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableStandAloneDialog)
+BEGIN_MESSAGE_MAP(CCheckoutDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
@@ -65,7 +65,7 @@ END_MESSAGE_MAP()
 
 BOOL CCheckoutDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -154,7 +154,7 @@ void CCheckoutDlg::OnOK()
 			return;		//don't dismiss the dialog
 	} // if (!PathFileExists(m_strCheckoutDirectory))
 	UpdateData(FALSE);
-	CResizableStandAloneDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CCheckoutDlg::OnBnClickedRevisionN()
@@ -247,7 +247,7 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
-	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
+	return CStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CCheckoutDlg::OnEnChangeCheckoutdirectory()

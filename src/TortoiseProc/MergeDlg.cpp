@@ -25,9 +25,9 @@
 #include "BrowseFolder.h"
 #include "MessageBox.h"
 
-IMPLEMENT_DYNAMIC(CMergeDlg, CResizableStandAloneDialog)
+IMPLEMENT_DYNAMIC(CMergeDlg, CStandAloneDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
-	: CResizableStandAloneDialog(CMergeDlg::IDD, pParent)
+	: CStandAloneDialog(CMergeDlg::IDD, pParent)
 	, m_URLFrom(_T(""))
 	, m_URLTo(_T(""))
 	, StartRev(0)
@@ -50,7 +50,7 @@ CMergeDlg::~CMergeDlg()
 
 void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableStandAloneDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
@@ -60,7 +60,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeDlg, CResizableStandAloneDialog)
+BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_BROWSE2, OnBnClickedBrowse2)
@@ -79,7 +79,7 @@ END_MESSAGE_MAP()
 
 BOOL CMergeDlg::OnInitDialog()
 {
-	CResizableStandAloneDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
@@ -190,7 +190,7 @@ void CMergeDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CResizableStandAloneDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 
 void CMergeDlg::OnBnClickedBrowse()
