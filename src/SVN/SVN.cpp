@@ -93,6 +93,7 @@ SVN::SVN(void)
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
 		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,

@@ -157,6 +157,7 @@ public:
 	void SaveAuthentication(BOOL save);
 #else
 	stdstring GetLastErrorMsg();
+	svn_client_ctx_t 			ctx;
 #endif
 	svn_wc_status_kind			m_allstatus;
 
@@ -164,7 +165,6 @@ protected:
 	apr_pool_t *				m_pool;
 private:
 	svn_auth_baton_t *			m_auth_baton;
-	svn_client_ctx_t 			m_ctx;
 	svn_error_t *				m_err;
 	static int GetStatusRanking(svn_wc_status_kind status);
 	static void getallstatus (void *baton, const char *path, svn_wc_status_t *status);

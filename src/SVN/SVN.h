@@ -453,7 +453,7 @@ public:
 
 private:
 	svn_auth_baton_t *			auth_baton;
-	svn_client_ctx_t 			ctx;
+	//svn_client_ctx_t 			ctx;
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
 	svn_wc_status_t *			status;

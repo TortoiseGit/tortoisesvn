@@ -43,7 +43,10 @@
        crashed the log dialog. (Stefan)
 - BUG: The repository browser handled the "+" sign
        in e.g svn+ssh:// url incorrectly. (Stefan)
-
+- BUG: svn+ssh didn't work at all until now. Thanks
+       to Bjoern Kuenstig we were able to make
+       it work. (Stefan)
+       
 Version 0.21
 - ADD: If multiple targets are selected for
        update the all targets which belong to

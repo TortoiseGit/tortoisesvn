@@ -24,6 +24,7 @@
 #include "UnicodeUtils.h"
 #ifdef _MFC_VER
 #	include "MessageBox.h"
+#	include "registry.h"
 #endif
 
 SVNStatus::SVNStatus(void)
@@ -35,7 +36,7 @@ SVNStatus::SVNStatus(void)
 	hWnd = NULL;
 	m_app = NULL;
 #endif
-	memset (&m_ctx, 0, sizeof (m_ctx));
+	memset (&ctx, 0, sizeof (ctx));
 
 #ifdef _MFC_VER
 	// set up authentication
@@ -77,10 +78,20 @@ SVNStatus::SVNStatus(void)
 
 	/* Build an authentication baton to give to libsvn_client. */
 	svn_auth_open (&m_auth_baton, providers, m_pool);
-	m_ctx.auth_baton = m_auth_baton;
+	ctx.auth_baton = m_auth_baton;
 
 	// set up the configuration
-	svn_config_get_config (&(m_ctx.config), NULL, m_pool);
+	svn_config_get_config (&(ctx.config), NULL, m_pool);
+
+	//set up the SVN_SSH param
+	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+	tsvn_ssh.Replace('\\', '/');
+	if (!tsvn_ssh.IsEmpty())
+	{
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+			APR_HASH_KEY_STRING);
+		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
+	}
 #endif
 }
 
@@ -95,11 +106,11 @@ void SVNStatus::SaveAuthentication(BOOL save)
 {
 	if (save)
 	{
-		svn_auth_set_parameter(m_ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
+		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
 	}
 	else
 	{
-		svn_auth_set_parameter(m_ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
+		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
 	}
 }
 #endif //_MFC_VER
@@ -292,7 +303,7 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 							TRUE,		//getall
 							update,		//update
 							noignore,		//noignore
-							&m_ctx,
+							&ctx,
 							m_pool);
 
 
@@ -341,7 +352,7 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 							TRUE,		//getall
 							update,		//update
 							TRUE,		//noignore
-							&m_ctx,
+							&ctx,
 							m_pool);
 
 
