@@ -35,6 +35,31 @@ CSetMenuPage::CSetMenuPage()
 	, m_bMenu21(FALSE)
 	, m_bMenu22(FALSE)
 {
+	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+
+	m_bMenu1 = (topmenu & MENUCHECKOUT) ? TRUE : FALSE;
+	m_bMenu2 = (topmenu & MENUUPDATE) ? TRUE : FALSE;
+	m_bMenu3 = (topmenu & MENUCOMMIT) ? TRUE : FALSE;
+	m_bMenu4 = (topmenu & MENUDIFF) ? TRUE : FALSE;
+	m_bMenu5 = (topmenu & MENULOG) ? TRUE : FALSE;
+	m_bMenu6 = (topmenu & MENUSHOWCHANGED) ? TRUE : FALSE;
+	m_bMenu7 = (topmenu & MENUCONFLICTEDITOR) ? TRUE : FALSE;
+	m_bMenu8 = (topmenu & MENUUPDATEEXT) ? TRUE : FALSE;
+	m_bMenu9 = (topmenu & MENURENAME) ? TRUE : FALSE;
+	m_bMenu10 = (topmenu & MENUREMOVE) ? TRUE : FALSE;
+	m_bMenu11 = (topmenu & MENURESOLVE) ? TRUE : FALSE;
+	m_bMenu12 = (topmenu & MENUREVERT) ? TRUE : FALSE;
+	m_bMenu13 = (topmenu & MENUCLEANUP) ? TRUE : FALSE;
+	m_bMenu14 = (topmenu & MENUCOPY) ? TRUE : FALSE;
+	m_bMenu15 = (topmenu & MENUSWITCH) ? TRUE : FALSE;
+	m_bMenu16 = (topmenu & MENUMERGE) ? TRUE : FALSE;
+	m_bMenu17 = (topmenu & MENUEXPORT) ? TRUE : FALSE;
+	m_bMenu18 = (topmenu & MENURELOCATE) ? TRUE : FALSE;
+	m_bMenu19 = (topmenu & MENUCREATEREPOS) ? TRUE : FALSE;
+	m_bMenu20 = (topmenu & MENUADD) ? TRUE : FALSE;
+	m_bMenu21 = (topmenu & MENUIMPORT) ? TRUE : FALSE;
+	m_bMenu22 = (topmenu & MENUIGNORE) ? TRUE : FALSE;
+
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 }
 
@@ -130,30 +155,6 @@ BOOL CSetMenuPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
 
-	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-
-	m_bMenu1 = (topmenu & MENUCHECKOUT) ? TRUE : FALSE;
-	m_bMenu2 = (topmenu & MENUUPDATE) ? TRUE : FALSE;
-	m_bMenu3 = (topmenu & MENUCOMMIT) ? TRUE : FALSE;
-	m_bMenu4 = (topmenu & MENUDIFF) ? TRUE : FALSE;
-	m_bMenu5 = (topmenu & MENULOG) ? TRUE : FALSE;
-	m_bMenu6 = (topmenu & MENUSHOWCHANGED) ? TRUE : FALSE;
-	m_bMenu7 = (topmenu & MENUCONFLICTEDITOR) ? TRUE : FALSE;
-	m_bMenu8 = (topmenu & MENUUPDATEEXT) ? TRUE : FALSE;
-	m_bMenu9 = (topmenu & MENURENAME) ? TRUE : FALSE;
-	m_bMenu10 = (topmenu & MENUREMOVE) ? TRUE : FALSE;
-	m_bMenu11 = (topmenu & MENURESOLVE) ? TRUE : FALSE;
-	m_bMenu12 = (topmenu & MENUREVERT) ? TRUE : FALSE;
-	m_bMenu13 = (topmenu & MENUCLEANUP) ? TRUE : FALSE;
-	m_bMenu14 = (topmenu & MENUCOPY) ? TRUE : FALSE;
-	m_bMenu15 = (topmenu & MENUSWITCH) ? TRUE : FALSE;
-	m_bMenu16 = (topmenu & MENUMERGE) ? TRUE : FALSE;
-	m_bMenu17 = (topmenu & MENUEXPORT) ? TRUE : FALSE;
-	m_bMenu18 = (topmenu & MENURELOCATE) ? TRUE : FALSE;
-	m_bMenu19 = (topmenu & MENUCREATEREPOS) ? TRUE : FALSE;
-	m_bMenu20 = (topmenu & MENUADD) ? TRUE : FALSE;
-	m_bMenu21 = (topmenu & MENUIMPORT) ? TRUE : FALSE;
-	m_bMenu22 = (topmenu & MENUIGNORE) ? TRUE : FALSE;
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
