@@ -300,6 +300,8 @@ void CChangedDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							temp.LoadString(IDS_SVNACTION_UPDATE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+							temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
 						} // if (repoStatus > svn_wc_status_normal)
 						if (wcStatus > svn_wc_status_normal)
 						{
@@ -429,6 +431,16 @@ void CChangedDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)  
 					} 
+					break;
+				case ID_LOG:
+					{
+						CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+						long revend = reg;
+						revend = -revend;
+						CLogDlg dlg;
+						dlg.SetParams(filepath, SVNRev::REV_HEAD, revend);
+						dlg.DoModal();
+					}
 					break;
 				default:
 					GetDlgItem(IDOK)->EnableWindow(TRUE);

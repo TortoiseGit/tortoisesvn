@@ -41,6 +41,7 @@
 #define ID_REPOBROWSE  13
 #define ID_DELETE	   14
 #define ID_IGNORE	   15
+#define	ID_LOG		   16
 
 #define ID_DIFF			20
 
