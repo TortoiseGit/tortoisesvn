@@ -529,7 +529,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev rev
 				}
 				if (pProgDlg->HasUserCancelled())
 				{
-					Err = svn_error_create(NULL, NULL, "user cancelled");
+					Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED)));
 					return FALSE;
 				}
 			} // while (lister2.NextFile(srcfile))
@@ -614,7 +614,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev rev
 					}
 					if (pProgDlg->HasUserCancelled())
 					{
-						Err = svn_error_create(NULL, NULL, "user cancelled");
+						Err = svn_error_create(NULL, NULL, CStringA(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED)));
 						return FALSE;
 					}
 				} // while (s = status.GetNextFileStatus(&strbuf))
