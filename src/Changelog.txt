@@ -1,3 +1,8 @@
+- CHG: Improved refreshing of icons after a TSVN operation. (Will)
+- CHG: Major code cleanup throughout the whole project. (Will)
+- BUG: Adding and committing of files with a reversed sort order of
+       the files in the add/commit dialog didn't work correctly. (Will)
+- BUG: The drive type wasn't recognized correctly on Win98. (Will)
 - BUG: the log message history was truncated if the log message exceeded the
        combobox limit. (Stefan)
 - BUG: The number of selected files was shown wrong in the commit dialog. (Stefan)
