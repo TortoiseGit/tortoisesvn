@@ -44,10 +44,10 @@ TortoiseBlame::TortoiseBlame()
 	m_windowcolor = ::GetSysColor(COLOR_WINDOW);
 	m_textcolor = ::GetSysColor(COLOR_WINDOWTEXT);
 	m_texthighlightcolor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
-	m_mouserevcolor = m_windowcolor - 0x101010;
-	m_mouseauthorcolor = m_windowcolor - 0x404040;
+	m_mouserevcolor = (m_windowcolor > 0x101010 ? m_windowcolor - 0x101010 : 0);
+	m_mouseauthorcolor = (m_windowcolor > 0x404040 ? m_windowcolor - 0x404040 : 0);
 	m_selectedrevcolor = ::GetSysColor(COLOR_HIGHLIGHT);
-	m_selectedauthorcolor = m_selectedrevcolor - 0x303030;
+	m_selectedauthorcolor = (m_selectedrevcolor > 0x303030 ? m_selectedrevcolor - 0x303030 : 0);
 
 	m_directPointer = 0;
 	m_directFunction = 0;
@@ -691,7 +691,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
 				int heigth = app.SendEditor(SCI_TEXTHEIGHT);
 				line = line + (point.y/heigth);
-				if (line >= app.revs.size())
+				if (line >= (LONG)app.revs.size())
 					break;
 				LONG rev = app.revs[line];
 				if (line >= (LONG)app.revs.size())
@@ -733,7 +733,6 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 		app.ttVisible = FALSE;
 		SendMessage(app.hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
 		::InvalidateRect(app.wBlame, NULL, FALSE);
-		OutputDebugString(_T("WM_MOUSELEAVE\n"));
 		break;
 	case WM_MOUSEMOVE:
 		{
@@ -755,7 +754,6 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				ti.uId = 0;
 				SendMessage(app.hwndTT, TTM_TRACKACTIVATE, TRUE, (LPARAM)&ti);
 				app.ttVisible = TRUE;
-				OutputDebugString(_T("activate tooltip\n"));
 			}
 			int y = ((int)(short)HIWORD(lParam));
 			LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
@@ -775,7 +773,6 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					{
 						::InvalidateRect(app.wBlame, NULL, FALSE);
 						SendMessage(app.hwndTT, TTM_UPDATE, 0, 0);
-						OutputDebugString(_T("update tooltip\n"));
 					}
 				}
 			}
