@@ -243,18 +243,13 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 
 void CLogDlg::OnBnClickedGetall()
 {
-	m_LogList.DeleteAllItems();
-	m_arLogMessages.RemoveAll();
-	m_arLogPaths.RemoveAll();
-	m_arRevs.RemoveAll();
-	m_logcounter = 0;
-	m_endrev = 1;
-	m_startrev = -1;
-	m_bCancelled = FALSE;
-
 	if ((m_bStrict)&&(m_bGotAllPressed == FALSE))
 	{
-		if (CMessageBox::Show(this->m_hWnd, IDS_LOG_STRICTQUESTION, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDNO)
+		UINT ret = 0;
+		ret = CMessageBox::Show(this->m_hWnd, IDS_LOG_STRICTQUESTION, IDS_APPNAME, MB_YESNOCANCEL | MB_ICONQUESTION);
+		if (ret == IDCANCEL)
+			return;
+		if (ret == IDNO)
 		{
 			m_bStrict = FALSE;
 			m_bShowedAll = TRUE;
@@ -267,6 +262,14 @@ void CLogDlg::OnBnClickedGetall()
 		m_bShowedAll = TRUE;
 		GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
 	}
+	m_LogList.DeleteAllItems();
+	m_arLogMessages.RemoveAll();
+	m_arLogPaths.RemoveAll();
+	m_arRevs.RemoveAll();
+	m_logcounter = 0;
+	m_endrev = 1;
+	m_startrev = -1;
+	m_bCancelled = FALSE;
 	m_bGotAllPressed = TRUE;
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
