@@ -31,7 +31,7 @@ typedef std::basic_string<wchar_t> wide_string;
 #endif
 #pragma warning (pop)
 
-class CTSVNPathList;
+//typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /**
  * \ingroup TortoiseShell
@@ -155,9 +155,6 @@ friend class SVN;
 	 */
 	CString GetLastErrorMsg();
 
-	void SetFilter(const CTSVNPathList& fileList);
-	void ClearFilter();
-
 #else
 	/**
 	 * Returns the last error message as a CString object.
@@ -178,8 +175,8 @@ private:
 
 	typedef struct hashbaton_t
 	{
-		SVNStatus*		pThis;
 		apr_hash_t *	hash;
+		apr_pool_t *	pool;
 	} hash_baton_t;
 
 #ifndef _MFC_VER
@@ -233,9 +230,5 @@ private:
 
 	static int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
 
-	// A sorted list of filenames (in SVN format, in lowercase) 
-	// when this list is set, we only pick-up files during a GetStatus which are found in this list
-	typedef std::vector<std::string> StdStrAVector;
-	StdStrAVector m_filterFileList;
 };
 

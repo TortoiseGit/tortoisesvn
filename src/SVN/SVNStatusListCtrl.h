@@ -19,10 +19,8 @@
 #pragma once
 #include "SVN.h"
 #include "SVNStatus.h"
-#include "TSVNPath.h"
 
 class SVNConfig;
-
 
 #define SVNSLC_COLSTATUS		0x000000002
 #define SVNSLC_COLREMOTESTATUS	0x000000004
@@ -111,25 +109,10 @@ public:
 	class FileEntry
 	{
 	public:
-		const CString& GetPathString() const	
-		{
-			return path.GetSVNPathString();
-		}
-		const CTSVNPath& GetPath() const					
-		{
-			return path;
-		}
-		const bool IsChecked() const
-		{
-			return checked;
-		}
-	private:
-		CTSVNPath				path;					///< full path of the file
-		CTSVNPath				basepath;				///< common ancestor path of all files
+		CString					path;					///< full path of the file
+		CString					basepath;				///< common ancestor path of all files
 		CString					url;					///< Subversion URL of the file
-	public:
 		svn_wc_status_kind		status;					///< local status
-	private:
 		svn_wc_status_kind		textstatus;				///< local text status
 		svn_wc_status_kind		propstatus;				///< local property status
 		svn_wc_status_kind		remotestatus;			///< remote status
@@ -140,8 +123,6 @@ public:
 		bool					inexternal;				///< if the item is in an external folder
 		bool					direct;					///< directly included (TRUE) or just a child of a folder
 		bool					isfolder;				///< TRUE if entry refers to a folder
-
-		friend class CSVNStatusListCtrl;
 	};
 
 	/**
@@ -192,7 +173,7 @@ public:
 	 * Returns a String containing some statistics like number of modified, normal, deleted,...
 	 * files.
 	 */
-	CString GetStatisticsString();
+	CString GetStatistics();
 
 	/**
 	 * Set a static control which will be updated automatically with
@@ -211,13 +192,13 @@ public:
 	 * Select/unselect all entries in the list control.
 	 * \param bSelect TRUE to check, FALSE to uncheck.
 	 */
-	void SelectAll(bool bSelect);
+	void SelectAll(BOOL bSelect);
 
-	/** Set a checkbox on an entry in the listbox
-	 * Keeps the listctrl checked state and the FileEntry's checked flag in sync
+	/**
+	 * Checks entries of a specified type. E.g. all files which have
+	 * a Subversion status of "modified".
 	 */
-	void SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck);
-
+	
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
@@ -235,7 +216,7 @@ public:
 
 private:
 	void Sort();	///< Sorts the control by columns
-	void AddEntry(const FileEntry * entry, WORD langID, int listIndex);	///< add an entry to the control
+	void AddEntry(FileEntry * entry, WORD langID, int listIndex);	///< add an entry to the control
 	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays
 	void BuildStatistics();	///< build the statistics
 	void StartDiff(int fileindex);	///< start the external diff program
@@ -244,13 +225,13 @@ private:
 	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
 
 	///< Process one line of the command file supplied to GetStatus
-	bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths); 
+	bool FetchStatusForSinglePathLine(SVNConfig& config, const CString& strLine, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CStringArray& arExtPaths); 
 
 	///< Create 'status' data for each item in an unversioned folder
-	void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, apr_array_header_t *pIgnorePatterns);
+	void AddUnversionedFolder(const CString& strFolderName, const CString& strBasePath, apr_array_header_t *pIgnorePatterns);
 
-	///< Read the all the other status items which result from a single GetFirstStatus call
-	void ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& strBasePath, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, apr_array_header_t *pIgnorePatterns);
+	///< Read the contents of one versioned folder
+	void ReadFolderStatus(SVNStatus& status, const CString& strBasePath, CStringA& strCurrentRepositoryUUID, CStringArray& arExtPaths, apr_array_header_t *pIgnorePatterns);
 
 	///< Clear the status vector (contains custodial pointers)
 	void ClearStatusArray();
@@ -264,14 +245,6 @@ private:
 	///< Look up the relevant show flags for a particular SVN status value
 	DWORD GetShowFlagsFromSVNStatus(svn_wc_status_kind status);
 
-	///< Build a FileEntry item and add it to the FileEntry array
-	const FileEntry* AddNewFileEntry(
-		const svn_wc_status_t* pSVNStatus,  // The return from the SVN GetStatus functions
-		const CTSVNPath& path,				// The path of the item we're adding
-		const CTSVNPath& basePath,			// The base directory for this status build
-		bool bDirectItem,					// Was this item the first found by GetFirstFileStatus or by a subsequent GetNextFileStatus call
-		bool bInExternal					// Are we in an 'external' folder
-		);
 
 	afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);

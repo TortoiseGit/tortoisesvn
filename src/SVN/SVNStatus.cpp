@@ -26,7 +26,6 @@
 #	include "SVN.h"
 #	include "MessageBox.h"
 #	include "registry.h"
-#	include "TSVNPath.h"
 #endif
 
 SVNStatus::SVNStatus(void)
@@ -291,7 +290,7 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */,
 	rev.kind = svn_opt_revision_unspecified;
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = statushash;
-	hashbaton.pThis = this;
+	hashbaton.pool = m_pool;
 	m_err = svn_client_status (&youngest,
 							internalpath,
 							&rev,
@@ -340,7 +339,7 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 	rev.kind = svn_opt_revision_unspecified;
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = m_statushash;
-	hashbaton.pThis = this;
+	hashbaton.pool = m_pool;
 	m_err = svn_client_status (&headrev,
 							internalpath,
 							&rev,
@@ -585,19 +584,8 @@ void SVNStatus::getallstatus(void * baton, const char * /*path*/, svn_wc_status_
 void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status_t * status)
 {
 	hashbaton_t * hash = (hashbaton_t *)baton;
-	const StdStrAVector& filterList = hash->pThis->m_filterFileList;
-	if(filterList.size() > 0)
-	{
-		// We have a filter active - we're only interested in files which are in 
-		// the filter  
-		if(!binary_search(filterList.begin(), filterList.end(), path))
-		{
-			// This item is not in the filter - don't store it
-			return;
-		}
-	}
-	svn_wc_status_t * statuscopy = svn_wc_dup_status (status, hash->pThis->m_pool);
-	apr_hash_set (hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statuscopy);
+	svn_wc_status_t * statuscopy = svn_wc_dup_status (status, hash->pool);
+	apr_hash_set (hash->hash, apr_pstrdup(hash->pool, path), APR_HASH_KEY_STRING, statuscopy);
 }
 
 apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,
@@ -633,25 +621,4 @@ int SVNStatus::sort_compare_items_as_paths (const sort_item *a, const sort_item 
 	bstr = (const char*)b->key;
 	return svn_path_compare_paths (astr, bstr);
 }
-
-#ifdef _MFC_VER
-
-// Set-up a filter to restrict the files which will have their status stored by a get-status
-void SVNStatus::SetFilter(const CTSVNPathList& fileList)
-{
-	m_filterFileList.clear();
-	for(int fileIndex = 0; fileIndex < fileList.GetCount(); fileIndex++)
-	{
-		m_filterFileList.push_back(fileList[fileIndex].GetSVNPathNarrow());
-	}
-	// Sort the list so that we can do binary searches
-	std::sort(m_filterFileList.begin(), m_filterFileList.end());
-}
-
-void SVNStatus::ClearFilter()
-{
-	m_filterFileList.clear();
-}
-
-#endif // _MFC_VER
 
