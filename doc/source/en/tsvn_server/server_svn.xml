@@ -24,7 +24,7 @@
 			<orderedlist>
 				<listitem>
 					<para>
-						Download the latest version of Subversion from
+						Get the latest version of Subversion from
 						<ulink url="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">
 							<citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle>
 						</ulink>.
@@ -73,13 +73,19 @@ svnserve.exe -d
 		</para>
 		<para>
 			To test that svnserve is working, use TortoiseSVN's
-			repo-browser to view a repository. The repo-browser is found in the
-			TortoiseSVN menu in windows-explorer.
+			<menuchoice>
+				<guimenuitem>Repo-Browser</guimenuitem>
+			</menuchoice>
+			to view a repository.
 		</para>
 		<para>
 			Assuming your repository is located in
 			<filename>c:\repos\TestRepo</filename>, and your server is called
-			<filename>localhost</filename>, when asked by repo-browser, enter Url:
+			<filename>localhost</filename>, when asked by
+			<menuchoice>
+				<guimenuitem>Repo-Browser</guimenuitem>
+			</menuchoice>
+, enter Url:
 <screen>
 svn://localhost/repos/TestRepo
 </screen>
@@ -123,7 +129,7 @@ svn://localhost/TestRepo
 				svnserve as a windows service using a wrapper
 				like the one available at
 				<ulink url="http://dark.clansoft.dk/~mbn/svnservice/">
-					<citetitle>http://dark.clansoft.dk/~mbn/svnservice/</citetitle>
+					<citetitle>svnservice</citetitle>
 				</ulink>
 				provided by Magnus Norddahl.
 				Note that SVNService installs svnserve as a manual service,
@@ -132,7 +138,7 @@ svn://localhost/TestRepo
 			<para>
 				More generic tools like
 				<ulink url="http://www.firedaemon.com/">
-					<citetitle>http://www.firedaemon.com/</citetitle>
+					<citetitle>firedaemon</citetitle>
 				</ulink>
 				will also work. Note that you will still need to run
 				svnserve with the -d switch.
@@ -151,8 +157,7 @@ svn://localhost/TestRepo
 			To enable write access to a repository, you need to edit the
 			<filename>conf/svnserve.conf</filename> file in your repository
 			directory.  This file controls the configuration of the
-			svnserve daemon, and also contains useful
-			documentation.
+			svnserve daemon, and also contains useful documentation.
 		</para>
 		<para>
 			You can enable anonymous write access by simply setting:
@@ -162,7 +167,7 @@ anon-access = write
 </screen>
 			However, you will not know who has made changes to a repository,
 			as the <literal>svn:author</literal> property will be empty.
-			You will also be unable to control who	makes changes to a
+			You will also be unable to control who makes changes to a
 			repository.  This is a somewhat risky setup!
 		</para>
 		<para>
@@ -171,125 +176,64 @@ anon-access = write
 [general]
 anon-access = none
 auth-access = write
-password-db = password.conf
+password-db = userfile
 </screen>
-			Where <filename>password.conf</filename> is a file which exists in
-			the same directory as <filename>svnserve.conf</filename>, it can also exist
-			on a path relative to the <filename>conf</filename> directory and has a
-			structure of:
+			Where <literal>userfile</literal> is a file which exists in
+			the same directory as <filename>svnserve.conf</filename>.  This
+			file can live elsewhere in your filesytem (useful for when you
+			have multiple repositories which require the same access rights)
+			and be can referenced using an absolute or relative path.  The
+			<filename>userfile</filename> should have a structure of:
 <screen>
 [users]
 username = password
 ...
 </screen>
 			This example would deny all access for unauthenticated
-			(anonymous) users, and give read-write access to all users in the
-			<filename>password.conf</filename> file.
+			(anonymous) users, and give read-write access to users listed
+			in <filename>userfile</filename>.
 		</para>
-		<para>
-			If you have multiple repositories, then setting up an authentication
-			realm should make administration easier.  For example, if you have
-			two repositories, creatively named TestRepo and TestRepo2, and they
-			both live as sub-directories under
-			<filename>c:\repos</filename>,
-			to setup an authentication realm between them:
-<screen>
-    <filename>c:\repos\TestRepo\conf\svnserve.conf</filename>
-
-[general]
-anon-access = read
-auth-access = write
-password-db = password.conf
-
-</screen>
-<screen>
-    <filename>c:\repos\TestRepo2\conf\svnserve.conf</filename>
-
-[general]
-realm = /TestRepo
-</screen>
-			TestRepo2 now shares the same password database as TestRepo,
-			which gives read-only unauthenticated (anonymous) access and
-			read-write access for authenticated users.
-		</para>
+		<tip>
+			<para>
+				If you maintain multiple repositories using the same password
+				database, the use of an authentication realm will make life
+				easier for users, as TortoiseSVN can cache your creditentials
+				so that you only have to enter them once.  More information
+				can be found in the Subversion book, specificially in the 
+				sections
+				<ulink url="http://svnbook.red-bean.com/en/1.1/ch06s03.html#svn-ch-6-sect-3.2.1">
+					<citetitle>Create a 'users' file and realm</citetitle>
+				</ulink>
+				and 
+				<ulink url="http://svnbook.red-bean.com/en/1.1/ch06s02.html#svn-ch-6-sect-2.2">
+					<citetitle>Client Credentials Caching</citetitle>
+				</ulink>
+			</para>
+		</tip>
 	</sect2>
 	<sect2 id="tsvn-serversetup-svnserve-5">
 		<title>Authentication with svn+ssh</title>
 		<para>
 			Another way to authenticate users with a svnserve
-			based server is to use a secure shell (SSH) to tunnel requests through.
+			based server is to use a secure shell (SSH) to tunnel
+			requests through.
 		</para>
 		<para>
 			With this approach, svnserve is not run as a daemon
 			process, rather, the secure shell starts svnserve
-			for you, running it	as the SSH authenticated user.  To enable this, you
-			need a secure shell daemon on your server.
+			for you, running it as the SSH authenticated user. To
+			enable this, you need a secure shell daemon on your server.
 		</para>
 		<para>
 			It is beyond the scope of this documentation to detail the
-			installation and setup of a secure shell, but one option is
-			<ulink url="http://tech.erdelynet.com/cygwin-sshd.html">
-				<citetitle>cygwin-sshd</citetitle>
-			</ulink>,
-			which is an implementation of
-			<ulink url="http://www.openssh.com/">
-				<citetitle>OpenSSH</citetitle>
+			installation and setup of a secure shell, however you can
+			find further information in the
+			<ulink url="http://tortoisesvn.berlios.de/faq/index.php?action=artikel&amp;cat=8&amp;id=30&amp;artlang=en">
+				<citetitle>Subversion / TortoiseSVN SSH HowTo</citetitle>
 			</ulink>
 		</para>
 		<para>
-			Once you can connect to a secure shell on your server,
-			to set up svnserve you need to ensure
-			the following:
-		</para>
-		<para>
-			<orderedlist>
-				<listitem>
-					<para>
-						<literal>PATH</literal> environment variable contains
-						the location of svnserve.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						TortoiseSVN has an SSH client configured.  This is done
-						through the TortoiseSVN menu in Windows Explorer
-						<menuchoice>
-							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Settings</guimenuitem>
-						</menuchoice>
-						on the <guilabel>Network</guilabel> tab
-						under <guilabel>SSH Client</guilabel>.
-						Fortunately, TortoiseSVN comes with
-						<filename>TortoisePLink</filename>, an implementation of
-						<ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/">
-							<citetitle>plink</citetitle>
-						</ulink>,
-						so normally you only have to set the SSH client as:
-<screen>
-C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername
-</screen>
-						Or if you trust the security on your computer and it's surroundings:
-<screen>
-C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername
-                                               -pw password
-</screen>
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-		<para>
-			To test your secure shell with svnserve, use
-			TortoiseSVN's repo-browser to view a repository.  Assuming your
-			repository is located in <filename>c:\repos\TestRepo</filename>,
-			and your server is called localhost, when asked by repo-browser,
-			enter Url:
-<screen>
-svn+ssh://localhost/repos/TestRepo
-</screen>
-		</para>
-		<para>
-			Further information about svnserve
-			can be found in the
+			Further information about svnserve can be found in the
 			<ulink url="http://svnbook.red-bean.com">
 				<citetitle>SVN book</citetitle>
 			</ulink>.
