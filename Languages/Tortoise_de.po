@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-12-17 15:33+0100\n"
+"PO-Revision-Date: 2004-12-20 14:31+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -272,10 +272,6 @@ msgstr "&Vorherige Unterschied"
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Rekursiv in Unterverzeichnisse gehen, um den Status zu ermitteln"
 
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "&Wechseldatenträger"
-
 #: Control-ID:1013
 #: Control-ID:1100
 msgid "&Remove"
@@ -309,6 +305,11 @@ msgstr "Graph &speichern unter..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Kennwort speichern"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "&Wähle überlagerte Icons"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -536,6 +537,7 @@ msgstr ""
 "<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: ID:8
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Hinzufügen"
@@ -1312,6 +1314,11 @@ msgstr "Lösche"
 msgid "Destination disk drive is full."
 msgstr "Ziel-Partition ist voll."
 
+# Dlg-ID:184,
+#: Dlg-ID:184
+msgid "Dialog"
+msgstr "Dialog"
+
 #: ID:12
 msgid "Diff"
 msgstr "Vergleiche"
@@ -1593,6 +1600,7 @@ msgstr "Hole Version %s der Datei:"
 msgid "File"
 msgstr "Datei"
 
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "Datei Patches"
@@ -1714,6 +1722,11 @@ msgstr "Servernamen stimmen nicht überein (%s)"
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "Überlagerte Icons / Statusspalten"
+
+# Control-ID:1170,
+#: Control-ID:1170
+msgid "Icon Set:"
+msgstr "Iconsatz:"
 
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -1897,6 +1910,11 @@ msgstr ""
 "Listet Inhaltsverzeichnis der Hilfe auf\n"
 "Hilfe"
 
+# ID:188,
+#: Control-ID:1172
+msgid "List View"
+msgstr "Listenansicht"
+
 #: ID:63
 msgid "Local Status"
 msgstr "Lokaler Status"
@@ -2073,6 +2091,18 @@ msgid ""
 msgstr ""
 "Es wurden keine Dateien / Ordner seit dem letzten Übertragen verändert.\n"
 "Es gibt nix zu tun für TortoiseSVN..."
+
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Es wurden keine Dateien / Ordner seit\n"
+"dem letzten Übertragen verändert.\n"
+"Es gibt nix zu tun für TortoiseSVN...\n"
+"Wollen Sie die nicht versionierten Dateien angezeigt bekommen?"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2333,6 +2363,10 @@ msgstr "R&AM disks"
 #: ID:3697
 msgid "REC"
 msgstr "REC"
+
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "&Wechseldatenträger"
 
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2982,6 +3016,11 @@ msgstr "Die Arbeitskopie zu anderem Zweig / anderer Markierung wechseln"
 msgid "Switch..."
 msgstr "Wechseln zu..."
 
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "Symbolansicht"
+
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "System Registry Einträge wurden gelöscht und die INI Datei (falls vorhanden) wurde gelöscht."
@@ -3107,6 +3146,23 @@ msgstr ""
 "und die Zeile\n"
 "%s\n"
 "stimmen nicht überein!"
+
+# ID:314,
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Der Pfad\n"
+"<i>%s</i>\n"
+"stimmt nicht mit den Pfaden in der Patchdatei überein.\n"
+"TortoiseMerge hat herausgefunden, dass der Pfad\n"
+"<i>%s</i>\n"
+"besser übereinstimmt. Soll der gefundene Pfad verwendet werden?"
 
 #: ID:78
 msgid ""
@@ -3591,6 +3647,15 @@ msgid ""
 msgstr ""
 "Sie haben eine unkontrollierte Datei gewählt.\n"
 "Die Datei wird vor dem Übertragen zur Versionskontrolle hinzugefügt."
+
+# ID:195,
+#: ID:195
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"Sie haben den Iconsatz von <i>%s</i> in <i>%s</i> geändert.\n"
+"Die Änderungen werden erst wirksam, nachdem Sie den Rechner neu gestartet oder sich ab- und wieder angemeldet haben!"
 
 #: Control-ID:65535
 msgid "Your File:"
