@@ -1084,15 +1084,15 @@ BEGIN
     IDS_LOG_AUTHOR          "Author"
     IDS_LOG_DATE            "Date"
     IDS_LOG_REVERT_CONFIRM  "Do you really want to revert all changes\nwhich were made in this revision?"
-    IDS_LOG_POPUP_COMPARE   "Compare with working copy"
-    IDS_LOG_POPUP_SAVE      "Save revision to..."
-    IDS_LOG_POPUP_COMPARETWO "Compare revisions"
-    IDS_LOG_POPUP_UPDATE    "Update item to revision"
+    IDS_LOG_POPUP_COMPARE   "Compare with &working copy"
+    IDS_LOG_POPUP_SAVE      "Save revision &to..."
+    IDS_LOG_POPUP_COMPARETWO "&Compare revisions"
+    IDS_LOG_POPUP_UPDATE    "&Update item to revision"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_POPUP_COPY      "Create Tag from revision"
+    IDS_LOG_POPUP_COPY      "C&reate Tag from revision"
     IDS_LOGPROMPT_FILE      "File"
     IDS_LOGPROMPT_STATUS    "Status"
     IDS_LOGPROMPT_ASKADD    "You selected an unversioned file.\nThe file will be added to version control when you commit."
@@ -1220,17 +1220,17 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOBROWSE_SAVEAS   "Save as..."
-    IDS_REPOBROWSE_SHOWLOG  "Show log"
-    IDS_REPOBROWSE_OPEN     "Open"
-    IDS_REPOBROWSE_COPY     "Copy To..."
-    IDS_REPOBROWSE_DELETE   "Delete"
-    IDS_REPOBROWSE_IMPORT   "Add file..."
-    IDS_REPOBROWSE_RENAME   "Rename..."
-    IDS_REPOBROWSE_MKDIR    "Create Folder..."
-    IDS_REPOBROWSE_IMPORTFOLDER "Add folder..."
+    IDS_REPOBROWSE_SAVEAS   "Save &as..."
+    IDS_REPOBROWSE_SHOWLOG  "&Show log"
+    IDS_REPOBROWSE_OPEN     "&Open"
+    IDS_REPOBROWSE_COPY     "&Copy To..."
+    IDS_REPOBROWSE_DELETE   "&Delete"
+    IDS_REPOBROWSE_IMPORT   "Add &file..."
+    IDS_REPOBROWSE_RENAME   "&Rename..."
+    IDS_REPOBROWSE_MKDIR    "C&reate Folder..."
+    IDS_REPOBROWSE_IMPORTFOLDER "A&dd folder..."
     IDS_REPOBROWSE_REFRESH  "Refresh"
-    IDS_REPOBROWSE_SHOWPROP "Show Properties"
+    IDS_REPOBROWSE_SHOWPROP "Sho&w Properties"
 END
 
 STRINGTABLE 
@@ -1241,10 +1241,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_POPUP_DIFF      "Show Differences"
-    IDS_LOG_POPUP_REVERTREV "Revert changes from this revision"
-    IDS_LOG_POPUP_GNUDIFF   "Show Differences as Unified Diff"
-    IDS_LOG_POPUP_FIND      "Search log messages..."
+    IDS_LOG_POPUP_DIFF      "Show &Differences"
+    IDS_LOG_POPUP_REVERTREV "&Revert changes from this revision"
+    IDS_LOG_POPUP_GNUDIFF   "Show Differences as &Unified Diff"
+    IDS_LOG_POPUP_FIND      "Search &log messages..."
 END
 
 STRINGTABLE 
@@ -1308,8 +1308,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_COMPAREWITHBASE "Compare with Base"
-    IDS_LOG_BROWSEREPO      "Browse Repository"
+    IDS_LOG_COMPAREWITHBASE "Compare with B&ase"
+    IDS_LOG_BROWSEREPO      "&Browse Repository"
 END
 
 STRINGTABLE 
