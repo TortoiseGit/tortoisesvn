@@ -32,6 +32,19 @@
 			and try again.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-faq-installation-00">
+			<title>When upgrading TortoiseSVN, do I have to deinstall the existing version first?</title>
+			<para>
+			No. You can just install the new version over the old one. The 
+			installer will take care of deinstalling the old version first
+			automatically.
+			</para>
+			<para>
+			But you <emphasis>must</emphasis> reboot your computer after
+			the installer finishes! Or at least you have to log off and log on
+			again. If you don't, TortoiseSVN will crash!
+			</para>
+		</sect2>
 		<sect2 id="tsvn-faq-installation-1">
 			<title>Why don't the icon overlays appear?</title>
 			<indexterm><primary>overlays</primary></indexterm>

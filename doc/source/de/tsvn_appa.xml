@@ -32,6 +32,20 @@
 			<filename>c:\</filename> und versuchen Sie's erneut.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-faq-installation-00">
+			<title>Muss ich eine alte Version von TortoiseSVN zuerst deinstallieren,
+			bevor ich die neue Version installieren kann?</title>
+			<para>
+			Nein. Sie können die neue Version über die alte Version installieren. 
+			Das Setup-Programm wird eine vorhandene alte Version automatisch
+			deinstallieren.
+			</para>
+			<para>
+			Aber Sie <emphasis>müssen</emphasis> den Computer nach der Installation
+			neu starten! Oder sich zumindest ab- und wieder anmelden. Wenn Sie
+			dies nicht tun, wird TortoiseSVN mit Fehlern abbrechen!
+			</para>
+		</sect2>
 		<sect2 id="tsvn-faq-installation-1">
 			<title>Warum erscheinen die überlagerten Icons nicht?</title>
 			<indexterm><primary>Overlays</primary></indexterm>
