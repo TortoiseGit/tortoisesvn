@@ -1,3 +1,6 @@
+- ADD: The commit dialog now shows a busy cursor
+       while the status of the working copy files
+       is checked. (Stefan)
 - BUG: The property page and the repo browser showed
        some garbage characters instead of clean
        Unicode chars. (Stefan)

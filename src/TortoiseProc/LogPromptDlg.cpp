@@ -56,12 +56,13 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_WM_SIZE()
+	ON_WM_SIZING()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
+	ON_WM_SETCURSOR()
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
-	ON_WM_SIZING()
 	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
 END_MESSAGE_MAP()
 
 
@@ -560,6 +561,19 @@ void CLogPromptDlg::OnCancel()
 	DeleteFile(m_sPath);
 	UpdateData(TRUE);
 	CResizableDialog::OnCancel();
+}
+
+BOOL CLogPromptDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if (GetDlgItem(IDOK)->IsWindowEnabled())
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+		SetCursor(hCur);
+		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	SetCursor(hCur);
+	return TRUE;
 }
 
 

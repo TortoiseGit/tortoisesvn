@@ -64,13 +64,15 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
+	virtual void OnOK();
+	virtual void OnCancel();
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-	virtual void OnOK();
-	virtual void OnCancel();
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+
 	void StartDiff(int fileindex);
 	DECLARE_MESSAGE_MAP()
 public:
