@@ -94,35 +94,59 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 		com = com + _T(" /basename:%bname /theirsname:%tname /yoursname:%yname /mergedname:%mname");
 	}
 	if (basefile.IsEmpty())
+	{
 		com.Replace(_T("/base:%base"), _T(""));
+		com.Replace(_T("%base"), _T(""));		
+	}
 	else
 		com.Replace(_T("%base"), _T("\"") + basefile + _T("\""));
 	if (theirfile.IsEmpty())
+	{
 		com.Replace(_T("/theirs:%theirs"), _T(""));
+		com.Replace(_T("%theirs"), _T(""));
+	}
 	else
 		com.Replace(_T("%theirs"), _T("\"") + theirfile + _T("\""));
 	if (yourfile.IsEmpty())
+	{
 		com.Replace(_T("/yours:%mine"), _T(""));
+		com.Replace(_T("%mine"), _T(""));
+	}
 	else
 		com.Replace(_T("%mine"), _T("\"") + yourfile + _T("\""));
 	if (mergedfile.IsEmpty())
+	{
 		com.Replace(_T("/merged:%merged"), _T(""));
+		com.Replace(_T("%merged"), _T(""));
+	}
 	else
 		com.Replace(_T("%merged"), _T("\"") + mergedfile + _T("\""));
 	if (basename.IsEmpty())
+	{
 		com.Replace(_T("/basename:%bname"), _T(""));
+		com.Replace(_T("%bname"), _T(""));
+	}
 	else
 		com.Replace(_T("%bname"), _T("\"") + basename + _T("\""));
 	if (theirname.IsEmpty())
+	{
 		com.Replace(_T("/theirsname:%tname"), _T(""));
+		com.Replace(_T("%tname"), _T(""));
+	}
 	else
 		com.Replace(_T("%tname"), _T("\"") + theirname + _T("\""));
 	if (yourname.IsEmpty())
+	{
 		com.Replace(_T("/yoursname:%yname"), _T(""));
+		com.Replace(_T("%yname"), _T(""));
+	}
 	else
 		com.Replace(_T("%yname"), _T("\"") + yourname + _T("\""));
 	if (mergedname.IsEmpty())
+	{
 		com.Replace(_T("/mergedname:%mname"), _T(""));
+		com.Replace(_T("%mname"), _T(""));
+	}
 	else
 		com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
 
