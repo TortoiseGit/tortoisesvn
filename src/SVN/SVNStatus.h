@@ -206,6 +206,9 @@ typedef struct filestatuscache
 {
 	TCHAR					filename[MAX_PATH];
 	svn_wc_status_kind		status;
+	char					author[MAX_PATH];
+	char					url[MAX_PATH];
+	svn_revnum_t			rev;
 	int						askedcounter;
 } filestatuscache;
 
@@ -254,7 +257,8 @@ class SVNFolderStatus
 public:
 	SVNFolderStatus(void);
 	~SVNFolderStatus(void);
-	svn_wc_status_kind GetFileStatus(LPCTSTR filename);
+	svn_wc_status_kind GetFileStatus(LPCTSTR filepath);
+	filestatuscache * GetFullFileStatus(LPCTSTR filepath);
 
 private:
 	BOOL	IsCacheValid(LPCTSTR filename);
@@ -265,5 +269,6 @@ private:
 	filestatuscache	*	m_pStatusCache;
 	int		m_nCacheCount;
 	DWORD	m_TimeStamp;
+	filestatuscache returnstatus;
 	
 };

@@ -273,74 +273,49 @@ void CShellExt::GetColumnStatus(stdstring path)
 		return;
 	CRegStdWORD showrecursive(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 	columnfilepath = path;
-	SVNStatus status;
-	if (status.GetStatus(path.c_str()) != (-2))
+	filestatuscache * status = g_CachedStatusColumn.GetFullFileStatus(path.c_str());
+	//if recursive is set in the registry then check directories recursive for status and show
+	//the column info with the highest priority on the folder.
+	//since this can be slow for big directories it is optional - but very neat.
+	if ((showrecursive == 0)||(!PathIsDirectory(path.c_str())))
+		filestatus = status->status;
+	else if (showrecursive != 0)
+		filestatus = SVNStatus::GetAllStatusRecursive(path.c_str());
+	else
+		filestatus = status->status;
+
+#ifdef UNICODE
+	columnauthor = UTF8ToWide(status->author);
+#else
+	columnauthor = status->author;
+#endif
+	columnrev = status->rev;
+#ifdef UNICODE
+	itemurl = UTF8ToWide(status->url);
+#else
+	itemurl = status->url;
+#endif
+	TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
+
+	URL_COMPONENTS urlComponents;
+	memset(&urlComponents, 0, sizeof(URL_COMPONENTS));
+	urlComponents.dwStructSize = sizeof(URL_COMPONENTS);
+	urlComponents.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
+	urlComponents.lpszUrlPath = urlpath;
+	if (InternetCrackUrl(itemurl.c_str(), 0, ICU_DECODE, &urlComponents))
 	{
-		//if recursive is set in the registry then check directories recursive for status and show
-		//the column info with the highest priority on the folder.
-		//since this can be slow for big directories it is optional - but very neat.
-		if ((showrecursive == 0)||(!PathIsDirectory(path.c_str())))
-			filestatus = status.status->text_status > status.status->prop_status ? status.status->text_status : status.status->prop_status;
-		else if (showrecursive != 0)
-			filestatus = SVNStatus::GetAllStatusRecursive(path.c_str());
-		else
-			filestatus = status.status->text_status > status.status->prop_status ? status.status->text_status : status.status->prop_status;
-
-		if (status.status->entry != NULL)
+		TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
+		if (ptr == NULL)
+			ptr = _tcsrchr(urlComponents.lpszUrlPath, '\\');
+		if (ptr)
 		{
-			if (status.status->entry->cmt_author != NULL)
-#ifdef UNICODE
-				columnauthor = UTF8ToWide(status.status->entry->cmt_author);
-#else
-				columnauthor = status.status->entry->cmt_author;
-#endif
-			else
-				columnauthor = _T(" ");
-			columnrev = status.status->entry->cmt_rev;
-			if (status.status->entry->url)
-			{
-#ifdef UNICODE
-				itemurl = UTF8ToWide(status.status->entry->url);
-#else
-				itemurl = status.status->entry->url;
-#endif
-				TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
-
-				URL_COMPONENTS urlComponents;
-				memset(&urlComponents, 0, sizeof(URL_COMPONENTS));
-				urlComponents.dwStructSize = sizeof(URL_COMPONENTS);
-				urlComponents.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
-				urlComponents.lpszUrlPath = urlpath;
-				if (InternetCrackUrl(itemurl.c_str(), 0, ICU_DECODE, &urlComponents))
-				{
-					TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
-					if (ptr == NULL)
-						ptr = _tcsrchr(urlComponents.lpszUrlPath, '\\');
-					if (ptr)
-					{
-						*ptr = '\0';
-						itemshorturl = urlComponents.lpszUrlPath;
-					} // if (ptr)
-					else 
-						itemshorturl = _T(" ");
-				}
-				else
-					itemshorturl = _T(" ");
-
-			} // if (status.status->entry->url)
-			else
-			{
-				itemurl = _T(" ");
-				itemshorturl = _T(" ");
-			}
-		} // if (status.status->entry != NULL)
-		else
-		{
-			columnrev = -1;
-			columnauthor = _T(" ");
-			itemurl = _T(" ");
+			*ptr = '\0';
+			itemshorturl = urlComponents.lpszUrlPath;
+		} // if (ptr)
+		else 
 			itemshorturl = _T(" ");
-		}
-	} // if (status.GetStatus(path.c_str()) != (-2))
+	}
+	else
+		itemshorturl = _T(" ");
 }
 

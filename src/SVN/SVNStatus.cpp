@@ -901,11 +901,27 @@ void SVNFolderStatus::BuildCache(LPCTSTR folderpath)
 		delete[] m_pStatusCache;
 	m_nCacheCount = apr_hash_count(statushash);
 	m_pStatusCache = new filestatuscache[m_nCacheCount];
+	if (!m_pStatusCache)
+		return;
 	int i=0;
-    for (hi = apr_hash_first (pool, statushash); hi; hi = apr_hash_next (hi))
-    {
+	for (hi = apr_hash_first (pool, statushash); hi; hi = apr_hash_next (hi))
+	{
 		svn_wc_status_t * tempstatus;
 		apr_hash_this(hi, NULL, NULL, (void **)&tempstatus);
+		if (tempstatus->entry)
+		{
+			if (tempstatus->entry->cmt_author)
+				strncpy(m_pStatusCache[i].author, tempstatus->entry->cmt_author, MAX_PATH-1);
+			if (tempstatus->entry->url)
+				strncpy(m_pStatusCache[i].url, tempstatus->entry->url, MAX_PATH-1);
+			m_pStatusCache[i].rev = tempstatus->entry->cmt_rev;
+		} // if (tempstatus->entry)
+		else
+		{
+			m_pStatusCache[i].author[0] = 0;
+			m_pStatusCache[i].url[0] = 0;
+			m_pStatusCache[i].rev = -1;
+		}
 		m_pStatusCache[i].status = svn_wc_status_unversioned;
 		m_pStatusCache[i].status = SVNStatus::GetMoreImportant(m_pStatusCache[i].status, tempstatus->text_status);
 		m_pStatusCache[i].status = SVNStatus::GetMoreImportant(m_pStatusCache[i].status, tempstatus->prop_status);
@@ -1005,4 +1021,71 @@ svn_wc_status_kind SVNFolderStatus::GetFileStatus(LPCTSTR filepath)
 			return m_pStatusCache[k].status;
 	} // for (int k=0; k<m_nCacheCount; k++)
 	return svn_wc_status_unversioned;
+}
+
+filestatuscache * SVNFolderStatus::GetFullFileStatus(LPCTSTR filepath)
+{
+	TCHAR * filename;
+	TCHAR * filepathnonconst = (LPTSTR)filepath;
+	//first change the filename to 'internal' format
+	for (UINT i=0; i<_tcsclen(filepath); i++)
+	{
+		if (filepath[i] == _T('\\'))
+			filepathnonconst[i] = _T('/');
+	} // for (int i=0; i<_tcsclen(filename); i++)
+	filename = _tcsrchr(filepath, _T('/')) + 1;
+	//check if the file is in the current folder
+	if (_tcsnicmp(filepath, m_currentfolder, (filename-filepath)-1) == 0)
+	{
+		//now check if the cache is still valid
+		if (m_pStatusCache != NULL)
+		{
+			for (int j=0; j<m_nCacheCount; j++)
+			{
+				if (_tcsicmp(filename, m_pStatusCache[j].filename) == 0)
+				{
+					if ((m_pStatusCache[j].askedcounter--)&&((GetTickCount() - m_TimeStamp) < SVNFOLDERSTATUS_CACHETIMEOUT))
+						return &m_pStatusCache[j];
+					break;
+				}
+			}
+		} // if (m_pStatusCache != NULL)
+	} // if (_tcsnicmp(filepath, m_currentfolder, (filepath - filename)) == 0)
+	//we don't build the cache for directories. This
+	//prevents us from building the cache for items in the folder view.
+	SVNStatus stat;
+	stat.GetStatus(filepath);
+	if (stat.status->entry)
+	{
+		if (stat.status->entry->cmt_author)
+			strncpy(returnstatus.author, stat.status->entry->cmt_author, MAX_PATH-1);
+		if (stat.status->entry->url)
+			strncpy(returnstatus.url, stat.status->entry->url, MAX_PATH-1);
+		returnstatus.rev = stat.status->entry->cmt_rev;
+	} // if (tempstatus->entry)
+	else
+	{
+		returnstatus.author[0] = 0;
+		returnstatus.url[0] = 0;
+		returnstatus.rev = -1;
+	}
+	returnstatus.status = svn_wc_status_unversioned;
+	returnstatus.status = SVNStatus::GetMoreImportant(returnstatus.status, stat.status->text_status);
+	returnstatus.status = SVNStatus::GetMoreImportant(returnstatus.status, stat.status->prop_status);
+	if (PathIsDirectory(filepath))
+	{
+		return &returnstatus;
+	}
+	//also, don't build the cache for unversioned items
+	if (stat.status->text_status == svn_wc_status_unversioned)
+		return &returnstatus;
+	TCHAR buildpath[MAX_PATH] = {0};
+	_tcsncpy(buildpath, filepath, filename-filepath);
+	BuildCache(buildpath);
+	for (int k=0; k<m_nCacheCount; k++)
+	{
+		if (_tcsicmp(filename, m_pStatusCache[k].filename) == 0)
+			return &m_pStatusCache[k];
+	} // for (int k=0; k<m_nCacheCount; k++)
+	return &returnstatus;
 }

@@ -2,9 +2,10 @@
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
 
-UINT      g_cRefThisDll = 0;		///< reference count of this DLL.
-HINSTANCE g_hmodThisDll = NULL;		///< handle to this DLL itself.
-SVNFolderStatus g_CachedStatus;		///< status cache
+UINT      g_cRefThisDll = 0;				///< reference count of this DLL.
+HINSTANCE g_hmodThisDll = NULL;				///< handle to this DLL itself.
+SVNFolderStatus g_CachedStatus;				///< status cache for icon overlays
+SVNFolderStatus g_CachedStatusColumn;		///< status cache for columns
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)

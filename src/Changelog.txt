@@ -22,6 +22,8 @@
 - CHG: if only the properties were modified then
        this is indicated by a "(P only)" in
        the status text in the commit dialog. (Stefan)
+- ADD: The column provider uses now it's own status
+       cache. (Stefan)
 
 Version 0.15.2
 - BUG: The "Check for updates" dialog could
