@@ -92,6 +92,7 @@ UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int
 #ifndef IDS_MSGBOX_DONOTSHOWAGAIN
 		box.m_sCheckbox = _T("do not show again");
 #else
+		CString m_i18l;
 		m_i18l.LoadString(IDS_MSGBOX_DONOTSHOWAGAIN);
 		box.m_sCheckbox = m_i18l;
 #endif
@@ -187,6 +188,7 @@ UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UIN
 #ifndef IDS_MSGBOX_DONOTSHOWAGAIN
 		box.m_sCheckbox = _T("do not show again");
 #else
+		CString m_i18l;
 		m_i18l.LoadString(IDS_MSGBOX_DONOTSHOWAGAIN);
 		box.m_sCheckbox = m_i18l;
 #endif
