@@ -276,6 +276,49 @@
 				aus dem Projektarchiv auschecken.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-DUG-import-3">
+			<title>Spezielle Dateien</title>
+			<indexterm>
+				<primary>spezielle dateien</primary>
+			</indexterm>
+			<para>
+			Machmal ist es notwendig, eine Datei unter Versionskontrolle zu
+			haben welche Benutzerspezifische Daten (z.B. absolute Pfade zu
+			Programmtools) enthält. Das bedeutet Sie haben eine Datei welche
+			von jedem Benutzer verändert werden muss um seine/ihre lokalen
+			Einstellungen anzupassen. Aber eine Datei unter Versionskontrolle würde
+			von jedem Benutzer jeweils wieder zum Projektarchiv übertragen werden
+			und so die Änderungen von anderen Benutzern wieder überschreiben.
+			</para>
+			<para>
+			In solchen Fällen empfehlen wir die Verwendung von sogenannten
+			<literal>Schablonen</literal>. Eine Schablone ist nichts anderes
+			als eine normale Datei, welche entweder einen anderen Dateinamen
+			oder eine andere Dateiendung hat wie die Datei welche schlussendlich
+			dann tatsächlich verwendet wird.
+			</para>
+			<para>
+			Als Beispiel sehen Sie sich das Build-Skript von TortoiseSVN mal an.
+			Es ruft eine Datei namens <filename>TortoiseVars.bat</filename> auf
+			welche im Projektarchiv gar nicht existiert! Es existiert aber die
+			Datei <filename>TortoiseVars.tmpl</filename>, welche die Schablone
+			für die Datei <filename>TortoiseVars.bat</filename> darstellt.
+			Bevor also das Build-Skript ausgeführt werden kann muss jeder 
+			Benutzer eine Kopie von <filename>TortoiseVars.tmpl</filename>
+			erstellen und die Kopie in <filename>TortoiseVars.bat</filename>
+			umbenennen. Dann kann die Datei <filename>TortoiseVars.bat</filename>
+			ohne Probleme so verändert werden, dass die absoluten Pfade zu den
+			zur Erstellung von TortoiseSVN notwendigen Tools mit den lokalen
+			Pfaden übereinstimmen.
+			</para>
+			<para>
+			Um die Benutzer nicht zu stören, ist die Datei <filename>TortoiseVars.bat</filename>
+			auch in der Liste der ignorierten Dateien eingetragen. Das heisst wir
+			haben die Subversion Eigenschaft <literal>svn:ignored</literal>
+			für diese Datei gesetzt. Damit erscheint diese Datei nicht in jedem
+			Übertragungsdialog als (noch) nicht versioniert.
+			</para>
+		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
@@ -596,6 +639,18 @@
 			nachsehen wie das Projekt in Revision 50 ausgesehen hat so aktualisieren
 			Sie ganz einfach die Arbeitskopie auf Revision 50.
 		</para>
+		<warning>
+		Wenn Sie Ihre Arbeitskopie auf eine frühere Revision aktualisiert haben,
+		dürfen Sie keine Änderungen an den Dateien mehr vornehmen! Sie werden
+		eine Fehlermeldung erhalten, wenn Sie versuchen, diese Änderungen zu
+		übertragen.
+		Wenn Sie Änderungen rückgängig machen wollen, benutzen Sie den 
+		Projektarchiv-Browser und speichern Sie die gewünschte Datei über
+		die Datei in der Arbeitskopie. Oder Sie können den Log-Dialog benutzen
+		und den Befehl "Änderungen dieser Revision rückgängig machen". Um
+		mehrere Revisionen rückgängig zu machen, benutzen Sie den "Mischen"
+		Befehl.
+		</warning>
 		<tip>
 			<title>Mehrere Dateien/Ordner</title>
 			<para>
@@ -971,6 +1026,30 @@
 					bestehen!
 				</para>
 			</caution>
+		</para>
+		<para>
+			<tip>
+				<title>Eine gelöschte Datei/Ordner zurückholen</title>
+				<para>
+				Wenn Sie eine Datei oder einen Ordner gelöscht und dies bereits
+				ins Projektarchiv übertragen haben, wird ein normaler
+				<menuchoice>
+					<guimenuitem>Rückgängig</guimenuitem>
+				</menuchoice>
+				Befehl diese nicht wieder zurückbringen können. Aber die Datei
+				oder der Ordner ist nicht verloren. Wenn Sie die Revisionsnummer
+				kennen, wo es gelöscht wurde (Benutzen Sie den Log-Dialog um dies
+				rauszufinden) öffnen Sie den Projektarchiv-Browser. Wechseln
+				Sie dann zu der Revisionsnummer, selektieren Sie die Datei oder
+				den gelöschten Ordner, Rechts-Klick und dann wählen Sie den
+				Befehl
+				<menuchoice>
+					<guimenuitem>Kopieren zu...</guimenuitem>
+				</menuchoice>
+				Als Ziel für diesen Kopierbefehl geben Sie den Pfad zu Ihrer
+				Arbeitskopie an.
+				</para>
+			</tip>
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
@@ -1432,8 +1511,17 @@
 				<orderedlist>
 					<listitem>
 						<para>
-							Im Feld <guilabel>Aktuellen Zweig zusammenführen mit:</guilabel>
-							geben Sie die vollständige URL des Zweiges welcher die
+							Im Feld <guilabel>Von:</guilabel>
+							geben Sie die vollständige URL des Start-Zweiges welcher die
+							Änderungen enthält ein. Sie können auch die 
+							<guibutton>...</guibutton> 
+							Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Im Feld <guilabel>bis:</guilabel>
+							geben Sie die vollständige URL des End-Zweiges welcher die
 							Änderungen enthält ein. Sie können auch die 
 							<guibutton>...</guibutton> 
 							Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
