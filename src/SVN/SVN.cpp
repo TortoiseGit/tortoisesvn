@@ -784,9 +784,9 @@ svn_error_t* SVN::blameReceiver(void* baton,
 	else
 		_tcscat(date_native, _T("(no date)"));
 
-	if (svn->BlameCallback((LONG)line_no, revision, author_native, date_native, line_native))
+	if (!svn->BlameCallback((LONG)line_no, revision, author_native, date_native, line_native))
 	{
-		return error;
+		return svn_error_create(SVN_ERR_CANCELLED, NULL, "error in blame callback");
 	}
 	return error;
 }

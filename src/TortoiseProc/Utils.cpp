@@ -233,8 +233,36 @@ BOOL CUtils::StartDiffViewer(CString file)
 		}
 	} // if (viewer.IsEmpty())
 	if (viewer.IsEmpty())
-		return FALSE;
+	{
+		OPENFILENAME ofn;		// common dialog box structure
+		TCHAR szFile[MAX_PATH];  // buffer for file name
+		ZeroMemory(szFile, sizeof(szFile));
+		// Initialize OPENFILENAME
+		ZeroMemory(&ofn, sizeof(OPENFILENAME));
+		//ofn.lStructSize = sizeof(OPENFILENAME);
+		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFile;
+		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		CString temp;
+		temp.LoadString(IDS_SETTINGS_SELECTDIFFVIEWER);
+		ofn.lpstrTitle = temp;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
 
+		// Display the Open dialog box. 
+
+		if (GetOpenFileName(&ofn)==TRUE)
+		{
+			viewer = CString(ofn.lpstrFile);
+		} // if (GetOpenFileName(&ofn)==TRUE)
+		else
+			return FALSE;
+	}
 	if (viewer.Find(_T("%1")) >= 0)
 	{
 		viewer.Replace(_T("%1"), file);
@@ -270,6 +298,83 @@ BOOL CUtils::StartDiffViewer(CString file)
 		return FALSE;
 	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
 
+
+	return TRUE;
+}
+
+BOOL CUtils::StartTextViewer(CString file)
+{
+	CString viewer;
+	CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+	viewer = txt;
+	viewer = viewer + _T("\\Shell\\Open\\Command\\");
+	CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+	viewer = txtexe;
+	if (viewer.IsEmpty())
+	{
+		OPENFILENAME ofn;		// common dialog box structure
+		TCHAR szFile[MAX_PATH];  // buffer for file name
+		ZeroMemory(szFile, sizeof(szFile));
+		// Initialize OPENFILENAME
+		ZeroMemory(&ofn, sizeof(OPENFILENAME));
+		//ofn.lStructSize = sizeof(OPENFILENAME);
+		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFile;
+		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		CString temp;
+		temp.LoadString(IDS_UTILS_SELECTTEXTVIEWER);
+		ofn.lpstrTitle = temp;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+		// Display the Open dialog box. 
+
+		if (GetOpenFileName(&ofn)==TRUE)
+		{
+			viewer = CString(ofn.lpstrFile);
+		} // if (GetOpenFileName(&ofn)==TRUE)
+		else
+			return FALSE;
+	}
+	if (viewer.Find(_T("%1")) >= 0)
+	{
+		viewer.Replace(_T("%1"), file);
+	}
+	else
+	{
+		viewer += _T(" ");
+		viewer += file;
+	}
+
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	memset(&startup, 0, sizeof(startup));
+	startup.cb = sizeof(startup);
+	memset(&process, 0, sizeof(process));
+	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	{
+		LPVOID lpMsgBuf;
+		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM | 
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+			(LPTSTR) &lpMsgBuf,
+			0,
+			NULL 
+			);
+		CString temp;
+		temp.Format(IDS_ERR_DIFFVIEWSTART, lpMsgBuf);
+		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+		LocalFree( lpMsgBuf );
+		return FALSE;
+	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
 
 	return TRUE;
 }

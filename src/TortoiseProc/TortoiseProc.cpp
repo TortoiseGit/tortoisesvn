@@ -25,6 +25,7 @@
 #include "CrashReport.h"
 #include "DirFileList.h"
 #include "SVNProperties.h"
+#include "Blame.h"
 #include "..\version.h"
 
 #ifdef _DEBUG
@@ -997,6 +998,28 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		}
 		//#endregion
+		//#region blame
+		if (comVal.Compare(_T("blame"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			CBlameDlg dlg;
+			if (dlg.DoModal() == IDOK)
+			{
+				CBlame blame;
+				CString tempfile;
+				tempfile = blame.BlameToTempFile(path, dlg.m_lStartRev, dlg.m_lEndRev, FALSE, TRUE);
+				if (!tempfile.IsEmpty())
+				{
+					//open the default text editor for the result file
+					CUtils::StartTextViewer(tempfile);
+				} // if (blame.BlameToTempFile(path, dlg.m_lStartRev, dlg.m_lEndRev, FALSE, TRUE) 
+				else
+				{
+					CMessageBox::Show(EXPLORERHWND, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				}
+			} // if (dlg.DoModal() == IDOK) 
+		} // if (comVal.Compare(_T("blame"))==0) 
+		//#endregion 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);
 	}

@@ -47,6 +47,7 @@
 #include "RelocateDlg.h"
 #include "ChangedDlg.h"
 #include "RepositoryBrowser.h"
+#include "BlameDlg.h"
 
 
 /**

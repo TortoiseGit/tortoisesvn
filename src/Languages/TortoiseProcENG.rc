@@ -28,6 +28,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 
 IDR_ANIMATION           AVI                     "res\\bin168.avi"
 IDR_MOVEANI             AVI                     "res\\bin167.avi"
+IDR_SEARCH              AVI                     "res\\search.avi"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -499,6 +500,25 @@ BEGIN
     LTEXT           "Enter Log-Message:",IDC_HINTTEXT,7,7,223,11
 END
 
+IDD_BLAME DIALOGEX 0, 0, 311, 81
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Blame"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,60,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,254,60,50,14
+    GROUPBOX        "From Revision",IDC_STATIC,7,7,123,46
+    EDITTEXT        IDC_REVISON_START,13,24,51,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "To Revision",IDC_STATIC,139,7,165,46
+    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,145,18,81,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    145,34,74,10
+    EDITTEXT        IDC_REVISION_END,228,31,66,14,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_DISABLED
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -710,6 +730,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 106
     END
+
+    IDD_BLAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -823,6 +851,7 @@ BEGIN
                             "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
     IDS_SETTINGS_AUTOCLOSE_TT 
                             "Check if you want the progress dialog to close\nautomatically after the operation finishes."
+    IDS_UTILS_SELECTTEXTVIEWER "Select Text Editor Application"
     IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
@@ -960,6 +989,13 @@ BEGIN
     IDS_INPUT_COPYLOGMSG    "Copied remotely"
     IDS_INPUT_MKDIRLOGMSG   "Created folder remotely"
     IDS_INPUT_MOVELOGMSG    "Moved remotely"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_BLAME_PROGRESSTITLE "SVN Blame"
+    IDS_BLAME_PROGRESSINFO  "Please wait - this can take several minutes. Seriously!"
+    IDS_BLAME_PROGRESSCANCEL "Cancelling SVN Blame..."
 END
 
 #endif    // English (U.S.) resources
