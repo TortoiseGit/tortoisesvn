@@ -13,6 +13,8 @@
 #define IDI_ADDEDLINE                   133
 #define IDI_CONFLICTEDLINE              134
 #define IDD_FILEPATCHES                 135
+#define IDD_ABOUT                       136
+#define IDB_LOGOFLIPPED                 168
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
 #define IDS_ERR_PATCH_NOINDEX           1000
@@ -43,8 +45,14 @@
 #define IDS_ERR_PATCH_FILESAVE          1023
 #define IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND 1040
 #define IDS_ERR_MAINFRAME_FILEHASCONFLICTS 1041
+#define IDC_VERSIONABOUT                1054
+#define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
+#define IDC_WEBLINK                     1084
+#define IDC_SUPPORTLINK                 1085
 #define IDS_ERR_FILE_OPEN               1100
+#define IDS_ABOUTVERSION                1700
+#define IDS_ABOUTVERSIONBOX             1701
 #define ID_INDICATOR_LEFTVIEW           2000
 #define ID_INDICATOR_RIGHTVIEW          2001
 #define ID_INDICATOR_BOTTOMVIEW         2002

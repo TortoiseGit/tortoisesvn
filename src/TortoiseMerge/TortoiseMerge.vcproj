@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -75,7 +75,7 @@
 			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="FALSE"
 				RuntimeLibrary="2"
@@ -130,6 +130,9 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
 			<File
+				RelativePath=".\AboutDlg.cpp">
+			</File>
+			<File
 				RelativePath=".\BaseView.cpp">
 			</File>
 			<File
@@ -142,6 +145,9 @@
 				RelativePath="..\Utils\CmdLineParser.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\DIB.cpp">
+			</File>
+			<File
 				RelativePath=".\DiffData.cpp">
 			</File>
 			<File
@@ -149,6 +155,9 @@
 			</File>
 			<File
 				RelativePath=".\FileTextLines.cpp">
+			</File>
+			<File
+				RelativePath="..\Utils\HyperLink.cpp">
 			</File>
 			<File
 				RelativePath=".\LeftView.cpp">
@@ -202,6 +211,9 @@
 				RelativePath=".\Utils.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\WaterEffect.cpp">
+			</File>
+			<File
 				RelativePath=".\XSplitter.cpp">
 			</File>
 		</Filter>
@@ -209,6 +221,9 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			<File
+				RelativePath=".\AboutDlg.h">
+			</File>
 			<File
 				RelativePath=".\BaseView.h">
 			</File>
@@ -222,6 +237,9 @@
 				RelativePath="..\Utils\CmdLineParser.h">
 			</File>
 			<File
+				RelativePath="..\Utils\DIB.h">
+			</File>
+			<File
 				RelativePath=".\DiffData.h">
 			</File>
 			<File
@@ -229,6 +247,9 @@
 			</File>
 			<File
 				RelativePath=".\FileTextLines.h">
+			</File>
+			<File
+				RelativePath="..\Utils\HyperLink.h">
 			</File>
 			<File
 				RelativePath=".\LeftView.h">
@@ -255,6 +276,9 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
+				RelativePath="..\Languages\resource.h">
+			</File>
+			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -274,9 +298,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\Languages\resource.h">
-			</File>
-			<File
 				RelativePath=".\RightView.h">
 			</File>
 			<File
@@ -290,6 +311,9 @@
 			</File>
 			<File
 				RelativePath=".\Utils.h">
+			</File>
+			<File
+				RelativePath="..\Utils\WaterEffect.h">
 			</File>
 			<File
 				RelativePath=".\XSplitter.h">
@@ -320,12 +344,15 @@
 			<File
 				RelativePath="..\Languages\TortoiseMergeENG.rc">
 			</File>
+			<File
+				RelativePath="..\Languages\res\tortoisesvn_logoflipped.bmp">
+			</File>
 		</Filter>
 		<File
-			RelativePath="..\Languages\res\TortoiseMerge.manifest">
+			RelativePath=".\res\TortoiseMerge.manifest">
 		</File>
 		<File
-			RelativePath=".\res\TortoiseMerge.manifest">
+			RelativePath="..\Languages\res\TortoiseMerge.manifest">
 		</File>
 	</Files>
 	<Globals>

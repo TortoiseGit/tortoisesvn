@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "MainFrm.h"
+#include "AboutDlg.h"
 #include "CmdLineParser.h"
 
 
@@ -112,44 +113,6 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->UpdateWindow();
 	return pFrame->LoadViews();
 }
-
-
-// CTortoiseMergeApp message handlers
-
-
-
-// CAboutDlg dialog used for App About
-
-class CAboutDlg : public CDialog
-{
-public:
-	CAboutDlg();
-
-// Dialog Data
-	enum { IDD = IDD_ABOUTBOX };
-
-protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-// Implementation
-protected:
-	DECLARE_MESSAGE_MAP()
-};
-
-CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
-{
-}
-
-void CAboutDlg::DoDataExchange(CDataExchange* pDX)
-{
-	CDialog::DoDataExchange(pDX);
-}
-
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
-END_MESSAGE_MAP()
-
-// App command to run the dialog
-
 
 // CTortoiseMergeApp message handlers
 

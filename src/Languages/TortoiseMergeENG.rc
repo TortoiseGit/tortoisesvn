@@ -45,6 +45,25 @@ IDI_CONFLICTEDLINE      ICON                    "res\\lineconflicted.ico"
 // Dialog
 //
 
+IDD_ABOUT DIALOGEX 0, 0, 333, 249
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About TortoiseMerge"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Author:                        Stefan Kueng",IDC_STATIC,
+                    "Static",SS_LEFTNOWORDWRAP | WS_GROUP,14,68,117,8
+    LTEXT           "Icons/Design/Code:     Luebbe Onken",IDC_STATIC,14,80,
+                    120,8
+    DEFPUSHBUTTON   "&OK",IDOK,276,228,50,14
+    GROUPBOX        "Version",IDC_VERSIONBOX,7,123,319,99
+    EDITTEXT        IDC_VERSIONABOUT,14,134,304,85,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    LTEXT           "Visit our website",IDC_WEBLINK,14,95,312,8
+    LTEXT           "and support the developers",IDC_SUPPORTLINK,14,105,312,
+                    8
+END
+
 IDD_DIFFLOCATOR DIALOGEX 0, 0, 20, 314
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
@@ -88,6 +107,13 @@ BEGIN
 END
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\tortoisesvn_logoflipped.bmp"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -497,6 +523,12 @@ STRINGTABLE
 BEGIN
     ID_FILE_OPEN            "Open file"
     ID_FILE_SAVE            "Save the modified file\nSave file"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTVERSION        "TortoiseMerge %d.%d.%d, Build %d, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
+    IDS_ABOUTVERSIONBOX     "TortoiseMerge %d.%d.%d, Build %d"
 END
 
 #endif    // English (U.S.) resources
