@@ -560,6 +560,19 @@ CString	CPatch::CheckPatchPath(const CString& path)
 		if (CountMatches(subpath) > (GetNumberOfFiles()/3))
 			return subpath;
 	}
+	
+	// if a patch file only contains newly added files
+	// we can't really find the correct path.
+	// But: we can compare paths strings without the filenames
+	// and check if at least those match
+	upperpath = path;
+	while (upperpath.ReverseFind('\\')>0)
+	{
+		upperpath = upperpath.Left(upperpath.ReverseFind('\\'));
+		if (CountDirMatches(upperpath) > (GetNumberOfFiles()/3))
+			return upperpath;
+	}
+	
 	return path;
 }
 
@@ -572,6 +585,23 @@ int CPatch::CountMatches(const CString& path)
 		temp.Replace('/', '\\');
 		if (PathIsRelative(temp))
 			temp = path + _T("\\")+ temp;
+		if (PathFileExists(temp))
+			matches++;
+	}
+	return matches;
+}
+
+int CPatch::CountDirMatches(const CString& path)
+{
+	int matches = 0;
+	for (int i=0; i<GetNumberOfFiles(); ++i)
+	{
+		CString temp = GetFilename(i);
+		temp.Replace('/', '\\');
+		if (PathIsRelative(temp))
+			temp = path + _T("\\")+ temp;
+		// remove the filename
+		temp = temp.Left(temp.ReverseFind('\\'));
 		if (PathFileExists(temp))
 			matches++;
 	}

@@ -51,6 +51,7 @@ protected:
 	void		FreeMemory();
 	BOOL		HasExpandedKeyWords(const CString& line);
 	int			CountMatches(const CString& path);
+	int			CountDirMatches(const CString& path);
 	struct Chunk
 	{
 		LONG					lRemoveStart;

@@ -380,12 +380,12 @@ void CMainFrame::OnFileOpen()
 	{
 		// a diff between two files means "Yours" against "Base", not "Theirs" against "Yours"
 		m_Data.m_baseFile.TransferDetailsFrom(m_Data.m_theirFile);
-	} // if (m_Data.!IsBaseFileInUse() && !m_Data.!IsTheirFileInUse() && !m_Data.!IsYourFileInUse()) 
+	}
 	if (m_Data.IsBaseFileInUse() && m_Data.IsTheirFileInUse() && !m_Data.IsYourFileInUse())
 	{
 		// a diff between two files means "Yours" against "Base", not "Theirs" against "Base"
 		m_Data.m_yourFile.TransferDetailsFrom(m_Data.m_theirFile);
-	} // if (m_Data.!IsBaseFileInUse() && !m_Data.!IsTheirFileInUse() && !m_Data.!IsYourFileInUse()) 
+	}
 
 	LoadViews();
 }
@@ -399,7 +399,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
 			m_Data.m_mergedFile.SetOutOfUse();
 			return FALSE;
-		} // if (!this->m_Data.Load())
+		}
 	}
 	BOOL bGoFirstDiff = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"))));
 	if (!m_Data.IsBaseFileInUse())
@@ -407,7 +407,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		if (m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
 		{
 			m_Data.m_baseFile.TransferDetailsFrom(m_Data.m_theirFile);
-		} // if (!m_Data.!IsYourFileInUse() && !m_Data.!IsTheirFileInUse()) 
+		}
 		else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)))
 		{
 			m_pwndLeftView->m_sWindowName = _T("");
@@ -418,7 +418,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndBottomView->m_sFullFilePath = _T("");
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
-		} // if (!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)) 
+		}
 		if (m_Patch.GetNumberOfFiles() > 0)
 		{
 			CString betterpatchpath = m_Patch.CheckPatchPath(m_Data.m_sPatchPath);
@@ -442,7 +442,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndLeftView->SetHidden(FALSE);
 			m_pwndRightView->SetHidden(FALSE);
 			m_pwndBottomView->SetHidden(TRUE);
-		} // if (m_Patch.GetNumberOfFiles() > 0) 
+		}
 	} // if (m_Data.!IsBaseFileInUse()) 
 	if (m_Data.IsBaseFileInUse() && !m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
 	{
@@ -711,7 +711,11 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 				break;
 			} // switch (state) 
 		} // for (int i=0; i<arText->GetCount(); i++) 
-		file.Save(sFilePath);
+		if (!file.Save(sFilePath))
+		{
+			CMessageBox::Show(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
+			return;
+		}
 		m_dlgFilePatches.SetFileStatusAsPatched(sFilePath);
 	} // if ((arText)&&(arStates)&&(pOriginFile)) 
 }

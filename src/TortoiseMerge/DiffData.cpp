@@ -188,11 +188,11 @@ BOOL CDiffData::Load()
 		{
 			m_sError = m_arBaseFile.GetErrorString();
 			return FALSE;
-		} // if (!m_arBaseFile.Load(m_sBaseFile))
+		}
 		CFileTextLines converted(m_arBaseFile);
 		sConvertedBaseFilename = tempfiles.GetTempFilePath();
 		converted.Save(sConvertedBaseFilename, dwIgnoreWS > 0, bIgnoreEOL, bIgnoreCase);
-	} // if (IsBaseFileInUse())
+	}
 
 	if (IsTheirFileInUse())
 	{
