@@ -48,7 +48,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	_tcslwr(buf);
     if (!allowExplorer)
     {
-		if (_tcsstr(buf, _T("explorer.exe")))
+		if ((_tcsstr(buf, _T("explorer.exe")))==NULL)
 			return S_FALSE;
     }
 	if (CRegStdWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE))
