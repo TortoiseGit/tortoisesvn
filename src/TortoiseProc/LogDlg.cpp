@@ -505,6 +505,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 						popup.SetDefaultItem(ID_GNUDIFF1, FALSE);
+						temp.LoadString(IDS_LOG_POPUP_COMPARE);
+						if (m_hasWC)
+						{
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+						}
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 						temp.LoadString(IDS_LOG_BROWSEREPO);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
@@ -641,22 +646,41 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						//now first get the revision which is selected
 						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
-						CString tempfile = CUtils::GetTempFile();
-						m_templist.Add(tempfile);
-						SVN svn;
-						if (!svn.Cat(m_path, rev, tempfile))
+						if (PathIsDirectory(m_path))
 						{
-							CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							GetDlgItem(IDOK)->EnableWindow(TRUE);
-							break;
-						} // if (!svn.Cat(m_path, rev, tempfile))
+							this->m_bCancelled = FALSE;
+							CString tempfile = CUtils::GetTempFile();
+							tempfile += _T(".diff");
+							m_templist.Add(tempfile);
+							if (!Diff(m_path, SVNRev::REV_HEAD, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+							{
+								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								break;		//exit
+							} 
+							else
+							{
+								CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')));
+							}
+						}
 						else
 						{
-							CString revname, wcname;
-							CString ext = CUtils::GetFileExtFromPath(m_path);
-							revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
-							wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
-							CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
+							CString tempfile = CUtils::GetTempFile();
+							m_templist.Add(tempfile);
+							SVN svn;
+							if (!svn.Cat(m_path, rev, tempfile))
+							{
+								CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								break;
+							} // if (!svn.Cat(m_path, rev, tempfile))
+							else
+							{
+								CString revname, wcname;
+								CString ext = CUtils::GetFileExtFromPath(m_path);
+								revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
+								wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
+								CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
+							}
 						}
 					}
 					break;

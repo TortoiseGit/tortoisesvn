@@ -498,7 +498,9 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 	apr_file_t * errfile;
 	apr_array_header_t *opts;
 
-	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, pool);
+	apr_pool_t * localpool = svn_pool_create(pool);
+
+	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
 	preparePath(path1);
 	preparePath(path2);
@@ -507,7 +509,7 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 
 	Err = svn_io_file_open (&outfile, CUnicodeUtils::GetUTF8(outputfile),
 							APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
-							APR_OS_DEFAULT, pool);
+							APR_OS_DEFAULT, localpool);
 	if (Err)
 		return FALSE;
 
@@ -523,7 +525,7 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 
 	Err = svn_io_file_open (&errfile, CUnicodeUtils::GetUTF8(errorfile),
 							APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
-							APR_OS_DEFAULT, pool);
+							APR_OS_DEFAULT, localpool);
 	if (Err)
 		return FALSE;
 
@@ -538,13 +540,17 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 						   outfile,
 						   errfile,
 						   &ctx,
-						   pool);
+						   localpool);
 	if (Err)
+	{
+		svn_pool_clear(localpool);
 		return FALSE;
+	}
 	if (del)
 	{
-		svn_io_remove_file (CUnicodeUtils::GetUTF8(errorfile), pool);
+		svn_io_remove_file (CUnicodeUtils::GetUTF8(errorfile), localpool);
 	}
+	svn_pool_clear(localpool);
 	return TRUE;
 }
 
