@@ -360,6 +360,19 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 
 	CString sLine;
 	CString sPatchFile = sBaseFile.IsEmpty() ? sPath : sBaseFile;
+	if (!PathFileExists(sPatchFile))
+	{
+		// The file to patch does not exist.
+		// Create an empty file so the patching process still can
+		// work, at least if the patch contains a new file.
+		HANDLE hFile = CreateFile(sPatchFile, GENERIC_WRITE, NULL, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+		if (hFile == INVALID_HANDLE_VALUE)
+		{
+			m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, sPatchFile);
+			return FALSE;
+		}
+		CloseHandle(hFile);
+	}
 	CFileTextLines PatchLines;
 	PatchLines.Load(sPatchFile);
 
