@@ -237,6 +237,16 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+
+	if (pDlg->m_RevertList.GetItemCount()==0)
+	{
+		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+		pDlg->m_bBlock = FALSE;
+		pDlg->EndDialog(0);
+		return (DWORD)-1;
+	} // if (pDlg->m_ListCtrl.GetItemCount()==0)
+
 	return 0;
 }
 
