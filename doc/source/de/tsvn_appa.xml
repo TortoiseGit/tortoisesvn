@@ -372,21 +372,16 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 			Sie können den Befehl <guimenuitem>Rückgängig</guimenuitem>
 			auf dem übergeordneten Ordner ausführen. Dies bringt die gelöschte
-			Datei wieder zurück. Aber seien Sie vorsichtig: Sie werden <emphasis>
-			alle</emphasis> Änderungen verlieren, welche Sie an Dateien in
-			diesem Ordner gemacht haben. Das heisst nicht nur die gelöschte
-			Datei wird wiederhergestellt, sondern auch Änderungen an anderen
-			Dateien.
+			Datei wieder zurück. 
 			</para>
 			<para>
-			Als Alternative können Sie Subversion's <command>revert</command> Befehl
-			verwenden um nur die gelöschte Datei wiederherzustellen.
-			Bitte lesen Sie dazu den Beitrag <ulink url="http://svnbook.red-bean.com/html-chunk/ch03s05.html#svn-ch-3-sect-4.3.3">
-					<citetitle>svn revert</citetitle>
-				</ulink>
-			im <ulink url="http://svnbook.red-bean.com/">
-					<citetitle>Subversion-Buch</citetitle>
-				</ulink>. 
+			Wenn Sie die Änderung bereits zum Projektarchiv übertragen haben, dann
+			starten Sie den Projektarchiv-Browser, wechseln zu der Revision wo
+			die gelöschte Datei noch vorhanden war und wählen
+			<menuchoice>
+				<guimenuitem>Kopieren nach...</guimenuitem>
+			</menuchoice>
+			aus dem Kontextmenu. Als Ziel wählen Sie den Pfad zu Ihrer Arbeitskopie.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-2">
@@ -811,6 +806,35 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-4">
+			<title>Kann ich die Revisionsnummer in mein Projekt einfügen?</title>
+			<para>
+			Wenn Sie die Revisionsnummer in Ihrem Projekt als Versionsnummer
+			verwenden möchten so benötigen Sie ein zusätzliches Tool. Sie
+			finden das Tool <literal>SubWCRev.exe</literal> auf der Download
+			Seite unserer Webseite.
+			</para>
+			<para>
+			Dieses Tool durchsucht die ganze Arbeitskopie nach der jüngsten
+			Revisionsnummer. Sobald diese Revisionsnummer gefunden ist, ersetzt
+			das Tool sämtliche <literal>$WCREV$</literal> Zeichenketten einer
+			Datei durch diese Revisionsnummer.
+			</para>
+			<para>
+			Als Beispiel sehen Sie sich bitte die Datei <filename>version.in</filename>
+			im TortoiseSVN Sourcecode <ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">hier</ulink>
+			an. Diese Datei wird von TortoiseSVN für genau diesen Zweck benutzt.
+			SubWCRev.exe wird von unserem Build-Skript folgendermassen aufgerufen:
+<screen>
+SubWCRev.exe pfad\zur\Arbeitskopie version.in version.h
+</screen>
+			Dies erstellt eine neue Datei <filename>version.h</filename> mit
+			all den <literal>$WCREV$</literal> Zeichenketten ersetzt durch
+			die Revisionsnummer der Arbeitskopie. Die Datei <filename>version.h</filename>
+			schliesslich wird im TortoiseSVN Projekt und den Resource-Dateien
+			eingeschlossen für die Versions-Infos.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-misc-5">
 			<title>Kann ich Daten verlieren wenn ich TortoiseSVN benutze?</title>
 			<para>
 			TortoiseSVn nutzt die Subversion library. Genug gesagt :-)
@@ -830,7 +854,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			mitnehmen, ...
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-5">
+		<sect2 id="tsvn-faq-misc-6">
 			<title>Ich suche ein externes Diff-Programm</title>
 			<para>
 			Diese Liste von Diff-Programmen ist nicht komplett, wird Ihnen
@@ -871,7 +895,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-6">
+		<sect2 id="tsvn-faq-misc-7">
 			<title>Ich suche ein externes Merge-Programm</title>
 			<para>
 			Diese Liste von Diff-Programmen ist nicht komplett, wird Ihnen
@@ -904,7 +928,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-7">
+		<sect2 id="tsvn-faq-misc-20">
 			<title>Was sind die versteckten Registry-Einstellungen?</title>
 			<indexterm><primary>Registry</primary></indexterm>
 			<para>
@@ -960,7 +984,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<emphasis>genau</emphasis> wissen was Sie tun!
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-8">
+		<sect2 id="tsvn-faq-misc-100">
 			<title>Ich liebe TortoiseSVN, wie kann ich etwas für die Entwickler tun?</title>
 			<para>
 			Danke, das Sie gefragt haben!

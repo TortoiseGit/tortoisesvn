@@ -371,20 +371,17 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 			You can do a <guimenuitem>revert</guimenuitem> on the 
 			parent folder where you deleted the file or 
-			directory. But use that carefully: you will lose all 
-			changes you made in that folder since you last committed! 
-			That means not only the file you deleted but changes to other
-			files as well!
+			directory.
 			</para>
 			<para>
-			Alternatively you can use Subversion's <command>revert</command> command
-			to revert only the removed file.
-			Please look at the chapter <ulink url="http://svnbook.red-bean.com/html-chunk/ch03s05.html#svn-ch-3-sect-4.3.3">
-					<citetitle>svn revert</citetitle>
-				</ulink>
-			in the <ulink url="http://svnbook.red-bean.com/">
-					<citetitle>Subversion Book</citetitle>
-				</ulink>. 
+			If you have already committed the deleted file, then you can
+			use the repository browser, change to the revision where the file
+			still existed and then use the command 
+			<menuchoice>
+				<guimenuitem>Copy to...</guimenuitem>
+			</menuchoice>
+			from the context menu. Enter the path to your working copy as the
+			target.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-2">
@@ -511,6 +508,12 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 			Yes, you can change from one client to another 
 			whenever you want.
+			</para>
+			<para>
+			There's only one exception: if you use the special build to work
+			around the VS.NET bug with web projects then you can't use any
+			other subversion clients anymore. You're stuck with that special
+			build. Other Subversion clients won't recognize your working copies.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-7">
@@ -804,6 +807,33 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-4">
+			<title>Can I get the project revision number into my project?</title>
+			<para>
+			If you want the revision number in your program version number you
+			need an additional tool to do that. You can find the tool 
+			<literal>SubWCRev.exe</literal> on the download page on our website.
+			</para>
+			<para>
+			This tool traverses your whole working copy for the most recent
+			revision. Once that revision is found, it replaces all occurences
+			of the string <literal>$WCREV$</literal> with that revision number.
+			</para>
+			<para>
+			As an example, have a look at the file <filename>version.in</filename>
+			in the TortoiseSVN source tree <ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">here</ulink>.
+			This file is used in TortoiseSVN and its resource files. The
+			SubWCRev.exe tool is called from the build script like this:
+<screen>
+SubWCRev.exe path\to\working\copy version.in version.h
+</screen>
+			This creates a new file <filename>version.h</filename> with all
+			the <literal>$WCREV$</literal> strings replaced with the revision
+			number of the working copy. The <filename>version.h</filename>
+			file is then used in the project itself and included in the 
+			resource files for the version information.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-misc-5">
 			<title>Can I lose data, when I use TortoiseSVN?</title>
 			<para>
 			TortoiseSVN uses Subversion. Nuff said :-)
@@ -812,15 +842,16 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Seriously &mdash; No! Read the Subversion pages. You can 
 			screw up your working copy any way you like, but if you 
 			commit your data regularly, you can always revert to a 
-			functional state. TortoiseSVN was not made to protect 
+			functional state. Just remember that TortoiseSVN was not made to protect 
 			you against stupidity (e.g. Format C:). 
 			</para>
 			<para>
 			You can only lose your data if you throw your computer out
-			of the window, if you format your harddrive, ...
+			of the window, format your harddrive, nail your 
+			harddrive to a wall...
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-5">
+		<sect2 id="tsvn-faq-misc-6">
 			<title>I'm looking for an external diff tool</title>
 			<para>
 			This list is by no means complete, but might help 
@@ -860,7 +891,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-6">
+		<sect2 id="tsvn-faq-misc-7">
 			<title>I'm looking for an external merge tool</title>
 			<para>
 			This list is by no means complete, but might help 
@@ -893,7 +924,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-7">
+		<sect2 id="tsvn-faq-misc-20">
 			<title>What are the hidden registry settings?</title>
 			<para>
 			There are some registry settings for TortoiseSVN which aren't
@@ -945,7 +976,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			you don't know <emphasis>exactly</emphasis> what you're doing!
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-8">
+		<sect2 id="tsvn-faq-misc-100">
 			<title>I love TortoiseSVN, how can I do 
 			something for the developers?</title>
 			<para>
