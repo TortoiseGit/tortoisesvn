@@ -39,7 +39,7 @@
 #define ID_POPGNUDIFF		9
 #define ID_POPDIFF			10
 #define ID_POPREFRESH		11
-#define ID_POPPROPS			12
+//#define ID_POPPROPS			12		commented out because already defined to 17 in LogDlg.h
 
 // CRepositoryBrowser dialog
 
@@ -342,6 +342,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 					CString temp;
 					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+					CUtils::RemoveAccelerators(temp);
 					if (temp.IsEmpty())
 						ofn.lpstrTitle = NULL;
 					else
@@ -403,8 +404,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CWaitCursorEx wait_cursor;
 					CInputDlg dlg(this);
 					dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+					CUtils::RemoveAccelerators(dlg.m_sHintText);
 					dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+					CUtils::RemoveAccelerators(dlg.m_sTitle);
 					dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
+					CUtils::RemoveAccelerators(dlg.m_sInputText);
 					if (dlg.DoModal()==IDOK)
 					{
 						if (!svn.Remove(url, TRUE, dlg.m_sInputText))
@@ -449,6 +453,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					ofn.lpstrInitialDir = NULL;
 					CString temp;
 					temp.LoadString(IDS_REPOBROWSE_IMPORT);
+					CUtils::RemoveAccelerators(temp);
 					ofn.lpstrTitle = temp;
 					ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
@@ -463,8 +468,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						CUtils::RemoveAccelerators(input.m_sHintText);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						CUtils::RemoveAccelerators(input.m_sTitle);
 						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
+						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
@@ -494,8 +502,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						CUtils::RemoveAccelerators(input.m_sHintText);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						CUtils::RemoveAccelerators(input.m_sTitle);
 						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
+						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Move(url, filepath, TRUE, input.m_sInputText))
@@ -516,6 +527,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CRenameDlg dlg;
 						dlg.m_name = url;
 						dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
+						CUtils::RemoveAccelerators(dlg.m_windowtitle);
 						if (dlg.DoModal() == IDOK)
 						{
 							SVN svn;
@@ -523,8 +535,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 							CWaitCursorEx wait_cursor;
 							CInputDlg input(this);
 							input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+							CUtils::RemoveAccelerators(input.m_sHintText);
 							input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+							CUtils::RemoveAccelerators(input.m_sTitle);
 							input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+							CUtils::RemoveAccelerators(input.m_sInputText);
 							if (input.DoModal() == IDOK)
 							{
 								if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, input.m_sInputText))
@@ -554,6 +569,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 						CString temp;
 						temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+						CUtils::RemoveAccelerators(temp);
 						if (temp.IsEmpty())
 							ofn.lpstrTitle = NULL;
 						else
@@ -599,6 +615,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CRenameDlg dlg;
 					dlg.m_name = _T("");
 					dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_MKDIR);
+					CUtils::RemoveAccelerators(dlg.m_windowtitle);
 					if (dlg.DoModal() == IDOK)
 					{
 						SVN svn;
@@ -606,8 +623,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						CUtils::RemoveAccelerators(input.m_sHintText);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						CUtils::RemoveAccelerators(input.m_sTitle);
 						input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
+						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.MakeDir(url+_T("/")+dlg.m_name, input.m_sInputText))

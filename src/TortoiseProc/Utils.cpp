@@ -689,3 +689,17 @@ BOOL CUtils::CheckForEmptyDiff(CString sDiffPath)
 	return FALSE;
 
 }
+
+void CUtils::RemoveAccelerators(CString& text)
+{
+	int pos = 0;
+	while ((pos=text.Find('&',pos))>=0)
+	{
+		if (text.GetLength() > (pos-1))
+		{
+			if (text.GetAt(pos+1)!=' ')
+				text.Delete(pos);
+		}
+		pos++;
+	}
+}
