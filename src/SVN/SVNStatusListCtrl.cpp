@@ -673,7 +673,7 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	int nCol = 1;
 	CString entryname = entry->path.GetDisplayString(&entry->basepath);
 	if (entryname.IsEmpty())
-		entryname = entry->path.GetFilename();
+		entryname = entry->path.GetFileOrDirectoryName();
 	int icon_idx = 0;
 	if (entry->isfolder)
 		icon_idx = m_nIconFolder;

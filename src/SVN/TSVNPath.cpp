@@ -178,9 +178,15 @@ CTSVNPath CTSVNPath::GetDirectory() const
 CString CTSVNPath::GetFilename() const
 {
 	ASSERT(!IsDirectory());
+	return GetFileOrDirectoryName();
+}
+
+CString CTSVNPath::GetFileOrDirectoryName() const
+{
 	EnsureBackslashPathSet();
 	return m_sBackslashPath.Mid(m_sBackslashPath.ReverseFind('\\')+1);
 }
+
 CString CTSVNPath::GetFileExtension() const
 {
 	ASSERT(!IsDirectory());

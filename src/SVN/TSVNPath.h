@@ -90,6 +90,10 @@ public:
 	 */
 	CString GetFilename() const;
 	/**
+	 * Returns the items name without the full path.
+	 */
+	CString GetFileOrDirectoryName() const;
+	/**
 	 * Returns the file extension, including the dot.
 	 * \remark don't call this for directories
 	 */
