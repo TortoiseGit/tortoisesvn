@@ -68,8 +68,6 @@
  * This code has no bugs, just undocumented features!
  */
 
-// Fwd references for classes
-class CCmdLineParser;
 
 class CTortoiseProcApp : public CWinApp
 {
@@ -86,7 +84,7 @@ public:
 
 private:
 	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-	void CreatePatch(const CCmdLineParser& parser);
+	BOOL CreatePatch(CString path, CString savepath = _T(""));
 
 
 	DECLARE_MESSAGE_MAP()

@@ -42,6 +42,7 @@ protected:
 	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void			OnPaint();
 	afx_msg HCURSOR			OnQueryDragIcon();
+	afx_msg void			OnBnClickedCheckrepo();
 	virtual BOOL			OnInitDialog();
 	virtual void			OnOK();
 	virtual void			OnCancel();
@@ -55,6 +56,7 @@ protected:
 public:
 	CSVNStatusListCtrl	m_FileListCtrl;
 	CString			m_path;
+	bool			m_bRemote;
 };
 
 DWORD WINAPI ChangedStatusThread(LPVOID pVoid);

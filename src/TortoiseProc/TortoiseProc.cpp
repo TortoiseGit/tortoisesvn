@@ -762,17 +762,28 @@ BOOL CTortoiseProcApp::InitInstance()
 			BOOL bDelete = FALSE;
 			if (path2.IsEmpty())
 			{
-				CString name = CUtils::GetFileNameFromPath(path);
-				CString ext = CUtils::GetFileExtFromPath(path);
-				path2 = SVN::GetPristinePath(path);
-				if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path, path)))
+				if (PathIsDirectory(path))
 				{
-					bDelete = TRUE;
+					path = CUtils::WritePathsToTempFile(path);
+					CChangedDlg dlg;
+					dlg.m_path = path;
+					dlg.DoModal();
+					DeleteFile(path);
 				}
-				CString n1, n2;
-				n1.Format(IDS_DIFF_WCNAME, name);
-				n2.Format(IDS_DIFF_BASENAME, name);
-				CUtils::StartDiffViewer(path2, path, TRUE, n2, n1, ext);
+				else
+				{
+					CString name = CUtils::GetFileNameFromPath(path);
+					CString ext = CUtils::GetFileExtFromPath(path);
+					path2 = SVN::GetPristinePath(path);
+					if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path, path)))
+					{
+						bDelete = TRUE;
+					}
+					CString n1, n2;
+					n1.Format(IDS_DIFF_WCNAME, name);
+					n2.Format(IDS_DIFF_BASENAME, name);
+					CUtils::StartDiffViewer(path2, path, TRUE, n2, n1, ext);
+				}
 			} // if (path2.IsEmpty())
 			else
 				CUtils::StartDiffViewer(path2, path, TRUE);
@@ -1301,14 +1312,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				DeleteFile(savepath);
-			} // if (!svn.Cat(path, rev, savepath)) 
-		} // if (comVal.Compare(_T("cat"))==0) 
+			} 
+		}
 		//#endregion
 		//#region createpatch
 		if (comVal.Compare(_T("createpatch"))==0)
 		{
-			CreatePatch(parser);
-		} // if (comVal.Compare(_T("createpatch"))==0) 
+			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
+			CreatePatch(path);
+		}
 		//#endregion
 		//#region updatecheck
 		if (comVal.Compare(_T("updatecheck"))==0)
@@ -1387,61 +1399,64 @@ CTortoiseProcApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, 
 	return 0;
 }
 
-void 
-CTortoiseProcApp::CreatePatch(const CCmdLineParser& parser)
+BOOL CTortoiseProcApp::CreatePatch(CString path, CString savepath /*= _T("")*/)
 {
-	CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 	OPENFILENAME ofn;		// common dialog box structure
-	TCHAR szFile[MAX_PATH];  // buffer for file name
-	ZeroMemory(szFile, sizeof(szFile));
-	// Initialize OPENFILENAME
-	ZeroMemory(&ofn, sizeof(OPENFILENAME));
-	//ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-	ofn.hwndOwner = (EXPLORERHWND);
-	ofn.lpstrFile = szFile;
-	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	CString temp;
-	temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-	CUtils::RemoveAccelerators(temp);
-	if (temp.IsEmpty())
-		ofn.lpstrTitle = NULL;
-	else
-		ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLETEMPLATE | OFN_EXPLORER | OFN_ENABLEHOOK;
 
-	ofn.hInstance = AfxGetResourceHandle();
-	ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
-	ofn.lpfnHook = CreatePatchFileOpenHook;
+	if (savepath.IsEmpty())
+	{
+		TCHAR szFile[MAX_PATH];  // buffer for file name
+		ZeroMemory(szFile, sizeof(szFile));
+		// Initialize OPENFILENAME
+		ZeroMemory(&ofn, sizeof(OPENFILENAME));
+		//ofn.lStructSize = sizeof(OPENFILENAME);
+		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+		ofn.hwndOwner = (EXPLORERHWND);
+		ofn.lpstrFile = szFile;
+		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+		CUtils::RemoveAccelerators(temp);
+		if (temp.IsEmpty())
+			ofn.lpstrTitle = NULL;
+		else
+			ofn.lpstrTitle = temp;
+		ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLETEMPLATE | OFN_EXPLORER | OFN_ENABLEHOOK;
 
-	CString sFilter;
-	sFilter.LoadString(IDS_PATCHFILEFILTER);
-	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-	_tcscpy (pszFilters, sFilter);
-	// Replace '|' delimeters with '\0's
-	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-	while (ptr != pszFilters)
-	{
-		if (*ptr == '|')
-			*ptr = '\0';
-		ptr--;
-	} // while (ptr != pszFilters) 
-	ofn.lpstrFilter = pszFilters;
-	ofn.nFilterIndex = 1;
-	// Display the Open dialog box. 
-	if (GetSaveFileName(&ofn)==FALSE)
-	{
+		ofn.hInstance = AfxGetResourceHandle();
+		ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
+		ofn.lpfnHook = CreatePatchFileOpenHook;
+
+		CString sFilter;
+		sFilter.LoadString(IDS_PATCHFILEFILTER);
+		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+		_tcscpy (pszFilters, sFilter);
+		// Replace '|' delimeters with '\0's
+		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+		while (ptr != pszFilters)
+		{
+			if (*ptr == '|')
+				*ptr = '\0';
+			ptr--;
+		} // while (ptr != pszFilters) 
+		ofn.lpstrFilter = pszFilters;
+		ofn.nFilterIndex = 1;
+		// Display the Open dialog box. 
+		if (GetSaveFileName(&ofn)==FALSE)
+		{
+			delete [] pszFilters;
+			return FALSE;
+		} // if (GetSaveFileName(&ofn)==FALSE)
 		delete [] pszFilters;
-		return;
-	} // if (GetSaveFileName(&ofn)==FALSE)
-	delete [] pszFilters;
+		savepath = ofn.lpstrFile;
+	}
 
-	bool bToClipboard = _tcsstr(ofn.lpstrFile, PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
+	bool bToClipboard = _tcsstr(savepath, PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
 
 	CProgressDlg progDlg;
 	temp.LoadString(IDS_PROC_SAVEPATCHTO);
 	progDlg.SetLine(1, temp, true);
-	CString strProgressDest(ofn.lpstrFile);
+	CString strProgressDest(savepath);
 	if(bToClipboard)
 	{
 		strProgressDest.LoadString(IDS_CLIPBOARD_PROGRESS_DEST);
@@ -1453,8 +1468,11 @@ CTortoiseProcApp::CreatePatch(const CCmdLineParser& parser)
 	progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 	//progDlg.SetAnimation(IDR_ANIMATION);
 
-
-	CString strTempPatchFile = CUtils::GetTempFile();
+	CString strTempPatchFile;
+	if (bToClipboard)
+		strTempPatchFile = CUtils::GetTempFile();
+	else
+		strTempPatchFile = savepath;
 
 	path = path.TrimRight('\\');
 	CString sDir;
@@ -1471,7 +1489,8 @@ CTortoiseProcApp::CreatePatch(const CCmdLineParser& parser)
 	{
 		progDlg.Stop();
 		::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-	} // if (!svn.Diff(path, SVNRev::REV_WC, path, SVNRev::REV_BASE, TRUE, FALSE, FALSE, _T(""), sSavePath))
+		return FALSE;
+	}
 
 	if(bToClipboard)
 	{
@@ -1495,15 +1514,11 @@ CTortoiseProcApp::CreatePatch(const CCmdLineParser& parser)
 
 		}
 	}
-	else
-	{
-		// We should copy the temporary file to the user's selected file
-		CopyFile(strTempPatchFile, ofn.lpstrFile, FALSE);
-	}
 
 	progDlg.Stop();
-	DeleteFile(strTempPatchFile);
-
+	if (bToClipboard)
+		DeleteFile(strTempPatchFile);
+	return TRUE;
 }
 
 

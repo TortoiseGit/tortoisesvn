@@ -5,6 +5,9 @@
 - ADD: It's possible to save the created patch directly to the
        clipboard. (Will Dean)
 - ADD: Column header for TortoiseBlame. (Stefan)
+- CHG: The 'check for updates' dialog now is called
+       'check for modifications' and doesn't contact the repository
+       on startup but only on request. (Stefan)
 - CHG: The log dialog has now a checkbox for stop-on-copy
        instead of a messagebox question. (Stefan)
 - CHG: Removed the _tsvnexcluderecursive and _tsvnexcludethis

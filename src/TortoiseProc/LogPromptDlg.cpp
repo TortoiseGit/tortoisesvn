@@ -216,6 +216,8 @@ void CLogPromptDlg::OnOK()
 	GetDlgItem(IDC_BUGID)->GetWindowText(id);
 	if (m_ProjectProperties.bNumber)
 	{
+		// check if the revision actually _is_ a number
+		// or a list of numbers separated by colons
 		TCHAR c = 0;
 		BOOL bInvalid = FALSE;
 		int len = id.GetLength();

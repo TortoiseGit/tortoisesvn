@@ -29,6 +29,7 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CChangedDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_bRemote = FALSE;
 }
 
 CChangedDlg::~CChangedDlg()
@@ -45,6 +46,7 @@ void CChangedDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CChangedDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_CHECKREPO, OnBnClickedCheckrepo)
 END_MESSAGE_MAP()
 
 
@@ -94,6 +96,7 @@ BOOL CChangedDlg::OnInitDialog()
 
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
 	EnableSaveRestore(_T("ChangedDlg"));
@@ -117,10 +120,11 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	CChangedDlg * pDlg;
 	pDlg = (CChangedDlg *)pVoid;
 
+	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	if (!pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, TRUE))
+	if (!pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, pDlg->m_bRemote))
 	{
 		pDlg->m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, FALSE);
 		pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, FALSE);
@@ -138,6 +142,7 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
 	return 0;
 }
 
@@ -151,6 +156,16 @@ void CChangedDlg::OnCancel()
 {
 	if (GetDlgItem(IDOK)->IsWindowEnabled())
 		__super::OnCancel();
+}
+
+void CChangedDlg::OnBnClickedCheckrepo()
+{
+	m_bRemote = TRUE;
+	DWORD dwThreadId;
+	if ((m_hThread = CreateThread(NULL, 0, &ChangedStatusThread, this, 0, &dwThreadId))==0)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
 }
 
 

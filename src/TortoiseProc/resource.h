@@ -196,6 +196,7 @@
 #define IDC_BUTTON1                     1132
 #define IDC_STATBUTTON                  1132
 #define IDC_PATCH_TO_CLIPBOARD          1132
+#define IDC_CHECKREPO                   1132
 #define IDC_GRAPHCOMBO                  1133
 #define IDC_GRAPHTYPELABEL              1134
 #define IDS_MSGBOX_DONOTSHOWAGAIN       1153
@@ -399,6 +400,7 @@
 #define IDS_DIFF_WORKINGCOPY            2402
 #define IDS_DIFF_REVISIONPATCHED        2403
 #define IDS_DIFF_REMOTENAME             2404
+#define IDS_DIFF_WORKINGBASE            2405
 #define IDS_COMMONFILEFILTER            2500
 #define IDS_PROGRAMSFILEFILTER          2501
 #define IDS_CERTIFICATESFILEFILTER      2502
