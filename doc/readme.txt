@@ -34,8 +34,15 @@ gendoc.bat 	   - will loop over all known applications and every directory
 		     it finds inside source (so don't place any nonsense there).
 source\makedoc.bat - is called from gendoc.bat and will generate html, pdf and chm 
 		     docs for the given application and language.
+		     makedoc.bat takes three or more parameters where
+		     %1 = Target application to build docs for
+		     %2 = Target language (as in source/en)
+		     %3..%5 = any of [pdf chm html]
 
-"makedoc tortoisesvn de" will build the german docs for tortoisesvn. Simple.
+"makedoc tortoisesvn de pdf"      will build the pdf docs in directory source/de  
+                                  (german) for tortoisesvn. Simple.
+"makedoc tortoisesvn en chm html" will build the chm and html docs in directory 
+                                  source/en (english)
 
 Translate:
 ==========

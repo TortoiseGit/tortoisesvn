@@ -6,6 +6,7 @@ rem Try to check, whether these vars are already set
 @if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 
 set APPS=TortoiseSVN TortoiseMerge
+set TARGETS=pdf chm html
 
 rmdir /s /q output > NUL
 mkdir output > NUL
@@ -21,9 +22,10 @@ echo ----------------------------------------------------------------------
 echo.
 echo Generating Documentation for: %APPS%
 echo Generating Languages: %LANG%
+echo Generating Targets: %TARGETS%
 
 rem *** loop over every available app and language
-FOR %%A in (%APPS%) DO FOR %%L In (%LANG%) DO call MakeDoc %%A %%L
+FOR %%A in (%APPS%) DO FOR %%L In (%LANG%) DO call MakeDoc %%A %%L %TARGETS%
 
 cd ..
 

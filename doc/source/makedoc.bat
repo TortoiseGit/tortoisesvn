@@ -1,9 +1,31 @@
 @echo off
-SET _APP=%1
-SET _LANG=%2
 
-rem BEWARE, this may cause a "line too long" error if called repeatedly from the same dos box
-rem Try to check, whether these vars are already set
+rem +----------------------------------------------------------------------
+rem | extracting the parameters for the generation process
+SET _APP=%1
+shift
+SET _LANG=%1
+shift
+
+SET _PDF=OFF
+SET _CHM=OFF
+SET _HTML=OFF
+
+:getparam
+if "%1"=="pdf" SET _PDF=ON
+if "%1"=="PDF" SET _PDF=ON
+if "%1"=="chm" SET _CHM=ON
+if "%1"=="CHM" SET _CHM=ON
+if "%1"=="html" SET _HTML=ON
+if "%1"=="HTML" SET _HTML=ON
+shift
+if NOT "%1"=="" goto :getparam
+
+
+rem +----------------------------------------------------------------------
+rem | for VS.Net Projects only
+rem | BEWARE, this may cause a "line too long" error if called repeatedly from the same dos box
+rem | Try to check, whether these vars are already set
 @if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 
 rem +----------------------------------------------------------------------
@@ -13,9 +35,9 @@ set _DOC_SRC=
 if "%OS%"=="Windows_NT" set _DOC_SRC=%~dp0
 
 set _DOC_HOME=%_DOC_SRC%..\
-SET _DOCTOOLS=%_DOC_HOME%tools\
-SET _XSLTPROC=%_DOCTOOLS%xsltproc.exe
-SET _HHCPROC=%_DOCTOOLS%hhc.exe
+SET _DOCTOOLS=c:\DocTools\
+SET _XSLTPROC=%_DOCTOOLS%bin\xsltproc.exe
+SET _HHCPROC=%_DOCTOOLS%bin\hhc.exe
 SET _FOPPROC=%_DOCTOOLS%fop\fop.bat 
 
 set _OUTPUT=%_DOC_HOME%output
@@ -53,6 +75,7 @@ if not exist %_DOC_SRC%\%_LANG%\%_DOC_XML_SRC% goto :EOF
 echo.
 echo ----------------------------------------------------------------------
 echo Generating: %_DOC_SRC% %_LANG% %_APP%
+echo PDF=%_PDF% CHM=%_CHM% HTML=%_HTML%
 echo.
 cd %_DOC_SRC%%_LANG%
 
@@ -63,28 +86,35 @@ rem First copy the default images and afterwards copy the localized images
 xcopy %_DOC_HOME%\images %_HTML_TARGET%images\ > NUL
 xcopy %_DOC_SRC%\%_LANG%\images %_HTML_TARGET%images\ > NUL
 
-echo ----------------------------------------------------------------------
-echo Generating Help as PDF File
-%_XSLTPROC% %_DOC_PDF_XSLTPROC_OPTS% --output %_FO_TARGET% %_DOC_XSL_FO% %_DOC_XML_SRC%
-call %_FOPPROC% -fo %_FO_TARGET% -pdf %_PDF_TARGET%
+if %_PDF%==ON (
+  echo ----------------------------------------------------------------------
+  echo Generating Help as PDF File
+  %_XSLTPROC% %_DOC_PDF_XSLTPROC_OPTS% --output %_FO_TARGET% %_DOC_XSL_FO% %_DOC_XML_SRC%
+  call %_FOPPROC% -fo %_FO_TARGET% -pdf %_PDF_TARGET%
+)
 
-echo ----------------------------------------------------------------------
-echo Generating Help as CHM File
-del /q %_HTML_TARGET%
-copy %_DOC_SRC%\styles_chm.css %_HTML_TARGET% > NUL
-%_XSLTPROC% %_DOC_HELP_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HELP% %_DOC_XML_SRC%
-call :MakeHelpContext
-%_HHCPROC% %_HTML_TARGET%\htmlhelp.hhp
-copy %_HTML_TARGET%\htmlhelp.chm %_HELP_TARGET%
+if %_CHM%==ON (
+  echo ----------------------------------------------------------------------
+  echo Generating Help as CHM File
+  del /q %_HTML_TARGET%
+  copy %_DOC_SRC%\styles_chm.css %_HTML_TARGET% > NUL
+  %_XSLTPROC% %_DOC_HELP_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HELP% %_DOC_XML_SRC%
+  call :MakeHelpContext
+  %_HHCPROC% %_HTML_TARGET%\htmlhelp.hhp
+  copy %_HTML_TARGET%\htmlhelp.chm %_HELP_TARGET%
+)
 
-echo ----------------------------------------------------------------------
-echo Generating Help as single HTML page
-del /q %_HTML_TARGET%
-copy %_DOC_SRC%\styles_html.css %_HTML_TARGET% > NUL
-%_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
-echo ----------------------------------------------------------------------
-echo Generating Help as multiple HTML page(s)
-%_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HTMLCHUNK% %_DOC_XML_SRC%
+if %_HTML%==ON (
+  echo ----------------------------------------------------------------------
+  echo Generating Help as single HTML page
+  del /q %_HTML_TARGET%
+  copy %_DOC_SRC%\styles_html.css %_HTML_TARGET% > NUL
+  %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
+  echo ----------------------------------------------------------------------
+  echo Generating Help as multiple HTML page(s)
+  %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HTMLCHUNK% %_DOC_XML_SRC%
+)
+
 
 echo ----------------------------------------------------------------------
 echo Phew, done 
@@ -93,6 +123,7 @@ Goto :EOF
 rem | End of Batch execution -> Exit script
 rem +----------------------------------------------------------------------
 
+rem for VS.Net Projects only
 rem subroutine to generate the help context file
 echo ----------------------------------------------------------------------
 echo Generating the help context file
