@@ -269,7 +269,8 @@ enum {
 struct backend_tag {
     const char *(*init) (void *frontend_handle, void **backend_handle,
 			 Config *cfg,
-			 char *host, int port, char **realhost, int nodelay);
+			 char *host, int port, char **realhost, int nodelay,
+			 int keepalive);
     void (*free) (void *handle);
     /* back->reconfig() passes in a replacement configuration. */
     void (*reconfig) (void *handle, Config *cfg);
@@ -329,6 +330,7 @@ struct config_tag {
     int warn_on_close;
     int ping_interval;		       /* in seconds */
     int tcp_nodelay;
+    int tcp_keepalives;
     /* Proxy options */
     char proxy_exclude_list[512];
     int proxy_dns;
@@ -513,6 +515,11 @@ GLOBAL int flags;
  */
 GLOBAL int default_protocol;
 GLOBAL int default_port;
+
+/*
+ * This is set TRUE by cmdline.c iff a session is loaded with "-load".
+ */
+GLOBAL int loaded_session;
 
 struct RSAKey;			       /* be a little careful of scope */
 

@@ -1,5 +1,5 @@
 /*
- * settings.c: read and write saved sessions.
+ * settings.c: read and write saved sessions. (platform-independent)
  */
 
 #include <stdio.h>
@@ -182,6 +182,7 @@ void save_open_settings(void *sesskey, int do_host, Config *cfg)
     write_setting_i(sesskey, "PingInterval", cfg->ping_interval / 60);	/* minutes */
     write_setting_i(sesskey, "PingIntervalSecs", cfg->ping_interval % 60);	/* seconds */
     write_setting_i(sesskey, "TCPNoDelay", cfg->tcp_nodelay);
+    write_setting_i(sesskey, "TCPKeepalives", cfg->tcp_keepalives);
     write_setting_s(sesskey, "TerminalType", cfg->termtype);
     write_setting_s(sesskey, "TerminalSpeed", cfg->termspeed);
 
@@ -408,6 +409,7 @@ void load_open_settings(void *sesskey, int do_host, Config *cfg)
 	cfg->ping_interval = pingmin * 60 + pingsec;
     }
     gppi(sesskey, "TCPNoDelay", 1, &cfg->tcp_nodelay);
+    gppi(sesskey, "TCPKeepalives", 0, &cfg->tcp_keepalives);
     gpps(sesskey, "TerminalType", "xterm", cfg->termtype,
 	 sizeof(cfg->termtype));
     gpps(sesskey, "TerminalSpeed", "38400,38400", cfg->termspeed,
@@ -605,7 +607,7 @@ void load_open_settings(void *sesskey, int do_host, Config *cfg)
     gppi(sesskey, "BCE", 1, &cfg->bce);
     gppi(sesskey, "BlinkText", 0, &cfg->blinktext);
     gppi(sesskey, "X11Forward", 0, &cfg->x11_forward);
-    gpps(sesskey, "X11Display", "localhost:0", cfg->x11_display,
+    gpps(sesskey, "X11Display", "", cfg->x11_display,
 	 sizeof(cfg->x11_display));
     gppi(sesskey, "X11AuthType", X11_MIT, &cfg->x11_auth);
 
