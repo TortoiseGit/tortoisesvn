@@ -733,3 +733,14 @@ CRegStdWORD::operator DWORD()
 	}
 }
 
+CRegStdWORD& CRegStdWORD::operator =(DWORD d)
+{
+	if ((d==m_value)&&(!m_force))
+	{
+		//no write to the registry required, its the same value
+		return *this;
+	}
+	m_value = d;
+	write();
+	return *this;
+}
