@@ -4,13 +4,13 @@
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
-# Cecil Sheng <cecilsheng@foquest.com.tw>
+# Cecil Sheng <zcecil@csie.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-08-12 15:12+0800\n"
+"PO-Revision-Date: 2004-09-02 18:08+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,6 +105,11 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
 
+# ID:77,
+#: ID:226
+msgid "%s - at revision: %d"
+msgstr "%s - 於版本: %d"
+
 # ID:151,
 #: ID:151
 msgid "%s : Working Base"
@@ -143,6 +148,11 @@ msgstr "進階設定(&A)..."
 msgid "&Apply Unified Diff"
 msgstr "套用單一差異檔(&A)"
 
+# ID:138,
+#: ID:138
+msgid "&Browse Repository"
+msgstr "瀏覽檔案庫(&B)"
+
 # Control-ID:1011,
 #: Control-ID:1011
 msgid "&Browse..."
@@ -174,6 +184,28 @@ msgstr "取出至目錄(&C):"
 msgid "&Close windows automatically"
 msgstr "自動關閉視窗(&C)"
 
+# ID:76,
+#: ID:76
+msgid "&Compare revisions"
+msgstr "比對版本差異(&C)"
+
+# ID:101,
+#: ID:101
+msgid "&Copy To..."
+msgstr "複製至(&C)..."
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:101
+msgid "&Delete"
+msgstr "刪除(&D)"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "&Edit"
+msgstr "編輯(&E)"
+
 # Control-ID:1099,
 #: Control-ID:1099
 msgid "&Edit..."
@@ -181,8 +213,8 @@ msgstr "編輯(&E)..."
 
 # Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server (Don't use the IE settings)"
-msgstr "使用 Proxy 伺服器(不採用 IE 設定)"
+msgid "&Enable Proxy Server"
+msgstr "啟用 Proxy 伺服器(&E)"
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -242,11 +274,6 @@ msgstr "說明主題(&H)"
 msgid "&Hide"
 msgstr "隱藏 (&H)"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Indicate folders with changed contents"
-msgstr "標示內容有變動過的資料夾(&I)"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Language:"
@@ -287,6 +314,13 @@ msgstr "下一筆差異(&N)"
 msgid "&OK"
 msgstr "確定(&O)"
 
+# ID:3841,#:
+# ID:101,#:
+# ID:3841,
+#: ID:101
+msgid "&Open"
+msgstr "開啟(&O)"
+
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "開啟(&O) Ctrl-O"
@@ -306,6 +340,11 @@ msgstr "埠(&P):"
 msgid "&Previous Difference"
 msgstr "前一筆差異(&P)"
 
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Recurse into folders to fetch the status"
+msgstr "遞迴至子目錄以取得狀態(&R)"
+
 # Control-ID:1048,
 #: Control-ID:1048
 msgid "&Removable drives"
@@ -317,6 +356,17 @@ msgstr "卸除式磁碟(&R)"
 #: Control-ID:1100
 msgid "&Remove"
 msgstr "移除(&R)"
+
+# ID:11,#:
+# ID:101,
+#: ID:101
+msgid "&Rename..."
+msgstr "更改名稱(&R)..."
+
+# ID:113,
+#: ID:113
+msgid "&Revert changes from this revision"
+msgstr "復原自此版本以來的變更(&R)"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -376,6 +426,16 @@ msgstr "檔案庫 &URL:"
 msgid "&Undo\tCtrl+Z"
 msgstr "還原(&U)\tCtrl+Z"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "&Unknown drives"
+msgstr "未知磁碟(&U)"
+
+# ID:76,
+#: ID:76
+msgid "&Update item to revision"
+msgstr "更新項目至版本(&U)"
+
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
@@ -391,6 +451,16 @@ msgstr "檢視(&V)"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "空白字元(&W)"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(已選擇多重目標)"
+
+# Dlg-ID:107,
+#: ID:208
+msgid "(property change only)"
+msgstr "(僅性質改變)"
 
 # ID:188,
 #: ID:188
@@ -416,6 +486,31 @@ msgstr "- %d"
 #: Control-ID:1104
 msgid "..."
 msgstr "..."
+
+# ID:119,
+#: ID:151
+msgid ": Revision %d"
+msgstr ": 版本 %d"
+
+# ID:151,
+#: ID:151
+msgid ": working copy"
+msgstr " : 工作複本"
+
+# ID:88,
+#: ID:88
+msgid ""
+"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
+"If you use Relocate to direct you working copy to another repository or branch,\n"
+"this <b>will corrupt your working copy!</b>\n"
+"To associate your working copy with another branch, use the Switch command.\n"
+"Are you sure you want to relocate?"
+msgstr ""
+"<b>注意:</b> 請只在舊檔案庫搬移至新 URL時才使用重新定位指令.\n"
+"如果用來指向其它檔案庫或是分支,\n"
+"<b>將會損壞你的工作複本!</b>\n"
+"要將工作複本與其它分支關聯, 請使用切換指令.\n"
+"你確定要重新定位嗎?"
 
 # ID:3867,#:
 # ID:3867,
@@ -474,6 +569,11 @@ msgid ""
 msgstr ""
 "用來檢視 GNU 差異檔 (補綴檔) 的程式.\n"
 "如果沒有, 可以使用記事本."
+
+# ID:101,
+#: ID:101
+msgid "A&dd folder..."
+msgstr "加入資料夾(&D)..."
 
 # Control-ID:1093,
 #: Control-ID:1093
@@ -546,6 +646,11 @@ msgstr ""
 msgid "Add"
 msgstr "加入"
 
+# ID:101,
+#: ID:101
+msgid "Add &file..."
+msgstr "加入檔案(&F)..."
+
 # ID:110,
 #: ID:110
 msgid "Add Extension Specific Diff Program"
@@ -561,20 +666,10 @@ msgstr "根據副檔名加入合併程式"
 msgid "Add To Ignore List"
 msgstr "加入忽略列表"
 
-# ID:101,
-#: ID:101
-msgid "Add file..."
-msgstr "加入檔案..."
-
 # ID:12,
 #: ID:12
 msgid "Add files to Subversion here"
 msgstr "加入檔案至 Subversion"
-
-# ID:101,
-#: ID:101
-msgid "Add folder..."
-msgstr "加入資料夾..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -865,11 +960,6 @@ msgstr "瀏覽(&W)..."
 msgid "Brows&e..."
 msgstr "瀏覽(&E)..."
 
-# ID:138,
-#: ID:138
-msgid "Browse Repository"
-msgstr "瀏覽檔案庫"
-
 # ID:78,
 #: ID:78
 msgid "Browse for the external diff program"
@@ -889,6 +979,16 @@ msgstr "內建(&I)"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug編號 / 問題編號:"
+
+# ID:101,
+#: ID:101
+msgid "C&reate Folder..."
+msgstr "建立資料夾(&R)..."
+
+# ID:77,
+#: ID:77
+msgid "C&reate Tag from revision"
+msgstr "從版本建立標記(&R)"
 
 # ID:3697,
 #: ID:3697
@@ -984,8 +1084,8 @@ msgstr "檢查更新"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Check for newer versions"
-msgstr "檢查新版本"
+msgid "Check for newer &versions"
+msgstr "檢查新版本(&V)"
 
 # ID:79,
 #: ID:79
@@ -1057,8 +1157,17 @@ msgstr "清理未完成的作業, 鎖定檔等..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear Auth Cache"
-msgstr "清除認證快取"
+msgid "Clear &Auth Cache"
+msgstr "清除認證快取(&A)"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"清除儲存的認證.\n"
+"你需要為全部的檔案庫重新輸入帳號和密碼."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1113,18 +1222,13 @@ msgstr "比對空白字元"
 
 # ID:76,
 #: ID:76
-msgid "Compare revisions"
-msgstr "比對版本差異"
+msgid "Compare with &working copy"
+msgstr "與工作複本比對(&W)"
 
 # ID:138,
 #: ID:138
-msgid "Compare with Base"
-msgstr "與基礎檔比對"
-
-# ID:76,
-#: ID:76
-msgid "Compare with working copy"
-msgstr "與工作複本比對"
+msgid "Compare with B&ase"
+msgstr "與基礎檔比對(&A)"
 
 # ID:12,
 #: ID:12
@@ -1160,11 +1264,6 @@ msgstr "遠端複製完成"
 #: ID:73
 msgid "Copy"
 msgstr "複製"
-
-# ID:101,
-#: ID:101
-msgid "Copy To..."
-msgstr "複製至..."
 
 # ID:13,
 #: ID:13
@@ -1297,11 +1396,6 @@ msgstr "無法啟動列印工作."
 msgid "Could not start thread!"
 msgstr "無法啟動執行緒!"
 
-# ID:101,
-#: ID:101
-msgid "Create Folder..."
-msgstr "建立資料夾..."
-
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
@@ -1311,11 +1405,6 @@ msgstr "建立補綴..."
 #: ID:8
 msgid "Create Repository here"
 msgstr "在此建立檔案庫"
-
-# ID:77,
-#: ID:77
-msgid "Create Tag from revision"
-msgstr "從版本建立標記"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1351,6 +1440,11 @@ msgstr ""
 "剪下選擇的區塊並放到剪貼簿\n"
 "剪下"
 
+# Control-ID:1123,
+#: Control-ID:1123
+msgid "D&on't close on conflicts"
+msgstr "有衝突時不關閉視窗(&O)"
+
 # ID:76,
 #: ID:76
 msgid "Date"
@@ -1366,7 +1460,6 @@ msgstr "預設的紀錄訊息數目(&N)"
 # ID:101,
 #: ID:11
 #: ID:73
-#: ID:101
 msgid "Delete"
 msgstr "刪除"
 
@@ -1519,6 +1612,11 @@ msgstr "與 BASE 比對異動時不轉換檔案"
 msgid "Drive Types"
 msgstr "磁碟機類型"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "Dry Run"
+msgstr "預檢"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "離開(&X)"
@@ -1532,11 +1630,6 @@ msgstr "外部(&X)"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Edit"
-msgstr "編輯"
 
 # ID:12,
 #: ID:12
@@ -1860,6 +1953,15 @@ msgstr "勾選此選項時, TortoiseSVN 不會建立用於比對差異的暫存�
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "啟用時, TortoiseSVN 每週會檢查一次最新版本"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+"如果設定, TortoiseSVN 會把檔案時間設定至上次\n"
+"提交的時間. 如果不設定, 則使用目前的時間."
 
 # ID:80,
 #: ID:80
@@ -2238,6 +2340,11 @@ msgstr "確定"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "尚有一個以上的檔案處於衝突狀態."
+
 #: MenuEntry
 msgid "Oneway &Diff"
 msgstr "單向差異(&D)"
@@ -2247,6 +2354,15 @@ msgstr "單向差異(&D)"
 msgid "Only check out the top folder"
 msgstr "僅取出最上層目錄"
 
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"只可以輸入數字(可以用逗\n"
+"點分隔)!"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
@@ -2255,7 +2371,6 @@ msgstr "僅更新最上層目錄"
 # ID:3841,#:
 # ID:101,#:
 # ID:3841,
-#: ID:101
 #: ID:3841
 msgid "Open"
 msgstr "開啟"
@@ -2305,6 +2420,11 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "密碼:"
 
+# Control-ID:1121,
+#: Control-ID:1121
+msgid "Paste Log &template in english"
+msgstr "以英文貼上訊息模版(&T)"
+
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Paste Status Template"
@@ -2318,8 +2438,8 @@ msgstr "全部補綴"
 # ID:157,#:
 # ID:157,
 #: ID:157
-msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr "補綴檔|*.diff;*.patch|所有檔案|*.*||"
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "補綴檔(*.diff, *.patch)|*.diff;*.patch|所有檔案(*.*)|*.*||"
 
 # ID:77,
 #: ID:77
@@ -2504,8 +2624,8 @@ msgstr ""
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "RAM drives"
-msgstr "虛擬磁碟"
+msgid "R&AM drives"
+msgstr "虛擬磁碟(&A)"
 
 # ID:3697,
 #: ID:3697
@@ -2610,7 +2730,6 @@ msgstr "更改 %s 的名稱"
 # ID:11,#:
 # ID:101,
 #: ID:11
-#: ID:101
 msgid "Rename..."
 msgstr "更改名稱..."
 
@@ -2703,11 +2822,6 @@ msgstr "重試"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "復原"
-
-# ID:113,
-#: ID:113
-msgid "Revert changes from this revision"
-msgstr "復原自此版本以來的變更"
 
 # ID:9,
 #: ID:9
@@ -2845,6 +2959,12 @@ msgstr "SVN 短 UR"
 msgid "Save &As..."
 msgstr "另存新檔(&A)..."
 
+# ID:313,#:
+# ID:101,
+#: ID:101
+msgid "Save &as..."
+msgstr "另存新檔(&A)..."
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -2853,7 +2973,6 @@ msgstr "另存新檔"
 
 # ID:313,#:
 # ID:101,
-#: ID:101
 #: ID:313
 msgid "Save as..."
 msgstr "另存新檔..."
@@ -2866,8 +2985,8 @@ msgstr "是否儲存 %1 的變動?"
 
 # ID:76,
 #: ID:76
-msgid "Save revision to..."
-msgstr "儲存版本至..."
+msgid "Save revision &to..."
+msgstr "儲存版本至(&T)..."
 
 # ID:3601,#:
 # ID:3601,
@@ -2886,8 +3005,8 @@ msgstr "儲存補綴檔至:"
 
 # ID:113,
 #: ID:113
-msgid "Search log messages..."
-msgstr "搜尋記錄訊息..."
+msgid "Search &log messages..."
+msgstr "搜尋記錄訊息(&L)..."
 
 # ID:3867,#:
 # ID:3867,
@@ -2997,6 +3116,20 @@ msgstr "正在設定性質..."
 msgid "Settings"
 msgstr "設定"
 
+# ID:115,
+#: ID:115
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started."
+msgstr ""
+"要在複製時停止記錄訊息嗎?\n"
+"如果你需要查詢分支從何時開始, 請點選 <b>是</b>."
+
+# Control-ID:65535,
+#: ID:101
+msgid "Sho&w Properties"
+msgstr "顯示性質(&W)"
+
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
@@ -3006,6 +3139,11 @@ msgstr "記錄訊息使用簡短日期/時間格式(&D)"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Subversion 項目的短 URL"
+
+# ID:113,
+#: ID:113
+msgid "Show &Differences"
+msgstr "顯示差異(&D)"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
@@ -3020,14 +3158,15 @@ msgid "Show &Log..."
 msgstr "顯示記錄(&L)..."
 
 # Control-ID:1016,
+#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
 
-# Control-ID:1120,
-#: Control-ID:1120
-msgid "Show BugID/Issue-Nr. Box"
-msgstr "顯示Bug編號/問題編號盒"
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr "僅在檔案總管中顯示圖示覆蓋(&O)"
 
 # Control-ID:1065,
 #: Control-ID:1065
@@ -3036,13 +3175,8 @@ msgstr "顯示差異列"
 
 # ID:113,
 #: ID:113
-msgid "Show Differences"
-msgstr "顯示差異"
-
-# ID:113,
-#: ID:113
-msgid "Show Differences as Unified Diff"
-msgstr "以單一異動檔顯示異動"
+msgid "Show Differences as &Unified Diff"
+msgstr "以單一異動檔顯示異動(&U)"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -3052,16 +3186,6 @@ msgstr "顯示行號"
 # ID:12,
 #: ID:12
 msgid "Show Log"
-msgstr "顯示記錄"
-
-# Control-ID:65535,
-#: ID:101
-msgid "Show Properties"
-msgstr "顯示性質"
-
-# ID:101,
-#: ID:101
-msgid "Show log"
 msgstr "顯示記錄"
 
 # ID:3713,
@@ -3081,11 +3205,6 @@ msgid ""
 msgstr ""
 "顯示或隱藏工具列\n"
 "開關工具列"
-
-# Control-ID:1088,
-#: Control-ID:1088
-msgid "Show overlays only in explorer"
-msgstr "僅在檔案總管中顯示圖示覆蓋"
 
 # ID:2049,
 #: ID:2049
@@ -3658,11 +3777,6 @@ msgstr ""
 "  指紋: %s\n"
 "  識別名稱: %s"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Unknown drives"
-msgstr "未知磁碟"
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -3682,11 +3796,6 @@ msgstr "更新"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "更新至版本..."
-
-# ID:76,
-#: ID:76
-msgid "Update item to revision"
-msgstr "更新項目至版本"
 
 # ID:11,
 #: ID:11
@@ -3819,6 +3928,11 @@ msgstr "檢視 GNU 差異檔(補綴檔)的工具程式."
 msgid "Visit our website"
 msgstr "瀏覽我們的網站"
 
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "警告!"
+
 # ID:213,
 #: ID:213
 msgid "What repository type do you want to create?"
@@ -3889,6 +4003,15 @@ msgstr ""
 msgid "You have to update your working copy first."
 msgstr "你必須先更新工作複本."
 
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"你尚未輸入問題編號!\n"
+"確定要進行提交嗎?"
+
 # ID:77,
 #: ID:77
 msgid ""
@@ -3928,6 +4051,46 @@ msgstr "無名檔案"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "並請支持開發者"
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:標籤\n"
+"用來提示使用者輸入問題編號的訊息."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:訊息\n"
+"輸入問題編號時, 要附加在後面的字串.\n"
+"必須含有 \"%BUGID%\", 用來代換問題編號."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq: 編號\n"
+"如果你的錯誤追蹤系統不是以編號來管理問題, 請設為 \"否\""
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"指向問題追蹤的 URL. 必須含有 \"%BUGID%\", \n"
+"用來代換問題編號."
 
 # ID:145,
 #: ID:145

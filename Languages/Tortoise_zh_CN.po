@@ -1,16 +1,16 @@
 #
-# Traditional Chinese translations for TortoiseSVN package
+# Simplifed Chinese translations for TortoiseSVN package
 # Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
-# Cecil Sheng <cecilsheng@foquest.com.tw>
+# Cecil Sheng <zcecil@csie.org>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN zh_CN\n"
+"Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-08-12 15:12+0800\n"
+"PO-Revision-Date: 2004-09-02 18:08+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,6 +105,11 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr "选择了 %d 个档案, 共有 %d 个档案"
 
+# ID:77,
+#: ID:226
+msgid "%s - at revision: %d"
+msgstr "%s - 于版本: %d"
+
 # ID:151,
 #: ID:151
 msgid "%s : Working Base"
@@ -143,6 +148,11 @@ msgstr "进阶设定(&A)..."
 msgid "&Apply Unified Diff"
 msgstr "套用单一差异档(&A)"
 
+# ID:138,
+#: ID:138
+msgid "&Browse Repository"
+msgstr "浏览档案库(&B)"
+
 # Control-ID:1011,
 #: Control-ID:1011
 msgid "&Browse..."
@@ -174,6 +184,28 @@ msgstr "取出至目录(&C):"
 msgid "&Close windows automatically"
 msgstr "自动关闭窗口(&C)"
 
+# ID:76,
+#: ID:76
+msgid "&Compare revisions"
+msgstr "比对版本差异(&C)"
+
+# ID:101,
+#: ID:101
+msgid "&Copy To..."
+msgstr "复制至(&C)..."
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:101
+msgid "&Delete"
+msgstr "删除(&D)"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "&Edit"
+msgstr "编辑(&E)"
+
 # Control-ID:1099,
 #: Control-ID:1099
 msgid "&Edit..."
@@ -181,8 +213,8 @@ msgstr "编辑(&E)..."
 
 # Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server (Don't use the IE settings)"
-msgstr "使用 Proxy 服务器(不采用 IE 设定)"
+msgid "&Enable Proxy Server"
+msgstr "启用 Proxy 服务器(&E)"
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -242,11 +274,6 @@ msgstr "说明主题(&H)"
 msgid "&Hide"
 msgstr "隐藏 (&H)"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Indicate folders with changed contents"
-msgstr "标示内容有变动过的数据夹(&I)"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Language:"
@@ -287,6 +314,13 @@ msgstr "下一笔差异(&N)"
 msgid "&OK"
 msgstr "确定(&O)"
 
+# ID:3841,#:
+# ID:101,#:
+# ID:3841,
+#: ID:101
+msgid "&Open"
+msgstr "开启(&O)"
+
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "开启(&O) Ctrl-O"
@@ -306,6 +340,11 @@ msgstr "埠(&P):"
 msgid "&Previous Difference"
 msgstr "前一笔差异(&P)"
 
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Recurse into folders to fetch the status"
+msgstr "递回至子目录以取得状态(&R)"
+
 # Control-ID:1048,
 #: Control-ID:1048
 msgid "&Removable drives"
@@ -317,6 +356,17 @@ msgstr "卸除式磁盘(&R)"
 #: Control-ID:1100
 msgid "&Remove"
 msgstr "移除(&R)"
+
+# ID:11,#:
+# ID:101,
+#: ID:101
+msgid "&Rename..."
+msgstr "更改名称(&R)..."
+
+# ID:113,
+#: ID:113
+msgid "&Revert changes from this revision"
+msgstr "复原自此版本以来的变更(&R)"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -376,6 +426,16 @@ msgstr "档案库 &URL:"
 msgid "&Undo\tCtrl+Z"
 msgstr "还原(&U)\tCtrl+Z"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "&Unknown drives"
+msgstr "未知磁盘(&U)"
+
+# ID:76,
+#: ID:76
+msgid "&Update item to revision"
+msgstr "更新项目至版本(&U)"
+
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
@@ -391,6 +451,16 @@ msgstr "检视(&V)"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "空白字元(&W)"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(已选择多重目标)"
+
+# Dlg-ID:107,
+#: ID:208
+msgid "(property change only)"
+msgstr "(仅性质改变)"
 
 # ID:188,
 #: ID:188
@@ -416,6 +486,31 @@ msgstr "- %d"
 #: Control-ID:1104
 msgid "..."
 msgstr "..."
+
+# ID:119,
+#: ID:151
+msgid ": Revision %d"
+msgstr ": 版本 %d"
+
+# ID:151,
+#: ID:151
+msgid ": working copy"
+msgstr " : 工作复本"
+
+# ID:88,
+#: ID:88
+msgid ""
+"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
+"If you use Relocate to direct you working copy to another repository or branch,\n"
+"this <b>will corrupt your working copy!</b>\n"
+"To associate your working copy with another branch, use the Switch command.\n"
+"Are you sure you want to relocate?"
+msgstr ""
+"<b>注意:</b> 请只在旧档案库搬移至新 URL时才使用重新定位指令.\n"
+"如果用来指向其它档案库或是分支,\n"
+"<b>将会损坏你的工作复本!</b>\n"
+"要将工作复本与其它分支关联, 请使用切换指令.\n"
+"你确定要重新定位吗?"
 
 # ID:3867,#:
 # ID:3867,
@@ -474,6 +569,11 @@ msgid ""
 msgstr ""
 "用来检视 GNU 差异档 (补缀档) 的程序.\n"
 "如果没有, 可以使用记事本."
+
+# ID:101,
+#: ID:101
+msgid "A&dd folder..."
+msgstr "加入数据夹(&D)..."
 
 # Control-ID:1093,
 #: Control-ID:1093
@@ -546,6 +646,11 @@ msgstr ""
 msgid "Add"
 msgstr "加入"
 
+# ID:101,
+#: ID:101
+msgid "Add &file..."
+msgstr "加入档案(&F)..."
+
 # ID:110,
 #: ID:110
 msgid "Add Extension Specific Diff Program"
@@ -561,20 +666,10 @@ msgstr "根据扩展名加入合并程序"
 msgid "Add To Ignore List"
 msgstr "加入忽略列表"
 
-# ID:101,
-#: ID:101
-msgid "Add file..."
-msgstr "加入档案..."
-
 # ID:12,
 #: ID:12
 msgid "Add files to Subversion here"
 msgstr "加入档案至 Subversion"
-
-# ID:101,
-#: ID:101
-msgid "Add folder..."
-msgstr "加入数据夹..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -865,11 +960,6 @@ msgstr "浏览(&W)..."
 msgid "Brows&e..."
 msgstr "浏览(&E)..."
 
-# ID:138,
-#: ID:138
-msgid "Browse Repository"
-msgstr "浏览档案库"
-
 # ID:78,
 #: ID:78
 msgid "Browse for the external diff program"
@@ -889,6 +979,16 @@ msgstr "内建(&I)"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug编号 / 问题编号:"
+
+# ID:101,
+#: ID:101
+msgid "C&reate Folder..."
+msgstr "建立数据夹(&R)..."
+
+# ID:77,
+#: ID:77
+msgid "C&reate Tag from revision"
+msgstr "从版本建立标记(&R)"
 
 # ID:3697,
 #: ID:3697
@@ -984,8 +1084,8 @@ msgstr "检查更新"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Check for newer versions"
-msgstr "检查新版本"
+msgid "Check for newer &versions"
+msgstr "检查新版本(&V)"
 
 # ID:79,
 #: ID:79
@@ -1057,8 +1157,17 @@ msgstr "清理未完成的作业, 锁定档等..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear Auth Cache"
-msgstr "清除认证快取"
+msgid "Clear &Auth Cache"
+msgstr "清除认证快取(&A)"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"清除储存的认证.\n"
+"你需要为全部的档案库重新输入帐号和口令."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1113,18 +1222,13 @@ msgstr "比对空白字元"
 
 # ID:76,
 #: ID:76
-msgid "Compare revisions"
-msgstr "比对版本差异"
+msgid "Compare with &working copy"
+msgstr "与工作复本比对(&W)"
 
 # ID:138,
 #: ID:138
-msgid "Compare with Base"
-msgstr "与基础档比对"
-
-# ID:76,
-#: ID:76
-msgid "Compare with working copy"
-msgstr "与工作复本比对"
+msgid "Compare with B&ase"
+msgstr "与基础档比对(&A)"
 
 # ID:12,
 #: ID:12
@@ -1160,11 +1264,6 @@ msgstr "远程复制完成"
 #: ID:73
 msgid "Copy"
 msgstr "复制"
-
-# ID:101,
-#: ID:101
-msgid "Copy To..."
-msgstr "复制至..."
 
 # ID:13,
 #: ID:13
@@ -1297,11 +1396,6 @@ msgstr "无法激活打印工作."
 msgid "Could not start thread!"
 msgstr "无法激活执行绪!"
 
-# ID:101,
-#: ID:101
-msgid "Create Folder..."
-msgstr "建立数据夹..."
-
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
@@ -1311,11 +1405,6 @@ msgstr "建立补缀..."
 #: ID:8
 msgid "Create Repository here"
 msgstr "在此建立档案库"
-
-# ID:77,
-#: ID:77
-msgid "Create Tag from revision"
-msgstr "从版本建立标记"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1351,6 +1440,11 @@ msgstr ""
 "剪下选择的区块并放到剪贴簿\n"
 "剪下"
 
+# Control-ID:1123,
+#: Control-ID:1123
+msgid "D&on't close on conflicts"
+msgstr "有冲突时不关闭窗口(&O)"
+
 # ID:76,
 #: ID:76
 msgid "Date"
@@ -1366,7 +1460,6 @@ msgstr "预设的纪录讯息数目(&N)"
 # ID:101,
 #: ID:11
 #: ID:73
-#: ID:101
 msgid "Delete"
 msgstr "删除"
 
@@ -1519,6 +1612,11 @@ msgstr "与 BASE 比对异动时不转换档案"
 msgid "Drive Types"
 msgstr "磁盘驱动器类型"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "Dry Run"
+msgstr "预检"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "离开(&X)"
@@ -1532,11 +1630,6 @@ msgstr "外部(&X)"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Edit"
-msgstr "编辑"
 
 # ID:12,
 #: ID:12
@@ -1860,6 +1953,15 @@ msgstr "勾选此选项时, TortoiseSVN 不会建立用于比对差异的暂存�
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "启用时, TortoiseSVN 每周会检查一次最新版本"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+"如果设定, TortoiseSVN 会把档案时间设定至上次\n"
+"提交的时间. 如果不设定, 则使用目前的时间."
 
 # ID:80,
 #: ID:80
@@ -2238,6 +2340,11 @@ msgstr "确定"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "尚有一个以上的档案处于冲突状态."
+
 #: MenuEntry
 msgid "Oneway &Diff"
 msgstr "单向差异(&D)"
@@ -2247,6 +2354,15 @@ msgstr "单向差异(&D)"
 msgid "Only check out the top folder"
 msgstr "仅取出最上层目录"
 
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"只可以输入数字(可以用逗\n"
+"点分隔)!"
+
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
@@ -2255,7 +2371,6 @@ msgstr "仅更新最上层目录"
 # ID:3841,#:
 # ID:101,#:
 # ID:3841,
-#: ID:101
 #: ID:3841
 msgid "Open"
 msgstr "开启"
@@ -2305,6 +2420,11 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "口令:"
 
+# Control-ID:1121,
+#: Control-ID:1121
+msgid "Paste Log &template in english"
+msgstr "以英文贴上讯息模版(&T)"
+
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Paste Status Template"
@@ -2318,8 +2438,8 @@ msgstr "全部补缀"
 # ID:157,#:
 # ID:157,
 #: ID:157
-msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr "补缀档|*.diff;*.patch|所有档案|*.*||"
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "补缀档(*.diff, *.patch)|*.diff;*.patch|所有档案(*.*)|*.*||"
 
 # ID:77,
 #: ID:77
@@ -2504,8 +2624,8 @@ msgstr ""
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "RAM drives"
-msgstr "虚拟磁盘"
+msgid "R&AM drives"
+msgstr "虚拟磁盘(&A)"
 
 # ID:3697,
 #: ID:3697
@@ -2610,7 +2730,6 @@ msgstr "更改 %s 的名称"
 # ID:11,#:
 # ID:101,
 #: ID:11
-#: ID:101
 msgid "Rename..."
 msgstr "更改名称..."
 
@@ -2703,11 +2822,6 @@ msgstr "重试"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "复原"
-
-# ID:113,
-#: ID:113
-msgid "Revert changes from this revision"
-msgstr "复原自此版本以来的变更"
 
 # ID:9,
 #: ID:9
@@ -2845,6 +2959,12 @@ msgstr "SVN 短 UR"
 msgid "Save &As..."
 msgstr "另存新档(&A)..."
 
+# ID:313,#:
+# ID:101,
+#: ID:101
+msgid "Save &as..."
+msgstr "另存新档(&A)..."
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -2853,7 +2973,6 @@ msgstr "另存新档"
 
 # ID:313,#:
 # ID:101,
-#: ID:101
 #: ID:313
 msgid "Save as..."
 msgstr "另存新档..."
@@ -2866,8 +2985,8 @@ msgstr "是否储存 %1 的变动?"
 
 # ID:76,
 #: ID:76
-msgid "Save revision to..."
-msgstr "储存版本至..."
+msgid "Save revision &to..."
+msgstr "储存版本至(&T)..."
 
 # ID:3601,#:
 # ID:3601,
@@ -2886,8 +3005,8 @@ msgstr "储存补缀档至:"
 
 # ID:113,
 #: ID:113
-msgid "Search log messages..."
-msgstr "搜寻记录讯息..."
+msgid "Search &log messages..."
+msgstr "搜寻记录讯息(&L)..."
 
 # ID:3867,#:
 # ID:3867,
@@ -2997,6 +3116,20 @@ msgstr "正在设定性质..."
 msgid "Settings"
 msgstr "设定"
 
+# ID:115,
+#: ID:115
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started."
+msgstr ""
+"要在复制时停止记录讯息吗?\n"
+"如果你需要查询分支从何时开始, 请点选 <b>是</b>."
+
+# Control-ID:65535,
+#: ID:101
+msgid "Sho&w Properties"
+msgstr "显示性质(&W)"
+
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
@@ -3006,6 +3139,11 @@ msgstr "记录讯息使用简短日期/时间格式(&D)"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Subversion 项目的短 URL"
+
+# ID:113,
+#: ID:113
+msgid "Show &Differences"
+msgstr "显示差异(&D)"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
@@ -3020,14 +3158,15 @@ msgid "Show &Log..."
 msgstr "显示记录(&L)..."
 
 # Control-ID:1016,
+#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "显示记录(&L)"
 
-# Control-ID:1120,
-#: Control-ID:1120
-msgid "Show BugID/Issue-Nr. Box"
-msgstr "显示Bug编号/问题编号盒"
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr "仅在档案总管中显示图标覆盖(&O)"
 
 # Control-ID:1065,
 #: Control-ID:1065
@@ -3036,13 +3175,8 @@ msgstr "显示差异列"
 
 # ID:113,
 #: ID:113
-msgid "Show Differences"
-msgstr "显示差异"
-
-# ID:113,
-#: ID:113
-msgid "Show Differences as Unified Diff"
-msgstr "以单一异动档显示异动"
+msgid "Show Differences as &Unified Diff"
+msgstr "以单一异动档显示异动(&U)"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -3052,16 +3186,6 @@ msgstr "显示行号"
 # ID:12,
 #: ID:12
 msgid "Show Log"
-msgstr "显示记录"
-
-# Control-ID:65535,
-#: ID:101
-msgid "Show Properties"
-msgstr "显示性质"
-
-# ID:101,
-#: ID:101
-msgid "Show log"
 msgstr "显示记录"
 
 # ID:3713,
@@ -3081,11 +3205,6 @@ msgid ""
 msgstr ""
 "显示或隐藏工具列\n"
 "开关工具列"
-
-# Control-ID:1088,
-#: Control-ID:1088
-msgid "Show overlays only in explorer"
-msgstr "仅在档案总管中显示图标覆盖"
 
 # ID:2049,
 #: ID:2049
@@ -3658,11 +3777,6 @@ msgstr ""
 "  指纹: %s\n"
 "  识别名称: %s"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Unknown drives"
-msgstr "未知磁盘"
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -3682,11 +3796,6 @@ msgstr "更新"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "更新至版本..."
-
-# ID:76,
-#: ID:76
-msgid "Update item to revision"
-msgstr "更新项目至版本"
 
 # ID:11,
 #: ID:11
@@ -3819,6 +3928,11 @@ msgstr "检视 GNU 差异档(补缀档)的工具程序."
 msgid "Visit our website"
 msgstr "浏览我们的网站"
 
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "警告!"
+
 # ID:213,
 #: ID:213
 msgid "What repository type do you want to create?"
@@ -3889,6 +4003,15 @@ msgstr ""
 msgid "You have to update your working copy first."
 msgstr "你必须先更新工作复本."
 
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"你尚未输入问题编号!\n"
+"确定要进行提交吗?"
+
 # ID:77,
 #: ID:77
 msgid ""
@@ -3928,6 +4051,46 @@ msgstr "无名档案"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "并请支持开发者"
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:卷标\n"
+"用来提示使用者输入问题编号的讯息."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:讯息\n"
+"输入问题编号时, 要附加在后面的字符串.\n"
+"必须含有 \"%BUGID%\", 用来代换问题编号."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq: 编号\n"
+"如果你的错误追踪系统不是以编号来管理问题, 请设为 \"否\""
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"指向问题追踪的 URL. 必须含有 \"%BUGID%\", \n"
+"用来代换问题编号."
 
 # ID:145,
 #: ID:145
