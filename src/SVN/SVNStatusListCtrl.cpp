@@ -29,6 +29,7 @@
 #include "SVN.h"
 #include "LogDlg.h"
 #include "SVNProgressDlg.h"
+#include "SysImageList.h"
 #include ".\svnstatuslistctrl.h"
 
 #define IDSVNLC_REVERT			1
@@ -94,10 +95,12 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, bool bHasCheckboxes /* = TRUE */)
 {
 	m_dwColumns = dwColumns;
 	// set the extended style of the listcontrol
-	DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP;
+	DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
 	exStyle |= (bHasCheckboxes ? LVS_EX_CHECKBOXES : 0);
 	SetExtendedStyle(exStyle);
 
+	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
+	SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 	// clear all previously set header columns
 	DeleteAllItems();
 	int c = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
@@ -280,6 +283,11 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				entry->inexternal = m_bHasExternals;
 				entry->direct = TRUE;
 				if (s->entry)
+					entry->isfolder = (s->entry->kind == svn_node_dir);
+				else
+					entry->isfolder = PathIsDirectory(strbuf);
+
+				if (s->entry)
 				{
 					if (s->entry->url)
 					{
@@ -316,6 +324,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							entry->inexternal = FALSE;
 							entry->direct = FALSE;
 							m_arStatusArray.Add(entry);
+							entry->isfolder = PathIsDirectory(strbuf);
 						}
 					} // while (filefinder.NextFile(filename))
 				}
@@ -389,6 +398,10 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					entry->inexternal = bIsExternal;
 					entry->direct = FALSE;
 					if (s->entry)
+						entry->isfolder = (s->entry->kind == svn_node_dir);
+					else
+						entry->isfolder = PathIsDirectory(strbuf);
+					if (s->entry)
 					{
 						if (s->entry->url)
 						{
@@ -423,6 +436,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 									entry->checked = FALSE;
 									entry->inexternal = FALSE;
 									entry->direct = FALSE;
+									entry->isfolder = PathIsDirectory(strbuf);
 									m_arStatusArray.Add(entry);
 								}
 							} // while (filefinder.NextFile(filename))
@@ -717,7 +731,12 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
 	CString entryname = entry->path.Right(entry->path.GetLength() - entry->basepath.GetLength() - 1);
 	if (entryname.IsEmpty())
 		entryname = entry->path.Mid(entry->path.ReverseFind('/')+1);
-	InsertItem(index, entryname);
+	int icon_idx = 0;
+	if (entry->isfolder)
+		icon_idx = m_nIconFolder;
+	else
+		icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(CUtils::GetFileNameFromPath(entry->path));
+	InsertItem(index, entryname, icon_idx);
 	if (m_dwColumns & SVNSLC_COLSTATUS)
 	{
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);

@@ -115,6 +115,7 @@ public:
 		BOOL					inunversionedfolder;	///< if the file is inside an unversioned folder
 		BOOL					inexternal;				///< if the item is in an external folder
 		BOOL					direct;					///< directly included (TRUE) or just a child of a folder
+		BOOL					isfolder;				///< TRUE if entry refers to a folder
 	};
 
 	/**
@@ -239,6 +240,8 @@ private:
 	DWORD						m_dwColumns;
 	DWORD						m_dwShow;
 	BOOL						m_bBlock;
+
+	int							m_nIconFolder;
 
 	CWnd *						m_pStatLabel;
 	CButton *					m_pSelectButton;

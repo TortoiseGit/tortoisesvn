@@ -170,11 +170,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 			ClearPool();
 			return &dirstat;
 		} // if (g_ShellCache.IsRecursive())
-		if ((m_bColumnProvider)&&(m_nCounter<1))
-		{
-			m_nCounter++;
-			return &invalidstatus;
-		}
 	} // if (bIsFolder) 
 	
 	m_nCounter = 0;
