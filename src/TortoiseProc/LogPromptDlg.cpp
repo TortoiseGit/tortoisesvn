@@ -316,6 +316,7 @@ void CLogPromptDlg::OnOK()
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	m_bBlock = FALSE;
+	m_sBugID.Trim();
 	if (!m_sBugID.IsEmpty())
 	{
 		CString sBugID = m_BugtraqInfo.sMessage;
