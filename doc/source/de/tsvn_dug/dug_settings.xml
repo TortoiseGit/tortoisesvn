@@ -135,10 +135,30 @@
 				</varlistentry>
 				<varlistentry>
 					<term>Fenster automatisch schliessen</term>
+					<term>Fortschritts-Dialog</term>
 					<listitem>
 						<para>
-							TortoiseSVN wird das Fortschritts-Fenster automatisch schliessen
-							wenn die Operation ohne Fehler abgeschlossen ist.
+						TortoiseSVN kann den Fortschritts-Dialog automatisch schliessen
+						wenn der Befehl ohne Fehler ausgeführt wurde. Diese Einstellung erlaubt
+						Ihnen die Bedingungen zu setzen um den Dialog automatisch zu schliessen.
+						Die Standard-Einstellung (empfohlen) is <guilabel>Manuell schliessen</guilabel>
+						die Ihnen erlaubt alle Meldungen nach jeder Aktion genau zu studieren.
+						Wenn Sie möchten, können Sie den Dialog auch automatisch schliessen lassen
+						wenn keine kritischen Ereignisse aufgetreten sind.
+						</para>
+						<para>
+						<guilabel>Automatisch schliessen wenn kein Mischen, Hinzufügen oder Löschen</guilabel>
+						lässt den Dialog nur offen, wenn keine Datei gemischt, hinzugefügt oder gelöscht wurde.
+						Auch Konflikte und Fehler lassen den Dialog geöffnet.
+						</para>
+						<para>
+						<guilabel>Automatisch schliessen wenn ohne Konflikte</guilabel> schliesst den Dialog
+						automatisch wenn keine Konflikte oder Fehlermeldungen aufgetreten sind.
+						</para>
+						<para>
+						<guilabel>Automatisch schliessen wenn ohne Fehler</guilabel> schliesst den Dialog 
+						auch automatisch, wenn Konflikte aufgetreten sind. Der Dialog bleibt jedoch offen
+						wenn Fehler aufgetreten sind.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -317,6 +337,18 @@
 							und
 							<filename>Dateiname : Arbeitskopie</filename>
 							sein.
+						</para>
+						<para>
+						Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben um
+						Schlüsselwörter zu expandieren, dann wird ein Diff-Programm immer eine
+						Differenz in dieser Zeile anzeigen. Um dies zu verhindern können Sie 
+						die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel>
+						aktivieren. Ist diese Option aktiviert, wird TortoiseSVN die Datei in der
+						Arbeitskopie zuerst so konvertieren, dass die Schlüsselwörter nicht mehr
+						expandiert sind.
+						Da dies für grosse Dateien einige Zeit dauern kann ist diese Funktion
+						optional. Die Standard-Einstellung ist die Dateien nicht zu konvertieren
+						um Zeit zu sparen.
 						</para>
 					</listitem>
 				</varlistentry>
