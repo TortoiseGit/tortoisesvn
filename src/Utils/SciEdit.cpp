@@ -61,6 +61,7 @@ void CSciEdit::Init()
 	//Setup the spell checker and thesaurus
 	TCHAR buf[MAX_PATH];
 	CString sFolder;
+	CString sFolderUp;
 	CString sFile;
 
 	// look for dictionary files and use them if found
@@ -68,7 +69,9 @@ void CSciEdit::Init()
 	{
 		sFolder = CString(buf);
 		sFolder = sFolder.Left(sFolder.ReverseFind('\\'));
+		sFolderUp = sFolder.Left(sFolder.ReverseFind('\\'));
 		sFolder += _T("\\");
+		sFolderUp += _T("\\");
 		long langId = GetUserDefaultLCID();
 
 		do
@@ -85,12 +88,26 @@ void CSciEdit::Init()
 					delete pChecker;
 				pChecker = new MySpell(CStringA(sFolder + sFile + _T(".aff")), CStringA(sFolder + sFile + _T(".dic")));
 			}
-			if ((PathFileExists(sFolder + _T("dic\\") + sFile + _T(".aff"))) &&
+			else if ((PathFileExists(sFolder + _T("dic\\") + sFile + _T(".aff"))) &&
 				(PathFileExists(sFolder + _T("dic\\") + sFile + _T(".dic"))))
 			{
 				if (pChecker)
 					delete pChecker;
 				pChecker = new MySpell(CStringA(sFolder + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dic")));
+			}
+			else if ((PathFileExists(sFolderUp + sFile + _T(".aff"))) &&
+				(PathFileExists(sFolderUp + sFile + _T(".dic"))))
+			{
+				if (pChecker)
+					delete pChecker;
+				pChecker = new MySpell(CStringA(sFolderUp + sFile + _T(".aff")), CStringA(sFolderUp + sFile + _T(".dic")));
+			}
+			else if ((PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".aff"))) &&
+				(PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".dic"))))
+			{
+				if (pChecker)
+					delete pChecker;
+				pChecker = new MySpell(CStringA(sFolderUp + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("dic\\") + sFile + _T(".dic")));
 			}
 #if 0
 			if ((PathFileExists(sFolder + sFile + _T(".idx"))) &&
