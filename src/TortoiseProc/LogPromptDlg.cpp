@@ -146,7 +146,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	CString temp = m_sPath;
 
-	m_ListCtrl.Init(SVNSLC_COLSTATUS);
+	m_ListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS);
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
 	m_ProjectProperties.ReadPropsTempfile(m_sPath);
