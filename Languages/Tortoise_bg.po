@@ -1,5 +1,3 @@
-#
-# Bulgarian translations for TortoiseSVN package
 # Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -32,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-01 13:36+0200\n"
+"PO-Revision-Date: 2004-10-18 13:21+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: Lubbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -939,11 +937,6 @@ msgstr "И&збор..."
 msgid "B&uiltin"
 msgstr "В&градена"
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -953,6 +946,11 @@ msgstr "Записва резервно копие на оригиналния �
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Базов файл:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkeley Database (BDB)"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
@@ -1018,7 +1016,7 @@ msgstr "Вг&радена"
 # Control-ID:1119,
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
-msgstr "Номер на "
+msgstr "Номер на проблем:"
 
 # ID:101,
 #: ID:101
@@ -1078,7 +1076,7 @@ msgstr "Срокът за валидността на сертификата в�
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Сертификати|*.p12;*.pkcs12;*.pfx|Всички|*.*||"
 
 # ID:3825,
@@ -1163,7 +1161,7 @@ msgstr "Изберете тези позиции, които желаете да
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Включете, за да използвате по-кратък формат за час и дата в дневника"
+msgstr "Включете, за да се показва по-кратък формат за час и дата в дневника"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1212,12 +1210,12 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Щракнете върху \"Подробнo\" за да укажете друга сравняваща програма според разширението"
+msgstr "Щракнете върху \"Подробнo\", за да укажете друга сравняваща програма според разширението"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Щракнете върху \"Подробни\" за да укажете друга сливаща програма според разширението"
+msgstr "Щракнете върху \"Подробни\", за да укажете друга сливаща програма според разширението"
 
 # ID:3825,
 #: ID:3825
@@ -1459,6 +1457,11 @@ msgid "Create Patch..."
 msgstr "Създаване на кръпка..."
 
 # ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Създаване на хранилище"
+
+# ID:8,
 #: ID:8
 msgid "Create Repository here"
 msgstr "Създаване на хранилище тук"
@@ -1639,7 +1642,7 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr ""
-"Желаете ли да презаредите документите, за да отразяват промените?\n"
+"Желаете ли да презаредите документите, за да се отразят промените?\n"
 "Забележка: ще загубите всичките си промени!"
 
 # ID:313,
@@ -1825,11 +1828,6 @@ msgstr "Външна"
 msgid "External Program:"
 msgstr "Външна програма:"
 
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
-
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -1994,7 +1992,7 @@ msgstr "Помощ"
 # Control-ID:65535,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Съвет: натиснете бутона F5 за да опресните информацията за избраното поддърво."
+msgstr "Съвет: натиснете бутона F5, за да опресните информацията за избраното поддърво."
 
 # ID:82,
 #: ID:82
@@ -2329,6 +2327,11 @@ msgstr "&Следващ конфликт"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Файлова система (FSFS)"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2509,11 +2512,6 @@ msgstr "Парола:"
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
 msgstr "Вмъкване на имената на променените файлове"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "Вмъкване на &шаблона за дневника на английски"
 
 # ID:376,
 #: ID:376
@@ -3071,6 +3069,11 @@ msgstr "Запис като..."
 msgid "Save changes to %1?"
 msgstr "Да се запишат ли промените в %1?"
 
+# ID:76,
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Запис на пътя до клиентски сертификат"
+
 # ID:3601,#:
 # ID:3601,
 #: ID:3601
@@ -3166,6 +3169,11 @@ msgstr ""
 "Маркира целият документ\n"
 "Маркиране – всичко"
 
+# ID:213,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "Изберете типа на хранилището, което искате да създадете:"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -3203,10 +3211,12 @@ msgstr "Настройки"
 #: ID:115
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
 msgstr ""
 "Дали да се спре показването на дневника до копиране?\n"
-"Щракнете върху <b>Да</b>, ако трябва да намерите къде е началото на дадено разклонение."
+"Изберете <b>Да</b>, ако трябва да намерите къде е началото на дадено разклонение.\n"
+"Изберете <b>Не</b>, ако искате да видите всички съобщения в дневника. "
 
 # Control-ID:65535,
 #: ID:101
@@ -3958,6 +3968,11 @@ msgstr "Да се използва текстовият блок от \"В&аш�
 msgid "Use th&is text block"
 msgstr "Да се използва &този текстов блок"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "Да се използва &целият този файл"
+
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
@@ -4028,11 +4043,6 @@ msgstr "Посетете нашия сайт"
 #: ID:219
 msgid "Warning!"
 msgstr "Внимание!"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Какъв тип хранилище желаете да създадете?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4147,6 +4157,19 @@ msgstr "неименован файл"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "и подпомогнете разработчиците"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Установете на \"false\", ако искате номера на проблем да бъде вмъкнат в началото на\n"
+" съобщението за дневника. По подразбиране е \"true\", което означава, че номера на проблема\n"
+"се добавя в края на  съобщението за дневника."
 
 # ID:14,
 #: ID:14
@@ -4381,6 +4404,17 @@ msgstr "към %s"
 # ID:15,
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Установете на \"false\", ако не искате списъкът с променени файлове, който ще се добави\n"
+"в съобщението за дневника, да е на английски."
+
+# ID:15,
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -4408,6 +4442,15 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Максимална дължина на редовете на съобщението за дневника (в знаци).\n"
 "Бляда линия се показва аа тази позиция в полето за въвеждане на съобщение за дневника. По подразбиране стойността е 80 знака."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Установете на \"yes\", ако искате да се показва предупреждение, когато в диалога за поверяване не бил въведен номер на проблем."
 
 # Control-ID:1112,
 #: Control-ID:1112

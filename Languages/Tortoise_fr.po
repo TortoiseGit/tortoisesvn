@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-01 23:34+0100\n"
+"PO-Revision-Date: 2004-10-18 12:05+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -733,11 +733,6 @@ msgstr "&Naviguer..."
 msgid "B&uiltin"
 msgstr "&Interne"
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Sauvergarde du fichier original"
@@ -745,6 +740,11 @@ msgstr "Sauvergarde du fichier original"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Fichier de base:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Base de Données Berkeley (BDB)"
 
 #: Dlg-ID:162
 msgid "Blame"
@@ -845,8 +845,8 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certificat non encore valide. Valide depuis: %s"
 
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
-msgstr "Certificats|*.p12;*.pkcs12;*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
+msgstr "Certificats|*.p12;*.pkcs12;*.pfx|Tous|*.*||"
 
 #: ID:3825
 msgid "Change the window position"
@@ -1160,6 +1160,10 @@ msgstr "Ne peut pas démarrer l'unité d'exécution(thread)!"
 msgid "Create Patch..."
 msgstr "Créer un patch..."
 
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Créer un repository"
+
 #: ID:8
 msgid "Create Repository here"
 msgstr "Créer un repository ici"
@@ -1460,11 +1464,6 @@ msgstr "Externe"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "Programme externe:"
-
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
 
 #: ID:74
 msgid "Failed Revert"
@@ -1873,6 +1872,11 @@ msgstr "C&onflit Suivant"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Système de Fichier Natif (FSFS)"
+
 #: Dlg-ID:102
 msgid "Network"
 msgstr "Réseau"
@@ -2016,11 +2020,6 @@ msgstr "Mot de passe:"
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
 msgstr "Coller les noms de fichiers modifiés"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "Coller le &modèle de Journal en anglais"
 
 #: ID:376
 msgid "Patch All"
@@ -2459,6 +2458,10 @@ msgstr "Sauver sous..."
 msgid "Save changes to %1?"
 msgstr "Sauvegarder les changements dans %1?"
 
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Sauver le chemin du certificat client"
+
 #: ID:3601
 msgid ""
 "Save the modified file\n"
@@ -2535,6 +2538,11 @@ msgstr ""
 "Sélectionner le document entier\n"
 "Sélectionner tout"
 
+# ID:213,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "Sélectionnez le type de repository que vous voulez créer:"
+
 #: ID:3866
 msgid "Send Mail failed to send message."
 msgstr "Le message n'a pas pu être envoyé."
@@ -2564,10 +2572,12 @@ msgstr "Configuration"
 #: ID:115
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
 msgstr ""
 "La journalisation doit elle s'arrêter à la copie?\n"
-"Cliquer <b>Oui</b> si vous avez besoin de chercher où une branche a démarré."
+"Cliquez <b>Oui</b> si vous avez besoin de chercher où une branche a démarré.\n"
+"Cliquez <b>Non</b> si vous voulez voir toutes les entrées du journal."
 
 #: ID:101
 msgid "Sho&w Properties"
@@ -3188,6 +3198,11 @@ msgstr "Utiliser \"v&otre\" bloc de texte avant celui des \"autres\""
 msgid "Use th&is text block"
 msgstr "Ut&ilisez ce bloc de texte"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "Utiliser la &totalité de ce fichier"
+
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Utiliser ceci si l'URL du repository a changé"
@@ -3246,11 +3261,6 @@ msgstr "Visitez notre site Web"
 #: ID:219
 msgid "Warning!"
 msgstr "Avertissement!"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Quel type de repository voulez-vous créer?"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3349,6 +3359,18 @@ msgstr "un fichier non nommé"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "et supporté les développeurs"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Mettre à \"faux\" si vous voulez que l'ID de traque de bug soit inséré en haut du message de journal.\n"
+"La valeur par défaut est \"Vrai\" ce qui signifie que l'ID de traque de bug est ajoutée au message de journal."
 
 # ID:14,
 #: ID:14
@@ -3552,6 +3574,17 @@ msgstr "vers %s"
 # ID:15,
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Mettre à \"Faux\" si vous ne voulez pas que la liste des fichiers changés soit collée en anglais\n"
+"dans la boite de dialogue de livraison."
+
+# ID:15,
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -3579,6 +3612,15 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Saisissez ici le nombre de caractères que le message de journal ne doit pas excèder en longueur.\n"
 "Une ligne s'effaçant est affichée dans le dialogue de livraison à cette position. La valeur par défaut est 80 caractères."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Mettre à \"Oui\" si une alerte doit être affichée quand aucun incident n'est entré dans la boite de dialogue de livraison."
 
 #: Control-ID:1112
 msgid "your version is:"
