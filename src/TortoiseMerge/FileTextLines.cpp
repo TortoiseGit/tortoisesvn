@@ -121,7 +121,7 @@ BOOL CFileTextLines::Load(CString sFilePath)
 		{
 			m_LineEndings = CheckLineEndings(buf, dwReadBytes);
 		}
-	} while ((m_bUnicode == -1)||(m_LineEndings == CFileTextLines::AUTOLINE));
+	} while (((m_bUnicode == -1)||(m_LineEndings == CFileTextLines::AUTOLINE))&&(dwReadBytes > 0));
 	CloseHandle(hFile);
 
 	BOOL bRetval = TRUE;
