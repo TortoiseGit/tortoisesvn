@@ -67,6 +67,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseProcRUS", "Tortoise
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseProcNOR", "TortoiseProcNOR\TortoiseProcNOR.vcproj", "{C493D852-C74C-4678-8397-1B568BC6F677}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -119,6 +123,12 @@ Global
 		{25CB6195-CF9B-4EDA-8DC4-BCCBA787A17B}.Release.Build.0 = Release|Win32
 		{25CB6195-CF9B-4EDA-8DC4-BCCBA787A17B}.Release_MBCS.ActiveCfg = Release_MBCS|Win32
 		{25CB6195-CF9B-4EDA-8DC4-BCCBA787A17B}.Release_MBCS.Build.0 = Release_MBCS|Win32
+		{C493D852-C74C-4678-8397-1B568BC6F677}.Debug.ActiveCfg = Debug|Win32
+		{C493D852-C74C-4678-8397-1B568BC6F677}.Debug.Build.0 = Debug|Win32
+		{C493D852-C74C-4678-8397-1B568BC6F677}.Release.ActiveCfg = Release|Win32
+		{C493D852-C74C-4678-8397-1B568BC6F677}.Release.Build.0 = Release|Win32
+		{C493D852-C74C-4678-8397-1B568BC6F677}.Release_MBCS.ActiveCfg = Release_MBCS|Win32
+		{C493D852-C74C-4678-8397-1B568BC6F677}.Release_MBCS.Build.0 = Release_MBCS|Win32
 	EndGlobalSection
 	GlobalSection(SolutionItems) = postSolution
 		Changelog.txt = Changelog.txt

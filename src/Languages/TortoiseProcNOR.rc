@@ -1,0 +1,894 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "..\TortoiseProc\resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOGEX 0, 0, 221, 207
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Om TortoiseSVN"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,77,186,50,14
+    LTEXT           "TortoiseSVN Version 0.12, bygget med subversion 0.24.2",
+                    IDC_VERSIONABOUT,7,136,207,21
+    LTEXT           "Forfattere: Stefan Kueng, Tim Kemp and Damian Powell",
+                    IDC_STATIC,7,159,170,8
+    LTEXT           "Ikoner:     Luebbe Onken",IDC_STATIC,7,173,77,8
+END
+
+IDD_ADD DIALOGEX 0, 0, 244, 146
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Legg til"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,125,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,187,125,50,14
+    CONTROL         "",IDC_ADDLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,230,107
+END
+
+IDD_CHANGEDFILES DIALOGEX 0, 0, 408, 206
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Forandrede filer"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,351,185,50,14
+    CONTROL         "",IDC_CHANGEDLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,394,171
+END
+
+IDD_CHECKOUT DIALOGEX 0, 0, 269, 145
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Hent ut"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Arkiv",IDC_STATIC,7,7,255,55
+    LTEXT           "Arkivets &bane:",IDC_STATIC,13,23,60,8
+    COMBOBOX        IDC_URLCOMBO,78,22,159,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
+    LTEXT           "&Checkout directory:",IDC_STATIC,13,41,64,8
+    EDITTEXT        IDC_CHECKOUTDIRECTORY,78,41,159,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,241,41,14,12
+    GROUPBOX        "Revisjon",IDC_STATIC,7,68,255,51
+    CONTROL         "&Hovedrevisjon",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,13,82,61,10
+    CONTROL         "&Revisjon",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,98,43,10
+    EDITTEXT        IDC_REVISION_NUM,78,97,58,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    DEFPUSHBUTTON   "&OK",IDOK,157,124,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,212,124,50,14
+END
+
+IDD_COPY DIALOGEX 0, 0, 268, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Copy"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,45,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,211,45,50,14
+    LTEXT           "Til bane:",IDC_STATIC,7,22,43,8
+    COMBOBOX        IDC_URLCOMBO,50,22,186,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,243,22,18,14
+    LTEXT           "Fra bane:",IDC_STATIC,7,7,43,8
+    LTEXT           "",IDC_FROMURL,50,7,211,8
+END
+
+IDD_IMPORT DIALOGEX 0, 0, 269, 278
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Importer"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,157,257,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,212,257,50,14
+    LTEXT           "Arkiv&bane:",IDC_STATIC4,13,24,60,8
+    EDITTEXT        IDC_MESSAGE,13,59,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    GROUPBOX        "Import, logg-beskjed",IDC_STATIC2,7,46,255,78
+    COMBOBOX        IDC_URLCOMBO,78,22,159,44,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
+    GROUPBOX        "Arkiv",IDC_STATIC1,7,7,255,36
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,13,142,242,103
+    GROUPBOX        "Midlertidige filer å slette",IDC_STATIC3,7,129,255,123
+END
+
+IDD_LOGMESSAGE DIALOGEX 0, 0, 289, 245
+STYLE DS_SETFONT | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Logg-meldinger"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,232,224,50,14
+    CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER,7,7,275,
+                    133
+    CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,148,275,69
+END
+
+IDD_LOGPROMPT DIALOGEX 0, 0, 232, 252
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Skriv logg-melding"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,6,231,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,175,231,50,14
+    EDITTEXT        IDC_LOGMESSAGE,6,31,219,56,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
+                    93,219,109
+    LTEXT           "",IDC_COMMIT_TO,6,16,219,11,SS_WORDELLIPSIS
+    LTEXT           "arkiver til:",IDC_STATIC,6,7,219,8
+    LTEXT           "Dobbelklikk på filene over for å se forandringene du gjorde.",
+                    IDC_HINTLABEL,6,209,219,16
+END
+
+IDD_MERGE DIALOGEX 0, 0, 281, 146
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Flett"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,125,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,224,125,50,14
+    LTEXT           "Flett gjeldende gren med:",IDC_STATIC,7,17,88,8
+    COMBOBOX        IDC_URLCOMBO,99,15,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,260,15,14,12
+    LTEXT           "Fra:",IDC_STATIC,7,55,18,8
+    EDITTEXT        IDC_REVISON_START,39,53,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Ril:",IDC_STATIC,99,55,29,8
+    GROUPBOX        "Revisjon",IDC_STATIC,138,34,136,46
+    CONTROL         "&Hovedrevisjon",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,145,46,61,10
+    CONTROL         "&Revisjon",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    145,62,43,10
+    EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_DISABLED
+    LTEXT           "Du må angi revisjonene mellom der hvor endringen ble gjort for å bare flette bestemte endringer fra en annen gren.",
+                    IDC_STATIC,7,84,267,17
+    LTEXT           "Du må angi grenens revisjonen og HEAD hvis du vil flette en komplett gren tilbake til hovedarkivet.",
+                    IDC_STATIC,7,103,267,17
+END
+
+IDD_PROMPT DIALOGEX 0, 0, 220, 94
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Autentisering"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,73,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,163,73,50,14
+    LTEXT           "",IDC_INFOTEXT,7,7,206,32
+    EDITTEXT        IDC_PASSEDIT,7,44,206,14,ES_AUTOHSCROLL
+    CONTROL         "lagre autentisering",IDC_SAVECHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,61,206,10
+END
+
+IDD_RELOCATE DIALOGEX 0, 0, 268, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Relokalisering"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,45,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,211,45,50,14
+    LTEXT           "Fra bane:",IDC_STATIC,7,7,43,8
+    LTEXT           "Til bane:",IDC_STATIC,7,25,43,8
+    EDITTEXT        IDC_FROMURL,50,6,211,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_TOURL,50,22,186,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,243,22,18,14
+END
+
+IDD_RENAME DIALOGEX 0, 0, 234, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Døp om"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,34,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,177,34,50,14
+    LTEXT           "Nytt navn:",IDC_STATIC,7,14,36,8
+    EDITTEXT        IDC_NAME,56,11,171,14,ES_AUTOHSCROLL
+END
+
+IDD_REPOSITORY_BROWSER DIALOGEX 0, 0, 288, 279
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Arkivutforsker"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,258,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,231,258,50,14
+    LTEXT           "Bane: ",IDC_STATICURL,7,235,16,8
+    EDITTEXT        IDC_URL,40,233,241,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_REPOS_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | 
+                    TVS_SHOWSELALWAYS | WS_TABSTOP | 0x800,7,7,274,218,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 287, 151
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Generelt"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Ekstern diff:",IDC_STATIC,7,10,66,8
+    EDITTEXT        IDC_EXTDIFF,80,7,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Utforsk...",IDC_EXTDIFFBROWSE,230,7,50,14
+    LTEXT           "Språk:",IDC_STATIC,7,76,66,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,73,200,68,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Inkluder/ Ekskluder-mønster:",IDC_STATIC,7,92,73,18
+    EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
+    CONTROL         "Kan legge til før arkivering",IDC_ADDBEFORECOMMIT,
+                    "Button",BS_AUTOCHECKBOX,7,124,273,10
+    LTEXT           "Ekstern fletting:",IDC_STATIC,7,29,66,8
+    EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Utforsk...",IDC_EXTMERGEBROWSE,230,25,50,14
+    LTEXT           "Diff-program:",IDC_STATIC,7,48,66,8
+    EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Utforsk...",IDC_DIFFVIEWERROWSE,230,45,50,14
+END
+
+IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Ikon-lag"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "angi mapper med endret innehold",IDC_CHANGEDDIRS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,16,139,10
+    CONTROL         "flyttbare disker",IDC_REMOVABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,30,71,10
+    CONTROL         "nettverksdisker",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,44,63,10
+    CONTROL         "faste disker",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,58,53,10
+    CONTROL         "CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,72,41,10
+END
+
+IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Proxy"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Serveradresse:",IDC_STATIC,17,36,52,8
+    EDITTEXT        IDC_SERVERADDRESS,71,34,119,14,ES_AUTOHSCROLL
+    LTEXT           "Port:",IDC_STATIC,201,37,17,8
+    EDITTEXT        IDC_SERVERPORT,225,34,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Brukernavn:",IDC_STATIC,17,55,36,8
+    EDITTEXT        IDC_USERNAME,71,52,72,14,ES_AUTOHSCROLL
+    LTEXT           "Passord:",IDC_STATIC,146,55,34,8
+    EDITTEXT        IDC_PASSWORD,189,52,66,14,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "tidsavbrudd i sekunder:",IDC_STATIC,17,74,84,8
+    EDITTEXT        IDC_TIMEOUT,103,71,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Proxyinstillinger",IDC_STATIC,7,22,264,74
+    CONTROL         "Bruk proxyserver",IDC_ENABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,7,81,10
+END
+
+IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "SVN-progress"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,307,124,50,14
+    CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
+    PUSHBUTTON      "Vis logg...",IDC_LOGBUTTON,243,124,50,14,NOT WS_VISIBLE
+END
+
+IDD_SWITCH DIALOGEX 0, 0, 228, 107
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Bytt til gren/revisjon"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,86,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,171,86,50,14
+    LTEXT           "Bane: ",IDC_STATIC,7,10,16,8
+    EDITTEXT        IDC_URL,42,7,157,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
+    GROUPBOX        "Revisjon",IDC_STATIC,7,24,214,51
+    CONTROL         "&Hovedrevisjon",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+                    13,38,61,10
+    CONTROL         "&Revisjon",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,54,43,10
+    EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
+END
+
+IDD_UPDATE DIALOGEX 0, 0, 156, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Uppdatering"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
+    PUSHBUTTON      "&Avbryt",IDCANCEL,99,65,50,14
+    GROUPBOX        "Revisjon",IDC_STATIC,7,7,142,51
+    CONTROL         "&Hovedrevisjon",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+                    13,21,61,10
+    CONTROL         "&Revisjon",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,37,43,10
+    EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 214
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
+
+    IDD_ADD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_CHANGEDFILES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 401
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+
+    IDD_CHECKOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        VERTGUIDE, 13
+        VERTGUIDE, 78
+        VERTGUIDE, 237
+        VERTGUIDE, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_COPY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        VERTGUIDE, 50
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+        HORZGUIDE, 22
+    END
+
+    IDD_IMPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        VERTGUIDE, 13
+        VERTGUIDE, 78
+        VERTGUIDE, 237
+        VERTGUIDE, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 271
+    END
+
+    IDD_LOGMESSAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 282
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 238
+    END
+
+    IDD_LOGPROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_MERGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        VERTGUIDE, 99
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_PROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_RELOCATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        VERTGUIDE, 50
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 59
+        HORZGUIDE, 22
+    END
+
+    IDD_RENAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_REPOSITORY_BROWSER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 281
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 272
+    END
+
+    IDD_SETTINGSMAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        VERTGUIDE, 80
+        VERTGUIDE, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+        HORZGUIDE, 18
+    END
+
+    IDD_SETTINGSOVERLAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 187
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_SETTINGSPROXY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        VERTGUIDE, 71
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_SVNPROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 357
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_SWITCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_UPDATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 149
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_MSGBOX_ABORT        "Avbryt"
+    IDS_MSGBOX_RETRY        "Prøv igjen"
+    IDS_MSGBOX_IGNORE       "Ignorer"
+    IDS_MSGBOX_CANCEL       "Kanseller"
+    IDS_MSGBOX_TRYAGAIN     "Prøv igjen"
+    IDS_MSGBOX_CONTINUE     "Fortsett"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSGBOX_OK           "OK"
+    IDS_MSGBOX_YES          "Ja"
+    IDS_MSGBOX_NO           "Nei"
+    IDS_SVNACTION_ADD       "Legg til"
+    IDS_SVNACTION_COPY      "Kopier"
+    IDS_SVNACTION_DELETE    "Slett"
+    IDS_SVNACTION_RESTORE   "Gjenopprett"
+    IDS_SVNACTION_REVERT    "Tilbakestill"
+    IDS_SVNACTION_RESOLVE   "Fiks"
+    IDS_SVNACTION_UPDATE    "Update"
+    IDS_SVNACTION_COMPLETED "Ferdig"
+    IDS_SVNACTION_EXTERNAL  "Ekstern"
+    IDS_SVNACTION_MODIFIED  "Endret"
+    IDS_SVNACTION_REPLACED  "Byttet"
+    IDS_SVNACTION_POSTFIX   "Postfix"
+    IDS_SVNACTION_FAILEDREVERT "Tilbakestilling feilet"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SVNACTION_STATUS    "Status"
+    IDS_SVNACTION_SKIP      "Hopp over"
+    IDS_STRING178           "dummy"
+    IDS_STRING179           "dummy"
+    IDS_STRING180           "dummy"
+    IDS_SVN_USERCANCELLED   "Brukeren kansellerte"
+    IDS_STRING182           "dummy"
+    IDS_STRING183           "dummy"
+    IDS_STRING184           "dummy"
+    IDS_STRING185           "dummy"
+    IDS_STRING186           "dummy"
+    IDS_STRING187           "dummy"
+    IDS_STRING188           "dummy"
+    IDS_STRING189           "dummy"
+    IDS_STRING190           "dummy"
+    IDS_STATUSNONE          " "
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STATUSUNVERSIONED   "uversjonert"
+    IDS_STATUSNORMAL        "normal"
+    IDS_STATUSADDED         "lagt til"
+    IDS_STATUSABSENT        "borte"
+    IDS_STATUSDELETED       "slettet"
+    IDS_STATUSREPLACED      "byttet"
+    IDS_STATUSMODIFIED      "endret"
+    IDS_STATUSMERGED        "flettet"
+    IDS_STATUSCONFLICTED    "i konflikt"
+    IDS_STATUSOBSTRUCTED    "sperret"
+    IDS_STATUSINCOMPLETE    "ufullstendig"
+    IDS_STATUSIGNORED       "ignorert"
+    IDS_STATUSEXTERNAL      "ekstern"
+    IDS_IMPORT_DEFAULTMSG   "Ny Import"
+    IDS_STRING206           "dummy"
+    IDS_STRING207           "dummy"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOG_REVISION        "Revisjon"
+    IDS_LOG_AUTHOR          "Forfatter"
+    IDS_LOG_DATE            "Dato"
+    IDS_LOG_REVERT_CONFIRM  "Vil du virkelig tibakestille alle endringene\nsom ble gjort i denne revisjonen?"
+    IDS_LOG_POPUP_COMPARE   "Sammenligne med arbeiskopi"
+    IDS_LOG_POPUP_SAVE      "Lagre revisjon til..."
+    IDS_LOG_POPUP_COMPARETWO "Sammenligne revisjoner"
+    IDS_LOG_POPUP_UPDATE    "Oppdater element til revisjon"
+    IDS_LOG_POPUP_COPY      "Lag et merke fra revisjon"
+    IDS_LOGPROMPT_FILE      "Fil"
+    IDS_LOGPROMPT_STATUS    "Status"
+    IDS_LOGPROMPT_ASKADD    "Du valgte en uversjonert file.\nFilen kommer til å bli lagt til versjonskontroll før arkivering."
+    IDS_STRING220           "dummy"
+    IDS_PROGRS_ATREV        "I revisjon: %d"
+    IDS_PROGRS_ACTION       "Handling"
+    IDS_PROGRS_PATH         "Bane"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRS_TITLEFIN     "Ferdig!"
+    IDS_PROGRS_TITLE_CHECKOUT "SVN Hent ut..."
+    IDS_PROGRS_TITLE_IMPORT "SVN Importer..."
+    IDS_PROGRS_TITLE_UPDATE "SVN Oppdater..."
+    IDS_PROGRS_TITLE_COMMIT "SVN Arkiver..."
+    IDS_PROGRS_TITLE_ADD    "SVN Legg til..."
+    IDS_PROGRS_TITLE_REVERT "SVN Tilbakestill..."
+    IDS_PROGRS_TITLE_RESOLVE "SVN Fiks..."
+    IDS_PROGRS_TITLE_SWITCH "SVN Bytt..."
+    IDS_PROGRS_TITLE_EXPORT "SVN Eksporter..."
+    IDS_PROGRS_TITLE_MERGE  "SVN Flett..."
+    IDS_PROGRS_TITLE_COPY   "SVN Kopier..."
+    IDS_STRING236           "dummy"
+    IDS_STRING237           "dummy"
+    IDS_PROGRS_COPY_WARNING "Merk:\nArbeidskopien er igjen på det forrige stedet. Hvis du vil at de neste endringene\n skal være i den nye kopien, må du <b>bytte</b> over til\nkopiens bane. Bruk <b>Switch</b>-kommandoen for å gjøre det."
+    IDS_PROGRS_COMMITT_TRUNK 
+                            "Din arbeidskopi ser ut til å være i en <b>merket</b> bane!\nDu må først bytte til en gren eller til hovedarkivet for å arkivere."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING240           "dummy"
+    IDS_SETTINGS_SELECTDIFF "Velg diff-prrogram..."
+    IDS_SETTINGS_SELECTDIFFVIEWER "Velg visningsprogram for diff-filer"
+    IDS_STRING243           "dummy"
+    IDS_STRING244           "dummy"
+    IDS_SETTINGS_EXTDIFF_TT "et eksternt diff-program som\nsammenligner ulike revisjoner på filer"
+    IDS_SETTINGS_EXTDIFFBROWSE_TT "bla gjennom for et eksternt diff-program"
+    IDS_SETTINGS_CHANGEDDIRS_TT 
+                            "aktiver dette hvis du vil at mappenes ikon-overlegg\nskal vise Subversion-statusen på filene nedenfor.\n<ct=0x0000ff><b>Advarsel:</b> Dette kan gjøre utforskeren tregere</ct>"
+    IDS_SETTINGS_TEMPEXTENSIONS_TT 
+                            "Angi hvilke filer eller mapper som TortoiseSVN\nskal ta med eller ikke legge under versjonskontroll.\nInkluderte baner er merket med en '+'\nPrioriteringsrekkefølge er fra venstre til høyre"
+    IDS_SETTINGS_ADDBEFORECOMMIT_TT 
+                            "viser uversjonerte filer før arkivering slik\nat du kan løegge de tilhvis du vil"
+    IDS_SETTINGS_EXTMERGE_TT 
+                            "Et eksternt fletteprogram som\nbrukes for å løse filkonflikter.\n<hr=100%>\nDu kan angi følgende parametere til banen:\n%merged\tTil filen som er i konflikt, hvor man kan lagre\\n%theirs\t\tFilen som den er i Arkivet\n%mine\t\\Din fil, med dine endringer\n%base\t\tOrginalfilen uten dine endringer"
+    IDS_SETTINGS_PROXYSERVER_TT 
+                            "Enten navnet eller IP-adressen på proxyserveren"
+    IDS_SETTINGS_DIFFVIEWER_TT 
+                            "Et visningsprogram for diff(patch)-filer i GNU format\nBruk Notisblokk hvis du ikke har det."
+    IDS_STRING253           "dummy"
+    IDS_STRING254           "dummy"
+    IDS_STRING255           "dummy"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROC_WARNREVERT     "Er du sikker på at du vil tilbakestille? Du vil miste <b>alt</b> som er gjort siden forrige arkivering!"
+    IDS_PROC_CLEANUPFINISHED "Opprenskningen er ferdig"
+    IDS_PROC_REPOCREATEERR  "Subversion rapporterte en feil mens arkivet ble opprettet!\nSørg for at mappen er tom og ikke skrivebeskyttet."
+    IDS_PROC_EXPORT_1       "Velg en mappe å eksportere til\nDu må kanskje lage en ny mappe."
+    IDS_PROC_EXPORT_2       "eksporterer %s til"
+    IDS_PROC_EXPORT_3       "Eksporterer..."
+    IDS_PROC_EXPORT_4       "Eksportert\n%s\ntil\n%s"
+    IDS_PROC_COPY_SUCCESS   "Merket arbeidskopien til %s"
+    IDS_PROC_SETTINGS_TITLE "TortoiseSVN-Innstillinger"
+    IDS_PROC_DELETE_CONFIRM "Er du sikker på at du vil slette de valgte filene?\n<hr=100%>\nMerk: Hvis du har endret noe, vil disse endringene gå tapt.\nUversjonerte elementer vil også bli slettet!"
+    IDS_PROC_OVERWRITE_CONFIRM 
+                            "Filen\n%s\nfinnes allerede! Vil du overskrive den?"
+    IDS_PROC_REPOCREATEFINISHED "Arkiv er opprettet"
+    IDS_PROC_RELOCATEFINISHED "Arbeidskopien er flyttet til\n%s"
+    IDS_PROC_MOVING         "Flytter..."
+    IDS_PROC_RELOCATING     "Relokaliserer..."
+    IDS_APPNAME             "TortoiseSVN"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSGBOX_DONOTSHOW    "Ikke vis denne beskjeden igjen"
+    IDS_STRING273           "dummy"
+    IDS_STRING274           "dummy"
+    IDS_STRING275           "dummy"
+    IDS_STRING276           "dummy"
+    IDS_STRING277           "dummy"
+    IDS_STRING278           "dummy"
+    IDS_STRING279           "dummy"
+    IDS_STRING280           "dummy"
+    IDS_ERR_THREADSTARTFAILED "Kunne ikke starte tråd!"
+    IDS_ERR_EXTDIFFSTART    "Kunne ikke starte eksternt diff-program!\n<hr=100%>\n%s"
+    IDS_ERR_NOCOMMAND       "Ingen kommando er spesifisert!\n<hr=100%>\nTortoiseProc.exe brukes kun av Windows skallutvidelser og kan ikke kjøres direkte!"
+    IDS_ERR_NOCOMMANDVALUE  "Kommandoverdi ble ikke spesifisert!"
+    IDS_ERR_NOSTATUS        "Kunne ikke hente statusen!"
+    IDS_ERR_CLEANUP         "Subversion rapporterte en feil mens opprensking ble gjort!\n<hr=100%>\n%s"
+    IDS_ERR_NOURLOFFILE     "Kunne ikke hente filens bane!"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ERR_WCCHANGED       "Arbeidskopien er forandret!\n<hr=100%>\nArkiver endringende først eller tilbakestill."
+    IDS_ERR_COPYFILES       "Kunne ikke kopiere filene!\n<hr=100%>\n%s"
+    IDS_ERR_EXTMERGESTART   "Kunne ikke starte eksternt flette-program!\n<hr=100%>"
+    IDS_ERR_NOTUPTODATE     "Arbeidskopien er gått ut på dato!\nDu må oppdatere først."
+    IDS_ERR_FAILEDIGNOREPROPERTY "Kunne ikke legge %s til ignoreringslisten"
+    IDS_ERR_DIFFVIEWSTART   "Kunne ikke starte visning for diff!"
+    IDS_STRING294           "dummy"
+    IDS_STRING295           "dummy"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_WARN_FOLDERNOTEXIST "Mappen \n%s\nfinnes ikke.\nVil du opprette den først?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CHECKOUT_TT_DIR     "Plassen som inneholdet i \narkivbanen lagres til."
+    IDS_IMPORT_TT_MODULENAMECHECK 
+                            "Hvis avkrysset: En ny mappe opprettes inne i arkivet.\nImporten går direkte til den angitte banen hvis ingen avkryssning."
+    IDS_IMPORT_TT_TEMPFILES "Sjekk filene som du vil \nslette før importering"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_SAVEAS   "Lagre som..."
+    IDS_REPOBROWSE_SHOWLOG  "Vis logg"
+    IDS_REPOBROWSE_OPEN     "Åpne"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTVERSION        "TortoiseSVN %d.%d.%d, Bygget på %d - Subversion %d.%d.%d, %s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOG_POPUP_DIFF      "Hvis endringer"
+    IDS_LOG_POPUP_REVERTREV "Tilbakestill endringer fra denne revisjonen"
+    IDS_LOG_POPUP_GNUDIFF   "Vis endinger som enhetlig diff"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRESSGETFILE     "Henter filen %s"
+    IDS_PROGRESSREVISION    "Revisjon %d"
+    IDS_PROGRESSWAIT        "Vennligst vent..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CHSTAT_FILECOL      "Fil"
+    IDS_CHSTAT_WCCOL        "Lokalstatus"
+    IDS_CHSTAT_REPOCOL      "Fjernstatus"
+END
+
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Switzerland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "..\\TortoiseProc\\resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\TortoiseProc.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // German (Switzerland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\TortoiseProc.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
