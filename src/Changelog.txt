@@ -2,6 +2,10 @@ CVS
 - BUG: hopefully fixed the bug in the repository-
        browser when using paths with four/five
        slashes. (Stefan)
+- BUG: deselecting a file inside a folder in the
+       add dialog lead to deactivation of _all_
+       files which started with the same path, eve
+       if they weren't in the same folder. (Stefan)
 - CHG: the log command now has the strict-option
        set to false instead of true. (Stefan)
 - CHG: time/date is now shown using the local

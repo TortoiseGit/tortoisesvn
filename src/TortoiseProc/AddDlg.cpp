@@ -166,7 +166,7 @@ void CAddDlg::OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString folderpath = m_arFileList.GetAt(index);
 			for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 			{
-				if (folderpath.CompareNoCase(m_arFileList.GetAt(i))<0)
+				if (folderpath.CompareNoCase(m_arFileList.GetAt(i).Left(folderpath.GetLength()))==0)
 				{
 					m_addListCtrl.SetCheck(i, FALSE);
 				}
