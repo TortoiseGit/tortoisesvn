@@ -523,7 +523,9 @@ void CLogPromptDlg::OnBnClickedFilllog()
 
 void CLogPromptDlg::OnCbnSelchangeOldlogs()
 {
-	m_sLogMessage = m_OldLogs.GetString();
+	UpdateData();
+	if (m_OldLogs.GetString().Compare(m_sLogMessage.Left(m_OldLogs.GetString().GetLength()))!=0)
+		m_sLogMessage = m_OldLogs.GetString() + m_sLogMessage;
 	UpdateData(FALSE);
 	if (m_ProjectProperties.nMinLogSize > (DWORD)m_sLogMessage.GetLength())
 	{
@@ -537,7 +539,9 @@ void CLogPromptDlg::OnCbnSelchangeOldlogs()
 
 void CLogPromptDlg::OnCbnCloseupOldlogs()
 {
-	m_sLogMessage = m_OldLogs.GetString();
+	UpdateData();
+	if (m_OldLogs.GetString().Compare(m_sLogMessage.Left(m_OldLogs.GetString().GetLength()))!=0)
+		m_sLogMessage = m_OldLogs.GetString() + m_sLogMessage;
 	UpdateData(FALSE);
 	if (m_ProjectProperties.nMinLogSize > (DWORD)m_sLogMessage.GetLength())
 	{
