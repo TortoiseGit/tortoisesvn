@@ -325,6 +325,10 @@
 				Then just copy them to the <literal>bin</literal> sub-folder of
 				the TortoiseSVN installation folder. Normally this will be
 				<filename>C:\Program Files\TortoiseSVN\bin</filename>.
+				If you don't want to litter the <literal>bin</literal> sub-folder,
+				you can place your spell checker files also in
+				<filename>C:\Program Files\TortoiseSVN\dic</filename>. If that folder isn't
+				there, you have to create it first.
 				The next time you start TortoiseSVN, the spell checker will be available.
 			</para>
 			<para>
