@@ -18,7 +18,7 @@ echo ^<td class="trans"^>^&nbsp;^</td^> >> %OFile%
 echo ^<td class="fuzzy"^>^&nbsp;^</td^> >> %OFile%
 echo ^<td class="untrans"^>!total!^</td^> >> %OFile%
 echo ^<td class="graph"^>^&nbsp;^</td^> >> %OFile%
-echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/trunk/src/Languages/Tortoise.pot"^>Tortoise.pot^</a^>^</td^> >> %OFile%
+echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/trunk/Languages/Tortoise.pot"^>Tortoise.pot^</a^>^</td^> >> %OFile%
 echo ^</tr^> >> %OFile%
 
 copy Tortoise_*.po _Tortois_*.po /Y
@@ -86,7 +86,7 @@ rem   FOR /F "usebackq" %%p IN (`Check_Attrib.bat _Tortois_%1.po --only-obsolete
   echo ^<td class="untrans"^>^&nbsp;^</td^> >> %OFile%
   echo ^<td class="graph"^>^<img src="images/untranslated.png" width="200" height="16"/^>^</td^> >> %OFile%
 )
-echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/trunk/src/Languages/Tortoise_%1.po"^>Tortoise_%1.po^</a^>^</td^> >> %OFile%
+echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/trunk/Languages/Tortoise_%1.po"^>Tortoise_%1.po^</a^>^</td^> >> %OFile%
 echo ^</tr^> >> %OFile%
 
 goto :eof
