@@ -177,6 +177,7 @@ BOOL CSetMainPage::OnInitDialog()
 	TCHAR procpathbuf[MAX_PATH];
 	GetModuleFileName(NULL, procpathbuf, MAX_PATH);
 	CString path = procpathbuf;
+	path = path.Left(path.ReverseFind('\\'));
 	path = path.Left(path.ReverseFind('\\')+1);
 	path = path + _T("Languages\\");
 	CSimpleFileFind finder(path, _T("*.dll"));

@@ -184,6 +184,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		TCHAR procpathbuf[MAX_PATH];
 		GetModuleFileName(NULL, procpathbuf, MAX_PATH);
 		CString temp = procpathbuf;
+		temp = temp.Left(temp.ReverseFind('\\'));
 		temp = temp.Left(temp.ReverseFind('\\')+1);
 		if (!temp.IsEmpty())
 		{
