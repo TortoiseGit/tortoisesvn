@@ -6,6 +6,7 @@
 !define MUI_WELCOMEPAGE_TITLE_3LINES true
 
 !include "PRODUCT.nsh"
+!include "UpgradeDLL.nsh"
 
 SetCompressor lzma
 
@@ -50,9 +51,8 @@ Proceed:
   File "..\doc\output\TortoiseSVN_${CountryCode}.chm"
 !endif
   StrCpy $INSTDIR "$0\Languages"
-  SetOutPath $INSTDIR
-  SetOverwrite ifnewer
-  File "..\bin\*${CountryID}.dll"
+  !insertmacro UpgradeDLL "..\bin\TortoiseProc${CountryID}.dll" "$INSTDIR\TortoiseProc${CountryID}.dll" "$INSTDIR"
+  !insertmacro UpgradeDLL "..\bin\TortoiseMerge${CountryID}.dll" "$INSTDIR\TortoiseMerge${CountryID}.dll" "$INSTDIR"
 !ifdef MoFile
   StrCpy $INSTDIR "$0\Languages\${CountryCode}"
   SetOutPath "$INSTDIR"

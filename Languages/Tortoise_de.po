@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-10-18 10:43+0100\n"
+"PO-Revision-Date: 2004-10-25 10:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -251,6 +251,7 @@ msgid "&OK"
 msgstr "&OK"
 
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "Ö&ffnen"
 
@@ -285,8 +286,8 @@ msgid "&Remove"
 msgstr "Ent&fernen"
 
 #: ID:101
-msgid "&Rename..."
-msgstr "U&mbenennen..."
+msgid "&Rename/Move..."
+msgstr "U&mbenennen/Verschieben..."
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -547,6 +548,10 @@ msgstr "Hinzugefügt"
 #: ID:126
 msgid "Added a file remotely"
 msgstr "Datei im Projektarchiv hinzugefügt"
+
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "Ordner im Projektarchiv angelegt"
 
 #: ID:145
 msgid ""
@@ -1582,6 +1587,10 @@ msgstr ""
 "Gehe zum vorherigen Unterschied\n"
 "vorheriger Unterschied"
 
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "Die Kopf-Revision des Projektarchivs ist: %d"
+
 #: ID:12
 #: Control-ID:1004
 msgid "Help"
@@ -1589,8 +1598,8 @@ msgstr "Hilfe"
 
 # Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Hinweis: Drücken Sie F5, um den gewählten Teilbaum zu aktualisieren"
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Hinweis: Drücken Sie F5, um den gewählten Teilbaum zu aktualisieren. Strg-F5, um alle Zweige zu aktualisieren"
 
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -2970,6 +2979,11 @@ msgstr "Dieses Programm wurde mit dem fehlenden Export %s in der Datei %s gelink
 #: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Dieses Programm benötigt die Datei %s, welche nicht auf diesem System gefunden wurde."
+
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Diese Eigenschaft ist nur für Dateien und nicht für Ordner zugelassen."
 
 #: Control-ID:65535
 msgid "Three File Diff"

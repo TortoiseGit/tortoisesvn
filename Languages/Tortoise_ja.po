@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-02 16:18+0900\n"
+"PO-Revision-Date: 2004-10-25 14:07+0900\n"
 "Last-Translator: daibo <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -322,6 +322,7 @@ msgstr "&OK"
 # ID:101,#:
 # ID:3841,
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "開く(&O)"
 
@@ -364,8 +365,8 @@ msgstr "削除(&R)"
 # ID:11,#:
 # ID:101,
 #: ID:101
-msgid "&Rename..."
-msgstr "名前を変更(&R) ..."
+msgid "&Rename/Move..."
+msgstr "名前を変更／移動 (&R) ..."
 
 # ID:113,
 #: ID:113
@@ -690,6 +691,11 @@ msgstr "追加"
 msgid "Added a file remotely"
 msgstr "リモート操作によるファイルの追加"
 
+# ID:126,
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "リモート操作によるフォルダの追加"
+
 # ID:13,
 #: ID:145
 msgid ""
@@ -912,11 +918,6 @@ msgstr "参照(&R) ..."
 msgid "B&uiltin"
 msgstr "内蔵(&U)"
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -926,6 +927,11 @@ msgstr "オリジナルファイルをバックアップする"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Base ファイル:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkeley Database (BDB)"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
@@ -1050,7 +1056,7 @@ msgstr "証明書は有効ではありません。 有効： %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "証明書|*.p12;*.pkcs12;*.pfx|全てのファイル|*.*||"
 
 # ID:3825,
@@ -1166,7 +1172,7 @@ msgstr "中断した処理、ロックファイル、... をクリーンアッ�
 # Control-ID:1059,
 #: Control-ID:1059
 msgid "Clear &Auth Cache"
-msgstr "認証用のキャッシュをクリアする(&A)"
+msgstr "認証用キャッシュのクリア(&A)"
 
 # ID:195,
 #: ID:195
@@ -1423,6 +1429,11 @@ msgstr "スレッドを開始できません！"
 #: ID:13
 msgid "Create Patch..."
 msgstr "パッチを作成 ..."
+
+# ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "リポジトリを作成"
 
 # ID:8,
 #: ID:8
@@ -1791,11 +1802,6 @@ msgstr "外部"
 msgid "External Program:"
 msgstr "外部プログラム:"
 
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
-
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -1950,6 +1956,11 @@ msgstr ""
 "前の相違点へ移動する\n"
 "前の相違点へ"
 
+# ID:12,
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "リポジトリの最新のリビジョンは %d"
+
 # Control-ID:1004,#:
 # ID:12,
 #: ID:12
@@ -1959,8 +1970,8 @@ msgstr "ヘルプ"
 
 # Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "ヒント: 選択している部分以降の階層を更新するには F5 を押してください"
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "ヒント: 選択している部分以降の階層を更新するには F5 を押し、全ての子階層を読み込むには Ctrl-F5 を押す"
 
 # ID:82,
 #: ID:82
@@ -2293,6 +2304,11 @@ msgstr "次の衝突(&E)"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Native Filesystem (FSFS)"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2469,12 +2485,7 @@ msgstr "パスワード:"
 # Dlg-ID:158,
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
-msgstr "変更されたファイル名を貼り付ける"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "英語表記のテンプレートログを貼り付ける(&T)"
+msgstr "変更されたファイル名を貼付"
 
 # ID:376,
 #: ID:376
@@ -3033,6 +3044,11 @@ msgstr "名前をつけて保存 ..."
 msgid "Save changes to %1?"
 msgstr "変更を %1 へ保存しますか？"
 
+# ID:76,
+#: ID:232
+msgid "Save client certificate path"
+msgstr "クライアントの証明書のパスを保存"
+
 # ID:3601,#:
 # ID:3601,
 #: ID:3601
@@ -3128,6 +3144,11 @@ msgstr ""
 "ドキュメント全体を選択する\n"
 "全選択"
 
+# ID:213,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "作成したいリポジトリの種類を選択してください:"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -3165,10 +3186,12 @@ msgstr "設定"
 #: ID:115
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
 msgstr ""
 "コピー（ブランチやタグ）が発生した時点で、ログの取得を中止しますか？\n"
-"もしブランチがどこから始ったかを知りたいなら、<b>はい</b> をクリックしてください。"
+"もしブランチがどこから始ったかを知りたいなら、<b>はい</b> をクリックしてください。\n"
+"全てのログを参照したいなら、<b>いいえ</b> をクリックしてください。"
 
 # Control-ID:65535,
 #: ID:101
@@ -3641,6 +3664,11 @@ msgstr "このプログラムは %s （ファイル %s）へリンクされて�
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "このプログラムはファイル %s を必要としますが、このシステム上で見つけることができませんでした。"
 
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "このプロパティはフォルダに対してのみ有効で、ファイルに対しては有効ではありません。"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
@@ -3919,6 +3947,11 @@ msgstr "\"theirs\" の前に \"y&ours\" のテキストブロックを利用"
 msgid "Use th&is text block"
 msgstr "このテキストブロックを利用(&I)"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "このファイル全体を利用する(&W)"
+
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
@@ -3989,11 +4022,6 @@ msgstr "私たちのウェブサイトへお越しください"
 #: ID:219
 msgid "Warning!"
 msgstr "警告！"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "どのタイプのリポジトリを作成しますか？"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4107,6 +4135,18 @@ msgstr "名前無しファイル"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "そして、開発者たちをサポートしてください。"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"ログメッセージの先頭にバグトラッキングIDを挿入したいなら、\"false\" にする\n"
+"デフォルトは \"true\" であり、ログメッセージにバグトラッキングIDが追加されます。"
 
 # ID:14,
 #: ID:14
@@ -4341,6 +4381,16 @@ msgstr "%s へ"
 # ID:15,
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"コミットダイアログで変更ファイルのリスト（英語）を貼り付けたくないなら、\"false\" にする。"
+
+# ID:15,
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -4368,6 +4418,15 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "ログメッセージの文字数が規定の幅を超えないようにする。\n"
 "コミットダイアログに超過した行を示します。デフォルトは80文字です。"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"コミットダイアログに issue を何も入力しないとき警告を表示するなら、 \"yes\" にする。"
 
 # Control-ID:1112,
 #: Control-ID:1112

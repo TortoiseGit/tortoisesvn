@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-18 19:50+0100\n"
+"PO-Revision-Date: 2004-10-24 20:31+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -320,6 +320,7 @@ msgstr "&OK"
 # ID:3841,#:
 # ID:3841,
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Apri"
 
@@ -362,8 +363,8 @@ msgstr "&Elimina"
 # ID:11,#:
 # ID:101,
 #: ID:101
-msgid "&Rename..."
-msgstr "&Rinomina..."
+msgid "&Rename/Move..."
+msgstr "&Rinomina/Sposta..."
 
 # ID:113,
 #: ID:113
@@ -1972,8 +1973,8 @@ msgstr "Aiuto"
 
 # Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Suggerimento: premere F5 per aggiornare la visualizzazione del sottoramo selezionato."
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Suggerimento: premere F5 per aggiornare il sottoramo selezionato e Ctrl-F5 per caricarne tutte le sottocartelle."
 
 # ID:82,
 #: ID:82
@@ -2743,12 +2744,12 @@ msgstr ""
 # Dlg-ID:157,
 #: Dlg-ID:157
 msgid "Relocate"
-msgstr "Sposta"
+msgstr "Ricolloca"
 
 # ID:12,
 #: ID:12
 msgid "Relocate..."
-msgstr "Sposta..."
+msgstr "Ricolloca..."
 
 # ID:80,
 #: ID:80
@@ -3674,6 +3675,11 @@ msgstr "Quest'applicazione è connessa all'eportazione mancante %s nel file %s. 
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Questa applicazione richiede il file %s, ma il file non è stato trovato nel sistema."
 
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Questa proprietà è disponibile solo per le cartelle, non per i file."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
@@ -4044,7 +4050,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"La copia di lavoro è stata spostata in:\n"
+"La copia di lavoro è stata ricollocata in:\n"
 "%s"
 
 # ID:73,

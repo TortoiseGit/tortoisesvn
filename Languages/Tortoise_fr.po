@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-18 12:05+0100\n"
+"PO-Revision-Date: 2004-10-25 10:21+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -255,6 +255,7 @@ msgid "&OK"
 msgstr "&OK"
 
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Ouvrir"
 
@@ -289,8 +290,8 @@ msgid "&Remove"
 msgstr "&Effacer"
 
 #: ID:101
-msgid "&Rename..."
-msgstr "&Renommer..."
+msgid "&Rename/Move..."
+msgstr "&Renommer/Déplacer..."
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -559,6 +560,10 @@ msgstr "Ajouté"
 #: ID:126
 msgid "Added a file remotely"
 msgstr "Ajouté un fichier à distance"
+
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "Ajouté un répertoire à distance"
 
 #: ID:145
 msgid ""
@@ -1588,6 +1593,10 @@ msgstr ""
 "Aller à la précédente différence\n"
 "précédente différence"
 
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "La révision principale du repository est: %d"
+
 #: ID:12
 #: Control-ID:1004
 msgid "Help"
@@ -1595,8 +1604,8 @@ msgstr "Aide"
 
 # Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Astuce: Pressez F5 pour rafraîchir le sous-arbre sélectionné"
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Astuce: Pressez F5 pour rafraîchir le sous-arbre sélectionné et Ctrl-F5 pour charger tous les enfants aussi"
 
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -2975,6 +2984,11 @@ msgstr "Ce programme est lié à l'exportation manquante %s dans le fichier %s. 
 #: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Ce programme demande le fichier %s, lequel n'a pas été trouvé."
+
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Cette propriété est seulement admise sur les répertoires, pas sur les fichiers."
 
 #: Control-ID:65535
 msgid "Three File Diff"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-11 10:53+0100\n"
+"PO-Revision-Date: 2004-10-25 09:58+0100\n"
 "Last-Translator: Michał Mielniczuk <mmielni@raks.pl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -320,6 +320,7 @@ msgstr "&OK"
 # ID:3841,#:
 # ID:3841,
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Otwórz"
 
@@ -362,8 +363,8 @@ msgstr "&Usuń"
 # ID:11,#:
 # ID:101,
 #: ID:101
-msgid "&Rename..."
-msgstr "Zmień &nazwę..."
+msgid "&Rename/Move..."
+msgstr "Zmień &nazwę / Przenieś..."
 
 # ID:113,
 #: ID:113
@@ -693,6 +694,11 @@ msgstr "Dodany"
 msgid "Added a file remotely"
 msgstr "Plik dodany zdalnie"
 
+# ID:126,
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "Plik dodany zdalnie"
+
 # ID:13,
 #: ID:145
 msgid ""
@@ -919,11 +925,6 @@ msgstr "Prze&glądaj..."
 msgid "B&uiltin"
 msgstr "W&bud."
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -933,6 +934,11 @@ msgstr "Zrób kopię oryginalnego pliku"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Plik <Base>:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkeley Database (BDB)"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
@@ -1057,7 +1063,7 @@ msgstr "Certyfikat nie zaczął jeszcze obowiązywać . Ważny od: %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Certyfikaty|*.p12;*.pkcs12*.pfx|Wszystkie|*.*||"
 
 # ID:3825,
@@ -1437,6 +1443,11 @@ msgid "Create Patch..."
 msgstr "Twórz plik poprawek..."
 
 # ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Twórz repozytorium"
+
+# ID:8,
 #: ID:8
 msgid "Create Repository here"
 msgstr "Twórz repozytorium tutaj"
@@ -1806,11 +1817,6 @@ msgstr "Zewn."
 msgid "External Program:"
 msgstr "Program zewnętrzny:"
 
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
-
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -1966,6 +1972,12 @@ msgstr ""
 "Przechodzi do poprzedniej różnicy\n"
 "poprzednia różnica"
 
+# ID:12,
+# Tłumaczenie dosłowne.
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "Bieżąca wersja repozytorium to: %d"
+
 # ID:12,#:
 # Control-ID:1004,
 #: ID:12
@@ -1975,8 +1987,8 @@ msgstr "Pomoc"
 
 # Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Podpowiedź: Naciśnij F5 aby odświerzyć wybraną gałąź drzewa"
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Podpowiedź: Naciśnij F5 aby odświerzyć wybraną gałąź drzewa, Ctrl-F5 aby dodatkowo wyświetlić wszystkie podgałęzie."
 
 # ID:82,
 #: ID:82
@@ -2316,6 +2328,11 @@ msgstr "&Następny konflikt"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Native Filesystem (FSFS)"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2494,12 +2511,7 @@ msgstr "Hasło:"
 # Dlg-ID:158,
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
-msgstr "Zmienione pliki"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "Użyj wzorców komunikatów po &angielsku."
+msgstr "Wstaw do logu listę zmian"
 
 # ID:376,
 #: ID:376
@@ -3063,6 +3075,11 @@ msgstr "Zapisz jako..."
 msgid "Save changes to %1?"
 msgstr "Zapisz zmiany do %1?"
 
+# ID:76,
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Zapisz ścieżkę certyfikatu klienta"
+
 # ID:3601,#:
 # ID:3601,
 #: ID:3601
@@ -3158,6 +3175,11 @@ msgstr ""
 "Zaznacza cały dokument\n"
 "Zaznacz wszystko"
 
+# ID:213,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "Wybierz typ tworzonego repozytorium:"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -3195,10 +3217,11 @@ msgstr "Ustawienia"
 #: ID:115
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
 msgstr ""
 "Czy przerwać wyświetlanie logu na operacji tworzenia kopii?\n"
-"Wybierz <b>Tak</b> jeśli chcesz się dowiedzieć, kiedy powstało rozgałęzienie."
+"Wybierz <b>Tak</b> jeśli chcesz się jedynie dowiedzieć, kiedy powstało rozgałęzienie.Wybierz <b>Nie</b> jeśli chcesz zobaczyć wszystkie komunikaty w logu."
 
 # ID:101,
 #: ID:101
@@ -3674,6 +3697,11 @@ msgstr "Program jest połączony z brakującym eksportem %s w pliku %s. Ten komp
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Ten program wymaga pliku %s, który nie został znaleziony w systemie."
 
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Ta właściwość dotyczy wyłącznie folderów, nie plików."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
@@ -3952,6 +3980,11 @@ msgstr "Użyj bloku tekstu z <y&ours> przed <theirs>"
 msgid "Use th&is text block"
 msgstr "Użyj tego &bloku tekstu"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "Użyj tego w &całym pliku"
+
 # ID:12,
 # Tłumaczenie dosłowne.
 #: ID:12
@@ -4023,11 +4056,6 @@ msgstr "Odwiedź naszą stonę internetową"
 #: ID:219
 msgid "Warning!"
 msgstr "Uwaga!"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Jaki typ repozytorium chcesz utworzyć?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4143,6 +4171,19 @@ msgstr "plik bez nazwy"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "i dołącz do współpracy"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Ustaw \"false\" jeśli chcesz by ID z systemu rejestrowania błędów zostało wstawione\n"
+"na początku komunikatu w logu. Wartość domyślna \"true\" oznacza umieszczenie tego ID\n"
+"na końcu komunikatu."
 
 # ID:14,
 #: ID:14
@@ -4383,6 +4424,17 @@ msgstr "do %s"
 # ID:15,
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Ustaw \"false\" jeśli nie chcesz by lista zmienionych plików była wstawiana po angielsku\n"
+"w oknie zatwierdzania zmian."
+
+# ID:15,
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -4411,6 +4463,16 @@ msgstr ""
 "Liczba znaków, której komunikat w logu nie powinien przekroczyć.\n"
 "W tym miejscu w oknie zatwierdzania zmian wyświetlana jest wyblakła linia.\n"
 "Wartość domyślna: 80 znaków."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Ustaw \"yes\" jeśli ma być wyświetlane ostrzeżenie gdy w oknie zatwierdzania zmian\n"
+"nie zostanie podane zgłoszenie błędu."
 
 # Control-ID:1112,
 #: Control-ID:1112
