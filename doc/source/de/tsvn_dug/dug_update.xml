@@ -30,6 +30,45 @@
 		<emphasis>nicht</emphasis> verändert.
 	</para>
 	<para>
+		Der Fortschrittsdialog verwendet eine Farbcodierung, um verschiedene
+		Aktionen anzuzeigen
+		<variablelist>
+			<varlistentry>
+				<term>Blau</term>
+				<listitem>
+					Neues Objekt zur Arbeitskopie hinzugefügt.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Dunkelrot</term>
+				<listitem>
+					Objekt aus Arbeitskopie gelöscht.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Grün</term>
+				<listitem>
+					Änderungen aus dem Projektarchiv wurden erfolgreich mit
+					Ihren lokalen Änderungen zusammengeführt.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Hellrot</term>
+				<listitem>
+					Änderungen aus dem Projektarchiv wurden mit Ihren lokalen
+					Änderungen zusammengeführt. Es gab jedoch Konflikte, die
+					Sie noch auflösen müssen
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Schwarz</term>
+				<listitem>
+					Alle anderen Objekte.
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
+	<para>
 		Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierung
 		erhalten (Dies kann passieren wenn jemand anders dieselbe Stelle in
 		einer Datei geändert hat wie Sie und diese Änderungen nicht zusammenpassen)

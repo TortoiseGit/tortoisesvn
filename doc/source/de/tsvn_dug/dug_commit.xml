@@ -32,18 +32,29 @@
 		</menuchoice>
 		im Kontextmenu aus. Der folgenden Dialog erscheint:
 		<figure id="tsvn-DUG-commit-dia-1">
-			<title>Der Übertragen Dialog</title>
+			<title>Der Übertragungsdialog</title>
 			<graphic fileref="images/CommitContextMenu.png"/>
 		</figure>
 	</para>
 	<para>
-		Der Dialog zeigt alle Dateien auf, welche verändert wurden, 
+		Der Dialog zeigt alle Dateien an, welche verändert wurden, 
 		einschliesslich der Dateien die Sie hinzugefügt oder gelöscht haben.
 		Auch Dateien, welche noch nicht unter Versionskontrolle stehen werden
 		hier angezeigt. Wenn Sie bestimmte Dateien (noch) nicht übertragen
-		wollen wählen Sie diese einfach ab. Dateien welche noch nicht unter
-		Versionskontrolle stehen können Sie durch auswählen vor dem Übertragen
+		wollen, wählen Sie diese einfach ab. Dateien, die noch nicht unter
+		Versionskontrolle stehen, können Sie durch vor dem Übertragen
 		hinzufügen lassen.
+		<tip>
+			<title>Dateien oder Ordner übertragen?</title>
+			<para>
+				Wenn Sie Dateien übertragen zeigt der Dialog <emphasis>nur</emphasis> 
+				die gewählten Dateien an. Wenn Sie Ordner übertragen, 
+				werden die geänderten Dateien automatisch selektiert.
+				Übertragen eines Ordners bedeutet <emphasis>nicht</emphasis>,
+				dass jede Datei in diesem Ordner übertragen wird. Es nimmt Ihnen
+				lediglich die Arbeit ab, alle Dateien vorher auszuwählen.
+			</para>
+		</tip>
 		<tip>
 			<title>Zu viele Dateien werden angezeigt</title>
 			<para>
@@ -93,6 +104,30 @@
 			<graphic fileref="images/CommitProgress.png"/>
 		</figure>
 	</para>
+	<para>
+		Der Fortschrittsdialog verwendet eine Farbcodierung, um verschiedene
+		Aktionen anzuzeigen
+		<variablelist>
+			<varlistentry>
+				<term>Blau</term>
+				<listitem>
+					Übertragen einer Änderung oder eines neuen Objekts.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Dunkelrot</term>
+				<listitem>
+					Übertragen einer Löschung oder Ersetzen eines Objekts.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Schwarz</term>
+				<listitem>
+					Alle anderen Objekte.
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
 	<tip>
 		<title>Spezielle Ordner Eigenschaften</title>
 		<para>
@@ -101,7 +136,8 @@
 			Sie dazu <xref linkend="tsvn-DUG-propertypage"/>.
 		</para>
 	</tip>
-	<tip>		<title>Integration mit Bugtracking Systemen</title>
+	<tip>
+		<title>Integration mit Bugtracking Systemen</title>
 		<para>
 			Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei 
 			<guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n)

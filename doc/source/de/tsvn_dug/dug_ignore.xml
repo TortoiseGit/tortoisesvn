@@ -25,9 +25,9 @@
 	</para>
 	<para>
 		Die beste Möglichkeit diese Probleme zu vermeiden besteht darin, die
-		generierten Dateien zur "Ignorieren" Liste des Projekts hinzuzufügen. Auf
-		diese Weise werden sie im Übertragen Dialog niemals auftauchen, wogegen
-		Quelldateien weiterhin angezeigt werden.
+		generierten Dateien zur <emphasis>Ignorieren</emphasis> Liste des Projekts
+		hinzuzufügen. Auf diese Weise werden sie im Übertragen Dialog niemals
+		auftauchen, wogegen Quelldateien weiterhin angezeigt werden.
 	</para>
 	<para>
 		Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte
@@ -38,12 +38,12 @@
 		aus dem Kontextmenü wählen, wird Ihen ein Untermenü angezeigt, das Ihnen
 		erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren.
 		Wenn Sie mehrere Dateien wählen, erscheint kein Untermenü und es werden
-		genau diese Dateien zur "Ignorieren" Liste hinzugefügt.
+		genau diese Dateien zur <emphasis>Ignorieren</emphasis> Liste hinzugefügt.
 	</para>
 	<para>
-		Wenn Sie einen Eintrag aus der "Ignorieren" Liste enfernen wollen, müssen
-		Sie die Eigenschaften des Elternordners bearbeiten und den Eintrag aus
-		der <filename>svn:ignore</filename> Eigenschaft entfernen.
+		Wenn Sie einen Eintrag aus der <emphasis>Ignorieren</emphasis> Liste
+		enfernen wollen, müssen Sie die Eigenschaften des Elternordners bearbeiten
+		und den Eintrag aus der <filename>svn:ignore</filename> Eigenschaft entfernen.
 		Lesen Sie <xref linkend="tsvn-DUG-propertypage"/> für weitere Information.
 	</para>
 	<tip>
