@@ -1265,7 +1265,57 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			dlg.m_sInputText.Replace(_T("\r"), _T(""));
 			if (!RevPropertySet(name, dlg.m_sInputText, url, m_arRevs.GetAt(selIndex)))
+			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			}
+			else
+			{
+				if (selSub == 1)
+				{
+					m_arAuthors.SetAt(selIndex, dlg.m_sInputText);
+					m_LogList.SetItemText(selIndex, 1, dlg.m_sInputText);
+				}
+				if (selSub == 3)
+				{
+					// Add as many characters from the log message to the list control
+					// so it has a fixed width. If the log message is longer than
+					// this predefined fixed with, add "..." as an indication.
+					CString sShortMessage = dlg.m_sInputText;
+					// Remove newlines 'cause those are not shown nicely in the listcontrol
+					sShortMessage.Replace(_T("\r"), _T(""));
+					sShortMessage.Replace('\n', ' ');
+
+					int found = sShortMessage.Find(_T("\n\n"));
+					if (found >=0)
+					{
+						if (found <=80)
+							sShortMessage = sShortMessage.Left(found);
+						else
+						{
+							found = sShortMessage.Find(_T("\n"));
+							if ((found >= 0)&&(found <=80))
+								sShortMessage = sShortMessage.Left(found);
+						}
+					}
+					else if (sShortMessage.GetLength() > 80)
+						sShortMessage = sShortMessage.Left(77) + _T("...");
+					m_LogList.SetItemText(selIndex, 3, sShortMessage);
+					//split multiline logentries and concatenate them
+					//again but this time with \r\n as line separators
+					//so that the edit control recognizes them
+					if (dlg.m_sInputText.GetLength()>0)
+					{
+						m_sMessageBuf = dlg.m_sInputText;
+						dlg.m_sInputText.Replace(_T("\n\r"), _T("\n"));
+						dlg.m_sInputText.Replace(_T("\r\n"), _T("\n"));
+						if (dlg.m_sInputText.Right(1).Compare(_T("\n"))==0)
+							dlg.m_sInputText = dlg.m_sInputText.Left(dlg.m_sInputText.GetLength()-1);
+					} 
+					else
+						dlg.m_sInputText.Empty();
+					m_arLogMessages.SetAt(selIndex, dlg.m_sInputText);
+				}
+			}
 		}
 		theApp.DoWaitCursor(-1);
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
