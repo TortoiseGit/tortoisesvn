@@ -199,13 +199,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			if (uSelCount == 1)
 			{
 				// Let "Open" be the very first entry, like in Explorer
-				if (GetRevision().IsHead())
+				if (!bFolder)
 				{
-					if (!bFolder && (url.Left(4).CompareNoCase(_T("http")) == 0))
-					{
-						temp.LoadString(IDS_REPOBROWSE_OPEN);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);		// "open"
-					}
+					temp.LoadString(IDS_REPOBROWSE_OPEN);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);		// "open"
 				}
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
@@ -372,7 +369,25 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPOPEN:
 				{
-					ShellExecute(NULL, _T("open"), url, NULL, NULL, SW_SHOWNORMAL);
+					if (GetRevision().IsHead())
+					{
+						if (url.Left(4).CompareNoCase(_T("http")) == 0)
+						{
+							ShellExecute(NULL, _T("open"), url, NULL, NULL, SW_SHOWNORMAL);
+							break;
+						}
+					}
+					CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(url));
+					CWaitCursorEx wait_cursor;
+					SVN svn;
+					svn.SetPromptApp(&theApp);
+					if (!svn.Cat(CTSVNPath(url), GetRevision(), tempfile))
+					{
+						wait_cursor.Hide();
+						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						break;;
+					}
+					ShellExecute(NULL, _T("open"), tempfile.GetWinPathString(), NULL, NULL, SW_SHOWNORMAL);
 				}
 				break;
 			case ID_POPDELETE:
