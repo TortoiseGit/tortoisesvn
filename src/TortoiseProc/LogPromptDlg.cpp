@@ -59,6 +59,12 @@ CLogPromptDlg::~CLogPromptDlg()
 		delete data;
 	} // for (int i=0; i<m_arData.GetCount(); i++) 
 	m_arData.RemoveAll();
+	for (int i=0; i<m_arAllData.GetCount(); i++)
+	{
+		Data * data = m_arAllData.GetAt(i);
+		delete data;
+	} // for (int i=0; i<m_arAllData.GetCount(); i++) 
+	m_arAllData.RemoveAll();
 }
 
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
@@ -152,6 +158,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
+
+	UpdateData(FALSE);
 
 	CString temp = m_sPath;
 
