@@ -63,7 +63,7 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 {
 	apr_initialize();
 	m_pool = svn_pool_create (NULL);				// create the memory pool
-	svn_config_ensure(m_pool);
+	svn_config_ensure(NULL, m_pool);
 	memset (&m_ctx, 0, sizeof (m_ctx));
 
 	//we need to convert the path to subversion internal format
@@ -94,7 +94,7 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	m_ctx.prompt_baton = NULL;
 	m_ctx.auth_baton = m_auth_baton;
 	// set up the configuration
-	svn_config_get_config (&(m_ctx.config), m_pool);
+	svn_config_get_config (&(m_ctx.config), NULL, m_pool);
 
 	SVNProperties::Refresh();
 }
