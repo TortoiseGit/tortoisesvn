@@ -55,6 +55,10 @@
 							</menuchoice>
 							command. After commiting every other user will have the same 
 							<literal>svn:ignore</literal> property set for this project / directory as you.
+							If you want to remove an ignored file from <literal>svn:ignore</literal>,
+							you have to edit the parent folder properties. Read
+							<xref linkend="tsvn-DUG-ignore"/> and
+							<xref linkend="tsvn-DUG-propertypage"/> for more information. 
 						</para>
 					</listitem>
 				</varlistentry>

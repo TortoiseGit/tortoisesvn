@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-ignore">
+	<title>Ignorieren von Dateien und Ordnern</title>
+	<indexterm>
+		<primary>ignore</primary>
+	</indexterm>
+	<indexterm>
+		<primary>Ignorieren</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_IGNORE"?>
+	<para>
+		<figure id="tsvn-DUG-ignoring-dia-1">
+			<title>Explorer Kontextmenü für nicht versionierte Dateien</title>
+			<graphic fileref="images/ContextMenuFileNoControl.png"/>
+		</figure>
+		In den meisten Projekten werden Sie Dateien und Ordner haben, die nicht
+		der Versionskontrolle unterstellt sein sollen. Dabe kann es sich um
+		Compilergenerierte Dateien <filename>*.obj, *.lst</filename> oder um einen
+		Ausgabeordner für die ausfürhbaren Dateien handeln. Jedes Mal, wenn Sie
+		Änderungen zum Projektarchiv übertragen, zeigt Ihnen TortoiseSVN nicht
+		versionierte Dateien, die die Liste im Übertragen Dialog füllen. Sie
+		könnten natürlich die Anzeige der nicht versionierten Dateien abschalten
+		aber dann übersehen Sie eventuell eine neue Datei, die Sie eigentlich zur
+		Versionskontrolle hinzufügen wollten.
+	</para>
+	<para>
+		Die beste Möglichkeit diese Probleme zu vermeiden besteht darin, die
+		generierten Dateien zur "Ignorieren" Liste des Projekts hinzuzufügen. Auf
+		diese Weise werden sie im Übertragen Dialog niemals auftauchen, wogegen
+		Quelldateien weiterhin angezeigt werden.
+	</para>
+	<para>
+		Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte
+		Datei klicken und
+		<menuchoice>
+			<guimenuitem>Ignorieren</guimenuitem>
+		</menuchoice>
+		aus dem Kontextmenü wählen, wird Ihen ein Untermenü angezeigt, das Ihnen
+		erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren.
+		Wenn Sie mehrere Dateien wählen, erscheint kein Untermenü und es werden
+		genau diese Dateien zur "Ignorieren" Liste hinzugefügt.
+	</para>
+	<para>
+		Wenn Sie einen Eintrag aus der "Ignorieren" Liste enfernen wollen, müssen
+		Sie die Eigenschaften des Elternordners bearbeiten und den Eintrag aus
+		der <filename>svn:ignore</filename> Eigenschaft entfernen.
+		Lesen Sie <xref linkend="tsvn-DUG-propertypage"/> für weitere Information.
+	</para>
+	<tip>
+		<title>Die globale Ignorieren Liste</title>
+		<para>
+			Eine weiter Möglichkeit Dateien zu ignorieren ist, diese in die
+			<firstterm>globale ignorieren Liste</firstterm> einzutragen.
+			Der große Unterschied besteht darin, dass die globale Liste eine Client
+			Eigenschaft ist. Sie gilt für <emphasis>alle</emphasis> Subversion
+			Projekte, aber nur auf dem jeweiligen Anwender PC.
+			Im allgemeinen ist es besser, die <filename>svn:ignore</filename>
+			Eigenschaft zu verwenden, weil diese für einzelne Projektbereiche gesetzt
+			werden kann und weil sie für jeden, der das Projekt auscheckt, gültig ist.
+			Lesen Sie <xref linkend="tsvn-DUG-settings"/> für weitere Information.
+		</para>
+	</tip>
+</sect1>
+

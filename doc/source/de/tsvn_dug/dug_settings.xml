@@ -62,6 +62,10 @@
 							Befehl. Nach dem Übertragen wird jeder Benutzer dieselbe
 							<literal>svn:ignore</literal> Eigenschaft für das Projekt oder den Ordner
 							haben wie Sie.
+							Wenn Sie einen Eintrag aus <literal>svn:ignore</literal> entfernen wollen,
+							müssen Sie die Eigenschaften des Elternordners bearbeiten. Lesen Sie
+							<xref linkend="tsvn-DUG-ignore"/> und
+							<xref linkend="tsvn-DUG-propertypage"/> für weitere Information.
 						</para>
 					</listitem>
 				</varlistentry>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-ignore">
+	<title>Ignoring Files And Directories</title>
+	<indexterm>
+		<primary>ignore</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_IGNORE"?>
+	<para>
+		<figure id="tsvn-DUG-ignoring-dia-1">
+			<title>Explorer context menu for unversioned files</title>
+			<graphic fileref="images/ContextMenuFileNoControl.png"/>
+		</figure>
+		In most projects you will have files and folders that should not be subject
+		to version control. These might include files created by the compiler,
+		<filename>*.obj, *.lst</filename>, maybe an output folder used to store
+		the executable. Whenever you commit changes, TSVN shows your unversioned
+		files, which fills up the file list in the commit dialog. Of course you
+		can turn off this display, but then you might forget to add a new source
+		file.
+	</para>
+	<para>
+		The best way to avoid these problems is to add the derived files
+		to the project's ignore list. That way they will never show up in
+		the commit dialog, but genuine unversioned source files will still
+		be flagged up.
+	</para>
+	<para>
+		If you right click on a single unversioned file, and select the command
+		<menuchoice>
+			<guimenuitem>Ignore</guimenuitem>
+		</menuchoice>
+		from the context menu, a submenu appears allowing you to select just that
+		file, or all files with the same extension.
+		If you select multiple files, there is no submenu and you can only add
+		those specific files/folders.
+	</para>
+	<para>
+		If you want to remove a file from the ignore list, you need to edit
+		the properties of the parent folder and remove the file from
+		the <filename>svn:ignore</filename> property. Read
+		<xref linkend="tsvn-DUG-propertypage"/> for more information. 
+	</para>
+	<tip>
+		<title>The Global Ignore List</title>
+		<para>
+			Another way to ignore files is to add them to the <firstterm>global ignore list</firstterm>.
+			The big difference here is that the global ignore list is a client property.
+			It applies to <emphasis>all</emphasis> subversion projects, but on the client PC only.
+			In general it is better to use the <filename>svn:ignore</filename> property where
+			possible, because it can be applied to specific project areas, and it works for
+			everyone who checks out the project. Read
+			<xref linkend="tsvn-DUG-settings"/> for more information. 
+		</para>
+	</tip>
+</sect1>
+
