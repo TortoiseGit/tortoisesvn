@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-23 16:46+0100\n"
+"PO-Revision-Date: 2005-04-01 10:06+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -770,6 +770,15 @@ msgstr "Analysiere Revisionsdaten..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Wendet ein Standard Diff auf Ihre Arbeitskopie an"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"Setzt die Eigenschaften rekursiv für alle Dateien / Ordner.\n"
+"bugtraq: und tsvn: Eigenschaften werden nur für Ordner gesetzt."
+
 #: ID:13
 msgid "Apply Patch..."
 msgstr "Patch anwenden..."
@@ -805,6 +814,10 @@ msgstr "Autor"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "Autor:                         Stefan Küng"
+
+#: ID:116
+msgid "Authors"
+msgstr "Autoren"
 
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -936,6 +949,11 @@ msgstr "SVN Annotieren abbrechen..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "Operation abbrechen..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Cascaded Context Menu"
+msgstr "Verschachteltes Kontextmenü"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1159,11 +1177,6 @@ msgstr "Konflikt"
 msgid "Conflicts: %d"
 msgstr "Konflikte: %d"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "Kontextmenü"
-
 #: ID:73
 msgid "Continue"
 msgstr "Fortsetzen"
@@ -1324,8 +1337,8 @@ msgid "Create Repository"
 msgstr "Projektarchiv erstellen"
 
 #: ID:8
-msgid "Create Repository here"
-msgstr "Projektarchiv hier erstellen"
+msgid "Create Repository here..."
+msgstr "Projektarchiv hier erstellen..."
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -1632,6 +1645,7 @@ msgid "Exports a repository to a clean working copy without the svn administrati
 msgstr "Exportiert ein Projektarchiv in eine 'saubere' Arbeitskopie ohne die Administrationsdateien im Ordner .svn"
 
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "Erweiterung"
 
@@ -1719,6 +1733,10 @@ msgstr "Zeichensatz:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "Drücken Sie F1, um Hilfe zu erhalten"
+
+#: Control-ID:1200
+msgid "From:"
+msgstr "Von:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2126,6 +2144,15 @@ msgstr "Zusammenführen"
 msgid "Message"
 msgstr "Meldung"
 
+#: ID:116
+msgid "Messages"
+msgstr "Meldungen"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "Meldungen, Autoren und Pfade"
+
 #: ID:78
 msgid "Mime Type"
 msgstr "Mime Typ"
@@ -2369,6 +2396,10 @@ msgstr "Patchdateien (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 #: ID:77
 msgid "Path"
 msgstr "Pfad"
+
+#: ID:116
+msgid "Paths"
+msgstr "Pfade"
 
 # ID:157,
 #: ID:157
@@ -2683,10 +2714,13 @@ msgstr "Zurückgesetzt"
 msgid "Retry"
 msgstr "Wiederholen"
 
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Änderungen rückgängig"
+
+#: ID:8
+msgid "Revert..."
+msgstr "Rückgängig..."
 
 #: ID:73
 msgid "Reverted"
@@ -3292,6 +3326,17 @@ msgstr "Die Datei %s wurde in der Patch-Datei nicht gefunden!"
 msgid "The file is too large to open."
 msgstr "Die Datei ist zu gross, um sie zu öffnen."
 
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"Die Datei oder der Ordner\n"
+"%s\n"
+"hat lokale Änderungen. Wollen Sie ihn wirklich verschieben?"
+
 #: ID:80
 msgid ""
 "The file\n"
@@ -3499,6 +3544,11 @@ msgstr "Leerzeichen Diff"
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "Machen Sie einen Doppelklick, um Ihre Änderungen an einer Datei zu sehen."
+
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr "Bis:"
 
 # Control-ID:65535,
 #: Control-ID:65535
