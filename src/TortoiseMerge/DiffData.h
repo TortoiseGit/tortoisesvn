@@ -3,6 +3,7 @@
 #include "svn_diff.h"
 #include "apr_pools.h"
 #include "FileTextLines.h"
+#include "Registry.h"
 
 class CDiffData
 {
@@ -29,15 +30,18 @@ public:
 		DIFFSTATE_THEIRSREMOVED,
 		DIFFSTATE_THEIRSADDED,
 		DIFFSTATE_YOURSREMOVED,
-		DIFFSTATE_YOURSADDED
+		DIFFSTATE_YOURSADDED,
+		DIFFSTATE_END
 	} ;
 
 	BOOL						Load();
 	int							GetLineCount();
 	int							GetLineActualLength(int index);
 	LPCTSTR						GetLineChars(int index);
-	static void					GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText);
+	void						GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText);
 	CString						GetError() {return m_sError;}
+protected:
+	void						LoadRegistry();
 public:
 	CString						m_sBaseFile;
 	CString						m_sTheirFile;
@@ -75,4 +79,6 @@ public:
 
 	static int					abort_on_pool_failure (int retcode);
 protected:
+	CRegDWORD					m_regForegroundColors[DIFFSTATE_END];
+	CRegDWORD					m_regBackgroundColors[DIFFSTATE_END];
 };

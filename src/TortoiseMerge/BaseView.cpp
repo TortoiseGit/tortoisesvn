@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "registry.h"
 #include "TortoiseMerge.h"
+#include "MainFrm.h"
 #include ".\BaseView.h"
 
 #ifdef _DEBUG
@@ -21,6 +22,7 @@ CBaseView * CBaseView::m_pwndRight = NULL;
 CBaseView * CBaseView::m_pwndBottom = NULL;
 CLocatorBar * CBaseView::m_pwndLocator = NULL;
 CStatusBar * CBaseView::m_pwndStatusBar = NULL;
+CMainFrame * CBaseView::m_pMainFrame = NULL;
 
 CBaseView::CBaseView()
 {
@@ -674,7 +676,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	{
 		// Draw line beyond the text
 		COLORREF bkGnd, crText;
-		CDiffData::GetColors(CDiffData::DIFFSTATE_UNKNOWN, bkGnd, crText);
+		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, bkGnd, crText);
 		pDC->FillSolidRect(rc, bkGnd);
 		return;
 	} // if (nLineIndex == -1) 
@@ -684,14 +686,14 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	COLORREF crBkgnd, crText;
 	if ((m_arLineStates)&&(m_arLineStates->GetCount()>nLineIndex))
 	{
-		CDiffData::GetColors((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
+		m_pMainFrame->m_Data.GetColors((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
 		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd))
 		{
 			crBkgnd = (~crBkgnd)&0x00FFFFFF;
 		}
 	}
 	else
-		CDiffData::GetColors(CDiffData::DIFFSTATE_UNKNOWN, crBkgnd, crText);
+		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, crBkgnd, crText);
 
 	int nLength = GetLineLength(nLineIndex);
 	if (nLength == 0)
@@ -984,6 +986,8 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 			m_pwndRight->Invalidate();
 		if (m_pwndBottom)
 			m_pwndBottom->Invalidate();
+		if (m_pwndLocator)
+			m_pwndLocator->Invalidate();
 	} // if (nLine <= m_arLineStates->GetCount()) 
 }
 

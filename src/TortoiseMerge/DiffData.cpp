@@ -19,92 +19,70 @@ CDiffData::CDiffData(void)
 	m_arBaseFile.SetSize(0, 10);
 	m_arTheirFile.SetSize(0, 10);
 	m_arYourFile.SetSize(0, 10);
+
+	m_regForegroundColors[DIFFSTATE_UNKNOWN] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorUnknownF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_NORMAL] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorNormalF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_REMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorRemovedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_REMOVEDWHITESPACE] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorRemovedWhitespaceF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_ADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorAddedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_ADDEDWHITESPACE] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorAddedWhitespaceF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_WHITESPACE] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorWhitespaceF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_EMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorEmptyF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_CONFLICTED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_CONFLICTADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedAddedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_CONFLICTEMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedEmptyF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_IDENTICAL] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorIdenticalF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_IDENTICALREMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorIdenticalRemovedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_IDENTICALADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorIdenticalAddedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_THEIRSREMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorTheirsRemovedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_THEIRSADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorTheirsAddedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_YOURSREMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorYoursRemovedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+	m_regForegroundColors[DIFFSTATE_YOURSADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorYoursAddedF"), ::GetSysColor(COLOR_WINDOWTEXT));
+
+	m_regBackgroundColors[DIFFSTATE_UNKNOWN] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorUnknownB"), ::GetSysColor(COLOR_WINDOW));
+	m_regBackgroundColors[DIFFSTATE_NORMAL] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorNormalB"), ::GetSysColor(COLOR_WINDOW));
+	m_regBackgroundColors[DIFFSTATE_REMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorRemovedB"), RGB(255,100,100));
+	m_regBackgroundColors[DIFFSTATE_REMOVEDWHITESPACE] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorRemovedWhitespaceB"), RGB(255,100,100));
+	m_regBackgroundColors[DIFFSTATE_ADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorAddedB"), RGB(255,255,0));
+	m_regBackgroundColors[DIFFSTATE_ADDEDWHITESPACE] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorAddedWhitespaceB"), RGB(255,255,0));
+	m_regBackgroundColors[DIFFSTATE_WHITESPACE] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorWhitespaceB"), RGB(180,180,255));
+	m_regBackgroundColors[DIFFSTATE_EMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorEmptyB"), RGB(200,200,200));
+	m_regBackgroundColors[DIFFSTATE_CONFLICTED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedB"), RGB(255,0,0));
+	m_regBackgroundColors[DIFFSTATE_CONFLICTADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedAddedB"), RGB(255,100,0));
+	m_regBackgroundColors[DIFFSTATE_CONFLICTEMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedEmptyB"), RGB(255,50,50));
+	m_regBackgroundColors[DIFFSTATE_IDENTICAL] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorIdenticalB"), RGB(180,255,180));
+	m_regBackgroundColors[DIFFSTATE_IDENTICALREMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorIdenticalRemovedB"), RGB(255,200,200));
+	m_regBackgroundColors[DIFFSTATE_IDENTICALADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorIdenticalAddedB"), RGB(180,255,180));
+	m_regBackgroundColors[DIFFSTATE_THEIRSREMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorTheirsRemovedB"), RGB(255,120,200));
+	m_regBackgroundColors[DIFFSTATE_THEIRSADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorTheirsAddedB"), RGB(120,255,180));
+	m_regBackgroundColors[DIFFSTATE_YOURSREMOVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorYoursRemovedB"), RGB(255,200,120));
+	m_regBackgroundColors[DIFFSTATE_YOURSADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorYoursAddedB"), RGB(180,255,120));
 }
 
 CDiffData::~CDiffData(void)
 {
 }
 
+void CDiffData::LoadRegistry()
+{
+	for (int i=0; i<DIFFSTATE_END; i++)
+	{
+		m_regForegroundColors[i].read();
+		m_regBackgroundColors[i].read();
+	} // for (int i=0; i<DIFFSTATE_END; i++) 
+}
+
 void CDiffData::GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText)
 {
-	switch (state)
+	if ((state < DIFFSTATE_END)&&(state >= 0))
 	{
-	case DIFFSTATE_UNKNOWN:
+		crBkgnd = (COLORREF)(DWORD)m_regBackgroundColors[(int)state];
+		crText = (COLORREF)(DWORD)m_regForegroundColors[(int)state];
+	}
+	else
+	{
 		crBkgnd = ::GetSysColor(COLOR_WINDOW);
 		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case DIFFSTATE_NORMAL:
-		crBkgnd = ::GetSysColor(COLOR_WINDOW);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case DIFFSTATE_REMOVED:
-		crBkgnd = RGB(255,100,100);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case DIFFSTATE_REMOVEDWHITESPACE:
-		crBkgnd = RGB(255,100,100);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_ADDED:
-		crBkgnd = RGB(255,255,0);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_ADDEDWHITESPACE:
-		crBkgnd = RGB(255,255,0);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_WHITESPACE:
-		crBkgnd = RGB(150,150,255);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_EMPTY:
-		crBkgnd = RGB(200,200,200);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-		crBkgnd = RGB(200,200,200);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_CONFLICTED:
-		crBkgnd = RGB(255,0,0);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_IDENTICAL:
-		crBkgnd = RGB(150,255,150);	//green
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_IDENTICALREMOVED:
-		crBkgnd = RGB(150,255,150);	//green
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_IDENTICALADDED:
-		crBkgnd = RGB(150,255,150);	//green
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_CONFLICTADDED:
-		crBkgnd = RGB(255,0,0);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_THEIRSREMOVED:
-		crBkgnd = RGB(0,255,255);	//cyan
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_THEIRSADDED:
-		crBkgnd = RGB(0,255,255);	//cyan
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_YOURSREMOVED:
-		crBkgnd = RGB(255,0,255);	//magenta
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	case CDiffData::DIFFSTATE_YOURSADDED:
-		crBkgnd = RGB(255,0,255);	//magenta
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
-	default:
-		crBkgnd = ::GetSysColor(COLOR_WINDOW);
-		crText = ::GetSysColor(COLOR_WINDOWTEXT);
-		break;
 	}
 }
 
@@ -406,12 +384,12 @@ BOOL CDiffData::Load()
 		TRACE(_T("done with diff\n"));
 	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty())) 
 	//#endregion
-	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
+	
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
 	{
 		ASSERT(FALSE);
 	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty())) 
-	//#endregion
+
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && (!m_sYourFile.IsEmpty()))
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && (!m_sYourFile.IsEmpty()))
 	{
@@ -715,7 +693,7 @@ BOOL CDiffData::Load()
 					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
 					m_arStateYourBaseBoth.Add(DIFFSTATE_IDENTICALADDED);
 					m_arDiffTheirBaseBoth.Add(_T(""));
-					m_arStateTheirBaseBoth.Add(DIFFSTATE_YOURSADDED);
+					m_arStateTheirBaseBoth.Add(DIFFSTATE_EMPTY);
 					yourline++;
 				} // iff->original_length; i++) 
 			} // if (tempdiff->type == svn_diff__type_diff_latest) 

@@ -100,7 +100,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//	TRACE0("Failed to create rebar\n");
 	//	return -1;      // fail to create
 	//}
-
+	m_wndLocatorBar.m_pMainFrm = this;
 	m_DefaultNewMenu.LoadToolBar(IDR_MAINFRAME);
 	m_DefaultNewMenu.SetXpBlendig();
 	m_DefaultNewMenu.SetSelectDisableMode(FALSE);
@@ -179,6 +179,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_pwndBottomView = (CBottomView *)m_wndSplitter.GetPane(1,0);
 	m_pwndBottomView->m_pwndLocator = &m_wndLocatorBar;
 	m_pwndBottomView->m_pwndStatusBar = &m_wndStatusBar;
+	m_pwndBottomView->m_pMainFrame = this;
 
 	// now create the two views inside the nested splitter 
 
@@ -191,6 +192,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_pwndLeftView = (CLeftView *)m_wndSplitter2.GetPane(0,0);
 	m_pwndLeftView->m_pwndLocator = &m_wndLocatorBar;
 	m_pwndLeftView->m_pwndStatusBar = &m_wndStatusBar;
+	m_pwndLeftView->m_pMainFrame = this;
 
 	if (!m_wndSplitter2.CreateView(0, 1, 
 		RUNTIME_CLASS(CRightView), CSize(cr.Width()/2, cr.Height()/2), pContext)) 
@@ -201,6 +203,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_pwndRightView = (CRightView *)m_wndSplitter2.GetPane(0,1);
 	m_pwndRightView->m_pwndLocator = &m_wndLocatorBar;
 	m_pwndRightView->m_pwndStatusBar = &m_wndStatusBar;
+	m_pwndRightView->m_pMainFrame = this;
 	m_bInitSplitter = TRUE;
 
 	m_dlgFilePatches.Create(IDD_FILEPATCHES, this);

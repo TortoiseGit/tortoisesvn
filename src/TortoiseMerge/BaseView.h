@@ -1,11 +1,10 @@
 
 
 #pragma once
-
 #include "DiffData.h"
 #include "LocatorBar.h"
 
-
+class CMainFrame;
 
 /**
  * \ingroup TortoiseMerge
@@ -50,6 +49,7 @@ public:
 
 	static CLocatorBar * m_pwndLocator;	///< Pointer to the locator bar on the left
 	static CStatusBar * m_pwndStatusBar;///< Pointer to the status bar
+	static CMainFrame * m_pMainFrame;	///< Pointer to the mainframe
 
 	void			GoToFirstDifference();
 protected:

@@ -26,7 +26,6 @@ protected:
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 
-	CMainFrame *	m_pMainFrm;
 	CBitmap *		m_pCacheBitmap;
 
 	int				m_nLines;
@@ -36,6 +35,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	CMainFrame *	m_pMainFrm;
 };
 
 

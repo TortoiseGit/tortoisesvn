@@ -134,7 +134,8 @@ void CLocatorBar::OnPaint()
 
 
 	COLORREF color, color2;
-	CDiffData::GetColors(CDiffData::DIFFSTATE_UNKNOWN, color, color2);
+	
+	m_pMainFrm->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, color, color2);
 	cacheDC.FillSolidRect(rect, color);
 	
 	int barwidth = (rect.Width()/3);
@@ -147,7 +148,7 @@ void CLocatorBar::OnPaint()
 		identcount = LOWORD(m_arLeft.GetAt(i));
 		state = HIWORD(m_arLeft.GetAt(i));
 		COLORREF color, color2;
-		CDiffData::GetColors((CDiffData::DiffStates)state, color, color2);
+		m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
 		cacheDC.FillSolidRect(rect.left, rect.Height()*linecount/m_nLines, 
 			barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
 		linecount += identcount;
@@ -160,7 +161,7 @@ void CLocatorBar::OnPaint()
 		identcount = LOWORD(m_arRight.GetAt(i));
 		state = HIWORD(m_arRight.GetAt(i));
 		COLORREF color, color2;
-		CDiffData::GetColors((CDiffData::DiffStates)state, color, color2);
+		m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
 		cacheDC.FillSolidRect(rect.left + (rect.Width()*2/3), rect.Height()*linecount/m_nLines, 
 			barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
 		linecount += identcount;
@@ -173,7 +174,7 @@ void CLocatorBar::OnPaint()
 		identcount = LOWORD(m_arBottom.GetAt(i));
 		state = HIWORD(m_arBottom.GetAt(i));
 		COLORREF color, color2;
-		CDiffData::GetColors((CDiffData::DiffStates)state, color, color2);
+		m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
 		cacheDC.FillSolidRect(rect.left + (rect.Width()/3), rect.Height()*linecount/m_nLines, 
 			barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
 		linecount += identcount;
