@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "Resource.h"
+#include "UnicodeUtils.h"
 #include ".\filetextlines.h"
 
 CFileTextLines::CFileTextLines(void)
@@ -28,16 +29,32 @@ CFileTextLines::~CFileTextLines(void)
 {
 }
 
-BOOL CFileTextLines::IsTextUnicode(LPVOID pBuffer, int cb)
+CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int cb)
 {
-	BOOL retval = FALSE;
+	if (cb < 2)
+		return CFileTextLines::BINARY;
 	UINT16 * pVal = (UINT16 *)pBuffer;
+	UINT8 * pVal2 = (UINT8 *)(pVal+1);
+	// scan the whole buffer for a 0x0000 sequence
+	// if found, we assume a binary file
+	for (int i=0; i<(cb-1); i=i+2)
+	{
+		if (0x0000 == *pVal++)
+			return CFileTextLines::BINARY;
+	} // for (int i=0; i<cb; i=i+2) 
+	pVal = (UINT16 *)pBuffer;
 	if (*pVal == 0xFEFF)
-		return TRUE;
-	if (*pVal == 0xFFFE)
-		return TRUE;
-	return FALSE;
+		return CFileTextLines::UNICODE_LE;
+	if (cb < 3)
+		return ASCII;
+	if (*pVal == 0xBBEF)
+	{
+		if (*pVal2 == 0xBF)
+			return CFileTextLines::UTF8;
+	} // if (*pVal == 0xBBEF) 
+	return CFileTextLines::ASCII;
 }
+
 
 CFileTextLines::LineEndings CFileTextLines::CheckLineEndings(LPVOID pBuffer, int cb)
 {
@@ -113,7 +130,7 @@ CFileTextLines::LineEndings CFileTextLines::CheckLineEndings(LPVOID pBuffer, int
 BOOL CFileTextLines::Load(CString sFilePath)
 {
 	m_LineEndings = CFileTextLines::AUTOLINE;
-	m_bUnicode = -1;
+	m_UnicodeType = CFileTextLines::AUTOTYPE;
 	RemoveAll();
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
@@ -122,7 +139,7 @@ BOOL CFileTextLines::Load(CString sFilePath)
 		return FALSE;
 	} // if (hFile == NULL) 
 
-	char buf[2048];
+	char buf[10000];
 	DWORD dwReadBytes = 0;
 	do
 	{
@@ -132,26 +149,69 @@ BOOL CFileTextLines::Load(CString sFilePath)
 			CloseHandle(hFile);
 			return FALSE;
 		} // if (!ReadFile(hFile, buf, sizeof(buf), &dwReadBytes, NULL))
-		if (m_bUnicode == -1)
+		if (m_UnicodeType == CFileTextLines::AUTOTYPE)
 		{
-			m_bUnicode = this->IsTextUnicode(buf, dwReadBytes);
+			m_UnicodeType = this->CheckUnicodeType(buf, dwReadBytes);
 		}
 		if (m_LineEndings == CFileTextLines::AUTOLINE)
 		{
 			m_LineEndings = CheckLineEndings(buf, dwReadBytes);
 		}
-	} while (((m_bUnicode == -1)||(m_LineEndings == CFileTextLines::AUTOLINE))&&(dwReadBytes > 0));
+	} while (((m_UnicodeType == CFileTextLines::AUTOTYPE)||(m_LineEndings == CFileTextLines::AUTOLINE))&&(dwReadBytes > 0));
 	CloseHandle(hFile);
 
+	if (m_UnicodeType == CFileTextLines::BINARY)
+	{
+		m_sErrorString.Format(IDS_ERR_FILE_BINARY, sFilePath);
+		return FALSE;
+	} // if (m_UnicodeType == CFileTextLines::BINARY) 
+
+//#ifndef UNICODE		as soon as the diff lib supports unicode this line can be put in use!
+	// When compiled for non-unicode systems don't handle unicode
+	// files. Sure, we could convert those to ASCII when reading
+	// and convert them back to unicode when writing, but why bother?
+	// Non-unicode systems like Win98/Me are obsolete anyway.
+	if (m_UnicodeType == CFileTextLines::UNICODE_LE)
+	{
+		m_sErrorString.Format(IDS_ERR_FILE_BINARY, sFilePath);
+		return FALSE;
+	} // if (m_UnicodeType == CFileTextLines::BINARY) 
+//#endif
 	BOOL bRetval = TRUE;
 	CString sLine;
 	try
 	{
-		CStdioFile file(sFilePath, CFile::typeText | CFile::modeRead | CFile::shareDenyNone);
+		CStdioFile file(sFilePath, (m_UnicodeType == CFileTextLines::UNICODE_LE ? CFile::typeBinary : CFile::typeText)
+			| CFile::modeRead | CFile::shareDenyNone);
+
+		switch (m_UnicodeType)
+		{
+		case CFileTextLines::UNICODE_LE:
+			file.Seek(2,0);
+			break;
+		case CFileTextLines::UTF8:
+			file.Seek(3,0);
+			break;
+		default:
+			break;
+		} // switch (m_UnicodeType) 
 		while (file.ReadString(sLine))
 		{
-			Add(sLine);
-		}
+			switch (m_UnicodeType)
+			{
+			case CFileTextLines::ASCII:
+				Add(sLine);
+				break;
+			case CFileTextLines::UNICODE_LE:
+				Add(sLine);
+				break;
+			case CFileTextLines::UTF8:
+				Add(CUnicodeUtils::GetUnicode(CStringA(sLine)));
+				break;
+			default:
+				Add(sLine);
+			} // switch (m_UnicodeType) 
+		} // while (file.ReadString(sLine)) 
 		file.Close();
 	}
 	catch (CException * e)
@@ -176,7 +236,7 @@ BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/
 			m_sErrorString.Format(IDS_ERR_FILE_OPEN, sFilePath);
 			return FALSE;
 		} // if (!file.Open(sSavePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary)) 
-		if (m_bUnicode)
+		if (m_UnicodeType == CFileTextLines::UNICODE_LE)
 		{
 			//first write the BOM
 			UINT16 wBOM = 0xFEFF;
@@ -209,7 +269,7 @@ BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/
 				file.Write((LPCTSTR)sLine, sLine.GetLength());
 			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
 		} // if (CUtils::IsFileUnicode(sPath)) 
-		else
+		else if (m_UnicodeType == CFileTextLines::ASCII)
 		{
 			for (int i=0; i<GetCount(); i++)
 			{
@@ -219,6 +279,41 @@ BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/
 					sLine.Replace(" ", "");
 					sLine.Replace("\t", "");
 				}
+				file.Write((LPCSTR)sLine, sLine.GetLength());
+				switch (m_LineEndings)
+				{
+				case CR:
+					sLine = ("\x0d");
+					break;
+				case CRLF:
+				case AUTOLINE:
+					sLine = ("\x0d\x0a");
+					break;
+				case LF:
+					sLine = ("\x0a");
+					break;
+				case LFCR:
+					sLine = ("\x0a\x0d");
+					break;
+				} // switch (endings)
+				file.Write((LPCSTR)sLine, sLine.GetLength());
+			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
+		}
+		else if (m_UnicodeType == CFileTextLines::UTF8)
+		{
+			//first write the BOM
+			UINT16 wBOM = 0xBBEF;
+			file.Write(&wBOM, 2);
+			UINT8 uBOM = 0xBF;
+			file.Write(&uBOM, 1);
+			for (int i=0; i<GetCount(); i++)
+			{
+				CStringA sLine = CUnicodeUtils::GetUTF8(GetAt(i));
+				if (bIgnoreWhitespaces)
+				{
+					sLine.Replace(" ", "");
+					sLine.Replace("\t", "");
+				} // if (bIgnoreWhitespaces)
 				file.Write((LPCSTR)sLine, sLine.GetLength());
 				switch (m_LineEndings)
 				{
@@ -272,7 +367,7 @@ void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
 {
 	if (pFileToCopySettingsTo)
 	{
-		pFileToCopySettingsTo->m_bUnicode = m_bUnicode;
+		pFileToCopySettingsTo->m_UnicodeType = m_UnicodeType;
 		pFileToCopySettingsTo->m_LineEndings = m_LineEndings;
 	}
 }

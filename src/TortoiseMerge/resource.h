@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseMergeENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Languages\TortoiseMergeENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   100
@@ -105,6 +105,7 @@
 #define IDC_SUPPORTLINK                 1085
 #define IDC_FONTSIZES                   1086
 #define IDS_ERR_FILE_OPEN               1100
+#define IDS_ERR_FILE_BINARY             1101
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701
 #define IDS_SETTINGSTITLE               1702

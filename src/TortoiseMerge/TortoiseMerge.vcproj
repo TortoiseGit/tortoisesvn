@@ -17,7 +17,7 @@
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Debug"
 			ConfigurationType="1"
 			UseOfMFC="2"
-			CharacterSet="2">
+			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
@@ -231,6 +231,9 @@
 				RelativePath=".\TortoiseMerge.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\UnicodeUtils.cpp">
+			</File>
+			<File
 				RelativePath=".\Utils.cpp">
 			</File>
 			<File
@@ -358,6 +361,9 @@
 			</File>
 			<File
 				RelativePath=".\TortoiseMerge.h">
+			</File>
+			<File
+				RelativePath="..\Utils\UnicodeUtils.h">
 			</File>
 			<File
 				RelativePath=".\Utils.h">

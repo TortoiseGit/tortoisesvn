@@ -40,6 +40,14 @@ public:
 		LFCR,
 		CR,
 	};
+	enum UnicodeType
+	{
+		AUTOTYPE,
+		BINARY,
+		ASCII,
+		UNICODE_LE,
+		UTF8,
+	};
 
 	/**
 	 * Loads the text file and adds each line to the array
@@ -62,24 +70,26 @@ public:
 	 */
 	void		CopySettings(CFileTextLines * pFileToCopySettingsTo);
 
-	BOOL		m_bUnicode;
-	CFileTextLines::LineEndings m_LineEndings;
+	CFileTextLines::UnicodeType GetUnicodeType() {return m_UnicodeType;}
+
 protected:
-	/**
-	 * Checks if a buffer is an UNICODE text 
-	 * \param pBuffer pointer to the buffer containing text
-	 * \param cd size of the text buffer in bytes
-	 */
-	BOOL		IsTextUnicode(LPVOID pBuffer, int cb);
 	/**
 	 * Checks the line endings in a text buffer
 	 * \param pBuffer pointer to the buffer containing text
 	 * \param cd size of the text buffer in bytes
 	 */
 	CFileTextLines::LineEndings CheckLineEndings(LPVOID pBuffer, int cb); 
+	/**
+	 * Checks the unicode type in a text buffer
+	 * \param pBuffer pointer to the buffer containing text
+	 * \param cd size of the text buffer in bytes
+	 */
+	CFileTextLines::UnicodeType CheckUnicodeType(LPVOID pBuffer, int cb); 
 
 	void		GetLastError();
 
 	CString		m_sErrorString;
+	CFileTextLines::UnicodeType	m_UnicodeType;
+	CFileTextLines::LineEndings m_LineEndings;
 
 };

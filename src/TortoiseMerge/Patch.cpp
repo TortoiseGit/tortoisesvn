@@ -20,6 +20,7 @@
 #include "Resource.h"
 #include "Utils.h"
 #include "FileTextLines.h"
+#include "UnicodeUtils.h"
 #include "TortoiseMerge.h"
 #include ".\patch.h"
 
@@ -425,6 +426,8 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 		for (int j=0; j<chunk->arLines.GetCount(); j++)
 		{
 			CString sPatchLine = chunk->arLines.GetAt(j);
+			if (PatchLines.GetUnicodeType()==CFileTextLines::UTF8)
+				sPatchLine = CUnicodeUtils::GetUnicode(CStringA(sPatchLine));
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);
 			switch (nPatchState)
 			{
