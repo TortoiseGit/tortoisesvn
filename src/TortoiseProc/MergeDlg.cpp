@@ -463,8 +463,9 @@ void CMergeDlg::OnBnClickedUsefromurl()
 	UpdateData();
 	if (m_bUseFromURL)
 	{
-		GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLFrom);
-		m_URLTo = m_URLFrom;
+		m_URLCombo.SaveHistory();
+		GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLCombo.GetString());
+		m_URLTo = m_URLCombo.GetString();
 		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
 		GetDlgItem(IDC_BROWSE2)->EnableWindow(FALSE);
 	}
