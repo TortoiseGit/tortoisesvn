@@ -30,7 +30,6 @@
 #define IDD_SIMPLEPROMPT                160
 #define IDD_INPUTDLG                    161
 #define IDD_BLAME                       162
-#define IDR_AVI1                        163
 #define IDR_SEARCH                      163
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -141,6 +140,8 @@
 #define IDC_SSHCLIENT                   1068
 #define IDC_SSHBROWSE                   1069
 #define IDC_DEFAULTLOG                  1071
+#define IDC_CHECK1                      1073
+#define IDC_MENU24                      1073
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -302,7 +303,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        164
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1073
+#define _APS_NEXT_CONTROL_VALUE         1074
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -55,12 +55,13 @@ IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
 IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
 IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
 IDI_REPOBROWSE          ICON                    "..\\Icons\\menurepobrowse.ico"
+IDI_BLAME               ICON                    "..\\Icons\\menublame.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -298,7 +299,9 @@ BEGIN
     IDS_SETPROPTITLE        "Setting Properties..."
     IDS_MENUREPOBROWSE      "Repo-Browser"
     IDS_MENUDESCREPOBROWSE  "Opens the repository browser to tweak the repository online"
+    IDS_MENUBLAME           "Blame..."
     IDS_STATUSEXTERNAL      "external"
+    IDS_MENUDESCBLAME       "Blames each line of a file on an author"
 END
 
 STRINGTABLE 
@@ -321,7 +324,7 @@ BEGIN
     IDS_MENUDESCHELP        "Read the 'Daily Use Guide' before you are stuck..."
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -336,4 +339,3 @@ END
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 
-#include "resource.rc2"

@@ -1,6 +1,21 @@
-// SetMenuPage.cpp : implementation file
-//
+// TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2003 - Tim Kemp and Stefan Kueng
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+//
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetMenuPage.h"
@@ -35,6 +50,7 @@ CSetMenuPage::CSetMenuPage()
 	, m_bMenu21(FALSE)
 	, m_bMenu22(FALSE)
 	, m_bMenu23(FALSE)
+	, m_bMenu24(FALSE)
 {
 	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 
@@ -61,6 +77,7 @@ CSetMenuPage::CSetMenuPage()
 	m_bMenu21 = (topmenu & MENUIMPORT) ? TRUE : FALSE;
 	m_bMenu22 = (topmenu & MENUIGNORE) ? TRUE : FALSE;
 	m_bMenu23 = (topmenu & MENUREPOBROWSE) ? TRUE : FALSE;
+	m_bMenu24 = (topmenu & MENUBLAME) ? TRUE : FALSE;
 
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 }
@@ -95,6 +112,7 @@ void CSetMenuPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_MENU21, m_bMenu21);
 	DDX_Check(pDX, IDC_MENU22, m_bMenu22);
 	DDX_Check(pDX, IDC_MENU23, m_bMenu23);
+	DDX_Check(pDX, IDC_MENU24, m_bMenu24);
 }
 
 
@@ -122,6 +140,7 @@ BEGIN_MESSAGE_MAP(CSetMenuPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_MENU21, OnBnClickedMenu21)
 	ON_BN_CLICKED(IDC_MENU22, OnBnClickedMenu22)
 	ON_BN_CLICKED(IDC_MENU23, OnBnClickedMenu23)
+	ON_BN_CLICKED(IDC_MENU24, OnBnClickedMenu24)
 END_MESSAGE_MAP()
 
 void CSetMenuPage::SaveData()
@@ -150,6 +169,7 @@ void CSetMenuPage::SaveData()
 	topmenu |= (m_bMenu21 ? MENUIMPORT : 0);
 	topmenu |= (m_bMenu22 ? MENUIGNORE : 0);
 	topmenu |= (m_bMenu23 ? MENUREPOBROWSE : 0);
+	topmenu |= (m_bMenu24 ? MENUBLAME : 0);
 	CRegDWORD regtopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	regtopmenu = topmenu;
 }
@@ -280,6 +300,11 @@ void CSetMenuPage::OnBnClickedMenu23()
 	SetModified();
 }
 
+void CSetMenuPage::OnBnClickedMenu24()
+{
+	SetModified();
+}
+
 BOOL CSetMenuPage::OnApply()
 {
 	UpdateData();
@@ -287,3 +312,4 @@ BOOL CSetMenuPage::OnApply()
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+

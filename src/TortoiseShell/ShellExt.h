@@ -121,7 +121,8 @@ protected:
 		Help,
 		ShowChanged,
 		Ignore,
-		RepoBrowse
+		RepoBrowse,
+		Blame
 	};
 
 	FileState m_State;

@@ -1,3 +1,9 @@
+- ADD: Subversion got a new command: "Blame".
+       TSVN has it too :) What it does?
+       It shows you for each line in a file
+       the revision it was last changed and
+       the author (so you can blame a bug
+       on that author :). (Stefan)
 - ADD: The show log command now only shows
        the last 100 revision, configurable
        in the settings dialog. A new "Get All"

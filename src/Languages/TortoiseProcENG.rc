@@ -469,7 +469,9 @@ BEGIN
     CONTROL         "Import...",IDC_MENU21,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,127,117,10
     CONTROL         "Add To Ignore List",IDC_MENU22,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,138,117,10
+                    WS_TABSTOP,124,148,117,10
+    CONTROL         "Blame...",IDC_MENU24,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,138,149,10
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84

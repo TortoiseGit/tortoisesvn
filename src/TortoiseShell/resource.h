@@ -117,7 +117,9 @@
 #define IDS_SETPROPTITLE                200
 #define IDS_MENUREPOBROWSE              201
 #define IDS_MENUDESCREPOBROWSE          202
+#define IDS_MENUBLAME                   203
 #define IDS_STATUSEXTERNAL              204
+#define IDS_MENUDESCBLAME               205
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -137,12 +139,14 @@
 #define IDC_REPOURL2                    1017
 #define IDC_RECURSIVE                   1018
 #define IDI_REPOBROWSE                  5145
+#define IDI_ICON4                       5146
+#define IDI_BLAME                       5146
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5146
+#define _APS_NEXT_RESOURCE_VALUE        5147
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11019
 #define _APS_NEXT_SYMED_VALUE           5101

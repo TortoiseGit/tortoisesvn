@@ -44,6 +44,7 @@
 #define MENUSHOWCHANGED		0x00100000
 #define MENUIGNORE			0x00200000
 #define MENUREPOBROWSE		0x00400000
+#define MENUBLAME			0x00800000
 
 /**
  * Since we need an own COM-object for every different

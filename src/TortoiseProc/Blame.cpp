@@ -28,12 +28,14 @@ CBlame::CBlame()
 }
 CBlame::~CBlame()
 {
+	m_progressDlg.Stop();
 }
 
 BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CString line)
 {
+	line = line.TrimRight(_T("\n\r"));
 	CString fullline;
-	fullline.Format(_T("%6ld %6ld %20s %-30s %s"), linenumber, revision, date, author, line);
+	fullline.Format(_T("%6ld %6ld %20s %-30s %s \n"), linenumber, revision, date, author, line);
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 		m_saveFile.WriteString(fullline);
 	else
@@ -56,6 +58,10 @@ CString CBlame::BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL s
 		return _T("");
 	if (!m_saveFile.Open(m_sSavePath, CFile::typeText | CFile::modeReadWrite))
 		return _T("");
+	CString headline;
+	headline.Format(_T("%-6s %-6s %-20s %-30s %-s \n"), _T("line"), _T("rev"), _T("date"), _T("author"), _T("content"));
+	m_saveFile.WriteString(headline);
+	m_saveFile.WriteString(_T("\n"));
 	temp.LoadString(IDS_BLAME_PROGRESSTITLE);
 	m_progressDlg.SetTitle(temp);
 	m_progressDlg.SetAnimation(IDR_SEARCH);

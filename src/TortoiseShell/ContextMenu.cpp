@@ -450,6 +450,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
 	if ((!isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
+	if ((isInSVN)&&(!isFolder))
+		InsertSVNMenu(ownerdrawn, HMENU(MENUBLAME), INDEXMENU(MENUBLAME), idCmd++, IDS_MENUBLAME, IDI_BLAME, idCmdFirst, Blame);
 	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Ignore);
 
@@ -738,6 +740,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 							svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
 						break;
+					case Blame:
+						svnCmd += _T("blame /path:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
 					default:
 						break;
 					//#endregion
@@ -865,6 +875,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			break;
 		case Ignore:
 			MAKESTRING(IDS_MENUDESCIGNORE);
+			break;
+		case Blame:
+			MAKESTRING(IDS_MENUDESCBLAME);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1181,6 +1194,11 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			MAKESTRING(IDS_MENUIGNORE);
 			resource = MAKEINTRESOURCE(IDI_IGNORE);
 			SETSPACE(MENUIGNORE);
+			break;
+		case Blame:
+			MAKESTRING(IDS_MENUBLAME);
+			resource = MAKEINTRESOURCE(IDI_BLAME);
+			SETSPACE(MENUBLAME);
 			break;
 		default:
 			return NULL;
