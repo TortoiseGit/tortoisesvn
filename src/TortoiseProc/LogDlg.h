@@ -36,6 +36,7 @@
 #define ID_GNUDIFF2		8
 #define ID_FINDENTRY	9
 #define ID_REVERT	   10
+#define	ID_REFRESH	   11
 
 #define ID_DIFF			20
 

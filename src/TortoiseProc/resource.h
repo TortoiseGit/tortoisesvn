@@ -318,6 +318,7 @@
 #define IDS_BLAME_PROGRESSTITLE         2100
 #define IDS_BLAME_PROGRESSINFO          2101
 #define IDS_BLAME_PROGRESSCANCEL        2102
+#define IDS_MENUREFRESH                 2150
 #define IDS_LOG_COMPAREWITHBASE         2200
 #define IDS_PROC_ENTERURLLABEL          2300
 #define IDS_PROC_PATCHTITLE             2301

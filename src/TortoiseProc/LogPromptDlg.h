@@ -70,6 +70,8 @@ protected:
 	afx_msg void OnBnClickedSelectall();
 
 	void StartDiff(int fileindex);
+	void Refresh();
+
 	DECLARE_MESSAGE_MAP()
 public:
 	CString			m_sLogMessage;

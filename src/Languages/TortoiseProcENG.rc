@@ -340,8 +340,8 @@ BEGIN
     GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,89
     GROUPBOX        "Committing",IDC_COMMITGROUP,7,101,286,61
     CONTROL         "Don't convert files when diffing against BASE",
-                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,76,
-                    261,10
+                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,
+                    76,261,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199
@@ -1045,6 +1045,11 @@ BEGIN
     IDS_PROC_ENTERURLLABEL  "Url:"
     IDS_PROC_PATCHTITLE     "Generating Patchfile..."
     IDS_PROC_SAVEPATCHTO    "Saving patchfile to:"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUREFRESH         "Refresh"
 END
 
 #endif    // English (U.S.) resources

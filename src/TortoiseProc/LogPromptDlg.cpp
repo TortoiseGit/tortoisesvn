@@ -254,7 +254,9 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 				temp.LoadString(IDS_MENUREVERT);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
-			}
+			} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
+			temp.LoadString(IDS_MENUREFRESH);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
 			theApp.DoWaitCursor(1);
@@ -283,6 +285,11 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			case ID_COMPARE:
 				{
 					StartDiff(selIndex);
+				}
+				break;
+			case ID_REFRESH:
+				{
+					Refresh();
 				}
 				break;
 			default:
@@ -556,43 +563,46 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 	{
 		if (!GetDlgItem(IDOK)->IsWindowEnabled())
 			return CResizableDialog::PreTranslateMessage(pMsg);
-		CString temp;
-		m_arFileList.RemoveAll();
-		m_templist.RemoveAll();
-		m_arFileStatus.RemoveAll();
-
-		m_ListCtrl.DeleteAllItems();
-		int c = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
-		while (c>=0)
-			m_ListCtrl.DeleteColumn(c--);
-		temp.LoadString(IDS_LOGPROMPT_FILE);
-		m_ListCtrl.InsertColumn(0, temp);
-		temp.LoadString(IDS_LOGPROMPT_STATUS);
-		m_ListCtrl.InsertColumn(1, temp);
-
-		m_ListCtrl.SetRedraw(false);
-		int mincol = 0;
-		int maxcol = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
-		int col;
-		for (col = mincol; col <= maxcol; col++)
-		{
-			m_ListCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-		}
-
-		//first start a thread to obtain the file list with the status without
-		//blocking the dialog
-		DWORD dwThreadId;
-		if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
-		{
-			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-		}
-		//m_ListCtrl.UpdateData(FALSE);
+		Refresh();
 	}
 
 	return CResizableDialog::PreTranslateMessage(pMsg);
 }
 
+void CLogPromptDlg::Refresh()
+{
+	CString temp;
+	m_arFileList.RemoveAll();
+	m_templist.RemoveAll();
+	m_arFileStatus.RemoveAll();
 
+	m_ListCtrl.DeleteAllItems();
+	int c = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+	while (c>=0)
+		m_ListCtrl.DeleteColumn(c--);
+	temp.LoadString(IDS_LOGPROMPT_FILE);
+	m_ListCtrl.InsertColumn(0, temp);
+	temp.LoadString(IDS_LOGPROMPT_STATUS);
+	m_ListCtrl.InsertColumn(1, temp);
+
+	m_ListCtrl.SetRedraw(false);
+	int mincol = 0;
+	int maxcol = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+	int col;
+	for (col = mincol; col <= maxcol; col++)
+	{
+		m_ListCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
+
+	//first start a thread to obtain the file list with the status without
+	//blocking the dialog
+	DWORD dwThreadId;
+	if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	//m_ListCtrl.UpdateData(FALSE);
+}
 
 
 
