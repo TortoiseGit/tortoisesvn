@@ -239,13 +239,13 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
 		sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
 		if (msg.ReverseFind('\n')>=0)
-		{
 			sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
-			if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
-				sBugLine.Empty();
-			if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
-				sBugLine.Empty();
-		}
+		else
+			sBugLine = msg;
+		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+			sBugLine.Empty();
+		if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+			sBugLine.Empty();
 		if (sBugLine.IsEmpty())
 		{
 			if (msg.Find('\n')>=0)
