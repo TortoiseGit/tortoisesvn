@@ -1,3 +1,4 @@
 .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=\s?\(.*\);))
 .cpp = (?<=[^\s]::)\b\w+\b
 .pl, .pm, .cgi = (?<=sub[\s]+)\b\w+\b
+.bas, .frm, .cls = (?<=(Public |Private )?(Sub|Function|Property Get|Property Set|Property Let) )(\w+)(?=\(.*\))
