@@ -159,19 +159,6 @@ void CImportDlg::OnOK()
 		m_url = m_URLCombo.GetString();
 		UpdateData();
 	}
-	if (m_url.Left(7).CompareNoCase(_T("file://"))==0)
-	{
-		//check if the url is on a network share
-		CString temp = m_url.Mid(7);
-		temp = temp.TrimLeft('/');
-		temp.Replace('/', '\\');
-		temp = temp.Left(3);
-		if (GetDriveType(temp)==DRIVE_REMOTE)
-		{
-			if (CMessageBox::Show(this->m_hWnd, IDS_WARN_SHAREFILEACCESS, IDS_APPNAME, MB_ICONWARNING | MB_YESNO)==IDNO)
-				return;
-		} // if (GetDriveType(temp)==DRIVE_REMOTE) 
-	} // if (m_url.Left(7).CompareNoCase(_T("file://"))==0) 
 	CResizableDialog::OnOK();
 }
 
