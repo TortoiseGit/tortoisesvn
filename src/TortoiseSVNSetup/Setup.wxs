@@ -1386,16 +1386,16 @@ Click "Next" to start the installation.</Text>
         </Control>
       </Dialog>
       <RadioGroup Property="MaintenanceForm_Action">
-        <RadioButton Text="{\Sans_Serif13}&amp;Repair [ProductName]" X="0" Y="0" Width="348" Height="17">Repair</RadioButton>
-        <RadioButton Text="{\Sans_Serif13}Re&amp;move [ProductName]" X="0" Y="18" Width="348" Height="17">Remove</RadioButton>
+        <RadioButton Value="Repair" Text="{\Sans_Serif13}&amp;Repair [ProductName]" X="0" Y="0" Width="348" Height="17" />
+        <RadioButton Value="Remove" Text="{\Sans_Serif13}Re&amp;move [ProductName]" X="0" Y="18" Width="348" Height="17" />
       </RadioGroup>
       <RadioGroup Property="AdminMaintenanceForm_Action">
-        <RadioButton Text="{\Sans_Serif13}&amp;Repair [ProductName]" X="0" Y="0" Width="348" Height="17">Repair</RadioButton>
-        <RadioButton Text="{\Sans_Serif13}Re&amp;move [ProductName]" X="0" Y="18" Width="348" Height="17">Remove</RadioButton>
+        <RadioButton Value="Repair" Text="{\Sans_Serif13}&amp;Repair [ProductName]" X="0" Y="0" Width="348" Height="17" />
+        <RadioButton Value="Remove" Text="{\Sans_Serif13}Re&amp;move [ProductName]" X="0" Y="18" Width="348" Height="17" />
       </RadioGroup>
       <RadioGroup Property="FolderForm_AllUsers">
-        <RadioButton Text="{\Sans_Serif13}&amp;Everyone" X="0" Y="0" Width="342" Height="17">ALL</RadioButton>
-        <RadioButton Text="{\Sans_Serif13}Just &amp;me" X="0" Y="18" Width="342" Height="17">ME</RadioButton>
+        <RadioButton Value="ALL" Text="{\Sans_Serif13}&amp;Everyone" X="0" Y="0" Width="342" Height="17" />
+        <RadioButton Value="ME" Text="{\Sans_Serif13}Just &amp;me" X="0" Y="18" Width="342" Height="17" />
       </RadioGroup>
       <TextStyle Id="Sans_Serif13" FaceName="MS Sans Serif" Size="9" Red="0" Green="0" Blue="0" />
       <TextStyle Id="Sans_Serif16" FaceName="MS Sans Serif" Size="12" Red="0" Green="0" Blue="0" Bold="yes" />
