@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "Workingfile.h"
 #include "Utils.h"
+#include "resource.h"
 
 CWorkingFile::CWorkingFile(void)
 {
@@ -49,14 +50,28 @@ CWorkingFile::TransferDetailsFrom(CWorkingFile& rightHandFile)
 CString 
 CWorkingFile::GetWindowName() const
 {
+	CString sErrMsg = "";
+		// TortoiseMerge allows non-existing files to be used in a merge
+	// Inform the user (in a non-intrusive way) if a file is absent
+	if (! this->Exists())
+	{
+		sErrMsg = CString(MAKEINTRESOURCE(IDS_NOTFOUNDVIEWTITLEINDICATOR));
+	}
+
 	if(m_sDescriptiveName.IsEmpty())
 	{
 		// We don't have a proper name - use the filename part of the path
 		// return the filename part of the path.
-		return CUtils::GetFileNameFromPath(m_sFilename);
+		return CUtils::GetFileNameFromPath(m_sFilename) + _T(" ") + sErrMsg;
 	}
 	else
 	{
-		return m_sDescriptiveName;
+		return m_sDescriptiveName + _T(" ") + sErrMsg;
 	}
+}
+
+bool
+CWorkingFile::Exists() const
+{
+	return (!!PathFileExists(m_sFilename));
 }

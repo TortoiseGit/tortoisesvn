@@ -11,6 +11,7 @@ public:
 public:
 	// Is this file in use?
 	bool InUse() const		{ return !m_sFilename.IsEmpty(); }
+	bool Exists() const;
 	void SetFileName(const CString& newFilename);
 	void SetDescriptiveName(const CString& newDescName);
 	void CreateEmptyFile();

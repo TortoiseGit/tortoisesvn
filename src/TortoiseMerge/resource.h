@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
+// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   100
@@ -149,6 +149,7 @@
 #define IDS_WARNMODIFIEDLOOSECHANGES_   5007
 #define IDS_WARNMODIFIEDLOOSECHANGESOPTIONS 5007
 #define IDS_WARNBETTERPATCHPATHFOUND    5008
+#define IDS_NOTFOUNDVIEWTITLEINDICATOR  5009
 #define IDS_PATCH_ALL                   6000
 #define IDS_PATCH_TITLE                 6001
 #define ID_VIEW_WHITESPACES             32774
