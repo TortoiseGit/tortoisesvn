@@ -1,4 +1,4 @@
-﻿@echo off
+@echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 set starttime=%time%
 rem
