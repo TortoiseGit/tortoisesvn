@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-02-14 19:15+0100\n"
+"PO-Revision-Date: 2005-03-08 11:01+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -148,6 +148,17 @@ msgid ""
 msgstr ""
 "%s\n"
 "Vil du slette uansett?"
+
+# ID:69,
+#: ID:69
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"er en katalog, ikke en fil.\n"
+"TortoiseMerge kan ikke diffe kataloger."
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
@@ -855,10 +866,6 @@ msgstr "Lukk automatisk hvis ingen feil"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Lukk automatisk hvis ingen fletting, sletting eller hvis ingen ting legges til"
 
-#: Control-ID:1067
-msgid "Automatically resolve conflicted subversion status on save"
-msgstr "Løs automatisk det som er konfliktmerket under lagring"
-
 #: Control-ID:1157
 msgid "Average"
 msgstr "Gjenomsnitt"
@@ -907,6 +914,15 @@ msgstr "Forgrening/Merke"
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Det gikk bra å lage Forgrening/Merke!"
+
+# Control-ID:1073,
+#: Control-ID:1182
+msgid "Branch/Tag directly on the server (HEAD revision)"
+msgstr "Lag forgrening/merke direkte på server (HEAD revision)"
+
+#: Control-ID:1183
+msgid "Branch/Tag the working copy"
+msgstr "Lag forgrening/merke i arbeidskopien"
 
 #: ID:9
 msgid "Branch/Tag..."
@@ -1357,11 +1373,6 @@ msgstr "Lag depot"
 msgid "Create Repository here"
 msgstr "Lag depot her"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Create the branch/tag directly on the server"
-msgstr "Lag forgrening/merke direkte på server"
-
 #: ID:126
 msgid "Created folder remotely"
 msgstr "Laget mappe eksternt"
@@ -1736,11 +1747,6 @@ msgstr "Skrifttype:"
 msgid "For Help, press F1"
 msgstr "Trykk på F1 for hjelp"
 
-# Control-ID:1168,
-#: Control-ID:1168
-msgid "Force shell icon refresh"
-msgstr "Tving frem ikon-oppfriskning i skallet"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
@@ -1902,6 +1908,11 @@ msgstr "Ingnorer foranstilte mellomrom"
 #: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
 msgstr "Ignorer linjeslutt (anbefales)"
+
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Ignore case changes"
+msgstr "Ignorer at tegn er store og små"
 
 #: Dlg-ID:139
 msgid "Import"
@@ -2251,6 +2262,10 @@ msgstr ""
 "siste innsending. Det er ingen ting\n"
 "å gjøre forTortoiseSVN her...\n"
 "Vil du se de ikke-versjoneret filene?"
+
+#: ID:273
+msgid "No graph available"
+msgstr "Det finnes ingen tilgjengelig graf"
 
 # ID:273,
 #: ID:273
@@ -3349,6 +3364,21 @@ msgstr ""
 "%s\n"
 "passer ikke sammen!"
 
+# ID:88,
+#: ID:88
+msgid ""
+"The path/url you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Stien/URL-en du anga ser ut til å være ugyldig i Windows.\n"
+"Du kan forsøke, men det kan komme feil senere.\n"
+"\n"
+"En gyldig Windows-sti må ikke inneholde '<>|\"?*:' eller noen av følgende de stasjonsnavnene:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # ID:314,
 #: ID:314
 msgid ""
@@ -3434,6 +3464,17 @@ msgstr ""
 #: ID:188
 msgid "Thesaurus"
 msgstr "Synonymordbok"
+
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Dette er en ugyldig bane.\n"
+"En gyldig sti må ikke inneholde '<>|\"?*:' eller noen av følgende de stasjonsnavnene:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -3699,6 +3740,11 @@ msgstr "Bruk en tekstviser for å vise inneholds-historikk."
 msgid "Use \"From:\" URL"
 msgstr "Bruk  \"Fra:\"-adresse"
 
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "Use autocompletion of filepaths and keywords"
+msgstr "Bruk automatisk fullføring av fil-stier og nøkkelord"
+
 #: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "Bruk et-panelsvisning som stanard"
@@ -3799,14 +3845,6 @@ msgstr "Advarsel"
 #: ID:219
 msgid "Warning!"
 msgstr "Advarsel!"
-
-#: ID:195
-msgid ""
-"When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Tvinger frem en oppfriskning av ikonlagene etter hver operasjon hvis avkrysset.\n"
-"<ct=0x0000ff><b>Advarsel:</b> Dette kan gjøre utforskeren tregere</ct>"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3915,12 +3953,12 @@ msgstr ""
 "arbeidskopien vill ikke se nøyaktig ut som den revisjonen du oppdaterer til!"
 
 #: MenuEntry
-msgid "Zoom &In"
-msgstr "Zoom &inn"
+msgid "Zoom &In\tCtrl-+"
+msgstr "Zoom &inn\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out"
-msgstr "Zoom &ut"
+msgid "Zoom &Out\tCtrl--"
+msgstr "Zoom &ut\tCtrl-+"
 
 #: ID:10
 msgid "added"
