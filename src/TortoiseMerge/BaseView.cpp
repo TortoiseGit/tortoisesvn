@@ -319,10 +319,11 @@ void CBaseView::CalcLineCharDim()
 	CFont *pOldFont = pDC->SelectObject(GetFont());
 	CSize szCharExt = pDC->GetTextExtent(_T("X"));
 	m_nLineHeight = szCharExt.cy;
-	if (m_nLineHeight < 1)
-		m_nLineHeight = 1;
+	if (m_nLineHeight <= 0)
+		m_nLineHeight = -1;
 	m_nCharWidth = szCharExt.cx;
-
+	if (m_nCharWidth <= 0)
+		m_nCharWidth = -1;
 	pDC->SelectObject(pOldFont);
 	ReleaseDC(pDC);
 }
@@ -366,6 +367,8 @@ int CBaseView::GetLineHeight()
 {
 	if (m_nLineHeight == -1)
 		CalcLineCharDim();
+	if (m_nLineHeight <= 0)
+		return 1;
 	return m_nLineHeight;
 }
 
@@ -373,6 +376,8 @@ int CBaseView::GetCharWidth()
 {
 	if (m_nCharWidth == -1)
 		CalcLineCharDim();
+	if (m_nCharWidth <= 0)
+		return 1;
 	return m_nCharWidth;
 }
 
