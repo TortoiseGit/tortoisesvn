@@ -138,7 +138,7 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 			m_ProgList.SetItemText(count, 1, temp);
 			m_RevisionEnd = rev;
 		}
-		//m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
+		m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
 		Data * data = new Data();
 		data->path = path;
 		data->action = action;
@@ -210,7 +210,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	temp.LoadString(IDS_PROGRS_PATH);
 	m_ProgList.InsertColumn(1, temp);
 	temp.LoadString(IDS_PROGRS_MIMETYPE);
-	//m_ProgList.InsertColumn(2, temp);
+	m_ProgList.InsertColumn(2, temp);
 
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
@@ -249,6 +249,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 
 	CString temp;
 	CString sWindowTitle;
+	CString sTempWindowTitle;
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
@@ -258,7 +259,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	{
 		case Checkout:			//no tempfile!
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
-			pDlg->SetWindowText(sWindowTitle);
+			sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sUrl)+_T(" - ")+sWindowTitle;
+			pDlg->SetWindowText(sTempWindowTitle);
 			if (!pDlg->Checkout(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_Revision, pDlg->m_IsTempFile /* temfile used as recursive/nonrecursive */))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -266,7 +268,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			break;
 		case Import:			//no tempfile!
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
-			pDlg->SetWindowText(sWindowTitle);
+			sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sPath)+_T(" - ")+sWindowTitle;
+			pDlg->SetWindowText(sTempWindowTitle);
 			if (!pDlg->Import(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_sMessage, true))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -324,6 +327,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 							}
 						} // if (pDlg->m_Revision.IsHead()) 
 						TRACE(_T("update file %s\n"), strLine);
+						CString sTempWindowTitle = CUtils::GetFileNameFromPath(strLine)+_T(" - ")+sWindowTitle;
+						pDlg->SetWindowText(sTempWindowTitle);
 						if (!pDlg->Update(strLine, pDlg->m_Revision, (pDlg->m_sModName.Compare(_T("yes"))!=0)))
 						{
 							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
@@ -361,6 +366,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						pDlg->m_Revision = st.status->entry->revision;
 					}
 				}
+				sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sPath)+_T(" - ")+sWindowTitle;
+				pDlg->SetWindowText(sTempWindowTitle);
 				if (pDlg->Update(pDlg->m_sPath, rev, true))
 				{
 					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
@@ -425,6 +432,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						if (CMessageBox::Show(pDlg->m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
 							break;
 					} // if (isTag)
+					sTempWindowTitle = CUtils::GetFileNameFromPath(commitString)+_T(" - ")+sWindowTitle;
+					pDlg->SetWindowText(sTempWindowTitle);
 					if (!pDlg->Commit(commitString, pDlg->m_sMessage, ((nTargets == 1)&&(pDlg->m_Revision == 0))))
 					{
 						TRACE("%s", pDlg->GetLastErrorMessage());
@@ -443,6 +452,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			}
 			else
 			{
+				sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sPath)+_T(" - ")+sWindowTitle;
+				pDlg->SetWindowText(sTempWindowTitle);
 				pDlg->Commit(pDlg->m_sPath, pDlg->m_sMessage, true);
 			}
 			break;
@@ -578,7 +589,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			break;
 		case Export:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
-			pDlg->SetWindowText(sWindowTitle);
+			sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sUrl)+_T(" - ")+sWindowTitle;
+			pDlg->SetWindowText(sTempWindowTitle);
 			if (!pDlg->Export(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_Revision))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
