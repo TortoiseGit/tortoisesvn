@@ -501,19 +501,9 @@ void CMainFrame::UpdateLayout()
 void CMainFrame::OnSize(UINT nType, int cx, int cy)
 {
     CNewFrameWnd::OnSize(nType, cx, cy);
-    CRect cr;
-    GetWindowRect(&cr);
-
     if (m_bInitSplitter && nType != SIZE_MINIMIZED)
     {
-        m_wndSplitter.SetRowInfo(0, cy/2, 0);
-        m_wndSplitter.SetRowInfo(1, cy/2, 0);
-        m_wndSplitter.SetColumnInfo(0, cr.Width() / 2, 50);
-        m_wndSplitter2.SetRowInfo(0, cy/2, 0);
-        m_wndSplitter2.SetColumnInfo(0, cr.Width() / 2, 50);
-        m_wndSplitter2.SetColumnInfo(1, cr.Width() / 2, 50);
-
-        m_wndSplitter.RecalcLayout();
+		UpdateLayout();
     } // if (m_bInitSplitter && nType != SIZE_MINIMIZED) 
 }
 
