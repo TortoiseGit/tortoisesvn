@@ -1197,6 +1197,7 @@ Click "Next" to start the installation.</Text>
     <InstallExecuteSequence>
       <RemoveExistingProducts After="FindRelatedProducts">PREVIOUSVERSIONSINSTALLED</RemoveExistingProducts>
       <Custom Action="DIRCA_TARGETDIR" After="ValidateProductID">TARGETDIR=""</Custom>
+      <ScheduleReboot After="RegisterProduct"></ScheduleReboot>
     </InstallExecuteSequence>
     <Binary Id="UpFldrBtn" src="UpFldrBtn.bmp" />
     <Binary Id="NewFldrBtn" src="NewFldrBtn.bmp" />
