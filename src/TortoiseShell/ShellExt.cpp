@@ -36,9 +36,6 @@ CShellExt::CShellExt(FileState state)
     m_State = state;
 	
     m_cRef = 0L;
-	//if this is the first time the dll is loaded also start the watcher process.
-	//the process itself makes sure that it is not started twice so the
-	//check 'first start of dll' is enough.
     g_cRefThisDll++;
 	
     INITCOMMONCONTROLSEX used = {

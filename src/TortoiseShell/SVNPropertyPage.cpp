@@ -263,7 +263,7 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
 void CSVNPropertyPage::InitWorkfileView()
 {
 	SVNStatus svn = SVNStatus();
-	TCHAR tbuf[4096];
+	TCHAR tbuf[MAX_PROP_STRING_LENGTH];
 	if (svn.GetStatus(filename.c_str())>(-2))
 	{
 		if (svn.status->entry != NULL)
@@ -351,11 +351,10 @@ void CSVNPropertyPage::InitWorkfileView()
 					ListView_InsertItem(lvh, &lvitem);
 					temp = props.GetItemValue(i);
 					//treat values as normal text even if they're not
-					_tcsncpy(tbuf, temp.c_str(), 4095);
 #ifdef UNICODE
-					stemp = MultibyteToWide((char *)tbuf);
+					stemp = MultibyteToWide((char *)temp.c_str());
 #else
-					stemp = stdstring((char *)tbuf);
+					stemp = temp;
 #endif
 					ListView_SetItemText(lvh, i, 1, (LPTSTR)(stemp.c_str()));
 				}
