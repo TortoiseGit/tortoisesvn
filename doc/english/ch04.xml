@@ -869,105 +869,101 @@
 		of your selected Directory <emphasis>inside the repository</emphasis>. 
 		Nothing has happened to your local Disk (yet). 
 		</para>
+
+		<sect2 id="tsvn-DUG-switch-1">
+			<title>To Checkout or to Switch...</title>
+			<para>
+			...that is not really the question. While a checkout checks 
+			out everything from the desired branch into your working 
+			directory, a switch only transfers the changed data to your 
+			working copy. Good for the network load, good for your patience. :-)
+			</para>
+			<para>
+			To be able to work with your freshly generated copy you 
+			have several ways to handle it. You can:
+			<itemizedlist>
+					<listitem>
+						<para>do a <guimenuitem>Checkout</guimenuitem> of 
+				it again. You can check it out to any location on your 
+				local disk and you can create as many working copies 
+				from your repository as you like.</para>
+					</listitem>
+					<listitem>
+						<para>Switch your current working copy to the 
+				newly created copy in the repository. Again select the 
+				parent folder of your project and select the command 
+				<guimenuitem>Switch...</guimenuitem> from the context menu.
+				</para>
+					</listitem>
+				</itemizedlist>
+				<figure id="tsvn-DUG-switch-dia-1">
+					<title>The Switch Dialog</title>
+					<graphic fileref="Switch.png"/>
+				</figure>
+	
+			Here you enter the URL of the branch / tag you just created. 
+			Leave the checkbox "newest revision" active. Press ok and 
+			your working copy is switched to the new branch / tag.
+			</para>
+			<para>
+			Only if you modify data, these modifications will be 
+			committed to the repository. The rest remains a cheap 
+			copy of the original.
+			</para>
+			<para>
+			From now on working with branches or tags differs a bit:
+			<itemizedlist>
+					<listitem>
+						<para>If you modify a Tag revision, 
+				TortoiseSVN will warn you if you try to commit to 
+				a <filename>/tags</filename> path in the repository. 
+				Be aware, that your local files are not write 
+				protected. So working on a tag revision is <emphasis>not a good	idea</emphasis>.
+				That's the reason why we recommended 
+				the <filename>/trunk /branches /tags</filename> repository 
+				structure in the first place. </para>
+					</listitem>
+					<listitem>
+						<para>If you modify a working copy created from 
+				a branch and commit, then all changes go to the new 
+				branch and not the main branch. Only the modifications 
+				are stored. The rest remains a cheap copy.</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</sect2>
+
+		<sect2 id="tsvn-DUG-merge-2">
+			<title>Merging A Branch Back Into The Main Branch</title>
+			<para>
+				<figure id="tsvn-DUG-merge-dia-1">
+					<title>The Merge Dialog</title>
+					<graphic fileref="Merge.png"/>
+				</figure>
+	
+			If you want to merge your changes back into the main branch, 
+			just select <guimenuitem>merge</guimenuitem> from the context menu
+	
+			The screenshot says it all, but for those who have 
+			turned graphics off, I'll just repeat the content :-) 
+			<itemizedlist>
+					<listitem>
+						<para>To merge only specific changes from 
+				the other branch you have to specify the revisions 
+				between which the change occured. 
+				</para>
+					</listitem>
+					<listitem>
+						<para>To merge a complete branch back into 
+				the trunk you have to specify the revision the 
+				branch was created and HEAD. </para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 12 ============================= -->
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-DUG-switch">
-		<title>To Checkout or to Switch...</title>
-		<para>
-		...that is not really the question. While a checkout checks 
-		out everything from the desired branch into your working 
-		directory, a switch only transfers the changed data to your 
-		working copy. Good for the network load, good for your patience. :-)
-		</para>
-		<para>
-		To be able to work with your freshly generated copy you 
-		have several ways to handle it. You can:
-		<itemizedlist>
-				<listitem>
-					<para>do a <guimenuitem>Checkout</guimenuitem> of 
-			it again. You can check it out to any location on your 
-			local disk and you can create as many working copies 
-			from your repository as you like.</para>
-				</listitem>
-				<listitem>
-					<para>Switch your current working copy to the 
-			newly created copy in the repository. Again select the 
-			parent folder of your project and select the command 
-			<guimenuitem>Switch...</guimenuitem> from the context menu.
-			</para>
-				</listitem>
-			</itemizedlist>
-			<figure id="tsvn-DUG-switch-dia-1">
-				<title>The Switch Dialog</title>
-				<graphic fileref="Switch.png"/>
-			</figure>
-
-		Here you enter the URL of the branch / tag you just created. 
-		Leave the checkbox "newest revision" active. Press ok and 
-		your working copy is switched to the new branch / tag.
-		</para>
-		<para>
-		Only if you modify data, these modifications will be 
-		committed to the repository. The rest remains a cheap 
-		copy of the original.
-		</para>
-		<para>
-		From now on working with branches or tags differs a bit:
-		<itemizedlist>
-				<listitem>
-					<para>If you modify a Tag revision, 
-			TortoiseSVN will warn you if you try to commit to 
-			a <filename>/tags</filename> path in the repository. 
-			Be aware, that your local files are not write 
-			protected. So working on a tag revision is <emphasis>not a good	idea</emphasis>.
-			That's the reason why we recommended 
-			the <filename>/trunk /branches /tags</filename> repository 
-			structure in the first place. </para>
-				</listitem>
-				<listitem>
-					<para>If you modify a working copy created from 
-			a branch and commit, then all changes go to the new 
-			branch and not the main branch. Only the modifications 
-			are stored. The rest remains a cheap copy.</para>
-				</listitem>
-			</itemizedlist>
-		</para>
-	</sect1>
-	<!-- ================================================================= -->
-	<!-- ======================== SECTION 13 ============================= -->
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-DUG-merge">
-		<title>Merging A Branch Back Into The Main Branch</title>
-		<para>
-			<figure id="tsvn-DUG-merge-dia-1">
-				<title>The Merge Dialog</title>
-				<graphic fileref="Merge.png"/>
-			</figure>
-
-		If you want to merge your changes back into the main branch, 
-		just select <guimenuitem>merge</guimenuitem> from the context menu
-
-		The screenshot says it all, but for those who have 
-		turned graphics off, I'll just repeat the content :-) 
-		<itemizedlist>
-				<listitem>
-					<para>To merge only specific changes from 
-			the other branch you have to specify the revisions 
-			between which the change occured. 
-			</para>
-				</listitem>
-				<listitem>
-					<para>To merge a complete branch back into 
-			the trunk you have to specify the revision the 
-			branch was created and HEAD. </para>
-				</listitem>
-			</itemizedlist>
-		</para>
-	</sect1>
-	<!-- ================================================================= -->
-	<!-- ======================== SECTION 14 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-relocate">
 		<title>Relocating a working copy</title>
@@ -983,7 +979,7 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 14 ============================= -->
+	<!-- ======================== SECTION 13 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-settings">
 		<title>TortoiseSVN's Settings</title>
@@ -1039,7 +1035,7 @@
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 15 ============================= -->
+	<!-- ======================== SECTION 14 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-blame">
 		<title>Who Changed Which Line?</title>
@@ -1116,7 +1112,7 @@ line   rev    date                 author     content
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 16 ============================= -->
+	<!-- ======================== SECTION 15 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-donate">
 		<title>Final Step</title>
