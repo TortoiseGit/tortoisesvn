@@ -904,16 +904,20 @@ CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t 
 	{
 		case svn_wc_notify_add:
 		case svn_wc_notify_update_add:
-		case svn_wc_notify_commit_added:
 			temp.LoadString(IDS_SVNACTION_ADD);
+			break;
+		case svn_wc_notify_commit_added:
+			temp.LoadString(IDS_SVNACTION_ADDING);
 			break;
 		case svn_wc_notify_copy:
 			temp.LoadString(IDS_SVNACTION_COPY);
 			break;
 		case svn_wc_notify_delete:
 		case svn_wc_notify_update_delete:
-		case svn_wc_notify_commit_deleted:
 			temp.LoadString(IDS_SVNACTION_DELETE);
+			break;
+		case svn_wc_notify_commit_deleted:
+			temp.LoadString(IDS_SVNACTION_DELETING);
 			break;
 		case svn_wc_notify_restore:
 			temp.LoadString(IDS_SVNACTION_RESTORE);
@@ -955,7 +959,10 @@ CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t 
 			temp.LoadString(IDS_SVNACTION_STATUS);
 			break;
 		case svn_wc_notify_skip:
-			temp.LoadString(IDS_SVNACTION_SKIP);
+			if (content_state == svn_wc_notify_state_missing)
+				temp.LoadString(IDS_SVNACTION_SKIPMISSING);
+			else
+				temp.LoadString(IDS_SVNACTION_SKIP);
 			break;
 		default:
 			return _T("???");

@@ -475,6 +475,9 @@
 #define IDS_SVNERR_UPDATEFIRST          4002
 #define IDS_SVNERR_CLEANUPORFRESHCHECKOUT 4003
 #define IDS_CLIPBOARD_PROGRESS_DEST     4100
+#define IDS_SVNACTION_SKIPMISSING       4200
+#define IDS_SVNACTION_ADDING            4201
+#define IDS_SVNACTION_DELETING          4202
 
 // Next default values for new objects
 // 
