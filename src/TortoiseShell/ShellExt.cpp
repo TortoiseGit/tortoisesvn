@@ -140,7 +140,8 @@ void LoadLangDll()
 			if (g_hResInst != g_hmodThisDll)
 				FreeLibrary(g_hResInst);
 			g_hResInst = g_hmodThisDll;
-			str.removeValue();
+			CRegStdWORD lid(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+			lid.removeValue();
 			g_langid = 0;
 		}
 	} // if (g_langid != g_ShellCache.GetLangID()) 
