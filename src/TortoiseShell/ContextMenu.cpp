@@ -384,8 +384,14 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE);
 	if (_tcscmp(buf, folder_.c_str())==0)
 		return NOERROR;
-	if (_tcsstr(folder_.c_str(), _T(SVN_WC_ADM_DIR_NAME))!=0)
-		return NOERROR;
+	_tcscpy(buf, folder_.c_str());
+	TCHAR * lastpart = NULL;
+	if ((lastpart = _tcsrchr(buf, '\\'))!=0)
+	{
+		*lastpart++ = 0;
+		if (_tcscmp(lastpart, _T(SVN_WC_ADM_DIR_NAME))==0)
+			return NOERROR;
+	}
 
 	LoadLangDll();
 	bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
