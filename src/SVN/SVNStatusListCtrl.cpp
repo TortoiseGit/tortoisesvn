@@ -1678,7 +1678,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		CUtils::StartExtDiff(basePath, wcPath, n2, n1);
 	else
 		// Three-way diff
-		CUtils::StartExtMerge(basePath, remotePath, basePath, CTSVNPath(), n2, n3, n1);
+		CUtils::StartExtMerge(basePath, remotePath, wcPath, CTSVNPath(), n2, n3, n1);
 }
 
 CString CSVNStatusListCtrl::GetStatisticsString()
