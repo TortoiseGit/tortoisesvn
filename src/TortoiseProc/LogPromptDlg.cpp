@@ -190,7 +190,6 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	CString diffpath = CUtils::GetDiffPath();
 	if (diffpath != _T(""))
 	{
-
 		CString cmdline;
 		cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
 		cmdline += _T("\" ");
@@ -305,6 +304,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
 					SVNStatus::GetStatusString(stat, buf);
+					if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
+						_tcscat(buf, _T("(P only)"));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					pDlg->m_ListCtrl.SetCheck(count);
 				} // if (stat > svn_wc_status_normal)
@@ -334,6 +335,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						else
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
 						SVNStatus::GetStatusString(stat, buf);
+						if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
+							_tcscat(buf, _T("(P only)"));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						pDlg->m_ListCtrl.SetCheck(count);
 					} // if (SVNStatus::IsImportant(stat)) 

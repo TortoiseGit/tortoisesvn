@@ -101,6 +101,7 @@
 #define IDS_STRING219                   219
 #define IDS_LOGPROMPT_ASKADD            219
 #define IDS_STRING220                   220
+#define IDS_LOGPROMPT_PROPSTATUS        220
 #define IDS_PROGRS_ATREV                221
 #define IDS_PROGRS_ACTION               222
 #define IDS_PROGRS_PATH                 223
