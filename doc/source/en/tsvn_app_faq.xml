@@ -318,10 +318,31 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-5">
-			<title>The TortoiseSVN menu is missing when nothing is selected!</title>
+			<title>The TortoiseSVN menu is invisible!</title>
 			<para>
-				The main menu is known to disappear under Windows 98, ME, 
-				NT and 2000. Everything works fine under XP.
+				There are a number of known problems with disappearing menus,
+				which are due to the Windows Explorer, not TSVN. Usually
+				it shows up as a blank space in the menu where the text and
+				icon should be.
+				<itemizedlist>
+					<listitem>
+						<para>
+							If you select a folder in the left pane of explorer,
+							then use the File menu to access TSVN, the menu text
+							and icons are invisible the second time you use the
+							File menu. If you select another folder, the menu
+							is restored. This happens under Windows 98, ME, 
+							NT and 2000. Everything works fine under XP.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Under Windows NT 4, the context menu text and icons
+							for TSVN sometimes disappear. This can happen
+							anywhere in explorer.
+						</para>
+					</listitem>
+				</itemizedlist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-5a">
@@ -344,7 +365,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				You'll have all the menu entries any time, but you will 
 				have ugly icons, since window's default only allows 
 				10x10 icons. If you delete this registry key (the default) 
-				or set it to something else than <literal>0</literal>
+				or set it to something other than <literal>0</literal>
 				you have the nice icons back. 
 			</para>
 			<para>
@@ -389,31 +410,22 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		<sect2 id="tsvn-faq-installation-9">
 			<title>I've got PowerDesk 5 installed and TSVN doesn't work on my PC</title>
 			<para>
-				Well, in this case Powerdesk is the bad guy.
+				Well, in this case Powerdesk is the bad guy. However, they have
+				now provided a fix, as reported by Paul Gifford.
 			</para>
-			<para>
-				We sent an assistance request to the people from 
-				PD and this is their response (Thanks guys):
-				<blockquote>
-					<para>
-						For now, we suggest the users of the Tortoise shell 
-						extension may wish to save off the PD context menu key, 
-						and temporarily delete it from the registry while 
-						we work on a fix to the PD code. The PD context menu 
-						key is here:
-<screen>
-[HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\PowerDeskMenu]
-</screen>
-						Hopefully, removing that key will prevent a shell crash 
-						when both apps are on the system. Unfortunately, this 
-						will disable the PowerDesk features of the user's 
-						shell context menu. We believe the problem to be inside 
-						the PD code as we have seen other shell extensions run 
-						into similar problems when PD5 is installed. We are 
-						working on a fix and we will provide a patch ASAP.
-					</para>
-				</blockquote>
-			</para>
+			<blockquote>
+				<para>
+					There is a fix for Powerdesk 5, but it's not available on
+					their website; you have to contact support to get it.
+					They'll give you an update to a later version (5.0.1.7 -
+					which is strangely not on the update portion of the site)
+					then send you a patch to bring you to 5.0.1.8. which
+					fixes the problem.
+				</para>
+				<para>
+					Version 6 does not have the menu problem.
+				</para>
+			</blockquote>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-10">
 			<title>Where is the spellchecker?</title>
