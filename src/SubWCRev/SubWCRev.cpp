@@ -71,13 +71,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf(_T("working copy, excluding externals. Then the highest revision\n"));
 		printf(_T("number found is used to replace all occurences of \"$WCREV$\"\n"));
 		printf(_T("in SrcVersionFile and save the result to DstVersionFile\n\n"));
-		printf(_T("usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-n]\n\n"));
+		printf(_T("usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-n|-d]\n\n"));
 		printf(_T("Params:\n"));
 		printf(_T("WorkingCopyPath    :   path to a Subversion working copy\n"));
 		printf(_T("SrcVersionFile     :   path to a template header file\n"));
 		printf(_T("DstVersionFile     :   path to where to save the resulting header file\n"));
 		printf(_T("-n                 :   if given, then SubWCRev will error if the working\n"));
 		printf(_T("                       copy contains local modifications\n"));
+		printf(_T("-d                 :   if given, then SubWCRev only do its job if the\n"));
+		printf(_T("                       DstVersionFile does not exist\n"));
 		return 1;
 	}
 	// we have three parameters
@@ -97,6 +99,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		dst = argv[3];
 		if ((argc == 5) && (strcmp(argv[4], "-n")==0))
 			bErrOnMods = TRUE;
+		if ((argc == 5) && (strcmp(argv[4], "-d")==0))
+			if (PathFileExists(dst))
+				return 0;
 		if (!PathFileExists(src))
 		{
 			printf(_T("file %s does not exist\n"), src);

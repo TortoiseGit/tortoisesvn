@@ -47,7 +47,8 @@
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCPreBuildEventTool"
+				CommandLine="..\..\bin\Debug\SubWCRev.exe ..\..\ ..\version.in ..\version.h -d"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -734,10 +735,10 @@
 					RelativePath="..\Languages\res\ssh.ico">
 				</File>
 				<File
-					RelativePath="..\Languages\res\Tortoise.ico">
+					RelativePath="..\Icons\Tortoise.ico">
 				</File>
 				<File
-					RelativePath="..\Icons\Tortoise.ico">
+					RelativePath="..\Languages\res\Tortoise.ico">
 				</File>
 				<File
 					RelativePath="..\Icons\Tortoise13by13.ico">
