@@ -21,6 +21,20 @@ CVS
        "show log", "save as..." and "open". (Stefan)
 - ADD: new menu entry to start an external merge
        program, including parameters. (Stefan)
+- ADD: the "temporary file mask" can now contain
+       folders (marked with a backslash at the end)
+       and has a positive list (marked with a 
+       plus sign "+" in front). So you are now
+       able to specify something like
+       "+readme.txt;*.txt;cvs\" which will allow
+       the file readme.txt but deny all other *.txt
+       files, and will deny all folders and files within
+       a folder named "cvs". 
+       Please note that the order is from left
+       to right - so "*.txt;+readme.txt" will deny
+       all *.txt files, the readme.txt will also
+       be denied since it has lower priority than
+       the *.txt match. (Stefan)
 
 Version 0.11.2
 - BUG: entering the settings page without

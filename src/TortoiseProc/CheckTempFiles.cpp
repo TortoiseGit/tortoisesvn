@@ -32,12 +32,35 @@ CCheckTempFiles::~CCheckTempFiles(void)
 {
 }
 
+BOOL CCheckTempFiles::FolderMatch(CString folder, CString path)
+{
+	path.Replace('/', '\\');
+	if (!PathIsDirectory(path))
+	{
+		if (path.ReverseFind('\\')<0)
+			path.Empty();
+		else
+			path = path.Left(path.ReverseFind('\\'));
+	}
+	folder = folder.MakeLower();
+	int curPos = 0;
+	CString resToken = path.Tokenize(_T("\\"), curPos);
+	while (resToken != _T(""))
+	{
+		resToken = resToken.MakeLower();
+		if (resToken.CompareNoCase(folder)==0)
+			return TRUE;
+		resToken = path.Tokenize(_T("\\"), curPos);
+	} // while (resToken != _T(""))
+	return FALSE;
+}
+
 BOOL CCheckTempFiles::IsTemp(CString filename)
 {
 	filename = filename.MakeLower();
+	filename.Replace('/', '\\');
 	CPath filepath = filename;
 	filepath.StripPath();
-	//CRegString maskReg = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	CRegString maskReg = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
 	CString mask = maskReg;
 
@@ -49,35 +72,40 @@ BOOL CCheckTempFiles::IsTemp(CString filename)
 	CString resToken= mask.Tokenize(_T(";"),curPos);
 	while (resToken != _T(""))
 	{
-		//if (filepath.GetExtension().CompareNoCase(resToken)==0)
-		//	return TRUE;
 		resToken = resToken.MakeLower();
-		if (CStringUtils::WildCardMatch(resToken, filepath))
-			return TRUE;
+		BOOL plus = FALSE;
+		BOOL folder = FALSE;
+		if (resToken.Left(1).Compare(_T("+"))==0)
+		{
+			resToken = resToken.Right(resToken.GetLength() - 1);
+			plus = TRUE;
+		} // if (resToken.Left(1).Compare(_T("+"))==0)
+		if (resToken.Right(1).Compare(_T("\\"))==0)
+		{
+			resToken = resToken.Left(resToken.GetLength() - 1);
+			folder = TRUE;
+		}
+		if ((!folder)&&(CStringUtils::WildCardMatch(resToken, filepath)))
+		{
+			if (plus)
+				return FALSE;
+			else
+				return TRUE;
+		} // if ((!folder)&&(CStringUtils::WildCardMatch(resToken, filepath)))
+		if ((folder)&&(FolderMatch(resToken, filename)))
+		{
+			if (plus)
+				return FALSE;
+			else
+				return TRUE;
+		}
 		resToken = mask.Tokenize(_T(";"),curPos);
 	};
 	return FALSE;
 }
+
 int CCheckTempFiles::Check(CString dirName, const BOOL recurse, const BOOL includeDirs)
 {
-	//CRegString maskReg = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	CRegString maskReg = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
-	CString mask = maskReg;
-
-	if (mask.GetLength() == 0)
-		return IDOK;
-
-	//separate the extensions
-	CStringArray maskarray;
-	int curPos= 0;
-	CString resToken= mask.Tokenize(_T(";"),curPos);
-	while (resToken != _T(""))
-	{
-		resToken = resToken.MakeLower();
-		maskarray.Add(resToken);
-		resToken = mask.Tokenize(_T(";"),curPos);
-	};
-
 	CDirFileList filelist;
 	filelist.BuildList(dirName, recurse, includeDirs);
 
@@ -85,19 +113,8 @@ int CCheckTempFiles::Check(CString dirName, const BOOL recurse, const BOOL inclu
 	int count = 0;
 	for (int i=0; i<filelist.GetCount(); i++)
 	{
-		CString fpath = filelist.GetAt(i);
-		fpath = fpath.MakeLower();
-		CPath filepath = fpath;
-		filepath.StripPath();
-		//check for every extension in the list
-		for (int j=0; j<maskarray.GetCount(); j++)
-		{
-			//if (filepath.GetExtension().CompareNoCase(maskarray.GetAt(j))==0)
-			if (CStringUtils::WildCardMatch(maskarray.GetAt(j), filepath))
-			{
-				count++;
-			}
-		}
+		if (IsTemp(filelist.GetAt(i)))
+			count++;
 	}
 
 	if (count > 0)
@@ -106,42 +123,23 @@ int CCheckTempFiles::Check(CString dirName, const BOOL recurse, const BOOL inclu
 		CString temp;
 		temp.Format(_T("there are %d files selected which appear to be\neither temporary or compiler generated.\n"),count);
 		temp += _T("Do you want to delete them first?\n");
-		temp += _T("<ct=0x0000ff><b>Warning!</b></ct> if you click yes then <u>all</u> files with endings\n");
-		temp += maskReg;
-		temp += _T("\nwill be deleted!");
+		temp += _T("<ct=0x0000ff><b>Warning!</b></ct> if you click yes then <u>all</u> files you marked as temporary\nin the settings will be deleted!");
 		int ret;
 		if ((ret = CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_YESNOCANCEL|MB_ICONQUESTION|MB_DEFBUTTON3))==IDYES)
 		{
 			for (int i=0; i<filelist.GetCount(); i++)
 			{
-				CString fpath = filelist.GetAt(i);
-				fpath = fpath.MakeLower();
-				CPath filepath = fpath;
-				filepath.StripPath();
-				for (int j=0; j<maskarray.GetCount(); j++)
+				if (IsTemp(filelist.GetAt(i)))
 				{
-					//if (filepath.GetExtension().CompareNoCase(maskarray.GetAt(j))==0)
-					if (CStringUtils::WildCardMatch(maskarray.GetAt(j), filepath))
-					{
-						//try
-						//{
-							//TODO: replace CFile::Remove with a shell delete (trashbin)
-							//CFile::Remove(filepath);
-							TCHAR filename[MAX_PATH] = {0};
-							_tcscpy(filename, fpath);
-							SHFILEOPSTRUCT fileop;
-							fileop.hwnd = NULL;
-							fileop.wFunc = FO_DELETE;
-							fileop.pFrom = filename;
-							fileop.pTo = _T("");
-							fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
-							SHFileOperation(&fileop);
-						//} 
-						//catch (CFileException* pEx)
-						//{
-						//	pEx->Delete();
-						//}
-					}
+					TCHAR filename[MAX_PATH] = {0};
+					_tcscpy(filename, filelist.GetAt(i));
+					SHFILEOPSTRUCT fileop;
+					fileop.hwnd = NULL;
+					fileop.wFunc = FO_DELETE;
+					fileop.pFrom = filename;
+					fileop.pTo = _T("");
+					fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
+					SHFileOperation(&fileop);
 				}
 			} // for (int i=0; i<filelist.GetCount(); i++)
 			return IDOK;

@@ -68,4 +68,8 @@ public:
 	 * \param filename the file to check
 	 */
 	static BOOL IsTemp(CString filename);
+	/**
+	 * Checks if the \em folder is part of the \em path.
+	 */
+	static BOOL FolderMatch(CString folder, CString path);
 };

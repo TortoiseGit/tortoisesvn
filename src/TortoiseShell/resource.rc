@@ -104,7 +104,7 @@ BEGIN
     IDS_MENUADD             "Добавить в репозиторий"
     IDS_MENUREVERT          "Отменить изменения"
     IDS_MENUCLEANUP         "Убрать временные файлы"
-    IDS_MENURESOLVE         "Разрешить конфликт"
+    IDS_MENURESOLVE         "Пометить конфликт разрешенным"
 END
 
 STRINGTABLE 
@@ -179,8 +179,8 @@ BEGIN
     IDS_COLDESCURL          "URL of subversion items"
     IDS_COLTITLESHORTURL    "SVN short Url"
     IDS_COLDESCSHORTURL     "short Url of subversion items"
-    IDS_MENUCONFLICT        "edit conflicts"
-    IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
+    IDS_MENUCONFLICT        "Разрешить конфликты"
+    IDS_MENUDESCCONFLICT    "Запускает внешнюю программу слияния файлов, для разрешения конфликтов"
 END
 
 #endif    // Russian resources
