@@ -67,8 +67,9 @@ BOOL CSwitchDlg::OnInitDialog()
 	m_bFolder = svnPath.IsDirectory();
 	SVN svn;
 	CString url = svn.GetURLFromPath(svnPath);
+	CString sUUID = svn.GetUUIDFromPath(svnPath);
 	m_URLCombo.SetURLHistory(TRUE);
-	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	if (!url.IsEmpty())
 	{
 		m_path = url;

@@ -83,6 +83,7 @@ BOOL CMergeDlg::OnInitDialog()
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
 	CString url = svn.GetURLFromPath(CTSVNPath(m_wcPath));
+	CString sUUID = svn.GetUUIDFromPath(CTSVNPath(m_wcPath));
 	if (url.IsEmpty())
 	{
 		CString temp;
@@ -102,10 +103,10 @@ BOOL CMergeDlg::OnInitDialog()
 	}
 
 	m_URLCombo.SetURLHistory(TRUE);
-	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	m_URLCombo.SetWindowText(m_URLFrom);
 	m_URLCombo2.SetURLHistory(TRUE);
-	m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+	m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	m_URLCombo2.SetWindowText(m_URLTo);
 
 	if (bRepeating)
