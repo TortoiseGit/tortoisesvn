@@ -60,6 +60,7 @@ public:
 	CStringArray	m_arFileList;
 
 	CListCtrl		m_RevertList;
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };
 
 DWORD WINAPI RevertThread(LPVOID pVoid);

@@ -56,6 +56,7 @@ BEGIN_MESSAGE_MAP(CRevertDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_NOTIFY(NM_DBLCLK, IDC_REVERTLIST, OnNMDblclkRevertlist)
 	ON_NOTIFY(LVN_GETINFOTIP, IDC_REVERTLIST, OnLvnGetInfoTipRevertlist)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -226,6 +227,9 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
 	pDlg->m_bThreadRunning = FALSE;
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	return 0;
 }
 
@@ -330,4 +334,17 @@ void CRevertDlg::OnLvnGetInfoTipRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
 		_tcsncpy(pGetInfoTip->pszText, m_arFileList.GetAt(pGetInfoTip->iItem), pGetInfoTip->cchTextMax);
 
 	*pResult = 0;
+}
+
+BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if (!m_bThreadRunning)
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+		SetCursor(hCur);
+		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	SetCursor(hCur);
+	return TRUE;
 }
