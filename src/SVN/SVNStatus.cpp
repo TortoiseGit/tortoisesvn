@@ -572,6 +572,31 @@ CString SVNStatus::GetLastErrorMsg()
 	}
 	return _T("");
 }
+#else
+stdstring SVNStatus::GetLastErrorMsg()
+{
+	stdstring msg;
+	if (m_err != NULL)
+	{
+#ifdef UNICODE
+		msg = CUnicodeUtils::StdGetUnicode(m_err->message);
+#else
+		msg = m_err->message;
+#endif
+		while (m_err->child)
+		{
+			m_err = m_err->child;
+			msg += _T("\n");
+#ifdef UNICODE
+			msg += CUnicodeUtils::StdGetUnicode(m_err->message);
+#else
+			msg += m_err->message;
+#endif
+		} // while (m_err->child)
+		return msg;
+	} // if (m_err != NULL)
+	return msg;
+}
 #endif
 
 svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */)

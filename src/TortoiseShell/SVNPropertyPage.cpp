@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "svnpropertypage.h"
 #include "SVNStatus.h"
 #include "SVNProperties.h"
@@ -40,9 +41,17 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     psp.lParam = (LPARAM) sheetpage;
     psp.pfnCallback = PropPageCallbackProc;
     psp.pcRefParent = &g_cRefThisDll;
+	//ACTCTX hActCtx;
+	//HANDLE hActCtx = new ACTCTX;
+	//if (GetCurrentActCtx((HANDLE *)&hActCtx))
+	//{
+	//	psp.hActCtx = (HANDLE)hActCtx;
+	//	psp.dwFlags = psp.dwFlags | PSP_USEFUSIONCONTEXT;
+	//	::MessageBox(NULL, _T("found"),_T("TSVN"), MB_OK);
+	//}
 
     hPage = CreatePropertySheetPage (&psp);
-
+	//delete hActCtx;
     if (hPage != NULL)
 	{
         if (!lpfnAddPage (hPage, lParam))
@@ -193,6 +202,12 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						std::string t = std::string(value);
 #endif
 						props.Add(name, t.c_str());
+						SVNStatus stat = SVNStatus();
+						if (stat.GetStatus(filename.c_str())==(-2))
+						{
+							::MessageBox(m_hwnd, stat.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+							props.Remove(name);
+						}
 						InitWorkfileView();
 						delete name;
 						delete value;

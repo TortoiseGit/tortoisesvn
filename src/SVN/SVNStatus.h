@@ -33,7 +33,16 @@
 #include "svn_wc.h"
 #include "svn_utf.h"
 #include "svn_config.h"
+#include <string>
 
+#pragma warning (push,1)
+typedef std::basic_string<wchar_t> wide_string;
+#ifdef UNICODE
+#define stdstring wide_string
+#else
+#define stdstring std::string
+#endif
+#pragma warning (pop)
 
 
 /**
@@ -168,6 +177,8 @@ public:
 
 #ifdef _MFC_VER
 	CString GetLastErrorMsg();
+#else
+	stdstring GetLastErrorMsg();
 #endif
 
 private:

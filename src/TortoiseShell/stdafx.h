@@ -21,3 +21,5 @@
 #define _WIN32_IE 0x0500	// Change this to the appropriate value to target IE 5.0 or later.
 #endif
 
+#define ISOLATION_AWARE_ENABLED 1
+#include "windows.h"
