@@ -1,17 +1,18 @@
 ﻿<chapter id="tsvn-ch-1">
 
 	<title>Einleitung</title>
-	
+
 	<simplesect>
 		<para>
 		Versionskontrolle ist die Kunst, die Kontrolle über Änderungen an
 		Informationen zu behalten. Es ist seit langer Zeit ein unverzichtbares
-		Hilfsmittel für Programmierer, welche ihre Zeit damit verbringen jeweils
+		Hilfsmittel für Programmierer, welche ihre Zeit damit verbringen, jeweils
 		kleine Änderungen an Software vorzunehmen und dann manchmal diese Änderungen
 		am nächsten Tag zurücknehmen. Stellen Sie sich ein Team von solchen
-		Programmierern vor welche gleichzeitig an demselben Projekt arbeiten
-		und sie können sehen warum ein gutes Versionskontrollsystem notwendig
-		ist um ein mögliches Chaos zu verhindern.
+		Programmierern vor, welche gleichzeitig an demselben Projekt - und dabei unter
+		Umständen auch noch gleichzeitig an denselben Dateien! - arbeiten und Sie
+		können sehen, warum ein gutes Versionskontrollsystem notwendig ist, um ein
+		mögliches Chaos zu verhindern.
 		</para>
 	</simplesect>
 
@@ -20,50 +21,51 @@
 	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-ch-1-sect-1">
-		
+
 		<title>Was ist TortoiseSVN?</title>
-		
+
 		<para>
 		TortoiseSVN ist ein freies Opensource Programm für das Subversion
 		Versionskontrollsystem.
 		Das heisst, TortoiseSVN handhabt Dateien und Ordner über die Zeit.
 		Dateien werden in einer zentralen Datenbank gespeichert. Die Datenbank
-		ist ähnlich einem normalen Dateiserver, mit der Besonderheit dass 
-		sämtliche Änderungen ebenfalls gespeichert werden. Dies erlaubt es 
+		ist ähnlich einem normalen Dateiserver, mit der Besonderheit, dass
+		sämtliche Änderungen ebenfalls gespeichert werden. Dies erlaubt es,
 		ältere Versionen von Dateien zurückzuholen und Änderungen über die
-		Zeit zu verfolgen. Dies ist der Grund warum viele Leute Subversion
+		Zeit zu verfolgen. Dies ist der Grund, warum viele Leute Subversion
 		als eine Art <quote>Zeitmaschine</quote> ansehen.
 		</para>
-		
+
 		<para>
-		Einige Versionskontrollsysteme sind ebenfalls Software Konfigurations
-		Management Systeme (SCM). Diese Systeme sind speziell ausgelegt um
-		Sourcecode zu handhaben und haben viele Funktionen welche spezifisch
+		Einige Versionskontrollsysteme sind zugleich
+		Programmkonfigurations-Managementsysteme (Software Configuration
+		Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt,
+		Sourcecode zu handhaben und haben viele Funktionen, welche spezifisch
 		für die Softwareentwicklung sind &mdash; so verstehen diese etwa
 		verschiedene Programmiersprachen oder stellen Hilfsmittel für die
 		Erstellung von Programmen zur Verfügung. Subversion hingegen ist kein
-		solches System; es ist allgemein gehalten so dass es für die
+		solches System; es ist allgemein gehalten, so dass es für die
 		Handhabung von <emphasis>irgendwelchen</emphasis> Dateien geeignet
 		ist, einschliesslich Sourcecode selbstverständlich.
 		</para>
-		
+
 	</sect1>
 
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 2 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-ch-1-sect-2">
-	
+
 	<title>TortoiseSVN's Geschichte</title>
-		
+
 		<para>
-		Tim Kemp fand im Jahr 2002 dass Subversion ein sehr gutes 
-		Versionskontrollsystem war, aber es fehlte eine gute grafische
+		Tim Kemp fand im Jahr 2002, dass Subversion ein sehr gutes
+		Versionskontrollsystem sei, aber es fehle eine gute grafische
 		Oberfläche dazu. Die Idee einer Windows Shell-Integration wurde
-		inspiriert von dem Windows Programm TortoiseCVS für das ältere CVS 
+		inspiriert von dem Windows-Programm TortoiseCVS für das ältere CVS
 		Versionskontrollsystem.
 		</para>
-		
+
 		<para>
 		Tim studierte den Sourcecode von TortoiseCVS und benutzte diesen als
 		Basis für TortoiseSVN. Er startete dann das Projekt, registrierte die
@@ -71,17 +73,17 @@
 		den Sourcecode online zur Verfügung. Während dieser Zeit suchte Stefan
 		Küng nach einem guten Versionskontrollsystem und fand Subversion und
 		den Sourcecode von TortoiseSVN. Da TortoiseSVN noch nicht für den
-		normalen Gebrauch nutzbar war fing er an TortoiseSVN weiterzuentwickeln.
+		normalen Gebrauch nutzbar war, fing er an, TortoiseSVN weiterzuentwickeln.
 		Schon bald hatte er den grössten Teil des Programmcodes neu geschrieben
-		und fügte Funktionen und Befehle hinzu bis zu einem Punkt wo von dem
+		und fügte Funktionen und Befehle hinzu bis zu einem Punkt, wo von dem
 		ursprünglichen Code nichts mehr übrig war.
 		</para>
-		
+
 		<para>
-		Während Subversion immer stabiler wurde, zog es immer mehr Benutzer an, 
+		Während Subversion immer stabiler wurde, zog es immer mehr Benutzer an,
 		welche auch TortoiseSVN als ihren Subversionclient verwenden.
 		Die Benutzerzahl wuchs schnell (und wächst täglich weiter). Das war
-		als Lübbe Onken anbot beim Design zu helfen und für TortoiseSVN
+		als Lübbe Onken anbot, beim Design zu helfen und für TortoiseSVN
 		Icons und das Logo kreierte. Er kümmert sich auch um die Webseite.
 		</para>
 	</sect1>
@@ -90,9 +92,9 @@
 	<!-- ======================== SECTION 3 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-ch-1-sect-3">
-	
+
 		<title>TortoiseSVN's Eingeschaften</title>
-		
+
 		<para>
 		Was macht TortoiseSVN zu einem guten Subversion Programm? Hier eine
 		kleine Liste der besten Features:
@@ -101,23 +103,37 @@
 		<variablelist>
 			<varlistentry>
 				<term>Shell Integration</term>
-				<listitem><para>
-				TortoiseSVN fügt sich nahtlos in die Windows Shell (d.h. den
-				Explorer) ein. Das heisst Sie können weiter mit den gewohnten
+				<listitem>
+				<para>
+				TortoiseSVN fügt sich nahtlos in die Windows Shell (d. h. den
+				Explorer) ein. Das heisst, Sie können weiter mit den gewohnten
 				Programmen arbeiten und müssen sich nicht an ein neues Programm
-				gewöhnen.
-				</para></listitem>
+				gewöhnen. Und brauchen auch nicht jedesmal erst in ein anderes
+				Programm zu wechseln, wenn Sie Funktionen der Versionskontrolle
+				benötigen!
+				</para>
+				<para>
+				Und dabei sind Sie nicht einmal gezwungen, den Windows Explorer
+				zu benutzen. Auch in anderen Dateimanagern stehen Ihnen prinzipiell
+				das Kontextmenu und die anderen Funktionen von TortoiseSVN zur
+				jederzeitigen Verfügung. Wobei allerdings zu beachten ist, dass
+				TortoiseSVN speziell als Erweiterung zum Windows Explorer entwickelt
+				wird. Daher kann es sein, dass in anderen Programmen die Integration
+				nicht ganz so vollständig ist und beispielsweise die überlagernden
+				Icons nicht angezeigt werden.
+				</para>
+				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Überlagert Icons</term>
+				<term>Überlagernde Icons</term>
 				<listitem><para>
 				Der Status von jeder Datei unter Versionskontrolle wird durch
-				ein kleines überlagertes Icon angezeigt. Auf diese Weise können
+				ein kleines überlagerndes Icon angezeigt. Auf diese Weise können
 				Sie sofort den Zustand Ihrer Arbeitskopie erkennen.
 				</para></listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>Einfacher Zugriff auf Subversion Befehle</term>
+				<term>Einfacher Zugriff auf Subversion-Befehle</term>
 				<listitem><para>
 				Alle Befehle von Subversion sind über das Kontextmenu des
 				Explorers zugänglich; TortoiseSVN fügt ein eigenes Untermenu
@@ -125,40 +141,40 @@
 				</para></listitem>
 			</varlistentry>
 		</variablelist>
-		
+
 		<para>
-		Da TortoiseSVN ein Subversionprogramm ist möchten wir auch ein paar
+		Da TortoiseSVN ein Subversionprogramm ist, möchten wir auch ein paar
 		Features von Subversion selbst erwähnen:
 		</para>
-		
-		<variablelist>	
+
+		<variablelist>
 			<varlistentry>
 				<term>Ordnerkontrolle</term>
 				<listitem>
 				<para>
 				CVS speichert nur die Geschichte von einzelnen Dateien, aber
 				Subversion implementiert ein <quote>virtuelles</quote>
-				kontrolliertes Dateisystem welches auch Änderungen an Ordnern
+				kontrolliertes Dateisystem, welches auch Änderungen an Ordnern
 				über die Zeit speichert. Dateien <emphasis>und</emphasis> Ordner
-				werden kontrolliert. Dadurch gibt es Befehle um Dateien/Ordner
+				werden kontrolliert. Daher gibt es Befehle, um Dateien/Ordner
 				zu <command>verschieben</command>. Und der <command>Kopiere...
 				</command>Befehl arbeitet mit Dateien <emphasis>und</emphasis>
 				Ordnern.
 				</para>
 				</listitem>
 			</varlistentry>
-			
+
 			<varlistentry>
 				<term>Atomare Übertragungen</term>
 				<listitem>
 				<para>
 				Eine Übertragung von Änderungen geht entweder komplett in die
-				Datenbank oder gar nicht. Das erlaubt Entwicklern Änderungen
-				als logische Stücke zu übertragen.
+				Datenbank oder gar nicht. Das erlaubt Entwicklern, Änderungen
+				als zusammenhängende logische Einheit zu übertragen.
 				</para>
 				</listitem>
 			</varlistentry>
-			
+
 			<varlistentry>
 				<term>Kontrollierte Metadaten</term>
 				<listitem>
@@ -171,16 +187,16 @@
 				</para>
 				</listitem>
 			</varlistentry>
-			
+
 			<varlistentry>
 				<term>Auswahl an Netzwerkschichten</term>
 				<listitem>
 				<para>
-				Subversion hat einen abstrakten Begriff des Datenbankzugriffs
-				der es einfach macht neue Netzwerkschichten zu implementieren.
+				Subversion hat einen abstrakten Begriff des Datenbankzugriffs,
+				der es einfach macht, neue Netzwerkschichten zu implementieren.
 				Subversions fortgeschrittenster Netzwerkserver ist ein Modul
 				für den Apache Webserver, welcher eine Variante von HTTP genannt
-				WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil in
+				WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an
 				Stabilität und Interoperabilität, und stellt verschiedene
 				Schlüsselfunktionen gratis zur Verfügung: Authentifizierung,
 				Authorisierung, Netzwerkdatenkompression, Verschlüsselung via
@@ -192,47 +208,47 @@
 				</para>
 				</listitem>
 			</varlistentry>
-			
+
 			<varlistentry>
 				<term>Gleichbleibende Datenbehandlung</term>
 				<listitem>
 				<para>
 				Subversion drückt Dateiunterschiede mit Hilfe eines binären
-				Differenzalgorithmus aus, welcher identisch für Text- und 
+				Differenzalgorithmus aus, welcher identisch für Text- und
 				Binärdateien arbeitet. Beide Dateiarten werden gleich komprimiert
 				in der Datenbank abgespeichert, und jeweils nur diese Differenz
 				wird in beiden Richtungen übers Netzwerk übertragen.
 				</para>
 				</listitem>
 			</varlistentry>
-			
+
 			<varlistentry>
 				<term>Effizientes Verzweigen und Markieren</term>
 				<listitem>
 				<para>
-				Die Kosten für Verzweigen und Markieren müssen Proportional zu
+				Die Kosten für Verzweigen und Markieren müssen proportional zu
 				der Projektgrösse sein. Subversion erstellt Verzweigungen und
 				Markierungen durch einfaches Kopieren des Projektes. Dabei wird
-				ein Mechanismus ähnlich eines Links verwendet. Diese Operationen
+				ein Mechanismus ähnlich dem eines Links verwendet. Diese Operationen
 				benötigen deshalb nur wenig Zeit und Speicherplatz.
 				</para>
 				</listitem>
 			</varlistentry>
-			
+
 			<varlistentry>
 				<term>"Hackability"</term>
 				<listitem>
 				<para>
-				Subversion hat keine Altlasten; es ist implementiert als 
+				Subversion hat keine Altlasten; es ist implementiert als
 				Sammlung von C-Bibliotheken mit gut definierten API's. Dies
 				macht Subversion extrem gut wartbar und nutzbar durch andere
 				Programme und Programmiersprachen.
 				</para>
 				</listitem>
 			</varlistentry>
-		
+
 		</variablelist>
-		
+
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 4 ============================== -->
@@ -242,12 +258,12 @@
 	<sect2>
 		<title>Systemanforderungen</title>
 		<para>
-		TortoiseSVN läuft unter Windows 98/Me, NT4, Win2k SP2 oder WinXP, 
+		TortoiseSVN läuft unter Windows 98/Me, NT4, Win2k SP2 oder WinXP,
 		mit IE5.5 oder neuer. Win98/ME kann nicht zum Anlegen von Projektarchiven
 		verwendet werden. Lesen Sie in der Subversion FAQ
 		<ulink url="http://subversion.tigris.org/project_faq.html">
 			<citetitle>What operating systems does Subversion run on?</citetitle>
-		</ulink> nach, warum es nicht geht.
+		</ulink> nach, warum dies nicht geht.
 		</para>
 	</sect2>
 	<sect2>
@@ -260,16 +276,16 @@
 		</para>
 		<para>
 		Falls Sie irgendwelche Probleme während oder nach der Installation
-		von TortoiseSVN haben sollten sehen Sie bitte im Kapitel 
+		von TortoiseSVN haben sollten, sehen Sie bitte zunächst im Kapitel
 		<xref linkend="tsvn-faq"/> nach.
 		</para>
-	</sect2>		
+	</sect2>
 </sect1>
 
 </chapter>
 
 <!--
-local variables: 
+local variables:
 sgml-parent-document: ("book.xml" "chapter")
 end:
 -->
