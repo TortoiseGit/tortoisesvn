@@ -865,35 +865,22 @@ BOOL CTortoiseProcApp::InitInstance()
 
 			//we have the conflicted file (%merged)
 			//now look for the other required files
-			CDirFileList list;
-			list.BuildList(merge.Left(merge.ReverseFind('\\')), FALSE, FALSE);
-			for (int i=0; i<list.GetCount(); i++)
+			SVNStatus stat;
+			stat.GetStatus(merge);
+			if (stat.status->entry)
 			{
-				CString temp = list.GetAt(i);
-				if (merge.CompareNoCase(temp.Left(merge.GetLength()))==0)
+				if (stat.status->entry->conflict_new)
 				{
-					//we have one of the "conflict" files
-					CString ends = temp.Right(temp.GetLength() - temp.ReverseFind('.') - 1);
-					if (ends.CompareNoCase(_T("mine"))==0)
-					{
-						mine = temp;
-					}
-					if (ends.Left(1).CompareNoCase(_T("r"))==0)
-					{
-						long r = _tstol(ends.Right(ends.GetLength() - 1));
-						if (r < rev)
-						{
-							base = temp;
-							rev = r;
-						}
-						else
-						{
-							base = theirs;
-							theirs = temp;
-							rev = r;
-						}
-					}
-				} 
+					theirs = stat.status->entry->conflict_new;
+				}
+				if (stat.status->entry->conflict_old)
+				{
+					base = stat.status->entry->conflict_old;
+				}
+				if (stat.status->entry->conflict_wrk)
+				{
+					mine = stat.status->entry->conflict_wrk;
+				}
 			}
 			CUtils::StartExtMerge(base, theirs, mine, merge);
 		} 
