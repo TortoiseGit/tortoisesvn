@@ -113,7 +113,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	AddAnchor(IDC_STATICURL, BOTTOM_LEFT);
 	AddAnchor(IDC_URL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_LEFT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

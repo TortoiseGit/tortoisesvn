@@ -57,7 +57,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -143,7 +143,7 @@ BEGIN
     LTEXT           "From URL:",IDC_STATIC,13,18,80,8
     EDITTEXT        IDC_FROMURL,13,28,255,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    LTEXT           "To URL:",IDC_STATIC,13,42,80,8
+    LTEXT           "To &URL:",IDC_STATIC,13,42,80,8
     COMBOBOX        IDC_URLCOMBO,13,52,255,64,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,273,52,14,14
@@ -166,10 +166,10 @@ BEGIN
     COMBOBOX        IDC_URLCOMBO,13,28,255,64,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,273,28,14,14
-    GROUPBOX        "Import Message",IDC_STATIC2,7,55,286,78
+    GROUPBOX        "Import &Message",IDC_STATIC2,7,55,286,78
     EDITTEXT        IDC_MESSAGE,13,67,274,60,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN
-    GROUPBOX        "Temporary Files To Delete",IDC_STATIC3,7,144,286,136
+    GROUPBOX        "&Temporary Files To Delete",IDC_STATIC3,7,144,286,136
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,13,155,274,103
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
@@ -190,7 +190,7 @@ BEGIN
                     133
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
                     LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,148,286,69
-    PUSHBUTTON      "Get &All",IDC_GETALL,175,224,50,14,WS_DISABLED
+    PUSHBUTTON      "Get &All",IDC_GETALL,186,224,50,14,WS_DISABLED
     DEFPUSHBUTTON   "&OK",IDOK,243,224,50,14
 END
 
@@ -219,14 +219,14 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Merge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Merge current branch with:",IDC_STATIC,7,7,132,8
-    COMBOBOX        IDC_URLCOMBO,7,16,265,64,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+    LTEXT           "&Merge current branch with:",IDC_STATIC,7,7,132,8
+    COMBOBOX        IDC_URLCOMBO,7,16,268,64,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,279,16,14,14
-    GROUPBOX        "From Revision",IDC_STATIC,7,35,123,46
+    GROUPBOX        "&From Revision",IDC_STATIC,7,35,123,46
     EDITTEXT        IDC_REVISON_START,13,52,51,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Find",IDC_FINDBRANCHSTART,74,52,50,14
-    GROUPBOX        "To Revision",IDC_STATIC,139,35,154,46
+    GROUPBOX        "&To Revision",IDC_STATIC,139,35,154,46
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,46,81,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
@@ -256,20 +256,20 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,184,33,50,14
 END
 
-IDD_RELOCATE DIALOGEX 0, 0, 268, 66
+IDD_RELOCATE DIALOGEX 0, 0, 300, 89
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Relocate"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "From URL:",IDC_STATIC,7,7,70,8
-    EDITTEXT        IDC_FROMURL,77,6,184,14,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_FROMURL,7,17,268,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    LTEXT           "To URL:",IDC_STATIC,7,25,70,8
-    EDITTEXT        IDC_TOURL,77,22,157,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "...",IDC_BROWSE,243,22,18,14
-    DEFPUSHBUTTON   "&OK",IDOK,154,45,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,211,45,50,14
+    LTEXT           "To &URL:",IDC_STATIC,7,31,70,8
+    EDITTEXT        IDC_TOURL,7,41,268,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,279,41,14,14
+    DEFPUSHBUTTON   "&OK",IDOK,186,68,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,243,68,50,14
 END
 
 IDD_RENAME DIALOGEX 0, 0, 234, 55
@@ -296,7 +296,7 @@ BEGIN
                     WS_EX_CLIENTEDGE
     LTEXT           "URL: ",IDC_STATICURL,7,235,16,8
     EDITTEXT        IDC_URL,40,233,241,14,ES_AUTOHSCROLL
-    DEFPUSHBUTTON   "&OK",IDOK,174,258,50,14
+    DEFPUSHBUTTON   "&O K",IDOK,174,258,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,231,258,50,14
 END
 
@@ -380,30 +380,31 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "Show Log...",IDC_LOGBUTTON,183,124,60,14,NOT WS_VISIBLE
+    PUSHBUTTON      "&Show Log...",IDC_LOGBUTTON,183,124,60,14,NOT 
+                    WS_VISIBLE
     DEFPUSHBUTTON   "&OK",IDOK,250,124,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,307,124,50,14
 END
 
-IDD_SWITCH DIALOGEX 0, 0, 305, 107
+IDD_SWITCH DIALOGEX 0, 0, 300, 129
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Switch To Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "URL: ",IDC_STATIC,7,10,44,8
-    COMBOBOX        IDC_URLCOMBO,53,7,218,30,CBS_DROPDOWN | CBS_SORT | 
+    LTEXT           "To &URL: ",IDC_STATIC,7,10,44,8
+    COMBOBOX        IDC_URLCOMBO,7,20,268,30,CBS_DROPDOWN | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "...",IDC_BROWSE,280,7,18,14
-    GROUPBOX        "Revision",IDC_STATIC,7,24,291,51
+    PUSHBUTTON      "...",IDC_BROWSE,279,20,14,14
+    GROUPBOX        "Revision",IDC_STATIC,7,47,286,51
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,13,38,80,10
+                    BS_AUTORADIOBUTTON,13,60,80,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    13,54,73,10
-    EDITTEXT        IDC_REVISION_NUM,94,53,58,14,ES_AUTOHSCROLL | 
+                    13,76,73,10
+    EDITTEXT        IDC_REVISION_NUM,94,75,58,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
-    DEFPUSHBUTTON   "&OK",IDOK,191,86,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,248,86,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,186,108,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,243,108,50,14
 END
 
 IDD_UPDATE DIALOGEX 0, 0, 203, 86
@@ -513,9 +514,9 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Blame"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "From Revision",IDC_STATIC,7,7,123,46
+    GROUPBOX        "&From Revision",IDC_STATIC,7,7,123,46
     EDITTEXT        IDC_REVISON_START,13,24,51,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "To Revision",IDC_STATIC,139,7,165,46
+    GROUPBOX        "&To Revision",IDC_STATIC,139,7,165,46
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,18,81,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
@@ -601,7 +602,7 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
-        VERTGUIDE, 225
+        VERTGUIDE, 236
         TOPMARGIN, 7
         BOTTOMMARGIN, 238
     END
@@ -621,7 +622,7 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 139
         VERTGUIDE, 236
-        VERTGUIDE, 272
+        VERTGUIDE, 275
         TOPMARGIN, 7
         BOTTOMMARGIN, 156
         HORZGUIDE, 35
@@ -640,12 +641,11 @@ BEGIN
     IDD_RELOCATE, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 261
-        VERTGUIDE, 77
-        VERTGUIDE, 204
+        RIGHTMARGIN, 293
+        VERTGUIDE, 236
+        VERTGUIDE, 275
         TOPMARGIN, 6
-        BOTTOMMARGIN, 59
-        HORZGUIDE, 22
+        BOTTOMMARGIN, 82
     END
 
     IDD_RENAME, DIALOG
@@ -675,7 +675,6 @@ BEGIN
         VERTGUIDE, 229
         TOPMARGIN, 7
         BOTTOMMARGIN, 173
-        HORZGUIDE, 18
     END
 
     IDD_SETTINGSOVERLAY, DIALOG
@@ -710,11 +709,12 @@ BEGIN
     IDD_SWITCH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 298
+        RIGHTMARGIN, 293
         VERTGUIDE, 13
-        VERTGUIDE, 241
+        VERTGUIDE, 236
+        VERTGUIDE, 275
         TOPMARGIN, 7
-        BOTTOMMARGIN, 100
+        BOTTOMMARGIN, 122
     END
 
     IDD_UPDATE, DIALOG
@@ -1031,12 +1031,12 @@ BEGIN
     IDS_LOG_COMPAREWITHBASE "Compare with Base..."
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1079,7 +1079,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
