@@ -24,6 +24,11 @@
 
 SVNRev::SVNRev(CString sRev)
 {
+	Create(sRev);
+}
+
+void SVNRev::Create(CString sRev)
+{
 	m_bIsValid = FALSE;
 	memset (&rev, 0, sizeof (rev));
 	if (sRev.Left(1).Compare(_T("{"))==0)
@@ -85,6 +90,11 @@ SVNRev::SVNRev(CString sRev)
 }
 
 SVNRev::SVNRev(LONG nRev)
+{
+	Create(nRev);
+}
+
+void SVNRev::Create(LONG nRev)
 {
 	m_bIsValid = TRUE;
 	memset (&rev, 0, sizeof (rev));

@@ -77,7 +77,9 @@ public:
 		REV_BASE = -2,		///< base revision
 		REV_WC = -3,		///< revision of the working copy
 	};
-
+protected:
+	void Create(LONG nRev);
+	void Create(CString sRev);
 private:
 	svn_opt_revision_t rev;
 	BOOL m_bIsValid;
