@@ -85,7 +85,17 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					{
 						files_.push_back(str);
 						//get the Subversion status of the item
-						svn_wc_status_kind status = SVNStatus::GetAllStatus(str.c_str());
+						svn_wc_status_kind status = svn_wc_status_unversioned;
+						try
+						{
+							int * a = NULL;
+							status = SVNStatus::GetAllStatus(str.c_str());
+							*a = 0;
+						}
+						catch ( ... )
+						{
+							ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+						}
 						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 							isInSVN = true;
 						if (status == svn_wc_status_ignored)
@@ -113,7 +123,15 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					{
 						files_.push_back(str);
 						//get the Subversion status of the item
-						svn_wc_status_kind status = SVNStatus::GetAllStatus(str.c_str());
+						svn_wc_status_kind status = svn_wc_status_unversioned;
+						try
+						{
+							status = SVNStatus::GetAllStatus(str.c_str());
+						}
+						catch ( ... )
+						{
+							ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+						}
 						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 							isInSVN = true;
 						if (status == svn_wc_status_ignored)
@@ -152,7 +170,15 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	{
 		ItemIDList list(pIDFolder);
 		folder_ = list.toString();
-		svn_wc_status_kind status = SVNStatus::GetAllStatus(folder_.c_str());
+		svn_wc_status_kind status = svn_wc_status_unversioned;
+		try
+		{
+			status = SVNStatus::GetAllStatus(folder_.c_str());
+		}
+		catch ( ... )
+		{
+			ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 		{
 			isFolderInSVN = true;
@@ -168,7 +194,15 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		if (PathIsDirectory(files_.front().c_str()))
 		{
 			folder_ = files_.front();
-			svn_wc_status_kind status = SVNStatus::GetAllStatus(folder_.c_str());
+			svn_wc_status_kind status = svn_wc_status_unversioned;
+			try
+			{
+				status = SVNStatus::GetAllStatus(folder_.c_str());
+			}
+			catch ( ... )
+			{
+				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+			}
 			if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 				isFolderInSVN = true;
 			if (status == svn_wc_status_ignored)

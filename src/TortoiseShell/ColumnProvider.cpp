@@ -69,15 +69,15 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 			MAKESTRING(IDS_COLTITLESTATUS);
 #ifdef UNICODE
-			lstrcpyW(psci->wszTitle, stringtablebuffer);
+			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
 #else
-			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
 #endif
 			MAKESTRING(IDS_COLDESCSTATUS);
 #ifdef UNICODE
-			lstrcpyW(psci->wszDescription, stringtablebuffer);
+			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
 #else
-			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
 #endif
 			break;
 		case 1:
@@ -90,15 +90,15 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 			MAKESTRING(IDS_COLTITLEREV);
 #ifdef UNICODE
-			lstrcpyW(psci->wszTitle, stringtablebuffer);
+			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
 #else
-			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
 #endif
 			MAKESTRING(IDS_COLDESCREV);
 #ifdef UNICODE
-			lstrcpyW(psci->wszDescription, stringtablebuffer);
+			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
 #else
-			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
 #endif
 			break;
 		case 2:
@@ -111,15 +111,15 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 			MAKESTRING(IDS_COLTITLEURL);
 #ifdef UNICODE
-			lstrcpyW(psci->wszTitle, stringtablebuffer);
+			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
 #else
-			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
 #endif
 			MAKESTRING(IDS_COLDESCURL);
 #ifdef UNICODE
-			lstrcpyW(psci->wszDescription, stringtablebuffer);
+			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
 #else
-			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
 #endif
 			break;
 		case 3:
@@ -132,15 +132,15 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 			MAKESTRING(IDS_COLTITLESHORTURL);
 #ifdef UNICODE
-			lstrcpyW(psci->wszTitle, stringtablebuffer);
+			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
 #else
-			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
 #endif
 			MAKESTRING(IDS_COLDESCSHORTURL);
 #ifdef UNICODE
-			lstrcpyW(psci->wszDescription, stringtablebuffer);
+			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
 #else
-			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
 #endif
 			break;
 		case 4:
@@ -161,15 +161,15 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 			MAKESTRING(IDS_COLTITLEMIMETYPE);
 #ifdef UNICODE
-			lstrcpyW(psci->wszTitle, stringtablebuffer);
+			lstrcpynW(psci->wszTitle, stringtablebuffer, MAX_COLUMN_NAME_LEN);
 #else
-			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_NAME_LEN);
 #endif
 			MAKESTRING(IDS_COLDESCMIMETYPE);
 #ifdef UNICODE
-			lstrcpyW(psci->wszDescription, stringtablebuffer);
+			lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
 #else
-			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+			lstrcpynW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str(), MAX_COLUMN_DESC_LEN);
 #endif
 	}
 

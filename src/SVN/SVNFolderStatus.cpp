@@ -92,7 +92,7 @@ SVNFolderStatus::~SVNFolderStatus(void)
 
 filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 {
-	svn_client_ctx_t 			ctx;
+	svn_client_ctx_t *			ctx;
 	apr_hash_t *				statushash;
 	apr_pool_t *				pool;
 	svn_error_t *				err;
@@ -121,7 +121,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	svn_utf_cstring_to_utf8(&deststr, "dummy", pool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", pool);
 
-	memset (&ctx, 0, sizeof (ctx));
+	svn_client_create_context(&ctx, pool);
 
 	svn_pool_clear(this->m_pool);
 
@@ -147,7 +147,14 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 			dirstat.author = authors.GetString(NULL);
 			dirstat.url = urls.GetString(NULL);
 			dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
-			GetStatus(filepath);
+			try
+			{
+				GetStatus(filepath);
+			}
+			catch ( ... )
+			{
+				status = NULL;
+			}
 			if (status)
 			{
 				if (status->entry)
@@ -176,23 +183,29 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		pathbuf[p-filepath] = '\0';
 
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
-	ctx.auth_baton = NULL;
+	ctx->auth_baton = NULL;
 
 	statushash = apr_hash_make(pool);
 	svn_revnum_t youngest = SVN_INVALID_REVNUM;
 	svn_opt_revision_t rev;
 	rev.kind = svn_opt_revision_unspecified;
-	err = svn_client_status (&youngest,
-							internalpath,
-							&rev,
-							fillstatusmap,
-							this,
-							FALSE,		//descend
-							TRUE,		//getall
-							FALSE,		//update
-							TRUE,		//noignore
-							&ctx,
-							pool);
+	try
+	{
+		err = svn_client_status (&youngest,
+			internalpath,
+			&rev,
+			fillstatusmap,
+			this,
+			FALSE,		//descend
+			TRUE,		//getall
+			FALSE,		//update
+			TRUE,		//noignore
+			ctx,
+			pool);
+	}
+	catch ( ... )
+	{
+	}
 
 	// Error present if function is not under version control
 	if (err != NULL)
