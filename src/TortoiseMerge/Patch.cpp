@@ -20,7 +20,9 @@
 #include "Resource.h"
 #include "Utils.h"
 #include "UnicodeUtils.h"
+#include "DirFileEnum.h"
 #include "TortoiseMerge.h"
+#include "svn_wc.h"
 #include ".\patch.h"
 
 #ifdef _DEBUG
@@ -561,7 +563,51 @@ BOOL CPatch::HasExpandedKeyWords(const CString& line)
 	return FALSE;
 }
 
+CString	CPatch::CheckPatchPath(const CString& path)
+{
+	//first check if the path already matches
+	if (CountMatches(path) > 0)
+		return path;
+	//now go up the tree and try again
+	CString upperpath = path;
+	while (upperpath.ReverseFind('\\')>0)
+	{
+		upperpath = upperpath.Left(upperpath.ReverseFind('\\'));
+		if (CountMatches(upperpath) > 0)
+			return upperpath;
+	}
+	//still no match found. So try subfolders
+	bool isDir = false;
+	CString subpath;
+	CDirFileEnum filefinder(path);
+	CString sAdminDir = _T("\\");
+	sAdminDir += _T(SVN_WC_ADM_DIR_NAME);
+	while (filefinder.NextFile(subpath, &isDir))
+	{
+		if (!isDir)
+			continue;
+		if (subpath.Find(sAdminDir) >= 0)
+			continue;
+		if (CountMatches(subpath) > 0)
+			return subpath;
+	}
+	return path;
+}
 
+int CPatch::CountMatches(const CString& path)
+{
+	int matches = 0;
+	for (int i=0; i<GetNumberOfFiles(); ++i)
+	{
+		CString temp = GetFilename(i);
+		temp.Replace('/', '\\');
+		if (PathIsRelative(temp))
+			temp = path + _T("\\")+ temp;
+		if (PathFileExists(temp))
+			matches++;
+	}
+	return matches;
+}
 
 
 

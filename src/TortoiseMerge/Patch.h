@@ -46,10 +46,11 @@ public:
 	CString		GetFilename(int nIndex);
 	CString		GetRevision(int nIndex);
 	CString		GetErrorMessage() {return m_sErrorMessage;}
-
+	CString		CheckPatchPath(const CString& path);
 protected:
 	void		FreeMemory();
 	BOOL		HasExpandedKeyWords(const CString& line);
+	int			CountMatches(const CString& path);
 	struct Chunk
 	{
 		LONG					lRemoveStart;

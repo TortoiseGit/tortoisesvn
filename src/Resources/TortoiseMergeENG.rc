@@ -650,6 +650,12 @@ BEGIN
     ID_MERGE_PREVIOUSCONFLICT "Go to the previous conflict\nprevious conflict"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_WARNBETTERPATCHPATHFOUND 
+                            "The path\n<i>%s</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%s</i>\nmatches it better. Do you want to use the suggested path instead?"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

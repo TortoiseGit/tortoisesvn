@@ -22,6 +22,7 @@
 #include "Patch.h"
 #include "ProgressDlg.h"
 #include "Settings.h"
+#include "MessageBox.h"
 
 #include "MainFrm.h"
 #include ".\mainfrm.h"
@@ -418,6 +419,14 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		} // if (!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)) 
 		if (m_Patch.GetNumberOfFiles() > 0)
 		{
+			CString betterpatchpath = m_Patch.CheckPatchPath(m_Data.m_sPatchPath);
+			if (betterpatchpath.CompareNoCase(m_Data.m_sPatchPath)!=0)
+			{
+				CString msg;
+				msg.Format(IDS_WARNBETTERPATCHPATHFOUND, m_Data.m_sPatchPath, betterpatchpath);
+				if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
+					m_Data.m_sPatchPath = betterpatchpath;
+			}
 			m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath);
 			m_dlgFilePatches.ShowWindow(SW_SHOW);
 			m_pwndLeftView->m_sWindowName = _T("");
