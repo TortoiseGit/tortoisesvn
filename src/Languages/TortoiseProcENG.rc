@@ -351,19 +351,19 @@ CAPTION "Network"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     CONTROL         "Enable Proxy Server",IDC_ENABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,204,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,264,10
     GROUPBOX        "Proxy Settings",IDC_STATIC,7,20,264,100
-    LTEXT           "Server address:",IDC_STATIC,17,36,52,8
+    LTEXT           "Server address:",IDC_STATIC,17,36,101,8
     EDITTEXT        IDC_SERVERADDRESS,118,34,78,14,ES_AUTOHSCROLL
     LTEXT           "Port:",IDC_STATIC,201,37,21,8
     EDITTEXT        IDC_SERVERPORT,225,34,30,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Username:",IDC_STATIC,17,55,36,8
+    LTEXT           "Username:",IDC_STATIC,17,55,101,8
     EDITTEXT        IDC_USERNAME,118,52,78,14,ES_AUTOHSCROLL
-    LTEXT           "Password:",IDC_STATIC,17,74,49,8
+    LTEXT           "Password:",IDC_STATIC,17,74,101,8
     EDITTEXT        IDC_PASSWORD,118,70,78,14,ES_PASSWORD | ES_AUTOHSCROLL
     LTEXT           "Proxy timeout in seconds:",IDC_STATIC,17,101,101,8
     EDITTEXT        IDC_TIMEOUT,118,98,78,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "SSH client:",IDC_STATIC,7,132,63,8
+    LTEXT           "SSH client:",IDC_STATIC,7,132,111,8
     EDITTEXT        IDC_SSHCLIENT,118,129,93,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Browse...",IDC_SSHBROWSE,221,129,50,14
 END
