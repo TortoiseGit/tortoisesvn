@@ -492,7 +492,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						SVNStatus status;
 						status.GetStatus(m_path);
-						if (status.status->entry == NULL)
+						if ((status.status == NULL)&&(status.status->entry == NULL))
 						{
 							CString temp;
 							temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
@@ -518,7 +518,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					CCopyDlg dlg;
 					SVNStatus status;
 					status.GetStatus(m_path);
-					if (status.status->entry == NULL)
+					if ((status.status == NULL)&&(status.status->entry == NULL))
 					{
 						CString temp;
 						temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
