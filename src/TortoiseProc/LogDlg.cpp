@@ -570,46 +570,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					else
 					{
 						m_templist.Add(tempfile);
-						CString diffpath = CUtils::GetDiffPath();
-						if (diffpath != "")
-						{
-
-							CString cmdline;
-							cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
-							cmdline += _T("\" ");
-							cmdline += _T(" \"") + tempfile;
-							cmdline += _T("\" "); 
-							cmdline += _T(" \"") + m_path;
-							cmdline += _T("\"");
-							STARTUPINFO startup;
-							PROCESS_INFORMATION process;
-							memset(&startup, 0, sizeof(startup));
-							startup.cb = sizeof(startup);
-							memset(&process, 0, sizeof(process));
-							if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-							{
-								LPVOID lpMsgBuf;
-								FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-									FORMAT_MESSAGE_FROM_SYSTEM | 
-									FORMAT_MESSAGE_IGNORE_INSERTS,
-									NULL,
-									GetLastError(),
-									MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-									(LPTSTR) &lpMsgBuf,
-									0,
-									NULL 
-									);
-								CString temp;
-								//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
-								temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-								LocalFree( lpMsgBuf );
-							} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-							//wait for the process to end
-							WaitForSingleObject(process.hProcess, INFINITE);
-							//now delete the temporary file
-							DeleteFile(tempfile);
-						} // if (diffpath != "")
+						CUtils::StartDiffViewer(tempfile, m_path);
 					}
 				}
 				break;
@@ -949,55 +910,8 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 		progDlg.SetProgress((DWORD)2,(DWORD)2);
 		progDlg.Stop();
 	}
-	CString diffpath = CUtils::GetDiffPath();
-	if (diffpath != _T(""))
-	{
-
-		CString cmdline;
-		cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
-		cmdline += _T("\" ");
-		cmdline += _T(" \"") + tempfile2;
-		cmdline += _T("\" "); 
-		cmdline += _T(" \"") + tempfile1;
-		cmdline += _T("\"");
-		STARTUPINFO startup;
-		PROCESS_INFORMATION process;
-		memset(&startup, 0, sizeof(startup));
-		startup.cb = sizeof(startup);
-		memset(&process, 0, sizeof(process));
-		if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-		{
-			LPVOID lpMsgBuf;
-			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-				FORMAT_MESSAGE_FROM_SYSTEM | 
-				FORMAT_MESSAGE_IGNORE_INSERTS,
-				NULL,
-				GetLastError(),
-				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-				(LPTSTR) &lpMsgBuf,
-				0,
-				NULL 
-				);
-			CString temp;
-			//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
-			theApp.DoWaitCursor(-1);
-			temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-			LocalFree( lpMsgBuf );
-			DeleteFile(tempfile1);
-			DeleteFile(tempfile2);
-			return FALSE;
-		} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-		//wait for the process to end
-		WaitForSingleObject(process.hProcess, INFINITE);
-		//now delete the temporary files
-		DeleteFile(tempfile1);
-		DeleteFile(tempfile2);
-		theApp.DoWaitCursor(-1);
-		return TRUE;
-	} // if (diffpath != _T("")) 
 	theApp.DoWaitCursor(-1);
-	return FALSE;
+	return CUtils::StartDiffViewer(tempfile2, tempfile1);
 }
 
 

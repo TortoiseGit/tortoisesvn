@@ -747,6 +747,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7513693C849347B49CF192992263D310"
+        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7513693C849347B49CF192992263D310"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_75691634320740FF85382C14E5991598"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1181,18 +1193,6 @@
         {
         "MsmKey" = "8:_CAD3E9A8CD8F486DA5CCD2EE449841F4"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CB36373776C94D859B4A3C5A174EAEC0"
-        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CB36373776C94D859B4A3C5A174EAEC0"
-        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -6659,6 +6659,14 @@
                                     "ValueTypes" = "3:1"
                                     "Value" = "8:[TARGETDIR]icons\\TortoiseInSubversion.ico"
                                     }
+                                    "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_7ABD6ED2AA3E4F869231418117F668E2"
+                                    {
+                                    "Name" = "8:TMergePath"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:[TARGETDIR]TortoiseMerge.exe"
+                                    }
                                     "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_7B8DBBA435CF4F649FB40A921DFD29CF"
                                     {
                                     "Name" = "8:Help"
@@ -8517,7 +8525,7 @@
         }
         "MergeModule"
         {
-            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_CB36373776C94D859B4A3C5A174EAEC0"
+            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_7513693C849347B49CF192992263D310"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -8536,7 +8544,7 @@
         {
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_1CAF7E852D7047818E58744E15B047FD"
             {
-            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseSVN.dll"
+            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseSVN.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8564,7 +8572,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_332B62BB24F24A34B41AFE6A5CD70217"
             {
-            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseProc.exe"
+            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseProc.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8592,7 +8600,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_47FB14D99868470FB43FAFED607CA3D7"
             {
-            "SourcePath" = "8:..\\..\\bin\\Release\\TortoisePlink.exe"
+            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoisePlink.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"

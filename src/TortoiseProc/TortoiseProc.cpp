@@ -568,66 +568,12 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("diff"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
-			CString diffpath = CUtils::GetDiffPath();
-			if (diffpath != "")
+			CString path2 = parser.GetVal(_T("path2"));
+			if (path2.IsEmpty())
 			{
-				CString path2 = parser.GetVal(_T("path2"));
-				if (path2.IsEmpty())
-				{
-					path2 = SVN::GetPristinePath(path);
-				}
-				CString cmdline;
-				cmdline = _T("\"") + diffpath;
-				cmdline += _T("\" ");
-				cmdline += _T("\"") + path2;
-				cmdline += _T("\" ");
-				cmdline += _T(" \"") + path;
-				cmdline += _T("\"");
-				STARTUPINFO startup;
-				PROCESS_INFORMATION process;
-				memset(&startup, 0, sizeof(startup));
-				startup.cb = sizeof(startup);
-				memset(&process, 0, sizeof(process));
-				if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-				{
-					LPVOID lpMsgBuf;
-					FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-									FORMAT_MESSAGE_FROM_SYSTEM | 
-									FORMAT_MESSAGE_IGNORE_INSERTS,
-									NULL,
-									GetLastError(),
-									MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-									(LPTSTR) &lpMsgBuf,
-									0,
-									NULL 
-									);
-					CString temp;
-					temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-					LocalFree( lpMsgBuf );
-				} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-			} // if (diffpath != "") 
-			else
-			{
-				//there's no diff program available!
-				//as a workaround, perform a unified diff of the two files
-				//and show that to the user
-				SVN svn;
-				CString tempfile = CUtils::GetTempFile();
-				tempfile += _T(".diff");
-				CString path2 = parser.GetVal(_T("path2"));
-				if (path2.IsEmpty())
-				{
-					if (!svn.Diff(path, SVN::REV_BASE, path, SVN::REV_WC, FALSE, FALSE, TRUE, _T(""), tempfile))
-					{
-						DeleteFile(tempfile);
-					}
-					else
-					{
-						CUtils::StartDiffViewer(tempfile);
-					}
-				} // if (path2.IsEmpty())
-			} 
+				path2 = SVN::GetPristinePath(path);
+			}
+			CUtils::StartDiffViewer(path2, path);
 		}
 		//#endregion
 		//#region dropcopyadd

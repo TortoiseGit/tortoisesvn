@@ -213,4 +213,3 @@ BOOL CSetProgsPage::PreTranslateMessage(MSG* pMsg)
 	return CPropertyPage::PreTranslateMessage(pMsg);
 }
 
-

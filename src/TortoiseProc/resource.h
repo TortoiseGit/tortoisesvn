@@ -134,6 +134,7 @@
 #define IDC_STATIC3                     1057
 #define IDC_STATIC4                     1058
 #define IDC_BUTTON2                     1059
+#define IDC_DEFAULTPROGS                1059
 #define IDC_CANCEL                      1060
 #define IDC_CHECK2                      1061
 #define IDC_NOREMOVELOGMSG              1061

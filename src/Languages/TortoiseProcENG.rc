@@ -506,6 +506,8 @@ BEGIN
     LTEXT           "Diff &Viewer:",IDC_STATIC,7,48,66,8
     EDITTEXT        IDC_DIFFVIEWER,80,45,151,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,242,45,51,14
+    LTEXT           "To use the default viewer (TortoiseMerge) leave the paths empty",
+                    IDC_STATIC,7,78,286,48
 END
 
 
@@ -756,6 +758,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
         VERTGUIDE, 231
+        VERTGUIDE, 242
         TOPMARGIN, 7
         BOTTOMMARGIN, 192
     END

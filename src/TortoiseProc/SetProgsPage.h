@@ -44,13 +44,14 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual BOOL OnApply();
 	afx_msg void OnBnClickedExtdiffbrowse();
 	afx_msg void OnEnChangeExtdiff();
 	afx_msg void OnBnClickedExtmergebrowse();
 	afx_msg void OnEnChangeExtmerge();
 	afx_msg void OnBnClickedDiffviewerrowse();
 	afx_msg void OnEnChangeDiffviewer();
-	virtual BOOL OnApply();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -62,6 +63,4 @@ private:
 	CString			m_sDiffViewerPath;
 	CRegString		m_regDiffViewerPath;
 	CBalloon		m_tooltips;
-public:
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

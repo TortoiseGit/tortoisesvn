@@ -40,94 +40,6 @@ CString CUtils::GetTempFile()
 	return tempfile;
 }
 
-CString CUtils::GetDiffPath()
-{
-	CString diffpath;
-	//now get the path to the diff program
-	CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
-	if (static_cast<CString>(diffexe).IsEmpty())
-	{
-		//no registry entry for a diff program
-		//sad but true so let's search for one
-
-		//first check if there's a WinSDK
-		CRegString sdk(_T("Software\\Microsoft\\Win32SDK\\Directories\\Install Dir"));
-		if (static_cast<CString>(sdk).IsEmpty())
-		{
-			//shit, no SDK installed
-			//try VisualStudio
-			CRegString vs(_T("Software\\Microsoft\\VisualStudio\\6.0\\InstallDir"));
-			if (static_cast<CString>(vs).IsEmpty())
-			{
-				//try VisualStudio 7
-				vs = CRegString(_T("Software\\Microsoft\\VisualStudio\\7.0\\InstallDir"));
-				if (static_cast<CString>(vs).IsEmpty())
-					vs = CRegString(_T("Software\\Microsoft\\VisualStudio\\7.1\\InstallDir"));
-				if (!static_cast<CString>(vs).IsEmpty())
-				{
-					//the visual studio install dir looks like C:\programs\Microsoft Visual Studio\Common\IDE
-					//so we have to remove the last part of the path
-					diffpath = vs;
-					diffpath.TrimRight('\\');		//remove trailing slash
-					diffpath.Left(diffpath.ReverseFind('\\'));
-					diffpath += _T("\\Tools\\Bin\\WinDiff.exe");
-				}
-			} // if (static_cast<CString>(vs).IsEmpty())
-		}
-		else
-		{
-			//SDK found, windiff is in its bin-directory (I hope)
-			diffpath = sdk;
-			diffpath += _T("bin\\WinDiff.exe");
-		}
-		if (!PathFileExists((LPCTSTR)diffpath))
-		{
-			diffpath = _T("");
-		}
-	} // if (diffexe == "")
-	else
-	{
-		diffpath = diffexe;
-		//even our own registry entry could point to a nonexistent file
-		if (!PathFileExists((LPCTSTR)diffpath))
-			diffpath = "";
-	}
-	if (static_cast<CString>(diffpath).IsEmpty())
-	{
-		//no diff program found, so tell this to the user and
-		//ask for one
-		OPENFILENAME ofn;		// common dialog box structure
-		TCHAR szFile[MAX_PATH];  // buffer for file name
-		ZeroMemory(szFile, sizeof(szFile));
-		// Initialize OPENFILENAME
-		ZeroMemory(&ofn, sizeof(OPENFILENAME));
-		//ofn.lStructSize = sizeof(OPENFILENAME);
-		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-		ofn.hwndOwner = NULL;
-		ofn.lpstrFile = szFile;
-		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-		ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
-		ofn.nFilterIndex = 1;
-		ofn.lpstrFileTitle = NULL;
-		ofn.nMaxFileTitle = 0;
-		ofn.lpstrInitialDir = NULL;
-		CString temp;
-		temp.LoadString(IDS_SETTINGS_SELECTDIFF);
-		ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
-
-		// Display the Open dialog box. 
-
-		if (GetOpenFileName(&ofn)==TRUE)
-		{
-			diffpath = CString(ofn.lpstrFile);
-			diffexe = diffpath;
-		}
-
-	}
-	return diffpath;
-}
-
 BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile)
 {
 	CString com;
@@ -136,33 +48,10 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	
 	if (com.IsEmpty())
 	{
-		OPENFILENAME ofn;		// common dialog box structure
-		TCHAR szFile[MAX_PATH];  // buffer for file name
-		ZeroMemory(szFile, sizeof(szFile));
-		// Initialize OPENFILENAME
-		ZeroMemory(&ofn, sizeof(OPENFILENAME));
-		//ofn.lStructSize = sizeof(OPENFILENAME);
-		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-		ofn.hwndOwner = NULL;
-		ofn.lpstrFile = szFile;
-		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-		ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
-		ofn.nFilterIndex = 1;
-		ofn.lpstrFileTitle = NULL;
-		ofn.nMaxFileTitle = 0;
-		ofn.lpstrInitialDir = NULL;
-		CString temp;
-		temp.LoadString(IDS_SETTINGS_SELECTMERGE);
-		ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
-
-		// Display the Open dialog box. 
-
-		if (GetOpenFileName(&ofn)==TRUE)
-		{
-			com = CString(ofn.lpstrFile);
-			regCom = com;
-		}
+		// use TortoiseMerge
+		CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
+		com = tortoiseMergePath;
+		com = com + _T(" /base:%base /theirs:%theirs /yours:%mine /merged:%merged");
 	}
 
 	TCHAR buf[MAX_PATH];
@@ -211,69 +100,89 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(CString file)
+BOOL CUtils::StartDiffViewer(CString file, CString dir)
 {
-	CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
-	CString viewer = v;
-	if (viewer.IsEmpty())
+	// if "dir" is actually a file, then don't start the unified diff viewer
+	// but the file diff application (e.g. TortoiseMerge, WinMerge, WinDiff, P4Diff, ...)
+	CString viewer;
+	if ((PathIsDirectory(dir)) || (dir.IsEmpty()))
 	{
-		//first try the default app which is associated with diff files
-		CRegString diff = CRegString(_T(".diff\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-		viewer = diff;
-		viewer = viewer + _T("\\Shell\\Open\\Command\\");
-		CRegString diffexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+		CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
+		viewer = v;
+		if (viewer.IsEmpty() && dir.IsEmpty())
+		{
+			//first try the default app which is associated with diff files
+			CRegString diff = CRegString(_T(".diff\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+			viewer = diff;
+			viewer = viewer + _T("\\Shell\\Open\\Command\\");
+			CRegString diffexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+			viewer = diffexe;
+			if (viewer.IsEmpty())
+			{
+				CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+				viewer = txt;
+				viewer = viewer + _T("\\Shell\\Open\\Command\\");
+				CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+				viewer = txtexe;
+			} // if (viewer.IsEmpty()) 
+			TCHAR buf[MAX_PATH+1];
+			ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
+			viewer = buf;
+		} // if (viewer.IsEmpty())
+		if (viewer.IsEmpty() && !dir.IsEmpty())
+		{
+			// use TortoiseMerge
+			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
+			viewer = tortoiseMergePath;
+			viewer = viewer + _T(" /patchpath:\"%path\" /diff:\"%1\"");
+		} // if (viewer.IsEmpty() && !dir.IsEmpty())
+		if (viewer.IsEmpty())
+			return FALSE;
+		if (viewer.Find(_T("%1")) >= 0)
+		{
+			viewer.Replace(_T("%1"), _T("\"")+file+_T("\""));
+		}
+		else
+		{
+			viewer += _T(" ");
+			viewer += file;
+		}
+		if (viewer.Find(_T("%path")) >= 0)
+		{
+			viewer.Replace(_T("%path"), dir);
+		}
+	} // if ((PathIsDirectory(dir)) || (dir.IsEmpty())) 
+	else
+	{
+		// not a unified diff
+		CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
 		viewer = diffexe;
 		if (viewer.IsEmpty())
 		{
-			CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-			viewer = txt;
-			viewer = viewer + _T("\\Shell\\Open\\Command\\");
-			CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
-			viewer = txtexe;
-		} // if (viewer.IsEmpty()) 
-		TCHAR buf[MAX_PATH+1];
-		ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
-		viewer = buf;
-	} // if (viewer.IsEmpty())
-	if (viewer.IsEmpty())
-	{
-		OPENFILENAME ofn;		// common dialog box structure
-		TCHAR szFile[MAX_PATH];  // buffer for file name
-		ZeroMemory(szFile, sizeof(szFile));
-		// Initialize OPENFILENAME
-		ZeroMemory(&ofn, sizeof(OPENFILENAME));
-		//ofn.lStructSize = sizeof(OPENFILENAME);
-		ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-		ofn.hwndOwner = NULL;
-		ofn.lpstrFile = szFile;
-		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-		ofn.lpstrFilter = _T("Programs\0*.exe\0All\0*.*\0");
-		ofn.nFilterIndex = 1;
-		ofn.lpstrFileTitle = NULL;
-		ofn.nMaxFileTitle = 0;
-		ofn.lpstrInitialDir = NULL;
-		CString temp;
-		temp.LoadString(IDS_SETTINGS_SELECTDIFFVIEWER);
-		ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
-
-		// Display the Open dialog box. 
-
-		if (GetOpenFileName(&ofn)==TRUE)
+			//no registry entry for a diff program
+			//use TortoiseMerge
+			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
+			viewer = tortoiseMergePath;
+			viewer = viewer + _T(" /base:\"%1\" /yours:\"%2\"");
+		} // if (diffexe == "")
+		if (viewer.Find(_T("%1")) >= 0)
 		{
-			viewer = CString(ofn.lpstrFile);
-		} // if (GetOpenFileName(&ofn)==TRUE)
+			viewer.Replace(_T("%1"), file);
+		}
 		else
-			return FALSE;
-	}
-	if (viewer.Find(_T("%1")) >= 0)
-	{
-		viewer.Replace(_T("%1"), file);
-	}
-	else
-	{
-		viewer += _T(" ");
-		viewer += file;
+		{
+			viewer += _T(" ");
+			viewer += file;
+		}
+		if (viewer.Find(_T("%2")) >= 0)
+		{
+			viewer.Replace(_T("%2"), dir);
+		}
+		else
+		{
+			viewer += _T(" ");
+			viewer += dir;
+		}
 	}
 
 	STARTUPINFO startup;
@@ -295,7 +204,10 @@ BOOL CUtils::StartDiffViewer(CString file)
 			NULL 
 			);
 		CString temp;
-		temp.Format(IDS_ERR_DIFFVIEWSTART, lpMsgBuf);
+		if ((PathIsDirectory(dir)) || (dir.IsEmpty()))
+			temp.Format(IDS_ERR_DIFFVIEWSTART, lpMsgBuf);
+		else
+			temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
 		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 		LocalFree( lpMsgBuf );
 		return FALSE;

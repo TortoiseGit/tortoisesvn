@@ -56,22 +56,21 @@ public:
 	~CUtils(void);
 
 	/**
-	 * Returns the path of the external diff program.
-	 */
-	static CString GetDiffPath();
-
-	/**
 	 * Launches the external merge program if there is one.
 	 * \return TRUE if the program could be started
 	 */
 	static BOOL StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile);
 
 	/**
-	 * Launches the diff viewer application or the standard app which is associated
-	 * with diff files or if nothing helps then start the default text editor.
+	 * Launches the diff viewer application.
+	 * If dir is a directory then TortoiseMerge is started.
+	 * If dir is a file then the specified diff application is started (e.g. WinMerge, TortoiseMerge, WinDiff, ...)
+	 * If dir is empty then an application which can show unified diff files is started, either
+	 * the specified one, the one associated with .diff files and as the last fallback the application
+	 * associated with .txt files.
 	 * \return TRUE if the program could be started.
 	 */
-	static BOOL StartDiffViewer(CString file);
+	static BOOL StartDiffViewer(CString file, CString dir = _T(""));
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated
