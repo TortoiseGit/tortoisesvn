@@ -124,6 +124,7 @@ void CToolAssocDlg::OnBnClickedToolbrowse()
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
+	CUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 

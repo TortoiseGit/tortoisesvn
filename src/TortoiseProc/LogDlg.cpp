@@ -831,6 +831,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString temp;
 						temp.LoadString(IDS_LOG_POPUP_SAVE);
 						//ofn.lpstrTitle = "Save revision to...\0";
+						CUtils::RemoveAccelerators(temp);
 						if (temp.IsEmpty())
 							ofn.lpstrTitle = NULL;
 						else
@@ -1071,6 +1072,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						ofn.lpstrFile = szFile;
 						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 						temp.LoadString(IDS_LOG_POPUP_SAVE);
+						CUtils::RemoveAccelerators(temp);
 						if (temp.IsEmpty())
 							ofn.lpstrTitle = NULL;
 						else

@@ -359,6 +359,7 @@ BOOL CUtils::StartTextViewer(CString file)
 		ofn.lpstrInitialDir = NULL;
 		CString temp;
 		temp.LoadString(IDS_UTILS_SELECTTEXTVIEWER);
+		CUtils::RemoveAccelerators(temp);
 		ofn.lpstrTitle = temp;
 		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 

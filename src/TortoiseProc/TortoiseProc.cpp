@@ -1279,6 +1279,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 			CString temp;
 			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+			CUtils::RemoveAccelerators(temp);
 			if (temp.IsEmpty())
 				ofn.lpstrTitle = NULL;
 			else

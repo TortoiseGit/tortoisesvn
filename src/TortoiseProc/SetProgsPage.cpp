@@ -135,6 +135,7 @@ void CSetProgsPage::OnBnClickedExtdiffbrowse()
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTDIFF);
+	CUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
@@ -179,6 +180,7 @@ void CSetProgsPage::OnBnClickedExtmergebrowse()
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTMERGE);
+	CUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
@@ -224,6 +226,7 @@ void CSetProgsPage::OnBnClickedDiffviewerbrowse()
 	ofn.lpstrInitialDir = NULL;
 	CString temp;
 	temp.LoadString(IDS_SETTINGS_SELECTDIFFVIEWER);
+	CUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
 
