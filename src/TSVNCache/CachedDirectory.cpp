@@ -185,7 +185,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			// so we need to ask them to get their own status
 			if(!path.IsDirectory())
 			{
-				if (PathFileExists(path.GetWinPath()))
+				if ((PathFileExists(path.GetWinPath()))||(bRequestForSelf))
 					return CStatusCacheEntry();
 				// the entry doesn't exist anymore! Remove the cache entry
 				// of it so we never have to deal with it anymore.
@@ -195,7 +195,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			{
 				// If we're in the special case of a directory being asked for its own status
 				// and this directory is unversioned, then we should just return that here
-				if(path.IsEquivalentTo(m_directoryPath))
+				if(bRequestForSelf)
 				{
 					return CStatusCacheEntry();
 				}
