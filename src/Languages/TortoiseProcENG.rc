@@ -62,7 +62,7 @@ IDB_TTF_BMP             BITMAP                  "res\\ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -328,23 +328,23 @@ BEGIN
     EDITTEXT        IDC_TEMPEXTENSIONS,80,37,200,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_DEFAULTLOG,235,57,45,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
-    LTEXT           "&Language:",IDC_STATIC,19,20,54,8
-    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,19,37,54,18
-    LTEXT           "Default &number of log messages",IDC_STATIC,19,59,198,8
+    LTEXT           "&Language:",IDC_STATIC,13,20,60,8
+    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,13,37,60,18
+    LTEXT           "Default &number of log messages",IDC_STATIC,13,59,204,8
     CONTROL         "&Show unversioned files before committing",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,19,115,261,
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,13,115,267,
                     10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    19,129,261,10
+                    13,129,267,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,19,143,261,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,143,267,10
     GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,89
     GROUPBOX        "Committing",IDC_COMMITGROUP,7,101,286,91
     CONTROL         "Don't convert files when diffing against BASE",
-                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,
-                    76,261,10
-    LTEXT           "Font for log messages:",IDC_STATIC,19,158,96,8
+                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
+                    76,267,10
+    LTEXT           "Font for log messages:",IDC_STATIC,13,158,105,8
     COMBOBOX        IDC_FONTNAMES,123,156,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
@@ -361,13 +361,13 @@ BEGIN
                     IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
                     13,286,10
     CONTROL         "&Removable drives",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,19,48,256,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,48,262,10
     CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,19,62,256,10
+                    WS_TABSTOP,13,62,262,10
     CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,19,76,256,10
+                    WS_TABSTOP,13,76,262,10
     CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,19,90,256,10
+                    WS_TABSTOP,13,90,262,10
     GROUPBOX        "Drive Types",IDC_DRIVEGROUP,7,30,286,83
 END
 
@@ -670,11 +670,8 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
-        VERTGUIDE, 19
-        VERTGUIDE, 73
+        VERTGUIDE, 13
         VERTGUIDE, 80
-        VERTGUIDE, 143
-        VERTGUIDE, 217
         VERTGUIDE, 235
         VERTGUIDE, 280
         TOPMARGIN, 7
@@ -685,7 +682,7 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
-        VERTGUIDE, 19
+        VERTGUIDE, 13
         VERTGUIDE, 275
         TOPMARGIN, 7
         BOTTOMMARGIN, 192
@@ -1070,12 +1067,12 @@ BEGIN
     IDS_REPO_BROWSEREV      "Browsing Revision: "
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1118,7 +1115,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
