@@ -490,6 +490,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Update!\n"));
+					TCHAR error[10000] = {0};
+					pE->GetErrorMessage(error, 10000);
+					CMessageBox::Show(NULL, ERROR, _T("TortoiseSVN"), MB_ICONERROR);
 					pE->ReportError();
 					pE->Delete();
 					updateFileCounter = 0;
@@ -588,6 +591,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Commit!\n"));
+					TCHAR error[10000] = {0};
+					pE->GetErrorMessage(error, 10000);
+					CMessageBox::Show(NULL, ERROR, _T("TortoiseSVN"), MB_ICONERROR);
 					pE->Delete();
 				}
 			}
@@ -623,6 +629,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Add!\n"));
+					TCHAR error[10000] = {0};
+					pE->GetErrorMessage(error, 10000);
+					CMessageBox::Show(NULL, ERROR, _T("TortoiseSVN"), MB_ICONERROR);
 					pE->Delete();
 				}
 			}
@@ -654,6 +663,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Revert!\n"));
+					TCHAR error[10000] = {0};
+					pE->GetErrorMessage(error, 10000);
+					CMessageBox::Show(NULL, ERROR, _T("TortoiseSVN"), MB_ICONERROR);
 					pE->Delete();
 				}
 				if (!pDlg->Revert(sTargets, false))
@@ -694,6 +706,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Resolve!\n"));
+					TCHAR error[10000] = {0};
+					pE->GetErrorMessage(error, 10000);
+					CMessageBox::Show(NULL, ERROR, _T("TortoiseSVN"), MB_ICONERROR);
 					pE->Delete();
 				}
 				if (bMarkers)
