@@ -119,6 +119,17 @@
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_DA71E1D52B69440B8ED17B3525AE8E4C" Type="string" />
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{3035134b-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_F0052C2095E04B12A90D7803CEEE2978" Type="string" />
 		</Component>
+		<Component Id="C__svnprotocoll" Guid="02271D5C-3065-4038-AD86-46A271854FA6" >
+			<Registry Root="HKCR" Key="svn" KeyPath="yes" Value="URL:SVN Protocol" Id="_1A7DD312DA684baaA316AED127286F1A" Type="string" />
+			<Registry Root="HKCR" Key="svn" Name="URL Protocol" Id="_67DCDC3D928D4184A22F402F42200334" Type="string" />
+			<Registry Root="HKCR" Key="svn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_E769D66E9B064912913A8D182828BE2D" Type="string" />
+			<Registry Root="HKCR" Key="svn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Id="_6C99C8E31975426e9CD13E502CE8A247" Type="string" />
+			
+			<Registry Root="HKCR" Key="svn+ssh" Value="URL:SVN+SSH Protocol" Id="_A292EBDFAFFC406784B9D90F1E9883D8" Type="string" />
+			<Registry Root="HKCR" Key="svn+ssh" Name="URL Protocol" Id="_EC7E2AEE0634419bB4E7040904214BA7" Type="string" />
+			<Registry Root="HKCR" Key="svn+ssh\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_3B07731EA68A41bcBC58B7E275862D3A" Type="string" />
+			<Registry Root="HKCR" Key="svn+ssh\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Id="_80E38B43490F449f9C1AFBFAF1D335D3" Type="string" />
+		</Component>
 
 	  <Directory Id="D__Bin" Name="BIN" LongName="bin" >
 	      <Component Id="C__libssl" Guid="53F3D18C-528D-4b08-AB1A-8644BFD3D5F2" >
@@ -126,7 +137,7 @@
 	        <File Id="F__ssleay32" Name="SSLEAY32.DLL" LongName="ssleay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\ssleay32.dll" />
 	      </Component>
 	      <Component Id="C__berkeleydb" Guid="DFD268E2-1B3B-4341-9243-E028E1416040" >
-	        <File Id="F__libdb42" Name="LIBDB42.DLL" LongName="libdb42.dll" DiskId="1" src="..\..\..\Subversion\db4-win32\bin\libdb42.dll" KeyPath="yes" />
+	        <File Id="F__libdb43" Name="LIBDB43.DLL" LongName="libdb43.dll" DiskId="1" src="..\..\..\Subversion\db4-win32\bin\libdb43.dll" KeyPath="yes" />
 	      </Component>
 
 	      <Component Id="C__apr" Guid="A1388B55-1EC3-4199-9EF7-72DDA13F164A" >
@@ -489,6 +500,7 @@
       <ComponentRef Id="C__WebsiteLink" />
       <ComponentRef Id="C__shellregistry" />
       <ComponentRef Id="C__machineregistry" />
+      <ComponentRef Id="C__svnprotocoll" />
       <ComponentRef Id="C__approveshellcomponents" />
       <ComponentRef Id="C__ProgramMenuFolder" />
       <ComponentRef Id="C__TortoiseBlame" />
@@ -1389,18 +1401,18 @@ Click "Next" to start the installation.</Text>
           <Text>{\Sans_Serif13}The installer will guide you through the steps required to install [ProductName] on your computer.</Text>
         </Control>
       </Dialog>
-      <RadioGroup Property="MaintenanceForm_Action">
+      <RadioButtonGroup Property="MaintenanceForm_Action">
         <RadioButton Value="Repair" Text="{\Sans_Serif13}&amp;Repair [ProductName]" X="0" Y="0" Width="348" Height="17" />
         <RadioButton Value="Remove" Text="{\Sans_Serif13}Re&amp;move [ProductName]" X="0" Y="18" Width="348" Height="17" />
-      </RadioGroup>
-      <RadioGroup Property="AdminMaintenanceForm_Action">
+      </RadioButtonGroup>
+      <RadioButtonGroup Property="AdminMaintenanceForm_Action">
         <RadioButton Value="Repair" Text="{\Sans_Serif13}&amp;Repair [ProductName]" X="0" Y="0" Width="348" Height="17" />
         <RadioButton Value="Remove" Text="{\Sans_Serif13}Re&amp;move [ProductName]" X="0" Y="18" Width="348" Height="17" />
-      </RadioGroup>
-      <RadioGroup Property="FolderForm_AllUsers">
+      </RadioButtonGroup>
+      <RadioButtonGroup Property="FolderForm_AllUsers">
         <RadioButton Value="ALL" Text="{\Sans_Serif13}&amp;Everyone" X="0" Y="0" Width="342" Height="17" />
         <RadioButton Value="ME" Text="{\Sans_Serif13}Just &amp;me" X="0" Y="18" Width="342" Height="17" />
-      </RadioGroup>
+      </RadioButtonGroup>
       <TextStyle Id="Sans_Serif13" FaceName="MS Sans Serif" Size="9" Red="0" Green="0" Blue="0" />
       <TextStyle Id="Sans_Serif16" FaceName="MS Sans Serif" Size="12" Red="0" Green="0" Blue="0" Bold="yes" />
       <TextStyle Id="Shell_Dlg13" FaceName="MS Shell Dlg" Size="9" Red="0" Green="0" Blue="0" />

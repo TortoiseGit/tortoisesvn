@@ -59,7 +59,7 @@ rem perl apr-util\build\w32locatedb.pl dll .\db4-win32\include .\db4-win32\lib
 copy build\generator\vcnet_sln.ezt build\generator\vcnet_sln7.ezt
 copy %startdir%\vcnet_sln.ezt build\generator\vcnet_sln.ezt
 rem next line is commented because the vcproj generator is broken!
-rem Workaround: execute that line, then open subversion_vcnet.sln and add "..\db4-win32\lib\libdb42.lib"
+rem Workaround: execute that line, then open subversion_vcnet.sln and add "..\db4-win32\lib\libdb43.lib"
 rem to the libaprutil project as an additional link
 rem call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls --enable-bdb-in-apr-util
 copy build\generator\vcnet_sln7.ezt build\generator\vcnet_sln.ezt /Y
@@ -74,6 +74,7 @@ if DEFINED _DEBUG (
   copy %startdir%\svn_private_config.h subversion\svn_private_config.h
   copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q Debug > NUL
+  rmdir /s /q apr-util\Debug > NUL
   devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__"
   ren Debug\subversion subversion_netless
   del subversion\svn_private_config.h
@@ -88,6 +89,7 @@ if DEFINED _RELEASE (
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy %startdir%\svn_private_config.h subversion\svn_private_config.h
   copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
+  rmdir /s /q apr-util\Release > NUL
   rmdir /s /q Release > NUL
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
   ren Release\subversion subversion_netless
@@ -110,7 +112,7 @@ if DEFINED _DEBUG (
   mkdir bin\debug\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\debug\bin /Y > NUL
   copy .\ext\gettext\bin\intl.dll bin\debug\bin /Y > NUL
-  copy ..\Subversion\db4-win32\bin\libdb42d.dll bin\debug\bin /Y > NUL
+  copy ..\Subversion\db4-win32\bin\libdb43d.dll bin\debug\bin /Y > NUL
   copy ..\Subversion\apr\Debug\libapr.dll bin\Debug\bin /Y > NUL 
   copy ..\Subversion\apr-util\Debug\libaprutil.dll bin\Debug\bin /Y > NUL 
   copy ..\Subversion\apr-iconv\Debug\libapriconv.dll bin\Debug\bin /Y > NUL 
@@ -123,7 +125,7 @@ if DEFINED _RELEASE (
   mkdir bin\release\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release\bin /Y > NUL
   copy .\ext\gettext\bin\intl.dll bin\release\bin /Y > NUL
-  copy ..\Subversion\db4-win32\bin\libdb42.dll bin\release\bin /Y > NUL
+  copy ..\Subversion\db4-win32\bin\libdb43.dll bin\release\bin /Y > NUL
   copy ..\Subversion\apr\Release\libapr.dll bin\Release\bin /Y > NUL 
   copy ..\Subversion\apr-util\Release\libaprutil.dll bin\Release\bin /Y > NUL 
   copy ..\Subversion\apr-iconv\Release\libapriconv.dll bin\Release\bin /Y > NUL 
