@@ -99,6 +99,7 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 	int slength = 0;
 	int reallength = 0;
 	size_t len = 0;
+	wchar_t wbuf[MAX_LOG_LENGTH];
 	for (;;)
 	{
 		len = fread(&rev, sizeof(LONG), 1, File);
@@ -132,6 +133,11 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 			fseek(File, reallength-MAX_LOG_LENGTH, SEEK_CUR);
 			msg = msg + _T("\n...");
 		}
+		int len = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), -1, wbuf, MAX_LOG_LENGTH);
+		wbuf[len] = 0;
+		len = ::WideCharToMultiByte(CP_ACP, NULL, wbuf, len, logmsgbuf, MAX_LOG_LENGTH, NULL, NULL);
+		logmsgbuf[len] = 0;
+		msg = std::string(logmsgbuf);
 		logmessages[rev] = msg;
 	}
 }
