@@ -446,8 +446,11 @@ void CStatGraphDlg::ShowStats()
 	stdstring mostauthor;
 	stdstring leastauthor;
 
-	mostauthor = iter->first;
-	leastauthor = iter->first;
+	if (iter != AuthorCommits.end())
+	{
+		mostauthor = iter->first;
+		leastauthor = iter->first;
+	}
 	while (iter != AuthorCommits.end()) 
 	{
 		if (AuthorCommits[mostauthor] < iter->second)
