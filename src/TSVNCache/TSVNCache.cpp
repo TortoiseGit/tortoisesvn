@@ -287,7 +287,8 @@ VOID PipeThread(LPVOID lpvParam)
 	// with that client, and the loop is repeated. 
 	DWORD dwThreadId; 
 	BOOL fConnected;
-	HANDLE hPipe, hInstanceThread;
+	HANDLE hPipe = INVALID_HANDLE_VALUE;
+	HANDLE hInstanceThread = INVALID_HANDLE_VALUE;
 
 	while (*bRun) 
 	{ 
