@@ -348,8 +348,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-	SVNStatus status;
-	long r = status.GetStatus(pDlg->m_path, TRUE);
+	long r = pDlg->GetHEADRevision(pDlg->m_path);
 	if (pDlg->m_startrev == -1)
 		pDlg->m_startrev = r;
 	if (pDlg->m_endrev < (-5))

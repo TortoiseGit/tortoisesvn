@@ -412,6 +412,12 @@ public:
 	CString GetRepositoryRoot(CString url);
 
 	/**
+	 * Returns the HEAD revision of the URL or WC-Path.
+	 * Or -1 if the function failed.
+	 */
+	LONG GetHEADRevision(CString url);
+
+	/**
 	 * Releases all used memory pools.
 	 */
 	void ReleasePool();

@@ -1,3 +1,5 @@
+- BUG: Pressing the "Find" button in the merge dialog lead
+       to an error message about the path being invalid. (Stefan)
 - BUG: ignore patterns _not_ starting with * weren't correctly
        used inside unversioned folders. (Stefan)
 

@@ -1101,6 +1101,32 @@ CString SVN::GetRepositoryRoot(CString url)
 	return retURL;
 }
 
+LONG SVN::GetHEADRevision(CString url)
+{
+	svn_ra_plugin_t *ra_lib;
+	void *ra_baton, *session;
+	const char * urla;
+	LONG rev;
+	CStringA tempurl = CUnicodeUtils::GetUTF8(url);
+	if (!svn_path_is_url(tempurl))
+		SVN::get_url_from_target(&urla, tempurl);
+	else
+		urla = tempurl;
+	/* Get the RA library that handles URL. */
+	if (svn_ra_init_ra_libs (&ra_baton, pool))
+		return -1;
+	if (svn_ra_get_ra_library (&ra_lib, ra_baton, urla, pool))
+		return -1;
+
+	/* Open a repository session to the URL. */
+	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, pool))
+		return -1;
+
+	if (ra_lib->get_latest_revnum(session, &rev, pool))
+		return -1;
+	return rev;
+}
+
 CString SVN::GetPristinePath(CString wcPath)
 {
 	apr_pool_t * localpool;
