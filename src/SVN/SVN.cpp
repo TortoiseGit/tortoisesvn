@@ -201,7 +201,7 @@ BOOL SVN::Remove(CString path, BOOL force)
 
 	svn_client_commit_info_t *commit_info = NULL;
 
-	Err = svn_client_delete (&commit_info, CUnicodeUtils::GetUTF8(path), force,
+	Err = svn_client_delete (&commit_info, target(path), force,
 							&ctx,
 							pool);
 	if(Err != NULL)
@@ -321,7 +321,7 @@ BOOL SVN::MakeDir(CString path, CString message)
 	svn_client_commit_info_t *commit_info = NULL;
 
 	Err = svn_client_mkdir (&commit_info,
-							CUnicodeUtils::GetUTF8(path),
+							target(path),
 							&ctx,
 							pool);
 	if(Err != NULL)
