@@ -28,15 +28,19 @@ CUnicodeUtils::~CUnicodeUtils(void)
 }
 #ifdef _MFC_VER
 
-CStringA CUnicodeUtils::GetUTF8(CString string)
+CStringA CUnicodeUtils::GetUTF8(CStringW string)
 {
-#ifdef UNICODE
 	char buf[MAX_PATH * 4];
 	WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, MAX_PATH * 4, NULL, NULL);
 	return CStringA(buf);
-#else
-	return string;
-#endif
+}
+
+CStringA CUnicodeUtils::GetUTF8(CStringA string)
+{
+	WCHAR buf[MAX_PATH * 4];
+	MultiByteToWideChar(CP_ACP, 0, string, -1, buf, MAX_PATH * 4);
+	CStringW temp = CStringW(buf);
+	return (CUnicodeUtils::GetUTF8(temp));
 }
 
 CString CUnicodeUtils::GetUnicode(CStringA string)

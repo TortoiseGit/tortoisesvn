@@ -35,11 +35,11 @@ public:
 	CUnicodeUtils(void);
 	~CUnicodeUtils(void);
 #ifdef _MFC_VER
+	static CStringA GetUTF8(CStringW string);
+	static CStringA GetUTF8(CStringA string);
 #ifdef UNICODE
-	static CStringA GetUTF8(CString string);
 	static CStringW GetUnicode(CStringA string);
 #else
-	static CStringA GetUTF8(CString string);
 	static CStringA GetUnicode(CStringA string);
 #endif
 #endif
