@@ -491,7 +491,6 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 			CDirFileEnum lister2(srcPath);
 			CString sSVN_ADMIN_DIR = _T("\\");
 			sSVN_ADMIN_DIR += _T(SVN_WC_ADM_DIR_NAME);
-			sSVN_ADMIN_DIR += _T("\\");
 			while (lister2.NextFile(srcfile, NULL))
 			{
 				
