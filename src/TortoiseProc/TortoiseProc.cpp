@@ -25,6 +25,7 @@
 #include "CrashReport.h"
 #include "SVNProperties.h"
 #include "Blame.h"
+#include "DirFileEnum.h"
 
 #include "libintl.h"
 
@@ -1335,6 +1336,44 @@ BOOL CTortoiseProcApp::InitInstance()
 		// Eventually clean up resources used by CSysImageList
 		SYS_IMAGE_LIST().Cleanup();
 	} 
+
+	// Look for temporary files left around by TortoiseSVN and
+	// remove them. But only delete 'old' files because the some
+	// apps might still be needing the recent ones.
+	{
+		TCHAR path[MAX_PATH];
+		DWORD len = ::GetTempPath (MAX_PATH, path);
+		if (len != 0)
+		{
+			CSimpleFileFind finder = CSimpleFileFind(path, _T("svn*.*"));
+			FILETIME systime_;
+			::GetSystemTimeAsFileTime(&systime_);
+			__int64 systime = (((_int64)systime_.dwHighDateTime)<<32) | ((__int64)systime_.dwLowDateTime);
+			while (finder.FindNextFileNoDirectories())
+			{
+				CString filepath = finder.GetFilePath();
+				HANDLE hFile = ::CreateFile(filepath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+				if (hFile != INVALID_HANDLE_VALUE)
+				{
+					FILETIME createtime_;
+					if (::GetFileTime(hFile, &createtime_, NULL, NULL))
+					{
+						::CloseHandle(hFile);
+						__int64 createtime = (((_int64)createtime_.dwHighDateTime)<<32) | ((__int64)createtime_.dwLowDateTime);
+						if ((createtime + 864000000000) < systime)		//only delete files older than a day
+						{
+							::DeleteFile(filepath);
+						}
+					}
+					else
+						::CloseHandle(hFile);
+				}
+				else
+					::CloseHandle(hFile);
+			}
+		}			
+	}
+
 
 	// Since the dialog has been closed, return FALSE so that we exit the
 	// application, rather than start the application's message pump.
