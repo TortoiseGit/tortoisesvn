@@ -46,6 +46,7 @@ void CSciEdit::Init()
 	m_DirectFunction = SendMessage(SCI_GETDIRECTFUNCTION, 0, 0);
 	m_DirectPointer = SendMessage(SCI_GETDIRECTPOINTER, 0, 0);
 	Call(SCI_SETMARGINWIDTHN, 1, 0);
+	Call(SCI_SETUSETABS, 0);		//pressing TAB inserts spaces
 	
 	TCHAR buffer[11];
 	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IDEFAULTANSICODEPAGE,(TCHAR *)buffer,10);
