@@ -1298,7 +1298,7 @@ void CResModule::ReplaceStr(LPCWSTR src, WORD * dest, int * count, int * transla
 		CUtils::StringCollapse(szBuf);
 		if (dest)
 			wcscpy((wchar_t *)&dest[(*count)], szBuf);
-		(*count) += entry.msgstr.size()+1;
+		(*count) += wcslen(szBuf)+1;
 		(*translated)++;
 	}
 	else
