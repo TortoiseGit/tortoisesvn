@@ -140,6 +140,12 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					{
 						nIndex--;
 						state = 4;
+						if (chunks == NULL)
+						{
+							m_sErrorMessage.Format(IDS_ERR_PATCH_UNKOWNLINETYPE, nIndex);
+							goto errorcleanup;
+						}
+
 					} // if (nIndex > 0) 
 					else
 					{
