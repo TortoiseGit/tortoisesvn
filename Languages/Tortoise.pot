@@ -368,6 +368,10 @@ msgstr ""
 msgid "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\nIf you use Relocate to direct your working copy to another repository or branch,\nthis <b>will corrupt your working copy!</b>\nTo associate your working copy with another branch, use the Switch command.\nAre you sure you want to relocate?"
 msgstr ""
 
+#: ID:145,
+msgid "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
+msgstr ""
+
 #: ID:3867,#: ID:3867,
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr ""
@@ -490,6 +494,10 @@ msgstr ""
 
 #: ID:145,
 msgid "Added the file(s)\n%sto the ignore list."
+msgstr ""
+
+#: ID:263,
+msgid "Adding"
 msgstr ""
 
 #: ID:9,
@@ -622,6 +630,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
+msgstr ""
+
+#: Control-ID:1157,
+msgid "Average"
 msgstr ""
 
 #: Control-ID:1001,
@@ -876,6 +888,10 @@ msgstr ""
 msgid "Commits by week"
 msgstr ""
 
+#: Control-ID:1135,
+msgid "Commits each week:"
+msgstr ""
+
 #: ID:9,
 msgid "Commits your changes to the repository"
 msgstr ""
@@ -1062,6 +1078,10 @@ msgstr ""
 
 #: ID:11,
 msgid "Deletes files / folders from source control"
+msgstr ""
+
+#: ID:263,
+msgid "Deleting"
 msgstr ""
 
 #: ID:3859,#: ID:3859,
@@ -1312,6 +1332,10 @@ msgstr ""
 msgid "File Patches"
 msgstr ""
 
+#: Control-ID:1138,
+msgid "File changes each week:"
+msgstr ""
+
 #: ID:3603,
 msgid "Find the specified text\nFind"
 msgstr ""
@@ -1512,6 +1536,10 @@ msgstr ""
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr ""
 
+#: Control-ID:1137,
+msgid "Least active athor:"
+msgstr ""
+
 #: ID:188,
 msgid "Left View: "
 msgstr ""
@@ -1556,6 +1584,10 @@ msgstr ""
 msgid "Main"
 msgstr ""
 
+#: Control-ID:1159,
+msgid "Max"
+msgstr ""
+
 #: Dlg-ID:141,
 msgid "Merge"
 msgstr ""
@@ -1584,6 +1616,10 @@ msgstr ""
 msgid "Mime Type"
 msgstr ""
 
+#: Control-ID:1158,
+msgid "Min"
+msgstr ""
+
 #: Control-ID:1082,#: Control-ID:1023,
 msgid "Misc"
 msgstr ""
@@ -1594,6 +1630,10 @@ msgstr ""
 
 #: ID:74,
 msgid "Modified"
+msgstr ""
+
+#: Control-ID:1136,
+msgid "Most active author:"
 msgstr ""
 
 #: ID:12,
@@ -1670,6 +1710,14 @@ msgstr ""
 
 #: ID:3857,#: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
+msgstr ""
+
+#: Control-ID:1161,
+msgid "Number of authors:"
+msgstr ""
+
+#: Control-ID:1160,
+msgid "Number of weeks:"
 msgstr ""
 
 #: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
@@ -1969,7 +2017,7 @@ msgid "Replace specific text with different text\nReplace"
 msgstr ""
 
 #: ID:74,
-msgid "Replaced"
+msgid "Replacing"
 msgstr ""
 
 #: ID:13,
@@ -2336,6 +2384,10 @@ msgstr ""
 msgid "Skipped"
 msgstr ""
 
+#: ID:263,
+msgid "Skipped missing target"
+msgstr ""
+
 #: ID:79,
 msgid "Specify the files or folders wich TortoiseSVN\n should exclude from version control.\nSeparate the patterns with a space."
 msgstr ""
@@ -2344,7 +2396,7 @@ msgstr ""
 msgid "Split the active window into panes\nSplit"
 msgstr ""
 
-#: Control-ID:1132,#: Dlg-ID:179,
+#: ID:245,#: Control-ID:1132,#: Dlg-ID:179,
 msgid "Statistics"
 msgstr ""
 
@@ -2540,6 +2592,10 @@ msgstr ""
 msgid "This property is only allowed on folders, not files."
 msgstr ""
 
+#: ID:15,
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr ""
+
 #: Control-ID:65535,
 msgid "Three File Diff"
 msgstr ""
@@ -2578,6 +2634,14 @@ msgstr ""
 
 #: ID:80,
 msgid "TortoiseSVN Settings"
+msgstr ""
+
+#: Control-ID:1162,
+msgid "Total commits analyzed:"
+msgstr ""
+
+#: Control-ID:1163,
+msgid "Total fileschanges:"
 msgstr ""
 
 #: ID:73,
