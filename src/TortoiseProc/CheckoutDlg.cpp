@@ -138,7 +138,9 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 void CCheckoutDlg::OnOK()
 {
-	UpdateData(TRUE);
+	if (!UpdateData(TRUE))
+		return; // don't dismiss dialog (error message already shown by MFC framework)
+
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 

@@ -49,7 +49,10 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISON_START, m_lStartRev);
-	DDX_Text(pDX, IDC_REVISION_END, m_lEndRev);
+	if (GetDlgItem(IDC_REVISION_END)->IsWindowEnabled())
+	{
+		DDX_Text(pDX, IDC_REVISION_END, m_lEndRev);
+	}
 }
 
 
@@ -138,7 +141,9 @@ BOOL CMergeDlg::OnInitDialog()
 
 void CMergeDlg::OnOK()
 {
-	UpdateData(TRUE);
+	if (!UpdateData(TRUE))
+		return; // don't dismiss dialog (error message already shown by MFC framework)
+
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 

@@ -66,6 +66,7 @@ protected:
 	HICON m_hIcon;
 public:
 	long m_revnum;			///< the revision number the user entered
+	CEdit m_editRevNum;
 	afx_msg void OnBnClickedNewest();
 	afx_msg void OnBnClickedRevisionN();
 protected:

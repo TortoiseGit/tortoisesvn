@@ -42,7 +42,10 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVISON_START, m_lStartRev);
-	DDX_Text(pDX, IDC_REVISION_END, m_lEndRev);
+	if (GetDlgItem(IDC_REVISION_END)->IsWindowEnabled())
+	{
+		DDX_Text(pDX, IDC_REVISION_END, m_lEndRev);
+	}
 }
 
 
@@ -115,7 +118,8 @@ void CBlameDlg::OnBnClickedRevisionN()
 
 void CBlameDlg::OnOK()
 {
-	UpdateData(TRUE);
+	if (!UpdateData(TRUE))
+		return; // don't dismiss dialog (error message already shown by MFC framework)
 
 	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)

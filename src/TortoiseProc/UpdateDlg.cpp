@@ -38,7 +38,11 @@ CUpdateDlg::~CUpdateDlg()
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_REVNUM, m_revnum);
+	DDX_Control(pDX, IDC_REVNUM, m_editRevNum);
+	if (m_editRevNum.IsWindowEnabled())
+	{
+		DDX_Text(pDX, IDC_REVNUM, m_revnum);
+	}
 }
 
 
@@ -109,7 +113,9 @@ void CUpdateDlg::OnBnClickedRevisionN()
 
 void CUpdateDlg::OnOK()
 {
-	UpdateData(TRUE);
+	if (!UpdateData(TRUE))
+		return; // don't dismiss dialog (error message already shown by MFC framework)
+
 	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
 	{
