@@ -1041,6 +1041,15 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 		// Iterate the series.
 		POSITION pos(m_olMyGraphSeries.GetHeadPosition());
 	
+		// Build objects.
+		COLORREF crLine(m_dwaColors.GetAt(nGroup));
+		CBrush br(crLine);
+		CBrush* pBrushOld = dc.SelectObject(&br);
+		ASSERT_VALID(pBrushOld);
+		CPen penLine(PS_SOLID, 1, crLine);
+		CPen* pPenOld = dc.SelectObject(&penLine);
+		ASSERT_VALID(pPenOld);
+
 		for (int nSeries = 0; nSeries < m_olMyGraphSeries.GetCount(); ++nSeries) {
 
 			MyGraphSeries* pSeries =
@@ -1058,31 +1067,27 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			
 			ptLoc.y = (int) ((double) m_ptOrigin.y - dLineHeight);
 			
-			// Build objects.
-			COLORREF crLine(m_dwaColors.GetAt(nGroup));
-			CBrush br(crLine);
-			CBrush* pBrushOld = dc.SelectObject(&br);
-			ASSERT_VALID(pBrushOld);
 
 			// Draw line back to last data member.
 			if (nSeries > 0) {
-				CPen penLine(PS_SOLID, 1, crLine);
-				CPen* pPenOld = dc.SelectObject(&penLine);
-				ASSERT_VALID(pPenOld);
 
 				dc.MoveTo(ptLastLoc.x + 2, ptLastLoc.y - 1);
 				VERIFY(dc.LineTo(ptLoc.x - 3, ptLoc.y - 1));
-				VERIFY(dc.SelectObject(pPenOld));
 			}
 
 			// Now draw ellipse.
 			CRect rcEllipse(ptLoc.x - 3, ptLoc.y - 3, ptLoc.x + 3, ptLoc.y + 3);
 			VERIFY(dc.Ellipse(rcEllipse));
-
-			pSeries->SetTipRegion(nGroup, rcEllipse);
-			dc.SelectObject(&pBrushOld);
+			if (m_olMyGraphSeries.GetCount() < 40)
+			{
+				pSeries->SetTipRegion(nGroup, rcEllipse);
+			}
 			ptLastLoc = ptLoc;
 		}
+		VERIFY(dc.SelectObject(pPenOld));
+		dc.SelectObject(&pBrushOld);
+		penLine.DeleteObject();
+		br.DeleteObject();
 	}
 }
 

@@ -33,7 +33,7 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 CStatGraphDlg::~CStatGraphDlg()
 {
 	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
-		delete (MyGraphSeries *)m_graphDataArray.GetAt(j);
+		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
 	m_graphDataArray.RemoveAll();
 }
 
@@ -79,8 +79,12 @@ BOOL CStatGraphDlg::OnInitDialog()
 void CStatGraphDlg::ShowCommitsByAuthor()
 {
 	m_graph.Clear();
-	m_graphData.Clear();
-	m_graph.AddSeries(m_graphData);
+	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
+		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
+	m_graphDataArray.RemoveAll();
+	MyGraphSeries * graphData = new MyGraphSeries();
+	m_graph.AddSeries(*graphData);
+	m_graphDataArray.Add(graphData);
 
 	//Set up the graph.
 	CString temp;
@@ -111,7 +115,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	while (iter != authorcommits.end()) 
 	{
 		nGroup = m_graph.AppendGroup(iter->first.c_str());
-		m_graphData.SetData(nGroup, iter->second);
+		graphData->SetData(nGroup, iter->second);
 		iter++;
 	}
 
@@ -156,8 +160,10 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 	if (m_parDates->GetCount()>0)
 		week = GetWeek(CTime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1)));
+	BOOL weekover = FALSE;
 	for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	{
+		weekover = FALSE;
 		stdstring author = stdstring(m_parAuthors->GetAt(i));
 		if (authorcommits.find(author) != authorcommits.end())
 		{
@@ -185,7 +191,27 @@ void CStatGraphDlg::ShowCommitsByDate()
 			m_graphDataArray.Add(graphData);
 			week = GetWeek(time);
 			authorcommits.clear();
+			weekover = TRUE;
 		}
+	}
+	if (!weekover)
+	{
+		std::map<stdstring, LONG>::iterator iter;
+		MyGraphSeries * graphData = new MyGraphSeries();
+		iter = authors.begin();
+		while (iter != authors.end()) 
+		{
+			if (authorcommits.find(iter->first) != authorcommits.end())
+				graphData->SetData(iter->second, authorcommits[iter->first]);
+			else
+				graphData->SetData(iter->second, 0);
+			iter++;
+		}
+		temp.Format(_T("%d"), week);
+		graphData->SetLabel(temp);
+		m_graph.AddSeries(*graphData);
+		m_graphDataArray.Add(graphData);
+		authorcommits.clear();
 	}
 
 

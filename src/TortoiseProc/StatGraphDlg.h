@@ -40,7 +40,6 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 	
-	MyGraphSeries	m_graphData;
 	CPtrArray		m_graphDataArray;
 	MyGraph			m_graph;
 	CComboBox		m_cGraphType;
