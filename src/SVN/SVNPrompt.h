@@ -23,10 +23,17 @@ class SVNPrompt
 public:
 	SVNPrompt();
 	virtual ~SVNPrompt();
+
+public:
+	void SetParentWindow(HWND hWnd)				{ m_hParentWnd = hWnd; }
+	void SetApp(CWinApp* pApp)					{ m_app = pApp; }
+
+protected:
 	void Init(apr_pool_t *pool, svn_client_ctx_t* ctx);
 
-	virtual BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
-	virtual BOOL SimplePrompt(CString& username, CString& password, BOOL& may_save);
+private:
+	BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
+	BOOL SimplePrompt(CString& username, CString& password, BOOL& may_save);
 
 	static svn_error_t* userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, svn_boolean_t may_save, apr_pool_t *pool);
 	static svn_error_t* simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, svn_boolean_t may_save, apr_pool_t *pool);
@@ -35,14 +42,11 @@ public:
 	static svn_error_t* sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, void *baton, const char * realm, svn_boolean_t may_save, apr_pool_t *pool);
 
 	static UINT_PTR CALLBACK OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-
-	void SetParentWindow(HWND hWnd_param)		{ hWnd = hWnd_param; }
-	void SetApp(CWinApp* pApp)					{ m_app = pApp; }
 	
 private:
 	svn_auth_baton_t *			auth_baton;
 	CString						m_server;
 	CWinApp *					m_app;
-	HWND						hWnd;
+	HWND						m_hParentWnd;
 
 };

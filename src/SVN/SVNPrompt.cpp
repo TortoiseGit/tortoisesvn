@@ -32,7 +32,7 @@
 SVNPrompt::SVNPrompt()
 {
 	m_app = NULL;
-	hWnd = NULL;
+	m_hParentWnd = NULL;
 }
 
 SVNPrompt::~SVNPrompt()
@@ -91,7 +91,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 	CPromptDlg dlg;
 	dlg.SetHide(hide);
 	dlg.m_info = promptphrase;
-	dlg.m_hParentWnd = this->hWnd;
+	dlg.m_hParentWnd = m_hParentWnd;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
@@ -126,7 +126,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, BOOL& may_save) 
 {
 	CSimplePrompt dlg;
-	dlg.m_hParentWnd = this->hWnd;
+	dlg.m_hParentWnd = m_hParentWnd;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
@@ -250,7 +250,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		sAcceptTemp.LoadString(IDS_SSL_ACCEPTTEMP);
 		sReject.LoadString(IDS_SSL_REJECT);
 		int ret = 0;
-		ret = CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3, IDI_QUESTION, sAcceptAlways, sAcceptTemp, sReject);
+		ret = CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3, IDI_QUESTION, sAcceptAlways, sAcceptTemp, sReject);
 		if (ret == 1)
 		{
 			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
@@ -267,7 +267,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	}
 	else
 	{
-		if (CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+		if (CMessageBox::Show(svn->m_hParentWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
 		{
 			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->may_save = FALSE;
@@ -293,7 +293,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	ZeroMemory(&ofn, sizeof(OPENFILENAME));
 	//ofn.lStructSize = sizeof(OPENFILENAME);
 	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-	ofn.hwndOwner = svn->hWnd;
+	ofn.hwndOwner = svn->m_hParentWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	CString sFilter;
