@@ -1240,6 +1240,7 @@ void CResModule::ReplaceStr(LPCWSTR src, WORD * dest, int * count, int * transla
 		if (dest)
 			wcscpy((wchar_t *)&dest[(*count)], src);
 		(*count) += wcslen(src) + 1;
-		(*def)++;
+		if (wcslen(src))
+			(*def)++;
 	}
 }
