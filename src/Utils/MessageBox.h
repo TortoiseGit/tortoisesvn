@@ -429,6 +429,7 @@ protected:
 	UINT m_uButton2Ret;
 	UINT m_uButton3Ret;
 	UINT m_uCancelRet;
+	UINT m_uType;
 	CSize m_szIcon;
 	CSize m_szAllButtons;
 	CSize m_szButtons;

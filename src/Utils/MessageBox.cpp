@@ -225,6 +225,7 @@ UINT CMessageBox::Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uTy
 
 int CMessageBox::FillBoxStandard(UINT uType)
 {
+	m_uType = uType;
 	m_uCancelRet = IDCANCEL;
 	//load the icons according to uType
 	switch (uType & 0xf0)
@@ -794,6 +795,32 @@ BOOL CMessageBox::PreTranslateMessage(MSG* pMsg)
 					return TRUE;
 				}
 			}
+			break;
+		case VK_ESCAPE:
+			{
+				switch (m_uType & 0xf)
+				{
+				case MB_ABORTRETRYIGNORE:
+					EndDialog(m_uButton1Ret);
+					break;
+				case MB_CANCELTRYCONTINUE:
+					EndDialog(m_uButton1Ret);
+					break;
+				case MB_OKCANCEL:
+					EndDialog(m_uButton2Ret);
+					break;
+				case MB_RETRYCANCEL:
+					EndDialog(m_uButton2Ret);
+					break;
+				case MB_YESNO:
+					EndDialog(m_uButton2Ret);
+					break;
+				case MB_YESNOCANCEL:
+					EndDialog(m_uButton3Ret);
+					break;
+				}
+			}
+			break;
 		}
 	}
 
