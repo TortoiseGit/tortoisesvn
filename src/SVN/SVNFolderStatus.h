@@ -171,6 +171,7 @@ private:
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	
 	BOOL				m_bColumnProvider;
+	int					m_nCounter;
 	std::map<stdstring, filestatuscache> m_cache;
 	DWORD				m_TimeStamp;
 	filestatuscache		invalidstatus;

@@ -84,6 +84,7 @@ SVNFolderStatus::SVNFolderStatus(void)
 	invalidstatus.status = svn_wc_status_unversioned;
 	invalidstatus.url = emptyString;
 	invalidstatus.rev = -1;
+	m_nCounter = 0;
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
@@ -172,16 +173,21 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 			ClearPool();
 			return &dirstat;
 		} // if (shellCache.IsRecursive())
-		if (m_bColumnProvider)
+		if ((m_bColumnProvider)&&(m_nCounter<1))
+		{
+			m_nCounter++;
 			return &invalidstatus;
+		}
 	} // if (isFolder) 
-
+	
+	m_nCounter = 0;
+	
 	//Fill in the cache with
 	//all files inside the same folder as the asked file/folder is
 	//since subversion can do this in one step
 	TCHAR pathbuf[MAX_PATH+4];
 	_tcscpy(pathbuf, filepath);
-	const TCHAR * p = _tcsrchr(filepath, '/');
+	const TCHAR * p = _tcsrchr(filepath, '\\');
 	if (p)
 		pathbuf[p-filepath] = '\0';
 
@@ -241,33 +247,22 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 
 filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumnProvider)
 {
-	TCHAR filepathnonconst[MAX_PATH];
 	TCHAR pathbuf[MAX_PATH];
 
 	if (! shellCache.IsPathAllowed(filepath))
 		return &invalidstatus;
 
 	m_bColumnProvider = bColumnProvider;
-	//first change the filename to 'internal' format
-	UINT len = _tcslen(filepath);
-	for (UINT i=0; i<len; i++)
-	{
-		if (filepath[i] == _T('\\'))
-			filepathnonconst[i] = _T('/');
-		else
-			filepathnonconst[i] = filepath[i];
-	}
-	filepathnonconst[i] = 0;
 
 	BOOL isFolder = PathIsDirectory(filepath);
-	_tcscpy(pathbuf, filepathnonconst);
+	_tcscpy(pathbuf, filepath);
 	if (!isFolder)
 	{
-		TCHAR * ptr = _tcsrchr(pathbuf, '/');
+		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
 		if (ptr != 0)
 		{
 			*ptr = 0;
-			_tcscat(pathbuf, _T("/"));
+			_tcscat(pathbuf, _T("\\"));
 			_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 			if (!PathFileExists(pathbuf))
 				return &invalidstatus;
@@ -279,20 +274,20 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 	} // if (!isFolder)
 	else
 	{
-		_tcscat(pathbuf, _T("/"));
+		_tcscat(pathbuf, _T("\\"));
 		_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 		if (!PathFileExists(pathbuf))
 			return &invalidstatus;
-		_tcscpy(pathbuf, filepathnonconst);
+		_tcscpy(pathbuf, filepath);
 		_tcscat(pathbuf, _T(EXCLUDEFILENAME));
 		if (PathFileExists(pathbuf))
 			return &invalidstatus;
 	}
 	filestatuscache * ret = NULL;
 	std::map<stdstring, filestatuscache>::iterator iter;
-	if ((iter = m_cache.find(filepathnonconst)) != m_cache.end())
+	if ((iter = m_cache.find(filepath)) != m_cache.end())
 	{
-		ATLTRACE2(_T("cache found for %s - %s\n"), filepathnonconst, pathbuf);
+		ATLTRACE2(_T("cache found for %s - %s\n"), filepath, pathbuf);
 		ret = (filestatuscache *)&iter->second;
 		DWORD now = GetTickCount();
 		if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
@@ -301,7 +296,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 	if (ret)
 		return ret;
 
-	return BuildCache(filepathnonconst);
+	return BuildCache(filepath);
 }
 
 void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)
@@ -334,10 +329,21 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	s.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 	stdstring str;
 	if (path)
-		str = CUnicodeUtils::StdGetUnicode(path);
+	{
+		char osPath[MAX_PATH+1];
+		UINT len = strlen(path);
+		for (UINT i=0; i<len; i++)
+		{
+			if (path[i] =='/')
+				osPath[i] = '\\';
+			else
+				osPath[i] = path[i];
+		}
+		osPath[i] = 0;
+		str = CUnicodeUtils::StdGetUnicode(osPath);
+	}
 	else
 		str = _T(" ");
-
 	(*cache)[str] = s;
 	ATLTRACE2(_T("%s\n"), str.c_str());
 }
