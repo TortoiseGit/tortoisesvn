@@ -115,7 +115,9 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFOSTART);
 	m_progressDlg.SetCancelMsg(IDS_BLAME_PROGRESSCANCEL);
 	m_progressDlg.SetTime(FALSE);
-	m_nHeadRev = GetHEADRevision(path);
+	m_nHeadRev = endrev;
+	if (m_nHeadRev < 0)
+		m_nHeadRev = GetHEADRevision(path);
 	m_progressDlg.SetProgress(0, m_nHeadRev);
 	if (!this->Blame(path, startrev, endrev))
 	{
