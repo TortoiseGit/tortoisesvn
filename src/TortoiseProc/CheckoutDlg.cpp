@@ -62,6 +62,7 @@ BEGIN_MESSAGE_MAP(CCheckoutDlg, CDialog)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECKOUTDIRECTORY_BROWSE, OnBnClickedCheckoutdirectoryBrowse)
+	ON_EN_CHANGE(IDC_CHECKOUTDIRECTORY, OnEnChangeCheckoutdirectory)
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -134,6 +135,10 @@ void CCheckoutDlg::OnOK()
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
 		m_lRevision = -1;
+	}
+	if (m_strCheckoutDirectory.IsEmpty())
+	{
+		return;			//don't dismiss the dialog
 	}
 	if (!PathFileExists(m_strCheckoutDirectory))
 	{
@@ -225,4 +230,17 @@ BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
 	return CDialog::PreTranslateMessage(pMsg);
+}
+
+void CCheckoutDlg::OnEnChangeCheckoutdirectory()
+{
+	UpdateData(TRUE);
+	if (m_strCheckoutDirectory.IsEmpty())
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
 }

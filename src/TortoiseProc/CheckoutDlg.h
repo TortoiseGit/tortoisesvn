@@ -90,4 +90,5 @@ public:
 	CEdit m_editRevision;
 	CString m_strCheckoutDirectory;
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnEnChangeCheckoutdirectory();
 };

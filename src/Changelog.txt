@@ -7,6 +7,8 @@ CVS
 - BUG: corrected tooltip in the checkout dialog (Stefan)
 - CHG: Repository browser now has a minimal size
        so that resizing works better. (Stefan)
+- CHG: if the checkout directory is left empty
+       then the OK button is now disabled (Stefan)
 - ADD: After creating a repository now a messagebox
        appears to inform the user of the finished
        command. (Stefan)
