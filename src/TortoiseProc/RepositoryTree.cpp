@@ -253,7 +253,7 @@ HTREEITEM CRepositoryTree::InsertDummyItem(HTREEITEM hItem)
 	{
 		HTREEITEM hChild = GetNextItem(hItem, RVGN_CHILD);
 		if (hChild == 0)
-			return InsertItem(_T("Error"), -1, -1, -1, hItem);
+			return InsertItem(_T("Error * "), -1, -1, -1, hItem);
 	}
 
 	return 0;
@@ -264,7 +264,7 @@ void CRepositoryTree::DeleteDummyItem(HTREEITEM hItem)
 	if (hItem != 0)
 	{
 		HTREEITEM hChild = GetNextItem(hItem, RVGN_CHILD);
-		if (hChild != 0 && GetItemText(GetItemIndex(hChild), 0).Compare(_T("Error")) == 0)
+		if (hChild != 0 && GetItemText(GetItemIndex(hChild), 0).Find(_T("Error * ")) >= 0)
 			DeleteItem(hChild);
 	}
 }
@@ -312,7 +312,16 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
 		if (hChild == 0)
 		{
 			Expand(hItem, RVE_COLLAPSE);
-			InsertDummyItem(hItem);
+			if (hItem != 0)
+			{
+				HTREEITEM hChild = GetNextItem(hItem, RVGN_CHILD);
+				if (hChild == 0)
+				{
+					CString err = _T("Error * ") + m_svn.GetLastErrorMessage();
+					err.Replace('\n', ' ');
+					InsertItem(err, -1, -1, -1, hItem);
+				}
+			}
 		}
 		// Mark item as "not successfully read"
 		SetItemData(GetItemIndex(hItem), 0);
