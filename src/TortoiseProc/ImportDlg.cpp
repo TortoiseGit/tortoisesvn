@@ -185,15 +185,17 @@ void CImportDlg::OnOK()
 		} // if (m_FileList.GetCheck(i))
 	} // for (int i=0; i<m_FileList.GetItemCount(); i++)
 	*fileptr = '\0';
-
-	SHFILEOPSTRUCT fileop;
-	fileop.hwnd = this->m_hWnd;
-	fileop.wFunc = FO_DELETE;
-	fileop.pFrom = filenames;
-	fileop.pTo = _T("");
-	fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
-	fileop.lpszProgressTitle = _T("deleting files");
-	SHFileOperation(&fileop);
+	if (_tcslen(fileptr)!=0)
+	{
+		SHFILEOPSTRUCT fileop;
+		fileop.hwnd = this->m_hWnd;
+		fileop.wFunc = FO_DELETE;
+		fileop.pFrom = filenames;
+		fileop.pTo = _T("");
+		fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
+		fileop.lpszProgressTitle = _T("deleting files");
+		SHFileOperation(&fileop);
+	}
 
 	delete [] filenames;
 	CResizableDialog::OnOK();
