@@ -613,6 +613,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	sWindowTitle = sWindowTitle + _T(" ") + temp;
 	pDlg->SetWindowText(sWindowTitle);
 
+	pDlg->ReleasePool();
+
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 
