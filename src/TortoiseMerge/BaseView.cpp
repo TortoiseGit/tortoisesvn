@@ -307,7 +307,7 @@ int CBaseView::GetScreenChars()
 	{
 		CRect rect;
 		GetClientRect(&rect);
-		m_nScreenChars = (rect.Width() - MARGINWIDTH) / GetCharWidth();
+		m_nScreenChars = (rect.Width() - GetMarginWidth()) / GetCharWidth();
 	} // if (m_nScreenChars == -1) 
 	return m_nScreenChars;
 }
@@ -537,10 +537,10 @@ void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
 			m_nOffsetChar = 0;
 			Invalidate();
 			//UpdateCaret();
-		} // if (GetScreenChars() >= GetMaxLineLength() && m_nOffsetChar > 0) 
+		} // if (GetAllMinScreenChars() >= GetAllMaxLineLength() && m_nOffsetChar > 0)  
 		si.fMask = SIF_DISABLENOSCROLL | SIF_PAGE | SIF_POS | SIF_RANGE;
 		si.nMin = 0;
-		si.nMax = GetAllMaxLineLength() - 1;
+		si.nMax = GetAllMaxLineLength() + GetMarginWidth()/GetCharWidth();
 		si.nPage = GetAllMinScreenChars();
 		si.nPos = m_nOffsetChar;
 	}
@@ -614,7 +614,7 @@ void CBaseView::ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar /*= TRUE*/
 		m_nOffsetChar = nNewOffsetChar;
 		CRect rcScroll;
 		GetClientRect(&rcScroll);
-		rcScroll.left += MARGINWIDTH;
+		rcScroll.left += GetMarginWidth();
 		rcScroll.top += GetLineHeight()+HEADERHEIGHT;
 		ScrollWindow(nScrollChars * GetCharWidth(), 0, &rcScroll, &rcScroll);
 		UpdateWindow();
@@ -678,9 +678,10 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		}
 		if ((m_bViewLinenumbers)&&(m_nDigits))
 		{
+			CString sLinenumberFormat;
 			CString sLinenumber;
-			sLinenumber.Format(_T("%%%dd"), m_nDigits);
-			sLinenumber.Format(sLinenumber, nLineIndex+1);
+			sLinenumberFormat.Format(_T("%%%dd"), m_nDigits);
+			sLinenumber.Format(sLinenumberFormat, nLineIndex+1);
 			pdc->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
 			pdc->SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
 
