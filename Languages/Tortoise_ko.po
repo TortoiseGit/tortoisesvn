@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-11-10 06:43+0900\n"
+"PO-Revision-Date: 2004-11-24 22:30+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -175,11 +175,6 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "취소(&C)"
-
-# Control-ID:1074,
-#: Control-ID:1074
-msgid "&Checkout directory:"
-msgstr "디렉토리 체크아웃(&C)"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -382,6 +377,12 @@ msgstr "SSH 클라이언트(&S):"
 msgid "&Save Ctrl-S"
 msgstr "저장(&S)"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Save authentication"
+msgstr "인증 정보 저장(&S)"
+
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Set"
@@ -487,6 +488,11 @@ msgstr "..."
 #: ID:151
 msgid ": Revision %d"
 msgstr ": 리비전 %d"
+
+# ID:151,
+#: ID:151
+msgid ": working base"
+msgstr ": 작업 베이스"
 
 # ID:151,
 #: ID:151
@@ -635,7 +641,6 @@ msgstr ""
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
-#: ID:73
 #: Dlg-ID:155
 msgid "Add"
 msgstr "추가"
@@ -671,6 +676,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "확장자에 따른 비교/병합 프로그램 추가/수정"
 
 # Control-ID:65535,
+#: ID:73
 #: Control-ID:65535
 msgid "Added"
 msgstr "추가됨"
@@ -744,6 +750,11 @@ msgstr "모든 파일 (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "모든 파일 (*.*)|*.*||"
+
+# ID:82,
+#: ID:82
+msgid "All files are already under version control. There's nothing to add!"
+msgstr "모든 파일들이 이미 버전관리 대상입니다. 추가할 것이 없습니다."
 
 # ID:3867,#:
 # ID:3868,#:
@@ -864,6 +875,11 @@ msgstr "패치 적용..."
 #: Control-ID:65535
 msgid "Apply Unified Diff"
 msgstr "Unified Diff 적용"
+
+# ID:145,
+#: ID:145
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "충돌난 파일들을 해결되었음으로 처리하는 것이 확실합니까?"
 
 # ID:79,
 #: ID:79
@@ -1085,10 +1101,15 @@ msgstr "새 버전 확인"
 msgid "Check For Updates..."
 msgstr "업데이트 확인..."
 
+# ID:8,
+#: Control-ID:1132
+msgid "Check Repository"
+msgstr "저장소 생성"
+
 # ID:13,
 #: ID:13
-msgid "Check for Updates"
-msgstr "업데이트 확인"
+msgid "Check for Modifications"
+msgstr "수정내역 확인 확인"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1129,7 +1150,7 @@ msgstr "하위메뉴에 나타내지 않고 컨텍스트 메뉴에 바로 나타
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시하려면 선택하십시오"
+msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시합니다."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1140,6 +1161,11 @@ msgstr "TortoiseSVN 새 버전이 있는지 확인합니다."
 #: Dlg-ID:133
 msgid "Checkout"
 msgstr "체크아웃"
+
+# Control-ID:1074,
+#: Control-ID:1074
+msgid "Checkout &directory:"
+msgstr "디렉토리 체크아웃(&D)"
 
 # ID:8,
 #: ID:8
@@ -1173,7 +1199,7 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "저장된 인증정보를 제거합니다.\n"
-"다음번 보관소에 접속할 때, 사용자명과 암호를 넣어야 합니다."
+"다음 보관소에 접속할 때, 사용자명과 암호를 넣어야 합니다."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1281,15 +1307,15 @@ msgstr "컨텍스트 메뉴"
 msgid "Continue"
 msgstr "계속"
 
+# ID:74,
+#: ID:73
+msgid "Copied"
+msgstr "복사됨"
+
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
 msgstr "원격 복사됨"
-
-# ID:73,
-#: ID:73
-msgid "Copy"
-msgstr "복사"
 
 # ID:151,
 #: ID:101
@@ -1494,9 +1520,14 @@ msgstr "로그 메시지 기본 개수(&N)"
 # ID:11,#:
 # ID:73,
 #: ID:11
-#: ID:73
 msgid "Delete"
 msgstr "삭제"
+
+# ID:11,#:
+# ID:73,
+#: ID:73
+msgid "Deleted"
+msgstr "삭제됨"
 
 # ID:11,
 #: ID:11
@@ -1963,6 +1994,14 @@ msgstr ""
 msgid "Graph type:"
 msgstr "그래프 종류:"
 
+# Control-ID:1032,#:
+# Control-ID:1115,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: Control-ID:1032
+msgid "H&ead Revision"
+msgstr "H&EAD 리비전"
+
 # ID:12,
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -2033,6 +2072,11 @@ msgstr ""
 #: ID:73
 msgid "Ignore"
 msgstr "무시"
+
+# Control-ID:1021,
+#: ID:15
+msgid "Ignore %d items"
+msgstr "%d 개 무시"
 
 # Control-ID:1021,
 #: Control-ID:1021
@@ -2850,11 +2894,6 @@ msgstr "저장소"
 msgid "Repository Browser"
 msgstr "저장소 브라우저"
 
-# ID:74,
-#: ID:74
-msgid "Resolve"
-msgstr "충돌 해결"
-
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
@@ -2862,6 +2901,7 @@ msgstr "저장할 때 충돌상태 해결하기"
 
 # ID:8,
 #: ID:8
+#: ID:74
 msgid "Resolved"
 msgstr "충돌 해결됨"
 
@@ -2870,15 +2910,15 @@ msgstr "충돌 해결됨"
 msgid "Resolves conflicted files"
 msgstr "충돌 파일을 해결하기"
 
-# ID:73,
-#: ID:73
-msgid "Restore"
-msgstr "복구"
-
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "윈도우를 보통 크기로 되돌리기"
+
+# ID:73,
+#: ID:73
+msgid "Restored"
+msgstr "복구됨"
 
 # ID:73,
 #: ID:73
@@ -2889,10 +2929,16 @@ msgstr "재시도"
 # ID:73,#:
 # Dlg-ID:175,
 #: ID:8
-#: ID:73
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "되돌리기"
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: ID:73
+msgid "Reverted"
+msgstr "되돌림"
 
 # ID:9,
 #: ID:9
@@ -3329,7 +3375,7 @@ msgstr "크기"
 
 # ID:74,
 #: ID:74
-msgid "Skip"
+msgid "Skipped"
 msgstr "넘김"
 
 # ID:79,
@@ -3894,7 +3940,6 @@ msgstr "제목 없음"
 # ID:74,#:
 # Dlg-ID:152,
 #: ID:8
-#: ID:74
 #: Dlg-ID:152
 msgid "Update"
 msgstr "업데이트"
@@ -3903,6 +3948,13 @@ msgstr "업데이트"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "특정 리비전으로 업데이트..."
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: ID:74
+msgid "Updated"
+msgstr "업데이트됨"
 
 # ID:11,
 #: ID:11
