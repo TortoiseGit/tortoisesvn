@@ -76,9 +76,12 @@ public:
 
 	DECLARE_MESSAGE_MAP()
 
+public:
 	void	SetDictPaths(CString sAff, CString sDic);
 	void	SetThesaurPaths(CString sIdx, CString sDat);
 	void	SetUnderlineColor(COLORREF color) {m_ErrColor = color;}
+	void	SetMarginLine(int line) {m_nMarginLine = line;}
+
 protected:
 	afx_msg void OnTimer(UINT nIDEvent);
 	virtual void PreSubclassWindow();
@@ -91,4 +94,5 @@ private:
 	CString		m_i18l;
 	COLORREF	m_ErrColor;
 	UINT_PTR	m_timer;
+	int			m_nMarginLine;
 };

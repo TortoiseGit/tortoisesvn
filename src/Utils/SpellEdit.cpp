@@ -17,6 +17,7 @@ CSpellEdit::CSpellEdit()
 	pThesaur = NULL;
 	m_ErrColor = RGB(200, 0, 0);
 	m_timer = 0;
+	m_nMarginLine = 0;
 }
 
 CSpellEdit::~CSpellEdit()
@@ -39,17 +40,31 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 	{
 		SetTimer(m_timer, 4000, NULL);
 
-		if ((pThesaur==NULL)&&(pChecker==NULL))
-			return;
+		RECT rect;
+		GetClientRect(&rect);
 
 		CClientDC dc(this); // device context for painting
 		dc.SelectObject((*GetFont()));
-		CPen mypen(PS_SOLID, 0, m_ErrColor);
-		CPen* pOldPen = dc.SelectObject( &mypen );
+		CPen* pOldPen;
+		SIZE sizei, sizeo;
+		BOOL monospace = FALSE;
+		GetTextExtentPoint32(dc, _T("i"), 1, &sizei);
+		GetTextExtentPoint32(dc, _T("O"), 1, &sizeo);
+		if (sizei.cx == sizeo.cx)
+		{
+			CPen margpen(PS_SOLID, 0, ::GetSysColor(COLOR_GRAYTEXT));
+			pOldPen = dc.SelectObject( &margpen );
+			dc.MoveTo(m_nMarginLine*sizei.cx, rect.top);
+			dc.LineTo(m_nMarginLine*sizei.cx, rect.bottom);
+			dc.SelectObject(pOldPen);
+		}
 
-		RECT rect;
-		GetClientRect(&rect);
-		
+		if ((pThesaur==NULL)&&(pChecker==NULL))
+			return;
+
+		CPen mypen(PS_SOLID, 0, m_ErrColor);
+		pOldPen = dc.SelectObject( &mypen );
+
 		CRgn rgn;
 		rgn.CreateRectRgnIndirect(&rect);
 		dc.SelectObject(rgn);
@@ -96,7 +111,7 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 
 					if (!pChecker->spell(worda))
 					{
-						// underline missspelled words
+						// underline misspelled words
 						CharPos = PosFromChar(oldpos + nLineIndex);
 						dc.MoveTo(CharPos.x, CharPos.y+wordsize.cy);
 						dc.LineTo(CharPos.x+wordsize.cx, CharPos.y+wordsize.cy);
