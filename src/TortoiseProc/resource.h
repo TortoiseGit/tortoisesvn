@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\TortoiseSVN\src\Languages\TortoiseProcENG.rc
+// Used by d:\Development\Subversion\TortoiseSVN\src\Languages\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -370,6 +370,7 @@
 #define IDS_REPOBROWSE_MKDIR            1607
 #define IDS_REPOBROWSE_IMPORTFOLDER     1608
 #define IDS_REPOBROWSE_REFRESH          1609
+#define IDS_REPOBROWSE_SHOWPROP         1610
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701
 #define IDS_DLGTITLE_ADD_DIFF_TOOL      1750

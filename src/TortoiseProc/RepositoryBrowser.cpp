@@ -23,6 +23,7 @@
 #include "MessageBox.h"
 #include "InputDlg.h"
 #include "LogDlg.h"
+#include "PropDlg.h"
 #include "WaitCursorEx.h"
 #include ".\repositorybrowser.h"
 
@@ -38,7 +39,7 @@
 #define ID_POPGNUDIFF		9
 #define ID_POPDIFF			10
 #define ID_POPREFRESH		11
-
+#define ID_POPPROPS			12
 
 // CRepositoryBrowser dialog
 
@@ -285,6 +286,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				} // if (GetRevision().IsHead()
 				temp.LoadString(IDS_REPOBROWSE_COPY);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
+				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
@@ -661,6 +664,16 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2, ext);
 					theApp.DoWaitCursor(-1); //???
 				}
+				break;
+			case ID_POPPROPS:
+				{
+					CPropDlg dlg;
+					dlg.m_rev = GetRevision();
+					dlg.m_sPath = url;
+					dlg.DoModal();
+				}
+				break;
+			default:
 				break;
 			}
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
