@@ -311,10 +311,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		//if (_tcscmp(buf, folder_.c_str())==0)
 		//	return NOERROR;
 
-		//the drophandler only has two commands, but only one is visible at a time:
+		//the drophandler only has four commands, but not all are visible at the same time:
 		//if the source file(s) are under version control then those files can be moved
-		//to the new location, if they are unversioned then they can be added to the
-		//working copy
+		//to the new location or they can be moved with a rename, 
+		//if they are unversioned then they can be added to the working copy
+		//if they are versioned, they also can be exported to an unversioned location
 		UINT idCmd = idCmdFirst;
 
 		if ((isInSVN)&&(isFolderInSVN))
@@ -323,6 +324,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, DropCopy);
 		if ((isInSVN)&&(isFolderInSVN))
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, DropCopyAdd);
+		if (isInSVN)
+			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, DropExport);
 
 		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 	}
@@ -709,6 +712,15 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					case DropMove:
 						tempfile = WriteFileListToTempFile();
 						svnCmd += _T("dropmove /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						svnCmd += _T(" /droptarget:\"");
+						svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
+					case DropExport:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("dropexport /path:\"");
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /droptarget:\"");

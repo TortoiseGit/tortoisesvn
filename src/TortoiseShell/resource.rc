@@ -307,6 +307,7 @@ BEGIN
     IDS_TT_EXTERNALS        "svn:externals\nA newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
     IDS_COLTITLEMIMETYPE    "SVN mime-type"
     IDS_COLDESCMIMETYPE     "Shows the mime type of the versioned file"
+    IDS_DROPEXPORTMENU      "Subversion export here"
 END
 
 #endif    // English (U.S.) resources
