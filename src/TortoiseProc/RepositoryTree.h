@@ -138,7 +138,7 @@ private:
 	//! Deletes all items below \a hItem
 	void DeleteChildItems(HTREEITEM hItem);
 	//! Loads the items below \a hItem from repository
-	void LoadChildItems(HTREEITEM hItem);
+	void LoadChildItems(HTREEITEM hItem, BOOL recursive = FALSE);
 
 private:
 	friend class CRepositoryBar;

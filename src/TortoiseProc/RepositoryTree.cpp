@@ -82,7 +82,6 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force)
 	AfxExtractSubString(folder_path, SVNUrl(folder), 0, '\t');
 
 	HTREEITEM hItem = FindUrl(folder_path);
-	
 	if (hItem == 0)
 	{
 		HTREEITEM hParentItem = RVTI_ROOT;
@@ -93,13 +92,15 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force)
 			hParentItem = FindUrl(parent_folder);
 			if (hParentItem == 0)
 			{
-				if (!force)
-					return NULL;
-				hParentItem = AddFolder(parent_folder, true);
+				//if (!force)
+				//	return NULL;
+				hParentItem = AddFolder(parent_folder, force);
 			}
 		}
 
 		DeleteDummyItem(hParentItem);
+		if (hParentItem != RVTI_ROOT)
+			SetItemData(GetItemIndex(hParentItem), 1);
 		if (force && hParentItem != RVTI_ROOT)
 			Expand(hParentItem, RVE_EXPAND);
  
@@ -109,7 +110,6 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force)
 		InsertDummyItem(hItem);
 		SetItemData(GetItemIndex(hItem), 0);
 	}
-
 	// insert other columns text
 	for (int col=1; col<GetActiveSubItemCount(); col++)
 	{
@@ -138,13 +138,14 @@ HTREEITEM CRepositoryTree::AddFile(const CString& file, bool force)
 			hParentItem = FindUrl(parent_folder);
 			if (hParentItem == 0)
 			{
-				if (!force)
-					return NULL;
-				hParentItem = AddFolder(parent_folder, true);
+				//if (!force)
+				//	return NULL;
+				hParentItem = AddFolder(parent_folder, force);
 			}
 		}
 
 		DeleteDummyItem(hParentItem);
+		SetItemData(GetItemIndex(hParentItem), 1);
 		if (force && hParentItem != RVTI_ROOT)
 			Expand(hParentItem, RVE_EXPAND);
  
@@ -276,7 +277,7 @@ void CRepositoryTree::DeleteChildItems(HTREEITEM hItem)
 		DeleteItem(hChild);
 }
 
-void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
+void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 {
 	CWaitCursorEx wait_cursor;
 
@@ -285,7 +286,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
 
 	m_svn.m_app = &theApp;
 
-	if (m_svn.Ls(folder, m_Revision, entries, true))
+	if (m_svn.Ls(folder, m_Revision, entries, true, recursive))
 	{
 		DeleteChildItems(hItem);
 		for (int i = 0; i < entries.GetCount(); ++i)
@@ -368,7 +369,7 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 		if (GetItemData(GetItemIndex(pNMTreeView->hItem)) == 0)
 		{
 			DeleteDummyItem(pNMTreeView->hItem);
-			LoadChildItems(pNMTreeView->hItem);
+			LoadChildItems(pNMTreeView->hItem, GetKeyState(VK_CONTROL)&0x8000);
 		}
 	}
 }
@@ -549,11 +550,11 @@ void CRepositoryTree::Refresh(HTREEITEM hItem)
 {
 	hItem = GetNextItem(hItem, RVGN_PARENT);
 	if (hItem != 0)
-		LoadChildItems(hItem);
+		LoadChildItems(hItem, GetKeyState(VK_CONTROL)&0x8000);
 }
 
 void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 {
 	if (hItem != 0)
-		LoadChildItems(hItem);
+		LoadChildItems(hItem, GetKeyState(VK_CONTROL)&0x8000);
 }

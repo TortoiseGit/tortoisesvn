@@ -38,6 +38,9 @@ Version 1.0.7
        context menu. (Stefan)
 - ADD: New "export" function which exports unversioned
        files and folders too. (Stefan)
+- ADD: If a folder is expanded in the repository browser
+       while the Ctrl-key is down then the directory
+       tree is fetched and filled in recursively. (Stefan)
 - CHG: Searching in the log dialog now also searches
        the changed paths. (Stefan)
 - CHG: The locatorbar in TME shows the current view range
