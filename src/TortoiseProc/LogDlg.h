@@ -85,7 +85,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths);
+	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time);
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -102,6 +102,7 @@ protected:
 	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedStatbutton();
 	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -136,6 +137,8 @@ private:
 	HANDLE		m_hThread;
 	CStringArray m_arLogMessages;
 	CStringArray m_arLogPaths;
+	CDWordArray	m_arDates;
+	CStringArray m_arAuthors;
 	CDWordArray m_arRevs;
 	BOOL		m_hasWC;
 	int			m_nSearchIndex;

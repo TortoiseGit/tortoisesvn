@@ -44,6 +44,7 @@
 #define IDD_REVERT                      175
 #define IDD_PROPERTIES                  177
 #define IDD_REPOCREATE                  178
+#define IDD_STATGRAPH                   179
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -190,6 +191,11 @@
 #define IDC_RADIOBDB                    1128
 #define IDC_RADIOFSFS                   1129
 #define IDC_CHECK_STOPONCOPY            1130
+#define IDC_GRAPH                       1131
+#define IDC_BUTTON1                     1132
+#define IDC_STATBUTTON                  1132
+#define IDC_GRAPHCOMBO                  1133
+#define IDC_GRAPHTYPELABEL              1134
 #define IDS_MSGBOX_DONOTSHOWAGAIN       1153
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
@@ -429,6 +435,12 @@
 #define IDS_PROGRS_PATHATREV            3600
 #define IDS_SSL_SAVE_CERTPATH           3700
 #define IDS_REPOSTATUS_HEADREV          3800
+#define IDS_STATGRAPH_COMMITSBYAUTHOR   3900
+#define IDS_STATGRAPH_COMMITSBYDATE     3901
+#define IDS_STATGRAPH_COMMITSBYDATEX    3902
+#define IDS_STATGRAPH_COMMITSBYDATEY    3903
+#define IDS_STATGRAPH_COMMITSBYAUTHORX  3904
+#define IDS_STATGRAPH_COMMITSBYAUTHORY  3905
 #define IDS_SVNERR_CHECKPATHORURL       4000
 #define IDS_SVNERR_RUNCLEANUP           4001
 #define IDS_SVNERR_UPDATEFIRST          4002
@@ -438,9 +450,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        179
+#define _APS_NEXT_RESOURCE_VALUE        180
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1131
+#define _APS_NEXT_CONTROL_VALUE         1135
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

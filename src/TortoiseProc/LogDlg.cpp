@@ -26,6 +26,8 @@
 #include "SVNProgressDlg.h"
 #include "RepositoryBrowser.h"
 #include "CopyDlg.h"
+#include "StatGraphDlg.h"
+#include ".\logdlg.h"
 
 // CLogDlg dialog
 
@@ -76,6 +78,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LOGLIST, OnLvnItemchangedLoglist)
 	ON_NOTIFY(EN_LINK, IDC_MSGVIEW, OnEnLinkMsgview)
+	ON_BN_CLICKED(IDC_STATBUTTON, OnBnClickedStatbutton)
 END_MESSAGE_MAP()
 
 
@@ -194,7 +197,8 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_MSGVIEW, TOP_LEFT, MIDDLE_RIGHT);
 	AddAnchor(IDC_LOGMSG, MIDDLE_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
+	AddAnchor(IDC_GETALL, BOTTOM_LEFT);
+	AddAnchor(IDC_STATBUTTON, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -251,6 +255,8 @@ void CLogDlg::OnBnClickedGetall()
 	m_arLogMessages.RemoveAll();
 	m_arLogPaths.RemoveAll();
 	m_arRevs.RemoveAll();
+	m_arAuthors.RemoveAll();
+	m_arDates.RemoveAll();
 	m_logcounter = 0;
 	m_endrev = 1;
 	m_startrev = -1;
@@ -281,7 +287,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths)
+BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time)
 {
 	CString temp;
 	m_LogList.SetRedraw(FALSE);
@@ -294,7 +300,9 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	m_LogList.InsertItem(count, temp);
 	m_LogList.SetItemText(count, 1, author);
 	m_LogList.SetItemText(count, 2, date);
-
+	__time64_t ttime = time/1000000L;
+	m_arDates.Add((DWORD)ttime);
+	m_arAuthors.Add(author);
 	// Add as many characters from the log message to the list control
 	// so it has a fixed width. If the log message is longer than
 	// this predefined fixed with, add "..." as an indication.
@@ -388,6 +396,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	//disable the "Get All" button while we're receiving
 	//log messages.
 	pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
+	pDlg->GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
 	pDlg->m_LogProgress.SetRange32(pDlg->m_endrev, pDlg->m_startrev);
 	pDlg->m_LogProgress.SetPos(0);
 	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
@@ -421,7 +430,10 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	temp.LoadString(IDS_MSGBOX_OK);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
 	if (!pDlg->m_bShowedAll)
+	{
 		pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
+		pDlg->GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
+	}
 	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	pDlg->m_bCancelled = TRUE;
 	pDlg->m_bThreadRunning = FALSE;
@@ -1588,6 +1600,17 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 	}
 	*pResult = 0;
+}
+
+void CLogDlg::OnBnClickedStatbutton()
+{
+	if (m_bThreadRunning)
+		return;
+	CStatGraphDlg dlg;
+	dlg.m_parAuthors = &m_arAuthors;
+	dlg.m_parDates = &m_arDates;
+	dlg.DoModal();
+		
 }
 
 

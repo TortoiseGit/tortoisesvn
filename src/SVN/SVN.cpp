@@ -126,7 +126,7 @@ CString SVN::CheckConfigFile()
 
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
-BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths) {return TRUE;};
+BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
 
@@ -1041,12 +1041,11 @@ svn_error_t* SVN::logReceiver(void* baton,
 
 	SVN * svn = (SVN *)baton;
 	author_native = CUnicodeUtils::GetUnicode(author);
+	apr_time_t time_temp = NULL;
 
 	if (date && date[0])
 	{
 		//Convert date to a format for humans.
-		apr_time_t time_temp;
-
 		error = svn_time_from_cstring (&time_temp, date, pool);
 		if (error)
 			return error;
@@ -1123,7 +1122,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 	SVN_ERR (svn->cancel(baton));
 #pragma warning(pop)
 
-	if (svn->Log(rev, author_native, date_native, msg_native, cpaths))
+	if (svn->Log(rev, author_native, date_native, msg_native, cpaths, time_temp))
 	{
 		return error;
 	}
