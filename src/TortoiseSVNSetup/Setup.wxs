@@ -113,8 +113,8 @@
 			<Registry Root="HKCR" Key="Folder\shellex\ColumnHandlers\{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="" Id="_B4DEDCD9C43D400F906D14B21BAA297E" />
 			<Registry Root="HKCR" Key="Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_CB48DAD85B7B459A9E81C4A82EF4BF2B" />
 			<Registry Root="HKCR" Key="Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{C035134A-7B7D-4fcc-81B4-1E394CA267EB}" Id="_FD52B6DA67C142CF9827680867DE80AF" />
-			<Registry Root="HKCR" Key="CLSID\{C035134C-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer" Value="[TARGETDIR]tortoisesvn.dll" Id="_1AC3643934F64DAA8BD9526D7444678A" />
-			<Registry Root="HKCR" Key="CLSID\{C035134C-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer" Name="ThreadingModel" Value="Apartment" Id="_9A406BB1F3704CBD81869F7F9A575C90" />
+			<Registry Root="HKCR" Key="CLSID\{C035134C-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_1AC3643934F64DAA8BD9526D7444678A" />
+			<Registry Root="HKCR" Key="CLSID\{C035134C-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_9A406BB1F3704CBD81869F7F9A575C90" />
 			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}" Name="*" Value="" Id="_5915B62ECE2F4CD5B84BFA1CB973E301" />
 			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_353BE23FB73A4C1D9477645477FA6032" />
 			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_85AF844B39CD4AF5B08BF5E1122BA0FA" />
