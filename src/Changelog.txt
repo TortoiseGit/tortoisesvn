@@ -9,6 +9,7 @@ CVS
 - BUG: The drag'n'drop-handler didn't work. (Stefan)
 - BUG: The log for a renamed file/folder was shown
        as two deletes instead of a delete and an add. (Stefan)
+- BUG: URL were not escaped. Issue 58. (Stefan)
 - CHG: Some icons are changed, some new. (Lübbe)
 - CHG: If a file is deleted from the filesystem but not
        removed from version control the icon overlay

@@ -21,6 +21,7 @@
 #include "TortoiseProc.h"
 #include "svn.h"
 #include "UnicodeUtils.h"
+#include <shlwapi.h>
 
 SVN::SVN(void)
 {
@@ -918,6 +919,16 @@ void	SVN::preparePath(CString &path)
 	path.Trim();
 	path.TrimRight(_T("/\\"));			//remove trailing slashes
 	path.Replace('\\','/');
+	if ((path.Left(7).CompareNoCase(_T("http://"))==0) ||
+		(path.Left(8).CompareNoCase(_T("https://"))==0) ||
+		(path.Left(6).CompareNoCase(_T("svn://"))==0) ||
+		(path.Left(10).CompareNoCase(_T("svn-ssh://"))==0))
+	{
+		TCHAR buf[8192];
+		DWORD len = 8192;
+		UrlCanonicalize(path, buf, &len, URL_ESCAPE_UNSAFE);
+		path = CString(buf);
+	}
 }
 
 svn_error_t* svn_cl__get_log_message (const char **log_msg,
