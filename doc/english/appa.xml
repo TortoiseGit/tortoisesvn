@@ -112,6 +112,29 @@
 			set this manually.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-faq-installation-2-1">
+			<title>The overlay icons appear, but not all of them!</title>
+			<para>
+			This usually happens if you have other programs installed which
+			use icon overlays like e.g. TortoiseCVS. The reason for this is
+			that Windows only has 15 slots for icon overlays, and about three
+			or four are used by Windows itself (e.g. for links, shared folders, ...).
+			If all those slots are full then TortoiseSVN can't register another
+			one and won't show all overlays.
+			</para>
+			<para>
+			TortoiseSVN uses five overlay slots for the status:
+			<orderedlist>
+				<listitem><para>normal</para></listitem>
+				<listitem><para>modified</para></listitem>
+				<listitem><para>conflicted</para></listitem>
+				<listitem><para>deleted</para></listitem>
+				<listitem><para>added</para></listitem>
+			</orderedlist>
+			So most likely the "added" overlay will be missing, then the "deleted"
+			and so on.
+			</para>
+		</sect2>
 		<sect2 id="tsvn-faq-installation-3">
 			<title>Why do the overlay icons sometimes 
 			change to random graphics?</title>
