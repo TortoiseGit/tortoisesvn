@@ -93,7 +93,7 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CS
 	if (!m_saveFile.Open(m_sSavePath, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
 		return _T("");
 	CString headline;
-	headline.Format(_T("%-6s %-6s %-20s %-30s %-s \n"), _T("line"), _T("rev"), _T("date"), _T("author"), _T("content"));
+	headline.Format(_T("%-6s %-6s %-30s %-30s %-s \n"), _T("line"), _T("rev"), _T("date"), _T("author"), _T("content"));
 	m_saveFile.WriteString(headline);
 	m_saveFile.WriteString(_T("\n"));
 	temp.LoadString(IDS_BLAME_PROGRESSTITLE);

@@ -203,8 +203,8 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 			lineptr = &line[7];
 			revs.push_back(_ttol(lineptr));
 			lineptr += 7;
-			dates.push_back(std::string(lineptr, 20));
-			lineptr += 21;
+			dates.push_back(std::string(lineptr, 30));
+			lineptr += 31;
 			trimptr = lineptr + 30;
 			while (*trimptr == ' ')
 			{
@@ -306,7 +306,7 @@ LONG TortoiseBlame::GetBlameWidth()
 	blamewidth += m_revwidth;
 	if (ShowDate)
 	{
-		_stprintf(buf, _T("%20s"), _T("31.08.2001 06:24:14"));
+		_stprintf(buf, _T("%30s"), _T("31.08.2001 06:24:14"));
 		::GetTextExtentPoint32(hDC, buf, _tcslen(buf), &width);
 		m_datewidth = width.cx + BLAMESPACE;
 		blamewidth += m_datewidth;
@@ -392,7 +392,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 			if (ShowDate)
 			{
 				rc.right = rc.left + Left + m_datewidth;
-				_stprintf(buf, _T("%20s            "), dates[i].c_str());
+				_stprintf(buf, _T("%30s            "), dates[i].c_str());
 				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 				Left += m_datewidth;
 			}
