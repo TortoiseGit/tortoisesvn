@@ -254,6 +254,10 @@ void CLogPromptDlg::OnOK()
 	//and check if all versioned files are selected
 	int nUnchecked = 0;
 	int nListItems = m_ListCtrl.GetItemCount();
+
+	CTSVNPathList itemsToAdd;
+	CTSVNPathList itemsToRemove;
+
 	for (int j=0; j<nListItems; j++)
 	{
 		const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(j);
@@ -261,13 +265,11 @@ void CLogPromptDlg::OnOK()
 		{
 			if (entry->status == svn_wc_status_unversioned)
 			{
-				SVN svn;
-				svn.Add(entry->GetPath(), FALSE);
+				itemsToAdd.AddPath(entry->GetPath());
 			} 
 			if (entry->status == svn_wc_status_missing)
 			{
-				SVN svn;
-				svn.Remove(entry->GetPath().GetSVNPathString(), TRUE);
+				itemsToRemove.AddPath(entry->GetPath());
 			}
 			if (entry->status == svn_wc_status_deleted)
 			{
@@ -281,6 +283,28 @@ void CLogPromptDlg::OnOK()
 				nUnchecked++;
 		}
 	} // for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
+
+	// Now, do all the adds - make sure that the list is sorted into order, so that parents 
+	// are added before any children
+	itemsToAdd.SortByPathname();
+	for(int itemIndex = 0; itemIndex < itemsToAdd.GetCount(); itemIndex++)
+	{
+		//TODO: It's slow to create a new SVN object for each item, but 
+		//I'm concerned about a memory usage explosion if we keep reusing the same SVN item
+		SVN svn;
+		svn.Add(itemsToAdd[itemIndex], FALSE);
+	}
+
+	// Remove any missing items
+	// Not sure that this sort is really necessary - indeed, it might be better to do a reverse sort at this point
+	itemsToRemove.SortByPathname();
+	for(int itemIndex = 0; itemIndex < itemsToRemove.GetCount(); itemIndex++)
+	{
+		//TODO: It's slow to create a new SVN object for each item, but 
+		//I'm concerned about a memory usage explosion if we keep reusing the same SVN item
+		SVN svn;
+		svn.Remove(itemsToRemove[itemIndex].GetSVNPathString(), TRUE);
+	}
 
 	if ((nUnchecked == 0)&&(m_ListCtrl.m_nTargetCount == 1))
 	{
