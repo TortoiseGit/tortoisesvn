@@ -752,6 +752,7 @@ svn://localhost/TestRepo
 				forgetting to restart it after a reboot, it is possible to run
 				<filename>svnserve</filename> as a windows service using a wrapper
 				like the <ulink url="http://dark.clansoft.dk/~mbn/svnservice/">SVNService</ulink> provided by Magnus Norddahl.
+				Note that SVNService installs svnserve as a manual service, you may want to change this to automatic.
 				More generic tools like <ulink url="http://www.firedaemon.com/">firedaemon</ulink> will also work.
 				Note that you will still need to run <filename>svnserve</filename> with
 				the -d switch.
