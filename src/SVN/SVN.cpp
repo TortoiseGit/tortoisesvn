@@ -1257,17 +1257,18 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
 {
 	entries.RemoveAll();
+	apr_pool_t * subpool = svn_pool_create(pool);
 
 	preparePath(url);
 
-	apr_hash_t* hash = apr_hash_make(pool);
+	apr_hash_t* hash = apr_hash_make(subpool);
 
 	Err = svn_client_ls(&hash, 
 						MakeSVNUrlOrPath(url),
 						revision,
 						recursive, 
 						&ctx,
-						pool);
+						subpool);
 	if (Err != NULL)
 		return FALSE;
 
@@ -1299,6 +1300,7 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 		}
 		entries.Add(temp);
     }
+    svn_pool_destroy(subpool);
 	return Err == NULL;
 }
 
