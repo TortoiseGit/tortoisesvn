@@ -527,6 +527,12 @@ void CSVNPropertyPage::InitWorkfileView()
 		{
 			if (svn.status->entry != NULL)
 			{
+				if (svn.status->entry->kind == svn_node_file)
+				{
+					//disable the 'recursive' checkbox for files
+					HWND recursivewnd = GetDlgItem(m_hwnd, IDC_RECURSIVE);
+					::EnableWindow(recursivewnd, FALSE);					
+				}
 				LoadLangDll();
 				TCHAR buf[MAX_PROP_STRING_LENGTH];
 				__time64_t	time;
