@@ -101,6 +101,15 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 						dc.MoveTo(CharPos.x, CharPos.y+wordsize.cy);
 						dc.LineTo(CharPos.x+wordsize.cx, CharPos.y+wordsize.cy);
 					}
+					else // if (!pChecker->spell(worda))
+					{    // Undo underlining of previously misspelled word    
+						CPen eraserPen(PS_SOLID, 0, ::GetSysColor(COLOR_WINDOW));    
+						CPen* errorPen = dc.SelectObject(&eraserPen);    
+						CharPos = PosFromChar(oldpos + nLineIndex);    
+						dc.MoveTo(CharPos.x, CharPos.y+wordsize.cy);    
+						dc.LineTo(CharPos.x+wordsize.cx, CharPos.y+wordsize.cy);	    
+						dc.SelectObject(errorPen);
+					}				
 				} while ((pos >= 0)&&(CharPos.x < rect.right));
 				//underline words
 				delete [] pBuf;
