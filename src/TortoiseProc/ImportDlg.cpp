@@ -48,6 +48,7 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Control(pDX, IDC_MESSAGE, m_Message);
+	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 }
 
 
@@ -56,6 +57,8 @@ BEGIN_MESSAGE_MAP(CImportDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
+	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -97,13 +100,16 @@ BOOL CImportDlg::OnInitDialog()
 	}
 
 	m_tooltips.Create(this);
+	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC4, TOP_LEFT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
-	AddAnchor(IDC_STATIC2, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_MESSAGE, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_STATIC2, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_MESSAGE, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_CHIST, BOTTOM_LEFT);
+	AddAnchor(IDC_OLDLOGS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -172,8 +178,11 @@ void CImportDlg::OnOK()
 			if (SVN::IsBDBRepository(m_url))
 				if (CMessageBox::Show(this->m_hWnd, IDS_WARN_SHAREFILEACCESS, IDS_APPNAME, MB_ICONWARNING | MB_YESNO)==IDNO)
 					return;
-		} // if (GetDriveType(temp)==DRIVE_REMOTE) 
-	} // if (m_url.Left(7).CompareNoCase(_T("file://"))==0) 
+		}
+	}
+	UpdateData();
+	m_OldLogs.AddString(m_message, 0);
+	m_OldLogs.SaveHistory();
 
 	CResizableDialog::OnOK();
 }
@@ -245,4 +254,24 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 void CImportDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CImportDlg::OnCbnSelchangeOldlogs()
+{
+	m_message = m_OldLogs.GetString();
+	UpdateData(FALSE);
+}
+
+void CImportDlg::OnCbnCloseupOldlogs()
+{
+	m_message = m_OldLogs.GetString();
+	UpdateData(FALSE);
+}
+
+void CImportDlg::OnCancel()
+{
+	UpdateData();
+	m_OldLogs.AddString(m_message, 0);
+	m_OldLogs.SaveHistory();
+	CResizableDialog::OnCancel();
 }

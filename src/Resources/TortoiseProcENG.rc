@@ -155,7 +155,7 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,243,143,50,14
 END
 
-IDD_COPY DIALOGEX 0, 0, 300, 225
+IDD_COPY DIALOGEX 0, 0, 300, 246
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Branch / Tag"
@@ -169,21 +169,24 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,52,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,52,14,14
-    GROUPBOX        "Log Message",IDC_STATIC,7,93,286,103
-    EDITTEXT        IDC_LOGMESSAGE,13,114,274,76,ES_MULTILINE | 
-                    ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
-    DEFPUSHBUTTON   "&OK",IDOK,129,204,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,187,204,50,14
-    PUSHBUTTON      "&Help",IDHELP,243,204,50,14
     CONTROL         "Create the branch/tag directly on the server",
                     IDC_DIRECTCOPY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
                     70,274,10
+    GROUPBOX        "Log Message",IDC_STATIC,7,93,286,126
     LTEXT           "Bug-ID / Issue-Nr:",IDC_BUGIDLABEL,143,101,87,8,0,
                     WS_EX_RIGHT
     EDITTEXT        IDC_BUGID,238,98,49,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LOGMESSAGE,13,114,274,76,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Comment History:",IDC_CHIST,13,200,84,8
+    CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,197,171,104
+    DEFPUSHBUTTON   "&OK",IDOK,129,225,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,187,225,50,14
+    PUSHBUTTON      "&Help",IDHELP,243,225,50,14
 END
 
-IDD_IMPORT DIALOGEX 0, 0, 300, 163
+IDD_IMPORT DIALOGEX 0, 0, 300, 190
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 CAPTION "Import"
@@ -194,12 +197,15 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,28,14,14
-    GROUPBOX        "Import &Message",IDC_STATIC2,7,55,286,78
-    EDITTEXT        IDC_MESSAGE,13,67,274,60,ES_MULTILINE | ES_AUTOVSCROLL | 
+    GROUPBOX        "Import &Message",IDC_STATIC2,7,55,286,104
+    EDITTEXT        IDC_MESSAGE,13,67,274,63,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_WANTRETURN
-    DEFPUSHBUTTON   "&OK",IDOK,129,142,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,187,142,50,14
-    PUSHBUTTON      "&Help",IDHELP,243,142,50,14
+    LTEXT           "Comment History:",IDC_CHIST,13,140,84,8
+    CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,138,171,104
+    DEFPUSHBUTTON   "&OK",IDOK,129,169,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,187,169,50,14
+    PUSHBUTTON      "&Help",IDHELP,243,169,50,14
 END
 
 IDD_LOGMESSAGE DIALOGEX 0, 0, 300, 336
@@ -224,7 +230,7 @@ BEGIN
                     144,286,84
 END
 
-IDD_LOGPROMPT DIALOGEX 0, 0, 300, 265
+IDD_LOGPROMPT DIALOGEX 0, 0, 300, 279
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 CAPTION "Enter Log Message"
@@ -238,6 +244,9 @@ BEGIN
                     NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_LOGMESSAGE,6,30,287,86,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "Comment History:",IDC_CHIST,6,122,84,8
+    CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,119,177,104
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
                     WS_BORDER | WS_TABSTOP,6,136,287,66
@@ -246,15 +255,12 @@ BEGIN
     LTEXT           "",IDC_STATISTICS,149,202,144,8,0,WS_EX_RIGHT
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,6,213,143,10
-    LTEXT           "To see the changes you made, double click on the files above.",
-                    IDC_HINTLABEL,6,227,165,28
-    DEFPUSHBUTTON   "&OK",IDOK,129,244,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,187,244,50,14
-    PUSHBUTTON      "&Help",IDHELP,243,244,50,14
     PUSHBUTTON      "Paste Status Template",IDC_FILLLOG,187,218,106,14
-    CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
-                    CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,119,177,104
-    LTEXT           "Comment History:",IDC_CHIST,6,122,84,8
+    LTEXT           "To see the changes you made, double click on the files above.",
+                    IDC_HINTLABEL,6,227,165,23
+    DEFPUSHBUTTON   "&OK",IDOK,129,258,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,187,258,50,14
+    PUSHBUTTON      "&Help",IDHELP,243,258,50,14
 END
 
 IDD_MERGE DIALOGEX 0, 0, 345, 210
@@ -382,22 +388,19 @@ BEGIN
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,95,271,10
-    CONTROL         "Don't &remove log messages when cancelling a commit",
-                    IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,168,271,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,106,173,10
-    LTEXT           "Font for log messages:",IDC_STATIC,13,183,115,8
-    COMBOBOX        IDC_FONTNAMES,130,180,112,90,CBS_DROPDOWNLIST | 
+    LTEXT           "Font for log messages:",IDC_STATIC,13,175,115,8
+    COMBOBOX        IDC_FONTNAMES,130,172,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,252,181,32,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,252,173,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     LTEXT           "Minimum logsize in chars",IDC_STATIC,13,157,216,8
     EDITTEXT        IDC_MINLOGSIZE,239,155,40,12,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,196,122,88,14
     CONTROL         "Paste Log &template in english",IDC_ENGLISHTEMPLATE,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,196,271,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,192,271,10
     CONTROL         "D&on't close on conflicts",IDC_NOCLOSEONRED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,25,116,168,10
 END
@@ -775,7 +778,7 @@ BEGIN
         VERTGUIDE, 268
         VERTGUIDE, 287
         TOPMARGIN, 7
-        BOTTOMMARGIN, 218
+        BOTTOMMARGIN, 239
     END
 
     IDD_IMPORT, DIALOG
@@ -787,7 +790,7 @@ BEGIN
         VERTGUIDE, 268
         VERTGUIDE, 287
         TOPMARGIN, 7
-        BOTTOMMARGIN, 156
+        BOTTOMMARGIN, 183
     END
 
     IDD_LOGMESSAGE, DIALOG
@@ -806,7 +809,7 @@ BEGIN
         VERTGUIDE, 149
         VERTGUIDE, 236
         TOPMARGIN, 6
-        BOTTOMMARGIN, 258
+        BOTTOMMARGIN, 272
     END
 
     IDD_MERGE, DIALOG
@@ -1178,8 +1181,6 @@ BEGIN
     IDS_PROC_MOVINGPROG     "Moving %s"
     IDS_PROC_CPYMVPROG2     "to %s"
     IDS_PROC_ENTERURL       "Enter URL"
-    IDS_SETTINGS_NOREMOVELOGMSG_TT 
-                            "If you cancel a commit, the log message you have entered is saved\nand filled in the edit box on the next commit.\nYou can then either edit that message or use\nit unchanged."
     IDS_SETTINGS_SHORTDATEFORMAT_TT 
                             "Check to use a less verbose date and time format in log messages"
 END

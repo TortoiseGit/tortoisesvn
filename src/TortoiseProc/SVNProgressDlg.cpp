@@ -266,7 +266,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	int updateFileCounter = 0;
-	CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
 
 	CString temp;
 	CString sWindowTitle;
@@ -295,8 +294,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
-			else
-				logmessage.removeValue();
 			break;
 		case Update:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_UPDATE);
@@ -458,8 +455,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						TRACE("%s", pDlg->GetLastErrorMessage());
 						CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					} // if (!pDlg->Commit(commitString, pDlg->m_sMessage, true))
-					else
-						logmessage.removeValue();
 					file.Close();
 					DeleteFile(pDlg->m_sPath);
 				}
@@ -644,8 +639,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				break;
 			}
-			else
-				logmessage.removeValue();
 			CString sTemp;
 			sTemp.LoadString(IDS_PROGRS_COPY_WARNING);
 			CMessageBox::Show(pDlg->m_hWnd, sTemp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);

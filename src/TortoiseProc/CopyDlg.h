@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
+#include "afxcmn.h"
 
 /**
  * \ingroup TortoiseProc
@@ -64,6 +65,8 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnCbnSelchangeOldlogs();
+	afx_msg void OnCbnCloseupOldlogs();
 	DECLARE_MESSAGE_MAP()
 	CFont		m_logFont;
 	BOOL		m_bFile;
@@ -77,4 +80,7 @@ public:
 	CButton m_butBrowse;
 	CString m_sLogMessage;
 	BOOL m_bDirectCopy;
+	CHistoryCombo m_OldLogs;
+protected:
+	virtual void OnCancel();
 };

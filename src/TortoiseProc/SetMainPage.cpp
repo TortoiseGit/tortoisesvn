@@ -32,7 +32,6 @@ IMPLEMENT_DYNAMIC(CSetMainPage, CPropertyPage)
 CSetMainPage::CSetMainPage()
 	: CPropertyPage(CSetMainPage::IDD)
 	, m_sTempExtensions(_T(""))
-	, m_bNoRemoveLogMsg(FALSE)
 	, m_bAutoClose(FALSE)
 	, m_sDefaultLogs(_T(""))
 	, m_bShortDateFormat(FALSE)
@@ -44,7 +43,6 @@ CSetMainPage::CSetMainPage()
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
-	m_regNoRemoveLogMsg = CRegDWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	m_regShortDateFormat = CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat"), FALSE);
@@ -65,7 +63,6 @@ void CSetMainPage::SaveData()
 {
 	m_regLanguage = m_dwLanguage;
 	m_regExtensions = m_sTempExtensions;
-	m_regNoRemoveLogMsg = m_bNoRemoveLogMsg;
 	m_regAutoClose = m_bAutoClose;
 	m_regShortDateFormat = m_bShortDateFormat;
 	m_regCheckNewer = m_bCheckNewer;
@@ -98,7 +95,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	}
 	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
-	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
 	DDX_Check(pDX, IDC_AUTOCLOSE, m_bAutoClose);
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
 	DDX_Control(pDX, IDC_MISCGROUP, m_cMiscGroup);
@@ -116,7 +112,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnEnChangeTempextensions)
-	ON_BN_CLICKED(IDC_NOREMOVELOGMSG, OnBnClickedNoremovelogmsg)
 	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
 	ON_BN_CLICKED(IDC_SHORTDATEFORMAT, OnBnClickedShortdateformat)
@@ -148,7 +143,6 @@ BOOL CSetMainPage::OnInitDialog()
 	EnableToolTips();
 
 	m_sTempExtensions = m_regExtensions;
-	m_bNoRemoveLogMsg = m_regNoRemoveLogMsg;
 	m_bAutoClose = m_regAutoClose;
 	m_dwLanguage = m_regLanguage;
 	m_bShortDateFormat = m_regShortDateFormat;
@@ -171,7 +165,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSE, IDS_SETTINGS_AUTOCLOSE_TT);
-	m_tooltips.AddTool(IDC_NOREMOVELOGMSG, IDS_SETTINGS_NOREMOVELOGMSG_TT);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
 	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
 	m_tooltips.AddTool(IDC_CLEARAUTH, IDS_SETTINGS_CLEARAUTH_TT);
@@ -253,11 +246,6 @@ void CSetMainPage::OnCbnSelchangeLanguagecombo()
 }
 
 void CSetMainPage::OnEnChangeTempextensions()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedNoremovelogmsg()
 {
 	SetModified();
 }

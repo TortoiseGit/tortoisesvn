@@ -323,10 +323,6 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("import"))==0)
 		{
 			CImportDlg dlg;
-			CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
-			CString logmsg = logmessage;
-			if (!logmsg.IsEmpty())
-				dlg.m_message = logmsg;
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			dlg.m_path = path;
 			if (dlg.DoModal() == IDOK)
@@ -338,11 +334,8 @@ BOOL CTortoiseProcApp::InitInstance()
 				//construct the module name out of the path
 				CString modname;
 				progDlg.SetParams(Import, false, path, dlg.m_url, dlg.m_message);
-				logmessage = dlg.m_message;
 				progDlg.DoModal();
 			}
-			else
-				logmessage.removeValue();
 		}
 		//#endregion
 		//#region update
@@ -381,14 +374,10 @@ BOOL CTortoiseProcApp::InitInstance()
 				path = CUtils::WritePathsToTempFile(path);
 			} // if (parser.HasKey(_T("notempfile"))) 
 			CLogPromptDlg dlg;
-			CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
-			CString logmsg = logmessage;
 			if (parser.HasKey(_T("logmsg")))
 			{
-				logmsg = parser.GetVal(_T("logmsg"));
+				dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
 			}
-			if (!logmsg.IsEmpty())
-				dlg.m_sLogMessage = logmsg;
 			dlg.m_sPath = path;
 			if (dlg.DoModal() == IDOK)
 			{
@@ -397,17 +386,8 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Commit, true, path, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
-				logmessage = dlg.m_sLogMessage;
 				progDlg.DoModal();
 			} // if (dlg.DoModal() == IDOK)
-			else
-			{
-				CRegStdWORD nodelete = CRegStdWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
-				if (!nodelete)
-					logmessage.removeValue();
-				else
-					logmessage = dlg.m_sLogMessage;
-			}
 		}
 		//#endregion
 		//#region add
@@ -627,10 +607,6 @@ BOOL CTortoiseProcApp::InitInstance()
 			CCopyDlg dlg;
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			dlg.m_path = path;
-			CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
-			CString logmsg = logmessage;
-			if (!logmsg.IsEmpty())
-				dlg.m_sLogMessage = logmsg;
 			if (dlg.DoModal() == IDOK)
 			{
 				m_pMainWnd = NULL;
@@ -639,14 +615,6 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, (dlg.m_bDirectCopy ? SVNRev::REV_HEAD : SVNRev::REV_WC));
 				progDlg.DoModal();
-			}
-			else
-			{
-				CRegStdWORD nodelete = CRegStdWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
-				if (!nodelete)
-					logmessage.removeValue();
-				else
-					logmessage = dlg.m_sLogMessage;
 			}
 		}
 		//#endregion

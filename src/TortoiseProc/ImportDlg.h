@@ -74,6 +74,8 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg void OnBnClickedHelp();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnCbnSelchangeOldlogs();
+	afx_msg void OnCbnCloseupOldlogs();
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_url;
@@ -81,4 +83,7 @@ public:
 	CString m_message;
 	CHistoryCombo m_URLCombo;
 	CSpellEdit m_Message;
+	CHistoryCombo m_OldLogs;
+protected:
+	virtual void OnCancel();
 };

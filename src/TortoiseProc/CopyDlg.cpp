@@ -50,6 +50,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
+	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 }
 
 
@@ -58,6 +59,8 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
+	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 END_MESSAGE_MAP()
 
 
@@ -138,6 +141,8 @@ BOOL CCopyDlg::OnInitDialog()
 	m_URLCombo.SelectString(-1, m_wcURL);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
 
+	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
+
 	m_BugtraqInfo.ReadProps(m_path);
 	if (m_BugtraqInfo.sMessage.IsEmpty())
 	{
@@ -206,6 +211,8 @@ void CCopyDlg::OnOK()
 	}
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
+	m_OldLogs.AddString(m_sLogMessage, 0);
+	m_OldLogs.SaveHistory();
 
 	m_sBugID.Trim();
 	if (!m_sBugID.IsEmpty())
@@ -269,4 +276,24 @@ void CCopyDlg::OnBnClickedBrowse()
 void CCopyDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CCopyDlg::OnCbnSelchangeOldlogs()
+{
+	m_sLogMessage = m_OldLogs.GetString();
+	UpdateData(FALSE);
+}
+
+void CCopyDlg::OnCbnCloseupOldlogs()
+{
+	m_sLogMessage = m_OldLogs.GetString();
+	UpdateData(FALSE);
+}
+
+void CCopyDlg::OnCancel()
+{
+	UpdateData();
+	m_OldLogs.AddString(m_sLogMessage, 0);
+	m_OldLogs.SaveHistory();
+	CDialog::OnCancel();
 }

@@ -415,6 +415,8 @@ void CLogPromptDlg::OnCancel()
 		return;
 	DeleteFile(m_sPath);
 	UpdateData(TRUE);
+	m_OldLogs.AddString(m_sLogMessage, 0);
+	m_OldLogs.SaveHistory();
 	CResizableDialog::OnCancel();
 }
 
@@ -514,12 +516,28 @@ void CLogPromptDlg::OnCbnSelchangeOldlogs()
 {
 	m_sLogMessage = m_OldLogs.GetString();
 	UpdateData(FALSE);
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)m_sLogMessage.GetLength())
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
 }
 
 void CLogPromptDlg::OnCbnCloseupOldlogs()
 {
 	m_sLogMessage = m_OldLogs.GetString();
 	UpdateData(FALSE);
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)m_sLogMessage.GetLength())
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
 }
 
 
