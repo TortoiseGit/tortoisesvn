@@ -36,6 +36,7 @@
 
 #include <atlbase.h>
 #include <atlexcept.h>
+#include <atlstr.h>
 
 #pragma warning(push)
 #pragma warning(disable: 4702)	// Unreachable code warnings in xtree
@@ -43,6 +44,7 @@
 #include <set>
 #include <map>
 #include <vector> 
+#include <algorithm> 
 #pragma warning(pop)
 
 #include "apr_general.h"
