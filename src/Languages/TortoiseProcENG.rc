@@ -1081,6 +1081,11 @@ BEGIN
     IDS_DIFF_BASENAME       "%s : Working Base"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_PROC_RENAME         "Rename %s"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

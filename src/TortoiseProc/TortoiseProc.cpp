@@ -794,7 +794,18 @@ BOOL CTortoiseProcApp::InitInstance()
 				temp.Format(IDS_PROC_COPYINGPROG, strLine);
 				CString temp2;
 				temp2.Format(IDS_PROC_CPYMVPROG2, droppath+_T("\\")+name);
-				if (!svn.Copy(strLine, droppath+_T("\\")+name, -1, _T("")))
+				if (strLine.CompareNoCase(droppath+_T("\\")+name)==0)
+				{
+					progress.Stop();
+					CRenameDlg dlg;
+					dlg.m_windowtitle.Format(IDS_PROC_RENAME, name);
+					if (dlg.DoModal() != IDOK)
+					{
+						return FALSE;
+					}
+					name = dlg.m_name;
+				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
+				if (!svn.Copy(strLine, droppath+_T("\\")+name, SVN::REV_WC, _T("")))
 				{
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
