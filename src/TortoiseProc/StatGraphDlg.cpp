@@ -234,13 +234,15 @@ void CStatGraphDlg::ShowCommitsByDate()
 	std::map<stdstring, LONG> authorcommits;
 
 	if (m_parDates->GetCount()>0)
+	{
 		week = GetWeek(CTime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1)));
-	BOOL weekover = FALSE;
+	}
+	CTime lasttime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1));
 	for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	{
-		weekover = FALSE;
 		CTime time((__time64_t)m_parDates->GetAt(i));
-		if (week != GetWeek(time))
+		int timeweek = GetWeek(time);
+		if (week != timeweek)
 		{
 			std::map<stdstring, LONG>::iterator iter;
 			MyGraphSeries * graphData = new MyGraphSeries();
@@ -257,10 +259,29 @@ void CStatGraphDlg::ShowCommitsByDate()
 			graphData->SetLabel(temp);
 			m_graph.AddSeries(*graphData);
 			m_graphDataArray.Add(graphData);
-			week = GetWeek(time);
+			
+			CTimeSpan oneweek = CTimeSpan(7,0,0,0);
+			while (abs(timeweek - week) > 1)
+			{
+				lasttime += oneweek;
+				week = GetWeek(lasttime);
+				std::map<stdstring, LONG>::iterator iter;
+				MyGraphSeries * graphData = new MyGraphSeries();
+				iter = authors.begin();
+				while (iter != authors.end()) 
+				{
+					graphData->SetData(iter->second, 0);
+					iter++;
+				}
+				temp.Format(_T("%d"), week);
+				graphData->SetLabel(temp);
+				m_graph.AddSeries(*graphData);
+				m_graphDataArray.Add(graphData);
+			}
+			week = timeweek;
 			authorcommits.clear();
-			weekover = TRUE;
 		}
+		lasttime = time;
 		stdstring author = stdstring(m_parAuthors->GetAt(i));
 		if (authorcommits.find(author) != authorcommits.end())
 		{
@@ -269,25 +290,22 @@ void CStatGraphDlg::ShowCommitsByDate()
 		else
 			authorcommits[author] = 1;
 	}
-	if (!weekover)
+	std::map<stdstring, LONG>::iterator iter;
+	MyGraphSeries * graphData = new MyGraphSeries();
+	iter = authors.begin();
+	while (iter != authors.end()) 
 	{
-		std::map<stdstring, LONG>::iterator iter;
-		MyGraphSeries * graphData = new MyGraphSeries();
-		iter = authors.begin();
-		while (iter != authors.end()) 
-		{
-			if (authorcommits.find(iter->first) != authorcommits.end())
-				graphData->SetData(iter->second, authorcommits[iter->first]);
-			else
-				graphData->SetData(iter->second, 0);
-			iter++;
-		}
-		temp.Format(_T("%d"), week);
-		graphData->SetLabel(temp);
-		m_graph.AddSeries(*graphData);
-		m_graphDataArray.Add(graphData);
-		authorcommits.clear();
+		if (authorcommits.find(iter->first) != authorcommits.end())
+			graphData->SetData(iter->second, authorcommits[iter->first]);
+		else
+			graphData->SetData(iter->second, 0);
+		iter++;
 	}
+	temp.Format(_T("%d"), week);
+	graphData->SetLabel(temp);
+	m_graph.AddSeries(*graphData);
+	m_graphDataArray.Add(graphData);
+	authorcommits.clear();
 
 
 	// Paint the graph now that we're through.
