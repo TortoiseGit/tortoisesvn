@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-04 19:58+0100\n"
+"PO-Revision-Date: 2004-10-28 22:57+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -253,6 +253,7 @@ msgid "&OK"
 msgstr "&OK"
 
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Openen"
 
@@ -286,8 +287,8 @@ msgid "&Remove"
 msgstr "&Verwijderen"
 
 #: ID:101
-msgid "&Rename..."
-msgstr "He&rnoemen..."
+msgid "&Rename/Move..."
+msgstr "He&rnoemen/Verplaatsen..."
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -545,6 +546,10 @@ msgstr "Toegevoegd"
 msgid "Added a file remotely"
 msgstr "Bestand op afstand toegevoegd"
 
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "Bestand op afstand toegevoegd"
+
 #: ID:145
 msgid ""
 "Added the file(s)\n"
@@ -719,10 +724,6 @@ msgstr "&Bladeren..."
 msgid "B&uiltin"
 msgstr "&Intern"
 
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Maak reservekopie van origineel"
@@ -730,6 +731,10 @@ msgstr "Maak reservekopie van origineel"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Basisbestand:"
+
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkeley Database (BDB)"
 
 #: Dlg-ID:162
 msgid "Blame"
@@ -828,7 +833,7 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certificaat nog niet geldig. Geldig vanaf: %s"
 
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Certificaten|*.p12;*.pkcs12;*.pfx|Alles|*.*||"
 
 #: ID:3825
@@ -1139,6 +1144,10 @@ msgstr "Kon geen thread starten!"
 msgid "Create Patch..."
 msgstr "Maak patch..."
 
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Maak hier een bibliotheek"
+
 #: ID:8
 msgid "Create Repository here"
 msgstr "Maak hier een bibliotheek"
@@ -1304,6 +1313,10 @@ msgstr "Wilt u de wijzigingen opslaan?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "Bestanden niet converteren bij het vergelijken met BASE"
 
+#: ID:73
+msgid "Don't show this message again"
+msgstr "Deze boodschap niet meer tonen"
+
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Type station"
@@ -1437,10 +1450,6 @@ msgstr "Extern"
 msgid "External Program:"
 msgstr "Extern programma:"
 
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
-
 #: ID:74
 msgid "Failed Revert"
 msgstr "Terugzetten mislukt"
@@ -1516,10 +1525,6 @@ msgstr "Algemeen"
 msgid "Generating Patchfile..."
 msgstr "Patchfile maken..."
 
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "&Alles ophalen"
-
 #: ID:119
 msgid "Getting File %s"
 msgstr "Bestand %s ophalen"
@@ -1564,14 +1569,17 @@ msgstr ""
 "Ga naar vorig verschil\n"
 "vorig verschil"
 
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "Head revisie van de bibliotheek is: %d"
+
 #: ID:12
 #: Control-ID:1004
 msgid "Help"
 msgstr "Help"
 
-# Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Hint: Druk F5 om de geselecteerde tak te verversen"
 
 #: ID:82
@@ -1764,6 +1772,10 @@ msgstr "Logboek"
 msgid "Log Message"
 msgstr "Logboek boodschap"
 
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "Eerdere logboek boodschappen:"
+
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Logboek boodschappen"
@@ -1844,6 +1856,10 @@ msgstr "&Volgend conflict"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Bestandsysteem (FSFS)"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -1986,10 +2002,6 @@ msgstr "Wachtwoord:"
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
 msgstr "Plak namen van gewijzigde bestanden"
-
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "Plak Log &template in het engels"
 
 #: ID:376
 msgid "Patch All"
@@ -2427,6 +2439,10 @@ msgstr "Opslaan als..."
 msgid "Save changes to %1?"
 msgstr "Wijzigingen in %1 opslaan?"
 
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Bewaar pad naar client certificaat"
+
 #: ID:3601
 msgid ""
 "Save the modified file\n"
@@ -2503,6 +2519,10 @@ msgstr ""
 "Selecteer het hele document\n"
 "Alles selecteren"
 
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "Selecteer welk soort bibliotheek u wilt maken:"
+
 #: ID:3866
 msgid "Send Mail failed to send message."
 msgstr "Sendmail kan geen bericht versturen."
@@ -2528,14 +2548,6 @@ msgstr "Bezig met eigenschappen wijzigen..."
 msgid "Settings"
 msgstr "Instellingen"
 
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
-msgstr ""
-"Moet de log stoppen bij een kopie?\n"
-"Klik <b>Ja</b> indien u wenst te weten waar een tak begon."
-
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "Toon Eigensc&happen"
@@ -2547,6 +2559,10 @@ msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Korte URL van Subversion onderdelen"
+
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "Toon &Alles"
 
 #: ID:113
 msgid "Show &Differences"
@@ -2665,6 +2681,10 @@ msgstr "Statusbalk"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Status van het onderdeel in SVN"
+
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "Stop bij kopie"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -2932,6 +2952,10 @@ msgstr "Dit programma is gekoppeld aan de ontbrekende %s in bestand %s. Deze com
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Voor dit programma is het bestand %s vereist, maar dat ontbreekt op deze computer."
 
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Deze eigenschap is alleen geldig voor mappen, niet voor bestanden."
+
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Diff van drie bestanden"
@@ -3153,6 +3177,10 @@ msgstr "Gebruik tekstgedeelte van \"j&ouw\" voor dat van \"hun\""
 msgid "Use th&is text block"
 msgstr "Gebruik d&it tekstgedeelte"
 
+#: ID:251
+msgid "Use this &whole file"
+msgstr "&Gebruik dit gehele bestand"
+
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Gebruik deze URL als de bibliotheek is gewijzigd"
@@ -3210,10 +3238,6 @@ msgstr "Bezoek onze website"
 #: ID:219
 msgid "Warning!"
 msgstr "Waarschuwing!"
-
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Welk soort bibliotheek wilt u maken?"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3300,6 +3324,16 @@ msgstr ""
 "Uw werkkopie lijkt op een <b>label</b> gericht te zijn!\n"
 "U hoort eerst te wisselen naar een tak of de basislijn voordat u gaat vastleggen."
 
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't loose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"Uw werkkopie heeft lokale wijzigingen!\n"
+"N.B.: bij het wisselen naar een andere revisie gaan deze wijzigingen niet verloren, dus\n"
+"de werkkopie zal niet exact gelijk zijn aan de revisie waarnaar u wisselt!"
+
 #: ID:10
 msgid "added"
 msgstr "toegevoegd"
@@ -3311,6 +3345,18 @@ msgstr "een bestand zonder naam"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "en ondersteun de ontwikkelaars"
+
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Gebruik \"false\" als u het bugtracking ID aan het begin van de logboodschap\n"
+"wilt invoegen. De standaard is \"true\" en dan wordt het bugtracking ID\n"
+"aan het einde van de logboodschap toegevoegd."
 
 #: ID:14
 msgid ""
@@ -3507,6 +3553,16 @@ msgstr "naar %s"
 
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Gebruik \"false\" als u de lijst van gewijzigde bestanden niet in het engels wilt plakken\n"
+"in de dialoog voor vastleggen."
+
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -3532,6 +3588,15 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Stel dit op de gewenste maximale breedte van de logboodschap. In het venster voor\n"
 "de logboodschap wordt een verticale lijn getoond op die positie. De standaard is 80 karakters."
+
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Gebruik \"yes\" als u gewaarschuwd wilt worden als er geen bugtracking ID\n"
+"wordt opgegeven bij het vastleggen."
 
 #: Control-ID:1112
 msgid "your version is:"

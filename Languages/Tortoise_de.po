@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-10-25 10:13+0100\n"
+"PO-Revision-Date: 2004-11-05 09:26+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1330,6 +1330,10 @@ msgstr "Wollen Sie Ihre Änderungen speichern?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "Dateien beim Vergleich mit BASE nicht konvertieren"
 
+#: ID:73
+msgid "Don't show this message again"
+msgstr "Diese Meldung nicht wieder anzeigen"
+
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Laufwerkstypen"
@@ -1538,10 +1542,6 @@ msgstr "Allgemein"
 #: ID:144
 msgid "Generating Patchfile..."
 msgstr "Erzeuge Patchdatei..."
-
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "Hole a&lle"
 
 #: ID:119
 msgid "Getting File %s"
@@ -1790,6 +1790,10 @@ msgstr "Log"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "Log-Meldung"
+
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "Kommentarhistorie:"
 
 #: Dlg-ID:130
 msgid "Log Messages"
@@ -2568,17 +2572,6 @@ msgstr "Setze Eigenschaften..."
 msgid "Settings"
 msgstr "Einstellungen"
 
-# ID:115,
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"Soll das Log bei einer Kopie anhalten?\n"
-"Wählen Sie <b>Ja</b>, wenn Sie herausfinden wollen, wann eine Verzweigung erstellt wurde.\n"
-"Wählen Sie <b>Nein</b>, wenn Sie alle Einträge sehen wollen."
-
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "Zeige &Eigenschaften"
@@ -2590,6 +2583,10 @@ msgstr "&Kurzes Datum/Zeit Format in Log-Meldungen"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Kurze URL von Subversion Objekten"
+
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "Zeige &Alle"
 
 #: ID:113
 msgid "Show &Differences"
@@ -2709,6 +2706,11 @@ msgstr "Status"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Status eines Objekts in SVN"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "Bei Kopien anhalten"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3352,6 +3354,17 @@ msgid ""
 msgstr ""
 "Ihre Arbeitskopie scheint auf einem Pfad für Markierungen (<i>tags</i>) zu sein!\n"
 "Sie sollten zuerst zu einem Arbeitspfad (<i>trunk</i> oder <i>branch</i>) wechseln!"
+
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't loose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"Ihre Arbeitskopie hat lokale Modifikationen!\n"
+"Hinweis: Aktualisieren zu einer anderen Revision wird diese Änderungen beibehalten.\n"
+"Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen auf die sie aktualisieren!"
 
 #: ID:10
 msgid "added"
