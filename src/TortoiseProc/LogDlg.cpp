@@ -546,7 +546,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 						temp.LoadString(IDS_LOG_POPUP_SAVE);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
-					} // if (!PathIsDirectory(m_path))
+					}
 					else
 					{
 						temp.LoadString(IDS_LOG_POPUP_COMPARE);
@@ -693,7 +693,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						//now first get the revision which is selected
 						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
-						if (PathIsDirectory(m_path))
+						if ((PathIsDirectory(m_path))||(!m_hasWC))
 						{
 							this->m_bCancelled = FALSE;
 							CString tempfile = CUtils::GetTempFile();
@@ -926,7 +926,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 		this->m_app = &theApp;
 		theApp.DoWaitCursor(1);
-		if (!PathIsDirectory(m_path))
+		if ((!PathIsDirectory(m_path))&&(m_hasWC))
 		{
 			long rev = m_arRevs.GetAt(selIndex);
 			CString tempfile = CUtils::GetTempFile();
@@ -946,7 +946,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
 				CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
 			}
-		} // if (!PathIsDirectory(m_path))
+		} 
 		else
 		{
 			long rev = m_arRevs.GetAt(selIndex);
