@@ -1,6 +1,7 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 set starttime=%time%
+set startdir=%cd%
 rem
 rem build script for TortoiseSVN
 rem
@@ -31,6 +32,12 @@ if "%1"=="setup" SET _SETUP=ON
 if "%1"=="SETUP" SET _SETUP=ON
 shift
 if NOT "%1"=="" goto :getparam
+
+if DEFINED _RELEASE (
+  set _RELEASE_OR_RELEASE_MBCS=ON
+) else if DEFINED _RELEASE_MBCS (
+  set _RELEASE_OR_RELEASE_MBCS=ON
+)
 
 rem patch apr-iconv
 copy ext\apr-iconv\lib\iconv_module.c ..\Subversion\apr-iconv\lib /Y
@@ -69,7 +76,7 @@ del neon\config.h
 del neon\config.hw
 copy ..\TortoiseSVN\neonconfig.hw neon\config.hw
 del build\generator\vcnet_sln7.ezt
-if %_DEBUG%==ON (
+if DEFINED _DEBUG (
   rem first, compile without any network/repository support
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
@@ -82,8 +89,9 @@ if %_DEBUG%==ON (
   del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
   ren subversion\svn_private_config_copy.hw svn_private_config.hw
-  devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__")
-if %_RELEASE%==ON (
+  devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__"
+)
+if DEFINED _RELEASE_OR_RELEASE_MBCS (
   rem first, compile without any network/repository support
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
@@ -97,26 +105,13 @@ if %_RELEASE%==ON (
   ren subversion\svn_private_config_copy.h svn_private_config.h
   ren subversion\svn_private_config_copy.hw svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
-) else if %_RELEASE_MBCS%==ON (
-  rem first, compile without any network/repository support
-  ren subversion\svn_private_config.h  svn_private_config_copy.h
-  ren subversion\svn_private_config.hw  svn_private_config_copy.hw
-  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
-  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.hw
-  rmdir /s /q Release > NUL
-  devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
-  ren Release\subversion subversion_netless
-  del subversion\svn_private_config.h
-  del subversion\svn_private_config.hw
-  ren subversion\svn_private_config_copy.h svn_private_config.h
-  ren subversion\svn_private_config_copy.hw svn_private_config.hw
-  devenv subversion_vcnet.sln /useenv /build release /project "__ALL__")
+)
 @echo off
 rem TortoiseSVN
 echo ================================================================================
 echo copying files
 cd ..\TortoiseSVN
-if %_DEBUG%==ON (
+if DEFINED _DEBUG (
   if EXIST bin\debug\iconv rmdir /S /Q bin\debug\iconv > NUL
   mkdir bin\debug\iconv > NUL
   copy ..\Subversion\apr-iconv\Debug\iconv\*.so bin\debug\iconv > NUL
@@ -129,7 +124,7 @@ if %_DEBUG%==ON (
   copy ..\Subversion\apr-util\Debug\libaprutil.dll bin\Debug\bin /Y > NUL 
   copy ..\Subversion\apr-iconv\Debug\libapriconv.dll bin\Debug\bin /Y > NUL 
 )
-if %_RELEASE%==ON (
+if DEFINED _RELEASE (
   if EXIST bin\release\iconv rmdir /S /Q bin\release\iconv > NUL
   mkdir bin\release\iconv > NUL
   copy ..\Subversion\apr-iconv\Release\iconv\*.so bin\release\iconv > NUL
@@ -142,7 +137,7 @@ if %_RELEASE%==ON (
   copy ..\Subversion\apr-util\Release\libaprutil.dll bin\Release\bin /Y > NUL 
   copy ..\Subversion\apr-iconv\Release\libapriconv.dll bin\Release\bin /Y > NUL 
 )
-if %_RELEASE_MBCS%==ON (
+if DEFINED _RELEASE_MBCS (
   if EXIST bin\release_mbcs\iconv rmdir /S /Q bin\release_mbcs\iconv > NUL
   mkdir bin\release_mbcs\iconv > NUL
   copy ..\Subversion\apr-iconv\Release\iconv\*.so bin\release_mbcs\iconv > NUL
@@ -160,12 +155,15 @@ echo building TortoiseSVN
 cd src
 devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 ..\bin\release\bin\SubWCRev.exe .. version.in version.h
-if %_RELEASE%==ON (
-  devenv TortoiseSVN.sln /rebuild release )
-if %_RELEASE_MBCS%==ON (
-  devenv TortoiseSVN.sln /rebuild release_mbcs)
-if %_DEBUG%==ON (
-  devenv TortoiseSVN.sln /rebuild debug)
+if DEFINED _RELEASE (
+  devenv TortoiseSVN.sln /rebuild release
+)
+if DEFINED _RELEASE_MBCS (
+  devenv TortoiseSVN.sln /rebuild release_mbcs
+)
+if DEFINED _DEBUG (
+  devenv TortoiseSVN.sln /rebuild debug
+)
 
 echo ================================================================================
 echo building Scintilla
@@ -189,7 +187,7 @@ cd ..
 
 echo ================================================================================
 cd doc
-if %_DOCS%==ON (
+if DEFINED _DOCS (
   echo generating docs
   call GenDoc.bat > NUL
 )
@@ -198,7 +196,7 @@ if %_DOCS%==ON (
 echo ================================================================================
 cd ..\src\TortoiseSVNSetup
 @echo off
-if %_SETUP%==ON (
+if DEFINED _SETUP (
   echo building installers
 
   call MakeMsi.bat
@@ -207,6 +205,7 @@ if %_SETUP%==ON (
   cd ..\src\TortoiseSVNSetup
 )
 
-cd ..\..
+:end
+cd %startdir%
 echo started at: %starttime%
-echo now its   : %time%
+echo now it is : %time%
