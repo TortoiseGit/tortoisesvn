@@ -435,10 +435,11 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				path = CUtils::WritePathsToTempFile(path);
 			} // if (parser.HasKey(_T("notempfile"))) 
-			TRACE(_T("tempfile = %s\n"), path);
-			if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONEXCLAMATION)==IDYES)
+			CRevertDlg dlg;
+			dlg.m_sPath = path;
+			if (dlg.DoModal() == IDOK)
 			{
-				CSVNProgressDlg progDlg(PWND);
+				CSVNProgressDlg progDlg;
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Revert, true, path);

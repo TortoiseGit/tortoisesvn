@@ -483,19 +483,17 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			pDlg->SetWindowText(sWindowTitle);
 			if (pDlg->m_IsTempFile)
 			{
+				CString sTargets;
 				try
 				{
 					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 					CString strLine = _T("");
 					while (file.ReadString(strLine)&&(!pDlg->m_bCancelled))
 					{
-						TRACE(_T("revert file %s\n"), strLine);
-						if (!pDlg->Revert(strLine, true))
-						{
-							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
-							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							break;
-						}
+						if (sTargets.IsEmpty())
+							sTargets = strLine;
+						else
+							sTargets = sTargets + _T("*") + strLine;
 					}
 					file.Close();
 					DeleteFile(pDlg->m_sPath);
@@ -505,10 +503,16 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					TRACE(_T("CFileException in Revert!\n"));
 					pE->Delete();
 				}
+				if (!pDlg->Revert(sTargets, false))
+				{
+					TRACE(_T("%s"), pDlg->GetLastErrorMessage());
+					CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					break;
+				}
 			}
 			else
 			{
-				pDlg->Commit(pDlg->m_sPath, pDlg->m_sMessage, true);
+				pDlg->Revert(pDlg->m_sPath, true);
 			}
 			break;
 		case Resolve:

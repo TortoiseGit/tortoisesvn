@@ -49,6 +49,7 @@
 #include "BlameDlg.h"
 #include "URLDlg.h"
 #include "CheckForUpdatesDlg.h"
+#include "RevertDlg.h"
 
 /**
  * \ingroup TortoiseProc
