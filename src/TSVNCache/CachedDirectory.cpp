@@ -281,6 +281,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 
 	m_mostImportantFileStatus = svn_wc_status_unversioned;
 	m_childDirectories.clear();
+	m_entryCache.clear();
 
 	if(!bThisDirectoryIsUnversioned)
 	{
