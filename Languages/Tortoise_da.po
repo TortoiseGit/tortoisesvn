@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-09 12:37+0100\n"
+"PO-Revision-Date: 2004-09-15 17:12+0100\n"
 "Last-Translator: Gunther Strube <gbs@users.sourceforge.net>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -399,12 +399,12 @@ msgstr ": arbejdskopi"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
 msgstr ""
-"<b>VIGTIGT:</b> Brug kun Omlæg kommandoen hvis det oprindelige versionsarkiv er blevet flyttet til en ny URL.\n"
+"<b>VIGTIGT:</b>Brug kun Omlæg kommandoen hvis det oprindelige versionsarkiv er blevet flyttet til en ny URL.\n"
 "Hvis du bruger Omlæg til at omdirigere din arbejdskopi til et andet versionsarkiv eller forgrening,\n"
 "vil dette <b>korrumpere din arbejdskopi!</b>\n"
 "Brug Skift kommandoen for at associere din arbejdskopi med en anden forgrening.\n"
@@ -1311,10 +1311,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Vil du gemme dine ændringer?"
 
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "Undlad at &fjerne ændringsbeskrivelser når en arkivering annulleres"
-
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "Undlad at konvertere filer når der genereres en differens imod BASEN"
@@ -1571,6 +1567,11 @@ msgstr ""
 msgid "Help"
 msgstr "Hjælp"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Hint: Press F5 to refresh the selected subtree"
+msgstr "Forslag: Tryk F5 for at genopfriske det valgte deltræ."
+
 #: ID:82
 msgid "Hostname mismatch (%s)"
 msgstr "Ukorrekt værtsnavn (%s)"
@@ -1611,17 +1612,6 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr "Hvis aktiveret, vil TortoiseSVN sætte filstemplerne til tiden da de sidst blev arkiveret. Hvis ikke aktiveret, vil TortoiseSVN anvende den aktuelle tid."
-
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"Hvis du afbryder en arkivering, vil den indtastede ændringsbeskrivelse\n"
-"blive gemt og indsat i redigeringsfeltet til næste arkivering.\n"
-"Du kan derefter enten redigere beskrivelsen eller bruge den uforandret."
 
 #: ID:73
 msgid "Ignore"
@@ -1881,6 +1871,10 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "Der er ikke angivet parameter til kommandoen!"
+
+#: ID:82
+msgid "No differences found!"
+msgstr "Der er ingen forskelle!"
 
 #: ID:3843
 msgid "No error message is available."
@@ -2847,9 +2841,14 @@ msgstr ""
 msgid "The line \"====\" was expected in line %d !"
 msgstr "\"====\" linien var forventet i linie %d !"
 
+# ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "\"Index: \"-linien blev ikke fundet!"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"\"Index: \"  linien blev ikke fundet!\n"
+"Dette er enten ikke en Differensfil eller differensen er tom."
 
 #: ID:63
 msgid "The line indicating the new file was expected in line %d !"

@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-09 12:58+0200\n"
+"PO-Revision-Date: 2004-09-15 18:03+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: Lubbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -525,13 +525,13 @@ msgstr ": работно копие"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
 msgstr ""
 "<b>ВНИМАНИЕ:</b> Използвайте командата \"Преместване\" само когато първоначалното хранилище е преместено на нов URL.\n"
-"Ако използвате \"Преместване\", за да пренасочите работното си копие към друго хранилище или разклонене,\n"
+"Ако използвате \"Преместване\", за да пренасочите работното си копие към друго хранилище или разклонение,\n"
 "<b>ще повредите работното си копие!</b>\n"
 "За да асоциирате работното си копие с друго разклонение, използвайте командата \"Превключване\".\n"
 "Сигурни ли сте, че искате да преместите?"
@@ -1158,7 +1158,7 @@ msgstr "Изберете тези позиции, които желаете да
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Включете, за да използвате по-подробен формат за час и дата в дневника"
+msgstr "Включете, за да използвате по-кратък формат за час и дата в дневника"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1641,11 +1641,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Желаете ли да запишете промените си?"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "&Да не се премахва съобщението за дневника при отказ от поверяване"
-
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
@@ -1963,6 +1958,11 @@ msgstr ""
 msgid "Help"
 msgstr "Помощ"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Hint: Press F5 to refresh the selected subtree"
+msgstr "Съвет: натиснете бутона F5 за да опресните информацията за избраното поддърво."
+
 # ID:82,
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -2011,19 +2011,6 @@ msgid ""
 msgstr ""
 "Ако е включено, TortoiseSVN ще установи времето на промяна на файловете на времето,\n"
 "когато те са били последно поверени, Ако не е включено, TortoiseSVN ще използва текущото време."
-
-# ID:80,
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"Ако прекъснете поверяване, съобщението за журнала, което сте въвели, е записано\n"
-"и ще бъде попълнено автоматично в текстовото поле при следващото поверяване.\n"
-"Можете или да го редактирате, или да го използвате\n"
-"непроменено."
 
 # ID:73,
 #: ID:73
@@ -2340,6 +2327,11 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "Не е указана стойност на командата!"
+
+# ID:113,
+#: ID:82
+msgid "No differences found!"
+msgstr "Няма открити разлики!"
 
 # ID:3843,#:
 # ID:3843,
@@ -3527,8 +3519,12 @@ msgstr "Ред \"====\" се очакваше на ред %d !"
 
 # ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "Редът \"Index: \" не бе намерен!"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"Няма ред с \"Index: \"!\n"
+"Или това не е diff файл или файлът е празен."
 
 # ID:63,
 #: ID:63
