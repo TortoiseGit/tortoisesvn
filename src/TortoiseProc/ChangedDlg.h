@@ -43,6 +43,7 @@ protected:
 	afx_msg void			OnPaint();
 	afx_msg HCURSOR			OnQueryDragIcon();
 	afx_msg void			OnBnClickedCheckrepo();
+	afx_msg void			OnBnClickedShowunversioned();
 	virtual BOOL			OnInitDialog();
 	virtual void			OnOK();
 	virtual void			OnCancel();
@@ -52,6 +53,7 @@ protected:
 protected:
 	HICON			m_hIcon;
 	HANDLE			m_hThread;
+	BOOL			m_bShowUnversioned;
 
 public:
 	CSVNStatusListCtrl	m_FileListCtrl;

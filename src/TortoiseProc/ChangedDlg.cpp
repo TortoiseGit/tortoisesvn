@@ -27,6 +27,7 @@
 IMPLEMENT_DYNAMIC(CChangedDlg, CResizableDialog)
 CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CChangedDlg::IDD, pParent)
+	, m_bShowUnversioned(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_bRemote = FALSE;
@@ -40,6 +41,7 @@ void CChangedDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_CHANGEDLIST, m_FileListCtrl);
+	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 }
 
 
@@ -47,6 +49,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_CHECKREPO, OnBnClickedCheckrepo)
+	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 END_MESSAGE_MAP()
 
 
@@ -121,6 +124,7 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	pDlg = (CChangedDlg *)pVoid;
 
 	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
+	pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
@@ -143,6 +147,7 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
+	pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
 	return 0;
 }
 
@@ -166,6 +171,14 @@ void CChangedDlg::OnBnClickedCheckrepo()
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+}
+
+void CChangedDlg::OnBnClickedShowunversioned()
+{
+	UpdateData();
+	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
+	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
+	m_FileListCtrl.Show(dwShow);
 }
 
 
