@@ -550,6 +550,49 @@ void CLogPromptDlg::OnBnClickedSelectall()
 	theApp.DoWaitCursor(-1);
 }
 
+BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if ((pMsg->message == WM_KEYDOWN)&&(pMsg->wParam == VK_F5))//(nChar == VK_F5)
+	{
+		if (!GetDlgItem(IDOK)->IsWindowEnabled())
+			return CResizableDialog::PreTranslateMessage(pMsg);
+		CString temp;
+		m_arFileList.RemoveAll();
+		m_templist.RemoveAll();
+		m_arFileStatus.RemoveAll();
+
+		m_ListCtrl.DeleteAllItems();
+		int c = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+		while (c>=0)
+			m_ListCtrl.DeleteColumn(c--);
+		temp.LoadString(IDS_LOGPROMPT_FILE);
+		m_ListCtrl.InsertColumn(0, temp);
+		temp.LoadString(IDS_LOGPROMPT_STATUS);
+		m_ListCtrl.InsertColumn(1, temp);
+
+		m_ListCtrl.SetRedraw(false);
+		int mincol = 0;
+		int maxcol = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
+		int col;
+		for (col = mincol; col <= maxcol; col++)
+		{
+			m_ListCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+		}
+
+		//first start a thread to obtain the file list with the status without
+		//blocking the dialog
+		DWORD dwThreadId;
+		if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
+		{
+			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		}
+		//m_ListCtrl.UpdateData(FALSE);
+	}
+
+	return CResizableDialog::PreTranslateMessage(pMsg);
+}
+
+
 
 
 

@@ -82,6 +82,8 @@ private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;
 	CFont			m_logFont;
+public:
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);
