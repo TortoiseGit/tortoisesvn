@@ -64,6 +64,8 @@ public:
 	SVNRev(CString sRev);
 	~SVNRev();
 
+	BOOL IsValid() {return m_bIsValid;}
+
 	operator LONG ();
 	operator svn_opt_revision_t * ();
 	enum
@@ -75,4 +77,5 @@ public:
 
 private:
 	svn_opt_revision_t rev;
+	BOOL m_bIsValid;
 };

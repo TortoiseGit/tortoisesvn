@@ -24,6 +24,7 @@
 
 SVNRev::SVNRev(CString sRev)
 {
+	m_bIsValid = FALSE;
 	memset (&rev, 0, sizeof (rev));
 	if (sRev.Left(1).Compare(_T("{"))==0)
 	{
@@ -35,41 +36,57 @@ SVNRev::SVNRev(CString sRev)
 		{
 			CStringA sRevA = CStringA(sRev);
 			sRevA = sRevA.Mid(1, sRevA.GetLength()-2);
-			if (svn_parse_date(&matched, &tm, sRevA, apr_time_now(), pool))
+			if (svn_parse_date(&matched, &tm, sRevA, apr_time_now(), pool) == NULL)
 			{
 				if (!matched)
 					return;
 				rev.kind = svn_opt_revision_date;
 				rev.value.date = tm;
+				m_bIsValid = TRUE;
 			} // if (svn_parse_date(&matched, &tm, sRevA, apr_time_now(), pool))
 			svn_pool_destroy(pool);
 		}
 	} // if (sRev.Left(1).Compare(_T("{"))==0)
 	else if (sRev.CompareNoCase(_T("HEAD"))==0)
 	{
+		rev.kind = svn_opt_revision_head;
+		m_bIsValid = TRUE;
 	}
 	else if (sRev.CompareNoCase(_T("BASE"))==0)
 	{
+		rev.kind = svn_opt_revision_base;
+		m_bIsValid = TRUE;
 	}
 	else if (sRev.CompareNoCase(_T("WC"))==0)
 	{
+		rev.kind = svn_opt_revision_working;
+		m_bIsValid = TRUE;
 	}
 	else if (sRev.CompareNoCase(_T("PREV"))==0)
 	{
+		rev.kind = svn_opt_revision_previous;
+		m_bIsValid = TRUE;
 	}
 	else if (sRev.CompareNoCase(_T("COMMITTED"))==0)
 	{
+		rev.kind = svn_opt_revision_committed;
+		m_bIsValid = TRUE;
 	}
 	else
 	{
 		LONG nRev = _ttol(sRev);
-		rev.kind = svn_opt_revision_number;
-		rev.value.number = nRev;
+		if (nRev != 0)
+		{
+			rev.kind = svn_opt_revision_number;
+			rev.value.number = nRev;
+			m_bIsValid = TRUE;
+		}
 	}
 }
 
 SVNRev::SVNRev(LONG nRev)
 {
+	m_bIsValid = TRUE;
 	memset (&rev, 0, sizeof (rev));
 	if(nRev == SVNRev::REV_HEAD)
 	{
