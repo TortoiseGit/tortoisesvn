@@ -1275,7 +1275,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			CString savepath = CUtils::GetLongPathname(parser.GetVal(_T("savepath")));
-			CreatePatch(CTSVNPath(path), CTSVNPath(path));
+			CreatePatch(CTSVNPath(path), CTSVNPath(savepath));
 		}
 		//#endregion
 		//#region updatecheck
@@ -1359,7 +1359,7 @@ CTortoiseProcApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, 
 	return 0;
 }
 
-BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLineSavePath /*= _T("")*/)
+BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLineSavePath)
 {
 	OPENFILENAME ofn;		// common dialog box structure
 	CString temp;
