@@ -1505,22 +1505,35 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 	VersionInformation.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&VersionInformation);
 
+	::GetWindowRect(GetDesktopWindow()->m_hWnd, &monitorRect);
+	
 	if (VersionInformation.dwMajorVersion >= 5)
 	{
-		HMONITOR hMonitor;
 		MONITORINFO mi;
-		hMonitor = MonitorFromPoint(sourcePoint, MONITOR_DEFAULTTONEAREST);
 
 		//
 		// get the work area
 		//
 		mi.cbSize = sizeof(mi);
-		GetMonitorInfo(hMonitor, &mi);
-		monitorRect = mi.rcWork;
-	}
-	else
-	{
-		::GetWindowRect(GetDesktopWindow()->m_hWnd, &monitorRect);
+		HMODULE hUser32 = ::GetModuleHandle (_T("USER32.DLL"));
+		if (hUser32 != NULL)
+		{
+			typedef HMONITOR (WINAPI *FN_MonitorFromPoint) (POINT pt, DWORD dwFlags);
+			typedef BOOL (WINAPI *FN_GetMonitorInfo) (HMONITOR hMonitor, LPMONITORINFO lpmi);
+			FN_MonitorFromPoint pfnMonitorFromPoint = (FN_MonitorFromPoint)
+				::GetProcAddress (hUser32, "MonitorFromPoint");
+			FN_GetMonitorInfo pfnGetMonitorInfo = (FN_GetMonitorInfo)
+				::GetProcAddress (hUser32, "GetMonitorInfoW");
+			if (pfnMonitorFromPoint != NULL && pfnGetMonitorInfo != NULL)
+			{
+				MONITORINFO mi;
+				HMONITOR hMonitor = pfnMonitorFromPoint (sourcePoint, 
+					MONITOR_DEFAULTTONEAREST);
+				mi.cbSize = sizeof (mi);
+				pfnGetMonitorInfo (hMonitor, &mi);
+				monitorRect = mi.rcWork;
+			}
+		}
 	}
 
 }
