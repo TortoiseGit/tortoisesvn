@@ -691,7 +691,7 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 				if( br.matched ) 
 				{
 					// clear the styles up to the match position
-					Call(SCI_SETSTYLING, results.rstart(0) - offset1, STYLE_DEFAULT);
+					Call(SCI_SETSTYLING, results.rstart(0), STYLE_DEFAULT);
 					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0)-offset1);
 					offset1 += results.rstart(0);
 					offset2 = offset1 + results.rlength(0);
