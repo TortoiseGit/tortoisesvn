@@ -134,7 +134,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir)
 			// use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
-			viewer = viewer + _T(" /patchpath:\"%path\" /diff:\"%base\"");
+			viewer = viewer + _T(" /patchpath:%path /diff:%base");
 		} // if (viewer.IsEmpty() && !dir.IsEmpty())
 		if (viewer.IsEmpty())
 			return FALSE;
@@ -163,7 +163,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir)
 			//use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
-			viewer = viewer + _T(" /base:\"%base\" /yours:\"%mine\"");
+			viewer = viewer + _T(" /base:%base /yours:%mine");
 		} // if (diffexe == "")
 		if (viewer.Find(_T("%base")) >= 0)
 		{
