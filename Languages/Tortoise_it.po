@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-05 15:12+0100\n"
+"PO-Revision-Date: 2004-10-18 19:50+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -688,6 +688,11 @@ msgstr "Aggiunto"
 msgid "Added a file remotely"
 msgstr "File aggiunto in remoto"
 
+# ID:126,
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "Cartella aggiunta in remoto"
+
 # ID:13,
 #: ID:145
 msgid ""
@@ -912,11 +917,6 @@ msgstr "S&foglia..."
 msgid "B&uiltin"
 msgstr "I&ntegrato"
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -926,6 +926,11 @@ msgstr "Fai il backup dei file originali"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "File di base:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkeley Database (BDB)"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
@@ -1050,8 +1055,8 @@ msgstr "Certificato non ancora valido. Valido dal: %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
-msgstr "Certificati|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
+msgstr "Certificati|*.p12;*.pkcs12;*.pfx|All|*.*||"
 
 # ID:3825,
 #: ID:3825
@@ -1427,6 +1432,11 @@ msgid "Create Patch..."
 msgstr "Crea patch..."
 
 # ID:8,
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Crea Repository"
+
+# ID:8,
 #: ID:8
 msgid "Create Repository here"
 msgstr "Crea un Repository qui"
@@ -1793,11 +1803,6 @@ msgstr "Esterno"
 msgid "External Program:"
 msgstr "Programma esterno:"
 
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
-
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -1952,6 +1957,11 @@ msgid ""
 msgstr ""
 "Vai alla differenza precedente\n"
 "Differenza precedente"
+
+# ID:12,
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "La revisione principale del repository è la numero: %d"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -2298,6 +2308,11 @@ msgstr "&Prossimo conflitto"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Filesystem nativo (FSFS)"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2478,11 +2493,6 @@ msgstr "Password:"
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
 msgstr "Incolla i nomi dei file modificati"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "I&ncolla il Log dei cambiamenti (in inglese)"
 
 # ID:376,
 #: ID:376
@@ -3042,6 +3052,11 @@ msgstr "Salva come..."
 msgid "Save changes to %1?"
 msgstr "Salvare cambiamenti in %1?"
 
+# ID:76,
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Salva il percorso del certificato"
+
 # ID:3601,#:
 # ID:3601,
 #: ID:3601
@@ -3137,6 +3152,11 @@ msgstr ""
 "Seleziona l'intero documento\n"
 "Seleziona tutto"
 
+# ID:213,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "Selezionare il tipo di repository che si vuole creare:"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -3174,10 +3194,12 @@ msgstr "Impostazioni"
 #: ID:115
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
 msgstr ""
 "Sospendere il Log delle modifiche durante la copia?\n"
-"Clicca <b>Sì</b> se si vuole creare un ramo."
+"Clicca <b>Sì</b> se si vuole scoprire dove ha inizio un ramo.\n"
+"Clicca <b>No</b> se si vuole vedere tutti i commenti."
 
 # ID:101,
 #: ID:101
@@ -3930,6 +3952,11 @@ msgstr "Usa blocco di testo dal \"t&uo\""
 msgid "Use th&is text block"
 msgstr "Usa &questo blocco di testo"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "Utilizza l'&intero file"
+
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
@@ -4000,11 +4027,6 @@ msgstr "Visita il nostro sito"
 #: ID:219
 msgid "Warning!"
 msgstr "Attenzione!"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Quale tipo di Repository si desidera creare?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4117,6 +4139,18 @@ msgstr "un file senza nome"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "e supporta gli sviluppatori"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Impostare su \"false\" se si vuole che l'ID relativo al bugtrack venga visualizzato in cima\n"
+"al commento. Il valore di default per questa proprietà è \"true\", il che significa che l'ID sarà aggiunto alla fine del commento."
 
 # ID:14,
 #: ID:14
@@ -4351,6 +4385,17 @@ msgstr "verso %s"
 # ID:15,
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Impostare su \"false\" se non si vuole che la lista dei file cambiati venga incollata in lingua ingese\n"
+"nella finestra di invio."
+
+# ID:15,
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -4378,6 +4423,15 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Imposta la  lunghezza massima, in caratteri, dei commenti.\n"
 "Una linea sottile verrà visualizzata nella finestra di dialogo in questa posizione. Il valore predefinito è di 80 caratteri."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Impostare su \"yes\" se si vuole che venga visualizzato un avviso quando non è stata specificata nessuna issue nella finestra di invio."
 
 # Control-ID:1112,
 #: Control-ID:1112
