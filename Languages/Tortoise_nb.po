@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-08 11:01+0100\n"
+"PO-Revision-Date: 2005-04-04 20:24+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -473,6 +473,7 @@ msgstr "- %d"
 
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -667,9 +668,11 @@ msgid "Added a folder remotely"
 msgstr "La til en mappe eksternt"
 
 #: ID:145
+#, fuzzy
 msgid ""
 "Added the file(s)\n"
-"%sto the ignore list."
+"%s\n"
+"to the ignore list."
 msgstr ""
 "La til valgt(e) fil(er)\n"
 "%si ignorerings-listen."
@@ -813,6 +816,13 @@ msgstr "Analyser revisjonsdata..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Fletter inn en enhetlig lappefil (diff-fil) i arbeidkopien din"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+
 #: ID:13
 msgid "Apply Patch..."
 msgstr "Flett inn patch..."
@@ -846,6 +856,11 @@ msgstr "Forfatter"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "Forfatter:                      Stefan Kueng"
+
+#: ID:116
+#, fuzzy
+msgid "Authors"
+msgstr "Forfatter"
 
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -907,22 +922,9 @@ msgstr "Viser historikk for hver linje i en fil med forfatter og revisjon"
 msgid "Br&owse..."
 msgstr "&Utforsk..."
 
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "Forgrening/Merke"
-
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Det gikk bra å lage Forgrening/Merke!"
-
-# Control-ID:1073,
-#: Control-ID:1182
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "Lag forgrening/merke direkte på server (HEAD revision)"
-
-#: Control-ID:1183
-msgid "Branch/Tag the working copy"
-msgstr "Lag forgrening/merke i arbeidskopien"
 
 #: ID:9
 msgid "Branch/Tag..."
@@ -991,6 +993,12 @@ msgstr "Avbryter SVN-historikk..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "Avbryter operasjon..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Cascaded Context Menu"
+msgstr "Sammenhengsmeny"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1198,7 +1206,8 @@ msgid "Compare with &working copy"
 msgstr "Sammenlign med &arbeidskopi"
 
 #: ID:12
-msgid "Compares the file with the last commited version to show you the changes you made"
+#, fuzzy
+msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr "Sammenligner filen med den siste innsendte versjonen for å vise forandringene dine"
 
 #: ID:74
@@ -1213,11 +1222,6 @@ msgstr "I konflikt"
 #: ID:188
 msgid "Conflicts: %d"
 msgstr "Konflikter: %d"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "Sammenhengsmeny"
 
 #: ID:73
 msgid "Continue"
@@ -1239,6 +1243,11 @@ msgstr "Kopiert"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Kopiert eksternt"
+
+#: Dlg-ID:142
+#, fuzzy
+msgid "Copy (Branch / Tag)"
+msgstr "Forgrening/Merke"
 
 # ID:76,
 #: ID:76
@@ -1303,6 +1312,11 @@ msgstr ""
 "Kunne ikke åpne filen\n"
 "%s"
 
+#: ID:82
+#, fuzzy
+msgid "Could not remove %s from the ignored list"
+msgstr "Fikk ikke lagt %s i ignoreringslisten!"
+
 #: ID:81
 msgid ""
 "Could not retrieve URL of the file!\n"
@@ -1312,8 +1326,9 @@ msgstr ""
 "%s"
 
 #: ID:66
+#, fuzzy
 msgid ""
-"Could not retrieve version %s of the file %s.\n"
+"Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
 "Versjon %s av filen %s kunne ikke hentes.\n"
@@ -1370,7 +1385,13 @@ msgid "Create Repository"
 msgstr "Lag depot"
 
 #: ID:8
-msgid "Create Repository here"
+#, fuzzy
+msgid "Create Repository here..."
+msgstr "Lag depot her"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Create copy in the repository from:"
 msgstr "Lag depot her"
 
 #: ID:126
@@ -1508,8 +1529,10 @@ msgid "Do not show this message again"
 msgstr "Ikke vis denne beskjeden igjen"
 
 #: ID:76
+#, fuzzy
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
 msgstr ""
 "Er du sikker på at du vil tilbakestille alt\n"
@@ -1560,6 +1583,11 @@ msgstr "E&kstern"
 msgid "EXT"
 msgstr "EXT"
 
+#: ID:113
+#, fuzzy
+msgid "Edit Author"
+msgstr "Forfatter"
+
 #: ID:12
 msgid "Edit Conflicts"
 msgstr "Rediger konflikter"
@@ -1571,6 +1599,21 @@ msgstr "Rediger et filendelse-spesifikt diff-program"
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "Rediger et filendelse-spesifikt flette-program"
+
+#: ID:113
+#, fuzzy
+msgid "Edit Log Message"
+msgstr "Skriv loggmelding"
+
+# ID:115,
+#: ID:115
+msgid "Edit author name"
+msgstr ""
+
+#: ID:115
+#, fuzzy
+msgid "Edit log message"
+msgstr "Skriv loggmelding"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -1659,6 +1702,7 @@ msgid "Exports a repository to a clean working copy without the svn administrati
 msgstr "Eksporterer et depot til en ren arbeidskopi som er uten administrative Subversion-mapper"
 
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "Filendelse"
 
@@ -1703,7 +1747,8 @@ msgid "Fetching File..."
 msgstr "Henter fil..."
 
 #: ID:313
-msgid "Fetching version %s of file:"
+#, fuzzy
+msgid "Fetching revision %s of file:"
 msgstr "Henter versjon %s av filen:"
 
 #: ID:63
@@ -1746,6 +1791,11 @@ msgstr "Skrifttype:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "Trykk på F1 for hjelp"
+
+#: Control-ID:1200
+#, fuzzy
+msgid "From:"
+msgstr "&Fra adresse"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1828,8 +1878,9 @@ msgstr "Graftype:"
 msgid "H&ead Revision"
 msgstr "&Hovedrevisjon"
 
-#: ID:238
-msgid "Head revision of the repository is: %d"
+#: Control-ID:1182
+#, fuzzy
+msgid "HEAD revision in the repository"
 msgstr "Bruk denne hvis depotets plassering er forandret"
 
 #: ID:12
@@ -2092,6 +2143,16 @@ msgstr "Loggmeldinger"
 msgid "Look and Feel"
 msgstr "Utseende og følelse"
 
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr ""
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr ""
+
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "Dynamisk bibliotek for e-postsystemet er ugyldig."
@@ -2141,6 +2202,16 @@ msgstr "Fletting"
 #: ID:76
 msgid "Message"
 msgstr "Melding"
+
+#: ID:116
+#, fuzzy
+msgid "Messages"
+msgstr "Melding"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr ""
 
 #: ID:78
 msgid "Mime Type"
@@ -2314,10 +2385,6 @@ msgstr "OVR"
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flere filer har konfliktstatus"
 
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "&Enveisdiff"
-
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Hent bare ut den øverste mappen"
@@ -2381,8 +2448,9 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Passord:"
 
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
+#: ID:172
+#, fuzzy
+msgid "Paste filename list"
 msgstr "Lim inn forandrede filnavn"
 
 #: ID:376
@@ -2395,6 +2463,11 @@ msgstr "Patchfiler (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 
 #: ID:77
 msgid "Path"
+msgstr "Filsti"
+
+#: ID:116
+#, fuzzy
+msgid "Paths"
 msgstr "Filsti"
 
 # ID:157,
@@ -2616,6 +2689,11 @@ msgstr "Ekstern status"
 msgid "Remote Text Status"
 msgstr "Tekst-status, eksternt"
 
+#: ID:15
+#, fuzzy
+msgid "Remove From Ignore List"
+msgstr "Legg til i ignoreringslisten"
+
 #: Control-ID:65535
 msgid "Removed"
 msgstr "Slettet"
@@ -2623,6 +2701,20 @@ msgstr "Slettet"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Slettet fil/mappe"
+
+#: ID:145
+msgid ""
+"Removed the file(s)\n"
+"%s\n"
+"from the ignored list."
+msgstr ""
+"Fjernet filen(e)\n"
+"%\n"
+"fra ignorerings-listen."
+
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "Fjerbner filen eller jokertegn i ignorerings-listen"
 
 #: Dlg-ID:151
 msgid "Rename"
@@ -2694,10 +2786,13 @@ msgstr "Gjenopprettet"
 msgid "Retry"
 msgstr "Prøv igjen"
 
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Tilbakestill"
+
+#: ID:8
+msgid "Revert..."
+msgstr "Tilbakestill..."
 
 #: ID:73
 msgid "Reverted"
@@ -3001,8 +3096,8 @@ msgid "Short &date/time format in log messages"
 msgstr "Kort &tids- og dato-format i loggmeldinger"
 
 #: ID:12
-msgid "Short Url of subversion items"
-msgstr "Kort nettadresse for Subversion-elementer"
+msgid "Short Url of Subversion items"
+msgstr "Kort-sti med Subversion-elementer"
 
 #: Control-ID:1031
 msgid "Show &All"
@@ -3114,15 +3209,19 @@ msgstr "Hoppet over"
 msgid "Skipped missing target"
 msgstr "Hoppet over savnet mål"
 
+#: Control-ID:1185
+msgid "Specific revision in repository"
+msgstr "Bestemt revisjon i depoet"
+
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-" should exclude from version control.\n"
+"should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
-"Angi filene eller mappene som TortoiseSVN.\n"
-"skal holdes vekk fra versjonkontroll.\n"
-"Del stiene med et mellomrom."
+"Angi filene eller mappene som TortoiseSVN\n"
+"skal holde unda versjonkontroll.\n"
+"Del stiene med mellomrom."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3257,15 +3356,14 @@ msgstr "Tekst-status"
 msgid "Text Status:"
 msgstr "Tekst-status:"
 
+# ID:69,
 #: ID:69
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
-"Filen\n"
-"%s\n"
-"er ikke en gyldig tekstfil!"
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -3298,6 +3396,14 @@ msgstr "Filen %s ble ikke funnet i lappefilen (patch-fil)!"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Filen er for stor til å bli åpnet."
+
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
 
 #: ID:80
 msgid ""
@@ -3506,6 +3612,11 @@ msgstr "Tre-filers forskjell"
 msgid "To see the changes you made, double click on the files above."
 msgstr "Dobbelt-klikk på filene ovenfor for å se dine forandringer"
 
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr ""
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
@@ -3599,13 +3710,17 @@ msgstr "Få mest mulig ut av TortoiseSVN"
 msgid "Two File Diff"
 msgstr "To-filers forskjell"
 
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "&Toveisdiff"
+
 #: Dlg-ID:164
 msgid "URL"
 msgstr "Plassering"
 
 #: ID:12
-msgid "URL of subversion items"
-msgstr "Subversion-elemeters nettadresse"
+msgid "URL of Subversion items"
+msgstr "Sti med Subversion-elemeter"
 
 #: Control-ID:65535
 #: Control-ID:1076
@@ -3854,6 +3969,10 @@ msgstr "Forskjeller i mellomrom"
 msgid "Whitespaces"
 msgstr "Mellomrom"
 
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "Arbeidskopi"
+
 #: ID:80
 msgid ""
 "Working copy relocated to\n"
@@ -3871,8 +3990,8 @@ msgid "Yes To All"
 msgstr "Ja til alle"
 
 #: ID:201
-msgid "You already have the most current version installed."
-msgstr "Den nyeste versjonen er allerede installert."
+msgid "You already have the latest version installed."
+msgstr "Du har den nyeste versjonen installert."
 
 #: ID:144
 msgid ""
@@ -4178,7 +4297,7 @@ msgstr ""
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
 "Author, LastChangedBy\t\tThe last person to modify the file.\n"
 "Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
@@ -4187,10 +4306,10 @@ msgstr ""
 "svn:keywords\n"
 "Nøkkelord som skal utvides. Gyldige nøkkelord er:\n"
 "URL, HeadURL\t\t\tNettadressen for elementets hovedrevisjon.\n"
-"Author, LastChangedBy\t\tPersonen som sist forandret filen.\n"
+"Author, LastChangedBy\t\tDen som sist forandret filen.\n"
 "Date, LastChangedDate\t\tViser dato/tid for siste gang elementet ble forandret.\n"
-"Rev, LastChangedRevision\tRevisjonsnummeret for forrige gang elementet ble forandret.\n"
-"Id\t\t\t\tEn komprimert sammenstilling over de 4 forrige nøkkelordene."
+"Rev, LastChangedRevision\tRevisjonsnummeret forrige gang elementet ble forandret.\n"
+"Id\t\t\t\tEn komprimert sammenstilling over de 4 ovenstående nøkkelordene."
 
 #: ID:14
 msgid ""
