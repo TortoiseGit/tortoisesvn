@@ -132,6 +132,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 		this->SetWindowText(temp);
 		temp.LoadString(IDS_CHECKOUT_EXPORTDIR);
 		GetDlgItem(IDC_EXPORT_CHECKOUTDIR)->SetWindowText(temp);
+		GetDlgItem(IDC_NON_RECURSIVE)->ShowWindow(SW_HIDE);
 	} // if (IsExport)
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
