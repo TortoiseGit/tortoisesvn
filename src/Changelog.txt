@@ -8,6 +8,10 @@ Version 0.15.1
 - ADD: In the "Check for updates" dialog two context
        menus for showing a diff and updating files
        and folders. (Stefan)
+- ADD: The proxy-settings are saved even if they
+       are disabled. That way you can enable/disable
+       those settings without the need to always
+       reenter the data. (Stefan)
 
 Version 0.15
 - BUG: right-dragging a single file/folder resulted

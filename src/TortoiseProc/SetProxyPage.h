@@ -76,14 +76,19 @@ private:
 public:
 	CString		m_serveraddress;
 	CRegString	m_regServeraddress;
+	CRegString	m_regServeraddress_copy;
 	UINT		m_serverport;
 	CRegString	m_regServerport;
+	CRegString	m_regServerport_copy;
 	CString		m_username;
 	CRegString	m_regUsername;
+	CRegString	m_regUsername_copy;
 	CString		m_password;
 	CRegString	m_regPassword;
+	CRegString	m_regPassword_copy;
 	UINT		m_timeout;
 	CRegString	m_regTimeout;
+	CRegString	m_regTimeout_copy;
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedEnable();
 	BOOL		m_isEnabled;

@@ -39,6 +39,12 @@ CSetProxyPage::CSetProxyPage()
 	m_regUsername = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regPassword = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regTimeout = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
+
+	m_regServeraddress_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regServerport_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regUsername_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regPassword_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regTimeout_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
 }
 
 CSetProxyPage::~CSetProxyPage()
@@ -51,12 +57,17 @@ void CSetProxyPage::SaveData()
 	{
 		CString temp;
 		m_regServeraddress = m_serveraddress;
+		m_regServeraddress_copy = m_serveraddress;
 		temp.Format(_T("%d"), m_serverport);
 		m_regServerport = temp;
+		m_regServerport_copy = temp;
 		m_regUsername = m_username;
+		m_regUsername_copy = m_username;
 		m_regPassword = m_password;
+		m_regPassword_copy = m_password;
 		temp.Format(_T("%d"), m_timeout);
 		m_regTimeout = temp;
+		m_regTimeout_copy = temp;
 	} // if (m_isEnabled)
 	else
 	{
@@ -65,6 +76,15 @@ void CSetProxyPage::SaveData()
 		m_regUsername.removeValue();
 		m_regPassword.removeValue();
 		m_regTimeout.removeValue();
+
+		CString temp;
+		m_regServeraddress_copy = m_serveraddress;
+		temp.Format(_T("%d"), m_serverport);
+		m_regServerport_copy = temp;
+		m_regUsername_copy = m_username;
+		m_regPassword_copy = m_password;
+		temp.Format(_T("%d"), m_timeout);
+		m_regTimeout_copy = temp;
 	}
 }
 
@@ -123,6 +143,17 @@ BOOL CSetProxyPage::OnInitDialog()
 		m_isEnabled = TRUE;
 		EnableGroup(TRUE);
 	}
+	if (m_serveraddress.IsEmpty())
+		m_serveraddress = m_regServeraddress_copy;
+	if (m_serverport==0)
+		m_serverport = _ttoi((LPCTSTR)(CString)m_regServerport_copy);
+	if (m_username.IsEmpty())
+		m_username = m_regUsername_copy;
+	if (m_password.IsEmpty())
+		m_password = m_regPassword_copy;
+	if (m_timeout == 0)
+		m_timeout = _ttoi((LPCTSTR)(CString)m_regTimeout_copy);
+
 	UpdateData(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
