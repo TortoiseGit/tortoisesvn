@@ -439,37 +439,37 @@ CStringA CUtils::PathEscape(const CStringA& path)
 	return ret;
 }
 
-BOOL CUtils::IsEscaped(const CStringA& path)
+BOOL CUtils::IsEscaped(const char * path)
 {
-	if (path.Find("%20")>=0)
+	if (strstr(path, "%20") > 0)
 		return TRUE;
-	if (path.Find("%5E")>=0)
+	if (strstr(path, "%5E") > 0)
 		return TRUE;
-	if (path.Find("%26")>=0)
+	if (strstr(path, "%26") > 0)
 		return TRUE;
-	if (path.Find("%60")>=0)
+	if (strstr(path, "%60") > 0)
 		return TRUE;
-	if (path.Find("%7B")>=0)
+	if (strstr(path, "%7B") > 0)
 		return TRUE;
-	if (path.Find("%7D")>=0)
+	if (strstr(path, "%7D") > 0)
 		return TRUE;
-	if (path.Find("%7C")>=0)
+	if (strstr(path, "%7C") > 0)
 		return TRUE;
-	if (path.Find("%5D")>=0)
+	if (strstr(path, "%5D") > 0)
 		return TRUE;
-	if (path.Find("%5B")>=0)
+	if (strstr(path, "%5B") > 0)
 		return TRUE;
-	if (path.Find("%22")>=0)
+	if (strstr(path, "%22") > 0)
 		return TRUE;
-	if (path.Find("%3C")>=0)
+	if (strstr(path, "%3C") > 0)
 		return TRUE;
-	if (path.Find("%3E")>=0)
+	if (strstr(path, "%3E") > 0)
 		return TRUE;
-	if (path.Find("%5C")>=0)
+	if (strstr(path, "%5C") > 0)
 		return TRUE;
-	if (path.Find("%23")>=0)
+	if (strstr(path, "%23") > 0)
 		return TRUE;
-	if (path.Find("%3F")>=0)
+	if (strstr(path, "%3F") > 0)
 		return TRUE;
 	return FALSE;
 }
