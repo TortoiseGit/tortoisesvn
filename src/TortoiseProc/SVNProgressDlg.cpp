@@ -388,7 +388,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 							if (commitString.IsEmpty())
 								commitString = strLine;
 							else
-								commitString = commitString + _T(";") + strLine;
+								commitString = commitString + _T("*") + strLine;
 						}
 					}
 					if (commitString.IsEmpty())

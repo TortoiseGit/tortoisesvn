@@ -149,7 +149,7 @@ public:
 	 * If 0 is returned then the commit failed. Use GetLastErrorMessage()
 	 * to get detailed error information.
 	 *
-	 * \remark to specify multiple sources separate the paths with a ";"
+	 * \remark to specify multiple sources separate the paths with a "*"
 	 *
 	 * \param path the file/directory to commit
 	 * \param message a log message describing the changes you made

@@ -1065,12 +1065,12 @@ apr_array_header_t * SVN::target (LPCTSTR path)
 
 	int curPos= 0;
 
-	CString resToken= p.Tokenize(_T(";"),curPos);
+	CString resToken= p.Tokenize(_T("*"),curPos);
 	while (resToken != _T(""))
 	{
 		const char * target = apr_pstrdup (pool, CUnicodeUtils::GetUTF8(resToken));
 		(*((const char **) apr_array_push (targets))) = target;
-		resToken= p.Tokenize(_T(";"),curPos);
+		resToken= p.Tokenize(_T("*"),curPos);
 	};
 	return targets;
 }
