@@ -53,7 +53,7 @@ CString CUtils::GetTempFile(const CString& origfilename)
 		int i=0;
 		do
 		{
-			tempfile.Format(_T("%s\\svn%3.3x.tmp%s"), path, i, (LPCTSTR)CUtils::GetFileExtFromPath(origfilename));
+			tempfile.Format(_T("%ssvn%3.3x.tmp%s"), path, i, (LPCTSTR)CUtils::GetFileExtFromPath(origfilename));
 			i++;
 		} while (PathFileExists(tempfile));
 	}
