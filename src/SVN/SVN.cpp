@@ -931,9 +931,9 @@ CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t 
 			break;
 		case svn_wc_notify_update_update:
 			if ((content_state == svn_wc_notify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted))
-				temp.LoadString(IDS_STATUSCONFLICTED);
+				temp.LoadString(IDS_SVNACTION_CONFLICTED);
 			else if ((content_state == svn_wc_notify_state_merged) || (prop_state == svn_wc_notify_state_merged))
-				temp.LoadString(IDS_STATUSMERGED);
+				temp.LoadString(IDS_SVNACTION_MERGED);
 			else
 				temp.LoadString(IDS_SVNACTION_UPDATE);
 			break;
