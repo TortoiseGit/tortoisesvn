@@ -5,7 +5,9 @@ TortoiseSVN:
   instead of just the tree. This also paves the way to implement functions
   which require a selection of two objects (like viewing a diff between
   two branch and trunk, ...)
-
+- Add a "(de)select all" checkbox to the commit dialog.
+  "Even better would be a Visual SourceSafe-like interface where you can
+  check/uncheck an entire subtree of files with one operation"
 
 TortoiseMerge:
 - If the patchfile leaves a file completely empty, ask the user if (s)he
@@ -14,9 +16,6 @@ TortoiseMerge:
 - Support for CVS diff files
 - Comparing folders.
 - Handling of different filetypes (encoding). Autodetect? User-selectable?
-- Ignoring whitespaces when diffing.
 - Add a splash screen
 - Show differences wordwise, not just linewise
-- Show changed lines marked as such and not "removed" on the left and "added"
-  on the right side.
 - Relocate the resources to a separate dll for better translation

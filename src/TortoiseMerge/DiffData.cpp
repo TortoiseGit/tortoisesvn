@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "diff.h"
+#include "TempFiles.h"
 #include "Resource.h"
 #include ".\diffdata.h"
 
@@ -41,6 +42,10 @@ void CDiffData::GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText)
 		break;
 	case CDiffData::DIFFSTATE_ADDED:
 		crBkgnd = RGB(255,255,0);
+		crText = ::GetSysColor(COLOR_WINDOWTEXT);
+		break;
+	case CDiffData::DIFFSTATE_WHITESPACE:
+		crBkgnd = RGB(150,150,255);
 		crText = ::GetSysColor(COLOR_WINDOWTEXT);
 		break;
 	case CDiffData::DIFFSTATE_EMPTY:
@@ -128,7 +133,7 @@ LPCTSTR CDiffData::GetLineChars(int index)
 
 BOOL CDiffData::Load()
 {
-	CStringA f1, f2, f3;
+	CStringA f1, f2, f3, fc1, fc2, fc3;
 	f1 = m_sBaseFile;
 	f2 = m_sTheirFile;
 	f3 = m_sYourFile;
@@ -161,12 +166,25 @@ BOOL CDiffData::Load()
 	m_diffTheirBase = NULL;
 	m_diffTheirYourBase = NULL;
 
+	CFileTextLines converted;
+	CTempFiles tempfiles;
 	if (!m_sBaseFile.IsEmpty())
 	{
 		if (!m_arBaseFile.Load(m_sBaseFile))
 		{
 			m_sError = m_arBaseFile.GetErrorString();
 			return FALSE;
+		} // if (!m_arBaseFile.Load(m_sBaseFile))
+		if (!converted.Load(m_sBaseFile))
+		{
+			m_sError = converted.GetErrorString();
+			return FALSE;
+		} // if (!converted.Load(m_sBaseFile))
+		else
+		{
+			CString sTemp = tempfiles.GetTempFilePath();
+			fc1 = sTemp;
+			converted.Save(sTemp, TRUE, TRUE);
 		}
 	} // if (!m_sBaseFile.IsEmpty())
 	if (!m_sTheirFile.IsEmpty())
@@ -176,6 +194,17 @@ BOOL CDiffData::Load()
 			m_sError = m_arTheirFile.GetErrorString();
 			return FALSE;
 		}
+		if (!converted.Load(m_sTheirFile))
+		{
+			m_sError = converted.GetErrorString();
+			return FALSE;
+		} // if (!converted.Load(m_sBaseFile))
+		else
+		{
+			CString sTemp = tempfiles.GetTempFilePath();
+			fc2 = sTemp;
+			converted.Save(sTemp, TRUE, TRUE);
+		}
 	} // if (!m_sTheirFile.IsEmpty())
 	if (!m_sYourFile.IsEmpty())
 	{
@@ -184,11 +213,22 @@ BOOL CDiffData::Load()
 			m_sError = m_arYourFile.GetErrorString();
 			return FALSE;
 		}
+		if (!converted.Load(m_sYourFile))
+		{
+			m_sError = converted.GetErrorString();
+			return FALSE;
+		} // if (!converted.Load(m_sBaseFile))
+		else
+		{
+			CString sTemp = tempfiles.GetTempFilePath();
+			fc3 = sTemp;
+			converted.Save(sTemp, TRUE, TRUE);
+		}
 	} // if (!m_sYourFile.IsEmpty()) 
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
 	{
-		svnerr = svn_diff_file_diff(&m_diffYourBase, f1, f3, pool);
+		svnerr = svn_diff_file_diff(&m_diffYourBase, fc1, fc3, pool);
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));
@@ -243,10 +283,40 @@ BOOL CDiffData::Load()
 			{
 				for (int i=0; i<tempdiff->original_length; i++)
 				{
-					m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline++));
-					m_arDiffYourBaseRight.Add(m_arYourFile.GetAt(yourline++));
-					m_arStateYourBaseLeft.Add(DIFFSTATE_NORMAL);
-					m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
+					m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline));
+					m_arDiffYourBaseRight.Add(m_arYourFile.GetAt(yourline));
+					if (m_arBaseFile.GetAt(baseline).Compare(m_arYourFile.GetAt(yourline))!=0)
+					{
+						if (TRUE)		//TODO : m_bIgnoreLeadingWhitespaces
+						{
+							CString s1 = m_arBaseFile.GetAt(baseline);
+							s1 = s1.TrimLeft(_T(" \t"));
+							CString s2 = m_arYourFile.GetAt(yourline);
+							s2 = s2.TrimLeft(_T(" \t"));
+							if (s1.Compare(s2)!=0)
+							{
+								m_arStateYourBaseLeft.Add(DIFFSTATE_WHITESPACE);
+								m_arStateYourBaseRight.Add(DIFFSTATE_WHITESPACE);
+							}
+							else
+							{
+								m_arStateYourBaseLeft.Add(DIFFSTATE_NORMAL);
+								m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
+							}
+						}
+						else
+						{
+							m_arStateYourBaseLeft.Add(DIFFSTATE_WHITESPACE);
+							m_arStateYourBaseRight.Add(DIFFSTATE_WHITESPACE);
+						}
+					}
+					else
+					{
+						m_arStateYourBaseLeft.Add(DIFFSTATE_NORMAL);
+						m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
+					}
+					baseline++;
+					yourline++;
 				} // iff->original_length; i++)
 			}
 			if (tempdiff->type == svn_diff__type_diff_modified)
@@ -288,7 +358,7 @@ BOOL CDiffData::Load()
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
 	{
-		svnerr = svn_diff_file_diff(&m_diffTheirBase, f1, f2, pool);
+		svnerr = svn_diff_file_diff(&m_diffTheirBase, fc1, fc2, pool);
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));
@@ -343,10 +413,40 @@ BOOL CDiffData::Load()
 			{
 				for (int i=0; i<tempdiff->original_length; i++)
 				{
-					m_arDiffTheirBaseLeft.Add(m_arBaseFile.GetAt(baseline++));
-					m_arDiffTheirBaseRight.Add(m_arTheirFile.GetAt(theirline++));
-					m_arStateTheirBaseLeft.Add(DIFFSTATE_NORMAL);
-					m_arStateTheirBaseRight.Add(DIFFSTATE_NORMAL);
+					m_arDiffTheirBaseLeft.Add(m_arBaseFile.GetAt(baseline));
+					m_arDiffTheirBaseRight.Add(m_arTheirFile.GetAt(theirline));
+					if (m_arBaseFile.GetAt(baseline).Compare(m_arTheirFile.GetAt(theirline))!=0)
+					{
+						if (TRUE)		//TODO : m_bIgnoreLeadingWhitespaces
+						{
+							CString s1 = m_arBaseFile.GetAt(baseline);
+							s1 = s1.TrimLeft(_T(" \t"));
+							CString s2 = m_arTheirFile.GetAt(theirline);
+							s2 = s2.TrimLeft(_T(" \t"));
+							if (s1.Compare(s2)!=0)
+							{
+								m_arStateTheirBaseLeft.Add(DIFFSTATE_WHITESPACE);
+								m_arStateTheirBaseRight.Add(DIFFSTATE_WHITESPACE);
+							}
+							else
+							{
+								m_arStateTheirBaseLeft.Add(DIFFSTATE_NORMAL);
+								m_arStateTheirBaseRight.Add(DIFFSTATE_NORMAL);
+							}
+						}
+						else
+						{
+							m_arStateTheirBaseLeft.Add(DIFFSTATE_WHITESPACE);
+							m_arStateTheirBaseRight.Add(DIFFSTATE_WHITESPACE);
+						}
+					}
+					else
+					{
+						m_arStateTheirBaseLeft.Add(DIFFSTATE_NORMAL);
+						m_arStateTheirBaseRight.Add(DIFFSTATE_NORMAL);
+					}
+					baseline++;
+					theirline++;
 				} // iff->original_length; i++)
 			}
 			if (tempdiff->type == svn_diff__type_diff_modified)
@@ -388,7 +488,7 @@ BOOL CDiffData::Load()
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && (!m_sYourFile.IsEmpty()))
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && (!m_sYourFile.IsEmpty()))
 	{
-		svnerr = svn_diff_file_diff3(&m_diffTheirYourBase, f1, f2, f3, pool);
+		svnerr = svn_diff_file_diff3(&m_diffTheirYourBase, fc1, fc2, fc3, pool);
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));

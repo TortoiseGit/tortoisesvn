@@ -31,7 +31,7 @@ public:
 	 * the line endings detected at Load()
 	 * \param sFilePath the path to save the file to
 	 */
-	BOOL		Save(CString sFilePath);
+	BOOL		Save(CString sFilePath, BOOL bIgnoreWhitespaces = FALSE, BOOL bIgnoreLineendings = FALSE);
 	/**
 	 * Returns an error string of the last failed operation
 	 */
@@ -41,7 +41,6 @@ public:
 	 * to another CFileTextLines object.
 	 */
 	void		CopySettings(CFileTextLines * pFileToCopySettingsTo);
-
 
 	BOOL		m_bUnicode;
 	CFileTextLines::LineEndings m_LineEndings;

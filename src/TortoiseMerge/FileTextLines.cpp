@@ -96,6 +96,7 @@ BOOL CFileTextLines::Load(CString sFilePath)
 {
 	m_LineEndings = CFileTextLines::AUTOLINE;
 	m_bUnicode = -1;
+	RemoveAll();
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
@@ -145,8 +146,10 @@ BOOL CFileTextLines::Load(CString sFilePath)
 	return bRetval;
 }
 
-BOOL CFileTextLines::Save(CString sFilePath)
+BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/, BOOL bIgnoreLineendings /*= FALSE*/)
 {
+	if (bIgnoreLineendings)
+		m_LineEndings = AUTOLINE;
 	try
 	{
 		CFile file;
@@ -163,6 +166,11 @@ BOOL CFileTextLines::Save(CString sFilePath)
 			for (int i=0; i<GetCount(); i++)
 			{
 				CString sLine = GetAt(i);
+				if (bIgnoreWhitespaces)
+				{
+					sLine.Replace(_T(" "), _T(""));
+					sLine.Replace(_T("\t"), _T(""));
+				}
 				file.Write((LPCTSTR)sLine, sLine.GetLength());
 				switch (m_LineEndings)
 				{
@@ -188,6 +196,11 @@ BOOL CFileTextLines::Save(CString sFilePath)
 			for (int i=0; i<GetCount(); i++)
 			{
 				CStringA sLine = CStringA(GetAt(i));
+				if (bIgnoreWhitespaces)
+				{
+					sLine.Replace(" ", "");
+					sLine.Replace("\t", "");
+				}
 				file.Write((LPCSTR)sLine, sLine.GetLength());
 				switch (m_LineEndings)
 				{
@@ -245,3 +258,8 @@ void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
 		pFileToCopySettingsTo->m_LineEndings = m_LineEndings;
 	}
 }
+
+
+
+
+
