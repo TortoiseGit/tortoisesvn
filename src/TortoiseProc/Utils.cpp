@@ -461,7 +461,7 @@ BOOL CUtils::IsEscaped(CStringA path)
 {
 	if (path.Find("%20")>=0)
 		return TRUE;
-	if (path.Find("%%5E")>=0)
+	if (path.Find("%5E")>=0)
 		return TRUE;
 	if (path.Find("%26")>=0)
 		return TRUE;
