@@ -18,14 +18,15 @@
 #include "StdAfx.h"
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
-#include "regexpr2.h"
 #if defined(_MFC_VER)
+#include "regexpr2.h"
 #include "MessageBox.h"
 #include "Utils.h"
-#endif
 
 using namespace std;
 using namespace regex;
+#endif
+
 
 CTSVNPath::CTSVNPath(void) :
 	m_bDirectoryKnown(false),
@@ -505,6 +506,7 @@ bool CTSVNPath::HasAdminDir() const
 	return m_bHasAdminDir;
 }
 
+#if defined(_MFC_VER)
 bool CTSVNPath::IsValidOnWindows() const
 {
 	if (m_bIsValidOnWindowsKnown)
@@ -536,6 +538,7 @@ bool CTSVNPath::IsValidOnWindows() const
 	m_bIsValidOnWindowsKnown = true;
 	return m_bIsValidOnWindows;
 }
+#endif
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -723,8 +726,8 @@ public:
 		RemoveDuplicatesTest();
 		ContainingDirectoryTest();
 		SubversionPathTest();
-		ValidPathAndUrlTest();
 #if defined(_MFC_VER)
+		ValidPathAndUrlTest();
 		ListLoadingTest();
 #endif
 	}
@@ -875,6 +878,7 @@ private:
 #endif
 	}
 	
+#if defined(_MFC_VER)
 	void ValidPathAndUrlTest()
 	{
 		CTSVNPath testPath;
@@ -957,6 +961,7 @@ private:
 		ATLASSERT(!testPath.IsValidOnWindows());
 		
 	}
+#endif
 
 } TSVNPathTests;
 #endif

@@ -184,6 +184,7 @@ public:
 	 */
 	bool HasAdminDir() const;
 
+#if defined(_MFC_VER)
 	/**
 	 * Checks if the path or URL is valid on Windows.
 	 * A path is valid if conforms to the specs in the windows API.
@@ -194,7 +195,7 @@ public:
 	 * this function would return \c false for that URL).
 	 */
 	bool IsValidOnWindows() const;
-	
+#endif
 private:
 	// All these functions are const, and all the data
 	// is mutable, in order that the hidden caching operations
