@@ -69,9 +69,10 @@
 			<title>Installing Apache</title>
 			<para>
 			The first thing you need before installing Apache is a computer
-			with either Windows2000 / WinXP+SP1 or Windows2003. Please note
-			that Windows XP without the servicepack 1 will lead to bogus
+			with either Windows2000 / WinXP+SP1 or Windows2003.
+			<warning> Please note that Windows XP without the servicepack 1 will lead to bogus
 			network data and could therefore corrupt your repository!
+			</warning> 
 				<orderedlist>
 					<listitem>
 						<para>Download the latest version of the Apache
@@ -154,7 +155,8 @@
 				<orderedlist>
 					<listitem>
 					Create an empty folder with the name SVN (e.g. <filename>D:\SVN\</filename>),
-					which is used as root for all your repositories.
+					which is used as root for all your repositories. Remember the name you give
+					to this folder since you need it again when you configure Apache.
 					</listitem>
 					<listitem>
 					Create another folder <filename>MyNewRepository</filename> inside <filename>D:\SVN\</filename>.
@@ -168,7 +170,7 @@
 					</listitem>
 				</orderedlist>
 				<para>
-				Now you've got a new repository located at <filename>C:\SVN\MyNewRepository</filename>.
+				Now you've got a new repository located at <filename>D:\SVN\MyNewRepository</filename>.
 				</para>
 			<para>
 			Now you have set up Apache and Subversion, but Apache doesn't
@@ -222,8 +224,8 @@ AuthUserFile passwd
 Require valid-user
 &lt;/Location&gt;
 </screen>
-					This configures Apache so that a Subversion repository is
-					available at http://localhost/svn/yoursubversionproject.
+					This configures Apache so that all your Subversion repositories are
+					available at http://MyServer/svn/.
 					The access is restricted to known users/passwords.
 					<para>A short explanation of what you just entered:
 					<table id="tsvn-serversetup-apache-4-table">
@@ -242,7 +244,7 @@ Require valid-user
 									<entry>&lt;Location /svn&gt;</entry>
 									<entry>means that the Subversion repositories are
 									available from the URL <systemitem class="url">
-									http://server/svn/</systemitem>
+									http://MyServer/svn/</systemitem>
 									</entry>
 								</row>
 								<row>
@@ -253,7 +255,7 @@ Require valid-user
 								</row>
 								<row>
 									<entry>SVNParentPath D:\SVN</entry>
-									<entry>tells Subversion where to find the repositories</entry>
+									<entry>tells Subversion to look for repositories below D:\SVN</entry>
 								</row>
 								<row>
 									<entry>AuthType Basic</entry>
