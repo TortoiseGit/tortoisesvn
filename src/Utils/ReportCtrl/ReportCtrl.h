@@ -283,6 +283,7 @@ typedef struct _RVFINDINFO
 #define RVN_ITEMEXPANDING		(0U-2064U)
 #define RVN_ITEMEXPANDED		(0U-2065U)
 #define RVN_HEADERRCLICK		(0U-2066U)
+#define RVN_ITEMRCLICKUP		(0U-2067U)
 
 // Notification masks
 #define RVNM_ITEMDRAWPREVIEW	0x00000001
@@ -1132,6 +1133,7 @@ protected:
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	//}}AFX_MSG
     afx_msg LRESULT OnSetFont(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnGetFont(WPARAM wParam, LPARAM lParam);

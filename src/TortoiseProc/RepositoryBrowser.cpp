@@ -85,6 +85,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_SIZING()
 	ON_NOTIFY(RVN_ITEMRCLICK, IDC_REPOS_TREE, OnRVNItemRClickReposTree)
+	ON_NOTIFY(RVN_ITEMRCLICKUP, IDC_REPOS_TREE, OnRVNItemRClickUpReposTree)
 END_MESSAGE_MAP()
 
 
@@ -182,6 +183,11 @@ BOOL CRepositoryBrowser::OnInitDialog()
 }
 
 void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	*pResult = 0;	// Force standard behaviour
+}
+
+void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMREPORTVIEW pNMTreeView = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
 

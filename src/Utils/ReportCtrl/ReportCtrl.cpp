@@ -722,6 +722,7 @@ BEGIN_MESSAGE_MAP(CReportCtrl, CWnd)
 	ON_WM_CHAR()
 	ON_WM_MOUSEMOVE()
 	ON_WM_RBUTTONDOWN()
+	ON_WM_RBUTTONUP()
 	ON_WM_WINDOWPOSCHANGING()
 	//}}AFX_MSG_MAP
     ON_MESSAGE(WM_SETFONT, OnSetFont)
@@ -5802,9 +5803,32 @@ void CReportCtrl::OnRButtonDown(UINT nFlags, CPoint point)
 
 		if(!(nFlags&(MK_CONTROL|MK_SHIFT)))
 		{
-			SelectRows(iRow, iRow, TRUE);
-			m_iSelectRow = iRow;
+			RVITEM rvi;
+			ZeroMemory(&rvi, sizeof rvi);
+			rvi.nMask = RVIM_STATE;
+			rvi.iItem = rvhti.iItem;
+			if (GetItem(&rvi) && !(rvi.nState&RVIS_SELECTED))
+			{
+				SelectRows(iRow, iRow, TRUE);
+				m_iSelectRow = iRow;
+			}
 		}
+	}
+}
+
+void CReportCtrl::OnRButtonUp(UINT nFlags, CPoint point)
+{
+	SetFocus();
+
+	RVHITTESTINFO rvhti;
+	ZeroMemory(&rvhti, sizeof(RVHITTESTINFO));
+	rvhti.point = point;
+
+	HitTest(&rvhti);
+
+	if(Notify(RVN_ITEMRCLICKUP, nFlags, &rvhti))
+	{
+		CWnd::OnRButtonUp(nFlags, point);
 	}
 }
 
