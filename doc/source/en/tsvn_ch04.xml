@@ -1,4 +1,4 @@
-<chapter id="tsvn-DUG">
+﻿<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -12,8 +12,8 @@
 		<para>
 			If you need an introduction to version control with Subversion,
 			then we recommend you read the fantastic book:
-      <ulink url="http://svnbook.red-bean.com/">
-			<citetitle>Subversion: The Definitive Guide</citetitle>
+			<ulink url="http://svnbook.red-bean.com/">
+				<citetitle>Subversion: The Definitive Guide</citetitle>
 			</ulink>.
 		</para>
 		<para>
@@ -60,15 +60,39 @@
 				<title>Context menu for a directory under version control</title>
 				<graphic fileref="images/ContextMenuDirControl.png"/>
 			</figure>
-		  All TortoiseSVN commands are invoked from the context menu of the windows explorer.
-		  Most are directly visible, when you <action>right click</action> onto a file or folder.
-		  The commands that are available depend on whether the file or folder or it's parent
-		  folder is under version control or not.
+			All TortoiseSVN commands are invoked from the context menu of the windows explorer.
+			Most are directly visible, when you <action>right click</action> onto a file or folder.
+			The commands that are available depend on whether the file or folder or it's parent
+			folder is under version control or not.
 		</para>
 		<para>
 		Other commands are available as drag handlers, when you <action>right drag</action>
-		files or folders around inside working copies or when you <action>right drag</action>
-		a non-versioned file or folder into a directory which is under version control.
+		files or folders to a new location inside working copies or when you 
+		<action>right drag</action> a non-versioned file or folder into a directory 
+		which is under version control.
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 0 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-authentication">
+		<title>Authentication</title>
+		<para>
+			If the repository that you are trying to access is password protected, an 
+			authentication Dialog will show up.
+			<figure id="tsvn-fig-authentication">
+				<title>Authentication Dialog</title>
+				<graphic fileref="images/Authenticate.png"/>
+			</figure>
+			Enter you username and password. The checkbox will make TortoiseSVN store
+			the credentials in Subversion's default directory: 
+			<filename>$APPDATA\Subversion\auth</filename>. One file for each server
+			that you access. If you want to make Subversion and TortoiseSVN forget your
+			credentials, you have to delete the corresponding file(s).
+			<tip>
+			If you have to authenticate against a Windows NT domain, enter your username
+			including the domain name, like: <action>MYDOMAIN/johnd</action>.
+			</tip>
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
@@ -217,8 +241,8 @@
 				<title>The Checkout dialog</title>
 				<graphic fileref="images/Checkout.png"/>
 			</figure>
-              To obtain a working copy you need to do a <firstterm>checkout</firstterm>
-		 from a repository.
+			To obtain a working copy you need to do a <firstterm>checkout</firstterm>
+			from a repository.
 		</para>
 		<para>
 		Select a directory in windows explorer where you want to place
@@ -297,12 +321,11 @@
 			my machine (PIII, 700MHz, 512MB RAM) without problems. With this
 			setting each folder shows the status of all files below it,
 			where status <literal>conflict</literal> overrides <literal>modified</literal>
-			 and <literal>modified</literal> overrides <literal>normal</literal>.
-			 So you can easily see if there's a file with a conflict or a modified file in a folder.
-
+			and <literal>modified</literal> overrides <literal>normal</literal>.
+			So you can easily see if there's a file with a conflict or a modified file in a folder.
 			<note>
-					<title>Slow Overlays</title>
-					<para>
+				<title>Slow Overlays</title>
+				<para>
 				You may notice that if you enable the recursive overlay for folders
 				that the explorer slows down remarkably when browsing working
 				copies. This depends on how big your working copy is and how much
@@ -310,7 +333,7 @@
 				very slow the first time you browse such a directory &mdash; if
 				you browse the same directory later again it's much faster.
 				</para>
-				</note>
+			</note>
 			</para>
 			<para>
 			Unlike <application>TortoiseCVS</application> (the CVS shell
@@ -857,9 +880,9 @@
 		directory structure creating a branch or tag version is very simple:
 
 		<figure id="tsvn-DUG-branchtag-dia-1">
-				<title>The Branch/Tag Dialog</title>
-				<graphic fileref="images/Copy.png"/>
-			</figure>
+			<title>The Branch/Tag Dialog</title>
+			<graphic fileref="images/Copy.png"/>
+		</figure>
 
 		Select the parent folder of your working copy and select
 		the command <menuchoice><guimenuitem>Branch/Tag...</guimenuitem></menuchoice> from the
@@ -877,8 +900,10 @@
 
 		If you press OK now, Subversion just creates a cheap copy
 		of your selected Directory <emphasis>inside the repository</emphasis>.
-		Nothing has happened to your local Disk (yet).
+		Creating a Branch / Tag.does <emphasis>not</emphasis> affect your working
+		copy.
 		</para>
+
 		<sect2 id="tsvn-DUG-switch-1">
 			<title>To Checkout or to Switch...</title>
 			<para>
@@ -1140,39 +1165,39 @@ Rev Comments
 		<literal>author</literal> and of course the actual
 		<literal>line</literal> in the file.
 <screen>
-line   rev    date                 author     content
+line  rev    date              author     content
 
-     0   4127 03:03:39, 15.12.2002 rooneg     /**
-     1   4127 03:03:39, 15.12.2002 rooneg      * @copyright
-     2   1224 21:24:10, 08.02.2002 kfogel      * ====================================================================
-     3   4233 02:28:10, 03.01.2003 blair       * Copyright (c) 2000-2003 CollabNet.  All rights reserved.
-     4      1 06:24:14, 31.08.2001 svn         *
-     5      1 06:24:14, 31.08.2001 svn         * This software is licensed as described in the file COPYING, which
-     6      1 06:24:14, 31.08.2001 svn         * you should have received as part of this distribution.  The terms
-     7      1 06:24:14, 31.08.2001 svn         * are also available at http://subversion.tigris.org/license-1.html.
-     8      1 06:24:14, 31.08.2001 svn         * If newer versions of this license are posted there, you may use a
-     9      1 06:24:14, 31.08.2001 svn         * newer version instead, at your option.
-    10      1 06:24:14, 31.08.2001 svn         *
-    11      1 06:24:14, 31.08.2001 svn         * This software consists of voluntary contributions made by many
-    12      1 06:24:14, 31.08.2001 svn         * individuals.  For exact contribution history, see the revision
-    13      1 06:24:14, 31.08.2001 svn         * history and logs, available at http://subversion.tigris.org/.
-    14      1 06:24:14, 31.08.2001 svn         * ====================================================================
-    15   4127 03:03:39, 15.12.2002 rooneg      * @endcopyright
-    16   4127 03:03:39, 15.12.2002 rooneg      *
-    17   4127 03:03:39, 15.12.2002 rooneg      * @file svn_io.h
-    18   4127 03:03:39, 15.12.2002 rooneg      * @brief general Subversion I/O definitions
-    19      1 06:24:14, 31.08.2001 svn         */
-    20      1 06:24:14, 31.08.2001 svn
-    21      1 06:24:14, 31.08.2001 svn        /* ==================================================================== */
-    22      1 06:24:14, 31.08.2001 svn
-    23      1 06:24:14, 31.08.2001 svn
-    24      1 06:24:14, 31.08.2001 svn        #ifndef SVN_IO_H
-    25      1 06:24:14, 31.08.2001 svn        #define SVN_IO_H
-    26      1 06:24:14, 31.08.2001 svn
-    27      1 06:24:14, 31.08.2001 svn        #include &lt;apr.h&gt;
-    28      1 06:24:14, 31.08.2001 svn        #include &lt;apr_pools.h&gt;
-    29      1 06:24:14, 31.08.2001 svn        #include &lt;apr_file_io.h&gt;
-    30    303 03:26:32, 25.10.2001 cmpilato   #include &lt;apr_thread_proc.h&gt;
+  0  4127 03:03:39, 15.12.2002 rooneg     /**
+  1  4127 03:03:39, 15.12.2002 rooneg      * @copyright
+  2  1224 21:24:10, 08.02.2002 kfogel      * ====================================================================
+  3  4233 02:28:10, 03.01.2003 blair       * Copyright (c) 2000-2003 CollabNet.  All rights reserved.
+  4     1 06:24:14, 31.08.2001 svn         *
+  5     1 06:24:14, 31.08.2001 svn         * This software is licensed as described in the file COPYING, which
+  6     1 06:24:14, 31.08.2001 svn         * you should have received as part of this distribution.  The terms
+  7     1 06:24:14, 31.08.2001 svn         * are also available at http://subversion.tigris.org/license-1.html.
+  8     1 06:24:14, 31.08.2001 svn         * If newer versions of this license are posted there, you may use a
+  9     1 06:24:14, 31.08.2001 svn         * newer version instead, at your option.
+ 10     1 06:24:14, 31.08.2001 svn         *
+ 11     1 06:24:14, 31.08.2001 svn         * This software consists of voluntary contributions made by many
+ 12     1 06:24:14, 31.08.2001 svn         * individuals.  For exact contribution history, see the revision
+ 13     1 06:24:14, 31.08.2001 svn         * history and logs, available at http://subversion.tigris.org/.
+ 14     1 06:24:14, 31.08.2001 svn         * ====================================================================
+ 15  4127 03:03:39, 15.12.2002 rooneg      * @endcopyright
+ 16  4127 03:03:39, 15.12.2002 rooneg      *
+ 17  4127 03:03:39, 15.12.2002 rooneg      * @file svn_io.h
+ 18  4127 03:03:39, 15.12.2002 rooneg      * @brief general Subversion I/O definitions
+ 19     1 06:24:14, 31.08.2001 svn         */
+ 20     1 06:24:14, 31.08.2001 svn
+ 21     1 06:24:14, 31.08.2001 svn        /* ==================================================================== */
+ 22     1 06:24:14, 31.08.2001 svn
+ 23     1 06:24:14, 31.08.2001 svn
+ 24     1 06:24:14, 31.08.2001 svn        #ifndef SVN_IO_H
+ 25     1 06:24:14, 31.08.2001 svn        #define SVN_IO_H
+ 26     1 06:24:14, 31.08.2001 svn
+ 27     1 06:24:14, 31.08.2001 svn        #include &lt;apr.h&gt;
+ 28     1 06:24:14, 31.08.2001 svn        #include &lt;apr_pools.h&gt;
+ 29     1 06:24:14, 31.08.2001 svn        #include &lt;apr_file_io.h&gt;
+ 30   303 03:26:32, 25.10.2001 cmpilato   #include &lt;apr_thread_proc.h&gt;
 </screen>
 		</para>
 	</sect1>
@@ -1198,14 +1223,15 @@ line   rev    date                 author     content
 
 		<itemizedlist>
 				<listitem>
-					<para>The media wish list of
-			Stefan is <ulink url="http://www.amazon.com/o/registry/17DKTOSXX1KJK">
-			here</ulink> (English) or <ulink url="http://www.amazon.de/exec/obidos/wishlist/26JA3LXZXY4TB/">here
-			</ulink> (Deutsch).</para>
+					<para>The media wish list of Stefan is
+			<ulink url="http://www.amazon.com/o/registry/17DKTOSXX1KJK">here</ulink>
+			(English) or 
+			<ulink url="http://www.amazon.de/exec/obidos/wishlist/26JA3LXZXY4TB/">here</ulink>
+			(Deutsch).</para>
 				</listitem>
 				<listitem>
-					<para>L&uuml;bbe has got a <ulink url="http://www.amazon.de/exec/obidos/wishlist/3IKWLV2U0TVUA/">
-			wishlist</ulink> too.</para>
+					<para>Lübbe has got a <ulink url="http://www.amazon.de/exec/obidos/wishlist/3IKWLV2U0TVUA/"> wishlist</ulink> too.
+					</para>
 				</listitem>
 			</itemizedlist>
 
