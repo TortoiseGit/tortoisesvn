@@ -91,7 +91,7 @@ typedef struct filestatuscache
  * \bug 
  *
  */
-class SVNFolderStatus : public SVNStatus
+class SVNFolderStatus
 {
 public:
 	SVNFolderStatus(void);

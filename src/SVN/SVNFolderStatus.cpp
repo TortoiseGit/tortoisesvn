@@ -57,30 +57,31 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 
 	if (isFolder)
 	{
-		GetStatus(filepath);
+		SVNStatus stat;
+		stat.GetStatus(filepath);
 		int index = FindFirstInvalidFolder();
 		m_FolderCache[index].author[0] = 0;
 		m_FolderCache[index].url[0] = 0;
 		m_FolderCache[index].rev = -1;
 		m_FolderCache[index].status = svn_wc_status_unversioned;
 		_tcsncpy(m_FolderCache[index].filename, filepath, MAX_PATH);
-		if (status)
+		if (stat.status)
 		{
 			//if (status.status->entry)
-			if (status->entry)
+			if (stat.status->entry)
 			{
-				if (status->entry->cmt_author)
-					strncpy(m_FolderCache[index].author, status->entry->cmt_author, MAX_PATH);
+				if (stat.status->entry->cmt_author)
+					strncpy(m_FolderCache[index].author, stat.status->entry->cmt_author, MAX_PATH);
 				else
 					m_FolderCache[index].author[0] = 0;
-				if (status->entry->url)
-					strncpy(m_FolderCache[index].url, status->entry->url, MAX_PATH);
+				if (stat.status->entry->url)
+					strncpy(m_FolderCache[index].url, stat.status->entry->url, MAX_PATH);
 				else
 					m_FolderCache[index].url[0] = 0;
-				m_FolderCache[index].rev = status->entry->cmt_rev;
+				m_FolderCache[index].rev = stat.status->entry->cmt_rev;
 			} // if (status.status->entry)
-			m_FolderCache[index].status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, status->text_status);
-			m_FolderCache[index].status = SVNStatus::GetMoreImportant(m_FolderCache[index].status, status->prop_status);
+			m_FolderCache[index].status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, stat.status->text_status);
+			m_FolderCache[index].status = SVNStatus::GetMoreImportant(m_FolderCache[index].status, stat.status->prop_status);
 			if (shellCache.IsRecursive())
 			{
 				m_FolderCache[index].status = SVNStatus::GetAllStatusRecursive(filepath);
@@ -88,7 +89,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		} // if (status.status)
 		m_FolderCache[index].askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 		m_TimeStamp = GetTickCount();
-		svn_pool_clear(this->m_pool);
 		svn_pool_destroy (pool);				//free allocated memory
 		apr_terminate();
 		return &m_FolderCache[index];
@@ -134,7 +134,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	// Error present if function is not under version control
 	if ((err != NULL) || (apr_hash_count(statushash) == 0))
 	{
-		svn_pool_clear(this->m_pool);
 		svn_pool_destroy (pool);				//free allocated memory
 		apr_terminate();
 		return &invalidstatus;	
@@ -148,7 +147,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	if (!m_pStatusCache)
 	{
 		m_nCacheCount = 0;
-		svn_pool_clear(this->m_pool);
 		svn_pool_destroy (pool);				//free allocated memory
 		apr_terminate();
 		return &invalidstatus;
@@ -219,7 +217,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		m_pStatusCache[i].askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 		i++;
 	} // for (hi = apr_hash_first (pool, statushash); hi; hi = apr_hash_next (hi)) 
-	svn_pool_clear(this->m_pool);
 	svn_pool_destroy (pool);				//free allocated memory
 	apr_terminate();
 	m_TimeStamp = GetTickCount();
