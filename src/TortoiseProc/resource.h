@@ -305,6 +305,8 @@
 #define IDS_BLAME_PROGRESSCANCEL        2102
 #define IDS_LOG_COMPAREWITHBASE         2200
 #define IDS_PROC_ENTERURLLABEL          2300
+#define IDS_PROC_PATCHTITLE             2301
+#define IDS_PROC_SAVEPATCHTO            2302
 
 // Next default values for new objects
 // 

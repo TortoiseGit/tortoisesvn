@@ -1,3 +1,14 @@
+- ADD: A new separate program to apply patches,
+       showing diffs and resolving conflicts.
+       The program is called TortoiseMerge.
+       (Stefan)
+- ADD: New command to create patchfiles in
+       unified diff format from a modified
+       working copy. (Stefan)
+- ADD: New command to apply patchfiles in
+       unified diff format to a working
+       copy. (Stefan)       
+       
 Version 0.23
 - ADD: Most dialogs now have the "F1"-help
        working. (Stefan)

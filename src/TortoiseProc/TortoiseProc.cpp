@@ -1027,6 +1027,54 @@ BOOL CTortoiseProcApp::InitInstance()
 			} // if (!svn.Cat(path, rev, savepath)) 
 		} // if (comVal.Compare(_T("cat"))==0) 
 		//#endregion
+		//#region createpatch
+		if (comVal.Compare(_T("createpatch"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			OPENFILENAME ofn;		// common dialog box structure
+			TCHAR szFile[MAX_PATH];  // buffer for file name
+			ZeroMemory(szFile, sizeof(szFile));
+			// Initialize OPENFILENAME
+			ZeroMemory(&ofn, sizeof(OPENFILENAME));
+			//ofn.lStructSize = sizeof(OPENFILENAME);
+			ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+			ofn.hwndOwner = (EXPLORERHWND);
+			ofn.lpstrFile = szFile;
+			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+			CString temp;
+			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+			if (temp.IsEmpty())
+				ofn.lpstrTitle = NULL;
+			else
+				ofn.lpstrTitle = temp;
+			ofn.Flags = OFN_OVERWRITEPROMPT;
+
+			// Display the Open dialog box. 
+			if (GetSaveFileName(&ofn)==FALSE)
+			{
+				return FALSE;
+			}
+
+			CProgressDlg progDlg;
+			temp.LoadString(IDS_PROC_SAVEPATCHTO);
+			progDlg.SetLine(1, temp, true);
+			progDlg.SetLine(2, ofn.lpstrFile, true);
+			temp.LoadString(IDS_PROC_PATCHTITLE);
+			progDlg.SetTitle(temp);
+			progDlg.SetShowProgressBar(false);
+			progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
+			//progDlg.SetAnimation(IDR_ANIMATION);
+
+			SVN svn;
+			if (!svn.Diff(path, SVN::REV_BASE, path, SVN::REV_WC, TRUE, FALSE, FALSE, _T(""), ofn.lpstrFile))
+			{
+				progDlg.Stop();
+				::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				DeleteFile(ofn.lpstrFile);
+			} // if (!svn.Diff(path, SVN::REV_WC, path, SVN::REV_BASE, TRUE, FALSE, FALSE, _T(""), sSavePath))
+			progDlg.Stop();
+		} // if (comVal.Compare(_T("cat"))==0) 
+		//#endregion
 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);

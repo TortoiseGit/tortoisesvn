@@ -56,6 +56,8 @@ IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
 IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
 IDI_REPOBROWSE          ICON                    "..\\Icons\\menurepobrowse.ico"
 IDI_BLAME               ICON                    "..\\Icons\\menublame.ico"
+IDI_PATCH               ICON                    "..\\Icons\\menupatch.ico"
+IDI_CREATEPATCH         ICON                    "..\\Icons\\menudiff.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -268,6 +270,8 @@ BEGIN
     IDS_MENUBLAME           "Blame..."
     IDS_STATUSEXTERNAL      "external"
     IDS_MENUDESCBLAME       "Blames each line of a file on an author"
+    IDS_MENUCREATEPATCH     "Create Patch..."
+    IDS_MENUAPPLYPATCH      "Apply Patch..."
 END
 
 STRINGTABLE 
@@ -288,6 +292,12 @@ BEGIN
     IDS_MENUDESCRELOCATE    "Use this if the URL of the repository has changed"
     IDS_MENUHELP            "Daily Use Guide"
     IDS_MENUDESCHELP        "Read the 'Daily Use Guide' before you are stuck..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUDESCCREATEPATCH "Creates a unified diff file with all changes you made"
+    IDS_MENUDESCAPPLYPATCH  "Applies a unified diff file to the working copy"
 END
 
 #endif    // English (U.S.) resources

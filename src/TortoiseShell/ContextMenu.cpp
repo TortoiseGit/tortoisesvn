@@ -460,8 +460,19 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
-	}
+	} // if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 
+	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+		InsertSVNMenu(ownerdrawn, HMENU(MENUCREATEPATCH), INDEXMENU(MENUCREATEPATCH), idCmd++, IDS_MENUCREATEPATCH, IDI_CREATEPATCH, idCmdFirst, CreatePatch);
+	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+		InsertSVNMenu(ownerdrawn, HMENU(MENUAPPLYPATCH), INDEXMENU(MENUAPPLYPATCH), idCmd++, IDS_MENUAPPLYPATCH, IDI_PATCH, idCmdFirst, ApplyPatch);
+
+	//---- separator 
+	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	{
+		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
+		lastSeparator = idCmd++;
+	}
 	InsertSVNMenu(ownerdrawn, subMenu, indexSubMenu++, idCmd++, IDS_MENUHELP, IDI_HELP, idCmdFirst, Help);
 	InsertSVNMenu(ownerdrawn, subMenu, indexSubMenu++, idCmd++, IDS_MENUSETTINGS, IDI_SETTINGS, idCmdFirst, Settings);
 	InsertSVNMenu(ownerdrawn, subMenu, indexSubMenu++, idCmd++, IDS_MENUABOUT, IDI_ABOUT, idCmdFirst, About);
@@ -531,6 +542,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				startup.cb = sizeof(startup);
 				memset(&process, 0, sizeof(process));
 				CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
+				CRegStdString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T("TortoiseMerge.exe"), false, HKEY_LOCAL_MACHINE);
 
 				//TortoiseProc expects a command line of the form:
 				//"/command:<commandname> /path:<path> /revstart:<revisionstart> /revend:<revisionend>
@@ -748,6 +760,40 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 							svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
 						break;
+					case CreatePatch:
+						svnCmd += _T("createpatch /path:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
+					case ApplyPatch:
+						svnCmd = _T(" /patchpath:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						myIDMap.clear();
+						if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						{
+							LPVOID lpMsgBuf;
+							FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+								FORMAT_MESSAGE_FROM_SYSTEM | 
+								FORMAT_MESSAGE_IGNORE_INSERTS,
+								NULL,
+								GetLastError(),
+								MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+								(LPTSTR) &lpMsgBuf,
+								0,
+								NULL 
+								);
+							MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+							LocalFree( lpMsgBuf );
+						} // if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+						return NOERROR;
+						break;
 					default:
 						break;
 					//#endregion
@@ -772,11 +818,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 									);
 					MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
 					LocalFree( lpMsgBuf );
-				}
+				} // if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
 				hr = NOERROR;
-			}
-		}
-	}
+			} // if (myIDMap.find(idCmd) != myIDMap.end()) 
+		} // if ((files_.size() > 0)||(folder_.size() > 0)) 
+	} // if (!HIWORD(lpcmi->lpVerb)) 
 	return hr;
 
 }
@@ -878,6 +924,12 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			break;
 		case Blame:
 			MAKESTRING(IDS_MENUDESCBLAME);
+			break;
+		case ApplyPatch:
+			MAKESTRING(IDS_MENUDESCAPPLYPATCH);
+			break;
+		case CreatePatch:
+			MAKESTRING(IDS_MENUDESCCREATEPATCH);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1199,6 +1251,16 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			MAKESTRING(IDS_MENUBLAME);
 			resource = MAKEINTRESOURCE(IDI_BLAME);
 			SETSPACE(MENUBLAME);
+			break;
+		case ApplyPatch:
+			MAKESTRING(IDS_MENUAPPLYPATCH);
+			resource = MAKEINTRESOURCE(IDI_PATCH);
+			SETSPACE(MENUAPPLYPATCH);
+			break;
+		case CreatePatch:
+			MAKESTRING(IDS_MENUCREATEPATCH);
+			resource = MAKEINTRESOURCE(IDI_CREATEPATCH);
+			SETSPACE(MENUCREATEPATCH);
 			break;
 		default:
 			return NULL;

@@ -96,11 +96,11 @@ BOOL CTortoiseMergeApp::InitInstance()
 			ofn.lpstrTitle = NULL;
 		else
 			ofn.lpstrTitle = temp;
-		ofn.Flags = OFN_FILEMUSTEXIST;
+		ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
 
 		// Display the Open dialog box. 
 		CString tempfile;
-		if (GetSaveFileName(&ofn)==FALSE)
+		if (GetOpenFileName(&ofn)==FALSE)
 		{
 			return FALSE;
 		}

@@ -122,7 +122,9 @@ protected:
 		ShowChanged,
 		Ignore,
 		RepoBrowse,
-		Blame
+		Blame,
+		ApplyPatch,
+		CreatePatch
 	};
 
 	FileState m_State;

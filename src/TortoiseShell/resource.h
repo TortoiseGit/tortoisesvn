@@ -120,6 +120,10 @@
 #define IDS_MENUBLAME                   203
 #define IDS_STATUSEXTERNAL              204
 #define IDS_MENUDESCBLAME               205
+#define IDS_MENUCREATEPATCH             206
+#define IDS_MENUAPPLYPATCH              207
+#define IDS_MENUDESCCREATEPATCH         208
+#define IDS_MENUDESCAPPLYPATCH          209
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -141,12 +145,14 @@
 #define IDI_REPOBROWSE                  5145
 #define IDI_ICON4                       5146
 #define IDI_BLAME                       5146
+#define IDI_PATCH                       5147
+#define IDI_CREATEPATCH                 5150
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5147
+#define _APS_NEXT_RESOURCE_VALUE        5151
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11019
 #define _APS_NEXT_SYMED_VALUE           5101

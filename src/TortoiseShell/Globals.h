@@ -45,6 +45,8 @@
 #define MENUIGNORE			0x00200000
 #define MENUREPOBROWSE		0x00400000
 #define MENUBLAME			0x00800000
+#define MENUCREATEPATCH		0x01000000
+#define MENUAPPLYPATCH		0x02000000
 
 /**
  * Since we need an own COM-object for every different
