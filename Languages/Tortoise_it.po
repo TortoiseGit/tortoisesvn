@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-03 01:31+0100\n"
+"PO-Revision-Date: 2005-03-04 13:03+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4024,6 +4024,21 @@ msgstr ""
 "%s\n"
 "nella pach non corrispondono!"
 
+# ID:88,
+#: ID:88
+msgid ""
+"The path/url you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Il percorso/Url sembra non essere valido in Windows!\n"
+"È possibile tentare comunque, ma così facendo si rischia di incorrere in un errore più avanti.\n"
+"\n"
+"Un percorso valido non deve contenere caratteri quali '<>|\"?*:' come pure uno dei seguenti nomi di periferiche:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # ID:314,
 #: ID:314
 msgid ""
@@ -4115,6 +4130,17 @@ msgstr ""
 #: ID:188
 msgid "Thesaurus"
 msgstr "Thesaurus"
+
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Percorso non valido!\n"
+"Un percorso valido non deve contenere caratteri quali '<>|\"?*:' come pure uno dei seguenti nomi di periferiche:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
 #: Control-ID:65535

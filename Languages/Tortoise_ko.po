@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-03-02 01:38+0900\n"
+"PO-Revision-Date: 2005-03-07 05:05+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2668,6 +2668,12 @@ msgstr ""
 "것이 없습니다.\n"
 "버전관리 대상이 아닌 것들을 보시겠습니까?"
 
+# ID:3843,#:
+# ID:3843,
+#: ID:273
+msgid "No graph available"
+msgstr "사용할 수 있는 그래프가 없습니다."
+
 # ID:273,
 #: ID:273
 msgid "No image encoder found for %s."
@@ -4001,6 +4007,21 @@ msgstr ""
 "%s\n"
 "이 서로 맞지 않습니다."
 
+# ID:88,
+#: ID:88
+msgid ""
+"The path/url you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Windows에서 사용할 수 있는 올바른 경로 혹은 URL이 아닙니다.\n"
+"지금은 사용할 수 있어도, 나중에 오류를 일으킬 수 있으므로 주의하십시오.\n"
+"\n"
+"경로에는 '<>|\"?*:'을 포함되어선 안되며, 또한 다음과 같은 장치명도 사용될 수 없습니다:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # ID:314,
 #: ID:314
 msgid ""
@@ -4092,6 +4113,17 @@ msgstr ""
 #: ID:188
 msgid "Thesaurus"
 msgstr "색인"
+
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"올바른 경로가 아닙니다.\n"
+"경로에는 '<>|\"?*:'을 포함되어선 안되며, 또한 다음과 같은 장치명도 사용될 수 없습니다:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4411,6 +4443,11 @@ msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용"
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
 msgstr "\"From:\" URL을 사용"
+
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "Use autocompletion of filepaths and keywords"
+msgstr "파일 경로와 키워드의 자동 완성기능을 이용합니다."
 
 # Control-ID:1024,
 #: Control-ID:1024
