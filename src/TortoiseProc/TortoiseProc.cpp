@@ -160,10 +160,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			long revend = _tstol(val);
 			if (revstart == 0)
 			{
-				revstart = -1;
+				revstart = SVN::REV_HEAD;
 			}
 			if (revend == 0)
-				revend = 1;
+			{
+				CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+				revend = reg;
+				revend = -revend;
+			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
 			dlg.SetParams(path, revstart, revend);

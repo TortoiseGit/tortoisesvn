@@ -1,3 +1,9 @@
+- ADD: The show log command now only shows
+       the last 100 revision, configurable
+       in the settings dialog. A new "Get All"
+       button then fetches the rest of the log
+       messages if needed. (Stefan)
+
 Version 0.20.2
 - BUG: crash bug not fixed in 0.20.1 (one Ctrl-Z
        to remove debugging code too much :)

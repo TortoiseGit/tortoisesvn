@@ -36,16 +36,18 @@ CSetMainPage::CSetMainPage()
 	, m_sMergePath(_T(""))
 	, m_bNoRemoveLogMsg(FALSE)
 	, m_bAutoClose(FALSE)
+	, m_sDefaultLogs(_T(""))
 {
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
 	m_regDiffViewerPath = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
 	m_regMergePath = CRegString(_T("Software\\TortoiseSVN\\Merge"));
-	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
+	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"));
 	m_regNoRemoveLogMsg = CRegDWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
+	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -62,6 +64,11 @@ void CSetMainPage::SaveData()
 	m_regAddBeforeCommit = m_bAddBeforeCommit;
 	m_regNoRemoveLogMsg = m_bNoRemoveLogMsg;
 	m_regAutoClose = m_bAutoClose;
+	long val = _ttol(m_sDefaultLogs);
+	if (val > 5)
+		m_regDefaultLogs = val;
+	else
+		m_regDefaultLogs = 100;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -76,6 +83,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
 	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
 	DDX_Check(pDX, IDC_AUTOCLOSE, m_bAutoClose);
+	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
 }
 
 
@@ -91,6 +99,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_DIFFVIEWER, OnEnChangeDiffviewer)
 	ON_BN_CLICKED(IDC_NOREMOVELOGMSG, OnBnClickedNoremovelogmsg)
 	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
+	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
 END_MESSAGE_MAP()
 
 
@@ -204,6 +213,9 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bNoRemoveLogMsg = m_regNoRemoveLogMsg;
 	m_bAutoClose = m_regAutoClose;
 	m_dwLanguage = m_regLanguage;
+	CString temp;
+	temp.Format(_T("%ld"), (DWORD)m_regDefaultLogs);
+	m_sDefaultLogs = temp;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
@@ -300,6 +312,11 @@ void CSetMainPage::OnBnClickedAutoclose()
 	SetModified();
 }
 
+void CSetMainPage::OnEnChangeDefaultlog()
+{
+	SetModified();
+}
+
 BOOL CSetMainPage::OnApply()
 {
 	UpdateData();
@@ -307,6 +324,7 @@ BOOL CSetMainPage::OnApply()
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+
 
 
 

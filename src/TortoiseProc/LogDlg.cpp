@@ -33,6 +33,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
+	m_bShowedAll = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
@@ -65,6 +66,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(NM_CLICK, IDC_LOGMSG, OnNMClickLogmsg)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, OnLvnKeydownLogmsg)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
+	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
 END_MESSAGE_MAP()
 
 
@@ -156,6 +158,7 @@ BOOL CLogDlg::OnInitDialog()
 
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMSG, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -179,6 +182,21 @@ void CLogDlg::FillLogMessageCtrl(CString msg)
 	} // while (resToken != _T(""))
 	m_LogMsgCtrl.SetColumnWidth(0,LVSCW_AUTOSIZE_USEHEADER);
 	m_LogMsgCtrl.SetRedraw();
+}
+
+void CLogDlg::OnBnClickedGetall()
+{
+	m_startrev = m_endrev-1;
+	m_endrev = 1;
+	m_bCancelled = FALSE;
+	DWORD dwThreadId;
+	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
+	}
+	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
+	m_bShowedAll = TRUE;
+	GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
 }
 
 BOOL CLogDlg::Cancel()
@@ -258,23 +276,25 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-	//if ((pDlg->m_startrev == SVN::REV_HEAD)&&(pDlg->m_endrev <= 1))
-	//{
-	//	//don't show the "Get All" button if already all revisions
-	//	//are requested
-	//	pDlg->GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
-	//}
-	//else
-	//{
-	//	//disable the "Get All" button while we're receiving
-	//	//log messages.
-	//	pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
-	//}
+	if (pDlg->m_endrev < (-5))
+	{
+		SVNStatus status;
+		long r = status.GetStatus(pDlg->m_path, TRUE);
+		if (r != (-2))
+		{
+			pDlg->m_endrev = r + pDlg->m_endrev;
+		} // if (r != (-2))
+		if (pDlg->m_endrev <= 0)
+			pDlg->m_endrev = 1;
+	}
+	//disable the "Get All" button while we're receiving
+	//log messages.
+	pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
 
-	//if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true))
-	//{
-	//	CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-	//}  
+	if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true))
+	{
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+	}
 
 	pDlg->m_LogList.SetRedraw(false);
 	int mincol = 0;
@@ -288,7 +308,8 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 
 	temp.LoadString(IDS_MSGBOX_OK);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-	//pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
+	if (!pDlg->m_bShowedAll)
+		pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
 	pDlg->m_bCancelled = TRUE;
 	return 0;
 }
@@ -931,6 +952,7 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	theApp.DoWaitCursor(-1);
 	return FALSE;
 }
+
 
 
 

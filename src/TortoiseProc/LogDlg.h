@@ -116,6 +116,7 @@ public:
 	long		m_endrev;
 	long		m_logcounter;
 	BOOL		m_bCancelled;
+	BOOL		m_bShowedAll;
 private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
@@ -133,6 +134,7 @@ public:
 	afx_msg void OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedGetall();
 protected:
 	virtual void OnCancel();
 };

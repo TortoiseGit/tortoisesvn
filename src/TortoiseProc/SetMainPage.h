@@ -94,6 +94,9 @@ private:
 	BOOL			m_bNoRemoveLogMsg;
 	CRegDWORD		m_regAutoClose;
 	BOOL			m_bAutoClose;
+	CRegDWORD		m_regDefaultLogs;
+	CString			m_sDefaultLogs;
+
 public:
 	afx_msg void OnBnClickedExtdiffbrowse();
 	virtual BOOL OnInitDialog();
@@ -109,4 +112,5 @@ public:
 	afx_msg void OnEnChangeDiffviewer();
 	afx_msg void OnBnClickedNoremovelogmsg();
 	afx_msg void OnBnClickedAutoclose();
+	afx_msg void OnEnChangeDefaultlog();
 };
