@@ -266,6 +266,8 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 	LONG forward = 1;
 	if (startrev > endrev)
 		forward = -1;
+	if ((startrev > m_lHeadRevision)||(endrev > m_lHeadRevision))
+		return TRUE;
 	m_nRecurseLevel++;
 	TRACE(_T("Analyzing %s from %ld to %ld - recurse level %d\n"), (LPCTSTR)CString(url), startrev, endrev, m_nRecurseLevel);
 	for (long currentrev=startrev; currentrev!=endrev; currentrev += forward)
