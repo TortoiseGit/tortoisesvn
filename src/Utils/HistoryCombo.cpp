@@ -283,6 +283,14 @@ CString CHistoryCombo::GetString() const
 	sel = GetCurSel();
 	if (sel == CB_ERR)
 		return str;
+	if ((m_bURLHistory)||(m_bPathHistory))
+	{
+		//URL and path history comboboxes are editable, so get
+		//the string directly from the combobox
+		GetLBText(sel, str.GetBuffer(GetLBTextLen(sel)));
+		str.ReleaseBuffer();
+		return str;
+	}
 	return m_arEntries.GetAt(sel);
 }
 
