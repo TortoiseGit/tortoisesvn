@@ -377,10 +377,10 @@ BOOL SVN::CleanUp(CString path)
 BOOL SVN::Resolve(CString path, BOOL recurse)
 {
 	preparePath(path);
-	Err = svn_client_resolve (CUnicodeUtils::GetUTF8(path),
-							recurse,
-							&ctx,
-							pool);
+	Err = svn_client_resolved (CUnicodeUtils::GetUTF8(path),
+								recurse,
+								&ctx,
+								pool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -642,7 +642,7 @@ CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t 
 		case svn_wc_notify_revert:
 			temp.LoadString(IDS_SVNACTION_REVERT);
 			break;
-		case svn_wc_notify_resolve:
+		case svn_wc_notify_resolved:
 			temp.LoadString(IDS_SVNACTION_RESOLVE);
 			break;
 		case svn_wc_notify_update_update:
