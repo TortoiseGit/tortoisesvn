@@ -220,8 +220,8 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 			{
 				CString temp = strbuf;
 				svn_wc_status_kind stat;
-				stat = max(s->text_status, s->prop_status);
-				if ((stat == svn_wc_status_unversioned)||(stat == svn_wc_status_ignored))
+				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+				if (SVNStatus::IsImportant(stat))
 				{
 					if ((!CCheckTempFiles::IsTemp(strLine))||(!bIsDir))
 					{
@@ -252,8 +252,8 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
 				{
 					temp = strbuf;
-					stat = max(s->text_status, s->prop_status);
-					if ((stat == svn_wc_status_unversioned)||(stat == svn_wc_status_ignored))
+					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+					if (SVNStatus::IsImportant(stat))
 					{
 						if ((!CCheckTempFiles::IsTemp(temp))||(!bIsDir))
 						{

@@ -216,7 +216,6 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 				NULL 
 				);
 			CString temp;
-			//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
 			temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
 			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 			LocalFree( lpMsgBuf );
@@ -253,7 +252,7 @@ void CLogPromptDlg::OnOK()
 			{
 				file.WriteString(m_arFileList.GetAt(i)+_T("\n"));
 			}
-		}
+		} // for (int i=0; i<m_ListCtrl.GetItemCount(); i++) 
 		file.Close();
 	}
 	catch (CFileException* pE)
@@ -294,18 +293,17 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 			{
 				CString temp;
 				svn_wc_status_kind stat;
-				stat = max(s->text_status, s->prop_status);
+				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
 				if (s->entry)
 					pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(CUnicodeUtils::GetUnicode(s->entry->url));
 				temp = strbuf;
-				if ((stat > svn_wc_status_normal)&&(stat != svn_wc_status_ignored))
+				if (SVNStatus::IsImportant(stat))
 				{
 					pDlg->m_arFileList.Add(strLine);
 					pDlg->m_arFileStatus.Add(stat);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
 					SVNStatus::GetStatusString(stat, buf);
-					//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					pDlg->m_ListCtrl.SetCheck(count);
 				} // if (stat > svn_wc_status_normal)
@@ -318,16 +316,14 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
 						SVNStatus::GetStatusString(stat, buf);
-						//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
-						//unversioned items are NOT checked by default, 'cause they need to be added before committing!
-					}
-				}
+					} // if (!CCheckTempFiles::IsTemp(strLine)) 
+				} // if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(strLine))&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit")))) 
 				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
 				{
 					temp = strbuf;
-					stat = max(s->text_status, s->prop_status);
-					if ((stat > svn_wc_status_normal)&&(stat != svn_wc_status_ignored))
+					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+					if (SVNStatus::IsImportant(stat))
 					{
 						pDlg->m_arFileList.Add(temp);
 						pDlg->m_arFileStatus.Add(stat);
@@ -337,10 +333,9 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						else
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
 						SVNStatus::GetStatusString(stat, buf);
-						//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						pDlg->m_ListCtrl.SetCheck(count);
-					}
+					} // if (SVNStatus::IsImportant(stat)) 
 					if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(temp))&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))
 					{
 						if (!CCheckTempFiles::IsTemp(temp))
@@ -353,12 +348,10 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							else
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
 							SVNStatus::GetStatusString(stat, buf);
-							//SVNStatus::GetStatusString(theApp.m_hInstance, stat, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 							pDlg->m_ListCtrl.SetItemText(count, 1, buf);
-							//unversioned items are NOT checked by default, 'cause they need to be added before committing!
-						}
-					}
-				} // while ((s = status.GetNextFileStatus(buf)) != NULL)
+						} // if (!CCheckTempFiles::IsTemp(temp))
+					} // if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(temp))&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit")))) 
+				} // while ((s = status.GetNextFileStatus(&strbuf)) != NULL) 
 			} // if (s!=0) 
 		} // while (file.ReadString(strLine)) 
 		file.Close();

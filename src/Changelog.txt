@@ -1,6 +1,8 @@
 - BUG: The "open" command in the repository browser
        was always active, even for URL's which 
        can't be opened. (Stefan)
+- BUG: Two more dialogs (Updates and Commit) were
+       missing the new subversion statuses. (Stefan)
 - CHG: Changed the behaviour of the Log and Updates
        dialog if a network timeout occured. (Stefan)
        

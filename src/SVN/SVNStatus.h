@@ -124,6 +124,7 @@ public:
 	 */	 	 	 	 	
 	static svn_wc_status_kind GetMoreImportant(svn_wc_status_kind status1, svn_wc_status_kind status2);
 	
+	static BOOL IsImportant(svn_wc_status_kind status) {return (GetMoreImportant(svn_wc_status_added, status)==status);}
 	/**
 	 * Reads the Subversion text status of the working copy entry. No
 	 * recurse is done, even if the entry is a directory.
