@@ -118,32 +118,47 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 		if (error)
 			return error;
 	}
-	e->author = apr_pstrdup(me->pool, author);
-	//create a copy of the hash
-	e->ch_paths = apr_hash_make(me->pool);
-	apr_hash_index_t* hi;
-	for (hi = apr_hash_first (pool, ch_paths); hi; hi = apr_hash_next (hi))
+	if (author)
+		e->author = apr_pstrdup(me->pool, author);
+	else
+		e->author = 0;
+	if (ch_paths)
 	{
-		const char * key;
-		const char * keycopy;
-		svn_log_changed_path_t *val;
-		svn_log_changed_path_t *valcopy = (svn_log_changed_path_t *)apr_pcalloc (me->pool, sizeof(svn_log_changed_path_t));
-		apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
-		keycopy = apr_pstrdup(me->pool, key);
-		valcopy->copyfrom_path = apr_pstrdup(me->pool, val->copyfrom_path);
-		valcopy->action = val->action;
-		valcopy->copyfrom_rev = val->copyfrom_rev;
-		apr_hash_set(e->ch_paths, keycopy, APR_HASH_KEY_STRING, valcopy);
+		//create a copy of the hash
+		e->ch_paths = apr_hash_make(me->pool);
+		apr_hash_index_t* hi;
+		for (hi = apr_hash_first (pool, ch_paths); hi; hi = apr_hash_next (hi))
+		{
+			const char * key;
+			const char * keycopy;
+			svn_log_changed_path_t *val;
+			svn_log_changed_path_t *valcopy = (svn_log_changed_path_t *)apr_pcalloc (me->pool, sizeof(svn_log_changed_path_t));
+			apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
+			keycopy = apr_pstrdup(me->pool, key);
+			valcopy->copyfrom_path = apr_pstrdup(me->pool, val->copyfrom_path);
+			valcopy->action = val->action;
+			valcopy->copyfrom_rev = val->copyfrom_rev;
+			apr_hash_set(e->ch_paths, keycopy, APR_HASH_KEY_STRING, valcopy);
+		}
 	}
-	e->msg = apr_pstrdup(me->pool, msg);
+	else
+		e->ch_paths = 0;
+
+	if (msg)
+		e->msg = apr_pstrdup(me->pool, msg);
+	else
+		e->msg = 0;
 	e->rev = rev;
 	if (me->m_lHeadRevision < rev)
 		me->m_lHeadRevision = rev;
-	CString temp, temp2;
-	temp.LoadString(IDS_REVGRAPH_PROGGETREVS);
-	temp2.Format(IDS_REVGRAPH_PROGCURRENTREV, rev);
-	if (!me->ProgressCallback(temp, temp2, me->m_lHeadRevision - rev, me->m_lHeadRevision))
-		me->m_bCancelled = TRUE;
+	if (rev)
+	{
+		CString temp, temp2;
+		temp.LoadString(IDS_REVGRAPH_PROGGETREVS);
+		temp2.Format(IDS_REVGRAPH_PROGCURRENTREV, rev);
+		if (!me->ProgressCallback(temp, temp2, me->m_lHeadRevision - rev, me->m_lHeadRevision))
+			me->m_bCancelled = TRUE;
+	}
 	APR_ARRAY_PUSH(me->m_logdata, log_entry *) = e;
 	return SVN_NO_ERROR;
 }
@@ -256,7 +271,7 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 				return FALSE;
 		}
 		log_entry * logentry = APR_ARRAY_IDX(m_logdata, m_lHeadRevision-currentrev, log_entry *);
-		if (logentry)
+		if ((logentry)&&(logentry->ch_paths))
 		{
 			ASSERT(logentry->rev == currentrev);
 			apr_hash_index_t* hi;
@@ -357,8 +372,8 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 					}
 				}
 			}
-		}
-	}
+		} // if ((logentry)&&(logentry->ch_paths))
+	} // for (long currentrev=startrev; currentrev!=endrev; currentrev += forward)
 	m_nRecurseLevel--;
 	return TRUE;
 }
