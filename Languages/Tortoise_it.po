@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-11-05 22:48+0100\n"
+"PO-Revision-Date: 2004-11-09 10:46+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1197,6 +1197,11 @@ msgstr "Clicca su \"Avanzate\" per specificare i programmi esterni in base all'e
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "Clicca su \"Avanzate\" per specificare i programmi esterni in base all'estensione"
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "Appunti"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1214,11 +1219,6 @@ msgid "Command failed."
 msgstr "Impossibile eseguire il comando."
 
 # Control-ID:1110,
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "Cronologia dei commenti:"
-
-# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Invia a:"
@@ -1227,6 +1227,16 @@ msgstr "Invia a:"
 #: ID:8
 msgid "Commit..."
 msgstr "Invia..."
+
+# Control-ID:1110,
+#: ID:244
+msgid "Commits by author"
+msgstr "Invii per autore"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "Invii per settimana"
 
 # ID:9,
 #: ID:9
@@ -1958,6 +1968,11 @@ msgid ""
 msgstr ""
 "Vai alla differenza precedente\n"
 "Differenza precedente"
+
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "Tipo di grafico:"
 
 # ID:12,
 #: ID:238
@@ -3046,6 +3061,11 @@ msgstr "Salva come"
 msgid "Save Revision &To..."
 msgstr "Salva revisione &come..."
 
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "Salva negli appunti"
+
 # ID:101,#:
 # ID:313,
 #: ID:313
@@ -3345,6 +3365,14 @@ msgid ""
 msgstr ""
 "Separa la finestra\n"
 "Separa"
+
+# ID:74,#:
+# ID:77,#:
+# ID:207,
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "Statistiche"
 
 # ID:74,#:
 # ID:77,#:
@@ -4137,7 +4165,7 @@ msgstr ""
 #: ID:88
 msgid ""
 "Your working copy has local modifications!\n"
-"Note: updating to another revision won't loose those modifications so the working copy\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
 "La tua copia di lavoro ha subito delle modifiche in locale!\n"
@@ -4160,6 +4188,11 @@ msgstr "un file senza nome"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "e supporta gli sviluppatori"
+
+# ID:76,
+#: ID:245
+msgid "author"
+msgstr "autore"
 
 # ID:15,
 #: ID:15
@@ -4217,6 +4250,12 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "pulitura"
+
+# ID:8,
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "invia"
 
 # ID:11,
 #: ID:11
@@ -4453,6 +4492,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Impostare su \"yes\" se si vuole che venga visualizzato un avviso quando non è stata specificata nessuna issue nella finestra di invio."
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "settimana"
 
 # Control-ID:1112,
 #: Control-ID:1112

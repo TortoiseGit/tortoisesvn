@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-31 18:36+0900\n"
-"Last-Translator: Hojin Choi <pynoos@users.kldp.net>\n"
+"PO-Revision-Date: 2004-11-10 06:43+0900\n"
+"Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -285,7 +285,7 @@ msgstr "병합(&M)"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "다음 URL에서 현재 작업 공간에 차이를 병합(&M):"
+msgstr "다음 URL에서 현재 작업 공간에 차이점을 병합(&M):"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -1185,6 +1185,11 @@ msgstr "파일 확장자별로 차이점 만드는 프로그램을 등록하려�
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "파일 확장자별로 병합하는 프로그램을 등록하려면 고급 설정을 누르십시오."
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "클립보드"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1202,11 +1207,6 @@ msgid "Command failed."
 msgstr "명령 오류."
 
 # Control-ID:1110,
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "주석 목록:"
-
-# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "커밋되는 곳:"
@@ -1215,6 +1215,16 @@ msgstr "커밋되는 곳:"
 #: ID:8
 msgid "Commit..."
 msgstr "커밋..."
+
+# Control-ID:1110,
+#: ID:244
+msgid "Commits by author"
+msgstr "작성자에 따라 커밋"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "주단위로 커밋"
 
 # ID:9,
 #: ID:9
@@ -1947,6 +1957,11 @@ msgid ""
 msgstr ""
 "이전 차이점으로 돌아감\n"
 "이전 차이"
+
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "그래프 종류:"
 
 # ID:12,
 #: ID:238
@@ -3031,6 +3046,11 @@ msgstr "다른 이름으로 저장"
 msgid "Save Revision &To..."
 msgstr "이 리비전을 저장(&T)..."
 
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "클립보드에 저장"
+
 # ID:313,
 #: ID:313
 msgid "Save as..."
@@ -3331,6 +3351,14 @@ msgid ""
 msgstr ""
 "활성화된 창을 두개로 나누기\n"
 "분리"
+
+# ID:74,#:
+# ID:77,#:
+# ID:207,
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "통계"
 
 # ID:74,#:
 # ID:77,#:
@@ -3909,7 +3937,7 @@ msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
-msgstr "\"From:\" URL 을 사용"
+msgstr "\"From:\" URL을 사용"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -4122,7 +4150,7 @@ msgstr ""
 #: ID:88
 msgid ""
 "Your working copy has local modifications!\n"
-"Note: updating to another revision won't loose those modifications so the working copy\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
 "작업 사본이 수정되었습니다!\n"
@@ -4145,6 +4173,11 @@ msgstr "제목 없음"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "개발자 후원"
+
+# ID:76,
+#: ID:245
+msgid "author"
+msgstr "작성자"
 
 # ID:15,
 #: ID:15
@@ -4203,6 +4236,12 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "정리"
+
+# ID:8,
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "커밋"
 
 # ID:11,
 #: ID:11
@@ -4439,6 +4478,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "커밋 대화 상자에서 이슈가 없을 경우 경고를 보이고 싶으면 \"예\"를 선택하십시오."
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "주"
 
 # Control-ID:1112,
 #: Control-ID:1112

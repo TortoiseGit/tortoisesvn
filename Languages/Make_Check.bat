@@ -6,7 +6,7 @@ if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 set OFile=..\www\translations.html
 set LogFile=statusreport.txt
 
-type trans_head.html > %OFile%
+..\bin\release\bin\SubWCRev.exe . trans_head.html %OFile%
 
 rem Count all messages in PO Template file
 FOR /F "usebackq" %%p IN (`Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
