@@ -22,6 +22,7 @@
 #include "AboutDlg.h"
 #include "svn_version.h"
 #include "..\version.h"
+#include "Utils.h"
 
 #ifdef UNICODE
 #	define STRINGWIDTH  "UNICODE"
@@ -48,18 +49,11 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SUPPORTLINK, m_cSupportLink);
 }
 
-
 BEGIN_MESSAGE_MAP(CAboutDlg, CStandAloneDialog)
 	ON_WM_TIMER()
 	ON_WM_MOUSEMOVE()
 	ON_BN_CLICKED(IDC_UPDATE, OnBnClickedUpdate)
 END_MESSAGE_MAP()
-
-// If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
-
-
 
 BOOL CAboutDlg::OnInitDialog()
 {
@@ -149,13 +143,9 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 
 void CAboutDlg::OnBnClickedUpdate()
 {
-	STARTUPINFO startup;
-	PROCESS_INFORMATION process;
-	memset(&startup, 0, sizeof(startup));
-	startup.cb = sizeof(startup);
-	memset(&process, 0, sizeof(process));
 	TCHAR com[MAX_PATH+100];
 	GetModuleFileName(NULL, com, MAX_PATH);
 	_tcscat(com, _T(" /command:updatecheck /visible"));
-	CreateProcess(NULL, com, NULL, NULL, FALSE, 0, 0, 0, &startup, &process);
+
+	CUtils::LaunchApplication(com, 0, false);
 }
