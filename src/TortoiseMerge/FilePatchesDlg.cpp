@@ -191,7 +191,6 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		// This is the prepaint stage for an item. Here's where we set the
 		// item's text color. Our return value will tell Windows to draw the
 		// item itself, but it will use the new color we set here.
-		// We'll cycle the colors through red, green, and light blue.
 
 		COLORREF crText = ::GetSysColor(COLOR_WINDOWTEXT);
 
