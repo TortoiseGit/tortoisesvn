@@ -74,6 +74,14 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 	m_pPatch = pPatch;
 	m_pCallBack = pCallBack;
 	m_sPath = sPath;
+	CString title;
+	title.LoadString(IDS_PATCH_TITLE);
+	title += _T("  ") + m_sPath;
+	CRect rect;
+	GetClientRect(&rect);
+	PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), rect.Width());
+	title.ReleaseBuffer();
+	SetWindowText(title);
 	if (m_sPath.Right(1).Compare(_T("\\"))==0)
 		m_sPath = m_sPath.Left(m_sPath.GetLength()-1);
 
@@ -146,9 +154,15 @@ void CFilePatchesDlg::OnSize(UINT nType, int cx, int cy)
 	{
 		CRect rect;
 		GetClientRect(rect);
-		GetDlgItem(IDC_FILELIST)->MoveWindow(rect.left, rect.top , cx, cy);
+		GetDlgItem(IDC_FILELIST)->MoveWindow(rect.left, rect.top, cx, cy);
 		m_cFileList.SetColumnWidth(0, cx);
-	} // if (this->IsWindowVisible()) 
+	}
+	CString title;
+	title.LoadString(IDS_PATCH_TITLE);
+	title += _T("  ") + m_sPath;
+	PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), cx);
+	title.ReleaseBuffer();
+	SetWindowText(title);
 }
 
 void CFilePatchesDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)

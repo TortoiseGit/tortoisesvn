@@ -149,6 +149,7 @@
 #define IDS_WARNMODIFIEDLOOSECHANGES_   5007
 #define IDS_WARNMODIFIEDLOOSECHANGESOPTIONS 5007
 #define IDS_PATCH_ALL                   6000
+#define IDS_PATCH_TITLE                 6001
 #define ID_VIEW_WHITESPACES             32774
 #define ID_VIEW_ONEWAYDIFF              32775
 #define ID_MERGE_NEXTDIFFERENCE         32779
@@ -169,7 +170,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
 #define _APS_NEXT_COMMAND_VALUE         32807
-#define _APS_NEXT_CONTROL_VALUE         1069
+#define _APS_NEXT_CONTROL_VALUE         1070
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
