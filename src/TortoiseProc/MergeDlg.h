@@ -66,6 +66,7 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	afx_msg void OnBnClickedBrowse();
+	BOOL CheckData();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedRevisionHead();
 	afx_msg void OnBnClickedRevisionN();
@@ -77,6 +78,8 @@ protected:
 	afx_msg void OnBnClickedRevisionN1();
 	afx_msg void OnBnClickedUsefromurl();
 	afx_msg void OnBnClickedWCLog();
+	afx_msg void OnBnClickedDryrunbutton();
+	afx_msg void OnBnClickedDiffbutton();
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;

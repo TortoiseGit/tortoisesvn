@@ -24,6 +24,8 @@
 #include "BrowseFolder.h"
 #include "MessageBox.h"
 #include "registry.h"
+#include "Utils.h"
+#include ".\mergedlg.h"
 
 IMPLEMENT_DYNAMIC(CMergeDlg, CDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
@@ -56,7 +58,6 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Control(pDX, IDC_URLCOMBO2, m_URLCombo2);
 	DDX_Check(pDX, IDC_USEFROMURL, m_bUseFromURL);
-	DDX_Check(pDX, IDC_DRYRUN, m_bDryRun);
 }
 
 
@@ -73,6 +74,8 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_USEFROMURL, OnBnClickedUsefromurl)
 	ON_BN_CLICKED(IDC_WCLOG, OnBnClickedWCLog)
+	ON_BN_CLICKED(IDC_DRYRUNBUTTON, OnBnClickedDryrunbutton)
+	ON_BN_CLICKED(IDC_DIFFBUTTON, OnBnClickedDiffbutton)
 END_MESSAGE_MAP()
 
 
@@ -147,10 +150,10 @@ BOOL CMergeDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CMergeDlg::OnOK()
+BOOL CMergeDlg::CheckData()
 {
 	if (!UpdateData(TRUE))
-		return; // don't dismiss dialog (error message already shown by MFC framework)
+		return FALSE;
 
 	StartRev = SVNRev(m_sStartRev);
 	EndRev = SVNRev(m_sEndRev);
@@ -162,7 +165,7 @@ void CMergeDlg::OnOK()
 	if (!StartRev.IsValid())
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
-		return;
+		return FALSE;
 	}
 
 	// if head revision, set revision as -1
@@ -173,7 +176,7 @@ void CMergeDlg::OnOK()
 	if (!EndRev.IsValid())
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
-		return;
+		return FALSE;
 	}
 
 	m_URLCombo.SaveHistory();
@@ -187,8 +190,55 @@ void CMergeDlg::OnOK()
 		m_URLTo = m_URLFrom;
 
 	UpdateData(FALSE);
+	return TRUE;
+}
 
-	CDialog::OnOK();
+void CMergeDlg::OnOK()
+{
+	m_bDryRun = FALSE;
+	if (CheckData())
+		CDialog::OnOK();
+	else
+		return;
+}
+
+void CMergeDlg::OnBnClickedDryrunbutton()
+{
+	m_bDryRun = TRUE;
+	if (CheckData())
+		CDialog::OnOK();
+	else
+		return;
+}
+
+void CMergeDlg::OnBnClickedDiffbutton()
+{
+	if (!CheckData())
+		return;
+	AfxGetApp()->DoWaitCursor(1);
+	// create a unified diff of the merge
+	SVN svn;
+	CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("test.diff")));
+	if (m_bUseFromURL)
+	{
+		if (!svn.PegDiff(CTSVNPath(m_URLFrom), StartRev, StartRev, EndRev, TRUE, FALSE, FALSE, CString(), tempfile))
+		{
+			CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			AfxGetApp()->DoWaitCursor(-1);
+			return;
+		}
+	}
+	else
+	{
+		if (!svn.Diff(CTSVNPath(m_URLFrom), StartRev, CTSVNPath(m_URLTo), EndRev, TRUE, FALSE, FALSE, CString(), tempfile))
+		{
+			CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			AfxGetApp()->DoWaitCursor(-1);
+			return;
+		}
+	}
+	CUtils::StartUnifiedDiffViewer(tempfile);
+	AfxGetApp()->DoWaitCursor(-1);
 }
 
 void CMergeDlg::OnBnClickedBrowse()
@@ -445,6 +495,7 @@ void CMergeDlg::OnBnClickedWCLog()
 	} // if (!url.IsEmpty()) 
 	AfxGetApp()->DoWaitCursor(-1);
 }
+
 
 
 

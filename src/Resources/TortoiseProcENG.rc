@@ -269,7 +269,7 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,243,258,50,14
 END
 
-IDD_MERGE DIALOGEX 0, 0, 345, 278
+IDD_MERGE DIALOGEX 0, 0, 345, 267
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Merge"
@@ -282,12 +282,12 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,31,289,64
     PUSHBUTTON      "...",IDC_BROWSE,312,30,19,14
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,124,60,50,14
     CONTROL         "&Head Revision",IDC_REVISION_HEAD1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,13,49,95,10
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
                     13,63,44,10
     EDITTEXT        IDC_REVISION_START,63,60,51,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,124,60,50,14
     GROUPBOX        "To: (end URL and revision of the range to merge)",
                     IDC_STATIC,7,89,331,74
     CONTROL         "Use ""From:"" URL",IDC_USEFROMURL,"Button",
@@ -295,28 +295,27 @@ BEGIN
     CONTROL         "",IDC_URLCOMBO2,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,113,289,62
     PUSHBUTTON      "...",IDC_BROWSE2,312,113,19,14,WS_DISABLED
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,124,142,50,14
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,13,131,86,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,144,45,10
     EDITTEXT        IDC_REVISION_END,63,142,51,14,ES_AUTOHSCROLL
-    CONTROL         "Dry Run (Does not change your working copy - use this for test runs)",
-                    IDC_DRYRUN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,168,
-                    331,10
-    GROUPBOX        "",IDC_STATIC,7,177,331,71
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,124,142,50,14
+    GROUPBOX        "",IDC_STATIC,7,168,331,71
     LTEXT           "The result of the merge is stored in the working copy at:",
-                    IDC_STATIC,13,191,318,8
-    EDITTEXT        IDC_WCPATH,13,203,261,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    IDC_STATIC,13,182,318,8
+    EDITTEXT        IDC_WCPATH,13,194,261,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     LTEXT           "which points to the repository at URL:",IDC_STATIC,13,
-                    216,325,8
-    EDITTEXT        IDC_WCURL,13,228,318,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    207,262,8
+    EDITTEXT        IDC_WCURL,13,219,318,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    PUSHBUTTON      "Sh&ow Log",IDC_WCLOG,281,203,50,14
-    DEFPUSHBUTTON   "&OK",IDOK,170,257,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,229,257,50,14
-    PUSHBUTTON      "&Help",IDHELP,288,257,50,14
+    PUSHBUTTON      "Sh&ow Log",IDC_WCLOG,281,194,50,14
+    PUSHBUTTON      "Unified Diff",IDC_DIFFBUTTON,56,246,50,14
+    PUSHBUTTON      "Dry Run",IDC_DRYRUNBUTTON,114,246,50,14
+    DEFPUSHBUTTON   "&Merge",IDOK,172,246,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,230,246,50,14
+    PUSHBUTTON      "&Help",IDHELP,288,246,50,14
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 241, 54
@@ -943,7 +942,7 @@ BEGIN
         VERTGUIDE, 302
         VERTGUIDE, 331
         TOPMARGIN, 7
-        BOTTOMMARGIN, 271
+        BOTTOMMARGIN, 260
     END
 
     IDD_PROMPT, DIALOG

@@ -269,7 +269,10 @@
 #define IDS_SVNACTION_SKIP              1177
 #define IDS_PROGS_EXTCOL                1178
 #define IDS_PROGS_TOOLCOL               1179
+#define IDC_DRYRUNBUTTON                1179
 #define IDS_LOG_FILE                    1180
+#define IDC_BUTTON3                     1180
+#define IDC_DIFFBUTTON                  1180
 #define IDS_SVN_USERCANCELLED           1181
 #define IDS_LOG_SIZE                    1182
 #define IDS_REPO_BROWSEREV              1190
@@ -545,7 +548,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        186
 #define _APS_NEXT_COMMAND_VALUE         32779
-#define _APS_NEXT_CONTROL_VALUE         1179
+#define _APS_NEXT_CONTROL_VALUE         1181
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
