@@ -730,8 +730,9 @@ svn://localhost/TestRepo
 				If you are concerned about always having a user logged in on your server,
 				or worried about someone shutting down <filename>svnserve</filename> or
 				forgetting to restart it after a reboot, it is possible to run
-				<filename>svnserve</filename> as a windows service using
-				<ulink url="http://www.firedaemon.com/">firedaemon</ulink> or similiar.
+				<filename>svnserve</filename> as a windows service using a wrapper
+				like the <ulink url="http://dark.clansoft.dk/~mbn/svnservice/">SVNService</ulink> provided by Magnus Norddahl.
+				More generic tools like <ulink url="http://www.firedaemon.com/">firedaemon</ulink> will also work.
 				Note that you will still need to run <filename>svnserve</filename> with
 				the -d switch.
 				</para>
