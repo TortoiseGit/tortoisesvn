@@ -427,7 +427,7 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1104,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1187,#: Control-ID:1035,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1104,
 msgid "..."
 msgstr "..."
 
@@ -782,18 +782,6 @@ msgstr "Lav forgrening/mærkat"
 msgid "Branch / Tag created successfully!"
 msgstr "Forgrening/mærkat blev oprettet."
 
-#: Control-ID:1182,
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "Lav forgrening/mærkat direkte på serveren (nyeste revision)"
-
-#: Control-ID:1185,
-msgid "Branch/Tag from the revision:"
-msgstr "Lav forgrening/mærkat fra revisionen:"
-
-#: Control-ID:1183,
-msgid "Branch/Tag the working copy"
-msgstr "Lav forgrening/mærkat fra arbejdskopien"
-
 #: ID:9,
 msgid "Branch/Tag..."
 msgstr "Lav forgrening/mærkat..."
@@ -1012,7 +1000,6 @@ msgid "Commit..."
 msgstr "Arkivér..."
 
 #: ID:244,
-#, fuzzy
 msgid "Commits by author"
 msgstr "Arkiveringer pr. forfatter"
 
@@ -1054,7 +1041,7 @@ msgid "Completed"
 msgstr "Afsluttet"
 
 #: ID:263,#: Control-ID:65535,
-#, fuzzy
+#Dette er nøgleord i første kolonne i progress dialog, tilsvarende "Opdateret", "Afsluttet", "Tilføjet", "Advarsel!"
 msgid "Conflicted"
 msgstr "Konflikter"
 
@@ -1169,6 +1156,10 @@ msgstr "Udskriftsjobbet kunne ikke startes."
 #: ID:81,
 msgid "Could not start thread!"
 msgstr "Tråden kunne ikke startes!"
+
+#: Control-ID:65535,
+msgid "Create Branch/Tag on the server from:"
+msgstr "Opret forgrening/mærkat på serveren fra:"
 
 #: ID:13,
 msgid "Create Patch..."
@@ -1356,6 +1347,14 @@ msgstr "Tilføj filendelse-specifikt fletteprogram"
 #: ID:113,
 msgid "Edit Log Message"
 msgstr "Rediger logbesked"
+
+#: ID:115,
+msgid "Edit author name"
+msgstr "Rediger forfatter-navn:"
+
+#: ID:115,
+msgid "Edit log message"
+msgstr "Rediger logbesked:"
 
 #: ID:79,
 msgid "Either the name or IP of the proxy server"
@@ -1573,6 +1572,10 @@ msgstr "Graftype:"
 #: Control-ID:1032,
 msgid "H&ead Revision"
 msgstr "&Nyeste revision"
+
+#: Control-ID:1182,
+msgid "HEAD revision on the server"
+msgstr "HEAD-revision på serveren"
 
 #: ID:238,
 msgid "Head revision of the repository is: %d"
@@ -2003,8 +2006,8 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Adgangskode:"
 
-#: Control-ID:1031,
-msgid "Paste Changed Filenames"
+#: ID:172,
+msgid "Paste filename list"
 msgstr "Indsæt filnavne"
 
 #: ID:376,
@@ -2672,6 +2675,10 @@ msgstr "Sprunget over"
 msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
 
+#: Control-ID:1185,
+msgid "Specific revision on the server"
+msgstr "Specifik revision på serveren"
+
 #: ID:79,
 msgid "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
 msgstr "Angiv de filer eller mapper, som TortoiseSVN\nskal udelade fra versionskontrol.\nAdskil mønstrene med et mellemrum."
@@ -3188,6 +3195,10 @@ msgstr "Sammenligning af blanktegn"
 msgid "Whitespaces"
 msgstr "Blanktegn"
 
+#: Control-ID:1183,
+msgid "Working copy"
+msgstr "Arbejdskopi"
+
 #: ID:80,
 msgid "Working copy relocated to\n%s"
 msgstr "Arbejdskopien blev omlagt til\n%s"
@@ -3299,9 +3310,8 @@ msgid "commits"
 msgstr "arkiveringer"
 
 #: ID:11,
-#, fuzzy
 msgid "conflicted"
-msgstr "med konflikter"
+msgstr "konflikter"
 
 #: Control-ID:1113,
 msgid "current version is:"
