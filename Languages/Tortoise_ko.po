@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-11-24 22:30+0900\n"
+"PO-Revision-Date: 2004-12-11 02:39+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -513,6 +513,21 @@ msgstr ""
 "다른 사본으로 병합하고자 할 경우 스위치 명령을 이용하시기 바랍니다.\n"
 "정말 URL 전환을 하시겠습니까?"
 
+# ID:145,
+#: ID:145
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b>은 쉘 익스텐션입니다.\n"
+"이 말은 곧 윈도우즈의 탐색기에 통합되어 있다는 뜻입니다.\n"
+"<b>TortoiseSVN</b>을 사용하려면, 탐색기를 열고 오른쪽 버튼을 폴더 위에서 눌러\n"
+"단축 메뉴를 통해야합니다. 이 메뉴상에 원하는 <b>TortoiseSVN</b> 명령이 있을 것입니다.\n"
+"그리고 <u>메뉴얼을 이용해 주세요!</u>"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -629,10 +644,11 @@ msgstr "작업 목록 활성화"
 
 # ID:78,
 #: ID:78
+#, fuzzy
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "아래 폴더에 포함된 파일의 subversion의 상태를 알고 싶을 때 체크합니다.\n"
 "<ct=0x0000ff><b>주의:</b> 이 기능은 탐색기 성능을 떨어뜨릴 수 있습니다.</ct>"
@@ -699,6 +715,13 @@ msgid ""
 msgstr ""
 "파일 추가\n"
 "무시 목록: %s "
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:155,
+#: ID:263
+msgid "Adding"
+msgstr "추가"
 
 # ID:9,
 #: ID:9
@@ -861,6 +884,11 @@ msgstr "알 수 없는 라인 종류가 발견되었습니다. 라인번호 %d !
 msgid "An unsupported operation was attempted."
 msgstr "지원하지 않는 명령을 시도하였습니다."
 
+# ID:76,
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "리비전 데이터 분석..."
+
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
@@ -908,10 +936,30 @@ msgstr "작성자"
 msgid "Author:                        Stefan Kueng"
 msgstr "작성자:                         Stefan Kueng"
 
+# ID:272,
+#: ID:272
+msgid ""
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"작성자: %s\r\n"
+"날짜: %s\r\n"
+"\r\n"
+"커밋 로그:\r\n"
+"%s"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "작성자:                      Stefan Kueng, Tim Kemp"
+
+# Dlg-ID:141,
+#: Control-ID:1157
+msgid "Average"
+msgstr "평균"
 
 # Control-ID:1001,
 #: Control-ID:1001
@@ -1045,6 +1093,11 @@ msgstr "취소"
 msgid "Cancelling SVN Blame..."
 msgstr "SVN 수정한 사람 보기 취소중..."
 
+# ID:132,
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "취소중..."
+
 # ID:82,
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1152,6 +1205,11 @@ msgstr "하위메뉴에 나타내지 않고 컨텍스트 메뉴에 바로 나타
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시합니다."
 
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr "전방 복사를 위해 체크"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -1251,6 +1309,11 @@ msgstr "작성자에 따라 커밋"
 #: ID:244
 msgid "Commits by week"
 msgstr "주단위로 커밋"
+
+# ID:244,
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "주단위로 커밋:"
 
 # ID:9,
 #: ID:9
@@ -1533,6 +1596,12 @@ msgstr "삭제됨"
 #: ID:11
 msgid "Deletes files / folders from source control"
 msgstr "소스 컨트롤에서 파일과 폴더를 삭제"
+
+# ID:11,#:
+# ID:73,
+#: ID:263
+msgid "Deleting"
+msgstr "삭제"
 
 # ID:3859,#:
 # ID:3859,
@@ -1894,6 +1963,11 @@ msgstr "파일"
 msgid "File Patches"
 msgstr "파일 패치"
 
+# Control-ID:1138,
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "각 주마다 변경된 파일 수:"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -1923,6 +1997,11 @@ msgstr "글꼴:"
 msgid "For Help, press F1"
 msgstr "도움말 F1"
 
+# Control-ID:1168,
+#: Control-ID:1168
+msgid "Force shell icon refresh"
+msgstr "강제로 쉘 아이콘 새로 고침"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From:"
@@ -1948,19 +2027,15 @@ msgstr "파일 읽는 중 %s"
 msgid "Getting file info..."
 msgstr "파일 정보 읽는 중..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "저장소로부터 정보 얻어옴..."
+
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
 msgstr "로그 정보 읽는 중..."
-
-# ID:2049,
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"다음 차이점으로 돌아감\n"
-"다음 차이"
 
 # ID:2049,
 #: ID:2049
@@ -2215,6 +2290,11 @@ msgstr "아이템의 마지막 저장 리비전"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "충돌을 해결하기 위해 외부 비교 / 병합 프로그램을 실행합니다"
 
+# Control-ID:1137,
+#: Control-ID:1137
+msgid "Least active author:"
+msgstr "활동이 적은 작성자:"
+
 # ID:188,
 #: ID:188
 msgid "Left View: "
@@ -2277,6 +2357,11 @@ msgstr "메일 시스템 DLL이 유효하지 않습니다."
 msgid "Main"
 msgstr "일반"
 
+# Control-ID:1159,
+#: Control-ID:1159
+msgid "Max"
+msgstr "최대"
+
 # Dlg-ID:141,
 #: Dlg-ID:141
 msgid "Merge"
@@ -2312,6 +2397,11 @@ msgstr "메시지"
 msgid "Mime Type"
 msgstr "Mime 종류"
 
+# Dlg-ID:143,
+#: Control-ID:1158
+msgid "Min"
+msgstr "최소"
+
 # Control-ID:1082,#:
 # Control-ID:1023,
 #: Control-ID:1082
@@ -2329,6 +2419,11 @@ msgstr "Mixed"
 #: ID:74
 msgid "Modified"
 msgstr "수정됨"
+
+# Control-ID:1136,
+#: Control-ID:1136
+msgid "Most active author:"
+msgstr "가장 활동이 많은 작성자:"
 
 # ID:12,
 #: ID:12
@@ -2441,6 +2536,16 @@ msgstr "보통"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "일부 레지스트리(혹은 INI파일)이 삭제되지 않았습니다."
+
+# Control-ID:1161,
+#: Control-ID:1161
+msgid "Number of authors:"
+msgstr "작성자 수:"
+
+# Control-ID:1160,
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "경과된 주"
 
 # ID:73,#:
 # Control-ID:1,#:
@@ -2873,7 +2978,7 @@ msgstr ""
 
 # ID:74,
 #: ID:74
-msgid "Replaced"
+msgid "Replacing"
 msgstr "재배치"
 
 # ID:13,
@@ -2958,15 +3063,34 @@ msgstr "리비전"
 msgid "Revision %d"
 msgstr "리비전 %d"
 
+# ID:119,
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "리비전 %d"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "리비전 / 작성자"
 
 # ID:75,
+#: ID:269
+msgid "Revision Graph"
+msgstr "리비전:"
+
+# ID:75,
 #: ID:75
 msgid "Revision: "
 msgstr "리비전:"
+
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Dlg-ID:182
+msgid "RevisionGraph"
+msgstr "리비전그래프"
 
 # ID:188,
 #: ID:188
@@ -3378,6 +3502,11 @@ msgstr "크기"
 msgid "Skipped"
 msgstr "넘김"
 
+# ID:263,
+#: ID:263
+msgid "Skipped missing target"
+msgstr "없는 개체는 건너뜀"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -3401,6 +3530,7 @@ msgstr ""
 # ID:74,#:
 # ID:77,#:
 # ID:207,
+#: ID:245
 #: Control-ID:1132
 #: Dlg-ID:179
 msgid "Statistics"
@@ -3742,6 +3872,11 @@ msgstr "이 프로그램이 필요한 파일이 시스템에서 발견할 수 �
 msgid "This property is only allowed on folders, not files."
 msgstr "이 속성은 폴더에만 적용되며, 파일에는 적용되지 않습니다."
 
+# ID:15,
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "이 속성은 여러줄로 구성될 수 없습니다. 한 줄로만 가능합니다."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
@@ -3825,6 +3960,16 @@ msgstr ""
 #: ID:80
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN 설정"
+
+# Control-ID:1162,
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "총 커밋 수:"
+
+# Control-ID:1163,
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "총 변경 파일 수:"
 
 # ID:73,
 #: ID:73
@@ -3976,6 +4121,11 @@ msgstr "Url"
 msgid "Url:"
 msgstr "Url:"
 
+# ID:251,
+#: ID:251
+msgid "Use &other text block"
+msgstr "다른 텍스트 블록 사용(&o)"
+
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -4101,6 +4251,15 @@ msgstr "웹 사이트 방문"
 #: ID:219
 msgid "Warning!"
 msgstr "TODO: Warning!"
+
+# ID:78,
+#: ID:195
+msgid ""
+"When checked, forces a refresh of the shell overlay icons after each operation.\n"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
+msgstr ""
+"명령 수행 후 파일의 상태를 강제로 새로 고칠때 체크합니다.\n"
+"<ct=0x0000ff><b>주의:</b> 이 기능은 탐색기 성능을 떨어뜨릴 수 있습니다.</ct>"
 
 # Control-ID:65535,
 #: Control-ID:65535
