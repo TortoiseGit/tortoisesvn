@@ -1561,39 +1561,49 @@ Rev Log-Meldungen
 				</figure>
 			Abgesehen von der bevorzugten Sprache erlaubt dieser Dialog es Ihnen,
 			(fast) alle Einstellungen von TortoiseSVN zu ändern.
-### Translate ###
 			<variablelist>
 				<varlistentry>
-					<term>Language</term>
+					<term>Sprache</term>
 					<listitem>
-					<para>Selects your user interface language. What did you expect?</para>
+					<para>Wählt die Sprache für die Dialoge/Meldungen aus. Was
+					haben Sie anderes erwartet?</para>
 					</listitem>
 				</varlistentry>
 
 				<varlistentry>
-					<term>Exclude pattern</term>
+					<term>Ausschliessen</term>
 					<listitem>
 					<para>
 					<indexterm>
-						<primary>exclude pattern</primary>
+						<primary>ausschliessen</primary>
 					</indexterm>
-					Exclude files or directories by typing in the names or extensions. Patterns are separated by spaces
-					e.g.  <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the 
-					other four to files.
+					Ausgeschlossene, unversionierte Dateien werden nicht angezeigt
+					in z.B. dem Übertragen Dialog. Ausserdem werden solche Dateien
+					beim Importieren in ein Projektarchiv ignoriert.
+					Schliessen Sie Dateien oder Ordner aus durch Angabe von
+					Dateinamen oder Erweiterungen. Die einzelnen Muster werden
+					durch Leerzeichen voneinander getrennt. Zum Beispiel
+					<literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. 
+					Die ersten beiden Muster beziehen sich auf Ordner, die
+					restlichen vier auf Dateien.
 					</para>
 					<para>
-					This exclude pattern will affect all your projects. It is not versioned, so it 
-					will not affect other users. In contrast you can also use the versioned svn:ignore 
-					property to exclude files or directories from version control. You can set the svn:ignore 
-					property using the 
+					Diese Auschluss-Muster beziehen sich auf alle Ihre Projekte.
+					Sie werden nicht versioniert, d.h. andere Benutzer werden davon
+					nichts mitbekommen. Im Gegensatz dazu können Sie jedoch auch
+					die versionierte Eigenschaft svn:ignore verwenden, um Dateien
+					und/oder Ordner von der Versionskontrolle auszuschliessen.
+					Sie können die svn:ignore Eigenschaft setzen durch den
 					<menuchoice>
-						<guimenuitem>Add to Ignore List</guimenuitem>
+						<guimenuitem>Ignorieren</guimenuitem>
 					</menuchoice>
-					command. After commiting every other user will have the same 
-					svn:ignore property set for this project / directory as you.
+					Befehl. Nach dem Übertragen wird jeder Benutzer dieselbe
+					svn:ignore Eigenschaft für das Projekt oder den Ordner
+					haben wie Sie.
 					</para>
 					</listitem>
 				</varlistentry>
+### Translate ###
 
 				<varlistentry>
 					<term>Default number of log messages</term>
@@ -1608,13 +1618,6 @@ Rev Log-Meldungen
 				</varlistentry>
 			
 				<varlistentry>
-					<term>Short date / time format in log messages</term>
-					<listitem>
-					<para>If the standard long messages use up too much space on your sceen use the short format.</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
 					<term>Edit...</term>
 					<listitem>
 					<para>... the subversion configuration file directly. Some settings cannot be modified by TortoiseSVN.</para>
@@ -1622,9 +1625,9 @@ Rev Log-Meldungen
 				</varlistentry>
 
 				<varlistentry>
-					<term>Check for newer versions</term>
+					<term>Short date / time format in log messages</term>
 					<listitem>
-					<para>If checked, TortoiseSVN will check once a week if an update is available</para>
+					<para>If the standard long messages use up too much space on your sceen use the short format.</para>
 					</listitem>
 				</varlistentry>
 
@@ -1638,6 +1641,33 @@ Rev Log-Meldungen
 					</para>
 					</listitem>
 				</varlistentry>
+
+				<varlistentry>
+					<term>Close windows automatically</term>
+					<listitem>
+					<para>
+					TortoiseSVN will automatically close all progress dialogs when the action is finished.
+					</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Check for newer versions</term>
+					<listitem>
+					<para>If checked, TortoiseSVN will check once a week if an update is available</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Minimum logsize in chars</term>
+					<listitem>
+					<para>
+					The minimum length of a log message for a commit. If you enter
+					a shorter message than specified here, the commit is disabled.
+					</para>
+					</listitem>
+				</varlistentry>
+
 				<varlistentry>
 					<term>Don't remove log messages when cancelling a commit</term>
 					<listitem>
@@ -1648,11 +1678,14 @@ Rev Log-Meldungen
 					</para>
 					</listitem>
 				</varlistentry>
+
 				<varlistentry>
-					<term>Close windows automatically</term>
+					<term>Show BugID/Issue-Nr. Box</term>
 					<listitem>
 					<para>
-					TortoiseSVN will automatically close all progress dialogs when the action is finished.
+					Shows a textbox in the commit dialog where you can enter
+					a BugID or Issue-Nr. from a bugtracker to associate the
+					commit with that ID/number.
 					</para>
 					</listitem>
 				</varlistentry>
@@ -1673,10 +1706,32 @@ Rev Log-Meldungen
 				Sie können auch alle überlagerten Icons deaktivieren, aber wo liegt der Spaß darin?
 			</para>
 			<para>
+				Die <term>Ausschluss Pfade</term> sagen TortoiseSVN für welche
+				Pfade die überlagerten Icons <emphasis>nicht</emphasis> gezeichnet
+				werden sollen. Dies ist nützlich wenn Sie zum Beispiel sehr grosse
+				Arbeitskopien haben, welche grosse externe Bibliotheken, welche Sie
+				selbst nie ändern werden enthalten. Sie können dann diese Pfade
+				ausschliessen. Zum Beispiel:
+			</para>
+			<para>
+				<filename>f:\development\SVN\Subversion</filename> deaktiviert
+				die überlagerten Icons <emphasis>nur</emphasis> für diesen speziellen
+				Ordner. Sie können die Icons noch immer für alle Dateien und Ordner
+				innerhalb sehen.
+			</para>
+			<para>
+				<filename>f:\development\SVN\Subversion*</filename> deaktiviert die
+				überlagerten Icons für <emphasis>alle</emphasis> Dateien und Ordner
+				welcher Pfad mit <filename>f:\development\SVN\Subversion</filename>
+				beginnt. Das bedeutet dass auch für alle Dateien und Ordner innerhalb
+				keine überlagerten Icons angezeigt werden.
+			</para>
+			<para>
 				Ausserdem können Sie angeben, welche Befehle im 
 				Hauptkontextmenu des Explorer angezeigt werden sollen und welche
 				Sie lieber im Untermenu haben wollen.
 			</para>
+		</sect2>
 		<sect2 id="tsvn-DUG-settings-network">
 		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
 			<title>Der Einstellungsdialog, Netzwerkseite</title>

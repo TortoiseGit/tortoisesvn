@@ -398,27 +398,31 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     CONTROL         "&Indicate folders with changed contents",
                     IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,
-                    20,145,10
+                    20,206,10
     CONTROL         "&Removable drives",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,18,66,130,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,18,58,130,10
     CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,18,76,130,10
+                    WS_TABSTOP,18,68,130,10
     CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,18,87,127,10
+                    WS_TABSTOP,18,79,127,10
     CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,159,66,118,10
-    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,52,274,50
+                    WS_TABSTOP,166,58,118,10
+    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,12,44,274,50
     CONTROL         "RAM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,159,76,119,10
+                    WS_TABSTOP,166,68,119,10
     CONTROL         "Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,159,86,118,10
+                    WS_TABSTOP,166,78,118,10
     CONTROL         "Show overlays only in explorer",IDC_ONLYEXPLORER,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,12,33,122,10
-    GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,7,7,286,103
-    GROUPBOX        "Context Menu",IDC_STATIC,7,113,286,97
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,33,190,10
+    GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,7,7,286,118
+    GROUPBOX        "Context Menu",IDC_STATIC,7,130,286,80
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,125,274,78
+                    WS_BORDER | WS_TABSTOP,12,140,274,63
+    LTEXT           "Exclude paths:",IDC_STATIC,12,106,85,8
+    EDITTEXT        IDC_EXCLUDEPATHS,102,96,184,25,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 217
@@ -860,7 +864,7 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 12
         VERTGUIDE, 18
-        VERTGUIDE, 159
+        VERTGUIDE, 166
         VERTGUIDE, 286
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
@@ -1377,6 +1381,8 @@ BEGIN
                             "If activated, prevents the overlays from showing in ""save as.."" or ""open"" dialogs"
     IDS_SETTINGS_MENULAYOUT_TT 
                             "Check those menu entries you want to appear in the top context menu instead of the submenu"
+    IDS_SETTINGS_EXCLUDELIST_TT 
+                            "A newline separated list of paths for which no icon overlays are shown.\nIf you add an ""*"" char at the end of a path, then all files and subdirs inside that path are excluded too.\nAn empty list will allow overlays on all paths."
 END
 
 STRINGTABLE 

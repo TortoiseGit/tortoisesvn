@@ -21,9 +21,11 @@
 #include "globals.h"
 #include <tchar.h>
 #include <string>
+#include <vector>
 #include "registry.h"
 
 #define REGISTRYTIMEOUT 2000
+#define EXCLUDELISTTIMEOUT 5000
 #define DRIVETYPETIMEOUT 300000		// 5 min
 #define NUMBERFMTTIMEOUT 300000
 class ShellCache
@@ -39,12 +41,14 @@ public:
 		driveremove = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 		driveram = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
 		driveunknown = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
+		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 		recursiveticker = GetTickCount();
 		folderoverlayticker = GetTickCount();
 		driveticker = recursiveticker;
 		drivetypeticker = recursiveticker;
 		langticker = recursiveticker;
-		columnrevformatticker = langticker;
+		columnrevformatticker = recursiveticker;
+		excludelistticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
@@ -177,6 +181,21 @@ public:
 			return FALSE;
 		if ((drivetype == DRIVE_UNKNOWN)&&(IsUnknown()))
 			return FALSE;
+
+		ExcludeListValid();
+		for (std::vector<stdstring>::iterator I = exvector.begin(); I != exvector.end(); ++I)
+		{
+			if (I->empty())
+				continue;
+			if (I->at(I->size()-1)=='*')
+			{
+				stdstring str = I->substr(0, I->size()-1);
+				if (_tcsnicmp(str.c_str(), path, str.size())==0)
+					return FALSE;
+			}
+			else if (_tcsicmp(I->c_str(), path)==0)
+				return FALSE;
+		}
 		return TRUE;
 	}
 	DWORD GetLangID()
@@ -218,6 +237,32 @@ private:
 			driveremove.read();
 		}
 	}
+	void ExcludeListValid()
+	{
+		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>excludelistticker)
+		{
+			excludelistticker = GetTickCount();
+			excludelist.read();
+			if (excludeliststr.compare((stdstring)excludelist)==0)
+				return;
+			excludeliststr = (stdstring)excludelist;
+			exvector.clear();
+			int pos = 0, pos_ant = 0;
+			pos = excludeliststr.find(_T("\n"), pos_ant);
+			while (pos != stdstring::npos)
+			{
+				stdstring token = excludeliststr.substr(pos_ant, pos-pos_ant);
+				exvector.push_back(token);
+				pos_ant = pos+1;
+				pos = excludeliststr.find(_T("\n"), pos_ant);
+			}
+			if (!excludeliststr.empty())
+			{
+				exvector.push_back(excludeliststr.substr(pos_ant, excludeliststr.size()-1));
+			}
+			excludeliststr = (stdstring)excludelist;
+		}
+	}
 	CRegStdWORD blockstatus;
 	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
@@ -229,6 +274,9 @@ private:
 	CRegStdWORD driveram;
 	CRegStdWORD driveunknown;
 	CRegStdWORD menulayout;
+	CRegStdString excludelist;
+	stdstring excludeliststr;
+	std::vector<stdstring> exvector;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
 	DWORD driveticker;
@@ -237,6 +285,7 @@ private:
 	DWORD langticker;
 	DWORD blockstatusticker;
 	DWORD columnrevformatticker;
+	DWORD excludelistticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];
 	NUMBERFMT columnrevformat;

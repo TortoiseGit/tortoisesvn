@@ -179,6 +179,7 @@
 #define IDC_MINLOGSIZE                  1077
 #define IDC_BUGID                       1077
 #define IDC_WCURL                       1077
+#define IDC_EXCLUDEPATHS                1077
 #define IDC_DRIVEGROUP                  1079
 #define IDC_PROXYGROUP                  1080
 #define IDC_SSHGROUP                    1081
@@ -427,6 +428,7 @@
 #define IDS_SETTINGS_CHECKNEWER_TT      3100
 #define IDS_SETTINGS_ONLYEXPLORER_TT    3101
 #define IDS_SETTINGS_MENULAYOUT_TT      3102
+#define IDS_SETTINGS_EXCLUDELIST_TT     3103
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202

@@ -92,6 +92,8 @@ private:
 	CIconStatic		m_cDriveGroup;
 	BOOL			m_bInitialized;
 	CRegDWORD		m_regTopmenu;
+	CRegString		m_regExcludePaths;
+	CString			m_sExcludePaths;
 
 	CImageList		m_imgList;
 	CListCtrl		m_cMenuList;
@@ -110,4 +112,5 @@ public:
 	virtual BOOL OnApply();
 	afx_msg void OnBnClickedOnlyexplorer();
 	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnEnChangeExcludepaths();
 };

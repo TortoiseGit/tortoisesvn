@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "SetOverlayPage.h"
 #include "Globals.h"
+#include ".\setoverlaypage.h"
 
 
 // CSetOverlayPage dialog
@@ -35,6 +36,7 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bRAM(FALSE)
 	, m_bUnknown(FALSE)
 	, m_bOnlyExplorer(FALSE)
+	, m_sExcludePaths(_T(""))
 {
 	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
@@ -45,6 +47,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regDriveMaskRAM = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
 	m_regDriveMaskUnknown = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+	m_regExcludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 
 	m_bShowChangedDirs = m_regShowChangedDirs;
 	m_bOnlyExplorer = m_regOnlyExplorer;
@@ -55,6 +58,8 @@ CSetOverlayPage::CSetOverlayPage()
 	m_bRAM = m_regDriveMaskRAM;
 	m_bUnknown = m_regDriveMaskUnknown;
 	m_topmenu = m_regTopmenu;
+	m_sExcludePaths = m_regExcludePaths;
+	m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
 }
 
 CSetOverlayPage::~CSetOverlayPage()
@@ -74,6 +79,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DRIVEGROUP, m_cDriveGroup);
 	DDX_Check(pDX, IDC_ONLYEXPLORER, m_bOnlyExplorer);
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
+	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
 }
 
 
@@ -87,6 +93,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_RAM, OnBnClickedRam)
 	ON_BN_CLICKED(IDC_ONLYEXPLORER, OnBnClickedOnlyexplorer)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
+	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnEnChangeExcludepaths)
 END_MESSAGE_MAP()
 
 
@@ -103,6 +110,9 @@ void CSetOverlayPage::SaveData()
 		m_regDriveMaskRAM = m_bRAM;
 		m_regDriveMaskUnknown = m_bUnknown;
 		m_regTopmenu = m_topmenu;
+		m_sExcludePaths.Replace(_T("\r"), _T(""));
+		m_regExcludePaths = m_sExcludePaths;
+		m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
 	}
 }
 
@@ -116,7 +126,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
-	
+	m_tooltips.AddTool(IDC_EXCLUDEPATHS, IDS_SETTINGS_EXCLUDELIST_TT);	
 
 	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
@@ -279,4 +289,9 @@ void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult)
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
 	} // if (m_cMenuList.GetItemCount() > 0) 
 	*pResult = 0;
+}
+
+void CSetOverlayPage::OnEnChangeExcludepaths()
+{
+	SetModified();
 }
