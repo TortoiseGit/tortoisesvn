@@ -45,7 +45,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 		m_highestrev = revision;
 
 	CString dateA(CUnicodeUtils::GetUTF8(date));
-	infolineA.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, (LPCTSTR)dateA, (LPCTSTR)author);
+	infolineA.Format(_T("%6ld %6ld %30s %-30s "), linenumber, revision, (LPCTSTR)dateA, (LPCTSTR)author);
 	fulllineA = line;
 	fulllineA.TrimRight(_T("\r\n"));
 	fulllineA += _T("\n");
