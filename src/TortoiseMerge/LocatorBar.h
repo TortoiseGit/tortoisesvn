@@ -43,6 +43,7 @@ protected:
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 
 	CBitmap *		m_pCacheBitmap;
 
