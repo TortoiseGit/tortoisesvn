@@ -145,9 +145,6 @@
 				RelativePath="..\Utils\CmdLineParser.cpp">
 			</File>
 			<File
-				RelativePath="..\Utils\CrashHandler.cpp">
-			</File>
-			<File
 				RelativePath="..\Utils\DIB.cpp">
 			</File>
 			<File
@@ -243,9 +240,6 @@
 				RelativePath="..\Utils\CmdLineParser.h">
 			</File>
 			<File
-				RelativePath="..\Utils\CrashHandler.h">
-			</File>
-			<File
 				RelativePath="..\Utils\DIB.h">
 			</File>
 			<File
@@ -288,6 +282,9 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
+				RelativePath="..\Languages\resource.h">
+			</File>
+			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -305,9 +302,6 @@
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\Languages\resource.h">
 			</File>
 			<File
 				RelativePath=".\RightView.h">
@@ -354,6 +348,9 @@
 				RelativePath="..\Languages\res\TortoiseMerge.rc2">
 			</File>
 			<File
+				RelativePath="..\Languages\res\tortoisemerge_logoflipped.bmp">
+			</File>
+			<File
 				RelativePath="..\Languages\TortoiseMergeENG.rc">
 			</File>
 			<File
@@ -364,10 +361,10 @@
 			RelativePath="..\Languages\res\download.avi">
 		</File>
 		<File
-			RelativePath=".\res\TortoiseMerge.manifest">
+			RelativePath="..\Languages\res\TortoiseMerge.manifest">
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseMerge.manifest">
+			RelativePath=".\res\TortoiseMerge.manifest">
 		</File>
 	</Files>
 	<Globals>
