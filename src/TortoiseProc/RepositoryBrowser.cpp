@@ -179,6 +179,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 	UINT uSelCount = m_treeRepository.GetSelectedCount();
 	CString url = m_treeRepository.MakeUrl(hSelItem);
 
+	if (url.Left(8).Compare(_T("Error * "))==0)
+		return;
+
 	HTREEITEM hSelItem1;
 	HTREEITEM hSelItem2;
 
