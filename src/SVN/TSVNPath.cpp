@@ -378,10 +378,13 @@ void CTSVNPathList::AddPath(const CTSVNPath& newPath)
 {
 	m_paths.push_back(newPath);
 }
-int 
-CTSVNPathList::GetCount() const
+int CTSVNPathList::GetCount() const
 {
 	return (int)m_paths.size();
+}
+void CTSVNPathList::Clear()
+{
+	m_paths.clear();
 }
 
 const CTSVNPath& CTSVNPathList::operator[](int index) const

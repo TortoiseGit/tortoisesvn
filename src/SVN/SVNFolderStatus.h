@@ -170,5 +170,7 @@ private:
 	stdstring		sCacheKey;
 	HANDLE			hMutex;
 
+	HANDLE			m_hInvalidationEvent;
+
 };
 

@@ -96,11 +96,14 @@ SVNFolderStatus::SVNFolderStatus(void)
 	{
 		ATLTRACE2(_T("opened mutex\n"));
 	}
+
+	m_hInvalidationEvent = CreateEvent(NULL, FALSE, FALSE, _T("TortoiseSVNCacheInvalidationEvent"));
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
 {
 	CloseHandle(hMutex);
+	CloseHandle(m_hInvalidationEvent);
 }
 
 filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
@@ -296,13 +299,28 @@ filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 		{
 			ATLTRACE2(_T("cache found for %s\n"), filepath);
 			DWORD now = GetTickCount();
-			ReleaseMutex(hMutex);
+
+//BUGBUG? WGD - I am concerned about releasing this mutex here, before we've actually
+//read the value from the cache.  We're returning a pointer into data within the cache, and 
+//it seems to me that things might move around between us letting go of the mutex and the
+//caller of this function actually using the data.
+// I suspect that we should really enter and leave the mutex at a slightly higher-level up the call-chain
+			filestatuscache *retVal = &iter->second;
 			if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
 			{
-				// Cache is timeed-out
-				return NULL;
+				// Cache is timed-out
+				m_cache.clear();
+				retVal = NULL;
 			}
-			return (filestatuscache *)&iter->second;
+			else if(WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0)
+			{
+				// TortoiseProc has just done something which has invalidated the cache
+				OutputDebugStringA("TortoiseProc signaled cache invalidation\n");
+				m_cache.clear();
+				retVal = NULL;
+			}
+			ReleaseMutex(hMutex);
+			return retVal;
 		}
 	}
 	ReleaseMutex(hMutex);

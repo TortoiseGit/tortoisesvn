@@ -145,8 +145,6 @@ public:
 	 * If 0 is returned then the commit failed. Use GetLastErrorMessage()
 	 * to get detailed error information.
 	 *
-	 * \remark to specify multiple sources separate the paths with a "*"
-	 *
 	 * \param path the file/directory to commit
 	 * \param message a log message describing the changes you made
 	 * \param recurse 
@@ -498,11 +496,11 @@ public:
 	 */
 	static void preparePath(CString &path);
 
-	/**
-	 * Tells the shell (explorer) to update the icon overlays.
-	 * \param paths the list of paths of the files/folders which have changed.
-	 */
-	static void UpdateShell(const CTSVNPathList& paths);
+//	/**
+//	 * Tells the shell (explorer) to update the icon overlays.
+//	 * \param paths the list of paths of the files/folders which have changed.
+//	 */
+//	static void UpdateShell(const CTSVNPathList& paths);
 
 	/**
 	 * Checks if a given path is a valid URL.

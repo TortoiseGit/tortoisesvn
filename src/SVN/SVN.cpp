@@ -26,6 +26,7 @@
 #include "UnicodeUtils.h"
 #include "DirFileEnum.h"
 #include "TSVNPath.h"
+#include "ShellUpdater.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -263,7 +264,7 @@ BOOL SVN::Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL r
 		return FALSE;
 	}
 
-	UpdateShell(CTSVNPathList(CTSVNPath(destPath)));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(destPath));
 
 	return TRUE;
 }
@@ -286,7 +287,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 		for (int i=0; i<pathlist.GetCount(); ++i)
 			Notify(pathlist[i].GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	}
-	UpdateShell(pathlist);
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
 
 	return TRUE;
 }
@@ -300,7 +301,7 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 		return FALSE;
 	}
 
-	UpdateShell(pathlist);
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
 
 	return TRUE;
 }
@@ -316,7 +317,7 @@ BOOL SVN::Add(const CTSVNPath& path, BOOL recurse, BOOL force)
 		return FALSE;
 	}
 
-	UpdateShell(CTSVNPathList(path));
+	CShellUpdater::Instance().AddPathForUpdate(path);
 
 	return TRUE;
 }
@@ -335,7 +336,7 @@ BOOL SVN::Update(const CTSVNPath& path, SVNRev revision, BOOL recurse)
 		return FALSE;
 	}
 
-	UpdateShell(CTSVNPathList(path));
+	CShellUpdater::Instance().AddPathForUpdate(path);
 
 	return TRUE;
 }
@@ -362,7 +363,7 @@ LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse)
 		for (int i=0; i<pathlist.GetCount(); ++i)
 			Notify(pathlist[i].GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	}
-	UpdateShell(pathlist);
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
 	if(commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		return commit_info->revision;
 
@@ -424,8 +425,8 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, S
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 
-	UpdateShell(CTSVNPathList(CTSVNPath(srcPath)));
-	UpdateShell(CTSVNPathList(CTSVNPath(destPath)));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(srcPath));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(destPath));
 	svn_pool_destroy(subpool);
 
 	return TRUE;
@@ -450,7 +451,7 @@ BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 			Notify(pathlist[i].GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	}
 
-	UpdateShell(pathlist);
+	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
 
 	return TRUE;
 }
@@ -465,7 +466,7 @@ BOOL SVN::CleanUp(CString path)
 		return FALSE;
 	}
 
-	UpdateShell(CTSVNPathList(CTSVNPath(path)));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(path));
 
 	return TRUE;
 }
@@ -482,7 +483,7 @@ BOOL SVN::Resolve(CString path, BOOL recurse)
 		return FALSE;
 	}
 
-	UpdateShell(CTSVNPathList(CTSVNPath(path)));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(path));
 
 	return TRUE;
 }
@@ -680,7 +681,7 @@ BOOL SVN::Switch(CString path, CString url, SVNRev revision, BOOL recurse)
 		return FALSE;
 	}
 	
-	UpdateShell(CTSVNPathList(CTSVNPath(path)));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(path));
 
 	return TRUE;
 }
@@ -731,7 +732,7 @@ BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2
 		return FALSE;
 	}
 
-	UpdateShell(CTSVNPathList(CTSVNPath(localPath)));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(localPath));
 
 	return TRUE;
 }
@@ -757,7 +758,7 @@ BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pe
 		return FALSE;
 	}
 
-	UpdateShell(CTSVNPathList(CTSVNPath(destpath)));
+	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(destpath));
 
 	return TRUE;
 }
@@ -1634,63 +1635,10 @@ error:
 	return FALSE;
 }
 
-void SVN::UpdateShell(const CTSVNPathList& pathlist)
-{
-	DWORD brute = CRegDWORD(_T("Software\\TortoiseSVN\\ForceShellUpdate"), 0);
-	if (brute)
-	{
-		//this method actually works, i.e. the icon overlays are updated as they
-		//should. The problem is that _every_ icon is refreshed, even those
-		//located on a server share. And this can block the explorer for about 5
-		//seconds on my computer in the office. So use this function only if the
-		//user requests it!
-		SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_FLUSHNOWAIT, 0, 0);
-	}
-	else
-	{
-		//updating the left pane (tree view) of the explorer
-		//is more difficult (if not impossible) than I thought.
-		//Using SHChangeNotify() doesn't work at all. I found that
-		//the shell receives the message, but then checks the files/folders
-		//itself for changes. And since the folders which are shown
-		//in the tree view haven't changed the icon-overlay is
-		//not updated!
-		//a workaround for this problem would be if this method would
-		//rename the folders, do a SHChangeNotify(SHCNE_RMDIR, ...),
-		//rename the folders back and do an SHChangeNotify(SHCNE_UPDATEDIR, ...)
-		//
-		//But I'm not sure if that is really a good workaround - it'll possibly
-		//slows down the explorer and also causes more HD usage.
-		//
-		//So this method only updates the files and folders in the normal
-		//explorer view by telling the explorer that the folder icon itself
-		//has changed.
-
-		for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
-		{
-			// WGD: There seems to be a great disparity between the documentation for SHChangeNotify 
-			// and the reality.  We used to make one call, with (SHCNE_UPDATEITEM | SHCNE_UPDATEDIR) as
-			// the first parameter.  Personally, I've *never* found that to work, at all.
-			// Very careful experimentation lead me to believe that one should call with *just*
-			// SHCNE_UPDATEITEM, even if the item which has changed is a folder.
-			// Anyway, I can think of no logical reason why making two calls should be *worse*
-			// than making one with the two flags combined, I think splitting the flags into 
-			// two calls is better
-			// It has the additional merit of actually working on my XP machines...
-//BUGBUG: Although this now works nicely on single-file operations for me,
-//it fails to do more than (generally) the first file on multiple operations
-// Could it be that this is because the first item causes the shell-extension's cache to be
-// updated, and the subsequent items come from the cache, so are stale?
-			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
-			SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
-		}
-	}
-}
-
 BOOL SVN::PathIsURL(const CString& path)
 {
 	return svn_path_is_url(MakeSVNUrlOrPath(path));
-}
+} 
 
 void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt)
 {

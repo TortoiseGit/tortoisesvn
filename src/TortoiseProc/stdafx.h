@@ -57,6 +57,7 @@
 #include <afxdlgs.h>
 #include <afxctl.h>
 #include <afxtempl.h>
+#include <afxmt.h>
 
 #ifndef UNICODE
 #include "multimon.h"

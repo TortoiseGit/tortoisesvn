@@ -206,7 +206,7 @@ class CTSVNPathList
 {
 public:
 	CTSVNPathList();
-	// A constructor which allows a path list to be easily built which one initial entry in
+	// A constructor which allows a path list to be easily built with one initial entry in
 	explicit CTSVNPathList(const CTSVNPath& firstEntry);
 
 public:
@@ -214,6 +214,7 @@ public:
 	bool LoadFromTemporaryFile(const CString& sFilename);
 	bool WriteToTemporaryFile(const CString& sFilename) const;
 	int GetCount() const;
+	void Clear();
 	const CTSVNPath& operator[](int index) const;
 	bool AreAllPathsFiles() const;
 	bool AreAllPathsFilesInOneDirectory() const;
