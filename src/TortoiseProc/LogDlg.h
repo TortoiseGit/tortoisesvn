@@ -85,7 +85,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time);
+	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges);
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -139,6 +139,7 @@ private:
 	CStringArray m_arLogPaths;
 	CDWordArray	m_arDates;
 	CStringArray m_arAuthors;
+	CDWordArray m_arFileChanges;
 	CDWordArray m_arRevs;
 	BOOL		m_hasWC;
 	int			m_nSearchIndex;

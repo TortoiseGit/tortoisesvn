@@ -58,26 +58,81 @@ BOOL CStatGraphDlg::OnInitDialog()
 
 	CString temp;
 	int sel = 0;
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHOR);
+	temp.LoadString(IDS_STATGRAPH_STATS);
 	sel = m_cGraphType.AddString(temp);
 	m_cGraphType.SetItemData(sel, 1);
 	m_cGraphType.SetCurSel(sel);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATE);
 	sel = m_cGraphType.AddString(temp);
 	m_cGraphType.SetItemData(sel, 2);
+	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHOR);
+	sel = m_cGraphType.AddString(temp);
+	m_cGraphType.SetItemData(sel, 3);
 
 	AddAnchor(IDC_GRAPHTYPELABEL, TOP_LEFT);
 	AddAnchor(IDC_GRAPH, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GRAPHCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_AVG, TOP_RIGHT);
+	AddAnchor(IDC_MIN, TOP_RIGHT);
+	AddAnchor(IDC_MAX, TOP_RIGHT);
+	AddAnchor(IDC_COMMITSEACHWEEK, TOP_LEFT);
+	AddAnchor(IDC_MOSTACTIVEAUTHOR, TOP_LEFT);
+	AddAnchor(IDC_LEASTACTIVEAUTHOR, TOP_LEFT);
+	AddAnchor(IDC_MOSTACTIVEAUTHORNAME, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_LEASTACTIVEAUTHORNAME, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_FILECHANGESEACHWEEK, TOP_LEFT);
+	AddAnchor(IDC_COMMITSEACHWEEKAVG, TOP_RIGHT);
+	AddAnchor(IDC_COMMITSEACHWEEKMIN, TOP_RIGHT);
+	AddAnchor(IDC_COMMITSEACHWEEKMAX, TOP_RIGHT);
+	AddAnchor(IDC_MOSTACTIVEAUTHORAVG, TOP_RIGHT);
+	AddAnchor(IDC_MOSTACTIVEAUTHORMIN, TOP_RIGHT);
+	AddAnchor(IDC_MOSTACTIVEAUTHORMAX, TOP_RIGHT);
+	AddAnchor(IDC_LEASTACTIVEAUTHORAVG, TOP_RIGHT);
+	AddAnchor(IDC_LEASTACTIVEAUTHORMIN, TOP_RIGHT);
+	AddAnchor(IDC_LEASTACTIVEAUTHORMAX, TOP_RIGHT);
+	AddAnchor(IDC_FILECHANGESEACHWEEKAVG, TOP_RIGHT);
+	AddAnchor(IDC_FILECHANGESEACHWEEKMIN, TOP_RIGHT);
+	AddAnchor(IDC_FILECHANGESEACHWEEKMAX, TOP_RIGHT);
+
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("StatGraphDlg"));
-	ShowCommitsByAuthor();
+	ShowStats();
 
 	return TRUE;
 }
 
+void CStatGraphDlg::ShowLabels(BOOL bShow)
+{
+	int nCmdShow = SW_SHOW;
+	if (!bShow)
+		nCmdShow = SW_HIDE;
+	GetDlgItem(IDC_GRAPH)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	GetDlgItem(IDC_AVG)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_MIN)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_MAX)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_COMMITSEACHWEEK)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_MOSTACTIVEAUTHOR)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_LEASTACTIVEAUTHOR)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_MOSTACTIVEAUTHORNAME)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_LEASTACTIVEAUTHORNAME)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_FILECHANGESEACHWEEK)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_COMMITSEACHWEEKAVG)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_COMMITSEACHWEEKMIN)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_COMMITSEACHWEEKMAX)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_MOSTACTIVEAUTHORAVG)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_MOSTACTIVEAUTHORMIN)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_MOSTACTIVEAUTHORMAX)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_LEASTACTIVEAUTHORAVG)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_LEASTACTIVEAUTHORMIN)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_LEASTACTIVEAUTHORMAX)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_FILECHANGESEACHWEEKAVG)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_FILECHANGESEACHWEEKMIN)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_FILECHANGESEACHWEEKMAX)->ShowWindow(nCmdShow);
+}
+
 void CStatGraphDlg::ShowCommitsByAuthor()
 {
+	ShowLabels(FALSE);
 	m_graph.Clear();
 	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
 		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
@@ -125,6 +180,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 
 void CStatGraphDlg::ShowCommitsByDate()
 {
+	ShowLabels(FALSE);
 	m_graph.Clear();
 
 	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
@@ -219,15 +275,178 @@ void CStatGraphDlg::ShowCommitsByDate()
 	m_graph.Invalidate();
 }
 
+void CStatGraphDlg::ShowStats()
+{
+	ShowLabels(TRUE);
+	int nWeeks = 0;
+	int nCurrentWeek = 0;
+	long nCommitsMin = 0;
+	long nCommitsMax = 0;
+	long nFileChanges = 0;
+	long nFileChangesMin = 0;
+	long nFileChangesMax = 0;
+
+	std::map<stdstring, LONG> authorcommits;
+	std::map<stdstring, LONG> AuthorCommits;
+	std::map<stdstring, LONG> AuthorCommitsMin;
+	std::map<stdstring, LONG> AuthorCommitsMax;
+
+	int commits = 0;
+	int filechanges = 0;
+	BOOL weekover = FALSE;
+	for (int i=m_parDates->GetCount()-1; i>=0; --i)
+	{
+		CTime time((__time64_t)m_parDates->GetAt(i));
+		commits++;
+		filechanges += m_parFileChanges->GetAt(i);
+		weekover = FALSE;
+		stdstring author = stdstring(m_parAuthors->GetAt(i));
+		if (authorcommits.find(author) != authorcommits.end())
+		{
+			authorcommits[author] += 1;
+		}
+		else
+		{
+			authorcommits[author] = 1;
+		}
+		if (nCurrentWeek != GetWeek(time))
+		{	
+			std::map<stdstring, LONG>::iterator iter;
+			iter = authorcommits.begin();
+			while (iter != authorcommits.end()) 
+			{
+				if (AuthorCommits.find(iter->first) == AuthorCommits.end())
+					AuthorCommits[iter->first] = 0;
+				if (AuthorCommitsMin.find(iter->first) == AuthorCommitsMin.end())
+					AuthorCommitsMin[iter->first] = 0;
+				if (AuthorCommitsMax.find(iter->first) == AuthorCommitsMax.end())
+					AuthorCommitsMax[iter->first] = 0;
+
+				AuthorCommits[iter->first] += iter->second;
+				if ((AuthorCommitsMin[iter->first] == 0)||(AuthorCommitsMin[iter->first] > iter->second))
+					AuthorCommitsMin[iter->first] = iter->second;
+				if (AuthorCommitsMax[iter->first] < iter->second)
+					AuthorCommitsMax[iter->first] = iter->second;
+				iter++;
+			}
+			authorcommits.clear();
+
+			nWeeks++;
+			nCurrentWeek = GetWeek(time);
+			if ((nCommitsMin == 0)||(nCommitsMin > commits))
+				nCommitsMin = commits;
+			if (nCommitsMax < commits)
+				nCommitsMax = commits;
+			commits = 0;
+			if ((nFileChangesMin == 0)||(nFileChangesMin > filechanges))
+				nFileChangesMin = filechanges;
+			if (nFileChangesMax < filechanges)
+				nFileChangesMax = filechanges;
+			nFileChanges += filechanges;
+			filechanges = 0;
+			weekover = TRUE;
+		}
+	} // for (int i=m_parDates->GetCount()-1; i>=0; --i)
+	if (!weekover)
+	{
+		std::map<stdstring, LONG>::iterator iter;
+		iter = authorcommits.begin();
+		while (iter != authorcommits.end()) 
+		{
+			if (AuthorCommits.find(iter->first) == AuthorCommits.end())
+				AuthorCommits[iter->first] = 0;
+			if (AuthorCommitsMin.find(iter->first) == AuthorCommitsMin.end())
+				AuthorCommitsMin[iter->first] = 0;
+			if (AuthorCommitsMax.find(iter->first) == AuthorCommitsMax.end())
+				AuthorCommitsMax[iter->first] = 0;
+
+			AuthorCommits[iter->first] += iter->second;
+			if ((AuthorCommitsMin[iter->first] == 0)||(AuthorCommitsMin[iter->first] > iter->second))
+				AuthorCommitsMin[iter->first] = iter->second;
+			if (AuthorCommitsMax[iter->first] < iter->second)
+				AuthorCommitsMax[iter->first] = iter->second;
+			iter++;
+		}
+		authorcommits.clear();
+
+		nWeeks++;
+
+		if ((nCommitsMin == 0)||(nCommitsMin > commits))
+			nCommitsMin = commits;
+		if (nCommitsMax < commits)
+			nCommitsMax = commits;
+		commits = 0;
+		if ((nFileChangesMin == 0)||(nFileChangesMin > filechanges))
+			nFileChangesMin = filechanges;
+		if (nFileChangesMax < filechanges)
+			nFileChangesMax = filechanges;
+		nFileChanges += filechanges;
+		filechanges = 0;
+	} // if (!weekover)
+
+	// we have now all data we want
+	// so fill in the labels...
+	CString number;
+	number.Format(_T("%ld"), m_parAuthors->GetCount() / nWeeks);
+	GetDlgItem(IDC_COMMITSEACHWEEKAVG)->SetWindowText(number);
+	number.Format(_T("%ld"), nCommitsMax);
+	GetDlgItem(IDC_COMMITSEACHWEEKMAX)->SetWindowText(number);
+	number.Format(_T("%ld"), nCommitsMin);
+	GetDlgItem(IDC_COMMITSEACHWEEKMIN)->SetWindowText(number);
+
+	number.Format(_T("%ld"), nFileChanges / nWeeks);
+	GetDlgItem(IDC_FILECHANGESEACHWEEKAVG)->SetWindowText(number);
+	number.Format(_T("%ld"), nFileChangesMax);
+	GetDlgItem(IDC_FILECHANGESEACHWEEKMAX)->SetWindowText(number);
+	number.Format(_T("%ld"), nFileChangesMin);
+	GetDlgItem(IDC_FILECHANGESEACHWEEKMIN)->SetWindowText(number);
+
+	std::map<stdstring, LONG>::iterator iter;
+	iter = AuthorCommits.begin();
+	stdstring mostauthor;
+	stdstring leastauthor;
+
+	mostauthor = iter->first;
+	leastauthor = iter->first;
+	while (iter != AuthorCommits.end()) 
+	{
+		if (AuthorCommits[mostauthor] < iter->second)
+			mostauthor = iter->first;
+
+		if (AuthorCommits[leastauthor] > iter->second)
+			leastauthor = iter->first;
+
+		iter++;
+	}
+	GetDlgItem(IDC_MOSTACTIVEAUTHORNAME)->SetWindowText(mostauthor.c_str());
+	number.Format(_T("%ld"), AuthorCommits[mostauthor] / nWeeks);
+	GetDlgItem(IDC_MOSTACTIVEAUTHORAVG)->SetWindowText(number);
+	number.Format(_T("%ld"), AuthorCommitsMax[mostauthor]);
+	GetDlgItem(IDC_MOSTACTIVEAUTHORMAX)->SetWindowText(number);
+	number.Format(_T("%ld"), AuthorCommitsMin[mostauthor]);
+	GetDlgItem(IDC_MOSTACTIVEAUTHORMIN)->SetWindowText(number);
+
+	GetDlgItem(IDC_LEASTACTIVEAUTHORNAME)->SetWindowText(leastauthor.c_str());
+	number.Format(_T("%ld"), AuthorCommits[leastauthor] / nWeeks);
+	GetDlgItem(IDC_LEASTACTIVEAUTHORAVG)->SetWindowText(number);
+	number.Format(_T("%ld"), AuthorCommitsMax[leastauthor]);
+	GetDlgItem(IDC_LEASTACTIVEAUTHORMAX)->SetWindowText(number);
+	number.Format(_T("%ld"), AuthorCommitsMin[leastauthor]);
+	GetDlgItem(IDC_LEASTACTIVEAUTHORMIN)->SetWindowText(number);
+}
+
 void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 {
 	switch (m_cGraphType.GetItemData(m_cGraphType.GetCurSel()))
 	{
 	case 1:
-		ShowCommitsByAuthor();
+		ShowStats();
 		break;
 	case 2:
 		ShowCommitsByDate();
+		break;
+	case 3:
+		ShowCommitsByAuthor();
 		break;
 	}
 }

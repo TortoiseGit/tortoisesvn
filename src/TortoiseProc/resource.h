@@ -199,13 +199,35 @@
 #define IDC_CHECKREPO                   1132
 #define IDC_GRAPHCOMBO                  1133
 #define IDC_GRAPHTYPELABEL              1134
+#define IDC_COMMITSEACHWEEK             1135
+#define IDC_MOSTACTIVEAUTHOR            1136
+#define IDC_LEASTACTIVEAUTHOR           1137
+#define IDC_FILECHANGESEACHWEEK         1138
+#define IDC_COMMITSEACHWEEKAVG          1140
+#define IDC_COMMITSEACHWEEKMIN          1141
+#define IDC_COMMITSEACHWEEKMAX          1142
+#define IDC_MOSTACTIVEAUTHORAVG         1143
+#define IDC_MOSTACTIVEAUTHORMIN         1144
+#define IDC_MOSTACTIVEAUTHORMAX         1145
+#define IDC_LEASTACTIVEAUTHORAVG        1146
+#define IDC_LEASTACTIVEAUTHORMIN        1147
+#define IDC_LEASTACTIVEAUTHORMAX        1148
+#define IDC_FILECHANGESEACHWEEKAVG      1149
+#define IDC_FILECHANGESEACHWEEKMIN      1150
+#define IDC_FILECHANGESEACHWEEKMAX      1151
 #define IDS_MSGBOX_DONOTSHOWAGAIN       1153
 #define IDS_MSGBOX_ABORT                1154
+#define IDC_PROPERTYCHANGESEACHWEEKMAX  1154
 #define IDS_MSGBOX_RETRY                1155
+#define IDC_MOSTACTIVEAUTHORNAME        1155
 #define IDS_MSGBOX_IGNORE               1156
+#define IDC_LEASTACTIVEAUTHORNAME       1156
 #define IDS_MSGBOX_CANCEL               1157
+#define IDC_AVG                         1157
 #define IDS_MSGBOX_TRYAGAIN             1158
+#define IDC_MIN                         1158
 #define IDS_MSGBOX_CONTINUE             1159
+#define IDC_MAX                         1159
 #define IDS_MSGBOX_OK                   1160
 #define IDS_MSGBOX_YES                  1161
 #define IDS_MSGBOX_NO                   1162
@@ -447,6 +469,7 @@
 #define IDS_STATGRAPH_COMMITSBYDATEY    3903
 #define IDS_STATGRAPH_COMMITSBYAUTHORX  3904
 #define IDS_STATGRAPH_COMMITSBYAUTHORY  3905
+#define IDS_STATGRAPH_STATS             3906
 #define IDS_SVNERR_CHECKPATHORURL       4000
 #define IDS_SVNERR_RUNCLEANUP           4001
 #define IDS_SVNERR_UPDATEFIRST          4002
@@ -459,7 +482,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        181
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1135
+#define _APS_NEXT_CONTROL_VALUE         1160
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -37,6 +37,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
+	afx_msg void OnCbnSelchangeGraphcombo();
 
 	DECLARE_MESSAGE_MAP()
 	
@@ -46,10 +47,13 @@ protected:
 	
 	void		ShowCommitsByDate();
 	void		ShowCommitsByAuthor();
+	void		ShowStats();
 
 	int			GetWeek(const CTime& time);
+
+	void		ShowLabels(BOOL bShow);
 public:
 	CDWordArray	*	m_parDates;
+	CDWordArray	*	m_parFileChanges;
 	CStringArray *	m_parAuthors;
-	afx_msg void OnCbnSelchangeGraphcombo();
 };

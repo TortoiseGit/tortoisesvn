@@ -57,7 +57,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	return TRUE;
 }
 
-BOOL CBlame::Log(LONG rev, const CString& /*author*/, const CString& /*date*/, const CString& message, const CString& /*cpaths*/, apr_time_t /*time*/)
+BOOL CBlame::Log(LONG rev, const CString& /*author*/, const CString& /*date*/, const CString& message, const CString& /*cpaths*/, apr_time_t /*time*/, int /*filechanges*/)
 {
 	m_progressDlg.SetProgress((DWORD)m_highestrev - rev, (DWORD)m_highestrev);
 	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)

@@ -126,7 +126,7 @@ CString SVN::CheckConfigFile()
 
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
-BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time) {return TRUE;};
+BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
 
@@ -1095,7 +1095,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 		msg = "";
 
 	msg_native = CUnicodeUtils::GetUnicode(msg);
-
+	int filechanges = 0;
 	try
 	{
 		if (ch_paths)
@@ -1110,6 +1110,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 			cpaths = _T("");
 			if (cpaths.GetAllocLength() < (sorted_paths->nelts * MAX_PATH))
 				cpaths.Preallocate(sorted_paths->nelts * MAX_PATH);
+			filechanges = sorted_paths->nelts;
 			for (int i = 0; i < sorted_paths->nelts; i++)
 			{
 				svn_sort__item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_sort__item_t));
@@ -1158,7 +1159,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 	SVN_ERR (svn->cancel(baton));
 #pragma warning(pop)
 
-	if (svn->Log(rev, author_native, date_native, msg_native, cpaths, time_temp))
+	if (svn->Log(rev, author_native, date_native, msg_native, cpaths, time_temp, filechanges))
 	{
 		return error;
 	}

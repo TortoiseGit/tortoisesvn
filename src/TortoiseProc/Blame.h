@@ -41,7 +41,7 @@ private:
 	BOOL		BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
 	BOOL		Cancel();
 	BOOL		Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
-	BOOL		Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time);
+	BOOL		Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges);
 private:
 	BOOL		m_bCancelled;			///< TRUE if the operation should be cancelled
 	LONG		m_nCounter;				///< Counts the number of calls to the Cancel() callback (revisions?)

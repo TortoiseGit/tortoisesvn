@@ -288,7 +288,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time)
+BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges)
 {
 	CString temp;
 	m_LogList.SetRedraw(FALSE);
@@ -304,6 +304,7 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	__time64_t ttime = time/1000000L;
 	m_arDates.Add((DWORD)ttime);
 	m_arAuthors.Add(author);
+	m_arFileChanges.Add(filechanges);
 	// Add as many characters from the log message to the list control
 	// so it has a fixed width. If the log message is longer than
 	// this predefined fixed with, add "..." as an indication.
@@ -1599,6 +1600,7 @@ void CLogDlg::OnBnClickedStatbutton()
 	CStatGraphDlg dlg;
 	dlg.m_parAuthors = &m_arAuthors;
 	dlg.m_parDates = &m_arDates;
+	dlg.m_parFileChanges = &m_arFileChanges;
 	dlg.DoModal();
 		
 }
