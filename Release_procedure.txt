@@ -38,6 +38,10 @@ Now commit those changes and then create the tag in the repository
 - run the build.bat script again
 
 The last steps:
+- zip the files Languages\TortoiseProcLang.dll and 
+  Languages\TortoiseMergeLang.dll to Languages_1.1.x.zip and replace the
+  previously uploaded file with the current one (indicating the new revision
+  number after the last commit).
 - rename the msi installer files to indicate the correct version number
 - upload the msi files to the filesharing area on tigris.org
 - edit the web files download.html, index.html, project_status.html to
