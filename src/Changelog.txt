@@ -1,3 +1,5 @@
+- ADD: Hint text for the setting "don't remove
+       log messages when cancelling a commit". (Stefan)
 - ADD: The "Add before commit" option allows now
        to add whole unversioned folders to be
        added before a commit. (Stefan)
@@ -28,6 +30,11 @@
 - BUG: The status strings weren't localized
        in the commit and "Check for Updates"
        dialog. (Stefan)
+- BUG: Menu settings could be ignored if 
+       the first settings change is to put
+       all menu entries in the submenu. If
+       any other setting was made first then
+       everything was ok. (Stefan)
 
 Version 0.21
 - ADD: If multiple targets are selected for

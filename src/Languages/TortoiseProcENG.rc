@@ -903,6 +903,8 @@ BEGIN
     IDS_PROC_MOVINGPROG     "Moving %s"
     IDS_PROC_CPYMVPROG2     "to %s"
     IDS_PROC_ENTERURL       "Enter URL"
+    IDS_SETTINGS_NOREMOVELOGMSG_TT 
+                            "If you cancel a commit, the log message you have entered is saved\nand filled in the edit box on the next commit.\nYou can then either edit that message or use\nit unchanged."
 END
 
 STRINGTABLE 

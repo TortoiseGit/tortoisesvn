@@ -241,6 +241,7 @@
 #define IDS_PROC_MOVINGPROG             1275
 #define IDS_PROC_CPYMVPROG2             1276
 #define IDS_PROC_ENTERURL               1277
+#define IDS_SETTINGS_NOREMOVELOGMSG_TT  1278
 #define IDS_ERR_THREADSTARTFAILED       1281
 #define IDS_ERR_EXTDIFFSTART            1282
 #define IDS_ERR_NOCOMMAND               1283
