@@ -1219,13 +1219,14 @@ INT CReportCtrl::GetItemText(INT iItem, INT iSubItem, LPTSTR lpszText, INT iLen)
 	rvi.iSubItem = iSubItem;
 	rvi.lpszText = lpszText;
 	rvi.iTextMax = iLen;
-	return GetItem(&rvi) ? (INT)_tcslen(rvi.lpszText):0;
+	return (GetItem(&rvi)&&(rvi.lpszText)) ? (INT)_tcslen(rvi.lpszText):0;
 }
 
 CString CReportCtrl::GetItemText(INT iItem, INT iSubItem)
 {
 	CString str;
 	TCHAR szText[REPORTCTRL_MAX_TEXT];
+	ZeroMemory(szText, sizeof(szText));
 
 	if(GetItemText(iItem, iSubItem, szText, REPORTCTRL_MAX_TEXT))
 		str = szText;
