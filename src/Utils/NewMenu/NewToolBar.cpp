@@ -1524,7 +1524,7 @@ void CNewToolBar::PaintToolBarBackGnd(CDC* pDC)
   hParent = ::GetParent(hParent);
 
   CBrush tempBrush;
-  if(::GetMenuInfo(::GetMenu(hParent),&menuInfo) && menuInfo.hbrBack)
+  if(::MyGetMenuInfo(::GetMenu(hParent),&menuInfo) && menuInfo.hbrBack)
   {
   }
   else

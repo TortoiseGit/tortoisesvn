@@ -527,6 +527,7 @@ public:
 };
 
 #endif
+
 BOOL MyGetMenuInfo( HMENU hMenu, LPMENUINFO pInfo)
 {
   static CNewLoadLib menuInfo(_T("user32.dll"),"GetMenuInfo");
