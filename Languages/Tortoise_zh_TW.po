@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-03-25 16:59+0800\n"
+"PO-Revision-Date: 2005-04-04 09:52+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -959,6 +959,15 @@ msgstr "分析版本資料..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "套用單一異動檔至工作複本"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"套用性質至所有子目錄及底下的檔案.\n"
+"bugtraq: 及 tsvn: 性質只會套用到目錄."
+
 # ID:13,
 #: ID:13
 msgid "Apply Patch..."
@@ -1000,6 +1009,11 @@ msgstr "作者"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "作者:                        Stefan Kueng"
+
+# ID:76,
+#: ID:116
+msgid "Authors"
+msgstr "作者"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1156,6 +1170,11 @@ msgstr "正在取消 SVN 譴責..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "正在取消作業..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Cascaded Context Menu"
+msgstr "階層式快顯功能表"
 
 # ID:82,
 #: ID:82
@@ -1423,11 +1442,6 @@ msgstr "衝突"
 msgid "Conflicts: %d"
 msgstr "衝突: %d"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "快顯功能表"
-
 # ID:73,
 #: ID:73
 msgid "Continue"
@@ -1616,8 +1630,8 @@ msgstr "建立檔案庫"
 
 # ID:8,
 #: ID:8
-msgid "Create Repository here"
-msgstr "在此建立檔案庫"
+msgid "Create Repository here..."
+msgstr "在此建立檔案庫..."
 
 # Control-ID:1073,
 #: Control-ID:65535
@@ -1796,9 +1810,13 @@ msgstr "不再顯示此訊息"
 # ID:76,
 #: ID:76
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
-msgstr "你確定要復原這個版本的所有異動嗎?"
+msgstr ""
+"確定要復原\n"
+"%s\n"
+"此版本的所有異動?"
 
 # ID:76,
 #: ID:76
@@ -1994,6 +2012,7 @@ msgstr "從檔案庫中匯出乾淨的工作複本, 不含 svn 管理用資料�
 
 # ID:74,
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "副檔名"
 
@@ -2105,6 +2124,11 @@ msgstr "字型:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "按下 F1 可取得說明"
+
+# Control-ID:65535,
+#: Control-ID:1200
+msgid "From:"
+msgstr "從:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2575,6 +2599,16 @@ msgstr "正在合併"
 msgid "Message"
 msgstr "訊息"
 
+# ID:76,
+#: ID:116
+msgid "Messages"
+msgstr "訊息"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "訊息, 作者, 和路徑"
+
 # ID:78,
 #: ID:78
 msgid "Mime Type"
@@ -2873,6 +2907,11 @@ msgstr "補綴檔(*.diff, *.patch)|*.diff;*.patch|所有檔案(*.*)|*.*||"
 # ID:77,
 #: ID:77
 msgid "Path"
+msgstr "路徑"
+
+# ID:77,
+#: ID:116
+msgid "Paths"
 msgstr "路徑"
 
 # ID:157,
@@ -3273,10 +3312,14 @@ msgstr "重試"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:175,
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "復原"
+
+# ID:77,
+#: ID:8
+msgid "Revert..."
+msgstr "復原..."
 
 # ID:8,#:
 # ID:73,#:
@@ -4015,6 +4058,17 @@ msgstr "補綴檔中找不到檔案: %s!"
 msgid "The file is too large to open."
 msgstr "檔案過大, 無法開啟."
 
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"檔案或目錄\n"
+"%s\n"
+"已經被修改過. 確定要移動嗎?"
+
 # ID:80,
 #: ID:80
 msgid ""
@@ -4240,6 +4294,11 @@ msgstr "三檔差異"
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "雙點以上檔案可顯示你所做的異動."
+
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr ""
 
 # Control-ID:65535,
 #: Control-ID:65535

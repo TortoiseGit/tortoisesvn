@@ -32,6 +32,7 @@ msgstr ""
 # Abort = Afbryd
 # Resolve = løsning (af konflikter)
 # Apply (patch) = Påfør korrekturark
+# Apply (property) = Anvend egenskab
 # Blame = Ændringsfordeling
 # Commit = arkivér (med accent for at undgå at ligne flertal af arkiv)
 # Tag = Mærkat
@@ -112,7 +113,6 @@ msgid "%d files selected, %d files total"
 msgstr "%d valgte filer, %d filer i alt"
 
 #: ID:226,
-#, fuzzy
 msgid "%s - at revision: %d"
 msgstr "%s - ved revision: %d"
 
@@ -683,6 +683,10 @@ msgstr "Analyser revisionsdetaljer..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Påfører en \"unified diff\"-fil til arbejdskopien"
 
+#: ID:15,
+msgid "Applies the properties recursively to all files/folders.\nbugtraq: and tsvn: properties are only applied to folders."
+msgstr "Anvender rekursivt egenskaberne på alle filer/mapper.\nEgenskaberne bugtraq: og tsvn: anvendes kun på mapper."
+
 #: ID:13,
 msgid "Apply Patch..."
 msgstr "Påfør korrekturark..."
@@ -700,7 +704,6 @@ msgid "Are you sure you want to revert? You will lose <b>all</b> changes since t
 msgstr "Er du sikker på at du vil tilbageføre ændringerne? Du mister <b>alle</b> ændringer siden sidste opdatering!"
 
 #: ID:77,
-#, fuzzy
 msgid "At revision: %d"
 msgstr "Ved revision: %d"
 
@@ -1294,8 +1297,9 @@ msgid "Do not show this message again"
 msgstr "Vis ikke denne meddelelse igen"
 
 #: ID:76,
-msgid "Do you really want to revert all changes\nwhich were made in this revision?"
-msgstr "Er du helt sikker på, at du vil tilbageføre alle\nde ændringer, som blev lavet i denne revision?"
+#,fuzzy
+msgid "Do you really want to revert all changes to\n%s\nwhich were made in this revision?"
+msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision?"
 
 #: ID:76,
 msgid "Do you want to proceed?"
@@ -1439,7 +1443,7 @@ msgstr "Eksporterer..."
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Eksporterer et versionsarkiv til en ren arbejdskopi uden Subversions administrative mapper"
 
-#: ID:74,
+#: ID:74,#: ID:207,
 msgid "Extension"
 msgstr "Filendelse"
 
