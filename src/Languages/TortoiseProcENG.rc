@@ -211,32 +211,32 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,175,231,50,14
 END
 
-IDD_MERGE DIALOGEX 0, 0, 281, 163
+IDD_MERGE DIALOGEX 0, 0, 311, 163
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Merge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Merge current branch with:",IDC_STATIC,7,17,105,8
-    COMBOBOX        IDC_URLCOMBO,112,15,142,46,CBS_DROPDOWN | 
+    LTEXT           "Merge current branch with:",IDC_STATIC,7,17,132,8
+    COMBOBOX        IDC_URLCOMBO,139,15,142,46,CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "...",IDC_BROWSE,260,15,14,12
+    PUSHBUTTON      "...",IDC_BROWSE,290,15,14,12
     GROUPBOX        "From Revision",IDC_STATIC,7,35,123,46
     EDITTEXT        IDC_REVISON_START,13,52,51,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Find",IDC_FINDBRANCHSTART,74,52,50,14
-    GROUPBOX        "To Revision",IDC_STATIC,138,35,136,46
+    GROUPBOX        "To Revision",IDC_STATIC,139,35,165,46
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,46,81,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     145,62,74,10
-    EDITTEXT        IDC_REVISION_END,228,59,40,14,ES_AUTOHSCROLL | ES_NUMBER | 
+    EDITTEXT        IDC_REVISION_END,228,59,66,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
     LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.",
-                    IDC_STATIC,7,84,267,26
+                    IDC_STATIC,7,84,297,26
     LTEXT           "To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.",
-                    IDC_STATIC,7,113,267,25
+                    IDC_STATIC,7,113,297,25
     DEFPUSHBUTTON   "&OK",IDOK,7,142,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,224,142,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,254,142,50,14
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 241, 54
@@ -585,9 +585,9 @@ BEGIN
     IDD_MERGE, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 274
+        RIGHTMARGIN, 304
         VERTGUIDE, 13
-        VERTGUIDE, 112
+        VERTGUIDE, 139
         TOPMARGIN, 7
         BOTTOMMARGIN, 156
         HORZGUIDE, 35
