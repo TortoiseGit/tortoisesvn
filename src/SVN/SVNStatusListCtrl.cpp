@@ -442,7 +442,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			m_arStatusArray.push_back(entry);
 			if (entry->isfolder)
 			{
-				AddUnversionedFolder(entry->path, basePath, pIgnorePatterns);
+				if (!PathFileExists(entry->path.GetWinPathString() + _T("\\") + _T(SVN_WC_ADM_DIR_NAME)))
+					AddUnversionedFolder(entry->path, basePath, pIgnorePatterns);
 			}
 		}
 	} // while (filefinder.NextFile(filename,&bIsDirectory))
