@@ -3,7 +3,6 @@
 	ProjectType="Visual C++"
 	Version="7.10"
 	Name="TortoisePlink"
-	ProjectGUID="{B439B09E-7390-4CEB-A1DD-745CF976F2BB}"
 	SccProjectName="TortoisePlink"
 	SccLocalPath=".">
 	<Platforms>
@@ -23,7 +22,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;_DEBUG;HAVE_ERRNO_H"
+				PreprocessorDefinitions="_DEBUG;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="TRUE"
@@ -31,7 +30,7 @@
 				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
 				AssemblerListingLocation=""
 				ObjectFile="$(IntDir)/"
-				ProgramDataBaseFileName="$(IntDir)/vc71.pdb"
+				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
 				BrowseInformation="1"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
@@ -62,7 +61,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG"
-				Culture="0"/>
+				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -81,20 +80,24 @@
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
-			CharacterSet="2">
+			CharacterSet="2"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				Optimization="3"
 				InlineFunctionExpansion="1"
+				FavorSizeOrSpeed="2"
+				OptimizeForWindowsApplication="TRUE"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;NDEBUG;HAVE_ERRNO_H;RELEASE=&quot;0.53&quot;"
+				PreprocessorDefinitions="NDEBUG;RELEASE=&quot;0.54&quot;;WIN32;_CONSOLE;HAVE_ERRNO_H;_WINDOWS;_NO_OLDNAMES;NO_MULTIMON;WIN32S_COMPAT"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="TRUE"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
 				AssemblerListingLocation=""
 				ObjectFile="$(IntDir)/"
-				ProgramDataBaseFileName="$(IntDir)/vc71.pdb"
+				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				CompileAs="0"/>
@@ -103,14 +106,14 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib ws2_32.lib comctl32.lib"
+				AdditionalDependencies="Ws2_32.lib comctl32.lib wininet.lib Rpcrt4.lib"
 				OutputFile="$(OutDir)/$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="2"/>
+				SubSystem="2"
+				OptimizeForWindows98="1"/>
 			<Tool
 				Name="VCMIDLTool"
 				TypeLibraryName=".\Release/TortoisePlink.tlb"/>
@@ -124,67 +127,6 @@
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
 				Culture="1033"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
-		</Configuration>
-		<Configuration
-			Name="Release_MBCS|Win32"
-			OutputDirectory="..\..\bin\Release_MBCS"
-			IntermediateDirectory="..\..\obj\TortoisePlink\Release_MBCS"
-			ConfigurationType="1"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE"
-			CharacterSet="2">
-			<Tool
-				Name="VCCLCompilerTool"
-				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;HAVE_ERRNO_H;RELEASE=&quot;0.53&quot;"
-				StringPooling="TRUE"
-				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="TRUE"
-				UsePrecompiledHeader="2"
-				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
-				AssemblerListingLocation=""
-				ObjectFile="$(IntDir)/"
-				ProgramDataBaseFileName="$(IntDir)/vc71.pdb"
-				WarningLevel="3"
-				SuppressStartupBanner="TRUE"
-				CompileAs="0"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="odbc32.lib odbccp32.lib ws2_32.lib comctl32.lib"
-				OutputFile="$(OutDir)/$(ProjectName).exe"
-				LinkIncremental="1"
-				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
-				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
-				SubSystem="1"/>
-			<Tool
-				Name="VCMIDLTool"
-				TypeLibraryName=".\Release/TortoisePlink.tlb"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-				Culture="1030"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -289,6 +231,9 @@
 						Name="VCCLCompilerTool"
 						DebugInformationFormat="3"/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="PPROXY.C">
 			</File>
 			<File
 				RelativePath=".\PROXY.C">
@@ -492,6 +437,15 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="WILDCARD.C">
+			</File>
+			<File
+				RelativePath="WINDEFS.C">
+			</File>
+			<File
+				RelativePath="WINMISC.C">
+			</File>
+			<File
 				RelativePath=".\WINNET.C">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -526,10 +480,19 @@
 				RelativePath=".\INT64.H">
 			</File>
 			<File
+				RelativePath="LDISC.H">
+			</File>
+			<File
+				RelativePath="LoginDialog.h">
+			</File>
+			<File
 				RelativePath=".\MISC.H">
 			</File>
 			<File
 				RelativePath=".\NETWORK.H">
+			</File>
+			<File
+				RelativePath="PROXY.H">
 			</File>
 			<File
 				RelativePath=".\PUTTY.H">
@@ -538,10 +501,10 @@
 				RelativePath=".\PUTTYMEM.H">
 			</File>
 			<File
-				RelativePath=".\RESOURCE.H">
+				RelativePath="PUTTYPS.H">
 			</File>
 			<File
-				RelativePath=".\resrc1.h">
+				RelativePath=".\RESOURCE.H">
 			</File>
 			<File
 				RelativePath=".\SFTP.H">
@@ -553,13 +516,25 @@
 				RelativePath=".\STORAGE.H">
 			</File>
 			<File
+				RelativePath="TERMINAL.H">
+			</File>
+			<File
+				RelativePath="TortoisePlinkRes.h">
+			</File>
+			<File
 				RelativePath=".\TREE234.H">
 			</File>
 			<File
 				RelativePath=".\WIN_RES.H">
 			</File>
 			<File
+				RelativePath="WINHELP.H">
+			</File>
+			<File
 				RelativePath=".\WINSTUFF.H">
+			</File>
+			<File
+				RelativePath=".\WxWrapper.h">
 			</File>
 		</Filter>
 		<Filter
