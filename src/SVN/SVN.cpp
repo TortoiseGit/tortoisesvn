@@ -189,6 +189,7 @@ BOOL SVN::Remove(CString path, BOOL force, CString message)
 	preparePath(path);
 
 	svn_client_commit_info_t *commit_info = NULL;
+	message.Replace(_T("\r"), _T(""));
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_delete (&commit_info, target(path), force,
 							&ctx,
@@ -262,6 +263,7 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 	preparePath(path);
 	svn_client_commit_info_t *commit_info = NULL;
 
+	message.Replace(_T("\r"), _T(""));
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_commit (&commit_info, 
 							target ((LPCTSTR)path), 
@@ -289,6 +291,7 @@ BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision, CString logmsg)
 	preparePath(srcPath);
 	preparePath(destPath);
 	svn_client_commit_info_t *commit_info = NULL;
+	logmsg.Replace(_T("\r"), _T(""));
 	if (logmsg.IsEmpty())
 		ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
 	else
@@ -313,6 +316,7 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message)
 	preparePath(srcPath);
 	preparePath(destPath);
 	svn_client_commit_info_t *commit_info = NULL;
+	message.Replace(_T("\r"), _T(""));
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_move (&commit_info,
 							CUnicodeUtils::GetUTF8(srcPath),
@@ -339,6 +343,7 @@ BOOL SVN::MakeDir(CString path, CString message)
 	preparePath(path);
 
 	svn_client_commit_info_t *commit_info = NULL;
+	message.Replace(_T("\r"), _T(""));
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_mkdir (&commit_info,
 							target(path),
@@ -435,7 +440,7 @@ BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 	preparePath(url);
 
 	svn_client_commit_info_t *commit_info = NULL;
-
+	message.Replace(_T("\r"), _T(""));
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_import (&commit_info,
 							CUnicodeUtils::GetUTF8(path),
