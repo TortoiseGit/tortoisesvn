@@ -526,7 +526,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				else
 				{
 					CSVNProgressDlg progDlg;
-					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage);
+					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, SVN::REV_WC);
 					progDlg.DoModal();
 				}
 			}
