@@ -914,7 +914,8 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 		{
 			TCHAR date[200];
 			SVN::formatDate(date, rentry->date);
-			strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP, 
+			strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
+							CUnicodeUtils::GetUnicode(rentry->url),
 							CUnicodeUtils::GetUnicode(rentry->author), 
 							date,
 							CUnicodeUtils::GetUnicode(rentry->message));
