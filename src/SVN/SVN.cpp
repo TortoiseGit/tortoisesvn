@@ -200,6 +200,7 @@ CString SVN::GetLastErrorMessage()
 			}
 			msg += temp;
 		}
+		temp.Empty();
 		switch (Err->apr_err)
 		{
 		case SVN_ERR_BAD_FILENAME:
