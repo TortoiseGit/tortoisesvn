@@ -76,6 +76,17 @@ public:
 	 */
 	const char* GetSVNApiPath() const;
 	/**
+	 * Returns the path for showing in an UI.
+	 *
+	 * URL's are returned with forward slashes, unescaped if necessary
+	 * Paths are returned with backward slashes
+	 */
+	const CString& GetUIPathString() const;
+	/**
+	 * Checks if the path is an URL.
+	 */
+	bool IsUrl() const;
+	/**
 	 * Returns true if the path points to a directory
 	 */
 	bool IsDirectory() const;
@@ -161,10 +172,13 @@ private:
 private:
 	mutable CString m_sBackslashPath;
 	mutable CString m_sFwdslashPath;
+	mutable CString m_sUIPath;
 	mutable	CStringA m_sUTF8FwdslashPath;
 	// Have we yet determined if this is a directory or not?
 	mutable bool m_bDirectoryKnown;
 	mutable bool m_bIsDirectory;
+	mutable bool m_bURLKnown;
+	mutable bool m_bIsURL;
 };
 
 //////////////////////////////////////////////////////////////////////////

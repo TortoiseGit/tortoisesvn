@@ -6,7 +6,9 @@
 
 CTSVNPath::CTSVNPath(void) :
 	m_bDirectoryKnown(false),
-	m_bIsDirectory(false)
+	m_bIsDirectory(false),
+	m_bIsURL(false),
+	m_bURLKnown(false)
 {
 }
 
@@ -97,6 +99,25 @@ const char* CTSVNPath::GetSVNApiPath() const
 	return m_sUTF8FwdslashPath;
 }
 
+const CString& CTSVNPath::GetUIPathString() const
+{
+	if (m_sUIPath.IsEmpty())
+	{
+		if (IsUrl())
+		{
+			CStringA sUIPathA = GetSVNApiPath();
+			CUtils::Unescape(sUIPathA.GetBuffer());
+			sUIPathA.ReleaseBuffer();
+			m_sUIPath = CUnicodeUtils::GetUnicode(sUIPathA);
+		}
+		else
+		{
+			m_sUIPath = GetWinPathString();
+		}
+	}
+	return m_sUIPath;
+}
+
 void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 {
 	m_sFwdslashPath = sPath;
@@ -128,6 +149,21 @@ void CTSVNPath::SetUTF8FwdslashPath(const CString& sPath) const
 	// Only set this from a forward-slash path
 	ASSERT(sPath.Find('\\') == -1);
 	m_sUTF8FwdslashPath = CUnicodeUtils::GetUTF8(sPath);
+}
+
+bool CTSVNPath::IsUrl() const
+{
+	if (!m_bURLKnown)
+	{
+		EnsureFwdslashPathSet();
+		if(m_sUTF8FwdslashPath.IsEmpty())
+		{
+			SetUTF8FwdslashPath(m_sFwdslashPath);
+		}
+		m_bIsURL = !!svn_path_is_url(m_sUTF8FwdslashPath);
+		m_bURLKnown = true;
+	}
+	return m_bIsURL;
 }
 
 bool CTSVNPath::IsDirectory() const
