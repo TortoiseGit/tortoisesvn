@@ -141,6 +141,7 @@ BOOL CSetProxyPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SERVERADDRESS, IDS_SETTINGS_PROXYSERVER_TT);
+	m_tooltips.AddTool(IDC_EXCEPTIONS, IDS_SETTINGS_PROXYEXCEPTIONS_TT);
 	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 

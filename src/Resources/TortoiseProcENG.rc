@@ -1648,6 +1648,8 @@ BEGIN
                             "When checked, forces a refresh of the shell overlay icons after each operation.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
     IDS_SETTINGS_ICONSETCHANGED 
                             "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
+    IDS_SETTINGS_PROXYEXCEPTIONS_TT 
+                            "Use '*' as a wildcard character when specifying an exception\nTo separate multiple exceptions, use colons (',').\nExample: *.mylan.com, *.company.com"
 END
 
 STRINGTABLE 
