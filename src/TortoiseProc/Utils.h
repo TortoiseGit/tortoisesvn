@@ -54,7 +54,8 @@ public:
 	 * Launches the external merge program if there is one.
 	 * \return TRUE if the program could be started
 	 */
-	static BOOL StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile);
+	static BOOL StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile,
+		CString basename = _T(""), CString theirname = _T(""), CString yourname = _T(""), CString mergedname = _T(""));
 
 	/**
 	 * Launches the diff viewer application.
@@ -65,7 +66,8 @@ public:
 	 * associated with .txt files.
 	 * \return TRUE if the program could be started.
 	 */
-	static BOOL StartDiffViewer(CString file, CString dir = _T(""), BOOL bWait = FALSE);
+	static BOOL StartDiffViewer(CString file, CString dir = _T(""), BOOL bWait = FALSE,
+		CString name1 = _T(""), CString name2 = _T(""));
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated
@@ -82,5 +84,6 @@ public:
 	static void Unescape(char * psz);
 	static CString PathEscape(CString path);
 	static CString GetVersionFromFile(const CString & p_strDateiname);
+	static CString GetFileNameFromPath(CString sPath);
 
 };

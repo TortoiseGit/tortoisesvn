@@ -602,13 +602,19 @@ BOOL CTortoiseProcApp::InitInstance()
 			BOOL bDelete = FALSE;
 			if (path2.IsEmpty())
 			{
+				CString name = CUtils::GetFileNameFromPath(path);
 				path2 = SVN::GetPristinePath(path);
 				if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path, path)))
 				{
 					bDelete = TRUE;
 				}
-			}
-			CUtils::StartDiffViewer(path2, path, TRUE);
+				CString n1, n2;
+				n1.Format(IDS_DIFF_WCNAME, name);
+				n2.Format(IDS_DIFF_BASENAME, name);
+				CUtils::StartDiffViewer(path2, path, TRUE, n2, n1);
+			} // if (path2.IsEmpty())
+			else
+				CUtils::StartDiffViewer(path2, path, TRUE);
 			if (bDelete)
 				DeleteFile(path);
 		}

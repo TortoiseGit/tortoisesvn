@@ -101,9 +101,13 @@ public:
 
 public:
 	CString						m_sBaseFile;
+	CString						m_sBaseName;
 	CString						m_sTheirFile;
+	CString						m_sTheirName;
 	CString						m_sYourFile;
+	CString						m_sYourName;
 	CString						m_sMergedFile;
+	CString						m_sMergedName;
 	CString						m_sDiffFile;
 	CString						m_sPatchPath;
 

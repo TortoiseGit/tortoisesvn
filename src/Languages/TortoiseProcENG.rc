@@ -1070,6 +1070,12 @@ BEGIN
     IDS_REPO_BROWSEREV      "Browsing Revision: "
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_DIFF_WCNAME         "%s : Working Copy"
+    IDS_DIFF_BASENAME       "%s : Working Base"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

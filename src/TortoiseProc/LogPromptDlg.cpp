@@ -360,7 +360,11 @@ void CLogPromptDlg::StartDiff(int fileindex)
 		path1 = data->path;
 	}
 
-	CUtils::StartDiffViewer(path2, path1);
+	CString name = CUtils::GetFileNameFromPath(data->path);
+	CString n1, n2;
+	n1.Format(IDS_DIFF_WCNAME, name);
+	n2.Format(IDS_DIFF_BASENAME, name);
+	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1);
 }
 
 void CLogPromptDlg::OnOK()

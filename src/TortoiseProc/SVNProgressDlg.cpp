@@ -730,7 +730,11 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			m_templist.Add(sWC);
 		}
-		CUtils::StartDiffViewer(sBase, sWC);
+		CString name = CUtils::GetFileNameFromPath(data->path);
+		CString n1, n2;
+		n1.Format(IDS_DIFF_WCNAME, name);
+		n2.Format(IDS_DIFF_BASENAME, name);
+		CUtils::StartDiffViewer(sBase, sWC, FALSE, n2, n1);
 
 	}
 }

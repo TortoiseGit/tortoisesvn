@@ -598,7 +598,10 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					else
 					{
 						m_templist.Add(tempfile);
-						CUtils::StartDiffViewer(tempfile, m_path);
+						CString revname, wcname;
+						revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
+						wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
+						CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname);
 					}
 				}
 				break;
@@ -751,7 +754,10 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			else
 			{
 				m_templist.Add(tempfile);
-				CUtils::StartDiffViewer(tempfile, m_path);
+				CString revname, wcname;
+				revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
+				wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
+				CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname);
 			}
 		} // if (!PathIsDirectory(m_path))
 		else
@@ -1003,7 +1009,10 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 		progDlg.Stop();
 	}
 	theApp.DoWaitCursor(-1);
-	return CUtils::StartDiffViewer(tempfile2, tempfile1);
+	CString revname1, revname2;
+	revname1.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(path1), rev1);
+	revname2.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(path2), rev2);
+	return CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, revname2, revname1);
 }
 
 

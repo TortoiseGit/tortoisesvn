@@ -4,6 +4,9 @@
 - ADD: New button in the settings dialog to open
        the subversion config file with the default
        text editor. (Stefan)
+- ADD: Implement Issue 87. TortoiseMerge shows now
+       the filename and the revision in the viewtitle.
+       TME gets this information from TSVN. (Stefan)
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)

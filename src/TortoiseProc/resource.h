@@ -335,6 +335,8 @@
 #define IDS_PROC_ENTERURLLABEL          2300
 #define IDS_PROC_PATCHTITLE             2301
 #define IDS_PROC_SAVEPATCHTO            2302
+#define IDS_DIFF_WCNAME                 2400
+#define IDS_DIFF_BASENAME               2401
 
 // Next default values for new objects
 // 

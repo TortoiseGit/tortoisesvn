@@ -40,7 +40,8 @@ CString CUtils::GetTempFile()
 	return tempfile;
 }
 
-BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile)
+BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile,
+						   		CString basename, CString theirname, CString yourname, CString mergedname)
 {
 	CString com;
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
@@ -52,6 +53,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 		CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 		com = tortoiseMergePath;
 		com = com + _T(" /base:%base /theirs:%theirs /yours:%mine /merged:%merged");
+		com = com + _T(" /basename:%bname /theirsname:%tname /yoursname:%yname /mergedname:%mname");
 	}
 
 	TCHAR buf[MAX_PATH];
@@ -68,10 +70,14 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	PathQuoteSpaces(buf);
 	mergedfile = CString(buf);
 
-	com.Replace(_T("%base"), basefile);
-	com.Replace(_T("%theirs"), theirfile);
-	com.Replace(_T("%mine"), yourfile);
-	com.Replace(_T("%merged"), mergedfile);
+	com.Replace(_T("%base"), _T("\"") + basefile + _T("\""));
+	com.Replace(_T("%theirs"), _T("\"") + theirfile + _T("\""));
+	com.Replace(_T("%mine"), _T("\"") + yourfile + _T("\""));
+	com.Replace(_T("%merged"), _T("\"") + mergedfile + _T("\""));
+	com.Replace(_T("%bname"), _T("\"") + basename + _T("\""));
+	com.Replace(_T("%tname"), _T("\"") + theirname + _T("\""));
+	com.Replace(_T("%yname"), _T("\"") + yourname + _T("\""));
+	com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
 
 	STARTUPINFO startup;
 	PROCESS_INFORMATION process;
@@ -100,7 +106,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
+BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2)
 {
 	// if "dir" is actually a file, then don't start the unified diff viewer
 	// but the file diff application (e.g. TortoiseMerge, WinMerge, WinDiff, P4Diff, ...)
@@ -145,11 +151,11 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
 		else
 		{
 			viewer += _T(" ");
-			viewer += file;
+			viewer += _T("\"") + file + _T("\"");
 		}
 		if (viewer.Find(_T("%path")) >= 0)
 		{
-			viewer.Replace(_T("%path"), dir);
+			viewer.Replace(_T("%path"), _T("\"") + dir + _T("\""));
 		}
 	} // if ((PathIsDirectory(dir)) || (dir.IsEmpty())) 
 	else
@@ -163,7 +169,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
 			//use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
-			viewer = viewer + _T(" /base:%base /yours:%mine");
+			viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
 		} // if (diffexe == "")
 		if (viewer.Find(_T("%base")) >= 0)
 		{
@@ -172,7 +178,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
 		else
 		{
 			viewer += _T(" ");
-			viewer += file;
+			viewer += _T("\"") +file + _T("\"");
 		}
 		if (viewer.Find(_T("%mine")) >= 0)
 		{
@@ -181,8 +187,10 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
 		else
 		{
 			viewer += _T(" ");
-			viewer += dir;
+			viewer += _T("\"") + dir + _T("\"");
 		}
+		viewer.Replace(_T("%bname"), _T("\"") + name1 + _T("\""));
+		viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
 	}
 
 	STARTUPINFO startup;
@@ -441,5 +449,12 @@ CString CUtils::GetVersionFromFile(const CString & p_strDateiname)
 	return strReturn;
 }
 
+CString CUtils::GetFileNameFromPath(CString sPath)
+{
+	CString ret;
+	sPath.Replace(_T("/"), _T("\\"));
+	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
+	return ret;
+}
 
 

@@ -300,6 +300,10 @@ void CMainFrame::OnFileOpen()
 	this->m_Data.m_sYourFile = dlg.m_sYourFile;
 	this->m_Data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
 	this->m_Data.m_sPatchPath = dlg.m_sPatchDirectory;
+	this->m_Data.m_sBaseName.Empty();
+	this->m_Data.m_sTheirName.Empty();
+	this->m_Data.m_sYourName.Empty();
+	this->m_Data.m_sMergedName.Empty();
 	g_crasher.AddFile((LPCSTR)(LPCTSTR)m_Data.m_sBaseFile, (LPCSTR)(LPCTSTR)_T("Basefile"));
 	g_crasher.AddFile((LPCSTR)(LPCTSTR)m_Data.m_sTheirFile, (LPCSTR)(LPCTSTR)_T("Theirfile"));
 	g_crasher.AddFile((LPCSTR)(LPCTSTR)m_Data.m_sYourFile, (LPCSTR)(LPCTSTR)_T("Yourfile"));
@@ -334,7 +338,9 @@ BOOL CMainFrame::LoadViews()
 		if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
 		{
 			m_Data.m_sBaseFile = m_Data.m_sTheirFile;
+			m_Data.m_sBaseName = m_Data.m_sTheirName;
 			m_Data.m_sTheirFile.Empty();
+			m_Data.m_sTheirName.Empty();
 		} // if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty()) 
 		else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)))
 		{
@@ -365,7 +371,9 @@ BOOL CMainFrame::LoadViews()
 	if (!m_Data.m_sBaseFile.IsEmpty() && m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
 	{
 		m_Data.m_sYourFile = m_Data.m_sTheirFile;
+		m_Data.m_sYourName = m_Data.m_sTheirName;
 		m_Data.m_sTheirFile.Empty();
+		m_Data.m_sTheirName.Empty();
 	}
 	if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
 	{
@@ -376,12 +384,20 @@ BOOL CMainFrame::LoadViews()
 				m_wndSplitter2.HideColumn(1);
 			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
 			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
-			m_pwndLeftView->m_sWindowName = (m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1))+ _T(" - ") +
-											(m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1));
+			if (m_Data.m_sYourName.IsEmpty() && m_Data.m_sBaseName.IsEmpty())
+			{
+				m_pwndLeftView->m_sWindowName = (m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1))+ _T(" - ") +
+												(m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1));
+			} // if (m_Data.m_sYourName.IsEmpty())
+			else
+				m_pwndLeftView->m_sWindowName = m_Data.m_sBaseName + _T(" - ") + m_Data.m_sYourName;
 			m_pwndLeftView->m_sFullFilePath = m_pwndLeftView->m_sWindowName;
 			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
 			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
-			m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
+			if (m_Data.m_sYourName.IsEmpty())
+				m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
+			else
+				m_pwndRightView->m_sWindowName = m_Data.m_sYourName;
 			m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
 			m_pwndLeftView->DocumentUpdated();
 			m_pwndRightView->DocumentUpdated();
@@ -398,11 +414,17 @@ BOOL CMainFrame::LoadViews()
 				m_wndSplitter2.ShowColumn();
 			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseLeft;
 			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseLeft;
-			m_pwndLeftView->m_sWindowName = m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1);
+			if (m_Data.m_sBaseName.IsEmpty())
+				m_pwndLeftView->m_sWindowName = m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1);
+			else
+				m_pwndLeftView->m_sWindowName = m_Data.m_sBaseName;
 			m_pwndLeftView->m_sFullFilePath = m_Data.m_sBaseFile;
 			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
 			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
-			m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
+			if (m_Data.m_sYourName.IsEmpty())
+				m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
+			else
+				m_pwndRightView->m_sWindowName = m_Data.m_sYourName;
 			m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
 			m_pwndLeftView->DocumentUpdated();
 			m_pwndRightView->DocumentUpdated();
@@ -420,15 +442,24 @@ BOOL CMainFrame::LoadViews()
 		//diff between THEIR, YOUR and BASE
 		m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffTheirBaseBoth;
 		m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseBoth;
-		m_pwndLeftView->m_sWindowName = _T("Theirs - ")+(m_Data.m_sTheirFile.Mid(m_Data.m_sTheirFile.ReverseFind('\\')+1));
+		if (m_Data.m_sTheirName.IsEmpty())
+			m_pwndLeftView->m_sWindowName = _T("Theirs - ")+(m_Data.m_sTheirFile.Mid(m_Data.m_sTheirFile.ReverseFind('\\')+1));
+		else
+			m_pwndLeftView->m_sWindowName = _T("Theirs - ") + m_Data.m_sTheirName;
 		m_pwndLeftView->m_sFullFilePath = m_Data.m_sTheirFile;
 		m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
 		m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
-		m_pwndRightView->m_sWindowName = _T("Yours - ")+(m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1));
+		if (m_Data.m_sYourName.IsEmpty())
+			m_pwndRightView->m_sWindowName = _T("Yours - ")+(m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1));
+		else
+			m_pwndRightView->m_sWindowName = _T("Yours - ") + m_Data.m_sYourName;
 		m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
 		m_pwndBottomView->m_arDiffLines = &m_Data.m_arDiff3;
 		m_pwndBottomView->m_arLineStates = &m_Data.m_arStateDiff3;
-		m_pwndBottomView->m_sWindowName = _T("Merged - ")+(m_Data.m_sMergedFile.Mid(m_Data.m_sMergedFile.ReverseFind('\\')+1));
+		if (m_Data.m_sMergedName.IsEmpty())
+			m_pwndBottomView->m_sWindowName = _T("Merged - ")+(m_Data.m_sMergedFile.Mid(m_Data.m_sMergedFile.ReverseFind('\\')+1));
+		else
+			m_pwndBottomView->m_sWindowName = _T("Merged - ") + m_Data.m_sMergedName;
 		m_pwndBottomView->m_sFullFilePath = m_Data.m_sMergedFile;
 		m_pwndLeftView->DocumentUpdated();
 		m_pwndRightView->DocumentUpdated();
