@@ -1,3 +1,6 @@
+- BUG: Merging used always the HEAD revision, as did Blame. (Stefan)
+
+Version 1.0.4
 - ADD: Before a commit, TSVN scans all files in the working copy
        and adjusts the case if it got changed. (Stefan)
 - ADD: Enhanced repository browser by a set of controls which allow

@@ -143,6 +143,7 @@ void CMergeDlg::OnOK()
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
 	StartRev = SVNRev(m_sStartRev);
+	EndRev = SVNRev(m_sEndRev);
 	if (!StartRev.IsValid())
 	{
 		CWnd* ctrl = GetDlgItem(IDC_REVISON_START);
