@@ -337,13 +337,14 @@ void CSciEdit::DoAutoCompletion()
 {
 	if (m_autolist.GetCount()==0)
 		return;
+	if (Call(SCI_AUTOCACTIVE))
+		return;
 	CString word = GetWordUnderCursor();
 	if (word.GetLength() < 3)
 		return;		//don't autocomplete yet, word is too short
 	int pos = Call(SCI_GETCURRENTPOS);
-	if (pos > Call(SCI_WORDENDPOSITION, pos, TRUE))
-		return;
-	
+	if (pos != Call(SCI_WORDENDPOSITION, pos, TRUE))
+		return;	//don't autocomplete if we're not at the end of a word
 	CString sAutoCompleteList;
 	
 	for (INT_PTR index = 0; index < m_autolist.GetCount(); ++index)
@@ -361,6 +362,7 @@ void CSciEdit::DoAutoCompletion()
 	sAutoCompleteList.TrimRight(m_separator);
 	if (sAutoCompleteList.IsEmpty())
 		return;
+
 	Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
 	Call(SCI_AUTOCSHOW, word.GetLength(), (LPARAM)(LPCSTR)StringForControl(sAutoCompleteList));
 }
