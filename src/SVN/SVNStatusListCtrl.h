@@ -184,6 +184,7 @@ public:
 private:
 	void Sort();	///< Sorts the control by columns
 	void AddEntry(FileEntry * entry);	///< add an entry to the control
+	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays
 	void Stat();	///< build the statistics
 	void StartDiff(int fileindex);	///< start the external diff program
 	CString BuildTargetFile();		///< builds a temporary files containing the paths of the selected entries

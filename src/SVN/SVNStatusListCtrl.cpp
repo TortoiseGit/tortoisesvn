@@ -1175,9 +1175,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								m_nTotal--;
 								if (GetCheck(selIndex))
 									m_nSelected--;
-								DeleteItem(selIndex);
-								m_arStatusArray.RemoveAt(m_arListArray.GetAt(selIndex));
-								m_arListArray.RemoveAt(selIndex);
+								RemoveListEntry(selIndex);
 							}
 						}  
 					} 
@@ -1236,9 +1234,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							filelist += _T("|");
 						}
 						filelist += _T("|");
+						filelist.Replace('/','\\');
 						TCHAR * buf = new TCHAR[filelist.GetLength()+2];
-						ZeroMemory(buf, (filelist.GetLength()+2)*sizeof(TCHAR));
-						_tcsncpy(buf, filepath, MAX_PATH);
+						_tcscpy(buf, filelist);
 						for (int i=0; i<filelist.GetLength(); ++i)
 							if (buf[i] == '|')
 								buf[i] = 0;
@@ -1246,10 +1244,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						fileop.hwnd = this->m_hWnd;
 						fileop.wFunc = FO_DELETE;
 						fileop.pFrom = buf;
-						fileop.pTo = _T("");
+						fileop.pTo = NULL;
 						fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
 						fileop.lpszProgressTitle = _T("deleting file");
 						SHFileOperation(&fileop);
+						delete [] buf;
 
 						if (! fileop.fAnyOperationsAborted)
 						{
@@ -1260,9 +1259,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								if (GetCheck(index))
 									m_nSelected--;
 								m_nTotal--;
-								DeleteItem(index);
-								m_arStatusArray.RemoveAt(m_arListArray.GetAt(index));
-								m_arListArray.RemoveAt(index);
+								RemoveListEntry(index);
 							}
 						}
 					}
@@ -1303,9 +1300,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (GetCheck(selIndex))
 							m_nSelected--;
 						m_nTotal--;
-						DeleteItem(selIndex);
-						m_arStatusArray.RemoveAt(m_arListArray.GetAt(selIndex));
-						m_arListArray.RemoveAt(selIndex);
+						RemoveListEntry(selIndex);
 					}
 					break;
 				case IDSVNLC_EDITCONFLICT:
@@ -1594,4 +1589,17 @@ BOOL CSVNStatusListCtrl::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 	SetCursor(hCur);
 	return TRUE;
+}
+
+void CSVNStatusListCtrl::RemoveListEntry(int index)
+{
+	DeleteItem(index);
+	FileEntry * entry = m_arStatusArray.GetAt(m_arListArray.GetAt(index));
+	delete entry;
+	m_arStatusArray.RemoveAt(m_arListArray.GetAt(index));
+	m_arListArray.RemoveAt(index);
+	for (int i=index; i<m_arListArray.GetCount(); ++i)
+	{
+		m_arListArray[i]--;
+	}
 }
