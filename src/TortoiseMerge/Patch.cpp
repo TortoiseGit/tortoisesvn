@@ -112,6 +112,7 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 						m_arFileDiffs.Add(chunks);
 					} // if (chunks) 
 					chunks = new Chunks();
+					chunks->sFilePath = sLine.Mid(7).Trim();
 					state++;
 				} // if (sLine.Left(7).Compare(_T("Index: "))==0)
 				else
