@@ -40,6 +40,18 @@ BOOL CHistoryCombo::PreCreateWindow(CREATESTRUCT& cs)
 	return CComboBoxEx::PreCreateWindow(cs);
 }
 
+BOOL CHistoryCombo::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		int nVirtKey = (int) pMsg->wParam;
+		if (nVirtKey == VK_RETURN)
+			return OnReturnKeyPressed();
+	}
+
+	return CComboBoxEx::PreTranslateMessage(pMsg);
+}
+
 BEGIN_MESSAGE_MAP(CHistoryCombo, CComboBoxEx)
 	//{{AFX_MSG_MAP(CHistoryCombo)
 	// NOTE - the ClassWizard will add and remove mapping macros here.

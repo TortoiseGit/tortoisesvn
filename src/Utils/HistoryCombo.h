@@ -79,6 +79,7 @@ public:
 	//{{AFX_VIRTUAL(CHistoryCombo)
 	protected:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	//}}AFX_VIRTUAL
 
 // Implementation
@@ -120,6 +121,16 @@ public:
 	 * Returns the string in the combobox which is either selected or the user has entered.
 	 */
 	CString GetString();
+
+protected:
+	/**
+	 * Will be called whenever the return key is pressed while the
+	 * history combo has the input focus. A derived class may implement
+	 * a special behaviour for the return key by overriding this method.
+	 * It must return true to prevent the default processing for the
+	 * return key. The default implementation returns false.
+	 */
+	virtual bool OnReturnKeyPressed() { return false; }
 
 protected:
 	CString m_sSection;
