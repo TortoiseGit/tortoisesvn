@@ -181,22 +181,19 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	return NOERROR;
 }
 
-void CShellExt::InsertSVNMenu(HMENU menu, UINT pos, UINT flags, UINT_PTR id, UINT stringid, UINT idCmdFirst, SVNCommands com)
+void CShellExt::InsertSVNMenu(BOOL ownerdrawn, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com)
 {
 	MAKESTRING(stringid);
-	InsertMenu(menu, pos, flags, id, stringtablebuffer);
-	// We store the relative and absolute diameter
-	// (drawitem callback uses absolute, others relative)
-	myIDMap[id - idCmdFirst] = com;
-	myIDMap[id] = com;
-}
 
-void CShellExt::InsertSVNMenuBMP(HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com)
-{
-	MAKESTRING(stringid);
-	InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING, id, stringtablebuffer);
-	HBITMAP bmp = IconToBitmap(icon, (COLORREF)GetSysColor(COLOR_MENU)); 
-	SetMenuItemBitmaps(menu, pos, MF_BYPOSITION, bmp, bmp);
+	if (ownerdrawn) {
+		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING | MF_OWNERDRAW, id, stringtablebuffer);
+	}
+	else {
+		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, stringtablebuffer);
+		HBITMAP bmp = IconToBitmap(icon, (COLORREF)GetSysColor(COLOR_MENU)); 
+		SetMenuItemBitmaps(menu, pos, MF_BYPOSITION, bmp, bmp);
+	}
+
 	// We store the relative and absolute diameter
 	// (drawitem callback uses absolute, others relative)
 	myIDMap[id - idCmdFirst] = com;
@@ -315,11 +312,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		UINT idCmd = idCmdFirst;
 
 		if ((!isInSVN)&&(isFolderInSVN))
-			InsertSVNMenu(hMenu, indexMenu++, MF_STRING | MF_BYPOSITION, idCmd++, IDS_DROPCOPYADDMENU, idCmdFirst, DropCopyAdd);
+			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, DropCopyAdd);
 		else if ((isInSVN)&&(isFolderInSVN))
-			InsertSVNMenu(hMenu, indexMenu++, MF_STRING | MF_BYPOSITION, idCmd++, IDS_DROPMOVEMENU, idCmdFirst, DropMove);
+			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, DropMove);
 		if ((isInSVN)&&(isFolderInSVN))
-			InsertSVNMenu(hMenu, indexMenu++, MF_STRING | MF_BYPOSITION, idCmd++, IDS_DROPCOPYMENU, idCmdFirst, DropCopy);
+			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, DropCopy);
 
 		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 	}
@@ -361,27 +358,21 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 #define HMENU(x) ((topmenu & (x)) ? hMenu : subMenu)
 #define INDEXMENU(x) ((topmenu & (x)) ? indexMenu++ : indexSubMenu++)
-	////separator before
+	//---- separator before
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
 
 	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE);
 	//now fill in the entries 
 	if ((!isInSVN)&&(isFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUCHECKOUT), INDEXMENU(MENUCHECKOUT), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCHECKOUT, idCmdFirst, Checkout);
-		else
-			InsertSVNMenuBMP(HMENU(MENUCHECKOUT), INDEXMENU(MENUCHECKOUT), idCmd++, IDS_MENUCHECKOUT, IDI_CHECKOUT, idCmdFirst, Checkout);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUCHECKOUT), INDEXMENU(MENUCHECKOUT), idCmd++, IDS_MENUCHECKOUT, IDI_CHECKOUT, idCmdFirst, Checkout);
+
 	if (isInSVN)
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUUPDATE), INDEXMENU(MENUUPDATE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATE, idCmdFirst, Update);
-		else
-			InsertSVNMenuBMP(HMENU(MENUUPDATE), INDEXMENU(MENUUPDATE), idCmd++, IDS_MENUUPDATE, IDI_UPDATE, idCmdFirst, Update);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUUPDATE), INDEXMENU(MENUUPDATE), idCmd++, IDS_MENUUPDATE, IDI_UPDATE, idCmdFirst, Update);
+
 	if (isInSVN)
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUCOMMIT), INDEXMENU(MENUCOMMIT), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCOMMIT, idCmdFirst, Commit);
-		else
-			InsertSVNMenuBMP(HMENU(MENUCOMMIT), INDEXMENU(MENUCOMMIT), idCmd++, IDS_MENUCOMMIT, IDI_COMMIT, idCmdFirst, Commit);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUCOMMIT), INDEXMENU(MENUCOMMIT), idCmd++, IDS_MENUCOMMIT, IDI_COMMIT, idCmdFirst, Commit);
 	
+	//---- separator 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
@@ -389,105 +380,62 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUDIFF),INDEXMENU(MENUDIFF), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUDIFF, idCmdFirst, Diff);
-		else
-			InsertSVNMenuBMP(HMENU(MENUDIFF), INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
+
 	if (files_.size() == 2)	//compares the two selected files
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUDIFF), INDEXMENU(MENUDIFF), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUDIFF, idCmdFirst, Diff);
-		else
-			InsertSVNMenuBMP(HMENU(MENUDIFF), INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUDIFF), INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
+
 	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENULOG), INDEXMENU(MENULOG), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENULOG, idCmdFirst, Log);
-		else
-			InsertSVNMenuBMP(HMENU(MENULOG), INDEXMENU(MENULOG), idCmd++, IDS_MENULOG, IDI_LOG, idCmdFirst, Log);
+		InsertSVNMenu(ownerdrawn, HMENU(MENULOG), INDEXMENU(MENULOG), idCmd++, IDS_MENULOG, IDI_LOG, idCmdFirst, Log);
+
 	if ((isOnlyOneItemSelected)&&(isFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUREPOBROWSE), INDEXMENU(MENUREPOBROWSE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREPOBROWSE, idCmdFirst, RepoBrowse);
-		else
-			InsertSVNMenuBMP(HMENU(MENUREPOBROWSE), INDEXMENU(MENUREPOBROWSE), idCmd++, IDS_MENUREPOBROWSE, IDI_REPOBROWSE, idCmdFirst, RepoBrowse);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUREPOBROWSE), INDEXMENU(MENUREPOBROWSE), idCmd++, IDS_MENUREPOBROWSE, IDI_REPOBROWSE, idCmdFirst, RepoBrowse);
 	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUSHOWCHANGED), INDEXMENU(MENUSHOWCHANGED), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSHOWCHANGED, idCmdFirst, ShowChanged);
-		else
-			InsertSVNMenuBMP(HMENU(MENUSHOWCHANGED), INDEXMENU(MENUSHOWCHANGED), idCmd++, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, idCmdFirst, ShowChanged);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUSHOWCHANGED), INDEXMENU(MENUSHOWCHANGED), idCmd++, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, idCmdFirst, ShowChanged);
 
+	//---- separator 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
 	}
 
-	if ((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected)&&(!isFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUCONFLICTEDITOR), INDEXMENU(MENUCONFLICTEDITOR), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCONFLICT, idCmdFirst, ConflictEditor);
-		else
-			InsertSVNMenuBMP(HMENU(MENUCONFLICTEDITOR), INDEXMENU(MENUCONFLICTEDITOR), idCmd++, IDS_MENUCONFLICT, IDI_CONFLICT, idCmdFirst, ConflictEditor);
-	if (isInSVN)
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUUPDATEEXT), INDEXMENU(MENUUPDATEEXT), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATEEXT, idCmdFirst, UpdateExt);
-		else
-			InsertSVNMenuBMP(HMENU(MENUUPDATEEXT), INDEXMENU(MENUUPDATEEXT), idCmd++, IDS_MENUUPDATEEXT, IDI_UPDATE, idCmdFirst, UpdateExt);
-	if ((isInSVN)&&(isOnlyOneItemSelected))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENURENAME), INDEXMENU(MENURENAME), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURENAME, idCmdFirst, Rename);
-		else
-			InsertSVNMenuBMP(HMENU(MENURENAME), INDEXMENU(MENURENAME), idCmd++, IDS_MENURENAME, IDI_RENAME, idCmdFirst, Rename);
-	if (isInSVN)
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREMOVE, idCmdFirst, Remove);
-		else
-			InsertSVNMenuBMP(HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, Remove);
 	if ((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENURESOLVE), INDEXMENU(MENURESOLVE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURESOLVE, idCmdFirst, Resolve);
-		else
-			InsertSVNMenuBMP(HMENU(MENURESOLVE), INDEXMENU(MENURESOLVE), idCmd++, IDS_MENURESOLVE, IDI_RESOLVE, idCmdFirst, Resolve);
+	{
+		if(!isFolder)
+			InsertSVNMenu(ownerdrawn, HMENU(MENUCONFLICTEDITOR), INDEXMENU(MENUCONFLICTEDITOR), idCmd++, IDS_MENUCONFLICT, IDI_CONFLICT, idCmdFirst, ConflictEditor);
+		InsertSVNMenu(ownerdrawn, HMENU(MENURESOLVE), INDEXMENU(MENURESOLVE), idCmd++, IDS_MENURESOLVE, idCmdFirst, IDI_RESOLVE, Resolve);
+	}
+	if (isInSVN)
+		InsertSVNMenu(ownerdrawn, HMENU(MENUUPDATEEXT), INDEXMENU(MENUUPDATEEXT), idCmd++, IDS_MENUUPDATEEXT, IDI_UPDATE, idCmdFirst, UpdateExt);
+	if ((isInSVN)&&(isOnlyOneItemSelected))
+		InsertSVNMenu(ownerdrawn, HMENU(MENURENAME), INDEXMENU(MENURENAME), idCmd++, IDS_MENURENAME, IDI_RENAME, idCmdFirst, Rename);
+	if (isInSVN)
+		InsertSVNMenu(ownerdrawn, HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, Remove);
 	if (((isInSVN)&&(!isNormal))||((isFolder)&&(isFolderInSVN)))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUREVERT), INDEXMENU(MENUREVERT), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREVERT, idCmdFirst, Revert);
-		else
-			InsertSVNMenuBMP(HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, Revert);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, Revert);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCLEANUP, idCmdFirst, Cleanup);
-		else
-			InsertSVNMenuBMP(HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
 
+	//---- separator 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
 	}
 
-	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUCOPY), INDEXMENU(MENUCOPY), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUBRANCH, idCmdFirst, Copy);
-		else
-			InsertSVNMenuBMP(HMENU(MENUCOPY), INDEXMENU(MENUCOPY), idCmd++, IDS_MENUBRANCH, IDI_COPY, idCmdFirst, Copy);
-	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUSWITCH), INDEXMENU(MENUSWITCH), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSWITCH, idCmdFirst, Switch);
-		else
-			InsertSVNMenuBMP(HMENU(MENUSWITCH), INDEXMENU(MENUSWITCH), idCmd++, IDS_MENUSWITCH, IDI_SWITCH, idCmdFirst, Switch);
-	if ((isInSVN)&&(isOnlyOneItemSelected))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUMERGE), INDEXMENU(MENUMERGE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUMERGE, idCmdFirst, Merge);
-		else
-			InsertSVNMenuBMP(HMENU(MENUMERGE), INDEXMENU(MENUMERGE), idCmd++, IDS_MENUMERGE, IDI_MERGE, idCmdFirst, Merge);
-	if (isFolder)
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUEXPORT), INDEXMENU(MENUEXPORT), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUEXPORT, idCmdFirst, Export);
-		else
-			InsertSVNMenuBMP(HMENU(MENUEXPORT), INDEXMENU(MENUEXPORT), idCmd++, IDS_MENUEXPORT, IDI_EXPORT, idCmdFirst, Export);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENURELOCATE), INDEXMENU(MENURELOCATE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURELOCATE, idCmdFirst, Relocate);
-		else
-			InsertSVNMenuBMP(HMENU(MENURELOCATE), INDEXMENU(MENURELOCATE), idCmd++, IDS_MENURELOCATE, IDI_RELOCATE, idCmdFirst, Relocate);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUCOPY), INDEXMENU(MENUCOPY), idCmd++, IDS_MENUBRANCH, IDI_COPY, idCmdFirst, Copy);
+	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
+		InsertSVNMenu(ownerdrawn, HMENU(MENUSWITCH), INDEXMENU(MENUSWITCH), idCmd++, IDS_MENUSWITCH, IDI_SWITCH, idCmdFirst, Switch);
+	if ((isInSVN)&&(isOnlyOneItemSelected))
+		InsertSVNMenu(ownerdrawn, HMENU(MENUMERGE), INDEXMENU(MENUMERGE), idCmd++, IDS_MENUMERGE, IDI_MERGE, idCmdFirst, Merge);
+	if (isFolder)
+		InsertSVNMenu(ownerdrawn, HMENU(MENUEXPORT), INDEXMENU(MENUEXPORT), idCmd++, IDS_MENUEXPORT, IDI_EXPORT, idCmdFirst, Export);
+	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+		InsertSVNMenu(ownerdrawn, HMENU(MENURELOCATE), INDEXMENU(MENURELOCATE), idCmd++, IDS_MENURELOCATE, IDI_RELOCATE, idCmdFirst, Relocate);
 
+	//---- separator 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
@@ -495,45 +443,24 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	if ((!isInSVN)&&(isFolder)&&(!isFolderInSVN))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUCREATEREPOS), INDEXMENU(MENUCREATEREPOS), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCREATEREPOS, idCmdFirst, CreateRepos);
-		else
-			InsertSVNMenuBMP(HMENU(MENUCREATEREPOS), INDEXMENU(MENUCREATEREPOS), idCmd++, IDS_MENUCREATEREPOS, IDI_CREATEREPOS, idCmdFirst, CreateRepos);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUCREATEREPOS), INDEXMENU(MENUCREATEREPOS), idCmd++, IDS_MENUCREATEREPOS, IDI_CREATEREPOS, idCmdFirst, CreateRepos);
 	if ((!isInSVN)&&(isInVersionedFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUADD), INDEXMENU(MENUADD), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUADD, idCmdFirst, Add);
-		else
-			InsertSVNMenuBMP(HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
 	if ((!isInSVN)&&(isFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIMPORT, idCmdFirst, Import);
-		else
-			InsertSVNMenuBMP(HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
 	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIGNORE, idCmdFirst, Ignore);
-		else
-			InsertSVNMenuBMP(HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Add);
+		InsertSVNMenu(ownerdrawn, HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Ignore);
 
+	//---- separator 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
 	}
 
-	if (ownerdrawn)
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUHELP, idCmdFirst, Help);
-	else
-		InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUHELP, IDI_SETTINGS, idCmdFirst, Help);
-	if (ownerdrawn)
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSETTINGS, idCmdFirst, Settings);
-	else
-		InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUSETTINGS, IDI_SETTINGS, idCmdFirst, Settings);
-	if (ownerdrawn)
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUABOUT, idCmdFirst, About);
-	else
-		InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUABOUT, IDI_ABOUT, idCmdFirst, About);
-
+	InsertSVNMenu(ownerdrawn, subMenu, indexSubMenu++, idCmd++, IDS_MENUHELP, IDI_HELP, idCmdFirst, Help);
+	InsertSVNMenu(ownerdrawn, subMenu, indexSubMenu++, idCmd++, IDS_MENUSETTINGS, IDI_SETTINGS, idCmdFirst, Settings);
+	InsertSVNMenu(ownerdrawn, subMenu, indexSubMenu++, idCmd++, IDS_MENUABOUT, IDI_ABOUT, idCmdFirst, About);
 
 
 	//add submenu to main context menu
