@@ -182,6 +182,9 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 	m_sFwdslashPath.Trim();
 	m_sFwdslashPath.Replace('\\', '/');
 	m_sFwdslashPath.TrimRight('/');	
+
+	// We don't leave a trailing / even on root dir paths, because SVN doesn't like it
+
 	//workaround for Subversions UNC-path bug
 	if (m_sFwdslashPath.Left(10).CompareNoCase(_T("file://///"))==0)
 	{
@@ -200,6 +203,11 @@ void CTSVNPath::SetBackslashPath(const CString& sPath) const
 	m_sBackslashPath.Trim();
 	m_sBackslashPath.Replace('/', '\\');
 	m_sBackslashPath.TrimRight('\\');
+	// Make sure that root directories look like 'C:\' rather than 'C:'
+	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
+	{
+		m_sBackslashPath += '\\';
+	}
 }
 
 void CTSVNPath::SetUTF8FwdslashPath(const CString& sPath) const
@@ -463,12 +471,13 @@ void CTSVNPath::AppendRawString(const CString& sAppend)
 
 void CTSVNPath::AppendPathString(const CString& sAppend)
 {
-	EnsureFwdslashPathSet();
+	EnsureBackslashPathSet();
 	CString cleanAppend(sAppend);
-	cleanAppend.Replace('\\', '/');
-	cleanAppend.TrimLeft('/');
-	CString strCopy = m_sFwdslashPath + _T("/") + cleanAppend;
-	SetFromSVN(strCopy);
+	cleanAppend.Replace('/', '\\');
+	cleanAppend.TrimLeft('\\');
+	m_sBackslashPath.TrimRight('\\');
+	CString strCopy = m_sBackslashPath + _T("\\") + cleanAppend;
+	SetFromWin(strCopy);
 }
 
 
