@@ -46,6 +46,8 @@ protected:
 	afx_msg void			OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void			OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual BOOL			OnInitDialog();
+	virtual void			OnOK();
+	virtual void			OnCancel();
 
 	DECLARE_MESSAGE_MAP()
 

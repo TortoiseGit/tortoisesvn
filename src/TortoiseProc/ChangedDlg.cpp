@@ -432,3 +432,15 @@ void CChangedDlg::OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 	n2.Format(IDS_DIFF_BASENAME, name);
 	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
 }
+
+void CChangedDlg::OnOK()
+{
+	if (GetDlgItem(IDOK)->IsWindowEnabled())
+		__super::OnOK();
+}
+
+void CChangedDlg::OnCancel()
+{
+	if (GetDlgItem(IDOK)->IsWindowEnabled())
+		__super::OnCancel();
+}

@@ -395,6 +395,8 @@ void CLogPromptDlg::StartDiff(int fileindex)
 
 void CLogPromptDlg::OnOK()
 {
+	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+		return;
 	//first add all the unversioned files the user selected
 	for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 	{
@@ -688,6 +690,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 
 void CLogPromptDlg::OnCancel()
 {
+	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+		return;
 	DeleteFile(m_sPath);
 	UpdateData(TRUE);
 	CResizableDialog::OnCancel();
