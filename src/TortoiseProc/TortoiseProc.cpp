@@ -884,7 +884,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					value = value.Trim("\n\r");
 					value += "\n";
 					value += name;
-					value += "\0\0\0";
+					value.Remove('\r');
 				}
 				if (!props.Add(_T("svn:ignore"), value))
 				{
