@@ -463,7 +463,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				{
 					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 					CString strLine = _T("");
-					while (file.ReadString(strLine))
+					while (file.ReadString(strLine)&&(!pDlg->m_bCancelled))
 					{
 						TRACE(_T("add file %s\n"), strLine);
 						if (!pDlg->Add(strLine, false))
@@ -496,7 +496,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				{
 					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 					CString strLine = _T("");
-					while (file.ReadString(strLine))
+					while (file.ReadString(strLine)&&(!pDlg->m_bCancelled))
 					{
 						TRACE(_T("revert file %s\n"), strLine);
 						if (!pDlg->Revert(strLine, true))
