@@ -234,67 +234,88 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	{
 		CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 		CString strLine = _T("");
-		const TCHAR * strbuf = NULL;;
+		const TCHAR * strbuf = NULL;
 		while (file.ReadString(strLine))
 		{
 			SVNStatus status;
 			svn_wc_status_t *s;
+
+			// Determine whether the item the user selected (strLine) is a directory.
+
 			BOOL bIsDir = PathIsDirectory(strLine);
+
+			// The directory that contains this item.
+			// Even if strLine is a directory, we will hold its root. 
+			// Thus, we can distinguish sub-items with the same relative 
+			// path in different selected directories.
+
+			CString root = strLine.Left(strLine.ReverseFind('\\') + 1);
+
+			// Introduce this flag to allow ignored items to be added deliberately.
+			// It will be reset once the first entry found for strLine is added.
+
+			bool firstRun = true;
+
+			// Ask SVN for the first item found for strLine.
+
 			s = status.GetFirstFileStatus(strLine, &strbuf);
-			if (s!=0)
+			while (s!=0)
 			{
-				CString temp = strbuf;
-				svn_wc_status_kind stat;
-				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-				if (SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)
+				// the current item (path)
+
+				CString item = strbuf;
+
+				// Get the "combined" status of item and its properties
+
+				svn_wc_status_kind stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+
+				// Is the status not "below normal", i.e. non-versioned?
+
+				bool nonVersioned = SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat;
+
+				// Shall the item be ignored?
+
+				bool ignore = (stat==svn_wc_status_ignored) && !firstRun;
+
+				// This one fixes a problem with externals: 
+				// If a strLine is a file, svn:externals at its parent directory
+				// will also be returned by GetXXXFileStatus. Hence, make sure the 
+				// item's parent is the strLine's parent.
+
+				bool actuallySelected = bIsDir || (item.ReverseFind('/')+1 == root.GetLength());
+
+				// Add to the selection list, if all 3 conditions are met:
+
+				if (nonVersioned && !ignore && actuallySelected)
 				{
-					//we add 'temporary' files always if they are not recursively added from a directory
-					pDlg->m_arFileList.Add(strLine);
+					firstRun = false;
+
+					pDlg->m_arFileList.Add(item);
 					int count = pDlg->m_addListCtrl.GetItemCount();
-					pDlg->m_addListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1));
+					pDlg->m_addListCtrl.InsertItem(count, item.Mid(root.GetLength()));
 					pDlg->m_addListCtrl.SetCheck(count);
 					if (bIsDir)
 					{
 						//we have an unversioned folder -> get all files in it recursively!
 						int count = pDlg->m_addListCtrl.GetItemCount();
-						CDirFileEnum filefinder(strLine);
+						CDirFileEnum filefinder(item);
 						CString filename;
 						while (filefinder.NextFile(filename))
 						{
-							pDlg->m_arFileList.Add(filename);
-							pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
-							pDlg->m_addListCtrl.SetCheck(count++);
+							if (firstRun || !config.MatchIgnorePattern(filename))
+							{
+								pDlg->m_arFileList.Add(filename);
+								pDlg->m_addListCtrl.InsertItem(count, filename.Mid(root.GetLength()));
+								pDlg->m_addListCtrl.SetCheck(count++);
+							}
 						} // while (filefinder.NextFile(filename))
 					} // if (bIsDir) 
-				} // if (!SVNStatus::IsImportant(stat)) 
-				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
-				{
-					temp = strbuf;
-					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-					if ((SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)&&((stat!=svn_wc_status_ignored)||(!bIsDir)))
-					{
-						pDlg->m_arFileList.Add(temp);
-						int count = pDlg->m_addListCtrl.GetItemCount();
-						pDlg->m_addListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
-						pDlg->m_addListCtrl.SetCheck(count);
-						if (bIsDir)
-						{
-							//we have an unversioned folder -> get all files in it recursively!
-							int count = pDlg->m_addListCtrl.GetItemCount();
-							CDirFileEnum filefinder(temp);
-							CString filename;
-							while (filefinder.NextFile(filename))
-							{
-								if (!config.MatchIgnorePattern(filename))
-								{
-									pDlg->m_arFileList.Add(filename);
-									pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
-									pDlg->m_addListCtrl.SetCheck(count++);
-								}
-							} // while (filefinder.NextFile(filename))
-						} // if (bIsDir) 
-					} // if (!SVNStatus::IsImportant(stat)) 
-				} // while ((s = status.GetNextFileStatus(buf)) != NULL)
+				} // if (nonVersioned && !ignore && actuallySelected) 
+			
+				// Ask SVN for the next item for strLine. 
+				// This will usually be the case for directories and svn:externals.
+
+				s = status.GetNextFileStatus(&strbuf);
 			} // if (s!=0) 
 		} // while (file.ReadString(strLine)) 
 		file.Close();

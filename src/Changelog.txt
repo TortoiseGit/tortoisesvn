@@ -43,6 +43,11 @@
        that somethings going on. (Stefan)
 - BUG: TortoiseMerge skipped diffs of one line with the
        "Next Diff" or "Previous Diff" commands. (Stefan)
+- BUG: Fixed some formatting issues in the dialogs
+       "commit", "add" and "check for updates" if those
+       dialogs were started for selected files (not folders)
+       and a folder with svn:externals is in the same
+       directory as the selected file(s). (Stefan Fuhrmann)
 
 Version 1.0.3
 - ADD: It's now possible to invoke the add command on

@@ -168,12 +168,31 @@ void CChangedDlg::AddEntry(CString file, svn_wc_status_t * status)
 	if (status->repos_prop_status != svn_wc_status_ignored)
 		repo = repo > status->repos_prop_status ? repo : status->repos_prop_status;
 
-	if ((text > svn_wc_status_normal)||(repo > svn_wc_status_normal))
+	// This one fixes a problem with externals: 
+	// If a m_path is a file, svn:externals at its parent directory
+	// will also be returned by GetXXXFileStatus. Hence, make sure the 
+	// file's parent is the m_path's parent.
+
+	BOOL pathIsDir = PathIsDirectory(m_path);
+	int fileDirLen = max (file.ReverseFind('/'), file.ReverseFind('\\'));
+	int pathLen = m_path.ReverseFind('\\');
+
+	bool actuallySelected = pathIsDir || (pathLen == fileDirLen);
+
+	if (((text > svn_wc_status_normal)||(repo > svn_wc_status_normal)) &&
+		actuallySelected)
 	{
 		TCHAR buf[MAX_PATH];
-		CString sRelPath = file.Mid(m_path.GetLength()+1);
-		if (PathIsDirectory(file))
+
+		// This formatting will start at the parent of m_path.
+		// Once "Check For Updates" accepts multiple targets, this is a must.
+		// Moreover, this makes the display of directories and files consistent
+		// (both show the selected name).
+
+		CString sRelPath = file.Mid (pathLen+1);
+		if (pathIsDir && PathIsDirectory(file))
 			sRelPath += _T("/");
+
 		m_FileListCtrl.InsertItem(index, sRelPath);
 		//SVNStatus::GetStatusString(text, buf);
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), text, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));

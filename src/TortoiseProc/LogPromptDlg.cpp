@@ -693,6 +693,25 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 			SVNStatus status;
 			svn_wc_status_t *s;
 			s = status.GetFirstFileStatus(strLine, &strbuf);
+
+			// This one fixes a problem with externals: 
+			// If a strLine is a file, svn:externals at its parent directory
+			// will also be returned by GetXXXFileStatus. Hence, we skip all
+			// status info until we found the one matching strLine.
+
+			if (!bIsFolder)
+			{
+				while (s != 0)
+				{
+					CString temp = strbuf;
+					temp.Replace('\\', '/');
+					if (temp == strLine)
+						break;
+
+					s = status.GetNextFileStatus(&strbuf);
+				} // while (s != 0)
+			} // if (!bIsFolder)
+
 			if (s!=0)
 			{
 				CString temp;
@@ -771,7 +790,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				alldata->textstatus = s->text_status;
 				alldata->propstatus = s->prop_status;
 				pDlg->m_arAllData.Add(alldata);
-				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
+				while (bIsFolder && ((s = status.GetNextFileStatus(&strbuf)) != NULL))
 				{
 					temp = strbuf;
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
