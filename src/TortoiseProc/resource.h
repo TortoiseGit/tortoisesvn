@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcRUS.rc
+// Used by d:\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseProcDEU.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -102,6 +102,7 @@
 #define IDS_LOGPROMPT_ASKADD            219
 #define IDS_STRING220                   220
 #define IDS_LOGPROMPT_PROPSTATUS        220
+#define IDS_LOGPROMPT_NOTHINGTOCOMMIT   220
 #define IDS_PROGRS_ATREV                221
 #define IDS_PROGRS_ACTION               222
 #define IDS_PROGRS_PATH                 223

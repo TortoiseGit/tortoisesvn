@@ -634,7 +634,8 @@ BEGIN
     IDS_LOGPROMPT_FILE      "Файл"
     IDS_LOGPROMPT_STATUS    "Состояние"
     IDS_LOGPROMPT_ASKADD    "Вы выбрали файл, ещё не находящийся в репозитории.\nПеред фиксированием изменений\nфайл будет добавлен в систему контроля версий."
-    IDS_STRING220           "dummy"
+    IDS_LOGPROMPT_NOTHINGTOCOMMIT 
+                            "No files were changed or added since\nthe last commit. There's nothing\nto do for TortoiseSVN here..."
     IDS_PROGRS_ATREV        "Текущая редакция: %d"
     IDS_PROGRS_ACTION       "Действие"
     IDS_PROGRS_PATH         "Путь"
@@ -888,17 +889,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-#define _AFX_NO_SPLITTER_RESOURCES
-#define _AFX_NO_OLE_RESOURCES
-#define _AFX_NO_TRACKER_RESOURCES
-#define _AFX_NO_PROPERTY_RESOURCES
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
-LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
-#pragma code_page(1251)
-#include "res\TortoiseProc.rc2"  // non-Microsoft Visual C++ edited resources
-#include "afxres.rc"         // Standard components
-#endif
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED

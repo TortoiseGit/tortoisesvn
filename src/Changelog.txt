@@ -4,6 +4,10 @@
        where they can't be edited. (Stefan)
 - CHG: Follow the drive type settings: don't access
        drives which are not used. (Stefan)
+- CHG: If there's nothing to commit, a dialog box
+       pops up telling that. After that the main
+       dialog is also closed so no more pressing
+       "OK" or "Cancel" for nothing. (Stefan)
 - ADD: The "Browse..." Button in the relocate dialog
        works now. (Stefan)
 - ADD: Maximize button on the progress window. (Stefan)

@@ -667,7 +667,8 @@ BEGIN
     IDS_LOGPROMPT_FILE      "File"
     IDS_LOGPROMPT_STATUS    "Status"
     IDS_LOGPROMPT_ASKADD    "You selected an unversioned file.\nThe file will be added to version control before committing."
-    IDS_STRING220           "dummy"
+    IDS_LOGPROMPT_NOTHINGTOCOMMIT 
+                            "No files were changed or added since\nthe last commit. There's nothing\nto do for TortoiseSVN here..."
     IDS_PROGRS_ATREV        "At revision: %d"
     IDS_PROGRS_ACTION       "Action"
     IDS_PROGRS_PATH         "Path"

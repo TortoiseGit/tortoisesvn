@@ -383,6 +383,11 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	if (pDlg->m_ListCtrl.GetItemCount()==0)
+	{
+		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		pDlg->EndDialog(0);
+	}
 	return 0;
 }
 

@@ -30,11 +30,11 @@ SVN::SVN(void)
 	apr_initialize();
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
-	Err = svn_config_ensure(parentpool);
+	Err = svn_config_ensure(NULL, parentpool);
 	pool = svn_pool_create (parentpool);
 	// set up the configuration
 	if (Err == 0)
-		Err = svn_config_get_config (&(ctx.config), pool);
+		Err = svn_config_get_config (&(ctx.config), NULL, pool);
 
 	m_username = NULL;
 	m_password = NULL;
@@ -312,7 +312,6 @@ BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision)
 							CUnicodeUtils::GetUTF8(srcPath),
 							getRevision (revision),
 							CUnicodeUtils::GetUTF8(destPath),
-							NULL,
 							&ctx,
 							pool);
 	if(Err != NULL)

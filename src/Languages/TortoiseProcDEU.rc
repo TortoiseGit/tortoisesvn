@@ -669,7 +669,8 @@ BEGIN
     IDS_LOGPROMPT_FILE      "Datei"
     IDS_LOGPROMPT_STATUS    "Status"
     IDS_LOGPROMPT_ASKADD    "Sie haben eine unkontrollierte Datei gewählt.\nDie Datei wird vor dem Übertragen zur Versionskontrolle hinzugefügt."
-    IDS_STRING220           "dummy"
+    IDS_LOGPROMPT_NOTHINGTOCOMMIT 
+                            "Es wurden keine Dateien/Ordner verändert\nseit dem letzten Übertragen.\nEs gibt nix zu tun für TortoiseSVN..."
     IDS_PROGRS_ATREV        "In Revision: %d"
     IDS_PROGRS_ACTION       "Aktion"
     IDS_PROGRS_PATH         "Pfad"

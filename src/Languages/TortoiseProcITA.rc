@@ -670,7 +670,8 @@ BEGIN
     IDS_LOGPROMPT_FILE      "File"
     IDS_LOGPROMPT_STATUS    "Stato"
     IDS_LOGPROMPT_ASKADD    "Hai selezionato un file non sottoposto a controllo versione.\nIl file verra' aggiunto al sistema di controllo versione."
-    IDS_STRING220           "dummy"
+    IDS_LOGPROMPT_NOTHINGTOCOMMIT 
+                            "No files were changed or added since\nthe last commit. There's nothing\nto do for TortoiseSVN here..."
     IDS_PROGRS_ATREV        "versione: %d"
     IDS_PROGRS_ACTION       "Operazione"
     IDS_PROGRS_PATH         "Percorso"

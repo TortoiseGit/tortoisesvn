@@ -667,7 +667,8 @@ BEGIN
     IDS_LOGPROMPT_FILE      "Fil"
     IDS_LOGPROMPT_STATUS    "Status"
     IDS_LOGPROMPT_ASKADD    "Du valgte en uversjonert fil.\nFilen kommer til å bli lagt under versjonskontroll før arkivering."
-    IDS_STRING220           "dummy"
+    IDS_LOGPROMPT_NOTHINGTOCOMMIT 
+                            "No files were changed or added since\nthe last commit. There's nothing\nto do for TortoiseSVN here..."
     IDS_PROGRS_ATREV        "I revisjon: %d"
     IDS_PROGRS_ACTION       "Handling"
     IDS_PROGRS_PATH         "Bane"
