@@ -816,7 +816,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							CString revFilename;
 							int rfind = m_path.ReverseFind('.');
-							if (rfind >= 0)
+							if (rfind > 0)
 								revFilename.Format(_T("%s-%ld%s"), m_path.Left(rfind), rev, m_path.Mid(rfind));
 							else
 								revFilename.Format(_T("%s-%ld"), m_path, rev);
