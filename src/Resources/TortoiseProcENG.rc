@@ -1776,6 +1776,9 @@ BEGIN
     IDS_SVNACTION_DELETING  "Deleting"
     IDS_SVNACTION_MERGED    "Merged"
     IDS_SVNACTION_CONFLICTED "Conflicted"
+    IDS_SVNACTION_UNLOCKED  "Unlocked"
+    IDS_SVNACTION_LOCKEDBY  "Locked by %s"
+    IDS_SVNACTION_FAILEDLOCK "Lock failed"
 END
 
 STRINGTABLE 
@@ -1859,6 +1862,11 @@ BEGIN
     IDS_LOG_FILTER_PATHS    "Paths"
     IDS_LOG_FILTER_AUTHORS  "Authors"
     IDS_LOG_FILTER_MESSAGES "Messages"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SVNACTION_FAILEDUNLOCK "Unlock failed"
 END
 
 #endif    // English (U.S.) resources

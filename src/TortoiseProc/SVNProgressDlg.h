@@ -107,7 +107,8 @@ private:
 			rev(0),
 			color(::GetSysColor(COLOR_WINDOWTEXT)),
 			bConflictedActionItem(false),
-			bAuxItem(false)
+			bAuxItem(false),
+			lock_state(svn_wc_notify_lock_state_unchanged)
 		{
 		}
 	public:
@@ -120,9 +121,10 @@ private:
 		CString					mime_type;
 		svn_wc_notify_state_t	content_state;
 		svn_wc_notify_state_t	prop_state;
+		svn_wc_notify_lock_state_t lock_state;
 		LONG					rev;
 		COLORREF				color;
-
+		CString					owner;						///< lock owner
 		bool					bConflictedActionItem;		// Is this item a conflict?
 		bool					bAuxItem;					// Set if this item is not a true 'SVN action' 
 		CString					sPathColumnText;	
@@ -154,7 +156,12 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
+	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
+		svn_node_kind_t kind, const CString& mime_type, 
+		svn_wc_notify_state_t content_state, 
+		svn_wc_notify_state_t prop_state, LONG rev,
+		const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+		svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL Cancel();
 	virtual void OnCancel();
 

@@ -114,10 +114,15 @@ void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 		m_ProgList.EnsureVisible(iInsertedAt, false);
 	}
 }
-
-BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
+							svn_node_kind_t kind, const CString& mime_type, 
+							svn_wc_notify_state_t content_state, 
+							svn_wc_notify_state_t prop_state, LONG rev,
+							const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+							svn_error_t * err, apr_pool_t * /*pool*/)
 {
 	bool bNoNotify = false;
+	bool bDoAddData = true;
 	NotificationData * data = new NotificationData();
 	data->path = path;
 	data->action = action;
@@ -126,21 +131,50 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	data->content_state = content_state;
 	data->prop_state = prop_state;
 	data->rev = rev;
-
+	data->lock_state = lock_state;
+	if ((lock)&&(lock->owner))
+		data->owner = CUnicodeUtils::GetUnicode(lock->owner);
+	data->sPathColumnText = path.GetUIPathString();
 	switch (data->action)
 	{
 	case svn_wc_notify_add:
 	case svn_wc_notify_update_add:
 		m_bMergesAddsDeletesOccurred = true;
+		data->sActionColumnText.LoadString(IDS_SVNACTION_ADD);
+		data->color = GetSysColor(COLOR_HIGHLIGHT);
+		break;
 	case svn_wc_notify_commit_added:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
+		data->color = GetSysColor(COLOR_HIGHLIGHT);
+		break;
+	case svn_wc_notify_copy:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_COPY);
+		break;
 	case svn_wc_notify_commit_modified:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_MODIFIED);
 		data->color = GetSysColor(COLOR_HIGHLIGHT);
 		break;
 	case svn_wc_notify_delete:
 	case svn_wc_notify_update_delete:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
 		m_bMergesAddsDeletesOccurred = true;
+		data->color = RGB(100,0,0);
+		break;
 	case svn_wc_notify_commit_deleted:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETING);
+		data->color = RGB(100,0,0);
+		break;
+	case svn_wc_notify_restore:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_RESTORE);
+		break;
+	case svn_wc_notify_revert:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_REVERT);
+		break;
+	case svn_wc_notify_resolved:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
+		break;
 	case svn_wc_notify_commit_replaced:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
 		data->color = RGB(100,0,0);
 		break;
 	case svn_wc_notify_update_update:
@@ -151,27 +185,43 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			&& ((prop_state == svn_wc_notify_state_inapplicable)
 			|| (prop_state == svn_wc_notify_state_unknown)
 			|| (prop_state == svn_wc_notify_state_unchanged)))
+		{
 			bNoNotify = true;
+			break;
+		}
 		if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
 		{
 			data->color = RGB(255, 0, 0);
 			data->bConflictedActionItem = true;
 			m_bConflictsOccurred = true;
+			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 		}
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
 		{
 			data->color = RGB(0, 100, 0);
 			m_bMergesAddsDeletesOccurred = true;
+			data->sActionColumnText.LoadString(IDS_SVNACTION_MERGED);
+		}
+		else
+		{
+			data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATE);
+		}
+		if (lock_state == svn_wc_notify_lock_state_unlocked)
+		{
+			CString temp(MAKEINTRESOURCE(IDS_SVNACTION_UNLOCKED));
+			data->sActionColumnText += _T(", ") + temp;
 		}
 		break;
 
 	case svn_wc_notify_update_external:
 		// For some reason we build a list of externals...
 		m_ExtStack.AddHead(path.GetUIPathString());
+		data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
 		break;
 
 	case svn_wc_notify_update_completed:
 		{
+			data->sActionColumnText.LoadString(IDS_SVNACTION_COMPLETED);
 			data->bAuxItem = true;
 			bool bEmpty = !!m_ExtStack.IsEmpty();
 			if (!bEmpty)
@@ -198,9 +248,44 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 
 		}
 		break;
-
+	case svn_wc_notify_commit_postfix_txdelta:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_POSTFIX);
+		break;
+	case svn_wc_notify_failed_revert:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDREVERT);
+		break;
+	case svn_wc_notify_status_completed:
+	case svn_wc_notify_status_external:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_STATUS);
+		break;
+	case svn_wc_notify_skip:
+		if (content_state == svn_wc_notify_state_missing)
+			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPMISSING);
+		else
+			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIP);
+		break;
+	case svn_wc_notify_locked:
+		if ((lock)&&(lock->owner))
+			data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, CUnicodeUtils::GetUnicode(lock->owner));
+		break;
+	case svn_wc_notify_unlocked:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_UNLOCKED);
+		break;
+	case svn_wc_notify_failed_lock:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDLOCK);
+		m_arData.push_back(data);
+		AddItemToList(data);
+		ReportError(SVN::GetErrorString(err));
+		bDoAddData = false;
+		break;
+	case svn_wc_notify_failed_unlock:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDUNLOCK);
+		m_arData.push_back(data);
+		AddItemToList(data);
+		ReportError(SVN::GetErrorString(err));
+		bDoAddData = false;
+		break;
 	default:
-		// Lots of actions fall through here
 		break;
 	} // switch (action)
 
@@ -208,18 +293,11 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		delete data;
 	else
 	{
-		if (data->sActionColumnText.IsEmpty())
+		if (bDoAddData)
 		{
-			data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
+			m_arData.push_back(data);
+			AddItemToList(data);
 		}
-		if(!data->bAuxItem)
-		{
-			data->sPathColumnText = path.GetUIPathString();
-		}
-
-		m_arData.push_back(data);
-		AddItemToList(data);
-
 		if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
 		{
 			ResizeColumns();

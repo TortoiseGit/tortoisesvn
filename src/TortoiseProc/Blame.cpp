@@ -148,8 +148,12 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 
 	return m_sSavePath;
 }
-
-BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/, svn_node_kind_t /*kind*/, const CString& /*myme_type*/, svn_wc_notify_state_t /*content_state*/, svn_wc_notify_state_t /*prop_state*/, LONG rev)
+BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/, 
+					svn_node_kind_t /*kind*/, const CString& /*mime_type*/, 
+					svn_wc_notify_state_t /*content_state*/, 
+					svn_wc_notify_state_t /*prop_state*/, LONG rev,
+					const svn_lock_t * /*lock*/, svn_wc_notify_lock_state_t /*lock_state*/,
+					svn_error_t * /*err*/, apr_pool_t * /*pool*/)
 {
 	m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
 	m_progressDlg.SetProgress(rev, m_nHeadRev);

@@ -68,8 +68,10 @@ SVN::SVN(void)
 
 	m_pctx->log_msg_func = svn_cl__get_log_message;
 	m_pctx->log_msg_baton = logMessage("");
-	m_pctx->notify_func = notify;
-	m_pctx->notify_baton = this;
+	m_pctx->notify_func2 = notify;
+	m_pctx->notify_baton2 = this;
+	m_pctx->notify_func = NULL;
+	m_pctx->notify_baton = NULL;
 	m_pctx->cancel_func = cancel;
 	m_pctx->cancel_baton = this;
 
@@ -128,7 +130,12 @@ CString SVN::CheckConfigFile()
 #pragma warning(disable: 4100)	// unreferenced formal parameter
 
 BOOL SVN::Cancel() {return FALSE;};
-BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
+BOOL SVN::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
+				svn_node_kind_t kind, const CString& mime_type, 
+				svn_wc_notify_state_t content_state, 
+				svn_wc_notify_state_t prop_state, LONG rev,
+				const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+				svn_error_t * err, apr_pool_t * pool) {return TRUE;};
 BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
@@ -286,7 +293,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 	{
 		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 	}
 
 	return TRUE;
@@ -363,7 +370,7 @@ LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse, B
 
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 	{
-		Notify(CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+		Notify(CTSVNPath(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 		return commit_info->revision;
 	}
 
@@ -391,7 +398,7 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 	return TRUE;
 }
 
@@ -414,7 +421,7 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 
 	CShellUpdater::Instance().AddPathForUpdate(srcPath);
 	CShellUpdater::Instance().AddPathForUpdate(destPath);
@@ -438,7 +445,7 @@ BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 	{
 		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+			Notify(pathlist[i], svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 	}
 
 	CShellUpdater::Instance().AddPathsForUpdate(pathlist);
@@ -692,7 +699,7 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, B
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision, NULL, svn_wc_notify_lock_state_unchanged, NULL, pool);
 	return TRUE;
 }
 
@@ -915,79 +922,6 @@ BOOL SVN::Cat(const CTSVNPath& url, SVNRev revision, const CTSVNPath& localpath)
 	return TRUE;
 }
 
-CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state)
-{
-	CString temp = _T(" ");
-	switch (action)
-	{
-		case svn_wc_notify_add:
-		case svn_wc_notify_update_add:
-			temp.LoadString(IDS_SVNACTION_ADD);
-			break;
-		case svn_wc_notify_commit_added:
-			temp.LoadString(IDS_SVNACTION_ADDING);
-			break;
-		case svn_wc_notify_copy:
-			temp.LoadString(IDS_SVNACTION_COPY);
-			break;
-		case svn_wc_notify_delete:
-		case svn_wc_notify_update_delete:
-			temp.LoadString(IDS_SVNACTION_DELETE);
-			break;
-		case svn_wc_notify_commit_deleted:
-			temp.LoadString(IDS_SVNACTION_DELETING);
-			break;
-		case svn_wc_notify_restore:
-			temp.LoadString(IDS_SVNACTION_RESTORE);
-			break;
-		case svn_wc_notify_revert:
-			temp.LoadString(IDS_SVNACTION_REVERT);
-			break;
-		case svn_wc_notify_resolved:
-			temp.LoadString(IDS_SVNACTION_RESOLVE);
-			break;
-		case svn_wc_notify_update_update:
-			if ((content_state == svn_wc_notify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted))
-				temp.LoadString(IDS_SVNACTION_CONFLICTED);
-			else if ((content_state == svn_wc_notify_state_merged) || (prop_state == svn_wc_notify_state_merged))
-				temp.LoadString(IDS_SVNACTION_MERGED);
-			else
-				temp.LoadString(IDS_SVNACTION_UPDATE);
-			break;
-		case svn_wc_notify_update_completed:
-			temp.LoadString(IDS_SVNACTION_COMPLETED);
-			break;
-		case svn_wc_notify_update_external:
-			temp.LoadString(IDS_SVNACTION_EXTERNAL);
-			break;
-		case svn_wc_notify_commit_modified:
-			temp.LoadString(IDS_SVNACTION_MODIFIED);
-			break;
-		case svn_wc_notify_commit_replaced:
-			temp.LoadString(IDS_SVNACTION_REPLACED);
-			break;
-		case svn_wc_notify_commit_postfix_txdelta:
-			temp.LoadString(IDS_SVNACTION_POSTFIX);
-			break;
-		case svn_wc_notify_failed_revert:
-			temp.LoadString(IDS_SVNACTION_FAILEDREVERT);
-			break;
-		case svn_wc_notify_status_completed:
-		case svn_wc_notify_status_external:
-			temp.LoadString(IDS_SVNACTION_STATUS);
-			break;
-		case svn_wc_notify_skip:
-			if (content_state == svn_wc_notify_state_missing)
-				temp.LoadString(IDS_SVNACTION_SKIPMISSING);
-			else
-				temp.LoadString(IDS_SVNACTION_SKIP);
-			break;
-		default:
-			return _T("???");
-	}
-	return temp;
-}
-
 BOOL SVN::CreateRepository(CString path, CString fstype)
 {
 	svn_repos_t * repo;
@@ -1187,27 +1121,25 @@ svn_error_t* SVN::logReceiver(void* baton,
 }
 
 void SVN::notify( void *baton,
-					const char *path,
-					svn_wc_notify_action_t action,
-					svn_node_kind_t kind,
-					const char *mime_type,
-					svn_wc_notify_state_t content_state,
-					svn_wc_notify_state_t prop_state,
-					svn_revnum_t revision)
+				 const svn_wc_notify_t *notify,
+				 apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
 
 	CTSVNPath tsvnPath;
-	tsvnPath.SetFromSVN(path);
+	tsvnPath.SetFromSVN(notify->path);
 
 	// Let the shell know (eventually) that we might have changed the state of this path
 	CShellUpdater::Instance().AddPathForUpdate(tsvnPath);
 
 	CString mime;
-	if (mime_type)
-		mime = CUnicodeUtils::GetUnicode(mime_type);
+	if (notify->mime_type)
+		mime = CUnicodeUtils::GetUnicode(notify->mime_type);
 
-	svn->Notify(tsvnPath, (svn_wc_notify_action_t)action, kind, mime, content_state, prop_state, revision);
+	svn->Notify(tsvnPath, notify->action, notify->kind, 
+				mime, notify->content_state, 
+				notify->prop_state, notify->revision, 
+				notify->lock, notify->lock_state, notify->err, pool);
 }
 
 svn_error_t* SVN::cancel(void *baton)

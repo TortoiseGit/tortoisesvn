@@ -76,7 +76,12 @@ public:
 	} ;
 	typedef CArray<LogChangedPath*, LogChangedPath*> LogChangedPathArray;
 	virtual BOOL Cancel();
-	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
+	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, 
+							svn_node_kind_t kind, const CString& mime_type, 
+							svn_wc_notify_state_t content_state, 
+							svn_wc_notify_state_t prop_state, LONG rev,
+							const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+							svn_error_t * err, apr_pool_t * pool);
 	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies);
 	virtual BOOL BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
 
@@ -469,11 +474,6 @@ public:
 	static CString CheckConfigFile();
 
 	/**
-	 * Returns a text representation of an action enum.
-	 */
-	static CString GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state);
-
-	/**
 	 * Creates a repository at the specified location.
 	 * \param path where the repository should be created
 	 * \return TRUE if operation was successful
@@ -568,13 +568,8 @@ private:
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
 	static svn_error_t* cancel(void *baton);
 	static void notify( void *baton,
-					const char *path,
-					svn_wc_notify_action_t action,
-					svn_node_kind_t kind,
-					const char *mime_type,
-					svn_wc_notify_state_t content_state,
-					svn_wc_notify_state_t prop_state,
-					svn_revnum_t revision);
+						const svn_wc_notify_t *notify,
+						apr_pool_t *pool);
 	static svn_error_t* logReceiver(void* baton, 
 					apr_hash_t* ch_paths, 
 					svn_revnum_t rev, 
