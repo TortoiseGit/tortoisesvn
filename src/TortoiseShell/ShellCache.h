@@ -35,6 +35,8 @@ public:
 		drivefixed = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"));
 		drivecdrom = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
 		driveremove = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
+		driveram = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
+		driveunknown = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 		recursiveticker = GetTickCount();
 		driveticker = recursiveticker;
 		drivetypeticker = recursiveticker;
@@ -94,6 +96,16 @@ public:
 		DriveValid();
 		return (driveremove);
 	}
+	BOOL IsRAM()
+	{
+		DriveValid();
+		return (driveram);
+	}
+	BOOL IsUnknown()
+	{
+		DriveValid();
+		return (driveunknown);
+	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
 		UINT drivetype = 0;
@@ -137,6 +149,10 @@ public:
 			return FALSE;
 		if ((drivetype == DRIVE_CDROM)&&(!IsCDRom()))
 			return FALSE;
+		if ((drivetype == DRIVE_RAMDISK)&&(!IsRAM()))
+			return FALSE;
+		if ((drivetype == DRIVE_UNKNOWN)&&(IsUnknown()))
+			return FALSE;
 		return TRUE;
 	}
 	DWORD GetLangID()
@@ -168,6 +184,8 @@ private:
 	CRegStdWORD drivefixed;
 	CRegStdWORD drivecdrom;
 	CRegStdWORD driveremove;
+	CRegStdWORD driveram;
+	CRegStdWORD driveunknown;
 	CRegStdWORD menulayout;
 	DWORD recursiveticker;
 	DWORD driveticker;

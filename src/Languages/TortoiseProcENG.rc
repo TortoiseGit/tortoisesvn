@@ -375,7 +375,11 @@ BEGIN
                     WS_TABSTOP,13,76,262,10
     CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,90,262,10
-    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,7,30,286,83
+    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,7,30,286,110
+    CONTROL         "RAM drives",IDC_RAM,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,104,262,10
+    CONTROL         "Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,118,262,10
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 199

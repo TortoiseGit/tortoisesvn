@@ -36,12 +36,16 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
 	m_regDriveMaskFixed = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"));
 	m_regDriveMaskCDROM = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
+	m_regDriveMaskRAM = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
+	m_regDriveMaskUnknown = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 
 	m_bShowChangedDirs = m_regShowChangedDirs;
 	m_bRemovable = m_regDriveMaskRemovable;
 	m_bNetwork = m_regDriveMaskRemote;
 	m_bFixed = m_regDriveMaskFixed;
 	m_bCDROM = m_regDriveMaskCDROM;
+	m_bRAM = m_regDriveMaskRAM;
+	m_bUnknown = m_regDriveMaskUnknown;
 }
 
 CSetOverlayPage::~CSetOverlayPage()
@@ -66,6 +70,8 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_NETWORK, OnBnClickedNetwork)
 	ON_BN_CLICKED(IDC_FIXED, OnBnClickedFixed)
 	ON_BN_CLICKED(IDC_CDROM, OnBnClickedCdrom)
+	ON_BN_CLICKED(IDC_UNKNOWN, OnBnClickedUnknown)
+	ON_BN_CLICKED(IDC_RAM, OnBnClickedRam)
 END_MESSAGE_MAP()
 
 
@@ -76,6 +82,8 @@ void CSetOverlayPage::SaveData()
 	m_regDriveMaskRemote = m_bNetwork;
 	m_regDriveMaskFixed = m_bFixed;
 	m_regDriveMaskCDROM = m_bCDROM;
+	m_regDriveMaskRAM = m_bRAM;
+	m_regDriveMaskUnknown = m_bUnknown;
 }
 
 BOOL CSetOverlayPage::OnInitDialog()
@@ -120,6 +128,16 @@ void CSetOverlayPage::OnBnClickedFixed()
 }
 
 void CSetOverlayPage::OnBnClickedCdrom()
+{
+	SetModified();
+}
+
+void CSetOverlayPage::OnBnClickedRam()
+{
+	SetModified();
+}
+
+void CSetOverlayPage::OnBnClickedUnknown()
 {
 	SetModified();
 }

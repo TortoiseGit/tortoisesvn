@@ -145,6 +145,7 @@
 #define IDC_CHECK2                      1061
 #define IDC_NOREMOVELOGMSG              1061
 #define IDC_MENU2                       1061
+#define IDC_UNKNOWN                     1061
 #define IDC_MENU23                      1063
 #define IDC_INPUTTEXT                   1064
 #define IDC_HINTTEXT                    1065
@@ -156,6 +157,7 @@
 #define IDC_CHECK1                      1073
 #define IDC_MENU24                      1073
 #define IDC_DONTCONVERT                 1073
+#define IDC_RAM                         1073
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076

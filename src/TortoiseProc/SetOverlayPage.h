@@ -74,11 +74,15 @@ private:
 	BOOL			m_bNetwork;
 	BOOL			m_bFixed;
 	BOOL			m_bCDROM;
+	BOOL			m_bRAM;
+	BOOL			m_bUnknown;
 	CRegDWORD		m_regShowChangedDirs;
 	CRegDWORD		m_regDriveMaskRemovable;
 	CRegDWORD		m_regDriveMaskRemote;
 	CRegDWORD		m_regDriveMaskFixed;
 	CRegDWORD		m_regDriveMaskCDROM;
+	CRegDWORD		m_regDriveMaskRAM;
+	CRegDWORD		m_regDriveMaskUnknown;
 	CBalloon		m_tooltips;
 	CIconStatic		m_cDriveGroup;
 public:
@@ -88,5 +92,7 @@ public:
 	afx_msg void OnBnClickedNetwork();
 	afx_msg void OnBnClickedFixed();
 	afx_msg void OnBnClickedCdrom();
+	afx_msg void OnBnClickedRam();
+	afx_msg void OnBnClickedUnknown();
 	virtual BOOL OnApply();
 };
