@@ -312,7 +312,7 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 	corrections.CreatePopupMenu();
 
 	// add the found corrections to the submenu
-	if (pChecker)
+	if ((pChecker)&&(!worda.IsEmpty()))
 	{
 		char ** wlst;
 		int ns = pChecker->suggest(&wlst,worda);
@@ -342,7 +342,7 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 
 	// add found thesauri to submenu's
 	CPtrArray menuArray;
-	if (pThesaur)
+	if ((pThesaur)&&(!worda.IsEmpty()))
 	{
 		mentry * pmean;
 		worda.MakeLower();
