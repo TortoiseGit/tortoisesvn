@@ -922,6 +922,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					else
 					{
 						sOtherLine = sOtherLine.TrimLeft(_T(" \t"));
+						sOtherLine = sOtherLine.TrimLeft(TAB_CHARACTER);
+						sOtherLine = sOtherLine.TrimLeft(SPACE_CHARACTER);
 						nCount = line.GetLength() - sOtherLine.GetLength();
 						pDC->SetBkColor(crWhiteDiffBk);
 						pDC->SetTextColor(crWhiteDiffFg);
@@ -930,6 +932,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 						pDC->SetTextColor(crText);
 						origin.x += nCount * nCharWidth;
 						line = line.TrimLeft(_T(" \t"));
+						line = line.TrimLeft(TAB_CHARACTER);
+						line = line.TrimLeft(SPACE_CHARACTER);
 					}
 				} // while (!line2.IsEmpty()) 
 			}

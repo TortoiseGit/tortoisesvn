@@ -34,6 +34,9 @@
 - CHG: Don't use the %APPDATA% env but the shell API to
        get the path to the config file in the settings
        dialog. (Stefan)
+- BUG: TortoiseMerge could hang when diffing certain files
+       and the "ignore leading whitespaces" option turned
+       on and only in two pane view. (Stefan)
 - BUG: TortoiseMerge could save merges to the wrong file
        if the app wasn't quit between diffs/merges. (Stefan)
 - BUG: The context menu key didn't work in the
