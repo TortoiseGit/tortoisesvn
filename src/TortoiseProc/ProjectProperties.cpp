@@ -25,6 +25,7 @@ ProjectProperties::ProjectProperties(void)
 	bNumber = TRUE;
 	bWarnIfNoIssue = FALSE;
 	nLogWidthMarker = 80;
+	nMinLogSize = 0;
 }
 
 ProjectProperties::~ProjectProperties(void)
@@ -65,6 +66,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 	BOOL bFoundBugtraqWarnIssue = FALSE;
 	BOOL bFoundLogWidth = FALSE;
 	BOOL bFoundLogTemplate = FALSE;
+	BOOL bFoundMinLogSize = FALSE;
 	path.Replace('/', '\\');
 	if (!PathIsDirectory(path))
 	{
@@ -156,6 +158,20 @@ BOOL ProjectProperties::ReadProps(CString path)
 				sLogTemplate.Replace(_T("\r"), _T(""));
 				sLogTemplate.Replace(_T("\n"), _T("\r\n"));
 				bFoundLogTemplate = TRUE;
+			}
+			if ((!bFoundMinLogSize)&&(sPropName.Compare(PROJECTPROPNAME_LOGMINSIZE)==0))
+			{
+				CString val;
+#ifdef UNICODE
+				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				val = sPropVal.c_str();
+#endif
+				if (!val.IsEmpty())
+				{
+					nMinLogSize = _ttoi(val);
+				}
+				bFoundMinLogSize = TRUE;
 			}
 		}
 		if (PathIsRoot(path))

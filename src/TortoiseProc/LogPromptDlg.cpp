@@ -382,7 +382,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(true);
 	CString logmsg;
 	pDlg->GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
-	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)logmsg.GetLength())
+	if (pDlg->m_ProjectProperties.nMinLogSize > (DWORD)logmsg.GetLength())
 	{
 		pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
@@ -474,7 +474,7 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (DWORD(sTemp.GetLength()) >= CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0))
+	if (DWORD(sTemp.GetLength()) >= m_ProjectProperties.nMinLogSize)
 	{
 		if (!m_bBlock)
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -517,7 +517,7 @@ void CLogPromptDlg::OnCbnSelchangeOldlogs()
 {
 	m_sLogMessage = m_OldLogs.GetString();
 	UpdateData(FALSE);
-	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)m_sLogMessage.GetLength())
+	if (m_ProjectProperties.nMinLogSize > (DWORD)m_sLogMessage.GetLength())
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
@@ -531,7 +531,7 @@ void CLogPromptDlg::OnCbnCloseupOldlogs()
 {
 	m_sLogMessage = m_OldLogs.GetString();
 	UpdateData(FALSE);
-	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)m_sLogMessage.GetLength())
+	if (m_ProjectProperties.nMinLogSize > (DWORD)m_sLogMessage.GetLength())
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}

@@ -89,13 +89,13 @@ public:
 	BOOL			m_bBlock;
 	CBalloon		m_tooltips;
 	CRegDWORD		m_regAddBeforeCommit;
+	ProjectProperties		m_ProjectProperties;
 private:
 	HANDLE			m_hThread;
 	CFont			m_logFont;
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
-	ProjectProperties		m_ProjectProperties;
 	CHistoryCombo	m_OldLogs;
 };
 

@@ -170,6 +170,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logtemplate"));
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logwidthmarker"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logminsize"));
 				GetComboBoxInfo(hwndCombo, &cbInfo);
 			}
 			// Create a tooltip window
@@ -311,6 +312,11 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				if (_tcscmp(name, _T("tsvn:logwidthmarker"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_TSVNLOGWIDTHMARKER, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+				if (_tcscmp(name, _T("tsvn:logminsize"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_TSVNLOGMINSIZE, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
 				}
 

@@ -27,6 +27,7 @@
 
 #define PROJECTPROPNAME_LOGTEMPLATE		  _T("tsvn:logtemplate")
 #define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
+#define PROJECTPROPNAME_LOGMINSIZE		  _T("tsvn:logminsize")
 
 /**
  * \ingroup TortoiseProc
@@ -111,4 +112,7 @@ public:
 
 	/* The template to use for log messages. */
 	CString		sLogTemplate;
+
+	/* Minimum size a log message must have in chars */
+	int			nMinLogSize;
 };
