@@ -32,6 +32,8 @@ public:
 	enum { IDD = IDD_INPUTDLG };
 
 protected:
+	CFont			m_logFont;
+
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 

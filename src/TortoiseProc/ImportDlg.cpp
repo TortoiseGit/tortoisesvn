@@ -69,6 +69,24 @@ BOOL CImportDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	LOGFONT LogFont;
+	LogFont.lfHeight         = -11;
+	LogFont.lfWidth          = 0;
+	LogFont.lfEscapement     = 0;
+	LogFont.lfOrientation    = 0;
+	LogFont.lfWeight         = 400;
+	LogFont.lfItalic         = 0;
+	LogFont.lfUnderline      = 0;
+	LogFont.lfStrikeOut      = 0;
+	LogFont.lfCharSet        = DEFAULT_CHARSET;
+	LogFont.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+	LogFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
+	LogFont.lfQuality        = DRAFT_QUALITY;
+	LogFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
+	_tcscpy(LogFont.lfFaceName, _T("Courier New"));
+	m_logFont.CreateFontIndirect(&LogFont);
+	GetDlgItem(IDC_MESSAGE)->SetFont(&m_logFont);
+
 	if (m_url.IsEmpty())
 		m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	else

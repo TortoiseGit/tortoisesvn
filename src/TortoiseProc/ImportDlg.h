@@ -62,6 +62,7 @@ public:
 	enum { IDD = IDD_IMPORT };
 
 protected:
+	CFont		m_logFont;
 	CBalloon	m_tooltips;
 	CButton		m_butBrowse;
 	HICON		m_hIcon;
