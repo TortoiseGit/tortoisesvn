@@ -43,7 +43,7 @@ CShellUpdater& CShellUpdater::Instance()
 */
 void CShellUpdater::AddPathForUpdate(const CTSVNPath& path)
 {
-	CSingleLock(&m_critSec, TRUE);
+	CSingleLock lock(&m_critSec, TRUE);
 
 	// Tell the shell extension to purge its cache - we'll redo this when 
 	// we actually do the shell-updates, but sometimes there's an earlier update, which
@@ -75,7 +75,7 @@ void CShellUpdater::UpdateThread()
 {
 	while(WaitForSingleObject(m_terminationEvent.m_hObject, 1000) == WAIT_TIMEOUT)
 	{
-		CSingleLock(&m_critSec, TRUE);
+		CSingleLock lock(&m_critSec, TRUE);
 		if(((long)GetTickCount() - m_updateAt) > 0)
 		{
 			// It's time to update
@@ -86,7 +86,7 @@ void CShellUpdater::UpdateThread()
 
 void CShellUpdater::Flush()
 {
-	CSingleLock(&m_critSec, TRUE);
+	CSingleLock lock(&m_critSec, TRUE);
 
 	if(m_pathsForUpdating.GetCount() > 0)
 	{
