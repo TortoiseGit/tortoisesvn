@@ -226,8 +226,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 				} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 			} // if (!PathIsDirectory(data->path))
 		} // if (data->status == svn_wc_status_unversioned)
-		else
-			data->checked = TRUE;
+		data->checked = TRUE;
 	}
 	else
 	{
@@ -246,8 +245,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 				}
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		} // if (PathIsDirectory(m_arFileList.GetAt(index)))
-		else
-			data->checked = FALSE;
+		data->checked = FALSE;
 	}
 }
 
@@ -682,6 +680,7 @@ void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	//fill in the data for the listcontrol again, but this
 	//time sorted.
 	TCHAR buf[MAX_PATH];
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	for (int i=0; i<m_arData.GetCount(); i++)
 	{
 		Data * data = m_arData.GetAt(i);
@@ -690,7 +689,7 @@ void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		m_ListCtrl.SetItemText(i, 1, buf);
 		m_ListCtrl.SetCheck(i, data->checked);
 	} // for (int i=0; i<m_arData.GetCount(); i++) 
-	
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	m_ListCtrl.SetRedraw(TRUE);
 
 	*pResult = 0;
