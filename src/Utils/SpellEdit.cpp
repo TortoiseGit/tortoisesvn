@@ -156,7 +156,7 @@ void CSpellEdit::PreSubclassWindow()
 					delete pChecker;
 				pChecker = new MySpell(CStringA(sFolder + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dic")));
 			}
-
+#if 0
 			if ((PathFileExists(sFolder + sFile + _T(".idx"))) &&
 				(PathFileExists(sFolder + sFile + _T(".dat"))))
 			{
@@ -171,7 +171,7 @@ void CSpellEdit::PreSubclassWindow()
 					delete pThesaur;
 				pThesaur = new MyThes(CStringA(sFolder + _T("dic\\") + sFile + _T(".idx")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dat")));
 			}
-
+#endif
 			DWORD lid = SUBLANGID(langId);
 			lid--;
 			if (lid > 0)
