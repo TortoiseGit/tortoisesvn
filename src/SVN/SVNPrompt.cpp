@@ -188,6 +188,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, voi
 		{
 			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->trust_permanently = TRUE;
+			(*cred_p)->accepted_failures = failures;
 		} 
 		else if (ret == 2)
 		{
