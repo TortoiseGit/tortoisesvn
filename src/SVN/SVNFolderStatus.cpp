@@ -312,10 +312,9 @@ filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 				m_cache.clear();
 				retVal = NULL;
 			}
-			else if(WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0)
+			else if(TortoiseProcHasInvalidatedCache())
 			{
 				// TortoiseProc has just done something which has invalidated the cache
-				OutputDebugStringA("TortoiseProc signaled cache invalidation\n");
 				m_cache.clear();
 				retVal = NULL;
 			}
@@ -372,4 +371,9 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	else
 		str = _T(" ");
 	(*cache)[str] = s;
+}
+
+bool SVNFolderStatus::TortoiseProcHasInvalidatedCache() const
+{
+	return WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0;
 }

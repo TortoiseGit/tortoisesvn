@@ -170,7 +170,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
 	//also check if we already have the status for the path so we don't have to get it again (small cache)
-	if (_tcscmp(pPath, g_filepath.c_str())==0)
+	if (_tcscmp(pPath, g_filepath.c_str())==0 && g_CachedStatus.TortoiseProcHasInvalidatedCache())
 	{
 		status = g_filestatus;
 	}
@@ -215,7 +215,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 				status = s->status;
 			}
 		}
-		g_filepath.clear();
 		g_filepath = pPath;
 		g_filestatus = status;
 	}

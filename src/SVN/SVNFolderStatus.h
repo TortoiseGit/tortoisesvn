@@ -148,6 +148,10 @@ public:
 	filestatuscache *	GetCachedItem(LPCTSTR filepath);
 
 	filestatuscache		invalidstatus;
+
+	bool TortoiseProcHasInvalidatedCache() const;
+
+
 private:
 	filestatuscache *	BuildCache(LPCTSTR filepath, BOOL bIsFolder);
 	DWORD				GetTimeoutValue();
