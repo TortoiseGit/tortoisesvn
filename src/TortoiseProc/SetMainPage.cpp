@@ -270,7 +270,11 @@ BOOL CSetMainPage::OnApply()
 
 void CSetMainPage::OnBnClickedEditconfig()
 {
-	CUtils::StartTextViewer(_T("%APPDATA%\\Subversion\\config"));
+	TCHAR buf[MAX_PATH];
+	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
+	CString path = buf;
+	path += _T("\\Subversion\\config");
+	CUtils::StartTextViewer(path);
 }
 
 

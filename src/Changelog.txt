@@ -1,3 +1,8 @@
+- CHG: Don't use the %APPDATA% env but the shell API to
+       get the path to the config file in the settings
+       dialog. (Stefan)
+
+Version 1.0.6
 - ADD: A warning is shown if a file with local modifications
        should be removed. (Stefan)
 - ADD: Changing of log-messages and author of any revision
