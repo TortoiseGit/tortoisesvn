@@ -115,10 +115,10 @@ BOOL CAboutDlg::OnInitDialog()
 	CString temp, boxtitle;
 	boxtitle.Format(IDS_ABOUTVERSIONBOX, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
 	GetDlgItem(IDC_VERSIONBOX)->SetWindowText(boxtitle);
-	SVN_VERSION_DEFINE(svnver);
+	const svn_version_t * svnver = svn_client_version();
 
 	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(STRINGWIDTH),
-		svnver.major, svnver.major, svnver.patch, CString(svnver.tag), 
+		svnver->major, svnver->major, svnver->patch, CString(svnver->tag), 
 		APR_MAJOR_VERSION, APR_MINOR_VERSION, APR_PATCH_VERSION,
 		API_MAJOR_VERSION, API_MINOR_VERSION, API_PATCH_VERSION,
 		APU_MAJOR_VERSION, APU_MINOR_VERSION, APU_PATCH_VERSION,
