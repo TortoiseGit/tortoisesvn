@@ -48,6 +48,9 @@ SVNConfig::~SVNConfig(void)
 
 BOOL SVNConfig::MatchIgnorePattern(CString sFilepath)
 {
+	sFilepath.Replace('\\', '/');
+	if (sFilepath.ReverseFind('/')>=0)
+		sFilepath = sFilepath.Mid(sFilepath.ReverseFind('/')+1);
 	svn_error_t * err;
 	apr_array_header_t *patterns = NULL;
 	err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
