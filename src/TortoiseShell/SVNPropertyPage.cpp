@@ -29,6 +29,9 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 			return NOERROR;
 	} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 
+	if (files_.size() == 0)
+		return NOERROR;
+
 	LoadLangDll();
     PROPSHEETPAGE psp;
 	ZeroMemory(&psp, sizeof(PROPSHEETPAGE));
@@ -425,7 +428,7 @@ void CSVNPropertyPage::InitWorkfileView()
 			} // if (svn.status->entry != NULL) 
 		} // if (svn.GetStatus(filename.c_str())>(-2)) 
 	} // if (filenames.size() == 1) 
-	else
+	else if (filenames.size() != 0)
 	{
 		//deactivate the show log button
 		HWND logwnd = GetDlgItem(m_hwnd, IDC_SHOWLOG);

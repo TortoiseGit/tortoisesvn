@@ -10,6 +10,10 @@
 - BUG: The status cache wasn't thread-safe and
        also not process-safe. Thanks to Luebbe
        for reminding me. (Stefan)
+- BUG: Clicking on certain Links/Folders/Files
+       and trying to show the subversion
+       properties could crash the explorer.
+       (Stefan)
 - CHG: The context menu is disabled for ".svn"
        directories. (Stefan)
 - ADD: Branch/Tag is available for single files
