@@ -721,7 +721,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CString strTemp;
 				strTemp.LoadString(IDS_PROC_EXPORT_1);
 				folderBrowser.SetInfo(strTemp);
-				folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+				folderBrowser.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_VALIDATE;
 				strTemp.LoadString(IDS_PROC_EXPORT_2);
 				folderBrowser.SetCheckBoxText(strTemp);
 				CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
