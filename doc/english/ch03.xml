@@ -410,8 +410,8 @@ SSPIOfferBasic On
 				either:
 				<itemizedlist>
 					<listitem><para>define a separate &lt;Location /path&gt;
-					directive in the apache config file, and turn the 
-					<literal>SSPIOfferBasic</literal> to <literal>Off</literal>.
+					directive in the apache config file, and add the 
+					<literal>SSPIBasicPreferred On</literal>.
 					This will allow IE to authenticate again, but other browsers
 					and Subversion won't be able to authenticate against that
 					location.</para></listitem>
