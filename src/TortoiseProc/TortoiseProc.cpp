@@ -860,9 +860,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				//strLine = _T("F:\\Development\\SVN\\tortoisesvn\\src\\TortoiseShell\\Resource.aps");
 				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
+				name = name.Trim(_T("\n\r"));
 				CString parentfolder = strLine.Left(strLine.ReverseFind('\\'));
 				SVNProperties props(parentfolder);
-				CString value;
+				CStringA value;
 				for (int i=0; i<props.GetCount(); i++)
 				{
 					CString propname(props.GetItemName(i).c_str());
@@ -873,23 +874,19 @@ BOOL CTortoiseProcApp::InitInstance()
 						stdstring tmp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
 						_tcsncpy(tbuf, tmp.c_str(), 4095);
-#ifdef UNICODE
-						stemp = MultibyteToWide((char *)tbuf);
-#else
-						stemp = stdstring((char *)tbuf);
-#endif
-						value = CString(stemp.c_str());
+						value = (char *)tbuf;
 					}
 				}
 				if (value.IsEmpty())
 					value = name;
 				else
 				{
-					value = value.Trim(_T("\n\r"));
-					value += _T("\n");
+					value = value.Trim("\n\r");
+					value += "\n";
 					value += name;
+					value += "\0\0\0";
 				}
-				if (!props.Add(_T("svn:ignore"), CUnicodeUtils::GetUTF8(value)))
+				if (!props.Add(_T("svn:ignore"), value))
 				{
 					CString temp;
 					temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
