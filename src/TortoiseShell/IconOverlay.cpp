@@ -165,10 +165,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 		CRegStdWORD driveremove(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 		TCHAR pathbuf[MAX_PATH+4];
 		_tcscpy(pathbuf, sPath.c_str());
-		if (!PathIsDirectory(sPath.c_str()))
-		{
-			PathRemoveFileSpec(pathbuf);
-		}
+		PathRemoveFileSpec(pathbuf);
 		PathAddBackslash(pathbuf);
 		UINT drivetype = GetDriveType(pathbuf);
 		if ((drivetype == DRIVE_REMOVABLE)&&(driveremove == 0))

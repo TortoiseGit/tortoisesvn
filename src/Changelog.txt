@@ -16,6 +16,10 @@ CVS
        characters. (Stefan)
 - BUG: The check for temporary files when doing an
        import wasn't able to delete those. (Stefan)
+- BUG: The disk drive now shouldn't be scanned
+       anymore if (in the settings) the icon
+       overlays for removable drives is turned off.
+       (Stefan)
 - ADD: in the settings page there's now an option
        if the user wants to have unversioned files
        shown before a commit so (s)he can add it
