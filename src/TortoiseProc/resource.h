@@ -178,6 +178,7 @@
 #define IDC_EXCEPTIONS                  1077
 #define IDC_MINLOGSIZE                  1077
 #define IDC_BUGID                       1077
+#define IDC_WCURL                       1077
 #define IDC_DRIVEGROUP                  1079
 #define IDC_PROXYGROUP                  1080
 #define IDC_SSHGROUP                    1081

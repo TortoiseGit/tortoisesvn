@@ -34,6 +34,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, m_URLTo(_T(""))
 	, StartRev(0)
 	, EndRev(_T("HEAD"))
+	, m_bUseFromURL(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pLogDlg = NULL;
@@ -55,6 +56,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Control(pDX, IDC_URLCOMBO2, m_URLCombo2);
+	DDX_Check(pDX, IDC_CHECK1, m_bUseFromURL);
 }
 
 
@@ -71,6 +73,7 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_BN_CLICKED(IDC_FINDBRANCHSTART, OnBnClickedFindbranchstart)
 	ON_BN_CLICKED(IDC_FINDBRANCHEND, OnBnClickedFindbranchend)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_BN_CLICKED(IDC_CHECK1, OnBnClickedCheck1)
 END_MESSAGE_MAP()
 
 
@@ -135,6 +138,7 @@ BOOL CMergeDlg::OnInitDialog()
 	{
 		m_URLFrom = url;
 		m_URLTo = url;
+		GetDlgItem(IDC_WCURL)->SetWindowText(url);
 	}
 
 	m_URLCombo.SetURLHistory(TRUE);
@@ -190,10 +194,14 @@ void CMergeDlg::OnOK()
 	}
 
 	m_URLCombo.SaveHistory();
-	m_URLTo = m_URLCombo.GetString();
-	m_URLCombo2.SaveHistory();
-	m_URLFrom = m_URLCombo2.GetString();
-
+	m_URLFrom = m_URLCombo.GetString();
+	if (!m_bUseFromURL)
+	{
+		m_URLCombo2.SaveHistory();
+		m_URLTo = m_URLCombo2.GetString();
+	}
+	else
+		m_URLTo = m_URLFrom;
 
 	UpdateData(FALSE);
 
@@ -389,6 +397,27 @@ void CMergeDlg::OnBnClickedHelp()
 {
 	OnHelp();
 }
+
+void CMergeDlg::OnBnClickedCheck1()
+{
+	UpdateData();
+	if (m_bUseFromURL)
+	{
+		GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLFrom);
+		m_URLTo = m_URLFrom;
+		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
+		GetDlgItem(IDC_BROWSE2)->EnableWindow(FALSE);
+		GetDlgItem(IDC_FINDBRANCHEND)->EnableWindow(FALSE);
+	}
+	else
+	{
+		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(TRUE);
+		GetDlgItem(IDC_BROWSE2)->EnableWindow(TRUE);
+		GetDlgItem(IDC_FINDBRANCHEND)->EnableWindow(TRUE);
+	}
+	UpdateData(FALSE);
+}
+
 
 
 

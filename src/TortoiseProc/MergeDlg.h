@@ -86,10 +86,12 @@ protected:
 	BOOL		m_bFile;
 	CHistoryCombo m_URLCombo;
 	CHistoryCombo m_URLCombo2;
+	BOOL		m_bUseFromURL;
 public:
-	CString m_URLFrom;
-	CString m_URLTo;
-	SVNRev StartRev;
-	SVNRev EndRev;
+	CString		m_URLFrom;
+	CString		m_URLTo;
+	SVNRev		StartRev;
+	SVNRev		EndRev;
+	afx_msg void OnBnClickedCheck1();
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));

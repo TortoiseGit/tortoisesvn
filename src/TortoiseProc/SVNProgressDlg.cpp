@@ -582,9 +582,21 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Merge:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
 			pDlg->SetWindowText(sWindowTitle);
-			if (!pDlg->Merge(pDlg->m_sMessage, pDlg->m_Revision, pDlg->m_sUrl, pDlg->m_RevisionEnd, pDlg->m_sPath, true, true))
+			if (pDlg->m_sUrl.CompareNoCase(pDlg->m_sMessage)==0)
 			{
-				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				if (!pDlg->PegMerge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_RevisionEnd, 
+					SVN::PathIsURL(pDlg->m_sUrl) ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
+					pDlg->m_sPath, true, true))
+				{
+					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				}
+			}
+			else
+			{
+				if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_sMessage, pDlg->m_RevisionEnd, pDlg->m_sPath, true, true))
+				{
+					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				}
 			}
 			break;
 		case Copy:
