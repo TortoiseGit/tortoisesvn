@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-12-21 08:58+0100\n"
+"PO-Revision-Date: 2004-12-23 11:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -452,8 +452,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Eine Liste von Pfaden, getrennt durch Zeilenenden für welche die überlagerten Icons gezeigt werden.\n"
-"Wenn Sie ein \"*\" Zeichen an den Pfad anhängen, dann werden alle Dateien und Ordner innerhalb ebenfalls eingeschlossen."
+"Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die überlagerte Icons angezeigt werden.\n"
+"Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades eingeschlossen."
 
 # ID:194,
 #: ID:194
@@ -462,8 +462,8 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Eine Liste von Pfaden, getrennt durch Zeilenenden für welche die überlagerten Icons nicht gezeigt werden.\n"
-"Wenn Sie ein \"*\" Zeichen an den Pfad anhängen, dann werden alle Dateien und Ordner innerhalb ebenfalls ausgeschlossen."
+"Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die <b>keine</b> überlagerten Icons angezeigt werden.\n"
+"Wenn Sie ein \"*\" Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -534,6 +534,7 @@ msgid ""
 msgstr ""
 "Aktivieren Sie dies, um den Subversion Status von Dateien und Unterordnern\n"
 "auf dem Ordnersymbol anzuzeigen.\n"
+"\n"
 "<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: ID:8
@@ -965,7 +966,7 @@ msgstr "Überprüfen Sie den eingegebenen Pfad und/oder die URL."
 
 #: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "Markieren Sie die Einträge, welche im obersten Kontext-Menu erscheinen sollen anstatt im Untermenu."
+msgstr "Markieren Sie die Einträge, welche im obersten Kontextmenü erscheinen sollen anstatt im Untermenü."
 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
@@ -1109,7 +1110,7 @@ msgstr "Konflikte: %d"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Context Menu"
-msgstr "Kontext Menu"
+msgstr "Kontextmenü"
 
 #: ID:73
 msgid "Continue"
@@ -1519,7 +1520,7 @@ msgstr "Ausnahmen:"
 
 #: Control-ID:65535
 msgid "Exclude paths:"
-msgstr "Ausschluss Pfade:"
+msgstr "Pfade ausschließen:"
 
 #: Control-ID:65535
 msgid "Exclude/Ignore pattern:"
@@ -1734,7 +1735,7 @@ msgstr "Icons/Design/Code:     Lübbe Onken"
 
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Wenn aktiviert, werden die überlagerten Icons in \"Speichern\" und \"Öffnen\" Dialogen nicht angezeigt"
+msgstr "Wenn aktiviert, werden die überlagerten Icons in <b>Speichern unter...</b> und <b>Öffnen</b> Dialogen nicht angezeigt"
 
 #: ID:95
 msgid ""
@@ -1797,7 +1798,7 @@ msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 
 #: Control-ID:65535
 msgid "Include paths:"
-msgstr "Einschliess Pfade:"
+msgstr "Pfade einschließen:"
 
 # ID:79,
 #: ID:79
@@ -1807,7 +1808,8 @@ msgid ""
 "<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
 msgstr ""
 "Aktivieren sie dies, um den Status des aktuellen Ordners mit einem überlagerten\n"
-"Icon anzuzeigen. Falls deaktiviert, wird immer das 'normale' Icon angezeigt.\n"
+"Icon anzuzeigen. Falls deaktiviert, wird immer das <b>normale</b> Icon angezeigt.\n"
+"\n"
 "<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: ID:76
@@ -1956,7 +1958,7 @@ msgstr "Log-Meldungen"
 # Dlg-ID:106,
 #: Dlg-ID:106
 msgid "Look and Feel"
-msgstr "Look and Feel"
+msgstr "Anzeige"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
@@ -2099,8 +2101,9 @@ msgid ""
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
 msgstr ""
-"Es wurden keine Dateien / Ordner seit dem letzten Übertragen verändert.\n"
-"Es gibt nix zu tun für TortoiseSVN..."
+"Es wurden keine Dateien / Ordner seit\n"
+"dem letzten Übertragen verändert.\n"
+"Es gibt nichts zu tun für TortoiseSVN..."
 
 #: ID:170
 msgid ""
@@ -2111,8 +2114,9 @@ msgid ""
 msgstr ""
 "Es wurden keine Dateien / Ordner seit\n"
 "dem letzten Übertragen verändert.\n"
-"Es gibt nix zu tun für TortoiseSVN...\n"
-"Wollen Sie die nicht versionierten Dateien angezeigt bekommen?"
+"Es gibt nichts zu tun für TortoiseSVN...\n"
+"\n"
+"Soll TortoiseSVN die nicht versionierten Dateien angezeigen?"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -3584,6 +3588,7 @@ msgid ""
 "<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Erzwingt eine Aktualisierung der überlagerten Icons nach jeder Operation.\n"
+"\n"
 "<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: Control-ID:65535
