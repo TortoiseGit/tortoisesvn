@@ -53,12 +53,12 @@ protected:
 protected:
 	HICON			m_hIcon;
 	HANDLE			m_hThread;
-	BOOL			m_bShowUnversioned;
 
 public:
 	CSVNStatusListCtrl	m_FileListCtrl;
 	CString			m_path;
 	bool			m_bRemote;
+	BOOL			m_bShowUnversioned;
 };
 
 DWORD WINAPI ChangedStatusThread(LPVOID pVoid);

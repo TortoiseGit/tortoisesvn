@@ -136,7 +136,9 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 		pDlg->m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, FALSE);
 		pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, FALSE);
 	}
-	pDlg->m_FileListCtrl.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL);
+	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
+	dwShow |= pDlg->m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
+	pDlg->m_FileListCtrl.Show(dwShow);
 
 	if (LONG(pDlg->m_FileListCtrl.m_HeadRev) >= 0)
 	{
