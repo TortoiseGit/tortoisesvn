@@ -451,11 +451,22 @@ svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
 	// Combine our OWN folder status with the most important of our *FILES'* status.
 	svn_wc_status_kind retVal = SVNStatus::GetMoreImportant(m_mostImportantFileStatus, m_ownStatus.GetEffectiveStatus());
 
+	if ((retVal != svn_wc_status_modified)&&(retVal != m_ownStatus.GetEffectiveStatus()))
+	{
+		if ((retVal == svn_wc_status_added)||(retVal == svn_wc_status_deleted)||(retVal == svn_wc_status_missing))
+			retVal = svn_wc_status_modified;
+	}
+
 	// Now combine all our child-directorie's status
 	ChildDirStatus::const_iterator it;
 	for(it = m_childDirectories.begin(); it != m_childDirectories.end(); ++it)
 	{
 		retVal = SVNStatus::GetMoreImportant(retVal, it->second);
+		if ((retVal != svn_wc_status_modified)&&(retVal != m_ownStatus.GetEffectiveStatus()))
+		{
+			if ((retVal == svn_wc_status_added)||(retVal == svn_wc_status_deleted)||(retVal == svn_wc_status_missing))
+				retVal = svn_wc_status_modified;
+		}
 	}
 	
 	return retVal;
