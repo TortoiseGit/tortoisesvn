@@ -307,7 +307,8 @@ BOOL CMainFrame::LoadViews()
 	{
 		::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
 		return FALSE;
-	}
+	} // if (!this->m_Data.Load())
+	BOOL bGoFirstDiff = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"))));
 	if (m_Data.m_sBaseFile.IsEmpty())
 	{
 		if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
@@ -334,6 +335,8 @@ BOOL CMainFrame::LoadViews()
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			UpdateLayout();
+			if (bGoFirstDiff)
+				m_pwndLeftView->GoToFirstDifference();
 		} // if (m_Patch.GetNumberOfFiles() > 0) 
 	} // if (m_Data.m_sBaseFile.IsEmpty()) 
 	if (!m_Data.m_sBaseFile.IsEmpty() && m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
@@ -361,6 +364,8 @@ BOOL CMainFrame::LoadViews()
 			m_wndLocatorBar.DocumentUpdated();
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
+			if (bGoFirstDiff)
+				m_pwndLeftView->GoToFirstDifference();
 		} // if (m_bOneWay)
 		else
 		{
@@ -378,6 +383,8 @@ BOOL CMainFrame::LoadViews()
 			m_wndLocatorBar.DocumentUpdated();
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
+			if (bGoFirstDiff)
+				m_pwndLeftView->GoToFirstDifference();
 		}
 		UpdateLayout();
 	} // if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
@@ -399,6 +406,8 @@ BOOL CMainFrame::LoadViews()
 		m_wndLocatorBar.DocumentUpdated();
 		if (m_wndSplitter.IsRowHidden(1))
 			m_wndSplitter.ShowRow();
+		if (bGoFirstDiff)
+			m_pwndLeftView->GoToFirstDifference();
 		UpdateLayout();
 	}
 	return TRUE;
@@ -669,3 +678,4 @@ void CMainFrame::OnViewOptions()
 	} 
 	LoadViews();
 }
+

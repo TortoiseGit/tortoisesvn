@@ -984,13 +984,38 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 	} // if (nLine <= m_arLineStates->GetCount()) 
 }
 
+void CBaseView::GoToFirstDifference()
+{
+	int nCenterPos = 0;
+	if ((m_arLineStates)&&(0 < m_arLineStates->GetCount()))
+	{
+		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		while ((nCenterPos < m_arLineStates->GetCount()) &&
+			(m_arLineStates->GetAt(nCenterPos++)==state))
+			;
+		while (nCenterPos < m_arLineStates->GetCount())
+		{
+			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate != CDiffData::DIFFSTATE_NORMAL) &&
+				(linestate != CDiffData::DIFFSTATE_IDENTICAL) &&
+				(linestate != CDiffData::DIFFSTATE_UNKNOWN))
+				break;
+			nCenterPos++;
+		} // while (nCenterPos > m_arLineStates->GetCount()) 
+		int nTopPos = nCenterPos - (m_nScreenLines/2);
+		if (nTopPos < 0)
+			nTopPos = 0;
+		ScrollAllToLine(nTopPos);
+	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
+}
+
 void CBaseView::OnMergeNextdifference()
 {
 	int nCenterPos = m_nTopLine + (m_nScreenLines/2);
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
-			nCenterPos = m_arLineStates->GetCount()-1;
+			nCenterPos = (int)m_arLineStates->GetCount()-1;
 		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((nCenterPos < m_arLineStates->GetCount()) &&
 			(m_arLineStates->GetAt(nCenterPos++)==state))
@@ -1017,7 +1042,7 @@ void CBaseView::OnMergePreviousdifference()
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
-			nCenterPos = m_arLineStates->GetCount()-1;
+			nCenterPos = (int)m_arLineStates->GetCount()-1;
 		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
 		while ((nCenterPos >= 0) &&
 			(m_arLineStates->GetAt(nCenterPos--)==state))

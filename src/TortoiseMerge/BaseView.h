@@ -51,6 +51,7 @@ public:
 	static CLocatorBar * m_pwndLocator;	///< Pointer to the locator bar on the left
 	static CStatusBar * m_pwndStatusBar;///< Pointer to the status bar
 
+	void			GoToFirstDifference();
 protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual void	OnDraw(CDC * pDC);
@@ -65,6 +66,8 @@ protected:
 	afx_msg void	OnKillFocus(CWnd* pNewWnd);
 	afx_msg void	OnSetFocus(CWnd* pOldWnd);
 	afx_msg void	OnContextMenu(CWnd* pWnd, CPoint point);
+	afx_msg void	OnMergeNextdifference();
+	afx_msg void	OnMergePreviousdifference();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -137,8 +140,5 @@ protected:
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 
-public:
-	afx_msg void OnMergeNextdifference();
-	afx_msg void OnMergePreviousdifference();
 };
 
