@@ -414,7 +414,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (!err.IsEmpty())
 			{
 				CMessageBox::Show(EXPLORERHWND, err, _T("TortoiseSVN"), MB_ICONERROR);
-				return FALSE;
+				if(command != cmdSettings)
+				{
+					return FALSE;
+				}
 			}
 		}
 
