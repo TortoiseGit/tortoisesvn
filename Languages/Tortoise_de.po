@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-08-11 19:12+0100\n"
-"Last-Translator: Stefan Küng <steveking@tigris.org>\n"
+"PO-Revision-Date: 2004-08-24 09:55+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,6 +136,10 @@ msgstr "&Zielordner:"
 msgid "&Close windows automatically"
 msgstr "&Fenster automatisch schließen"
 
+#: Control-ID:1031
+msgid "&Edit"
+msgstr "&Bearbeiten"
+
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Bearbeiten..."
@@ -189,10 +193,6 @@ msgstr "&Hilfe"
 msgid "&Hide"
 msgstr "&Verstecken"
 
-#: Control-ID:1023
-msgid "&Indicate folders with changed contents"
-msgstr "Zeige Ordner mit geändertem &Inhalt"
-
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Sprache:"
@@ -240,6 +240,11 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Vorherige Unterschied"
+
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Recurse into folders to fetch the status"
+msgstr "&Rekursiv in Unterverzeichnisse gehen, um den Status zu ermitteln"
 
 #: Control-ID:1048
 msgid "&Removable drives"
@@ -296,6 +301,10 @@ msgstr "&URL des Projektarchivs:"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Rückgängig\tStrg+Z"
 
+#: Control-ID:1061
+msgid "&Unknown drives"
+msgstr "&Unbekannte Laufwerke"
+
 #: Control-ID:65535
 #: Control-ID:1005
 msgid "&Username:"
@@ -308,6 +317,11 @@ msgstr "&Ansicht"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Leerzeichen"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(mehrere Ziele gewählt)"
 
 #: ID:188
 msgid "+ %d"
@@ -780,8 +794,8 @@ msgid "Check for Updates"
 msgstr "Auf Änderungen prüfen"
 
 #: Control-ID:1073
-msgid "Check for newer versions"
-msgstr "&Prüfe auf Aktualisierung"
+msgid "Check for newer &versions"
+msgstr "Prüfe auf neue &Versionen"
 
 #: ID:79
 msgid ""
@@ -842,8 +856,17 @@ msgstr "Führt unterbrochene Aktionen zu Ende, hebt Sperren auf, ..."
 
 # Control-ID:1059,
 #: Control-ID:1059
-msgid "Clear Auth Cache"
-msgstr "Lösche Auth Cache"
+msgid "Clear &Auth Cache"
+msgstr "&Anmeldedaten löschen"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"Löscht die gespeicherte Anmeldeinformation für alle Projektarchive.\n"
+"Sie müssen Ihre Name/Passwort Kombination jeweils neu eingeben."
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -1088,6 +1111,11 @@ msgstr ""
 "Auswahl in die Zwischenablage verschieben\n"
 "Ausschneiden"
 
+# Control-ID:1123,
+#: Control-ID:1123
+msgid "D&on't close on conflicts"
+msgstr "Bei K&onflikten nicht schließen"
+
 #: ID:76
 msgid "Date"
 msgstr "Datum"
@@ -1226,6 +1254,11 @@ msgstr "Dateien beim Vergleich mit BASE nicht konvertieren"
 msgid "Drive Types"
 msgstr "Laufwerkstypen"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "Dry Run"
+msgstr "Trockenlauf"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Beenden"
@@ -1237,10 +1270,6 @@ msgstr "E&xtern"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
-
-#: Control-ID:1031
-msgid "Edit"
-msgstr "Bearbeiten"
 
 #: ID:12
 msgid "Edit Conflicts"
@@ -1497,6 +1526,15 @@ msgstr "Wenn diese Option gewählt ist, erzeugt TortoiseSVN keine Tempoärdatei 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Bei Aktivierung überprüft TortoiseSVN einmal wöchentlich, ob Aktualisierungen vorliegen"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+"Falls gesetzt, wird TortoiseSVN den Zeitstempel der Dateien auf den Zeitpunkt\n"
+"der letzten Übertragung setzen, andernfalls wird die aktuelle Zeit verwendet."
 
 #: ID:80
 msgid ""
@@ -1801,6 +1839,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "ÜB"
 
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "Eine oder mehrere Dateien befinden sich in einem Konfliktzustand."
+
 #: MenuEntry
 msgid "Oneway &Diff"
 msgstr "Ein-Fenster &Diff"
@@ -1808,6 +1851,15 @@ msgstr "Ein-Fenster &Diff"
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Nur den obersten Ordner auschecken"
+
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"Nur Zahlen (ggfs durch Kommata separiert)\n"
+"sind zugelassen!"
 
 #: Control-ID:1073
 msgid "Only update the top folder"
@@ -1853,6 +1905,11 @@ msgstr "PKCS12"
 #: ID:69
 msgid "Password:"
 msgstr "Passwort:"
+
+# Control-ID:1121,
+#: Control-ID:1121
+msgid "Paste Log &template in english"
+msgstr "Log &Schablone auf deutsch einfügen."
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -2006,8 +2063,8 @@ msgstr ""
 "Beenden"
 
 #: Control-ID:1073
-msgid "RAM drives"
-msgstr "RAM disks"
+msgid "R&AM drives"
+msgstr "R&AM disks"
 
 #: ID:3697
 msgid "REC"
@@ -2398,6 +2455,13 @@ msgstr "Setze Eigenschaften..."
 msgid "Settings"
 msgstr "Einstellungen"
 
+# ID:115,
+#: ID:115
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started."
+msgstr "Soll das Log bei einer Kopie anhalten?Wählen Sie <b>Ja</b>, wenn Sie herausfinden wollen, wann eine Verzweigung erstellt wurde."
+
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
 msgstr "&Kurzes Datum/Zeit Format in Log-Meldungen"
@@ -2419,10 +2483,9 @@ msgstr "Zeige &Log..."
 msgid "Show &log"
 msgstr "Zeige &Log"
 
-# Control-ID:1120,
-#: Control-ID:1120
-msgid "Show BugID/Issue-Nr. Box"
-msgstr "Zeige BugID/Issue-Nr. Box"
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr "Überlagerte Ic&ons nur im Explorer anzeigen"
 
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -2467,10 +2530,6 @@ msgid ""
 msgstr ""
 "Zeigt oder versteckt die Werkzeugleiste\n"
 "Werkzeugleiste umschalten"
-
-#: Control-ID:1088
-msgid "Show overlays only in explorer"
-msgstr "Überlagerte Icons nur im Explorer anzeigen"
 
 #: ID:2049
 msgid ""
@@ -2946,10 +3005,6 @@ msgstr ""
 "  Fingerabdruck: %s\n"
 "  Ermittelter Name: %s"
 
-#: Control-ID:1061
-msgid "Unknown drives"
-msgstr "Unbekannte Laufwerke"
-
 #: ID:3841
 msgid "Untitled"
 msgstr "Unbenannt"
@@ -3074,6 +3129,11 @@ msgstr "Anzeigeprogramm für GNU Diff Dateien (Patch Dateien)."
 msgid "Visit our website"
 msgstr "Besuchen Sie unsere Webseite"
 
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "Warnung!"
+
 # ID:213,
 #: ID:213
 msgid "What repository type do you want to create?"
@@ -3134,6 +3194,15 @@ msgstr ""
 msgid "You have to update your working copy first."
 msgstr "Sie müssen erst Ihre Arbeitskopie aktualisieren."
 
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"Sie haben keine Bugtracker ID angegeben\n"
+"Sind  Sie sicher, daß Sie ohne ID übertragen wollen?"
+
 #: ID:77
 msgid ""
 "You selected an unversioned file.\n"
@@ -3165,6 +3234,46 @@ msgstr "eine unbenannte Datei"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "und unterstützen Sie die Entwickler"
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:label\n"
+"Beschriftung für das Eingabefeld der Bugtracker ID."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:message\n"
+"Zeichenkette, die an eine Log Meldung angefügt wird, wenn eine ID angegeben wird\n"
+"Die Zeichenkette muß \"%BUGID%\" enthalten, welches dann durch die eingegebene ID ersetzt wird."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq:number\n"
+"Auf \"false\" setzen, falls Ihr Bugtracker die Einträge nicht über Nummern referenziert."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"URL, die zum Bugtracker zeigt. Muß \"%BUGID%\" enthalten,\n"
+"welches dann durch die eingegebene ID ersetzt wird."
 
 #: ID:145
 msgid "cleaning up"
