@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-12-09 11:07+0800\n"
+"PO-Revision-Date: 2004-12-14 17:46+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -385,6 +385,12 @@ msgstr "SSH 用戶端(&S):"
 #: MenuEntry
 msgid "&Save Ctrl-S"
 msgstr "儲存(&S) Ctrl-S"
+
+# ID:313,#:
+# ID:101,
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "另存新檔(&S)..."
 
 # Control-ID:1023,#:
 # Control-ID:1023,
@@ -948,21 +954,6 @@ msgstr "作者"
 msgid "Author:                        Stefan Kueng"
 msgstr "作者:                        Stefan Kueng"
 
-# ID:272,
-#: ID:272
-msgid ""
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"作者: %s\r\n"
-"日期: %s\r\n"
-"\r\n"
-"記錄訊息:\r\n"
-"%s"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -1291,6 +1282,11 @@ msgstr "剪貼簿"
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "關閉目前視窗並提示儲存文件"
+
+# Control-ID:1163,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "以顏色標記行內程式碼變更"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -2205,6 +2201,17 @@ msgstr "匯入目錄至檔案庫"
 msgid "Include paths:"
 msgstr "包含路徑:"
 
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"以圖示覆蓋標示資料夾的狀態.\n"
+"如果沒有啟動, 有版本控制的資料夾永遠會顯示正常狀態的圖示.\n"
+"<ct=0x0000ff><b>如果檔案總管運作緩慢, 請關閉此功能!</b></ct>"
+
 # ID:76,
 #: ID:76
 msgid "Initial Import"
@@ -2681,6 +2688,11 @@ msgstr "補綴檔(*.diff, *.patch)|*.diff;*.patch|所有檔案(*.*)|*.*||"
 msgid "Path"
 msgstr "路徑"
 
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "圖型檔案 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有檔案 (*.*)|*.*||"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
@@ -3091,7 +3103,9 @@ msgid "Revision / Author:"
 msgstr "版本 / 作者:"
 
 # ID:75,
+#: ID:15
 #: ID:269
+#: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "版本圖"
 
@@ -3099,13 +3113,6 @@ msgstr "版本圖"
 #: ID:75
 msgid "Revision: "
 msgstr "版本: "
-
-# ID:76,#:
-# Control-ID:65535,#:
-# Control-ID:65535,
-#: Dlg-ID:182
-msgid "RevisionGraph"
-msgstr "版本圖"
 
 # ID:188,
 #: ID:188
@@ -3225,6 +3232,12 @@ msgstr "另存新檔(&A)..."
 #: ID:3841
 msgid "Save As"
 msgstr "另存新檔"
+
+# ID:313,#:
+# ID:101,
+#: ID:272
+msgid "Save Graph as..."
+msgstr "圖型另存新檔..."
 
 # ID:76,
 #: ID:76
@@ -3454,6 +3467,11 @@ msgstr "顯示行號"
 msgid "Show Log"
 msgstr "顯示記錄"
 
+# Control-ID:65535,
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "顯示資料夾狀態"
+
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -3485,6 +3503,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "顯示無版本控制的檔案"
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "以圖型方式顯示複製/標記/分支"
 
 # ID:13,
 #: ID:13
@@ -4027,6 +4050,23 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL:%s\r\n"
+"作者: %s\r\n"
+"日期: %s\r\n"
+"\r\n"
+"記錄訊息:\r\n"
+"%s"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -4199,6 +4239,11 @@ msgstr "使用整個檔案(&W)"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "檔案庫的 URL 異動時可使用此功能修改"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "全部使用另一個檔案(&f)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4382,6 +4427,14 @@ msgstr ""
 "你的工作複本已有異動!\n"
 "注意:更新至其它版本不會失去目前工作複本的變更.\n"
 "所以更新後不會得到與目標版本完全相同的檔案!"
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "放大(&I)"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "縮小(&O)"
 
 # ID:10,
 #: ID:10

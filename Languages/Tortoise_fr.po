@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-07 10:46+0100\n"
+"PO-Revision-Date: 2004-12-14 11:08+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -305,6 +305,10 @@ msgstr "&SSH client:"
 #: MenuEntry
 msgid "&Save Ctrl-S"
 msgstr "&Enregistrer Ctrl-S"
+
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "&Sauver le Graphique sous..."
 
 #: Control-ID:1023
 msgid "&Save authentication"
@@ -763,21 +767,6 @@ msgstr "Auteur"
 msgid "Author:                        Stefan Kueng"
 msgstr "Auteur:                        Stefan Kueng"
 
-# ID:272,
-#: ID:272
-msgid ""
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"Auteur: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Commentaire:\r\n"
-"%s"
-
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Auteurs:                      Stefan Kueng, Tim Kemp"
@@ -1049,6 +1038,11 @@ msgstr "Presse-papier"
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Fermer la fenêtre avec demande de confirmation d'enregistrement"
+
+# Control-ID:1163,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "Coloriser les changements de lignes de code "
 
 #: Dlg-ID:138
 msgid "Colors"
@@ -1799,6 +1793,17 @@ msgstr "Importer le répertoire dans un repository"
 msgid "Include paths:"
 msgstr "Chemins inclus:"
 
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"Indique le statut d'un dossier avec l'icône de recouvrement.\n"
+"Si désactivé, un répertoire versioné aura toujours l'icône de recouvrement 'normal' d'affiché.\n"
+"<ct=0x0000ff><b>Si l'explorateur semble lent, désactivez cette fonction!</b></ct>"
+
 #: ID:76
 msgid "Initial Import"
 msgstr "Importation initiale"
@@ -2190,6 +2195,11 @@ msgstr "Fichiers patch (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgid "Path"
 msgstr "Chemin"
 
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Images (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+
 #: ID:3858
 msgid "Please enter a GUID."
 msgstr "Veuillez entrer un GUID."
@@ -2508,17 +2518,15 @@ msgstr "Révision %ld"
 msgid "Revision / Author:"
 msgstr "Révision / Auteur:"
 
+#: ID:15
 #: ID:269
+#: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Graphique de révision "
 
 #: ID:75
 msgid "Revision: "
 msgstr "Révision: "
-
-#: Dlg-ID:182
-msgid "RevisionGraph"
-msgstr "Graphique de révision"
 
 # ID:188,
 #: ID:188
@@ -2616,6 +2624,10 @@ msgstr "Enregistrer &sous..."
 #: ID:3841
 msgid "Save As"
 msgstr "Sauver sous"
+
+#: ID:272
+msgid "Save Graph as..."
+msgstr "Sauver le Graphique sous..."
 
 #: ID:76
 msgid "Save Revision &To..."
@@ -2798,6 +2810,10 @@ msgstr "Voir les numéros de lignes"
 msgid "Show Log"
 msgstr "Voir le journal"
 
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "Afficher le statut de répertoire"
+
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -2825,6 +2841,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "Voir les fichiers hors de contrôle de version"
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Affiche une représentation graphique des copies/étiquettes/branches"
 
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -3286,6 +3307,23 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"Auteur: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Commentaire:\r\n"
+"%s"
+
 #: ID:3866
 msgid "Unable to load mail system support."
 msgstr "Impossible de charger le système de mail."
@@ -3418,6 +3456,11 @@ msgstr "Utiliser la &totalité de ce fichier"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Utiliser ceci si l'URL du repository a changé"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Utiliser l'autre &fichier entier"
 
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
@@ -3579,6 +3622,14 @@ msgstr ""
 "Votre copie de travail contient des modifications locales!\n"
 "Note: Mettre à jour vers une autre révision ne perdra pas ces modifications donc la copie de travail\n"
 "n 'apparaitra pas exactement comme cela était dans la révision vers laquelle vous mettez à jour!"
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "Agrandir"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "Rétrécir"
 
 #: ID:10
 msgid "added"

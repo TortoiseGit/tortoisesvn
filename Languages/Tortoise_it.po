@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-08 17:35+0100\n"
+"PO-Revision-Date: 2004-12-14 11:49+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -382,6 +382,12 @@ msgstr "&Client SSH:"
 #: MenuEntry
 msgid "&Save Ctrl-S"
 msgstr "&Salva Ctrl-S"
+
+# ID:101,#:
+# ID:313,
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "&Salva grafico come..."
 
 # Control-ID:1023,#:
 # Control-ID:1023,
@@ -947,21 +953,6 @@ msgstr "Autore"
 msgid "Author:                        Stefan Kueng"
 msgstr "Autore:                        Stefan Kueng"
 
-# ID:272,
-#: ID:272
-msgid ""
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"Autore: %s\r\n"
-"Data: %s\r\n"
-"\r\n"
-"Commento:\r\n"
-"%s"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -1290,6 +1281,11 @@ msgstr "Appunti"
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Chiudi la finestra con richiesta di salvataggio"
+
+# Control-ID:1163,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "Colora i cambiamenti in-line"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -2206,6 +2202,17 @@ msgstr "Importa la directory in un repository"
 msgid "Include paths:"
 msgstr "Includi percorso:"
 
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"Indica lo stato di una cartella con un'icona di stato.\n"
+"Se disattivato, le cartelle versionate mostreranno comunque l'icona di stato  'normale'.\n"
+"<ct=0x0000ff><b>Se explorer rallenta, disattivare questa opzione!</b></ct>"
+
 # ID:76,
 #: ID:76
 msgid "Initial Import"
@@ -2682,6 +2689,11 @@ msgstr "File patch (*.diff, *.patch)|*.diff;*.patch|Tutti i file (*.*)|*.*||"
 msgid "Path"
 msgstr "Percorso"
 
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Immagini (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Tutte (*.*)|*.*||"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
@@ -3093,7 +3105,9 @@ msgid "Revision / Author:"
 msgstr "Revisione / Autore:"
 
 # ID:75,
+#: ID:15
 #: ID:269
+#: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Grafico delle revisioni"
 
@@ -3101,13 +3115,6 @@ msgstr "Grafico delle revisioni"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisione:"
-
-# ID:76,#:
-# Control-ID:65535,#:
-# Control-ID:65535,
-#: Dlg-ID:182
-msgid "RevisionGraph"
-msgstr "RevisionGraph"
 
 # ID:188,
 #: ID:188
@@ -3227,6 +3234,12 @@ msgstr "Salva &come..."
 #: ID:3841
 msgid "Save As"
 msgstr "Salva come"
+
+# ID:101,#:
+# ID:313,
+#: ID:272
+msgid "Save Graph as..."
+msgstr "Salva grafico come..."
 
 # ID:76,
 #: ID:76
@@ -3456,6 +3469,11 @@ msgstr "Mostra i numeri di linea"
 msgid "Show Log"
 msgstr "Visualizza Log"
 
+# ID:101,
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "Mostra stato delle cartelle"
+
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -3487,6 +3505,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "Mostra file senza versione"
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Mostra una rappresentazione grafica di copie/tag/rami"
 
 # ID:13,
 #: ID:13
@@ -4031,6 +4054,23 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL:"
 
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"Autore: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Commento:\r\n"
+"%s"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -4203,6 +4243,11 @@ msgstr "Utilizza l'&intero file"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Usa questo se l'URL  del repository è cambiato"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Utilizza l'intero altro &file"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4384,6 +4429,14 @@ msgstr ""
 "La tua copia di lavoro ha subito delle modifiche in locale!\n"
 "Nota: aggiornare ad un'altra revisione non comporterà la perdita di queste modifiche\n"
 "quindi la copia di lavoro non apparirà identica a quella della revisione a cui ci si sta aggiornando."
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "Zoom &avanti"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "Zoom &indietro"
 
 # ID:10,
 #: ID:10
