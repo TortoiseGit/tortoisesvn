@@ -54,18 +54,12 @@ P,LI,UL,OL,DD,DT,TD
     color: black;
 }
 
-PRE	
+PRE, TT
 {
     font-size: 12pt;
 }
 
-TT
-{
-    font-size: 12pt;
-}
-
-/* This needs some tweaking, to apply only to TT */
-.Filename, .Literal{
+TT.Filename, TT.Literal{
 	font-weight: bold;
 }
 
@@ -89,14 +83,16 @@ A:hover
 IMG
 {
   border: none;
-  margin: 4px
+  margin: 4px;
+  float: left;
 }
 
 div.figure {
 	padding: 4px;
+	clear: both;
 	float: right;
 	text-align: center;
-	margin: 10px 0px 5px 10px;
+	margin: 0px 0px 5px 10px;
 } 
 
 div.figure p {
@@ -114,7 +110,12 @@ div.figure p {
     color: black;
 }
 
-.preface, .chapter, .sect1, .sect2, .sect3 {
+.navfooter
+ {
+  clear: both;	
+}
+
+.preface, .chapter, .simplesect, .sect1, .sect2, .sect3 {
 	margin: 0 1em 0 1em;
 	clear: both;
 }
@@ -126,10 +127,6 @@ div.figure p {
 }
 .sect1 .sect2 .sect3 {
 	margin: 0 1em 0 2.5em;
-}
-
-.navfooter {
-  clear: both;	
 }
 
 .tip, .error, .caution, .done {
