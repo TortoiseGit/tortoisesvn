@@ -1319,16 +1319,7 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
         apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
 		CString temp;
 		if (val->kind == svn_node_dir)
-		{
-			//remove the following lines when Subversion fixes the ls command to
-			//not return the requested folder itself too for just 'special' foldernames
-			if ((first)&&(CUtils::GetFileNameFromPath(CString(MakeSVNUrlOrPath(url))).Compare(CString(key))==0))
-			{
-				first = FALSE;
-				continue;
-			}
 			temp = "d";
-		}
 		else if (val->kind == svn_node_file)
 			temp = "f";
 		else
