@@ -1,8 +1,8 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
-..\..\bin\release\ResText extract TortoiseProcLang.dll TortoiseMergeLang.dll Tortoise.pot
+if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
+..\bin\release\bin\ResText extract TortoiseProcLang.dll TortoiseMergeLang.dll Tortoise.pot
 
 rem leave the next two lines commented. The msgremove tool changes the
 rem sequence "\r\n" to "r\n" - removing the backslash before the r!!!
