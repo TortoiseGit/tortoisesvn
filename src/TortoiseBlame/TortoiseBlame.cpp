@@ -718,7 +718,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	case WM_CLOSE:
 		return 0;
 	case WM_MOUSELEAVE:
-		app.m_mouserev = -1;
+		app.m_mouserev = -2;
 		app.m_mouseauthor.clear();
 		::InvalidateRect(app.wBlame, NULL, FALSE);
 		break;
@@ -771,7 +771,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				}
 				else
 				{
-					app.m_selectedrev = -1;
+					app.m_selectedrev = -2;
 				}
 			}
 		}
