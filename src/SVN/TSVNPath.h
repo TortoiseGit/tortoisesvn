@@ -193,6 +193,8 @@ public:
 
 public:
 	void AddPath(const CTSVNPath& newPath);
+	void AddPathFromSVN(const CString& newPath);
+	void AddPathFromWin(const CString& newPath);
 	bool LoadFromTemporaryFile(const CString& sFilename);
 	bool WriteToTemporaryFile(const CString& sFilename) const;
 	int GetCount() const;

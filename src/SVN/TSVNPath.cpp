@@ -331,6 +331,20 @@ void CTSVNPathList::AddPath(const CTSVNPath& newPath)
 	m_paths.push_back(newPath);
 }
 
+void CTSVNPathList::AddPathFromSVN(const CString& newPath)
+{
+	CTSVNPath path;
+	path.SetFromSVN(newPath);
+	AddPath(path);
+}
+
+void CTSVNPathList::AddPathFromWin(const CString& newPath)
+{
+	CTSVNPath path;
+	path.SetFromWin(newPath);
+	AddPath(path);
+}
+
 int 
 CTSVNPathList::GetCount() const
 {
