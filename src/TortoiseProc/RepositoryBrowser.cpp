@@ -581,10 +581,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
 							}
-							if (bFolder)
-								m_treeRepository.AddFolder(dlg.m_name);
-							else
-								m_treeRepository.AddFile(dlg.m_name);
+							if (GetRevision().IsHead())
+							{
+								if (bFolder)
+									m_treeRepository.AddFolder(dlg.m_name);
+								else
+									m_treeRepository.AddFile(dlg.m_name);
+							}
 						} // if (input.DoModal() == IDOK) 
 					} // if (dlg.DoModal() == IDOK) 
 				}
