@@ -36,7 +36,7 @@ CBlame::~CBlame()
 
 BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line)
 {
-	CString fullline;
+	CString infolineA;
 	CString fulllineA;
 
 	if ((m_lowestrev < 0)||(m_lowestrev > revision))
@@ -44,13 +44,13 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	if (m_highestrev < revision)
 		m_highestrev = revision;
 
-	fullline.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, date, author);
+	infolineA.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, CUnicodeUtils::GetUTF8(date), author);
 	fulllineA = line;
 	fulllineA.TrimRight(_T("\r\n"));
 	fulllineA += "\n";
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 	{
-		m_saveFile.WriteString(fullline);
+		m_saveFile.WriteString(infolineA);
 		m_saveFile.WriteString(fulllineA);
 	}
 	else
