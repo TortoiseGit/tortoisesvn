@@ -230,29 +230,38 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 	if (!sMessage.IsEmpty())
 	{
 		CString sBugLine;
-		if (bAppend)
+		CString sFirstPart;
+		CString sLastPart;
+		BOOL bTop = FALSE;
+		if (sMessage.Find(_T("%BUGID%"))<0)
+			return FALSE;
+		sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
+		sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
+		if (msg.ReverseFind('\n')>=0)
 		{
-			if (msg.ReverseFind('\n')>=0)
-				sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+			sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+			if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+				sBugLine.Empty();
+			if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+				sBugLine.Empty();
 		}
-		else
+		if (sBugLine.IsEmpty())
 		{
 			if (msg.Find('\n')>=0)
 				sBugLine = msg.Left(msg.Find('\n'));
+			if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+				sBugLine.Empty();
+			if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+				sBugLine.Empty();
+			bTop = TRUE;
 		}
-		if (sMessage.Find(_T("%BUGID%"))<0)
-			return FALSE;
-		CString sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
-		CString sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
-		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
-			return FALSE;
-		if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+		if (sBugLine.IsEmpty())
 			return FALSE;
 		CString sBugIDPart = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
 		if (sBugIDPart.IsEmpty())
 			return FALSE;
 		//the bug id part can contain several bug id's, separated by commas
-		if (bAppend)
+		if (!bTop)
 			offset1 = msg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
 		else
 			offset1 = sFirstPart.GetLength();
