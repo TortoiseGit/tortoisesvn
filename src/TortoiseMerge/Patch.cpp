@@ -2,6 +2,7 @@
 #include "Resource.h"
 #include "Utils.h"
 #include "FileTextLines.h"
+#include "TortoiseMerge.h"
 #include ".\patch.h"
 
 CPatch::CPatch(void)
@@ -372,7 +373,8 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 			return FALSE;
 		}
 		CloseHandle(hFile);
-	}
+	} // if (!PathFileExists(sPatchFile))
+	g_crasher.AddFile((LPCSTR)(LPCTSTR)sPatchFile, (LPCSTR)(LPCTSTR)_T("File to patch"));
 	CFileTextLines PatchLines;
 	PatchLines.Load(sPatchFile);
 

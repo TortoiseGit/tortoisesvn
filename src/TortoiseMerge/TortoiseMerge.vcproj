@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge;..\crashrpt"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -75,7 +75,7 @@
 			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\TortoiseMerge;..\crashrpt"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="FALSE"
 				RuntimeLibrary="2"
@@ -143,6 +143,9 @@
 			</File>
 			<File
 				RelativePath="..\Utils\CmdLineParser.cpp">
+			</File>
+			<File
+				RelativePath="..\Utils\CrashHandler.cpp">
 			</File>
 			<File
 				RelativePath="..\Utils\DIB.cpp">
@@ -240,6 +243,9 @@
 				RelativePath="..\Utils\CmdLineParser.h">
 			</File>
 			<File
+				RelativePath="..\Utils\CrashHandler.h">
+			</File>
+			<File
 				RelativePath="..\Utils\DIB.h">
 			</File>
 			<File
@@ -282,9 +288,6 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
-				RelativePath="..\Languages\resource.h">
-			</File>
-			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -302,6 +305,9 @@
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\Languages\resource.h">
 			</File>
 			<File
 				RelativePath=".\RightView.h">

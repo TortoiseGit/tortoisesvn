@@ -22,7 +22,6 @@
 	#error include 'stdafx.h' before including this file for PCH
 #endif
 
-#include "CrashHandler.h"
 
 #include "resource.h"		// main symbols
 #include "..\\TortoiseShell\\resource.h"

@@ -278,6 +278,10 @@ void CMainFrame::OnFileOpen()
 	this->m_Data.m_sYourFile = dlg.m_sYourFile;
 	this->m_Data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
 	this->m_Data.m_sPatchPath = dlg.m_sPatchDirectory;
+	g_crasher.AddFile((LPCSTR)(LPCTSTR)m_Data.m_sBaseFile, (LPCSTR)(LPCTSTR)_T("Basefile"));
+	g_crasher.AddFile((LPCSTR)(LPCTSTR)m_Data.m_sTheirFile, (LPCSTR)(LPCTSTR)_T("Theirfile"));
+	g_crasher.AddFile((LPCSTR)(LPCTSTR)m_Data.m_sYourFile, (LPCSTR)(LPCTSTR)_T("Yourfile"));
+	g_crasher.AddFile((LPCSTR)(LPCTSTR)m_Data.m_sDiffFile, (LPCSTR)(LPCTSTR)_T("Difffile"));
 	LoadViews();
 }
 
