@@ -83,20 +83,61 @@ public:
 	 */
 	static CString GetTempFile();
 
+	/**
+	 * Replaces escaped sequences with the corresponding characters in a string.
+	 */
 	static void Unescape(char * psz);
+
+	/**
+	 * Replaces non-URI chars with the corresponding escape sequences.
+	 */
 	static CStringA PathEscape(CStringA path);
+
+	/**
+	 * Returns TRUE if the path/URL contains escaped chars
+	 */
 	static BOOL IsEscaped(CStringA path);
+
+	/**
+	 * Returns the version string from the VERSION resource of a dll or exe.
+	 * \param p_strDateiname path to the dll or exe
+	 * \return the version string
+	 */
 	static CString GetVersionFromFile(const CString & p_strDateiname);
+
+	/**
+	 * returns the filename of a full path
+	 */
 	static CString GetFileNameFromPath(CString sPath);
+
+	/**
+	 * returns the file extension from a full path
+	 */
 	static CString GetFileExtFromPath(CString sPath);
+
+	/**
+	 * Checks if \a sPath1 is the parent path of \a sPath2
+	 */
 	static BOOL PathIsParent(CString sPath1, CString sPath2);
+
 	/**
 	 * Writes all paths, separated by a '*' char into a tempfile. 
 	 * \param paths a list of paths, separated by a '*' char
 	 * \return the path to the temp file
 	 */
 	static CString WritePathsToTempFile(CString paths);
+
+	/**
+	 * Returns the long pathname of a path which may be in 8.3 format.
+	 */
 	static CString GetLongPathName(CString path);
 
+	/**
+	 * Copies a file or a folder from \a srcPath to \a destpath, creating
+	 * intermediate folders if necessary. If \a force is TRUE, then files
+	 * are overwritten if they already exist.
+	 * Folders are just created at the new location, no files in them get
+	 * copied.
+	 */
 	static BOOL FileCopy(CString srcPath, CString destPath, BOOL force = TRUE);
 };
