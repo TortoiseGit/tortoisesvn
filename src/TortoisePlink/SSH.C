@@ -17,8 +17,7 @@
 
 #define logevent(s) { logevent(s); \
                       if ((flags & FLAG_STDERR) && (flags & FLAG_VERBOSE)) \
-                      { char buf[10000]; sprintf(buf, "%s\n", s); \
-					    MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR); } }
+                      { fprintf(stderr, "%s\n", s); fflush(stderr); } }
 
 /* logevent, only printf-formatted. */
 void logeventf(char *fmt, ...)

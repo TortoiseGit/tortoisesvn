@@ -21,44 +21,34 @@
 void fatalbox(char *p, ...)
 {
     va_list ap;
-	char buf[MAX_STDIN_BACKLOG];
-	char buf2[MAX_STDIN_BACKLOG];
-    sprintf(buf, "FATAL ERROR: \n");
+    fprintf(stderr, "FATAL ERROR: ");
     va_start(ap, p);
-    vsprintf(buf2, p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    strcat(buf, buf2);
-	MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+    fputc('\n', stderr);
     WSACleanup();
     cleanup_exit(1);
 }
 void connection_fatal(char *p, ...)
 {
     va_list ap;
-	char buf[MAX_STDIN_BACKLOG];
-	char buf2[MAX_STDIN_BACKLOG];
-    sprintf(buf, "FATAL ERROR: \n");
+    fprintf(stderr, "FATAL ERROR: ");
     va_start(ap, p);
-    vsprintf(buf2, p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    strcat(buf, buf2);
-	MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+    fputc('\n', stderr);
     WSACleanup();
     cleanup_exit(1);
 }
 void cmdline_error(char *p, ...)
 {
     va_list ap;
-	char buf[MAX_STDIN_BACKLOG];
-	char buf2[MAX_STDIN_BACKLOG];
-    sprintf(buf, "plink: \n");
+    fprintf(stderr, "plink: ");
     va_start(ap, p);
-    vsprintf(buf2, p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    strcat(buf, buf2);
-	MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
-    WSACleanup();
-    cleanup_exit(1);
+    fputc('\n', stderr);
+    exit(1);
 }
 
 static char *password = NULL;
@@ -189,34 +179,31 @@ int from_backend(int is_stderr, char *data, int len)
  */
 static void usage(void)
 {
-	char buf[10000];
-	int j = 0;
-    j += sprintf(buf+j, "TortoisePlink %s\n", ver);
-    j += sprintf(buf+j, "Usage: TortoisePlink [options] [user@]host [command]\n");
-    j += sprintf(buf+j, "       (\"host\" can also be a PuTTY saved session name)\n");
-    j += sprintf(buf+j, "Options:\n");
-    j += sprintf(buf+j, "  -V        show version\n");
-    j += sprintf(buf+j, "  -v        show verbose messages\n");
-    j += sprintf(buf+j, "  -load sessname  Load settings from saved session\n");
-    j += sprintf(buf+j, "  -ssh -telnet -rlogin -raw\n");
-    j += sprintf(buf+j, "            force use of a particular protocol (default SSH)\n");
-    j += sprintf(buf+j, "  -P port   connect to specified port\n");
-    j += sprintf(buf+j, "  -l user   connect with specified username\n");
-    j += sprintf(buf+j, "  -m file   read remote command(s) from file\n");
-    j += sprintf(buf+j, "  -batch    disable all interactive prompts\n");
-    j += sprintf(buf+j, "The following options only apply to SSH connections:\n");
-    j += sprintf(buf+j, "  -pw passw login with specified password\n");
-    j += sprintf(buf+j, "  -L listen-port:host:port   Forward local port to "
+    printf("TortoisePlink %s\n", ver);
+    printf("Usage: TortoisePlink [options] [user@]host [command]\n");
+    printf("       (\"host\" can also be a PuTTY saved session name)\n");
+    printf("Options:\n");
+    printf("  -V        show version\n");
+    printf("  -v        show verbose messages\n");
+    printf("  -load sessname  Load settings from saved session\n");
+    printf("  -ssh -telnet -rlogin -raw\n");
+    printf("            force use of a particular protocol (default SSH)\n");
+    printf("  -P port   connect to specified port\n");
+    printf("  -l user   connect with specified username\n");
+    printf("  -m file   read remote command(s) from file\n");
+    printf("  -batch    disable all interactive prompts\n");
+    printf("The following options only apply to SSH connections:\n");
+    printf("  -pw passw login with specified password\n");
+    printf("  -L listen-port:host:port   Forward local port to "
       "remote address\n");
-    j += sprintf(buf+j, "  -R listen-port:host:port   Forward remote port to"
+    printf("  -R listen-port:host:port   Forward remote port to"
       " local address\n");
-    j += sprintf(buf+j, "  -X -x     enable / disable X11 forwarding\n");
-    j += sprintf(buf+j, "  -A -a     enable / disable agent forwarding\n");
-    j += sprintf(buf+j, "  -t -T     enable / disable pty allocation\n");
-    j += sprintf(buf+j, "  -1 -2     force use of particular protocol version\n");
-    j += sprintf(buf+j, "  -C        enable compression\n");
-    j += sprintf(buf+j, "  -i key    private key file for authentication\n");
-	MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONINFORMATION);
+    printf("  -X -x     enable / disable X11 forwarding\n");
+    printf("  -A -a     enable / disable agent forwarding\n");
+    printf("  -t -T     enable / disable pty allocation\n");
+    printf("  -1 -2     force use of particular protocol version\n");
+    printf("  -C        enable compression\n");
+    printf("  -i key    private key file for authentication\n");
     exit(1);
 }
 
@@ -255,7 +242,6 @@ int main(int argc, char **argv)
     int skcount, sksize;
     int connopen;
     int exitcode;
-	char buf[10000];
 
     ssh_get_line = console_get_line;
 
@@ -297,16 +283,14 @@ int main(int argc, char **argv)
    if (*p == '-') {
        int ret = cmdline_process_param(p, (argc > 1 ? argv[1] : NULL), 1);
        if (ret == -2) {
-      sprintf(buf,
+      fprintf(stderr,
          "plink: option \"%s\" requires an argument\n", p);
-	  MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
        } else if (ret == 2) {
       --argc, ++argv;
        } else if (ret == 1) {
           if (flags & FLAG_VERSION)
           {
-             sprintf(buf, "TortoisePlink %s\n", ver);
-			 MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONINFORMATION);
+             printf("TortoisePlink %s\n", ver);
              exit(0);
           }
           continue;
@@ -486,9 +470,8 @@ int main(int argc, char **argv)
       break;
        }
    if (back == NULL) {
-       sprintf(buf,
+       fprintf(stderr,
           "Internal fault: Unsupported protocol found\n");
-	   MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
        return 1;
    }
     }
@@ -529,8 +512,7 @@ int main(int argc, char **argv)
 
    error = back->init(cfg.host, cfg.port, &realhost, nodelay);
    if (error) {
-       sprintf(buf, "Unable to open connection:\n%s", error);
-	   MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+       fprintf(stderr, "Unable to open connection:\n%s", error);
        return 1;
    }
    sfree(realhost);
@@ -568,8 +550,7 @@ int main(int argc, char **argv)
     odata.busy = odata.done = 0;
     if (!CreateThread(NULL, 0, stdout_write_thread,
             &odata, 0, &out_threadid)) {
-   sprintf(buf, "Unable to create output thread\n");
-   MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+   fprintf(stderr, "Unable to create output thread\n");
    cleanup_exit(1);
     }
     edata.event = stderrevent;
@@ -578,8 +559,7 @@ int main(int argc, char **argv)
     edata.busy = edata.done = 0;
     if (!CreateThread(NULL, 0, stdout_write_thread,
             &edata, 0, &err_threadid)) {
-   sprintf(buf, "Unable to create error output thread\n");
-   MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+   fprintf(stderr, "Unable to create error output thread\n");
    cleanup_exit(1);
     }
 
@@ -607,8 +587,7 @@ int main(int argc, char **argv)
        idata.eventback = CreateEvent(NULL, FALSE, FALSE, NULL);
        if (!CreateThread(NULL, 0, stdin_read_thread,
                &idata, 0, &in_threadid)) {
-      sprintf(buf, "Unable to create input thread\n");
-	  MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+      fprintf(stderr, "Unable to create input thread\n");
       cleanup_exit(1);
        }
        sending = TRUE;
@@ -689,8 +668,7 @@ int main(int argc, char **argv)
    } else if (n == 2) {
        odata.busy = 0;
        if (!odata.writeret) {
-      sprintf(buf, "Unable to write to standard output\n");
-	  MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+      fprintf(stderr, "Unable to write to standard output\n");
       cleanup_exit(0);
        }
        bufchain_consume(&stdout_data, odata.lenwritten);
@@ -703,8 +681,7 @@ int main(int argc, char **argv)
    } else if (n == 3) {
        edata.busy = 0;
        if (!edata.writeret) {
-      sprintf(buf, "Unable to write to standard output\n");
-	  MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+      fprintf(stderr, "Unable to write to standard output\n");
       cleanup_exit(0);
        }
        bufchain_consume(&stderr_data, edata.lenwritten);
@@ -727,8 +704,7 @@ int main(int argc, char **argv)
     WSACleanup();
     exitcode = back->exitcode();
     if (exitcode < 0) {
-   sprintf(buf, "Remote process exit code unavailable\n");
-   MessageBox(NULL, buf, "TortoisePlink", MB_OK | MB_ICONERROR);
+   fprintf(stderr, "Remote process exit code unavailable\n");
    exitcode = 1;            /* this is an error condition */
     }
     return exitcode;
