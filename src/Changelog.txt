@@ -2,6 +2,8 @@ Repository
 - BUG: right-dragging a single file/folder resulted
        in error message "cannot copy path ... into
        its own child ...". (Stefan)
+- BUG: The log dialog could crash if not enough
+       memory is available. (Stefan)
 - ADD: Select the files you want to delete before
        importing a project. (Stefan)
 - ADD: New command "ignore" to set the svn:ignore

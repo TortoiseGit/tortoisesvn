@@ -189,27 +189,36 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 	//split multiline logentries and concatenate them
 	//again but this time with \r\n as line separators
 	//so that the edit control recognizes them
-	temp = "";
-	if (message.GetLength()>0)
+	try
 	{
-		int curPos= 0;
-		CString resToken= message.Tokenize(_T("\n\r"),curPos);
-		temp += resToken+_T("\r\n");
-		line++;
-		resToken= message.Tokenize(_T("\n\r"),curPos);
-		while (resToken != _T(""))
+		temp = "";
+		if (message.GetLength()>0)
 		{
+			int curPos= 0;
+			CString resToken= message.Tokenize(_T("\n\r"),curPos);
 			temp += resToken+_T("\r\n");
 			line++;
 			resToken= message.Tokenize(_T("\n\r"),curPos);
-		};
-	} // if (message.GetLength()>0)
-	temp += _T("\r\n---------------------------------\r\n");
-	line++;
-	m_arFileListStarts.Add(line);
-	temp += cpaths;
-	m_arLogMessages.Add(temp);
-	m_arRevs.Add(rev);
+			while (resToken != _T(""))
+			{
+				temp += resToken+_T("\r\n");
+				line++;
+				resToken= message.Tokenize(_T("\n\r"),curPos);
+			};
+		} // if (message.GetLength()>0)
+		temp += _T("\r\n---------------------------------\r\n");
+		line++;
+		m_arFileListStarts.Add(line);
+		temp += cpaths;
+		m_arLogMessages.Add(temp);
+		m_arRevs.Add(rev);
+	}
+	catch (CException * e)
+	{
+		::MessageBox(NULL, _T("not enough memory!"), _T("TortoiseSVN"), MB_ICONERROR);
+		e->Delete();
+		m_bCancelled = TRUE;
+	}
 	m_LogList.SetRedraw();
 	return TRUE;
 }
