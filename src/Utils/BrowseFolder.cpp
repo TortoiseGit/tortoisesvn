@@ -24,7 +24,7 @@ BOOL CBrowseFolder::m_bCheck = FALSE;
 WNDPROC CBrowseFolder::CBProc = NULL;
 HWND CBrowseFolder::checkbox = NULL;
 HWND CBrowseFolder::ListView = NULL;
-TCHAR CBrowseFolder::m_CheckText[MAX_PATH];		
+TCHAR CBrowseFolder::m_CheckText[200];		
 
 
 CBrowseFolder::CBrowseFolder(void)
@@ -78,7 +78,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path)
 
 	if (ret != CANCEL) 
 	{
-		if (!SHGetPathFromIDList(itemIDList, path.GetBuffer(MAX_PATH)))
+		if (!SHGetPathFromIDList(itemIDList, path.GetBuffer(MAX_PATH)))		// MAX_PATH ok. Explorer can't handle paths longer than MAX_PATH.
 			ret = NOPATH;
 
 		path.ReleaseBuffer();

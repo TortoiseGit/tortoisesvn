@@ -470,9 +470,11 @@ BOOL CTortoiseProcApp::InitInstance()
 			CTSVNPath checkoutDirectory;
 			if (cmdLinePath.IsEmpty())
 			{
-				TCHAR tszPath[MAX_PATH+1];
-				::GetCurrentDirectory(MAX_PATH, tszPath);
+				DWORD len = ::GetCurrentDirectory(0, NULL);
+				TCHAR * tszPath = new TCHAR[len];
+				::GetCurrentDirectory(len, tszPath);
 				checkoutDirectory.SetFromWin(tszPath, true);
+				delete tszPath;
 			}
 			else
 			{

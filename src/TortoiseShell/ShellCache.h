@@ -67,7 +67,7 @@ public:
 		columnrevformat.Grouping = _ttoi(szBuffer);
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
 		columnrevformat.NegativeOrder = _ttoi(szBuffer);
-		sAdminDirCacheKey.reserve(MAX_PATH);
+		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
 	}
 	DWORD BlockStatus()
 	{
@@ -187,14 +187,14 @@ public:
 			{
 				PathStripToRoot(pathbuf);
 				PathAddBackslash(pathbuf);
-				if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)
+				if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)		// MAX_PATH ok.
 					drivetype = drivetypecache[26];
 				else
 				{
 					ATLTRACE2(_T("GetDriveType for %s\n"), pathbuf);
 					drivetype = GetDriveType(pathbuf);
 					drivetypecache[26] = drivetype;
-					_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);
+					_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);			// MAX_PATH ok.
 				} 
 			}
 		}
@@ -384,7 +384,7 @@ private:
 	DWORD excludelistticker;
 	DWORD includelistticker;
 	UINT  drivetypecache[27];
-	TCHAR drivetypepathcache[MAX_PATH];
+	TCHAR drivetypepathcache[MAX_PATH];		// MAX_PATH ok.
 	NUMBERFMT columnrevformat;
 	TCHAR szDecSep[5];
 	TCHAR szThousandsSep[5];

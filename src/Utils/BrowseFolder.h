@@ -74,7 +74,7 @@ public:
 	CBrowseFolder::retVal Show(HWND parent, CString& path);
 	CBrowseFolder::retVal Show(HWND parent, LPTSTR path);
 	static BOOL m_bCheck;		///< state of the checkbox on closing the dialog
-	TCHAR m_title[MAX_PATH];
+	TCHAR m_title[200];
 protected:
 	static void SetFont(HWND hwnd,LPTSTR FontName,int FontSize);
 
@@ -84,7 +84,7 @@ protected:
 	static WNDPROC CBProc;
 	static HWND checkbox;
 	static HWND ListView;
-	TCHAR m_displayName[MAX_PATH];
+	TCHAR m_displayName[200];
 	LPITEMIDLIST m_root;
-	static TCHAR m_CheckText[MAX_PATH];	
+	static TCHAR m_CheckText[200];	
 };

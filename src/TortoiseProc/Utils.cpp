@@ -329,7 +329,7 @@ BOOL CUtils::StartTextViewer(CString file)
 	if (viewer.IsEmpty())
 	{
 		OPENFILENAME ofn;		// common dialog box structure
-		TCHAR szFile[MAX_PATH];  // buffer for file name, let's hope the user doesn't want a path longer than MAX_PATH!
+		TCHAR szFile[MAX_PATH];  // buffer for file name. Explorer can't handle paths longer than MAX_PATH.
 		ZeroMemory(szFile, sizeof(szFile));
 		// Initialize OPENFILENAME
 		ZeroMemory(&ofn, sizeof(OPENFILENAME));
@@ -583,7 +583,7 @@ CString CUtils::GetLongPathname(const CString& path)
 {
 	if (path.IsEmpty())
 		return path;
-	TCHAR pathbufcanonicalized[MAX_PATH];
+	TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
 	DWORD ret = 0;
 	CString sRet;
 	if (PathCanonicalize(pathbufcanonicalized, path))
@@ -761,19 +761,24 @@ bool CUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogF
 
 CString CUtils::GetAppDirectory()
 {
-	TCHAR procpath[MAX_PATH] = {0};
-	GetModuleFileName(NULL, procpath, MAX_PATH);
-	CString langpath = procpath;
-	langpath = langpath.Left(langpath.ReverseFind('\\')+1);
-	return langpath;
+	CString path;
+	DWORD len = 0;
+	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
+	path.GetBuffer(bufferlen);
+	do 
+	{
+		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
+		path.ReleaseBuffer(0);
+		len = GetModuleFileName(NULL, path.GetBuffer(bufferlen+1), bufferlen);				
+	} while(len == bufferlen);
+	path.ReleaseBuffer();
+	path = path.Left(path.ReverseFind('\\')+1);
+	return path;
 }
 
 CString CUtils::GetAppParentDirectory()
 {
-	TCHAR procpath[MAX_PATH] = {0};
-	GetModuleFileName(NULL, procpath, MAX_PATH);
-	CString langpath = procpath;
-	langpath = langpath.Left(langpath.ReverseFind('\\'));
-	langpath = langpath.Left(langpath.ReverseFind('\\')+1);
-	return langpath;
+	CString path = GetAppDirectory();
+	path = path.Left(path.ReverseFind('\\')+1);
+	return path;
 }

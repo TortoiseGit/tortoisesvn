@@ -66,17 +66,23 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
 #ifdef UNICODE
 std::string CUnicodeUtils::StdGetUTF8(const wide_string& wide)
 {
-	char narrow[_MAX_PATH * 3];
-	int ret = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, _MAX_PATH*3 - 1, NULL, NULL);
+	int size = wide.size()*4;
+	char * narrow = new char[size];
+	int ret = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, size-1, NULL, NULL);
 	narrow[ret] = 0;
-	return std::string(narrow);
+	std::string sRet = std::string(narrow);
+	delete narrow;
+	return sRet;
 }
 
 wide_string CUnicodeUtils::StdGetUnicode(const std::string& multibyte)
 {
-	wchar_t wide[_MAX_PATH * 3];
-	int ret = MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, _MAX_PATH*3 - 1);
+	int size = multibyte.size()*4;
+	wchar_t * wide = new wchar_t[size];
+	int ret = MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, size - 1);
 	wide[ret] = 0;
-	return wide_string(wide);
+	wide_string sRet = wide_string(wide);
+	delete wide;
+	return sRet;
 }
 #endif

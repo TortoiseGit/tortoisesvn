@@ -38,6 +38,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#define SVN_DATE_BUFFER 260
+
 SVN::SVN(void)
 {
 	parentpool = svn_pool_create(NULL);
@@ -1035,7 +1037,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 	svn_error_t * error = NULL;
 	CString author_native;
 	CStringA line_native;
-	TCHAR date_native[MAX_PATH] = {0};
+	TCHAR date_native[SVN_DATE_BUFFER] = {0};
 
 	SVN * svn = (SVN *)baton;
 
@@ -1074,7 +1076,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 								apr_pool_t* pool)
 {
 	svn_error_t * error = NULL;
-	TCHAR date_native[MAX_PATH] = {0};
+	TCHAR date_native[SVN_DATE_BUFFER] = {0};
 	CString author_native;
 	CString msg_native;
 
@@ -1374,7 +1376,7 @@ BOOL SVN::Ls(const CTSVNPath& url, SVNRev revision, CStringArray& entries, BOOL 
 		if (extended)
 		{
 			CString author, revnum, size, dateval;
-			TCHAR date_native[_MAX_PATH];
+			TCHAR date_native[SVN_DATE_BUFFER];
 			author = CUnicodeUtils::GetUnicode(val->last_author);
 			revnum.Format(_T("%u"), val->created_rev);
 			if (val->kind != svn_node_dir)
@@ -1589,8 +1591,8 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	apr_time_exp_t exploded_time = {0};
 	
 	SYSTEMTIME systime;
-	TCHAR timebuf[MAX_PATH];
-	TCHAR datebuf[MAX_PATH];
+	TCHAR timebuf[SVN_DATE_BUFFER];
+	TCHAR datebuf[SVN_DATE_BUFFER];
 
 	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
 	locale = MAKELCID(locale, SORT_DEFAULT);
@@ -1607,19 +1609,19 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	systime.wYear = (WORD)exploded_time.tm_year+1900;
 	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
 	{
-		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PATH);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
-		_tcsncat(date_native, datebuf, MAX_PATH);
-		_tcsncat(date_native, _T(" "), MAX_PATH);
-		_tcsncat(date_native, timebuf, MAX_PATH);
+		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+		_tcsncat(date_native, datebuf, SVN_DATE_BUFFER);
+		_tcsncat(date_native, _T(" "), SVN_DATE_BUFFER);
+		_tcsncat(date_native, timebuf, SVN_DATE_BUFFER);
 	}
 	else
 	{
-		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
-		_tcsncat(date_native, timebuf, MAX_PATH);
-		_tcsncat(date_native, _T(", "), MAX_PATH);
-		_tcsncat(date_native, datebuf, MAX_PATH);
+		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+		_tcsncat(date_native, timebuf, SVN_DATE_BUFFER);
+		_tcsncat(date_native, _T(", "), SVN_DATE_BUFFER);
+		_tcsncat(date_native, datebuf, SVN_DATE_BUFFER);
 	}
 }
 
