@@ -921,7 +921,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 		cpaths = _T("Memory Exception!");
 		e->Delete();
 	}
-
+	cpaths.FreeExtra();
 	SVN_ERR (svn->cancel(baton));
 
 	if (svn->Log(rev, CString(author_native.c_str()), CString(date_native), CString(msg_native.c_str()), cpaths))
