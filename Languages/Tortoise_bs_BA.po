@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-13 22:02-0500\n"
+"PO-Revision-Date: 2004-10-04 16:57-0500\n"
 "Last-Translator: Boris Musa <boris@kafana.org>\n"
 "Language-Team: *_BA\n"
 "MIME-Version: 1.0\n"
@@ -129,6 +129,12 @@ msgstr "%s - u reviziji: %d"
 
 # ID:151,
 #: ID:151
+#, fuzzy
+msgid "%s : Remote File"
+msgstr "%s : Datoteka u spremištu"
+
+# ID:151,
+#: ID:151
 msgid "%s : Working Base"
 msgstr "%s : Radna baza"
 
@@ -207,7 +213,7 @@ msgstr "&Automatski zatvori prozore"
 # ID:76,
 #: ID:76
 #, fuzzy
-msgid "&Compare revisions"
+msgid "&Compare Revisions"
 msgstr "Poredi revi&zije"
 
 # ID:101,
@@ -328,7 +334,6 @@ msgid "&New "
 msgstr "&Novi"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Next Difference"
 msgstr "&Sljedeća razlika"
 
@@ -358,12 +363,10 @@ msgstr "&Šifra:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "&Port:"
 msgstr "&Port:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Previous Difference"
 msgstr "&Prethodna razlika"
 
@@ -458,15 +461,14 @@ msgstr "&Poništi\tCtrl+Z"
 
 # Control-ID:1061,
 #: Control-ID:1061
-#, fuzzy
 msgid "&Unknown drives"
 msgstr "&Nepoznati diskovi"
 
 # ID:76,
 #: ID:76
 #, fuzzy
-msgid "&Update item to revision"
-msgstr "Obnovi stavku u reviziju"
+msgid "&Update Item To Revision"
+msgstr "&Obnovi stavku u reviziju"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -486,7 +488,6 @@ msgstr "&Razmaknice"
 
 # ID:208,
 #: ID:208
-#, fuzzy
 msgid "(multiple targets selected)"
 msgstr "(odabrane višestruke mete)"
 
@@ -494,7 +495,7 @@ msgstr "(odabrane višestruke mete)"
 #: ID:208
 #, fuzzy
 msgid "(property change only)"
-msgstr "Stranica sa svojstvima"
+msgstr "(samo promjena svojstva)"
 
 # ID:188,
 #: ID:188
@@ -610,7 +611,7 @@ msgstr ""
 
 # ID:101,
 #: ID:101
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr "Do&daj direktorij..."
 
 # Control-ID:1093,
@@ -686,7 +687,7 @@ msgstr "Dodaj"
 
 # ID:101,
 #: ID:101
-msgid "Add &file..."
+msgid "Add &File..."
 msgstr "Dodaj d&atoteku..."
 
 # ID:110,
@@ -1037,20 +1038,18 @@ msgstr "Unu&tarnji"
 
 # Control-ID:1119,
 #: Control-ID:1119
-#, fuzzy
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr:"
 
 # ID:101,
 #: ID:101
-#, fuzzy
 msgid "C&reate Folder..."
 msgstr "K&reiraj direktorij..."
 
 # ID:77,
 #: ID:77
 #, fuzzy
-msgid "C&reate Tag from revision"
+msgid "C&reate Tag From Revision"
 msgstr "K&reiraj oznaku iz revizije"
 
 # ID:3697,
@@ -1101,8 +1100,8 @@ msgstr "Certifikat jos uvijek nije ispravan. Certifikat je važeći od: %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr "Certifikati|*.p12;*.pkcs12|Svi|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgstr "Certifikati|*.p12;*.pkcs12;*.pfx|Svi|*.*||"
 
 # ID:3825,
 #: ID:3825
@@ -1150,7 +1149,7 @@ msgstr "Provjeri za obnove"
 #: Control-ID:1073
 #, fuzzy
 msgid "Check for newer &versions"
-msgstr "Provjeri da li je novija verzija dostupna"
+msgstr "Provjeri da li je novija &verzija dostupna"
 
 # ID:79,
 #: ID:79
@@ -1270,7 +1269,7 @@ msgstr "Izvršavanje naredbe nije uspjelo."
 #: Control-ID:1125
 #, fuzzy
 msgid "Comment History:"
-msgstr "Izvrši promjene u:"
+msgstr "Istorija poruka:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -1298,17 +1297,17 @@ msgstr "Izvršavanje promjena"
 msgid "Compare Whitespaces"
 msgstr "Usporedi razmaknice"
 
+# ID:138,
+#: ID:138
+#, fuzzy
+msgid "Compare With B&ase"
+msgstr "Poredi sa b&azom"
+
 # ID:76,
 #: ID:76
 #, fuzzy
 msgid "Compare with &working copy"
 msgstr "Poredi sa &radnom kopijom"
-
-# ID:138,
-#: ID:138
-#, fuzzy
-msgid "Compare with B&ase"
-msgstr "Poredi sa b&azom"
 
 # ID:12,
 #: ID:12
@@ -1324,6 +1323,11 @@ msgstr "Završeno"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "Sporno"
+
+# Control-ID:65535,
+#: ID:188
+msgid "Conflicts: %d"
+msgstr "Konflikti: %d"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1345,6 +1349,11 @@ msgstr "Kopirano daljinski"
 #: ID:73
 msgid "Copy"
 msgstr "Kopiraj"
+
+# ID:151,
+#: ID:101
+msgid "Copy To Working Copy..."
+msgstr "Kopiraj u radnu kopiju..."
 
 # ID:13,
 #: ID:13
@@ -1568,7 +1577,6 @@ msgstr "Odredišni disk je pun."
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Diff"
 msgstr "Razlika"
 
@@ -1996,6 +2004,16 @@ msgid "Getting log info..."
 msgstr "Prikuplja podatke o datoteci..."
 
 # ID:2049,
+#: ID:2051
+#, fuzzy
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Idi na sljedeću razliku\n"
+"sljedeća razlika"
+
+# ID:2049,
 #: ID:2049
 #, fuzzy
 msgid ""
@@ -2004,6 +2022,16 @@ msgid ""
 msgstr ""
 "Idi na sljedeću razliku\n"
 "sljedeća razlika"
+
+# ID:2049,
+#: ID:2051
+#, fuzzy
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"Idi na prethodnu razliku\n"
+"prethodna razlika"
 
 # ID:2049,
 #: ID:2049
@@ -2023,16 +2051,15 @@ msgid "Help"
 msgstr "Pomoć"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1127
 #, fuzzy
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr "Savjet: Pritisni F5 da osvježiš selektirani ogranak"
 
 # ID:82,
 #: ID:82
-#, fuzzy
 msgid "Hostname mismatch (%s)"
-msgstr "Neslaganje u imenu računala (%s)"
+msgstr "Neslaganje u imenu glavnog računala (%s)"
 
 # Dlg-ID:106,
 #: Control-ID:65535
@@ -2225,6 +2252,11 @@ msgstr "Zadnja sačuvana revizija stavke"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Pokreče spoljašnji program razlika / spajanja za rješavanje konflikata u datotekama"
 
+# ID:188,
+#: ID:188
+msgid "Left View: "
+msgstr "Lijevi pregled:"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -2266,7 +2298,6 @@ msgstr "Poruke iz dnevnika"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
-#, fuzzy
 msgid "Look and Feel"
 msgstr "Look and Feel"
 
@@ -2319,11 +2350,6 @@ msgstr "Poruka"
 msgid "Mime Type"
 msgstr "Mime Type"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Minimum logsize in chars"
-msgstr "Najmanja veličina poruke dnevnika izražena u znakovima"
-
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1082
@@ -2361,6 +2387,11 @@ msgstr "Premještam %s"
 #: ID:80
 msgid "Moving..."
 msgstr "Premještanje..."
+
+# ID:12,
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "Slj&edeći konflikt"
 
 # ID:3697,
 #: ID:3697
@@ -2426,10 +2457,11 @@ msgstr "Greška nije nastupila."
 
 # ID:77,
 #: ID:77
+#, fuzzy
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+"for TortoiseSVN to do here..."
 msgstr ""
 "Ni jedna datoteka nije promjenjena ili dodana\n"
 "od zadnjeg izvršenja promjene. TortoiseSVN nema\n"
@@ -2466,7 +2498,6 @@ msgid "One or more files are in a conflicted state."
 msgstr "Jedna ili više datoteka su u stanju konflikta."
 
 #: MenuEntry
-#, fuzzy
 msgid "Oneway &Diff"
 msgstr "Jednostrana &razlika"
 
@@ -2527,6 +2558,11 @@ msgstr "Otvara preglednik spremišta da poštima online spremište"
 msgid "Out of memory."
 msgstr "Program je ostao bez memorije."
 
+# ID:12,
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "P&rethodni konflikt"
+
 # ID:76,
 #: ID:76
 msgid "PEM"
@@ -2542,16 +2578,16 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Šifra:"
 
+# Dlg-ID:158,
+#: Control-ID:1031
+#, fuzzy
+msgid "Paste Changed Filenames"
+msgstr "Promjenjene datoteke"
+
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
 msgstr "Unesi šablon &dnevnika na engleskom"
-
-# Control-ID:1031,
-#: Control-ID:1031
-#, fuzzy
-msgid "Paste Status Template"
-msgstr "Unesi šablon stanja"
 
 # ID:376,
 #: ID:376
@@ -2985,6 +3021,11 @@ msgstr "Revizija / Autor:"
 msgid "Revision: "
 msgstr "Revizija: "
 
+# ID:188,
+#: ID:188
+msgid "Right View: "
+msgstr "Desni pregled:"
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr "Po&stavke"
@@ -3094,18 +3135,17 @@ msgstr "SVN kratki URL"
 msgid "Save &As..."
 msgstr "Sačuvaj &kao..."
 
-# ID:313,#:
-# ID:101,
-#: ID:101
-#, fuzzy
-msgid "Save &as..."
-msgstr "Sačuvaj k&ao..."
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Save As"
 msgstr "Sačuvaj kao"
+
+# ID:76,
+#: ID:76
+#, fuzzy
+msgid "Save Revision &To..."
+msgstr "Sačuvaj reviziju &u..."
 
 # ID:313,#:
 # ID:101,
@@ -3118,12 +3158,6 @@ msgstr "Sačuvaj kao..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "Sačuvaj promjene u %1?"
-
-# ID:76,
-#: ID:76
-#, fuzzy
-msgid "Save revision &to..."
-msgstr "Sačuvaj reviziju &u..."
 
 # ID:3601,#:
 # ID:3601,
@@ -3224,7 +3258,6 @@ msgstr ""
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
-#, fuzzy
 msgid "Send Mail failed to send message."
 msgstr "Send Mail nije uspio da pošalje poruku."
 
@@ -3282,12 +3315,12 @@ msgstr "Kratki URL za subversion stavke"
 
 # ID:113,
 #: ID:113
-#, fuzzy
 msgid "Show &Differences"
 msgstr "Pokaži &razlike"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
+#: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
@@ -3299,7 +3332,6 @@ msgid "Show &Log..."
 msgstr "Pokaži &dnevnik..."
 
 # Control-ID:1016,
-#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Pokaži &dnevnik"
@@ -3382,7 +3414,6 @@ msgstr "Pokazuje dnevnik o odabranoj datoteci / direktoriju"
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid "Shows the mime type of the versioned file"
 msgstr "Pokazuje mime type za datoteke sa verzijom"
 
@@ -3717,10 +3748,14 @@ msgstr ""
 #: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before saving."
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"Konflikti u redu %d su još uvjek nerazriješeni!\n"
-"Razriješite ove konflikte prije nego sačuvate promjene."
+"Još uvijek postoje ne razriješeni konflikti na liniji %d!\n"
+"Ovi konflikti bi trebali biti razriješeni prije nego promjene budu sačuvane.\n"
+"Da li želite sačuvati datoteku u kojoj se još uvijek nalaze konflikti?\n"
+"Ako odaberete DA, onda morate razriješiti konflikte u nekom drugom uređivaču teksta!"
 
 # ID:188,
 #: ID:188
@@ -3770,13 +3805,11 @@ msgstr "TortoiseMerge"
 
 # ID:107,
 #: ID:107
-#, fuzzy
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
-#, fuzzy
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -3799,13 +3832,11 @@ msgstr "TortoiseSVN"
 
 # ID:107,
 #: ID:107
-#, fuzzy
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
-#, fuzzy
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -4032,7 +4063,6 @@ msgstr "Upotrijebi blok teksta iz \"yours\" (tvoj) prije \"theirs\" (njihov)"
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Use th&is text block"
 msgstr "Upotrijeb&i ovaj blok teksta"
 
@@ -4141,7 +4171,7 @@ msgstr "Da"
 
 # ID:145,
 #: ID:145
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr "Da za sve"
 
 # ID:201,
@@ -4394,7 +4424,6 @@ msgstr "sačuvaj autentifikaciju"
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -4470,6 +4499,40 @@ msgstr ""
 #: ID:80
 msgid "to %s"
 msgstr "u %s"
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"Minimalna veličina u slovima koju poruka dnevnika mora imati prije nego izvršenje promjene je dozvoljeno."
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:logtemplate\n"
+"String koji je ubačen u poruku dnevnika na izvršenje promjene.\n"
+"Upotrijebi ovo kao šablon za poruke dnevnika."
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:logwidthmarker\n"
+"Postavi ovo u broj slova koji poruka dnevnika ne bih trebala premašiti.\n"
+"Izblijedila linija je pokazana na toj poziciji. Početna vrijednost je 80 slova."
 
 # Control-ID:1112,
 #: Control-ID:1112

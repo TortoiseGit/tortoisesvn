@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-15 20:00+0100\n"
-"Last-Translator: Yves Reynhout <yreynhout@skynet.be>\n"
+"PO-Revision-Date: 2004-10-04 19:58+0100\n"
+"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -89,6 +89,10 @@ msgid "%s - at revision: %d"
 msgstr "%s - huidige revisie: %d"
 
 #: ID:151
+msgid "%s : Remote File"
+msgstr "%s : remote bestand"
+
+#: ID:151
 msgid "%s : Working Base"
 msgstr "%s : Werkbasis"
 
@@ -149,7 +153,7 @@ msgid "&Close windows automatically"
 msgstr "&Sluit vensters automatisch"
 
 #: ID:76
-msgid "&Compare revisions"
+msgid "&Compare Revisions"
 msgstr "Ver&gelijk revisies"
 
 #: ID:101
@@ -340,7 +344,7 @@ msgid "&Unknown drives"
 msgstr "Onbekende s&tations"
 
 #: ID:76
-msgid "&Update item to revision"
+msgid "&Update Item To Revision"
 msgstr "&Ververs onderdeel naar revisie"
 
 #: Control-ID:65535
@@ -450,7 +454,7 @@ msgstr ""
 "Gebruik kladblok als u niets anders heeft."
 
 #: ID:101
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr "Ma&p toevoegen..."
 
 #: Control-ID:1093
@@ -510,7 +514,7 @@ msgid "Add"
 msgstr "Toevoegen"
 
 #: ID:101
-msgid "Add &file..."
+msgid "Add &File..."
 msgstr "&Bestand toevoegen..."
 
 #: ID:110
@@ -784,7 +788,7 @@ msgid "C&reate Folder..."
 msgstr "&Map maken..."
 
 #: ID:77
-msgid "C&reate Tag from revision"
+msgid "C&reate Tag From Revision"
 msgstr "&Maak label van revisie"
 
 #: ID:3697
@@ -824,8 +828,8 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certificaat nog niet geldig. Geldig vanaf: %s"
 
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr "Certificaten|*.p12;*.pkcs12|Alles|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgstr "Certificaten|*.p12;*.pkcs12;*.pfx|Alles|*.*||"
 
 #: ID:3825
 msgid "Change the window position"
@@ -975,13 +979,13 @@ msgstr "Vastleggen"
 msgid "Compare Whitespaces"
 msgstr "Vergelijk spaties en witregels"
 
+#: ID:138
+msgid "Compare With B&ase"
+msgstr "Vergelijk met b&asis"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Vergelijk met &werkkopie"
-
-#: ID:138
-msgid "Compare with B&ase"
-msgstr "Vergelijk met b&asis"
 
 #: ID:12
 msgid "Compares the file with the last commited version to show you the changes you made"
@@ -994,6 +998,10 @@ msgstr "Gereed"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "In conflict"
+
+#: ID:188
+msgid "Conflicts: %d"
+msgstr "In conflict: %d"
 
 #: Control-ID:65535
 msgid "Context Menu"
@@ -1010,6 +1018,10 @@ msgstr "Op afstand gekopiëerd"
 #: ID:73
 msgid "Copy"
 msgstr "Kopiëren"
+
+#: ID:101
+msgid "Copy To Working Copy..."
+msgstr "Kopiëer naar werkkopie..."
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1520,6 +1532,14 @@ msgstr "Bestandsinformatie verzamelen..."
 msgid "Getting log info..."
 msgstr "Ophalen logboek informatie..."
 
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Ga naar volgende verschil\n"
+"volgend verschil"
+
 #: ID:2049
 msgid ""
 "Go to the next difference\n"
@@ -1527,6 +1547,14 @@ msgid ""
 msgstr ""
 "Ga naar volgende verschil\n"
 "volgend verschil"
+
+#: ID:2051
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"Ga naar vorig verschil\n"
+"vorig verschil"
 
 #: ID:2049
 msgid ""
@@ -1542,7 +1570,7 @@ msgid "Help"
 msgstr "Help"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr "Hint: Druk F5 om de geselecteerde tak te verversen"
 
@@ -1704,6 +1732,10 @@ msgstr "Laatst bewaarde revisie van het onderdeel"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Start extern diff/merge programma om conflicten op te lossen"
 
+#: ID:188
+msgid "Left View: "
+msgstr "Linker beeld:"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -1776,10 +1808,6 @@ msgstr "Boodschap"
 msgid "Mime Type"
 msgstr "Mime-type"
 
-#: Control-ID:65535
-msgid "Minimum logsize in chars"
-msgstr "Minimum aantal tekens in log"
-
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
@@ -1808,6 +1836,10 @@ msgstr "%s wordt verplaatst"
 #: ID:80
 msgid "Moving..."
 msgstr "Verplaatsen..."
+
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "&Volgend conflict"
 
 #: ID:3697
 msgid "NUM"
@@ -1860,7 +1892,7 @@ msgstr "Geen fouten opgetreden."
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+"for TortoiseSVN to do here..."
 msgstr ""
 "Er zijn geen bestanden gewijzigd of toegevoegd sinds\n"
 "de laatste vastlegging.\n"
@@ -1935,6 +1967,10 @@ msgstr "Opent de bibliotheek-bladeraar om de bobliotheek online te tweaken"
 msgid "Out of memory."
 msgstr "Geen geheugen beschikbaar."
 
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "V&orig conflict"
+
 #: ID:76
 msgid "PEM"
 msgstr "PEM"
@@ -1947,13 +1983,13 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
+#: Control-ID:1031
+msgid "Paste Changed Filenames"
+msgstr "Plak namen van gewijzigde bestanden"
+
 #: Control-ID:1121
 msgid "Paste Log &template in english"
 msgstr "Plak Log &template in het engels"
-
-#: Control-ID:1031
-msgid "Paste Status Template"
-msgstr "Plak Status Template"
 
 #: ID:376
 msgid "Patch All"
@@ -2283,6 +2319,10 @@ msgstr "Revisie / Auteur:"
 msgid "Revision: "
 msgstr "Revisie:"
 
+#: ID:188
+msgid "Right View: "
+msgstr "Rechter beeld:"
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr "&Instellingen"
@@ -2371,13 +2411,13 @@ msgstr "korte URL van SVN"
 msgid "Save &As..."
 msgstr "Opslaan &als..."
 
-#: ID:101
-msgid "Save &as..."
-msgstr "Opslaan &als..."
-
 #: ID:3841
 msgid "Save As"
 msgstr "Opslaan als"
+
+#: ID:76
+msgid "Save Revision &To..."
+msgstr "Bewaar revisie &in..."
 
 #: ID:313
 msgid "Save as..."
@@ -2386,10 +2426,6 @@ msgstr "Opslaan als..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "Wijzigingen in %1 opslaan?"
-
-#: ID:76
-msgid "Save revision &to..."
-msgstr "Bewaar revisie &in..."
 
 #: ID:3601
 msgid ""
@@ -2516,6 +2552,7 @@ msgstr "Korte URL van Subversion onderdelen"
 msgid "Show &Differences"
 msgstr "Toon vers&chillen"
 
+#: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
@@ -2525,7 +2562,6 @@ msgstr "Toon &logboek"
 msgid "Show &Log..."
 msgstr "Toon &logboek..."
 
-#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Toon &logboek"
@@ -2871,10 +2907,14 @@ msgstr ""
 #: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before saving."
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"Er zijn nog onopgeloste conflicten in regel %d!\n"
-"Verhelp deze conflicten voordat u opslaat."
+"Er zijn nog steeds onopgeloste conflicten op regel %d!\n"
+"Deze moeten opgelost worden voordat u opslaat.\n"
+"Wilt u het bestand opslaan inclusief de conflicten?\n"
+"Als u op Ja klikt dan dient u de conflicten handmatig op te lossen in een ander programma!"
 
 #: ID:188
 msgid "Thesaurus"
@@ -3195,9 +3235,8 @@ msgstr ""
 msgid "Yes"
 msgstr "Ja"
 
-# ID:145,
 #: ID:145
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr "Ja op alles"
 
 # ID:201,
@@ -3465,6 +3504,34 @@ msgstr ""
 #: ID:80
 msgid "to %s"
 msgstr "naar %s"
+
+#: ID:15
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"Minimumlengte van een logboodschap voordat vastleggen is toegestaan."
+
+#: ID:15
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:logtemplate\n"
+"Tekenreeks die wordt getoond in het venster voor de logboodschap.\n"
+"Gebruik dit als een sjabloon dat door gebruikers kan worden ingevuld."
+
+#: ID:15
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:logwidthmarker\n"
+"Stel dit op de gewenste maximale breedte van de logboodschap. In het venster voor\n"
+"de logboodschap wordt een verticale lijn getoond op die positie. De standaard is 80 karakters."
 
 #: Control-ID:1112
 msgid "your version is:"

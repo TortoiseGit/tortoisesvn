@@ -1,4 +1,3 @@
-# Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Authors:
@@ -7,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-15 17:12+0100\n"
+"PO-Revision-Date: 2004-10-04 15:05+0100\n"
 "Last-Translator: Gunther Strube <gbs@users.sourceforge.net>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -85,6 +84,11 @@ msgstr "%d valgte filer, %d filer ialt"
 msgid "%s - at revision: %d"
 msgstr "%s - ved revision: %d"
 
+# ID:151,
+#: ID:151
+msgid "%s : Remote File"
+msgstr "%s : Ekstern fil"
+
 #: ID:151
 msgid "%s : Working Base"
 msgstr "%s : Arbejdsbase"
@@ -147,8 +151,8 @@ msgid "&Close windows automatically"
 msgstr "&Luk automatisk vinduerne"
 
 #: ID:76
-msgid "&Compare revisions"
-msgstr "&Sammenlig revisioner"
+msgid "&Compare Revisions"
+msgstr "&Sammenlign revisioner"
 
 #: ID:101
 msgid "&Copy To..."
@@ -343,7 +347,7 @@ msgid "&Unknown drives"
 msgstr "&Ukendte drev"
 
 #: ID:76
-msgid "&Update item to revision"
+msgid "&Update Item To Revision"
 msgstr "&Opdater element til revision"
 
 #: Control-ID:65535
@@ -459,7 +463,7 @@ msgstr ""
 "Hvis du ikke har en, brug NotePad."
 
 #: ID:101
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr "T&ilføj mappe..."
 
 #: Control-ID:1093
@@ -519,7 +523,7 @@ msgid "Add"
 msgstr "Tilføj"
 
 #: ID:101
-msgid "Add &file..."
+msgid "Add &File..."
 msgstr "Tilføj &fil..."
 
 #: ID:110
@@ -548,7 +552,7 @@ msgstr "Tilføjet"
 
 #: ID:126
 msgid "Added a file remotely"
-msgstr "Fjern-tilføjet en fil"
+msgstr "Eksternt tilføjet en fil"
 
 #: ID:145
 msgid ""
@@ -796,7 +800,7 @@ msgid "C&reate Folder..."
 msgstr "O&pret mappe..."
 
 #: ID:77
-msgid "C&reate Tag from revision"
+msgid "C&reate Tag From Revision"
 msgstr "O&pret mærke fra revision"
 
 # ID:3697,
@@ -838,8 +842,8 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certifikat endnu ikke gyldigt. Gyldigt fra: %s"
 
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr "Certifikater|*.p12;*.pkcs12|Alle|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgstr "Certifikater|*.p12;*.pkcs12*.pfx|All|*.*||"
 
 #: ID:3825
 msgid "Change the window position"
@@ -994,13 +998,13 @@ msgstr "Arkivering..."
 msgid "Compare Whitespaces"
 msgstr "Sammenlign tomtegn"
 
+#: ID:138
+msgid "Compare With B&ase"
+msgstr "Sammenlign med b&asen"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Sammenlign med &arbejdskopi"
-
-#: ID:138
-msgid "Compare with B&ase"
-msgstr "Sammenlign med b&asen"
 
 #: ID:12
 msgid "Compares the file with the last commited version to show you the changes you made"
@@ -1014,6 +1018,10 @@ msgstr "Afsluttet"
 msgid "Conflicted"
 msgstr "Konflikter"
 
+#: ID:188
+msgid "Conflicts: %d"
+msgstr "Konflikter: %d"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Context Menu"
@@ -1025,11 +1033,15 @@ msgstr "Fortsæt"
 
 #: ID:126
 msgid "Copied remotely"
-msgstr "Fjern-kopieret"
+msgstr "Eksternt kopieret"
 
 #: ID:73
 msgid "Copy"
 msgstr "Kopiér"
+
+#: ID:101
+msgid "Copy To Working Copy..."
+msgstr "Kopier til arbejdskopi..."
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1159,7 +1171,7 @@ msgstr "Opret forgrening/mærke direkte på serveren"
 
 #: ID:126
 msgid "Created folder remotely"
-msgstr "Fjern-oprettet mappe"
+msgstr "Eksternt oprettet mappe"
 
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
@@ -1546,6 +1558,14 @@ msgstr "Henter fil-info......"
 msgid "Getting log info..."
 msgstr "Henter log-info......"
 
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Hop til næste forskel\n"
+"Næste forskel"
+
 #: ID:2049
 msgid ""
 "Go to the next difference\n"
@@ -1553,6 +1573,14 @@ msgid ""
 msgstr ""
 "Hop til næste forskel\n"
 "Næste forskel"
+
+#: ID:2051
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"Hop til foregående forskel\n"
+"Foregående forskel"
 
 #: ID:2049
 msgid ""
@@ -1568,7 +1596,7 @@ msgid "Help"
 msgstr "Hjælp"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr "Forslag: Tryk F5 for at genopfriske det valgte deltræ."
 
@@ -1732,6 +1760,11 @@ msgstr "Sidst gemte revision af element"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Starter den eksterne differens-/flet applikation for at løse konflikterne"
 
+# ID:188,
+#: ID:188
+msgid "Left View: "
+msgstr "Venstre panel:"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -1803,11 +1836,6 @@ msgstr "Ændringslog"
 msgid "Mime Type"
 msgstr "Mimetype"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Minimum logsize in chars"
-msgstr "Minimum logstørrelse i tegn"
-
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
@@ -1827,7 +1855,7 @@ msgstr "Flyt filer i Subversion hertil"
 
 #: ID:126
 msgid "Moved remotely"
-msgstr "Fjern-flyttet"
+msgstr "Eksternt flyttet"
 
 #: ID:80
 msgid "Moving %s"
@@ -1836,6 +1864,10 @@ msgstr "Flytter %s"
 #: ID:80
 msgid "Moving..."
 msgstr "Flytter..."
+
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "Næ&ste konflikt"
 
 # ID:3697,
 #: ID:3697
@@ -1889,10 +1921,11 @@ msgstr "Der opstod ingen fejl."
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+"for TortoiseSVN to do here..."
 msgstr ""
-"Ingen filer var ændret eller tilføjet siden sidste arkivering.\n"
-"TortoiseSVN har ikke noget at behandle her..."
+"Ingen filer var ændret eller tilføjet siden\n"
+"sidste arkivering. TortoiseSVN har ikke\n"
+"noget at behandle her..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1972,6 +2005,10 @@ msgstr "Åbner versionsarkivsøgeren for at kunne organisere arkivet online"
 msgid "Out of memory."
 msgstr "Ikke mere hukommelse."
 
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "&Foregående konflikt"
+
 # ID:76,
 #: ID:76
 msgid "PEM"
@@ -1986,15 +2023,14 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Kodeord:"
 
+#: Control-ID:1031
+msgid "Paste Changed Filenames"
+msgstr "Indsæt ændrede filenavne"
+
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
 msgstr "Indsæt Log&skabelon på engelsk"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Paste Status Template"
-msgstr "Indsæt statusskabelon"
 
 #: ID:376
 msgid "Patch All"
@@ -2203,16 +2239,16 @@ msgstr "Omlægger..."
 
 #: ID:207
 msgid "Remote Property Status"
-msgstr "Fjern-egenskabstatus:"
+msgstr "Ekstern egenskabstatus:"
 
 #: ID:63
 #: ID:207
 msgid "Remote Status"
-msgstr "Fjernstatus"
+msgstr "Ekstern status"
 
 #: ID:207
 msgid "Remote Text Status"
-msgstr "Fjern-tekststatus"
+msgstr "Ekstern tekststatus"
 
 #: Control-ID:65535
 msgid "Removed"
@@ -2326,6 +2362,11 @@ msgstr "Revision / Forfatter:"
 msgid "Revision: "
 msgstr "Revision: "
 
+# ID:188,
+#: ID:188
+msgid "Right View: "
+msgstr "Højre panel:"
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr "&Indstillinger"
@@ -2417,13 +2458,13 @@ msgstr "SVN kort Url"
 msgid "Save &As..."
 msgstr "Gem &som..."
 
-#: ID:101
-msgid "Save &as..."
-msgstr "Gem &som..."
-
 #: ID:3841
 msgid "Save As"
 msgstr "Gem som"
+
+#: ID:76
+msgid "Save Revision &To..."
+msgstr "Gem revision &til..."
 
 #: ID:313
 msgid "Save as..."
@@ -2432,10 +2473,6 @@ msgstr "Gem som..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "Gem ændringer til %1?"
-
-#: ID:76
-msgid "Save revision &to..."
-msgstr "Gem revision &til..."
 
 #: ID:3601
 msgid ""
@@ -2563,6 +2600,7 @@ msgstr "Kort Url for Subversion elementer"
 msgid "Show &Differences"
 msgstr "Vis &forskelle"
 
+#: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
@@ -2572,7 +2610,6 @@ msgstr "Vis ændrings&log"
 msgid "Show &Log..."
 msgstr "Vis ændrings&log"
 
-#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Vis ændrings&log"
@@ -2919,13 +2956,18 @@ msgstr ""
 "Der er findes ændringer indeni en eller flere mapper, som du har inkluderet med svn:externals.\n"
 "Disse filer er <b>ikke</b> angivet til at blive arkiveret. Du skal arkivere disse filer separat."
 
+# ID:66,
 #: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before saving."
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"Der er stadigvæk uløste konflikter i linie %d!\n"
-"Løs venligst først disse konflikter før du gemmer."
+"Der er stadig uløste konflikter i linie %d!\n"
+"Du bør først løse disse konflikter før du gemmer.\n"
+"Vil du gerne gemme filen med de indeværende konflikter?\n"
+"Hvis du klikker JA, så skal du selv løse konflikterne manuelt i en anden editor!"
 
 # ID:188,
 #: ID:188
@@ -3256,7 +3298,7 @@ msgstr "Ja"
 
 # ID:145,
 #: ID:145
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr "Ja til alle"
 
 # ID:201,
@@ -3531,6 +3573,37 @@ msgstr ""
 #: ID:80
 msgid "to %s"
 msgstr "til %s"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"Minimum størrelse i antal tegn, som en ændringslogmeddelelse skal indholde, før en arkivering er tilladt."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:logtemplate\n"
+"Tekststreng som indsættes i logmeddelelsesvinduet under arkiveringsdialoger.\n"
+"Brug denne tekst som en skabelon, hvilket brugerne kan udfylde."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:logwidthmarker\n"
+"Angiv her antallet af tegn, som ændringslogmeddelelsen ikke skal overskride.\n"
+"En nedtonet linie vises i arkiveringsdialoger ved denne position. Standarden er 80 tegn."
 
 #: Control-ID:1112
 msgid "your version is:"
