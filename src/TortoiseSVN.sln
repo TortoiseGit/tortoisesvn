@@ -42,6 +42,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseLang", "TortoiseLan
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoisePlink", "TortoisePlink\TortoisePlink.vcproj", "{B439B09E-7390-4CEB-A1DD-745CF976F2BB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -82,6 +86,12 @@ Global
 		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release.Build.0 = Release|Win32
 		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release_MBCS.ActiveCfg = Release_MBCS|Win32
 		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release_MBCS.Build.0 = Release_MBCS|Win32
+		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Debug.ActiveCfg = Debug|Win32
+		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Debug.Build.0 = Debug|Win32
+		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Release.ActiveCfg = Release|Win32
+		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Release.Build.0 = Release|Win32
+		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Release_MBCS.ActiveCfg = Release_MBCS|Win32
+		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Release_MBCS.Build.0 = Release_MBCS|Win32
 	EndGlobalSection
 	GlobalSection(SolutionItems) = postSolution
 		build.txt = build.txt

@@ -831,8 +831,8 @@ void SVN::notify( void *baton,
 					svn_revnum_t revision)
 {
 	SVN * svn = (SVN *)baton;
-	WCHAR buf[MAX_PATH];
-	if (!MultiByteToWideChar(CP_UTF8, 0, path, -1, buf, MAX_PATH))
+	WCHAR buf[MAX_PATH*4];
+	if (!MultiByteToWideChar(CP_UTF8, 0, path, -1, buf, MAX_PATH*4))
 		buf[0] = 0;
 	CString mime;
 	if (mime_type)
