@@ -145,8 +145,9 @@ CAPTION "Informazioni su TortoiseSVN"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,77,180,50,14
-    LTEXT           "TortoiseSVN Versione 0.10",IDC_STATIC,7,136,207,8
-    LTEXT           "Autori: Tim Kemp, Stefan Kueng and Damian Powell",
+    LTEXT           "TortoiseSVN Versione 0.10, built with subversion 0.22",
+                    IDC_STATIC,7,136,207,8
+    LTEXT           "Autori: Stefan Kueng, Tim Kemp and Damian Powell",
                     IDC_STATIC,7,148,190,8
     LTEXT           "Icons:  Luebbe Onken",IDC_STATIC,7,161,71,8
 END
