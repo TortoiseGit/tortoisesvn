@@ -384,7 +384,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString logmsg = logmessage;
 			if (parser.HasKey(_T("logmsg")))
 			{
-				logmessage = parser.GetVal(_T("logmsg"));
+				logmsg = parser.GetVal(_T("logmsg"));
 			}
 			if (!logmsg.IsEmpty())
 				dlg.m_sLogMessage = logmsg;
