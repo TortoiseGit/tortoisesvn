@@ -436,21 +436,68 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		//this is necessary because we get here BEFORE
 		//the selection actually changes, so we have to
 		//adjust the selected index
-		if (pLVKeyDow->wVKey == VK_UP)
+		if ((pLVKeyDow->wVKey == VK_UP)||(pLVKeyDow->wVKey == VK_DOWN))
 		{
-			if (selIndex > 0)
-				selIndex--;
+			if (pLVKeyDow->wVKey == VK_UP)
+			{
+				if (selIndex > 0)
+					selIndex--;
+			}
+			if (pLVKeyDow->wVKey == VK_DOWN)
+			{
+				selIndex++;		
+				if (selIndex >= m_LogList.GetItemCount())
+					selIndex = m_LogList.GetItemCount()-1;
+			}
+			//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
+			this->m_nSearchIndex = selIndex;
+			FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
+			UpdateData(FALSE);
 		}
-		if (pLVKeyDow->wVKey == VK_DOWN)
+		if (pLVKeyDow->wVKey == 'C')
 		{
-			selIndex++;		
-			if (selIndex >= m_LogList.GetItemCount())
-				selIndex = m_LogList.GetItemCount()-1;
+			if (GetKeyState(VK_CONTROL)&0x8000)
+			{
+				//Ctrl-C -> copy to clipboard
+				CStringA sClipdata;
+				POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+				if (pos != NULL)
+				{
+					CString sRev;
+					sRev.LoadString(IDS_LOG_REVISION);
+					CString sAuthor;
+					sAuthor.LoadString(IDS_LOG_AUTHOR);
+					CString sDate;
+					sDate.LoadString(IDS_LOG_DATE);
+					CString sMessage;
+					sMessage.LoadString(IDS_LOG_MESSAGE);
+					while (pos)
+					{
+						int nItem = m_LogList.GetNextSelectedItem(pos);
+						CString sLogCopyText;
+						sLogCopyText.Format(_T("%s: %d\n%s: %s\n%s: %s\n%s:\n%s\n----\n%s\n\n"),
+							sRev, m_arRevs.GetAt(nItem),
+							sAuthor, m_LogList.GetItemText(nItem, 1),
+							sDate, m_LogList.GetItemText(nItem, 2),
+							sMessage, m_arLogMessages.GetAt(nItem),
+							m_arLogPaths.GetAt(nItem));
+						sClipdata +=  CStringA(sLogCopyText);
+					}
+					if (OpenClipboard())
+					{
+						EmptyClipboard();
+						HGLOBAL hClipboardData;
+						hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
+						char * pchData;
+						pchData = (char*)GlobalLock(hClipboardData);
+						strcpy(pchData, (LPCSTR)sClipdata);
+						GlobalUnlock(hClipboardData);
+						SetClipboardData(CF_TEXT,hClipboardData);
+						CloseClipboard();
+					} // if (OpenClipboard()) 
+				}
+			}
 		}
-		//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
-		this->m_nSearchIndex = selIndex;
-		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
-		UpdateData(FALSE);
 	}
 	else
 	{
