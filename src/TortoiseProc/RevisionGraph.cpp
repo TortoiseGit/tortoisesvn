@@ -127,11 +127,12 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 		const char * key;
 		const char * keycopy;
 		svn_log_changed_path_t *val;
-		svn_log_changed_path_t *valcopy;
+		svn_log_changed_path_t *valcopy = (svn_log_changed_path_t *)apr_pcalloc (me->pool, sizeof(svn_log_changed_path_t));
 		apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
 		keycopy = apr_pstrdup(me->pool, key);
-		valcopy = (svn_log_changed_path_t*)apr_pmemdup(me->pool, val, sizeof(svn_log_changed_path_t));
 		valcopy->copyfrom_path = apr_pstrdup(me->pool, val->copyfrom_path);
+		valcopy->action = val->action;
+		valcopy->copyfrom_rev = val->copyfrom_rev;
 		apr_hash_set(e->ch_paths, keycopy, APR_HASH_KEY_STRING, valcopy);
 	}
 	e->msg = apr_pstrdup(me->pool, msg);
@@ -281,8 +282,13 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							reventry->pathfrom = val->copyfrom_path;
 							reventry->revisionfrom = val->copyfrom_rev;
 						}
+						else
+						{
+							reventry->pathfrom = NULL;
+							reventry->revisionfrom = 0;
+						}
 						m_arEntryPtrs.Add(reventry);
-						TRACE("revision entry: %ld - %s\n", reventry->revision, reventry->url);
+						TRACE("revision entry: %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
 						if (val->copyfrom_path)
 						{
 							// the file/folder was copied to here
@@ -306,8 +312,13 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							reventry->pathfrom = val->copyfrom_path;
 							reventry->revisionfrom = val->copyfrom_rev;
 						}
+						else
+						{
+							reventry->pathfrom = NULL;
+							reventry->revisionfrom = 0;
+						}
 						m_arEntryPtrs.Add(reventry);
-						TRACE("revision entry: %ld - %s\n", reventry->revision, reventry->url);
+						TRACE("revision entry: %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
 						AnalyzeRevisions(key, currentrev+1, m_lHeadRevision);
 					}
 				}
@@ -325,14 +336,19 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							reventry->message = logentry->msg;
 							reventry->url = key;
 							reventry->action = val->action;
-							reventry->level = m_nRecurseLevel;
+							reventry->level = m_nRecurseLevel + 1;
 							if (val->copyfrom_path)
 							{
 								reventry->pathfrom = val->copyfrom_path;
 								reventry->revisionfrom = val->copyfrom_rev;
 							}
+							else
+							{
+								reventry->pathfrom = NULL;
+								reventry->revisionfrom = 0;
+							}
 							m_arEntryPtrs.Add(reventry);
-							TRACE("revision entry: %ld - %s\n", reventry->revision, reventry->url);
+							TRACE("revision entry: %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
 							AnalyzeRevisions(key, currentrev+1, m_lHeadRevision);
 						}
 					}
@@ -399,19 +415,28 @@ BOOL CRevisionGraph::CheckForwardCopies()
 					reventry->author = origentry->author;
 					reventry->date = origentry->time;
 					reventry->message = origentry->msg;
+					reventry->url = logentry->pathfrom;
 					reventry->action = val->action;
+					reventry->level = logentry->level;		//????
 					if (val->copyfrom_path)
 					{
 						reventry->pathfrom = val->copyfrom_path;
 						reventry->revisionfrom = val->copyfrom_rev;
 					}
+					else
+					{
+						reventry->pathfrom = NULL;
+						reventry->revisionfrom = 0;
+					}
 					source_entry * sentry = new source_entry;
 					sentry->pathto = logentry->url;
 					sentry->revisionto = logentry->revision;
 					reventry->sourcearray.Add(sentry);
-
+					TRACE("revision entry: %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
 					m_arEntryPtrs.Add(reventry);
 				}
+				else
+					delete reventry;
 			}
 		}
 	}
@@ -424,7 +449,7 @@ int CRevisionGraph::SortCompare(const void * pElem1, const void * pElem2)
 {
 	CRevisionEntry * entry1 = *((CRevisionEntry**)pElem1);
 	CRevisionEntry * entry2 = *((CRevisionEntry**)pElem2);
-	return (entry1->revision - entry2->revision);
+	return (entry2->revision - entry1->revision);
 }
 
 BOOL CRevisionGraph::IsParentOrItself(const char * parent, const char * child)

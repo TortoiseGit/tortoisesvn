@@ -138,11 +138,11 @@ DWORD WINAPI WorkerThread(LPVOID pVoid)
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
-	//pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
-	//pDlg->FetchRevisionData(pDlg->m_sPath);
-	//pDlg->AnalyzeRevisionData(pDlg->m_sPath);
-	//pDlg->m_Progress.Stop();
-	pDlg->FillTestData();
+	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
+	pDlg->FetchRevisionData(pDlg->m_sPath);
+	pDlg->AnalyzeRevisionData(pDlg->m_sPath);
+	pDlg->m_Progress.Stop();
+	//pDlg->FillTestData();
 	pDlg->InitView();
 	pDlg->m_bThreadRunning = FALSE;
 	pDlg->Invalidate();
@@ -477,8 +477,9 @@ void CRevisionGraphDlg::BuildConnections()
 		for (INT_PTR j=0; j<reventry->sourcearray.GetCount(); ++j)
 		{
 			source_entry * sentry = (source_entry*)reventry->sourcearray.GetAt(j);
+			CRevisionEntry * reventry2 = ((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)));
 			CPoint * pt = new CPoint[4];
-			if (reventry->level < ((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)))->level)
+			if (reventry->level < reventry2->level)
 			{
 				// 1----2
 				//      |
@@ -512,12 +513,12 @@ void CRevisionGraphDlg::BuildConnections()
 
 				//Starting point: 1
 				pt[0].y = (i*(NODE_RECT_HEIGTH+NODE_SPACE_TOP+NODE_SPACE_BOTTOM) + NODE_SPACE_TOP);
-				pt[0].y += ((NODE_RECT_HEIGTH / (reventry->sourcearray.GetCount()+1))*(j+1));
-				pt[0].x = ((reventry->level - 1)*(NODE_RECT_WIDTH+NODE_SPACE_LEFT+NODE_SPACE_RIGHT) + NODE_SPACE_LEFT);
+				pt[0].y += ((NODE_RECT_HEIGTH / (reventry2->sourcearray.GetCount()+1))*(j+1));
+				pt[0].x = ((reventry2->level - 1)*(NODE_RECT_WIDTH+NODE_SPACE_LEFT+NODE_SPACE_RIGHT) + NODE_SPACE_LEFT);
 				//line to middle of nodes: 2
 				pt[1].y = pt[0].y;
 				pt[1].x = pt[0].x - NODE_SPACE_LINE;
-				pt[1].x -= (((NODE_SPACE_LEFT+NODE_SPACE_RIGHT-2*NODE_SPACE_LINE)/(connections.GetAt(reventry->level-1)+1))*connections2.GetAt(reventry->level-1));
+				pt[1].x -= (((NODE_SPACE_LEFT+NODE_SPACE_RIGHT-2*NODE_SPACE_LINE)/(connections.GetAt(reventry2->level-1)+1))*connections2.GetAt(reventry2->level-1));
 				//line down: 3
 				pt[2].x = pt[1].x;
 				pt[2].y = (GetIndexOfRevision(sentry->revisionto)*(NODE_RECT_HEIGTH+NODE_SPACE_TOP+NODE_SPACE_BOTTOM) + NODE_SPACE_TOP);
@@ -526,7 +527,7 @@ void CRevisionGraphDlg::BuildConnections()
 				pt[3].y = pt[2].y;
 				pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)))->level-1)*(NODE_RECT_WIDTH+NODE_SPACE_LEFT+NODE_SPACE_RIGHT));
 				pt[3].x += NODE_SPACE_LEFT+NODE_RECT_WIDTH;
-				connections2.SetAt(reventry->level-1, connections2.GetAt(reventry->level-1)-1);
+				connections2.SetAt(reventry2->level-1, connections2.GetAt(reventry2->level-1)-1);
 			}
 			m_arConnections.Add(pt);
 		}
@@ -805,6 +806,7 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 	return __super::PreTranslateMessage(pMsg);
 }
 
+#ifdef DEBUG
 void CRevisionGraphDlg::FillTestData()
 {
 	CRevisionEntry * e = new CRevisionEntry();
@@ -875,3 +877,4 @@ void CRevisionGraphDlg::FillTestData()
 	e->message = "tagged2";
 	m_arEntryPtrs.Add(e);
 }
+#endif //DEBUG

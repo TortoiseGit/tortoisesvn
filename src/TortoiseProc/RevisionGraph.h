@@ -70,6 +70,8 @@ class CRevisionEntry
 {
 public:
 	//methods
+	CRevisionEntry(void) : revision(0), url(NULL), author(NULL), date(0),
+		message(NULL), pathfrom(NULL), revisionfrom(0), action(' '), level(1){};
 	//members
 	LONG			revision;
 	const char *	url;
