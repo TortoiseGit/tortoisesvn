@@ -1103,8 +1103,13 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 		{
 			if (IsStateSelectable(state))
 			{
-				while (nIndex > 0)
+				while (nIndex >= 0)
 				{
+					if (nIndex == 0)
+					{
+						nIndex--;
+						break;
+					} // if (nIndex == 0) 
 					if (state != m_arLineStates->GetAt(--nIndex))
 						break;
 				} // while (nIndex >= 0)
