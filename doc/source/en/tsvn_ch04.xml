@@ -547,28 +547,28 @@
 		</figure>
 
 		<tip>
-				<title>Many unversioned files in the commit dialog</title>
-				<para>If you think that the TSVN commit dialog shows you too
+			<title>Many unversioned files in the commit dialog</title>
+			<para>If you think that the TSVN commit dialog shows you too
 			many unversioned (e.g. compiler generated or editor backup)
 			files, there are several ways to handle this. You can:
-		<itemizedlist>
-						<listitem>
-							<para>include the file into the list of
-				temporary files on the settings page. This will affect
-				every working copy you have.</para>
-						</listitem>
-						<listitem>
-							<para>add the file to the svn:ignore list
-				using the <menuchoice><guimenuitem>Add to ignore list</guimenuitem></menuchoice>
-				context menu. This will only affect the directory on
-				which you set the <literal>svn:ignore</literal> property.
-				Using the SVN Property Dialog, you can alter the
-				<literal>svn:ignore</literal> property for a directory.
-				</para>
-						</listitem>
-					</itemizedlist>
-				</para>
-			</tip>
+			<itemizedlist>
+				<listitem>
+					<para>add the file (or a wildcard extension)
+					to the list of files to exclude on the settings page.
+					This will affect every working copy you have.</para>
+				</listitem>
+				<listitem>
+					<para>add the file to the svn:ignore list
+					using the <menuchoice><guimenuitem>Add to ignore list</guimenuitem></menuchoice>
+					context menu. This will only affect the directory on
+					which you set the <literal>svn:ignore</literal> property.
+					Using the SVN Property Dialog, you can alter the
+					<literal>svn:ignore</literal> property for a directory.
+					</para>
+				</listitem>
+			</itemizedlist>
+			</para>
+		</tip>
 		</para>
 		<figure id="tsvn-DUG-commit-dia-3">
 			<title>The Progress dialog showing a commit in progress</title>
@@ -1089,11 +1089,10 @@ Rev Comments
 					<title>The Settings Dialog, Main Tab</title>
 					<graphic fileref="images/SettingsMain.png"/>
 				</figure>
-
-		Apart from setting your preferred language, this dialog allows you to
-		specify (almost) every setting TortoiseSVN has.
+			Apart from setting your preferred language, this dialog allows you to
+			specify (almost) every setting TortoiseSVN has.
 		</para>
-			<para>
+		<para>
 		To find out what the different settings are for, just leave your
 		mouse pointer a second on the editbox/checkbox... and a helpful
 		tooltip will popup.
@@ -1147,7 +1146,7 @@ Rev Comments
 				<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
 				<graphic fileref="images/SettingsProgsAdv.png"/>
 			</figure>
-		You can set a different merge program for every file extension.
+		You can define a different merge program for every file extension.
 		</para>
 		</sect2>
 	</sect1>
@@ -1165,7 +1164,7 @@ Rev Comments
 		Sometimes you need to know not only what lines have changed, but also
 		who exactly changed specific lines in a file. That's when the
 		<menuchoice><guimenuitem>Blame...</guimenuitem></menuchoice>,
-    sometimes also reffered to as <firstterm>annotate</firstterm> command comes in handy.
+		sometimes also reffered to as <firstterm>annotate</firstterm> command comes in handy.
 		</para>
 		<para>
 		This command lists for every line in a file the author and the revision
