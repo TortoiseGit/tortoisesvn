@@ -287,6 +287,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
 
 	if (m_svn.Ls(folder, m_Revision, entries, true))
 	{
+		DeleteChildItems(hItem);
 		for (int i = 0; i < entries.GetCount(); ++i)
 		{
 			TCHAR type = entries[i].GetAt(0);
@@ -302,10 +303,20 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
 				break;
 			}
 		}
+		// Mark item as "successfully read"
+		SetItemData(GetItemIndex(hItem), 1);
 	}
-
-	// Mark item as "successfully read"
-	SetItemData(GetItemIndex(hItem), 1);
+	else
+	{
+		HTREEITEM hChild = GetNextItem(hItem, RVGN_CHILD);
+		if (hChild == 0)
+		{
+			Expand(hItem, RVE_COLLAPSE);
+			InsertDummyItem(hItem);
+		}
+		// Mark item as "not successfully read"
+		SetItemData(GetItemIndex(hItem), 0);
+	}
 }
 
 
@@ -528,17 +539,11 @@ void CRepositoryTree::Refresh(HTREEITEM hItem)
 {
 	hItem = GetNextItem(hItem, RVGN_PARENT);
 	if (hItem != 0)
-	{
-		DeleteChildItems(hItem);
 		LoadChildItems(hItem);
-	}
 }
 
 void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 {
 	if (hItem != 0)
-	{
-		DeleteChildItems(hItem);
 		LoadChildItems(hItem);
-	}
 }
