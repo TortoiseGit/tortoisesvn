@@ -181,7 +181,9 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						//ListView_GetItemText(lvh, sel, 0, buf, MAX_PROP_STRING_LENGTH);
 						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						SVNProperties props = SVNProperties(filename.c_str());
-						props.Remove(buf);
+						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
+						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
+						props.Remove(buf, checked);
 						delete [] buf;
 						InitWorkfileView();
 						return TRUE;
@@ -198,7 +200,9 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 #else
 						std::string t = std::string(value);
 #endif
-						props.Add(name, t.c_str());
+						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
+						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
+						props.Add(name, t.c_str(), checked);
 						SVNStatus stat = SVNStatus();
 						if (stat.GetStatus(filename.c_str())==(-2))
 						{

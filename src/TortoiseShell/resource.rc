@@ -13,59 +13,6 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1251)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_MENU                ICON                    "..\\Icons\\Tortoise13by13.ico"
-IDI_APP                 ICON                    "..\\Icons\\Tortoise.ico"
-IDI_CHECKOUT            ICON                    "..\\Icons\\menucheckout.ico"
-IDI_UPDATE              ICON                    "..\\Icons\\menuupdate.ico"
-IDI_COMMIT              ICON                    "..\\Icons\\menucommit.ico"
-IDI_ADD                 ICON                    "..\\Icons\\menuadd.ico"
-IDI_REVERT              ICON                    "..\\Icons\\menurevert.ico"
-IDI_CLEANUP             ICON                    "..\\Icons\\menucleanup.ico"
-IDI_RESOLVE             ICON                    "..\\Icons\\menuresolve.ico"
-IDI_SWITCH              ICON                    "..\\Icons\\menuswitch.ico"
-IDI_MERGE               ICON                    "..\\Icons\\menumerge.ico"
-IDI_IMPORT              ICON                    "..\\Icons\\menuimport.ico"
-IDI_EXPORT              ICON                    "..\\Icons\\menuexport.ico"
-IDI_COPY                ICON                    "..\\Icons\\menucopy.ico"
-IDI_DELETE              ICON                    "..\\icons\\menudelete.ico"
-IDI_RENAME              ICON                    "..\\icons\\menurename.ico"
-IDI_DIFF                ICON                    "..\\icons\\menucompare.ico"
-IDI_LOG                 ICON                    "..\\Icons\\menulog.ico"
-IDI_ABOUT               ICON                    "..\\Icons\\menuabout.ico"
-IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
-IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
-IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
-IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
-IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
-IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
-IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "TortoiseSVN.dll.manifest"
-#endif    // Neutral resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
 // Russian resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
@@ -79,10 +26,10 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 // Dialog
 //
 
-IDD_PROPPAGE DIALOG  0, 0, 232, 287
+IDD_PROPPAGE DIALOGEX 0, 0, 232, 291
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Property Page"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "Редакция:",IDC_STATIC,7,6,40,8
     LTEXT           "Последная \nредакция:",IDC_STATIC,7,29,77,16
@@ -110,17 +57,19 @@ BEGIN
     EDITTEXT        IDC_AUTHOR,78,68,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Заблокировано",IDC_LOCKED,174,6,48,8
-    GROUPBOX        "Свойства",IDC_STATIC,7,133,215,147
+    GROUPBOX        "Свойства",IDC_STATIC,7,133,218,151
     CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,13,145,203,72
-    PUSHBUTTON      "Добавить",IDC_ADDBUTTON,13,241,79,14,WS_DISABLED
-    PUSHBUTTON      "Удалить",IDC_REMOVEBUTTON,13,259,79,14
-    EDITTEXT        IDC_EDITNAME,13,223,79,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,97,223,118,50,ES_MULTILINE | 
+                    WS_BORDER | WS_TABSTOP,13,145,204,72
+    PUSHBUTTON      "Добавить",IDC_ADDBUTTON,12,248,79,14,WS_DISABLED
+    PUSHBUTTON      "Удалить",IDC_REMOVEBUTTON,12,266,79,14
+    EDITTEXT        IDC_EDITNAME,12,222,79,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITVALUE,99,225,118,54,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "История изменений",IDC_SHOWLOG,7,114,215,14
+    CONTROL         "recursive",IDC_RECURSIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,237,84,10
 END
 
 
@@ -136,8 +85,10 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 225
+        VERTGUIDE, 12
+        VERTGUIDE, 217
         TOPMARGIN, 7
-        BOTTOMMARGIN, 269
+        BOTTOMMARGIN, 284
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -257,6 +208,59 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MENU                ICON                    "..\\Icons\\Tortoise13by13.ico"
+IDI_APP                 ICON                    "..\\Icons\\Tortoise.ico"
+IDI_CHECKOUT            ICON                    "..\\Icons\\menucheckout.ico"
+IDI_UPDATE              ICON                    "..\\Icons\\menuupdate.ico"
+IDI_COMMIT              ICON                    "..\\Icons\\menucommit.ico"
+IDI_ADD                 ICON                    "..\\Icons\\menuadd.ico"
+IDI_REVERT              ICON                    "..\\Icons\\menurevert.ico"
+IDI_CLEANUP             ICON                    "..\\Icons\\menucleanup.ico"
+IDI_RESOLVE             ICON                    "..\\Icons\\menuresolve.ico"
+IDI_SWITCH              ICON                    "..\\Icons\\menuswitch.ico"
+IDI_MERGE               ICON                    "..\\Icons\\menumerge.ico"
+IDI_IMPORT              ICON                    "..\\Icons\\menuimport.ico"
+IDI_EXPORT              ICON                    "..\\Icons\\menuexport.ico"
+IDI_COPY                ICON                    "..\\Icons\\menucopy.ico"
+IDI_DELETE              ICON                    "..\\icons\\menudelete.ico"
+IDI_RENAME              ICON                    "..\\icons\\menurename.ico"
+IDI_DIFF                ICON                    "..\\icons\\menucompare.ico"
+IDI_LOG                 ICON                    "..\\Icons\\menulog.ico"
+IDI_ABOUT               ICON                    "..\\Icons\\menuabout.ico"
+IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
+IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
+IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
+IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
+IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
+IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
+IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "TortoiseSVN.dll.manifest"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
@@ -302,17 +306,19 @@ BEGIN
     EDITTEXT        IDC_AUTHOR,78,54,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "blockiert",IDC_LOCKED,197,6,28,8
-    GROUPBOX        "Eigenschaften",IDC_STATIC,6,114,215,147
+    GROUPBOX        "Eigenschaften",IDC_STATIC,6,114,219,155
     CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,127,204,72
-    PUSHBUTTON      "Hinzufьgen",IDC_ADDBUTTON,12,223,84,14,WS_DISABLED
-    PUSHBUTTON      "Entfernen",IDC_REMOVEBUTTON,12,241,84,14
+                    WS_BORDER | WS_TABSTOP,12,127,206,72
+    PUSHBUTTON      "Hinzufьgen",IDC_ADDBUTTON,12,233,84,14,WS_DISABLED
+    PUSHBUTTON      "Entfernen",IDC_REMOVEBUTTON,12,251,84,14
     EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,48,ES_MULTILINE | 
+    EDITTEXT        IDC_EDITVALUE,102,205,116,59,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "Zeige Log...",IDC_SHOWLOG,168,96,50,14
+    CONTROL         "Rekursiv",IDC_RECURSIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,222,84,10
 END
 
 
@@ -330,6 +336,7 @@ BEGIN
         RIGHTMARGIN, 225
         VERTGUIDE, 12
         VERTGUIDE, 96
+        VERTGUIDE, 218
         TOPMARGIN, 7
         BOTTOMMARGIN, 269
     END
@@ -494,19 +501,21 @@ BEGIN
     EDITTEXT        IDC_AUTHOR,78,54,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "locked",IDC_LOCKED,204,6,21,8
-    GROUPBOX        "properties",IDC_STATIC,6,114,215,147
+    GROUPBOX        "properties",IDC_STATIC,6,114,219,155
     CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,127,204,72
-    PUSHBUTTON      "Add",IDC_ADDBUTTON,12,223,84,14,WS_DISABLED
-    PUSHBUTTON      "Remove",IDC_REMOVEBUTTON,12,242,84,14
+                    WS_BORDER | WS_TABSTOP,12,127,207,72
+    PUSHBUTTON      "Set",IDC_ADDBUTTON,12,233,84,14,WS_DISABLED
+    PUSHBUTTON      "Remove",IDC_REMOVEBUTTON,12,251,84,14
     EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,50,ES_MULTILINE | 
+    EDITTEXT        IDC_EDITVALUE,102,205,117,59,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
-    PUSHBUTTON      "show log...",IDC_SHOWLOG,7,96,211,14
+    PUSHBUTTON      "show log...",IDC_SHOWLOG,7,96,218,14
     EDITTEXT        IDC_REVISION,77,7,57,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
+    CONTROL         "recursive",IDC_RECURSIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,222,84,10
 END
 
 
@@ -524,6 +533,7 @@ BEGIN
         RIGHTMARGIN, 225
         VERTGUIDE, 12
         VERTGUIDE, 96
+        VERTGUIDE, 219
         TOPMARGIN, 7
         BOTTOMMARGIN, 269
     END
@@ -715,17 +725,19 @@ BEGIN
     EDITTEXT        IDC_AUTHOR,98,54,130,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "bloccato",IDC_LOCKED,197,6,28,8
-    GROUPBOX        "proprieta'",IDC_STATIC,6,114,215,147
+    GROUPBOX        "proprieta'",IDC_STATIC,6,114,219,155
     CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,127,204,72
-    PUSHBUTTON      "Aggiungi",IDC_ADDBUTTON,12,222,86,14,WS_DISABLED
-    PUSHBUTTON      "Rimuovi",IDC_REMOVEBUTTON,12,241,86,14
+                    WS_BORDER | WS_TABSTOP,12,127,206,72
+    PUSHBUTTON      "Aggiungi",IDC_ADDBUTTON,12,233,86,14,WS_DISABLED
+    PUSHBUTTON      "Rimuovi",IDC_REMOVEBUTTON,12,251,86,14
     EDITTEXT        IDC_EDITNAME,12,205,86,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,49,ES_MULTILINE | 
+    EDITTEXT        IDC_EDITVALUE,102,205,116,59,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "Visualizza log...",IDC_SHOWLOG,155,96,63,14
+    CONTROL         "recursive",IDC_RECURSIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,222,84,10
 END
 
 
@@ -743,6 +755,7 @@ BEGIN
         RIGHTMARGIN, 225
         VERTGUIDE, 12
         VERTGUIDE, 98
+        VERTGUIDE, 218
         TOPMARGIN, 7
         BOTTOMMARGIN, 269
     END
@@ -959,19 +972,21 @@ BEGIN
     EDITTEXT        IDC_AUTHOR,78,54,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "Lеst",IDC_LOCKED,204,6,21,8
-    GROUPBOX        "Egenskaper",IDC_STATIC,6,114,215,147
+    GROUPBOX        "Egenskaper",IDC_STATIC,6,114,219,155
     CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,127,204,72
-    PUSHBUTTON      "Legg til",IDC_ADDBUTTON,12,223,84,14,WS_DISABLED
-    PUSHBUTTON      "Slett",IDC_REMOVEBUTTON,12,242,84,14
+                    WS_BORDER | WS_TABSTOP,12,127,206,72
+    PUSHBUTTON      "Legg til",IDC_ADDBUTTON,12,235,84,14,WS_DISABLED
+    PUSHBUTTON      "Slett",IDC_REMOVEBUTTON,12,252,84,14
     EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,50,ES_MULTILINE | 
+    EDITTEXT        IDC_EDITVALUE,102,205,116,60,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "Vis logg...",IDC_SHOWLOG,7,96,211,14
     EDITTEXT        IDC_REVISION,77,7,57,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
+    CONTROL         "recursive",IDC_RECURSIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,222,84,10
 END
 
 
@@ -989,6 +1004,7 @@ BEGIN
         RIGHTMARGIN, 225
         VERTGUIDE, 12
         VERTGUIDE, 96
+        VERTGUIDE, 218
         TOPMARGIN, 7
         BOTTOMMARGIN, 269
     END
