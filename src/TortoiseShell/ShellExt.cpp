@@ -62,6 +62,7 @@ CShellExt::CShellExt(FileState state)
 CShellExt::~CShellExt()
 {
 	g_cRefThisDll--;
+	CloseHandle(hMutex);
 }
 
 void LoadLangDll()

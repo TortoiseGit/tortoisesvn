@@ -187,10 +187,11 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 					{
 						filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
 						status = s->status;
-						ReleaseMutex(hMutex);
 					} // if (dwWaitResult == WAIT_OBJECT_0) 
 					else
 						status = svn_wc_status_normal;
+					ReleaseMutex(hMutex);
+
 				}
 			} // if (PathFileExists(buf))
 			else
@@ -205,8 +206,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			{
 				filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
 				status = s->status;
-				ReleaseMutex(hMutex);
 			} // if (dwWaitResult == WAIT_OBJECT_0)
+			ReleaseMutex(hMutex);
 		}
 		filepath.clear();
 		filepath = sPath;
