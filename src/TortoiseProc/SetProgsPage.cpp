@@ -30,6 +30,7 @@ CSetProgsPage::CSetProgsPage()
 	, m_sDiffPath(_T(""))
 	, m_sDiffViewerPath(_T(""))
 	, m_sMergePath(_T(""))
+	, m_bInitialized(FALSE)
 {
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
 	m_regDiffViewerPath = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
@@ -42,9 +43,12 @@ CSetProgsPage::~CSetProgsPage()
 
 void CSetProgsPage::SaveData()
 {
-	m_regDiffPath = m_sDiffPath;
-	m_regDiffViewerPath = m_sDiffViewerPath;
-	m_regMergePath = m_sMergePath;
+	if (m_bInitialized)
+	{
+		m_regDiffPath = m_sDiffPath;
+		m_regDiffViewerPath = m_sDiffViewerPath;
+		m_regMergePath = m_sMergePath;
+	}
 }
 
 void CSetProgsPage::DoDataExchange(CDataExchange* pDX)
@@ -179,6 +183,7 @@ BOOL CSetProgsPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_EXTMERGE, IDS_SETTINGS_EXTMERGE_TT);
 	m_tooltips.AddTool(IDC_EXTDIFFBROWSE, IDS_SETTINGS_EXTDIFFBROWSE_TT);
 
+	m_bInitialized = TRUE;
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
