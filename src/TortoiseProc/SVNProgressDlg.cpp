@@ -687,7 +687,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
 					pE->Delete();
 				}
-				if (!pDlg->Revert(sTargets, false))
+				if (!pDlg->Revert(sTargets, (pDlg->m_sUrl.Compare(_T("recursive"))==0)))
 				{
 					TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
 					CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

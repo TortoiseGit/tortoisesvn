@@ -56,6 +56,7 @@ protected:
 	CStringArray	m_templist;
 public:
 	BOOL			m_bThreadRunning;
+	BOOL			m_bRecursive;
 	CString			m_sPath;
 	CStringArray	m_arFileList;
 

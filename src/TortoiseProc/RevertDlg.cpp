@@ -167,24 +167,35 @@ void CRevertDlg::OnOK()
 	if (m_bThreadRunning)
 		return;
 	//save only the files the user has selected into the temporary file
-	try
+	m_bRecursive = TRUE;
+	for (int i=0; i<m_RevertList.GetItemCount(); ++i)
 	{
-		CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-		for (int i=0; i<m_RevertList.GetItemCount(); i++)
+		if (!m_RevertList.GetCheck(i))
 		{
-			if (m_RevertList.GetCheck(i))
-			{
-				file.WriteString(m_RevertList.GetListEntry(i)->path+_T("\n"));
-			}
-		} 
-		file.Close();
+			m_bRecursive = FALSE;
+			break;
+		}
 	}
-	catch (CFileException* pE)
+	if (!m_bRecursive)
 	{
-		TRACE("CFileException in Add!\n");
-		pE->Delete();
+		try
+		{
+			CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+			for (int i=0; i<m_RevertList.GetItemCount(); i++)
+			{
+				if (m_RevertList.GetCheck(i))
+				{
+					file.WriteString(m_RevertList.GetListEntry(i)->path+_T("\n"));
+				}
+			} 
+			file.Close();
+		}
+		catch (CFileException* pE)
+		{
+			TRACE("CFileException in Add!\n");
+			pE->Delete();
+		}
 	}
-
 
 	CResizableDialog::OnOK();
 }

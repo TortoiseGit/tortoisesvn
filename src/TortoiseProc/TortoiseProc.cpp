@@ -478,7 +478,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Revert, true, path);
+				progDlg.SetParams(Revert, true, path, dlg.m_bRecursive ? _T("recursive") : _T(""));
 				progDlg.DoModal();
 			}
 		}
