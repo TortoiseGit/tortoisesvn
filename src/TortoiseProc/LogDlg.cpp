@@ -1407,9 +1407,9 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	m_bCancelled = FALSE;
 	filepath = GetRepositoryRoot(filepath);
 	temp = temp.Mid(temp.Find(' '));
-	if (temp.Find('(')>=0)
+	if (temp.Find(_T(" (from "))>=0)
 	{
-		temp = temp.Left(temp.Find('(')-1);
+		temp = temp.Left(temp.Find(_T(" (from "))-1);
 	}
 	temp = temp.Trim();
 	filepath += temp;
