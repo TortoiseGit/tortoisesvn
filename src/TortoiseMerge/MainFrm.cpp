@@ -488,11 +488,13 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 
 void CMainFrame::OnViewWhitespaces()
 {
-	BOOL bViewWhitespaces = TRUE;
+	CRegDWORD regViewWhitespaces = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
+	BOOL bViewWhitespaces = regViewWhitespaces;
 	if (m_pwndLeftView)
 		bViewWhitespaces = m_pwndLeftView->m_bViewWhitespace;
 
 	bViewWhitespaces = !bViewWhitespaces;
+	regViewWhitespaces = bViewWhitespaces;
 	if (m_pwndLeftView)
 	{
 		m_pwndLeftView->m_bViewWhitespace = bViewWhitespaces;
