@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-04 11:36+0100\n"
+"PO-Revision-Date: 2005-04-05 11:37+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -118,6 +118,10 @@ msgstr ""
 "TortoiseMerge kann Verzeichnisse nicht vergleichen."
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "&Über TortoiseMerge..."
 
@@ -183,6 +187,10 @@ msgstr "&Bearbeiten..."
 msgid "&Enable Proxy Server"
 msgstr "Aktiviere &Proxy Server"
 
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Beenden"
+
 #: Control-ID:1092
 msgid "&External"
 msgstr "&Extern"
@@ -213,7 +221,6 @@ msgstr "&Von AK in URL:"
 msgid "&Head Revision"
 msgstr "&Neueste Revision"
 
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"

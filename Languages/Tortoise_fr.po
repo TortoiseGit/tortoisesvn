@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-18 15:14+0100\n"
+"PO-Revision-Date: 2005-04-05 10:10+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -781,6 +781,15 @@ msgstr "Analyser les données de révision..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Appliquer un fichier de différence, au format unifié, sur la copie locale"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"Applique les propriétés récursivement à tous les fichiers/répertoires.\n"
+"bugtraq: and tsvn: les propriétés sont seulement appliquées sur les répertoires."
+
 #: ID:13
 msgid "Apply Patch..."
 msgstr "Appliquer un patch..."
@@ -814,6 +823,10 @@ msgstr "Auteur"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "Auteur:                        Stefan Kueng"
+
+#: ID:116
+msgid "Authors"
+msgstr "Auteurs"
 
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -944,6 +957,11 @@ msgstr "Appel SVN Reproche..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "Annulation de l'opération..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Cascaded Context Menu"
+msgstr "Menu Contextuel en cascade"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1167,11 +1185,6 @@ msgstr "En conflit"
 msgid "Conflicts: %d"
 msgstr "Conflits: %d"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "Menu Contextuel"
-
 #: ID:73
 msgid "Continue"
 msgstr "Continuer"
@@ -1331,8 +1344,8 @@ msgid "Create Repository"
 msgstr "Créer un repository"
 
 #: ID:8
-msgid "Create Repository here"
-msgstr "Créer un repository ici"
+msgid "Create Repository here..."
+msgstr "Créer un repository ici..."
 
 #: Control-ID:65535
 msgid "Create copy in the repository from:"
@@ -1474,10 +1487,12 @@ msgstr "Ne pas voir ce message à nouveau"
 
 #: ID:76
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
 msgstr ""
-"Voulez-vous vraiment retourner en arrière pour toutes vos modifications\n"
+"Voulez-vous vraiment revenir en arrière pour toutes vos modifications de\n"
+"%s\n"
 "qui ont été faite dans cette révision?"
 
 #: ID:76
@@ -1640,6 +1655,7 @@ msgid "Exports a repository to a clean working copy without the svn administrati
 msgstr "Exporter un repository dans un répertoire local, après nettoyage, sans les répertoires administratifs de svn"
 
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "Extension"
 
@@ -1727,6 +1743,10 @@ msgstr "Police:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "Pour l'aide, presser F1"
+
+#: Control-ID:1200
+msgid "From:"
+msgstr "Depuis:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2132,6 +2152,15 @@ msgstr "Fusionnement"
 msgid "Message"
 msgstr "Commentaire"
 
+#: ID:116
+msgid "Messages"
+msgstr "Commentaires"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "Commentaires, Auteurs et Chemins"
+
 #: ID:78
 msgid "Mime Type"
 msgstr "Type Mime"
@@ -2374,6 +2403,10 @@ msgstr "Fichiers patch (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 #: ID:77
 msgid "Path"
 msgstr "Chemin"
+
+#: ID:116
+msgid "Paths"
+msgstr "Chemins"
 
 # ID:157,
 #: ID:157
@@ -2689,10 +2722,13 @@ msgstr "Restauré"
 msgid "Retry"
 msgstr "Réessayer"
 
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Retourner à l'ancienne version"
+
+#: ID:8
+msgid "Revert..."
+msgstr "Revenir en arrière..."
 
 #: ID:73
 msgid "Reverted"
@@ -3252,15 +3288,18 @@ msgstr "Statut du texte"
 msgid "Text Status:"
 msgstr "Statut du texte:"
 
+# ID:69,
 #: ID:69
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
 "Le fichier\n"
 "%s\n"
-"n'est pas un fichier texte!"
+"n'est pas un fichier texte valide!\n"
+"Notez que les fichiers UTF16 et UTF32 sont traîtés comme binaires également."
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -3293,6 +3332,17 @@ msgstr "Le fichier %s n'a pas été trouvé dans le patch!"
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "Le fichier est tros volumineux pour l'ouvrir."
+
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"Le fichier ou répertoire\n"
+"%s\n"
+"a des modifications locales. Voulez-vous vraiment déplacer ce fichier?"
 
 #: ID:80
 msgid ""
@@ -3500,6 +3550,11 @@ msgstr "Différence sur trois fichiers"
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "Pour voir les modifications que vous avez apportées, double clicker sur le fichier."
+
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr "Vers:"
 
 # Control-ID:65535,
 #: Control-ID:65535
