@@ -66,12 +66,14 @@ CShellExt::CShellExt(FileState state)
 	stdstring temp = tortoiseProcPath;
 	temp += _T("iconv");
 	SetEnvironmentVariable(_T("APR_ICONV_PATH"), temp.c_str());
+	apr_initialize();
 }
 
 CShellExt::~CShellExt()
 {
 	g_cRefThisDll--;
 	CloseHandle(hMutex);
+	apr_terminate();
 }
 
 void LoadLangDll()

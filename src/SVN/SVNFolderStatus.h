@@ -36,6 +36,7 @@
 #include "svn_utf.h"
 #include "svn_config.h"
 
+#include "CApr.h"
 #include "SVNStatus.h"
 #include <map>
 #include <set>
@@ -154,7 +155,7 @@ typedef struct filestatuscache
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class SVNFolderStatus : public SVNStatus
+class SVNFolderStatus :  public CApr, public SVNStatus
 {
 public:
 	SVNFolderStatus(void);
