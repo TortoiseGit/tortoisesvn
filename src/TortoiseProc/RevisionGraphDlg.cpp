@@ -1019,10 +1019,19 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 		tempfile = CString(ofn.lpstrFile);
 		//create dc to paint on
 		CDC dc;
-		dc.CreateCompatibleDC(NULL);
+		if (dc.CreateCompatibleDC(NULL)==0)
+		{
+			CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NODC, IDS_APPNAME, MB_ICONERROR);
+			return;
+		}
 		CRect rect;
 		rect = GetViewSize();
 		HBITMAP hbm = ::CreateCompatibleBitmap(dc.m_hDC, rect.Width(), rect.Height());
+		if (hbm==0)
+		{
+			CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NODC, IDS_APPNAME, MB_ICONERROR);
+			return;
+		}
 		HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
 		//paint the whole graph
 		DrawGraph(&dc, rect, 0, 0);
