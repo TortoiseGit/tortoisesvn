@@ -1681,9 +1681,7 @@ CString CSVNStatusListCtrl::GetStatisticsString()
 
 void CSVNStatusListCtrl::SelectAll(bool bSelect)
 {
-	CWinApp * pApp = AfxGetApp();
-	if (pApp)
-		pApp->DoWaitCursor(1);
+	CWaitCursor waitCursor;
 	m_bBlock = TRUE;
 	SetRedraw(FALSE);	
 	int nListItems = GetItemCount();
@@ -1701,8 +1699,6 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 		m_nSelected = 0;
 	SetRedraw(TRUE);
 	GetStatisticsString();
-	if (pApp)
-		pApp->DoWaitCursor(1);
 	m_bBlock = FALSE;
 }
 
