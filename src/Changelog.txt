@@ -3,6 +3,8 @@
        in the settings dialog. A new "Get All"
        button then fetches the rest of the log
        messages if needed. (Stefan)
+- BUG: Empty lines were not shown in log
+       messages. (Stefan)
 
 Version 0.20.2
 - BUG: crash bug not fixed in 0.20.1 (one Ctrl-Z

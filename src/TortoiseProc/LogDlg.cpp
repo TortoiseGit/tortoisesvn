@@ -174,12 +174,21 @@ void CLogDlg::FillLogMessageCtrl(CString msg)
 	int line = 0;
 	CString temp = _T("");
 	int curpos = 0;
-	CString resToken = msg.Tokenize(_T("\n\r"), curpos);
-	while (resToken != _T(""))
+	int curposold = 0;
+	CString linestr;
+	while (msg.Find('\r', curpos)>=0)
 	{
-		m_LogMsgCtrl.InsertItem(line++, resToken);
-		resToken = msg.Tokenize(_T("\n\r"), curpos);
-	} // while (resToken != _T(""))
+		curposold = curpos;
+		curpos = msg.Find('\r', curposold);
+		linestr = msg.Mid(curposold, curpos-curposold);
+		linestr.Trim(_T("\n\r"));
+		m_LogMsgCtrl.InsertItem(line++, linestr);
+		curpos++;
+	} // while (msg.Find('\n', curpos)>=0) 
+	linestr = msg.Mid(curpos);
+	linestr.Trim(_T("\n\r"));
+	m_LogMsgCtrl.InsertItem(line++, linestr);
+
 	m_LogMsgCtrl.SetColumnWidth(0,LVSCW_AUTOSIZE_USEHEADER);
 	m_LogMsgCtrl.SetRedraw();
 }
