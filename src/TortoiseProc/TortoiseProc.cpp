@@ -1005,9 +1005,27 @@ BOOL CTortoiseProcApp::InitInstance()
 			} // if (dlg.DoModal() == IDOK) 
 		} // if (comVal.Compare(_T("blame"))==0) 
 		//#endregion 
+		//#region cat
+		if (comVal.Compare(_T("cat"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			CString savepath = parser.GetVal(_T("savepath"));
+			CString revision = parser.GetVal(_T("revision"));
+			LONG rev = _ttol(revision);
+			if (rev==0)
+				rev = SVN::REV_HEAD;
+			SVN svn;
+			if (!svn.Cat(path, rev, savepath))
+			{
+				::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				DeleteFile(savepath);
+			} // if (!svn.Cat(path, rev, savepath)) 
+		} // if (comVal.Compare(_T("cat"))==0) 
+		//#endregion
+
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);
-	}
+	} 
 
 	// Since the dialog has been closed, return FALSE so that we exit the
 	// application, rather than start the application's message pump.
