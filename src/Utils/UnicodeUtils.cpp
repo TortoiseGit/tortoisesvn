@@ -66,7 +66,7 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
 #ifdef UNICODE
 std::string CUnicodeUtils::StdGetUTF8(const wide_string& wide)
 {
-	int size = wide.size()*4;
+	int size = (int)wide.size()*4;
 	char * narrow = new char[size];
 	int ret = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, size-1, NULL, NULL);
 	narrow[ret] = 0;
@@ -77,7 +77,7 @@ std::string CUnicodeUtils::StdGetUTF8(const wide_string& wide)
 
 wide_string CUnicodeUtils::StdGetUnicode(const std::string& multibyte)
 {
-	int size = multibyte.size()*4;
+	int size = (int)multibyte.size()*4;
 	wchar_t * wide = new wchar_t[size];
 	int ret = MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, size - 1);
 	wide[ret] = 0;
