@@ -412,6 +412,10 @@ public:
 	CString GetRepositoryRoot(CString url, SVNRev rev = SVNRev::REV_HEAD);
 
 	/**
+	 * Releases all used memory pools.
+	 */
+	void ReleasePool();
+	/**
 	 * Returns a text representation of an action enum.
 	 */
 	static CString GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state);
