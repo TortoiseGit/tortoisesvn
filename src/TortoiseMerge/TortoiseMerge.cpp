@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "MainFrm.h"
+#include "CmdLineParser.h"
 
 
 #ifdef _DEBUG
@@ -35,6 +36,16 @@ BOOL CTortoiseMergeApp::InitInstance()
 
 	CWinApp::InitInstance();
 
+	CCmdLineParser parser = CCmdLineParser(this->m_lpCmdLine);
+
+	if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
+	{
+		CString sHelpText;
+		sHelpText.LoadString(IDS_COMMANDLINEHELP);
+		MessageBox(NULL, sHelpText, _T("TortoiseMerge"), MB_ICONINFORMATION);
+		return FALSE;
+	} // if (parser.HasKey(_T("?")) || parser.HasKey(_T("help"))) 
+
 	// Initialize OLE libraries
 	if (!AfxOleInit())
 	{
@@ -61,8 +72,15 @@ BOOL CTortoiseMergeApp::InitInstance()
 	// The one and only window has been initialized, so show and update it
 	pFrame->ShowWindow(SW_SHOW);
 	pFrame->UpdateWindow();
-	// call DragAcceptFiles only if there's a suffix
-	//  In an SDI app, this should occur after ProcessShellCommand
+
+	// Fill in the command line options
+	pFrame->m_Data.m_sBaseFile = parser.GetVal(_T("base"));
+	pFrame->m_Data.m_sTheirFile = parser.GetVal(_T("theirs"));
+	pFrame->m_Data.m_sYourFile = parser.GetVal(_T("yours"));
+	pFrame->m_Data.m_sMergedFile = parser.GetVal(_T("merged"));
+	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));
+	pFrame->m_Data.m_sDiffFile = parser.GetVal(_T("diff"));
+	pFrame->LoadViews();
 	return TRUE;
 }
 

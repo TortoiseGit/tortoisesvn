@@ -467,6 +467,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SAVEASTITLE         "Save as..."
+    IDS_COMMANDLINEHELP     "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/yours:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
 END
 
 #endif    // English (U.S.) resources

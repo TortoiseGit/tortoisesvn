@@ -53,6 +53,7 @@
 #define IDS_VIEWCONTEXTMENU_USETHEIRBLOCK 4001
 #define IDS_VIEWCONTEXTMENU_USEYOURBLOCK 4002
 #define IDS_SAVEASTITLE                 5000
+#define IDS_COMMANDLINEHELP             5001
 #define ID_VIEW_WHITESPACES             32774
 
 // Next default values for new objects

@@ -30,6 +30,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_SIZE()
 	ON_COMMAND(ID_FILE_SAVE, OnFileSave)
 	ON_COMMAND(ID_FILE_SAVE_AS, OnFileSaveAs)
+	ON_UPDATE_COMMAND_UI(ID_FILE_SAVE, OnUpdateFileSave)
+	ON_UPDATE_COMMAND_UI(ID_FILE_SAVE_AS, OnUpdateFileSaveAs)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -285,6 +287,14 @@ void CMainFrame::OnFileOpen()
 void CMainFrame::LoadViews()
 {
 	this->m_Data.Load();
+	if (m_Data.m_sBaseFile.IsEmpty())
+	{
+		if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
+		{
+			m_Data.m_sBaseFile = m_Data.m_sTheirFile;
+			m_Data.m_sTheirFile.Empty();
+		} // if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty()) 
+	} // if (m_Data.m_sBaseFile.IsEmpty()) 
 	if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
 	{
 		//diff between YOUR and BASE
@@ -531,4 +541,40 @@ void CMainFrame::OnFileSaveAs()
 		sFile = CString(ofn.lpstrFile);
 		SaveFile(sFile);
 	} // if (GetSaveFileName(&ofn)==TRUE)
+}
+
+void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
+{
+	BOOL bEnable = FALSE;
+	if (!this->m_Data.m_sMergedFile.IsEmpty())
+	{
+		if (m_pwndBottomView)
+		{
+			if (m_pwndBottomView->IsWindowVisible())
+			{
+				bEnable = TRUE;
+			} // if (m_pwndBottomView->IsWindowVisible()) 
+		} // if (m_pwndBottomView) 
+	} // if (!this->m_Data.m_sMergedFile.IsEmpty())
+	pCmdUI->Enable(bEnable);
+}
+
+void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
+{
+	BOOL bEnable = FALSE;
+	if (m_pwndBottomView)
+	{
+		if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+		{
+			bEnable = TRUE;
+		} // if (m_pwndBottomView->IsWindowVisible()) 
+	} // if (m_pwndBottomView) 
+	else if (m_pwndRightView)
+	{
+		if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
+		{
+			bEnable = TRUE;
+		} // if (m_pwndRightView->IsWindowVisible()) 
+	} 
+	pCmdUI->Enable(bEnable);
 }

@@ -34,11 +34,12 @@ protected:
 	afx_msg void	OnViewWhitespaces();
 	afx_msg int		OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
+	afx_msg void	OnUpdateFileSave(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateFileSaveAs(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:
 	void			UpdateLayout();
-	void			LoadViews();
 	virtual BOOL	PatchFile(CString sFilePath, CString sVersion);
 	BOOL			CheckResolved();
 	void			SaveFile(CString sFilePath);
@@ -52,7 +53,6 @@ protected:
 	CXSplitter		m_wndSplitter2;
 	CFilePatchesDlg m_dlgFilePatches;
 
-	CDiffData		m_Data;
 	CPatch			m_Patch;
 	BOOL			m_bInitSplitter;
 	CTempFiles		m_TempFiles;
@@ -61,6 +61,8 @@ public:
 	CLeftView *		m_pwndLeftView;
 	CRightView *	m_pwndRightView;
 	CBottomView *	m_pwndBottomView;
+	CDiffData		m_Data;
+	void			LoadViews();
 };
 
 

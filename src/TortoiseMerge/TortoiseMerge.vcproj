@@ -139,6 +139,9 @@
 				RelativePath="..\Utils\BrowseFolder.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\CmdLineParser.cpp">
+			</File>
+			<File
 				RelativePath=".\DiffData.cpp">
 			</File>
 			<File
@@ -208,6 +211,9 @@
 			</File>
 			<File
 				RelativePath="..\Utils\BrowseFolder.h">
+			</File>
+			<File
+				RelativePath="..\Utils\CmdLineParser.h">
 			</File>
 			<File
 				RelativePath=".\DiffData.h">
@@ -313,6 +319,6 @@
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="TortoiseMerge.rc"/>
+			Value="\Development\Svn\TortoiseSVN\src\Languages\TortoiseMergeENG.rc"/>
 	</Globals>
 </VisualStudioProject>
