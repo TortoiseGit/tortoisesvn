@@ -328,7 +328,7 @@ Require valid-user
 					and create a Subversion access file. An example file
 					would look like this:
 <screen>
-#[groups]
+[groups]
 developers = user1,user2,user3,user4
 docs = user5,user6,user7
 #to allow everyone read access
