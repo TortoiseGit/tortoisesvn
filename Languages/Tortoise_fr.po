@@ -5,12 +5,13 @@
 # Authors:
 # Olivier Booklage <obooklage@wanadoo.fr>
 # Philippe Torche  <philippe.torche@swissonline.ch>
+# Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-15 09:16+0100\n"
-"Last-Translator: Philippe Torche <philippe.torche(no_spam)@swissonline.ch>\n"
+"PO-Revision-Date: 2004-09-01 08:54+0100\n"
+"Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -139,6 +140,10 @@ msgstr "&Extraction répertoire:"
 msgid "&Close windows automatically"
 msgstr "&Fermer la fenêtre automatiquement"
 
+#: Control-ID:1031
+msgid "&Edit"
+msgstr "&Editer"
+
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Edition..."
@@ -192,10 +197,6 @@ msgstr "Aide par &sujets"
 msgid "&Hide"
 msgstr "&Cacher"
 
-#: Control-ID:1023
-msgid "&Indicate folders with changed contents"
-msgstr "&Indique les dossiers avec un contenu changé"
-
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Langage:"
@@ -205,12 +206,13 @@ msgid "&Merge"
 msgstr "&Fusionnner"
 
 #: Control-ID:65535
-msgid "&Merge changes into the current working copy from URL:"
-msgstr "&Fusionner les modifications dans la copie courante depuis l'URL:"
+msgid "&Merge changes into the current working copy which points to the URL:"
+msgstr "&Fusionner les modifications dans la copie de travail courante depuis l'URL:"
 
 #: Control-ID:1012
 msgid "&Merging"
 msgstr "&Fusionnement"
+
 #: Control-ID:1049
 msgid "&Network drives"
 msgstr "&Disque réseau"
@@ -242,6 +244,11 @@ msgstr "&Port:"
 #: MenuEntry
 msgid "&Previous Difference"
 msgstr "&Précédente différence"
+
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Recurse into folders to fetch the status"
+msgstr "&Parcourir récursivement les répertoires pour récupérer le statut "
 
 #: Control-ID:1048
 msgid "&Removable drives"
@@ -298,6 +305,10 @@ msgstr "&URL du repository:"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Annuler\tCtrl+Z"
 
+#: Control-ID:1061
+msgid "&Unknown drives"
+msgstr "Disques inconnus"
+
 #: Control-ID:65535
 #: Control-ID:1005
 msgid "&Username:"
@@ -310,6 +321,11 @@ msgstr "&Affichage"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Espacements"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(Cibles multiples sélectionnées)"
 
 # ID:188,
 #: ID:188
@@ -347,6 +363,26 @@ msgstr "Une violation de verrouillage a eu lieu pendant l'accès à %1."
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "Une nouvelle version est disponible. Aller sur http://tortoisesvn.tigris.org et télécharger la version courante!"
+
+# ID:195,
+#: ID:195
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+"Une liste séparé par saut de ligne de chemins pour lequels les recouvrement d'icônes seront affichés.\n"
+"Si vous ajoutez un caractère \"*\" à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront inclus aussi."
+
+# ID:194,
+#: ID:194
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+"Une liste séparé par saut de ligne de chemins pour lequels les recouvrement d'icônes ne seront pas  affichés.\n"
+"Si vous ajoutez un caractère \"*\" à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront exclus aussi.\n"
+"Une liste vide autorise le recouvrement sur tous les chemins."
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -461,8 +497,8 @@ msgid "Adds file(s) to Subversion control"
 msgstr "Ajouter des fichiers sous contrôle de Subversion"
 
 #: ID:13
-msgid "Adds the selected file(s) to the 'ignore' list"
-msgstr "Ajouter les fichiers sélectionnés à la liste des ignorés"
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Ajouter le(s) fichier(s) sélectionné(s) ou le filtre de fichier à la liste des 'ignorés'"
 
 #: ID:2049
 msgid ""
@@ -623,6 +659,11 @@ msgstr "&Naviguer..."
 msgid "B&uiltin"
 msgstr "&Interne"
 
+# ID:213,
+#: ID:213
+msgid "BDB"
+msgstr "BDB"
+
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Sauvergarde du fichier original"
@@ -682,6 +723,11 @@ msgstr "Naviguer..."
 #: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "&Interne"
+
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug-ID/ N° d'incident"
 
 #: ID:3697
 msgid "CAP"
@@ -757,8 +803,8 @@ msgid "Check for Updates"
 msgstr "Contrôler les mises à jour disponibles"
 
 #: Control-ID:1073
-msgid "Check for newer versions"
-msgstr "Contrôler pour une nouvelle version"
+msgid "Check for newer &versions"
+msgstr "&Vérification de nouvelles versions"
 
 #: ID:79
 msgid ""
@@ -780,7 +826,12 @@ msgstr ""
 "Sélectionner les fichiers que vous\n"
 "voulez effacer avant l'importation."
 
-#: Control-ID:65535
+# ID:251,
+#: ID:251
+msgid "Check the path and/or URL you've entered."
+msgstr "Vérifiez le chemin et/ou l'URL que vous avez entré"
+
+#: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr "Sélectionner les entrées de menu, apparaissant directement dans le menu contextuel au lieu du sous-menu"
 
@@ -811,6 +862,20 @@ msgstr "Le nettoyage est terminé"
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Nettoyage de opération interrompu, des fichiers verrouillés, ..."
+
+# Control-ID:1059,
+#: Control-ID:1059
+msgid "Clear &Auth Cache"
+msgstr "Vider le c&ache d'authentification"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"Supprimer l'authentification stockée.\n"
+"Vous devrez ressaisir vos Nom/Mot de passe pour tous les repository."
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -876,6 +941,11 @@ msgstr "Terminé"
 msgid "Conflicted"
 msgstr "En conflit"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Context Menu"
+msgstr "Menu Contextuel"
+
 #: ID:73
 msgid "Continue"
 msgstr "Continuer"
@@ -883,6 +953,7 @@ msgstr "Continuer"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Copié à distance"
+
 #: ID:73
 msgid "Copy"
 msgstr "Copier"
@@ -1019,6 +1090,11 @@ msgstr "Créer un repository ici"
 msgid "Create Tag from revision"
 msgstr "Créer une étiquette depuis une révision"
 
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Create the branch/tag directly on the server"
+msgstr "Créer la branche/Etiquette directement sur le serveur"
+
 #: ID:126
 msgid "Created folder remotely"
 msgstr "Créé répertoire à distance"
@@ -1042,6 +1118,11 @@ msgid ""
 msgstr ""
 "Couper la sélection et la mettre dans le presse papier\n"
 "Couper"
+
+# Control-ID:1123,
+#: Control-ID:1123
+msgid "D&on't close on conflicts"
+msgstr "Ne pas fermer en cas de c&onflits"
 
 #: ID:76
 msgid "Date"
@@ -1181,6 +1262,11 @@ msgstr "Ne pas convertir les fichiers lors d'une visualisation des différences 
 msgid "Drive Types"
 msgstr "Type de disque"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "Dry Run"
+msgstr "Execution sur papier"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Quitter"
@@ -1192,10 +1278,6 @@ msgstr "E&xterne"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
-
-#: Control-ID:1031
-msgid "Edit"
-msgstr "Editer"
 
 #: ID:12
 msgid "Edit Conflicts"
@@ -1263,8 +1345,12 @@ msgid "Exceptions:"
 msgstr "Exceptions:"
 
 #: Control-ID:65535
-msgid "Exclude pattern:"
-msgstr "Filtre d'exclusion:"
+msgid "Exclude paths:"
+msgstr "Chemins exclus:"
+
+#: Control-ID:65535
+msgid "Exclude/Ignore pattern:"
+msgstr "Filtre d'exclusion/d'indifférence:"
 
 #: ID:94
 msgid "Export Directory:"
@@ -1305,6 +1391,11 @@ msgstr "Externe"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "Programme externe:"
+
+# ID:213,
+#: ID:213
+msgid "FSFS"
+msgstr "FSFS"
 
 #: ID:74
 msgid "Failed Revert"
@@ -1418,9 +1509,9 @@ msgstr "Aide"
 msgid "Hostname mismatch (%s)"
 msgstr "Non de la machine en désaccords (%s)"
 
-#: Dlg-ID:106
-msgid "Icon Overlays"
-msgstr "Icônes"
+#: Control-ID:65535
+msgid "Icon Overlays / Status Columns"
+msgstr "Icônes de recouvrement / Colonne de Statut"
 
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -1445,6 +1536,15 @@ msgstr "Si sélectionné, TortoiseSVN ne crée pas de fichier temporaire pour fa
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Si validé, TortoiseSVN contrôle une fois par semaine si une nouvelle version est disponible"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+"Si mis, TortoiseSVN mettra la date des fichiers à la date de leur\n"
+"dernière livraison. Si non mis, TortoiseSVN utilise la date courante. "
 
 #: ID:80
 msgid ""
@@ -1488,6 +1588,10 @@ msgstr "Importer..."
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Importer le répertoire dans un repository"
+
+#: Control-ID:65535
+msgid "Include paths:"
+msgstr "Chemins inclus:"
 
 #: ID:76
 msgid "Initial Import"
@@ -1590,6 +1694,7 @@ msgid ""
 msgstr ""
 "Lieu ou le contenu de l'URL du\n"
 "repository va être sauvegardé."
+
 #: ID:126
 msgid "Log"
 msgstr "Journal"
@@ -1602,6 +1707,11 @@ msgstr "Commentaire"
 msgid "Log Messages"
 msgstr "Journal"
 
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel"
+msgstr "Apparence et comportement"
+
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "La DLL du système de mail n'est pas valide."
@@ -1609,10 +1719,6 @@ msgstr "La DLL du système de mail n'est pas valide."
 #: Dlg-ID:143
 msgid "Main"
 msgstr "Principale"
-
-#: Dlg-ID:159
-msgid "Menu Layout"
-msgstr "Disposition menu"
 
 #: Dlg-ID:141
 msgid "Merge"
@@ -1744,6 +1850,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "RFP"
 
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "Un ou plusieurs fichiers sont en état de conflit."
+
 #: MenuEntry
 msgid "Oneway &Diff"
 msgstr "&Diff unidirectionnel"
@@ -1751,6 +1862,15 @@ msgstr "&Diff unidirectionnel"
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Extraire seulement le répertoire de tête"
+
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"Seuls les nombres (optionellement séparés par des virgules)\n"
+"sont acceptés!"
 
 #: Control-ID:1073
 msgid "Only update the top folder"
@@ -1796,6 +1916,16 @@ msgstr "PKCS12"
 #: ID:69
 msgid "Password:"
 msgstr "Mot de passe:"
+
+# Control-ID:1121,
+#: Control-ID:1121
+msgid "Paste Log &template in english"
+msgstr "Coller le modèle de Journal en anglais"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Paste Status Template"
+msgstr "Coller le modèle de Statut"
 
 #: ID:376
 msgid "Patch All"
@@ -1856,6 +1986,11 @@ msgstr "Veuillez entrer un entier."
 #: ID:3858
 msgid "Please enter no more than %1 characters."
 msgstr "Veuillez ne pas entrer plus de %1 caractères."
+
+# ID:251,
+#: ID:251
+msgid "Please execute the \"Cleanup\" command."
+msgstr "Veuillez executer la commande \"Nettoyer\"."
 
 #: ID:78
 msgid ""
@@ -1939,8 +2074,8 @@ msgstr ""
 "Quitter"
 
 #: Control-ID:1073
-msgid "RAM drives"
-msgstr "Disque mémoire"
+msgid "R&AM drives"
+msgstr "Disques mémoire"
 
 #: ID:3697
 msgid "REC"
@@ -2331,6 +2466,15 @@ msgstr "Configuration des propriétés..."
 msgid "Settings"
 msgstr "Configuration"
 
+# ID:115,
+#: ID:115
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started."
+msgstr ""
+"La journalisation doit elle s'arrêter à la copie?\n"
+"Cliquer <b>Oui</b> si vous avez besoin de chercher où une branche a démarré."
+
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
 msgstr "Format cours des &dates dans les commentaires"
@@ -2351,6 +2495,10 @@ msgstr "Voir &journal..."
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Voir &journal"
+
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr "V&oir le recouvrement seulement dans l'explorateur"
 
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -2395,10 +2543,6 @@ msgid ""
 msgstr ""
 "Voir ou cacher la barre d'outils\n"
 "Barre d'outils"
-
-#: Control-ID:1088
-msgid "Show overlays only in explorer"
-msgstr "Voir le recouvrement seulement dans l'explorateur"
 
 #: ID:2049
 msgid ""
@@ -2725,10 +2869,6 @@ msgstr "Ce programme demande le fichier %s, lequel n'a pas été trouvé."
 msgid "Three File Diff"
 msgstr "Différence sur trois fichiers"
 
-#: Control-ID:65535
-msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "Pour fusionner les modifications depuis une branche spécifique, vous devez mettre la même URL dans les champs \"Depuis:\" et \"Vers:\"."
-
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "Pour voir les modifications que vous avez apportées, double clicker sur le fichier."
@@ -2799,6 +2939,11 @@ msgstr "TortoiseSVN Configuration"
 #: ID:73
 msgid "Try Again"
 msgstr "Recommencer"
+
+# ID:251,
+#: ID:251
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "Essayez un \"Nettoyer\". Si cela ne fonctionne pas vous devrez faire une nouvelle extraction."
 
 #: ID:10
 msgid "Tweak TortoiseSVN"
@@ -2871,10 +3016,6 @@ msgstr ""
 "  Empreinte: %s\n"
 "  Nom distingué: %s"
 
-#: Control-ID:1061
-msgid "Unknown drives"
-msgstr "Disque inconnu"
-
 #: ID:3841
 msgid "Untitled"
 msgstr "Sans Nom"
@@ -2912,6 +3053,11 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Utiliser la mise en évidence sur la barre de positionnement"
+
+#: Control-ID:1073
+msgid "Use \"From:\" URL"
+msgstr "&Utiliser l'URL \"Depuis:\""
+
 #: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "Utiliser un seul carreau de fenêtre par défaut"
@@ -2994,6 +3140,16 @@ msgstr "Visualisateur de fichier de différence GNU (fichiers patch)."
 msgid "Visit our website"
 msgstr "Visitez notre site Web"
 
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "Avertissement!"
+
+# ID:213,
+#: ID:213
+msgid "What repository type do you want to create?"
+msgstr "Quel type de repository voulez-vous créer?"
+
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Différence d'espacements"
@@ -3046,6 +3202,20 @@ msgstr ""
 "Ceci peut créer de sévère corruption du repository!\n"
 "Voulez vous vraiment faire ceci?"
 
+# ID:251,
+#: ID:251
+msgid "You have to update your working copy first."
+msgstr "Vous devez d'abord mettre à jour votre copie de travail."
+
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"Vous n'avez pas saisi de numéro d'incident!\n"
+"Etes-vous sûr de vouloir livrer sans un numéro d'incident?"
+
 #: ID:77
 msgid ""
 "You selected an unversioned file.\n"
@@ -3077,6 +3247,46 @@ msgstr "un fichier non nommé"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "et supporté les développeurs"
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:label\n"
+"Libellé texte à afficher dans la boite d'édition où l'utilisateur entre le numéro d'incident."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:message\n"
+"Chaîne ajoutée a un message de journal quand un numéro d'incident est saisi.\n"
+"La chaîne doit contenir \"%BUGID%\" qui sera remplacé par le numéro d'incident."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq:number\n"
+"Mettez à \"Faux\" si votre système de traque de bug a des incidents qui ne sont pas référencés par des nombres."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"URL pointant sur le traqueur d'incident. Cela doit contenir \"%BUGID%\" lequel \n"
+"sera remplacé par le numéro d'incident."
 
 #: ID:145
 msgid "cleaning up"
@@ -3244,5 +3454,4 @@ msgstr "votre version est:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "votre version est: %d.%d.%d.%d"
-
 
