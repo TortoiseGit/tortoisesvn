@@ -213,15 +213,19 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 		temp = "";
 		if (message.GetLength()>0)
 		{
-			message.Replace(_T("\r\n"), _T("\n"));
+			message.Replace(_T("\n\r"), _T("\n"));
 			message.Replace(_T("\r"), _T("\n"));
-			message.Replace(_T("\n"), _T("\n\r"));
+			message.Replace(_T("\n"), _T("\r\n"));
 			int pos = 0;
-			while (message.Find(_T("\n\r"), pos)>=0)
+			TCHAR buf[100000];
+			_tcscpy(buf, message);
+			if (message.Right(2).Compare(_T("\r\n"))==0)
+				message = message.Left(message.GetLength()-2);
+			while (message.Find('\n', pos)>=0)
 			{
 				line++;
-				pos = message.Find(_T("\n\r"), pos);
-				pos = pos + 3;		// add "\n\r"
+				pos = message.Find('\n', pos);
+				pos = pos + 1;		// add "\r"
 			}
 		} // if (message.GetLength()>0)
 		message += _T("\r\n---------------------------------\r\n");
