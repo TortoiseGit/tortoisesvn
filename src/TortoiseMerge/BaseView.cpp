@@ -54,7 +54,7 @@ CBaseView::CBaseView()
 	m_nScreenLines = -1;
 	m_nTopLine = 0;
 	m_nOffsetChar = 0;
-	m_bViewWhitespace = FALSE;
+	m_bViewWhitespace = TRUE;
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;

@@ -474,7 +474,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 
 void CMainFrame::OnViewWhitespaces()
 {
-	BOOL bViewWhitespaces = FALSE;
+	BOOL bViewWhitespaces = TRUE;
 	if (m_pwndLeftView)
 		bViewWhitespaces = m_pwndLeftView->m_bViewWhitespace;
 
