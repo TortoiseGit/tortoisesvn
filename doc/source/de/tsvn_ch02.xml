@@ -1,4 +1,4 @@
-<chapter id="tsvn-ch-2">
+﻿<chapter id="tsvn-ch-2">
 	<title>Grundkonzepte</title>
 	<!-- this chapter is copied over from the subversion book and slightly
        modified for the TortoiseSVN client -->
@@ -317,6 +317,8 @@
 				<table id="tsvn-ch-02-table-1">
 					<title>Zugriffs-URLs</title>
 					<tgroup cols="2">
+						<colspec colnum="1" colwidth="1*"/>
+						<colspec colnum="2" colwidth="4*"/>
 						<thead>
 							<row>
 								<entry>Schema</entry>
@@ -328,34 +330,41 @@
 								<entry>
 									<literal>file:///</literal>
 								</entry>
-								<entry>direkter Zugriff (auf einer lokalen Festplatte)</entry>
+								<entry>Direkter Zugriff auf einer lokalen Festplatte.</entry>
 							</row>
 							<row>
 								<entry>
 									<literal>http://</literal>
 								</entry>
-								<entry>Zugriff via das WebDAV Protokoll auf einen Subversion bekannten Apache-Server
+								<entry>
+                  Zugriff via WebDAV Protokoll auf einen Apache-Server, auf dem 
+                  Subversion installiert ist.
 								</entry>
 							</row>
 							<row>
 								<entry>
 									<literal>https://</literal>
 								</entry>
-								<entry>gleich wie <literal>http://</literal>, aber mit SSL-Verschlüsselung
+								<entry>
+                  Wie <literal>http://</literal>, aber mit SSL-Verschlüsselung.
 								</entry>
 							</row>
 							<row>
 								<entry>
 									<literal>svn://</literal>
 								</entry>
-								<entry>Nicht authentifizierter TCP/IP Zugriff mittels eigenem Protokoll auf einen <literal>svnserve</literal> Server
+								<entry>
+                  Nicht authentifizierter TCP/IP Zugriff mittels eigenem Protokoll 
+                  auf einen <literal>svnserve</literal> Server.
 								</entry>
 							</row>
 							<row>
 								<entry>
 									<literal>svn+ssh://</literal>
 								</entry>
-								<entry>Authentifizierter, verschlüsselter TCP/IP Zugriff mittels eigenem Protokoll auf einen <literal>svnserve</literal> Server
+								<entry>
+                  Authentifizierter, verschlüsselter TCP/IP Zugriff mittels 
+                  eigenem Protokoll auf einen <literal>svnserve</literal> Server.
 								</entry>
 							</row>
 						</tbody>

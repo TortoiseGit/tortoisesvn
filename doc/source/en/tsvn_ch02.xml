@@ -285,6 +285,8 @@
 				<table id="tsvn-ch-02-table-1">
 					<title>Repository Access URLs</title>
 					<tgroup cols="2">
+						<colspec colnum="1" colwidth="1*"/>
+						<colspec colnum="2" colwidth="4*"/>
 						<thead>
 							<row>
 								<entry>Schema</entry>
@@ -296,28 +298,34 @@
 								<entry>
 									<literal>file:///</literal>
 								</entry>
-								<entry>direct repository access (on local disk)</entry>
+								<entry>
+                  Direct repository access on local disk.
+                </entry>
 							</row>
 							<row>
 								<entry>
 									<literal>http://</literal>
 								</entry>
-								<entry>access via WebDAV protocol to Subversion-aware
-                  Apache server</entry>
+								<entry>
+                  Access via WebDAV protocol to Subversion-aware Apache server.
+                </entry>
 							</row>
 							<row>
 								<entry>
 									<literal>https://</literal>
 								</entry>
-								<entry>same as <literal>http://</literal>, but with
-                  SSL encryption.</entry>
+								<entry>
+                  Same as <literal>http://</literal>, but with SSL encryption.
+                </entry>
 							</row>
 							<row>
 								<entry>
 									<literal>svn://</literal>
 								</entry>
-								<entry>unauthenticated TCP/IP access via custom protocol to an
-                  <literal>svnserve</literal> server</entry>
+								<entry>
+                  Unauthenticated TCP/IP access via custom protocol to an
+                  <literal>svnserve</literal> server.
+                </entry>
 							</row>
 							<row>
 								<entry>
