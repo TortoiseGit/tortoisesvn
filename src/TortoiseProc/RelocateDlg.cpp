@@ -63,7 +63,7 @@ BOOL CRelocateDlg::OnInitDialog()
 	urla.ReleaseBuffer();
 	CString url = CUnicodeUtils::GetUnicode(urla);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(url);
-
+	m_URLCombo.SetWindowText(url);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -71,7 +71,7 @@ BOOL CRelocateDlg::OnInitDialog()
 
 void CRelocateDlg::OnBnClickedBrowse()
 {
-	UpdateData();
+	m_URLCombo.GetWindowText(m_sToUrl);
 	if (m_sToUrl.Left(7) == _T("file://"))
 	{
 		CString strFile(m_sToUrl);
@@ -84,7 +84,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(m_sToUrl, this);
 			if (browser.DoModal() == IDOK)
 			{
-				m_sToUrl = browser.m_strUrl;
+				m_URLCombo.SetWindowText(browser.m_strUrl);
 			}
 		}
 		else
@@ -95,6 +95,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 			if (folderBrowser.Show(GetSafeHwnd(), m_sToUrl) == CBrowseFolder::OK)
 			{
 				SVN::PathToUrl(m_sToUrl);
+				m_URLCombo.SetWindowText(m_sToUrl);
 			}
 		}
 	}
@@ -107,7 +108,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(m_sToUrl, this);
 		if (browser.DoModal() == IDOK)
 		{
-			m_sToUrl = browser.m_strUrl;
+			m_URLCombo.SetWindowText(browser.m_strUrl);
 		}
 	}
 	else
@@ -118,9 +119,9 @@ void CRelocateDlg::OnBnClickedBrowse()
 		if (folderBrowser.Show(GetSafeHwnd(), m_sToUrl) == CBrowseFolder::OK)
 		{
 			SVN::PathToUrl(m_sToUrl);
+			m_URLCombo.SetWindowText(m_sToUrl);
 		}
 	}
-	UpdateData(FALSE);
 }
 
 void CRelocateDlg::OnOK()
