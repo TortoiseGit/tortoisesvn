@@ -1282,8 +1282,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			//progDlg.SetAnimation(IDR_ANIMATION);
 
 			path = path.TrimRight('\\');
-			SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
-			CString sDir = path.Mid(path.ReverseFind('\\')+1);
+			CString sDir;
+			if (!PathIsDirectory(path))
+			{
+				SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
+				path.Mid(path.ReverseFind('\\')+1);
+			}
+			else
+				SetCurrentDirectory(path);
+
 			SVN svn;
 			if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, _T(""), ofn.lpstrFile))
 			{

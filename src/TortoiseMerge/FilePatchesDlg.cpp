@@ -58,7 +58,7 @@ CString CFilePatchesDlg::GetFullPath(int nIndex)
 {
 	CString temp = m_pPatch->GetFilename(nIndex);
 	temp.Replace('/', '\\');
-	temp = temp.Mid(temp.Find('\\')+1);
+	//temp = temp.Mid(temp.Find('\\')+1);
 	temp = m_sPath + temp;
 	return temp;
 }
