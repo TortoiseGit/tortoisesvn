@@ -122,6 +122,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	{
 		GetDlgItem(IDCANCEL)->ShowWindow(FALSE);
 		GetDlgItem(IDC_URL)->ShowWindow(FALSE);
+		GetDlgItem(IDC_STATICURL)->ShowWindow(FALSE);
 	}
 
 	AddAnchor(IDC_REPOS_TREE, TOP_LEFT, BOTTOM_RIGHT);
