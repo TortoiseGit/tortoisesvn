@@ -168,6 +168,8 @@ void CLocatorBar::OnPaint()
 	int identcount = 0;
 	int linecount = 0;
 	
+	cacheDC.FillSolidRect(rect.left, height*nTopLine/m_nLines,
+		rect.Width(), (height*nBottomLine/m_nLines)-(height*nTopLine/m_nLines), RGB(180,180,255));
 	if (m_pMainFrm->m_pwndLeftView->IsWindowVisible())
 	{
 		for (int i=0; i<m_arLeft.GetCount(); i++)
