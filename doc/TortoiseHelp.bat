@@ -1,17 +1,19 @@
 @echo off
 cd english
-..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output help.html ..\tools\xsl\html\docbook.xsl book.xml
-mkdir html-chunk
-..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output html-chunk\ ..\tools\xsl\html\chunk.xsl book.xml
-copy styles.css html-chunk\
-copy ..\images\*.png html-chunk\
+mkdir ..\output
+mkdir ..\output\TortoiseSVN
+..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\help.html ..\tools\xsl\html\docbook.xsl book.xml
+mkdir ..\output\TortoiseSVN\html-chunk
+..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html-chunk\ ..\tools\xsl\html\chunk.xsl book.xml
+copy styles.css ..\output\TortoiseSVN\html-chunk\
+copy ..\images\*.png ..\output\TortoiseSVN\html-chunk\
 
-mkdir html-help
-..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output html-help\ ..\tools\xsl\htmlhelp\htmlhelp.xsl book.xml
-copy styles.css html-help\
-copy ..\images\*.png html-help\
-..\tools\hhc.exe html-help\htmlhelp.hhp
-del html-help\TortoiseSVNHelp.chm
-ren html-help\htmlhelp.chm TortoiseSVNHelp.chm
+mkdir ..\output\TortoiseSVN\html-help
+..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html-help\ ..\tools\xsl\htmlhelp\htmlhelp.xsl book.xml
+copy styles.css ..\output\TortoiseSVN\html-help\
+copy ..\images\*.png ..\output\TortoiseSVN\html-help\
+..\tools\hhc.exe ..\output\TortoiseSVN\html-help\htmlhelp.hhp
+del ..\output\TortoiseSVN\html-help\TortoiseSVNHelp.chm
+ren ..\output\TortoiseSVN\html-help\htmlhelp.chm TortoiseSVNHelp.chm
 cd ..
 
