@@ -18,23 +18,24 @@
 
 #include "SVNProperties.h"
 #include "UnicodeStrings.h"
+#include "tchar.h"
 
 svn_error_t*	SVNProperties::Refresh()
 {
-	svn_error_t*				error = NULL;
 	svn_opt_revision_t			rev;
+	m_error = NULL;
 
 	m_propCount = 0;
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
-	error = svn_client_proplist (&m_props,
+	m_error = svn_client_proplist (&m_props,
 								StringToUTF8(m_path).c_str(), 
 								&rev,
 								false,	//recurse
 								&m_ctx,
 								m_pool);
-	if(error != NULL)
-		return error;
+	if(m_error != NULL)
+		return m_error;
 
 
 	for (int j = 0; j < m_props->nelts; j++)
@@ -42,12 +43,12 @@ svn_error_t*	SVNProperties::Refresh()
 		svn_client_proplist_item_t *item = ((svn_client_proplist_item_t **)m_props->elts)[j];
 
 		const char *node_name_native;
-		error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native,
+		m_error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native,
 												item->node_name,
 												m_pool);
 
-		if (error != NULL)
-			return error;
+		if (m_error != NULL)
+			return m_error;
 
 		apr_hash_index_t *hi;
 
@@ -116,7 +117,7 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 	svn_string_t *propval;
 	const char *node_name_native;
 	const char *pname_utf8;
-	svn_error_t*	error = NULL;
+	m_error = NULL;
 
 	if (m_props == NULL)
 	{
@@ -133,10 +134,10 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 	{
 		svn_client_proplist_item_t *item = ((svn_client_proplist_item_t **)m_props->elts)[j];
 
-		error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native,
+		m_error = svn_utf_cstring_from_utf8_stringbuf (&node_name_native,
 													item->node_name,
 													m_pool);
-		if (error != NULL)
+		if (m_error != NULL)
 		{
 			return NULL;
 		}
@@ -157,8 +158,8 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 			//UTF8, so convert to the native format.
 			if (svn_prop_needs_translation (pname_utf8))
 			{
-				error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
-				if (error != NULL)
+				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
+				if (m_error != NULL)
 					return NULL;
 			}
 		} 
@@ -193,30 +194,29 @@ stdstring SVNProperties::GetItemValue(int index)
 
 BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 {
-	svn_error_t*	error = NULL;
 	svn_string_t*	pval;
 	std::string		pname_utf8;
-
+	m_error = NULL;
 
 	pval = svn_string_create (Value, m_pool);
 
 	pname_utf8 = StringToUTF8(Name);
 	if (svn_prop_needs_translation (pname_utf8.c_str()))
 	{
-		error = svn_subst_translate_string (&pval, pval, NULL, m_pool);
-		if (error != NULL)
+		m_error = svn_subst_translate_string (&pval, pval, NULL, m_pool);
+		if (m_error != NULL)
 			return FALSE;
 	}
 
-	error = svn_client_propset (pname_utf8.c_str(), pval, StringToUTF8(m_path).c_str(), recurse, m_pool);
-	if (error != NULL)
+	m_error = svn_client_propset (pname_utf8.c_str(), pval, StringToUTF8(m_path).c_str(), recurse, m_pool);
+	if (m_error != NULL)
 	{
 		return FALSE;
 	}
 
 	//rebuild the property list
-	error = SVNProperties::Refresh();
-	if (error != NULL)
+	m_error = SVNProperties::Refresh();
+	if (m_error != NULL)
 	{
 		return FALSE;
 	}
@@ -226,22 +226,39 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse)
 {
 	std::string		pname_utf8;
-	svn_error_t*	error = NULL;
+	m_error = NULL;
 
 	pname_utf8 = StringToUTF8(Name);
 
-	error = svn_client_propset (pname_utf8.c_str(), NULL, StringToUTF8(m_path).c_str(), recurse, m_pool);
-	if (error != NULL)
+	m_error = svn_client_propset (pname_utf8.c_str(), NULL, StringToUTF8(m_path).c_str(), recurse, m_pool);
+	if (m_error != NULL)
 	{
 		return FALSE;
 	}
 
 	//rebuild the property list
-	error = Refresh();
-	if (error != NULL)
+	m_error = Refresh();
+	if (m_error != NULL)
 	{
 		return FALSE;
 	}
 	return TRUE;
 }
 
+stdstring SVNProperties::GetLastErrorMsg()
+{
+	stdstring msg;
+	if (m_error != NULL)
+	{
+		svn_error_t * ErrPtr = m_error;
+		msg = UTF8ToString(ErrPtr->message);
+		while (ErrPtr->child)
+		{
+			ErrPtr = ErrPtr->child;
+			msg += _T("\n");
+			msg += UTF8ToString(ErrPtr->message);
+		} 
+		return msg;
+	} 
+	return msg;
+}

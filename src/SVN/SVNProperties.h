@@ -111,6 +111,11 @@ public:
 	 */
 	BOOL Remove(const TCHAR * Name, BOOL recurse = false);
 
+	/**
+	 * Returns the last error message as a CString object.
+	 */
+	stdstring GetLastErrorMsg();
+
 private:		//methods
 	/**
 	 * Builds the properties (again) and fills the apr_array_header_t structure.
@@ -130,5 +135,6 @@ private:		//members
 	stdstring					m_path;				///< the path to the file/directory this properties object acts upon
 	apr_array_header_t *		m_props;			
 	int							m_propCount;		///< number of properties found
+	svn_error_t *				m_error;
 
 };

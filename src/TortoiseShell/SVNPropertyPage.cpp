@@ -355,7 +355,10 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						{
 							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(I->c_str());
-							props.Add(name, t.c_str(), checked);
+							if (!props.Add(name, t.c_str(), checked))
+							{
+								::MessageBox(m_hwnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+							}
 							count++;
 							dlg.SetProgress(count, all);
 							if (dlg.HasUserCancelled())
