@@ -4,7 +4,6 @@
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   100
-#define IDD_ABOUTBOX                    101
 #define IDP_OLE_INIT_FAILED             101
 #define IDD_SETMAINPAGE                 107
 #define IDR_TortoiseMergeTYPE           129
@@ -95,7 +94,6 @@
 #define IDC_BKYOURSREMOVED              1060
 #define IDC_BUTTON22                    1061
 #define IDC_FGYOURSREMOVED              1061
-#define IDC_COMBO1                      1062
 #define IDC_LANGUAGECOMBO               1062
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
