@@ -216,11 +216,20 @@ BOOL CSetMainPage::OnInitDialog()
 		m_cFontSizes.AddString(temp);
 		m_cFontSizes.SetItemData(count++, i);
 	} // for (int i=6; i<20; i=i+2) 
+	BOOL foundfont = FALSE;
 	for (int i=0; i<m_cFontSizes.GetCount(); i++)
 	{
 		if (m_cFontSizes.GetItemData(i) == m_dwFontSize)
+		{
 			m_cFontSizes.SetCurSel(i);
-	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
+			foundfont = TRUE;
+		}
+	}
+	if (!foundfont)
+	{
+		temp.Format(_T("%d"), m_dwFontSize);
+		m_cFontSizes.SetWindowText(temp);
+	}
 
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
