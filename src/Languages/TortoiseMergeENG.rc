@@ -401,7 +401,7 @@ BEGIN
     END
     POPUP "&Help"
     BEGIN
-        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM "&Help Topics",                ID_HELP
         MENUITEM SEPARATOR
         MENUITEM "&About TortoiseMerge...",     ID_APP_ABOUT
     END
