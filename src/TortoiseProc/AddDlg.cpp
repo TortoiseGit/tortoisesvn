@@ -221,7 +221,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 				CString temp = strbuf;
 				svn_wc_status_kind stat;
 				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-				if (SVNStatus::IsImportant(stat))
+				if (!SVNStatus::IsImportant(stat))
 				{
 					if ((!CCheckTempFiles::IsTemp(strLine))||(!bIsDir))
 					{
@@ -253,7 +253,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 				{
 					temp = strbuf;
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-					if (SVNStatus::IsImportant(stat))
+					if (!SVNStatus::IsImportant(stat))
 					{
 						if ((!CCheckTempFiles::IsTemp(temp))||(!bIsDir))
 						{
