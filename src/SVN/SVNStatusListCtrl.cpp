@@ -1133,7 +1133,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (GetSelectedCount() == 1)
 					{
 						CString filename = filepath.GetFileOrDirectoryName();
-						if (filename.ReverseFind('.')>=0)
+						if ((filename.ReverseFind('.')>=0)&&(!filepath.IsDirectory()))
 						{
 							CMenu submenu;
 							if (submenu.CreateMenu())
