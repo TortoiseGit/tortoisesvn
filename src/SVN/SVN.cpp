@@ -693,6 +693,7 @@ BOOL SVN::CreateRepository(CString path)
 	if (err != NULL)
 	{
 		svn_pool_destroy(localpool);
+		apr_terminate();
 		return FALSE;
 	}
 	svn_pool_destroy(localpool);
@@ -1199,6 +1200,7 @@ CString SVN::GetPristinePath(CString wcPath)
 	if (err != NULL)
 	{
 		svn_pool_destroy(localpool);
+		apr_terminate();
 		return temp;
 	}
 	if (pristinePath != NULL)

@@ -174,6 +174,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
 	if (err != NULL)
 	{
 		svn_pool_destroy (pool);				//free allocated memory
+		apr_terminate();
 		return svn_wc_status_unversioned;	
 	}
 
