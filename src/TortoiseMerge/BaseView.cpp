@@ -1662,7 +1662,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	if (nChar==VK_DOWN)
 	{
-		if (m_nSelBlockEnd < GetLineCount())
+		if (m_nSelBlockEnd < GetLineCount()-1)
 		{
 			m_nSelBlockEnd++;
 			Invalidate();
