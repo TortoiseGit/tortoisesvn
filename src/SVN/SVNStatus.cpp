@@ -29,6 +29,9 @@
 #endif
 
 SVNStatus::SVNStatus(void)
+#ifdef _MFC_VER
+: SVNPrompt()
+#endif
 {
 	m_pool = svn_pool_create (NULL);
 
@@ -40,48 +43,9 @@ SVNStatus::SVNStatus(void)
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
 	hWnd = NULL;
-	m_app = NULL;
 
 	// set up authentication
-	svn_auth_provider_object_t *provider;
-
-	/* The whole list of registered providers */
-	apr_array_header_t *providers = apr_array_make (m_pool, 10, sizeof (svn_auth_provider_object_t *));
-
-	/* The main disk-caching auth providers, for both
-	'username/password' creds and 'username' creds.  */
-	svn_client_get_simple_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_username_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-
-	/* The server-cert, client-cert, and client-cert-password providers. */
-	svn_client_get_ssl_server_trust_file_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_file_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_file_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-
-	/* Two prompting providers, one for username/password, one for
-	just username. */
-	svn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 2, /* retry limit */ m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_username_prompt_provider (&provider, (svn_auth_username_prompt_func_t)userprompt, this, 2, /* retry limit */ m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-
-	/* Three prompting providers for server-certs, client-certs,
-	and client-cert-passphrases.  */
-	svn_client_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-
-	/* Build an authentication baton to give to libsvn_client. */
-	svn_auth_open (&m_auth_baton, providers, m_pool);
-	ctx.auth_baton = m_auth_baton;
+	Init(m_pool);
 
 	// set up the configuration
 	m_err = svn_config_get_config (&(ctx.config), NULL, m_pool);

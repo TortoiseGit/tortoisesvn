@@ -519,7 +519,6 @@ public:
 	static void UseIEProxySettings(apr_hash_t * cfg);
 	svn_error_t *				Err;			///< Global error object struct
 private:
-	svn_auth_baton_t *			auth_baton;
 	//svn_client_ctx_t 			ctx;
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
@@ -557,6 +556,7 @@ private:
 					const char * line,
 					apr_pool_t * pool);
 	static void formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt = false);
+
 
 };
 

@@ -143,13 +143,13 @@ private:		//methods
 
 private:		//members
 	apr_pool_t *				m_pool;				///< memory pool baton
-	svn_auth_baton_t *			m_auth_baton;
-	svn_client_ctx_t 			m_ctx;
 	stdstring					m_path;				///< the path to the file/directory this properties object acts upon
 	apr_array_header_t *		m_props;			
 	int							m_propCount;		///< number of properties found
 	svn_error_t *				m_error;
 #ifdef _MFC_VER
 	SVNRev						m_rev;
+#else
+	svn_client_ctx_t 			ctx;
 #endif
 };

@@ -43,7 +43,7 @@ svn_error_t*	SVNProperties::Refresh()
 								StringToUTF8(m_path).c_str(), 
 								&rev,
 								false,	//recurse
-								&m_ctx,
+								&ctx,
 								m_pool);
 	if(m_error != NULL)
 		return m_error;
@@ -74,10 +74,9 @@ svn_error_t*	SVNProperties::Refresh()
 #ifdef _MFC_VER
 
 SVNProperties::SVNProperties(const TCHAR * filepath, SVNRev rev)
-: m_rev(SVNRev::REV_WC)
+: m_rev(SVNRev::REV_WC) , SVNPrompt()
 {
 	m_rev = rev;
-	m_app = NULL;
 #else
 
 SVNProperties::SVNProperties(const TCHAR * filepath)
@@ -89,11 +88,11 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
 
-	memset (&m_ctx, 0, sizeof (m_ctx));
+	memset (&ctx, 0, sizeof (ctx));
 
 	svn_config_ensure(NULL, m_pool);
 	// set up the configuration
-	if (svn_config_get_config (&(m_ctx.config), NULL, m_pool))
+	if (svn_config_get_config (&(ctx.config), NULL, m_pool))
 	{
 		::MessageBox(NULL, this->GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 		svn_pool_destroy (m_pool);					// free the allocated memory
@@ -104,59 +103,20 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	//the internal format uses '/' instead of the windows '\'
 	m_path = UTF8ToString(svn_path_internal_style (StringToUTF8(filepath).c_str(), m_pool));
 
-	// set up authentication
-	svn_auth_provider_object_t *provider;
-
-    /* The whole list of registered providers */
-    apr_array_header_t *providers
-      = apr_array_make (m_pool, 10, sizeof (svn_auth_provider_object_t *));
-
-    /* The main disk-caching auth providers, for both
-       'username/password' creds and 'username' creds.  */
-	svn_client_get_simple_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_username_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-
 #ifdef _MFC_VER
-	/* The server-cert, client-cert, and client-cert-password providers. */
-	svn_client_get_ssl_server_trust_file_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_file_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_file_provider (&provider, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-
-	/* Two prompting providers, one for username/password, one for
-	just username. */
-	svn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 2, /* retry limit */ m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_username_prompt_provider (&provider, (svn_auth_username_prompt_func_t)userprompt, this, 2, /* retry limit */ m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-
-	/* Three prompting providers for server-certs, client-certs,
-	and client-cert-passphrases.  */
-	svn_client_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, m_pool);
-	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	Init(m_pool);
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
-		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)m_ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
-	//SVN::UseIEProxySettings(m_ctx.config);
+	//SVN::UseIEProxySettings(ctx.config);
 #endif
-	svn_auth_open (&m_auth_baton, providers, m_pool);
-
-	m_ctx.auth_baton = m_auth_baton;
 
 	SVNProperties::Refresh();
 }

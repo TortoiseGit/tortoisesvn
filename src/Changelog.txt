@@ -1,3 +1,6 @@
+- ADD: On Win2k and later, the authentication data is now
+       encrypted before saved. The encryption is not available
+       for the other OS's. (Stefan)
 - ADD: When creating branches/tags, you now can choose if
        you want to use the working copy as the source or
        just to a repo->repo copy. (Stefan)
@@ -5,6 +8,8 @@
        to a crash. (Stefan)
 - BUG: Even if no entries are added to the right-drag context
        menu, the separator still was added. (Stefan)
+- BUG: TortoiseMerge could crash when parsing invalid, corrupted
+       or unsupported patchfiles. (Stefan)
 
 Version 1.0.8
 - CHG: The OK button in the commit dialog is enabled by default,
