@@ -395,7 +395,10 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 	} // if (!PathFileExists(sPatchFile))
 	g_crasher.AddFile((LPCSTR)(LPCTSTR)sPatchFile, (LPCSTR)(LPCTSTR)_T("File to patch"));
 	CFileTextLines PatchLines;
+	CFileTextLines PatchLinesResult;
 	PatchLines.Load(sPatchFile);
+	PatchLinesResult.Copy(PatchLines);
+	PatchLines.CopySettings(&PatchLinesResult);
 
 	Chunks * chunks = m_arFileDiffs.GetAt(nIndex);
 
@@ -407,42 +410,46 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 		for (int j=0; j<chunk->arLines.GetCount(); j++)
 		{
 			CString sPatchLine = chunk->arLines.GetAt(j);
-			if ((lRemoveLine > PatchLines.GetCount()) || (lAddLine > PatchLines.GetCount()))
-			{
-				m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, _T(""));
-				return FALSE; 
-			}
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);
 			switch (nPatchState)
 			{
 			case PATCHSTATE_REMOVED:
 				{
-					if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0)
+					if (lAddLine > PatchLines.GetCount())
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lRemoveLine-1));
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
+						return FALSE; 
+					}
+					if (sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)
+					{
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
 					} // if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0) 
-					if (lRemoveLine >= PatchLines.GetCount())
+					if (lAddLine > PatchLines.GetCount())
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, _T(""));
 						return FALSE; 
 					} // if (lRemoveLine >= PatchLines.GetCount()) 
-					PatchLines.RemoveAt(lRemoveLine-1);
+					PatchLines.RemoveAt(lAddLine-1);
 				} 
 				break;
 			case PATCHSTATE_ADDED:
 				{
 					PatchLines.InsertAt(lAddLine-1, sPatchLine);
 					lAddLine++;
-					lRemoveLine++;
 				}
 				break;
 			case PATCHSTATE_CONTEXT:
 				{
+					if (lAddLine > PatchLines.GetCount())
+					{
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
+						return FALSE; 
+					}
 					if ((sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0) &&
 						(sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0))
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lRemoveLine-1));
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
 					} 
 					lAddLine++;
