@@ -77,9 +77,6 @@ void CSetProgsPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EXTDIFF, m_sDiffPath);
 	DDX_Text(pDX, IDC_DIFFVIEWER, m_sDiffViewerPath);
 	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
-	DDX_Radio(pDX, IDC_EXTDIFF_OFF, m_iExtDiff);
-	DDX_Radio(pDX, IDC_DIFFVIEWER_OFF, m_iDiffViewer);
-	DDX_Radio(pDX, IDC_EXTMERGE_OFF, m_iExtMerge);
 	DDX_Check(pDX, IDC_DONTCONVERT, m_bDontConvertBase);
 
 	GetDlgItem(IDC_EXTDIFF)->EnableWindow(m_iExtDiff == 1);
@@ -319,58 +316,58 @@ BOOL CSetProgsPage::PreTranslateMessage(MSG* pMsg)
 void CSetProgsPage::OnBnClickedExtdiffOff()
 {
 	m_iExtDiff = 0;
-	UpdateData(FALSE);
 	SetModified();
 	GetDlgItem(IDC_EXTDIFF)->EnableWindow(false);
 	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(false);
+	CheckProgComment();
 }
 
 void CSetProgsPage::OnBnClickedExtdiffOn()
 {
 	m_iExtDiff = 1;
-	UpdateData(FALSE);
 	SetModified();
 	GetDlgItem(IDC_EXTDIFF)->EnableWindow(true);
 	GetDlgItem(IDC_EXTDIFFBROWSE)->EnableWindow(true);
 	GetDlgItem(IDC_EXTDIFF)->SetFocus();
+	CheckProgComment();
 }
 
 void CSetProgsPage::OnBnClickedExtmergeOff()
 {
 	m_iExtMerge = 0;
-	UpdateData(FALSE);
 	SetModified();
 	GetDlgItem(IDC_EXTMERGE)->EnableWindow(FALSE);
 	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(FALSE);
+	CheckProgComment();
 }
 
 void CSetProgsPage::OnBnClickedExtmergeOn()
 {
 	m_iExtMerge = 1;
-	UpdateData(FALSE);
 	SetModified();
 	GetDlgItem(IDC_EXTMERGE)->EnableWindow(TRUE);
 	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(TRUE);
 	GetDlgItem(IDC_EXTMERGE)->SetFocus();
+	CheckProgComment();
 }
 
 void CSetProgsPage::OnBnClickedDiffviewerOff()
 {
 	m_iDiffViewer = 0;
-	UpdateData(FALSE);
 	SetModified();
 	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(FALSE);
 	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(FALSE);
+	CheckProgComment();
 }
 
 void CSetProgsPage::OnBnClickedDiffviewerOn()
 {
 	m_iDiffViewer = 1;
-	UpdateData(FALSE);
 	SetModified();
 	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(TRUE);
 	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(TRUE);
 	GetDlgItem(IDC_DIFFVIEWER)->SetFocus();
+	CheckProgComment();
 }
 
 void CSetProgsPage::OnBnClickedExtdiffadvanced()
@@ -388,4 +385,22 @@ void CSetProgsPage::OnBnClickedExtmergeadvanced()
 void CSetProgsPage::OnBnClickedDontconvert()
 {
 	SetModified();
+}
+
+void CSetProgsPage::CheckProgComment()
+{
+	UpdateData();
+	if (m_iExtDiff == 0 && !m_sDiffPath.IsEmpty() && m_sDiffPath.Left(1) != _T("#"))
+		m_sDiffPath = _T("#") + m_sDiffPath;
+	else if (m_iExtDiff == 1)
+		m_sDiffPath.TrimLeft('#');
+	if (m_iDiffViewer == 0 && !m_sDiffViewerPath.IsEmpty() && m_sDiffViewerPath.Left(1) != _T("#"))
+		m_sDiffViewerPath = _T("#") + m_sDiffViewerPath;
+	else if (m_iDiffViewer == 1)
+		m_sDiffViewerPath.TrimLeft('#');
+	if (m_iExtMerge == 0 && !m_sMergePath.IsEmpty() && m_sMergePath.Left(1) != _T("#"))
+		m_sMergePath = _T("#") + m_sMergePath;
+	else if (m_iExtMerge == 1)
+		m_sMergePath.TrimLeft('#');
+	UpdateData(FALSE);
 }
