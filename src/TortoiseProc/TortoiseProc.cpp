@@ -1521,6 +1521,16 @@ void CTortoiseProcApp::CheckUpgrade()
 		return;
 	// we're starting the first time with a new version!
 	
+	LONG lVersion = 0;
+	int pos = sVersion.Find(',');
+	if (pos > 0)
+	{
+		lVersion = (_ttol(sVersion.Left(pos))<<24);
+		lVersion |= (_ttol(sVersion.Mid(pos+1))<<16);
+		pos = sVersion.Find(',', pos+1);
+		lVersion |= (_ttol(sVersion.Mid(pos+1))<<8);
+	}
+	
 	CRegDWORD regval = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), 999);
 	if ((DWORD)regval != 999)
 	{
@@ -1528,6 +1538,12 @@ void CTortoiseProcApp::CheckUpgrade()
 		CRegDWORD newregval = CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"));
 		newregval = !regval;
 		regval.removeKey();
+	}
+
+	if (lVersion < 0x01010300)
+	{
+		// remove all saved dialog positions
+		CRegString(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\")).removeKey();
 	}
 	
 	// set the current version so we don't come here again until the next update!
