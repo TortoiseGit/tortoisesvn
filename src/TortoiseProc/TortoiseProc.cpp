@@ -625,7 +625,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				TRACE(_T("copy %s to %s\n"), path, dlg.m_URL);
 				CSVNProgressDlg progDlg;
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
-				progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, SVNRev::REV_WC);
+				progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, (dlg.m_bDirectCopy ? SVNRev::REV_HEAD : SVNRev::REV_WC));
 				progDlg.DoModal();
 			}
 		}

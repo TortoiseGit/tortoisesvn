@@ -32,6 +32,7 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T("made a copy"))
+	, m_bDirectCopy(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -46,6 +47,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
+	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
 }
 
 
