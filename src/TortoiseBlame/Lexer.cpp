@@ -22,7 +22,6 @@ void TortoiseBlame::SetupLexer(LPCSTR filename)
 {
 	char line[20];
 	char * lineptr = _tcsrchr(filename, '.');
-	WPARAM lexer = SCLEX_NULL;
 
 	if (lineptr)
 	{

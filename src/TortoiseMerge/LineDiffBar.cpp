@@ -153,7 +153,7 @@ void CLineDiffBar::OnSize(UINT nType, int cx, int cy)
 	Invalidate();
 }
 
-BOOL CLineDiffBar::OnEraseBkgnd(CDC* pDC)
+BOOL CLineDiffBar::OnEraseBkgnd(CDC* /*pDC*/)
 {
 	return TRUE;
 }

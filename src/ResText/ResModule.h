@@ -90,5 +90,5 @@ private:
 	int				m_bTranslatedMenuStrings;
 	int				m_bDefaultMenuStrings;
 	
-	int				m_wTargetLang;
+	WORD			m_wTargetLang;
 };

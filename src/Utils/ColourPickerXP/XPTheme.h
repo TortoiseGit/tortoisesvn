@@ -10,6 +10,9 @@
 #define WM_THEMECHANGED                 0x031A
 #endif
 
+#pragma warning(push)
+#pragma warning(disable : 4100)
+
 class CXPTheme
 {
 private:
@@ -425,5 +428,5 @@ public:
 	static void Release(void);
 	static BOOL IsAvailable();
 };
-
+#pragma warning(pop)
 #endif

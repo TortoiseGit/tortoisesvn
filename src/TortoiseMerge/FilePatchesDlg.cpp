@@ -214,7 +214,7 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
-void CFilePatchesDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	*pResult = 0;
 	CString temp;

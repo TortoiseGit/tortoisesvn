@@ -103,7 +103,7 @@ int DateDefine(char * def, char * pBuf, unsigned long & index, unsigned long & f
 	return TRUE;
 }
 
-int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL mods)
+int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL /*mods*/)
 { 
 	char * pBuild = pBuf + index;
 	int bEof = pBuild - pBuf >= (int)filelength;
@@ -153,11 +153,14 @@ int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 	return TRUE;
 }
 
-int abort_on_pool_failure (int retcode)
+#pragma warning(push)
+#pragma warning(disable: 4702)
+int abort_on_pool_failure (int /*retcode*/)
 {
 	abort ();
 	return -1;
 }
+#pragma warning(pop)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -183,9 +186,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 1;
 	}
 	// we have three parameters
-	const TCHAR * src;
-	const TCHAR * dst;
-	const TCHAR * wc;
+	const TCHAR * src = NULL;
+	const TCHAR * dst = NULL;
+	const TCHAR * wc = NULL;
 	BOOL bErrOnMods = FALSE;
 	bHasMods = FALSE;
 	WCDate = 0;
@@ -215,7 +218,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf(_T("directory or file %s does not exist\n"), wc);
 		return 2;			// dir does not exist
 	}
-	char * pBuf;
+	char * pBuf = NULL;
 	unsigned long readlength = 0;
 	unsigned long filelength = 0;
 	HANDLE hFile = INVALID_HANDLE_VALUE;

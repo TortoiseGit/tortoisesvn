@@ -23,11 +23,14 @@
 #include "Resource.h"
 #include ".\diffdata.h"
 
-int CDiffData::abort_on_pool_failure (int retcode)
+#pragma warning(push)
+#pragma warning(disable: 4702) // unreachable code
+int CDiffData::abort_on_pool_failure (int /*retcode*/)
 {
 	abort ();
 	return -1;
 }
+#pragma warning(pop)
 
 CDiffData::CDiffData(void)
 {

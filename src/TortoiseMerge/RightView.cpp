@@ -32,7 +32,7 @@ CRightView::~CRightView(void)
 {
 }
 
-BOOL CRightView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
+BOOL CRightView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
 {
 	//The right view is not visible in one-way diff...
 	if (!this->IsWindowVisible())
@@ -54,10 +54,10 @@ BOOL CRightView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 	default:
 		return FALSE;
 	} // switch (state) 
-	return FALSE;
+	//return FALSE;
 }
 
-void CRightView::OnContextMenu(CPoint point, int nLine)
+void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 {
 	CMenu popup;
 	if (popup.CreatePopupMenu())

@@ -680,7 +680,7 @@ BOOL CColourPickerXP::OnClicked()
 // Method:	CColourPickerXP::OnNMThemeChanged()
 // Notes:	For Windows XP theme support.
 //***********************************************************************
-void CColourPickerXP::OnNMThemeChanged(NMHDR *pNMHDR, LRESULT *pResult)
+void CColourPickerXP::OnNMThemeChanged(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	// This feature requires Windows XP or greater.
 	// The symbol _WIN32_WINNT must be >= 0x0501.
@@ -721,7 +721,7 @@ void CColourPickerXP::OnMouseMove(UINT nFlags, CPoint point)
 // Method:	CColourPickerXP::OnMouseLeave()
 // Notes:	Hover support.
 //***********************************************************************
-LRESULT CColourPickerXP::OnMouseLeave(WPARAM wParam, LPARAM lParam)
+LRESULT CColourPickerXP::OnMouseLeave(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
 	if (m_bMouseOver)
 	{
@@ -1861,7 +1861,7 @@ void CColourPopupXP::ChangeSelection(int nIndex)
     }
 	else if (m_nCurrentSel == INVALID_COLOUR)
 	{
-		m_crColour = INVALID_COLOUR;
+		m_crColour = (COLORREF)INVALID_COLOUR;
         m_pParent->SendMessage(CPN_SELCHANGE, (WPARAM) m_crInitialColour, 0);
 	}
     else
@@ -1988,7 +1988,8 @@ void CColourPopupXP::DrawCell(CDC* pDC, int nIndex)
 	COLORREF clrHiLight;
 	COLORREF clrText;
 	bool bSelected;
-	COLORREF clr3dTopLeft, clr3dBottomRight;
+	COLORREF clr3dTopLeft = RGB(0,0,0);
+	COLORREF clr3dBottomRight = RGB(0,0,0);
 	if (m_nCurrentSel == nIndex)
 	{
 		bSelected = true;

@@ -168,7 +168,7 @@ void CMainFrame::Dump(CDumpContext& dc) const
 // CMainFrame message handlers
 
 
-BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContext)
 {
 	CRect cr; 
 	GetClientRect( &cr);
@@ -957,7 +957,7 @@ void CMainFrame::OnEditFind()
 	}
 }
 
-LRESULT CMainFrame::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
+LRESULT CMainFrame::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     ASSERT(m_pFindDialog != NULL);
 
@@ -1152,7 +1152,6 @@ void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 {
 	CRegString placement = CRegString(_T("Software\\TortoiseMerge\\WindowPos"));
 	TCHAR szBuffer[sizeof("-32767")*8 + sizeof("65535")*2];
-	int max = 1;
 	CString s;
 
 	_stprintf(szBuffer, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),

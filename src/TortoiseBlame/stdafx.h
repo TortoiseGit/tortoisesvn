@@ -17,4 +17,7 @@
 #include <tchar.h>
 #include <shlwapi.h>
 
+#pragma warning(push)
+#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
 #include <string>
+#pragma warning(pop)

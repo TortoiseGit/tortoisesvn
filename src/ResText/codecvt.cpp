@@ -36,8 +36,8 @@ ucs2_conversion::do_out(mbstate_t&,
 	from_next = from;
 	to_next = to;
 	for (;count--; ++from_next, to_next += 2) {
-		*(to_next + 0) = *from_next & 0xFF;
-		*(to_next + 1) = *from_next >> 8 & 0xFF;
+		*(to_next + 0) = (char)(*from_next & 0xFF);
+		*(to_next + 1) = (char)(*from_next >> 8 & 0xFF);
 	}
 	return ok;
 }
@@ -87,7 +87,7 @@ utf8_conversion::do_in(mbstate_t&,
 			if (from_end - from_next < extra_bytes + 1) 
 				return partial;
 
-			*to_next = uchar(*from_next++) & ((1 << zero_bit_pos - 1) - 1);
+			*to_next = uchar(*from_next++) & (wchar_t)((1 << (zero_bit_pos - 1)) - 1);
 
 			for (;extra_bytes--; ++from_next) {
 				*to_next = *to_next << 6  |  uchar(*from_next) & 63;

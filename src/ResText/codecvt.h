@@ -18,7 +18,9 @@
 */
 
 #include <locale>
-
+#pragma warning(push)
+#pragma warning(disable: 4511)
+#pragma warning(disable: 4512)
 
 /**	Conversion facet that allows to use Unicode files in UCS-2 encoding */
 class ucs2_conversion
@@ -56,7 +58,7 @@ protected:
     bool do_always_noconv() const throw() { return false; }
     int  do_encoding() const throw() { return 2; }
 };
-
+#pragma warning(pop)
 
 
 

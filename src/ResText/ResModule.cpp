@@ -54,11 +54,6 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 		
 		FreeLibrary(m_hResDll);
 		continue;
-DONE_ERROR:
-		if (m_hResDll)
-			FreeLibrary(m_hResDll);
-		bRet = FALSE;
-		break;
 	}
 	
 	// at last, save the new file
@@ -284,14 +279,14 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 		int newlen = wcslen(szBuf);
 		if (newlen)
 		{
-			newTable[index++] = newlen;
+			newTable[index++] = (WORD)newlen;
 			wcsncpy((wchar_t *)&newTable[index], szBuf, newlen);
 			index += newlen;
 			m_bTranslatedStrings++;
 		} // if (newlen)
 		else
 		{
-			newTable[index++] = len;
+			newTable[index++] = (WORD)len;
 			if (len)
 				wcsncpy((wchar_t *)&newTable[index], p, len);
 			index += len;
@@ -477,7 +472,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 			res++;
 		}
 		else
-			id = -1;			//popup menu item
+			id = (WORD)-1;			//popup menu item
 
 		str = (LPCWSTR)res;
 		int l = wcslen(str)+1;
@@ -496,7 +491,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
 
 			m_StringEntries[wstr] = entry;
 
-			if (!(res = ParseMenuResource(res)))
+			if ((res = ParseMenuResource(res))==0)
 				return NULL;
 		}
 		else if (id != 0)
@@ -549,14 +544,14 @@ const WORD* CResModule::CountMemReplaceMenuResource(const WORD * res, int * word
 				newMenu[(*wordcount)++] = id;
 		}
 		else
-			id = -1;			//popup menu item
+			id = (WORD)-1;			//popup menu item
 
 		if (flags & MF_POPUP)
 		{
 			ReplaceStr((LPCWSTR)res, newMenu, wordcount, &m_bTranslatedMenuStrings, &m_bDefaultMenuStrings);
 			res += wcslen((LPCWSTR)res) + 1;
 
-			if (!(res = CountMemReplaceMenuResource(res, wordcount, newMenu)))
+			if ((res = CountMemReplaceMenuResource(res, wordcount, newMenu))==0)
 				return NULL;
 		}
 		else if (id != 0)
@@ -860,7 +855,7 @@ const WORD* CResModule::GetControlInfo(const WORD* p, LPDLGITEMINFO lpDlgItemInf
 
 	if (GET_WORD(p) == 0xffff)
 	{
-		WORD id = GET_WORD(p + 1);
+		GET_WORD(p + 1);
 
 		p += 2;
 	}
@@ -1216,7 +1211,7 @@ const WORD* CResModule::ReplaceControlInfo(const WORD * res, int * wordcount, WO
 	return (const WORD *)((((long)res) + 3) & ~3);
 }
 
-BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam)
+BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam)
 {
 	CResModule* lpResModule = (CResModule*)lParam;
 
@@ -1247,13 +1242,16 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType,
 	return TRUE;
 }
 
+#pragma warning(push)
+#pragma warning(disable: 4189)
 BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam)
 {
 	CResModule* lpResModule = (CResModule*)lParam;
 	return EnumResourceLanguages(hModule, lpszType, lpszName, (ENUMRESLANGPROC)&lpResModule->EnumResWriteLangCallback, lParam);
 }
+#pragma warning(pop)
 
-BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG lParam)
+BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG lParam)
 {
 	BOOL bRes = FALSE;
 	CResModule* lpResModule = (CResModule*)lParam;

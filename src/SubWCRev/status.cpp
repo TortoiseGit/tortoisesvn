@@ -8,7 +8,9 @@
 extern BOOL bHasMods;
 extern apr_time_t WCDate;
 
-void getallstatus(void * baton, const char * path, svn_wc_status_t * status)
+#pragma warning(push)
+#pragma warning(disable:4127)	//conditional expression is constant (cause of SVN_ERR
+void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 {
 	if ((status)&&(status->entry))
 	{
@@ -103,3 +105,4 @@ svn_status (       const char *path,
 
   return SVN_NO_ERROR;
 }
+#pragma warning(pop)

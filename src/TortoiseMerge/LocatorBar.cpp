@@ -274,7 +274,7 @@ void CLocatorBar::OnSize(UINT nType, int cx, int cy)
 	Invalidate();
 }
 
-BOOL CLocatorBar::OnEraseBkgnd(CDC* pDC)
+BOOL CLocatorBar::OnEraseBkgnd(CDC* /*pDC*/)
 {
 	return TRUE;
 }

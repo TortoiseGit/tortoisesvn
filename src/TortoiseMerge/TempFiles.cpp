@@ -35,8 +35,8 @@ CString CTempFiles::GetTempFilePath()
 {
 	TCHAR path[MAX_PATH];
 	TCHAR tempF[MAX_PATH];
-	DWORD len = ::GetTempPath (MAX_PATH, path);
-	UINT unique = ::GetTempFileName (path, TEXT("tsm"), 0, tempF);
+	GetTempPath (MAX_PATH, path);
+	GetTempFileName (path, TEXT("tsm"), 0, tempF);
 	CString tempfile = CString(tempF);
 	m_arTempFileList.Add(tempfile);
 	return tempfile;

@@ -52,7 +52,13 @@
 #define LVS_EX_DOUBLEBUFFER     0x00010000
 #endif
 
+#pragma warning(push)
+#pragma warning(disable: 4201)	// nonstandard extension used : nameless struct/union (in MMSystem.h)
 #include <vfw.h>
+#pragma warning(pop)
 
+#pragma warning(push)
+#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
 #include <string>
 #include <map>
+#pragma warning(pop)

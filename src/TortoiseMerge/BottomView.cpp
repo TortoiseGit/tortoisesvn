@@ -32,7 +32,7 @@ CBottomView::~CBottomView(void)
 {
 }
 
-BOOL CBottomView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
+BOOL CBottomView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
 {
 	//The bottom view is not visible in one and two-way diff...
 	if (!this->IsWindowVisible())
@@ -52,10 +52,10 @@ BOOL CBottomView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 	default:
 		return FALSE;
 	} // switch (state) 
-	return FALSE;
+	//return FALSE;
 }
 
-void CBottomView::OnContextMenu(CPoint point, int nLine)
+void CBottomView::OnContextMenu(CPoint point, int /*nLine*/)
 {
 	CMenu popup;
 	if (popup.CreatePopupMenu())

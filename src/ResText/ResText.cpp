@@ -95,7 +95,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			++arg;
 			if (arg != arguments.end())
 			{
-				wLang = _ttoi(arg->c_str());
+				wLang = (WORD)_ttoi(arg->c_str());
 			}
 			CResModule module;
 			module.SetQuiet(bQuiet);

@@ -387,6 +387,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 			Y += heigth;
 		}
 	}
+	::SelectObject(hDC, oldfont);
 }
 
 void TortoiseBlame::StringExpand(LPSTR str)
@@ -428,8 +429,8 @@ LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	WndBlameProc(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
-                     HINSTANCE hPrevInstance,
-                     LPTSTR    lpCmdLine,
+                     HINSTANCE /*hPrevInstance*/,
+                     LPTSTR    /*lpCmdLine*/,
                      int       nCmdShow)
 {
 	app.hInstance = hInstance;

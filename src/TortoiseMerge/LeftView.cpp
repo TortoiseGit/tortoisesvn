@@ -32,7 +32,7 @@ CLeftView::~CLeftView(void)
 {
 }
 
-BOOL CLeftView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
+BOOL CLeftView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*/)
 {
 	//The left view is always visible - even in one-way diff...
 	if (!m_pwndRight->IsWindowVisible())
@@ -55,10 +55,10 @@ BOOL CLeftView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 	default:
 		return FALSE;
 	} // switch (state) 
-	return FALSE;
+	//return FALSE;
 }
 
-void CLeftView::OnContextMenu(CPoint point, int nLine)
+void CLeftView::OnContextMenu(CPoint point, int /*nLine*/)
 {
 	CMenu popup;
 	if (popup.CreatePopupMenu())
