@@ -6,9 +6,6 @@
 	<!ENTITY ch03 SYSTEM "tsvn_ch03_en.xml">
 	<!ENTITY ch04 SYSTEM "tsvn_ch04_en.xml">
 	<!ENTITY appa SYSTEM "tsvn_appa_en.xml">
-	<!ENTITY gloss SYSTEM "tsvn_glossary_en.xml">
-	<!ENTITY copy SYSTEM "tsvn_copyright_en.xml">
-	<!ENTITY colo SYSTEM "tsvn_colo_en.xml">
 ]>
 <book id="tsvn">
 	<title>TortoiseSVN</title>
@@ -35,6 +32,4 @@
   &ch03;
   &ch04;
   &appa;
-  &gloss;
-  &colo;
 </book>

@@ -27,15 +27,32 @@
 			</itemizedlist>
 		</para>
 		<para>
-				If you answered one of the above questions with yes, then 
-				TortoiseSVN is for you! Just read on to find out how TortoiseSVN
-				can help you in your work. It's not that difficult.
+			If you answered one of the above questions with yes, then 
+			TortoiseSVN is for you! Just read on to find out how TortoiseSVN
+			can help you in your work. It's not that difficult.
 		</para>
 	</simplesect>
-	<!-- ================================================================= -->
+	<!-- =================================================================== -->
 	<!-- ========================	SECTION	1 ============================== -->
-	<!-- ================================================================= -->
+	<!-- =================================================================== -->
 	<sect1 id="tsvn-ch-0-sect-1">
+		<title>Audience</title>
+		<para>
+		This book is written for computer literate folk who want to 
+		use Subversion to manage their data, but are uncomfortable using the
+		command line client to do so. Since TortoiseSVN is a windows shell
+		extension it's assumed that the user is familiar with the windows
+		explorer and knows how to use it.
+		</para>
+		<para>
+		Even most Subversion users will never have to set up a server 
+		themselves a whole chapter deals with how to set up such a server.
+		</para>
+	</sect1>
+	<!-- =================================================================== -->
+	<!-- ========================	SECTION	2 ============================== -->
+	<!-- =================================================================== -->
+	<sect1 id="tsvn-ch-0-sect-2">
 		<title>TortoiseSVN is free!</title>
 		<para>
 			TortoiseSVN is free. You don't have to pay for it, you can use it
@@ -51,10 +68,10 @@
 			are located under <emphasis>/tags/</emphasis>.
 		</para>
 	</sect1>
-	<!-- ================================================================= -->
-	<!-- ========================	SECTION	2 ============================== -->
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-0-sect-2">
+	<!-- =================================================================== -->
+	<!-- ========================	SECTION	3 ============================== -->
+	<!-- =================================================================== -->
+	<sect1 id="tsvn-ch-0-sect-3">
 		<title>Community</title>
 		<para>
 			Both TortoiseSVN and Subversion are developed by a community of
@@ -63,10 +80,10 @@
 			programs. 
 		</para>
 	</sect1>
-	<!-- ================================================================= -->
-	<!-- ========================	SECTION	3 ============================== -->
-	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-0-sect-3">
+	<!-- =================================================================== -->
+	<!-- ========================	SECTION	4 ============================== -->
+	<!-- =================================================================== -->
+	<sect1 id="tsvn-ch-0-sect-4">
 		<title>Acknowledgments</title>
 		<para>
 			<variablelist>

@@ -25,14 +25,13 @@
 		TortoiseSVN is a free/open-source client for the Subversion version
 		control system.
 		That is, TortoiseSVN manages files and directories over time.
-		A tree of files is placed into a central
-		<firstterm>repository</firstterm>.  The repository is much like
-		an ordinary file server, except that it remembers every change
-		ever made to your files and directories.  This allows you to
-		recover older versions of your data, or examine the history of
-		how your data changed.  In this regard, many people think of a
-		version control system as a sort of <quote>time
-		machine</quote>.
+		Files are stored into a central <firstterm>repository</firstterm>.
+		The repository is much like an ordinary file server, except that it
+		remembers every change ever made to your files and directories.
+		This allows you to recover older versions of your files and examine
+		the history of how and when your data changed. This is why many
+		people think of Subversion and version control systems in general as
+		a sort of <quote>time machine</quote>.
 		</para>
 		
 		<para>
@@ -71,7 +70,8 @@
 		and found Subversion and the source for TortoiseSVN. Since TortoiseSVN
 		was still not ready for use then he joined the project and started
 		programming. Soon he rewrote most of the existing code and started
-		adding commands and features.
+		adding commands and features, up to a point where nothing of the
+		original code remained.
 		</para>
 		
 		<para>
@@ -81,7 +81,6 @@
 		Onken offered to help out with some nice icons and a logo for
 		TortoiseSVN. And he takes care of the website.
 		</para>
-	
 	</sect1>
 
 	<!-- ================================================================= -->
@@ -92,11 +91,9 @@
 		<title>TortoiseSVN's Features</title>
 		
 		<para>
-		How does Subversion improve upon CVS's design?  Here's a
-		short list to whet your appetite.  If you're not familiar with
-		CVS, you may not understand all of these features.  Fear not:
-		Chapter 2 will provide you with a gentle introduction to version
-		control.</para>
+		What makes TortoiseSVN such a good Subversion client? Here's a short
+		list of features.
+		</para>
 
 		<variablelist>
 			<varlistentry>
@@ -219,7 +216,25 @@
 		
 		</variablelist>
 		
-		</sect1>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 4 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-ch-1-sect-4">
+	
+		<title>Installing TortoiseSVN</title>
+		
+		<para>
+		TortoiseSVN comes with an easy to use installer. Doubleclick on the
+		installer file and follow the instructions. The installer will take
+		care of the rest.
+		</para>
+		<para>
+		If you encounter any problems while or after installing TortoiseSVN
+		please refer to <xref linkend="tsvn-faq"/>.
+		</para>
+		
+	</sect1>
 
 </chapter>
 

@@ -27,50 +27,51 @@
 	</simplesect>
 	<sect1 id="tsvn-ch2-sect-1">
 		<title>The Repository</title>
+		<para>Subversion is a centralized system for sharing information.
+		At its core is a <firstterm>repository</firstterm>, which is a
+		central store of data.  The repository stores information in the
+		form of a <firstterm>filesystem tree</firstterm> &mdash; a typical
+		hierarchy of files and directories.  Any number of
+		<firstterm>clients</firstterm> connect to the repository, and
+		then read or write to these files.  By writing data, a client
+		makes the information available to others; by reading data, the
+		client receives information from others.</para>
 		<figure id="tsvn-ch2-dia1">
 			<title>A Typical Client/Server System</title>
 			<graphic fileref="ch02dia1.png"/>
 		</figure>
-		<para>Subversion is a centralized system for sharing information.
-      At its core is a <firstterm>repository</firstterm>, which is a
-      central store of data.  The repository stores information in the
-      form of a <firstterm>filesystem tree</firstterm> &mdash; a typical
-      hierarchy of files and directories.  Any number of
-      <firstterm>clients</firstterm> connect to the repository, and
-      then read or write to these files.  By writing data, a client
-      makes the information available to others; by reading data, the
-      client receives information from others.</para>
 		<para>So why is this interesting?  So far, this sounds like the
-      definition of a typical file server.  And indeed, the repository
-      <emphasis>is</emphasis> a kind of file server, but it's not your
-      usual breed.  What makes the Subversion repository special is
-      that <emphasis>it remembers every change</emphasis> ever written
-      to it: every change to every file, and even changes to the
-      directory tree itself, such as the addition, deletion, and
-      rearrangement of files and directories.</para>
+		definition of a typical file server.  And indeed, the repository
+		<emphasis>is</emphasis> a kind of file server, but it's not your
+		usual breed.  What makes the Subversion repository special is
+		that <emphasis>it remembers every change</emphasis> ever written
+		to it: every change to every file, and even changes to the
+		directory tree itself, such as the addition, deletion, and
+		rearrangement of files and directories.</para>
 		<para>When a client reads data from the repository, it normally
-      sees only the latest version of the filesystem tree.  But the
-      client also has the ability to view
-      <emphasis>previous</emphasis> states of the filesystem.  For
-      example, a client can ask historical questions like, "what did
-      this directory contain last Wednesday?", or "who was the last
-      person to change this file, and what changes did they make?"
-      These are the sorts of questions that are at the heart of any
-      <firstterm>version control system</firstterm>: systems that are
-      designed to record and track changes to data over time.
-    </para>
+		sees only the latest version of the filesystem tree.  But the
+		client also has the ability to view
+		<emphasis>previous</emphasis> states of the filesystem.  For
+		example, a client can ask historical questions like, "what did
+		this directory contain last Wednesday?", or "who was the last
+		person to change this file, and what changes did they make?"
+		These are the sorts of questions that are at the heart of any
+		<firstterm>version control system</firstterm>: systems that are
+		designed to record and track changes to data over time.
+		</para>
 	</sect1>
 	<!-- the philosophical section -->
 	<sect1 id="tsvn-ch-2-sect-2">
 		<title>Versioning Models</title>
-		<sect2 id="tsvn-ch-2-sect-2.1">
-			<title>The Problem of File-Sharing</title>
-			<para>All version control systems have to solve the same
+		<para>All version control systems have to solve the same
         fundamental problem: how will the system allow users to share
         information, but prevent them from accidentally stepping on
         each other's feet?  It's all too easy for users to
         accidentally overwrite each other's changes in the
-        repository.</para>
+        repository.
+        </para>
+		<sect2 id="tsvn-ch-2-sect-2.1">
+			<title>The Problem of File-Sharing</title>
 			<para>Consider this scenario: suppose we have two co-workers,
         Harry and Sally.  They each decide to edit the same repository
         file at the same time.  If Harry saves his changes to the
@@ -422,10 +423,7 @@ file:///X|/path/to/repos
           <filename>foo.c</filename>'', they really mean
           ``<filename>foo.c</filename> as it appears in revision 5.''
           Notice that in general, revisions N and M of a file do
-          <emphasis>not</emphasis> necessarily differ!  Because CVS
-          uses per-file revisions numbers, CVS users might want to
-          look at Appendix A, "SVN for CVS Users", for more details.
-          <!-- ### add xref here! -->
+          <emphasis>not</emphasis> necessarily differ!
 				</para>
 			</sidebar>
 			<para>It's important to note that working copies do not always
@@ -433,7 +431,7 @@ file:///X|/path/to/repos
         contain files from several different revisions.  For example,
         suppose you check out a working copy from a repository whose
         most recent revision is 4:</para>
-			<screen>
+<screen>
 calc/Makefile:4
      integer.c:4
      button.c:4
@@ -444,7 +442,7 @@ calc/Makefile:4
         change.  Assuming no other commits have taken place, your
         commit will create revision 5 of the repository, and your
         working copy will now look like this:</para>
-			<screen>
+<screen>
 calc/Makefile:4
      integer.c:4
      button.c:5
@@ -453,7 +451,7 @@ calc/Makefile:4
         <filename>integer.c</filename>, creating revision 6.  If you
         use <command>svn update</command> to bring your working copy
         up to date, then it will look like this:</para>
-			<screen>
+<screen>
 calc/Makefile:6
      integer.c:6
      button.c:6
@@ -494,8 +492,8 @@ calc/Makefile:6
 						<para>The file is unchanged in the working
           directory, and no changes to that file have been committed
           to the repository since its working revision.  A
-          <command>svn commit</command> of the file will do nothing,
-          and an <command>svn update</command> of the file will do
+          <command>commit</command> of the file will do nothing,
+          and an <command>update</command> of the file will do
           nothing. </para>
 					</listitem>
 				</varlistentry>
@@ -506,8 +504,8 @@ calc/Makefile:6
           directory, and no changes to that file have been committed
           to the repository since its base revision.  There are local
           changes that have not been committed to the repository, thus
-          an <command>svn commit</command> of the file will succeed in
-          publishing your changes, and an <command>svn update</command>
+          an <command>commit</command> of the file will succeed in
+          publishing your changes, and an <command>update</command>
           of the file will do nothing.</para>
 					</listitem>
 				</varlistentry>
@@ -517,8 +515,8 @@ calc/Makefile:6
 						<para>The file has not been changed in the working
           directory, but it has been changed in the repository.  The
           file should eventually be updated, to make it current with
-          the public revision.  An <command>svn commit</command> of the
-          file will do nothing, and an <command>svn update</command> of
+          the public revision.  An <command>commit</command> of the
+          file will do nothing, and an <command>update</command> of
           the file will fold the latest changes into your working
           copy.</para>
 					</listitem>
@@ -527,10 +525,10 @@ calc/Makefile:6
 					<term>Locally changed, and out-of-date</term>
 					<listitem>
 						<para>The file has been changed both in the
-          working directory, and in the repository.  An <command>svn
-          commit</command> of the file will fail with an "out-of-date"
-          error.  The file should be updated first; an <command>svn
-          update</command> command will attempt to merge the public
+          working directory, and in the repository.  An <command>commit
+          </command> of the file will fail with an "out-of-date"
+          error.  The file should be updated first; an <command>update
+          </command> command will attempt to merge the public
           changes with the local changes.  If Subversion can't
           complete the merge in a plausible way automatically, it
           leaves it to the user to resolve the
@@ -538,45 +536,6 @@ calc/Makefile:6
 					</listitem>
 				</varlistentry>
 			</variablelist>
-		</sect2>
-		<sect2 id="tsvn-ch-2-sect-3.4">
-			<title>The Limitations of Mixed Revisions</title>
-			<para>As a general principle, Subversion tries to be as flexible
-        as possible.  One special kind of flexibility is the ability
-        to have a working copy containing mixed revision
-        numbers.</para>
-			<para>At first, it may not be entirely clear why this sort of
-        flexibility is considered a feature, and not a liability.
-        After completing a commit to the repository, the freshly
-        committed files and directories are at more recent working
-        revision than the rest of the working copy.  It looks like a
-        bit of a mess.  As demonstrated earlier, the working copy can
-        always be brought to a single working revision by running
-        <command>svn update</command>.  Why would someone
-        <emphasis>deliberately</emphasis> want a mixture of working
-        revisions?</para>
-			<para>Assuming your project is sufficiently complex, you'll
-        discover that it's sometimes nice to forcibly
-        <quote>backdate</quote> portions of your working copy to an
-        earlier revision; you'll learn how to do that in Chapter 3.
-        Perhaps you'd like to test an earlier version of a sub-module,
-        contained in a subdirectory, or perhaps you'd like to examine
-        a number of previous versions of a file in the context of the
-        latest tree.</para>
-			<para>However you make use of mixed-revisions in your working
-        copy, there are limitations to this flexibility.</para>
-			<para>First, you cannot commit the deletion of a file or
-        directory which isn't fully up-to-date.  If a newer version of
-        the item exists in the repository, your attempt to delete will
-        be rejected, to prevent you from accidentally
-        destroying changes you've not yet seen.</para>
-			<para>Second, you cannot commit a metadata change to a directory
-        unless it's fully up-to-date.  You'll learn about attaching
-        <quote>properties</quote> to items in Chapter 6.  A
-        directory's working revision defines a specific set of entries
-        and properties, and thus committing a property change to an
-        out-of-date directory may destroy properties you've not yet
-        seen.</para>
 		</sect2>
 	</sect1>
 	<sect1 id="tsvn-ch-2-sect-4">
@@ -599,10 +558,6 @@ calc/Makefile:6
           manages information in a working copy.</para>
 			</listitem>
 		</itemizedlist>
-		<para>At this point, you should have a good idea of how Subversion
-    works in the most general sense.  Armed with this knowledge, you
-    should now be ready to jump into the next chapter, which is a
-    detailed tour of Subversion's commands and features. </para>
 	</sect1>
 </chapter>
 <!--
@@ -610,3 +565,4 @@ local variables:
 sgml-parent-document: ("book.xml" "chapter")
 end:
 -->
+  
