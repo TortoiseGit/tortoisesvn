@@ -34,6 +34,11 @@ CRevertDlg::CRevertDlg(CWnd* pParent /*=NULL*/)
 
 CRevertDlg::~CRevertDlg()
 {
+	for (int i=0; i<m_templist.GetCount(); i++)
+	{
+		DeleteFile(m_templist.GetAt(i));
+	}
+	m_templist.RemoveAll();
 }
 
 void CRevertDlg::DoDataExchange(CDataExchange* pDX)
@@ -49,6 +54,8 @@ BEGIN_MESSAGE_MAP(CRevertDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
+	ON_NOTIFY(NM_DBLCLK, IDC_REVERTLIST, OnNMDblclkRevertlist)
+	ON_NOTIFY(LVN_GETINFOTIP, IDC_REVERTLIST, OnLvnGetInfoTipRevertlist)
 END_MESSAGE_MAP()
 
 
@@ -92,7 +99,7 @@ BOOL CRevertDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
 	//set the listcontrol to support checkboxes
-	m_RevertList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
+	m_RevertList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP);
 
 	m_RevertList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_RevertList.GetDlgItem(0)))->GetItemCount()-1;
@@ -274,4 +281,53 @@ void CRevertDlg::OnBnClickedSelectall()
 	}
 	m_RevertList.SetRedraw(true);
 	theApp.DoWaitCursor(-1);
+}
+
+void CRevertDlg::OnNMDblclkRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	if (m_bThreadRunning)
+		return;
+
+	StartDiff(pNMLV->iItem);
+}
+
+void CRevertDlg::StartDiff(int fileindex)
+{
+	if (fileindex < 0)
+		return;
+	CString path = m_arFileList.GetAt(fileindex);
+	if (PathIsDirectory(path))
+		return;		//we don't compare folders
+	CString path1;
+	CString path2 = SVN::GetPristinePath(path);
+	if (path2.IsEmpty())
+		return;
+
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path1, path)))
+	{
+		m_templist.Add(path1);
+	}
+	else
+	{
+		path1 = path;
+	}
+
+	CString name = CUtils::GetFileNameFromPath(path);
+	CString ext = CUtils::GetFileExtFromPath(path);
+	CString n1, n2;
+	n1.Format(IDS_DIFF_WCNAME, name);
+	n2.Format(IDS_DIFF_BASENAME, name);
+	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
+}
+
+void CRevertDlg::OnLvnGetInfoTipRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
+
+	if (pGetInfoTip->cchTextMax > m_arFileList.GetAt(pGetInfoTip->iItem).GetLength())
+		_tcsncpy(pGetInfoTip->pszText, m_arFileList.GetAt(pGetInfoTip->iItem), pGetInfoTip->cchTextMax);
+
+	*pResult = 0;
 }

@@ -43,18 +43,23 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnBnClickedSelectall();
+	afx_msg void OnNMDblclkRevertlist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnGetInfoTipRevertlist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
-	
 
-public:
+	void StartDiff(int fileindex);
+	
+protected:
 	BOOL			m_bSelectAll;
+	CStringArray	m_templist;
+public:
 	BOOL			m_bThreadRunning;
 	CString			m_sPath;
 	CStringArray	m_arFileList;
 
 	CListCtrl		m_RevertList;
-	afx_msg void OnBnClickedSelectall();
 };
 
 DWORD WINAPI RevertThread(LPVOID pVoid);
