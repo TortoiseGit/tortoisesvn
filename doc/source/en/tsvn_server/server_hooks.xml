@@ -28,8 +28,8 @@
 		implement a pre-revprop-change hook.
 <screen>
 rem Only allow log messages to be changed.
-if "%4%" = "svn:log" then exit 0
-echo Property %4% cannot be changed &gt;&amp;2
+if "%4" == "svn:log" exit 0
+echo Property '%4' cannot be changed &gt;&amp;2
 exit 1
 </screen>
 		Note that anything sent to stdout is discarded. if you want
