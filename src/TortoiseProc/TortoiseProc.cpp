@@ -1359,9 +1359,6 @@ BOOL CTortoiseProcApp::InitInstance()
 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);
-
-		// Eventually clean up resources used by CSysImageList
-		SYS_IMAGE_LIST().Cleanup();
 	} 
 
 	// Look for temporary files left around by TortoiseSVN and
