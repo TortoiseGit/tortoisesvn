@@ -23,10 +23,12 @@
 
 #pragma warning (push,1)
 typedef std::wstring wide_string;
-#ifdef UNICODE
-#define stdstring wide_string
-#else
-#define stdstring std::string
+#ifndef stdstring
+#	ifdef UNICODE
+#		define stdstring wide_string
+#	else
+#		define stdstring std::string
+#	endif
 #endif
 #pragma warning (pop)
 // String resource helpers

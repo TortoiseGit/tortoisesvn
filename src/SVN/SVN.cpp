@@ -23,10 +23,12 @@
 #include "UnicodeUtils.h"
 #include <shlwapi.h>
 #include "DirFileList.h"
+#include "MessageBox.h"
 
 SVN::SVN(void)
 {
 	m_app = NULL;
+	hWnd = NULL;
 	apr_initialize();
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
@@ -67,18 +69,18 @@ SVN::SVN(void)
 
 	/* Two prompting providers, one for username/password, one for
 	just username. */
-	svn_client_get_simple_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, 2, /* retry limit */ pool);
+	svn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 2, /* retry limit */ pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_username_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, 2, /* retry limit */ pool);
+	svn_client_get_username_prompt_provider (&provider, (svn_auth_username_prompt_func_t)userprompt, this, 2, /* retry limit */ pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Three prompting providers for server-certs, client-certs,
 	and client-cert-passphrases.  */
-	svn_client_get_ssl_server_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, pool);
+	svn_client_get_ssl_server_prompt_provider (&provider, (svn_auth_ssl_server_prompt_func_t)sslserverprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, pool);
+	svn_client_get_ssl_client_prompt_provider (&provider, (svn_auth_ssl_client_prompt_func_t)sslclientprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_pw_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, pool);
+	svn_client_get_ssl_pw_prompt_provider (&provider, (svn_auth_ssl_pw_prompt_func_t)sslpwprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Build an authentication baton to give to libsvn_client. */
@@ -88,8 +90,8 @@ SVN::SVN(void)
 	//svn_auth_open (&auth_baton, providers, pool);
 
 	//ctx.auth_baton = auth_baton;
-	ctx.prompt_func = (svn_client_prompt_t)prompt;
-	ctx.prompt_baton = this;
+	//ctx.prompt_func = (svn_client_prompt_t)prompt;
+	//ctx.prompt_baton = this;
 	ctx.log_msg_func = svn_cl__get_log_message;
 	ctx.log_msg_baton = logMessage("");
 	ctx.notify_func = notify;
@@ -106,19 +108,50 @@ SVN::~SVN(void)
 	apr_terminate();
 }
 
-BOOL SVN::Prompt(CString& info, CString prompt, BOOL hide) 
+BOOL SVN::Prompt(CString& info, BOOL hide, CString promptphrase) 
 {
 	CPromptDlg dlg;
-	dlg.m_info = prompt;
-	dlg.m_sPass = info;
-	
 	dlg.SetHide(hide);
-
+	dlg.m_info = promptphrase;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
 		info = dlg.m_sPass;
-		if (dlg.m_saveCheck)
+		if (m_app)
+			m_app->DoWaitCursor(0);
+		return TRUE;
+	}
+	if (nResponse == IDABORT)
+	{
+		//the prompt dialog box could not be shown!
+		LPVOID lpMsgBuf;
+		FormatMessage( 
+			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM | 
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+			(LPTSTR) &lpMsgBuf,
+			0,
+			NULL 
+		);
+		MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
+		// Free the buffer.
+		LocalFree( lpMsgBuf );
+	} // if (nResponse == IDABORT)
+	return FALSE;
+}
+
+BOOL SVN::SimplePrompt(CString& username, CString& password) 
+{
+	CSimplePrompt dlg;
+	INT_PTR nResponse = dlg.DoModal();
+	if (nResponse == IDOK)
+	{
+		username = dlg.m_sUsername;
+		password = dlg.m_sPassword;
+		if (dlg.m_bSaveAuthentication)
 		{
 			svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
 		}
@@ -151,6 +184,7 @@ BOOL SVN::Prompt(CString& info, CString prompt, BOOL hide)
 	} // if (nResponse == IDABORT)
 	return FALSE;
 }
+
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
 BOOL SVN::Log(LONG rev, CString author, CString date, CString message, CString& cpaths) {return TRUE;};
@@ -693,7 +727,8 @@ CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t 
 		case svn_wc_notify_failed_revert:
 			temp.LoadString(IDS_SVNACTION_FAILEDREVERT);
 			break;
-		case svn_wc_notify_status:
+		case svn_wc_notify_status_completed:
+		case svn_wc_notify_status_external:
 			temp.LoadString(IDS_SVNACTION_STATUS);
 			break;
 		case svn_wc_notify_skip:
@@ -859,18 +894,172 @@ void SVN::notify( void *baton,
 	svn->Notify(CString(buf), (svn_wc_notify_action_t)action, kind, CString(mime_type), content_state, prop_state, revision);
 }
 
-svn_error_t* SVN::prompt(char **info, const char *prompt, svn_boolean_t hide, void *baton, apr_pool_t *pool)
+svn_error_t* SVN::userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
-	CString infostring;
-	if (svn->Prompt(infostring, CString(prompt), hide))
+	svn_auth_cred_username_t *ret = (svn_auth_cred_username_t *)apr_pcalloc (pool, sizeof (*ret));
+	CString username;
+	CString temp;
+	temp.LoadString(IDS_AUTH_USERNAME);
+	if (svn->Prompt(username, FALSE, temp))
 	{
-		SVN_ERR (svn_utf_cstring_to_utf8 ((const char **)info, CUnicodeUtils::GetUTF8(infostring), NULL, pool));
+		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username));
+		*cred = ret;
 		return SVN_NO_ERROR;
-	}
+	} // if (svn->UserPrompt(infostring, CString(realm))
+	CStringA temp1;
+	temp1.LoadString(IDS_SVN_USERCANCELLED);
+	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
+}
+
+svn_error_t* SVN::simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, apr_pool_t *pool)
+{
+	SVN * svn = (SVN *)baton;
+	svn_auth_cred_simple_t *ret = (svn_auth_cred_simple_t *)apr_pcalloc (pool, sizeof (*ret));
+	CString UserName = CUnicodeUtils::GetUnicode(username);
+	CString PassWord;
+	if (svn->SimplePrompt(UserName, PassWord))
+	{
+		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(UserName));
+		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(PassWord));
+		*cred = ret;
+		return SVN_NO_ERROR;
+	} // if (svn->userprompt(username, password))
 	CStringA temp;
 	temp.LoadString(IDS_SVN_USERCANCELLED);
 	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+}
+
+svn_error_t* SVN::sslserverprompt(svn_auth_cred_server_ssl_t **cred, void *baton, int failures_in, apr_pool_t *pool)
+{
+	SVN * svn = (SVN *)baton;
+
+	BOOL prev = FALSE;
+
+	CString msg;
+	msg.LoadString(IDS_ERR_SSL_VALIDATE);
+	msg += _T("\n");
+	CString temp;
+	if (failures_in & SVN_AUTH_SSL_UNKNOWNCA)
+	{
+		temp.LoadString(IDS_ERR_SSL_UNKNOWNCA);
+		msg += temp;
+		prev = TRUE;
+	} // if (failures_in & SVN_AUTH_SSL_UNKNOWNCA)
+	if (failures_in & SVN_AUTH_SSL_CNMISMATCH)
+	{
+		if (prev)
+			msg += _T("\n");
+		temp.LoadString(IDS_ERR_SSL_CNMISMATCH);
+		msg += temp;
+		prev = TRUE;
+	} // if (failures_in & SVN_AUTH_SSL_CNMISMATCH)
+	if (failures_in & (SVN_AUTH_SSL_EXPIRED | SVN_AUTH_SSL_NOTYETVALID))
+	{
+		if (prev)
+			msg += _T("\n");
+		temp.LoadString(IDS_ERR_SSL_EXPIREDORNOTYETVALID);
+		msg += temp;
+		prev = TRUE;
+	} // if (failures_in & (SVN_AUTH_SSL_EXPIRED | SVN_AUTH_SSL_NOTYETVALID))
+	if (prev)
+		msg += _T("\n");
+	temp.LoadString(IDS_SSL_ACCEPTQUESTION);
+	msg += temp;
+	if (CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+	{
+		*cred = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred));
+		(*cred)->failures_allow = failures_in;
+		return SVN_NO_ERROR;
+	} // if (CMessageBox::Show(NULL, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDOK)
+	*cred = NULL;
+	CStringA temp1;
+	temp1.LoadString(IDS_SVN_USERCANCELLED);
+	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
+}
+
+svn_error_t* SVN::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void *baton, apr_pool_t *pool)
+{
+	SVN * svn = (SVN *)baton;
+	svn_auth_ssl_cert_type_t cert_type;
+	const char *cert_file = NULL;
+
+	CString filename;
+	OPENFILENAME ofn;		// common dialog box structure
+	TCHAR szFile[MAX_PATH];  // buffer for file name
+	ZeroMemory(szFile, sizeof(szFile));
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	//ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+	ofn.hwndOwner = svn->hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	ofn.lpstrFilter = _T("Certificates\0*.p12;*.pem;*.pkcs12\0All\0*.*\0");
+	ofn.nFilterIndex = 1;
+	ofn.lpstrFileTitle = NULL;
+	ofn.nMaxFileTitle = 0;
+	ofn.lpstrInitialDir = NULL;
+	CString temp;
+	temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
+	ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+	// Display the Open dialog box. 
+
+	if (GetOpenFileName(&ofn)==TRUE)
+	{
+		filename = CString(ofn.lpstrFile);
+		if (filename.Right(3).CompareNoCase(_T("p12"))==0)
+		{
+			cert_type = svn_auth_ssl_pkcs12_cert_type;
+		}
+		else if (filename.Right(3).CompareNoCase(_T("pem"))==0)
+		{
+			cert_type = svn_auth_ssl_pem_cert_type;
+		}
+		else
+		{
+			if (CMessageBox::Show(svn->hWnd, IDS_SSL_CERTIFICATETYPE, IDS_APPNAME, MB_YESNO, IDI_QUESTION, IDS_SSL_PEM, IDS_SSL_PKCS12)==IDYES)
+			{
+				cert_type = svn_auth_ssl_pem_cert_type;
+			}
+			else
+			{
+				cert_type = svn_auth_ssl_pkcs12_cert_type;
+			}
+		}
+		cert_file = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(filename));
+		/* Build and return the credentials. */
+		*cred = (svn_auth_cred_client_ssl_t*)apr_pcalloc (pool, sizeof (**cred));
+		(*cred)->cert_file = cert_file;
+		(*cred)->key_file = NULL;
+		(*cred)->cert_type = cert_type;
+		return SVN_NO_ERROR;
+	} // if (GetOpenFileName(&ofn)==TRUE) 
+
+	CStringA temp1;
+	temp1.LoadString(IDS_SVN_USERCANCELLED);
+	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
+}
+
+svn_error_t* SVN::sslpwprompt(svn_auth_cred_client_ssl_pass_t **cred, void *baton, apr_pool_t *pool)
+{
+	SVN * svn = (SVN *)baton;
+	svn_auth_cred_client_ssl_pass_t *ret = (svn_auth_cred_client_ssl_pass_t *)apr_pcalloc (pool, sizeof (*ret));
+	CString password;
+	CString temp;
+	temp.LoadString(IDS_AUTH_PASSWORD);
+	if (svn->Prompt(password, TRUE, temp))
+	{
+		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(password));
+		*cred = ret;
+		return SVN_NO_ERROR;
+	} // if (svn->UserPrompt(infostring, CString(realm))
+	*cred = NULL;
+	CStringA temp1;
+	temp1.LoadString(IDS_SVN_USERCANCELLED);
+	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
 }
 
 svn_error_t* SVN::cancel(void *baton)

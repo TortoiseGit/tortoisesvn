@@ -235,19 +235,19 @@ BEGIN
                     IDC_STATIC,7,103,267,17
 END
 
-IDD_PROMPT DIALOGEX 0, 0, 220, 94
+IDD_PROMPT DIALOGEX 0, 0, 220, 54
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_TOPMOST
 CAPTION "Authentication"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,73,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,163,73,50,14
-    LTEXT           "",IDC_INFOTEXT,7,7,206,32
-    EDITTEXT        IDC_PASSEDIT,7,44,206,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,7,33,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,163,33,50,14
+    LTEXT           "Username:",IDC_INFOTEXT,7,9,40,9
+    EDITTEXT        IDC_PASSEDIT,53,7,160,14,ES_AUTOHSCROLL
     CONTROL         "save authentication",IDC_SAVECHECK,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,61,206,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,20,206,10
 END
 
 IDD_RELOCATE DIALOGEX 0, 0, 268, 66
@@ -458,6 +458,22 @@ BEGIN
                     WS_TABSTOP,124,138,117,10
 END
 
+IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Authentication"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_USEREDIT,69,7,144,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSEDIT,69,28,144,14,ES_PASSWORD | ES_AUTOHSCROLL
+    CONTROL         "save authentication",IDC_SAVECHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,49,206,10
+    DEFPUSHBUTTON   "OK",IDOK,7,63,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,163,63,50,14
+    LTEXT           "Username:",IDC_STATIC,7,10,62,8
+    LTEXT           "Password:",IDC_STATIC,7,31,34,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -555,7 +571,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 213
         TOPMARGIN, 7
-        BOTTOMMARGIN, 87
+        BOTTOMMARGIN, 47
     END
 
     IDD_RELOCATE, DIALOG
@@ -645,6 +661,15 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 157
         HORZGUIDE, 28
+    END
+
+    IDD_SIMPLEPROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        VERTGUIDE, 69
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -841,8 +866,8 @@ BEGIN
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
     IDS_ERR_FAILEDIGNOREPROPERTY "could not add %s to the ignore list"
     IDS_ERR_DIFFVIEWSTART   "could not start diff viewer!"
-    IDS_STRING294           "dummy"
-    IDS_STRING295           "dummy"
+    IDS_ERR_SSL_VALIDATE    "Error validating server certificate:"
+    IDS_ERR_SSL_UNKNOWNCA   "Unknown certificate issuer"
 END
 
 STRINGTABLE 
@@ -894,6 +919,21 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_COPY_SUCCESS    "Tag created successfully!"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_AUTH_USERNAME       "Username:"
+    IDS_AUTH_PASSWORD       "Password:"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SSL_CERTIFICATETYPE "Please specify the certificate type"
+    IDS_SSL_ACCEPTQUESTION  "Do you want to proceed?"
+    IDS_SSL_CLIENTCERTIFICATEFILENAME "Open client certificate file"
+    IDS_SSL_PEM             "PEM"
+    IDS_SSL_PKCS12          "PKCS12"
 END
 
 #endif    // English (U.S.) resources

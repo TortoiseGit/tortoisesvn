@@ -19,6 +19,10 @@
        that in a text-editor. (Stefan)
 - ADD: The context menu layout is configurable from
        the settings dialog. (Stefan)
+- ADD: Use of the new prompting providers of subversion,
+       this means TSVN now uses more specific dialogs
+       to ask questions about authentication and
+       ssl certificates. (Stefan)
 
 Version 0.17
 - BUG: the "Add" and "Add to ignore list" commands were

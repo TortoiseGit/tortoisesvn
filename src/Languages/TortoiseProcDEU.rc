@@ -235,19 +235,19 @@ BEGIN
                     IDC_STATIC,7,103,267,25
 END
 
-IDD_PROMPT DIALOGEX 0, 0, 220, 94
+IDD_PROMPT DIALOGEX 0, 0, 220, 54
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_TOPMOST
 CAPTION "Anmeldung"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,73,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,163,73,50,14
-    LTEXT           "",IDC_INFOTEXT,7,7,206,32
-    EDITTEXT        IDC_PASSEDIT,7,44,206,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&OK",IDOK,7,33,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,163,33,50,14
+    LTEXT           "Benutzername:",IDC_INFOTEXT,7,9,54,9
+    EDITTEXT        IDC_PASSEDIT,66,7,147,14,ES_AUTOHSCROLL
     CONTROL         "Kennwort speichern",IDC_SAVECHECK,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,61,206,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,21,206,10
 END
 
 IDD_RELOCATE DIALOGEX 0, 0, 268, 66
@@ -407,6 +407,75 @@ BEGIN
     EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
+IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Authentication"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_USEREDIT,69,7,144,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSEDIT,69,28,144,14,ES_PASSWORD | ES_AUTOHSCROLL
+    CONTROL         "Kennwort Speichern",IDC_SAVECHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,49,206,10
+    DEFPUSHBUTTON   "OK",IDOK,7,63,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,163,63,50,14
+    LTEXT           "Benutzername:",IDC_STATIC,7,10,62,8
+    LTEXT           "Passwort:",IDC_STATIC,7,31,33,8
+END
+
+IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Menu Layout"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "Auschecken...",IDC_MENU1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,28,109,10
+    CONTROL         "Aktualisieren",IDC_MENU2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,39,109,10
+    CONTROL         "Übertragen",IDC_MENU3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,50,109,10
+    CONTROL         "Vergleiche",IDC_MENU4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,61,109,10
+    CONTROL         "zeige Log",IDC_MENU5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,72,109,10
+    CONTROL         "Auf Änderungen überprüfen",IDC_MENU6,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,83,109,10
+    CONTROL         "Konflikt bearbeiten",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,94,109,10
+    CONTROL         "Aktualisieren zu Revision...",IDC_MENU8,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,105,109,10
+    CONTROL         "Umbenennen...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,116,109,10
+    CONTROL         "Löschen",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,127,109,10
+    CONTROL         "Konflikt aufgelöst",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,138,109,10
+    LTEXT           "Markieren Sie die Einträge, welche im obersten Kontext-Menu erscheinen sollen anstatt im Untermenu",
+                    IDC_STATIC,7,7,266,21
+    CONTROL         "Änderungen rückgängig",IDC_MENU12,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,28,117,10
+    CONTROL         "Bereinigen",IDC_MENU13,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,39,117,10
+    CONTROL         "Verzweigen/Markieren...",IDC_MENU14,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,50,117,10
+    CONTROL         "wechseln zu...",IDC_MENU15,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,61,117,10
+    CONTROL         "mischen...",IDC_MENU16,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,72,117,10
+    CONTROL         "Exportieren...",IDC_MENU17,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,83,117,10
+    CONTROL         "Umplazieren",IDC_MENU18,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,94,117,10
+    CONTROL         "erstelle Datenbank hier",IDC_MENU19,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,105,117,10
+    CONTROL         "Hinzufügen...",IDC_MENU20,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,116,117,10
+    CONTROL         "Importieren...",IDC_MENU21,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,127,117,10
+    CONTROL         "Ignorieren",IDC_MENU22,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,138,117,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -504,7 +573,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 213
         TOPMARGIN, 7
-        BOTTOMMARGIN, 87
+        BOTTOMMARGIN, 47
     END
 
     IDD_RELOCATE, DIALOG
@@ -583,6 +652,26 @@ BEGIN
         RIGHTMARGIN, 149
         TOPMARGIN, 7
         BOTTOMMARGIN, 79
+    END
+
+    IDD_SIMPLEPROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        VERTGUIDE, 69
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_SETTINGSMENU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 273
+        VERTGUIDE, 116
+        VERTGUIDE, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+        HORZGUIDE, 28
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -781,8 +870,8 @@ BEGIN
     IDS_ERR_FAILEDIGNOREPROPERTY 
                             "Konnte %s nicht zur ignorieren Liste hinzufügen"
     IDS_ERR_DIFFVIEWSTART   "Konnte Diff-Viewer nicht starten!"
-    IDS_STRING294           "dummy"
-    IDS_STRING295           "dummy"
+    IDS_ERR_SSL_VALIDATE    "Fehler bei Überprüfung des Server-Zertifikats:"
+    IDS_ERR_SSL_UNKNOWNCA   "Unbekannter Zertifikats-Aussteller"
 END
 
 STRINGTABLE 
@@ -836,100 +925,22 @@ BEGIN
     IDS_LOG_COPY_SUCCESS    "Markierung erfolgreich erstellt!"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_AUTH_USERNAME       "Benutzername:"
+    IDS_AUTH_PASSWORD       "Passwort:"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SSL_CERTIFICATETYPE "Bitte geben Sie den Zertifikats-Typ an"
+    IDS_SSL_ACCEPTQUESTION  "Möchten Sie weitermachen?"
+    IDS_SSL_CLIENTCERTIFICATEFILENAME "Öffne Client-Zertifikatsdatei"
+    IDS_SSL_PEM             "PEM"
+    IDS_SSL_PKCS12          "PKCS12"
+END
+
 #endif    // German (Germany) resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 164
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Menu Layout"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
-BEGIN
-    CONTROL         "Auschecken...",IDC_MENU1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,28,109,10
-    CONTROL         "Aktualisieren",IDC_MENU2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,39,109,10
-    CONTROL         "Übertragen",IDC_MENU3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,50,109,10
-    CONTROL         "Vergleiche",IDC_MENU4,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,61,109,10
-    CONTROL         "zeige Log",IDC_MENU5,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,72,109,10
-    CONTROL         "Auf Änderungen überprüfen",IDC_MENU6,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,83,109,10
-    CONTROL         "Konflikt bearbeiten",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,94,109,10
-    CONTROL         "Aktualisieren zu Revision...",IDC_MENU8,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,105,109,10
-    CONTROL         "Umbenennen...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,116,109,10
-    CONTROL         "Löschen",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,127,109,10
-    CONTROL         "Konflikt aufgelöst",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,138,109,10
-    LTEXT           "Markieren Sie die Einträge, welche im obersten Kontext-Menu erscheinen sollen anstatt im Untermenu",
-                    IDC_STATIC,7,7,266,21
-    CONTROL         "Änderungen rückgängig",IDC_MENU12,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,124,28,117,10
-    CONTROL         "Bereinigen",IDC_MENU13,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,39,117,10
-    CONTROL         "Verzweigen/Markieren...",IDC_MENU14,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,124,50,117,10
-    CONTROL         "wechseln zu...",IDC_MENU15,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,61,117,10
-    CONTROL         "mischen...",IDC_MENU16,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,72,117,10
-    CONTROL         "Exportieren...",IDC_MENU17,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,83,117,10
-    CONTROL         "Umplazieren",IDC_MENU18,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,94,117,10
-    CONTROL         "erstelle Datenbank hier",IDC_MENU19,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,124,105,117,10
-    CONTROL         "Hinzufügen...",IDC_MENU20,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,116,117,10
-    CONTROL         "Importieren...",IDC_MENU21,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,127,117,10
-    CONTROL         "Ignorieren",IDC_MENU22,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,138,117,10
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
-BEGIN
-    IDD_SETTINGSMENU, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 273
-        VERTGUIDE, 116
-        VERTGUIDE, 124
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 157
-        HORZGUIDE, 28
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

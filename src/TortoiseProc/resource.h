@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcRUS.rc
+// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcDEU.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -34,6 +34,7 @@
 #define IDS_MSGBOX_CONTINUE             159
 #define IDD_SETTINGSMENU                159
 #define IDS_MSGBOX_OK                   160
+#define IDD_SIMPLEPROMPT                160
 #define IDS_MSGBOX_YES                  161
 #define IDS_MSGBOX_NO                   162
 #define IDS_SVNACTION_ADD               163
@@ -189,7 +190,11 @@
 #define IDS_ERR_FAILEDIGNOREPROPERTY    292
 #define IDS_ERR_DIFFVIEWSTART           293
 #define IDS_STRING294                   294
+#define IDS_ERR_SSL_VALIDATE            294
 #define IDS_STRING295                   295
+#define IDS_ERR_SSL_UNKNOWNCA           295
+#define IDS_ERR_SSL_CNMISMATCH          296
+#define IDS_ERR_SSL_EXPIREDORNOTYETVALID 297
 #define IDS_WARN_FOLDERNOTEXIST         400
 #define IDS_CHECKOUT_TT_DIR             500
 #define IDS_IMPORT_TT_MODULENAMECHECK   510
@@ -245,6 +250,7 @@
 #define IDC_TEMPEXTENSIONS              1027
 #define IDC_REVISON_START               1027
 #define IDC_MENU5                       1027
+#define IDC_USEREDIT                    1027
 #define IDC_MENU6                       1028
 #define IDC_URLCOMBO                    1029
 #define IDC_MENU7                       1029
@@ -305,12 +311,19 @@
 #define IDC_CHECK2                      1061
 #define IDC_NOREMOVELOGMSG              1061
 #define IDC_MENU2                       1061
+#define IDS_AUTH_USERNAME               1100
+#define IDS_AUTH_PASSWORD               1101
+#define IDS_SSL_CERTIFICATETYPE         1200
+#define IDS_SSL_ACCEPTQUESTION          1201
+#define IDS_SSL_CLIENTCERTIFICATEFILENAME 1202
+#define IDS_SSL_PEM                     1203
+#define IDS_SSL_PKCS12                  1204
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        159
+#define _APS_NEXT_RESOURCE_VALUE        161
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1062
 #define _APS_NEXT_SYMED_VALUE           101

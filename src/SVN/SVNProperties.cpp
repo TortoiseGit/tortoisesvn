@@ -90,8 +90,8 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 
 	svn_auth_open (&m_auth_baton, providers, m_pool);
 
-	m_ctx.prompt_func = NULL;
-	m_ctx.prompt_baton = NULL;
+	//m_ctx.prompt_func = NULL;
+	//m_ctx.prompt_baton = NULL;
 	m_ctx.auth_baton = m_auth_baton;
 	// set up the configuration
 	svn_config_get_config (&(m_ctx.config), NULL, m_pool);

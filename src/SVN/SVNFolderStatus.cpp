@@ -88,6 +88,8 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		} // if (status.status)
 		m_FolderCache[index].askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 		m_TimeStamp = GetTickCount();
+		svn_pool_destroy (pool);				//free allocated memory
+		apr_terminate();
 		return &m_FolderCache[index];
 	}
 
@@ -109,15 +111,22 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 
 	ctx.auth_baton = NULL;
 
-	svn_revnum_t			youngest;
-	youngest = SVN_INVALID_REVNUM;				//always get status from newest revision
-	err = svn_client_status (&statushash,
-							&youngest,
+	statushash = apr_hash_make(pool);
+	svn_revnum_t youngest = SVN_INVALID_REVNUM;
+	svn_opt_revision_t rev;
+	rev.kind = svn_opt_revision_unspecified;
+	struct hashbaton_t hashbaton;
+	hashbaton.hash = statushash;
+	hashbaton.pool = pool;
+	err = svn_client_status (&youngest,
 							internalpath,
-							FALSE,				//don't descend to subitems
-							1,
-							false,				//don't update with repository
-							1,
+							&rev,
+							getstatushash,
+							&hashbaton,
+							FALSE,		//descend
+							TRUE,		//getall
+							FALSE,		//update
+							TRUE,		//noignore
 							&ctx,
 							pool);
 
@@ -125,6 +134,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	if ((err != NULL) || (apr_hash_count(statushash) == 0))
 	{
 		svn_pool_destroy (pool);				//free allocated memory
+		apr_terminate();
 		return &invalidstatus;	
 	}
 
@@ -136,6 +146,8 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	if (!m_pStatusCache)
 	{
 		m_nCacheCount = 0;
+		svn_pool_destroy (pool);				//free allocated memory
+		apr_terminate();
 		return &invalidstatus;
 	}
 	int i=0;
@@ -343,4 +355,11 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 	}
 
 	return BuildCache(filepath);
+}
+
+void SVNFolderStatus::getstatushash(void * baton, const char * path, svn_wc_status_t * status)
+{
+	hashbaton_t * hash = (hashbaton_t *)baton;
+	svn_wc_status_t * statuscopy = svn_wc_dup_status (status, hash->pool);
+	apr_hash_set (hash->hash, apr_pstrdup(hash->pool, path), APR_HASH_KEY_STRING, statuscopy);
 }

@@ -104,6 +104,12 @@ private:
 	int					FindFile(LPCTSTR filename);
 	int					FindFirstInvalidFolder();
 	DWORD				GetTimeoutValue();
+	static void			getstatushash (void *baton, const char *path, svn_wc_status_t *status);
+	struct hashbaton_t
+	{
+		apr_hash_t *	hash;
+		apr_pool_t *	pool;
+	};
 	
 	filestatuscache	*	m_pStatusCache;
 	filestatuscache		m_FolderCache[SVNFOLDERSTATUS_FOLDER];
