@@ -85,26 +85,29 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					if (str.empty() == false)
 					{
 						files_.push_back(str);
-						//get the Subversion status of the item
-						svn_wc_status_kind status = svn_wc_status_unversioned;
-						try
+						if (i == 0)
 						{
-							status = SVNStatus::GetAllStatus(str.c_str());
+							//get the Subversion status of the item
+							svn_wc_status_kind status = svn_wc_status_unversioned;
+							try
+							{
+								status = SVNStatus::GetAllStatus(str.c_str());
+							}
+							catch ( ... )
+							{
+								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+							}
+							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
+								isInSVN = true;
+							if (status == svn_wc_status_ignored)
+								isIgnored = true;
+							if (status == svn_wc_status_normal)
+								isNormal = true;
+							if (status == svn_wc_status_conflicted)
+								isConflicted = true;
+							if (status == svn_wc_status_added)
+								isAdded = true;
 						}
-						catch ( ... )
-						{
-							ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
-						}
-						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
-							isInSVN = true;
-						if (status == svn_wc_status_ignored)
-							isIgnored = true;
-						if (status == svn_wc_status_normal)
-							isNormal = true;
-						if (status == svn_wc_status_conflicted)
-							isConflicted = true;
-						if (status == svn_wc_status_added)
-							isAdded = true;
 					}
 				} // for (int i = 0; i < count; i++)
 				GlobalUnlock ( drop );
@@ -117,6 +120,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 
 				int count = cida->cidl;
 				TCHAR buf[MAX_PATH+1];
+				BOOL statfetched = FALSE;
 				for (int i = 0; i < count; ++i)
 				{
 					ItemIDList child (GetPIDLItem (cida, i), &parent);
@@ -134,26 +138,30 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						}
 
 						files_.push_back(str);
-						//get the Subversion status of the item
-						svn_wc_status_kind status = svn_wc_status_unversioned;
-						try
+						if (!statfetched)
 						{
-							status = SVNStatus::GetAllStatus(str.c_str());
+							//get the Subversion status of the item
+							svn_wc_status_kind status = svn_wc_status_unversioned;
+							try
+							{
+								status = SVNStatus::GetAllStatus(str.c_str());
+								statfetched = TRUE;
+							}
+							catch ( ... )
+							{
+								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+							}
+							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
+								isInSVN = true;
+							if (status == svn_wc_status_ignored)
+								isIgnored = true;
+							if (status == svn_wc_status_normal)
+								isNormal = true;
+							if (status == svn_wc_status_conflicted)
+								isConflicted = true;
+							if (status == svn_wc_status_added)
+								isAdded = true;
 						}
-						catch ( ... )
-						{
-							ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
-						}
-						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
-							isInSVN = true;
-						if (status == svn_wc_status_ignored)
-							isIgnored = true;
-						if (status == svn_wc_status_normal)
-							isNormal = true;
-						if (status == svn_wc_status_conflicted)
-							isConflicted = true;
-						if (status == svn_wc_status_added)
-							isAdded = true;
 					}
 				} // for (int i = 0; i < count; ++i)
 				ItemIDList child (GetPIDLItem (cida, 0), &parent);
