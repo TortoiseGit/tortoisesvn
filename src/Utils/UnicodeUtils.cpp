@@ -32,6 +32,7 @@ CStringA CUnicodeUtils::GetUTF8(CStringW string)
 {
 	char * buf;
 	buf = new char[string.GetLength()*4 + 1];
+	ZeroMemory(buf, string.GetLength()*4 + 1);
 	WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, string.GetLength()*4, NULL, NULL);
 	CStringA ret = CStringA(buf);
 	delete [] buf;
@@ -42,6 +43,7 @@ CStringA CUnicodeUtils::GetUTF8(CStringA string)
 {
 	WCHAR * buf;
 	buf = new WCHAR[string.GetLength()*4 + 1];
+	ZeroMemory(buf, string.GetLength()*4 + 1);
 	MultiByteToWideChar(CP_ACP, 0, string, -1, buf, string.GetLength()*4);
 	CStringW temp = CStringW(buf);
 	delete [] buf;
@@ -52,6 +54,7 @@ CString CUnicodeUtils::GetUnicode(CStringA string)
 {
 	WCHAR * buf;
 	buf = new WCHAR[string.GetLength()*4 + 1];
+	ZeroMemory(buf, string.GetLength()*4 + 1);
 	MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, string.GetLength()*4);
 	CString ret = CString(buf);
 	delete [] buf;
