@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\TortoiseSVN\src\Languages\TortoiseMergeENG.rc
+// Used by d:\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseMergeENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   100
@@ -127,6 +127,8 @@
 #define IDS_VIEWCONTEXTMENU_USETHISBLOCK 4000
 #define IDS_VIEWCONTEXTMENU_USETHEIRBLOCK 4001
 #define IDS_VIEWCONTEXTMENU_USEYOURBLOCK 4002
+#define IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK 4003
+#define IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK 4004
 #define IDS_SAVEASTITLE                 5000
 #define IDS_COMMANDLINEHELP             5001
 #define IDS_OPENDIFFFILETITLE           5002

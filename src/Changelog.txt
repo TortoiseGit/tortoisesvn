@@ -17,6 +17,8 @@
        anymore if the param /notempfile is given on the
        command line. (Stefan)
 - ADD: The ignore patterns work on unversioned folders. (Stefan)
+- ADD: TortoiseMerge allows to keep both "yours" and "theirs"
+       changes when resolving a conflict. (Stefan)
 - BUG: TortoiseMerge skipped diffs of one line with the
        "Next Diff" or "Previous Diff" commands. (Stefan)
 
