@@ -443,7 +443,13 @@ CTSVNPath::IsAncestorOf(const CTSVNPath& possibleDescendant) const
 	possibleDescendant.EnsureBackslashPathSet();
 	EnsureBackslashPathSet();
 
-	return ArePathStringsEqual(m_sBackslashPath, possibleDescendant.m_sBackslashPath.Left(m_sBackslashPath.GetLength()));
+	bool bPathStringsEqual = ArePathStringsEqual(m_sBackslashPath, possibleDescendant.m_sBackslashPath.Left(m_sBackslashPath.GetLength()));
+	if (m_sBackslashPath.GetLength() >= possibleDescendant.GetWinPathString().GetLength())
+	{
+		return bPathStringsEqual;		
+	}
+	
+	return (bPathStringsEqual && (possibleDescendant.m_sBackslashPath[m_sBackslashPath.GetLength()] == '\\'));
 }
 
 // Get a string representing the file path, optionally with a base 
@@ -735,6 +741,7 @@ public:
 		PathAppendTest();
 		RemoveDuplicatesTest();
 		ContainingDirectoryTest();
+		AncestorTest();
 		SubversionPathTest();
 #if defined(_MFC_VER)
 		ValidPathAndUrlTest();
@@ -871,6 +878,17 @@ private:
 		dir = dir.GetContainingDirectory();
 		ATLASSERT(dir.IsEmpty());
 		ATLASSERT(dir.GetWinPathString() == _T(""));
+	}
+	
+	void AncestorTest()
+	{
+		CTSVNPath testPath;
+		testPath.SetFromWin(_T("c:\\windows"));
+		ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\")))==false);
+		ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windows"))));
+		ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windowsdummy")))==false);
+		ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windows\\test.txt"))));
+		ATLASSERT(testPath.IsAncestorOf(CTSVNPath(_T("c:\\windows\\system32\\test.txt"))));
 	}
 
 	void SubversionPathTest()
