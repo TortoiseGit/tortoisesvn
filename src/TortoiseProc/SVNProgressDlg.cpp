@@ -626,7 +626,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE))
-		pDlg->PostMessage(WM_QUIT);
+		pDlg->PostMessage(WM_COMMAND, 1, (LPARAM)pDlg->GetDlgItem(IDOK)->m_hWnd);
 	return 0;
 }
 
@@ -655,7 +655,10 @@ void CSVNProgressDlg::OnClose()
 void CSVNProgressDlg::OnOK()
 {
 	if ((m_bCancelled)&&(!m_bThreadRunning))
+	{
+		WaitForSingleObject(m_hThread, 10);
 		__super::OnOK();
+	}
 	m_bCancelled = TRUE;
 }
 

@@ -123,14 +123,16 @@ protected:
 	afx_msg void OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedLogbutton();
 	afx_msg void OnBnClickedOk();
+	afx_msg void OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnClose();
-	virtual void OnOK();
 
 	DECLARE_MESSAGE_MAP()
 
 	static BOOL	m_bAscending;
 	static int	m_nSortedColumn;
 public:			//need to be public for the thread to access
+	virtual void OnOK();
 	CArray<Data *, Data *>		m_arData;
 
 	CListCtrl	m_ProgList;
@@ -148,7 +150,5 @@ public:			//need to be public for the thread to access
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
 	CString		m_sModName;
-	afx_msg void OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);
