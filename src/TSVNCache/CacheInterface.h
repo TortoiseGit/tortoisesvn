@@ -46,4 +46,5 @@ struct TSVNCacheResponse
 #define TSVNCACHE_FLAGS_ISFOLDER			0x02
 /// Set this flag if you want recursive folder status (safely ignored for file paths)
 #define TSVNCACHE_FLAGS_RECUSIVE_STATUS		0x04
-
+/// Set this flag if notifications to the shell are not allowed
+#define TSVNCACHE_FLAGS_NONOTIFICATIONS		0x08

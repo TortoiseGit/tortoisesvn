@@ -161,9 +161,7 @@ void CSVNStatusCache::RemoveCacheForPath(const CTSVNPath& path)
 {
 	// Stop the crawler starting on a new folder
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
-	OutputDebugStringA("TSVNCache : CSVNStatusCache::RemoveCacheForPath waiting for lock\n");
 	AutoLocker lock(m_critSec);
-	OutputDebugStringA("TSVNCache : CSVNStatusCache::RemoveCacheForPath got lock\n");
 	m_directoryCache.erase(path);
 	ATLTRACE("removed path %ws from cache\n", path.GetWinPath());
 }
@@ -172,9 +170,7 @@ CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 {
 	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
 
-	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetDirectoryCacheEntry waiting for lock\n");
 	AutoLocker lock(m_critSec);
-	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetDirectoryCacheEntry got lock\n");
 
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);
@@ -193,12 +189,10 @@ CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 
 CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD flags)
 {
-	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetStatusForPath waiting for lock\n");
 	AutoLocker lock(m_critSec);
-	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetStatusForPath got lock\n");
 
 	bool bRecursive = !!(flags & TSVNCACHE_FLAGS_RECUSIVE_STATUS);
-
+	bool bNoUpdates = !!(flags & TSVNCACHE_FLAGS_NONOTIFICATIONS);
 
 	// Check a very short-lived 'mini-cache' of the last thing we were asked for.
 	long now = (long)GetTickCount();
@@ -218,7 +212,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path, bRecursive);
+	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path, bRecursive, bNoUpdates);
 }
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)

@@ -120,8 +120,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	if(hReloadProtection != INVALID_HANDLE_VALUE && GetLastError() == ERROR_ALREADY_EXISTS)
 	{
 		// An instance of TSVNCache is already running
-		OutputDebugStringA("TSVNCache: ignoring restart\n");
-		//ATLTRACE("TSVNCache ignoring restart\n");
+		ATLTRACE("TSVNCache ignoring restart\n");
 		return 0;
 	}
 
@@ -287,8 +286,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			Sleep(1500);
 			Shell_NotifyIcon(NIM_DELETE,&niData);
 			PostQuitMessage(0);
-			//ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
-			OutputDebugStringA("TSVNCache: WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
+			ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
 			return 0;
 		}
 	default:
@@ -317,8 +315,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 VOID PipeThread(LPVOID lpvParam)
 {
-	//ATLTRACE("PipeThread started\n");
-	OutputDebugStringA("TSVNCache: Pipe Thread started\n");
+	ATLTRACE("PipeThread started\n");
 	bool * bRun = (bool *)lpvParam;
 	// The main loop creates an instance of the named pipe and 
 	// then waits for a client to connect to it. When the client 
@@ -345,7 +342,6 @@ VOID PipeThread(LPVOID lpvParam)
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
-			//ATLTRACE("CreatePipe failed");
 			OutputDebugStringA("TSVNCache: CreatePipe failed\n");
 			DebugOutputLastError();
 			continue; // never leave the thread!
@@ -370,7 +366,6 @@ VOID PipeThread(LPVOID lpvParam)
 
 				if (hInstanceThread == NULL) 
 				{
-					//ATLTRACE("CreateThread failed"); 
 					OutputDebugStringA("TSVNCache: Could not create Instance thread\n");
 					DebugOutputLastError();
 					DisconnectNamedPipe(hPipe);
@@ -403,8 +398,7 @@ VOID PipeThread(LPVOID lpvParam)
 
 VOID InstanceThread(LPVOID lpvParam) 
 { 
-	//ATLTRACE("InstanceThread started\n");
-	OutputDebugStringA("TSVNCache: Instance thread started\n");
+	ATLTRACE("InstanceThread started\n");
 	TSVNCacheResponse response; 
 	DWORD cbBytesRead, cbWritten; 
 	BOOL fSuccess; 
@@ -429,8 +423,7 @@ VOID InstanceThread(LPVOID lpvParam)
 		{
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
-			//ATLTRACE("Instance thread exited\n");
-			OutputDebugStringA("TSVNCache: Instance thread exited\n");
+			ATLTRACE("Instance thread exited\n");
 			return;
 		}
 
@@ -449,8 +442,7 @@ VOID InstanceThread(LPVOID lpvParam)
 		{
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
-			//ATLTRACE("Instance thread exited\n");
-			OutputDebugStringA("TSVNCache: Instance thread exited\n");
+			ATLTRACE("Instance thread exited\n");
 			return;
 		}
 	} 
@@ -462,7 +454,6 @@ VOID InstanceThread(LPVOID lpvParam)
 	FlushFileBuffers(hPipe); 
 	DisconnectNamedPipe(hPipe); 
 	CloseHandle(hPipe); 
-	//ATLTRACE("Instance thread exited\n");
-	OutputDebugStringA("TSVNCache: Instance thread exited\n");
+	ATLTRACE("Instance thread exited\n");
 }
 

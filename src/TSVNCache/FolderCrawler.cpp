@@ -71,9 +71,7 @@ CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 	ATLASSERT(path.IsDirectory());
 
 	{
-		OutputDebugStringA("TSVNCache : CFolderCrawler::AddDirectoryForUpdate waiting for lock\n");
 		AutoLocker lock(m_critSec);
-		OutputDebugStringA("TSVNCache : CFolderCrawler::AddDirectoryForUpdate got lock\n");
 		m_foldersToUpdate.push_back(path);
 		
 		// set this flag while we are sync'ed 
@@ -95,7 +93,6 @@ unsigned int CFolderCrawler::ThreadEntry(void* pContext)
 
 void CFolderCrawler::WorkerThread()
 {
-	OutputDebugStringA("TSVNCache : Crawler thread started\n");
 	HANDLE hWaitHandles[2];
 	hWaitHandles[0] = m_hTerminationEvent;	
 	hWaitHandles[1] = m_hWakeEvent;
@@ -145,9 +142,7 @@ void CFolderCrawler::WorkerThread()
 			}
 	
 			{
-				OutputDebugStringA("TSVNCache : CFolderCrawler::WorkerThread waiting for lock\n");
 				AutoLocker lock(m_critSec);
-				OutputDebugStringA("TSVNCache : CFolderCrawler::WorkerThread got lock\n");
 				if(m_foldersToUpdate.empty())
 				{
 					// Nothing left to do 
@@ -174,7 +169,6 @@ void CFolderCrawler::WorkerThread()
 			Sleep(10);
 		}
 	}
-	OutputDebugStringA("TSVNCache : Crawler thread finished\n");
 	_endthread();
 }
 

@@ -118,7 +118,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 	DWORD nBytesRead; 
 	TSVNCacheRequest request;
-	request.flags = 0;
+	request.flags = TSVNCACHE_FLAGS_NONOTIFICATIONS;
 	if(bRecursive)
 	{
 		request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
