@@ -399,7 +399,8 @@ int CBaseView::GetLineActualLength(int index)
 	int nTabSize = GetTabSize();
 
 	int nLineLength = 0;
-	for (int i=0; i<sLine.GetLength(); i++)
+	int len = sLine.GetLength();
+	for (int i=0; i<len; i++)
 	{
 		if (sLine[i] == _T('\t'))
 			nLineLength += (nTabSize - nLineLength % nTabSize);

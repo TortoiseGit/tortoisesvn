@@ -172,7 +172,8 @@ void CCopyDlg::OnOK()
 	{
 		TCHAR c = 0;
 		BOOL bInvalid = FALSE;
-		for (int i=0; i<id.GetLength(); ++i)
+		int len = id.GetLength();
+		for (int i=0; i<len; ++i)
 		{
 			c = id.GetAt(i);
 			if ((c < '0')&&(c != ','))

@@ -1328,9 +1328,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						filelist += _T("|");
 						filelist.Replace('/','\\');
-						TCHAR * buf = new TCHAR[filelist.GetLength()+2];
+						int len = filelist.GetLength();
+						TCHAR * buf = new TCHAR[len+2];
 						_tcscpy(buf, filelist);
-						for (int i=0; i<filelist.GetLength(); ++i)
+						for (int i=0; i<len; ++i)
 							if (buf[i] == '|')
 								buf[i] = 0;
 						SHFILEOPSTRUCT fileop;
