@@ -343,7 +343,7 @@ BEGIN
     EDITTEXT        IDC_EXTDIFF,70,7,59,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Sfoglia...",IDC_EXTDIFFBROWSE,138,7,50,14
     LTEXT           "Lingua:",IDC_STATIC,7,53,35,8
-    COMBOBOX        IDC_LANGUAGECOMBO,70,52,118,30,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_LANGUAGECOMBO,70,52,118,68,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,69,63,
                     19
@@ -741,7 +741,7 @@ BEGIN
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 
-                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merge\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
+                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "il nome o l'indirizzo ip del server proxy"
     IDS_STRING252           "dummy"
     IDS_STRING253           "dummy"

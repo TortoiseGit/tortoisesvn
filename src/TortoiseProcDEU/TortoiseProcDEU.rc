@@ -281,7 +281,7 @@ END
 IDD_COPY DIALOGEX 0, 0, 265, 67
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Kopie erstellen"
+CAPTION "Verzweigen / Markieren..."
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,46,50,14
@@ -329,7 +329,7 @@ BEGIN
     EDITTEXT        IDC_EXTDIFF,80,7,50,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Suchen...",IDC_EXTDIFFBROWSE,138,7,50,14
     LTEXT           "Sprache:",IDC_STATIC,7,50,30,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,50,108,30,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_LANGUAGECOMBO,80,50,108,70,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Temp Dateiendungen:",IDC_STATIC,7,71,72,8
     EDITTEXT        IDC_TEMPEXTENSIONS,80,69,108,14,ES_AUTOHSCROLL
@@ -674,7 +674,7 @@ BEGIN
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Zeigt alle unkontrollierten Dateien vor dem Übertragen an\nso dass Sie diese zur Versionskontrolle hinzufügen können"
     IDS_SETTINGS_EXTMERGE_TT 
-                            "Ein externes Merge Programm\num Konflikte in Dateien zu lösen\n<hr=100%>\nSie können folgende Parameter für das Programm angeben:\n%merge\tDie Datei mit Konflikt, wo zu speichern\n%theirs\t\tDie Datei wie sie in der Datenbank ist\n%mine\t\tIhre eigene Datei, mit Ihren Änderungen\n%base\t\tDie Originaldatei, ohne Ihre Änderungen"
+                            "Ein externes Merge Programm\num Konflikte in Dateien zu lösen\n<hr=100%>\nSie können folgende Parameter für das Programm angeben:\n%merged\tDie Datei mit Konflikt, wo zu speichern\n%theirs\t\tDie Datei wie sie in der Datenbank ist\n%mine\t\tIhre eigene Datei, mit Ihren Änderungen\n%base\t\tDie Originaldatei, ohne Ihre Änderungen"
     IDS_SETTINGS_PROXYSERVER_TT 
                             "Entweder der Name oder die IP Nummer des Proxyservers"
     IDS_STRING252           "dummy"

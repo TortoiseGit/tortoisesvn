@@ -183,6 +183,8 @@ BEGIN
     IDS_MENUDESCCONFLICT    "Запускает внешнюю программу слияния файлов, для разрешения конфликтов"
     IDS_MENURELOCATE        "Relocate"
     IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
+    IDS_MENUHELP            "Daily Use Guide"
+    IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
 END
 
 #endif    // Russian resources
@@ -228,6 +230,7 @@ IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
 IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
 IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
 IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
+IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -235,8 +238,6 @@ IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
 //
 
 IDR_MANIFEST            RT_MANIFEST             "TortoiseShell.manifest"
-
-
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -410,10 +411,12 @@ BEGIN
     IDS_COLDESCURL          "URL von Subversion Dateien/Ordnern"
     IDS_COLTITLESHORTURL    "SVN kurze Url"
     IDS_COLDESCSHORTURL     "abgekьrzte URL von Subversion Dateien/Ordnern"
-    IDS_MENUCONFLICT        "lцse Konflikt"
+    IDS_MENUCONFLICT        "Konflikt bearbeiten"
     IDS_MENUDESCCONFLICT    "startet den externen Diff/Merge Editor um den Konflikt zu lцsen"
     IDS_MENURELOCATE        "Umplazieren"
     IDS_MENUDESCRELOCATE    "Falls die URL der Datenbank sich geдndert hat..."
+    IDS_MENUHELP            "Daily Use Guide"
+    IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
 END
 
 #endif    // German (Germany) resources
@@ -619,6 +622,8 @@ BEGIN
     IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
     IDS_MENURELOCATE        "Relocate"
     IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
+    IDS_MENUHELP            "Daily Use Guide"
+    IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
 END
 
 #endif    // English (U.S.) resources
@@ -728,6 +733,33 @@ BEGIN
     "\0"
 END
 
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)\r\n"
+    "LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT\r\n"
+    "#pragma code_page(1251)\r\n"
+    "#include ""resource.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
 #endif    // APSTUDIO_INVOKED
 
 
@@ -824,69 +856,12 @@ BEGIN
     IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
     IDS_MENURELOCATE        "Relocate"
     IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
+    IDS_MENUHELP            "Daily Use Guide"
+    IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
 END
 
 #endif    // Italian (Italy) resources
 /////////////////////////////////////////////////////////////////////////////
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "resource.h\0"
-END
-
-2 TEXTINCLUDE 
-BEGIN
-    "#include ""afxres.h""\r\n"
-    "\0"
-END
-
-3 TEXTINCLUDE 
-BEGIN
-    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
-    "#define _AFX_NO_OLE_RESOURCES\r\n"
-    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
-    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
-    "\r\n"
-    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)\r\n"
-    "LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT\r\n"
-    "#pragma code_page(1251)\r\n"
-    "#include ""resource.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
-    "#include ""afxres.rc""         // Standard components\r\n"
-    "#endif\r\n"
-    "\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
-/////////////////////////////////////////////////////////////////////////////
-
-
-
-#ifndef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// Generated from the TEXTINCLUDE 3 resource.
-//
-#define _AFX_NO_SPLITTER_RESOURCES
-#define _AFX_NO_OLE_RESOURCES
-#define _AFX_NO_TRACKER_RESOURCES
-#define _AFX_NO_PROPERTY_RESOURCES
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
-LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
-#pragma code_page(1251)
-#include "resource.rc2"  // non-Microsoft Visual C++ edited resources
-#include "afxres.rc"         // Standard components
-#endif
-
-/////////////////////////////////////////////////////////////////////////////
-#endif    // not APSTUDIO_INVOKED
 
 
 

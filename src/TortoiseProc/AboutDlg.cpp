@@ -23,6 +23,11 @@
 #include "svn_version.h"
 #include "..\version.h"
 
+#ifdef UNICODE
+#	define STRINGWIDTH  "UNICODE"
+#else
+#	define STRINGWIDTH	"MBCS"
+#endif
 
 // CAboutDlg dialog
 
@@ -100,6 +105,8 @@ BOOL CAboutDlg::OnInitDialog()
 	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD_INCVERSION, 
 		SVN_VER_MAJOR, SVN_VER_MINOR, SVN_VER_MICRO, _T(SVN_VER_TAG));
 	GetDlgItem(IDC_VERSIONABOUT)->SetWindowText(temp);
+	temp.Format(_T("%s, %s version"), _T("TortoiseSVN"), _T(STRINGWIDTH));
+	this->SetWindowText(temp);
 
 	CPictureHolder tmpPic;
 	tmpPic.CreateFromBitmap(IDB_LOGOFLIPPED);

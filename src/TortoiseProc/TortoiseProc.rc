@@ -678,7 +678,7 @@ BEGIN
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 
-                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merge\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
+                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "either the name or IP of the proxy server"
     IDS_STRING252           "dummy"
     IDS_STRING253           "dummy"

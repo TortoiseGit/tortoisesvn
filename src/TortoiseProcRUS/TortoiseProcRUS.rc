@@ -223,7 +223,7 @@ BEGIN
     EDITTEXT        IDC_EXTDIFF,100,7,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,195,7,50,14
     LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,51,72,17
-    COMBOBOX        IDC_LANGUAGECOMBO,100,52,145,30,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_LANGUAGECOMBO,100,52,145,71,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,71,72,
                     18
@@ -647,7 +647,7 @@ BEGIN
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Показывать перед фиксированием изменений список файлов,\nне добавленных в репозиторий,\nчтобы Вы могли их сразу добавить."
     IDS_SETTINGS_EXTMERGE_TT 
-                            "Внешняя программа, используемая\nдля слияния файлов и разрешения конфликтов.\n<hr=100%>\nВам нужно указать следующие параметры:\n%merge\tкуда сохранять конфликтующий файл\n%theirs\t\tфайл, как он есть в репозитории\n%mine\t\tфайл, содержащий Ваши изменения\n%base\t\tоригинальный файл, без Ваших изменений"
+                            "Внешняя программа, используемая\nдля слияния файлов и разрешения конфликтов.\n<hr=100%>\nВам нужно указать следующие параметры:\n%merged\tкуда сохранять конфликтующий файл\n%theirs\t\tфайл, как он есть в репозитории\n%mine\t\tфайл, содержащий Ваши изменения\n%base\t\tоригинальный файл, без Ваших изменений"
     IDS_SETTINGS_PROXYSERVER_TT "Введите имя или IP-адрес прокси-сервера"
     IDS_STRING252           "dummy"
     IDS_STRING253           "dummy"

@@ -54,6 +54,8 @@
 #define IDI_ICON3                       141
 #define IDI_RELOCATE                    141
 #define IDS_MENUDESCRESOLVE             142
+#define IDI_ICON4                       142
+#define IDI_HELP                        142
 #define IDS_MENUDESCSWITCH              143
 #define IDS_MENUDESCIMPORT              144
 #define IDS_MENUDESCEXPORT              145
@@ -101,6 +103,8 @@
 #define IDS_MENUDESCCONFLICT            187
 #define IDS_MENURELOCATE                188
 #define IDS_MENUDESCRELOCATE            189
+#define IDS_MENUHELP                    190
+#define IDS_MENUDESCHELP                191
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -124,7 +128,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        142
+#define _APS_NEXT_RESOURCE_VALUE        143
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101

@@ -763,6 +763,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CUtils::StartExtMerge(base, theirs, mine, merge);
 		} 
 		//#endregion
+		//#region relocate
 		if (comVal.Compare(_T("relocate"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
@@ -790,7 +791,16 @@ BOOL CTortoiseProcApp::InitInstance()
 					CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
 				}
 			}
+		} // if (comVal.Compare(_T("relocate"))==0)
+		//#endregion
+		//#region help
+		if (comVal.Compare(_T("help"))==0)
+		{
+			CRegString help(_T("Software\\TortoiseSVN\\Help"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
+			CString path = help;
+			ShellExecute(NULL, _T("open"), path, NULL, NULL, SW_SHOWNORMAL);
 		}
+		//#endregion
 	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the

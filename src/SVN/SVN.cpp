@@ -949,7 +949,7 @@ BOOL SVN::IsRepository(const CString& strUrl)
 	svn_repos_t* pRepos;
 
 	Err = svn_repos_open (&pRepos, CUnicodeUtils::GetUTF8(strUrl), pool);
-	if (Err->apr_err == SVN_ERR_FS_BERKELEY_DB)
+	if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
 		return TRUE;
 	return Err == NULL;
 }
