@@ -95,7 +95,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	if (!m_FileListCtrl.GetStatus(m_path, m_bRemote))
+	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote))
 	{
 		CMessageBox::Show(m_hWnd, m_FileListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 	}

@@ -53,12 +53,11 @@ private:
 	UINT RevertThread();
 
 public:
-	CString			m_sPath;
+	CTSVNPathList 	m_pathList;
 	BOOL			m_bRecursive;
 
 private:
 	BOOL			m_bSelectAll;
-	CStringArray	m_templist;
 	BOOL			m_bThreadRunning;
 	CSVNStatusListCtrl	m_RevertList;
 	CButton			m_SelectAll;

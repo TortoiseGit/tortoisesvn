@@ -53,7 +53,7 @@ private:
 	UINT ChangedStatusThread();
 
 public: 
-	CString			m_path;
+	CTSVNPathList	m_pathList;
 
 private:
 	CRegDWORD		m_regAddBeforeCommit;

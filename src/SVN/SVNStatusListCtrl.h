@@ -155,7 +155,7 @@ public:
 	 * \param bUpdate TRUE if the remote status is requested too.
 	 * \return TRUE on success.
 	 */
-	BOOL GetStatus(CString sFilePath, bool bUpdate = false);
+	BOOL GetStatus(const CTSVNPathList& pathList, bool bUpdate = false);
 
 	/**
 	 * Populates the list control with the previously (with GetStatus) gathered status information.
@@ -214,9 +214,10 @@ public:
 	 */
 	void SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck);
 
-	/** Write a list of the checked items' paths into a temporary file
+	/** Write a list of the checked items' paths into a path list 
 	 */
-	bool WriteCheckedNamesToFile(const CString& sFilename);
+	void WriteCheckedNamesToPathList(CTSVNPathList& pathList);
+
 
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}

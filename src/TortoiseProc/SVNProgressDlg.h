@@ -32,10 +32,6 @@ typedef enum
 	ProgOptNone = 0,
 	ProgOptRecursive = 0x01,
 	ProgOptNonRecursive = 0x00,
-	// The path parameter is the name of a temporary file
-	ProgOptPathIsTempFile = 0x02,
-	// The path parameter is a real target 
-	ProgOptPathIsTarget = 0x00,		
 	// Don't actually do the merge - just practice it
 	ProgOptDryRun = 0x04
 } ProgressOptions;
@@ -139,7 +135,7 @@ public:
 	 * \param url the url of the repository
 	 * \param revision the revision to work on or to get
 	 */
-	void SetParams(Command cmd, int options, const CString& path, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
+	void SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
 
 	CString BuildInfoString();
 

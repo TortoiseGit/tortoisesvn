@@ -565,35 +565,6 @@ CString CUtils::GetFileExtFromPath(const CString& sPath)
 	return CString();
 }
 
-CString CUtils::WritePathsToTempFile(CString paths)
-{
-	CString tempfile = CUtils::GetTempFile();
-	try
-	{
-		CStdioFile file(tempfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-		int pos = -1;
-		CString temp;
-		do
-		{
-			pos = paths.Find('*');
-			if (pos>=0)
-				temp = paths.Left(pos);
-			else
-				temp = paths;
-			temp = CUtils::GetLongPathname(temp);
-			file.WriteString(temp + _T("\n"));
-			paths = paths.Mid(pos+1);
-		} while (pos >= 0);
-		file.Close();
-	}
-	catch (CFileException* pE)
-	{
-		TRACE(_T("CFileException in Commit!\n"));
-		pE->Delete();
-	}
-	return tempfile;
-}
-
 CString CUtils::GetLongPathname(const CString& path)
 {
 	if (path.IsEmpty())

@@ -71,7 +71,7 @@ private:
 	DECLARE_MESSAGE_MAP()
 
 public:
-	CString			m_sPath;
+	CTSVNPathList	m_pathList;
 
 private:
 	CSVNStatusListCtrl	m_addListCtrl;

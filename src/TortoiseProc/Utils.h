@@ -118,13 +118,6 @@ public:
 	static CString GetFileExtFromPath(const CString& sPath);
 
 	/**
-	 * Writes all paths, separated by a '*' char into a tempfile. 
-	 * \param paths a list of paths, separated by a '*' char
-	 * \return the path to the temp file
-	 */
-	static CString WritePathsToTempFile(CString paths);
-
-	/**
 	 * Returns the long pathname of a path which may be in 8.3 format.
 	 */
 	static CString GetLongPathname(const CString& path);

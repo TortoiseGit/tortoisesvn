@@ -84,8 +84,9 @@ void CAddDlg::OnOK()
 {
 	if (m_bThreadRunning)
 		return;
-	//save only the files the user has selected into the temporary file
-	m_addListCtrl.WriteCheckedNamesToFile(m_sPath);
+
+	//save only the files the user has selected into the pathlist
+	m_addListCtrl.WriteCheckedNamesToPathList(m_pathList);
 
 	CResizableStandAloneDialog::OnOK();
 }
@@ -128,7 +129,7 @@ UINT CAddDlg::AddThread()
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	m_addListCtrl.GetStatus(m_sPath);
+	m_addListCtrl.GetStatus(m_pathList);
 	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
 
 	GetDlgItem(IDOK)->EnableWindow(true);

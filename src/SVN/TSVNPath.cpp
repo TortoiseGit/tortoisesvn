@@ -247,6 +247,17 @@ CTSVNPath CTSVNPath::GetContainingDirectory() const
 	return retVal;
 }
 
+CString CTSVNPath::GetRootPathString() const
+{
+	EnsureBackslashPathSet();
+	CString workingPath = m_sBackslashPath;
+	LPTSTR pPath = workingPath.GetBuffer(MAX_PATH);
+	VERIFY(::PathStripToRoot(pPath));
+	workingPath.ReleaseBuffer();
+	return workingPath;
+}
+
+
 CString CTSVNPath::GetFilename() const
 {
 	ASSERT(!IsDirectory());
@@ -429,13 +440,13 @@ bool CTSVNPathList::AreAllPathsFiles() const
 	return std::find_if(m_paths.begin(), m_paths.end(), std::mem_fun_ref(CTSVNPath::IsDirectory)) != m_paths.end();
 }
 
-bool CTSVNPathList::LoadFromTemporaryFile(const CString& sFilename)
+bool CTSVNPathList::LoadFromTemporaryFile(const CTSVNPath& filename)
 {
 	Clear();
 	try
 	{
 		CString strLine;
-		CStdioFile file(sFilename, CFile::typeBinary | CFile::modeRead);
+		CStdioFile file(filename.GetWinPath(), CFile::typeBinary | CFile::modeRead);
 
 		// for every selected file/folder
 		CTSVNPath path;
@@ -456,6 +467,23 @@ bool CTSVNPathList::LoadFromTemporaryFile(const CString& sFilename)
 		return false;
 	}
 	return true;
+}
+
+
+
+void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
+{
+	int pos = 0;
+	CString temp;
+	for(;;)
+	{
+		temp = sPathString.Tokenize(_T("*"),pos);
+		if(temp.IsEmpty())
+		{
+			break;
+		}
+		AddPath(CTSVNPath(CUtils::GetLongPathname(temp)));
+	} 
 }
 
 bool 
@@ -551,6 +579,7 @@ public:
 		RawAppendTest();
 		PathAppendTest();
 		RemoveDuplicatesTest();
+		ListLoadingTest();
 	}
 
 private:
@@ -647,6 +676,18 @@ private:
 		ASSERT(list[0].GetWinPathString() == _T("A"));
 		ASSERT(list[1].GetWinPathString().CompareNoCase(_T("e")) == 0);
 		ASSERT(list[2].GetWinPathString() == _T("Z"));
+	}
+
+	void ListLoadingTest()
+	{
+		CString sPathList(_T("Path1*c:\\path2 with spaces and stuff*\\funnypath\\*"));
+		CTSVNPathList testList;
+		testList.LoadFromAsteriskSeparatedString(sPathList);
+
+		ASSERT(testList.GetCount() == 3);
+		ASSERT(testList[0].GetWinPathString() == _T("Path1"));
+		ASSERT(testList[1].GetWinPathString() == _T("c:\\path2 with spaces and stuff"));
+		ASSERT(testList[2].GetWinPathString() == _T("\\funnypath"));
 	}
 
 

@@ -105,7 +105,10 @@ public:
 	* parent directory is returned.
 	*/
 	CTSVNPath GetContainingDirectory() const;
-
+	/**
+	* Get the 'root path' (e.g. "c:\") - Used to pass to GetDriveType 
+	*/
+	CString GetRootPathString() const;
 	/**
 	 * Returns the filename part of the full path.
 	 * \remark don't call this for directories.
@@ -224,8 +227,15 @@ public:
 
 public:
 	void AddPath(const CTSVNPath& newPath);
-	bool LoadFromTemporaryFile(const CString& sFilename);
+	bool LoadFromTemporaryFile(const CTSVNPath& filename);
 	bool WriteToTemporaryFile(const CString& sFilename) const;
+
+	/**
+	 * Load from the path argument string, when the 'notempfile' flag is used
+	 * This is a list of paths, with '*' between them
+	 */
+	void LoadFromAsteriskSeparatedString(const CString& sPathString);
+
 	int GetCount() const;
 	void Clear();
 	const CTSVNPath& operator[](int index) const;

@@ -21,6 +21,7 @@
 #include "UnicodeStrings.h"
 #include "ProjectProperties.h"
 #include "SVNProperties.h"
+#include "TSVNPath.h"
 
 ProjectProperties::ProjectProperties(void)
 {
@@ -36,27 +37,15 @@ ProjectProperties::~ProjectProperties(void)
 {
 }
 
-BOOL ProjectProperties::ReadPropsTempfile(const CString& path)
+
+BOOL ProjectProperties::ReadPropsPathList(const CTSVNPathList& pathList)
 {
-	CString strLine;
-	try
+	for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 	{
-		CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
-		// for every selected file/folder
-		while (file.ReadString(strLine))
+		if (ReadProps(pathList[nPath].GetWinPath()))
 		{
-			if (ReadProps(strLine))
-			{
-				file.Close();
-				return TRUE;
-			}
+			return TRUE;
 		}
-		file.Close();
-	}
-	catch (CFileException* pE)
-	{
-		TRACE("CFileException in ReadPropsTempfile!\n");
-		pE->Delete();
 	}
 	return FALSE;
 }

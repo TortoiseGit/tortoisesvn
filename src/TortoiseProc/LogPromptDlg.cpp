@@ -88,12 +88,12 @@ BOOL CLogPromptDlg::OnInitDialog()
 	
 	OnEnChangeLogmessage();
 
-	CString temp = m_sPath;
+//	CString temp = m_sPath;
 
 	m_ListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS);
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
-	m_ProjectProperties.ReadPropsTempfile(m_sPath);
+	m_ProjectProperties.ReadPropsPathList(m_pathList);
 
 	m_tooltips.Create(this);
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
@@ -279,8 +279,8 @@ void CLogPromptDlg::OnOK()
 		} // for (int i=0; i<arDeleted.GetCount(); i++) 
 		m_ListCtrl.Block(FALSE);
 
-		//save only the files the user has selected into the temporary file
-		m_ListCtrl.WriteCheckedNamesToFile(m_sPath);
+		//save only the files the user has checked into the temporary file
+		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	}
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
@@ -321,7 +321,7 @@ UINT CLogPromptDlg::StatusThread()
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	// Initialise the list control with the status of the files/folders below us
-	BOOL success = m_ListCtrl.GetStatus(m_sPath);
+	BOOL success = m_ListCtrl.GetStatus(m_pathList);
 
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS;
 	dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
@@ -396,7 +396,6 @@ void CLogPromptDlg::OnCancel()
 { 
 	if (m_bBlock)
 		return;
-	DeleteFile(m_sPath);
 	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
 	CResizableStandAloneDialog::OnCancel();

@@ -37,11 +37,6 @@ CRevertDlg::CRevertDlg(CWnd* pParent /*=NULL*/)
 
 CRevertDlg::~CRevertDlg()
 {
-	for (int i=0; i<m_templist.GetCount(); i++)
-	{
-		DeleteFile(m_templist.GetAt(i));
-	}
-	m_templist.RemoveAll();
 }
 
 void CRevertDlg::DoDataExchange(CDataExchange* pDX)
@@ -105,7 +100,7 @@ UINT CRevertDlg::RevertThread()
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	m_RevertList.GetStatus(m_sPath);
+	m_RevertList.GetStatus(m_pathList);
 	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS);
 
 	GetDlgItem(IDOK)->EnableWindow(true);
@@ -144,7 +139,7 @@ void CRevertDlg::OnOK()
 	}
 	if (!m_bRecursive)
 	{
-		m_RevertList.WriteCheckedNamesToFile(m_sPath);
+		m_RevertList.WriteCheckedNamesToPathList(m_pathList);
 	}
 
 	CResizableStandAloneDialog::OnOK();

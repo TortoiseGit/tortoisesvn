@@ -168,7 +168,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, bool bHasCheckboxes /* = TRUE */)
 	SetRedraw(true);
 }
 
-BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */)
+BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */)
 {
 	BOOL bRet = TRUE;
 	m_nTargetCount = 0;
@@ -202,46 +202,29 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 
 	m_sURL.Empty();
 
-	CTSVNPathList targets;
-	if(targets.LoadFromTemporaryFile(sFilePath))
+	m_nTargetCount = pathList.GetCount();
+
+	SVNStatus status;
+	if(m_nTargetCount > 1 && pathList.AreAllPathsFilesInOneDirectory())
 	{
+		// This is a special case, where we've been given a list of files
+		// all from one folder
+		// We handle them by setting a status filter, then requesting the SVN status of 
+		// all the files in the directory, filtering for the ones we're interested in
+		status.SetFilter(pathList);
 
-		m_nTargetCount = targets.GetCount();
-
-		// for every selected file/folder
-		//		while (file.ReadString(strLine))
-		//		{
-		//			strLine.Replace('\\', '/');
-		//
-		//			// remove trailing / characters since they mess up the filename list
-		//			// However "/" and "c:/" will be left alone.
-		//			if (strLine.GetLength() > 1 && strLine.Right(1) == _T("/")) 
-		//			{
-		//				strLine.Delete(strLine.GetLength()-1,1);
-		//			}
-
-		SVNStatus status;
-		if(m_nTargetCount > 1 && targets.AreAllPathsFilesInOneDirectory())
+		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths))
 		{
-			// This is a special case, where we've been given a list of files
-			// all from one folder
-			// We handle them by setting a status filter, then requesting the SVN status of 
-			// all the files in the directory, filtering for the ones we're interested in
-			status.SetFilter(targets);
-
-			if(!FetchStatusForSingleTarget(config, status, targets.GetCommonDirectory(), bUpdate, sUUID, arExtPaths))
+			bRet = FALSE;
+		}
+	}
+	else
+	{
+		for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
+		{
+			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths))
 			{
 				bRet = FALSE;
-			}
-		}
-		else
-		{
-			for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
-			{
-				if(!FetchStatusForSingleTarget(config, status, targets[nTarget], bUpdate, sUUID, arExtPaths))
-				{
-					bRet = FALSE;
-				}
 			}
 		}
 	}
@@ -1220,23 +1203,24 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				case IDSVNLC_GNUDIFF1:
 					{
 						CTSVNPath tempfile = CUtils::GetTempFilePath();
+						m_tempFileList.AddPath(tempfile);
 						tempfile.AppendRawString(_T(".diff"));
+						m_tempFileList.AddPath(tempfile);
 						SVN svn;
 						if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							DeleteFile(tempfile.GetWinPath());
 							break;		//exit
 						}
-						m_tempFileList.AddPath(tempfile);
 						CUtils::StartDiffViewer(tempfile, CTSVNPath());
 					}
 					break;
 				case IDSVNLC_UPDATE:
 					{
-						CTSVNPath tempFile = BuildTargetFile();
+						CTSVNPathList targetList;
+						FillListOfSelectedItemPaths(targetList);
 						CSVNProgressDlg dlg;
-						dlg.SetParams(CSVNProgressDlg::Enum_Update, ProgOptPathIsTempFile, tempFile.GetWinPathString());
+						dlg.SetParams(CSVNProgressDlg::Enum_Update, 0, targetList);
 						dlg.DoModal();
 					}
 					break;
@@ -1246,7 +1230,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						long revend = reg;
 						revend = -revend;
 						CLogDlg dlg;
-						dlg.SetParams(filepath.GetSVNPathString(), SVNRev::REV_HEAD, revend);
+						dlg.SetParams(filepath.GetWinPathString(), SVNRev::REV_HEAD, revend);
 						dlg.DoModal();
 					}
 					break;
@@ -1796,6 +1780,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
+/*
 CTSVNPath CSVNStatusListCtrl::BuildTargetFile()
 {
 	CTSVNPathList targetList;
@@ -1809,6 +1794,7 @@ CTSVNPath CSVNStatusListCtrl::BuildTargetFile()
 
 	return tempFile;
 }
+*/
 
 BOOL CSVNStatusListCtrl::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
@@ -1873,9 +1859,10 @@ void CSVNStatusListCtrl::SetCheckOnAllDescendentsOf(const FileEntry* parentEntry
 	}
 }
 
-bool CSVNStatusListCtrl::WriteCheckedNamesToFile(const CString& sFilename)
+void
+CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
 {
-	CTSVNPathList checkedPaths;
+	pathList.Clear();
 	int nListItems = GetItemCount();
 	for (int i=0; i< nListItems; i++)
 	{
@@ -1883,12 +1870,12 @@ bool CSVNStatusListCtrl::WriteCheckedNamesToFile(const CString& sFilename)
 		ASSERT(entry != NULL);
 		if (entry->IsChecked())
 		{
-			checkedPaths.AddPath(entry->path);
+			pathList.AddPath(entry->path);
 		}
 	}
-	checkedPaths.SortByPathname();
-	return checkedPaths.WriteToTemporaryFile(sFilename);
+	pathList.SortByPathname();
 }
+
 
 ///< Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
 void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList)

@@ -30,6 +30,8 @@
 #define PROJECTPROPNAME_LOGMINSIZE		  _T("tsvn:logminsize")
 #define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
 
+class CTSVNPathList;
+
 /**
  * \ingroup TortoiseProc
  * Provides methods for retrieving information about bug/issuetrackers
@@ -64,11 +66,11 @@ public:
 	 */
 	BOOL ReadProps(CString path);
 	/**
-	 * Reads the properties from all paths found in the tempfile.
-	 * This method calls ReadProps() for each path found in the tempfile.
-	 * \param path path to the tempfile
+	 * Reads the properties from all paths found in a pathlist.
+	 * This method calls ReadProps() for each path .
+	 * \param list of paths
 	 */
-	BOOL ReadPropsTempfile(const CString& path);
+	BOOL ReadPropsPathList(const CTSVNPathList& pathList);
 
 	/**
 	 * Searches for the BugID inside a log message. If one is found,

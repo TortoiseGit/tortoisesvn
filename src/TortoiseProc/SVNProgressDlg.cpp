@@ -193,14 +193,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	} // switch (action)
 
-	if(!data->bAuxItem)
-	{
-		data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
-		data->sPathColumnText = path.GetUIPathString();
-	}
 	if (data->sActionColumnText.IsEmpty())
 	{
 		data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
+	}
+	if(!data->bAuxItem)
+	{
+		data->sPathColumnText = path.GetUIPathString();
 	}
 
 	m_arData.push_back(data);
@@ -333,21 +332,12 @@ CString CSVNProgressDlg::BuildInfoString()
 	return infotext;
 }
 
-void CSVNProgressDlg::SetParams(Command cmd, int options, const CString& path, const CString& url /* = "" */, const CString& message /* = "" */, SVNRev revision /* = -1 */)
+void CSVNProgressDlg::SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url /* = "" */, const CString& message /* = "" */, SVNRev revision /* = -1 */)
 {
 	m_Command = cmd;
 	m_options = options;
 
-	if(m_options & ProgOptPathIsTempFile)
-	{
-		m_targetPathList.LoadFromTemporaryFile(path);
-		::DeleteFile(path);
-	}
-	else
-	{
-		m_targetPathList.Clear();
-		m_targetPathList.AddPath(CTSVNPath(path));
-	}
+	m_targetPathList = pathList;
 
 	//WGD - I'm removing this for the moment, because it can actually happen.
 	// For example, do an Add, then select all the items in the list box, right-click and choose 'Add'.
