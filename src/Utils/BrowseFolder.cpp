@@ -192,8 +192,20 @@ int CBrowseFolder::BrowseCallBackProc(HWND  hwnd,UINT  uMsg,LPARAM  lParam,LPARA
 								14,
 								SWP_SHOWWINDOW);
 
-		//Sets the fonts of static controls
-		SetFont(checkbox,_T("MS Sans Serif"),12);
+		HWND label = FindWindowEx(hwnd, NULL, _T("STATIC"), NULL);
+		if (label)
+		{
+			HFONT hFont = (HFONT)::SendMessage(label, WM_GETFONT, 0, 0);
+			LOGFONT lf = {0};
+			GetObject(hFont, sizeof(lf), &lf);
+			HFONT hf2 = CreateFontIndirect(&lf);
+			::SendMessage(checkbox, WM_SETFONT, (WPARAM)hf2, TRUE);
+		}
+		else
+		{
+			//Sets the fonts of static controls
+			SetFont(checkbox,_T("MS Sans Serif"),12);
+		}
 
 		// Subclass the checkbox control. 
 		CBProc = (WNDPROC) SetWindowLong(checkbox,GWL_WNDPROC, (LONG) CheckBoxSubclassProc); 

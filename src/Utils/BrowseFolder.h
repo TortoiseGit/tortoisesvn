@@ -85,5 +85,5 @@ protected:
 	static HWND ListView;
 	TCHAR m_displayName[MAX_PATH];
 	LPITEMIDLIST m_root;
-	static TCHAR m_CheckText[MAX_PATH];		
+	static TCHAR m_CheckText[MAX_PATH];	
 };
