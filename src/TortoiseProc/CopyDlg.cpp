@@ -34,8 +34,8 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
-	, m_bDirectCopy(FALSE)
 	, m_sBugID(_T(""))
+	, m_CopyRev(SVNRev::REV_HEAD)
 {
 }
 
@@ -67,7 +67,7 @@ BOOL CCopyDlg::OnInitDialog()
 
 	CTSVNPath path(m_path);
 
-	CheckRadioButton(IDC_COPYHEAD, IDC_COPYWC, IDC_COPYHEAD);
+	CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
 
 	m_bFile = !path.IsDirectory();
 	SVN svn;
@@ -117,6 +117,8 @@ void CCopyDlg::OnOK()
 {
 	CString id;
 	GetDlgItem(IDC_BUGID)->GetWindowText(id);
+	CString sRevText;
+	GetDlgItem(IDC_COPYREVTEXT)->GetWindowText(sRevText);
 	if (!m_ProjectProperties.CheckBugID(id))
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
@@ -129,8 +131,18 @@ void CCopyDlg::OnOK()
 	}
 	UpdateData(TRUE);
 
-	if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYWC) == IDC_COPYHEAD)
-		m_bDirectCopy = TRUE;
+	if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYHEAD)
+		m_CopyRev = SVNRev(SVNRev::REV_HEAD);
+	else if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYWC)
+		m_CopyRev = SVNRev(SVNRev::REV_WC);
+	else
+		m_CopyRev = SVNRev(sRevText);
+	
+	if (!m_CopyRev.IsValid())
+	{
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_COPYREVTEXT), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
+	}
 		
 	CString combourl;
 	m_URLCombo.GetWindowText(combourl);

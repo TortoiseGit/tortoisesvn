@@ -22,6 +22,7 @@
 #include "HistoryCombo.h"
 #include "SciEdit.h"
 #include "TSVNPath.h"
+#include "SVNRev.h"
 
 /**
  * \ingroup TortoiseProc
@@ -75,7 +76,7 @@ public:
 	CString	m_URL;
 	CTSVNPath m_path;
 	CString m_sLogMessage;
-	BOOL m_bDirectCopy;
+	SVNRev m_CopyRev;
 private:
 	CSciEdit	m_cLogMessage;
 	CFont		m_logFont;

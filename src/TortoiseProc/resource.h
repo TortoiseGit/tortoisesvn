@@ -280,6 +280,9 @@
 #define IDC_COPYHEAD                    1182
 #define IDC_COPYWC                      1183
 #define IDC_AUTOCOMPLETION              1184
+#define IDC_RADIO2                      1185
+#define IDC_COPYREV                     1185
+#define IDC_COPYREVTEXT                 1186
 #define IDS_REPO_BROWSEREV              1190
 #define IDS_REPO_BROWSEURL              1191
 #define IDS_SSL_CERTIFICATETYPE         1200
@@ -566,7 +569,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        186
 #define _APS_NEXT_COMMAND_VALUE         32779
-#define _APS_NEXT_CONTROL_VALUE         1185
+#define _APS_NEXT_CONTROL_VALUE         1187
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
