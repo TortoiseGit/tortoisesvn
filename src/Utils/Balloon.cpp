@@ -1520,7 +1520,7 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 	}
 	else
 	{
-		GetClientRect(&monitorRect);
+		::GetWindowRect(GetDesktopWindow()->m_hWnd, &monitorRect);
 	}
 
 }
