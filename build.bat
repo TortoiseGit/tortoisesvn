@@ -41,6 +41,7 @@ rem TortoiseSVN
 echo ================================================================================
 echo building TortoiseSVN
 cd ..\TortoiseSVN\src
+devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 ..\bin\release\SubWCRev.exe .. version.in version.h
 devenv TortoiseSVN.sln /rebuild release
 devenv TortoiseSVN.sln /rebuild release_mbcs
