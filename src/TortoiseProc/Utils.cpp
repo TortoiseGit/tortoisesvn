@@ -747,3 +747,25 @@ bool CUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwning
 
 	return false;
 }
+
+void CUtils::CreateFontForLogs(CFont& fontToCreate)
+{
+	LOGFONT logFont;
+	HDC hScreenDC = ::GetDC(NULL);
+	logFont.lfHeight         = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8), GetDeviceCaps(hScreenDC, LOGPIXELSY), 72);
+	::ReleaseDC(NULL, hScreenDC);
+	logFont.lfWidth          = 0;
+	logFont.lfEscapement     = 0;
+	logFont.lfOrientation    = 0;
+	logFont.lfWeight         = FW_NORMAL;
+	logFont.lfItalic         = 0;
+	logFont.lfUnderline      = 0;
+	logFont.lfStrikeOut      = 0;
+	logFont.lfCharSet        = DEFAULT_CHARSET;
+	logFont.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+	logFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
+	logFont.lfQuality        = DRAFT_QUALITY;
+	logFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
+	_tcscpy(logFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
+	VERIFY(fontToCreate.CreateFontIndirect(&logFont));
+}

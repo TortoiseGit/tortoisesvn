@@ -110,22 +110,7 @@ BOOL CCopyDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	LOGFONT LogFont;
-	LogFont.lfHeight         = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8), GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
-	LogFont.lfWidth          = 0;
-	LogFont.lfEscapement     = 0;
-	LogFont.lfOrientation    = 0;
-	LogFont.lfWeight         = 400;
-	LogFont.lfItalic         = 0;
-	LogFont.lfUnderline      = 0;
-	LogFont.lfStrikeOut      = 0;
-	LogFont.lfCharSet        = DEFAULT_CHARSET;
-	LogFont.lfOutPrecision   = OUT_DEFAULT_PRECIS;
-	LogFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
-	LogFont.lfQuality        = DRAFT_QUALITY;
-	LogFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
-	_tcscpy(LogFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
-	m_logFont.CreateFontIndirect(&LogFont);
+	CUtils::CreateFontForLogs(m_logFont);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
 
 	CTSVNPath path(m_path);

@@ -151,4 +151,10 @@ public:
 	 * Writes an ASCII CString to the clipboard in CF_TEXT format
 	 */
 	static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
+
+	/**
+	 * Create a font which can is used for log messages, etc
+	 */
+	static void CUtils::CreateFontForLogs(CFont& fontToCreate);
+
 };
