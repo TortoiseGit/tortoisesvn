@@ -128,7 +128,7 @@ value : (string)
 This property contains one or two regular expressions, separated by a newline.
 If only one expression is set, then the bare bug ID's must be matched in the
 groups of the regex string. Example:
-[Ii]ssue #?(\\d+)
+[Ii]ssue #?(\d+)
 
 If two expressions are set, then the first expression is used to find a 
 string which relates to a bug ID but may contain more than just the bug ID 
