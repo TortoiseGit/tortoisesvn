@@ -50,18 +50,20 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	void StartDiff(int fileindex);
-	
-protected:
+
+private:
+	static DWORD WINAPI RevertThreadEntry(LPVOID pVoid);
+	DWORD RevertThread();
+
+public:
+	CString			m_sPath;
+	BOOL			m_bRecursive;
+
+private:
 	BOOL			m_bSelectAll;
 	CStringArray	m_templist;
-public:
 	BOOL			m_bThreadRunning;
-	BOOL			m_bRecursive;
-	CString			m_sPath;
-	CStringArray	m_arFileList;
-
 	CSVNStatusListCtrl	m_RevertList;
 	CButton			m_SelectAll;
 };
 
-DWORD WINAPI RevertThread(LPVOID pVoid);

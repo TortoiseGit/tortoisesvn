@@ -116,7 +116,7 @@ BOOL CRevertDlg::OnInitDialog()
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	DWORD dwThreadId;
-	if ((CreateThread(NULL, 0, &RevertThread, this, 0, &dwThreadId))==0)
+	if ((CreateThread(NULL, 0, RevertThreadEntry, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -126,35 +126,38 @@ BOOL CRevertDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-DWORD WINAPI RevertThread(LPVOID pVoid)
+DWORD WINAPI CRevertDlg::RevertThreadEntry(LPVOID pVoid)
+{
+	return ((CRevertDlg*)pVoid)->RevertThread();
+}
+
+DWORD CRevertDlg::RevertThread()
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	CRevertDlg*	pDlg;
-	pDlg = (CRevertDlg*)pVoid;
-	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
-	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
+	GetDlgItem(IDOK)->EnableWindow(false);
+	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	pDlg->m_RevertList.GetStatus(pDlg->m_sPath);
-	pDlg->m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS);
+	m_RevertList.GetStatus(m_sPath);
+	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS);
 
-	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
-	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	GetDlgItem(IDOK)->EnableWindow(true);
+	GetDlgItem(IDCANCEL)->EnableWindow(true);
 
-	if (pDlg->m_RevertList.GetItemCount()==0)
+	if (m_RevertList.GetItemCount()==0)
 	{
-		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
-		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-		pDlg->m_bThreadRunning = FALSE;
-		pDlg->EndDialog(0);
+		CMessageBox::Show(m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		GetDlgItem(IDCANCEL)->EnableWindow(true);
+		m_bThreadRunning = FALSE;
+		EndDialog(0);
 		return (DWORD)-1;
 	}
 
-	pDlg->m_bThreadRunning = FALSE;
+	m_bThreadRunning = FALSE;
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);

@@ -78,7 +78,6 @@ public:
 
 private:
 	CSVNStatusListCtrl	m_addListCtrl;
-	CStringArray	m_arFileList;
 	bool			m_bThreadRunning;
 	HANDLE			m_hThread;
 	CButton			m_SelectAll;
