@@ -20,6 +20,8 @@
 #include "afxcmn.h"
 #include "ResizableDialog.h"
 
+typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
+
 /**
  * \ingroup TortoiseProc
  * Dialog to enter log messages used in a commit.
@@ -55,12 +57,16 @@ public:
 	enum { IDD = IDD_LOGPROMPT };
 
 protected:
-	HICON m_hIcon;
+	HICON		m_hIcon;
+	static BOOL	m_bAscending;
+	static int	m_nSortedColumn;
+
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -71,21 +77,31 @@ protected:
 
 	void StartDiff(int fileindex);
 	void Refresh();
+	void Sort();
+	static int __cdecl SortCompare(const void * pElem1, const void * pElem2);
 
 	DECLARE_MESSAGE_MAP()
 public:
+	class Data
+	{
+	public:
+		CString					path;
+		CString					line;
+		svn_wc_status_kind		status;
+		BOOL					checked;
+	};
+	CArray<Data *, Data *>		m_arData;
+
 	CString			m_sLogMessage;
 	CListCtrl		m_ListCtrl;
 	CString			m_sPath;
-	CStringArray	m_arFileList;
 	CStringArray	m_templist;
-	CDWordArray		m_arFileStatus;
 private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;
 	CFont			m_logFont;
 public:
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

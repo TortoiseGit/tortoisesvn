@@ -27,6 +27,8 @@
 
 
 // CLogPromptDlg dialog
+BOOL	CLogPromptDlg::m_bAscending = FALSE;
+int		CLogPromptDlg::m_nSortedColumn = -1;
 
 IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableDialog)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
@@ -45,6 +47,12 @@ CLogPromptDlg::~CLogPromptDlg()
 		DeleteFile(m_templist.GetAt(i));
 	}
 	m_templist.RemoveAll();
+	for (int i=0; i<m_arData.GetCount(); i++)
+	{
+		Data * data = m_arData.GetAt(i);
+		delete data;
+	} // for (int i=0; i<m_arData.GetCount(); i++) 
+	m_arData.RemoveAll();
 }
 
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
@@ -66,13 +74,14 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
+	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickFilelist)
 END_MESSAGE_MAP()
 
 
 // CLogPromptDlg message handlers
 // If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
+// to draw the icon.  For MFC applications using the document/view model,
+// this is automatically done for you by the framework.
 
 void CLogPromptDlg::OnPaint() 
 {
@@ -100,7 +109,7 @@ void CLogPromptDlg::OnPaint()
 }
 
 // The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
+// the minimized window.
 HCURSOR CLogPromptDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
@@ -110,7 +119,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 {
 	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
+	// when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
@@ -186,11 +195,12 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	//thread change the items without prompting the user
 	if (!GetDlgItem(IDOK)->IsWindowEnabled())
 		return;
+	Data * data = m_arData.GetAt(pNMLV->iItem);
 	//was the item checked?
 	if (m_ListCtrl.GetCheck(pNMLV->iItem))
 	{
 		//yes, is it an unversioned item?
-		if (m_arFileStatus.GetAt(pNMLV->iItem) == svn_wc_status_unversioned)
+		if (data->status == svn_wc_status_unversioned)
 		{
 			CMessageBox::ShowCheck(this->m_hWnd, 
 									IDS_LOGPROMPT_ASKADD, 
@@ -198,38 +208,46 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 									MB_OK | MB_ICONQUESTION, 
 									_T("AddUnversionedFilesOnCommitMsgBox"), 
 									IDS_MSGBOX_DONOTSHOW);
-			if (!PathIsDirectory(m_arFileList.GetAt(pNMLV->iItem)))
+			if (!PathIsDirectory(data->path))
 			{
 				//user selected a file, so we need to check the parent folder too
-				CString folderpath = m_arFileList.GetAt(pNMLV->iItem);
+				CString folderpath = data->path;
 				folderpath = folderpath.Left(folderpath.ReverseFind('/'));
 				for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
 				{
-					CString t = m_arFileList.GetAt(i);
-					if (folderpath.CompareNoCase(m_arFileList.GetAt(i))==0)
+					Data * d = m_arData.GetAt(i);
+					CString t = d->path;
+					if (folderpath.CompareNoCase(d->path)==0)
 					{
 						m_ListCtrl.SetCheck(i, TRUE);
+						d->checked = TRUE;
 						return;
 					}
 				} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
-			}
-		}
+			} // if (!PathIsDirectory(data->path))
+		} // if (data->status == svn_wc_status_unversioned)
+		else
+			data->checked = TRUE;
 	}
 	else
 	{
-		if (PathIsDirectory(m_arFileList.GetAt(pNMLV->iItem)))
+		if (PathIsDirectory(data->path))
 		{
 			//disable all files within that folder
-			CString folderpath = m_arFileList.GetAt(pNMLV->iItem);
+			CString folderpath = data->path;
 			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
 			{
-				CString t = m_arFileList.GetAt(i);
-				if (folderpath.CompareNoCase(m_arFileList.GetAt(i).Left(folderpath.GetLength()))==0)
+				Data * d = m_arData.GetAt(i);
+				CString t = d->path;
+				if (folderpath.CompareNoCase(d->path.Left(folderpath.GetLength()))==0)
 				{
 					m_ListCtrl.SetCheck(i, FALSE);
+					d->checked = FALSE;
 				}
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		} // if (PathIsDirectory(m_arFileList.GetAt(index)))
+		else
+			data->checked = FALSE;
 	}
 }
 
@@ -239,8 +257,9 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	int selIndex = m_ListCtrl.GetSelectionMark();
 	if (selIndex >= 0)
 	{
-		CString filepath = m_arFileList.GetAt(selIndex);
-		svn_wc_status_kind wcStatus = (svn_wc_status_kind)m_arFileStatus.GetAt(selIndex);
+		Data * data = m_arData.GetAt(selIndex);
+		CString filepath = data->path;
+		svn_wc_status_kind wcStatus = data->status;
 		//entry is selected, now show the popup menu
 		CMenu popup;
 		POINT point;
@@ -281,8 +300,7 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 							//since the entry got reverted we need to remove
 							//it from the list too
 							m_ListCtrl.DeleteItem(selIndex);
-							m_arFileStatus.RemoveAt(selIndex);
-							m_arFileList.RemoveAt(selIndex);
+							m_arData.RemoveAt(selIndex);
 						}
 					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES) 
 				} 
@@ -327,20 +345,21 @@ void CLogPromptDlg::StartDiff(int fileindex)
 {
 	if (fileindex < 0)
 		return;
-	if (m_arFileStatus.GetAt(fileindex) == svn_wc_status_added)
+	Data * data = m_arData.GetAt(fileindex);
+	if (data->status == svn_wc_status_added)
 		return;		//we don't compare an added file to itself
-	if (m_arFileStatus.GetAt(fileindex) == svn_wc_status_deleted)
+	if (data->status == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
 	CString path1;
-	CString path2 = SVN::GetPristinePath(m_arFileList.GetAt(fileindex));
+	CString path2 = SVN::GetPristinePath(data->path);
 
-	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path1, m_arFileList.GetAt(fileindex))))
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path1, data->path)))
 	{
 		m_templist.Add(path1);
 	}
 	else
 	{
-		path1 = m_arFileList.GetAt(fileindex);
+		path1 = data->path;
 	}
 
 	CUtils::StartDiffViewer(path2, path1);
@@ -353,15 +372,16 @@ void CLogPromptDlg::OnOK()
 	{
 		if (m_ListCtrl.GetCheck(j))
 		{
-			if (m_arFileStatus.GetAt(j) == svn_wc_status_unversioned)
+			Data * data = m_arData.GetAt(j);
+			if (data->status == svn_wc_status_unversioned)
 			{
 				SVN svn;
-				svn.Add(m_arFileList.GetAt(j), FALSE);
+				svn.Add(data->path, FALSE);
 			} // if (m_arFileStatus.GetAt(j) == svn_wc_status_unversioned)
-			if (m_arFileStatus.GetAt(j) == svn_wc_status_missing)
+			if (data->status == svn_wc_status_missing)
 			{
 				SVN svn;
-				svn.Remove(m_arFileList.GetAt(j), TRUE);
+				svn.Remove(data->path, TRUE);
 			}
 		}
 	}
@@ -373,7 +393,8 @@ void CLogPromptDlg::OnOK()
 		{
 			if (m_ListCtrl.GetCheck(i))
 			{
-				file.WriteString(m_arFileList.GetAt(i)+_T("\n"));
+				Data * data = m_arData.GetAt(i);
+				file.WriteString(data->path + _T("\n"));
 			}
 		} // for (int i=0; i<m_ListCtrl.GetItemCount(); i++) 
 		file.Close();
@@ -426,8 +447,12 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				temp = strbuf;
 				if (SVNStatus::IsImportant(stat))
 				{
-					pDlg->m_arFileList.Add(strLine);
-					pDlg->m_arFileStatus.Add(stat);
+					CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+					data->checked = FALSE;
+					data->path = strLine;
+					data->line = strLine;
+					data->status = stat;
+					pDlg->m_arData.Add(data);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
 					//SVNStatus::GetStatusString(stat, buf);
@@ -436,13 +461,18 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						_tcscat(buf, _T("(P only)"));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					pDlg->m_ListCtrl.SetCheck(count);
+					data->checked = TRUE;
 				} // if (SVNStatus::IsImportant(stat)) 
 				if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))
 				{
 					if (!CCheckTempFiles::IsTemp(strLine))
 					{
-						pDlg->m_arFileList.Add(strLine);
-						pDlg->m_arFileStatus.Add(stat);
+						CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+						data->checked = FALSE;
+						data->path = strLine;
+						data->line = strLine;
+						data->status = stat;
+						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
 						//SVNStatus::GetStatusString(stat, buf);
@@ -456,8 +486,12 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
 					if (SVNStatus::IsImportant(stat))
 					{
-						pDlg->m_arFileList.Add(temp);
-						pDlg->m_arFileStatus.Add(stat);
+						CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+						data->checked = FALSE;
+						data->path = temp;
+						data->line = strLine;
+						data->status = stat;
+						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						if (bIsFolder)
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
@@ -469,13 +503,18 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							_tcscat(buf, _T("(P only)"));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						pDlg->m_ListCtrl.SetCheck(count);
+						data->checked = TRUE;
 					} // if (SVNStatus::IsImportant(stat)) 
 					if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))
 					{
 						if (!CCheckTempFiles::IsTemp(temp))
 						{
-							pDlg->m_arFileList.Add(temp);
-							pDlg->m_arFileStatus.Add(stat);
+							CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+							data->checked = FALSE;
+							data->path = temp;
+							data->line = strLine;
+							data->status = stat;
+							pDlg->m_arData.Add(data);
 							int count = pDlg->m_ListCtrl.GetItemCount();
 							if (bIsFolder)
 							{
@@ -490,8 +529,12 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 									filename.Replace('\\', '/');
 									if (!CCheckTempFiles::IsTemp(filename))
 									{
-										pDlg->m_arFileList.Add(filename);
-										pDlg->m_arFileStatus.Add(stat);
+										CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+										data->checked = FALSE;
+										data->path = filename;
+										data->line = strLine;
+										data->status = stat;
+										pDlg->m_arData.Add(data);
 										pDlg->m_ListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.GetLength() - 1));
 										SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 										pDlg->m_ListCtrl.SetItemText(count++, 1, buf);
@@ -563,6 +606,8 @@ void CLogPromptDlg::OnBnClickedSelectall()
 	for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
 	{
 		m_ListCtrl.SetCheck(i, m_bSelectAll);
+		Data * data = m_arData.GetAt(i);
+		data->checked = m_bSelectAll;
 	}
 	theApp.DoWaitCursor(-1);
 }
@@ -582,9 +627,13 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 void CLogPromptDlg::Refresh()
 {
 	CString temp;
-	m_arFileList.RemoveAll();
+	for (int i=0; i<m_arData.GetCount(); i++)
+	{
+		Data * data = m_arData.GetAt(i);
+		delete data;
+	} // for (int i=0; i<m_arData.GetCount(); i++) 
+	m_arData.RemoveAll();
 	m_templist.RemoveAll();
-	m_arFileStatus.RemoveAll();
 
 	m_ListCtrl.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
@@ -614,6 +663,72 @@ void CLogPromptDlg::Refresh()
 	//m_ListCtrl.UpdateData(FALSE);
 }
 
+void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
+	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+		return;
+	if (m_nSortedColumn == phdr->iItem)
+		m_bAscending = !m_bAscending;
+	else
+		m_bAscending = TRUE;
+	m_nSortedColumn = phdr->iItem;
+	Sort();
+
+	CString temp;
+	m_ListCtrl.SetRedraw(FALSE);
+	m_ListCtrl.DeleteAllItems();
+
+	//fill in the data for the listcontrol again, but this
+	//time sorted.
+	TCHAR buf[MAX_PATH];
+	for (int i=0; i<m_arData.GetCount(); i++)
+	{
+		Data * data = m_arData.GetAt(i);
+		SVNStatus::GetStatusString(AfxGetResourceHandle(), data->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+		m_ListCtrl.InsertItem(i, data->path.Right(data->path.GetLength() - data->line.GetLength() - 1));
+		m_ListCtrl.SetItemText(i, 1, buf);
+		m_ListCtrl.SetCheck(i, data->checked);
+	} // for (int i=0; i<m_arData.GetCount(); i++) 
+	
+	m_ListCtrl.SetRedraw(TRUE);
+
+	*pResult = 0;
+}
+
+void CLogPromptDlg::Sort()
+{
+	qsort(m_arData.GetData(), m_arData.GetSize(), sizeof(Data *), (GENERICCOMPAREFN)SortCompare);
+}
+
+int CLogPromptDlg::SortCompare(const void * pElem1, const void * pElem2)
+{
+	Data * pData1 = *((Data**)pElem1);
+	Data * pData2 = *((Data**)pElem2);
+	int result = 0;
+	switch (m_nSortedColumn)
+	{
+	case 0:		//path column
+		{
+			result = pData1->path.Compare(pData2->path);
+		}
+		break;
+	case 1:		//status column
+		{
+			result = pData1->status - pData2->status;
+			if (result == 0)
+			{
+				result = pData1->path.Compare(pData2->path);
+			}
+		}
+		break;
+	default:
+		break;
+	} // switch (m_nSortedColumn)
+	if (!m_bAscending)
+		result = -result;
+	return result;
+}
 
 
 
