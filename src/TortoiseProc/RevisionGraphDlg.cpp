@@ -277,7 +277,7 @@ void CRevisionGraphDlg::OnPaint()
 		CResizableStandAloneDialog::OnPaint();
 		return;
 	}
-	else if (m_bNoGraph)
+	else if ((m_bNoGraph)||(m_arEntryPtrs.GetCount()==0))
 	{
 		CString sNoGraphText;
 		sNoGraphText.LoadString(IDS_REVGRAPH_ERR_NOGRAPH);

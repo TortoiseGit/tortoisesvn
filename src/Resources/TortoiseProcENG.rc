@@ -1218,8 +1218,8 @@ BEGIN
     END
     POPUP "&View"
     BEGIN
-        MENUITEM "Zoom &In",                    ID_VIEW_ZOOMIN
-        MENUITEM "Zoom &Out",                   ID_VIEW_ZOOMOUT
+        MENUITEM "Zoom &In\tCtrl-+",            ID_VIEW_ZOOMIN
+        MENUITEM "Zoom &Out\tCtrl--",           ID_VIEW_ZOOMOUT
     END
 END
 
@@ -1231,14 +1231,11 @@ END
 
 IDR_ACC_REVISIONGRAPH ACCELERATORS 
 BEGIN
+    "+",            ID_VIEW_ZOOMIN,         ASCII,  NOINVERT
     VK_ADD,         ID_VIEW_ZOOMIN,         VIRTKEY, CONTROL, NOINVERT
     VK_OEM_PLUS,    ID_VIEW_ZOOMIN,         VIRTKEY, CONTROL, NOINVERT
-    VK_UP,          ID_VIEW_ZOOMIN,         VIRTKEY, CONTROL, NOINVERT
-    VK_DOWN,        ID_VIEW_ZOOMOUT,        VIRTKEY, CONTROL, NOINVERT
     VK_OEM_MINUS,   ID_VIEW_ZOOMOUT,        VIRTKEY, CONTROL, NOINVERT
     VK_SUBTRACT,    ID_VIEW_ZOOMOUT,        VIRTKEY, CONTROL, NOINVERT
-    "+",            ID_VIEW_ZOOMIN,         ASCII,  NOINVERT
-    VK_INSERT,      ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
 END
 
 
