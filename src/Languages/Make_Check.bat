@@ -22,7 +22,7 @@ echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/tr
 echo ^</tr^> >> %OFile%
 
 
-FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j %%m
+FOR /F "eol=# tokens=1,2,3,4,5 delims=;" %%i in (Languages.txt) do call :doit %%i %%j %%m
 
 :end
 type trans_foot.html >> %OFile%
