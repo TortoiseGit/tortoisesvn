@@ -1174,6 +1174,8 @@ BOOL CBaseView::OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		strTipText = m_sFullFilePath;
 	}
+	else
+		return FALSE;
 	
 	*pResult = 0;
 	if (strTipText.IsEmpty())
