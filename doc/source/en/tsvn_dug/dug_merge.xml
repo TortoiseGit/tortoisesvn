@@ -32,13 +32,23 @@
 		(N-1). Novices often ask
 		<quote>Why do I have to subtract 1 from the start revision.</quote>
 		Think of the underlying Diff process and it will become clearer.
+		TO make this easier, when you use <guibutton>Show Log</guibutton> to
+		select a range of revisions to merge, TortoiseSVN makes this adjustment
+		for you automatically.
+	</para>
+	<para>
+		In general it is a good idea to perform a merge into an unmodified
+		working copy. If you have made other changes in your WC, commit those
+		first. If the merge does not go as you expect, you may want to revert
+		the changes, and the <guilabel>Revert</guilabel> command will discard
+		<emphasis>all</emphasis> changes including any you made before the merge.
 	</para>
 	<para>
 		There are two common use cases for merging which are handled in
 		slightly different ways, as described below.
 	</para>
 	
-	<sect2 id="tsvn-DUG-merge-2">
+	<sect2 id="tsvn-DUG-merge-1">
 		<title>Merging a Range of Revisions</title>
 		<para>
 			This method covers the case when you have made one or more
@@ -66,6 +76,9 @@
 						You may also click
 						<guibutton>...</guibutton>
 						to browse the repository and find the desired branch.
+						If you have merged from this branch before, then just
+						use the drop down list which shows a history of
+						previously used URLs.
 					</para>
 				</listitem>
 				<listitem>
@@ -102,17 +115,25 @@ Rev Comments
 						If you select revision 37 as the start point, then the
 						difference engine compares the end point with revision 37,
 						and will miss the changes made in revision 37 itself.
+						If that sounds complicated, don't worry, there is an
+						easier way in TortoiseSVN ...
 					</para>
 					<para>
-						The easiest way to find the revision you need is to
-						click on <guibutton>Show Log</guibutton>, as this will
-						list recent changes with their log comments. Select the
-						revision you require in the Show Log dialog, then
-						click on <guibutton>OK</guibutton>.
+						The easiest way to select the range of revisions you need
+						is to click on <guibutton>Show Log</guibutton>, as this
+						will list recent changes with their log comments.
+						If you want to merge the changes from a single revision, just
+						select that revision. If you want to merge changes from several
+						revisions, then select that range
+						(using the usual <keycap>Shift</keycap>-modifier).
+						Click on <guibutton>OK</guibutton> and the revision numbers
+						of the <guilabel>From revision</guilabel> and
+						<guilabel>To revision</guilabel> in the Merge dialog will
+						<emphasis>both</emphasis> be filled in for you.
 					</para>
 					<para>
 						If you have already merged some changes from this branch,
-						Hopefully you will have made a note of the last revision
+						hopefully you will have made a note of the last revision
 						merged in the log message when you committed the change.
 						In that case, you can use <guibutton>Show Log</guibutton>
 						for the Working Copy to trace that log message. Use the
@@ -124,10 +145,12 @@ Rev Comments
 				</listitem>
 				<listitem>
 					<para>
-						In the <guilabel>To Revision</guilabel> field enter the
+						If you have not used <guibutton>Show Log</guibutton> to
+						select the revision range, then you will need to set the
+						<guilabel>To Revision</guilabel> manually. Enter the
 						last revision number in the range you want to merge.
 						Often this will be the HEAD revision, although it doesn't
-						need to be - you just want to merge a single revision.
+						need to be - you may just want to merge a single revision.
 					</para>
 					<para>
 						If other people may be committing changes then be careful
@@ -163,19 +186,10 @@ Rev Comments
 			</ulink>
 		</para>
 		<para>
-			If you want to keep this branch up to date with the trunk, you should
-			immediately merge changes from trunk back to the this branch. Use
-			this method and local changes won't get in your way. Of course, you
-			should still avoid repeated merging of trunk changes, as explained above.
-		</para>
-		<para>
-			If you want to see what changes will be made by a merge and see where
-			possible conflicts may occur you can check the option
-			<guibutton>
-				Dry Run
-			</guibutton>.
-			This will force the merge command to do a merge, but <emphasis>not</emphasis>
-			modify the working copy at all.
+			Branch management is important. If you want to keep this branch up to
+			date with the trunk, you should be sure to merge often so that the
+			branch and trunk do not drift too far apart. Of course, you
+			should still avoid repeated merging of changes, as explained above.
 		</para>
 		<important>
 			<para>
@@ -188,7 +202,7 @@ Rev Comments
 		</important>
 	</sect2>
 
-	<sect2 id="tsvn-DUG-merge-3">
+	<sect2 id="tsvn-DUG-merge-2">
 		<title>Merging Two Different Trees</title>
 		<para>
 			This method covers the case when you have made a feature branch
@@ -201,12 +215,6 @@ Rev Comments
 			you would merge by comparing the branch with the trunk.
 		</para>
 		<para>
-			<!-- There may be a different version of the dialog for this case.
-			<figure id="tsvn-DUG-merge-dia-1">
-				<title>The Merge Dialog</title>
-				<graphic fileref="images/Merge.png"/>
-			</figure>
-			-->
 			To merge the feature branch back into the trunk you need to go to
 			a working copy of the trunk.
 			Select
@@ -250,6 +258,13 @@ Rev Comments
 						a commit since that synchronization, use the specific
 						revision number to avoid losing more recent commits.
 					</para>
+					<para>
+						You can also use <guibutton>Show Log</guibutton> to
+						select the revision. Note that in this case you are
+						not selecting a range of revisions, so the revision
+						you select there is what will actually appear in the
+						<guilabel>Revision</guilabel> field.
+					</para>
 				</listitem>
 				<listitem>
 					<para>
@@ -263,6 +278,28 @@ Rev Comments
 			because the new feature is now integrated into the trunk.
 			The feature branch is redundant and can be deleted
 			from the repository if required.
+		</para>
+	</sect2>
+
+	<sect2 id="tsvn-DUG-merge-3">
+		<title>Previewing Merge Results</title>
+		<para>
+			If you are uncertain about the merge operation, you may want to
+			preview what will happen do before you allow it to change your
+			working copy. There are two additional buttons to help you.
+		</para>
+		<para>
+			<guibutton>Unified Diff</guibutton> creates the diff file (remember
+			that merge is based on diff) and shows you which lines will be changed
+			in your working copy files. As this is a unified diff (patch) file it is
+			not always easy to read out of context, but for small scale changes it
+			is often helpful.
+		</para>
+		<para>
+			<guibutton>Dry Run</guibutton> performs the merge operation, but does
+			<emphasis>not</emphasis> modify the working copy at all.
+			It shows you a list of the files that will be changed
+			by a real merge, and notes those areas where conflicts will occur.
 		</para>
 	</sect2>
 </sect1>
