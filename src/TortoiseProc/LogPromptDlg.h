@@ -56,10 +56,6 @@ public:
 	CLogPromptDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CLogPromptDlg();
 
-private:
-	static DWORD WINAPI StatusThreadEntry(LPVOID pVoid);
-	DWORD StatusThread();
-
 // Dialog Data
 	enum { IDD = IDD_LOGPROMPT };
 
@@ -84,24 +80,24 @@ protected:
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	void Refresh();
 	DECLARE_MESSAGE_MAP()
-
-
 public:
 	CString			m_sLogMessage;
-	CString			m_sPath;
-	BOOL			m_bRecursive;
-
-private:
 	CSpellEdit		m_LogMessage;
 	CSVNStatusListCtrl		m_ListCtrl;
 	CHistoryCombo	m_OldLogs;
+	CString			m_sPath;
+
 	BOOL			m_bShowUnversioned;
+	BOOL			m_bRecursive;
 	BOOL			m_bBlock;
 	CBalloon		m_tooltips;
 	CRegDWORD		m_regAddBeforeCommit;
 	ProjectProperties		m_ProjectProperties;
+private:
 	HANDLE			m_hThread;
 	CFont			m_logFont;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
 };
+
+DWORD WINAPI StatusThread(LPVOID pVoid);

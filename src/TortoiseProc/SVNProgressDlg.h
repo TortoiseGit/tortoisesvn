@@ -22,6 +22,24 @@
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
+typedef enum
+{
+	Checkout = 1,
+	Update = 2,
+	Enum_Update = 2,
+	Commit = 3,
+	Add = 4,
+	Revert = 5,
+	Enum_Revert = 5,
+	Resolve = 6,
+	Import = 7,
+	Switch = 8,
+	Export = 9,
+	Merge = 10,
+	Enum_Merge = 10,
+	Copy = 11,
+	Relocate = 12
+} Command;
 
 /**
  * \ingroup TortoiseProc
@@ -48,30 +66,8 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CSVNProgressDlg : public CResizableDialog, SVN
+class CSVNProgressDlg : public CResizableDialog, public SVN
 {
-public:
-	// These names collide with functions in SVN
-	typedef enum
-	{
-		Checkout = 1,
-		Update = 2,
-		Enum_Update = 2,
-		Commit = 3,
-		Add = 4,
-		Revert = 5,
-		Enum_Revert = 5,
-		Resolve = 6,
-		Import = 7,
-		Switch = 8,
-		Export = 9,
-		Merge = 10,
-		Enum_Merge = 10,
-		Copy = 11,
-		Relocate = 12
-	} Command;
-
-
 	DECLARE_DYNAMIC(CSVNProgressDlg)
 
 public:
@@ -135,14 +131,7 @@ protected:
 	static int	m_nSortedColumn;
 	CStringList m_ExtStack;
 public:			//need to be public for the thread to access
-
-private:
-	static DWORD WINAPI ProgressThreadEntry(LPVOID pVoid);
-	DWORD ProgressThread();
 	virtual void OnOK();
-	void ReportSVNError() const;
-public:
-
 	/**
 	* Resizes the columns of the progress list so that the headings are visible.
 	*/
@@ -168,6 +157,5 @@ public:
 	int			iFirstResized;
 	BOOL		bSecondResized;
 	CString		m_sModName;
-private:
-	SVN* m_pSvn;
 };
+DWORD WINAPI ProgressThread(LPVOID pVoid);

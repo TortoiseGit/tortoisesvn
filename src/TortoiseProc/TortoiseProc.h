@@ -63,6 +63,8 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
+
+
 class CTortoiseProcApp : public CWinApp
 {
 public:
@@ -79,6 +81,7 @@ public:
 private:
 	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
 	BOOL CreatePatch(CString path, CString savepath = _T(""));
+
 
 	DECLARE_MESSAGE_MAP()
 private:

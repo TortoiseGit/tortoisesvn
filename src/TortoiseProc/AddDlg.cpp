@@ -134,7 +134,7 @@ void CAddDlg::OnOK()
 		{
 			if (m_addListCtrl.GetCheck(i))
 			{
-				file.WriteString(m_addListCtrl.GetListEntry(i)->GetPathString()+_T("\n"));
+				file.WriteString(m_addListCtrl.GetListEntry(i)->path+_T("\n"));
 			}
 		} 
 		file.Close();

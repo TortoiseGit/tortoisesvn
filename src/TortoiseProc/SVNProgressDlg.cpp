@@ -41,8 +41,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bRedEvents = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_nUpdateStartRev = -1;
-
-	m_pSvn = this;
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()
@@ -128,7 +126,7 @@ BOOL CSVNProgressDlg::Notify(const CString& path, svn_wc_notify_action_t action,
 
 	int count = m_ProgList.GetItemCount();
 
-	int iInsertedAt = m_ProgList.InsertItem(count, m_pSvn->GetActionText(action, content_state, prop_state));
+	int iInsertedAt = m_ProgList.InsertItem(count, GetActionText(action, content_state, prop_state));
 	if (iInsertedAt != -1)
 	{
 		if (action == svn_wc_notify_update_external)
@@ -376,7 +374,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
 	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &ProgressThreadEntry, this, 0, &dwThreadId))==0)
+	if ((m_hThread = CreateThread(NULL, 0, &ProgressThread, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_ICONERROR);
 	}
@@ -398,87 +396,78 @@ BOOL CSVNProgressDlg::OnInitDialog()
 }
 
 
-DWORD WINAPI CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
+DWORD WINAPI ProgressThread(LPVOID pVoid)
 {
+	CSVNProgressDlg*	pDlg;
+	pDlg = (CSVNProgressDlg*)pVoid;
+
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	return ((CSVNProgressDlg*)pVoid)->ProgressThread();
-}
-
-void 
-CSVNProgressDlg::ReportSVNError() const
-{
-	TRACE(_T("%s"), (LPCTSTR)m_pSvn->GetLastErrorMessage());
-	CMessageBox::Show(m_hWnd, m_pSvn->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-}
-
-DWORD CSVNProgressDlg::ProgressThread()
-{
 	int updateFileCounter = 0;
 
 	CString temp;
 	CString sWindowTitle;
 	CString sTempWindowTitle;
 
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
-	GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
+	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
+	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
 
-	m_bThreadRunning = TRUE;
-	iFirstResized = 0;
-	bSecondResized = FALSE;
-	switch (m_Command)
+	pDlg->m_bThreadRunning = TRUE;
+	pDlg->iFirstResized = 0;
+	pDlg->bSecondResized = FALSE;
+	switch (pDlg->m_Command)
 	{
 		case Checkout:			//no tempfile!
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
-			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
-			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Checkout(m_sUrl, m_sPath, m_Revision, m_IsTempFile /* temfile used as recursive/nonrecursive */))
+			sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sUrl)+_T(" - ")+sWindowTitle;
+			pDlg->SetWindowText(sTempWindowTitle);
+			if (!pDlg->Checkout(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_Revision, pDlg->m_IsTempFile /* temfile used as recursive/nonrecursive */))
 			{
-				ReportSVNError();
+				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
 			break;
 		case Import:			//no tempfile!
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
-			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;
-			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Import(m_sPath, m_sUrl, m_sMessage, true))
+			sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sPath)+_T(" - ")+sWindowTitle;
+			pDlg->SetWindowText(sTempWindowTitle);
+			if (!pDlg->Import(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_sMessage, true))
 			{
-				ReportSVNError();
+				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
 			break;
 		case Update:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_UPDATE);
-			SetWindowText(sWindowTitle);
-			if (m_IsTempFile)
+			pDlg->SetWindowText(sWindowTitle);
+			if (pDlg->m_IsTempFile)
 			{
 				try
 				{
 					// first check if we have more than just one target to update
-					CStdioFile f(m_sPath, CFile::typeBinary | CFile::modeRead); 
+					CStdioFile f(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead); 
 					int targetcount = 0;
 					while (f.ReadString(temp))
 						targetcount ++;
 					f.Close();
 					// open the temp file
-					CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead); 
+					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead); 
 					CString strLine = _T(""); // initialise the variable which holds each line's contents
 					CString sfile;
 					CStringA uuid;
 					std::map<CStringA, LONG> uuidmap;
-					SVNRev revstore = m_Revision;
+					SVNRev revstore = pDlg->m_Revision;
 					while (file.ReadString(strLine))
 					{
 						SVNStatus st;
 						LONG headrev = -1;
-						m_Revision = revstore;
-						if (m_Revision.IsHead())
+						pDlg->m_Revision = revstore;
+						if (pDlg->m_Revision.IsHead())
 						{
 							if ((targetcount > 1)&&((headrev = st.GetStatus(strLine, true)) != (-2)))
 							{
 								if (st.status->entry != NULL)
 								{
-									m_nUpdateStartRev = st.status->entry->cmt_rev;
+									pDlg->m_nUpdateStartRev = st.status->entry->cmt_rev;
 									if (st.status->entry->uuid)
 									{
 										uuid = st.status->entry->uuid;
@@ -487,10 +476,10 @@ DWORD CSVNProgressDlg::ProgressThread()
 											uuidmap[uuid] = headrev;
 										else
 											headrev = iter->second;
-										m_Revision = headrev;
+										pDlg->m_Revision = headrev;
 									} // if (st.status->entry->uuid)
 									else
-										m_Revision = headrev;
+										pDlg->m_Revision = headrev;
 								} // if (st.status->entry != NULL) 
 							} // if ((headrev = st.GetStatus(strLine)) != (-2)) 
 							else
@@ -498,24 +487,25 @@ DWORD CSVNProgressDlg::ProgressThread()
 								if ((headrev = st.GetStatus(strLine, FALSE)) != (-2))
 								{
 									if (st.status->entry != NULL)
-										m_nUpdateStartRev = st.status->entry->cmt_rev;
+										pDlg->m_nUpdateStartRev = st.status->entry->cmt_rev;
 								}
 							}
-						} // if (m_Revision.IsHead()) 
+						} // if (pDlg->m_Revision.IsHead()) 
 						TRACE(_T("update file %s\n"), (LPCTSTR)strLine);
 						CString sTempWindowTitle = CUtils::GetFileNameFromPath(strLine)+_T(" - ")+sWindowTitle;
-						SetWindowText(sTempWindowTitle);
-						if (!m_pSvn->Update(strLine, m_Revision, (m_sModName.Compare(_T("yes"))!=0)))
+						pDlg->SetWindowText(sTempWindowTitle);
+						if (!pDlg->Update(strLine, pDlg->m_Revision, (pDlg->m_sModName.Compare(_T("yes"))!=0)))
 						{
-							ReportSVNError();
+							TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
+							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
 						}
 						updateFileCounter++;
 						sfile = strLine;
 					} // while (file.ReadString(strLine)) 
 					file.Close();
-					DeleteFile(m_sPath);
-					m_sPath = sfile;		// the log would be shown for the last selected file/dir in the list
+					DeleteFile(pDlg->m_sPath);
+					pDlg->m_sPath = sfile;		// the log would be shown for the last selected file/dir in the list
 				}
 				catch (CFileException* pE)
 				{
@@ -529,42 +519,43 @@ DWORD CSVNProgressDlg::ProgressThread()
 				// after an update, show the user the log button, but only if only one single item was updated
 				// (either a file or a directory)
 				if (updateFileCounter == 1)
-					GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
-			} // if (m_IsTempFile) 
+					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+			} // if (pDlg->m_IsTempFile) 
 			else
 			{
 				//check the revision of the directory before the update
-				LONG rev = m_Revision;
+				LONG rev = pDlg->m_Revision;
 				SVNStatus st;
-				if (st.GetStatus(m_sPath) != (-2))
+				if (st.GetStatus(pDlg->m_sPath) != (-2))
 				{
 					if (st.status->entry != NULL)
 					{
-						m_nUpdateStartRev = st.status->entry->revision;
+						pDlg->m_nUpdateStartRev = st.status->entry->revision;
 					}
 				}
-				sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;
-				SetWindowText(sTempWindowTitle);
-				if (m_pSvn->Update(m_sPath, rev, true))
+				sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sPath)+_T(" - ")+sWindowTitle;
+				pDlg->SetWindowText(sTempWindowTitle);
+				if (pDlg->Update(pDlg->m_sPath, rev, true))
 				{
-					GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 					break;
 				}
 				else
 				{
-					ReportSVNError();
+					TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
+					CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
-				GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+				pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			}
 			break;
 		case Commit:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COMMIT);
-			SetWindowText(sWindowTitle);
-			if (m_IsTempFile)
+			pDlg->SetWindowText(sWindowTitle);
+			if (pDlg->m_IsTempFile)
 			{
 				try
 				{
-					CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead);
+					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 					CString strLine = _T("");
 					CString commitString = _T("");
 					BOOL isTag = FALSE;
@@ -576,7 +567,7 @@ DWORD CSVNProgressDlg::ProgressThread()
 						nTargets++;
 						if (bURLFetched == FALSE)
 						{
-							url = m_pSvn->GetURLFromPath(strLine);
+							url = pDlg->GetURLFromPath(strLine);
 							if (!url.IsEmpty())
 								bURLFetched = TRUE;
 							CString urllower = url;
@@ -591,29 +582,30 @@ DWORD CSVNProgressDlg::ProgressThread()
 					} // while (file.ReadString(strLine)) 
 					if (commitString.IsEmpty())
 					{
-						SetWindowText(sWindowTitle);
+						pDlg->SetWindowText(sWindowTitle);
 						temp.LoadString(IDS_MSGBOX_OK);
 
-						GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						pDlg->GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
+						pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 
-						m_bThreadRunning = FALSE;
-						GetDlgItem(IDOK)->EnableWindow(true);
+						pDlg->m_bThreadRunning = FALSE;
+						pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 						break;
 					}
 					if (isTag)
 					{
-						if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
+						if (CMessageBox::Show(pDlg->m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
 							break;
 					} // if (isTag)
 					sTempWindowTitle = CUtils::GetFileNameFromPath(commitString)+_T(" - ")+sWindowTitle;
-					SetWindowText(sTempWindowTitle);
-					if (!m_pSvn->Commit(commitString, m_sMessage, ((nTargets == 1)&&(m_Revision == 0))))
+					pDlg->SetWindowText(sTempWindowTitle);
+					if (!pDlg->Commit(commitString, pDlg->m_sMessage, ((nTargets == 1)&&(pDlg->m_Revision == 0))))
 					{
-						ReportSVNError();
-					} // if (!Commit(commitString, m_sMessage, true))
+						TRACE("%s", (LPCTSTR)pDlg->GetLastErrorMessage());
+						CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					} // if (!pDlg->Commit(commitString, pDlg->m_sMessage, true))
 					file.Close();
-					DeleteFile(m_sPath);
+					DeleteFile(pDlg->m_sPath);
 				}
 				catch (CFileException* pE)
 				{
@@ -626,31 +618,32 @@ DWORD CSVNProgressDlg::ProgressThread()
 			}
 			else
 			{
-				sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;
-				SetWindowText(sTempWindowTitle);
-				m_pSvn->Commit(m_sPath, m_sMessage, true);
+				sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sPath)+_T(" - ")+sWindowTitle;
+				pDlg->SetWindowText(sTempWindowTitle);
+				pDlg->Commit(pDlg->m_sPath, pDlg->m_sMessage, true);
 			}
 			break;
 		case Add:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
-			SetWindowText(sWindowTitle);
-			if (m_IsTempFile)
+			pDlg->SetWindowText(sWindowTitle);
+			if (pDlg->m_IsTempFile)
 			{
 				try
 				{
-					CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead);
+					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 					CString strLine = _T("");
-					while (file.ReadString(strLine)&&(!m_bCancelled))
+					while (file.ReadString(strLine)&&(!pDlg->m_bCancelled))
 					{
 						TRACE(_T("add file %s\n"), strLine);
-						if (!m_pSvn->Add(strLine, false))
+						if (!pDlg->Add(strLine, false))
 						{
-							ReportSVNError();
+							TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
+							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
 						}
 					}
 					file.Close();
-					DeleteFile(m_sPath);
+					DeleteFile(pDlg->m_sPath);
 				}
 				catch (CFileException* pE)
 				{
@@ -663,20 +656,20 @@ DWORD CSVNProgressDlg::ProgressThread()
 			}
 			else
 			{
-				m_pSvn->Commit(m_sPath, m_sMessage, true);
+				pDlg->Commit(pDlg->m_sPath, pDlg->m_sMessage, true);
 			}
 			break;
 		case Revert:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
-			SetWindowText(sWindowTitle);
-			if (m_IsTempFile)
+			pDlg->SetWindowText(sWindowTitle);
+			if (pDlg->m_IsTempFile)
 			{
 				CString sTargets;
 				try
 				{
-					CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead);
+					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 					CString strLine = _T("");
-					while (file.ReadString(strLine)&&(!m_bCancelled))
+					while (file.ReadString(strLine)&&(!pDlg->m_bCancelled))
 					{
 						if (sTargets.IsEmpty())
 							sTargets = strLine;
@@ -684,7 +677,7 @@ DWORD CSVNProgressDlg::ProgressThread()
 							sTargets = sTargets + _T("*") + strLine;
 					}
 					file.Close();
-					DeleteFile(m_sPath);
+					DeleteFile(pDlg->m_sPath);
 				}
 				catch (CFileException* pE)
 				{
@@ -694,28 +687,29 @@ DWORD CSVNProgressDlg::ProgressThread()
 					CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
 					pE->Delete();
 				}
-				if (!m_pSvn->Revert(sTargets, (m_sUrl.Compare(_T("recursive"))==0)))
+				if (!pDlg->Revert(sTargets, (pDlg->m_sUrl.Compare(_T("recursive"))==0)))
 				{
-					ReportSVNError();
+					TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
+					CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					break;
 				}
 			}
 			else
 			{
-				m_pSvn->Revert(m_sPath, true);
+				pDlg->Revert(pDlg->m_sPath, true);
 			}
 			break;
 		case Resolve:
 			{
 				sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
-				SetWindowText(sWindowTitle);
+				pDlg->SetWindowText(sWindowTitle);
 				//check if the file may still have conflict markers in it.
 				BOOL bMarkers = FALSE;
 				try
 				{
-					if (!PathIsDirectory(m_sPath))
+					if (!PathIsDirectory(pDlg->m_sPath))
 					{
-						CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead);
+						CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 						CString strLine = _T("");
 						while (file.ReadString(strLine))
 						{
@@ -726,7 +720,7 @@ DWORD CSVNProgressDlg::ProgressThread()
 							}
 						}
 						file.Close();
-					} // if (!PathIsDirectory(m_sPath)) 
+					} // if (!PathIsDirectory(pDlg->m_sPath)) 
 				} 
 				catch (CFileException* pE)
 				{
@@ -738,103 +732,103 @@ DWORD CSVNProgressDlg::ProgressThread()
 				}
 				if (bMarkers)
 				{
-					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
-						m_pSvn->Resolve(m_sPath, true);
+					if (CMessageBox::Show(pDlg->m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
+						pDlg->Resolve(pDlg->m_sPath, true);
 				} // if (bMarkers)
 				else
-					m_pSvn->Resolve(m_sPath, true);
+					pDlg->Resolve(pDlg->m_sPath, true);
 			}
 			break;
 		case Switch:
 			{
 				SVNStatus st;
 				sWindowTitle.LoadString(IDS_PROGRS_TITLE_SWITCH);
-				SetWindowText(sWindowTitle);
+				pDlg->SetWindowText(sWindowTitle);
 				LONG rev = 0;
-				if (st.GetStatus(m_sPath) != (-2))
+				if (st.GetStatus(pDlg->m_sPath) != (-2))
 				{
 					if (st.status->entry != NULL)
 					{
 						rev = st.status->entry->revision;
 					}
 				}
-				if (!m_pSvn->Switch(m_sPath, m_sUrl, m_Revision, true))
+				if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_Revision, true))
 				{
-					ReportSVNError();
+					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					break;
 				}
-				m_nUpdateStartRev = rev;
-				if ((m_RevisionEnd >= 0)&&(m_nUpdateStartRev >= 0)
-					&&((LONG)m_RevisionEnd > (LONG)m_nUpdateStartRev))
-					GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+				pDlg->m_nUpdateStartRev = rev;
+				if ((pDlg->m_RevisionEnd >= 0)&&(pDlg->m_nUpdateStartRev >= 0)
+					&&((LONG)pDlg->m_RevisionEnd > (LONG)pDlg->m_nUpdateStartRev))
+					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			}
 			break;
 		case Export:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
-			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
-			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Export(m_sUrl, m_sPath, m_Revision))
+			sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sUrl)+_T(" - ")+sWindowTitle;
+			pDlg->SetWindowText(sTempWindowTitle);
+			if (!pDlg->Export(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_Revision))
 			{
-				ReportSVNError();
+				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
 			break;
 		case Merge:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
-			SetWindowText(sWindowTitle);
-			if (m_sUrl.CompareNoCase(m_sMessage)==0)
+			pDlg->SetWindowText(sWindowTitle);
+			if (pDlg->m_sUrl.CompareNoCase(pDlg->m_sMessage)==0)
 			{
-				if (!m_pSvn->PegMerge(m_sUrl, m_Revision, m_RevisionEnd, 
-					SVN::PathIsURL(m_sUrl) ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
-					m_sPath, true, true, false, (m_sModName.CompareNoCase(_T("dryrun"))==0)))
+				if (!pDlg->PegMerge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_RevisionEnd, 
+					SVN::PathIsURL(pDlg->m_sUrl) ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
+					pDlg->m_sPath, true, true, false, (pDlg->m_sModName.CompareNoCase(_T("dryrun"))==0)))
 				{
-					ReportSVNError();
+					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
 			}
 			else
 			{
-				if (!m_pSvn->Merge(m_sUrl, m_Revision, m_sMessage, m_RevisionEnd, m_sPath, 
-					true, true, false, (m_sModName.CompareNoCase(_T("dryrun"))==0)))
+				if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_sMessage, pDlg->m_RevisionEnd, pDlg->m_sPath, 
+					true, true, false, (pDlg->m_sModName.CompareNoCase(_T("dryrun"))==0)))
 				{
-					ReportSVNError();
+					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
 			}
 			break;
 		case Copy:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
-			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Copy(m_sPath, m_sUrl, m_Revision, m_sMessage))
+			pDlg->SetWindowText(sWindowTitle);
+			if (!pDlg->Copy(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_sMessage))
 			{
-				ReportSVNError();
+				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				break;
 			}
 			CString sTemp;
 			sTemp.LoadString(IDS_PROGRS_COPY_WARNING);
-			CMessageBox::Show(m_hWnd, sTemp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+			CMessageBox::Show(pDlg->m_hWnd, sTemp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 			break;
 	}
 	temp.LoadString(IDS_PROGRS_TITLEFIN);
 	sWindowTitle = sWindowTitle + _T(" ") + temp;
-	SetWindowText(sWindowTitle);
+	pDlg->SetWindowText(sWindowTitle);
 
-	m_pSvn->ReleasePool();
+	pDlg->ReleasePool();
 
-	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
+	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 
-	m_bCancelled = TRUE;
-	m_bThreadRunning = FALSE;
+	pDlg->m_bCancelled = TRUE;
+	pDlg->m_bThreadRunning = FALSE;
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE) ||
-		m_bCloseOnEnd)
+		pDlg->m_bCloseOnEnd)
 	{
-		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!m_bRedEvents) || m_bCloseOnEnd) 
-			PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
+		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!pDlg->m_bRedEvents) || pDlg->m_bCloseOnEnd) 
+			pDlg->PostMessage(WM_COMMAND, 1, (LPARAM)pDlg->GetDlgItem(IDOK)->m_hWnd);
 	}
-	CString info = BuildInfoString();
-	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
-	ResizeColumns();
+	CString info = pDlg->BuildInfoString();
+	pDlg->GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
+	pDlg->ResizeColumns();
 	return 0;
 }
 
@@ -1021,7 +1015,7 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	for (int i=0; i<m_arData.GetCount(); i++)
 	{
 		Data * data = m_arData.GetAt(i);
-		m_ProgList.InsertItem(i, m_pSvn->GetActionText(data->action, data->content_state, data->prop_state));
+		m_ProgList.InsertItem(i, GetActionText(data->action, data->content_state, data->prop_state));
 		if (data->action != svn_wc_notify_update_completed)
 		{
 			m_ProgList.SetItemText(i, 1, data->path);
@@ -1053,8 +1047,8 @@ int CSVNProgressDlg::SortCompare(const void * pElem1, const void * pElem2)
 	{
 	case 0:		//action column
 		{
-			CString t1 = SVN::GetActionText(pData1->action, pData1->content_state, pData1->prop_state);
-			CString t2 = SVN::GetActionText(pData2->action, pData2->content_state, pData2->prop_state);
+			CString t1 = GetActionText(pData1->action, pData1->content_state, pData1->prop_state);
+			CString t2 = GetActionText(pData2->action, pData2->content_state, pData2->prop_state);
 			result = t1.Compare(t2);
 			if (result == 0)
 			{
@@ -1191,7 +1185,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								SVN svn;
 								if (!svn.Cat(data->path, m_nUpdateStartRev, tempfile))
 								{
-									ReportSVNError();
+									CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 									GetDlgItem(IDOK)->EnableWindow(TRUE);
 									break;
 								}
