@@ -1380,6 +1380,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 	TCHAR textbuf[255];
 	LPCTSTR resource = NULL;
 	DWORD layout = g_ShellCache.GetMenuLayout();
+	space = 6;
 #define SETSPACE(x) space = ((layout & (x)) ? 0 : 6)
 #define PREPENDSVN(x) if (layout & (x)) {_tcscpy(textbuf, _T("SVN "));_tcscat(textbuf, stringtablebuffer);_tcscpy(stringtablebuffer, textbuf);}
 	switch (id)
