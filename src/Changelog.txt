@@ -2,6 +2,7 @@
        path/URL having a dot in it could lead to a crash. (Stefan)
 - BUG: The language packs weren't used, even if checked in
        the settings dialog. (Stefan)
+- BUG: On NT4, the auth data wasn't saved correctly. (Stefan)
 
 Version 1.1.0 RC1
 - ADD: New button in the commit dialog which will 

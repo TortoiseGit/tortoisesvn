@@ -346,6 +346,7 @@ tsvn_simple_save_creds (svn_boolean_t *saved,
 {
 	svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)credentials;
 	apr_hash_t *creds_hash = NULL;
+	apr_hash_t *creds_hash2 = NULL;
 	const char *config_dir;
 	svn_error_t *err = NULL;
 
@@ -367,8 +368,17 @@ tsvn_simple_save_creds (svn_boolean_t *saved,
 		APR_HASH_KEY_STRING,
 		svn_string_create (creds->password, pool));
 	if (tsvn_write_auth_data(creds_hash, SVN_AUTH_CRED_SIMPLE, realmstring, pool) == TSVN_CRYPT_ERR)
-		err = svn_config_write_auth_data (creds_hash, SVN_AUTH_CRED_SIMPLE,
+	{
+		creds_hash2 = apr_hash_make (pool);
+		apr_hash_set (creds_hash2, TSVN_CLIENT__AUTHFILE_USERNAME_KEY,
+			APR_HASH_KEY_STRING,
+			svn_string_create (creds->username, pool));
+		apr_hash_set (creds_hash2, TSVN_CLIENT__AUTHFILE_PASSWORD_KEY,
+			APR_HASH_KEY_STRING,
+			svn_string_create (creds->password, pool));
+		err = svn_config_write_auth_data (creds_hash2, SVN_AUTH_CRED_SIMPLE,
 			realmstring, config_dir, pool);
+	}
 	svn_error_clear (err);
 	*saved = ! err;
 
