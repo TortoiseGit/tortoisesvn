@@ -1180,8 +1180,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (GetSelectedCount() == 1)
 					{
-						temp.LoadString(IDS_LOG_COMPAREWITHBASE);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+						if (entry->remotestatus <= svn_wc_status_normal)
+						{
+							temp.LoadString(IDS_LOG_COMPAREWITHBASE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+						}
 						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
@@ -1195,6 +1198,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UPDATE, temp);
 					if (GetSelectedCount() == 1)
 					{
+						temp.LoadString(IDS_LOG_POPUP_COMPARE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
 						temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
 					}
@@ -1513,19 +1518,23 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	if (PathIsDirectory(entry->path))
 		return;		//we also don't compare folders
 	CString path1;
-	CString path2 = SVN::GetPristinePath(entry->path);
+	CString path2;
+	CString path3;
+
+	if (entry->status > svn_wc_status_normal)
+		 path2 = SVN::GetPristinePath(entry->path);
 
 	if (entry->remotestatus > svn_wc_status_normal)
 	{
-		path2 = CUtils::GetTempFile();
+		path3 = CUtils::GetTempFile();
 
 		SVN svn;
-		if (!svn.Cat(entry->path, SVNRev::REV_HEAD, path2))
+		if (!svn.Cat(entry->path, SVNRev::REV_HEAD, path3))
 		{
 			CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
 		}
-		m_templist.Add(path2);
+		m_templist.Add(path3);
 	}
 
 	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path1, entry->path)))
@@ -1539,10 +1548,17 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 
 	CString name = CUtils::GetFileNameFromPath(entry->path);
 	CString ext = CUtils::GetFileExtFromPath(entry->path);
-	CString n1, n2;
+	CString n1, n2, n3;
 	n1.Format(IDS_DIFF_WCNAME, name);
 	n2.Format(IDS_DIFF_BASENAME, name);
-	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
+	n3.Format(IDS_DIFF_REMOTENAME, name);
+
+	if (path2.IsEmpty())
+		CUtils::StartDiffViewer(path1, path3, FALSE, n1, n3, ext);
+	else if (path3.IsEmpty())
+		CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
+	else
+		CUtils::StartExtMerge(path2, path3, path1, _T(""), n2, n3, n1);
 }
 
 CString CSVNStatusListCtrl::GetStatistics()
