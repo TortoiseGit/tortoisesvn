@@ -489,7 +489,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CRepoCreateDlg dlg;
 			if (dlg.DoModal() == IDOK)
 			{
-				if (GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE)
+				if ((dlg.RepoType.Compare(_T("bdb"))==0)&&(GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE))
 				{
 					if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATESHAREWARN, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
 					{
