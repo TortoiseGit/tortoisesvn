@@ -179,7 +179,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_BugtraqInfo.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
-	
+	m_LogMessage.SetMarginLine(CRegDWORD(_T("Software\\TortoiseSVN\\LogMessageMargin"), 80));
 	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
 	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
