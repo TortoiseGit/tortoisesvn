@@ -129,10 +129,18 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				} // if (sLine.Left(7).Compare(_T("Index: "))==0)
 				else
 				{
-					//the line
-					//Index: <filepath>
-					//was not found at the start of a filediff!
-					break;
+					if (nIndex > 0)
+					{
+						nIndex--;
+						state = 4;
+						if (chunks == NULL)
+						{
+							//the line
+							//Index: <filepath>
+							//was not found at the start of a filediff!
+							break;
+						}
+					}
 				}
 			} 
 		break;
