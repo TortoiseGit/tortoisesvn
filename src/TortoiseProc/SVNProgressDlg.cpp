@@ -56,6 +56,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_LOGBUTTON, OnBnClickedLogbutton)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SVNPROGRESS, OnNMCustomdrawSvnprogress)
 	ON_WM_CLOSE()
+	ON_NOTIFY(NM_DBLCLK, IDC_SVNPROGRESS, OnNMDblclkSvnprogress)
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -108,6 +109,7 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 	int iInsertedAt = m_ProgList.InsertItem(count, GetActionText(action, content_state, prop_state));
 	if (iInsertedAt != -1)
 	{
+		m_arPaths.Add(path);
 		if (action != svn_wc_notify_update_completed)
 		{
 			m_ProgList.SetItemText(iInsertedAt, 1, path);
@@ -632,5 +634,53 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		*pResult = CDRF_DODEFAULT;
 	}
 }
+
+void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	if (pNMLV->iItem < 0)
+		return;
+	svn_wc_notify_action_t action = (svn_wc_notify_action_t)m_arActions.GetAt(pNMLV->iItem);
+	svn_wc_notify_state_t content_state = (svn_wc_notify_state_t)m_arActionCStates.GetAt(pNMLV->iItem);
+	svn_wc_notify_state_t prop_state = (svn_wc_notify_state_t)m_arActionPStates.GetAt(pNMLV->iItem);
+	if ((action == svn_wc_notify_update_update) &&
+		((content_state == svn_wc_notify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted)))
+	{
+		SVNStatus status;
+		CString merge = m_arPaths.GetAt(pNMLV->iItem);
+		CString path = merge.Left(merge.ReverseFind('/'));
+		path = path + _T("/");
+		status.GetStatus(merge);
+		CString theirs;
+		CString mine;
+		CString base;
+
+		//we have the conflicted file (%merged)
+		//now look for the other required files
+		SVNStatus stat;
+		stat.GetStatus(merge);
+		if (stat.status->entry)
+		{
+			if (stat.status->entry->conflict_new)
+			{
+				theirs = stat.status->entry->conflict_new;
+				theirs = path + theirs;
+			}
+			if (stat.status->entry->conflict_old)
+			{
+				base = stat.status->entry->conflict_old;
+				base = path + base;
+			}
+			if (stat.status->entry->conflict_wrk)
+			{
+				mine = stat.status->entry->conflict_wrk;
+				mine = path + mine;
+			}
+		}
+		CUtils::StartExtMerge(base, theirs, mine, merge);
+	}
+}
+
 
 

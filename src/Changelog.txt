@@ -15,6 +15,10 @@
 - ADD: Several new commands for the repository
        browser. Also a new command in the context
        menu to start the repo browser. (Stefan)
+- ADD: If a conflict occurs during an update/merge
+       operation you can now just doubleclick on
+       the conflicted entry to start the external
+       merge program. (Stefan)
 
 Version 0.19
 - BUG: The conflicted files weren't always determined

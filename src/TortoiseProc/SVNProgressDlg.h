@@ -99,12 +99,23 @@ protected:
 	//implement the virtual methods from SVN base class
 	virtual BOOL Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
 	virtual BOOL Cancel();
+	virtual void OnCancel();
 
 	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	/**
+	 * Resizes the columns of the progress list so that the headings are visible.
+	 */
+	void ResizeColumns();
 
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedLogbutton();
+	afx_msg void OnBnClickedOk();
+	afx_msg void OnClose();
+	virtual void OnOK();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -119,25 +130,12 @@ public:			//need to be public for the thread to access
 	CDWordArray	m_arActions;
 	CDWordArray	m_arActionCStates;
 	CDWordArray	m_arActionPStates;
+	CStringArray m_arPaths;
 	LONG		m_nRevision;
 	LONG		m_nRevisionEnd;
 	BOOL		m_IsTempFile;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
 	CString		m_sModName;
-	afx_msg void OnBnClickedLogbutton();
-	afx_msg void OnBnClickedOk();
-protected:
-	virtual void OnOK();
-private:
-	/**
-	 * Resizes the columns of the progress list so that the headings are visible.
-	 */
-	void ResizeColumns();
-public:
-	afx_msg void OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnClose();
-protected:
-	virtual void OnCancel();
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);
