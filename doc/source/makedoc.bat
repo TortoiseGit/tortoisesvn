@@ -88,11 +88,9 @@ set _PDF_TARGET=%_OUTPUT%\%_APP%_%_LANG%.pdf
 set _HELP_TARGET=%_OUTPUT%\%_APP%_%_LANG%.chm
 
 if exist ..\..\bin\Release\bin\SubWCRev.exe (
-   ..\..\bin\Release\bin\SubWCRev.exe %_DOC_SRC%%_LANG% %_DOC_SRC%%_LANG%\tortoisemerge.tmpl %_DOC_SRC%%_LANG%\tortoisemerge.xml
-   ..\..\bin\Release\bin\SubWCRev.exe %_DOC_SRC%%_LANG% %_DOC_SRC%%_LANG%\tortoisesvn.tmpl %_DOC_SRC%%_LANG%\tortoisesvn.xml
+   ..\..\bin\Release\bin\SubWCRev.exe %_DOC_SRC%%_LANG% %_DOC_SRC%Pubdate.tmpl %_DOC_SRC%%_LANG%\Pubdate.xml
 ) else (
-   copy %_DOC_SRC%%_LANG%\tortoisemerge.tmpl %_DOC_SRC%%_LANG%\tortoisemerge.xml /Y
-   copy %_DOC_SRC%%_LANG%\tortoisesvn.tmpl %_DOC_SRC%%_LANG%\tortoisesvn.xml /Y
+   copy %_DOC_SRC%Pubdate.tmpl %_DOC_SRC%%_LANG%\Pubdate.xml /Y
 )
 
 rem exit if no source exists

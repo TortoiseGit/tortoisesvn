@@ -1,10 +1,10 @@
-﻿<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book SYSTEM "../../dtd/dblite.dtd">
-<book id="tsvn" lang="de" xmlns:xi="http://www.w3.org/2003/XInclude">
+<book id="tsvn" lang="en" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>TortoiseSVN</title>
-	<subtitle>Ein Subversion Client für Windows</subtitle>
+	<subtitle>A Subversion client for Windows</subtitle>
 	<bookinfo>
-		<edition>Erste</edition>
+		<edition>First</edition>
 		<authorgroup>
 			<author>
 				<firstname>Stefan</firstname>
@@ -14,8 +14,12 @@
 				<firstname>Lübbe</firstname>
 				<surname>Onken</surname>
 			</author>
+			<author>
+				<firstname>Simon</firstname>
+				<surname>Large</surname>
+			</author>
 		</authorgroup>
-		<pubdate>$WCDATE$</pubdate>
+	    <xi:include href="./pubdate.xml"/>
 	</bookinfo>
 	<!-- include external files -->
 	<xi:include href="./tsvn_preface.xml"/>
