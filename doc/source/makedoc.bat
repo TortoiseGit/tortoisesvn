@@ -60,7 +60,7 @@ set _DOC_XML_SRC=%_APP%.xml
 set _DOC_XSL_FO=%_DOC_SRC%\pdfdoc.xsl
 set _DOC_XSL_HELP=%_DOC_SRC%\htmlhelp.xsl
 set _DOC_XSL_HTMLSINGLE=%XSLROOT%\html\docbook.xsl
-set _DOC_XSL_HTMLCHUNK=%XSLROOT%html\chunk.xsl
+set _DOC_XSL_HTMLCHUNK=%XSLROOT%\html\chunk.xsl
 
 set _HELP_RESOURCE=..\..\..\src\%_APP%\resource.h
 
