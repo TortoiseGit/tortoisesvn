@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -14,12 +14,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#define _WIN32_IE 0x0400	// for CPropertyPageEx, CPropertySheetEx
-#define _WIN32_WINNT 0x0500	// for CPropertyPageEx, CPropertySheetEx
-#include <afxwin.h>         // MFC core and standard components
-#include <afxext.h>         // MFC extensions
-#include <afxcmn.h>         // MFC support for Windows Common Controls
-
+#include "stdafx.h"
 #include "ResizableSheetEx.h"
 
 #ifdef _DEBUG
@@ -38,8 +33,18 @@ inline void CResizableSheetEx::PrivateConstruct()
 	m_bEnableSaveRestore = FALSE;
 	m_bSavePage = FALSE;
 	m_dwGripTempState = 1;
+	m_bLayoutDone = FALSE;
 }
 
+inline BOOL CResizableSheetEx::IsWizard() const
+{
+	return (m_psh.dwFlags & PSH_WIZARD);
+}
+
+inline BOOL CResizableSheetEx::IsWizard97() const
+{
+	return (m_psh.dwFlags & (PSH_IE4WIZARD97 | PSH_IE5WIZARD97));
+}
 
 CResizableSheetEx::CResizableSheetEx()
 {
@@ -74,36 +79,32 @@ BEGIN_MESSAGE_MAP(CResizableSheetEx, CPropertySheetEx)
 	ON_WM_GETMINMAXINFO()
 	ON_WM_SIZE()
 	ON_WM_DESTROY()
-	ON_WM_CREATE()
 	ON_WM_ERASEBKGND()
+	ON_WM_NCCREATE()
 	//}}AFX_MSG_MAP
 	ON_NOTIFY_REFLECT_EX(PSN_SETACTIVE, OnPageChanging)
+	ON_REGISTERED_MESSAGE(WMU_RESIZESUPPORT, OnResizeSupport)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CResizableSheetEx message handlers
 
-int CResizableSheetEx::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+BOOL CResizableSheetEx::OnNcCreate(LPCREATESTRUCT lpCreateStruct) 
 {
-	if (CPropertySheetEx::OnCreate(lpCreateStruct) == -1)
-		return -1;
-	
-	// keep client area
-	CRect rect;
-	GetClientRect(&rect);
-	// set resizable style
-	ModifyStyle(DS_MODALFRAME, WS_POPUP | WS_THICKFRAME);
-	// adjust size to reflect new style
-	::AdjustWindowRectEx(&rect, GetStyle(),
-		::IsMenu(GetMenu()->GetSafeHmenu()), GetExStyle());
-	SetWindowPos(NULL, 0, 0, rect.Width(), rect.Height(), SWP_FRAMECHANGED|
-		SWP_NOMOVE|SWP_NOZORDER|SWP_NOACTIVATE|SWP_NOREPOSITION);
+	if (!CPropertySheetEx::OnNcCreate(lpCreateStruct))
+		return FALSE;
+
+	// child dialogs don't want resizable border or size grip,
+	// nor they can handle the min/max size constraints
+	BOOL bChild = lpCreateStruct->style & WS_CHILD;
 
 	// create and init the size-grip
-	if (!CreateSizeGrip())
-		return -1;
+	if (!CreateSizeGrip(!bChild))
+		return FALSE;
 
-	return 0;
+	MakeResizable(lpCreateStruct);
+	
+	return TRUE;
 }
 
 BOOL CResizableSheetEx::OnInitDialog() 
@@ -117,11 +118,45 @@ BOOL CResizableSheetEx::OnInitDialog()
 
 	// initialize layout
 	PresetLayout();
-
-	// prevent flickering
-	GetTabControl()->ModifyStyle(0, WS_CLIPSIBLINGS);
+	m_bLayoutDone = TRUE;
 
 	return bResult;
+}
+
+LRESULT CResizableSheetEx::OnResizeSupport(WPARAM wParam, LPARAM lParam)
+{
+	switch (wParam)
+	{
+	case RSZSUP_SHEETPAGEEXHACK:
+		{
+			// a window object must be still associated to the page handle
+			// but MFC subclassing has been turned off to allow the system
+			// to subclass it first, so we can catch all the messages
+			CWnd* pWnd = CWnd::FromHandlePermanent((HWND)lParam);
+			if (pWnd == NULL)
+				return 0;
+
+			// suclass the window again and refresh page and sheet
+			pWnd->SubclassWindow(pWnd->Detach());
+			RefreshLayout();
+			pWnd->SendMessage(WM_SIZE);
+			Invalidate();
+			UnlockWindowUpdate();
+
+			if (pWnd->IsWindowVisible())
+			{
+				// send lost PSN_SETACTIVE notification message
+				CPropertyPage* pPage = DYNAMIC_DOWNCAST(CPropertyPage, pWnd);
+				if (pPage != NULL)
+					SetActivePage(pPage);
+			}
+		}
+		break;
+
+	default:
+		return FALSE;
+	}
+	return TRUE;
 }
 
 void CResizableSheetEx::OnDestroy() 
@@ -129,7 +164,8 @@ void CResizableSheetEx::OnDestroy()
 	if (m_bEnableSaveRestore)
 	{
 		SaveWindowRect(m_sSection, m_bRectOnly);
-		SavePage();
+		if (m_bSavePage)
+			SavePage(m_sSection);
 	}
 
 	RemoveAllAnchors();
@@ -187,7 +223,7 @@ void CResizableSheetEx::PresetLayout()
 	}
 }
 
-BOOL CResizableSheetEx::ArrangeLayoutCallback(LayoutInfo &layout)
+BOOL CResizableSheetEx::ArrangeLayoutCallback(LAYOUTINFO &layout) const
 {
 	if (layout.nCallbackID != 1)	// we only added 1 callback
 		return CResizableLayout::ArrangeLayoutCallback(layout);
@@ -213,9 +249,9 @@ BOOL CResizableSheetEx::ArrangeLayoutCallback(LayoutInfo &layout)
 		if (!(GetActivePage()->m_psp.dwFlags & PSP_HIDEHEADER))
 		{
 			// add header vertical offset
-			CRect rectLine;
-			GetDlgItem(ID_WIZLINEHDR)->GetWindowRect(&rectLine);
-			::MapWindowPoints(NULL, m_hWnd, (LPPOINT)&rectLine, 2);
+			CRect rectLine, rectSheet;
+			GetTotalClientRect(&rectSheet);
+			GetAnchorPosition(ID_WIZLINEHDR, rectSheet, rectLine);
 
 			layout.sizeMarginTL.cy = rectLine.bottom;
 		}
@@ -229,8 +265,18 @@ BOOL CResizableSheetEx::ArrangeLayoutCallback(LayoutInfo &layout)
 		CRect rectPage, rectSheet;
 		GetTotalClientRect(&rectSheet);
 
-		VERIFY(GetAnchorPosition(pTab->m_hWnd, rectSheet, rectPage));
+		if (!GetAnchorPosition(pTab->m_hWnd, rectSheet, rectPage))
+			return FALSE; // no page yet
+
+		// temporarily resize the tab control to calc page size
+		CRect rectSave;
+		pTab->GetWindowRect(rectSave);
+		::MapWindowPoints(NULL, m_hWnd, (LPPOINT)&rectSave, 2);
+		pTab->SetRedraw(FALSE);
+		pTab->MoveWindow(rectPage, FALSE);
 		pTab->AdjustRect(FALSE, &rectPage);
+		pTab->MoveWindow(rectSave, FALSE);
+		pTab->SetRedraw(TRUE);
 
 		// set margins
 		layout.sizeMarginTL = rectPage.TopLeft() - rectSheet.TopLeft();
@@ -238,8 +284,8 @@ BOOL CResizableSheetEx::ArrangeLayoutCallback(LayoutInfo &layout)
 	}
 
 	// set anchor types
-	layout.sizeTypeTL = TOP_LEFT;
-	layout.sizeTypeBR = BOTTOM_RIGHT;
+	layout.anchorTypeTL = TOP_LEFT;
+	layout.anchorTypeBR = BOTTOM_RIGHT;
 
 	// use this layout info
 	return TRUE;
@@ -260,6 +306,14 @@ void CResizableSheetEx::OnSize(UINT nType, int cx, int cy)
 	// update grip and layout
 	UpdateSizeGrip();
 	ArrangeLayout();
+
+	if (IsWizard97())
+	{
+		// refresh header area
+		CRect rect;
+		GetHeaderRect(rect);
+		InvalidateRect(rect, FALSE);
+	}
 }
 
 BOOL CResizableSheetEx::OnPageChanging(NMHDR* /*pNotifyStruct*/, LRESULT* /*pResult*/)
@@ -273,22 +327,128 @@ BOOL CResizableSheetEx::OnPageChanging(NMHDR* /*pNotifyStruct*/, LRESULT* /*pRes
 
 BOOL CResizableSheetEx::OnEraseBkgnd(CDC* pDC) 
 {
-	// Windows XP doesn't like clipping regions ...try this!
-	EraseBackground(pDC);
+	if (ClipChildren(pDC, FALSE))
+	{
+		// when clipping, remove header from clipping area
+		if (IsWizard97())
+		{
+			// clip header area out
+			CRect rect;
+			GetHeaderRect(rect);
+			pDC->ExcludeClipRect(rect);
+		}
+	}
+
+	BOOL bRet = CPropertySheetEx::OnEraseBkgnd(pDC);
+
+	ClipChildren(pDC, TRUE);
+
+	return bRet;
+}
+
+BOOL CResizableSheetEx::CalcSizeExtra(HWND /*hWndChild*/, CSize sizeChild, CSize &sizeExtra)
+{
+	CTabCtrl* pTab = GetTabControl();
+	if (!pTab)
+		return FALSE;
+
+	// get margins of tabcontrol
+	CRect rectMargins;
+	if (!GetAnchorMargins(pTab->m_hWnd, sizeChild, rectMargins))
+		return FALSE;
+
+	// get margin caused by tabcontrol
+	CRect rectTabMargins(0,0,0,0);
+
+	// get tab position after resizing and calc page rect
+	CRect rectPage, rectSheet;
+	GetTotalClientRect(&rectSheet);
+
+	if (!GetAnchorPosition(pTab->m_hWnd, rectSheet, rectPage))
+		return FALSE; // no page yet
+
+	// temporarily resize the tab control to calc page size
+	CRect rectSave;
+	pTab->GetWindowRect(rectSave);
+	::MapWindowPoints(NULL, m_hWnd, (LPPOINT)&rectSave, 2);
+	pTab->SetRedraw(FALSE);
+	pTab->MoveWindow(rectPage, FALSE);
+	pTab->AdjustRect(TRUE, &rectTabMargins);
+	pTab->MoveWindow(rectSave, FALSE);
+	pTab->SetRedraw(TRUE);
+
+	// add non-client size
+	::AdjustWindowRectEx(&rectTabMargins, GetStyle(), !(GetStyle() & WS_CHILD) &&
+		::IsMenu(GetMenu()->GetSafeHmenu()), GetExStyle());
+
+	// compute extra size
+	sizeExtra = rectMargins.TopLeft() + rectMargins.BottomRight() +
+		rectTabMargins.Size();
 	return TRUE;
-
-/*	ClipChildren(pDC);	// old-method (for safety)
-
-	return CPropertySheetEx::OnEraseBkgnd(pDC);
-*/
 }
 
 void CResizableSheetEx::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI) 
 {
 	MinMaxInfo(lpMMI);
+
+	CTabCtrl* pTab = GetTabControl();
+	if (!pTab)
+		return;
+
+	int nCount = GetPageCount();
+	for (int idx = 0; idx < nCount; ++idx)
+	{
+		if (IsWizard())	// wizard mode
+		{
+			// use pre-calculated margins
+			CRect rectExtra(-CPoint(m_sizePageTL), -CPoint(m_sizePageBR));
+			// add non-client size
+			::AdjustWindowRectEx(&rectExtra, GetStyle(), !(GetStyle() & WS_CHILD) &&
+				::IsMenu(GetMenu()->GetSafeHmenu()), GetExStyle());
+			ChainMinMaxInfo(lpMMI, *GetPage(idx), rectExtra.Size());
+		}
+		else if (IsWizard97())	// wizard 97
+		{
+			// use pre-calculated margins
+			CRect rectExtra(-CPoint(m_sizePageTL), -CPoint(m_sizePageBR));
+
+			if (!(GetPage(idx)->m_psp.dwFlags & PSP_HIDEHEADER))
+			{
+				// add header vertical offset
+				CRect rectLine, rectSheet;
+				GetTotalClientRect(&rectSheet);
+				GetAnchorPosition(ID_WIZLINEHDR, rectSheet, rectLine);
+
+				rectExtra.top = -rectLine.bottom;
+			}
+			// add non-client size
+			::AdjustWindowRectEx(&rectExtra, GetStyle(), !(GetStyle() & WS_CHILD) &&
+				::IsMenu(GetMenu()->GetSafeHmenu()), GetExStyle());
+			ChainMinMaxInfo(lpMMI, *GetPage(idx), rectExtra.Size());
+		}
+		else	// tab mode
+		{
+			ChainMinMaxInfoCB(lpMMI, *GetPage(idx));
+		}
+	}
 }
 
 // protected members
+
+void CResizableSheetEx::GetHeaderRect(LPRECT lpRect)
+{
+	CWnd* pWizLineHdr = GetDlgItem(ID_WIZLINEHDR);
+	if (pWizLineHdr != NULL && pWizLineHdr->IsWindowVisible())
+	{
+		pWizLineHdr->GetWindowRect(lpRect);
+		::MapWindowPoints(NULL, m_hWnd, (LPPOINT)lpRect, 2);
+		LONG bottom = lpRect->top;
+		GetClientRect(lpRect);
+		lpRect->bottom = bottom;
+	}
+	else
+		::SetRectEmpty(lpRect);
+}
 
 int CResizableSheetEx::GetMinWidth()
 {
@@ -337,44 +497,9 @@ void CResizableSheetEx::EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly, BO
 
 	// restore immediately
 	LoadWindowRect(pszSection, bRectOnly);
-	LoadPage();
-}
-
-// private memebers
-
-// used to save/restore active page
-// either in the registry or a private .INI file
-// depending on your application settings
-
-#define ACTIVEPAGE 	_T("ActivePage")
-
-void CResizableSheetEx::SavePage()
-{
-	if (!m_bSavePage)
-		return;
-
-	// saves active page index, zero (the first) if problems
-	// cannot use GetActivePage, because it always fails
-
-	CTabCtrl *pTab = GetTabControl();
-	int page = 0;
-
-	if (pTab != NULL) 
-		page = pTab->GetCurSel();
-	if (page < 0)
-		page = 0;
-
-	AfxGetApp()->WriteProfileInt(m_sSection, ACTIVEPAGE, page);
-}
-
-void CResizableSheetEx::LoadPage()
-{
-	// restore active page, zero (the first) if not found
-	int page = AfxGetApp()->GetProfileInt(m_sSection, ACTIVEPAGE, 0);
-	
-	if (m_bSavePage)
+	if (bWithPage)
 	{
-		SetActivePage(page);
+		LoadPage(pszSection);
 		ArrangeLayout();	// needs refresh
 	}
 }
@@ -382,4 +507,17 @@ void CResizableSheetEx::LoadPage()
 void CResizableSheetEx::RefreshLayout()
 {
 	SendMessage(WM_SIZE);
+}
+
+LRESULT CResizableSheetEx::WindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
+{
+	if (message != WM_NCCALCSIZE || wParam == 0 || !m_bLayoutDone)
+		return CPropertySheetEx::WindowProc(message, wParam, lParam);
+
+	// specifying valid rects needs controls already anchored
+	LRESULT lResult = 0;
+	HandleNcCalcSize(FALSE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	lResult = CPropertySheetEx::WindowProc(message, wParam, lParam);
+	HandleNcCalcSize(TRUE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	return lResult;
 }

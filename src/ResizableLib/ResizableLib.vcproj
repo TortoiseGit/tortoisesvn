@@ -31,6 +31,7 @@
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="TRUE"
+				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
 				PrecompiledHeaderThrough="stdafx.h"
 				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
@@ -38,7 +39,8 @@
 				ObjectFile="$(IntDir)/"
 				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
 				WarningLevel="4"
-				SuppressStartupBanner="TRUE"/>
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="TRUE"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
@@ -78,8 +80,10 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
-				BasicRuntimeChecks="3"
+				BasicRuntimeChecks="0"
 				RuntimeLibrary="3"
+				DisableLanguageExtensions="FALSE"
+				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
 				PrecompiledHeaderThrough="stdafx.h"
 				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
@@ -88,6 +92,7 @@
 				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
 				WarningLevel="4"
 				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="4"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -134,6 +139,7 @@
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="TRUE"
+				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
 				PrecompiledHeaderThrough="stdafx.h"
 				PrecompiledHeaderFile="$(IntDir)/$(TargetName).pch"
@@ -141,7 +147,8 @@
 				ObjectFile="$(IntDir)/"
 				ProgramDataBaseFileName="$(IntDir)/vc70.pdb"
 				WarningLevel="4"
-				SuppressStartupBanner="TRUE"/>
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="TRUE"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
@@ -177,6 +184,12 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
+				RelativePath=".\ResizableComboBox.cpp">
+			</File>
+			<File
+				RelativePath=".\ResizableComboLBox.cpp">
+			</File>
+			<File
 				RelativePath=".\ResizableDialog.cpp">
 			</File>
 			<File
@@ -205,51 +218,27 @@
 			</File>
 			<File
 				RelativePath=".\ResizablePageEx.cpp">
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release_MBCS|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\ResizableSheet.cpp">
 			</File>
 			<File
 				RelativePath=".\ResizableSheetEx.cpp">
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release_MBCS|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"/>
-				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\ResizableSheetState.cpp">
+			</File>
+			<File
+				RelativePath=".\ResizableSplitterWnd.cpp">
 			</File>
 			<File
 				RelativePath=".\ResizableState.cpp">
+			</File>
+			<File
+				RelativePath=".\ResizableVersion.cpp">
+			</File>
+			<File
+				RelativePath=".\ResizableWndState.cpp">
 			</File>
 			<File
 				RelativePath=".\StdAfx.cpp">
@@ -276,6 +265,12 @@
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
+			<File
+				RelativePath=".\ResizableComboBox.h">
+			</File>
+			<File
+				RelativePath=".\ResizableComboLBox.h">
+			</File>
 			<File
 				RelativePath=".\ResizableDialog.h">
 			</File>
@@ -319,24 +314,29 @@
 				RelativePath=".\ResizableSheetEx.h">
 			</File>
 			<File
+				RelativePath=".\ResizableSheetState.h">
+			</File>
+			<File
+				RelativePath=".\ResizableSplitterWnd.h">
+			</File>
+			<File
 				RelativePath=".\ResizableState.h">
+			</File>
+			<File
+				RelativePath=".\ResizableVersion.h">
+			</File>
+			<File
+				RelativePath=".\ResizableWndState.h">
 			</File>
 			<File
 				RelativePath=".\StdAfx.h">
 			</File>
 		</Filter>
-		<Filter
-			Name="Doc"
-			Filter="">
-			<File
-				RelativePath=".\Docs\DoDoxygen.bat">
-			</File>
-			<File
-				RelativePath=".\Docs\doxyfile.txt">
-			</File>
-		</Filter>
 		<File
 			RelativePath=".\Artistic-License.txt">
+		</File>
+		<File
+			RelativePath=".\ChangeLog">
 		</File>
 	</Files>
 	<Globals>

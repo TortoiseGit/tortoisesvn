@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -42,6 +42,7 @@ BEGIN_MESSAGE_MAP(CResizableFrame, CFrameWnd)
 	//{{AFX_MSG_MAP(CResizableFrame)
 	ON_WM_GETMINMAXINFO()
 	ON_WM_DESTROY()
+	ON_WM_NCCREATE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -56,29 +57,7 @@ void CResizableFrame::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI)
 	if (pView == NULL)
 		return;
 
-	// get the extra size from view to frame
-	CRect rectClient, rectWnd;
-	GetWindowRect(rectWnd);
-	RepositionBars(0, 0xFFFF, AFX_IDW_PANE_FIRST, reposQuery, rectClient);
-	CSize sizeExtra = rectWnd.Size() - rectClient.Size();
-
-	// ask the view for track size
-	MINMAXINFO mmiView = *lpMMI;
-	pView->SendMessage(WM_GETMINMAXINFO, 0, (LPARAM)&mmiView);
-	mmiView.ptMaxTrackSize = sizeExtra + mmiView.ptMaxTrackSize;
-	mmiView.ptMinTrackSize = sizeExtra + mmiView.ptMinTrackSize;
-
-	// min size is the largest
-	lpMMI->ptMinTrackSize.x = __max(lpMMI->ptMinTrackSize.x,
-		mmiView.ptMinTrackSize.x);
-	lpMMI->ptMinTrackSize.y = __max(lpMMI->ptMinTrackSize.y,
-		mmiView.ptMinTrackSize.y);
-
-	// max size is the shortest
-	lpMMI->ptMaxTrackSize.x = __min(lpMMI->ptMaxTrackSize.x,
-		mmiView.ptMaxTrackSize.x);
-	lpMMI->ptMaxTrackSize.y = __min(lpMMI->ptMaxTrackSize.y,
-		mmiView.ptMaxTrackSize.y);
+	ChainMinMaxInfo(lpMMI, this, pView);
 }
 
 // NOTE: this must be called after setting the layout
@@ -100,4 +79,27 @@ void CResizableFrame::OnDestroy()
 		SaveWindowRect(m_sSection, m_bRectOnly);
 
 	CFrameWnd::OnDestroy();
+}
+
+BOOL CResizableFrame::OnNcCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (!CFrameWnd::OnNcCreate(lpCreateStruct))
+		return FALSE;
+
+	MakeResizable(lpCreateStruct);
+
+	return TRUE;
+}
+
+LRESULT CResizableFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
+{
+	if (message != WM_NCCALCSIZE || wParam == 0)
+		return CFrameWnd::WindowProc(message, wParam, lParam);
+
+	// specifying valid rects needs controls already anchored
+	LRESULT lResult = 0;
+	HandleNcCalcSize(FALSE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	lResult = CFrameWnd::WindowProc(message, wParam, lParam);
+	HandleNcCalcSize(TRUE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	return lResult;
 }

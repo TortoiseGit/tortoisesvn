@@ -7,8 +7,8 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -22,7 +22,7 @@
 #include "ResizableLayout.h"
 #include "ResizableGrip.h"
 #include "ResizableMinMax.h"
-#include "ResizableState.h"
+#include "ResizableSheetState.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // ResizableSheet.h : header file
@@ -30,7 +30,7 @@
 
 class CResizableSheet : public CPropertySheet, public CResizableLayout,
 						public CResizableGrip, public CResizableMinMax,
-						public CResizableState
+						public CResizableSheetState
 {
 	DECLARE_DYNAMIC(CResizableSheet)
 
@@ -52,6 +52,7 @@ private:
 
 	// layout vars
 	CSize m_sizePageTL, m_sizePageBR;
+	BOOL m_bLayoutDone;
 
 	// internal status
 	CString m_sSection;			// section name (identifies a parent window)
@@ -64,46 +65,48 @@ public:
 	//{{AFX_VIRTUAL(CResizableSheet)
 	public:
 	virtual BOOL OnInitDialog();
+	protected:
+	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	//}}AFX_VIRTUAL
 	protected:
 
 // Implementation
 public:
-	void RefreshLayout();
 	virtual ~CResizableSheet();
 
 // used internally
 private:
-	void PresetLayout();
 	void PrivateConstruct();
-	void SavePage();
-	void LoadPage();
 
-	BOOL IsWizard() { return (m_psh.dwFlags & PSH_WIZARD); }
+	BOOL IsWizard() const;
 
 // callable from derived classes
 protected:
+	void PresetLayout();
+	void RefreshLayout();
+
 	// section to use in app's profile
 	void EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly = FALSE,
 		BOOL bWithPage = FALSE);
 	int GetMinWidth();	// minimum width to display all buttons
 
 
-	virtual CWnd* GetResizableWnd()
+	virtual CWnd* GetResizableWnd() const
 	{
 		// make the layout know its parent window
-		return this;
+		return CWnd::FromHandle(m_hWnd);
 	};
 
 // Generated message map functions
 protected:
-	virtual BOOL ArrangeLayoutCallback(LayoutInfo& layout);
+	virtual BOOL CalcSizeExtra(HWND hWndChild, CSize sizeChild, CSize& sizeExtra);
+	virtual BOOL ArrangeLayoutCallback(LAYOUTINFO& layout) const;
 	//{{AFX_MSG(CResizableSheet)
 	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnDestroy();
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
 	//}}AFX_MSG
 	afx_msg BOOL OnPageChanging(NMHDR* pNotifyStruct, LRESULT* pResult);
 	DECLARE_MESSAGE_MAP()

@@ -1,11 +1,11 @@
-#if !defined(AFX_RESIZABLEPAGEEX_H__INCLUDED_)
-#define AFX_RESIZABLEPAGEEX_H__INCLUDED_
+#if !defined(AFX_RESIZABLECOMBOBOX_H__CAEDF06D_C4F5_49E4_A783_AD7D894CF9A0__INCLUDED_)
+#define AFX_RESIZABLECOMBOBOX_H__CAEDF06D_C4F5_49E4_A783_AD7D894CF9A0__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
 
-// ResizablePageEx.h : header file
+// ResizableComboBox.h : header file
 //
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -21,59 +21,56 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#include "ResizableLayout.h"
-#include "ResizableMinMax.h"
+#include "ResizableComboLBox.h"
 
 /////////////////////////////////////////////////////////////////////////////
-// CResizablePageEx window
+// CResizableComboBox window
 
-class CResizablePageEx : public CPropertyPageEx, public CResizableLayout,
-						public CResizableMinMax
+class CResizableComboBox : public CComboBox
 {
-	DECLARE_DYNCREATE(CResizablePageEx)
+	friend class CResizableComboLBox;
 
 // Construction
 public:
-	CResizablePageEx();
-	CResizablePageEx(UINT nIDTemplate, UINT nIDCaption = 0, UINT nIDHeaderTitle = 0, UINT nIDHeaderSubTitle = 0);
-	CResizablePageEx(LPCTSTR lpszTemplateName, UINT nIDCaption = 0, UINT nIDHeaderTitle = 0, UINT nIDHeaderSubTitle = 0);
+	CResizableComboBox();
 
 // Attributes
 public:
+
+protected:
+	CResizableComboLBox m_ctrlListBox;
 
 // Operations
 public:
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CResizablePageEx)
+	//{{AFX_VIRTUAL(CResizableComboBox)
 	protected:
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+	virtual void PreSubclassWindow();
 	//}}AFX_VIRTUAL
 
 // Implementation
 public:
-	virtual ~CResizablePageEx();
+	virtual ~CResizableComboBox();
 
-// callable from derived classes
 protected:
+	RECT m_rectDropDown;
+	BOOL m_bClipMaxHeight;
+	BOOL m_bIntegralHeight;
+	int m_iExtent;
 
-	virtual CWnd* GetResizableWnd() const
-	{
-		// make the layout know its parent window
-		return CWnd::FromHandle(m_hWnd);
-	};
+	void InitHorizontalExtent();
+	void UpdateHorizontalExtent(LPCTSTR szText);
+	int MakeIntegralHeight(const int height);
 
 // Generated message map functions
 protected:
-	//{{AFX_MSG(CResizablePageEx)
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
-	virtual BOOL OnInitDialog();
-	afx_msg void OnDestroy();
+	//{{AFX_MSG(CResizableComboBox)
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	//}}AFX_MSG
+
 	DECLARE_MESSAGE_MAP()
 };
 
@@ -82,4 +79,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_RESIZABLEPAGEEX_H__INCLUDED_)
+#endif // !defined(AFX_RESIZABLECOMBOBOX_H__CAEDF06D_C4F5_49E4_A783_AD7D894CF9A0__INCLUDED_)

@@ -1,11 +1,10 @@
-#if !defined(AFX_RESIZABLEPAGEEX_H__INCLUDED_)
-#define AFX_RESIZABLEPAGEEX_H__INCLUDED_
+#if !defined(AFX_RESIZABLESPLITTERWND_H__CF301D1D_8984_4FA9_9AB3_E573731DC667__INCLUDED_)
+#define AFX_RESIZABLESPLITTERWND_H__CF301D1D_8984_4FA9_9AB3_E573731DC667__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-
-// ResizablePageEx.h : header file
+// ResizableSplitterWnd.h : header file
 //
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -21,22 +20,18 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#include "ResizableLayout.h"
 #include "ResizableMinMax.h"
 
 /////////////////////////////////////////////////////////////////////////////
-// CResizablePageEx window
+// CResizableSplitterWnd frame with splitter
 
-class CResizablePageEx : public CPropertyPageEx, public CResizableLayout,
-						public CResizableMinMax
+class CResizableSplitterWnd : public CSplitterWnd, public CResizableMinMax
 {
-	DECLARE_DYNCREATE(CResizablePageEx)
+	DECLARE_DYNAMIC(CResizableSplitterWnd)
 
 // Construction
 public:
-	CResizablePageEx();
-	CResizablePageEx(UINT nIDTemplate, UINT nIDCaption = 0, UINT nIDHeaderTitle = 0, UINT nIDHeaderSubTitle = 0);
-	CResizablePageEx(LPCTSTR lpszTemplateName, UINT nIDCaption = 0, UINT nIDHeaderTitle = 0, UINT nIDHeaderSubTitle = 0);
+	CResizableSplitterWnd();
 
 // Attributes
 public:
@@ -46,33 +41,16 @@ public:
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CResizablePageEx)
-	protected:
-	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+	//{{AFX_VIRTUAL(CResizableSplitterWnd)
 	//}}AFX_VIRTUAL
 
 // Implementation
 public:
-	virtual ~CResizablePageEx();
+	virtual ~CResizableSplitterWnd();
 
-// callable from derived classes
-protected:
-
-	virtual CWnd* GetResizableWnd() const
-	{
-		// make the layout know its parent window
-		return CWnd::FromHandle(m_hWnd);
-	};
-
-// Generated message map functions
-protected:
-	//{{AFX_MSG(CResizablePageEx)
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	// Generated message map functions
+	//{{AFX_MSG(CResizableSplitterWnd)
 	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
-	virtual BOOL OnInitDialog();
-	afx_msg void OnDestroy();
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
@@ -82,4 +60,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_RESIZABLEPAGEEX_H__INCLUDED_)
+#endif // !defined(AFX_RESIZABLESPLITTERWND_H__CF301D1D_8984_4FA9_9AB3_E573731DC667__INCLUDED_)

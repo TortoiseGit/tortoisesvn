@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -69,7 +69,7 @@ protected:
 	BOOL SetSizeGripBkMode(int nBkMode);		// like CDC::SetBkMode
 	void SetSizeGripShape(BOOL bTriangular);
 
-	virtual CWnd* GetResizableWnd() = 0;
+	virtual CWnd* GetResizableWnd() const = 0;
 
 public:
 	CResizableGrip();

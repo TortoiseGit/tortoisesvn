@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -16,7 +16,7 @@
 
 #include "stdafx.h"
 #include "ResizableLayout.h"
-#include "ResizableMsgSupport.inl"
+#include "ResizableVersion.h"
 
 #ifdef _DEBUG
 #undef THIS_FILE
@@ -36,7 +36,7 @@ static char THIS_FILE[]=__FILE__;
 // symbol's name suggests. So now we're forced to use another symbol!
 #define _BS_TYPEMASK 0x0000000FL
 
-void CResizableLayout::AddAnchor(HWND hWnd, CSize sizeTypeTL, CSize sizeTypeBR)
+void CResizableLayout::AddAnchor(HWND hWnd, ANCHOR anchorTypeTL, ANCHOR anchorTypeBR)
 {
 	CWnd* pParent = GetResizableWnd();
 
@@ -44,13 +44,6 @@ void CResizableLayout::AddAnchor(HWND hWnd, CSize sizeTypeTL, CSize sizeTypeBR)
 	ASSERT(::IsWindow(hWnd));
 	// must be child of parent window
 	ASSERT(::IsChild(pParent->GetSafeHwnd(), hWnd));
-	// top-left anchor must be valid
-	ASSERT(sizeTypeTL != NOANCHOR);
-
-	// get control's window class
-	CString sClassName;
-	GetClassName(hWnd, sClassName.GetBufferSetLength(MAX_PATH), MAX_PATH);
-	sClassName.ReleaseBuffer();
 
 	// get parent window's rect
 	CRect rectParent;
@@ -66,22 +59,22 @@ void CResizableLayout::AddAnchor(HWND hWnd, CSize sizeTypeTL, CSize sizeTypeBR)
 	// go calculate margins
 	CSize sizeMarginTL, sizeMarginBR;
 
-	if (sizeTypeBR == NOANCHOR)
-		sizeTypeBR = sizeTypeTL;
-	
 	// calculate margin for the top-left corner
 
-	sizeMarginTL.cx = rectChild.left - rectParent.Width() * sizeTypeTL.cx / 100;
-	sizeMarginTL.cy = rectChild.top - rectParent.Height() * sizeTypeTL.cy / 100;
+	sizeMarginTL.cx = rectChild.left - rectParent.Width() * anchorTypeTL.cx / 100;
+	sizeMarginTL.cy = rectChild.top - rectParent.Height() * anchorTypeTL.cy / 100;
 	
 	// calculate margin for the bottom-right corner
 
-	sizeMarginBR.cx = rectChild.right - rectParent.Width() * sizeTypeBR.cx / 100;
-	sizeMarginBR.cy = rectChild.bottom - rectParent.Height() * sizeTypeBR.cy / 100;
+	sizeMarginBR.cx = rectChild.right - rectParent.Width() * anchorTypeBR.cx / 100;
+	sizeMarginBR.cy = rectChild.bottom - rectParent.Height() * anchorTypeBR.cy / 100;
 
 	// prepare the structure
-	LayoutInfo layout(hWnd, sizeTypeTL, sizeMarginTL,
-		sizeTypeBR, sizeMarginBR, sClassName);
+	LAYOUTINFO layout(hWnd, anchorTypeTL, sizeMarginTL,
+		anchorTypeBR, sizeMarginBR);
+
+	// get control's window class
+	GetClassName(hWnd, layout.sWndClass, MAX_PATH);
 
 	// initialize resize properties (overridable)
 	InitResizeProperties(layout);
@@ -103,12 +96,12 @@ void CResizableLayout::AddAnchorCallback(UINT nCallbackID)
 	// it can however use a non-callback control, which is updated before
 
 	// add to the list
-	LayoutInfo layout;
+	LAYOUTINFO layout;
 	layout.nCallbackID = nCallbackID;
 	m_listLayoutCB.AddTail(layout);
 }
 
-BOOL CResizableLayout::ArrangeLayoutCallback(CResizableLayout::LayoutInfo& /*layout*/)
+BOOL CResizableLayout::ArrangeLayoutCallback(LAYOUTINFO& /*layout*/) const
 {
 	ASSERT(FALSE);
 	// must be overridden, if callback is used
@@ -116,15 +109,20 @@ BOOL CResizableLayout::ArrangeLayoutCallback(CResizableLayout::LayoutInfo& /*lay
 	return FALSE;	// no output data
 }
 
-void CResizableLayout::ArrangeLayout()
+void CResizableLayout::ArrangeLayout() const
 {
 	// common vars
 	UINT uFlags;
-	LayoutInfo layout;
+	LAYOUTINFO layout;
 	CRect rectParent, rectChild;
-	GetTotalClientRect(&rectParent); // get parent window's rect
 	int count = m_listLayout.GetCount();
 	int countCB = m_listLayoutCB.GetCount();
+
+	if (count + countCB == 0)
+		return;
+
+	// get parent window's rect
+	GetTotalClientRect(&rectParent);
 
 	// reposition child windows
 	HDWP hdwp = ::BeginDeferWindowPos(count + countCB);
@@ -173,8 +171,8 @@ void CResizableLayout::ArrangeLayout()
 	::EndDeferWindowPos(hdwp);
 }
 
-void CResizableLayout::ClipChildWindow(const CResizableLayout::LayoutInfo& layout,
-									   CRgn* pRegion)
+void CResizableLayout::ClipChildWindow(const LAYOUTINFO& layout,
+									   CRgn* pRegion) const
 {
 	// obtain window position
 	CRect rect;
@@ -206,7 +204,7 @@ void CResizableLayout::ClipChildWindow(const CResizableLayout::LayoutInfo& layou
 		pRegion->CombineRgn(pRegion, &rgn, RGN_OR);
 }
 
-void CResizableLayout::GetClippingRegion(CRgn* pRegion)
+void CResizableLayout::GetClippingRegion(CRgn* pRegion) const
 {
 	CWnd* pWnd = GetResizableWnd();
 
@@ -225,7 +223,7 @@ void CResizableLayout::GetClippingRegion(CRgn* pRegion)
 	pRegion->CreateRectRgnIndirect(&rect);
 
 	// clip only anchored controls
-	LayoutInfo layout;
+	LAYOUTINFO layout;
 	POSITION pos = m_listLayout.GetHeadPosition();
 	while (pos != NULL)
 	{
@@ -253,52 +251,61 @@ void CResizableLayout::GetClippingRegion(CRgn* pRegion)
 		pRegion->OffsetRgn(-1,0);
 }
 
-void CResizableLayout::EraseBackground(CDC* pDC)
+// enable/restore clipping on the specified DC when appropriate
+BOOL CResizableLayout::ClipChildren(CDC* pDC, BOOL bUndo)
 {
+#if (_WIN32_WINNT >= 0x0501)
+	// clipping not necessary when double-buffering enabled
+	if (real_WIN32_WINNT >= 0x501)
+		return FALSE;
+#endif
+
+	HDC hDC = pDC->GetSafeHdc();
 	HWND hWnd = GetResizableWnd()->GetSafeHwnd();
 
-	// retrieve the background brush
-	HBRUSH hBrush = NULL;
+	m_nOldClipRgn = -1; // invalid region by default
 
-	// is this a dialog box?
-	// (using class atom is quickier than using the class name)
-	ATOM atomWndClass = (ATOM)::GetClassLong(hWnd, GCW_ATOM);
-	if (atomWndClass == (ATOM)0x8002)
+	// Some controls (such as transparent toolbars and standard controls
+	// with XP theme enabled) send a WM_ERASEBKGND msg to the parent
+	// to draw themselves, in which case we must not enable clipping.
+
+	// We check that the window associated with the DC is the
+	// resizable window and not a child control.
+
+	if (!bUndo && (hWnd == ::WindowFromDC(hDC)))
 	{
-		// send a message to the dialog box
-		hBrush = (HBRUSH)::SendMessage(hWnd, WM_CTLCOLORDLG,
-			(WPARAM)pDC->GetSafeHdc(), (LPARAM)hWnd);
+		// save old DC clipping region
+		m_nOldClipRgn = ::GetClipRgn(hDC, m_hOldClipRgn);
+
+		// clip out supported child windows
+		CRgn rgnClip;
+		GetClippingRegion(&rgnClip);
+		::ExtSelectClipRgn(hDC, rgnClip, RGN_AND);
+
+		return TRUE;
 	}
-	else
+
+	// restore old clipping region, only if modified and valid
+	if (bUndo && m_nOldClipRgn >= 0)
 	{
-		// take the background brush from the window's class
-		hBrush = (HBRUSH)::GetClassLong(hWnd, GCL_HBRBACKGROUND);
+		if (m_nOldClipRgn == 1)
+			::SelectClipRgn(hDC, m_hOldClipRgn);
+		else
+			::SelectClipRgn(hDC, NULL);
+		
+		return TRUE;
 	}
 
-	// fill the clipped background
-	CRgn rgn;
-	GetClippingRegion(&rgn);
-
-	::FillRgn(pDC->GetSafeHdc(), rgn, hBrush);
+	return FALSE;
 }
 
-// support legacy code (will disappear in future versions)
-void CResizableLayout::ClipChildren(CDC* pDC)
-{
-	CRgn rgn;
-	GetClippingRegion(&rgn);
-	// the clipping region is in device units
-	rgn.OffsetRgn(-pDC->GetWindowOrg());
-	pDC->SelectClipRgn(&rgn);
-}
-
-void CResizableLayout::GetTotalClientRect(LPRECT lpRect)
+void CResizableLayout::GetTotalClientRect(LPRECT lpRect) const
 {
 	GetResizableWnd()->GetClientRect(lpRect);
 }
 
-BOOL CResizableLayout::NeedsRefresh(const CResizableLayout::LayoutInfo& layout,
-									const CRect& rectOld, const CRect& rectNew)
+BOOL CResizableLayout::NeedsRefresh(const LAYOUTINFO& layout,
+								const CRect& rectOld, const CRect& rectNew) const
 {
 	if (layout.bMsgSupport)
 	{
@@ -320,7 +327,7 @@ BOOL CResizableLayout::NeedsRefresh(const CResizableLayout::LayoutInfo& layout,
 	BOOL bRefresh = FALSE;
 
 	// window classes that need refresh when resized
-	if (layout.sWndClass == WC_STATIC)
+	if (0 == lstrcmp(layout.sWndClass, WC_STATIC))
 	{
 		DWORD style = ::GetWindowLong(layout.hWnd, GWL_STYLE);
 
@@ -357,15 +364,16 @@ BOOL CResizableLayout::NeedsRefresh(const CResizableLayout::LayoutInfo& layout,
 			bRefresh = TRUE;
 			break;
 		}
+		return bRefresh;
 	}
 
 	// window classes that don't redraw client area correctly
 	// when the hor scroll pos changes due to a resizing
 	BOOL bHScroll = FALSE;
-	if (layout.sWndClass == WC_LISTBOX)
+	if (0 == lstrcmp(layout.sWndClass, WC_LISTBOX))
 		bHScroll = TRUE;
 
-	// fix for horizontally scrollable windows
+	// fix for horizontally scrollable windows, if wider
 	if (bHScroll && (nDiffWidth > 0))
 	{
 		// get max scroll position
@@ -375,7 +383,7 @@ BOOL CResizableLayout::NeedsRefresh(const CResizableLayout::LayoutInfo& layout,
 		if (::GetScrollInfo(layout.hWnd, SB_HORZ, &info))
 		{
 			// subtract the page size
-			info.nMax -= __max(info.nPage-1,0);
+			info.nMax -= __max(info.nPage - 1, 0);
 		}
 
 		// resizing will cause the text to scroll on the right
@@ -390,7 +398,7 @@ BOOL CResizableLayout::NeedsRefresh(const CResizableLayout::LayoutInfo& layout,
 	return bRefresh;
 }
 
-BOOL CResizableLayout::LikesClipping(const CResizableLayout::LayoutInfo& layout)
+BOOL CResizableLayout::LikesClipping(const LAYOUTINFO& layout) const
 {
 	if (layout.bMsgSupport)
 	{
@@ -402,9 +410,7 @@ BOOL CResizableLayout::LikesClipping(const CResizableLayout::LayoutInfo& layout)
 	DWORD style = ::GetWindowLong(layout.hWnd, GWL_STYLE);
 
 	// skip windows that wants background repainted
-	if (layout.sWndClass == TOOLBARCLASSNAME && (style & TBSTYLE_TRANSPARENT))
-		return FALSE;
-	else if (layout.sWndClass == WC_BUTTON)
+	if (0 == lstrcmp(layout.sWndClass, WC_BUTTON))
 	{
 		CRect rect;
 		switch (style & _BS_TYPEMASK)
@@ -416,6 +422,7 @@ BOOL CResizableLayout::LikesClipping(const CResizableLayout::LayoutInfo& layout)
 			// ownerdraw buttons must return correct hittest code
 			// to notify their transparency to the system and this library
 			::GetWindowRect(layout.hWnd, &rect);
+			::SendMessage(layout.hWnd, WM_NCCALCSIZE, FALSE, (LPARAM)&rect);
 			if ( HTTRANSPARENT == ::SendMessage(layout.hWnd,
 				WM_NCHITTEST, 0, MAKELPARAM(rect.left, rect.top)) )
 				return FALSE;
@@ -423,14 +430,13 @@ BOOL CResizableLayout::LikesClipping(const CResizableLayout::LayoutInfo& layout)
 		}
 		return TRUE;
 	}
-	else if (layout.sWndClass == WC_STATIC)
+	else if (0 == lstrcmp(layout.sWndClass, WC_STATIC))
 	{
 		switch (style & SS_TYPEMASK)
 		{
 		case SS_LEFT:
 		case SS_CENTER:
 		case SS_RIGHT:
-		case SS_SIMPLE:
 		case SS_LEFTNOWORDWRAP:
 			// text
 		case SS_BLACKRECT:
@@ -461,8 +467,8 @@ BOOL CResizableLayout::LikesClipping(const CResizableLayout::LayoutInfo& layout)
 	return TRUE;
 }
 
-void CResizableLayout::CalcNewChildPosition(const CResizableLayout::LayoutInfo& layout,
-								const CRect &rectParent, CRect &rectChild, UINT& uFlags)
+void CResizableLayout::CalcNewChildPosition(const LAYOUTINFO& layout,
+						const CRect &rectParent, CRect &rectChild, UINT& uFlags) const
 {
 	CWnd* pParent = GetResizableWnd();
 
@@ -472,12 +478,12 @@ void CResizableLayout::CalcNewChildPosition(const CResizableLayout::LayoutInfo& 
 	CRect rectNew;
 
 	// calculate new top-left corner
-	rectNew.left = layout.sizeMarginTL.cx + rectParent.Width() * layout.sizeTypeTL.cx / 100;
-	rectNew.top = layout.sizeMarginTL.cy + rectParent.Height() * layout.sizeTypeTL.cy / 100;
+	rectNew.left = layout.sizeMarginTL.cx + rectParent.Width() * layout.anchorTypeTL.cx / 100;
+	rectNew.top = layout.sizeMarginTL.cy + rectParent.Height() * layout.anchorTypeTL.cy / 100;
 	
 	// calculate new bottom-right corner
-	rectNew.right = layout.sizeMarginBR.cx + rectParent.Width() * layout.sizeTypeBR.cx / 100;
-	rectNew.bottom = layout.sizeMarginBR.cy + rectParent.Height() * layout.sizeTypeBR.cy / 100;
+	rectNew.right = layout.sizeMarginBR.cx + rectParent.Width() * layout.anchorTypeBR.cx / 100;
+	rectNew.bottom = layout.sizeMarginBR.cy + rectParent.Height() * layout.anchorTypeBR.cy / 100;
 
 	// adjust position, if client area has been scrolled
 	rectNew.OffsetRect(rectParent.TopLeft());
@@ -499,7 +505,31 @@ void CResizableLayout::CalcNewChildPosition(const CResizableLayout::LayoutInfo& 
 	rectChild = rectNew;
 }
 
-void CResizableLayout::InitResizeProperties(CResizableLayout::LayoutInfo &layout)
+BOOL CResizableLayout::GetAnchorMargins(HWND hWnd, const CSize &sizeChild, CRect &rectMargins) const
+{
+	POSITION pos;
+	if (!m_mapLayout.Lookup(hWnd, pos))
+		return FALSE;
+
+	const LAYOUTINFO& layout = m_listLayout.GetAt(pos);
+
+	// augmented size, relative to anchor points
+	CSize size = sizeChild + layout.sizeMarginTL - layout.sizeMarginBR;
+
+	// percent of parent size occupied by this control
+	CSize percent(layout.anchorTypeBR.cx - layout.anchorTypeTL.cx,
+		layout.anchorTypeBR.cy - layout.anchorTypeTL.cy);
+
+	// calculate total margins
+	rectMargins.left = size.cx * layout.anchorTypeTL.cx / percent.cx + layout.sizeMarginTL.cx;
+	rectMargins.top = size.cy * layout.anchorTypeTL.cy / percent.cy + layout.sizeMarginTL.cy;
+	rectMargins.right = size.cx * (100 - layout.anchorTypeBR.cx) / percent.cx - layout.sizeMarginBR.cx;
+	rectMargins.bottom = size.cy * (100 - layout.anchorTypeBR.cy) / percent.cy - layout.sizeMarginBR.cy;
+
+	return TRUE;
+}
+
+void CResizableLayout::InitResizeProperties(LAYOUTINFO &layout) const
 {
 	// check if custom window supports this library
 	// (properties must be correctly set by the window)
@@ -513,5 +543,78 @@ void CResizableLayout::InitResizeProperties(CResizableLayout::LayoutInfo &layout
 		layout.properties.bCachedLikesClipping = LikesClipping(layout);
 		// refresh property is assumed as dynamic
 		layout.properties.bAskRefresh = TRUE;
+	}
+}
+
+void CResizableLayout::MakeResizable(LPCREATESTRUCT lpCreateStruct)
+{
+	if (lpCreateStruct->style & WS_CHILD)
+		return;
+
+	CWnd* pWnd = GetResizableWnd();
+
+#if(_WIN32_WINNT >= 0x0501)
+	// enable double-buffering on supported platforms
+	pWnd->ModifyStyleEx(0, WS_EX_COMPOSITED);
+#endif
+
+	if (!(lpCreateStruct->style & WS_THICKFRAME))
+	{
+		// set resizable style
+		pWnd->ModifyStyle(DS_MODALFRAME, WS_THICKFRAME);
+		// keep client area
+		CRect rect(CPoint(lpCreateStruct->x, lpCreateStruct->y),
+			CSize(lpCreateStruct->cx, lpCreateStruct->cy));
+		pWnd->SendMessage(WM_NCCALCSIZE, FALSE, (LPARAM)&rect);
+		// adjust size to reflect new style
+		::AdjustWindowRectEx(&rect, pWnd->GetStyle(),
+			::IsMenu(pWnd->GetMenu()->GetSafeHmenu()), pWnd->GetExStyle());
+		pWnd->SetWindowPos(NULL, 0, 0, rect.Width(), rect.Height(),
+			SWP_NOSENDCHANGING|SWP_NOMOVE|SWP_NOZORDER|SWP_NOACTIVATE|SWP_NOREPOSITION);
+		// update dimensions
+		lpCreateStruct->cx = rect.Width();
+		lpCreateStruct->cy = rect.Height();
+	}
+}
+
+void CResizableLayout::HandleNcCalcSize(BOOL bAfterDefault, LPNCCALCSIZE_PARAMS lpncsp, LRESULT &lResult)
+{
+	// prevent useless complication when size is not changing
+	// prevent recursion when resetting the window region
+	if (m_bNoRecursion || (lpncsp->lppos->flags & SWP_NOSIZE))
+		return;
+
+	if (!bAfterDefault)
+	{
+		// save a copy before default handler gets called
+		m_rectClientBefore = lpncsp->rgrc[2];
+	}
+	else // after default WM_NCCALCSIZE msg processing
+	{
+		if (lResult != 0)
+		{
+			// default processing already uses an advanced policy
+			return;
+		}
+		// default calculated client rect
+		RECT &rectClientAfter = lpncsp->rgrc[0];
+
+		// intersection between old and new client area is to be preserved
+		// set source and destination rects to this intersection
+		RECT &rectPreserve = lpncsp->rgrc[1];
+		::IntersectRect(&rectPreserve, &rectClientAfter, &m_rectClientBefore);
+		lpncsp->rgrc[2] = rectPreserve;
+
+		lResult = WVR_VALIDRECTS;
+
+// TODO: only if themed frame. what about custom wnd region?
+		CWnd* pWnd = GetResizableWnd();
+		DWORD dwStyle = pWnd->GetStyle();
+		if ((dwStyle & (WS_CAPTION|WS_MAXIMIZE)) == WS_CAPTION)
+		{
+			m_bNoRecursion = TRUE;
+			pWnd->SetWindowRgn(NULL, FALSE);
+			m_bNoRecursion = FALSE;
+		}
 	}
 }

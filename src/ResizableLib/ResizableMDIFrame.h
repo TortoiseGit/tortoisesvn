@@ -8,8 +8,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -21,13 +21,14 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #include "ResizableMinMax.h"
-#include "ResizableState.h"
+#include "ResizableWndState.h"
+#include "ResizableLayout.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CResizableMDIFrame frame
 
 class CResizableMDIFrame : public CMDIFrameWnd, public CResizableMinMax,
-						public CResizableState
+						public CResizableWndState, public CResizableLayout
 {
 	DECLARE_DYNCREATE(CResizableMDIFrame)
 protected:
@@ -42,6 +43,8 @@ public:
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CResizableMDIFrame)
+	protected:
+	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	//}}AFX_VIRTUAL
 
 // Implementation
@@ -50,10 +53,10 @@ protected:
 
 	BOOL EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly = FALSE);
 
-	virtual CWnd* GetResizableWnd()
+	virtual CWnd* GetResizableWnd() const
 	{
 		// make the layout know its parent window
-		return this;
+		return CWnd::FromHandle(m_hWnd);
 	};
 
 private:
@@ -69,6 +72,8 @@ protected:
 	//{{AFX_MSG(CResizableMDIFrame)
 	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
 	afx_msg void OnDestroy();
+	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnWindowPosChanging(WINDOWPOS FAR* lpwndpos);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

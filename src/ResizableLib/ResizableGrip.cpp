@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -171,6 +171,11 @@ LRESULT CResizableGrip::CSizeGrip::WindowProc(UINT message,
 		// (standard grip returns DLGC_WANTARROWS, like any standard scrollbar)
 		return DLGC_STATIC;
 
+	case WM_SETFOCUS:
+		// fix to prevent the control to gain focus, if set directly
+		// (for example when it's the only one control in a dialog)
+		return 0;
+
 	case WM_NCHITTEST:
 		// choose proper cursor shape
 		if (IsRTL())
@@ -220,9 +225,12 @@ LRESULT CResizableGrip::CSizeGrip::WindowProc(UINT message,
 		break;
 
 	case WM_PAINT:
+	case WM_PRINTCLIENT:
 		if (m_bTransparent)
 		{
-			CPaintDC dc(this);
+			PAINTSTRUCT ps;
+			CDC* pDC = (message == WM_PAINT && wParam == 0) ?
+				BeginPaint(&ps) : CDC::FromHandle((HDC)wParam);
 
 			// select bitmaps
 			CBitmap *pOldGrip, *pOldMask;
@@ -231,19 +239,21 @@ LRESULT CResizableGrip::CSizeGrip::WindowProc(UINT message,
 			pOldMask = m_dcMask.SelectObject(&m_bmMask);
 
 			// obtain original grip bitmap, make the mask and prepare masked bitmap
-			CScrollBar::WindowProc(WM_PAINT, (WPARAM)m_dcGrip.GetSafeHdc(), lParam);
+			CScrollBar::WindowProc(message, (WPARAM)m_dcGrip.GetSafeHdc(), lParam);
 			m_dcGrip.SetBkColor(m_dcGrip.GetPixel(0, 0));
 			m_dcMask.BitBlt(0, 0, m_size.cx, m_size.cy, &m_dcGrip, 0, 0, SRCCOPY);
 			m_dcGrip.BitBlt(0, 0, m_size.cx, m_size.cy, &m_dcMask, 0, 0, 0x00220326);
 			
 			// draw transparently
-			dc.BitBlt(0, 0, m_size.cx, m_size.cy, &m_dcMask, 0, 0, SRCAND);
-			dc.BitBlt(0, 0, m_size.cx, m_size.cy, &m_dcGrip, 0, 0, SRCPAINT);
+			pDC->BitBlt(0, 0, m_size.cx, m_size.cy, &m_dcMask, 0, 0, SRCAND);
+			pDC->BitBlt(0, 0, m_size.cx, m_size.cy, &m_dcGrip, 0, 0, SRCPAINT);
 
 			// unselect bitmaps
 			m_dcGrip.SelectObject(pOldGrip);
 			m_dcMask.SelectObject(pOldMask);
 
+			if (message == WM_PAINT && wParam == 0)
+				EndPaint(&ps);
 			return 0;
 		}
 		break;

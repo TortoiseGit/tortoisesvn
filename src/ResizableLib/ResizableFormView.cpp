@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -30,7 +30,6 @@ IMPLEMENT_DYNAMIC(CResizableFormView, CFormView)
 
 inline void CResizableFormView::PrivateConstruct()
 {
-	m_bInitDone = FALSE;
 	m_dwGripTempState = GHR_SCROLLBAR | GHR_ALIGNMENT | GHR_MAXIMIZED;
 }
 
@@ -55,9 +54,9 @@ BEGIN_MESSAGE_MAP(CResizableFormView, CFormView)
 	//{{AFX_MSG_MAP(CResizableFormView)
 	ON_WM_SIZE()
 	ON_WM_ERASEBKGND()
-	ON_WM_CREATE()
 	ON_WM_GETMINMAXINFO()
 	ON_WM_DESTROY()
+	ON_WM_NCCREATE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -83,9 +82,9 @@ void CResizableFormView::OnSize(UINT nType, int cx, int cy)
 {
 	CFormView::OnSize(nType, cx, cy);
 
-	CWnd* pParent = GetParent();
+	CWnd* pParent = GetParentFrame();
 
-	// hide zise grip when parent is maximized
+	// hide size grip when parent is maximized
 	if (pParent->IsZoomed())
 		HideSizeGrip(&m_dwGripTempState, GHR_MAXIMIZED);
 	else
@@ -93,93 +92,74 @@ void CResizableFormView::OnSize(UINT nType, int cx, int cy)
 
 	// hide size grip when there are scrollbars
 	CSize size = GetTotalSize();
-	if (cx < size.cx || cy < size.cy)
+	if ((cx < size.cx || cy < size.cy) && (m_nMapMode >= 0))
 		HideSizeGrip(&m_dwGripTempState, GHR_SCROLLBAR);
 	else
 		ShowSizeGrip(&m_dwGripTempState, GHR_SCROLLBAR);
 
-	// hide size grip when the parent window is not resizable
+	// hide size grip when the parent frame window is not resizable
 	// or the form is not bottom-right aligned (e.g. there's a statusbar)
 	DWORD dwStyle = pParent->GetStyle();
-	CRect rectParent, rectChild;
-	GetWindowRect(rectChild);
-	::MapWindowPoints(NULL, pParent->GetSafeHwnd(), (LPPOINT)&rectChild, 2);
-	pParent->GetClientRect(rectParent);
-	if (!(dwStyle & WS_THICKFRAME)
-		|| (rectChild.BottomRight() != rectParent.BottomRight()))
-		HideSizeGrip(&m_dwGripTempState, GHR_ALIGNMENT);
-	else
+	CRect rect, rectChild;
+	GetWindowRect(rect);
+
+	BOOL bCanResize = TRUE; // whether the grip can size the frame
+	for (HWND hWndChild = ::GetWindow(m_hWnd, GW_HWNDFIRST); hWndChild != NULL;
+		hWndChild = ::GetNextWindow(hWndChild, GW_HWNDNEXT))
+	{
+		::GetWindowRect(hWndChild, rectChild);
+		// TODO: check RTL layouts!
+		if (rectChild.right > rect.right || rectChild.bottom > rect.bottom)
+		{
+			bCanResize = FALSE;
+			break;
+		}
+	}
+	if ((dwStyle & WS_THICKFRAME) && bCanResize)
 		ShowSizeGrip(&m_dwGripTempState, GHR_ALIGNMENT);
+	else
+		HideSizeGrip(&m_dwGripTempState, GHR_ALIGNMENT);
 
 	// update grip and layout
 	UpdateSizeGrip();
 	ArrangeLayout();
 }
 
-void CResizableFormView::OnInitialUpdate() 
-{
-	CFormView::OnInitialUpdate();
-	
-	m_bInitDone = TRUE;
-
-	// MDI child need this
-	ArrangeLayout();
-}
-
-void CResizableFormView::GetTotalClientRect(LPRECT lpRect)
+void CResizableFormView::GetTotalClientRect(LPRECT lpRect) const
 {
 	GetClientRect(lpRect);
 
 	// get dialog template's size
 	// (this is set in CFormView::Create)
-	CSize size = GetTotalSize();
-
-	// before initialization use dialog's size
-	if (!m_bInitDone)
-	{
-		lpRect->right = lpRect->left + size.cx;
-		lpRect->bottom = lpRect->top + size.cy;
-		return;
-	}
+	CSize sizeTotal, sizePage, sizeLine;
+	int nMapMode = 0;
+	GetDeviceScrollSizes(nMapMode, sizeTotal, sizePage, sizeLine);
 
 	// otherwise, give the correct size if scrollbars active
 
-	if (m_nMapMode < 0)	// scrollbars disabled
+	if (nMapMode < 0)	// scrollbars disabled
 		return;
 
 	// enlarge reported client area when needed
 	CRect rect(lpRect);
-	if (rect.Width() < size.cx)
-		rect.right = rect.left + size.cx;
-	if (rect.Height() < size.cy)
-		rect.bottom = rect.top + size.cy;
+	if (rect.Width() < sizeTotal.cx)
+		rect.right = rect.left + sizeTotal.cx;
+	if (rect.Height() < sizeTotal.cy)
+		rect.bottom = rect.top + sizeTotal.cy;
 
-	rect.OffsetRect(-GetScrollPosition());
+	rect.OffsetRect(-GetDeviceScrollPosition());
 	*lpRect = rect;
 }
 
 BOOL CResizableFormView::OnEraseBkgnd(CDC* pDC) 
 {
-	// Windows XP doesn't like clipping regions ...try this!
-	EraseBackground(pDC);
-	return TRUE;
+	ClipChildren(pDC, FALSE);
 
-/*	ClipChildren(pDC);	// old-method (for safety)
+	BOOL bRet = CFormView::OnEraseBkgnd(pDC);
 
-	return CFormView::OnEraseBkgnd(pDC);
-*/
-}
+	ClipChildren(pDC, TRUE);
 
-int CResizableFormView::OnCreate(LPCREATESTRUCT lpCreateStruct) 
-{
-	if (CFormView::OnCreate(lpCreateStruct) == -1)
-		return -1;
-	
-	// create and init the size-grip
-	if (!CreateSizeGrip())
-		return -1;
-
-	return 0;
+	return bRet;
 }
 
 void CResizableFormView::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI) 
@@ -192,4 +172,49 @@ void CResizableFormView::OnDestroy()
 	RemoveAllAnchors();
 
 	CFormView::OnDestroy();
+}
+
+LRESULT CResizableFormView::WindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
+{
+	if (message == WM_INITDIALOG)
+		return (LRESULT)OnInitDialog();
+
+	if (message != WM_NCCALCSIZE || wParam == 0)
+		return CFormView::WindowProc(message, wParam, lParam);
+
+	// specifying valid rects needs controls already anchored
+	LRESULT lResult = 0;
+	HandleNcCalcSize(FALSE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	lResult = CFormView::WindowProc(message, wParam, lParam);
+	HandleNcCalcSize(TRUE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	return lResult;
+}
+
+BOOL CResizableFormView::OnInitDialog() 
+{
+	const MSG* pMsg = GetCurrentMessage();
+
+	BOOL bRet = (BOOL)CFormView::WindowProc(pMsg->message, pMsg->wParam, pMsg->lParam);
+
+	// we need to associate member variables with control IDs
+	UpdateData(FALSE);
+	
+	// set default scroll size
+	CRect rectTemplate;
+	GetWindowRect(rectTemplate);
+	SetScrollSizes(MM_TEXT, rectTemplate.Size());
+
+	return bRet;
+}
+
+BOOL CResizableFormView::OnNcCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (!CFormView::OnNcCreate(lpCreateStruct))
+		return FALSE;
+	
+	// create and init the size-grip
+	if (!CreateSizeGrip())
+		return FALSE;
+
+	return TRUE;
 }

@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -42,6 +42,8 @@ BEGIN_MESSAGE_MAP(CResizableMDIFrame, CMDIFrameWnd)
 	//{{AFX_MSG_MAP(CResizableMDIFrame)
 	ON_WM_GETMINMAXINFO()
 	ON_WM_DESTROY()
+	ON_WM_NCCREATE()
+	ON_WM_WINDOWPOSCHANGING()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -50,39 +52,15 @@ END_MESSAGE_MAP()
 
 void CResizableMDIFrame::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI) 
 {
+	// MDI should call default implementation
+	CMDIFrameWnd::OnGetMinMaxInfo(lpMMI);
+
 	MinMaxInfo(lpMMI);
 
 	BOOL bMaximized = FALSE;
 	CMDIChildWnd* pChild = MDIGetActive(&bMaximized);
-	if (pChild == NULL || !bMaximized)
-		return;
-
-	// get the extra size from child to frame
-	CRect rectChild, rectWnd;
-	GetWindowRect(rectWnd);
-	RepositionBars(0, 0xFFFF, AFX_IDW_PANE_FIRST, reposQuery, rectChild);
-	CSize sizeExtra = rectWnd.Size() - rectChild.Size();
-
-	// ask the child frame for track size
-	MINMAXINFO mmiView = *lpMMI;
-	pChild->SendMessage(WM_GETMINMAXINFO, 0, (LPARAM)&mmiView);
-	mmiView.ptMaxTrackSize = sizeExtra + mmiView.ptMaxTrackSize;
-	mmiView.ptMinTrackSize = sizeExtra + mmiView.ptMinTrackSize;
-
-	// min size is the largest
-	lpMMI->ptMinTrackSize.x = __max(lpMMI->ptMinTrackSize.x,
-		mmiView.ptMinTrackSize.x);
-	lpMMI->ptMinTrackSize.y = __max(lpMMI->ptMinTrackSize.y,
-		mmiView.ptMinTrackSize.y);
-
-	// max size is the shortest
-	lpMMI->ptMaxTrackSize.x = __min(lpMMI->ptMaxTrackSize.x,
-		mmiView.ptMaxTrackSize.x);
-	lpMMI->ptMaxTrackSize.y = __min(lpMMI->ptMaxTrackSize.y,
-		mmiView.ptMaxTrackSize.y);
-
-	// MDI should call default implementation
-	CMDIFrameWnd::OnGetMinMaxInfo(lpMMI);
+	if (pChild != NULL && bMaximized)
+		ChainMinMaxInfo(lpMMI, this, pChild);
 }
 
 // NOTE: this must be called after setting the layout
@@ -104,4 +82,37 @@ void CResizableMDIFrame::OnDestroy()
 		SaveWindowRect(m_sSection, m_bRectOnly);
 
 	CMDIFrameWnd::OnDestroy();
+}
+
+BOOL CResizableMDIFrame::OnNcCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (!CMDIFrameWnd::OnNcCreate(lpCreateStruct))
+		return FALSE;
+
+	MakeResizable(lpCreateStruct);
+	
+	return TRUE;
+}
+
+LRESULT CResizableMDIFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
+{
+	if (message != WM_NCCALCSIZE || wParam == 0)
+		return CMDIFrameWnd::WindowProc(message, wParam, lParam);
+
+	// specifying valid rects needs controls already anchored
+	LRESULT lResult = 0;
+	HandleNcCalcSize(FALSE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	lResult = CMDIFrameWnd::WindowProc(message, wParam, lParam);
+	HandleNcCalcSize(TRUE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	return lResult;
+}
+
+void CResizableMDIFrame::OnWindowPosChanging(WINDOWPOS FAR* lpwndpos) 
+{
+	CMDIFrameWnd::OnWindowPosChanging(lpwndpos);
+
+	// since this window class doesn't have the style CS_HREDRAW|CS_VREDRAW
+	// the client area is not invalidated during a resize operation and
+	// this prevents the system from using WM_NCCALCSIZE to validate rects
+	Invalidate();
 }

@@ -2,8 +2,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
-// Copyright (C) 2000-2002 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@yahoo.com)
+// Copyright (C) 2000-2004 by Paolo Messina
+// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -51,6 +51,8 @@ BEGIN_MESSAGE_MAP(CResizablePage, CPropertyPage)
 	//{{AFX_MSG_MAP(CResizablePage)
 	ON_WM_SIZE()
 	ON_WM_ERASEBKGND()
+	ON_WM_GETMINMAXINFO()
+	ON_WM_DESTROY()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -67,12 +69,49 @@ void CResizablePage::OnSize(UINT nType, int cx, int cy)
 
 BOOL CResizablePage::OnEraseBkgnd(CDC* pDC) 
 {
-	// Windows XP doesn't like clipping regions ...try this!
-	EraseBackground(pDC);
-	return TRUE;
+	ClipChildren(pDC, FALSE);
 
-/*	ClipChildren(pDC);	// old-method (for safety)
+	BOOL bRet = CPropertyPage::OnEraseBkgnd(pDC);
+
+	ClipChildren(pDC, TRUE);
+
+	return bRet;
+}
+
+void CResizablePage::OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI) 
+{
+	MinMaxInfo(lpMMI);
+}
+
+BOOL CResizablePage::OnInitDialog() 
+{
+	CPropertyPage::OnInitDialog();
 	
-	return CPropertyPage::OnEraseBkgnd(pDC);
-*/
+	// set the initial size as the min track size
+	CRect rc;
+	GetWindowRect(&rc);
+	SetMinTrackSize(rc.Size());
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+	              // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+void CResizablePage::OnDestroy() 
+{
+	// remove child windows
+	RemoveAllAnchors();
+
+	CPropertyPage::OnDestroy();
+}
+
+LRESULT CResizablePage::WindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
+{
+	if (message != WM_NCCALCSIZE || wParam == 0)
+		return CPropertyPage::WindowProc(message, wParam, lParam);
+
+	LRESULT lResult = 0;
+	HandleNcCalcSize(FALSE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	lResult = CPropertyPage::WindowProc(message, wParam, lParam);
+	HandleNcCalcSize(TRUE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
+	return lResult;
 }
