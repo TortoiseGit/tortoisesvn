@@ -193,7 +193,7 @@ void CMergeDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(strUrl, this);
 			if (browser.DoModal() == IDOK)
 			{
-				m_URLCombo.SetWindowText(browser.GetCurrentUrl().GetPath(true));
+				m_URLCombo.SetWindowText(browser.GetPath(true));
 			}
 		}
 		else
@@ -218,7 +218,7 @@ void CMergeDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(strUrl, this);
 		if (browser.DoModal() == IDOK)
 		{
-			m_URLCombo.SetWindowText(browser.GetCurrentUrl().GetPath(true));
+			m_URLCombo.SetWindowText(browser.GetPath(true));
 		}
 	} 
 	else

@@ -88,6 +88,26 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
 END_MESSAGE_MAP()
 
 
+
+// CRepositoryBrowser public interface
+
+SVNUrl CRepositoryBrowser::GetURL() const
+{
+	return m_SvnUrl;
+}
+
+SVNRev CRepositoryBrowser::GetRevision() const
+{
+	return m_SvnUrl.GetRevision();
+}
+
+CString CRepositoryBrowser::GetPath(bool escaped) const
+{
+	return m_SvnUrl.GetPath(escaped);
+}
+
+
+
 // CRepositoryBrowser message handlers
 
 void CRepositoryBrowser::OnPaint() 
@@ -133,7 +153,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
 	m_barRepository.AssocTree(&m_treeRepository);
-	m_treeRepository.Init(m_SvnUrl.GetRevision());
+	m_treeRepository.Init(GetRevision());
 
 	if (m_SvnUrl.GetPath().IsEmpty())
 		m_SvnUrl = m_barRepository.GetCurrentUrl();
@@ -209,7 +229,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 					flags = MF_STRING | MF_GRAYED;
 				popup.AppendMenu(flags, ID_POPREFRESH, temp);						// "Refresh"
 
-				if (m_SvnUrl.GetRevision().IsHead())
+				if (GetRevision().IsHead())
 				{
 					temp.LoadString(IDS_REPOBROWSE_OPEN);
 					if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
@@ -240,7 +260,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 
 					temp.LoadString(IDS_REPOBROWSE_COPY);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
-				} // if (m_SvnUrl.GetRevision().IsHead()
+				} // if (GetRevision().IsHead()
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
@@ -323,13 +343,13 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 						tempfile = CString(ofn.lpstrFile);
 						SVN svn;
 						svn.m_app = &theApp;
-						if (!svn.Cat(url, m_SvnUrl.GetRevision(), tempfile))
+						if (!svn.Cat(url, GetRevision(), tempfile))
 						{
 							delete [] pszFilters;
 							wait_cursor.Hide();
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
-						} // if (!svn.Cat(url, m_SvnUrl.GetRevision(), tempfile)) 
+						} // if (!svn.Cat(url, GetRevision(), tempfile)) 
 					} // if (GetSaveFileName(&ofn)==TRUE) 
 					delete [] pszFilters;
 				}
@@ -337,7 +357,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 			case ID_POPSHOWLOG:
 				{
 					CLogDlg dlg;
-					dlg.SetParams(url, m_SvnUrl.GetRevision(), 0, FALSE);
+					dlg.SetParams(url, GetRevision(), 0, FALSE);
 					dlg.DoModal();
 				}
 				break;
@@ -526,12 +546,12 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 					CString tempfile = CUtils::GetTempFile();
 					tempfile += _T(".diff");
 					SVN svn;
-					if (!svn.Diff(url1, m_SvnUrl.GetRevision(), url2, m_SvnUrl.GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!svn.Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
 						break;		//exit
-					} // if (!Diff(url1, m_SvnUrl.GetRevision(), url2, m_SvnUrl.GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile)) 
+					} // if (!Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile)) 
 					else
 					{
 						m_templist.Add(tempfile);
@@ -544,20 +564,20 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 				{
 					CString tempfile1 = CUtils::GetTempFile();
 					SVN svn;
-					if (!svn.Cat(url1, m_SvnUrl.GetRevision(), tempfile1))
+					if (!svn.Cat(url1, GetRevision(), tempfile1))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile1);
 						break;		//exit
-					} // if (!Cat(url1, m_SvnUrl.GetRevision(), tempfile1))
+					} // if (!Cat(url1, GetRevision(), tempfile1))
 					m_templist.Add(tempfile1);
 					CString tempfile2 = CUtils::GetTempFile();
-					if (!svn.Cat(url2, m_SvnUrl.GetRevision(), tempfile2))
+					if (!svn.Cat(url2, GetRevision(), tempfile2))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile2);
 						break;		//exit
-					} // if (!Cat(url2, m_SvnUrl.GetRevision(), tempfile2)) 
+					} // if (!Cat(url2, GetRevision(), tempfile2)) 
 					CString ext = CUtils::GetFileExtFromPath(url1);
 					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2, ext);
 					theApp.DoWaitCursor(-1); //???

@@ -60,7 +60,11 @@ public:
 	virtual ~CRepositoryBrowser();
 
 	//! Returns the currently displayed URL and revision.
-	SVNUrl GetCurrentUrl() const { return m_SvnUrl; }
+	SVNUrl GetURL() const;
+	//! Returns the currently displayed revision only (for convenience)
+	SVNRev GetRevision() const;
+	//! Returns the currently displayed URL's path only (for convenience)
+	CString GetPath(bool escaped = false) const;
 
 // Dialog Data
 	enum { IDD = IDD_REPOSITORY_BROWSER };
