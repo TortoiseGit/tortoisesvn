@@ -295,7 +295,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 										pDlg->m_nRevision = headrev;
 									} // if (st.status->entry->uuid)
 									else
-										pDlg->m_nRevision = st.status->entry->revision;
+										pDlg->m_nRevision = headrev;
 								} // if (st.status->entry != NULL) 
 							} // if ((headrev = st.GetStatus(strLine)) != (-2)) 
 						} // if (pDlg->m_nRevision >= 0)
