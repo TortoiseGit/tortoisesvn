@@ -89,6 +89,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 	if (!parser.HasKey(_T("command")))
 	{
+		CMessageBox::Show(NULL, _T("The program will now crash\nto test the crashhandler!"), _T("TortoiseSVN"), MB_ICONINFORMATION);
 		CrashProgram();
 		CMessageBox::Show(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
 		return FALSE;
