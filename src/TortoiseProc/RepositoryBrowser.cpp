@@ -657,7 +657,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						::DeleteFile(tempfile1.GetWinPath());
 						break;		//exit
-					} // if (!Cat(url1, GetRevision(), tempfile1))
+					}
 					m_templist.AddPath(tempfile1);
 					CTSVNPath tempfile2 = CUtils::GetTempFilePath(url2);
 					if (!svn.Cat(url2, GetRevision(), CTSVNPath(tempfile2)))
@@ -666,7 +666,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						::DeleteFile(tempfile2.GetWinPath());
 						break;		//exit
 					}
-					CUtils::StartExtDiff(tempfile2, tempfile1, url1.GetUIPathString(), url2.GetUIPathString());	
+					CUtils::StartExtDiff(tempfile1, tempfile2, url1.GetUIPathString(), url2.GetUIPathString());	
 				}
 				break;
 			case ID_POPPROPS:
