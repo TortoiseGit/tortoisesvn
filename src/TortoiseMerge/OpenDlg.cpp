@@ -124,7 +124,7 @@ void COpenDlg::OnBnClickedHelp()
 	this->OnHelp();
 }
 
-BOOL COpenDlg::BrowseForFile(CString& filepath, CString title)
+BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 {
 	OPENFILENAME ofn;		// common dialog box structure
 	TCHAR szFile[MAX_PATH];  // buffer for file name
@@ -137,7 +137,7 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title)
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
 	CString sFilter;
-	sFilter.LoadString(IDS_COMMONFILEFILTER);
+	sFilter.LoadString(nFileFilter);
 	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
 	_tcscpy (pszFilters, sFilter);
 	// Replace '|' delimeters with '\0's
@@ -173,7 +173,7 @@ void COpenDlg::OnBnClickedDifffilebrowse()
 	CString temp;
 	UpdateData();
 	temp.LoadString(IDS_SELECTFILE);
-	BrowseForFile(m_sUnifiedDiffFile, temp);
+	BrowseForFile(m_sUnifiedDiffFile, temp, IDS_PATCHFILEFILTER);
 	UpdateData(FALSE);
 }
 

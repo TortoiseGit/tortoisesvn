@@ -34,7 +34,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	BOOL BrowseForFile(CString& filepath, CString title);
+	BOOL BrowseForFile(CString& filepath, CString title, UINT nFileFilter = IDS_COMMONFILEFILTER);
 	void GroupRadio(UINT nID);
 	DECLARE_MESSAGE_MAP()
 public:
