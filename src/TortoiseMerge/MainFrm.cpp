@@ -110,6 +110,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		TRACE0("Failed to create dialogbar\n");
 		return -1;		// fail to create
 	}
+	if (!m_wndLineDiffBar.Create(this, IDD_LINEDIFF, 
+		CBRS_ALIGN_BOTTOM, AFX_IDW_DIALOGBAR))
+	{
+		TRACE0("Failed to create dialogbar\n");
+		return -1;		// fail to create
+	}
 	//if (!m_wndReBar.Create(this) ||
 	//	!m_wndReBar.AddBar(&m_wndToolBar))
 	//{
@@ -117,6 +123,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//	return -1;      // fail to create
 	//}
 	m_wndLocatorBar.m_pMainFrm = this;
+	m_wndLineDiffBar.m_pMainFrm = this;
 	m_DefaultNewMenu.LoadToolBar(IDR_MAINFRAME);
 	m_DefaultNewMenu.SetXpBlendig();
 	m_DefaultNewMenu.SetSelectDisableMode(FALSE);
@@ -194,6 +201,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	}
 	m_pwndBottomView = (CBottomView *)m_wndSplitter.GetPane(1,0);
 	m_pwndBottomView->m_pwndLocator = &m_wndLocatorBar;
+	m_pwndBottomView->m_pwndLineDiffBar = &m_wndLineDiffBar;
 	m_pwndBottomView->m_pwndStatusBar = &m_wndStatusBar;
 	m_pwndBottomView->m_pMainFrame = this;
 
@@ -207,6 +215,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	}
 	m_pwndLeftView = (CLeftView *)m_wndSplitter2.GetPane(0,0);
 	m_pwndLeftView->m_pwndLocator = &m_wndLocatorBar;
+	m_pwndLeftView->m_pwndLineDiffBar = &m_wndLineDiffBar;
 	m_pwndLeftView->m_pwndStatusBar = &m_wndStatusBar;
 	m_pwndLeftView->m_pMainFrame = this;
 
@@ -218,6 +227,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	}
 	m_pwndRightView = (CRightView *)m_wndSplitter2.GetPane(0,1);
 	m_pwndRightView->m_pwndLocator = &m_wndLocatorBar;
+	m_pwndRightView->m_pwndLineDiffBar = &m_wndLineDiffBar;
 	m_pwndRightView->m_pwndStatusBar = &m_wndStatusBar;
 	m_pwndRightView->m_pMainFrame = this;
 	m_bInitSplitter = TRUE;
@@ -368,10 +378,6 @@ BOOL CMainFrame::LoadViews()
 			m_pwndRightView->m_sFullFilePath = _T("");
 			m_pwndBottomView->m_sWindowName = _T("");
 			m_pwndBottomView->m_sFullFilePath = _T("");
-			m_pwndLeftView->DocumentUpdated();
-			m_pwndRightView->DocumentUpdated();
-			m_pwndBottomView->DocumentUpdated();
-			m_wndLocatorBar.DocumentUpdated();
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
 		} // if (!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)) 
@@ -385,15 +391,14 @@ BOOL CMainFrame::LoadViews()
 			m_pwndRightView->m_sFullFilePath = _T("");
 			m_pwndBottomView->m_sWindowName = _T("");
 			m_pwndBottomView->m_sFullFilePath = _T("");
-			m_pwndLeftView->DocumentUpdated();
-			m_pwndRightView->DocumentUpdated();
-			m_pwndBottomView->DocumentUpdated();
-			m_wndLocatorBar.DocumentUpdated();
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			UpdateLayout();
 			if (bGoFirstDiff)
 				m_pwndLeftView->GoToFirstDifference();
+			m_pwndLeftView->SetHidden(FALSE);
+			m_pwndRightView->SetHidden(FALSE);
+			m_pwndBottomView->SetHidden(TRUE);
 		} // if (m_Patch.GetNumberOfFiles() > 0) 
 	} // if (m_Data.m_sBaseFile.IsEmpty()) 
 	if (!m_Data.m_sBaseFile.IsEmpty() && m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
@@ -427,14 +432,13 @@ BOOL CMainFrame::LoadViews()
 			else
 				m_pwndRightView->m_sWindowName = m_Data.m_sYourName;
 			m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
-			m_pwndLeftView->DocumentUpdated();
-			m_pwndRightView->DocumentUpdated();
-			m_pwndBottomView->DocumentUpdated();
-			m_wndLocatorBar.DocumentUpdated();
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			if (bGoFirstDiff)
 				m_pwndLeftView->GoToFirstDifference();
+			m_pwndLeftView->SetHidden(FALSE);
+			m_pwndRightView->SetHidden(TRUE);
+			m_pwndBottomView->SetHidden(TRUE);
 		} // if (m_bOneWay)
 		else
 		{
@@ -454,14 +458,13 @@ BOOL CMainFrame::LoadViews()
 			else
 				m_pwndRightView->m_sWindowName = m_Data.m_sYourName;
 			m_pwndRightView->m_sFullFilePath = m_Data.m_sYourFile;
-			m_pwndLeftView->DocumentUpdated();
-			m_pwndRightView->DocumentUpdated();
-			m_pwndBottomView->DocumentUpdated();
-			m_wndLocatorBar.DocumentUpdated();
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			if (bGoFirstDiff)
 				m_pwndLeftView->GoToFirstDifference();
+			m_pwndLeftView->SetHidden(FALSE);
+			m_pwndRightView->SetHidden(FALSE);
+			m_pwndBottomView->SetHidden(TRUE);
 		}
 		UpdateLayout();
 	} // if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
@@ -489,10 +492,6 @@ BOOL CMainFrame::LoadViews()
 		else
 			m_pwndBottomView->m_sWindowName = _T("Merged - ") + m_Data.m_sMergedName;
 		m_pwndBottomView->m_sFullFilePath = m_Data.m_sMergedFile;
-		m_pwndLeftView->DocumentUpdated();
-		m_pwndRightView->DocumentUpdated();
-		m_pwndBottomView->DocumentUpdated();
-		m_wndLocatorBar.DocumentUpdated();
 		if (m_wndSplitter2.IsColumnHidden(1))
 			m_wndSplitter2.ShowColumn();
 		if (m_wndSplitter.IsRowHidden(1))
@@ -500,11 +499,19 @@ BOOL CMainFrame::LoadViews()
 		if (bGoFirstDiff)
 			m_pwndLeftView->GoToFirstDifference();
 		UpdateLayout();
+		m_pwndLeftView->SetHidden(FALSE);
+		m_pwndRightView->SetHidden(FALSE);
+		m_pwndBottomView->SetHidden(FALSE);
 	}
 	if (m_Data.m_sMergedFile.IsEmpty())
 	{
 		m_Data.m_sMergedFile = m_Data.m_sYourFile;
 	}
+	m_pwndLeftView->DocumentUpdated();
+	m_pwndRightView->DocumentUpdated();
+	m_pwndBottomView->DocumentUpdated();
+	m_wndLocatorBar.DocumentUpdated();
+	m_wndLineDiffBar.DocumentUpdated();
 	SetActiveView(m_pwndLeftView);
 	return TRUE;
 }

@@ -24,6 +24,7 @@
 #include "BottomView.h"
 #include "DiffData.h"
 #include "LocatorBar.h"
+#include "LineDiffBar.h"
 #include "FilePatchesDlg.h"
 #include "Utils.h"
 #include "TempFiles.h"
@@ -72,6 +73,7 @@ protected:
 	CNewToolBar		m_wndToolBar;
 	CReBar			m_wndReBar;
 	CLocatorBar		m_wndLocatorBar;
+	CLineDiffBar	m_wndLineDiffBar;
 	CXSplitter		m_wndSplitter;
 	CXSplitter		m_wndSplitter2;
 	CFilePatchesDlg m_dlgFilePatches;

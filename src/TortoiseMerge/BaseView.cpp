@@ -39,6 +39,7 @@ CBaseView * CBaseView::m_pwndLeft = NULL;
 CBaseView * CBaseView::m_pwndRight = NULL;
 CBaseView * CBaseView::m_pwndBottom = NULL;
 CLocatorBar * CBaseView::m_pwndLocator = NULL;
+CLineDiffBar * CBaseView::m_pwndLineDiffBar = NULL;
 CStatusBar * CBaseView::m_pwndStatusBar = NULL;
 CMainFrame * CBaseView::m_pMainFrame = NULL;
 
@@ -55,6 +56,8 @@ CBaseView::CBaseView()
 	m_nTopLine = 0;
 	m_nOffsetChar = 0;
 	m_nDigits = 0;
+	m_nMouseLine = 0;
+	m_bIsHidden = FALSE;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	m_nSelBlockStart = -1;
@@ -128,6 +131,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_KEYDOWN()
 	ON_WM_LBUTTONUP()
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 
@@ -147,6 +151,7 @@ void CBaseView::DocumentUpdated()
 	m_nTopLine = 0;
 	m_bModified = FALSE;
 	m_nDigits = 0;
+	m_nMouseLine = 0;
 	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	for (int i=0; i<MAXFONTS; i++)
@@ -1436,6 +1441,34 @@ void CBaseView::OnEditCopy()
 			CloseClipboard();
 		} // if (OpenClipboard()) 
 	} // if (!sCopyData.IsEmpty()) 
+}
+
+void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
+	nMouseLine--;		//we need the index
+	if ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount()))
+	{
+		if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates))
+		{
+			CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nMouseLine);
+			CDiffData::DiffStates state2 = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(nMouseLine);
+
+			if ((state1 == CDiffData::DIFFSTATE_EMPTY) ||
+				(state1 == CDiffData::DIFFSTATE_NORMAL) ||
+				(state2 == CDiffData::DIFFSTATE_EMPTY) ||
+				(state2 == CDiffData::DIFFSTATE_NORMAL))
+			{
+				nMouseLine = -1;
+			} // iffData::DIFFSTATE_NORMAL)) 
+			if (nMouseLine != m_nMouseLine)
+			{
+				m_nMouseLine = nMouseLine;
+				m_pwndLineDiffBar->ShowLines(nMouseLine);
+			} // if (nMouseLine != m_nMouseLine) 
+		} // if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates)) 
+	} // if ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())) 
+	CView::OnMouseMove(nFlags, point);
 }
 
 

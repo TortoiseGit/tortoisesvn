@@ -19,6 +19,7 @@
 #pragma once
 #include "DiffData.h"
 #include "LocatorBar.h"
+#include "LineDiffBar.h"
 
 class CMainFrame;
 
@@ -31,6 +32,7 @@ class CMainFrame;
  */
 class CBaseView : public CView
 {
+friend class CLineDiffBar;
 public:
 	CBaseView();
 	virtual ~CBaseView();
@@ -53,6 +55,8 @@ public:
 	void			ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 	void			ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 
+	inline BOOL		IsHidden() {return m_bIsHidden;}
+	inline void		SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
 	inline BOOL		IsModified() {return m_bModified;}
 	void			SetModified(BOOL bModified = TRUE) {m_bModified = bModified;}
 
@@ -65,6 +69,7 @@ public:
 	int				m_nTopLine;			///< The topmost text line in the view
 
 	static CLocatorBar * m_pwndLocator;	///< Pointer to the locator bar on the left
+	static CLineDiffBar * m_pwndLineDiffBar;	///< Pointer to the line diff bar at the bottom
 	static CStatusBar * m_pwndStatusBar;///< Pointer to the status bar
 	static CMainFrame * m_pMainFrame;	///< Pointer to the mainframe
 
@@ -92,8 +97,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 protected:
-	void			DrawSingleLine(CDC *pdc, const CRect &rc, int nLineIndex);
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
+	void			DrawSingleLine(CDC *pdc, const CRect &rc, int nLineIndex);
 	void			ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
 
 	BOOL			IsLineRemoved(int nLineIndex);
@@ -138,6 +143,7 @@ protected:
 	BOOL			m_bModified;
 	BOOL			m_bFocused;
 	BOOL			m_bViewLinenumbers;
+	BOOL			m_bIsHidden;
 	int				m_nLineHeight;
 	int				m_nCharWidth;
 	int				m_nMaxLineLength;
@@ -149,6 +155,8 @@ protected:
 
 	int				m_nSelBlockStart;
 	int				m_nSelBlockEnd;
+
+	int				m_nMouseLine;
 
 	HICON			m_hAddedIcon;
 	HICON			m_hRemovedIcon;
@@ -176,5 +184,6 @@ public:
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnEditCopy();
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 };
 

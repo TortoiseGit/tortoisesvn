@@ -174,6 +174,9 @@
 				RelativePath=".\LeftView.cpp">
 			</File>
 			<File
+				RelativePath=".\LineDiffBar.cpp">
+			</File>
+			<File
 				RelativePath=".\LocatorBar.cpp">
 			</File>
 			<File
@@ -293,6 +296,9 @@
 				RelativePath=".\LeftView.h">
 			</File>
 			<File
+				RelativePath=".\LineDiffBar.h">
+			</File>
+			<File
 				RelativePath=".\LocatorBar.h">
 			</File>
 			<File
@@ -320,9 +326,6 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
-				RelativePath="..\Languages\resource.h">
-			</File>
-			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -340,6 +343,9 @@
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\Languages\resource.h">
 			</File>
 			<File
 				RelativePath=".\RightView.h">

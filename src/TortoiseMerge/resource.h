@@ -15,6 +15,7 @@
 #define IDD_FILEPATCHES                 135
 #define IDD_ABOUT                       136
 #define IDR_DOWNLOAD                    136
+#define IDD_LINEDIFF                    137
 #define IDD_SETCOLORPAGE                137
 #define IDB_BITMAP1                     137
 #define IDB_TTF_BMP                     137
