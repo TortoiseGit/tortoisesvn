@@ -59,12 +59,15 @@ BOOL CUpdateDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	// set head revision as default revision
-	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
-	GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
+	// Since this dialog is called to update to a specific revision, we should
+	// enable and set focus to the edit control so that the user can enter the
+	// revision number without clicking or tabbing around first.
+	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+	GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
+	GetDlgItem(IDC_REVNUM)->SetFocus();
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
-	return TRUE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return FALSE;  // return TRUE unless you set the focus to a control
+	               // EXCEPTION: OCX Property Pages should return FALSE
 }
 
 void CUpdateDlg::OnPaint() 
