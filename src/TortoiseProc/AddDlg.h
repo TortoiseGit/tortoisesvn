@@ -19,7 +19,7 @@
 #pragma once
 #include "afxcmn.h"
 #include "ResizableDialog.h"
-
+#include "SVNStatusListCtrl.h"
 
 /**
  * \ingroup TortoiseProc
@@ -61,7 +61,6 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
-	afx_msg void OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
 	virtual BOOL OnInitDialog();
@@ -70,14 +69,14 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CListCtrl		m_addListCtrl;
+	CSVNStatusListCtrl	m_addListCtrl;
 	CString			m_sPath;
 	CStringArray	m_arFileList;
 	BOOL			m_bThreadRunning;
 
 private:
 	HANDLE			m_hThread;
-	BOOL			m_bSelectAll;
+	CButton			m_SelectAll;
 };
 
 DWORD WINAPI AddThread(LPVOID pVoid);
