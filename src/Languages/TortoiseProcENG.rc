@@ -256,7 +256,7 @@ BEGIN
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,35,126,64
     PUSHBUTTON      "...",IDC_BROWSE,142,34,14,14
     GROUPBOX        "Revision",IDC_STATIC,161,20,114,40
-    CONTROL         "Head Revision",IDC_REVISION_HEAD1,"Button",
+    CONTROL         "&Head Revision",IDC_REVISION_HEAD1,"Button",
                     BS_AUTORADIOBUTTON | WS_GROUP,167,29,95,10
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
                     167,45,44,10
