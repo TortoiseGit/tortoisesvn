@@ -522,9 +522,9 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Diff Program",IDC_STATIC,7,7,286,65
     LTEXT           "Used for comparing different revisions of files.",
-                    IDC_STATIC,13,18,149,8
+                    IDC_STATIC,13,18,251,8
     CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,13,32,35,10
+                    WS_GROUP,13,32,41,10
     CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,
                     58,32,43,10
     EDITTEXT        IDC_EXTDIFF,105,31,159,14,ES_AUTOHSCROLL | WS_GROUP
@@ -533,10 +533,10 @@ BEGIN
                     IDC_STATIC,13,49,170,19
     PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,177,50,87,14
     GROUPBOX        "Merge Program",IDC_STATIC,7,78,286,65
-    LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,89,101,
+    LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,89,251,
                     8
     CONTROL         "B&uiltin",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,13,103,35,10
+                    WS_GROUP,13,103,41,10
     CONTROL         "E&xternal",IDC_EXTMERGE_ON,"Button",BS_AUTORADIOBUTTON,
                     58,103,43,10
     EDITTEXT        IDC_EXTMERGE,105,101,159,14,ES_AUTOHSCROLL | WS_GROUP
@@ -546,9 +546,9 @@ BEGIN
     PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,177,121,87,14
     GROUPBOX        "Diff Viewer",IDC_STATIC,7,149,286,43
     LTEXT           "Viewer program for GNU diff files (patch files).",
-                    IDC_STATIC,13,160,148,8
+                    IDC_STATIC,13,160,251,8
     CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,174,35,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,174,41,10
     CONTROL         "Ex&ternal",IDC_DIFFVIEWER_ON,"Button",
                     BS_AUTORADIOBUTTON,58,174,43,10
     EDITTEXT        IDC_DIFFVIEWER,105,172,159,14,ES_AUTOHSCROLL | WS_GROUP
