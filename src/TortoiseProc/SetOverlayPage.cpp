@@ -70,8 +70,8 @@ BOOL CSetOverlayPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
-	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
+	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
+	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
 
 	UpdateData(FALSE);

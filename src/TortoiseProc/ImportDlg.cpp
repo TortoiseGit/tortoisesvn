@@ -113,8 +113,8 @@ BOOL CImportDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MODULENAMECHECK, IDS_IMPORT_TT_MODULENAMECHECK);
 	m_tooltips.AddTool(IDC_FILELIST, IDS_IMPORT_TT_TEMPFILES);
-	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
+	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
+	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC4, TOP_LEFT);

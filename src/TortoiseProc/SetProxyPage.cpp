@@ -124,8 +124,8 @@ BOOL CSetProxyPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SERVERADDRESS, IDS_SETTINGS_PROXYSERVER_TT);
-	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
+	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
+	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
 	m_SSHClient = m_regSSHClient;
 	m_serveraddress = m_regServeraddress;

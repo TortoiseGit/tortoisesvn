@@ -212,8 +212,8 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
 	m_tooltips.AddTool(IDC_ADDBEFORECOMMIT, IDS_SETTINGS_ADDBEFORECOMMIT_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSE, IDS_SETTINGS_AUTOCLOSE_TT);
-	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
+	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
+	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
