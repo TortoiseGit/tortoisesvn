@@ -127,6 +127,8 @@
 #define IDS_TT_EOLSTYLE                 213
 #define IDS_TT_MIMETYPE                 214
 #define IDS_TT_EXTERNALS                215
+#define IDS_COLTITLEMIMETYPE            216
+#define IDS_COLDESCMIMETYPE             217
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

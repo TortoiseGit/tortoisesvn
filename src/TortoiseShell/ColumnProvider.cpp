@@ -21,6 +21,7 @@
 #include "svnstatus.h"
 #include "UnicodeStrings.h"
 #include "PreserveChdir.h"
+#include "SVNProperties.h"
 #include <string>
 #include <Shlwapi.h>
 #include <wininet.h>
@@ -52,7 +53,7 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR|SHCOLSTATE_SECONDARYUI;
 // IColumnProvider members
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
-	if (dwIndex > 4)
+	if (dwIndex > 5)
 		return S_FALSE;
 
 	// Read and select the system's locale settings.
@@ -157,6 +158,26 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->csFlags    = SHCOLSTATE_TYPE_STR;			// Data should be sorted as strings
 			psci->cChars     = 32;							// Default col width in chars
 			break;
+		case 5:
+			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
+			psci->scid.pid = dwIndex;
+			psci->vt = VT_BSTR;
+			psci->fmt = LVCFMT_LEFT;
+			psci->cChars = 30;
+			psci->csFlags = ColumnFlags;
+
+			MAKESTRING(IDS_COLTITLEMIMETYPE);
+#ifdef UNICODE
+			lstrcpyW(psci->wszTitle, stringtablebuffer);
+#else
+			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+#endif
+			MAKESTRING(IDS_COLDESCMIMETYPE);
+#ifdef UNICODE
+			lstrcpyW(psci->wszDescription, stringtablebuffer);
+#else
+			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+#endif
 	}
 
 	return S_OK;
@@ -166,7 +187,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 {
 	LoadLangDll();
 	DWORD dwWaitResult = 0;
-	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 4) 
+	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 6) 
 	{
 		PreserveChdir preserveChdir;
 		stdstring szInfo;
@@ -236,6 +257,25 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				{
 					GetColumnStatus(path);
 					szInfo = itemshorturl;
+				} // if (dwWaitResult == WAIT_OBJECT_0)
+				ReleaseMutex(hMutex);
+				break;
+			case 5:
+				dwWaitResult = WaitForSingleObject(hMutex, 100);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					SVNProperties props = SVNProperties(path.c_str());
+					for (int i=0; i<props.GetCount(); i++)
+					{
+						if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
+						{
+#ifdef UNICODE
+						szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
+#else
+						szInfo = props.GetItemValue(i);
+#endif
+						}
+					}
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 				ReleaseMutex(hMutex);
 				break;
