@@ -82,10 +82,11 @@ CWorkingFile::GetWindowName() const
 		// return the filename part of the path.
 		return CUtils::GetFileNameFromPath(m_sFilename) + _T(" ") + sErrMsg;
 	}
-	else
+	else if (sErrMsg.IsEmpty())
 	{
-		return m_sDescriptiveName + _T(" ") + sErrMsg;
+		return m_sDescriptiveName;
 	}
+	return m_sDescriptiveName + _T(" ") + sErrMsg;
 }
 
 bool
