@@ -291,6 +291,12 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 
 	// Fill the background of the compatible DC with the given colour
 	HBRUSH brush = ::CreateSolidBrush(transparentColor);
+	if (brush == NULL)
+	{
+		::DeleteDC(dst_hdc);
+		::ReleaseDC(desktop, screen_dev); 
+		return NULL;
+	}
 	::FillRect(dst_hdc, &rect, brush);
 	::DeleteObject(brush);
 
@@ -1156,13 +1162,21 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			MEASUREITEMSTRUCT* lpmis = (MEASUREITEMSTRUCT*)lParam;
 			if (lpmis==NULL)
 				break;
+			*pResult = TRUE;
+			lpmis->itemWidth = 0;
+			lpmis->itemHeight = 0;
 			POINT size;
 			//get the information about the shell dc, font, ...
 			NONCLIENTMETRICS ncm;
 			ncm.cbSize = sizeof(NONCLIENTMETRICS);
-			SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &ncm, 0);
+			if (SystemParametersInfo(SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &ncm, 0)==0)
+				break;
 			HDC hDC = CreateCompatibleDC(NULL);
+			if (hDC == NULL)
+				break;
 			HFONT hFont = CreateFontIndirect(&ncm.lfMenuFont);
+			if (hFont == NULL)
+				break;
 			HFONT oldFont = (HFONT)SelectObject(hDC, hFont);
 			GetMenuTextFromResource(myIDMap[lpmis->itemID]);
 			GetTextExtentPoint32(hDC, stringtablebuffer, _tcslen(stringtablebuffer), (SIZE*)&size);
@@ -1174,7 +1188,6 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 
 			lpmis->itemWidth = size.x + size.y + 6;						//width of string + height of string (~ width of icon) + space between
 			lpmis->itemHeight = max(size.y + 4, ncm.iMenuHeight);		//two pixels on both sides
-			*pResult = TRUE;
 		}
 		break;
 		case WM_DRAWITEM:
@@ -1210,6 +1223,8 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 
 				HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR);
 
+				if (hIcon == NULL)
+					return S_OK;
 				//convert the icon into a bitmap
 				ICONINFO ii;
 				if (GetIconInfo(hIcon, &ii)==FALSE)
