@@ -109,7 +109,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 #else
 				val = sPropVal.c_str();
 #endif
-				if (val.CompareNoCase(_T("false"))==0)
+				if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
 					bNumber = FALSE;
 				else
 					bNumber = TRUE;
@@ -132,7 +132,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 #else
 				val = sPropVal.c_str();
 #endif
-				if (val.CompareNoCase(_T("true"))==0)
+				if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
 					bWarnIfNoIssue = TRUE;
 				else
 					bWarnIfNoIssue = FALSE;
@@ -146,7 +146,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 #else
 				val = sPropVal.c_str();
 #endif
-				if (val.CompareNoCase(_T("true"))==0)
+				if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
 					bAppend = TRUE;
 				else
 					bAppend = FALSE;
@@ -199,7 +199,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 #else
 				val = sPropVal.c_str();
 #endif
-				if (val.CompareNoCase(_T("false"))==0)
+				if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
 					bFileListInEnglish = TRUE;
 				else
 					bFileListInEnglish = FALSE;
