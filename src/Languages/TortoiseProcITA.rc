@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Italienisch (Italien) resources
+// Italian (Italy) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
 #ifdef _WIN32
@@ -184,23 +184,23 @@ BEGIN
                     LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,148,275,69
 END
 
-IDD_LOGPROMPT DIALOGEX 0, 0, 186, 252
+IDD_LOGPROMPT DIALOGEX 0, 0, 243, 252
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
 CAPTION "aggiungi un messaggio di log"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,6,231,50,14
-    PUSHBUTTON      "&Annulla",IDCANCEL,129,231,50,14
-    EDITTEXT        IDC_LOGMESSAGE,6,31,173,56,ES_MULTILINE | ES_AUTOVSCROLL | 
+    PUSHBUTTON      "&Annulla",IDCANCEL,186,231,50,14
+    EDITTEXT        IDC_LOGMESSAGE,6,31,230,56,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
-                    93,173,109
-    LTEXT           "",IDC_COMMIT_TO,6,16,173,11,SS_WORDELLIPSIS
-    LTEXT           "invia a:",IDC_STATIC,6,7,173,8
+                    93,230,109
+    LTEXT           "",IDC_COMMIT_TO,6,16,230,11,SS_WORDELLIPSIS
+    LTEXT           "invia a:",IDC_STATIC,6,7,230,8
     LTEXT           "Per verificate le modifiche apportate prima dell'invio fai doppio click sul nome del file.",
-                    IDC_HINTLABEL,6,209,173,16
+                    IDC_HINTLABEL,6,209,230,16
 END
 
 IDD_MERGE DIALOGEX 0, 0, 281, 146
@@ -477,7 +477,7 @@ BEGIN
     IDD_LOGPROMPT, DIALOG
     BEGIN
         LEFTMARGIN, 6
-        RIGHTMARGIN, 179
+        RIGHTMARGIN, 236
         TOPMARGIN, 7
         BOTTOMMARGIN, 245
     END
@@ -818,12 +818,12 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "remote status"
 END
 
-#endif    // Italienisch (Italien) resources
+#endif    // Italian (Italy) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -866,7 +866,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

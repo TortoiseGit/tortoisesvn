@@ -13,49 +13,6 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AVI
-//
-
-IDR_ANIMATION           AVI                     "res\\bin168.avi"
-IDR_MOVEANI             AVI                     "res\\bin167.avi"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
-#endif    // Neutral resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
 // Russian resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
@@ -108,6 +65,7 @@ BEGIN
                     LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
                     WS_TABSTOP,7,7,394,171
 END
+
 IDD_CHECKOUT DIALOGEX 0, 0, 269, 145
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
@@ -185,22 +143,22 @@ BEGIN
                     LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,149,275,69
 END
 
-IDD_LOGPROMPT DIALOGEX 0, 0, 186, 259
+IDD_LOGPROMPT DIALOGEX 0, 0, 263, 259
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
 CAPTION "Ввод комментария к новой редакции"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,7,238,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,129,238,50,14
-    EDITTEXT        IDC_LOGMESSAGE,7,34,172,56,ES_MULTILINE | ES_AUTOVSCROLL | 
+    PUSHBUTTON      "Отмена",IDCANCEL,206,238,50,14
+    EDITTEXT        IDC_LOGMESSAGE,7,34,249,56,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,
-                    97,172,113
-    LTEXT           "",IDC_COMMIT_TO,7,18,172,12,SS_WORDELLIPSIS
+                    97,249,113
+    LTEXT           "",IDC_COMMIT_TO,7,18,249,12,SS_WORDELLIPSIS
     LTEXT           "URL репозитория для фиксирования изменений:",IDC_STATIC,
-                    7,7,172,8
+                    7,7,249,8
     LTEXT           "Для просмотра внесённых Вами изменений\nкликните на соответствующем файле",
                     IDC_HINTLABEL,7,215,173,16
 END
@@ -297,18 +255,21 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Основные"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    LTEXT           "Внешная программа для\nсравнения файлов:",IDC_STATIC,7,7,93,18
+    LTEXT           "Внешная программа для\nсравнения файлов:",IDC_STATIC,7,
+                    7,93,18
     EDITTEXT        IDC_EXTDIFF,100,7,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,218,7,50,14
     LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,83,72,17
     COMBOBOX        IDC_LANGUAGECOMBO,100,84,168,71,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,103,72,18
+    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,103,72,
+                    18
     EDITTEXT        IDC_TEMPEXTENSIONS,100,104,168,14,ES_AUTOHSCROLL
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
                     BS_MULTILINE | WS_TABSTOP,7,128,261,18
-    LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,30,84,17
+    LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,30,
+                    84,17
     EDITTEXT        IDC_EXTMERGE,100,27,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTMERGEBROWSE,218,27,50,14
     LTEXT           "Diff Viewer:",IDC_STATIC,7,52,38,8
@@ -333,8 +294,6 @@ BEGIN
     CONTROL         "Активизировать для приводов CD-ROM",IDC_CDROM,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,72,150,10
 END
-
-
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
@@ -403,6 +362,7 @@ BEGIN
                     13,37,50,10
     EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
 END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -481,7 +441,7 @@ BEGIN
     IDD_LOGPROMPT, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 179
+        RIGHTMARGIN, 256
         TOPMARGIN, 7
         BOTTOMMARGIN, 252
     END
@@ -829,6 +789,49 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
@@ -845,7 +848,7 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 1 TEXTINCLUDE 
 BEGIN
-    "resource.h\0"
+    "..\\TortoiseProc\\resource.h\0"
 END
 
 2 TEXTINCLUDE 
@@ -872,7 +875,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Neutral resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

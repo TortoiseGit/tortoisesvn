@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -184,23 +184,23 @@ BEGIN
                     LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,148,275,69
 END
 
-IDD_LOGPROMPT DIALOGEX 0, 0, 220, 252
+IDD_LOGPROMPT DIALOGEX 0, 0, 247, 252
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
 CAPTION "Log-Eintrag eingeben"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,6,231,50,14
-    PUSHBUTTON      "&Abbrechen",IDCANCEL,163,231,50,14
-    EDITTEXT        IDC_LOGMESSAGE,6,31,207,56,ES_MULTILINE | ES_AUTOVSCROLL | 
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,190,231,50,14
+    EDITTEXT        IDC_LOGMESSAGE,6,31,234,56,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
-                    93,207,109
-    LTEXT           "",IDC_COMMIT_TO,6,16,207,11,SS_WORDELLIPSIS
-    LTEXT           "Übertragen nach:",IDC_STATIC,6,7,207,8
+                    93,234,109
+    LTEXT           "",IDC_COMMIT_TO,6,16,234,11,SS_WORDELLIPSIS
+    LTEXT           "Übertragen nach:",IDC_STATIC,6,7,234,8
     LTEXT           "Um ihre Änderungen zu sehen doppelklicken Sie auf die obigen Dateien.",
-                    IDC_HINTLABEL,6,209,207,16
+                    IDC_HINTLABEL,6,209,234,16
 END
 
 IDD_MERGE DIALOGEX 0, 0, 281, 153
@@ -476,7 +476,7 @@ BEGIN
     IDD_LOGPROMPT, DIALOG
     BEGIN
         LEFTMARGIN, 6
-        RIGHTMARGIN, 213
+        RIGHTMARGIN, 240
         TOPMARGIN, 7
         BOTTOMMARGIN, 245
     END
@@ -819,12 +819,12 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "Server Status"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -867,7 +867,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
