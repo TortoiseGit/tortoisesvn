@@ -610,8 +610,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 					if (m_hasWC)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
-					temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 				}
 				else if (m_LogList.GetSelectedCount() == 2)
 				{
@@ -920,15 +918,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						dlg.DoModal();
 					}
 					break;
-				case ID_POPPROPS:
-					{
-						int selIndex = m_LogList.GetSelectionMark();
-						CPropDlg dlg;
-						dlg.m_rev = m_arRevs.GetAt(selIndex);
-						dlg.m_sPath = GetURLFromPath(m_path);
-						dlg.DoModal();
-					}
-					break;
 				default:
 					break;
 				} // switch (cmd)
@@ -973,12 +962,56 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
 				}
+				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				switch (cmd)
 				{
 				case ID_DIFF:
 					{
 						DoDiffFromLog(selIndex, rev);
+					}
+					break;
+				case ID_POPPROPS:
+					{
+						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						this->m_app = &theApp;
+						theApp.DoWaitCursor(1);
+						CString filepath;
+						if (SVN::PathIsURL(m_path))
+						{
+							filepath = m_path;
+						}
+						else
+						{
+							SVN svn;
+							filepath = svn.GetURLFromPath(m_path);
+							if (filepath.IsEmpty())
+							{
+								theApp.DoWaitCursor(-1);
+								CString temp;
+								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								TRACE(_T("could not retrieve the URL of the file!\n"));
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								break;
+							}
+						}
+						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+						filepath = GetRepositoryRoot(filepath);
+						temp = temp.Mid(temp.Find(' '));
+						if (temp.Find('(')>=0)
+						{
+							temp = temp.Left(temp.Find('(')-1);
+						}
+						temp = temp.Trim();
+						filepath += temp;
+						CPropDlg dlg;
+						dlg.m_rev = rev;
+						dlg.m_sPath = filepath;
+						dlg.DoModal();
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						theApp.DoWaitCursor(-1);
 					}
 					break;
 				default:
