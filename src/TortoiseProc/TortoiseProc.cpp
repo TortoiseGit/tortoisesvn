@@ -486,6 +486,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			CCheckoutDlg dlg;
 			dlg.m_strCheckoutDirectory = cmdLinePath.GetDirectory().GetWinPathString();
 			dlg.m_URL = parser.GetVal(_T("url"));
+			if (dlg.m_URL.Left(5).Compare(_T("tsvn:"))==0)
+			{
+				dlg.m_URL = dlg.m_URL.Mid(5);
+			}
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_URL);

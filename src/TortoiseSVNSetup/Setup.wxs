@@ -129,6 +129,11 @@
 			<Registry Root="HKCR" Key="svn+ssh" Name="URL Protocol" Id="_EC7E2AEE0634419bB4E7040904214BA7" Type="string" />
 			<Registry Root="HKCR" Key="svn+ssh\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_3B07731EA68A41bcBC58B7E275862D3A" Type="string" />
 			<Registry Root="HKCR" Key="svn+ssh\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:repobrowser /path:&quot;%1&quot;" Id="_80E38B43490F449f9C1AFBFAF1D335D3" Type="string" />
+
+			<Registry Root="HKCR" Key="tsvn" Value="URL:TSVN Protocol" Id="_0D278C31382F4c719D91F9BA663B7286" Type="string" />
+			<Registry Root="HKCR" Key="tsvn" Name="URL Protocol" Id="_88BA4ADF25CF42d79BF7F251D62EC40E" Type="string" />
+			<Registry Root="HKCR" Key="tsvn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_D72059B72F5F45c3A1E54A060029452F" Type="string" />
+			<Registry Root="HKCR" Key="tsvn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:checkout /url:&quot;%1&quot;" Id="_BA71DAF4AF4C46b69BDA7806804A5E8A" Type="string" />
 		</Component>
 
 	  <Directory Id="D__Bin" Name="BIN" LongName="bin" >
