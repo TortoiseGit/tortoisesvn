@@ -1,3 +1,43 @@
+2003-12-15  Norman Walsh <nwalsh@users.sourceforge.net>
+
+	* article.appendix.title.properties.xml: Fixed typo in use-attribute-sets attribute
+
+	* title.margin.left.xml: Fix typo in parameter end tag
+
+2003-12-10  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* marker.section.level.xml: New file.
+
+2003-12-07  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* article.appendix.title.properties.xml: New file.
+
+2003-12-05  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* refentry.pagebreak.xml: New file.
+
+	* refentry.title.properties.xml: Added space-before properties since page breaks are now optional.
+	Added a description paragraph.
+
+2003-12-04  Norman Walsh <nwalsh@users.sourceforge.net>
+
+	* subscript.properties.xml, superscript.properties.xml: 
+	New file.
+
+2003-11-29  Jirka Kosek <kosek@users.sourceforge.net>
+
+	* htmlhelp.display.progress.xml, htmlhelp.enhanced.decompilation.xml, htmlhelp.hhc.width.xml, htmlhelp.hhp.windows.xml, htmlhelp.remember.window.position.xml, htmlhelp.show.toolbar.text.xml, htmlhelp.window.geometry.xml: 
+	New file.
+
+2003-11-25  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* title.margin.left.xml: Set to zero if passivetex.extensions != 0 since PassiveTeX
+	cannot handle the math expression with negative values.
+
+2003-10-04  Jirka Kosek <kosek@users.sourceforge.net>
+
+	* index.preferred.page.properties.xml: New file.
+
 2003-09-28  Norman Walsh <nwalsh@users.sourceforge.net>
 
 	* formal.object.properties.xml: Use keep-together.within-column, not keep-together as that's a compound property inherited by fo:inline and other elements with bad effects

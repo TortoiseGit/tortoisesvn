@@ -5,7 +5,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: refentry.xsl,v 1.15 2003/05/15 17:30:35 kosek Exp $
+     $Id: refentry.xsl,v 1.17 2003/12/05 22:53:54 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -153,7 +153,9 @@
   </xsl:variable>
 
   <xsl:choose>
-    <xsl:when test="not(parent::*) or parent::reference or parent::part">
+    <xsl:when test="not(parent::*) or 
+                    parent::reference or 
+                    parent::part">
       <!-- make a page sequence -->
       <fo:page-sequence hyphenate="{$hyphenate}"
                         master-reference="{$master-reference}">
@@ -196,7 +198,10 @@
       </fo:page-sequence>
     </xsl:when>
     <xsl:otherwise>
-      <fo:block break-before="page">
+      <fo:block>
+        <xsl:if test="$refentry.pagebreak != 0">
+          <xsl:attribute name="break-before">page</xsl:attribute>
+        </xsl:if>
         <xsl:copy-of select="$refentry.content"/>
       </fo:block>
     </xsl:otherwise>
@@ -222,28 +227,77 @@
 </xsl:template>
 
 <xsl:template match="refnamediv">
-  <fo:block>
+  <xsl:variable name="section.level">
+    <xsl:call-template name="refentry.level">
+      <xsl:with-param name="node" select="ancestor::refentry"/>
+    </xsl:call-template>
+  </xsl:variable>
+
+  <xsl:variable name="reftitle">
     <xsl:choose>
       <xsl:when test="$refentry.generate.name != 0">
-        <fo:block xsl:use-attribute-sets="refentry.title.properties">
-          <xsl:call-template name="gentext">
-            <xsl:with-param name="key" select="'RefName'"/>
-          </xsl:call-template>
-        </fo:block>
+        <xsl:call-template name="gentext">
+          <xsl:with-param name="key" select="'RefName'"/>
+        </xsl:call-template>
       </xsl:when>
-
       <xsl:when test="$refentry.generate.title != 0">
+        <xsl:choose>
+          <xsl:when test="../refmeta/refentrytitle">
+            <xsl:apply-templates select="../refmeta/refentrytitle"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="refname[1]"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- xsl:use-attribute-sets takes only a Qname, not a variable -->
+  <fo:block>
+    <xsl:choose>
+      <xsl:when test="$section.level = 1">
         <fo:block xsl:use-attribute-sets="refentry.title.properties">
-          <xsl:choose>
-            <xsl:when test="../refmeta/refentrytitle">
-              <xsl:apply-templates select="../refmeta/refentrytitle"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:apply-templates select="refname[1]"/>
-            </xsl:otherwise>
-          </xsl:choose>
+          <fo:block xsl:use-attribute-sets="section.title.level1.properties">
+            <xsl:value-of select="$reftitle"/>
+          </fo:block>
         </fo:block>
       </xsl:when>
+      <xsl:when test="$section.level = 2">
+        <fo:block xsl:use-attribute-sets="refentry.title.properties">
+          <fo:block xsl:use-attribute-sets="section.title.level2.properties">
+            <xsl:value-of select="$reftitle"/>
+          </fo:block>
+        </fo:block>
+      </xsl:when>
+      <xsl:when test="$section.level = 3">
+        <fo:block xsl:use-attribute-sets="refentry.title.properties">
+          <fo:block xsl:use-attribute-sets="section.title.level3.properties">
+            <xsl:value-of select="$reftitle"/>
+          </fo:block>
+        </fo:block>
+      </xsl:when>
+      <xsl:when test="$section.level = 4">
+        <fo:block xsl:use-attribute-sets="refentry.title.properties">
+          <fo:block xsl:use-attribute-sets="section.title.level4.properties">
+            <xsl:value-of select="$reftitle"/>
+          </fo:block>
+        </fo:block>
+      </xsl:when>
+      <xsl:when test="$section.level = 5">
+        <fo:block xsl:use-attribute-sets="refentry.title.properties">
+          <fo:block xsl:use-attribute-sets="section.title.level5.properties">
+            <xsl:value-of select="$reftitle"/>
+          </fo:block>
+        </fo:block>
+      </xsl:when>
+      <xsl:otherwise>
+        <fo:block xsl:use-attribute-sets="refentry.title.properties">
+          <fo:block xsl:use-attribute-sets="section.title.level6.properties">
+            <xsl:value-of select="$reftitle"/>
+          </fo:block>
+        </fo:block>
+      </xsl:otherwise>
     </xsl:choose>
 
     <fo:block space-after="1em">
@@ -268,6 +322,7 @@
     </fo:block>
   </fo:block>
 </xsl:template>
+
 
 <xsl:template match="refname">
   <xsl:apply-templates/>

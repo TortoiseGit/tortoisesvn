@@ -87,8 +87,8 @@
    <l:gentext key="refsection" text=""/>
    <l:gentext key="RefSynopsisDiv" text="Synopsis"/>
    <l:gentext key="refsynopsisdiv" text="Synopsis"/>
-   <l:gentext key="RevHistory" text="Revisions Historik;"/>
-   <l:gentext key="revhistory" text="Revisions Historik;"/>
+   <l:gentext key="RevHistory" text="Revisionshistorik"/>
+   <l:gentext key="revhistory" text="Revisionshistorik"/>
    <l:gentext key="revision" text="Revision"/>
    <l:gentext key="Revision" text="Revision"/>
    <l:gentext key="sect1" text="Section"/>
@@ -98,9 +98,9 @@
    <l:gentext key="sect5" text="Section"/>
    <l:gentext key="section" text="avsnitt"/>
    <l:gentext key="Section" text="Avsnitt"/>
-   <l:gentext key="see" text="Se"/>
+   <l:gentext key="see" text="se"/>
    <l:gentext key="See" text="Se"/>
-   <l:gentext key="seealso" text="Se &#196;ven"/>
+   <l:gentext key="seealso" text="se &#228;ven"/>
    <l:gentext key="Seealso" text="Se &#228;ven"/>
    <l:gentext key="SeeAlso" text="Se &#196;ven"/>
    <l:gentext key="set" text="Set"/>
@@ -129,7 +129,7 @@
    <l:gentext key="in" text="i"/>
    <l:gentext key="lastlistcomma" text=","/>
    <l:gentext key="listcomma" text=","/>
-   <l:gentext key="nonexistantelement" text="non-existant element"/>
+   <l:gentext key="nonexistantelement" text="icke-existerande element"/>
    <l:gentext key="notes" text="Noter"/>
    <l:gentext key="Notes" text="Noter"/>
    <l:gentext key="Pgs" text="Sid."/>
@@ -141,9 +141,9 @@
    <l:gentext key="TableofContents" text="Inneh&#229;llsf&#246;rteckning"/>
    <l:gentext key="tableofcontents" text="Inneh&#229;llsf&#246;rteckning"/>
    <l:gentext key="the" text=""/>
-   <l:gentext key="unexpectedelementname" text="Unexpected element name"/>
+   <l:gentext key="unexpectedelementname" text="Ov&#228;ntat elementnamn"/>
    <l:gentext key="unsupported" text="unsupported"/>
-   <l:gentext key="xrefto" text="xref till"/>
+   <l:gentext key="xrefto" text="korsreferens till"/>
    <l:gentext key="listofequations" text="Ekvationsf&#246;rteckning"/>
    <l:gentext key="ListofEquations" text="Ekvationsf&#246;rteckning"/>
    <l:gentext key="ListofExamples" text="Exempelf&#246;rteckning"/>
@@ -158,9 +158,9 @@
    <l:gentext key="listofunknown" text="F&#246;rteckning av ok&#228;nda"/>
    <l:gentext key="nav-home" text="Hem"/>
    <l:gentext key="nav-next" text="N&#228;sta"/>
-   <l:gentext key="nav-next-sibling" text="Snabbt bak&#229;t"/>
+   <l:gentext key="nav-next-sibling" text="Snabbt fram&#229;t"/>
    <l:gentext key="nav-prev" text="F&#246;reg&#229;ende"/>
-   <l:gentext key="nav-prev-sibling" text="Snabbt fram&#229;t"/>
+   <l:gentext key="nav-prev-sibling" text="Snabbt bak&#229;t"/>
    <l:gentext key="nav-up" text="Upp"/>
    <l:gentext key="nav-toc" text="ToC" lang="en"/>
    <l:gentext key="Draft" text="Draft"/>
@@ -210,6 +210,7 @@
       <l:template name="formalpara" text="%t"/>
       <l:template name="glossary" text="%t"/>
       <l:template name="glossdiv" text="%t"/>
+      <l:template name="glosslist" text="%t" lang="en"/>
       <l:template name="glossentry" text="%t" lang="en"/>
       <l:template name="important" text="%t"/>
       <l:template name="index" text="%t"/>
@@ -251,6 +252,7 @@
       <l:template name="sidebar" text="%t"/>
       <l:template name="step" text="%t"/>
       <l:template name="table" text="Tabell %n. %t"/>
+      <l:template name="task" text="%t" lang="en"/>
       <l:template name="tip" text="%t"/>
       <l:template name="toc" text="%t"/>
       <l:template name="variablelist" text="%t"/>
@@ -435,6 +437,7 @@
       <l:template name="equation" text="Ekvation&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="example" text="Exempel&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="figure" text="Figur&#160;%n, &#8220;%t&#8221;"/>
+      <l:template name="part" text="Del&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="procedure" text="Procedur&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="productionset" text="Production&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="qandadiv" text="Q &amp; A&#160;%n, &#8220;%t&#8221;"/>
@@ -470,51 +473,51 @@
    </l:context>
 
    <l:context name="datetime">
-      <l:template name="format" text="m/d/Y" lang="en"/>
+      <l:template name="format" text="d-m-Y"/>
    </l:context>
 
    <l:context name="datetime-full">
-      <l:template name="January" text="January" lang="en"/>
-      <l:template name="February" text="February" lang="en"/>
-      <l:template name="March" text="March" lang="en"/>
-      <l:template name="April" text="April" lang="en"/>
-      <l:template name="May" text="May" lang="en"/>
-      <l:template name="June" text="June" lang="en"/>
-      <l:template name="July" text="July" lang="en"/>
-      <l:template name="August" text="August" lang="en"/>
-      <l:template name="September" text="September" lang="en"/>
-      <l:template name="October" text="October" lang="en"/>
-      <l:template name="November" text="November" lang="en"/>
-      <l:template name="December" text="December" lang="en"/>
-      <l:template name="Monday" text="Monday" lang="en"/>
-      <l:template name="Tuesday" text="Tuesday" lang="en"/>
-      <l:template name="Wednesday" text="Wednesday" lang="en"/>
-      <l:template name="Thursday" text="Thursday" lang="en"/>
-      <l:template name="Friday" text="Friday" lang="en"/>
-      <l:template name="Saturday" text="Saturday" lang="en"/>
-      <l:template name="Sunday" text="Sunday" lang="en"/>
+      <l:template name="January" text="Januari"/>
+      <l:template name="February" text="Februari"/>
+      <l:template name="March" text="Mars"/>
+      <l:template name="April" text="April"/>
+      <l:template name="May" text="Maj"/>
+      <l:template name="June" text="Juni"/>
+      <l:template name="July" text="Juli"/>
+      <l:template name="August" text="Augusti"/>
+      <l:template name="September" text="September"/>
+      <l:template name="October" text="Oktober"/>
+      <l:template name="November" text="November"/>
+      <l:template name="December" text="December"/>
+      <l:template name="Monday" text="M&#229;ndag"/>
+      <l:template name="Tuesday" text="Tisdag"/>
+      <l:template name="Wednesday" text="Onsdag"/>
+      <l:template name="Thursday" text="Torsdag"/>
+      <l:template name="Friday" text="Fredag"/>
+      <l:template name="Saturday" text="L&#246;rdag"/>
+      <l:template name="Sunday" text="S&#246;ndag"/>
    </l:context>
 
    <l:context name="datetime-abbrev">
-      <l:template name="Jan" text="Jan" lang="en"/>
-      <l:template name="Feb" text="Feb" lang="en"/>
-      <l:template name="Mar" text="Mar" lang="en"/>
-      <l:template name="Apr" text="Apr" lang="en"/>
-      <l:template name="May" text="May" lang="en"/>
-      <l:template name="Jun" text="Jun" lang="en"/>
-      <l:template name="Jul" text="Jul" lang="en"/>
-      <l:template name="Aug" text="Aug" lang="en"/>
-      <l:template name="Sep" text="Sep" lang="en"/>
-      <l:template name="Oct" text="Oct" lang="en"/>
-      <l:template name="Nov" text="Nov" lang="en"/>
-      <l:template name="Dec" text="Dec" lang="en"/>
-      <l:template name="Mon" text="Mon" lang="en"/>
-      <l:template name="Tue" text="Tue" lang="en"/>
-      <l:template name="Wed" text="Wed" lang="en"/>
-      <l:template name="Thu" text="Thu" lang="en"/>
-      <l:template name="Fri" text="Fri" lang="en"/>
-      <l:template name="Sat" text="Sat" lang="en"/>
-      <l:template name="Sun" text="Sun" lang="en"/>
+      <l:template name="Jan" text="Jan"/>
+      <l:template name="Feb" text="Feb"/>
+      <l:template name="Mar" text="Mar"/>
+      <l:template name="Apr" text="Apr"/>
+      <l:template name="May" text="Maj"/>
+      <l:template name="Jun" text="Jun"/>
+      <l:template name="Jul" text="Jul"/>
+      <l:template name="Aug" text="Aug"/>
+      <l:template name="Sep" text="Sep"/>
+      <l:template name="Oct" text="Okt"/>
+      <l:template name="Nov" text="Nov"/>
+      <l:template name="Dec" text="Dec"/>
+      <l:template name="Mon" text="Mon"/>
+      <l:template name="Tue" text="Tis"/>
+      <l:template name="Wed" text="Ons"/>
+      <l:template name="Thu" text="Tor"/>
+      <l:template name="Fri" text="Fre"/>
+      <l:template name="Sat" text="L&#246;r"/>
+      <l:template name="Sun" text="S&#246;n"/>
    </l:context>
 
    <l:context name="htmlhelp">

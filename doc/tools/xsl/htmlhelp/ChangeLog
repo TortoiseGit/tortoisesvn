@@ -1,3 +1,15 @@
+2003-12-10  Jirka Kosek <kosek@users.sourceforge.net>
+
+	* htmlhelp-common.xsl: Fixed parameter name collision
+
+2003-11-29  Jirka Kosek <kosek@users.sourceforge.net>
+
+	* htmlhelp-common.xsl: Added new HTML Help parameters from patches by W. Borgert
+
+2003-10-27  Jirka Kosek <kosek@users.sourceforge.net>
+
+	* htmlhelp-common.xsl: Handle setindex in a proper way
+
 2003-09-23  Jirka Kosek <kosek@users.sourceforge.net>
 
 	* htmlhelp-common.xsl: Added new parameter manifest.in.base.dir which can be used to place manifest file and also project files for HTML Help and Eclipse Help into base.dir. This improvement also fixes bug (feature) #662955.

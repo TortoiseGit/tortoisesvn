@@ -10,7 +10,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: graphics.xsl,v 1.24 2003/06/22 22:18:03 bobstayton Exp $
+     $Id: graphics.xsl,v 1.25 2003/11/05 14:53:50 kosek Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -59,7 +59,7 @@
       <xsl:text> png pdf jpg jpeg </xsl:text>
     </xsl:when>
     <xsl:when test="$fop.extensions != 0">
-      <xsl:text> svg png pdf jpg jpeg </xsl:text>
+      <xsl:text> gif svg png pdf jpg jpeg </xsl:text>
     </xsl:when>
     <xsl:when test="$arbortext.extensions != 0">
       <xsl:text> png pdf jpg jpeg gif tif tiff bmp </xsl:text>

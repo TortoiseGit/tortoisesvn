@@ -4,7 +4,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: formal.xsl,v 1.32 2003/08/28 20:51:58 bobstayton Exp $
+     $Id: formal.xsl,v 1.34 2003/11/05 07:52:56 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -202,9 +202,9 @@
     <xsl:choose>
       <xsl:when test="$align != ''">
         <fo:block>
-	  <xsl:attribute name="text-align">
-	    <xsl:value-of select="$align"/>
-	  </xsl:attribute>
+          <xsl:attribute name="text-align">
+            <xsl:value-of select="$align"/>
+          </xsl:attribute>
           <xsl:call-template name="formal.object">
             <xsl:with-param name="placement" select="$placement"/>
           </xsl:call-template>
@@ -263,7 +263,7 @@
       <xsl:variable name="olist" select="mediaobject/imageobject
                      |mediaobject/imageobjectco
                      |mediaobject/videoobject
-		     |mediaobject/audioobject
+                     |mediaobject/audioobject
 		     |mediaobject/textobject"/>
 
       <xsl:variable name="object.index">
@@ -541,6 +541,10 @@
     <xsl:when test="@orient='land'">
       <fo:block-container reference-orientation="90">
         <fo:block>
+	  <!-- Such spans won't work in most FO processors since it does
+	       not follow the XSL spec, which says it must appear on
+	       an element that is a direct child of fo:flow.
+	       Some processors relax that requirement, however. -->
           <xsl:attribute name="span">
             <xsl:choose>
               <xsl:when test="@pgwide=1">all</xsl:when>
@@ -627,7 +631,7 @@
     <xsl:for-each select="tgroup">
       <xsl:variable name="prop-columns"
                     select=".//colspec[contains(@colwidth, '*')]"/>
-      <fo:table id="{$id}"
+      <fo:table 
                 border-collapse="collapse"
                 xsl:use-attribute-sets="informal.object.properties">
         <xsl:call-template name="table.frame"/>
@@ -672,7 +676,7 @@
   <xsl:choose>
     <xsl:when test="@orient='land'">
       <fo:block-container reference-orientation="90">
-        <fo:block>
+        <fo:block id="{$id}">
           <xsl:attribute name="span">
             <xsl:choose>
               <xsl:when test="@pgwide=1">all</xsl:when>
@@ -685,7 +689,7 @@
       </fo:block-container>
     </xsl:when>
     <xsl:otherwise>
-      <fo:block>
+      <fo:block id="{$id}">
         <xsl:attribute name="span">
           <xsl:choose>
             <xsl:when test="@pgwide=1">all</xsl:when>

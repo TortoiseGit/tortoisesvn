@@ -4,7 +4,18 @@
                 exclude-result-prefixes="doc"
                 version='1.0'>
 
-<!-- ============================================================ -->
+<!-- ********************************************************************
+     $Id: labels.xsl,v 1.25 2003/11/30 19:45:09 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 <!-- label markup -->
 
 <doc:mode mode="label.markup" xmlns="">
@@ -199,7 +210,7 @@ element label.</para>
   </xsl:variable>
 
   <xsl:if test="$section.label.includes.component.label != 0
-                and $parent.is.component">
+                and $parent.is.component != 0">
     <xsl:variable name="parent.label">
       <xsl:apply-templates select=".." mode="label.markup"/>
     </xsl:variable>

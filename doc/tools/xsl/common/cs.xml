@@ -210,6 +210,7 @@
       <l:template name="formalpara" text="%t"/>
       <l:template name="glossary" text="%t"/>
       <l:template name="glossdiv" text="%t"/>
+      <l:template name="glosslist" text="%t" lang="en"/>
       <l:template name="glossentry" text="%t" lang="en"/>
       <l:template name="important" text="%t"/>
       <l:template name="index" text="%t"/>
@@ -251,6 +252,7 @@
       <l:template name="sidebar" text="%t"/>
       <l:template name="step" text="%t"/>
       <l:template name="table" text="Tabulka %n. %t"/>
+      <l:template name="task" text="%t" lang="en"/>
       <l:template name="tip" text="%t"/>
       <l:template name="toc" text="%t"/>
       <l:template name="variablelist" text="%t"/>
@@ -435,6 +437,7 @@
       <l:template name="equation" text="%n &#8211; &#8222;%t&#8220;"/>
       <l:template name="example" text="%n &#8211; &#8222;%t&#8220;"/>
       <l:template name="figure" text="%n &#8211; &#8222;%t&#8220;"/>
+      <l:template name="part" text="%n &#8211; &#8222;%t&#8220;"/>
       <l:template name="procedure" text="%n &#8211; &#8222;%t&#8220;"/>
       <l:template name="productionset" text="%n &#8211; &#8222;%t&#8220;"/>
       <l:template name="qandadiv" text="%n &#8211; &#8222;%t&#8220;"/>

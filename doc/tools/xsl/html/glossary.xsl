@@ -3,7 +3,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: glossary.xsl,v 1.15 2003/02/28 16:44:35 bobstayton Exp $
+     $Id: glossary.xsl,v 1.16 2003/11/24 16:35:16 nwalsh Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -72,8 +72,11 @@
 <xsl:template match="glosslist">
   <div class="{name(.)}">
     <xsl:call-template name="anchor"/>
+    <xsl:if test="blockinfo/title|title">
+      <xsl:call-template name="formal.object.heading"/>
+    </xsl:if>
     <dl>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="glossentry"/>
     </dl>
   </div>
 </xsl:template>

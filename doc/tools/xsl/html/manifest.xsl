@@ -3,6 +3,18 @@
 		version="1.0"
                 exclude-result-prefixes="doc">
 
+<!-- ********************************************************************
+     $Id: manifest.xsl,v 1.4 2003/11/30 19:42:23 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 <xsl:variable name="manifest.base.dir">
 </xsl:variable>
 

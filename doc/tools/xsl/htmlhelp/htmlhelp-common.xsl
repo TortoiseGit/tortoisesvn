@@ -8,7 +8,7 @@
                 exclude-result-prefixes="doc exsl set h">
 
 <!-- ********************************************************************
-     $Id: htmlhelp-common.xsl,v 1.23 2003/09/23 08:55:42 kosek Exp $
+     $Id: htmlhelp-common.xsl,v 1.26 2003/12/10 09:35:07 kosek Exp $
      ******************************************************************** -->
 
 <!-- ==================================================================== -->
@@ -18,7 +18,7 @@
 
 <!-- ==================================================================== -->
 
-<xsl:variable name="generate.index" select="//indexterm[1]"/>
+<xsl:variable name="htmlhelp.generate.index" select="//indexterm[1]"/>
 
 <!-- ==================================================================== -->
 
@@ -53,7 +53,7 @@
     <xsl:call-template name="hh-map"/>
     <xsl:call-template name="hh-alias"/>
   </xsl:if>
-  <xsl:if test="$generate.index">
+  <xsl:if test="$htmlhelp.generate.index">
     <xsl:call-template name="hhk"/>
   </xsl:if>
 </xsl:template>
@@ -109,7 +109,9 @@
   <xsl:call-template name="toHex">
     <xsl:with-param name="n" select="9504 + $htmlhelp.show.menu * 65536
                                           + $htmlhelp.show.advanced.search * 131072
-                                          + $htmlhelp.show.favorities * 4096"/>
+                                          + $htmlhelp.show.favorities * 4096
+                                          + (1 - $htmlhelp.show.toolbar.text) * 64
+                                          + $htmlhelp.remember.window.position * 262144"/>
   </xsl:call-template>
 </xsl:variable>
 <xsl:variable name="xbuttons">
@@ -133,7 +135,7 @@
 </xsl:variable>
 <xsl:text>[OPTIONS]
 </xsl:text>
-<xsl:if test="$generate.index">
+<xsl:if test="$htmlhelp.generate.index">
 <xsl:text>Auto Index=Yes
 </xsl:text></xsl:if>
 <xsl:if test="$htmlhelp.hhc.binary != 0">
@@ -148,10 +150,19 @@ Contents file=</xsl:text><xsl:value-of select="$htmlhelp.hhc"/><xsl:text>
 </xsl:text></xsl:if>
 <xsl:text>Default topic=</xsl:text><xsl:value-of select="$default.topic"/>
 <xsl:text>
-Display compile progress=Yes
+Display compile progress=</xsl:text>
+  <xsl:choose>
+    <xsl:when test="$htmlhelp.display.progress != 1">
+      <xsl:text>No</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>Yes</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+<xsl:text>
 Full-text search=Yes
 </xsl:text>
-<xsl:if test="$generate.index">
+<xsl:if test="$htmlhelp.generate.index">
 <xsl:text>Index file=</xsl:text><xsl:value-of select="$htmlhelp.hhk"/><xsl:text>
 </xsl:text></xsl:if>
 <xsl:text>Language=</xsl:text>
@@ -178,6 +189,16 @@ Title=</xsl:text>
       <xsl:value-of select="$htmlhelp.title"/>
     </xsl:otherwise>
   </xsl:choose>
+<xsl:text>
+Enhanced decompilation=</xsl:text>
+  <xsl:choose>
+    <xsl:when test="$htmlhelp.enhanced.decompilation != 0">
+      <xsl:text>Yes</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>No</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
 
 <xsl:if test="$htmlhelp.hhp.window != ''">
   <xsl:text>
@@ -187,7 +208,7 @@ Title=</xsl:text>
 <xsl:value-of select="$htmlhelp.hhp.window"/>
 <xsl:text>=,"</xsl:text><xsl:value-of select="$htmlhelp.hhc"/>
 <xsl:text>",</xsl:text>
-<xsl:if test="$generate.index">
+<xsl:if test="$htmlhelp.generate.index">
   <xsl:text>"</xsl:text>
   <xsl:value-of select="$htmlhelp.hhk"/>
   <xsl:text>"</xsl:text>
@@ -231,12 +252,15 @@ Title=</xsl:text>
 </xsl:if>
 <xsl:text>,</xsl:text>
 <xsl:value-of select="$xnavigation"/>
-<xsl:text>,,</xsl:text>
+<xsl:text>,</xsl:text><xsl:value-of select="$htmlhelp.hhc.width"/><xsl:text>,</xsl:text>
 <xsl:value-of select="$xbuttons"/>
-<xsl:text>,,,,,,,,0
+<xsl:text>,</xsl:text><xsl:value-of select="$htmlhelp.window.geometry"/><xsl:text>,,,,,,,0
 </xsl:text>
 </xsl:if>
 
+<xsl:if test="$htmlhelp.hhp.windows">
+  <xsl:value-of select="$htmlhelp.hhp.windows"/>
+</xsl:if>
 <xsl:text>
 
 [FILES]
@@ -817,7 +841,9 @@ Title=</xsl:text>
 
 <!-- no separate HTML page with index -->
 <xsl:template match="index"/>   
+<xsl:template match="setindex"/>   
 <xsl:template match="index" mode="toc"/>
+<xsl:template match="setindex" mode="toc"/>
 
 <xsl:template match="indexterm">
   <xsl:choose>
@@ -892,7 +918,7 @@ Title=</xsl:text>
 </OBJECT>
 <UL>]]>
 </xsl:text>
-<xsl:if test="($htmlhelp.use.hhk != 0) and $generate.index">
+<xsl:if test="($htmlhelp.use.hhk != 0) and $htmlhelp.generate.index">
   <xsl:choose>
     <xsl:when test="$rootid != ''">
       <xsl:apply-templates select="key('id',$rootid)" mode="hhk"/>

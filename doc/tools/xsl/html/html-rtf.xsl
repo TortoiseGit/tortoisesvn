@@ -5,6 +5,18 @@
                 exclude-result-prefixes="exsl set"
                 version="1.0">
 
+<!-- ********************************************************************
+     $Id: html-rtf.xsl,v 1.11 2003/11/30 19:42:23 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 <!-- This module contains templates that match against HTML nodes. It is used
      to post-process result tree fragments for some sorts of cleanup.
      These templates can only ever be fired by a processor that supports

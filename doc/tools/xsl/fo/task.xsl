@@ -3,6 +3,18 @@
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 version="1.0">
 
+<!-- ********************************************************************
+     $Id: task.xsl,v 1.2 2003/11/30 19:35:03 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 <xsl:template match="task">
   <xsl:variable name="id">
     <xsl:call-template name="object.id"/>

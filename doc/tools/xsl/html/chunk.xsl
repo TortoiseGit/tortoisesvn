@@ -3,6 +3,18 @@
 		version="1.0"
                 exclude-result-prefixes="exsl">
 
+<!-- ********************************************************************
+     $Id: chunk.xsl,v 1.30 2003/11/30 19:42:23 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 <xsl:import href="docbook.xsl"/>
 <xsl:import href="chunk-common.xsl"/>
 <xsl:include href="manifest.xsl"/>

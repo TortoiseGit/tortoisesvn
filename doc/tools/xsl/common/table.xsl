@@ -4,6 +4,18 @@
                 exclude-result-prefixes="doc"
                 version="1.0">
 
+<!-- ********************************************************************
+     $Id: table.xsl,v 1.14 2003/11/30 19:45:09 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 <xsl:template name="blank.spans">
   <xsl:param name="cols" select="1"/>
   <xsl:if test="$cols &gt; 0">

@@ -164,8 +164,11 @@
 <!-- replaces all spaces within the funcdef/paramdef with non-breaking
      spaces -->
 <xsl:template match="paramdef|funcdef">
-  <xsl:variable name="content">
+  <xsl:variable name="rcontent">
     <xsl:apply-templates select="*|./*|text()"/>
+  </xsl:variable>
+  <xsl:variable name="content">
+    <xsl:value-of select="normalize-space($rcontent)"/>
   </xsl:variable>
   <xsl:call-template name="replace-string">
     <xsl:with-param name="content" select="$content"/>

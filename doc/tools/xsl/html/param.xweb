@@ -7,7 +7,7 @@
 <bookinfo>
 <title>HTML Parameter Reference</title>
 <releaseinfo role="meta">
-$Id: param.xweb,v 1.74 2003/09/23 08:55:42 kosek Exp $
+$Id: param.xweb,v 1.75 2003/11/29 21:45:22 kosek Exp $
 </releaseinfo>
 <author>
   <surname>Walsh</surname>
@@ -331,11 +331,14 @@ url="http://docbook.sourceforge.net/projects/xsl/doc/tools/profiling.html">http:
 &htmlhelp.autolabel;
 &htmlhelp.chm;
 &htmlhelp.default.topic;
+&htmlhelp.display.progress;
 &htmlhelp.hhp;
 &htmlhelp.hhc;
 &htmlhelp.hhk;
 &htmlhelp.hhp.tail;
 &htmlhelp.hhp.window;
+&htmlhelp.hhp.windows;
+&htmlhelp.enhanced.decompilation;
 &htmlhelp.enumerate.images;
 &htmlhelp.force.map.and.alias;
 &htmlhelp.map.file;
@@ -344,8 +347,10 @@ url="http://docbook.sourceforge.net/projects/xsl/doc/tools/profiling.html">http:
 &htmlhelp.hhc.show.root;
 &htmlhelp.hhc.folders.instead.books;
 &htmlhelp.hhc.binary;
+&htmlhelp.hhc.width;
 &htmlhelp.title;
 &htmlhelp.show.menu;
+&htmlhelp.show.toolbar.text;
 &htmlhelp.show.advanced.search;
 &htmlhelp.show.favorities;
 &htmlhelp.button.hideshow;
@@ -367,6 +372,8 @@ url="http://docbook.sourceforge.net/projects/xsl/doc/tools/profiling.html">http:
 &htmlhelp.button.next;
 &htmlhelp.button.prev;
 &htmlhelp.button.zoom;
+&htmlhelp.remember.window.position;
+&htmlhelp.window.geometry;
 &htmlhelp.use.hhk;
 &htmlhelp.only;
 </reference>
@@ -398,7 +405,7 @@ around all these parameters.</para>
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: param.xweb,v 1.74 2003/09/23 08:55:42 kosek Exp $
+     $Id: param.xweb,v 1.75 2003/11/29 21:45:22 kosek Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -512,7 +519,9 @@ around all these parameters.</para>
 <src:fragref linkend="htmlhelp.button.zoom.frag"/>
 <src:fragref linkend="htmlhelp.chm.frag"/>
 <src:fragref linkend="htmlhelp.default.topic.frag"/>
+<src:fragref linkend="htmlhelp.display.progress.frag"/>
 <src:fragref linkend="htmlhelp.encoding.frag"/>
+<src:fragref linkend="htmlhelp.enhanced.decompilation.frag"/>
 <src:fragref linkend="htmlhelp.enumerate.images.frag"/>
 <src:fragref linkend="htmlhelp.force.map.and.alias.frag"/>
 <src:fragref linkend="htmlhelp.hhc.binary.frag"/>
@@ -520,17 +529,22 @@ around all these parameters.</para>
 <src:fragref linkend="htmlhelp.hhc.frag"/>
 <src:fragref linkend="htmlhelp.hhc.section.depth.frag"/>
 <src:fragref linkend="htmlhelp.hhc.show.root.frag"/>
+<src:fragref linkend="htmlhelp.hhc.width.frag"/>
 <src:fragref linkend="htmlhelp.hhk.frag"/>
 <src:fragref linkend="htmlhelp.hhp.frag"/>
 <src:fragref linkend="htmlhelp.hhp.tail.frag"/>
 <src:fragref linkend="htmlhelp.hhp.window.frag"/>
+<src:fragref linkend="htmlhelp.hhp.windows.frag"/>
 <src:fragref linkend="htmlhelp.map.file.frag"/>
 <src:fragref linkend="htmlhelp.only.frag"/>
+<src:fragref linkend="htmlhelp.remember.window.position.frag"/>
 <src:fragref linkend="htmlhelp.show.advanced.search.frag"/>
 <src:fragref linkend="htmlhelp.show.favorities.frag"/>
 <src:fragref linkend="htmlhelp.show.menu.frag"/>
+<src:fragref linkend="htmlhelp.show.toolbar.text.frag"/>
 <src:fragref linkend="htmlhelp.title.frag"/>
 <src:fragref linkend="htmlhelp.use.hhk.frag"/>
+<src:fragref linkend="htmlhelp.window.geometry.frag"/>
 <src:fragref linkend="ignore.image.scaling.frag"/>
 <src:fragref linkend="inherit.keywords.frag"/>
 <src:fragref linkend="l10n.gentext.default.language.frag"/>

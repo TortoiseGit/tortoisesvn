@@ -5,7 +5,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: sections.xsl,v 1.30 2003/09/25 18:57:46 bobstayton Exp $
+     $Id: sections.xsl,v 1.31 2003/12/15 23:40:18 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -179,6 +179,13 @@
       </xsl:call-template>
     </xsl:variable>
 
+    <xsl:variable name="marker">
+      <xsl:choose>
+        <xsl:when test="$level &lt;= $marker.section.level">1</xsl:when>
+        <xsl:otherwise>0</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <xsl:variable name="title">
       <xsl:apply-templates select="$section" mode="object.title.markup">
         <xsl:with-param name="allow-anchors" select="1"/>
@@ -217,6 +224,7 @@
     <xsl:call-template name="section.heading">
       <xsl:with-param name="level" select="$level"/>
       <xsl:with-param name="title" select="$title"/>
+      <xsl:with-param name="marker" select="$marker"/>
       <xsl:with-param name="titleabbrev" select="$titleabbrev.elem"/>
     </xsl:call-template>
   </fo:block>

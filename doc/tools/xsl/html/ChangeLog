@@ -1,3 +1,60 @@
+2003-12-15  Norman Walsh <nwalsh@users.sourceforge.net>
+
+	* chunk-common.xsl: Fix ugly performance problem in footer.navigation (thanks again Guillaume du Bourguet)
+
+2003-12-12  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* inline.xsl: Fix bug [ 841586 ] id-attibute in firstterm prohibits link to glossary.
+
+2003-12-09  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* autotoc.xsl: Omit setindex from TOC if $generate.index = 0
+
+2003-12-05  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* table.xsl: Now colwidth="*" treated as colwidth="1*" for tablecolumns extension.
+
+2003-12-01  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* lists.xsl: Processing of listitems now processes and preserves order of comments and PIs.
+
+2003-11-30  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* autoidx.xsl, changebars.xsl, chunk-code.xsl, chunk-common.xsl, chunk.xsl, chunker.xsl, chunkfast.xsl, chunktoc.xsl, html-rtf.xsl, htmltbl.xsl, maketoc.xsl, manifest.xsl, oldchunker.xsl, onechunk.xsl, profile-chunk.xsl, profile-onechunk.xsl, task.xsl: 
+	Added CVS $Id$ comments.
+
+2003-11-29  Jirka Kosek <kosek@users.sourceforge.net>
+
+	* Makefile.param, param.ent, param.xweb: Added new HTML Help parameters from patches by W. Borgert
+
+2003-11-25  Norman Walsh <nwalsh@users.sourceforge.net>
+
+	* chunk-common.xsl: Experimental fix for some xref linking issues in cases where dbhtml 'dir' is used.
+
+2003-11-24  Norman Walsh <nwalsh@users.sourceforge.net>
+
+	* chunk-common.xsl: Fix ugly performance problem with chunking (thanks Guillaume du Bourguet)
+
+	* glossary.xsl: Fix bugs in formatting of glosslist
+
+2003-11-23  Norman Walsh <nwalsh@users.sourceforge.net>
+
+	* inline.xsl: Support code inline
+
+2003-11-02  Robert Stayton <bobstayton@users.sourceforge.net>
+
+	* chunk-common.xsl: Moved call to user.head.content to just before </head>
+	to give the user the last word.
+
+2003-10-23  <uid50791@users.sourceforge.net>
+
+	* chunk-code.xsl: Remove index from Next and Previous when
+	$generate.index = 0.
+
+2003-10-03  Norman Walsh <nwalsh@users.sourceforge.net>
+
+	* lists.xsl: Support stepalternatives
+
 2003-09-28  Norman Walsh <nwalsh@users.sourceforge.net>
 
 	* index.xsl: Handle indexdiv/title properly

@@ -5,7 +5,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: component.xsl,v 1.23 2003/08/14 21:31:13 bobstayton Exp $
+     $Id: component.xsl,v 1.24 2003/12/07 06:58:08 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -542,6 +542,10 @@
     <xsl:call-template name="object.id"/>
   </xsl:variable>
 
+  <xsl:variable name="title">
+    <xsl:apply-templates select="." mode="title.markup"/>
+  </xsl:variable>
+
   <xsl:variable name="titleabbrev">
     <xsl:apply-templates select="." mode="titleabbrev.markup"/>
   </xsl:variable>
@@ -565,13 +569,19 @@
       </xsl:attribute>
     </xsl:if>
 
-    <xsl:call-template name="section.heading">
-      <xsl:with-param name="level" select="2"/>
-      <xsl:with-param name="title">
-        <xsl:apply-templates select="." mode="object.title.markup"/>
-      </xsl:with-param>
-      <xsl:with-param name="titleabbrev" select="$titleabbrev"/>
-    </xsl:call-template>
+    <fo:block xsl:use-attribute-sets="article.appendix.title.properties">
+      <fo:marker marker-class-name="section.head.marker">
+        <xsl:choose>
+          <xsl:when test="$titleabbrev = ''">
+            <xsl:value-of select="$title"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$titleabbrev"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </fo:marker>
+      <xsl:copy-of select="$title"/>
+    </fo:block>
 
     <xsl:apply-templates/>
   </fo:block>

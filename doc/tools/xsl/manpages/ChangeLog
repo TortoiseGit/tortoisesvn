@@ -1,3 +1,37 @@
+2003-12-15  <twaugh@users.sourceforge.net>
+
+	* lists.xsl: Fix nested lists properly.
+
+2003-12-13  <twaugh@users.sourceforge.net>
+
+	* docbook.xsl: Use .nf environment for literallayout.
+
+	* docbook.xsl: Prevent duplicate .nf environments inside informalexample or screen.  All
+	fiftenn allowed contained element in these elements will provide its own.
+
+2003-12-12  <twaugh@users.sourceforge.net>
+
+	* docbook.xsl: Last commit reverted a previous change -- redo it.
+
+2003-12-11  <twaugh@users.sourceforge.net>
+
+	* docbook.xsl: Remove unused rule.
+
+	* docbook.xsl: Fix literallayout inside para.
+
+	* lists.xsl: Fix singly-nested lists.
+
+2003-12-10  <twaugh@users.sourceforge.net>
+
+	* docbook.xsl: Don't mess up roff markup in tables.
+
+2003-11-06  <twaugh@users.sourceforge.net>
+
+	* lists.xsl, synop.xsl: 2003-11-06  Tim Waugh  <twaugh@redhat.com>
+	
+	        * lists.xsl: Normalize space in itemizedlist/listitem.
+	        * synop.xsl: Likewise.
+
 2003-05-23  <twaugh@users.sourceforge.net>
 
 	* synop.xsl: Only escape option spaces once when args are nested.

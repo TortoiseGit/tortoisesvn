@@ -5,7 +5,7 @@
 <bookinfo>
 <title>HTML Parameter Reference</title>
 <releaseinfo role="meta">
-$Id: param.xweb,v 1.74 2003/09/23 08:55:42 kosek Exp $
+$Id: param.xweb,v 1.75 2003/11/29 21:45:22 kosek Exp $
 </releaseinfo>
 <author>
   <surname>Walsh</surname>
@@ -5898,6 +5898,30 @@ your document and you also hide root element in ToC. E.g.:</para>
 </refsect1>
 </refentry>
 
+<refentry id="htmlhelp.display.progress">
+<refmeta>
+<refentrytitle>htmlhelp.display.progress</refentrytitle>
+<refmiscinfo role="type">boolean</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>htmlhelp.display.progress</refname>
+<refpurpose>Display compile progress?</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="htmlhelp.display.progress.frag">
+&lt;xsl:param name="htmlhelp.display.progress" select="1"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>You can swith off display of compile progress by setting this
+parameter to 0.</para>
+
+</refsect1>
+</refentry>
+
 <refentry id="htmlhelp.hhp">
 <refmeta>
 <refentrytitle>htmlhelp.hhp</refentrytitle>
@@ -6014,6 +6038,54 @@ store appropriate part of project file into this parameter.</para>
 
 <para>Name of default window. If empty no [WINDOWS] section will be
 added to project file.</para>
+
+</refsect1>
+</refentry>
+
+<refentry id="htmlhelp.hhp.windows'">
+<refmeta>
+<refentrytitle>htmlhelp.hhp.windows</refentrytitle>
+<refmiscinfo role="type">string</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>htmlhelp.hhp.windows</refname>
+<refpurpose>Definition of additional windows</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="htmlhelp.hhp.windows.frag">
+&lt;xsl:param name="htmlhelp.hhp.windows"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>Content of this parameter is placed at the end of [WINDOWS]
+section of project file. You can use it for defining your own
+addtional windows.</para>
+
+</refsect1>
+</refentry>
+
+<refentry id="htmlhelp.enhanced.decompilation">
+<refmeta>
+<refentrytitle>htmlhelp.enhanced.decompilation</refentrytitle>
+<refmiscinfo role="type">boolean</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>htmlhelp.enhanced.decompilation</refname>
+<refpurpose>Allow enhanced decompilation of CHM?</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="htmlhelp.enhanced.decompilation.frag">
+&lt;xsl:param name="htmlhelp.enhanced.decompilation" select="0"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>When set to 1 this parameter enables enhanced decompilation of CHM.</para>
 
 </refsect1>
 </refentry>
@@ -6215,6 +6287,29 @@ must create binary TOC if you want to add Prev/Next buttons to toolbar
 </refsect1>
 </refentry>
 
+<refentry id="htmlhelp.hhc.width">
+<refmeta>
+<refentrytitle>htmlhelp.hhc.width</refentrytitle>
+<refmiscinfo role="type">integer</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>htmlhelp.hhc.width</refname>
+<refpurpose>Width of navigation (ToC) pane</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="htmlhelp.hhc.width.frag">
+&lt;xsl:param name="htmlhelp.hhc.width"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>This parameter specifies width of ToC pane in pixels.</para>
+
+</refsect1>
+</refentry>
+
 <refentry id="htmlhelp.title">
 <refmeta>
 <refentrytitle>htmlhelp.title</refentrytitle>
@@ -6259,6 +6354,30 @@ HTML Help. If empty, title will be automatically taken from document.</para>
 
 <para>If you want application menu in your HTML Help file, turn this
 parameter to 1.</para>
+
+</refsect1>
+</refentry>
+
+<refentry id="htmlhelp.show.toolbar.text'">
+<refmeta>
+<refentrytitle>htmlhelp.show.toolbar.text</refentrytitle>
+<refmiscinfo role="type">boolean</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>htmlhelp.show.toolbar.text</refname>
+<refpurpose>Show text under toolbar buttons?</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="htmlhelp.show.toolbar.text.frag">
+&lt;xsl:param name="htmlhelp.show.toolbar.text" select="1"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>You can switch off display of texts under toolbar buttons by
+setting this parameter to 0.</para>
 
 </refsect1>
 </refentry>
@@ -6762,6 +6881,56 @@ parameter to 1.</para>
 </refsect1>
 </refentry>
 
+<refentry id="htmlhelp.remember.window.position">
+<refmeta>
+<refentrytitle>htmlhelp.remember.window.position</refentrytitle>
+<refmiscinfo role="type">boolean</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>htmlhelp.remember.window.position</refname>
+<refpurpose>Remember help window position?</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="htmlhelp.remember.window.position.frag">
+&lt;xsl:param name="htmlhelp.remember.window.position" select="0"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>To remember help window position between starts set this
+parameter to 1.</para>
+
+</refsect1>
+</refentry>
+
+<refentry id="htmlhelp.window.geometry">
+<refmeta>
+<refentrytitle>htmlhelp.window.geometry</refentrytitle>
+<refmiscinfo role="type">string</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>htmlhelp.window.geometry</refname>
+<refpurpose>Set initial geometry of help window</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="htmlhelp.window.geometry.frag">
+&lt;xsl:param name="htmlhelp.window.geometry"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>This parameter specifies initial position of help
+window. E.g.</para>
+
+<programlisting format="linespecific">&lt;xsl:param name="htmlhelp.window.geometry"&gt;[160,64,992,704]&lt;/xsl:param&gt;</programlisting>
+
+</refsect1>
+</refentry>
+
 <refentry id="htmlhelp.use.hhk">
 <refmeta>
 <refentrytitle>htmlhelp.use.hhk</refentrytitle>
@@ -7029,7 +7198,7 @@ around all these parameters.</para>
 &lt;xsl:stylesheet exclude-result-prefixes="src" version="1.0"&gt;
 
 &lt;!-- ********************************************************************
-     $Id: param.xweb,v 1.74 2003/09/23 08:55:42 kosek Exp $
+     $Id: param.xweb,v 1.75 2003/11/29 21:45:22 kosek Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -7143,7 +7312,9 @@ around all these parameters.</para>
 &lt;src:fragref linkend="htmlhelp.button.zoom.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.chm.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.default.topic.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="htmlhelp.display.progress.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.encoding.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="htmlhelp.enhanced.decompilation.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.enumerate.images.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.force.map.and.alias.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.hhc.binary.frag"&gt;&lt;/src:fragref&gt;
@@ -7151,17 +7322,22 @@ around all these parameters.</para>
 &lt;src:fragref linkend="htmlhelp.hhc.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.hhc.section.depth.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.hhc.show.root.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="htmlhelp.hhc.width.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.hhk.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.hhp.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.hhp.tail.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.hhp.window.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="htmlhelp.hhp.windows.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.map.file.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.only.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="htmlhelp.remember.window.position.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.show.advanced.search.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.show.favorities.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.show.menu.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="htmlhelp.show.toolbar.text.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.title.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="htmlhelp.use.hhk.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="htmlhelp.window.geometry.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="ignore.image.scaling.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="inherit.keywords.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="l10n.gentext.default.language.frag"&gt;&lt;/src:fragref&gt;

@@ -5,7 +5,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: common.xsl,v 1.37 2003/04/27 22:46:37 dcramer Exp $
+     $Id: common.xsl,v 1.39 2003/12/06 00:07:51 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -19,7 +19,7 @@
 <doc:reference xmlns="">
 <referenceinfo>
 <releaseinfo role="meta">
-$Id: common.xsl,v 1.37 2003/04/27 22:46:37 dcramer Exp $
+$Id: common.xsl,v 1.39 2003/12/06 00:07:51 bobstayton Exp $
 </releaseinfo>
 <author><surname>Walsh</surname>
 <firstname>Norman</firstname></author>
@@ -224,17 +224,14 @@ Defaults to the context node.</para>
         <xsl:otherwise>1</xsl:otherwise>
       </xsl:choose>
     </xsl:when>
-    <xsl:when test="name($node)='refsect1'">1</xsl:when>
-    <xsl:when test="name($node)='refsect2'">2</xsl:when>
-    <xsl:when test="name($node)='refsect3'">3</xsl:when>
-    <xsl:when test="name($node)='refsection'">
-      <xsl:choose>
-        <xsl:when test="$node/../../../../../refsection">5</xsl:when>
-        <xsl:when test="$node/../../../../refsection">4</xsl:when>
-        <xsl:when test="$node/../../../refsection">3</xsl:when>
-        <xsl:when test="$node/../../refsection">2</xsl:when>
-        <xsl:otherwise>1</xsl:otherwise>
-      </xsl:choose>
+    <xsl:when test="name($node)='refsect1' or
+                    name($node)='refsect2' or
+                    name($node)='refsect3' or
+                    name($node)='refsection' or
+                    name($node)='refsynopsisdiv'">
+      <xsl:call-template name="refentry.section.level">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:call-template>
     </xsl:when>
     <xsl:when test="name($node)='simplesect'">
       <xsl:choose>
@@ -295,6 +292,61 @@ Defaults to the context node.</para>
       </xsl:variable>
       <xsl:value-of select="$slevel + 1"/>
     </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<!-- Finds the total section depth of a section in a refentry -->
+<xsl:template name="refentry.section.level">
+  <xsl:param name="node" select="."/>
+
+  <xsl:variable name="RElevel">
+    <xsl:call-template name="refentry.level">
+      <xsl:with-param name="node" select="$node/ancestor::refentry[1]"/>
+    </xsl:call-template>
+  </xsl:variable>
+
+  <xsl:variable name="levelinRE">
+    <xsl:choose>
+      <xsl:when test="name($node)='refsynopsisdiv'">1</xsl:when>
+      <xsl:when test="name($node)='refsect1'">1</xsl:when>
+      <xsl:when test="name($node)='refsect2'">2</xsl:when>
+      <xsl:when test="name($node)='refsect3'">3</xsl:when>
+      <xsl:when test="name($node)='refsection'">
+        <xsl:choose>
+          <xsl:when test="$node/../../../../../refsection">5</xsl:when>
+          <xsl:when test="$node/../../../../refsection">4</xsl:when>
+          <xsl:when test="$node/../../../refsection">3</xsl:when>
+          <xsl:when test="$node/../../refsection">2</xsl:when>
+          <xsl:otherwise>1</xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:value-of select="$levelinRE + $RElevel"/>
+</xsl:template>
+
+<!-- Finds the section depth of a refentry -->
+<xsl:template name="refentry.level">
+  <xsl:param name="node" select="."/>
+  <xsl:variable name="container"
+                select="($node/ancestor::section |
+                        $node/ancestor::sect1 |
+                        $node/ancestor::sect2 |
+                        $node/ancestor::sect3 |
+                        $node/ancestor::sect4 |
+                        $node/ancestor::sect5)[last()]"/>
+
+  <xsl:choose>
+    <xsl:when test="$container">
+      <xsl:variable name="slevel">
+        <xsl:call-template name="section.level">
+          <xsl:with-param name="node" select="$container"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:value-of select="$slevel + 1"/>
+    </xsl:when>
+    <xsl:otherwise>1</xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
@@ -919,14 +971,14 @@ recursive process.</para>
               <xsl:text>0</xsl:text>
             </xsl:when>
             <xsl:when test="name($object)='textobject'
-	                     and $object/ancestor::equation ">
-	    <!-- The first textobject is not a reasonable fallback
-	         for equation image -->
+                            and $object/ancestor::equation ">
+            <!-- The first textobject is not a reasonable fallback
+                 for equation image -->
               <xsl:text>0</xsl:text>
-	    </xsl:when>
+            </xsl:when>
             <!-- The first textobject is a reasonable fallback -->
             <xsl:when test="name($object)='textobject'
-	                    and $object[not(@role) or @role!='tex']">
+                            and $object[not(@role) or @role!='tex']">
               <xsl:text>1</xsl:text>
             </xsl:when>
             <!-- don't use graphic when output is FO, TeX Math is used 
@@ -1464,7 +1516,7 @@ year range is <quote>1991-1992</quote> but discretely it's
   -->
 
   <xsl:choose>
-    <xsl:when test="$print.ranges = 0">
+    <xsl:when test="$print.ranges = 0 and count($years) &gt; 0">
       <xsl:choose>
         <xsl:when test="count($years) = 1">
           <xsl:apply-templates select="$years[1]" mode="titlepage.mode"/>

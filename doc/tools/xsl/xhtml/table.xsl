@@ -6,7 +6,7 @@
 <xsl:include href="../common/table.xsl"/>
 
 <!-- ********************************************************************
-     $Id: table.xsl,v 1.30 2003/08/27 23:58:14 nwalsh Exp $
+     $Id: table.xsl,v 1.31 2003/12/05 23:46:58 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -933,7 +933,14 @@
           <col>
             <xsl:if test="$colspec/@colwidth                           and $use.extensions != 0                           and $tablecolumns.extension != 0">
               <xsl:attribute name="width">
-                <xsl:value-of select="$colspec/@colwidth"/>
+	        <xsl:choose>
+		  <xsl:when test="normalize-space($colspec/@colwidth) = '*'">
+                    <xsl:value-of select="'1*'"/>
+		  </xsl:when>
+		  <xsl:otherwise>
+                    <xsl:value-of select="$colspec/@colwidth"/>
+		  </xsl:otherwise>
+		</xsl:choose>
               </xsl:attribute>
             </xsl:if>
 

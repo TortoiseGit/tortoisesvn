@@ -210,6 +210,7 @@
       <l:template name="formalpara" text="%t"/>
       <l:template name="glossary" text="%t"/>
       <l:template name="glossdiv" text="%t"/>
+      <l:template name="glosslist" text="%t" lang="en"/>
       <l:template name="glossentry" text="%t" lang="en"/>
       <l:template name="important" text="%t"/>
       <l:template name="index" text="%t"/>
@@ -251,6 +252,7 @@
       <l:template name="sidebar" text="%t"/>
       <l:template name="step" text="%t"/>
       <l:template name="table" text="&#1058;&#1072;&#1073;&#1083;&#1080;&#1094;&#1072; %n. %t"/>
+      <l:template name="task" text="%t" lang="en"/>
       <l:template name="tip" text="%t"/>
       <l:template name="toc" text="%t"/>
       <l:template name="variablelist" text="%t"/>
@@ -435,6 +437,7 @@
       <l:template name="equation" text="&#1060;&#1086;&#1088;&#1084;&#1091;&#1083;&#1072;&#160;%n, &#171;%t&#187;"/>
       <l:template name="example" text="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;&#160;%n, &#171;%t&#187;"/>
       <l:template name="figure" text="&#1056;&#1080;&#1089;&#1091;&#1085;&#1086;&#1082;&#160;%n, &#171;%t&#187;"/>
+      <l:template name="part" text="&#1063;&#1072;&#1089;&#1090;&#1100;&#160;%n, &#171;%t&#187;"/>
       <l:template name="procedure" text="&#1055;&#1088;&#1086;&#1094;&#1077;&#1076;&#1091;&#1088;&#1072;&#160;%n, &#171;%t&#187;"/>
       <l:template name="productionset" text="Production&#160;%n, &#171;%t&#187;"/>
       <l:template name="qandadiv" text="Q &amp; A&#160;%n, &#171;%t&#187;"/>
@@ -470,51 +473,51 @@
    </l:context>
 
    <l:context name="datetime">
-      <l:template name="format" text="m/d/Y" lang="en"/>
+      <l:template name="format" text="m/d/Y"/>
    </l:context>
 
    <l:context name="datetime-full">
-      <l:template name="January" text="January" lang="en"/>
-      <l:template name="February" text="February" lang="en"/>
-      <l:template name="March" text="March" lang="en"/>
-      <l:template name="April" text="April" lang="en"/>
-      <l:template name="May" text="May" lang="en"/>
-      <l:template name="June" text="June" lang="en"/>
-      <l:template name="July" text="July" lang="en"/>
-      <l:template name="August" text="August" lang="en"/>
-      <l:template name="September" text="September" lang="en"/>
-      <l:template name="October" text="October" lang="en"/>
-      <l:template name="November" text="November" lang="en"/>
-      <l:template name="December" text="December" lang="en"/>
-      <l:template name="Monday" text="Monday" lang="en"/>
-      <l:template name="Tuesday" text="Tuesday" lang="en"/>
-      <l:template name="Wednesday" text="Wednesday" lang="en"/>
-      <l:template name="Thursday" text="Thursday" lang="en"/>
-      <l:template name="Friday" text="Friday" lang="en"/>
-      <l:template name="Saturday" text="Saturday" lang="en"/>
-      <l:template name="Sunday" text="Sunday" lang="en"/>
+      <l:template name="January" text="&#1103;&#1085;&#1074;&#1072;&#1088;&#1103;"/>
+      <l:template name="February" text="&#1092;&#1077;&#1074;&#1088;&#1072;&#1083;&#1103;"/>
+      <l:template name="March" text="&#1084;&#1072;&#1088;&#1090;&#1072;"/>
+      <l:template name="April" text="&#1072;&#1087;&#1088;&#1077;&#1083;&#1103;"/>
+      <l:template name="May" text="&#1084;&#1072;&#1103;"/>
+      <l:template name="June" text="&#1080;&#1102;&#1085;&#1103;"/>
+      <l:template name="July" text="&#1080;&#1102;&#1083;&#1103;"/>
+      <l:template name="August" text="&#1072;&#1074;&#1075;&#1091;&#1089;&#1090;&#1072;"/>
+      <l:template name="September" text="&#1089;&#1077;&#1085;&#1090;&#1103;&#1073;&#1088;&#1103;"/>
+      <l:template name="October" text="&#1086;&#1082;&#1090;&#1103;&#1073;&#1088;&#1103;"/>
+      <l:template name="November" text="&#1085;&#1086;&#1103;&#1073;&#1088;&#1103;"/>
+      <l:template name="December" text="&#1076;&#1077;&#1082;&#1072;&#1073;&#1088;&#1103;"/>
+      <l:template name="Monday" text="&#1087;&#1086;&#1085;&#1077;&#1076;&#1077;&#1083;&#1100;&#1085;&#1080;&#1082;"/>
+      <l:template name="Tuesday" text="&#1074;&#1090;&#1086;&#1088;&#1085;&#1080;&#1082;"/>
+      <l:template name="Wednesday" text="&#1089;&#1088;&#1077;&#1076;&#1072;"/>
+      <l:template name="Thursday" text="&#1095;&#1077;&#1090;&#1074;&#1101;&#1088;&#1075;"/>
+      <l:template name="Friday" text="&#1087;&#1103;&#1090;&#1085;&#1080;&#1094;&#1072;"/>
+      <l:template name="Saturday" text="&#1089;&#1091;&#1073;&#1073;&#1086;&#1090;&#1072;"/>
+      <l:template name="Sunday" text="&#1074;&#1086;&#1089;&#1082;&#1088;&#1077;&#1089;&#1077;&#1085;&#1100;&#1077;"/>
    </l:context>
 
    <l:context name="datetime-abbrev">
-      <l:template name="Jan" text="Jan" lang="en"/>
-      <l:template name="Feb" text="Feb" lang="en"/>
-      <l:template name="Mar" text="Mar" lang="en"/>
-      <l:template name="Apr" text="Apr" lang="en"/>
-      <l:template name="May" text="May" lang="en"/>
-      <l:template name="Jun" text="Jun" lang="en"/>
-      <l:template name="Jul" text="Jul" lang="en"/>
-      <l:template name="Aug" text="Aug" lang="en"/>
-      <l:template name="Sep" text="Sep" lang="en"/>
-      <l:template name="Oct" text="Oct" lang="en"/>
-      <l:template name="Nov" text="Nov" lang="en"/>
-      <l:template name="Dec" text="Dec" lang="en"/>
-      <l:template name="Mon" text="Mon" lang="en"/>
-      <l:template name="Tue" text="Tue" lang="en"/>
-      <l:template name="Wed" text="Wed" lang="en"/>
-      <l:template name="Thu" text="Thu" lang="en"/>
-      <l:template name="Fri" text="Fri" lang="en"/>
-      <l:template name="Sat" text="Sat" lang="en"/>
-      <l:template name="Sun" text="Sun" lang="en"/>
+      <l:template name="Jan" text="&#1071;&#1085;&#1074;"/>
+      <l:template name="Feb" text="&#1060;&#1077;&#1074;"/>
+      <l:template name="Mar" text="&#1052;&#1072;&#1088;"/>
+      <l:template name="Apr" text="&#1040;&#1087;&#1088;"/>
+      <l:template name="May" text="&#1052;&#1072;&#1081;"/>
+      <l:template name="Jun" text="&#1048;&#1102;&#1085;"/>
+      <l:template name="Jul" text="&#1048;&#1102;&#1083;"/>
+      <l:template name="Aug" text="&#1040;&#1074;&#1075;"/>
+      <l:template name="Sep" text="&#1057;&#1077;&#1085;"/>
+      <l:template name="Oct" text="&#1054;&#1082;&#1090;"/>
+      <l:template name="Nov" text="&#1053;&#1086;&#1103;"/>
+      <l:template name="Dec" text="&#1044;&#1077;&#1082;"/>
+      <l:template name="Mon" text="&#1055;&#1085;&#1076;"/>
+      <l:template name="Tue" text="&#1042;&#1090;&#1088;"/>
+      <l:template name="Wed" text="&#1057;&#1088;&#1076;"/>
+      <l:template name="Thu" text="&#1063;&#1090;&#1074;"/>
+      <l:template name="Fri" text="&#1055;&#1090;&#1085;"/>
+      <l:template name="Sat" text="&#1057;&#1073;&#1090;"/>
+      <l:template name="Sun" text="&#1042;&#1089;&#1082;"/>
    </l:context>
 
    <l:context name="htmlhelp">

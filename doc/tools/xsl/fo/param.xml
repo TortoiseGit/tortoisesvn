@@ -5,7 +5,7 @@
 <bookinfo>
 <title>FO Parameter Reference</title>
 <releaseinfo role="meta">
-$Id: param.xweb,v 1.64 2003/09/24 05:07:43 bobstayton Exp $
+$Id: param.xweb,v 1.69 2003/12/10 07:34:53 bobstayton Exp $
 </releaseinfo>
 <author>
   <surname>Walsh</surname>
@@ -691,6 +691,30 @@ merge page ranges and generate a proper index.</para>
 
 <para>Finally, reformat your original document using this literal index instead of
 an automatically generated one and <quote>bingo</quote>!</para>
+
+</refsect1>
+</refentry>
+
+<refentry id="index.preferred.page.properties">
+<refnamediv>
+<refname>index.preferred.page.properties</refname>
+<refpurpose>Properties used to emphasize page number references for
+significant index terms</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="index.preferred.page.properties.frag">
+&lt;xsl:attribute-set name="index.preferred.page.properties"&gt;
+  &lt;xsl:attribute name="font-weight"&gt;bold&lt;/xsl:attribute&gt;
+&lt;/xsl:attribute-set&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>Properties used to emphasize page number references for
+significant index terms (<sgmltag class="attribute">significance</sgmltag>=<sgmltag class="attvalue">preffered</sgmltag>). Currently works only with
+XEP.</para>
 
 </refsect1>
 </refentry>
@@ -1633,6 +1657,30 @@ you want get quite strange output.</para>
 </refsect1>
 </refentry>
 
+<refentry id="refentry.pagebreak">
+<refmeta>
+<refentrytitle>refentry.pagebreak</refentrytitle>
+<refmiscinfo role="type">boolean</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>refentry.pagebreak</refname>
+<refpurpose>Start each refentry on a new page</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="refentry.pagebreak.frag">&lt;xsl:param name="refentry.pagebreak" select="1"&gt;&lt;/xsl:param&gt;</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>If non-zero (the default), each <sgmltag>refentry</sgmltag>
+element will start on a new page.  If zero, a page
+break will not be generated.
+</para>
+
+</refsect1>
+</refentry>
+
 <refentry id="refentry.title.properties">
 <refmeta>
 <refentrytitle>refentry.title.properties</refentrytitle>
@@ -1654,6 +1702,9 @@ you want get quite strange output.</para>
   &lt;xsl:attribute name="space-after"&gt;1em&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="hyphenate"&gt;false&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="keep-with-next.within-column"&gt;always&lt;/xsl:attribute&gt;
+  &lt;xsl:attribute name="space-before.minimum"&gt;0.8em&lt;/xsl:attribute&gt;
+  &lt;xsl:attribute name="space-before.optimum"&gt;1.0em&lt;/xsl:attribute&gt;
+  &lt;xsl:attribute name="space-before.maximum"&gt;1.2em&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="space-after.optimum"&gt;0.5em&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="space-after.minimum"&gt;0.4em&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="space-after.maximum"&gt;0.6em&lt;/xsl:attribute&gt;
@@ -1663,7 +1714,13 @@ you want get quite strange output.</para>
 
 <refsect1><title>Description</title>
 
-<para>FIXME:</para>
+<para>Formatting properties applied to refentry titles,
+including refnamediv, refsect1 through 3, and refsection.
+The font size is supplied by the appropriate 
+<parameter moreinfo="none">section.level<replaceable>X</replaceable>.title.properties</parameter>
+attribute-set,
+computed from its location in the section hierarchy.
+</para>
 
 </refsect1>
 </refentry>
@@ -3403,6 +3460,56 @@ that you may have trouble using those symbols for footnotes.</para>
 </refsect1>
 </refentry>
 
+<refentry id="superscript.properties">
+<refmeta>
+<refentrytitle>superscript.properties</refentrytitle>
+<refmiscinfo role="type"/>
+</refmeta>
+<refnamediv>
+<refname>superscript.properties</refname>
+<refpurpose>Properties associated with superscripts</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="superscript.properties.frag">
+&lt;xsl:attribute-set name="superscript.properties"&gt;
+  &lt;xsl:attribute name="font-size"&gt;75%&lt;/xsl:attribute&gt;
+&lt;/xsl:attribute-set&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>Specifies styling properties for superscripts.</para>
+
+</refsect1>
+</refentry>
+
+<refentry id="subscript.properties">
+<refmeta>
+<refentrytitle>subscript.properties</refentrytitle>
+<refmiscinfo role="type"/>
+</refmeta>
+<refnamediv>
+<refname>subscript.properties</refname>
+<refpurpose>Properties associated with subscripts</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="subscript.properties.frag">
+&lt;xsl:attribute-set name="subscript.properties"&gt;
+  &lt;xsl:attribute name="font-size"&gt;75%&lt;/xsl:attribute&gt;
+&lt;/xsl:attribute-set&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>Specifies styling properties for subscripts.</para>
+
+</refsect1>
+</refentry>
+
 </reference>
 
 <reference><title>Graphics</title>
@@ -4606,16 +4713,35 @@ so that math can be performed on the font size by XSLT.
 
 <refsynopsisdiv>
 <programlisting id="title.margin.left.frag">
-&lt;xsl:param name="title.margin.left" select="'-4pc'"&gt;&lt;/xsl:param&gt;
+&lt;xsl:param name="title.margin.left"&gt;
+  &lt;xsl:choose&gt;
+    &lt;xsl:when test="$passivetex.extensions != 0"&gt;0pt&lt;/xsl:when&gt;
+    &lt;xsl:otherwise&gt;-4pc&lt;/xsl:otherwise&gt;
+  &lt;/xsl:choose&gt;
+&lt;/xsl:param&gt;
 </programlisting>
 </refsynopsisdiv>
 
 <refsect1><title>Description</title>
 
-<para>This parameter adjusts the left margin for titles.
+<para>This parameter adjusts the left margin for titles,
+effectively leaving the titles at the left
+margin and indenting the body text.
+The default value is -4pc, which means the
+body text is indented 4 picas relative to
+the titles.
+</para>
+<para>
 If you set the value to zero, be sure to still include
 a unit indicator such as <literal moreinfo="none">0pt</literal>, or
 the FO processor will report errors.
+</para>
+<para>
+This parameter is set to 0pt if the
+<parameter moreinfo="none">passivetex.extensions</parameter>
+parameter is nonzero because PassiveTeX cannot handle
+the math expression with negative values 
+used to calculate the indents.
 </para>
 
 </refsect1>
@@ -4821,6 +4947,52 @@ on how their <sgmltag class="attribute">status</sgmltag> attribute is set.
 <refsect1><title>Description</title>
 
 <para>Properties of page footer content.</para>
+
+</refsect1>
+</refentry>
+
+<refentry id="marker.section.level">
+<refmeta>
+<refentrytitle>marker.section.level</refentrytitle>
+<refmiscinfo role="type">integer</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>marker.section.level</refname>
+<refpurpose>Control depth of sections shown in running headers or footers</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="marker.section.level.frag">
+&lt;xsl:param name="marker.section.level" select="2"&gt;&lt;/xsl:param&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>The <parameter moreinfo="none">marker.section.level</parameter> parameter
+controls the depth of section levels that may be displayed
+in running headers and footers.  For example, if the value
+is 2 (the default), then titles from <sgmltag>sect1</sgmltag> and 
+<sgmltag>sect2</sgmltag> or equivalent <sgmltag>section</sgmltag>
+elements are candidates for use in running headers and
+footers.
+</para>
+<para>Each candidate title is marked in the FO output with a
+<sgmltag>&lt;fo:marker marker-class-name="section.head.marker"&gt;</sgmltag>
+element.
+</para>
+<para>In order for such titles to appear in headers
+or footers, the <literal moreinfo="none">header.content</literal>
+or <literal moreinfo="none">footer.content</literal> template
+must be customized to retrieve the marker using
+an output element such as:
+</para>
+<programlisting format="linespecific">
+&lt;fo:retrieve-marker retrieve-class-name="section.head.marker"
+                       retrieve-position="first-including-carryover"
+                       retrieve-boundary="page-sequence"/&gt;
+</programlisting>
+
 
 </refsect1>
 </refentry>
@@ -5285,7 +5457,7 @@ title and page number in the output.
   &lt;xsl:attribute name="space-after.minimum"&gt;0.5em&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="space-after.optimum"&gt;1em&lt;/xsl:attribute&gt;
   &lt;xsl:attribute name="space-after.maximum"&gt;2em&lt;/xsl:attribute&gt;
-  &lt;xsl:attribute name="keep-together"&gt;always&lt;/xsl:attribute&gt;
+  &lt;xsl:attribute name="keep-together.within-column"&gt;always&lt;/xsl:attribute&gt;
 &lt;/xsl:attribute-set&gt;
 </programlisting>
 </refsynopsisdiv>
@@ -6262,6 +6434,35 @@ used for all titles below level 5.</para>
 </refsect1>
 </refentry>
 
+<refentry id="article.appendix.title.properties">
+<refmeta>
+<refentrytitle>article.appendix.title.properties</refentrytitle>
+<refmiscinfo role="type">attribute set</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>article.appendix.title.properties</refname>
+<refpurpose>Properties for appendix titles that appear in an article</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<programlisting id="article.appendix.title.properties.frag">
+&lt;xsl:attribute-set name="article.appendix.title.properties" use-attribute-sets="section.title.properties                          section.title.level1.properties"&gt;
+  &lt;xsl:attribute name="margin-left"&gt;
+    &lt;xsl:value-of select="$title.margin.left"&gt;&lt;/xsl:value-of&gt;
+  &lt;/xsl:attribute&gt;
+&lt;/xsl:attribute-set&gt;
+</programlisting>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>The properties for the title of an appendix that
+appears inside an article.  The default is to use
+the properties of sect1 titles.</para>
+
+</refsect1>
+</refentry>
+
 </reference>
 
 <reference><title>Profiling</title>
@@ -6933,7 +7134,7 @@ around all these parameters.</para>
 &lt;!-- This file is generated from param.xweb; do not edit this file! --&gt;
 
 &lt;!-- ********************************************************************
-     $Id: param.xweb,v 1.64 2003/09/24 05:07:43 bobstayton Exp $
+     $Id: param.xweb,v 1.69 2003/12/10 07:34:53 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -6951,6 +7152,7 @@ around all these parameters.</para>
 &lt;src:fragref linkend="alignment.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="appendix.autolabel.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="arbortext.extensions.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="article.appendix.title.properties.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="author.othername.in.middle.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="autotoc.label.separator.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="axf.extensions.frag"&gt;&lt;/src:fragref&gt;
@@ -7034,6 +7236,7 @@ around all these parameters.</para>
 &lt;src:fragref linkend="hyphenate.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="ignore.image.scaling.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="informal.object.properties.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="index.preferred.page.properties.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="insert.xref.page.number.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="l10n.gentext.default.language.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="l10n.gentext.language.frag"&gt;&lt;/src:fragref&gt;
@@ -7049,6 +7252,7 @@ around all these parameters.</para>
 &lt;src:fragref linkend="make.index.markup.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="make.single.year.ranges.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="make.year.ranges.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="marker.section.level.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="menuchoice.menu.separator.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="menuchoice.separator.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="monospace.font.family.frag"&gt;&lt;/src:fragref&gt;
@@ -7101,6 +7305,7 @@ around all these parameters.</para>
 &lt;src:fragref linkend="qanda.title.properties.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="refentry.generate.name.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="refentry.generate.title.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="refentry.pagebreak.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="refentry.title.properties.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="refentry.xref.manvolnum.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="region.after.extent.frag"&gt;&lt;/src:fragref&gt;
@@ -7131,6 +7336,8 @@ around all these parameters.</para>
 &lt;src:fragref linkend="shade.verbatim.style.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="show.comments.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="sidebar.properties.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="subscript.properties.frag"&gt;&lt;/src:fragref&gt;
+&lt;src:fragref linkend="superscript.properties.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="symbol.font.family.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="table.cell.border.color.frag"&gt;&lt;/src:fragref&gt;
 &lt;src:fragref linkend="table.cell.border.style.frag"&gt;&lt;/src:fragref&gt;

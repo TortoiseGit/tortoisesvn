@@ -4,6 +4,18 @@
                 version="1.0"
                 exclude-result-prefixes="doc">
 
+<!-- ********************************************************************
+     $Id: profile-onechunk.xsl,v 1.3 2003/11/30 19:42:23 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 <xsl:import href="profile-chunk.xsl"/>
 
 <!-- Ok, using the onechunk parameter makes this all work again. -->

@@ -1,11 +1,16 @@
 <html><head>
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-   <title>DocBook XSL Stylesheet Release Notes</title><meta name="generator" content="DocBook XSL Stylesheets V1.61.0"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="d0e1"></a>DocBook XSL Stylesheet Release Notes</h1></div><div><h3 class="corpauthor">DocBook Open Repository Team</h3></div><div><p class="releaseinfo">$Id: RELEASE-NOTES.xml,v 1.18 2003/05/08 14:39:55 nwalsh Exp $
+   <title>DocBook XSL Stylesheet Release Notes</title><meta name="generator" content="DocBook XSL Stylesheets V1.64.1"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="d0e1"></a>DocBook XSL Stylesheet Release Notes</h1></div><div><h3 class="corpauthor">DocBook Open Repository Team</h3></div><div><p class="releaseinfo">$Id: RELEASE-NOTES.xml,v 1.19 2003/12/19 13:50:53 nwalsh Exp $
 </p></div><div><p class="pubdate">08 May 2003</p></div></div><div></div><hr></div><p>These are the release notes for the DocBook XSL Stylesheets.
 This file documents (mostly) changes to the public APIs. What,
 exactly, counts as a public API is still somewhat in question, but it
 includes at least the global parameters.</p><p>You may also be interested in the more detailed <a href="WhatsNew" target="_top">WhatsNew</a>.
-</p><div class="itemizedlist"><p class="title"><b>Release 1.61.0</b></p><p>Lots of bug fixes and improvements.</p><ul type="disc"><li><p>Initial support for timestamp PI. From now you
+</p><div class="itemizedlist"><p class="title"><b>Release 1.64.1</b></p><p>General bug fixes and improvements. Sorry about the failure to produce
+an updated release notes file for 1.62.0&#8212;1.63.2</p><ul type="disc"><li><p>In the course of fixing bug #849787, wrapping Unicode callouts
+with an appropriate font change in the Xalan extensions, I discovered
+that the Xalan APIs have changed a bit. So <tt class="filename">xalan2.jar</tt>
+will work with older Xalan 2 implementations, <tt class="filename">xalan25.jar</tt>
+works with Xalan 2.5.</p></li></ul></div><div class="itemizedlist"><p class="title"><b>Release 1.61.0</b></p><p>Lots of bug fixes and improvements.</p><ul type="disc"><li><p>Initial support for timestamp PI. From now you
   can use &lt;?dbtimestamp format="Y-m-d H:M:S"?&gt; to get current
   datetime in your document. Added localization support for datetime PI
 </p></li><li><p>Added level 6 to test for <a href="http://www.docbook.org/tdg/en/html/section.html"><tt class="sgmltag-element">section</tt></a> depth in

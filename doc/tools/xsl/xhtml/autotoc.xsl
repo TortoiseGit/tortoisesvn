@@ -4,7 +4,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="1.0">
 
 <!-- ********************************************************************
-     $Id: autotoc.xsl,v 1.26 2003/08/29 17:29:40 bobstayton Exp $
+     $Id: autotoc.xsl,v 1.27 2003/12/09 18:02:10 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -278,13 +278,24 @@
   </span>
 </xsl:template>
 
-<xsl:template match="book|setindex" mode="toc">
+<xsl:template match="book" mode="toc">
   <xsl:param name="toc-context" select="."/>
 
   <xsl:call-template name="subtoc">
     <xsl:with-param name="toc-context" select="$toc-context"/>
     <xsl:with-param name="nodes" select="part|reference                                          |preface|chapter|appendix                                          |article                                          |bibliography|glossary|index                                          |refentry                                          |bridgehead[$bridgehead.in.toc != 0]"/>
   </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="setindex" mode="toc">
+  <xsl:param name="toc-context" select="."/>
+
+  <!-- If the setindex tag is not empty, it should be it in the TOC -->
+  <xsl:if test="* or $generate.index != 0">
+    <xsl:call-template name="subtoc">
+      <xsl:with-param name="toc-context" select="$toc-context"/>
+    </xsl:call-template>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="part|reference" mode="toc">
@@ -378,7 +389,7 @@
 <xsl:template match="index" mode="toc">
   <xsl:param name="toc-context" select="."/>
 
-  <!-- If the index tag is empty, don't point at it from the TOC -->
+  <!-- If the index tag is not empty, it should be it in the TOC -->
   <xsl:if test="* or $generate.index != 0">
     <xsl:call-template name="subtoc">
       <xsl:with-param name="toc-context" select="$toc-context"/>

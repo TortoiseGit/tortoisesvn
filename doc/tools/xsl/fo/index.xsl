@@ -5,7 +5,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: index.xsl,v 1.24 2003/08/28 20:51:58 bobstayton Exp $
+     $Id: index.xsl,v 1.26 2003/12/16 00:30:49 bobstayton Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -222,7 +222,7 @@
   <xsl:param name="title"/>
   <xsl:param name="titlecontent"/>
 
-  <fo:block margin-left="{$title.margin.left}"
+  <fo:block margin-left="0pt"
 	    font-size="14.4pt"
             font-family="{$title.fontset}"
             font-weight="bold"
@@ -256,6 +256,9 @@
 
 <!-- ==================================================================== -->
 
+<!-- Text used for distiguishing between normal and significant entries -->
+<xsl:variable name="significant.flag">.tnacifingis</xsl:variable>
+
 <xsl:template match="indexterm" name="indexterm">
   <!-- Temporal workaround for bug in AXF -->
   <xsl:variable name="wrapper.name">
@@ -273,6 +276,7 @@
       <xsl:when test="$xep.extensions != 0">
         <xsl:attribute name="rx:key">
           <xsl:value-of select="primary"/>
+          <xsl:if test="@significance='preferred'"><xsl:value-of select="$significant.flag"/></xsl:if>
           <xsl:if test="secondary">
             <xsl:text>, </xsl:text>
             <xsl:value-of select="secondary"/>
@@ -313,6 +317,7 @@
         </xsl:attribute>
         <xsl:attribute name="rx:key">
           <xsl:value-of select="primary"/>
+          <xsl:if test="@significance='preferred'"><xsl:value-of select="$significant.flag"/></xsl:if>
           <xsl:if test="secondary">
             <xsl:text>, </xsl:text>
             <xsl:value-of select="secondary"/>

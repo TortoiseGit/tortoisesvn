@@ -6,7 +6,7 @@
                 version='1.0'>
 
 <!-- ********************************************************************
-     $Id: inline.xsl,v 1.30 2003/08/29 14:58:39 nwalsh Exp $
+     $Id: inline.xsl,v 1.32 2003/12/04 21:24:37 nwalsh Exp $
      ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
@@ -189,7 +189,8 @@
   <xsl:param name="content">
     <xsl:apply-templates/>
   </xsl:param>
-  <fo:inline>
+
+  <fo:inline xsl:use-attribute-sets="superscript.properties">
     <xsl:if test="@dir">
       <xsl:attribute name="direction">
         <xsl:choose>
@@ -214,7 +215,8 @@
   <xsl:param name="content">
     <xsl:apply-templates/>
   </xsl:param>
-  <fo:inline>
+
+  <fo:inline xsl:use-attribute-sets="subscript.properties">
     <xsl:if test="@dir">
       <xsl:attribute name="direction">
         <xsl:choose>
@@ -411,6 +413,10 @@
 </xsl:template>
 
 <xsl:template match="literal">
+  <xsl:call-template name="inline.monoseq"/>
+</xsl:template>
+
+<xsl:template match="code">
   <xsl:call-template name="inline.monoseq"/>
 </xsl:template>
 

@@ -6,7 +6,7 @@
 <articleinfo>
 <title>DocBook XSL Stylesheet Release Notes</title>
 <pubdate>08 May 2003</pubdate>
-<releaseinfo role="cvs">$Id: RELEASE-NOTES.xml,v 1.18 2003/05/08 14:39:55 nwalsh Exp $
+<releaseinfo role="cvs">$Id: RELEASE-NOTES.xml,v 1.19 2003/12/19 13:50:53 nwalsh Exp $
 </releaseinfo>
 
 <corpauthor>DocBook Open Repository Team</corpauthor>
@@ -20,6 +20,20 @@ includes at least the global parameters.</para>
 
 <para>You may also be interested in the more detailed <ulink url="WhatsNew"/>.
 </para>
+
+<itemizedlist><title>Release 1.64.1</title>
+
+<para>General bug fixes and improvements. Sorry about the failure to produce
+an updated release notes file for 1.62.0—1.63.2</para>
+
+<listitem>
+<para>In the course of fixing bug #849787, wrapping Unicode callouts
+with an appropriate font change in the Xalan extensions, I discovered
+that the Xalan APIs have changed a bit. So <filename>xalan2.jar</filename>
+will work with older Xalan 2 implementations, <filename>xalan25.jar</filename>
+works with Xalan 2.5.</para>
+</listitem>
+</itemizedlist>
 
 <itemizedlist><title>Release 1.61.0</title>
 

@@ -69,12 +69,12 @@
    <l:gentext key="Procedure" text="Y&#246;nerge"/>
    <l:gentext key="procedure" text="Y&#246;nerge"/>
    <l:gentext key="ProductionSet" text="Prod&#252;ksiyon"/>
-   <l:gentext key="PubDate" text="Publication Date" lang="en"/>
-   <l:gentext key="pubdate" text="Publication date" lang="en"/>
+   <l:gentext key="PubDate" text="Yay&#305;mlanma Tarihi"/>
+   <l:gentext key="pubdate" text="Yay&#305;mlanma Tarihi"/>
    <l:gentext key="Published" text="Yay&#305;mlanma"/>
    <l:gentext key="published" text="Yay&#305;mlanma"/>
-   <l:gentext key="Qandadiv" text="Q &amp; A" lang="en"/>
-   <l:gentext key="qandadiv" text="Q &amp; A" lang="en"/>
+   <l:gentext key="Qandadiv" text="S ve C"/>
+   <l:gentext key="qandadiv" text="S ve C"/>
    <l:gentext key="Question" text="Soru:"/>
    <l:gentext key="question" text="Soru:"/>
    <l:gentext key="RefEntry" text=""/>
@@ -99,10 +99,10 @@
    <l:gentext key="section" text="K&#305;s&#305;m"/>
    <l:gentext key="Section" text="K&#305;s&#305;m"/>
    <l:gentext key="see" text="Bkz."/>
-   <l:gentext key="See" text="See" lang="en"/>
+   <l:gentext key="See" text="Bkz."/>
    <l:gentext key="seealso" text="Bkz."/>
-   <l:gentext key="Seealso" text="See also" lang="en"/>
-   <l:gentext key="SeeAlso" text="See Also" lang="en"/>
+   <l:gentext key="Seealso" text="Bak&#305;n&#305;z"/>
+   <l:gentext key="SeeAlso" text="Bak&#305;n&#305;z"/>
    <l:gentext key="set" text="Tak&#305;m"/>
    <l:gentext key="Set" text="Tak&#305;m"/>
    <l:gentext key="setindex" text="Tak&#305;m Dizini"/>
@@ -121,7 +121,7 @@
    <l:gentext key="WARNING" text="UYARI"/>
    <l:gentext key="and" text="ve"/>
    <l:gentext key="by" text="by"/>
-   <l:gentext key="called" text="called" lang="en"/>
+   <l:gentext key="called" text="called"/>
    <l:gentext key="Edited" text="Yay&#305;na haz&#305;rlayan"/>
    <l:gentext key="edited" text="yay&#305;na haz&#305;rlayan"/>
    <l:gentext key="Editedby" text="Yay&#305;na haz&#305;rlayan"/>
@@ -140,7 +140,7 @@
    <l:gentext key="tablenotes" text="Notlar"/>
    <l:gentext key="TableofContents" text="&#304;&#231;indekiler"/>
    <l:gentext key="tableofcontents" text="&#304;&#231;indekiler"/>
-   <l:gentext key="the" text="" lang="en"/>
+   <l:gentext key="the" text=""/>
    <l:gentext key="unexpectedelementname" text="Beklenmeyen eleman ad&#305;"/>
    <l:gentext key="unsupported" text="desteklenmiyor"/>
    <l:gentext key="xrefto" text="xref to"/>
@@ -174,10 +174,10 @@
    <l:dingbat key="endquote" text="&#8221;"/>
    <l:dingbat key="nestedstartquote" text="&#8216;"/>
    <l:dingbat key="nestedendquote" text="&#8217;"/>
-   <l:dingbat key="singlestartquote" text="&#8216;" lang="en"/>
-   <l:dingbat key="singleendquote" text="&#8217;" lang="en"/>
+   <l:dingbat key="singlestartquote" text="&#8216;"/>
+   <l:dingbat key="singleendquote" text="&#8217;"/>
    <l:dingbat key="bullet" text="&#8226;"/>
-   <l:gentext key="hyphenation-character" text="&#8208;"/>
+   <l:gentext key="hyphenation-character" text="-"/>
    <l:gentext key="hyphenation-push-character-count" text="3"/>
    <l:gentext key="hyphenation-remain-character-count" text="2"/>
 
@@ -210,6 +210,7 @@
       <l:template name="formalpara" text="%t"/>
       <l:template name="glossary" text="%t"/>
       <l:template name="glossdiv" text="%t"/>
+      <l:template name="glosslist" text="%t" lang="en"/>
       <l:template name="glossentry" text="%t"/>
       <l:template name="important" text="%t"/>
       <l:template name="index" text="%t"/>
@@ -251,6 +252,7 @@
       <l:template name="sidebar" text="%t"/>
       <l:template name="step" text="%t"/>
       <l:template name="table" text="Tablo %n. %t"/>
+      <l:template name="task" text="%t"/>
       <l:template name="tip" text="%t"/>
       <l:template name="toc" text="%t"/>
       <l:template name="variablelist" text="%t"/>
@@ -388,9 +390,9 @@
       <l:template name="varlistentry" text="%n"/>
       <l:template name="warning" text="%t"/>
       <l:template name="page.citation" text=" [%p]"/>
-      <l:template name="page" text="(page %p)" lang="en"/>
-      <l:template name="pageabbrev" text="(p. %p)" lang="en"/>
-      <l:template name="Page" text="Page %p" lang="en"/>
+      <l:template name="page" text="(sayfa %p)"/>
+      <l:template name="pageabbrev" text="(shf. %p)"/>
+      <l:template name="Page" text="Sayfa %p"/>
       <l:template name="bridgehead" text=" &#8220;%t&#8221;"/>
       <l:template name="refsection" text=" &#8220;%t&#8221;"/>
       <l:template name="refsect1" text=" &#8220;%t&#8221;"/>
@@ -416,7 +418,7 @@
       <l:template name="part" text="K&#305;s&#305;m&#160;%n"/>
       <l:template name="procedure" text="Y&#246;nerge&#160;%n"/>
       <l:template name="productionset" text="Prod&#252;ksiyon&#160;%n"/>
-      <l:template name="qandadiv" text="Q &amp; A&#160;%n"/>
+      <l:template name="qandadiv" text="S ve C&#160;%n"/>
       <l:template name="qandaentry" text="Soru:&#160;%n"/>
       <l:template name="question" text="Soru:&#160;%n"/>
       <l:template name="sect1" text="K&#305;s&#305;m&#160;%n"/>
@@ -435,9 +437,10 @@
       <l:template name="equation" text="Denklem&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="example" text="&#214;rnek&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="figure" text="&#350;ekil&#160;%n, &#8220;%t&#8221;"/>
+      <l:template name="part" text="K&#305;s&#305;m&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="procedure" text="Y&#246;nerge&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="productionset" text="Prod&#252;ksiyon&#160;%n, &#8220;%t&#8221;"/>
-      <l:template name="qandadiv" text="Q &amp; A&#160;%n, &#8220;%t&#8221;"/>
+      <l:template name="qandadiv" text="S ve C&#160;%n, &#8220;%t&#8221;"/>
       <l:template name="refsect1" text=" &#8220;%t&#8221;"/>
       <l:template name="refsect2" text=" &#8220;%t&#8221;"/>
       <l:template name="refsect3" text=" &#8220;%t&#8221;"/>

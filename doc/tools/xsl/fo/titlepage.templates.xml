@@ -18,7 +18,7 @@
              xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <!-- ********************************************************************
-     $Id: titlepage.templates.xml,v 1.22 2003/09/16 16:29:34 bobstayton Exp $
+     $Id: titlepage.templates.xml,v 1.23 2003/12/16 00:30:49 bobstayton Exp $
      ********************************************************************
 
      This file is part of the DocBook XSL Stylesheet distribution.
@@ -965,7 +965,7 @@
 	     t:named-template="component.title"
 	     param:node="ancestor-or-self::setindex[1]"
              param:pagewide="1"
-	     margin-left="{$title.margin.left}"
+	     margin-left="0pt"
 	     font-size="&hsize5;"
 	     font-family="{$title.fontset}"
 	     font-weight="bold"/>

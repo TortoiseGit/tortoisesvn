@@ -4,7 +4,18 @@
                 exclude-result-prefixes="doc"
                 version='1.0'>
 
-<!-- ============================================================ -->
+<!-- ********************************************************************
+     $Id: gentext.xsl,v 1.26 2003/11/30 19:45:09 bobstayton Exp $
+     ********************************************************************
+
+     This file is part of the XSL DocBook Stylesheet distribution.
+     See ../README or http://nwalsh.com/docbook/xsl/ for copyright
+     and other information.
+
+     ******************************************************************** -->
+
+<!-- ==================================================================== -->
+
 
 <xsl:template match="*" mode="object.title.template">
   <xsl:call-template name="gentext.template">
@@ -535,7 +546,7 @@
         <xsl:with-param name="title" select="$title"/>
         <xsl:with-param name="subtitle" select="$subtitle"/>
         <xsl:with-param name="label" select="$label"/>
-        <xsl:with-param name="pagenumber" select="$label"/>
+        <xsl:with-param name="pagenumber" select="$pagenumber"/>
         <xsl:with-param name="purpose" select="$purpose"/>
         <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
         <xsl:with-param name="referrer" select="$referrer"/>
