@@ -82,20 +82,30 @@ bool CStatusCacheEntry::HasExpired(long now) const
 	return m_discardAtTime != 0 && (now - m_discardAtTime) >= 0;
 }
 
-void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response) const
+void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const
 {
-	response.m_status = m_svnStatus;
-	// initialize all data to make sure the const char* pointers
-	// don't point to garbage data and are zero terminated
-	ZeroMemory(&response.m_entry, sizeof(response.m_entry));
-	response.m_url[0] = '\0';
 	if(m_bSVNEntryFieldSet)
 	{
-		ZeroMemory(&response.m_entry, sizeof(response.m_entry));
-		response.m_status.entry = &response.m_entry;
+		ZeroMemory(&response, sizeof(response));
+		response.m_status = m_svnStatus;
 		response.m_entry.cmt_rev = m_commitRevision;
-		response.m_entry.url = response.m_url;
-		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-strlen(m_sUrl)-1);
+
+		// There is no point trying to set these pointers here, because this is not 
+		// the process which will be using the data.
+		// The process which receives this response (generally the TSVN Shell Extension)
+		// must fix-up these pointers when it gets them
+		response.m_status.entry = NULL;
+		response.m_entry.url = NULL;
+
+		// The whole of response has been zero'd, so this will copy safely 
+		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-1);
+
+		responseLength = sizeof(response);
+	}
+	else
+	{
+		response.m_status = m_svnStatus;
+		responseLength = sizeof(response.m_status);
 	}
 }
 

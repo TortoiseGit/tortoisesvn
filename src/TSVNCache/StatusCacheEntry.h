@@ -8,7 +8,7 @@ public:
 	CStatusCacheEntry();
 	CStatusCacheEntry(const svn_wc_status_t* pSVNStatus, __int64 lastWriteTime);
 	bool HasExpired(long now) const;
-	void BuildCacheResponse(TSVNCacheResponse& response) const;
+	void BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const;
 	bool IsVersioned() const;
 	bool DoesFileTimeMatch(__int64 testTime) const;
 	bool ForceStatus(svn_wc_status_kind forcedStatus);

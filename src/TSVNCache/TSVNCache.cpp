@@ -76,10 +76,7 @@ int __stdcall WinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPST
 		// Wait for the client to connect; if it succeeds, 
 		// the function returns a nonzero value. If the function returns 
 		// zero, GetLastError returns ERROR_PIPE_CONNECTED. 
-
-		fConnected = ConnectNamedPipe(hPipe, NULL) ? 
-TRUE : (GetLastError() == ERROR_PIPE_CONNECTED); 
-
+		fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED); 
 		if (fConnected) 
 		{ 
 			// Create a thread for this client. 
@@ -125,17 +122,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 		path.SetFromWin(pRequest->path);
 	}
 
-	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).BuildCacheResponse(*pReply);
-
-	// Make sure we only send back the minimum amount necessary
-	if(pReply->m_status.entry != NULL)
-	{
-		*pResponseLength = sizeof(TSVNCacheResponse);
-	}
-	else
-	{
-		*pResponseLength = sizeof(pReply->m_status);
-	}
+	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).BuildCacheResponse(*pReply, *pResponseLength);
 }
 
 

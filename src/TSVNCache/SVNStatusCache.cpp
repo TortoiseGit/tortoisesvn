@@ -44,13 +44,9 @@ void CSVNStatusCache::Destroy()
 }
 
 
-CSVNStatusCache::CSVNStatusCache(void) : 
-	m_bDoRecursiveFetches(false),
-	m_bGetRemoteStatus(false)
+CSVNStatusCache::CSVNStatusCache(void)
 {
-
 	m_folderCrawler.Initialise();
-
 }
 
 CSVNStatusCache::~CSVNStatusCache(void)
@@ -65,6 +61,8 @@ void CSVNStatusCache::Clear()
 CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 {
 	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
+
+	AutoLocker lock(m_critSec);
 
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);
@@ -105,41 +103,12 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	// Stop the crawler starting on a new folder while we're doing this much more important task...
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path, bRecursive);
-}
-
-// Get the status for a directory by asking the directory, rather 
-// than the usual method of asking its parent
-/*
-CStatusCacheEntry 
-CSVNStatusCache::GetDirectorysOwnStatus(const CTSVNPath& path)
-{
-	AutoLocker lock(m_critSec);
-
-	ATLASSERT(path.IsDirectory());
-
-	return GetDirectoryCacheEntry(path).GetOwnStatus();
-}
-*/
-
-
-void CSVNStatusCache::Dump()
-{
-	CCachedDirectory::ItDir itMap;
-	for(itMap = m_directoryCache.begin(); itMap != m_directoryCache.end(); ++itMap)
+	if(path.IsEquivalentTo(CTSVNPath(_T("N:\\will\\svn\\TortoiseSVN\\src"))))
 	{
-		ATLTRACE("Dir %ws\n", itMap->first.GetWinPath());
+		ATLTRACE("");
 	}
-}
 
-void CSVNStatusCache::EnableRecursiveFetch(bool bEnable)
-{
-	m_bDoRecursiveFetches = bEnable;
-}
-
-void CSVNStatusCache::EnableRemoteStatus(bool bEnable)
-{
-	m_bGetRemoteStatus = bEnable;
+	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path, bRecursive);
 }
 
 void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
@@ -147,13 +116,7 @@ void CSVNStatusCache::AddFolderForCrawling(const CTSVNPath& path)
 	m_folderCrawler.AddDirectoryForUpdate(path);
 }
 
-//void CSVNStatusCache::SetDirectoryStatus(const CTSVNPath& path, const svn_wc_status_t *pStatus)
-//{
-//	ATLASSERT(path.IsDirectory());
-//	GetDirectoryCacheEntry(path)->second.SetOwnStatus(pStatus);
-//}
-
-
+//////////////////////////////////////////////////////////////////////////
 
 static class StatusCacheTests
 {
@@ -164,12 +127,11 @@ public:
 		CSVNStatusCache::Create();
 
 		{
-			CSVNStatusCache& cache = CSVNStatusCache::Instance();
+//			CSVNStatusCache& cache = CSVNStatusCache::Instance();
 
 //		cache.GetStatusForPath(CTSVNPath(_T("n:/will/tsvntest/file1.txt")));
 //		cache.GetStatusForPath(CTSVNPath(_T("n:/will/tsvntest/NonVersion/Test1.txt")));
 
-		cache.Dump();
 		}
 
 		CSVNStatusCache::Destroy();
