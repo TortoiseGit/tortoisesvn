@@ -240,6 +240,20 @@ void CBaseView::UpdateStatusBar()
 		UINT nStyle;
 		int cxWidth;
 		int nIndex = m_pwndStatusBar->CommandToIndex(m_nStatusBarID);
+		if (m_nStatusBarID == ID_INDICATOR_BOTTOMVIEW)
+		{
+			sBarText.Format(IDS_STATUSBAR_CONFLICTS, nConflictedLines);
+		}
+		if (m_nStatusBarID == ID_INDICATOR_LEFTVIEW)
+		{
+			sTemp.LoadString(IDS_STATUSBAR_LEFTVIEW);
+			sBarText = sTemp+sBarText;
+		}
+		if (m_nStatusBarID == ID_INDICATOR_RIGHTVIEW)
+		{
+			sTemp.LoadString(IDS_STATUSBAR_RIGHTVIEW);
+			sBarText = sTemp+sBarText;
+		}
 		m_pwndStatusBar->GetPaneInfo(nIndex, nID, nStyle, cxWidth);
 		//calculate the width of the text
 		CSize size = m_pwndStatusBar->GetDC()->GetTextExtent(sBarText);
@@ -1188,6 +1202,7 @@ int CBaseView::GetLineFromPoint(CPoint point)
 void CBaseView::OnContextMenu(CPoint point, int nLine)
 {
 }
+
 BOOL CBaseView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 {
 	return FALSE;
@@ -1236,11 +1251,20 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 			m_nSelBlockStart = -1;
 			m_nSelBlockEnd = -1;
 			if (m_pwndLeft)
+			{
+				m_pwndLeft->UpdateStatusBar();
 				m_pwndLeft->Invalidate();
+			}
 			if (m_pwndRight)
+			{
+				m_pwndRight->UpdateStatusBar();
 				m_pwndRight->Invalidate();
+			}
 			if (m_pwndBottom)
+			{
+				m_pwndBottom->UpdateStatusBar();
 				m_pwndBottom->Invalidate();
+			}
 			if (m_pwndLocator)
 				m_pwndLocator->Invalidate();
 		} // if (ShallShowContextMenu(state, nLine))
