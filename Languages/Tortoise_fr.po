@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-01 08:54+0100\n"
+"PO-Revision-Date: 2004-09-01 11:56+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,6 +84,10 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr "%d fichiers sélectionnés, %d fichiers au total"
 
+#: ID:226
+msgid "%s - at revision: %d"
+msgstr "%s - à la révision: %d"
+
 #: ID:151
 msgid "%s : Working Base"
 msgstr "%s : Copie de Base"
@@ -116,6 +120,10 @@ msgstr "&Avancé..."
 msgid "&Apply Unified Diff"
 msgstr "&Appliquer un patch"
 
+#: ID:138
+msgid "&Browse Repository"
+msgstr "&Parcourir le Repository "
+
 #: Control-ID:1011
 msgid "&Browse..."
 msgstr "&Naviguer..."
@@ -140,6 +148,18 @@ msgstr "&Extraction répertoire:"
 msgid "&Close windows automatically"
 msgstr "&Fermer la fenêtre automatiquement"
 
+#: ID:76
+msgid "&Compare revisions"
+msgstr "&Comparer les révisions"
+
+#: ID:101
+msgid "&Copy To..."
+msgstr "&Copier vers..."
+
+#: ID:101
+msgid "&Delete"
+msgstr "&Effacer"
+
 #: Control-ID:1031
 msgid "&Edit"
 msgstr "&Editer"
@@ -150,8 +170,8 @@ msgstr "&Edition..."
 
 # Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server (Don't use the IE settings)"
-msgstr "&Activer le proxy serveur (Sans utiliser la configuration d'IE)"
+msgid "&Enable Proxy Server"
+msgstr "Utilis&er un Serveur Proxy"
 
 #: Control-ID:1092
 msgid "&External"
@@ -229,6 +249,10 @@ msgstr "&Prochaine différence"
 msgid "&OK"
 msgstr "&OK"
 
+#: ID:101
+msgid "&Open"
+msgstr "&Ouvrir"
+
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Ouvrir Ctrl-O"
@@ -258,6 +282,14 @@ msgstr "Disque &amovible"
 #: Control-ID:1100
 msgid "&Remove"
 msgstr "&Effacer"
+
+#: ID:101
+msgid "&Rename..."
+msgstr "&Renommer..."
+
+#: ID:113
+msgid "&Revert changes from this revision"
+msgstr "Annule&r les modifications de cette révision"
 
 #: Control-ID:1033
 #: Control-ID:1116
@@ -307,7 +339,11 @@ msgstr "&Annuler\tCtrl+Z"
 
 #: Control-ID:1061
 msgid "&Unknown drives"
-msgstr "Disques inconnus"
+msgstr "&Disques inconnus"
+
+#: ID:76
+msgid "&Update item to revision"
+msgstr "Mettre à jo&ur l'élément à la révision"
 
 #: Control-ID:65535
 #: Control-ID:1005
@@ -326,6 +362,10 @@ msgstr "&Espacements"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(Cibles multiples sélectionnées)"
+
+#: ID:208
+msgid "(property change only)"
+msgstr "(changement de propriété seulement)"
 
 # ID:188,
 #: ID:188
@@ -351,6 +391,29 @@ msgstr "- %d"
 #: Control-ID:1104
 msgid "..."
 msgstr "..."
+
+#: ID:151
+msgid ": Revision %d"
+msgstr ": Révision %d"
+
+#: ID:151
+msgid ": working copy"
+msgstr ": Copie locale"
+
+# ID:88,
+#: ID:88
+msgid ""
+"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
+"If you use Relocate to direct you working copy to another repository or branch,\n"
+"this <b>will corrupt your working copy!</b>\n"
+"To associate your working copy with another branch, use the Switch command.\n"
+"Are you sure you want to relocate?"
+msgstr ""
+"<b>ATTENTION:</b> Utiliser seulement la commande Déplacer si le repository original a été déplacé vers une nouvelle URL.\n"
+"Si vous utilisez Déplacer pour diriger votre copie locale vers un autre repository ou branche,\n"
+"cela <b>va corrompre votre copie locale!</b>\n"
+"Pour associer votre copie locale avec une autre branche, utilisez la commande Basculer.\n"
+"Etes-vous sur de vouloir déplacer?"
 
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
@@ -399,6 +462,10 @@ msgid ""
 msgstr ""
 "Un programme de visualisation des fichiers des fichiers de différence GNU diff (ou fichier patch).\n"
 "Si vous en avez pas d'autre, utilisez le NotePad."
+
+#: ID:101
+msgid "A&dd folder..."
+msgstr "A&jouter répertoire..."
 
 #: Control-ID:1093
 msgid "A&dvanced..."
@@ -456,6 +523,10 @@ msgstr ""
 msgid "Add"
 msgstr "Ajouter"
 
+#: ID:101
+msgid "Add &file..."
+msgstr "Ajouter &fichier..."
+
 #: ID:110
 msgid "Add Extension Specific Diff Program"
 msgstr "Ajout diff programme selon extension"
@@ -468,17 +539,9 @@ msgstr "Ajout programme de fusion selon extension"
 msgid "Add To Ignore List"
 msgstr "Ajouter à la liste des ignorés"
 
-#: ID:101
-msgid "Add file..."
-msgstr "Ajouter fichier..."
-
 #: ID:12
 msgid "Add files to Subversion here"
 msgstr "Mettres des fichiers sous Subversion ici"
-
-#: ID:101
-msgid "Add folder..."
-msgstr "Ajouter répertoire..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -708,10 +771,6 @@ msgstr "&Naviguer..."
 msgid "Brows&e..."
 msgstr "&Naviguer..."
 
-#: ID:138
-msgid "Browse Repository"
-msgstr "Repository navigation"
-
 #: ID:78
 msgid "Browse for the external diff program"
 msgstr "Choix d'un programme externe de gestion des différences"
@@ -728,6 +787,14 @@ msgstr "&Interne"
 #: Control-ID:1119
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID/ N° d'incident"
+
+#: ID:101
+msgid "C&reate Folder..."
+msgstr "C&réer répertoire..."
+
+#: ID:77
+msgid "C&reate Tag from revision"
+msgstr "C&réer une étiquette depuis une révision"
 
 #: ID:3697
 msgid "CAP"
@@ -918,16 +985,12 @@ msgid "Compare Whitespaces"
 msgstr "Comparer les espacements"
 
 #: ID:76
-msgid "Compare revisions"
-msgstr "Compare les révisions"
+msgid "Compare with &working copy"
+msgstr "Comparaison avec la copie &locale"
 
 #: ID:138
-msgid "Compare with Base"
-msgstr "Compare avec la Base"
-
-#: ID:76
-msgid "Compare with working copy"
-msgstr "Comparaison avec la copie locale"
+msgid "Compare with B&ase"
+msgstr "Compare avec la B&ase"
 
 #: ID:12
 msgid "Compares the file with the last commited version to show you the changes you made"
@@ -957,10 +1020,6 @@ msgstr "Copié à distance"
 #: ID:73
 msgid "Copy"
 msgstr "Copier"
-
-#: ID:101
-msgid "Copy To..."
-msgstr "Copier vers..."
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1074,10 +1133,6 @@ msgstr "Ne peut pas démarrer l'impression."
 msgid "Could not start thread!"
 msgstr "Ne peut pas démarrer l'unité d'exécution(thread)!"
 
-#: ID:101
-msgid "Create Folder..."
-msgstr "Créer répertoire..."
-
 #: ID:13
 msgid "Create Patch..."
 msgstr "Créer un patch..."
@@ -1085,10 +1140,6 @@ msgstr "Créer un patch..."
 #: ID:8
 msgid "Create Repository here"
 msgstr "Créer un repository ici"
-
-#: ID:77
-msgid "Create Tag from revision"
-msgstr "Créer une étiquette depuis une révision"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1134,7 +1185,6 @@ msgstr "&Nombre par défaut de commentaires"
 
 #: ID:11
 #: ID:73
-#: ID:101
 msgid "Delete"
 msgstr "Effacer"
 
@@ -1876,7 +1926,6 @@ msgstr ""
 msgid "Only update the top folder"
 msgstr "Mis à jour seulement du répertoire de tête"
 
-#: ID:101
 #: ID:3841
 msgid "Open"
 msgstr "Ouvrir"
@@ -1920,7 +1969,7 @@ msgstr "Mot de passe:"
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
-msgstr "Coller le modèle de Journal en anglais"
+msgstr "Coller le &modèle de Journal en anglais"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1932,8 +1981,8 @@ msgid "Patch All"
 msgstr "Patch tout"
 
 #: ID:157
-msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr "Fichiers patch|*.diff;*.patch|Tous|*.*||"
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "Fichiers patch (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 #: ID:77
 msgid "Path"
@@ -2075,7 +2124,7 @@ msgstr ""
 
 #: Control-ID:1073
 msgid "R&AM drives"
-msgstr "Disques mémoire"
+msgstr "D&isques mémoire"
 
 #: ID:3697
 msgid "REC"
@@ -2160,7 +2209,6 @@ msgid "Rename %s"
 msgstr "Renomme %s"
 
 #: ID:11
-#: ID:101
 msgid "Rename..."
 msgstr "Renommer..."
 
@@ -2234,10 +2282,6 @@ msgstr "Réessayer"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Retourner à l'ancienne version"
-
-#: ID:113
-msgid "Revert changes from this revision"
-msgstr "Annule les modifications de cette révision"
 
 #: ID:9
 msgid "Reverts all changes you made since the last update"
@@ -2348,11 +2392,14 @@ msgstr "SVN Url simplifié"
 msgid "Save &As..."
 msgstr "Enregistrer &sous..."
 
+#: ID:101
+msgid "Save &as..."
+msgstr "S&auver sous..."
+
 #: ID:3841
 msgid "Save As"
 msgstr "Sauver sous"
 
-#: ID:101
 #: ID:313
 msgid "Save as..."
 msgstr "Sauver sous..."
@@ -2362,8 +2409,8 @@ msgid "Save changes to %1?"
 msgstr "Sauvegarder les changements dans %1?"
 
 #: ID:76
-msgid "Save revision to..."
-msgstr "Sauver la révision sous..."
+msgid "Save revision &to..."
+msgstr "S&auver la révision sous..."
 
 #: ID:3601
 msgid ""
@@ -2378,8 +2425,8 @@ msgid "Saving patchfile to:"
 msgstr "Sauvegarde fichier patch vers:"
 
 #: ID:113
-msgid "Search log messages..."
-msgstr "Recherche fichier journal..."
+msgid "Search &log messages..."
+msgstr "Recherche dans &le fichier journal..."
 
 #: ID:3867
 msgid "Seek failed on %1"
@@ -2475,6 +2522,10 @@ msgstr ""
 "La journalisation doit elle s'arrêter à la copie?\n"
 "Cliquer <b>Oui</b> si vous avez besoin de chercher où une branche a démarré."
 
+#: ID:101
+msgid "Sho&w Properties"
+msgstr "&Voir les propriétés"
+
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
 msgstr "Format cours des &dates dans les commentaires"
@@ -2482,6 +2533,10 @@ msgstr "Format cours des &dates dans les commentaires"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "URL simplifié de l'élément subversion"
+
+#: ID:113
+msgid "Show &Differences"
+msgstr "Voir les &différences"
 
 #: Control-ID:1031
 #: Control-ID:1034
@@ -2492,6 +2547,7 @@ msgstr "Voir le &journal"
 msgid "Show &Log..."
 msgstr "Voir &journal..."
 
+#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Voir &journal"
@@ -2505,12 +2561,8 @@ msgid "Show Diff Bar"
 msgstr "Voir la barre de différence"
 
 #: ID:113
-msgid "Show Differences"
-msgstr "Voir les différences"
-
-#: ID:113
-msgid "Show Differences as Unified Diff"
-msgstr "Voir les différences en mode diff unifié"
+msgid "Show Differences as &Unified Diff"
+msgstr "Voir les différences en mode diff &unifié"
 
 #: Control-ID:1063
 msgid "Show Linenumbers"
@@ -2519,14 +2571,6 @@ msgstr "Voir les numéros de lignes"
 #: ID:12
 msgid "Show Log"
 msgstr "Voir le journal"
-
-#: ID:101
-msgid "Show Properties"
-msgstr "Voir les propriétés"
-
-#: ID:101
-msgid "Show log"
-msgstr "Voir journal"
 
 #: ID:3713
 msgid ""
@@ -3029,10 +3073,6 @@ msgstr "Mettre à jour"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "Mettre à jour à la révision..."
-
-#: ID:76
-msgid "Update item to revision"
-msgstr "Mettre à jour l'élément à la révision"
 
 #: ID:11
 msgid "Updates the working copy to a specific revision"
