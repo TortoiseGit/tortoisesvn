@@ -303,7 +303,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 
 	m_svn.SetPromptApp(&theApp);
 
-	if (m_svn.Ls(folder, m_Revision, entries, true, recursive))
+	if (m_svn.Ls(folder, m_Revision, m_Revision, entries, true, recursive))
 	{
 		DeleteChildItems(hItem);
 		if (entries.GetCount() == 1)
@@ -317,7 +317,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 				//a folder!
 				CString item = entries.GetAt(0);
 				entries.RemoveAll();
-				if (m_svn.Ls(folder.GetContainingDirectory(), m_Revision, entries, true, recursive))
+				if (m_svn.Ls(folder.GetContainingDirectory(), m_Revision, m_Revision, entries, true, recursive))
 				{
 					BOOL found = FALSE;
 					for (int j=0; j<entries.GetCount(); ++j)

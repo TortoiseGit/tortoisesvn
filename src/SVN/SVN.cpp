@@ -1355,15 +1355,16 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 	return SVN_NO_ERROR;
 }
 
-BOOL SVN::Ls(const CTSVNPath& url, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
+BOOL SVN::Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
 {
 	entries.RemoveAll();
 	SVNPool subpool(pool);
 
 	apr_hash_t* hash = apr_hash_make(subpool);
 
-	Err = svn_client_ls(&hash, 
+	Err = svn_client_ls2(&hash, 
 						url.GetSVNApiPath(),
+						pegrev,
 						revision,
 						recursive, 
 						m_pctx,

@@ -394,12 +394,13 @@ public:
 	 * Browser.
 	 *
 	 * \param url url to the repository you wish to ls.
+	 * \param pegrev peg revision
 	 * \param revision	the revision that you want to explore
 	 * \param entries CStringArray of subdirectories
 	 * \param extended Set to TRUE for entries in extended format (see above)
 	 * \param recursive Set this to TRUE to get all entries recursively
 	 */
-	BOOL Ls(const CTSVNPath& url, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE);
+	BOOL Ls(const CTSVNPath& url, SVNRev pegrev, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE);
 
 	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function
