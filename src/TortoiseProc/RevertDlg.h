@@ -19,6 +19,8 @@
 #pragma once
 #include "afxcmn.h"
 #include "ResizableDialog.h"
+#include "SVNStatusListCtrl.h"
+#include "afxwin.h"
 
 
 // CRevertDlg dialog
@@ -44,8 +46,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedSelectall();
-	afx_msg void OnNMDblclkRevertlist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnLvnGetInfoTipRevertlist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -59,9 +60,8 @@ public:
 	CString			m_sPath;
 	CStringArray	m_arFileList;
 
-	CListCtrl		m_RevertList;
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
-	afx_msg void OnLvnItemchangedRevertlist(NMHDR *pNMHDR, LRESULT *pResult);
+	CSVNStatusListCtrl	m_RevertList;
+	CButton			m_SelectAll;
 };
 
 DWORD WINAPI RevertThread(LPVOID pVoid);

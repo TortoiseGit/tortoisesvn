@@ -47,6 +47,7 @@ void CRevertDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_REVERTLIST, m_RevertList);
 	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
+	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 }
 
 
@@ -55,10 +56,7 @@ BEGIN_MESSAGE_MAP(CRevertDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
-	ON_NOTIFY(NM_DBLCLK, IDC_REVERTLIST, OnNMDblclkRevertlist)
-	ON_NOTIFY(LVN_GETINFOTIP, IDC_REVERTLIST, OnLvnGetInfoTipRevertlist)
 	ON_WM_SETCURSOR()
-	ON_NOTIFY(LVN_ITEMCHANGED, IDC_REVERTLIST, OnLvnItemchangedRevertlist)
 END_MESSAGE_MAP()
 
 
@@ -101,30 +99,9 @@ BOOL CRevertDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
-	//set the listcontrol to support checkboxes
-	m_RevertList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP);
-
-	m_RevertList.DeleteAllItems();
-	int c = ((CHeaderCtrl*)(m_RevertList.GetDlgItem(0)))->GetItemCount()-1;
-	while (c>=0)
-		m_RevertList.DeleteColumn(c--);
-	CString temp;
-	temp.LoadString(IDS_LOGPROMPT_FILE);
-	m_RevertList.InsertColumn(0, temp);
-	temp.LoadString(IDS_LOGPROMPT_STATUS);
-	m_RevertList.InsertColumn(1, temp);
-
-	m_RevertList.SetRedraw(false);
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_RevertList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_RevertList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
-
-	m_RevertList.UpdateData(FALSE);
-
+	m_RevertList.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS);
+	m_RevertList.SetSelectButton(&m_SelectAll);
+	
 	AddAnchor(IDC_REVERTLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -160,78 +137,11 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	pDlg->m_RevertList.SetRedraw(false);
-	BOOL bHaveChecked = FALSE;
-	try
-	{
-		CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
-		CString strLine = _T("");
-		const TCHAR * strbuf = NULL;
-		TCHAR buf[MAX_PATH];
-		while (file.ReadString(strLine))
-		{
-			SVNStatus status;
-			svn_wc_status_t *s;
+	pDlg->m_RevertList.GetStatus(pDlg->m_sPath);
+	pDlg->m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS);
+	pDlg->m_RevertList.CheckAll(SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWDIRECTS);
 
-			// The directory that contains this item.
-			// Even if strLine is a directory, we will hold its root. 
-			// Thus, we can distinguish sub-items with the same relative 
-			// path in different selected directories.
-
-			CString root = strLine.Left(strLine.ReverseFind('\\') + 1);
-
-			// Ask SVN for the first item found for strLine.
-
-			s = status.GetFirstFileStatus(strLine, &strbuf);
-			while (s!=0)
-			{
-				// the current item (path)
-
-				CString item = strbuf;
-
-				// Get the "combined" status of item and its properties
-
-				svn_wc_status_kind stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-
-				if (stat == SVNStatus::GetMoreImportant(stat, svn_wc_status_added))
-				{
-					CString ponly;
-					ponly.LoadString(IDS_STATUSLIST_PROPONLY);
-					pDlg->m_arFileList.Add(item);
-					int count = pDlg->m_RevertList.GetItemCount();
-					pDlg->m_RevertList.InsertItem(count, item.Mid(root.GetLength()));
-					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
-					if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
-						_tcscat(buf, ponly);
-					pDlg->m_RevertList.SetItemText(count, 1, buf);
-					pDlg->m_RevertList.SetCheck(count);
-					bHaveChecked = TRUE;
-				} 
-				// Ask SVN for the next item for strLine. 
-				// This will usually be the case for directories and svn:externals.
-
-				s = status.GetNextFileStatus(&strbuf);
-			} // if (s!=0) 
-		} // while (file.ReadString(strLine)) 
-		file.Close();
-	}
-	catch (CFileException* pE)
-	{
-		TRACE("CFileException in Commit!\n");
-		pE->Delete();
-	}
-
-
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(pDlg->m_RevertList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		pDlg->m_RevertList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
-	pDlg->m_RevertList.SetRedraw(true);
-
-	pDlg->GetDlgItem(IDOK)->EnableWindow(bHaveChecked);
+	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
 
 	if (pDlg->m_RevertList.GetItemCount()==0)
@@ -263,7 +173,7 @@ void CRevertDlg::OnOK()
 		{
 			if (m_RevertList.GetCheck(i))
 			{
-				file.WriteString(m_arFileList.GetAt(i)+_T("\n"));
+				file.WriteString(m_RevertList.GetListEntry(i)->path+_T("\n"));
 			}
 		} 
 		file.Close();
@@ -291,68 +201,6 @@ void CRevertDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
-void CRevertDlg::OnBnClickedSelectall()
-{
-	UpdateData();
-	theApp.DoWaitCursor(1);
-	m_RevertList.SetRedraw(false);
-	int itemCount = m_RevertList.GetItemCount();
-	for (int i=0; i<itemCount; i++)
-	{
-		m_RevertList.SetCheck(i, m_bSelectAll);
-	}
-	m_RevertList.SetRedraw(true);
-	theApp.DoWaitCursor(-1);
-}
-
-void CRevertDlg::OnNMDblclkRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-	*pResult = 0;
-	if (m_bThreadRunning)
-		return;
-
-	StartDiff(pNMLV->iItem);
-}
-
-void CRevertDlg::StartDiff(int fileindex)
-{
-	if (fileindex < 0)
-		return;
-	CString path = m_arFileList.GetAt(fileindex);
-	if (PathIsDirectory(path))
-		return;		//we don't compare folders
-	CString path1;
-	CString path2 = SVN::GetPristinePath(path);
-	if (path2.IsEmpty())
-		return;
-
-	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path1, path)))
-	{
-		m_templist.Add(path1);
-	}
-	else
-	{
-		path1 = path;
-	}
-
-	CString name = CUtils::GetFileNameFromPath(path);
-	CString ext = CUtils::GetFileExtFromPath(path);
-	CString n1, n2;
-	n1.Format(IDS_DIFF_WCNAME, name);
-	n2.Format(IDS_DIFF_BASENAME, name);
-	CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
-}
-
-void CRevertDlg::OnLvnGetInfoTipRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
-
-	if (pGetInfoTip->cchTextMax > m_arFileList.GetAt(pGetInfoTip->iItem).GetLength())
-		_tcsncpy(pGetInfoTip->pszText, m_arFileList.GetAt(pGetInfoTip->iItem), pGetInfoTip->cchTextMax);
-
-	*pResult = 0;
-}
 
 BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
@@ -370,17 +218,12 @@ BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
-void CRevertDlg::OnLvnItemchangedRevertlist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+void CRevertDlg::OnBnClickedSelectall()
 {
-	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-	*pResult = 0;
-	for (int i=0; i<m_RevertList.GetItemCount(); i++)
-	{
-		if (m_RevertList.GetCheck(i))
-		{
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
-			return;
-		}
-	}
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	UINT state = (m_SelectAll.GetState() & 0x0003);
+	if (state == 2)
+		return;
+	theApp.DoWaitCursor(1);
+	m_RevertList.SelectAll(state == 1);
+	theApp.DoWaitCursor(-1);
 }

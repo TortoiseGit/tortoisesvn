@@ -288,7 +288,11 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				if (s->entry)
 					entry->isfolder = (s->entry->kind == svn_node_dir);
 				else
-					entry->isfolder = PathIsDirectory(strbuf);
+				{
+					CString temppath = strbuf;
+					temppath.Replace('/', '\\');
+					entry->isfolder = PathIsDirectory(temppath);
+				}
 
 				if (s->entry)
 				{
@@ -310,9 +314,9 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					CString filename;
 					while (filefinder.NextFile(filename))
 					{
+						filename.Replace('\\', '/');
 						if (!config.MatchIgnorePattern(filename))
 						{
-							filename.Replace('\\', '/');
 							FileEntry * entry = new FileEntry();
 							entry->path = filename;									
 							entry->basepath = strLine.Left(strLine.ReverseFind('/'));
@@ -327,7 +331,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							entry->inexternal = FALSE;
 							entry->direct = FALSE;
 							m_arStatusArray.Add(entry);
-							entry->isfolder = PathIsDirectory(strbuf);
+							filename.Replace('/', '\\');
+							entry->isfolder = PathIsDirectory(filename);
 						}
 					} // while (filefinder.NextFile(filename))
 				}
@@ -399,7 +404,11 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					if (s->entry)
 						entry->isfolder = (s->entry->kind == svn_node_dir);
 					else
-						entry->isfolder = PathIsDirectory(strbuf);
+					{
+						CString temppath = strbuf;
+						temppath.Replace('/', '\\');
+						entry->isfolder = PathIsDirectory(temppath);
+					}
 					if (s->entry)
 					{
 						if (s->entry->url)
@@ -435,6 +444,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 									entry->checked = FALSE;
 									entry->inexternal = FALSE;
 									entry->direct = FALSE;
+									filename.Replace('/', '\\');
 									entry->isfolder = PathIsDirectory(filename);
 									m_arStatusArray.Add(entry);
 								}
