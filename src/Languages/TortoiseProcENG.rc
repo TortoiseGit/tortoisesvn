@@ -1086,6 +1086,8 @@ BEGIN
     IDS_PROC_ENTERURLLABEL  "Url:"
     IDS_PROC_PATCHTITLE     "Generating Patchfile..."
     IDS_PROC_SAVEPATCHTO    "Saving patchfile to:"
+    IDS_PROC_REPOCREATESHAREWARN 
+                            "You are creating a repository on a network share.\nThis is safe, but once the repository is created you must access it by some other means.\nAccessing a repository via file:/// on a network share may corrupt your data!\nCreate the repository anyway?"
 END
 
 STRINGTABLE 

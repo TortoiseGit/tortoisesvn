@@ -399,15 +399,22 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("repocreate"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
-			if (!SVN::CreateRepository(path))
+			path.Replace('/', '\\');
+			if (GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE)
 			{
-				CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
-			}
-			else
-			{
-				CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK);
-			}
-		}
+				if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATESHAREWARN, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
+				{
+					if (!SVN::CreateRepository(path))
+					{
+						CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
+					}
+					else
+					{
+						CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK);
+					}
+				} // if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATESHAREWARN, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES) 
+			} // if (GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE) 
+		} // if (comVal.Compare(_T("repocreate"))==0) 
 		//#endregion
 		//#region switch
 		if (comVal.Compare(_T("switch"))==0)
