@@ -1,0 +1,38 @@
+- Check the latest versions of Apache, openssl, zlib, neon and of course
+  download any newer versions available.
+- increment the version number in the installer script
+- increment the version number in the version.in file
+- increment the version number in LanguagePack.nsi
+- finish the changelog.txt file, i.e. add the version title
+- run the build.bat script
+
+if all goes well (no errors while running the script) install the new
+version and test one last time.
+
+while the script runs, move all the old files in the filesharing area
+from the binaries folder to the binaries/archive folder.
+
+- zip the files Languages\TortoiseProcLang.dll and 
+  Languages\TortoiseMergeLang.dll to Languages_1.1.x.zip and upload that
+  to the filesharing area on tigris.org.
+- Change the link to the resource dlls in Languages\trans_foot.html and
+  the text indicating the version number
+- The file Languages\trans_head.html has a version number in it too
+
+Now commit those changes and then create the tag in the repository
+
+- run the build.bat script again
+
+The last steps:
+- rename the msi installer files to indicate the correct version number
+- upload the msi files to the filesharing area on tigris.org
+- edit the web files download.html, index.html, project_status.html to
+  indicate the new release
+- edit the file version.txt to match the exact version number of the release
+- copy the new generated docs to the web docs folder
+- commit the web pages
+
+Announcements:
+- Mail to dev@tortoisesvn.tigris.org, announce@tortoisesvn.tigris.org
+- Add a news item on tigris.org
+- Remember to include a link to the download page in the announcements.
