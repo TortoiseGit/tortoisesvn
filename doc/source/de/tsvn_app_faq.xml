@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <appendix id="tsvn-faq" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Häufig gestellte Fragen (FAQ)</title>
 	<simplesect>
@@ -29,45 +29,55 @@
 			</ulink>
 		</para>
 		<sect2 id="tsvn-faq-installation-0">
-			<title>Der Installer bricht mit einer Fehlermeldung ab</title>
+			<title>
+				Der Installer bricht mit einer Fehlermeldung ab
+			</title>
 			<para>
-			Wenn der msi Installer mit der Fehlermeldung 
-			<literal>The installer was interrupted before TortoiseSVN could be installed. 
-			You need to restart the installer to try again. Click "Close" 
-			to exit</literal> abbricht liegt das daran dass der Benutzer SYSTEM
-			keine Zugriffsberechtigung auf den Ordner hat wo die msi Datei liegt.
+				Wenn der msi Installer mit der Fehlermeldung 
+				<literal>
+					The installer was interrupted before TortoiseSVN could be installed. 
+					You need to restart the installer to try again. Click "Close" 	to exit
+				</literal>
+				abbricht liegt das daran dass der Benutzer SYSTEM
+				keine Zugriffsberechtigung auf den Ordner hat wo die msi Datei liegt.
 			</para>
 			<para>
-			Verschieben Sie einfach die msi-Datei an einen anderen Ort, z.B. 
-			<filename>c:\</filename> und versuchen Sie's erneut.
+				Verschieben Sie einfach die msi-Datei an einen anderen Ort, z.B. 
+				<filename>c:\</filename> und versuchen Sie's erneut.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-0A">
-			<title>Ich habe TortoiseSVN als Administrator installiert. Wenn ich mich nun
-			als Benutzer anmelde erscheinen keine Kontextmenus</title>
+			<title>
+				Ich habe TortoiseSVN als Administrator installiert. Wenn ich mich nun
+				als Benutzer anmelde erscheinen keine Kontextmenus
+			</title>
 			<para>
-			Als Sie die Installation durchführten, haben Sie vergessen die Option
-			"install for all users" zu aktivieren statt "just for me". Der einfachste
-			Weg dies zu korrigieren ist, TortoiseSVN zu deinstallieren, rebooten
-			und erneut (korrekt) zu installieren.
+				Als Sie die Installation durchführten, haben Sie vergessen die Option
+				"install for all users" zu aktivieren statt "just for me". Der einfachste
+				Weg dies zu korrigieren ist, TortoiseSVN zu deinstallieren, rebooten
+				und erneut (korrekt) zu installieren.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-00">
-			<title>Muss ich eine alte Version von TortoiseSVN zuerst deinstallieren,
-			bevor ich die neue Version installieren kann?</title>
+			<title>
+				Muss ich eine alte Version von TortoiseSVN zuerst deinstallieren,
+				bevor ich die neue Version installieren kann?
+			</title>
 			<para>
-			Nein. Sie können die neue Version über die alte Version installieren. 
-			Das Setup-Programm wird eine vorhandene alte Version automatisch
-			deinstallieren.
+				Nein. Sie können die neue Version über die alte Version installieren. 
+				Das Setup-Programm wird eine vorhandene alte Version automatisch
+				deinstallieren.
 			</para>
 			<para>
-			Aber Sie <emphasis>müssen</emphasis> den Computer nach der Installation
-			neu starten! Oder sich zumindest ab- und wieder anmelden. Wenn Sie
-			dies nicht tun, wird TortoiseSVN mit Fehlern abbrechen!
+				Aber Sie <emphasis>müssen</emphasis> den Computer nach der Installation
+				neu starten! Oder sich zumindest ab- und wieder anmelden. Wenn Sie
+				dies nicht tun, wird TortoiseSVN mit Fehlern abbrechen!
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-1">
-			<title>Warum erscheinen die überlagerten Icons nicht?</title>
+			<title>
+				Warum erscheinen die überlagerten Icons nicht?
+			</title>
 			<indexterm>
 				<primary>Overlays</primary>
 			</indexterm>
@@ -75,121 +85,145 @@
 				<itemizedlist>
 					<listitem>
 						<para>
-						Wenn Sie Windows 95 benutzen werden Sie keine überlagerten
-						Icons sehen. Sie können versuchen, der Anleitung für NT4
-						weiter unten zu folgen, aber es kann trotzdem sein dass
-						es nicht funktioniert. Beachten Sie bitte: TortoiseSVN
-						unterstützt Windows 95 nicht - es können also
-						noch weitere Probleme damit auftreten.
+							Wenn Sie Windows 95 benutzen werden Sie keine überlagerten
+							Icons sehen. Sie können versuchen, der Anleitung für NT4
+							weiter unten zu folgen, aber es kann trotzdem sein dass
+							es nicht funktioniert. Beachten Sie bitte: TortoiseSVN
+							unterstützt Windows 95 nicht - es können also
+							noch weitere Probleme damit auftreten.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-						Wenn Sie TortoiseSVN mit Windows NT4 benutzen wollen,
-						müssen Sie die Desktop-Erweiterungen des IE4 installieren
-						um eine neuere Version des Explorers zu erhalten.
-						Installieren Sie dazu den Internet-Explorer 4 und 
-						wählen Sie <guibutton>Ja</guibutton> um den ActiveDesktop
-						ebenfalls zu installieren. Keine Panik, Sie können den
-						AktivDesktop später wieder deaktivieren durch einen
-						Rechtsklick darauf. Wir benötigen nur die neue Version
-						des Explorers.
+							Wenn Sie TortoiseSVN mit Windows NT4 benutzen wollen,
+							müssen Sie die Desktop-Erweiterungen des IE4 installieren
+							um eine neuere Version des Explorers zu erhalten.
+							Installieren Sie dazu den Internet-Explorer 4 und 
+							wählen Sie <guibutton>Ja</guibutton> um den ActiveDesktop
+							ebenfalls zu installieren. Keine Panik, Sie können den
+							AktiveDesktop später wieder deaktivieren durch einen
+							Rechtsklick darauf. Wir benötigen nur die neue Version
+							des Explorers.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-						Falls Sie bereits den IE5 oder IE6 installiert haben so
-						müssen Sie entweder:
-						<orderedlist>
+							Falls Sie bereits den IE5 oder IE6 installiert haben so
+							müssen Sie entweder:
+							<orderedlist>
 								<listitem>
 									<para>
-								Den IE5 deinstallieren, IE4 installieren und
-								dann wieder den IE5 installieren. Was für
-								ein Schlamassel...
-								</para>
+										Den IE5 deinstallieren, IE4 installieren und
+										dann wieder den IE5 installieren. Was für
+										ein Schlamassel...
+									</para>
 								</listitem>
 								<listitem>
 									<para>
-								Das Setupprogramm des IE5 von der Kommandozeile
-								aus starten um die IE4 Desktoperweiterungen
-								ebenfalls zu installieren.
-								</para>
+										Das Setupprogramm des IE5 von der Kommandozeile
+										aus starten um die IE4 Desktoperweiterungen
+										ebenfalls zu installieren.
+									</para>
 									<para>
-								Das Setupprogramm muss in dem Ordner gestartet
-								werden welches die Datei ie5setup.exe enthält.
-								Falls der Browser anschliessend instabil wirkt
-								führen Sie einfach die Reparaturfunktion aus.
-								</para>
-									<para>Für Win95: ie5setup.exe /c:"ie5wzd /e:IE4Shell WIN /I:Y"</para>
-									<para>Für WinNT: ie5setup.exe /c:"ie5wzd /e:IE4Shell NTx86 /I:Y"</para>
-									<para>Für Win95: ie6setup.exe /c:"ie5wzd /e:IE4Shell WIN /I:Y"</para>
-									<para>Für WinNT: ie6setup.exe /c:"ie6wzd /e:IE4Shell NTx86 /I:Y"</para>
+										Das Setupprogramm muss in dem Ordner gestartet
+										werden welches die Datei ie5setup.exe enthält.
+										Falls der Browser anschliessend instabil wirkt
+										führen Sie einfach die Reparaturfunktion aus.
+									</para>
+									<para>
+										Für Win95:
+<screen>
+ie5setup.exe /c:"ie5wzd /e:IE4Shell WIN /I:Y"
+</screen>
+									</para>
+									<para>
+										Für WinNT:
+<screen>
+ie5setup.exe /c:"ie5wzd /e:IE4Shell NTx86 /I:Y"
+</screen>
+									</para>
+									<para>
+										Für Win95
+<screen>
+ie6setup.exe /c:"ie5wzd /e:IE4Shell WIN /I:Y"
+</screen>
+									</para>
+									<para>
+										Für WinNT:
+<screen>
+ie6setup.exe /c:"ie6wzd /e:IE4Shell NTx86 /I:Y"
+</screen>
+									</para>
 								</listitem>
 							</orderedlist>
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-						Die Verknüpfung mit Namen <literal>Win NT Explorer</literal>
-						in Ihrem Start-Menu zeigt vielleicht auf 
-						<filename>C:\WINNT\explorer.scf</filename>. Erstellen
-						Sie eine neue Verknüpfung zu 
+							Die Verknüpfung mit Namen <literal>Win NT Explorer</literal>
+							in Ihrem Start-Menu zeigt vielleicht auf 
+							<filename>C:\WINNT\explorer.scf</filename>. Erstellen
+							Sie eine neue Verknüpfung zu 
 <screen>
 %windir%\Explorer.exe /n, /e
 </screen>
-						und Sie werden überlagerte Icons erhalten.
+							und Sie werden überlagerte Icons erhalten.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-						Falls Sie einen IntelliPoint-Maustreiber installiert
-						haben und den Explorer mittels Mausklick starten,
-						müssen Sie den Treiber von Version 3 auf mindestens
-						Version 3.2 aktualisieren.
+							Falls Sie einen IntelliPoint-Maustreiber installiert
+							haben und den Explorer mittels Mausklick starten,
+							müssen Sie den Treiber von Version 3 auf mindestens
+							Version 3.2 aktualisieren.
 						</para>
 					</listitem>
 				</itemizedlist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-2">
-			<title>Ich bin den Anweisungen gefolgt, habe aber immer noch keine Icons?!?</title>
+			<title>
+				Ich bin den Anweisungen gefolgt, habe aber immer noch keine Icons?!?
+			</title>
 			<para>
-			Sie haben nach der Installation von TortoiseSVN den Rechner neu
-			gestartet? Sie haben jetzt WinNT/Win95 und IE>=5.5 installiert?
+				Sie haben nach der Installation von TortoiseSVN den Rechner neu
+				gestartet? Sie haben jetzt WinNT/Win95 und IE>=5.5 installiert?
 			</para>
 			<para>
-			Wenn Sie TortoiseSVN unter einem anderen Benutzernamen installiert
-			haben als Sie jetzt angemeldet sind machen Sie folgendes:
-			Gehen Sie zum Eigenschaftsdialog von TortoiseSVN und aktivieren
-			Sie die Icon Overlays für mindestens die fixen Laufwerke. Der 
-			Installer macht dies automatisch für den aktuellen Benutzer, da
-			Sie jetzt aber als ein anderer Benutzer angemeldet sind müssen Sie
-			dies von Hand machen.
+				Wenn Sie TortoiseSVN unter einem anderen Benutzernamen installiert
+				haben als Sie jetzt angemeldet sind machen Sie folgendes:
+				Gehen Sie zum Eigenschaftsdialog von TortoiseSVN und aktivieren
+				Sie die Icon Overlays für mindestens die fixen Laufwerke. Der 
+				Installer macht dies automatisch für den aktuellen Benutzer, da
+				Sie jetzt aber als ein anderer Benutzer angemeldet sind müssen Sie
+				dies von Hand machen.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-2-1">
-			<title>Die überlagerten Icons erscheinen, aber nicht alle davon!</title>
+			<title>
+				Die überlagerten Icons erscheinen, aber nicht alle davon!
+			</title>
 			<para>
-			Dies passiert normalerweise dann, wenn Sie noch andere Programme
-			installiert haben welche solche überlagerten Icons verwenden, z.B.
-			TortoiseCVS. Der Grund dafür ist dass Windows nur 15 solche Icons
-			verwalten kann, und Windows selbst benötigt schon etwa 4 davon
-			(z.B. für Verknüpfungen, freigegebene Ordner, ...). Wenn alle
-			diese 15 Icons verwendet werden, kann TortoiseSVN keine weiteren
-			benutzen und zeigt deshalb nicht mehr alle Icons an.
+				Dies passiert normalerweise dann, wenn Sie noch andere Programme
+				installiert haben welche solche überlagerten Icons verwenden, z.B.
+				TortoiseCVS. Der Grund dafür ist dass Windows nur 15 solche Icons
+				verwalten kann, und Windows selbst benötigt schon etwa 4 davon
+				(z.B. für Verknüpfungen, freigegebene Ordner, ...). Wenn alle
+				diese 15 Icons verwendet werden, kann TortoiseSVN keine weiteren
+				benutzen und zeigt deshalb nicht mehr alle Icons an.
 			</para>
 			<para>
-			TortoiseSVN benutzt fünf überlagerte Icons für den Status:
-			<graphic fileref="images/InSubVersionIcon.png"/>
-			Normal
-			<graphic fileref="images/ModifiedIcon.png"/>
-			Verändert
-			<graphic fileref="images/ConflictIcon.png"/>
-			In Konflikt
-			<graphic fileref="images/DeletedIcon.png"/> 
-			Gelöscht
-			<graphic fileref="images/AddedIcon.png"/> 
-			Hinzugefügt
+				TortoiseSVN benutzt fünf überlagerte Icons für den Status:
+				<graphic fileref="images/InSubVersionIcon.png"/>
+				Normal
+				<graphic fileref="images/ModifiedIcon.png"/>
+				Verändert
+				<graphic fileref="images/ConflictIcon.png"/>
+				In Konflikt
+				<graphic fileref="images/DeletedIcon.png"/> 
+				Gelöscht
+				<graphic fileref="images/AddedIcon.png"/> 
+				Hinzugefügt
 			</para>
 			<para>
 			Am wahrscheinlichsten ist dass das Icon für <literal>Hinzugefügt</literal>
@@ -251,29 +285,33 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 		<sect2 id="tsvn-faq-installation-4">
 			<title>Diese Icons sind scheusslich, I will schönere!</title>
 			<para>
-			Sie können Ihren eigenen Iconsatz erstellen und benutzen. Und wenn
-			Sie dies tun, schicken Sie uns bitte Ihre schöneren Icons an
-			die Mailingliste <email>dev@tortoisesvn.tigris.org</email>.
+				Sie können Ihren eigenen Iconsatz erstellen und benutzen. Und wenn
+				Sie dies tun, schicken Sie uns bitte Ihre schöneren Icons an
+				die Mailingliste <email>dev@tortoisesvn.tigris.org</email>.
 			</para>
 			<para>
-			Die Icons müssen mindestens in zwei Grössen vorliegen (16x16 und 32x32)
-			mit jeweils 16 Farben, für Windows XP sollte die Icons zusätzlich
-			in der Grösse 48x48 vorhanden sein.
+				Die Icons müssen mindestens in zwei Grössen vorliegen (16x16 und 32x32)
+				mit jeweils 16 Farben, für Windows XP sollte die Icons zusätzlich
+				in der Grösse 48x48 vorhanden sein.
 			</para>
 			<para>
-			Um die neuen Icons zu installieren kopieren Sie diese in den Ordner,
-			wo TortoiseSVN installiert wurde. Sie können entweder die ursprünglichen
-			Icons zuerst irgendwo sichern oder auch gleich direkt mit Ihren
-			neuen überschreiben.
+				Um die neuen Icons zu installieren kopieren Sie diese in den Ordner,
+				wo TortoiseSVN installiert wurde. Sie können entweder die ursprünglichen
+				Icons zuerst irgendwo sichern oder auch gleich direkt mit Ihren
+				neuen überschreiben.
 			</para>
 			<para>
-			Falls Sie die alten Icons nicht überschreiben wollen sondern einfach
-			nur die neuen Icons benutzen müssen Sie die Registry ändern.
-			Unter <filename>HKCU\Software\TortoiseSVN\</filename> ändern Sie
-			die Schlüssel <literal>ConflictIcon</literal>, <literal>InSubversionIcon</literal>, 
-			<literal>AddedIcon</literal>, <literal>DeletedIcon</literal> und
-			<literal>ModifiedIcon</literal> so dass die Pfade zu den neuen
-			Icons stimmen.
+				Falls Sie die alten Icons nicht überschreiben wollen sondern einfach
+				nur die neuen Icons benutzen müssen Sie die Registry ändern.
+				Unter
+				<filename>HKCU\Software\TortoiseSVN\</filename>
+				ändern Sie die Schlüssel oder legen Sie sie neu an
+				<literal>ConflictIcon</literal>,
+				<literal>InSubversionIcon</literal>,
+				<literal>AddedIcon</literal>,
+				<literal>DeletedIcon</literal> und
+				<literal>ModifiedIcon</literal>
+				so dass die Pfade zu den neuen 	Icons stimmen.
 			</para>
 			<para>
 				Anschliessend müssen Sie den Computer neu starten, damit der Explorer
