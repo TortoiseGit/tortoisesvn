@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-revgraph">
+	<title>Revision Graphs</title>
+	<indexterm>
+		<primary>revision</primary>
+	</indexterm>
+	<indexterm>
+		<primary>graph</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-DUG-revgraph-dia-1">
+			<title>A Revision Graph</title>
+			<graphic fileref="images/RevisionGraph.png"/>
+		</figure>
+		Sometimes you need to know where branches and tags were taken from
+		the trunk, and the ideal way to view this sort of information is
+		as a graph or tree structure. That's when you need to use
+		<menuchoice>
+			<guimenuitem>Revision Graph...</guimenuitem>
+		</menuchoice>
+	</para>
+	<para>
+		This command analyses the revision history and attempts to create
+		a tree showing the points at which copies were taken, and when
+		branches/tags were deleted.
+		Please note: It can take several minutes to retrieve all the data
+		needed to create the revision graph, depending on how much the project
+		has changed and of course your network connection to the repository.
+	</para>
+	<para>
+		The revision graph shows several types of node:
+		<variablelist>
+			<varlistentry>
+				<term>Added file/folder</term>
+				<listitem>
+					<para>
+						Items which have been added, or created by copying
+						another file/folder are shown using a rounded rectangle.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Deleted file/folder</term>
+				<listitem>
+					<para>
+						Deleted items eg. a branch which is no longer required,
+						are shown using an octagon (rectangle with corners cut off).
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Normal file/folder</term>
+				<listitem>
+					<para>
+						All other items are shown using a plain rectangle.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		Note that the graph only shows the points at which items were added or
+		deleted. Showing every revision of a project would generate an impossibly
+		large graph for non-trivial cases.
+	</para>
+	<para>
+		The revision date, author and comments are shown in a hint box whenever
+		the mouse hovers over a revision box.
+	</para>
+	<warning>
+		Because subversion cannot provide all the information required,
+		a certain amount of interpretation is required, which can sometimes
+		give strange results. Nevertheless, the output for the trunk will
+		generally give useful results.
+	</warning>
+</sect1>
