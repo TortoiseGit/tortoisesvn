@@ -1244,7 +1244,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				case IDSVNLC_UPDATE:
 					{
 						CString tempFile = BuildTargetFile();
-						CSVNProgressDlg dlg;
+						CSVNProgressDlg dlg(CWnd::FromHandle(m_hWnd));
 						dlg.SetParams(CSVNProgressDlg::Enum_Update, ProgOptPathIsTempFile, tempFile);
 						dlg.DoModal();
 					}

@@ -103,7 +103,7 @@ public:
 		LONG					rev;
 	};
 
-	CSVNProgressDlg(CWnd* pParent = NULL);   // standard constructor
+	CSVNProgressDlg(CWnd* pParent);   // standard constructor
 	virtual ~CSVNProgressDlg();
 
 	virtual BOOL OnInitDialog();
