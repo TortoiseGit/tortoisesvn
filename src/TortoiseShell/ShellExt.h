@@ -129,7 +129,7 @@ protected:
 	stdstring itemshorturl;
 	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
 	CRegStdWORD g_regLang;
-	SVNFolderStatus CachedStatus;
+	//SVNFolderStatus CachedStatus;
 
 #define MAKESTRING(ID) LoadStringEx(g_hmodThisDll, ID, stringtablebuffer, sizeof(stringtablebuffer), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:

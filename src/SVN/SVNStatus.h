@@ -178,7 +178,7 @@ typedef struct filestatuscache
 	int						askedcounter;
 } filestatuscache;
 
-#define SVNFOLDERSTATUS_CACHETIMES 1
+#define SVNFOLDERSTATUS_CACHETIMES 5
 /**
  * \ingroup TortoiseShell
  * This class represents a caching mechanism for the

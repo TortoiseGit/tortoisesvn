@@ -68,7 +68,8 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 		case Versioned : iconName = _T("InSubversionIcon"); break;
 		case Modified  : iconName = _T("ModifiedIcon"); break;
 		case Conflict  : iconName = _T("ConflictIcon"); break;
-		//case Deleted   : iconName = "DeletedIcon"; break;
+		case Deleted   : iconName = _T("DeletedIcon"); break;
+		case Added     : iconName = _T("AddedIcon"); break;
 	}
 
 	for (int i = 0; i < 2; ++i)
@@ -120,8 +121,14 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 		case Modified:
 			*pPriority = 1;
 			break;
-		case Versioned:
+		case Deleted:
 			*pPriority = 2;
+			break;
+		case Added:
+			*pPriority = 3;
+			break;
+		case Versioned:
+			*pPriority = 4;
 			break;
 		default:
 			*pPriority = 100;
@@ -178,7 +185,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			return S_FALSE;
 
 		if ((showrecursive == 0)||(!PathIsDirectory(sPath.c_str())))
-			status = CachedStatus.GetFileStatus(sPath.c_str());
+			status = g_CachedStatus.GetFileStatus(sPath.c_str());
 		else
 			status = SVNStatus::GetAllStatusRecursive(sPath.c_str());
 		if (PathIsDirectory(sPath.c_str()))
@@ -207,7 +214,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			else
 				return S_FALSE;
 		case svn_wc_status_added:
-			if (m_State == Modified)
+			if (m_State == Added)
 				return S_OK;
 			else
 				return S_FALSE;
@@ -217,7 +224,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			else
 				return S_FALSE;
 		case svn_wc_status_deleted:
-			if (m_State == Modified)
+			if (m_State == Deleted)
 				return S_OK;
 			else
 				return S_FALSE;

@@ -19,9 +19,12 @@
 #pragma once
 #include <windows.h>
 #include "registry.h"
+#include "SVNStatus.h"
 
-extern	UINT		g_cRefThisDll; // Reference count of this DLL.
-extern	HINSTANCE	g_hmodThisDll; // Instance handle for this DLL
+extern	UINT				g_cRefThisDll;	// Reference count of this DLL.
+extern	HINSTANCE			g_hmodThisDll;	// Instance handle for this DLL
+extern	SVNFolderStatus		g_CachedStatus;	// status cache
+
 /**
  * Since we need an own COM-object for every different
  * Icon-Overlay implemented this enum defines which class
@@ -34,6 +37,7 @@ enum FileState
     Modified,
     Conflict,
 	Deleted,
+	Added,
 	DropHandler,
 	Invalid
 };
