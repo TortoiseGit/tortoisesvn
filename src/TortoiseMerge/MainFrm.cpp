@@ -432,6 +432,7 @@ BOOL CMainFrame::LoadViews()
 			m_pwndLeftView->GoToFirstDifference();
 		UpdateLayout();
 	}
+	SetActiveView(m_pwndLeftView);
 	return TRUE;
 }
 

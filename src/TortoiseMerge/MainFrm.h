@@ -56,6 +56,10 @@ protected:
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	afx_msg void	OnUpdateFileSave(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateFileSaveAs(CCmdUI *pCmdUI);
+	afx_msg void	OnViewOnewaydiff();
+	afx_msg void	OnUpdateViewOnewaydiff(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateViewWhitespaces(CCmdUI *pCmdUI);
+	afx_msg void	OnViewOptions();
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -83,10 +87,6 @@ public:
 	BOOL			m_bOneWay;
 	CDiffData		m_Data;
 	BOOL			LoadViews();
-	afx_msg void OnViewOnewaydiff();
-	afx_msg void OnUpdateViewOnewaydiff(CCmdUI *pCmdUI);
-	afx_msg void OnUpdateViewWhitespaces(CCmdUI *pCmdUI);
-	afx_msg void OnViewOptions();
 };
 
 
