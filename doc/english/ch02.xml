@@ -24,7 +24,7 @@
 		<para>
 		Even though the examples in this chapter show people sharing
 		collections of program source code, keep in mind that Subversion
-		can manage any sort of file collection&mdash;it's not limited to
+		can manage any sort of file collection &mdash; it's not limited to
 		helping computer programmers.
 		</para>
 	</simplesect>
@@ -36,7 +36,7 @@
     <para>Subversion is a centralized system for sharing information.
       At its core is a <firstterm>repository</firstterm>, which is a
       central store of data.  The repository stores information in the
-      form of a <firstterm>filesystem tree</firstterm>&mdash;a typical
+      form of a <firstterm>filesystem tree</firstterm> &mdash; a typical
       hierarchy of files and directories.  Any number of
       <firstterm>clients</firstterm> connect to the repository, and
       then read or write to these files.  By writing data, a client
@@ -306,34 +306,13 @@
         out</firstterm> some subtree of the repository.  (The term
         "check out" may sound like it has something to do with locking
         or reserving resources, but it doesn't; it simply creates a
-        private copy of the project for you.) For example, if you
-        check out <filename>/calc</filename>, you will get a working
-        copy like this: </para>
-
-<screen>
-$ svn checkout http://svn.example.com/repos/calc
-A  calc
-A  calc/Makefile
-A  calc/integer.c
-A  calc/button.c
-
-$ ls -a calc
-Makefile  integer.c  button.c  .svn/
-</screen>
-
-      <para>The list of letter A's indicates that Subversion is adding
-        a number of items to your working copy.  You now have a
-        personal copy of the repository's <filename>/calc</filename>
-        directory, with one additional
-        entry&mdash;<filename>.svn</filename>&mdash;which holds the
-        extra information needed by Subversion, as mentioned
-        earlier.</para>
+        private copy of the project for you.) </para>
 
       <sidebar id="tsvn-ch-02-sidebar-1">
         <title>Repository URLs</title>
 
         <para>Subversion repositories can be accessed through many
-          different methods&mdash;on local disk, or through various
+          different methods &mdash; on local disk, or through various
           network protocols.  A repository location, however, is
           always a URL.  The URL schema indicates the access
           method:</para>
@@ -381,18 +360,11 @@ Makefile  integer.c  button.c  .svn/
           syntax, allowing for server names and port numbers to be
           specified as part of the URL.  Remember that the
           <literal>file:</literal> access method is valid only for
-          locations on the same server as the client&mdash;in fact, in
+          locations on the same server as the client &mdash; in fact, in
           accordance with convention, the server name portion of the
           URL is required to be either absent or
-          <literal>localhost</literal>:</para>
+          <literal>localhost</literal>.</para>
  
-        <screen>
-$ svn checkout file:///path/to/repos
-&hellip;
-$ svn checkout file://localhost/path/to/repos
-&hellip;
-</screen>
-
         <para>Also, users of the <literal>file:</literal> scheme on
           Windows platforms will need to use an unofficially
           <quote>standard</quote> syntax for accessing repositories
@@ -403,14 +375,12 @@ $ svn checkout file://localhost/path/to/repos
           resides:</para>
 
         <screen>
-C:\> svn checkout file:///X:/path/to/repos
+file:///X:/path/to/repos
 &hellip;
-C:\> svn checkout "file:///X|/path/to/repos"
+file:///X|/path/to/repos
 &hellip;
 </screen>
  
-        <para>In the second syntax, you need to quote the URL so that
-          the vertical bar character is not interpreted as a pipe.</para>
 
         <para>Note that a URL uses ordinary slashes even though the native
           (non-URL) form of a path on Windows uses backslashes.</para>
@@ -427,14 +397,7 @@ C:\> svn checkout "file:///X|/path/to/repos"
         in</firstterm>) changes to the repository.</para>
 
       <para>To publish your changes to others, you can use
-        Subversion's <command>commit</command> command:</para>
-
-<screen>
-$ svn commit button.c
-Sending button.c
-Transmitting file data..
-Committed revision 57.
-</screen>
+        Subversion's <command>commit</command> command.</para>
 
       <para>Now your changes to <filename>button.c</filename> have
         been committed to the repository; if another user checks out a
@@ -455,20 +418,7 @@ Committed revision 57.
         well as any others that have been committed since she checked
         it out.</para>
 
-<screen>
-$ pwd
-/home/sally/calc
-
-$ ls -a 
-.svn/ Makefile integer.c button.c
-
-$ svn update
-U button.c
-</screen>
-
-      <para>The output from the <command>svn update</command> command
-        indicates that Subversion updated the contents of
-        <filename>button.c</filename>.  Note that Sally didn't need to
+      <para>Note that Sally didn't need to
         specify which files to update; Subversion uses the information
         in the <filename>.svn</filename> directory, and further
         information in the repository, to decide which files need to
