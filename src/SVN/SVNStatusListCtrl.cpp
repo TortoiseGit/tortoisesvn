@@ -1613,6 +1613,8 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		return;
 	if (entry->status == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
+	if (entry->status == svn_wc_status_missing)
+		return;		//we don't compare a missing file (nothing) with something
 	if (entry->status == svn_wc_status_unversioned)
 		return;		//we don't compare new files with nothing
 	if (entry->path.IsDirectory())
