@@ -647,11 +647,18 @@ SSPIAuthoritative On
 SSPIDomain &lt;domaincontroller&gt;
 SSPIOfferBasic On
 </screen>
+					within the &lt;Location /svn&gt; block.
 					If you don't have a domain controller, leave the
 					name of the domain control as &lt;domaincontroller&gt;.
 				</para>
 			</listitem>
 		</itemizedlist>
+		<para>
+			Note that if you are authenticating using SSPI, then you don't
+			need the <literal>AuthUserFile</literal> line to define a
+			password file any more. Apache authenticates your username and
+			password against your windows domain instead.
+		</para>
 		<important>
 			<title>SSL and InternetExplorer</title>
 			<para>

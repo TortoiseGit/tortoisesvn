@@ -23,6 +23,10 @@
 					date and time, the person who committed the revision and the
 					start of the log message.
 				</para>
+				<para>
+					Lines shown in blue indicate that something has been copied
+					to this development line (perhaps from a branch).
+				</para>
 			</listitem>
 			<listitem>
 				<para>
@@ -264,5 +268,21 @@
 				property <emphasis>forever</emphasis>.
 			</para>
 		</warning>
+	</sect2>
+	<sect2 id="tsvn-DUG-showlog-5">
+		<title>Statistical Information</title>
+		<para>
+			The <guibutton>Statistics</guibutton> button brings up a box
+			showing some interesting information about the revisions
+			shown in the log dialog. This shows how many authors have
+			been at work, how many commits they have made, progress
+			by week, and much more. Now you can see at a glance who
+			has been working hardest and who is slacking ;-)
+		</para>
+		<para>
+			Note that the statistics cover the same period as the
+			Show Log dialog. If that is only displaying one revision
+			then the statistics will not tell you very much.
+		</para>
 	</sect2>
 </sect1>
