@@ -902,7 +902,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString path = parser.GetVal(_T("path"));
 			CString url;
 			SVNStatus status;
-			if (status.GetStatus(path)!=-2)
+			long reporev;
+			if ((reporev = status.GetStatus(path)) != -2)
 			{
 				if (status.status->entry)
 					url = status.status->entry->url;
@@ -926,6 +927,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			long rev = _tstol(val);
 			if (rev != 0)
 				dlg.m_nRevision = rev;
+			else if (reporev > 0)
+				dlg.m_nRevision = reporev;
 			dlg.DoModal();
 		}
 		//#endregion 

@@ -104,6 +104,15 @@ BOOL CRepositoryBrowser::OnInitDialog()
 
 	m_treeRepository.Init(m_nRevision);
 
+	CString temp1, temp2;
+	temp1.LoadString(IDS_REPO_BROWSEREV);
+	if (m_nRevision == SVN::REV_HEAD)
+		temp2 = _T("HEAD");
+	else
+		temp2.Format(_T("%ld"), m_nRevision);
+	temp1 += temp2;
+	GetDlgItem(IDC_REVTEXT)->SetWindowText(temp1);
+
 	if (m_bStandAlone)
 	{
 		GetDlgItem(IDCANCEL)->ShowWindow(FALSE);
