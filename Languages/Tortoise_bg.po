@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-03-11 11:23+0200\n"
+"PO-Revision-Date: 2005-03-25 00:50+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -574,6 +574,7 @@ msgstr "- %d"
 # Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -1109,30 +1110,10 @@ msgstr "Показва кой автор за кой ред от файл е о�
 msgid "Br&owse..."
 msgstr "Из&бор..."
 
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "Разклонение / Етикет"
-
 # ID:115,
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Разклонението / етикета е създаден успешно!"
-
-# Control-ID:1073,
-#: Control-ID:1182
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "Създаване на разклонение/етикет на сървъра (от главната ревизия)"
-
-# ID:113,
-#: Control-ID:1185
-msgid "Branch/Tag from the revision:"
-msgstr "Създаване на разклонение/етикет от ревизия:"
-
-# ID:79,
-#: Control-ID:1183
-msgid "Branch/Tag the working copy"
-msgstr "Създаване на разклонение/етикет от работното копие"
 
 # ID:9,
 #: ID:9
@@ -1275,7 +1256,7 @@ msgstr "Проверка за обновления..."
 # ID:8,
 #: Control-ID:1132
 msgid "Check Repository"
-msgstr "Проверка на хранилище"
+msgstr "Проверка в хранилището"
 
 # ID:13,
 #: ID:13
@@ -1512,6 +1493,11 @@ msgstr "Копирани"
 msgid "Copied remotely"
 msgstr "Копирани отдалечено"
 
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Копиране (създаване на разклонение/етикет)"
+
 # ID:76,
 #: ID:76
 msgid "Copy From Path"
@@ -1674,6 +1660,11 @@ msgstr "Създаване на хранилище"
 #: ID:8
 msgid "Create Repository here"
 msgstr "Създаване на хранилище тук"
+
+# ID:113,
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "Създаване на копие в хранилището от:"
 
 # ID:126,
 #: ID:126
@@ -1928,6 +1919,16 @@ msgstr "Редакция на специфична за типа файлове 
 # Dlg-ID:135,
 #: ID:113
 msgid "Edit Log Message"
+msgstr "Редакция на съобщение в дневника"
+
+# ID:76,
+#: ID:115
+msgid "Edit author name"
+msgstr "Редакция на името на автора"
+
+# Dlg-ID:135,
+#: ID:115
+msgid "Edit log message"
 msgstr "Редакция на съобщение в дневника"
 
 # ID:79,
@@ -2243,9 +2244,9 @@ msgid "H&ead Revision"
 msgstr "&Главна ревизия:"
 
 # ID:12,
-#: ID:238
-msgid "Head revision of the repository is: %d"
-msgstr "Главната ревизия на хранлището е: %d"
+#: Control-ID:1182
+msgid "HEAD revision in the repository"
+msgstr "Главната ревизия на хранилището"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -2548,6 +2549,16 @@ msgstr "Съобщения в дневника"
 msgid "Look and Feel"
 msgstr "Външен вид"
 
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "Най-стара ревизия: %ld - най-нова ревизия: %ld"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "Най-стара ревизия: %ld - Най-нова ревизия: %ld - Главна ревизия: %ld"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -2811,10 +2822,6 @@ msgstr "OVR"
 msgid "One or more files are in a conflicted state."
 msgstr "Един или повече файлове са в конфликтно състояние."
 
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "&Еднопосочно сравняване"
-
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only check out the top folder"
@@ -2892,9 +2899,9 @@ msgid "Password:"
 msgstr "Парола:"
 
 # Dlg-ID:158,
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
-msgstr "Вмъкване на имената на променените файлове"
+#: ID:172
+msgid "Paste filename list"
+msgstr "Вмъкване на списъка с файлове"
 
 # ID:376,
 #: ID:376
@@ -3823,6 +3830,11 @@ msgstr "Прескочени"
 msgid "Skipped missing target"
 msgstr "Прескочени липсващи цели"
 
+# Control-ID:1185,
+#: Control-ID:1185
+msgid "Specific revision in repository"
+msgstr "Специфична ревизия в хранилището"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -3997,11 +4009,13 @@ msgstr "Състояние на текста:"
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
 "Файлът\n"
 "%s\n"
-"не е валиден текстов файл!"
+"не е валиден текстов файл!\n"
+"Забележете, че файлове във формат UTF-16 или UTF-32 се третират като двоични."
 
 # ID:80,
 #: ID:80
@@ -4374,6 +4388,10 @@ msgstr "Донастройване на TortoiseSVN"
 msgid "Two File Diff"
 msgstr "Сравняване с два файла"
 
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "Сравняване с &два файла"
+
 # Dlg-ID:164,
 #: Dlg-ID:164
 msgid "URL"
@@ -4688,6 +4706,11 @@ msgstr "Сравняване на празни символи"
 msgid "Whitespaces"
 msgstr "&Празни символи"
 
+# ID:151,
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "Работно копие"
+
 # ID:80,
 #: ID:80
 msgid ""
@@ -4801,7 +4824,7 @@ msgstr "&Увеличаване\tCtrl-+"
 
 #: MenuEntry
 msgid "Zoom &Out\tCtrl--"
-msgstr "Смаляване\tCtrl--"
+msgstr "&Смаляване\tCtrl--"
 
 # ID:10,
 #: ID:10
