@@ -493,7 +493,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					TCHAR error[10000] = {0};
 					pE->GetErrorMessage(error, 10000);
 					CMessageBox::Show(NULL, ERROR, _T("TortoiseSVN"), MB_ICONERROR);
-					pE->ReportError();
 					pE->Delete();
 					updateFileCounter = 0;
 				}
