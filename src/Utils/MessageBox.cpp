@@ -101,7 +101,7 @@ UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int
 	box.m_sButton1 = lpButton1;
 	box.m_sButton2 = lpButton2;
 	box.m_sButton3 = lpButton3;
-	box.m_hIcon = (HICON)::LoadImage(AfxGetInstanceHandle(), icon, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+	box.m_hIcon = (HICON)::LoadImage(AfxGetResourceHandle(), icon, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	if (box.m_hIcon == NULL)
 		box.m_hIcon = (HICON)::LoadImage(NULL, icon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
 	else
@@ -115,7 +115,7 @@ UINT CMessageBox::Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef
 	box.m_sButton1 = lpButton1;
 	box.m_sButton2 = lpButton2;
 	box.m_sButton3 = lpButton3;
-	box.m_hIcon = (HICON)::LoadImage(AfxGetInstanceHandle(), icon, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+	box.m_hIcon = (HICON)::LoadImage(AfxGetResourceHandle(), icon, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	if (box.m_hIcon == NULL)
 		box.m_hIcon = (HICON)::LoadImage(NULL, icon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
 	else
