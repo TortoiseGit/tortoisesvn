@@ -306,7 +306,7 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							}
 							m_arEntryPtrs.Add(reventry);
 							TRACE("revision entry(1): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-							if (val->copyfrom_path)
+							if ((val->action != 'D')&&(val->copyfrom_path))
 							{
 								// the file/folder was copied to here
 								// so we have to get all the information from that source too.
@@ -336,8 +336,11 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							reventry->revisionfrom = 0;
 						}
 						m_arEntryPtrs.Add(reventry);
-						TRACE("revision entry(2): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-						AnalyzeRevisions(key, currentrev+1, m_lHeadRevision);
+						if (val->action != 'D')
+						{
+							TRACE("revision entry(2): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
+							AnalyzeRevisions(key, currentrev+1, m_lHeadRevision);
+						}
 					}
 				}
 				else
@@ -545,6 +548,40 @@ BOOL CRevisionGraph::CheckForwardCopies()
 		} // if (logentry->revision == logentry2->revision)
 	} // for (INT_PTR i=0; i<m_arEntryPtrs.GetCount()-1; ++i)
 	
+	// go through the whole list again and connect the revision
+	// entries with the same url and the same level
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		for (INT_PTR j=i-1; j>=0; --j)
+		{
+			CRevisionEntry * preventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(j);
+			if ((reventry->level == preventry->level)&&(strcmp(reventry->url, preventry->url)==0))
+			{
+				// same level and url, now connect those two
+				// but first check if they're not already connected!
+				BOOL bConnected = FALSE;
+				for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)
+				{
+					if (((source_entry *)reventry->sourcearray.GetAt(k))->revisionto == preventry->revision)
+						bConnected = TRUE;
+				}
+				for (INT_PTR k=0; k<preventry->sourcearray.GetCount(); ++k)
+				{
+					if (((source_entry *)preventry->sourcearray.GetAt(k))->revisionto == reventry->revision)
+						bConnected = TRUE;
+				}
+				if (!bConnected)
+				{
+					source_entry * sentry = new source_entry;
+					sentry->pathto = preventry->url;
+					sentry->revisionto = preventry->revision;
+					reventry->sourcearray.Add(sentry);
+					break;
+				}
+			}
+		}
+	}
 	return TRUE;
 }
 
