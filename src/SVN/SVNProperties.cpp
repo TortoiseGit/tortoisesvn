@@ -99,33 +99,36 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
 
-	svn_config_ensure(NULL, m_pool);
 	memset (&m_ctx, 0, sizeof (m_ctx));
 
+	svn_config_ensure(NULL, m_pool);
+	// set up the configuration
+	if (svn_config_get_config (&(m_ctx.config), NULL, m_pool))
+	{
+		::MessageBox(NULL, this->GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+		svn_pool_destroy (m_pool);					// free the allocated memory
+		return;
+	}
+	
 	//we need to convert the path to subversion internal format
 	//the internal format uses '/' instead of the windows '\'
 	m_path = UTF8ToString(svn_path_internal_style (StringToUTF8(filepath).c_str(), m_pool));
 
 	// set up authentication
+	svn_auth_provider_object_t *provider;
 
     /* The whole list of registered providers */
     apr_array_header_t *providers
-      = apr_array_make (m_pool, 1, sizeof (svn_auth_provider_object_t *));
+      = apr_array_make (m_pool, 10, sizeof (svn_auth_provider_object_t *));
 
     /* The main disk-caching auth providers, for both
        'username/password' creds and 'username' creds.  */
-    svn_auth_provider_object_t *simple_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (m_pool, sizeof(*simple_wc_provider));
+	svn_client_get_simple_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_username_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
-    svn_auth_provider_object_t *username_wc_provider = (svn_auth_provider_object_t *)apr_pcalloc (m_pool, sizeof(*username_wc_provider));
-
-    svn_client_get_simple_provider (&(simple_wc_provider), m_pool);
-    *(svn_auth_provider_object_t **)apr_array_push (providers) = simple_wc_provider;
-
-    svn_client_get_username_provider(&(username_wc_provider), m_pool);
-    *(svn_auth_provider_object_t **)apr_array_push (providers) = username_wc_provider;
 #ifdef _MFC_VER
-	// set up authentication
-	svn_auth_provider_object_t *provider;
 	/* The server-cert, client-cert, and client-cert-password providers. */
 	svn_client_get_ssl_server_trust_file_provider (&provider, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
@@ -149,12 +152,13 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
-		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)m_ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
@@ -162,8 +166,6 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	svn_auth_open (&m_auth_baton, providers, m_pool);
 
 	m_ctx.auth_baton = m_auth_baton;
-	// set up the configuration
-	svn_config_get_config (&(m_ctx.config), NULL, m_pool);
 
 	SVNProperties::Refresh();
 }
