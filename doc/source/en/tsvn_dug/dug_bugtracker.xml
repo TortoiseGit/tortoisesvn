@@ -1,17 +1,88 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-bugtracker">
-	<title>Integration with Bugtracking Systems</title>
+	<title>Integration with Bugtracking Systems / Issue trackers</title>
 	<indexterm>
 		<primary>bugtracking</primary>
 	</indexterm>
 	<indexterm>
 		<primary>bugtracker</primary>
 	</indexterm>
+	<indexterm>
+		<primary>issuetracker</primary>
+	</indexterm>
+	<para>
+	It is very common in Software Development for changes to be related to a specific
+	bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate
+	the changes they make in Subversion with a specific ID in their issue tracker.
+	Most issue trackers therefore provide a pre-commit hook script which parses the log
+	message to find the bug ID with which the commit is associated with.
+	This is somewhat error prone since it relies on the user to properly write the log
+	message so that the pre-commit hook script can parse it correctly.
+	</para>
+	<para>
+	TortoiseSVN can help the user in two ways:
+		<orderedlist>
+			<listitem><para>When the user enters a log message, a well defined line including
+			the issue number associated with the commit can be added automatically. This reduces
+			the risk that the user enters the issue number in a way the bug tracking tools can't
+			parse correctly.</para>
+			<para>Or <application>TortoiseSVN</application> can highlight the part of the entered log message which is
+			recognized by the issue tracker. That way the user knows that the log message can
+			be parsed correctly</para></listitem>
+			<listitem><para>When the user browses the log messages, <application>TortoiseSVN</application> creates a link
+			out of each bug ID in the log message which fires up the browser to the issue
+			mentioned.</para></listitem>
+		</orderedlist>
+	</para>
 	<para>
 		You can integrate a Bugtracking Tool of your choice in
 		<application>TortoiseSVN</application>. To do this, you have to define
 		some properties, which start with <literal>bugtraq:</literal>.
 		They must be set on Folders: (<xref linkend="tsvn-DUG-propertypage"/>)
+	</para>
+	<para>
+		There are two ways to integrate TortoiseSVN with issue trackers. One is
+		based on simple strings, the other is based on <literal>regular expressions</literal>.
+		The properties used by both approaches are:
+		<variablelist>
+			<varlistentry>
+				<term>bugtraq:url</term>
+				<listitem>
+					<para>
+						Set this property to the url of your bugtracking tool.
+						It must be properly URI encoded and it has to contain
+						<literal>%BUGID%</literal>.
+						<literal>%BUGID%</literal> is replaced with the Issuenumber
+						you entered. This allows <application>TortoiseSVN</application>
+						to display a link in the log dialog, so when you are looking
+						at the revision log you can jump directly to your
+						bugtracking tool.
+						You do not have to provide this property, but then
+						<application>TortoiseSVN</application> shows only the
+						issuenumber and not the link to it.
+						e.g the TortoiseSVN project is using
+						<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>bugtraq:warnifnoissue</term>
+				<listitem>
+					<para>
+						Set this to <literal>true</literal>, if you want
+						<application>TortoiseSVN</application> to warn you
+						because of an empty issuenumber textfield. Valid values 
+						are <literal>true/false</literal>.
+						<emphasis>
+							If not defined, <literal>false</literal> is assumed.
+						</emphasis>
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		In the simple approach, <application>TortoiseSVN</application> shows the user
+		a separate input field where a bug ID can be entered. Then a separate line
+		is appended/prepended to the log message the user entered.
 		<variablelist>
 			<varlistentry>
 				<term>bugtraq:message</term>
@@ -51,26 +122,6 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>bugtraq:url</term>
-				<listitem>
-					<para>
-						Set this property to the url of your bugtracking tool.
-						It must be properly URI encoded and it has to contain
-						<literal>%BUGID%</literal>.
-						<literal>%BUGID%</literal> is replaced with the Issuenumber
-						you entered. This allows <application>TortoiseSVN</application>
-						to display a link in the log dialog, so when you are looking
-						at the revision log you can jump directly to your
-						bugtracking tool.
-						You do not have to provide this property, but then
-						<application>TortoiseSVN</application> shows only the
-						issuenumber and not the link to it.
-						e.g the TortoiseSVN project is using
-						<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
 				<term>bugtraq:label</term>
 				<listitem>
 					<para>
@@ -98,17 +149,45 @@
 					</para>
 				</listitem>
 			</varlistentry>
+		</variablelist>
+		In the approach with <literal>regular expressions</literal>, <application>TortoiseSVN</application>
+		doesn't show a separate input field but marks the part of the log message the user
+		enters which is recognized by the issue tracker. This is done while the user
+		writes the log message. This also means that the bug ID can be anywhere inside a log
+		message!
+		<tip>
+			<para>
+				Even if you don't have an issue tracker with a pre-commit hook parsing your
+				log messages, you still can use this to turn the issues mentioned in your
+				log messages into links!
+			</para>
+		</tip>
+		<variablelist>
 			<varlistentry>
-				<term>bugtraq:warnifnoissue</term>
+				<term>bugtraq:logregex</term>
 				<listitem>
 					<para>
-						Set this to <literal>true</literal>, if you want
-						<application>TortoiseSVN</application> to warn you
-						because of an empty issuenumber textfield. Valid values 
-						are <literal>true/false</literal>.
-						<emphasis>
-							If not defined, <literal>false</literal> is assumed.
-						</emphasis>
+						This property contains one or two regular expressions, separated
+						by a newline.
+					</para>
+					<para>
+						If only one expression is set, then the bare bug ID's must be matched
+						in the groups of the regex string. Example:
+						<literal>[Ii]ssue(?:s)? #?(\d+)</literal>
+					</para>
+					<para>
+						If two expressions are set, then the first expression is used to find
+						a string which relates to the bug ID but may contain more than just
+						the bug ID (e.g. "Issue #123" or "resolves issue 123").
+						The second expression is then used to extract the bare bug ID from the string
+						extracted with the first expression.
+						An example:
+					</para>
+					<para>
+						If you want to catch every pattern "issue #XXX" and "issue #890, #789"
+						inside a log message you could use the following regex strings:
+						<literal>[Ii]ssue #?(\d+)(,? ?#'(\d+))+</literal> and the second expression as
+						<literal>(\d+)</literal>
 					</para>
 				</listitem>
 			</varlistentry>

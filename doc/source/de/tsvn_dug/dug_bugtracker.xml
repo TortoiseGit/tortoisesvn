@@ -7,10 +7,79 @@
 	<indexterm>
 		<primary>bugtracker</primary>
 	</indexterm>
+	<indexterm>
+		<primary>issuetracker</primary>
+	</indexterm>
+	<para>
+	Es ist in der Software Entwicklung üblich, Änderungen am Sourcecode mit einer spezifischen
+	ID in einem Issuetracker zu verbinden. Dies wird meist mittels pre-commit hook Skripten
+	gemacht, welche vom Issuetracker zur Verfügung gestellt werden und die Log-Meldung
+	einer Übertragung nach bestimmten Worten durchsuchen.
+	Dies ist jedoch sehr Fehleranfällig, da der Benutzer sich merken muss wie die Logmeldung
+	auszusehen hat damit das Hook-Skript dies auch richtig erkennen kann.
+	</para>
+	<para>
+	TortoiseSVN kann hier zweifach helfen:
+		<orderedlist>
+			<listitem><para>Wenn der Benutzer eine Logmeldung eingibt, kann eine vordefinierte
+			Zeile automatisch der Logmeldung an- oder vorgehängt werden. Dies reduziert das Risiko
+			dass der Benutzer die Logmeldung falsch eingibt und das Hook-Skript die Issue-Nummer
+			nicht mehr erkennen kann.</para>
+			<para>Oder <application>TortoiseSVN</application> kann die Stelle in der Logmeldung
+			hervorheben (während der Benutzer diese eingibt) welche vom Hook-Skript als Issue Nummer
+			erkannt wird. Auf diese Weise hat der Benutzer eine visuelle Bestätigung für die Korrektheit
+			der Logmeldung.</para></listitem>
+			<listitem><para>Wenn der Benutzer die Logmeldungen ansieht im Log Dialog, kann <application>TortoiseSVN</application>
+			einen Link erstellen zum Issue und damit durch einen Klick den Browser gleich auf die
+			entsprechende Seite führen.</para></listitem>
+		</orderedlist>
+	</para>
 	<para>
 		Sie können eine Bugtracking Anwendung Ihrer Wahl in <application>TortoiseSVN</application>
 		integrieren. Dafür müssen Sie ein paar Subversion Eigenschaften definieren, die mit
 		<literal>bugtraq:</literal> beginnen: (<xref linkend="tsvn-DUG-propertypage"/>)
+	</para>
+	<para>
+		Es gibt zwei verschiedene Wege um <application>TortoiseSVN</application> mit einem
+		Issue Tracker zu verbinden. Ein Weg basiert auf einfachen Zeichenketten, der andere
+		basiert auf <literal>Regulären Ausdrücken</literal>.
+		Die Eigenschaften welche von beiden Wegen benutzt werden sind:
+		<variablelist>
+			<varlistentry>
+				<term>bugtraq:url</term>
+				<listitem>
+					<para>
+						Hier geben Sie die Url zu Ihrem Bugtracking Programm ein. 
+						Die Url muss eine gültige (sprich encodierte) Url sein und
+						<literal>%BUGID%</literal> enthalten.
+						<literal>%BUGID%</literal>
+						wird später durch die Eintragsnummer 
+						ersetzt. Dadurch springt der Client direkt zu dem Eintrag. Wenn 
+						Sie diese Eigenschaft weglassen, zeigt 
+						<application>TortoiseSVN</application> später nur die Eintragsnummer
+						an und keinen Verweis. 
+						Bei <application>TortoiseSVN</application> z.B. 
+						<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>bugtraq:warnifnoissue</term>
+				<listitem>
+					<para>
+						Wenn die Eigenschaft auf <literal>true</literal> gesetzt ist, warnt Sie 
+						<application>TortoiseSVN</application>, falls das Eingabefeld
+						für die Eintragsnummer im Übertragen Dialog leer gelassen wurde. 
+						Das ist nur eine Erinnerungshilfe, falls der Benutzer die Eingabe 
+						vergessen hat. Gültige Werte: <literal>true/false</literal>. Wenn keine 
+						Eigenschaft definiert ist, wird <literal>false</literal> angenommen.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		Mit dem einfachen Weg (Zeichenketten) zeigt <application>TortoiseSVN</application> dem
+		Benutzer ein zusätzliches Eingabefeld für die Issue Nummer. Es wird dann eine zusätzliche
+		Zeile der Logmeldung an- oder vorgehängt.
 		<variablelist>
 			<varlistentry>
 				<term>bugtraq:message</term>
@@ -34,24 +103,6 @@
 						Diese Eigenschaft definiert ob die Eintragsnummer an das Ende angehengt wird 
 						oder vor die Logmeldung eingefügt wird. Gültige Werte: <literal>true/false</literal>. 
 						Wenn keine Eigenschaft definiert ist, wird <literal>true</literal> angenommen.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>bugtraq:url</term>
-				<listitem>
-					<para>
-						Hier geben Sie die Url zu Ihrem Bugtracking Programm ein. 
-						Die Url muss eine gültige (sprich encodierte) Url sein und
-						<literal>%BUGID%</literal> enthalten.
-						<literal>%BUGID%</literal>
-						wird später durch die Eintragsnummer 
-						ersetzt. Dadurch springt der Client direkt zu dem Eintrag. Wenn 
-						Sie diese Eigenschaft weglassen, zeigt 
-						<application>TortoiseSVN</application> später nur die Eintragsnummer
-						an und keinen Verweis. 
-						Bei <application>TortoiseSVN</application> z.B. 
-						<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -82,16 +133,45 @@
 					</para>
 				</listitem>
 			</varlistentry>
+		</variablelist>
+		Beim Weg mit den <literal>Regulären Ausdrücken</literal> zeigt <application>TortoiseSVN</application>
+		kein separates Eingabefeld an sondern hebt den Teil der Logmeldung hervor welche von
+		dem Hook-Skript als Issue Nummer erkannt wird. Die Hervorhebung erfolgt während der Benutzer
+		die Logmeldung eingibt.
+		Dies bedeutet auch, dass die Issue Nummer irgendwo in der Logmeldung sein kann und nicht nur
+		in einer separaten Zeile!
+		<tip>
+			<para>
+				Auch wenn Sie gar keinen Issue Tracker mit pre-commit Hook-Skript haben, können
+				Sie diese Funktion auch dazu nutzen, um Issue Nummern welche Sie in Ihren Logmeldungen
+				erwähnt haben in einen Link zum Issuetracker zu verwandeln.
+			</para>
+		</tip>
+		<variablelist>
 			<varlistentry>
-				<term>bugtraq:warnifnoissue</term>
+				<term>bugtraq:logregex</term>
 				<listitem>
 					<para>
-						Wenn die Eigenschaft auf <literal>true</literal> gesetzt ist, warnt Sie 
-						<application>TortoiseSVN</application>, falls das Eingabefeld
-						für die Eintragsnummer im Übertragen Dialog leer gelassen wurde. 
-						Das ist nur eine Erinnerungshilfe, falls der Benutzer die Eingabe 
-						vergessen hat. Gültige Werte: <literal>true/false</literal>. Wenn keine 
-						Eigenschaft definiert ist, wird <literal>false</literal> angenommen.
+						Diese Eigenschaft enthält entweder eine oder zwei Reguläre Ausdrücke, getrennt
+						durch eine neue Zeile.
+					</para>
+					<para>
+						Wenn nur ein Regulärer Ausdruck gesetzt wird, dann müssen die reinen Issuenummern
+						in den Gruppen des Ausdrucks gefunden werden. Als Beispiel:
+						<literal>[Ii]ssue(?:s)? #?(\d+)</literal>
+					</para>
+					<para>
+						Wenn zwei reguläre Ausdrücke gesetzt sind wird der erste Ausdruck verwendet
+						um eine Zeichenkette zu finden welche die Issuenummer enthält, aber nicht nur
+						die Issuenummer (zum Beispiel: "Issue #123" oder "Löst issue 123").
+						Der zweite reguläre Ausdruck wird dann verwendet, um die reinen Issuenummern
+						aus dieser Zeichenkette zu extrahieren. Zum Beispiel:
+					</para>
+					<para>
+						Wenn Sie alle Zeichenketten "issue #XXX" und "issue #123, #456" in einer
+						Logmeldung finden möchten, können Sie folgende regulären Ausdrücke verwenden:
+						<literal>[Ii]ssue #?(\d+)(,? ?#'(\d+))+</literal> mit dem zweiten Ausruck als
+						<literal>(\d+)</literal>
 					</para>
 				</listitem>
 			</varlistentry>
