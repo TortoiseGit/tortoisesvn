@@ -1,5 +1,5 @@
 //
-// TortoiseProc.RC2 - resources Microsoft Visual C++ does not edit directly
+// TortoiseMerge.RC2 - resources Microsoft Visual C++ does not edit directly
 //
 
 #ifdef APSTUDIO_INVOKED
@@ -13,7 +13,7 @@
 //
 // Version
 //
-#include "..\..\version.h"
+#include "..\version.h"
 VS_VERSION_INFO VERSIONINFO
  FILEVERSION FILEVER
  PRODUCTVERSION PRODUCTVER
@@ -32,12 +32,12 @@ BEGIN
         BLOCK "040004e4"
         BEGIN
             VALUE "CompanyName", "www.tortoisesvn.org"
-            VALUE "FileDescription", "TortoiseSVN client"
+            VALUE "FileDescription", "TortoiseMerge"
             VALUE "FileVersion", STRFILEVER
-            VALUE "InternalName", "TortoiseProc.exe"
+            VALUE "InternalName", "TortoiseMerge.exe"
             VALUE "LegalCopyright", "Copyright (C) 2004"
-            VALUE "OriginalFilename", "TortoiseProc.exe"
-            VALUE "ProductName", "TortoiseSVN"
+            VALUE "OriginalFilename", "TortoiseMerge.exe"
+            VALUE "ProductName", "TortoiseMerge"
             VALUE "ProductVersion", STRPRODUCTVER
         END
     END
@@ -47,5 +47,4 @@ BEGIN
     END
 END
 
-#include "..\\TortoiseShell\\resource.rc"
 /////////////////////////////////////////////////////////////////////////////

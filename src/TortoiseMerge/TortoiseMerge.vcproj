@@ -13,7 +13,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\..\bin\Debug"
+			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Debug"
 			ConfigurationType="1"
 			UseOfMFC="2"
@@ -34,7 +34,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\LibD\apr.lib ../../../Subversion\apr-util\LibD\aprutil.lib ../../../Subversion\apr-iconv\LibD\apriconv.lib"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../../Common/gettext/lib/intl.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -46,8 +46,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCPreBuildEventTool"
-				CommandLine="..\..\bin\Debug\SubWCRev.exe ..\..\ ..\version.in ..\version.h -d"/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -68,7 +67,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\bin\Release"
+			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Release"
 			ConfigurationType="1"
 			UseOfMFC="2"
@@ -91,7 +90,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\LibR\apr.lib ../../../Subversion\apr-util\LibR\aprutil.lib ../../../Subversion\apr-iconv\LibR\apriconv.lib"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Common/gettext/lib/intl.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -106,7 +105,7 @@
 				Name="VCPostBuildEventTool"/>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="..\..\bin\Release\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
+				CommandLine="..\..\bin\Release\bin\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -127,7 +126,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_MBCS|Win32"
-			OutputDirectory="..\..\bin\Release_MBCS"
+			OutputDirectory="..\..\bin\Release_MBCS\bin"
 			IntermediateDirectory="..\..\obj\TortoiseMerge\Release_MBCS"
 			ConfigurationType="1"
 			UseOfMFC="2"
@@ -150,7 +149,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\LibR\apr.lib ../../../Subversion\apr-util\LibR\aprutil.lib ../../../Subversion\apr-iconv\LibR\apriconv.lib"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Common/gettext/lib/intl.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -165,7 +164,7 @@
 				Name="VCPostBuildEventTool"/>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="..\..\bin\Release\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
+				CommandLine="..\..\bin\Release\bin\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -440,46 +439,43 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
 			<File
-				RelativePath="..\Languages\res\download.avi">
+				RelativePath="..\Resources\download.avi">
 			</File>
 			<File
-				RelativePath="..\Languages\res\lineadded.ico">
+				RelativePath="..\Resources\lineadded.ico">
 			</File>
 			<File
-				RelativePath="..\Languages\res\lineconflicted.ico">
+				RelativePath="..\Resources\lineconflicted.ico">
 			</File>
 			<File
-				RelativePath="..\Languages\res\lineremoved.ico">
+				RelativePath="..\Resources\lineremoved.ico">
 			</File>
 			<File
-				RelativePath="..\Languages\res\Toolbar.bmp">
+				RelativePath="..\Resources\Toolbar.bmp">
 			</File>
 			<File
-				RelativePath="..\Languages\res\TortoiseMerge.ico">
+				RelativePath="..\Resources\TortoiseMerge.ico">
 			</File>
 			<File
-				RelativePath="..\Languages\res\TortoiseMerge.manifest">
+				RelativePath="..\Resources\TortoiseMerge.manifest">
 			</File>
 			<File
-				RelativePath="..\Languages\res\TortoiseMerge.rc2">
+				RelativePath="..\Resources\TortoiseMerge.rc2">
 			</File>
 			<File
-				RelativePath="..\Languages\res\tortoisemerge_logoflipped.bmp">
+				RelativePath="..\Resources\tortoisemerge_logoflipped.bmp">
 			</File>
 			<File
-				RelativePath="..\Languages\TortoiseMergeENG.rc">
+				RelativePath="..\Resources\TortoiseMergeENG.rc">
 			</File>
 			<File
-				RelativePath="..\Languages\res\tortoisesvn_logoflipped.bmp">
+				RelativePath="..\Resources\tortoisesvn_logoflipped.bmp">
 			</File>
 			<File
-				RelativePath="..\Languages\res\ttf_glyph.bmp">
+				RelativePath="..\Resources\ttf_glyph.bmp">
 			</File>
 		</Filter>
 	</Files>
 	<Globals>
-		<Global
-			Name="RESOURCE_FILE"
-			Value="\Development\Svn\TortoiseSVN\src\Languages\TortoiseMergeENG.rc"/>
 	</Globals>
 </VisualStudioProject>

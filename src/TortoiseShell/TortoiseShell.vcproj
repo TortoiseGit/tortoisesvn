@@ -13,7 +13,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\..\bin\Debug"
+			OutputDirectory="..\..\bin\Debug\bin"
 			IntermediateDirectory="..\..\obj\TortoiseShell\Debug"
 			ConfigurationType="2"
 			UseOfMFC="0"
@@ -41,7 +41,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="TRUE"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../../Subversion\db4-win32\lib\libdb42d.lib ../../../Subversion\Debug\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Debug\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneonD.lib ../../../Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\LibD\apr.lib ../../../Subversion\apr-util\LibD\aprutil.lib ../../../Subversion\apr-iconv\LibD\apriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibD\xml.lib"
+				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../../Subversion\db4-win32\lib\libdb42d.lib ../../../Subversion\Debug\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Debug\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Debug\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneonD.lib ../../../Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibD\xml.lib ../../../Common/gettext/lib/intl.lib"
 				OutputFile="..\..\bin\Debug/TortoiseSVN.dll"
 				LinkIncremental="0"
 				SuppressStartupBanner="TRUE"
@@ -62,8 +62,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCPreBuildEventTool"
-				CommandLine="..\..\bin\Debug\SubWCRev.exe ..\..\ ..\version.in ..\version.h -d"/>
+				Name="VCPreBuildEventTool"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -83,7 +82,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\bin\Release"
+			OutputDirectory="..\..\bin\Release\bin"
 			IntermediateDirectory="..\..\obj\TortoiseShell\Release"
 			ConfigurationType="2"
 			UseOfMFC="0"
@@ -117,7 +116,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="TRUE"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\LibR\apr.lib ../../../Subversion\apr-util\LibR\aprutil.lib ../../../Subversion\apr-iconv\LibR\apriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib"
+				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../../Common/gettext/lib/intl.lib"
 				OutputFile="..\..\bin\Release/TortoiseSVN.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -141,7 +140,7 @@
 				Name="VCPostBuildEventTool"/>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="..\..\bin\Release\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
+				CommandLine="..\..\bin\Release\bin\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -161,7 +160,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release_MBCS|Win32"
-			OutputDirectory="..\..\bin\Release_MBCS"
+			OutputDirectory="..\..\bin\Release_MBCS\bin"
 			IntermediateDirectory="..\..\obj\TortoiseShell\Release_MBCS"
 			ConfigurationType="2"
 			UseOfMFC="0"
@@ -195,7 +194,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="TRUE"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\LibR\apr.lib ../../../Subversion\apr-util\LibR\aprutil.lib ../../../Subversion\apr-iconv\LibR\apriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib"
+				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib wininet.lib version.lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../../Common/gettext/lib/intl.lib"
 				OutputFile="..\..\bin\Release_MBCS/TortoiseSVN.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
@@ -381,88 +380,88 @@
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest">
 			<File
-				RelativePath="..\Icons\menuabout.ico">
+				RelativePath="..\Resources\menuabout.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuadd.ico">
+				RelativePath="..\Resources\menuadd.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menublame.ico">
+				RelativePath="..\Resources\menublame.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menucheckout.ico">
+				RelativePath="..\Resources\menucheckout.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menucleanup.ico">
+				RelativePath="..\Resources\menucleanup.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menucommit.ico">
+				RelativePath="..\Resources\menucommit.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menucompare.ico">
+				RelativePath="..\Resources\menucompare.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuconflict.ico">
+				RelativePath="..\Resources\menuconflict.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menucopy.ico">
+				RelativePath="..\Resources\menucopy.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menucreaterepos.ico">
+				RelativePath="..\Resources\menucreaterepos.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menudelete.ico">
+				RelativePath="..\Resources\menudelete.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menudiff.ico">
+				RelativePath="..\Resources\menudiff.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuexport.ico">
+				RelativePath="..\Resources\menuexport.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuhelp.ico">
+				RelativePath="..\Resources\menuhelp.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuignore.ico">
+				RelativePath="..\Resources\menuignore.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuimport.ico">
+				RelativePath="..\Resources\menuimport.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menulog.ico">
+				RelativePath="..\Resources\menulog.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menumerge.ico">
+				RelativePath="..\Resources\menumerge.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menupatch.ico">
+				RelativePath="..\Resources\menupatch.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menurelocate.ico">
+				RelativePath="..\Resources\menurelocate.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menurename.ico">
+				RelativePath="..\Resources\menurename.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menurepobrowse.ico">
+				RelativePath="..\Resources\menurepobrowse.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuresolve.ico">
+				RelativePath="..\Resources\menuresolve.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menurevert.ico">
+				RelativePath="..\Resources\menurevert.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menusettings.ico">
+				RelativePath="..\Resources\menusettings.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menushowchanged.ico">
+				RelativePath="..\Resources\menushowchanged.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuswitch.ico">
+				RelativePath="..\Resources\menuswitch.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\menuupdate.ico">
+				RelativePath="..\Resources\menuupdate.ico">
 			</File>
 			<File
 				RelativePath=".\resource.rc">
@@ -471,10 +470,10 @@
 				RelativePath=".\resource.rc2">
 			</File>
 			<File
-				RelativePath="..\Icons\Tortoise.ico">
+				RelativePath="..\Resources\Tortoise.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\Tortoise13by13.ico">
+				RelativePath="..\Resources\Tortoise13by13.ico">
 			</File>
 			<File
 				RelativePath=".\TortoiseSVN.dll.manifest">

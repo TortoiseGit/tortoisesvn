@@ -26,7 +26,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // RT_MANIFEST
 //
 
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseMerge.manifest"
+IDR_MANIFEST            RT_MANIFEST             "TortoiseMerge.manifest"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -35,10 +35,10 @@ IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseMerge.manifest"
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\TortoiseMerge.ico"
-IDI_REMOVEDLINE         ICON                    "res\\lineremoved.ico"
-IDI_ADDEDLINE           ICON                    "res\\lineadded.ico"
-IDI_CONFLICTEDLINE      ICON                    "res\\lineconflicted.ico"
+IDR_MAINFRAME           ICON                    "TortoiseMerge.ico"
+IDI_REMOVEDLINE         ICON                    "lineremoved.ico"
+IDI_ADDEDLINE           ICON                    "lineadded.ico"
+IDI_CONFLICTEDLINE      ICON                    "lineconflicted.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -120,15 +120,15 @@ END
 // Bitmap
 //
 
-IDB_LOGOFLIPPED         BITMAP                  "res\\tortoisemerge_logoflipped.bmp"
-IDB_TTF_BMP             BITMAP                  "res\\ttf_glyph.bmp"
+IDB_LOGOFLIPPED         BITMAP                  "tortoisemerge_logoflipped.bmp"
+IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // AVI
 //
 
-IDR_DOWNLOAD            AVI                     "res\\download.avi"
+IDR_DOWNLOAD            AVI                     "download.avi"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -303,7 +303,7 @@ END
 // Bitmap
 //
 
-IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDR_MAINFRAME           BITMAP                  "Toolbar.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -671,7 +671,7 @@ BEGIN
     "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
     "LANGUAGE 9, 1\r\n"
     "#pragma code_page(1252)\r\n"
-    "#include ""res\\TortoiseMerge.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""TortoiseMerge.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
     "#include ""afxres.rc""         // Standard components\r\n"
     "#endif\r\n"
     "\0"
@@ -697,7 +697,7 @@ END
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE 9, 1
 #pragma code_page(1252)
-#include "res\TortoiseMerge.rc2"  // non-Microsoft Visual C++ edited resources
+#include "TortoiseMerge.rc2"  // non-Microsoft Visual C++ edited resources
 #include "afxres.rc"         // Standard components
 #endif
 
