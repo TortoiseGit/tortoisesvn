@@ -32,6 +32,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_FILE_SAVE_AS, OnFileSaveAs)
 	ON_UPDATE_COMMAND_UI(ID_FILE_SAVE, OnUpdateFileSave)
 	ON_UPDATE_COMMAND_UI(ID_FILE_SAVE_AS, OnUpdateFileSaveAs)
+	ON_COMMAND(ID_VIEW_ONEWAYDIFF, OnViewOnewaydiff)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_ONEWAYDIFF, OnUpdateViewOnewaydiff)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -259,12 +261,12 @@ void CMainFrame::OnFileOpen()
 	LoadViews();
 }
 
-void CMainFrame::LoadViews()
+BOOL CMainFrame::LoadViews()
 {
 	if (!this->m_Data.Load())
 	{
 		::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
-		return;
+		return FALSE;
 	}
 	if (m_Data.m_sBaseFile.IsEmpty())
 	{
@@ -276,7 +278,7 @@ void CMainFrame::LoadViews()
 		else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)))
 		{
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
-			return;
+			return FALSE;
 		} // if (!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)) 
 		if (m_Patch.GetNumberOfFiles() > 0)
 		{
@@ -297,35 +299,81 @@ void CMainFrame::LoadViews()
 	if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
 	{
 		//diff between YOUR and BASE
-		m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseLeft;
-		m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseLeft;
-		m_pwndLeftView->m_sWindowName = m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1);
-		m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
-		m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
-		m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
-		m_pwndLeftView->DocumentUpdated();
-		m_pwndRightView->DocumentUpdated();
-		m_pwndBottomView->DocumentUpdated();
-		m_wndLocatorBar.DocumentUpdated();
-		if (!m_wndSplitter.IsRowHidden(1))
-			m_wndSplitter.HideRow(1);
+		if (m_bOneWay)
+		{
+			if (!m_wndSplitter2.IsColumnHidden(1))
+				m_wndSplitter2.HideColumn(1);
+			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
+			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
+			m_pwndLeftView->m_sWindowName = (m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1))+
+											(m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1));
+			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
+			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
+			m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
+			m_pwndLeftView->DocumentUpdated();
+			m_pwndRightView->DocumentUpdated();
+			m_pwndBottomView->DocumentUpdated();
+			m_wndLocatorBar.DocumentUpdated();
+			if (!m_wndSplitter.IsRowHidden(1))
+				m_wndSplitter.HideRow(1);
+		} // if (m_bOneWay)
+		else
+		{
+			if (m_wndSplitter2.IsColumnHidden(1))
+				m_wndSplitter2.ShowColumn();
+			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseLeft;
+			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseLeft;
+			m_pwndLeftView->m_sWindowName = m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1);
+			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
+			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
+			m_pwndRightView->m_sWindowName = m_Data.m_sYourFile.Mid(m_Data.m_sYourFile.ReverseFind('\\')+1);
+			m_pwndLeftView->DocumentUpdated();
+			m_pwndRightView->DocumentUpdated();
+			m_pwndBottomView->DocumentUpdated();
+			m_wndLocatorBar.DocumentUpdated();
+			if (!m_wndSplitter.IsRowHidden(1))
+				m_wndSplitter.HideRow(1);
+		}
 		UpdateLayout();
 	} // if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
 	else if (!m_Data.m_sBaseFile.IsEmpty() && m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
 	{
 		//diff between THEIR and BASE
-		m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffTheirBaseLeft;
-		m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseLeft;
-		m_pwndLeftView->m_sWindowName = m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1);
-		m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffTheirBaseRight;
-		m_pwndRightView->m_arLineStates = &m_Data.m_arStateTheirBaseRight;
-		m_pwndRightView->m_sWindowName = m_Data.m_sTheirFile.Mid(m_Data.m_sTheirFile.ReverseFind('\\')+1);
-		m_pwndLeftView->DocumentUpdated();
-		m_pwndRightView->DocumentUpdated();
-		m_pwndBottomView->DocumentUpdated();
-		m_wndLocatorBar.DocumentUpdated();
-		if (!m_wndSplitter.IsRowHidden(1))
-			m_wndSplitter.HideRow(1);
+		if (m_bOneWay)
+		{
+			if (!m_wndSplitter2.IsColumnHidden(1))
+				m_wndSplitter2.HideColumn(1);
+			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffTheirBaseBoth;
+			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseBoth;
+			m_pwndLeftView->m_sWindowName = (m_Data.m_sTheirFile.Mid(m_Data.m_sTheirFile.ReverseFind('\\')+1))+
+											(m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1));
+			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffTheirBaseRight;
+			m_pwndRightView->m_arLineStates = &m_Data.m_arStateTheirBaseRight;
+			m_pwndRightView->m_sWindowName = m_Data.m_sTheirFile.Mid(m_Data.m_sTheirFile.ReverseFind('\\')+1);
+			m_pwndLeftView->DocumentUpdated();
+			m_pwndRightView->DocumentUpdated();
+			m_pwndBottomView->DocumentUpdated();
+			m_wndLocatorBar.DocumentUpdated();
+			if (!m_wndSplitter.IsRowHidden(1))
+				m_wndSplitter.HideRow(1);
+		}
+		else
+		{
+			if (m_wndSplitter2.IsColumnHidden(1))
+				m_wndSplitter2.ShowColumn();
+			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffTheirBaseLeft;
+			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseLeft;
+			m_pwndLeftView->m_sWindowName = m_Data.m_sBaseFile.Mid(m_Data.m_sBaseFile.ReverseFind('\\')+1);
+			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffTheirBaseRight;
+			m_pwndRightView->m_arLineStates = &m_Data.m_arStateTheirBaseRight;
+			m_pwndRightView->m_sWindowName = m_Data.m_sTheirFile.Mid(m_Data.m_sTheirFile.ReverseFind('\\')+1);
+			m_pwndLeftView->DocumentUpdated();
+			m_pwndRightView->DocumentUpdated();
+			m_pwndBottomView->DocumentUpdated();
+			m_wndLocatorBar.DocumentUpdated();
+			if (!m_wndSplitter.IsRowHidden(1))
+				m_wndSplitter.HideRow(1);
+		}
 		UpdateLayout();
 	} 
 	else if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
@@ -348,6 +396,7 @@ void CMainFrame::LoadViews()
 			m_wndSplitter.ShowRow();
 		UpdateLayout();
 	}
+	return TRUE;
 }
 
 void CMainFrame::UpdateLayout()
@@ -414,6 +463,12 @@ void CMainFrame::OnViewWhitespaces()
 		m_pwndBottomView->m_bViewWhitespace = bViewWhitespaces;
 		m_pwndBottomView->Invalidate();
 	} // if (m_pwndBottomView) 
+}
+
+void CMainFrame::OnViewOnewaydiff()
+{
+	m_bOneWay = !m_bOneWay;
+	LoadViews();
 }
 
 BOOL CMainFrame::CheckResolved()
@@ -575,5 +630,24 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 			bEnable = TRUE;
 		} // if (m_pwndRightView->IsWindowVisible()) 
 	} 
+	pCmdUI->Enable(bEnable);
+}
+
+
+void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
+{
+	UINT uMenuCheck = MF_BYCOMMAND;
+	if (m_bOneWay)
+		uMenuCheck |= MF_CHECKED;
+	else
+		uMenuCheck |= MF_UNCHECKED;
+	this->GetMenu()->CheckMenuItem(ID_VIEW_ONEWAYDIFF, uMenuCheck);
+
+	BOOL bEnable = TRUE;
+	if (m_pwndBottomView)
+	{
+		if (m_pwndBottomView->IsWindowVisible())
+			bEnable = FALSE;
+	} // if (m_pwndBottomView)
 	pCmdUI->Enable(bEnable);
 }

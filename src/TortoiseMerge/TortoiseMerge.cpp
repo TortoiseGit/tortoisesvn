@@ -76,8 +76,8 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->m_Data.m_sMergedFile = parser.GetVal(_T("merged"));
 	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));
 	pFrame->m_Data.m_sDiffFile = parser.GetVal(_T("diff"));
-	pFrame->LoadViews();
-	return TRUE;
+	pFrame->m_bOneWay = parser.HasKey(_T("oneway"));
+	return pFrame->LoadViews();
 }
 
 

@@ -61,8 +61,11 @@ public:
 	CLeftView *		m_pwndLeftView;
 	CRightView *	m_pwndRightView;
 	CBottomView *	m_pwndBottomView;
+	BOOL			m_bOneWay;
 	CDiffData		m_Data;
-	void			LoadViews();
+	BOOL			LoadViews();
+	afx_msg void OnViewOnewaydiff();
+	afx_msg void OnUpdateViewOnewaydiff(CCmdUI *pCmdUI);
 };
 
 
