@@ -32,7 +32,7 @@ CFileTextLines::~CFileTextLines(void)
 CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int cb)
 {
 	if (cb < 2)
-		return CFileTextLines::BINARY;
+		return CFileTextLines::ASCII;
 	UINT16 * pVal = (UINT16 *)pBuffer;
 	UINT8 * pVal2 = (UINT8 *)(pVal+1);
 	// scan the whole buffer for a 0x0000 sequence
