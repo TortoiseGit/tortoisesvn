@@ -100,7 +100,6 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	m_treeRepository.Init();
-	m_treeRepository.SelectItem(m_treeRepository.GetRootItem());
 
 	AddAnchor(IDC_REPOS_TREE, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATICURL, BOTTOM_LEFT);

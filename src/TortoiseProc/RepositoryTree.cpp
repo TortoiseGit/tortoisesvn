@@ -183,6 +183,7 @@ void CRepositoryTree::Init()
 		EnsureVisible(hItem);
 		SetItemState(hItem, 1, TVIF_CHILDREN);
 		SetItemData(hItem, 0);
+		SelectItem(hItem);
 	} // for (int i=arPaths.GetUpperBound(); i>=0; i--)
 	InsertItem(_T("Dummy"), hItem);
 	bInit = FALSE;

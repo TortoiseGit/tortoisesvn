@@ -1,3 +1,9 @@
+CVS
+- BUG: A Path inside a local repository wasn't recognized
+       as a valid repo path in the repository browser. 
+       Fixes Issue 56. (Stefan)
+
+
 Version 0.12.1
 - BUG: If an error occurred while executing a command
        in the log dialog the ok button wasn't reenabled
