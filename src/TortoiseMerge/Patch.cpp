@@ -55,28 +55,13 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 	INT_PTR nLineCount = 0;
 	g_crasher.AddFile((LPCSTR)(LPCTSTR)filename, (LPCSTR)(LPCTSTR)_T("unified diff file"));
 
-	CStringArray PatchLines;
+	CFileTextLines PatchLines;
+	if (!PatchLines.Load(filename))
+	{
+		m_sErrorMessage = PatchLines.GetErrorString();
+		return FALSE;
+	} // if (!PatchLines.Load(filename)) 
 	FreeMemory();
-	TRY
-	{
-		CStdioFile file(filename, CFile::typeText | CFile::modeRead | CFile::shareDenyNone);
-		while (file.ReadString(sLine))
-		{
-			PatchLines.Add(sLine);
-		}
-		file.Close();
-	}
-	CATCH( CFileException, pEx )
-	{
-		// Simply show an error message to the user.
-		pEx->ReportError();
-		return FALSE;
-	}
-	AND_CATCH(CMemoryException, pEx)
-	{
-		return FALSE;
-	}
-	END_CATCH
 	nLineCount = PatchLines.GetCount();
 	//now we got all the lines of the patch file
 	//in our array - parsing can start...
@@ -455,8 +440,6 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 		for (int j=0; j<chunk->arLines.GetCount(); j++)
 		{
 			CString sPatchLine = chunk->arLines.GetAt(j);
-			if (PatchLines.GetUnicodeType()==CFileTextLines::UTF8)
-				sPatchLine = CUnicodeUtils::GetUnicode(CStringA(sPatchLine));
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);
 			switch (nPatchState)
 			{

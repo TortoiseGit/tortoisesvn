@@ -206,7 +206,24 @@ BOOL CFileTextLines::Load(CString sFilePath)
 				Add(sLine);
 				break;
 			case CFileTextLines::UTF8:
-				Add(CUnicodeUtils::GetUnicode(CStringA(sLine)));
+				{
+#ifdef UNICODE
+					char * buf;
+					buf = new char[sLine.GetLength()*4 + 1];
+					ZeroMemory(buf, (sLine.GetLength()*4 + 1)*sizeof(char));
+					char * bufcopy = buf;
+					for (int i=0; i<sLine.GetLength(); i++)
+					{
+						*bufcopy = LOBYTE((TCHAR)sLine.GetAt(i));
+						bufcopy++;
+					} // for (int i=0; i<sLine.GetLength(); i++)
+					*bufcopy = 0;
+					Add(CUnicodeUtils::GetUnicode(CStringA(buf)));
+					delete [] buf;
+#else
+					Add(CUnicodeUtils::GetUnicode(CStringA(sLine)));
+#endif
+				}
 				break;
 			default:
 				Add(sLine);
