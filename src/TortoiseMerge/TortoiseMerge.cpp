@@ -173,6 +173,8 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->m_Data.m_sDiffFile.Replace('/', '\\');
 	if (parser.HasKey(_T("oneway")))
         pFrame->m_bOneWay = TRUE;
+	if (parser.HasKey(_T("reversedpatch")))
+		pFrame->m_bReversedPatch = TRUE;
 	if (!pFrame->m_Data.m_sBaseFile.IsEmpty() && pFrame->m_Data.m_sYourFile.IsEmpty() && !pFrame->m_Data.m_sTheirFile.IsEmpty())
 	{
 		pFrame->m_Data.m_sYourFile = pFrame->m_Data.m_sTheirFile;

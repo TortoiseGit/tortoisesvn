@@ -49,7 +49,7 @@ protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL	OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 	virtual void	ActivateFrame(int nCmdShow = -1);
-
+	BOOL			LoadViews(BOOL bReload = TRUE);
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
 
 	afx_msg void	OnFileSave();
@@ -68,6 +68,8 @@ protected:
 	afx_msg void	OnUpdateViewOnewaydiff(CCmdUI *pCmdUI);
 	afx_msg void	OnUpdateViewWhitespaces(CCmdUI *pCmdUI);
 	afx_msg void	OnViewOptions();
+	afx_msg void	OnViewLinedown();
+	afx_msg void	OnViewLineup();
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -102,10 +104,8 @@ public:
 	CRightView *	m_pwndRightView;
 	CBottomView *	m_pwndBottomView;
 	BOOL			m_bOneWay;
+	BOOL			m_bReversedPatch;
 	CDiffData		m_Data;
-	BOOL			LoadViews(BOOL bReload = TRUE);
-	afx_msg void OnViewLinedown();
-	afx_msg void OnViewLineup();
 };
 
 

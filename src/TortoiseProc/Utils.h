@@ -69,7 +69,7 @@ public:
 	 * \return TRUE if the program could be started.
 	 */
 	static BOOL StartDiffViewer(CString file, CString dir = _T(""), BOOL bWait = FALSE,
-		CString name1 = _T(""), CString name2 = _T(""), CString ext = _T(""));
+		CString name1 = _T(""), CString name2 = _T(""), CString ext = _T(""), BOOL bReversed = FALSE);
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated

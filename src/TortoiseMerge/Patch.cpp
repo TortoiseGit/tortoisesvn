@@ -138,6 +138,14 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 						break;
 					if (sLine.Left(13).Compare(_T("svn:mime-type"))==0)
 						break;
+					if (sLine.Left(20).Compare(_T("Property changes on:"))==0)
+						break;
+					if (sLine.Left(3).Compare(_T("___"))==0)
+						break;
+					if (sLine.Left(5).Compare(_T("Name:"))==0)
+						break;
+					if (sLine.Left(3).Compare(_T("   "))==0)
+						break;
 					//But before throwing an error, check first if 
 					//instead of a new filediff we just have a new chunk:
 					if (nIndex > 0)

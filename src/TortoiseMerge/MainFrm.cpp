@@ -83,6 +83,7 @@ CMainFrame::CMainFrame()
 	m_nSearchIndex = 0;
 	m_bInitSplitter = FALSE;
 	m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
+	m_bReversedPatch = FALSE;
 }
 
 CMainFrame::~CMainFrame()
@@ -303,14 +304,27 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
 		} // if (!m_Patch.PatchFile(sFilePath, sTempFile)) 
-		this->m_Data.m_sBaseFile = sFilePath;
-		this->m_Data.m_sBaseName = CUtils::GetFileNameFromPath(sFilePath);
-		this->m_Data.m_sYourFile = sTempFile;
-		CString temp;
-		temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
-		this->m_Data.m_sYourName = temp;
-		this->m_Data.m_sTheirFile.Empty();
-		this->m_Data.m_sMergedFile = sFilePath;
+		if (m_bReversedPatch)
+		{
+			this->m_Data.m_sBaseFile = sTempFile;
+			CString temp;
+			temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
+			this->m_Data.m_sBaseName = temp;
+			this->m_Data.m_sYourFile = sFilePath;
+			this->m_Data.m_sYourName = CUtils::GetFileNameFromPath(sFilePath);;
+			this->m_Data.m_sTheirFile.Empty();
+		}
+		else
+		{
+			this->m_Data.m_sBaseFile = sFilePath;
+			this->m_Data.m_sBaseName = CUtils::GetFileNameFromPath(sFilePath);
+			this->m_Data.m_sYourFile = sTempFile;
+			CString temp;
+			temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
+			this->m_Data.m_sYourName = temp;
+			this->m_Data.m_sTheirFile.Empty();
+			this->m_Data.m_sMergedFile = sFilePath;
+		}
 		TRACE(_T("comparing %s\nwith the patched result %s\n"), sFilePath, sTempFile);
 	}
 	LoadViews();

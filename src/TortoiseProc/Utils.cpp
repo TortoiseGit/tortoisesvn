@@ -122,7 +122,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2, CString ext)
+BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2, CString ext, BOOL bReversed)
 {
 	// change all paths to have backslashes instead of forward slashes
 	file.Replace('/', '\\');
@@ -188,6 +188,8 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 		{
 			viewer.Replace(_T("%path"), _T("\"") + dir + _T("\""));
 		}
+		if (bReversed)
+			viewer += _T(" /reversedpatch");
 	} // if ((PathIsDirectory(dir)) || (dir.IsEmpty())) 
 	else
 	{

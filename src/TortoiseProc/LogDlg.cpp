@@ -990,13 +990,13 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString tempfile = CUtils::GetTempFile();
 			tempfile += _T(".diff");
 			m_templist.Add(tempfile);
-			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev-1, TRUE, FALSE, TRUE, _T(""), tempfile))
+			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			else
 			{
-				CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\'))); 
+				CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE); 
 			}
 		}
 		theApp.DoWaitCursor(-1);
