@@ -107,6 +107,7 @@ private:
 	static int __cdecl			SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 	static int __cdecl			SortCompareSourceEntry(const void * pElem1, const void * pElem2);	///< sort callback function
 	CStringA					m_sRepoRoot;
+	CStringA					m_sUrlAppendix;
 	LONG						m_lHeadRevision;
 
 	int							m_nRecurseLevel;

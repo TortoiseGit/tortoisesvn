@@ -328,7 +328,7 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 						reventry->author = logentry->author;
 						reventry->date = logentry->time;
 						reventry->message = logentry->msg;
-						reventry->url = key;
+						reventry->url = apr_pstrdup(pool, url);
 						reventry->action = val->action;
 						reventry->level = m_nRecurseLevel;
 						if (val->copyfrom_path)
@@ -342,10 +342,15 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							reventry->revisionfrom = 0;
 						}
 						m_arEntryPtrs.Add(reventry);
-						if (val->action != 'D')
+						if ((val->action != 'D')&&(val->copyfrom_path))
 						{
+							const char * self = apr_pstrdup(pool, val->copyfrom_path);
+							const char * child = url;
+							child += strlen(key);
+							m_sUrlAppendix = child;
+							self = apr_pstrcat(pool, self, child, 0);
 							TRACE("revision entry(2): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-							AnalyzeRevisions(key, currentrev+1, m_lHeadRevision);
+							AnalyzeRevisions(self, currentrev-1, startrev);
 						}
 					}
 				}
@@ -356,12 +361,17 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 						//check if our file/folder may be the source of a copy operation
 						if (IsParentOrItself(val->copyfrom_path, url))
 						{
+							const char * self = apr_pstrdup(pool, key);
+							const char * child = url;
+							child += strlen(val->copyfrom_path);
+							m_sUrlAppendix = child;
+							self = apr_pstrcat(pool, self, child, 0);
 							CRevisionEntry * reventry = new CRevisionEntry();
 							reventry->revision = currentrev;
 							reventry->author = logentry->author;
 							reventry->date = logentry->time;
 							reventry->message = logentry->msg;
-							reventry->url = key;
+							reventry->url = self;
 							reventry->action = val->action;
 							reventry->level = m_nRecurseLevel + 1;
 							if (val->copyfrom_path)
@@ -376,7 +386,7 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							}
 							m_arEntryPtrs.Add(reventry);
 							TRACE("revision entry(3): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-							AnalyzeRevisions(key, currentrev+1, m_lHeadRevision);
+							AnalyzeRevisions(self, currentrev+1, m_lHeadRevision);
 						}
 					}
 				}
@@ -437,7 +447,7 @@ BOOL CRevisionGraph::CheckForwardCopies()
 				reventry->author = origentry->author;
 				reventry->date = origentry->time;
 				reventry->message = origentry->msg;
-				reventry->url = logentry->pathfrom;
+				reventry->url = apr_pstrcat(pool, logentry->pathfrom, m_sUrlAppendix, 0);
 				reventry->action = ' ';
 				// set the level to 0 to mark that entry for later (after sorting by revision)
 				// filling in the correct level.
