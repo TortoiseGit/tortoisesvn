@@ -120,10 +120,9 @@ CString SVN::CheckConfigFile()
 		{
 			msg += _T("\n") + temp;
 		}
-		return msg;
 	}
-	return _T("");
-
+	svn_pool_destroy(pool);
+	return msg;
 }
 
 #pragma warning(push)
