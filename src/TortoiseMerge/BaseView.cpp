@@ -876,6 +876,17 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		//	rect.left += GetCharWidth();
 		//}
 		pDC->FillSolidRect(rect, crBkgnd);
+		if (m_bFocused)
+		{
+			if (nLineIndex == m_nDiffBlockStart)
+			{
+				pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, RGB(0,0,0));
+			}		
+			if (nLineIndex == m_nDiffBlockEnd)
+			{
+				pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, RGB(0,0,0));
+			}
+		}
 		return;
 	} // if (nLength == 0) 
 
@@ -977,6 +988,17 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		if (frect.right > frect.left)
 			pDC->FillSolidRect(frect, crBkgnd);
 	} // if (frect.right > frect.left) 
+	if (m_bFocused)
+	{
+		if (nLineIndex == m_nDiffBlockStart)
+		{
+			pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, RGB(0,0,0));
+		}		
+		if (nLineIndex == m_nDiffBlockEnd)
+		{
+			pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, RGB(0,0,0));
+		}
+	}
 }
 
 void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line)
@@ -1388,8 +1410,8 @@ void CBaseView::OnMergeNextconflict()
 void CBaseView::OnMergeNextdifference()
 {
 	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
-	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
-		nCenterPos = m_nSelBlockEnd;
+	if ((m_nDiffBlockStart >= 0)&&(m_nDiffBlockEnd >= 0))
+		nCenterPos = m_nDiffBlockEnd;
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
@@ -1410,18 +1432,18 @@ void CBaseView::OnMergeNextdifference()
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
 		if (nCenterPos > (m_arLineStates->GetCount()-1))
 			nCenterPos = m_arLineStates->GetCount()-1;
-		m_nSelBlockStart = nCenterPos;
-		m_nSelBlockEnd = nCenterPos;
+		m_nDiffBlockStart = nCenterPos;
+		m_nDiffBlockEnd = nCenterPos;
 		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
-		while (m_nSelBlockEnd < (m_arLineStates->GetCount()-1))
+		while (m_nDiffBlockEnd < (m_arLineStates->GetCount()-1))
 		{
-			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(++m_nSelBlockEnd))
+			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(++m_nDiffBlockEnd))
 				break;
 		} // while (nIndex < m_arLineStates->GetCount())
-		if ((m_nSelBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nSelBlockEnd)))
-			m_nSelBlockEnd = m_nSelBlockEnd;
+		if ((m_nDiffBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nDiffBlockEnd)))
+			m_nDiffBlockEnd = m_nDiffBlockEnd;
 		else
-			m_nSelBlockEnd = m_nSelBlockEnd-1;
+			m_nDiffBlockEnd = m_nDiffBlockEnd-1;
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
@@ -1434,8 +1456,8 @@ void CBaseView::OnMergeNextdifference()
 void CBaseView::OnMergePreviousdifference()
 {
 	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
-	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
-		nCenterPos = m_nSelBlockStart;
+	if ((m_nDiffBlockStart >= 0)&&(m_nDiffBlockEnd >= 0))
+		nCenterPos = m_nDiffBlockStart;
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
@@ -1456,18 +1478,18 @@ void CBaseView::OnMergePreviousdifference()
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
 		if (nCenterPos < 0)
 			nCenterPos = 0;
-		m_nSelBlockStart = nCenterPos;
-		m_nSelBlockEnd = nCenterPos;
+		m_nDiffBlockStart = nCenterPos;
+		m_nDiffBlockEnd = nCenterPos;
 		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
-		while ((m_nSelBlockStart < (m_arLineStates->GetCount()-1))&&(m_nSelBlockStart > 0))
+		while ((m_nDiffBlockStart < (m_arLineStates->GetCount()-1))&&(m_nDiffBlockStart > 0))
 		{
-			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(--m_nSelBlockStart))
+			if (linestate != (CDiffData::DiffStates)m_arLineStates->GetAt(--m_nDiffBlockStart))
 				break;
 		} // while (nIndex < m_arLineStates->GetCount())
-		if (((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nSelBlockStart)))||m_nSelBlockStart==0)
-			m_nSelBlockStart = m_nSelBlockStart;
+		if (((m_nDiffBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == (CDiffData::DiffStates)m_arLineStates->GetAt(m_nDiffBlockStart)))||m_nDiffBlockStart==0)
+			m_nDiffBlockStart = m_nDiffBlockStart;
 		else
-			m_nSelBlockStart = m_nSelBlockStart+1;
+			m_nDiffBlockStart = m_nDiffBlockStart+1;
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
@@ -1613,6 +1635,8 @@ void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
 	nClickedLine--;		//we need the index
 	if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
 	{
+		m_nDiffBlockEnd = -1;
+		m_nDiffBlockStart = -1;
 		if (nFlags & MK_SHIFT)
 		{
 			if (m_nSelBlockStart > nClickedLine)

@@ -163,6 +163,8 @@ protected:
 
 	int				m_nSelBlockStart;
 	int				m_nSelBlockEnd;
+	int				m_nDiffBlockStart;
+	int				m_nDiffBlockEnd;
 
 	int				m_nMouseLine;
 
