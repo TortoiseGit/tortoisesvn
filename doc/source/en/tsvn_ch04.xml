@@ -949,7 +949,7 @@
 				</figure>
 				To merge revisions you need to go to a working copy of the
 				branch in which you want to receive the changes, (normally the trunk).
-				Select <menuchoice><guimenuitem>Merge</guimenuitem></menuchoice> from the context menu.
+				Select <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu.
 				<orderedlist>
 					<listitem>
 						<para>In the <guilabel>Merge current branch with</guilabel> field enter the full
@@ -976,27 +976,27 @@
 						log message should <emphasis>always</emphasis> include the revision numbers of this merge.
 						If you want to apply another merge at a later time you will need to know what you
 						have already merged. You can't apply a change more than once.
-                        Unfortunately merge information is not stored by Subversion. See the 
+						Unfortunately merge information is not stored by Subversion. See the
 						Subversion book for more information about this, (search for "repeated merge problem").
-                        </para>
+					</para>
 					</listitem>
 				</orderedlist>
 				The merge is now complete. It's a good idea to have a look at the merge and see if it's
 				as expected. Merging is usually quite complicated. Conflicts often arise if
 				the branch has drifted far from the trunk.
 				<para>
-				If you want to keep this branch up to date with the trunk, you should immediately merge 
+				If you want to keep this branch up to date with the trunk, you should immediately merge
 				changes from truck back to the this branch. Use this method and local changes won't get
 				in your way. Of course, you should still avoid re-merging trunk changes, as explained above.
 				</para>
 				<para>
-				<note>
+				<important>
 				Subversion can't merge a file with a folder and vice versa - only
 				folders to folders and files to files. If you click on a file and open up
 				the merge dialog, then you have to give a path to a file in that dialog. If you
 				select a folder and bring up the dialog, then you must specify a folder url
 				for the merge.
-				</note>
+				</important>
 				</para>
 			</para>
 		</sect2>

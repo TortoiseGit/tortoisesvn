@@ -69,25 +69,18 @@ TT.Filename, TT.Literal{
 	font-weight: bold;
 }
 
-.action, .guibutton, .guimenu, .guimenuitem {
-  font-weight: bold;	
-}
-
-A
-{
+A {
     color: blue;
     text-decoration: underline;
 }	
 
-A:hover 
-{
+A:hover {
 	color: blue;
 	text-decoration: underline;
 	background-color: #DCDCDC;
 }
 
-IMG
-{
+IMG {
   border: none;
   float: left;
 }
@@ -139,7 +132,18 @@ div.figure p {
 	border-left: 1px solid;
 }
 
-.guimenu, .guimenuitem {
+.action, .guibutton, .guimenu, .guimenuitem {
+  font-weight: bold;	
+}
+
+.guimenu, .guimenuitem, .guilabel {
+/*	font-size: 10pt; */
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	background-color: #EEE;
+}
+
+.guibutton {
 	border: 2px solid;
 	font-size: 10pt;
 	padding-left: 0.5em;
