@@ -340,14 +340,14 @@ BEGIN
                     7,85,180,10
 END
 
-IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 131
+IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 166
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Proxy"
+CAPTION "Network"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     CONTROL         "Enable Proxy Server",IDC_ENABLE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,7,204,10
-    GROUPBOX        "Proxy Settings",IDC_STATIC,7,18,264,106
+    GROUPBOX        "Proxy Settings",IDC_STATIC,7,20,264,100
     LTEXT           "Server address:",IDC_STATIC,17,36,52,8
     EDITTEXT        IDC_SERVERADDRESS,118,34,78,14,ES_AUTOHSCROLL
     LTEXT           "Port:",IDC_STATIC,201,37,21,8
@@ -358,6 +358,9 @@ BEGIN
     EDITTEXT        IDC_PASSWORD,118,70,78,14,ES_PASSWORD | ES_AUTOHSCROLL
     LTEXT           "Proxy timeout in seconds:",IDC_STATIC,17,101,101,8
     EDITTEXT        IDC_TIMEOUT,118,98,78,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "SSH client:",IDC_STATIC,7,132,63,8
+    EDITTEXT        IDC_SSHCLIENT,118,129,93,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_SSHBROWSE,221,129,50,14
 END
 
 IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
@@ -647,7 +650,7 @@ BEGIN
         VERTGUIDE, 118
         VERTGUIDE, 196
         TOPMARGIN, 7
-        BOTTOMMARGIN, 124
+        BOTTOMMARGIN, 159
     END
 
     IDD_SVNPROGRESS, DIALOG
@@ -794,6 +797,7 @@ BEGIN
     IDS_SETTINGS_SELECTDIFF "Select Diff Application"
     IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
     IDS_SETTINGS_SELECTMERGE "Select a Merge Application"
+    IDS_SETTINGS_SELECTSSH  "Select An SSH Client"
     IDS_SETTINGS_EXTDIFF_TT "An external diff program used\nfor comparing different revisions of files"
     IDS_SETTINGS_EXTDIFFBROWSE_TT "Browse for the external diff program"
     IDS_SETTINGS_CHANGEDDIRS_TT 

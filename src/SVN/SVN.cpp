@@ -98,6 +98,10 @@ SVN::SVN(void)
 	ctx.cancel_func = cancel;
 	ctx.cancel_baton = this;
 
+	//set up the SVN_SSH param
+	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+	if (!tsvn_ssh.IsEmpty())
+		svn_config_set((svn_config_t *)ctx.config, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 }
 
 SVN::~SVN(void)

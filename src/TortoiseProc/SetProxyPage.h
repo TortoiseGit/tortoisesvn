@@ -89,9 +89,11 @@ public:
 	UINT		m_timeout;
 	CRegString	m_regTimeout;
 	CRegString	m_regTimeout_copy;
+	BOOL		m_isEnabled;
+	CRegString	m_regSSHClient;
+	CString		m_SSHClient;
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedEnable();
-	BOOL		m_isEnabled;
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnEnChangeServeraddress();
 	afx_msg void OnEnChangeServerport();
@@ -99,4 +101,6 @@ public:
 	afx_msg void OnEnChangePassword();
 	afx_msg void OnEnChangeTimeout();
 	virtual BOOL OnApply();
+	afx_msg void OnEnChangeSshclient();
+	afx_msg void OnBnClickedSshbrowse();
 };
