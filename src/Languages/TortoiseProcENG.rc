@@ -336,39 +336,39 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,106
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,123
     LTEXT           "&Language:",IDC_STATIC,13,17,60,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,15,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Exclude pattern:",IDC_STATIC,13,30,60,18
+    LTEXT           "Exclude pattern:",IDC_STATIC,13,30,60,18,SS_CENTERIMAGE
     EDITTEXT        IDC_TEMPEXTENSIONS,80,32,200,14,ES_AUTOHSCROLL
     LTEXT           "Default &number of log messages",IDC_STATIC,13,53,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,51,51,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
     CONTROL         "Short &date/time format in log messages",
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,66,267,10
-    LTEXT           "Subversion configuration file:",IDC_STATIC,13,80,210,8
-    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,77,51,14
+                    WS_TABSTOP,13,84,267,10
+    LTEXT           "Subversion configuration file:",IDC_STATIC,13,71,210,8
+    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,68,51,14
     CONTROL         "Check for newer versions",IDC_CHECKNEWERVERSION,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,92,267,10
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,117,286,75
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,116,267,10
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,135,286,57
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,137,267,10
+                    WS_TABSTOP,13,95,267,10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,150,267,10
+                    13,161,267,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,162,267,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,106,267,10
     LTEXT           "Font for log messages:",IDC_STATIC,13,177,115,8
     COMBOBOX        IDC_FONTNAMES,130,174,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_FONTSIZES,248,175,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    LTEXT           "Minimum logsize in chars",IDC_STATIC,13,126,216,8
-    EDITTEXT        IDC_MINLOGSIZE,239,124,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Minimum logsize in chars",IDC_STATIC,13,147,216,8
+    EDITTEXT        IDC_MINLOGSIZE,239,145,40,12,ES_AUTOHSCROLL | ES_NUMBER
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199
