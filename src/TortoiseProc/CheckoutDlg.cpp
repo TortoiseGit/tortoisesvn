@@ -34,6 +34,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 	, m_lRevision(-1)
 	, m_strCheckoutDirectory(_T(""))
 	, IsExport(FALSE)
+	, m_bNonRecursive(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -53,6 +54,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 		DDX_Text(pDX, IDC_REVISION_NUM, m_lRevision);
 	}
 	DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strCheckoutDirectory);
+	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
 
 

@@ -257,7 +257,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Checkout:			//no tempfile!
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
 			pDlg->SetWindowText(sWindowTitle);
-			if (!pDlg->Checkout(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_nRevision, true))
+			if (!pDlg->Checkout(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_nRevision, pDlg->m_IsTempFile /* temfile used as recursive/nonrecursive */))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}

@@ -264,7 +264,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 				CSVNProgressDlg progDlg;
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Checkout, false, strPath, dlg.m_URL, _T(""), dlg.m_lRevision);
+				progDlg.SetParams(Checkout, !dlg.m_bNonRecursive, strPath, dlg.m_URL, _T(""), dlg.m_lRevision);
 				progDlg.DoModal();
 			}
 		}

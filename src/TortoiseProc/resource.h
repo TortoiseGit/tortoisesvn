@@ -159,6 +159,7 @@
 #define IDC_MENU24                      1073
 #define IDC_DONTCONVERT                 1073
 #define IDC_RAM                         1073
+#define IDC_NON_RECURSIVE               1073
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076

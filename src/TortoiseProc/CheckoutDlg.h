@@ -65,6 +65,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual void OnOK();
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
@@ -72,19 +73,18 @@ protected:
 	afx_msg void OnBnClickedRevisionHead();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedCheckoutdirectoryBrowse();
+	afx_msg void OnEnChangeCheckoutdirectory();
 
 	DECLARE_MESSAGE_MAP()
-public:
-	CHistoryCombo m_URLCombo;
-	CString	m_URL;
-	long m_lRevision;
 protected:
-	CBalloon	m_tooltips;
+	CBalloon		m_tooltips;
 public:
-	BOOL	IsExport;
-	CButton m_butBrowse;
-	CEdit m_editRevision;
-	CString m_strCheckoutDirectory;
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnEnChangeCheckoutdirectory();
+	CHistoryCombo	m_URLCombo;
+	CString			m_URL;
+	long			m_lRevision;
+	BOOL			IsExport;
+	BOOL			m_bNonRecursive;
+	CButton			m_butBrowse;
+	CEdit			m_editRevision;
+	CString			m_strCheckoutDirectory;
 };
