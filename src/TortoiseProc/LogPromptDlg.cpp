@@ -410,9 +410,14 @@ void CLogPromptDlg::OnCancel()
 void CLogPromptDlg::OnBnClickedSelectall()
 {
 	UINT state = (m_SelectAll.GetState() & 0x0003);
-	if (state == 2)
-		return;
-	m_ListCtrl.SelectAll(state == 1);
+	if (state == BST_INDETERMINATE)
+	{
+		// It is not at all useful to manually place the checkbox into the indeterminate state...
+		// We will force this on to the unchecked state
+		state = BST_UNCHECKED;
+		m_SelectAll.SetCheck(state);
+	}
+	m_ListCtrl.SelectAll(state == BST_CHECKED);
 }
 
 BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)

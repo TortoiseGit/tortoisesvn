@@ -101,10 +101,15 @@ void CAddDlg::OnCancel()
 void CAddDlg::OnBnClickedSelectall()
 {
 	UINT state = (m_SelectAll.GetState() & 0x0003);
-	if (state == 2)
-		return;
+	if (state == BST_INDETERMINATE)
+	{
+		// It is not at all useful to manually place the checkbox into the indeterminate state...
+		// We will force this on to the unchecked state
+		state = BST_UNCHECKED;
+		m_SelectAll.SetCheck(state);
+	}
 	theApp.DoWaitCursor(1);
-	m_addListCtrl.SelectAll(state == 1);
+	m_addListCtrl.SelectAll(state == BST_CHECKED);
 	theApp.DoWaitCursor(-1);
 }
 
