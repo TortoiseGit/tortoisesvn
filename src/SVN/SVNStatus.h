@@ -160,9 +160,10 @@ public:
 #endif
 	svn_wc_status_kind			m_allstatus;
 
+protected:
+	apr_pool_t *				m_pool;
 private:
 	apr_pool_t *				m_parentpool;
-	apr_pool_t *				m_pool;
 	svn_auth_baton_t *			m_auth_baton;
 	svn_client_ctx_t 			m_ctx;
 	svn_error_t *				m_err;

@@ -187,12 +187,12 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, voi
 		if (ret == 1)
 		{
 			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
-			(*cred_p)->trust_permanantly = TRUE;
+			(*cred_p)->trust_permanently = TRUE;
 		} 
 		else if (ret == 2)
 		{
 			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
-			(*cred_p)->trust_permanantly = FALSE;
+			(*cred_p)->trust_permanently = FALSE;
 		}
 		else
 			*cred_p = NULL;
@@ -202,7 +202,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, voi
 		if (CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
 		{
 			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
-			(*cred_p)->trust_permanantly = FALSE;
+			(*cred_p)->trust_permanently = FALSE;
 			return SVN_NO_ERROR;
 		} // if (CMessageBox::Show(NULL, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDOK)
 		else
