@@ -135,6 +135,10 @@ BOOL CTortoiseMergeApp::InitInstance()
 	// the specific initialization routines you do not need
 	// Change the registry key under which our settings are stored
 	SetRegistryKey(_T("TortoiseMerge"));
+
+	if (CRegDWORD(_T("Software\\TortoiseMerge\\Debug"), FALSE)==TRUE)
+		AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
+
 	// To create the main window, this code creates a new frame window
 	// object and then sets it as the application's main window object
 	CMainFrame* pFrame = new CMainFrame;
