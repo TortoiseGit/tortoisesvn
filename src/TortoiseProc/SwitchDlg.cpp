@@ -40,10 +40,10 @@ CSwitchDlg::~CSwitchDlg()
 void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_URL, m_URL);
-	DDX_Text(pDX, IDC_REV, m_rev);
+	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+	DDX_Text(pDX, IDC_REVISION_NUM, m_rev);
 	DDV_MaxChars(pDX, m_rev, 10);
-	DDX_Control(pDX, IDC_REV, m_revctrl);
+	DDX_Control(pDX, IDC_REVISION_NUM, m_revctrl);
 }
 
 
@@ -52,7 +52,7 @@ BEGIN_MESSAGE_MAP(CSwitchDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_EN_UPDATE(IDC_REV, OnEnUpdateRev)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
-	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
+	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
@@ -105,15 +105,17 @@ BOOL CSwitchDlg::OnInitDialog()
 
 	SVNStatus status;
 	status.GetStatus(m_path);
+	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	if (status.status->entry != NULL)
 	{
 		m_path = status.status->entry->url;
+		m_URLCombo.AddString(m_path);
+		m_URLCombo.SelectString(-1, m_path);
 		m_URL = m_path;
 	}
-	UpdateData(FALSE);
 
 	// set head revision as default revision
-	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 
 	m_revctrl.SetWindowText(_T(""));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -137,20 +139,21 @@ void CSwitchDlg::OnEnUpdateRev()
 
 void CSwitchDlg::OnBnClickedBrowse()
 {
-	UpdateData();
-	if (m_URL.Left(7) == _T("file://"))
+	CString strUrl;
+	m_URLCombo.GetWindowText(strUrl);
+	if (strUrl.Left(7) == _T("file://"))
 	{
-		CString strFile(m_URL);
+		CString strFile(strUrl);
 		SVN::UrlToPath(strFile);
 
 		SVN svn;
 		if (svn.IsRepository(strFile))
 		{
 			// browse repository - show repository browser
-			CRepositoryBrowser browser(m_URL, this);
+			CRepositoryBrowser browser(strUrl, this);
 			if (browser.DoModal() == IDOK)
 			{
-				m_URL = browser.m_strUrl;
+				m_URLCombo.SetWindowText(browser.m_strUrl);
 			}
 		}
 		else
@@ -158,25 +161,26 @@ void CSwitchDlg::OnBnClickedBrowse()
 			// browse local directories
 			CBrowseFolder folderBrowser;
 			folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-			if (folderBrowser.Show(GetSafeHwnd(), m_URL) == CBrowseFolder::OK)
+			if (folderBrowser.Show(GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
 			{
-				SVN::PathToUrl(m_URL);
+				SVN::PathToUrl(strUrl);
+
+				m_URLCombo.SetWindowText(strUrl);
 			}
 		}
 	}
-	else if ((m_URL.Left(7) == _T("http://")
-		||(m_URL.Left(8) == _T("https://"))
-		||(m_URL.Left(6) == _T("svn://"))
-		||(m_URL.Left(10) == _T("svn+ssl://"))) && m_URL.GetLength() > 6)
+	else if ((strUrl.Left(7) == _T("http://")
+		||(strUrl.Left(8) == _T("https://"))
+		||(strUrl.Left(6) == _T("svn://"))
+		||(strUrl.Left(10) == _T("svn+ssl://"))) && strUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
-		CRepositoryBrowser browser(m_URL, this);
+		CRepositoryBrowser browser(strUrl, this);
 		if (browser.DoModal() == IDOK)
 		{
-			m_URL = browser.m_strUrl;
+			m_URLCombo.SetWindowText(browser.m_strUrl);
 		}
-	} // if (strUrl.Left(7) == _T("http://") && strUrl.GetLength() > 7)
-	UpdateData(FALSE);
+	}
 }
 
 void CSwitchDlg::OnBnClickedNewest()
@@ -193,10 +197,14 @@ void CSwitchDlg::OnOK()
 {
 	UpdateData(TRUE);
 	// if head revision, set revision as -1
-	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
+	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
 		m_rev = _T("-1");
 	}
+
+	m_URLCombo.SaveHistory();
+	m_URL = m_URLCombo.GetString();
+
 	UpdateData(FALSE);
 	CDialog::OnOK();
 }

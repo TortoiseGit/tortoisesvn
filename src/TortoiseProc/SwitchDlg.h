@@ -72,6 +72,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	CHistoryCombo m_URLCombo;
 	CString m_path;
 	CString m_URL;
 	CString m_rev;
