@@ -423,6 +423,8 @@ BEGIN
                     WS_TABSTOP,7,72,110,10
     CONTROL         "Check for Updates",IDC_MENU6,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,83,110,10
+    CONTROL         "Repo-Browser",IDC_MENU23,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,95,110,10
     CONTROL         "Edit Conflicts",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,106,110,10
     CONTROL         "Resolved",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
@@ -455,8 +457,6 @@ BEGIN
                     WS_TABSTOP,124,127,117,10
     CONTROL         "Add To Ignore List",IDC_MENU22,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,138,117,10
-    CONTROL         "Repo-Browser",IDC_MENU23,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,95,110,10
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
