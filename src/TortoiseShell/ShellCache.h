@@ -268,7 +268,6 @@ public:
 			std::map<stdstring, BOOL>::iterator iter;
 			if ((iter = admindircache.find(buf)) != admindircache.end())
 			{
-				ATLTRACE2(_T("AdminDirCache found for %s\n"), path);
 				return iter->second;
 			}
 		}
@@ -280,7 +279,6 @@ public:
 		admindirticker = GetTickCount();
 		admindircache.clear();
 		admindircache[buf] = hasAdminDir;
-		ATLTRACE2(_T("AdminDirCache built for %s\n"), path);
 		return hasAdminDir;
 	}
 private:
