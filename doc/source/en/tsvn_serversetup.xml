@@ -8,7 +8,7 @@
 			such a server on a Windows machine.
 		</para>
 		<para>
-			If you don't have a server and/or if you only work alone then you
+		If you don't have a server and/or if you only work alone then you
 			can still use TortoiseSVN and Subversion. The repository is then
 			stored locally on your harddrive. See
 			<xref linkend="tsvn-serversetup-local"/>
@@ -26,9 +26,9 @@
 				<primary>Apache</primary>
 			</indexterm>
 			<para>
-				Probably the best of all possible server setups for Subversion
-				is the Apache based one. It's not only the most mature
-				and most stable solution but has other benefits as well:
+			Probably the best of all possible server setups for Subversion
+			is the Apache based one. It's not only the most mature
+			and most stable solution but has other benefits as well:
 			</para>
 			<indexterm>
 				<primary>WebDAV</primary>
@@ -54,7 +54,7 @@
 							You can point your browser to the URL of your
 							repository and browse the contents of it without
 							having a Subversion client installed. This
-							gives access to your data to a much wider circle of
+						gives access to your data to a much wider circle of
 							users.
 						</para>
 					</listitem>
@@ -73,7 +73,7 @@
 					<listitem>
 						<para>
 							Since Apache is very stable and secure,
-							you automatically get the same security for your
+						you automatically get the same security for your
 							repository. This includes SSL encryption.
 						</para>
 					</listitem>
@@ -83,21 +83,21 @@
 		<sect2 id="tsvn-serversetup-apache-2">
 			<title>Installing Apache</title>
 			<para>
-				The first thing you need before installing Apache is a computer
-				with either Windows2000 / WinXP+SP1 or Windows2003.
-				<warning>
+			The first thing you need before installing Apache is a computer
+			with either Windows2000 / WinXP+SP1 or Windows2003.
+			<warning>
 					<para>
 						Please note that Windows XP without the servicepack 1
 						will lead to bogus network data and could therefore
 						corrupt your repository!
-					</para>
+			</para>
 				</warning>
 				<orderedlist>
 					<listitem>
 						<para>
 							Download the latest version of the Apache
-							webserver from
-							<ulink url="http://httpd.apache.org/download.cgi">
+					webserver from
+					<ulink url="http://httpd.apache.org/download.cgi">
 								<citetitle>http://httpd.apache.org/download.cgi</citetitle>
 							</ulink>.
 							Make sure that you download the version 2.0.xx -
@@ -107,22 +107,22 @@
 					<listitem>
 						<para>
 							Once you have the Apache2 installer you
-							can doubleclick on it and it will guide you through
+					can doubleclick on it and it will guide you through
 							the installation process. Make sure that you enter
-							the server-URL correctly (if you don't have a dns name
-							for your server just enter the ip-address). I recommend
+					the server-URL correctly (if you don't have a dns name
+					for your server just enter the ip-address). I recommend
 							to install apache
 							<literal>for all users, on port 80, as a service</literal>.
 							Note: if you already have IIS or any other
-							program running which listens on port 80 the
-							installation might fail. If that happens, go to the
+					program running which listens on port 80 the
+					installation might fail. If that happens, go to the
 							programs directory,
 							<filename>\Apache Group\Apache2\conf</filename>
 							and locate the file
 							<filename>httpd.conf</filename>. Edit that file so that
 							<literal>Listen 80</literal> is changed to a free
 							port, e.g. <literal>Listen 81</literal>.
-							Then restart the installation - this time it should
+					Then restart the installation - this time it should
 							finish without problems.
 						</para>
 					</listitem>
@@ -130,9 +130,9 @@
 						<para>
 							Now test if the Apache-webserver is running
 							correctly by pointing your webbrowser to
-							<systemitem class="url">http://localhost/</systemitem>
-							- a preconfigured Website should show up.
-						</para>
+					<systemitem class="url">http://localhost/</systemitem>
+					- a preconfigured Website should show up.
+					</para>
 					</listitem>
 				</orderedlist>
 			</para>
@@ -147,14 +147,14 @@
 							<ulink url="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">
 								<citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle>
 							</ulink>.
-						</para>
+					</para>
 					</listitem>
 					<listitem>
 						<para>
 							Run the Subversion installer and follow
-							the instructions. If the Subversion installer recognized
-							that you've installed Apache, then you're almost done.
-							If it couldn't find an Apache server then you have to
+					the instructions. If the Subversion installer recognized
+					that you've installed Apache, then you're almost done.
+					If it couldn't find an Apache server then you have to
 							do some additional steps.
 						</para>
 					</listitem>
@@ -164,14 +164,14 @@
 						</indexterm>
 						<para>
 							Open the windows-explorer, go to the
-							installation directory of Subversion (usually
+					installation directory of Subversion (usually
 							<filename>c:\program files\Subversion</filename>)
 							and find the files
 							<filename>/Apache2/modules/mod_dav_svn.so</filename> and
 							<filename>mod_authz_svn.so</filename>
-							- copy these files to the Apache modules directory,
-							if they're not already installed there.
-							(usually
+					- copy these files to the Apache modules directory,
+					if they're not already installed there.
+					(usually
 							<filename>c:\program files\apache group\apache2\modules)</filename>
 						</para>
 					</listitem>
@@ -183,7 +183,7 @@
 							<filename>ssleay32.dll</filename>
 							from the Subversion installation directory to the
 							apache modules directory.
-						</para>
+					</para>
 					</listitem>
 				</orderedlist>
 			</para>
@@ -193,7 +193,7 @@
 			<para>
 				If you haven't created a Subversion repository yet,
 				it's time to do that now.
-			</para>
+				</para>
 			<orderedlist>
 				<listitem>
 					<para>
@@ -213,19 +213,19 @@
 				</listitem>
 				<listitem>
 					<para>
-						You can create a repository with the FSFS backend or with the
-						old but stable Berkeley Database (BDB) format. The FSFS format
-						is faster and it now works on network shares and Windows 98
-						without problems. The BDB format is more stable because it has
-						been tested longer. Read
-						<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch05.html#svn-ch-5-sect-1.2.A">
+					You can create a repository with the FSFS backend or with the
+					old but stable Berkeley Database (BDB) format. The FSFS format
+					is faster and it now works on network shares and Windows 98
+					without problems. The BDB format is more stable because it has
+					been tested longer. Read
+					<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch05.html#svn-ch-5-sect-1.2.A">
 							<citetitle>Chapter 5, Repository Data-Stores</citetitle>
 						</ulink>
 						in the SVN book for more information
 					</para>
 					<para>
-						Open the command prompt (or DOS-Box), change into 
-						<filename>D:\SVN\</filename> and type
+					Open the command prompt (or DOS-Box), change into 
+					<filename>D:\SVN\</filename> and type
 <screen>
 svnadmin create --fs-type bdb MyNewRepository
 </screen>
@@ -233,15 +233,15 @@ or
 <screen>
 svnadmin create --fs-type fsfs MyNewRepository
 </screen>
-						You can also use TortoiseSVN to create a repository. See 
-						<xref linkend="tsvn-serversetup-local-2"/>.
+					You can also use TortoiseSVN to create a repository. See 
+					<xref linkend="tsvn-serversetup-local-2"/>.
 					</para>
 				</listitem>
 			</orderedlist>
 			<para>
 				Now you've got a new repository located at
 				<filename>D:\SVN\MyNewRepository</filename>.
-			</para>
+				</para>
 			<warning>
 				<para>
 					Do not create or access a Berkeley DB repository on a network share.
@@ -254,26 +254,26 @@ svnadmin create --fs-type fsfs MyNewRepository
 				</para>
 			</warning>
 			<para>
-				Now you have set up Apache and Subversion, but Apache doesn't
-				know how to handle Subversion clients like TortoiseSVN yet.
-				To get Apache to know which URL shall be used for Subversion
-				repositories you have to edit the Apache config file (usually
-				located in
-				<filename>c:\program files\apache group\apache2\conf\httpd.conf</filename>)
-				with any text editor you like (e.g. Notepad):
-				<orderedlist>
+			Now you have set up Apache and Subversion, but Apache doesn't
+			know how to handle Subversion clients like TortoiseSVN yet.
+			To get Apache to know which URL shall be used for Subversion
+			repositories you have to edit the Apache config file (usually
+			located in
+			<filename>c:\program files\apache group\apache2\conf\httpd.conf</filename>)
+			with any text editor you like (e.g. Notepad):
+			<orderedlist>
 					<listitem>
 						<para>
 							Open the config file and find the lines:
 <screen>
 #LoadModule dav_module modules/mod_dav.so
 </screen>
-							and
+					and
 <screen>
 #LoadModule dav_fs_module modules/mod_dav_fs.so
 </screen>
-							and remove the comment sign '<literal>#</literal>'.
-						</para>
+					and remove the comment sign '<literal>#</literal>'.
+					</para>
 					</listitem>
 					<listitem>
 						<para>
@@ -281,7 +281,7 @@ svnadmin create --fs-type fsfs MyNewRepository
 <screen>
 LoadModule dav_svn_module modules/mod_dav_svn.so
 </screen>
-							and
+					and
 <screen>
 LoadModule authz_svn_module modules/mod_authz_svn.so
 </screen>
@@ -290,7 +290,7 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 							That way you don't have to copy the
 							<filename>*.so</filename> files to the apache
 							directory for every update.
-						</para>
+					</para>
 					</listitem>
 					<listitem>
 						<para>
@@ -315,20 +315,20 @@ Require valid-user
 							repositories are available at
 							<systemitem class="url">http://MyServer/svn/</systemitem>.
 							The access is restricted to known users/passwords.
-						</para>
+					</para>
 					</listitem>
 					<listitem>
 						<para>
 							Open the command prompt (DOS-Box) again,
-							change to the apache2 folder (usually
-							<filename>c:\program files\apache group\apache2</filename>)
-							and create a password file by entering
+					change to the apache2 folder (usually
+					<filename>c:\program files\apache group\apache2</filename>)
+					and create a password file by entering
 <screen>
 bin\htpasswd -c passwd &lt;username&gt;
 </screen>
-							This will create a file with the name passwd which is
-							used for authentication. Additional users can be added
-							with
+					This will create a file with the name passwd which is
+					used for authentication. Additional users can be added
+					with
 <screen>
 bin\htpasswd passwd &lt;username&gt;
 </screen>
@@ -344,9 +344,9 @@ bin\htpasswd passwd &lt;username&gt;
 							Point your browser to
 							<systemitem class="url">http://MyServer/svn/MyNewRepository</systemitem>
 							(where <filename>MyNewRepository</filename> is the name of the
-							Subversion repository you created before). If all went
-							well you should be prompted for a username and password,
-							then you can see the contents of your
+					Subversion repository you created before). If all went
+					well you should be prompted for a username and password,
+					then you can see the contents of your
 							repository.
 						</para>
 					</listitem>
@@ -456,8 +456,8 @@ Require valid-user
 <screen>
 #AuthzSVNAccessFile svnaccessfile
 </screen>
-							and create a Subversion access file. An example file
-							would look like this:
+								and create a Subversion access file. An example file
+								would look like this:
 <screen>
 [groups]
 developers = user1,user2,user3,user4
@@ -481,17 +481,17 @@ docs = user5,user6,user7
 					<primary>SVNParentPath</primary>
 				</indexterm>
 				<para>
-					If you used the SVNParentPath directive then you don't have to
-					change the Apache config file everytime you add a new Subversion
-					repository. Simply create the new repository under the same
-					location as the first repository and you're done! In my company
-					I have direct access to that specific folder on the server via
-					SMB (normal windows file access). So I just create a new folder
+				If you used the SVNParentPath directive then you don't have to
+				change the Apache config file everytime you add a new Subversion
+				repository. Simply create the new repository under the same
+				location as the first repository and you're done! In my company
+				I have direct access to that specific folder on the server via
+				SMB (normal windows file access). So I just create a new folder
 					there, run the TortoiseSVN command
 					<menuchoice>
 						<guimenuitem>Create repository here...</guimenuitem>
 					</menuchoice>
-					and a new project has a home...
+				and a new project has a home...
 				</para>
 			</tip>
 		</sect2>
@@ -504,27 +504,27 @@ docs = user5,user6,user7
 				<primary>domaincontroller</primary>
 			</indexterm>
 			<para>
-				As you might have noticed you need to make a username/password
-				entry in the passwd file for each user separately. And if
-				(for security reasons) you want your users to change the
-				password from time to time you have to change that each time
-				manually.
+			As you might have noticed you need to make a username/password
+			entry in the passwd file for each user separately. And if
+			(for security reasons) you want your users to change the
+			password from time to time you have to change that each time
+			manually.
 			</para>
 			<para>
-				But there's a solution for that problem - at least if you're
-				accessing the repository from inside a LAN with a windows
-				domain controller: mod_auth_sspi!
+			But there's a solution for that problem - at least if you're
+			accessing the repository from inside a LAN with a windows
+			domain controller: mod_auth_sspi!
 			</para>
 			<para>
 				<indexterm>
 					<primary>SSPI</primary>
 				</indexterm>
-				The original SSPI module was offered by Syneapps including
-				sourcecode. But the development for it has been stopped. You can
-				still find that module on the internet - just do a
-				google search for it. We also have a compiled version of it
+			The original SSPI module was offered by Syneapps including
+			sourcecode. But the development for it has been stopped. You can
+			still find that module on the internet - just do a
+			google search for it. We also have a compiled version of it
 				on our website, including a patch from Vladimir Berezniker.
-				<ulink url="http://tortoisesvn.tigris.org/mod_auth_sspi.zip">
+			<ulink url="http://tortoisesvn.tigris.org/mod_auth_sspi.zip">
 					<citetitle>Get the mod_auth_sspi module</citetitle>
 				</ulink>.
 			</para>
@@ -552,15 +552,15 @@ LoadModule auth_module modules/mod_auth.so
 				<listitem>
 					<para>
 						To make the Subversion location use this
-						type of authentication you have to change the line
+				type of authentication you have to change the line
 <screen>
 AuthType Basic
 </screen>
-						to
+				to
 <screen>
 AuthType SSPI
 </screen>
-						also you need to add
+				also you need to add
 <screen>
 SSPIAuth On
 SSPIAuthoritative On
@@ -569,29 +569,29 @@ SSPIOfferBasic On
 </screen>
 						If you don't have a domain controller, leave the
 						name of the domain control as &lt;domaincontroller&gt;.
-					</para>
+				</para>
 				</listitem>
 			</itemizedlist>
 			<important>
 				<title>SSL and InternetExplorer</title>
 				<para>
-					If you're securing your server with SSL and use authentication
-					against a windows domain you will encounter that browsing
-					the repository with the Internet Explorer doesn't work
-					anymore. Don't worry - this is only the Internet Explorer
-					not able to authenticate. Other browsers don't have that
-					problem and TortoiseSVN and any other Subversion client are
-					still able to authenticate.
+				If you're securing your server with SSL and use authentication
+				against a windows domain you will encounter that browsing
+				the repository with the Internet Explorer doesn't work
+				anymore. Don't worry - this is only the Internet Explorer
+				not able to authenticate. Other browsers don't have that
+				problem and TortoiseSVN and any other Subversion client are
+				still able to authenticate.
 				</para>
 				<para>
 					If you still want to use IE to browse the repository
 					you can either:
-					<itemizedlist>
+				<itemizedlist>
 						<listitem>
 							<para>
 								define a separate &lt;Location /path&gt;
-								directive in the apache config file, and add the
-								<literal>SSPIBasicPreferred On</literal>.
+					directive in the apache config file, and add the
+					<literal>SSPIBasicPreferred On</literal>.
 								This will allow IE to authenticate again, but
 								other browsers and Subversion won't be able to
 								authenticate against that location.
@@ -615,9 +615,9 @@ SSPIOfferBasic On
 				<primary>SSL</primary>
 			</indexterm>
 			<para>
-				The apache server doesn't have SSL support installed by default
-				due to US-export restrictions. But you can easily download the
-				required module from somewhere else and install it yourself.
+			The apache server doesn't have SSL support installed by default
+			due to US-export restrictions. But you can easily download the
+			required module from somewhere else and install it yourself.
 			</para>
 			<orderedlist>
 				<listitem>
@@ -634,7 +634,7 @@ SSPIOfferBasic On
 						<filename>bin</filename> folder. Also copy the file
 						<filename>conf/ssl.conf</filename> to the
 						<filename>conf</filename> folder of Apache.
-					</para>
+				</para>
 				</listitem>
 				<listitem>
 					<para>
@@ -662,23 +662,23 @@ TransferLog logs/access_log
 <screen>
 SSLCertificateFile c:/apache/conf/ssl.crt/server.crt
 </screen>
-						to
+				to
 <screen>
 SSLCertificateFile conf/ssl/my-server.cert
 </screen>
-						the line
+				the line
 <screen>
 SSLCertificateKeyFile c:/apache/conf/ssl.key/server.key
 </screen>
-						to
+				to
 <screen>
 SSLCertificateKeyFile conf/ssl/my-server.key
 </screen>
-						and the line
+				and the line
 <screen>
 SSLMutex  file:logs/ssl_mutex
 </screen>
-						to
+				to
 <screen>
 #SSLMutex  file:logs/ssl_mutex
 SSLMutex  default
@@ -691,9 +691,9 @@ SSLMutex  default
 <screen>
 &lt;IfDefine SSL&gt;
 </screen>
-						and
+				and
 <screen>
-&lt;IfDefine&gt;
+&lt;/IfDefine&gt;
 </screen>
 					</para>
 				</listitem>
@@ -709,35 +709,36 @@ SSLMutex  default
 				<listitem>
 					<para>
 						Openssl needs a config file. You can download
-						a working one from
-						<ulink url="http://tud.at/programm/openssl.cnf">
+				a working one from
+				<ulink url="http://tud.at/programm/openssl.cnf">
 							<citetitle>http://tud.at/programm/openssl.cnf</citetitle>
 						</ulink>.
+						Save the file to <filename>bin/openssl.cnf</filename>.
 						Please note: the file has the type
 						<filename>*.cnf</filename>.
 						Windows treats such files in a special way but it
 						really is just a text file!
-					</para>
+				</para>
 				</listitem>
 				<listitem>
 					<para>
 						Next you need to create an SSL certificate.
-						To do that open a command prompt (DOS-Box) and change to
-						the apache folder (e.g.
-						<filename>C:\program files\apache group\apache2</filename>)
-						and type the following command:
+				To do that open a command prompt (DOS-Box) and change to
+				the apache folder (e.g.
+				<filename>C:\program files\apache group\apache2</filename>)
+				and type the following command:
 <screen>
 bin\openssl req -config bin\openssl.cnf -new -out my-server.csr
 </screen>
-						You will be asked for a passphrase. Please don't use simple
-						words but whole sentences, e.g. a part of a poem. The
-						longer the phrase the better. Also you have to enter the
-						URL of you server. All other questions are optional but I
-						recommend to fill out those too. Next type the commands
+				You will be asked for a passphrase. Please don't use simple
+				words but whole sentences, e.g. a part of a poem. The
+				longer the phrase the better. Also you have to enter the
+				URL of you server. All other questions are optional but I
+				recommend to fill out those too. Next type the commands
 <screen>
 bin\openssl rsa -in privkey.pem -out my-server.key
 </screen>
-						and (on one line)
+				and (on one line)
 <screen>
 bin\openssl x509 -in my-server.csr -out my-server.cert
                  -req -signkey my-server.key -days 4000
@@ -747,24 +748,24 @@ bin\openssl x509 -in my-server.csr -out my-server.cert
 <screen>
 bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 </screen>
-						These commands created some files in the apache folder.
+				These commands created some files in the apache folder.
 						Copy the files and to the folder
 						<filename>conf/ssl</filename> (e.g.
 						<filename>C:\program files\apache group\apache2\conf\ssl</filename>)
 						- if this folder does not exist you have to create it first.
-					</para>
+				</para>
 				</listitem>
 				<listitem>
 					<para>
 						Restart the apache service.
-					</para>
+				</para>
 				</listitem>
 				<listitem>
 					<para>
 						Point your browser to
-						<systemitem class="url">https://servername/svn/project</systemitem>
-						...
-					</para>
+				<systemitem class="url">https://servername/svn/project</systemitem>
+				...
+				</para>
 				</listitem>
 			</orderedlist>
 		</sect2>
@@ -780,11 +781,11 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 				<primary>svnserve</primary>
 			</indexterm>
 			<para>
-				There may be situations where it's not possible to use Apache as
+			There may be situations where it's not possible to use Apache as
 				your server.  Fortunately, Subversion includes
 				<filename>svnserve</filename>
-				- a lightweight stand-alone server which uses a custom protocol
-				over an ordinary TCP/IP connection.
+			- a lightweight stand-alone server which uses a custom protocol
+			over an ordinary TCP/IP connection.
 			</para>
 			<para>
 				In most cases <filename>svnserve</filename> is easier to setup
@@ -805,14 +806,14 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 					</listitem>
 					<listitem>
 						<para>
-							Run the Subversion installer.  If you run the installer on
+						Run the Subversion installer.  If you run the installer on
 							your server you can skip step 3.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							Open the windows-explorer, go to the
-							installation directory of Subversion (usually
+						Open the windows-explorer, go to the
+						installation directory of Subversion (usually
 							<filename>C:\Program Files\Subversion</filename>) and in the
 							<filename>bin</filename> directory, find the files
 							<filename>svnserve.exe</filename>,
@@ -829,15 +830,15 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 		<sect2 id="tsvn-serversetup-svnserve-3">
 			<title>Running svnserve</title>
 			<para>
-				Now that <filename>svnserve</filename> is installed, you need it running
-				on your server.  The simplest approach is to run the following from a DOS
-				shell or create a windows shortcut:
+			Now that <filename>svnserve</filename> is installed, you need it running
+			on your server.  The simplest approach is to run the following from a DOS
+			shell or create a windows shortcut:
 <screen>
 svnserve.exe -d
 </screen>
 				<filename>svnserve</filename> will now start waiting for incoming requests
 				on port 3690. The -d switch tells <filename>svnserve</filename> to run
-				as a daemon process, so it will always exist until it is manually terminated.
+			as a daemon process, so it will always exist until it is manually terminated.
 			</para>
 			<para>
 				If you have not yet created a repository, follow the
@@ -845,9 +846,9 @@ svnserve.exe -d
 				<xref linkend="tsvn-serversetup-apache-4"/>.
 			</para>
 			<para>
-				To test that <filename>svnserve</filename> is working, use TortoiseSVN's
+			To test that <filename>svnserve</filename> is working, use TortoiseSVN's
 				repo-browser to view a repository. The repo-browser is found in the
-				TortoiseSVN menu in windows-explorer.
+			TortoiseSVN menu in windows-explorer.
 			</para>
 			<para>
 				Assuming your repository is located in
@@ -858,23 +859,23 @@ svn://localhost/repos/TestRepo
 </screen>
 			</para>
 			<para>
-				You can also increase security and save time entering Url's with
-				<filename>svnserve</filename> by using the -r switch to set the root
-				location and restrict access to a specified directory on the server:
+			You can also increase security and save time entering Url's with
+			<filename>svnserve</filename> by using the -r switch to set the root
+			location and restrict access to a specified directory on the server:
 <screen>
 svnserve.exe -d -r drive:\path\to\repository
 </screen>
-				Using the previous test as a guide, <filename>svnserve</filename> would now run as:
+			Using the previous test as a guide, <filename>svnserve</filename> would now run as:
 <screen>
 svnserve.exe -d -r c:\repos
 </screen>
-				And in TortoiseSVN our repo-browser Url is now shortened to:
+			And in TortoiseSVN our repo-browser Url is now shortened to:
 <screen>
 svn://localhost/TestRepo
 </screen>
-				Note that the -r switch is also needed if your repository is located on
-				a different partition or drive than the location of <filename>svnserve</filename>
-				on your server.
+			Note that the -r switch is also needed if your repository is located on
+			a different partition or drive than the location of <filename>svnserve</filename>
+			on your server.
 			</para>
 			<warning>
 				<para>
@@ -890,10 +891,10 @@ svn://localhost/TestRepo
 			<tip>
 				<title>Run svnserve as a Service</title>
 				<para>
-					If you are concerned about always having a user logged in on your server,
-					or worried about someone shutting down <filename>svnserve</filename> or
-					forgetting to restart it after a reboot, it is possible to run
-					<filename>svnserve</filename> as a windows service using a wrapper
+				If you are concerned about always having a user logged in on your server,
+				or worried about someone shutting down <filename>svnserve</filename> or
+				forgetting to restart it after a reboot, it is possible to run
+				<filename>svnserve</filename> as a windows service using a wrapper
 					like the one available at
 					<ulink url="http://dark.clansoft.dk/~mbn/svnservice/">
 						<citetitle>http://dark.clansoft.dk/~mbn/svnservice/</citetitle>
@@ -915,20 +916,20 @@ svn://localhost/TestRepo
 		<sect2 id="tsvn-serversetup-svnserve-4">
 			<title>Authentication with svnserve</title>
 			<para>
-				The default <filename>svnserve</filename> setup provides anonymous read-only
-				access, so whilst you can use the repo-browser in TortoiseSVN to view a
-				repository using an svn:// Url, you won't be able to perform any
-				normal Subversion operations such as checkout, update or commit.
+			The default <filename>svnserve</filename> setup provides anonymous read-only
+			access, so whilst you can use the repo-browser in TortoiseSVN to view a
+			repository using an svn:// Url, you won't be able to perform any
+			normal Subversion operations such as checkout, update or commit.
 			</para>
 			<para>
-				To enable write access to a repository, you need to edit the
-				<filename>conf/svnserve.conf</filename> file in your repository
+			To enable write access to a repository, you need to edit the
+			<filename>conf/svnserve.conf</filename> file in your repository
 				directory.  This file controls the configuration of the
 				<filename>svnserve</filename> daemon, and also contains useful
 				documentation.
 			</para>
 			<para>
-				You can enable anonymous write access by simply setting:
+			You can enable anonymous write access by simply setting:
 <screen>
 [general]
 anon-access = write
@@ -939,17 +940,17 @@ anon-access = write
 				repository.  This is a somewhat risky setup!
 			</para>
 			<para>
-				One way to overcome this is to create a password database:
+			One way to overcome this is to create a password database:
 <screen>
 [general]
 anon-access = none
 auth-access = write
 password-db = password.conf
 </screen>
-				Where <filename>password.conf</filename> is a file which exists in
+			Where <filename>password.conf</filename> is a file which exists in
 				the same directory as <filename>svnserve.conf</filename>, it can also exist
-				on a path relative to the <filename>conf</filename> directory and has a
-				structure of:
+			on a path relative to the <filename>conf</filename> directory and has a
+			structure of:
 <screen>
 [users]
 username = password
@@ -960,14 +961,14 @@ username = password
 				<filename>password.conf</filename> file.
 			</para>
 			<para>
-				If you have multiple repositories, then setting up an authentication
-				realm should make administration easier.  For example, if you have
-				two repositories, creatively named TestRepo and TestRepo2, and they
+			If you have multiple repositories, then setting up an authentication
+			realm should make administration easier.  For example, if you have
+			two repositories, creatively named TestRepo and TestRepo2, and they
 				both live as sub-directories under
 				<filename>c:\repos</filename>,
-				to setup an authentication realm between them:
+			to setup an authentication realm between them:
 <screen>
-    <filename>c:\repos\TestRepo\conf\svnserve.conf</filename>
+					<filename>c:\repos\TestRepo\conf\svnserve.conf</filename>
 
 [general]
 anon-access = read
@@ -975,28 +976,28 @@ auth-access = write
 password-db = password.conf
 
 </screen>
-<screen>
-    <filename>c:\repos\TestRepo2\conf\svnserve.conf</filename>
+				<screen>
+					<filename>c:\repos\TestRepo2\conf\svnserve.conf</filename>
 
 [general]
 realm = /TestRepo
 </screen>
-				TestRepo2 now shares the same password database as TestRepo,
-				which gives read-only unauthenticated (anonymous) access and
-				read-write access for authenticated users.
+			TestRepo2 now shares the same password database as TestRepo,
+			which gives read-only unauthenticated (anonymous) access and
+			read-write access for authenticated users.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-serversetup-svnserve-5">
 			<title>Authentication with svn+ssh</title>
 			<para>
-				Another way to authenticate users with a <filename>svnserve</filename>
-				based server is to use a secure shell (SSH) to tunnel requests through.
+			Another way to authenticate users with a <filename>svnserve</filename>
+			based server is to use a secure shell (SSH) to tunnel requests through.
 			</para>
 			<para>
-				With this approach, <filename>svnserve</filename> is not run as a daemon
-				process, rather, the secure shell starts <filename>svnserve</filename>
-				for you, running it	as the SSH authenticated user.  To enable this, you
-				need a secure shell daemon on your server.
+			With this approach, <filename>svnserve</filename> is not run as a daemon
+			process, rather, the secure shell starts <filename>svnserve</filename>
+			for you, running it	as the SSH authenticated user.  To enable this, you
+			need a secure shell daemon on your server.
 			</para>
 			<para>
 				It is beyond the scope of this documentation to detail the
@@ -1010,7 +1011,7 @@ realm = /TestRepo
 				</ulink>
 			</para>
 			<para>
-				Once you can connect to a secure shell on your server,
+			Once you can connect to a secure shell on your server,
 				to set up <filename>svnserve</filename> you need to ensure
 				the following:
 			</para>
@@ -1037,11 +1038,11 @@ realm = /TestRepo
 							<ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/">
 								<citetitle>plink</citetitle>
 							</ulink>,
-							so normally you only have to set the SSH client as:
+						so normally you only have to set the SSH client as:
 <screen>
 C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername
 </screen>
-							Or if you trust the security on your computer and it's surroundings:
+						Or if you trust the security on your computer and it's surroundings:
 <screen>
 C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername -pw password
 </screen>
@@ -1050,11 +1051,11 @@ C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername -pw password
 				</orderedlist>
 			</para>
 			<para>
-				To test your secure shell with <filename>svnserve</filename>, use
-				TortoiseSVN's repo-browser to view a repository.  Assuming your
-				repository is located in <filename>c:\repos\TestRepo</filename>,
-				and your server is called localhost, when asked by repo-browser,
-				enter Url:
+			To test your secure shell with <filename>svnserve</filename>, use
+			TortoiseSVN's repo-browser to view a repository.  Assuming your
+			repository is located in <filename>c:\repos\TestRepo</filename>,
+			and your server is called localhost, when asked by repo-browser,
+			enter Url:
 <screen>
 svn+ssh://localhost/repos/TestRepo
 </screen>
@@ -1076,11 +1077,11 @@ svn+ssh://localhost/repos/TestRepo
 		<sect2 id="tsvn-serversetup-local-1">
 			<title>Introduction</title>
 			<para>
-				If you're not working in a team but working alone on a project and
-				still want your work under version control you can also access
-				a repository locally. This kind of repository access is also
-				very handy if you just want to try out some Subversion commands
-				and you don't want to change your official repository.
+			If you're not working in a team but working alone on a project and
+			still want your work under version control you can also access
+			a repository locally. This kind of repository access is also
+			very handy if you just want to try out some Subversion commands
+			and you don't want to change your official repository.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-serversetup-local-2">
@@ -1098,7 +1099,7 @@ svn+ssh://localhost/repos/TestRepo
 				<listitem>
 					<para>
 						Create a new folder and name it e.g.
-						<filename>SVNRepository</filename>
+				<filename>SVNRepository</filename>
 					</para>
 				</listitem>
 				<listitem>
@@ -1109,28 +1110,28 @@ svn+ssh://localhost/repos/TestRepo
 							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Create Repository here...</guimenuitem>
 						</menuchoice>.
-					</para>
-					<para>
-						You can create a repository with the FSFS backend or with the
-						old but stable Berkeley Database (BDB) format. The FSFS format
-						is faster and it now works on network shares and Windows 98
-						without problems. The BDB format is more stable because it has
-						been tested longer. Read
-						<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch05.html#svn-ch-5-sect-1.2.A">
+				</para>
+				<para>
+				You can create a repository with the FSFS backend or with the
+				old but stable Berkeley Database (BDB) format. The FSFS format
+				is faster and it now works on network shares and Windows 98
+				without problems. The BDB format is more stable because it has
+				been tested longer. Read
+				<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch05.html#svn-ch-5-sect-1.2.A">
 							<citetitle>Chapter 5, Repository Data-Stores</citetitle>
 						</ulink>
 						in the SVN book for more information.
-					</para>
-					<para>
+				</para>
+				<para>
 						A repository is then created inside the new folder.
 						<emphasis>Don't edit those files yourself!!!</emphasis>.
 						If you get any errors make sure that the folder is empty
 						and not write protected.
-					</para>
+				</para>
 				</listitem>
 			</orderedlist>
 			<para>
-				To access your local repository you need the path to that folder.
+			To access your local repository you need the path to that folder.
 				Just remember that Subversion expects all repository paths in the form
 				<systemitem class="url">file:///C:/SVNRepository/</systemitem>
 			</para>
@@ -1146,11 +1147,11 @@ svn+ssh://localhost/repos/TestRepo
 				</para>
 			</warning>
 			<tip>
-				<para>
-					If you really need to access a repository through a network share,
-					create the repository with fsfs format. If you need to provide
-					server access as well, you will need Subversion Server 1.1 or higher.
-				</para>
+			<para>
+			If you really need to access a repository through a network share,
+			create the repository with fsfs format. If you need to provide
+			server access as well, you will need Subversion Server 1.1 or higher.
+			</para>
 			</tip>
 		</sect2>
 	</sect1>

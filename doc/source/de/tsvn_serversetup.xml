@@ -611,7 +611,7 @@ SSLMutex  default
 </screen>
 				and
 <screen>
-&lt;IfDefine&gt;
+&lt;/IfDefine&gt;
 </screen>
 					</para>
 				</listitem>
@@ -628,6 +628,7 @@ SSLMutex  default
 				a working one from
 				<ulink url="http://tud.at/programm/openssl.cnf">
 				<citetitle>http://tud.at/programm/openssl.cnf</citetitle></ulink>.
+				Save the file to <filename>bin/openssl.cnf</filename>.
 				Please note: the file has the type <filename>*.cnf</filename>.
 				Windows treats such files in a special way but it really is
 				just a text file!
@@ -642,7 +643,7 @@ SSLMutex  default
 <screen>
 bin\openssl req -config bin\openssl.cnf -new -out my-server.csr
 </screen>
-				You will ber asked for a passphrase. Please don't use simple
+				You will be asked for a passphrase. Please don't use simple
 				words but whole sentences, e.g. a part of a poem. The
 				longer the phrase the better. Also you have to enter the
 				URL of you server. All other questions are optional but I
