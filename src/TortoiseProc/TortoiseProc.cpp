@@ -491,6 +491,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			//
 			CCheckoutDlg dlg;
 			dlg.m_strCheckoutDirectory = cmdLinePath.GetDirectory().GetWinPathString();
+			dlg.m_URL = parser.GetVal(_T("url"));
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_URL);

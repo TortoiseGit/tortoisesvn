@@ -74,6 +74,9 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 	m_editRevision.SetWindowText(_T(""));
 
+	if (!m_URL.IsEmpty())
+		m_URLCombo.SetWindowText(m_URL);
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
 	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
