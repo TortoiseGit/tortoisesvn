@@ -32,6 +32,8 @@
 #define IDR_SEARCH                      163
 #define IDD_SETTINGSPROGS               163
 #define IDI_DRIVES                      164
+#define IDD_RENAME1                     164
+#define IDD_URL                         164
 #define IDI_SSH                         165
 #define IDI_PROXY                       166
 #define IDI_MISC                        167

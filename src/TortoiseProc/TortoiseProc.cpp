@@ -933,16 +933,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			} // if (status.GetStatus(path)!=-2)
 			if (url.IsEmpty())
 			{
-				CRenameDlg rendlg;
-				rendlg.m_windowtitle.LoadString(IDS_PROC_ENTERURL);
-				rendlg.m_label.LoadString(IDS_PROC_ENTERURLLABEL);
-				if (rendlg.DoModal() != IDOK)
+				CURLDlg urldlg;
+				if (urldlg.DoModal() != IDOK)
 				{
 					if (TSVNMutex)
 						::CloseHandle(TSVNMutex);
 					return FALSE;
 				}
-				url = rendlg.m_name;
+				url = urldlg.m_url;
 			} // if (dlg.m_strUrl.IsEmpty())
 			CRepositoryBrowser dlg(url);
 			dlg.m_bStandAlone = TRUE;

@@ -1,3 +1,6 @@
+- ADD: The dialog asking the user to enter an URL (e.g.
+       for the repo browser) has now a history of
+       the last used URL's for the user to select from. (Stefan)
 - BUG: The shell part didn't have the APR_ICONV_PATH
        environement variable set. (Stefan)
 
