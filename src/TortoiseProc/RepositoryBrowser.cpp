@@ -282,9 +282,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					temp.LoadString(IDS_REPOBROWSE_RENAME);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
 
-					temp.LoadString(IDS_REPOBROWSE_COPY);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
 				} // if (GetRevision().IsHead()
+				temp.LoadString(IDS_REPOBROWSE_COPY);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
@@ -505,32 +505,87 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPCOPYTO:
 				{
-					CRenameDlg dlg;
-					dlg.m_name = url;
-					dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
-					if (dlg.DoModal() == IDOK)
+					if (GetRevision().IsHead())
 					{
-						SVN svn;
-						svn.m_app = &theApp;
-						CWaitCursorEx wait_cursor;
-						CInputDlg input(this);
-						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
-						if (input.DoModal() == IDOK)
+						CRenameDlg dlg;
+						dlg.m_name = url;
+						dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
+						if (dlg.DoModal() == IDOK)
 						{
-							if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, input.m_sInputText))
+							SVN svn;
+							svn.m_app = &theApp;
+							CWaitCursorEx wait_cursor;
+							CInputDlg input(this);
+							input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+							input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+							input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+							if (input.DoModal() == IDOK)
 							{
+								if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, input.m_sInputText))
+								{
+									wait_cursor.Hide();
+									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									return;
+								} // if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, _T("copy remotely"))) 
+								if (bFolder)
+									m_treeRepository.AddFolder(dlg.m_name);
+								else
+									m_treeRepository.AddFile(dlg.m_name);
+							} // if (input.DoModal() == IDOK) 
+						} // if (dlg.DoModal() == IDOK) 
+					}
+					else
+					{
+						OPENFILENAME ofn;		// common dialog box structure
+						TCHAR szFile[MAX_PATH];  // buffer for file name
+						ZeroMemory(szFile, sizeof(szFile));
+						// Initialize OPENFILENAME
+						ZeroMemory(&ofn, sizeof(OPENFILENAME));
+						//ofn.lStructSize = sizeof(OPENFILENAME);
+						ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+						ofn.hwndOwner = this->m_hWnd;
+						ofn.lpstrFile = szFile;
+						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+						CString temp;
+						temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+						if (temp.IsEmpty())
+							ofn.lpstrTitle = NULL;
+						else
+							ofn.lpstrTitle = temp;
+						ofn.Flags = OFN_OVERWRITEPROMPT;
+
+						CString sFilter;
+						sFilter.LoadString(IDS_COMMONFILEFILTER);
+						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+						_tcscpy (pszFilters, sFilter);
+						// Replace '|' delimeters with '\0's
+						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+						while (ptr != pszFilters)
+						{
+							if (*ptr == '|')
+								*ptr = '\0';
+							ptr--;
+						} // while (ptr != pszFilters) 
+						ofn.lpstrFilter = pszFilters;
+						ofn.nFilterIndex = 1;
+						// Display the Open dialog box. 
+						CString tempfile;
+						if (GetSaveFileName(&ofn)==TRUE)
+						{
+							CWaitCursorEx wait_cursor;
+							tempfile = CString(ofn.lpstrFile);
+							SVN svn;
+							svn.m_app = &theApp;
+							if (!svn.Copy(url, tempfile, GetRevision()))
+							{
+								delete [] pszFilters;
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
-							} // if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, _T("copy remotely"))) 
-							if (bFolder)
-								m_treeRepository.AddFolder(dlg.m_name);
-							else
-								m_treeRepository.AddFile(dlg.m_name);
-						} // if (input.DoModal() == IDOK) 
-					} // if (dlg.DoModal() == IDOK) 
+							} 
+						} // if (GetSaveFileName(&ofn)==TRUE) 
+						delete [] pszFilters;
+					}
 				}
 				break;
 			case ID_POPMKDIR:

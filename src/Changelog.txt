@@ -18,6 +18,11 @@
        and copy them to the clipboard. (Stefan)
 - ADD: The overlay/columns can be disabled for specific
        folders by placing special files in them. (Stefan)
+- ADD: A "Copy to..." command for the repository browser
+       which (if not showing HEAD) shows the "save as"
+       dialog and then copies the file to the working copy.
+       This is the recommended way to recover a deleted
+       file. (Stefan)
 - CHG: Searching in the log dialog now also searches
        the changed paths. (Stefan)
 - CHG: The locatorbar in TME shows the current view range
