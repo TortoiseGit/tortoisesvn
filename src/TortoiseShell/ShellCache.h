@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
+#include "atltrace.h"
 #include "globals.h"
 #include <tchar.h>
 #include <string>
@@ -39,6 +40,10 @@ public:
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
+		for (int i=0; i<27; i++)
+		{
+			drivetypecache[i] = -1;
+		}
 	}
 	DWORD BlockStatus()
 	{
@@ -89,20 +94,38 @@ public:
 	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
-		TCHAR pathbuf[MAX_PATH+4];
-		_tcscpy(pathbuf, path);
-		PathRemoveFileSpec(pathbuf);
-		PathAddBackslash(pathbuf);
 		UINT drivetype = 0;
-		if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)
-			drivetype = drivetypecache;
+		int drivenumber = PathGetDriveNumber(path);
+		if ((drivenumber >=0)&&(drivenumber < 25))
+		{
+			drivetype = drivetypecache[drivenumber];
+			if (drivetype == -1)
+			{
+				TCHAR pathbuf[MAX_PATH+4];
+				_tcscpy(pathbuf, path);
+				PathRemoveFileSpec(pathbuf);
+				PathAddBackslash(pathbuf);
+				ATLTRACE2(_T("GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
+				drivetype = GetDriveType(pathbuf);
+				drivetypecache[drivenumber] = drivetype;
+			} // if (drivetype == -1)
+		} // if ((drivenumber >=0)&&(drivenumber < 25)) 
 		else
 		{
-			drivetype = GetDriveType(pathbuf);
-			drivetypecache = drivetype;
-			_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);
+			TCHAR pathbuf[MAX_PATH+4];
+			_tcscpy(pathbuf, path);
+			PathRemoveFileSpec(pathbuf);
+			PathAddBackslash(pathbuf);
+			if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)
+				drivetype = drivetypecache[26];
+			else
+			{
+				ATLTRACE2(_T("GetDriveType for %s\n"), pathbuf);
+				drivetype = GetDriveType(pathbuf);
+				drivetypecache[26] = drivetype;
+				_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);
+			} 
 		}
-			
 		if ((drivetype == DRIVE_REMOVABLE)&&(!IsRemovable()))
 			return FALSE;
 		if ((drivetype == DRIVE_FIXED)&&(!IsFixed()))
@@ -148,6 +171,6 @@ private:
 	DWORD layoutticker;
 	DWORD langticker;
 	DWORD blockstatusticker;
-	UINT  drivetypecache;
+	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];
 };

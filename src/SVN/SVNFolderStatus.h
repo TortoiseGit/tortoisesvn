@@ -50,9 +50,9 @@ typedef struct filestatuscache
 } filestatuscache;
 
 #define SVNFOLDERSTATUS_CACHETIMES				10
-#define SVNFOLDERSTATUS_CACHETIMEOUT			200
-#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT	500
-#define SVNFOLDERSTATUS_FOLDER					200
+#define SVNFOLDERSTATUS_CACHETIMEOUT			500
+#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT	1000
+#define SVNFOLDERSTATUS_FOLDER					500
 /**
  * \ingroup TortoiseShell
  * This class represents a caching mechanism for the
