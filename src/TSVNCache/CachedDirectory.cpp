@@ -477,17 +477,11 @@ svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
 void CCachedDirectory::UpdateCurrentStatus()
 {
 	svn_wc_status_kind newStatus = CalculateRecursiveStatus();
-	if ((m_currentFullStatus == svn_wc_status_unversioned) && (!m_directoryPath.HasAdminDir()))
-	{
-		// this directory is unversioned, i.e. it doesn't even contain an admin dir, so
-		// a status change is irrelevant because it can't have a status!
-		m_bCurrentFullStatusValid = true;
-		return;
-	}
-	ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);
+
 
 	if (newStatus != m_currentFullStatus)
 	{
+		ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);
 		// Our status has changed - tell the shell
 		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_directoryPath.GetWinPath(), NULL);
 	}
