@@ -1381,10 +1381,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 						if (! fileop.fAnyOperationsAborted)
 						{
-							POSITION pos = GetFirstSelectedItemPosition();
-							int index;
-							while ((index = GetNextSelectedItem(pos)) >= 0)
+							POSITION pos = NULL;
+							while ((pos = GetFirstSelectedItemPosition()) >= 0)
 							{
+								int index = GetNextSelectedItem(pos);
 								if (GetCheck(index))
 									m_nSelected--;
 								m_nTotal--;
