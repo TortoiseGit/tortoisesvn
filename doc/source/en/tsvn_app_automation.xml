@@ -145,7 +145,10 @@
 							<entry>resolve</entry>
 							<entry>
 								Marks a conflicted file specified in 
-								<option>/path</option> as resolved.
+								<option>/path</option> as resolved. If 
+								<option>/noquestion</option> is given, then resolving
+								is done without asking the user first if it really
+								should be done.
 							</entry>
 						</row>
 						<row>

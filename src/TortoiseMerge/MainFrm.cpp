@@ -748,7 +748,7 @@ void CMainFrame::OnFileSave()
 		(*end) = 0;
 		_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
 		_tcscat(buf, this->m_Data.m_sMergedFile);
-		_tcscat(buf, _T("\" /closeonend"));
+		_tcscat(buf, _T("\" /closeonend /noquestion"));
 		STARTUPINFO startup;
 		PROCESS_INFORMATION process;
 		memset(&startup, 0, sizeof(startup));

@@ -500,12 +500,18 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region resolve
 		if (comVal.Compare(_T("resolve"))==0)
 		{
-			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
-			CSVNProgressDlg progDlg;
-			progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
-			m_pMainWnd = &progDlg;
-			progDlg.SetParams(Resolve, false, path);
-			progDlg.DoModal();
+			UINT ret = CMessageBox::Show(EXPLORERHWND, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO);
+			if (parser.HasKey(_T("noquestion")))
+				ret = IDYES;
+			if (ret==IDYES)
+			{
+				CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
+				CSVNProgressDlg progDlg;
+				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
+				m_pMainWnd = &progDlg;
+				progDlg.SetParams(Resolve, false, path);
+				progDlg.DoModal();
+			}
 		}
 		//#endregion
 		//#region repocreate
