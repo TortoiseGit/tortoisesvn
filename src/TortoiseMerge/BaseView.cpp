@@ -701,10 +701,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 
 	// Acquire the background color for the current line
 	BOOL bDrawWhitespace = FALSE;
-	COLORREF crBkgnd, crText;
+	COLORREF crBkgnd, crText, crWhiteDiffBk, crWhiteDiffFg;
 	if ((m_arLineStates)&&(m_arLineStates->GetCount()>nLineIndex))
 	{
 		m_pMainFrame->m_Data.GetColors((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
+		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_WHITESPACE_DIFF, crWhiteDiffBk, crWhiteDiffFg);
 		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd))
 		{
 			crBkgnd = (~crBkgnd)&0x00FFFFFF;
@@ -749,7 +750,55 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 			if (nCount > nCountFit)
 				nCount = nCountFit;
 
-			VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+			if ((CDiffData::DIFFSTATE_WHITESPACE==(CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex))
+				&&(m_pwndLeft)&&(m_pwndRight) &&
+				((m_pwndLeft->IsWindowVisible() && m_pwndRight->IsWindowVisible())))
+			{
+				// whitespaces are different, so draw those different
+				CString sOtherLine;
+				if (this == m_pwndLeft)
+				{
+					LPCTSTR pszRightLine = m_pwndRight->m_arDiffLines->GetAt(nLineIndex);
+					ExpandChars(pszRightLine, 0, m_pwndRight->GetLineLength(nLineIndex), sOtherLine);
+				} // if (this == m_pwndLeft)
+				else if (this == m_pwndRight)
+				{
+					LPCTSTR pszLeftLine = m_pwndLeft->m_arDiffLines->GetAt(nLineIndex);
+					ExpandChars(pszLeftLine, 0, m_pwndLeft->GetLineLength(nLineIndex), sOtherLine);
+				}
+				CString line2 = line;
+				line2 = line2.TrimLeft(_T(" \t"));
+				nCount = line.GetLength() - line2.GetLength();
+				VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+				origin.x += nCount * nCharWidth;
+				line = line.TrimLeft(_T(" \t"));
+				sOtherLine = sOtherLine.TrimLeft(_T(" \t"));
+				while (!line.IsEmpty())
+				{
+					if (sOtherLine.GetAt(0) == line.GetAt(0))
+					{
+						nCount = 1;
+						VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+						origin.x += nCharWidth;
+						sOtherLine = sOtherLine.Mid(1);
+						line = line.Mid(1);
+					} // if (line2.GetAt(0) == line.GetAt(0))
+					else
+					{
+						sOtherLine = sOtherLine.TrimLeft(_T(" \t"));
+						nCount = line.GetLength() - sOtherLine.GetLength();
+						pDC->SetBkColor(crWhiteDiffBk);
+						pDC->SetTextColor(crWhiteDiffFg);
+						VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+						pDC->SetBkColor(crBkgnd);
+						pDC->SetTextColor(crText);
+						origin.x += nCount * nCharWidth;
+						line = line.TrimLeft(_T(" \t"));
+					}
+				} // while (!line2.IsEmpty()) 
+			}
+			else
+				VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
 		} // if (nWidth > 0) 
 		origin.x += GetCharWidth() * line.GetLength();
 	} // if (nLength > 0) 
