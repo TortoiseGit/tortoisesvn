@@ -226,6 +226,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 						break;
 					s = status.GetNextFileStatus(&strbuf);
 				}
+				strLine = strLine.Left(strLine.ReverseFind('/'));
 			}
 
 			if (s!=0)
@@ -646,7 +647,10 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
 	TCHAR buf[100];
 	int index = GetItemCount();
 	int nCol = 1;
-	InsertItem(index, entry->path.Right(entry->path.GetLength() - entry->basepath.GetLength() - 1));
+	CString entryname = entry->path.Right(entry->path.GetLength() - entry->basepath.GetLength() - 1);
+	if (entryname.IsEmpty())
+		entryname = entry->path.Mid(entry->path.ReverseFind('/')+1);
+	InsertItem(index, entryname);
 	if (m_dwColumns & SVNSLC_COLSTATUS)
 	{
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
