@@ -19,8 +19,8 @@
 
 #include "StdAfx.h"
 #include "SVNRev.h"
-#include "svn_pools.h"
 #include "svn_time.h"
+#include "SVNHelpers.h"
 
 SVNRev::SVNRev(CString sRev)
 {
@@ -35,10 +35,11 @@ void SVNRev::Create(CString sRev)
 	if (sRev.Left(1).Compare(_T("{"))==0)
 	{
 		// brackets denote a date
-		apr_pool_t * pool = svn_pool_create(NULL);
+		SVNPool pool;
 		svn_boolean_t matched;
 		apr_time_t tm;
-		if (pool)
+//BUBGUG?  We don't bother testing for good pool creation anywhere else - should we bother here?
+		if ((apr_pool_t*)pool)
 		{
 			CStringA sRevA = CStringA(sRev);
 			sRevA = sRevA.Mid(1, sRevA.GetLength()-2);
@@ -50,7 +51,6 @@ void SVNRev::Create(CString sRev)
 				rev.value.date = tm;
 				m_bIsValid = TRUE;
 			} // if (svn_parse_date(&matched, &tm, sRevA, apr_time_now(), pool))
-			svn_pool_destroy(pool);
 		}
 	} // if (sRev.Left(1).Compare(_T("{"))==0)
 	else if (sRev.CompareNoCase(_T("HEAD"))==0)

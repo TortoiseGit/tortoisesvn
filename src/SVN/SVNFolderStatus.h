@@ -89,14 +89,14 @@ private:
 };
 
 
-typedef struct filestatuscache
+typedef struct FileStatusCacheEntry
 {
 	svn_wc_status_kind		status;
 	const char*				author;		///< points to a (possibly) shared value
 	const char*				url;		///< points to a (possibly) shared value
 	svn_revnum_t			rev;
 	int						askedcounter;
-} filestatuscache;
+} FileStatusCacheEntry;
 
 #define SVNFOLDERSTATUS_CACHETIMES				10
 #define SVNFOLDERSTATUS_CACHETIMEOUT			2000
@@ -140,25 +140,26 @@ class SVNFolderStatus :  public CApr, public SVNStatus
 public:
 	SVNFolderStatus(void);
 	~SVNFolderStatus(void);
-	filestatuscache *	GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
-	filestatuscache *	GetCachedItem(LPCTSTR filepath);
+	const FileStatusCacheEntry *	GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
+	const FileStatusCacheEntry *	GetCachedItem(LPCTSTR filepath);
 
-	filestatuscache		invalidstatus;
+	FileStatusCacheEntry		invalidstatus;
 
 	bool TortoiseProcHasInvalidatedCache() const;
 
 
 private:
-	filestatuscache *	BuildCache(LPCTSTR filepath, BOOL bIsFolder);
+	const FileStatusCacheEntry * BuildCache(LPCTSTR filepath, BOOL bIsFolder);
 	DWORD				GetTimeoutValue();
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	
 	BOOL				m_bColumnProvider;
 	int					m_nCounter;
-	std::map<stdstring, filestatuscache> m_cache;
+	typedef std::map<stdstring, FileStatusCacheEntry> CacheMap;
+	CacheMap			m_cache;
 	DWORD				m_TimeStamp;
-	filestatuscache		dirstat;
-	filestatuscache		filestat;
+	FileStatusCacheEntry	dirstat;
+	FileStatusCacheEntry	filestat;
 	
 	// merging these pools won't save memory
 	// but access will become slower

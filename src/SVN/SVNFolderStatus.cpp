@@ -107,7 +107,7 @@ SVNFolderStatus::~SVNFolderStatus(void)
 	CloseHandle(m_hInvalidationEvent);
 }
 
-filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
+const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 {
 	svn_client_ctx_t *			ctx;
 	apr_hash_t *				statushash;
@@ -237,11 +237,11 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 
 	svn_pool_destroy (pool);				//free allocated memory
 	m_TimeStamp = GetTickCount();
-	filestatuscache * ret = NULL;
-	std::map<stdstring, filestatuscache>::iterator iter;
+	const FileStatusCacheEntry * ret = NULL;
+	CacheMap::const_iterator iter;
 	if ((iter = m_cache.find(filepath)) != m_cache.end())
 	{
-		ret = (filestatuscache *)&iter->second;
+		ret = &iter->second;
 	}
 	ClearPool();
 	if (ret)
@@ -260,9 +260,9 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 	return factor*timeout;
 }
 
-filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
+const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
 {
-	filestatuscache * ret = NULL;
+	const FileStatusCacheEntry * ret = NULL;
 	m_bColumnProvider = bColumnProvider;
 	BOOL bHasAdminDir = g_ShellCache.HasSVNAdminDir(filepath, bIsFolder);
 	
@@ -289,13 +289,13 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolde
 		return &invalidstatus;
 }
 
-filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
+const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 {
 	DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
 	if (dwWaitResult == WAIT_OBJECT_0)
 	{
 		sCacheKey.assign(filepath);
-		std::map<stdstring, filestatuscache>::iterator iter;
+		CacheMap::const_iterator iter;
 		if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
 		{
 			ATLTRACE2(_T("cache found for %s\n"), filepath);
@@ -306,7 +306,7 @@ filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 //it seems to me that things might move around between us letting go of the mutex and the
 //caller of this function actually using the data.
 // I suspect that we should really enter and leave the mutex at a slightly higher-level up the call-chain
-			filestatuscache *retVal = &iter->second;
+			const FileStatusCacheEntry *retVal = &iter->second;
 			if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
 			{
 				// Cache is timed-out
@@ -333,8 +333,8 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	if ((status->entry)&&(g_ShellCache.IsRecursive())&&(status->entry->kind == svn_node_dir))
 		return;
 
-	std::map<stdstring, filestatuscache> * cache = (std::map<stdstring, filestatuscache> *)(&Stat->m_cache);
-	filestatuscache s;
+	CacheMap * cache = &Stat->m_cache;
+	FileStatusCacheEntry s;
 	if ((status)&&(status->entry))
 	{
 		s.author = Stat->authors.GetString(status->entry->cmt_author);

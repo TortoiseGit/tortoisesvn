@@ -143,8 +143,14 @@ void CShellUpdater::UpdateShell(const CTSVNPathList& pathlist)
 			// than making one with the two flags combined, I think splitting the flags into 
 			// two calls is better
 			// It has the additional merit of actually working on my XP machines...
-			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
-			SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
+			if(pathlist[nPath].IsDirectory())
+			{
+				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
+			}
+			else
+			{
+				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
+			}
 		}
 	}
 }

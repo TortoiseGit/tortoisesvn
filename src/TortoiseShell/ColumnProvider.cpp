@@ -28,7 +28,7 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 
 // Defines that revision numbers occupy at most MAX_REV_STRING_LEN characters.
 // There are Perforce repositories out there that have several 100,000 revs.
-// So, don't be too restrictive by limiting this to 6 digits + 1 seperator, 
+// So, don't be too restrictive by limiting this to 6 digits + 1 separator, 
 // for instance. 
 //
 // Because shorter strings will be extended to have exactly MAX_REV_STRING_LEN 
@@ -303,7 +303,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		return;
 	LoadLangDll();
 	columnfilepath = path;
-	filestatuscache * status;
+	const FileStatusCacheEntry * status;
 	if (! g_ShellCache.IsPathAllowed(path))
 		status = &g_CachedStatus.invalidstatus;
 	else

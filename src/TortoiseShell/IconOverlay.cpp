@@ -170,7 +170,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
 	//also check if we already have the status for the path so we don't have to get it again (small cache)
-	if (_tcscmp(pPath, g_filepath.c_str())==0 && g_CachedStatus.TortoiseProcHasInvalidatedCache())
+	if (_tcscmp(pPath, g_filepath.c_str())==0 && !g_CachedStatus.TortoiseProcHasInvalidatedCache())
 	{
 		status = g_filestatus;
 	}
@@ -179,7 +179,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		if (! g_ShellCache.IsPathAllowed(pPath))
 			return S_FALSE;
 
-		filestatuscache * s = g_CachedStatus.GetCachedItem(pPath);
+		const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
 		if (s)
 		{
 			status = s->status;
@@ -199,7 +199,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 					}
 					else
 					{
-						filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+						const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
 						status = s->status;
 						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 					}
@@ -211,7 +211,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			} // if (PathIsDirectory(g_filepath))
 			else
 			{
-				filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
 				status = s->status;
 			}
 		}
