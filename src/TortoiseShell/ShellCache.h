@@ -159,7 +159,7 @@ public:
 				drivetypeticker = GetTickCount();
 				TCHAR pathbuf[MAX_PATH+4];
 				_tcscpy(pathbuf, path);
-				PathRemoveFileSpec(pathbuf);
+				PathStripToRoot(pathbuf);
 				PathAddBackslash(pathbuf);
 				ATLTRACE2(_T("GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
 				drivetype = GetDriveType(pathbuf);
@@ -174,7 +174,7 @@ public:
 				drivetype = DRIVE_REMOTE;
 			else
 			{
-				PathRemoveFileSpec(pathbuf);
+				PathStripToRoot(pathbuf);
 				PathAddBackslash(pathbuf);
 				if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)
 					drivetype = drivetypecache[26];
