@@ -48,6 +48,35 @@ void CDib::DeleteObject()
     memset(&m_BMinfo, 0, sizeof(m_BMinfo));
 }
 
+template <class T> class fixed_array {
+
+  public:
+
+	typedef typename T value_type;
+
+	inline fixed_array(size_t len)
+		: m_len   (len)
+		, m_array (new value_type[len])
+	{ }
+
+	inline ~fixed_array() {
+		delete [] m_array;
+		m_array = NULL;
+	}
+
+	inline const value_type& operator [] (size_t i) const { ASSERT(i < m_len); return m_array[i];  }
+	inline       value_type& operator [] (size_t i)       { ASSERT(i < m_len); return m_array[i];  }
+
+	inline operator const value_type* () const { return &m_array[0]; }
+	inline operator       value_type* ()       { return &m_array[0]; }
+
+  private:
+
+	size_t      m_len;
+	value_type* m_array;
+
+};
+
 void CDib::Create32BitFromPicture (CPictureHolder* pPicture, int iWidth, int iHeight)
 {
 	CRect r;
@@ -65,7 +94,7 @@ void CDib::Create32BitFromPicture (CPictureHolder* pPicture, int iWidth, int iHe
 	pPicture->Render(&tempDC,r,r);
 
 	// Create a 32 bit bitmap
-	m_pBits = new DWORD[iWidth*iHeight];
+	fixed_array<DWORD> pBits(iWidth * iHeight);
 
 	BITMAPINFO bi;
     bi.bmiHeader.biSize          = sizeof(BITMAPINFOHEADER);
@@ -81,7 +110,7 @@ void CDib::Create32BitFromPicture (CPictureHolder* pPicture, int iWidth, int iHe
     bi.bmiHeader.biClrImportant  = 0; 
 	
 	
-	SetBitmap(&bi,m_pBits);
+	SetBitmap(&bi, pBits);
 
 	DWORD* pAr = (DWORD*)GetDIBits();
 
