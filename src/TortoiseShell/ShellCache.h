@@ -173,23 +173,28 @@ public:
 		{
 			TCHAR pathbuf[MAX_PATH+4];
 			_tcscpy(pathbuf, path);
-			PathRemoveFileSpec(pathbuf);
-			PathAddBackslash(pathbuf);
-			if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)
-				drivetype = drivetypecache[26];
+			if (PathIsUNCServer(pathbuf))
+				drivetype = DRIVE_REMOTE;
 			else
 			{
-				ATLTRACE2(_T("GetDriveType for %s\n"), pathbuf);
-				drivetype = GetDriveType(pathbuf);
-				drivetypecache[26] = drivetype;
-				_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);
-			} 
+				PathRemoveFileSpec(pathbuf);
+				PathAddBackslash(pathbuf);
+				if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)
+					drivetype = drivetypecache[26];
+				else
+				{
+					ATLTRACE2(_T("GetDriveType for %s\n"), pathbuf);
+					drivetype = GetDriveType(pathbuf);
+					drivetypecache[26] = drivetype;
+					_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);
+				} 
+			}
 		}
 		if ((drivetype == DRIVE_REMOVABLE)&&(!IsRemovable()))
 			return FALSE;
 		if ((drivetype == DRIVE_FIXED)&&(!IsFixed()))
 			return FALSE;
-		if ((drivetype == DRIVE_REMOTE)&&(!IsRemote()))
+		if (((drivetype == DRIVE_REMOTE)||(drivetype == DRIVE_NO_ROOT_DIR))&&(!IsRemote()))
 			return FALSE;
 		if ((drivetype == DRIVE_CDROM)&&(!IsCDRom()))
 			return FALSE;
