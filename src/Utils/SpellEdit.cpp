@@ -54,8 +54,13 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 		{
 			CPen margpen(PS_SOLID, 0, ::GetSysColor(COLOR_GRAYTEXT));
 			pOldPen = dc.SelectObject( &margpen );
-			dc.MoveTo(m_nMarginLine*sizei.cx, rect.top);
-			dc.LineTo(m_nMarginLine*sizei.cx, rect.bottom);
+			POINT pt = {0,0};
+			RECT rect;
+			SendMessage((UINT)EM_GETRECT, 0, (LPARAM)&rect);
+			int pos = CharFromPos(pt);
+			pos = LOWORD(pos) - LineIndex(HIWORD(pos));
+			dc.MoveTo(m_nMarginLine*sizei.cx-(pos*sizei.cx)-rect.left, rect.top);
+			dc.LineTo(m_nMarginLine*sizei.cx-(pos*sizei.cx)-rect.left, rect.bottom);
 			dc.SelectObject(pOldPen);
 		}
 
@@ -468,4 +473,74 @@ void CSpellEdit::SetThesaurPaths(CString sIdx, CString sDat)
 		delete pThesaur;
 	}
 	pThesaur = new MyThes(CStringA(sIdx), CStringA(sDat));
+}
+
+void CSpellEdit::WordWrap(BOOL wrap)
+{
+	// preserve original control's state. 
+	CFont* pFont = GetFont(); 
+	CString sSaveText;
+	GetWindowText(sSaveText); 
+
+	// create new edit control with appropriate style and size. 
+	DWORD dwStyle = GetStyle() & ~(ES_AUTOHSCROLL|WS_HSCROLL|WS_VISIBLE); 
+	if (!wrap) 
+		dwStyle |= ES_AUTOHSCROLL|WS_HSCROLL; 
+
+	CWnd* pParent = GetParent(); 
+	CRect rect; 
+	GetWindowRect(rect); 
+	pParent->ScreenToClient(rect); 
+	CWnd* pFocus = GetFocus(); 
+
+	UINT_PTR nID = GetDlgCtrlID(); 
+
+	HWND hWnd = ::CreateWindowEx(WS_EX_CLIENTEDGE, _T("edit"), NULL, dwStyle, 
+		rect.left, rect.top, rect.right-rect.left, rect.bottom-rect.top, 
+		pParent->m_hWnd, (HMENU)nID, AfxGetInstanceHandle(), NULL); 
+
+	if (hWnd == NULL) 
+	{ 
+		return; 
+	} 
+
+	// set the window text to nothing to make sure following set doesn't fail 
+	SetWindowText(NULL); 
+
+	// restore visual state 
+	::SetWindowText(hWnd, sSaveText); 
+	if (pFont != NULL) 
+	{ 
+		ASSERT(pFont->m_hObject != NULL); 
+		::SendMessage(hWnd, WM_SETFONT, (WPARAM)pFont->m_hObject, 0); 
+	} 
+
+	// detach old window, attach new 
+	SetDlgCtrlID((UINT)nID+1); 
+	HWND hWndOld = Detach(); 
+	::SetWindowLongPtr(hWndOld, GWL_WNDPROC, (LONG_PTR)*GetSuperWndProcAddr()); 
+	ASSERT(m_hWnd == NULL); 
+	SubclassWindow(hWnd); 
+	ASSERT(m_hWnd == hWnd); 
+
+	GetClientRect(&rect); 
+	SetWindowPos(NULL, 0, 0, 0, 0, 
+		SWP_NOMOVE|SWP_NOSIZE|SWP_NOACTIVATE|SWP_NOZORDER|SWP_SHOWWINDOW); 
+	SetWindowPos(NULL, 0, 0, 0, 0, 
+		SWP_NOMOVE|SWP_NOSIZE|SWP_NOACTIVATE|SWP_NOZORDER|SWP_DRAWFRAME); 
+	SetWindowPos(NULL, 0, 0, 0, 0, SWP_NOMOVE|SWP_NOSIZE|SWP_NOACTIVATE); 
+	UpdateWindow(); 
+
+	// destroy old 
+	::SetWindowPos(hWndOld, NULL, 0, 0, 0, 0, 
+		SWP_HIDEWINDOW|SWP_NOREDRAW|SWP_NOMOVE|SWP_NOSIZE|SWP_NOACTIVATE| 
+		SWP_NOZORDER); 
+	::DestroyWindow(hWndOld); 
+
+	if (pFocus == this) 
+		SetFocus(); 
+
+	ASSERT_VALID(this); 
+	return; 
+
 }

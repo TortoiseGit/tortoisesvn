@@ -81,7 +81,7 @@ public:
 	void	SetThesaurPaths(CString sIdx, CString sDat);
 	void	SetUnderlineColor(COLORREF color) {m_ErrColor = color;}
 	void	SetMarginLine(int line) {m_nMarginLine = line;}
-
+	void	WordWrap(BOOL wrap);
 protected:
 	afx_msg void OnTimer(UINT nIDEvent);
 	virtual void PreSubclassWindow();
