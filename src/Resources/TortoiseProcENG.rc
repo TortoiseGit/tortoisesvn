@@ -309,8 +309,8 @@ BEGIN
                     IDC_STATIC,13,191,318,8
     EDITTEXT        IDC_WCPATH,13,203,261,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    LTEXT           "which points to the repository at the URL:",IDC_STATIC,
-                    13,216,325,8
+    LTEXT           "which points to repository at the URL:",IDC_STATIC,13,
+                    216,325,8
     EDITTEXT        IDC_WCURL,13,228,318,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     PUSHBUTTON      "Sh&ow Log",IDC_WCLOG,281,203,50,14
