@@ -190,6 +190,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				// the entry doesn't exist anymore! Remove the cache entry
 				// of it so we never have to deal with it anymore.
 				CSVNStatusCache::Instance().RemoveCacheForPath(path);
+				return CStatusCacheEntry();
 			}
 			else
 			{
