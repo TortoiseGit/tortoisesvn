@@ -1,15 +1,25 @@
-/**************CSplitterControl interface***********
-*	Class name :CSplitterControl
-*	Purpose: Implement splitter control for dialog
-*			or any other windows.
-*	Author: Nguyen Huy Hung, Vietnamese student.
-*	Date:	May 29th 2002.
-*	Note: You can use it for any purposes. Feel free
-*			to change, modify, but please do not 
-*			remove this.
-*	No warranty of any risks.
-*	(:-)
-*/
+// TortoiseSVN - a Windows shell extension for easy version control
+
+// Copyright (C) 2003-2005 - Stefan Kueng
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+//
+
+// this file is based on the work of Nguyen Huy Hung (may 29th 2002),
+// but modified a lot so it works as a real CStatic component
+
 #pragma once
 
 /////////////////////////////////////////////////////////////////////////////
