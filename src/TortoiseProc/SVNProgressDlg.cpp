@@ -133,8 +133,7 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 		{
 			temp.Format(IDS_PROGRS_ATREV, rev);
 			m_ProgList.SetItemText(count, 1, temp);
-			if (m_nRevisionEnd == 0)
-				m_nRevisionEnd = rev;
+			m_nRevisionEnd = rev;
 		}
 		//m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
 		Data * data = new Data();
