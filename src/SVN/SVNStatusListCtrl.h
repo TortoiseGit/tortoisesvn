@@ -159,6 +159,10 @@ public:
 	BOOL HasExternals() {return m_bHasExternals;}
 
 	/**
+	 * If unversioned files are found (but not necessarily shown) TRUE is returned.
+	 */
+	BOOL HasUnversionedItems() {return m_bHasUnversionedItems;}
+	/**
 	 * Returns the file entry data for the list control index.
 	 */
 	CSVNStatusListCtrl::FileEntry * GetListEntry(int index);
@@ -231,6 +235,7 @@ private:
 	static int					m_nSortedColumn;	///< which column to sort
 	BOOL						m_bHasExternalsFromDifferentRepos;
 	BOOL						m_bHasExternals;
+	BOOL						m_bHasUnversionedItems;
 	CArray<FileEntry *, FileEntry *> m_arStatusArray;
 	CDWordArray					m_arListArray;
 	CStringArray				m_templist;

@@ -1702,6 +1702,12 @@ BEGIN
     IDS_STATUSLIST_CONTEXT_ADD "Add"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED 
+                            "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

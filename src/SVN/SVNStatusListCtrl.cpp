@@ -171,6 +171,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 	m_nTargetCount = 0;
 	m_bHasExternalsFromDifferentRepos = FALSE;
 	m_bHasExternals = FALSE;
+	m_bHasUnversionedItems = FALSE;
 	
 	m_bBlock = TRUE;
 
@@ -277,6 +278,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				}
 				if (s->text_status == svn_wc_status_external)
 					m_bHasExternals = TRUE;
+				if (SVNStatus::GetMoreImportant(s->text_status, s->prop_status) == svn_wc_status_unversioned)
+					m_bHasUnversionedItems = TRUE;
 				FileEntry * entry = new FileEntry();
 				entry->path = strbuf;
 				entry->basepath = strLine;
@@ -318,6 +321,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					CDirFileEnum filefinder(strbuf);
 					CString filename;
 					bool bIsDirectory;
+					m_bHasUnversionedItems = TRUE;
 					while (filefinder.NextFile(filename,&bIsDirectory))
 					{
 						filename.Replace('\\', '/');
@@ -396,6 +400,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 
 					if (s->text_status == svn_wc_status_external)
 						m_bHasExternals = TRUE;
+					if (SVNStatus::GetMoreImportant(s->text_status, s->prop_status) == svn_wc_status_unversioned)
+						m_bHasUnversionedItems = TRUE;
 
 					FileEntry * entry = new FileEntry();
 					entry->path = strbuf;
@@ -436,6 +442,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							CDirFileEnum filefinder(strbuf);
 							CString filename;
 							bool bIsDirectory;
+							m_bHasUnversionedItems = TRUE;
 							while (filefinder.NextFile(filename, &bIsDirectory))
 							{
 								if (!config.MatchIgnorePattern(filename, pIgnorePatterns))

@@ -414,14 +414,32 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		pDlg->EndDialog(0);
 		return (DWORD)-1;
 	}
-	if (pDlg->m_ListCtrl.GetItemCount()==0)
+	if ((pDlg->m_ListCtrl.GetItemCount()==0)&&(!pDlg->m_ListCtrl.HasUnversionedItems()))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
 		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-		pDlg->m_bBlock = FALSE;
 		pDlg->EndDialog(0);
 		return (DWORD)-1;
-	} // if (pDlg->m_ListCtrl.GetItemCount()==0)
+	}
+	else
+	{
+		if (pDlg->m_ListCtrl.GetItemCount()==0)
+		{
+			if (CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
+			{
+				pDlg->m_bShowUnversioned = TRUE;
+				pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
+				DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWUNVERSIONED;
+				pDlg->m_ListCtrl.Show(dwShow);
+			}
+			else
+			{
+				pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+				pDlg->EndDialog(0);
+				return (DWORD)-1;
+			}
+		}
+	}
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)pDlg->m_ListCtrl.m_sUUID);
 	pDlg->m_OldLogs.LoadHistory(reg, _T("logmsgs"));
@@ -591,11 +609,29 @@ void CLogPromptDlg::OnCbnCloseupOldlogs()
 
 LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 {
-	if (m_ListCtrl.GetItemCount()==0)
+	if ((m_ListCtrl.GetItemCount()==0)&&(!m_ListCtrl.HasUnversionedItems()))
 	{
 		CMessageBox::Show(*this, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
 		GetDlgItem(IDCANCEL)->EnableWindow(true);
 		EndDialog(0);
-	} // if (m_ListCtrl.GetItemCount()==0)
+	}
+	else
+	{
+		if (m_ListCtrl.GetItemCount()==0)
+		{
+			if (CMessageBox::Show(*this, IDS_LOGPROMPT_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
+			{
+				m_bShowUnversioned = TRUE;
+				DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS | SVNSLC_SHOWUNVERSIONED;
+				m_ListCtrl.Show(dwShow);
+				UpdateData(FALSE);
+			}
+			else
+			{
+				GetDlgItem(IDCANCEL)->EnableWindow(true);
+				EndDialog(0);
+			}
+		}
+	}
 	return 0;
 }

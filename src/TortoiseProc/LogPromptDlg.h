@@ -87,6 +87,7 @@ public:
 	CHistoryCombo	m_OldLogs;
 	CString			m_sPath;
 
+	BOOL			m_bShowUnversioned;
 	BOOL			m_bRecursive;
 	BOOL			m_bBlock;
 	CBalloon		m_tooltips;
@@ -95,7 +96,6 @@ public:
 private:
 	HANDLE			m_hThread;
 	CFont			m_logFont;
-	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
 };
