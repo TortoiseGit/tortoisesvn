@@ -283,9 +283,8 @@ BOOL SVN::Remove(CTSVNPathList pathlist, BOOL force, CString message)
 
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 	{
-		//TODO: we somehow have to differ between paths and URL's
 		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i].GetSVNPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+			Notify(pathlist[i].GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	}
 	UpdateShell(pathlist);
 
@@ -360,9 +359,8 @@ LONG SVN::Commit(CTSVNPathList pathlist, CString message, BOOL recurse)
 	
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 	{
-		//TODO: we somehow have to differ between paths and URL's
 		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i].GetSVNPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+			Notify(pathlist[i].GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	}
 	UpdateShell(pathlist);
 	if(commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
@@ -448,9 +446,8 @@ BOOL SVN::MakeDir(CTSVNPathList pathlist, CString message)
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 	{
-		//TODO: we somehow have to differ between paths and URL's
 		for (int i=0; i<pathlist.GetCount(); ++i)
-			Notify(pathlist[i].GetSVNPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+			Notify(pathlist[i].GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	}
 
 	UpdateShell(pathlist);
