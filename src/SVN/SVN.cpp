@@ -22,6 +22,7 @@
 #include "svn.h"
 #include "client.h"
 #include "UnicodeUtils.h"
+#include "DirFileEnum.h"
 #include <shlwapi.h>
 #include "wininet.h"
 
@@ -401,21 +402,173 @@ BOOL SVN::Resolve(CString path, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force)
+BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force, CProgressDlg * pProgDlg, BOOL extended)
 {
-	preparePath(srcPath);
-	preparePath(destPath);
 
-	Err = svn_client_export(NULL,		//no resulting revision needed
-							MakeSVNUrlOrPath(srcPath),
-							MakeSVNUrlOrPath(destPath),
-							revision,
-							force,
-							&ctx,
-							pool);
-	if(Err != NULL)
+	if (revision.IsWorking()&&(pProgDlg))
 	{
-		return FALSE;
+		// our own "export" function with a callback and the ability to export
+		// unversioned items too
+		if (extended)
+		{
+			CDirFileEnum lister1(srcPath);
+			DWORD maxval = 0;
+			DWORD current = 0;
+			// first, count all the items we have to copy
+			CString srcfile;
+			while (lister1.NextFile(srcfile))
+			{
+				if (srcfile.Find(_T(SVN_WC_ADM_DIR_NAME))<0)
+					maxval++;
+			}
+			CDirFileEnum lister2(srcPath);
+			while (lister2.NextFile(srcfile))
+			{
+				if (srcfile.Find(_T(SVN_WC_ADM_DIR_NAME))>=0)
+					continue;	// exclude everything inside an admin directory
+				current++;
+				CString destination = destPath + _T("\\") + srcfile.Mid(srcPath.GetLength());
+				pProgDlg->SetProgress(current, maxval);
+				pProgDlg->SetLine(2, srcfile, TRUE);
+				if (CUtils::FileCopy(srcfile, destination, force)==FALSE)
+				{
+					LPVOID lpMsgBuf;
+					if (!FormatMessageA( 
+						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+						FORMAT_MESSAGE_FROM_SYSTEM | 
+						FORMAT_MESSAGE_IGNORE_INSERTS,
+						NULL,
+						GetLastError(),
+						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+						(LPSTR) &lpMsgBuf,
+						0,
+						NULL ))
+					{
+						// Handle the error.
+						return FALSE;
+					}
+
+					Err = svn_error_create(NULL, NULL, (const char *)lpMsgBuf);
+					// Free the buffer.
+					LocalFree( lpMsgBuf );
+					return FALSE;
+				}
+				if (pProgDlg->HasUserCancelled())
+				{
+					Err = svn_error_create(NULL, NULL, "user cancelled");
+					return FALSE;
+				}
+			} // while (lister2.NextFile(srcfile))
+		}
+		else
+		{
+			const TCHAR * strbuf = NULL;
+			svn_wc_status_t * s;
+			SVNStatus status;
+			if (s = status.GetFirstFileStatus(srcPath, &strbuf))
+			{
+				DWORD maxval = status.GetVersionedCount();
+				DWORD current = 0;
+				if (SVNStatus::GetMoreImportant(s->text_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
+				{
+					current++;
+					CString src = strbuf;
+					CString destination = destPath + _T("\\") + src.Mid(srcPath.GetLength());
+					pProgDlg->SetProgress(current, maxval);
+					pProgDlg->SetLine(2, src, TRUE);
+					if (CUtils::FileCopy(src, destination, force)==FALSE)
+					{
+						LPVOID lpMsgBuf;
+						if (!FormatMessageA( 
+							FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+							FORMAT_MESSAGE_FROM_SYSTEM | 
+							FORMAT_MESSAGE_IGNORE_INSERTS,
+							NULL,
+							GetLastError(),
+							MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+							(LPSTR) &lpMsgBuf,
+							0,
+							NULL ))
+						{
+							// Handle the error.
+							return FALSE;
+						}
+
+						Err = svn_error_create(NULL, NULL, (const char *)lpMsgBuf);
+						// Free the buffer.
+						LocalFree( lpMsgBuf );
+						return FALSE;
+					}
+				}
+				while (s = status.GetNextFileStatus(&strbuf))
+				{
+					if ((s->text_status == svn_wc_status_unversioned)||
+						(s->text_status == svn_wc_status_ignored)||
+						(s->text_status == svn_wc_status_none))
+						continue;
+					current++;
+					if ((s->text_status == svn_wc_status_missing)||
+						(s->text_status == svn_wc_status_deleted))
+						continue;
+					
+					CString src = strbuf;
+					CString destination = destPath + _T("\\") + src.Mid(srcPath.GetLength());
+					pProgDlg->SetProgress(current, maxval);
+					pProgDlg->SetLine(2, src, TRUE);
+					if (CUtils::FileCopy(src, destination, force)==FALSE)
+					{
+						LPVOID lpMsgBuf;
+						if (!FormatMessageA( 
+							FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+							FORMAT_MESSAGE_FROM_SYSTEM | 
+							FORMAT_MESSAGE_IGNORE_INSERTS,
+							NULL,
+							GetLastError(),
+							MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+							(LPSTR) &lpMsgBuf,
+							0,
+							NULL ))
+						{
+							// Handle the error.
+							return FALSE;
+						}
+
+						Err = svn_error_create(NULL, NULL, (const char *)lpMsgBuf);
+						// Free the buffer.
+						LocalFree( lpMsgBuf );
+						return FALSE;
+					}
+					if (pProgDlg->HasUserCancelled())
+					{
+						Err = svn_error_create(NULL, NULL, "user cancelled");
+						return FALSE;
+					}
+				} // while (s = status.GetNextFileStatus(&strbuf))
+			} // if (s = status.GetFirstFileStatus(srcPath, &strbuf))
+			else
+			{
+				Err = svn_error_create(status.m_err->apr_err, status.m_err, NULL);
+				return FALSE;
+			}
+		} // else from if (extended)
+	}
+	else
+	{
+
+		preparePath(srcPath);
+		preparePath(destPath);
+
+		Err = svn_client_export(NULL,		//no resulting revision needed
+			MakeSVNUrlOrPath(srcPath),
+			MakeSVNUrlOrPath(destPath),
+			revision,
+			force,
+			&ctx,
+			pool);
+		if(Err != NULL)
+		{
+			return FALSE;
+		}
 	}
 	return TRUE;
 }

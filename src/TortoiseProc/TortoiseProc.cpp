@@ -561,39 +561,30 @@ BOOL CTortoiseProcApp::InitInstance()
 				temp.LoadString(IDS_PROC_EXPORT_1);
 				folderBrowser.SetInfo(temp);
 				folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+				temp.LoadString(IDS_PROC_EXPORT_2);
+				folderBrowser.SetCheckBoxText(temp);
 				if (folderBrowser.Show(EXPLORERHWND, saveto)==CBrowseFolder::OK)
 				{
 					CString saveplace = CString(saveto);
 					saveplace += path.Right(path.GetLength() - path.ReverseFind('\\'));
 					TRACE(_T("export %s to %s\n"), path, saveto);
 					CProgressDlg progDlg;
-					if (progDlg.IsValid())
-					{
-						CString temp;
-						temp.Format(IDS_PROC_EXPORT_2, path);
-						progDlg.SetLine(1, temp, true);
-						progDlg.SetLine(2, saveto, true);
-						temp.LoadString(IDS_PROC_EXPORT_3);
-						progDlg.SetTitle(temp);
-						progDlg.SetShowProgressBar(false);
-						progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
-						progDlg.SetAnimation(IDR_ANIMATION);
-					} // if (progDlg.IsValid()){
+					CString temp;
+					temp.LoadString(IDS_PROC_EXPORT_3);
+					progDlg.SetTitle(temp);
+					progDlg.SetLine(1, temp);
+					progDlg.SetShowProgressBar(true);
+					progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
+					progDlg.SetAnimation(IDR_ANIMATION);
 					SVN svn;
-					if (!svn.Export(path, saveplace, SVNRev::REV_WC))
+					if (!svn.Export(path, saveplace, SVNRev::REV_WC, TRUE, &progDlg, folderBrowser.m_bCheck))
 					{
-						if (progDlg.IsValid())
-						{
-							progDlg.Stop();
-						}
+						progDlg.Stop();
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 					}
 					else
 					{
-						if (progDlg.IsValid())
-						{
-							progDlg.Stop();
-						}
+						progDlg.Stop();
 						CString temp;
 						temp.Format(IDS_PROC_EXPORT_4, path, saveplace);
 						CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
