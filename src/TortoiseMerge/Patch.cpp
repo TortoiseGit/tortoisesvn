@@ -418,7 +418,6 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 		CString temp = GetFilename(i);
 		temppath.Replace('/', '\\');
 		temp.Replace('/', '\\');
-		temp = temp.Mid(temp.Find('\\')+1);
 		temppath = temppath.Right(temp.GetLength());
 		if (temp.CompareNoCase(temppath)==0)
 		{
