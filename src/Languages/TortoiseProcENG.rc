@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -826,10 +826,10 @@ BEGIN
     IDS_ERR_NOURLOFFILE     "Could not retrieve URL of the file!"
     IDS_ERR_WCCHANGED       "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
     IDS_ERR_COPYFILES       "Could not copy the files!\n<hr=100%>\n%s"
-    IDS_ERR_EXTMERGESTART   "Could not start external merge program!\n<hr=100%>"
+    IDS_ERR_EXTMERGESTART   "Could not start external merge program!\n<hr=100%>\n%s"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
     IDS_ERR_FAILEDIGNOREPROPERTY "Could not add %s to the ignore list!"
-    IDS_ERR_DIFFVIEWSTART   "Could not start diff viewer!"
+    IDS_ERR_DIFFVIEWSTART   "Could not start diff viewer!\n<hr=100%>\n%s"
     IDS_ERR_SSL_VALIDATE    "Error validating server certificate:"
     IDS_ERR_SSL_UNKNOWNCA   "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 END
@@ -925,12 +925,12 @@ BEGIN
     IDS_INPUT_MOVELOGMSG    "Moved remotely"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1010,7 +1010,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
