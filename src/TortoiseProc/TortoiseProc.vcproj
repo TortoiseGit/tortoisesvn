@@ -205,103 +205,34 @@
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc">
 			<Filter
-				Name="Source Files"
-				Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
+				Name="General"
+				Filter="">
 				<File
-					RelativePath="..\Utils\Balloon.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\BrowseFolder.cpp">
+					RelativePath="..\Utils\CApr.h">
 				</File>
 				<File
 					RelativePath="..\Utils\CmdLineParser.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\DIB.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\DirFileEnum.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\DirFileList.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\ReportCtrl\FlatHeaderCtrl.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\FontPreviewCombo.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\Gradient.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\HistoryCombo.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\HTMLFormatter.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\HyperLink.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\IconStatic.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\MessageBox.cpp">
+					RelativePath="..\Utils\CmdLineParser.h">
 				</File>
 				<File
 					RelativePath="..\Utils\PathUtils.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\ProgressDlg.cpp">
+					RelativePath="..\Utils\PathUtils.h">
 				</File>
 				<File
 					RelativePath="..\Utils\Registry.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\ReportCtrl\ReportCtrl.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\ReportCtrl\ReportOptionsCtrl.cpp">
-				</File>
-				<File
-					RelativePath=".\RepositoryBar.cpp">
-				</File>
-				<File
-					RelativePath="RepositoryTree.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\SpellEdit.cpp">
-				</File>
-				<File
-					RelativePath="stdafx.cpp">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="1"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="1"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="1"/>
-					</FileConfiguration>
+					RelativePath="..\Utils\registry.h">
 				</File>
 				<File
 					RelativePath="..\Utils\StringUtils.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\SysImageList.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\TreeCtrlEx.cpp">
+					RelativePath="..\Utils\StringUtils.h">
 				</File>
 				<File
 					RelativePath="..\TortoiseShell\UnicodeStrings.cpp">
@@ -325,41 +256,53 @@
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath="..\TortoiseShell\UnicodeStrings.h">
+				</File>
+				<File
 					RelativePath="..\Utils\UnicodeUtils.cpp">
+				</File>
+				<File
+					RelativePath="..\Utils\UnicodeUtils.h">
 				</File>
 				<File
 					RelativePath="Utils.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\WaitCursorEx.cpp">
-				</File>
-				<File
-					RelativePath="..\Utils\WaterEffect.cpp">
+					RelativePath="Utils.h">
 				</File>
 			</Filter>
 			<Filter
-				Name="Header Files"
-				Filter="h;hpp;hxx;hm;inl;inc">
+				Name="UI"
+				Filter="">
+				<File
+					RelativePath="..\Utils\Balloon.cpp">
+				</File>
 				<File
 					RelativePath="..\Utils\Balloon.h">
+				</File>
+				<File
+					RelativePath="..\Utils\BrowseFolder.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\BrowseFolder.h">
 				</File>
 				<File
-					RelativePath="..\Utils\CApr.h">
-				</File>
-				<File
-					RelativePath="..\Utils\CmdLineParser.h">
-				</File>
-				<File
 					RelativePath="..\Utils\Cursor.h">
+				</File>
+				<File
+					RelativePath="..\Utils\DIB.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\DIB.h">
 				</File>
 				<File
+					RelativePath="..\Utils\DirFileEnum.cpp">
+				</File>
+				<File
 					RelativePath="..\Utils\DirFileEnum.h">
+				</File>
+				<File
+					RelativePath="..\Utils\DirFileList.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\DirFileList.h">
@@ -368,728 +311,794 @@
 					RelativePath="..\Utils\DlgTemplate.h">
 				</File>
 				<File
-					RelativePath="..\Utils\ReportCtrl\FlatHeaderCtrl.h">
+					RelativePath="..\Utils\FontPreviewCombo.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\FontPreviewCombo.h">
 				</File>
 				<File
+					RelativePath="..\Utils\Gradient.cpp">
+				</File>
+				<File
 					RelativePath="..\Utils\Gradient.h">
+				</File>
+				<File
+					RelativePath="..\Utils\HistoryCombo.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\HistoryCombo.h">
 				</File>
 				<File
+					RelativePath="..\Utils\HTMLFormatter.cpp">
+				</File>
+				<File
 					RelativePath="..\Utils\HTMLFormatter.h">
+				</File>
+				<File
+					RelativePath="..\Utils\HyperLink.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\HyperLink.h">
 				</File>
 				<File
+					RelativePath="..\Utils\IconStatic.cpp">
+				</File>
+				<File
 					RelativePath="..\Utils\IconStatic.h">
+				</File>
+				<File
+					RelativePath="..\Utils\MessageBox.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\MessageBox.h">
 				</File>
 				<File
-					RelativePath="..\Utils\PathUtils.h">
+					RelativePath="..\Utils\ProgressDlg.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\ProgressDlg.h">
 				</File>
 				<File
-					RelativePath="..\Utils\registry.h">
-				</File>
-				<File
-					RelativePath="..\Utils\ReportCtrl\ReportCtrl.h">
-				</File>
-				<File
-					RelativePath="..\Utils\ReportCtrl\ReportOptionsCtrl.h">
-				</File>
-				<File
-					RelativePath=".\RepositoryBar.h">
-				</File>
-				<File
-					RelativePath="RepositoryTree.h">
+					RelativePath="..\Utils\SpellEdit.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\SpellEdit.h">
 				</File>
 				<File
-					RelativePath="..\Utils\StringUtils.h">
+					RelativePath="..\Utils\SysImageList.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\SysImageList.h">
 				</File>
 				<File
-					RelativePath="..\Utils\TreeCtrlEx.h">
-				</File>
-				<File
-					RelativePath="..\TortoiseShell\UnicodeStrings.h">
-				</File>
-				<File
-					RelativePath="..\Utils\UnicodeUtils.h">
-				</File>
-				<File
-					RelativePath="Utils.h">
+					RelativePath="..\Utils\WaitCursorEx.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\WaitCursorEx.h">
+				</File>
+				<File
+					RelativePath="..\Utils\WaterEffect.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\WaterEffect.h">
 				</File>
 			</Filter>
 			<Filter
-				Name="myspell"
+				Name="3rd Party"
 				Filter="">
-				<File
-					RelativePath="..\Utils\myspell\affentry.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\affentry.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\affixmgr.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\affixmgr.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\atypes.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\baseaffix.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\csutil.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\csutil.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\dictmgr.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\dictmgr.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\example.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\hashmgr.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\hashmgr.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\htypes.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\myspell.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\myspell.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\mythes.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\mythes.hxx">
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\suggestmgr.cxx">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Utils\myspell\suggestmgr.hxx">
-				</File>
+				<Filter
+					Name="myspell"
+					Filter="">
+					<File
+						RelativePath="..\Utils\myspell\affentry.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\affentry.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\affixmgr.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\affixmgr.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\atypes.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\baseaffix.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\csutil.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\csutil.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\dictmgr.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\dictmgr.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\example.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\hashmgr.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\hashmgr.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\htypes.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\myspell.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\myspell.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\mythes.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\mythes.hxx">
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\suggestmgr.cxx">
+						<FileConfiguration
+							Name="Debug|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release_MBCS|Win32">
+							<Tool
+								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"/>
+						</FileConfiguration>
+					</File>
+					<File
+						RelativePath="..\Utils\myspell\suggestmgr.hxx">
+					</File>
+				</Filter>
+				<Filter
+					Name="ReportCtrl"
+					Filter="">
+					<File
+						RelativePath="..\Utils\ReportCtrl\FlatHeaderCtrl.cpp">
+					</File>
+					<File
+						RelativePath="..\Utils\ReportCtrl\FlatHeaderCtrl.h">
+					</File>
+					<File
+						RelativePath="..\Utils\ReportCtrl\ReportCtrl.cpp">
+					</File>
+					<File
+						RelativePath="..\Utils\ReportCtrl\ReportCtrl.h">
+					</File>
+					<File
+						RelativePath="..\Utils\ReportCtrl\ReportOptionsCtrl.cpp">
+					</File>
+					<File
+						RelativePath="..\Utils\ReportCtrl\ReportOptionsCtrl.h">
+					</File>
+				</Filter>
+				<Filter
+					Name="TreeCtrlEx"
+					Filter="">
+					<File
+						RelativePath="..\Utils\TreeCtrlEx.cpp">
+					</File>
+					<File
+						RelativePath="..\Utils\TreeCtrlEx.h">
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
 			Name="Subversion"
 			Filter="">
-			<Filter
-				Name="Source Files"
-				Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
-				<File
-					RelativePath="..\SVN\SVN.cpp">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNConfig.cpp">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNPrompt.cpp">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNProperties.cpp">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Svn\SVNRev.cpp">
-				</File>
-				<File
-					RelativePath="..\SVN\SVNStatus.cpp">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="0"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="..\Svn\SVNUrl.cpp">
-				</File>
-			</Filter>
-			<Filter
-				Name="Header Files"
-				Filter="h;hpp;hxx;hm;inl;inc">
-				<File
-					RelativePath="..\SVN\SVN.h">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNConfig.h">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNPrompt.h">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNProperties.h">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNRev.h">
-				</File>
-				<File
-					RelativePath="..\SVN\SVNStatus.h">
-				</File>
-				<File
-					RelativePath="..\Svn\SVNUrl.h">
-				</File>
-			</Filter>
+			<File
+				RelativePath="..\SVN\SVN.cpp">
+			</File>
+			<File
+				RelativePath="..\SVN\SVN.h">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNConfig.cpp">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNConfig.h">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNPrompt.cpp">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNPrompt.h">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNProperties.cpp">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release_MBCS|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\Svn\SVNProperties.h">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNRev.cpp">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNRev.h">
+			</File>
+			<File
+				RelativePath="..\SVN\SVNStatus.cpp">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release_MBCS|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\SVN\SVNStatus.h">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNUrl.cpp">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNUrl.h">
+			</File>
 		</Filter>
 		<Filter
 			Name="Dialogs"
 			Filter="">
+			<File
+				RelativePath="Resource.h">
+			</File>
+			<File
+				RelativePath="TortoiseProc.cpp">
+			</File>
+			<File
+				RelativePath="TortoiseProc.h">
+			</File>
 			<Filter
-				Name="Source Files"
-				Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
-				<File
-					RelativePath="AboutDlg.cpp">
-				</File>
+				Name="Cmd Related Dialogs"
+				Filter="">
 				<File
 					RelativePath="AddDlg.cpp">
-				</File>
-				<File
-					RelativePath=".\Blame.cpp">
-				</File>
-				<File
-					RelativePath=".\BlameDlg.cpp">
-				</File>
-				<File
-					RelativePath=".\ChangedDlg.cpp">
-				</File>
-				<File
-					RelativePath="CheckoutDlg.cpp">
-				</File>
-				<File
-					RelativePath="CopyDlg.cpp">
-				</File>
-				<File
-					RelativePath="ImportDlg.cpp">
-				</File>
-				<File
-					RelativePath=".\InputDlg.cpp">
-				</File>
-				<File
-					RelativePath="LogDlg.cpp">
-				</File>
-				<File
-					RelativePath="LogPromptDlg.cpp">
-				</File>
-				<File
-					RelativePath="MergeDlg.cpp">
-				</File>
-				<File
-					RelativePath="PromptDlg.cpp">
-				</File>
-				<File
-					RelativePath="RelocateDlg.cpp">
-				</File>
-				<File
-					RelativePath="RenameDlg.cpp">
-				</File>
-				<File
-					RelativePath="RepositoryBrowser.cpp">
-				</File>
-				<File
-					RelativePath=".\RevisionDlg.cpp">
-				</File>
-				<File
-					RelativePath="SetMainPage.cpp">
-				</File>
-				<File
-					RelativePath=".\SetMenuPage.cpp">
-				</File>
-				<File
-					RelativePath="SetOverlayPage.cpp">
-				</File>
-				<File
-					RelativePath=".\SetProgsAdvDlg.cpp">
-				</File>
-				<File
-					RelativePath=".\SetProgsPage.cpp">
-				</File>
-				<File
-					RelativePath="SetProxyPage.cpp">
-				</File>
-				<File
-					RelativePath="Settings.cpp">
-				</File>
-				<File
-					RelativePath=".\SimplePrompt.cpp">
-				</File>
-				<File
-					RelativePath="SVNProgressDlg.cpp">
-				</File>
-				<File
-					RelativePath="SwitchDlg.cpp">
-				</File>
-				<File
-					RelativePath=".\ToolAssocDlg.cpp">
-				</File>
-				<File
-					RelativePath="TortoiseProc.cpp">
-				</File>
-				<File
-					RelativePath="UpdateDlg.cpp">
-				</File>
-				<File
-					RelativePath=".\URLDlg.cpp">
-				</File>
-			</Filter>
-			<Filter
-				Name="Header Files"
-				Filter="h;hpp;hxx;hm;inl;inc">
-				<File
-					RelativePath="AboutDlg.h">
 				</File>
 				<File
 					RelativePath="AddDlg.h">
 				</File>
 				<File
+					RelativePath=".\Blame.cpp">
+				</File>
+				<File
 					RelativePath=".\Blame.h">
+				</File>
+				<File
+					RelativePath=".\BlameDlg.cpp">
 				</File>
 				<File
 					RelativePath=".\BlameDlg.h">
 				</File>
 				<File
+					RelativePath=".\ChangedDlg.cpp">
+				</File>
+				<File
 					RelativePath=".\ChangedDlg.h">
+				</File>
+				<File
+					RelativePath="CheckoutDlg.cpp">
 				</File>
 				<File
 					RelativePath="CheckoutDlg.h">
 				</File>
 				<File
+					RelativePath="CopyDlg.cpp">
+				</File>
+				<File
 					RelativePath="CopyDlg.h">
+				</File>
+				<File
+					RelativePath="ImportDlg.cpp">
 				</File>
 				<File
 					RelativePath="ImportDlg.h">
 				</File>
 				<File
-					RelativePath=".\InputDlg.h">
+					RelativePath="LogDlg.cpp">
 				</File>
 				<File
 					RelativePath="LogDlg.h">
 				</File>
 				<File
-					RelativePath="LogPromptDlg.h">
+					RelativePath="MergeDlg.cpp">
 				</File>
 				<File
 					RelativePath="MergeDlg.h">
 				</File>
 				<File
-					RelativePath="PromptDlg.h">
+					RelativePath="RelocateDlg.cpp">
 				</File>
 				<File
 					RelativePath="RelocateDlg.h">
 				</File>
 				<File
+					RelativePath="RenameDlg.cpp">
+				</File>
+				<File
 					RelativePath="RenameDlg.h">
 				</File>
 				<File
-					RelativePath="RepositoryBrowser.h">
-				</File>
-				<File
-					RelativePath="Resource.h">
-				</File>
-				<File
-					RelativePath=".\RevisionDlg.h">
-				</File>
-				<File
-					RelativePath="SetMainPage.h">
-				</File>
-				<File
-					RelativePath=".\SetMenuPage.h">
-				</File>
-				<File
-					RelativePath="SetOverlayPage.h">
-				</File>
-				<File
-					RelativePath=".\SetProgsAdvDlg.h">
-				</File>
-				<File
-					RelativePath=".\SetProgsPage.h">
-				</File>
-				<File
-					RelativePath="SetProxyPage.h">
-				</File>
-				<File
-					RelativePath="Settings.h">
-				</File>
-				<File
-					RelativePath=".\SimplePrompt.h">
-				</File>
-				<File
-					RelativePath="stdafx.h">
-				</File>
-				<File
-					RelativePath="SVNProgressDlg.h">
+					RelativePath="SwitchDlg.cpp">
 				</File>
 				<File
 					RelativePath="SwitchDlg.h">
 				</File>
 				<File
-					RelativePath=".\ToolAssocDlg.h">
-				</File>
-				<File
-					RelativePath="TortoiseProc.h">
+					RelativePath="UpdateDlg.cpp">
 				</File>
 				<File
 					RelativePath="UpdateDlg.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="Repository Browser"
+				Filter="">
+				<File
+					RelativePath=".\RepositoryBar.cpp">
+				</File>
+				<File
+					RelativePath=".\RepositoryBar.h">
+				</File>
+				<File
+					RelativePath="RepositoryBrowser.cpp">
+				</File>
+				<File
+					RelativePath="RepositoryBrowser.h">
+				</File>
+				<File
+					RelativePath="RepositoryTree.cpp">
+				</File>
+				<File
+					RelativePath="RepositoryTree.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="Settings Dialog"
+				Filter="">
+				<File
+					RelativePath="SetMainPage.cpp">
+				</File>
+				<File
+					RelativePath="SetMainPage.h">
+				</File>
+				<File
+					RelativePath=".\SetMenuPage.cpp">
+				</File>
+				<File
+					RelativePath=".\SetMenuPage.h">
+				</File>
+				<File
+					RelativePath="SetOverlayPage.cpp">
+				</File>
+				<File
+					RelativePath="SetOverlayPage.h">
+				</File>
+				<File
+					RelativePath=".\SetProgsAdvDlg.cpp">
+				</File>
+				<File
+					RelativePath=".\SetProgsAdvDlg.h">
+				</File>
+				<File
+					RelativePath=".\SetProgsPage.cpp">
+				</File>
+				<File
+					RelativePath=".\SetProgsPage.h">
+				</File>
+				<File
+					RelativePath="SetProxyPage.cpp">
+				</File>
+				<File
+					RelativePath="SetProxyPage.h">
+				</File>
+				<File
+					RelativePath="Settings.cpp">
+				</File>
+				<File
+					RelativePath="Settings.h">
+				</File>
+				<File
+					RelativePath=".\ToolAssocDlg.cpp">
+				</File>
+				<File
+					RelativePath=".\ToolAssocDlg.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="Utility Dialogs"
+				Filter="">
+				<File
+					RelativePath="AboutDlg.cpp">
+				</File>
+				<File
+					RelativePath="AboutDlg.h">
+				</File>
+				<File
+					RelativePath=".\InputDlg.cpp">
+				</File>
+				<File
+					RelativePath=".\InputDlg.h">
+				</File>
+				<File
+					RelativePath="LogPromptDlg.cpp">
+				</File>
+				<File
+					RelativePath="LogPromptDlg.h">
+				</File>
+				<File
+					RelativePath="PromptDlg.cpp">
+				</File>
+				<File
+					RelativePath="PromptDlg.h">
+				</File>
+				<File
+					RelativePath=".\RevisionDlg.cpp">
+				</File>
+				<File
+					RelativePath=".\RevisionDlg.h">
+				</File>
+				<File
+					RelativePath=".\SimplePrompt.cpp">
+				</File>
+				<File
+					RelativePath=".\SimplePrompt.h">
+				</File>
+				<File
+					RelativePath="SVNProgressDlg.cpp">
+				</File>
+				<File
+					RelativePath="SVNProgressDlg.h">
+				</File>
+				<File
+					RelativePath=".\URLDlg.cpp">
 				</File>
 				<File
 					RelativePath=".\URLDlg.h">
 				</File>
 			</Filter>
-			<Filter
-				Name="Resource Files"
-				Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest">
-				<File
-					RelativePath="..\Languages\res\bin167.avi">
-				</File>
-				<File
-					RelativePath="..\Languages\res\bin168.avi">
-				</File>
-				<File
-					RelativePath="..\Languages\res\Drives.ico">
-				</File>
-				<File
-					RelativePath="..\Languages\res\info.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuabout.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuadd.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menucheckout.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menucleanup.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menucommit.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menucompare.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuconflict.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menucopy.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menucreaterepos.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menudelete.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuexport.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuhelp.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuignore.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuimport.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menulog.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menumerge.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menurelocate.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menurename.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuresolve.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menurevert.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menusettings.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menushowchanged.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuswitch.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\menuupdate.ico">
-				</File>
-				<File
-					RelativePath="..\Languages\res\misc.ico">
-				</File>
-				<File
-					RelativePath="..\Languages\res\proxy.ico">
-				</File>
-				<File
-					RelativePath="..\Languages\res\search.avi">
-				</File>
-				<File
-					RelativePath="..\Languages\res\ssh.ico">
-				</File>
-				<File
-					RelativePath="..\Languages\res\Tortoise.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\Tortoise.ico">
-				</File>
-				<File
-					RelativePath="..\Icons\Tortoise13by13.ico">
-				</File>
-				<File
-					RelativePath="..\Languages\res\TortoiseProc.manifest">
-				</File>
-				<File
-					RelativePath="..\Languages\res\TortoiseProc.rc2">
-				</File>
-				<File
-					RelativePath="..\Languages\TortoiseProcENG.rc">
-				</File>
-				<File
-					RelativePath="..\TortoiseShell\TortoiseSVN.dll.manifest">
-				</File>
-				<File
-					RelativePath="..\Languages\res\tortoisesvn_logoflipped.bmp">
-				</File>
-				<File
-					RelativePath="..\Languages\res\ttf_glyph.bmp">
-				</File>
-			</Filter>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest">
+			<File
+				RelativePath="..\Languages\res\bin167.avi">
+			</File>
+			<File
+				RelativePath="..\Languages\res\bin168.avi">
+			</File>
+			<File
+				RelativePath="..\Languages\res\Drives.ico">
+			</File>
+			<File
+				RelativePath="..\Languages\res\info.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuabout.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuadd.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menucheckout.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menucleanup.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menucommit.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menucompare.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuconflict.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menucopy.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menucreaterepos.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menudelete.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuexport.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuhelp.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuignore.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuimport.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menulog.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menumerge.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menurelocate.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menurename.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuresolve.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menurevert.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menusettings.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menushowchanged.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuswitch.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\menuupdate.ico">
+			</File>
+			<File
+				RelativePath="..\Languages\res\misc.ico">
+			</File>
+			<File
+				RelativePath="..\Languages\res\proxy.ico">
+			</File>
+			<File
+				RelativePath="..\Languages\res\search.avi">
+			</File>
+			<File
+				RelativePath="..\Languages\res\ssh.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\Tortoise.ico">
+			</File>
+			<File
+				RelativePath="..\Languages\res\Tortoise.ico">
+			</File>
+			<File
+				RelativePath="..\Icons\Tortoise13by13.ico">
+			</File>
+			<File
+				RelativePath="..\Languages\res\TortoiseProc.manifest">
+			</File>
+			<File
+				RelativePath="..\Languages\res\TortoiseProc.rc2">
+			</File>
+			<File
+				RelativePath="..\Languages\TortoiseProcENG.rc">
+			</File>
+			<File
+				RelativePath="..\TortoiseShell\TortoiseSVN.dll.manifest">
+			</File>
+			<File
+				RelativePath="..\Languages\res\tortoisesvn_logoflipped.bmp">
+			</File>
+			<File
+				RelativePath="..\Languages\res\ttf_glyph.bmp">
+			</File>
 		</Filter>
 		<File
-			RelativePath="ReadMe.txt">
+			RelativePath="stdafx.cpp">
+			<FileConfiguration
+				Name="Debug|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release_MBCS|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+		</File>
+		<File
+			RelativePath="stdafx.h">
 		</File>
 	</Files>
 	<Globals>
