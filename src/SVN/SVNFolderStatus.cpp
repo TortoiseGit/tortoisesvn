@@ -177,7 +177,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		{
 			LPCTSTR file;
 			// files are searched only by the filename, not the full path
-			wide_string str = CUnicodeUtils::StdGetUnicode(key);
+			stdstring str = CUnicodeUtils::StdGetUnicode(key);
 			
 			file = _tcsrchr(str.c_str(), '/')+1;
 			_tcscpy(m_pStatusCache[i].filename, file);
