@@ -746,7 +746,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_REVERTREV:
 					{
 						long rev = m_arRevs.GetAt(selIndex);
-						if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
+						CString msg;
+						msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPathString());
+						if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 						{
 							CString url = this->GetURLFromPath(m_path);
 							if (url.IsEmpty())
