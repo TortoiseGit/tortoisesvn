@@ -442,7 +442,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	if ((!isInSVN)&&(isFolder)&&(!isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCREATEREPOS), INDEXMENU(MENUCREATEREPOS), idCmd++, IDS_MENUCREATEREPOS, IDI_CREATEREPOS, idCmdFirst, CreateRepos);
-	if ((!isInSVN)&&(isInVersionedFolder))
+	if ((!isInSVN && isInVersionedFolder)||(isInSVN && isFolder))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
 	if ((!isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);

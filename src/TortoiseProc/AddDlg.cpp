@@ -277,7 +277,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 				{
 					temp = strbuf;
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-					if (SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)
+					if ((SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)&&((stat!=svn_wc_status_ignored)||(!bIsDir)))
 					{
 						if ((!CCheckTempFiles::IsTemp(temp))||(!bIsDir))
 						{
