@@ -237,10 +237,21 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 4 ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tsvn-ch-1-sect-4">
-	
-		<title>Installation von TortoiseSVN</title>
-		
+<sect1 id="tsvn-ch-1-sect-4">
+<title>Installation von TortoiseSVN</title>
+	<sect2>
+		<title>Systemanforderungen</title>
+		<para>
+		TortoiseSVN läuft unter Windows 98/Me, NT4, Win2k SP2 oder WinXP, 
+		mit IE5.5 oder neuer. Win98/ME kann nicht zum Anlegen von Projektarchiven
+		verwendet werden. Lesen Sie in der Subversion FAQ
+		<ulink url="http://subversion.tigris.org/project_faq.html">
+			<citetitle>What operating systems does Subversion run on?</citetitle>
+		</ulink> nach, warum es nicht geht.
+		</para>
+	</sect2>
+	<sect2>
+		<title>Installation</title>
 		<para>
 		TortoiseSVN wird mit einem einfach zu benutzenden Installationsprogramm
 		geliefert. Doppelklicken Sie auf das Installationsprogramm und folgen
@@ -252,8 +263,8 @@
 		von TortoiseSVN haben sollten sehen Sie bitte im Kapitel 
 		<xref linkend="tsvn-faq"/> nach.
 		</para>
-		
-	</sect1>
+	</sect2>		
+</sect1>
 
 </chapter>
 

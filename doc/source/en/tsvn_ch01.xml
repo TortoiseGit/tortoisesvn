@@ -1,4 +1,4 @@
-<chapter id="tsvn-ch-1">
+﻿<chapter id="tsvn-ch-1">
 
 	<title>Introduction</title>
 	
@@ -223,7 +223,18 @@
 	<sect1 id="tsvn-ch-1-sect-4">
 	
 		<title>Installing TortoiseSVN</title>
-		
+		<sect2>
+		<title>System requirements</title>
+		<para>
+		TortoiseSVN runs on Windows 98/Me, NT4 or Win2k SP2 or WinXP, IE5.5 or later. 
+		Win98/ME cannot host repositories, check the following Subversion FAQ entry
+		<ulink url="http://subversion.tigris.org/project_faq.html">
+			<citetitle>What operating systems does Subversion run on?</citetitle>
+		</ulink> to find out why.
+		</para>
+		</sect2>
+		<sect2>
+		<title>Installation</title>
 		<para>
 		TortoiseSVN comes with an easy to use installer. Doubleclick on the
 		installer file and follow the instructions. The installer will take
@@ -233,6 +244,7 @@
 		If you encounter any problems while or after installing TortoiseSVN
 		please refer to <xref linkend="tsvn-faq"/>.
 		</para>
+		</sect2>
 		
 	</sect1>
 
