@@ -37,7 +37,7 @@ public:
 	 */
 	CString		BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL showprogress = TRUE);
 private:
-	BOOL		BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CString line);
+	BOOL		BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CStringA line);
 	BOOL		Cancel();
 	BOOL		Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
 

@@ -31,13 +31,18 @@ CBlame::~CBlame()
 	m_progressDlg.Stop();
 }
 
-BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CString line)
+BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CStringA line)
 {
-	line = line.TrimRight(_T("\n\r"));
+	line = line.TrimRight("\n\r");
 	CString fullline;
-	fullline.Format(_T("%6ld %6ld %20s %-30s %s \n"), linenumber, revision, date, author, line);
+	CString fulllineA;
+	fullline.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, date, author);
+	fulllineA = line + "\n";
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
+	{
 		m_saveFile.WriteString(fullline);
+		m_saveFile.WriteString(fulllineA);
+	}
 	else
 		return FALSE;
 	return TRUE;

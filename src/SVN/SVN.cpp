@@ -132,7 +132,7 @@ void SVN::SaveAuthentication(BOOL save)
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
 BOOL SVN::Log(LONG rev, CString author, CString date, CString message, CString& cpaths) {return TRUE;};
-BOOL SVN::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CString line) {return TRUE;}
+BOOL SVN::BlameCallback(LONG linenumber, LONG revision, CString author, CString date, CStringA line) {return TRUE;}
 
 struct log_msg_baton
 {
@@ -772,7 +772,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 {
 	svn_error_t * error = NULL;
 	CString author_native;
-	CString line_native;
+	CStringA line_native;
 	TCHAR date_native[MAX_PATH] = {0};
 
 	SVN * svn = (SVN *)baton;
@@ -780,7 +780,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 	if (author)
 		author_native = CUnicodeUtils::GetUnicode(author);
 	if (line)
-		line_native = CString(line);
+		line_native = line;
 
 	if (date && date[0])
 	{
