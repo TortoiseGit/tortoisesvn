@@ -148,7 +148,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HINTLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_LEFT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return FALSE;  // return TRUE unless you set the focus to a control
@@ -493,6 +493,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 
 void CLogPromptDlg::OnCancel()
 {
+	DeleteFile(m_sPath);
 	UpdateData(TRUE);
 	CResizableDialog::OnCancel();
 }

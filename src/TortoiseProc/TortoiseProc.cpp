@@ -228,19 +228,13 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), dlg.m_url);
-				//CCheckTempFiles checker;
-				//if (checker.Check(path, true, false)!=IDCANCEL)
-				//{
-					CSVNProgressDlg progDlg;
-					m_pMainWnd = &progDlg;
-					//construct the module name out of the path
-					CString modname;
-					progDlg.SetParams(Import, false, path, dlg.m_url, dlg.m_message);
-					logmessage = dlg.m_message;
-					progDlg.DoModal();
-				//} // if (checker.Check(path, true, false)!=IDCANCEL)
-				//else
-				//	logmessage.removeValue();
+				CSVNProgressDlg progDlg;
+				m_pMainWnd = &progDlg;
+				//construct the module name out of the path
+				CString modname;
+				progDlg.SetParams(Import, false, path, dlg.m_url, dlg.m_message);
+				logmessage = dlg.m_message;
+				progDlg.DoModal();
 			}
 			else
 				logmessage.removeValue();
@@ -471,7 +465,6 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CSVNProgressDlg progDlg;
 				m_pMainWnd = &progDlg;
-				//progDlg.SetParams(Merge, false, path, dlg.m_URL, CUnicodeUtils::GetUnicode(status.status->entry->url),dlg.m_lStartRev);		//use the message as the second url
 				progDlg.SetParams(Merge, false, path, dlg.m_URL, dlg.m_URL, dlg.m_lStartRev);		//use the message as the second url
 				progDlg.m_nRevisionEnd = dlg.m_lEndRev;
 				progDlg.DoModal();
@@ -631,18 +624,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						CUtils::StartDiffViewer(tempfile);
 					}
 				} // if (path2.IsEmpty())
-				else
-				{
-					//if (!svn.Diff(path, SVN::REV_WC, path2, SVN::REV_WC, FALSE, FALSE, TRUE, _T(""), tempfile))
-					//{
-					//	DeleteFile(tempfile);
-					//}
-					//else
-					//{
-					//	CUtils::StartDiffViewer(tempfile);
-					//}
-				}
-			}
+			} 
 		}
 		//#endregion
 		//#region dropcopyadd
@@ -946,7 +928,11 @@ BOOL CTortoiseProcApp::InitInstance()
 				CRenameDlg rendlg;
 				rendlg.m_windowtitle.LoadString(IDS_PROC_ENTERURL);
 				if (rendlg.DoModal() != IDOK)
+				{
+					if (TSVNMutex)
+						::CloseHandle(TSVNMutex);
 					return FALSE;
+				}
 				url = rendlg.m_name;
 			} // if (dlg.m_strUrl.IsEmpty())
 			CRepositoryBrowser dlg(url);
