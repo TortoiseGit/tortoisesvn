@@ -181,6 +181,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 
+	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
