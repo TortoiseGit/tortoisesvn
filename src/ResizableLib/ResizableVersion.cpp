@@ -75,7 +75,7 @@ static void CheckOsVersion()
 	g_osviWindows.dwMinorVersion = 0;
 	g_osviWindows.dwBuildNumber = 0;
 	g_osviWindows.dwPlatformId = VER_PLATFORM_WIN32_WINDOWS;
-	g_osviWindows.szCSDVersion[0] = _T('0');
+	g_osviWindows.szCSDVersion[0] = TEXT('\0');
 }
 
 static void CheckCommCtrlsVersion()

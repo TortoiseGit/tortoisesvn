@@ -1,5 +1,3 @@
-// ResizableLayout.h: interface for the CResizableLayout class.
-//
 /////////////////////////////////////////////////////////////////////////////
 //
 // This file is part of ResizableLib
@@ -17,6 +15,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
+/*!
+ *  @file
+ *  @brief Interface for the CResizableLayout class.
+ */
+
 #if !defined(AFX_RESIZABLELAYOUT_H__INCLUDED_)
 #define AFX_RESIZABLELAYOUT_H__INCLUDED_
 
@@ -27,11 +30,20 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-// special type for layout anchors
+/*! @addtogroup CoreComponents
+ *  @{
+ */
+
+//! @brief Special type for layout alignment
+/*!
+ *  Implements anchor points as a percentage of the parent window client area.
+ *  Control corners are always kept at a fixed distance from their anchor points,
+ *  thus allowing a control to resize proportionally as the parent window is resized.
+ */
 typedef struct tagANCHOR
 {
-	int cx;
-	int cy;
+	int cx; //!< horizontal component, in percent
+	int cy; //!< vertical component, in percent
 
 	tagANCHOR() {}
 
@@ -43,30 +55,59 @@ typedef struct tagANCHOR
 
 } ANCHOR, *PANCHOR, *LPANCHOR;
 
-// define common constants
-const ANCHOR
-	TOP_LEFT(0,0), TOP_CENTER(50,0), TOP_RIGHT(100,0),
-	MIDDLE_LEFT(0,50), MIDDLE_CENTER(50,50), MIDDLE_RIGHT(100,50),
-	BOTTOM_LEFT(0,100), BOTTOM_CENTER(50,100), BOTTOM_RIGHT(100,100);
+/*! @defgroup ConstAnchors Alignment Constants
+ *  Define common layout alignment constants for anchor points.
+ *  @{
+ */
+	//! Anchor to the top-left corner
+	const ANCHOR TOP_LEFT(0, 0);
+	//! Anchor to the top edge and center horizontally
+	const ANCHOR TOP_CENTER(50, 0);
+	//! Anchor to the top-right corner
+	const ANCHOR TOP_RIGHT(100, 0);
+	//! Anchor to the left edge and center vertically
+	const ANCHOR MIDDLE_LEFT(0, 50);
+	//! Anchor to the center
+	const ANCHOR MIDDLE_CENTER(50, 50);
+	//! Anchor to the right edge and center vertically
+	const ANCHOR MIDDLE_RIGHT(100, 50);
+	//! Anchor to the bottom-left corner
+	const ANCHOR BOTTOM_LEFT(0, 100);
+	//! Anchor to the bottom edge and center horizontally
+	const ANCHOR BOTTOM_CENTER(50, 100);
+	//! Anchor to the bottom-right corner
+	const ANCHOR BOTTOM_RIGHT(100, 100);
+// @}
 
-// holds a window layout settings
+//! @brief Holds a control layout settings
+/*!
+ *  Layout settings specify how a control must be moved and resized with respect to
+ *  the parent window and how it reacts to dynamic changes to its size when painting
+ *  its client area, with special care for flickering.
+ */
 typedef struct tagLAYOUTINFO
 {
+	//! Handle of the window the layout of which is being defined
 	HWND hWnd;
+	//! Identification number assigned to the callback slot
 	UINT nCallbackID;
 
+	//! Window class name to identify standard controls
 	TCHAR sWndClass[MAX_PATH];
 
-	// upper-left corner
-	ANCHOR anchorTypeTL;
-	SIZE sizeMarginTL;
+	//! Anchor point for the top-left corner
+	ANCHOR anchorTopLeft;
+	//! Fixed distance for the top-left corner
+	SIZE marginTopLeft;
 	
-	// bottom-right corner
-	ANCHOR anchorTypeBR;
-	SIZE sizeMarginBR;
+	//! Anchor point for the bottom-right corner
+	ANCHOR anchorBottomRight;
+	//! Fixed distance for the bottom-right corner
+	SIZE marginBottomRight;
 
-	// custom window support
+	//! Flag that enables support for custom windows
 	BOOL bMsgSupport;
+	//! Redraw settings for anti-flickering and proper painting
 	RESIZEPROPERTIES properties;
 
 	tagLAYOUTINFO() : hWnd(NULL), nCallbackID(0), bMsgSupport(FALSE)
@@ -78,83 +119,97 @@ typedef struct tagLAYOUTINFO
 		ANCHOR br_type, SIZE br_margin)
 		:
 		hWnd(hwnd), nCallbackID(0), bMsgSupport(FALSE),
-		anchorTypeTL(tl_type), sizeMarginTL(tl_margin),
-		anchorTypeBR(br_type), sizeMarginBR(br_margin)
+		anchorTopLeft(tl_type), marginTopLeft(tl_margin),
+		anchorBottomRight(br_type), marginBottomRight(br_margin)
 	{
 		sWndClass[0] = 0;
 	}
 
 } LAYOUTINFO, *PLAYOUTINFO, *LPLAYOUTINFO;
 
-// layout manager implementation
+//! @brief Layout manager implementation
+/*!
+ *  Derive from this class to implement resizable windows, adding the ability
+ *  to dinamically resize and reposition child controls.
+ *	Special care is taken to ensure a smooth animation during the resize
+ *  operations performed by the users, without annoying flickering effects.
+ */
 class CResizableLayout
 {
 private:
-	// list of repositionable controls
+	//@{
+	//! @brief Collection of layout settings for each control
 	CMap<HWND, HWND, POSITION, POSITION> m_mapLayout;
 	CList<LAYOUTINFO, LAYOUTINFO&> m_listLayout;
 	CList<LAYOUTINFO, LAYOUTINFO&> m_listLayoutCB;
+	//@}
 
-	// used for clipping
+	//@{
+	//! @brief Used for clipping implementation
 	HRGN m_hOldClipRgn;
 	int m_nOldClipRgn;
+	//@}
 
-	// used for anti-flickering
+	//@{
+	//! @brief Used for advanced anti-flickering
 	RECT m_rectClientBefore;
 	BOOL m_bNoRecursion;
+	//@}
 
+	//! @brief Apply clipping settings for the specified control
 	void ClipChildWindow(const LAYOUTINFO &layout, CRgn* pRegion) const;
 
+	//! @brief Helper function to calculate new layout
 	void CalcNewChildPosition(const LAYOUTINFO &layout,
 		const CRect &rectParent, CRect &rectChild, UINT& uFlags) const;
 
 protected:
-	// override to initialize resize properties (clipping, refresh)
+	//! @brief Override to initialize resize properties (clipping, refresh)
 	virtual void InitResizeProperties(LAYOUTINFO& layout) const;
 
-	// override to specify clipping for unsupported windows
+	//! @brief Override to specify clipping for unsupported windows
 	virtual BOOL LikesClipping(const LAYOUTINFO &layout) const;
 
-	// override to specify refresh for unsupported windows
+	//! @brief Override to specify refresh for unsupported windows
 	virtual BOOL NeedsRefresh(const LAYOUTINFO &layout,
 		const CRect &rectOld, const CRect &rectNew) const;
 
-	// clip out child windows from the given DC (returns if clipping done)
+	//! @brief Clip controls in the layout out of the specified device context
 	BOOL ClipChildren(CDC* pDC, BOOL bUndo);
 
-	// get the clipping region (without clipped child windows)
+	//! @brief Get the layout clipping region
 	void GetClippingRegion(CRgn* pRegion) const;
 	
-	// override for scrollable or expanding parent windows
+	//! @brief Override for scrollable or expanding parent windows
 	virtual void GetTotalClientRect(LPRECT lpRect) const;
 
-	// add anchors to a control, given its HWND
-	void AddAnchor(HWND hWnd, ANCHOR anchorTypeTL, ANCHOR anchorTypeBR);
+	//@{
+	//! @brief Add anchor points for the specified control to the layout
+	void AddAnchor(HWND hWnd, ANCHOR anchorTopLeft, ANCHOR anchorBottomRight);
 
-	// add anchors to a control, given its HWND
-	void AddAnchor(HWND hWnd, ANCHOR anchorTypeTL)
+	void AddAnchor(HWND hWnd, ANCHOR anchorTopLeft)
 	{
-		AddAnchor(hWnd, anchorTypeTL, anchorTypeTL);
+		AddAnchor(hWnd, anchorTopLeft, anchorTopLeft);
 	}
 
-	// add anchors to a control, given its ID
-	void AddAnchor(UINT nID, ANCHOR anchorTypeTL, ANCHOR anchorTypeBR)
-	{
-		AddAnchor(::GetDlgItem(GetResizableWnd()->GetSafeHwnd(), nID),
-			anchorTypeTL, anchorTypeBR);
-	}
-
-	// add anchors to a control, given its ID
-	void AddAnchor(UINT nID, ANCHOR anchorTypeTL)
+	void AddAnchor(UINT nID, ANCHOR anchorTopLeft, ANCHOR anchorBottomRight)
 	{
 		AddAnchor(::GetDlgItem(GetResizableWnd()->GetSafeHwnd(), nID),
-			anchorTypeTL, anchorTypeTL);
+			anchorTopLeft, anchorBottomRight);
 	}
 
-	// add a callback (control ID or HWND is unknown or may change)
+	void AddAnchor(UINT nID, ANCHOR anchorTopLeft)
+	{
+		AddAnchor(::GetDlgItem(GetResizableWnd()->GetSafeHwnd(), nID),
+			anchorTopLeft, anchorTopLeft);
+	}
+	//@}
+
+	//! @brief Add a callback slot to the layout for dynamic controls or anchor points
 	UINT AddAnchorCallback();
 
-	// get rect of an anchored window, given the parent's client area
+	//@{
+	//! @brief Get position and size of a control in the layout from the parent's client area
 	BOOL GetAnchorPosition(HWND hWnd, const CRect &rectParent,
 		CRect &rectChild, UINT* lpFlags = NULL) const
 	{
@@ -168,25 +223,27 @@ protected:
 		return TRUE;
 	}
 
-	// get rect of an anchored window, given the parent's client area
 	BOOL GetAnchorPosition(UINT nID, const CRect &rectParent,
 		CRect &rectChild, UINT* lpFlags = NULL) const
 	{
 		return GetAnchorPosition(::GetDlgItem(GetResizableWnd()->GetSafeHwnd(), nID),
 			rectParent, rectChild, lpFlags);
 	}
+	//@}
 
-	// get margins surrounding a child window at the given size
+	//@{
+	//! @brief Get margins surrounding a control in the layout with the given size
 	BOOL GetAnchorMargins(HWND hWnd, const CSize &sizeChild, CRect &rectMargins) const;
 
-	// get margins surrounding a child window at the given size
 	BOOL GetAnchorMargins(UINT nID, const CSize &sizeChild, CRect &rectMargins) const
 	{
 		return GetAnchorMargins(::GetDlgItem(GetResizableWnd()->GetSafeHwnd(), nID),
 			sizeChild, rectMargins);
 	}
+	//@}
 
-	// remove an anchored control from the layout, given its HWND
+	//@{
+	//! @brief Remove a control from the layout
 	BOOL RemoveAnchor(HWND hWnd)
 	{
 		POSITION pos;
@@ -197,13 +254,13 @@ protected:
 		return m_mapLayout.RemoveKey(hWnd);
 	}
 
-	// remove an anchored control from the layout, given its HWND
 	BOOL RemoveAnchor(UINT nID)
 	{
 		return RemoveAnchor(::GetDlgItem(GetResizableWnd()->GetSafeHwnd(), nID));
 	}
+	//@}
 
-	// reset layout content
+	//! @brief Reset the layout content
 	void RemoveAllAnchors()
 	{
 		m_mapLayout.RemoveAll();
@@ -211,19 +268,19 @@ protected:
 		m_listLayoutCB.RemoveAll();
 	}
 
-	// adjust children's layout, when parent's size changes
+	//! @brief Reposition and size all the controls in the layout
 	void ArrangeLayout() const;
 
-	// override to provide dynamic control's layout info
+	//! @brief Override to provide dynamic control's layout info
 	virtual BOOL ArrangeLayoutCallback(LAYOUTINFO& layout) const;
 
-	// override to provide the parent window
+	//! @brief Override to provide the parent window
 	virtual CWnd* GetResizableWnd() const = 0;
 
-	// enhance anti-flickering
+	//! @brief Enhance anti-flickering
 	void HandleNcCalcSize(BOOL bAfterDefault, LPNCCALCSIZE_PARAMS lpncsp, LRESULT& lResult);
 	
-	// enable resizable style for top level windows
+	//! @brief Enable resizable style for top level parent windows
 	void MakeResizable(LPCREATESTRUCT lpCreateStruct);
 
 public:
@@ -240,4 +297,5 @@ public:
 	}
 };
 
+// @}
 #endif // !defined(AFX_RESIZABLELAYOUT_H__INCLUDED_)

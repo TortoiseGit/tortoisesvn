@@ -1,6 +1,24 @@
-// ResizableSheetState.cpp: implementation of the CResizableSheetState class.
+/////////////////////////////////////////////////////////////////////////////
 //
-//////////////////////////////////////////////////////////////////////
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
+// Copyright (C) 2000-2004 by Paolo Messina
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
+//
+// The contents of this file are subject to the Artistic License (the "License").
+// You may not use this file except in compliance with the License. 
+// You may obtain a copy of the License at:
+// http://www.opensource.org/licenses/artistic-license.html
+//
+// If you find this code useful, credits would be nice!
+//
+/////////////////////////////////////////////////////////////////////////////
+
+/*!
+ *  @file
+ *  @brief Implementation of the CResizableSheetState class.
+ */
 
 #include "stdafx.h"
 #include "ResizableSheetState.h"
@@ -25,6 +43,15 @@ CResizableSheetState::~CResizableSheetState()
 
 #define ACTIVEPAGE_ENT 	_T("ActivePage")
 
+/*!
+ *  This function saves the current property sheet active page using the base
+ *  class persist method.
+ *  @sa CResizableState::WriteState
+ *  
+ *  @param pszName String that identifies stored settings
+ *  
+ *  @return Returns @a TRUE if successful, @a FALSE otherwise
+ */
 BOOL CResizableSheetState::SavePage(LPCTSTR pszName)
 {
 	// saves active page index, or the initial page if problems
@@ -47,6 +74,14 @@ BOOL CResizableSheetState::SavePage(LPCTSTR pszName)
 	return WriteState(id, data);
 }
 
+/*!
+ *  This function loads the active page using the base class persist method.
+ *  @sa CResizableState::ReadState
+ *  
+ *  @param pszName String that identifies stored settings
+ *  
+ *  @return Returns @a TRUE if successful, @a FALSE otherwise
+ */
 BOOL CResizableSheetState::LoadPage(LPCTSTR pszName)
 {
 	// restore active page, zero (the first) if not found

@@ -17,8 +17,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 
-#if !defined(AFX_RESIZABLEVERSION_H__F7B06FFD_5074_4165_A82F_B4DA2BC4AF95__INCLUDED_)
-#define AFX_RESIZABLEVERSION_H__F7B06FFD_5074_4165_A82F_B4DA2BC4AF95__INCLUDED_
+#if !defined(AFX_RESIZABLEVERSION_H__INCLUDED_)
+#define AFX_RESIZABLEVERSION_H__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
@@ -49,4 +49,4 @@ extern DWORD real_WIN32_IE;
 void InitRealVersions();
 
 
-#endif // !defined(AFX_RESIZABLEVERSION_H__F7B06FFD_5074_4165_A82F_B4DA2BC4AF95__INCLUDED_)
+#endif // !defined(AFX_RESIZABLEVERSION_H__INCLUDED_)

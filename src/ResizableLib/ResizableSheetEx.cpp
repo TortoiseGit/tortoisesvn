@@ -241,14 +241,14 @@ BOOL CResizableSheetEx::ArrangeLayoutCallback(LAYOUTINFO &layout) const
 	if (IsWizard())	// wizard mode
 	{
 		// use pre-calculated margins
-		layout.sizeMarginTL = m_sizePageTL;
-		layout.sizeMarginBR = m_sizePageBR;
+		layout.marginTopLeft = m_sizePageTL;
+		layout.marginBottomRight = m_sizePageBR;
 	}
 	else if (IsWizard97())	// wizard 97
 	{
 		// use pre-calculated margins
-		layout.sizeMarginTL = m_sizePageTL;
-		layout.sizeMarginBR = m_sizePageBR;
+		layout.marginTopLeft = m_sizePageTL;
+		layout.marginBottomRight = m_sizePageBR;
 
 		if (!(GetActivePage()->m_psp.dwFlags & PSP_HIDEHEADER))
 		{
@@ -257,7 +257,7 @@ BOOL CResizableSheetEx::ArrangeLayoutCallback(LAYOUTINFO &layout) const
 			GetTotalClientRect(&rectSheet);
 			GetAnchorPosition(ID_WIZLINEHDR, rectSheet, rectLine);
 
-			layout.sizeMarginTL.cy = rectLine.bottom;
+			layout.marginTopLeft.cy = rectLine.bottom;
 		}
 	}
 	else	// tab mode
@@ -283,13 +283,13 @@ BOOL CResizableSheetEx::ArrangeLayoutCallback(LAYOUTINFO &layout) const
 		pTab->SetRedraw(TRUE);
 
 		// set margins
-		layout.sizeMarginTL = rectPage.TopLeft() - rectSheet.TopLeft();
-		layout.sizeMarginBR = rectPage.BottomRight() - rectSheet.BottomRight();
+		layout.marginTopLeft = rectPage.TopLeft() - rectSheet.TopLeft();
+		layout.marginBottomRight = rectPage.BottomRight() - rectSheet.BottomRight();
 	}
 
 	// set anchor types
-	layout.anchorTypeTL = TOP_LEFT;
-	layout.anchorTypeBR = BOTTOM_RIGHT;
+	layout.anchorTopLeft = TOP_LEFT;
+	layout.anchorBottomRight = BOTTOM_RIGHT;
 
 	// use this layout info
 	return TRUE;

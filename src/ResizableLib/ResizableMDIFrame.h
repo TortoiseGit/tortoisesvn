@@ -1,9 +1,3 @@
-#if !defined(AFX_RESIZABLEMDIFRAME_H__4BA07057_6EF3_43A4_A80B_A24FA3A8B5C7__INCLUDED_)
-#define AFX_RESIZABLEMDIFRAME_H__4BA07057_6EF3_43A4_A80B_A24FA3A8B5C7__INCLUDED_
-
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
 // ResizableMDIFrame.h : header file
 //
 /////////////////////////////////////////////////////////////////////////////
@@ -22,6 +16,13 @@
 // If you find this code useful, credits would be nice!
 //
 /////////////////////////////////////////////////////////////////////////////
+
+#if !defined(AFX_RESIZABLEMDIFRAME_H__INCLUDED_)
+#define AFX_RESIZABLEMDIFRAME_H__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
 
 #include "ResizableMinMax.h"
 #include "ResizableWndState.h"
@@ -86,4 +87,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_RESIZABLEMDIFRAME_H__4BA07057_6EF3_43A4_A80B_A24FA3A8B5C7__INCLUDED_)
+#endif // !defined(AFX_RESIZABLEMDIFRAME_H__INCLUDED_)

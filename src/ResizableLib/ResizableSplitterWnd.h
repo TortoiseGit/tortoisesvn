@@ -1,9 +1,3 @@
-#if !defined(AFX_RESIZABLESPLITTERWND_H__CF301D1D_8984_4FA9_9AB3_E573731DC667__INCLUDED_)
-#define AFX_RESIZABLESPLITTERWND_H__CF301D1D_8984_4FA9_9AB3_E573731DC667__INCLUDED_
-
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
 // ResizableSplitterWnd.h : header file
 //
 /////////////////////////////////////////////////////////////////////////////
@@ -22,6 +16,13 @@
 // If you find this code useful, credits would be nice!
 //
 /////////////////////////////////////////////////////////////////////////////
+
+#if !defined(AFX_RESIZABLESPLITTERWND_H__INCLUDED_)
+#define AFX_RESIZABLESPLITTERWND_H__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
 
 #include "ResizableMinMax.h"
 
@@ -64,4 +65,4 @@ public:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_RESIZABLESPLITTERWND_H__CF301D1D_8984_4FA9_9AB3_E573731DC667__INCLUDED_)
+#endif // !defined(AFX_RESIZABLESPLITTERWND_H__INCLUDED_)

@@ -1,6 +1,24 @@
-// ResizableWndState.cpp: implementation of the CResizableWndState class.
+/////////////////////////////////////////////////////////////////////////////
 //
-//////////////////////////////////////////////////////////////////////
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
+// Copyright (C) 2000-2004 by Paolo Messina
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
+//
+// The contents of this file are subject to the Artistic License (the "License").
+// You may not use this file except in compliance with the License. 
+// You may obtain a copy of the License at:
+// http://www.opensource.org/licenses/artistic-license.html
+//
+// If you find this code useful, credits would be nice!
+//
+/////////////////////////////////////////////////////////////////////////////
+
+/*!
+ *  @file
+ *  @brief Implementation of the CResizableWndState class.
+ */
 
 #include "stdafx.h"
 #include "ResizableWndState.h"
@@ -26,6 +44,19 @@ CResizableWndState::~CResizableWndState()
 #define PLACEMENT_ENT	_T("WindowPlacement")
 #define PLACEMENT_FMT 	_T("%d,%d,%d,%d,%d,%d,%d,%d")
 
+/*!
+ *  This function saves the current window position and size using the base
+ *  class persist method. Minimized and maximized state is also optionally
+ *  preserved.
+ *  @sa CResizableState::WriteState
+ *  @note Window coordinates are in the form used by the system functions
+ *  GetWindowPlacement and SetWindowPlacement.
+ *  
+ *  @param pszName String that identifies stored settings
+ *  @param bRectOnly Flag that specifies wether to ignore min/max state
+ *  
+ *  @return Returns @a TRUE if successful, @a FALSE otherwise
+ */
 BOOL CResizableWndState::SaveWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 {
 	CString data, id;
@@ -55,6 +86,19 @@ BOOL CResizableWndState::SaveWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 	return WriteState(id, data);
 }
 
+/*!
+ *  This function loads and set the current window position and size using
+ *  the base class persist method. Minimized and maximized state is also
+ *  optionally preserved.
+ *  @sa CResizableState::WriteState
+ *  @note Window coordinates are in the form used by the system functions
+ *  GetWindowPlacement and SetWindowPlacement.
+ *  
+ *  @param pszName String that identifies stored settings
+ *  @param bRectOnly Flag that specifies wether to ignore min/max state
+ *  
+ *  @return Returns @a TRUE if successful, @a FALSE otherwise
+ */
 BOOL CResizableWndState::LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 {
 	CString data, id;
