@@ -95,6 +95,12 @@ protected:
 	afx_msg void	OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void	OnMergeNextdifference();
 	afx_msg void	OnMergePreviousdifference();
+	afx_msg void	OnMergePreviousconflict();
+	afx_msg void	OnMergeNextconflict();
+	afx_msg void	OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void	OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg void	OnEditCopy();
+	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -182,10 +188,5 @@ protected:
 	static CBaseView * m_pwndLeft;		///< Pointer to the left view. Must be set by the CLeftView parent class.
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
-public:
-	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
-	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
-	afx_msg void OnEditCopy();
-	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 };
 

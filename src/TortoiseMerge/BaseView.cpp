@@ -134,6 +134,8 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_LBUTTONUP()
 	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 	ON_WM_MOUSEMOVE()
+	ON_COMMAND(ID_MERGE_PREVIOUSCONFLICT, OnMergePreviousconflict)
+	ON_COMMAND(ID_MERGE_NEXTCONFLICT, OnMergeNextconflict)
 END_MESSAGE_MAP()
 
 
@@ -1266,6 +1268,100 @@ void CBaseView::GoToFirstDifference()
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
+void CBaseView::OnMergePreviousconflict()
+{
+	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
+	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
+		nCenterPos = m_nSelBlockStart;
+	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
+	{
+		if (nCenterPos >= m_arLineStates->GetCount())
+			nCenterPos = (int)m_arLineStates->GetCount()-1;
+		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		while ((nCenterPos >= 0) &&
+			(m_arLineStates->GetAt(nCenterPos--)==state))
+			;
+		if (nCenterPos < (m_arLineStates->GetCount()-1))
+			nCenterPos++;
+		while (nCenterPos >= 0)
+		{
+			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate == CDiffData::DIFFSTATE_CONFLICTADDED) ||
+				(linestate == CDiffData::DIFFSTATE_CONFLICTED) ||
+				(linestate == CDiffData::DIFFSTATE_CONFLICTEMPTY))
+				break;
+			nCenterPos--;
+		} // while (nCenterPos > m_arLineStates->GetCount()) 
+		if (nCenterPos < 0)
+			nCenterPos = 0;
+		m_nSelBlockStart = nCenterPos;
+		m_nSelBlockEnd = nCenterPos;
+		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		while ((m_nSelBlockStart < (m_arLineStates->GetCount()-1))&&(m_nSelBlockStart > 0))
+		{
+			if (linestate != m_arLineStates->GetAt(--m_nSelBlockStart))
+				break;
+		} // while (nIndex < m_arLineStates->GetCount())
+		if (((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == m_arLineStates->GetAt(m_nSelBlockStart)))||m_nSelBlockStart==0)
+			m_nSelBlockStart = m_nSelBlockStart;
+		else
+			m_nSelBlockStart = m_nSelBlockStart+1;
+		int nTopPos = nCenterPos - (GetScreenLines()/2);
+		if (nTopPos < 0)
+			nTopPos = 0;
+		ScrollAllToLine(nTopPos, FALSE);
+		RecalcVertScrollBar(TRUE);
+		Invalidate();
+	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
+}
+
+void CBaseView::OnMergeNextconflict()
+{
+	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
+	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
+		nCenterPos = m_nSelBlockEnd;
+	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
+	{
+		if (nCenterPos >= m_arLineStates->GetCount())
+			nCenterPos = (int)m_arLineStates->GetCount()-1;
+		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		while ((nCenterPos < m_arLineStates->GetCount()) &&
+			(m_arLineStates->GetAt(nCenterPos++)==state))
+			;
+		if (nCenterPos > 0)
+			nCenterPos--;
+		while (nCenterPos < m_arLineStates->GetCount())
+		{
+			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+			if ((linestate == CDiffData::DIFFSTATE_CONFLICTADDED) ||
+				(linestate == CDiffData::DIFFSTATE_CONFLICTED) ||
+				(linestate == CDiffData::DIFFSTATE_CONFLICTEMPTY))
+				break;
+			nCenterPos++;
+		} // while (nCenterPos > m_arLineStates->GetCount()) 
+		if (nCenterPos > (m_arLineStates->GetCount()-1))
+			nCenterPos = m_arLineStates->GetCount()-1;
+		m_nSelBlockStart = nCenterPos;
+		m_nSelBlockEnd = nCenterPos;
+		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		while (m_nSelBlockEnd < (m_arLineStates->GetCount()-1))
+		{
+			if (linestate != m_arLineStates->GetAt(++m_nSelBlockEnd))
+				break;
+		} // while (nIndex < m_arLineStates->GetCount())
+		if ((m_nSelBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == m_arLineStates->GetAt(m_nSelBlockEnd)))
+			m_nSelBlockEnd = m_nSelBlockEnd;
+		else
+			m_nSelBlockEnd = m_nSelBlockEnd-1;
+		int nTopPos = nCenterPos - (GetScreenLines()/2);
+		if (nTopPos < 0)
+			nTopPos = 0;
+		ScrollAllToLine(nTopPos, FALSE);
+		RecalcVertScrollBar(TRUE);
+		Invalidate();
+	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
+}
+
 void CBaseView::OnMergeNextdifference()
 {
 	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
@@ -1579,6 +1675,7 @@ void CBaseView::SelectLines(int nLine1, int nLine2)
 	m_nSelBlockEnd = nLine2;
 	Invalidate();
 }
+
 
 
 

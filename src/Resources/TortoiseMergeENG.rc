@@ -321,6 +321,8 @@ BEGIN
     SEPARATOR
     BUTTON      ID_MERGE_PREVIOUSDIFFERENCE
     BUTTON      ID_MERGE_NEXTDIFFERENCE
+    BUTTON      ID_MERGE_PREVIOUSCONFLICT
+    BUTTON      ID_MERGE_NEXTCONFLICT
     SEPARATOR
     BUTTON      ID_VIEW_ONEWAYDIFF
     SEPARATOR
@@ -363,6 +365,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Next Difference",            ID_MERGE_NEXTDIFFERENCE
         MENUITEM "&Previous Difference",        ID_MERGE_PREVIOUSDIFFERENCE
+        MENUITEM "N&ext Conflict",              ID_MERGE_NEXTCONFLICT
+        MENUITEM "P&revious Conflict",          ID_MERGE_PREVIOUSCONFLICT
     END
     POPUP "&Help"
     BEGIN
@@ -629,6 +633,12 @@ END
 STRINGTABLE 
 BEGIN
     ID_FILE_RELOAD          "Reloads the opened files and reverts all changes.\nReload"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_MERGE_PREVIOUSCONFLICT "Go to the previous conflict\nprevious conflict"
+    ID_MERGE_NEXTCONFLICT   "Go to the next conflict\nnext conflict"
 END
 
 #endif    // English (U.S.) resources
