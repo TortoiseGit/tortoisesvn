@@ -1191,8 +1191,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
 						}
 						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
-						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+						if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing))
+						{
+							temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+						}
 						temp.LoadString(IDS_MENUREVERT);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REVERT, temp);
 					}
@@ -1209,7 +1212,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
 					}
 				} // if (repoStatus > svn_wc_status_normal)
-				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted) && (GetSelectedCount() == 1))
+				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing) && (GetSelectedCount() == 1))
 				{
 					temp.LoadString(IDS_REPOBROWSE_OPEN);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_OPEN, temp);
