@@ -1185,7 +1185,7 @@ BOOL SVN::IsRepository(const CString& strUrl)
 	return Err == NULL;
 }
 
-CString SVN::GetRepositoryRoot(CString url)
+CString SVN::GetRepositoryRoot(CString url, LONG rev)
 {
 	CString retUrl = url;
 	preparePath(retUrl);
@@ -1194,13 +1194,13 @@ CString SVN::GetRepositoryRoot(CString url)
 	CStringArray dummyarray;
 	while ((pos = findUrl.ReverseFind('/'))>=0)
 	{
-		if (!Ls(findUrl, -1, dummyarray))
+		if (!Ls(findUrl, rev, dummyarray))
 		{
 			//maybe it was a file?
 			//try again before giving up
-			if (!Ls(findUrl.Left(pos), -1, dummyarray))
+			if (!Ls(findUrl.Left(pos), rev, dummyarray))
 				return retUrl;
-		} // if (!Ls(findUrl, -1, dummyarray)) 
+		} // if (!Ls(findUrl, rev, dummyarray)) 
 		retUrl = findUrl;
 		findUrl = findUrl.Left(pos);
 	} // while ((pos = findUrl.ReverseFind('/'))>=0) 

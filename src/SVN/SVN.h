@@ -396,7 +396,7 @@ public:
 	 * Finds the repository root of a given url. 
 	 * \return The root url or an empty string
 	 */
-	CString GetRepositoryRoot(CString url);
+	CString GetRepositoryRoot(CString url, LONG rev = SVN::REV_HEAD);
 
 	/**
 	 * Returns a text representation of an action enum.
