@@ -1,3 +1,8 @@
+CVS
+- BUG: if all files were deselected in the commit
+       dialog then the progress dialog couldn't be
+       closed anymore. (Stefan)
+       
 Version 0.10.0
 - BUG: if several files are selected for committing
        and the first one is unversioned or just
