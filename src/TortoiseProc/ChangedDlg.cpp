@@ -125,6 +125,7 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	CChangedDlg * pDlg;
 	pDlg = (CChangedDlg *)pVoid;
 
+	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
 	pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
 	// to make gettext happy
@@ -148,6 +149,7 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
 	pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
 	return 0;
