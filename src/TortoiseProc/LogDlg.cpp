@@ -184,8 +184,8 @@ BOOL CLogDlg::OnInitDialog()
 	SetWindowText(sTitle + _T(" - ") + m_path.Mid(m_path.ReverseFind('\\')+1));
 
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_MSGVIEW, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_MSGVIEW, TOP_LEFT, MIDDLE_RIGHT);
+	AddAnchor(IDC_LOGMSG, MIDDLE_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
