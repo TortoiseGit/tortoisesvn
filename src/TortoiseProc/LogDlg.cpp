@@ -213,7 +213,6 @@ void CLogDlg::FillLogMessageCtrl(CString msg, CString paths)
 {
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(msg);
-	int offset1, offset2;
 	m_BugtraqInfo.FindBugID(msg, pMsgView);
 
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
