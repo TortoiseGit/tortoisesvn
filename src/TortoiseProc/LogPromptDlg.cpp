@@ -27,6 +27,12 @@
 #include "SVNConfig.h"
 #include "SVNProperties.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
 // CLogPromptDlg dialog
 
 IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableDialog)
@@ -196,12 +202,12 @@ void CLogPromptDlg::OnOK()
 {
 	if (m_bBlock)
 		return;
+	CString id;
+	GetDlgItem(IDC_BUGID)->GetWindowText(id);
 	if (m_BugtraqInfo.bNumber)
 	{
-		CString id;
 		TCHAR c = 0;
 		BOOL bInvalid = FALSE;
-		GetDlgItem(IDC_BUGID)->GetWindowText(id);
 		for (int i=0; i<id.GetLength(); ++i)
 		{
 			c = id.GetAt(i);
@@ -222,6 +228,11 @@ void CLogPromptDlg::OnOK()
 			CBalloon::ShowBalloon(ctrl, point, IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
 			return;
 		}
+	}
+	if ((m_BugtraqInfo.bWarnIfNoIssue)&&(id.IsEmpty()))
+	{
+		if (CMessageBox::Show(this->m_hWnd, IDS_LOGPROMPT_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+			return;
 	}
 	m_bBlock = TRUE;
 	CDWordArray arDeleted;

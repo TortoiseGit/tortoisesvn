@@ -1372,6 +1372,8 @@ BEGIN
     IDS_LOGPROMPT_STATISTICSFORMAT "%d files selected, %d files total"
     IDS_LOGPROMPT_ONLYNUMBERS 
                             "Only numbers (optionally separated by commas)\nare allowed!"
+    IDS_LOGPROMPT_NOISSUEWARNING 
+                            "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
 END
 
 STRINGTABLE 

@@ -23,6 +23,7 @@
 #define BUGTRAQPROPNAME_MESSAGE           _T("bugtraq:message")
 #define BUGTRAQPROPNAME_NUMBER            _T("bugtraq:number")
 #define BUGTRAQPROPNAME_URL               _T("bugtraq:url")
+#define BUGTRAQPROPNAME_WARNIFNOISSUE     _T("bugtraq:warnifnoissue")
 
 /**
  * \ingroup TortoiseProc
@@ -95,4 +96,8 @@ public:
 	 * "%BUGID% the client has to replace it with the issue number / bug id
 	 * the user entered. */
 	CString		sUrl;
+	
+	/* If set to TRUE, show a warning dialog if the user forgot to enter
+	 * an issue number in the commit dialog. */
+	BOOL		bWarnIfNoIssue;
 };

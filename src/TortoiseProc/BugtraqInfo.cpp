@@ -23,6 +23,7 @@
 BugtraqInfo::BugtraqInfo(void)
 {
 	bNumber = TRUE;
+	bWarnIfNoIssue = FALSE;
 }
 
 BugtraqInfo::~BugtraqInfo(void)
@@ -108,6 +109,20 @@ BOOL BugtraqInfo::ReadProps(CString path)
 #else
 				sUrl = sPropVal.c_str();
 #endif
+				bFoundProps = TRUE;
+			}
+			if (sPropName.Compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0)
+			{
+				CString val;
+#ifdef UNICODE
+				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				val = sPropVal.c_str();
+#endif
+				if (val.CompareNoCase(_T("true"))==0)
+					bWarnIfNoIssue = TRUE;
+				else
+					bWarnIfNoIssue = FALSE;
 				bFoundProps = TRUE;
 			}
 		}
