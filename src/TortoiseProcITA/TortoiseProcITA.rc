@@ -50,7 +50,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,11,0,0
+ FILEVERSION 0,11,2,0
  PRODUCTVERSION 0,11,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -145,7 +145,7 @@ CAPTION "Informazioni su TortoiseSVN"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,77,180,50,14
-    LTEXT           "TortoiseSVN Versione 0.11, built with subversion 0.23",
+    LTEXT           "TortoiseSVN Versione 0.11.2, built with subversion 0.23",
                     IDC_STATIC,7,136,207,8
     LTEXT           "Autori: Stefan Kueng, Tim Kemp and Damian Powell",
                     IDC_STATIC,7,148,190,8

@@ -21,8 +21,8 @@
 #include "TortoiseProc.h"
 #include "CheckTempFiles.h"
 #include "messagebox.h"
-#include "CrashHandler.h"
 #include "UnicodeUtils.h"
+#include "CrashReport.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -46,9 +46,17 @@ CTortoiseProcApp::CTortoiseProcApp()
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
 
-CCrashHandler	crasher;
+
+CCrashReport crasher("steveking@gmx.ch", "Crash Report for TortoiseSVN");// crash
+
 // CTortoiseProcApp initialization
 
+void CTortoiseProcApp::CrashProgram()
+{
+	int * a;
+	a = NULL;
+	*a = 7;
+}
 BOOL CTortoiseProcApp::InitInstance()
 {
 	//set the resource dll for the required language
@@ -86,9 +94,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 	if (!parser.HasKey(_T("command")))
 	{
-		//int * a;
-		//a = NULL;
-		//*a = 7;
+		CrashProgram();
 		CMessageBox::Show(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
 		return FALSE;
 	}

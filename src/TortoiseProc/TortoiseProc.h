@@ -44,6 +44,7 @@
 #include "UpdateDlg.h"
 #include "AddDlg.h"
 
+
 /**
  * \ingroup TortoiseProc
  * Main class of the TortoiseProc.exe\n
@@ -87,6 +88,7 @@ public:
 public:
 	virtual BOOL InitInstance();
 
+	void CrashProgram();
 // Implementation
 
 	//DECLARE_MESSAGE_MAP()

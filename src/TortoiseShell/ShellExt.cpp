@@ -39,19 +39,6 @@ CShellExt::CShellExt(FileState state)
 	//if this is the first time the dll is loaded also start the watcher process.
 	//the process itself makes sure that it is not started twice so the
 	//check 'first start of dll' is enough.
-#ifndef _DEBUG
-	//if (g_cRefThisDll == 1)
-	//{
-	//	STARTUPINFO startup;
-	//	PROCESS_INFORMATION process;
-	//	memset(&startup, 0, sizeof(startup));
-	//	startup.cb = sizeof(startup);
-	//	memset(&process, 0, sizeof(process));
-	//	//get location of TortoiseProc from the registry
-	//	CRegStdString tortoiseProcPath("Software\\TortoiseSVN\\ProcPath", "TortoiseProc.exe", false, HKEY_LOCAL_MACHINE);
-	//	CreateProcess(tortoiseProcPath, " /command:changewatcher", NULL, NULL, FALSE, 0, 0, 0, &startup, &process);
-	//} // if (g_cRefThisDll == 1)
-#endif
     g_cRefThisDll++;
 	
     INITCOMMONCONTROLSEX used = {
