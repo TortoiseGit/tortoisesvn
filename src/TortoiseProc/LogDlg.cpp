@@ -28,6 +28,8 @@
 
 // CLogDlg dialog
 
+#define SHORTLOGMESSAGEWIDTH 500
+
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CLogDlg::IDD, pParent)
@@ -151,6 +153,8 @@ BOOL CLogDlg::OnInitDialog()
 	m_LogList.InsertColumn(1, temp);
 	temp.LoadString(IDS_LOG_DATE);
 	m_LogList.InsertColumn(2, temp);
+	temp.LoadString(IDS_LOG_MESSAGE);
+	m_LogList.InsertColumn(3, temp);
 	m_arLogMessages.SetSize(0,100);
 	m_arRevs.SetSize(0,100);
 
@@ -268,6 +272,28 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 	m_LogList.SetItemText(count, 1, author);
 	m_LogList.SetItemText(count, 2, date);
 
+	// Add as many characters from the log message to the list control
+	// so it has a fixed width. If the log message is longer than
+	// this predefined fixed with, add "..." as an indication.
+	CString sShortMessage = message;
+	// Remove newlines 'cause those are not shown nicely in the listcontrol
+	sShortMessage.Replace('\n', ' ');
+	sShortMessage.Replace(_T("\r"), _T(""));
+	if (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH)
+	{
+		// Make an initial guess on how many chars fit into the fixed width
+		int nPix = m_LogList.GetStringWidth(sShortMessage);
+		int nAvgCharWidth = nPix / sShortMessage.GetLength();
+		sShortMessage = sShortMessage.Left(SHORTLOGMESSAGEWIDTH / nAvgCharWidth + 5);
+		sShortMessage += _T("...");
+	} // if (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH) 
+	while (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH)
+	{
+		sShortMessage = sShortMessage.Left(sShortMessage.GetLength()-4);
+		sShortMessage += _T("...");
+	} // while (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH) 
+	m_LogList.SetItemText(count, 3, sShortMessage);
+
 	//split multiline logentries and concatenate them
 	//again but this time with \r\n as line separators
 	//so that the edit control recognizes them
@@ -280,8 +306,6 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 			message.Replace(_T("\r\n"), _T("\n"));
 			message.Replace(_T("\n"), _T("\r\n"));
 			int pos = 0;
-			TCHAR buf[100000];
-			_tcscpy(buf, message);
 			if (message.Right(2).Compare(_T("\r\n"))==0)
 				message = message.Left(message.GetLength()-2);
 			while (message.Find('\n', pos)>=0)

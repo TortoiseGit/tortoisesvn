@@ -849,11 +849,22 @@ svn_error_t* SVN::logReceiver(void* baton,
 		systime.wMonth = newtime->tm_mon+1;
 		systime.wSecond = newtime->tm_sec;
 		systime.wYear = newtime->tm_year+1900;
-		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
-		_tcsncat(date_native, timebuf, MAX_PATH);
-		_tcsncat(date_native, _T(", "), MAX_PATH);
-		_tcsncat(date_native, datebuf, MAX_PATH);
+		if (CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
+		{
+			GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PATH);
+			GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+			_tcsncat(date_native, datebuf, MAX_PATH);
+			_tcsncat(date_native, _T(" "), MAX_PATH);
+			_tcsncat(date_native, timebuf, MAX_PATH);
+		}
+		else
+		{
+			GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
+			GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
+			_tcsncat(date_native, timebuf, MAX_PATH);
+			_tcsncat(date_native, _T(", "), MAX_PATH);
+			_tcsncat(date_native, datebuf, MAX_PATH);
+		}
 	}
 	else
 		_tcscat(date_native, _T("(no date)"));

@@ -157,8 +157,8 @@ public:
 	void SaveAuthentication(BOOL save);
 #else
 	stdstring GetLastErrorMsg();
-	svn_client_ctx_t 			ctx;
 #endif
+	svn_client_ctx_t 			ctx;
 	svn_wc_status_kind			m_allstatus;
 
 protected:
