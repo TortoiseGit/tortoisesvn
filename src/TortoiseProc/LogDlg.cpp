@@ -366,24 +366,24 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					temp.LoadString(IDS_LOG_POPUP_COPY);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
 				}
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 				temp.LoadString(IDS_LOG_POPUP_UPDATE);
 				if (m_hasWC)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
 				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 				if (m_hasWC)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 			}
 			else if (m_LogList.GetSelectedCount() == 2)
 			{
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 				if (!PathIsDirectory(m_path))
 				{
 					temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
 				}
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
