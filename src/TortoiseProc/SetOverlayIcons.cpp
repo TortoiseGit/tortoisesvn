@@ -152,7 +152,7 @@ BOOL CSetOverlayIcons::OnInitDialog()
 	SVNStatus::GetStatusString(svn_wc_status_deleted, statustext);
 	m_sDeleted = statustext;
 
-	ShowIconSet();
+	ShowIconSet(true);
 
 	AddAnchor(IDC_ICONSETLABEL, TOP_LEFT);
 	AddAnchor(IDC_ICONSETCOMBO, TOP_LEFT, TOP_RIGHT);
@@ -165,17 +165,21 @@ BOOL CSetOverlayIcons::OnInitDialog()
 	return TRUE;
 }
 
-void CSetOverlayIcons::ShowIconSet()
+void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 {
+	m_cIconList.SetRedraw(FALSE);
 	m_cIconList.DeleteAllItems();
-	for (int i=0; i<m_ImageList.GetImageCount(); ++i)
+	int nImageCount = m_ImageList.GetImageCount();
+	for (int i=0; i<nImageCount; ++i)
 	{
-		m_ImageList.Remove(i);
+		m_ImageList.Remove(0);
 	}
-	for (int i=0; i<m_ImageListBig.GetImageCount(); ++i)
+	nImageCount = m_ImageListBig.GetImageCount();
+	for (int i=0; i<nImageCount; ++i)
 	{
-		m_ImageListBig.Remove(i);
+		m_ImageListBig.Remove(0);
 	}
+	TRACE(_T("Imagelist small : %d  Imagelist big : %d\n"), m_ImageList.GetImageCount(), m_ImageListBig.GetImageCount());
 	//find all the icons of the selected icon set
 	CString sIconSet;
 	int index = m_cIconSet.GetCurSel();
@@ -187,28 +191,27 @@ void CSetOverlayIcons::ShowIconSet()
 	m_cIconSet.GetLBText(index, sIconSet);
 	CString sIconSetPath = m_sIconPath + _T("\\") + sIconSet;
 
-	BOOL bSmallIcons = (GetCheckedRadioButton(IDC_LISTRADIO, IDC_SYMBOLRADIO) == IDC_LISTRADIO);
 	CImageList * pImageList = bSmallIcons ? &m_ImageList : &m_ImageListBig;
 	int pixelsize = (bSmallIcons ? 16 : 32);
 	HICON hNormalOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseInSubversion.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
 	index = pImageList->Add(hNormalOverlay);
-	pImageList->SetOverlayImage(index, 1);
-	DestroyIcon(hNormalOverlay);
+	VERIFY(pImageList->SetOverlayImage(index, 1));
 	HICON hModifiedOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseModified.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
 	index = pImageList->Add(hModifiedOverlay);
-	pImageList->SetOverlayImage(index, 2);
-	DestroyIcon(hModifiedOverlay);
+	VERIFY(pImageList->SetOverlayImage(index, 2));
 	HICON hConflictedOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseConflict.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
 	index = pImageList->Add(hConflictedOverlay);
-	pImageList->SetOverlayImage(index, 3);
-	DestroyIcon(hConflictedOverlay);
+	VERIFY(pImageList->SetOverlayImage(index, 3));
 	HICON hAddedOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseAdded.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
 	index = pImageList->Add(hAddedOverlay);
-	pImageList->SetOverlayImage(index, 4);
-	DestroyIcon(hAddedOverlay);
+	VERIFY(pImageList->SetOverlayImage(index, 4));
 	HICON hDeletedOverlay = (HICON)LoadImage(NULL, sIconSetPath+_T("\\TortoiseDeleted.ico"), IMAGE_ICON, pixelsize, pixelsize, LR_LOADFROMFILE);
 	index = pImageList->Add(hDeletedOverlay);
-	pImageList->SetOverlayImage(index, 5);
+	VERIFY(pImageList->SetOverlayImage(index, 5));
+	DestroyIcon(hNormalOverlay);
+	DestroyIcon(hModifiedOverlay);
+	DestroyIcon(hConflictedOverlay);
+	DestroyIcon(hAddedOverlay);
 	DestroyIcon(hDeletedOverlay);
 
 	//create an image list with different file icons
@@ -229,49 +232,48 @@ void CSetOverlayIcons::ShowIconSet()
 	int folderindex = pImageList->Add(sfi.hIcon);	//folder
 	DestroyIcon(sfi.hIcon);
 	//folders
-	index = m_cIconList.InsertItem(0, _T("normal"), folderindex);
-	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(1), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(1, _T("modified"), folderindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sNormal, folderindex);
+	VERIFY(m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(1), TVIS_OVERLAYMASK));
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sModified, folderindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(2), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(2, _T("conflicted"), folderindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sConflicted, folderindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(3), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(3, _T("added"), folderindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sAdded, folderindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(4), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(4, _T("deleted"), folderindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sDeleted, folderindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(5), TVIS_OVERLAYMASK);
 
-	AddFileTypeGroup(_T(".cpp"));
-	AddFileTypeGroup(_T(".h"));
-	AddFileTypeGroup(_T(".txt"));
-	AddFileTypeGroup(_T(".java"));
-	AddFileTypeGroup(_T(".doc"));
-	AddFileTypeGroup(_T(".pl"));
-	AddFileTypeGroup(_T(".php"));
-	AddFileTypeGroup(_T(".asp"));
-	AddFileTypeGroup(_T(".cs"));
-	AddFileTypeGroup(_T(".vb"));
-	AddFileTypeGroup(_T(".xml"));
-	AddFileTypeGroup(_T(".pas"));
-	AddFileTypeGroup(_T(".dpr"));
-	AddFileTypeGroup(_T(".dfm"));
-	AddFileTypeGroup(_T(".res"));
-	AddFileTypeGroup(_T(".asmx"));
-	AddFileTypeGroup(_T(".aspx"));
-	AddFileTypeGroup(_T(".resx"));
-	AddFileTypeGroup(_T(".vbp"));
-	AddFileTypeGroup(_T(".frm"));
-	AddFileTypeGroup(_T(".frx"));
-	AddFileTypeGroup(_T(".bas"));
-	AddFileTypeGroup(_T(".config"));
-	AddFileTypeGroup(_T(".css"));
-	AddFileTypeGroup(_T(".acsx"));
-	AddFileTypeGroup(_T(".jpg"));
-	AddFileTypeGroup(_T(".png"));
-	m_cIconList.RedrawItems(0, m_cIconList.GetItemCount());
+	AddFileTypeGroup(_T(".cpp"), bSmallIcons);
+	AddFileTypeGroup(_T(".h"), bSmallIcons);
+	AddFileTypeGroup(_T(".txt"), bSmallIcons);
+	AddFileTypeGroup(_T(".java"), bSmallIcons);
+	AddFileTypeGroup(_T(".doc"), bSmallIcons);
+	AddFileTypeGroup(_T(".pl"), bSmallIcons);
+	AddFileTypeGroup(_T(".php"), bSmallIcons);
+	AddFileTypeGroup(_T(".asp"), bSmallIcons);
+	AddFileTypeGroup(_T(".cs"), bSmallIcons);
+	AddFileTypeGroup(_T(".vb"), bSmallIcons);
+	AddFileTypeGroup(_T(".xml"), bSmallIcons);
+	AddFileTypeGroup(_T(".pas"), bSmallIcons);
+	AddFileTypeGroup(_T(".dpr"), bSmallIcons);
+	AddFileTypeGroup(_T(".dfm"), bSmallIcons);
+	AddFileTypeGroup(_T(".res"), bSmallIcons);
+	AddFileTypeGroup(_T(".asmx"), bSmallIcons);
+	AddFileTypeGroup(_T(".aspx"), bSmallIcons);
+	AddFileTypeGroup(_T(".resx"), bSmallIcons);
+	AddFileTypeGroup(_T(".vbp"), bSmallIcons);
+	AddFileTypeGroup(_T(".frm"), bSmallIcons);
+	AddFileTypeGroup(_T(".frx"), bSmallIcons);
+	AddFileTypeGroup(_T(".bas"), bSmallIcons);
+	AddFileTypeGroup(_T(".config"), bSmallIcons);
+	AddFileTypeGroup(_T(".css"), bSmallIcons);
+	AddFileTypeGroup(_T(".acsx"), bSmallIcons);
+	AddFileTypeGroup(_T(".jpg"), bSmallIcons);
+	AddFileTypeGroup(_T(".png"), bSmallIcons);
+	m_cIconList.SetRedraw(TRUE);
 }
-void CSetOverlayIcons::AddFileTypeGroup(CString sFileType)
+void CSetOverlayIcons::AddFileTypeGroup(CString sFileType, bool bSmallIcons)
 {
-	BOOL bSmallIcons = (GetCheckedRadioButton(IDC_LISTRADIO, IDC_SYMBOLRADIO) == IDC_LISTRADIO);
 	UINT flags = SHGFI_ICON | SHGFI_USEFILEATTRIBUTES;
 	if (bSmallIcons)
 		flags |= SHGFI_SMALLICON;
@@ -294,15 +296,15 @@ void CSetOverlayIcons::AddFileTypeGroup(CString sFileType)
 
 	DestroyIcon(sfi.hIcon);
 	int index = 0;
-	index = m_cIconList.InsertItem(0, m_sNormal+sFileType, imageindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sNormal+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(1), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(1, m_sModified+sFileType, imageindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sModified+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(2), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(2, m_sConflicted+sFileType, imageindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sConflicted+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(3), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(3, m_sAdded+sFileType, imageindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sAdded+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(4), TVIS_OVERLAYMASK);
-	index = m_cIconList.InsertItem(4, m_sDeleted+sFileType, imageindex);
+	index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sDeleted+sFileType, imageindex);
 	m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(5), TVIS_OVERLAYMASK);
 
 }
@@ -310,18 +312,19 @@ void CSetOverlayIcons::AddFileTypeGroup(CString sFileType)
 void CSetOverlayIcons::OnBnClickedListradio()
 {
 	m_cIconList.ModifyStyle(LVS_TYPEMASK, LVS_LIST);
-	ShowIconSet();
+	ShowIconSet(true);
 }
 
 void CSetOverlayIcons::OnBnClickedSymbolradio()
 {
 	m_cIconList.ModifyStyle(LVS_TYPEMASK, LVS_ICON);
-	ShowIconSet();
+	ShowIconSet(false);
 }
 
 void CSetOverlayIcons::OnCbnSelchangeIconsetcombo()
 {
-	ShowIconSet();
+	bool bSmallIcons = (GetCheckedRadioButton(IDC_LISTRADIO, IDC_SYMBOLRADIO) == IDC_LISTRADIO);
+	ShowIconSet(bSmallIcons);
 }
 
 void CSetOverlayIcons::OnOK()

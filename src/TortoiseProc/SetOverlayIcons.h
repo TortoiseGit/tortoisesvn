@@ -45,8 +45,8 @@ protected:
 	afx_msg void			OnCbnSelchangeIconsetcombo();
 	afx_msg void			OnBnClickedHelp();
 
-	void					ShowIconSet();
-	void					AddFileTypeGroup(CString sFileType);
+	void					ShowIconSet(bool bSmallIcons);
+	void					AddFileTypeGroup(CString sFileType, bool bSmallIcons);
 	DECLARE_MESSAGE_MAP()
 protected:
 	HICON			m_hIcon;

@@ -437,15 +437,6 @@
 				<File Id="F__ModernDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseDeleted.ico" />
 			</Component>
 		</Directory>
-		<Directory Id="D__iconsryanharris" Name="RYANHA~1" LongName="RyanHarris" >
-			<Component Id="C__iconsryanharris" Guid="4E255478-AFA9-4f06-9682-CEA3B0B4B56E" >
-				<File Id="F__RyanHarrisConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseConflict.ico" KeyPath="yes" />
-				<File Id="F__RyanHarrisInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseInSubversion.ico" />
-				<File Id="F__RyanHarrisModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseModified.ico" />
-				<File Id="F__RyanHarrisAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseAdded.ico" />
-				<File Id="F__RyanHarrisDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseDeleted.ico" />
-			</Component>
-		</Directory>
 		<Directory Id="D__iconsxpstyle" Name="XPStyle" >
 			<Component Id="C__iconsxpstyle" Guid="BEF69706-378E-4ee3-960A-617C2A2C769D" >
 				<File Id="F__XPStyleConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseConflict.ico" KeyPath="yes" />
@@ -489,7 +480,6 @@
       <ComponentRef Id="C__iconv" />
       <ComponentRef Id="C__iconsclassic" />
       <ComponentRef Id="C__iconsmodern" />
-      <ComponentRef Id="C__iconsryanharris" />
       <ComponentRef Id="C__iconsxpstyle" />
       <ComponentRef Id="C__iconsmarkphippard" />
       <ComponentRef Id="C__iconsstraight" />
