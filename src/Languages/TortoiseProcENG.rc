@@ -342,19 +342,22 @@ BEGIN
                     13,146,267,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,160,267,10
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,107
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,118,286,75
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,96
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,105,286,88
     CONTROL         "Don't convert files when diffing against BASE",
                     IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
-                    76,267,10
+                    74,267,10
     LTEXT           "Font for log messages:",IDC_STATIC,13,175,105,8
     COMBOBOX        IDC_FONTNAMES,117,173,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_FONTSIZES,241,174,40,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
-    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,91,51,14
-    LTEXT           "Subversion configuration file:",IDC_STATIC,13,94,210,8
+    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,84,51,14
+    LTEXT           "Subversion configuration file:",IDC_STATIC,13,87,210,8
+    CONTROL         "Set filedates to the ""last commit time""",
+                    IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,118,267,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199

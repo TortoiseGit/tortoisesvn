@@ -35,6 +35,7 @@ CSetMainPage::CSetMainPage()
 	, m_bAutoClose(FALSE)
 	, m_sDefaultLogs(_T(""))
 	, m_bDontConvertBase(FALSE)
+	, m_bLastCommitTime(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
@@ -45,6 +46,7 @@ CSetMainPage::CSetMainPage()
 	m_regDontConvertBase = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), FALSE);
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
+	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 }
 
 CSetMainPage::~CSetMainPage()
@@ -67,6 +69,7 @@ void CSetMainPage::SaveData()
 
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
+	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -85,6 +88,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_MISCGROUP, m_cMiscGroup);
 	DDX_Control(pDX, IDC_COMMITGROUP, m_cCommitGroup);
 	DDX_Check(pDX, IDC_DONTCONVERT, m_bDontConvertBase);
+	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 }
 
 
@@ -96,6 +100,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
 	ON_BN_CLICKED(IDC_DONTCONVERT, OnBnClickedDontconvert)
+	ON_BN_CLICKED(IDC_COMMITFILETIMES, OnBnClickedCommitfiletimes)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
@@ -127,6 +132,9 @@ BOOL CSetMainPage::OnInitDialog()
 	m_dwFontSize = m_regFontSize;
 
 	CString temp;
+	temp = m_regLastCommitTime;
+	m_bLastCommitTime = (temp.CompareNoCase(_T("yes"))==0);
+
 	temp.Format(_T("%ld"), (DWORD)m_regDefaultLogs);
 	m_sDefaultLogs = temp;
 
@@ -243,6 +251,11 @@ void CSetMainPage::OnCbnSelchangeFontnames()
 	SetModified();
 }
 
+void CSetMainPage::OnBnClickedCommitfiletimes()
+{
+	SetModified();
+}
+
 BOOL CSetMainPage::OnApply()
 {
 	UpdateData();
@@ -255,6 +268,7 @@ void CSetMainPage::OnBnClickedEditconfig()
 {
 	CUtils::StartTextViewer(_T("%APPDATA%\\Subversion\\config"));
 }
+
 
 
 

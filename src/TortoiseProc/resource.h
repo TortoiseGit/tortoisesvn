@@ -167,6 +167,8 @@
 #define IDC_SUPPORTLINK                 1085
 #define IDC_FONTSIZES                   1086
 #define IDC_REVTEXT                     1087
+#define IDC_CHECK3                      1088
+#define IDC_COMMITFILETIMES             1088
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -344,7 +346,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        170
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1088
+#define _APS_NEXT_CONTROL_VALUE         1089
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

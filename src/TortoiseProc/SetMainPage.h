@@ -97,6 +97,8 @@ private:
 	DWORD			m_dwFontSize;
 	CRegString		m_regFontName;
 	CString			m_sFontName;
+	CRegString		m_regLastCommitTime;
+	BOOL			m_bLastCommitTime;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -112,4 +114,5 @@ public:
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnBnClickedEditconfig();
+	afx_msg void OnBnClickedCommitfiletimes();
 };
