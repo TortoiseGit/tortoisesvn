@@ -5,6 +5,8 @@ rem
 rem build script for TortoiseSVN
 rem
 @if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
+if "%TortoiseVars%"=="" call TortoiseVars.bat
+echo %~dp0
 
 if "%1"=="" (
   SET _RELEASE=ON
@@ -51,23 +53,41 @@ rem Subversion
 echo ================================================================================
 echo building Subversion
 cd ..\..\Subversion
+rem perl apr-util\build\w32locatedb.pl dll .\db4-win32\include .\db4-win32\lib
 copy build\generator\vcnet_sln.ezt build\generator\vcnet_sln7.ezt
 copy ..\TortoiseSVN\vcnet_sln.ezt build\generator\vcnet_sln.ezt
-call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib
+call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls
 copy build\generator\vcnet_sln7.ezt build\generator\vcnet_sln.ezt /Y
 del build\generator\vcnet_sln7.ezt
 if %_DEBUG%==ON (
-  devenv subversion_vcnet.sln /rebuild debug /project "__ALL__")
+  devenv subversion_vcnet.sln /useenv /rebuild debug /project "__ALL__")
 if %_RELEASE%==ON (
-  devenv subversion_vcnet.sln /rebuild release /project "__ALL__")
-else if %_RELEASE_MBCS%==ON (
-  devenv subversion_vcnet.sln /rebuild release /project "__ALL__")
+  devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__"
+) else if %_RELEASE_MBCS%==ON (
+  devenv subversion_vcnet.sln /useenv /rebuild release /project "__ALL__")
 
 @echo off
+exit /B
 
 rem TortoiseSVN
 echo ================================================================================
 echo building TortoiseSVN
+if %_DEBUG%==ON (
+  copy apr\Debug\libapr.dll ..\TortoiseSVN\bin\Debug /Y > NUL 
+  copy apr-util\Debug\libaprutil.dll ..\TortoiseSVN\bin\Debug /Y > NUL 
+  copy apr-iconv\Debug\libapriconv.dll ..\TortoiseSVN\bin\Debug /Y > NUL 
+)
+if %_RELEASE%==ON (
+  copy apr\Release\libapr.dll ..\TortoiseSVN\bin\Release /Y > NUL 
+  copy apr-util\Release\libaprutil.dll ..\TortoiseSVN\bin\Release /Y > NUL 
+  copy apr-iconv\Release\libapriconv.dll ..\TortoiseSVN\bin\Release /Y > NUL 
+)
+if %_RELEASE_MBCS%==ON (
+  copy apr\Release\libapr.dll ..\TortoiseSVN\bin\Release_MBCS /Y > NUL 
+  copy apr-util\Release\libaprutil.dll ..\TortoiseSVN\bin\Release_MBCS /Y > NUL 
+  copy apr-iconv\Release\libapriconv.dll ..\TortoiseSVN\bin\Release_MBCS /Y > NUL 
+)
+
 cd ..\TortoiseSVN\src
 devenv TortoiseSVN.sln /rebuild release /project SubWCRev
 ..\bin\release\SubWCRev.exe .. version.in version.h
@@ -83,21 +103,21 @@ cd ..\..
 if %_DEBUG%==ON (
   if EXIST bin\debug\iconv rmdir /S /Q bin\debug\iconv > NUL
   mkdir bin\debug\iconv > NUL
-  copy ..\Subversion\apr-iconv\LibD\iconv\*.so bin\debug\iconv > NUL
+  copy ..\Subversion\httpd\apr-iconv\Debug\iconv\*.so bin\debug\iconv > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\debug /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42d.dll bin\debug /Y > NUL
 )
 if %_RELEASE%==ON (
   if EXIST bin\release\iconv rmdir /S /Q bin\release\iconv > NUL
   mkdir bin\release\iconv > NUL
-  copy ..\Subversion\apr-iconv\LibR\iconv\*.so bin\release\iconv > NUL
+  copy ..\Subversion\httpd\apr-iconv\Release\iconv\*.so bin\release\iconv > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42.dll bin\release /Y > NUL
 )
 if %_RELEASE_MBCS%==ON (
   if EXIST bin\release_mbcs\iconv rmdir /S /Q bin\release_mbcs\iconv > NUL
   mkdir bin\release_mbcs\iconv > NUL
-  copy ..\Subversion\apr-iconv\LibR\iconv\*.so bin\release_mbcs\iconv > NUL
+  copy ..\Subversion\httpd\apr-iconv\Release\iconv\*.so bin\release_mbcs\iconv > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release_mbcs /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42.dll bin\release_mbcs /Y > NUL
 )
