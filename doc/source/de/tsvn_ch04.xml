@@ -148,7 +148,7 @@
 				Projektarchiv nur ein einziges Projekt enthält ist das folgende Layout
 				zu empfehlen:
 			</para>
-<screen>
+			<screen>
 /trunk
 /branches
 /tags
@@ -157,7 +157,7 @@
 				Falls ein Projektarchiv jedoch mehrere Projekte enthält, kann das
 				Layout durch Verzweigungen (branch) erstellt werden:
 			</para>
-<screen>
+			<screen>
 /trunk/paint
 /trunk/calc
 /branches/paint
@@ -166,7 +166,7 @@
 /tags/calc
 </screen>
 			<para>&hellip;oder per Projekt:</para>
-<screen>
+			<screen>
 /paint/trunk
 /paint/branches
 /paint/tags
@@ -346,7 +346,9 @@
 			<para>
 				Nehmen wir an Sie erstellen eine Arbeitskopie von /project1 in <filename>D:\dev\project1</filename>. 
 				Selektieren Sie den Ordner <filename>D:\dev\project1</filename>, machen Sie einen <action>Rechts-Klick</action> 
-				und wählen Sie <menuchoice><guimenuitem>Eigenschaften</guimenuitem></menuchoice> 
+				und wählen Sie <menuchoice>
+					<guimenuitem>Eigenschaften</guimenuitem>
+				</menuchoice> 
 				aus dem Contextmenü. Der Eigenschaften Dialog erscheint, gehen Sie zu dem Tab Subversion. 
 				Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die "svn:externals"
 				Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu refernzierende Projektarchiv Url 
@@ -419,7 +421,7 @@
 				alle <filename>.svn</filename> Ordner löschen können Sie den
 				Befehl 
 				<menuchoice>
-					<guimenuitem>Exportieren...</guimenuitem> 
+					<guimenuitem>Exportieren...</guimenuitem>
 				</menuchoice>
 				verwenden. Wenn Sie diesen Befehl ausführen werden Sie nach 
 				einem Ort gefragt an dem Sie die Daten speichern möchten, und 
@@ -434,12 +436,12 @@
 			eines Arbeitskopie-Ordners an einen anderen Ort. Dann einfach
 			im Kontextmenu 
 			<menuchoice>
-				<guimenuitem>Subversion hier exportieren</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Subversion hier exportieren</guimenuitem>
+				</menuchoice>
 			oder  
 			<menuchoice>
-				<guimenuitem>Subversion hier alle exportieren</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Subversion hier alle exportieren</guimenuitem>
+				</menuchoice>
 			wählen.
 			</para>
 		</tip>
@@ -512,8 +514,8 @@
 			hat, dann <literal>Hinzugefügt</literal>, <literal>gelöscht</literal>,
 			<literal>verändert</literal> und schlussendlich <literal>normal</literal>.
 			<tip>
-				<title>Langsame Overlayanzeige</title>
-				<para>
+					<title>Langsame Overlayanzeige</title>
+					<para>
 					Sie werden feststellen, dass sobald Sie die Icon Overlays rekursiv
 					anzeigen lassen der Explorer recht langsam wird. Dies hängt
 					vorallem davon ab wie gross Ihre Arbeitskopie ist, resp. wieviele
@@ -525,7 +527,7 @@
 					Algorithmus und der Festplattencache von Windows die Anzeige
 					zu beschleunigen.
 				</para>
-				<para>
+					<para>
 					Wenn Sie die rekursiv überlagerten Icons für bestimmte
 					Ordner ausschalten möchten, können Sie das tun indem Sie
 					eine Datei mit Namen <filename>_tsvnexcluderecursive</filename>
@@ -533,7 +535,7 @@
 					für diesen Ordner allein, jedoch nicht für die Dateien/Ordner
 					innerhalb dieses Ordners.
 				</para>
-				<para>
+					<para>
 					Sie können die überlagerten Icons auch komplett ausschalten
 					für einen bestimmten Ordner, indem Sie eine Datei mit
 					Namen <filename>_tsvnexcludethis</filename> in diesem
@@ -544,7 +546,7 @@
 					mittels der Einstellungen ausschliessen
 					(<xref linkend="tsvn-DUG-settings-overlay"/>).
 				</para>
-			</tip>
+				</tip>
 			</para>
 			<para>
 				Anders als <application>TortoiseCVS</application>  zeigt TortoiseSVN keine
@@ -895,7 +897,6 @@
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-adding">
-
 		<title>Neue Dateien und Ordner hinzufügen</title>
 		<indexterm>
 			<primary>hinzufügen</primary>
@@ -964,7 +965,7 @@
 					<para>
 						Im erscheinenden Popupmenu wählen Sie 
 						<menuchoice>
-						<guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem>.
+							<guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem>.
 						</menuchoice>.
 						Die Dateien
 						werden dann in die Arbeitskopie kopiert und zur 
@@ -1015,7 +1016,7 @@
 			<literal>Löschen</literal> noch nicht zum Projektarchiv übertragen haben
 			können Sie die Datei/Ordner mit dem
 			<menuchoice>
-				<guimenuitem>Rückgängig</guimenuitem> 
+				<guimenuitem>Rückgängig</guimenuitem>
 			</menuchoice>
 			Befehl auf dem übergeordneten Ordner wieder zurückholen.
 		</para>
@@ -1078,8 +1079,8 @@
 				Wenn Sie eine Datei oder einen Ordner gelöscht und dies bereits
 				ins Projektarchiv übertragen haben, wird ein normaler
 				<menuchoice>
-					<guimenuitem>Rückgängig</guimenuitem>
-				</menuchoice>
+						<guimenuitem>Rückgängig</guimenuitem>
+					</menuchoice>
 				Befehl diese nicht wieder zurückbringen können. Aber die Datei
 				oder der Ordner ist nicht verloren. Wenn Sie die Revisionsnummer
 				kennen, wo es gelöscht wurde (Benutzen Sie den Log-Dialog um dies
@@ -1088,8 +1089,8 @@
 				den gelöschten Ordner, Rechts-Klick und dann wählen Sie den
 				Befehl
 				<menuchoice>
-					<guimenuitem>Kopieren zu...</guimenuitem>
-				</menuchoice>
+						<guimenuitem>Kopieren zu...</guimenuitem>
+					</menuchoice>
 				Als Ziel für diesen Kopierbefehl geben Sie den Pfad zu Ihrer
 				Arbeitskopie an.
 				</para>
@@ -1326,8 +1327,8 @@
 							Log-Meldungen angezeigt, aber dieser Wert kann im
 							Einstellungs-Dialog geändert werden.
                   			<menuchoice>
-            					<guimenuitem>Einstellungen</guimenuitem>
-            				</menuchoice>
+								<guimenuitem>Einstellungen</guimenuitem>
+							</menuchoice>
             				(<xref linkend="tsvn-DUG-settings"/>),
 						</para>
 					</listitem>
@@ -1701,7 +1702,6 @@ Rev Log-Meldungen
 			Die Entwickler können den Patch überprüfen und dann entweder in das
 			Projektarchiv übertragen oder verwerfen und an den Autor zurückschicken.
 		</para>
-### Translate to German Start ###
 		<sect2 id="tsvn-DUG-patch-1">
 			<title>Erzeugen einer Patchdatei</title>
 			<para>
@@ -1715,58 +1715,61 @@ Rev Log-Meldungen
 				<menuchoice>
 					<guimenuitem>Patch erzeugen...</guimenuitem>
 				</menuchoice>
-				This will produce a single file containing a summary of all the changes
-				you have made since the last update from the repository. If you create a
-				patch file, make some more changes and then create another patch, the
-				second patch file will include <emphasis>both</emphasis> sets of changes.
+				Diese Funktion erzeugt eine einzelne Datei, welche eine Zusammenfassung
+				aller Änderungen enthält, die Sie seit der letzten Aktualisierung vorgenommen
+				haben. Wenn Sie eine Patchdatei erzeugen, weitere Änderungen vornehmen
+				und nochmals eine Patchdatei erstellen, so enthält die zweite Patchdatei
+				<emphasis>beide</emphasis> Sätze von Änderungen.
 			</para>
 			<para>
-				Just save the file using a filename of your choice.
-				Patch files can have any extension you like, but by convention they
-				should use the <filename>.patch</filename> extension.
-				You are now ready to submit your patch file.
+				Speichern Sie die Datei unter einem Namen Ihrer Wahl. Patchdateien können
+				jede beliebige Dateiendung haben. Eine Konvention ist jedoch, 
+				<filename>.patch</filename> dafür zu verwenden. 
+				Nun Sind Sie so weit. Sie können Ihre Patchdatei an die Entwickler schicken.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-patch-2">
-			<title>Applying a Patch File</title>
+			<title>Anwenden einer Patchdatei</title>
 			<para>
-				Patch files are applied to your working copy. This should be done
-				from the same folder level as was used to create the patch.
-				If you are not sure what this is, just look at the first line of
-				the patch file. For example, if the first file being worked on was
+				Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet.
+				Dies muß innerhalb des selben Ordners durchgeführt werden, in dem
+				dier Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher
+				Ordner das war, schauen Sie in die erste Zeile der Patchdatei.
+				Wenn z.B. die erste bearbeitete Datei
 				<filename>doc/source/english/chapter1.xml</filename>
-				and the first line in the patchfile is
+				hieß und die erste Zeile in der Patchdatei
 				<filename>Index: english/chapter1.xml</filename>
-				then you need to apply the patch to the
-				<filename>english</filename> folder.
+				lautet, dann müssen sie den Patch auf den
+				<filename>english</filename> Ordner anwenden.
 			</para>
 			<para>
-				In order to apply a patch file to your working copy, you need
-				to have at least read access to the repository.
-				The reason for this is that the merge program must
-				reference the changes back to the revision against
-				which they were made by the remote developer.
+				Um den Patch anwenden zu können, benötigen Sie zumindest
+				Lesezugriff auf das Projektarchiv, denn das Programm zum Zusammenführen
+				(Patchen) der Daten muß eventuell auf dieses zurückgreifen, 	um die 
+				Änderungen auf die Revision im Projektarchiv zurückzuführen, auf
+				der sie basieren.
 			</para>
 			<para>
-				From the context menu for that folder, click on
+				Vom Kontextmenü des betroffenen Ordners aus wählen Sie
 				<menuchoice>
-					<guimenuitem>Apply Patch...</guimenuitem>
+					<guimenuitem>Patch anwenden...</guimenuitem>
 				</menuchoice>
-				This will bring up a file open dialog allowing you to select the
-				patch file to apply. By default only <filename>.patch</filename>
-				files are shown, but you can opt for "All files". Open the file
-				and TortoiseMerge runs to merge the changes from the patch file
-				with your working copy. A small window lists the files which have
-				been changed. Double click on each one in turn, review the changes
-				and save the merged files.
+				Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die 
+				anzuwendende Patchdatei auswähren können. Standardmäßig werden nur 
+				<filename>.patch</filename> Dateien angezeigt, aber sie können auch 
+				"Alle Dateien" auswählen. Öffnen Sie die Datei und TortoiseMerge wird
+				Ihnen eine Liste der Dateien anzeigen, die durch die Patchdatei geändert
+				würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und
+				die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie
+				zusammengeführt und falrblich hervorgehoben. Überprüfen Sie die 
+				Änderungen und speichern Sie die geänderten Dateien.
 			</para>
 			<para>
-				The remote developer's patch has now been applied to your working copy,
-				so you need to commit to allow everyone else to access the changes
-				from the repository.
+				Die Patchdatei wurde nun in Ihrer Arbeitskopie angewendet, so daß Sie
+				nun zum Projektarchiv übertragen werden müssen, um anderen 
+				Projekteilnehmern zur Verfügung zu stehen.
 			</para>
 		</sect2>
-### Translate to German End ###
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
@@ -1823,8 +1826,8 @@ Rev Log-Meldungen
 		nützlich, wenn Sie eine alte, gelöschte Datei wiederherstellen möchten.
 		Benutzen Sie dazu den Befehl
 		<menuchoice>
-			<guimenuitem>Kopieren nach...</guimenuitem>
-		</menuchoice>
+				<guimenuitem>Kopieren nach...</guimenuitem>
+			</menuchoice>
 		und geben Sie im Dialog dann den vollständigen Pfad in Ihrer Arbeitskopie
 		an, wo die gelöschte Datei wiederhergestellt werden soll.
 		</para>
@@ -1855,21 +1858,20 @@ Rev Log-Meldungen
 			Abgesehen von der bevorzugten Sprache erlaubt dieser Dialog es Ihnen,
 			(fast) alle Einstellungen von TortoiseSVN zu ändern.
 			<variablelist>
-				<varlistentry>
-					<term>Sprache</term>
-					<listitem>
-					<para>Wählt die Sprache für die Dialoge/Meldungen aus. Was
+					<varlistentry>
+						<term>Sprache</term>
+						<listitem>
+							<para>Wählt die Sprache für die Dialoge/Meldungen aus. Was
 					haben Sie anderes erwartet?</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Ausschliessen</term>
-					<listitem>
-					<para>
-					<indexterm>
-						<primary>ausschliessen</primary>
-					</indexterm>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Ausschliessen</term>
+						<listitem>
+							<para>
+								<indexterm>
+									<primary>ausschliessen</primary>
+								</indexterm>
 					Ausgeschlossene, unversionierte Dateien werden nicht angezeigt
 					in z.B. dem Übertragen Dialog. Ausserdem werden solche Dateien
 					beim Importieren in ein Projektarchiv ignoriert.
@@ -1880,7 +1882,7 @@ Rev Log-Meldungen
 					Die ersten beiden Muster beziehen sich auf Ordner, die
 					restlichen vier auf Dateien.
 					</para>
-					<para>
+							<para>
 					Diese Auschluss-Muster beziehen sich auf alle Ihre Projekte.
 					Sie werden nicht versioniert, d.h. andere Benutzer werden davon
 					nichts mitbekommen. Im Gegensatz dazu können Sie jedoch auch
@@ -1888,54 +1890,50 @@ Rev Log-Meldungen
 					und/oder Ordner von der Versionskontrolle auszuschliessen.
 					Sie können die svn:ignore Eigenschaft setzen durch den
 					<menuchoice>
-						<guimenuitem>Ignorieren</guimenuitem>
-					</menuchoice>
+									<guimenuitem>Ignorieren</guimenuitem>
+								</menuchoice>
 					Befehl. Nach dem Übertragen wird jeder Benutzer dieselbe
 					svn:ignore Eigenschaft für das Projekt oder den Ordner
 					haben wie Sie.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Anzahl der angezeigten Log-Meldungen</term>
-					<listitem>
-					<para>Beschränkt die Anzahl der angezeigten Log-Meldungen welche
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Anzahl der angezeigten Log-Meldungen</term>
+						<listitem>
+							<para>Beschränkt die Anzahl der angezeigten Log-Meldungen welche
 					TortoiseSVN vom Projektarchiv holt wenn Sie
 					<menuchoice>
-						<guimenuitem>Zeige Log</guimenuitem>
-					</menuchoice>
+									<guimenuitem>Zeige Log</guimenuitem>
+								</menuchoice>
 					ausführen. Nützlich bei langsamen Verbindungen zum Projektarchiv.
 					Sie können jederzeit alle Log-Meldungen mittels <guibutton>Hole Alle</guibutton>
 					anzeigen lassen.
 					</para>
-					</listitem>
-				</varlistentry>
-			
-				<varlistentry>
-					<term>Bearbeiten</term>
-					<listitem>
-					<para>Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor.
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Bearbeiten</term>
+						<listitem>
+							<para>Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor.
 					Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden
 					sondern nur mittels Bearbeitung der Konfigurationsdatei.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Kurzes Datum/Zeit Format in Log-Meldungen</term>
-					<listitem>
-					<para>Wenn die standarmässig angezeigten langen Datums-/Zeitangaben
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Kurzes Datum/Zeit Format in Log-Meldungen</term>
+						<listitem>
+							<para>Wenn die standarmässig angezeigten langen Datums-/Zeitangaben
 					zu viel Platz einnehmen können Sie hier angeben das kurze
 					Format zu verwenden.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Dateidatum auf "Datum der letzten Übertragung" setzen</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Dateidatum auf "Datum der letzten Übertragung" setzen</term>
+						<listitem>
+							<para>
 					Diese Einstellung zwingt TortoiseSVN das Dateidatum auf das 
 					Datum der letzen Übertragung der Datei zu setzen bei einem
 					Auschecken oder einer Aktualisierung. Ansonsten setzt 
@@ -1948,79 +1946,72 @@ Rev Log-Meldungen
 					ältere Dateiversion zurückgreifen, kann es passieren, daß sich das
 					Projekt nicht so übersetzen lässt, wie erwartet.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Fenster automatisch schliessen</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Fenster automatisch schliessen</term>
+						<listitem>
+							<para>
 					TortoiseSVN wird das Fortschritts-Fenster automatisch schliessen
 					wenn die Operation abgeschlossen ist.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Prüfe auf Aktualisierung</term>
-					<listitem>
-					<para>Wenn gewählt wird TortoiseSVN einmal pro Woche
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Prüfe auf Aktualisierung</term>
+						<listitem>
+							<para>Wenn gewählt wird TortoiseSVN einmal pro Woche
 					überprüfen, ob eine neuere Version vorhanden ist.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Minimale Log Grösse in Zeichen</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Minimale Log Grösse in Zeichen</term>
+						<listitem>
+							<para>
 					Die mindestlänge einer Log-Meldung für eine Übertragung.
 					Wenn Sie weniger Zeichen für die Log-Meldung eingeben, bleibt die 
 					<guibutton>OK</guibutton> Schaltfläche deaktiviert.
 					Ein Wert von Null gestattet leere Log-Meldungen.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Log-Meldungen beim Abbruch einer Übertragung nicht löschen</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Log-Meldungen beim Abbruch einer Übertragung nicht löschen</term>
+						<listitem>
+							<para>
 					Wenn aus irgendeinem Grund eine Übertragung abgebrochen wird
 					wird die Log-Meldung gespeichert und beim erneuten Aufruf
 					des Übertragungsdialogs automatisch wieder eingefügt.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Zeige BugID/Issue-Nr. Box</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Zeige BugID/Issue-Nr. Box</term>
+						<listitem>
+							<para>
 					Zeigt eine Textbox im Übertragungsdialog wo Sie eine Bug-ID
 					oder Issue-Nummer für einen Bugtracker eingeben können.
 					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Paste Log template in english</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Paste Log template in english</term>
+						<listitem>
+							<para>
 					This only applies if you have selected another language
 					than english for TortoiseSVN. In that case, when pasting
 					the log template in the commit dialog, the status of each
 					file is pasted in the selected language. Whith this option
 					checked, the status is pasted in english.
 					</para>
-					</listitem>
-				</varlistentry>
-				
-			</variablelist>
+						</listitem>
+					</varlistentry>
+				</variablelist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-overlay">
-		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+			<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
 			<title>Der Einstellungsdialog, Look And Feel Seite</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-2">
@@ -2065,7 +2056,7 @@ Rev Log-Meldungen
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-network">
-		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
+			<?dbhh topicname="HIDD_SETTINGSPROXY"?>
 			<title>Der Einstellungsdialog, Netzwerkseite</title>
 			<indexterm>
 				<primary>Proxy Server</primary>
@@ -2102,15 +2093,15 @@ Rev Log-Meldungen
 							Ein externes Diff Programm um verschiedene Revisionen einer Datei zu vergleichen. 
 							Sie können folgende Parameter im Pfad angeben: 
 							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>Die Originaldatei ohne Ihre Änderungen</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
-								</varlistentry>
-							</variablelist>
+									<varlistentry>
+										<term>%base</term>
+										<listitem>Die Originaldatei ohne Ihre Änderungen</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%mine</term>
+										<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
+									</varlistentry>
+								</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>
@@ -2121,23 +2112,23 @@ Rev Log-Meldungen
 							Ein externes Merge Programm um Konflikte in Dateien aufzulösen. 
 							Sie können folgende Parameter im Pfad angeben: (Die Reihenfolge hängt vom Merge Programm ab)
 							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>Die Originaldatei ohne Ihre oder die anderen Änderungen</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%theirs</term>
-									<listitem>Die Datei wie Sie im Projektarchiv ist</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%merged</term>
-									<listitem>Die Konfliktdatei (das Ergebnis der Merge Operation)</listitem>
-								</varlistentry>
-							</variablelist>
+									<varlistentry>
+										<term>%base</term>
+										<listitem>Die Originaldatei ohne Ihre oder die anderen Änderungen</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%mine</term>
+										<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%theirs</term>
+										<listitem>Die Datei wie Sie im Projektarchiv ist</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%merged</term>
+										<listitem>Die Konfliktdatei (das Ergebnis der Merge Operation)</listitem>
+									</varlistentry>
+								</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>
@@ -2297,4 +2288,3 @@ line  rev    date              author     content
 		</para>
 	</sect1>
 </chapter>
-
