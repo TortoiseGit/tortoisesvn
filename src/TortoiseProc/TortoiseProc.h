@@ -48,7 +48,7 @@
 #include "RepositoryBrowser.h"
 #include "BlameDlg.h"
 #include "URLDlg.h"
-
+#include "CheckForUpdatesDlg.h"
 
 /**
  * \ingroup TortoiseProc

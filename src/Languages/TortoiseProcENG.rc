@@ -333,37 +333,39 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,96
-    LTEXT           "&Language:",IDC_STATIC,13,20,60,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,18,200,64,CBS_DROPDOWNLIST | 
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,99
+    LTEXT           "&Language:",IDC_STATIC,13,17,60,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,15,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Exclude pattern:",IDC_STATIC,13,37,60,18
-    EDITTEXT        IDC_TEMPEXTENSIONS,80,37,200,14,ES_AUTOHSCROLL
-    LTEXT           "Default &number of log messages",IDC_STATIC,13,59,204,8
-    EDITTEXT        IDC_DEFAULTLOG,229,57,51,14,ES_AUTOHSCROLL | ES_NUMBER,
+    LTEXT           "Exclude pattern:",IDC_STATIC,13,30,60,18
+    EDITTEXT        IDC_TEMPEXTENSIONS,80,32,200,14,ES_AUTOHSCROLL
+    LTEXT           "Default &number of log messages",IDC_STATIC,13,53,204,8
+    EDITTEXT        IDC_DEFAULTLOG,229,51,51,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
     CONTROL         "Short &date/time format in log messages",
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,73,267,10
-    LTEXT           "Subversion configuration file:",IDC_STATIC,13,87,210,8
-    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,84,51,14
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,105,286,88
+                    WS_TABSTOP,13,66,267,10
+    LTEXT           "Subversion configuration file:",IDC_STATIC,13,80,210,8
+    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,77,51,14
+    CONTROL         "Check for newer versions",IDC_CHECKNEWERVERSION,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,92,267,10
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,109,286,83
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,118,267,10
+                    WS_TABSTOP,13,120,267,10
     CONTROL         "&Show unversioned files before committing",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,13,132,267,
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,13,134,267,
                     10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,146,267,10
+                    13,148,267,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,160,267,10
-    LTEXT           "Font for log messages:",IDC_STATIC,13,175,115,8
-    COMBOBOX        IDC_FONTNAMES,130,172,112,90,CBS_DROPDOWNLIST | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,162,267,10
+    LTEXT           "Font for log messages:",IDC_STATIC,13,177,115,8
+    COMBOBOX        IDC_FONTNAMES,130,174,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,248,173,32,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,248,175,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
 END
 
@@ -633,6 +635,20 @@ BEGIN
     EDITTEXT        IDC_REVNUM,105,36,85,14,ES_AUTOHSCROLL | WS_DISABLED
     DEFPUSHBUTTON   "&OK",IDOK,89,73,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,146,73,50,14
+END
+
+IDD_CHECKFORUPDATES DIALOGEX 0, 0, 186, 116
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Check For Updates"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,65,95,50,14
+    LTEXT           "Checking if a newer version of TortoiseSVN is available...",
+                    IDC_STATIC,7,7,172,19
+    LTEXT           "your version is:",IDC_YOURVERSION,7,28,172,8
+    LTEXT           "current version is:",IDC_CURRENTVERSION,7,40,172,8
+    LTEXT           "",IDC_CHECKRESULT,7,55,172,37
 END
 
 
@@ -927,6 +943,14 @@ BEGIN
         VERTGUIDE, 139
         TOPMARGIN, 7
         BOTTOMMARGIN, 87
+    END
+
+    IDD_CHECKFORUPDATES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 109
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -1285,6 +1309,23 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROC_CLEANUP        "cleaning up"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_SETTINGS_CHECKNEWER_TT 
+                            "If enabled, TortoiseSVN checks once a week if a newer version is available"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CHECKNEWER_YOURVERSION "your version is: %d.%d.%d.%d"
+    IDS_CHECKNEWER_CURRENTVERSION "current version is: %s"
+    IDS_CHECKNEWER_YOURUPTODATE 
+                            "You already have to most current version installed."
+    IDS_CHECKNEWER_NEWERVERSIONAVAILABLE 
+                            "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
+    IDS_CHECKNEWER_NETERROR "Could not check for a newer version!"
 END
 
 #endif    // English (U.S.) resources

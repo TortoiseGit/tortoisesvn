@@ -42,6 +42,7 @@
 #define IDD_SETTINGSPROGSADV            170
 #define IDD_TOOLASSOC                   171
 #define IDD_REVISION                    173
+#define IDD_CHECKFORUPDATES             174
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -161,6 +162,7 @@
 #define IDC_DONTCONVERT                 1073
 #define IDC_RAM                         1073
 #define IDC_NON_RECURSIVE               1073
+#define IDC_CHECKNEWERVERSION           1073
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
@@ -202,8 +204,10 @@
 #define IDC_STATISTICS                  1108
 #define IDC_COMBOBOXEX1                 1109
 #define IDC_COMMITLABEL                 1110
-#define IDC_PROGRESS1                   1111
 #define IDC_PROGRESS                    1111
+#define IDC_YOURVERSION                 1112
+#define IDC_CURRENTVERSION              1113
+#define IDC_CHECKRESULT                 1114
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -401,14 +405,20 @@
 #define IDS_LOGPROMPT_STATISTICSFORMAT  2701
 #define IDS_SPELLEDIT_THESAURUS         3000
 #define IDS_SPELLEDIT_CORRECTIONS       3001
+#define IDS_SETTINGS_CHECKNEWER_TT      3100
+#define IDS_CHECKNEWER_YOURVERSION      3200
+#define IDS_CHECKNEWER_CURRENTVERSION   3201
+#define IDS_CHECKNEWER_YOURUPTODATE     3202
+#define IDS_CHECKNEWER_NEWERVERSIONAVAILABLE 3203
+#define IDS_CHECKNEWER_NETERROR         3204
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        174
+#define _APS_NEXT_RESOURCE_VALUE        175
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1112
+#define _APS_NEXT_CONTROL_VALUE         1115
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

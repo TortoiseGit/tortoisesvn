@@ -37,6 +37,7 @@ CSetMainPage::CSetMainPage()
 	, m_sDefaultLogs(_T(""))
 	, m_bShortDateFormat(FALSE)
 	, m_bLastCommitTime(FALSE)
+	, m_bCheckNewer(TRUE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
@@ -48,6 +49,7 @@ CSetMainPage::CSetMainPage()
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
+	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -62,6 +64,7 @@ void CSetMainPage::SaveData()
 	m_regNoRemoveLogMsg = m_bNoRemoveLogMsg;
 	m_regAutoClose = m_bAutoClose;
 	m_regShortDateFormat = m_bShortDateFormat;
+	m_regCheckNewer = m_bCheckNewer;
 	long val = _ttol(m_sDefaultLogs);
 	if (val > 5)
 		m_regDefaultLogs = val;
@@ -90,6 +93,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COMMITGROUP, m_cCommitGroup);
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
+	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
 }
 
 
@@ -105,6 +109,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
+	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
 END_MESSAGE_MAP()
 
 
@@ -131,6 +136,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bShortDateFormat = m_regShortDateFormat;
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
+	m_bCheckNewer = m_regCheckNewer;
 
 	CString temp;
 	temp = m_regLastCommitTime;
@@ -145,6 +151,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_AUTOCLOSE, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_NOREMOVELOGMSG, IDS_SETTINGS_NOREMOVELOGMSG_TT);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
+	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
 	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
@@ -253,6 +260,11 @@ void CSetMainPage::OnCbnSelchangeFontnames()
 }
 
 void CSetMainPage::OnBnClickedCommitfiletimes()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedChecknewerversion()
 {
 	SetModified();
 }

@@ -99,6 +99,8 @@ private:
 	CString			m_sFontName;
 	CRegString		m_regLastCommitTime;
 	BOOL			m_bLastCommitTime;
+	CRegDWORD		m_regCheckNewer;
+	BOOL			m_bCheckNewer;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -115,4 +117,5 @@ public:
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnBnClickedEditconfig();
 	afx_msg void OnBnClickedCommitfiletimes();
+	afx_msg void OnBnClickedChecknewerversion();
 };

@@ -200,6 +200,29 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			hWndExplorer = NULL;
 		}
+// check for newer versions
+		if (CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE) != FALSE)
+		{
+			time_t now;
+			struct tm *ptm;
+
+			time(&now);
+			ptm = localtime(&now);
+			int week = ptm->tm_yday / 7;
+
+			CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), -1);
+			if (((DWORD)oldweek) == -1)
+				oldweek = week;
+			else
+			{
+				if (week != oldweek)
+				{
+					oldweek = week;
+					CCheckForUpdatesDlg dlg;
+					dlg.DoModal();
+				}
+			}
+		}
 
 		//#region crash
 		if (comVal.Compare(_T("crash"))==0)
