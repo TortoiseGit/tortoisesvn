@@ -596,7 +596,7 @@ BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry)
+BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry, BOOL dryrun)
 {
 	preparePath(path1);
 	preparePath(path2);
@@ -610,7 +610,7 @@ BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2
 							recurse,
 							ignoreanchestry,
 							force,
-							false,		//no 'dry-run'
+							dryrun,
 							&ctx,
 							pool);
 	if(Err != NULL)
@@ -623,7 +623,7 @@ BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2
 	return TRUE;
 }
 
-BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, CString destpath, BOOL force, BOOL recurse, BOOL ignoreancestry)
+BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, CString destpath, BOOL force, BOOL recurse, BOOL ignoreancestry, BOOL dryrun)
 {
 	preparePath(source);
 	preparePath(destpath);
@@ -636,7 +636,7 @@ BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pe
 		recurse,
 		ignoreancestry,
 		force,
-		false,		//no 'dry-run'
+		dryrun,
 		&ctx,
 		pool);
 	if(Err != NULL)

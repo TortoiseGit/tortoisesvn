@@ -77,6 +77,7 @@ protected:
 	afx_msg void OnBnClickedBrowse2();
 	afx_msg void OnBnClickedRevisionHead1();
 	afx_msg void OnBnClickedRevisionN1();
+	afx_msg void OnBnClickedUsefromurl();
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;
@@ -92,6 +93,6 @@ public:
 	CString		m_URLTo;
 	SVNRev		StartRev;
 	SVNRev		EndRev;
-	afx_msg void OnBnClickedCheck1();
+	BOOL		m_bDryRun;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));

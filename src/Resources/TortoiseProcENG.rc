@@ -283,10 +283,12 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,170,189,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,229,189,50,14
     PUSHBUTTON      "&Help",IDHELP,288,189,50,14
-    CONTROL         "Use ""From:"" URL",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,114,238,10
+    CONTROL         "Use ""From:"" URL",IDC_USEFROMURL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,114,238,10
     EDITTEXT        IDC_WCURL,7,18,331,14,ES_AUTOHSCROLL | ES_READONLY | NOT 
                     WS_BORDER
+    CONTROL         "Dry Run",IDC_DRYRUN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,177,331,10
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 241, 54

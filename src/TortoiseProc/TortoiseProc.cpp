@@ -614,7 +614,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CSVNProgressDlg progDlg;
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Merge, false, path, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
+				progDlg.SetParams(Merge, false, path, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev, _T("dryrun"));		//use the message as the second url
 				progDlg.m_RevisionEnd = dlg.EndRev;
 				progDlg.DoModal();
 			}

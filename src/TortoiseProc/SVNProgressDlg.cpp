@@ -603,14 +603,15 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			{
 				if (!pDlg->PegMerge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_RevisionEnd, 
 					SVN::PathIsURL(pDlg->m_sUrl) ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
-					pDlg->m_sPath, true, true))
+					pDlg->m_sPath, true, true, false, (pDlg->m_sModName.CompareNoCase(_T("dryrun"))==0)))
 				{
 					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
 			}
 			else
 			{
-				if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_sMessage, pDlg->m_RevisionEnd, pDlg->m_sPath, true, true))
+				if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_sMessage, pDlg->m_RevisionEnd, pDlg->m_sPath, 
+					true, true, false, (pDlg->m_sModName.CompareNoCase(_T("dryrun"))==0)))
 				{
 					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}

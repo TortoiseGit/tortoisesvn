@@ -156,6 +156,7 @@
 #define IDC_NOREMOVELOGMSG              1061
 #define IDC_MENU2                       1061
 #define IDC_UNKNOWN                     1061
+#define IDC_DRYRUN                      1061
 #define IDC_MENU23                      1063
 #define IDC_INPUTTEXT                   1064
 #define IDC_HINTTEXT                    1065
@@ -173,6 +174,7 @@
 #define IDC_CHECKNEWERVERSION           1073
 #define IDC_SHOWUNVERSIONED             1073
 #define IDC_DIRECTCOPY                  1073
+#define IDC_USEFROMURL                  1073
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
@@ -229,7 +231,6 @@
 #define IDC_REVISION_START              1118
 #define IDC_BUGIDLABEL                  1119
 #define IDC_SHOWBUGIDBOX                1120
-#define IDC_CHECK4                      1121
 #define IDC_ENGLISHTEMPLATE             1121
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155

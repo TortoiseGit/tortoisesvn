@@ -35,6 +35,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, StartRev(0)
 	, EndRev(_T("HEAD"))
 	, m_bUseFromURL(FALSE)
+	, m_bDryRun(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pLogDlg = NULL;
@@ -56,7 +57,8 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Control(pDX, IDC_URLCOMBO2, m_URLCombo2);
-	DDX_Check(pDX, IDC_CHECK1, m_bUseFromURL);
+	DDX_Check(pDX, IDC_USEFROMURL, m_bUseFromURL);
+	DDX_Check(pDX, IDC_DRYRUN, m_bDryRun);
 }
 
 
@@ -73,7 +75,7 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_BN_CLICKED(IDC_FINDBRANCHSTART, OnBnClickedFindbranchstart)
 	ON_BN_CLICKED(IDC_FINDBRANCHEND, OnBnClickedFindbranchend)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-	ON_BN_CLICKED(IDC_CHECK1, OnBnClickedCheck1)
+	ON_BN_CLICKED(IDC_USEFROMURL, OnBnClickedUsefromurl)
 END_MESSAGE_MAP()
 
 
@@ -398,7 +400,7 @@ void CMergeDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
-void CMergeDlg::OnBnClickedCheck1()
+void CMergeDlg::OnBnClickedUsefromurl()
 {
 	UpdateData();
 	if (m_bUseFromURL)
@@ -417,6 +419,7 @@ void CMergeDlg::OnBnClickedCheck1()
 	}
 	UpdateData(FALSE);
 }
+
 
 
 
