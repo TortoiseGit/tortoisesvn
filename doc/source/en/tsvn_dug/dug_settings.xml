@@ -145,28 +145,28 @@
 							when the action is finished without error. This setting
 							allows you to select the conditions for closing the
 							dialogs. The default (recommended) setting is
-							<literal>Close manually</literal>
+							<guilabel>Close manually</guilabel>
 							which allows you to review all messages and check what
 							has happened. However, you may decide that you want to
 							ignore some types of message and have the dialog
 							close automatically if there are no critical changes.
 						</para>
 						<para>
-							<literal>Auto-close if no merges, adds or deletes</literal>
+							<guilabel>Auto-close if no merges, adds or deletes</guilabel>
 							means that the progress dialog will close if there were
 							simple updates, but if changes from the repository were
 							merged with yours, or if any files were added or deleted,
 							the dialog will remain open.
 						</para>
 						<para>
-							<literal>Auto-close if no conflicts</literal>
+							<guilabel>Auto-close if no conflicts</guilabel>
 							relaxes the criteria further and will close the dialog
 							even if there were merges, adds or deletes. However,
 							if there were any conflicts or errors, the dialog
 							remains open.
 						</para>
 						<para>
-							<literal>Auto-close if no errors</literal>
+							<guilabel>Auto-close if no errors</guilabel>
 							always closes the dialog even if there were conflicts.
 							The only condition that keeps the dialog open is an
 							error condition, which occurs when subversion is unable
@@ -375,6 +375,19 @@ C:\Path-To\ExamDiff.exe %base %mine
 <screen>
 C:\Path-To\kdiff3.exe %base %mine --L1 %bname --L2 %yname
 </screen>
+			</para>
+			<para>
+				If you use the <literal>svn:keywords</literal> property to
+				expand keywords, and in particular the <literal>revision</literal>
+				of a file, then there may be a difference between files which
+				is purely due to the current value of the keyword. TSVN can
+				hide this artificial difference by first parsing the files
+				for keywords before doing the diff operation. However, this
+				could take some time, especially with large files, so this
+				behaviour is optional. If
+				<guilabel>Don't convert files when diffing against BASE</guilabel>
+				is checked (default condition) then this processing is skipped
+				to save time. If this bothers you, simply uncheck the box.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-DUG-settings-Merge">
