@@ -51,11 +51,12 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	m_node_rect_heigth = NODE_RECT_HEIGTH;
 	m_node_space_top = NODE_SPACE_TOP;
 	m_node_space_bottom = NODE_SPACE_BOTTOM;
+	m_RoundRectPt = CPoint(ROUND_RECT, ROUND_RECT);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		m_apFonts[i] = NULL;
 	}
-
+	m_nZoomFactor = 10;
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -322,7 +323,7 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 			pDC->Rectangle(shadow);
 			break;
 		case TSVNRoundRect:
-			pDC->RoundRect(shadow, ROUND_RECT_PT);
+			pDC->RoundRect(shadow, m_RoundRectPt);
 			break;
 		case TSVNOctangle:
 			DrawOctangle(pDC, shadow);
@@ -355,7 +356,7 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 			pDC->Rectangle(rect);
 			break;
 		case TSVNRoundRect:
-			pDC->RoundRect(rect, ROUND_RECT_PT);
+			pDC->RoundRect(rect, m_RoundRectPt);
 			break;
 		case TSVNOctangle:
 			DrawOctangle(pDC, rect);
@@ -1095,16 +1096,18 @@ BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 	return __super::OnMouseWheel(nFlags, zDelta, pt);
 }
 
-void CRevisionGraphDlg::OnViewZoomin()
+void CRevisionGraphDlg::DoZoom(int nZoomFactor)
 {
-	m_node_rect_width *= 2;
-	m_node_space_left *= 2;
-	m_node_space_right *= 2;
-	m_node_space_line *= 2;
-	m_node_rect_heigth *= 2;
-	m_node_space_top *= 2;
-	m_node_space_bottom *= 2;
-	m_nFontSize *= 2;
+	m_node_rect_width = NODE_RECT_WIDTH * nZoomFactor / 10;
+	m_node_space_left = NODE_SPACE_LEFT * nZoomFactor / 10;
+	m_node_space_right = NODE_SPACE_RIGHT * nZoomFactor / 10;
+	m_node_space_line = NODE_SPACE_LINE * nZoomFactor / 10;
+	m_node_rect_heigth = NODE_RECT_HEIGTH * nZoomFactor / 10;
+	m_node_space_top = NODE_SPACE_TOP * nZoomFactor / 10;
+	m_node_space_bottom = NODE_SPACE_BOTTOM * nZoomFactor / 10;
+	m_nFontSize = 12 * nZoomFactor / 10;
+	m_RoundRectPt.x = ROUND_RECT * nZoomFactor / 10;
+	m_RoundRectPt.y = ROUND_RECT * nZoomFactor / 10;
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -1119,30 +1122,21 @@ void CRevisionGraphDlg::OnViewZoomin()
 	Invalidate();
 }
 
+void CRevisionGraphDlg::OnViewZoomin()
+{
+	if (m_nZoomFactor < 20)
+	{
+		m_nZoomFactor++;
+		DoZoom(m_nZoomFactor);
+	}
+}
+
 void CRevisionGraphDlg::OnViewZoomout()
 {
-	if (m_node_space_left > 3)
+	if (m_nZoomFactor > 2)
 	{
-		m_node_rect_width /= 2;
-		m_node_space_left /= 2;
-		m_node_space_right /= 2;
-		m_node_space_line /= 2;
-		m_node_rect_heigth /= 2;
-		m_node_space_top /= 2;
-		m_node_space_bottom /= 2;
-		m_nFontSize /= 2;
-		for (int i=0; i<MAXFONTS; i++)
-		{
-			if (m_apFonts[i] != NULL)
-			{
-				m_apFonts[i]->DeleteObject();
-				delete m_apFonts[i];
-			}
-			m_apFonts[i] = NULL;
-		}
-		m_ViewRect.SetRect(0,0,0,0);
-		InitView();
-		Invalidate();
+		m_nZoomFactor--;
+		DoZoom(m_nZoomFactor);
 	}
 }
 

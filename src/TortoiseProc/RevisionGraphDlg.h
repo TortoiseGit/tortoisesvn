@@ -28,7 +28,7 @@ enum NodeShape
 };
 #define STARTPOINT_PT		(CPoint(5, 5))
 #define SHADOW_OFFSET_PT	(CPoint(4, 4))
-#define ROUND_RECT_PT		(CPoint(6, 6))
+#define ROUND_RECT			(12)
 
 #define RGB_DEF_SEL				RGB(160, 160, 160)
 #define RGB_DEF_SHADOW			RGB(128, 128, 128)
@@ -86,6 +86,8 @@ protected:
 	int				m_node_rect_heigth;
 	int				m_node_space_top;
 	int				m_node_space_bottom;
+	CPoint			m_RoundRectPt;
+	int				m_nZoomFactor;
 
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
@@ -119,7 +121,7 @@ private:
 	void			BuildConnections();
 	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
-
+	void			DoZoom(int nZoomFactor);
 	static UINT WorkerThread(LPVOID pVoid);
 
 
