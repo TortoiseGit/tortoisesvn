@@ -21,8 +21,13 @@ echo ^<td class="graph"^>^&nbsp;^</td^> >> %OFile%
 echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/trunk/src/Languages/Tortoise.pot"^>Tortoise.pot^</a^>^</td^> >> %OFile%
 echo ^</tr^> >> %OFile%
 
+copy Tortoise_*.po _Tortois_*.po /Y
+FOR %%i in (_Tortois_*.po) do msgmerge --no-wrap --quiet --no-fuzzy-matching -s %%i Tortoise.pot -o %%i
 
 FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j "%%m"
+
+del _Tortois_*.po /Q
+del *.mo
 
 :end
 type trans_foot.html >> %OFile%
@@ -32,23 +37,24 @@ goto :eof
 :doit
 echo Checking %~3 %1 Translation...
 
-if exist Tortoise_%1%.po (
+if exist _Tortois_%1%.po (
   set errors=0
   set tra=0
   set unt=0
   set fuz=0
   set obs=0
 
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Accel.bat Tortoise_%1.po`) DO SET errors=%%p
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po translated`) DO SET tra=%%p
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po only-fuzzy`) DO SET fuz=%%p
-rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po untranslated`) DO SET unt=%%p
-rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po only-obsolete`) DO SET obs=%%p
+  FOR /F " usebackq skip=1 " %%p IN (`Check_Accel.bat _Tortois_%1.po`) DO SET errors=%%p
+  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po translated`) DO SET tra=%%p
+  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po only-fuzzy`) DO SET fuz=%%p
+  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po untranslated`) DO SET unt=%%p
+rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po only-obsolete`) DO SET obs=%%p
 
-  if !tra! GTR 1 SET /A tra -= 1 
-  if !fuz! GTR 1 SET /A fuz -= 1 
-rem  if !unt! GTR 1 SET /A unt -= 1
+  if !tra! GTR 0 SET /A tra -= 1 
+  if !fuz! GTR 0 SET /A fuz -= 1 
+  if !unt! GTR 0 SET /A unt -= 1
 
+  SET /A total=!tra!+!unt!
   SET /A tra=!tra!-!fuz!
 
   if !tra! EQU !total! (
