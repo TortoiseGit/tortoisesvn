@@ -669,8 +669,8 @@ public:
 	INT GetItemCheck(INT iItem, INT iSubItem);
 	BOOL SetItemCheck(INT iItem, INT iSubItem, INT iCheck = -1);
 
-	DWORD GetItemData(INT iItem);
-	BOOL SetItemData(INT iItem, DWORD dwData);
+	DWORD_PTR GetItemData(INT iItem);
+	BOOL SetItemData(INT iItem, DWORD_PTR dwData);
 
 	BOOL GetItemRect(INT iItem, INT iSubItem, LPRECT lpRect, UINT nCode = RVIR_BOUNDS);
 	BOOL MeasureItem(INT iItem, INT iSubItem, LPRECT lpRect, BOOL bTextOnly = FALSE);
@@ -690,6 +690,7 @@ public:
 
 	INT GetFirstSelectedItem();
 	INT GetNextSelectedItem(INT iItem);
+	INT GetSelectedCount();
 	INT GetSelectedItems(LPINT lpiItems, INT iMax);
 
 	void ClearSelection();

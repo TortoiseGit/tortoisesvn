@@ -438,7 +438,7 @@ BOOL CReportOptionsCtrl::AddEditBox(HTREEITEM hItem, LPCTSTR lpszText, CRuntimeC
 		if(lpRuntimeClass == NULL)
 			lpRuntimeClass = RUNTIME_CLASS(CReportOptionsEdit);
 
-		if(SetItemData(iItem, (DWORD)lpRuntimeClass) == TRUE)
+		if(SetItemData(iItem, (DWORD_PTR)lpRuntimeClass) == TRUE)
 		{
 			UpdateText(iItem, lpszText);
 			return TRUE;
@@ -456,7 +456,7 @@ BOOL CReportOptionsCtrl::AddComboBox(HTREEITEM hItem, LPCTSTR lpszText, CRuntime
 		if(lpRuntimeClass == NULL)
 			lpRuntimeClass = RUNTIME_CLASS(CReportOptionsCombo);
 
-		if(SetItemData(iItem, (DWORD)lpRuntimeClass) == TRUE)
+		if(SetItemData(iItem, (DWORD_PTR)lpRuntimeClass) == TRUE)
 		{
 			UpdateText(iItem, lpszText);
 			return TRUE;
@@ -759,7 +759,7 @@ BOOL CReportOptionsCtrl::NotifyParent(UINT nCode, HTREEITEM hParent, HTREEITEM h
 
 	CWnd* pWnd = GetParent();
 	if(pWnd != NULL)
-		bResult = pWnd->SendMessage(WM_NOTIFY, GetDlgCtrlID(), (LPARAM)&nmroc);
+		bResult = !!pWnd->SendMessage(WM_NOTIFY, GetDlgCtrlID(), (LPARAM)&nmroc);
 
 	return bResult;
 }

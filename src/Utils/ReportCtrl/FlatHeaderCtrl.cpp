@@ -456,7 +456,7 @@ BOOL CFlatHeaderCtrl::GetItemEx(INT iPos, HDITEMEX* phditemex) const
 	hditem.mask = HDI_WIDTH;
 	VERIFY(GetItem(iPos, &hditem));
 
-	HDITEMEX& hditemex = m_arrayHdrItemEx[iPos];
+	const HDITEMEX& hditemex = m_arrayHdrItemEx[iPos];
 
 	phditemex->nStyle = hditemex.nStyle;
 	phditemex->iMinWidth = hditemex.nStyle&HDF_EX_FIXEDWIDTH ? hditem.cxy:hditemex.iMinWidth;
@@ -1096,13 +1096,13 @@ INT CFlatHeaderCtrl::DrawArrow(CDC* pDC, CRect rect, BOOL bSortAscending, BOOL b
 
 INT CFlatHeaderCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
-	INT iResult = CHeaderCtrl::OnToolHitTest(point, pTI);
+	INT iResult = (INT)CHeaderCtrl::OnToolHitTest(point, pTI);
 	if(iResult != -1)
 		return iResult;
 
 	HDHITTESTINFO hdhti;
 	hdhti.pt = point;
-	iResult = ::SendMessage(GetSafeHwnd(), HDM_HITTEST, 0, (LPARAM)(&hdhti));
+	iResult = (INT)::SendMessage(GetSafeHwnd(), HDM_HITTEST, 0, (LPARAM)(&hdhti));
 	if(iResult > -1)
 	{
 		GetItemRect(iResult, &pTI->rect);
@@ -1128,7 +1128,7 @@ LRESULT CFlatHeaderCtrl::OnInsertItem(WPARAM wParam, LPARAM lParam)
 
 	LRESULT lResult = -1;
 
-	WORD wItems = m_arrayHdrItemEx.GetSize();
+	WORD wItems = (WORD)m_arrayHdrItemEx.GetSize();
 	wParam = wParam<=wItems ? wParam:wItems;
 
 	try
@@ -1179,7 +1179,7 @@ LRESULT CFlatHeaderCtrl::OnSetHotDivider(WPARAM wParam, LPARAM lParam)
 		hdhti.pt.y = HIWORD(lParam);
 		ScreenToClient(&hdhti.pt);
 
-		INT iHotIndex = SendMessage(HDM_HITTEST, 0, (LPARAM)(&hdhti));
+		INT iHotIndex = (INT)SendMessage(HDM_HITTEST, 0, (LPARAM)(&hdhti));
 		if(iHotIndex >= 0)
 		{
 			HDITEM hditem;
@@ -1271,7 +1271,7 @@ BOOL CFlatHeaderCtrl::OnToolTipNotify(UINT nId, NMHDR *pNMHDR, LRESULT *pResult)
 	) {
 		USES_CONVERSION;
 
-		wcscpy((WCHAR*)pTTT->lpszText, A2W((LPCTSTR)m_arrayHdrItemEx[m_iHotIndex].strToolTip));
+		wcscpy((WCHAR*)pTTT->lpszText, CT2W(m_arrayHdrItemEx[m_iHotIndex].strToolTip));
 		pTTT->lpszText = pTTT->szText;
 		return TRUE;
 	}
@@ -1337,7 +1337,7 @@ UINT CFlatHeaderCtrl::OnNcHitTest(CPoint point)
 	m_hdhtiHotItem.pt = point;
 	ScreenToClient(&m_hdhtiHotItem.pt);
 
-	m_iHotIndex = SendMessage(HDM_HITTEST, 0, (LPARAM)(&m_hdhtiHotItem));
+	m_iHotIndex = (INT)SendMessage(HDM_HITTEST, 0, (LPARAM)(&m_hdhtiHotItem));
 	if(m_iHotIndex >= 0)
 	{
 		HDITEM hditem;
@@ -1597,7 +1597,7 @@ void CFlatHeaderCtrl::OnMouseMove(UINT nFlags, CPoint point)
 					hdhti.pt.y = point.y;
 
 					INT iHotOrder = -1;
-					INT iHotIndex = SendMessage(HDM_HITTEST, 0, (LPARAM)(&hdhti));
+					INT iHotIndex = (INT)SendMessage(HDM_HITTEST, 0, (LPARAM)(&hdhti));
 					if(iHotIndex >= 0)
 					{
 						HDITEM hditem;

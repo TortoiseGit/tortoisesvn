@@ -319,7 +319,7 @@ BOOL CReportData::GetSubItem(INT iSubItem, LPINT lpiImage, LPINT lpiOverlay, LPI
 	if(iPos<0)
 		return FALSE;
 
-	LPCTSTR lpsz = m_pchData;
+	LPCTSTR lpsz = *this;
 	lpsz = &lpsz[iPos];
 	VERIFY(_stscanf(lpsz, _T("(%d,%d,%d,%d,%d)"), lpiImage, lpiOverlay, lpiCheck, lpiColor, &iText));
 
@@ -371,7 +371,7 @@ BOOL CReportData::InsertSubItem(INT iSubItem, INT iImage, INT iOverlay, INT iChe
 		iText = -1;
 	}
 	else
-		iText = _tcslen(lpszText);
+		iText = (INT)_tcslen(lpszText);
 
 	TCHAR sz[32+REPORTCTRL_MAX_TEXT];
 	_stprintf(sz, _T("(%d,%d,%d,%d,%d)%s%c"), iImage, iOverlay, iCheck, iColor, iText, lpszText, g_cSeparator);
@@ -860,7 +860,7 @@ INT CReportCtrl::ActivateSubItem(INT iSubItem, INT iColumn)
 				hdi.pszText = subitem.strText.GetBuffer(0);
 			}
 
-			iResult = m_wndHeader.InsertItem(m_arrayColumns.GetSize(), &hdi);
+			iResult = m_wndHeader.InsertItem((int)m_arrayColumns.GetSize(), &hdi);
 			if(iResult >= 0)
 			{
 				m_iVirtualWidth += subitem.iWidth;
@@ -932,7 +932,7 @@ BOOL CReportCtrl::DeactivateSubItem(INT iSubItem)
 
 BOOL CReportCtrl::DeactivateAllSubItems()
 {
-	INT iSubItems = m_arraySubItems.GetSize();
+	INT iSubItems = (INT)m_arraySubItems.GetSize();
 	for(INT iSubItem=0;iSubItem<iSubItems;iSubItem++)
 	{
 		if(IsActiveSubItem(iSubItem))
@@ -953,12 +953,12 @@ BOOL CReportCtrl::IsActiveSubItem(INT iSubItem)
 
 INT CReportCtrl::GetActiveSubItemCount()
 {
-	return m_arrayColumns.GetSize();
+	return (INT)m_arrayColumns.GetSize();
 }
 
 INT CReportCtrl::GetSubItemWidth(INT iSubItem)
 {
-	INT iSubItems = m_arraySubItems.GetSize();
+	INT iSubItems = (INT)m_arraySubItems.GetSize();
 	ASSERT(iSubItem <= iSubItems);
 
 	try
@@ -1217,7 +1217,7 @@ INT CReportCtrl::GetItemText(INT iItem, INT iSubItem, LPTSTR lpszText, INT iLen)
 	rvi.iSubItem = iSubItem;
 	rvi.lpszText = lpszText;
 	rvi.iTextMax = iLen;
-	return GetItem(&rvi) ? _tcslen(rvi.lpszText):0;
+	return GetItem(&rvi) ? (INT)_tcslen(rvi.lpszText):0;
 }
 
 CString CReportCtrl::GetItemText(INT iItem, INT iSubItem)
@@ -1279,7 +1279,7 @@ BOOL CReportCtrl::SetItemCheck(INT iItem, INT iSubItem, INT iCheck)
 	return SetItem(&rvi);
 }
 
-DWORD CReportCtrl::GetItemData(INT iItem)
+DWORD_PTR CReportCtrl::GetItemData(INT iItem)
 {
 	RVITEM rvi;
 	rvi.nMask = RVIM_LPARAM;
@@ -1287,7 +1287,7 @@ DWORD CReportCtrl::GetItemData(INT iItem)
 	return GetItem(&rvi) ? rvi.lParam:0;
 }
 
-BOOL CReportCtrl::SetItemData(INT iItem, DWORD dwData)
+BOOL CReportCtrl::SetItemData(INT iItem, DWORD_PTR dwData)
 {
 	RVITEM rvi;
 	rvi.nMask = RVIM_LPARAM;
@@ -1394,7 +1394,7 @@ BOOL CReportCtrl::MeasureItem(INT iItem, INT iSubItem, LPRECT lpRect, BOOL bText
 		{
 			CClientDC dc(this);
 			CFont *pFontDC = dc.SelectObject(rvi.nState&RVIS_BOLD ? &m_fontBold:&m_font);
-			lpRect->right += dc.GetTextExtent(rvi.lpszText, _tcslen(rvi.lpszText)).cx + m_iSpacing;
+			lpRect->right += dc.GetTextExtent(rvi.lpszText, (int)_tcslen(rvi.lpszText)).cx + m_iSpacing;
 			dc.SelectObject(pFontDC);
 		}
 	}
@@ -1419,7 +1419,7 @@ CString CReportCtrl::GetItemString(INT iItem, TCHAR cSeparator)
 {
 	CString str;
 	TCHAR szText[REPORTCTRL_MAX_TEXT+1];
-	INT iColumn, iColumns = m_arrayColumns.GetSize();
+	INT iColumn, iColumns = (INT)m_arrayColumns.GetSize();
 
 	for(iColumn=0;iColumn<iColumns;iColumn++)
 	{
@@ -1429,7 +1429,7 @@ CString CReportCtrl::GetItemString(INT iItem, TCHAR cSeparator)
 
 		RVITEM rvi;
 		rvi.iItem = iItem;
-		rvi.iSubItem = hdi.lParam;
+		rvi.iSubItem = (INT)hdi.lParam;
 
 		rvi.nMask = RVIM_TEXT;
 		rvi.lpszText = szText;
@@ -1516,7 +1516,7 @@ void CReportCtrl::PageDown()
 
 INT CReportCtrl::GetItemCount()
 {
-	return m_dwStyle&RVS_OWNERDATA ? m_iVirtualHeight:m_arrayItems.GetSize();
+	return m_dwStyle&RVS_OWNERDATA ? m_iVirtualHeight:(INT)m_arrayItems.GetSize();
 }
 
 INT CReportCtrl::GetItemCount(HTREEITEM hParent, BOOL bRecurse)
@@ -1592,6 +1592,19 @@ INT CReportCtrl::GetNextSelectedItem(INT iItem)
 	return RVI_INVALID;
 }
 
+INT CReportCtrl::GetSelectedCount()
+{
+	INT iItem = GetFirstSelectedItem(), iItems = 0;
+
+	while(iItem != RVI_INVALID)
+	{
+		iItem = GetNextSelectedItem(iItem);
+		iItems++;
+	}
+
+	return iItems;
+}
+
 INT CReportCtrl::GetSelectedItems(LPINT lpiItems, INT iMax)
 {
 	INT iItem = GetFirstSelectedItem(), iItems = 0;
@@ -1626,7 +1639,7 @@ void CReportCtrl::ClearSelection()
 
 void CReportCtrl::InvertSelection()
 {
-	INT iRows = m_arrayRows.GetSize();
+	INT iRows = (INT)m_arrayRows.GetSize();
 	INT iFocusRow = m_iFocusRow;
 	SelectRows(RVI_FIRST, iRows-1, TRUE, TRUE, TRUE, FALSE);
 	SelectRows(iFocusRow, iFocusRow, FALSE, FALSE, FALSE, FALSE);
@@ -1664,7 +1677,7 @@ void CReportCtrl::SetSelection(LPINT lpiItems, INT iCount, BOOL bKeepSelection)
 
 void CReportCtrl::SetSelection(INT iSubItem, CString& strPattern, BOOL bKeepSelection)
 {
-	INT iRows = m_arrayRows.GetSize();
+	INT iRows = (INT)m_arrayRows.GetSize();
 
 	if(bKeepSelection == FALSE)
 		ClearSelection();
@@ -1680,7 +1693,7 @@ void CReportCtrl::SetSelection(INT iSubItem, CString& strPattern, BOOL bKeepSele
 void CReportCtrl::SetSelectionLessEq(INT iSubItem, INT iMatch, BOOL bKeepSelection)
 {
 	RVITEM rvi;
-	INT iRows = m_arrayRows.GetSize();
+	INT iRows = (INT)m_arrayRows.GetSize();
 
 	if(bKeepSelection == FALSE)
 		ClearSelection();
@@ -1843,7 +1856,7 @@ CImageList* CReportCtrl::GetImageList(void)
 
 BOOL CReportCtrl::SetBkImage(UINT nIDResource)
 {
-	return SetBkImage( (LPCTSTR)nIDResource );
+	return SetBkImage( (LPCTSTR)((INT_PTR)nIDResource) );
 }
 
 BOOL CReportCtrl::SetBkImage(LPCTSTR lpszResourceName)
@@ -2022,14 +2035,14 @@ BOOL CReportCtrl::WriteProfile(LPCTSTR lpszSection, LPCTSTR lpszEntry)
 		ReorderColumns();
 
 	INT i;
-	INT iSubItems = m_arraySubItems.GetSize();
-	INT iColumns = m_arrayColumns.GetSize();
+	INT iSubItems = (INT)m_arraySubItems.GetSize();
+	INT iColumns = (INT)m_arrayColumns.GetSize();
 
 	strProfile.Format(_T("(%d,%d)"), iSubItems, iColumns);
 
 	for(i=0;i<iSubItems;i++)
 	{
-		str.Format(" %d", m_arraySubItems[i].iWidth);
+		str.Format(_T(" %d"), m_arraySubItems[i].iWidth);
 		strProfile += str;
 	}
 
@@ -2039,7 +2052,7 @@ BOOL CReportCtrl::WriteProfile(LPCTSTR lpszSection, LPCTSTR lpszEntry)
 		hdi.mask = HDI_LPARAM;
 		m_wndHeader.GetItem(m_arrayColumns[i], &hdi);
 
-		str.Format(" %d", hdi.lParam);
+		str.Format(_T(" %d"), hdi.lParam);
 		strProfile += str;
 	}
 
@@ -2126,7 +2139,7 @@ BOOL CReportCtrl::ModifyStyle(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
 INT CReportCtrl::DefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList)
 {
 	INT i;
-	INT iSubItems = m_arraySubItems.GetSize();
+	INT iSubItems = (INT)m_arraySubItems.GetSize();
 
 	ASSERT(iSubItem <= iSubItems);
 	ASSERT(lprvs->lpszText != NULL); // Must supply (descriptive) text for subitem selector
@@ -2148,7 +2161,7 @@ INT CReportCtrl::DefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList
 		HDITEM hdi;
 		hdi.mask = HDI_LPARAM;
 
-		INT iHeaderItems = m_arrayColumns.GetSize();
+		INT iHeaderItems = (INT)m_arrayColumns.GetSize();
 		for(i=0;i<iHeaderItems;i++)
 			if(m_wndHeader.GetItem(m_arrayColumns[i], &hdi))
 				if(hdi.lParam >= iSubItem)
@@ -2161,7 +2174,7 @@ INT CReportCtrl::DefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList
 
 		if(!(m_dwStyle&RVS_OWNERDATA))
 		{
-			INT iItems = m_arrayItems.GetSize();
+			INT iItems = (INT)m_arrayItems.GetSize();
 			for(i=0;i<iItems;i++)
 				VERIFY(m_arrayItems[i].rdData.InsertSubItem(iSubItem, -1, -1, -1, -1, NULL));
 		}
@@ -2180,7 +2193,7 @@ INT CReportCtrl::DefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList
 
 BOOL CReportCtrl::RedefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList)
 {
-	INT iSubItems = m_arraySubItems.GetSize();
+	INT iSubItems = (INT)m_arraySubItems.GetSize();
 
 	ASSERT(iSubItem <= iSubItems);
 	ASSERT(lprvs->lpszText != NULL); // Must supply (descriptive) text for subitem selector
@@ -2223,7 +2236,7 @@ BOOL CReportCtrl::UndefineSubItem(INT iSubItem)
 	hdi.mask = HDI_LPARAM;
 
 	INT i;
-	INT iHeaderItems = m_arrayColumns.GetSize();
+	INT iHeaderItems = (INT)m_arrayColumns.GetSize();
 	for(i=0;i<iHeaderItems;i++)
 		if(m_wndHeader.GetItem(m_arrayColumns[i], &hdi))
 			if(hdi.lParam > iSubItem)
@@ -2236,7 +2249,7 @@ BOOL CReportCtrl::UndefineSubItem(INT iSubItem)
 
 	if(!(m_dwStyle&RVS_OWNERDATA))
 	{
-		INT iItems = m_arrayItems.GetSize();
+		INT iItems = (INT)m_arrayItems.GetSize();
 		for(i=0;i<iItems;i++)
 			VERIFY(m_arrayItems[i].rdData.DeleteSubItem(iSubItem));
 	}
@@ -2255,17 +2268,17 @@ void CReportCtrl::UndefineAllSubItems()
 
 INT CReportCtrl::AddItem(LPCTSTR lpszText, INT iImage, INT iCheck, INT iTextColor)
 {
-	INT iItems = m_arrayItems.GetSize();
+	INT iItems = (INT)m_arrayItems.GetSize();
 	return InsertItem(iItems, lpszText, iImage, iCheck, iTextColor);
 }
 
 INT CReportCtrl::AddItem(LPRVITEM lprvi)
 {
-	INT iItems = m_arrayItems.GetSize();
+	INT iItems = (INT)m_arrayItems.GetSize();
 
 	if(lprvi == NULL)
 	{
-		INT iSubItem = 0, iSubItems = m_arraySubItems.GetSize();
+		INT iSubItem = 0, iSubItems = (INT)m_arraySubItems.GetSize();
 
 		RVITEM rvi;
 		TCHAR szText[REPORTCTRL_MAX_TEXT];
@@ -2365,7 +2378,7 @@ BOOL CReportCtrl::DeleteItem(INT iItem)
 
 	m_iFocusRow = m_iFocusRow >= m_iVirtualHeight ? m_iVirtualHeight-1 : m_iFocusRow;
 
-	INT iRows = m_arrayRows.GetSize();
+	INT iRows = (INT)m_arrayRows.GetSize();
 	INT iFirst = GetScrollPos32(SB_VERT), iLast;
 	GetVisibleRows(TRUE, &iFirst, &iLast);
 
@@ -2409,7 +2422,7 @@ HTREEITEM CReportCtrl::InsertItem(LPRVITEM lprvi, HTREEITEM hParent, HTREEITEM h
 	LPTREEITEM lpti = new TREEITEM;
 	if( lpti != NULL )
 	{
-		lprvi->iItem = m_arrayItems.GetSize();
+		lprvi->iItem = (INT)m_arrayItems.GetSize();
 		lprvi->iSubItem = 0;
 
 		lpti->iItem = InsertItemImpl(lprvi);
@@ -2692,7 +2705,7 @@ INT CReportCtrl::HitTest(LPRVHITTESTINFO lprvhti)
 			else
 			{
 				INT iHeaderItem;
-				INT iHeaderItems = m_arrayColumns.GetSize();
+				INT iHeaderItems = (INT)m_arrayColumns.GetSize();
 
 				HDITEM hdi;
 				hdi.mask = HDI_WIDTH|HDI_LPARAM;
@@ -2719,7 +2732,7 @@ INT CReportCtrl::HitTest(LPRVHITTESTINFO lprvhti)
 				ASSERT(iHeaderItem < iHeaderItems);
 				m_wndHeader.GetItem(iHeaderItem, &hdi);
 
-				lprvhti->iSubItem = hdi.lParam;
+				lprvhti->iSubItem = (INT)hdi.lParam;
 				lprvhti->iColumn = GetColumnFromSubItem(lprvhti->iSubItem);
 
 				if(iHeaderItem<iHeaderItems)
@@ -2842,7 +2855,7 @@ BOOL CReportCtrl::SortItems(INT iSubItem, BOOL bAscending)
 	}
 	else
 	{
-		INT iRows = m_arrayRows.GetSize();
+		INT iRows = (INT)m_arrayRows.GetSize();
 		if(!iRows)
 			return FALSE;
 
@@ -2950,7 +2963,7 @@ INT CReportCtrl::FindItem(LPRVFINDINFO lprvfi, INT iSubItem, INT iStart)
 	if(m_dwStyle&RVS_OWNERDATA)
 		return FALSE; // Can't find data if data is managed by owner
 
-	INT iItems = m_arrayItems.GetSize();
+	INT iItems = (INT)m_arrayItems.GetSize();
 	INT iItem = iStart + (lprvfi->nFlags&RVFI_UP ? -1:1);
 
 	RVITEM rvi;
@@ -3056,7 +3069,7 @@ BOOL CReportCtrl::Expand(HTREEITEM hItem, UINT nCode)
 		DeselectDescendents(lptiAncestor);
 	}
 
-	INT iRows = m_arrayRows.GetSize();
+	INT iRows = (INT)m_arrayRows.GetSize();
 	INT iFirst = GetScrollPos32(SB_VERT), iLast;
 	GetVisibleRows(TRUE, &iFirst, &iLast);
 
@@ -3109,7 +3122,7 @@ void CReportCtrl::Copy()
 	
 	SelectionToSortedArray(arraySelection);
 
-	INT i, iSize = arraySelection.GetSize();
+	INT i, iSize = (INT)arraySelection.GetSize();
 	UINT nData = 0;
 
 	for(i=0;i<iSize;i++)
@@ -3251,7 +3264,7 @@ BOOL CReportCtrl::CreatePalette()
 	if(m_palette.m_hObject)
 		m_palette.DeleteObject();
 
-	INT iUserColors = m_arrayColors.GetSize();
+	INT iUserColors = (INT)m_arrayColors.GetSize();
 	INT iBitmapColors = 0;
 
 	DIBSECTION ds;
@@ -3329,7 +3342,7 @@ BOOL CReportCtrl::NotifyHdr(LPNMRVHEADER lpnmrvhdr, UINT nCode, INT iHdrItem)
 	hdi.lParam = -1;
 	m_wndHeader.GetItem(iHdrItem, &hdi);
 
-	lpnmrvhdr->iSubItem = hdi.lParam;
+	lpnmrvhdr->iSubItem = (INT)hdi.lParam;
 
 	return Notify((LPNMREPORTVIEW)lpnmrvhdr);
 }
@@ -3385,7 +3398,7 @@ BOOL CReportCtrl::Notify(LPNMREPORTVIEW lpnmrv)
 	{
 		CWnd* pWnd = GetParent();
 		if(pWnd)
-			return pWnd->SendMessage(WM_NOTIFY, GetDlgCtrlID(), (LPARAM)lpnmrv);
+			return !!pWnd->SendMessage(WM_NOTIFY, GetDlgCtrlID(), (LPARAM)lpnmrv);
 	}
 
 	return FALSE;
@@ -3496,7 +3509,7 @@ void CReportCtrl::BuildTree(LPTREEITEM lpti)
 
 	while(lptiSibling != NULL)
 	{
-		INT iRow = m_arrayRows.Add(lptiSibling->iItem);
+		INT iRow = (INT)m_arrayRows.Add(lptiSibling->iItem);
 		m_iVirtualHeight++;
 
 		ITEM& item = GetItemStruct(lptiSibling->iItem, lptiSibling->iItem, RVIM_STATE|RVIM_INDENT);
@@ -3527,7 +3540,7 @@ void CReportCtrl::InsertTree(INT iSubItem, LPTREEITEM lptiParent, LPTREEITEM lpt
 	}
 	else
 	{
-		switch((ULONG)lptiInsertAfter)
+		switch((ULONG_PTR)lptiInsertAfter)
 		{
 		case RVTI_FIRST:
 			lpti->lptiSibling = lptiSibling;
@@ -3616,7 +3629,7 @@ INT CReportCtrl::InsertItemImpl(LPRVITEM lprvi)
 	try
 	{
 		ITEM item;
-		item.rdData.New(m_arraySubItems.GetSize());
+		item.rdData.New((INT)m_arraySubItems.GetSize());
 
 		m_arrayItems.InsertAt(lprvi->iItem, item); bInserted1 = TRUE;
 		VERIFY(SetItem(lprvi));
@@ -3626,7 +3639,7 @@ INT CReportCtrl::InsertItemImpl(LPRVITEM lprvi)
 			iRow = lprvi->iItem;
 			m_arrayRows.InsertAt(iRow, INT_MIN); bInserted2 = TRUE;
 
-			INT iItems = m_arrayRows.GetSize();
+			INT iItems = (INT)m_arrayRows.GetSize();
 			for(INT i=0;i<iItems;i++)
 				if(m_arrayRows[i] >= iRow)
 					m_arrayRows[i]++;
@@ -3676,7 +3689,7 @@ BOOL CReportCtrl::DeleteItemImpl(INT iItem)
 	GetItem(&rvi);
 	Notify(RVN_ITEMDELETED, iItem, 0, 0, rvi.lParam);
 
-	INT i, iItems = m_arrayItems.GetSize();
+	INT i, iItems = (INT)m_arrayItems.GetSize();
 
 	if(m_dwStyle&RVS_TREEMASK)
 	{
@@ -3697,7 +3710,7 @@ BOOL CReportCtrl::DeleteItemImpl(INT iItem)
 			if (m_arrayRows[i] == iItem)
 				m_arrayRows.RemoveAt(i);
 
-		INT iRows = m_arrayRows.GetSize();
+		INT iRows = (INT)m_arrayRows.GetSize();
 		for(i=0;i<iRows;i++)
 			if(m_arrayRows[i] > iItem)
 				m_arrayRows[i]--;
@@ -3766,7 +3779,7 @@ CReportCtrl::ITEM& CReportCtrl::GetItemStruct(INT iItem, INT iSubItem, UINT nMas
 {
 	if(m_dwStyle&RVS_OWNERDATA)
 	{
-		INT iSubItems = m_arraySubItems.GetSize();
+		INT iSubItems = (INT)m_arraySubItems.GetSize();
 
 		TCHAR szText[REPORTCTRL_MAX_TEXT+1];
 		memset(szText, 0, sizeof(szText));
@@ -3879,7 +3892,7 @@ INT CReportCtrl::GetRowFromItem(INT iItem)
 	if(iItem == RVI_EDIT || m_dwStyle&RVS_OWNERDATA)
 		return iItem;
 
-	INT iRows = m_arrayRows.GetSize(), iRow;
+	INT iRows = (INT)m_arrayRows.GetSize(), iRow;
 	if(iRows > 0)
 	{
 		if(m_bUpdateItemMap)
@@ -3906,7 +3919,7 @@ INT CReportCtrl::GetSubItemFromColumn(INT iColumn)
 	hdi.mask = HDI_WIDTH|HDI_LPARAM;
 	m_wndHeader.GetItem(m_arrayColumns[iColumn], &hdi);
 
-	return hdi.lParam;
+	return (INT)hdi.lParam;
 }
 
 INT CReportCtrl::GetColumnFromSubItem(INT iSubItem)
@@ -3914,7 +3927,7 @@ INT CReportCtrl::GetColumnFromSubItem(INT iSubItem)
 	if(iSubItem < 0)
 		return -1;
 
-	INT iColumn, iColumns = m_arrayColumns.GetSize();
+	INT iColumn, iColumns = (INT)m_arrayColumns.GetSize();
 	for(iColumn=0;iColumn<iColumns;iColumn++)
 	{
 		HDITEM hdi;
@@ -3957,7 +3970,7 @@ CReportCtrl::LPTREEITEM CReportCtrl::GetVisibleAncestor(LPTREEITEM lpti, LPBOOL 
 
 BOOL CReportCtrl::SetSubItemWidthImpl(INT iSubItem, INT iWidth)
 {
-	INT iSubItems = m_arraySubItems.GetSize();
+	INT iSubItems = (INT)m_arraySubItems.GetSize();
 	ASSERT(iSubItem <= iSubItems);
 
 	try
@@ -4044,7 +4057,7 @@ CReportCtrl::LPTREEITEM CReportCtrl::GetTreeFocus()
 
 void CReportCtrl::SetTreeFocus(LPTREEITEM lptiFocus)
 {
-	INT iRows = m_arrayRows.GetSize();
+	INT iRows = (INT)m_arrayRows.GetSize();
 	INT iFirst = GetScrollPos32(SB_VERT), iLast;
 
 	if(lptiFocus != NULL)
@@ -4553,7 +4566,7 @@ void CReportCtrl::SelectionToSortedArray(CArray<INT, INT>& arrayRows)
 	{
 		INT iRow = GetRowFromItem(m_listSelection.GetAt(pos));
 
-		iSize = arrayRows.GetSize();
+		iSize = (INT)arrayRows.GetSize();
 		if(iSize)
 		{
 			INT iTest = arrayRows[iPos];
@@ -4618,7 +4631,7 @@ void CReportCtrl::DrawCtrl(CDC* pDC)
 	nmrvdp.hDC = pDC->m_hDC;
 
 	INT iRows = m_iVirtualHeight;
-	INT iColumns = m_arrayColumns.GetSize();
+	INT iColumns = (INT)m_arrayColumns.GetSize();
 
 	if(m_bColumnsReordered)
 	{
@@ -4792,7 +4805,7 @@ void CReportCtrl::DrawCtrl(CDC* pDC)
 
 void CReportCtrl::DrawRow(CDC* pDC, CRect rectRow, CRect rectClip, INT iRow, LPRVITEM lprvi, BOOL bAlternate)
 {
-	INT iColumns = m_arrayColumns.GetSize();
+	INT iColumns = (INT)m_arrayColumns.GetSize();
 
 	// You have to insert at least 1 color to use color alternate style.
 	ASSERT(!(m_dwStyle&RVS_SHOWCOLORALTERNATE && !m_arrayColors.GetSize()));
@@ -4828,7 +4841,7 @@ void CReportCtrl::DrawRow(CDC* pDC, CRect rectRow, CRect rectClip, INT iRow, LPR
 		hdi.mask = HDI_WIDTH|HDI_LPARAM;
 		m_wndHeader.GetItem(m_arrayColumns[iColumn], &hdi);
 
-		lprvi->iSubItem = hdi.lParam;
+		lprvi->iSubItem = (INT)hdi.lParam;
 
 		rectItem.right = rectItem.left + hdi.cxy -
 			(
@@ -5807,7 +5820,8 @@ void CReportCtrl::OnLButtonDblClk(UINT nFlags, CPoint point)
 	{
 		if(
 			rvhti.iItem >= RVI_FIRST &&
-			m_arrayItems[rvhti.iItem].lptiItem->lptiChildren != NULL
+			m_arrayItems[rvhti.iItem].lptiItem->lptiChildren != NULL &&
+			!Notify(RVN_ITEMEXPANDING, rvhti.iItem, rvhti.iSubItem)
 		) {
 			Expand((HTREEITEM)m_arrayItems[rvhti.iItem].lptiItem, RVE_TOGGLE);
 			Notify(RVN_ITEMEXPANDED, rvhti.iItem, rvhti.iSubItem);
@@ -5858,7 +5872,11 @@ void CReportCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 					LPTREEITEM lpti = m_arrayItems[iFocusItem].lptiItem;
 					if(lpti->lptiChildren != NULL && lpti->bOpen == TRUE)
 					{
-						Expand((HTREEITEM)lpti, RVE_COLLAPSE);
+						if(!Notify(RVN_ITEMEXPANDING, lpti->iItem, lpti->iSubItem))
+						{
+							Expand((HTREEITEM)lpti, RVE_COLLAPSE);
+							Notify(RVN_ITEMEXPANDED, lpti->iItem, lpti->iSubItem);
+						}
 						break;
 					}
 					else
@@ -5926,7 +5944,12 @@ void CReportCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 					{
 						if(lpti->bOpen == FALSE)
 						{
-							Expand((HTREEITEM)lpti, RVE_EXPAND);
+							if(!Notify(RVN_ITEMEXPANDING, lpti->iItem, lpti->iSubItem))
+							{
+								Expand((HTREEITEM)lpti, RVE_EXPAND);
+								Notify(RVN_ITEMEXPANDED, lpti->iItem, lpti->iSubItem);
+								return;
+							}
 							break;
 						}
 						else
@@ -5968,7 +5991,7 @@ void CReportCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 					}
 				}
 				else
-					m_iFocusColumn = m_arrayColumns.GetSize()-1;
+					m_iFocusColumn = (INT)m_arrayColumns.GetSize()-1;
 
 				EnsureVisibleColumn(m_iFocusColumn);
 
@@ -6290,7 +6313,7 @@ void CReportCtrl::OnHdnEndDrag(NMHDR* pNMHDR, LRESULT* pResult)
 	if(iDropResult == FHDR_DROPPED || iDropResult == FHDR_ONTARGET)
 	{
 		if(m_dwStyle&RVS_ALLOWCOLUMNREMOVAL)
-			DeactivateSubItem(lpnmhdr->pitem->lParam);
+			DeactivateSubItem((INT)lpnmhdr->pitem->lParam);
 
 		*pResult = TRUE;
 	}
@@ -6315,7 +6338,7 @@ void CReportCtrl::OnHdnDividerDblClick(NMHDR* pNMHDR, LRESULT* pResult)
 		!(m_dwStyle&RVS_OWNERDATA) &&
 		!(m_arraySubItems[nmrvhdr.iSubItem].nFormat&RVCF_EX_FIXEDWIDTH)
 	) {
-		INT iItems = m_arrayItems.GetSize();
+		INT iItems = (INT)m_arrayItems.GetSize();
 		if(iItems > 0)
 		{
 			INT iWidth = 0;
@@ -6424,7 +6447,7 @@ CReportCtrl* CReportSubItemListCtrl::GetReportCtrl()
 
 BOOL CReportSubItemListCtrl::UpdateList()
 {
-	INT iSubItem, iSubItems = m_pReportCtrl->m_arraySubItems.GetSize();
+	INT iSubItem, iSubItems = (INT)m_pReportCtrl->m_arraySubItems.GetSize();
 
 	ResetContent();
 
@@ -6468,7 +6491,7 @@ void CReportSubItemListCtrl::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 
 	if(GetCount() > 0)
 	{
-		BOOL bDisable = Disable(lpDrawItemStruct->itemData);
+		BOOL bDisable = Disable((INT)lpDrawItemStruct->itemData);
 
 		if(GetExStyle()&WS_EX_STATICEDGE)
 		{
@@ -6534,7 +6557,7 @@ BOOL CReportSubItemListCtrl::BeginDrag(CPoint pt)
 	INT iItem = ItemFromPt(pt);
 	if(iItem >= 0)
 	{
-		m_iSubItem = GetItemData(iItem);
+		m_iSubItem = (INT)GetItemData(iItem);
 
 		if(Disable(m_iSubItem))
 		{
@@ -6581,7 +6604,7 @@ UINT CReportSubItemListCtrl::Dragging(CPoint pt)
 	if(m_rcDropTarget1.PtInRect(pt))
 		return DL_MOVECURSOR;
 
-	m_iDropIndex = m_pReportCtrl->m_wndHeader.SendMessage(HDM_SETHOTDIVIDER, TRUE, MAKELONG(pt.x, pt.y));
+	m_iDropIndex = (INT)m_pReportCtrl->m_wndHeader.SendMessage(HDM_SETHOTDIVIDER, TRUE, MAKELONG(pt.x, pt.y));
 
 	if(m_rcDropTarget2.PtInRect(pt))
 		return DL_MOVECURSOR;
@@ -6842,7 +6865,7 @@ BOOL CReportEditCtrl::PreTranslateMessage(MSG* pMsg)
 	if(pMsg->message == WM_KEYDOWN &&
 	   (pMsg->wParam == VK_TAB || pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
 	) {
-		m_nLastKey = pMsg->wParam;
+		m_nLastKey = (UINT)pMsg->wParam;
 
 		GetParent()->SetFocus();
 		return TRUE;
@@ -6951,7 +6974,7 @@ BOOL CReportComboCtrl::PreTranslateMessage(MSG* pMsg)
 	if(pMsg->message == WM_KEYDOWN &&
 	   (pMsg->wParam == VK_TAB || pMsg->wParam == VK_RETURN || pMsg->wParam == VK_ESCAPE)
 	) {
-		m_nLastKey = pMsg->wParam;
+		m_nLastKey = (UINT)pMsg->wParam;
 
 		GetParent()->SetFocus();
 		return TRUE;
@@ -7062,7 +7085,7 @@ BOOL CReportTipCtrl::Show(CRect rectText, LPCTSTR lpszText, CFont* pFont)
 		CFont *pFontDC = dc.SelectObject(pFont);
 
 		CRect rectDisplay = rectText;
-		CSize size = dc.GetTextExtent(lpszText, _tcslen(lpszText));
+		CSize size = dc.GetTextExtent(lpszText, (int)_tcslen(lpszText));
 		rectDisplay.right = rectDisplay.left + size.cx;
 
 		if(rectDisplay.right > rectText.right)
@@ -7182,6 +7205,7 @@ BOOL CReportTipCtrl::PreTranslateMessage(MSG* pMsg)
 	case WM_RBUTTONDOWN:
 	case WM_MBUTTONDOWN:
 
+		{
 		POINTS points = MAKEPOINTS(pMsg->lParam);
 		POINT  point;
 		point.x = points.x;
@@ -7225,6 +7249,7 @@ BOOL CReportTipCtrl::PreTranslateMessage(MSG* pMsg)
 			pMsg->lParam
 		);
 		return TRUE;
+		}
 
 	case WM_KEYDOWN:
 	case WM_SYSKEYDOWN:
@@ -7292,14 +7317,14 @@ BOOL InitLayeredWindows()
 			(lpfnUpdateLayeredWindow)GetProcAddress
 			(
 				hUser32,
-				_T("UpdateLayeredWindow")
+				"UpdateLayeredWindow"
 			);
 
 		g_lpfnSetLayeredWindowAttributes =
 			(lpfnSetLayeredWindowAttributes)GetProcAddress
 			(
 				hUser32,
-				_T("SetLayeredWindowAttributes")
+				"SetLayeredWindowAttributes"
 			);
 
 		return g_lpfnUpdateLayeredWindow != NULL ? TRUE:FALSE;
@@ -7397,7 +7422,7 @@ void CReportHeaderCtrl::OnRButtonDown(UINT nFlags, CPoint point)
 		HDHITTESTINFO hdhti;
 		hdhti.pt = point;
 		
-		INT iItem = ::SendMessage(GetSafeHwnd(), HDM_HITTEST, 0, (LPARAM)(&hdhti));
+		INT iItem = (INT)::SendMessage(GetSafeHwnd(), HDM_HITTEST, 0, (LPARAM)(&hdhti));
 
 		NMRVHEADER nmrvhdr;
 		if(pReportCtrl->NotifyHdr(&nmrvhdr, RVN_HEADERRCLICK, iItem))
