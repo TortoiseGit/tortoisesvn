@@ -38,17 +38,19 @@ CRegDWORD::CRegDWORD(void)
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
-CRegDWORD::CRegDWORD(CString key, DWORD def, BOOL force, HKEY base)
+CRegDWORD::CRegDWORD(const CString& key, DWORD def, BOOL force, HKEY base)
 {
 	m_value = 0;
 	m_defaultvalue = def;
 	m_force = force;
 	m_base = base;
 	m_read = FALSE;
-	key.TrimLeft(_T("\\"));
-	m_path = key.Left(key.ReverseFind(_T('\\')));
+	m_key = key;
+	m_key.TrimLeft(_T("\\"));
+	int backslashpos = m_key.ReverseFind('\\');
+	m_path = m_key.Left(backslashpos);
 	m_path.TrimRight(_T("\\"));
-	m_key = key.Right(key.GetLength() - key.ReverseFind(_T('\\')));
+	m_key = m_key.Mid(backslashpos);
 	m_key.Trim(_T("\\"));
 	read();
 }
@@ -143,17 +145,19 @@ CRegString::CRegString(void)
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
-CRegString::CRegString(CString key, CString def, BOOL force, HKEY base)
+CRegString::CRegString(const CString& key, const CString& def, BOOL force, HKEY base)
 {
 	m_value = "";
 	m_defaultvalue = def;
 	m_force = force;
 	m_base = base;
 	m_read = FALSE;
-	key.TrimLeft(_T("\\"));
-	m_path = key.Left(key.ReverseFind(_T('\\')));
+	m_key = key;
+	m_key.TrimLeft(_T("\\"));
+	int backslashpos = m_key.ReverseFind('\\');
+	m_path = m_key.Left(backslashpos);
 	m_path.TrimRight(_T("\\"));
-	m_key = key.Right(key.GetLength() - key.ReverseFind(_T('\\')));
+	m_key = m_key.Mid(backslashpos);
 	m_key.Trim(_T("\\"));
 	read();
 }
@@ -256,17 +260,19 @@ CRegRect::CRegRect(void)
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
-CRegRect::CRegRect(CString key, CRect def, BOOL force, HKEY base)
+CRegRect::CRegRect(const CString& key, CRect def, BOOL force, HKEY base)
 {
 	m_value = CRect(0,0,0,0);
 	m_defaultvalue = def;
 	m_force = force;
 	m_base = base;
 	m_read = FALSE;
-	key.TrimLeft(_T("\\"));
-	m_path = key.Left(key.ReverseFind(_T('\\')));
+	m_key = key;
+	m_key.TrimLeft(_T("\\"));
+	int backslashpos = m_key.ReverseFind('\\');
+	m_path = m_key.Left(backslashpos);
 	m_path.TrimRight(_T("\\"));
-	m_key = key.Right(key.GetLength() - key.ReverseFind(_T('\\')));
+	m_key = m_key.Mid(backslashpos);
 	m_key.Trim(_T("\\"));
 	read();
 }
@@ -366,17 +372,19 @@ CRegPoint::CRegPoint(void)
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
-CRegPoint::CRegPoint(CString key, CPoint def, BOOL force, HKEY base)
+CRegPoint::CRegPoint(const CString& key, CPoint def, BOOL force, HKEY base)
 {
 	m_value = CPoint(0,0);
 	m_defaultvalue = def;
 	m_force = force;
 	m_base = base;
 	m_read = FALSE;
-	key.TrimLeft(_T("\\"));
-	m_path = key.Left(key.ReverseFind(_T('\\')));
+	m_key = key;
+	m_key.TrimLeft(_T("\\"));
+	int backslashpos = m_key.ReverseFind('\\');
+	m_path = m_key.Left(backslashpos);
 	m_path.TrimRight(_T("\\"));
-	m_key = key.Right(key.GetLength() - key.ReverseFind(_T('\\')));
+	m_key = m_key.Mid(backslashpos);
 	m_key.Trim(_T("\\"));
 	read();
 }
@@ -553,7 +561,7 @@ CRegStdString::CRegStdString(void)
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
-CRegStdString::CRegStdString(stdstring key, stdstring def, BOOL force, HKEY base)
+CRegStdString::CRegStdString(const stdstring& key, const stdstring& def, BOOL force, HKEY base)
 {
 	m_value = _T("");
 	m_defaultvalue = def;
@@ -668,7 +676,7 @@ CRegStdWORD::CRegStdWORD(void)
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
-CRegStdWORD::CRegStdWORD(stdstring key, DWORD def, BOOL force, HKEY base)
+CRegStdWORD::CRegStdWORD(const stdstring& key, DWORD def, BOOL force, HKEY base)
 {
 	m_value = 0;
 	m_defaultvalue = def;
