@@ -137,8 +137,10 @@ public:
 	 *
 	 * \param path the file/directory to add 
 	 * \param recurse 
+	 * \param force if TRUE, then an adding an already versioned folder will add
+	 *              all unversioned files in it (in combination with \a recurse)
 	 */
-	BOOL Add(CString path, BOOL recurse);
+	BOOL Add(CString path, BOOL recurse, BOOL force = FALSE);
 	/**
 	 * Update working tree path to revision.
 	 * \param path the file/directory to update

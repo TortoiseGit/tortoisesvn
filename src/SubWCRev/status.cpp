@@ -60,8 +60,8 @@ svn_status (       const char *path,
 
   /* Need to lock the tree as even a non-recursive status requires the
      immediate directories to be locked. */
-  SVN_ERR (svn_wc_adm_probe_open (&adm_access, NULL, path, 
-                                  FALSE, FALSE, pool));
+  SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, path, 
+                                  FALSE, 0, pool));
 
   /* Get the entry for this path so we can determine our anchor and
      target.  If the path is unversioned, and the caller requested
@@ -77,8 +77,8 @@ svn_status (       const char *path,
 
   /* Need to lock the tree as even a non-recursive status requires the
      immediate directories to be locked. */
-  SVN_ERR (svn_wc_adm_probe_open (&adm_access, NULL, anchor, 
-                                  FALSE, TRUE, pool));
+  SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, anchor, 
+                                  FALSE, -1, pool));
 
   /* Get the status edit, and use our wrapping status function/baton
      as the callback pair. */

@@ -220,10 +220,10 @@ BOOL SVN::Revert(CString path, BOOL recurse)
 }
 
 
-BOOL SVN::Add(CString path, BOOL recurse)
+BOOL SVN::Add(CString path, BOOL recurse, BOOL force)
 {
 	preparePath(path);
-	Err = svn_client_add (MakeSVNUrlOrPath(path), recurse, &ctx, pool);
+	Err = svn_client_add2 (MakeSVNUrlOrPath(path), recurse, force, &ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -546,11 +546,12 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 		preparePath(srcPath);
 		preparePath(destPath);
 
-		Err = svn_client_export(NULL,		//no resulting revision needed
+		Err = svn_client_export2(NULL,		//no resulting revision needed
 			MakeSVNUrlOrPath(srcPath),
 			MakeSVNUrlOrPath(destPath),
 			revision,
 			force,
+			NULL,
 			&ctx,
 			pool);
 		if(Err != NULL)
@@ -1157,8 +1158,8 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 
 	else
 	{
-		SVN_ERR (svn_wc_adm_probe_open (&adm_access, NULL, target,
-			FALSE, FALSE, pool));
+		SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, target,
+			FALSE, 0, pool));
 		SVN_ERR (svn_wc_entry (&entry, target, adm_access, FALSE, pool));
 		SVN_ERR (svn_wc_adm_close (adm_access));
 
@@ -1381,7 +1382,7 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 	preparePath(sFile);
 	CStringA temp = MakeSVNUrlOrPath(sFile);
 	const char * originPath = temp;
-	err = svn_wc_adm_probe_open (&adm_access, NULL, originPath, FALSE, FALSE, localpool);
+	err = svn_wc_adm_probe_open2 (&adm_access, NULL, originPath, FALSE, 0, localpool);
 	if (err)
 		goto error;
 	err = svn_wc_translated_file((const char **)&translatedPath, originPath, adm_access, bForceRepair, localpool);
