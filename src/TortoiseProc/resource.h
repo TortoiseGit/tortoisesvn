@@ -145,6 +145,7 @@
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
+#define IDC_EDIT1                       1077
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -311,7 +312,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        164
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1077
+#define _APS_NEXT_CONTROL_VALUE         1078
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
