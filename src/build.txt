@@ -8,13 +8,21 @@
   then right-click into the SVN folder and select "checkout".
   In the dialog enter the URL and add "\Subversion" to
   the checkout path.
+- Download the compiled berkeley db library from
+  the TortoiseSVN download area:
+  http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
+  and unzip it to SVN\Subversion\db4-win32
 - Download the newest source of the apache server
   for windows from http://httpd.apache.org/download.cgi
   Unzip the sources into SVN\Subversion
+  Open a DOS-Box in the SVN directory and type:
+  > perl httpd-2.0.48\srclib\apr-util\build\w32locatedb.pl dll db4-win32\include db4-win32\lib
+  (if your copy of apr doesn't have the file w32locatedb.pl in it, you can
+  get it from http://subversion.tigris.org/files/documents/15/8705/w32locatedb.pl)
   Then copy (not move) the folders
-  SVN\Subversion\httpd-2.0.46\srclib\apr to SVN\Subversion\apr
-  SVN\Subversion\httpd-2.0.46\srclib\apr-iconv to SVN\Subversion\apr-iconv
-  SVN\Subversion\httpd-2.0.46\srclib\apr-util to SVN\Subversion\apr-util
+  SVN\Subversion\httpd-2.0.xx\srclib\apr to SVN\Subversion\apr
+  SVN\Subversion\httpd-2.0.xx\srclib\apr-iconv to SVN\Subversion\apr-iconv
+  SVN\Subversion\httpd-2.0.xx\srclib\apr-util to SVN\Subversion\apr-util
   Now open the Apache.dsw file and compile apache.
 - Download the openssl source package from
   http://www.openssl.org/source/ and unzip it to SVN\common
@@ -32,18 +40,23 @@
 - Download the newest neon source from 
   http://www.webdav.org/neon/ and unzip it into SVN\Subversion
   then rename the folder neon-0.xx.x to neon.
-- Download the compiled berkeley db library from
-  the TortoiseSVN download area:
-  http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
-  and unzip it to SVN\Subversion\db4-win32
 - in the dos-prompt cd to SVN\Subversion. Then type
   > python gen-make.py -t vcproj --with-openssl=PathTo\Common\openssl --with-zlib=PathTo\Common\zlib
   this will create all the project files for visual studio.
-  Double-click on the subversion_msvc.dsw file to open visual studio.
-  Build the project called __ALL__. This will build all other projects
-  in the workspace too. 
+  Open VS.NET and then open the *.sln file. Build the project called __ALL__.
+  This will build all other projects in the workspace too.
   Now you have successfully compiled Subversion!
 - Checkout the TortoiseSVN sources from the Subversion repository.
   You need a subversion client to do this. Check it out to
   SVN\TortoiseSVN
   Open the solution file and compile.
+- To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
+  You can get that library from here:
+  http://download.microsoft.com/download/VisualStudioNET/Install/7.0/WXP/EN-US/WTL70.exe
+  But the crashrpt project is not needed for TortoiseSVN to compile.
+
+CAUTION:
+If you have both VS.NET2002 and VS.NET2003 installed (or once had) make sure
+you build all libraries with the same version! Always check in the about
+box of the IDE which version you're actually using to compile a library
+so you don't mix up.
