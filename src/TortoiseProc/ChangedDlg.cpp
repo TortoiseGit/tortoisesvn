@@ -156,7 +156,10 @@ void CChangedDlg::AddEntry(CString file, svn_wc_status_t * status)
 		m_arWCStatus.Add(text);
 		m_arRepoStatus.Add(repo);
 		m_arPaths.Add(file);
-		m_arRevisions.Add(status->entry->revision);
+		if (status->entry)
+			m_arRevisions.Add(status->entry->revision);
+		else
+			m_arRevisions.Add(0);
 	}
 }
 
