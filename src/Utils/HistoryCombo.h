@@ -136,6 +136,7 @@ protected:
 	virtual bool OnReturnKeyPressed() { return false; }
 
 protected:
+	CStringArray m_arEntries;
 	CString m_sSection;
 	CString m_sKeyPrefix;
 	int m_nMaxHistoryItems;

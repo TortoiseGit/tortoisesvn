@@ -75,6 +75,9 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 		cbei.iItem = pos;
 
 	str.Trim(_T(" "));
+	m_arEntries.Add(str);
+	str.Replace('\r', ' ');
+	str.Replace('\n', ' ');
 	cbei.pszText = const_cast<LPTSTR>(str.GetString());
 
 	if (m_bURLHistory)
@@ -175,10 +178,8 @@ void CHistoryCombo::SaveHistory()
 	{
 		CString sKey;
 		sKey.Format(_T("%s\\%s%d"), (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);
-		CString sText;
-		GetLBText(n, sText);
 		CRegString regkey = CRegString(sKey);
-		regkey = sText;
+		regkey = m_arEntries.GetAt(n);
 	}
 	//remove items exceeding the max number of history items
 	for (n = nMax; ; n++)
@@ -282,9 +283,7 @@ CString CHistoryCombo::GetString() const
 	sel = GetCurSel();
 	if (sel == CB_ERR)
 		return str;
-	GetLBText(sel, str.GetBuffer(GetLBTextLen(sel)));
-	str.ReleaseBuffer();
-	return str;
+	return m_arEntries.GetAt(sel);
 }
 
 

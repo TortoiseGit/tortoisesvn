@@ -1,3 +1,5 @@
+- BUG: the log message history was truncated if the log message exceeded the
+       combobox limit. (Stefan)
 - BUG: The number of selected files was shown wrong in the commit dialog. (Stefan)
 
 Version 1.1.2
