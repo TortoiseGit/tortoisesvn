@@ -72,7 +72,7 @@ protected:
 protected:
 	void			UpdateLayout();
 	virtual BOOL	PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch);
-	BOOL			CheckResolved();
+	int				CheckResolved();
 	void			SaveFile(CString sFilePath);
 protected: 
 	CStatusBar		m_wndStatusBar;

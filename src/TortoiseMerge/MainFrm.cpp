@@ -596,7 +596,7 @@ void CMainFrame::OnViewOnewaydiff()
 	LoadViews(FALSE);
 }
 
-BOOL CMainFrame::CheckResolved()
+int CMainFrame::CheckResolved()
 {
 	//only in three way diffs can be conflicts!
 	if (this->m_pwndBottomView->IsWindowVisible())
@@ -606,11 +606,11 @@ BOOL CMainFrame::CheckResolved()
 			for (int i=0; i<this->m_pwndBottomView->m_arLineStates->GetCount(); i++)
 			{
 				if (CDiffData::DIFFSTATE_CONFLICTED == (CDiffData::DiffStates)this->m_pwndBottomView->m_arLineStates->GetAt(i))
-					return FALSE;
+					return i;
 			} // for (int i=0; i<this->m_pwndBottomView->m_arLineStates->GetCount(); i++) 
 		} // if (this->m_pwndBottomView->m_arLineStates) 
 	} // if (this->m_pwndBottomView->IsWindowVisible())
-	return TRUE;
+	return -1;
 }
 
 void CMainFrame::SaveFile(CString sFilePath)
@@ -675,7 +675,8 @@ void CMainFrame::OnFileSave()
 {
 	if (this->m_Data.m_sMergedFile.IsEmpty())
 		return OnFileSaveAs();
-	if (CheckResolved())
+	int nConflictLine = CheckResolved();
+	if (nConflictLine < 0)
 	{
 		if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
 		{
@@ -687,18 +688,23 @@ void CMainFrame::OnFileSave()
 	else
 	{
 		CString sTemp;
-		sTemp.LoadString(IDS_ERR_MAINFRAME_FILEHASCONFLICTS);
+		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
 		MessageBox(sTemp, 0, MB_ICONERROR);
+		if (m_pwndBottomView)
+			m_pwndBottomView->GoToLine(nConflictLine);
 	}
 }
 
 void CMainFrame::OnFileSaveAs()
 {
-	if (!CheckResolved())
+	int nConflictLine = CheckResolved();
+	if (nConflictLine >= 0)
 	{
 		CString sTemp;
-		sTemp.LoadString(IDS_ERR_MAINFRAME_FILEHASCONFLICTS);
+		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
 		MessageBox(sTemp, 0, MB_ICONERROR);
+		if (m_pwndBottomView)
+			m_pwndBottomView->GoToLine(nConflictLine);
 		return;
 	}
 	OPENFILENAME ofn;		// common dialog box structure
