@@ -177,9 +177,9 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 						_sntprintf(buf, MAX_PATH, _T("%d"), columnrev);
 					else
 						buf[0] = '\0';
+					szInfo = buf;
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 				ReleaseMutex(hMutex);
-				szInfo = buf;
 				break;
 			case 2:
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
