@@ -812,9 +812,11 @@ private:
 		testPath.SetFromUnknown(_T("http://testing/"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing") == 0);
 		testPath.SetFromUnknown(_T("http://testing again"));
+#if defined(_MFC_VER)
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
 		testPath.SetFromUnknown(_T("http://testing special chars äöü"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20Ã¤Ã¶Ã¼") == 0);		
+#endif
 	}
 
 } TSVNPathTests;
