@@ -20,6 +20,7 @@
 #include "StdAfx.h"
 #include "TortoiseProc.h"
 #include "svn.h"
+#include "svn_error_codes.h"
 #include "client.h"
 #include "UnicodeUtils.h"
 #include "DirFileEnum.h"
@@ -100,6 +101,7 @@ struct log_msg_baton
 CString SVN::GetLastErrorMessage()
 {
 	CString msg;
+	CString temp;
 	if (Err != NULL)
 	{
 		svn_error_t * ErrPtr = Err;
@@ -109,6 +111,35 @@ CString SVN::GetLastErrorMessage()
 			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
 			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
+		}
+		switch (Err->apr_err)
+		{
+		case SVN_ERR_BAD_FILENAME:
+		case SVN_ERR_BAD_URL:
+			// please check the path or URL you've entered.
+			temp.LoadString(IDS_SVNERR_CHECKPATHORURL);
+			break;
+		case SVN_ERR_WC_LOCKED:
+		case SVN_ERR_WC_NOT_LOCKED:
+			// do a "cleanup"
+			temp.LoadString(IDS_SVNERR_RUNCLEANUP);
+			break;
+		case SVN_ERR_WC_NOT_UP_TO_DATE:
+		case SVN_ERR_RA_OUT_OF_DATE:
+			// do an update first
+			temp.LoadString(IDS_SVNERR_UPDATEFIRST);
+			break;
+		case SVN_ERR_WC_CORRUPT:
+		case SVN_ERR_WC_CORRUPT_TEXT_BASE:
+			// do a "cleanup". If that doesn't work you need to do a fresh checkout.
+			temp.LoadString(IDS_SVNERR_CLEANUPORFRESHCHECKOUT);
+			break;
+		default:
+			break;
+		}
+		if (!temp.IsEmpty())
+		{
+			msg += _T("\n") + temp;
 		}
 		return msg;
 	}

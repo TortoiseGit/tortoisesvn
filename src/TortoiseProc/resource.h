@@ -442,6 +442,10 @@
 #define IDS_REPOCREATE_WHICHTYPE        3400
 #define IDS_REPOCREATE_TYPE_BDB         3401
 #define IDS_REPOCREATE_TYPE_FSFS        3402
+#define IDS_SVNERR_CHECKPATHORURL       4000
+#define IDS_SVNERR_RUNCLEANUP           4001
+#define IDS_SVNERR_UPDATEFIRST          4002
+#define IDS_SVNERR_CLEANUPORFRESHCHECKOUT 4003
 
 // Next default values for new objects
 // 

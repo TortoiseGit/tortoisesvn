@@ -9,6 +9,9 @@
 - ADD: The "Add to ignore list" now has a submenu with
        the filename and the filemask (e.g. "*.tmp")
        as its entries. (Stefan)
+- ADD: Show hints about some error messages, e.g. for
+       the "out-of-date" error tell the user to 
+       update first. (Stefan)
 - CHG: The Repository Browser now sorts the date column
        by the real date, not the text. (Stefan)
 - BUG: Authentication when viewing remote properties lead

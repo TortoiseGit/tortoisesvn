@@ -1409,6 +1409,15 @@ BEGIN
     IDS_REPOCREATE_TYPE_FSFS "FSFS"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_SVNERR_CHECKPATHORURL "Check the path and/or URL you've entered."
+    IDS_SVNERR_RUNCLEANUP   "Please execute the ""Cleanup"" command."
+    IDS_SVNERR_UPDATEFIRST  "You have to update your working copy first."
+    IDS_SVNERR_CLEANUPORFRESHCHECKOUT 
+                            "Try a ""Cleanup"". If that doesn't work you need to do a fresh checkout."
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
