@@ -227,14 +227,22 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString temp;
 			if (m_FileListCtrl.GetSelectedCount() == 1)
 			{
-				if (repoStatus > svn_wc_status_normal)
+				if ((repoStatus > svn_wc_status_normal)||(wcStatus > svn_wc_status_normal))
 				{
 					temp.LoadString(IDS_LOG_POPUP_COMPARE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
-					temp.LoadString(IDS_SVNACTION_UPDATE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+					if (repoStatus > svn_wc_status_normal)
+					{
+						temp.LoadString(IDS_SVNACTION_UPDATE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+					} // if (repoStatus > svn_wc_status_normal)
+					if (wcStatus > svn_wc_status_normal)
+					{
+						temp.LoadString(IDS_MENUREVERT);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
+					}
 				}
 			} // if (m_FileListCtrl.GetSelectedCount() == 1)
 			else
@@ -255,17 +263,49 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 			case ID_COMPARE:
 				{
 					//user clicked on the menu item "compare with working copy"
-					//next step is to create a temporary file to hold the required revision
-					CString tempfile = CUtils::GetTempFile();
-
-					SVN svn;
-					if (!svn.Cat(filepath, SVN::REV_HEAD, tempfile))
+					CString tempfile;
+					if (repoStatus <= svn_wc_status_normal)
 					{
-						CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
-						return;
-					}
+						tempfile = SVN::GetPristinePath(filepath);
 
+						//TODO:
+						//as soon as issue 1361 of subversion 
+						//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
+						//uncomment the lines below and delete the 
+						//line above. This will then allow diff-viewers which
+						//don't ignore different line endings to work correctly
+
+						//CString tempfile = CUtils::GetTempFile();
+						//SVN svn;
+						//if (!svn.Cat(filepath, SVN::REV_BASE, tempfile))
+						//{
+						//	tempfile = SVN::GetPristinePath(filepath);
+						//}
+						//else
+						//{
+						//	m_templist.Add(filepath);
+						//}
+					}
+					else
+					{
+						//next step is to create a temporary file to hold the required revision
+						tempfile = CUtils::GetTempFile();
+
+						SVN svn;
+						if (!svn.Cat(filepath, SVN::REV_HEAD, tempfile))
+						{
+							CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							return;
+						}
+					}
+					if (repoStatus <= svn_wc_status_normal)
+					{
+						//exchange filepath and tempfile so always the oldest version is the first param to the diff program
+						CString t = filepath;
+						filepath = tempfile;
+						tempfile = t;
+					}
 					CString diffpath = CUtils::GetDiffPath();
 					if (diffpath != "")
 					{
@@ -314,7 +354,7 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					CString tempfile = CUtils::GetTempFile();
 					tempfile += _T(".diff");
-					if (!Diff(filepath, SVN::REV_BASE, filepath, SVN::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!Diff(filepath, SVN::REV_WC, filepath, SVN::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
@@ -356,6 +396,18 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 						CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
 					}
 				}
+				break;
+			case ID_REVERT:
+				{
+					if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES)
+					{
+						SVN svn;
+						if (!svn.Revert(filepath, FALSE))
+						{
+							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES) 
+				} 
 				break;
 			default:
 				GetDlgItem(IDOK)->EnableWindow(TRUE);

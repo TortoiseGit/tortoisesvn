@@ -21,6 +21,9 @@
        which revisions should be merged in.
        Please note: this works only correct if the
        server has subversion 0.28 and higher! (Stefan)
+- ADD: Commands "diff", "gnudiff" in the "Changed Files"
+       dialog work now for wc-changes too.
+       Also added a "revert" command. (Stefan)
 
 Version 0.18
 - BUG: The repository browser didn't escape the url

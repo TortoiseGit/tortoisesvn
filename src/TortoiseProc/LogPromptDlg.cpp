@@ -204,7 +204,7 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
 	//CString path2 = CUtils::GetTempFile();
 	//SVN svn;
-	//if (!svn.Cat(path1, -1, path2))
+	//if (!svn.Cat(path1, SVN::REV_BASE, path2))
 	//{
 	//	path2 = SVN::GetPristinePath(path1);
 	//}
