@@ -484,22 +484,26 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
 	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
 	locale = MAKELCID(locale, SORT_DEFAULT);
 
-	newtime = _localtime64(&time);
-
-	systime.wDay = (WORD)newtime->tm_mday;
-	systime.wDayOfWeek = (WORD)newtime->tm_wday;
-	systime.wHour = (WORD)newtime->tm_hour;
-	systime.wMilliseconds = 0;
-	systime.wMinute = (WORD)newtime->tm_min;
-	systime.wMonth = (WORD)newtime->tm_mon+1;
-	systime.wSecond = (WORD)newtime->tm_sec;
-	systime.wYear = (WORD)newtime->tm_year+1900;
-	GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
-	GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PROP_STRING_LENGTH);
 	*buf = '\0';
-	_tcsncat(buf, timebuf, MAX_PROP_STRING_LENGTH-1);
-	_tcsncat(buf, _T(", "), MAX_PROP_STRING_LENGTH-1);
-	_tcsncat(buf, datebuf, MAX_PROP_STRING_LENGTH-1);
+	if (time)
+	{
+		newtime = _localtime64(&time);
+
+		systime.wDay = (WORD)newtime->tm_mday;
+		systime.wDayOfWeek = (WORD)newtime->tm_wday;
+		systime.wHour = (WORD)newtime->tm_hour;
+		systime.wMilliseconds = 0;
+		systime.wMinute = (WORD)newtime->tm_min;
+		systime.wMonth = (WORD)newtime->tm_mon+1;
+		systime.wSecond = (WORD)newtime->tm_sec;
+		systime.wYear = (WORD)newtime->tm_year+1900;
+		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PROP_STRING_LENGTH);
+		*buf = '\0';
+		_tcsncat(buf, timebuf, MAX_PROP_STRING_LENGTH-1);
+		_tcsncat(buf, _T(", "), MAX_PROP_STRING_LENGTH-1);
+		_tcsncat(buf, datebuf, MAX_PROP_STRING_LENGTH-1);
+	}
 }
 
 void CSVNPropertyPage::InitWorkfileView()
