@@ -121,11 +121,10 @@ public:
 	BOOL			m_bBlock;
 private:
 	HANDLE			m_hThread;
-	BOOL			m_bSelectAll;
 	CFont			m_logFont;
 	BOOL			m_bShowUnversioned;
+	CButton			m_SelectAll;
 	CRegDWORD		m_regAddBeforeCommit;
-public:
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

@@ -232,7 +232,7 @@ BEGIN
                     93,287,109
     LTEXT           "",IDC_STATISTICS,149,202,144,8,0,WS_EX_RIGHT
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,6,213,230,10
+                    BS_AUTO3STATE | WS_TABSTOP,6,213,230,10
     LTEXT           "To see the changes you made, double click on the files above.",
                     IDC_HINTLABEL,6,227,165,28
     PUSHBUTTON      "&Cancel",IDCANCEL,187,244,50,14

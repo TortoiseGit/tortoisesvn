@@ -35,7 +35,6 @@ IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableDialog)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CLogPromptDlg::IDD, pParent)
 	, m_sLogMessage(_T(""))
-	, m_bSelectAll(TRUE)
 	, m_nTotal(0)
 	, m_nSelected(0)
 	, m_bRecursive(FALSE)
@@ -73,9 +72,9 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
-	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_LogMessage);
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
+	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 }
 
 
@@ -199,6 +198,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.UpdateData(FALSE);
 
 	m_tooltips.Create(this);
+	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
@@ -388,6 +388,12 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	CString sStats;
 	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, m_nTotal);
 	GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
+	if (m_nSelected == 0)
+		m_SelectAll.SetCheck(BST_UNCHECKED);
+	else if (m_nSelected != m_nTotal)
+		m_SelectAll.SetCheck(BST_INDETERMINATE);
+	else
+		m_SelectAll.SetCheck(BST_CHECKED);
 }
 
 void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
@@ -1114,17 +1120,19 @@ BOOL CLogPromptDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 
 void CLogPromptDlg::OnBnClickedSelectall()
 {
-	UpdateData();
+	UINT state = (m_SelectAll.GetState() & 0x0003);
+	if (state == 2)
+		return;
 	theApp.DoWaitCursor(1);
 	m_ListCtrl.SetRedraw(false);
 	int itemCount = m_ListCtrl.GetItemCount();
 	for (int i=0; i<itemCount; i++)
 	{
-		m_ListCtrl.SetCheck(i, m_bSelectAll);
+		m_ListCtrl.SetCheck(i, state == 1);
 		Data * data = m_arData.GetAt(i);
-		data->checked = m_bSelectAll;
+		data->checked = (state == 1);
 	} // for (int i=0; i<itemCount; i++)
-	if (m_bSelectAll)
+	if (state == 1)
 		m_nSelected = m_nTotal;
 	else
 		m_nSelected = 0;
