@@ -22,4 +22,5 @@ public:
 	CString m_sToUrl;
 	CString m_sFromUrl;
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedBrowse();
 };
