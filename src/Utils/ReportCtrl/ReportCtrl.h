@@ -262,7 +262,7 @@ typedef struct _RVFINDINFO
 
 // Notifications
 #define RVN_FIRST				(0U-2048U)
-#define RVN_LAST				(0U-2066U)
+#define RVN_LAST				(0U-2067U)
 
 #define RVN_ITEMDRAWPREVIEW		(0U-2048U)
 #define RVN_ITEMCLICK			(0U-2049U)
@@ -305,6 +305,7 @@ typedef struct _RVFINDINFO
 #define RVNM_ITEMEXPANDING		0x00010000
 #define RVNM_ITEMEXPANDED		0x00020000
 #define RVNM_HEADERRCLICK		0x00040000
+#define RVNM_ITEMRCLICKUP		0x00080000
 #define RVNM_ALL				0xFFFFFFFF
 
 typedef struct _NMRVDRAWPREVIEW
