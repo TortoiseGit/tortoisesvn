@@ -1,4 +1,4 @@
-<chapter id="tsvn_serversetup">
+﻿<chapter id="tsvn_serversetup">
 	<title>Setting Up A Server</title>
 	<simplesect>
 		<para>
@@ -194,12 +194,12 @@
 			know how to handle Subversion clients like TortoiseSVN yet.
 			To get Apache to know which URL shall be used for Subversion
 			repositories you have to edit the Apache config file (usually
-			located in <filename>c:\program files\apache group\apache2\conf\httpd.conf
-			</filename>) with any text editor you like (e.g. Notepad):
-
+			located in
+			<filename>c:\program files\apache group\apache2\conf\httpd.conf</filename>)
+			with any text editor you like (e.g. Notepad):
 			<orderedlist>
 					<listitem>
-						<para>Open the config file and find the lines
+						<para>Open the config file and find the lines:
 <screen>
 #LoadModule dav_module modules/mod_dav.so
 </screen>
@@ -246,116 +246,9 @@ Require valid-user
 					available at http://MyServer/svn/. The access is restricted to known 
 					users/passwords.
 					</para>
-						<para>
-					A short explanation of what you just entered:
-					<indexterm>
-								<primary>SVNPath</primary>
-							</indexterm>
-							<indexterm>
-								<primary>SVNParentPath</primary>
-							</indexterm>
-							<table id="tsvn-serversetup-apache-4-table">
-								<title>Apache httpd.conf Settings</title>
-								<tgroup cols="2">
-									<colspec colnum="1" colwidth="1*"/>
-									<colspec colnum="2" colwidth="3*"/>
-									<thead>
-										<row>
-											<entry>Setting</entry>
-											<entry>Explanation</entry>
-										</row>
-									</thead>
-									<tbody>
-										<row>
-											<entry>&lt;Location /svn&gt;</entry>
-											<entry>means that the Subversion repositories are
-									available from the URL <systemitem class="url">
-									http://MyServer/svn/</systemitem>
-											</entry>
-										</row>
-										<row>
-											<entry>DAV svn</entry>
-											<entry>tells Apache which module will be
-									responsible to serve that URL - in this
-									case the Subversion module.</entry>
-										</row>
-										<row>
-											<entry>SVNParentPath D:\SVN</entry>
-											<entry>tells Subversion to look for repositories below D:\SVN</entry>
-										</row>
-										<row>
-											<entry>AuthType Basic</entry>
-											<entry>is to activate basic authentication, i.e. Username/password</entry>
-										</row>
-										<row>
-											<entry>AuthName "Subversion repositories"</entry>
-											<entry>is used as an information whenever an
-									authentication dialog pops up to tell the user what
-									the authentication is for</entry>
-										</row>
-										<row>
-											<entry>AuthUserFile passwd</entry>
-											<entry>specifies which password file to use for authentication</entry>
-										</row>
-										<row>
-											<entry>AuthzSVNAccessFile</entry>
-											<entry>Location of the Access file for paths inside
-									a subversion repository</entry>
-										</row>
-										<row>
-											<entry>Require valid-user</entry>
-											<entry>specifies that only users who entered a
-									correct username/password are allowed to access the URL</entry>
-										</row>
-									</tbody>
-								</tgroup>
-							</table>
-					But that's just an example. There are many, many more
-					possibilities of what you can do with the Apache webserver.
-					</para>
-						<itemizedlist>
-							<listitem>
-								<para>If you want your repository to have read
-					access for everyone but write access only for specific
-					users you can change the line
-<screen>
-Require valid-user
-</screen> to
-<screen>
-&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;
-Require valid-user
-&lt;/LimitExcept&gt;
-</screen>
-								</para>
-							</listitem>
-							<listitem>
-								<para>If you want to give users access only
-					for specific folders inside a repository you have to
-					uncomment the line
-<screen>
-#AuthzSVNAccessFile svnaccessfile
-</screen>
-					and create a Subversion access file. An example file
-					would look like this:
-<screen>
-[groups]
-developers = user1,user2,user3,user4
-docs = user5,user6,user7
-#to allow everyone read access
-[/]
-* = r
-#allow all developers complete access
-@developers = rw
-#give the doc people write access to the docs folder
-[/project/trunk/doc]
-@docs = rw
-</screen>
-								</para>
-							</listitem>
-						</itemizedlist>
 					</listitem>
 					<listitem>
-						<para>Open again the command prompt (DOS-Box),
+						<para>Open the command prompt (DOS-Box) again,
 					change to the apache2 folder (usually
 					<filename>c:\program files\apache group\apache2</filename>)
 					and create a password file by entering
@@ -383,6 +276,114 @@ bin\htpasswd passwd &lt;username&gt;
 					repository.</para>
 					</listitem>
 				</orderedlist>
+			</para>
+			<para>
+				A short explanation of what you just entered:
+				<indexterm>
+					<primary>SVNPath</primary>
+				</indexterm>
+				<indexterm>
+					<primary>SVNParentPath</primary>
+				</indexterm>
+				<table id="tsvn-serversetup-apache-4-table">
+					<title>Apache httpd.conf Settings</title>
+					<tgroup cols="2">
+						<colspec colnum="1" colwidth="1.5*"/>
+						<colspec colnum="2" colwidth="3*"/>
+						<thead>
+							<row>
+								<entry>Setting</entry>
+								<entry>Explanation</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>&lt;Location /svn&gt;</entry>
+								<entry>means that the Subversion repositories are available from the URL
+									<systemitem class="url">http://MyServer/svn/</systemitem>
+								</entry>
+							</row>
+							<row>
+								<entry>DAV svn</entry>
+								<entry>tells Apache which module will be responsible to serve
+									that URL - in this case the Subversion module.
+								</entry>
+							</row>
+							<row>
+								<entry>SVNParentPath D:\SVN</entry>
+								<entry>tells Subversion to look for repositories below D:\SVN</entry>
+							</row>
+							<row>
+								<entry>AuthType Basic</entry>
+								<entry>is to activate basic authentication, i.e. Username/password</entry>
+							</row>
+							<row>
+								<entry>AuthName "Subversion repositories"</entry>
+								<entry>is used as an information whenever an authentication
+									dialog pops up to tell the user what the authentication is for
+								</entry>
+							</row>
+							<row>
+								<entry>AuthUserFile passwd</entry>
+								<entry>specifies which password file to use for authentication</entry>
+							</row>
+							<row>
+								<entry>AuthzSVNAccessFile</entry>
+								<entry>Location of the Access file for paths inside a
+									subversion repository
+								</entry>
+							</row>
+							<row>
+								<entry>Require valid-user</entry>
+								<entry>specifies that only users who entered a correct username/password
+									are allowed to access the URL
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+				But that's just an example. There are many, many more
+				possibilities of what you can do with the Apache webserver.
+				<itemizedlist>
+					<listitem>
+						<para>If you want your repository to have read
+							access for everyone but write access only for specific
+							users you can change the line
+<screen>
+Require valid-user
+</screen> to
+<screen>
+&lt;LimitExcept GET PROPFIND OPTIONS REPORT&gt;
+Require valid-user
+&lt;/LimitExcept&gt;
+</screen>
+						</para>
+					</listitem>
+					<listitem>
+						<para>If you want to give users access only
+							for specific folders inside a repository you have to
+							uncomment the line
+<screen>
+#AuthzSVNAccessFile svnaccessfile
+</screen>
+								and create a Subversion access file. An example file
+								would look like this:
+<screen>
+[groups]
+developers = user1,user2,user3,user4
+docs = user5,user6,user7
+#to allow everyone read access
+[/]
+* = r
+#allow all developers complete access
+@developers = rw
+#give the doc people write access to the docs folder
+[/project/trunk/doc]
+@docs = rw
+</screen>
+						</para>
+					</listitem>
+				</itemizedlist>
 			</para>
 			<tip>
 				<title>Use SVNParentPath</title>
