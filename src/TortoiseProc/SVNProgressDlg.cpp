@@ -479,6 +479,8 @@ UINT CSVNProgressDlg::ProgressThread()
 					SVNRev revstore = m_Revision;
 					while (file.ReadString(strLine))
 					{
+						CTSVNPath targetPath;
+						targetPath.SetFromUnknown(strLine);
 						SVNStatus st;
 						LONG headrev = -1;
 						m_Revision = revstore;
@@ -513,9 +515,9 @@ UINT CSVNProgressDlg::ProgressThread()
 							}
 						} // if (m_Revision.IsHead()) 
 						TRACE(_T("update file %s\n"), (LPCTSTR)strLine);
-						CString sTempWindowTitle = CUtils::GetFileNameFromPath(strLine)+_T(" - ")+sWindowTitle;
+						CString sTempWindowTitle = targetPath.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 						SetWindowText(sTempWindowTitle);
-						if (!m_pSvn->Update(strLine, m_Revision, (m_sModName.Compare(_T("yes"))!=0)))
+						if (!m_pSvn->Update(targetPath, m_Revision, (m_sModName.Compare(_T("yes"))!=0)))
 						{
 							ReportSVNError();
 							break;
@@ -543,6 +545,9 @@ UINT CSVNProgressDlg::ProgressThread()
 			} // if (m_IsTempFile) 
 			else
 			{
+				CTSVNPath targetPath;
+				targetPath.SetFromUnknown(m_sPath);
+
 				//check the revision of the directory before the update
 				LONG rev = m_Revision;
 				SVNStatus st;
@@ -553,9 +558,9 @@ UINT CSVNProgressDlg::ProgressThread()
 						m_nUpdateStartRev = st.status->entry->revision;
 					}
 				}
-				sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;
+				sTempWindowTitle = targetPath.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 				SetWindowText(sTempWindowTitle);
-				if (m_pSvn->Update(m_sPath, rev, true))
+				if (m_pSvn->Update(targetPath, rev, true))
 				{
 					GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 					break;

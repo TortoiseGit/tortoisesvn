@@ -889,7 +889,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev = m_arRevs.GetAt(selIndex);
 
 						SVN svn;
-						if (!svn.Update(m_path.GetSVNPathString(), rev, TRUE))
+						if (!svn.Update(m_path, rev, TRUE))
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);

@@ -133,7 +133,7 @@ public:
 	 * \param revision the revision the local copy should be updated to or -1 for HEAD
 	 * \param recurse 
 	 */
-	BOOL Update(CString path, SVNRev revision, BOOL recurse);
+	BOOL Update(const CTSVNPath& path, SVNRev revision, BOOL recurse);
 	/**
 	 * Commit file or directory path into repository, using message as
 	 * the log message.

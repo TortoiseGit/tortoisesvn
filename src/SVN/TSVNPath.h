@@ -99,7 +99,7 @@ public:
 	 */
 	CString GetFilename() const;
 	/**
-	 * Returns the items name without the full path.
+	 * Returns the item's name without the full path.
 	 */
 	CString GetFileOrDirectoryName() const;
 	/**

@@ -321,11 +321,10 @@ BOOL SVN::Add(const CTSVNPath& path, BOOL recurse, BOOL force)
 	return TRUE;
 }
 
-BOOL SVN::Update(CString path, SVNRev revision, BOOL recurse)
+BOOL SVN::Update(const CTSVNPath& path, SVNRev revision, BOOL recurse)
 {
-	preparePath(path);
 	Err = svn_client_update(NULL,
-							MakeSVNUrlOrPath(path),
+							path.GetSVNApiPath(),
 							revision,
 							recurse,
 							&m_ctx,
@@ -336,7 +335,7 @@ BOOL SVN::Update(CString path, SVNRev revision, BOOL recurse)
 		return FALSE;
 	}
 
-	UpdateShell(path);
+	UpdateShell(path.GetWinPathString());
 
 	return TRUE;
 }
