@@ -886,13 +886,17 @@ int CSVNProgressDlg::SortCompare(const void * pElem1, const void * pElem2)
 
 BOOL CSVNProgressDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	if (GetDlgItem(IDOK)->IsWindowEnabled())
+	if (!GetDlgItem(IDOK)->IsWindowEnabled())
 	{
-		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
-		SetCursor(hCur);
-		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+		// only show the wait cursor over the list control
+		if ((pWnd)&&(pWnd == GetDlgItem(IDC_SVNPROGRESS)))
+		{
+			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+			SetCursor(hCur);
+			return TRUE;
+		}
 	}
-	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
-	return TRUE;
+	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
 }

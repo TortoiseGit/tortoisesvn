@@ -1269,13 +1269,20 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
 	if (!m_bThreadRunning)
 	{
-		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
-		SetCursor(hCur);
-		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+		// only show the wait cursor over the list control
+		if ((pWnd)&&
+			((pWnd == GetDlgItem(IDC_LOGLIST))||
+			(pWnd == GetDlgItem(IDC_MSGVIEW))||
+			(pWnd == GetDlgItem(IDC_LOGMSG))))
+		{
+			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+			SetCursor(hCur);
+			return TRUE;
+		}
 	}
-	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
-	return TRUE;
+	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
 void CLogDlg::OnBnClickedHelp()

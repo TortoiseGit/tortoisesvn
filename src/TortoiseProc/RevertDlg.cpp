@@ -341,13 +341,16 @@ void CRevertDlg::OnLvnGetInfoTipRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
 
 BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	if (!m_bThreadRunning)
+	if (m_bThreadRunning)
 	{
-		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
-		SetCursor(hCur);
-		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+		if ((pWnd)&&(pWnd == GetDlgItem(IDC_REVERTLIST)))
+		{
+			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+			SetCursor(hCur);
+			return TRUE;
+		}
 	}
-	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
-	return TRUE;
+	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
 }
