@@ -104,9 +104,10 @@ BOOL CSwitchDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	m_bFolder = PathIsDirectory(m_path);
+	CTSVNPath svnPath(m_path);
+	m_bFolder = svnPath.IsDirectory();
 	SVN svn;
-	CString url = svn.GetURLFromPath(m_path);
+	CString url = svn.GetURLFromPath(svnPath);
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	if (!url.IsEmpty())

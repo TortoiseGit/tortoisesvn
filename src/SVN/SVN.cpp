@@ -1306,17 +1306,15 @@ svn_error_t* svn_cl__get_log_message (const char **log_msg,
 	return SVN_NO_ERROR;
 }
 
-CString SVN::GetURLFromPath(CString path)
+CString SVN::GetURLFromPath(const CTSVNPath& path)
 {
-	preparePath(path);
 	const char * URL;
-	Err = get_url_from_target(&URL, MakeSVNUrlOrPath(path));
+	Err = get_url_from_target(&URL, path.GetSVNApiPath());
 	if (Err)
 		return _T("");
 	if (URL==NULL)
 		return _T("");
-	CString ret = MakeUIUrlOrPath(URL);
-	return ret;
+	return MakeUIUrlOrPath(URL);
 }
 
 svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
@@ -1345,11 +1343,10 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 	return SVN_NO_ERROR;
 }
 
-CString SVN::GetUUIDFromPath(CString path)
+CString SVN::GetUUIDFromPath(const CTSVNPath& path)
 {
-	preparePath(path);
 	const char * UUID;
-	Err = get_uuid_from_target(&UUID, MakeSVNUrlOrPath(path));
+	Err = get_uuid_from_target(&UUID, path.GetSVNApiPath());
 	if (Err)
 		return _T("");
 	if (UUID==NULL)

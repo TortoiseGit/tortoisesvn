@@ -1100,7 +1100,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			SVN svn;
 			CRelocateDlg dlg;
-			dlg.m_sFromUrl = svn.GetURLFromPath(path);
+			dlg.m_sFromUrl = svn.GetURLFromPath(CTSVNPath(path));
 			dlg.m_sToUrl = dlg.m_sFromUrl;
 
 			if (dlg.DoModal() == IDOK)
@@ -1159,7 +1159,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString url;
 			BOOL bFile = FALSE;
 			SVN svn;
-			url = svn.GetURLFromPath(path);
+			url = svn.GetURLFromPath(CTSVNPath(path));
 			if (path.Left(8).CompareNoCase(_T("file:///"))==0)
 			{
 				path = path.Mid(8);

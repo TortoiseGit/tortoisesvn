@@ -677,7 +677,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev = m_arRevs.GetAt(selIndex);
 						if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
 						{
-							CString url = this->GetURLFromPath(m_path.GetSVNPathString());
+							CString url = this->GetURLFromPath(m_path);
 							if (url.IsEmpty())
 							{
 								CString strMessage;
@@ -700,7 +700,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						long rev = m_arRevs.GetAt(selIndex);
 						CCopyDlg dlg;
-						CString url = GetURLFromPath(m_path.GetSVNPathString());
+						CString url = GetURLFromPath(m_path);
 						if (url.IsEmpty())
 						{
 							CString temp;
@@ -920,7 +920,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString url = m_path.GetSVNPathString();
 						if (m_hasWC)
 						{
-							url = GetURLFromPath(m_path.GetSVNPathString());
+							url = GetURLFromPath(m_path);
 							if (url.IsEmpty())
 							{
 								CString temp;
@@ -1006,7 +1006,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						else
 						{
 							SVN svn;
-							filepath = svn.GetURLFromPath(m_path.GetSVNPathString());
+							filepath = svn.GetURLFromPath(m_path);
 							if (filepath.IsEmpty())
 							{
 								theApp.DoWaitCursor(-1);
@@ -1048,7 +1048,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						else
 						{
 							SVN svn;
-							filepath = svn.GetURLFromPath(m_path.GetSVNPathString());
+							filepath = svn.GetURLFromPath(m_path);
 							if (filepath.IsEmpty())
 							{
 								theApp.DoWaitCursor(-1);
@@ -1143,7 +1143,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						else
 						{
 							SVN svn;
-							filepath = svn.GetURLFromPath(m_path.GetSVNPathString());
+							filepath = svn.GetURLFromPath(m_path);
 							if (filepath.IsEmpty())
 							{
 								theApp.DoWaitCursor(-1);
@@ -1267,7 +1267,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		else
 		{
 			SVN svn;
-			url = svn.GetURLFromPath(m_path.GetSVNPathString());
+			url = svn.GetURLFromPath(m_path);
 		}
 		if (selSub == 1)
 		{
@@ -1465,7 +1465,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	else
 	{
 		SVN svn;
-		filepath = svn.GetURLFromPath(m_path.GetSVNPathString());
+		filepath = svn.GetURLFromPath(m_path);
 		if (filepath.IsEmpty())
 		{
 			theApp.DoWaitCursor(-1);

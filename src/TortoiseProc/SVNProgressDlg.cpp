@@ -597,37 +597,37 @@ UINT CSVNProgressDlg::ProgressThread()
 					sTempWindowTitle = pathlist[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 					SetWindowText(sTempWindowTitle);
 				}
-					BOOL isTag = FALSE;
-					BOOL bURLFetched = FALSE;
-					CString url;
+				BOOL isTag = FALSE;
+				BOOL bURLFetched = FALSE;
+				CString url;
 				for (int i=0; i<pathlist.GetCount(); ++i)
+				{
+					if (bURLFetched == FALSE)
 					{
-						if (bURLFetched == FALSE)
-						{
-						url = m_pSvn->GetURLFromPath(pathlist[i].GetWinPathString());
-							if (!url.IsEmpty())
-								bURLFetched = TRUE;
-							CString urllower = url;
-							urllower.MakeLower();
+						url = m_pSvn->GetURLFromPath(pathlist[i]);
+						if (!url.IsEmpty())
+							bURLFetched = TRUE;
+						CString urllower = url;
+						urllower.MakeLower();
 //BUGBUG? - Is this /tags/ test really legitmate?  Who's to say that 
 //all 'tags' have the word /tag/ in their URL?  
 //Or have I misunderstood this?
-							if (urllower.Find(_T("/tags/"))>=0)
-								isTag = TRUE;
+						if (urllower.Find(_T("/tags/"))>=0)
+							isTag = TRUE;
 						break;
 					}
 				}
-					if (isTag)
-					{
-						if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
-							break;
+				if (isTag)
+				{
+					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
+						break;
 				}
 				if (!m_pSvn->Commit(pathlist, m_sMessage, ((pathlist.GetCount() == 1)&&(m_Revision == 0))))
-					{
-						ReportSVNError();
+				{
+					ReportSVNError();
 				}
-					DeleteFile(m_sPath);
-				}
+				DeleteFile(m_sPath);
+			}
 			else
 			{
 				sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;

@@ -128,10 +128,12 @@ BOOL CCopyDlg::OnInitDialog()
 	m_logFont.CreateFontIndirect(&LogFont);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
 
-	m_bFile = !PathIsDirectory(m_path);
+	CTSVNPath path(m_path);
+
+	m_bFile = !path.IsDirectory();
 	SVN svn;
-	m_wcURL = svn.GetURLFromPath(m_path);
-	CString sUUID = svn.GetUUIDFromPath(m_path);
+	m_wcURL = svn.GetURLFromPath(path);
+	CString sUUID = svn.GetUUIDFromPath(path);
 	if (m_wcURL.IsEmpty())
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);

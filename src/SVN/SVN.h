@@ -443,8 +443,8 @@ public:
 	 */
 	CString	RevPropertyGet(CString sName, CString sURL, SVNRev rev);
 
-	CString GetURLFromPath(CString path);
-	CString GetUUIDFromPath(CString path);
+	CString GetURLFromPath(const CTSVNPath& path);
+	CString GetUUIDFromPath(const CTSVNPath& path);
 
 	/**
 	 * Releases all used memory pools.

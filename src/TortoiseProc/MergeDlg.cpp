@@ -126,7 +126,7 @@ BOOL CMergeDlg::OnInitDialog()
 
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
-	CString url = svn.GetURLFromPath(m_wcPath);
+	CString url = svn.GetURLFromPath(CTSVNPath(m_wcPath));
 	if (url.IsEmpty())
 	{
 		CString temp;
