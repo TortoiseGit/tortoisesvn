@@ -197,13 +197,12 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 			message.Replace(_T("\r\n"), _T("\n"));
 			message.Replace(_T("\r"), _T("\n"));
 			message.Replace(_T("\n"), _T("\n\r"));
-			line++;
 			int pos = 0;
 			while (message.Find(_T("\n\r"), pos)>=0)
 			{
 				line++;
 				pos = message.Find(_T("\n\r"), pos);
-				pos = pos + 2;		// add "\n\r"
+				pos = pos + 3;		// add "\n\r"
 			}
 		} // if (message.GetLength()>0)
 		message += _T("\r\n---------------------------------\r\n");
