@@ -432,6 +432,11 @@ public:
 	CString GetRepositoryRoot(CString url);
 
 	/**
+	 * Checks if a file:/// url points to a BDB repository.
+	 */
+	static BOOL IsBDBRepository(CString url);
+
+	/**
 	 * Returns the HEAD revision of the URL or WC-Path.
 	 * Or -1 if the function failed.
 	 */

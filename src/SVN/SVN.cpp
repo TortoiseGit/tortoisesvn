@@ -1333,6 +1333,27 @@ BOOL SVN::IsRepository(const CString& strUrl)
 	return Err == NULL;
 }
 
+BOOL SVN::IsBDBRepository(CString url)
+{
+	preparePath(url);
+	url = url.Mid(7);
+	url.TrimLeft('/');
+	while (!url.IsEmpty())
+	{
+		if (PathIsDirectory(url + _T("/db")))
+		{
+			if (PathFileExists(url + _T("/db/fs-type")))
+				return FALSE;
+			return TRUE;
+		}
+		if (url.ReverseFind('/')>=0)
+			url = url.Left(url.ReverseFind('/'));
+		else
+			url.Empty();
+	}
+	return FALSE;
+}
+
 CString SVN::GetRepositoryRoot(CString url)
 {
 	svn_ra_plugin_t *ra_lib;
