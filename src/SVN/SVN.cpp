@@ -30,6 +30,11 @@ SVN::SVN(void)
 	hWnd = NULL;
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", parentpool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", parentpool);
+
 	Err = svn_config_ensure(NULL, parentpool);
 	pool = svn_pool_create (parentpool);
 	// set up the configuration
@@ -654,6 +659,11 @@ BOOL SVN::CreateRepository(CString path)
 	svn_error_t * err;
 	apr_hash_t *config;
 	localpool = svn_pool_create (NULL);
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
+	
 	apr_hash_t *fs_config = apr_hash_make (localpool);;
 
 	apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_TXN_NOSYNC,
@@ -1190,6 +1200,11 @@ CString SVN::GetPristinePath(CString wcPath)
 	apr_pool_t * localpool;
 	svn_error_t * err;
 	localpool = svn_pool_create (NULL);
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
+
 	const char* pristinePath = NULL;
 	CString temp;
 
@@ -1212,6 +1227,11 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 	apr_pool_t * localpool;
 	svn_error_t * err;
 	localpool = svn_pool_create(NULL);
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
+
 	const char * translatedPath = NULL;
 	preparePath(sFile);
 	CStringA temp = CUnicodeUtils::GetUTF8(sFile);

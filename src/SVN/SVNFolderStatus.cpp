@@ -116,6 +116,11 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	}
 
 	pool = svn_pool_create (NULL);				// create the memory pool
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", pool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", pool);
+
 	memset (&ctx, 0, sizeof (ctx));
 
 	svn_pool_clear(this->m_pool);

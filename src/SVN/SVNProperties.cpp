@@ -63,6 +63,11 @@ svn_error_t*	SVNProperties::Refresh()
 SVNProperties::SVNProperties(const TCHAR * filepath)
 {
 	m_pool = svn_pool_create (NULL);				// create the memory pool
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
+
 	svn_config_ensure(NULL, m_pool);
 	memset (&m_ctx, 0, sizeof (m_ctx));
 

@@ -29,7 +29,12 @@
 
 SVNStatus::SVNStatus(void)
 {
-	m_pool = svn_pool_create (NULL);				// create the memory pool
+	m_pool = svn_pool_create (NULL);
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
+
 	memset (&ctx, 0, sizeof (ctx));
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
@@ -199,6 +204,11 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
 		return svn_wc_status_normal;
 
 	pool = svn_pool_create (NULL);				// create the memory pool
+
+	const char * deststr = NULL;
+	svn_utf_cstring_to_utf8(&deststr, "dummy", pool);
+	svn_utf_cstring_from_utf8(&deststr, "dummy", pool);
+
 	memset (&ctx, 0, sizeof (ctx));
 
 	//we need to convert the path to subversion internal format
