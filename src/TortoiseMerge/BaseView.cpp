@@ -1455,21 +1455,24 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 		{
 			nMouseLine = (nMouseLine > m_pwndRight->m_arLineStates->GetCount() ? -1 : nMouseLine);
 			nMouseLine = (nMouseLine > m_pwndLeft->m_arLineStates->GetCount() ? -1 : nMouseLine);
-			CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nMouseLine);
-			CDiffData::DiffStates state2 = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(nMouseLine);
+			if (nMouseLine >= 0)
+			{
+				CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nMouseLine);
+				CDiffData::DiffStates state2 = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(nMouseLine);
 
-			if ((state1 == CDiffData::DIFFSTATE_EMPTY) ||
-				(state1 == CDiffData::DIFFSTATE_NORMAL) ||
-				(state2 == CDiffData::DIFFSTATE_EMPTY) ||
-				(state2 == CDiffData::DIFFSTATE_NORMAL))
-			{
-				nMouseLine = -1;
-			} // iffData::DIFFSTATE_NORMAL)) 
-			if (nMouseLine != m_nMouseLine)
-			{
-				m_nMouseLine = nMouseLine;
-				m_pwndLineDiffBar->ShowLines(nMouseLine);
-			} // if (nMouseLine != m_nMouseLine) 
+				if ((state1 == CDiffData::DIFFSTATE_EMPTY) ||
+					(state1 == CDiffData::DIFFSTATE_NORMAL) ||
+					(state2 == CDiffData::DIFFSTATE_EMPTY) ||
+					(state2 == CDiffData::DIFFSTATE_NORMAL))
+				{
+					nMouseLine = -1;
+				} // iffData::DIFFSTATE_NORMAL)) 
+				if (nMouseLine != m_nMouseLine)
+				{
+					m_nMouseLine = nMouseLine;
+					m_pwndLineDiffBar->ShowLines(nMouseLine);
+				} // if (nMouseLine != m_nMouseLine) 
+			}
 		} // if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates)) 
 	} // if ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())) 
 	CView::OnMouseMove(nFlags, point);
