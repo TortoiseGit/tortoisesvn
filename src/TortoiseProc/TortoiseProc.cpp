@@ -352,7 +352,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				TRACE(_T("tempfile = %s\n"), path);
 				CSVNProgressDlg progDlg;
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Commit, true, path, _T(""), dlg.m_sLogMessage);
+				progDlg.SetParams(Commit, true, path, _T(""), dlg.m_sLogMessage, !dlg.m_bRecursive);
 				logmessage = dlg.m_sLogMessage;
 				progDlg.DoModal();
 			} // if (dlg.DoModal() == IDOK)

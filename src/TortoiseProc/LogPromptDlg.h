@@ -113,6 +113,8 @@ public:
 	CBalloon		m_tooltips;
 	LONG			m_nTotal;
 	LONG			m_nSelected;
+	BOOL			m_bRecursive;
+	BOOL			m_nTargetCount;
 private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;

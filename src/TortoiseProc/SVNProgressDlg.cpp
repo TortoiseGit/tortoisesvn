@@ -387,8 +387,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					BOOL isTag = FALSE;
 					BOOL bStatusFetched = FALSE;
 					CString url;
+					int nTargets = 0;
 					while (file.ReadString(strLine))
 					{
+						nTargets++;
 						if (bStatusFetched == FALSE)
 						{
 							// getting the Status once is enough, since it's not possible to
@@ -430,8 +432,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					{
 						if (CMessageBox::Show(pDlg->m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
 							break;
-					}
-					if (!pDlg->Commit(commitString, pDlg->m_sMessage, false))
+					} // if (isTag)
+					if (!pDlg->Commit(commitString, pDlg->m_sMessage, ((nTargets == 1)&&(pDlg->m_Revision == 0))))
 					{
 						TRACE("%s", pDlg->GetLastErrorMessage());
 						CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

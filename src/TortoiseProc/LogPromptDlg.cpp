@@ -38,6 +38,8 @@ CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	, m_bSelectAll(TRUE)
 	, m_nTotal(0)
 	, m_nSelected(0)
+	, m_bRecursive(FALSE)
+	, m_nTargetCount(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_templist.RemoveAll();
@@ -574,11 +576,13 @@ void CLogPromptDlg::OnOK()
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	CDWordArray arDeleted;
 	//first add all the unversioned files the user selected
+	//and check if all versioned files are selected
+	int nUnchecked = 0;
 	for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 	{
+		Data * data = m_arData.GetAt(j);
 		if (m_ListCtrl.GetCheck(j))
 		{
-			Data * data = m_arData.GetAt(j);
 			if (data->status == svn_wc_status_unversioned)
 			{
 				SVN svn;
@@ -594,6 +598,12 @@ void CLogPromptDlg::OnOK()
 				arDeleted.Add(j);
 			}
 		} // if (m_ListCtrl.GetCheck(j)) 
+		else
+		{
+			if ((data->status != svn_wc_status_unversioned)	&&
+				(data->status != svn_wc_status_ignored))
+				nUnchecked++;
+		}
 	} // for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 
 	//the next step: find all deleted files and check if they're 
@@ -618,24 +628,32 @@ void CLogPromptDlg::OnOK()
 		} // for (j=i; j<arDeleted.GetCount(); j++) 
 	} // for (int i=0; i<arDeleted.GetCount(); i++) 
 
-	//save only the files the user has selected into the temporary file
-	try
+	if ((nUnchecked == 0)&&(m_nTargetCount == 1))
 	{
-		CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-		for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
-		{
-			if (m_ListCtrl.GetCheck(i))
-			{
-				Data * data = m_arData.GetAt(i);
-				file.WriteString(data->path + _T("\n"));
-			}
-		} // for (int i=0; i<m_ListCtrl.GetItemCount(); i++) 
-		file.Close();
+		m_bRecursive = TRUE;
 	}
-	catch (CFileException* pE)
+	else
 	{
-		TRACE(_T("CFileException in Commit!\n"));
-		pE->Delete();
+		m_bRecursive = FALSE;
+		//save only the files the user has selected into the temporary file
+		try
+		{
+			CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
+			{
+				if (m_ListCtrl.GetCheck(i))
+				{
+					Data * data = m_arData.GetAt(i);
+					file.WriteString(data->path + _T("\n"));
+				}
+			} // for (int i=0; i<m_ListCtrl.GetItemCount(); i++) 
+			file.Close();
+		}
+		catch (CFileException* pE)
+		{
+			TRACE(_T("CFileException in Commit!\n"));
+			pE->Delete();
+		}
 	}
 
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -673,6 +691,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	BOOL bHasExternalsFromDifferentRepos = FALSE;
 	CStringArray arExtPaths;
 	SVNConfig config;
+	pDlg->m_nTargetCount = 0;
 	try
 	{
 		CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
@@ -682,6 +701,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		// for every selected file/folder
 		while (file.ReadString(strLine))
 		{
+			pDlg->m_nTargetCount++;
 			strLine.Replace('\\', '/');
 			// remove trailing / characters since they mess up the filename list
 			// However "/" and "c:/" will be left alone.
