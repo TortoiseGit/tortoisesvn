@@ -540,7 +540,7 @@ protected:
 	 * \param point the point to look for the child window
 	 * \return the pointer to the child window, or NULL if there is now window
 	 */
-	CWnd *	GetChildWindowFromPoint(CPoint & point) const;
+	HWND	GetChildWindowFromPoint(CPoint & point) const;
 	BOOL	IsCursorInToolTip() const;
     inline	BOOL IsVisible() const { return ((GetStyle() & WS_VISIBLE) == WS_VISIBLE); }
 
@@ -580,8 +580,8 @@ protected:
 
 	HWND	m_hNotifyWnd; // Handle to window for notification about change data
 	CWnd *	m_pParentWnd; // The pointer to the parent window
-	CWnd *	m_pCurrentWnd;
-	CWnd *	m_pDisplayedWnd;
+	HWND	m_hCurrentWnd;
+	HWND	m_hDisplayedWnd;
 	UINT	m_nLastDirection;
 	
 

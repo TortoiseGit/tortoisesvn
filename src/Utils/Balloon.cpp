@@ -22,8 +22,8 @@
 CBalloon::CBalloon()
 {
 	m_pParentWnd = NULL;
-	m_pCurrentWnd = NULL;
-	m_pDisplayedWnd = NULL;
+	m_hCurrentWnd = NULL;
+	m_hDisplayedWnd = NULL;
 
 	m_rgnShadow.CreateRectRgn(0, 0, 1, 1);
 	m_rgnBalloon.CreateRectRgn(0, 0, 1, 1);
@@ -171,7 +171,7 @@ void CBalloon::OnPaint()
 	//if (!m_pCurrentWnd)
 	//	return;
 
-	m_pDisplayedWnd = m_pCurrentWnd;
+	m_hDisplayedWnd = m_hCurrentWnd;
 
 	CPaintDC dc(this); // device context for painting
 
@@ -386,7 +386,7 @@ CRect CBalloon::GetWindowRegion(CRgn * rgn, CSize sz, CPoint pt)
 
 void CBalloon::RelayEvent(MSG* pMsg)
 {
-	CWnd * pWnd = NULL;
+	HWND hWnd = NULL;
 	CPoint pt;
 	CString str;
 	CRect rect;
@@ -405,25 +405,25 @@ void CBalloon::RelayEvent(MSG* pMsg)
 		pt = pMsg->pt;
 		if (m_pParentWnd)
 			m_pParentWnd->ScreenToClient(&pt);
-		pWnd = GetChildWindowFromPoint(pt);
+		hWnd = GetChildWindowFromPoint(pt);
 
-		if (!pWnd)
+		if (!hWnd)
 		{
 			if (!(GetBehaviour() & BALLOON_DIALOG))
 			{
 				Pop();
-				m_pCurrentWnd = NULL;
-				m_pDisplayedWnd = NULL;
+				m_hCurrentWnd = NULL;
+				m_hDisplayedWnd = NULL;
 				return;
 			}
 		}
 		else
 		{
-			if (pWnd == m_pDisplayedWnd)
+			if (hWnd == m_hDisplayedWnd)
 			{
 				if (IsWindowVisible())
 				{
-					if ((GetBehaviour(pWnd) & BALLOON_TRACK_MOUSE)&&(!(GetBehaviour(pWnd) & BALLOON_DIALOG)))
+					if ((GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_TRACK_MOUSE)&&(!(GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_DIALOG)))
 					{
 						//mouse moved, so move the tooltip too
 						CRect rect;
@@ -434,15 +434,15 @@ void CBalloon::RelayEvent(MSG* pMsg)
 					else
 						return;
 				}
-				else if ((GetBehaviour(pWnd) & BALLOON_MULTIPLE_SHOW)&&(!(GetBehaviour(pWnd) & BALLOON_DIALOG)))
+				else if ((GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_MULTIPLE_SHOW)&&(!(GetBehaviour(CWnd::FromHandle(hWnd)) & BALLOON_DIALOG)))
 				{
-					SetNewToolTip(pWnd);
+					SetNewToolTip(CWnd::FromHandle(hWnd));
 				}
 				else Pop();
 			}
 			else
 			{
-				SetNewToolTip(pWnd);
+				SetNewToolTip(CWnd::FromHandle(hWnd));
 			}
 		}
 		break;
@@ -451,7 +451,7 @@ void CBalloon::RelayEvent(MSG* pMsg)
 
 void CBalloon::SetNewToolTip(CWnd * pWnd, CPoint * /*pt*/ /* = NULL */)
 {
-	m_pDisplayedWnd = NULL;
+	m_hDisplayedWnd = NULL;
 	Pop();
 
 	if (!pWnd->IsWindowEnabled())
@@ -460,7 +460,7 @@ void CBalloon::SetNewToolTip(CWnd * pWnd, CPoint * /*pt*/ /* = NULL */)
 	if (!GetTool(pWnd, m_pToolInfo))
 		return;
 
-	m_pCurrentWnd = pWnd;
+	m_hCurrentWnd = pWnd->GetSafeHwnd();
 
 	SetTimer(BALLOON_SHOW, m_nTimeInitial, NULL);
 }
@@ -469,7 +469,7 @@ void CBalloon::OnTimer(UINT nIDEvent)
 {
 	CPoint pt, point;
 	CString str;
-	CWnd * pWnd;
+	HWND hWnd;
 
 	switch (nIDEvent)
 	{
@@ -480,8 +480,8 @@ void CBalloon::OnTimer(UINT nIDEvent)
 		point = pt;
 		if (m_pParentWnd)
 			m_pParentWnd->ScreenToClient(&point);
-		pWnd = GetChildWindowFromPoint(point);
-		if (pWnd == m_pCurrentWnd)
+		hWnd = GetChildWindowFromPoint(point);
+		if (hWnd == m_hCurrentWnd)
 		{
 			DisplayToolTip(&pt);
 			SetTimer(BALLOON_HIDE, m_nTimeAutoPop, NULL);
@@ -502,7 +502,7 @@ void CBalloon::OnTimer(UINT nIDEvent)
 	CWnd::OnTimer(nIDEvent);
 }
 
-CWnd* CBalloon::GetChildWindowFromPoint(CPoint & point) const
+HWND CBalloon::GetChildWindowFromPoint(CPoint & point) const
 {
 	if (!m_pParentWnd)
 		return NULL;
@@ -524,7 +524,7 @@ CWnd* CBalloon::GetChildWindowFromPoint(CPoint & point) const
     if (!::IsChild(m_pParentWnd->GetSafeHwnd(), hWnd))
         return NULL;
 
-    return CWnd::FromHandle(hWnd);
+    return hWnd;
 }
 
 BOOL CBalloon::IsCursorInToolTip() const
@@ -555,7 +555,7 @@ void CBalloon::KillTimers(UINT nIDTimer /* = NULL */)
 
 void CBalloon::DisplayToolTip(CPoint * pt /* = NULL */)
 {
-	if(!GetTool(m_pCurrentWnd, m_pToolInfo) || m_pToolInfo.sBalloonTip.IsEmpty())
+	if(!GetTool(CWnd::FromHandle(m_hCurrentWnd), m_pToolInfo) || m_pToolInfo.sBalloonTip.IsEmpty())
 		return;
 	//if a mask is set then use the default values for the tooltip
 	if (!(m_pToolInfo.nMask & BALLOON_MASK_STYLES))
@@ -574,7 +574,7 @@ void CBalloon::DisplayToolTip(CPoint * pt /* = NULL */)
 		m_pToolInfo.nDirection = m_nDirection;
 
 	//send notification
-	SendNotify(m_pCurrentWnd, pt, m_pToolInfo);
+	SendNotify(CWnd::FromHandle(m_hCurrentWnd), pt, m_pToolInfo);
 
 	//calculate the width and height of the box dynamically
     CSize sz = GetTooltipSize(m_pToolInfo.sBalloonTip);
@@ -1012,7 +1012,7 @@ void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showClose
 		pWnd = GetDesktopWindow();
 	pSB->Create(pWnd);
 	pSB->AddTool(pWnd, Info);
-	pSB->m_pCurrentWnd = pWnd;
+	pSB->m_hCurrentWnd = pWnd->GetSafeHwnd();
 	pSB->SetDirection(nDirection);
 	pSB->SetEffectBk(nEffect);
 	if (crStart == NULL)
