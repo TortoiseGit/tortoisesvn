@@ -21,6 +21,7 @@
 #include "ResizableDialog.h"
 #include "SVN.h"
 #include "SVNStatusListCtrl.h"
+#include "Registry.h"
 
 
 // CChangedDlg dialog

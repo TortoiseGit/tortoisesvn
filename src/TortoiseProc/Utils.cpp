@@ -20,6 +20,7 @@
 #include "resource.h"
 #include "utils.h"
 #include "MessageBox.h"
+#include "Registry.h"
 
 #ifndef COMPILE_NEWAPIS_STUBS
 #	define COMPILE_NEWAPIS_STUBS
@@ -57,6 +58,12 @@ CString CUtils::GetTempFile(const CString& origfilename)
 	}
 	return tempfile;
 }
+
+CTSVNPath CUtils::GetTempFilePath(const CTSVNPath& origfilename)
+{
+	return CTSVNPath(GetTempFile(origfilename.GetWinPathString()));
+}
+
 
 BOOL CUtils::StartExtMerge(const CString& basefile, const CString& theirfile, const CString& yourfile, const CString& mergedfile,
 						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)

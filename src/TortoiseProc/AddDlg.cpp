@@ -22,7 +22,7 @@
 #include "DirFileEnum.h"
 #include "AddDlg.h"
 #include "SVNConfig.h"
-#include ".\adddlg.h"
+#include "Registry.h"
 
 
 // CAddDlg dialog

@@ -107,7 +107,7 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	void	FillLogMessageCtrl(const CString& msg, const CString& paths);
-	BOOL	StartDiff(CString path1, LONG rev1, CString path2, LONG rev2);
+	BOOL	StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2);
 	void	DoDiffFromLog(int selIndex, long rev);
 
 	DECLARE_MESSAGE_MAP()
@@ -147,7 +147,8 @@ private:
 	int			m_nSearchIndex;
 	static const UINT m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
-	CStringArray	m_templist;
+//	CStringArray	m_templist;
+	CTSVNPathList m_tempFileList;
 	CFont		m_logFont;
 	CString		m_sMessageBuf;
 };

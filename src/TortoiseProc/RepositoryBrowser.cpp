@@ -232,8 +232,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 	HTREEITEM hSelItem1;
 	HTREEITEM hSelItem2;
 
-	CString url1;
-	CString url2;
+	CTSVNPath url1;
+	CTSVNPath url2;
 
 	BOOL bFolder1;
 	BOOL bFolder2;
@@ -316,8 +316,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				hSelItem1 = m_treeRepository.GetItemHandle(m_treeRepository.GetFirstSelectedItem());
 				hSelItem2 = m_treeRepository.GetItemHandle(m_treeRepository.GetNextSelectedItem(m_treeRepository.GetItemIndex(hSelItem1)));
 
-				url1 = m_treeRepository.MakeUrl(hSelItem1);
-				url2 = m_treeRepository.MakeUrl(hSelItem2);
+				url1.SetFromUnknown(m_treeRepository.MakeUrl(hSelItem1));
+				url2.SetFromUnknown(m_treeRepository.MakeUrl(hSelItem2));
 
 				bFolder1 = TRUE;
 				bFolder2 = TRUE;
@@ -390,14 +390,14 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					ofn.lpstrFilter = pszFilters;
 					ofn.nFilterIndex = 1;
 					// Display the Open dialog box. 
-					CString tempfile;
+					CTSVNPath tempfile;
 					if (GetSaveFileName(&ofn)==TRUE)
 					{
 						CWaitCursorEx wait_cursor;
-						tempfile = CString(ofn.lpstrFile);
+						tempfile.SetFromWin(ofn.lpstrFile);
 						SVN svn;
 						svn.SetPromptApp(&theApp);
-						if (!svn.Cat(url, GetRevision(), tempfile))
+						if (!svn.Cat(CTSVNPath(url), GetRevision(), tempfile))
 						{
 							delete [] pszFilters;
 							wait_cursor.Hide();
@@ -690,7 +690,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CString tempfile = CUtils::GetTempFile();
 					tempfile += _T(".diff");
 					SVN svn;
-					if (!svn.Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!svn.Diff(url1.GetSVNPathString(), GetRevision(), url2.GetSVNPathString(), GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
@@ -706,28 +706,26 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPDIFF:
 				{
-					CString tempfile1 = CUtils::GetTempFile();
-					if (url1.ReverseFind('.')>=url1.ReverseFind('/'))
-						tempfile1 += url1.Mid(url1.ReverseFind('.'));
+					CTSVNPath tempfile1 = CUtils::GetTempFilePath();
+					tempfile1.AppendString(url1.GetFileExtension());
 					SVN svn;
-					if (!svn.Cat(url1, GetRevision(), tempfile1))
+					if (!svn.Cat(url1, GetRevision(), CTSVNPath(tempfile1)))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						DeleteFile(tempfile1);
+						::DeleteFile(tempfile1.GetWinPath());
 						break;		//exit
 					} // if (!Cat(url1, GetRevision(), tempfile1))
-					m_templist.Add(tempfile1);
-					CString tempfile2 = CUtils::GetTempFile();
-					if (url2.ReverseFind('.')>=url2.ReverseFind('/'))
-						tempfile2 += url2.Mid(url2.ReverseFind('.'));
-					if (!svn.Cat(url2, GetRevision(), tempfile2))
+					m_templist.Add(tempfile1.GetWinPathString());
+					CTSVNPath tempfile2 = CUtils::GetTempFilePath();
+					tempfile2.AppendString(url2.GetFileExtension());
+					if (!svn.Cat(url2, GetRevision(), CTSVNPath(tempfile2)))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						DeleteFile(tempfile2);
+						::DeleteFile(tempfile2.GetWinPath());
 						break;		//exit
 					} // if (!Cat(url2, GetRevision(), tempfile2)) 
-					CString ext = CUtils::GetFileExtFromPath(url1);
-					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2, ext);
+					CString ext = url1.GetFileExtension();
+					CUtils::StartDiffViewer(tempfile2.GetWinPathString(), tempfile1.GetWinPathString(), FALSE, url1.GetUIPathString(), url2.GetUIPathString(), ext);
 					theApp.DoWaitCursor(-1); //???
 				}
 				break;

@@ -18,8 +18,7 @@
 //
 #pragma once
 
-#include "registry.h"
-
+#include "TSVNPath.h"
 /**
  * \ingroup TortoiseProc
  * An Utility class with static classes.
@@ -81,7 +80,8 @@ public:
 	/**
 	 * Returns a path to a temporary file
 	 */
-	static CString GetTempFile(const CString& origfilename = _T(""));
+	static CString GetTempFile(const CString& origfilename = CString());
+	static CTSVNPath GetTempFilePath(const CTSVNPath& origfilename = CTSVNPath());
 
 	/**
 	 * Replaces escaped sequences with the corresponding characters in a string.

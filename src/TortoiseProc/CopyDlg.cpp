@@ -25,6 +25,7 @@
 #include "RepositoryBrowser.h"
 #include "Balloon.h"
 #include "BrowseFolder.h"
+#include "Registry.h"
 
 // CCopyDlg dialog
 

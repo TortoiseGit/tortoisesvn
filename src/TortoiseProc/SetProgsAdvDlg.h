@@ -19,6 +19,7 @@
 #pragma once
 
 #include "Balloon.h"
+#include "Registry.h"
 
 // CSetProgsAdvDlg dialog
 

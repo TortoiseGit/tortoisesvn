@@ -23,6 +23,7 @@
 #include "SVNProgressDlg.h"
 #include "LogDlg.h"
 #include "TSVNPath.h"
+#include "Registry.h"
 
 
 // CSVNProgressDlg dialog
@@ -603,7 +604,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					{
 						if (bURLFetched == FALSE)
 						{
-						url = m_pSvn->GetURLFromPath(pathlist[i].GetWinPath());
+						url = m_pSvn->GetURLFromPath(pathlist[i].GetWinPathString());
 							if (!url.IsEmpty())
 								bURLFetched = TRUE;
 							CString urllower = url;
@@ -1174,10 +1175,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 						case ID_COMPARE:
 							{
-								CString tempfile = CUtils::GetTempFile();
-								m_templist.Add(tempfile);
+								CTSVNPath tempfile = CUtils::GetTempFilePath();
+								m_templist.Add(tempfile.GetWinPathString());
 								SVN svn;
-								if (!svn.Cat(data->path, m_nUpdateStartRev, tempfile))
+								if (!svn.Cat(CTSVNPath(data->path), m_nUpdateStartRev, tempfile))
 								{
 									ReportSVNError();
 									GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -1189,7 +1190,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									CString ext = CUtils::GetFileExtFromPath(data->path);
 									revname.Format(_T("%s Revision %ld"), (LPCTSTR)CUtils::GetFileNameFromPath(data->path), m_nUpdateStartRev);
 									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)CUtils::GetFileNameFromPath(data->path));
-									CUtils::StartDiffViewer(tempfile, data->path, FALSE, revname, wcname, ext);
+									CUtils::StartDiffViewer(tempfile.GetWinPathString(), data->path, FALSE, revname, wcname, ext);
 								}
 							}
 							break;

@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "ResizableDialog.h"
-#include "afxcmn.h"
+#include "Registry.h"
 
 
 // CSetOverlayIcons dialog

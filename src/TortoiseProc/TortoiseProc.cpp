@@ -1330,7 +1330,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (rev==0)
 				rev = SVNRev::REV_HEAD;
 			SVN svn;
-			if (!svn.Cat(path, rev, savepath))
+			if (!svn.Cat(CTSVNPath(path), rev, CTSVNPath(savepath)))
 			{
 				::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				DeleteFile(savepath);

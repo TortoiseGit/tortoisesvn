@@ -24,6 +24,7 @@
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
 #include "HistoryCombo.h"
+#include "Registry.h"
 
 /**
  * \ingroup TortoiseProc

@@ -25,6 +25,7 @@
 #include "DirFileEnum.h"
 #include "MessageBox.h"
 #include "BrowseFolder.h"
+#include "Registry.h"
 
 
 // CImportDlg dialog

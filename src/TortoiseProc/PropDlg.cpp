@@ -22,6 +22,7 @@
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "Propdlg.h"
+#include "Registry.h"
 
 
 // CPropDlg dialog

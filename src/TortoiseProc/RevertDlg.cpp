@@ -21,6 +21,7 @@
 #include "messagebox.h"
 #include "Revertdlg.h"
 #include "SVN.h"
+#include "Registry.h"
 
 
 // CRevertDlg dialog

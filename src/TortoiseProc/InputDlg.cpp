@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "InputDlg.h"
 #include ".\inputdlg.h"
+#include "Registry.h"
 
 
 // CInputDlg dialog

@@ -21,6 +21,7 @@
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
 #include "Balloon.h"
+#include "Registry.h"
 
 // CBlameDlg dialog
 

@@ -20,7 +20,7 @@
 #include "..\\Utils\\Balloon.h"
 #include "IconStatic.h"
 #include "FontPreviewCombo.h"
-#include "afxwin.h"
+#include "Registry.h"
 
 
 /**

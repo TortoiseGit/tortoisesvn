@@ -20,6 +20,7 @@
 
 #include "IconStatic.h"
 #include "Balloon.h"
+#include "Registry.h"
 
 /**
  * \ingroup TortoiseProc
