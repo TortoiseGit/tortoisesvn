@@ -45,6 +45,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 #define IDSVNLC_LOG				8
 #define IDSVNLC_EDITCONFLICT	9
 #define IDSVNLC_IGNOREMASK	   10
+#define IDSVNLC_ADD			   11
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCLICKA, 0, OnHdnItemclick)
@@ -1234,6 +1235,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
 						}
 					}
+				}
+				if (wcStatus > svn_wc_status_normal)
+				{
 					temp.LoadString(IDS_MENUREVERT);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REVERT, temp);
 				}
@@ -1258,6 +1262,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
+					temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD, temp);
+
 					if (GetSelectedCount() == 1)
 					{
 						CString filename = filepath.Mid(filepath.ReverseFind('/')+1);
@@ -1619,6 +1626,30 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						CUtils::StartExtMerge(base, theirs, mine, merge);
+					}
+					break;
+				case IDSVNLC_ADD:
+					{
+						SVN svn;
+						POSITION pos = GetFirstSelectedItemPosition();
+						int index;
+						while ((index = GetNextSelectedItem(pos)) >= 0)
+						{
+							if (svn.Add(GetListEntry(index)->path, FALSE, TRUE))
+							{
+								FileEntry * e = GetListEntry(index);
+								e->textstatus = svn_wc_status_added;
+								e->status = svn_wc_status_added;
+								e->checked = TRUE;
+								SetCheck(index);
+							}
+							else
+							{
+								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								break;
+							}
+						}
+						Show(m_dwShow);
 					}
 					break;
 				default:
