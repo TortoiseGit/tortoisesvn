@@ -274,6 +274,31 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					m_sURL = entry->url;
 				}
 				m_arStatusArray.Add(entry);
+				if ((SVNStatus::GetMoreImportant(s->text_status, s->prop_status) == svn_wc_status_unversioned)&&(PathIsDirectory(strbuf)))
+				{
+					//we have an unversioned folder -> get all files in it recursively!
+					CDirFileEnum filefinder(strbuf);
+					CString filename;
+					while (filefinder.NextFile(filename))
+					{
+						if (!config.MatchIgnorePattern(filename))
+						{
+							filename.Replace('\\', '/');
+							FileEntry * entry = new FileEntry();
+							entry->path = filename;									
+							entry->basepath = strLine.Left(strLine.ReverseFind('/'));
+							entry->status = svn_wc_status_unversioned;
+							entry->textstatus = svn_wc_status_unversioned;
+							entry->propstatus = svn_wc_status_unversioned;
+							entry->remotestatus = svn_wc_status_unversioned;
+							entry->remotetextstatus = svn_wc_status_unversioned;
+							entry->remotepropstatus = svn_wc_status_unversioned;
+							entry->inunversionedfolder = FALSE;
+							entry->checked = FALSE;
+							m_arStatusArray.Add(entry);
+						}
+					} // while (filefinder.NextFile(filename))
+				}
 
 				// for folders, get all statuses inside it too
 				while (bIsFolder && ((s = status.GetNextFileStatus(&strbuf)) != NULL))
