@@ -106,6 +106,8 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 		}
 	}
 
+	AutoLocker lock(m_critSec);
+
 	// Send a message to the pipe server. 
 	DWORD nBytesWritten;
 	TSVNCacheRequest request;
