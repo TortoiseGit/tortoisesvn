@@ -317,6 +317,9 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 {
 	preparePath(srcPath);
 	preparePath(destPath);
+
+	apr_pool_t * subpool = svn_pool_create(pool);
+
 	svn_client_commit_info_t *commit_info = NULL;
 	logmsg.Replace(_T("\r"), _T(""));
 	if (logmsg.IsEmpty())
@@ -328,13 +331,15 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 							revision,
 							MakeSVNUrlOrPath(destPath),
 							&ctx,
-							pool);
+							subpool);
 	if(Err != NULL)
 	{
+		svn_pool_destroy(subpool);
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+	svn_pool_destroy(subpool);
 	return TRUE;
 }
 
@@ -342,6 +347,9 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, S
 {
 	preparePath(srcPath);
 	preparePath(destPath);
+
+	apr_pool_t * subpool = svn_pool_create(pool);
+
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
@@ -351,9 +359,10 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, S
 							MakeSVNUrlOrPath(destPath),
 							force,
 							&ctx,
-							pool);
+							subpool);
 	if(Err != NULL)
 	{
+		svn_pool_destroy(subpool);
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
@@ -361,6 +370,7 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, S
 
 	UpdateShell(srcPath);
 	UpdateShell(destPath);
+	svn_pool_destroy(subpool);
 
 	return TRUE;
 }
@@ -1315,7 +1325,10 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 						&ctx,
 						subpool);
 	if (Err != NULL)
+	{
+		svn_pool_destroy(subpool);
 		return FALSE;
+	}
 
 	apr_hash_index_t *hi;
     svn_dirent_t* val;
