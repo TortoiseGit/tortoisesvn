@@ -15,6 +15,10 @@ CVS
        if the user wants to have unversioned files
        shown before a commit so (s)he can add it
        before the commit. (Stefan)
+- CHG: before obtaining a subversion status we
+       now first check if an .svn directory
+       exists - this should speed up things
+       a little. (Stefan)
 
 Version 0.9.2
 - BUG: In the Add dialog unversioned folders

@@ -68,6 +68,22 @@ svn_wc_status_kind SVNStatus::GetTextStatus(const TCHAR * path)
 	apr_pool_t *				pool;
 	svn_error_t *				err;
 	const char *				internalpath;
+
+	TCHAR						pathbuf[MAX_PATH];
+	_tcscpy(pathbuf, path);
+	if (!PathIsDirectory(path))
+	{
+		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
+		if (ptr == 0)
+			ptr = _tcsrchr(pathbuf, '/');
+		if (ptr == 0)
+			return svn_wc_status_unversioned;
+		*ptr = 0;
+	}
+	_tcscat(pathbuf, _T("\\.svn"));
+	if (!PathFileExists(pathbuf))
+		return svn_wc_status_unversioned;
+
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 
@@ -128,6 +144,22 @@ svn_wc_status_kind SVNStatus::GetTextStatusRecursive(const TCHAR * path)
 	apr_pool_t *				pool;
 	svn_error_t *				err;
 	const char *				internalpath;
+
+	TCHAR						pathbuf[MAX_PATH];
+	_tcscpy(pathbuf, path);
+	if (!PathIsDirectory(path))
+	{
+		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
+		if (ptr == 0)
+			ptr = _tcsrchr(pathbuf, '/');
+		if (ptr == 0)
+			return svn_wc_status_unversioned;
+		*ptr = 0;
+	}
+	_tcscat(pathbuf, _T("\\.svn"));
+	if (!PathFileExists(pathbuf))
+		return svn_wc_status_unversioned;
+
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
@@ -206,6 +238,22 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 	apr_pool_t *				pool;
 	svn_error_t *				err;
 	const char *				internalpath;
+
+	TCHAR						pathbuf[MAX_PATH];
+	_tcscpy(pathbuf, path);
+	if (!PathIsDirectory(path))
+	{
+		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
+		if (ptr == 0)
+			ptr = _tcsrchr(pathbuf, '/');
+		if (ptr == 0)
+			return svn_wc_status_unversioned;
+		*ptr = 0;
+	}
+	_tcscat(pathbuf, _T("\\.svn"));
+	if (!PathFileExists(pathbuf))
+		return svn_wc_status_unversioned;
+
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 
@@ -215,7 +263,6 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 
 	svn_revnum_t			youngest;
 	youngest = SVN_INVALID_REVNUM;				//always get status from newest revision
-
 
 
 	svn_wc_adm_access_t *adm_access;
@@ -268,6 +315,22 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
 	apr_pool_t *				pool;
 	svn_error_t *				err;
 	const char *				internalpath;
+
+	TCHAR						pathbuf[MAX_PATH];
+	_tcscpy(pathbuf, path);
+	if (!PathIsDirectory(path))
+	{
+		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
+		if (ptr == 0)
+			ptr = _tcsrchr(pathbuf, '/');
+		if (ptr == 0)
+			return svn_wc_status_unversioned;
+		*ptr = 0;
+	}
+	_tcscat(pathbuf, _T("\\.svn"));
+	if (!PathFileExists(pathbuf))
+		return svn_wc_status_unversioned;
+
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
