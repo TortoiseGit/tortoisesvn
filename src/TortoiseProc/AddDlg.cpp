@@ -112,7 +112,7 @@ BOOL CAddDlg::OnInitDialog()
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &AddThread, this, 0, &dwThreadId))==0)
+	if ((m_hThread = CreateThread(NULL, 0, &AddThreadEntry, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -150,33 +150,35 @@ void CAddDlg::OnBnClickedSelectall()
 	theApp.DoWaitCursor(-1);
 }
 
-DWORD WINAPI AddThread(LPVOID pVoid)
+DWORD WINAPI CAddDlg::AddThreadEntry(LPVOID pVoid)
+{
+	return ((CAddDlg*)pVoid)->AddThread();
+}
+DWORD CAddDlg::AddThread()
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
 	//in a listcontrol. 
-	CAddDlg*	pDlg;
-	pDlg = (CAddDlg*)pVoid;
-	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
-	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
+	GetDlgItem(IDOK)->EnableWindow(false);
+	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	pDlg->m_addListCtrl.GetStatus(pDlg->m_sPath);
-	pDlg->m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
+	m_addListCtrl.GetStatus(m_sPath);
+	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
 
-	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
-	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-	if (pDlg->m_addListCtrl.GetItemCount()==0)
+	GetDlgItem(IDOK)->EnableWindow(true);
+	GetDlgItem(IDCANCEL)->EnableWindow(true);
+	if (m_addListCtrl.GetItemCount()==0)
 	{
-		CMessageBox::Show(pDlg->m_hWnd, IDS_ERR_NOTHINGTOADD, IDS_APPNAME, MB_ICONINFORMATION);
-		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-		pDlg->m_bThreadRunning = FALSE;
-		pDlg->EndDialog(0);
+		CMessageBox::Show(m_hWnd, IDS_ERR_NOTHINGTOADD, IDS_APPNAME, MB_ICONINFORMATION);
+		GetDlgItem(IDCANCEL)->EnableWindow(true);
+		m_bThreadRunning = FALSE;
+		EndDialog(0);
 		return (DWORD)-1;
 	}
-	pDlg->m_bThreadRunning = FALSE;
+	m_bThreadRunning = FALSE;
 	return 0;
 }
 

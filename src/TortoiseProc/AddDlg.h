@@ -67,6 +67,10 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 
+private:
+	static DWORD WINAPI AddThreadEntry(LPVOID pVoid);
+	DWORD AddThread();
+
 	DECLARE_MESSAGE_MAP()
 public:
 	CSVNStatusListCtrl	m_addListCtrl;
@@ -79,4 +83,3 @@ private:
 	CButton			m_SelectAll;
 };
 
-DWORD WINAPI AddThread(LPVOID pVoid);
