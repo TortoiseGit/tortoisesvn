@@ -578,6 +578,8 @@ void CLogPromptDlg::StartDiff(int fileindex)
 		return;		//we don't compare an added file to itself
 	if (data->status == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
+	if (data->status == svn_wc_status_unversioned)
+		return;		//we don't compare new files with nothing
 	if (PathIsDirectory(data->path))
 		return;		//we also don't compare folders
 	CString path1;
