@@ -357,6 +357,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CMessageBox::Show(NULL, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
 			}
+			else
+			{
+				CMessageBox::Show(NULL, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK);
+			}
 		}
 		//#endregion
 		//#region switch

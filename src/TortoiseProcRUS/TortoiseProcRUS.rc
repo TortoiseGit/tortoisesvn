@@ -289,8 +289,8 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     CONTROL         "Показать изменённые папки",IDC_CHANGEDDIRS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,16,95,10
-    CONTROL         "Сменный диск",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,30,81,10
+    CONTROL         "Сменный диск",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,30,81,10
     CONTROL         "Сетевые диски",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,44,62,10
     CONTROL         "Жесткие диски",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
@@ -615,7 +615,7 @@ BEGIN
     IDS_PROC_DELETE_CONFIRM "Sind Sie sicher dass Sie die ausgewahlten   \n\nDateien loschen mochten?"
     IDS_PROC_OVERWRITE_CONFIRM 
                             "Die Datei\n%s\nexistiert bereits! Mochten Sie   \n\nsie uberschreiben?"
-    IDS_STRING267           "dummy"
+    IDS_PROC_REPOCREATEFINISHED "Datenbank ist erstellt."
     IDS_STRING268           "dummy"
     IDS_STRING269           "dummy"
     IDS_STRING270           "dummy"

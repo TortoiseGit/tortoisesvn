@@ -145,6 +145,7 @@
 #define IDS_STRING266                   266
 #define IDS_PROC_OVERWRITE_CONFIRM      266
 #define IDS_STRING267                   267
+#define IDS_PROC_REPOCREATEFINISHED     267
 #define IDS_STRING268                   268
 #define IDS_STRING269                   269
 #define IDS_STRING270                   270
