@@ -1178,6 +1178,8 @@ CString SVN::RevPropertyGet(CString sName, CString sURL, SVNRev rev)
 	Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, CUnicodeUtils::GetUTF8(sURL), rev, &set_rev, &ctx, pool);
 	if (Err)
 		return _T("");
+	if (propval==NULL)
+		return _T("");
 	if (propval->len <= 0)
 		return _T("");
 	return CUnicodeUtils::GetUnicode(propval->data);

@@ -1,6 +1,7 @@
 - CHG: Don't use the %APPDATA% env but the shell API to
        get the path to the config file in the settings
        dialog. (Stefan)
+- BUG: TSVN could crash if a revprop did not exist. (Stefan)
 
 Version 1.0.6
 - ADD: A warning is shown if a file with local modifications
