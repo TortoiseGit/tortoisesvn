@@ -533,6 +533,7 @@ protected:
 	
 	void	SetNewToolTip(CWnd * pWnd, CPoint * pt = NULL);
 	void	Pop();
+	void	GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect);
 
 	/**
 	 * Finds the child window to which the point belongs
@@ -551,8 +552,8 @@ protected:
 
 	int		GetNextHorizDirection(int nDirection);
 	int		GetNextVertDirection(int nDirection);
-	BOOL	TestHorizDirection(int x, int cx, int w_cx, int nDirection, LPRECT rect);
-	BOOL	TestVertDirection(int y, int cy, int w_cy, int nDirection, LPRECT rect);
+	BOOL	TestHorizDirection(int x, int cx, const CRect& monitorRect, int nDirection, LPRECT rect);
+	BOOL	TestVertDirection(int y, int cy, const CRect& monitorRect, int nDirection, LPRECT rect);
 
 	CRect	GetWindowRegion(CRgn * rgn, CSize sz, CPoint pt);
 

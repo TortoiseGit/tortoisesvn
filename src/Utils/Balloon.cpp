@@ -696,38 +696,27 @@ CSize CBalloon::GetSizeIcon(HICON hIcon) const
 
 void CBalloon::CalculateInfoBoxRect(CPoint * pt, CRect * rect)
 {
-	//use the screen's right edge as the right hand border, not the right edge of the client.
-	CWindowDC wdc(NULL);
-	CRect rWindow(0, 0, 0, 0);
-	rWindow.right = GetSystemMetrics(SM_CXVIRTUALSCREEN);
-	if (rWindow.right == 0)
-		rWindow.right = GetSystemMetrics(SM_CXSCREEN);
-	rWindow.bottom = GetSystemMetrics(SM_CYVIRTUALSCREEN);
-	if (rWindow.bottom == 0)
-		rWindow.bottom = GetSystemMetrics(SM_CYSCREEN);
-//Compiler errors? You need to set
-//#define WINVER 0x0500
-//#define _WIN32_WINNT 0x0500
-//don't worry, it will still run on Win95 and WinNT4
-//but with those specific flags ignored!
+	CRect monitorRect;
+	GetMonitorWorkArea(*pt, monitorRect);
 
 	CPoint ptEnd;
 	m_nLastDirection = m_pToolInfo.nDirection;
-	if (!TestHorizDirection(pt->x, rect->Width(), rWindow.right, m_nLastDirection, rect))
+	if (!TestHorizDirection(pt->x, rect->Width(), monitorRect, m_nLastDirection, rect))
 	{
 		m_nLastDirection = GetNextHorizDirection(m_nLastDirection);
-		TestHorizDirection(pt->x, rect->Width(), rWindow.right, m_nLastDirection, rect);
+		TestHorizDirection(pt->x, rect->Width(), monitorRect, m_nLastDirection, rect);
 	}
-	if (!TestVertDirection(pt->y, rect->Height(), rWindow.bottom, m_nLastDirection, rect))
+	if (!TestVertDirection(pt->y, rect->Height(), monitorRect, m_nLastDirection, rect))
 	{
 		m_nLastDirection = GetNextVertDirection(m_nLastDirection);
-		TestVertDirection(pt->y, rect->Height(), rWindow.bottom, m_nLastDirection, rect);
+		TestVertDirection(pt->y, rect->Height(), monitorRect, m_nLastDirection, rect);
 	}
 
 	if ((m_pToolInfo.nStyles & BALLOON_SHADOW) && 
 		((m_nLastDirection == BALLOON_LEFT_TOP) || (m_nLastDirection == BALLOON_LEFT_BOTTOM)))
 		rect->OffsetRect(m_nSizes[XBLSZ_SHADOW_CX], m_nSizes[XBLSZ_SHADOW_CY]);
 }
+
 
 int CBalloon::GetNextHorizDirection(int nDirection)
 {
@@ -769,26 +758,28 @@ int CBalloon::GetNextVertDirection(int nDirection)
 	return nDirection;
 }
 
-BOOL CBalloon::TestHorizDirection(int x, int cx, int w_cx, int nDirection, LPRECT rect)
+BOOL CBalloon::TestHorizDirection(int x, int cx, const CRect& monitorRect,
+								  int nDirection, LPRECT rect)
 {
 	int left = 0;
 	int right = 0;
-	
+	int anchorMarginSize = (int)m_nSizes[XBLSZ_MARGIN_ANCHOR];
+
 	switch (nDirection)
 	{
 	case BALLOON_LEFT_TOP:
 	case BALLOON_LEFT_BOTTOM:
-		right = ((x + (int)m_nSizes[XBLSZ_MARGIN_ANCHOR]) > w_cx) ? w_cx : (x + m_nSizes[XBLSZ_MARGIN_ANCHOR]);
+		right = ((x + anchorMarginSize) > monitorRect.right) ? monitorRect.right : (x + anchorMarginSize);
 		left = right - cx;
 		break;
 	case BALLOON_RIGHT_TOP:
 	case BALLOON_RIGHT_BOTTOM:
-		left = (x < (int)m_nSizes[XBLSZ_MARGIN_ANCHOR]) ? 0 : (x - m_nSizes[XBLSZ_MARGIN_ANCHOR]);
+		left = (x - anchorMarginSize)<monitorRect.left ? monitorRect.left : (x - anchorMarginSize);
 		right = left + cx;
 		break;
 	}
 
-	BOOL bTestOk = ((left >= 0) && (right <= w_cx)) ? TRUE : FALSE;
+	BOOL bTestOk = ((left >= monitorRect.left) && (right <= monitorRect.right)) ? TRUE : FALSE;
 	if (bTestOk)
 	{
 		rect->left = left;
@@ -798,7 +789,8 @@ BOOL CBalloon::TestHorizDirection(int x, int cx, int w_cx, int nDirection, LPREC
 	return bTestOk;
 }
 
-BOOL CBalloon::TestVertDirection(int y, int cy, int w_cy, int nDirection, LPRECT rect)
+BOOL CBalloon::TestVertDirection(int y, int cy, const CRect& monitorRect,
+								 int nDirection, LPRECT rect)
 {
 	int top = 0;
 	int bottom = 0;
@@ -817,7 +809,7 @@ BOOL CBalloon::TestVertDirection(int y, int cy, int w_cy, int nDirection, LPRECT
 		break;
 	}
 
-	BOOL bTestOk = ((top >= 0) && (bottom <= w_cy)) ? TRUE : FALSE;
+	BOOL bTestOk = ((top >= monitorRect.top) && (bottom <= monitorRect.bottom)) ? TRUE : FALSE;
 	if (bTestOk)
 	{
 		rect->top = top;
@@ -1502,3 +1494,33 @@ void CBalloon::PostNcDestroy()
 	}
 }
 
+void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
+{
+	// identify the monitor that contains the sourcePoint
+	// and return the work area (the portion of the screen 
+	// not obscured by the system taskbar or by application 
+	// desktop toolbars) of that monitor
+	OSVERSIONINFOEX VersionInformation;
+	ZeroMemory(&VersionInformation, sizeof(OSVERSIONINFOEX));
+	VersionInformation.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&VersionInformation);
+
+	if (VersionInformation.dwMajorVersion >= 5)
+	{
+		HMONITOR hMonitor;
+		MONITORINFO mi;
+		hMonitor = MonitorFromPoint(sourcePoint, MONITOR_DEFAULTTONEAREST);
+
+		//
+		// get the work area
+		//
+		mi.cbSize = sizeof(mi);
+		GetMonitorInfo(hMonitor, &mi);
+		monitorRect = mi.rcWork;
+	}
+	else
+	{
+		GetClientRect(&monitorRect);
+	}
+
+}
