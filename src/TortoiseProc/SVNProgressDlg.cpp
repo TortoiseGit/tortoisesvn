@@ -383,30 +383,37 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					CString strLine = _T("");
 					CString commitString = _T("");
 					BOOL isTag = FALSE;
+					BOOL bStatusFetched = FALSE;
 					CString url;
 					while (file.ReadString(strLine))
 					{
-						SVNStatus svnStatus;
-						if (svnStatus.GetStatus(strLine) != (-2))
+						if (bStatusFetched == FALSE)
 						{
-							if ((svnStatus.status->entry)&&(svnStatus.status->entry->url))
-								url = svnStatus.status->entry->url;
-							if (url.Find(_T("/tags/"))>=0)
-								isTag = TRUE;
-							if (commitString.IsEmpty())
-								commitString = strLine;
-							else
-								commitString = commitString + _T("*") + strLine;
-						}
-					}
+							// getting the Status once is enough, since it's not possible to
+							// select multiple files/folders from different working copies in
+							// the explorer. So once we have the status for one file/folder
+							// and its URL, that's enough.
+							SVNStatus svnStatus;
+							if (svnStatus.GetStatus(strLine) != (-2))
+							{
+								if ((svnStatus.status->entry)&&(svnStatus.status->entry->url))
+									url = svnStatus.status->entry->url;
+								if (url.Find(_T("/tags/"))>=0)
+									isTag = TRUE;
+								bStatusFetched = TRUE;
+							} // if (svnStatus.GetStatus(strLine) != (-2))
+						} // if (bStatusFetched == FALSE)
+						if (commitString.IsEmpty())
+							commitString = strLine;
+						else
+							commitString = commitString + _T("*") + strLine;
+					} // while (file.ReadString(strLine)) 
 					if (commitString.IsEmpty())
 					{
 						temp.LoadString(IDS_PROGRS_TITLEFIN);
 						sWindowTitle = sWindowTitle + _T(" ") + temp;
 						pDlg->SetWindowText(sWindowTitle);
 						temp.LoadString(IDS_MSGBOX_OK);
-						//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-						//pDlg->m_bCancelled = TRUE;
 
 						pDlg->GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 						pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
