@@ -118,6 +118,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 		m_saveFile.Close();
 		DeleteFile(m_sSavePath);
 		m_sSavePath.Empty();
+		return _T("");
 	}
 	if (!extBlame)
 	{
