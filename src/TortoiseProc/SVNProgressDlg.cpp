@@ -701,6 +701,11 @@ UINT CSVNProgressDlg::ProgressThread()
 			{
 				ASSERT(m_targetPathList.GetCount() == 1);
 				sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
+				if (m_options & ProgOptDryRun)
+				{
+					CString sDryRun(MAKEINTRESOURCE(IDS_PROGRS_DRYRUN));
+					sWindowTitle += _T(" ") + sDryRun;
+				}
 				SetWindowText(sWindowTitle);
 				// Eeek!  m_sMessage is actually a path for this command...
 				CTSVNPath urlTo(m_sMessage);
