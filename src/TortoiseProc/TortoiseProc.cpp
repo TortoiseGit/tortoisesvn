@@ -1134,6 +1134,10 @@ BOOL CTortoiseProcApp::InitInstance()
 				//strLine = _T("F:\\Development\\DirSync\\DirSync.cpp");
 				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
 				name = name.Trim(_T("\n\r"));
+				if (parser.HasKey(_T("onlymask")))
+				{
+					name = _T("*")+name.Mid(name.ReverseFind('.'));
+				}
 				CString parentfolder = strLine.Left(strLine.ReverseFind('\\'));
 				SVNProperties props(parentfolder);
 				CStringA value;

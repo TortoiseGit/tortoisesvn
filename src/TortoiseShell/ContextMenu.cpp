@@ -460,8 +460,62 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
 	if ((isInSVN)&&(!isFolder))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUBLAME), INDEXMENU(MENUBLAME), idCmd++, IDS_MENUBLAME, IDI_BLAME, idCmdFirst, Blame);
-	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder))
+	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder)&&(!isOnlyOneItemSelected))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Ignore);
+	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder)&&(isOnlyOneItemSelected))
+	{
+		HMENU ignoresubmenu = CreateMenu();
+		int indexignoresub = 0;
+		TCHAR maskbuf[MAX_PATH];
+		TCHAR ignorepath[MAX_PATH];
+		std::vector<stdstring>::iterator I = files_.begin();
+		if (_tcsrchr(I->c_str(), '\\'))
+			_tcscpy(ignorepath, _tcsrchr(I->c_str(), '\\')+1);
+		else
+			_tcscpy(ignorepath, I->c_str());
+
+		InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
+		myIDMap[idCmd - idCmdFirst] = Ignore;
+		myIDMap[idCmd++] = Ignore;
+
+		_tcscpy(maskbuf, _T("*"));
+		if (_tcsrchr(ignorepath, '.'))
+		{
+			_tcscat(maskbuf, _tcsrchr(ignorepath, '.'));
+			InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
+			myIDMap[idCmd - idCmdFirst] = IgnoreCaseSensitive;
+			myIDMap[idCmd++] = IgnoreCaseSensitive;
+		}
+
+
+		MENUITEMINFO menuiteminfo;
+		ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
+		menuiteminfo.cbSize = sizeof(menuiteminfo);
+		OSVERSIONINFOEX inf;
+		ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+		inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+		GetVersionEx((OSVERSIONINFO *)&inf);
+		WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+		if ((ownerdrawn==1)&&(fullver >= 0x0501))
+			menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
+		else if (ownerdrawn == 0)
+			menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
+		else
+			menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU| MIIM_DATA;
+		menuiteminfo.fType = MFT_OWNERDRAW;
+		HBITMAP bmp = IconToBitmap(IDI_IGNORE, (COLORREF)GetSysColor(COLOR_MENU));
+		menuiteminfo.hbmpChecked = bmp;
+		menuiteminfo.hbmpUnchecked = bmp;
+		menuiteminfo.hSubMenu = ignoresubmenu;
+		menuiteminfo.wID = idCmd;
+		ZeroMemory(stringtablebuffer, sizeof(stringtablebuffer));
+		GetMenuTextFromResource(IgnoreSub);
+		menuiteminfo.dwTypeData = stringtablebuffer;
+		menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
+		InsertMenuItem(HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), TRUE, &menuiteminfo);
+		myIDMap[idCmd - idCmdFirst] = IgnoreSub;
+		myIDMap[idCmd++] = IgnoreSub;
+	}
 
 	//---- separator 
 	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
@@ -597,6 +651,13 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += _T("ignore /path:\"");
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
+						break;
+					case IgnoreCaseSensitive:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("ignore /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						svnCmd += _T(" /onlymask");
 						break;
 					case Revert:
 						tempfile = WriteFileListToTempFile();
@@ -951,6 +1012,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 		case Ignore:
 			MAKESTRING(IDS_MENUDESCIGNORE);
 			break;
+		case IgnoreCaseSensitive:
+			MAKESTRING(IDS_MENUDESCIGNORE);
+			break;
 		case Blame:
 			MAKESTRING(IDS_MENUDESCBLAME);
 			break;
@@ -1271,6 +1335,8 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			resource = MAKEINTRESOURCE(IDI_REPOBROWSE);
 			SETSPACE(MENUREPOBROWSE);
 			break;
+		case IgnoreCaseSensitive:
+		case IgnoreSub:
 		case Ignore:
 			MAKESTRING(IDS_MENUIGNORE);
 			resource = MAKEINTRESOURCE(IDI_IGNORE);
