@@ -134,47 +134,35 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	
 	ATLTRACE2(_T("building cache for %s\n"), filepath);
 	BOOL isFolder = PathIsDirectory(filepath);
-	int exclude = -1;
 	if (isFolder)
 	{
-		if (shellCache.IsRecursive())
+		TCHAR exfile[MAX_PATH];
+		_tcscpy(exfile, filepath);
+		_tcscat(exfile, _T(EXCLUDERECURSIVEFILENAME));
+		if (shellCache.IsRecursive() && !PathFileExists(exfile))
 		{
 			// initialize record members
-			svn_opt_revision_t rev;
-			rev.kind = svn_opt_revision_unspecified;
-			apr_hash_t * props;
-			if (svn_client_propget(&props, "tsvn:exclude", CUnicodeUtils::StdGetUTF8(filepath).c_str(), &rev, false, &ctx, pool)==NULL)
-			{
-				svn_string_t * val = (svn_string_t *)apr_hash_get(props, "tsvn:exclude", APR_HASH_KEY_STRING);
-				if (val)
-				{
-					exclude = atoi(val->data);
-				}
-			}
 			dirstat.rev = -1;
 			dirstat.status = svn_wc_status_unversioned;
 			dirstat.author = authors.GetString(NULL);
 			dirstat.url = urls.GetString(NULL);
 			dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
-			if (exclude < 1)
+			GetStatus(filepath);
+			if (status)
 			{
-				GetStatus(filepath);
-				if (status)
+				if (status->entry)
 				{
-					if (status->entry)
-					{
-						dirstat.author = authors.GetString (status->entry->cmt_author);
-						dirstat.url = authors.GetString (status->entry->url);
-						dirstat.rev = status->entry->cmt_rev;
-					} // if (status.status->entry)
-					dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
-				} // if (status)
-				m_cache[filepath] = dirstat;
-				m_TimeStamp = GetTickCount();
-				svn_pool_destroy (pool);				//free allocated memory
-				ClearPool();
-				return &dirstat;
-			}
+					dirstat.author = authors.GetString (status->entry->cmt_author);
+					dirstat.url = authors.GetString (status->entry->url);
+					dirstat.rev = status->entry->cmt_rev;
+				} // if (status.status->entry)
+				dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
+			} // if (status)
+			m_cache[filepath] = dirstat;
+			m_TimeStamp = GetTickCount();
+			svn_pool_destroy (pool);				//free allocated memory
+			ClearPool();
+			return &dirstat;
 		} // if (shellCache.IsRecursive())
 	} // if (isFolder) 
 
@@ -187,33 +175,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	if (p)
 		pathbuf[p-filepath] = '\0';
 
-	if (m_propcache.find(pathbuf) != m_propcache.end())
-	{
-		exclude = m_propcache[pathbuf];
-	}
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
-	if (exclude < 0)
-	{
-		svn_opt_revision_t rev;
-		rev.kind = svn_opt_revision_unspecified;
-		apr_hash_t * props;
-		if (svn_client_propget(&props, "tsvn:exclude", internalpath, &rev, false, &ctx, pool)==NULL)
-		{
-			svn_string_t * val = (svn_string_t *)apr_hash_get(props, "tsvn:exclude", APR_HASH_KEY_STRING);
-			if (val)
-			{
-				exclude = atoi(val->data);
-			}
-		}
-	}
-	m_propcache[pathbuf] = exclude;
-	if (exclude == 2)
-	{
-		m_TimeStamp = GetTickCount();
-		svn_pool_destroy (pool);				//free allocated memory
-		ClearPool();
-		return &invalidstatus;	
-	}
 	ctx.auth_baton = NULL;
 
 	statushash = apr_hash_make(pool);

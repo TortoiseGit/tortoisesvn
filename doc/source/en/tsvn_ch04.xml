@@ -1,4 +1,4 @@
-<chapter id="tsvn-DUG">
+﻿<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -348,6 +348,20 @@
 				RAM Windows can use for file index caching. Usually it's only
 				very slow the first time you browse such a directory &mdash; if
 				you browse the same directory later again it's much faster.
+				</para>
+				<para>
+				If you want to disable the recursive overlays for some
+				folders but not for all then you can do that by creating a
+				file called <filename>_tsvnexcluderecursive</filename> inside
+				that folder. This will disable the recursive overlays for
+				that folder, but <emphasis>not</emphasis> for the files or
+				folders inside it.
+				</para>
+				<para>
+				You can also disable the overlays completely for a folder
+				by creating a file called <filename>_tsvnexcludethis</filename>
+				inside that folder. Again, this disables the overlays only
+				for that folder, not the folders inside it.
 				</para>
 			</note>
 			</para>

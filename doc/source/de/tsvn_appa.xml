@@ -582,6 +582,22 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					innerhalb von Ordnern nicht mehr auf den Ordnern selbst
 					an.
 					</para>
+					<para>
+					Wenn Sie die rekursiven überlagerten Icons nur für bestimmte
+					Ordner ausschalten möchten, können Sie das tun indem Sie
+					eine Datei mit Namen <filename>_tsvnexcluderecursive</filename>
+					in diesem Ordner erstellen. Dies deaktiviert die Rekursion
+					für diesen Ordner allein, jedoch nicht für die Dateien/Ordner
+					innerhalb dieses Ordners.
+					</para>
+					<para>
+					Sie können die überlagerten Icons auch komplett ausschalten
+					für einen bestimmten Ordner, indem Sie eine Datei mit
+					Namen <filename>_tsvnexcludethis</filename> in diesem
+					Ordner erstellen. Und auch hier gilt, die überlagerten Icons
+					werden nur für diesen Ordner deaktiviert, nicht für die
+					Ordner innerhalb dieses Ordners.
+					</para>
 				</listitem>
 				<listitem>
 					<para>
