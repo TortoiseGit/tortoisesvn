@@ -84,8 +84,6 @@ BOOL CInputDlg::OnInitDialog()
 		GetDlgItem(IDC_INPUTTEXT)->SetWindowText(m_sInputText);
 	}
 
-	m_Input.SetMarginLine(80);
-
 	AddAnchor(IDC_HINTTEXT, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_INPUTTEXT, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
