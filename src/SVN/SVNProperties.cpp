@@ -277,8 +277,11 @@ stdstring SVNProperties::GetLastErrorMsg()
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;
-			msg += _T("\n");
-			msg += UTF8ToString(ErrPtr->message);
+			if (ErrPtr->message)
+			{
+				msg += _T("\n");
+				msg += UTF8ToString(ErrPtr->message);
+			}
 		} 
 		return msg;
 	} 
