@@ -88,6 +88,8 @@ public:
 		CString					path;
 		CString					line;
 		svn_wc_status_kind		status;
+		svn_wc_status_kind		textstatus;
+		svn_wc_status_kind		propstatus;
 		BOOL					checked;
 	};
 	CArray<Data *, Data *>		m_arData;

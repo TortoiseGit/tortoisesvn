@@ -522,6 +522,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					data->path = strLine;
 					data->line = strLine;
 					data->status = stat;
+					data->textstatus = s->text_status;
+					data->propstatus = s->prop_status;
 					pDlg->m_arData.Add(data);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
@@ -541,6 +543,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						data->path = strLine;
 						data->line = strLine;
 						data->status = stat;
+						data->textstatus = s->text_status;
+						data->propstatus = s->prop_status;
 						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
@@ -601,6 +605,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						data->path = temp;
 						data->line = strLine;
 						data->status = stat;
+						data->textstatus = s->text_status;
+						data->propstatus = s->prop_status;
 						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						if (bIsFolder)
@@ -623,6 +629,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							data->path = temp;
 							data->line = strLine;
 							data->status = stat;
+							data->textstatus = s->text_status;
+							data->propstatus = s->prop_status;
 							pDlg->m_arData.Add(data);
 							int count = pDlg->m_ListCtrl.GetItemCount();
 							if (bIsFolder)
@@ -642,6 +650,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 										data->path = filename;
 										data->line = strLine;
 										data->status = stat;
+										data->textstatus = s->text_status;
+										data->propstatus = s->prop_status;
 										pDlg->m_arData.Add(data);
 										pDlg->m_ListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.GetLength() - 1));
 										SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
@@ -803,6 +813,8 @@ void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		Data * data = m_arData.GetAt(i);
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), data->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+		if ((data->status == data->propstatus)&&(!SVNStatus::IsImportant(data->textstatus)))
+			_tcscat(buf, _T("(P only)"));
 		m_ListCtrl.InsertItem(i, data->path.Right(data->path.GetLength() - data->line.GetLength() - 1));
 		m_ListCtrl.SetItemText(i, 1, buf);
 		m_ListCtrl.SetCheck(i, data->checked);
