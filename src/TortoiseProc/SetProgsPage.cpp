@@ -207,3 +207,10 @@ BOOL CSetProgsPage::OnApply()
 	return CPropertyPage::OnApply();
 }
 
+BOOL CSetProgsPage::PreTranslateMessage(MSG* pMsg)
+{
+	m_tooltips.RelayEvent(pMsg);
+	return CPropertyPage::PreTranslateMessage(pMsg);
+}
+
+

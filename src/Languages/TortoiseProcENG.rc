@@ -329,9 +329,9 @@ BEGIN
                     10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    19,113,261,10
+                    19,112,261,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,19,127,261,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,126,261,10
     LTEXT           "Default &number of log messages",IDC_STATIC,19,59,201,8
     EDITTEXT        IDC_DEFAULTLOG,220,57,60,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT

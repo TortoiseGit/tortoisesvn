@@ -62,4 +62,6 @@ private:
 	CString			m_sDiffViewerPath;
 	CRegString		m_regDiffViewerPath;
 	CBalloon		m_tooltips;
+public:
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };
