@@ -326,7 +326,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							entry->remotestatus = svn_wc_status_unversioned;
 							entry->remotetextstatus = svn_wc_status_unversioned;
 							entry->remotepropstatus = svn_wc_status_unversioned;
-							entry->inunversionedfolder = FALSE;
+							entry->inunversionedfolder = TRUE;
 							entry->checked = FALSE;
 							entry->inexternal = FALSE;
 							entry->direct = FALSE;
@@ -440,7 +440,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 									entry->remotestatus = svn_wc_status_unversioned;
 									entry->remotetextstatus = svn_wc_status_unversioned;
 									entry->remotepropstatus = svn_wc_status_unversioned;
-									entry->inunversionedfolder = FALSE;
+									entry->inunversionedfolder = TRUE;
 									entry->checked = FALSE;
 									entry->inexternal = FALSE;
 									entry->direct = FALSE;
@@ -1171,7 +1171,9 @@ void CSVNStatusListCtrl::Stat()
 						for (int j=0; j<m_arStatusArray.GetCount(); ++j)
 						{
 							FileEntry * d = m_arStatusArray.GetAt(j);
-							if ((d->status != svn_wc_status_unversioned)&&(entry->path.CompareNoCase(d->path)==0))
+							if ((d->status != svn_wc_status_unversioned)&&
+								(entry->path.GetLength()==d->path.GetLength())&&
+								(entry->path.CompareNoCase(d->path)==0))
 							{
 								// adjust the case of the filename
 								MoveFileEx(entry->path, d->path, MOVEFILE_REPLACE_EXISTING);
