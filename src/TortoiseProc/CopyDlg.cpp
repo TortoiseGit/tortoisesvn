@@ -20,6 +20,8 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "CopyDlg.h"
+#include "MessageBox.h"
+#include "UnicodeUtils.h"
 #include "RepositoryBrowser.h"
 
 // CCopyDlg dialog
@@ -97,10 +99,19 @@ BOOL CCopyDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	SVNStatus status;
+	long rev = status.GetStatus(m_path);
+	if ((rev == (-2))||(status.status->entry == NULL))
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
+		TRACE(_T("could not retrieve the URL of the file!\n"));
+		this->EndDialog(IDCANCEL);		//exit
+	} // if ((rev == (-2))||(status.status->entry == NULL))
+	m_wcURL = CUnicodeUtils::GetUnicode(status.status->entry->url);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
-	m_URLCombo.AddString(m_URL);
-	m_URLCombo.SelectString(-1, m_URL);
-	CString unescapedurl = m_URL;
+	m_URLCombo.AddString(m_wcURL);
+	m_URLCombo.SelectString(-1, m_wcURL);
+	CString unescapedurl = m_wcURL;
 	CUtils::Unescape(unescapedurl.GetBuffer());
 	unescapedurl.ReleaseBuffer();
 	GetDlgItem(IDC_FROMURL)->SetWindowText(unescapedurl);
@@ -112,6 +123,16 @@ BOOL CCopyDlg::OnInitDialog()
 void CCopyDlg::OnOK()
 {
 	UpdateData(TRUE);
+
+	CString combourl;
+	m_URLCombo.GetWindowText(combourl);
+	if (m_wcURL.CompareNoCase(combourl)==0)
+	{
+		CString temp;
+		temp.Format(IDS_ERR_COPYITSELF, m_wcURL, m_URLCombo.GetString());
+		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+		return;
+	}
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 

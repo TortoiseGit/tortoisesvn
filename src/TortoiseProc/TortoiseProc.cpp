@@ -489,23 +489,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CCopyDlg dlg;
 			CString path = parser.GetVal(_T("path"));
-			SVNStatus status;
-			long rev = status.GetStatus(path);
-			if ((rev == (-2))||(status.status->entry == NULL))
-			{
-				CMessageBox::Show(EXPLORERHWND, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
-				TRACE(_T("could not retrieve the URL of the file!\n"));
-				return FALSE;		//exit
-			} // if ((rev == (-2))||(status.status->entry == NULL))
-			//long revupdated = status.GetStatus(path, TRUE);
-			//if (rev != revupdated)
-			//{
-			//	CMessageBox::Show(NULL, IDS_ERR_NOTUPTODATE, IDS_APPNAME, MB_ICONERROR);
-			//	TRACE(_T("working copy is not up to date\n"));
-			//	return FALSE;
-			//}
-			CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
-			dlg.m_URL = url;
+			dlg.m_path = path;
 			if (dlg.DoModal() == IDOK)
 			{
 				m_pMainWnd = NULL;
@@ -514,7 +498,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					//no changes in the working copy, so just do a repo->repo copy
 					CSVNProgressDlg progDlg;
-					progDlg.SetParams(Copy, FALSE, url, dlg.m_URL, dlg.m_sLogMessage);
+					progDlg.SetParams(Copy, FALSE, dlg.m_wcURL, dlg.m_URL, dlg.m_sLogMessage);
 					progDlg.DoModal();
 				}
 				else

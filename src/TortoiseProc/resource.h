@@ -136,7 +136,6 @@
 #define IDC_SELECTALL                   1067
 #define IDC_SSHCLIENT                   1068
 #define IDC_SSHBROWSE                   1069
-#define IDC_CHECK1                      1070
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -234,6 +233,7 @@
 #define IDS_PROC_COPYINGPROG            1274
 #define IDS_PROC_MOVINGPROG             1275
 #define IDS_PROC_CPYMVPROG2             1276
+#define IDS_PROC_ENTERURL               1277
 #define IDS_ERR_THREADSTARTFAILED       1281
 #define IDS_ERR_EXTDIFFSTART            1282
 #define IDS_ERR_NOCOMMAND               1283
@@ -256,7 +256,7 @@
 #define IDS_SSL_REJECT                  1300
 #define IDS_ERR_SSL_NOTYETVALID         1301
 #define IDS_ERR_SSL_EXPIRED             1302
-#define IDS_PROC_ENTERURL               1303
+#define IDS_ERR_COPYITSELF              1303
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510
