@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-21 09:34+0100\n"
+"PO-Revision-Date: 2005-02-14 19:15+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -186,10 +186,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Avbryt"
 
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "&Lukk vinduer automatisk"
-
 #: ID:76
 msgid "&Compare Revisions"
 msgstr "&Sammenlign revisjoner"
@@ -201,6 +197,11 @@ msgstr "&Kopier til..."
 #: ID:101
 msgid "&Delete"
 msgstr "&Slett"
+
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "&Testkjøring"
 
 #: Control-ID:1031
 msgid "&Edit"
@@ -266,14 +267,10 @@ msgstr "&Språk:"
 msgid "&Mark as resolved"
 msgstr "&Merk som løst"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "&Flett"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "&Flett forandringer inn i gjeldende arbeidskopi som peker til URL:"
 
 #: Control-ID:1012
 msgid "&Merging"
@@ -410,6 +407,10 @@ msgstr "&Angre"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Angre\tCtrl+Z"
 
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "&Enhetlig diff"
+
 #: Control-ID:1061
 msgid "&Unknown drives"
 msgstr "&Ukjente disker"
@@ -430,6 +431,11 @@ msgstr "&Vis"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Mellomrom"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(testkjøring)"
 
 # ID:208,
 #: ID:208
@@ -834,6 +840,21 @@ msgstr "Forfatter:                      Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Forfattere:                   Stefan Kueng, Tim Kemp"
 
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "Lukk automatisk hvis det ikke er konflikter"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "Lukk automatisk hvis ingen feil"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "Lukk automatisk hvis ingen fletting, sletting eller hvis ingen ting legges til"
+
 #: Control-ID:1067
 msgid "Automatically resolve conflicted subversion status on save"
 msgstr "Løs automatisk det som er konfliktmerket under lagring"
@@ -1011,17 +1032,9 @@ msgstr "Se etter oppdateringer"
 msgid "Check for newer &versions"
 msgstr "Sjekk etter nyere &versjoner"
 
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr ""
-"Klikk her hvis du vil at fremdrifts-dialogboksen skal\n"
-"lukkes automatisk når operasjonen er slutt."
-
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "Hent en arbeidskopi ut et kodelager"
+msgstr "Hent en arbeidskopi ut fra et depot"
 
 #: ID:95
 msgid ""
@@ -1046,9 +1059,8 @@ msgstr "Kryss for å bruke kortere dato- og tids-formater i loggmeldinger."
 
 # ID:270,
 #: ID:270
-#, fuzzy
 msgid "Checking for forward copies"
-msgstr "Sjekker etter startkopier"
+msgstr "Sjekker etter forhåndskopier"
 
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -1105,15 +1117,19 @@ msgstr "Klikk på \"Avansert\" for å bruke alternative flette-programmer basert
 msgid "Clipboard"
 msgstr "Utklippstavle"
 
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "Lukk manuelt"
+
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Lukk det aktive vinduet og spør om dokumenter skal lagres"
 
 # Control-ID:1068,
 #: Control-ID:1068
-#, fuzzy
 msgid "Color code in-line changes"
-msgstr "Fargekode i inebyggede endringer"
+msgstr "Fargekode i inebyggde endringer"
 
 #: Dlg-ID:138
 msgid "Colors"
@@ -1191,6 +1207,10 @@ msgstr "Sammenhengsmeny"
 msgid "Continue"
 msgstr "Fortsett"
 
+#: Control-ID:1073
+msgid "Convert files when diffing against BASE"
+msgstr "Konverter filer når sammenligningen er mot BASE"
+
 # ID:376,
 #: ID:376
 msgid "Cop&y"
@@ -1203,6 +1223,11 @@ msgstr "Kopiert"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Kopiert eksternt"
+
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "Kopier fra sti"
 
 #: ID:101
 msgid "Copy To Working Copy..."
@@ -1366,11 +1391,6 @@ msgstr ""
 "Klipp  det som er merket til utklippstavlen\n"
 "Klipp ut"
 
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "&Ikke lukk ved konflikter"
-
 #: ID:76
 msgid "Date"
 msgstr "Dato"
@@ -1508,10 +1528,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Vil du lagre dine endringer?"
 
-#: Control-ID:1073
-msgid "Don't convert files when diffing against BASE"
-msgstr "Ikke konverter filer når sammenligningen er mot BASE"
-
 #: ID:73
 msgid "Don't show this message again"
 msgstr "Ikke vis denne beskjeden igjen"
@@ -1519,11 +1535,6 @@ msgstr "Ikke vis denne beskjeden igjen"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Stasjonstyper"
-
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Dry Run"
-msgstr "Testkjøring"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1590,6 +1601,11 @@ msgid ""
 msgstr ""
 "Slett det som er valgt\n"
 "Slett"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Feil"
 
 #: ID:81
 msgid "Error validating server certificate for %s:"
@@ -1725,9 +1741,10 @@ msgstr "Trykk på F1 for hjelp"
 msgid "Force shell icon refresh"
 msgstr "Tving frem ikon-oppfriskning i skallet"
 
+# Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "Fra:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "Fra:(start-URL og revisjon som gir omfanget av flettningen"
 
 # ID:273,
 #: ID:273
@@ -1850,8 +1867,8 @@ msgstr ""
 "Importen går direkte til den angitte nettadressen hvis ingen avkryssning."
 
 #: ID:79
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "TortoiseSVN lager ingen temporær fil hvis avkrysset. Orginalfilen sammenlignes heller med BASE."
+msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
+msgstr "Hvis avkrysset, skaper TortoiseSVN temporær fil for å lage diff-filer hvor nøkkelord ikke er utvidet"
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -1948,8 +1965,8 @@ msgstr "Ugyldig filnavn"
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -1965,7 +1982,7 @@ msgid ""
 msgstr ""
 "Ugyldig revisjonsnummer! Gyldige revisjoner er:\n"
 "HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive desimalnumre\n"
+"positive desimalnumre,\n"
 "datoer i en av de følgende eksempelformene:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2104,7 +2121,7 @@ msgstr "Flettet"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
-msgstr "Fletter en gren inn i kodelagerets hovedgren "
+msgstr "Fletter en gren inn i depoets hovedgren"
 
 #: Control-ID:65535
 msgid "Merging"
@@ -2248,6 +2265,11 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Ikke alle oppføringene i registeret (eller INI-filen) ble fjernet."
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Notis"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -2422,13 +2444,13 @@ msgstr "Kjør kommandoen \"Rydd opp\" command."
 msgid ""
 "Please note:\n"
 "your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to <b>switch</b> over\n"
-"to that copy path. Use the <b>Switch</b> command to do that."
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
 msgstr ""
 "Merk:\n"
-"Arbeidskopien er igjen på det forrige stedet. Hvis du vil at de neste endringene\n"
-"skal være i den nye kopien, må du <b>bytte</b> over til kopiens filsti.\n"
-"Bruk <b>Bytt</b>-kommandoen for å gjøre dette."
+"Arbeidskopien ligger igjen på det forrige stedet. Hvis du vil at de neste endringene\n"
+"skal være i den nye kopien, må du bytte over til kopiens filsti.\n"
+"Bruk Bytt-kommandoen for å gjøre dette."
 
 #: ID:3858
 msgid "Please select a button."
@@ -2461,6 +2483,11 @@ msgstr "Programmer"
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programmer (*.exe)|*.exe|Alle Filer (*.*)|*.*||"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "Fremdriftsdialog:"
 
 #: Control-ID:65535
 #: Dlg-ID:177
@@ -2620,7 +2647,7 @@ msgstr "Bytter"
 
 #: ID:13
 msgid "Repo-Browser"
-msgstr "Kodelager-utforsker"
+msgstr "Depot-utforsker"
 
 #: Control-ID:65535
 #: Control-ID:1055
@@ -2748,6 +2775,10 @@ msgstr "SVN Flett..."
 #: Dlg-ID:134
 msgid "SVN Progress"
 msgstr "SVN-Fremdrift"
+
+#: ID:221
+msgid "SVN Rename/Move"
+msgstr "SVN Døp om/flytt..."
 
 #: ID:77
 msgid "SVN Resolve..."
@@ -2899,6 +2930,11 @@ msgstr ""
 "Velg en mappe å eksportere til\n"
 "Du må kanskje lage en ny mappe før du eksporterer."
 
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "Velg oppførselen på fremdriftrsdialogen på slutten av operasjonen"
+
 #: ID:3603
 msgid ""
 "Select the entire document\n"
@@ -2936,6 +2972,10 @@ msgstr "Setter egenskaper..."
 #: ID:107
 msgid "Settings"
 msgstr "Instillinger"
+
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "&Vis logg"
 
 #: ID:101
 msgid "Sho&w Properties"
@@ -3068,6 +3108,11 @@ msgstr ""
 "Angi filene eller mappene som TortoiseSVN.\n"
 "skal holdes vekk fra versjonkontroll.\n"
 "Del stiene med et mellomrom."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "Angi revisjonsomfanget du vil flette:"
 
 #: ID:3604
 msgid ""
@@ -3321,6 +3366,11 @@ msgstr ""
 "<i>%s</i>\n"
 "passer bedre. Vil du heller bruke den foreslåtte stien?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "Resultatet av flettingen er lagret i arbeidskopien på:"
+
 #: ID:78
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -3333,10 +3383,10 @@ msgstr ""
 #: ID:88
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "Målmappen er ikke tom!\n"
-"Er du sikker på at du vil sjekke ut i den mappen?"
+"Er du sikker på at du vil sjekke ut/eksportere inn i den mappen?"
 
 #: ID:81
 msgid ""
@@ -3417,8 +3467,8 @@ msgstr "Dobbelt-klikk på filene ovenfor for å se dine forandringer"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "Til:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "Til: (slutt-URL og revisjon som gir omfanget av flettningen)"
 
 #: ID:7
 #: ID:3585
@@ -3741,6 +3791,11 @@ msgid "Visit our website"
 msgstr "Besøk vår hjemmeside"
 
 # ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "Advarsel"
+
+# ID:219,
 #: ID:219
 msgid "Warning!"
 msgstr "Advarsel!"
@@ -3842,11 +3897,11 @@ msgstr "Din fil:"
 
 #: ID:78
 msgid ""
-"Your working copy appears to be on a <b>tag</b> path!\n"
+"Your working copy appears to be on a tag path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"Din arbeidskopi ser ut til å være i en <b>merket</b> filsti!\n"
-"Du må først bytte til en gren eller til kodelageret for å sende inn."
+"Din arbeidskopi ser ut til å være i en merket filsti!\n"
+"Du må først bytte til en gren eller hoveddepoet før innsending."
 
 # ID:88,
 #: ID:88
@@ -3904,6 +3959,17 @@ msgid ""
 msgstr ""
 "bugtraq:label\n"
 "Tekst over redigeringsboksen hvor brukeren angir inn saks-nummeret."
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"to regulære uttrykk som er delt av et linjeskift\n"
+"Det første utrykket brukes for å finne en streng som referer til en sak (issue), det andre brukes for å trekke ut saks-IDen fra strengen."
 
 # ID:14,
 #: ID:14
@@ -4165,6 +4231,10 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "uke"
+
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "som peker til depoet på stien:"
 
 #: Control-ID:1112
 msgid "your version is:"
