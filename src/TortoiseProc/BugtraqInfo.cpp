@@ -22,10 +22,36 @@
 
 BugtraqInfo::BugtraqInfo(void)
 {
+	bNumber = TRUE;
 }
 
 BugtraqInfo::~BugtraqInfo(void)
 {
+}
+
+BOOL BugtraqInfo::ReadPropsTempfile(CString path)
+{
+	CString strLine;
+	try
+	{
+		CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
+		// for every selected file/folder
+		while (file.ReadString(strLine))
+		{
+			if (ReadProps(strLine))
+			{
+				file.Close();
+				return TRUE;
+			}
+		}
+		file.Close();
+	}
+	catch (CFileException* pE)
+	{
+		TRACE("CFileException in Commit!\n");
+		pE->Delete();
+	}
+	return FALSE;
 }
 
 BOOL BugtraqInfo::ReadProps(CString path)
@@ -55,20 +81,24 @@ BOOL BugtraqInfo::ReadProps(CString path)
 			if (sPropName.Compare(BUGTRAQPROPNAME_MESSAGE)==0)
 			{
 #ifdef UNICODE
-				sLabel = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+				sMessage = MultibyteToWide((char *)sPropVal.c_str()).c_str();
 #else
-				sLabel = sPropVal.c_str();
+				sMessage = sPropVal.c_str();
 #endif
-				sMessage = props.GetItemValue(i).c_str();
 				bFoundProps = TRUE;
 			}
-			if (sPropName.Compare(BUGTRAQPROPNAME_REGEX)==0)
+			if (sPropName.Compare(BUGTRAQPROPNAME_NUMBER)==0)
 			{
+				CString val;
 #ifdef UNICODE
-				sRegex = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
 #else
-				sRegex = sPropVal.c_str();
+				val = sPropVal.c_str();
 #endif
+				if (val.CompareNoCase(_T("false"))==0)
+					bNumber = FALSE;
+				else
+					bNumber = TRUE;
 				bFoundProps = TRUE;
 			}
 			if (sPropName.Compare(BUGTRAQPROPNAME_URL)==0)
@@ -85,9 +115,63 @@ BOOL BugtraqInfo::ReadProps(CString path)
 			return TRUE;
 		if (PathIsRoot(path))
 			return FALSE;
-		path = path.Mid(path.ReverseFind('\\'));
+		path = path.Left(path.ReverseFind('\\'));
 		if (!PathFileExists(path + _T("\\") + _T(SVN_WC_ADM_DIR_NAME)))
 			return FALSE;
 	}
 	return FALSE;		//never reached
 }
+
+BOOL BugtraqInfo::FindBugID(const CString& msg, int& offset1, int& offset2)
+{
+	if (sUrl.IsEmpty())
+		return FALSE;
+	//if we have a message format, we look for that in the last line of the log
+	//message only
+	if (!sMessage.IsEmpty())
+	{
+		CString sLastLine;
+		if (msg.ReverseFind('\n')>=0)
+			sLastLine = msg.Mid(msg.ReverseFind('\n')+1);
+		if (sMessage.Find(_T("%BUGID%"))<0)
+			return FALSE;
+		CString sFirstPart = sLastLine.Left(sMessage.Find(_T("%BUGID%")));
+		CString sLastPart = sLastLine.Mid(sMessage.Find(_T("%BUGID%"))+7);
+		CString sBugIDPart = sLastLine.Mid(sFirstPart.GetLength(), sLastLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
+		if (sBugIDPart.IsEmpty())
+			return FALSE;
+		offset1 = msg.GetLength() - sLastLine.GetLength() + sFirstPart.GetLength();
+		offset2 = offset1 + sBugIDPart.GetLength();
+		return TRUE;
+	}
+	return FALSE;
+}
+
+CString BugtraqInfo::GetBugIDUrl(const CString& msg)
+{
+	CString ret;
+	if (sUrl.IsEmpty())
+		return ret;
+	//if we have a message format, we look for that in the last line of the log
+	//message only
+	if (!sMessage.IsEmpty())
+	{
+		CString sLastLine;
+		if (msg.ReverseFind('\n')>=0)
+			sLastLine = msg.Mid(msg.ReverseFind('\n')+1);
+		if (sMessage.Find(_T("%BUGID%"))<0)
+			return ret;
+		CString sFirstPart = sLastLine.Left(sMessage.Find(_T("%BUGID%")));
+		CString sLastPart = sLastLine.Mid(sMessage.Find(_T("%BUGID%"))+7);
+		CString sBugIDPart = sLastLine.Mid(sFirstPart.GetLength(), sLastLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
+		if (sBugIDPart.IsEmpty())
+			return ret;
+		ret = sUrl;
+		ret.Replace(_T("%BUGID%"), sBugIDPart);
+	}
+	return ret;
+}
+
+
+
+

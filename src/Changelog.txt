@@ -1,5 +1,6 @@
 - ADD: "dry-run" option for the merge command. This solves
        issue 92. (Stefan)
+- ADD: Integration with bug/issuetrackers. (Stefan)
 - BUG: Diffing files without a file extension but with the
        path/URL having a dot in it could lead to a crash. (Stefan)
 - BUG: The language packs weren't used, even if checked in

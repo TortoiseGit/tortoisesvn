@@ -162,6 +162,11 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:ignore"));
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:keywords"));
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:eol-style"));
+
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:label"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:message"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:number"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:url"));
 				GetComboBoxInfo(hwndCombo, &cbInfo);
 			}
 			// Create a tooltip window
@@ -247,34 +252,55 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				{
 					LoadString(g_hResInst, IDS_TT_EXTERNALS, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
-				} // if (_tcscmp(name, _T("svn:externals"))==0) 
+				}
 				if (_tcscmp(name, _T("svn:executable"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_EXECUTABLE, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
-				} // if (_tcscmp(name, _T("svn:executable"))==0)
+				}
 				if (_tcscmp(name, _T("svn:mime-type"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_MIMETYPE, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
-				} // if (_tcscmp(name, _T("svn:mime-type"))==0) 
+				}
 				if (_tcscmp(name, _T("svn:ignore"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_IGNORE, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
-				} // if (_tcscmp(name, _T("svn:ignore"))==0) 
+				}
 				if (_tcscmp(name, _T("svn:keywords"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_KEYWORDS, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
 					nWindowWidth = 800;
-				} // if (_tcscmp(name, _T("svn:keywords"))==0)
+				}
 				if (_tcscmp(name, _T("svn:eol-style"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_EOLSTYLE, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
-				} // if (_tcscmp(name, _T("svn:eol-style"))==0) 
+				}
 				
+				if (_tcscmp(name, _T("bugtraq:label"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_BQLABEL, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+				if (_tcscmp(name, _T("bugtraq:message"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_BQMESSAGE, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+				if (_tcscmp(name, _T("bugtraq:number"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_BQNUMBER, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+				if (_tcscmp(name, _T("bugtraq:url"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_BQURL, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+
 				SendMessage(lpnmtdi->hdr.hwndFrom, TTM_SETMAXTIPWIDTH, 0, nWindowWidth);
 				delete [] name;
 			} // if (code == TTN_GETDISPINFO) 

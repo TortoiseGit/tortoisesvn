@@ -371,8 +371,8 @@ BEGIN
                     IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,13,84,271,10
     LTEXT           "Subversion configuration file:",IDC_STATIC,13,71,210,8
-    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,68,55,14
-    CONTROL         "Check for newer versions",IDC_CHECKNEWERVERSION,"Button",
+    PUSHBUTTON      "&Edit",IDC_EDITCONFIG,229,68,55,14
+    CONTROL         "Check for newer &versions",IDC_CHECKNEWERVERSION,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,116,179,10
     GROUPBOX        "Committing",IDC_COMMITGROUP,7,134,286,76
     CONTROL         "Set filedates to the ""last commit time""",
@@ -391,10 +391,8 @@ BEGIN
                     WS_TABSTOP
     LTEXT           "Minimum logsize in chars",IDC_STATIC,13,144,216,8
     EDITTEXT        IDC_MINLOGSIZE,239,142,40,12,ES_AUTOHSCROLL | ES_NUMBER
-    CONTROL         "Show BugID/Issue-Nr. Box",IDC_SHOWBUGIDBOX,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,196,271,10
-    PUSHBUTTON      "Clear Auth Cache",IDC_CLEARAUTH,196,111,88,14
-    CONTROL         "Paste Log template in english",IDC_ENGLISHTEMPLATE,
+    PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,196,111,88,14
+    CONTROL         "Paste Log &template in english",IDC_ENGLISHTEMPLATE,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,183,271,10
 END
 

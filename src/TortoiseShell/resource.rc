@@ -301,6 +301,10 @@ BEGIN
     IDS_COLDESCMIMETYPE     "Shows the mime type of the versioned file"
     IDS_DROPEXPORTMENU      "Subversion export here"
     IDS_DROPEXPORTEXTENDEDMENU "Subversion export all here"
+    IDS_TT_BQLABEL          "bugtraq:label\nLabel text to show for the edit box where the user enters the issue number."
+    IDS_TT_BQMESSAGE        "bugtraq:message\nString which is appended to a log message when an issue number is entered.\nThe string must contain ""%BUGID%"" which gets replaced with the issue number."
+    IDS_TT_BQNUMBER         "bugtraq:number\nSet to ""false"" if your bugtracking system has issues which are referenced not by numbers."
+    IDS_TT_BQURL            "bugtraq:url\nURL pointing to the issue tracker. It must contain ""%BUGID%"" which\ngets replaced with the issue number."
 END
 
 #endif    // English (U.S.) resources

@@ -178,7 +178,7 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 
 			//If this is a special Subversion property, it is stored as
 			//UTF8, so convert to the native format.
-			if (svn_prop_needs_translation (pname_utf8))
+			if ((svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0))
 			{
 				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
 				if (m_error != NULL)
@@ -223,7 +223,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 	pval = svn_string_create (Value, m_pool);
 
 	pname_utf8 = StringToUTF8(Name);
-	if (svn_prop_needs_translation (pname_utf8.c_str()))
+	if ((svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0))
 	{
 		m_error = svn_subst_translate_string (&pval, pval, NULL, m_pool);
 		if (m_error != NULL)

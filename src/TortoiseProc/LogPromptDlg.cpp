@@ -143,6 +143,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.Init(SVNSLC_COLSTATUS);
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
+	m_BugtraqInfo.ReadPropsTempfile(m_sPath);
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	DWORD dwThreadId;
@@ -155,7 +156,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	
-	if (CRegDWORD(_T("Software\\TortoiseSVN\\UseBugTracker"), FALSE) == FALSE)
+	if (m_BugtraqInfo.sMessage.IsEmpty())
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
@@ -165,7 +166,11 @@ BOOL CLogPromptDlg::OnInitDialog()
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
+		if (!m_BugtraqInfo.sLabel.IsEmpty())
+			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_BugtraqInfo.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
+		if (m_BugtraqInfo.bNumber)
+			GetDlgItem(IDC_BUGID)->ModifyStyle(NULL, ES_NUMBER);
 	}
 	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
@@ -288,7 +293,7 @@ void CLogPromptDlg::OnOK()
 	m_bBlock = FALSE;
 	if (!m_sBugID.IsEmpty())
 	{
-		CString sBugID = CRegString(_T("Software\\TortoiseSVN\\BugIDFormat"), _T("Bug-ID: %BUGID%"));
+		CString sBugID = m_BugtraqInfo.sMessage;
 		sBugID.Replace(_T("%BUGID%"), m_sBugID);
 		m_sLogMessage += _T("\n") + sBugID + _T("\n");
 		UpdateData(FALSE);		

@@ -39,7 +39,6 @@ CSetMainPage::CSetMainPage()
 	, m_bLastCommitTime(FALSE)
 	, m_bCheckNewer(TRUE)
 	, m_nMinLogSize(10)
-	, m_bShowBugBox(FALSE)
 	, m_bEnglishTemplate(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
@@ -53,7 +52,6 @@ CSetMainPage::CSetMainPage()
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
 	m_regMinLogSize = CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0);
-	m_regShowBugBox = CRegDWORD(_T("Software\\TortoiseSVN\\UseBugTracker"), FALSE);
 	m_regEnglishTemplate = CRegDWORD(_T("Software\\TortoiseSVN\\EnglishTemplate"), FALSE);
 }
 
@@ -79,7 +77,6 @@ void CSetMainPage::SaveData()
 	m_regFontSize = m_dwFontSize;
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 	m_regMinLogSize = m_nMinLogSize;
-	m_regShowBugBox = m_bShowBugBox;
 	m_regEnglishTemplate = m_bEnglishTemplate;
 }
 
@@ -108,7 +105,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
 	DDX_Text(pDX, IDC_MINLOGSIZE, m_nMinLogSize);
 	DDV_MinMaxUInt(pDX, m_nMinLogSize, 0, 100);
-	DDX_Check(pDX, IDC_SHOWBUGIDBOX, m_bShowBugBox);
 	DDX_Check(pDX, IDC_ENGLISHTEMPLATE, m_bEnglishTemplate);
 }
 
@@ -126,7 +122,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
 	ON_EN_CHANGE(IDC_MINLOGSIZE, OnEnChangeMinlogsize)
-	ON_BN_CLICKED(IDC_SHOWBUGIDBOX, OnBnClickedShowbugidbox)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
 	ON_BN_CLICKED(IDC_ENGLISHTEMPLATE, OnBnClickedEnglishtemplate)
 END_MESSAGE_MAP()
@@ -156,7 +151,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_dwFontSize = m_regFontSize;
 	m_bCheckNewer = m_regCheckNewer;
 	m_nMinLogSize = m_regMinLogSize;
-	m_bShowBugBox = m_regShowBugBox;
 	m_bEnglishTemplate = m_regEnglishTemplate;
 
 	CString temp;
@@ -172,8 +166,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_NOREMOVELOGMSG, IDS_SETTINGS_NOREMOVELOGMSG_TT);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
 	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
-	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
@@ -296,11 +288,6 @@ void CSetMainPage::OnBnClickedCommitfiletimes()
 }
 
 void CSetMainPage::OnBnClickedChecknewerversion()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedShowbugidbox()
 {
 	SetModified();
 }

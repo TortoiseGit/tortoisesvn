@@ -176,6 +176,10 @@ BOOL CLogDlg::OnInitDialog()
 		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
 
+	if (m_hasWC)
+	{
+		m_BugtraqInfo.ReadProps(m_path);
+	}
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
 	DWORD dwThreadId;
@@ -202,13 +206,26 @@ BOOL CLogDlg::OnInitDialog()
 	EnableSaveRestore(_T("LogDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
-	return FALSE;  // return TRUE unless you set the focus to a control
-	// EXCEPTION: OCX Property Pages should return FALSE
+	return FALSE;
 }
 
 void CLogDlg::FillLogMessageCtrl(CString msg, CString paths)
 {
-	GetDlgItem(IDC_MSGVIEW)->SetWindowText(msg);
+	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+	pMsgView->SetWindowText(msg);
+	int offset1, offset2;
+	if (m_BugtraqInfo.FindBugID(msg, offset1, offset2))
+	{
+		CHARRANGE range = {offset1, offset2};
+		pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+		CHARFORMAT2 format;
+		ZeroMemory(&format, sizeof(CHARFORMAT2));
+		format.cbSize = sizeof(CHARFORMAT2);
+		format.dwMask = CFM_LINK;
+		format.dwEffects = CFE_LINK;
+		pMsgView->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+	}
+
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
 	m_LogMsgCtrl.SetRedraw(FALSE);
@@ -338,16 +355,10 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 		{
 			message.Replace(_T("\n\r"), _T("\n"));
 			message.Replace(_T("\r\n"), _T("\n"));
-			message.Replace(_T("\n"), _T("\r\n"));
+			//message.Replace(_T("\n"), _T("\r\n"));
 			int pos = 0;
-			if (message.Right(2).Compare(_T("\r\n"))==0)
-				message = message.Left(message.GetLength()-2);
-			while (message.Find('\n', pos)>=0)
-			{
-				line++;
-				pos = message.Find('\n', pos);
-				pos = pos + 1;		// add "\r"
-			}
+			if (message.Right(1).Compare(_T("\n"))==0)
+				message = message.Left(message.GetLength()-1);
 		} // if (message.GetLength()>0)
 		m_arLogMessages.Add(message);
 		m_arLogPaths.Add(cpaths);
@@ -1331,14 +1342,19 @@ void CLogDlg::OnBnClickedHelp()
 void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
 	if (pNMLV->iItem >= 0)
 	{
 		int selIndex = pNMLV->iItem;
 		m_nSearchIndex = selIndex;
-		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
-		UpdateData(FALSE);
+		if (pNMLV->iSubItem != 0)
+			return;
+		if (pNMLV->uNewState & LVIS_SELECTED)
+		{
+			FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
+			UpdateData(FALSE);
+		}
 	}
-	*pResult = 0;
 }
 
 void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
@@ -1346,10 +1362,16 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 	ENLINK *pEnLink = reinterpret_cast<ENLINK *>(pNMHDR);
 	if (pEnLink->msg == WM_LBUTTONUP)
 	{
-		CString url;
-		GetDlgItem(IDC_MSGVIEW)->GetWindowText(url);
-		url = url.Mid(pEnLink->chrg.cpMin+1, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
-		ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
+		CString url, msg;
+		GetDlgItem(IDC_MSGVIEW)->GetWindowText(msg);
+		msg.Replace(_T("\r\n"), _T("\n"));
+		url = msg.Mid(pEnLink->chrg.cpMin, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
+		if (!::PathIsURL(url))
+		{
+			url = m_BugtraqInfo.GetBugIDUrl(msg);
+		}
+		if (!url.IsEmpty())
+			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 	}
 	*pResult = 0;
 }

@@ -126,6 +126,7 @@ CString SVN::GetLastErrorMessage()
 			break;
 		case SVN_ERR_WC_NOT_UP_TO_DATE:
 		case SVN_ERR_RA_OUT_OF_DATE:
+		case SVN_ERR_FS_TXN_OUT_OF_DATE:
 			// do an update first
 			temp.LoadString(IDS_SVNERR_UPDATEFIRST);
 			break;

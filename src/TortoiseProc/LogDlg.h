@@ -22,7 +22,7 @@
 #include "afxdlgs.h"
 #include "svn.h"
 #include "promptdlg.h"
-
+#include "BugtraqInfo.h"
 #include "Registry.h"
 #include "ResizableDialog.h"
 
@@ -101,6 +101,7 @@ protected:
 	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -141,8 +142,7 @@ private:
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
 	CFont		m_logFont;
-public:
-	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
+	BugtraqInfo m_BugtraqInfo;
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

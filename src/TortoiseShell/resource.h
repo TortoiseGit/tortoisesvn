@@ -3,7 +3,6 @@
 // Used by resource.rc
 //
 #define IDR_DLLMANIFEST                 2
-#define IDI_ICON5                       105
 #define IDI_MENU                        105
 #define IDD_PROPPAGE                    107
 #define IDI_APP                         108
@@ -131,6 +130,10 @@
 #define IDS_COLDESCMIMETYPE             217
 #define IDS_DROPEXPORTMENU              218
 #define IDS_DROPEXPORTEXTENDEDMENU      219
+#define IDS_TT_BQLABEL                  220
+#define IDS_TT_BQMESSAGE                221
+#define IDS_TT_BQNUMBER                 222
+#define IDS_TT_BQURL                    223
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -147,10 +150,8 @@
 #define IDC_EDITNAME                    1014
 #define IDC_EDITVALUE                   1015
 #define IDC_SHOWLOG                     1016
-#define IDC_REPOURL2                    1017
 #define IDC_RECURSIVE                   1018
 #define IDI_REPOBROWSE                  5145
-#define IDI_ICON4                       5146
 #define IDI_BLAME                       5146
 #define IDI_PATCH                       5147
 #define IDI_CREATEPATCH                 5150

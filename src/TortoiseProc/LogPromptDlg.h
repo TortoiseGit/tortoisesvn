@@ -22,6 +22,7 @@
 #include "..\\Utils\\Balloon.h"
 #include "SpellEdit.h"
 #include "SVNStatusListCtrl.h"
+#include "BugtraqInfo.h"
 #include "afxwin.h"
 
 /**
@@ -92,6 +93,7 @@ private:
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
+	BugtraqInfo		m_BugtraqInfo;
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);
