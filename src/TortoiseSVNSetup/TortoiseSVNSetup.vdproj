@@ -39,6 +39,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0267BC71B4FE431B928F583467648368"
+        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0267BC71B4FE431B928F583467648368"
+        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0267BC71B4FE431B928F583467648368"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_033E210AF464423F91C667712114E575"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -197,12 +215,6 @@
         {
         "MsmKey" = "8:_2256498C359F4843B8BF1875BD7C4DAB"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_25AF7AF019EF4E88823D21589F562A14"
-        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1203,24 +1215,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C6E07F67D2D649B095F5BC5C194A912A"
-        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C6E07F67D2D649B095F5BC5C194A912A"
-        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C6E07F67D2D649B095F5BC5C194A912A"
-        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C9F04F3111B84DA4846B2F7D2E8696EF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1395,6 +1389,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E43B1BE4638C4867B46D6D2C03CC2E81"
+        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E74DE904B485440EBD80AD01874612FA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1535,6 +1535,24 @@
         {
         "MsmKey" = "8:_FAFFA0A949EE493BA0A36790027958C0"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -6281,6 +6299,84 @@
             {
                 "Keys"
                 {
+                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_0F353B004ADA485782FFB5F4AD478840"
+                    {
+                    "Name" = "8:SYSTEM"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_3FB80A861DB84133BD8433B11D8C6836"
+                            {
+                            "Name" = "8:CurrentControlSet"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_72CDA9A785A64BF29601B06B089579F8"
+                                    {
+                                    "Name" = "8:Control"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_7DC42BC0BA5C494FA302A1E9FCB78D53"
+                                            {
+                                            "Name" = "8:Session Manager"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_DFFB77EE85AC41A4BA6A1F61D01BA738"
+                                                    {
+                                                    "Name" = "8:Environment"
+                                                    "Condition" = "8:"
+                                                    "AlwaysCreate" = "11:FALSE"
+                                                    "DeleteAtUninstall" = "11:FALSE"
+                                                    "Transitive" = "11:FALSE"
+                                                        "Keys"
+                                                        {
+                                                        }
+                                                        "Values"
+                                                        {
+                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_CE45D1C63A044E7F9507540BDCA445E7"
+                                                            {
+                                                            "Name" = "8:APR_ICONV_PATH"
+                                                            "Condition" = "8:"
+                                                            "Transitive" = "11:FALSE"
+                                                            "ValueTypes" = "3:1"
+                                                            "Value" = "8:[TARGETDIR]iconv"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                "Values"
+                                                {
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                        }
+                        "Values"
+                        {
+                        }
+                    }
                     "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_2DBA7DBD3F8C48A29FD9E5FBF5EE3F89"
                     {
                     "Name" = "8:Software"
@@ -6987,6 +7083,28 @@
             {
                 "Keys"
                 {
+                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_495396180FAF40B6A9BD74790E09C12B"
+                    {
+                    "Name" = "8:Environment"
+                    "Condition" = "8:"
+                    "AlwaysCreate" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:FALSE"
+                    "Transitive" = "11:FALSE"
+                        "Keys"
+                        {
+                        }
+                        "Values"
+                        {
+                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_80290F98C7E043308BD0A4F70790122E"
+                            {
+                            "Name" = "8:APR_ICONV_PATH"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "ValueTypes" = "3:1"
+                            "Value" = "8:[TARGETDIR]iconv"
+                            }
+                        }
+                    }
                     "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_C64BF3ABFE214061B0C6287553428962"
                     {
                     "Name" = "8:Software"
@@ -8494,11 +8612,11 @@
         }
         "MergeModule"
         {
-            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_25AF7AF019EF4E88823D21589F562A14"
+            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_0267BC71B4FE431B928F583467648368"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:vc_user_stl71_rtl_x86_---.msm"
+            "SourcePath" = "8:vc_user_crt71_rtl_x86_---.msm"
                 "Properties"
                 {
                 }
@@ -8508,11 +8626,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_C6E07F67D2D649B095F5BC5C194A912A"
+            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_E43B1BE4638C4867B46D6D2C03CC2E81"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:vc_user_crt71_rtl_x86_---.msm"
+            "SourcePath" = "8:vc_user_stl71_rtl_x86_---.msm"
                 "Properties"
                 {
                 }
