@@ -467,6 +467,8 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 				break;
 			case PATCHSTATE_ADDED:
 				{
+					if (lAddLine == 0)
+						lAddLine = 1;
 					PatchLines.InsertAt(lAddLine-1, sPatchLine);
 					lAddLine++;
 				}
