@@ -6,6 +6,9 @@
        icons completely with a registry setting. (Stefan)
 - ADD: Performance is now much better throughout the
        whole application. (Stefan)
+- CHG: The check for newer versions of TSVN is now
+       done in the background. The dialog only shows
+       up if a newer version is actually found. (Stefan)
 - CHG: Creating a patch is now possible from single files
        too and not just folders. (Stefan)
 - CHG: when setting properties fails, the error message

@@ -29,6 +29,8 @@ CCheckForUpdatesDlg::CCheckForUpdatesDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCheckForUpdatesDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_bShowInfo = FALSE;
+	m_bVisible = FALSE;
 }
 
 CCheckForUpdatesDlg::~CCheckForUpdatesDlg()
@@ -45,6 +47,8 @@ BEGIN_MESSAGE_MAP(CCheckForUpdatesDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_STN_CLICKED(IDC_CHECKRESULT, OnStnClickedCheckresult)
+	ON_WM_TIMER()
+	ON_WM_WINDOWPOSCHANGING()
 END_MESSAGE_MAP()
 
 
@@ -96,6 +100,7 @@ BOOL CCheckForUpdatesDlg::OnInitDialog()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
+	SetTimer(100, 1000, NULL);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -147,6 +152,7 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 				{
 					temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
 					pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+					pDlg->m_bShowInfo = TRUE;
 				}
 				else
 				{
@@ -182,4 +188,31 @@ void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 	{
 		result = ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.tigris.org"), NULL,NULL, SW_SHOWNORMAL);
 	}
+}
+
+void CCheckForUpdatesDlg::OnTimer(UINT nIDEvent)
+{
+	if (nIDEvent == 100)
+	{
+		if (m_bThreadRunning == FALSE)
+		{
+			if (m_bShowInfo)
+			{
+				m_bVisible = TRUE;
+				ShowWindow(SW_SHOWNORMAL);
+			}
+			else
+			{
+				EndDialog(0);
+			}
+		}
+	}
+	CDialog::OnTimer(nIDEvent);
+}
+
+void CCheckForUpdatesDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
+{
+	CDialog::OnWindowPosChanging(lpwndpos);
+	if (m_bVisible == FALSE)
+		lpwndpos->flags &= ~SWP_SHOWWINDOW;
 }

@@ -35,6 +35,8 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnStnClickedCheckresult();
+	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
@@ -44,6 +46,8 @@ protected:
 public:
 	HANDLE		m_hThread;
 	BOOL		m_bThreadRunning;
+	BOOL		m_bShowInfo;
+	BOOL		m_bVisible;
 };
 
 DWORD WINAPI CheckThread(LPVOID pVoid);

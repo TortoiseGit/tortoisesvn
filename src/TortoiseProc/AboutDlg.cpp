@@ -200,6 +200,6 @@ void CAboutDlg::OnBnClickedUpdate()
 	memset(&process, 0, sizeof(process));
 	TCHAR com[MAX_PATH+100];
 	GetModuleFileName(NULL, com, MAX_PATH);
-	_tcscat(com, _T(" /command:updatecheck"));
+	_tcscat(com, _T(" /command:updatecheck /visible"));
 	CreateProcess(NULL, com, NULL, NULL, FALSE, 0, 0, 0, &startup, &process);
 }
