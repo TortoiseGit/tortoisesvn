@@ -3,8 +3,9 @@
 	<title>Frequently Asked Questions (FAQ)</title>
 	<simplesect>
 		<para>
-	This appendix answers the questions we are asked the most on
-	the TortoiseSVN mailing list <email>dev@tortoisesvn.tigris.org</email>
+			This appendix answers the questions we are asked the most on
+			the TortoiseSVN mailing list
+			<email>dev@tortoisesvn.tigris.org</email>
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
@@ -16,45 +17,45 @@
 			<primary>install</primary>
 		</indexterm>
 		<para>
-		Most of these answers came from the
-		<application>TortoiseCVS</application>
+			Most of these answers came from the
 			<ulink url="http://www.tortoisecvs.org/faq.html">
-			<citetitle>FAQ</citetitle>
+			<citetitle>TortoiseCVS FAQ</citetitle>
 		</ulink>
 		</para>
 		<sect2 id="tsvn-faq-installation-0">
 			<title>The installer aborts with an error message</title>
 			<para>
-			If the msi installer shows you the error message <literal>The 
-			installer was interrupted before TortoiseSVN could be installed. 
-			You need to restart the installer to try again. Click "Close" 
-			to exit</literal> then the user SYSTEM doesn't
-			have read access to the folder where the msi file is located.
+				If the msi installer shows you the error message <literal>The 
+				installer was interrupted before TortoiseSVN could be installed. 
+				You need to restart the installer to try again. Click Close 
+				to exit</literal> then the user SYSTEM doesn't
+				have read access to the folder where the msi file is located.
 			</para>
 			<para>
-			Just move the msi file to another location, e.g. <filename>c:\</filename>
-			and try again.
+				Just move the msi file to another location, e.g.
+				<filename>c:\</filename> and try again.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-0A">
 			<title>I installed TortoiseSVN as Administrator. Now when I log in as me, it's not there</title>
 			<para>
-			When you started the installation you forgot to select the option
-			to "install for all users" instead of "just for me". The easiest
-			way to correct that is to uninstall, reboot, then reinstall.
+				When you started the installation you forgot to select the option
+				to <literal>install for all users</literal> instead of 
+				<literal>just for me</literal>. The easiest way to correct that
+				is to uninstall, reboot, then reinstall.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-00">
 			<title>When upgrading TortoiseSVN, do I have to uninstall the existing version first?</title>
 			<para>
-			No. You can just install the new version over the old one. The 
-			installer will take care of uninstalling the old version first
-			automatically.
+				No. You can just install the new version over the old one. The 
+				installer will take care of uninstalling the old version first
+				automatically.
 			</para>
 			<para>
-			But you <emphasis>must</emphasis> reboot your computer after
-			the installer finishes! Or at least you have to log off and log on
-			again. If you don't, TortoiseSVN will crash!
+				But you <emphasis>must</emphasis> reboot your computer after
+				the installer finishes! Or at least you have to log off and log on
+				again. If you don't, TortoiseSVN will crash!
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-1">
@@ -65,122 +66,155 @@
 			<para>
 				<itemizedlist>
 					<listitem>
-						<para>If you are using Windows 95 the icon 
-				overlays won't appear. You can try the instructions 
-				for Windows NT4 below if you like, but it may 
-				still not work. Please note: We don't support Windows 95 at
-				all - so there may be other issues if you're using that OS
-				</para>
+						<para>
+							If you are using Windows 95 the icon overlays won't
+							appear. You can try the instructions for Windows NT4
+							below if you like, but it may still not work.
+							Please note: We don't support Windows 95 at all -
+							so there may be other issues if you're using that OS
+						</para>
 					</listitem>
 					<listitem>
-						<para>If you are using Windows NT4, you 
-				need to install the IE4 shell or desktop extensions 
-				to get a more recent version of Explorer. 
-				To do this install IE4, and choose Yes to 
-				install the active desktop. Don't worry, you can 
-				turn off the actual active desktop later by right 
-				clicking on it. It's the new version of Explorer 
-				that we are after.</para>
+						<para>
+							If you are using Windows NT4, you need to install
+							the IE4 shell or desktop extensions to get a more
+							recent version of Explorer. 
+							To do this install IE4, and choose Yes to 
+							install the active desktop. Don't worry, you can 
+							turn off the actual active desktop later by right 
+							clicking on it. It's the new version of Explorer 
+							that we are after.
+						</para>
 					</listitem>
 					<listitem>
-						<para>If you've already installed IE5, 
-				you must either: 
-					<orderedlist>
+						<para>
+							If you've already installed IE5, you must either: 
+							<orderedlist>
 								<listitem>
-									<para>Uninstall IE5 and then install IE4 
-						with desktop extensions, and then install 
-						IE5 again. What a palaver.</para>
+									<para>
+										Uninstall IE5 and then install IE4 
+										with desktop extensions, and then
+										install IE5 again. What a palaver.
+									</para>
 								</listitem>
 								<listitem>
-									<para>Run IE5 setup with command line 
-						switches to install the IE4 desktop (shell) 
-						extensions.</para>
-									<para>The command must be run from the folder that 
-						contains the ie5setup.exe file. If the browser 
-						appears unstable afterwards just run the 
-						IE5 repair function.</para>
-									<para>For Win95: ie5setup.exe /c:"ie5wzd /e:IE4Shell WIN /I:Y"</para>
-									<para>For WinNT: ie5setup.exe /c:"ie5wzd /e:IE4Shell NTx86 /I:Y"</para>
+									<para>
+										Run IE5 setup with command line 
+										switches to install the IE4 desktop
+										(shell) extensions
+									</para>
+									<para>
+										The command must be run from the folder
+										that contains the
+										<filename>ie5setup.exe</filename> file.
+										If the browser appears unstable afterwards
+										just run the IE5 repair function.
+									</para>
+									<para>
+										For Win95:
+<screen>
+ie5setup.exe /c:"ie5wzd /e:IE4Shell WIN /I:Y"
+</screen>
+									</para>
+									<para>
+										For WinNT:
+<screen>
+ie5setup.exe /c:"ie5wzd /e:IE4Shell NTx86 /I:Y"
+</screen>
+									</para>
 								</listitem>
 							</orderedlist>
 						</para>
 					</listitem>
 					<listitem>
-						<para>For IE6:</para>
-						<para>Run IE6 setup with command line switches to install 
-				the IE4 desktop (shell) extensions. The same 
-				caveats apply as for IE5. The command must be run from the 
-				folder that contains the ie6setup.exe file. 
-				For WinNT: ie6setup.exe /c:"ie6wzd /e:IE4Shell NTx86 /I:Y" 
-				</para>
+						<para>
+							For IE6:
+						</para>
+						<para>
+							Run IE6 setup with command line switches to install 
+							the IE4 desktop (shell) extensions. The same 
+							caveats apply as for IE5. The command must be run from
+							the folder that contains the
+							<filename>ie6setup.exe</filename> file.
+						</para>
+						<para>
+							For WinNT:
+<screen>
+ie6setup.exe /c:"ie6wzd /e:IE4Shell NTx86 /I:Y"
+</screen>
+						</para>
 					</listitem>
 					<listitem>
-						<para>The shortcut labelled Win NT Explorer 
-				on your start menu probably points to 
-				<filename>C:\WINNT\explorer.scf</filename> and doesn't 
-				get the overlays. Create a new shortcut to
+						<para>
+							The shortcut labelled
+							<literal>Win NT Explorer</literal>
+							on your start menu probably points to 
+							<filename>C:\WINNT\explorer.scf</filename> and
+							doesn't get the overlays. Create a new shortcut to
 <screen>
 %windir%\Explorer.exe /n, /e
 </screen>
-				and it may get the overlays.</para>
+							and it may get the overlays.
+						</para>
 					</listitem>
 					<listitem>
-						<para>If you're using an IntelliPoint mouse 
-				driver, and launching Explorer via a mouse click, 
-				you need to upgrade from version 3 to version 3.2 or higher 
-				of IntelliPoint. Strangely, launching Explorer from the 
-				Start menu gives icons in this case, 
-				but not when launched from the mouse.</para>
+						<para>
+							If you're using an IntelliPoint mouse 
+							driver, and launching Explorer via a mouse click, 
+							you need to upgrade from version 3 to version 3.2 or higher 
+							of IntelliPoint. Strangely, launching Explorer from the 
+							Start menu gives icons in this case, 
+							but not when launched from the mouse.
+						</para>
 					</listitem>
 				</itemizedlist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-2">
-			<title>I followed the instructions, but there are 
-			still no icons?!?</title>
+			<title>I followed the instructions, but there are still no icons?!?</title>
 			<para>
-			You rebooted your PC off course?
-			So after installing the shell extensions you now 
-			have WinNT / Win95 and IE >= 5.5 installed?
+				You rebooted your PC off course?
+				So after installing the shell extensions you now 
+				have WinNT / Win95 and IE >= 5.5 installed?
 			</para>
 			<para>
-			If you installed TortoiseSVN as a different user 
-			under WinNT/Win2K/WinXP than you are using now, 
-			do the following thing: Go to the settings of TSVN and 
-			activate the icon overlays for at least the fixed 
-			drives. The installer does this automatically for the 
-			<emphasis>current</emphasis> user (can't do it for 
-			other users...) but since you are using TSVN as a 
-			different user than you installed it you need to 
-			set this manually.
+				If you installed TortoiseSVN as a different user 
+				under WinNT/Win2K/WinXP than you are using now, 
+				do the following thing: Go to the settings of TSVN and 
+				activate the icon overlays for at least the fixed 
+				drives. The installer does this automatically for the 
+				<emphasis>current</emphasis> user (can't do it for 
+				other users...) but since you are using TSVN as a 
+				different user than you installed it you need to 
+				set this manually.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-2-1">
 			<title>The overlay icons appear, but not all of them!</title>
 			<para>
-			This usually happens if you have other programs installed which
-			use icon overlays like e.g. TortoiseCVS. The reason for this is
-			that Windows only has 15 slots for icon overlays, and about three
-			or four are used by Windows itself (e.g. for links, shared folders, ...).
-			If all those slots are full then TortoiseSVN can't register another
-			one and won't show all overlays.
+				This usually happens if you have other programs installed which
+				use icon overlays like e.g. TortoiseCVS. The reason for this is
+				that Windows only has 15 slots for icon overlays, and about three
+				or four are used by Windows itself (e.g. for links, shared folders, ...).
+				If all those slots are full then TortoiseSVN can't register another
+				one and won't show all overlays.
 			</para>
 			<para>
-			TortoiseSVN uses five overlay slots for the status:
-			<graphic fileref="images/InSubVersionIcon.png"/>
-			normal
-			<graphic fileref="images/ModifiedIcon.png"/>
-			modified
-			<graphic fileref="images/ConflictIcon.png"/>
-			conflicted
-			<graphic fileref="images/DeletedIcon.png"/> 
-			deleted
-			<graphic fileref="images/AddedIcon.png"/> 
-			added
+				TortoiseSVN uses five overlay slots for the status:
+				<graphic fileref="images/InSubVersionIcon.png"/>
+				normal
+				<graphic fileref="images/ModifiedIcon.png"/>
+				modified
+				<graphic fileref="images/ConflictIcon.png"/>
+				conflicted
+				<graphic fileref="images/DeletedIcon.png"/> 
+				deleted
+				<graphic fileref="images/AddedIcon.png"/> 
+				added
 			</para>
 			<para>
-			So most likely the <literal>added</literal> overlay will be missing,
-			then the <literal>deleted</literal> and so on.
+				So most likely the <literal>added</literal> overlay will be
+				missing, then the <literal>deleted</literal> and so on.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-2-2">
@@ -188,14 +222,15 @@
 			<para>
 				For the same reason. There are only 15 slots for icon overlays available.
 				We don't want to waste a slot for the least important information. That's why.
-				If you want to distinguish <literal>unversioned</literal> and <literal>ignored</literal> files in the explorer,
-				switch to the explorers detailed view and activate the column <guilabel>SVN Status</guilabel>.
+				If you want to distinguish <literal>unversioned</literal> and
+				<literal>ignored</literal> files in the explorer, switch to the
+				explorers detailed view and activate the column
+				<guilabel>SVN Status</guilabel>.
 				Then you will see the difference.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-3">
-			<title>Why do the overlay icons sometimes 
-			change to random graphics?</title>
+			<title>Why do the overlay icons sometimes change to random graphics?</title>
 			<para>
 				The Windows icon cache is a fairly buggy creature. 
 				You can solve this in one of the following ways: 
@@ -212,23 +247,25 @@
 						</para>
 					</listitem>
 					<listitem>
-						<para>Or increase the icon cache size. 
-						Go to 
+						<para>
+							Or increase the icon cache size. Go to 
 <screen>
 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 </screen>
-						and add a new String Value called
-						<literal>Max Cached Icons</literal>.
-						The default value is 500 - try increasing it to 2048 (see 
-						<ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">
-							<citetitle>Q132668</citetitle>
-						</ulink>
-						in the Microsoft knowledge base for more details).
-					</para>
+							and add a new String Value called
+							<literal>Max Cached Icons</literal>.
+							The default value is 500 - try increasing it to 2048 (see 
+							<ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">
+								<citetitle>Q132668</citetitle>
+							</ulink>
+							in the Microsoft knowledge base for more details).
+						</para>
 					</listitem>
 					<listitem>
-						<para>Or delete the file called ShellIconCache 
-				in your Windows directory. And reboot.</para>
+						<para>
+							Or delete the file called ShellIconCache 
+							in your Windows directory. And reboot.
+						</para>
 					</listitem>
 				</itemizedlist>
 			</para>
@@ -236,25 +273,29 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 		<sect2 id="tsvn-faq-installation-4">
 			<title>Those icons are grotesque, I want better ones!</title>
 			<para>
-			You can create your own icon set if you want. And if you do 
-			please contribute them to the rest of the world! Just send them
-			to the mailing list <email>dev@tortoisesvn.tigris.org</email>.
+				You can create your own icon set if you want. And if you do 
+				please contribute them to the rest of the world! Just send them
+				to the mailing list <email>dev@tortoisesvn.tigris.org</email>.
 			</para>
 			<para>
-			The icons should have at least two sizes (16x16 and 32x32 
-			with 16 colors), for Windows XP there should also be a 
-			set with 48x48 pixels.
+				The icons should have at least two sizes (16x16 and 32x32 
+				with 16 colors), for Windows XP there should also be a 
+				set with 48x48 pixels.
 			</para>
 			<para>
-			To install the icons you should copy them to the 
-			directory where TortoiseSVN was installed. There you 
-			can either replace the existing icons or give them 
-			new names. If you choose not to overwrite the original 
-			ones then you also need to tweak some registry settings. 
-			Under <filename>HKCU\Software\TortoiseSVN\</filename> change 
-			the keys <literal>ConflictIcon</literal>, <literal>InSubversionIcon</literal>, 
-			<literal>AddedIcon</literal>, <literal>DeletedIcon</literal> and <literal>ModifiedIcon</literal> 
-			to the path and names of your own icon set.
+				To install the icons you should copy them to the 
+				directory where TortoiseSVN was installed. There you 
+				can either replace the existing icons or give them 
+				new names. If you choose not to overwrite the original 
+				ones then you also need to tweak some registry settings. 
+				Under <filename>HKCU\Software\TortoiseSVN\</filename> change 
+				the keys
+				<literal>ConflictIcon</literal>,
+				<literal>InSubversionIcon</literal>,
+				<literal>AddedIcon</literal>,
+				<literal>DeletedIcon</literal> and
+				<literal>ModifiedIcon</literal> 
+				to the path and names of your own icon set.
 			</para>
 			<para>
 				After that you need to restart (or logoff) your computer 
@@ -271,12 +312,10 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-5">
-			<title>
-The TortoiseSVN menu is missing when nothing is selected!
-			</title>
+			<title>The TortoiseSVN menu is missing when nothing is selected!</title>
 			<para>
-			The main menu is known to disappear under Windows 98, ME, 
-			NT and 2000. Everything works fine under XP.
+				The main menu is known to disappear under Windows 98, ME, 
+				NT and 2000. Everything works fine under XP.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-5a">
@@ -285,100 +324,98 @@ The TortoiseSVN menu is missing when nothing is selected!
 				(no icons, no text) in some software
 			</title>
 			<para>
-			This is because the icons are completely ownerdrawn. 
+				This is because the icons are completely ownerdrawn. 
 			</para>
 			<para>
-			I you don't like the way TSVN handles it's menu entries, 
-			you can do the following: Just create a (DWORD) 
-			registry entry under: 
+				I you don't like the way TSVN handles it's menu entries, 
+				you can do the following: Just create a (DWORD) 
+				registry entry under: 
 <screen>
 HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 </screen>
-			and set it to 0. This will force TortoiseSVN to use the 
-			windows standard routine to draw menu entries. 
-			You'll have all the menu entries any time, but you will 
-			have ugly icons, since window's default only allows 
-			10x10 icons. If you delete this registry key (the default) 
-			or set it to something else than 0 you have the nice 
-			icons back. 
+				and set it to <literal>0</literal>. This will force TortoiseSVN
+				to use the windows standard routine to draw menu entries. 
+				You'll have all the menu entries any time, but you will 
+				have ugly icons, since window's default only allows 
+				10x10 icons. If you delete this registry key (the default) 
+				or set it to something else than <literal>0</literal>
+				you have the nice icons back. 
 			</para>
 			<para>
-			In case you want no icons at all you can set this value to 2. Then
-			the context menu entries show up as text only.
+				In case you want no icons at all you can set this value to
+				<literal>2</literal>. Then the context menu entries show up as text only.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-6">
 			<title>How do I uninstall TortoiseSVN?</title>
 			<para>
-			Simply uninstall from Add/Remove Programs in the Windows 
-			control panel. This does not effect your repositories or 
-			working copies at all. Be aware however, that the 
-			subversion database schema might change before 
-			subversion 1.0 is released. When you are working with 
-			local repositories (<filename>file:///</filename> URLs), a 
-			newer version of TortoiseSVN might be incompatible to 
-			an old repository. Please check the subversion release notes. 
+				Simply uninstall from Add/Remove Programs in the Windows 
+				control panel. This does not effect your repositories or 
+				working copies at all. Be aware however, that the 
+				subversion database schema might change before 
+				subversion 1.0 is released. When you are working with 
+				local repositories (<filename>file:///</filename> URLs), a 
+				newer version of TortoiseSVN might be incompatible to 
+				an old repository. Please check the subversion release notes. 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-7">
-			<title>I installed a new version of TortoiseSVN, but 
-			the new functions aren't visible?!?</title>
+			<title>I installed a new version of TortoiseSVN, but the new functions aren't visible?!?</title>
 			<para>
-			TortoiseSVN is a Windows explorer shell extension. 
-			So after updating you <emphasis>must</emphasis> restart 
-			windows or at least the explorer process. 
-			If you don't then the the explorer process still has the old 
-			version of the dll loaded in RAM and uses that old version... 
+				TortoiseSVN is a Windows explorer shell extension. 
+				So after updating you <emphasis>must</emphasis> restart 
+				windows or at least the explorer process. 
+				If you don't then the the explorer process still has the old 
+				version of the dll loaded in RAM and uses that old version... 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-8">
-			<title>Can I use TortoiseCVS and TortoiseSVN 
-			on the same computer?</title>
+			<title>Can I use TortoiseCVS and TortoiseSVN on the same computer?</title>
 			<para>
-			Yes they can live happily together on the same PC. 
-			You can even use them on the same folder if that 
-			makes any sense to you.
+				Yes they can live happily together on the same PC. 
+				You can even use them on the same folder if that 
+				makes any sense to you.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-9">
-			<title>I've got PowerDesk 5 installed 
-			and TSVN doesn't work on my PC</title>
+			<title>I've got PowerDesk 5 installed and TSVN doesn't work on my PC</title>
 			<para>
-			Well, in this case Powerdesk is the bad guy.
+				Well, in this case Powerdesk is the bad guy.
 			</para>
 			<para>
-			We sent an assistance request to the people from 
-			PD and this is their response (Thanks guys):
-			<blockquote>
+				We sent an assistance request to the people from 
+				PD and this is their response (Thanks guys):
+				<blockquote>
 					<para>
-				For now, we suggest the users of the Tortoise shell 
-				extension may wish to save off the PD context menu key, 
-				and temporarily delete it from the registry while 
-				we work on a fix to the PD code. The PD context menu 
-				key is here:
+						For now, we suggest the users of the Tortoise shell 
+						extension may wish to save off the PD context menu key, 
+						and temporarily delete it from the registry while 
+						we work on a fix to the PD code. The PD context menu 
+						key is here:
 <screen>
 [HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\PowerDeskMenu]
 </screen>
-				Hopefully, removing that key will prevent a shell crash 
-				when both apps are on the system. Unfortunately, this 
-				will disable the PowerDesk features of the user's 
-				shell context menu. We believe the problem to be inside 
-				the PD code as we have seen other shell extensions run 
-				into similar problems when PD5 is installed. We are 
-				working on a fix and we will provide a patch ASAP.
-				</para>
+						Hopefully, removing that key will prevent a shell crash 
+						when both apps are on the system. Unfortunately, this 
+						will disable the PowerDesk features of the user's 
+						shell context menu. We believe the problem to be inside 
+						the PD code as we have seen other shell extensions run 
+						into similar problems when PD5 is installed. We are 
+						working on a fix and we will provide a patch ASAP.
+					</para>
 				</blockquote>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-10">
 			<title>Where is the spellchecker?</title>
 			<para>
-		If you want to use a spellchecker when entering your log messages
-		please follow the installation instructions here: 
-		<xref linkend="tsvn-ch-1-sect-4"/>
+				If you want to use a spellchecker when entering your log messages
+				please follow the installation instructions here: 
+				<xref linkend="tsvn-ch-1-sect-4"/>
 			</para>
 		</sect2>
 	</sect1>
+	<!-- INDENTATION CORRECTIONS DONE UP TO HERE -->
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 2 ============================== -->
 	<!-- ================================================================= -->

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <preface id="tsvn_preface">
 	<title>Preface</title>
 	<simplesect>
@@ -10,19 +11,25 @@
 					<para>Do you work in a team?</para>
 				</listitem>
 				<listitem>
-					<para>Has it ever happened to you that you were working
+					<para>
+						Has it ever happened to you that you were working
 						on a file, and someone else was working on the same
 						file? Did you lose your changes to that file 'cause
-						of that?</para>
+						of that?
+					</para>
 				</listitem>
 				<listitem>
-					<para>Have you ever saved a file, and then wanted to
+					<para>
+						Have you ever saved a file, and then wanted to
 						revert the changes you made? Have you ever wished you
-						could see what a file looked like some time ago?</para>
+						could see what a file looked like some time ago?
+					</para>
 				</listitem>
 				<listitem>
-					<para>Have you ever found a bug in your project and
-						wanted to know when that bug got into your files?</para>
+					<para>
+						Have you ever found a bug in your project and
+						wanted to know when that bug got into your files?
+					</para>
 				</listitem>
 			</itemizedlist>
 		</para>
@@ -38,15 +45,15 @@
 	<sect1 id="tsvn-ch-0-sect-1">
 		<title>Audience</title>
 		<para>
-		This book is written for computer literate folk who want to
-		use Subversion to manage their data, but are uncomfortable using the
-		command line client to do so. Since TortoiseSVN is a windows shell
-		extension it's assumed that the user is familiar with the windows
-		explorer and knows how to use it.
+			This book is written for computer literate folk who want to
+			use Subversion to manage their data, but are uncomfortable using the
+			command line client to do so. Since TortoiseSVN is a windows shell
+			extension it's assumed that the user is familiar with the windows
+			explorer and knows how to use it.
 		</para>
 		<para>
-		Even most Subversion users will never have to set up a server
-		themselves a whole chapter deals with how to set up such a server.
+			Even most Subversion users will never have to set up a server
+			themselves. A whole chapter deals with how to set up such a server.
 		</para>
 	</sect1>
 	<!-- =================================================================== -->
@@ -61,11 +68,14 @@
 		<para>
 			TortoiseSVN is an Open Source project. That means you have full
 			access to the source code of this program. You can browse it
-			on this link <ulink url="http://svn.collab.net/repos/tortoisesvn/">
+			on this link
+			<ulink url="http://svn.collab.net/repos/tortoisesvn/">
 				<citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle>
-			</ulink>. The most recent version (where we're working on) is
-			located under <emphasis>/trunk/</emphasis>, the released versions
-			are located under <emphasis>/tags/</emphasis>.
+			</ulink>.
+			The most recent version (where we're working on) is
+			located under <emphasis><filename>/trunk/</filename></emphasis>,
+			the released versions are located under
+			<emphasis><filename>/tags/</filename></emphasis>.
 		</para>
 	</sect1>
 	<!-- =================================================================== -->
@@ -87,52 +97,53 @@
 		<title>Acknowledgments</title>
 		<variablelist>
 			<varlistentry>
-				<term>
-						Tim Kemp
-					</term>
+				<term>Tim Kemp</term>
 				<listitem>
-					<para>for founding the TortoiseSVN project</para>
+					<para>
+						for founding the TortoiseSVN project
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>
-						Stefan Küng
-					</term>
+				<term>Stefan Küng</term>
 				<listitem>
-					<para>for the hard work to get TortoiseSVN to what it is now</para>
+					<para>
+						for the hard work to get TortoiseSVN to what it is now
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>
-						Lübbe Onken
-					</term>
+				<term>Lübbe Onken</term>
 				<listitem>
-					<para>for the beautiful icons, logo, bughunting and taking care of the documentation</para>
+					<para>
+						for the beautiful icons, logo, bughunting and taking care
+						of the documentation
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>
-						The Subversion Book
-					</term>
+				<term>The Subversion Book</term>
 				<listitem>
-					<para>for the great introduction to Subversion and its
-						chapter 2 which we copied here</para>
+					<para>
+						for the great introduction to Subversion and its
+						chapter 2 which we copied here
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>
-						The Tigris Style project
-					</term>
+				<term>The Tigris Style project</term>
 				<listitem>
-					<para>for some of the styles which are reused in this documentation</para>
+					<para>
+						for some of the styles which are reused in this documentation
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term>
-						Our Contributors
-					</term>
+				<term>Our Contributors</term>
 				<listitem>
-					<para>for many hours of joy with the music they sent us</para>
+					<para>
+						for many hours of joy with the music they sent us
+					</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
@@ -143,46 +154,55 @@
 	<sect1 id="tsvn-ch-0-sect-5">
 		<title>Terminology used in this document</title>
 		<para>
-		To make reading the docs easier, the names of all the screens and Menus 
-    from TortoiseSVN are marked up in a different font.
-    The <guilabel>Log Dialog</guilabel> for instance.
-    </para>
+			To make reading the docs easier, the names of all the screens and Menus 
+			from TortoiseSVN are marked up in a different font.
+			The <guilabel>Log Dialog</guilabel> for instance.
+		</para>
 		<para>
-    A menu choice  is indicated with an arrow.
-    <menuchoice>
+			A menu choice is indicated with an arrow.
+			<menuchoice>
 				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Show Log</guimenuitem>
-			</menuchoice> means: select <emphasis>Show Log</emphasis> from the
-    <emphasis>TortoiseSVN</emphasis> context menu.
-    </para>
+			</menuchoice>
+			means: select <emphasis>Show Log</emphasis> from the
+			<emphasis>TortoiseSVN</emphasis> context menu.
+		</para>
 		<para>
-		User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton>
-		to continue.
-    </para>
+			User Interface Buttons are indicated like this:
+			Press <guibutton>OK</guibutton> to continue.
+		</para>
 		<para>
-    User Actions are indicated using a bold font.
-    <action>ALT+A</action>: press the
-    <keycap>ALT</keycap>-Key on your keyboard and while holding it down press the
-    <keycap>A</keycap>-Key as well.
-    <action>Right-drag</action>: press the right mouse button and while holding it down
-    <emphasis>drag</emphasis> the items to the new location.
-    </para>
+			User Actions are indicated using a bold font.
+			<action>ALT+A</action>: press the
+			<keycap>ALT</keycap>-Key on your keyboard and while holding it down
+			press the <keycap>A</keycap>-Key as well.
+			<action>Right-drag</action>: press the right mouse button and while
+			holding it down <emphasis>drag</emphasis> the items to the new location.
+		</para>
 		<para>
-    System output and keyboard input is indicated with a <literal>different</literal>
-    font as well.
-    </para>
+			System output and keyboard input is indicated with a
+			<literal>different</literal> font as well.
+		</para>
 		<important>
-			<para>Important notes are marked with an icon.</para>
+			<para>
+				Important notes are marked with an icon.
+			</para>
 		</important>
 		<tip>
-			<para>Tips that make your life easier.</para>
+			<para>
+				Tips that make your life easier.
+			</para>
 		</tip>
 		<caution>
-			<para>Places where you have to be careful what you are doing.</para>
+			<para>
+				Places where you have to be careful what you are doing.
+			</para>
 		</caution>
 		<warning>
-			<para>Where extreme care has to be taken, data corruption or other nasty things may 
-    occur if these warnings are ignored.</para>
+			<para>
+				Where extreme care has to be taken, data corruption or other
+				nasty things may occur if these warnings are ignored.
+			</para>
 		</warning>
 	</sect1>
 </preface>

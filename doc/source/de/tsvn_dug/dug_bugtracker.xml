@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-bugtracker">
 	<title>Integration mit einem Bugtracking System</title>
 	<indexterm>
@@ -65,9 +65,10 @@
 				<listitem>
 					<para>
 						Auf <literal>true</literal> gesetzt, werden, ausser dem Komma nur Zahlen 
-						im Bugtracking Eingabefeld akzeptiert. 
-						Gültige Werte: <literal>true/false</literal>. <emphasis>Wenn keine 
-						Eigenschaft definiert ist, wird <literal>true</literal> angenommen.</emphasis>
+						im Bugtracking Eingabefeld akzeptiert. <literal>False</literal>
+						erlaubt auch die Eingabe von Buchstaben.
+						Gültige Werte: <literal>true/false</literal>. Wenn keine 
+						Eigenschaft definiert ist, wird <literal>true</literal> angenommen.
 					</para>
 				</listitem>
 			</varlistentry>
