@@ -107,7 +107,7 @@ msgstr ""
 msgid "&CD-ROM"
 msgstr ""
 
-#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr ""
 
@@ -124,7 +124,8 @@ msgid "&Edit..."
 msgstr ""
 
 #: Control-ID:1023,
-msgid "&Enable Proxy Server"
+msgid "&Enable Proxy Server (Don't use the IE "
+"settings)"
 msgstr ""
 
 #: Control-ID:1092,
@@ -139,15 +140,23 @@ msgstr ""
 msgid "&Fixed drives"
 msgstr ""
 
-#: Control-ID:65535,#: Control-ID:65535,
+#: Control-ID:65535,
 msgid "&From Revision"
 msgstr ""
 
-#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
+#: Control-ID:65535,
+msgid "&From URL:"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "&From WC at URL:"
+msgstr ""
+
+#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1115,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
 msgid "&Head Revision"
 msgstr ""
 
-#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:57670,#: Control-ID:57670,#: MenuEntry
+#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:57670,#: Control-ID:57670,#: MenuEntry
 msgid "&Help"
 msgstr ""
 
@@ -172,7 +181,8 @@ msgid "&Merge"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "&Merge current branch with:"
+msgid "&Merge changes into the current working copy from "
+"URL:"
 msgstr ""
 
 #: Control-ID:1012,
@@ -191,7 +201,7 @@ msgstr ""
 msgid "&Next Difference"
 msgstr ""
 
-#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr ""
 
@@ -199,7 +209,7 @@ msgstr ""
 msgid "&Open Ctrl-O"
 msgstr ""
 
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:65535,
 msgid "&Password:"
 msgstr ""
 
@@ -219,7 +229,7 @@ msgstr ""
 msgid "&Remove"
 msgstr ""
 
-#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,
+#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,
 msgid "&Revision"
 msgstr ""
 
@@ -235,16 +245,20 @@ msgstr ""
 msgid "&Set"
 msgstr ""
 
-#: Control-ID:1031,
-msgid "&Show Log..."
-msgstr ""
-
 #: MenuEntry
 msgid "&Status Bar"
 msgstr ""
 
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "&To Revision"
+msgstr ""
+
+#: Control-ID:65535,#: Control-ID:65535,
+msgid "&To URL:"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "&To URL: "
 msgstr ""
 
 #: MenuEntry
@@ -259,7 +273,7 @@ msgstr ""
 msgid "&Undo\tCtrl+Z"
 msgstr ""
 
-#: Control-ID:65535,
+#: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
 msgid "&Username:"
 msgstr ""
 
@@ -858,14 +872,14 @@ msgid "Could not open the file\n"
 "%s"
 msgstr ""
 
-#: ID:66,
-msgid "Could not retreive version %s of the file %s.\n"
-"Patching is not possible!"
-msgstr ""
-
 #: ID:81,
 msgid "Could not retrieve URL of the file!\n"
 "%s"
+msgstr ""
+
+#: ID:66,
+msgid "Could not retrieve version %s of the file %s.\n"
+"Patching is not possible!"
 msgstr ""
 
 #: ID:64,
@@ -1201,16 +1215,12 @@ msgstr ""
 msgid "Fetching version %s of file:"
 msgstr ""
 
-#: ID:63,#: ID:74,#: ID:77,
+#: ID:63,#: ID:74,#: ID:77,#: ID:207,
 msgid "File"
 msgstr ""
 
 #: Dlg-ID:135,
 msgid "File Patches"
-msgstr ""
-
-#: Control-ID:1031,
-msgid "Find"
 msgstr ""
 
 #: ID:3603,
@@ -1235,11 +1245,7 @@ msgid "For Help, press F1"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "From URL:"
-msgstr ""
-
-#: Control-ID:65535,
-msgid "From WC at URL:"
+msgid "From:"
 msgstr ""
 
 #: Dlg-ID:107,
@@ -1286,6 +1292,11 @@ msgstr ""
 
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "Icons/Design/Code:     Luebbe Onken"
+msgstr ""
+
+#: ID:194,
+msgid "If activated, prevents the overlays from showing in \"save as..\" or "
+"\"open\" dialogs"
 msgstr ""
 
 #: ID:95,
@@ -1474,6 +1485,10 @@ msgstr ""
 msgid "Mime Type"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Minimum logsize in chars"
+msgstr ""
+
 #: Control-ID:1082,#: Control-ID:1023,
 msgid "Misc"
 msgstr ""
@@ -1610,7 +1625,7 @@ msgstr ""
 msgid "PKCS12"
 msgstr ""
 
-#: ID:69,#: Control-ID:65535,
+#: ID:69,
 msgid "Password:"
 msgstr ""
 
@@ -1716,10 +1731,10 @@ msgid "Program"
 msgstr ""
 
 #: ID:157,
-msgid "Programs (*.exe)|*.*|All Files (*.*)|*.*||"
+msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr ""
 
-#: Control-ID:65535,
+#: Control-ID:65535,#: Dlg-ID:177,
 msgid "Properties"
 msgstr ""
 
@@ -1729,6 +1744,10 @@ msgstr ""
 
 #: Dlg-ID:107,
 msgid "Property Page"
+msgstr ""
+
+#: ID:207,
+msgid "Property Status"
 msgstr ""
 
 #: Control-ID:65535,
@@ -1799,8 +1818,16 @@ msgstr ""
 msgid "Relocating..."
 msgstr ""
 
-#: ID:63,
+#: ID:207,
+msgid "Remote Property Status"
+msgstr ""
+
+#: ID:63,#: ID:207,
 msgid "Remote Status"
+msgstr ""
+
+#: ID:207,
+msgid "Remote Text Status"
 msgstr ""
 
 #: Control-ID:65535,
@@ -1858,6 +1885,11 @@ msgstr ""
 msgid "Resolve"
 msgstr ""
 
+#: Control-ID:1067,
+msgid "Resolve conflicted subversion status on "
+"save"
+msgstr ""
+
 #: ID:8,
 msgid "Resolved"
 msgstr ""
@@ -1878,7 +1910,7 @@ msgstr ""
 msgid "Retry"
 msgstr ""
 
-#: ID:8,#: ID:73,
+#: ID:8,#: ID:73,#: Dlg-ID:175,
 msgid "Revert"
 msgstr ""
 
@@ -1891,7 +1923,7 @@ msgid "Reverts all changes you made since the last "
 "update"
 msgstr ""
 
-#: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
+#: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Revision"
 msgstr ""
 
@@ -2028,12 +2060,8 @@ msgstr ""
 msgid "Seek failed on %1"
 msgstr ""
 
-#: Control-ID:1067,#: Control-ID:1067,
+#: Control-ID:1067,#: Control-ID:1067,#: Control-ID:1067,
 msgid "Select / Deselect &All"
-msgstr ""
-
-#: ID:78,
-msgid "Select An SSH Client"
 msgstr ""
 
 #: ID:78,
@@ -2044,8 +2072,16 @@ msgstr ""
 msgid "Select File..."
 msgstr ""
 
+#: ID:78,
+msgid "Select Merge Application"
+msgstr ""
+
 #: Dlg-ID:173,
 msgid "Select Revision"
+msgstr ""
+
+#: ID:78,
+msgid "Select SSH Client"
 msgstr ""
 
 #: ID:79,
@@ -2054,10 +2090,6 @@ msgstr ""
 
 #: ID:78,
 msgid "Select Viewer for Diff-Files"
-msgstr ""
-
-#: ID:78,
-msgid "Select a Merge Application"
 msgstr ""
 
 #: ID:3585,
@@ -2111,6 +2143,14 @@ msgstr ""
 msgid "Short Url of subversion items"
 msgstr ""
 
+#: Control-ID:1031,#: Control-ID:1034,
+msgid "Show &Log"
+msgstr ""
+
+#: Control-ID:1031,
+msgid "Show &Log..."
+msgstr ""
+
 #: Control-ID:1016,
 msgid "Show &log"
 msgstr ""
@@ -2136,6 +2176,10 @@ msgid "Show Log"
 msgstr ""
 
 #: ID:101,
+msgid "Show Properties"
+msgstr ""
+
+#: ID:101,
 msgid "Show log"
 msgstr ""
 
@@ -2147,6 +2191,10 @@ msgstr ""
 #: ID:3713,
 msgid "Show or hide the toolbar\n"
 "Toggle ToolBar"
+msgstr ""
+
+#: Control-ID:1088,
+msgid "Show overlays only in explorer"
 msgstr ""
 
 #: ID:2049,
@@ -2196,7 +2244,7 @@ msgid "Split the active window into panes\n"
 "Split"
 msgstr ""
 
-#: ID:74,#: ID:77,
+#: ID:74,#: ID:77,#: ID:207,
 msgid "Status"
 msgstr ""
 
@@ -2206,6 +2254,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Subversion configuration file:"
+msgstr ""
+
+#: ID:14,
+msgid "Subversion export here"
 msgstr ""
 
 #: ID:79,
@@ -2268,6 +2320,10 @@ msgstr ""
 
 #: ID:79,
 msgid "Tagged the working copy to %s"
+msgstr ""
+
+#: ID:207,
+msgid "Text Status"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2418,29 +2474,18 @@ msgstr ""
 msgid "Three File Diff"
 msgstr ""
 
-#: Control-ID:65535,#: Control-ID:65535,
-msgid "To &URL:"
-msgstr ""
-
 #: Control-ID:65535,
-msgid "To &URL: "
-msgstr ""
-
-#: Control-ID:65535,
-msgid "To merge a complete branch back into the trunk you have to specify "
-"the revision the branch was created and "
-"HEAD."
-msgstr ""
-
-#: Control-ID:65535,
-msgid "To merge only specific changes from the other branch you have to "
-"specify the revisions between which the change "
-"occured."
+msgid "To merge changes from a specific branch, you must put the same URL in "
+"both \"From:\" and \"To:\" fields."
 msgstr ""
 
 #: Control-ID:1052,
 msgid "To see the changes you made, double click on the files "
 "above."
+msgstr ""
+
+#: Control-ID:65535,
+msgid "To:"
 msgstr ""
 
 #: ID:7,#: ID:3585,#: Dlg-ID:130,
@@ -2582,6 +2627,10 @@ msgid "Updates the working copy to the current "
 "revision"
 msgstr ""
 
+#: ID:207,
+msgid "Url"
+msgstr ""
+
 #: ID:144,
 msgid "Url:"
 msgstr ""
@@ -2637,7 +2686,7 @@ msgstr ""
 msgid "User cancelled"
 msgstr ""
 
-#: ID:69,#: Control-ID:1005,#: Control-ID:65535,
+#: ID:69,
 msgid "Username:"
 msgstr ""
 
@@ -2690,7 +2739,7 @@ msgid "Yes to all"
 msgstr ""
 
 #: ID:201,
-msgid "You already have to most current version "
+msgid "You already have the most current version "
 "installed."
 msgstr ""
 
@@ -2712,8 +2761,8 @@ msgstr ""
 
 #: ID:77,
 msgid "You selected an unversioned file.\n"
-"The file will be added to version control before "
-"committing."
+"The file will be added to version control when you "
+"commit."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2830,12 +2879,12 @@ msgid "save authentication"
 msgstr ""
 
 #: ID:14,
-msgid "svn:eol-styler\n"
+msgid "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 
 #: ID:14,
-msgid "svn:executabler\n"
+msgid "svn:executable\n"
 "If present, make the file executable. This property cannot be set on "
 "a directory. A non-recursive attempt will fail, and a recursive "
 "attempt will set the property only on the file children of the "
@@ -2843,33 +2892,33 @@ msgid "svn:executabler\n"
 msgstr ""
 
 #: ID:14,
-msgid "svn:externalsr\n"
+msgid "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists "
 "of a relative directory path, optional revision flags, and an URL. "
-"For exampler\n"
-"foo\t\thttp://example.com/repos/zigr\n"
+"For example\n"
+"foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 
 #: ID:14,
-msgid "svn:ignorer\n"
+msgid "svn:ignore\n"
 "A newline separated list of file patterns to "
 "ignore."
 msgstr ""
 
 #: ID:14,
-msgid "svn:keywordsr\n"
-"Keywords to be expanded. Valid keywords are:r\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.r\n"
-"Author, LastChangedBy\t\tThe last person to modify the file.r\n"
-"Date, LastChangedDate\t\tThe date/time the object was last modified.r\n"
-"Rev, LastChangedRevision\tThe last revision the object changed.r\n"
+msgid "svn:keywords\n"
+"Keywords to be expanded. Valid keywords are:\n"
+"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"Author, LastChangedBy\t\tThe last person to modify the file.\n"
+"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
+"Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 "
 "keywords."
 msgstr ""
 
 #: ID:14,
-msgid "svn:mime-typer\n"
+msgid "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the "
 "file, and how to serve it from Apache. A mimetype beginning with "
 "'text/' (or an absent mimetype) is treated as text. Anything else is "
