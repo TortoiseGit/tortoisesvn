@@ -634,7 +634,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				ret = CMessageBox::Show(EXPLORERHWND, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO);
 			if (ret==IDYES)
 			{
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(CSVNProgressDlg::Resolve, 0, pathList);
