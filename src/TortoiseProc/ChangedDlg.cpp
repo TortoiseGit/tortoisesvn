@@ -24,8 +24,6 @@
 #include ".\changeddlg.h"
 
 
-// CChangedDlg dialog
-
 IMPLEMENT_DYNAMIC(CChangedDlg, CResizableDialog)
 CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CChangedDlg::IDD, pParent)
@@ -35,6 +33,11 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 
 CChangedDlg::~CChangedDlg()
 {
+	for (int i=0; i<m_templist.GetCount(); i++)
+	{
+		DeleteFile(m_templist.GetAt(i));
+	}
+	m_templist.RemoveAll();
 }
 
 void CChangedDlg::DoDataExchange(CDataExchange* pDX)
@@ -295,9 +298,9 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 						if (!svn.Cat(filepath, SVN::REV_HEAD, tempfile))
 						{
 							CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							GetDlgItem(IDOK)->EnableWindow(TRUE);
-							return;
-						}
+							break;
+						} // if (!svn.Cat(filepath, SVN::REV_HEAD, tempfile))
+						m_templist.Add(tempfile);
 					}
 					if (repoStatus <= svn_wc_status_normal)
 					{
@@ -344,7 +347,8 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 						//wait for the process to end
 						WaitForSingleObject(process.hProcess, INFINITE);
 						//now delete the temporary file
-						DeleteFile(tempfile);
+						if (repoStatus > svn_wc_status_normal)
+							DeleteFile(tempfile);
 					} // if (diffpath != "")
 					theApp.DoWaitCursor(-1);
 					GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -359,7 +363,8 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
 						break;		//exit
-					}
+					} // if (!Diff(filepath, SVN::REV_WC, filepath, SVN::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
+					m_templist.Add(tempfile);
 					CUtils::StartDiffViewer(tempfile);
 					theApp.DoWaitCursor(-1);
 					GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -368,6 +373,7 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 			case ID_UPDATE:
 				{
 					CString tempFile = CUtils::GetTempFile();
+					m_templist.Add(tempFile);
 					HANDLE file = ::CreateFile (tempFile,
 												GENERIC_WRITE, 
 												FILE_SHARE_READ, 
@@ -413,6 +419,8 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 				GetDlgItem(IDOK)->EnableWindow(TRUE);
 				break;
 			} // switch (cmd)
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			theApp.DoWaitCursor(-1);
 		} // if (popup.CreatePopupMenu())
 	} // if (selIndex >= 0)
 

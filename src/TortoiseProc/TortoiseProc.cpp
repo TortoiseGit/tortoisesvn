@@ -129,7 +129,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		} // if (comVal.Compare(_T("test"))==0)
 
 		CString sVal = parser.GetVal(_T("hwnd"));
-		hWndExplorer = (HWND)_ttol(sVal);
+		hWndExplorer = (HWND)_ttoi64(sVal);
 
 		while (GetParent(hWndExplorer)!=NULL)
 			hWndExplorer = GetParent(hWndExplorer);

@@ -51,6 +51,7 @@ protected:
 protected:
 	HICON			m_hIcon;
 	HANDLE			m_hThread;
+	CStringArray	m_templist;
 
 public:
 	SVNStatus		m_svnstatus;

@@ -126,6 +126,7 @@ private:
 	int			m_nSearchIndex;
 	static const UINT m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
+	CStringArray	m_templist;
 public:
 //	afx_msg void OnLvnItemActivateLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult);

@@ -38,6 +38,11 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 
 CLogDlg::~CLogDlg()
 {
+	for (int i=0; i<m_templist.GetCount(); i++)
+	{
+		DeleteFile(m_templist.GetAt(i));
+	}
+	m_templist.RemoveAll();
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -398,7 +403,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
 						break;		//exit
-					}
+					} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+					m_templist.Add(tempfile);
 					CUtils::StartDiffViewer(tempfile);
 				}
 				break;
@@ -415,7 +421,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
 						break;		//exit
-					}
+					} // if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+					m_templist.Add(tempfile);
 					CUtils::StartDiffViewer(tempfile);
 				}
 				break;
@@ -490,7 +497,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						return;
 					}
-
+					m_templist.Add(tempfile);
 					CString diffpath = CUtils::GetDiffPath();
 					if (diffpath != "")
 					{
@@ -699,10 +706,10 @@ void CLogDlg::OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	if (m_LogMsgCtrl.GetSelectionMark() < m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	if (m_LogMsgCtrl.GetSelectionMark() < (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 	{
 		//*pResult = 1;
-		for (int i=0; i<m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
+		for (int i=0; i<(int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
 		{
 			m_LogMsgCtrl.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 		}
@@ -714,14 +721,14 @@ void CLogDlg::OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
 
-	if (m_LogMsgCtrl.GetSelectionMark() < m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	if (m_LogMsgCtrl.GetSelectionMark() < (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 	{
 		if (pLVKeyDow->wVKey == 0x43)		// c-key
 		{
 			if (GetKeyState(VK_CONTROL)!=0)
 			{
 				CStringA msg;
-				for (int i=0; i<m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
+				for (int i=0; i<(int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
 				{
 					msg += m_LogMsgCtrl.GetItemText(i, 0);
 					msg += "\n";
@@ -747,7 +754,7 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	long rev = m_arRevs.GetAt(m_LogList.GetSelectionMark());
-	if (selIndex >= m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	if (selIndex >= (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 	{
 		//entry is selected, now show the popup menu
 		CMenu popup;
@@ -815,7 +822,8 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	len = ::GetTempPath (MAX_PATH, path);
 	unique = ::GetTempFileName (path, _T("svn"), 0, tempF);
 	CString tempfile2 = CString(tempF);
-
+	m_templist.Add(tempfile1);
+	m_templist.Add(tempfile2);
 	CProgressDlg progDlg;
 	if (progDlg.IsValid())
 	{
