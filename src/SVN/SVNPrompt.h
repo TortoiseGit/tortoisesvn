@@ -46,7 +46,7 @@ public:
 
 	static svn_error_t* userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, apr_pool_t *pool);
 	static svn_error_t* simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, apr_pool_t *pool);
-	static svn_error_t* sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_p, void *baton, int failures, const svn_auth_ssl_server_cert_info_t *cert_info, apr_pool_t *pool);
+	static svn_error_t* sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_p, void *baton, const char *realm, int failures, const svn_auth_ssl_server_cert_info_t *cert_info, apr_pool_t *pool);
 	static svn_error_t* sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, void *baton, apr_pool_t *pool);
 	static svn_error_t* sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, void *baton, apr_pool_t *pool);
 									

@@ -157,7 +157,8 @@ BOOL SVN::Checkout(CString moduleName, CString destPath, LONG revision, BOOL rec
 	preparePath(destPath);
 	preparePath(moduleName);
 
-	Err = svn_client_checkout (	CUnicodeUtils::GetUTF8(moduleName),
+	Err = svn_client_checkout (	NULL,			// we don't need the resulting revision
+								CUnicodeUtils::GetUTF8(moduleName),
 								CUnicodeUtils::GetUTF8(destPath),
 								getRevision (revision),
 								recurse,
@@ -230,7 +231,8 @@ BOOL SVN::Add(CString path, BOOL recurse)
 BOOL SVN::Update(CString path, LONG revision, BOOL recurse)
 {
 	preparePath(path);
-	Err = svn_client_update (CUnicodeUtils::GetUTF8(path),
+	Err = svn_client_update(NULL,
+							CUnicodeUtils::GetUTF8(path),
 							getRevision (revision),
 							recurse,
 							&ctx,
@@ -382,7 +384,8 @@ BOOL SVN::Export(CString srcPath, CString destPath, LONG revision, BOOL force)
 	preparePath(srcPath);
 	preparePath(destPath);
 
-	Err = svn_client_export (CUnicodeUtils::GetUTF8(srcPath),
+	Err = svn_client_export(NULL,		//no resulting revision needed
+							CUnicodeUtils::GetUTF8(srcPath),
 							CUnicodeUtils::GetUTF8(destPath),
 							getRevision (revision),
 							force,
@@ -400,7 +403,8 @@ BOOL SVN::Switch(CString path, CString url, LONG revision, BOOL recurse)
 	preparePath(path);
 	preparePath(url);
 
-	Err = svn_client_switch (CUnicodeUtils::GetUTF8(path),
+	Err = svn_client_switch(NULL,
+							CUnicodeUtils::GetUTF8(path),
 							CUnicodeUtils::GetUTF8(url),
 							getRevision (revision),
 							recurse,
@@ -696,7 +700,7 @@ BOOL SVN::CreateRepository(CString path)
 	return TRUE;
 }
 
-BOOL SVN::Blame(CString path, LONG startrev, LONG endrev, BOOL strict)
+BOOL SVN::Blame(CString path, LONG startrev, LONG endrev)
 {
 	svn_opt_revision_t revEnd;
 	memset (&revEnd, 0, sizeof (revEnd));
@@ -715,7 +719,6 @@ BOOL SVN::Blame(CString path, LONG startrev, LONG endrev, BOOL strict)
 	Err = svn_client_blame ( CUnicodeUtils::GetUTF8(path),
 							 getRevision (startrev),  
 							 &revEnd,  
-							 strict,  
 							 blameReceiver,  
 							 (void *)this,  
 							 &ctx,  

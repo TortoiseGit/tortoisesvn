@@ -390,9 +390,8 @@ public:
 	 * \param path the path or url of the file
 	 * \param startrev the revision from which the check is done from
 	 * \param endrev the end revision where the check is stopped
-	 * \param strict if TRUE, the copy history is not traversed
 	 */
-	BOOL Blame(CString path, LONG startrev, LONG endrev, BOOL strict);
+	BOOL Blame(CString path, LONG startrev, LONG endrev);
 	/**
 	 * Checks if a windows path is a local repository
 	 */

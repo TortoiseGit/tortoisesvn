@@ -136,7 +136,7 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 	return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_p, void *baton, int failures, const svn_auth_ssl_server_cert_info_t *cert_info, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_p, void *baton, const char *realm, int failures, const svn_auth_ssl_server_cert_info_t *cert_info, apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
 	int allow_perm_accept = failures & SVN_AUTH_SSL_UNKNOWNCA;
@@ -144,7 +144,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	BOOL prev = FALSE;
 
 	CString msg;
-	msg.LoadString(IDS_ERR_SSL_VALIDATE);
+	msg.Format(IDS_ERR_SSL_VALIDATE, CUnicodeUtils::GetUnicode(realm));
 	msg += _T("\n");
 	CString temp;
 	if (failures & SVN_AUTH_SSL_UNKNOWNCA)
