@@ -28,6 +28,8 @@ IMPLEMENT_DYNAMIC(CMergeDlg, CDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMergeDlg::IDD, pParent)
 	, m_URL(_T(""))
+	, m_lStartRev(0)
+	, m_lEndRev(-1)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -40,6 +42,8 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+	DDX_Text(pDX, IDC_REVISON_START, m_lStartRev);
+	DDX_Text(pDX, IDC_REVISION_END, m_lEndRev);
 }
 
 
@@ -47,6 +51,8 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
+	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 
@@ -98,6 +104,9 @@ BOOL CMergeDlg::OnInitDialog()
 
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 
+	// set head revision as default revision
+	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -107,6 +116,14 @@ void CMergeDlg::OnOK()
 	UpdateData(TRUE);
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
+
+	// if head revision, set revision as -1
+	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+	{
+		m_lEndRev = -1;
+	}
+
+	UpdateData(FALSE);
 
 	CDialog::OnOK();
 }
@@ -167,4 +184,14 @@ void CMergeDlg::OnBnClickedBrowse()
 			m_URLCombo.SetWindowText(strUrl);
 		}
 	}
+}
+
+void CMergeDlg::OnBnClickedRevisionHead()
+{
+	GetDlgItem(IDC_REVISION_END)->EnableWindow(FALSE);
+}
+
+void CMergeDlg::OnBnClickedRevisionN()
+{
+	GetDlgItem(IDC_REVISION_END)->EnableWindow(TRUE);
 }

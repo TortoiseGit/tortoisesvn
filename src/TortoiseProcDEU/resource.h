@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by TortoiseProcDEU.rc
+// Used by TortoiseProc.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -213,6 +213,7 @@
 #define IDC_REVNUM                      1027
 #define IDC_SERVERADDRESS               1027
 #define IDC_TEMPEXTENSIONS              1027
+#define IDC_REVISON_START               1027
 #define IDC_URLCOMBO                    1029
 #define IDC_COMBO1                      1030
 #define IDC_BUTTON1                     1031
@@ -243,6 +244,7 @@
 #define IDC_FIXED                       1050
 #define IDC_CDROM                       1051
 #define IDC_HINTLABEL                   1052
+#define IDC_REVISION_END                1053
 
 // Next default values for new objects
 // 
@@ -250,7 +252,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        157
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1053
+#define _APS_NEXT_CONTROL_VALUE         1054
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

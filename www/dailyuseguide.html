@@ -604,7 +604,7 @@ want in the TortoiseSVN settings.</p>
 <div class="right">
 <a href="dailyuseguide.html#GetInfo" title="Previous">&lt;</a>
 <a href="dailyuseguide.html#Content" title="Content">^</a>
-<a href="dailyuseguide.html#Merge" title="Next">&gt;</a></div>
+<a href="dailyuseguide.html#CheckoutSwitch" title="Next">&gt;</a></div>
 <p>One of the features of version control systems, is the ability
 to isolate changes onto a separate line of development. This line
 is known as a <em>branch</em>. Branches are usually used to try
@@ -672,7 +672,7 @@ branch. Only the modifications are stored. The rest remains a
 </tr>
 </tbody>
 </table>
-<h3 id="Merge">Merging A Branch Back Into The Main Branch</h3>
+<h3 id="CheckoutSwitch">To Checkout or to Switch...</h3>
 <table border="0" cellpadding="2" width="99%" bgcolor="white">
 <tbody>
 <tr>
@@ -680,19 +680,24 @@ branch. Only the modifications are stored. The rest remains a
 <div class="right">
 <a href="dailyuseguide.html#Copy" title="Previous">&lt;</a>
 <a href="dailyuseguide.html#Content" title="Content">^</a>
+<a href="dailyuseguide.html#Merge" title="Next">&gt;</a></div>
+<p>...that is not really the question. While a checkout checks out everything 
+from the desired branch into your working directory, a switch only transfers the 
+changed data to your working copy. Good for the network load, good for your patience. :-)
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Merge">Merging A Branch Back Into The Main Branch</h3>
+<table border="0" cellpadding="2" width="99%" bgcolor="white">
+<tbody>
+<tr>
+<td width="100%" height="100" bgcolor="#F0F0F0">
+<div class="right">
+<a href="dailyuseguide.html#CheckoutSwitch" title="Previous">&lt;</a>
+<a href="dailyuseguide.html#Content" title="Content">^</a>
 <a href="dailyuseguide.html#Content" title="Next">&gt;</a></div>
-<p>When you are satisfied with the changes you have done on a
-branch, you may want those changes to be available on the main
-line of development. Incorporating changes from one branch to
-another, is known as <em>merging</em>. To do the merge you need
-to select the parent folder of your project and then select the
-command "Merge..." in the TortoiseSVN submenu.</p>
-<p class="center"><img alt="Merge Dialog" src=
-"images/image22.jpg"></p>
-<p>Enter the URL of the main branch and press OK. While merging,
-one or more conflicts may occur . See the chapter "Resolving
-Conflicts" on how to do this. Once you have resolved all
-conflicts you can commit the merged files to the main branch.</p>
+<p><b>Merging is not yet implemented correctly in TSVN Please use the command line client instead.</b>
 </td>
 </tr>
 </tbody>

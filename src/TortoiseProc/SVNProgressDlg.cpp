@@ -471,7 +471,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Merge:
 			temp.LoadString(IDS_PROGRS_TITLE_MERGE);
 			pDlg->SetWindowText(temp);
-			if (!pDlg->Merge(pDlg->m_sUrl, -1, pDlg->m_sMessage, -1, pDlg->m_sPath, true, true))
+			if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_nRevision, pDlg->m_sMessage, pDlg->m_nRevisionEnd, pDlg->m_sPath, true, true))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}

@@ -9,6 +9,8 @@ CVS
        if they weren't in the same folder. (Stefan)
 - BUG: menu entries were shown twice for "link" files
        like .lnk and .rdp. This solves issue 52. (Stefan)
+- BUG: the merge function wasn't working correctly since
+       no revisions were used. (Stefan)
 - CHG: the log command now has the strict-option
        set to false instead of true. (Stefan)
 - CHG: time/date is now shown using the local

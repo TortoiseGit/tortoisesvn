@@ -170,19 +170,31 @@ BEGIN
     EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
-IDD_MERGE DIALOGEX 0, 0, 281, 59
+IDD_MERGE DIALOGEX 0, 0, 281, 156
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Слияние"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,7,38,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,224,38,50,14
+    DEFPUSHBUTTON   "ОК",IDOK,7,135,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,224,135,50,14
     LTEXT           "Объединить текущую ветку с указанной:",IDC_STATIC,7,11,
                     88,16
     COMBOBOX        IDC_URLCOMBO,99,13,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,13,14,12
+    LTEXT           "from:",IDC_STATIC,7,63,18,8
+    EDITTEXT        IDC_REVISON_START,37,61,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "to:",IDC_STATIC,92,63,29,8
+    GROUPBOX        "revision",IDC_STATIC,131,42,136,46
+    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,138,55,61,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    138,71,43,10
+    EDITTEXT        IDC_REVISION_END,203,70,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_DISABLED
+    LTEXT           "to merge only specific changes from the other branch you have to specify the revisions between which the change occured. To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.",
+                    IDC_STATIC,7,91,267,37
 END
 
 IDD_COPY DIALOGEX 0, 0, 293, 66
@@ -219,7 +231,8 @@ BEGIN
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
                     BS_MULTILINE | WS_TABSTOP,7,96,238,18
-    LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,30,84,17
+    LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,30,
+                    84,17
     EDITTEXT        IDC_EXTMERGE,100,27,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTMERGEBROWSE,195,27,50,14
 END
@@ -404,7 +417,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 274
         TOPMARGIN, 7
-        BOTTOMMARGIN, 52
+        BOTTOMMARGIN, 149
     END
 
     IDD_COPY, DIALOG
@@ -845,3 +858,4 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+

@@ -211,18 +211,32 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,62,215,10
 END
 
-IDD_MERGE DIALOGEX 0, 0, 281, 59
+IDD_MERGE DIALOGEX 0, 0, 281, 146
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Mischen"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,38,50,14
-    PUSHBUTTON      "Abbrechen",IDCANCEL,224,38,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,125,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,224,125,50,14
     LTEXT           "Mische aktuellen Zweig mit:",IDC_STATIC,7,17,88,8
     COMBOBOX        IDC_URLCOMBO,99,15,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,15,14,12
+    LTEXT           "von:",IDC_STATIC,7,55,16,8
+    EDITTEXT        IDC_REVISON_START,39,53,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "bis:",IDC_STATIC,99,55,29,8
+    GROUPBOX        "revision",IDC_STATIC,138,34,136,46
+    CONTROL         "&Neueste Revision",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,145,46,71,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    145,62,43,10
+    EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_DISABLED
+    LTEXT           "Um spezifische Änderungen von einem Zweig zum aktuellen hinzuzufügen müssen Sie beide Revisionen angeben zwischen denen die Änderung stattfand.",
+                    IDC_STATIC,7,84,267,20
+    LTEXT           "Um einen kompletten Zweig zurück in den Hauptzweig zu mischen müssen Sie die Revision angeben wo Sie den Zweig erstellt haben und die ""Neueste Revision""",
+                    IDC_STATIC,7,103,267,17
 END
 
 IDD_LOGPROMPT DIALOGEX 0, 0, 186, 259
@@ -455,7 +469,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 274
         TOPMARGIN, 7
-        BOTTOMMARGIN, 52
+        BOTTOMMARGIN, 139
     END
 
     IDD_LOGPROMPT, DIALOG

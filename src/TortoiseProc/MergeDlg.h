@@ -77,4 +77,8 @@ protected:
 public:
 	CString m_URL;
 	CHistoryCombo m_URLCombo;
+	long m_lStartRev;
+	long m_lEndRev;
+	afx_msg void OnBnClickedRevisionHead();
+	afx_msg void OnBnClickedRevisionN();
 };
