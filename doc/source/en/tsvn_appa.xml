@@ -619,10 +619,81 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</listitem>
 			</itemizedlist>
 			<para>
-			
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-2">
+			<title>TortoiseSVN doesn't work with VS.NET web projects?</title>
+			<para>
+			VS.NET when used with web projects can't handle the <filename>.svn
+			</filename> folders Subversion uses to store its internal information.
+			This is <emphasis>not</emphasis> a bug in Subversion. The bug is in
+			VS.NET and the frontpage extensions it uses. Even though you might
+			argue that Windows can't handle such foldernames, it's not correct.
+			Windows can handle such folders very well, you just can't create them
+			with the explorer.
+			</para>
+			<para>
+			To answer the questions we face every few weeks once and for all:
+			<variablelist>
+				<varlistentry>
+					<term>You need to fix this in Subversion!</term>
+					<listitem>
+						<para>
+						No, we don't. It's a bug in VS.NET and not in Subversion.
+						So the bug has to be fixed there.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Why not make the foldername configurable?</term>
+					<listitem>
+						<para>
+						There are many reasons to <emphasis>not</emphasis> do that.
+						It would require major changes to the existing sourcecode,
+						it would make the interaction of different Subversion clients
+						very hard if not impossible and it would lead to confusion
+						among users.
+						</para>
+						<para>
+						There are more reasons, but they are very technical and
+						don't belong in this FAQ.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Then just create a special version of TortoiseSVN which
+					uses a different foldername, and all problems are gone!</term>
+					<listitem>
+						<para>
+						No, we won't. <emphasis>Your</emphasis> problems might be gone,
+						but all others which are using Subversion and TortoiseSVN would
+						get into troubles if we did that.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>But I can't use TortoiseSVN if that's not fixed!</term>
+					<listitem>
+						<para>
+						Then don't use it! Nobody forces you to use our product.
+						If you really want to use it, then you could compile
+						yourself a special version using a different foldername.
+						After all, both Subversion and TortoiseSVN are open source.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			</para>
+			<para>
+			But you're not completely lost in this case. Usually a few days after
+			each official release of TortoiseSVN some people upload an installer
+			for TortoiseSVN which is specially compiled to use <filename>_svn</filename>
+			instead of the default <filename>.svn</filename> foldername. You can
+			use that version then. Just be aware that we don't support that
+			version at all!
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-misc-3">
 			<title>Does TortoiseSVN support SSH?</title>
 			<para>
 			TortoiseSVN uses Subversion. And Subversion supports SSH 
@@ -641,7 +712,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			svn+ssh://</systemitem>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-3">
+		<sect2 id="tsvn-faq-misc-4">
 			<title>Can I lose data, when I use TortoiseSVN?</title>
 			<para>
 			TortoiseSVN uses Subversion. Nuff said :-)
@@ -658,7 +729,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			of the window, if you format your harddrive, ...
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-4">
+		<sect2 id="tsvn-faq-misc-5">
 			<title>I'm looking for an external diff tool</title>
 			<para>
 			This list is by no means complete, but might help 
@@ -698,7 +769,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-5">
+		<sect2 id="tsvn-faq-misc-6">
 			<title>I'm looking for an external merge tool</title>
 			<para>
 			This list is by no means complete, but might help 
@@ -731,7 +802,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-6">
+		<sect2 id="tsvn-faq-misc-7">
 			<title>What are the hidden registry settings?</title>
 			<para>
 			There are some registry settings for TortoiseSVN which aren't
@@ -778,7 +849,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			you don't know <emphasis>exactly</emphasis> what you're doing!
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-7">
+		<sect2 id="tsvn-faq-misc-8">
 			<title>I love TortoiseSVN, how can I do 
 			something for the developers?</title>
 			<para>

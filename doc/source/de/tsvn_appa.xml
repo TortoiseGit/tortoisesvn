@@ -615,6 +615,88 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</itemizedlist>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-2">
+			<title>TortoiseSVN funktioniert nicht mit VS.NET Web Projekten?</title>
+			<para>
+			VS.NET, wenn man es mit Web Projekten benutzt hat Probleme mit den
+			<filename>.svn</filename> Ordnern welche Subversion benutzt um interne
+			Informationen zu speichern. Dies ist <emphasis>kein</emphasis> Fehler
+			in Subversion! Der Fehler ist in VS.NET und den Frontpage Erweiterungen
+			welche es benutzt. Sie können jetzt einwenden dass Windows keine
+			Datei/Ordnernamen unterstützt welche nur aus einer Erweiterung bestehen.
+			Dies stimmt aber nicht! Windows kann solche Datei/Ordnernamen sehr
+			wohl handhaben, Sie können solche Dateien/Ordner nur nicht mit dem
+			Explorer erstellen. Mit jedem anderen Windows-Programm können Sie
+			dies aber tun.
+			</para>
+			<para>
+			Um Fragen, welche uns alle paar Wochen immer wieder gestellt
+			werden ein für allemal zu Beantworten:
+			<variablelist>
+				<varlistentry>
+					<term>Sie müssen dies in Subversion korrigieren!</term>
+					<listitem>
+						<para>
+						Nein, müssen wir nicht. Es ist ein Fehler in VS.NET und
+						nicht in Subversion. Also muss der Fehler auch dort
+						korrigiert werden.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Warum machen Sie den Ordnernamen nicht konfigurierbar?</term>
+					<listitem>
+						<para>
+						Es gibt viele Gründe, dies <emphasis>nicht</emphasis> zu tun.
+						Es würde eine sehr grosse Änderung im vorhandenen Sourcecode
+						bedeuten, es würden Probleme entstehen wenn mehrere verschiedene
+						Subversion Clients benutzt werden und es würde die Benutzer
+						verwirren.
+						</para>
+						<para>
+						Es gibt noch weitere Gründe, aber diese sind sehr
+						technischer Natur und gehören nicht in dieses FAQ.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Dann macht doch einfach eine Sonderversion von TortoiseSVN
+					welche einen anderen Ordnernamen verwendet, und alle Probleme
+					wären gelöst!</term>
+					<listitem>
+						<para>
+						Das werden wir nicht tun. <emphasis>Ihre</emphasis> Probleme
+						wären gelöst, ja. Aber es gibt auch andere Benutzer ausser
+						Ihnen, welche dadurch grosse Probleme hätten.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Ich kann aber TortoiseSVN nicht verwenden, solange dieser
+					Fehler nicht korrigiert ist!</term>
+					<listitem>
+						<para>
+						Dann benutzen Sie es eben nicht! Niemand zwingt Sie TortoiseSVN
+						und/oder Subversion zu benutzen. Wenn Sie wirklich eine
+						spezielle Version haben müssen, können Sie sich eine solche
+						ja selbst kompilieren. Schliesslich sind sowohl Subversion
+						als auch TortoiseSVN open source.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			</para>
+			<para>
+			Sie sind jedoch nicht komplett verloren. Normalerweise ein paar Tage
+			nach einem offiziellen Release von TortoiseSVN veröffentlichen ein
+			paar Leute ein Installationsprogramm, welches eine speziell
+			kompilierte Version von TortoiseSVN enthält welche statt des
+			standard <filename>.svn</filename> Ordnernamens den Namen <filename>
+			_svn</filename> benutzt. Sie können dann diese Version benutzen.
+			Beachten Sie aber, dass diese spezielle Version von uns nicht
+			unterstützt wird!
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-misc-3">
 			<title>Unterstützt TortoiseSVN SSH?</title>
 			<para>
 			TortoiseSVN nutzt die Subversion libraries. Und Subversion
@@ -631,7 +713,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			finden Sie im Abschnitt <xref linkend="tsvn-serversetup-svnserve-5"/>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-3">
+		<sect2 id="tsvn-faq-misc-4">
 			<title>Kann ich Daten verlieren wenn ich TortoiseSVN benutze?</title>
 			<para>
 			TortoiseSVn nutzt die Subversion library. Genug gesagt :-)
@@ -651,7 +733,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			mitnehmen, ...
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-4">
+		<sect2 id="tsvn-faq-misc-5">
 			<title>Ich suche ein externes Diff-Programm</title>
 			<para>
 			Diese Liste von Diff-Programmen ist nicht komplett, wird Ihnen
@@ -692,7 +774,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-5">
+		<sect2 id="tsvn-faq-misc-6">
 			<title>Ich suche ein externes Merge-Programm</title>
 			<para>
 			Diese Liste von Diff-Programmen ist nicht komplett, wird Ihnen
@@ -725,7 +807,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</itemizedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-6">
+		<sect2 id="tsvn-faq-misc-7">
 			<title>Was sind die versteckten Registry-Einstellungen?</title>
 			<para>
 			Es gibt ein paar Registry-Einstellungen für TortoiseSVN welche
@@ -776,7 +858,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<emphasis>genau</emphasis> wissen was Sie tun!
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-misc-7">
+		<sect2 id="tsvn-faq-misc-8">
 			<title>Ich liebe TortoiseSVN, wie kann ich etwas für die Entwickler tun?</title>
 			<para>
 			Danke, das Sie gefragt haben!
