@@ -23,6 +23,7 @@
 #include "MessageBox.h"
 #include "InputDlg.h"
 #include "LogDlg.h"
+#include ".\repositorybrowser.h"
 
 
 // CRepositoryBrowser dialog
@@ -56,12 +57,12 @@ void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
-	ON_NOTIFY(TVN_SELCHANGED, IDC_REPOS_TREE, OnTvnSelchangedReposTree)
+	ON_NOTIFY(RVN_SELECTIONCHANGED, IDC_REPOS_TREE, OnTvnSelchangedReposTree)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_WM_SIZING()
-	ON_NOTIFY(NM_RCLICK, IDC_REPOS_TREE, OnNMRclickReposTree)
+	ON_NOTIFY(RVN_ITEMRCLICK, IDC_REPOS_TREE, OnRVNItemRClickReposTree)
 END_MESSAGE_MAP()
 
 
@@ -136,22 +137,23 @@ BOOL CRepositoryBrowser::OnInitDialog()
 
 void CRepositoryBrowser::OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
+	LPNMREPORTVIEW pNMRV = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
 	
-	m_strUrl = m_treeRepository.GetFolderUrl(pNMTreeView->itemNew.hItem);
-	UpdateData(FALSE);
+	if (pNMRV->nState & RVIS_FOCUSED) {
+		m_strUrl = m_treeRepository.GetFolderUrl(pNMRV->hItem);
+		UpdateData(FALSE);
+	}
+
 	*pResult = 0;
 }
 
-void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
+void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 {
+	LPNMREPORTVIEW pNMTreeView = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
+
 	*pResult = 0;
-	POINT point;
-	GetCursorPos(&point);
-	::MapWindowPoints(NULL, m_treeRepository.m_hWnd, &point, 1);
-	HTREEITEM hSelItem = m_treeRepository.HitTest(point);
+	HTREEITEM hSelItem = pNMTreeView->hItem;
 	UINT uSelCount = m_treeRepository.GetSelectedCount();
-	//HTREEITEM hSelItem = m_treeRepository.GetSelectedItem();
 	CString url = m_treeRepository.MakeUrl(hSelItem);
 
 	HTREEITEM hSelItem1;
@@ -165,13 +167,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 
 	if (hSelItem)
 	{
-		BOOL bFolder = TRUE;;
-		TVITEM Item;
-		Item.mask = TVIF_IMAGE;
-		Item.hItem = hSelItem;
-		m_treeRepository.GetItem(&Item);
-		if (Item.iImage != m_treeRepository.m_nIconFolder)
-			bFolder = FALSE;
+		BOOL bFolder = m_treeRepository.IsFolder(hSelItem);
 
 		CMenu popup;
 		POINT point;
@@ -227,8 +223,8 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
-				hSelItem1 = m_treeRepository.GetFirstSelectedItem();
-				hSelItem2 = m_treeRepository.GetNextSelectedItem(hSelItem1);
+				hSelItem1 = m_treeRepository.GetItemHandle(m_treeRepository.GetFirstSelectedItem());
+				hSelItem2 = m_treeRepository.GetItemHandle(m_treeRepository.GetNextSelectedItem(m_treeRepository.GetItemIndex(hSelItem1)));
 
 				url1 = m_treeRepository.MakeUrl(hSelItem1);
 				url2 = m_treeRepository.MakeUrl(hSelItem2);
@@ -236,13 +232,13 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 				bFolder1 = TRUE;
 				bFolder2 = TRUE;
 
-				TVITEM Item;
-				Item.mask = TVIF_IMAGE;
-				Item.hItem = hSelItem1;
+				RVITEM Item;
+				Item.nMask = RVIM_IMAGE;
+				Item.iItem = m_treeRepository.GetItemIndex(hSelItem1);
 				m_treeRepository.GetItem(&Item);
 				if (Item.iImage != m_treeRepository.m_nIconFolder)
 					bFolder1 = FALSE;
-				Item.hItem = hSelItem2;
+				Item.iItem = m_treeRepository.GetItemIndex(hSelItem2);
 				m_treeRepository.GetItem(&Item);
 				if (Item.iImage != m_treeRepository.m_nIconFolder)
 					bFolder2 = FALSE;

@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 
-#include "TreeCtrlEx.h"
+#include "ReportCtrl/ReportCtrl.h"
 
 /**
  * \ingroup TortoiseProc
@@ -43,7 +43,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CRepositoryTree : public CTreeCtrlEx
+class CRepositoryTree : public CReportCtrl
 {
 	DECLARE_DYNAMIC(CRepositoryTree)
 
@@ -61,6 +61,7 @@ public:
 	void Init(LONG revision);
 	CString MakeUrl(HTREEITEM hItem);
 	CString GetFolderUrl(HTREEITEM hItem);
+	BOOL IsFolder(HTREEITEM hItem);
 	HTREEITEM ItemExists(HTREEITEM parent, CString item);
 	void Refresh(HTREEITEM hItem);
 	void RefreshMe(HTREEITEM hItem);

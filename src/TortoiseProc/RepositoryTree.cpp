@@ -27,7 +27,7 @@
 
 // CRepositoryTree
 
-IMPLEMENT_DYNAMIC(CRepositoryTree, CTreeCtrlEx)
+IMPLEMENT_DYNAMIC(CRepositoryTree, CReportCtrl)
 CRepositoryTree::CRepositoryTree(const CString& strUrl) :
 	m_strUrl(strUrl)
 {
@@ -44,9 +44,9 @@ CRepositoryTree::~CRepositoryTree()
 }
 
 
-BEGIN_MESSAGE_MAP(CRepositoryTree, CTreeCtrlEx)
-	ON_NOTIFY_REFLECT(TVN_ITEMEXPANDING, OnTvnItemexpanding)
-	ON_NOTIFY_REFLECT(TVN_GETINFOTIP, OnTvnGetInfoTip)
+BEGIN_MESSAGE_MAP(CRepositoryTree, CReportCtrl)
+	ON_NOTIFY_REFLECT(RVN_ITEMEXPANDING, OnTvnItemexpanding)
+	//ON_NOTIFY_REFLECT(TVN_GETINFOTIP, OnTvnGetInfoTip)
 	//ON_NOTIFY_REFLECT(NM_DBLCLK, OnNMDblclk)
 END_MESSAGE_MAP()
 
@@ -57,65 +57,81 @@ END_MESSAGE_MAP()
 
 void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
-	
-	if (pNMTreeView->action == TVE_EXPAND)
+	LPNMREPORTVIEW pNMTreeView = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
+
+	RVITEM rvi;
+	rvi.iItem = GetItemIndex(pNMTreeView->hItem);
+	rvi.iSubItem = pNMTreeView->iSubItem;
+	GetItem(&rvi);
+
+	if (rvi.nState & RVIS_TREECLOSED)
 	{
-		if (GetItemData(pNMTreeView->itemNew.hItem)==0)
+		if (GetItemData(GetItemIndex(pNMTreeView->hItem))==0)
 		{
 			if (bInit)
 				return;
 			theApp.DoWaitCursor(1);
 			m_svn.m_app = &theApp;
-			HTREEITEM hChild = GetChildItem(pNMTreeView->itemNew.hItem);
-			if (hChild && GetItemText(hChild).Compare(_T("Dummy")) == 0)
+			HTREEITEM hChild = GetNextItem(pNMTreeView->hItem, RVGN_CHILD);
+			if (hChild && GetItemText(GetItemIndex(hChild), 0).Compare(_T("Dummy")) == 0)
 			{
 				DeleteItem(hChild);
 			}
 			
-			SetItemData(pNMTreeView->itemNew.hItem, 1);
+			SetItemData(GetItemIndex(pNMTreeView->hItem), 1);
 			CStringArray entries;
-			if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), m_nRevision, entries))
+			if (m_svn.Ls(MakeUrl(pNMTreeView->hItem), m_nRevision, entries, true))
 			{
-				if ((entries.GetCount() == 1)&&(entries.GetAt(0).GetAt(0)=='f')&&(entries.GetAt(0).Mid(1).CompareNoCase(GetItemText(pNMTreeView->itemNew.hItem))==0))
+				if ((entries.GetCount() == 1)&&(entries.GetAt(0).GetAt(0)=='f'))
 				{
-					//perhaps the user specified a file instead of a directory!
-					//try to expand the parent
-					HTREEITEM hParent = GetParentItem(pNMTreeView->itemNew.hItem);
-					SHFILEINFO    sfi;
-					SHGetFileInfo(
-						(LPCTSTR)entries.GetAt(0).Mid(1), 
-						FILE_ATTRIBUTE_NORMAL,
-						&sfi, 
-						sizeof(SHFILEINFO), 
-						SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-					SetItemImage(pNMTreeView->itemNew.hItem, sfi.iIcon, sfi.iIcon);
-					Expand(hParent, TVE_EXPAND);
-					theApp.DoWaitCursor(-1);
-					return;
+					CString temp;
+					AfxExtractSubString(temp, entries.GetAt(0), 0, '\t');
+					if (temp.Mid(1).CompareNoCase(GetItemText(GetItemIndex(pNMTreeView->hItem), 0))==0)
+					{
+						//perhaps the user specified a file instead of a directory!
+						//try to expand the parent
+						HTREEITEM hParent = GetNextItem(pNMTreeView->hItem, RVGN_PARENT);
+						SHFILEINFO    sfi;
+						SHGetFileInfo(
+							(LPCTSTR)temp.Mid(1), 
+							FILE_ATTRIBUTE_NORMAL,
+							&sfi, 
+							sizeof(SHFILEINFO), 
+							SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+						SetItemImage(GetItemIndex(pNMTreeView->hItem), sfi.iIcon, sfi.iIcon);
+						Expand(hParent, RVE_EXPAND);
+						theApp.DoWaitCursor(-1);
+						return;
+					}
 				}
 				for (int i = 0; i < entries.GetCount(); ++i)
 				{
 					CString temp;
-					temp = entries[i];
+					AfxExtractSubString(temp, entries[i], 0, '\t');
 					if (temp.GetAt(0) == 'd')
 					{
 						//temp = temp.Right(temp.GetLength()-1);
 						HTREEITEM item;
-						if ((item = ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1)))!=NULL)
+						if ((item = ItemExists(pNMTreeView->hItem, temp.Mid(1)))!=NULL)
 						{
 							DeleteItem(item);
 						}
-						HTREEITEM hItem = InsertItem(temp, m_nIconFolder, m_nIconFolder, pNMTreeView->itemNew.hItem, TVI_SORT);
-						SetItemState(hItem, 1, TVIF_CHILDREN);
-						InsertItem(_T("Dummy"), hItem);
-						SetItemData(hItem, 0);
+						HTREEITEM hItem = InsertItem(temp, m_nIconFolder, -1, -1, pNMTreeView->hItem, RVTI_SORT);
+						// insert other columns text
+						for (int col=1; col<GetActiveSubItemCount(); col++)
+						{
+							if (AfxExtractSubString(temp, entries[i], col, '\t'))
+								SetItemText(GetItemIndex(hItem), col, temp);
+						}
+						//SetItemState(hItem, 1, TVIF_CHILDREN);
+						InsertItem(_T("Dummy"), -1, -1, -1, hItem);
+						SetItemData(GetItemIndex(hItem), 0);
 					} // if (temp.GetAt(0) == 'd') 
 					if (temp.GetAt(0) == 'f')
 					{
 						//temp = temp.Right(temp.GetLength()-1);
 						HTREEITEM item;
-						if ((item = ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1)))!=NULL)
+						if ((item = ItemExists(pNMTreeView->hItem, temp.Mid(1)))!=NULL)
 						{
 							DeleteItem(item);
 						} 
@@ -127,23 +143,77 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 							sizeof(SHFILEINFO), 
 							SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 
-						HTREEITEM hItem = InsertItem(temp, sfi.iIcon, sfi.iIcon, pNMTreeView->itemNew.hItem, TVI_SORT);
+						HTREEITEM hItem = InsertItem(temp, sfi.iIcon, -1, -1, pNMTreeView->hItem, RVTI_SORT);
+						// insert other columns text
+						for (int col=1; col<GetActiveSubItemCount(); col++)
+						{
+							if (AfxExtractSubString(temp, entries[i], col, '\t'))
+								SetItemText(GetItemIndex(hItem), col, temp);
+						}
 					} // if (temp.GetAt(0) == 'f') 
 				} // for (int i = 0; i < entries.GetCount(); ++i) 
-				HTREEITEM hCurrent = GetNextItem(pNMTreeView->itemNew.hItem, TVGN_CHILD);
+				HTREEITEM hCurrent = GetNextItem(pNMTreeView->hItem, RVGN_CHILD);
 				while (hCurrent != NULL)
 				{
-					CString temp = GetItemText(hCurrent);
+					CString temp = GetItemText(GetItemIndex(hCurrent), 0);
 					if ((temp.GetAt(0)=='d')||(temp.GetAt(0)=='f'))
-						SetItemText(hCurrent, temp.Mid(1));
-					hCurrent = GetNextItem(hCurrent, TVGN_NEXT);
+						SetItemText(GetItemIndex(hCurrent), 0, temp.Mid(1));
+					hCurrent = GetNextItem(hCurrent, RVGN_NEXT);
 				} // while (hCurrent != NULL)
 			} // if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), m_nRevision, entries)) 
 			theApp.DoWaitCursor(-1);
 		} // if (GetItemData(pNMTreeView->itemNew.hItem)==0) 
-	} // if (pNMTreeView->action == TVE_EXPAND) 
+	} // if (rvi.nState & RVIS_TREECLOSED) 
 
 	*pResult = 0;
+}
+
+static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSubItem2, LPARAM lParam)
+{
+	CRepositoryTree *rctrl = reinterpret_cast<CRepositoryTree*>(lParam);
+	VERIFY(rctrl != NULL);
+
+	RVITEM rvi1, rvi2;
+	TCHAR szText1[REPORTCTRL_MAX_TEXT], szText2[REPORTCTRL_MAX_TEXT];
+
+	rvi1.nMask = RVIM_TEXT;
+	rvi1.iItem = iItem1;
+	rvi1.iSubItem = iSubItem1;
+	rvi1.lpszText = szText1;
+	rvi1.iTextMax = REPORTCTRL_MAX_TEXT;
+	VERIFY(rctrl->GetItem(&rvi1));
+
+	rvi2.nMask = RVIM_TEXT;
+	rvi2.iItem = iItem2;
+	rvi2.iSubItem = iSubItem2;
+	rvi2.lpszText = szText2;
+	rvi2.iTextMax = REPORTCTRL_MAX_TEXT;
+	VERIFY(rctrl->GetItem(&rvi2));
+
+	switch (iSubItem1)
+	{
+	case 0:
+		if (rvi1.iImage == rctrl->m_nIconFolder)
+		{
+			if (rvi2.iImage != rctrl->m_nIconFolder)
+				return -1;
+		}
+		else if (rvi2.iImage == rctrl->m_nIconFolder)
+		{
+			return 1;
+		}
+		// fall through
+	case 2:
+		return _tcsicmp(szText1, szText2);
+	case 1:
+	case 3:
+		return _tstoi(szText1) - _tstoi(szText2);
+	case 4:
+		// TODO: cannot sort by date...
+		return _tcsicmp(szText1, szText2);
+	}
+
+	return 0;
 }
 
 void CRepositoryTree::Init(LONG revision)
@@ -171,7 +241,49 @@ void CRepositoryTree::Init(LONG revision)
 
 	//Set the list control image list 
 	m_ImageList.Attach(hSystemImageList);
-	SetImageList(&m_ImageList, TVSIL_NORMAL); 
+	SetImageList(&m_ImageList);
+
+	RVSUBITEM rvs;
+	UndefineAllSubItems();
+	//
+	// column 0: contains tree
+	rvs.lpszText = _T("File");
+	rvs.iWidth = 300;
+	rvs.iMinWidth = 200;
+	DefineSubItem(0, &rvs);
+	ActivateSubItem(0, 0);
+	//
+	// column 1: revision number
+	rvs.lpszText = _T("Revision");
+	rvs.iWidth = 65;
+	rvs.iMinWidth = 25;
+	rvs.nFormat = RVCF_RIGHT|RVCF_TEXT;
+	DefineSubItem(1, &rvs);
+	ActivateSubItem(1, 1);
+	//
+	// column 2: author
+	rvs.lpszText = _T("Author");
+	rvs.iWidth = 85;
+	rvs.iMinWidth = 25;
+	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
+	DefineSubItem(2, &rvs);
+	ActivateSubItem(2, 2);
+	//
+	// column 3: size
+	rvs.lpszText = _T("Size");
+	rvs.iWidth = 65;
+	rvs.iMinWidth = 25;
+	rvs.nFormat = RVCF_RIGHT|RVCF_TEXT;
+	DefineSubItem(3, &rvs);
+	ActivateSubItem(3, 3);
+	//
+	// column 4: date
+	rvs.lpszText = _T("Date");
+	rvs.iWidth = 125;
+	rvs.iMinWidth = 25;
+	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
+	DefineSubItem(4, &rvs);
+	ActivateSubItem(4, 4);
 
 	CStringArray arPaths;
 	CString temp = m_strUrl;
@@ -189,39 +301,43 @@ void CRepositoryTree::Init(LONG revision)
 		temp = temp.Left(temp.ReverseFind('/'));
 	} // while ((temp.ReverseFind('/')>=0)&&(temp.GetAt(temp.ReverseFind('/')-1)!='/'))
 	arPaths.Add(temp);
-	HTREEITEM hItem = TVI_ROOT;
+	HTREEITEM hItem = RVTI_ROOT;
 	for (INT_PTR i=arPaths.GetUpperBound(); i>=0; i--)
 	{
-		hItem = InsertItem(arPaths.GetAt(i), m_nIconFolder, m_nIconFolder, hItem, TVI_LAST);
+		hItem = InsertItem(arPaths.GetAt(i), m_nIconFolder, -1, -1, hItem, RVTI_LAST);
 		EnsureVisible(hItem);
-		SetItemState(hItem, 1, TVIF_CHILDREN);
-		SetItemData(hItem, 0);
-		SelectItem(hItem);
+		//SetItemState(hItem, 1, TVIF_CHILDREN);
+		SetItemData(GetItemIndex(hItem), 0);
+		SetSelection(GetItemIndex(hItem));
 	} // for (int i=arPaths.GetUpperBound(); i>=0; i--)
-	InsertItem(_T("Dummy"), hItem);
+	InsertItem(_T("Dummy"), -1, -1, -1, hItem);
+
+	SetSortCallback(SortCallback, (LPARAM)this);
 	bInit = FALSE;
 }
 
 CString CRepositoryTree::GetFolderUrl(HTREEITEM hItem)
 {
 	// prevent the user from selecting a file entry!
-	TVITEM Item;
-	Item.mask = TVIF_IMAGE;
-	Item.hItem = hItem;
+	RVITEM Item;
+	Item.nMask = RVIM_IMAGE;
+	Item.iItem = GetItemIndex(hItem);
 	GetItem(&Item);
 	if (Item.iImage != m_nIconFolder)
-		hItem = GetParentItem(hItem);
+		hItem = GetNextItem(hItem, RVGN_PARENT);
 	return MakeUrl(hItem);
 }
 
 CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
 {
-	CString strUrl = GetItemText(hItem);
-	HTREEITEM hParent = GetParentItem(hItem);
+	if (hItem == NULL)
+		return _T("");
+	CString strUrl = GetItemText(GetItemIndex(hItem), 0);
+	HTREEITEM hParent = GetNextItem(hItem, RVGN_PARENT);
 	while (hParent != NULL)
 	{
-		strUrl.Insert(0, GetItemText(hParent) + _T("/"));
-		hParent = GetParentItem(hParent);
+		strUrl.Insert(0, GetItemText(GetItemIndex(hParent), 0) + _T("/"));
+		hParent = GetNextItem(hParent, RVGN_PARENT);
 	} // while (hParent != NULL)
 	strUrl = CUtils::PathEscape(strUrl);
 	return strUrl;
@@ -234,29 +350,40 @@ void CRepositoryTree::OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
+BOOL CRepositoryTree::IsFolder(HTREEITEM hItem)
+{
+	if (hItem == NULL)
+		return TRUE;
+	RVITEM Item;
+	Item.nMask = RVIM_IMAGE;
+	Item.iItem = GetItemIndex(hItem);
+	GetItem(&Item);
+	return Item.iImage == m_nIconFolder;
+}
+
 HTREEITEM CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
 {
-	HTREEITEM hCurrent = GetNextItem(parent, TVGN_CHILD);
+	HTREEITEM hCurrent = GetNextItem(parent, RVGN_CHILD);
 	while (hCurrent != NULL)
 	{
-		if (GetItemText(hCurrent).CompareNoCase(item)==0)
+		if (GetItemText(GetItemIndex(hCurrent), 0).CompareNoCase(item)==0)
 			return hCurrent;
-		hCurrent = GetNextItem(hCurrent, TVGN_NEXT);
+		hCurrent = GetNextItem(hCurrent, RVGN_NEXT);
 	} // while (hCurrent != NULL)
 	return NULL;
 }
 
 void CRepositoryTree::Refresh(HTREEITEM hItem)
 {
-	hItem = GetParentItem(hItem);
-	Expand(hItem, TVE_COLLAPSERESET | TVE_COLLAPSE);
-	SetItemData(hItem, 0);
-	Expand(hItem, TVE_EXPAND);
+	hItem = GetNextItem(hItem, RVGN_PARENT);
+	Expand(hItem, /*RVE_COLLAPSERESET |`*/ RVE_COLLAPSE);
+	SetItemData(GetItemIndex(hItem), 0);
+	Expand(hItem, RVE_EXPAND);
 }
 
 void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 {
-	Expand(hItem, TVE_COLLAPSERESET | TVE_COLLAPSE);
-	SetItemData(hItem, 0);
-	Expand(hItem, TVE_EXPAND);
+	Expand(hItem, /*RVE_COLLAPSERESET |*/ RVE_COLLAPSE);
+	SetItemData(GetItemIndex(hItem), 0);
+	Expand(hItem, RVE_EXPAND);
 }
