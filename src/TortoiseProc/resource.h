@@ -189,6 +189,7 @@
 #define IDC_F5HINT                      1127
 #define IDC_RADIOBDB                    1128
 #define IDC_RADIOFSFS                   1129
+#define IDS_MSGBOX_DONOTSHOWAGAIN       1153
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -323,6 +324,7 @@
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
+#define IDS_WARN_UPDATETOREV_WITHMODS   1403
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510

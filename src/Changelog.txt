@@ -1,3 +1,5 @@
+- ADD: A warning is shown if you try to update a locally
+       modified working copy to another (earlier) revision. (Stefan)
 - BUG: After a merge dry-run, the wc URL wasn't shown
        correctly. This bug didn't affect the actual
        merge, only the UI. (Stefan)
