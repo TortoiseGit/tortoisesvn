@@ -55,7 +55,8 @@ CRegDWORD::CRegDWORD(CString key, DWORD def, BOOL force, HKEY base)
 
 CRegDWORD::~CRegDWORD(void)
 {
-	//write();
+	if (m_hKey)
+		RegCloseKey(m_hKey);
 }
 
 DWORD	CRegDWORD::read()
@@ -69,11 +70,13 @@ DWORD	CRegDWORD::read()
 			ASSERT(type==REG_DWORD);
 			m_read = TRUE;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			return m_value;
 		}
 		else
 		{
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
@@ -94,6 +97,7 @@ void CRegDWORD::write()
 		m_read = TRUE;
 	}
 	RegCloseKey(m_hKey);
+	m_hKey = NULL;
 }
 
 
@@ -155,7 +159,8 @@ CRegString::CRegString(CString key, CString def, BOOL force, HKEY base)
 
 CRegString::~CRegString(void)
 {
-	//write();
+	if (m_hKey)
+		RegCloseKey(m_hKey);
 }
 
 CString	CRegString::read()
@@ -173,12 +178,14 @@ CString	CRegString::read()
 			ASSERT(type==REG_SZ);
 			m_read = TRUE;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			return m_value;
 		}
 		else
 		{
 			delete [] pStr;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
@@ -203,6 +210,7 @@ void CRegString::write()
 		m_read = TRUE;
 	}
 	RegCloseKey(m_hKey);
+	m_hKey = NULL;
 }
 
 CRegString::operator CString()
@@ -263,7 +271,8 @@ CRegRect::CRegRect(CString key, CRect def, BOOL force, HKEY base)
 
 CRegRect::~CRegRect(void)
 {
-	//write();
+	if (m_hKey)
+		RegCloseKey(m_hKey);
 }
 
 CRect	CRegRect::read()
@@ -281,12 +290,14 @@ CRect	CRegRect::read()
 			ASSERT(type==REG_BINARY);
 			m_read = TRUE;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			return m_value;
 		}
 		else
 		{
 			delete [] pRect;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
@@ -308,6 +319,7 @@ void CRegRect::write()
 		m_read = TRUE;
 	}
 	RegCloseKey(m_hKey);
+	m_hKey = NULL;
 }
 
 CRegRect::operator CRect()
@@ -368,7 +380,8 @@ CRegPoint::CRegPoint(CString key, CPoint def, BOOL force, HKEY base)
 
 CRegPoint::~CRegPoint(void)
 {
-	//write();
+	if (m_hKey)
+		RegCloseKey(m_hKey);
 }
 
 CPoint	CRegPoint::read()
@@ -386,12 +399,14 @@ CPoint	CRegPoint::read()
 			ASSERT(type==REG_BINARY);
 			m_read = TRUE;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			return m_value;
 		}
 		else
 		{
 			delete [] pPoint;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
@@ -413,6 +428,7 @@ void CRegPoint::write()
 		m_read = TRUE;
 	}
 	RegCloseKey(m_hKey);
+	m_hKey = NULL;
 }
 
 CRegPoint::operator CPoint()
@@ -474,7 +490,8 @@ CRegStdString::CRegStdString(stdstring key, stdstring def, BOOL force, HKEY base
 
 CRegStdString::~CRegStdString(void)
 {
-	//write();
+	if (m_hKey)
+		RegCloseKey(m_hKey);
 }
 
 stdstring	CRegStdString::read()
@@ -491,12 +508,14 @@ stdstring	CRegStdString::read()
 			delete [] pStr;
 			m_read = TRUE;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			return m_value;
 		}
 		else
 		{
 			delete [] pStr;
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
@@ -517,6 +536,7 @@ void CRegStdString::write()
 		m_read = TRUE;
 	}
 	RegCloseKey(m_hKey);
+	m_hKey = NULL;
 }
 
 CRegStdString::operator LPCTSTR()
@@ -584,7 +604,8 @@ CRegStdWORD::CRegStdWORD(stdstring key, DWORD def, BOOL force, HKEY base)
 
 CRegStdWORD::~CRegStdWORD(void)
 {
-	//write();
+	if (m_hKey)
+		RegCloseKey(m_hKey);
 }
 
 DWORD	CRegStdWORD::read()
@@ -596,12 +617,14 @@ DWORD	CRegStdWORD::read()
 		if (RegQueryValueEx(m_hKey, m_key.c_str(), NULL, &type, (BYTE*) &m_value,(LPDWORD) &size)==ERROR_SUCCESS)
 		{
 			m_read = TRUE;
-			RegCloseKey(m_hKey);
+			RegCloseKey(m_hKey); 
+			m_hKey = NULL;
 			return m_value;
 		}
 		else
 		{
 			RegCloseKey(m_hKey);
+			m_hKey = NULL;
 			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
@@ -622,6 +645,7 @@ void CRegStdWORD::write()
 		m_read = TRUE;
 	}
 	RegCloseKey(m_hKey);
+	m_hKey = NULL;
 }
 
 CRegStdWORD::operator DWORD()

@@ -9,6 +9,8 @@
 - BUG: In the property page the properties were
        not set to the selected value in the
        list-control. (Stefan)
+- BUG: Fixed a registry handle leak in the shell
+       extension. (Stefan)
        
 Version 0.22
 - ADD: A lot of improved icons. (Luebbe)
