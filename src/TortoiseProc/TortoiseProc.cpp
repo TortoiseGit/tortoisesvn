@@ -156,9 +156,9 @@ BOOL CTortoiseProcApp::InitInstance()
 
 	if (!parser.HasKey(_T("command")))
 	{
-		CMessageBox::Show(NULL, _T("TortoiseSVN should run automatically when Windows starts.\nYou do NOT run it directly.\nIt is designed to crash if you run it directly for the purpose\nof testing the crash handler.\n<ct=0x0000FF>Do NOT send the crashreport!!!!</ct>"), _T("TortoiseSVN"), MB_ICONINFORMATION);
-		CrashProgram();
-		CMessageBox::Show(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
+		CAboutDlg dlg;
+		m_pMainWnd = &dlg;
+		dlg.DoModal();
 		return FALSE;
 	}
 
@@ -196,8 +196,16 @@ BOOL CTortoiseProcApp::InitInstance()
 			hWndExplorer = NULL;
 		}
 
+		//#region crash
+		if (comVal.Compare(_T("crash"))==0)
+		{
+			CMessageBox::Show(NULL, _T("You are testing the crashhandler.\n<ct=0x0000FF>Do NOT send the crashreport!!!!</ct>"), _T("TortoiseSVN"), MB_ICONINFORMATION);
+			CrashProgram();
+			CMessageBox::Show(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
+			return FALSE;
+		}
+		//#endregion
 		HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));	
-
 		//#region about
 		if (comVal.Compare(_T("about"))==0)
 		{
@@ -299,6 +307,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			LONG rev = -1;
 			CString path = parser.GetVal(_T("path"));
+			BOOL bUseTempfile = !parser.HasKey(_T("notempfile"));
 			TRACE(_T("tempfile = %s\n"), path);
 			if (parser.HasKey(_T("rev")))
 			{
@@ -312,7 +321,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			CSVNProgressDlg progDlg;
 			m_pMainWnd = &progDlg;
-			progDlg.SetParams(Update, true, path, _T(""), _T(""), rev);
+			progDlg.SetParams(Update, bUseTempfile, path, _T(""), _T(""), rev);
 			progDlg.DoModal();
 		}
 		//#endregion
@@ -320,6 +329,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("commit"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
+			if (parser.HasKey(_T("notempfile")))
+			{
+				path = CUtils::WritePathsToTempFile(path);
+			} // if (parser.HasKey(_T("notempfile"))) 
 			CLogPromptDlg dlg;
 			CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
 			CString logmsg = logmessage;
@@ -349,6 +362,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("add"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
+			if (parser.HasKey(_T("notempfile")))
+			{
+				path = CUtils::WritePathsToTempFile(path);
+			} // if (parser.HasKey(_T("notempfile"))) 
 			CAddDlg dlg;
 			dlg.m_sPath = path;
 			if (dlg.DoModal() == IDOK)
@@ -369,6 +386,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("revert"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
+			if (parser.HasKey(_T("notempfile")))
+			{
+				path = CUtils::WritePathsToTempFile(path);
+			} // if (parser.HasKey(_T("notempfile"))) 
 			TRACE(_T("tempfile = %s\n"), path);
 			if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONEXCLAMATION)==IDYES)
 			{
@@ -579,6 +600,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("remove"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
+			if (parser.HasKey(_T("notempfile")))
+			{
+				path = CUtils::WritePathsToTempFile(path);
+			} // if (parser.HasKey(_T("notempfile"))) 
 			TRACE(_T("tempfile = %s\n"), path);
 			if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_DELETE_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 			{
@@ -997,6 +1022,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("ignore"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
+			if (parser.HasKey(_T("notempfile")))
+			{
+				path = CUtils::WritePathsToTempFile(path);
+			} // if (parser.HasKey(_T("notempfile"))) 
 			SVN svn;
 			CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
 			CString strLine = _T("");

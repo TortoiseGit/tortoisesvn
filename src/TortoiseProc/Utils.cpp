@@ -512,3 +512,30 @@ BOOL CUtils::PathIsParent(CString sPath1, CString sPath2)
 	return FALSE;
 }
 
+CString CUtils::WritePathsToTempFile(CString paths)
+{
+	CString tempfile = CUtils::GetTempFile();
+	try
+	{
+		CStdioFile file(tempfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+		int pos = -1;
+		CString temp;
+		do
+		{
+			pos = paths.Find('*');
+			if (pos>=0)
+				temp = paths.Left(pos);
+			else
+				temp = paths;
+			file.WriteString(temp + _T("\n"));
+			paths = paths.Mid(pos+1);
+		} while (pos >= 0);
+		file.Close();
+	}
+	catch (CFileException* pE)
+	{
+		TRACE(_T("CFileException in Commit!\n"));
+		pE->Delete();
+	}
+	return tempfile;
+}

@@ -89,5 +89,10 @@ public:
 	static CString GetFileNameFromPath(CString sPath);
 	static CString GetFileExtFromPath(CString sPath);
 	static BOOL PathIsParent(CString sPath1, CString sPath2);
-
+	/**
+	 * Writes all paths, separated by a '*' char into a tempfile. 
+	 * \param paths a list of paths, separated by a '*' char
+	 * \return the path to the temp file
+	 */
+	static CString WritePathsToTempFile(CString paths);
 };
