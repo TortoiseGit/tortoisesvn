@@ -773,6 +773,7 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	CUtils::RemoveAccelerators(dlg.m_sTitle);
 	dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
 	CUtils::RemoveAccelerators(dlg.m_sInputText);
+	dlg.m_pProjectProperties = &m_ProjectProperties;
 	if (dlg.DoModal()==IDOK)
 	{
 		int selItem = m_treeRepository.GetFirstSelectedItem();
