@@ -50,6 +50,7 @@ protected:
 
 	int				m_nLineIndex;
 	int				m_nLineHeight;
+	int				m_nIgnoreWS;
 
 	DECLARE_MESSAGE_MAP()
 public:

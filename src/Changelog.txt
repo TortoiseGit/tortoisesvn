@@ -1,3 +1,11 @@
+- CHG: When "Ignore all whitespaces" is active and 
+       "don't show whitespaces" then the line diff bar
+       doesn't show those whitespaces. (Stefan)
+- BUG: Remove compiler optimizations which lead 
+       to a crash in the repo browser. (Stefan)
+- BUG: Applying a patch which had the whole file
+       deleted lead to a crash. (Stefan)
+
 Version 1.0.1
 - ADD: The dialog asking the user to enter an URL (e.g.
        for the repo browser) has now a history of

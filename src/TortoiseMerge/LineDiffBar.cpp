@@ -59,6 +59,7 @@ void CLineDiffBar::DocumentUpdated()
 	GetClientRect(rect);
 	if (m_pMainFrm)
 		m_pMainFrm->RecalcLayout();
+	m_nIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 }
 
 CSize CLineDiffBar::CalcFixedLayout(BOOL bStretch, BOOL bHorz)
@@ -121,8 +122,11 @@ void CLineDiffBar::OnPaint()
 		if ((m_pMainFrm->m_pwndLeftView->IsWindowVisible())&&(m_pMainFrm->m_pwndRightView->IsWindowVisible()))
 		{
 			BOOL bViewWhiteSpace = m_pMainFrm->m_pwndLeftView->m_bViewWhitespace;
-			m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = TRUE;
-			m_pMainFrm->m_pwndRightView->m_bViewWhitespace = TRUE;
+			if ((1 != m_nIgnoreWS)||(bViewWhiteSpace))
+			{
+				m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = TRUE;
+				m_pMainFrm->m_pwndRightView->m_bViewWhitespace = TRUE;
+			} // if ((1 != m_nIgnoreWS)||(!bViewWhiteSpace)) 
 			m_pMainFrm->m_pwndLeftView->DrawSingleLine(&cacheDC, &upperrect, m_nLineIndex);
 			m_pMainFrm->m_pwndRightView->DrawSingleLine(&cacheDC, &lowerrect, m_nLineIndex);
 			m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = bViewWhiteSpace;
