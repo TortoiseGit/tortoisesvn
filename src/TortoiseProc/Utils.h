@@ -95,4 +95,5 @@ public:
 	 * \return the path to the temp file
 	 */
 	static CString WritePathsToTempFile(CString paths);
+	static CString GetLongPathName(CString path);
 };

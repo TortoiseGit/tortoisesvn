@@ -256,7 +256,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			//the log command line looks like this:
 			//command:log path:<path_to_file_or_directory_to_show_the_log_messages> [revstart:<startrevision>] [revend:<endrevision>]
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CString val = parser.GetVal(_T("revstart"));
 			long revstart = _tstol(val);
 			val = parser.GetVal(_T("revend"));
@@ -284,7 +284,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			// Get the directory supplied in the command line. If there isn't
 			// one then we should use the current working directory instead.
 			//
-			CString strPath = parser.GetVal(_T("path"));
+			CString strPath = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			if (strPath.IsEmpty())
 			{
 				DWORD dwBufSize = ::GetCurrentDirectory(0, NULL);
@@ -323,7 +323,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString logmsg = logmessage;
 			if (!logmsg.IsEmpty())
 				dlg.m_message = logmsg;
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			dlg.m_path = path;
 			if (dlg.DoModal() == IDOK)
 			{
@@ -345,7 +345,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("update"))==0)
 		{
 			SVNRev rev = SVNRev(_T("HEAD"));
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			BOOL bUseTempfile = !parser.HasKey(_T("notempfile"));
 			TRACE(_T("tempfile = %s\n"), path);
 			CString sNonRecursive;
@@ -371,7 +371,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region commit
 		if (comVal.Compare(_T("commit"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			if (parser.HasKey(_T("notempfile")))
 			{
 				path = CUtils::WritePathsToTempFile(path);
@@ -405,7 +405,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region add
 		if (comVal.Compare(_T("add"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			if (parser.HasKey(_T("notempfile")))
 			{
 				path = CUtils::WritePathsToTempFile(path);
@@ -430,7 +430,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region revert
 		if (comVal.Compare(_T("revert"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			if (parser.HasKey(_T("notempfile")))
 			{
 				path = CUtils::WritePathsToTempFile(path);
@@ -449,7 +449,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region cleanup
 		if (comVal.Compare(_T("cleanup"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CProgressDlg progress;
 			CString temp;
 			temp.LoadString(IDS_PROC_CLEANUP);
@@ -473,7 +473,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region resolve
 		if (comVal.Compare(_T("resolve"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CSVNProgressDlg progDlg;
 			progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 			m_pMainWnd = &progDlg;
@@ -484,7 +484,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region repocreate
 		if (comVal.Compare(_T("repocreate"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			path.Replace('/', '\\');
 			if (GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE)
 			{
@@ -517,7 +517,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("switch"))==0)
 		{
 			CSwitchDlg dlg;
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			dlg.m_path = path;
 
 			if (dlg.DoModal() == IDOK)
@@ -534,7 +534,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("export"))==0)
 		{
 			TCHAR saveto[MAX_PATH];
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			if (SVNStatus::GetAllStatus(path) == svn_wc_status_unversioned)
 			{
 				CCheckoutDlg dlg;
@@ -602,7 +602,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("merge"))==0)
 		{
 			CMergeDlg dlg;
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			dlg.m_URLFrom = path;
 			if (dlg.DoModal() == IDOK)
 			{
@@ -619,7 +619,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("copy"))==0)
 		{
 			CCopyDlg dlg;
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			dlg.m_path = path;
 			if (dlg.DoModal() == IDOK)
 			{
@@ -657,7 +657,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region remove
 		if (comVal.Compare(_T("remove"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			if (parser.HasKey(_T("notempfile")))
 			{
 				path = CUtils::WritePathsToTempFile(path);
@@ -709,7 +709,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region rename
 		if (comVal.Compare(_T("rename"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CRenameDlg dlg;
 			CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
 			CString filepath = path.Left(path.ReverseFind('\\') + 1);
@@ -734,8 +734,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region diff
 		if (comVal.Compare(_T("diff"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
-			CString path2 = parser.GetVal(_T("path2"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
+			CString path2 = CUtils::GetLongPathName(parser.GetVal(_T("path2")));
 			BOOL bDelete = FALSE;
 			if (path2.IsEmpty())
 			{
@@ -976,7 +976,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString theirs;
 			CString mine;
 			CString base;
-			CString merge = parser.GetVal(_T("path"));
+			CString merge = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CString path = merge.Left(merge.ReverseFind('\\'));
 			path = path + _T("\\");
 
@@ -1008,7 +1008,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region relocate
 		if (comVal.Compare(_T("relocate"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			SVN svn;
 			CRelocateDlg dlg;
 			dlg.m_sFromUrl = svn.GetURLFromPath(path);
@@ -1054,7 +1054,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region repostatus
 		if (comVal.Compare(_T("repostatus"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CChangedDlg dlg;
 			dlg.m_path = path;
 			dlg.DoModal();
@@ -1063,7 +1063,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region repobrowser
 		if (comVal.Compare(_T("repobrowser"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CString url;
 			BOOL bFile = FALSE;
 			SVN svn;
@@ -1094,7 +1094,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region ignore
 		if (comVal.Compare(_T("ignore"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			if (parser.HasKey(_T("notempfile")))
 			{
 				path = CUtils::WritePathsToTempFile(path);
@@ -1142,7 +1142,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region blame
 		if (comVal.Compare(_T("blame"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			CBlameDlg dlg;
 			if (dlg.DoModal() == IDOK)
 			{
@@ -1164,8 +1164,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region cat
 		if (comVal.Compare(_T("cat"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
-			CString savepath = parser.GetVal(_T("savepath"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
+			CString savepath = CUtils::GetLongPathName(parser.GetVal(_T("savepath")));
 			CString revision = parser.GetVal(_T("revision"));
 			LONG rev = _ttol(revision);
 			if (rev==0)
@@ -1181,7 +1181,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region createpatch
 		if (comVal.Compare(_T("createpatch"))==0)
 		{
-			CString path = parser.GetVal(_T("path"));
+			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
 			OPENFILENAME ofn;		// common dialog box structure
 			TCHAR szFile[MAX_PATH];  // buffer for file name
 			ZeroMemory(szFile, sizeof(szFile));

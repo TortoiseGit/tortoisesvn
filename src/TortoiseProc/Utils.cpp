@@ -551,6 +551,7 @@ CString CUtils::WritePathsToTempFile(CString paths)
 				temp = paths.Left(pos);
 			else
 				temp = paths;
+			temp = CUtils::GetLongPathName(temp);
 			file.WriteString(temp + _T("\n"));
 			paths = paths.Mid(pos+1);
 		} while (pos >= 0);
@@ -562,4 +563,13 @@ CString CUtils::WritePathsToTempFile(CString paths)
 		pE->Delete();
 	}
 	return tempfile;
+}
+
+CString CUtils::GetLongPathName(CString path)
+{
+	TCHAR pathbuf[MAX_PATH];
+	DWORD ret = ::GetLongPathName(path, pathbuf, MAX_PATH);
+	if ((ret == 0)||(ret > MAX_PATH))
+		return path;
+	return CString(pathbuf);
 }
