@@ -202,7 +202,7 @@ void CSciEdit::InsertText(const CString& sText, bool bNewLine)
 
 CString CSciEdit::GetText()
 {
-	LRESULT len = Call(SCI_GETLENGTH);
+	LRESULT len = Call(SCI_GETTEXT, 0, 0);
 	CStringA sTextA;
 	Call(SCI_GETTEXT, len+1, (LPARAM)(LPCSTR)sTextA.GetBuffer(len+1));
 	sTextA.ReleaseBuffer();
