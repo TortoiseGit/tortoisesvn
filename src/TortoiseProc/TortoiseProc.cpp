@@ -714,7 +714,6 @@ BOOL CTortoiseProcApp::InitInstance()
 					// we delete each item individually so we can prompt the user
 					// if something goes wrong or unversioned/modified items are
 					// to be deleted
-//					const CTSVNPathList& pathList = CTSVNPathList(CTSVNPath(strLine));
 					CTSVNPath path(strLine);
 					CTSVNPathList pathList(path);
 					if (!svn.Remove(pathList, bForce))
@@ -757,7 +756,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CRenameDlg dlg;
 			CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
 			CString filepath = path.Left(path.ReverseFind('\\') + 1);
-			SetCurrentDirectory(filepath);
+			::SetCurrentDirectory(filepath);
 			dlg.m_name = filename;
 			if (dlg.DoModal() == IDOK)
 			{
