@@ -647,8 +647,8 @@ int CMainFrame::CheckResolved()
 
 void CMainFrame::SaveFile(CString sFilePath)
 {
-	CStringArray * arText = NULL;
-	CDWordArray * arStates = NULL;
+	CStdCStringArray * arText = NULL;
+	CStdDWORDArray * arStates = NULL;
 	CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
 	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
 	{

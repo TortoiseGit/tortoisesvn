@@ -454,7 +454,7 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 	CFileTextLines PatchLines;
 	CFileTextLines PatchLinesResult;
 	PatchLines.Load(sPatchFile);
-	PatchLinesResult.Copy(PatchLines);
+	PatchLinesResult = PatchLines;  //.Copy(PatchLines);
 	PatchLines.CopySettings(&PatchLinesResult);
 
 	Chunks * chunks = m_arFileDiffs.GetAt(nIndex);

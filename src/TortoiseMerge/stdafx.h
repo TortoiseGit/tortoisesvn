@@ -61,4 +61,6 @@
 #pragma warning(disable: 4702)	// Unreachable code warnings in xtree
 #include <string>
 #include <map>
+#include <vector>
 #pragma warning(pop)
+

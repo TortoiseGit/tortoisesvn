@@ -17,7 +17,30 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-#include "afxcoll.h"
+//#include "afxcoll.h"
+
+// A template class to make an array which looks like a CStringArray or CDWORDArray but
+// is infact based on a STL array, which is much faster at large sizes
+template <typename T> class CStdArray
+{
+public:
+	int GetCount() const { return (int)m_vec.size(); }
+	const T& GetAt(int index) const { return m_vec[index]; }
+	void RemoveAt(int index)	{ m_vec.erase(m_vec.begin()+index); }
+	void InsertAt(int index, const T& strVal)	{ m_vec.insert(m_vec.begin()+index, strVal); }
+	void InsertAt(int index, const T& strVal, int nCopies)	{ m_vec.insert(m_vec.begin()+index, nCopies, strVal); }
+	void SetAt(int index, const T& strVal)	{ m_vec[index] = strVal; }
+	void Add(const T& strVal)	 { m_vec.push_back(strVal); }
+	void RemoveAll()				{ m_vec.clear(); }
+//	void Reserve(int lengthHint)	{ m_vec.reserve(lengthHint); }
+
+private:
+	std::vector<T> m_vec;
+};
+
+typedef CStdArray<CString> CStdCStringArray;
+typedef CStdArray<DWORD> CStdDWORDArray;
+
 
 /**
  * \ingroup TortoiseMerge
@@ -26,7 +49,7 @@
  * This class is also responsible for determing the encoding of
  * the file (e.g. UNICODE, UTF8, ASCII, ...).
  */
-class CFileTextLines : public CStringArray
+class CFileTextLines  : public CStdCStringArray
 {
 public:
 	CFileTextLines(void);
@@ -91,5 +114,4 @@ protected:
 	CString		m_sErrorString;
 	CFileTextLines::UnicodeType	m_UnicodeType;
 	CFileTextLines::LineEndings m_LineEndings;
-
 };

@@ -38,9 +38,6 @@ CDiffData::CDiffData(void)
 	m_diffYourBase = NULL;
 	m_diffTheirBase = NULL;
 	m_diffTheirYourBase = NULL;
-	m_arBaseFile.SetSize(0, 10);
-	m_arTheirFile.SetSize(0, 10);
-	m_arYourFile.SetSize(0, 10);
 
 	m_regForegroundColors[DIFFSTATE_UNKNOWN] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorUnknownF"), DIFFSTATE_UNKNOWN_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_NORMAL] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorNormalF"), DIFFSTATE_NORMAL_DEFAULT_FG);
@@ -200,18 +197,12 @@ BOOL CDiffData::Load()
 			m_sError = m_arBaseFile.GetErrorString();
 			return FALSE;
 		} // if (!m_arBaseFile.Load(m_sBaseFile))
-		if (!converted.Load(m_sBaseFile))
-		{
-			m_sError = converted.GetErrorString();
-			return FALSE;
-		} // if (!converted.Load(m_sBaseFile))
-		else
-		{
-			CString sTemp = tempfiles.GetTempFilePath();
-			fc1 = sTemp;
-			converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
-		}
+		converted = m_arBaseFile;
+		CString sTemp = tempfiles.GetTempFilePath();
+		fc1 = sTemp;
+		converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
 	} // if (!m_sBaseFile.IsEmpty())
+
 	if (!m_sTheirFile.IsEmpty())
 	{
 		if (!m_arTheirFile.Load(m_sTheirFile))
@@ -219,18 +210,12 @@ BOOL CDiffData::Load()
 			m_sError = m_arTheirFile.GetErrorString();
 			return FALSE;
 		}
-		if (!converted.Load(m_sTheirFile))
-		{
-			m_sError = converted.GetErrorString();
-			return FALSE;
-		} // if (!converted.Load(m_sBaseFile))
-		else
-		{
-			CString sTemp = tempfiles.GetTempFilePath();
-			fc2 = sTemp;
-			converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
-		}
+		converted = m_arTheirFile;
+		CString sTemp = tempfiles.GetTempFilePath();
+		fc2 = sTemp;
+		converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
 	} // if (!m_sTheirFile.IsEmpty())
+
 	if (!m_sYourFile.IsEmpty())
 	{
 		if (!m_arYourFile.Load(m_sYourFile))
@@ -238,17 +223,10 @@ BOOL CDiffData::Load()
 			m_sError = m_arYourFile.GetErrorString();
 			return FALSE;
 		}
-		if (!converted.Load(m_sYourFile))
-		{
-			m_sError = converted.GetErrorString();
-			return FALSE;
-		} // if (!converted.Load(m_sBaseFile))
-		else
-		{
-			CString sTemp = tempfiles.GetTempFilePath();
-			fc3 = sTemp;
-			converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
-		}
+		converted = m_arYourFile;
+		CString sTemp = tempfiles.GetTempFilePath();
+		fc3 = sTemp;
+		converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
 	} // if (!m_sYourFile.IsEmpty()) 
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
@@ -271,14 +249,15 @@ BOOL CDiffData::Load()
 		svn_diff_t * tempdiff = m_diffYourBase;
 		LONG baseline = 0;
 		LONG yourline = 0;
+
 		while (tempdiff)
 		{
 			for (int i=0; i<tempdiff->original_length; i++)
 			{
 				if (tempdiff->type == svn_diff__type_common)
 				{
-					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
-					if (m_arBaseFile.GetAt(baseline).Compare(m_arYourFile.GetAt(yourline))!=0)
+//					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
+					if (m_arBaseFile.GetAt(baseline) != m_arYourFile.GetAt(yourline))
 					{
 						if (dwIgnoreWS == 2)
 						{
@@ -286,7 +265,7 @@ BOOL CDiffData::Load()
 							s1 = s1.TrimLeft(_T(" \t"));
 							CString s2 = m_arYourFile.GetAt(yourline);
 							s2 = s2.TrimLeft(_T(" \t"));
-							if (s1.Compare(s2)!=0)
+							if (s1 != s2)
 							{
 								m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVEDWHITESPACE);
 								m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
@@ -343,7 +322,7 @@ BOOL CDiffData::Load()
 				{
 					m_arDiffYourBaseLeft.Add(m_arBaseFile.GetAt(baseline));
 					m_arDiffYourBaseRight.Add(m_arYourFile.GetAt(yourline));
-					if (m_arBaseFile.GetAt(baseline).Compare(m_arYourFile.GetAt(yourline))!=0)
+					if (m_arBaseFile.GetAt(baseline) != m_arYourFile.GetAt(yourline))
 					{
 						if (dwIgnoreWS == 2)
 						{
@@ -351,7 +330,7 @@ BOOL CDiffData::Load()
 							s1 = s1.TrimLeft(_T(" \t"));
 							CString s2 = m_arYourFile.GetAt(yourline);
 							s2 = s2.TrimLeft(_T(" \t"));
-							if (s1.Compare(s2)!=0)
+							if (s1 != s2)
 							{
 								m_arStateYourBaseLeft.Add(DIFFSTATE_WHITESPACE);
 								m_arStateYourBaseRight.Add(DIFFSTATE_WHITESPACE);
@@ -418,7 +397,7 @@ BOOL CDiffData::Load()
 		TRACE(_T("done with diff\n"));
 	} // if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty())) 
 	//#endregion
-	
+
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sTheirFile.IsEmpty()) && m_sYourFile.IsEmpty())
 	{
 		ASSERT(FALSE);

@@ -121,22 +121,22 @@ public:
 	CFileTextLines				m_arTheirFile;
 	CFileTextLines				m_arYourFile;
 
-	CStringArray				m_arDiffYourBaseBoth;
-	CDWordArray					m_arStateYourBaseBoth;
-	CStringArray				m_arDiffYourBaseLeft;
-	CDWordArray					m_arStateYourBaseLeft;
-	CStringArray				m_arDiffYourBaseRight;
-	CDWordArray					m_arStateYourBaseRight;
+	CStdCStringArray			m_arDiffYourBaseBoth;
+	CStdDWORDArray					m_arStateYourBaseBoth;
+	CStdCStringArray			m_arDiffYourBaseLeft;
+	CStdDWORDArray					m_arStateYourBaseLeft;
+	CStdCStringArray			m_arDiffYourBaseRight;
+	CStdDWORDArray					m_arStateYourBaseRight;
 
-	CStringArray				m_arDiffTheirBaseBoth;
-	CDWordArray					m_arStateTheirBaseBoth;
-	CStringArray				m_arDiffTheirBaseLeft;
-	CDWordArray					m_arStateTheirBaseLeft;
-	CStringArray				m_arDiffTheirBaseRight;
-	CDWordArray					m_arStateTheirBaseRight;
+	CStdCStringArray			m_arDiffTheirBaseBoth;
+	CStdDWORDArray					m_arStateTheirBaseBoth;
+	CStdCStringArray			m_arDiffTheirBaseLeft;
+	CStdDWORDArray					m_arStateTheirBaseLeft;
+	CStdCStringArray			m_arDiffTheirBaseRight;
+	CStdDWORDArray					m_arStateTheirBaseRight;
 
-	CStringArray				m_arDiff3;
-	CDWordArray					m_arStateDiff3;
+	CStdCStringArray			m_arDiff3;
+	CStdDWORDArray					m_arStateDiff3;
 
 	CString						m_sError;
 

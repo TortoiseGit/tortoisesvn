@@ -62,8 +62,8 @@ public:
 	inline BOOL		IsModified() {return m_bModified;}
 	void			SetModified(BOOL bModified = TRUE) {m_bModified = bModified;}
 
-	CStringArray *	m_arDiffLines;		///< Array of Strings containing all lines of the text file
-	CDWordArray	*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
+	CStdCStringArray* m_arDiffLines;		///< Array of Strings containing all lines of the text file
+	CStdDWORDArray*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
 	CString			m_sFullFilePath;	///< The full path of the file shown
 
