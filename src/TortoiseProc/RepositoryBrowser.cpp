@@ -106,9 +106,9 @@ SVNRev CRepositoryBrowser::GetRevision() const
 	return GetURL().GetRevision();
 }
 
-CString CRepositoryBrowser::GetPath(bool escaped) const
+CString CRepositoryBrowser::GetPath() const
 {
-	return GetURL().GetPath(escaped);
+	return GetURL().GetPath();
 }
 
 

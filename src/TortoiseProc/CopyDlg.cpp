@@ -120,7 +120,6 @@ BOOL CCopyDlg::OnInitDialog()
 	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
 
 	m_bFile = !PathIsDirectory(m_path);
-	CString unescapedurl;
 	SVN svn;
 	m_wcURL = svn.GetURLFromPath(m_path);
 	if (m_wcURL.IsEmpty())
@@ -129,18 +128,11 @@ BOOL CCopyDlg::OnInitDialog()
 		TRACE(_T("could not retrieve the URL of the file!\n"));
 		this->EndDialog(IDCANCEL);		//exit
 	} // if ((rev == (-2))||(status.status->entry == NULL))
-	else
-	{
-		char buf[10000];
-		strcpy(buf, CStringA(m_wcURL));
-		CUtils::Unescape(buf);
-		unescapedurl = CUnicodeUtils::GetUnicode(buf);
-	}
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	m_URLCombo.AddString(m_wcURL, 0);
 	m_URLCombo.SelectString(-1, m_wcURL);
-	GetDlgItem(IDC_FROMURL)->SetWindowText(unescapedurl);
+	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -181,7 +173,7 @@ void CCopyDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(strUrl, this, m_bFile);
 			if (browser.DoModal() == IDOK)
 			{
-				m_URLCombo.SetWindowText(browser.GetPath(true));
+				m_URLCombo.SetWindowText(browser.GetPath());
 			}
 		}
 		else
@@ -206,7 +198,7 @@ void CCopyDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(strUrl, this, m_bFile);
 		if (browser.DoModal() == IDOK)
 		{
-			m_URLCombo.SetWindowText(browser.GetPath(true));
+			m_URLCombo.SetWindowText(browser.GetPath());
 		}
 	}
 }

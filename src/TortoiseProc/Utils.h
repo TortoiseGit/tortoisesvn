@@ -84,7 +84,8 @@ public:
 	static CString GetTempFile();
 
 	static void Unescape(char * psz);
-	static CString PathEscape(CString path);
+	static CStringA PathEscape(CStringA path);
+	static BOOL IsEscaped(CStringA path);
 	static CString GetVersionFromFile(const CString & p_strDateiname);
 	static CString GetFileNameFromPath(CString sPath);
 	static CString GetFileExtFromPath(CString sPath);

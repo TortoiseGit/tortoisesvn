@@ -37,10 +37,6 @@ CRepositoryTree::CRepositoryTree(const CString& strUrl, BOOL bFile) :
 	m_bFile(bFile)
 {
 	m_strUrl.TrimRight('/');
-	CStringA temp = CUnicodeUtils::GetUTF8(m_strUrl);
-	CUtils::Unescape(temp.GetBuffer());
-	temp.ReleaseBuffer();
-	m_strUrl = CUnicodeUtils::GetUnicode(temp);
 }
 
 CRepositoryTree::~CRepositoryTree()
@@ -506,7 +502,6 @@ CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
 		strUrl.Insert(0, GetItemText(GetItemIndex(hParent), 0) + _T("/"));
 		hParent = GetNextItem(hParent, RVGN_PARENT);
 	} // while (hParent != NULL)
-	strUrl = CUtils::PathEscape(strUrl);
 	return strUrl;
 }
 

@@ -191,7 +191,7 @@ void CImportDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(strUrl, this);
 			if (browser.DoModal() == IDOK)
 			{
-				m_URLCombo.SetWindowText(browser.GetPath(true));
+				m_URLCombo.SetWindowText(browser.GetPath());
 			}
 		}
 		else
@@ -216,7 +216,7 @@ void CImportDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(strUrl, this);
 		if (browser.DoModal() == IDOK)
 		{
-			m_URLCombo.SetWindowText(browser.GetPath(true));
+			m_URLCombo.SetWindowText(browser.GetPath());
 		}
 	}
 	else

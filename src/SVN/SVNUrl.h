@@ -29,11 +29,6 @@
  * In addition to the normal conventions for URLs, SVNUrls may include a
  * revision information in the form "PATH?REV".
  *
- * This class accepts both the unescaped or escaped form of a SVNUrl.
- * However, it always stores the unescaped form. To get the escaped form
- * of the path part of the SVNUrl, use GetPath() with the \a escaped
- * parameter set to TRUE.
- *
  * \par requirements
  * win95 or later
  * winNT4 or later
@@ -73,7 +68,7 @@ public:
 	/**
 	 * Returns the path part of the SVNUrl.
 	 */
-	CString GetPath(bool escaped = false) const;
+	CString GetPath() const;
 
 	/**
 	 * Sets the \a revision part of the pathname. If \a escaped is set to TRUE,
@@ -111,10 +106,6 @@ public:
 	CString GetName() const;
 
 public:
-	/**
-	 * Returns the escaped form of \a url (this may also be a SVNUrl).
-	 */
-	static CString Escape(const CString& url);
 	/**
 	 * Returns the unescaped form of \a url (this may also be a SVNUrl).
 	 * Backslashes are converted to forward slashes, and trailing slashes

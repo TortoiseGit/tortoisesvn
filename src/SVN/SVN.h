@@ -47,7 +47,12 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
  * This class provides all Subversion commands as methods and adds some helper
  * methods to the Subversion commands. Also provides virtual methods for the
  * callbacks Subversion uses. This class can't be used directly but must be
- * inherited.
+ * inherited if the callbacks are used.
+ *
+ * \remark Please note that all URLs passed to any of the methods of this class
+ * must not be escaped! Escaping and unescaping of URLs is done automatically.
+ * The drawback of this is that valid pathnames with sequences looking like escaped
+ * chars may not work correctly under certain circumstances.
  *
  * \par requirements
  * win95 or later
@@ -493,6 +498,9 @@ public:
 	 * Checks if a given path is a valid URL.
 	 */	 	 	 	
 	static BOOL PathIsURL(CString path);
+
+	static CStringA MakeSVNUrlOrPath(CString UrlOrPath);
+	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
 
 	svn_error_t *				Err;			///< Global error object struct
 private:

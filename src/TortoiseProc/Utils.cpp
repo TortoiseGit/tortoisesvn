@@ -417,25 +417,60 @@ void CUtils::Unescape(char * psz)
 	*pszDest = '\0';
 }
 
-CString CUtils::PathEscape(CString path)
+CStringA CUtils::PathEscape(CStringA path)
 {
-	CString ret = path;
-	ret.Replace(_T(" "), _T("%20"));
-	ret.Replace(_T("^"), _T("%5E"));
-	ret.Replace(_T("&"), _T("%26"));
-	ret.Replace(_T("`"), _T("%60"));
-	ret.Replace(_T("{"), _T("%7B"));
-	ret.Replace(_T("}"), _T("%7D"));
-	ret.Replace(_T("|"), _T("%7C"));
-	ret.Replace(_T("]"), _T("%5D"));
-	ret.Replace(_T("["), _T("%5B"));
-	ret.Replace(_T("\""), _T("%22"));
-	ret.Replace(_T("<"), _T("%3C"));
-	ret.Replace(_T(">"), _T("%3E"));
-	ret.Replace(_T("\\"), _T("%5C"));
-	ret.Replace(_T("#"), _T("%23"));
-	ret.Replace(_T("?"), _T("%3F"));
+	CStringA ret = path;
+	ret.Replace((" "), ("%20"));
+	ret.Replace(("^"), ("%5E"));
+	ret.Replace(("&"), ("%26"));
+	ret.Replace(("`"), ("%60"));
+	ret.Replace(("{"), ("%7B"));
+	ret.Replace(("}"), ("%7D"));
+	ret.Replace(("|"), ("%7C"));
+	ret.Replace(("]"), ("%5D"));
+	ret.Replace(("["), ("%5B"));
+	ret.Replace(("\""), ("%22"));
+	ret.Replace(("<"), ("%3C"));
+	ret.Replace((">"), ("%3E"));
+	ret.Replace(("\\"), ("%5C"));
+	ret.Replace(("#"), ("%23"));
+	ret.Replace(("?"), ("%3F"));
 	return ret;
+}
+
+BOOL CUtils::IsEscaped(CStringA path)
+{
+	if (path.Find("%20")>=0)
+		return TRUE;
+	if (path.Find("%%5E")>=0)
+		return TRUE;
+	if (path.Find("%26")>=0)
+		return TRUE;
+	if (path.Find("%60")>=0)
+		return TRUE;
+	if (path.Find("%7B")>=0)
+		return TRUE;
+	if (path.Find("%7D")>=0)
+		return TRUE;
+	if (path.Find("%7C")>=0)
+		return TRUE;
+	if (path.Find("%5D")>=0)
+		return TRUE;
+	if (path.Find("%5B")>=0)
+		return TRUE;
+	if (path.Find("%22")>=0)
+		return TRUE;
+	if (path.Find("%3C")>=0)
+		return TRUE;
+	if (path.Find("%3E")>=0)
+		return TRUE;
+	if (path.Find("%5C")>=0)
+		return TRUE;
+	if (path.Find("%23")>=0)
+		return TRUE;
+	if (path.Find("%3F")>=0)
+		return TRUE;
+	return FALSE;
 }
 
 CString CUtils::GetVersionFromFile(const CString & p_strDateiname)

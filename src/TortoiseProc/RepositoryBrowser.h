@@ -64,7 +64,7 @@ public:
 	//! Returns the currently displayed revision only (for convenience)
 	SVNRev GetRevision() const;
 	//! Returns the currently displayed URL's path only (for convenience)
-	CString GetPath(bool escaped = false) const;
+	CString GetPath() const;
 
 // Dialog Data
 	enum { IDD = IDD_REPOSITORY_BROWSER };

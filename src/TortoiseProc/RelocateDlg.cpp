@@ -60,12 +60,8 @@ BOOL CRelocateDlg::OnInitDialog()
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 
-	CStringA urla = CUnicodeUtils::GetUTF8(m_sFromUrl);
-	CUtils::Unescape(urla.GetBuffer());
-	urla.ReleaseBuffer();
-	CString url = CUnicodeUtils::GetUnicode(urla);
-	GetDlgItem(IDC_FROMURL)->SetWindowText(url);
-	m_URLCombo.SetWindowText(url);
+	GetDlgItem(IDC_FROMURL)->SetWindowText(m_sFromUrl);
+	m_URLCombo.SetWindowText(m_sFromUrl);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -86,7 +82,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(m_sToUrl, this);
 			if (browser.DoModal() == IDOK)
 			{
-				m_URLCombo.SetWindowText(browser.GetPath(true));
+				m_URLCombo.SetWindowText(browser.GetPath());
 			}
 		}
 		else
@@ -110,7 +106,7 @@ void CRelocateDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(m_sToUrl, this);
 		if (browser.DoModal() == IDOK)
 		{
-			m_URLCombo.SetWindowText(browser.GetPath(true));
+			m_URLCombo.SetWindowText(browser.GetPath());
 		}
 	}
 	else

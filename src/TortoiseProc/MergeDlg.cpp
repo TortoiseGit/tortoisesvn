@@ -216,7 +216,7 @@ void CMergeDlg::OnBnClickedBrowse()
 			CRepositoryBrowser browser(strUrl, this, m_bFile);
 			if (browser.DoModal() == IDOK)
 			{
-				m_URLCombo.SetWindowText(browser.GetPath(true));
+				m_URLCombo.SetWindowText(browser.GetPath());
 			}
 		}
 		else
@@ -241,7 +241,7 @@ void CMergeDlg::OnBnClickedBrowse()
 		CRepositoryBrowser browser(strUrl, this, m_bFile);
 		if (browser.DoModal() == IDOK)
 		{
-			m_URLCombo.SetWindowText(browser.GetPath(true));
+			m_URLCombo.SetWindowText(browser.GetPath());
 		}
 	} 
 	else
@@ -274,7 +274,7 @@ void CMergeDlg::OnBnClickedBrowse2()
 			CRepositoryBrowser browser(strUrl, this, m_bFile);
 			if (browser.DoModal() == IDOK)
 			{
-				m_URLCombo2.SetWindowText(browser.GetPath(true));
+				m_URLCombo2.SetWindowText(browser.GetPath());
 			}
 		}
 		else
@@ -299,7 +299,7 @@ void CMergeDlg::OnBnClickedBrowse2()
 		CRepositoryBrowser browser(strUrl, this, m_bFile);
 		if (browser.DoModal() == IDOK)
 		{
-			m_URLCombo2.SetWindowText(browser.GetPath(true));
+			m_URLCombo2.SetWindowText(browser.GetPath());
 		}
 	} 
 	else

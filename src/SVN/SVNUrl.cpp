@@ -80,7 +80,7 @@ void SVNUrl::SetPath(const CString& path)
 		*this = new_path;
 }
 
-CString SVNUrl::GetPath(bool escaped) const
+CString SVNUrl::GetPath() const
 {
 	CString path = *this;
 
@@ -88,10 +88,7 @@ CString SVNUrl::GetPath(bool escaped) const
 	if (rev_pos >= 0)
 		path = path.Left(rev_pos);
 
-	if (escaped)
-		return Escape(path);
-	else
-		return path;
+	return path;
 }
 
 void SVNUrl::SetRevision(const SVNRev& revision)
@@ -189,11 +186,6 @@ CString SVNUrl::GetName() const
 
 
 // SVNUrl static helpers
-
-CString SVNUrl::Escape(const CString& url)
-{
-	return CUtils::PathEscape(url);
-}
 
 CString SVNUrl::Unescape(const CString& url)
 {
