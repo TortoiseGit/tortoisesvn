@@ -236,6 +236,10 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 			line++;
 		}
 	}
+	else
+	{
+		m_LogMsgCtrl.DeleteAllItems();
+	}
 
 	int maxcol = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
 	for (int col = 0; col <= maxcol; col++)
