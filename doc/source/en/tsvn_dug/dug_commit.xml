@@ -94,6 +94,30 @@
 			<graphic fileref="images/CommitProgress.png"/>
 		</figure>
 	</para>
+	<para>
+		The progress dialog uses colour coding to highlight different
+		commit actions
+		<variablelist>
+			<varlistentry>
+				<term>Blue</term>
+				<listitem>
+					Committing a modification or a new item.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Dark red</term>
+				<listitem>
+					Committing a deletion or a replacement.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Black</term>
+				<listitem>
+					All other items.
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
 	<tip>
 		<title>Special Folder Properties</title>
 		<para>

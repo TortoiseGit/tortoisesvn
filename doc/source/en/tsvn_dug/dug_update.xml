@@ -26,6 +26,44 @@
 		The repository is <emphasis>not</emphasis> affected by an update.
 	</para>
 	<para>
+		The progress dialog uses colour coding to highlight different
+		update actions
+		<variablelist>
+			<varlistentry>
+				<term>Blue</term>
+				<listitem>
+					New item added to your WC.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Dark red</term>
+				<listitem>
+					Redundant item deleted from your WC.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Green</term>
+				<listitem>
+					Changes from repository successfully merged with your
+					local changes.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Bright red</term>
+				<listitem>
+					Changes from repository merged with local changes,
+					resulting in conflicts which you need to resolve.
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Black</term>
+				<listitem>
+					All other items.
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
+	<para>
 		If you get any <literal>conflicts</literal> during an update (this
 		can happen if others changed the same lines in the same file as
 		you did and those changes don't match) then the dialog shows those
