@@ -309,6 +309,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					OPENFILENAME ofn;		// common dialog box structure
 					TCHAR szFile[MAX_PATH];  // buffer for file name
 					ZeroMemory(szFile, sizeof(szFile));
+					CString filename = url.Mid(url.ReverseFind('/')+1);
+					_tcscpy(szFile, filename);
 					// Initialize OPENFILENAME
 					ZeroMemory(&ofn, sizeof(OPENFILENAME));
 					//ofn.lStructSize = sizeof(OPENFILENAME);
