@@ -54,7 +54,8 @@
 	
 			<para>
 			In case you want to compare/merge three files TortoiseMerge 
-			will show you the differences in a three pane view.
+			will show you the differences in a three pane view. This view 
+			is also used if you need to resolve conflicted files.
 			</para>
 			<para>
 				<graphic srccredit="Two Pane View" fileref="MergeThreePane.png"/>
@@ -136,13 +137,48 @@
 	<!-- ================================================================= -->
 	<sect1 id="tmerge-ch-2-sect-2">
 	
-	<title>Merging / Editing Conflicts</title>
-	
-	<para>
-	
-	</para>	
+		<title>Merging / Editing Conflicts</title>
+		
+		<para>
+		TortoiseMerge not only <emphasis>shows</emphasis> you the differences
+		between files but also let's you resolve conflicts or apply changes.
+		</para>	
+		<para>
+		If you're in two pane view, then you can only edit the file in the right
+		pane ("Yours"). To apply changes made in the left file ("Theirs"), 
+		<action>right-click</action> on the changed lines and select <guimenuitem>
+		Use text block from "theirs"</guimenuitem>. Then the changes from the left
+		file are added to the right file.
+		</para>
+		<para>
+		If you're in three pane view (or sometimes called <emphasis>merge view
+		</emphasis>) you can only edit the file in the bottm view ("Merged"). As
+		in two pane view, you can <action>right-click</action> on conflicted
+		lines and either select <guimenuitem>Use text block from "theirs"
+		</guimenuitem> or <guimenuitem>Use text block from "yours"</guimenuitem>.
+		According to the command you've selected the changes are used in the 
+		resulting file.
+		</para>
 	
 	</sect1>
 
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 3 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-2-sect-3">
+	
+		<title>Settings</title>
+		<?dbhh topicname="HIDD_SETMAINPAGE"?>
+		<?dbhh topicname="HIDD_SETCOLORPAGE"?>
+		<?dbhh topicname="HIDD_SETCOLOR2PAGE"?>
+		
+		<para>
+			<graphic srccredit="The Settings Main Page" fileref="SettingsGeneral.png"/>
+		</para>
+		<para>
+			<graphic srccredit="The Settings Color Page" fileref="SettingsColors.png"/>
+			<graphic srccredit="The Settings Color Page 2" fileref="SettingsColors2.png"/>
+		</para>
+	</sect1>
 </chapter>
 
