@@ -37,7 +37,19 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 	// if no debugger is present, then don't load the dll.
 	// this prevents other apps from loading the dll and locking
 	// it.
-	if (!::IsDebuggerPresent())
+
+	bool bInShellTest = false;
+	TCHAR buf[_MAX_PATH + 1];
+	DWORD pathLength = GetModuleFileName(NULL, buf, _MAX_PATH);
+	if(pathLength >= 14)
+	{
+		if ((_tcsicmp(&buf[pathLength-14], _T("\\ShellTest.exe"))) == 0)
+		{
+			bInShellTest = true;
+		}
+	}
+
+	if (!::IsDebuggerPresent() && !bInShellTest)
 	{
 		ATLTRACE("In debug load preventer\n");
 		return FALSE;
