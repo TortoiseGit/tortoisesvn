@@ -121,7 +121,10 @@ protected:
 		Blame,
 		ApplyPatch,
 		CreatePatch,
-		RevisionGraph
+		RevisionGraph,
+		UnIgnoreSub,
+		UnIgnoreCaseSensitive,
+		UnIgnore
 	};
 
 	FileState m_State;
@@ -145,6 +148,7 @@ protected:
 	stdstring columnauthor;			///< holds the corresponding author of the file/dir above
 	stdstring itemurl;
 	stdstring itemshorturl;
+	stdstring ignoredprops;
 	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
 	svn_wc_status_kind	filestatus;
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))

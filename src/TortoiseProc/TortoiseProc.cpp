@@ -110,6 +110,7 @@ typedef enum
 	cmdRepoStatus,
 	cmdRepoBrowser,
 	cmdIgnore,
+	cmdUnIgnore,
 	cmdBlame,
 	cmdCat,
 	cmdCreatePatch,
@@ -157,6 +158,7 @@ static const struct CommandInfo
 	{	cmdRepoStatus,		_T("repostatus"),		false	},
 	{	cmdRepoBrowser,		_T("repobrowser"),		false	},
 	{	cmdIgnore,			_T("ignore"),			true	},
+	{	cmdUnIgnore,		_T("unignore"),			true	},
 	{	cmdBlame,			_T("blame"),			false	},
 	{	cmdCat,				_T("cat"),				false	},
 	{	cmdCreatePatch,		_T("createpatch"),		false	},
@@ -1201,7 +1203,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region ignore
 		if (command == cmdIgnore)
 		{
-			SVN svn;
+
 			CString filelist;
 			BOOL err = FALSE;
 			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
@@ -1249,6 +1251,55 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CString temp;
 				temp.Format(IDS_PROC_IGNORESUCCESS, filelist);
+				CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+			}
+		}
+		//#endregion
+		//#region unignore
+		if (command == cmdUnIgnore)
+		{
+			CString filelist;
+			BOOL err = FALSE;
+			for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+			{
+				CString name = pathList[nPath].GetFileOrDirectoryName();
+				filelist = name;
+				if (parser.HasKey(_T("onlymask")))
+				{
+					name = _T("*")+pathList[nPath].GetFileExtension();
+				}
+				CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
+				SVNProperties props(parentfolder);
+				CStringA value;
+				for (int i=0; i<props.GetCount(); i++)
+				{
+					CString propname(props.GetItemName(i).c_str());
+					if (propname.CompareNoCase(_T("svn:ignore"))==0)
+					{
+						stdstring stemp;
+						stdstring tmp = props.GetItemValue(i);
+						//treat values as normal text even if they're not
+						value = (char *)tmp.c_str();
+					}
+				}
+				value.Replace(CUnicodeUtils::GetUTF8(name), "");
+				value = value.Trim("\n\r");
+				value += "\n";
+				value.Remove('\r');
+				value.Replace("\n\n", "\n");
+				if (!props.Add(_T("svn:ignore"), value))
+				{
+					CString temp;
+					temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, name);
+					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
+					err = TRUE;
+					break;
+				}
+			}
+			if (err == FALSE)
+			{
+				CString temp;
+				temp.Format(IDS_PROC_UNIGNORESUCCESS, filelist);
 				CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
 			}
 		}

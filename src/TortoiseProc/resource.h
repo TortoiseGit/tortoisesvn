@@ -387,6 +387,7 @@
 #define IDS_ERR_NOTHINGTOADD            1306
 #define IDS_ERR_ERROR                   1307
 #define IDS_ERR_NOVALIDPATH             1308
+#define IDS_ERR_FAILEDUNIGNOREPROPERTY  1309
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
@@ -458,6 +459,8 @@
 #define IDS_PROC_RESOLVE                2308
 #define IDS_PROC_RTFM                   2309
 #define IDS_PROC_CASERENAME             2310
+#define IDS_PROC_UnIGNORESUCCESS        2311
+#define IDS_PROC_UNIGNORESUCCESS        2311
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
