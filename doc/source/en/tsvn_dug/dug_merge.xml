@@ -24,6 +24,16 @@
 		which gives a full description, and many examples of how it is used.
 	</para>
 	<para>
+		An important point to remember is that Merge is closely related to
+		Diff. The merge process works by generating a list of differences
+		between two points in the repository, and applying those differences
+		to your working copy. For example if you want to merge the changes
+		made in revision N then you have to compare revision N with revision
+		(N-1). Novices often ask
+		<quote>Why do I have to subtract 1 from the start revision.</quote>
+		Think of the underlying Diff process and it will become clearer.
+	</para>
+	<para>
 		There are two common use cases for merging which are handled in
 		slightly different ways, as described below.
 	</para>
@@ -69,12 +79,13 @@
 				<listitem>
 					<para>
 						In the <guilabel>From Revision</guilabel> field enter the
-						initial revision number. This is the revision
+						start revision number. This is the revision
 						<emphasis>before</emphasis> the changes you want to merge.
-						Revision numbers are auto-incremented after each commit.
-						You want to start merging the changes before the revision
-						number is auto-incremented. For example,
-						if your log messages look something like this:
+						Remember that Subversion will create a diff file in order
+						to perform the merge, so the start point has to be just
+						before the first change you are interested in.
+						For example,
+						your log messages may look something like this:
 <screen>
 Rev Comments
 39. Working on MyBranch
@@ -85,9 +96,12 @@ Rev Comments
 34. Working on trunk
          ...
 </screen>
-						If you now want to merge the changes from MyBranch into
+						If you now want to merge all the changes from MyBranch into
 						the trunk you have to choose 36 as the
-						<guilabel>From Revision</guilabel>. Not 37 as you might think.
+						<guilabel>From Revision</guilabel>, not 37 as you might think.
+						If you select revision 37 as the start point, then the
+						difference engine compares the end point with revision 37,
+						and will miss the changes made in revision 37 itself.
 					</para>
 					<para>
 						The easiest way to find the revision you need is to
@@ -96,13 +110,30 @@ Rev Comments
 						revision you require in the Show Log dialog, then
 						click on <guibutton>OK</guibutton>.
 					</para>
+					<para>
+						If you have already merged some changes from this branch,
+						Hopefully you will have made a note of the last revision
+						merged in the log message when you committed the change.
+						In that case, you can use <guibutton>Show Log</guibutton>
+						for the Working Copy to trace that log message. Use the
+						end point of the last merge as the start point for this
+						merge. For example, if you have merged revisions 37 to 39
+						last time, then the start point for this merge should be
+						revision 39.
+					</para>
 				</listitem>
 				<listitem>
 					<para>
 						In the <guilabel>To Revision</guilabel> field enter the
 						last revision number in the range you want to merge.
 						Often this will be the HEAD revision, although it doesn't
-						need to be - you can just want to merge a single revision.
+						need to be - you just want to merge a single revision.
+					</para>
+					<para>
+						If other people may be committing changes then be careful
+						about using the HEAD revision. It may not refer to the
+						revision you think it does if someone else made a commit
+						after your last update.
 					</para>
 				</listitem>
 				<listitem>
