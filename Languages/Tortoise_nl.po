@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-11-01 12:20+0100\n"
+"PO-Revision-Date: 2004-11-22 15:23+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -143,10 +143,6 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "Annu&leren"
-
-#: Control-ID:1074
-msgid "&Checkout directory:"
-msgstr "&Ophalen naar map:"
 
 #: Control-ID:1066
 msgid "&Close windows automatically"
@@ -307,6 +303,10 @@ msgstr "&SSH client:"
 msgid "&Save Ctrl-S"
 msgstr "Op&slaan\tCtrl-S"
 
+#: Control-ID:1023
+msgid "&Save authentication"
+msgstr "Authenticatie &opslaan"
+
 #: Control-ID:1012
 msgid "&Set"
 msgstr "&Instellen"
@@ -389,6 +389,10 @@ msgstr "..."
 #: ID:151
 msgid ": Revision %d"
 msgstr ": Revisie %d"
+
+#: ID:151
+msgid ": working base"
+msgstr ": Werkbasis"
 
 #: ID:151
 msgid ": working copy"
@@ -509,7 +513,6 @@ msgstr ""
 "<ct=0x0000ff><b>Let op:</b> verkenner kan hier traag van worden.</ct>"
 
 #: ID:8
-#: ID:73
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Toevoegen"
@@ -538,6 +541,7 @@ msgstr "Voeg hier bestanden toe aan Subversion"
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Toevoegen/wijzigen extensie-specifiek Diff/Merge programma"
 
+#: ID:73
 #: Control-ID:65535
 msgid "Added"
 msgstr "Toegevoegd"
@@ -597,6 +601,10 @@ msgstr "Alle bestanden (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle Bestanden (*.*)|*.*||"
+
+#: ID:82
+msgid "All files are already under version control. There's nothing to add!"
+msgstr "Alle bestanden zijn reeds opgenomen in versiebeheer. Er is niets toe te voegen!"
 
 #: ID:3867
 #: ID:3868
@@ -690,6 +698,10 @@ msgstr "Pas patch toe..."
 #: Control-ID:65535
 msgid "Apply Unified Diff"
 msgstr "Voer unified Diff uit"
+
+#: ID:145
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "Weet u zeker dat u de conflicterende bestanden als opgelost wilt markeren?"
 
 #: ID:79
 msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
@@ -864,8 +876,12 @@ msgstr "Kijk of er updates zijn"
 msgid "Check For Updates..."
 msgstr "Kijk of er updates zijn..."
 
+#: Control-ID:1132
+msgid "Check Repository"
+msgstr "Controleer bibliotheek"
+
 #: ID:13
-msgid "Check for Updates"
+msgid "Check for Modifications"
 msgstr "Kijk of er updates zijn"
 
 #: Control-ID:1073
@@ -912,6 +928,10 @@ msgstr "Controle of een nieuwe versie van TortoiseSVN beschikbaar is..."
 msgid "Checkout"
 msgstr "Ophalen"
 
+#: Control-ID:1074
+msgid "Checkout &directory:"
+msgstr "&Ophalen naar map:"
+
 #: ID:8
 msgid "Checkout..."
 msgstr "Ophalen..."
@@ -948,6 +968,10 @@ msgstr "Klik op 'Geavanceerd' om Diff-programma's per extensie op te geven"
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "Klik op 'Geavanceerd' om Merge-programma's per extensie op te geven"
 
+#: ID:257
+msgid "Clipboard"
+msgstr "Klembord"
+
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Sluit het actieve venster en vraagt om de bestanden op te slaan"
@@ -960,10 +984,6 @@ msgstr "Kleuren"
 msgid "Command failed."
 msgstr "Opdracht mislukt."
 
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "Commentaar historie:"
-
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Vastleggen in:"
@@ -971,6 +991,14 @@ msgstr "Vastleggen in:"
 #: ID:8
 msgid "Commit..."
 msgstr "Vastleggen..."
+
+#: ID:244
+msgid "Commits by author"
+msgstr "Vastleggingen per auteur"
+
+#: ID:244
+msgid "Commits by week"
+msgstr "Vastleggingen per week"
 
 #: ID:9
 msgid "Commits your changes to the repository"
@@ -1016,13 +1044,13 @@ msgstr "Context Menu"
 msgid "Continue"
 msgstr "Doorgaan"
 
+#: ID:73
+msgid "Copied"
+msgstr "Gekopieerd"
+
 #: ID:126
 msgid "Copied remotely"
 msgstr "Op afstand gekopiëerd"
-
-#: ID:73
-msgid "Copy"
-msgstr "Kopiëren"
 
 #: ID:101
 msgid "Copy To Working Copy..."
@@ -1193,9 +1221,12 @@ msgid "Default &number of log messages"
 msgstr "&Standaard aantal logboek-boodschappen"
 
 #: ID:11
-#: ID:73
 msgid "Delete"
 msgstr "Verwijderen"
+
+#: ID:73
+msgid "Deleted"
+msgstr "Verwijderd"
 
 #: ID:11
 msgid "Deletes files / folders from source control"
@@ -1312,6 +1343,10 @@ msgstr "Wilt u de wijzigingen opslaan?"
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "Bestanden niet converteren bij het vergelijken met BASE"
+
+#: ID:73
+msgid "Don't show this message again"
+msgstr "Deze boodschap niet meer tonen"
 
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1521,10 +1556,6 @@ msgstr "Algemeen"
 msgid "Generating Patchfile..."
 msgstr "Patchfile maken..."
 
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "&Alles ophalen"
-
 #: ID:119
 msgid "Getting File %s"
 msgstr "Bestand %s ophalen"
@@ -1542,8 +1573,8 @@ msgid ""
 "Go to the next conflict\n"
 "next conflict"
 msgstr ""
-"Ga naar volgende verschil\n"
-"volgend verschil"
+"Ga naar volgende conflict\n"
+"volgend conflict"
 
 #: ID:2049
 msgid ""
@@ -1558,8 +1589,8 @@ msgid ""
 "Go to the previous conflict\n"
 "previous conflict"
 msgstr ""
-"Ga naar vorig verschil\n"
-"vorig verschil"
+"Ga naar vorig conflict\n"
+"vorig conflict"
 
 #: ID:2049
 msgid ""
@@ -1568,6 +1599,14 @@ msgid ""
 msgstr ""
 "Ga naar vorig verschil\n"
 "vorig verschil"
+
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "Soort grafiek:"
+
+#: Control-ID:1032
+msgid "H&ead Revision"
+msgstr "&Meest recente revisie (HEAD)"
 
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -1625,6 +1664,10 @@ msgstr ""
 #: ID:73
 msgid "Ignore"
 msgstr "Negeren"
+
+#: ID:15
+msgid "Ignore %d item(s)"
+msgstr "%d zaken negeren"
 
 #: Control-ID:1021
 msgid "Ignore All Whitespaces"
@@ -1771,6 +1814,10 @@ msgstr "Logboek"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "Logboek boodschap"
+
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "Logboek boodschappen:"
 
 #: Dlg-ID:130
 msgid "Log Messages"
@@ -2272,15 +2319,12 @@ msgstr "Bibliotheek"
 msgid "Repository Browser"
 msgstr "Biblio-bladeraar"
 
-#: ID:74
-msgid "Resolve"
-msgstr "Oplossen"
-
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
 msgstr "Lost conflicten in bestanden op bij opslaan"
 
 #: ID:8
+#: ID:74
 msgid "Resolved"
 msgstr "Opgelost"
 
@@ -2288,23 +2332,26 @@ msgstr "Opgelost"
 msgid "Resolves conflicted files"
 msgstr "Lost conflicten in bestanden op"
 
-#: ID:73
-msgid "Restore"
-msgstr "Herstellen"
-
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "Herstel oorspronkelijk formaat"
+
+#: ID:73
+msgid "Restored"
+msgstr "Hersteld"
 
 #: ID:73
 msgid "Retry"
 msgstr "Opnieuw"
 
 #: ID:8
-#: ID:73
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Terugzetten"
+
+#: ID:73
+msgid "Reverted"
+msgstr "Teruggezet"
 
 #: ID:9
 msgid "Reverts all changes you made since the last update"
@@ -2427,6 +2474,10 @@ msgstr "Opslaan als"
 msgid "Save Revision &To..."
 msgstr "Bewaar revisie &in..."
 
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "Op klembord zetten"
+
 #: ID:313
 msgid "Save as..."
 msgstr "Opslaan als..."
@@ -2544,16 +2595,6 @@ msgstr "Bezig met eigenschappen wijzigen..."
 msgid "Settings"
 msgstr "Instellingen"
 
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"Stoppen bij een kopie?\n"
-"Kies <b>Ja</b> als u wilt weten waar een tak is begonnen.\n"
-"Kies <b>Nee</b> als u alle logboodschappen wilt zien."
-
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "Toon Eigensc&happen"
@@ -2565,6 +2606,10 @@ msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Korte URL van Subversion onderdelen"
+
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "Toon &Alles"
 
 #: ID:113
 msgid "Show &Differences"
@@ -2653,8 +2698,8 @@ msgid "Size"
 msgstr "Grootte"
 
 #: ID:74
-msgid "Skip"
-msgstr "Overslaan"
+msgid "Skipped"
+msgstr "Overgeslagen"
 
 #: ID:79
 msgid ""
@@ -2674,6 +2719,11 @@ msgstr ""
 "Splits actieve venster in tweeën\n"
 "Splits"
 
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "Statistieken"
+
 #: ID:74
 #: ID:77
 #: ID:207
@@ -2683,6 +2733,10 @@ msgstr "Statusbalk"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Status van het onderdeel in SVN"
+
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "Stoppen bij kopie"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3109,7 +3163,6 @@ msgid "Untitled"
 msgstr "Naamloos"
 
 #: ID:8
-#: ID:74
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Verversen"
@@ -3117,6 +3170,10 @@ msgstr "Verversen"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "Verversen naar revisie..."
+
+#: ID:74
+msgid "Updated"
+msgstr "Ververst"
 
 #: ID:11
 msgid "Updates the working copy to a specific revision"
@@ -3322,6 +3379,16 @@ msgstr ""
 "Uw werkkopie lijkt op een <b>label</b> gericht te zijn!\n"
 "U hoort eerst te wisselen naar een tak of de basislijn voordat u gaat vastleggen."
 
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"De werkkopie heeft lokale wijzigingen!\n"
+"N.B.: deze wijzigingen gaan niet verloren bij het verversen naar een andere revisie,\n"
+"de werkkopie zal dus niet exact gelijk zijn aan de revisie waarnaar u ververst!"
+
 #: ID:10
 msgid "added"
 msgstr "toegevoegd"
@@ -3333,6 +3400,10 @@ msgstr "een bestand zonder naam"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "en ondersteun de ontwikkelaars"
+
+#: ID:245
+msgid "author"
+msgstr "auteur"
 
 #: ID:15
 msgid ""
@@ -3384,6 +3455,11 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "schonen"
+
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "vastleggingen"
 
 #: ID:11
 msgid "conflicted"
@@ -3585,6 +3661,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Gebruik \"yes\" als u gewaarschuwd wilt worden als er geen bugtracking ID\n"
 "wordt opgegeven bij het vastleggen."
+
+#: ID:244
+msgid "week"
+msgstr "week"
 
 #: Control-ID:1112
 msgid "your version is:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-11-09 10:46+0100\n"
+"PO-Revision-Date: 2004-11-22 15:56+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -176,11 +176,6 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "&Annulla"
-
-# Control-ID:1074,
-#: Control-ID:1074
-msgid "&Checkout directory:"
-msgstr "&Ritira directory:"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -388,6 +383,12 @@ msgstr "&Client SSH:"
 msgid "&Save Ctrl-S"
 msgstr "&Salva Ctrl-S"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Save authentication"
+msgstr "&Salva l'autenticazione"
+
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Set"
@@ -494,6 +495,11 @@ msgstr "..."
 #: ID:151
 msgid ": Revision %d"
 msgstr ": Revisione %d"
+
+# ID:151,
+#: ID:151
+msgid ": working base"
+msgstr ": Copia di lavoro"
 
 # ID:151,
 #: ID:151
@@ -644,7 +650,6 @@ msgstr ""
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
-#: ID:73
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Aggiungi"
@@ -680,6 +685,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Aggiungi/modifici applicazione di confronto/fusione per estensione specifica"
 
 # Control-ID:65535,
+#: ID:73
 #: Control-ID:65535
 msgid "Added"
 msgstr "Aggiunto"
@@ -753,6 +759,11 @@ msgstr "Tutti i file (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Tutti i file (*.*)|*.*||"
+
+# ID:82,
+#: ID:82
+msgid "All files are already under version control. There's nothing to add!"
+msgstr "Tutti i file sono già versionati. Non vi è niente da aggiungere!"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -875,6 +886,11 @@ msgstr "Applica patch..."
 #: Control-ID:65535
 msgid "Apply Unified Diff"
 msgstr "Applica confronto unificato"
+
+# ID:145,
+#: ID:145
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "Sei sicuro di voler marcare il/i file in conflitto come risolti?"
 
 # ID:79,
 #: ID:79
@@ -1095,10 +1111,15 @@ msgstr "Controlla aggiornamenti"
 msgid "Check For Updates..."
 msgstr "Controlla aggiornamenti..."
 
+# ID:8,
+#: Control-ID:1132
+msgid "Check Repository"
+msgstr "Controlla Repository"
+
 # ID:13,
 #: ID:13
-msgid "Check for Updates"
-msgstr "Controlla aggiornamenti"
+msgid "Check for Modifications"
+msgstr "Controlla se ci sono modifiche"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1152,6 +1173,11 @@ msgstr "Controllo se è disponibile una nuova versione di TortoiseSVN..."
 #: Dlg-ID:133
 msgid "Checkout"
 msgstr "Ritira"
+
+# Control-ID:1074,
+#: Control-ID:1074
+msgid "Checkout &directory:"
+msgstr "Ritira &directory:"
 
 # ID:8,
 #: ID:8
@@ -1293,15 +1319,15 @@ msgstr "Menu contestuale"
 msgid "Continue"
 msgstr "Continua"
 
+# ID:74,
+#: ID:73
+msgid "Copied"
+msgstr "Copiato"
+
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
 msgstr "Copiato in remoto"
-
-# ID:73,
-#: ID:73
-msgid "Copy"
-msgstr "Copia"
 
 # ID:151,
 #: ID:101
@@ -1505,9 +1531,15 @@ msgstr "&Numero predefinito di commenti"
 # ID:73,#:
 # ID:101,
 #: ID:11
-#: ID:73
 msgid "Delete"
 msgstr "Elimina"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:73
+msgid "Deleted"
+msgstr "Eliminato"
 
 # ID:11,
 #: ID:11
@@ -1974,6 +2006,14 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Tipo di grafico:"
 
+# Control-ID:1032,#:
+# Control-ID:1115,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: Control-ID:1032
+msgid "H&ead Revision"
+msgstr "&Revisione principale"
+
 # ID:12,
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -2044,6 +2084,11 @@ msgstr ""
 #: ID:73
 msgid "Ignore"
 msgstr "Ignora"
+
+# Control-ID:1021,
+#: ID:15
+msgid "Ignore %d item(s)"
+msgstr "Ignora %d elemento(i)"
 
 # Control-ID:1021,
 #: Control-ID:1021
@@ -2865,11 +2910,6 @@ msgstr "Repository"
 msgid "Repository Browser"
 msgstr "Repository Browser"
 
-# ID:74,
-#: ID:74
-msgid "Resolve"
-msgstr "Risolvi"
-
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
@@ -2877,6 +2917,7 @@ msgstr "Risolvi conflitto di versioni durante il salvataggio"
 
 # ID:8,
 #: ID:8
+#: ID:74
 msgid "Resolved"
 msgstr "Risolto"
 
@@ -2885,15 +2926,15 @@ msgstr "Risolto"
 msgid "Resolves conflicted files"
 msgstr "Risolvi file in conflitto"
 
-# ID:73,
-#: ID:73
-msgid "Restore"
-msgstr "Ripristina"
-
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "Riporta la finestra alla dimensione normale"
+
+# ID:73,
+#: ID:73
+msgid "Restored"
+msgstr "Ristabilito"
 
 # ID:73,
 #: ID:73
@@ -2904,10 +2945,16 @@ msgstr "Riprova"
 # ID:73,#:
 # Dlg-ID:175,
 #: ID:8
-#: ID:73
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Ripristina"
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: ID:73
+msgid "Reverted"
+msgstr "Ripristinato"
 
 # ID:9,
 #: ID:9
@@ -3343,8 +3390,8 @@ msgstr "Dimensioni"
 
 # ID:74,
 #: ID:74
-msgid "Skip"
-msgstr "Salta"
+msgid "Skipped"
+msgstr "Saltato"
 
 # ID:79,
 #: ID:79
@@ -3910,7 +3957,6 @@ msgstr "Senza titolo"
 # ID:74,#:
 # Dlg-ID:152,
 #: ID:8
-#: ID:74
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Aggiorna"
@@ -3919,6 +3965,13 @@ msgstr "Aggiorna"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "Aggiorna alla revisione..."
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: ID:74
+msgid "Updated"
+msgstr "Aggiornato"
 
 # ID:11,
 #: ID:11
