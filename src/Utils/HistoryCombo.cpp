@@ -75,7 +75,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 		cbei.iItem = pos;
 
 	str.Trim(_T(" "));
-	m_arEntries.Add(str);
+	m_arEntries.InsertAt(0, str);
 	str.Replace('\r', ' ');
 	str.Replace('\n', ' ');
 	cbei.pszText = const_cast<LPTSTR>(str.GetString());
