@@ -126,6 +126,9 @@ UINT CAddDlg::AddThread()
 	GetDlgItem(IDOK)->EnableWindow(false);
 	GetDlgItem(IDCANCEL)->EnableWindow(false);
 
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	m_addListCtrl.GetStatus(m_pathList);
 	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
 

@@ -207,6 +207,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	CStringA langpath = CStringA(CUtils::GetAppParentDirectory());
 	langpath += "Languages";
 	bindtextdomain("subversion", (LPCSTR)langpath);
+	SetThreadLocale(1033); 
 	HINSTANCE hInst = NULL;
 	do
 	{
@@ -226,6 +227,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (hInst != NULL)
 		{
 			AfxSetResourceHandle(hInst);
+			SetThreadLocale(langId);
 		}
 		else
 		{

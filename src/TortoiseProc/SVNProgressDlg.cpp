@@ -492,6 +492,9 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
 
 UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 {
+	// to make gettext happy
+	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+
 	return ((CSVNProgressDlg*)pVoid)->ProgressThread();
 }
 
