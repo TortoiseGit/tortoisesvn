@@ -143,10 +143,36 @@ CString SVN::GetLastErrorMessage()
 {
 	CString msg;
 	CString temp;
+	char errbuf[256];
+
 	if (Err != NULL)
 	{
 		svn_error_t * ErrPtr = Err;
-		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		if (ErrPtr->message)
+			msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		else
+		{
+			/* Is this a Subversion-specific error code? */
+			if ((ErrPtr->apr_err > APR_OS_START_USEERR)
+				&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
+				msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
+			/* Otherwise, this must be an APR error code. */
+			else
+			{
+				svn_error_t *temp_err = NULL;
+				const char * err_string = NULL;
+				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)), ErrPtr->pool);
+				if (temp_err)
+				{
+					svn_error_clear (temp_err);
+					msg = _T("Can't recode error string from APR");
+				}
+				else
+				{
+					msg = CUnicodeUtils::GetUnicode(err_string);
+				}
+			}
+		}
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;

@@ -86,10 +86,37 @@ void SVNStatus::ClearPool()
 CString SVNStatus::GetLastErrorMsg()
 {
 	CString msg;
+	char errbuf[256];
+
 	if (m_err != NULL)
 	{
 		svn_error_t * ErrPtr = m_err;
-		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		if (ErrPtr->message)
+			msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		else
+		{
+			/* Is this a Subversion-specific error code? */
+			if ((ErrPtr->apr_err > APR_OS_START_USEERR)
+				&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
+				msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
+			/* Otherwise, this must be an APR error code. */
+			else
+			{
+				svn_error_t *temp_err = NULL;
+				const char * err_string = NULL;
+				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)), ErrPtr->pool);
+				if (temp_err)
+				{
+					svn_error_clear (temp_err);
+					msg = _T("Can't recode error string from APR");
+				}
+				else
+				{
+					msg = CUnicodeUtils::GetUnicode(err_string);
+				}
+			}
+		}
+
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;
@@ -104,14 +131,52 @@ CString SVNStatus::GetLastErrorMsg()
 stdstring SVNStatus::GetLastErrorMsg()
 {
 	stdstring msg;
+	char errbuf[256];
+
 	if (m_err != NULL)
 	{
 		svn_error_t * ErrPtr = m_err;
+		if (ErrPtr->message)
+		{
 #ifdef UNICODE
-		msg = CUnicodeUtils::StdGetUnicode(ErrPtr->message);
+			msg = CUnicodeUtils::StdGetUnicode(ErrPtr->message);
 #else
-		msg = ErrPtr->message;
+			msg = ErrPtr->message;
 #endif
+		}
+		else
+		{
+			/* Is this a Subversion-specific error code? */
+			if ((ErrPtr->apr_err > APR_OS_START_USEERR)
+				&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
+#ifdef UNICODE
+				msg = CUnicodeUtils::StdGetUnicode(svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)));
+#else
+				msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
+#endif
+			/* Otherwise, this must be an APR error code. */
+			else
+			{
+				svn_error_t *temp_err = NULL;
+				const char * err_string = NULL;
+				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)), ErrPtr->pool);
+				if (temp_err)
+				{
+					svn_error_clear (temp_err);
+					msg = _T("Can't recode error string from APR");
+				}
+				else
+				{
+#ifdef UNICODE
+					msg = CUnicodeUtils::StdGetUnicode(err_string);
+#else
+					msg = err_string;
+#endif
+				}
+			}
+
+		}
+
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;
