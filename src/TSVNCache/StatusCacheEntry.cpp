@@ -129,7 +129,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 void CStatusCacheEntry::SetAsUnversioned()
 {
 	ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
-	m_discardAtTime = 0;
+	m_discardAtTime = GetTickCount()+600000;	// 10 minutes timeout - even unversioned items can get versioned
 	m_highestPriorityLocalStatus = svn_wc_status_unversioned;
 	m_svnStatus.prop_status = svn_wc_status_unversioned;
 	m_svnStatus.text_status = svn_wc_status_unversioned;
