@@ -66,7 +66,7 @@ void StringPool::clear()
 
 	for (pool_type::iterator iter = pool.begin(), end = pool.end(); iter != end; ++iter)
 	{
-		delete *iter;
+		free((void*)*iter);
 	}
 		
 	// remove pointers from pool
