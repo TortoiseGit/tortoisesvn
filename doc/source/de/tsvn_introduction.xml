@@ -287,10 +287,7 @@
 				<indexterm>
 					<primary>Rechtschreibkorrektur</primary>
 				</indexterm>
-				<indexterm>
-					<primary>Thesaurus</primary>
-				</indexterm>
-		Wenn Sie eine Rechtschreibkorrektur und/oder einen Thesaurus für die
+		Wenn Sie eine Rechtschreibkorrektur für die
 		Eingabe der Log-Meldungen möchten müssen Sie die entsprechenden Wörterbücher
 		selbst herunterladen. Sie können dieselben Wörterbuch-Dateien wie 
 		<ulink url="http://openoffice.org">
@@ -309,13 +306,6 @@
 							</ulink>
 						</para>
 					</listitem>
-					<listitem>
-						<para>
-							<ulink url="http://lingucomponent.openoffice.org/thes_dic.html">
-								<citetitle>http://lingucomponent.openoffice.org/thes_dic.html</citetitle>
-							</ulink>
-						</para>
-					</listitem>
 				</itemizedlist>
 		Sie können auch die Wörterbücher verwenden welche Mozilla installiert. Diese
 		finden Sie im Installationsverzeichnis von Mozilla.
@@ -331,16 +321,10 @@
 					<listitem>
 						<para>de_CH.dic</para>
 					</listitem>
-					<listitem>
-						<para>de_CH.idx</para>
-					</listitem>
-					<listitem>
-						<para>de_CH.dat</para>
-					</listitem>
 				</itemizedlist>
 		Danach kopieren Sie diese Dateien einfach in das Installationsverzeichnis
 		von TortoiseSVN. Wenn Sie TortoiseSVN das nächste Mal starten, ist die
-		Rechtschreibkorrektur und der Thesaurus bereit.
+		Rechtschreibkorrektur bereit.
 		</para>
 			<para>
 		Falls Sie irgendwelche Probleme während oder nach der Installation

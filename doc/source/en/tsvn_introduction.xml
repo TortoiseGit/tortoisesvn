@@ -281,10 +281,7 @@
 				<indexterm>
 					<primary>spellchecker</primary>
 				</indexterm>
-				<indexterm>
-					<primary>thesaurus</primary>
-				</indexterm>
-				If you want to use a spell checker and/or thesaurus for your
+				If you want to use a spell checker for your
 				log messages then you have to download the required dictionaries
 				yourself. You can use the same dictionary files as
 				<ulink url="http://openoffice.org">
@@ -304,19 +301,12 @@
 							</ulink>
 						</para>
 					</listitem>
-					<listitem>
-						<para>
-							<ulink url="http://lingucomponent.openoffice.org/thes_dic.html">
-								<citetitle>http://lingucomponent.openoffice.org/thes_dic.html</citetitle>
-							</ulink>
-						</para>
-					</listitem>
 				</itemizedlist>
 				You can also use the dictionaries which get installed with
 				Mozilla. They're located in the installation folder of Mozilla.
 			</para>
 			<para>
-				Once you have got the dictionary and thesaurus files, you
+				Once you have got the dictionary files, you
 				probably need to rename them so that the filenames only have
 				the locale chars in it.
 				Example:
@@ -331,20 +321,9 @@
 							en_US.dic
 						</para>
 					</listitem>
-					<listitem>
-						<para>
-							en_US.idx
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							en_US.dat
-						</para>
-					</listitem>
 				</itemizedlist>
 				Then just copy them to the installation folder of TortoiseSVN.
-				The next time you start TortoiseSVN, the spell checker and
-				thesaurus will be available.
+				The next time you start TortoiseSVN, the spell checker will be available.
 			</para>
 			<para>
 				If you encounter any problems while or after installing
