@@ -132,7 +132,7 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 	return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, void *baton, int failures, const svn_auth_ssl_server_cert_info_t *cert_info, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_p, void *baton, int failures, const svn_auth_ssl_server_cert_info_t *cert_info, apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
 	int allow_perm_accept = failures & SVN_AUTH_SSL_UNKNOWNCA;
@@ -186,13 +186,13 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, voi
 		int ret = CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3, IDI_QUESTION, sAcceptAlways, sAcceptTemp, sReject);
 		if (ret == 1)
 		{
-			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
+			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->trust_permanently = TRUE;
 			(*cred_p)->accepted_failures = failures;
 		} 
 		else if (ret == 2)
 		{
-			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
+			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->trust_permanently = FALSE;
 		}
 		else
@@ -202,7 +202,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, voi
 	{
 		if (CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
 		{
-			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
+			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->trust_permanently = FALSE;
 			return SVN_NO_ERROR;
 		} // if (CMessageBox::Show(NULL, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDOK)
@@ -214,7 +214,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, voi
 	return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void *baton, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, void *baton, apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
 	const char *cert_file = NULL;
@@ -247,7 +247,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void 
 		filename = CString(ofn.lpstrFile);
 		cert_file = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(filename));
 		/* Build and return the credentials. */
-		*cred = (svn_auth_cred_client_ssl_t*)apr_pcalloc (pool, sizeof (**cred));
+		*cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
 		(*cred)->cert_file = cert_file;
 		return SVN_NO_ERROR;
 	} // if (GetOpenFileName(&ofn)==TRUE) 
@@ -257,10 +257,10 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void 
 	return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_client_ssl_pass_t **cred, void *baton, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, void *baton, apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
-	svn_auth_cred_client_ssl_pass_t *ret = (svn_auth_cred_client_ssl_pass_t *)apr_pcalloc (pool, sizeof (*ret));
+	svn_auth_cred_ssl_client_cert_pw_t *ret = (svn_auth_cred_ssl_client_cert_pw_t *)apr_pcalloc (pool, sizeof (*ret));
 	CString password;
 	CString temp;
 	temp.LoadString(IDS_AUTH_PASSWORD);

@@ -52,11 +52,11 @@ SVN::SVN(void)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* The server-cert, client-cert, and client-cert-password providers. */
-	svn_client_get_ssl_server_file_provider (&provider, pool);
+	svn_client_get_ssl_server_trust_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_file_provider (&provider, pool);
+	svn_client_get_ssl_client_cert_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_pw_file_provider (&provider, pool);
+	svn_client_get_ssl_client_cert_pw_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Two prompting providers, one for username/password, one for
@@ -68,11 +68,11 @@ SVN::SVN(void)
 
 	/* Three prompting providers for server-certs, client-certs,
 	and client-cert-passphrases.  */
-	svn_client_get_ssl_server_prompt_provider (&provider, (svn_auth_ssl_server_prompt_func_t)sslserverprompt, this, pool);
+	svn_client_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_client_prompt_provider (&provider, (svn_auth_ssl_client_prompt_func_t)sslclientprompt, this, pool);
+	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_client_get_ssl_pw_prompt_provider (&provider, (svn_auth_ssl_pw_prompt_func_t)sslpwprompt, this, pool);
+	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Build an authentication baton to give to libsvn_client. */
