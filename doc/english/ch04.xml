@@ -51,6 +51,27 @@
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
+	<!-- ======================== SECTION 0 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-general">
+		<title>Handling TortoiseSVN</title>
+		<para>
+				<figure id="tsvn-DUG-context-dir-control">
+					<title>Context menu for a directory under version contorl</title>
+					<graphic fileref="ContextMenuDirControl.png"/>
+				</figure>
+		  All TortoiseSVN commands are invoked from the context menu of the windows explorer. 
+		  Most are directly visible, when you <action>right click</action> onto a file or folder. 
+		  The commands that are available depend on whether the file or folder or it's parent 
+		  folder is under version control or not.
+		</para>
+		<para>
+		Other commands are available as drag handlers, when you <action>right drag</action> 
+		files or folders around inside working copies or when you <action>right drag</action> 
+		a non-versioned file or folder into a directory which is under version control.
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
 	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-import">
@@ -170,6 +191,13 @@
 			<para>The import message is used as a log message. Since you 
 			usually just started your project a default "initial import" 
 			is filled in by TortoiseSVN.
+			</para>
+			<para>
+			The Import Dialog shows you files and folders that match the temporary 
+			include / exclude patterns from the Main Settings Page. Files that you <action>check</action>
+			will be deleted prior to importing them into the repository and excluded from version control. 
+			Make sure that you check all the compiler or IDE generated files. These should normally not be versioned.
+			Uncheck all the files that you want under version control.
 			</para>
 			<para>
 			As soon as you press the OK button TortoiseSVN imports the 
@@ -343,12 +371,12 @@
 			<tip>
 				<title>Other Possibillties</title>
 				<para>
-				<guimenuitem>The Check for Updates..</guimenuitem> dialog is propably not the best
+					<guimenuitem>The Check for Updates..</guimenuitem> dialog is propably not the best
 				choice if you don't have a network connection available.
 				In this case you can also get the local status of all your
 				files by clicking <guimenuitem>Commit...</guimenuitem>. The
 				commit dialog shows you a similar list of files like the
-				"Check for Updates..." dialog, but without contacting the
+				<guimenuitem>Check for Updates...</guimenuitem> dialog, but without contacting the
 				repository. if you dont' want to commit just press <guibutton>Cancel</guibutton>.
 				</para>
 			</tip>
@@ -360,14 +388,14 @@
 	<sect1 id="tsvn-DUG-update">
 		<title>Update Your Working Copy With Changes From Others</title>
 		<para>
-		<figure id="tsvn-DUG-update-dia-1">
+			<figure id="tsvn-DUG-update-dia-1">
 				<title>Progress dialog showing an update in progress</title>
 				<graphic fileref="UpdateProgress.png"/>
-		</figure>
-		<figure id="tsvn-DUG-update-dia-2">
+			</figure>
+			<figure id="tsvn-DUG-update-dia-2">
 				<title>Progress dialog showing finished update</title>
 				<graphic fileref="UpdateFinished.png"/>
-		</figure>
+			</figure>
 		Occasionally you may want changes done by others to get 
 		incorporated in your local working copy. The process of 
 		getting changes from the server to your local copy is 
@@ -386,8 +414,8 @@
 		If you get any <literal>conflicts</literal> during an update (this
 		can happen if others changed the same lines in the same file as
 		you did and those changes don't match) then the dialog shows those
-		conflicts in red. You can doubleclick on those lines to start
-		the external merge tool to resolve those conflicts.
+		conflicts in red. You can <action>doubleclick</action> on these lines to start
+		the external merge tool to resolve the conflicts.
 		</para>
 		<para>
 		TortoiseSVN also allows you to update your working copy to a specific
@@ -403,8 +431,8 @@
 		update to revision 50.
 		</para>
 		<tip>
-		<title>Multiple Files/Folders</title>
-		<para>
+			<title>Multiple Files/Folders</title>
+			<para>
 		If you select multiple files and folders in the explorer and then
 		select <guimenuitem>Update...</guimenuitem>, all of those files/folders
 		are updated one by one. TortoiseSVN makes sure that all files/folders
@@ -521,28 +549,28 @@
 		just check that file to add it to the commit.
 
 		<tip>
-		<title>Many unversioned files in the commit dialog</title>
-		<para>If you think that the TSVN commit dialog shows you too 
+				<title>Many unversioned files in the commit dialog</title>
+				<para>If you think that the TSVN commit dialog shows you too 
 			many unversioned (e.g. compiler generated or editor backup)
 			files, there are several ways to handle this. You can:
 		<itemizedlist>
-			<listitem>
-				<para>include the file into the list of 
+						<listitem>
+							<para>include the file into the list of 
 				temporary files on the settings page. This will affect 
 				every working copy you have.</para>
-			</listitem>
-			<listitem>
-				<para>add the file to the svn:ignore list 
+						</listitem>
+						<listitem>
+							<para>add the file to the svn:ignore list 
 				using the <guimenuitem>Add to ignore list</guimenuitem>
 				context menu. This will only affect the directory on 
 				which you set the <literal>svn:ignore</literal> property. 
 				Using the SVN Property Dialog, you can alter the 
 				<literal>svn:ignore</literal> property for a directory.
 				</para>
-			</listitem>
-		</itemizedlist>
-		</para>
-		</tip>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</tip>
 		</para>
 		<figure id="tsvn-DUG-commit-dia-2">
 			<title>The Progress dialog showing a commit in progress</title>
@@ -645,21 +673,22 @@
 		use the drag&ndash;and&ndash;drop handler again:
 		
 		<orderedlist>
-			<listitem>
-				<para>select the files or directories you want to move</para>
-			</listitem>
-			<listitem>
-				<para><action>right&ndash;drag</action> them to the 
+				<listitem>
+					<para>select the files or directories you want to move</para>
+				</listitem>
+				<listitem>
+					<para>
+						<action>right&ndash;drag</action> them to the 
 			new location inside the working copy</para>
-			</listitem>
-			<listitem>
-				<para>release the right mouse button</para>
-			</listitem>
-			<listitem>
-				<para>in the popup menu select <guimenuitem>move files in Subversion to here</guimenuitem>
-				</para>
-			</listitem>
-		</orderedlist>
+				</listitem>
+				<listitem>
+					<para>release the right mouse button</para>
+				</listitem>
+				<listitem>
+					<para>in the popup menu select <guimenuitem>move files in Subversion to here</guimenuitem>
+					</para>
+				</listitem>
+			</orderedlist>
 		If a file is deleted via the explorer but not removed from 
 		version control (i.e. you delete a file as usual), the commit 
 		dialog shows those files and lets you remove them from 
@@ -977,6 +1006,10 @@
 		<title>Relocating a working copy</title>
 		<?dbhh topicname="HIDD_RELOCATE"?>
 		<para>
+				<figure id="tsvn-DUG-relocate-dia-1">
+					<title>The Relocate Dialog</title>
+					<graphic fileref="Relocate.png"/>
+				</figure>
 		If your repository has for some reason changed it's 
 		location (IP/URL). Maybe you're even stuck and can't 
 		commit and you don't want to checkout your working 
@@ -1083,8 +1116,8 @@
 		The example shows the first thirty lines of the file 
 		<filename>/Subversion/include/svn_io.h</filename> as of Revision 7566 from 
 		the Subversion source. For each line it shows the
-		<literal>linenumber</literal>, 
-		<literal>Revision</literal>, 
+		<literal>line number</literal>, 
+		<literal>revision</literal>, 
 		<literal>date of last commit</literal>, the 
 		<literal>author</literal> and of course the actual
 		<literal>line</literal> in the file.
