@@ -121,6 +121,12 @@ Note: if the property bugtraq:logregex is set and this property is set to false,
 then the client should use the regex against the created string which is added
 to the log message to check if the bug ID is valid.
 
+name  : bugtraq:append
+value : "true" or "false"
+If set to "false", then the bugtraq:message part is inserted at the top of
+the log message, if "yes" or not set, then it's appended to the log message at
+the bottom.
+
 Properties used with the regex integration:
 
 name  : bugtraq:logregex
