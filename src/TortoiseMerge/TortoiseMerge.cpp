@@ -112,6 +112,10 @@ BOOL CTortoiseMergeApp::InitInstance()
 	// The one and only window has been initialized, so show and update it
 	pFrame->ShowWindow(SW_SHOW);
 	pFrame->UpdateWindow();
+	if (pFrame->m_Data.m_sBaseFile.IsEmpty() && pFrame->m_Data.m_sPatchPath.IsEmpty())
+	{
+		pFrame->OnFileOpen();
+	}
 	return pFrame->LoadViews();
 }
 
