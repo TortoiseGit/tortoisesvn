@@ -1014,11 +1014,13 @@ BOOL CTortoiseProcApp::InitInstance()
 				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
 				if (!svn.Move(pathList[nPath], destPath, FALSE))
 				{
-					if (SVNStatus::GetAllStatus(pathList[nPath]) > svn_wc_status_normal)
+					if (pathList[nPath].IsDirectory()||(SVNStatus::GetAllStatus(pathList[nPath]) > svn_wc_status_normal))
 					{
 						// file/folder seems to have local modifications. Ask the user if
 						// a force is requested.
-						if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_FORCEMOVE, IDS_APPNAME, MB_YESNO)==IDYES)
+						CString temp;
+						temp.Format(IDS_PROC_FORCEMOVE, pathList[nPath].GetWinPathString());
+						if (CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_YESNO)==IDYES)
 						{
 							if (!svn.Move(pathList[nPath], destPath, TRUE))
 							{
