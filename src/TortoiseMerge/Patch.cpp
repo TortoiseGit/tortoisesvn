@@ -101,7 +101,7 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 	{
 		//no file entry found.
 		m_sErrorMessage.LoadString(IDS_ERR_PATCH_NOINDEX);
-		goto errorcleanup;
+		return FALSE;
 	} // if ((m_PatchLines.GetCount()-nIndex) < 2)
 
 	//from this point on we have the real unified diff data
@@ -139,6 +139,9 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					//maybe an empty line? 
 					if (sLine.IsEmpty())
 						break;			//then just try again
+					TCHAR type  = sLine.GetAt(0);
+					if (type == '\\')
+						break;
 					//But before throwing an error, check first if 
 					//instead of a new filediff we just have a new chunk:
 					if (nIndex > 0)
@@ -244,14 +247,32 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					//goto errorcleanup;
 				} // if (sLine.Left(2).Compare(_T("@@"))!=0) 
 				sLine = sLine.Mid(2);
+				sLine = sLine.Trim();
 				chunk = new Chunk();
-				chunk->lRemoveStart = (-_ttol(sLine));
-				sLine = sLine.Mid(sLine.Find(',')+1);
-				chunk->lRemoveLength = _ttol(sLine);
-				sLine = sLine.Mid(sLine.Find(' ')+1);
-				chunk->lAddStart = _ttol(sLine);
-				sLine = sLine.Mid(sLine.Find(',')+1);
-				chunk->lAddLength = _ttol(sLine);
+				CString sRemove = sLine.Left(sLine.Find(' '));
+				CString sAdd = sLine.Mid(sLine.Find(' '));
+				chunk->lRemoveStart = (-_ttol(sRemove));
+				if (sRemove.Find(',')>=0)
+				{
+					sRemove = sRemove.Mid(sRemove.Find(',')+1);
+					chunk->lRemoveLength = _ttol(sRemove);
+				} // if (sRemove.Find(',')>=0)
+				else
+				{
+					chunk->lRemoveStart = 0;
+					chunk->lRemoveLength = (-_ttol(sRemove));
+				}
+				chunk->lAddStart = _ttol(sAdd);
+				if (sAdd.Find(',')>=0)
+				{
+					sAdd = sAdd.Mid(sAdd.Find(',')+1);
+					chunk->lAddLength = _ttol(sAdd);
+				} // if (sAdd.Find(',')>=0)
+				else
+				{
+					chunk->lAddStart = 0;
+					chunk->lAddLength = _ttol(sAdd);
+				}
 				state++;
 			}
 		break;
@@ -275,6 +296,12 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					chunk->arLinesStates.Add(PATCHSTATE_CONTEXT);
 					nContextLineCount++;
 				} // if (type == ' ')
+				else if (type == '\\')
+				{
+					//it's a context line (sort of): 
+					//warnings start with a '\' char (e.g. "\ No newline at end of file")
+					//so just ignore this...
+				}
 				else if (type == '-')
 				{
 					//a removed line
@@ -384,7 +411,7 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 			}
 			else
 			{
-				ASSERT(FALSE);
+				return FALSE;
 			}
 		} // if (temp.CompareNoCase(temppath)==0) 
 	} // for (int i=0; i<GetNumberOfFiles(); i++)
