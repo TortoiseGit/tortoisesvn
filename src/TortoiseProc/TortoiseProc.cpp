@@ -1059,9 +1059,11 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("repostatus"))==0)
 		{
 			CString path = CUtils::GetLongPathName(parser.GetVal(_T("path")));
+			path = CUtils::WritePathsToTempFile(path);
 			CChangedDlg dlg;
 			dlg.m_path = path;
 			dlg.DoModal();
+			DeleteFile(path);
 		} // if (comVal.Compare(_T("repostatus"))==0)
 		//#endregion 
 		//#region repobrowser
