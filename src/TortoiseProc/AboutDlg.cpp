@@ -119,7 +119,7 @@ BOOL CAboutDlg::OnInitDialog()
 		API_MAJOR_VERSION, API_MINOR_VERSION, API_PATCH_VERSION,
 		APU_MAJOR_VERSION, APU_MINOR_VERSION, APU_PATCH_VERSION,
 		DB_VERSION_MAJOR, DB_VERSION_MINOR, DB_VERSION_PATCH,
-		NEON_VERSION_MAJOR, NEON_VERSION_MINOR,
+		_T(NEON_VERSION),
 		_T(OPENSSL_VERSION_TEXT),
 		_T(ZLIB_VERSION));
 	GetDlgItem(IDC_VERSIONABOUT)->SetWindowText(temp);
@@ -136,7 +136,7 @@ BOOL CAboutDlg::OnInitDialog()
 	SetTimer(ID_DROPTIMER, 300, NULL);
 
 	m_cWebLink.SetURL(_T("http://www.tortoisesvn.org"));
-	m_cSupportLink.SetURL(_T("http://tortoisesvn.tigris.org/contributors.html"));
+	m_cSupportLink.SetURL(_T("http://tortoisesvn.tigris.org/donate.html"));
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
