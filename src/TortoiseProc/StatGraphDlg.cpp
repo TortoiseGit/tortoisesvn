@@ -28,6 +28,9 @@ IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableStandAloneDialog)
 CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CStatGraphDlg::IDD, pParent)
 {
+	m_parDates = NULL;
+	m_parFileChanges = NULL;
+	m_parAuthors = NULL;
 }
 
 CStatGraphDlg::~CStatGraphDlg()
@@ -113,6 +116,8 @@ BOOL CStatGraphDlg::OnInitDialog()
 
 void CStatGraphDlg::ShowLabels(BOOL bShow)
 {
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
 	int nCmdShow = SW_SHOW;
 	if (!bShow)
 		nCmdShow = SW_HIDE;
@@ -151,6 +156,8 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 
 void CStatGraphDlg::ShowCommitsByAuthor()
 {
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
 	ShowLabels(FALSE);
 	m_graph.Clear();
 	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
@@ -199,6 +206,8 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 
 void CStatGraphDlg::ShowCommitsByDate()
 {
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
 	ShowLabels(FALSE);
 	m_graph.Clear();
 
@@ -322,6 +331,8 @@ void CStatGraphDlg::ShowCommitsByDate()
 
 void CStatGraphDlg::ShowStats()
 {
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
 	ShowLabels(TRUE);
 	int nWeeks = 0;
 	int nCurrentWeek = 0;
