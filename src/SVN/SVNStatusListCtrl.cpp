@@ -317,6 +317,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					} // while (filefinder.NextFile(filename))
 				}
 				// for folders, get all statuses inside it too
+				CString lastexternalpath;
 				while (bIsFolder && ((s = status.GetNextFileStatus(&strbuf)) != NULL))
 				{
 					if ((SVNStatus::GetMoreImportant(s->text_status, s->prop_status) == svn_wc_status_unversioned) && (PathIsDirectory(strbuf)))
@@ -326,45 +327,47 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 						if (SVNStatus::GetAllStatus(strbuf) != svn_wc_status_unversioned)
 							continue;	//ignore nested layouts
 					}
+					BOOL bIsExternal = FALSE;
 
-					if (SVNStatus::IsImportant(SVNStatus::GetMoreImportant(s->text_status, s->prop_status)))
+					if (s->entry)
 					{
-						if (s->entry)
+						if (s->entry->uuid)
 						{
-							if (s->entry->uuid)
-							{
-								if (sUUID.IsEmpty())
-									sUUID = s->entry->uuid;
-								else
-								{
-									if (sUUID.Compare(s->entry->uuid)!=0)
-									{
-										m_bHasExternalsFromDifferentRepos = TRUE;
-										if (s->entry->kind == svn_node_dir)
-											arExtPaths.Add(strbuf);
-										continue;
-									}
-								}
-							} 
+							if (sUUID.IsEmpty())
+								sUUID = s->entry->uuid;
 							else
 							{
-								// added files don't have an UUID assigned yet, so check if they're
-								// below an external folder
-								BOOL bMatch = FALSE;
-								for (int ix=0; ix<arExtPaths.GetCount(); ix++)
+								if (sUUID.Compare(s->entry->uuid)!=0)
 								{
-									CString t = arExtPaths.GetAt(ix);
-									if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
+									if (SVNStatus::IsImportant(SVNStatus::GetMoreImportant(s->text_status, s->prop_status)))
+										m_bHasExternalsFromDifferentRepos = TRUE;
+									if (s->entry->kind == svn_node_dir)
 									{
-										bMatch = TRUE;
-										break;
+										if (!CUtils::PathIsParent(lastexternalpath, strbuf))
+										{
+											arExtPaths.Add(strbuf);
+											lastexternalpath = strbuf;
+										}
 									}
 								}
-								if (bMatch)
-									continue;
 							}
-						} // if (s->entry)
-					} // if (SVNStatus::IsImportant(SVNStatus::GetMoreImportant(s->text_status, s->prop_status))) 
+						} 
+					} // if (s->entry)
+					else
+					{
+						// added and unversioned files don't have an UUID assigned yet, so check if they're
+						// below an external folder
+						temp = strbuf;
+						for (int ix=0; ix<arExtPaths.GetCount(); ix++)
+						{
+							CString t = arExtPaths.GetAt(ix);
+							if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
+							{
+								bIsExternal = TRUE;
+								break;
+							}
+						}
+					}
 
 					if (s->text_status == svn_wc_status_external)
 						m_bHasExternals = TRUE;
@@ -380,7 +383,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					entry->remotepropstatus = s->repos_prop_status;
 					entry->inunversionedfolder = FALSE;
 					entry->checked = FALSE;
-					entry->inexternal = m_bHasExternals;
+					entry->inexternal = bIsExternal;
 					entry->direct = FALSE;
 					if (s->entry)
 					{
@@ -390,6 +393,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
 						}
 					}
+
 					m_arStatusArray.Add(entry);
 					if ((entry->status == svn_wc_status_unversioned)&&(!config.MatchIgnorePattern(strbuf)))
 					{

@@ -17,6 +17,9 @@
        merge, only the UI. (Stefan)
 - BUG: The right-drag "move/copy in Subversion here" menu
        entries were missing. (Stefan)
+- BUG: Showing the list of modified files in the commit and
+       check-for-updates dialog sometimes showed files and
+       folders from externals too even if not told to. (Stefan)
 
 Version 1.1.1
 - ADD: The path to client certificates and the client
