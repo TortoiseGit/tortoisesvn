@@ -1,10 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <appendix id="tsvn-faq" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Häufig gestellte Fragen (FAQ)</title>
 	<simplesect>
 		<para>
-		Dieser Anhang beantwortet diejenigen Fragen, welche am meisten in der
-		Mailing Liste <email>dev@tortoisesvn.tigris.org</email> gestellt wurden.
+			Dieser Anhang enthält einen Auszug der Fragen, welche am meisten in der
+			Mailing Liste
+			<email>dev@tortoisesvn.tigris.org</email>
+			gestellt wurden. Gleichzeitig unterhalten wir eine interaktive online FAQ auf
+			<ulink url="http://tortoisesvn.berlios.de/faq/">
+				<citetitle>Berlios.de</citetitle>
+			</ulink>,
+			die weitere FAQ Einträge enthält.
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
@@ -16,11 +22,11 @@
 			<primary>Installation</primary>
 		</indexterm>
 		<para>
-		Die meisten dieser Antworten stammen aus dem
-		<application>TortoiseCVS</application>
+			Viele dieser Antworten stammen aus der
+			<application>TortoiseCVS</application>
 			<ulink url="http://www.tortoisecvs.org/faq.html">
-			<citetitle>FAQ</citetitle>
-		</ulink>
+				<citetitle>FAQ</citetitle>
+			</ulink>
 		</para>
 		<sect2 id="tsvn-faq-installation-0">
 			<title>Der Installer bricht mit einer Fehlermeldung ab</title>
@@ -228,8 +234,8 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 						Der Standardwert ist 500 - versuchen Sie den Wert auf
 						2048 zu erhöhen. Lesen Sie auch den Knowledge-Base Artikel
 						<ulink url="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">
-							<citetitle>Q132668</citetitle>
-						</ulink>
+								<citetitle>Q132668</citetitle>
+							</ulink>
 						für mehr Informationen.
 						</para>
 					</listitem>
@@ -769,8 +775,8 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Ihres ASP.NET Web Projektes in ein ASP.NET Class Projekt hilft 
 			können Sie
 			<ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
-				<citetitle>hier</citetitle>
-			</ulink>
+					<citetitle>hier</citetitle>
+				</ulink>
 			finden. Wenn Sie den Anweisungen folgen, werden Sie
 			VS.NET mit ASP.NET Projekten ohne Probleme mit Subversion benutzen
 			können.
@@ -875,16 +881,16 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Revisionsnummer. Sobald diese Revisionsnummer gefunden ist, ersetzt
 			das Tool folgende Zeichenketten:
 			<variablelist>
-				<varlistentry>
-					<term>$WCREV$</term>
-					<listitem>
+					<varlistentry>
+						<term>$WCREV$</term>
+						<listitem>
 						Diese Zeichenkette wird durch die Revisionsnummer 
 						Ihrer Arbeitskopie ersetzt.
 					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>$WCMODS?Modified:Not modified$</term>
-					<listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>$WCMODS?Modified:Not modified$</term>
+						<listitem>
 						Wenn lokale Änderungen vorgenommen 
 						wurden ohne einzuchecken, wird der Text 
 						zwischen Fragezeichen und Doppelpunkt eingefügt.
@@ -893,20 +899,20 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						eingefügt. Im Beispiel <literal>Modified</literal>
 						oder <literal>Not modified</literal>.
 					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>$WCDATE$</term>
-					<listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>$WCDATE$</term>
+						<listitem>
 						Wird durch das Datum der Revision ersetzt.
 					</listitem>
-				</varlistentry>
-			</variablelist>
+					</varlistentry>
+				</variablelist>
 			</para>
 			<para>
 			Als Beispiel sehen Sie sich bitte die Datei <filename>version.in</filename>
-			<ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">
-				<citetitle>im TortoiseSVN Sourcecode</citetitle>
-			</ulink>
+				<ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">
+					<citetitle>im TortoiseSVN Sourcecode</citetitle>
+				</ulink>
 			an. Diese Datei wird von TortoiseSVN für genau diesen Zweck benutzt.
 			SubWCRev.exe wird von unserem Build-Skript folgendermassen aufgerufen:
 <screen>

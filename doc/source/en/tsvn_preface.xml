@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <preface id="tsvn_preface">
 	<title>Preface</title>
 	<simplesect>
@@ -55,6 +55,15 @@
 			Even most Subversion users will never have to set up a server
 			themselves. A whole chapter deals with how to set up such a server.
 		</para>
+		<para>
+			If you run into problems installing or working with TortoiseSVN, check
+			<xref linkend="tsvn-faq"/> at the end of this manual. If your question is not answered
+			there, search our online FAQ at
+			<ulink url="http://tortoisesvn.berlios.de/faq/">
+				<citetitle>Berlios.de</citetitle>
+			</ulink>, nachschlagen
+			which contains more information and is - due to its nature - more up to date.
+		</para>
 	</sect1>
 	<!-- =================================================================== -->
 	<!-- ========================	SECTION	2 ============================== -->
@@ -73,9 +82,13 @@
 				<citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle>
 			</ulink>.
 			The most recent version (where we're working on) is
-			located under <emphasis><filename>/trunk/</filename></emphasis>,
+			located under <emphasis>
+				<filename>/trunk/</filename>
+			</emphasis>,
 			the released versions are located under
-			<emphasis><filename>/tags/</filename></emphasis>.
+			<emphasis>
+				<filename>/tags/</filename>
+			</emphasis>.
 		</para>
 	</sect1>
 	<!-- =================================================================== -->
@@ -206,4 +219,3 @@
 		</warning>
 	</sect1>
 </preface>
-
