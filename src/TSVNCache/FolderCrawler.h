@@ -6,7 +6,7 @@
 
 
 
-
+#pragma pack(push, r1, 16)
 
 class CFolderCrawler
 {
@@ -63,3 +63,5 @@ public:
 private:
 	CFolderCrawler* m_pCrawler;
 };
+
+#pragma pack(pop, r1)
