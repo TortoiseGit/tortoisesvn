@@ -491,6 +491,7 @@ public:
 	 */	 	 	 	
 	static BOOL PathIsURL(CString path);
 
+	svn_error_t *				Err;			///< Global error object struct
 private:
 	svn_auth_baton_t *			auth_baton;
 	//svn_client_ctx_t 			ctx;
@@ -500,7 +501,6 @@ private:
 	apr_pool_t *				parentpool;
 	apr_pool_t *				pool;			///< memory pool
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
-	svn_error_t *				Err;			///< Global error object struct
 
 	svn_opt_revision_t *	getRevision (long revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);

@@ -395,6 +395,8 @@
 #define IDS_PROC_SAVEPATCHTO            2302
 #define IDS_PROC_REPOCREATESHAREWARN    2303
 #define IDS_PROC_CLEANUP                2304
+#define IDS_PROC_REMOVEFORCE            2305
+#define IDS_PROC_YESTOALL               2306
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_COMMONFILEFILTER            2500

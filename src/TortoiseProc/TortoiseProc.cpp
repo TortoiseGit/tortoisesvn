@@ -649,14 +649,33 @@ BOOL CTortoiseProcApp::InitInstance()
 					// open the temp file
 					CStdioFile file(path, CFile::typeBinary | CFile::modeRead); 
 					CString strLine = _T(""); // initialise the variable which holds each line's contents
+					BOOL bForce = FALSE;
 					while (file.ReadString(strLine))
 					{
 						TRACE(_T("update file %s\n"), strLine);
 						SVN svn;
-						if (!svn.Remove(strLine,TRUE))
+						if (!svn.Remove(strLine, bForce))
 						{
-							TRACE("%s\n", svn.GetLastErrorMessage());
-							CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
+								(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
+							{
+								svn.ReleasePool();
+								CString msg, yes, no, yestoall;
+								msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
+								yes.LoadString(IDS_MSGBOX_YES);
+								no.LoadString(IDS_MSGBOX_NO);
+								yestoall.LoadString(IDS_PROC_YESTOALL);
+								UINT ret = CMessageBox::Show(EXPLORERHWND, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
+								if (ret == 3)
+									bForce = TRUE;
+								if ((ret == 1)||(ret==3))
+									if (!svn.Remove(strLine, TRUE))
+									{
+										CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									}
+							}
+							else
+								CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
 					}
 					file.Close();
