@@ -109,11 +109,6 @@ BOOL CMergeDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	if (SVNStatus::GetAllStatusRecursive(m_URL)!=svn_wc_status_normal)
-	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_WCCHANGED, IDS_APPNAME, MB_ICONERROR);
-		this->EndDialog(IDCANCEL);
-	}
 	SVNStatus status;
 	status.GetStatus(m_URL);
 	if ((status.status == NULL) || (status.status->entry == NULL))

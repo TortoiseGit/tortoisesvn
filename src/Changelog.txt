@@ -7,6 +7,8 @@
        for sorting a by a column should now
        take much less time and scale much
        better than before. (Stefan)
+- CHG: Don't error out when doing a merge 
+       if the wc has been changed. (Stefan)
 - BUG: Empty lines were not shown in log
        messages. (Stefan)
 - BUG: Temp files weren't deleted before an
