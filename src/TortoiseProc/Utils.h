@@ -80,4 +80,6 @@ public:
 
 	static void Unescape(LPTSTR psz);
 	static CString PathEscape(CString path);
+	static CString GetVersionFromFile(const CString & p_strDateiname);
+
 };

@@ -351,3 +351,68 @@ CString CUtils::PathEscape(CString path)
 	return ret;
 }
 
+CString CUtils::GetVersionFromFile(const CString & p_strDateiname)
+{
+	struct TRANSARRAY
+	{
+		WORD wLanguageID;
+		WORD wCharacterSet;
+	};
+
+	CString strReturn;
+	DWORD dwReserved,dwBufferSize;
+	dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strDateiname,&dwReserved);
+
+	if (dwBufferSize > 0)
+	{
+		LPVOID pBuffer = (void*) malloc(dwBufferSize);
+
+		if (pBuffer != (void*) NULL)
+		{
+			UINT        nInfoSize = 0,
+			nFixedLength = 0;
+			LPSTR       lpVersion = NULL;
+			VOID*       lpFixedPointer;
+			TRANSARRAY* lpTransArray;
+			CString     strLangProduktVersion;
+
+			GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strDateiname,
+			dwReserved,
+			dwBufferSize,
+			pBuffer);
+
+			// Abfragen der aktuellen Sprache
+			VerQueryValue(	pBuffer,
+							_T("\\VarFileInfo\\Translation"),
+							&lpFixedPointer,
+							&nFixedLength);
+			lpTransArray = (TRANSARRAY*) lpFixedPointer;
+
+			strLangProduktVersion.Format(_T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+			lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
+
+			VerQueryValue(pBuffer,
+			(LPTSTR)(LPCTSTR)strLangProduktVersion,
+			(LPVOID *)&lpVersion,
+			&nInfoSize);
+			strReturn = (LPCTSTR)lpVersion;
+			//int iPos;
+			//do
+			//{
+			//	iPos = strReturn.Find(_T(", "));
+			//	if (iPos > -1)
+			//	{
+			//		strReturn = strReturn.Left(iPos) + _T(".")\
+			//		+ strReturn.Right(strReturn.GetLength()-iPos-2);
+			//	}
+			//} while (iPos != -1);
+
+			free(pBuffer);
+		}
+	} 
+
+	return strReturn;
+}
+
+
+

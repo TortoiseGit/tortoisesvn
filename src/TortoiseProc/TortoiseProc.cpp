@@ -25,6 +25,7 @@
 #include "CrashReport.h"
 #include "DirFileList.h"
 #include "SVNProperties.h"
+#include "..\version.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -63,6 +64,9 @@ BOOL CTortoiseProcApp::InitInstance()
 	do
 	{
 		langDll.Format(_T("TortoiseProc%d.dll"), langId);
+		if (CUtils::GetVersionFromFile(langDll).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
+			continue;
+		
 		hInst = LoadLibrary(langDll);
 		if (hInst != NULL)
 			AfxSetResourceHandle(hInst);

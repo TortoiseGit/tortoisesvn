@@ -72,6 +72,9 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+	
+	CString GetVersionFromFile(const CString & p_strDateiname);
+
 private:
 	CString			m_sDiffPath;
 	CRegString		m_regDiffPath;

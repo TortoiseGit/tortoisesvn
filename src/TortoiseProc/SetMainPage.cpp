@@ -20,6 +20,8 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetMainPage.h"
+#include "Utils.h"
+#include "..\version.h"
 #include ".\setmainpage.h"
 
 
@@ -209,15 +211,30 @@ BOOL CSetMainPage::OnInitDialog()
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
 	m_LanguageCombo.SetItemData(0, 1033);
-	m_LanguageCombo.AddString(_T("Deutsch"));
-	m_LanguageCombo.SetItemData(1, 1031);
-	m_LanguageCombo.AddString(_T("Italiano"));
-	m_LanguageCombo.SetItemData(2, 1040);
-	m_LanguageCombo.AddString(_T("Russian"));
-	m_LanguageCombo.SetItemData(3, 1049);
-	m_LanguageCombo.AddString(_T("Norwegian"));
-	m_LanguageCombo.SetItemData(4, 1044);
-
+	CRegString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
+	CString path = str;
+	CDirFileList list;
+	list.BuildList(path, FALSE, FALSE);
+	int langcount = 1;
+	for (int i=0; i<list.GetCount(); i++)
+	{
+		CString file = list.GetAt(i);
+		if (file.Right(3).CompareNoCase(_T("dll"))==0)
+		{
+			CString filename = file.Mid(file.ReverseFind('\\')+1);
+			if (filename.Left(12).CompareNoCase(_T("TortoiseProc"))==0)
+			{
+				if (CUtils::GetVersionFromFile(file).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
+					continue;
+				DWORD loc = _tstoi(filename.Mid(12));
+				TCHAR buf[MAX_PATH];
+				GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
+				m_LanguageCombo.AddString(buf);
+				m_LanguageCombo.SetItemData(langcount++, loc);
+			}
+		}
+	}
+	
 	int index = 0;
 	switch ((int)m_regLanguage)
 	{
