@@ -254,8 +254,8 @@ BEGIN
     CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,119,177,104
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
-                    WS_BORDER | WS_TABSTOP,6,136,287,66
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
+                    WS_TABSTOP,6,136,287,66
     CONTROL         "Show unversioned files",IDC_SHOWUNVERSIONED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,6,203,143,10
     LTEXT           "",IDC_STATISTICS,149,202,144,8,0,WS_EX_RIGHT
