@@ -222,7 +222,7 @@ BEGIN
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,286,133
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
-                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,233,286,75
+                    WS_BORDER | WS_TABSTOP,7,233,286,75
     PUSHBUTTON      "Show &All",IDC_GETALL,7,333,50,14
     DEFPUSHBUTTON   "&OK",IDOK,187,333,50,14
     PUSHBUTTON      "&Help",IDHELP,243,333,50,14
@@ -1288,6 +1288,7 @@ BEGIN
     IDS_SSL_PEM             "PEM"
     IDS_SSL_PKCS12          "PKCS12"
     IDS_IMPORT_DEFAULTMSG   "Initial Import"
+    IDS_LOG_COPYFROM        "Copy From Path"
     IDS_LOG_MESSAGE         "Message"
     IDS_LOG_REVISION        "Revision"
     IDS_LOG_AUTHOR          "Author"

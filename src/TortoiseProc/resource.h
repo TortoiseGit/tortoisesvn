@@ -283,6 +283,7 @@
 #define IDS_SSL_PEM                     1203
 #define IDS_SSL_PKCS12                  1204
 #define IDS_IMPORT_DEFAULTMSG           1205
+#define IDS_LOG_COPYFROM                1206
 #define IDS_LOG_MESSAGE                 1207
 #define IDS_LOG_REVISION                1208
 #define IDS_LOG_AUTHOR                  1209

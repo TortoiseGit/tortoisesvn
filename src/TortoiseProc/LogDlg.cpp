@@ -133,13 +133,34 @@ BOOL CLogDlg::OnInitDialog()
 	m_arRevs.SetSize(0,100);
 
 	m_LogList.SetRedraw(false);
-	m_LogMsgCtrl.InsertColumn(0, _T("Message"));
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
 	int col;
 	for (col = mincol; col <= maxcol; col++)
 	{
 		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
+
+	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
+	m_LogMsgCtrl.DeleteAllItems();
+	c = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
+	while (c>=0)
+		m_LogMsgCtrl.DeleteColumn(c--);
+	temp.LoadString(IDS_PROGRS_ACTION);
+	m_LogMsgCtrl.InsertColumn(0, temp);
+	temp.LoadString(IDS_PROGRS_PATH);
+	m_LogMsgCtrl.InsertColumn(1, temp);
+	temp.LoadString(IDS_LOG_COPYFROM);
+	m_LogMsgCtrl.InsertColumn(2, temp);
+	temp.LoadString(IDS_LOG_REVISION);
+	m_LogMsgCtrl.InsertColumn(3, temp);
+	m_LogMsgCtrl.SetRedraw(false);
+	mincol = 0;
+	maxcol = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
+	col;
+	for (col = mincol; col <= maxcol; col++)
+	{
+		m_LogMsgCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
 
 	if (m_hasWC)
@@ -198,24 +219,29 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, LogChangedPathArray * paths
 	m_LogMsgCtrl.DeleteAllItems();
 	m_LogMsgCtrl.SetRedraw(FALSE);
 	int line = 0;
-	CString sLine;
+	CString temp;
 	if (paths)
 	{
 		for (INT_PTR i=0; i<paths->GetCount(); ++i)
 		{
 			LogChangedPath * changedpath = paths->GetAt(i);
-			sLine = changedpath->sAction;
-			sLine += _T(" : ") + changedpath->sPath;
-			if (changedpath->lCopyFromRev)
+			m_LogMsgCtrl.InsertItem(line, changedpath->sAction);
+			m_LogMsgCtrl.SetItemText(line, 1, changedpath->sPath);
+			m_LogMsgCtrl.SetItemText(line, 2, changedpath->sCopyFromPath);
+			if (!changedpath->sCopyFromPath.IsEmpty())
 			{
-				CString temp;
-				temp.Format(_T(" (from %s:%ld)"), changedpath->sCopyFromPath, changedpath->lCopyFromRev);
-				sLine += temp;
+				temp.Format(_T("%ld"), changedpath->lCopyFromRev);
+				m_LogMsgCtrl.SetItemText(line, 3, temp);
 			}
-			m_LogMsgCtrl.InsertItem(line++, sLine);
+			line++;
 		}
 	}
 
+	int maxcol = ((CHeaderCtrl*)(m_LogMsgCtrl.GetDlgItem(0)))->GetItemCount()-1;
+	for (int col = 0; col <= maxcol; col++)
+	{
+		m_LogMsgCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
 	m_LogMsgCtrl.SetColumnWidth(0,LVSCW_AUTOSIZE_USEHEADER);
 	m_LogMsgCtrl.SetRedraw();
 }
