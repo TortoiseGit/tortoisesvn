@@ -34,6 +34,7 @@ CSetProxyPage::CSetProxyPage()
 	, m_timeout(0)
 	, m_isEnabled(FALSE)
 	, m_SSHClient(_T(""))
+	, m_Exceptions(_T(""))
 {
 	m_regServeraddress = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-host"), _T(""));
 	m_regServerport = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-port"), _T(""));
@@ -42,12 +43,14 @@ CSetProxyPage::CSetProxyPage()
 	m_regTimeout = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-timeout"), _T(""));
 	m_regSSHClient = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	m_SSHClient = m_regSSHClient;
+	m_regExceptions = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-exceptions"), _T(""));
 
 	m_regServeraddress_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-host"), _T(""));
 	m_regServerport_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-port"), _T(""));
 	m_regUsername_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-username"), _T(""));
 	m_regPassword_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-password"), _T(""));
 	m_regTimeout_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-timeout"), _T(""));
+	m_regExceptions_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-exceptions"), _T(""));
 }
 
 CSetProxyPage::~CSetProxyPage()
@@ -71,6 +74,8 @@ void CSetProxyPage::SaveData()
 		temp.Format(_T("%d"), m_timeout);
 		m_regTimeout = temp;
 		m_regTimeout_copy = temp;
+		m_regExceptions = m_Exceptions;
+		m_regExceptions_copy = m_Exceptions;
 	} // if (m_isEnabled)
 	else
 	{
@@ -79,6 +84,7 @@ void CSetProxyPage::SaveData()
 		m_regUsername.removeValue();
 		m_regPassword.removeValue();
 		m_regTimeout.removeValue();
+		m_regExceptions.removeValue();
 
 		CString temp;
 		m_regServeraddress_copy = m_serveraddress;
@@ -88,6 +94,7 @@ void CSetProxyPage::SaveData()
 		m_regPassword_copy = m_password;
 		temp.Format(_T("%d"), m_timeout);
 		m_regTimeout_copy = temp;
+		m_regExceptions_copy = m_Exceptions;
 	}
 	m_regSSHClient = m_SSHClient;
 }
@@ -100,6 +107,7 @@ void CSetProxyPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_USERNAME, m_username);
 	DDX_Text(pDX, IDC_PASSWORD, m_password);
 	DDX_Text(pDX, IDC_TIMEOUT, m_timeout);
+	DDX_Text(pDX, IDC_EXCEPTIONS, m_Exceptions);
 	DDX_Check(pDX, IDC_ENABLE, m_isEnabled);
 	DDX_Text(pDX, IDC_SSHCLIENT, m_SSHClient);
 	DDX_Control(pDX, IDC_SSHGROUP, m_cSSHGroup);
@@ -115,6 +123,7 @@ BEGIN_MESSAGE_MAP(CSetProxyPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_PASSWORD, OnEnChangePassword)
 	ON_EN_CHANGE(IDC_TIMEOUT, OnEnChangeTimeout)
 	ON_EN_CHANGE(IDC_SSHCLIENT, OnEnChangeSshclient)
+	ON_EN_CHANGE(IDC_EXCEPTIONS, OnEnChangeExceptions)
 	ON_BN_CLICKED(IDC_SSHBROWSE, OnBnClickedSshbrowse)
 END_MESSAGE_MAP()
 
@@ -137,6 +146,7 @@ BOOL CSetProxyPage::OnInitDialog()
 	m_serverport = _ttoi((LPCTSTR)(CString)m_regServerport);
 	m_username = m_regUsername;
 	m_password = m_regPassword;
+	m_Exceptions = m_regExceptions;
 	m_timeout = _ttoi((LPCTSTR)(CString)m_regTimeout);
 
 	if (m_serveraddress.IsEmpty())
@@ -150,6 +160,7 @@ BOOL CSetProxyPage::OnInitDialog()
 		m_regUsername.removeValue();
 		m_regPassword.removeValue();
 		m_regTimeout.removeValue();
+		m_regExceptions.removeValue();
 	}
 	else
 	{
@@ -164,6 +175,8 @@ BOOL CSetProxyPage::OnInitDialog()
 		m_username = m_regUsername_copy;
 	if (m_password.IsEmpty())
 		m_password = m_regPassword_copy;
+	if (m_Exceptions.IsEmpty())
+		m_Exceptions = m_regExceptions_copy;
 	if (m_timeout == 0)
 		m_timeout = _ttoi((LPCTSTR)(CString)m_regTimeout_copy);
 
@@ -195,6 +208,7 @@ void CSetProxyPage::EnableGroup(BOOL b)
 	GetDlgItem(IDC_USERNAME)->EnableWindow(b);
 	GetDlgItem(IDC_PASSWORD)->EnableWindow(b);
 	GetDlgItem(IDC_TIMEOUT)->EnableWindow(b);
+	GetDlgItem(IDC_EXCEPTIONS)->EnableWindow(b);
 }
 
 
@@ -231,6 +245,11 @@ void CSetProxyPage::OnEnChangeTimeout()
 }
 
 void CSetProxyPage::OnEnChangeSshclient()
+{
+	SetModified();
+}
+
+void CSetProxyPage::OnEnChangeExceptions()
 {
 	SetModified();
 }

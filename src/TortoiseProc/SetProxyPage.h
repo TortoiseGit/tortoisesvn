@@ -74,6 +74,7 @@ protected:
 	afx_msg void OnEnChangeUsername();
 	afx_msg void OnEnChangePassword();
 	afx_msg void OnEnChangeTimeout();
+	afx_msg void OnEnChangeExceptions();
 	afx_msg void OnEnChangeSshclient();
 	afx_msg void OnBnClickedSshbrowse();
 
@@ -100,6 +101,9 @@ private:
 	BOOL		m_isEnabled;
 	CRegString	m_regSSHClient;
 	CString		m_SSHClient;
+	CRegString	m_regExceptions;
+	CRegString	m_regExceptions_copy;
+	CString		m_Exceptions;
 	CIconStatic	m_cSSHGroup;
 	CIconStatic	m_cProxyGroup;
 };

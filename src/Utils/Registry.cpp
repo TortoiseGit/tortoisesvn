@@ -606,7 +606,7 @@ void CRegStdString::write()
 	{
 		return;
 	}
-	if (RegSetValueEx(m_hKey, m_key.c_str(), 0, REG_SZ, (BYTE *)m_value.c_str(), (DWORD)m_value.size()+1)==ERROR_SUCCESS)
+	if (RegSetValueEx(m_hKey, m_key.c_str(), 0, REG_SZ, (BYTE *)m_value.c_str(), ((DWORD)m_value.size()+1)*sizeof(TCHAR))==ERROR_SUCCESS)
 	{
 		m_read = TRUE;
 	}
