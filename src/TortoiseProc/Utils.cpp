@@ -597,7 +597,16 @@ CString CUtils::WritePathsToTempFile(CString paths)
 CString CUtils::GetLongPathname(const CString& path)
 {
 	TCHAR pathbuf[MAX_PATH];
-	DWORD ret = ::GetLongPathName(path, pathbuf, MAX_PATH);
+	TCHAR pathbufcanonicalized[MAX_PATH];
+	DWORD ret = 0;
+	if (PathCanonicalize(pathbufcanonicalized, path))
+	{
+		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, MAX_PATH);
+	}
+	else
+	{
+		ret = ::GetLongPathName(path, pathbuf, MAX_PATH);
+	}
 	if ((ret == 0)||(ret > MAX_PATH))
 		return path;
 	return CString(pathbuf, ret);
