@@ -92,7 +92,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			hInst = NULL;
 		}
 		if (hInst != NULL)
+		{
 			AfxSetResourceHandle(hInst);
+			SetThreadLocale(langId);
+		}
 		else
 		{
 			DWORD lid = SUBLANGID(langId);
