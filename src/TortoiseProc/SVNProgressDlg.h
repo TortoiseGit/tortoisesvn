@@ -23,6 +23,8 @@
 
 #include "ResizableDialog.h"
 
+typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
+
 typedef enum
 {
 	Checkout = 1,
@@ -71,6 +73,18 @@ class CSVNProgressDlg : public CResizableDialog, public SVN
 	DECLARE_DYNAMIC(CSVNProgressDlg)
 
 public:
+	class Data
+	{
+	public:
+		CString					path;
+		svn_wc_notify_action_t	action;
+		svn_node_kind_t			kind;
+		CString					mime_type;
+		svn_wc_notify_state_t	content_state;
+		svn_wc_notify_state_t	prop_state;
+		LONG					rev;
+	};
+
 	CSVNProgressDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CSVNProgressDlg();
 
@@ -90,7 +104,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
+	virtual BOOL Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
 	virtual BOOL Cancel();
 	virtual void OnCancel();
 
@@ -100,6 +114,8 @@ protected:
 	 * Resizes the columns of the progress list so that the headings are visible.
 	 */
 	void ResizeColumns();
+	void Sort();
+	static int __cdecl SortCompare(const void * pElem1, const void * pElem2);
 
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
@@ -112,7 +128,11 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
+	static BOOL	m_bAscending;
+	static int	m_nSortedColumn;
 public:			//need to be public for the thread to access
+	CArray<Data *, Data *>		m_arData;
+
 	CListCtrl	m_ProgList;
 	HANDLE		m_hThread;
 	Command		m_Command;
@@ -120,10 +140,6 @@ public:			//need to be public for the thread to access
 	CString		m_sPath;
 	CString		m_sUrl;
 	CString		m_sMessage;
-	CDWordArray	m_arActions;
-	CDWordArray	m_arActionCStates;
-	CDWordArray	m_arActionPStates;
-	CStringArray m_arPaths;
 	CStringArray m_templist;
 	LONG		m_nRevision;
 	LONG		m_nRevisionEnd;
@@ -132,5 +148,6 @@ public:			//need to be public for the thread to access
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
 	CString		m_sModName;
+	afx_msg void OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);

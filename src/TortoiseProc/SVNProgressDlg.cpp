@@ -28,6 +28,9 @@
 
 // CSVNProgressDlg dialog
 
+BOOL	CSVNProgressDlg::m_bAscending = FALSE;
+int		CSVNProgressDlg::m_nSortedColumn = -1;
+
 IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableDialog)
 CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CSVNProgressDlg::IDD, pParent)
@@ -45,6 +48,12 @@ CSVNProgressDlg::~CSVNProgressDlg()
 		DeleteFile(m_templist.GetAt(i));
 	}
 	m_templist.RemoveAll();
+	for (int i=0; i<m_arData.GetCount(); i++)
+	{
+		Data * data = m_arData.GetAt(i);
+		delete data;
+	} // for (int i=0; i<m_arData.GetCount(); i++)
+	m_arData.RemoveAll();
 }
 
 void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
@@ -63,6 +72,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SVNPROGRESS, OnNMCustomdrawSvnprogress)
 	ON_WM_CLOSE()
 	ON_NOTIFY(NM_DBLCLK, IDC_SVNPROGRESS, OnNMDblclkSvnprogress)
+	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickSvnprogress)
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -106,7 +116,7 @@ BOOL CSVNProgressDlg::Cancel()
 	return m_bCancelled;
 }
 
-BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
 {
 	CString temp;
 
@@ -115,25 +125,27 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 	int iInsertedAt = m_ProgList.InsertItem(count, GetActionText(action, content_state, prop_state));
 	if (iInsertedAt != -1)
 	{
-		m_arPaths.Add(path);
 		if (action != svn_wc_notify_update_completed)
 		{
 			m_ProgList.SetItemText(iInsertedAt, 1, path);
-			m_arActions.Add(action);
-			m_arActionCStates.Add(content_state);
-			m_arActionPStates.Add(prop_state);
-		}
+		} // if (action != svn_wc_notify_update_completed)
 		else
 		{
 			temp.Format(IDS_PROGRS_ATREV, rev);
 			m_ProgList.SetItemText(count, 1, temp);
-			m_arActions.Add(action);
-			m_arActionCStates.Add(content_state);
-			m_arActionPStates.Add(prop_state);
 			if (m_nRevisionEnd == 0)
 				m_nRevisionEnd = rev;
 		}
-
+		m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
+		Data * data = new Data();
+		data->path = path;
+		data->action = action;
+		data->kind = kind;
+		data->mime_type = mime_type;
+		data->content_state = content_state;
+		data->prop_state = prop_state;
+		data->rev = rev;
+		m_arData.Add(data);
 		//make colums width fit
 		ResizeColumns();
 
@@ -199,6 +211,8 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	m_ProgList.InsertColumn(0, temp);
 	temp.LoadString(IDS_PROGRS_PATH);
 	m_ProgList.InsertColumn(1, temp);
+	temp.LoadString(IDS_PROGRS_MIMETYPE);
+	m_ProgList.InsertColumn(2, temp);
 
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
@@ -213,9 +227,9 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	// text gets added.
 	ResizeColumns();
 
-	m_arActions.RemoveAll();
-	m_arActionCStates.RemoveAll();
-	m_arActionPStates.RemoveAll();
+	//m_arActions.RemoveAll();
+	//m_arActionCStates.RemoveAll();
+	//m_arActionPStates.RemoveAll();
 
 	AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -631,13 +645,11 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = RGB(0,0,0);
 
-		if (m_arActions.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		if (m_arData.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
-			svn_wc_notify_action_t action = (svn_wc_notify_action_t)m_arActions.GetAt(pLVCD->nmcd.dwItemSpec);
-			svn_wc_notify_state_t content_state = (svn_wc_notify_state_t)m_arActionCStates.GetAt(pLVCD->nmcd.dwItemSpec);
-			svn_wc_notify_state_t prop_state = (svn_wc_notify_state_t)m_arActionPStates.GetAt(pLVCD->nmcd.dwItemSpec);
+			Data * data = m_arData.GetAt(pLVCD->nmcd.dwItemSpec);
 
-			switch (action)
+			switch (data->action)
 			{
 			case svn_wc_notify_add:
 			case svn_wc_notify_update_add:
@@ -650,9 +662,9 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 				crText = RGB(100,0,0);
 				break;
 			case svn_wc_notify_update_update:
-				if ((content_state == svn_wc_notify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted))
+				if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
 					crText = RGB(255, 0, 0);
-				else if ((content_state == svn_wc_notify_state_merged) || (prop_state == svn_wc_notify_state_merged))
+				else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
 					crText = RGB(0, 100, 0);
 				break;
 			case svn_wc_notify_commit_modified:
@@ -678,14 +690,12 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (pNMLV->iItem < 0)
 		return;
-	svn_wc_notify_action_t action = (svn_wc_notify_action_t)m_arActions.GetAt(pNMLV->iItem);
-	svn_wc_notify_state_t content_state = (svn_wc_notify_state_t)m_arActionCStates.GetAt(pNMLV->iItem);
-	svn_wc_notify_state_t prop_state = (svn_wc_notify_state_t)m_arActionPStates.GetAt(pNMLV->iItem);
-	if ((action == svn_wc_notify_update_update) &&
-		((content_state == svn_wc_notify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted)))
+	Data * data = m_arData.GetAt(pNMLV->iItem);
+	if ((data->action == svn_wc_notify_update_update) &&
+		((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted)))
 	{
 		SVNStatus status;
-		CString merge = m_arPaths.GetAt(pNMLV->iItem);
+		CString merge = data->path;
 		CString path = merge.Left(merge.ReverseFind('/'));
 		path = path + _T("/");
 		status.GetStatus(merge);
@@ -717,9 +727,9 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 		CUtils::StartExtMerge(base, theirs, mine, merge);
 	} // ify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted)))
-	else if ((action == svn_wc_notify_update_update) && (content_state == svn_wc_notify_state_merged))
+	else if ((data->action == svn_wc_notify_update_update) && (data->content_state == svn_wc_notify_state_merged))
 	{
-		CString sWC = m_arPaths.GetAt(pNMLV->iItem);
+		CString sWC = data->path;
 		CString sBase = SVN::GetPristinePath(sWC);
 
 		if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(sWC, sWC)))
@@ -731,5 +741,75 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
+void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
+	if (m_bThreadRunning)
+		return;
+	if (m_nSortedColumn == phdr->iItem)
+		m_bAscending = !m_bAscending;
+	else
+		m_bAscending = TRUE;
+	m_nSortedColumn = phdr->iItem;
+	Sort();
 
+	CString temp;
+	m_ProgList.SetRedraw(FALSE);
+	m_ProgList.DeleteAllItems();
+	for (int i=0; i<m_arData.GetCount(); i++)
+	{
+		Data * data = m_arData.GetAt(i);
+		m_ProgList.InsertItem(i, GetActionText(data->action, data->content_state, data->prop_state));
+		if (data->action != svn_wc_notify_update_completed)
+		{
+			m_ProgList.SetItemText(i, 1, data->path);
+		} // if (action != svn_wc_notify_update_completed)
+		else
+		{
+			temp.Format(IDS_PROGRS_ATREV, data->rev);
+			m_ProgList.SetItemText(i, 1, temp);
+		}
+		m_ProgList.SetItemText(i, 2, data->mime_type);
+	} // for (int i=0; i<m_arData.GetCount(); i++) 
+	
+	m_ProgList.SetRedraw(TRUE);
 
+	*pResult = 0;
+}
+
+void CSVNProgressDlg::Sort()
+{
+	qsort(m_arData.GetData(), m_arData.GetSize(), sizeof(Data *), (GENERICCOMPAREFN)SortCompare);
+}
+
+int CSVNProgressDlg::SortCompare(const void * pElem1, const void * pElem2)
+{
+	Data * pData1 = *((Data**)pElem1);
+	Data * pData2 = *((Data**)pElem2);
+	int result = 0;
+	switch (m_nSortedColumn)
+	{
+	case 0:		//action column
+		{
+			CString t1 = GetActionText(pData1->action, pData1->content_state, pData1->prop_state);
+			CString t2 = GetActionText(pData2->action, pData2->content_state, pData2->prop_state);
+			result = t1.Compare(t2);
+		}
+		break;
+	case 1:		//path column
+		{
+			result = pData1->path.Compare(pData2->path);
+		}
+		break;
+	case 2:		//mime-type column
+		{
+			result = pData1->mime_type.Compare(pData2->mime_type);
+		}
+		break;
+	default:
+		break;
+	} // switch (m_nSortedColumn)
+	if (!m_bAscending)
+		result = -result;
+	return result;
+}
