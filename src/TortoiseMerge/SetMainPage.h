@@ -65,6 +65,8 @@ protected:
 	CRegDWORD		m_regIgnoreWS;
 	BOOL			m_bViewLinenumbers;
 	CRegDWORD		m_regViewLinenumbers;
+	BOOL			m_bMagnifier;
+	CRegDWORD		m_regMagnifier;
 	
 	CRegDWORD		m_regFontSize;
 	DWORD			m_dwFontSize;
@@ -87,4 +89,5 @@ protected:
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnBnClickedLinenumbers();
+	afx_msg void OnBnClickedMagnifier();
 };

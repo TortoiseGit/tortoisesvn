@@ -44,10 +44,14 @@ protected:
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
+	LRESULT			OnMouseLeave(WPARAM, LPARAM);
 
 	CBitmap *		m_pCacheBitmap;
 
 	int				m_nLines;
+	CPoint			m_MousePos;
+	BOOL			m_bMouseWithin;
+	BOOL			m_bUseMagnifier;
 	CDWordArray		m_arLeft;
 	CDWordArray		m_arRight;
 	CDWordArray		m_arBottom;

@@ -28,6 +28,8 @@ CLocatorBar::CLocatorBar()
 {
 	m_pMainFrm = NULL;
 	m_pCacheBitmap = NULL;
+	m_bMouseWithin = FALSE;
+	m_bUseMagnifier = TRUE;
 }
 
 CLocatorBar::~CLocatorBar()
@@ -46,10 +48,12 @@ BEGIN_MESSAGE_MAP(CLocatorBar, CDialogBar)
 	ON_WM_ERASEBKGND()
 	ON_WM_LBUTTONDOWN()
 	ON_WM_MOUSEMOVE()
+	ON_MESSAGE(WM_MOUSELEAVE, OnMouseLeave)
 END_MESSAGE_MAP()
 
 void CLocatorBar::DocumentUpdated()
 {
+	m_bUseMagnifier = CRegDWORD(_T("Software\\TortoiseMerge\\Magnifier"), TRUE);
 	m_pMainFrm = (CMainFrame *)this->GetParentFrame();
 	m_arLeft.RemoveAll();
 	m_arRight.RemoveAll();
@@ -133,6 +137,8 @@ void CLocatorBar::OnPaint()
 	CPaintDC dc(this); // device context for painting
 	CRect rect;
 	GetClientRect(rect);
+	int height = rect.Height();
+	int width = rect.Width();
 	int nTopLine = 0;
 	int nBottomLine = 0;
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
@@ -146,7 +152,7 @@ void CLocatorBar::OnPaint()
 	if (m_pCacheBitmap == NULL)
 	{
 		m_pCacheBitmap = new CBitmap;
-		VERIFY(m_pCacheBitmap->CreateCompatibleBitmap(&dc, rect.Width(), rect.Height()));
+		VERIFY(m_pCacheBitmap->CreateCompatibleBitmap(&dc, width, height));
 	}
 	CBitmap *pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
 
@@ -156,7 +162,7 @@ void CLocatorBar::OnPaint()
 	m_pMainFrm->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, color, color2);
 	cacheDC.FillSolidRect(rect, color);
 	
-	int barwidth = (rect.Width()/3);
+	int barwidth = (width/3);
 	DWORD state = 0;
 	int identcount = 0;
 	int linecount = 0;
@@ -170,8 +176,8 @@ void CLocatorBar::OnPaint()
 			COLORREF color, color2;
 			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
 			if ((CDiffData::DiffStates)state != CDiffData::DIFFSTATE_NORMAL)
-				cacheDC.FillSolidRect(rect.left, rect.Height()*linecount/m_nLines, 
-							barwidth, max(rect.Height()*identcount/m_nLines,1), color);
+				cacheDC.FillSolidRect(rect.left, height*linecount/m_nLines, 
+							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
 		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
 	} // if (m_pMainFrm->m_pwndLeftView->IsWindowVisible()) 
@@ -188,8 +194,8 @@ void CLocatorBar::OnPaint()
 			COLORREF color, color2;
 			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
 			if ((CDiffData::DiffStates)state != CDiffData::DIFFSTATE_NORMAL)
-				cacheDC.FillSolidRect(rect.left + (rect.Width()*2/3), rect.Height()*linecount/m_nLines, 
-							barwidth, max(rect.Height()*identcount/m_nLines,1), color);
+				cacheDC.FillSolidRect(rect.left + (width*2/3), height*linecount/m_nLines, 
+							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
 		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
 	} // if (m_pMainFrm->m_pwndRightView->IsWindowVisible()) 
@@ -205,24 +211,48 @@ void CLocatorBar::OnPaint()
 			COLORREF color, color2;
 			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
 			if ((CDiffData::DiffStates)state != CDiffData::DIFFSTATE_NORMAL)
-				cacheDC.FillSolidRect(rect.left + (rect.Width()/3), rect.Height()*linecount/m_nLines, 
-							barwidth, max(rect.Height()*identcount/m_nLines,1), color);
+				cacheDC.FillSolidRect(rect.left + (width/3), height*linecount/m_nLines, 
+							barwidth, max(height*identcount/m_nLines,1), color);
 			linecount += identcount;
 		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
 	} // if (m_pMainFrm->m_pwndBottomView->IsWindowVisible()) 
 
 	if (m_nLines == 0)
 		m_nLines = 1;
-	cacheDC.FillSolidRect(rect.left, rect.Height()*nTopLine/m_nLines,
+	cacheDC.FillSolidRect(rect.left, height*nTopLine/m_nLines,
 		rect.Width(), 2, RGB(0,0,0));
-	cacheDC.FillSolidRect(rect.left, rect.Height()*nBottomLine/m_nLines,
+	cacheDC.FillSolidRect(rect.left, height*nBottomLine/m_nLines,
 		rect.Width(), 2, RGB(0,0,0));
 	//draw two vertical lines, so there are three rows visible indicating the three panes
-	cacheDC.FillSolidRect(rect.left + (rect.Width()/3), rect.top, 1, rect.Height(), RGB(0,0,0));
-	cacheDC.FillSolidRect(rect.left + (rect.Width()*2/3), rect.top, 1, rect.Height(), RGB(0,0,0));
+	cacheDC.FillSolidRect(rect.left + (width/3), rect.top, 1, height, RGB(0,0,0));
+	cacheDC.FillSolidRect(rect.left + (width*2/3), rect.top, 1, height, RGB(0,0,0));
 
-	VERIFY(dc.BitBlt(rect.left, rect.top, rect.Width(), rect.Height(), &cacheDC, 0, 0, SRCCOPY));
-
+	// draw the fisheye
+	if ((m_bUseMagnifier)&&(m_bMouseWithin))
+	{
+		int fishstart = m_MousePos.y - height/20;
+		int fishheight = height/10;
+		cacheDC.FillSolidRect(rect.left, fishstart-1, width, 1, RGB(0,0,100));
+		cacheDC.FillSolidRect(rect.left, fishstart+fishheight+1, width, 1, RGB(0,0,100));
+		VERIFY(cacheDC.StretchBlt(rect.left, fishstart, width, fishheight, 
+			&cacheDC, 0, fishstart + (3*fishheight/8), width, fishheight/4, SRCCOPY));
+		// draw the magnified area a little darker, so the
+		// user has a clear indication of the magnifier
+		for (int i=rect.left; i<(width - rect.left); i++)
+		{
+			for (int j=fishstart; j<fishstart+fishheight; j++)
+			{
+				COLORREF color = cacheDC.GetPixel(i, j);
+				int r,g,b;
+				r = max(GetRValue(color)-20, 0);
+				g = max(GetGValue(color)-20, 0);
+				b = max(GetBValue(color)-20, 0);
+				cacheDC.SetPixel(i, j, RGB(r,g,b));
+			} // for (int j=fishstart; j<fishstart+fishheight; j++) 
+		} // for (int i=rect.left; i<(width - rect.left); i++) 
+	} // if (m_bMouseWithin)  
+	VERIFY(dc.BitBlt(rect.left, rect.top, width, height, &cacheDC, 0, 0, SRCCOPY));
+	
 	cacheDC.SelectObject(pOldBitmap);
 	cacheDC.DeleteDC();
 }
@@ -270,6 +300,17 @@ void CLocatorBar::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 {
+	m_MousePos = point;
+	if (!m_bMouseWithin)
+	{ 
+		m_bMouseWithin = TRUE;
+		TRACKMOUSEEVENT tme;
+		tme.cbSize = sizeof(TRACKMOUSEEVENT);
+		tme.dwFlags = TME_LEAVE;
+		tme.hwndTrack = m_hWnd;
+		_TrackMouseEvent(&tme);
+	} // if (!m_bMouseWithin) 
+
 	if (nFlags & MK_LBUTTON)
 	{
 		CRect rect;
@@ -289,10 +330,17 @@ void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 			m_pMainFrm->m_pwndLeftView->ScrollToLine(nLine);
 		if ((m_pMainFrm)&&(m_pMainFrm->m_pwndRightView))
 			m_pMainFrm->m_pwndRightView->ScrollToLine(nLine);
-		Invalidate();
-	}
+	} // if (nFlags & MK_LBUTTON)
+	Invalidate();
 }
 
+LRESULT CLocatorBar::OnMouseLeave(WPARAM, LPARAM)
+{
+	m_bMouseWithin = FALSE;
+	Invalidate();
+	TRACE(_T("Leave\n"));
+	return 0;
+} 
 
 
 
