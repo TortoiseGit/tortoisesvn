@@ -37,12 +37,10 @@ CSetProgsPage::CSetProgsPage()
 	, m_dlgAdvDiff(_T("Diff"))
 	, m_dlgAdvMerge(_T("Merge"))
 	, m_bInitialized(FALSE)
-	, m_bTextBlame(FALSE)
 {
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
 	m_regDiffViewerPath = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
 	m_regMergePath = CRegString(_T("Software\\TortoiseSVN\\Merge"));
-	m_regTextBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 }
 
 CSetProgsPage::~CSetProgsPage()
@@ -63,7 +61,6 @@ void CSetProgsPage::SaveData()
 		m_regDiffPath = m_sDiffPath;
 		m_regDiffViewerPath = m_sDiffViewerPath;
 		m_regMergePath = m_sMergePath;
-		m_regTextBlame = m_bTextBlame;
 
 		m_dlgAdvDiff.SaveData();
 		m_dlgAdvMerge.SaveData();
@@ -86,7 +83,6 @@ void CSetProgsPage::DoDataExchange(CDataExchange* pDX)
 	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(m_iDiffViewer == 1);
 	GetDlgItem(IDC_EXTMERGE)->EnableWindow(m_iExtMerge == 1);
 	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(m_iExtMerge == 1);
-	DDX_Check(pDX, IDC_TEXTBLAME, m_bTextBlame);
 }
 
 
@@ -105,7 +101,6 @@ BEGIN_MESSAGE_MAP(CSetProgsPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_DIFFVIEWER_ON, OnBnClickedDiffviewerOn)
 	ON_BN_CLICKED(IDC_EXTDIFFADVANCED, OnBnClickedExtdiffadvanced)
 	ON_BN_CLICKED(IDC_EXTMERGEADVANCED, OnBnClickedExtmergeadvanced)
-	ON_BN_CLICKED(IDC_TEXTBLAME, OnBnClickedTextblame)
 END_MESSAGE_MAP()
 
 
@@ -268,8 +263,6 @@ BOOL CSetProgsPage::OnInitDialog()
 	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_DIFFVIEWER), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTMERGE), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
-	m_bTextBlame = m_regTextBlame;
-
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
 	m_tooltips.AddTool(IDC_DIFFVIEWER, IDS_SETTINGS_DIFFVIEWER_TT);
@@ -378,9 +371,4 @@ void CSetProgsPage::OnBnClickedExtmergeadvanced()
 {
 	if (m_dlgAdvMerge.DoModal() == IDOK)
 		SetModified();
-}
-
-void CSetProgsPage::OnBnClickedTextblame()
-{
-	SetModified();
 }

@@ -48,6 +48,8 @@ protected:
 protected:
 	CString m_sStartRev;
 	CString m_sEndRev;
+	BOOL	m_bTextView;
+	CRegDWORD m_regTextView;
 
 public:
 	SVNRev	StartRev;

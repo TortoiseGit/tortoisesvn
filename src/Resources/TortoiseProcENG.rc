@@ -549,7 +549,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,180,92,50,14
 END
 
-IDD_BLAME DIALOGEX 0, 0, 311, 81
+IDD_BLAME DIALOGEX 0, 0, 311, 94
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Blame"
@@ -564,9 +564,11 @@ BEGIN
                     145,34,63,10
     EDITTEXT        IDC_REVISION_END,215,31,79,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
-    DEFPUSHBUTTON   "&OK",IDOK,140,60,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,197,60,50,14
-    PUSHBUTTON      "&Help",IDHELP,254,60,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,140,73,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,197,73,50,14
+    PUSHBUTTON      "&Help",IDHELP,254,73,50,14
+    CONTROL         "Use Text viewer to view blames",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,57,297,10
 END
 
 IDD_SETTINGSPROGS DIALOGEX 0, 0, 300, 217
@@ -598,7 +600,7 @@ BEGIN
     LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
                     IDC_STATIC,13,121,160,19
     PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,177,121,87,14
-    GROUPBOX        "Diff Viewer",IDC_STATIC,7,149,286,45
+    GROUPBOX        "Diff Viewer",IDC_STATIC,7,149,286,61
     LTEXT           "Viewer program for GNU diff files (patch files).",
                     IDC_STATIC,13,160,251,8
     CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
@@ -607,8 +609,6 @@ BEGIN
                     BS_AUTORADIOBUTTON,58,174,43,10
     EDITTEXT        IDC_DIFFVIEWER,105,172,159,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,271,172,14,14
-    CONTROL         "Use Text viewer to view blames",IDC_TEXTBLAME,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,196,251,10
 END
 
 IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 230
@@ -952,7 +952,7 @@ BEGIN
         RIGHTMARGIN, 304
         VERTGUIDE, 247
         TOPMARGIN, 7
-        BOTTOMMARGIN, 74
+        BOTTOMMARGIN, 87
     END
 
     IDD_SETTINGSPROGS, DIALOG

@@ -32,7 +32,10 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 	, StartRev(1)
 	, EndRev(0)
 	, m_sStartRev(_T("1"))
+	, m_bTextView(FALSE)
 {
+	m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
+	m_bTextView = m_regTextView;
 }
 
 CBlameDlg::~CBlameDlg()
@@ -45,6 +48,7 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
+	DDX_Check(pDX, IDC_CHECK1, m_bTextView);
 }
 
 
@@ -98,6 +102,7 @@ BOOL CBlameDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	m_bTextView = m_regTextView;
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 
@@ -121,6 +126,7 @@ void CBlameDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
+	m_regTextView = m_bTextView;
 	StartRev = SVNRev(m_sStartRev);
 	EndRev = SVNRev(m_sEndRev);
 	if (!StartRev.IsValid())
