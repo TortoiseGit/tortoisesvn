@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-06 11:55+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2004-07-09 22:48+0100\n"
+"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -21,12 +21,12 @@ msgstr ""
 #: ID:126
 #: ID:10
 msgid " "
-msgstr ""
+msgstr " "
 
 # ID:188,
 #: ID:188
 msgid "! %d"
-msgstr ""
+msgstr "! %d"
 
 #: ID:3868
 msgid "%1 contained an unexpected object."
@@ -91,107 +91,90 @@ msgid "%s : Working Copy"
 msgstr "%s : Werkkopie"
 
 #: ID:145
-#, fuzzy
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
-msgstr "Wilt u verdergaan?"
+msgstr ""
+"%s\n"
+"Wilt u het toch verwijderen?"
 
 #: MenuEntry
-#, fuzzy
 msgid "&About TortoiseMerge..."
-msgstr "Over TortoiseMerge..."
+msgstr "&Over TortoiseMerge..."
 
 #: Control-ID:1098
-#, fuzzy
 msgid "&Add..."
-msgstr "Toevoegen..."
+msgstr "&Toevoegen..."
 
 #: Control-ID:1090
-#, fuzzy
 msgid "&Advanced..."
-msgstr "Geavanceerd..."
+msgstr "&Geavanceerd..."
 
 #: Control-ID:1013
-#, fuzzy
 msgid "&Apply Unified Diff"
-msgstr "Voer unified Diff uit"
+msgstr "&Voer unified Diff uit"
 
 #: Control-ID:1011
-#, fuzzy
 msgid "&Browse..."
-msgstr "Bladeren..."
+msgstr "&Bladeren..."
 
 #: Control-ID:1091
-#, fuzzy
 msgid "&Builtin"
-msgstr "Intern"
+msgstr "&Intern"
 
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
-msgstr ""
+msgstr "&CD-ROM"
 
 #: Control-ID:2
-#, fuzzy
 msgid "&Cancel"
 msgstr "Annuleren"
 
 #: Control-ID:1074
-#, fuzzy
 msgid "&Checkout directory:"
-msgstr "Ophalen naar map:"
+msgstr "&Ophalen naar map:"
 
 #: Control-ID:1066
-#, fuzzy
 msgid "&Close windows automatically"
-msgstr "Sluit vensters automatisch"
+msgstr "&Sluit vensters automatisch"
 
 #: Control-ID:1099
-#, fuzzy
 msgid "&Edit..."
-msgstr "Wijzigen..."
+msgstr "&Wijzigen..."
 
 #: Control-ID:1023
-#, fuzzy
 msgid "&Enable Proxy Server"
-msgstr "Proxy Server inschakelen"
+msgstr "&Proxy Server inschakelen"
 
 #: Control-ID:1092
-#, fuzzy
 msgid "&External"
-msgstr "Extern"
+msgstr "&Extern"
 
 #: MenuEntry
-#, fuzzy
 msgid "&File"
-msgstr "Bestand"
+msgstr "&Bestand"
 
 #: Control-ID:1050
-#, fuzzy
 msgid "&Fixed drives"
-msgstr "RAM station"
+msgstr "&Vaste schijven"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From Revision"
-msgstr "Van revisie"
+msgstr "&Van revisie"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From URL:"
-msgstr "Van URL:"
+msgstr "&Van URL:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From WC at URL:"
-msgstr "Van werkkopie in URL:"
+msgstr "&Van werkkopie in URL:"
 
 #: Control-ID:1032
 #: Control-ID:1019
-#, fuzzy
 msgid "&Head Revision"
-msgstr "Meest recente revisie (HEAD)"
+msgstr "&Meest recente revisie (HEAD)"
 
 # Control-ID:57670,#:
 # MenuEntry#:
@@ -200,176 +183,150 @@ msgstr "Meest recente revisie (HEAD)"
 #: Control-ID:57670
 #: Control-ID:9
 msgid "&Help"
-msgstr ""
+msgstr "&Help"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Help Topics"
-msgstr "Help onderwerpen"
+msgstr "Help &onderwerpen"
 
 #: ID:3842
 msgid "&Hide"
 msgstr "&Verbergen"
 
 #: Control-ID:1023
-#, fuzzy
 msgid "&Indicate folders with changed contents"
-msgstr "Markeer mappen met gewijzigde inhoud"
+msgstr "&Markeer mappen met gewijzigde inhoud"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&Language:"
-msgstr "Taalkeuze:"
+msgstr "&Taal:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Merge"
-msgstr "Samenvoegen"
+msgstr "&Samenvoegen"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Merge changes into the current working copy from URL:"
-msgstr ""
+msgstr "&Voeg wijzigingen toe aan werkkopie vanaf URL:"
 
 #: Control-ID:1012
-#, fuzzy
 msgid "&Merging"
-msgstr "Samenvoegen"
+msgstr "&Samenvoegen"
 
 #: Control-ID:1049
-#, fuzzy
 msgid "&Network drives"
-msgstr "Netwerkstations"
+msgstr "&Netwerkstations"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&New "
-msgstr "Nieuw"
+msgstr "&Nieuw"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Next Difference"
-msgstr "Volgend verschil"
+msgstr "&Volgend verschil"
 
 # Control-ID:1,#:
 # Control-ID:1,
 #: Control-ID:1
 msgid "&OK"
-msgstr ""
+msgstr "&OK"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Open Ctrl-O"
-msgstr "Openen\tCtrl-O"
+msgstr "&Openen\tCtrl-O"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&Password:"
-msgstr "Wachtwoord:"
+msgstr "&Wachtwoord:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&Port:"
-msgstr "Poort:"
+msgstr "&Poort:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Previous Difference"
-msgstr "Vorig verschil"
+msgstr "V&orig verschil"
 
 #: Control-ID:1048
-#, fuzzy
 msgid "&Removable drives"
-msgstr "Stations met verwisselbaar medium"
+msgstr "&Stations met verwisselbaar medium"
 
 #: Control-ID:1013
 #: Control-ID:1100
-#, fuzzy
 msgid "&Remove"
-msgstr "Verwijderen"
+msgstr "&Verwijderen"
 
 #: Control-ID:1033
 #: Control-ID:1116
-#, fuzzy
 msgid "&Revision"
-msgstr "Revisie"
+msgstr "&Revisie"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&SSH client:"
-msgstr ""
+msgstr "&SSH client:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Save Ctrl-S"
-msgstr "Opslaan\tCtrl-S"
+msgstr "Op&slaan\tCtrl-S"
 
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Set"
-msgstr ""
+msgstr "&Instellen"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Status Bar"
-msgstr "Statusbalk"
+msgstr "&Statusbalk"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To Revision"
-msgstr "Tot en met revisie"
+msgstr "&Tot en met revisie"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To URL:"
-msgstr "Naar URL:"
+msgstr "&Naar URL:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To URL: "
-msgstr "Naar URL:"
+msgstr "&Naar URL:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Toolbar"
-msgstr "Werkbalk"
+msgstr "&Werkbalk"
 
 #: Control-ID:65535
 #: Control-ID:1058
-#, fuzzy
 msgid "&URL of repository:"
-msgstr "URL van bibliotheek:"
+msgstr "&URL van bibliotheek:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Undo\tCtrl+Z"
-msgstr "Ongedaan maken\tCtrl-Z"
+msgstr "&Ongedaan maken\tCtrl-Z"
 
 #: Control-ID:65535
 #: Control-ID:1005
-#, fuzzy
 msgid "&Username:"
-msgstr "Gebruikersnaam:"
+msgstr "&Gebruikersnaam:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&View"
-msgstr "Beeld"
+msgstr "B&eeld"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Whitespaces"
-msgstr "Spaties en lege regels"
+msgstr "&Spaties en lege regels"
 
 # ID:188,
 #: ID:188
 msgid "+ %d"
-msgstr ""
+msgstr "+ %d"
 
 # ID:188,
 #: ID:188
 msgid "- %d"
-msgstr ""
+msgstr "- %d"
 
 #: Control-ID:1035
 #: Control-ID:1036
@@ -391,7 +348,7 @@ msgstr "Bestand %1 kan niet exclusief geopend worden."
 # ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr ""
+msgstr "Een nieuwere versie is beschikbaar. Ga naar http://tortoisesvn.tigris.org om de nieuwste versie te downloaden."
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -410,9 +367,8 @@ msgstr ""
 "Gebruik kladblok als u niets anders heeft."
 
 #: Control-ID:1093
-#, fuzzy
 msgid "A&dvanced..."
-msgstr "Geavanceerd..."
+msgstr "&Geavanceerd..."
 
 #: ID:73
 msgid "Abort"
@@ -661,14 +617,12 @@ msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Auteurs:\tStefan Kueng, Tim Kemp"
 
 #: Control-ID:1001
-#, fuzzy
 msgid "B&rowse..."
-msgstr "Bladeren..."
+msgstr "&Bladeren..."
 
 #: Control-ID:1094
-#, fuzzy
 msgid "B&uiltin"
-msgstr "Intern"
+msgstr "&Intern"
 
 #: Control-ID:1015
 msgid "Backup original file"
@@ -691,9 +645,8 @@ msgid "Blames each line of a file on an author"
 msgstr "Geeft van een bestand de auteur per regel"
 
 #: Control-ID:1003
-#, fuzzy
 msgid "Br&owse..."
-msgstr "Bladeren..."
+msgstr "&Bladeren..."
 
 #: Dlg-ID:142
 msgid "Branch / Tag"
@@ -708,14 +661,12 @@ msgid "Branch/Tag..."
 msgstr "Maak tak/label..."
 
 #: Control-ID:1009
-#, fuzzy
 msgid "Bro&wse..."
-msgstr "Bladeren..."
+msgstr "&Bladeren..."
 
 #: Control-ID:1007
-#, fuzzy
 msgid "Brows&e..."
-msgstr "Bladeren..."
+msgstr "&Bladeren..."
 
 #: ID:138
 msgid "Browse Repository"
@@ -730,14 +681,13 @@ msgid "Browse..."
 msgstr "Bladeren..."
 
 #: Control-ID:1096
-#, fuzzy
 msgid "Bu&iltin"
-msgstr "Intern"
+msgstr "&Intern"
 
 # ID:3697,
 #: ID:3697
 msgid "CAP"
-msgstr ""
+msgstr "CAP"
 
 #: ID:82
 msgid ""
@@ -796,14 +746,12 @@ msgid "Check"
 msgstr "Markeren"
 
 #: Dlg-ID:174
-#, fuzzy
 msgid "Check For Updates"
 msgstr "Kijk of er updates zijn"
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Check For Updates..."
-msgstr "Kijk of er updates zijn"
+msgstr "Kijk of er updates zijn..."
 
 #: ID:13
 msgid "Check for Updates"
@@ -812,7 +760,7 @@ msgstr "Kijk of er updates zijn"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Check for newer versions"
-msgstr ""
+msgstr "Controleer versie"
 
 #: ID:79
 msgid ""
@@ -845,7 +793,7 @@ msgstr "Kies deze optie voor een verkorte datum en tijd in logboodschappen"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr ""
+msgstr "Controle of een nieuwe versie van TortoiseSVN beschikbaar is..."
 
 #: Dlg-ID:133
 msgid "Checkout"
@@ -980,7 +928,7 @@ msgstr "%s kon niet aan de negeer-lijst worden toegevoegd!"
 # ID:201,
 #: ID:201
 msgid "Could not check for a newer version!"
-msgstr ""
+msgstr "Controle voor nieuwe verise niet gelukt."
 
 #: ID:81
 msgid ""
@@ -1011,7 +959,6 @@ msgstr ""
 "%s"
 
 #: ID:66
-#, fuzzy
 msgid ""
 "Could not retrieve version %s of the file %s.\n"
 "Patching is not possible!"
@@ -1106,9 +1053,8 @@ msgid "Date"
 msgstr "Datum"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Default &number of log messages"
-msgstr "Standaard aantal logboek-boodschappen"
+msgstr "&Standaard aantal logboek-boodschappen"
 
 #: ID:11
 #: ID:73
@@ -1137,12 +1083,10 @@ msgid "Diff Program"
 msgstr "Diff-programma"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Diff Viewer"
-msgstr "Diff-bestand:"
+msgstr "Diff-programma"
 
 #: Dlg-ID:163
-#, fuzzy
 msgid "Diff/Merge"
 msgstr "Samenvoegen"
 
@@ -1211,7 +1155,6 @@ msgid "Do you want to proceed?"
 msgstr "Wilt u verdergaan?"
 
 #: ID:313
-#, fuzzy
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
@@ -1220,7 +1163,6 @@ msgstr ""
 "Let op: alle gemaakte wijzigingen gaan verloren!"
 
 #: ID:313
-#, fuzzy
 msgid ""
 "Do you want to reload the documents?\n"
 "You will lose all changes you've made!"
@@ -1233,9 +1175,8 @@ msgid "Do you want to save your changes?"
 msgstr "Wilt u de wijzigingen opslaan?"
 
 #: Control-ID:1061
-#, fuzzy
 msgid "Don't &remove log messages when cancelling a commit"
-msgstr "Laat logboekbodschappen staan als een vastlegging geannuleerd wordt"
+msgstr "&Laat logboekbodschappen staan als een vastlegging geannuleerd wordt"
 
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
@@ -1246,19 +1187,17 @@ msgid "Drive Types"
 msgstr "Type station"
 
 #: MenuEntry
-#, fuzzy
 msgid "E&xit"
-msgstr "Sluiten"
+msgstr "&Afsluiten"
 
 #: Control-ID:1095
-#, fuzzy
 msgid "E&xternal"
-msgstr "Extern"
+msgstr "E&xtern"
 
 # ID:3697,
 #: ID:3697
 msgid "EXT"
-msgstr ""
+msgstr "EXT"
 
 #: Control-ID:1031
 msgid "Edit"
@@ -1322,9 +1261,8 @@ msgid "Error validating server certificate for %s:"
 msgstr "Fout bij het valideren van servercertificaat voor %s:"
 
 #: Control-ID:1097
-#, fuzzy
 msgid "Ex&ternal"
-msgstr "Extern"
+msgstr "E&xtern"
 
 #: Control-ID:65535
 msgid "Exceptions:"
@@ -1446,9 +1384,8 @@ msgid "Generating Patchfile..."
 msgstr "Patchfile maken..."
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Get &All"
-msgstr "Alles ophalen"
+msgstr "&Alles ophalen"
 
 #: ID:119
 msgid "Getting File %s"
@@ -1483,7 +1420,7 @@ msgstr "Meest recente revisie (HEAD)"
 #: Control-ID:1004
 #: ID:12
 msgid "Help"
-msgstr ""
+msgstr "Help"
 
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -1500,7 +1437,7 @@ msgstr "Iconen/Ontw./Code: Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr ""
+msgstr "Activeer deze optie om geen overlays te tonen in de \"Opslaan als...\" en \"Open...\" dialogen"
 
 #: ID:95
 msgid ""
@@ -1517,7 +1454,7 @@ msgstr "Kies deze optie om TortoiseSVN zonder tijdelijk bestand een Diff tussen 
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr ""
+msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
 
 #: ID:80
 msgid ""
@@ -1551,9 +1488,8 @@ msgid "Import"
 msgstr "Importeren"
 
 #: Control-ID:1056
-#, fuzzy
 msgid "Import &Message"
-msgstr "Boodschap importeren"
+msgstr "&Boodschap importeren"
 
 #: ID:9
 msgid "Import..."
@@ -1720,7 +1656,7 @@ msgstr "Mime-type"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Minimum logsize in chars"
-msgstr ""
+msgstr "Minimum aantal tekens in log"
 
 #: Control-ID:1023
 #: Control-ID:1082
@@ -1754,7 +1690,7 @@ msgstr "Verplaatsen..."
 # ID:3697,
 #: ID:3697
 msgid "NUM"
-msgstr ""
+msgstr "NUM"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -1819,17 +1755,16 @@ msgstr "Niet alle registersleutels (of INI bestand) zijn verwijderd."
 #: Control-ID:1
 #: ID:73
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 # ID:3697,
 #: ID:3697
 msgid "OVR"
-msgstr ""
+msgstr "OVR"
 
 #: MenuEntry
-#, fuzzy
 msgid "Oneway &Diff"
-msgstr "Eenrichtings-Diff"
+msgstr "Eenrichtings-&Diff"
 
 #: Control-ID:1073
 msgid "Only check out the top folder"
@@ -1871,12 +1806,12 @@ msgstr "Geen geheugen beschikbaar."
 # ID:76,
 #: ID:76
 msgid "PEM"
-msgstr ""
+msgstr "PEM"
 
 # ID:76,
 #: ID:76
 msgid "PKCS12"
-msgstr ""
+msgstr "PKCS12"
 
 #: ID:69
 msgid "Password:"
@@ -1983,7 +1918,6 @@ msgid "Program"
 msgstr "Programma"
 
 #: ID:157
-#, fuzzy
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programma's (*.exe)|*.exe|Alle Bestanden (*.*)|*.*||"
 
@@ -2027,7 +1961,7 @@ msgstr "RAM station"
 # ID:3697,
 #: ID:3697
 msgid "REC"
-msgstr ""
+msgstr "REC"
 
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2208,12 +2142,12 @@ msgstr "Instellingen"
 # ID:3697,
 #: ID:3697
 msgid "SCRL"
-msgstr ""
+msgstr "SCRL"
 
 # Control-ID:1081,
 #: Control-ID:1081
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: ID:77
 msgid "SVN Add..."
@@ -2283,7 +2217,7 @@ msgstr "URL van SVN"
 # ID:14,
 #: ID:14
 msgid "SVN mime-type"
-msgstr ""
+msgstr "SVN mime-type"
 
 #: ID:12
 msgid "SVN short Url"
@@ -2437,9 +2371,8 @@ msgid "Show &Log..."
 msgstr "Toon logboek..."
 
 #: Control-ID:1016
-#, fuzzy
 msgid "Show &log"
-msgstr "Toon logboek"
+msgstr "Toon &logboek"
 
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -2484,7 +2417,7 @@ msgstr ""
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show overlays only in explorer"
-msgstr ""
+msgstr "Toon overlays alleen in explorer"
 
 #: ID:2049
 msgid ""
@@ -2495,9 +2428,8 @@ msgstr ""
 "Toon witregels"
 
 #: Control-ID:1073
-#, fuzzy
 msgid "Show unversioned files"
-msgstr "Toon bestanden zonder versiebeheer voor het vastleggen"
+msgstr "Toon bestanden zonder versiebeheer"
 
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -2543,7 +2475,6 @@ msgstr ""
 
 #: ID:74
 #: ID:77
-#, fuzzy
 msgid "Status"
 msgstr "Statusbalk"
 
@@ -2758,6 +2689,8 @@ msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
 msgstr ""
+"De werkkopie is niet actueel!\n"
+"Ververs voordat u verder gaat."
 
 #: Control-ID:65535
 msgid "Their File:"
@@ -2782,7 +2715,7 @@ msgstr ""
 # ID:188,
 #: ID:188
 msgid "Thesaurus"
-msgstr ""
+msgstr "Thesaurus"
 
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -2803,7 +2736,7 @@ msgstr "Diff van drie bestanden"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr ""
+msgstr "Om wijzigingen uit een specifieke tak samen te voegen moet u dezelfde URL gebruiken in de \"Van:\" en \"Naar:\" velden."
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -2812,19 +2745,18 @@ msgstr "Dubbelklik op de bovenstaande bestanden om uw wijzigingen te zien."
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To:"
-msgstr ""
+msgstr "Naar:"
 
 #: ID:7
 #: ID:3585
 #: Dlg-ID:130
-#, fuzzy
 msgid "TortoiseMerge"
-msgstr "Over TortoiseMerge"
+msgstr "TortoiseMerge"
 
 # ID:107,
 #: ID:107
 msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
@@ -2835,17 +2767,21 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
+"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
 
 #: ID:9
 #: ID:80
-#, fuzzy
 msgid "TortoiseSVN"
-msgstr "Over TortoiseSVN"
+msgstr "TortoiseSVN"
 
 # ID:107,
 #: ID:107
 msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
@@ -2860,6 +2796,15 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
 
 #: ID:80
 msgid "TortoiseSVN Settings"
@@ -2870,9 +2815,8 @@ msgid "Try Again"
 msgstr "Opnieuw proberen"
 
 #: ID:10
-#, fuzzy
 msgid "Tweak TortoiseSVN"
-msgstr "Over TortoiseSVN"
+msgstr "TortoiseSVN tweaken"
 
 #: Control-ID:65535
 msgid "Two File Diff"
@@ -2881,7 +2825,7 @@ msgstr "Diff van twee bestanden"
 # Dlg-ID:164,
 #: Dlg-ID:164
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ID:12
 msgid "URL of subversion items"
@@ -3087,12 +3031,12 @@ msgstr "Ja"
 # ID:145,
 #: ID:145
 msgid "Yes to all"
-msgstr ""
+msgstr "Ja op alles"
 
 # ID:201,
 #: ID:201
 msgid "You already have the most current version installed."
-msgstr ""
+msgstr "De meest recente versie is reeds geïnstalleerd"
 
 #: ID:144
 msgid ""
@@ -3119,7 +3063,6 @@ msgstr ""
 "Wilt u dit echt doen?"
 
 #: ID:77
-#, fuzzy
 msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
@@ -3162,12 +3105,12 @@ msgstr "geconflicteerd"
 # Control-ID:1113,
 #: Control-ID:1113
 msgid "current version is:"
-msgstr ""
+msgstr "beschikbare versie:"
 
 # ID:201,
 #: ID:201
 msgid "current version is: %s"
-msgstr ""
+msgstr "beschikbare versie: %s"
 
 #: ID:10
 msgid "deleted"
@@ -3237,7 +3180,7 @@ msgstr "versperd"
 # ID:3869,
 #: ID:3869
 msgid "pixels"
-msgstr ""
+msgstr "pixels"
 
 #: Control-ID:1018
 #, fuzzy
@@ -3253,47 +3196,42 @@ msgid "save authentication"
 msgstr "authenticatie opslaan"
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
-"svn:eol-style\r\n"
+"svn:eol-style\n"
 "Een van 'native', 'LF', 'CR', 'CRLF'."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
-"svn:executable\r\n"
+"svn:executable\n"
 "Indien beschikbaar, maak het bestand uitvoerbaar. Deze eigenschap kan niet aan een map worden gegeven. Een niet-recursieve poging gaat fout; een recursieve poging zet de eigenschap alleen voor bestanden in de map."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
-"svn:externals\r\n"
-"Een met regelovergangen gescheiden lijst van module-verwijzingen, die elk bestaan uit een relatief pad, optionele revisie vlaggen en een URL. Bijvoorbeeld\r\n"
-"foo\t\thttp://example.com/repos/zig\r\n"
+"svn:externals\n"
+"Een met regelovergangen gescheiden lijst van module-verwijzingen, die elk bestaan uit een relatief pad, optionele revisie vlaggen en een URL. Bijvoorbeeld\n"
+"foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
-"svn:ignore\r\n"
+"svn:ignore\n"
 "Een met nieuwe regels gescheiden lijst van bestandsfilters die genegeerd moet worden."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -3303,21 +3241,20 @@ msgid ""
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
-"svn:keywords\r\n"
-"Termen die vervangen moeten worden. Geldige termen zijn:\r\n"
-"URL, HeadURL\t\t\tDe URL voor de recentste versie van het object.\r\n"
-"Author, LastChangedBy\t\tDe persoon die de laatste wijziging in het bestand heeft gedaan.\r\n"
-"Date, LastChangedDate\t\tDe datum/tijd van de laatste wijziging van het object.\r\n"
-"Rev, LastChangedRevision\tDe laatste revisie waarin het object is gewijzigd.\r\n"
+"svn:keywords\n"
+"Termen die vervangen moeten worden. Geldige termen zijn:\n"
+"URL, HeadURL\t\t\tDe URL voor de recentste versie van het object.\n"
+"Author, LastChangedBy\t\tDe persoon die de laatste wijziging in het bestand heeft gedaan.\n"
+"Date, LastChangedDate\t\tDe datum/tijd van de laatste wijziging van het object.\n"
+"Rev, LastChangedRevision\tDe laatste revisie waarin het object is gewijzigd.\n"
 "Id\t\t\t\tEen verkorte samenvatting van de vorige vier termen."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
-"svn:mime-type\r\n"
+"svn:mime-type\n"
 "Het mime-type van het bestand. Wordt gebruikt om te bepalen of het bestand samengevoegd kan worden en hoe Apache het moet aanbieden. Een mime-type dat begint met 'text/' (of een ontbrekend mime-type) wordt als tekst behandeld. Alle andere mime-types worden als binair behandeld."
 
 #: ID:80
@@ -3325,12 +3262,11 @@ msgid "to %s"
 msgstr "naar %s"
 
 #: Control-ID:1112
-#, fuzzy
 msgid "your version is:"
-msgstr "URL van Subversion onderdelen"
+msgstr "uw versie is:"
 
 # ID:201,
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
-msgstr ""
+msgstr "huidige versie: %d.%d.%d.%d."
 
