@@ -44,6 +44,7 @@ protected:
 	afx_msg void			OnPaint();
 	afx_msg HCURSOR			OnQueryDragIcon();
 	afx_msg void			OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void			OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual BOOL			OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()

@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(NM_RCLICK, IDC_CHANGEDLIST, OnNMRclickChangedlist)
+	ON_NOTIFY(NM_DBLCLK, IDC_CHANGEDLIST, OnNMDblclkChangedlist)
 END_MESSAGE_MAP()
 
 
@@ -125,6 +126,7 @@ BOOL CChangedDlg::OnInitDialog()
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
 	}
+	theApp.DoWaitCursor(1);
 	GetDlgItem(IDC_CHANGEDLIST)->UpdateData(FALSE);
 
 
@@ -208,6 +210,7 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_svnstatus.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+	theApp.DoWaitCursor(-1);
 	return 0;
 }
 
@@ -424,4 +427,98 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 		} // if (popup.CreatePopupMenu())
 	} // if (selIndex >= 0)
 
+}
+
+void CChangedDlg::OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	//if the OK button is not active means the thread is still running
+	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+		return;
+
+	if (pNMLV->iItem < 0)
+		return;
+	svn_wc_status_kind wcStatus = (svn_wc_status_kind)m_arWCStatus.GetAt(pNMLV->iItem);
+	if (wcStatus <= svn_wc_status_normal)
+		return;		//we don't compare if nothing has changed
+	if (wcStatus == svn_wc_status_added)
+		return;		//we don't compare an added file to itself
+	if (wcStatus == svn_wc_status_deleted)
+		return;		//we don't compare a deleted file (nothing) with something
+
+	CString path1 = m_arPaths.GetAt(pNMLV->iItem);
+
+	CString path2 = SVN::GetPristinePath(path1);
+
+	//TODO:
+	//as soon as issue 1361 of subversion 
+	//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
+	//uncomment the lines below and delete the 
+	//line above. This will then allow diff-viewers which
+	//don't ignore different line endings to work correctly
+
+	//CString path2 = CUtils::GetTempFile();
+	//SVN svn;
+	//if (!svn.Cat(path1, SVN::REV_BASE, path2))
+	//{
+	//	path2 = SVN::GetPristinePath(path1);
+	//}
+	//else
+	//{
+	//	m_templist.Add(path2);
+	//}
+
+	CString diffpath = CUtils::GetDiffPath();
+	if (diffpath != _T(""))
+	{
+		CString cmdline;
+		cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
+		cmdline += _T("\" ");
+		cmdline += _T(" \"") + path2;
+		cmdline += _T("\" "); 
+		cmdline += _T(" \"") + path1;
+		cmdline += _T("\"");
+		STARTUPINFO startup;
+		PROCESS_INFORMATION process;
+		memset(&startup, 0, sizeof(startup));
+		startup.cb = sizeof(startup);
+		memset(&process, 0, sizeof(process));
+		if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+		{
+			LPVOID lpMsgBuf;
+			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL 
+				);
+			CString temp;
+			temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
+			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+			LocalFree( lpMsgBuf );
+		} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	} // if (diffpath != "")
+	else
+	{
+		//there's no diff program available!
+		//as a workaround, perform a unified diff of the two files
+		//and show that to the user
+		SVN svn;
+		CString tempfile = CUtils::GetTempFile();
+		tempfile += _T(".diff");
+		if (!svn.Diff(path1, SVN::REV_BASE, path1, SVN::REV_WC, FALSE, FALSE, TRUE, _T(""), tempfile))
+		{
+			DeleteFile(tempfile);
+		}
+		else
+		{
+			m_templist.Add(tempfile);
+			CUtils::StartDiffViewer(tempfile);
+		}
+	}
 }
