@@ -577,7 +577,8 @@ void CLogPromptDlg::OnCbnSelchangeOldlogs()
 	UpdateData(FALSE);
 	if (m_ProjectProperties.nMinLogSize > m_sLogMessage.GetLength())
 	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
+		if (!m_bBlock)
+			GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
 	else
 	{
@@ -593,7 +594,8 @@ void CLogPromptDlg::OnCbnCloseupOldlogs()
 	UpdateData(FALSE);
 	if (m_ProjectProperties.nMinLogSize > m_sLogMessage.GetLength())
 	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
+		if (!m_bBlock)
+			GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
 	else
 	{
