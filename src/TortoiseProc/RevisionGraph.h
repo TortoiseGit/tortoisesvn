@@ -105,6 +105,7 @@ private:
 	BOOL						CheckForwardCopies();
 	BOOL						IsParentOrItself(const char * parent, const char * child);
 	static int __cdecl			SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
+	static int __cdecl			SortCompareSourceEntry(const void * pElem1, const void * pElem2);	///< sort callback function
 	CStringA					m_sRepoRoot;
 	LONG						m_lHeadRevision;
 
