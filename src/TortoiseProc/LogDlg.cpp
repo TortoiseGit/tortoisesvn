@@ -515,12 +515,19 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						int nItem = m_LogList.GetNextSelectedItem(pos);
 						CString sLogCopyText;
+						CString sPaths;
+						LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(nItem);
+						for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+						{
+							LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+							sPaths += cpath->sPath + _T("\n");
+						}
 						sLogCopyText.Format(_T("%s: %d\n%s: %s\n%s: %s\n%s:\n%s\n----\n%s\n\n"),
 							(LPCTSTR)sRev, m_arRevs.GetAt(nItem),
 							(LPCTSTR)sAuthor, (LPCTSTR)m_LogList.GetItemText(nItem, 1),
 							(LPCTSTR)sDate, (LPCTSTR)m_LogList.GetItemText(nItem, 2),
 							(LPCTSTR)sMessage, (LPCTSTR)m_arLogMessages.GetAt(nItem),
-							(LPCTSTR)m_arLogPaths.GetAt(nItem));
+							(LPCTSTR)sPaths);
 						sClipdata +=  CStringA(sLogCopyText);
 					}
 					CUtils::WriteAsciiStringToClipboard(sClipdata);
