@@ -28,6 +28,12 @@ CVS
 - ADD: the about box now contains the version
        of subversion TortoiseSVN is linked
        against. Issue 43. (Stefan)
+- ADD: TSVN now has it's own caching provider.
+       That means that username/password are
+       cached during an active session, i.e.
+       as long as a dialog is open. This prevents
+       the user from entering username/password
+       multiple times in the repository browser. (Stefan)
        
 Version 0.10.0
 - BUG: if several files are selected for committing

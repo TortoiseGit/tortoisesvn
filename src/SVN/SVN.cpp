@@ -35,7 +35,11 @@ SVN::SVN(void)
 	svn_auth_provider_object_t *provider;
 
 	/* The whole list of registered providers */
-	apr_array_header_t *providers = apr_array_make (pool, 10, sizeof (svn_auth_provider_object_t *));
+	apr_array_header_t *providers = apr_array_make (pool, 11, sizeof (svn_auth_provider_object_t *));
+
+	/* our own caching provider */
+	get_simple_provider(&provider, pool);
+	APR_ARRAY_PUSH(providers, svn_auth_provider_object_t *) = provider;
 
 	/* The main disk-caching auth providers, for both
 	'username/password' creds and 'username' creds.  */
@@ -891,3 +895,78 @@ CString SVN::GetPristinePath(CString wcPath)
 	apr_terminate();
 	return temp;
 }
+
+typedef struct
+{
+  /* the cred_kind being fetched (see svn_auth.h)*/
+  const char *cred_kind;
+
+  /* cache:  realmstring which identifies the credentials file */
+  const char *realmstring;
+
+  /* values retrieved from cache. */
+  const char *username;
+  const char *password;
+  SVN * svn;
+
+} provider_baton_t;
+
+static const svn_auth_provider_t tsvn_simple_provider = {
+	SVN_AUTH_CRED_SIMPLE,
+		tsvn_simple_first_creds,
+		NULL,
+		tsvn_simple_save_creds
+};
+
+void SVN::get_simple_provider (svn_auth_provider_object_t **provider,
+							   apr_pool_t *pool)
+{
+	svn_auth_provider_object_t *po = (svn_auth_provider_object_t *)apr_pcalloc (pool, sizeof(*po));
+	provider_baton_t *pb = (provider_baton_t *)apr_pcalloc (pool, sizeof(*pb));
+	pb->cred_kind = SVN_AUTH_CRED_SIMPLE;
+	pb->svn = this;
+	po->vtable = &tsvn_simple_provider;
+	po->provider_baton = pb;
+	*provider = po;
+}
+
+svn_error_t *
+tsvn_simple_save_creds (svn_boolean_t *saved,
+							 void *credentials,
+							 void *provider_baton,
+							 apr_hash_t *parameters,
+							 apr_pool_t *pool)
+{
+	svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)credentials;
+	provider_baton_t *pb = (provider_baton_t *)provider_baton;
+	//SVN_ERR (save_creds (saved, pb, creds->username, creds->password, pool));
+	((provider_baton_t *)provider_baton)->svn->m_username = apr_pstrdup(pool, creds->username);
+	((provider_baton_t *)provider_baton)->svn->m_password = apr_pstrdup(pool, creds->password);
+	return SVN_NO_ERROR;
+}
+
+svn_error_t *
+tsvn_simple_first_creds (void **credentials,
+							  void **iter_baton,
+							  void *provider_baton,
+							  apr_hash_t *parameters,
+							  const char *realmstring,
+							  apr_pool_t *pool)
+{
+	provider_baton_t *pb = (provider_baton_t *)provider_baton;
+
+	if (realmstring)
+		pb->realmstring = apr_pstrdup (pool, realmstring);
+
+	svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)apr_pcalloc (pool, sizeof(*creds));
+	creds->username = ((provider_baton_t *)provider_baton)->svn->m_username;
+	creds->password = ((provider_baton_t *)provider_baton)->svn->m_password;
+	if ((creds->username)&&(creds->password))
+		*credentials = creds;
+	else
+		*credentials = NULL;
+
+	*iter_baton = NULL;
+	return SVN_NO_ERROR;
+}
+

@@ -32,6 +32,7 @@
 #include "svn_config.h"
 #include "svn_time.h"
 #include "svn_subst.h"
+#include "svn_auth.h"
 
 #include "PromptDlg.h"
 
@@ -418,9 +419,25 @@ private:
 					const char* msg, 
 					apr_pool_t* pool);
 
+public:
+	const char *m_username, *m_password;
+	void get_simple_provider (svn_auth_provider_object_t **provider, apr_pool_t *pool);
 
 };
+	svn_error_t * tsvn_simple_save_creds (svn_boolean_t *saved,
+		void *credentials,
+		void *provider_baton,
+		apr_hash_t *parameters,
+		apr_pool_t *pool);
+	svn_error_t *
+		tsvn_simple_first_creds (void **credentials,
+		void **iter_baton,
+		void *provider_baton,
+		apr_hash_t *parameters,
+		const char *realmstring,
+		apr_pool_t *pool);
 
+extern const svn_auth_provider_t tsvn_simple_provider;
 
 
 
