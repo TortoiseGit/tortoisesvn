@@ -130,21 +130,29 @@ LRESULT CSciEdit::Call(UINT message, WPARAM wParam, LPARAM lParam)
 
 CString CSciEdit::StringFromControl(const CStringA& text)
 {
+	CString sText;
+#ifdef UNICODE
 	int codepage = Call(SCI_GETCODEPAGE);
 	int reslen = MultiByteToWideChar(codepage, 0, text, text.GetLength(), 0, 0);	
-	CString sText;
 	MultiByteToWideChar(codepage, 0, text, text.GetLength(), sText.GetBuffer(reslen+1), reslen+1);
 	sText.ReleaseBuffer(reslen);
+#else
+	sText = text;	
+#endif
 	return sText;
 }
 
 CStringA CSciEdit::StringForControl(const CString& text)
 {
+	CStringA sTextA;
+#ifdef UNICODE
 	int codepage = Call(SCI_GETCODEPAGE);
 	int reslen = WideCharToMultiByte(codepage, 0, text, text.GetLength(), 0, 0, 0, 0);
-	CStringA sTextA;
 	WideCharToMultiByte(codepage, 0, text, text.GetLength(), sTextA.GetBuffer(reslen+1), reslen+1, 0, 0);
 	sTextA.ReleaseBuffer(reslen);
+#else
+	sTextA = text;
+#endif
 	return sTextA;
 }
 
