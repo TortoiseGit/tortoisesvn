@@ -190,10 +190,15 @@
 			Revision, ändern. Aber da solche Änderungen nicht wieder rückgängig
 			gemacht werden können (diese Änderungen werden nicht aufgezeichnet)
 			ist diese Funktion standardmässig deaktiviert. Um diese Funktion
-			zu aktivieren, müssen Sie einen pre-revprop-change und einen
-			post-revprop-change hook auf dem Server einrichten. Bitte lesen
-			Sie dazu das entsprechende Kapitel im Subversion-Buch, wie das
-			gemacht wird.
+			zu aktivieren, müssen Sie einen pre-revprop-change 
+			hook auf dem Server einrichten. Bitte lesen
+			Sie dazu das entsprechende Kapitel
+			<ulink url="http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1">
+				<citetitle>Hook Scripts</citetitle>
+			</ulink>
+			im Subversion Book, wie das gemacht wird.
+			Lesen Sie auch <xref linkend="tsvn-serversetup-hooks"/> um mehr Informationen 
+			über das Einbinden von hooks auf einem Windows PC zu erhalten.
 		</para>
 		<para>
 			Sobald Sie den Server mit den erwähnten Hooks eingerichtet haben

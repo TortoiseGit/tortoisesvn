@@ -28,6 +28,16 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
+				<term>bugtraq:append</term>
+				<listitem>
+					<para>
+						Diese Eigenschaft definiert ob die Eintragsnummer an das Ende angehengt wird 
+						oder vor die Logmeldung eingefügt wird. Gültige Werte: <literal>true/false</literal>. 
+						Wenn keine Eigenschaft definiert ist, wird <literal>true</literal> angenommen.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term>bugtraq:url</term>
 				<listitem>
 					<para>
@@ -80,8 +90,8 @@
 						<application>TortoiseSVN</application>, falls das Eingabefeld
 						für die Eintragsnummer im Übertragen Dialog leer gelassen wurde. 
 						Das ist nur eine Erinnerungshilfe, falls der Benutzer die Eingabe 
-						vergessen hat. Gültige Werte: <literal>true/false</literal>. Wenn keine Eigenschaft 
-						definiert ist, wird <literal>false</literal> angenommen.
+						vergessen hat. Gültige Werte: <literal>true/false</literal>. Wenn keine 
+						Eigenschaft definiert ist, wird <literal>false</literal> angenommen.
 					</para>
 				</listitem>
 			</varlistentry>
