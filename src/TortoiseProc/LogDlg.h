@@ -95,7 +95,6 @@ protected:
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnPaint();
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
-	afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult);

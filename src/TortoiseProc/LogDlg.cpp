@@ -66,7 +66,6 @@ const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_NOTIFY(NM_CLICK, IDC_LOGLIST, OnNMClickLoglist)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
@@ -450,25 +449,6 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	return 0;
-}
-
-void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	int selIndex = m_LogList.GetSelectionMark();
-	if (selIndex >= 0)
-	{
-		//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
-		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
-		this->m_nSearchIndex = selIndex;
-		UpdateData(FALSE);
-	}
-	else
-	{
-		//m_sLogMsgCtrl = _T("");
-		FillLogMessageCtrl(_T(""), _T(""));
-		UpdateData(FALSE);
-	}
-	*pResult = 0;
 }
 
 void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -1527,7 +1507,10 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			return;
 		if (pNMLV->uNewState & LVIS_SELECTED)
 		{
-			FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
+			if (m_LogList.GetSelectedCount() > 1)
+				FillLogMessageCtrl(_T(" "), _T(" "));
+			else
+				FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
 			UpdateData(FALSE);
 		}
 	}
