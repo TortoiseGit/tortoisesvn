@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-10 21:04+0900\n"
+"PO-Revision-Date: 2004-09-19 15:33+0900\n"
 "Last-Translator: daibo <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -509,7 +509,7 @@ msgstr ""
 "もし再配置コマンドを、直接作業用 Copy を他のリポジトリもしくはブランチに移すのに使用するなら、\n"
 "<b>作業用 Copy を破壊するかもしれません！</b>\n"
 "他のブランチと作業用 Copy を関連付けるために、切り替えコマンドを利用してください。\n"
-"ほんとうに再配置を行ってもよろしいですか？"
+"本当に再配置を行ってもよろしいですか？"
 
 # ID:3867,#:
 # ID:3867,
@@ -534,7 +534,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"改行で分けられた、アイコンのオーバーレイを表示するパス。\n"
+"アイコンのオーバーレイを表示するパス（改行で分割）。\n"
 "\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが含まれます。"
 
 # ID:194,
@@ -544,7 +544,7 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"改行で分けられた、アイコンのオーバーレイを表示しないパス。\n"
+"アイコンのオーバーレイを表示しないパス（改行で分割）。\n"
 "\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外されます。\n"
 "何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となります。"
 
@@ -567,7 +567,7 @@ msgid ""
 "If you don't have one use NotePad."
 msgstr ""
 "GNU形式の差分ファイル(Unified-Diff形式、パッチファイル)用のビューワプログラム。\n"
-"なければ、メモ帳を利用。"
+"無ければ、メモ帳を利用。"
 
 # ID:101,
 #: ID:101
@@ -587,7 +587,7 @@ msgstr "中止"
 # ID:9,
 #: ID:9
 msgid "About"
-msgstr "TortoiseSVNについて"
+msgstr "TortoiseSVN について"
 
 # Dlg-ID:136,
 #: Dlg-ID:136
@@ -634,7 +634,7 @@ msgid ""
 msgstr ""
 "フォルダ以下のサブバージョンの状態を表示するために、\n"
 "フォルダのオーバーレイを利用するならこれをアクティブにする。\n"
-"<ct=0x0000ff><b>注意：</b>サブフォルダを探しに行くため、エクスプローラの動作が遅くなります"
+"<ct=0x0000ff><b>注意：</b>サブフォルダを探しに行くため、エクスプローラの動作が遅くなります</ct>"
 
 # ID:8,#:
 # ID:73,#:
@@ -690,7 +690,7 @@ msgstr "リモート操作によるファイルの追加"
 msgid ""
 "Added the file(s)\n"
 "%sto the ignore list."
-msgstr "選択されたファイル %s を \"無視\" リストに追加"
+msgstr "ファイル %s を \"無視\" リストに追加。"
 
 # ID:9,
 #: ID:9
@@ -773,12 +773,12 @@ msgid ""
 "%base\tthe base file\n"
 "%mine\tthe modified file"
 msgstr ""
-"異なるリビジョンのファイルを比較するために\n"
-"外部差分ツールを利用する。\n"
+"異なるリビジョンのファイルを比較するために、\n"
+"利用する外部差分ツール。\n"
 "<hr=100%>\n"
 "パスに次のパラメータを指定することが可能:\n"
-"%base\tベースファイル\n"
-"%mine\t変更ファイル"
+"%base\tBase ファイル\n"
+"%mine\t変更後のファイル"
 
 # ID:79,
 #: ID:79
@@ -792,14 +792,14 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"衝突したファイルを解決するために\n"
-"外部マージツールを利用する。\n"
+"衝突したファイルを解決するために、\n"
+"利用する外部マージツール。\n"
 "<hr=100%>\n"
 "パスに次のようなパラメータ指定が可能:\n"
-"%merged\t衝突ファイル名, 保存先\n"
+"%merged\t保存先の衝突ファイル名\n"
 "%theirs\t\tリポジトリ内のファイル\n"
-"%mine\t\tあなたのファイル, あなたの変更\n"
-"%base\t\tあなたの変更を除いたオリジナルファイル"
+"%mine\t\tあなたが変更したファイル\n"
+"%base\t\t変更前のオリジナルファイル"
 
 # ID:3843,#:
 # ID:3843,
@@ -811,7 +811,7 @@ msgstr "無効な引数に遭遇しました。"
 # ID:3867,
 #: ID:3867
 msgid "An invalid file handle was associated with %1."
-msgstr "無効なファイルハンドルが %1 に関連付けされています。"
+msgstr "無効なファイルハンドルが %1 に関連付けられています。"
 
 # ID:3859,#:
 # ID:3859,
@@ -842,7 +842,7 @@ msgstr "%1 にアクセス中に未知のエラーが発生しました。"
 # ID:63,
 #: ID:63
 msgid "An unknown line type was found in line %d !"
-msgstr "未知の行種が、行 %d で見つかりました！"
+msgstr "未知の改行コードが、行 %d で見つかりました！"
 
 # ID:3843,#:
 # ID:3843,
@@ -853,7 +853,7 @@ msgstr "未サポートの操作を行おうとしました。"
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "unified diff 形式のファイルを作業用コピーに適用"
+msgstr "Unified-Diff 形式のファイルを作業用コピーに適用"
 
 # ID:13,
 #: ID:13
@@ -863,12 +863,12 @@ msgstr "パッチを適用 ..."
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply Unified Diff"
-msgstr "Unified Diff を適用"
+msgstr "Unified-Diff を適用"
 
 # ID:79,
 #: ID:79
 msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "本当に元に戻してもよろしいですか？ 最後の更新以降の<b>全て</b>の変更が失われます。"
+msgstr "本当に元に戻してもよろしいですか？ 最後の更新以降の<b>全て</b>の変更が失われます！"
 
 # ID:77,
 #: ID:77
@@ -1131,7 +1131,7 @@ msgstr "ログメッセージに短い日時形式を用いる場合はチェッ
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr "TortoiseSVNの最新のバージョンが利用可能かどうかをチェックしています ..."
+msgstr "TortoiseSVN の最新のバージョンが利用可能かどうかをチェックしています ..."
 
 # Dlg-ID:133,
 #: Dlg-ID:133
@@ -1437,7 +1437,7 @@ msgstr "現在の位置にリポジトリデータベースを作成"
 # ID:14,
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "全ての変更をもとに unified diff 形式ファイルを作成"
+msgstr "全ての変更をもとに Unified-Diff 形式ファイルを作成"
 
 # ID:3603,
 #: ID:3603
@@ -1847,7 +1847,7 @@ msgstr ""
 # ID:77,
 #: ID:77
 msgid "Finished!"
-msgstr "終了！！"
+msgstr "終了！"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1924,6 +1924,11 @@ msgstr ""
 msgid "Help"
 msgstr "ヘルプ"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Hint: Press F5 to refresh the selected subtree"
+msgstr "ヒント: 選択している部分以降の階層を更新するには F5 を押してください"
+
 # ID:82,
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -1962,7 +1967,7 @@ msgstr "チェックすると、TortoiseSVN は差分用にテンポラリファ
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "チェックすると、TortoiseSVNは最新のバージョンが利用可能かどうかを1週間に1回チェックします。"
+msgstr "チェックすると、TortoiseSVN は最新のバージョンが利用可能かどうかを1週間に1回チェックします。"
 
 # ID:195,
 #: ID:195
@@ -1970,8 +1975,8 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"セットすると、TortoiseSVNはファイル名を最終コミット日に設定します。\n"
-"セットしなければ、TortoiseSVNは現在の日時を使用します。"
+"チェックすると、TortoiseSVN はファイル名を最終コミット日に設定します。\n"
+"チェックしなければ、TortoiseSVN は現在の日時を使用します。"
 
 # ID:73,
 #: ID:73
@@ -2016,7 +2021,7 @@ msgstr "ディレクトリをリポジトリにインポート"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include paths:"
-msgstr "除外するパス:"
+msgstr "含めるパス:"
 
 # ID:76,
 #: ID:76
@@ -2280,7 +2285,7 @@ msgid ""
 msgstr ""
 "何のコマンドも指定されていません！\n"
 "<hr=100%>\n"
-"TortoiseProc.exe はシェル拡張で利用しているため、直接呼び出すことはできません！"
+"TortoiseProc.exe はシェル拡張を利用しているため、直接呼び出すことはできません！"
 
 # ID:81,
 #: ID:81
@@ -2314,7 +2319,7 @@ msgid ""
 "to do for TortoiseSVN here..."
 msgstr ""
 "最後のコミットから変更／追加されたファイルは存在していません。\n"
-"今回は、TortoiseSVNがすることは何もありません ..."
+"今回は、TortoiseSVN がすることは何もありません ..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2325,7 +2330,7 @@ msgstr "通常"
 # ID:3857,
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたというわけではありません。"
+msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたわけではありません。"
 
 # Control-ID:1,#:
 # ID:73,#:
@@ -2347,7 +2352,7 @@ msgstr "１つ以上のファイルが衝突の状態にあります。"
 
 #: MenuEntry
 msgid "Oneway &Diff"
-msgstr "片方の差分のみ表示(&D)"
+msgstr "片方向の差分のみ表示(&D)"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -2421,7 +2426,7 @@ msgstr "パスワード:"
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
-msgstr "英語表記のテンプレート(&T)ログを貼り付ける"
+msgstr "英語表記のテンプレートログを貼り付ける(&T)"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -2519,7 +2524,7 @@ msgstr "%1 文字以上を入力してください。"
 # ID:251,
 #: ID:251
 msgid "Please execute the \"Cleanup\" command."
-msgstr "\"Cleanup\" コマンドを実行してください。"
+msgstr "\"クリーンアップ\" コマンドを実行してください。"
 
 # ID:78,
 #: ID:78
@@ -2530,9 +2535,9 @@ msgid ""
 "to that copy path. Use the <b>Switch</b> command to do that."
 msgstr ""
 "注意書き：\n"
-"あなたの作業用コピーは従来のパスのままです。もし次の変更を変更後のパスに反映する場合は、\n"
-"<b>切り替え</b>操作により、コピー先にパスを変更する必要があります。\n"
-"<b>切り替え</b>コマンドを使用してください。"
+"あなたの作業用コピーは従来のパスのままです。もし今後の変更を今作成したコピーに反映する場合は、\n"
+"<b>切り替え</b>操作を、コピー先にパス全体に適用する必要があります。\n"
+"正しい動作を行うために、<b>切り替え</b>コマンドを使用してください。"
 
 # ID:3858,#:
 # ID:3858,
@@ -2573,7 +2578,7 @@ msgstr "プログラム"
 # ID:157,
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr "プログラム (*.exe)|*.*|全てのファイル (*.*)|*.*||"
+msgstr "プログラム (*.exe)|*.exe|全てのファイル (*.*)|*.*||"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2633,7 +2638,7 @@ msgstr "REC"
 # ID:12,
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr "行き詰る前に\"日常の利用ガイド\"を読もう"
+msgstr "行き詰まったら \"日常の利用ガイド\" を読もう"
 
 # ID:3603,
 #: ID:3603
@@ -2785,7 +2790,7 @@ msgstr "解決"
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
-msgstr "保存する際に、衝突したSubversionの属性を解決する"
+msgstr "保存する際に、衝突した Subversion の属性を解決する"
 
 # ID:8,
 #: ID:8
@@ -2946,7 +2951,7 @@ msgstr "URL"
 # ID:14,
 #: ID:14
 msgid "SVN mime-type"
-msgstr "mimeタイプ"
+msgstr "Mime タイプ"
 
 # ID:12,
 #: ID:12
@@ -3193,7 +3198,7 @@ msgid ""
 "Toggle StatusBar"
 msgstr ""
 "ステータスバーを表示／非表示にする\n"
-"トグルステータスバー"
+"ステータスバーを表示"
 
 # ID:3713,
 #: ID:3713
@@ -3202,7 +3207,7 @@ msgid ""
 "Toggle ToolBar"
 msgstr ""
 "ツールバーを表示／非表示にする\n"
-"トグルツールバー"
+"ツールバーを表示"
 
 # ID:2049,
 #: ID:2049
@@ -3226,7 +3231,7 @@ msgstr "最後の更新後に、ローカルおよびリポジトリ上で変更
 # ID:10,
 #: ID:10
 msgid "Shows information about TortoiseSVN"
-msgstr "TortoiseSVNについての情報を表示"
+msgstr "TortoiseSVN についての情報を表示"
 
 # ID:12,
 #: ID:12
@@ -3236,7 +3241,7 @@ msgstr "選択したファイル／フォルダのログを表示"
 # ID:14,
 #: ID:14
 msgid "Shows the mime type of the versioned file"
-msgstr "バージョン管理されたファイルのmimeタイプを表示する"
+msgstr "バージョン管理されたファイルの Mime タイプを表示する"
 
 # ID:74,
 #: ID:74
@@ -3255,7 +3260,7 @@ msgid ""
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
-"TortoiseSVNがバージョン管理から除外するファイルやフォルダを指定する。\n"
+"TortoiseSVN がバージョン管理から除外するファイルやフォルダを指定する。\n"
 "各パターンを空白で区切ってください。"
 
 # ID:3604,
@@ -3371,7 +3376,7 @@ msgstr "切り替え ..."
 # ID:3857,
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
-msgstr "システムレジストリのエントリーは削除され、INIファイルは削除されました。"
+msgstr "システムレジストリのエントリー、およびINIファイル（もしあれば）は削除されました。"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3582,7 +3587,7 @@ msgstr "本製品は、CollabNet (http://www.Collab.Net/) で開発されたソ�
 # ID:3857,
 #: ID:3857
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "このプログラムは %s （ファイル %s）へリンクされています。 このマシーンは %s とは互換性のないバージョンかもしれません。"
+msgstr "このプログラムは %s （ファイル %s）へリンクされています。 この計算機は %s とは互換性のないバージョンの可能性があります。"
 
 # ID:3857,#:
 # ID:3857,
@@ -3682,12 +3687,12 @@ msgstr "やり直し"
 # ID:251,
 #: ID:251
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "\"Cleanup\" を試してみてください。もしうまくいかないなら、新規にチェックアウトしなおす必要があります。"
+msgstr "\"クリーンアップ\" を試してみてください。もしうまくいかないなら、新規にチェックアウトしなおす必要があります。"
 
 # ID:10,
 #: ID:10
 msgid "Tweak TortoiseSVN"
-msgstr "TortoiseSVNを調整"
+msgstr "TortoiseSVN を調整"
 
 # Control-ID:65535,
 #: Control-ID:65535
