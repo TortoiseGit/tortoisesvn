@@ -34,10 +34,13 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, m_lEndRev(-1)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_pLogDlg = NULL;
 }
 
 CMergeDlg::~CMergeDlg()
 {
+	if (m_pLogDlg)
+		delete [] m_pLogDlg;
 }
 
 void CMergeDlg::DoDataExchange(CDataExchange* pDX)
@@ -106,6 +109,7 @@ BOOL CMergeDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
+	m_URLCombo.SetWindowText(m_URL);
 
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
@@ -201,18 +205,33 @@ void CMergeDlg::OnBnClickedRevisionN()
 
 void CMergeDlg::OnBnClickedFindbranchstart()
 {
+	UpdateData(TRUE);
+	CString url;
+	m_URLCombo.GetWindowText(url);
 	LogHelper log;
 	log.hWnd = this->m_hWnd;
+	AfxGetApp()->DoWaitCursor(1);
 	if (log.ReceiveLog(m_BranchURL, 0, SVN::REV_HEAD, FALSE, TRUE))
 	{
 		CString temp;
 		temp.Format(_T("%d"), log.m_firstrev);
 		GetDlgItem(IDC_REVISON_START)->SetWindowText(temp);
-	}
+		//now show the log dialog for the main trunk
+		if (!url.IsEmpty())
+		{
+			if (m_pLogDlg)
+				delete [] m_pLogDlg;
+			m_pLogDlg = new CLogDlg();
+			m_pLogDlg->SetParams(url, SVN::REV_HEAD, log.m_firstrev);
+			m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+			m_pLogDlg->ShowWindow(SW_SHOW);
+		} // if (!url.IsEmpty()) 
+	} // if (log.ReceiveLog(m_BranchURL, 0, SVN::REV_HEAD, FALSE, TRUE)) 
 	else
 	{
 		CString temp;
 		temp = log.GetLastErrorMessage();
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 	}
+	AfxGetApp()->DoWaitCursor(-1);
 }

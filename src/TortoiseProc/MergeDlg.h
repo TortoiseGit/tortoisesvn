@@ -91,6 +91,8 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 
 	DECLARE_MESSAGE_MAP()
+
+	CLogDlg *	m_pLogDlg;
 public:
 	CString m_URL;
 	CString m_BranchURL;
