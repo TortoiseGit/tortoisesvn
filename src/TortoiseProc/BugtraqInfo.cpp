@@ -153,6 +153,10 @@ BOOL BugtraqInfo::FindBugID(const CString& msg, CWnd * pWnd)
 			return FALSE;
 		CString sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
 		CString sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
+		if (sLastLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+			return FALSE;
+		if (sLastLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+			return FALSE;
 		CString sBugIDPart = sLastLine.Mid(sFirstPart.GetLength(), sLastLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
 		if (sBugIDPart.IsEmpty())
 			return FALSE;
