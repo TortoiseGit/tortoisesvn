@@ -22,6 +22,11 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 
+#define MERGE_REVSELECTSTART	 1
+#define MERGE_REVSELECTEND       2
+#define MERGE_REVSELECTSTARTEND  3		///< both
+#define MERGE_REVSELECTMINUSONE  4		///< first with N-1
+
 /**
  * \ingroup TortoiseProc
  * Prompts the user for required information to do a merge command.

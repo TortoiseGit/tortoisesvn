@@ -1450,8 +1450,8 @@ void CLogDlg::OnOK()
 				if (higherRev < rev)
 					higherRev = rev;
 			}
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & 1, lowerRev);
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & 2, higherRev);
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
 		}
 	}
 }
