@@ -302,16 +302,16 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Перекрытие значков"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    CONTROL         "Перекрывать значки изменённых папок",IDC_CHANGEDDIRS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,16,169,10
-    CONTROL         "Сменные диски",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,30,81,10
-    CONTROL         "Сетевые диски",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,44,70,10
-    CONTROL         "Жёсткие диски",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,58,71,10
-    CONTROL         "Приводы CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,72,108,10
+    CONTROL         "Перекрывать значки папок с изменённым содержанием",IDC_CHANGEDDIRS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,16,220,10
+    CONTROL         "Активизировать для сменных дисков",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,30,150,10
+    CONTROL         "Активизировать для сетевых дисков",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,44,150,10
+    CONTROL         "Активизировать для жёстких дисков",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,58,150,10
+    CONTROL         "Активизировать для приводов CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,72,150,10
 END
 
 
@@ -495,19 +495,19 @@ BEGIN
     IDS_MSGBOX_OK           "ОК"
     IDS_MSGBOX_YES          "Да"
     IDS_MSGBOX_NO           "Нет"
-    IDS_SVNACTION_ADD       "Добавить"
-    IDS_SVNACTION_COPY      "Копировать"
-    IDS_SVNACTION_DELETE    "Удалить"
-    IDS_SVNACTION_RESTORE   "Восстановить"
-    IDS_SVNACTION_REVERT    "Произвести откат"
-    IDS_SVNACTION_RESOLVE   "Разрешить конфликт"
-    IDS_SVNACTION_UPDATE    "Обновить рабочую копию"
-    IDS_SVNACTION_COMPLETED "Завершено"
+    IDS_SVNACTION_ADD       "Добавлено:"
+    IDS_SVNACTION_COPY      "Скопировано:"
+    IDS_SVNACTION_DELETE    "Удалено:"
+    IDS_SVNACTION_RESTORE   "Восстановлено:"
+    IDS_SVNACTION_REVERT    "Совершён откат:"
+    IDS_SVNACTION_RESOLVE   "Разрешён конфликт:"
+    IDS_SVNACTION_UPDATE    "Обновлено:"
+    IDS_SVNACTION_COMPLETED "Процесс завершён."
     IDS_SVNACTION_EXTERNAL  "Внешний"
-    IDS_SVNACTION_MODIFIED  "Изменено"
-    IDS_SVNACTION_REPLACED  "Заменено"
+    IDS_SVNACTION_MODIFIED  "Изменено:"
+    IDS_SVNACTION_REPLACED  "Заменено:"
     IDS_SVNACTION_POSTFIX   "Postfix"
-    IDS_SVNACTION_FAILEDREVERT "Операция отката завершилась неудачей"
+    IDS_SVNACTION_FAILEDREVERT "Откат изменений завершился неудачей"
 END
 
 STRINGTABLE 
@@ -532,15 +532,15 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STATUSUNVERSIONED   "unversioned"
-    IDS_STATUSNORMAL        "normal"
-    IDS_STATUSADDED         "добавлен"
+    IDS_STATUSUNVERSIONED   "не контролируется"
+    IDS_STATUSNORMAL        "в норме"
+    IDS_STATUSADDED         "добавлено"
     IDS_STATUSABSENT        "отсутствует"
-    IDS_STATUSDELETED       "удалён"
-    IDS_STATUSREPLACED      "заменён"
-    IDS_STATUSMODIFIED      "изменён"
-    IDS_STATUSMERGED        "объединён"
-    IDS_STATUSCONFLICTED    "conflicted"
+    IDS_STATUSDELETED       "удалено"
+    IDS_STATUSREPLACED      "заменено"
+    IDS_STATUSMODIFIED      "изменено"
+    IDS_STATUSMERGED        "объединено"
+    IDS_STATUSCONFLICTED    "конфликтует"
     IDS_STATUSOBSTRUCTED    "obstructed"
     IDS_STRING202           "dummy"
     IDS_STRING203           "dummy"
@@ -606,7 +606,7 @@ BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "Здесь можно указать расширение для временных и\nавтоматически сгенерированных файлов."
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
-                            "Показывать перед фиксированием изменений файлы,\nне добавленные в репозиторий,\nчтобы Вы могли их добавить."
+                            "Показывать перед фиксированием изменений список файлов,\nне добавленных в репозиторий,\nчтобы Вы могли их сразу добавить."
     IDS_STRING250           "dummy"
     IDS_SETTINGS_PROXYSERVER_TT "Введите имя или IP-адрес прокси-сервера"
     IDS_STRING252           "dummy"
@@ -618,7 +618,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROC_WARNREVERT     "Вы действительно хотите произвести откат?\nИзменения, произведённые с момента последнего обновления,\nбудут безвозвратно потеряны."
-    IDS_PROC_CLEANUPFINISHED "Очистка завершена."
+    IDS_PROC_CLEANUPFINISHED "Очистка Вашей рабочей копии от временных файлов завершена."
     IDS_PROC_REPOCREATEERR  "Ошибка при создании репозитория!\nПроверьте, что папка пуста и не защищена от записи."
     IDS_PROC_EXPORT_1       "Выберите папку, в которую будет осуществлён экспорт.\nВозможно, необходимо создать новую папку."
     IDS_PROC_EXPORT_2       "экспорт %s в"

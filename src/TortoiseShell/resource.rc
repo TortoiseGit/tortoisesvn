@@ -26,48 +26,48 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 // Dialog
 //
 
-IDD_PROPPAGE DIALOG  0, 0, 232, 276
+IDD_PROPPAGE DIALOG  0, 0, 232, 287
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Property Page"
 FONT 8, "MS Shell Dlg"
 BEGIN
-    LTEXT           "Ревизия:",IDC_STATIC,6,6,32,8
-    LTEXT           "Последная ревизия:",IDC_STATIC,6,30,50,8
-    LTEXT           "Последная дата:",IDC_STATIC,6,42,48,8
-    LTEXT           "Автор",IDC_STATIC,6,54,22,8
-    LTEXT           "Статус текста:",IDC_STATIC,6,66,41,8
-    LTEXT           "Статус свойства:",IDC_STATIC,6,78,68,8
-    LTEXT           "УРЛ:",IDC_STATIC,6,18,16,8
-    EDITTEXT        IDC_REVISION,78,6,54,8,ES_AUTOHSCROLL | ES_READONLY | 
+    LTEXT           "Редакция:",IDC_STATIC,7,6,40,8
+    LTEXT           "Последная \nредакция:",IDC_STATIC,7,29,77,16
+    LTEXT           "Дата последней \nредакции:",IDC_STATIC,7,48,63,19
+    LTEXT           "Автор",IDC_STATIC,7,68,22,8
+    LTEXT           "Состояние:",IDC_STATIC,7,80,41,8
+    LTEXT           "Состояние \nсвойств:",IDC_STATIC,7,92,68,17
+    LTEXT           "URL:",IDC_STATIC,7,18,16,8
+    EDITTEXT        IDC_REVISION,78,6,54,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_REPOURL,78,18,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_REPOURL,78,18,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_CDATE,78,42,150,8,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_TEXTDATE,123,65,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_CDATE,78,48,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_CREVISION,78,30,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_TEXTDATE,123,79,105,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_TEXTSTATUS,78,66,41,8,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_CREVISION,78,30,150,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_PROPSTATUS,78,78,41,8,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_TEXTSTATUS,78,80,41,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_PROPDATE,123,78,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_PROPSTATUS,78,92,41,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    EDITTEXT        IDC_AUTHOR,78,54,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+    EDITTEXT        IDC_PROPDATE,123,92,105,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER,WS_EX_TRANSPARENT
-    LTEXT           "заблокированно",IDC_LOCKED,168,6,57,8
-    GROUPBOX        "Свойства",IDC_STATIC,6,114,215,147
+    EDITTEXT        IDC_AUTHOR,78,68,150,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    LTEXT           "Заблокировано",IDC_LOCKED,174,6,48,8
+    GROUPBOX        "Свойства",IDC_STATIC,7,133,215,147
     CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,12,127,204,72
-    PUSHBUTTON      "Hinzufugen",IDC_ADDBUTTON,168,242,50,14,WS_DISABLED
-    PUSHBUTTON      "Entfernen",IDC_REMOVEBUTTON,108,241,50,14
-    EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE | 
+                    WS_BORDER | WS_TABSTOP,13,145,203,72
+    PUSHBUTTON      "Добавить",IDC_ADDBUTTON,13,241,79,14,WS_DISABLED
+    PUSHBUTTON      "Удалить",IDC_REMOVEBUTTON,13,259,79,14
+    EDITTEXT        IDC_EDITNAME,13,223,79,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITVALUE,97,223,118,50,ES_MULTILINE | 
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
-    PUSHBUTTON      "Показать журнал...",IDC_SHOWLOG,146,96,72,14
+    PUSHBUTTON      "История изменений",IDC_SHOWLOG,7,114,215,14
 END
 
 
@@ -97,88 +97,88 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUCHECKOUT        "Извлекать..."
-    IDS_MENUUPDATE          "Актуализировать"
-    IDS_MENUCOMMIT          "Ubertragen"
-    IDS_MENUCREATEREPOS     "Основать база данных здесь"
-    IDS_MENUADD             "Добавлять"
+    IDS_MENUCHECKOUT        "Создать рабочую копию"
+    IDS_MENUUPDATE          "Обновить рабочую копию"
+    IDS_MENUCOMMIT          "Зафиксировать изменения"
+    IDS_MENUCREATEREPOS     "Создать здесь репозиторий"
+    IDS_MENUADD             "Добавить в репозиторий"
     IDS_MENUREVERT          "Отменить изменения"
-    IDS_MENUCLEANUP         "Убрать"
-    IDS_MENURESOLVE         "Решить конфликт"
+    IDS_MENUCLEANUP         "Убрать временные файлы"
+    IDS_MENURESOLVE         "Разрешить конфликт"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUSWITCH          "Переключиться к..."
-    IDS_MENUMERGE           "Смешать..."
-    IDS_MENUBRANCH          "Verzweigen/Markieren..."
-    IDS_MENUIMPORT          "Импортировать.."
-    IDS_MENUEXPORT          "Экспортировать..."
+    IDS_MENUSWITCH          "Перейти к другой ветке..."
+    IDS_MENUMERGE           "Слияние..."
+    IDS_MENUBRANCH          "Создание ветки..."
+    IDS_MENUIMPORT          "Импортировать содержимое.."
+    IDS_MENUEXPORT          "Экспортировать содержимое..."
     IDS_MENUSETTINGS        "Параметры..."
     IDS_MENUABOUT           "О программе"
     IDS_MENUSUBMENU         "TortoiseSVN"
-    IDS_MENUDESCCHECKOUT    "eine Arbeitskopie von einer Datenbank  \nauschecken"
-    IDS_MENUDESCUPDATE      "aktualisiert die Arbeitskopie auf die neueste  \nVersion"
-    IDS_MENUDESCCOMMIT      "Ubertragt die Anderungen zur Datenbank"
-    IDS_MENUDESCADD         "Fugt Dateien zur Versionskontrolle hinzu"
-    IDS_MENUDESCREVERT      "Macht alle Anderungen seit der letzten  \nAktualisierung ruckgangig"
-    IDS_MENUDESCCLEANUP     "Beendet unterbrochene Aktionen, hebt  \nBlockierungen auf, ..."
-    IDS_MENUDESCRESOLVE     "lost Konflikte auf"
-    IDS_MENUDESCSWITCH      "Wechselt zu einem anderen Zweig oder einer  \nanderen Markierung"
+    IDS_MENUDESCCHECKOUT    "Создание новой рабочей копии из репозитория"
+    IDS_MENUDESCUPDATE      "Обновление содержимого \nсуществующей рабочей копии \nиз репозитория"
+    IDS_MENUDESCCOMMIT      "Помещение произведённых Вами изменений \nв репозиторий"
+    IDS_MENUDESCADD         "Добавление файлов под контроль системы Subversion"
+    IDS_MENUDESCREVERT      "Отмена произведённых изменений \nи возврат к версии, находящейся в репозитории."
+    IDS_MENUDESCCLEANUP     "Удаление временных файлов, блокировок, и т.д. ..."
+    IDS_MENUDESCRESOLVE     "Пометка конфликта разрешённым"
+    IDS_MENUDESCSWITCH      "Переключение на работу \nс другой веткой или редакцией"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUDESCIMPORT      "Importiert eine Arbeitskopie in eine Subversion  \nDatenbank"
-    IDS_MENUDESCEXPORT      "Exportiert eine Datenbank in eine 'saubere'  \nArbeitskopie ohne die Administrationsdateien"
-    IDS_MENUDESCABOUT       "Zeigt Informationen uber TortoiseSVN an"
-    IDS_MENUDESCCREATEREPOS "Erstellt eine Datenbank an dieser Stelle"
-    IDS_MENUDESCCOPY        "Erzeugt eine 'billige' Kopie (Link) welche fur  \nVerzweigungen/Markierungen verwendet wird"
-    IDS_MENUDESCMERGE       "Mischt eine Verzweigung in den aktuellen Zweig"
-    IDS_MENUDESCSETTINGS    "TortoiseSVN Einstellungen"
-    IDS_MENUDESCDEFAULT     "fur diesen Befehl ist keine Beschreibung  \nvorhanden"
+    IDS_MENUDESCIMPORT      "Импорт файлов, находящихся в каталоге, \nв репозиторий Subversion."
+    IDS_MENUDESCEXPORT      "Экспорт файлов в другой какталог \nбез служебных директорий Subversion"
+    IDS_MENUDESCABOUT       "Вывод информации о программе TortoiseSVN"
+    IDS_MENUDESCCREATEREPOS "Создание (локального) репозитория системы Subversion"
+    IDS_MENUDESCCOPY        "Создание копии, используемой для новой ветки"
+    IDS_MENUDESCMERGE       "Слияние текущей ветви с головной"
+    IDS_MENUDESCSETTINGS    "Настройка параметров TortoiseSVN"
+    IDS_MENUDESCDEFAULT     "Описание команды недоступно"
     IDS_STATUSNONE          " "
-    IDS_STATUSUNVERSIONED   "unkontrolliert"
-    IDS_STATUSNORMAL        "normal"
-    IDS_STATUSADDED         "hinzugefugt"
-    IDS_STATUSABSENT        "nicht vorhanden"
-    IDS_STATUSDELETED       "geloscht"
-    IDS_STATUSREPLACED      "ersetzt"
-    IDS_STATUSMODIFIED      "verandert"
+    IDS_STATUSUNVERSIONED   "не контролируется"
+    IDS_STATUSNORMAL        "в норме"
+    IDS_STATUSADDED         "добавлено"
+    IDS_STATUSABSENT        "отсутствует"
+    IDS_STATUSDELETED       "удалено"
+    IDS_STATUSREPLACED      "заменено"
+    IDS_STATUSMODIFIED      "изменено"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STATUSMERGED        "gemischt"
-    IDS_STATUSCONFLICTED    "konflikt"
-    IDS_STATUSOBSTRUCTED    "versperrt"
-    IDS_PROPLOCKED          "blockiert"
-    IDS_PROPPROPERTY        "Eigenschaft"
-    IDS_PROPVALUE           "Wert"
-    IDS_MENURENAME          "Umbenennen..."
-    IDS_MENUDESCRENAME      "Benennt Ordner/Dateien um"
-    IDS_MENUREMOVE          "Loschen"
-    IDS_MENUDESCREMOVE      "Loscht Dateien/Ordner"
-    IDS_MENUUPDATEEXT       "Aktualisieren zu Revision..."
-    IDS_MENUDESCUPDATEEXT   "aktualisiert eine Arbeitskopie auf eine  \nangegebene Revision"
-    IDS_COLTITLESTATUS      "SVN Status"
-    IDS_COLDESCSTATUS       "Status der Datei in SVN"
-    IDS_COLTITLEREV         "SVN Revision"
-    IDS_COLDESCREV          "Revisionsnummer der letzten Ubertragung"
+    IDS_STATUSMERGED        "произведено слияние"
+    IDS_STATUSCONFLICTED    "конфликтует"
+    IDS_STATUSOBSTRUCTED    "obstructed"
+    IDS_PROPLOCKED          "заблокировано"
+    IDS_PROPPROPERTY        "Свойство"
+    IDS_PROPVALUE           "Значение"
+    IDS_MENURENAME          "Переименовать..."
+    IDS_MENUDESCRENAME      "Переименование файла на диске \nи в репозитории Subversion"
+    IDS_MENUREMOVE          "Удалить"
+    IDS_MENUDESCREMOVE      "Удаление файла с диска \nи из-под контроля системы"
+    IDS_MENUUPDATEEXT       "Обновить до редакции..."
+    IDS_MENUDESCUPDATEEXT   "Обновление рабочей копии до конкретной указанной редакции"
+    IDS_COLTITLESTATUS      "SVN - Состояние"
+    IDS_COLDESCSTATUS       "Статус в системе Subversion"
+    IDS_COLTITLEREV         "SVN - Редакция"
+    IDS_COLDESCREV          "Последняя редакция файла или каталога"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUDIFF            "Vergleiche"
-    IDS_MENUDESCDIFF        "Vergleicht die Datei mit der unveranderten  \nVersion"
-    IDS_DROPCOPYADDMENU     "fuge Datei(en) zu Subversion hinzu"
-    IDS_DROPMOVEMENU        "verschiebe Datei(en) in Subversion hierher"
-    IDS_MENULOG             "zeige Log"
-    IDS_MENUDESCLOG         "zeigt die Log-Eintrage fur die ausgewahlte  \nDatei oder Ordner"
+    IDS_MENUDIFF            "Показать изменения"
+    IDS_MENUDESCDIFF        "Сравнивает файл с последней версией, \nнаходящейся в репозитории."
+    IDS_DROPCOPYADDMENU     "add files to Subversion here"
+    IDS_DROPMOVEMENU        "vmove files in Subversion to here"
+    IDS_MENULOG             "История изменений"
+    IDS_MENUDESCLOG         "Показывает историю изменений файла или каталога"
     IDS_COLTITLEURL         "SVN Url"
-    IDS_COLDESCURL          "URL von Subversion Dateien/Ordnern"
-    IDS_COLTITLESHORTURL    "SVN kurze Url"
-    IDS_COLDESCSHORTURL     "abgekurzte URL von Subversion Dateien/Ordnern"
+    IDS_COLDESCURL          "URL of subversion items"
+    IDS_COLTITLESHORTURL    "SVN short Url"
+    IDS_COLDESCSHORTURL     "short Url of subversion items"
 END
 
 #endif    // Russian resources
