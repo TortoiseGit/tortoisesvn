@@ -1,10 +1,20 @@
 @echo off
-cd tools
-type ..\API\Doxyfile > Doxyfile
-echo HHC_LOCATION=%CD%\hhc.exe >> Doxyfile
+
+if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
+
+type API\Doxyfile > Doxyfile
+echo HHC_LOCATION=%HHCLOC% >> Doxyfile
 doxygen.exe Doxyfile
 del Doxyfile
-del ..\output\API\TortoiseAPI.chm
-copy ..\output\API\html\TortoiseAPI.chm ..\output\API\TortoiseAPI.chm
-rmdir /s /q ..\output\API\html
-cd ..
+del output\doxygen\TortoiseAPI.chm
+copy output\doxygen\html\TortoiseAPI.chm output\doxygen\TortoiseAPI.chm
+rmdir /s /q output\doxygen\html
+
+type API\DoxyfileSVN > Doxyfile
+echo HHC_LOCATION=%HHCLOC% >> Doxyfile
+doxygen.exe Doxyfile
+del Doxyfile
+del output\doxygen\SubversionAPI.chm
+copy output\doxygen\html\SubversionAPI.chm output\doxygen\SubversionAPI.chm
+rmdir /s /q output\doxygen\html
+

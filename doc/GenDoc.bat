@@ -30,5 +30,4 @@ rem *** loop over every available app and language
 FOR %%A in (%APPS%) DO FOR %%L In (%LANG%) DO call MakeDoc %%A %%L %TARGETS%
 
 cd ..
-
 rem Put the stuff that copies the finished docs into the release and debug folders here
