@@ -715,6 +715,14 @@ void CRepositoryBrowser::OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 		DeleteSelectedEntries();
 		*pResult = 1;
 		break;	
+	case VK_RETURN:
+	{
+		if (hSelItem && uSelCount == 1)
+		{
+			ShellExecute(NULL, _T("open"), m_treeRepository.MakeUrl(hSelItem), NULL, NULL, SW_SHOWNORMAL);
+		}
+	}
+	break;
 	default:
 		break;
 	}
