@@ -60,6 +60,8 @@
 		Note that the graph only shows the points at which items were added or
 		deleted. Showing every revision of a project would generate an impossibly
 		large graph for non-trivial cases.
+		For this reason, simple project structures with no adds or deletes will
+		produce an empty revision graph.
 	</para>
 	<para>
 		The revision date, author and comments are shown in a hint box whenever
