@@ -154,7 +154,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 
-	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > 0)
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)m_sLogMessage.GetLength())
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
