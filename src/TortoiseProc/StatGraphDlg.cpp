@@ -425,8 +425,6 @@ void CStatGraphDlg::ShowStats()
 		}
 		authorcommits.clear();
 
-		nWeeks++;
-
 		if ((nCommitsMin == 0)||(nCommitsMin > commits))
 			nCommitsMin = commits;
 		if (nCommitsMax < commits)
