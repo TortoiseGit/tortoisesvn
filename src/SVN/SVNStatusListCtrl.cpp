@@ -1121,6 +1121,8 @@ void CSVNStatusListCtrl::Stat()
 				break;
 			default:
 				{
+					if (SVNStatus::IsImportant(entry->remotestatus))
+						break;
 					m_nUnversioned++;
 					if (!entry->inunversionedfolder)
 					{
