@@ -181,6 +181,19 @@ BOOL CLogDlg::Cancel()
 	return m_bCancelled;
 }
 
+void CLogDlg::OnCancel()
+{
+	CString temp, temp2;
+	GetDlgItem(IDOK)->GetWindowText(temp);
+	temp2.LoadString(IDS_MSGBOX_CANCEL);
+	if (temp.Compare(temp2)==0)
+	{
+		m_bCancelled = TRUE;
+		return;
+	}
+	__super::OnCancel();
+}
+
 BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CString& cpaths)
 {
 	int line = 0;
@@ -892,6 +905,7 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	theApp.DoWaitCursor(-1);
 	return FALSE;
 }
+
 
 
 

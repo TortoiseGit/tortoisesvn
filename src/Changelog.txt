@@ -6,6 +6,7 @@
 - BUG: File-entries in the log dialog could not be
        selected if the message contained more than
        three lines. (Stefan)
+- BUG: Issue 67: Show Log + Escape = crash. fixed. (Stefan)
 - CHG: The "rename" command now uses the --force option
        by default so that modified files can be renamed
        too. (Stefan)

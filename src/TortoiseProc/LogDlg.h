@@ -131,6 +131,8 @@ public:
 	afx_msg void OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+protected:
+	virtual void OnCancel();
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);
