@@ -278,13 +278,15 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			viewer += _T("\"") + dir + _T("\"");
 		}
 		if (name1.IsEmpty())
-			viewer.Replace(_T("/basename:%bname"), _T(""));
-		else
-			viewer.Replace(_T("%bname"), _T("\"") + name1 + _T("\""));
+		{
+			name1 = file;
+		}
+		viewer.Replace(_T("%bname"), _T("\"") + name1 + _T("\""));
 		if (name2.IsEmpty())
-			viewer.Replace(_T("/yoursname:%yname"), _T(""));
-		else
-			viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
+		{
+			name2 = dir;
+		}
+		viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
 	}
 
 	STARTUPINFO startup;
