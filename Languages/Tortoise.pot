@@ -120,6 +120,10 @@ msgstr ""
 msgid "&Close windows automatically"
 msgstr ""
 
+#: Control-ID:1031,
+msgid "&Edit"
+msgstr ""
+
 #: Control-ID:1099,
 msgid "&Edit..."
 msgstr ""
@@ -168,10 +172,6 @@ msgstr ""
 msgid "&Hide"
 msgstr ""
 
-#: Control-ID:1023,
-msgid "&Indicate folders with changed contents"
-msgstr ""
-
 #: Control-ID:65535,
 msgid "&Language:"
 msgstr ""
@@ -218,6 +218,10 @@ msgstr ""
 
 #: MenuEntry
 msgid "&Previous Difference"
+msgstr ""
+
+#: Control-ID:1023,
+msgid "&Recurse into folders to fetch the status"
 msgstr ""
 
 #: Control-ID:1048,
@@ -272,6 +276,10 @@ msgstr ""
 msgid "&Undo\tCtrl+Z"
 msgstr ""
 
+#: Control-ID:1061,
+msgid "&Unknown drives"
+msgstr ""
+
 #: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
 msgid "&Username:"
 msgstr ""
@@ -282,6 +290,10 @@ msgstr ""
 
 #: MenuEntry
 msgid "&Whitespaces"
+msgstr ""
+
+#: ID:208,
+msgid "(multiple targets selected)"
 msgstr ""
 
 #: ID:188,
@@ -677,7 +689,7 @@ msgid "Check for Updates"
 msgstr ""
 
 #: Control-ID:1073,
-msgid "Check for newer versions"
+msgid "Check for newer &versions"
 msgstr ""
 
 #: ID:79,
@@ -729,7 +741,11 @@ msgid "Cleanup interrupted operations, locked files, ..."
 msgstr ""
 
 #: Control-ID:1059,
-msgid "Clear Auth Cache"
+msgid "Clear &Auth Cache"
+msgstr ""
+
+#: ID:195,
+msgid "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
 msgstr ""
 
 #: Control-ID:65535,
@@ -928,6 +944,10 @@ msgstr ""
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr ""
 
+#: Control-ID:1123,
+msgid "D&on't close on conflicts"
+msgstr ""
+
 #: ID:76,
 msgid "Date"
 msgstr ""
@@ -1036,6 +1056,10 @@ msgstr ""
 msgid "Drive Types"
 msgstr ""
 
+#: Control-ID:1061,
+msgid "Dry Run"
+msgstr ""
+
 #: MenuEntry
 msgid "E&xit"
 msgstr ""
@@ -1046,10 +1070,6 @@ msgstr ""
 
 #: ID:3697,
 msgid "EXT"
-msgstr ""
-
-#: Control-ID:1031,
-msgid "Edit"
 msgstr ""
 
 #: ID:12,
@@ -1278,6 +1298,10 @@ msgstr ""
 
 #: ID:194,
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+msgstr ""
+
+#: ID:195,
+msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
 
 #: ID:80,
@@ -1520,12 +1544,20 @@ msgstr ""
 msgid "OVR"
 msgstr ""
 
+#: ID:219,
+msgid "One or more files are in a conflicted state."
+msgstr ""
+
 #: MenuEntry
 msgid "Oneway &Diff"
 msgstr ""
 
 #: Control-ID:1073,
 msgid "Only check out the top folder"
+msgstr ""
+
+#: ID:169,
+msgid "Only numbers (optionally separated by commas)\nare allowed!"
 msgstr ""
 
 #: Control-ID:1073,
@@ -1566,6 +1598,10 @@ msgstr ""
 
 #: ID:69,
 msgid "Password:"
+msgstr ""
+
+#: Control-ID:1121,
+msgid "Paste Log &template in english"
 msgstr ""
 
 #: Control-ID:1031,
@@ -1705,7 +1741,7 @@ msgid "Quit the application; prompts to save documents\nExit"
 msgstr ""
 
 #: Control-ID:1073,
-msgid "RAM drives"
+msgid "R&AM drives"
 msgstr ""
 
 #: ID:3697,
@@ -2060,6 +2096,10 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: ID:115,
+msgid "Shall the log stop on a copy?\nClick <b>Yes</b> if you need to find out where a branch started."
+msgstr ""
+
 #: Control-ID:1105,
 msgid "Short &date/time format in log messages"
 msgstr ""
@@ -2080,8 +2120,8 @@ msgstr ""
 msgid "Show &log"
 msgstr ""
 
-#: Control-ID:1120,
-msgid "Show BugID/Issue-Nr. Box"
+#: Control-ID:1088,
+msgid "Show &overlays only in explorer"
 msgstr ""
 
 #: Control-ID:1065,
@@ -2118,10 +2158,6 @@ msgstr ""
 
 #: ID:3713,
 msgid "Show or hide the toolbar\nToggle ToolBar"
-msgstr ""
-
-#: Control-ID:1088,
-msgid "Show overlays only in explorer"
 msgstr ""
 
 #: ID:2049,
@@ -2456,10 +2492,6 @@ msgstr ""
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 msgstr ""
 
-#: Control-ID:1061,
-msgid "Unknown drives"
-msgstr ""
-
 #: ID:3841,#: ID:3841,
 msgid "Untitled"
 msgstr ""
@@ -2568,6 +2600,10 @@ msgstr ""
 msgid "Visit our website"
 msgstr ""
 
+#: ID:219,
+msgid "Warning!"
+msgstr ""
+
 #: ID:213,
 msgid "What repository type do you want to create?"
 msgstr ""
@@ -2608,6 +2644,10 @@ msgstr ""
 msgid "You have to update your working copy first."
 msgstr ""
 
+#: ID:169,
+msgid "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
+msgstr ""
+
 #: ID:77,
 msgid "You selected an unversioned file.\nThe file will be added to version control when you commit."
 msgstr ""
@@ -2630,6 +2670,22 @@ msgstr ""
 
 #: Control-ID:1085,#: Control-ID:1085,
 msgid "and support the developers"
+msgstr ""
+
+#: ID:14,
+msgid "bugtraq:label\nLabel text to show for the edit box where the user enters the issue number."
+msgstr ""
+
+#: ID:14,
+msgid "bugtraq:message\nString which is appended to a log message when an issue number is entered.\nThe string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+
+#: ID:14,
+msgid "bugtraq:number\nSet to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+
+#: ID:14,
+msgid "bugtraq:url\nURL pointing to the issue tracker. It must contain \"%BUGID%\" which\ngets replaced with the issue number."
 msgstr ""
 
 #: ID:145,
