@@ -1,4 +1,4 @@
-﻿<preface id="tsvn-ch-0">
+﻿<preface id="tsvn-ch-0" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Preface</title>
 
 	<simplesect>
@@ -51,7 +51,7 @@
 			im Unterordner <filename>/trunk/</filename>, die bereits veröffentlichten
 			Versionen sind unter <filename>/tags/</filename> zu finden.
 		</para>
-		&wish;
+		<xi:include href="./wishlist.xml"/>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ========================	SECTION	2 ============================ -->

@@ -1,7 +1,6 @@
-﻿<chapter id="tmerge-ch-2">
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<chapter id="tmerge-ch-2">
 	<title>Using TortoiseMerge</title>
-	
 	<simplesect>
 		<para>
 		</para>
@@ -12,41 +11,41 @@
 	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tmerge-ch-2-sect-1">
-		
 		<title>Open Files</title>
 		<?dbhh topicname="HIDD_OPENDLG"?>
-	
 		<para>
-		When you start TortoiseMerge without any command line switches then
-		you have to manually open the files. Under the <guimenuitem>File
-		</guimenuitem> menu you will find the command <guimenuitem>Open
-		</guimenuitem>.
+			When you start TortoiseMerge without any command line switches then
+			you have to open the files manually, using
+			<menuchoice>
+				<guimenu>File</guimenu>
+				<guimenuitem>Open</guimenuitem>
+			</menuchoice>.
 		</para>
-
 		<figure id="tmerge-ch2-dia-1">
 			<title>The Open Dialog</title>
 			<graphic fileref="images/MergeOpen.png"/>
 		</figure>
-
 		<para>
-		The first thing you have to do is to decide if you want to just compare/
-		merge files or if you want to apply a patchfile. Depending on what you
-		choose the corresponding edit boxes and browse buttons get activated.
+			The first thing you have to do is to decide whether you just want
+			to compare/merge files, or whether you want to apply a patchfile.
+			Depending on what you choose, the corresponding edit boxes and
+			browse buttons are activated.
 		</para>
 		
 		<sect2 id="tmerge-ch-2-sect-1-1">
-		
 			<title>Viewing / Merging</title>
-			
 			<para>
-			If you want to compare/merge files you have to set at least two 
-			of the three possible paths for "Base", "Yours" and "Theirs". 
-			If you select only two files, then TortoiseMerge will show 
-			you the differences between those two files, either in a two 
-			pane view or in a one pane view. You can switch between 
-			those two views with the menu command <guimenuitem>One Pane View
-			</guimenuitem> or by clicking on the corresponding toolbar
-			button.
+				If you want to compare/merge files you have to set at least two 
+				of the three possible paths for <literal>Base</literal>,
+				<literal>Yours</literal> and <literal>Theirs</literal>. 
+				If you select only two files, then TortoiseMerge will show 
+				you the differences between those two files, either in a two 
+				pane view or in a one pane view. You can switch between 
+				those two views with the menu command
+				<menuchoice>
+					<guimenu>View</guimenu>
+					<guimenuitem>Oneway Diff</guimenuitem>
+				</menuchoice>
 			</para>
 			<figure id="tmerge-ch2-dia-2">
 				<title>One Pane View</title>
@@ -56,89 +55,88 @@
 				<title>Two Pane View</title>
 				<graphic fileref="images/MergeTwoPane.png"/>
 			</figure>
-
 			<para>
-			In case you want to compare/merge three files TortoiseMerge 
-			will show you the differences in a three pane view. This view 
-			is also used if you need to resolve conflicted files.
+				If you want to compare/merge three files, TortoiseMerge 
+				will show you the differences in a three pane view. This view 
+				is also used if you need to resolve conflicted files.
 			</para>
 			<figure id="tmerge-ch2-dia-4">
 				<title>Three Pane View</title>
 				<graphic fileref="images/MergeThreePane.png"/>
 			</figure>
 			<para>
-			The left view shows you the differences of "Their" file 
-			with the "Base" file, while the right view shows you the 
-			differences of "Your" file with the "Base" file. The bottom 
-			view shows you the result of merging "Base", "Yours" and 
-			"Theirs" with possible conflicts.
+				The left pane shows you the differences between 
+				<literal>Their</literal> file and the <literal>Base</literal>
+				file, while the right pane shows you the differences between
+				<literal>Your</literal> file and the <literal>Base</literal>
+				file. The bottom pane shows you the result of merging
+				<literal>Base</literal>, <literal>Yours</literal> and 
+				<literal>Theirs</literal> with possible conflicts.
 			</para>
 			<para>
-			The relations between "Base", "Yours" and "Theirs" are explained in
-			the diagram below:
+				The relationships between the three files are explained in
+				the diagram below:
 			</para>
 			<figure id="tmerge-ch2-dia-5">
 				<title>File Conflict</title>
 				<graphic fileref="images/MergePrinciple.png"/>
 			</figure>
 			<para>
-			The base file represents the oldest version of a file, from where
-			"You" and "They" start making changes. "Yours" represents 
-			the base file with all the changes <emphasis>you</emphasis> made, 
-			and "Theirs" is the file with all the changes 
-			<emphasis>someone else</emphasis> made to the file.
+				The base file represents the oldest version of a file, from
+				where <literal>You</literal> and <literal>They</literal> start
+				making changes. <literal>Yours</literal> represents 
+				the base file with all the changes <emphasis>you</emphasis> made, 
+				and <literal>Theirs</literal> is the file with all the changes 
+				<emphasis>someone else</emphasis> made to the file.
 			</para>		
 		</sect2>
-
 		<sect2 id="tmerge-ch-2-sect-1-2">
-		
 			<title>Applying Patches</title>
-			
 			<para>
-			If you want to apply a patchfile you have to set both the path
-			to the patchfile itself and to the folder where the patchfile
-			should be applied to.
+				If you want to apply a patchfile you have to set both the path
+				to the patchfile itself and the path to the folder where the
+				patchfile should be applied.
 			</para>
 			<caution>
 				<para>
-				Currently, only patchfiles in <emphasis>Unified Diff Format
-				</emphasis> are supported. And only files which were generated
-				from a Subversion working copy. Other formats like patchfiles
-				generated by CVS are currently not supported!
+					Currently, only patchfiles in
+					<emphasis>Unified Diff Format</emphasis> are supported.
+					And only files which were generated from a Subversion
+					working copy. Other formats like patchfiles generated by
+					CVS are currently not supported!
 				</para>
 			</caution>
-			
 			<para>
-			If TortoiseMerge is able to parse the patchfile it will show
-			you a small window with all the files which have changes according
-			to the patchfile.
-			<figure id="tmerge-ch2-dia-6">
-				<title>Patch Filelist</title>
-				<graphic fileref="images/MergePatchWindow.png"/>
-			</figure>
-			If the filename is shown in black, then the patch can be applied
-			without any problems. That means the file is not outdated according
-			to the patch.
-			However, if the filename is shown in red, then the patch can't
-			get applied because you already changed that file.
+				If TortoiseMerge is able to parse the patchfile it will show
+				you a small window with all the files which have changes
+				according to the patchfile.
+				<figure id="tmerge-ch2-dia-6">
+					<title>Patch Filelist</title>
+					<graphic fileref="images/MergePatchWindow.png"/>
+				</figure>
+				If the filename is shown in black, then the patch can be applied
+				without any problems. That means the file is not outdated
+				according to the patch.
+				However, if the filename is shown in red, then the patch can't
+				get applied directly because you already changed that file.
 			</para>
 			<para>
-			But don't worry. If you're working with Subversion you can retrieve
-			an older version of the file and resolve the conflict. In fact,
-			TortoiseMerge automatically tries to get that older version of the
-			file and then shows you the diff between "Base" (the older version
-			of the file), "Yours" (your file as it is currently in your working
-			copy) and "Theirs" (the older version of the file with the patch
-			already applied). Then you can resolve possible conflicts manually.
+				But don't worry. If you're working with Subversion you can
+				retrieve an older version of the file and resolve the conflict.
+				In fact, TortoiseMerge automatically tries to get that older
+				version of the file and then shows you the diff between
+				<literal>Base</literal> (the older version of the file),
+				<literal>Yours</literal> (your file as it is currently in your
+				working copy) and <literal>Theirs</literal> (the older version
+				of the file with the patch already applied). Then you can
+				resolve possible conflicts manually.
 			</para>
-			
 			<para>
-			Depending on whether TortoiseMerge can apply the patch directly or
-			via fetching an older version of the file first it shows you
-			a two pane view (patch can be applied directly) or a three pane view
-			(older version of file fetched).
+				Depending on whether TortoiseMerge can apply the patch directly
+				or by fetching an older version of the file first, it shows you
+				a two pane view (patch can be applied directly) or a three pane
+				view (older version of file fetched).
 			</para>
-			
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
@@ -147,79 +145,87 @@
 	<sect1 id="tmerge-ch-2-sect-1-3">
 	
 		<title>Buttons and Other Controls</title>
-		
 		<para>
-		Below the menu bar lies the tool bar. This provides easy access to
-		the most commonly used tools, which are
-		<itemizedlist>
-		<listitem>
-			<para>
-				<guibutton>Open</guibutton> accesses the file-open dialog.
-				What else?
-			</para>
-		</listitem>
-		<listitem>
-			<para>
-				<guibutton>Save</guibutton> saves any changes you have made.
-				If you have selected <guilabel>Resolve conflicted subversion status on save</guilabel>
-				in the settings dialog, then subversion's conflict working files
-				will be deleted automatically.
-			</para>
-		</listitem>
-		<listitem>
-			<para>
-				<guibutton>Reload</guibutton> discards any changes you have made and
-				reloads the original files.
-			</para>
-		</listitem>
-		<listitem>
-			<para>
-				<guibutton>Show Spaces</guibutton> toggles the option to display space
-				and tab characters as symbols so you can distinguish white space changes.
-			</para>
-		</listitem>
-		<listitem>
-			<para>
-				<guibutton>Prev/Next Difference</guibutton> jumps directly to the next
-				point where the files differ. This saves scrolling through all the
-				unchanged parts of the file.
-			</para>
-		</listitem>
-		<listitem>
-			<para>
-				<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next
-				point where the file differences are in conflict and need to be resolved.
-			</para>
-		</listitem>
-		<listitem>
-			<para>
-				<guibutton>Switch View</guibutton> selects between one-pane and two-pane
-				view. Disabled in 3-pane view.
-			</para>
-		</listitem>
-		<listitem>
-			<para>
-				<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog.
-			</para>
-		</listitem>
-		</itemizedlist>
-		
+			Below the menu bar lies the tool bar. This provides easy access to
+			the most commonly used tools, which are
+			<itemizedlist>
+				<listitem>
+					<para>
+						<guibutton>Open</guibutton>
+						accesses the file-open dialog. What else?
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Save</guibutton>
+						saves any changes you have made.
+						If you have selected
+						<guilabel>Resolve conflicted subversion status on save</guilabel>
+						in the settings dialog, then subversion's conflict
+						working files will be deleted automatically if all
+						conflicts were resolved.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Reload</guibutton>
+						discards any changes you have made and
+						reloads the original files.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Show Spaces</guibutton>
+						toggles the option to display space and tab characters
+						as symbols so you can distinguish white space changes.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Prev/Next Difference</guibutton>
+						jumps directly to the next point where the files differ.
+						This saves scrolling through all the unchanged parts
+						of the file.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Prev/Next Conflict</guibutton>
+						jumps directly to the next point where the file
+						differences are in conflict and need to be resolved.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Switch View</guibutton>
+						selects between one-pane and two-pane view.
+						Disabled in 3-pane view.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						<guibutton>Settings</guibutton>
+						takes you to TortoiseMerge's settings dialog.
+					</para>
+				</listitem>
+			</itemizedlist>
 		</para>
 		<para>
-		On the left side of the window is a locator bar. This provides a quick
-		visual reference as to where the changes lie within the file. The bar
-		has three columns. The left column refers to the left pane, the right
-		column to the right pane, and the centre column to the bottom pane
-		(if present). In one-pane view only the left column is used.
-		The locator bar can also be used as a scroll bar to scroll all the windows
-		simultaneously.
+			On the left side of the window is a locator bar. This provides
+			a quick visual reference as to where the changes lie within the
+			file. The bar has three columns. The left column refers to the
+			left pane, the right column to the right pane, and the centre
+			column to the bottom pane (if present). In one-pane view only
+			the left column is used. The locator bar can also be used as a
+			scroll bar to scroll all the windows simultaneously.
 		</para>
 		<para>
-		Below the bottom window is the status bar. This shows the number of lines
-		added and deleted in "Theirs" and "Yours", and the number of unresolved
-		conflicts remaining.
-		The left side of the status bar is used to display hints when you hover
-		the mouse over a control.
+			Below the bottom window is the status bar. This shows the number of
+			lines added and deleted in <literal>Theirs</literal> and
+			<literal>Yours</literal>, and the number of unresolved
+			conflicts remaining.
+			The left side of the status bar is used to display hints when you
+			hover the mouse over a control.
 		</para>
 	</sect1>
 
@@ -227,57 +233,77 @@
 	<!-- ======================== SECTION 3 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tmerge-ch-2-sect-3">
-	
 		<title>Merging / Editing Conflicts</title>
-		
 		<para>
-		TortoiseMerge not only <emphasis>shows</emphasis> you the differences
-		between files but also let's you resolve conflicts or apply changes.
+			TortoiseMerge not only <emphasis>shows</emphasis> you the differences
+			between files but also let's you resolve conflicts or apply changes.
 		</para>	
 		<para>
-		If you're in two pane view, then you can only edit the file in the right
-		pane ("Yours"). To apply changes made in the left file ("Theirs"), 
-		<action>right-click</action> on the changed lines and select <guimenuitem>
-		Use text block from "theirs"</guimenuitem>. Then the changes from the left
-		file are added to the right file.
+			If you're in two pane view, then you can only edit the file in the
+			right pane (<literal>Yours</literal>). To apply changes made in the
+			left file (<literal>Theirs</literal>),
+			<action>right-click</action> on the changed lines and select
+			<menuchoice>
+				<guimenuitem>Use text block from <quote>theirs</quote></guimenuitem>
+			</menuchoice>.
+			Then the changes from the left file are added to the right file.
 		</para>
 		<para>
-		If you're in three pane view (or sometimes called <emphasis>merge view
-		</emphasis>) you can only edit the file in the bottom view ("Merged"). As
-		in two pane view, you can <action>right-click</action> on conflicted
-		lines and either select <guimenuitem>Use text block from "theirs"
-		</guimenuitem> or <guimenuitem>Use text block from "yours"</guimenuitem>.
-		In addition, if you want <emphasis>both</emphasis> blocks, you can
-		select <guimenuitem>Use text block from "yours" before "theirs"</guimenuitem>
-		or <guimenuitem>Use text block from "theirs" before "yours"</guimenuitem>
-		According to the command you've selected the changes are used in the 
-		resulting file.
+			If you're in three pane view (sometimes called
+			<emphasis>merge view</emphasis>) you can only edit the file in the
+			bottom view (<literal>Merged</literal>). As in two pane view,
+			you can <action>right-click</action> on conflicted
+			lines and either select
+			<menuchoice>
+				<guimenuitem>Use text block from <quote>theirs</quote></guimenuitem>
+			</menuchoice>
+			or
+			<menuchoice>
+				<guimenuitem>Use text block from <quote>yours</quote></guimenuitem>
+			</menuchoice>.
+			In addition, if you want <emphasis>both</emphasis> blocks, you can
+			select
+			<menuchoice>
+				<guimenuitem>
+					Use text block from <quote>yours</quote>
+					before <quote>theirs</quote>
+				</guimenuitem>
+			</menuchoice>
+			or
+			<menuchoice>
+				<guimenuitem>
+					Use text block from <quote>theirs</quote>
+					before <quote>yours</quote>
+				</guimenuitem>
+			</menuchoice>.
+			According to the command you've selected, the changes are used
+			in the resulting <literal>Merged</literal> file.
 		</para>
-	
 		<para>
-		Sometimes the conflict is too difficult to resolve by simply picking
-		"Theirs" and "Yours" and it requires hand editing. TortoiseMerge
-		allows you to do all the easy changes visually first and then save
-		the file, leaving only the difficult changes to be resolved by
-		hand-editing.
+			Sometimes the conflict is too difficult to resolve by simply picking
+			<literal>Theirs</literal> and <literal>Yours</literal> and it
+			requires hand editing. TortoiseMerge allows you to do all the easy
+			changes visually first and then save the file, leaving only the
+			difficult changes to be resolved by hand-editing.
 		</para>
-		<para>
-		Note that if you use TortoiseMerge on the same files again, any changes
-		to your working copy, whether in TortoiseMerge, or by hand-editing, will
-		be discarded and the file will appear as it did when conflict-editing
-		first started.
-		</para>
+		<important>
+			<para>
+				Note that if you use TortoiseMerge on the same files again,
+				any changes to your working copy, whether in TortoiseMerge,
+				or by hand-editing, <emphasis>will be discarded</emphasis>
+				and the file will appear as it did when conflict-editing
+				first started.
+			</para>
+		</important>
 	</sect1>
 
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 4 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tmerge-ch-2-sect-4">
-	
 		<title>Settings</title>
 		<?dbhh topicname="HIDD_SETMAINPAGE"?>
 		<?dbhh topicname="HIDD_SETCOLORPAGE"?>
-		
 		<figure id="tmerge-ch2-dia-7">
 			<title>The Settings Main Page</title>
 			<graphic fileref="images/SettingsGeneral.png"/>
@@ -287,5 +313,4 @@
 			<graphic fileref="images/SettingsColors.png"/>
 		</figure>
 	</sect1>
-
 </chapter>

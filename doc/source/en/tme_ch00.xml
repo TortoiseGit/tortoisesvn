@@ -1,14 +1,15 @@
-﻿<preface id="tsvn-ch-0">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<preface id="tsvn-ch-0" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Preface</title>
 
 	<simplesect>
-			<graphic srccredit="TortoiseMerge Logo" fileref="images/tortoisemerge_logo_hor468x64.png"/>
+		<graphic srccredit="TortoiseMerge Logo" fileref="images/tortoisemerge_logo_hor468x64.png"/>
 	</simplesect>
 	<simplesect>
 		<para>
-			When working on a project, may it be an open-source project where
-			several people review your code or a commercial
-			project where you sell a component with your sourcecode there will
+			When working on a project, either an open-source project where
+			several people review your code, or a commercial
+			project where you sell a component with your sourcecode, there will
 			be people and customers who find bugs or want to improve your 
 			project. To do that they send you patches which you have to review
 			and decide if you want to apply them.
@@ -17,15 +18,19 @@
 			TortoiseMerge helps you with both those tasks:
 			<itemizedlist>
 				<listitem>
-					<para>Reviewing patches</para>
+					<para>
+						Reviewing patches
+					</para>
 				</listitem>
 				<listitem>
-					<para>Applying the patches</para>
+					<para>
+						Applying the patches
+					</para>
 				</listitem>
 			</itemizedlist>
 		</para>
 		<para>
-			TortoiseMerge also helps you eliminating conflicted files which can
+			TortoiseMerge also helps you to sort out conflicted files which can
 			occur if you're working with a source control system and others
 			are working on the same files as you.
 		</para>
@@ -42,13 +47,15 @@
 		<para>
 			TortoiseMerge is an Open Source project. That means you have full
 			access to the source code of this program. You can browse it
-			on this link <ulink url="http://svn.collab.net/repos/tortoisesvn/">
+			on this link
+			<ulink url="http://svn.collab.net/repos/tortoisesvn/">
 				<citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle>
-			</ulink>. The most recent version (where we're working on) is
-			located under <emphasis>/trunk/</emphasis>, the released versions
-			are located under <emphasis>/tags/</emphasis>.
+			</ulink>.
+			The most recent version (where we're working) is
+			located under <filename>/trunk/</filename>, the released versions
+			are located under <filename>/tags/</filename>.
 		</para>
-		&wish;
+		<xi:include href="./wishlist.xml"/>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ========================	SECTION	2 ============================ -->
@@ -62,7 +69,9 @@
 						Stefan Küng
 					</term>
 					<listitem>
-						<para>for the hard work on TortoiseMerge</para>
+						<para>
+							for the hard work on TortoiseMerge
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -70,7 +79,10 @@
 						Lübbe Onken
 					</term>
 					<listitem>
-						<para>for the beautiful icons, logo, bughunting and taking care of the documentation</para>
+						<para>
+							for the beautiful icons, logo, bughunting and
+							taking care of the documentation
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -78,7 +90,10 @@
 						The Tigris Style project
 					</term>
 					<listitem>
-						<para>for some of the styles which are reused in this documentation</para>
+						<para>
+							for some of the styles which are reused in this
+							documentation
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -86,7 +101,9 @@
 						Our Contributors
 					</term>
 					<listitem>
-						<para>for many hours of joy with the music they sent us</para>
+						<para>
+							for many hours of joy with the music they sent us
+						</para>
 					</listitem>
 				</varlistentry>
 			</variablelist>

@@ -1,14 +1,6 @@
-﻿<?xml version="1.0"?>
-<!DOCTYPE book SYSTEM "../../dtd/dblite.dtd" [
-	<!ENTITY ch00 SYSTEM "tme_ch00.xml">
-	<!ENTITY ch01 SYSTEM "tme_ch01.xml">
-	<!ENTITY ch02 SYSTEM "tme_ch02.xml">
-	<!ENTITY appa SYSTEM "tme_appa.xml">
-	<!ENTITY appb SYSTEM "tme_appb.xml">
-	<!ENTITY gloss SYSTEM "tme_glossary.xml">
-	<!ENTITY wish SYSTEM "wishlist.xml">
-]>
-<book id="tmerge" lang="en">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "../../dtd/dblite.dtd">
+<book id="tmerge" lang="en" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>TortoiseMerge</title>
 	<?dbhh topicname="HIDR_MAINFRAME"?>
 	<subtitle>A diff/merge tool for Windows</subtitle>
@@ -24,13 +16,15 @@
 				<surname>Onken</surname>
 			</author>
 		</authorgroup>
-	    <xi:include href="./pubdate.xml"/>
+		<xi:include href="./pubdate.xml"/>
 	</bookinfo>
-	<!-- External entity refs -->
-  &ch00;
-  &ch01;
-  &ch02;
-  &appa;
-  &appb;
-  &gloss;
+	<!-- include external files -->
+	<xi:include href="./tme_ch00.xml"/>
+	<xi:include href="./tme_ch01.xml"/>
+	<xi:include href="./tme_ch02.xml"/>
+	<xi:include href="./tme_appa.xml"/>
+	<xi:include href="./tme_appb.xml"/>
+<!--	There's nothing in here yet!
+	<xi:include href="./tme_glossary.xml"/>
+-->
 </book>
