@@ -389,12 +389,38 @@
 		The repository is <emphasis>not</emphasis> affected by an update.
 		</para>
 		
+		<sidebar>
+		<title>Multiple Files/Folders</title>
+		<para>
+		If you select multiple files and folders in the explorer and then
+		select <guimenuitem>Update...</guimenuitem>, all of those files/folders
+		are updated one by one. TortoiseSVN makes sure that all files/folders
+		which are from the same repository are updated to the exact same
+		revision! Even if between those updates another commit occured.
+		</para>
+		</sidebar>
+		
 		<para>
 		If you get any <literal>conflicts</literal> during an update (this
 		can happen if others changed the same lines in the same file as
 		you did and those changes don't match) then the dialog shows those
 		conflicts in red. You can doubleclick on those lines to start
 		the external merge tool to resolve those conflicts.
+		</para>
+		
+		<para>
+		TortoiseSVN also allows you to update your working copy to a specific
+		revision, not only to the most recent one. This command is called
+		<guimenuitem>Update to Revision...</guimenuitem> and first opens
+		a dialog where you can enter the required revision.
+		</para>
+		
+		<para>
+		The <guimenuitem>Update to Revision...</guimenuitem> command allows
+		you to revert your working to an earlier revision. Say e.g. your
+		working copy is at revision 100, but you want your working copy
+		to reflect the state which it had in revision 50 &mdash; then simply
+		update to revision 50.
 		</para>
 	</sect1>
 
