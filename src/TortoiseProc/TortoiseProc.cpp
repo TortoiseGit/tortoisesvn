@@ -143,8 +143,6 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			//the log command line looks like this:
 			//command:log path:<path_to_file_or_directory_to_show_the_log_messages> [revstart:<startrevision>] [revend:<endrevision>]
-			CLogDlg dlg;
-			m_pMainWnd = &dlg;
 			CString path = parser.GetVal(_T("path"));
 			SVNStatus svn;
 			long rev = svn.GetStatus(path, true);
@@ -171,6 +169,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			if (revend == 0)
 				revend = 1;
+			CLogDlg dlg;
+			m_pMainWnd = &dlg;
 			dlg.SetParams(path, revstart, revend);
 			dlg.DoModal();			
 		}
