@@ -5,12 +5,13 @@
 #
 # Authors:
 # Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>
+# Yves Reynhout <yvesr@ultragenda.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-17 19:54+0100\n"
-"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
+"PO-Revision-Date: 2004-09-07 09:11+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -83,6 +84,10 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr "%d bestanden geselecteerd, %d bestanden totaal"
 
+#: ID:226
+msgid "%s - at revision: %d"
+msgstr "%s - aan revisie: %d"
+
 #: ID:151
 msgid "%s : Working Base"
 msgstr "%s : Werkbasis"
@@ -115,6 +120,11 @@ msgstr "&Geavanceerd..."
 msgid "&Apply Unified Diff"
 msgstr "&Voer unified Diff uit"
 
+#: ID:138
+#, fuzzy
+msgid "&Browse Repository"
+msgstr "Bibliotheek bekijken"
+
 #: Control-ID:1011
 msgid "&Browse..."
 msgstr "&Bladeren..."
@@ -140,14 +150,34 @@ msgstr "&Ophalen naar map:"
 msgid "&Close windows automatically"
 msgstr "&Sluit vensters automatisch"
 
+#: ID:76
+#, fuzzy
+msgid "&Compare revisions"
+msgstr "Vergelijk revisies"
+
+#: ID:101
+#, fuzzy
+msgid "&Copy To..."
+msgstr "Kopiëren naar..."
+
+#: ID:101
+#, fuzzy
+msgid "&Delete"
+msgstr "Verwijderen"
+
+#: Control-ID:1031
+#, fuzzy
+msgid "&Edit"
+msgstr "Wijzigen"
+
 #: Control-ID:1099
 msgid "&Edit..."
 msgstr "&Wijzigen..."
 
 # Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server (Don't use the IE settings)"
-msgstr "&Activeer Proxyserver (gebruik niet de instellingen van Internet Explorer)"
+msgid "&Enable Proxy Server"
+msgstr "Activ&eer Proxy Server"
 
 #: Control-ID:1092
 msgid "&External"
@@ -197,10 +227,6 @@ msgstr "Help &onderwerpen"
 msgid "&Hide"
 msgstr "&Verbergen"
 
-#: Control-ID:1023
-msgid "&Indicate folders with changed contents"
-msgstr "&Markeer mappen met gewijzigde inhoud"
-
 #: Control-ID:65535
 msgid "&Language:"
 msgstr "&Taal:"
@@ -211,8 +237,8 @@ msgstr "&Samenvoegen"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "&Merge changes into the current working copy from URL:"
-msgstr "&Voeg wijzigingen toe aan werkkopie vanaf URL:"
+msgid "&Merge changes into the current working copy which points to the URL:"
+msgstr "&Voeg wijzigingen toe aan de huidige werkkopie vanaf URL:"
 
 #: Control-ID:1012
 msgid "&Merging"
@@ -236,6 +262,11 @@ msgstr "&Volgend verschil"
 msgid "&OK"
 msgstr "&OK"
 
+#: ID:101
+#, fuzzy
+msgid "&Open"
+msgstr "Openen"
+
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr "&Openen\tCtrl-O"
@@ -252,6 +283,11 @@ msgstr "&Poort:"
 msgid "&Previous Difference"
 msgstr "V&orig verschil"
 
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Recurse into folders to fetch the status"
+msgstr "Overloop folders &recursief om de status op te halen"
+
 #: Control-ID:1048
 msgid "&Removable drives"
 msgstr "&Stations met verwisselbaar medium"
@@ -260,6 +296,16 @@ msgstr "&Stations met verwisselbaar medium"
 #: Control-ID:1100
 msgid "&Remove"
 msgstr "&Verwijderen"
+
+#: ID:101
+#, fuzzy
+msgid "&Rename..."
+msgstr "Hernoemen..."
+
+#: ID:113
+#, fuzzy
+msgid "&Revert changes from this revision"
+msgstr "Maak wijzigingen uit deze revisie ongedaan"
 
 #: Control-ID:1033
 #: Control-ID:1116
@@ -309,6 +355,16 @@ msgstr "&URL van bibliotheek:"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Ongedaan maken\tCtrl-Z"
 
+#: Control-ID:1061
+#, fuzzy
+msgid "&Unknown drives"
+msgstr "Onbekende stations"
+
+#: ID:76
+#, fuzzy
+msgid "&Update item to revision"
+msgstr "Ververs onderdeel naar revisie"
+
 #: Control-ID:65535
 #: Control-ID:1005
 msgid "&Username:"
@@ -321,6 +377,16 @@ msgstr "B&eeld"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Spaties en lege regels"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(meerdere eindpunten geselecteerd)"
+
+#: ID:208
+#, fuzzy
+msgid "(property change only)"
+msgstr "Eigenschappen"
 
 # ID:188,
 #: ID:188
@@ -347,6 +413,30 @@ msgstr "- %d"
 msgid "..."
 msgstr "..."
 
+#: ID:151
+#, fuzzy
+msgid ": Revision %d"
+msgstr "Revisie %d"
+
+#: ID:151
+msgid ": working copy"
+msgstr ": Werkkopie"
+
+# ID:88,
+#: ID:88
+msgid ""
+"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
+"If you use Relocate to direct you working copy to another repository or branch,\n"
+"this <b>will corrupt your working copy!</b>\n"
+"To associate your working copy with another branch, use the Switch command.\n"
+"Are you sure you want to relocate?"
+msgstr ""
+"<b>OPGELET:</b> Gebruik het Relocate commanda enkel indien de originele repository verhuist is naar een nieuwe URL.\n"
+"Indien U Relocate gebruikt om uw werkkopie te doen verwijzen naar een andere repository of branch,\n"
+"dan <b>zal dit uw werkkopie corrupt maken!</b>\n"
+"Om Uw werkkopie met een andere branch te associëren, gebruikt U het Switch commando.\n"
+"Bent U zeker dat U wenst te relocaten?"
+
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "Een fysieke I/O fout is opgetreden bij het benaderen van %1."
@@ -358,7 +448,26 @@ msgstr "Bestand %1 kan niet exclusief geopend worden."
 # ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "Een nieuwere versie is beschikbaar. Ga naar http://tortoisesvn.tigris.org om de nieuwste versie te downloaden."
+msgstr "Een nieuwere versie is beschikbaar. Ga naar http://tortoisesvn.tigris.org om de nieuwste versie te downloaden!"
+
+# ID:195,
+#: ID:195
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+"Een padenlijst, door einde regel gescheiden, voor dewelke overlays getoond worden.\n"
+"Indien U een \"*\" karakter op het einde van het pad toevoegd, worden alle bestanden en submappen onder dat pad ook opgenomen."
+
+# ID:194,
+#: ID:194
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+"Een padenlijst, door einde regel gescheiden, voor dewelke geen overlays getoond worden.\n"
+"Indien U een \"*\" karakter op het einde van het pad toevoegd, worden alle bestanden en submappen onder dat pad ook opgenomen.Een lege lijst laat overlays op alle paden toe."
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -375,6 +484,11 @@ msgid ""
 msgstr ""
 "Een viewer voor GNU diff-bestanden (patch bestanden).\n"
 "Gebruik kladblok als u niets anders heeft."
+
+#: ID:101
+#, fuzzy
+msgid "A&dd folder..."
+msgstr "Map toevoegen..."
 
 #: Control-ID:1093
 msgid "A&dvanced..."
@@ -432,6 +546,11 @@ msgstr ""
 msgid "Add"
 msgstr "Toevoegen"
 
+#: ID:101
+#, fuzzy
+msgid "Add &file..."
+msgstr "Bestand toevoegen..."
+
 #: ID:110
 msgid "Add Extension Specific Diff Program"
 msgstr "Voeg een extensie-specifiek Diff-programma toe"
@@ -444,17 +563,9 @@ msgstr "Voeg een extensie-specifiek Merge-programma toe"
 msgid "Add To Ignore List"
 msgstr "Voeg toe aan Negeerlijst"
 
-#: ID:101
-msgid "Add file..."
-msgstr "Bestand toevoegen..."
-
 #: ID:12
 msgid "Add files to Subversion here"
 msgstr "Voeg hier bestanden toe aan Subversion"
-
-#: ID:101
-msgid "Add folder..."
-msgstr "Map toevoegen..."
 
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -473,7 +584,8 @@ msgid "Adds file(s) to Subversion control"
 msgstr "Brengt bestand(en) onder beheer van Subversion"
 
 #: ID:13
-msgid "Adds the selected file(s) to the 'ignore' list"
+#, fuzzy
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Voegt geselecteerde bestand(en) toe aan de negeerlijst"
 
 #: ID:2049
@@ -634,6 +746,11 @@ msgstr "&Bladeren..."
 msgid "B&uiltin"
 msgstr "&Intern"
 
+# ID:213,
+#: ID:213
+msgid "BDB"
+msgstr "BDB"
+
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Maak reservekopie van origineel"
@@ -678,10 +795,6 @@ msgstr "&Bladeren..."
 msgid "Brows&e..."
 msgstr "&Bladeren..."
 
-#: ID:138
-msgid "Browse Repository"
-msgstr "Bibliotheek bekijken"
-
 #: ID:78
 msgid "Browse for the external diff program"
 msgstr "Zoeken naar de externe Diff-applicatie"
@@ -693,6 +806,22 @@ msgstr "Bladeren..."
 #: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "&Intern"
+
+# Control-ID:1119,#:
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug-ID / Issue-Nr:"
+
+#: ID:101
+#, fuzzy
+msgid "C&reate Folder..."
+msgstr "Map maken..."
+
+#: ID:77
+#, fuzzy
+msgid "C&reate Tag from revision"
+msgstr "Maak label van revisie"
 
 # ID:3697,
 #: ID:3697
@@ -769,8 +898,8 @@ msgstr "Kijk of er updates zijn"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Check for newer versions"
-msgstr "Controleer versie"
+msgid "Check for newer &versions"
+msgstr "Controleer op nieuwere versie"
 
 #: ID:79
 msgid ""
@@ -792,7 +921,12 @@ msgstr ""
 "Selecteer de bestanden die u wilt\n"
 "verwijderen voordat u importeert."
 
-#: Control-ID:65535
+# ID:251,
+#: ID:251
+msgid "Check the path and/or URL you've entered."
+msgstr "Controleer het pad en/of de URL die U heeft ingevoerd."
+
+#: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr "Selecteer de menuopties die in het contextmenu moeten verschijnen in plaats van het submenu"
 
@@ -824,6 +958,20 @@ msgstr "Schonen gereed"
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Schonen van onderbroken acties, geblokkeerde bestanden, ..."
+
+# Control-ID:1059,
+#: Control-ID:1059
+msgid "Clear &Auth Cache"
+msgstr "Wis &Auth Cache"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"Wist de opgeslagen authenticatie.\n"
+"U zal uw gebruikersnaam/paswoord voor alle repositories opnieuw moeten ingeven."
 
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -866,16 +1014,14 @@ msgid "Compare Whitespaces"
 msgstr "Vergelijk spaties en witregels"
 
 #: ID:76
-msgid "Compare revisions"
-msgstr "Vergelijk revisies"
+#, fuzzy
+msgid "Compare with &working copy"
+msgstr "Vergelijk met werkkopie"
 
 #: ID:138
-msgid "Compare with Base"
+#, fuzzy
+msgid "Compare with B&ase"
 msgstr "Vergelijk met basis"
-
-#: ID:76
-msgid "Compare with working copy"
-msgstr "Vergelijk met werkkopie"
 
 #: ID:12
 msgid "Compares the file with the last commited version to show you the changes you made"
@@ -889,6 +1035,11 @@ msgstr "Gereed"
 msgid "Conflicted"
 msgstr "In conflict"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Context Menu"
+msgstr "Context Menu"
+
 #: ID:73
 msgid "Continue"
 msgstr "Doorgaan"
@@ -900,10 +1051,6 @@ msgstr "Op afstand gekopiëerd"
 #: ID:73
 msgid "Copy"
 msgstr "Kopiëren"
-
-#: ID:101
-msgid "Copy To..."
-msgstr "Kopiëren naar..."
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1018,10 +1165,6 @@ msgstr "Afdrukopdracht kan niet gestart worden."
 msgid "Could not start thread!"
 msgstr "Kon geen thread starten!"
 
-#: ID:101
-msgid "Create Folder..."
-msgstr "Map maken..."
-
 #: ID:13
 msgid "Create Patch..."
 msgstr "Maak patch..."
@@ -1030,9 +1173,10 @@ msgstr "Maak patch..."
 msgid "Create Repository here"
 msgstr "Maak hier een bibliotheek"
 
-#: ID:77
-msgid "Create Tag from revision"
-msgstr "Maak label van revisie"
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Create the branch/tag directly on the server"
+msgstr "Creëer de branch/tag rechtstreeks op de server"
 
 #: ID:126
 msgid "Created folder remotely"
@@ -1058,6 +1202,11 @@ msgstr ""
 "Knip de selectie en plaats op het klembord\n"
 "Knippen"
 
+# Control-ID:1123,
+#: Control-ID:1123
+msgid "D&on't close on conflicts"
+msgstr "Gelieve niet te sluiten bij c&onflicten."
+
 #: ID:76
 msgid "Date"
 msgstr "Datum"
@@ -1068,7 +1217,6 @@ msgstr "&Standaard aantal logboek-boodschappen"
 
 #: ID:11
 #: ID:73
-#: ID:101
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -1196,6 +1344,11 @@ msgstr "Bestanden niet converteren bij het vergelijken met BASE"
 msgid "Drive Types"
 msgstr "Type station"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "Dry Run"
+msgstr "Droge Run"
+
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Afsluiten"
@@ -1208,10 +1361,6 @@ msgstr "E&xtern"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
-
-#: Control-ID:1031
-msgid "Edit"
-msgstr "Wijzigen"
 
 #: ID:12
 msgid "Edit Conflicts"
@@ -1279,7 +1428,13 @@ msgid "Exceptions:"
 msgstr "Uitzonderingen:"
 
 #: Control-ID:65535
-msgid "Exclude pattern:"
+#, fuzzy
+msgid "Exclude paths:"
+msgstr "Te negeren bestanden:"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Exclude/Ignore pattern:"
 msgstr "Te negeren bestanden:"
 
 #: ID:94
@@ -1321,6 +1476,11 @@ msgstr "Extern"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "Extern programma:"
+
+# ID:213,
+#: ID:213
+msgid "FSFS"
+msgstr "FSFS"
 
 #: ID:74
 msgid "Failed Revert"
@@ -1436,8 +1596,9 @@ msgstr "Help"
 msgid "Hostname mismatch (%s)"
 msgstr "Verschil in hostnamen (%s)"
 
-#: Dlg-ID:106
-msgid "Icon Overlays"
+#: Control-ID:65535
+#, fuzzy
+msgid "Icon Overlays / Status Columns"
 msgstr "Overlays voor Pictogrammen"
 
 #: Control-ID:65535
@@ -1465,6 +1626,15 @@ msgstr "Kies deze optie om TortoiseSVN zonder tijdelijk bestand een Diff tussen 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Activeer deze optie om TortoiseSVN wekelijks te laten controleren of er nieuwere versies beschikbaar zijn"
+
+# ID:195,
+#: ID:195
+msgid ""
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+"Indien ingesteld, zal TortoiseSVN de bestandstijden plaatsen op de tijd\n"
+"dat ze het laatst gecommit werden. Anders neemt TortoiseSVN de huidige tijd."
 
 #: ID:80
 msgid ""
@@ -1508,6 +1678,11 @@ msgstr "Importeer..."
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "Plaatst de map in een bibliotheek"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Include paths:"
+msgstr "Te negeren bestanden:"
 
 #: ID:76
 msgid "Initial Import"
@@ -1623,6 +1798,11 @@ msgstr "Logboek boodschap"
 msgid "Log Messages"
 msgstr "Logboek boodschappen"
 
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel"
+msgstr "Uitzicht en Gedrag"
+
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "De DLL van het mailsysteem is ongeldig."
@@ -1630,10 +1810,6 @@ msgstr "De DLL van het mailsysteem is ongeldig."
 #: Dlg-ID:143
 msgid "Main"
 msgstr "Algemeen"
-
-#: Dlg-ID:159
-msgid "Menu Layout"
-msgstr "Opmaak menu"
 
 #: Dlg-ID:141
 msgid "Merge"
@@ -1772,6 +1948,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "Eén of meerdere bestanden bevinden zich in een conflict status."
+
 #: MenuEntry
 msgid "Oneway &Diff"
 msgstr "Eenrichtings-&Diff"
@@ -1780,11 +1961,19 @@ msgstr "Eenrichtings-&Diff"
 msgid "Only check out the top folder"
 msgstr "Alleen de bovenste map ophalen"
 
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"Enkel nummers (optioneel gescheiden door een comma)\n"
+"toegelaten!"
+
 #: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "Alleen de bovenste map verversen"
 
-#: ID:101
 #: ID:3841
 msgid "Open"
 msgstr "Openen"
@@ -1827,12 +2016,23 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
+# Control-ID:1121,
+#: Control-ID:1121
+msgid "Paste Log &template in english"
+msgstr "Plak Log &template in het engels"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Paste Status Template"
+msgstr "Plak Status Template"
+
 #: ID:376
 msgid "Patch All"
 msgstr "Alles patchen"
 
 #: ID:157
-msgid "Patchfiles|*.diff;*.patch|All|*.*||"
+#, fuzzy
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchbestanden|*.diff;*.patch|Alles|*.*||"
 
 #: ID:77
@@ -1886,6 +2086,11 @@ msgstr "Geef een geheel getal."
 #: ID:3858
 msgid "Please enter no more than %1 characters."
 msgstr "Geef niet meer dan %1 tekens."
+
+# ID:251,
+#: ID:251
+msgid "Please execute the \"Cleanup\" command."
+msgstr "Gelieve het \"Cleanup\" commando uit te voeren."
 
 #: ID:78
 msgid ""
@@ -1969,7 +2174,8 @@ msgstr ""
 "Afsluiten"
 
 #: Control-ID:1073
-msgid "RAM drives"
+#, fuzzy
+msgid "R&AM drives"
 msgstr "RAM station"
 
 # ID:3697,
@@ -2056,7 +2262,6 @@ msgid "Rename %s"
 msgstr "Hernoem %s"
 
 #: ID:11
-#: ID:101
 msgid "Rename..."
 msgstr "Hernoemen..."
 
@@ -2130,10 +2335,6 @@ msgstr "Opnieuw"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Terugzetten"
-
-#: ID:113
-msgid "Revert changes from this revision"
-msgstr "Maak wijzigingen uit deze revisie ongedaan"
 
 #: ID:9
 msgid "Reverts all changes you made since the last update"
@@ -2247,11 +2448,15 @@ msgstr "korte URL van SVN"
 msgid "Save &As..."
 msgstr "Opslaan &als..."
 
+#: ID:101
+#, fuzzy
+msgid "Save &as..."
+msgstr "Opslaan als..."
+
 #: ID:3841
 msgid "Save As"
 msgstr "Opslaan als"
 
-#: ID:101
 #: ID:313
 msgid "Save as..."
 msgstr "Opslaan als..."
@@ -2261,7 +2466,8 @@ msgid "Save changes to %1?"
 msgstr "Wijzigingen in %1 opslaan?"
 
 #: ID:76
-msgid "Save revision to..."
+#, fuzzy
+msgid "Save revision &to..."
 msgstr "Bewaar revisie in..."
 
 #: ID:3601
@@ -2277,7 +2483,8 @@ msgid "Saving patchfile to:"
 msgstr "Patchbestand opslaan in:"
 
 #: ID:113
-msgid "Search log messages..."
+#, fuzzy
+msgid "Search &log messages..."
 msgstr "Doorzoek logboekberichten..."
 
 #: ID:3867
@@ -2365,6 +2572,20 @@ msgstr "Bezig met eigenschappen wijzigen..."
 msgid "Settings"
 msgstr "Instellingen"
 
+# ID:115,
+#: ID:115
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started."
+msgstr ""
+"Dient de log te stoppen bij een kopie?\n"
+"Klik <b>Ja</b> indien U wenst te weten waar een branch startte."
+
+#: ID:101
+#, fuzzy
+msgid "Sho&w Properties"
+msgstr "Eigenschappen"
+
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
 msgstr "Verkorte &datum/tijd in logboek-boodschappen"
@@ -2372,6 +2593,11 @@ msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Korte URL van Subversion onderdelen"
+
+#: ID:113
+#, fuzzy
+msgid "Show &Differences"
+msgstr "Toon verschillen"
 
 #: Control-ID:1031
 #: Control-ID:1034
@@ -2382,20 +2608,23 @@ msgstr "Toon &logboek"
 msgid "Show &Log..."
 msgstr "Toon &logboek..."
 
+#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Toon &logboek"
+
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr "Toon &overlays alleen in explorer"
 
 #: Control-ID:1065
 msgid "Show Diff Bar"
 msgstr "Toon Diff werkbalk"
 
 #: ID:113
-msgid "Show Differences"
-msgstr "Toon verschillen"
-
-#: ID:113
-msgid "Show Differences as Unified Diff"
+#, fuzzy
+msgid "Show Differences as &Unified Diff"
 msgstr "Toon verschillen als unified-Diff"
 
 #: Control-ID:1063
@@ -2404,14 +2633,6 @@ msgstr "Toon regelnummers"
 
 #: ID:12
 msgid "Show Log"
-msgstr "Toon logboek"
-
-#: ID:101
-msgid "Show Properties"
-msgstr "Eigenschappen"
-
-#: ID:101
-msgid "Show log"
 msgstr "Toon logboek"
 
 #: ID:3713
@@ -2429,11 +2650,6 @@ msgid ""
 msgstr ""
 "Toon of verberg de knoppenbalk\n"
 "Wissel knoppenbalk"
-
-# Control-ID:1088,
-#: Control-ID:1088
-msgid "Show overlays only in explorer"
-msgstr "Toon overlays alleen in explorer"
 
 #: ID:2049
 msgid ""
@@ -2762,11 +2978,6 @@ msgstr "Voor dit programma is het bestand %s vereist, maar dat ontbreekt op deze
 msgid "Three File Diff"
 msgstr "Diff van drie bestanden"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "Om wijzigingen uit een specifieke tak samen te voegen moet u dezelfde URL gebruiken in de \"Van:\" en \"Naar:\" velden."
-
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "Dubbelklik op de bovenstaande bestanden om uw wijzigingen te zien."
@@ -2796,10 +3007,10 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\n"
-"libsvn_diff %d.%d.%d, %s\n"
-"apr %d.%d.%d\n"
-"apr-iconv %d.%d.%d\n"
+"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
 #: ID:9
@@ -2825,14 +3036,14 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\n"
-"Subversion %d.%d.%d, %s\n"
-"apr %d.%d.%d\n"
-"apr-iconv %d.%d.%d\n"
-"apr-utils %d.%d.%d\n"
-"berkeley db %d.%d.%d\n"
-"neon %s\n"
-"%s\n"
+"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
 "zlib %s"
 
 #: ID:80
@@ -2842,6 +3053,11 @@ msgstr "TortoiseSVN Instellingen"
 #: ID:73
 msgid "Try Again"
 msgstr "Opnieuw proberen"
+
+# ID:251,
+#: ID:251
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "Probeer een \"Cleanup\". Indien het probleem blijft dient U "
 
 #: ID:10
 msgid "Tweak TortoiseSVN"
@@ -2915,10 +3131,6 @@ msgstr ""
 "  Vingerafdruk: %s\n"
 "  Onderscheidende naam: %s"
 
-#: Control-ID:1061
-msgid "Unknown drives"
-msgstr "Onbekende stations"
-
 #: ID:3841
 msgid "Untitled"
 msgstr "Naamloos"
@@ -2932,10 +3144,6 @@ msgstr "Verversen"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "Verversen naar revisie..."
-
-#: ID:76
-msgid "Update item to revision"
-msgstr "Ververs onderdeel naar revisie"
 
 #: ID:11
 msgid "Updates the working copy to a specific revision"
@@ -2956,6 +3164,11 @@ msgstr "URL:"
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Toon vergrootglas op Zoekwerkbalk"
+
+#: Control-ID:1073
+#, fuzzy
+msgid "Use \"From:\" URL"
+msgstr "&Van URL:"
 
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -3039,6 +3252,16 @@ msgstr "Viewer voor GNU diff-bestanden (patchbestanden)."
 msgid "Visit our website"
 msgstr "Bezoek onze website"
 
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "Opgelet!"
+
+# ID:213,
+#: ID:213
+msgid "What repository type do you want to create?"
+msgstr "Welk type repository wenst U te creëren?"
+
 #: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "Diff van spaties en witregels"
@@ -3067,7 +3290,7 @@ msgstr "Ja op alles"
 # ID:201,
 #: ID:201
 msgid "You already have the most current version installed."
-msgstr "De meest recente versie is reeds geïnstalleerd"
+msgstr "De meest recente versie is reeds geïnstalleerd."
 
 #: ID:144
 msgid ""
@@ -3092,6 +3315,20 @@ msgstr ""
 "file:/// te benaderen.\n"
 "Dit kan leiden tot ernstige beschadiging van de bibliotheek!\n"
 "Wilt u dit echt doen?"
+
+# ID:251,
+#: ID:251
+msgid "You have to update your working copy first."
+msgstr "U dient uw werkkopie eerst te verversen."
+
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"U heeft geen issue nummer ingevuld.\n"
+"Bent U zeker dat U wenst te commiten zonder een issue number?"
 
 #: ID:77
 msgid ""
@@ -3125,6 +3362,45 @@ msgstr "een bestand zonder naam"
 msgid "and support the developers"
 msgstr "en ondersteun de ontwikkelaars"
 
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:label\n"
+"Tekstlabel van het veld waar de gebruiker het issue nummer invoert."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:message\n"
+"Tekst die aan een log bericht wordt toegevoegd wanneer een issue nummer werd ingevuld.\n"
+"De tekst dient \"%BUGID%\" te bevatten. Dit wordt vervangen door het issue nummer."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq:number\n"
+"Plaats op \"false\" indien Uw bugtracking system issues heeft waarnaar niet via nummers wordt gerefereerd."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"URL verwijzend naar de issue tracker. Het dient \"%BUGID%\", dat vervangen zal worden door het issue nummer, te bevatten."
+
 #: ID:145
 msgid "cleaning up"
 msgstr "schonen"
@@ -3136,12 +3412,12 @@ msgstr "geconflicteerd"
 # Control-ID:1113,
 #: Control-ID:1113
 msgid "current version is:"
-msgstr "beschikbare versie:"
+msgstr "huidige versie is:"
 
 # ID:201,
 #: ID:201
 msgid "current version is: %s"
-msgstr "beschikbare versie: %s"
+msgstr "huidige versie is: %s"
 
 #: ID:10
 msgid "deleted"
@@ -3294,5 +3570,5 @@ msgstr "uw versie is:"
 # ID:201,
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
-msgstr "huidige versie: %d.%d.%d.%d."
+msgstr "uw versie is: %d.%d.%d.%d."
 
