@@ -32,7 +32,7 @@ SetCompressor lzma
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile ".\bin\LanguagePack_${PRODUCT_VERSION}_${CountryCode}.exe"
+OutFile "..\..\bin\LanguagePack_${PRODUCT_VERSION}_${CountryCode}.exe"
 ShowInstDetails show
 
 Section "Hauptgruppe" SEC01
@@ -52,7 +52,7 @@ Proceed:
 !endif
   SetOutPath $INSTDIR
   SetOverwrite ifnewer
-  File ".\bin\*${CountryID}.dll"
+  File "..\..\bin\*${CountryID}.dll"
 SectionEnd
 
 Section -Post

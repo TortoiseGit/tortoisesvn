@@ -9,6 +9,9 @@ shift
 
 if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 
+call Write_htmlhelp.bat
+call Write_pdfdoc.bat
+
 SET _PDF=OFF
 SET _CHM=OFF
 SET _HTML=OFF
@@ -37,7 +40,6 @@ set _DOC_SRC=
 if "%OS%"=="Windows_NT" set _DOC_SRC=%~dp0
 
 set _DOC_HOME=%_DOC_SRC%..\
-SET _DOCTOOLS=%_DOC_HOME%tools\
 
 SET _XSLTPROC=xsltproc.exe
 SET _HHCPROC=hhc.exe
@@ -57,8 +59,8 @@ rem | Set Paths to source, stylesheets amd targets
 set _DOC_XML_SRC=%_APP%.xml
 set _DOC_XSL_FO=%_DOC_SRC%\pdfdoc.xsl
 set _DOC_XSL_HELP=%_DOC_SRC%\htmlhelp.xsl
-set _DOC_XSL_HTMLSINGLE=%_DOCTOOLS%\xsl\html\docbook.xsl
-set _DOC_XSL_HTMLCHUNK=%_DOCTOOLS%\xsl\html\chunk.xsl
+set _DOC_XSL_HTMLSINGLE=%XSLROOT%\html\docbook.xsl
+set _DOC_XSL_HTMLCHUNK=%XSLROOT%html\chunk.xsl
 
 set _HELP_RESOURCE=..\..\..\src\%_APP%\resource.h
 

@@ -1,5 +1,5 @@
 @echo off
 SETLOCAL
-set PATH=c:\programme\dxgettext;c:\tools
+if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 msgattrib --%2 %1 2>nul | grep -c msgid 
 ENDLOCAL

@@ -2,7 +2,7 @@
 rem Script to build the language dlls
 
 SETLOCAL ENABLEDELAYEDEXPANSION
-set PATH=c:\programme\dxgettext;c:\tools
+if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 set OFile=..\..\www\translations.html
 
 type trans_head.html > %OFile%

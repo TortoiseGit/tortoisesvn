@@ -1,9 +1,12 @@
 To build the docs, you need the following tools:
 
 tools\fop\		- the fop processor
-tools\dtd\		- the docbook dtds
 tools\xsl\		- the docbook xsl files from sourceforge
 tools\			- xsl processor, hhc.exe, ...
 
 you can download all the required tools as a zip package from our website:
 http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
+
+Then, make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
+rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
+in that file.

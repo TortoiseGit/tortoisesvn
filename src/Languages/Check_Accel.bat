@@ -1,5 +1,5 @@
 @echo off
 SETLOCAL
-set PATH=c:\programme\dxgettext;c:\tools
+if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
 msgfmt --check-accelerators %1 2>&1 | grep -c "Tortoise"
 ENDLOCAL

@@ -41,6 +41,9 @@ You may have to logoff/logon to make the new environement variables take effect!
 - Download the tools to build the TSVN docs from 
   http://tortoisesvn.tigris.org/files/documents/406/11147/tools.zip and
   unzip them into SVN\TortoiseSVN\doc\.
+- Make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
+  rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
+  in that file.
 - To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
   You can get that library from here: http://wtl.sourceforge.net/
   Unzip it and then add the path to the VS.NET include path.
