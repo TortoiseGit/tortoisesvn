@@ -769,15 +769,37 @@ void CBaseView::OnDraw(CDC * pDC)
 	CBitmap *pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
 
 	CRect textrect(rcClient.left, rcClient.top, rcClient.Width(), nLineHeight+HEADERHEIGHT);
-	pDC->FillSolidRect(textrect, ::GetSysColor(COLOR_SCROLLBAR));
+	CDiffData diffdata;
+	COLORREF crBk, crFg;
+	diffdata.GetColors(CDiffData::DIFFSTATE_NORMAL, crBk, crFg);
+	crBk = ::GetSysColor(COLOR_SCROLLBAR);
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	{
+		pDC->SetBkColor(crBk);
+	}
+	else
+	{
+
+		if (this == m_pwndRight)
+		{
+			diffdata.GetColors(CDiffData::DIFFSTATE_ADDED, crBk, crFg);
+			pDC->SetBkColor(crBk);
+		}
+		else
+		{
+			diffdata.GetColors(CDiffData::DIFFSTATE_REMOVED, crBk, crFg);
+			pDC->SetBkColor(crBk);
+		}
+	}
+	pDC->FillSolidRect(textrect, crBk);
 	if (this->GetFocus() == this)
 		pDC->DrawEdge(textrect, EDGE_BUMP, BF_RECT);
 	else
 		pDC->DrawEdge(textrect, EDGE_ETCHED, BF_RECT);
 
-	pDC->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
-	pDC->SetTextColor(RGB(200, 0, 0));
-	pDC->SelectObject(GetFont(FALSE, FALSE, FALSE));
+	pDC->SetTextColor(crFg);
+
+	pDC->SelectObject(GetFont(FALSE, TRUE, FALSE));
 	int nStringLength = (GetCharWidth()*m_sWindowName.GetLength());
 	pDC->ExtTextOut(max(rcClient.left + (rcClient.Width()-nStringLength)/2, 1), 
 		rcClient.top+(HEADERHEIGHT/2), ETO_CLIPPED, textrect, m_sWindowName, NULL);
