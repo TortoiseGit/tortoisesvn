@@ -219,7 +219,9 @@
 #define IDS_SVNACTION_SKIP              1177
 #define IDS_PROGS_EXTCOL                1178
 #define IDS_PROGS_TOOLCOL               1179
+#define IDS_LOG_FILE                    1180
 #define IDS_SVN_USERCANCELLED           1181
+#define IDS_LOG_SIZE                    1182
 #define IDS_REPO_BROWSEREV              1190
 #define IDS_SSL_CERTIFICATETYPE         1200
 #define IDS_SSL_ACCEPTQUESTION          1201

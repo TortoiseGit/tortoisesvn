@@ -244,17 +244,20 @@ void CRepositoryTree::Init(LONG revision)
 	SetImageList(&m_ImageList);
 
 	RVSUBITEM rvs;
+	CString temp;
 	UndefineAllSubItems();
 	//
 	// column 0: contains tree
-	rvs.lpszText = _T("File");
+	temp.LoadString(IDS_LOG_FILE);
+	rvs.lpszText = temp;
 	rvs.iWidth = 300;
 	rvs.iMinWidth = 200;
 	DefineSubItem(0, &rvs);
 	ActivateSubItem(0, 0);
 	//
 	// column 1: revision number
-	rvs.lpszText = _T("Revision");
+	temp.LoadString(IDS_LOG_REVISION);
+	rvs.lpszText = temp;
 	rvs.iWidth = 65;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_RIGHT|RVCF_TEXT;
@@ -262,7 +265,8 @@ void CRepositoryTree::Init(LONG revision)
 	ActivateSubItem(1, 1);
 	//
 	// column 2: author
-	rvs.lpszText = _T("Author");
+	temp.LoadString(IDS_LOG_AUTHOR);
+	rvs.lpszText = temp;
 	rvs.iWidth = 85;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
@@ -270,7 +274,7 @@ void CRepositoryTree::Init(LONG revision)
 	ActivateSubItem(2, 2);
 	//
 	// column 3: size
-	rvs.lpszText = _T("Size");
+	temp.LoadString(IDS_LOG_SIZE);
 	rvs.iWidth = 65;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_RIGHT|RVCF_TEXT;
@@ -278,7 +282,8 @@ void CRepositoryTree::Init(LONG revision)
 	ActivateSubItem(3, 3);
 	//
 	// column 4: date
-	rvs.lpszText = _T("Date");
+	temp.LoadString(IDS_LOG_DATE);
+	rvs.lpszText = temp;
 	rvs.iWidth = 125;
 	rvs.iMinWidth = 25;
 	rvs.nFormat = RVCF_LEFT|RVCF_TEXT;
@@ -286,7 +291,7 @@ void CRepositoryTree::Init(LONG revision)
 	ActivateSubItem(4, 4);
 
 	CStringArray arPaths;
-	CString temp = m_strUrl;
+	temp = m_strUrl;
 	while ((temp.ReverseFind('/')>=0)&&(temp.GetAt(temp.ReverseFind('/')-1)!='/'))
 	{
 		SHFILEINFO    sfi;

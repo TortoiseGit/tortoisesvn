@@ -123,7 +123,7 @@ typedef struct _RVSUBITEM
 	INT		iMaxWidth;
     INT		iImage;
 
-    LPTSTR	lpszText;
+    LPCTSTR	lpszText;
 
 	_RVSUBITEM() : nFormat(RVCF_LEFT|RVCF_TEXT), iWidth(-1), iMinWidth(0), iMaxWidth(0), iImage(0), lpszText(NULL) {};
 

@@ -124,6 +124,18 @@ BOOL CRepositoryBrowser::OnInitDialog()
 		GetDlgItem(IDCANCEL)->ShowWindow(FALSE);
 		GetDlgItem(IDC_URL)->ShowWindow(FALSE);
 		GetDlgItem(IDC_STATICURL)->ShowWindow(FALSE);
+
+		// reposition remaining items
+		CRect rect_tree, rect_url, rect_cancel;
+		GetDlgItem(IDC_REPOS_TREE)->GetWindowRect(rect_tree);
+		GetDlgItem(IDC_URL)->GetWindowRect(rect_url);
+		GetDlgItem(IDCANCEL)->GetWindowRect(rect_cancel);
+		ScreenToClient(rect_tree);
+		ScreenToClient(rect_url);
+		ScreenToClient(rect_cancel);
+		GetDlgItem(IDOK)->MoveWindow(rect_cancel);
+		GetDlgItem(IDC_REPOS_TREE)->MoveWindow(rect_tree.left, rect_tree.top,
+			rect_tree.Width(), rect_url.bottom - rect_tree.top);
 	}
 
 	AddAnchor(IDC_REPOS_TREE, TOP_LEFT, BOTTOM_RIGHT);
