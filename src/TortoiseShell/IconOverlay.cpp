@@ -173,6 +173,11 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 
 	if(g_ShellCache.UseExternalCache())
 	{
+		if (!g_ShellCache.IsPathAllowed(pPath))
+		{
+			return S_FALSE;
+		}
+
 		svn_wc_status_t itemStatus;
 		if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(pPath, &itemStatus, !!g_ShellCache.IsRecursive()))
 		{
