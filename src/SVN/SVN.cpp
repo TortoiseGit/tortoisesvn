@@ -715,6 +715,12 @@ svn_error_t* SVN::logReceiver(void* baton,
 			cpaths += temp;
 			cpaths += _T(" ");
 			cpaths += path_native.c_str();
+			if (i == 50)
+			{
+				temp.Format(_T("\r\n.... and %d more ..."), i - 50);
+				cpaths += temp;
+				break;
+			}
 		}
 	} // if (changed_paths)
 

@@ -21,6 +21,9 @@ CVS
 - CHG: the rename dialog allows only to rename and
        not to move anymore. To move files do a right
        drag in explorer. (Stefan)
+- CHG: in the show-log dialog only the first 50
+       files that were changed are listed to reduce
+       memory consumption. (Stefan)
 - ADD: repository browser works with svn://
        svn+ssl:// (Stefan)
 - ADD: enhanced the repository browser with a
