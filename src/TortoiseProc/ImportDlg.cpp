@@ -271,7 +271,7 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 			break;
 		case 'A':
 			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				if ((GetAsyncKeyState(VK_CONTROL)&0x8000)&&(!(GetAsyncKeyState(VK_MENU)&0x8000)))
 				{
 					// Ctrl-A pressed. Select all text in the CEdit control
 					m_Message.SetSel(0, -1);
