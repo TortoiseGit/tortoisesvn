@@ -35,7 +35,7 @@ SVN::SVN(void) : SVNPrompt()
 	hWnd = NULL;
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
-
+	svn_utf_initialize(parentpool);
 	const char * deststr = NULL;
 	svn_utf_cstring_to_utf8(&deststr, "dummy", parentpool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", parentpool);
