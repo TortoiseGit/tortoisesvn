@@ -35,7 +35,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	ConvertToBackslash(internalpathbuf, path);
 	do
 	{
-		ZeroMemory(buf, sizeof(buf));
+		ZeroMemory(buf, (len+10)*sizeof(TCHAR));
 		_tcsncpy(buf, internalpathbuf, _tcschr(pPath, '\\') - internalpathbuf);
 		CreateDirectory(buf, &attribs);
 		pPath = _tcschr(pPath, '\\');
