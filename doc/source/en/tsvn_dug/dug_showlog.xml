@@ -238,8 +238,13 @@
 			of revisions any time you want. But since such changes can't be
 			undone (those changes are not versioned) this feature is disabled
 			by default. To make this work, you must set up a pre-revprop-change
-			and a post-revprop-change hook. Please refer to the Subversion Book
-			for details about how to do that.
+			hook. Please refer to the chapter on
+			<ulink url="http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1">
+				<citetitle>Hook Scripts</citetitle>
+			</ulink>
+			in the Subversion Book for details about how to do that.
+			Read <xref linkend="tsvn-serversetup-hooks"/> to find some further
+			notes on implementing hooks on a Windows machine.
 		</para>
 		<para>
 			Once you've set up your server with the required hooks, you can
