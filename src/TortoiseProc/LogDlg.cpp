@@ -24,6 +24,7 @@
 #include "UnicodeUtils.h"
 #include "MergeDlg.h"
 #include "InputDlg.h"
+#include "PropDlg.h"
 #include ".\logdlg.h"
 
 // CLogDlg dialog
@@ -609,6 +610,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 					if (m_hasWC)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+					temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 				}
 				else if (m_LogList.GetSelectedCount() == 2)
 				{
@@ -914,6 +917,15 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						} // if (m_hasWC)
 
 						CRepositoryBrowser dlg(SVNUrl(url, SVNRev(rev)));
+						dlg.DoModal();
+					}
+					break;
+				case ID_POPPROPS:
+					{
+						int selIndex = m_LogList.GetSelectionMark();
+						CPropDlg dlg;
+						dlg.m_rev = m_arRevs.GetAt(selIndex);
+						dlg.m_sPath = GetURLFromPath(m_path);
 						dlg.DoModal();
 					}
 					break;
