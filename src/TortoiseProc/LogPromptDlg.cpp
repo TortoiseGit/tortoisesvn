@@ -489,7 +489,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->m_ListCtrl.SetCheck(count);
 					data->checked = TRUE;
 				} // if (SVNStatus::IsImportant(stat)) 
-				if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))
+				if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))
 				{
 					if (!CCheckTempFiles::IsTemp(strLine))
 					{
@@ -505,7 +505,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					} // if (!CCheckTempFiles::IsTemp(strLine)) 
-				} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))  
+				} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
 				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
 				{
 					temp = strbuf;
@@ -531,7 +531,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						pDlg->m_ListCtrl.SetCheck(count);
 						data->checked = TRUE;
 					} // if (SVNStatus::IsImportant(stat)) 
-					if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))
+					if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))
 					{
 						if (!CCheckTempFiles::IsTemp(temp))
 						{
@@ -573,7 +573,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 							pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						} // if (!CCheckTempFiles::IsTemp(temp))
-					} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))  
+					} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
 				} // while ((s = status.GetNextFileStatus(&strbuf)) != NULL) 
 			} // if (s!=0) 
 		} // while (file.ReadString(strLine)) 

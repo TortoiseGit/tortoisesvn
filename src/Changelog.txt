@@ -21,6 +21,8 @@
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)
+- CHG: "Show unversioned files before committing" is now
+       enabled by default. (Stefan)
 - BUG: In TME it was not possible to select a diff block
        completely if it started at the first line. (Stefan)
 - BUG: Creating a branch/tag from a modified working
