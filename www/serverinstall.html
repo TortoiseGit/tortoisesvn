@@ -7,7 +7,7 @@
 	<META NAME="AUTHOR" CONTENT="Stefan K&uuml;ng">
 	<META NAME="CREATED" CONTENT="20030603;8410000">
 	<META NAME="CHANGEDBY" CONTENT="Stefan K&uuml;ng">
-	<META NAME="CHANGED" CONTENT="20030614;19255868">
+	<META NAME="CHANGED" CONTENT="20030616;17582414">
 	<STYLE>
 	<!--
 		@page { margin-left: 2cm; margin-right: 2.5cm; margin-top: 2.5cm; margin-bottom: 2cm }
@@ -93,7 +93,10 @@ Notepad):</P>
 	<LI><P LANG="de-CH" STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif">At
 	the end of all those LoadModule lines add the line<BR><FONT FACE="Courier New, monospace">LoadModule
 	dav_svn_module modules/mod_dav_svn.so<BR>LoadModule authz_svn_module
-	modules/mod_authz_svn.so</FONT></FONT></P>
+	modules/mod_authz_svn.so<BR></FONT><FONT FACE="Times New Roman, serif">alternatively
+	you can specify a complete path to the directory where Subversion is
+	installed. That way you don't have to copy the *.so files to the
+	apache directory for every update.</FONT></FONT></P>
 	<LI><P LANG="de-CH" STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif">Restart
 	the apache service.</FONT></P>
 	<LI><P LANG="de-CH" STYLE="margin-bottom: 0cm"><FONT FACE="Times New Roman, serif">At

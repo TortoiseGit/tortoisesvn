@@ -18,6 +18,9 @@ CVS
 - CHG: removed dependency to msimg32.dll. (Stefan)
 - CHG: the commit dialog shows the modified files
        with path. (Stefan)
+- CHG: the rename dialog allows only to rename and
+       not to move anymore. To move files do a right
+       drag in explorer. (Stefan)
 - ADD: repository browser works with svn://
        svn+ssl:// (Stefan)
 - ADD: enhanced the repository browser with a

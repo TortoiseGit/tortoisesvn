@@ -549,12 +549,15 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString path = parser.GetVal(_T("path"));
 			CRenameDlg dlg;
-			dlg.m_name = path;
+			CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
+			CString filepath = path.Left(path.ReverseFind('\\') + 1);
+			dlg.m_name = filename;
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("rename file %s to %s\n"), path, dlg.m_name);
+				path =  filepath + dlg.m_name;
 				SVN svn;
-				if (!svn.Move(path, dlg.m_name, FALSE))
+				if (!svn.Move(path, path, FALSE))
 				{
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
 					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
