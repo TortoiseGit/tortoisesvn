@@ -97,6 +97,8 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 					}
 					if (type == 2)
 					{
+						if (resEntry.msgstr.size() == 0)
+							nTranslated++;
 						std::wstring temp = I->c_str();
 						temp = temp.substr(1, temp.length()-2);
 						resEntry.msgstr += temp;
