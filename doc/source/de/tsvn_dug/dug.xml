@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter id="tsvn-DUG" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<title>Hilfe für die tägliche Arbeit</title>
+	<simplesect>
+		<para>
+			Dieses Kapitel beschreibt den täglichen Umgang mit TortoiseSVN.
+			Es ist <emphasis>nicht</emphasis> als Einführung in 
+			Versionskontrollsysteme gedacht, und auch nicht als Einführung
+			in Subversion (SVN). Dies ist mehr ein Nachschlagewerk wenn Sie
+			nicht mehr genau wissen wie eine Funktion ausgeführt wird, sie aber
+			zumindest wissen was Sie tun wollen.
+		</para>
+		<para>
+			Falls Sie eine Anleitung für Versionskontrolle mit Subversion
+			benötigen, empfehlen wir das fantastische Buch
+			<ulink url="http://svnbook.red-bean.com/">
+				<citetitle>Subversion: The Definitive Guide</citetitle>
+			</ulink>.
+		</para>
+		<para>
+			An diesem Dokument wird ständig gearbeitet, wie auch an TortoiseSVN
+			und Subversion immer weitergearbeitet wird. Falls Sie Fehler 
+			feststellen, melden Sie diese an die Mailing-Liste damit wir die
+			Dokumentation aktualisieren können. Einige der Screenshots in 
+			diesem Dokument zeigen wahrscheinlich nicht den aktuellsten Stand
+			der Software. Seien Sie bitte nachsichtig. Wir arbeiten an
+			TortoiseSVN und der Dokumentation während unserer Freizeit.
+		</para>
+		<para>
+			<itemizedlist>
+				<listitem>
+					<para>
+					Sie sollten TortoiseSVN bereits installiert haben
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					Sie kennen sich aus mit Versionskontrollsystemen
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					Sie kennen die Grundlagen von Subversion
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					Sie haben einen Server installiert und/oder haben Zugriff
+					auf ein Subversion Projektarchiv.
+					</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+	</simplesect>
+	<!-- ================================================================= -->
+	<!-- include external entity refs -->
+	<xi:include href="./dug_general.xml"/>
+	<xi:include href="./dug_authentication.xml"/>
+	<xi:include href="./dug_import.xml"/>
+	<xi:include href="./dug_checkout.xml"/>
+	<xi:include href="./dug_wcstatus.xml"/>
+	<xi:include href="./dug_update.xml"/>
+	<xi:include href="./dug_conflicts.xml"/>
+	<xi:include href="./dug_commit.xml"/>
+	<xi:include href="./dug_bugtracker.xml"/>
+	<xi:include href="./dug_add.xml"/>
+	<xi:include href="./dug_rename.xml"/>
+	<xi:include href="./dug_revert.xml"/>
+	<xi:include href="./dug_propertypage.xml"/>
+	<xi:include href="./dug_showlog.xml"/>
+	<xi:include href="./dug_branchtag.xml"/>
+	<xi:include href="./dug_patch.xml"/>
+	<xi:include href="./dug_relocate.xml"/>
+	<xi:include href="./dug_repobrowser.xml"/>
+	<xi:include href="./dug_settings.xml"/>
+	<xi:include href="./dug_blame.xml"/>
+	<sect1 id="tsvn-DUG-donate">
+		<title>Letzter Schritt</title>
+		<xi:include href="../wishlist.xml"/>
+	</sect1>
+</chapter>

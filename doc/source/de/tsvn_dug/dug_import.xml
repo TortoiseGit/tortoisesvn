@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-import">
+	<title>Daten in ein Projektarchiv importieren</title>
+	<indexterm>
+		<primary>importieren</primary>
+	</indexterm>
+	<indexterm>
+		<primary>Projektarchiv</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_IMPORT"?>
+	<sect2 id="tsvn-DUG-import-1">
+		<title>Projektarchiv Struktur</title>
+		<para>
+			Bevor Sie Daten in das Projektarchiv importieren sollten Sie sich 
+			Gedanken darüber machen wie Sie Ihre Daten organisieren wollen.
+			Wenn Sie eines der empfohlenen Layouts verwenden werden Sie es später
+			viel viel einfacher haben.
+		</para>
+		<para>
+			Es gibt ein paar empfohlene Standards um die Daten innerhalb eines
+			Projektarchivs zu organisieren. Die meisten Leute erstellen einen
+			<filename>trunk</filename> Ordner welcher den Hauptast (Stamm)
+			der Entwicklung enthält, einen <filename>branches</filename> Ordner
+			welcher Sonder-Entwicklungszweige enthält und einen <filename>tags
+			</filename> Ordner, welcher markierte Zustände enthält. Wenn ein
+			Projektarchiv nur ein einziges Projekt enthält ist das folgende Layout
+			zu empfehlen:
+		</para>
+		<screen>
+/trunk
+/branches
+/tags
+</screen>
+		<para>
+				Falls ein Projektarchiv jedoch mehrere Projekte enthält, kann das
+				Layout durch Verzweigungen (branch) erstellt werden:
+			</para>
+		<screen>
+/trunk/paint
+/trunk/calc
+/branches/paint
+/branches/calc
+/tags/paint
+/tags/calc
+</screen>
+		<para>...oder per Projekt:</para>
+		<screen>
+/paint/trunk
+/paint/branches
+/paint/tags
+/calc/trunk
+/calc/branches
+/calc/tags
+</screen>
+		<para>
+			Natürlich können Sie diese Empfehlungen auch ignorieren. Es steht
+			Ihnen frei, ein Layout zu wählen welches am besten für Sie 
+			oder Ihr Team geeignet ist. Beachten Sie auch, dass was immer
+			für eine Wahl Sie treffen diese nicht fix ist. Sie können das
+			Layout später immer noch reorganisieren. Weil Zweige (branches) und
+			Markierungen (tags) gewöhnliche Ordner in Subversion sind können
+			Sie diese ganz einfach mit TortoiseSVN umbenennen oder verschieben
+			wie Sie wollen.
+		</para>
+		<para>
+			Von einem Layout zu einem anderen zu wechseln ist lediglich eine
+			Abfolge serverseitiger Umbenennungen; Wenn Ihnen die Art und Weise
+			wie Dinge im Projektarchiv organisiert sind, nicht gefallen, 
+			jonglieren Sie einfach mit den Verzeichnissen herum.
+		</para>
+		<para>
+			Falls Sie noch keine Ordnerstruktur in Ihrem Projektarchiv angelegt
+			haben sollten Sie dies jetzt tun:
+			<orderedlist>
+				<listitem>
+					<para>
+						Erstellen Sie einen leeren Ordner auf Ihrer Festplatte
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Erstellen Sie in diesem Ordner die gewünschte
+						Ordnerstruktur - kopieren Sie noch keine Dateien hinein!
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Importieren Sie diese Struktur in das Projektarchiv
+						durch <action>Rechts-Klick</action> auf den obersten Ordner und Klick
+						auf <guimenuitem>Importieren...</guimenuitem>. Dies importiert
+						Ihren Ordner in das Projektarchiv und erstellt so die
+						gewünschte Ordnerstruktur.
+					</para>
+				</listitem>
+			</orderedlist>
+			<para>
+				Beachten Sie dass der Name des Ordner welchen Sie importieren
+				<emphasis>nicht</emphasis> im Projektarchiv erscheint, nur
+				dessen Inhalt. Erstellen Sie zum Beispiel folgende Ordnerstruktur:
+<screen>
+C:\Temp\New\trunk
+C:\Temp\New\branches
+C:\Temp\New\tags
+</screen>
+				Importieren Sie C:\Temp\New ins Projektarchiv, welches dann 
+				so aussieht:
+<screen>
+/trunk
+/branches
+/tags
+</screen>
+			</para>
+			<para>
+				Sie können auch den Projektarchiv-Browser benutzen um neue
+				Ordner direkt im Projektarchiv zu erstellen.
+			</para>
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-import-2">
+		<title>Importieren</title>
+		<indexterm>
+			<primary>Temporäre Dateien</primary>
+		</indexterm>
+		<para>
+			Bevor Sie ein Projekt in das Projektarchiv importieren sollten Sie:
+			<orderedlist>
+				<listitem>
+					<para>
+						Alle Dateien entfernen/löschen welche nicht unbedingt
+						für das Projekt notwendig sind (z.B. temporäre Dateien,
+						Dateien welche vom Kompiler erzeugt werden wie *.obj,
+						kompilierte EXE Dateien, ...)
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						die Dateien und Ordner optimal anordnen. Obwohl es
+						auch später noch immer möglich ist die Dateien und
+						Ordner umzubenenen oder zu verschieben ist es doch
+						empfehlenswert eine saubere Struktur schon beim
+						Importieren zu haben.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+		<para>
+			Wählen Sie nun den <emphasis>übergeordneten</emphasis> Ordner Ihrer
+			Ordnerstruktur im Windows Explorer und öffnen Sie mit einem
+			<action>Rechts-Klick</action>
+			das Kontext-Menu. Wählen Sie den Befehl
+			<menuchoice>
+				<guimenuitem>Importieren...</guimenuitem>
+			</menuchoice>
+			worauf der folgende Dialog erscheint:
+			<figure id="tsvn-DUG-import-dia-1">
+				<title>Der Import Dialog</title>
+				<graphic fileref="images/Import.png"/>
+			</figure>
+		</para>
+		<para>
+			Geben Sie in diesem Dialog die URL Ihres Projektarchivs ein in das Sie
+			das Projekt importieren möchten.
+		</para>
+		<para>
+			Die Import-Meldung ist gedacht als Log-Meldung. Da Sie normalerweise
+			ganz zu beginn eines Projektes importieren, hat TortoiseSVN schon
+			die Meldung <literal>erster Import</literal> fÃ¼r Sie ausgefÃ¼llt. Sie kÃ¶nnen diese
+			Meldung jedoch nach belieben ändern.
+		</para>
+		<indexterm>
+			<primary>Dateien ausschließen</primary>
+		</indexterm>
+		<note>
+			<para>
+				Dateien oder Verzeichnisse, die dem
+				<guilabel>Dateien ausschließen</guilabel>
+				Muster entsprechen werden <emphasis>nicht</emphasis> importiert.
+			</para>
+		</note>
+		<para>
+			Sobald Sie auf <guibutton>OK</guibutton> klicken beginnt TortoiseSVN die Daten
+			in das Projektarchiv zu importieren. Beachten Sie bitte, dass dadurch
+			Ihre Daten <emphasis>nicht</emphasis> unter Versionskontrolle
+			gestellt werden! Um eine Arbeitskopie zu erhalten, bei welcher die
+			Daten unter Versionskontrolle sind müssen sie diese Daten frisch
+			aus dem Projektarchiv auschecken.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-import-3">
+		<title>Spezielle Dateien</title>
+		<indexterm>
+			<primary>spezielle dateien</primary>
+		</indexterm>
+		<para>
+			Machmal ist es notwendig, eine Datei unter Versionskontrolle zu
+			haben welche Benutzerspezifische Daten (z.B. absolute Pfade zu
+			Programmtools) enthält. Das bedeutet Sie haben eine Datei welche
+			von jedem Benutzer verändert werden muss um seine/ihre lokalen
+			Einstellungen anzupassen. Aber eine Datei unter Versionskontrolle würde
+			von jedem Benutzer jeweils wieder zum Projektarchiv übertragen werden
+			und so die Änderungen von anderen Benutzern wieder überschreiben.
+		</para>
+		<para>
+			In solchen Fällen empfehlen wir die Verwendung von sogenannten
+			<literal>Schablonen</literal>. Eine Schablone ist nichts anderes
+			als eine normale Datei, welche entweder einen anderen Dateinamen
+			oder eine andere Dateiendung hat wie die Datei welche schlussendlich
+			dann tatsächlich verwendet wird.
+		</para>
+		<para>
+			Als Beispiel sehen Sie sich das Build-Skript von TortoiseSVN mal an.
+			Es ruft eine Datei namens <filename>TortoiseVars.bat</filename> auf
+			welche im Projektarchiv gar nicht existiert! Es existiert aber die
+			Datei <filename>TortoiseVars.tmpl</filename>, welche die Schablone
+			für die Datei <filename>TortoiseVars.bat</filename> darstellt.
+			Bevor also das Build-Skript ausgeführt werden kann muss jeder 
+			Benutzer eine Kopie von <filename>TortoiseVars.tmpl</filename>
+			erstellen und die Kopie in <filename>TortoiseVars.bat</filename>
+			umbenennen. Dann kann die Datei <filename>TortoiseVars.bat</filename>
+			ohne Probleme so verändert werden, dass die absoluten Pfade zu den
+			zur Erstellung von TortoiseSVN notwendigen Tools mit den lokalen
+			Pfaden übereinstimmen.
+		</para>
+		<para>
+			Um die Benutzer nicht zu stören, ist die Datei <filename>TortoiseVars.bat</filename>
+			auch in der Liste der ignorierten Dateien eingetragen. Das heisst wir
+			haben die Subversion Eigenschaft <literal>svn:ignored</literal>
+			für diese Datei gesetzt. Damit erscheint diese Datei nicht in jedem
+			Übertragungsdialog als (noch) nicht versioniert.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-import-4">
+		<title>Externe eingebundene Projektarchive</title>
+		<indexterm>
+			<primary>externe projektarchive</primary>
+		</indexterm>
+		<indexterm>
+			<primary>externals</primary>
+		</indexterm>
+		<para>
+			Manchmal ist es nützlich eine Arbeitskopie zu haben, welche aus mehreren 
+			anderen Projekten besteht. Zum Beispiel kann es vorkommen, dass Sie Unterordner 
+			haben wollen die von verschiedenen anderen Stellen des Projektarchivs kommen oder 
+			vielleicht sogar von verschiedenen Projektarchiven. Wenn Sie wollen, dass jeder 
+			Benutzer die gleiche Struktur der Arbeitskopie hat, können Sie die <literal>svn:externals</literal> 
+			Eigenschaft definieren. 
+		</para>
+		<para>
+			Nehmen wir an Sie erstellen eine Arbeitskopie von /project1 in <filename>D:\dev\project1</filename>. 
+			Selektieren Sie den Ordner <filename>D:\dev\project1</filename>, machen Sie einen <action>Rechts-Klick</action> 
+			und wählen Sie
+			<menuchoice>
+				<guimenuitem>Eigenschaften</guimenuitem>
+			</menuchoice>
+			aus dem Kontextmenü. Der Eigenschaften Dialog erscheint, gehen Sie zu dem Tab Subversion. 
+			Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die <literal>svn:externals</literal>
+			Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu refernzierende Projektarchiv Url 
+			in dem Format <literal>Name Url</literal> in das Textfeld. Zum Beispiel <literal>subversion http://svn.collab.net/repos/svn/trunk</literal>, 
+			wenn Sie das Subversion Projektarchiv einbinden wollen. Klicken Sie jetzt auf <guibutton>Setzen</guibutton>
+			und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, 
+			wird das eingebundene Projektarchiv auch ausgecheckt. 
+		</para>
+		<para>
+			Wenn sie mehr Informationen brauchen, wie <application>TortoiseSVN</application> 
+			Eigenschaften behandelt lesen Sie <xref linkend="tsvn-DUG-propertypage"/>.
+		</para>
+	</sect2>
+</sect1>

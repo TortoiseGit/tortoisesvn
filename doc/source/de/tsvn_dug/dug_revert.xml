@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-revert">
+	<title>Änderungen Rückgängig machen</title>
+	<indexterm>
+		<primary>rückgängig</primary>
+	</indexterm>
+	<indexterm>
+		<primary>revert</primary>
+	</indexterm>
+	<indexterm>
+		<primary>undo</primary>
+	</indexterm>
+	<para>
+		Wenn Sie Änderungen, welche Sie an Dateien vorgenommen haben wieder
+		rückgängig machen wollen, wählen Sie diese Datei aus und wählen
+		dann den Befehl
+		<menuchoice>
+			<guimenuitem>Rückgängig...</guimenuitem>
+		</menuchoice>
+		aus dem Kontextmenu aus. Ein Dialog erscheint wo alle Dateien,
+		welche geändert wurden aufgelistet sind. Wählen Sie die Dateien,
+		welche Sie in den Ursprungszustand zurückversetzen wollen und drücken Sie
+		<guibutton>ok</guibutton>.
+		<figure id="tsvn-DUG-revert-dia-1">
+			<title>Änderungen Rückgängig machen</title>
+			<graphic fileref="images/Revert.png"/>
+		</figure>
+	</para>
+</sect1>

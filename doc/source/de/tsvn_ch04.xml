@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-DUG">
+<chapter id="tsvn-DUG">
 	<title>Hilfe für die tägliche Arbeit</title>
 	<simplesect>
 		<para>
@@ -148,7 +148,7 @@
 				Projektarchiv nur ein einziges Projekt enthält ist das folgende Layout
 				zu empfehlen:
 			</para>
-<screen>
+			<screen>
 /trunk
 /branches
 /tags
@@ -157,7 +157,7 @@
 				Falls ein Projektarchiv jedoch mehrere Projekte enthält, kann das
 				Layout durch Verzweigungen (branch) erstellt werden:
 			</para>
-<screen>
+			<screen>
 /trunk/paint
 /trunk/calc
 /branches/paint
@@ -165,8 +165,8 @@
 /tags/paint
 /tags/calc
 </screen>
-			<para>&hellip;oder per Projekt:</para>
-<screen>
+			<para>...oder per Projekt:</para>
+			<screen>
 /paint/trunk
 /paint/branches
 /paint/tags
@@ -202,7 +202,7 @@
 					<listitem>
 						<para>
 							Erstellen Sie in diesem Ordner die gewünschte
-							Ordnerstruktur &mdash; kopieren Sie noch keine Dateien
+							Ordnerstruktur - kopieren Sie noch keine Dateien
 							hinein!
 						</para>
 					</listitem>
@@ -464,12 +464,12 @@ C:\Temp\New\tags
 			eines Arbeitskopie-Ordners an einen anderen Ort. Dann einfach
 			im Kontextmenu 
 			<menuchoice>
-				<guimenuitem>Subversion hier exportieren</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Subversion hier exportieren</guimenuitem>
+				</menuchoice>
 			oder  
 			<menuchoice>
-				<guimenuitem>Subversion hier alle exportieren</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Subversion hier alle exportieren</guimenuitem>
+				</menuchoice>
 			wählen.
 			</para>
 		</tip>
@@ -542,8 +542,8 @@ C:\Temp\New\tags
 				hat, dann <literal>Hinzugefügt</literal>, <literal>gelöscht</literal>,
 				<literal>verändert</literal> und schlussendlich <literal>normal</literal>.
 				<tip>
-				<title>Langsame Overlayanzeige</title>
-				<para>
+					<title>Langsame Overlayanzeige</title>
+					<para>
 					Sie werden feststellen, dass sobald Sie die Icon Overlays rekursiv
 					anzeigen lassen der Explorer recht langsam wird. Dies hängt
 					vorallem davon ab wie gross Ihre Arbeitskopie ist, resp. wieviele
@@ -555,7 +555,7 @@ C:\Temp\New\tags
 					Algorithmus und der Festplattencache von Windows die Anzeige
 					zu beschleunigen.
 				</para>
-				<para>
+					<para>
 					Wenn Sie die rekursiv überlagerten Icons für bestimmte
 					Ordner ausschalten möchten, können Sie das tun indem Sie
 					eine Datei mit Namen <filename>_tsvnexcluderecursive</filename>
@@ -563,7 +563,7 @@ C:\Temp\New\tags
 					für diesen Ordner allein, jedoch nicht für die Dateien/Ordner
 					innerhalb dieses Ordners.
 				</para>
-				<para>
+					<para>
 					Sie können die überlagerten Icons auch komplett ausschalten
 					für einen bestimmten Ordner, indem Sie eine Datei mit
 					Namen <filename>_tsvnexcludethis</filename> in diesem
@@ -629,7 +629,7 @@ C:\Temp\New\tags
 					der geänderten Dateien, jedoch ohne das Projektarchiv zu 
 					kontaktieren und benötigt deshalb auch keine Netzwerkverbindung.
 					Sie brauche die Daten auch nicht zu übertragen, nur weil Sie 
-					diesen Dialog benötigten &mdash; klicken Sie einfach auf 
+					diesen Dialog benötigten - klicken Sie einfach auf 
 					<guibutton>Abbrechen</guibutton>
 					statt auf
 					<guibutton>Ok</guibutton>.
@@ -696,12 +696,12 @@ C:\Temp\New\tags
 			Wenn Sie Änderungen an Dateien rückgängig machen wollen, dann
 			müssen Sie entweder den Befehl
 			<menuchoice>
-				<guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem>
+				</menuchoice>
 			im Log-Dialog oder den Befehl
 			<menuchoice>
-				<guimenuitem>Zusammenführen...</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Zusammenführen...</guimenuitem>
+				</menuchoice>
 			verwenden.
 			</para>
 		</caution>
@@ -1113,7 +1113,7 @@ C:\Temp\New\tags
 		</para>
 		<para>
 			Wenn Sie Dateien von ausserhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie
-			hinzufügen möchten können Sie auch den drag&ndash;and&ndash;drop
+			hinzufügen möchten können Sie auch den drag-and-drop
 			Handler verwenden:
 			<orderedlist>
 				<listitem>
@@ -1195,7 +1195,7 @@ C:\Temp\New\tags
 		</para>
 		<para>
 			Um Dateien innerhalb einer Arbeitskopie zu verschieben, benutzen Sie
-			den drag&ndash;and&ndash;drop Handler:
+			den drag-and-drop Handler:
 			<orderedlist>
 				<listitem>
 					<para>
@@ -1252,8 +1252,8 @@ C:\Temp\New\tags
 				Wenn Sie eine Datei oder einen Ordner gelöscht und dies bereits
 				ins Projektarchiv übertragen haben, wird ein normaler
 				<menuchoice>
-					<guimenuitem>Rückgängig</guimenuitem>
-				</menuchoice>
+						<guimenuitem>Rückgängig</guimenuitem>
+					</menuchoice>
 				Befehl diese nicht wieder zurückbringen können. Aber die Datei
 				oder der Ordner ist nicht verloren. Wenn Sie die Revisionsnummer
 				kennen, wo es gelöscht wurde (Benutzen Sie den Log-Dialog um dies
@@ -1263,7 +1263,7 @@ C:\Temp\New\tags
 				Befehl
 				<menuchoice>
 						<guimenuitem>Kopieren zu...</guimenuitem>
-				</menuchoice>
+					</menuchoice>
 				Als Ziel für diesen Kopierbefehl geben Sie den Pfad zu Ihrer
 				Arbeitskopie an.
 				</para>
@@ -1386,7 +1386,7 @@ C:\Temp\New\tags
 			Der Log-Dialog lädt alle diese Log-Meldungen aus dem Projektarchiv und
 			zeigt Ihnen diese, einschliesslich einer Liste der Dateien welche
 			in jeder Übertragung verändert wurden. Aber das ist noch nicht alles
-			&mdash; der Log-Dialog stellt auch viele Funktionen zur Verfügung mit
+			- der Log-Dialog stellt auch viele Funktionen zur Verfügung mit
 			denen Sie noch mehr und noch detailliertere Informationen über die
 			Projektgeschichte herausfinden können.
 		</para>
@@ -2316,23 +2316,23 @@ Rev Log-Meldungen
 							Ein externes Diff Programm um verschiedene Revisionen einer Datei zu vergleichen. 
 							Sie können folgende Parameter im Pfad angeben: 
 							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>
-										<para>
+									<varlistentry>
+										<term>%base</term>
+										<listitem>
+											<para>
 											Die Originaldatei ohne Ihre Änderungen
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%mine</term>
+										<listitem>
+											<para>
 											Ihre eigene Datei mit Ihren Änderungen
 										</para>
-									</listitem>
-								</varlistentry>
-							</variablelist>
+										</listitem>
+									</varlistentry>
+								</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>
@@ -2343,39 +2343,39 @@ Rev Log-Meldungen
 							Ein externes Merge Programm um Konflikte in Dateien aufzulösen. 
 							Sie können folgende Parameter im Pfad angeben: (Die Reihenfolge hängt vom Merge Programm ab)
 							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>
-										<para>
+									<varlistentry>
+										<term>%base</term>
+										<listitem>
+											<para>
 											Die Originaldatei ohne Ihre oder die anderen Änderungen
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%mine</term>
+										<listitem>
+											<para>
 											Ihre eigene Datei mit Ihren Änderungen
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%theirs</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%theirs</term>
+										<listitem>
+											<para>
 											Die Datei wie Sie im Projektarchiv ist
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%merged</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%merged</term>
+										<listitem>
+											<para>
 											Die Konfliktdatei (das Ergebnis der Merge Operation)
 										</para>
-									</listitem>
-								</varlistentry>
-							</variablelist>
+										</listitem>
+									</varlistentry>
+								</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>

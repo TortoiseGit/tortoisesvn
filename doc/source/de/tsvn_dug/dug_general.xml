@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-general">
+	<title>Handhabung von TortoiseSVN</title>
+	<indexterm>
+		<primary>Kontextmenü</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-DUG-context-dir-control">
+			<title>Kontext-Menu für einen Ordner unter Versionskontrolle</title>
+			<graphic fileref="images/ContextMenuDirControl.png"/>
+		</figure>
+		Alle Befehle von TortoiseSVN werden über das Kontext-Menu des Windows 
+		Explorers aufgerufen. Die meisten sind direkt sichtbar, wenn Sie mit
+		einem <action>Recht-Klick</action> auf eine Datei oder Ordner klicken.
+		Die vorhandenen Befehle hängen davon ab ob Sie auf eine Datei oder einen
+		Ordner geklickt haben oder ob der übergeordnete Ordner unter 
+		Versionskontrolle steht oder nicht.
+	</para>
+	<para>
+		<indexterm>
+			<primary>Drag Handler</primary>
+		</indexterm>
+		<indexterm>
+			<primary>Drag-n-Drop</primary>
+		</indexterm>
+		Andere Befehle sind als Drag-Handler vorhanden. Wenn Sie Dateien
+		oder Ordner <action>Rechts-Ziehen</action> innerhalb einer Arbeitskopie
+		oder wenn Sie eine nicht versionskontrollierte Datei in eine Arbeitskopie
+		<action>Rechts-Ziehen</action>.
+	</para>
+</sect1>

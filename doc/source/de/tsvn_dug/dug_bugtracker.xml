@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-bugtracker">
+	<title>Integration mit einem Bugtracking System</title>
+	<indexterm>
+		<primary>bugtracking</primary>
+	</indexterm>
+	<indexterm>
+		<primary>bugtracker</primary>
+	</indexterm>
+	<para>
+		Sie können eine Bugtracking Anwendung Ihrer Wahl in <application>TortoiseSVN</application>
+		integrieren. Dafür müssen Sie ein paar Subversion Eigenschaften definieren, die mit
+		<literal>bugtraq:</literal> beginnen: (<xref linkend="tsvn-DUG-propertypage"/>)
+		<variablelist>
+			<varlistentry>
+				<term>bugtraq:message</term>
+				<listitem>
+					<para>
+						<emphasis>Diese Eigenschaft aktiviert das Bugtracking System. </emphasis>
+						Sie wird vom Client benutzt, um eine extra Zeile am
+						Ende des Logtextes hinzuzufügen. Dafür muss sie den Text <literal>%BUGID%</literal>
+						enthalten, welcher beim Übertragen durch die Eintragsnummer ersetzt 
+						wird. Mithilfe dieses Textes kann Ihr Bugtracking Programm die Log 
+						Meldungen parsen und die Revisionen einem Eintrag zuordnen. 
+						<application>TortoiseSVN</application> benutzt z.B. <literal>Issue : %BUGID%</literal>, 
+						aber das hängt von Ihrem Programm ab.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>bugtraq:url</term>
+				<listitem>
+					<para>
+						Hier geben Sie die Url zu Ihrem Bugtracking Programm ein. 
+						Die Url muss eine gültige (sprich encodierte) Url sein und
+						<literal>%BUGID%</literal> enthalten.
+						<literal>%BUGID%</literal>
+						wird später durch die Eintragsnummer 
+						ersetzt. Dadurch springt der Client direkt zu dem Eintrag. Wenn 
+						Sie diese Eigenschaft weglassen, zeigt 
+						<application>TortoiseSVN</application> später nur die Eintragsnummer
+						an und keinen Verweis. 
+						Bei <application>TortoiseSVN</application> z.B. 
+						<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>bugtraq:label</term>
+				<listitem>
+					<para>
+						Dieser Text wird von <application>TortoiseSVN</application>
+						im Übertragen Dialog angezeigt. Er beschreibt das Eingabefeld 
+						für die Eintragsnummer. Wird er weggelassen, wird 
+						<guilabel>Bug-ID / Issue-Nr: </guilabel>
+						angezeigt. Beachten Sie bitte, dass der Text nicht zu lang ist, 
+						da er sonst evtl. in <application>TortoiseSVN</application> oder 
+						in anderen Clients einfach abgeschnitten wird. 
+						(empfohlen werden max 20 bis 25 Zeichen)
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>bugtraq:number</term>
+				<listitem>
+					<para>
+						Auf <literal>true</literal> gesetzt, werden, ausser dem Komma nur Zahlen 
+						im Bugtracking Eingabefeld akzeptiert. 
+						Gültige Werte: <literal>true/false</literal>. <emphasis>Wenn keine 
+						Eigenschaft definiert ist, wird <literal>true</literal> angenommen.</emphasis>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>bugtraq:warnifnoissue</term>
+				<listitem>
+					<para>
+						Wenn die Eigenschaft auf <literal>true</literal> gesetzt ist, warnt Sie 
+						<application>TortoiseSVN</application>, falls das Eingabefeld
+						für die Eintragsnummer im Übertragen Dialog leer gelassen wurde. 
+						Das ist nur eine Erinnerungshilfe, falls der Benutzer die Eingabe 
+						vergessen hat. Gültige Werte: <literal>true/false</literal>. Wenn keine Eigenschaft 
+						definiert ist, wird <literal>false</literal> angenommen.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<important>
+			<title>Setzen Sie die Eigenschaften in Ordnern</title>
+			<para>
+				Die obigen Eigenschaften müssen auf Ordner gesetzt sein, damit das
+				System richtig funktioniert. 
+				Wenn Sie sicher gehen können, dass
+				jeder Benutzer z.B. von <filename>trunk/</filename> auscheckt, definieren Sie die Eigenschaften
+				für <filename>trunk/</filename>.
+				<application>TortoiseSVN</application> wird dann die Ordnerstruktur vom aktuellen
+				bis zum obersten Element (z.B. <filename>trunk/</filename>) durchsuchen, ob die Eigenschaften 
+				definiert sind.
+				Wenn sie die Eigenschaften in einem beliebigen Unterordner
+				setzen, überschreiben diese die Einstellungen in einem übergeordneten Ordner. 
+			</para>
+		</important>
+	</para>
+</sect1>

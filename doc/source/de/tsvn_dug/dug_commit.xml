@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-commit">
+	<title>Änderungen in das Projektarchiv übertragen</title>
+	<indexterm>
+		<primary>übertragen</primary>
+	</indexterm>
+	<indexterm>
+		<primary>commit</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_LOGPROMPT"?>
+	<para>
+		Änderungen an Dateien im Projektarchiv abzuspeichern wird auch 
+		<firstterm>Übertragen</firstterm> der Änderungen genannt.
+		Vor dem Übertragen jedoch sollten Sie sicherstellen, dass Ihre
+		Arbeitskopie auch auf dem neuesten Stand ist. Sie können entweder den
+		Befehl
+		<menuchoice>
+			<guimenuitem>Aktualisieren...</guimenuitem>
+		</menuchoice>
+		sofort ausführen oder zunächst mittels
+		<menuchoice>
+			<guimenuitem>Auf Änderungen überprüfen</guimenuitem>
+		</menuchoice>.
+		</para>
+	<para>
+		Wenn Ihre Arbeitskopie auf dem neuesten Stand ist und keine Konflikte
+		vorhanden sind können Sie Ihre Änderungen übertragen. Wählen Sie
+		die Dateien/Ordner aus welche Sie übertragen wollen und wählen Sie
+		den Befehl
+		<menuchoice>
+			<guimenuitem>Übertragen...</guimenuitem>
+		</menuchoice>
+		im Kontextmenu aus. Der folgenden Dialog erscheint:
+		<figure id="tsvn-DUG-commit-dia-1">
+			<title>Der Übertragen Dialog</title>
+			<graphic fileref="images/CommitContextMenu.png"/>
+		</figure>
+	</para>
+	<para>
+		Der Dialog zeigt alle Dateien auf, welche verändert wurden, 
+		einschliesslich der Dateien die Sie hinzugefügt oder gelöscht haben.
+		Auch Dateien, welche noch nicht unter Versionskontrolle stehen werden
+		hier angezeigt. Wenn Sie bestimmte Dateien (noch) nicht übertragen
+		wollen wählen Sie diese einfach ab. Dateien welche noch nicht unter
+		Versionskontrolle stehen können Sie durch auswählen vor dem Übertragen
+		hinzufügen lassen.
+		<tip>
+			<title>Zu viele Dateien werden angezeigt</title>
+			<para>
+				Falls Sie das Gefühl haben dass TortoiseSVN Ihnen viel zu viele
+				Dateien im Übertragungsdialog anzeigt welche nicht unter
+				Versionskontrolle stehen (z.B. vom Kompiler erzeugte Dateien
+				oder Backupdateien vom Editor) haben Sie mehrere Möglichkeiten
+				dies einzugrenzen. Sie können:
+				<itemizedlist>
+					<listitem>
+						<para>
+							diese Dateien in die Maske der temporären Dateien
+							aufnehmen im Eigenschaftsdialog. Dies hat Einfluss auf
+							<emphasis>alle</emphasis> Arbeitskopien gleichzeitig.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Fügen Sie diese Dateien mit dem Befehl
+							<menuchoice>
+								<guimenuitem>Ignorieren</guimenuitem>
+							</menuchoice>
+							zur Liste der ignorierten Dateien hinzu .
+							Dadurch werden diese Dateien in die Ordner-Eigenschaft
+							<literal>svn:ignore</literal> aufgenommen, welche Sie mittels
+							des normalen Eigenschaftsdialog des Explorers (auf der
+							Subversion-Seite) ansehen und ändern können.
+							Dies hat nur Einfluss auf denselben Ordner in der
+							Arbeitskopie, wo Sie diesen Befehl ausführen.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</tip>
+	</para>
+	<para>
+		Durch einen <action>Doppelklick</action> auf irgendeine Datei im
+		Übertragungsdialog wird das Diff-Programm gestartet so dass Sie die
+		Änderungen welche Sie vorgenommen haben genauer ansehen können.
+	</para>
+	<para>
+		Wenn Sie schlussendlich auf <guibutton>OK</guibutton> klicken wird die
+		Übertragung gestartet.
+		<figure id="tsvn-DUG-commit-dia-3">
+			<title>Eine laufende Übertragung im Fortschrittsdialog</title>
+			<graphic fileref="images/CommitProgress.png"/>
+		</figure>
+	</para>
+	<tip>
+		<title>Integration mit Bugtracking Systemen</title>
+		<para>
+			Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei 
+			<guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n)
+			Ihres Bugtracking Programms eingeben. Falls Sie mehrere eingeben, werden 
+			diese dann mit Komma (,) getrennt eingegeben. Mehr dazu können Sie in 
+			<xref linkend="tsvn-DUG-bugtracker"/> lesen. 
+		</para>
+	</tip>
+</sect1>

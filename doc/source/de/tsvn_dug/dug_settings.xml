@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-settings">
+	<title>TortoiseSVN's Einstellungen</title>
+	<indexterm>
+		<primary>Einstellungen</primary>
+	</indexterm>
+	<indexterm>
+		<primary>settings</primary>
+	</indexterm>
+	<para>
+		Um zusätzliche Hilfe für bestimmte Einstellungen zu erhalten lassen
+		Sie den Mauszeiger eine Sekunde lang über den Eingabefeldern, Checkboxen, ...
+		und es wird ein kleiner Tip erscheinen.
+	</para>
+	<sect2 id="tsvn-DUG-settings-main">
+		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
+		<title>Der Einstellungsdialog, Hauptseite</title>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-1">
+				<title>Der Einstellungsdialog, Hauptseite</title>
+				<graphic fileref="images/SettingsMain.png"/>
+			</figure>
+			Abgesehen von der bevorzugten Sprache erlaubt dieser Dialog es Ihnen,
+			(fast) alle Einstellungen von TortoiseSVN zu ändern.
+			<variablelist>
+				<varlistentry>
+					<term>Sprache</term>
+					<listitem>
+						<para>
+							Wählt die Sprache für die Dialoge/Meldungen aus. Was
+							haben Sie anderes erwartet?
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Ausschliessen</term>
+					<listitem>
+						<para>
+							<indexterm>
+								<primary>ausschliessen</primary>
+							</indexterm>
+							Ausgeschlossene, unversionierte Dateien werden nicht angezeigt
+							in z.B. dem Übertragen Dialog. Ausserdem werden solche Dateien
+							beim Importieren in ein Projektarchiv ignoriert.
+							Schliessen Sie Dateien oder Ordner aus durch Angabe von
+							Dateinamen oder Erweiterungen. Die einzelnen Muster werden
+							durch Leerzeichen voneinander getrennt. Zum Beispiel
+							<literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
+							Die ersten beiden Muster beziehen sich auf Ordner, die
+							restlichen vier auf Dateien.
+						</para>
+						<para>
+							Diese Auschluss-Muster beziehen sich auf alle Ihre Projekte.
+							Sie werden nicht versioniert, d.h. andere Benutzer werden davon
+							nichts mitbekommen. Im Gegensatz dazu können Sie jedoch auch
+							die versionierte Eigenschaft <literal>svn:ignore</literal> verwenden, um Dateien
+							und/oder Ordner von der Versionskontrolle auszuschliessen.
+							Sie können die <literal>svn:ignore</literal> Eigenschaft setzen durch den
+							<menuchoice>
+								<guimenuitem>Ignorieren</guimenuitem>
+							</menuchoice>
+							Befehl. Nach dem Übertragen wird jeder Benutzer dieselbe
+							<literal>svn:ignore</literal> Eigenschaft für das Projekt oder den Ordner
+							haben wie Sie.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Anzahl der angezeigten Log-Meldungen</term>
+					<listitem>
+						<para>
+							Beschränkt die Anzahl der angezeigten Log-Meldungen welche
+							TortoiseSVN vom Projektarchiv holt wenn Sie
+							<menuchoice>
+								<guimenuitem>Zeige Log</guimenuitem>
+							</menuchoice>
+							ausführen. Nützlich bei langsamen Verbindungen zum Projektarchiv.
+							Sie können jederzeit alle Log-Meldungen mittels
+							<guibutton>Hole Alle</guibutton>
+							anzeigen lassen.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Bearbeiten</term>
+					<listitem>
+						<para>
+							Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor.
+							Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden
+							sondern nur mittels Bearbeitung der Konfigurationsdatei.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Kurzes Datum/Zeit Format in Log-Meldungen</term>
+					<listitem>
+						<para>
+							Wenn die standarmässig angezeigten langen Datums-/Zeitangaben
+							zu viel Platz einnehmen können Sie hier angeben das kurze
+							Format zu verwenden.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Dateidatum auf <literal>Datum der letzten Übertragung</literal> setzen</term>
+					<listitem>
+						<para>
+							Diese Einstellung zwingt TortoiseSVN das Dateidatum auf das 
+							Datum der letzen Übertragung der Datei zu setzen bei einem
+							Auschecken oder einer Aktualisierung. Ansonsten setzt 
+							TortoiseSVN das aktuelle Datum.
+							Wenn Sie Software entwickeln, ist es normalerweise am besten,
+							das aktuelle Datum zu verwenden, da Systeme zum automatischen
+							Erstellen von Software normalerweise auf die Zeitstempel 
+							zurückgreifen, um zu entscheiden, ob eine Dati übersetzt werden soll.
+							Wenn Sie das <literal>Datum der letzten Übertragung</literal> verwenden und auf eine
+							ältere Dateiversion zurückgreifen, kann es passieren, daß sich das
+							Projekt nicht so übersetzen lässt, wie erwartet.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Fenster automatisch schliessen</term>
+					<listitem>
+						<para>
+							TortoiseSVN wird das Fortschritts-Fenster automatisch schliessen
+							wenn die Operation ohne Fehler abgeschlossen ist.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Prüfe auf Aktualisierung</term>
+					<listitem>
+						<para>
+							Wenn gewählt wird TortoiseSVN einmal pro Woche
+							überprüfen, ob eine neuere Version vorhanden ist.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Minimale Log Grösse in Zeichen</term>
+					<listitem>
+						<para>
+							Die mindestlänge einer Log-Meldung für eine Übertragung.
+							Wenn Sie weniger Zeichen für die Log-Meldung eingeben, bleibt die 
+							<guibutton>OK</guibutton> Schaltfläche deaktiviert.
+							Ein Wert von Null gestattet leere Log-Meldungen.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Log-Meldungen beim Abbruch einer Übertragung nicht löschen</term>
+					<listitem>
+						<para>
+							Wenn aus irgendeinem Grund eine Übertragung abgebrochen wird
+							wird die Log-Meldung gespeichert und beim erneuten Aufruf
+							des Übertragungsdialogs automatisch wieder eingefügt.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Zeige BugID/Issue-Nr. Box</term>
+					<listitem>
+						<para>
+							Zeigt eine Textbox im Übertragungsdialog wo Sie eine Bug-ID
+							oder Issue-Nummer für einen Bugtracker eingeben können.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Log Schablone auf Englisch einfügen</term>
+					<listitem>
+						<para>
+							Das trifft nur zu, wenn sie eine andere Sprache als englisch 
+							ausgewählt haben. Wenn sie das Log Template im Übertragen Dialog
+							hinzufügen, wird der Status jeder Datei in der selektierten 
+							Sprache eingefügt. Mit dieser Option wird der Status immer in 
+							englisch eingefügt. 
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-settings-overlay">
+		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+		<title>Der Einstellungsdialog, Look And Feel Seite</title>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-2">
+				<title>Der Einstellungsdialog, Overlayseite</title>
+				<graphic fileref="images/SettingsOverlay.png"/>
+			</figure>
+			Diese Seite stellt ein, wie die überlagerten Icons angezeigt werden
+			sollen. Für den Fall, dass der Explorer zu langsam reagiert 
+			deaktivieren Sie die Einstellung <literal>Zeige veränderte Ordner</literal>.
+			Sie können auch alle überlagerten Icons deaktivieren, aber wo liegt der Spaß darin?
+		</para>
+		<para>
+			Die <guilabel>Ausschluss Pfade</guilabel> sagen TortoiseSVN für welche
+			Pfade die überlagerten Icons <emphasis>nicht</emphasis> gezeichnet
+			werden sollen. Dies ist nützlich wenn Sie zum Beispiel sehr grosse
+			Arbeitskopien haben, welche grosse externe Bibliotheken, welche Sie
+			selbst nie ändern werden enthalten. Sie können dann diese Pfade
+			ausschliessen. Zum Beispiel:
+		</para>
+		<para>
+			<filename>f:\development\SVN\Subversion</filename> deaktiviert
+			die überlagerten Icons <emphasis>nur</emphasis> für diesen speziellen
+			Ordner. Sie können die Icons noch immer für alle Dateien und Ordner
+			innerhalb sehen.
+		</para>
+		<para>
+			<filename>f:\development\SVN\Subversion*</filename> deaktiviert die
+			überlagerten Icons für <emphasis>alle</emphasis> Dateien und Ordner
+			welcher Pfad mit <filename>f:\development\SVN\Subversion</filename>
+			beginnt. Das bedeutet dass auch für alle Dateien und Ordner innerhalb
+			keine überlagerten Icons angezeigt werden.
+		</para>
+		<para>
+			Das gleiche gilt für die <guilabel>Einschliess Pfade</guilabel>. Nur dass für
+			diese Pfade die Icons auch gezeichnet werden, wenn diese für den entsprechenden
+			Laufwerks-Typ deaktiviert wurden.
+		</para>
+		<para>
+			Ausserdem können Sie angeben, welche Befehle im 
+			Hauptkontextmenu des Explorer angezeigt werden sollen und welche
+			Sie lieber im Untermenu haben wollen.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-settings-network">
+		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
+		<title>Der Einstellungsdialog, Netzwerkseite</title>
+		<indexterm>
+			<primary>Proxy Server</primary>
+		</indexterm>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-4">
+				<title>Der Einstellungsdialog, Netzwerkseite</title>
+				<graphic fileref="images/SettingsProxy.png"/>
+			</figure>
+			Hier können Sie Einstellungen für einen Proxyserver vornehmen,
+			sofern Sie einen solchen überhaupt benutzen.
+		</para>
+		<para>
+			Sie können hier auch angeben, welche Programm TortoiseSVN benutzen
+			soll für eine sichere Verbindung zum Projektarchiv via SSH.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-settings-progs">
+		<?dbhh topicname="HIDD_SETTINGSPROGS"?>
+		<title>Der Einstellungsdialog, Diff/Merge Seite</title>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-5">
+				<title>Der Einstellungsdialog, Diff/Merge Seite</title>
+				<graphic fileref="images/SettingsProgs.png"/>
+			</figure>
+			Hier können Sie Ihre eigenen Diff/Merge Programme definieren, die <application>TortoiseSVN</application>
+			benutzen soll. In der Standardeinstellung wird das mitgelieferte Programm 
+			<application>TortoiseMerge</application> benutzt.
+			<variablelist>
+				<varlistentry>
+					<term>Diff Programm</term>
+					<listitem>
+						<para>
+							Ein externes Diff Programm um verschiedene Revisionen einer Datei zu vergleichen. 
+							Sie können folgende Parameter im Pfad angeben: 
+							<variablelist>
+								<varlistentry>
+									<term>%base</term>
+									<listitem>
+										<para>
+											Die Originaldatei ohne Ihre Änderungen
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%mine</term>
+									<listitem>
+										<para>
+											Ihre eigene Datei mit Ihren Änderungen
+										</para>
+									</listitem>
+								</varlistentry>
+							</variablelist>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Merge Programm</term>
+					<listitem>
+						<para>
+							Ein externes Merge Programm um Konflikte in Dateien aufzulösen. 
+							Sie können folgende Parameter im Pfad angeben: (Die Reihenfolge hängt vom Merge Programm ab)
+							<variablelist>
+								<varlistentry>
+									<term>%base</term>
+									<listitem>
+										<para>
+											Die Originaldatei ohne Ihre oder die anderen Änderungen
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%mine</term>
+									<listitem>
+										<para>
+											Ihre eigene Datei mit Ihren Änderungen
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%theirs</term>
+									<listitem>
+										<para>
+											Die Datei wie Sie im Projektarchiv ist
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%merged</term>
+									<listitem>
+										<para>
+											Die Konfliktdatei (das Ergebnis der Merge Operation)
+										</para>
+									</listitem>
+								</varlistentry>
+							</variablelist>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Diff Betrachter</term>
+					<listitem>
+						<para>
+							Ein Programm um GNU diff Dateien (Patch Dateien) zu betrachten. 
+							Als Standard ist Notepad eingestellt. Sie brauchen keine Parameter anzugeben. 
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-6">
+				<title>Der Einstellungsdialog, Diff/Merge Spezialdialog</title>
+				<graphic fileref="images/SettingsProgsAdv.png"/>
+			</figure>
+			Sie können für jede Dateiendung ein eigenes Diff oder Merge-Programm angeben,
+			wenn Sie möchten. So können Sie z.B. Photoshop als "Diff" Programm für .jpg Dateien
+			festlegen :-)
+		</para>
+	</sect2>
+</sect1>

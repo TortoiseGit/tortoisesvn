@@ -1,4 +1,5 @@
-﻿<appendix id="tsvn-automation">
+<?xml version="1.0"?>
+<appendix id="tsvn-automation">
 	<title>Automatisierung von TortoiseSVN</title>
 	<simplesect>
 		<para>
@@ -18,9 +19,12 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-automation-basics">
 		<title>TortoiseSVN Befehle</title>
-		<indexterm><primary>automation</primary></indexterm>
-		<indexterm><primary>Kommandozeile</primary></indexterm>
-
+		<indexterm>
+			<primary>automation</primary>
+		</indexterm>
+		<indexterm>
+			<primary>Kommandozeile</primary>
+		</indexterm>
 		<para>
 		Alle Befehle werden über den Parameter <option>/command:abcd</option>
 		gesteuert, wobei <literal>abcd</literal> der gewünschte Befehlsname ist.
@@ -35,7 +39,7 @@
 		Übertragung von mehreren Dateien) kann der Pfad Parameter auch eine
 		Liste von verschiedenen Pfaden enthalten, welche jeweils durch das
 		<literal>*</literal> Zeichen getrennt sind.
-		</para>	
+		</para>
 		<para>
 		TortoiseSVN benutzt temporäre Dateien um mehrere Argumente zwischen
 		der Shellextension und dem Hauptprogramm auszutauschen. Deshalb 
@@ -66,8 +70,8 @@
 					<colspec colnum="2" colwidth="3*"/>
 					<thead>
 						<row>
-						<entry>Command</entry>
-						<entry>Description</entry>
+							<entry>Command</entry>
+							<entry>Description</entry>
 						</row>
 					</thead>
 					<tbody>

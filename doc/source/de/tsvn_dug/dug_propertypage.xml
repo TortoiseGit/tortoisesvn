@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-propertypage">
+	<title>Lesen/Schreiben von Informationen über Dateien/Ordner</title>
+	<indexterm>
+		<primary>Eigenschaften</primary>
+	</indexterm>
+	<indexterm>
+		<primary>properties</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-DUG-propertypage-dia-1">
+			<title>Subversion Eigenschaftsseite</title>
+			<graphic fileref="images/Properties.png"/>
+		</figure>
+		Manchmal ist es notwendig, detailliertere Informationen über eine
+		Datei oder Ordner zu haben als mit den überlagerten Icons möglich ist.
+		Sie können diese zusätzlichen Informationen über den Eigenschaftsdialog
+		des Explorers anzeigen. Wählen Sie dazu die Datei oder den Ordner
+		aus, öffnen Sie das Kontextmenu mit der rechten Maustaste und wählen
+		Sie den Eintrag
+		<menuchoice>
+			<guimenuitem>Eigenschaften</guimenuitem>
+		</menuchoice>
+		aus. (Beachten Sie: dies ist der normale Eintrag im Kontextmenu des
+		Explorers und <emphasis>nicht</emphasis> der Eintrag im TortoiseSVN
+		Untermenü!). Im darauffolgenden Eigenschaften-Dialog wählen Sie dann
+		die Seite <literal>TortoiseSVN</literal> aus.
+	</para>
+	<para>
+		Auf dieser Subversion Seite können Sie alle wichtigen Informationen
+		über Dateien/Ordner unter Versionskontrolle ansehen und die speziellen
+		Subversion-Eigenschaften lesen und schreiben. Sie können Ihre eigenen 
+		Eigenschaften hinzufügen oder welche mit einer Speziellen Bedeutung in 
+		Subversion. Diese beginnen alle mit <literal>svn:</literal>. <literal>svn:externals</literal> ist so eine 
+		Eigenschaft, sehen Sie sich das Kapitel 
+		<xref linkend="tsvn-DUG-import-4"/> an, um mehr über 
+		das Thema zu erfahren. 
+		Um mehr Informationen über Eigenschaften in Subversion zu erhalten, 
+		schauen Sie sich das Subversion 
+		<ulink url="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
+			Handbuch 
+		</ulink> an. 
+	</para>
+	<note>
+		<title>Eigenschaften zum Projektarchiv Übertragen</title>
+		<para>
+			Subversion Eigenschaften sind auch unter Versionskontrolle. 
+			Nachdem Sie eine Eigenschaft geändert haben, müssen Sie die Änderungen 
+			zum Projektarchiv übertragen. 
+		</para>
+	</note>
+	<tip>
+		<title>Konflikte in Eigenschaften</title>
+		<para>
+			Sollte es zu einem Konflikt beim übertragen zum Server kommen, weil 
+			ein anderer Benutzer die gleiche Eigenschaft geändert hat, generiert 
+			Subversion eine <filename>.prej</filename> Datei. Löschen Sie diese Datei, nachdem Sie den 
+			Konflikt aufgelöst haben. 
+		</para>
+	</tip>
+	<para>
+		<application>TortoiseSVN</application> kann Bugtracking Tools in Subversion integrieren. 
+		Dies geschieht über Eigenschaften, welche mit <literal>bugtraq:</literal> beginnen.
+		Wie Sie mit diesen Eigenschaften umgehen ist in <xref linkend="tsvn-DUG-bugtracker"/> erklärt. 
+	</para>
+</sect1>

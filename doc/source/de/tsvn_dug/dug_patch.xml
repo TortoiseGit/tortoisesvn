@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-patch">
+	<title>Erzeugen und Anwenden von Patches</title>
+	<indexterm>
+		<primary>patch</primary>
+	</indexterm>
+	<indexterm>
+		<primary>Patchen</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_PATCH"?>
+	<para>
+		In Open Source Projekten (wie diesem) hat jedermann Lesezugriff
+		auf das Projektarchiv, und jeder kann einen Beitrag zum Projekt
+		leisten. Wie sollen diese Beiträge nun kontrolliert werden?
+		Wenn jeder stets seine Änderungen in das Projektarchiv übertragen
+		würde, wäre das Projekt permanent unstabil und wahrscheinlich sogar
+		nicht funktionsfähig.
+		Dieses Prooblem wird gelöst, indem ein <firstterm>Patch</firstterm>
+		an das Entwicklerteam geschickt wird.
+		Die Entwickler können den Patch überprüfen und dann entweder in das
+		Projektarchiv übertragen oder verwerfen und an den Autor zurückschicken.
+	</para>
+	<sect2 id="tsvn-DUG-patch-1">
+		<title>Erzeugen einer Patchdatei</title>
+		<para>
+			Zunächst müssen Sie Ihre Änderungen selbstverständlich selber
+			<emphasis>testen</emphasis>.
+			Anstatt den übergeordneten Ordner zum Projektarchiv zu
+			<menuchoice>
+				<guimenuitem>Übertragen...</guimenuitem>
+			</menuchoice>,
+			wählen Sie
+			<menuchoice>
+				<guimenuitem>Patch erzeugen...</guimenuitem>
+			</menuchoice>
+			Diese Funktion erzeugt eine einzelne Datei, welche eine Zusammenfassung
+			aller Änderungen enthält, die Sie seit der letzten Aktualisierung vorgenommen
+			haben. Wenn Sie eine Patchdatei erzeugen, weitere Änderungen vornehmen
+			und nochmals eine Patchdatei erstellen, so enthält die zweite Patchdatei
+			<emphasis>beide</emphasis> Sätze von Änderungen.
+		</para>
+		<para>
+			Speichern Sie die Datei unter einem Namen Ihrer Wahl. Patchdateien können
+			jede beliebige Dateiendung haben. Eine Konvention ist jedoch, 
+			<filename>.patch</filename> dafür zu verwenden. 
+			Nun Sind Sie so weit. Sie können Ihre Patchdatei an die Entwickler schicken.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-patch-2">
+		<title>Anwenden einer Patchdatei</title>
+		<para>
+			Patchdateien werden stets innerhalb Ihrer Arbeitskopie angewendet.
+			Dies muß innerhalb des selben Ordners durchgeführt werden, in dem
+			dier Patchdatei erstellt wurde. Wenn Sie nicht genau wissen, welcher
+			Ordner das war, schauen Sie in die erste Zeile der Patchdatei.
+			Wenn z.B. die erste bearbeitete Datei
+			<filename>doc/source/english/chapter1.xml</filename>
+			hieß und die erste Zeile in der Patchdatei
+			<filename>Index: english/chapter1.xml</filename>
+			lautet, dann müssen sie den Patch auf den
+			<filename>english</filename> Ordner anwenden.
+		</para>
+		<para>
+			Um den Patch anwenden zu können, benötigen Sie zumindest
+			Lesezugriff auf das Projektarchiv, denn das Programm zum Zusammenführen
+			(Patchen) der Daten muß eventuell auf dieses zurückgreifen, 	um die 
+			Änderungen auf die Revision im Projektarchiv zurückzuführen, auf
+			der sie basieren.
+		</para>
+		<para>
+			Vom Kontextmenü des betroffenen Ordners aus wählen Sie
+			<menuchoice>
+				<guimenuitem>Patch anwenden...</guimenuitem>
+			</menuchoice>
+			Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die 
+			anzuwendende Patchdatei auswähren können. Standardmäßig werden nur 
+			<filename>.patch</filename> Dateien angezeigt, aber sie können auch 
+			<literal>Alle Dateien</literal> auswählen. Öffnen Sie die Datei und TortoiseMerge wird
+			Ihnen eine Liste der Dateien anzeigen, die durch die Patchdatei geändert
+			würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und
+			die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie
+			zusammengeführt und falrblich hervorgehoben. Überprüfen Sie die 
+			Änderungen und speichern Sie die geänderten Dateien.
+		</para>
+		<para>
+			Die Patchdatei wurde nun in Ihrer Arbeitskopie angewendet, so daß Sie
+			nun zum Projektarchiv übertragen werden müssen, um anderen 
+			Projekteilnehmern zur Verfügung zu stehen.
+		</para>
+	</sect2>
+</sect1>

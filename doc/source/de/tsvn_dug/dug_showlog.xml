@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-showlog">
+	<title>Log Dialog</title>
+	<indexterm>
+		<primary>Log</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_LOGMESSAGE"?>
+	<para>
+		Für jede Änderung, welche sie machen und zum Projektarchiv übertragen
+		müssen Sie eine Log-Meldung eingeben, welche die Änderung beschreibt.
+		Damit können Sie später herausfinden, welche Änderungen wer wann
+		gemacht hat. Auf diese Weise haben Sie eine detaillierte Aufzeichnung
+		über den Fortschritt Ihres Projektes.
+	</para>
+	<para>
+		Der Log-Dialog lädt alle diese Log-Meldungen aus dem Projektarchiv und
+		zeigt Ihnen diese, einschliesslich einer Liste der Dateien welche
+		in jeder Übertragung verändert wurden. Aber das ist noch nicht alles
+		- der Log-Dialog stellt auch viele Funktionen zur Verfügung mit
+		denen Sie noch mehr und noch detailliertere Informationen über die
+		Projektgeschichte herausfinden können.
+	</para>
+	<sect2 id="tsvn-DUG-showlog-1">
+		<title>Den Log-Dialog starten</title>
+		<para>
+			<figure id="tsvn-DUG-showlog-1-dia-1">
+				<title>Der Log-Dialog</title>
+				<graphic fileref="images/LogMessages.png"/>
+			</figure>
+			Es gibt mehrere Orte, von denen Sie den Log-Dialog starten können:
+			<itemizedlist>
+				<listitem>
+					<para>
+						Aus dem TortoiseSVN Kontextmenu.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Aus der Eigenschaftsseite
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Aus dem Fortschritts-Dialog, nachdem eine Aktualisierung
+						beendet wurde. Dann jedoch zeigt der Log-Dialog nur
+						die Einträge, welche seit Ihrer letzten Aktualisierung
+						gemacht wurden.
+					</para>
+				</listitem>
+			</itemizedlist>
+			<tip>
+				<title>Integration mit Bugtracking Tools</title>
+				<para>
+					Wenn Sie eine Eintragsnummer beim Übertragen angegeben haben und 
+					die Eigenschaft <literal>bugtraq:url</literal> gesetzt haben, 
+					sehen Sie am Ende des Logtextes einen Verweis mit der Eintragsnummer. 
+					Wenn Sie auf diesen Verweis klicken, wird Ihr Standard Webbrowser 
+					gestartet und die Seite mit dem zugeordneten Eintrag angezeigt. 
+					Wenn Sie die Eigenschaft <literal>bugtraq:url</literal> nicht gesetzt haben wird 
+					die Eintragsummer ohne Verweis angezeigt. 
+					(<xref linkend="tsvn-DUG-bugtracker"/>)
+				</para>
+			</tip>
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-showlog-2">
+		<title>Zusätzliche Informationen erhalten</title>
+		<para>
+			<figure id="tsvn-DUG-showlog-2-dia-1">
+				<title>Log-Dialog mit Kontextmenu</title>
+				<graphic fileref="images/LogContextMenu.png"/>
+			</figure>
+			<figure id="tsvn-DUG-showlog-2-dia-2">
+				<title>Log-Dialog mit Kontextmenu</title>
+				<graphic fileref="images/LogContextMenu2.png"/>
+			</figure>
+			Der Log Dialog hat ein Kontextmenu, welches Ihnen erlaubt:
+			<itemizedlist>
+				<listitem>
+					<para>
+						Ein Diff-Programm zu starten, um Ihnen die Änderungen
+						zu zeigen welche seit der gewählten Revision vorgenommen
+						worden. Nur möglich, wenn der Log Dialog für eine
+						einzelne Datei gezeigt wird.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Die Datei zu speichern, wie sie in der gewählten
+						Revision ausgesehen hat. Nur möglich wenn der Log
+						Dialog für eine einzelne Datei gezeigt wird.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Einen Zweig oder eine Markierung für die gewählte
+						Revision zu erstellen. Dies ist nützlich für den Fall
+						dass sie vergessen haben eine bestimmte Version Ihres
+						Projektes zu markieren und Sie seitdem bereits weitere
+						Änderungen in das Projektarchiv übertragen haben.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Änderungen, welche Sie in einer bestimmten Revision
+						gemacht haben rückgängig zu machen. Die Änderungen
+						werden in Ihrer Arbeitskopie rückgängig gemacht, das
+						Projektarchiv selbst bleibt unverändert.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Ein externes Standard-Diff Anzeigeprogramm zu starten,
+						um die Änderungen einer Revision zu sehen.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Ein Standard-Diff von zwischen zwei gewählten
+						Revisionen anzuzeigen. Damit können Sie herausfinden,
+						was genau sich zwischen zwei Zeitpunkten an Ihrem
+						Projekt geändert hat.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Ihre Arbeitskopie auf eine bestimmte Revision zu
+						aktualisieren. Nützlich wenn Sie möchten dass Ihre
+						Arbeitskopie einen Zustand in der Vergangenheit beschreibt.
+					</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-showlog-3">
+		<title>Anzeigen aller Log-Meldungen</title>
+		<para>
+			Der Log Dialog zeigt nicht immer alle Änderungen die jemals
+			gemacht wurden an. Dies aus mehreren Gründen:
+			<itemizedlist>
+				<listitem>
+					<para>
+						Bei einem großen Projektarchiv können hunderte oder
+						gar tausende von Änderungen gespeichert sein. Und diese
+						alle Änderungen auf einmal zu laden kann sehr lange
+						dauern. Normalerweise ist man auch nur an den letzten
+						Meldungen interessiert. Standardmässig werden beim
+						ersten Aufruf des Log Dialogs die letzten hundert
+						Log-Meldungen angezeigt, aber dieser Wert kann im
+						Einstellungs-Dialog geändert werden.
+						<menuchoice>
+							<guimenuitem>Einstellungen</guimenuitem>
+						</menuchoice>
+						(<xref linkend="tsvn-DUG-settings"/>),
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Wenn Sie den Log Dialog für einen Zweig oder eine
+						Markierung anzeigen, so werden nur die Log Meldungen
+						angezeigt bis zu dem Punkt, wo der Zweig/Markierung
+						erstellt wurde. Dies gibt eine schnelle Möglichkeit
+						herauszufinden, in welcher Revision ein Zweig erstellt
+						wurde.
+					</para>
+					<para>
+						Beachten Sie bitte, daß dies nur für Ihre Arbeitskopie gilt.
+						Wenn Sie mit dem Projektarchiv Betrachter arbeiten,
+						werden Log-Meldungen über Verzweigungspunkte hinaus verfolgt.
+					</para>
+				</listitem>
+			</itemizedlist>
+			Wenn Sie wirklich <emphasis>alle</emphasis> Log Meldungen zurück
+			bis zur Revision 1 sehen möchten, klicken Sie auf 
+			<guibutton>Hole Alle</guibutton>.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-showlog-4">
+		<title>Ändern der Log-Meldung und des Autors</title>
+		<para>
+			Manchmal ist es notwendig, eine Log-Meldung nachträglich zu ändern.
+			Sei es weil die Meldung Rechtschreibfehler enthält oder weil Sie
+			die Meldung mit mehr Informationen erweitern müssen oder aus
+			anderen Gründen Oder Sie müssen den Author der Revision ändern,
+			weil Sie vielleicht vergessen haben eine Authentifizierung für
+			Übertragungen auf dem Server einzurichten oder...
+		</para>
+		<para>
+			Subversion lässt Sie beides, Log-Meldungen und den Autor einer 
+			Revision, ändern. Aber da solche Änderungen nicht wieder rückgängig
+			gemacht werden können (diese Änderungen werden nicht aufgezeichnet)
+			ist diese Funktion standardmässig deaktiviert. Um diese Funktion
+			zu aktivieren, müssen Sie einen pre-revprop-change und einen
+			post-revprop-change hook auf dem Server einrichten. Bitte lesen
+			Sie dazu das entsprechende Kapitel im Subversion-Buch, wie das
+			gemacht wird.
+		</para>
+		<para>
+			Sobald Sie den Server mit den erwähnten Hooks eingerichtet haben
+			können Sie sowohl den Autor als auch die Log-Meldung einer 
+			jeden Revision nachträglich ändern. Um dies mit TortoiseSVN zu tun
+			müssen Sie entweder in die <emphasis>Autor</emphasis> oder die
+			<emphasis>Log-Meldung</emphasis> Spalte der gewünschten Revision
+			im Log-Dialog <action>doppelklicken</action>, während Sie die SHIFT-Taste gedrückt halten.
+			Wenn Sie die SHIFT-Taste nicht gedrückt halten oder auf eine andere
+			Spalte doppelklicken wird die Standardaktion für Doppelklicks
+			ausgeführt (Anzeige der Änderungen dieser Revision).
+		</para>
+		<warning>
+			<para>
+				Da die Revisionseigenschaften (z.B. <literal>svn:log</literal> für Log-Meldungen) 
+				in Subversion nicht aufgezeichnet werden, überschreiben Änderungen 
+				den alten Wert für <emphasis>immer</emphasis>.
+			</para>
+		</warning>
+	</sect2>
+</sect1>

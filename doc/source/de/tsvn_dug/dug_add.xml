@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-add">
+	<title>Neue Dateien und Ordner hinzufügen</title>
+	<indexterm>
+		<primary>hinzufügen</primary>
+	</indexterm>
+	<indexterm>
+		<primary>add</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_ADD"?>
+	<para>
+		<figure id="tsvn-DUG-adding-dia-1">
+			<title>Kontextmenü für nicht versionierte Dateien</title>
+			<graphic fileref="images/ContextMenuFileNoControl.png"/>
+		</figure>
+		Wenn Sie neue Dateien und/oder Ordner während Ihrer Arbeit erstellen
+		müssen Sie diese auch zur Versionskontrolle hinzufügen. Wählen Sie
+		diese Dateien und/oder Ordner aus und wählen Sie dann den Befehl
+		<menuchoice>
+			<guimenuitem>Hinzufügen...</guimenuitem>
+		</menuchoice>
+		im Kontextmenü.
+	</para>
+	<para>
+		Nachdem Sie die Dateien/Ordner zur Versionskontrolle hinzugefügt haben
+		erscheinen diese mit einem Pluszeichen als überlagertes Icon im
+		Explorer, was bedeutet dass diese bei der nächsten Übertragung
+		in das Projektarchiv mit aufgenommen werden. Beachten Sie dass das
+		Hinzufügen alleine die Dateien/Ordner <emphasis>nicht</emphasis>
+		im Projektarchiv speichert.
+	</para>
+	<para>
+		<tip>
+			<title>Multiples Hinzufügen</title>
+			<para>
+				Sie können den Hinzufügen-Befehl auch auf bereits versionierte
+				Ordner anwenden. In diesem Falle zeigt Ihnen der Hinzufügen-
+				Dialog alle noch nicht versionierten Dateien/Ordner innerhalb
+				dieses Ordners an. Dies ist hilfreich wenn Sie viele neue
+				Dateien auf einmal in die Versionskontrolle aufnehmen wollen.
+			</para>
+		</tip>
+	</para>
+	<para>
+		Wenn Sie Dateien von ausserhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie
+		hinzufügen möchten können Sie auch den drag-and-drop
+		Handler verwenden:
+		<orderedlist>
+			<listitem>
+				<para>
+					Wählen Sie die Dateien aus welche Sie hinzufügen
+					möchten.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<action>Ziehen</action> Sie diese Dateien mit gedrückter
+					rechter Maustaste an den neuen Ort innerhalb Ihrer
+					Arbeitskopie.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Lassen Sie die rechte Maustaste los
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Im erscheinenden Popupmenü wählen Sie 
+					<menuchoice>
+						<guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem>
+					</menuchoice>.
+					Die Dateien werden dann in die Arbeitskopie kopiert und zur 
+					Versionskontrolle hinzugefügt.
+				</para>
+			</listitem>
+		</orderedlist>
+	</para>
+</sect1>

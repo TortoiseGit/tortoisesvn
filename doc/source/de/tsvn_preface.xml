@@ -1,7 +1,8 @@
-﻿<preface id="tsvn-ch-0">
+<?xml version="1.0"?>
+<preface id="tsvn-preface">
 	<title>Vorwort</title>
 	<simplesect>
-			<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
+		<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
 	</simplesect>
 	<simplesect>
 		<para>
@@ -73,8 +74,8 @@
 		Zugang zum Sourcecode des Programms. Sie können den Sourcecode
 		unter folgendem Link:
 		<ulink url="http://svn.collab.net/repos/tortoisesvn/">
-		<citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle>
-		</ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer
+				<citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle>
+			</ulink>ansehen. Die aktuellste Version (an welcher wir arbeiten) ist immer
 		im Ordner <filename>/trunk/</filename> zu finden. Die bereits
 		veröffentlichten Versionen sind im Ordner <filename>/tags/</filename>.
 		</para>
@@ -154,30 +155,29 @@
 			</variablelist>
 		</para>
 	</sect1>
-
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-ch-0-sect-5">
 		<title>In diesem Dokument verwendete Terminologie</title>
-    <para>
+		<para>
     Um das Lesen der Dokumentation einfacher zu gestalten, sind die Namen
     aller Masken und Menüs von TortoiseSVN in einer anderen Schrift hervorgehoben.
     Der <guilabel>Log Dialog</guilabel> zum Beispiel.
     </para>
-    <para>
+		<para>
     Eine Menüauswahl wird durch einen Pfeil angedeutet.
     <menuchoice>
-      <guimenu>TortoiseSVN</guimenu>
-      <guimenuitem>Zeige Log</guimenuitem>
-    </menuchoice> bedeutet: Wählen Sie <emphasis>Zeige Log</emphasis> aus dem
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Zeige Log</guimenuitem>
+			</menuchoice> bedeutet: Wählen Sie <emphasis>Zeige Log</emphasis> aus dem
     <emphasis>TortoiseSVN</emphasis> Kontextmenü.
     </para>
-    <para>
+		<para>
 		Schaltflächen weden durch einen 3D Effekt hervorgehoben: Drücken Sie
     <guibutton>OK</guibutton>, um weiterzumachen.
 		</para>
-    <para>
+		<para>
     Benutzeraktionen werden durch Fettdruck hervorgehoben.
     <action>ALT+A</action>: Drücken Sie die
     <keycap>ALT</keycap>-Taste und während Sie diese gedrückt halten, die
@@ -185,21 +185,21 @@
     <action>Rechts-Ziehen</action>: Halten Sie die rechte Maustaste gedrückt und
     <emphasis>ziehen</emphasis> Sie die gewählten Einträge an den neuen Ort.
     </para>
-    <para>
+		<para>
     Systemausgaben und Tastatureingaben werden durch einen <literal>anderen</literal>
     Zeichensatz hervorgehoben.
     </para>
-    <important>
-    <para>Wichtige Hinweise im Dokument.</para>
+		<important>
+			<para>Wichtige Hinweise im Dokument.</para>
 		</important>
-    <tip>
-		<para>Tips, die Ihre Arbeit mit Subversion erleichtern.</para>
+		<tip>
+			<para>Tips, die Ihre Arbeit mit Subversion erleichtern.</para>
 		</tip>
-    <caution>
-		<para>Stellen, an denen Sie vorsichtig sein müssen, was sie tun.</para>
+		<caution>
+			<para>Stellen, an denen Sie vorsichtig sein müssen, was sie tun.</para>
 		</caution>
-    <warning>
-		<para>Stellen, an denen extreme Vorsicht geboten ist. Nichtbeachtung dieser 
+		<warning>
+			<para>Stellen, an denen extreme Vorsicht geboten ist. Nichtbeachtung dieser 
     Warnungen kann zu irreparablen Datenverlusten führen.</para>
 		</warning>
 	</sect1>
