@@ -23,6 +23,7 @@
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
 #ifdef _MFC_VER
+#	include "SVN.h"
 #	include "MessageBox.h"
 #	include "registry.h"
 #endif
@@ -101,6 +102,7 @@ SVNStatus::SVNStatus(void)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
+	SVN::UseIEProxySettings(ctx.config);
 #endif
 }
 

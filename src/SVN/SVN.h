@@ -502,6 +502,7 @@ public:
 	static CStringA MakeSVNUrlOrPath(CString UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
 
+	static void UseIEProxySettings(apr_hash_t * cfg);
 	svn_error_t *				Err;			///< Global error object struct
 private:
 	svn_auth_baton_t *			auth_baton;

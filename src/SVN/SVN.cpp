@@ -23,6 +23,7 @@
 #include "client.h"
 #include "UnicodeUtils.h"
 #include <shlwapi.h>
+#include "wininet.h"
 
 SVN::SVN(void)
 {
@@ -111,6 +112,7 @@ SVN::SVN(void)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
+	UseIEProxySettings(ctx.config);
 }
 
 SVN::~SVN(void)
@@ -1370,4 +1372,84 @@ CString SVN::MakeUIUrlOrPath(CStringA UrlOrPath)
 	}
 	CString url = CUnicodeUtils::GetUnicode(UrlOrPath);
 	return url;
+}
+
+void SVN::UseIEProxySettings(apr_hash_t * cfg)
+{
+	CStringA exceptions;
+	CStringA port;
+	CStringA proxy;
+	CStringA temp;
+	const char * valuep;
+	INTERNET_PER_CONN_OPTION_LIST    List;
+	INTERNET_PER_CONN_OPTION         Option[5];
+	unsigned long                    nSize = sizeof(INTERNET_PER_CONN_OPTION_LIST);
+
+	Option[0].dwOption = INTERNET_PER_CONN_AUTOCONFIG_URL;
+	Option[1].dwOption = INTERNET_PER_CONN_AUTODISCOVERY_FLAGS;
+	Option[2].dwOption = INTERNET_PER_CONN_FLAGS;
+	Option[3].dwOption = INTERNET_PER_CONN_PROXY_BYPASS;
+	Option[4].dwOption = INTERNET_PER_CONN_PROXY_SERVER;
+
+	List.dwSize = sizeof(INTERNET_PER_CONN_OPTION_LIST);
+	List.pszConnection = NULL;
+	List.dwOptionCount = 5;
+	List.dwOptionError = 0;
+	List.pOptions = Option;
+
+	if(!InternetQueryOption(NULL, INTERNET_OPTION_PER_CONNECTION_OPTION, &List, &nSize))
+		return;
+
+	if((Option[2].Value.dwValue & PROXY_TYPE_AUTO_PROXY_URL) == PROXY_TYPE_AUTO_PROXY_URL)
+		goto ERROR_LABEL;
+
+	if((Option[2].Value.dwValue & PROXY_TYPE_AUTO_DETECT) == PROXY_TYPE_AUTO_DETECT)
+		goto ERROR_LABEL;
+
+	exceptions = CStringA(Option[3].Value.pszValue);
+	exceptions.Replace(';', ',');
+	proxy = CStringA(Option[4].Value.pszValue);
+	if (proxy.Find(';')>=0)
+	{
+		if (proxy.Find("http=")>=0)
+		{
+			temp = proxy.Mid(proxy.Find("http=")+5);
+			temp = temp.Left(temp.Find(';'));
+		}
+		if ((temp.IsEmpty())&&(proxy.Find("https=")>=0))
+		{
+			temp = proxy.Mid(proxy.Find("https=")+6);
+			temp = temp.Left(temp.Find(';'));
+		}
+		proxy = temp;
+	}
+	if (proxy.Find(':')>=0)
+	{
+		port = proxy.Mid(proxy.Find(':')+1);
+		proxy = proxy.Left(proxy.Find(':'));
+	}
+
+	svn_config_t * opt = (svn_config_t *)apr_hash_get (cfg, SVN_CONFIG_CATEGORY_SERVERS,
+		APR_HASH_KEY_STRING);
+	svn_config_get(opt, &valuep, SVN_CONFIG_SECTION_GLOBAL, "http-proxy-exceptions", "");
+	exceptions += ",";
+	exceptions += valuep;
+	svn_config_set(opt, SVN_CONFIG_SECTION_GLOBAL, "http-proxy-exceptions", exceptions);
+	
+	svn_config_set(opt, SVN_CONFIG_SECTION_GLOBAL, "http-proxy-host", proxy);
+	
+	svn_config_set(opt, SVN_CONFIG_SECTION_GLOBAL, "http-proxy-port", port);
+
+
+
+ERROR_LABEL:
+	if(Option[0].Value.pszValue != NULL)
+		GlobalFree(Option[0].Value.pszValue);
+
+	if(Option[3].Value.pszValue != NULL)
+		GlobalFree(Option[3].Value.pszValue);
+
+	if(Option[4].Value.pszValue != NULL)
+		GlobalFree(Option[4].Value.pszValue);
+	return;
 }
