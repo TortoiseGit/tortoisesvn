@@ -249,7 +249,20 @@
 		directory tree in the URL then you might end up with a full 
 		harddisk since you will get a copy of each branch and also 
 		each tag of your project!
-		</para>	
+		</para>
+		
+		<sidebar>
+			<title>Exporting</title>
+			<para>
+			Sometimes you may want a working copy without any of those 
+			<filename>.svn</filename> directories, e.g. to create a zipped
+			tarball of your source. Instead of making a copy and then delete
+			all those directories manually, TortoiseSVN offers the command
+			<guimenuitem>Export...</guimenuitem>. If you execute this command
+			on your working copy you'll be asked for a place to save the
+			"clean" working copy.
+			</para>
+		</sidebar>
 	</sect1>
 
 	<!-- ================================================================= -->
