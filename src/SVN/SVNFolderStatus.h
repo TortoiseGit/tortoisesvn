@@ -38,15 +38,86 @@
 
 #include "SVNStatus.h"
 #include <map>
+#include <set>
 
-#define MAX_AUTHORLENGTH 50
+/**
+ * \ingroup TortoiseShell
+ * a simple utility class:
+ * stores unique copies of given string values,
+ * i.e. for a given value, always the same const char*
+ * will be returned.
+ * 
+ * The strings returned are owned by the pool!
+ *
+ * \par requirements
+ * win98 or later\n
+ * win2k or later\n
+ *
+ * \version 1.0
+ * first version
+ *
+ * \date 10-27-2003
+ *
+ * \author Stefan Fuhrmann
+ *
+ * \par license
+ * This code is absolutely free to use and modify. The code is provided "as is" with
+ * no expressed or implied warranty. The author accepts no liability if it causes
+ * any damage to your computer, causes your pet to fall ill, increases baldness
+ * or makes your car start emitting strange noises when you start it up.
+ * This code has no bugs, just undocumented features!
+ * 
+ * \todo 
+ *
+ * \bug 
+ *
+ */
+class StringPool
+{
+public:
+
+	StringPool() {emptyString[0] = 0;}
+	~StringPool() {clear();}
+	
+	/**
+	 * Return a string equal to value from the internal pool.
+	 * If no such string is available, a new one is allocated.
+	 * NULL is valid for value.
+	 */
+	const char* GetString (const char* value);
+	
+	/**
+	 * invalidates all strings returned by GetString()
+	 * frees all internal data
+	 */
+	void clear();
+	
+private:
+
+	// comperator: compare C-style strings
+	
+	struct LessString
+	{
+		bool operator()(const char* lhs, const char* rhs) const
+		{
+			return strcmp (lhs, rhs) < 0;
+		}
+	};
+	
+	// store the strings in a map
+	// caution: modifying the map must not modify the string pointers
+	
+	typedef std::set<const char*, LessString> pool_type;
+	pool_type pool;
+	char emptyString[1];
+};
+
 
 typedef struct filestatuscache
 {
-	//TCHAR					filename[MAX_PATH];
 	svn_wc_status_kind		status;
-	char					author[MAX_AUTHORLENGTH];
-	char					url[MAX_PATH];
+	const char*				author;		///< points to a (possibly) shared value
+	const char*				url;		///< points to a (possibly) shared value
 	svn_revnum_t			rev;
 	int						askedcounter;
 } filestatuscache;
@@ -111,5 +182,12 @@ private:
 	ShellCache			shellCache;
 	filestatuscache		dirstat;
 	filestatuscache		filestat;
+	
+	// merging these pools won't save memory
+	// but access will become slower
+	
+	StringPool		authors;       
+	StringPool		urls;
+	char			emptyString[1];
 };
 

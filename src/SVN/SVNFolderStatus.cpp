@@ -22,14 +22,67 @@
 #include "SVNFolderStatus.h"
 #include "UnicodeUtils.h"
 
+// get / auto-alloc a string "copy"
+
+const char* StringPool::GetString (const char* value)
+{
+	// special case: NULL pointer
+	
+	if (value == NULL)
+	{
+		return emptyString;
+	}
+
+	// do we already have a string with the desired value?
+
+	pool_type::const_iterator iter = pool.find (value);
+	if (iter != pool.end())
+	{
+		ATLTRACE2("found %s\n", (char*)*iter);
+		// yes -> return it
+		return *iter;
+	}
+	
+	// no -> add one	
+	
+	const char* newString =  strdup (value);
+	if (newString)
+	{
+		pool.insert (newString);
+	}
+	else
+		return emptyString;
+	
+	// .. and return it
+	
+	return newString;
+}
+
+// clear internal pool
+
+void StringPool::clear()
+{
+	// delete all strings
+
+	for (pool_type::iterator iter = pool.begin(), end = pool.end(); iter != end; ++iter)
+	{
+		delete *iter;
+	}
+		
+	// remove pointers from pool
+		
+	pool.clear();
+}
+	
 
 SVNFolderStatus::SVNFolderStatus(void)
 {
 	m_TimeStamp = 0;
-	invalidstatus.author[0] = 0;
+	emptyString[0] = 0;
+	invalidstatus.author = emptyString;
 	invalidstatus.askedcounter = -1;
 	invalidstatus.status = svn_wc_status_unversioned;
-	invalidstatus.url[0] = 0;
+	invalidstatus.url = emptyString;
 	invalidstatus.rev = -1;
 }
 
@@ -69,28 +122,34 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	svn_pool_clear(this->m_pool);
 
 	m_cache.clear();
+	
+	// strings pools are unused, now -> we may clear them
+	
+	authors.clear();
+	urls.clear();
+	
 	ATLTRACE2(_T("building cache for %s\n"), filepath);
 	BOOL isFolder = PathIsDirectory(filepath);
 
 	if (isFolder)
 	{
 		GetStatus(filepath);
+		
+		// initialize record members
+		
 		dirstat.rev = -1;
 		dirstat.status = svn_wc_status_unversioned;
+		dirstat.author = authors.GetString(NULL);
+		dirstat.url = urls.GetString(NULL);
+		dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 
 		if (status)
 		{
 			//if (status.status->entry)
 			if (status->entry)
 			{
-				if (status->entry->cmt_author)
-					strncpy(dirstat.author, status->entry->cmt_author, MAX_AUTHORLENGTH);
-				else
-					dirstat.author[0] = 0;
-				if (status->entry->url)
-					strncpy(dirstat.url, status->entry->url, MAX_PATH);
-				else
-					dirstat.url[0] = 0;
+				dirstat.author = authors.GetString (status->entry->cmt_author);
+				dirstat.url = authors.GetString (status->entry->url);
 				dirstat.rev = status->entry->cmt_rev;
 			} // if (status.status->entry)
 			dirstat.status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, status->text_status);
@@ -100,7 +159,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 				dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
 			}
 		} // if (status.status)
-		dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 		m_cache[filepath] = dirstat;
 		m_TimeStamp = GetTickCount();
 		svn_pool_destroy (pool);				//free allocated memory
@@ -134,7 +192,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 							internalpath,
 							&rev,
 							fillstatusmap,
-							&m_cache,
+							this,
 							FALSE,		//descend
 							TRUE,		//getall
 							FALSE,		//update
@@ -225,21 +283,20 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 
 void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)
 {
-	std::map<stdstring, filestatuscache> * cache = (std::map<stdstring, filestatuscache> *)baton;
+	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
+	std::map<stdstring, filestatuscache> * cache = (std::map<stdstring, filestatuscache> *)(&Stat->m_cache);
 	filestatuscache s;
 	TCHAR * key = NULL;
 	if (status->entry)
 	{
-		if (status->entry->cmt_author)
-			strncpy(s.author, status->entry->cmt_author, MAX_AUTHORLENGTH-1);
-		if (status->entry->url)
-			strncpy(s.url, status->entry->url, MAX_PATH-1);
+		s.author = Stat->authors.GetString(status->entry->cmt_author);
+		s.url = Stat->urls.GetString(status->entry->url);
 		s.rev = status->entry->cmt_rev;
 	} // if (status->entry) 
 	else
 	{
-		s.author[0] = 0;
-		s.url[0] = 0;
+		s.author = Stat->authors.GetString(NULL);
+		s.url = Stat->urls.GetString(NULL);
 		s.rev = -1;
 	}
 	s.status = svn_wc_status_unversioned;
