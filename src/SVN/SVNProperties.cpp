@@ -159,7 +159,7 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 			//UTF8, so convert to the native format.
 			if (svn_prop_needs_translation (pname_utf8))
 			{
-				error = svn_subst_detranslate_string (&propval, propval, m_pool);
+				error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
 				if (error != NULL)
 					return NULL;
 			}
