@@ -38,6 +38,7 @@ BOOL CHistoryCombo::PreCreateWindow(CREATESTRUCT& cs)
 {
 	if (!m_bAllowSortStyle)  //turn off CBS_SORT style
 		cs.style &= ~CBS_SORT;
+	cs.style |= CBS_AUTOHSCROLL;
 	return CComboBoxEx::PreCreateWindow(cs);
 }
 
