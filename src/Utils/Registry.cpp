@@ -74,9 +74,11 @@ DWORD	CRegDWORD::read()
 		else
 		{
 			RegCloseKey(m_hKey);
+			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
-	}
+	} // if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	m_value = m_defaultvalue;
 	return m_defaultvalue;
 }
 
@@ -177,9 +179,11 @@ CString	CRegString::read()
 		{
 			delete [] pStr;
 			RegCloseKey(m_hKey);
+			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
-	}
+	} // if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	m_value = m_defaultvalue;
 	return m_defaultvalue;
 }
 
@@ -283,9 +287,11 @@ CRect	CRegRect::read()
 		{
 			delete [] pRect;
 			RegCloseKey(m_hKey);
+			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
-	}
+	} // if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	m_value = m_defaultvalue;
 	return m_defaultvalue;
 }
 
@@ -386,9 +392,11 @@ CPoint	CRegPoint::read()
 		{
 			delete [] pPoint;
 			RegCloseKey(m_hKey);
+			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
-	}
+	} // if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	m_value = m_defaultvalue;
 	return m_defaultvalue;
 }
 
@@ -489,9 +497,11 @@ stdstring	CRegStdString::read()
 		{
 			delete [] pStr;
 			RegCloseKey(m_hKey);
+			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
-	}
+	} // if (RegOpenKeyEx(m_base, m_path.c_str(), 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	m_value = m_defaultvalue;
 	return m_defaultvalue;
 }
 
@@ -592,9 +602,11 @@ DWORD	CRegStdWORD::read()
 		else
 		{
 			RegCloseKey(m_hKey);
+			m_value = m_defaultvalue;
 			return m_defaultvalue;
 		}
-	}
+	} // if (RegOpenKeyEx(m_base, m_path.c_str(), 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	m_value = m_defaultvalue;
 	return m_defaultvalue;
 }
 
