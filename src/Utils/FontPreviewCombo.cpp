@@ -84,7 +84,7 @@ BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme,
 	} // if (_tcscmp(buf, lpelfe->elfLogFont.lfFaceName)==0 
 	int index = pThis->AddString(lpelfe->elfLogFont.lfFaceName);
 	ASSERT(index!=-1);
-	int maxLen = lpntme->ntmTm.tmMaxCharWidth * _tcslen(lpelfe->elfLogFont.lfFaceName);
+	int maxLen = (int)(lpntme->ntmTm.tmMaxCharWidth * _tcslen(lpelfe->elfLogFont.lfFaceName));
 	int ret = pThis->SetItemData (index, FontType); 
 
 	ASSERT(ret!=-1);
@@ -155,7 +155,7 @@ void CFontPreviewCombo::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 	GetLBText(lpDIS->itemID, csCurFontName);
 
 	// draw the cute TTF glyph
-	DWORD dwData = GetItemData(lpDIS->itemID);
+	DWORD dwData = (DWORD)GetItemData(lpDIS->itemID);
 	if (dwData & TRUETYPE_FONTTYPE)
 	{
 		m_img.Draw(&dc, 0, CPoint(rc.left+5, rc.top+4),ILD_TRANSPARENT);
