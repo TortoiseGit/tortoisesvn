@@ -889,6 +889,8 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 				GetEncoderClsid(L"image/jpeg", &encoderClsid);
 			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
 				GetEncoderClsid(L"image/bmp", &encoderClsid);
+			else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
+				GetEncoderClsid(L"image/gif", &encoderClsid);
 			else
 			{
 				tempfile += _T(".jpg");
