@@ -89,7 +89,7 @@ public:
     * \param sPath    The path to search in.
     * \param sPattern The filename pattern - default all files.
     */
-   CSimpleFileFind(const CString &sPath, const CString &sPattern = _T("*.*"));
+   CSimpleFileFind(const CString &sPath, LPCTSTR pPattern = _T("*.*"));
    ~CSimpleFileFind();
 
    /**
@@ -176,7 +176,7 @@ public:
     *
     * \return TRUE iff the current file is a directory.
     */
-   inline BOOL IsDirectory()
+   inline bool IsDirectory()
    {
       return !!(m_FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
    }
@@ -277,8 +277,11 @@ public:
     * \param  result On successful return, holds the full path to the found
     *                file. (If this function returns FALSE, the value of
     *                result is unspecified).
+	* \param  pbIsDirectory Pointer to a bool variable which will hold
+	*                TRUE if the \c result path is a directory, FALSE
+	*				 if it's a file. Pass NULL if you don't need that information.
     * \return TRUE iff a file was found, false at end of the iteration.
     */
-   BOOL NextFile(CString &result);
+   BOOL NextFile(CString &result, bool* pbIsDirectory);
 };
 

@@ -504,13 +504,13 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 			DWORD current = 0;
 			// first, count all the items we have to copy
 			CString srcfile;
-			while (lister1.NextFile(srcfile))
+			while (lister1.NextFile(srcfile, NULL))
 			{
 				if (srcfile.Find(_T(SVN_WC_ADM_DIR_NAME))<0)
 					maxval++;
 			}
 			CDirFileEnum lister2(srcPath);
-			while (lister2.NextFile(srcfile))
+			while (lister2.NextFile(srcfile, NULL))
 			{
 				if (srcfile.Find(_T(SVN_WC_ADM_DIR_NAME))>=0)
 					continue;	// exclude everything inside an admin directory

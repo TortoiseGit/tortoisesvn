@@ -19,7 +19,7 @@
 #include "DirFileEnum.h"
 
 
-CSimpleFileFind::CSimpleFileFind(const CString &sPath, const CString &sPattern) :
+CSimpleFileFind::CSimpleFileFind(const CString &sPath, LPCTSTR pPattern) :
    m_bFirst(TRUE),
    m_dError(ERROR_SUCCESS),
    m_sPathPrefix(sPath)
@@ -36,7 +36,7 @@ CSimpleFileFind::CSimpleFileFind(const CString &sPath, const CString &sPattern) 
       }
    }
 
-   m_hFindFile = ::FindFirstFile((LPCTSTR)m_sPathPrefix + sPattern, &m_FindFileData); 
+   m_hFindFile = ::FindFirstFile((LPCTSTR)(m_sPathPrefix + pPattern), &m_FindFileData); 
    if (m_hFindFile == INVALID_HANDLE_VALUE) {
       m_dError = ::GetLastError();
    }
@@ -148,7 +148,7 @@ CDirFileEnum::~CDirFileEnum()
    }
 }
 
-BOOL CDirFileEnum::NextFile(CString &sResult)
+BOOL CDirFileEnum::NextFile(CString &sResult, bool* pbIsDirectory)
 {
    if (m_bIsNew) {
       // Special-case first time - haven't found anything yet,
@@ -163,8 +163,13 @@ BOOL CDirFileEnum::NextFile(CString &sResult)
       PopStack();
    }
 
-   if (m_seStack) {
+   if (m_seStack) 
+   {
       sResult = m_seStack->GetFilePath();
+	  if(pbIsDirectory != NULL)
+	  {
+		  *pbIsDirectory = m_seStack->IsDirectory();
+	  }
       return TRUE;
    } else {
       return FALSE;

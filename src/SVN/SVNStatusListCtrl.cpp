@@ -318,7 +318,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					//we have an unversioned folder -> get all files in it recursively!
 					CDirFileEnum filefinder(strbuf);
 					CString filename;
-					while (filefinder.NextFile(filename))
+					bool bIsDirectory;
+					while (filefinder.NextFile(filename,&bIsDirectory))
 					{
 						filename.Replace('\\', '/');
 						if (!config.MatchIgnorePattern(filename,pIgnorePatterns))
@@ -337,8 +338,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							entry->inexternal = FALSE;
 							entry->direct = FALSE;
 							m_arStatusArray.Add(entry);
-							filename.Replace('/', '\\');
-							entry->isfolder = PathIsDirectory(filename);
+//							filename.Replace('/', '\\');
+							entry->isfolder = bIsDirectory; // PathIsDirectory(filename);
 						}
 					} // while (filefinder.NextFile(filename))
 				}
@@ -380,15 +381,18 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 						} 
 					} // if (s->entry)
 
-					temp = strbuf;
+					if(arExtPaths.GetCount() > 0)
+					{
+						CString strCurrentFilePath(strbuf);
 					for (int ix=0; ix<arExtPaths.GetCount(); ix++)
 					{
-						CString t = arExtPaths.GetAt(ix);
-						if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
+							CString strExternalPath = arExtPaths.GetAt(ix);
+							if (strExternalPath.CompareNoCase(strCurrentFilePath.Left(strExternalPath.GetLength()))==0)
 						{
 							bIsExternal = TRUE;
 							break;
 						}
+					}
 					}
 
 					if (s->text_status == svn_wc_status_external)
@@ -425,19 +429,20 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					}
 
 					m_arStatusArray.Add(entry);
-					if ((entry->status == svn_wc_status_unversioned)&&(!config.MatchIgnorePattern(strbuf,pIgnorePatterns)))
+					if ((entry->status == svn_wc_status_unversioned)&&(!config.MatchIgnorePattern(entry->path,pIgnorePatterns)))
 					{
 						if (PathIsDirectory(strbuf))
 						{
 							//we have an unversioned folder -> get all files in it recursively!
 							CDirFileEnum filefinder(strbuf);
 							CString filename;
-							while (filefinder.NextFile(filename))
+							bool bIsDirectory;
+							while (filefinder.NextFile(filename, &bIsDirectory))
 							{
 								if (!config.MatchIgnorePattern(filename, pIgnorePatterns))
 								{
-									filename.Replace('\\', '/');
 									FileEntry * entry = new FileEntry();
+									filename.Replace('\\', '/');
 									entry->path = filename;									
 									entry->basepath = strLine;
 									entry->status = svn_wc_status_unversioned;
@@ -450,8 +455,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 									entry->checked = FALSE;
 									entry->inexternal = FALSE;
 									entry->direct = FALSE;
-									filename.Replace('/', '\\');
-									entry->isfolder = PathIsDirectory(filename);
+									entry->isfolder = bIsDirectory; // PathIsDirectory(filename);
 									m_arStatusArray.Add(entry);
 								}
 							} // while (filefinder.NextFile(filename))
