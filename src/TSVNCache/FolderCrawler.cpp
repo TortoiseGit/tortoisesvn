@@ -48,7 +48,9 @@ CFolderCrawler::Initialise()
 	// Don't call Initalise more than once
 	ATLASSERT(m_hThread == INVALID_HANDLE_VALUE);
 
+	OutputDebugStringA("TSVNCache : CFolderCrawler::Initialise waiting for lock\n");
 	AutoLocker lock(m_critSec);
+	OutputDebugStringA("TSVNCache : CFolderCrawler::Initialise got lock\n");
 
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
@@ -68,7 +70,9 @@ CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 	ATLASSERT(path.IsDirectory());
 
 	{
+		OutputDebugStringA("TSVNCache : CFolderCrawler::AddDirectoryForUpdate waiting for lock\n");
 		AutoLocker lock(m_critSec);
+		OutputDebugStringA("TSVNCache : CFolderCrawler::AddDirectoryForUpdate got lock\n");
 		m_foldersToUpdate.push_back(path);
 	}
 
@@ -120,7 +124,9 @@ void CFolderCrawler::WorkerThread()
 			}
 
 			{
+				OutputDebugStringA("TSVNCache : CFolderCrawler::WorkerThread waiting for lock\n");
 				AutoLocker lock(m_critSec);
+				OutputDebugStringA("TSVNCache : CFolderCrawler::WorkerThread got lock\n");
 				if(m_foldersToUpdate.empty())
 				{
 					// Nothing left to do 
@@ -160,6 +166,5 @@ void CFolderCrawler::WorkerThread()
 
 void CFolderCrawler::SetHoldoff()
 {
-	AutoLocker lock(m_critSec);
 	m_crawlHoldoffReleasesAt = (long)GetTickCount() + 100;
 }
