@@ -326,6 +326,7 @@ BEGIN
                             "Shows a graphical representation of copies/tags/branches"
     IDS_TT_TSVNPROJECTLANGUAGE 
                             "tsvn:projectlanguage\nSet this to the language number you want your log messages written in.\nTortoiseSVN will then load the appropriate spell checker module if available."
+    IDS_TT_BQLOGREGEX       "bugtraq:logregex\ntwo regular expressions separated by a newline\nThe first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
 END
 
 #endif    // English (U.S.) resources

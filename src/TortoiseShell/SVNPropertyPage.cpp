@@ -185,10 +185,11 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 
 				if (iShowProps & FOLDERPROPS)
 				{
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:url"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:logregex"));
 					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:label"));
 					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:message"));
 					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:number"));
-					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:url"));
 					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:warnifnoissue"));
 					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:append"));
 
@@ -338,6 +339,11 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				if (_tcscmp(name, _T("bugtraq:append"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_BQAPPEND, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+				if (_tcscmp(name, _T("bugtraq:logregex"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_BQLOGREGEX, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
 				}
 				if (_tcscmp(name, _T("tsvn:logtemplate"))==0)

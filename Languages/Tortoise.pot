@@ -3140,6 +3140,10 @@ msgstr ""
 msgid "bugtraq:label\nLabel text to show for the edit box where the user enters the issue number."
 msgstr ""
 
+#: ID:15,
+msgid "bugtraq:logregex\ntwo regular expressions separated by a newline\nThe first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+
 #: ID:14,
 msgid "bugtraq:message\nString which is appended to a log message when an issue number is entered.\nThe string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
