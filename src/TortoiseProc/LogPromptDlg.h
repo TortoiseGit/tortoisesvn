@@ -90,6 +90,7 @@ private:
 	CFont			m_logFont;
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
+	CString			m_sBugID;
 public:
 };
 

@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetOverlayPage.h"
-#include ".\setoverlaypage.h"
+#include "Globals.h"
 
 
 // CSetOverlayPage dialog
@@ -44,6 +44,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regDriveMaskCDROM = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
 	m_regDriveMaskRAM = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
 	m_regDriveMaskUnknown = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
+	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 
 	m_bShowChangedDirs = m_regShowChangedDirs;
 	m_bOnlyExplorer = m_regOnlyExplorer;
@@ -53,6 +54,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_bCDROM = m_regDriveMaskCDROM;
 	m_bRAM = m_regDriveMaskRAM;
 	m_bUnknown = m_regDriveMaskUnknown;
+	m_topmenu = m_regTopmenu;
 }
 
 CSetOverlayPage::~CSetOverlayPage()
@@ -71,6 +73,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_UNKNOWN, m_bUnknown);
 	DDX_Control(pDX, IDC_DRIVEGROUP, m_cDriveGroup);
 	DDX_Check(pDX, IDC_ONLYEXPLORER, m_bOnlyExplorer);
+	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
 }
 
 
@@ -83,6 +86,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_UNKNOWN, OnBnClickedUnknown)
 	ON_BN_CLICKED(IDC_RAM, OnBnClickedRam)
 	ON_BN_CLICKED(IDC_ONLYEXPLORER, OnBnClickedOnlyexplorer)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
 END_MESSAGE_MAP()
 
 
@@ -98,6 +102,7 @@ void CSetOverlayPage::SaveData()
 		m_regDriveMaskCDROM = m_bCDROM;
 		m_regDriveMaskRAM = m_bRAM;
 		m_regDriveMaskUnknown = m_bUnknown;
+		m_regTopmenu = m_topmenu;
 	}
 }
 
@@ -110,6 +115,57 @@ BOOL CSetOverlayPage::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
+	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
+	
+
+	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
+
+	m_cMenuList.DeleteAllItems();
+	int c = ((CHeaderCtrl*)(m_cMenuList.GetDlgItem(0)))->GetItemCount()-1;
+	while (c>=0)
+		m_cMenuList.DeleteColumn(c--);
+	m_cMenuList.InsertColumn(0, _T(""));
+
+	m_cMenuList.SetRedraw(false);
+
+	m_imgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
+
+	InsertItem(IDS_MENUCHECKOUT, IDI_CHECKOUT, MENUCHECKOUT);
+	InsertItem(IDS_MENUUPDATE, IDI_UPDATE, MENUUPDATE);
+	InsertItem(IDS_MENUCOMMIT, IDI_COMMIT, MENUCOMMIT);
+	InsertItem(IDS_MENUDIFF, IDI_DIFF, MENUDIFF);
+	InsertItem(IDS_MENULOG, IDI_LOG, MENULOG);
+	InsertItem(IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, MENUSHOWCHANGED);
+	InsertItem(IDS_MENUREPOBROWSE, IDI_REPOBROWSE, MENUREPOBROWSE);
+	InsertItem(IDS_MENUCONFLICT, IDI_CONFLICT, MENUCONFLICTEDITOR);
+	InsertItem(IDS_MENURESOLVE, IDI_RESOLVE, MENURESOLVE);
+	InsertItem(IDS_MENUUPDATEEXT, IDI_UPDATE, MENUUPDATEEXT);
+	InsertItem(IDS_MENURENAME, IDI_RENAME, MENURENAME);
+	InsertItem(IDS_MENUREMOVE, IDI_DELETE, MENUREMOVE);
+	InsertItem(IDS_MENUREVERT, IDI_REVERT, MENUREVERT);
+	InsertItem(IDS_MENUCLEANUP, IDI_CLEANUP, MENUCLEANUP);
+	InsertItem(IDS_MENUBRANCH, IDI_COPY, MENUCOPY);
+	InsertItem(IDS_MENUSWITCH, IDI_SWITCH, MENUSWITCH);
+	InsertItem(IDS_MENUMERGE, IDI_MERGE, MENUMERGE);
+	InsertItem(IDS_MENUEXPORT, IDI_EXPORT, MENUEXPORT);
+	InsertItem(IDS_MENURELOCATE, IDI_RELOCATE, MENURELOCATE);
+	InsertItem(IDS_MENUCREATEREPOS, IDI_CREATEREPOS, MENUCREATEREPOS);
+	InsertItem(IDS_MENUADD, IDI_ADD, MENUADD);
+	InsertItem(IDS_MENUIMPORT, IDI_IMPORT, MENUIMPORT);
+	InsertItem(IDS_MENUBLAME, IDI_BLAME, MENUBLAME);
+	InsertItem(IDS_MENUIGNORE, IDI_IGNORE, MENUIGNORE);
+	InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH);
+	InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH);
+
+	m_cMenuList.SetImageList(&m_imgList, LVSIL_SMALL);
+	int mincol = 0;
+	int maxcol = ((CHeaderCtrl*)(m_cMenuList.GetDlgItem(0)))->GetItemCount()-1;
+	int col;
+	for (col = mincol; col <= maxcol; col++)
+	{
+		m_cMenuList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
+	m_cMenuList.SetRedraw(true);
 
 	m_bInitialized = TRUE;
 
@@ -173,3 +229,54 @@ BOOL CSetOverlayPage::OnApply()
 	return CPropertyPage::OnApply();
 }
 
+void CSetOverlayPage::InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags)
+{
+	HICON hIcon = reinterpret_cast<HICON>(::LoadImage(AfxGetResourceHandle(),
+		MAKEINTRESOURCE(nIconID),
+		IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT ));
+	int nImage = m_imgList.Add(hIcon);
+	CString temp;
+	temp.LoadString(nTextID);
+	int nIndex = m_cMenuList.GetItemCount();
+	m_cMenuList.InsertItem(nIndex, temp, nImage);
+	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+	m_cMenuList.SetCheck(nIndex, topmenu & dwFlags);
+}
+
+void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	SetModified(TRUE);
+	if (m_cMenuList.GetItemCount() > 0)
+	{
+		int i=0;
+		m_topmenu = 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCHECKOUT : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATE : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOMMIT : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFF : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENULOG : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSHOWCHANGED : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREPOBROWSE : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCONFLICTEDITOR : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURESOLVE : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATEEXT : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURENAME : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREMOVE : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREVERT : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCLEANUP : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOPY : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSWITCH : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUMERGE : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUEXPORT : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURELOCATE : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEREPOS : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUADD : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUIMPORT : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUBLAME : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUIGNORE : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEPATCH : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
+	} // if (m_cMenuList.GetItemCount() > 0) 
+	*pResult = 0;
+}

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -25,7 +25,6 @@
 #define IDD_ADD                         155
 #define IDD_RELOCATE                    157
 #define IDD_CHANGEDFILES                158
-#define IDD_SETTINGSMENU                159
 #define IDD_SIMPLEPROMPT                160
 #define IDD_INPUTDLG                    161
 #define IDD_BLAME                       162
@@ -178,6 +177,7 @@
 #define IDC_MSGVIEW                     1077
 #define IDC_EXCEPTIONS                  1077
 #define IDC_MINLOGSIZE                  1077
+#define IDC_BUGID                       1077
 #define IDC_DRIVEGROUP                  1079
 #define IDC_PROXYGROUP                  1080
 #define IDC_SSHGROUP                    1081
@@ -222,6 +222,8 @@
 #define IDC_REVISION_HEAD1              1115
 #define IDC_REVISION_N1                 1116
 #define IDC_REVISION_START              1118
+#define IDC_BUGIDLABEL                  1119
+#define IDC_SHOWBUGIDBOX                1120
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -423,6 +425,7 @@
 #define IDS_SPELLEDIT_CORRECTIONS       3001
 #define IDS_SETTINGS_CHECKNEWER_TT      3100
 #define IDS_SETTINGS_ONLYEXPLORER_TT    3101
+#define IDS_SETTINGS_MENULAYOUT_TT      3102
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202
@@ -446,7 +449,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        178
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1119
+#define _APS_NEXT_CONTROL_VALUE         1121
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

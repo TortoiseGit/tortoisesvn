@@ -21,7 +21,6 @@
 #include "SetMainPage.h"
 #include "SetProxyPage.h"
 #include "SetOverlayPage.h"
-#include "SetMenuPage.h"
 #include "SetProgsPage.h"
 
 
@@ -71,7 +70,6 @@ private:
 	CSetMainPage *		m_pMainPage;
 	CSetProxyPage *		m_pProxyPage;
 	CSetOverlayPage *	m_pOverlayPage;
-	CSetMenuPage *		m_pMenuPage;
 	CSetProgsPage *		m_pProgsPage;
 
 public:

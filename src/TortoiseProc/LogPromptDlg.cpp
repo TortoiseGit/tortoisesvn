@@ -52,6 +52,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_LogMessage);
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 }
 
 
@@ -152,7 +153,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
-	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)m_sLogMessage.GetLength())
 	{
@@ -162,7 +162,23 @@ BOOL CLogPromptDlg::OnInitDialog()
 	{
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
+	
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\UseBugTracker"), FALSE) == FALSE)
+	{
+		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
+	}
+	else
+	{
+		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_BUGID)->SetFocus();
+	}
+	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
+	AddAnchor(IDC_BUGID, TOP_RIGHT);
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
@@ -277,6 +293,13 @@ void CLogPromptDlg::OnOK()
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	m_bBlock = FALSE;
+	if (!m_sBugID.IsEmpty())
+	{
+		CString sBugID = CRegString(_T("Software\\TortoiseSVN\\BugIDFormat"), _T("Bug-ID: %BUGID%"));
+		sBugID.Replace(_T("%BUGID%"), m_sBugID);
+		m_sLogMessage += _T("\n") + sBugID + _T("\n");
+		UpdateData(FALSE);		
+	}
 	CResizableDialog::OnOK();
 }
 

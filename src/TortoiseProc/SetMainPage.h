@@ -101,6 +101,8 @@ private:
 	BOOL			m_bCheckNewer;
 	CRegDWORD		m_regMinLogSize;
 	DWORD			m_nMinLogSize;
+	CRegDWORD		m_regShowBugBox;
+	BOOL			m_bShowBugBox;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -118,4 +120,5 @@ public:
 	afx_msg void OnBnClickedCommitfiletimes();
 	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnEnChangeMinlogsize();
+	afx_msg void OnBnClickedShowbugidbox();
 };
