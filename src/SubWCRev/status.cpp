@@ -4,6 +4,7 @@
 #include "svn_client.h"
 #include "svn_wc.h"
 #include "svn_path.h"
+#include "svn_utf.h"
 
 extern BOOL bHasMods;
 extern apr_time_t WCDate;
@@ -63,6 +64,8 @@ svn_status (       const char *path,
   void *edit_baton;
   const svn_wc_entry_t *entry;
   svn_revnum_t edit_revision = SVN_INVALID_REVNUM;
+
+  svn_utf_initialize(pool);
 
   /* Need to lock the tree as even a non-recursive status requires the
      immediate directories to be locked. */

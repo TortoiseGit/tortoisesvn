@@ -267,7 +267,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	apr_initialize();
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 	memset (&ctx, 0, sizeof (ctx));
-
 	internalpath = svn_path_internal_style (wc, pool);
 	LONG highestrev = 0;
 	svnerr = svn_status(	internalpath,	//path
@@ -276,10 +275,18 @@ int _tmain(int argc, _TCHAR* argv[])
 							&ctx,
 							pool);
 
+	if (svnerr)
+	{
+		svn_handle_error(svnerr, stderr, FALSE);
+	}
 	char wcfullpath[MAX_PATH];
 	LPTSTR dummy;
 	GetFullPathName(wc, MAX_PATH, wcfullpath, &dummy);
 	apr_terminate2();
+	if (svnerr)
+	{
+		return 9;
+	}
 	if ((bErrOnMods)&&(bHasMods))
 	{
 		printf("%s has local modifications!\n", wcfullpath);
