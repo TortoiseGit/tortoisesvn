@@ -99,6 +99,8 @@
 #define IDC_BUTTON22                    1061
 #define IDC_FGYOURSREMOVED              1061
 #define IDC_LANGUAGECOMBO               1062
+#define IDC_CHECK1                      1063
+#define IDC_LINENUMBERS                 1063
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDC_WEBLINK                     1084
@@ -113,7 +115,6 @@
 #define ID_INDICATOR_RIGHTVIEW          2001
 #define ID_INDICATOR_BOTTOMVIEW         2002
 #define IDS_COMMONFILEFILTER            2500
-#define IDS_PROGRAMSFILEFILTER          2501
 #define IDS_PATCHFILEFILTER             2501
 #define IDS_STATUSBAR_REMOVEDLINES      3000
 #define IDS_STATUSBAR_ADDEDLINES        3001
@@ -142,7 +143,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32784
-#define _APS_NEXT_CONTROL_VALUE         1063
+#define _APS_NEXT_CONTROL_VALUE         1064
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

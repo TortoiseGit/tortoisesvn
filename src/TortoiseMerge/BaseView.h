@@ -124,6 +124,7 @@ protected:
 	LPCTSTR			GetLineChars(int index);
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
+	int				GetMarginWidth();
 
 	virtual BOOL	ShallShowContextMenu(CDiffData::DiffStates state, int nLine);
 	virtual	void	OnContextMenu(CPoint point, int nLine);
@@ -136,7 +137,7 @@ protected:
 
 	BOOL			m_bModified;
 	BOOL			m_bFocused;
-
+	BOOL			m_bViewLinenumbers;
 	int				m_nLineHeight;
 	int				m_nCharWidth;
 	int				m_nMaxLineLength;
@@ -144,6 +145,7 @@ protected:
 	int				m_nScreenChars;
 	int				m_nOffsetChar;
 	int				m_nTabSize;
+	int				m_nDigits;
 
 	int				m_nSelBlockStart;
 	int				m_nSelBlockEnd;

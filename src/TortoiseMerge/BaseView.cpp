@@ -54,7 +54,9 @@ CBaseView::CBaseView()
 	m_nScreenLines = -1;
 	m_nTopLine = 0;
 	m_nOffsetChar = 0;
+	m_nDigits = 0;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
+	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;
@@ -144,7 +146,9 @@ void CBaseView::DocumentUpdated()
 	m_nScreenLines = -1;
 	m_nTopLine = 0;
 	m_bModified = FALSE;
+	m_nDigits = 0;
 	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
+	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -672,7 +676,40 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		{
 			::DrawIconEx(pdc->m_hDC, rect.left + 2, rect.top + (rect.Height()-16)/2, icon, 16, 16, NULL, NULL, DI_NORMAL);
 		}
+		if ((m_bViewLinenumbers)&&(m_nDigits))
+		{
+			CString sLinenumber;
+			sLinenumber.Format(_T("%%%dd"), m_nDigits);
+			sLinenumber.Format(sLinenumber, nLineIndex+1);
+			pdc->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
+			pdc->SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
+
+			pdc->SelectObject(GetFont());
+			pdc->ExtTextOut(rect.left + 18, rect.top, ETO_CLIPPED, &rect, sLinenumber, NULL);
+		} // if (m_bViewLinenumbers) 
 	} // if (nLineIndex >= 0)
+}
+
+int CBaseView::GetMarginWidth()
+{
+	if ((m_bViewLinenumbers)&&(m_arLineStates)&&(m_arLineStates->GetCount()))
+	{
+		int nWidth = GetCharWidth();
+		if (m_nDigits <= 0)
+		{
+			int nLength = m_arLineStates->GetCount();
+			// find out how many digits are needed to show the highest linenumber
+			int nDigits = 0;
+			while (nLength % 10)
+			{
+				nDigits++;
+				nLength /= 10;
+			} // while (nLength % 10) 
+			m_nDigits = nDigits;
+		} // if (m_nDigits <= 0)
+		return (MARGINWIDTH + (m_nDigits * nWidth) + 2);
+	} // if ((m_arLineStates)&&(m_arLineStates->GetCount())) 
+	return MARGINWIDTH;
 }
 
 void CBaseView::OnDraw(CDC * pDC)
@@ -710,8 +747,8 @@ void CBaseView::OnDraw(CDC * pDC)
 	rcLine = rcClient;
 	rcLine.top += nLineHeight+HEADERHEIGHT;
 	rcLine.bottom = rcLine.top + nLineHeight;
-	CRect rcCacheMargin(0, 0, MARGINWIDTH, nLineHeight);
-	CRect rcCacheLine(MARGINWIDTH, 0, rcLine.Width(), nLineHeight);
+	CRect rcCacheMargin(0, 0, GetMarginWidth(), nLineHeight);
+	CRect rcCacheLine(GetMarginWidth(), 0, rcLine.Width(), nLineHeight);
 
 	int nCurrentLine = m_nTopLine;
 	while (rcLine.top < rcClient.bottom)

@@ -63,6 +63,8 @@ protected:
 	CRegDWORD		m_regOnePane;
 	DWORD			m_nIgnoreWS;
 	CRegDWORD		m_regIgnoreWS;
+	BOOL			m_bViewLinenumbers;
+	CRegDWORD		m_regViewLinenumbers;
 	
 	CRegDWORD		m_regFontSize;
 	DWORD			m_dwFontSize;
@@ -72,7 +74,7 @@ protected:
 	CComboBox		m_LanguageCombo;
 	CFontPreviewCombo m_cFontNames;
 	CComboBox m_cFontSizes;
-public:
+protected:
 	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnBnClickedBackup();
 	afx_msg void OnBnClickedIgnorelf();
@@ -84,4 +86,5 @@ public:
 	afx_msg void OnEnChangeTabsize();
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
+	afx_msg void OnBnClickedLinenumbers();
 };

@@ -35,6 +35,7 @@ CSetMainPage::CSetMainPage()
 	, m_nTabSize(0)
 	, m_bIgnoreEOL(FALSE)
 	, m_bOnePane(FALSE)
+	, m_bViewLinenumbers(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
@@ -43,6 +44,7 @@ CSetMainPage::CSetMainPage()
 	m_regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);	
 	m_regOnePane = CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"));
 	m_regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	m_regViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	
 	m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
@@ -54,6 +56,7 @@ CSetMainPage::CSetMainPage()
 	m_bIgnoreEOL = m_regIgnoreEOL;
 	m_bOnePane = m_regOnePane;
 	m_nIgnoreWS = m_regIgnoreWS;
+	m_bViewLinenumbers = m_regViewLinenumbers;
 }
 
 CSetMainPage::~CSetMainPage()
@@ -74,6 +77,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 	m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
+	DDX_Check(pDX, IDC_LINENUMBERS, m_bViewLinenumbers);
 }
 
 void CSetMainPage::SaveData()
@@ -87,6 +91,7 @@ void CSetMainPage::SaveData()
 	m_regIgnoreWS = m_nIgnoreWS;
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
+	m_regViewLinenumbers = m_bViewLinenumbers;
 }
 
 BOOL CSetMainPage::OnApply()
@@ -115,6 +120,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_nIgnoreWS = m_regIgnoreWS;
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
+	m_bViewLinenumbers = m_regViewLinenumbers;
 
 	UINT uRadio = IDC_WSIGNORELEADING;
 	switch (m_nIgnoreWS)
@@ -200,6 +206,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_WSCOMPARE, OnBnClickedWscompare)
 	ON_BN_CLICKED(IDC_WSIGNORELEADING, OnBnClickedWsignoreleading)
 	ON_BN_CLICKED(IDC_WSIGNOREALL, OnBnClickedWsignoreall)
+	ON_BN_CLICKED(IDC_LINENUMBERS, OnBnClickedLinenumbers)
 	ON_EN_CHANGE(IDC_TABSIZE, OnEnChangeTabsize)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
@@ -229,6 +236,11 @@ void CSetMainPage::OnBnClickedOnepane()
 }
 
 void CSetMainPage::OnBnClickedFirstdiffonload()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedLinenumbers()
 {
 	SetModified();
 }
@@ -307,5 +319,6 @@ void CSetMainPage::OnCbnSelchangeFontnames()
 {
 	SetModified();
 }
+
 
 
