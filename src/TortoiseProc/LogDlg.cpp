@@ -289,7 +289,6 @@ void CLogDlg::OnCancel()
 
 BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges, BOOL copies)
 {
-	LONG ticks = GetTickCount();
 	CString temp;
 	int found = 0;
 	m_LogList.SetRedraw(FALSE);
@@ -364,7 +363,6 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 		m_LogList.SetRedraw();
 	}
 	m_bGotRevisions = TRUE;
-	m_runningTime += (GetTickCount()-ticks);
 	return TRUE;
 }
 
@@ -374,7 +372,6 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CLogDlg*	pDlg;
 	pDlg = (CLogDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
-	pDlg->m_runningTime = 0;
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
@@ -448,7 +445,6 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	TRACE(_T("\nrunning time: %d\n"), pDlg->m_runningTime);
 	return 0;
 }
 

@@ -133,7 +133,6 @@ public:
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
 	ProjectProperties m_ProjectProperties;
-	LONG		m_runningTime;
 private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
