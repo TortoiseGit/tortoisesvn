@@ -503,7 +503,7 @@ void CBaseView::RecalcVertScrollBar(BOOL bPositionOnly /*= FALSE*/)
 		} // if (GetScreenLines() >= GetLineCount() && m_nTopLine > 0) 
 		si.fMask = SIF_DISABLENOSCROLL | SIF_PAGE | SIF_POS | SIF_RANGE;
 		si.nMin = 0;
-		si.nMax = GetAllLineCount() - 1;
+		si.nMax = GetAllLineCount();
 		si.nPage = GetAllMinScreenLines();
 		si.nPos = m_nTopLine;
 	}
