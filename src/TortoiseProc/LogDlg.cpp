@@ -215,6 +215,7 @@ void CLogDlg::OnBnClickedGetall()
 	m_arRevs.RemoveAll();
 	m_arAuthors.RemoveAll();
 	m_arDates.RemoveAll();
+	m_arCopies.RemoveAll();
 	m_logcounter = 0;
 	m_endrev = 1;
 	m_startrev = -1;

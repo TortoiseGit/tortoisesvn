@@ -14,6 +14,8 @@ Version 1.1.3
 - CHG: Improved refreshing of icons after a TSVN operation. (Will)
 - CHG: Major code cleanup throughout the whole project. (Will)
 - CHG: Use the same colors for the authors in all graphs. (Stefan)
+- BUG: The coloring of 'copied' revisions in the log dialog didn't work
+       correctly after a "Show All". (Stefan)
 - BUG: The revision graph got confused with renames. (Stefan)
 - BUG: The focused item was lost in the repository browser when closing
        a tree item. (George Wieggers)
