@@ -264,16 +264,19 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
-					SVNProperties props = SVNProperties(path.c_str());
-					for (int i=0; i<props.GetCount(); i++)
+					if (g_ShellCache.IsPathAllowed(path.c_str()))
 					{
-						if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
+						SVNProperties props = SVNProperties(path.c_str());
+						for (int i=0; i<props.GetCount(); i++)
 						{
+							if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
+							{
 #ifdef UNICODE
-						szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
+								szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
 #else
-						szInfo = props.GetItemValue(i);
+								szInfo = props.GetItemValue(i);
 #endif
+							}
 						}
 					}
 				} // if (dwWaitResult == WAIT_OBJECT_0)
