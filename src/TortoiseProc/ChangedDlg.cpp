@@ -157,7 +157,8 @@ void CChangedDlg::AddEntry(CString file, svn_wc_status_t * status)
 	if ((text > svn_wc_status_normal)||(repo > svn_wc_status_normal))
 	{
 		TCHAR buf[MAX_PATH];
-		m_FileListCtrl.InsertItem(index, file);
+		CString sRelPath = file.Mid(m_path.GetLength()+1);
+		m_FileListCtrl.InsertItem(index, sRelPath);
 		//SVNStatus::GetStatusString(text, buf);
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), text, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 		m_FileListCtrl.SetItemText(index, 1, buf);
