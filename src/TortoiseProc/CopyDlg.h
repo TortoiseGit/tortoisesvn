@@ -72,17 +72,20 @@ protected:
 	afx_msg void OnCbnSelchangeOldlogs();
 	afx_msg void OnCbnCloseupOldlogs();
 	DECLARE_MESSAGE_MAP()
+
+public:
+	CString	m_URL;
+	CString m_path;
+	CString m_sLogMessage;
+	BOOL m_bDirectCopy;
+
+private:
 	CFont		m_logFont;
 	BOOL		m_bFile;
 	ProjectProperties	m_ProjectProperties;
 	CString		m_sBugID;
-public:
 	CHistoryCombo m_URLCombo;
-	CString	m_URL;
-	CString m_path;
 	CString m_wcURL;
 	CButton m_butBrowse;
-	CString m_sLogMessage;
-	BOOL m_bDirectCopy;
 	CHistoryCombo m_OldLogs;
 };
