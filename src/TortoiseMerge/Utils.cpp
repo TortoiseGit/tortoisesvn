@@ -30,8 +30,15 @@ CUtils::~CUtils(void)
 
 BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd /*=NULL*/)
 {
-	CString sSCMPath = CRegString(_T("TortoiseMerge\\SCMPath"),
-		_T("F:\\Development\\SVN\\TortoiseSVN\\bin\\Release\\TortoiseProc.exe /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4"));
+	CString sSCMPath = CRegString(_T("Software\\TortoiseMerge\\SCMPath"), _T(""));
+	if (sSCMPath.IsEmpty())
+	{
+		// no path set, so use TortoiseSVN as default
+		sSCMPath = CRegString(_T("Software\\TortoiseSVN\\ProcPath"), _T(""), false, HKEY_LOCAL_MACHINE);
+		if (sSCMPath.IsEmpty())
+			return FALSE;
+		sSCMPath += _T(" /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4");
+	} // if (sSCMPath.IsEmpty()) 
 	CString sTemp;
 	sTemp.Format(_T("%d"), hWnd);
 	sSCMPath.Replace(_T("%1"), sPath);
