@@ -53,21 +53,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
 
-
-	TCHAR pathbuf[MAX_PATH+4];
-	_tcscpy(pathbuf, filepath);
-	PathRemoveFileSpec(pathbuf);
-	PathAddBackslash(pathbuf);
-	UINT drivetype = GetDriveType(pathbuf);
-	if ((drivetype == DRIVE_REMOVABLE)&&(!shellCache.IsRemovable()))
-		return &invalidstatus;
-	if ((drivetype == DRIVE_FIXED)&&(!shellCache.IsFixed()))
-		return &invalidstatus;
-	if ((drivetype == DRIVE_REMOTE)&&(!shellCache.IsRemote()))
-		return &invalidstatus;
-	if ((drivetype == DRIVE_CDROM)&&(!shellCache.IsCDRom()))
-		return &invalidstatus;
-
 	//ATLTRACE2(_T("building cache for %s\n"), filepath);
 	BOOL isFolder = PathIsDirectory(filepath);
 
@@ -110,7 +95,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	//it's a file, not a folder. So fill in the cache with
 	//all files inside the same folder as the asked file is
 	//since subversion can do this in one step
-
+	TCHAR pathbuf[MAX_PATH+4];
 	_tcscpy(pathbuf, filepath);
 	if (!isFolder)
 	{
@@ -289,7 +274,6 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 {
 	TCHAR * filename;
 	TCHAR * filepathnonconst = (LPTSTR)filepath;
-	BOOL isFolder = PathIsDirectory(filepath);
 
 	//first change the filename to 'internal' format
 	for (UINT i=0; i<_tcsclen(filepath); i++)
@@ -299,7 +283,11 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 	} // for (int i=0; i<_tcsclen(filename); i++)
 	filename = _tcsrchr(filepath, _T('/')) + 1;
 
+	if (! shellCache.IsPathAllowed(filename))
+		return &invalidstatus;
 
+
+	BOOL isFolder = PathIsDirectory(filepath);
 	TCHAR pathbuf[MAX_PATH];
 	_tcscpy(pathbuf, filepath);
 	if (!isFolder)

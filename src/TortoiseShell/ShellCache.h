@@ -65,6 +65,23 @@ public:
 		DriveValid();
 		return (driveremove);
 	}
+	BOOL IsPathAllowed(LPCTSTR path)
+	{
+		TCHAR pathbuf[MAX_PATH+4];
+		_tcscpy(pathbuf, path);
+		PathRemoveFileSpec(pathbuf);
+		PathAddBackslash(pathbuf);
+		UINT drivetype = GetDriveType(pathbuf);
+		if ((drivetype == DRIVE_REMOVABLE)&&(!IsRemovable()))
+			return FALSE;
+		if ((drivetype == DRIVE_FIXED)&&(!IsFixed()))
+			return FALSE;
+		if ((drivetype == DRIVE_REMOTE)&&(!IsRemote()))
+			return FALSE;
+		if ((drivetype == DRIVE_CDROM)&&(!IsCDRom()))
+			return FALSE;
+		return TRUE;
+	}
 
 private:
 	void DriveValid()
@@ -78,7 +95,6 @@ private:
 			driveremove.read();
 		}
 	}
-
 	CRegStdWORD showrecursive;
 	CRegStdWORD driveremote;
 	CRegStdWORD drivefixed;

@@ -165,6 +165,9 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 	}
 	else
 	{
+		if (! g_ShellCache.IsPathAllowed(sPath.c_str()))
+			return S_FALSE;
+
 		if (PathIsDirectory(sPath.c_str()))
 		{
 			TCHAR buf[MAX_PATH];
