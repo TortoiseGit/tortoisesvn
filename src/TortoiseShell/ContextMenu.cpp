@@ -163,7 +163,9 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			isFolder = true;
 		}
 	}
-
+	if ((isFolder == true)&&(isIgnored == true))
+		isInSVN = true;
+		
 	return NOERROR;
 }
 
@@ -343,7 +345,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCHECKOUT, idCmdFirst, Checkout);
 		else
 			InsertSVNMenuBMP(hMenu, indexMenu++, idCmd++, IDS_MENUCHECKOUT, IDI_CHECKOUT, idCmdFirst, Checkout);
-	if ((isInSVN)||((isFolder)&&(isIgnored)))
+	if (isInSVN)
 		if (ownerdrawn)
 			InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATE, idCmdFirst, Update);
 		else
