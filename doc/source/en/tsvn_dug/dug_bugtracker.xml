@@ -113,6 +113,12 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+		<para>
+			Some <literal>tsvn:</literal> properties require a
+			<literal>true/false</literal> value. TSVN also understands
+			<literal>yes</literal> as a synonym for <literal>true</literal> and
+			<literal>no</literal> as a synonym for <literal>false</literal>.
+		</para>
 		<important>
 			<title>Set the Properties on Folders</title>
 			<para>
@@ -128,6 +134,12 @@
 				on each subfolder.
 				A property setting deeper in the project hierarchy overrides settings on
 				higher levels (closer to <filename>trunk/</filename>).
+			</para>
+			<para>
+				For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
+				you can use the <guilabel>Recursive</guilabel> checkbox to set
+				the property to all subfolders in the hierarchy, without also
+				setting it on all files.
 			</para>
 		</important>
 	</para>

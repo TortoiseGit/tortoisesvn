@@ -36,6 +36,28 @@
 		</ulink>.
 	</para>
 	<para>
+		To set a property, select the required property name from the
+		combo box, then type in a value in the field below. Properties which
+		take multiple values, such as an ignore list, can be entered on
+		multiple lines. Click on <guibutton>Set</guibutton> to add that
+		property to the list.
+	</para>
+	<para>
+		If you want to apply the property to <emphasis>every</emphasis> file
+		and folder in the hierarchy below the current folder, check the
+		<guilabel>Recursive</guilabel> checkbox.
+	</para>
+	<para>
+		If you wish to edit an existing property, first select that property
+		from the list of existing properties, so that it appears in the edit
+		area. Then procede as for a new property.
+	</para>
+	<para>
+		If you wish to remove an existing property, select that property
+		from the list of existing properties, so that it appears in the edit
+		area. Then click on <guibutton>Remove</guibutton>.
+	</para>
+	<para>
 		TortoiseSVN has a few special properties of its own, and these begin
 		with <literal>tsvn:</literal>.
 		<itemizedlist>
@@ -82,7 +104,7 @@
 					<literal>tsvn:logfilelistenglish</literal> defines whether
 					the file status is inserted in english or in the localized
 					language. If the property is not set, the default is
-					<literal>yes</literal>. 
+					<literal>true</literal>. 
 				</para>
 			</listitem>
 			<listitem>
@@ -91,7 +113,7 @@
 					used by OpenOffice and Mozilla. If you have those installed
 					this property will determine which spell checker to use, i.e.
 					in which language the log messages for your project should
-					be made in.
+					be written.
 					<literal>tsvn:projectlanguage</literal> sets the language
 					module the spell checking engine should use when you enter
 					a log message. You can find the values for your language
@@ -99,13 +121,19 @@
 					<ulink url="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp">
 						<citetitle>MSDN: Language Identifiers</citetitle>
 					</ulink>
-					<literal>yes</literal>. 
+					<literal>true</literal>. 
 				</para>
 			</listitem>
 		</itemizedlist>
 	</para>
+	<para>
+		Some <literal>tsvn:</literal> properties require a
+		<literal>true/false</literal> value. TSVN also understands
+		<literal>yes</literal> as a synonym for <literal>true</literal> and
+		<literal>no</literal> as a synonym for <literal>false</literal>.
+	</para>
 	<important>
-		<title>Set the properties on folders</title>
+		<title>Set the tsvn: properties on folders</title>
 		<para>
 			These <literal>tsvn:</literal> properties must be set on
 			<emphasis>folders</emphasis> for the system to work. 
@@ -119,6 +147,12 @@
 			If you can't be sure, you should set the properties recursively on each subfolder.
 			A property setting deeper in the project hierarchy overrides settings on
 			higher levels (closer to <filename>trunk/</filename>).
+		</para>
+		<para>
+			For <literal>tsvn:</literal> properties <emphasis>only</emphasis>
+			you can use the <guilabel>Recursive</guilabel> checkbox to set
+			the property to all subfolders in the hierarchy, without also
+			setting it on all files.
 		</para>
 	</important>
 	<important>
