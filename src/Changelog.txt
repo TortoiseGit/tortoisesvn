@@ -3,6 +3,8 @@
        can't be opened. (Stefan)
 - BUG: Two more dialogs (Updates and Commit) were
        missing the new subversion statuses. (Stefan)
+- BUG: The proxy parameters were stored under the wrong
+       key in the registry. (Stefan)
 - CHG: Changed the behaviour of the Log and Updates
        dialog if a network timeout occured. (Stefan)
 - CHG: If the option "recursive overlays" is not set

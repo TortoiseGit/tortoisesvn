@@ -34,17 +34,17 @@ CSetProxyPage::CSetProxyPage()
 	, m_isEnabled(FALSE)
 {
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
-	m_regServeraddress = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regServerport = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regUsername = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regPassword = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regTimeout = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regServeraddress = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regServerport = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regUsername = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regPassword = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regTimeout = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
 
-	m_regServeraddress_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regServerport_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regUsername_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regPassword_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regTimeout_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\global\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regServeraddress_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\DEFAULT\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regServerport_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\DEFAULT\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regUsername_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\DEFAULT\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regPassword_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\DEFAULT\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regTimeout_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\DEFAULT\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
 }
 
 CSetProxyPage::~CSetProxyPage()
