@@ -214,10 +214,14 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 		{
 			pDlg->AddEntry(CString(file), status);
 		}
+		CString sSummary;
+		sSummary.Format(IDS_CHECKUPDATE_SUMMARY, pDlg->m_arPaths.GetCount());
+		pDlg->GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(sSummary);
 	} // if (status)
 	else
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_svnstatus.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+		pDlg->GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(_T(""));
 	}
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	theApp.DoWaitCursor(-1);

@@ -121,6 +121,7 @@ BEGIN
                     LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
                     WS_TABSTOP,7,7,394,171
     DEFPUSHBUTTON   "&OK",IDOK,351,185,50,14
+    LTEXT           "",IDC_SUMMARYTEXT,7,184,333,8
 END
 
 IDD_CHECKOUT DIALOGEX 0, 0, 300, 154
@@ -1213,6 +1214,11 @@ BEGIN
     IDS_DLGTITLE_EDIT_MERGE_TOOL "Edit Extension Specific Merge Program"
     IDS_DLGTITLE_ADV_DIFF   "Advanced Diff Settings"
     IDS_DLGTITLE_ADV_MERGE  "Advanced Merge Settings"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CHECKUPDATE_SUMMARY "Changed files: %d"
 END
 
 #endif    // English (U.S.) resources
