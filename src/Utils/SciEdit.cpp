@@ -126,10 +126,29 @@ LRESULT CSciEdit::Call(UINT message, WPARAM wParam, LPARAM lParam)
 	return ((SciFnDirect) m_DirectFunction)(m_DirectPointer, message, wParam, lParam);
 }
 
+CString CSciEdit::StringFromControl(const CStringA& text)
+{
+	int codepage = Call(SCI_GETCODEPAGE);
+	int reslen = MultiByteToWideChar(codepage, 0, text, text.GetLength(), 0, 0);	
+	CString sText;
+	MultiByteToWideChar(codepage, 0, text, text.GetLength(), sText.GetBuffer(reslen+1), reslen+1);
+	sText.ReleaseBuffer(reslen);
+	return sText;
+}
+
+CStringA CSciEdit::StringForControl(const CString& text)
+{
+	int codepage = Call(SCI_GETCODEPAGE);
+	int reslen = WideCharToMultiByte(codepage, 0, text, text.GetLength(), 0, 0, 0, 0);
+	CStringA sTextA;
+	WideCharToMultiByte(codepage, 0, text, text.GetLength(), sTextA.GetBuffer(reslen+1), reslen+1, 0, 0);
+	sTextA.ReleaseBuffer(reslen);
+	return sTextA;
+}
+
 void CSciEdit::SetText(const CString& sText)
 {
-	CStringA sTextA = CStringA(sText);
-	Call(SCI_SETTEXT, 0, (LPARAM)(LPCSTR)sTextA);
+	Call(SCI_SETTEXT, 0, (LPARAM)(LPCSTR)StringForControl(sText));
 }
 
 CString CSciEdit::GetText()
@@ -138,8 +157,7 @@ CString CSciEdit::GetText()
 	CStringA sTextA;
 	Call(SCI_GETTEXT, len+1, (LPARAM)(LPCSTR)sTextA.GetBuffer(len+1));
 	sTextA.ReleaseBuffer();
-	CString sText = CString(sTextA);
-	return sText;
+	return StringFromControl(sTextA);
 }
 
 CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
@@ -156,12 +174,12 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 		Call(SCI_SETSEL, textrange.chrg.cpMin, textrange.chrg.cpMax);
 		Call(SCI_SETCURRENTPOS, textrange.chrg.cpMin);
 	}
-	return CString(textbuffer);
+	return StringFromControl(textbuffer);
 }
 
 void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 {
-	Call(SCI_STYLESETFONT, STYLE_DEFAULT, (LPARAM)(LPCSTR)CStringA(sFontName));
+	Call(SCI_STYLESETFONT, STYLE_DEFAULT, (LPARAM)(LPCSTR)StringForControl(sFontName));
 	Call(SCI_STYLESETSIZE, STYLE_DEFAULT, iFontSizeInPoints);
 	Call(SCI_STYLECLEARALL);
 }
@@ -258,7 +276,7 @@ void CSciEdit::SuggestSpellingAlternatives()
 		if (suggestions.IsEmpty())
 			return;
 		Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
-		Call(SCI_AUTOCSHOW, 0, (LPARAM)(LPCSTR)CStringA(suggestions));
+		Call(SCI_AUTOCSHOW, 0, (LPARAM)(LPCSTR)StringForControl(suggestions));
 		Call(SCI_AUTOCSETDROPRESTOFWORD, 1);
 	}
 
@@ -289,7 +307,7 @@ void CSciEdit::DoAutoCompletion()
 	if (sAutoCompleteList.IsEmpty())
 		return;
 	Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
-	Call(SCI_AUTOCSHOW, word.GetLength(), (LPARAM)(LPCSTR)CStringA(sAutoCompleteList));
+	Call(SCI_AUTOCSHOW, word.GetLength(), (LPARAM)(LPCSTR)StringForControl(sAutoCompleteList));
 }
 
 BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult)

@@ -101,6 +101,9 @@ public:
 	 * Returns the word located under the cursor.
 	 */
 	CString		GetWordUnderCursor(bool bSelectWord = false);
+	
+	CStringA	StringForControl(const CString& text);
+	CString		StringFromControl(const CStringA& text);
 private:
 	HMODULE		m_hModule;
 	LRESULT		m_DirectFunction;
