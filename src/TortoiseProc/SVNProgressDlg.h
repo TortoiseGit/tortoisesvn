@@ -144,10 +144,18 @@ private:
 	void ReportSVNError() const;
 public:
 
+private:
 	/**
 	* Resizes the columns of the progress list so that the headings are visible.
 	*/
 	void ResizeColumns();
+
+public:
+	BOOL		m_bCloseOnEnd;
+	SVNRev		m_RevisionEnd;
+
+private:
+
 	CArray<Data *, Data *>		m_arData;
 
 	CListCtrl	m_ProgList;
@@ -159,12 +167,10 @@ public:
 	CString		m_sMessage;
 	CStringArray m_templist;
 	SVNRev		m_Revision;
-	SVNRev		m_RevisionEnd;
 	LONG		m_nUpdateStartRev;
 	BOOL		m_IsTempFile;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
-	BOOL		m_bCloseOnEnd;
 	BOOL		m_bRedEvents;
 	int			iFirstResized;
 	BOOL		bSecondResized;

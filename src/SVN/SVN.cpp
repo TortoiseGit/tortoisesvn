@@ -25,6 +25,7 @@
 #include "client.h"
 #include "UnicodeUtils.h"
 #include "DirFileEnum.h"
+#include "TSVNPath.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -306,17 +307,16 @@ BOOL SVN::Revert(CString path, BOOL recurse)
 }
 
 
-BOOL SVN::Add(CString path, BOOL recurse, BOOL force)
+BOOL SVN::Add(const CTSVNPath& path, BOOL recurse, BOOL force)
 {
-	preparePath(path);
-	Err = svn_client_add2 (MakeSVNUrlOrPath(path), recurse, force, &m_ctx, pool);
+	Err = svn_client_add2 (MakeSVNUrlOrPath(path.GetSVNPathString()), recurse, force, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
 		return FALSE;
 	}
 
-	UpdateShell(path);
+	UpdateShell(path.GetWinPathString());
 
 	return TRUE;
 }

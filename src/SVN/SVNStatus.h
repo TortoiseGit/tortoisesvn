@@ -57,9 +57,6 @@ class CTSVNPathList;
  * This code has no bugs, just undocumented features!
  */
 class SVNStatus
-#ifdef _MFC_VER
-	/*: public SVNPrompt*/
-#endif
 {
 public:
 	SVNStatus(void);

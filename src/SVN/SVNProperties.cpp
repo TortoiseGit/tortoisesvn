@@ -112,18 +112,7 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	m_prompt.Init(m_pool, &m_ctx);
 
 	CString path = filepath;
-	path.Trim();
-	path.TrimRight(_T("/\\"));			//remove trailing slashes
-	path.Replace('\\','/');
-	//workaround for Subversions UNC-path bug
-	if (path.Left(10).CompareNoCase(_T("file://///"))==0)
-	{
-		path.Replace(_T("file://///"), _T("file:///\\"));
-	}
-	else if (path.Left(9).CompareNoCase(_T("file:////"))==0)
-	{
-		path.Replace(_T("file:////"), _T("file:///\\"));
-	}
+	SVN::preparePath(path);
 	m_path = path;
 
 	//set up the SVN_SSH param

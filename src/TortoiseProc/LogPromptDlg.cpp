@@ -263,7 +263,7 @@ void CLogPromptDlg::OnOK()
 			if (entry->status == svn_wc_status_unversioned)
 			{
 				SVN svn;
-				svn.Add(entry->GetPath().GetSVNPathString(), FALSE);
+				svn.Add(entry->GetPath(), FALSE);
 			} 
 			if (entry->status == svn_wc_status_missing)
 			{

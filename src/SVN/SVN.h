@@ -22,6 +22,7 @@
 #include "SVNRev.h"
 
 class CProgressDlg;
+class CTSVNPath;
 
 svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
@@ -125,7 +126,7 @@ public:
 	 * \param force if TRUE, then an adding an already versioned folder will add
 	 *              all unversioned files in it (in combination with \a recurse)
 	 */
-	BOOL Add(CString path, BOOL recurse, BOOL force = FALSE);
+	BOOL Add(const CTSVNPath& path, BOOL recurse, BOOL force = FALSE);
 	/**
 	 * Update working tree path to revision.
 	 * \param path the file/directory to update

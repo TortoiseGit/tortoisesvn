@@ -313,7 +313,9 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 		}
 
 		// By the time we get here, the workingTarget line should always be a directory
-		ASSERT(workingTarget.IsDirectory());
+//WGD - Actually, I think I was wrong on this
+//Doing, for example, an 'Add' on a single target, gets us here with a file in workingTarget
+//		ASSERT(workingTarget.IsDirectory());
 
 		// Is this a versioned item with an associated repos UUID?
 		if ((s->entry)&&(s->entry->uuid))
@@ -383,7 +385,8 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			bool bInExternal					// Are we in an 'external' folder
 			)
 {
-	ASSERT(basePath.IsDirectory());
+//WGD - I think I was wrong with this assumption
+//	ASSERT(basePath.IsDirectory());
 
 	FileEntry * entry = new FileEntry();
 	entry->path = path;
@@ -1535,7 +1538,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						int index;
 						while ((index = GetNextSelectedItem(pos)) >= 0)
 						{
-							if (svn.Add(GetListEntry(index)->path.GetSVNPathString(), FALSE, TRUE))
+							if (svn.Add(GetListEntry(index)->path, FALSE, TRUE))
 							{
 								FileEntry * e = GetListEntry(index);
 								e->textstatus = svn_wc_status_added;

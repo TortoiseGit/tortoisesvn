@@ -22,6 +22,7 @@
 #include "messagebox.h"
 #include "SVNProgressDlg.h"
 #include "LogDlg.h"
+#include "TSVNPath.h"
 
 
 // CSVNProgressDlg dialog
@@ -636,29 +637,19 @@ DWORD CSVNProgressDlg::ProgressThread()
 			SetWindowText(sWindowTitle);
 			if (m_IsTempFile)
 			{
-				try
+				CTSVNPathList targetList;
+				if(targetList.LoadFromTemporaryFile(m_sPath))
 				{
-					CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead);
-					CString strLine = _T("");
-					while (file.ReadString(strLine)&&(!m_bCancelled))
+					for(int nTarget = 0; nTarget < targetList.GetCount() && !m_bCancelled; nTarget++)
 					{
-						TRACE(_T("add file %s\n"), strLine);
-						if (!m_pSvn->Add(strLine, false))
+						TRACE(_T("add file %s\n"), (LPCTSTR)targetList[nTarget].GetWinPathString());
+						if (!m_pSvn->Add(targetList[nTarget], false))
 						{
 							ReportSVNError();
 							break;
 						}
 					}
-					file.Close();
 					DeleteFile(m_sPath);
-				}
-				catch (CFileException* pE)
-				{
-					TRACE(_T("CFileException in Add!\n"));
-					TCHAR error[10000] = {0};
-					pE->GetErrorMessage(error, 10000);
-					CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
-					pE->Delete();
 				}
 			}
 			else

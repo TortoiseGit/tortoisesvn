@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
+#include "MessageBox.h"
 
 CTSVNPath::CTSVNPath(void) :
 	m_bDirectoryKnown(false),
@@ -91,14 +92,27 @@ const char* CTSVNPath::GetSVNPathNarrow() const
 void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 {
 	m_sFwdslashPath = sPath;
+	m_sFwdslashPath.Trim();
 	m_sFwdslashPath.Replace('\\', '/');
+	m_sFwdslashPath.TrimRight('/');	
+	//workaround for Subversions UNC-path bug
+	if (m_sFwdslashPath.Left(10).CompareNoCase(_T("file://///"))==0)
+	{
+		m_sFwdslashPath.Replace(_T("file://///"), _T("file:///\\"));
+	}
+	else if (m_sFwdslashPath.Left(9).CompareNoCase(_T("file:////"))==0)
+	{
+		m_sFwdslashPath.Replace(_T("file:////"), _T("file:///\\"));
+	}
 	m_sUTF8FwdslashPath.Empty();
 }
 
 void CTSVNPath::SetBackslashPath(const CString& sPath) const
 {
 	m_sBackslashPath = sPath;
+	m_sBackslashPath.Trim();
 	m_sBackslashPath.Replace('/', '\\');
+	m_sBackslashPath.TrimRight('\\');
 }
 
 void CTSVNPath::SetUTF8FwdslashPath(const CString& sPath) const
@@ -330,6 +344,9 @@ bool CTSVNPathList::LoadFromTemporaryFile(const CString& sFilename)
 	catch (CFileException* pE)
 	{
 		TRACE("CFileException loading target file list\n");
+		TCHAR error[10000] = {0};
+		pE->GetErrorMessage(error, 10000);
+		CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
 		pE->Delete();
 		return false;
 	}

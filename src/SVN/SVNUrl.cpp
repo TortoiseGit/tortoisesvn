@@ -190,17 +190,7 @@ CString SVNUrl::GetName() const
 CString SVNUrl::Unescape(const CString& url)
 {
 	CString new_url = url;
-	new_url.Replace('\\', '/');
-	new_url.TrimRight('/');
-	//workaround for Subversions UNC-path bug
-	if (new_url.Left(10).CompareNoCase(_T("file://///"))==0)
-	{
-		new_url.Replace(_T("file://///"), _T("file:///\\"));
-	}
-	else if (new_url.Left(9).CompareNoCase(_T("file:////"))==0)
-	{
-		new_url.Replace(_T("file:////"), _T("file:///\\"));
-	}
+	SVN::preparePath(new_url);
 
 	CStringA temp = CUnicodeUtils::GetUTF8(new_url);
 	CUtils::Unescape(temp.GetBuffer());
