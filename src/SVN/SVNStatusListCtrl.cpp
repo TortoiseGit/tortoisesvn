@@ -207,6 +207,10 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 		const TCHAR * strbuf = NULL;
 		m_sURL.Empty();
 
+		apr_array_header_t* pIgnorePatterns = NULL;
+		//BUGBUG - Some error handling needed here
+		config.GetDefaultIgnores(&pIgnorePatterns);
+
 		CStdioFile file(sFilePath, CFile::typeBinary | CFile::modeRead);
 		// for every selected file/folder
 		while (file.ReadString(strLine))
@@ -269,7 +273,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				{
 					// check if the unversioned folder is maybe versioned. This
 					// could happen with nested layouts
-					if (SVNStatus::GetAllStatus(temp) != svn_wc_status_unversioned)
+					if (SVNStatus::GetAllStatus(strLine) != svn_wc_status_unversioned)
 						continue;	//ignore nested layouts
 				}
 				if (s->text_status == svn_wc_status_external)
@@ -317,7 +321,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					while (filefinder.NextFile(filename))
 					{
 						filename.Replace('\\', '/');
-						if (!config.MatchIgnorePattern(filename))
+						if (!config.MatchIgnorePattern(filename,pIgnorePatterns))
 						{
 							FileEntry * entry = new FileEntry();
 							entry->path = filename;									
@@ -421,7 +425,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 					}
 
 					m_arStatusArray.Add(entry);
-					if ((entry->status == svn_wc_status_unversioned)&&(!config.MatchIgnorePattern(strbuf)))
+					if ((entry->status == svn_wc_status_unversioned)&&(!config.MatchIgnorePattern(strbuf,pIgnorePatterns)))
 					{
 						if (PathIsDirectory(strbuf))
 						{
@@ -430,7 +434,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							CString filename;
 							while (filefinder.NextFile(filename))
 							{
-								if (!config.MatchIgnorePattern(filename))
+								if (!config.MatchIgnorePattern(filename, pIgnorePatterns))
 								{
 									filename.Replace('\\', '/');
 									FileEntry * entry = new FileEntry();
@@ -475,6 +479,8 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 
 void CSVNStatusListCtrl::Show(DWORD dwShow)
 {
+	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+
 	CWinApp * pApp = AfxGetApp();
 	if (pApp)
 		pApp->DoWaitCursor(1);
@@ -495,91 +501,91 @@ void CSVNStatusListCtrl::Show(DWORD dwShow)
 			if (dwShow & SVNSLC_SHOWUNVERSIONED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_ignored:
 			if ((entry->direct) && (dwShow & SVNSLC_SHOWDIRECTS))
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_incomplete:
 			if (dwShow & SVNSLC_SHOWINCOMPLETE)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_normal:
 			if (dwShow & SVNSLC_SHOWNORMAL)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_external:
 			if (dwShow & SVNSLC_SHOWEXTERNAL)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_added:
 			if (dwShow & SVNSLC_SHOWADDED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_missing:
 			if (dwShow & SVNSLC_SHOWMISSING)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_deleted:
 			if (dwShow & SVNSLC_SHOWREMOVED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_replaced:
 			if (dwShow & SVNSLC_SHOWREPLACED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_modified:
 			if (dwShow & SVNSLC_SHOWMODIFIED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_merged:
 			if (dwShow & SVNSLC_SHOWMERGED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_conflicted:
 			if (dwShow & SVNSLC_SHOWCONFLICTED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		case svn_wc_status_obstructed:
 			if (dwShow & SVNSLC_SHOWOBSTRUCTED)
 			{
 				m_arListArray.Add(i);
-				AddEntry(entry);
+				AddEntry(entry, langID);
 			}
 			break;
 		default:
@@ -730,9 +736,8 @@ void CSVNStatusListCtrl::CheckAll(DWORD dwCheck)
 		pApp->DoWaitCursor(-1);
 }
 
-void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
+void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID)
 {
-	CRegStdWORD langID = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 	m_bBlock = TRUE;
 	TCHAR buf[100];
 	int index = GetItemCount();
@@ -746,7 +751,9 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
 	if (entry->isfolder)
 		icon_idx = m_nIconFolder;
 	else
-		icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(CUtils::GetFileNameFromPath(entry->path));
+	{
+		icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
+	}
 	InsertItem(index, entryname, icon_idx);
 	if (m_dwColumns & SVNSLC_COLSTATUS)
 	{
@@ -1197,6 +1204,8 @@ void CSVNStatusListCtrl::Stat()
 
 void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 {
+	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+
 	if (pWnd == this)
 	{
 		int selIndex = GetSelectionMark();
@@ -1516,7 +1525,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								}
 								int i = m_arStatusArray.Add(entry);
 								m_arListArray.Add(i);
-								AddEntry(entry);
+								AddEntry(entry, langID);
 							}
 
 						}
@@ -1590,7 +1599,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							int i = m_arStatusArray.Add(entry);
 							m_arListArray.Add(i);
-							AddEntry(entry);
+							AddEntry(entry, langID);
 						}
 					}
 					break;

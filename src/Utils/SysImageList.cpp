@@ -18,7 +18,7 @@
 
 #include "stdafx.h"
 #include "SysImageList.h"
-#include "shlwapi.h"
+#include "Utils.h"
 
 
 // Singleton constructor and destructor (private)
@@ -103,4 +103,19 @@ int CSysImageList::GetFileIconIndex(const CString& file) const
 		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 
 	return sfi.iIcon;
+}
+
+int CSysImageList::GetPathIconIndex(const CString& filePath) const
+{
+	CString strExtension = CUtils::GetFileExtFromPath(filePath);
+	IconIndexMap::const_iterator it = m_indexCache.find(strExtension);
+	if(it == m_indexCache.end())
+	{
+		// We don't have this extension in the map
+		int iconIndex = GetFileIconIndex(CUtils::GetFileNameFromPath(filePath));
+		m_indexCache[strExtension] = iconIndex;
+		return iconIndex;
+	}
+	// We must have found it
+	return it->second;
 }

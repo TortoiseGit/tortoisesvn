@@ -51,16 +51,26 @@ SVNConfig::~SVNConfig(void)
 	svn_pool_destroy (parentpool);
 }
 
-BOOL SVNConfig::MatchIgnorePattern(CString sFilepath)
+BOOL SVNConfig::GetDefaultIgnores(apr_array_header_t** ppPatterns)
 {
-	sFilepath.Replace('\\', '/');
-	if (sFilepath.ReverseFind('/')>=0)
-		sFilepath = sFilepath.Mid(sFilepath.ReverseFind('/')+1);
 	svn_error_t * err;
 	apr_array_header_t *patterns = NULL;
 	err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
 	if (err)
 		return FALSE;
-	CStringA sFilepathA = CUnicodeUtils::GetUTF8(sFilepath);
-	return svn_cstring_match_glob_list(sFilepathA, patterns);
+
+	*ppPatterns = patterns;
+
+	return TRUE;
+}
+
+BOOL SVNConfig::MatchIgnorePattern(CString sFilepath, apr_array_header_t *patterns)
+{
+	sFilepath.Replace('\\', '/');
+	int lastSlashPos = sFilepath.ReverseFind('/');
+	if (lastSlashPos >= 0)
+	{
+		return svn_cstring_match_glob_list(CUnicodeUtils::GetUTF8(sFilepath.Mid(lastSlashPos+1)),patterns);
+	}
+	return svn_cstring_match_glob_list(CUnicodeUtils::GetUTF8(sFilepath), patterns);
 }

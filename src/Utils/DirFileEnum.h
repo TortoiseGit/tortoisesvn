@@ -242,7 +242,7 @@ private:
 
    class CDirStackEntry : public CSimpleFileFind {
    public:
-      CDirStackEntry(CDirStackEntry * seNext, const CString sDirName);
+      CDirStackEntry(CDirStackEntry * seNext, const CString& sDirName);
       ~CDirStackEntry();
 
       CDirStackEntry * m_seNext;
@@ -252,7 +252,7 @@ private:
    BOOL m_bIsNew;
 
    inline void PopStack();
-   inline void PushStack(const CString sDirName);
+   inline void PushStack(const CString& sDirName);
 
 public:
    /**
@@ -264,7 +264,7 @@ public:
     *
     * @param dirName The directory to search in.
     */
-	CDirFileEnum(const CString dirName);
+	CDirFileEnum(const CString& dirName);
 
    /**
     * Destructor.  Frees all resources.

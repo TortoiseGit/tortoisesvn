@@ -112,7 +112,7 @@ BOOL CSimpleFileFind::FindNextFileNoDirectories()
 
 
 CDirFileEnum::CDirStackEntry::CDirStackEntry(CDirStackEntry * seNext,
-                                             const CString sDirName)
+                                             const CString& sDirName)
                                              : CSimpleFileFind(sDirName),
                                              m_seNext(seNext)
 {
@@ -129,12 +129,12 @@ inline void CDirFileEnum::PopStack()
    delete seToDelete;
 }
 
-inline void CDirFileEnum::PushStack(const CString sDirName)
+inline void CDirFileEnum::PushStack(const CString& sDirName)
 {
    m_seStack = new CDirStackEntry(m_seStack,sDirName);
 }
 
-CDirFileEnum::CDirFileEnum(const CString sDirName) :
+CDirFileEnum::CDirFileEnum(const CString& sDirName) :
    m_seStack(NULL),
    m_bIsNew(TRUE)
 {

@@ -32,13 +32,46 @@
 #include "svn_time.h"
 #include "svn_subst.h"
 
+/**
+ * \ingroup TortoiseProc
+ * A small wrapper for the Subversion configs
+ *
+ * \par requirements
+ * MFC\n
+ *
+ * \date 12-16-2004
+ *
+ * \author kueng
+ *
+ * \par license
+ * This code is absolutely free to use and modify. The code is provided "as is" with
+ * no expressed or implied warranty. The author accepts no liability if it causes
+ * any damage to your computer, causes your pet to fall ill, increases baldness
+ * or makes your car start emitting strange noises when you start it up.
+ * This code has no bugs, just undocumented features!
+ */
 class SVNConfig
 {
 public:
 	SVNConfig(void);
 	~SVNConfig(void);
 
-	BOOL	MatchIgnorePattern(CString sFilepath);
+	/**
+	 * Returns an array of ignore patterns which then can be passed to
+	 * MatchIgnorePattern().
+	 * \param ppPatterns the returned array
+	 * \return TRUE if the function is successful
+	 */
+	BOOL GetDefaultIgnores(apr_array_header_t** ppPatterns);
+
+	/**
+	 * Checks if the \c sFilepath matches a pattern in the array of
+	 * ignore patterns.
+	 * \param sFilepath the path to check 
+	 * \param *patterns the array of ignore patterns. Get this array with GetDefaultIgnores()
+	 * \return TRUE if the filename matches a pattern, FALSE if it doesn't.
+	 */
+	BOOL MatchIgnorePattern(CString sFilepath, apr_array_header_t *patterns);
 private:
 	apr_pool_t *				parentpool;
 	apr_pool_t *				pool;			///< memory pool

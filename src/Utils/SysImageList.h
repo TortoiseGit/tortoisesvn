@@ -82,8 +82,17 @@ public:
 	 */
 	int GetFileIconIndex(const CString& file) const;
 
+	/**
+	 * Get the index for a SVN-style path file.  
+	 * Uses a cache to speed things up
+	 */
+	int GetPathIconIndex(const CString& file) const;
+
 private:
 	static CSysImageList *instance;
+
+	typedef std::map<CString, int> IconIndexMap;
+	mutable IconIndexMap m_indexCache;
 };
 
 

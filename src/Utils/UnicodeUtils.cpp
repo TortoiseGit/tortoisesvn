@@ -31,12 +31,12 @@ CUnicodeUtils::~CUnicodeUtils(void)
 CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
 {
 	char * buf;
-	buf = new char[string.GetLength()*4 + 1];
-	ZeroMemory(buf, (string.GetLength()*4 + 1)*sizeof(char));
-	WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, string.GetLength()*4, NULL, NULL);
-	CStringA ret = CStringA(buf);
-	delete [] buf;
-	return ret;
+	CStringA retVal;
+	buf = retVal.GetBuffer(string.GetLength()*4 + 1);
+//	ZeroMemory(buf, (string.GetLength()*4 + 1)*sizeof(char));
+	int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, string.GetLength()*4, NULL, NULL);
+	retVal.ReleaseBuffer(lengthIncTerminator-1);
+	return retVal;
 }
 
 CStringA CUnicodeUtils::GetUTF8(const CStringA& string)

@@ -62,7 +62,6 @@ SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLE
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
-
 /**
  * \ingroup TortoiseProc
  * A List control, based on the MFC CListCtrl which shows a list of
@@ -212,7 +211,7 @@ public:
 
 private:
 	void Sort();	///< Sorts the control by columns
-	void AddEntry(FileEntry * entry);	///< add an entry to the control
+	void AddEntry(FileEntry * entry, WORD langID);	///< add an entry to the control
 	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays
 	void Stat();	///< build the statistics
 	void StartDiff(int fileindex);	///< start the external diff program

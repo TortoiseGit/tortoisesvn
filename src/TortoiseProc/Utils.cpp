@@ -629,13 +629,13 @@ CString CUtils::GetFileNameFromPath(CString sPath)
 	return ret;
 }
 
-CString CUtils::GetFileExtFromPath(CString sPath)
+CString CUtils::GetFileExtFromPath(const CString& sPath)
 {
-	CString filename = GetFileNameFromPath(sPath);
-	int pos = filename.ReverseFind('.');
-	if (pos >= 0)
-		return filename.Mid(pos);
-	return _T("");
+	int dotPos = sPath.ReverseFind('.');
+	int slashPos = sPath.ReverseFind('/');
+	if (dotPos > slashPos)
+		return sPath.Mid(dotPos);
+	return CString();
 }
 
 BOOL CUtils::PathIsParent(CString sPath1, CString sPath2)

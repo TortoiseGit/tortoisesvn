@@ -114,7 +114,7 @@ public:
 	/**
 	 * returns the file extension from a full path
 	 */
-	static CString GetFileExtFromPath(CString sPath);
+	static CString GetFileExtFromPath(const CString& sPath);
 
 	/**
 	 * Checks if \a sPath1 is the parent path of \a sPath2
