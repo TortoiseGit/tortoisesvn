@@ -901,7 +901,7 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	if (selIndex < 0)
 		return;
 	long rev = m_arRevs.GetAt(m_LogList.GetSelectionMark());
-	if (selIndex >= (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	if (selIndex > (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
 	{
 		CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 		temp = temp.Left(temp.Find(' '));
