@@ -529,7 +529,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	}
 
 	if (_tcslen(blamefile)==0)
+	{
+		MessageBox(NULL, _T("TortoiseBlame can't be started directly!"), _T("TortoiseBlame"), MB_ICONERROR);
 		return 0;
+	}
 
 	app.SendEditor(SCI_SETCODEPAGE, GetACP());
 	app.OpenLogFile(logfile);
