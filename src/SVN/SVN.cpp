@@ -1265,23 +1265,34 @@ void SVN::UpdateShell(CString path)
 	//explorer view by telling the explorer that the folder icon itself
 	//has changed.
 	preparePath(path);
-	SHFILEINFO    sfi;
-	SHGetFileInfo(
-		(LPCTSTR)path, 
-		FILE_ATTRIBUTE_DIRECTORY,
-		&sfi, 
-		sizeof(SHFILEINFO), 
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-	SHFILEINFO    sfiopen;
-	SHGetFileInfo(
-		(LPCTSTR)path, 
-		FILE_ATTRIBUTE_DIRECTORY,
-		&sfiopen, 
-		sizeof(SHFILEINFO), 
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | SHGFI_OPENICON);
+	CString temp;
+	int pos = -1;
+	do
+	{
+		pos = path.Find('*');
+		if (pos>=0)
+			temp = path.Left(pos);
+		else
+			temp = path;
+		SHFILEINFO    sfi;
+		SHGetFileInfo(
+			(LPCTSTR)temp, 
+			FILE_ATTRIBUTE_DIRECTORY,
+			&sfi, 
+			sizeof(SHFILEINFO), 
+			SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+		SHFILEINFO    sfiopen;
+		SHGetFileInfo(
+			(LPCTSTR)temp, 
+			FILE_ATTRIBUTE_DIRECTORY,
+			&sfiopen, 
+			sizeof(SHFILEINFO), 
+			SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | SHGFI_OPENICON);
 
-	SHChangeNotify(SHCNE_UPDATEIMAGE | SHCNF_FLUSH, SHCNF_DWORD, NULL, reinterpret_cast<LPCVOID>((__int64)sfi.iIcon));
-	SHChangeNotify(SHCNE_UPDATEIMAGE | SHCNF_FLUSH, SHCNF_DWORD, NULL, reinterpret_cast<LPCVOID>((__int64)sfiopen.iIcon));
+		SHChangeNotify(SHCNE_UPDATEIMAGE | SHCNF_FLUSH, SHCNF_DWORD, NULL, reinterpret_cast<LPCVOID>((__int64)sfi.iIcon));
+		SHChangeNotify(SHCNE_UPDATEIMAGE | SHCNF_FLUSH, SHCNF_DWORD, NULL, reinterpret_cast<LPCVOID>((__int64)sfiopen.iIcon));
+		path = path.Mid(pos+1);
+	} while (pos >= 0);
 }
 
 BOOL SVN::PathIsURL(CString path)
