@@ -7,7 +7,11 @@
        a wrong revision. (Luebbe)
 - BUG: Fixed a crash if the patchfile to apply contained
        a new but empty file. (Stefan)
-
+- BUG: Don't try to show the context menu in TME for
+       the view title. (Stefan)
+- BUG: Bring the progress window to front even after
+       a confirmation dialog. (Stefan)
+       
 Version 0.24
 - ADD: A new separate program to apply patches,
        showing diffs and resolving conflicts.

@@ -213,7 +213,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 				strPath = dlg.m_strCheckoutDirectory;
 
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Checkout, false, strPath, dlg.m_URL, _T(""), dlg.m_lRevision);
 				progDlg.DoModal();
@@ -233,7 +233,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), dlg.m_url);
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				m_pMainWnd = &progDlg;
 				//construct the module name out of the path
 				CString modname;
@@ -261,7 +261,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				else 
 					return FALSE;
 			}
-			CSVNProgressDlg progDlg;
+			CSVNProgressDlg progDlg(PWND);
 			m_pMainWnd = &progDlg;
 			progDlg.SetParams(Update, true, path, _T(""), _T(""), rev);
 			progDlg.DoModal();
@@ -280,7 +280,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("tempfile = %s\n"), path);
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Commit, true, path, _T(""), dlg.m_sLogMessage);
 				logmessage = dlg.m_sLogMessage;
@@ -312,7 +312,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("tempfile = %s\n"), path);
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Add, true, path);
 				progDlg.DoModal();
@@ -326,7 +326,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			TRACE(_T("tempfile = %s\n"), path);
 			if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES)
 			{
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Revert, true, path);
 				progDlg.DoModal();
@@ -354,7 +354,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("resolve"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
-			CSVNProgressDlg progDlg;
+			CSVNProgressDlg progDlg(PWND);
 			m_pMainWnd = &progDlg;
 			progDlg.SetParams(Resolve, false, path);
 			progDlg.DoModal();
@@ -384,7 +384,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s, revision = %s\n"), dlg.m_URL, dlg.m_rev);
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Switch, false, path, dlg.m_URL, _T(""), _tstol((LPCTSTR)dlg.m_rev));
 				progDlg.DoModal();
@@ -405,7 +405,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					path = dlg.m_strCheckoutDirectory;
 
-					CSVNProgressDlg progDlg;
+					CSVNProgressDlg progDlg(PWND);
 					m_pMainWnd = &progDlg;
 					progDlg.SetParams(Export, false, path, dlg.m_URL, _T(""), dlg.m_lRevision);
 					progDlg.DoModal();
@@ -466,7 +466,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.m_URL = path;
 			if (dlg.DoModal() == IDOK)
 			{
-				CSVNProgressDlg progDlg;
+				CSVNProgressDlg progDlg(PWND);
 				m_pMainWnd = &progDlg;
 				progDlg.SetParams(Merge, false, path, dlg.m_URL, dlg.m_URL, dlg.m_lStartRev);		//use the message as the second url
 				progDlg.m_nRevisionEnd = dlg.m_lEndRev;
@@ -487,13 +487,13 @@ BOOL CTortoiseProcApp::InitInstance()
 				if (SVNStatus::GetAllStatusRecursive(path)==svn_wc_status_normal)
 				{
 					//no changes in the working copy, so just do a repo->repo copy
-					CSVNProgressDlg progDlg;
+					CSVNProgressDlg progDlg(PWND);
 					progDlg.SetParams(Copy, FALSE, dlg.m_wcURL, dlg.m_URL, dlg.m_sLogMessage);
 					progDlg.DoModal();
 				}
 				else
 				{
-					CSVNProgressDlg progDlg;
+					CSVNProgressDlg progDlg(PWND);
 					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage);
 					progDlg.DoModal();
 				}
@@ -666,7 +666,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			newfile.Close();
 			//now add all the newly copied files to the working copy
 			TRACE(_T("tempfile = %s\n"), path);
-			CSVNProgressDlg progDlg;
+			CSVNProgressDlg progDlg(PWND);
 			m_pMainWnd = &progDlg;
 			progDlg.SetParams(Add, true, path);
 			progDlg.DoModal();
