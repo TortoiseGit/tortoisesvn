@@ -1539,7 +1539,7 @@ CString SVN::RevPropertyGet(CString sName, CString sURL, SVNRev rev)
 	return CUnicodeUtils::GetUnicode(propval->data);
 }
 
-CString SVN::GetPristinePath(const CString& wcPath)
+CTSVNPath SVN::GetPristinePath(const CTSVNPath& wcPath)
 {
 	svn_error_t * err;
 	SVNPool localpool;
@@ -1549,17 +1549,19 @@ CString SVN::GetPristinePath(const CString& wcPath)
 	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
 
 	const char* pristinePath = NULL;
-	CString temp;
+	CTSVNPath returnPath;
 
-	err = svn_wc_get_pristine_copy_path(svn_path_internal_style(MakeSVNUrlOrPath(wcPath), localpool), (const char **)&pristinePath, localpool);
+	err = svn_wc_get_pristine_copy_path(svn_path_internal_style(wcPath.GetSVNApiPath(), localpool), &pristinePath, localpool);
 
 	if (err != NULL)
 	{
-		return temp;
+		return returnPath;
 	}
 	if (pristinePath != NULL)
-		temp = MakeUIUrlOrPath(pristinePath);
-	return temp;
+	{
+		returnPath.SetFromSVN(pristinePath);
+	}
+	return returnPath;
 }
 
 BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, BOOL bForceRepair /*= TRUE*/)
@@ -1779,7 +1781,7 @@ apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList)
 	return targets;
 }
 
-void SVN::StartConflictMerge(const CTSVNPath& conflictedFilePath)
+void SVN::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 {
 	CTSVNPath merge = conflictedFilePath;
 	CTSVNPath directory = merge.GetDirectory();
@@ -1791,7 +1793,7 @@ void SVN::StartConflictMerge(const CTSVNPath& conflictedFilePath)
 	//now look for the other required files
 	SVNStatus stat;
 	stat.GetStatus(merge.GetSVNPathString());
-	if (stat.status->entry)
+	if (stat.status && stat.status->entry)
 	{
 		if (stat.status->entry->conflict_new)
 		{
@@ -1806,8 +1808,27 @@ void SVN::StartConflictMerge(const CTSVNPath& conflictedFilePath)
 			mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
 		}
 	}
-	CUtils::StartExtMerge(base.GetWinPathString(),theirs.GetWinPathString(),mine.GetWinPathString(),merge.GetWinPathString());
+	CUtils::StartExtMerge(base,theirs,mine,merge);
 }
 
-
+BOOL SVN::DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFile)
+{
+	CTSVNPath basePath(GetPristinePath(filePath));
+	CTSVNPath wcPath;
+	// If necessary, convert the line-endings on the file before diffing
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(GetTranslatedFile(wcPath, filePath)))
+	{
+		temporaryFile = wcPath;
+	}
+	else
+	{
+		temporaryFile.Reset();
+		wcPath = filePath;
+	}
+	CString name = wcPath.GetFilename();
+	CString n1, n2;
+	n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
+	n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
+	return CUtils::StartDiffViewer(basePath, wcPath, TRUE, n2, n1, wcPath.GetFileExtension());
+}
 

@@ -53,7 +53,7 @@ public:
 	 * Launches the external merge program if there is one.
 	 * \return TRUE if the program could be started
 	 */
-	static BOOL StartExtMerge(const CString& basefile, const CString& theirfile, const CString& yourfile, const CString& mergedfile,
+	static BOOL StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
 		const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(), const CString& mergedname = CString());
 
 	/**

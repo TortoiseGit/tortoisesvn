@@ -803,21 +803,17 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 				else
 				{
-					CString name = path.GetFilename();
-					CString ext = path.GetFileExtension();
-					path2 = SVN::GetPristinePath(path.GetSVNPathString());
-					if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path, path)))
+					CTSVNPath temporaryFile;
+					SVN::DiffFileAgainstBase(path, temporaryFile);
+					if(!temporaryFile.IsEmpty())
 					{
+						path = temporaryFile;
 						bDelete = TRUE;
 					}
-					CString n1, n2;
-					n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
-					n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-					CUtils::StartDiffViewer(CTSVNPath(path2), CTSVNPath(path), TRUE, n2, n1, ext);
 				}
 			} // if (path2.IsEmpty())
 			else
-				CUtils::StartDiffViewer(CTSVNPath(path2), CTSVNPath(path), TRUE);
+				CUtils::StartDiffViewer(CTSVNPath(path2), path, TRUE);
 			if (bDelete)
 				::DeleteFile(path.GetWinPath());
 		}
@@ -1062,36 +1058,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region conflicteditor
 		if (comVal.Compare(_T("conflicteditor"))==0)
 		{
-			CString theirs;
-			CString mine;
-			CString base;
 			CString merge = CUtils::GetLongPathname(parser.GetVal(_T("path")));
-			CString path = merge.Left(merge.ReverseFind('\\'));
-			path = path + _T("\\");
-
-			//we have the conflicted file (%merged)
-			//now look for the other required files
-			SVNStatus status;
-			status.GetStatus(merge);
-			if ((status.status)&&(status.status->entry))
-			{
-				if (status.status->entry->conflict_new)
-				{
-					theirs = CUnicodeUtils::GetUnicode(status.status->entry->conflict_new);
-					theirs = path + theirs;
-				}
-				if (status.status->entry->conflict_old)
-				{
-					base = CUnicodeUtils::GetUnicode(status.status->entry->conflict_old);
-					base = path + base;
-				}
-				if (status.status->entry->conflict_wrk)
-				{
-					mine = CUnicodeUtils::GetUnicode(status.status->entry->conflict_wrk);
-					mine = path + mine;
-				}
-			}
-			CUtils::StartExtMerge(base, theirs, mine, merge);
+			SVN::StartConflictEditor(CTSVNPath(merge));
 		} 
 		//#endregion
 		//#region relocate

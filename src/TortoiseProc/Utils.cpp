@@ -70,12 +70,12 @@ CTSVNPath CUtils::GetTempFilePath()
 }
 
 
-BOOL CUtils::StartExtMerge(const CString& basefile, const CString& theirfile, const CString& yourfile, const CString& mergedfile,
+BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
 						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)
 {
 
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
-	CString ext = GetFileExtFromPath(mergedfile);
+	CString ext = mergedfile.GetFileExtension();
 	CString com = regCom;
 
 	if (ext != "")
@@ -111,28 +111,28 @@ BOOL CUtils::StartExtMerge(const CString& basefile, const CString& theirfile, co
 		com.Replace(_T("%base"), _T(""));		
 	}
 	else
-		com.Replace(_T("%base"), _T("\"") + basefile + _T("\""));
+		com.Replace(_T("%base"), _T("\"") + basefile.GetWinPathString() + _T("\""));
 	if (theirfile.IsEmpty())
 	{
 		com.Replace(_T("/theirs:%theirs"), _T(""));
 		com.Replace(_T("%theirs"), _T(""));
 	}
 	else
-		com.Replace(_T("%theirs"), _T("\"") + theirfile + _T("\""));
+		com.Replace(_T("%theirs"), _T("\"") + theirfile.GetWinPathString() + _T("\""));
 	if (yourfile.IsEmpty())
 	{
 		com.Replace(_T("/yours:%mine"), _T(""));
 		com.Replace(_T("%mine"), _T(""));
 	}
 	else
-		com.Replace(_T("%mine"), _T("\"") + yourfile + _T("\""));
+		com.Replace(_T("%mine"), _T("\"") + yourfile.GetWinPathString() + _T("\""));
 	if (mergedfile.IsEmpty())
 	{
 		com.Replace(_T("/merged:%merged"), _T(""));
 		com.Replace(_T("%merged"), _T(""));
 	}
 	else
-		com.Replace(_T("%merged"), _T("\"") + mergedfile + _T("\""));
+		com.Replace(_T("%merged"), _T("\"") + mergedfile.GetWinPathString() + _T("\""));
 	if (basename.IsEmpty())
 	{
 		com.Replace(_T("/basename:%bname"), _T(""));

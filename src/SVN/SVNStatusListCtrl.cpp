@@ -1475,7 +1475,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					break;
 				case IDSVNLC_EDITCONFLICT:
-					SVN::StartConflictMerge(filepath);
+					SVN::StartConflictEditor(filepath);
 					break;
 				case IDSVNLC_ADD:
 					{
@@ -1555,33 +1555,33 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		return;		//we don't compare new files with nothing
 	if (entry->path.IsDirectory())
 		return;		//we also don't compare folders
-	CTSVNPath path1;
-	CString path2;
-	CString path3;
+	CTSVNPath wcPath;
+	CTSVNPath basePath;
+	CTSVNPath remotePath;
 
 	if (entry->status > svn_wc_status_normal)
-		path2 = SVN::GetPristinePath(entry->path.GetSVNPathString());
+		basePath = SVN::GetPristinePath(entry->path);
 
 	if (entry->remotestatus > svn_wc_status_normal)
 	{
-		path3 = CUtils::GetTempFile();
+		remotePath = CUtils::GetTempFilePath();
 
 		SVN svn;
-		if (!svn.Cat(entry->path, SVNRev::REV_HEAD, CTSVNPath(path3)))
+		if (!svn.Cat(entry->path, SVNRev::REV_HEAD, remotePath))
 		{
 			CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
 		}
-		m_tempFileList.AddPath(CTSVNPath(path3));
+		m_tempFileList.AddPath(remotePath);
 	}
 
-	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path1, entry->path)))
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(wcPath, entry->path)))
 	{
-		m_tempFileList.AddPath(path1);
+		m_tempFileList.AddPath(wcPath);
 	}
 	else
 	{
-		path1 = entry->path;
+		wcPath = entry->path;
 	}
 
 	CString name = entry->path.GetFilename();
@@ -1591,12 +1591,15 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	n2.Format(IDS_DIFF_BASENAME, name);
 	n3.Format(IDS_DIFF_REMOTENAME, name);
 
-	if (path2.IsEmpty())
-		CUtils::StartDiffViewer(path1, CTSVNPath(path3), FALSE, n1, n3, ext);
-	else if (path3.IsEmpty())
-		CUtils::StartDiffViewer(CTSVNPath(path2), path1, FALSE, n2, n1, ext);
+	if (basePath.IsEmpty())
+		// Hasn't changed locally - diff remote against WC
+		CUtils::StartDiffViewer(wcPath, remotePath, FALSE, n1, n3, ext);
+	else if (remotePath.IsEmpty())
+		// Diff WC against its base
+		CUtils::StartDiffViewer(basePath, wcPath, FALSE, n2, n1, ext);
 	else
-		CUtils::StartExtMerge(path2, path3, path1.GetWinPathString(), _T(""), n2, n3, n1);
+		// Three-way diff
+		CUtils::StartExtMerge(basePath, remotePath, basePath, CTSVNPath(), n2, n3, n1);
 }
 
 CString CSVNStatusListCtrl::GetStatisticsString()

@@ -484,7 +484,7 @@ public:
 	 * Returns the path to the text-base file of the working copy file.
 	 * If no text base exists for the file then the returned string is empty.
 	 */
-	static CString GetPristinePath(const CString& wcPath);
+	static CTSVNPath GetPristinePath(const CTSVNPath& wcPath);
 
 	/**
 	 * Returns the path to a translated version of sFile. If no translation of the
@@ -528,8 +528,14 @@ public:
 	/**
 	* Do the conflict-resolving 3-way merge on the specified file
 	*/
-	static void StartConflictMerge(const CTSVNPath& conflictedFilePath);
+	static void StartConflictEditor(const CTSVNPath& conflictedFilePath);
 
+	/**
+	* Diff a single file against its text-base
+    *\param filePath The file to diff
+	*\param temporaryFile If the function creates a temporary file, the name will be returned here
+	*/
+	static BOOL DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFile);
 
 	static CString GetErrorString(svn_error_t * Err);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);

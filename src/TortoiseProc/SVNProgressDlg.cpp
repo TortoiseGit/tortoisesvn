@@ -854,27 +854,18 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	if (data->bConflictedActionItem)
 	{
 		// We've double-clicked on a conflicted item - do a three-way merge on it
-		SVN::StartConflictMerge(data->path);
+		SVN::StartConflictEditor(data->path);
 	}
 	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
 	{
 		// This is a modified file which has been merged on update
 		// Diff it against base
-
-		CTSVNPath sWC = data->path;
-		CString sBase = SVN::GetPristinePath(data->path.GetSVNPathString());
-
-		if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(sWC, sWC)))
+		CTSVNPath temporaryFile;
+		SVN::DiffFileAgainstBase(data->path, temporaryFile);
+		if(!temporaryFile.IsEmpty())
 		{
-			m_templist.AddPath(sWC);
+			m_templist.AddPath(temporaryFile);
 		}
-		CString name = data->path.GetFileOrDirectoryName();
-		CString ext = data->path.GetFileExtension();
-		CString n1, n2;
-		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
-		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-		CUtils::StartDiffViewer(CTSVNPath(sBase), sWC, FALSE, n2, n1, ext);
-
 	}
 }
 
