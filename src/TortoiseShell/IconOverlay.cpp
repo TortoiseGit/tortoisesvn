@@ -196,7 +196,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			}
 
 			TSVNCacheResponse itemStatus;
-			if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(pPath, &itemStatus, !!g_ShellCache.IsRecursive()))
+			if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, !!g_ShellCache.IsRecursive()))
 			{
 				status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
 			}
@@ -206,7 +206,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			AutoLocker lock(g_csCacheGuard);
 
 			// Look in our caches for this item 
-			const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
+			const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(CTSVNPath(pPath));
 			if (s)
 			{
 				status = s->status;
@@ -233,7 +233,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 						}
 						else
 						{
-							const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+							const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(CTSVNPath(pPath), TRUE);
 							status = s->status;
 							status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 						}
@@ -245,7 +245,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 				} // if (PathIsDirectory(g_filepath))
 				else
 				{
-					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(CTSVNPath(pPath), FALSE);
 					status = s->status;
 				}
 			}

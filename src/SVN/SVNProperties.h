@@ -24,6 +24,7 @@
 #endif
 
 #include "UnicodeUtils.h"
+#include "TSVNPath.h"
 
 /**
  * \ingroup TortoiseShell
@@ -54,7 +55,7 @@ class SVNProperties
 public:
 
 #ifdef _MFC_VER
-	SVNProperties(const TCHAR * filepath, SVNRev rev = SVNRev::REV_WC);
+	SVNProperties(const CTSVNPath& filepath, SVNRev rev = SVNRev::REV_WC);
 	void SaveAuthentication(BOOL save);
 #else
 	/**
@@ -62,7 +63,7 @@ public:
 	 * the specified file/directory.
 	 * \param filepath the file/directory
 	 */
-	SVNProperties(const TCHAR * filepath);
+	SVNProperties(const CTSVNPath& filepath);
 #endif
 	~SVNProperties(void);
 
@@ -131,7 +132,7 @@ private:		//methods
 
 private:		//members
 	apr_pool_t *				m_pool;				///< memory pool baton
-	stdstring					m_path;				///< the path to the file/directory this properties object acts upon
+	CTSVNPath					m_path;				///< the path to the file/directory this properties object acts upon
 	apr_array_header_t *		m_props;			
 	int							m_propCount;		///< number of properties found
 	svn_error_t *				m_error;

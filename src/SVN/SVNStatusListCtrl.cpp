@@ -253,17 +253,11 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 	config.GetDefaultIgnores(&pIgnorePatterns);
 
 	CTSVNPath workingTarget(target);
-//	const BOOL bTargetIsFolder = workingTarget.IsDirectory();
 
 	svn_wc_status_t * s;
-	// TODO: GetFirstFileStatus should take workingTarget directly
 	CTSVNPath svnPath;
-	{
-		const TCHAR * pSVNItemPath = NULL;
-		s = status.GetFirstFileStatus(workingTarget.GetWinPath(), &pSVNItemPath, bFetchStatusFromRepository);
-		// TODO: This should be passed back directly from GetFirstFileStatus
-		svnPath.SetFromSVN(pSVNItemPath);
-	}
+	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository);
+
 	m_HeadRev = SVNRev(status.headrev);
 	if (s!=0)
 	{
@@ -281,9 +275,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 			{
 				while (s != 0)
 				{
-					const TCHAR * pSVNItemPath = NULL;
-					s = status.GetNextFileStatus(&pSVNItemPath);
-					svnPath.SetFromSVN(pSVNItemPath);
+					s = status.GetNextFileStatus(svnPath);
 					if(workingTarget.IsEquivalentTo(svnPath))
 					{
 						break;
@@ -324,7 +316,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 		{
 			// check if the unversioned folder is maybe versioned. This
 			// could happen with nested layouts
-			if (SVNStatus::GetAllStatus(workingTarget.GetWinPath()) != svn_wc_status_unversioned)
+			if (SVNStatus::GetAllStatus(workingTarget) != svn_wc_status_unversioned)
 			{
 				return true;	//ignore nested layouts
 			}
@@ -453,20 +445,17 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 										  CTSVNPathList& arExtPaths, apr_array_header_t *pIgnorePatterns, bool bAllDirect)
 {
 	svn_wc_status_t * s;
-	// This is the item path returned from GetNextFileStatus - it's a forward-slash path
-	const TCHAR * pSVNItemPath = NULL;
 
 	CTSVNPath lastexternalpath;
-	while ((s = status.GetNextFileStatus(&pSVNItemPath)) != NULL)
+	CTSVNPath svnPath;
+	while ((s = status.GetNextFileStatus(svnPath)) != NULL)
 	{
-		CTSVNPath svnPath;
-		svnPath.SetFromSVN(pSVNItemPath);
 		svn_wc_status_kind wcFileStatus = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
 		if ((wcFileStatus == svn_wc_status_unversioned) && (svnPath.IsDirectory()))
 		{
 			// check if the unversioned folder is maybe versioned. This
 			// could happen with nested layouts
-			if (SVNStatus::GetAllStatus(pSVNItemPath) != svn_wc_status_unversioned)
+			if (SVNStatus::GetAllStatus(svnPath) != svn_wc_status_unversioned)
 				continue;	//ignore nested layouts
 		}
 		bool bDirectoryIsExternal = false;
@@ -1235,7 +1224,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						long revend = reg;
 						revend = -revend;
 						CLogDlg dlg;
-						dlg.SetParams(filepath.GetWinPathString(), SVNRev::REV_HEAD, revend);
+						dlg.SetParams(filepath, SVNRev::REV_HEAD, revend);
 						dlg.DoModal();
 					}
 					break;
@@ -1309,7 +1298,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						CString name = _T("*")+filepath.GetFileExtension();
 						CTSVNPath parentFolder = filepath.GetDirectory(); 
-						SVNProperties props(parentFolder.GetSVNPathString());
+						SVNProperties props(parentFolder);
 						CStringA value;
 						for (int i=0; i<props.GetCount(); i++)
 						{
@@ -1374,11 +1363,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							SVNStatus status;
 							svn_wc_status_t * s;
 							CTSVNPath svnPath;
-							{
-								const TCHAR * pSVNItemPath = NULL;
-								s = status.GetFirstFileStatus(parentFolder.GetSVNPathString(), &pSVNItemPath, FALSE);
-								svnPath.SetFromSVN(pSVNItemPath);
-							}
+							s = status.GetFirstFileStatus(parentFolder, svnPath, FALSE);
 
 							if (s!=0)
 							{
@@ -1429,7 +1414,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						CString name = filepath.GetFileOrDirectoryName();
 						CTSVNPath parentfolder = filepath.GetContainingDirectory();
-						SVNProperties props(parentfolder.GetSVNPathString());
+						SVNProperties props(parentfolder);
 						CStringA value;
 						for (int i=0; i<props.GetCount(); i++)
 						{
@@ -1489,11 +1474,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						SVNStatus status;
 						svn_wc_status_t * s;
 						CTSVNPath svnPath;
-						{
-							const TCHAR * pSVNItemPath = NULL;
-							s = status.GetFirstFileStatus(parentfolder.GetSVNPathString(), &pSVNItemPath, FALSE);
-							svnPath.SetFromSVN(pSVNItemPath);
-						}
+						s = status.GetFirstFileStatus(parentfolder, svnPath, FALSE);
+
 						// first check if the folder isn't already present in the list
 						bool bFound = false;
 						int nListboxEntries = GetItemCount();

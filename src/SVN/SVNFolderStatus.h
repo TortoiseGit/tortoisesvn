@@ -21,6 +21,7 @@
 #include "CApr.h"
 #include "SVNStatus.h"
 #include "RemoteCacheLink.h"
+#include "TSVNPath.h"
 
 /**
  * \ingroup TortoiseShell
@@ -141,13 +142,13 @@ class SVNFolderStatus :  public CApr, public SVNStatus
 public:
 	SVNFolderStatus(void);
 	~SVNFolderStatus(void);
-	const FileStatusCacheEntry *	GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
-	const FileStatusCacheEntry *	GetCachedItem(LPCTSTR filepath);
+	const FileStatusCacheEntry *	GetFullStatus(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
+	const FileStatusCacheEntry *	GetCachedItem(const CTSVNPath& filepath);
 
 	FileStatusCacheEntry		invalidstatus;
 
 private:
-	const FileStatusCacheEntry * BuildCache(LPCTSTR filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
+	const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
 	DWORD				GetTimeoutValue();
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	void				ClearCache();
@@ -171,7 +172,7 @@ private:
 	HANDLE			m_hInvalidationEvent;
 
 	// The item we most recently supplied status for 
-	stdstring		m_mostRecentPath;
+	CTSVNPath		m_mostRecentPath;
 	const FileStatusCacheEntry* m_mostRecentStatus;
 
 public:

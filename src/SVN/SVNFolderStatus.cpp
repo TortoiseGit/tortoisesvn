@@ -96,13 +96,12 @@ SVNFolderStatus::~SVNFolderStatus(void)
 	CloseHandle(m_hInvalidationEvent);
 }
 
-const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder, BOOL bDirectFolder)
+const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder)
 {
 	svn_client_ctx_t *			ctx;
 	apr_hash_t *				statushash;
 	apr_pool_t *				pool;
 	svn_error_t *				err = NULL; // If svn_client_status comes out through catch(...), err would else be unassigned
-	const char *				internalpath;
 
 	//dont' build the cache if an instance of TortoiseProc is running
 	//since this could interfere with svn commands running (concurrent
@@ -171,7 +170,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 				else
 					dirstat.status = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
 			} // if (status)
-			m_cache[filepath] = dirstat;
+			m_cache[filepath.GetWinPath()] = dirstat;
 			m_TimeStamp = GetTickCount();
 			svn_pool_destroy (pool);				//free allocated memory
 			ClearPool();
@@ -184,16 +183,6 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	//Fill in the cache with
 	//all files inside the same folder as the asked file/folder is
 	//since subversion can do this in one step
-	TCHAR * pathbuf = new TCHAR[_tcslen(filepath)+4];
-	_tcscpy(pathbuf, filepath);
-	const TCHAR * p = _tcsrchr(filepath, '\\');
-	if (p)
-		pathbuf[p-filepath] = '\0';
-	if ((bIsFolder)&&(!g_ShellCache.HasSVNAdminDir(pathbuf, bIsFolder)))
-	{
-		_tcscpy(pathbuf, filepath);
-	}
-	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
 	ctx->auth_baton = NULL;
 
 	statushash = apr_hash_make(pool);
@@ -203,7 +192,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	try
 	{
 		err = svn_client_status (&youngest,
-			internalpath,
+			filepath.GetDirectory().GetSVNApiPath(),
 			&rev,
 			fillstatusmap,
 			this,
@@ -223,7 +212,6 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	{
 		svn_pool_destroy (pool);				//free allocated memory
 		ClearPool();
-		delete pathbuf;
 		return &invalidstatus;	
 	}
 
@@ -231,7 +219,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	m_TimeStamp = GetTickCount();
 	const FileStatusCacheEntry * ret = NULL;
 	FileStatusMap::const_iterator iter;
-	if ((iter = m_cache.find(filepath)) != m_cache.end())
+	if ((iter = m_cache.find(filepath.GetWinPath())) != m_cache.end())
 	{
 		ret = &iter->second;
 		m_mostRecentPath = filepath;
@@ -244,9 +232,9 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 		// path too before giving up.
 		// This is especially true when right-clicking directly on a SUBST'ed
 		// drive to get the context menu
-		if (_tcslen(filepath)==3)
+		if (_tcslen(filepath.GetWinPath())==3)
 		{
-			if ((iter = m_cache.find(pathbuf)) != m_cache.end())
+			if ((iter = m_cache.find((LPCTSTR)filepath.GetWinPathString().Left(2))) != m_cache.end())
 			{
 				ret = &iter->second;
 				m_mostRecentPath = filepath;
@@ -255,7 +243,6 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 		}		
 	}
 	ClearPool();
-	delete pathbuf;
 	if (ret)
 		return ret;
 	return &invalidstatus;
@@ -272,7 +259,7 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 	return factor*timeout;
 }
 
-const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
+const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bColumnProvider)
 {
 	const FileStatusCacheEntry * ret = NULL;
 
@@ -303,7 +290,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 		return &filestat;
 	}
 
-	BOOL bHasAdminDir = g_ShellCache.HasSVNAdminDir(filepath, bIsFolder);
+	BOOL bHasAdminDir = g_ShellCache.HasSVNAdminDir(filepath.GetWinPath(), bIsFolder);
 	
 	//no overlay for unversioned folders
 	if ((!bColumnProvider)&&(!bHasAdminDir))
@@ -334,13 +321,13 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 		return &invalidstatus;
 }
 
-const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
+const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& filepath)
 {
-	sCacheKey.assign(filepath);
+	sCacheKey.assign(filepath.GetWinPath());
 	FileStatusMap::const_iterator iter;
 	const FileStatusCacheEntry *retVal;
 
-	if(sCacheKey == m_mostRecentPath)
+	if(m_mostRecentPath.IsEquivalentTo(CTSVNPath(sCacheKey.c_str())))
 	{
 		// We've hit the same result as we were asked for last time
 		ATLTRACE2(_T("fast cache hit for %s\n"), filepath);
@@ -351,7 +338,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 		ATLTRACE2(_T("cache found for %s\n"), filepath);
 		retVal = &iter->second;
 		m_mostRecentStatus = retVal;
-		m_mostRecentPath = sCacheKey;
+		m_mostRecentPath = CTSVNPath(sCacheKey.c_str());
 	}
 	else
 	{
@@ -424,7 +411,7 @@ void SVNFolderStatus::ClearCache()
 {
 	m_cache.clear();
 	m_mostRecentStatus = NULL;
-	m_mostRecentPath.clear();
+	m_mostRecentPath.Reset();
 	// If we're about to rebuild the cache, there's no point hanging on to 
 	// an event which tells us that it's invalid
 	ResetEvent(m_hInvalidationEvent);

@@ -97,7 +97,7 @@ protected:
 	CHistoryCombo m_URLCombo2;
 	BOOL		m_bUseFromURL;
 public:
-	CString		m_wcPath;
+	CTSVNPath	m_wcPath;
 	CString		m_URLFrom;
 	CString		m_URLTo;
 	SVNRev		StartRev;

@@ -470,7 +470,7 @@ BOOL SVN::Resolve(const CTSVNPath& path, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force, CProgressDlg * pProgDlg, BOOL extended)
+BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revision, BOOL force, CProgressDlg * pProgDlg, BOOL extended)
 {
 
 	if (revision.IsWorking()&&(pProgDlg))
@@ -479,7 +479,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 		// unversioned items too
 		if (extended)
 		{
-			CDirFileEnum lister1(srcPath);
+			CDirFileEnum lister1(srcPath.GetWinPathString());
 			DWORD maxval = 0;
 			DWORD current = 0;
 			// first, count all the items we have to copy
@@ -489,7 +489,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 				if (srcfile.Find(_T(SVN_WC_ADM_DIR_NAME))<0)
 					maxval++;
 			}
-			CDirFileEnum lister2(srcPath);
+			CDirFileEnum lister2(srcPath.GetWinPathString());
 			CString sSVN_ADMIN_DIR = _T("\\");
 			sSVN_ADMIN_DIR += _T(SVN_WC_ADM_DIR_NAME);
 			while (lister2.NextFile(srcfile, NULL))
@@ -498,7 +498,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 				if ((srcfile.Find(sSVN_ADMIN_DIR+_T("\\"))>=0)||(srcfile.Right(sSVN_ADMIN_DIR.GetLength()).Compare(sSVN_ADMIN_DIR)==0))
 					continue;	// exclude everything inside an admin directory
 				current++;
-				CString destination = destPath + _T("\\") + srcfile.Mid(srcPath.GetLength());
+				CString destination = destPath.GetWinPathString() + _T("\\") + srcfile.Mid(srcPath.GetWinPathString().GetLength());
 				pProgDlg->SetProgress(current, maxval);
 				pProgDlg->SetLine(2, srcfile, TRUE);
 				if (CUtils::FileCopy(srcfile, destination, force)==FALSE)
@@ -533,18 +533,18 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 		}
 		else
 		{
-			const TCHAR * strbuf = NULL;
+			CTSVNPath statusPath;
 			svn_wc_status_t * s;
 			SVNStatus status;
-			if ((s = status.GetFirstFileStatus(srcPath, &strbuf))!=0)
+			if ((s = status.GetFirstFileStatus(srcPath, statusPath))!=0)
 			{
 				DWORD maxval = status.GetVersionedCount();
 				DWORD current = 0;
 				if (SVNStatus::GetMoreImportant(s->text_status, svn_wc_status_unversioned)!=svn_wc_status_unversioned)
 				{
 					current++;
-					CString src = strbuf;
-					CString destination = destPath + _T("\\") + src.Mid(srcPath.GetLength());
+					CString src = statusPath.GetWinPathString();
+					CString destination = destPath.GetWinPathString() + _T("\\") + src.Mid(srcPath.GetWinPathString().GetLength());
 					pProgDlg->SetProgress(current, maxval);
 					pProgDlg->SetLine(2, src, TRUE);
 					if (CUtils::FileCopy(src, destination, force)==FALSE)
@@ -571,7 +571,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 						return FALSE;
 					}
 				}
-				while ((s = status.GetNextFileStatus(&strbuf))!=0)
+				while ((s = status.GetNextFileStatus(statusPath))!=0)
 				{
 					if ((s->text_status == svn_wc_status_unversioned)||
 						(s->text_status == svn_wc_status_ignored)||
@@ -582,8 +582,8 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 						(s->text_status == svn_wc_status_deleted))
 						continue;
 					
-					CString src = strbuf;
-					CString destination = destPath + _T("\\") + src.Mid(srcPath.GetLength());
+					CString src = statusPath.GetWinPathString();
+					CString destination = destPath.GetWinPathString() + _T("\\") + src.Mid(srcPath.GetWinPathString().GetLength());
 					pProgDlg->SetProgress(current, maxval);
 					pProgDlg->SetLine(2, src, TRUE);
 					if (CUtils::FileCopy(src, destination, force)==FALSE)
@@ -625,13 +625,9 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 	}
 	else
 	{
-
-		preparePath(srcPath);
-		preparePath(destPath);
-
 		Err = svn_client_export2(NULL,		//no resulting revision needed
-			MakeSVNUrlOrPath(srcPath),
-			MakeSVNUrlOrPath(destPath),
+			srcPath.GetSVNApiPath(),
+			destPath.GetSVNApiPath(),
 			revision,
 			force,
 			NULL,
@@ -1785,7 +1781,7 @@ void SVN::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	//we have the conflicted file (%merged)
 	//now look for the other required files
 	SVNStatus stat;
-	stat.GetStatus(merge.GetSVNPathString());
+	stat.GetStatus(merge);
 	if (stat.status && stat.status->entry)
 	{
 		if (stat.status->entry->conflict_new)

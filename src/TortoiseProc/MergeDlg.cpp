@@ -93,7 +93,7 @@ BOOL CMergeDlg::OnInitDialog()
 	if (url.IsEmpty())
 	{
 		CString temp;
-		temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)m_wcPath);
+		temp.Format(IDS_ERR_NOURLOFFILE, m_wcPath.GetWinPath());
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		this->EndDialog(IDCANCEL);
 		return TRUE;
@@ -106,7 +106,7 @@ BOOL CMergeDlg::OnInitDialog()
 			m_URLTo = url;
 		}
 		GetDlgItem(IDC_WCURL)->SetWindowText(url);
-		GetDlgItem(IDC_WCPATH)->SetWindowText(m_wcPath);
+		GetDlgItem(IDC_WCPATH)->SetWindowText(m_wcPath.GetWinPath());
 	}
 
 	m_URLCombo.SetURLHistory(TRUE);
@@ -400,7 +400,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 	{
 		delete m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
-		m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
+		m_pLogDlg->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 		m_pLogDlg->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTSTART);
@@ -425,7 +425,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 	{
 		delete m_pLogDlg2;
 		m_pLogDlg2 = new CLogDlg();
-		m_pLogDlg2->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
+		m_pLogDlg2->SetParams(CTSVNPath(url), SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 		m_pLogDlg2->m_wParam = (m_bUseFromURL ? (MERGE_REVSELECTSTARTEND | MERGE_REVSELECTMINUSONE) : MERGE_REVSELECTEND);

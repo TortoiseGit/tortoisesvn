@@ -110,7 +110,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	void SetParams(const CString& path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
+	void SetParams(const CTSVNPath& path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);

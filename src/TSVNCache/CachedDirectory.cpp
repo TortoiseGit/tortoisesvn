@@ -293,7 +293,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		// is unversioned.
 		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentTo(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
 		{
-			if (PathFileExists(svnPath.GetWinPathString()+_T("\\")+_T(SVN_WC_ADM_DIR_NAME)))
+			if (svnPath.HasAdminDir())
 			{
 				CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
 				// Mark the directory as 'versioned' (status 'normal' for now).

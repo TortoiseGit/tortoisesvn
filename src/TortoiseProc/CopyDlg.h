@@ -21,6 +21,7 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 #include "SciEdit.h"
+#include "TSVNPath.h"
 
 /**
  * \ingroup TortoiseProc
@@ -72,7 +73,7 @@ protected:
 
 public:
 	CString	m_URL;
-	CString m_path;
+	CTSVNPath m_path;
 	CString m_sLogMessage;
 	BOOL m_bDirectCopy;
 

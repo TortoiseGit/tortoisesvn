@@ -245,7 +245,7 @@ public:
 	 *					when exporting from a repository.
 	 * \param force		TRUE if existing files should be overwritten
 	 */
-	BOOL Export(CString srcPath, CString destPath, SVNRev revision, BOOL force = TRUE, CProgressDlg * pProgDlg = NULL, BOOL extended = FALSE);
+	BOOL Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revision, BOOL force = TRUE, CProgressDlg * pProgDlg = NULL, BOOL extended = FALSE);
 	/**
 	 * Switch working tree path to URL at revision
 	 *

@@ -97,12 +97,12 @@ END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(const CString& path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL bStrict /* = FALSE */)
+void CLogDlg::SetParams(const CTSVNPath& path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL bStrict /* = FALSE */)
 {
-	m_path.SetFromUnknown(path);
+	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
-	m_hasWC = !PathIsURL(path);
+	m_hasWC = !path.IsUrl();
 	m_bStrict = bStrict;
 }
 
@@ -165,7 +165,7 @@ BOOL CLogDlg::OnInitDialog()
 
 	if (m_hasWC)
 	{
-		m_ProjectProperties.ReadProps(m_path.GetSVNPathString());
+		m_ProjectProperties.ReadProps(m_path);
 	}
 
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
@@ -725,7 +725,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						else
 						{
 							dlg.m_URL = url;
-							dlg.m_path = m_path.GetSVNPathString();
+							dlg.m_path = m_path;
 							if (dlg.DoModal() == IDOK)
 							{
 								SVN svn;
@@ -1027,7 +1027,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						filepath += changedpath->sPath;
 						CPropDlg dlg;
 						dlg.m_rev = rev;
-						dlg.m_sPath = filepath;
+						dlg.m_Path = CTSVNPath(filepath);
 						dlg.DoModal();
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);

@@ -44,7 +44,7 @@ BOOL ProjectProperties::ReadPropsPathList(const CTSVNPathList& pathList)
 {
 	for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 	{
-		if (ReadProps(pathList[nPath].GetWinPath()))
+		if (ReadProps(pathList[nPath]))
 		{
 			return TRUE;
 		}
@@ -52,7 +52,7 @@ BOOL ProjectProperties::ReadPropsPathList(const CTSVNPathList& pathList)
 	return FALSE;
 }
 
-BOOL ProjectProperties::ReadProps(CString path)
+BOOL ProjectProperties::ReadProps(CTSVNPath path)
 {
 	BOOL bFoundBugtraqLabel = FALSE;
 	BOOL bFoundBugtraqMessage = FALSE;
@@ -66,11 +66,10 @@ BOOL ProjectProperties::ReadProps(CString path)
 	BOOL bFoundMinLogSize = FALSE;
 	BOOL bFoundFileListEnglish = FALSE;
 	BOOL bFoundProjectLanguage = FALSE;
-	path.Replace('/', '\\');
-	if (!PathIsDirectory(path))
-	{
-		path = path.Left(path.ReverseFind('\\'));
-	}
+
+	if (!path.IsDirectory())
+		path = path.GetContainingDirectory();
+		
 	for (;;)
 	{
 		SVNProperties props(path);
@@ -248,10 +247,10 @@ BOOL ProjectProperties::ReadProps(CString path)
 				bFoundProjectLanguage = TRUE;
 			}
 		}
-		if (PathIsRoot(path))
+		if (PathIsRoot(path.GetWinPath()))
 			return FALSE;
-		path = path.Left(path.ReverseFind('\\'));
-		if ((!PathFileExists(path + _T("\\") + _T(SVN_WC_ADM_DIR_NAME)))||(path.IsEmpty()))
+		path = path.GetContainingDirectory();
+		if ((!path.HasAdminDir())||(path.IsEmpty()))
 		{
 			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth

@@ -65,7 +65,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 	return false;
 }
 
-bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, TSVNCacheResponse* pReturnedStatus, bool bRecursive)
+bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCacheResponse* pReturnedStatus, bool bRecursive)
 {
 	if(!EnsurePipeOpen())
 	{
@@ -114,7 +114,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, TSVNCacheResponse
 	{
 		request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
 	}
-	wcscpy(request.path, pPath);
+	wcscpy(request.path, Path.GetWinPath());
 	if (!WriteFile(m_hPipe,&request,sizeof(request),&nBytesWritten,NULL)) 
 	{
 		OutputDebugStringA("Pipe WriteFile failed\n"); 

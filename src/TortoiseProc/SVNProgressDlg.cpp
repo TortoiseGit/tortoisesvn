@@ -555,7 +555,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					m_Revision = revstore;
 					if (m_Revision.IsHead())
 					{
-						if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath.GetSVNPathString(), true)) != (-2)))
+						if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, true)) != (-2)))
 						{
 							if (st.status->entry != NULL)
 							{
@@ -576,7 +576,7 @@ UINT CSVNProgressDlg::ProgressThread()
 						} // if ((headrev = st.GetStatus(strLine)) != (-2)) 
 						else
 						{
-							if ((headrev = st.GetStatus(targetPath.GetSVNPathString(), FALSE)) != (-2))
+							if ((headrev = st.GetStatus(targetPath, FALSE)) != (-2))
 							{
 								if (st.status->entry != NULL)
 									m_nUpdateStartRev = st.status->entry->cmt_rev;
@@ -720,7 +720,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				sWindowTitle.LoadString(IDS_PROGRS_TITLE_SWITCH);
 				SetWindowText(sWindowTitle);
 				LONG rev = 0;
-				if (st.GetStatus(m_targetPathList[0].GetWinPath()) != (-2))
+				if (st.GetStatus(m_targetPathList[0]) != (-2))
 				{
 					if (st.status->entry != NULL)
 					{
@@ -743,7 +743,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
 			sTempWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Export(m_url.GetSVNPathString(), m_targetPathList[0].GetSVNPathString(), m_Revision))
+			if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision))
 			{
 				ReportSVNError();
 			}
@@ -843,7 +843,7 @@ UINT CSVNProgressDlg::ProgressThread()
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
 	CLogDlg dlg;
-	dlg.SetParams(m_updatedPath.GetWinPathString(), m_RevisionEnd, m_nUpdateStartRev);
+	dlg.SetParams(m_updatedPath, m_RevisionEnd, m_nUpdateStartRev);
 	dlg.DoModal();
 }
 

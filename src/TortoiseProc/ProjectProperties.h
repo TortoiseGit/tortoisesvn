@@ -71,7 +71,7 @@ public:
 	 * then the properties are read from the parent folder of that file.
 	 * \param path path to a file or a folder
 	 */
-	BOOL ReadProps(CString path);
+	BOOL ReadProps(CTSVNPath path);
 	/**
 	 * Reads the properties from all paths found in a pathlist.
 	 * This method calls ReadProps() for each path .

@@ -365,7 +365,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CLogDlg dlg;
 					long revend = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 					revend = -revend;
-					dlg.SetParams(url, GetRevision(), revend, TRUE);
+					dlg.SetParams(CTSVNPath(url), GetRevision(), revend, TRUE);
 					dlg.m_ProjectProperties = m_ProjectProperties;
 					dlg.DoModal();
 				}
@@ -673,7 +673,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				{
 					CPropDlg dlg;
 					dlg.m_rev = GetRevision();
-					dlg.m_sPath = url;
+					dlg.m_Path = CTSVNPath(url);
 					dlg.DoModal();
 				}
 				break;

@@ -23,7 +23,7 @@
 #include "ProjectProperties.h"
 #include "Balloon.h"
 #include "HistoryCombo.h"
-
+#include "TSVNPath.h"
 
 /**
  * \ingroup TortoiseProc
@@ -78,7 +78,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_url;
-	CString m_path;
+	CTSVNPath m_path;
 	CString m_sMessage;
 	CHistoryCombo m_URLCombo;
 	CSciEdit m_cMessage;

@@ -457,7 +457,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
-			dlg.SetParams(cmdLinePath.GetWinPathString(), revstart, revend, parser.HasKey(_T("strict")));
+			dlg.SetParams(cmdLinePath, revstart, revend, parser.HasKey(_T("strict")));
 			dlg.DoModal();			
 		}
 		//#endregion
@@ -510,15 +510,13 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdImport)
 		{
 			CImportDlg dlg;
-			dlg.m_path = cmdLinePath.GetWinPathString();
+			dlg.m_path = cmdLinePath;
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_url);
 				CSVNProgressDlg progDlg;
 				progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 				m_pMainWnd = &progDlg;
-				//construct the module name out of the path
-				CString modname;
 				progDlg.SetParams(CSVNProgressDlg::Import, 0, pathList, dlg.m_url, dlg.m_sMessage);
 				progDlg.DoModal();
 			}
@@ -540,7 +538,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						options = ProgOptNonRecursive;
 					}
 					if (CRegDWORD(_T("Software\\TortoiseSVN\\updatetorev"), (DWORD)-1)==(DWORD)-1)
-						if (SVNStatus::GetAllStatusRecursive(cmdLinePath.GetWinPath())>svn_wc_status_normal)
+						if (SVNStatus::GetAllStatusRecursive(cmdLinePath)>svn_wc_status_normal)
 							if (CMessageBox::ShowCheck(EXPLORERHWND, IDS_WARN_UPDATETOREV_WITHMODS, IDS_APPNAME, MB_OKCANCEL | MB_ICONWARNING, _T("updatetorev"), IDS_MSGBOX_DONOTSHOWAGAIN)!=IDOK)
 								return FALSE;
 				}
@@ -695,7 +693,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdExport)
 		{
 			TCHAR saveto[MAX_PATH];
-			if (SVNStatus::GetAllStatus(cmdLinePath.GetWinPath()) == svn_wc_status_unversioned)
+			if (SVNStatus::GetAllStatus(cmdLinePath) == svn_wc_status_unversioned)
 			{
 				CCheckoutDlg dlg;
 				dlg.m_strCheckoutDirectory = cmdLinePath.GetWinPathString();
@@ -734,7 +732,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 					progDlg.FormatNonPathLine(1, IDS_PROC_EXPORT_3);
 					SVN svn;
-					if (!svn.Export(cmdLinePath.GetWinPathString(), saveplace, SVNRev::REV_WC, TRUE, &progDlg, folderBrowser.m_bCheck))
+					if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC, TRUE, &progDlg, folderBrowser.m_bCheck))
 					{
 						progDlg.Stop();
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
@@ -756,7 +754,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			BOOL repeat = FALSE;
 			CMergeDlg dlg;
-			dlg.m_wcPath = cmdLinePath.GetWinPathString();
+			dlg.m_wcPath = cmdLinePath;
 			do 
 			{	
 				if (dlg.DoModal() == IDOK)
@@ -779,7 +777,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (command == cmdCopy)
 		{
 			CCopyDlg dlg;
-			dlg.m_path = cmdLinePath.GetWinPathString();
+			dlg.m_path = cmdLinePath;
 			if (dlg.DoModal() == IDOK)
 			{
 				m_pMainWnd = NULL;
@@ -1043,7 +1041,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 				progDlg.FormatNonPathLine(1, IDS_PROC_EXPORT_3);
 				CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
-				if (!svn.Export(pathList[nPath].GetWinPathString(), dropper, SVNRev::REV_WC, TRUE, &progDlg, parser.HasKey(_T("extended"))))
+				if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC, TRUE, &progDlg, parser.HasKey(_T("extended"))))
 				{
 					progDlg.Stop();
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
@@ -1192,12 +1190,9 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 
 			CString val = parser.GetVal(_T("rev"));
-			long rev_val = _tstol(val);
-			SVNRev rev(SVNRev::REV_HEAD);
-			if (rev_val != 0)
-				rev = SVNRev(rev_val);
+			SVNRev rev(val);
 			CRepositoryBrowser dlg(SVNUrl(url, rev), bFile);
-			dlg.m_ProjectProperties.ReadProps(cmdLinePath.GetWinPathString());
+			dlg.m_ProjectProperties.ReadProps(cmdLinePath);
 			dlg.DoModal();
 		}
 		//#endregion 
@@ -1216,7 +1211,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					name = _T("*")+pathList[nPath].GetFileExtension();
 				}
-				CString parentfolder = pathList[nPath].GetContainingDirectory().GetWinPathString();
+				CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
 				SVNProperties props(parentfolder);
 				CStringA value;
 				for (int i=0; i<props.GetCount(); i++)

@@ -47,7 +47,7 @@ svn_error_t*	SVNProperties::Refresh()
 	rev.value.number = -1;
 #endif
 	m_error = svn_client_proplist (&m_props,
-								StringToUTF8(m_path).c_str(), 
+								m_path.GetSVNApiPath(), 
 								&rev,
 								false,	//recurse
 								&m_ctx,
@@ -80,13 +80,13 @@ svn_error_t*	SVNProperties::Refresh()
 
 #ifdef _MFC_VER
 
-SVNProperties::SVNProperties(const TCHAR * filepath, SVNRev rev)
+SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev)
 : m_rev(SVNRev::REV_WC)
 {
 	m_rev = rev;
 #else
 
-SVNProperties::SVNProperties(const TCHAR * filepath)
+SVNProperties::SVNProperties(const CTSVNPath& filepath)
 {
 #endif
 	m_pool = svn_pool_create (NULL);				// create the memory pool
@@ -106,16 +106,11 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 		return;
 	}
 	
-	//we need to convert the path to subversion internal format
-	//the internal format uses '/' instead of the windows '\'
-	m_path = UTF8ToString(svn_path_internal_style (StringToUTF8(filepath).c_str(), m_pool));
-
+	m_path = filepath;
 #ifdef _MFC_VER
 	m_prompt.Init(m_pool, &m_ctx);
 
-	CString path = filepath;
-	SVN::preparePath(path);
-	m_path = path;
+	m_path = filepath;
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
@@ -242,7 +237,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 		if (m_error != NULL)
 			return FALSE;
 	}
-	if ((!PathIsDirectory(m_path.c_str()))&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
+	if ((!m_path.IsDirectory())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
 	{
 		//bugtraq: and tsvn: properties are not allowed on files.
 #ifdef _MFC_VER
@@ -291,10 +286,10 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 	if ((recurse)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))
 	{
 		//The bugtraq and tsvn properties must only be set on folders.
-		const TCHAR * path;
+		CTSVNPath path;
 		SVNStatus stat;
 		svn_wc_status_t * status = NULL;
-		status = stat.GetFirstFileStatus(m_path.c_str(), &path);
+		status = stat.GetFirstFileStatus(m_path, path);
 		do 
 		{
 			if (status)
@@ -302,14 +297,14 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 				if ((status->entry)&&(status->entry->kind == svn_node_dir))
 				{
 					// a versioned folder, so set the property!
-					m_error = svn_client_propset (pname_utf8.c_str(), pval, StringToUTF8(path).c_str(), false, m_pool);
+					m_error = svn_client_propset (pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, m_pool);
 				}
 			}
-			status = stat.GetNextFileStatus(&path);
+			status = stat.GetNextFileStatus(path);
 		} while ((status != 0)&&(m_error == NULL));
 	}
 	else 
-		m_error = svn_client_propset (pname_utf8.c_str(), pval, StringToUTF8(m_path).c_str(), recurse, m_pool);
+		m_error = svn_client_propset (pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, m_pool);
 	if (m_error != NULL)
 	{
 		return FALSE;
@@ -331,7 +326,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse)
 
 	pname_utf8 = StringToUTF8(Name);
 
-	m_error = svn_client_propset (pname_utf8.c_str(), NULL, StringToUTF8(m_path).c_str(), recurse, m_pool);
+	m_error = svn_client_propset (pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(), recurse, m_pool);
 	if (m_error != NULL)
 	{
 		return FALSE;

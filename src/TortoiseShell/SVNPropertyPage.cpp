@@ -38,7 +38,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 	for (std::vector<stdstring>::iterator I = files_.begin(); I != files_.end(); ++I)
 	{
 		SVNStatus svn = SVNStatus();
-		if (svn.GetStatus(I->c_str()) == (-2))
+		if (svn.GetStatus(CTSVNPath(I->c_str())) == (-2))
 			return NOERROR;			// file/directory not under version control
 
 		if (svn.status->entry == NULL)
@@ -410,7 +410,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 						{
 							dlg.SetLine(1, I->c_str(), TRUE);
-							SVNProperties props = SVNProperties(I->c_str());
+							SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
 							CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
 							props.Remove(buf, checked);
 							count++;
@@ -450,7 +450,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 						{
 							dlg.SetLine(1, I->c_str(), TRUE);
-							SVNProperties props = SVNProperties(I->c_str());
+							SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
 							CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
 							if (!props.Add(name, t.c_str(), checked))
 							{
@@ -461,7 +461,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 							if (dlg.HasUserCancelled())
 								break;
 							SVNStatus stat = SVNStatus();
-							if (stat.GetStatus(I->c_str())==(-2))
+							if (stat.GetStatus(CTSVNPath(I->c_str()))==(-2))
 							{
 								::MessageBox(m_hwnd, stat.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 								props.Remove(name);
@@ -556,7 +556,7 @@ void CSVNPropertyPage::InitWorkfileView()
 	TCHAR tbuf[MAX_PROP_STRING_LENGTH];
 	if (filenames.size() == 1)
 	{
-		if (svn.GetStatus(filenames.front().c_str())>(-2))
+		if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
 		{
 			if (svn.status->entry != NULL)
 			{
@@ -612,7 +612,7 @@ void CSVNPropertyPage::InitWorkfileView()
 				{
 					SetDlgItemText(m_hwnd, IDC_LOCKED, _T(""));
 				}
-				SVNProperties props = SVNProperties(filenames.front().c_str());
+				SVNProperties props = SVNProperties(CTSVNPath(filenames.front().c_str()));
 				//get the handle of the listview
 				HWND lvh = GetDlgItem(m_hwnd, IDC_PROPLIST);
 				ListView_SetExtendedListViewStyle (lvh, LVS_EX_FULLROWSELECT);
@@ -696,7 +696,7 @@ void CSVNPropertyPage::InitWorkfileView()
 			lcol2.pszText = stringtablebuffer;
 			ListView_InsertColumn(lvh, 1, &lcol2);
 		} // if (Header_GetItemCount(header)<=0)
-		if (svn.GetStatus(filenames.front().c_str())>(-2))
+		if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
 		{
 			if (svn.status->entry != NULL)
 			{
@@ -727,7 +727,7 @@ void CSVNPropertyPage::InitWorkfileView()
 		std::vector<listproperty> proplist;
 		for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 		{
-			SVNProperties props = SVNProperties(I->c_str());
+			SVNProperties props = SVNProperties(CTSVNPath(I->c_str()));
 			for (int i=0; i<props.GetCount(); i++)
 			{
 				listproperty prop;

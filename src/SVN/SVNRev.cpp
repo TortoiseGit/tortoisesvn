@@ -78,6 +78,11 @@ void SVNRev::Create(CString sRev)
 		rev.kind = svn_opt_revision_committed;
 		m_bIsValid = TRUE;
 	}
+	else if (sRev.IsEmpty())
+	{
+		rev.kind = svn_opt_revision_head;
+		m_bIsValid = TRUE;
+	}
 	else
 	{
 		LONG nRev = _ttol(sRev);
