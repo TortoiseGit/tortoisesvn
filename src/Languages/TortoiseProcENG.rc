@@ -976,6 +976,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_WARN_FOLDERNOTEXIST "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
+    IDS_WARN_SHAREFILEACCESS 
+                            "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
 END
 
 STRINGTABLE 
