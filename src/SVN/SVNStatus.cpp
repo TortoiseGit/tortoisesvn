@@ -495,11 +495,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 	} // switch (status) 
 }
 
-#ifdef UNICODE
-int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int /*nBufferMax*/, WORD wLanguage)
-#else
 int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
-#endif
 {
 	const STRINGRESOURCEIMAGE* pImage;
 	const STRINGRESOURCEIMAGE* pImageEnd;
@@ -510,7 +506,9 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 	BOOL defaultCharUsed;
 #endif
 	int ret;
-
+#ifdef UNICODE
+	UNREFERENCED_PARAMETER(nBufferMax);
+#endif
 	HRSRC hResource =  FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID>>4)+1)), wLanguage);
 	if (!hResource)
 	{
