@@ -247,9 +247,13 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 
 DWORD SVNFolderStatus::GetTimeoutValue()
 {
+	DWORD timeout = SVNFOLDERSTATUS_CACHETIMEOUT;
 	if (g_ShellCache.IsRecursive())
-		return SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT;
-	return SVNFOLDERSTATUS_CACHETIMEOUT;
+		timeout = SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT;
+	DWORD factor = m_cache.size()/200;
+	if (factor==0)
+		factor = 1;
+	return factor*timeout;
 }
 
 filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
