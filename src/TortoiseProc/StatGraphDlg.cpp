@@ -163,9 +163,9 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	//Set up the graph.
 	CString temp;
 	m_graph.SetGraphType(MyGraph::Bar);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORX);
-	m_graph.SetYAxisLabel(temp);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORY);
+	m_graph.SetYAxisLabel(temp);
+	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORX);
 	m_graph.SetXAxisLabel(temp);
 	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHOR);
 	m_graph.SetGraphTitle(temp);
