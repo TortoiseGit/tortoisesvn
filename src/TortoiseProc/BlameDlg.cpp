@@ -28,8 +28,9 @@
 IMPLEMENT_DYNAMIC(CBlameDlg, CDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CBlameDlg::IDD, pParent)
-	, StartRev(0)
+	, StartRev(1)
 	, EndRev(0)
+	, m_sStartRev(_T("1"))
 {
 }
 
