@@ -120,10 +120,10 @@ BOOL CCopyDlg::OnInitDialog()
 	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
 
 	m_bFile = !PathIsDirectory(m_path);
-	SVNStatus status;
 	CString unescapedurl;
-	long rev = status.GetStatus(m_path);
-	if ((rev == (-2))||(status.status->entry == NULL))
+	SVN svn;
+	m_wcURL = svn.GetURLFromPath(m_path);
+	if (m_wcURL.IsEmpty())
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
 		TRACE(_T("could not retrieve the URL of the file!\n"));
@@ -131,9 +131,10 @@ BOOL CCopyDlg::OnInitDialog()
 	} // if ((rev == (-2))||(status.status->entry == NULL))
 	else
 	{
-		m_wcURL = CUnicodeUtils::GetUnicode(status.status->entry->url);
-		CUtils::Unescape((char *)status.status->entry->url);
-		unescapedurl = CUnicodeUtils::GetUnicode(status.status->entry->url);
+		char buf[10000];
+		strcpy(buf, CStringA(m_wcURL));
+		CUtils::Unescape(buf);
+		unescapedurl = CUnicodeUtils::GetUnicode(buf);
 	}
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));

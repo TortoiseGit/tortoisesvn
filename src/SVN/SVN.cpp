@@ -974,6 +974,19 @@ apr_array_header_t * SVN::target (LPCTSTR path)
 	return targets;
 }
 
+CString SVN::GetURLFromPath(CString path)
+{
+	preparePath(path);
+	const char * URL;
+	Err = get_url_from_target(&URL, CUnicodeUtils::GetUTF8(path));
+	if (Err)
+		return _T("");
+	if (URL==NULL)
+		return _T("");
+	CString ret = CUnicodeUtils::GetUnicode(URL);
+	return ret;
+}
+
 svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 {
 	svn_wc_adm_access_t *adm_access;          

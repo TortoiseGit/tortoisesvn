@@ -433,10 +433,13 @@ public:
 	 */
 	CString	RevPropertyGet(CString sName, CString sURL, SVNRev rev);
 
+	CString GetURLFromPath(CString path);
+
 	/**
 	 * Releases all used memory pools.
 	 */
 	void ReleasePool();
+
 	/**
 	 * Returns a text representation of an action enum.
 	 */

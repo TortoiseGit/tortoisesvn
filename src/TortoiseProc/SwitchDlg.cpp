@@ -104,13 +104,13 @@ BOOL CSwitchDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	m_bFolder = PathIsDirectory(m_path);
-	SVNStatus status;
-	status.GetStatus(m_path);
+	SVN svn;
+	CString url = svn.GetURLFromPath(m_path);
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
-	if ((status.status)&&(status.status->entry != NULL))
+	if (!url.IsEmpty())
 	{
-		m_path = status.status->entry->url;
+		m_path = url;
 		m_URLCombo.AddString(m_path, 0);
 		m_URLCombo.SelectString(-1, m_path);
 		m_URL = m_path;

@@ -112,20 +112,18 @@ BOOL CMergeDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	m_bFile = !PathIsDirectory(m_URL);
-	SVNStatus status;
-	status.GetStatus(m_URL);
-	if ((status.status == NULL) || (status.status->entry == NULL))
+	SVN svn;
+	CString url = svn.GetURLFromPath(m_URL);
+	if (url.IsEmpty())
 	{
 		CString temp;
-		temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+		temp.Format(IDS_ERR_NOURLOFFILE, m_URL);
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		this->EndDialog(IDCANCEL);
 		return TRUE;
 	} // if ((status.status == NULL) || (status.status->entry == NULL))
-	if (status.status->entry->url == NULL)
-		m_URL = _T("");
 	else
-		m_URL = CUnicodeUtils::GetUnicode(status.status->entry->url);
+		m_URL = url;
 	m_BranchURL = m_URL;
 
 	m_URLCombo.SetURLHistory(TRUE);

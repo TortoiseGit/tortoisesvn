@@ -386,30 +386,20 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					CString strLine = _T("");
 					CString commitString = _T("");
 					BOOL isTag = FALSE;
-					BOOL bStatusFetched = FALSE;
+					BOOL bURLFetched = FALSE;
 					CString url;
 					int nTargets = 0;
 					while (file.ReadString(strLine))
 					{
 						nTargets++;
-						if (bStatusFetched == FALSE)
+						if (bURLFetched == FALSE)
 						{
-							// getting the Status once is enough, since it's not possible to
-							// select multiple files/folders from different working copies in
-							// the explorer. So once we have the status for one file/folder
-							// and its URL, that's enough.
-							SVNStatus svnStatus;
-							if (svnStatus.GetStatus(strLine) != (-2))
-							{
-								if ((svnStatus.status->entry)&&(svnStatus.status->entry->url))
-								{
-									url = svnStatus.status->entry->url;
-									bStatusFetched = TRUE;
-								}
-								if (url.Find(_T("/tags/"))>=0)
-									isTag = TRUE;
-							} // if (svnStatus.GetStatus(strLine) != (-2))
-						} // if (bStatusFetched == FALSE)
+							url = pDlg->GetURLFromPath(strLine);
+							if (!url.IsEmpty())
+								bURLFetched = TRUE;
+							if (url.Find(_T("/tags/"))>=0)
+								isTag = TRUE;
+						} // if (bURLFetched == FALSE)
 						if (commitString.IsEmpty())
 							commitString = strLine;
 						else

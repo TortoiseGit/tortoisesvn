@@ -577,19 +577,17 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev = m_arRevs.GetAt(selIndex);
 						if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
 						{
-							SVNStatus status;
-							status.GetStatus(m_path);
-							if ((status.status == NULL)&&(status.status->entry == NULL))
+							CString url = this->GetURLFromPath(m_path);
+							if (url.IsEmpty())
 							{
 								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
 								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the folder!\n"));
 								break;		//exit
 							} // if ((rev == (-2))||(status.status->entry == NULL))
 							else
 							{
-								CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 								CSVNProgressDlg dlg;
 								dlg.SetParams(Enum_Merge, false, m_path, url, url, rev);		//use the message as the second url
 								dlg.m_RevisionEnd = rev-1;
@@ -603,19 +601,17 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
 						CCopyDlg dlg;
-						SVNStatus status;
-						status.GetStatus(m_path);
-						if ((status.status == NULL)&&(status.status->entry == NULL))
+						CString url = GetURLFromPath(m_path);
+						if (url.IsEmpty())
 						{
 							CString temp;
-							temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+							temp.Format(IDS_ERR_NOURLOFFILE, m_path);
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 							TRACE(_T("could not retrieve the URL of the folder!\n"));
 							break;		//exit
 						} // if (status.status->entry == NULL) 
 						else
 						{
-							CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 							dlg.m_URL = url;
 							dlg.m_path = m_path;
 							if (dlg.DoModal() == IDOK)
@@ -763,15 +759,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString url = m_path;
 						if (m_hasWC)
 						{
-							SVNStatus status;
-							if (status.GetStatus(m_path) != -2)
+							url = GetURLFromPath(m_path);
+							if (url.IsEmpty())
 							{
-								if (status.status->entry)
-									url = status.status->entry->url;
-							} // if (status.GetStatus(path)!=-2)
-							else
-							{
-								CMessageBox::Show(this->m_hWnd, status.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+								CString temp;
+								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 								GetDlgItem(IDOK)->EnableWindow(TRUE);
 								break;
 							}
@@ -908,12 +901,8 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			url = m_path;
 		else
 		{
-			SVNStatus s;
-			s.GetStatus(m_path);
-			if ((s.status)&&(s.status->entry)&&(s.status->entry->url))
-			{
-				url = s.status->entry->url;
-			}
+			SVN svn;
+			url = svn.GetURLFromPath(m_path);
 		}
 		if (selSub == 1)
 		{
@@ -1048,19 +1037,19 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	}
 	else
 	{
-		SVNStatus status;
-		if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
+		SVN svn;
+		filepath = svn.GetURLFromPath(m_path);
+		if (filepath.IsEmpty())
 		{
 			theApp.DoWaitCursor(-1);
 			CString temp;
-			temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+			temp.Format(IDS_ERR_NOURLOFFILE, filepath);
 			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			TRACE(_T("could not retrieve the URL of the file!\n"));
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 			theApp.DoWaitCursor(-11);
 			return;		//exit
 		} // if ((rev == (-2))||(status.status->entry == NULL))
-		filepath = CString(status.status->entry->url);
 	}
 	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 	m_bCancelled = FALSE;

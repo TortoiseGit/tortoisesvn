@@ -1007,14 +1007,11 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("relocate"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
-			SVNStatus svn;
-			svn.GetStatus(path);
+			SVN svn;
 			CRelocateDlg dlg;
-			if ((svn.status)&&(svn.status->entry)&&(svn.status->entry->url))
-			{
-				dlg.m_sFromUrl = svn.status->entry->url;
-				dlg.m_sToUrl = svn.status->entry->url;
-			}
+			dlg.m_sFromUrl = svn.GetURLFromPath(path);
+			dlg.m_sToUrl = dlg.m_sFromUrl;
+
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("relocate from %s to %s\n"), dlg.m_sFromUrl, dlg.m_sToUrl);
@@ -1066,16 +1063,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString path = parser.GetVal(_T("path"));
 			CString url;
-			SVNStatus status;
 			BOOL bFile = FALSE;
-			if (!path.IsEmpty() && (status.GetStatus(path)) != -2)
-			{
-				if (status.status->entry)
-				{
-					url = status.status->entry->url;
-					bFile = (status.status->entry->kind == svn_node_file);
-				}
-			} // if (!path.IsEmpty() && status.GetStatus(path)!=-2)
+			SVN svn;
+			url = svn.GetURLFromPath(path);
+			bFile = !PathIsDirectory(path);
 /*
 			if (url.IsEmpty())
 			{
