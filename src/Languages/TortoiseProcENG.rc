@@ -691,10 +691,6 @@ BEGIN
     IDS_MSGBOX_CANCEL       "Cancel"
     IDS_MSGBOX_TRYAGAIN     "Try Again"
     IDS_MSGBOX_CONTINUE     "Continue"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_MSGBOX_OK           "OK"
     IDS_MSGBOX_YES          "Yes"
     IDS_MSGBOX_NO           "No"
@@ -703,6 +699,10 @@ BEGIN
     IDS_SVNACTION_DELETE    "Delete"
     IDS_SVNACTION_RESTORE   "Restore"
     IDS_SVNACTION_REVERT    "Revert"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_SVNACTION_RESOLVE   "Resolve"
     IDS_SVNACTION_UPDATE    "Update"
     IDS_SVNACTION_COMPLETED "Completed"
@@ -711,50 +711,19 @@ BEGIN
     IDS_SVNACTION_REPLACED  "Replaced"
     IDS_SVNACTION_POSTFIX   "Postfix"
     IDS_SVNACTION_FAILEDREVERT "Failed Revert"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_SVNACTION_STATUS    "Status"
     IDS_SVNACTION_SKIP      "Skip"
-    IDS_STRING178           "dummy"
-    IDS_STRING179           "dummy"
-    IDS_STRING180           "dummy"
     IDS_SVN_USERCANCELLED   "User cancelled"
-    IDS_STRING182           "dummy"
-    IDS_STRING183           "dummy"
-    IDS_STRING184           "dummy"
-    IDS_STRING185           "dummy"
-    IDS_STRING186           "dummy"
-    IDS_STRING187           "dummy"
-    IDS_STRING188           "dummy"
-    IDS_STRING189           "dummy"
-    IDS_STRING190           "dummy"
-    IDS_STATUSNONE          " "
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STATUSUNVERSIONED   "unversioned"
-    IDS_STATUSNORMAL        "normal"
-    IDS_STATUSADDED         "added"
-    IDS_STATUSABSENT        "absent"
-    IDS_STATUSDELETED       "deleted"
-    IDS_STATUSREPLACED      "replaced"
-    IDS_STATUSMODIFIED      "modified"
-    IDS_STATUSMERGED        "merged"
-    IDS_STATUSCONFLICTED    "conflicted"
-    IDS_STATUSOBSTRUCTED    "obstructed"
-    IDS_STATUSINCOMPLETE    "incomplete"
-    IDS_STATUSIGNORED       "ignored"
-    IDS_STATUSEXTERNAL      "external"
+    IDS_SSL_CERTIFICATETYPE "Please specify the certificate type"
+    IDS_SSL_ACCEPTQUESTION  "Do you want to proceed?"
+    IDS_SSL_CLIENTCERTIFICATEFILENAME "Open client certificate file"
+    IDS_SSL_PEM             "PEM"
+    IDS_SSL_PKCS12          "PKCS12"
     IDS_IMPORT_DEFAULTMSG   "Initial Import"
-    IDS_STRING206           "dummy"
-    IDS_STRING207           "dummy"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_LOG_REVISION        "Revision"
     IDS_LOG_AUTHOR          "Author"
     IDS_LOG_DATE            "Date"
@@ -763,6 +732,10 @@ BEGIN
     IDS_LOG_POPUP_SAVE      "Save revision to..."
     IDS_LOG_POPUP_COMPARETWO "Compare revisions"
     IDS_LOG_POPUP_UPDATE    "Update item to revision"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_LOG_POPUP_COPY      "Create Tag from revision"
     IDS_LOGPROMPT_FILE      "File"
     IDS_LOGPROMPT_STATUS    "Status"
@@ -772,10 +745,6 @@ BEGIN
     IDS_PROGRS_ATREV        "At revision: %d"
     IDS_PROGRS_ACTION       "Action"
     IDS_PROGRS_PATH         "Path"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_PROGRS_TITLEFIN     "Finished!"
     IDS_PROGRS_TITLE_CHECKOUT "SVN Checkout..."
     IDS_PROGRS_TITLE_IMPORT "SVN Import..."
@@ -784,28 +753,28 @@ BEGIN
     IDS_PROGRS_TITLE_ADD    "SVN Add..."
     IDS_PROGRS_TITLE_REVERT "SVN Revert..."
     IDS_PROGRS_TITLE_RESOLVE "SVN Resolve..."
-    IDS_PROGRS_TITLE_SWITCH "SVN Switch..."
-    IDS_PROGRS_TITLE_EXPORT "SVN Export..."
-    IDS_PROGRS_TITLE_MERGE  "SVN Merge..."
-    IDS_PROGRS_TITLE_COPY   "SVN Copy..."
-    IDS_STRING236           "dummy"
-    IDS_STRING237           "dummy"
-    IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to <b>switch</b> over\nto that copy path. Use the <b>Switch</b> command to do that."
-    IDS_PROGRS_COMMITT_TRUNK 
-                            "your working copy appears to be on a <b>tag</b> path!\nYou should switch first to a branch or the main trunk before committing."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STRING240           "dummy"
+    IDS_PROGRS_TITLE_SWITCH "SVN Switch..."
+    IDS_PROGRS_TITLE_EXPORT "SVN Export..."
+    IDS_PROGRS_TITLE_MERGE  "SVN Merge..."
+    IDS_PROGRS_TITLE_COPY   "SVN Copy..."
+    IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to <b>switch</b> over\nto that copy path. Use the <b>Switch</b> command to do that."
+    IDS_PROGRS_COMMITT_TRUNK 
+                            "your working copy appears to be on a <b>tag</b> path!\nYou should switch first to a branch or the main trunk before committing."
     IDS_SETTINGS_SELECTDIFF "Select Diff Application..."
     IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
     IDS_SETTINGS_SELECTMERGE "Select a Merge Application..."
-    IDS_STRING244           "dummy"
     IDS_SETTINGS_EXTDIFF_TT "an external diff program used\nfor comparing different revisions of files"
     IDS_SETTINGS_EXTDIFFBROWSE_TT "browse for the external diff program"
     IDS_SETTINGS_CHANGEDDIRS_TT 
                             "activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "specify the files or folders wich TortoiseSVN\n should include or exclude from version control.\nInclude patterns are prefixed with a '+'\nPriority order is from left to right"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
@@ -815,13 +784,6 @@ BEGIN
     IDS_SETTINGS_PROXYSERVER_TT "either the name or IP of the proxy server"
     IDS_SETTINGS_DIFFVIEWER_TT 
                             "a viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
-    IDS_STRING253           "dummy"
-    IDS_STRING254           "dummy"
-    IDS_STRING255           "dummy"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
@@ -830,6 +792,10 @@ BEGIN
     IDS_PROC_EXPORT_3       "Exporting..."
     IDS_PROC_EXPORT_4       "exported\n%s\nto\n%s"
     IDS_PROC_COPY_SUCCESS   "Tagged the working copy to %s"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_PROC_SETTINGS_TITLE "TortoiseSVN Settings"
     IDS_PROC_DELETE_CONFIRM "Are you sure you want to delete the selected files?\n<hr=100%>\nPlease note: if you have modified files those modification will be lost.\nAlso unversioned items will be deleted too!"
     IDS_PROC_OVERWRITE_CONFIRM 
@@ -839,19 +805,15 @@ BEGIN
     IDS_PROC_MOVING         "Moving..."
     IDS_PROC_RELOCATING     "Relocating..."
     IDS_APPNAME             "TortoiseSVN"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_MSGBOX_DONOTSHOW    "Do not show this message again"
     IDS_PROC_COPYING        "Copying..."
     IDS_PROC_COPYINGPROG    "Copying %s"
     IDS_PROC_MOVINGPROG     "Moving %s"
     IDS_PROC_CPYMVPROG2     "to %s"
-    IDS_STRING277           "dummy"
-    IDS_STRING278           "dummy"
-    IDS_STRING279           "dummy"
-    IDS_STRING280           "dummy"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_ERR_THREADSTARTFAILED "Could not start thread!"
     IDS_ERR_EXTDIFFSTART    "could not start external diff program!\n<hr=100%>\n%s"
     IDS_ERR_NOCOMMAND       "no command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
@@ -859,10 +821,6 @@ BEGIN
     IDS_ERR_NOSTATUS        "could not get the status!"
     IDS_ERR_CLEANUP         "Subversion reported an error while doing a cleanup!\n<hr=100%>\n%s"
     IDS_ERR_NOURLOFFILE     "Could not retrieve URL of the file!"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_ERR_WCCHANGED       "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
     IDS_ERR_COPYFILES       "Could not copy the files!\n<hr=100%>\n%s"
     IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>"
@@ -881,6 +839,10 @@ END
 STRINGTABLE 
 BEGIN
     IDS_CHECKOUT_TT_DIR     "location where the contents of the\nrepository URL will be saved to."
+END
+
+STRINGTABLE 
+BEGIN
     IDS_IMPORT_TT_MODULENAMECHECK 
                             "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
     IDS_IMPORT_TT_TEMPFILES "Check the files which you want to\ndelete before importing"
@@ -929,15 +891,6 @@ STRINGTABLE
 BEGIN
     IDS_AUTH_USERNAME       "Username:"
     IDS_AUTH_PASSWORD       "Password:"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_SSL_CERTIFICATETYPE "Please specify the certificate type"
-    IDS_SSL_ACCEPTQUESTION  "Do you want to proceed?"
-    IDS_SSL_CLIENTCERTIFICATEFILENAME "Open client certificate file"
-    IDS_SSL_PEM             "PEM"
-    IDS_SSL_PKCS12          "PKCS12"
 END
 
 #endif    // English (U.S.) resources
