@@ -49,6 +49,37 @@
 #include "charset_alias.h"
 #endif
 
+#ifdef WIN32
+char moduledir1[APR_PATH_MAX] = {0};
+char moduledir2[APR_PATH_MAX] = {0};
+
+BOOL WINAPI DllMain(HINSTANCE hInst, DWORD fdwReason, LPVOID lpvReserved)
+{
+	char * dirend;
+	if (fdwReason == DLL_PROCESS_ATTACH)
+	{
+		ZeroMemory(moduledir1, APR_PATH_MAX);
+		ZeroMemory(moduledir2, APR_PATH_MAX);
+		GetModuleFileName(hInst, moduledir1, APR_PATH_MAX);
+		strcpy(moduledir2, moduledir1);
+		dirend = strrchr(moduledir1, '\\');
+		if (dirend)
+		{
+			*dirend = 0;
+			strcat(moduledir1, "\\iconv");
+		}
+		dirend = strrchr(moduledir2, '\\');
+		if (dirend)
+		{
+			*dirend = 0;
+			strcat(moduledir2, "\\iconv");
+		}
+	}
+	return TRUE;
+}
+
+#endif
+
 static apr_status_t
 iconv_getpathname(char *buffer, const char *dir, const char *name, apr_pool_t *ctx)
 {
@@ -82,10 +113,8 @@ iconv_getpath(char *buf, const char *name, apr_pool_t *ctx)
         apr_pool_t *subpool;
         apr_status_t status;
 	char *ptr;
-#ifdef WIN32
-	char moduledir[APR_PATH_MAX];
-#endif
-        status = apr_pool_create(&subpool, ctx);
+
+	status = apr_pool_create(&subpool, ctx);
         if (status)
             return status;
 
@@ -96,34 +125,16 @@ iconv_getpath(char *buf, const char *name, apr_pool_t *ctx)
             ;
 
 #ifdef WIN32
-        if (GetModuleFileName(GetModuleHandle("libapriconv.dll"), moduledir, APR_PATH_MAX))
-        {
-            char * dirend = strrchr(moduledir, '\\');
-            if (dirend)
-            {
-                *dirend = 0;
-                strcat(moduledir, "\\iconv");
-                if (iconv_getpathname(buf, moduledir, buffer, subpool) == 0)
-                {
-                    apr_pool_destroy(subpool);
-                    return APR_SUCCESS;
-                }
-                dirend = strrchr(moduledir, '\\');
-				if (dirend)
-                    *dirend = 0;
-				dirend = strrchr(moduledir, '\\');
-                if (dirend)
-                {
-                	*dirend = 0;
-					strcat(moduledir, "\\iconv");
-                    if (iconv_getpathname(buf, moduledir, buffer, subpool) == 0)
-                    {
-                        apr_pool_destroy(subpool);
-                        return APR_SUCCESS;
-                    }
-                }
-            }
-        }
+		if (iconv_getpathname(buf, moduledir2, buffer, subpool) == 0)
+		{
+			apr_pool_destroy(subpool);
+			return APR_SUCCESS;
+		}
+		if (iconv_getpathname(buf, moduledir1, buffer, subpool) == 0)
+		{
+			apr_pool_destroy(subpool);
+			return APR_SUCCESS;
+		}
 #endif
 
         if (!apr_env_get(&ptr, "APR_ICONV_PATH", subpool)
