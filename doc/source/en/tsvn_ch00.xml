@@ -1,4 +1,4 @@
-﻿<preface id="tsvn-ch-0">
+<preface id="tsvn-ch-0">
 	<title>Preface</title>
 	<simplesect>
 			<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
@@ -140,21 +140,21 @@
 
 
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 4 ============================== -->
+	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-ch-0-sect-5">
 		<title>Terminology used in this document</title>
     <para>
-		To make reading the docs easier, all the screens and Menus from TSVN
-    are marked up in a different font.
+		To make reading the docs easier, the names of all the screens and Menus 
+    from TortoiseSVN are marked up in a different font.
     The <guilabel>Log Dialog</guilabel> for instance.
     </para>
     <para>
-    if a menu choice has to be made, this is indicated with an arrow.
+    A menu choice  is indicated with an arrow.
     <menuchoice>
       <guimenu>TortoiseSVN</guimenu>
-      <guimenuitem>Checkout</guimenuitem>
-    </menuchoice> means: select <emphasis>Checkout</emphasis> from the
+      <guimenuitem>Show Log</guimenuitem>
+    </menuchoice> means: select <emphasis>Show Log</emphasis> from the
     <emphasis>TortoiseSVN</emphasis> context menu.
     </para>
     <para>
@@ -169,6 +169,10 @@
     <action>Right-drag</action>: press the right mouse button and while holding it down
     <emphasis>drag</emphasis> the items to the new location.
     </para>
+    <para>
+    System output and keyboard input is indicated with a <literal>different</literal>
+    font as well.
+    </para>
     <important>
     <para>Important notes are marked with an icon.</para>
 		</important>
@@ -179,7 +183,8 @@
 		<para>Places where you have to be careful what you are doing.</para>
 		</caution>
     <warning>
-		<para>Where extreme care has to be taken, data corruption or other nasty things may occur.</para>
+		<para>Where extreme care has to be taken, data corruption or other nasty things may 
+    occur if these warnings are ignored.</para>
 		</warning>
 	</sect1>
 </preface>

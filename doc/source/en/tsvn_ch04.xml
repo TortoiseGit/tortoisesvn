@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-DUG">
+<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -430,14 +430,15 @@
 		<menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens
 		a dialog where you can enter the required revision.
 		</para>
-		<warning>
+		<caution>
 		If you update a file or folder to a specific revision, you will get 
 		<literal>out of date</literal> error messages when you try to commit them!
 		If you want to undo changes to a file and start fresh from an earlier
-		revision, you must use either the command <menuchoice><guimenuitem>
-		Revert changes from this revision</guimenuitem></menuchoice> from the log
-		dialog or the command <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice>.
-		</warning>
+		revision, you must either use the
+    <menuchoice><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>
+    command from the logdialog or the 
+    <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> menu command.
+		</caution>
 		<para>
 		The <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> command allows
 		you to revert your working to an earlier revision. Say e.g. your

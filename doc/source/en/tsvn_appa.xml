@@ -1,4 +1,4 @@
-﻿<appendix id="tsvn-faq">
+<appendix id="tsvn-faq">
 	<title>Frequently Asked Questions (FAQ)</title>
 	<simplesect>
 		<para>
@@ -625,7 +625,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					<orderedlist>
 						<listitem><para>Select <command>Run</command> from the
 						start menu</para></listitem>
-						<listitem><para>Type <command>regsvr32 /u %windir%\system32\zipfldr.dll </command>
+						<listitem><para>Type <command>regsvr32 /u %windir%\system32\zipfldr.dll</command>
 						at the prompt and click ok</para></listitem>
 						<listitem><para>The change will take effect 
 						immediately, but you may have to restart Windows 

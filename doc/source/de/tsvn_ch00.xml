@@ -1,4 +1,4 @@
-﻿<preface id="tsvn-ch-0">
+<preface id="tsvn-ch-0">
 	<title>Vorwort</title>
 	<simplesect>
 			<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
@@ -153,5 +153,56 @@
 				</varlistentry>
 			</variablelist>
 		</para>
+	</sect1>
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 5 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-ch-0-sect-5">
+		<title>In diesem Dokument verwendete Terminologie</title>
+    <para>
+    Um das Lesen der Dokumentation einfacher zu gestalten, sind die Namen
+    aller Masken und Menüs von TortoiseSVN in einer anderen Schrift hervorgehoben.
+		To make reading the docs easier, all the screens and Menus from TSVN
+    are marked up in a different font.
+    Der <guilabel>Log Dialog</guilabel> zum Beispiel.
+    </para>
+    <para>
+    Eine Menüauswahl wird durch einen Pfeil angedeutet.
+    <menuchoice>
+      <guimenu>TortoiseSVN</guimenu>
+      <guimenuitem>Zeige Log</guimenuitem>
+    </menuchoice> bedeutet: Wählen Sie <emphasis>Zeige Log</emphasis> aus dem
+    <emphasis>TortoiseSVN</emphasis> Kontextmenü.
+    </para>
+    <para>
+		Schaltflächen weden durch einen 3D Effekt hervorgehoben: Drücken Sie
+    <guibutton>OK</guibutton>, um weiterzumachen.
+		</para>
+    <para>
+    Benutzeraktionen werden durch Fettdruck hervorgehoben.
+    <action>ALT+A</action>: Drücken Sie die
+    <keycap>ALT</keycap>-Taste und während Sie diese gedrückt halten, die
+    <keycap>A</keycap>-Taste dazu.
+    <action>Rechts-Ziehen</action>: Halten Sie die rechte Maustaste gedrückt und
+    <emphasis>ziehen</emphasis> Sie die gewählten Einträge an den neuen Ort.
+    </para>
+    <para>
+    Systemausgaben und Tastatureingaben werden durch einen <literal>anderen</literal>
+    Zeichensatz hervorgehoben.
+    </para>
+    <important>
+    <para>Wichtige Hinweise im Dokument.</para>
+		</important>
+    <tip>
+		<para>Tips, die Ihre Arbeit mit Subversion erleichtern.</para>
+		</tip>
+    <caution>
+		<para>Stellen, an denen Sie vorsichtig sein müssen, was sie tun.</para>
+		</caution>
+    <warning>
+		<para>Stellen, an denen extreme Vorsicht geboten ist. Nichtbeachtung dieser 
+    Warnungen kann zu irreparablen Datenverlusten führen.</para>
+		</warning>
 	</sect1>
 </preface>

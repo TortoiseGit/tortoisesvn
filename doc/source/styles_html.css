@@ -217,15 +217,14 @@ div.table td {
 }
 
 .guibutton {
-	border: 2px solid;
 	font-size: 10pt;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
-	background-color: #CCCCCC;
-	border-left: #E0E0E0;
-	border-top: #E0E0E0;
-	border-right: Gray;
-	border-bottom: Gray;
+	background-color: #DDD;
+	border-left: thin solid #EEE;
+	border-top: thin solid #EEE;
+	border-right: thin solid #BBB;
+	border-bottom: thin solid #BBB;
 }
 
 .tip {
