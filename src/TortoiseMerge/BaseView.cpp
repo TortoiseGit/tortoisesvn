@@ -123,7 +123,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_COMMAND(ID_MERGE_PREVIOUSDIFFERENCE, OnMergePreviousdifference)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
-
+	ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
 
 
@@ -963,7 +963,6 @@ void CBaseView::OnDestroy()
 
 void CBaseView::OnSize(UINT nType, int cx, int cy)
 {
-	CView::OnSize(nType, cx, cy);
 	if (m_pCacheBitmap != NULL)
 	{
 		m_pCacheBitmap->DeleteObject();
@@ -974,6 +973,7 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
 	m_nScreenChars = -1;
 	RecalcVertScrollBar();
 	RecalcHorzScrollBar();
+	CView::OnSize(nType, cx, cy);
 }
 
 BOOL CBaseView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
@@ -1220,6 +1220,46 @@ BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
 	m_ToolTips.RelayEvent(pMsg);
 	return CView::PreTranslateMessage(pMsg);
 }
+
+void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	if (nChar==VK_PRIOR)
+	{
+		int nPageChars = GetScreenLines();
+		int nLineCount = GetLineCount();
+		int nNewTopLine = 0;
+
+		nNewTopLine = m_nTopLine - nPageChars + 1;
+		if (nNewTopLine < 0)
+			nNewTopLine = 0;
+		if (nNewTopLine >= nLineCount)
+			nNewTopLine = nLineCount - 1;
+		ScrollAllToLine(nNewTopLine);
+	} // if (nChar==VK_PRIOR)
+	if (nChar==VK_NEXT)
+	{
+		int nPageChars = GetScreenLines();
+		int nLineCount = GetLineCount();
+		int nNewTopLine = 0;
+
+		nNewTopLine = m_nTopLine + nPageChars - 1;
+		if (nNewTopLine < 0)
+			nNewTopLine = 0;
+		if (nNewTopLine >= nLineCount)
+			nNewTopLine = nLineCount - 1;
+		ScrollAllToLine(nNewTopLine);
+	} // if (nChar==VK_PRIOR)
+	if (nChar==VK_HOME)
+	{
+		ScrollAllToLine(0);
+	}
+	if (nChar==VK_END)
+	{
+		ScrollAllToLine(GetLineCount());
+	}
+	CView::OnKeyDown(nChar, nRepCnt, nFlags);
+}
+
 
 
 
