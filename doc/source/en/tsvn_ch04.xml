@@ -461,7 +461,7 @@
 		additional files in your directory:
 		<variablelist>
 				<varlistentry>
-					<term>filename.*.mine</term>
+					<term>filename.ext.working</term>
 					<listitem>
 						<para>This is your file as it existed in your
 				working copy before you updated your working copy
@@ -471,7 +471,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>filename.*.rOLDREV</term>
+					<term>filename.ext.merge-left.rOLDREV</term>
 					<listitem>
 						<para>This is the file that was the BASE
 				revision before you updated your working copy. That is,
@@ -481,7 +481,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>filename.*.rNEWREV</term>
+					<term>filename.ext.merge-right.rNEWREV</term>
 					<listitem>
 						<para>This is the file that your Subversion
 				client just received from the server when you updated
@@ -506,8 +506,8 @@
 		Afterwards execute the command <menuchoice><guimenuitem>Resolved</guimenuitem></menuchoice>
 		from the context menu and commit your modifications to the
 		repository. Please note that the Resolve command does not-really
-		resolve the conflict. It just removes the <filename>filename*.mine
-		</filename> and <filename>filename*.r*</filename> files, to
+		resolve the conflict. It just removes the <filename>filename.ext.working
+		</filename> and <filename>filename.ext.merge-*.r*</filename> files, to
 		allow you to commit your changes.
 		</para>
 	</sect1>
