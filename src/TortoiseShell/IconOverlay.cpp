@@ -167,7 +167,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 	//also check if we already have the status for the path so we don't have to get it again (small cache)
 	if (_tcscmp(pPath, g_filepath.c_str())==0)
 	{
-		status = filestatus;
+		status = g_filestatus;
 	}
 	else
 	{
@@ -221,7 +221,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 		}
 		g_filepath.clear();
 		g_filepath = pPath;
-		filestatus = status;
+		g_filestatus = status;
 	}
 
 	//the priority system of the shell doesn't seem to work as expected (or as I expected):

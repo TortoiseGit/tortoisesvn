@@ -42,6 +42,7 @@ extern	DWORD				g_langid;
 extern	HINSTANCE			g_hResInst;
 extern	void				LoadLangDll();
 extern	stdstring			g_filepath;				///< holds the last file/dir path
+extern	svn_wc_status_kind	g_filestatus;			///< holds the corresponding status to the file/dir above
 
 // The actual OLE Shell context menu handler
 /**
@@ -146,14 +147,13 @@ protected:
 	bool isAdded;
 	int space;
 	TCHAR stringtablebuffer[255];
-	svn_wc_status_kind filestatus;	///< holds the corresponding status to the file/dir above
 	stdstring columnfilepath;		///< holds the last file/dir path for the column provider
 	stdstring columnauthor;			///< holds the corresponding author of the file/dir above
 	stdstring itemurl;
 	stdstring itemshorturl;
 	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
 	HANDLE hMutex;
-
+	svn_wc_status_kind	filestatus;
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 //#define MAKESTRING(ID) LoadString(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer))
 private:

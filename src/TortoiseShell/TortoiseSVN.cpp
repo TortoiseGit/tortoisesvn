@@ -29,6 +29,7 @@ CRegStdWORD			g_regLang;
 DWORD				g_langid;
 HINSTANCE			g_hResInst;
 stdstring			g_filepath;
+svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
