@@ -100,7 +100,7 @@ public:
 	CBottomView *	m_pwndBottomView;
 	BOOL			m_bOneWay;
 	CDiffData		m_Data;
-	BOOL			LoadViews();
+	BOOL			LoadViews(BOOL bReload = TRUE);
 };
 
 

@@ -39,6 +39,7 @@ CSetMainPage::CSetMainPage()
 	, m_bMagnifier(FALSE)
 	, m_bDiffBar(FALSE)
 	, m_bStrikeout(FALSE)
+	, m_bReloadNeeded(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
@@ -248,6 +249,7 @@ void CSetMainPage::OnBnClickedBackup()
 
 void CSetMainPage::OnBnClickedIgnorelf()
 {
+	m_bReloadNeeded = TRUE;
 	SetModified();
 }
 
@@ -283,6 +285,7 @@ void CSetMainPage::OnBnClickedStrikeout()
 
 void CSetMainPage::OnBnClickedWscompare()
 {
+	m_bReloadNeeded = TRUE;
 	SetModified();
 	UINT uRadio = GetCheckedRadioButton(IDC_WSCOMPARE, IDC_WSIGNOREALL);
 	switch (uRadio)
@@ -303,6 +306,7 @@ void CSetMainPage::OnBnClickedWscompare()
 
 void CSetMainPage::OnBnClickedWsignoreleading()
 {
+	m_bReloadNeeded = TRUE;
 	SetModified();
 	UINT uRadio = GetCheckedRadioButton(IDC_WSCOMPARE, IDC_WSIGNOREALL);
 	switch (uRadio)
@@ -323,6 +327,7 @@ void CSetMainPage::OnBnClickedWsignoreleading()
 
 void CSetMainPage::OnBnClickedWsignoreall()
 {
+	m_bReloadNeeded = TRUE;
 	SetModified();
 	UINT uRadio = GetCheckedRadioButton(IDC_WSCOMPARE, IDC_WSIGNOREALL);
 	switch (uRadio)

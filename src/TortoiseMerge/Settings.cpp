@@ -59,6 +59,14 @@ void CSettings::SaveData()
 	m_pColorPage->SaveData();
 }
 
+BOOL CSettings::IsReloadNeeded()
+{
+	BOOL bReload = FALSE;
+	bReload = (m_pMainPage->m_bReloadNeeded || bReload);
+	bReload = (m_pColorPage->m_bReloadNeeded || bReload);
+	return bReload;
+}
+
 BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)
 END_MESSAGE_MAP()
 

@@ -27,6 +27,7 @@
 IMPLEMENT_DYNAMIC(CSetColorPage, CPropertyPage)
 CSetColorPage::CSetColorPage()
 	: CPropertyPage(CSetColorPage::IDD)
+	, m_bReloadNeeded(FALSE)
 {
 }
 

@@ -38,6 +38,7 @@ public:
 	 */
 	void SaveData();
 
+	BOOL	m_bReloadNeeded;
 // Dialog Data
 	enum { IDD = IDD_SETCOLORPAGE };
 

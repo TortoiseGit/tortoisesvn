@@ -57,9 +57,10 @@ public:
 	 * Calls the SaveData()-methods of each of the settings pages.
 	 */
 	void SaveData();
+
+	BOOL IsReloadNeeded();
 protected:
 	DECLARE_MESSAGE_MAP()
-public:
 	virtual BOOL OnInitDialog();
 };
 

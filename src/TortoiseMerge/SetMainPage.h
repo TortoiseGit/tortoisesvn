@@ -40,6 +40,7 @@ public:
 	 */
 	void SaveData();
 
+	BOOL	m_bReloadNeeded;
 	enum { IDD = IDD_SETMAINPAGE };
 
 protected:
