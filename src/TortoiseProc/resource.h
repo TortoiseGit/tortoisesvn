@@ -191,6 +191,7 @@
 #define IDC_EXTEDIT                     1102
 #define IDC_TOOLEDIT                    1103
 #define IDC_TOOLBROWSE                  1104
+#define IDC_SHORTDATEFORMAT             1105
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -295,6 +296,7 @@
 #define IDS_PROC_CPYMVPROG2             1276
 #define IDS_PROC_ENTERURL               1277
 #define IDS_SETTINGS_NOREMOVELOGMSG_TT  1278
+#define IDS_SETTINGS_SHORTDATEFORMAT_TT 1279
 #define IDS_ERR_THREADSTARTFAILED       1281
 #define IDS_ERR_EXTDIFFSTART            1282
 #define IDS_ERR_NOCOMMAND               1283
@@ -382,7 +384,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        172
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1105
+#define _APS_NEXT_CONTROL_VALUE         1106
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

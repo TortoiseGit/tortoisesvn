@@ -335,9 +335,9 @@ BEGIN
     LTEXT           "Default &number of log messages",IDC_STATIC,13,59,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,57,51,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
-    CONTROL         "Don't convert files when diffing against BASE",
-                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
-                    74,267,10
+    CONTROL         "Short &date/time format in log messages",
+                    IDC_SHORTDATEFORMAT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,73,267,10
     LTEXT           "Subversion configuration file:",IDC_STATIC,13,87,210,8
     PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,84,51,14
     GROUPBOX        "Committing",IDC_COMMITGROUP,7,105,286,88
@@ -516,7 +516,7 @@ END
 
 IDD_SETTINGSPROGS DIALOGEX 0, 0, 300, 199
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Programs"
+CAPTION "Diff/Merge"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Diff Program",IDC_STATIC,7,7,286,65
@@ -554,7 +554,7 @@ BEGIN
     PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,271,172,14,14
 END
 
-IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 217
+IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 230
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Advanced Diff/Merge Settings"
@@ -567,8 +567,11 @@ BEGIN
     PUSHBUTTON      "&Add...",IDC_ADDTOOL,14,165,51,14
     PUSHBUTTON      "&Edit...",IDC_EDITTOOL,68,165,51,14
     PUSHBUTTON      "&Remove",IDC_REMOVETOOL,122,165,51,14
-    DEFPUSHBUTTON   "&OK",IDOK,208,196,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,262,196,50,14
+    CONTROL         "Don't convert files when diffing against BASE",
+                    IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    192,305,10
+    DEFPUSHBUTTON   "&OK",IDOK,208,209,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,262,209,50,14
 END
 
 IDD_URL DIALOGEX 0, 0, 234, 55
@@ -861,7 +864,7 @@ BEGIN
         VERTGUIDE, 13
         VERTGUIDE, 304
         TOPMARGIN, 7
-        BOTTOMMARGIN, 210
+        BOTTOMMARGIN, 223
     END
 
     IDD_URL, DIALOG
@@ -1031,6 +1034,8 @@ BEGIN
     IDS_PROC_ENTERURL       "Enter URL"
     IDS_SETTINGS_NOREMOVELOGMSG_TT 
                             "If you cancel a commit, the log message you have entered is saved\nand filled in the edit box on the next commit.\nYou can then either edit that message or use\nit unchanged."
+    IDS_SETTINGS_SHORTDATEFORMAT_TT 
+                            "Check to use a less verbose date and time format in log messages"
 END
 
 STRINGTABLE 
