@@ -38,6 +38,9 @@ public:
 	void			ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 	void			ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 
+	inline BOOL		IsModified() {return m_bModified;}
+	void			SetModified(BOOL bModified = TRUE) {m_bModified = bModified;}
+
 	CStringArray *	m_arDiffLines;		///< Array of Strings containing all lines of the text file
 	CDWordArray	*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
@@ -101,6 +104,8 @@ protected:
 	void			UpdateStatusBar();
 protected:
 	UINT			m_nStatusBarID;		///< The ID of the status bar pane used by this view. Must be set by the parent class.
+
+	BOOL			m_bModified;
 
 	int				m_nLineHeight;
 	int				m_nCharWidth;

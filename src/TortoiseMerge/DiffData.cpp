@@ -309,10 +309,15 @@ BOOL CDiffData::Load()
 								m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
 							}
 						}
-						else
+						else if (dwIgnoreWS == 0)
 						{
 							m_arStateYourBaseLeft.Add(DIFFSTATE_WHITESPACE);
 							m_arStateYourBaseRight.Add(DIFFSTATE_WHITESPACE);
+						}
+						else
+						{
+							m_arStateYourBaseLeft.Add(DIFFSTATE_NORMAL);
+							m_arStateYourBaseRight.Add(DIFFSTATE_NORMAL);
 						}
 					}
 					else
@@ -439,10 +444,15 @@ BOOL CDiffData::Load()
 								m_arStateTheirBaseRight.Add(DIFFSTATE_NORMAL);
 							}
 						}
-						else
+						else if (dwIgnoreWS == 0)
 						{
 							m_arStateTheirBaseLeft.Add(DIFFSTATE_WHITESPACE);
 							m_arStateTheirBaseRight.Add(DIFFSTATE_WHITESPACE);
+						}
+						else
+						{
+							m_arStateTheirBaseLeft.Add(DIFFSTATE_NORMAL);
+							m_arStateTheirBaseRight.Add(DIFFSTATE_NORMAL);
 						}
 					}
 					else

@@ -62,6 +62,7 @@ void CBottomView::OnContextMenu(CPoint point, int nLine)
 				{
 					m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
 					m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
+					SetModified();
 				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 			} 
 			break;
@@ -71,6 +72,7 @@ void CBottomView::OnContextMenu(CPoint point, int nLine)
 				{
 					m_arDiffLines->SetAt(i, m_pwndRight->m_arDiffLines->GetAt(i));
 					m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
+					SetModified();
 				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 			}
 			break;

@@ -68,6 +68,7 @@ void CRightView::OnContextMenu(CPoint point, int nLine)
 					{
 						m_pwndBottom->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
 						m_pwndBottom->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
+						m_pwndBottom->SetModified();
 					} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				} // if (m_pwndBottom->IsWindowVisible()) 
 				else
@@ -76,6 +77,7 @@ void CRightView::OnContextMenu(CPoint point, int nLine)
 					{
 						m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
 						m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
+						SetModified();
 					} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				}
 			} 

@@ -686,4 +686,15 @@ void CMainFrame::OnViewOptions()
 	sTemp.LoadString(IDS_SETTINGSTITLE);
 	CSettings dlg(sTemp);
 	dlg.DoModal();
+	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
+		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
+	{
+		CString sTemp;
+		sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
+		if (MessageBox(sTemp, 0, MB_YESNO | MB_ICONQUESTION)==IDNO)
+		{
+			return;
+		}
+	} 
+	LoadViews();
 }

@@ -36,6 +36,7 @@ CBaseView::CBaseView()
 	m_bViewWhitespace = FALSE;
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
+	m_bModified = FALSE;
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		m_apFonts[i] = NULL;
@@ -97,6 +98,7 @@ void CBaseView::DocumentUpdated()
 	m_nMaxLineLength = -1;
 	m_nScreenLines = -1;
 	m_nTopLine = 0;
+	m_bModified = FALSE;
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)

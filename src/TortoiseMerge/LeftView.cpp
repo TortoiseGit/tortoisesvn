@@ -64,6 +64,7 @@ void CLeftView::OnContextMenu(CPoint point, int nLine)
 					{
 						m_pwndBottom->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
 						m_pwndBottom->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
+						m_pwndBottom->SetModified();
 					} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				} // if (m_pwndBottom->IsWindowVisible()) 
 				else
@@ -72,6 +73,7 @@ void CLeftView::OnContextMenu(CPoint point, int nLine)
 					{
 						m_pwndRight->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
 						m_pwndRight->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
+						m_pwndRight->SetModified();
 					} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				}
 			} 
