@@ -868,11 +868,12 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	return TRUE;
 }
 
-BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
+BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict /* = FALSE */)
 {
-	Err = svn_client_log (MakePathArray(pathlist), 
+	Err = svn_client_log2 (MakePathArray(pathlist), 
 						revisionStart, 
 						revisionEnd, 
+						limit,
 						changed,
 						strict,
 						logReceiver,	// log_message_receiver

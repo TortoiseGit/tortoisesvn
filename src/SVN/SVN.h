@@ -369,7 +369,7 @@ public:
 	 * \param revisionEnd the revision to stop the logs
 	 * \param changed TRUE if the log should follow changed paths 
 	 */
-	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict = FALSE);
+	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL changed, BOOL strict = FALSE);
 	
 	/**
 	 * Checks out a file with \a revision to \a localpath.

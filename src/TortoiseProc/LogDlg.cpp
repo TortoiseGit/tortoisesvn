@@ -464,7 +464,7 @@ UINT CLogDlg::LogThread()
 	m_bGotRevisions = FALSE;
 	while ((m_bCancelled == FALSE)&&(m_bGotRevisions == FALSE))
 	{
-		if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, true, m_bStrict))
+		if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, 0, true, m_bStrict))
 		{
 			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			m_bShowedAll = FALSE;
