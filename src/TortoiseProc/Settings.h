@@ -22,6 +22,7 @@
 #include "SetProxyPage.h"
 #include "SetOverlayPage.h"
 #include "SetMenuPage.h"
+#include "SetProgsPage.h"
 
 
 
@@ -76,6 +77,7 @@ private:
 	CSetProxyPage *		m_pProxyPage;
 	CSetOverlayPage *	m_pOverlayPage;
 	CSetMenuPage *		m_pMenuPage;
+	CSetProgsPage *		m_pProgsPage;
 
 public:
 	CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);

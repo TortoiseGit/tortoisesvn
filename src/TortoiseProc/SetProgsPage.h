@@ -15,20 +15,21 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-//
+
 #pragma once
-#include "afxcmn.h"
+#include "..\\Utils\\Balloon.h"
+#include "afxwin.h"
 
 
-// CSetMenuPage dialog
+// CSetProgsPage dialog
 
-class CSetMenuPage : public CPropertyPage
+class CSetProgsPage : public CPropertyPage
 {
-	DECLARE_DYNAMIC(CSetMenuPage)
+	DECLARE_DYNAMIC(CSetProgsPage)
 
 public:
-	CSetMenuPage();
-	virtual ~CSetMenuPage();
+	CSetProgsPage();
+	virtual ~CSetProgsPage();
 	/**
 	 * Saves the changed settings to the registry.
 	 * \remark If the dialog is closed/dismissed without calling
@@ -37,21 +38,28 @@ public:
 	 */
 	void SaveData();
 
-	virtual BOOL OnApply();
-
 // Dialog Data
-	enum { IDD = IDD_SETTINGSMENU };
+	enum { IDD = IDD_SETTINGSPROGS };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
-	void InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags);
+	afx_msg void OnBnClickedExtdiffbrowse();
+	afx_msg void OnEnChangeExtdiff();
+	afx_msg void OnBnClickedExtmergebrowse();
+	afx_msg void OnEnChangeExtmerge();
+	afx_msg void OnBnClickedDiffviewerrowse();
+	afx_msg void OnEnChangeDiffviewer();
+	virtual BOOL OnApply();
+
 	DECLARE_MESSAGE_MAP()
 
-	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
-
-	CImageList m_imgList;
-	CListCtrl m_cMenuList;
-	BOOL m_bModified;
-	DWORD m_topmenu;
+private:
+	CString			m_sDiffPath;
+	CRegString		m_regDiffPath;
+	CString			m_sMergePath;
+	CRegString		m_regMergePath;
+	CString			m_sDiffViewerPath;
+	CRegString		m_regDiffViewerPath;
+	CBalloon		m_tooltips;
 };

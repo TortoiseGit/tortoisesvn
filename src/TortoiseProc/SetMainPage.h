@@ -76,12 +76,6 @@ protected:
 	CString GetVersionFromFile(const CString & p_strDateiname);
 
 private:
-	CString			m_sDiffPath;
-	CRegString		m_regDiffPath;
-	CString			m_sMergePath;
-	CRegString		m_regMergePath;
-	CString			m_sDiffViewerPath;
-	CRegString		m_regDiffViewerPath;
 	CRegString		m_regExtensions;
 	CString			m_sTempExtensions;
 	CBalloon		m_tooltips;
@@ -98,18 +92,12 @@ private:
 	CString			m_sDefaultLogs;
 
 public:
-	afx_msg void OnBnClickedExtdiffbrowse();
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnEnChangeExtdiff();
 	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnEnChangeTempextensions();
 	virtual BOOL OnApply();
 	afx_msg void OnBnClickedAddbeforecommit();
-	afx_msg void OnBnClickedExtmergebrowse();
-	afx_msg void OnEnChangeExtmerge();
-	afx_msg void OnBnClickedDiffviewerrowse();
-	afx_msg void OnEnChangeDiffviewer();
 	afx_msg void OnBnClickedNoremovelogmsg();
 	afx_msg void OnBnClickedAutoclose();
 	afx_msg void OnEnChangeDefaultlog();

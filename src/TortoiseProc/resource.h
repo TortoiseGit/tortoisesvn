@@ -31,6 +31,8 @@
 #define IDD_INPUTDLG                    161
 #define IDD_BLAME                       162
 #define IDR_SEARCH                      163
+#define IDD_PROPPAGE_MEDIUM             163
+#define IDD_SETTINGSPROGS               163
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -101,6 +103,7 @@
 #define IDC_FILELIST                    1043
 #define IDC_ADDLIST                     1043
 #define IDC_CHANGEDLIST                 1043
+#define IDC_MENULIST                    1043
 #define IDC_LANGUAGECOMBO               1044
 #define IDC_FROMURL                     1045
 #define IDC_MENU12                      1045

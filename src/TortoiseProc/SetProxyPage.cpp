@@ -35,13 +35,13 @@ CSetProxyPage::CSetProxyPage()
 	, m_isEnabled(FALSE)
 	, m_SSHClient(_T(""))
 {
-	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 	m_regServeraddress = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regServerport = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regUsername = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regPassword = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regTimeout = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\DEFAULT\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regSSHClient = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+	m_SSHClient = m_regSSHClient;
 
 	m_regServeraddress_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\DEFAULT\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
 	m_regServerport_copy = CRegString(_T("Software\\TortoiseSVN\\Servers\\DEFAULT\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);

@@ -16,7 +16,6 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bFixed(FALSE)
 	, m_bCDROM(FALSE)
 {
-	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));

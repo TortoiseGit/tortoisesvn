@@ -32,7 +32,6 @@ CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 CSettings::CSettings(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelectPage)
 	:CPropertySheet(pszCaption, pParentWnd, iSelectPage)
 {
-	this->m_psh.dwFlags &= ~PSH_HASHELP;
 	AddPropPages();
 }
 
@@ -47,11 +46,13 @@ void CSettings::AddPropPages()
 	m_pOverlayPage = new CSetOverlayPage();
 	m_pProxyPage = new CSetProxyPage();
 	m_pMenuPage = new CSetMenuPage();
+	m_pProgsPage = new CSetProgsPage();
 
 	AddPage(m_pMainPage);
 	AddPage(m_pOverlayPage);
 	AddPage(m_pMenuPage);
 	AddPage(m_pProxyPage);
+	AddPage(m_pProgsPage);
 }
 
 void CSettings::RemovePropPages()
@@ -60,6 +61,7 @@ void CSettings::RemovePropPages()
 	delete m_pOverlayPage;
 	delete m_pProxyPage;
 	delete m_pMenuPage;
+	delete m_pProgsPage;
 }
 
 void CSettings::SaveData()
@@ -68,6 +70,7 @@ void CSettings::SaveData()
 	m_pOverlayPage->SaveData();
 	m_pProxyPage->SaveData();
 	m_pMenuPage->SaveData();
+	m_pProgsPage->SaveData();
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)

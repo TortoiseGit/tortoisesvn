@@ -200,6 +200,12 @@
 		<Filter
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc">
+			<File
+				RelativePath=".\SetProgsPage.cpp">
+			</File>
+			<File
+				RelativePath=".\SetProgsPage.h">
+			</File>
 			<Filter
 				Name="Source Files"
 				Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
@@ -713,10 +719,10 @@
 					RelativePath="..\Icons\menuupdate.ico">
 				</File>
 				<File
-					RelativePath="..\Icons\Tortoise.ico">
+					RelativePath="..\Languages\res\Tortoise.ico">
 				</File>
 				<File
-					RelativePath="..\Languages\res\Tortoise.ico">
+					RelativePath="..\Icons\Tortoise.ico">
 				</File>
 				<File
 					RelativePath="..\Icons\Tortoise13by13.ico">

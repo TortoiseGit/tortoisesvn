@@ -307,35 +307,25 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,231,258,50,14
 END
 
-IDD_SETTINGSMAIN DIALOGEX 0, 0, 287, 180
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 287, 118
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "External &Diff:",IDC_STATIC,7,10,66,8
-    EDITTEXT        IDC_EXTDIFF,80,7,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_EXTDIFFBROWSE,229,7,51,14
-    LTEXT           "External &Merge:",IDC_STATIC,7,29,66,8
-    EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,229,25,51,14
-    LTEXT           "Diff &Viewer:",IDC_STATIC,7,48,66,8
-    EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,229,45,51,14
-    LTEXT           "&Language:",IDC_STATIC,7,75,66,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,73,200,64,CBS_DROPDOWNLIST | 
+    LTEXT           "&Language:",IDC_STATIC,7,9,66,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,7,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,7,92,73,18
-    EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
+    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,7,26,73,18
+    EDITTEXT        IDC_TEMPEXTENSIONS,80,26,200,14,ES_AUTOHSCROLL
     CONTROL         "&Show unversioned files before committing",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,7,114,273,
-                    10
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,7,47,273,10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    7,128,273,10
+                    7,62,273,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,142,273,10
-    LTEXT           "Default &number of log messages",IDC_STATIC,7,156,213,8
-    EDITTEXT        IDC_DEFAULTLOG,229,153,51,14,ES_AUTOHSCROLL | ES_NUMBER
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,76,273,10
+    LTEXT           "Default &number of log messages",IDC_STATIC,7,90,213,8
+    EDITTEXT        IDC_DEFAULTLOG,229,87,51,14,ES_AUTOHSCROLL | ES_NUMBER
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
@@ -430,61 +420,16 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,146,65,50,14
 END
 
-IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 172
+IDD_SETTINGSMENU DIALOGEX 0, 0, 308, 178
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Menu Layout"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "Check those menu entries you want to appear in the top context menu instead of the submenu",
-                    IDC_STATIC,7,7,266,21
-    CONTROL         "&Checkout...",IDC_MENU1,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,28,110,10
-    CONTROL         "&Update",IDC_MENU2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,39,110,10
-    CONTROL         "&Commit",IDC_MENU3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,50,110,10
-    CONTROL         "&Diff",IDC_MENU4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    7,61,110,10
-    CONTROL         "&Show Log",IDC_MENU5,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,72,110,10
-    CONTROL         "&Check for Updates",IDC_MENU6,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,83,110,10
-    CONTROL         "&Repository Browser",IDC_MENU23,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,95,110,10
-    CONTROL         "&Edit Conflicts",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,106,110,10
-    CONTROL         "&Resolved",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,116,110,10
-    CONTROL         "&Update To Revision...",IDC_MENU8,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,127,110,10
-    CONTROL         "&Rename...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,138,110,10
-    CONTROL         "&Delete",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,148,110,10
-    CONTROL         "&Revert",IDC_MENU12,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,28,117,10
-    CONTROL         "&Clean Up",IDC_MENU13,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,39,117,10
-    CONTROL         "&Branch/Tag...",IDC_MENU14,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,50,117,10
-    CONTROL         "&Switch...",IDC_MENU15,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,61,117,10
-    CONTROL         "&Merge...",IDC_MENU16,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,72,117,10
-    CONTROL         "&Export...",IDC_MENU17,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,83,117,10
-    CONTROL         "&Relocate",IDC_MENU18,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,94,117,10
-    CONTROL         "&Create Repository here",IDC_MENU19,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,124,105,117,10
-    CONTROL         "&Add",IDC_MENU20,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    124,116,117,10
-    CONTROL         "&Import...",IDC_MENU21,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,127,117,10
-    CONTROL         "&Blame...",IDC_MENU24,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,124,138,149,10
-    CONTROL         "&Add To Ignore List",IDC_MENU22,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,124,148,117,10
+                    IDC_STATIC,7,7,294,21
+    CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
+                    WS_BORDER | WS_TABSTOP,7,28,294,143
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
@@ -532,6 +477,22 @@ BEGIN
                     WS_DISABLED
     DEFPUSHBUTTON   "&OK",IDOK,197,60,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,254,60,50,14
+END
+
+IDD_SETTINGSPROGS DIALOGEX 0, 0, 287, 87
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Programs"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "External &Diff:",IDC_STATIC,7,10,66,8
+    EDITTEXT        IDC_EXTDIFF,80,7,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTDIFFBROWSE,229,7,51,14
+    LTEXT           "External &Merge:",IDC_STATIC,7,29,66,8
+    EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,229,25,51,14
+    LTEXT           "Diff &Viewer:",IDC_STATIC,7,48,66,8
+    EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,229,45,51,14
 END
 
 
@@ -684,7 +645,7 @@ BEGIN
         VERTGUIDE, 220
         VERTGUIDE, 229
         TOPMARGIN, 7
-        BOTTOMMARGIN, 173
+        BOTTOMMARGIN, 111
     END
 
     IDD_SETTINGSOVERLAY, DIALOG
@@ -739,11 +700,9 @@ BEGIN
     IDD_SETTINGSMENU, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 273
-        VERTGUIDE, 117
-        VERTGUIDE, 124
+        RIGHTMARGIN, 301
         TOPMARGIN, 7
-        BOTTOMMARGIN, 165
+        BOTTOMMARGIN, 171
         HORZGUIDE, 28
     END
 
@@ -772,6 +731,14 @@ BEGIN
         VERTGUIDE, 247
         TOPMARGIN, 7
         BOTTOMMARGIN, 74
+    END
+
+    IDD_SETTINGSPROGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
     END
 END
 #endif    // APSTUDIO_INVOKED
