@@ -904,28 +904,21 @@ BOOL CTortoiseProcApp::InitInstance()
 			while (file.ReadString(strLine))
 			{
 				CString temp;
-				temp.Format(IDS_PROC_EXPORT_2, strLine);
-				progDlg.SetLine(1, temp, true);
-				progDlg.SetLine(2, droppath, true);
 				temp.LoadString(IDS_PROC_EXPORT_3);
 				progDlg.SetTitle(temp);
-				progDlg.SetShowProgressBar(false);
+				progDlg.SetLine(1, temp);
+				progDlg.SetShowProgressBar(true);
 				progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 				progDlg.SetAnimation(IDR_ANIMATION);
-				if (!svn.Export(strLine, droppath, SVNRev::REV_WC))
+				droppath += strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\'));
+				if (!svn.Export(strLine, droppath, SVNRev::REV_WC, TRUE, &progDlg, parser.HasKey(_T("extended"))))
 				{
-					if (progDlg.IsValid())
-					{
-						progDlg.Stop();
-					}
+					progDlg.Stop();
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 				}
 				else
 				{
-					if (progDlg.IsValid())
-					{
-						progDlg.Stop();
-					}
+					progDlg.Stop();
 					CString temp;
 					temp.Format(IDS_PROC_EXPORT_4, strLine, droppath);
 					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);

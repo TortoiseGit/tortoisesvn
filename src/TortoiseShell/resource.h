@@ -130,6 +130,7 @@
 #define IDS_COLTITLEMIMETYPE            216
 #define IDS_COLDESCMIMETYPE             217
 #define IDS_DROPEXPORTMENU              218
+#define IDS_DROPEXPORTEXTENDEDMENU      219
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

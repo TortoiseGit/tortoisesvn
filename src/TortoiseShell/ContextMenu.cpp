@@ -326,6 +326,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, DropCopyAdd);
 		if (isInSVN)
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, DropExport);
+		if (isInSVN)
+			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, DropExportExtended);
+		InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 
 		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 	}
@@ -726,6 +729,16 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += _T(" /droptarget:\"");
 						svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
+						break;
+					case DropExportExtended:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("dropexport /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						svnCmd += _T(" /droptarget:\"");
+						svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						svnCmd += _T(" /extended");
 						break;
 					case Log:
 						svnCmd += _T("log /path:\"");

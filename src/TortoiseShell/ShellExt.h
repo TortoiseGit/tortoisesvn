@@ -111,6 +111,7 @@ protected:
 		DropMove,
 		DropCopy,
 		DropExport,
+		DropExportExtended,
 		Log,
 		ConflictEditor,
 		Relocate,
