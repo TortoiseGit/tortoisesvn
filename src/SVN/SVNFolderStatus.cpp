@@ -241,7 +241,11 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 
 filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumnProvider)
 {
-	TCHAR * filepathnonconst = (LPTSTR)filepath;
+	TCHAR filepathnonconst[MAX_PATH];
+	TCHAR pathbuf[MAX_PATH];
+
+	if (! shellCache.IsPathAllowed(filepath))
+		return &invalidstatus;
 
 	m_bColumnProvider = bColumnProvider;
 	//first change the filename to 'internal' format
@@ -250,14 +254,13 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 	{
 		if (filepath[i] == _T('\\'))
 			filepathnonconst[i] = _T('/');
-	} // for (int i=0; i<_tcsclen(filename); i++)
-
-	if (! shellCache.IsPathAllowed(filepath))
-		return &invalidstatus;
+		else
+			filepathnonconst[i] = filepath[i];
+	}
+	filepathnonconst[i] = 0;
 
 	BOOL isFolder = PathIsDirectory(filepath);
-	TCHAR pathbuf[MAX_PATH];
-	_tcscpy(pathbuf, filepath);
+	_tcscpy(pathbuf, filepathnonconst);
 	if (!isFolder)
 	{
 		TCHAR * ptr = _tcsrchr(pathbuf, '/');
@@ -280,16 +283,16 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 		_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 		if (!PathFileExists(pathbuf))
 			return &invalidstatus;
-		_tcscpy(pathbuf, filepath);
+		_tcscpy(pathbuf, filepathnonconst);
 		_tcscat(pathbuf, _T(EXCLUDEFILENAME));
 		if (PathFileExists(pathbuf))
 			return &invalidstatus;
 	}
 	filestatuscache * ret = NULL;
 	std::map<stdstring, filestatuscache>::iterator iter;
-	if ((iter = m_cache.find(filepath)) != m_cache.end())
+	if ((iter = m_cache.find(filepathnonconst)) != m_cache.end())
 	{
-		ATLTRACE2(_T("cache found for %s - %s\n"), filepath, pathbuf);
+		ATLTRACE2(_T("cache found for %s - %s\n"), filepathnonconst, pathbuf);
 		ret = (filestatuscache *)&iter->second;
 		DWORD now = GetTickCount();
 		if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
@@ -298,7 +301,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 	if (ret)
 		return ret;
 
-	return BuildCache(filepath);
+	return BuildCache(filepathnonconst);
 }
 
 void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)
