@@ -75,6 +75,8 @@ protected:
 	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnEnChangeLogmessage();
 	afx_msg void OnBnClickedFilllog();
+	afx_msg void OnCbnSelchangeOldlogs();
+	afx_msg void OnCbnCloseupOldlogs();
 	void Refresh();
 	DECLARE_MESSAGE_MAP()
 public:
@@ -94,6 +96,7 @@ private:
 	CButton			m_SelectAll;
 	CString			m_sBugID;
 	BugtraqInfo		m_BugtraqInfo;
+	CHistoryCombo	m_OldLogs;
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

@@ -59,6 +59,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
+	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 }
 
 
@@ -72,6 +73,8 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 	ON_BN_CLICKED(IDC_FILLLOG, OnBnClickedFilllog)
+	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
+	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 END_MESSAGE_MAP()
 
 
@@ -177,11 +180,15 @@ BOOL CLogPromptDlg::OnInitDialog()
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
 	
+	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
+	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
 	AddAnchor(IDC_BUGID, TOP_RIGHT);
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_CHIST, TOP_LEFT);
+	AddAnchor(IDC_OLDLOGS, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -328,6 +335,8 @@ void CLogPromptDlg::OnOK()
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	m_bBlock = FALSE;
 	m_sBugID.Trim();
+	m_OldLogs.AddString(m_sLogMessage, 0);
+	m_OldLogs.SaveHistory();
 	if (!m_sBugID.IsEmpty())
 	{
 		m_sBugID.Replace(_T(", "), _T(","));
@@ -499,6 +508,18 @@ void CLogPromptDlg::OnBnClickedFilllog()
 		}
 	}
 	m_LogMessage.ReplaceSel(logmsg, TRUE);
+}
+
+void CLogPromptDlg::OnCbnSelchangeOldlogs()
+{
+	m_sLogMessage = m_OldLogs.GetString();
+	UpdateData(FALSE);
+}
+
+void CLogPromptDlg::OnCbnCloseupOldlogs()
+{
+	m_sLogMessage = m_OldLogs.GetString();
+	UpdateData(FALSE);
 }
 
 
