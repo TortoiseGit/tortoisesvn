@@ -895,5 +895,28 @@ void CRevisionGraphDlg::FillTestData()
 	se->revisionto = 96;
 	e->sourcearray.Add(se);
 	m_arEntryPtrs.Add(e);
+
+	e = new CRevisionEntry();
+	e->level = 4;
+	e->revision = 85;
+	e->url = "/branches/test2";
+	e->author = "kueng";
+	e->message = "testing again";
+	e->pathfrom = "/branches/test";
+	e->revisionfrom = 82;
+	m_arEntryPtrs.Add(e);
+
+	e = new CRevisionEntry();
+	e->level = 3;
+	e->revision = 82;
+	e->url = "/branches/test";
+	e->author = "kueng";
+	e->message = "testing";
+	se = new source_entry;
+	se->pathto = "/branches/test2";
+	se->revisionto = 85;
+	e->sourcearray.Add(se);
+	m_arEntryPtrs.Add(e);
+
 }
 #endif //DEBUG
