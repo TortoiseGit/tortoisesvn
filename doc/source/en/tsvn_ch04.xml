@@ -254,7 +254,7 @@
 			</para>
 			<para>
 				The import message is used as a log message. Since you
-				usually just started your project a default "initial import"
+				usually just started your project a default <literal>initial import</literal>
 				is filled in by TortoiseSVN.
 			</para>
 			<indexterm>
@@ -306,7 +306,7 @@
 			</para>
 			<para>
 			To not disturb the users, we also added the file <filename>TortoiseVars.bat</filename>
-			to the ignore list, i.e. we've set the Subversion property svn:ignored
+			to the ignore list, i.e. we've set the Subversion property <literal>svn:ignored</literal>
 			for that file. That way it won't show up as unversioned on every commit.
 			</para>
 		</sect2>
@@ -319,16 +319,16 @@
 				Sometimes it is useful to construct a working copy that is made out of a number of 
 				different checkouts. For example, you may want different subdirectories to come from 
 				different locations in a repository, or perhaps from different repositories altogether. 
-				If you want that every user has the same layout, you could define the svn:externals properties.
+				If you want that every user has the same layout, you could define the <literal>svn:externals</literal> properties.
 			</para>
 			<para>
 				Let's say you check out a working copy of /project1 to <filename>D:\dev\project1</filename>.
 				Select the folder <filename>D:\dev\project1</filename>, <action>right-click</action> and choose 
 				<menuchoice><guimenuitem>properties</guimenuitem></menuchoice> from the context menu. 
 				The Properties Dialog comes up. Then go to the Subversion tab.
-				There, you can set properties. Select the "svn:externals" property from the combobox and write 
-				in the edit box the repository url in the format "name url".
-				For example "subversion http://svn.collab.net/repos/svn/trunk".
+				There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write 
+				in the edit box the repository url in the format <literal>name url</literal>.
+				For example <literal>subversion http://svn.collab.net/repos/svn/trunk</literal>.
 				Now click <guibutton>Set</guibutton> and commit your changes. 
 				If an user updates their working copy the external project is checked out, too.
 			</para>
@@ -371,7 +371,7 @@
 		different directory or delete the existing sourcetree first.
 		</note>
 		<para>
-			It is recommended that you check out only the "trunk" part of the
+			It is recommended that you check out only the <literal>trunk</literal> part of the
 			directory tree. If you specify the parent path of the
 			directory tree in the URL then you might end up with a full
 			harddisk since you will get a copy of the entire repository tree
@@ -391,7 +391,7 @@
 					<guimenuitem>Export...</guimenuitem>
 				</menuchoice>. If you execute this command
 				on your working copy you'll be asked for a place to save the
-				"clean" working copy without the
+				<literal>clean</literal> working copy without the
 				<filename>.svn</filename>
 				folders. Also, you can specify if you want to export 
 				<emphasis>all</emphasis> files or just the versioned files.
@@ -634,8 +634,8 @@
 		errors if you try to commit those changes.
 		If you want to revert some changes in your working copy, then use the 
 		repository browser and save the file in question over the file in your 
-		working copy. Or you can use the log dialog and use the command "revert
-		changes in this revision". For reverting multiple revision, you should
+		working copy. Or you can use the log dialog and use the command <action>revert
+		changes in this revision</action>. For reverting multiple revision, you should
 		use the merge command.
 		</warning>
 		<tip>
@@ -796,7 +796,7 @@
 						</listitem>
 						<listitem>
 							<para>
-								add the file to the svn:ignore list
+								add the file to the <literal>svn:ignore</literal> list
 								using the
 								<menuchoice>
 									<guimenuitem>Add to ignore list</guimenuitem>
@@ -823,6 +823,103 @@
 				<graphic fileref="images/CommitProgress.png"/>
 			</figure>
 		</para>
+		<tip>
+			<title>Integration with Bugtracking Tools</title>
+			<para>
+				If you have activated the bugtracking system, you could set one or more 
+				Issues in the <label>Bug-ID / Issue-Nr:</label> Textfield. Several Issues 
+				should be comma separated. Learn more <xref linkend="tsvn-DUG-bugtracker"/>.
+			</para>
+		</tip>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-bugtracker">
+		<title>Integration with Bugtracking Systems</title>
+		<indexterm>
+			<primary>bugtracking</primary>
+		</indexterm>
+		<indexterm>
+			<primary>bugtracker</primary>
+		</indexterm>
+		<para>
+			You could integrate a Bugtracking Tool of your choice in <application>TortoiseSVN</application>. 
+			Therefor you have to define some Properties, which start with <literal>bugtraq:</literal>. They must be set on 
+			Directorys: (<xref linkend="tsvn-DUG-propertypage"/>)
+			<variablelist>
+				<varlistentry>
+					<term>bugtraq:message</term>
+					<listitem>
+						<para>
+							<emphasis>This Properties activates the Bugtracking System. </emphasis>
+							It's used to add a line at the end of the logmessage. Therefor it must 
+							contain <literal>%BUGID%</literal>, which is replaced by the issuenumber on commit. 
+							Your Bugtracking tool could parse the logs and assign the issue to a commit. 
+							e.g <application>TortoiseSVN</application> is using <literal>Issue : %BUGID%</literal>, 
+							but this depends on your Tool.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:url</term>
+					<listitem>
+						<para>
+							Set this property to the url of your bugtracking tool. It must be 
+							properly URI encoded and it have to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal>
+							is replaced with the Issuenumber you entered, so the client could 
+							jump directly to the issue. You must not provide this property, but
+							then <application>TortoiseSVN</application> shows only the issuenumber
+							and not the link to it. e.g <application>TortoiseSVN</application> is 
+							using <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:label</term>
+					<listitem>
+						<para>
+							This text is shown by <application>TortoiseSVN</application> on
+							the commit dialog. It's the label for the textfield of the issuenumber. 
+							If it's not set, <literal>Bug-ID / Issue-Nr: </literal> will be displayed. Keep in 
+							mind though that most GUI clients don't resize their windows according 
+							to the size of GUI elements. So keep the size of the label below 20-25 
+							characters. 
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:number</term>
+					<listitem>
+						<para>
+							If it's set to true only numbers are allowed in the issuenumber textfield. 
+							An Exception is the comma, so you could comma separate several numbers. 
+							Valid values are true/false. 
+							<emphasis>Not defined true is assumed. </emphasis>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:warnifnoissue</term>
+					<listitem>
+						<para>
+							Set this to true, if you want that <application>TortoiseSVN</application>
+							warns you becuase of an empty issuenumber textfield. Valid values 
+							are true/false. Not defined false is assumed. 
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			<important>
+				<title>Set the Properties on Directorys</title>
+				<para>
+					The upper Properties must be set on directorys that the system could work. 
+					If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not 
+					some subfolder, then it's enough if you set the properties there. 
+					<application>TortoiseSVN</application> will search for those properties 
+					the path up to the working copy root for those properties. 
+				</para>
+			</important>
+		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
@@ -848,7 +945,7 @@
 		</para>
 		<para>
 			After you added the files/directories to source control
-			the file appears with a "added" icon overlay which means you
+			the file appears with a <literal>added</literal> icon overlay which means you
 			first have to commit your working copy to make those
 			files/directories available to other developers.
 			Adding a file/directory does <emphasis>not</emphasis> affect
@@ -1064,8 +1161,8 @@
 			information about the selected file/directory. In
 			addition you can read and set the subversion properties.
 			You can add your own properties or some properties with a 
-			special meaning in subversion, they begin with svn:. 
-			The svn:externals is such a property see how to handle externals in 
+			special meaning in subversion, they begin with <literal>svn:</literal>. 
+			The <literal>svn:externals</literal> is such a property see how to handle externals in 
 			<xref linkend="tsvn-DUG-import-4"/>.
 			For more information about properties in subversion see the  
 			<ulink url="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
@@ -1073,12 +1170,14 @@
 			</ulink>.
 		</para>
 		<note>
+			<title>commit properties</title>
 			<para>
-			Subversion properties are versioned. After you changed or added a 
-			property you have to commit your changes.
+				Subversion properties are versioned. After you changed or added a 
+				property you have to commit your changes.
 			</para>
 		</note>
 		<tip>
+			<title>conflicts on properties</title>
 			<para>
 				If there's a conflict on committing the changes, because another 
 				user has changed the same property Subversion generates a 
@@ -1086,6 +1185,11 @@
 				resolved the conflict. 
 			</para>
 		</tip>
+		<para>
+			<application>TortoiseSVN</application> could integrate with some bugtracking 
+			tools. This happens with properties, which start with <literal>bugtraq:</literal>. Please read 
+			on <xref linkend="tsvn-DUG-bugtracker"/> for further information. 
+		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
@@ -1276,7 +1380,7 @@
 			</para>
 			<warning>
 				Because Subversion's revision properties are not versioned, making 
-				modifications to such a property (for example, the svn:log commit 
+				modifications to such a property (for example, the <literal>svn:log</literal> commit 
 				message property) will overwrite the previous value of that 
 				property <emphasis>forever</emphasis>.
 			</warning>
@@ -1755,14 +1859,14 @@ Rev Comments
 					</para>
 					<para>
 					This exclude pattern will affect all your projects. It is not versioned, so it 
-					will not affect other users. In contrast you can also use the versioned svn:ignore 
-					property to exclude files or directories from version control. You can set the svn:ignore 
+					will not affect other users. In contrast you can also use the versioned <literal>svn:ignore</literal> 
+					property to exclude files or directories from version control. You can set the <literal>svn:ignore</literal> 
 					property using the 
 					<menuchoice>
 						<guimenuitem>Add to Ignore List</guimenuitem>
 					</menuchoice>
 					command. After commiting every other user will have the same 
-					svn:ignore property set for this project / directory as you.
+					<literal>svn:ignore</literal> property set for this project / directory as you.
 					</para>
 					</listitem>
 				</varlistentry>

@@ -1,4 +1,4 @@
-<chapter id="tsvn-DUG">
+﻿<chapter id="tsvn-DUG">
 	<title>Hilfe für die tägliche Arbeit</title>
 	<simplesect>
 		<para>
@@ -264,7 +264,7 @@
 			<para>
 				Die Import-Meldung ist gedacht als Log-Meldung. Da Sie normalerweise
 				ganz zu beginn eines Projektes importieren, hat TortoiseSVN schon
-				die Meldung "erster Import" für Sie ausgefüllt. Sie können diese
+				die Meldung <literal>erster Import</literal> fÃ¼r Sie ausgefÃ¼llt. Sie kÃ¶nnen diese
 				Meldung jedoch nach belieben ändern.
 			</para>
 			<indexterm>
@@ -342,7 +342,7 @@
 				anderen Projekten besteht. Zum Beispiel kann es vorkommen, dass Sie Unterordner 
 				haben wollen die von verschiedenen anderen Stellen des Projektarchivs kommen oder 
 				vielleicht sogar von verschiedenen Projektarchiven. Wenn Sie wollen, dass jeder 
-				Benutzer die gleiche Struktur der Arbeitskopie hat, können Sie die svn:externals 
+				Benutzer die gleiche Struktur der Arbeitskopie hat, können Sie die <literal>svn:externals</literal> 
 				Eigenschaft definieren. 
 			</para>
 			<para>
@@ -352,9 +352,9 @@
 					<guimenuitem>Eigenschaften</guimenuitem>
 				</menuchoice> 
 				aus dem Contextmenü. Der Eigenschaften Dialog erscheint, gehen Sie zu dem Tab Subversion. 
-				Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die "svn:externals"
+				Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die <literal>svn:externals</literal>
 				Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu refernzierende Projektarchiv Url 
-				in dem Format "Name Url" in das Textfeld. Zum Beispiel "subversion http://svn.collab.net/repos/svn/trunk", 
+				in dem Format <literal>Name Url</literal> in das Textfeld. Zum Beispiel <literal>subversion http://svn.collab.net/repos/svn/trunk</literal>, 
 				wenn Sie das Subversion Projektarchiv einbinden wollen. Klicken Sie jetzt auf <guibutton>Setzen</guibutton>
 				und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, 
 				wird das eingebundene Projektarchiv auch ausgecheckt. 
@@ -429,7 +429,7 @@
 				</menuchoice>
 				verwenden. Wenn Sie diesen Befehl ausführen werden Sie nach 
 				einem Ort gefragt an dem Sie die Daten speichern möchten, und 
-				Sie erhalten dann eine "saubere" Kopie Ihrer Daten, ohne die
+				Sie erhalten dann eine <literal>saubere</literal> Kopie Ihrer Daten, ohne die
 				<filename>.svn</filename>
 				Ordner. Sie können auch angeben, ob Sie <emphasis>alle</emphasis>
 				Dateien exportieren möchten oder nur diejenigen unter 
@@ -591,7 +591,7 @@
 			<tip>
 				<title>Weitere Möglichkeiten</title>
 				<para>
-					Der
+				Der 
 					<menuchoice>
 						<guimenuitem>Auf Änderungen überprüfen</guimenuitem>
 					</menuchoice>.
@@ -693,16 +693,16 @@
 		</para>
 		<warning>
 			<para>
-			Wenn Sie Ihre Arbeitskopie auf eine frühere Revision aktualisiert haben,
-			dürfen Sie keine Änderungen an den Dateien mehr vornehmen! Sie werden
-			eine Fehlermeldung erhalten, wenn Sie versuchen, diese Änderungen zu
-			übertragen.
-			Wenn Sie Änderungen rückgängig machen wollen, benutzen Sie den 
-			Projektarchiv-Browser und speichern Sie die gewünschte Datei über
-			die Datei in der Arbeitskopie. Oder Sie können den Log-Dialog benutzen
-			und den Befehl "Änderungen dieser Revision rückgängig machen". Um
-			mehrere Revisionen rückgängig zu machen, benutzen Sie den "Zusammenführen"
-			Befehl.
+		Wenn Sie Ihre Arbeitskopie auf eine frühere Revision aktualisiert haben,
+		dürfen Sie keine Änderungen an den Dateien mehr vornehmen! Sie werden
+		eine Fehlermeldung erhalten, wenn Sie versuchen, diese Änderungen zu
+		übertragen.
+		Wenn Sie Änderungen rückgängig machen wollen, benutzen Sie den 
+		Projektarchiv-Browser und speichern Sie die gewünschte Datei über
+		die Datei in der Arbeitskopie. Oder Sie können den Log-Dialog benutzen
+		und den Befehl <action>Änderungen dieser Revision rückgängig machen</action>. Um
+		mehrere Revisionen rückgängig zu machen, benutzen Sie den <action>Zusammenführen</action>
+		Befehl.
 			</para>
 		</warning>
 		<tip>
@@ -900,6 +900,119 @@
 				<title>Eine laufende Übertragung im Fortschrittsdialog</title>
 				<graphic fileref="images/CommitProgress.png"/>
 			</figure>
+		</para>
+		<tip>
+			<title>Integration mit Bugtracking Systemen</title>
+			<para>
+				Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei 
+				<guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n)
+				Ihres Bugtracking Programms eingeben. Falls Sie mehrere eingeben, werden 
+				diese dann mit Komma (,) getrennt eingegeben. Mehr dazu können Sie in 
+				<xref linkend="tsvn-DUG-bugtracker"/> lesen. 
+			</para>
+		</tip>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-bugtracker">
+		<title>Integration mit einem Bugtracking System</title>
+		<indexterm>
+			<primary>bugtracking</primary>
+		</indexterm>
+		<indexterm>
+			<primary>bugtracker</primary>
+		</indexterm>
+		<para>
+			Sie können eine Bugtracking Anwendung Ihrer Wahl in <application>TortoiseSVN</application>
+			integrieren. Dafür müssen Sie ein paar Subversion Eigenschaften definieren, die mit
+			<literal>bugtraq:</literal> beginnen: (<xref linkend="tsvn-DUG-propertypage"/>)
+			<variablelist>
+				<varlistentry>
+					<term>bugtraq:message</term>
+					<listitem>
+						<para>
+							<emphasis>Diese Eigenschaft aktiviert das Bugtracking System. </emphasis>
+							Sie wird vom Client benutzt, um eine extra Zeile am
+							Ende des Logtextes hinzuzufügen. Dafür muss sie den Text <literal>%BUGID%</literal>
+							enthalten, welcher beim Übertragen durch die Eintragsnummer ersetzt 
+							wird. Mithilfe dieses Textes kann Ihr Bugtracking Programm die Log 
+							Meldungen parsen und die Revisionen einem Eintrag zuordnen. 
+							<application>TortoiseSVN</application> benutzt z.B. <literal>Issue : %BUGID%</literal>, 
+							aber das hängt von Ihrem Programm ab.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:url</term>
+					<listitem>
+						<para>
+							Hier geben Sie die Url zu Ihrem Bugtracking Programm ein. 
+							Die Url muss eine gültige (sprich encodierte) Url sein und
+							<literal>%BUGID%</literal> enthalten. <literal>%BUGID%</literal>
+							wird später durch die Eintragsnummer 
+							ersetzt. Dadurch springt der Client direkt zu dem Eintrag. Wenn 
+							Sie diese Eigenschaft weglassen, zeigt 
+							<application>TortoiseSVN</application> später nur die Eintragsnummer
+							an und keinen Verweis. 
+							Bei <application>TortoiseSVN</application> z.B. 
+							<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:label</term>
+					<listitem>
+						<para>
+							Dieser Text wird von <application>TortoiseSVN</application>
+							im Übertragen Dialog angezeigt. Er beschreibt das Eingabefeld 
+							für die Eintragsnummer. Wird er weggelassen, wird 
+							<guilabel>Bug-ID / Issue-Nr: </guilabel>
+							angezeigt. Beachten Sie bitte, dass der Text nicht zu lang ist, 
+							da er sonst evtl. in <application>TortoiseSVN</application> oder 
+							in anderen Clients einfach abgeschnitten wird. 
+							(empfohlen werden max 20 bis 25 Zeichen)
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:number</term>
+					<listitem>
+						<para>
+							Auf <literal>true</literal> gesetzt, werden, ausser dem Komma nur Zahlen 
+							im Bugtracking Eingabefeld akzeptiert. 
+							Gültige Werte: <literal>true/false</literal>. <emphasis>Wenn keine 
+							Eigenschaft definiert ist, wird <literal>true</literal> angenommen.</emphasis>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>bugtraq:warnifnoissue</term>
+					<listitem>
+						<para>
+							Wenn die Eigenschaft auf <literal>true</literal> gesetzt ist, warnt Sie 
+							<application>TortoiseSVN</application>, falls das Eingabefeld
+							für die Eintragsnummer im Übertragen Dialog leer gelassen wurde. 
+							Das ist nur eine Erinnerungshilfe, falls der Benutzer die Eingabe 
+							vergessen hat. Gültige Werte: <literal>true/false</literal>. Wenn keine Eigenschaft 
+							definiert ist, wird <literal>false</literal> angenommen.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			<important>
+				<title>Setzen Sie die Eigenschaften in Ordnern</title>
+				<para>
+					Die obigen Eigenschaften müssen auf Ordner gesetzt sein, damit das
+					System richtig funktioniert. Setzen Sie sie auf einen 
+					Ordner möglichst weit unten in Ihrer Ordnerstruktur der 
+					<emphasis>Arbeitskopien</emphasis>. Wenn Sie sicher gehen können, dass
+					jeder Benutzer z.B. von <filename>trunk/</filename> auscheckt, definieren Sie die Eigenschaften
+					für <filename>trunk/</filename>. Die Client-Software wird dann die Ordnerstruktur vom tiefsten 
+					bis zum obersten Element (z.B. <filename>trunk/</filename>) durchsuchen, ob die Eigenschaften 
+					definiert sind. Wenn sie die Eigenschaften in einem beliebigen Unterordner
+					setzen, überschreiben diese die Einstellungen in einem übergeordneten Ordner. 
+				</para>
+			</important>
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
@@ -1169,7 +1282,7 @@
 			über Dateien/Ordner unter Versionskontrolle ansehen und die speziellen
 			Subversion-Eigenschaften lesen und schreiben. Sie können Ihre eigenen 
 			Eigenschaften hinzufügen oder welche mit einer Speziellen Bedeutung in 
-			Subversion. Diese beginnen alle mit svn:. svn:externals ist so eine 
+			Subversion. Diese beginnen alle mit <literal>svn:</literal>. <literal>svn:externals</literal> ist so eine 
 			Eigenschaft, sehen Sie sich das Kapitel 
 			<xref linkend="tsvn-DUG-import-4"/> an, um mehr über 
 			das Thema zu erfahren. 
@@ -1180,6 +1293,7 @@
 			</ulink> an. 
 		</para>
 		<note>
+			<title>Eigenschaften zum Projektarchiv Übertragen</title>
 			<para>
 				Subversion Eigenschaften sind auch unter Versionskontrolle. 
 				Nachdem Sie eine Eigenschaft geändert haben, müssen Sie die Änderungen 
@@ -1187,6 +1301,7 @@
 			</para>
 		</note>
 		<tip>
+			<title>Konflikte in Eigenschaften</title>
 			<para>
 				Sollte es zu einem Konflikt beim übertragen zum Server kommen, weil 
 				ein anderer Benutzer die gleiche Eigenschaft geändert hat, generiert 
@@ -1194,6 +1309,11 @@
 				Konflikt aufgelöst haben. 
 			</para>
 		</tip>
+		<para>
+			<application>TortoiseSVN</application> kann Bugtracking Tools in Subversion integrieren. 
+			Dies geschieht über Eigenschaften, welche mit <literal>bugtraq:</literal> beginnen.
+ 			Wie Sie mit diesen Eigenschaften umgehen ist in <xref linkend="tsvn-DUG-bugtracker"/> erklärt. 
+		</para>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
@@ -1247,6 +1367,19 @@
 						</para>
 					</listitem>
 				</itemizedlist>
+				<tip>
+					<title>Integration mit Bugtracking Tools</title>
+					<para>
+						Wenn Sie eine Eintragsnummer beim Übertragen angegeben haben und 
+						die Eigenschaft <literal>bugtraq:url</literal> gesetzt haben, 
+						sehen Sie am Ende des Logtextes einen Verweis mit der Eintragsnummer. 
+						Wenn Sie auf diesen Verweis klicken, wird Ihr Standard Webbrowser 
+						gestartet und die Seite mit dem zugeordneten Eintrag angezeigt. 
+						Wenn Sie die Eigenschaft <literal>bugtraq:url</literal> nicht gesetzt haben wird 
+						die Eintragsummer ohne Verweis angezeigt. 
+						(<xref linkend="tsvn-DUG-bugtracker"/>)
+			</para>
+				</tip>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-showlog-2">
@@ -1529,7 +1662,7 @@
 					</listitem>
 				</itemizedlist>
 				<figure id="tsvn-DUG-switch-dia-1">
-					<title>The Switch Dialog</title>
+					<title>Der Wechseln Zu... Dialog</title>
 					<graphic fileref="images/Switch.png"/>
 				</figure>
 			</para>
@@ -1666,8 +1799,8 @@ Rev Log-Meldungen
 				schon zu weit vom Hauptast entfernt hat.
 			</para>
 			<para>
-				Wenn Sie diesen Zweig auf dem gleichen Stand wie "trunk" halten wollen,
-				sollten Sie sofort alle Änderungen von "trunk" mit dem Zweig zusammenführen.
+				Wenn Sie diesen Zweig auf dem gleichen Stand wie <literal>trunk</literal> halten wollen,
+				sollten Sie sofort alle Änderungen von <literal>trunk</literal> mit dem Zweig zusammenführen.
 				Wenn Sie diese Technik anwenden, werden Ihnen lokale Änderungen nicht in die
 				Quere kommen. Selbstverständlich sollten Sie, wie oben erklärt, es vermeiden,
 				Änderungen zweifach zusammenzuführen.
@@ -1767,7 +1900,7 @@ Rev Log-Meldungen
 				Dies öffnet einen Dateidialog von TortoiseMerge, in dem sie die 
 				anzuwendende Patchdatei auswähren können. Standardmäßig werden nur 
 				<filename>.patch</filename> Dateien angezeigt, aber sie können auch 
-				"Alle Dateien" auswählen. Öffnen Sie die Datei und TortoiseMerge wird
+				<literal>Alle Dateien</literal> auswählen. Öffnen Sie die Datei und TortoiseMerge wird
 				Ihnen eine Liste der Dateien anzeigen, die durch die Patchdatei geändert
 				würden. Führen Sie einen Doppelklick auf die einzelnen Dateien aus und
 				die Änderungen aus der Patchdatei werden mit Ihrer Arbeitskopie
@@ -1908,14 +2041,14 @@ Rev Log-Meldungen
 					Diese Auschluss-Muster beziehen sich auf alle Ihre Projekte.
 					Sie werden nicht versioniert, d.h. andere Benutzer werden davon
 					nichts mitbekommen. Im Gegensatz dazu können Sie jedoch auch
-					die versionierte Eigenschaft svn:ignore verwenden, um Dateien
+					die versionierte Eigenschaft <literal>svn:ignore</literal> verwenden, um Dateien
 					und/oder Ordner von der Versionskontrolle auszuschliessen.
-					Sie können die svn:ignore Eigenschaft setzen durch den
+					Sie können die <literal>svn:ignore</literal> Eigenschaft setzen durch den
 					<menuchoice>
 									<guimenuitem>Ignorieren</guimenuitem>
 								</menuchoice>
 					Befehl. Nach dem Übertragen wird jeder Benutzer dieselbe
-					svn:ignore Eigenschaft für das Projekt oder den Ordner
+					<literal>svn:ignore</literal> Eigenschaft für das Projekt oder den Ordner
 					haben wie Sie.
 					</para>
 						</listitem>
@@ -1953,7 +2086,7 @@ Rev Log-Meldungen
 						</listitem>
 					</varlistentry>
 					<varlistentry>
-						<term>Dateidatum auf "Datum der letzten Übertragung" setzen</term>
+						<term>Dateidatum auf <literal>Datum der letzten Übertragung</literal> setzen</term>
 						<listitem>
 							<para>
 					Diese Einstellung zwingt TortoiseSVN das Dateidatum auf das 
@@ -1964,7 +2097,7 @@ Rev Log-Meldungen
 					das aktuelle Datum zu verwenden, da Systeme zum automatischen
 					Erstellen von Software normalerweise auf die Zeitstempel 
 					zurückgreifen, um zu entscheiden, ob eine Dati übersetzt werden soll.
-					Wenn Sie das "Datum der letzten Übertragung" verwenden und auf eine
+					Wenn Sie das <literal>Datum der letzten Übertragung</literal> verwenden und auf eine
 					ältere Dateiversion zurückgreifen, kann es passieren, daß sich das
 					Projekt nicht so übersetzen lässt, wie erwartet.
 					</para>
@@ -2018,14 +2151,14 @@ Rev Log-Meldungen
 						</listitem>
 					</varlistentry>
 					<varlistentry>
-						<term>Paste Log template in english</term>
+						<term>Log template in english einfügen</term>
 						<listitem>
 							<para>
-					This only applies if you have selected another language
-					than english for TortoiseSVN. In that case, when pasting
-					the log template in the commit dialog, the status of each
-					file is pasted in the selected language. Whith this option
-					checked, the status is pasted in english.
+							Das trifft nur zu, wenn sie eine andere Sprache als englisch 
+							ausgewählt haben. Wenn sie das Log Template im Übertragen Dialog
+							hinzufügen, wird der Status jeder Datei in der selektierten 
+							Sprache eingefügt. Mit dieser Option wird der Status immer in 
+							englisch eingefügt. 
 					</para>
 						</listitem>
 					</varlistentry>
