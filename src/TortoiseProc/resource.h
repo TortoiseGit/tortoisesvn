@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -244,6 +244,7 @@
 #define IDS_SVNACTION_REVERT            1167
 #define IDC_NUMFILECHANGESVALUE         1167
 #define IDS_SVNACTION_RESOLVE           1168
+#define IDC_FORCESHELLREFRESH           1168
 #define IDS_SVNACTION_UPDATE            1169
 #define IDS_SVNACTION_COMPLETED         1170
 #define IDS_SVNACTION_EXTERNAL          1171
@@ -451,6 +452,7 @@
 #define IDS_SETTINGS_INCLUDELIST_TT     3104
 #define IDS_SETTINGS_CLEARAUTH_TT       3105
 #define IDS_SETTINGS_COMMITFILETIMES_TT 3106
+#define IDS_SETTINGS_SHELLFORCEREFRESH_TT 3107
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202
@@ -493,7 +495,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        182
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1168
+#define _APS_NEXT_CONTROL_VALUE         1169
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

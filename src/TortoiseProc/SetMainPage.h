@@ -99,6 +99,8 @@ private:
 	BOOL			m_bCheckNewer;
 	CRegDWORD		m_regNoCloseOnRed;
 	BOOL			m_bNoCloseOnRed;
+	CRegDWORD		m_regForceShellRefresh;
+	BOOL			m_bForceShellRefresh;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -116,4 +118,5 @@ public:
 	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnBnClickedClearauth();
 	afx_msg void OnBnClickedNocloseonred();
+	afx_msg void OnBnClickedForceshellrefresh();
 };
