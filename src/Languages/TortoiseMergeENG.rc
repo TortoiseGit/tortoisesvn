@@ -114,6 +114,13 @@ END
 //
 
 IDB_LOGOFLIPPED         BITMAP                  "res\\tortoisesvn_logoflipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_DOWNLOAD            AVI                     "res\\download.avi"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -507,6 +514,8 @@ BEGIN
     IDS_SAVEASTITLE         "Save as..."
     IDS_COMMANDLINEHELP     "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/yours:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
     IDS_OPENDIFFFILETITLE   "Select diff file..."
+    IDS_GETVERSIONOFFILETITLE "Fetching File..."
+    IDS_GETVERSIONOFFILE    "Fetching version %s of file:"
 END
 
 STRINGTABLE 

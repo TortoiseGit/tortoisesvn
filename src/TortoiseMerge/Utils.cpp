@@ -10,7 +10,7 @@ CUtils::~CUtils(void)
 {
 }
 
-BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, HWND hWnd /*=NULL*/)
+BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd /*=NULL*/)
 {
 	CString sSCMPath = CRegString(_T("TortoiseMerge\\SCMPath"),
 		_T("F:\\Development\\SVN\\TortoiseSVN\\bin\\Release\\TortoiseProc.exe /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4"));
@@ -42,8 +42,18 @@ BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath
 		MessageBox(NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONERROR);
 		LocalFree( lpMsgBuf );
 	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-	if (WaitForSingleObject(process.hProcess, 600000 /* 10 min */) == WAIT_TIMEOUT)
+	DWORD ret = 0;
+	DWORD i = 0;
+	do
+	{
+		ret = WaitForSingleObject(process.hProcess, 100);
+		progDlg->SetProgress(i++, (DWORD)10000);
+	} while ((ret == WAIT_TIMEOUT) && (!progDlg->HasUserCancelled()));
+	
+	if (progDlg->HasUserCancelled())
+	{
 		return FALSE;
+	}
 	if (!PathFileExists(sSavePath))
 		return FALSE;
 	return TRUE;

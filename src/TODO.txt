@@ -13,10 +13,10 @@ TortoiseMerge:
 - Change the logo in the about-box
 - If the patchfile leaves a file completely empty, ask the user if (s)he
   wants to delete that file (Problem: how to delete it from version control too?)
-- Show a modeless dialog while a specific version of a file is fetched since
-  this could take a while and the user want's to know what's going on.
 - Settings dialog.
 - Support for CVS diff files
 - Comparing folders.
 - Handling of different filetypes (encoding). Autodetect? User-selectable?
 - Ignoring whitespaces when diffing.
+- Make TortoiseMere use the crashhandler and add the diffing files to
+  the crash report.

@@ -14,6 +14,7 @@
 #define IDI_CONFLICTEDLINE              134
 #define IDD_FILEPATCHES                 135
 #define IDD_ABOUT                       136
+#define IDR_DOWNLOAD                    136
 #define IDB_LOGOFLIPPED                 168
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
@@ -65,6 +66,8 @@
 #define IDS_SAVEASTITLE                 5000
 #define IDS_COMMANDLINEHELP             5001
 #define IDS_OPENDIFFFILETITLE           5002
+#define IDS_GETVERSIONOFFILETITLE       5003
+#define IDS_GETVERSIONOFFILE            5004
 #define ID_VIEW_WHITESPACES             32774
 #define ID_VIEW_ONEWAYDIFF              32775
 #define ID_MERGE_NEXTDIFFERENCE         32779
@@ -74,7 +77,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        136
+#define _APS_NEXT_RESOURCE_VALUE        137
 #define _APS_NEXT_COMMAND_VALUE         32781
 #define _APS_NEXT_CONTROL_VALUE         1015
 #define _APS_NEXT_SYMED_VALUE           101

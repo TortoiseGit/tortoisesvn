@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ProgressDlg.h"
 /**
  * \ingroup TortoiseMerge
  *
@@ -19,5 +20,5 @@ public:
 	 * \param hWnd the window handle of the calling app
 	 * \return TRUE if successful
 	 */
-	static BOOL GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, HWND hWnd = NULL);
+	static BOOL GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd = NULL);
 };

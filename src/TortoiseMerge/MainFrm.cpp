@@ -5,6 +5,7 @@
 #include "TortoiseMerge.h"
 #include "OpenDlg.h"
 #include "Patch.h"
+#include "ProgressDlg.h"
 
 #include "MainFrm.h"
 #include ".\mainfrm.h"
@@ -212,14 +213,27 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
 		//patching not successful, so retreive the
 		//base file from version control and try
 		//again...
+		CString sTemp;
+		CProgressDlg progDlg;
+		sTemp.Format(IDS_GETVERSIONOFFILE, sVersion);
+		progDlg.SetLine(1, sTemp, true);
+		progDlg.SetLine(2, sFilePath, true);
+		sTemp.LoadString(IDS_GETVERSIONOFFILETITLE);
+		progDlg.SetTitle(sTemp);
+		progDlg.SetShowProgressBar(false);
+		progDlg.SetAnimation(IDR_DOWNLOAD);
+		progDlg.SetTime(FALSE);
+		progDlg.ShowModeless(this);
 		CString sBaseFile = m_TempFiles.GetTempFilePath();
-		if (!CUtils::GetVersionedFile(sFilePath, sVersion, sBaseFile, this->m_hWnd))
+		if (!CUtils::GetVersionedFile(sFilePath, sVersion, sBaseFile, &progDlg, this->m_hWnd))
 		{
+			progDlg.Stop();
 			CString sErrMsg;
 			sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, sVersion, sFilePath);
 			MessageBox(sErrMsg, NULL, MB_ICONERROR);
 			return FALSE;
 		} // if (!CUtils::GetVersionedFile(sFilePath, sVersion, sBaseFile, this->m_hWnd)) 
+		progDlg.Stop();
 		CString sTempFile = m_TempFiles.GetTempFilePath();
 		if (!m_Patch.PatchFile(sFilePath, sTempFile, sBaseFile))
 		{
