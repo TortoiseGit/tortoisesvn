@@ -109,9 +109,11 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
 	{
 		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username));
 		*cred = ret;
-		return SVN_NO_ERROR;
 	} // if (svn->UserPrompt(infostring, CString(realm))
-	*cred = NULL;
+	else
+		*cred = NULL;
+	if (svn->m_app)
+		svn->m_app->DoWaitCursor(0);
 	return SVN_NO_ERROR;
 }
 
@@ -126,9 +128,11 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(UserName));
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(PassWord));
 		*cred = ret;
-		return SVN_NO_ERROR;
 	} // if (svn->userprompt(username, password))
-	*cred = NULL;
+	else
+		*cred = NULL;
+	if (svn->m_app)
+		svn->m_app->DoWaitCursor(0);
 	return SVN_NO_ERROR;
 }
 
@@ -204,7 +208,6 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		{
 			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->trust_permanently = FALSE;
-			return SVN_NO_ERROR;
 		} // if (CMessageBox::Show(NULL, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDOK)
 		else
 			*cred_p = NULL;
@@ -249,7 +252,6 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 		/* Build and return the credentials. */
 		*cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
 		(*cred)->cert_file = cert_file;
-		return SVN_NO_ERROR;
 	} // if (GetOpenFileName(&ofn)==TRUE) 
 
 	if (svn->m_app)
@@ -268,9 +270,9 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
 	{
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(password));
 		*cred = ret;
-		return SVN_NO_ERROR;
 	} // if (svn->UserPrompt(infostring, CString(realm))
-	*cred = NULL;
+	else
+		*cred = NULL;
 	if (svn->m_app)
 		svn->m_app->DoWaitCursor(0);
 	return SVN_NO_ERROR;
