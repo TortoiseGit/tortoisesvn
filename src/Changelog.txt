@@ -5,6 +5,8 @@
        and right-click behaved differently. 
        Double-Click tried to fetch the log for 
        a wrong revision. (Luebbe)
+- BUG: Fixed a crash if the patchfile to apply contained
+       a new but empty file. (Stefan)
 
 Version 0.24
 - ADD: A new separate program to apply patches,
