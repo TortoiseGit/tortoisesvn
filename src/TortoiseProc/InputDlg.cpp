@@ -91,7 +91,8 @@ BOOL CInputDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("InputDlg"));
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

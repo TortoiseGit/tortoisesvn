@@ -193,7 +193,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("LogPromptDlg"));
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
