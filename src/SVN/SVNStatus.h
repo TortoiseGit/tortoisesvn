@@ -142,7 +142,8 @@ public:
 	 * \return the status
 	 */
 	svn_wc_status_t * GetFirstFileStatus(const TCHAR * path, const TCHAR ** retPath, bool update = false);
-
+	unsigned int GetFileCount() {return apr_hash_count(m_statushash);}
+	unsigned int GetVersionedCount();
 	/**
 	 * Returns the status of the next file in the filelist. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileStatus() for details.
@@ -160,6 +161,7 @@ public:
 	svn_wc_status_t *			status;				///< the status result of GetStatus()
 
 #ifdef _MFC_VER
+friend class SVN;
 	/**
 	 * Returns the last error message as a CString object.
 	 */

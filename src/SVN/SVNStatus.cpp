@@ -398,6 +398,22 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 	return (svn_wc_status_t *) item->value;
 }
 
+unsigned int SVNStatus::GetVersionedCount()
+{
+	unsigned int count = 0;
+	const sort_item* item;
+	for (unsigned int i=0; i<apr_hash_count(m_statushash); ++i)
+	{
+		item = &APR_ARRAY_IDX(m_statusarray, i, const sort_item);
+		if (item)
+		{
+			if (SVNStatus::GetMoreImportant(((svn_wc_status_t *)item->value)->text_status, svn_wc_status_ignored)!=svn_wc_status_ignored)
+				count++;				
+		}
+	}
+	return count;
+}
+
 svn_wc_status_t * SVNStatus::GetNextFileStatus(const TCHAR ** retPath)
 {
 	const sort_item*			item;
