@@ -10,13 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-01-14 09:42+0100\n"
+"PO-Revision-Date: 2005-01-24 11:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Ein einzelnes Leerzeichen
 #: ID:10
 #: ID:126
 msgid " "
@@ -382,6 +383,11 @@ msgstr "&Ansicht"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Leerzeichen"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(Trockenlauf)"
 
 # ID:208,
 #: ID:208
@@ -935,7 +941,7 @@ msgstr "Change the window size"
 
 #: Dlg-ID:158
 msgid "Changed Files"
-msgstr "Geänderte Dateien"
+msgstr "Geänderte Objekte"
 
 #: ID:163
 msgid "Changed files: %d"
@@ -1542,6 +1548,11 @@ msgid ""
 msgstr ""
 "Auswahl löschen\n"
 "Löschen"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Fehler"
 
 #: ID:81
 msgid "Error validating server certificate for %s:"
@@ -2199,6 +2210,11 @@ msgstr "Normal"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nicht alle Einträge der System-Registry (oder INI Datei) wurden gelöscht."
 
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Hinweis"
+
 # Control-ID:1161,
 #: Control-ID:1161
 msgid "Number of authors:"
@@ -2421,11 +2437,11 @@ msgstr "Eigenschaften"
 
 #: ID:207
 msgid "Property Status"
-msgstr "Eigenschaften Status"
+msgstr "Eigenschaften"
 
 #: Control-ID:65535
 msgid "Property Status:"
-msgstr "Eigenschaften Status:"
+msgstr "Eigenschaften:"
 
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
@@ -2506,7 +2522,7 @@ msgstr "Umplazieren..."
 
 #: ID:207
 msgid "Remote Property Status"
-msgstr "Server Eigenschaften Status"
+msgstr "Eigenschaften Server"
 
 #: ID:63
 #: ID:207
@@ -2515,7 +2531,7 @@ msgstr "Projektarchiv Status"
 
 #: ID:207
 msgid "Remote Text Status"
-msgstr "Server Text Status"
+msgstr "Inhalt Server"
 
 #: Control-ID:65535
 msgid "Removed"
@@ -3131,11 +3147,11 @@ msgstr "Arbeitskopie als %s markiert"
 
 #: ID:207
 msgid "Text Status"
-msgstr "Text Status"
+msgstr "Objekt / Inhalt"
 
 #: Control-ID:65535
 msgid "Text Status:"
-msgstr "Text Status:"
+msgstr "Objekt / Inhalt:"
 
 #: ID:69
 msgid ""
@@ -3677,6 +3693,11 @@ msgstr "Anzeigeprogramm für GNU Diff Dateien (Patch Dateien)."
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Besuchen Sie unsere Webseite"
+
+# ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "Warnung"
 
 # ID:219,
 #: ID:219
