@@ -375,7 +375,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCOMMIT), INDEXMENU(MENUCOMMIT), idCmd++, IDS_MENUCOMMIT, IDI_COMMIT, idCmdFirst, Commit);
 	
 	//---- separator 
-	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
+	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -396,7 +396,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUSHOWCHANGED), INDEXMENU(MENUSHOWCHANGED), idCmd++, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, idCmdFirst, ShowChanged);
 
 	//---- separator 
-	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
+	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -420,7 +420,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
 
 	//---- separator 
-	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
+	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -438,7 +438,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENURELOCATE), INDEXMENU(MENURELOCATE), idCmd++, IDS_MENURELOCATE, IDI_RELOCATE, idCmdFirst, Relocate);
 
 	//---- separator 
-	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
+	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -456,7 +456,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Ignore);
 
 	//---- separator 
-	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
+	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;

@@ -319,8 +319,9 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "&Include/Exclude pattern:",IDC_STATIC,7,92,73,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
-    CONTROL         "&Allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
-                    BS_AUTOCHECKBOX,7,114,273,10
+    CONTROL         "&Show unversioned files before committing",
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,7,114,273,
+                    10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     7,128,273,10
