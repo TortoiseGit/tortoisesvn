@@ -69,7 +69,7 @@ TT.Filename, TT.Literal{
 	font-weight: bold;
 }
 
-.action, .guibutton, .guimenuitem {
+.action, .guibutton, .guimenu, .guimenuitem {
   font-weight: bold;	
 }
 
@@ -146,7 +146,7 @@ div.figure p {
 	clear: both;
 }
 
-.guimenuitem {
+.guimenu, .guimenuitem {
 	border: 2px solid;
 	font-size: 10pt;
 	padding-left: 0.5em;

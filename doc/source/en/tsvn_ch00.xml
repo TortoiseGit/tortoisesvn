@@ -85,7 +85,6 @@
 	<!-- =================================================================== -->
 	<sect1 id="tsvn-ch-0-sect-4">
 		<title>Acknowledgments</title>
-		<para>
 			<variablelist>
 				<varlistentry>
 					<term>
@@ -137,6 +136,70 @@
 					</listitem>
 				</varlistentry>
 			</variablelist>
-		</para>
 	</sect1>
+
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 4 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-ch-0-sect-5">
+		<title>Terminology used in this document</title>
+    
+    <para>To make reading the docs easier, all the screens and Menus from TSVN 
+    are marked up in a different font.
+    The <guilabel>Log Dialog</guilabel> for instance.
+    </para>
+    <para>
+    if a menu choice has to be made, this is indicated with an arrow.
+    <menuchoice>
+      <guimenu>TortoiseSVN</guimenu>
+      <guimenuitem>Checkout</guimenuitem>
+    </menuchoice> means: select <emphasis>Checkout</emphasis> from the
+    <emphasis>TortoiseSVN</emphasis> context menu.
+    </para>
+    <para>
+    User Actions are indicated using a bold font.
+    <action>ALT+A</action>: press the 
+    <keycap>ALT</keycap>-Key on your keyboard and while holding it down press the 
+    <keycap>A</keycap>-Key as well.
+    <action>Right-drag</action>: press the right mouse button and while holding it down
+    <emphasis>drag</emphasis> the items to the new location.
+    </para>
+    <para>
+    <note>
+	<para>
+	Notes are spread thoughout the document.
+	</para>
+    </note>
+    </para>
+    <para>
+    <important>
+	<para>
+	Important notes are marked with an additional icon.
+	</para>
+    </important>
+    </para>
+    <para>
+    <tip>
+	<para>
+	Tips that make your life easier.
+	</para>
+    </tip>
+    </para>
+    <para>
+    <caution>
+	<para>
+	Places where you have to be careful what you are doing.
+	</para>
+    </caution>
+    </para>
+    <para>
+    <warning>
+	<para>
+	Where extreme care has to be taken, data corruption or other nasty things may occur.
+	</para>
+    </warning>
+    </para>
+	</sect1>
+
 </preface>
