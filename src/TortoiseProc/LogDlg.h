@@ -117,6 +117,7 @@ public:
 
 public:
 	CWnd *		m_pNotifyWindow;
+	WORD		m_wParam;
 	CListCtrl	m_LogList;
 	CListCtrl	m_LogMsgCtrl;
 	CProgressCtrl m_LogProgress;

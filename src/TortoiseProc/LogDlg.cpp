@@ -1122,7 +1122,7 @@ void CLogDlg::OnOK()
 		int selIndex = m_LogList.GetSelectionMark();
 		if (selIndex >= 0)
 		{	
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, 0, m_arRevs.GetAt(selIndex));
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam, m_arRevs.GetAt(selIndex));
 		}
 	}
 }
