@@ -1,5 +1,5 @@
 #
-# Traditional Chinese translations for TortoiseSVN package
+# Simplified Chinese translations for TortoiseSVN package
 # Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -8,9 +8,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN zh_TW\n"
+"Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-26 09:28+0800\n"
+"PO-Revision-Date: 2004-11-09 17:03+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -1199,6 +1199,11 @@ msgstr "点击 \"进阶设定\" 可根据不同扩展名指定不同的差异比
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "点击 \"进阶设定\" 可根据不同扩展名指定不同合并程序"
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "剪贴簿"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1216,11 +1221,6 @@ msgid "Command failed."
 msgstr "命令失败."
 
 # Control-ID:1110,
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "批注纪录:"
-
-# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "送交至:"
@@ -1229,6 +1229,16 @@ msgstr "送交至:"
 #: ID:8
 msgid "Commit..."
 msgstr "送交..."
+
+# Control-ID:1110,
+#: ID:244
+msgid "Commits by author"
+msgstr "依作者排序的送交纪录"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "依周次排序的送交纪录"
 
 # ID:9,
 #: ID:9
@@ -1642,6 +1652,11 @@ msgstr "是否要储存你所做的异动?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "与 BASE 比对异动时不转换档案"
 
+# ID:80,
+#: ID:73
+msgid "Don't show this message again"
+msgstr "不再显示此讯息"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1904,11 +1919,6 @@ msgstr "一般设定"
 msgid "Generating Patchfile..."
 msgstr "正在产生补缀档..."
 
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "全部取回(&A)"
-
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
@@ -1959,6 +1969,11 @@ msgid ""
 msgstr ""
 "跳至前一个差异处\n"
 "前一差异"
+
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "图型类别:"
 
 # ID:12,
 #: ID:238
@@ -2205,6 +2220,11 @@ msgstr "纪录"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "纪录讯息"
+
+# Dlg-ID:130,
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "纪录讯息历程:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
@@ -3041,6 +3061,11 @@ msgstr "另存新档"
 msgid "Save Revision &To..."
 msgstr "储存版本至(&T)..."
 
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "复制至剪贴簿"
+
 # ID:313,#:
 # ID:101,
 #: ID:313
@@ -3191,16 +3216,6 @@ msgstr "正在设定性质..."
 msgid "Settings"
 msgstr "设定"
 
-# ID:115,
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"要在有复制记录时停止抓取记录讯息吗?\n"
-"如果你需要查询分支从何时开始, 请点选 <b>是</b>."
-
 # Control-ID:65535,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3215,6 +3230,11 @@ msgstr "记录讯息使用简短日期/时间格式(&D)"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Subversion 项目的短 URL"
+
+# Control-ID:1016,
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "显示全部(&A)"
 
 # ID:113,
 #: ID:113
@@ -3348,6 +3368,13 @@ msgstr ""
 
 # ID:74,#:
 # ID:77,
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "统计数据"
+
+# ID:74,#:
+# ID:77,
 #: ID:74
 #: ID:77
 #: ID:207
@@ -3358,6 +3385,11 @@ msgstr "状态"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "SVN 项目的状态"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "复制时停止"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4129,6 +4161,17 @@ msgstr ""
 "你的工作复本正处于<b>标记</b>的路径下!\n"
 "你必须先切换至主干, 或从主干分支才能进行送交动作."
 
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"你的工作复本已有异动!\n"
+"注意:更新至其它版本不会失去目前工作复本的变更.\n"
+"所以更新后不会得到与目标版本完全相同的档案!"
+
 # ID:10,
 #: ID:10
 msgid "added"
@@ -4145,6 +4188,11 @@ msgstr "无名档案"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "并请支持开发者"
+
+# ID:76,
+#: ID:245
+msgid "author"
+msgstr "作者"
 
 # ID:15,
 #: ID:15
@@ -4202,6 +4250,12 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "正在清除"
+
+# ID:8,
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "送交纪录"
 
 # ID:11,
 #: ID:11
@@ -4438,6 +4492,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "如果设为 \"yes\", 在送交对话窗没有输入问题时, 会显示警告讯息."
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "周"
 
 # Control-ID:1112,
 #: Control-ID:1112

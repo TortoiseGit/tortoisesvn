@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-24 20:31+0100\n"
+"PO-Revision-Date: 2004-11-05 22:48+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1640,6 +1640,11 @@ msgstr "Si desidera salvare i cambiamenti?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "Non convertire i file quando si sta procedendo ad un confronto con la BASE"
 
+# ID:80,
+#: ID:73
+msgid "Don't show this message again"
+msgstr "Non visualizzare più questo messaggio"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1902,11 +1907,6 @@ msgstr "Generale"
 #: ID:144
 msgid "Generating Patchfile..."
 msgstr "Ottenimento Patch..."
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "Ottieni &Tutti"
 
 # ID:119,
 #: ID:119
@@ -2204,6 +2204,11 @@ msgstr "Log"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "Commento"
+
+# Dlg-ID:130,
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "Cronologia dei commenti"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
@@ -3191,17 +3196,6 @@ msgstr "Impostazione delle proprietà..."
 msgid "Settings"
 msgstr "Impostazioni"
 
-# ID:115,
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"Sospendere il Log delle modifiche durante la copia?\n"
-"Clicca <b>Sì</b> se si vuole scoprire dove ha inizio un ramo.\n"
-"Clicca <b>No</b> se si vuole vedere tutti i commenti."
-
 # ID:101,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3216,6 +3210,11 @@ msgstr "Usa formato &corto per date e orari nei commenti"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Url semplice degli elementi di Subversion"
+
+# Control-ID:1016,
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "Visualizza &tutto"
 
 # ID:113,
 #: ID:113
@@ -3360,6 +3359,11 @@ msgstr "Stato"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Stato degli elementi in SVN"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "Sospendi durante la copia"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4128,6 +4132,17 @@ msgid ""
 msgstr ""
 "La copia di lavoro sembra trovarsi su una <b>etichetta</b>!\n"
 "È indispensabile spostarsi su un ramo o sul tronco principale prima di poter inviare."
+
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't loose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"La tua copia di lavoro ha subito delle modifiche in locale!\n"
+"Nota: aggiornare ad un'altra revisione non comporterà la perdita di queste modifiche\n"
+"quindi la copia di lavoro non apparirà identica a quella della revisione a cui ci si sta aggiornando."
 
 # ID:10,
 #: ID:10

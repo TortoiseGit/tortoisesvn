@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-11-05 09:26+0100\n"
+"PO-Revision-Date: 2004-11-09 09:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -961,6 +961,11 @@ msgstr "Klicke auf \"Erweitert\", um ein alternatives Diff Programm für Dateity
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "Klicke auf \"Erweitert\" um ein alternatives Merge Programm für Dateitypen zu wählen."
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "Zwischenablage"
+
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Schliesst das aktive Fenster und fragt nach, ob die Daten gespeichert werden sollen"
@@ -973,10 +978,6 @@ msgstr "Farben"
 msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
 
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "Kommentarhistorie:"
-
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Übertragen nach:"
@@ -984,6 +985,15 @@ msgstr "Übertragen nach:"
 #: ID:8
 msgid "Commit..."
 msgstr "Übertragen..."
+
+#: ID:244
+msgid "Commits by author"
+msgstr "Übertragungen pro Autor"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "Übertragungen pro Woche"
 
 #: ID:9
 msgid "Commits your changes to the repository"
@@ -1586,6 +1596,11 @@ msgid ""
 msgstr ""
 "Gehe zum vorherigen Unterschied\n"
 "vorheriger Unterschied"
+
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "Diagrammtyp:"
 
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -2454,6 +2469,11 @@ msgstr "Speichern unter"
 msgid "Save Revision &To..."
 msgstr "Speichere Revision &unter..."
 
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "In Zwischenablage speichern"
+
 #: ID:313
 msgid "Save as..."
 msgstr "Speichern unter..."
@@ -2696,6 +2716,11 @@ msgid ""
 msgstr ""
 "Teile aktives Fenster auf\n"
 "Aufteilen"
+
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "Statistik"
 
 #: ID:74
 #: ID:77
@@ -3359,12 +3384,12 @@ msgstr ""
 #: ID:88
 msgid ""
 "Your working copy has local modifications!\n"
-"Note: updating to another revision won't loose those modifications so the working copy\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
 "Ihre Arbeitskopie hat lokale Modifikationen!\n"
 "Hinweis: Aktualisieren zu einer anderen Revision wird diese Änderungen beibehalten.\n"
-"Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen auf die sie aktualisieren!"
+"Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen zu der sie aktualisieren!"
 
 #: ID:10
 msgid "added"
@@ -3377,6 +3402,10 @@ msgstr "eine unbenannte Datei"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "und unterstützen Sie die Entwickler"
+
+#: ID:245
+msgid "author"
+msgstr "Autor"
 
 # ID:15,
 #: ID:15
@@ -3434,6 +3463,11 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "Aufräumen"
+
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "Übertragungen"
 
 #: ID:11
 msgid "conflicted"
@@ -3639,6 +3673,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Auf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Bug-ID im Übertragen-Dialog eingegeben wird."
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "Woche"
 
 #: Control-ID:1112
 msgid "your version is:"

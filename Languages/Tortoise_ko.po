@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-27 13:31+0900\n"
+"PO-Revision-Date: 2004-10-31 18:36+0900\n"
 "Last-Translator: Hojin Choi <pynoos@users.kldp.net>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -522,7 +522,7 @@ msgstr "%1에 접근하는 동안 잠금 오류가 발생하였습니다."
 # ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "새 버전이 있습니다. http://tortoisesvn.tigris.org/ 에 가셔서 최신 버전을 받으세요!"
+msgstr "새 버전이 나왔습니다. http://tortoisesvn.tigris.org/ 에서 최신 버전을 받으십시오."
 
 # ID:195,
 #: ID:195
@@ -609,7 +609,7 @@ msgstr "영구적으로 허용"
 # ID:3867,
 #: ID:3867
 msgid "Access to %1 was denied."
-msgstr "%1 에 접근하는 것이 거부되었습니다."
+msgstr "%1에 접근하는 것이 거부되었습니다."
 
 # ID:77,
 #: ID:77
@@ -1629,6 +1629,11 @@ msgstr "바뀐 내용을 저장하시겠습니까?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "베이스와 비교하는 동안 파일을 바꾸지 말 것"
 
+# ID:80,
+#: ID:73
+msgid "Don't show this message again"
+msgstr "이 메시지를 다시 표시하지 않음"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1891,11 +1896,6 @@ msgstr "일반"
 #: ID:144
 msgid "Generating Patchfile..."
 msgstr "패치 파일 생성 중..."
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "전체 로그(&A)"
 
 # ID:119,
 #: ID:119
@@ -2191,6 +2191,11 @@ msgstr "로그"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "로그 메시지"
+
+# Dlg-ID:130,
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "로그 메시지 기록:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
@@ -3175,17 +3180,6 @@ msgstr "속성 설정..."
 msgid "Settings"
 msgstr "설정"
 
-# ID:115,
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"복사된(브랜치를 만든) 시점에서 로그보기를 중지하시겠습니까?\n"
-"브랜치 시작위치를 찾고 싶을 경우 <b>예</b>를 누르십시오.\n"
-"모든 로그를 보고 싶으면 <b>아니오</b>를 누르십시오."
-
 # ID:101,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3200,6 +3194,12 @@ msgstr "로그 메시지에 짧은 형태의 날짜/시간 형식 사용(&D)"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Subversion 아이템의 짧은 URL"
+
+# ID:101,#:
+# Control-ID:1016,
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "모두 보기(&A)"
 
 # ID:113,
 #: ID:113
@@ -3345,6 +3345,11 @@ msgstr "상태"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "SVN내의 아이템 상태"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "복사된 시점에서 중지"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4112,6 +4117,17 @@ msgid ""
 msgstr ""
 "현재 작업 사본은 <b>태그</b> 된 곳에서 작업하고 있습니다.\n"
 "브랜치나 주 트렁크로 전환한 다음 커밋하시기 바랍니다."
+
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't loose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"작업 사본이 수정되었습니다!\n"
+"주의: 다른 리비전으로 업데이트하여도 현재 작업한 것들을 잃지 않습니다. 따라서\n"
+"업데이트 후, 작업 사본은 원하는 리비전의 모습대로 보이지 않을 수 있습니다."
 
 # ID:10,
 #: ID:10

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-25 10:21+0100\n"
+"PO-Revision-Date: 2004-11-09 10:02+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -968,6 +968,11 @@ msgstr "Clicker sur \"Avancé\" pour spécifier un programme de différence par 
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "Clicker sur \"Avancé\" pour spécifier un programme de fusionnement par extension de fichiers"
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "Presse-papier"
+
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Fermer la fenêtre avec demande de confirmation d'enregistrement"
@@ -980,10 +985,6 @@ msgstr "Couleurs"
 msgid "Command failed."
 msgstr "Echec de la commande."
 
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "Commentaire d'historique:"
-
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Livrer vers:"
@@ -991,6 +992,15 @@ msgstr "Livrer vers:"
 #: ID:8
 msgid "Commit..."
 msgstr "Livrer..."
+
+#: ID:244
+msgid "Commits by author"
+msgstr "Livraisons par auteur"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "Livraisons par semaine"
 
 #: ID:9
 msgid "Commits your changes to the repository"
@@ -1336,6 +1346,10 @@ msgstr "Voulez-vous sauver vos modifications?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "Ne pas convertir les fichiers lors d'une visualisation des différences avec la BASE"
 
+#: ID:73
+msgid "Don't show this message again"
+msgstr "Ne plus afficher ce message"
+
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Type de disque"
@@ -1545,10 +1559,6 @@ msgstr "Général"
 msgid "Generating Patchfile..."
 msgstr "Generation fichier patch..."
 
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "&Tout prendre"
-
 #: ID:119
 msgid "Getting File %s"
 msgstr "Obtention du fichier %s"
@@ -1592,6 +1602,11 @@ msgid ""
 msgstr ""
 "Aller à la précédente différence\n"
 "précédente différence"
+
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "Type de graphique"
 
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -1798,6 +1813,10 @@ msgstr "Journal"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "Commentaire"
+
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "Historique du Journal:"
 
 #: Dlg-ID:130
 msgid "Log Messages"
@@ -2459,6 +2478,11 @@ msgstr "Sauver sous"
 msgid "Save Revision &To..."
 msgstr "S&auver la révision sous..."
 
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "Sauver dans le Presse-papier"
+
 #: ID:313
 msgid "Save as..."
 msgstr "Sauver sous..."
@@ -2577,17 +2601,6 @@ msgstr "Configuration des propriétés..."
 msgid "Settings"
 msgstr "Configuration"
 
-# ID:115,
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"La journalisation doit elle s'arrêter à la copie?\n"
-"Cliquez <b>Oui</b> si vous avez besoin de chercher où une branche a démarré.\n"
-"Cliquez <b>Non</b> si vous voulez voir toutes les entrées du journal."
-
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "&Voir les propriétés"
@@ -2599,6 +2612,10 @@ msgstr "Format cours des &dates dans les commentaires"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "URL simplifié de l'élément subversion"
+
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "&Afficher Tout"
 
 #: ID:113
 msgid "Show &Differences"
@@ -2707,6 +2724,11 @@ msgstr ""
 "Séparer la fenêtre activé\n"
 "Séparer"
 
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "Statistiques"
+
 #: ID:74
 #: ID:77
 #: ID:207
@@ -2716,6 +2738,11 @@ msgstr "Statut"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Statut des éléments dans SVN"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "Arret à la Copie"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3362,6 +3389,17 @@ msgstr ""
 "La copie locale est sur un chemin <b>étiquetté</b>!\n"
 "Vous devez d'abord vous déplacer sur une branche ou sur tronc principal avant de livrer."
 
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"Votre copie de travail contient des modifications locales!\n"
+"Note: Mettre à jour vers une autre révision ne perdra pas ces modifications donc la copie de travail\n"
+"n 'apparaitra pas exactement comme cela était dans la révision vers laquelle vous mettez à jour!"
+
 #: ID:10
 msgid "added"
 msgstr "ajouté"
@@ -3373,6 +3411,10 @@ msgstr "un fichier non nommé"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "et supporté les développeurs"
+
+#: ID:245
+msgid "author"
+msgstr "auteur"
 
 # ID:15,
 #: ID:15
@@ -3429,6 +3471,11 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "nettoyage"
+
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "livraisons"
 
 #: ID:11
 msgid "conflicted"
@@ -3635,6 +3682,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Mettre à \"Oui\" si une alerte doit être affichée quand aucun incident n'est entré dans la boite de dialogue de livraison."
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "semaine"
 
 #: Control-ID:1112
 msgid "your version is:"

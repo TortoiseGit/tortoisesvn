@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-28 22:57+0100\n"
+"PO-Revision-Date: 2004-11-01 12:20+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1313,10 +1313,6 @@ msgstr "Wilt u de wijzigingen opslaan?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "Bestanden niet converteren bij het vergelijken met BASE"
 
-#: ID:73
-msgid "Don't show this message again"
-msgstr "Deze boodschap niet meer tonen"
-
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Type station"
@@ -1524,6 +1520,10 @@ msgstr "Algemeen"
 #: ID:144
 msgid "Generating Patchfile..."
 msgstr "Patchfile maken..."
+
+#: Control-ID:1031
+msgid "Get &All"
+msgstr "&Alles ophalen"
 
 #: ID:119
 msgid "Getting File %s"
@@ -1771,10 +1771,6 @@ msgstr "Logboek"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "Logboek boodschap"
-
-#: Control-ID:1125
-msgid "Log Message History:"
-msgstr "Eerdere logboek boodschappen:"
 
 #: Dlg-ID:130
 msgid "Log Messages"
@@ -2548,6 +2544,16 @@ msgstr "Bezig met eigenschappen wijzigen..."
 msgid "Settings"
 msgstr "Instellingen"
 
+#: ID:115
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
+msgstr ""
+"Stoppen bij een kopie?\n"
+"Kies <b>Ja</b> als u wilt weten waar een tak is begonnen.\n"
+"Kies <b>Nee</b> als u alle logboodschappen wilt zien."
+
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "Toon Eigensc&happen"
@@ -2559,10 +2565,6 @@ msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Korte URL van Subversion onderdelen"
-
-#: Control-ID:1031
-msgid "Show &All"
-msgstr "Toon &Alles"
 
 #: ID:113
 msgid "Show &Differences"
@@ -2681,10 +2683,6 @@ msgstr "Statusbalk"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Status van het onderdeel in SVN"
-
-#: Control-ID:1130
-msgid "Stop On Copy"
-msgstr "Stop bij kopie"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3323,16 +3321,6 @@ msgid ""
 msgstr ""
 "Uw werkkopie lijkt op een <b>label</b> gericht te zijn!\n"
 "U hoort eerst te wisselen naar een tak of de basislijn voordat u gaat vastleggen."
-
-#: ID:88
-msgid ""
-"Your working copy has local modifications!\n"
-"Note: updating to another revision won't loose those modifications so the working copy\n"
-"won't look exactly as it was in the revision you're updating to!"
-msgstr ""
-"Uw werkkopie heeft lokale wijzigingen!\n"
-"N.B.: bij het wisselen naar een andere revisie gaan deze wijzigingen niet verloren, dus\n"
-"de werkkopie zal niet exact gelijk zijn aan de revisie waarnaar u wisselt!"
 
 #: ID:10
 msgid "added"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-26 09:28+0800\n"
+"PO-Revision-Date: 2004-11-09 17:03+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -1199,6 +1199,11 @@ msgstr "點擊 \"進階設定\" 可根據不同副檔名指定不同的差異比
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "點擊 \"進階設定\" 可根據不同副檔名指定不同合併程式"
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "剪貼簿"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1216,11 +1221,6 @@ msgid "Command failed."
 msgstr "命令失敗."
 
 # Control-ID:1110,
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "註解紀錄:"
-
-# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "送交至:"
@@ -1229,6 +1229,16 @@ msgstr "送交至:"
 #: ID:8
 msgid "Commit..."
 msgstr "送交..."
+
+# Control-ID:1110,
+#: ID:244
+msgid "Commits by author"
+msgstr "依作者排序的送交紀錄"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "依週次排序的送交紀錄"
 
 # ID:9,
 #: ID:9
@@ -1642,6 +1652,11 @@ msgstr "是否要儲存你所做的異動?"
 msgid "Don't convert files when diffing against BASE"
 msgstr "與 BASE 比對異動時不轉換檔案"
 
+# ID:80,
+#: ID:73
+msgid "Don't show this message again"
+msgstr "不再顯示此訊息"
+
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1904,11 +1919,6 @@ msgstr "一般設定"
 msgid "Generating Patchfile..."
 msgstr "正在產生補綴檔..."
 
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "全部取回(&A)"
-
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
@@ -1959,6 +1969,11 @@ msgid ""
 msgstr ""
 "跳至前一個差異處\n"
 "前一差異"
+
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "圖型類別:"
 
 # ID:12,
 #: ID:238
@@ -2205,6 +2220,11 @@ msgstr "紀錄"
 #: Control-ID:65535
 msgid "Log Message"
 msgstr "紀錄訊息"
+
+# Dlg-ID:130,
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "紀錄訊息歷程:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
@@ -3041,6 +3061,11 @@ msgstr "另存新檔"
 msgid "Save Revision &To..."
 msgstr "儲存版本至(&T)..."
 
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "複製至剪貼簿"
+
 # ID:313,#:
 # ID:101,
 #: ID:313
@@ -3191,16 +3216,6 @@ msgstr "正在設定性質..."
 msgid "Settings"
 msgstr "設定"
 
-# ID:115,
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"要在有複製記錄時停止抓取記錄訊息嗎?\n"
-"如果你需要查詢分支從何時開始, 請點選 <b>是</b>."
-
 # Control-ID:65535,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3215,6 +3230,11 @@ msgstr "記錄訊息使用簡短日期/時間格式(&D)"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Subversion 項目的短 URL"
+
+# Control-ID:1016,
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "顯示全部(&A)"
 
 # ID:113,
 #: ID:113
@@ -3348,6 +3368,13 @@ msgstr ""
 
 # ID:74,#:
 # ID:77,
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "統計資料"
+
+# ID:74,#:
+# ID:77,
 #: ID:74
 #: ID:77
 #: ID:207
@@ -3358,6 +3385,11 @@ msgstr "狀態"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "SVN 項目的狀態"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "複製時停止"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4129,6 +4161,17 @@ msgstr ""
 "你的工作複本正處於<b>標記</b>的路徑下!\n"
 "你必須先切換至主幹, 或從主幹分支才能進行送交動作."
 
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"你的工作複本已有異動!\n"
+"注意:更新至其它版本不會失去目前工作複本的變更.\n"
+"所以更新後不會得到與目標版本完全相同的檔案!"
+
 # ID:10,
 #: ID:10
 msgid "added"
@@ -4145,6 +4188,11 @@ msgstr "無名檔案"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "並請支持開發者"
+
+# ID:76,
+#: ID:245
+msgid "author"
+msgstr "作者"
 
 # ID:15,
 #: ID:15
@@ -4202,6 +4250,12 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "正在清除"
+
+# ID:8,
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "送交紀錄"
 
 # ID:11,
 #: ID:11
@@ -4438,6 +4492,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "如果設為 \"yes\", 在送交對話窗沒有輸入問題時, 會顯示警告訊息."
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "週"
 
 # Control-ID:1112,
 #: Control-ID:1112
