@@ -685,7 +685,7 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		// Tell Windows to paint the control itself.
 		*pResult = CDRF_DODEFAULT;
 
-		COLORREF crText = RGB(0,0,0);
+		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
 		if (m_arData.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
