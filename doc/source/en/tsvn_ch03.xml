@@ -26,10 +26,10 @@
 			is the Apache based one. It's not only the most mature
 			and most stable solution but has other benefits as well:
 			</para>
+			<indexterm><primary>WebDAV</primary></indexterm>
 			<variablelist>
 				<varlistentry>
 					<term>WebDAV</term>
-					<indexterm><primary>WebDAV</primary></indexterm>
 					<listitem>
 						<para>The Apache based Subversion server
 						uses the WebDAV protocoll which is supported by many
@@ -240,7 +240,10 @@ Require valid-user
 					available at http://MyServer/svn/. The access is restricted to known 
 					users/passwords.
 					</para>
-					<para>A short explanation of what you just entered:
+					<para>
+					A short explanation of what you just entered:
+					<indexterm><primary>SVNPath</primary></indexterm>
+					<indexterm><primary>SVNParentPath</primary></indexterm>
 					<table id="tsvn-serversetup-apache-4-table">
 						<title>Apache httpd.conf Settings</title>
 						<tgroup cols="2">
@@ -267,8 +270,6 @@ Require valid-user
 									case the Subversion module.</entry>
 								</row>
 								<row>
-									<indexterm><primary>SVNPath</primary></indexterm>
-									<indexterm><primary>SVNParentPath</primary></indexterm>
 									<entry>SVNParentPath D:\SVN</entry>
 									<entry>tells Subversion to look for repositories below D:\SVN</entry>
 								</row>

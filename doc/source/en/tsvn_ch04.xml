@@ -123,7 +123,6 @@
 		<indexterm>
 			<primary>Repository</primary>
 		</indexterm>
-
 		<?dbhh topicname="HIDD_IMPORT"?>
 		<sect2 id="tsvn-DUG-import-1">
 			<title>Repository Layout</title>
@@ -261,9 +260,11 @@
 				<primary>exclude pattern</primary>
 			</indexterm>
 			<note>
+				<para>
 				Files or directories which match the 
 				<guilabel>exclude pattern</guilabel>
 				are <emphasis>not</emphasis> imported.
+				</para>
 			</note>
 			<para>
 				As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the
@@ -313,6 +314,9 @@
 		<sect2 id="tsvn-DUG-import-4">
 			<title>Referenced Projects</title>
 			<indexterm>
+				<primary>external repositories</primary>
+			</indexterm>
+			<indexterm>
 				<primary>externals</primary>
 			</indexterm>
 			<para>
@@ -324,7 +328,10 @@
 			<para>
 				Let's say you check out a working copy of /project1 to <filename>D:\dev\project1</filename>.
 				Select the folder <filename>D:\dev\project1</filename>, <action>right-click</action> and choose 
-				<menuchoice><guimenuitem>properties</guimenuitem></menuchoice> from the context menu. 
+				<menuchoice>
+					<guimenuitem>properties</guimenuitem>
+				</menuchoice>
+				from the context menu. 
 				The Properties Dialog comes up. Then go to the Subversion tab.
 				There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write 
 				in the edit box the repository url in the format <literal>name url</literal>.
@@ -356,19 +363,22 @@
 			context menu and select the command
 			<menuchoice>
 				<guimenuitem>Checkout...</guimenuitem>
-			</menuchoice>
+			</menuchoice>,
 			which brings up the following dialog box:
 			<figure id="tsvn-DUG-checkout-dia-1">
 				<title>The Checkout dialog</title>
 				<graphic fileref="images/Checkout.png"/>
 			</figure>
-		If you enter a folder name that does not yet exist, then a
-		directory with that name is created.
+			If you enter a folder name that does not yet exist, then a
+			directory with that name is created.
 		</para>
 		<note>
-		You can only check out into an empty directory. If you want to check out
-		a previously imported sourcetree you will have to check out into a
-		different directory or delete the existing sourcetree first.
+			<para>
+				You can only check out into an empty directory. If you want to check out
+				a previously imported sourcetree, Subversion will throw an error messge.
+				You will have to check out into a different directory or delete the 
+				existing sourcetree first.
+			</para>
 		</note>
 		<para>
 			It is recommended that you check out only the <literal>trunk</literal> part of the
@@ -386,10 +396,12 @@
 				Sometimes you may want a working copy without any of those
 				<filename>.svn</filename> directories, e.g. to create a zipped
 				tarball of your source. Instead of making a copy and then delete
-				all those directories manually, TortoiseSVN offers the command
+				all those <filename>.svn</filename> directories manually,
+				TortoiseSVN offers the command
 				<menuchoice>
 					<guimenuitem>Export...</guimenuitem>
-				</menuchoice>. If you execute this command
+				</menuchoice>.
+				If you execute this command
 				on your working copy you'll be asked for a place to save the
 				<literal>clean</literal> working copy without the
 				<filename>.svn</filename>
@@ -467,13 +479,14 @@
 				(<xref linkend="tsvn-DUG-settings"/>),
 				so that the status of folders is shown recursively. This will
 				make the icon overlays for folders slower and is therefore
-				not recommended on slower machines. I'm using that setting on
-				my machine (PIII, 700MHz, 512MB RAM) without problems. With this
-				setting each folder shows the status of all files below it,
+				not recommended on slower machines or large working copies.
+			</para>
+			<para>
+				With this setting each folder shows the status of all files below it,
 				where status <literal>conflict</literal> overrides <literal>modified</literal>
 				and <literal>modified</literal> overrides <literal>normal</literal>.
 				So you can easily see if there's a file with a conflict or a modified file in a folder.
-			<tip>
+				<tip>
 				<title>Slow Overlays</title>
 				<para>
 					You may notice that if you enable the recursive overlay for folders
@@ -500,7 +513,7 @@
 					on the settings page
 					(<xref linkend="tsvn-DUG-settings-overlay"/>).
 				</para>
-			</tip>
+				</tip>
 			</para>
 			<para>
 				Unlike <application>TortoiseCVS</application> (the CVS shell
@@ -538,8 +551,9 @@
 			<tip>
 				<title>Other Possibilities</title>
 				<para>
+					The
 					<menuchoice>
-						<guimenuitem>The Check for Updates..</guimenuitem>
+						<guimenuitem>Check for Updates..</guimenuitem>
 					</menuchoice>
 					dialog is propably not the best choice if you don't have 
 					a network connection available.
@@ -605,6 +619,7 @@
 			and first opens a dialog where you can enter the required revision.
 		</para>
 		<caution>
+			<para>
 			If you update a file or folder to a specific revision, you will get 
 			<literal>out of date</literal> error messages when you try to commit them!
 			If you want to undo changes to a file and start fresh from an earlier
@@ -617,6 +632,7 @@
 				<guimenuitem>Merge...</guimenuitem>
 			</menuchoice>
 			menu command.
+			</para>
 		</caution>
 		<para>
 			The
@@ -629,20 +645,21 @@
 			then simply update to revision 50.
 		</para>
 		<warning>
-		If you updated your working copy to an earlier revision, you must not
-		make changes to the files! You will get <literal>out of date</literal>
-		errors if you try to commit those changes.
-		If you want to revert some changes in your working copy, then use the 
-		repository browser and save the file in question over the file in your 
-		working copy. Or you can use the log dialog and use the command <action>revert
-		changes in this revision</action>. For reverting multiple revision, you should
-		use the merge command.
+			<para>
+			If you updated your working copy to an earlier revision, you must not
+			make changes to the files! You will get <literal>out of date</literal>
+			errors if you try to commit those changes.
+			If you want to revert some changes in your working copy, then use the 
+			repository browser and save the file in question over the file in your 
+			working copy. Or you can use the log dialog and use the command <action>revert
+			changes in this revision</action>. For reverting multiple revision, you should
+			use the merge command.
+			</para>
 		</warning>
 		<tip>
 			<title>Multiple Files/Folders</title>
 			<para>
-				If you select multiple files and folders in the explorer and then
-				select
+				If you select multiple files and folders in the explorer and then 				select
 				<menuchoice>
 					<guimenuitem>Update...</guimenuitem>
 				</menuchoice>,
@@ -650,7 +667,7 @@
 				are updated one by one. TortoiseSVN makes sure that all files/folders
 				which are from the same repository are updated to the exact same
 				revision! Even if between those updates another commit occured.
-		</para>
+			</para>
 		</tip>
 	</sect1>
 	<!-- ================================================================= -->
@@ -812,7 +829,7 @@
 			</tip>
 		</para>
 		<para>
-			Doubleclicking on any modified file in the commit dialog
+			<action>Doubleclicking</action> on any modified file in the commit dialog
 			will launch the external diff tool to show your changes.
 		</para>
 		<para>
@@ -827,7 +844,7 @@
 			<title>Integration with Bugtracking Tools</title>
 			<para>
 				If you have activated the bugtracking system, you could set one or more 
-				Issues in the <label>Bug-ID / Issue-Nr:</label> Textfield. Several Issues 
+				Issues in the <guilabel>Bug-ID / Issue-Nr:</guilabel> Textfield. Several Issues 
 				should be comma separated. Learn more <xref linkend="tsvn-DUG-bugtracker"/>.
 			</para>
 		</tip>
@@ -865,12 +882,14 @@
 					<listitem>
 						<para>
 							Set this property to the url of your bugtracking tool. It must be 
-							properly URI encoded and it have to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal>
+							properly URI encoded and it have to contain <literal>%BUGID%</literal>.
+							<literal>%BUGID%</literal>
 							is replaced with the Issuenumber you entered, so the client could 
 							jump directly to the issue. You must not provide this property, but
 							then <application>TortoiseSVN</application> shows only the issuenumber
 							and not the link to it. e.g <application>TortoiseSVN</application> is 
-							using <literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
+							using
+							<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
 						</para>
 					</listitem>
 				</varlistentry>
@@ -880,7 +899,7 @@
 						<para>
 							This text is shown by <application>TortoiseSVN</application> on
 							the commit dialog. It's the label for the textfield of the issuenumber. 
-							If it's not set, <literal>Bug-ID / Issue-Nr: </literal> will be displayed. Keep in 
+							If it's not set, <literal>Bug-ID / Issue-Nr:</literal> will be displayed. Keep in 
 							mind though that most GUI clients don't resize their windows according 
 							to the size of GUI elements. So keep the size of the label below 20-25 
 							characters. 
@@ -891,10 +910,10 @@
 					<term>bugtraq:number</term>
 					<listitem>
 						<para>
-							If it's set to true only numbers are allowed in the issuenumber textfield. 
-							An Exception is the comma, so you could comma separate several numbers. 
-							Valid values are true/false. 
-							<emphasis>Not defined true is assumed. </emphasis>
+							If it's set to <literal>true</literal> only numbers are allowed in the issuenumber textfield. 
+							An exception is the comma, so you could comma separate several numbers. 
+							Valid values are <literal>true/false</literal>. 
+							<emphasis>If this property is undefined <literal>true</literal> is assumed.</emphasis>
 						</para>
 					</listitem>
 				</varlistentry>
@@ -902,9 +921,11 @@
 					<term>bugtraq:warnifnoissue</term>
 					<listitem>
 						<para>
-							Set this to true, if you want that <application>TortoiseSVN</application>
-							warns you becuase of an empty issuenumber textfield. Valid values 
-							are true/false. Not defined false is assumed. 
+							Set this to <literal>true</literal>, if you want that
+							<application>TortoiseSVN</application>
+							warns you because of an empty issuenumber textfield. Valid values 
+							are <literal>true/false</literal>.
+							<emphasis>If this property is undefined <literal>true</literal> is assumed.</emphasis>
 						</para>
 					</listitem>
 				</varlistentry>
@@ -912,11 +933,14 @@
 			<important>
 				<title>Set the Properties on Directorys</title>
 				<para>
-					The upper Properties must be set on directorys that the system could work. 
-					If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not 
-					some subfolder, then it's enough if you set the properties there. 
-					<application>TortoiseSVN</application> will search for those properties 
-					the path up to the working copy root for those properties. 
+					These properties must be set on directories for the system to work. 
+					If you can be sure that each user checks out only from e.g <filename>trunk/</filename>
+					and not some subfolder, then it's enough if you set the properties on <filename>trunk/</filename>.
+					<application>TortoiseSVN</application> will then search for those properties 
+					the path up to the working copy root for those properties.
+					If you can't be sure, you have to set the properties recursively on each subfolder.
+					A property setting deeper in the project hierarchy overrides settings on
+					higher levels (closer to <filename>trunk/</filename>).
 				</para>
 			</important>
 		</para>
@@ -1036,9 +1060,11 @@
 			If you want to move files inside a working copy,
 			use the drag&ndash;and&ndash;drop handler again:
 
-		<orderedlist>
+			<orderedlist>
 				<listitem>
-					<para>select the files or directories you want to move</para>
+					<para>
+						select the files or directories you want to move
+					</para>
 				</listitem>
 				<listitem>
 					<para>
@@ -1177,7 +1203,7 @@
 			</para>
 		</note>
 		<tip>
-			<title>conflicts on properties</title>
+			<title>Conflicts on properties</title>
 			<para>
 				If there's a conflict on committing the changes, because another 
 				user has changed the same property Subversion generates a 
@@ -1253,15 +1279,13 @@
 					<title>The Log Dialog With Context Menu</title>
 					<graphic fileref="images/LogContextMenu2.png"/>
 				</figure>
-
 				The Log Dialog has a context menu that allows you to
-
 				<itemizedlist>
 					<listitem>
 						<para>
 							Invoke an external Diff-Tool to show you
 							all changes you made from the revision you selected to your
-						working copy
+							working copy
 						</para>
 					</listitem>
 					<listitem>
@@ -1330,7 +1354,7 @@
 							<menuchoice>
 								<guimenuitem>Settings</guimenuitem>
 							</menuchoice>
-						(<xref linkend="tsvn-DUG-settings"/>),
+							(<xref linkend="tsvn-DUG-settings"/>),
 						</para>
 					</listitem>
 					<listitem>
@@ -1379,10 +1403,12 @@
 				(showing a diff of that revision).
 			</para>
 			<warning>
-				Because Subversion's revision properties are not versioned, making 
-				modifications to such a property (for example, the <literal>svn:log</literal> commit 
-				message property) will overwrite the previous value of that 
-				property <emphasis>forever</emphasis>.
+				<para>
+					Because Subversion's revision properties are not versioned, making 
+					modifications to such a property (for example, the <literal>svn:log</literal> commit 
+					message property) will overwrite the previous value of that 
+					property <emphasis>forever</emphasis>.
+				</para>
 			</warning>
 		</sect2>
 	</sect1>
@@ -1446,14 +1472,12 @@
 			<filename>tagname</filename>
 			would be e.g.
 			<filename>ProjectName_v1.10</filename>.
-
 <screen>
     C:/SVNRepository/trunk/ProjectName/...
     C:/SVNRepository/trunk/AnotherProject/...
     C:/SVNRepository/branches/ProjectName_SpecialDebugBuildBasedOn_v1.09/
     C:/SVNRepository/tags/ProjectName_v1.10
 </screen>
-
 			If you press
 			<guibutton>OK</guibutton>
 			now, Subversion just creates a cheap copy
@@ -1833,149 +1857,154 @@ Rev Comments
 					<title>The Settings Dialog, Main Tab</title>
 					<graphic fileref="images/SettingsMain.png"/>
 				</figure>
-			Apart from setting your preferred language, this dialog allows you to
-			specify (almost) every setting TortoiseSVN has. 
-			<variablelist>
-				<varlistentry>
-					<term>Language</term>
-					<listitem>
-					<para>Selects your user interface language. What else did you expect?</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Exclude pattern</term>
-					<listitem>
-					<para>
-					<indexterm>
-						<primary>exclude pattern</primary>
-					</indexterm>
-					Exclude patterns are used to prevent unversioned files from
-					showing up e.g. in the commit dialog. Files matching the
-					patterns are also ignored by an import.
-					Exclude files or directories by typing in the names or extensions. Patterns are separated by spaces
-					e.g.  <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the 
-					other four to files.
-					</para>
-					<para>
-					This exclude pattern will affect all your projects. It is not versioned, so it 
-					will not affect other users. In contrast you can also use the versioned <literal>svn:ignore</literal> 
-					property to exclude files or directories from version control. You can set the <literal>svn:ignore</literal> 
-					property using the 
-					<menuchoice>
-						<guimenuitem>Add to Ignore List</guimenuitem>
-					</menuchoice>
-					command. After commiting every other user will have the same 
-					<literal>svn:ignore</literal> property set for this project / directory as you.
-					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Default number of log messages</term>
-					<listitem>
-					<para>Limits the number of log messages that TortoiseSVN fetches when you first select
-					<menuchoice>
-						<guimenuitem>Show Log</guimenuitem>
-					</menuchoice>
-					Useful for slow connections / servers. You can always  <guibutton>Fetch All</guibutton> messages.
-					</para>
-					</listitem>
-				</varlistentry>
-			
-				<varlistentry>
-					<term>Edit...</term>
-					<listitem>
-					<para>... the subversion configuration file directly. Some settings cannot be modified by TortoiseSVN.</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Short date / time format in log messages</term>
-					<listitem>
-					<para>If the standard long messages use up too much space on your sceen use the short format.</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Set filedates to "last commit time"</term>
-					<listitem>
-					<para>
-					This option tells TortoiseSVN to set the filedates to the last commit time 
-					when doing a checkout or an update. Otherwise TortoiseSVN will use 
-					the current date.
-					If you are developing software it is generally best to use the current date
-					because build systems normally look at the datestamps to decide which
-					files need compiling. If you use "last commit time" and revert to an
-					older file revision, your project may not compile as you expect it to.
-					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Close windows automatically</term>
-					<listitem>
-					<para>
-					TortoiseSVN will automatically close all progress dialogs when the action is finished.
-					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Check for newer versions</term>
-					<listitem>
-					<para>If checked, TortoiseSVN will check once a week if an update is available</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Minimum logsize in chars</term>
-					<listitem>
-					<para>
-					The minimum length of a log message for a commit. If you enter
-					a shorter message than specified here, the commit is disabled.
-					This feature is very useful for reminding you to supply a proper
-					descriptive message for every commit.
-					A value of zero allows empty log messages.
-					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Don't remove log messages when cancelling a commit</term>
-					<listitem>
-					<para>
-					If for some reason the commit is cancelled (User cancel or commit error), 
-					then TortoiseSVN will preserve the last commit message you typed if
-					you try to commit again.
-					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Show BugID/Issue-Nr. Box</term>
-					<listitem>
-					<para>
-					Shows a textbox in the commit dialog where you can enter
-					a BugID or Issue-Nr. from a bugtracker to associate the
-					commit with that ID/number.
-					</para>
-					</listitem>
-				</varlistentry>
-
-				<varlistentry>
-					<term>Paste Log template in english</term>
-					<listitem>
-					<para>
-					This only applies if you have selected a language other
-					than english for TortoiseSVN. In that case, when pasting
-					the log template in the commit dialog, the status of each
-					file is pasted in the selected language. With this option
-					checked, the status is pasted in english.
-					</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
+				Apart from setting your preferred language, this dialog allows you to
+				specify (almost) every setting TortoiseSVN has. 
+				<variablelist>
+					<varlistentry>
+						<term>Language</term>
+						<listitem>
+							<para>
+								Selects your user interface language.
+								What else did you expect?
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Exclude pattern</term>
+						<listitem>
+							<para>
+								<indexterm>
+									<primary>exclude pattern</primary>
+								</indexterm>
+								Exclude patterns are used to prevent unversioned files from
+								showing up e.g. in the commit dialog. Files matching the
+								patterns are also ignored by an import.
+								Exclude files or directories by typing in the names or extensions.
+								Patterns are separated by spaces e.g.
+								<literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
+								The first two entries refer to directories, the 
+								other four to files.
+							</para>
+							<para>
+								This exclude pattern will affect all your projects. It is not versioned, so it 
+								will not affect other users. In contrast you can also use the versioned <literal>svn:ignore</literal> 
+								property to exclude files or directories from version control. You can set the <literal>svn:ignore</literal> 
+								property using the 
+								<menuchoice>
+									<guimenuitem>Add to Ignore List</guimenuitem>
+								</menuchoice>
+								command. After commiting every other user will have the same 
+								<literal>svn:ignore</literal> property set for this project / directory as you.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Default number of log messages</term>
+						<listitem>
+							<para>
+								Limits the number of log messages that TortoiseSVN fetches when you first select
+								<menuchoice>
+									<guimenuitem>Show Log</guimenuitem>
+								</menuchoice>
+								Useful for slow connections / servers. You can always
+								<guibutton>Fetch All</guibutton> messages.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Edit...</term>
+						<listitem>
+							<para>
+								... the subversion configuration file directly.
+								Some settings cannot be modified by TortoiseSVN.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Short date / time format in log messages</term>
+						<listitem>
+							<para>
+								If the standard long messages use up too much 
+								space on your sceen use the short format.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Set filedates to "last commit time"</term>
+						<listitem>
+							<para>
+								This option tells TortoiseSVN to set the filedates to the last commit time 
+								when doing a checkout or an update. Otherwise TortoiseSVN will use 
+								the current date.
+								If you are developing software it is generally best to use the current date
+								because build systems normally look at the datestamps to decide which
+								files need compiling. If you use "last commit time" and revert to an
+								older file revision, your project may not compile as you expect it to.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Close windows automatically</term>
+						<listitem>
+							<para>
+								TortoiseSVN will automatically close all progress dialogs 
+								when the action is finished without error.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Check for newer versions</term>
+						<listitem>
+							<para>
+								If checked, TortoiseSVN will check once a week if an update is available
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Minimum logsize in chars</term>
+						<listitem>
+							<para>
+								The minimum length of a log message for a commit.
+								If you enter a shorter message than specified here, the commit is disabled.
+								This feature is very useful for reminding you to supply a proper
+								descriptive message for every commit.
+								A value of zero allows empty log messages.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Don't remove log messages when cancelling a commit</term>
+						<listitem>
+							<para>
+								If for some reason the commit is cancelled (User cancel or commit error), 
+								then TortoiseSVN will preserve the last commit message you typed if
+								you try to commit again.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Show BugID/Issue-Nr. Box</term>
+						<listitem>
+							<para>
+								Shows a textbox in the commit dialog where you can enter
+								a BugID or Issue-Nr. from a bugtracker to associate the
+								commit with that ID/number.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Paste Log template in english</term>
+						<listitem>
+							<para>
+								This only applies if you have selected a language other
+								than english for TortoiseSVN. In that case, when pasting
+								the log template in the commit dialog, the status of each
+								file is pasted in the selected language. With this option
+								checked, the status is pasted in english.
+							</para>
+						</listitem>
+					</varlistentry>
+				</variablelist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-overlay">
@@ -2038,7 +2067,6 @@ Rev Comments
 				You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository.
 			</para>
 		</sect2>
-
 		<sect2 id="tsvn-DUG-settings-progs">
 			<?dbhh topicname="HIDD_SETTINGSPROGS"?>
 			<title>The Settings Dialog, Diff/Merge Tab</title>
@@ -2059,11 +2087,19 @@ Rev Comments
 							<variablelist>
 								<varlistentry>
 									<term>%base</term>
-									<listitem>the original file without your changes</listitem>
+									<listitem>
+										<para>
+											The original file without your changes
+										</para>
+									</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%mine</term>
-									<listitem>your own file, with your changes</listitem>
+									<listitem>
+										<para>
+											Your own file, with your changes
+										</para>
+									</listitem>
 								</varlistentry>
 							</variablelist>
 							</para>
@@ -2079,19 +2115,35 @@ Rev Comments
 							<variablelist>
 								<varlistentry>
 									<term>%base</term>
-									<listitem>the original file without your or the others changes</listitem>
+									<listitem>
+										<para>
+											the original file without your or the others changes
+										</para>
+									</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%mine</term>
-									<listitem>your own file, with your changes</listitem>
+									<listitem>
+										<para>
+											your own file, with your changes
+										</para>
+									</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%theirs</term>
-									<listitem>the file as it is in the repository</listitem>
+									<listitem>
+										<para>
+											the file as it is in the repository
+										</para>
+									</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%merged</term>
-									<listitem>the conflicted file, the result of the merge operation</listitem>
+									<listitem>
+										<para>
+											the conflicted file, the result of the merge operation
+										</para>
+									</listitem>
 								</varlistentry>
 							</variablelist>
 							</para>
@@ -2112,8 +2164,8 @@ Rev Comments
 					<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
 					<graphic fileref="images/SettingsProgsAdv.png"/>
 				</figure>
-			In the advanced settings, you can define a different diff and merge program for every file extension. 
-			For instance you could associate Photoshop as the "Diff" Program for .jpg files :-)
+				In the advanced settings, you can define a different diff and merge program for every file extension. 
+				For instance you could associate Photoshop as the "Diff" Program for .jpg files :-)
 			</para>
 		</sect2>
 	</sect1>
@@ -2246,4 +2298,3 @@ line  rev    date              author     content
 		</para>
 	</sect1>
 </chapter>
-
