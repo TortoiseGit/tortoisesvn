@@ -530,6 +530,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 						dlg.m_URL = url;
+						dlg.m_path = m_path;
 						if (dlg.DoModal() == IDOK)
 						{
 							SVN svn;

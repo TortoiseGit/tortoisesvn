@@ -107,7 +107,8 @@ BOOL CCopyDlg::OnInitDialog()
 		TRACE(_T("could not retrieve the URL of the file!\n"));
 		this->EndDialog(IDCANCEL);		//exit
 	} // if ((rev == (-2))||(status.status->entry == NULL))
-	m_wcURL = CUnicodeUtils::GetUnicode(status.status->entry->url);
+	else
+		m_wcURL = CUnicodeUtils::GetUnicode(status.status->entry->url);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	m_URLCombo.AddString(m_wcURL);
 	m_URLCombo.SelectString(-1, m_wcURL);
