@@ -393,6 +393,36 @@ SSPIOfferBasic On
 				that the local server is also the domain controller.
 				</para></listitem>
 			</itemizedlist>
+			
+			<sidebar>
+				<title>SSL and InternetExplorer</title>
+				<para>
+				If you're securing your server with SSL and use authentication
+				against a windows domain you will encounter that browsing
+				the repository with the Internet Explorer doesn't work
+				anymore. Don't worry &mdash; this is only the Internet Explorer
+				not able to authenticate. Other browsers don't have that
+				problem and TortoiseSVN and any other Subversion client are
+				still able to authenticate.
+				</para>
+				<para>
+				If you still want to use IE to browse the repository you can
+				either:
+				<itemizedlist>
+					<listitem><para>define a separate &lt;Location /path&gt;
+					directive in the apache config file, and turn the 
+					<literal>SSPIOfferBasic</literal> to <literal>Off</literal>.
+					This will allow IE to authenticate again, but other browsers
+					and Subversion won't be able to authenticate against that
+					location.</para></listitem>
+					
+					<listitem><para>Offer browsing with unencrypted 
+					authentication (without SSL) too. Strangely IE doesn't have
+					any problems with authenticating if the connection is not
+					secured with SSL.</para></listitem>
+				</itemizedlist>
+				</para>
+			</sidebar>
 		</sect2>
 
 		<sect2 id="tsvn-serversetup-apache-6">
