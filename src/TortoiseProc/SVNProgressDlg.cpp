@@ -266,7 +266,7 @@ CString CSVNProgressDlg::BuildInfoString()
 	{
 		temp.LoadString(IDS_STATUSMERGED);
 		infotext += temp;
-		temp.Format(_T(":%d "), conflicted);
+		temp.Format(_T(":%d "), merged);
 		infotext += temp;
 	}
 	if (added)
