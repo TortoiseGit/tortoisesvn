@@ -210,7 +210,7 @@ void CSplitterControl::DrawLine(CDC* pDC)
 	int d = 1;
 	GetWindowRect(rcWnd);
 	CPen  pen;
-	pen.CreatePen(0, 1, RGB(200, 200, 200));
+	pen.CreatePen(0, 1, ::GetSysColor(COLOR_GRAYTEXT));
 	CPen *pOP = pDC->SelectObject(&pen);
 	
 	if (m_nType == SPS_VERTICAL)
