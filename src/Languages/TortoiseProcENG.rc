@@ -1101,7 +1101,7 @@ BEGIN
     IDS_LOG_POPUP_DIFF      "Show Differences"
     IDS_LOG_POPUP_REVERTREV "Revert changes from this revision"
     IDS_LOG_POPUP_GNUDIFF   "Show Differences as Unified Diff"
-    IDS_LOG_POPUP_FIND      "Search entries..."
+    IDS_LOG_POPUP_FIND      "Search log messages..."
 END
 
 STRINGTABLE 
@@ -1164,7 +1164,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOG_COMPAREWITHBASE "Compare with Base..."
-    IDS_LOG_BROWSEREPO      "Browse Repository..."
+    IDS_LOG_BROWSEREPO      "Browse Repository"
 END
 
 STRINGTABLE 
