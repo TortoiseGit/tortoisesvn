@@ -72,6 +72,16 @@ BOOL CStatGraphDlg::OnInitDialog()
 	AddAnchor(IDC_GRAPHTYPELABEL, TOP_LEFT);
 	AddAnchor(IDC_GRAPH, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GRAPHCOMBO, TOP_LEFT, TOP_RIGHT);
+
+	AddAnchor(IDC_NUMWEEK, TOP_LEFT);
+	AddAnchor(IDC_NUMWEEKVALUE, TOP_RIGHT);
+	AddAnchor(IDC_NUMAUTHOR, TOP_LEFT);
+	AddAnchor(IDC_NUMAUTHORVALUE, TOP_RIGHT);
+	AddAnchor(IDC_NUMCOMMITS, TOP_LEFT);
+	AddAnchor(IDC_NUMCOMMITSVALUE, TOP_RIGHT);
+	AddAnchor(IDC_NUMFILECHANGES, TOP_LEFT);
+	AddAnchor(IDC_NUMFILECHANGESVALUE, TOP_RIGHT);
+
 	AddAnchor(IDC_AVG, TOP_RIGHT);
 	AddAnchor(IDC_MIN, TOP_RIGHT);
 	AddAnchor(IDC_MAX, TOP_RIGHT);
@@ -107,6 +117,15 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 	if (!bShow)
 		nCmdShow = SW_HIDE;
 	GetDlgItem(IDC_GRAPH)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
+	GetDlgItem(IDC_NUMWEEK)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_NUMWEEKVALUE)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_NUMAUTHOR)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_NUMAUTHORVALUE)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_NUMCOMMITS)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_NUMCOMMITSVALUE)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_NUMFILECHANGES)->ShowWindow(nCmdShow);
+	GetDlgItem(IDC_NUMFILECHANGESVALUE)->ShowWindow(nCmdShow);
+
 	GetDlgItem(IDC_AVG)->ShowWindow(nCmdShow);
 	GetDlgItem(IDC_MIN)->ShowWindow(nCmdShow);
 	GetDlgItem(IDC_MAX)->ShowWindow(nCmdShow);
@@ -286,6 +305,17 @@ void CStatGraphDlg::ShowStats()
 	long nFileChangesMin = 0;
 	long nFileChangesMax = 0;
 
+	int numAuthors = 0;
+	std::map<stdstring, LONG> authors;
+	for (int i=0; i<m_parAuthors->GetCount(); ++i)
+	{
+		stdstring author = stdstring(m_parAuthors->GetAt(i));
+		if (authors.find(author) == authors.end())
+		{
+			authors[author] = m_graph.AppendGroup(author.c_str());
+			numAuthors++;
+		}
+	}
 	std::map<stdstring, LONG> authorcommits;
 	std::map<stdstring, LONG> AuthorCommits;
 	std::map<stdstring, LONG> AuthorCommitsMin;
@@ -387,6 +417,16 @@ void CStatGraphDlg::ShowStats()
 	// we have now all data we want
 	// so fill in the labels...
 	CString number;
+	number.Format(_T("%ld"), nWeeks);
+	GetDlgItem(IDC_NUMWEEKVALUE)->SetWindowText(number);
+	number.Format(_T("%ld"), numAuthors);
+	GetDlgItem(IDC_NUMAUTHORVALUE)->SetWindowText(number);
+	number.Format(_T("%ld"), m_parDates->GetCount());
+	GetDlgItem(IDC_NUMCOMMITSVALUE)->SetWindowText(number);
+	number.Format(_T("%ld"), nFileChanges);
+	GetDlgItem(IDC_NUMFILECHANGESVALUE)->SetWindowText(number);
+
+
 	number.Format(_T("%ld"), m_parAuthors->GetCount() / nWeeks);
 	GetDlgItem(IDC_COMMITSEACHWEEKAVG)->SetWindowText(number);
 	number.Format(_T("%ld"), nCommitsMax);

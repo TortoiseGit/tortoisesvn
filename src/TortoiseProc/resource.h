@@ -228,13 +228,21 @@
 #define IDS_MSGBOX_CONTINUE             1159
 #define IDC_MAX                         1159
 #define IDS_MSGBOX_OK                   1160
+#define IDC_NUMWEEK                     1160
 #define IDS_MSGBOX_YES                  1161
+#define IDC_NUMAUTHOR                   1161
 #define IDS_MSGBOX_NO                   1162
+#define IDC_NUMCOMMITS                  1162
 #define IDS_SVNACTION_ADD               1163
+#define IDC_NUMFILECHANGES              1163
 #define IDS_SVNACTION_COPY              1164
+#define IDC_NUMWEEKVALUE                1164
 #define IDS_SVNACTION_DELETE            1165
+#define IDC_NUMAUTHORVALUE              1165
 #define IDS_SVNACTION_RESTORE           1166
+#define IDC_NUMCOMMITSVALUE             1166
 #define IDS_SVNACTION_REVERT            1167
+#define IDC_NUMFILECHANGESVALUE         1167
 #define IDS_SVNACTION_RESOLVE           1168
 #define IDS_SVNACTION_UPDATE            1169
 #define IDS_SVNACTION_COMPLETED         1170
@@ -485,7 +493,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        182
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1160
+#define _APS_NEXT_CONTROL_VALUE         1168
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
