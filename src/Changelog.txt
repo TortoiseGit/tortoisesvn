@@ -1,8 +1,22 @@
-CVS
+Version 0.12.1
 - BUG: If an error occurred while executing a command
        in the log dialog the ok button wasn't reenabled
        again. (Stefan)
-       
+- BUG: Some with the file:/// prefix paths could crash 
+       the repository browser. (Stefan)
+- BUG: Fixed typo in the conflict editor hint box. (Stefan)
+- CHG: Changed some german translations. (Stefan)
+- CHG: The Language Combo in the settings page is
+       increased in size for all languages. (Stefan)
+- CHG: reorganized the submenu. (Stefan)
+- CHG: The installer doesn't contain the debug symbols
+       and the crashhandler anymore. They can be downloaded
+       separately. (Stefan)
+- ADD: The About dialog shows which version of TSVN is
+       installed (UNICODE or MBCS) in the window title. (Stefan)
+- ADD: A new command which starts the default browser
+       with the daily use guide. (Stefan)
+              
 Version 0.12
 - BUG: hopefully fixed the bug in the repository-
        browser when using paths with four/five
