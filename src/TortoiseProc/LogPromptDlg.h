@@ -81,6 +81,7 @@ public:
 private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;
+	CFont			m_logFont;
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

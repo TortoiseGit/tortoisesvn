@@ -121,6 +121,7 @@ private:
 	static const UINT m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
+	CFont		m_logFont;
 public:
 //	afx_msg void OnLvnItemActivateLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
