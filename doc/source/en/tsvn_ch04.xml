@@ -1,4 +1,4 @@
-<chapter id="tsvn-DUG">
+﻿<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -1665,6 +1665,17 @@ Rev Comments
 			does not much: it scans all "entries" files in the
 			.svn folder and changes the URL of the entries to the new value.
 		</para>
+		<caution>
+			<para>
+			Don't use the relocate command to switch your working copy to a different
+			branch! If you do that, then you will get many unexplainable error messages
+			while updating, committing, ...
+			</para>
+			<para>
+			The relocate command must <emphasis>only</emphasis> be used if the
+			URL of the server changed!
+			</para>
+		</caution>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->

@@ -1,4 +1,4 @@
-<chapter id="tsvn-DUG">
+﻿<chapter id="tsvn-DUG">
 	<title>Hilfe für die tägliche Arbeit</title>
 	<simplesect>
 		<para>
@@ -1797,6 +1797,18 @@ Rev Log-Meldungen
 			ausführen und die neue URL angeben. Dieser Befehl durchläuft alle
 			"entries" Dateien im .svn Verzeichnis und trägt dort die neue URL ein.
 		</para>
+		<caution>
+			<para>
+			Benutzen Sie nicht den Umplazieren-Befehl wenn Sie Ihre Arbeitskopie
+			auf einen anderen Entwicklungszweig wechseln möchten. Sie werden
+			viele unerklärliche Fehlermeldungen erhalten beim aktualisieren,
+			übertragen, ...
+			</para>
+			<para>
+			Der Umplazieren-Befehl darf <emphasis>nur</emphasis> benutzt werden
+			wenn die URL des Projektarchivs sich geändert hat!
+			</para>
+		</caution>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
