@@ -118,8 +118,12 @@ BOOL CMergeDlg::OnInitDialog()
 		temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		this->EndDialog(IDCANCEL);
+		return TRUE;
 	} // if ((status.status == NULL) || (status.status->entry == NULL))
-	m_URL = CUnicodeUtils::GetUnicode(status.status->entry->url);
+	if (status.status->entry->url == NULL)
+		m_URL = _T("");
+	else
+		m_URL = CUnicodeUtils::GetUnicode(status.status->entry->url);
 	m_BranchURL = m_URL;
 
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
