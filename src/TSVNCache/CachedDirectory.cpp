@@ -310,6 +310,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			// for their own status, and will set themselves as unversioned, for the 
 			// benefit of future requests
 			ATLTRACE("svn_cli_stat err: '%s'\n", pErr->message);
+			svn_error_clear(pErr);
 			// No assert here! Since we _can_ get here, an assertion is not an option!
 			// Reasons to get here: 
 			// - renaming a folder with many subfolders --> results in "not a working copy" if the revert
