@@ -438,8 +438,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					{
 						SVN svn;
 						svn.SetPromptApp(&theApp);
+						CTSVNPath svnPath(path);
 						CWaitCursorEx wait_cursor;
-						CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
+						CString filename = svnPath.GetFileOrDirectoryName();
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 						CUtils::RemoveAccelerators(input.m_sHintText);
@@ -449,7 +450,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
+							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -499,11 +500,11 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 					if (GetOpenFileName(&ofn)==TRUE)
 					{
-						CString path = ofn.lpstrFile;
+						CTSVNPath path(ofn.lpstrFile);
 						SVN svn;
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
-						CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
+						CString filename = path.GetFileOrDirectoryName();
 						CInputDlg input(this);
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 						CUtils::RemoveAccelerators(input.m_sHintText);
@@ -513,7 +514,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
+							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
 							{
 								delete [] pszFilters;
 								wait_cursor.Hide();

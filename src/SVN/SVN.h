@@ -86,7 +86,7 @@ public:
 	 * \param revision the revision number to check out
 	 * \param recurse TRUE if you want to check out all subdirs and files (recommended)
 	 */
-	BOOL Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL recurse);
+	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev revision, BOOL recurse);
 	/**
 	 * If pathlist contains an URL, use the MESSAGE to immediately attempt 
 	 * to commit a deletion of the URL from the repository. 
@@ -273,7 +273,7 @@ public:
 	 * \param message	log message used for the 'commit'
 	 * \param recurse 
 	 */
-	BOOL Import(CString path, CString url, CString message, BOOL recurse);
+	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse);
 	/**
 	 * Merge changes from path1/revision1 to path2/revision2 into the
 	 * working-copy path localPath.  path1 and path2 can be either

@@ -444,7 +444,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
 			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Checkout(m_sUrl, m_sPath, m_Revision, m_IsTempFile /* temfile used as recursive/nonrecursive */))
+			if (!m_pSvn->Checkout(CTSVNPath(m_sUrl), CTSVNPath(m_sPath), m_Revision, m_IsTempFile /* temfile used as recursive/nonrecursive */))
 			{
 				ReportSVNError();
 			}
@@ -453,7 +453,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
 			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Import(m_sPath, m_sUrl, m_sMessage, true))
+			if (!m_pSvn->Import(CTSVNPath(m_sPath), CTSVNPath(m_sUrl), m_sMessage, true))
 			{
 				ReportSVNError();
 			}

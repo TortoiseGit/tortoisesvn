@@ -247,14 +247,11 @@ CString SVN::GetErrorString(svn_error_t * Err)
 	return _T("");
 }
 
-BOOL SVN::Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL recurse)
+BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRev revision, BOOL recurse)
 {
-	preparePath(destPath);
-	preparePath(moduleName);
-
 	Err = svn_client_checkout (	NULL,			// we don't need the resulting revision
-								MakeSVNUrlOrPath(moduleName),
-								MakeSVNUrlOrPath(destPath),
+								moduleName.GetSVNApiPath(),
+								destPath.GetSVNApiPath(),
 								revision,
 								recurse,
 								&m_ctx,
@@ -265,7 +262,7 @@ BOOL SVN::Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL r
 		return FALSE;
 	}
 
-	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(destPath));
+	CShellUpdater::Instance().AddPathForUpdate(destPath);
 
 	return TRUE;
 }
@@ -682,17 +679,14 @@ BOOL SVN::Switch(CString path, CString url, SVNRev revision, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
+BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, BOOL recurse)
 {
-	preparePath(path);
-	preparePath(url);
-
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
 	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_import (&commit_info,
-							MakeSVNUrlOrPath(path),
-							MakeSVNUrlOrPath(url),
+							path.GetSVNApiPath(),
+							url.GetSVNApiPath(),
 							!recurse,
 							&m_ctx,
 							pool);
@@ -702,7 +696,7 @@ BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+		Notify(path.GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	return TRUE;
 }
 
