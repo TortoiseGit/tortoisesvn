@@ -28,7 +28,7 @@
 #include <atlexcept.h>
 
 
-const static int ColumnFlags = SHCOLSTATE_TYPE_STR;
+const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 
 // Defines that revision numbers occupy at most MAX_REV_STRING_LEN characters.
 // There are Perforce repositories out there that have several 100,000 revs.
