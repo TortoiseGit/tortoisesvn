@@ -1389,23 +1389,26 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						}
-						for (int i=0; i<GetItemCount(); ++i)
+						else
 						{
-							FileEntry * entry = GetListEntry(i);
-							if (entry == NULL)
-								continue;								
-							CString f = entry->path;
-							if (CUtils::PathIsParent(parentfolder, f))
+							for (int i=0; i<GetItemCount(); ++i)
 							{
-								if (f.Mid(parentfolder.GetLength()).Find('/')<=0)
+								FileEntry * entry = GetListEntry(i);
+								if (entry == NULL)
+									continue;								
+								CString f = entry->path;
+								if (CUtils::PathIsParent(parentfolder, f))
 								{
-									if (CStringUtils::WildCardMatch(name, f))
+									if (f.Mid(parentfolder.GetLength()).Find('/')<=0)
 									{
-										if (GetCheck(i))
-											m_nSelected--;
-										m_nTotal--;
-										RemoveListEntry(i);
-										i--;
+										if (CStringUtils::WildCardMatch(name, f))
+										{
+											if (GetCheck(i))
+												m_nSelected--;
+											m_nTotal--;
+											RemoveListEntry(i);
+											i--;
+										}
 									}
 								}
 							}
@@ -1444,6 +1447,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							CString temp;
 							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+							break;
 						}
 						if (GetCheck(selIndex))
 							m_nSelected--;
