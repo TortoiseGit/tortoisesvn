@@ -27,6 +27,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 //
 
 IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -729,7 +730,7 @@ BEGIN
                             "the file\n%s\nalready exists! Do you want to overwrite it?"
     IDS_PROC_REPOCREATEFINISHED "Repository created"
     IDS_PROC_RELOCATEFINISHED "Working copy relocated to\n%s"
-    IDS_STRING269           "dummy"
+    IDS_PROC_MOVING         "Moving"
     IDS_STRING270           "dummy"
     IDS_APPNAME             "TortoiseSVN"
 END

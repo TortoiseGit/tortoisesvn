@@ -27,6 +27,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 //
 
 IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -55,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Localized resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -224,8 +225,10 @@ BEGIN
                     145,62,43,10
     EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
-    LTEXT           "Um spezifische Änderungen von einem Zweig zum aktuellen hinzuzufügen müssen Sie beide Revisionen angeben zwischen denen die Änderung stattfand.", IDC_STATIC,7,84,267,17
-    LTEXT           "Um einen kompletten Zweig zurück in den Hauptzweig zu mischen müssen Sie die Revision angeben in der Sie den Zweig erstellt haben und die 'Neueste Revision' wählen", IDC_STATIC,7,103,267,25
+    LTEXT           "Um spezifische Änderungen von einem Zweig zum aktuellen hinzuzufügen müssen Sie beide Revisionen angeben zwischen denen die Änderung stattfand.",
+                    IDC_STATIC,7,84,267,17
+    LTEXT           "Um einen kompletten Zweig zurück in den Hauptzweig zu mischen müssen Sie die Revision angeben in der Sie den Zweig erstellt haben und die 'Neueste Revision' wählen",
+                    IDC_STATIC,7,103,267,25
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 220, 94
@@ -299,8 +302,9 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Temp. Dateiendungen:",IDC_STATIC,7,91,70,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
-    CONTROL         "Erlaube Hinzufügen vor dem Übertragen",IDC_ADDBEFORECOMMIT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,119,273,10
+    CONTROL         "Erlaube Hinzufügen vor dem Übertragen",
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,119,273,10
     LTEXT           "Externes Merge:",IDC_STATIC,7,119,273,10
     EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Suchen...",IDC_EXTMERGEBROWSE,230,25,50,14
@@ -355,7 +359,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,307,124,50,14
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "Zeige Log...",IDC_LOGBUTTON,243,124,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Zeige Log...",IDC_LOGBUTTON,243,124,50,14,NOT 
+                    WS_VISIBLE
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 228, 107
@@ -370,8 +375,8 @@ BEGIN
     EDITTEXT        IDC_URL,42,7,157,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
     GROUPBOX        "Revision",IDC_STATIC,7,24,214,51
-    CONTROL         "&Neueste Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
-                    13,38,80,10
+    CONTROL         "&Neueste Revision",IDC_NEWEST,"Button",
+                    BS_AUTORADIOBUTTON,13,38,80,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,54,43,10
     EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -386,8 +391,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
     PUSHBUTTON      "&Abbrechen",IDCANCEL,99,65,50,14
     GROUPBOX        "Revision",IDC_STATIC,7,7,142,51
-    CONTROL         "&Neueste Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
-                    13,21,88,10
+    CONTROL         "&Neueste Revision",IDC_NEWEST,"Button",
+                    BS_AUTORADIOBUTTON,13,21,88,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,43,10
     EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -568,7 +573,6 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 79
     END
-
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -660,7 +664,7 @@ BEGIN
     IDS_LOG_POPUP_UPDATE    "Wechsle Datei/Ordner zu Revision"
     IDS_LOG_POPUP_COPY      "Erstelle Markierung von Revision"
     IDS_LOGPROMPT_FILE      "Datei"
-    IDS_LOGPROMPT_STATUS    "@IDS_LOGPROMPT_STATUS"
+    IDS_LOGPROMPT_STATUS    "Status"
     IDS_LOGPROMPT_ASKADD    "Sie haben eine unkontrollierte Datei gewählt.\nDie Datei wird vor dem Übertragen zur Versionskontrolle hinzugefügt."
     IDS_STRING220           "dummy"
     IDS_PROGRS_ATREV        "In Revision: %d"
@@ -685,7 +689,8 @@ BEGIN
     IDS_STRING236           "dummy"
     IDS_STRING237           "dummy"
     IDS_PROGRS_COPY_WARNING "Bitte beachten:\nIhre Arbeitskopie bleibt auf dem vorherigen Pfad. Wenn Sie Ihre nächsten Änderungen\nin der gerade erstellen Kopie haben möchten dann müssen Sie\nzu dieser Kopie <b>wechseln</b>. Benutzen Sie dazu den Befehl <b>Wechseln zu...</b>."
-    IDS_PROGRS_COMMITT_TRUNK "Ihre Arbeitskopie scheint auf einem Pfad für Markierungen (<i>tags</i>) zu sein!\nSie sollten zuerst zum Arbeitspfad (<i>trunk</i> oder <i>branch</i>)wechseln!"
+    IDS_PROGRS_COMMITT_TRUNK 
+                            "Ihre Arbeitskopie scheint auf einem Pfad für Markierungen (<i>tags</i>) zu sein!\nSie sollten zuerst zum Arbeitspfad (<i>trunk</i> oder <i>branch</i>)wechseln!"
 END
 
 STRINGTABLE 
@@ -698,14 +703,14 @@ BEGIN
     IDS_SETTINGS_EXTDIFF_TT "Ein externes Diff Programm um verschiedene\nRevisionen von Dateien zu vergleichen."
     IDS_SETTINGS_EXTDIFFBROWSE_TT "suche externes Diff Programm"
     IDS_SETTINGS_CHANGEDDIRS_TT 
-                            "@IDS_SETTINGS_CHANGEDDIRS_TT"
+                            "Aktivieren Sie dies um den Subversion Status von Dateien und Unterordnern\nauf dem Ordnersymbol anzuzeigen.\n<ct=0x0000ff><b>Achtung:</b>Dies kann den Explorer ausbremsen!</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "geben Sie die Dateiendungen für\ntemporäre oder erzeugte Dateien an"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Zeigt alle unkontrollierten Dateien vor dem Übertragen an\nso dass Sie diese zur Versionskontrolle hinzufügen können"
-    IDS_SETTINGS_EXTMERGE_TT 
-                            "@IDS_SETTINGS_EXTMERGE_TT"
-    IDS_SETTINGS_PROXYSERVER_TT "Entweder der Name oder die IP Nummer des Proxyservers"
+    IDS_SETTINGS_EXTMERGE_TT "Ein externes Merge Programm\num Konflikte in Dateien zu lösen\n<hr=100%>\nSie können folgende Parameter für das Programm angeben:\n%merged\tDie Datei mit Konflikt, wo zu speichern\n%theirs\t\tDie Datei wie sie in der Datenbank ist\n%mine\t\tIhre eigene Datei, mit Ihren Änderungen\n%base\t\tDie Originaldatei, ohne Ihre Änderungen"
+    IDS_SETTINGS_PROXYSERVER_TT 
+                            "Entweder der Name oder die IP Nummer des Proxyservers"
     IDS_SETTINGS_DIFFVIEWER_TT 
                             "Ein Anzeigeprogramm für GNU-diff-Dateien (patch files).\nFalls Sie keines haben wählen Sie einen normalen Texteditor"
     IDS_STRING253           "dummy"
@@ -724,12 +729,12 @@ BEGIN
     IDS_PROC_EXPORT_4       "%s\nzu %s\n exportiert"
     IDS_PROC_COPY_SUCCESS   "Arbeitskopie in %s markiert"
     IDS_PROC_SETTINGS_TITLE "TortoiseSVN Einstellungen"
-    IDS_PROC_DELETE_CONFIRM "@IDS_PROC_DELETE_CONFIRM"
+    IDS_PROC_DELETE_CONFIRM "Sind Sie sicher dass Sie die ausgewählten Dateien / Ordner löschen möchten?\n<hr=100%>\nFalls Sie an Dateien Änderungen gemacht aber noch nicht\nübertragen haben werden diese verloren sein.\nAlle Dateien die sich nicht unter Versionskontrolle befinden, werden ebenfalls verloren gehen."
     IDS_PROC_OVERWRITE_CONFIRM 
                             "Die Datei\n%s\nexistiert bereits! Möchten Sie sie überschreiben?"
     IDS_PROC_REPOCREATEFINISHED "Datenbank ist erstellt"
     IDS_PROC_RELOCATEFINISHED "Arbeitskopie geändert zu\n%s"
-    IDS_STRING269           "dummy"
+    IDS_PROC_MOVING         "Verschieben..."
     IDS_STRING270           "dummy"
     IDS_APPNAME             "TortoiseSVN"
 END
@@ -746,21 +751,22 @@ BEGIN
     IDS_STRING279           "dummy"
     IDS_STRING280           "dummy"
     IDS_ERR_THREADSTARTFAILED "Thread konnte nicht gestartet werden!"
-    IDS_ERR_EXTDIFFSTART    "@IDS_ERR_EXTDIFFSTART"
-    IDS_ERR_NOCOMMAND       "@IDS_ERR_NOCOMMAND"
+    IDS_ERR_EXTDIFFSTART    "Konnte externes Diff Programm nicht starten!\n<hr=100%>\n%s"
+    IDS_ERR_NOCOMMAND       "Kein Befehl angegeben!\n<hr=100%>\nTortoiseProc.exe wird vom Shell-Teil benutzt und sollte nicht direkt gestartet werden."
     IDS_ERR_NOCOMMANDVALUE  "Kein Befehlswert angegeben!"
     IDS_ERR_NOSTATUS        "Konnte Status nicht auslesen!"
-    IDS_ERR_CLEANUP         "@IDS_ERR_CLEANUP"
+    IDS_ERR_CLEANUP         "Subversion hat während des Aufräumens einen Fehler gemeldet!\n<hr=100%>\n%s"
     IDS_ERR_NOURLOFFILE     "Konnte die URL der Datei nicht auslesen!"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ERR_WCCHANGED       "@IDS_ERR_WCCHANGED"
-    IDS_ERR_COPYFILES       "@IDS_ERR_COPYFILES"
-    IDS_ERR_EXTMERGESTART   "@IDS_ERR_EXTMERGESTART"
+    IDS_ERR_WCCHANGED       "Die Arbeitskopie wurde verändert!\n<hr=100%>\nBitte Übertragen Sie zuerst Ihre Änderungen\noder machen Sie Ihre Änderungen rückgängig."
+    IDS_ERR_COPYFILES       "Konnte Dateien nicht kopieren!\n<hr=100%>\n%s"
+    IDS_ERR_EXTMERGESTART   "Konnte externes Merge Programm nicht starten!\n<hr=100%>\n%s"
     IDS_ERR_NOTUPTODATE     "Die Arbeitskopie ist nicht aktuell.\nBitte aktualisieren Sie diese."
-    IDS_ERR_FAILEDIGNOREPROPERTY "Konnte %s nicht zur ignorieren Liste hinzufügen"
+    IDS_ERR_FAILEDIGNOREPROPERTY 
+                            "Konnte %s nicht zur ignorieren Liste hinzufügen"
     IDS_STRING293           "dummy"
     IDS_STRING294           "dummy"
     IDS_STRING295           "dummy"
@@ -807,12 +813,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CHSTAT_FILECOL      "@IDS_CHSTAT_FILECOL"
+    IDS_CHSTAT_FILECOL      "Datei"
     IDS_CHSTAT_WCCOL        "Lokaler Status"
     IDS_CHSTAT_REPOCOL      "Server Status"
 END
 
-#endif    // Localized resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -757,6 +757,10 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						break;
 					//#endregion
 				} // switch (myIDMap[idCmd])
+				svnCmd += _T(" /hwnd:");
+				TCHAR buf[30];
+				_stprintf(buf, _T("%d"), lpcmi->hwnd);
+				svnCmd += buf;
 				myIDMap.clear();
 				if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 				{

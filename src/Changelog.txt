@@ -10,6 +10,8 @@ Repository
        commands to respect the ignored status of
        subversioned files. This fixes 
        issues 38 and 60. (Stefan)
+- ADD: While moving files inside a working copy
+       a progress dialog is shown. (Stefan)
 
 Version 0.14
 - BUG: A Path inside a local repository wasn't recognized
