@@ -1341,10 +1341,14 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									continue;	
 								if (basepath.IsEmpty())
 									basepath = entry->basepath;
+								// since we ignored files with a mask (e.g. *.exe)
+								// we have to find find all files in the same
+								// folder (IsAncestorOf() returns TRUE for _all_ children, 
+								// not just the immediate ones) which match the
+								// mask and remove them from the list too.
 								if (parentFolder.IsAncestorOf(entry->path))
 								{
 									CString f = entry->path.GetSVNPathString();
-// TODO: WGD I don't think I understand this bit
 									if (f.Mid(parentFolder.GetSVNPathString().GetLength()).Find('/')<=0)
 									{
 										if (CStringUtils::WildCardMatch(name, f))
