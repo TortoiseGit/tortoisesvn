@@ -69,6 +69,7 @@ public:
 // Dialog Data
 	enum { IDD = IDD_REPOSITORY_BROWSER };
 
+	BugtraqInfo m_BugtraqInfo;
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();

@@ -130,6 +130,7 @@ public:
 	BOOL		m_bThreadRunning;
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
+	BugtraqInfo m_BugtraqInfo;
 private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
@@ -143,7 +144,6 @@ private:
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
 	CFont		m_logFont;
-	BugtraqInfo m_BugtraqInfo;
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);
