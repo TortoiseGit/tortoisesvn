@@ -52,7 +52,6 @@
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 0 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-general">
 		<title>Handhabung von TortoiseSVN</title>
@@ -85,7 +84,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 0 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-authentication">
 		<title>Anmeldung</title>
@@ -114,7 +112,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-import">
 		<title>Daten in ein Projektarchiv importieren</title>
@@ -281,7 +278,6 @@
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 2 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-checkout">
 		<title>Auschecken einer Arbeitskopie</title>
@@ -365,7 +361,6 @@
 		</tip>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 3 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-wcstatus">
 		<title>Status Informationen</title>
@@ -526,7 +521,6 @@
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 4 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-update">
 		<title>Aktualisieren der Arbeitskopie mit Änderungen von anderen</title>
@@ -621,7 +615,6 @@
 		</tip>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-conflicts">
 		<title>Konflikte Auflösen</title>
@@ -709,7 +702,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-commit">
 		<title>Änderungen in das Projektarchiv übertragen</title>
@@ -810,7 +802,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 6 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-adding">
 
@@ -844,16 +835,16 @@
 			im Projektarchiv speichert.
 		</para>
 		<para>
-			<caution>
-				<title>Hinzufügen ist rekursiv!</title>
+			<tip>
+				<title>Multiples Hinzufügen</title>
 				<para>
-					Wenn Sie einen Ordner zur Versionskontrolle hinzufügen, dann
-					fügt TortoiseSVN auch automatisch alle Dateien und Unterordner
-					innerhalb dieses Ordners hinzu. Also seien Sie vorsichtig und
-					stellen Sie sicher, dass Sie nicht ungewollt temporäre
-					Dateien hinzufügen wie z.B. *.obj Dateien des Kompilers.
+					Sie können den Hinzufügen-Befehl auch auf bereits versionierte
+					Ordner anwenden. In diesem Falle zeigt Ihnen der Hinzufügen-
+					Dialog alle noch nicht versionierten Dateien/Ordner innerhalb
+					dieses Ordners an. Dies ist hilfreich wenn Sie viele neue
+					Dateien auf einmal in die Versionskontrolle aufnehmen wollen.
 				</para>
-			</caution>
+			</tip>
 		</para>
 		<para>
 			Wenn Sie Dateien von ausserhalb Ihrer Arbeitskopie zu Ihrer Arbeitskopie
@@ -893,7 +884,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 7 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-renaming">
 		<title>Löschen, Umbenennen und Verschieben</title>
@@ -992,7 +982,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 8 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-revert">
 		<title>Änderungen Rückgängig machen</title>
@@ -1023,7 +1012,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 9 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-propertypage">
 		<title>Lesen/Schreiben von Informationen über Dateien/Ordner</title>
@@ -1059,7 +1047,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 10 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-showlog">
 		<title>Log Dialog</title>
@@ -1221,7 +1208,6 @@
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 11 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-branchtag">
 		<title>Verzweigen / Markieren</title>
@@ -1490,7 +1476,6 @@ Rev Log-Meldungen
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 12 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-relocate">
 		<title>Arbeitskopie umplazieren</title>
@@ -1518,7 +1503,40 @@ Rev Log-Meldungen
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 13 ============================= -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-repobrowser">
+		<title>Der Projektarchiv Browser</title>
+		<indexterm>
+			<primary>repobrowser</primary>
+		</indexterm>
+		<?dbhh topicname="IDD_REPOSITORY_BROWSER"?>
+		<para>
+		Vielleicht möchten Sie manchmal direkt im Projektarchiv Änderungen
+		vornehmen, ohne eine Arbeitskopie zu haben oder gar auschecken zu
+		müssen. In solchen Situationen kommt der Projektarchiv-Browser zum Einsatz.
+		Was der Explorer und die überlagerten Icons für Ihre Arbeitskopie ist, 
+		ist der Projektarchiv Browser fürs Projektarchiv.
+			<figure id="tsvn-DUG-repobrowser-dia-1">
+				<title>Der Projektarchiv Browser</title>
+				<graphic fileref="images/Repobrowser.png"/>
+			</figure>
+		Im Projektarchiv Browser können Sie Befehle wie Kopieren,
+		Verschieben, Umbenennen, Löschen, ... direkt im Projektarchiv ausführen.
+		</para>
+		<para>
+		Ganz oben im Browserfenster können Sie die URL des Projektarchivs angeben
+		und auch die Revision, welche Sie im Projektarchiv ansehen möchten.
+		Eine ältere Revision im Projektarchiv ansehen ist vorallem dann sehr
+		nützlich, wenn Sie eine alte, gelöschte Datei wiederherstellen möchten.
+		Benutzen Sie dazu den Befehl
+		<menuchoice>
+			<guimenuitem>Kopieren nach...</guimenuitem>
+		</menuchoice>
+		und geben Sie im Dialog dann den vollständigen Pfad in Ihrer Arbeitskopie
+		an, wo die gelöschte Datei wiederhergestellt werden soll.
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-settings">
 		<title>TortoiseSVN's Einstellungen</title>
@@ -1768,7 +1786,6 @@ Rev Log-Meldungen
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 14 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-blame">
 		<title>Wer hat welche Zeile geändert?</title>
@@ -1860,7 +1877,6 @@ line  rev    date              author     content
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 15 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-donate">
 		<title>Letzter Schritt</title>

@@ -51,7 +51,6 @@
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 0 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-general">
 		<title>Handling TortoiseSVN</title>
@@ -82,7 +81,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 0 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-authentication">
 		<title>Authentication</title>
@@ -110,7 +108,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-import">
 		<title>Importing Data Into A Repository</title>
@@ -273,7 +270,6 @@
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 2 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-checkout">
 		<title>Checking Out A Working Copy</title>
@@ -345,7 +341,6 @@
 		</tip>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 3 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-wcstatus">
 		<title>Getting Status Information</title>
@@ -495,7 +490,6 @@
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 4 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-update">
 		<title>Update Your Working Copy With Changes From Others</title>
@@ -582,7 +576,6 @@
 		</tip>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-conflicts">
 		<title>Resolving Conflicts</title>
@@ -670,7 +663,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-commit">
 		<title>Sending Your Changes To The Repository</title>
@@ -759,7 +751,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 6 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-adding">
 		<title>Adding New Files And Directories</title>
@@ -790,16 +781,16 @@
 			the repository!
 		</para>
 		<para>
-			<caution>
-				<title>Adds are recursive!</title>
+			<tip>
+				<title>Many Adds</title>
 				<para>
-					If you add a directory then TortoiseSVN automatically
-					adds all files in this directory recursively.
-					So be careful with that command and make sure you don't
-					have any temporary or compiler generated files
-					in that directory!
+					You can also use the Add command on already versioned
+					folders. In that case, the add dialog will show you all
+					unversioned files inside that versioned folder.
+					This helps if you have many new files and need them to
+					add at once.
 				</para>
-			</caution>
+			</tip>
 		</para>
 		<para>
 			To add files from outside your working copy you can use
@@ -835,7 +826,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 7 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-renaming">
 		<title>Deleting, Renaming And Moving</title>
@@ -921,7 +911,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 8 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-revert">
 		<title>Undo Changes</title>
@@ -950,7 +939,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 9 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-propertypage">
 		<title>Get/Set Information About Files/Directories</title>
@@ -982,7 +970,6 @@
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 10 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-showlog">
 		<title>Revision Log Dialog</title>
@@ -1139,7 +1126,6 @@
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 11 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-branchtag">
 		<title>Branching / Tagging</title>
@@ -1388,7 +1374,6 @@ Rev Comments
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 12 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-relocate">
 		<title>Relocating a working copy</title>
@@ -1415,7 +1400,38 @@ Rev Comments
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 13 ============================= -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-repobrowser">
+		<title>The Repository Browser</title>
+		<indexterm>
+			<primary>repobrowser</primary>
+		</indexterm>
+		<?dbhh topicname="IDD_REPOSITORY_BROWSER"?>
+		<para>
+		Sometimes you need to work directly on the repository, without having
+		a working copy. That's what the <firstterm>Repository Browser</firstterm>
+		is for. What the explorer and the icon overlays are for your working
+		copy is the Repository Browser for the repository.
+			<figure id="tsvn-DUG-repobrowser-dia-1">
+				<title>The Repository Browser</title>
+				<graphic fileref="images/Repobrowser.png"/>
+			</figure>
+		With the Repository Browser you can execute commands like copy, move,
+		rename, ... directly on the repository.
+		</para>
+		<para>
+		On the top of the Repository Browser Window you can enter the URL of
+		the repository and the revision you want to browse. Browsing an older
+		revision is useful if you want to e.g. recover a previously deleted
+		file. Use the 
+		<menuchoice>
+			<guimenuitem>Copy To...</guimenuitem>
+		</menuchoice>
+		command to do that and enter the full working copy path to where
+		you want to recover your deleted file.
+		</para>
+	</sect1>	
+	<!-- ================================================================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-settings">
 		<title>TortoiseSVN's Settings</title>
@@ -1657,7 +1673,6 @@ Rev Comments
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 14 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-blame">
 		<title>Who Changed Which Line?</title>
@@ -1743,7 +1758,6 @@ line  rev    date              author     content
 		</para>
 	</sect1>
 	<!-- ================================================================= -->
-	<!-- ======================== SECTION 15 ============================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-donate">
 		<title>Final Step</title>
