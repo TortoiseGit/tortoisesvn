@@ -667,6 +667,7 @@ public:
 		PathAppendTest();
 		RemoveDuplicatesTest();
 		ContainingDirectoryTest();
+		SubversionPathTest();
 #if defined(_MFC_VER)
 		ListLoadingTest();
 #endif
@@ -803,7 +804,19 @@ private:
 		ATLASSERT(dir.GetWinPathString() == _T(""));
 	}
 
+	void SubversionPathTest()
+	{
+		CTSVNPath testPath;
+		testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "c:/a/b/c/d/e") == 0);
+		testPath.SetFromUnknown(_T("http://testing/"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing") == 0);
+		testPath.SetFromUnknown(_T("http://testing again"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
+		testPath.SetFromUnknown(_T("http://testing special chars äöü"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20Ã¤Ã¶Ã¼") == 0);		
+	}
+
 } TSVNPathTests;
 #endif
-
 
