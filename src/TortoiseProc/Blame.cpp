@@ -67,9 +67,11 @@ CString CBlame::BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL s
 	m_progressDlg.SetAnimation(IDR_SEARCH);
 	temp.LoadString(IDS_BLAME_PROGRESSINFO);
 	m_progressDlg.SetLine(1, temp, false);
+	temp.LoadString(IDS_BLAME_PROGRESSINFOSTART);
+	m_progressDlg.SetLine(2, temp, false);
 	temp.LoadString(IDS_BLAME_PROGRESSCANCEL);
 	m_progressDlg.SetCancelMsg(temp);
-	m_progressDlg.SetShowProgressBar(FALSE);
+	m_progressDlg.SetShowProgressBar(TRUE);
 	m_progressDlg.SetTime(FALSE);
 	if (showprogress)
 	{
@@ -90,3 +92,14 @@ CString CBlame::BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL s
 
 	return m_sSavePath;
 }
+
+BOOL CBlame::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+{
+	CString temp;
+	temp.Format(IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
+	m_progressDlg.SetLine(2, temp, false);
+	m_progressDlg.SetProgress((DWORD)rev, (DWORD)m_nHeadRev);
+	return TRUE;
+}
+
+

@@ -1033,6 +1033,8 @@ BEGIN
     IDS_BLAME_PROGRESSTITLE "SVN Blame"
     IDS_BLAME_PROGRESSINFO  "Please wait - this can take several minutes. Seriously!"
     IDS_BLAME_PROGRESSCANCEL "Cancelling SVN Blame..."
+    IDS_BLAME_PROGRESSINFO2 "Processing revision %d of %d..."
+    IDS_BLAME_PROGRESSINFOSTART "Getting file info..."
 END
 
 STRINGTABLE 
