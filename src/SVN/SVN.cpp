@@ -832,8 +832,12 @@ void SVN::notify( void *baton,
 {
 	SVN * svn = (SVN *)baton;
 	WCHAR buf[MAX_PATH];
-	MultiByteToWideChar(CP_UTF8, 0, path, -1, buf, MAX_PATH);
-	svn->Notify(CString(buf), (svn_wc_notify_action_t)action, kind, CString(mime_type), content_state, prop_state, revision);
+	if (MultiByteToWideChar(CP_UTF8, 0, path, -1, buf, MAX_PATH))
+		buf[0] = 0;
+	CString mime;
+	if (mime_type)
+		mime = mime_type;
+	svn->Notify(CString(buf), (svn_wc_notify_action_t)action, kind, mime, content_state, prop_state, revision);
 }
 
 svn_error_t* SVN::cancel(void *baton)
