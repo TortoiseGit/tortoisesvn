@@ -47,7 +47,7 @@ devenv TortoiseSVN.sln /rebuild release
 devenv TortoiseSVN.sln /rebuild release_mbcs
 devenv TortoiseSVN.sln /rebuild debug
 cd Languages
-FOR %%V In (*.pot) Do ..\..\bin\release\ResText.exe extract TortoiseMergeLang.dll TortoiseProcLang.dll %%V -quiet
+rem FOR %%V In (*.pot) Do ..\..\bin\release\ResText.exe extract TortoiseMergeLang.dll TortoiseProcLang.dll %%V -quiet
 cd ..\..
 if EXIST bin\debug\iconv rmdir /S /Q bin\debug\iconv > NUL
 if EXIST bin\release\iconv rmdir /S /Q bin\release\iconv > NUL
