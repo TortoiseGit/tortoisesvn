@@ -216,6 +216,10 @@ HTREEITEM CRepositoryTree::FindUrl(const CString& url)
 	return FindPath(path, hRoot);
 }
 
+
+
+// CRepositoryTree private helpers
+
 HTREEITEM CRepositoryTree::FindPath(const CString& path, HTREEITEM hParent)
 {
 	CString folder;
@@ -264,6 +268,46 @@ void CRepositoryTree::DeleteDummyItem(HTREEITEM hItem)
 	}
 }
 
+void CRepositoryTree::DeleteChildItems(HTREEITEM hItem)
+{
+	HTREEITEM hChild;
+	while ((hChild = GetNextItem(hItem, RVGN_CHILD)) != 0)
+		DeleteItem(hChild);
+}
+
+void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
+{
+	CStringArray entries;
+	CString folder = MakeUrl(hItem);
+
+	m_svn.m_app = &theApp;
+	theApp.DoWaitCursor(1);
+
+	if (m_svn.Ls(folder, m_Revision, entries, true))
+	{
+		for (int i = 0; i < entries.GetCount(); ++i)
+		{
+			TCHAR type = entries[i].GetAt(0);
+			CString entry = entries[i].Mid(1);
+
+			switch (type)
+			{
+			case 'd':
+				AddFolder(folder + _T("/") + entry);
+				break;
+			case 'f':
+				AddFile(folder + _T("/") + entry);
+				break;
+			}
+		}
+	}
+
+	theApp.DoWaitCursor(-1);
+
+	// Mark item as "successfully read"
+	SetItemData(GetItemIndex(hItem), 1);
+}
+
 
 
 // CRepositoryTree message handlers
@@ -287,6 +331,9 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	*pResult = 0;
 
+	if (bInit)
+		return;
+
 	LPNMREPORTVIEW pNMTreeView = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
 	if (pNMTreeView->hItem == NULL)
 		return;
@@ -299,44 +346,8 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 	if (rvi.nState & RVIS_TREECLOSED)
 	{
 		if (GetItemData(GetItemIndex(pNMTreeView->hItem)) == 0)
-		{
-			if (bInit)
-				return;
-
-			CStringArray entries;
-			CString folder = MakeUrl(pNMTreeView->hItem);
-
-			m_svn.m_app = &theApp;
-			theApp.DoWaitCursor(1);
-
-			DeleteDummyItem(pNMTreeView->hItem);
-
-			if (m_svn.Ls(folder, m_Revision, entries, true))
-			{
-				for (int i = 0; i < entries.GetCount(); ++i)
-				{
-					TCHAR type = entries[i].GetAt(0);
-					CString entry = entries[i].Mid(1);
-
-					switch (type)
-					{
-					case 'd':
-						AddFolder(folder + _T("/") + entries[i].Mid(1));
-						break;
-					case 'f':
-						AddFile(folder + _T("/") + entries[i].Mid(1));
-						break;
-					}
-				}
-			}
-
-			theApp.DoWaitCursor(-1);
-
-			// Mark item as "successfully read"
-			SetItemData(GetItemIndex(pNMTreeView->hItem), 1);
-
-		} // if (GetItemData(pNMTreeView->itemNew.hItem)==0) 
-	} // if (rvi.nState & RVIS_TREECLOSED) 
+			LoadChildItems(pNMTreeView->hItem);
+	}
 }
 
 static INT CALLBACK SortCallback(INT iItem1, INT iSubItem1, INT iItem2, INT iSubItem2, LPARAM lParam)
@@ -513,20 +524,18 @@ HTREEITEM CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
 void CRepositoryTree::Refresh(HTREEITEM hItem)
 {
 	hItem = GetNextItem(hItem, RVGN_PARENT);
-	if (hItem)
+	if (hItem != 0)
 	{
-		Expand(hItem, /*RVE_COLLAPSERESET |`*/ RVE_COLLAPSE);
-		SetItemData(GetItemIndex(hItem), 0);
-		Expand(hItem, RVE_EXPAND);
+		DeleteChildItems(hItem);
+		LoadChildItems(hItem);
 	}
 }
 
 void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 {
-	if (hItem)
+	if (hItem != 0)
 	{
-		Expand(hItem, /*RVE_COLLAPSERESET |*/ RVE_COLLAPSE);
-		SetItemData(GetItemIndex(hItem), 0);
-		Expand(hItem, RVE_EXPAND);
+		DeleteChildItems(hItem);
+		LoadChildItems(hItem);
 	}
 }

@@ -25,6 +25,19 @@
 #include "LogDlg.h"
 
 
+#define ID_POPSAVEAS		1
+#define ID_POPSHOWLOG		2
+#define	ID_POPOPEN			3
+#define ID_POPDELETE		4
+#define ID_POPIMPORT		5
+#define ID_POPRENAME		6
+#define ID_POPCOPYTO		7
+#define ID_POPMKDIR			8
+#define ID_POPGNUDIFF		9
+#define ID_POPDIFF			10
+#define ID_POPREFRESH		11
+
+
 // CRepositoryBrowser dialog
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableDialog)
@@ -187,6 +200,13 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
+
+				temp.LoadString(IDS_REPOBROWSE_REFRESH);
+				if (bFolder)
+					flags = MF_STRING | MF_ENABLED;
+				else
+					flags = MF_STRING | MF_GRAYED;
+				popup.AppendMenu(flags, ID_POPREFRESH, temp);						// "Refresh"
 
 				if (m_SvnUrl.GetRevision().IsHead())
 				{
@@ -499,6 +519,11 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
+				}
+				break;
+			case ID_POPREFRESH:
+				{
+					m_treeRepository.RefreshMe(hSelItem);
 				}
 				break;
 			case ID_POPGNUDIFF:

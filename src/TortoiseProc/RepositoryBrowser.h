@@ -27,18 +27,6 @@
 #include "ResizableDialog.h"
 
 
-#define ID_POPSAVEAS		1
-#define ID_POPSHOWLOG		2
-#define	ID_POPOPEN			3
-#define ID_POPDELETE		4
-#define ID_POPIMPORT		5
-#define ID_POPRENAME		6
-#define ID_POPCOPYTO		7
-#define ID_POPMKDIR			8
-#define ID_POPGNUDIFF		9
-#define ID_POPDIFF			10
-
-
 /**
  * \ingroup TortoiseProc
  * Dialog to browse a repository.

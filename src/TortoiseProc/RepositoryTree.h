@@ -66,6 +66,55 @@ public:
 	 */
 	void ChangeToUrl(const SVNUrl& svn_url);
 
+	/**
+	 * Adds the given \a folder to the tree control, if it is not already
+	 * contained. The supplied string may contain tab-separated extra
+	 * information, which is displayed in the control's additional columns.
+	 *
+	 * \param file   URL of the folder to be added
+	 * \param force  Force insertion even if the parent folder is not visible
+	 * \return Returns the item handle of the folder created or NULL if
+	 *         creation failed
+	 */
+	HTREEITEM AddFolder(const CString& folder, bool force = false);
+
+	/**
+	 * Adds the given \a file to the tree control, if it is not already
+	 * contained. The supplied string may contain tab-separated extra
+	 * information, which is displayed in the control's additional columns.
+	 *
+	 * \param file   URL of the file to be added
+	 * \param force  Force insertion even if the parent folder is not visible
+	 * \return Returns the item handle of the file created or NULL if
+	 *         creation failed
+	 */
+	HTREEITEM AddFile(const CString& file, bool force = false);
+
+	/**
+	 * Updates the given \a url. It is assumed that the supplied string
+	 * contains tab-separated extra information, which is used to update
+	 * the control's additional columns.
+	 *
+	 * \param url URL of the file to be added
+	 * \return Returns the item handle of the updated URL (or NULL if no
+	 *         such URL could be found
+	 */
+	HTREEITEM UpdateUrl(const CString& url);
+
+	/**
+	 * Removes the given \a url from the control.
+	 *
+	 * \param url URL of the file to be removed
+	 * \return Returns true if deletion was successful, or false if not
+	 */
+	bool DeleteUrl(const CString& url);
+
+	/**
+	 * Finds the given \a url in the tree control. Returns the item handle
+	 * of the entry found or NULL, if the \a url is not contained in the tree.
+	 */
+	HTREEITEM FindUrl(const CString& url);
+
 public:
 	afx_msg void OnRvnItemSelected(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult);
@@ -79,65 +128,17 @@ public:
 	void Refresh(HTREEITEM hItem);
 	void RefreshMe(HTREEITEM hItem);
 
-public:
-	/**
-	 * Adds the given \a folder to the tree control, if it is not already
-	 * contained. The supplied string may contain tab-separated extra
-	 * information, which is displayed in the control's additional columns.
-	 *
-	 * \param file   URL of the folder to be added
-	 * \param force  Force insertion even if the parent folder is not visible
-	 * \return Returns the item handle of the folder created or NULL if
-	 *         creation failed
-	 */
-	HTREEITEM AddFolder(const CString& folder, bool force = false);
-	/**
-	 * Adds the given \a file to the tree control, if it is not already
-	 * contained. The supplied string may contain tab-separated extra
-	 * information, which is displayed in the control's additional columns.
-	 *
-	 * \param file   URL of the file to be added
-	 * \param force  Force insertion even if the parent folder is not visible
-	 * \return Returns the item handle of the file created or NULL if
-	 *         creation failed
-	 */
-	HTREEITEM AddFile(const CString& file, bool force = false);
-	/**
-	 * Updates the given \a url. It is assumed that the supplied string
-	 * contains tab-separated extra information, which is used to update
-	 * the control's additional columns.
-	 *
-	 * \param url URL of the file to be added
-	 * \return Returns the item handle of the updated URL (or NULL if no
-	 *         such URL could be found
-	 */
-	HTREEITEM UpdateUrl(const CString& url);
-	/**
-	 * Removes the given \a url from the control.
-	 *
-	 * \param url URL of the file to be removed
-	 * \return Returns true if deletion was successful, or false if not
-	 */
-	bool DeleteUrl(const CString& url);
-	/**
-	 * Finds the given \a url in the tree control. Returns the item handle
-	 * of the entry found or NULL, if the \a url is not contained in the tree.
-	 */
-	HTREEITEM FindUrl(const CString& url);
-
 private:
-	/**
-	 * Finds the tree item corresponding to \a path, starting at \a hParent.
-	 */
+	//! Finds the tree item corresponding to \a path, starting at \a hParent.
 	HTREEITEM FindPath(const CString& path, HTREEITEM hParent);
-	/**
-	 * Inserts a dummy item under \a hItem, if no other child item exists.
-	 */
+	//! Inserts a dummy item under \a hItem, if no other child item exists.
 	HTREEITEM InsertDummyItem(HTREEITEM hItem);
-	/**
-	 * Deletes the dummy item unter \a hItem, if present.
-	 */
+	//! Deletes the dummy item unter \a hItem, if present.
 	void DeleteDummyItem(HTREEITEM hItem);
+	//! Deletes all items below \a hItem
+	void DeleteChildItems(HTREEITEM hItem);
+	//! Loads the items below \a hItem from repository
+	void LoadChildItems(HTREEITEM hItem);
 
 private:
 	friend class CRepositoryBar;
