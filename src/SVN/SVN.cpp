@@ -326,7 +326,7 @@ BOOL SVN::MakeDir(CString path, CString message)
 	preparePath(path);
 
 	svn_client_commit_info_t *commit_info = NULL;
-	ctx.log_msg_baton = logMessage("creating directory remotely");
+	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_mkdir (&commit_info,
 							target(path),
 							&ctx,

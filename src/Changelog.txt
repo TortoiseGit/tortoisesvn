@@ -12,6 +12,8 @@
 - BUG: Temp files weren't deleted before an
        import even if they were marked for
        deletion. (Stefan)
+- BUG: The log message when creating a new
+       folder was always the same. (Stefan)
 
 Version 0.20.2
 - BUG: crash bug not fixed in 0.20.1 (one Ctrl-Z
