@@ -1195,7 +1195,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									int index;
 									index = GetNextSelectedItem(pos);
 									const FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-									if (fentry->propstatus <= svn_wc_status_normal)
+									if (fentry->remotestatus <= svn_wc_status_normal)
 									{
 										m_nTotal--;
 										if (GetCheck(index))
