@@ -365,14 +365,20 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 		return CWnd::OnChildNotify(message, wParam, lParam, pLResult);
 	
 	LPNMHDR lpnmhdr = (LPNMHDR) lParam;
-
+	SCNotification * lpSCN = (SCNotification *)lParam;
+	
 	if(lpnmhdr->hwndFrom==m_hWnd)
 	{
 		switch(lpnmhdr->code)
 		{
 		case SCN_CHARADDED:
-			CheckSpelling();
-			DoAutoCompletion();
+			if (lpSCN->ch < 32)
+				Call(SCI_DELETEBACK);
+			else
+			{
+				CheckSpelling();
+				DoAutoCompletion();
+			}
 			return TRUE;
 			break;
 		}
