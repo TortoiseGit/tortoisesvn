@@ -1266,13 +1266,6 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		theApp.DoWaitCursor(-1);
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
-	if (isSpecial)
-	{
-		if (selSub == 1)
-			EditAuthor(selIndex);
-		if (selIndex == 3)
-			EditLogMessage(selIndex);
-	}
 }
 
 LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
@@ -1584,6 +1577,7 @@ void CLogDlg::EditAuthor(int index)
 	CInputDlg dlg;
 	dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
 	dlg.m_sInputText = value;
+	dlg.m_sTitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
@@ -1622,6 +1616,7 @@ void CLogDlg::EditLogMessage(int index)
 	CInputDlg dlg;
 	dlg.m_sHintText.LoadString(IDS_LOG_MESSAGE);
 	dlg.m_sInputText = value;
+	dlg.m_sTitle.LoadString(IDS_LOG_MESSAGEEDITTITLE);
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));

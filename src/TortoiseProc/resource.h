@@ -432,6 +432,8 @@
 #define IDS_LOG_POPUP_EDITAUTHOR        1805
 #define IDS_LOG_POPUP_EDITLOG           1806
 #define IDS_LOG_COPY_SUCCESS            1830
+#define IDS_LOG_MESSAGEEDITTITLE        1831
+#define IDS_LOG_AUTHOREDITTITLE         1832
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902
