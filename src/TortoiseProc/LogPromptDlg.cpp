@@ -297,7 +297,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				CString temp;
 				svn_wc_status_kind stat;
 				stat = max(s->text_status, s->prop_status);
-				pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(CUnicodeUtils::GetUnicode(s->entry->url));
+				if (s->entry)
+					pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(CUnicodeUtils::GetUnicode(s->entry->url));
 				temp = strbuf;
 				if (stat > svn_wc_status_normal)
 				{

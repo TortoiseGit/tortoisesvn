@@ -1,3 +1,9 @@
+CVS
+- BUG: if several files are selected for committing
+       and the first one is unversioned or just
+       added a crash occured (Stefan)
+       
+
 Version 0.9.2
 - BUG: In the Add dialog unversioned folders
        with items in it lead to a crash (Stefan)
