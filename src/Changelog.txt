@@ -1,4 +1,7 @@
 CVS
+- BUG: hopefully fixed the bug in the repository-
+       browser when using paths with four/five
+       slashes. (Stefan)
 - CHG: the log command now has the strict-option
        set to false instead of true. (Stefan)
 - CHG: time/date is now shown using the local

@@ -785,8 +785,15 @@ void SVN::PathToUrl(CString &path)
 
 void SVN::UrlToPath(CString &url)
 {
+	//we have to convert paths like file:///c:/myfolder
+	//to c:/myfolder
+	//and paths like file:////mymachine/c/myfolder
+	//to //mymachine/c/myfolder
 	url.Trim();
-	url = url.Mid(8);
+	url.Replace('\\','/');
+	url = url.Mid(7);
+	if (url.GetAt(1) != '/')
+		url = url.Mid(1);
 	url.Replace('/','\\');
 	url.TrimRight(_T("/\\"));			//remove trailing slashes
 }
@@ -858,6 +865,8 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 BOOL SVN::Ls(CString url, LONG revision, CStringArray& entries)
 {
 	entries.RemoveAll();
+
+	preparePath(url);
 
 	apr_hash_t* hash = apr_hash_make(pool);
 
