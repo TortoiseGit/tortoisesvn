@@ -62,7 +62,7 @@ CShellExt::CShellExt(FileState state)
 	//since it would break other subversion clients. 
 	CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\Directory"), _T(" "), false, HKEY_LOCAL_MACHINE);
 	stdstring temp = tortoiseProcPath;
-	temp += _T("\\iconv");
+	temp += _T("iconv");
 	SetEnvironmentVariable(_T("APR_ICONV_PATH"), temp.c_str());
 }
 
