@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-11-24 16:01+0100\n"
+"PO-Revision-Date: 2004-11-30 08:44+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -413,6 +413,22 @@ msgstr ""
 "Verwenden Sie den <i>Wechseln zu...</i> Befehl, um zu einer Verzweigung zu wechseln.\n"
 "Sind Sie sicher, dass Sie Ihre Arbeitskopie <i>Umplazieren</i> wollen?"
 
+# ID:145,
+#: ID:145
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b> ist eine Shell Erweiterung.\n"
+"Das bedeutet, dass es in den Windows Explorer integriert ist. Um\n"
+"<b>TortoiseSVN</b> zu verwenden, öffen Sie den Explorer und machen\n"
+"Sie einen Rechts-Klick, damit das Kontextmenü angezeigt wird.\n"
+"Dort finden Sie sämtliche <b>TortoiseSVN</b> Befehle.\n"
+"Und <u>lesen Sie das Handbuch!</u>"
+
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "Ein Hardware I/O Fehler wurde gemeldet beim Zugriff auf %1."
@@ -564,6 +580,10 @@ msgid ""
 msgstr ""
 "Die Datei(en)\n"
 "%s  wurden zur 'Ignorieren' Liste hinzugefügt."
+
+#: ID:263
+msgid "Adding"
+msgstr "Füge hinzu"
 
 #: ID:9
 msgid "Adds file(s) to Subversion control"
@@ -735,6 +755,10 @@ msgstr "Autor:                         Stefan Küng"
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autoren:                     Stefan Küng, Tim Kemp"
+
+#: Control-ID:1157
+msgid "Average"
+msgstr "Mittelwert"
 
 #: Control-ID:1001
 msgid "B&rowse..."
@@ -1017,6 +1041,11 @@ msgstr "Übertragungen pro Autor"
 msgid "Commits by week"
 msgstr "Übertragungen pro Woche"
 
+# ID:244,
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "Übertragungen pro Woche:"
+
 #: ID:9
 msgid "Commits your changes to the repository"
 msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
@@ -1252,6 +1281,10 @@ msgstr "Gelöscht"
 #: ID:11
 msgid "Deletes files / folders from source control"
 msgstr "Löscht Dateien / Ordner aus Arbeitskopie und Projektarchiv"
+
+#: ID:263
+msgid "Deleting"
+msgstr "Lösche"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -1542,6 +1575,11 @@ msgstr "Datei"
 msgid "File Patches"
 msgstr "Datei Patches"
 
+# Control-ID:1138,
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "Dateiänderungen pro Woche:"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -1565,6 +1603,11 @@ msgstr "Zeichensatz:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "Drücken Sie F1, um Hilfe zu erhalten"
+
+# Control-ID:1168,
+#: Control-ID:1168
+msgid "Force shell icon refresh"
+msgstr "Erzwinge Iconaktualisierung"
 
 #: Control-ID:65535
 msgid "From:"
@@ -1806,6 +1849,11 @@ msgstr "Letzte gespeicherte Revision"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Startet das externe Diff / Merge Programm, um den Konflikt zu bearbeiten."
 
+# Control-ID:1137,
+#: Control-ID:1137
+msgid "Least active author:"
+msgstr "Am wenigsten aktiver Autor:"
+
 # ID:188,
 #: ID:188
 msgid "Left View: "
@@ -1860,6 +1908,11 @@ msgstr "Mail System DLL ist ungültig."
 msgid "Main"
 msgstr "Hauptseite"
 
+# Control-ID:1159,
+#: Control-ID:1159
+msgid "Max"
+msgstr "Maximum"
+
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "Zusammenführen"
@@ -1888,6 +1941,10 @@ msgstr "Meldung"
 msgid "Mime Type"
 msgstr "Mime Typ"
 
+#: Control-ID:1158
+msgid "Min"
+msgstr "Minimum"
+
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
@@ -1900,6 +1957,11 @@ msgstr "Gemischt"
 #: ID:74
 msgid "Modified"
 msgstr "Verändert"
+
+# Control-ID:1136,
+#: Control-ID:1136
+msgid "Most active author:"
+msgstr "Aktivster Autor:"
 
 #: ID:12
 msgid "Move files in Subversion to here"
@@ -1989,6 +2051,16 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nicht alle Einträge der System-Registry (oder INI Datei) wurden gelöscht."
+
+# Control-ID:1161,
+#: Control-ID:1161
+msgid "Number of authors:"
+msgstr "Anzahl Autoren:"
+
+# Control-ID:1160,
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "Anzahl Wochen:"
 
 #: ID:73
 #: Control-ID:1
@@ -2330,8 +2402,8 @@ msgstr ""
 "Ersetzen"
 
 #: ID:74
-msgid "Replaced"
-msgstr "Ersetzt"
+msgid "Replacing"
+msgstr "Ersetze"
 
 #: ID:13
 msgid "Repo-Browser"
@@ -2731,6 +2803,11 @@ msgstr "Größe"
 msgid "Skipped"
 msgstr "Übersprungen"
 
+# ID:263,
+#: ID:263
+msgid "Skipped missing target"
+msgstr "Fehlendes Ziel übersprungen"
+
 #: ID:79
 msgid ""
 "Specify the files or folders wich TortoiseSVN\n"
@@ -2750,6 +2827,7 @@ msgstr ""
 "Teile aktives Fenster auf\n"
 "Aufteilen"
 
+#: ID:245
 #: Control-ID:1132
 #: Dlg-ID:179
 msgid "Statistics"
@@ -3045,6 +3123,11 @@ msgstr "Dieses Programm benötigt die Datei %s, welche nicht auf diesem System g
 msgid "This property is only allowed on folders, not files."
 msgstr "Diese Eigenschaft ist nur für Dateien und nicht für Ordner zugelassen."
 
+# ID:15,
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "Diese Eigenschaft darf nur eine Zeile haben."
+
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Leerzeichen Diff"
@@ -3115,6 +3198,16 @@ msgstr ""
 #: ID:80
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN Einstellungen"
+
+# Control-ID:1162,
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "Übertragungen gesamt:"
+
+# Control-ID:1163,
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "Dateiänderungen gesamt:"
 
 #: ID:73
 msgid "Try Again"
@@ -3331,6 +3424,15 @@ msgstr "Besuchen Sie unsere Webseite"
 #: ID:219
 msgid "Warning!"
 msgstr "Warnung!"
+
+# ID:195,
+#: ID:195
+msgid ""
+"When checked, forces a refresh of the shell overlay icons after each operation.\n"
+"Since this can slow down the explorer use it only on fast systems."
+msgstr ""
+"Erzwingt eine Aktualisierung der überlagerten Icons nach jeder Operation.\n"
+"<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
