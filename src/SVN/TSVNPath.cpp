@@ -58,6 +58,10 @@ void CTSVNPath::SetFromUnknown(const CString& sPath)
 
 LPCTSTR CTSVNPath::GetWinPath() const
 {
+	if(IsEmpty())
+	{
+		return _T("");
+	}
 	if(m_sBackslashPath.IsEmpty())
 	{
 		SetBackslashPath(m_sFwdslashPath);
@@ -87,6 +91,15 @@ const CString& CTSVNPath::GetSVNPathString() const
 
 const char* CTSVNPath::GetSVNApiPath() const
 {
+	// This funny-looking 'if' is to avoid a subtle problem with empty paths, whereby
+	// each call to GetSVNApiPath returns a different pointer value.
+	// If you made multiple calls to GetSVNApiPath on the same string, only the last
+	// one would give you a valid pointer to an empty string, because each 
+	// call would invalidate the previous call's return. 
+	if(IsEmpty())
+	{
+		return "";
+	}
 	if(m_sFwdslashPath.IsEmpty())
 	{
 		SetFwdslashPath(m_sBackslashPath);
