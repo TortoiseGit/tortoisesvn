@@ -279,6 +279,14 @@ void CRepositoryTree::Init(LONG revision)
 	for (INT_PTR i=arPaths.GetUpperBound(); i>=0; i--)
 	{
 		hItem = InsertItem(arPaths.GetAt(i), m_nIconFolder, -1, -1, hItem, RVTI_LAST);
+		if (hItem == 0) {
+			CMessageBox::Show(
+				NULL,
+				_T("Failed to insert an item in the repository tree."),
+				_T("TortoiseSVN"),
+				MB_OK | MB_ICONERROR);
+			return;
+		}
 		EnsureVisible(hItem);
 		//SetItemState(hItem, 1, TVIF_CHILDREN);
 		SetItemData(GetItemIndex(hItem), 0);
