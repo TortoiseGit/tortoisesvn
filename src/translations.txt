@@ -8,43 +8,47 @@ a work 'in progress'.
 To implement a new language for TortoiseSVN
 follow these steps:
 
-With VS.NET:
-- get the sources from the repository
-- start VS.NET, open the TortoiseSVN solution file
-- create a new project: Win32, set it for dll.
-  the project name should be "TortoiseProcXXX" where
-  XXX is a three letter abreviation of your language
-  (ENG for english, DEU for german, ...)
-- in the project properties, Linker, Advanced change
-  the setting "Resource Only Dll" to "yes (/NOENTRY)"
-- also change the settings under "General" for the
-  output directories to ../../bin/Debug and ../../bin/Release
-  and for the intermediate directory to 
-  ../../obj/Debug/TortoiseProcXXX and 
-  ../../Release/TortoiseProcXXX.
-- switch to the resource tab
-- select all dialog resources from the main project
-  (TortoiseProc)
-- copy those resources to your new language project.
-- also do that for the string resources
-- now start translating the resources
-- save your project
-- compile your language project
+Get the resource dll for translating, usually
+located under 
+http://svn.collab.net/repos/tortoisesvn/branches/release-0.xx/src/Languages/
+while "xx" means the version number of the release.
+The dll is called "TortoiseLang.dll".
+If the branch isn't there anymore for the version
+you want to translate, then that version already
+has been released.
 
-- switch to the resource tab, select the string
-  resources from TortoiseProc.
-- right-click on the string resources, select
-  "insert copy..." and make a copy for your
-  language.
-- translate the string resources
+To translate the dll you can use the program
+SmartTranslator. You can get it from
+http://www.codeproject.com/tools/smarttranslator.asp
 
-without VS.NET:
-- make a copy of /src/TortoiseProc/TortoiseProc.rc
-  and /src/TortoiseShell/resource.rc
-- rename your copies to something with the
-  language name in it.
-- open those files in a text editor
-- translate all texts
-- save the files, zip them and send them to
-  dev@tortoisesvn.tigris.org
+Start this program and set up the paths. Don't forget
+to add the *.dic to the dictionary path (it'll get created
+for you). Then you _must_ set "english" as the target
+language - that's a small issue with the program (it doesn't
+move the version information to the target language).
+Then start translating all strings and dialogs. You can
+preview the dialogs by right clicking on the tree view
+and select the entry in the context menu.
+If you find that your translation doesn't fit at all
+in a dialog please drop me a note.
 
+And don't forget to add all your translated strings
+to the dictionary! You have to do that manually
+before pressing ok in the translation dialog!!!
+If you don't do that then you'll have to translate
+the same strings all over again in the next release.
+
+As soon as you're finished translating you can
+"build target" and create your own language dll.
+Please rename that dll to
+TortoiseProcXXXX.dll
+where XXXX is the _decimal_ value of your language
+ID - you can find the language ID's here:
+http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp
+Also note that the resulting dll is called
+Tortoise'Proc', not Tortoise'Lang'.
+
+Example:
+English(US) is 0x409 --> 1033 as decimal value.
+
+The last step: send me the dll AND the dictionary file
