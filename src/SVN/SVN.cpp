@@ -1331,11 +1331,14 @@ apr_array_header_t * SVN::target (LPCTSTR path)
 		const char * target = apr_pstrdup (pool, MakeSVNUrlOrPath(targ));
 		(*((const char **) apr_array_push (targets))) = target;
 		curPos++;
-	} // while (p.Find('*', curPos)>=0) 
+	}
 	targ = p.Mid(curPos);
 	targ.Trim(_T("*"));
-	const char * target = apr_pstrdup (pool, MakeSVNUrlOrPath(targ));
-	(*((const char **) apr_array_push (targets))) = target;
+	if (!targ.IsEmpty())
+	{
+		const char * target = apr_pstrdup (pool, MakeSVNUrlOrPath(targ));
+		(*((const char **) apr_array_push (targets))) = target;
+	}
 
 	return targets;
 }
