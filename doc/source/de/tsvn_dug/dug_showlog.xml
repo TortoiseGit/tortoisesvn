@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-showlog">
 	<title>Log Dialog</title>
 	<indexterm>
@@ -50,7 +50,6 @@
 		denen Sie noch mehr und noch detailliertere Informationen über die
 		Projektgeschichte herausfinden können.
 	</para>
-	
 	<sect2 id="tsvn-DUG-showlog-1">
 		<title>Den Log-Dialog starten</title>
 		<para>
@@ -114,7 +113,7 @@
 						um die Änderungen für jede Datei einzeln nachprüfen.
 					</para>
 				</listitem>
-			    <listitem>
+				<listitem>
 					<para>
 						Ein Standard-Diff anzuzeigen, welches Ihnen die 
 						Änderungen zwischen zwei gewählten Revisionen anzeigt. 
@@ -279,7 +278,7 @@
 			Manchmal ist es notwendig, eine Log-Meldung nachträglich zu ändern.
 			Sei es weil die Meldung Rechtschreibfehler enthält oder weil Sie
 			die Meldung mit mehr Informationen erweitern müssen oder aus
-			anderen Gründen Oder Sie müssen den Author der Revision ändern,
+			anderen Gründen Oder Sie müssen den Autor der Revision ändern,
 			weil Sie vielleicht vergessen haben eine Authentifizierung für
 			Übertragungen auf dem Server einzurichten oder...
 		</para>
@@ -288,18 +287,17 @@
 			Revision, ändern. Aber da solche Änderungen nicht wieder rückgängig
 			gemacht werden können (diese Änderungen werden nicht aufgezeichnet)
 			ist diese Funktion standardmässig deaktiviert. Um diese Funktion
-			zu aktivieren, müssen Sie einen pre-revprop-change 
-			hook auf dem Server einrichten. Bitte lesen
-			Sie dazu das entsprechende Kapitel
+			zu aktivieren, müssen Sie eine pre-revprop-change Aktion für das
+			Projektarchiv einrichten. Bitte lesen Sie dazu das entsprechende Kapitel
 			<ulink url="http://svnbook.red-bean.com/en/1.1/ch05s02.html#svn-ch-5-sect-2.1">
 				<citetitle>Hook Scripts</citetitle>
 			</ulink>
 			im Subversion Book, wie das gemacht wird.
-			Lesen Sie auch <xref linkend="tsvn-serversetup-hooks"/> um mehr Informationen 
-			über das Einbinden von hooks auf einem Windows PC zu erhalten.
+			Lesen Sie auch <xref linkend="tsvn-repository-hooks"/>, um mehr Informationen 
+			über das Erstellen von Aktionen auf einem Windows PC zu erhalten.
 		</para>
 		<para>
-			Sobald Sie den Server mit den erwähnten Hooks eingerichtet haben
+			Sobald Sie die gewünschten Aktionen für das Projektarchiv eingerichtet haben,
 			können Sie sowohl den Autor als auch die Log-Meldung einer 
 			jeden Revision nachträglich ändern. Um dies mit TortoiseSVN zu tun
 			müssen Sie entweder in die <emphasis>Autor</emphasis> oder die
@@ -322,7 +320,7 @@
 		<para>
 			Der <guibutton>Statistiken</guibutton> Button zeigt eine neue
 			Dialogbox an mit interessanten Informationen über die angezeigten
-			Revisionen. Es zeigt zum Beispiel wieviele Authoren (Personen welche
+			Revisionen. Es zeigt zum Beispiel wieviele Autoren (Personen welche
 			Übertragungen gemacht haben) am Werk waren, wieviele Übertragungen
 			jeder von ihnen gemacht hat, wöchentlicher Projektfortschritt
 			und vieles mehr.

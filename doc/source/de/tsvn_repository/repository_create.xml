@@ -1,20 +1,64 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<sect1 id="tsvn-serversetup-local">
-	<title>Local Repository Access</title>
-	<sect2 id="tsvn-serversetup-local-1">
-		<title>Introduction</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-repository-create">
+	<title>Repository Creation</title>
+				<para>
+					You can create a repository with the FSFS backend or with the
+					old but stable Berkeley Database (BDB) format. The FSFS format
+					is faster and it now works on network shares and Windows 98
+					without problems. The BDB format is more stable because it has
+					been tested longer. Read
+					<ulink url="http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A">
+						<citetitle>Chapter 5, Repository Data-Stores</citetitle>
+					</ulink>
+					in the SVN book for more information.
+				</para>
+	<sect2 id="tsvn-repository-create-commandline">
+		<title>Creating a Repository with the Command Line Client</title>
+		<indexterm>
+			<primary>Create</primary>
+			<secondary>Command Line Client</secondary>
+		</indexterm>
+		<orderedlist>
+			<listitem>
+				<para>
+					Create an empty folder with the name SVN
+					(e.g. <filename>D:\SVN\</filename>),
+					which is used as root for all your repositories.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Create another folder
+					<filename>MyNewRepository</filename> inside
+					<filename>D:\SVN\</filename>.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Open the command prompt (or DOS-Box), change into 
+					<filename>D:\SVN\</filename> and type
+<screen>
+svnadmin create --fs-type bdb MyNewRepository
+</screen>
+or
+<screen>
+svnadmin create --fs-type fsfs MyNewRepository
+</screen>
+				</para>
+			</listitem>
+		</orderedlist>
 		<para>
-			If you're not working in a team but working alone on a project and
-			still want your work under version control you can also access
-			a repository locally. This kind of repository access is also
-			very handy if you just want to try out some Subversion commands
-			and you don't want to change your official repository.
+			Now you've got a new repository located at
+			<filename>D:\SVN\MyNewRepository</filename>.
 		</para>
 	</sect2>
-	<sect2 id="tsvn-serversetup-local-2">
+
+	<!-- ================================================================= -->
+	<sect2 id="tsvn-repository-create-tortoisesvn">
 		<title>Creating The Repository With TortoiseSVN</title>
 		<indexterm>
-			<primary>create</primary>
+			<primary>Create</primary>
+			<secondary>TortoiseSVN</secondary>
 		</indexterm>
 		<?dbhh topicname="HIDD_REPOCREATE"?>
 		<figure id="tsvn-serversetup-local-dia-1">
@@ -43,17 +87,6 @@
 					</menuchoice>.
 				</para>
 				<para>
-					You can create a repository with the FSFS backend or with the
-					old but stable Berkeley Database (BDB) format. The FSFS format
-					is faster and it now works on network shares and Windows 98
-					without problems. The BDB format is more stable because it has
-					been tested longer, but can be more difficult to administer. Read
-					<ulink url="http://svnbook.red-bean.com/en/1.1/ch05.html#svn-ch-5-sect-1.2.A">
-						<citetitle>Chapter 5, Repository Data-Stores</citetitle>
-					</ulink>
-					in the SVN book for more information.
-				</para>
-				<para>
 					A repository is then created inside the new folder.
 					<emphasis>Don't edit those files yourself!!!</emphasis>.
 					If you get any errors make sure that the folder is empty
@@ -73,6 +106,7 @@
 			<systemitem class="url">file:///\ServerName/path/to/repos/</systemitem>.
 			Note the backslash before the server name.
 		</para>
+	</sect2>
 		<warning>
 			<para>
 				Do not create or access a Berkeley DB repository on a network share.
@@ -91,5 +125,4 @@
 				server access as well, you will need Subversion Server 1.1 or higher.
 			</para>
 		</tip>
-	</sect2>
 </sect1>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter id="tsvn_serversetup" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<title>Setting Up A Server</title>
+	<simplesect>
+		<para>
+			Um TortoiseSVN oder einen beliebigen anderen Subversion Client
+			benutzen zu können, benötigen Sie einen Platz, an dem Ihre Projektarchive
+			abgelegt sind. Projektarchive können auf Ihrem eigenen Rechner
+			liegen und über das <emphasis>file://</emphasis> Protokoll zugrgriffen werden
+			oder sie befinden sich auf einem Server und der Zugriff erfolgt mittels der
+			<emphasis>http://</emphasis> oder <emphasis>svn://</emphasis> Protokolle.
+			Die beiden Server Protokolle können zusätzlich verschlüsselt werden. Der 
+			Zugriff erfolgt dann mittels
+			<emphasis>https://</emphasis> beziehungsweise <emphasis>svn+ssh://</emphasis>.
+		</para>
+		<important lang="de">
+			Das folgende Kapitel erklärt Ihnen, wie sie einen solchen Server einrichten.
+			Es wurde nicht auf Deutsch übersetzt, da Englisch zwingend
+			notwendig ist für jemanden, der einen Server aufsetzen will.
+		</important>
+		<para>
+			Wenn Sie keinen Server benötigen, können Sie das Kapitel überspringen und
+			gleich den Abschnitt
+			<xref linkend="tsvn_repository"/>
+			lesen.
+		</para>
+	</simplesect>
+	<!-- ================================================================= -->
+	<!-- include external entity refs  - using the English version -->
+	<xi:include href="../../en/tsvn_server/server_apache.xml"/>
+	<xi:include href="../../en/tsvn_server/server_svn.xml"/>
+</chapter>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-showlog">
 	<title>Revision Log Dialog</title>
 	<indexterm>
@@ -48,7 +48,6 @@
 		commands which you can use to get even more information about the
 		project history.
 	</para>
-
 	<sect2 id="tsvn-DUG-showlog-1">
 		<title>Invoking the Revision Log Dialog</title>
 		<para>
@@ -227,7 +226,6 @@
 			</itemizedlist>
 		</para>
 	</sect2>
-
 	<sect2 id="tsvn-DUG-showlog-3">
 		<title>Getting all log messages</title>
 		<para>
@@ -297,7 +295,7 @@
 				<citetitle>Hook Scripts</citetitle>
 			</ulink>
 			in the Subversion Book for details about how to do that.
-			Read <xref linkend="tsvn-serversetup-hooks"/> to find some further
+			Read <xref linkend="tsvn-repository-hooks"/> to find some further
 			notes on implementing hooks on a Windows machine.
 		</para>
 		<para>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-bugtracker">
 	<title>Integration mit einem Bugtracking System</title>
 	<indexterm>
@@ -12,26 +12,30 @@
 	</indexterm>
 	<para>
 	Es ist in der Software Entwicklung üblich, Änderungen am Sourcecode mit einer spezifischen
-	ID in einem Issuetracker zu verbinden. Dies wird meist mittels pre-commit hook Skripten
-	gemacht, welche vom Issuetracker zur Verfügung gestellt werden und die Log-Meldung
-	einer Übertragung nach bestimmten Worten durchsuchen.
+	ID in einem Issuetracker zu verbinden. Dies wird meist mittels eines pre-commit Aktionsskripts
+	im Projektarchiv erreicht, welches vom Issuetracker zur Verfügung gestellt wird und die Log-Meldung
+	einer Übertragung nach bestimmten Worten durchsucht.
 	Dies ist jedoch sehr Fehleranfällig, da der Benutzer sich merken muss wie die Logmeldung
-	auszusehen hat damit das Hook-Skript dies auch richtig erkennen kann.
+	auszusehen hat damit das Aktionsskript dies auch richtig erkennen kann.
 	</para>
 	<para>
 	TortoiseSVN kann hier zweifach helfen:
 		<orderedlist>
-			<listitem><para>Wenn der Benutzer eine Logmeldung eingibt, kann eine vordefinierte
+			<listitem>
+				<para>Wenn der Benutzer eine Logmeldung eingibt, kann eine vordefinierte
 			Zeile automatisch der Logmeldung an- oder vorgehängt werden. Dies reduziert das Risiko
-			dass der Benutzer die Logmeldung falsch eingibt und das Hook-Skript die Issue-Nummer
+			dass der Benutzer die Logmeldung falsch eingibt und das Aktionsskript die Eintragsnummer
 			nicht mehr erkennen kann.</para>
-			<para>Oder <application>TortoiseSVN</application> kann die Stelle in der Logmeldung
-			hervorheben (während der Benutzer diese eingibt) welche vom Hook-Skript als Issue Nummer
+				<para>Oder <application>TortoiseSVN</application> kann die Stelle in der Logmeldung
+			hervorheben (während der Benutzer diese eingibt) welche vom Aktionsskript als Eintragsnummer
 			erkannt wird. Auf diese Weise hat der Benutzer eine visuelle Bestätigung für die Korrektheit
-			der Logmeldung.</para></listitem>
-			<listitem><para>Wenn der Benutzer die Logmeldungen ansieht im Log Dialog, kann <application>TortoiseSVN</application>
-			einen Link erstellen zum Issue und damit durch einen Klick den Browser gleich auf die
-			entsprechende Seite führen.</para></listitem>
+			der Logmeldung.</para>
+			</listitem>
+			<listitem>
+				<para>Wenn der Benutzer die Logmeldungen ansieht im Log Dialog, kann <application>TortoiseSVN</application>
+			einen Link zum Eintrag erstellen und damit durch einen Klick den Browser gleich auf die
+			entsprechende Seite führen.</para>
+			</listitem>
 		</orderedlist>
 	</para>
 	<para>
@@ -41,7 +45,7 @@
 	</para>
 	<para>
 		Es gibt zwei verschiedene Wege um <application>TortoiseSVN</application> mit einem
-		Issue Tracker zu verbinden. Ein Weg basiert auf einfachen Zeichenketten, der andere
+		Bugtracker zu verbinden. Ein Weg basiert auf einfachen Zeichenketten, der andere
 		basiert auf <literal>Regulären Ausdrücken</literal>.
 		Die Eigenschaften welche von beiden Wegen benutzt werden sind:
 		<variablelist>
@@ -78,7 +82,7 @@
 			</varlistentry>
 		</variablelist>
 		Mit dem einfachen Weg (Zeichenketten) zeigt <application>TortoiseSVN</application> dem
-		Benutzer ein zusätzliches Eingabefeld für die Issue Nummer. Es wird dann eine zusätzliche
+		Benutzer ein zusätzliches Eingabefeld für die Eintragsnummer. Es wird dann eine zusätzliche
 		Zeile der Logmeldung an- oder vorgehängt.
 		<variablelist>
 			<varlistentry>
@@ -113,7 +117,7 @@
 						Dieser Text wird von <application>TortoiseSVN</application>
 						im Übertragen Dialog angezeigt. Er beschreibt das Eingabefeld 
 						für die Eintragsnummer. Wird er weggelassen, wird 
-						<guilabel>Bug-ID / Issue-Nr: </guilabel>
+						<guilabel>Bug-ID / EintragsNr: </guilabel>
 						angezeigt. Beachten Sie bitte, dass der Text nicht zu lang ist, 
 						da er sonst evtl. in <application>TortoiseSVN</application> oder 
 						in anderen Clients einfach abgeschnitten wird. 
@@ -136,14 +140,14 @@
 		</variablelist>
 		Beim Weg mit den <literal>Regulären Ausdrücken</literal> zeigt <application>TortoiseSVN</application>
 		kein separates Eingabefeld an sondern hebt den Teil der Logmeldung hervor welche von
-		dem Hook-Skript als Issue Nummer erkannt wird. Die Hervorhebung erfolgt während der Benutzer
+		dem Aktionsskript als Eintragsnummer erkannt wird. Die Hervorhebung erfolgt während der Benutzer
 		die Logmeldung eingibt.
-		Dies bedeutet auch, dass die Issue Nummer irgendwo in der Logmeldung sein kann und nicht nur
+		Dies bedeutet auch, dass die Eintragsnummer irgendwo in der Logmeldung stehen kann und nicht nur
 		in einer separaten Zeile!
 		<tip>
 			<para>
-				Auch wenn Sie gar keinen Issue Tracker mit pre-commit Hook-Skript haben, können
-				Sie diese Funktion auch dazu nutzen, um Issue Nummern welche Sie in Ihren Logmeldungen
+				Auch wenn Sie gar keinen Issue Tracker mit pre-commit Aktionsskript haben, können
+				Sie diese Funktion auch dazu nutzen, um Eintragsnummern welche Sie in Ihren Logmeldungen
 				erwähnt haben in einen Link zum Issuetracker zu verwandeln.
 			</para>
 		</tip>

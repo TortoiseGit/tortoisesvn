@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter id="tsvn_serversetup" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<title>Setting Up A Server</title>
+	<simplesect>
+		<para>
+			To use TortoiseSVN (or any other subversion client), you need a place where your 
+			repositories are 	located. You can either store your repositories locally and access 
+			them using the <emphasis>file://</emphasis> protocol or you can place them on a 
+			server and access them with the <emphasis>http://</emphasis> or 
+			<emphasis>svn://</emphasis> protocols.  The two server protocols can also be 
+			encrypted. 
+			You use <emphasis>https://</emphasis> or <emphasis>svn+ssh://</emphasis>.
+			This chapter shows you step by step on how you can set up
+			such a server on a Windows machine.
+		</para>
+		<para>
+			If you don't have a server and/or if you only work alone then local repositories are 
+			probably your best choice. You can skip this chapter and go directly to
+			<xref linkend="tsvn_repository"/>.
+		</para>
+	</simplesect>
+	<!-- ================================================================= -->
+	<!-- include external entity refs -->
+	<xi:include href="./server_apache.xml"/>
+	<xi:include href="./server_svn.xml"/>
+</chapter>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book SYSTEM "../../dtd/dblite.dtd">
 <book id="tsvn" lang="de" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>TortoiseSVN</title>
@@ -15,13 +15,15 @@
 				<surname>Onken</surname>
 			</author>
 		</authorgroup>
-		<xi:include href="./pubdate.xml"/>
+		
+		href="./pubdate.xml"/>
 	</bookinfo>
 	<!-- include external files -->
 	<xi:include href="./tsvn_preface.xml"/>
 	<xi:include href="./tsvn_introduction.xml"/>
 	<xi:include href="./tsvn_basics.xml"/>
-	<xi:include href="./tsvn_server.xml"/>
+	<xi:include href="./tsvn_repository/repository.xml"/>
+	<xi:include href="./tsvn_server/server.xml"/>
 	<xi:include href="./tsvn_dug/dug.xml"/>
 	<xi:include href="./tsvn_app_faq.xml"/>
 	<xi:include href="./tsvn_app_automation.xml"/>
