@@ -1469,10 +1469,11 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 	nMouseLine--;		//we need the index
 	if ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount()))
 	{
-		if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates))
+		if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates)&&(!m_pMainFrame->m_bOneWay))
 		{
 			nMouseLine = (nMouseLine > m_pwndRight->m_arLineStates->GetCount() ? -1 : nMouseLine);
 			nMouseLine = (nMouseLine > m_pwndLeft->m_arLineStates->GetCount() ? -1 : nMouseLine);
+			
 			if (nMouseLine >= 0)
 			{
 				CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nMouseLine);
