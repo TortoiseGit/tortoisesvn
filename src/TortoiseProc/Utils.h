@@ -85,5 +85,6 @@ public:
 	static CString PathEscape(CString path);
 	static CString GetVersionFromFile(const CString & p_strDateiname);
 	static CString GetFileNameFromPath(CString sPath);
+	static BOOL PathIsParent(CString sPath1, CString sPath2);
 
 };

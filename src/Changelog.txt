@@ -20,6 +20,10 @@
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)
+- BUG: In the Commit and the Add dialog: if a file was
+       selected then only the topmost parentfolder was
+       automatically selected instead of all intermediant
+       parentfolders. (Stefan)
 - BUG: Export always used HEAD, even if another revision
        was specified in the dialog. (Stefan)
 - BUG: Showing diffs for changed files from the list in

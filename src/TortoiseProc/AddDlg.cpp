@@ -183,7 +183,7 @@ void CAddDlg::OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString folderpath = m_arFileList.GetAt(index);
 			for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 			{
-				if (folderpath.CompareNoCase(m_arFileList.GetAt(i).Left(folderpath.GetLength()))==0)
+				if (CUtils::PathIsParent(folderpath, m_arFileList.GetAt(i)))
 				{
 					m_addListCtrl.SetCheck(i, FALSE);
 				}
@@ -192,20 +192,15 @@ void CAddDlg::OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult)
 	} // if (!m_addListCtrl.GetCheck(index))
 	else
 	{
-		if (!PathIsDirectory(m_arFileList.GetAt(index)))
+		//we need to check the parent folder too
+		CString folderpath = m_arFileList.GetAt(index);
+		for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		{
-			//user selected a file, so we need to check the parent folder too
-			CString folderpath = m_arFileList.GetAt(index);
-			folderpath = folderpath.Left(folderpath.ReverseFind('\\'));
-			for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+			if (CUtils::PathIsParent(m_arFileList.GetAt(i), folderpath))
 			{
-				if (folderpath.CompareNoCase(m_arFileList.GetAt(i))==0)
-				{
-					m_addListCtrl.SetCheck(i, TRUE);
-					return;
-				} // if (folderpath.CompareNoCase(m_arFileList.GetAt(i))==0) 
-			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
-		} // if (!PathIsDirectory(m_arFileList.GetAt(index))) 
+				m_addListCtrl.SetCheck(i, TRUE);
+			} // if (folderpath.CompareNoCase(m_arFileList.GetAt(i))==0) 
+		} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 	} 
 }
 

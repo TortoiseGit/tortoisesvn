@@ -208,23 +208,18 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 									MB_OK | MB_ICONQUESTION, 
 									_T("AddUnversionedFilesOnCommitMsgBox"), 
 									IDS_MSGBOX_DONOTSHOW);
-			if (!PathIsDirectory(data->path))
+			//we need to check the parent folder too
+			CString folderpath = data->path;
+			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
 			{
-				//user selected a file, so we need to check the parent folder too
-				CString folderpath = data->path;
-				folderpath = folderpath.Left(folderpath.ReverseFind('/'));
-				for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
+				Data * d = m_arData.GetAt(i);
+				CString t = d->path;
+				if (CUtils::PathIsParent(t, folderpath))
 				{
-					Data * d = m_arData.GetAt(i);
-					CString t = d->path;
-					if (folderpath.CompareNoCase(d->path)==0)
-					{
-						m_ListCtrl.SetCheck(i, TRUE);
-						d->checked = TRUE;
-						return;
-					}
-				} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
-			} // if (!PathIsDirectory(data->path))
+					m_ListCtrl.SetCheck(i, TRUE);
+					d->checked = TRUE;
+				}
+			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		} // if (data->status == svn_wc_status_unversioned)
 		data->checked = TRUE;
 	}
@@ -238,7 +233,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				Data * d = m_arData.GetAt(i);
 				CString t = d->path;
-				if (folderpath.CompareNoCase(d->path.Left(folderpath.GetLength()))==0)
+				if (CUtils::PathIsParent(folderpath, t))
 				{
 					m_ListCtrl.SetCheck(i, FALSE);
 					d->checked = FALSE;
