@@ -163,7 +163,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		CString temp = tortoiseProcPath;
 		if (!temp.IsEmpty())
 		{
-			temp += _T("\\iconv");
+			temp += _T("iconv");
 			SetEnvironmentVariable(_T("APR_ICONV_PATH"), temp);
 		}
 		if (comVal.Compare(_T("test"))==0)
