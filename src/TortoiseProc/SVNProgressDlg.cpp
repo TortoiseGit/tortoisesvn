@@ -420,7 +420,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						if (CMessageBox::Show(pDlg->m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
 							break;
 					}
-					if (!pDlg->Commit(commitString, pDlg->m_sMessage, true))
+					if (!pDlg->Commit(commitString, pDlg->m_sMessage, false))
 					{
 						TRACE("%s", pDlg->GetLastErrorMessage());
 						CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
