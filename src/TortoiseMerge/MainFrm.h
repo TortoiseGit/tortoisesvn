@@ -87,6 +87,7 @@ public:
 	BOOL			m_bOneWay;
 	CDiffData		m_Data;
 	BOOL			LoadViews();
+	afx_msg void OnClose();
 };
 
 

@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_ONEWAYDIFF, OnUpdateViewOnewaydiff)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACES, OnUpdateViewWhitespaces)
 	ON_COMMAND(ID_VIEW_OPTIONS, OnViewOptions)
+	ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -581,11 +582,13 @@ void CMainFrame::SaveFile(CString sFilePath)
 	{
 		arText = m_pwndBottomView->m_arDiffLines;
 		arStates = m_pwndBottomView->m_arLineStates;
+		m_pwndBottomView->SetModified(FALSE);
 	} // if (m_pwndBottomView) 
 	else if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 	{
 		arText = m_pwndRightView->m_arDiffLines;
 		arStates = m_pwndRightView->m_arLineStates;
+		m_pwndRightView->SetModified(FALSE);
 	} 
 	else
 	{
@@ -606,7 +609,6 @@ void CMainFrame::SaveFile(CString sFilePath)
 			case CDiffData::DIFFSTATE_CONFLICTADDED:
 			case CDiffData::DIFFSTATE_CONFLICTED:
 			case CDiffData::DIFFSTATE_CONFLICTEMPTY:
-			case CDiffData::DIFFSTATE_EMPTY:
 			case CDiffData::DIFFSTATE_IDENTICALADDED:
 			case CDiffData::DIFFSTATE_NORMAL:
 			case CDiffData::DIFFSTATE_THEIRSADDED:
@@ -614,6 +616,7 @@ void CMainFrame::SaveFile(CString sFilePath)
 			case CDiffData::DIFFSTATE_YOURSADDED:
 				file.Add(arText->GetAt(i));
 				break;
+			case CDiffData::DIFFSTATE_EMPTY:
 			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
 			case CDiffData::DIFFSTATE_REMOVED:
 			case CDiffData::DIFFSTATE_THEIRSREMOVED:
@@ -758,3 +761,20 @@ void CMainFrame::OnViewOptions()
 	LoadViews();
 }
 
+void CMainFrame::OnClose()
+{
+	int ret = IDNO;
+	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
+		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
+	{
+		CString sTemp;
+		sTemp.LoadString(IDS_ASKFORSAVE);
+		ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+		if (ret == IDYES)
+		{
+			OnFileSave();
+		}
+	} // ified())))
+	if ((ret == IDNO)||(ret == IDYES))
+		__super::OnClose();
+}
