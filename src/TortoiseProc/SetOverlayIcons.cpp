@@ -251,6 +251,18 @@ void CSetOverlayIcons::ShowIconSet()
 	AddFileTypeGroup(_T(".cs"));
 	AddFileTypeGroup(_T(".vb"));
 	AddFileTypeGroup(_T(".xml"));
+	AddFileTypeGroup(_T(".pas"));
+	AddFileTypeGroup(_T(".dpr"));
+	AddFileTypeGroup(_T(".dfm"));
+	AddFileTypeGroup(_T(".res"));
+	AddFileTypeGroup(_T(".asmx"));
+	AddFileTypeGroup(_T(".aspx"));
+	AddFileTypeGroup(_T(".resx"));
+	AddFileTypeGroup(_T(".vbp"));
+	AddFileTypeGroup(_T(".frm"));
+	AddFileTypeGroup(_T(".frx"));
+	AddFileTypeGroup(_T(".bas"));
+	AddFileTypeGroup(_T(".config"));
 	m_cIconList.RedrawItems(0, m_cIconList.GetItemCount());
 }
 void CSetOverlayIcons::AddFileTypeGroup(CString sFileType)
