@@ -436,8 +436,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					} // while (file.ReadString(strLine)) 
 					if (commitString.IsEmpty())
 					{
-						temp.LoadString(IDS_PROGRS_TITLEFIN);
-						sWindowTitle = sWindowTitle + _T(" ") + temp;
 						pDlg->SetWindowText(sWindowTitle);
 						temp.LoadString(IDS_MSGBOX_OK);
 
