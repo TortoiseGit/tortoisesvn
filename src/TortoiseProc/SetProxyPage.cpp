@@ -167,6 +167,8 @@ BOOL CSetProxyPage::OnInitDialog()
 	if (m_timeout == 0)
 		m_timeout = _ttoi((LPCTSTR)(CString)m_regTimeout_copy);
 
+	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_SSHCLIENT), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
+
 	UpdateData(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
