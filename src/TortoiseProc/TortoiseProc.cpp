@@ -50,7 +50,7 @@
 #include "BrowseFolder.h"
 #include "SVNStatus.h"
 #include "Utils.h"
-
+#include "SoundUtils.h"
 #include "libintl.h"
 
 #include "..\version.h"
@@ -197,6 +197,7 @@ void CTortoiseProcApp::CrashProgram()
 }
 BOOL CTortoiseProcApp::InitInstance()
 {
+	CSoundUtils::RegisterTSVNSounds();
 	//set the resource dll for the required language
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;

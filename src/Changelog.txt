@@ -1,4 +1,6 @@
 - ADD: Option to resolve a conflicted file in the status list control. (Stefan)
+- ADD: TortoiseSVN now uses its own sound files for errors, warnings
+       and notifications in the progress dialog. (Stefan)
 - CHG: When an entry from the log message history combo is selected, it isn't
        inserted at the beginning of an existing text anymore but at the
        current cursor location. A text which is selected is automatically

@@ -174,6 +174,8 @@ private:
 	virtual void OnOK();
 	void ReportSVNError();
 	void ReportError(const CString& sError);
+	void ReportWarning(const CString& sWarning);
+	void ReportNotification(const CString& sNotification);
 	void ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
 	void AddItemToList(const NotificationData* pData);
 

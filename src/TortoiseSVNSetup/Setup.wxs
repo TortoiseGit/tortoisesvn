@@ -172,6 +172,11 @@
 	        <File Id="F__mfc71" Name="MFC71.DLL" LongName="mfc71.dll" DiskId="1" src="$(env.windir)\system32\mfc71.dll" />
 	        <File Id="F__msvcp71" Name="MSVCP71.DLL" LongName="msvcp71.dll" DiskId="1" src="$(env.windir)\system32\msvcp71.dll" />
 	      </Component>
+	      <Component Id="C__Sounds" Guid="8C3F26B0-D4EE-4eb9-8E88-9FA60AD48B83" >
+	        <File Id="F__sounderror" Name="TORTOI~5.WAV" LongName="TortoiseSVN_error.wav" DiskId="1" src="..\Resources\TortoiseSVN_error.wav" KeyPath="yes" />
+	        <File Id="F__soundwarning" Name="TORTOI~6.WAV" LongName="TortoiseSVN_Warning.wav" DiskId="1" src="..\Resources\TortoiseSVN_Warning.wav" />
+	        <File Id="F__soundnotification" Name="TORTOI~7.WAV" LongName="TortoiseSVN_Notification.wav" DiskId="1" src="..\Resources\TortoiseSVN_Notification.wav" />
+	      </Component>
 	      <Component Id="C__TortoiseBlame" Guid="1B00F2A6-4D6B-4dbe-8B69-C8B493B4BBE5" >
 	        <File Id="F__TortoiseBlame" Name="TORTOI~4.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseBlame.exe" KeyPath="yes" />
 	        <File Id="F__SciLexer" Name="SCILEX~1.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\release\bin\SciLexer.dll" />
@@ -485,6 +490,7 @@
       <ComponentRef Id="C__ProgramMenuFolder" />
       <ComponentRef Id="C__TortoiseBlame" />
       <ComponentRef Id="C__Languages" />
+      <ComponentRef Id="C__Sounds" />
     </Feature>
     <Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
       <ComponentRef Id="C__crash" />

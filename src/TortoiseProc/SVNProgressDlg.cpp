@@ -26,6 +26,7 @@
 #include "SVNStatus.h"
 #include "Utils.h"
 #include "UnicodeUtils.h"
+#include "SoundUtils.h"
 
 
 // CSVNProgressDlg dialog
@@ -186,7 +187,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 				data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
 				data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
 				data->color = RGB(255,0,0);
-
+				CSoundUtils::PlayTSVNWarning();
 				// This item will now be added after the switch statement
 			}
 			m_RevisionEnd = rev;
@@ -437,7 +438,20 @@ void CSVNProgressDlg::ReportSVNError()
 
 void CSVNProgressDlg::ReportError(const CString& sError)
 {
+	CSoundUtils::PlayTSVNError();
 	ReportString(sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), RGB(255, 0, 0));
+}
+
+void CSVNProgressDlg::ReportWarning(const CString& sWarning)
+{
+	CSoundUtils::PlayTSVNWarning();
+	ReportString(sWarning, CString(MAKEINTRESOURCE(IDS_WARN_WARNING)), RGB(255, 0, 0));
+}
+
+void CSVNProgressDlg::ReportNotification(const CString& sNotification)
+{
+	CSoundUtils::PlayTSVNNotification();
+	ReportString(sNotification, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
 }
 
 void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, COLORREF color)
@@ -773,8 +787,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				break;
 			}
 			CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_WARNING));
-			CString sKind(MAKEINTRESOURCE(IDS_WARN_NOTE));
-			ReportString(sMsg, sKind);
+			ReportNotification(sMsg);
 			break;
 	}
 	temp.LoadString(IDS_PROGRS_TITLEFIN);
