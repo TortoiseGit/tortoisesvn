@@ -20,6 +20,7 @@
 
 #include "StandAloneDlg.h"
 #include "SciEdit.h"
+#include "ProjectProperties.h"
 
 // CInputDlg dialog
 
@@ -48,4 +49,5 @@ public:
 	CString m_sHintText;
 	CString m_sTitle;
 	CSciEdit	m_cInput;
+	ProjectProperties * m_pProjectProperties;
 };

@@ -803,19 +803,5 @@ void CRepositoryBrowser::SetupInputDlg(CInputDlg * dlg, UINT title)
 	CUtils::RemoveAccelerators(dlg->m_sTitle);
 	dlg->m_sInputText.LoadString(title);
 	CUtils::RemoveAccelerators(dlg->m_sInputText);
-
-	dlg->m_cInput.Init(m_ProjectProperties.lProjectLanguage);
-	dlg->m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
-	if (m_ProjectProperties.nLogWidthMarker)
-	{
-		dlg->m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
-		dlg->m_cInput.Call(SCI_SETEDGEMODE, EDGE_LINE);
-		dlg->m_cInput.Call(SCI_SETEDGECOLUMN, m_ProjectProperties.nLogWidthMarker);
-	}
-	else
-	{
-		dlg->m_cInput.Call(SCI_SETEDGEMODE, EDGE_NONE);
-		dlg->m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
-	}
-	dlg->m_cInput.SetText(m_ProjectProperties.sLogTemplate);
+	dlg->m_pProjectProperties = &m_ProjectProperties;
 }

@@ -28,6 +28,7 @@ IMPLEMENT_DYNAMIC(CInputDlg, CResizableStandAloneDialog)
 CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CInputDlg::IDD, pParent)
 	, m_sInputText(_T(""))
+	, m_pProjectProperties(NULL)
 {
 }
 
@@ -52,8 +53,28 @@ BOOL CInputDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	m_cInput.Init();
+	if (m_pProjectProperties)
+		m_cInput.Init(m_pProjectProperties->lProjectLanguage);
+	else
+		m_cInput.Init();
 	m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+
+	if (m_pProjectProperties)
+	{
+		if (m_pProjectProperties->nLogWidthMarker)
+		{
+			m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
+			m_cInput.Call(SCI_SETEDGEMODE, EDGE_LINE);
+			m_cInput.Call(SCI_SETEDGECOLUMN, m_pProjectProperties->nLogWidthMarker);
+		}
+		else
+		{
+			m_cInput.Call(SCI_SETEDGEMODE, EDGE_NONE);
+			m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+		}
+		m_cInput.SetText(m_pProjectProperties->sLogTemplate);
+	}
+
 
 	if (!m_sHintText.IsEmpty())
 	{
