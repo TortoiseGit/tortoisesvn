@@ -893,10 +893,6 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					CTSVNPath temporaryFile;
 					SVN::DiffFileAgainstBase(cmdLinePath, temporaryFile);
-					if(!temporaryFile.IsEmpty())
-					{
-						::DeleteFile(temporaryFile.GetWinPath());
-					}
 				}
 			} 
 			else
