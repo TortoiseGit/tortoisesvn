@@ -587,9 +587,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 {
 	WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
-
-	int startTime = GetTickCount();
-
 	CWinApp * pApp = AfxGetApp();
 	if (pApp)
 		pApp->DoWaitCursor(1);
@@ -604,12 +601,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 	// It might be better to have a guess at how much we'll need
 	m_arListArray.reserve(m_arStatusArray.size());
 	SetItemCount(m_arStatusArray.size());
-
-	int endTime = GetTickCount();
-	CStringA strMsg;
-	strMsg.Format("PrepTime: %d\n", endTime-startTime);
-	startTime = endTime;
-	OutputDebugStringA(strMsg);
 
 	int listIndex = 0;
 	for (int i=0; i< (int)m_arStatusArray.size(); ++i)
@@ -637,11 +628,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 
 	SetItemCount(listIndex);
 
-//	endTime = GetTickCount();
-//	strMsg.Format("AddEntries: %d, (%d/%d)\n", endTime-startTime, GetItemCount(), listIndex);
-//	startTime = endTime;
-//	OutputDebugStringA(strMsg);
-	
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
 	int col;
@@ -654,11 +640,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 
 	if (pApp)
 		pApp->DoWaitCursor(-1);
-
-	endTime = GetTickCount();
-	strMsg.Format("ShowTime: %d\n", endTime-startTime);
-	startTime = endTime;
-	OutputDebugStringA(strMsg);
 }
 
 void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int listIndex)
