@@ -92,7 +92,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	{
 		svn_wc_status_kind st = SVNStatus::GetAllStatusRecursive(_T("D:\\Development\\CRC\\src"));
 		
-		CMessageBox::Show(NULL, _T("The program will now crash\nto test the crashhandler!\n<ct=0x0000FF>Do NOT send the crashreport!!!!</ct>"), _T("TortoiseSVN"), MB_ICONINFORMATION);
+		CMessageBox::Show(NULL, _T("TortoiseSVN should run automatically when Windows starts.\nYou do NOT run it directly.\nIt is designed to crash if you run it directly for the purpose\nof testing the crash handler.\n<ct=0x0000FF>Do NOT send the crashreport!!!!</ct>"), _T("TortoiseSVN"), MB_ICONINFORMATION);
 		CrashProgram();
 		CMessageBox::Show(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
 		return FALSE;
