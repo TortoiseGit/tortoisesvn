@@ -157,7 +157,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 				flags = MF_STRING | MF_GRAYED;
 			else
 				flags = MF_STRING | MF_ENABLED;
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);
+			popup.AppendMenu(flags, ID_POPOPEN, temp);
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
