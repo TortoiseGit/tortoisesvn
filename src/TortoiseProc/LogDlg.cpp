@@ -289,6 +289,10 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 	// Remove newlines 'cause those are not shown nicely in the listcontrol
 	sShortMessage.Replace('\n', ' ');
 	sShortMessage.Replace(_T("\r"), _T(""));
+	CString sShorterMessage = message;
+	sShorterMessage.Replace(_T("\r"), _T(""));
+	if (sShorterMessage.Find(_T("\n\n"))>=0)
+		sShortMessage = sShortMessage.Left(sShorterMessage.Find(_T("\n\n")));
 	if (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH)
 	{
 		// Make an initial guess on how many chars fit into the fixed width
