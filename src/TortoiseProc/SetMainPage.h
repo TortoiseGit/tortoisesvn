@@ -78,6 +78,8 @@ private:
 	CComboBox		m_LanguageCombo;
 	CRegDWORD		m_regLanguage;
 	DWORD			m_dwLanguage;
+	BOOL			m_bDontConvertBase;
+	CRegDWORD		m_regDontConvertBase;
 	CRegDWORD		m_regAddBeforeCommit;
 	BOOL			m_bAddBeforeCommit;
 	CRegDWORD		m_regNoRemoveLogMsg;
@@ -99,4 +101,5 @@ public:
 	afx_msg void OnBnClickedNoremovelogmsg();
 	afx_msg void OnBnClickedAutoclose();
 	afx_msg void OnEnChangeDefaultlog();
+	afx_msg void OnBnClickedDontconvert();
 };

@@ -573,7 +573,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (path2.IsEmpty())
 			{
 				path2 = SVN::GetPristinePath(path);
-				if (SVN::GetTranslatedFile(path, path))
+				if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path, path)))
 				{
 					bDelete = TRUE;
 				}

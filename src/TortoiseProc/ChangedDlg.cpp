@@ -274,7 +274,7 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						tempfile = SVN::GetPristinePath(filepath);
 
-						if (SVN::GetTranslatedFile(filepath, m_arPaths.GetAt(selIndex)))
+						if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(filepath, m_arPaths.GetAt(selIndex))))
 						{
 							m_templist.Add(filepath);
 						}
@@ -400,7 +400,7 @@ void CChangedDlg::OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 
 	CString path2 = SVN::GetPristinePath(path1);
 
-	if (SVN::GetTranslatedFile(path1, path1))
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path1, path1)))
 	{
 		m_templist.Add(path1);
 	}

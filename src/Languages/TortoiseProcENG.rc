@@ -327,18 +327,21 @@ BEGIN
     EDITTEXT        IDC_DEFAULTLOG,229,57,51,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
     LTEXT           "&Language:",IDC_STATIC,19,20,54,8
-    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,19,37,61,18
+    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,19,37,54,18
     LTEXT           "Default &number of log messages",IDC_STATIC,19,59,198,8
     CONTROL         "&Show unversioned files before committing",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,19,98,261,
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,19,115,261,
                     10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    19,112,261,10
+                    19,129,261,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,19,126,261,10
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,71
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,84,286,61
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,143,261,10
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,89
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,101,286,61
+    CONTROL         "Don't convert files when diffing against BASE",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,76,
+                    261,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199
@@ -659,6 +662,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
         VERTGUIDE, 19
+        VERTGUIDE, 73
         VERTGUIDE, 80
         VERTGUIDE, 217
         VERTGUIDE, 229
@@ -878,6 +882,8 @@ BEGIN
     IDS_SETTINGS_AUTOCLOSE_TT 
                             "Check if you want the progress dialog to close\nautomatically after the operation finishes."
     IDS_UTILS_SELECTTEXTVIEWER "Select Text Editor Application"
+    IDS_SETTINGS_DONTCONVERTBASE_TT 
+                            "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
     IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."

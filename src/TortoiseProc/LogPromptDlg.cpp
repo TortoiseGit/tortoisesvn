@@ -317,7 +317,7 @@ void CLogPromptDlg::StartDiff(int fileindex)
 	CString path1;
 	CString path2 = SVN::GetPristinePath(m_arFileList.GetAt(fileindex));
 
-	if (SVN::GetTranslatedFile(path1, m_arFileList.GetAt(fileindex)))
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path1, m_arFileList.GetAt(fileindex))))
 	{
 		m_templist.Add(path1);
 	}

@@ -34,6 +34,7 @@ CSetMainPage::CSetMainPage()
 	, m_bNoRemoveLogMsg(FALSE)
 	, m_bAutoClose(FALSE)
 	, m_sDefaultLogs(_T(""))
+	, m_bDontConvertBase(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
@@ -41,6 +42,7 @@ CSetMainPage::CSetMainPage()
 	m_regNoRemoveLogMsg = CRegDWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+	m_regDontConvertBase = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), FALSE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -54,6 +56,7 @@ void CSetMainPage::SaveData()
 	m_regAddBeforeCommit = m_bAddBeforeCommit;
 	m_regNoRemoveLogMsg = m_bNoRemoveLogMsg;
 	m_regAutoClose = m_bAutoClose;
+	m_regDontConvertBase = m_bDontConvertBase;
 	long val = _ttol(m_sDefaultLogs);
 	if (val > 5)
 		m_regDefaultLogs = val;
@@ -73,6 +76,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
 	DDX_Control(pDX, IDC_MISCGROUP, m_cMiscGroup);
 	DDX_Control(pDX, IDC_COMMITGROUP, m_cCommitGroup);
+	DDX_Check(pDX, IDC_DONTCONVERT, m_bDontConvertBase);
 }
 
 
@@ -83,6 +87,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_NOREMOVELOGMSG, OnBnClickedNoremovelogmsg)
 	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
+	ON_BN_CLICKED(IDC_DONTCONVERT, OnBnClickedDontconvert)
 END_MESSAGE_MAP()
 
 
@@ -101,6 +106,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bNoRemoveLogMsg = m_regNoRemoveLogMsg;
 	m_bAutoClose = m_regAutoClose;
 	m_dwLanguage = m_regLanguage;
+	m_bDontConvertBase = m_regDontConvertBase;
 	CString temp;
 	temp.Format(_T("%ld"), (DWORD)m_regDefaultLogs);
 	m_sDefaultLogs = temp;
@@ -110,6 +116,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_ADDBEFORECOMMIT, IDS_SETTINGS_ADDBEFORECOMMIT_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSE, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_NOREMOVELOGMSG, IDS_SETTINGS_NOREMOVELOGMSG_TT);
+	m_tooltips.AddTool(IDC_DONTCONVERT, IDS_SETTINGS_DONTCONVERTBASE_TT);
 	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
@@ -183,6 +190,11 @@ void CSetMainPage::OnBnClickedAutoclose()
 	SetModified();
 }
 
+void CSetMainPage::OnBnClickedDontconvert()
+{
+	SetModified();
+}
+
 void CSetMainPage::OnEnChangeDefaultlog()
 {
 	SetModified();
@@ -195,6 +207,7 @@ BOOL CSetMainPage::OnApply()
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+
 
 
 

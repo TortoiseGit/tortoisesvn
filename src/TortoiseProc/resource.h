@@ -134,7 +134,6 @@
 #define IDC_STATIC3                     1057
 #define IDC_STATIC4                     1058
 #define IDC_BUTTON2                     1059
-#define IDC_DEFAULTPROGS                1059
 #define IDC_CANCEL                      1060
 #define IDC_CHECK2                      1061
 #define IDC_NOREMOVELOGMSG              1061
@@ -149,6 +148,7 @@
 #define IDC_DEFAULTLOG                  1071
 #define IDC_CHECK1                      1073
 #define IDC_MENU24                      1073
+#define IDC_DONTCONVERT                 1073
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
@@ -237,6 +237,7 @@
 #define IDS_SETTINGS_DIFFVIEWER_TT      1252
 #define IDS_SETTINGS_AUTOCLOSE_TT       1253
 #define IDS_UTILS_SELECTTEXTVIEWER      1254
+#define IDS_SETTINGS_DONTCONVERTBASE_TT 1255
 #define IDS_PROC_WARNREVERT             1256
 #define IDS_PROC_CLEANUPFINISHED        1257
 #define IDS_PROC_REPOCREATEERR          1258
