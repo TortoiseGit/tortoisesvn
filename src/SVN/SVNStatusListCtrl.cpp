@@ -368,19 +368,15 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 							}
 						} 
 					} // if (s->entry)
-					else
+
+					temp = strbuf;
+					for (int ix=0; ix<arExtPaths.GetCount(); ix++)
 					{
-						// added and unversioned files don't have an UUID assigned yet, so check if they're
-						// below an external folder
-						temp = strbuf;
-						for (int ix=0; ix<arExtPaths.GetCount(); ix++)
+						CString t = arExtPaths.GetAt(ix);
+						if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
 						{
-							CString t = arExtPaths.GetAt(ix);
-							if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
-							{
-								bIsExternal = TRUE;
-								break;
-							}
+							bIsExternal = TRUE;
+							break;
 						}
 					}
 
