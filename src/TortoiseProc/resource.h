@@ -189,6 +189,7 @@
 #define IDC_F5HINT                      1127
 #define IDC_RADIOBDB                    1128
 #define IDC_RADIOFSFS                   1129
+#define IDC_CHECK_STOPONCOPY            1130
 #define IDS_MSGBOX_DONOTSHOWAGAIN       1153
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
@@ -356,7 +357,6 @@
 #define IDS_LOG_POPUP_FIND              1803
 #define IDS_LOG_POPUP_OPEN              1804
 #define IDS_LOG_COPY_SUCCESS            1830
-#define IDS_LOG_STRICTQUESTION          1831
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902
@@ -440,7 +440,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        179
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1130
+#define _APS_NEXT_CONTROL_VALUE         1131
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -138,7 +138,6 @@ private:
 	CStringArray m_arLogPaths;
 	CDWordArray m_arRevs;
 	BOOL		m_hasWC;
-	BOOL		m_bGotAllPressed;
 	int			m_nSearchIndex;
 	static const UINT m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;

@@ -41,7 +41,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pNotifyWindow = NULL;
 	m_bThreadRunning = FALSE;
-	m_bGotAllPressed = FALSE;
 }
 
 CLogDlg::~CLogDlg()
@@ -59,6 +58,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOGLIST, m_LogList);
 	DDX_Control(pDX, IDC_LOGMSG, m_LogMsgCtrl);
 	DDX_Control(pDX, IDC_PROGRESS, m_LogProgress);
+	DDX_Check(pDX, IDC_CHECK_STOPONCOPY, m_bStrict);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -193,8 +193,9 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MSGVIEW, TOP_LEFT, MIDDLE_RIGHT);
 	AddAnchor(IDC_LOGMSG, MIDDLE_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_CHECK_STOPONCOPY, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
+	AddAnchor(IDC_PROGRESS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
@@ -245,25 +246,7 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 
 void CLogDlg::OnBnClickedGetall()
 {
-	if ((m_bStrict)&&(m_bGotAllPressed == FALSE))
-	{
-		UINT ret = 0;
-		ret = CMessageBox::Show(this->m_hWnd, IDS_LOG_STRICTQUESTION, IDS_APPNAME, MB_YESNOCANCEL | MB_ICONQUESTION);
-		if (ret == IDCANCEL)
-			return;
-		if (ret == IDNO)
-		{
-			m_bStrict = FALSE;
-			m_bShowedAll = TRUE;
-			GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
-		}
-	}
-	else
-	{
-		m_bStrict = FALSE;
-		m_bShowedAll = TRUE;
-		GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
-	}
+	UpdateData();
 	m_LogList.DeleteAllItems();
 	m_arLogMessages.RemoveAll();
 	m_arLogPaths.RemoveAll();
@@ -272,7 +255,6 @@ void CLogDlg::OnBnClickedGetall()
 	m_endrev = 1;
 	m_startrev = -1;
 	m_bCancelled = FALSE;
-	m_bGotAllPressed = TRUE;
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
 	{
