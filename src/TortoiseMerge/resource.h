@@ -56,6 +56,7 @@
 #define IDS_VIEWCONTEXTMENU_USEYOURBLOCK 4002
 #define IDS_SAVEASTITLE                 5000
 #define IDS_COMMANDLINEHELP             5001
+#define IDS_OPENDIFFFILETITLE           5002
 #define ID_VIEW_WHITESPACES             32774
 #define ID_VIEW_ONEWAYDIFF              32775
 
