@@ -49,6 +49,7 @@ IDI_DRIVES              ICON                    "res\\Drives.ico"
 IDI_SSH                 ICON                    "res\\ssh.ico"
 IDI_PROXY               ICON                    "res\\proxy.ico"
 IDI_MISC                ICON                    "res\\misc.ico"
+IDI_INFO                ICON                    "res\\info.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -225,7 +226,9 @@ BEGIN
     EDITTEXT        IDC_COMMIT_TO,6,17,287,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,6,209,287,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,6,209,230,10
+    ICON            IDI_INFO,IDC_INFOPIC,252,206,21,20,SS_NOTIFY | 
+                    SS_CENTERIMAGE | SS_REALSIZEIMAGE,WS_EX_TRANSPARENT
 END
 
 IDD_MERGE DIALOGEX 0, 0, 300, 163

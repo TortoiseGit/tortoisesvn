@@ -19,6 +19,7 @@
 #pragma once
 #include "afxcmn.h"
 #include "ResizableDialog.h"
+#include "..\\Utils\\Balloon.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -99,6 +100,13 @@ public:
 	CListCtrl		m_ListCtrl;
 	CString			m_sPath;
 	CStringArray	m_templist;
+
+	LONG			m_nUnversioned;
+	LONG			m_nModified;
+	LONG			m_nAdded;
+	LONG			m_nDeleted;
+	LONG			m_nConflicted;
+	CBalloon		m_tooltips;
 private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;

@@ -122,7 +122,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 	// when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
-
 	LOGFONT LogFont;
 	LogFont.lfHeight         = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8), GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
 	LogFont.lfWidth          = 0;
@@ -173,6 +172,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	}
 	m_ListCtrl.UpdateData(FALSE);
 
+	m_tooltips.Create(this);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
@@ -180,6 +180,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HINTLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_INFOPIC, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("LogPromptDlg"));
@@ -825,6 +826,62 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
 	} // if (bHasExternalsFromDifferentRepos) 
+
+	//now gather some statistics
+	pDlg->m_nAdded = 0;
+	pDlg->m_nDeleted = 0;
+	pDlg->m_nModified = 0;
+	pDlg->m_nUnversioned = 0;
+	pDlg->m_nConflicted = 0;
+	for (int i=0; i<pDlg->m_arData.GetCount(); i++)
+	{
+		CLogPromptDlg::Data * data = pDlg->m_arData.GetAt(i);
+		if (data)
+		{
+			switch (data->status)
+			{
+			case svn_wc_status_added:
+				pDlg->m_nAdded++;
+				break;
+			case svn_wc_status_missing:
+			case svn_wc_status_deleted:
+				pDlg->m_nDeleted++;
+				break;
+			case svn_wc_status_replaced:
+			case svn_wc_status_modified:
+			case svn_wc_status_merged:
+				pDlg->m_nModified++;
+				break;
+			case svn_wc_status_conflicted:
+			case svn_wc_status_obstructed:
+				pDlg->m_nConflicted++;
+			default:
+				pDlg->m_nUnversioned++;
+				break;
+			} // switch (data->status) 
+		} // if (data) 
+	} // for (int i=0; i<pDlg->m_arData.GetCount(); i++) 
+	CString sAdded, sDeleted, sModified, sConflicted, sUnversioned;
+	TCHAR buf[MAX_PATH];
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+	sAdded = buf;
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_deleted, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+	sDeleted = buf;
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+	sModified = buf;
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_conflicted, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+	sConflicted = buf;
+	SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_unversioned, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+	sUnversioned = buf;
+	CString sToolTip;
+	sToolTip.Format(_T("%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d"),
+		sUnversioned, pDlg->m_nUnversioned,
+		sModified, pDlg->m_nModified,
+		sAdded, pDlg->m_nAdded,
+		sDeleted, pDlg->m_nDeleted,
+		sConflicted, pDlg->m_nConflicted
+		);
+	pDlg->m_tooltips.AddTool(pDlg->GetDlgItem(IDC_INFOPIC), sToolTip);
 	return 0;
 }
 
@@ -868,6 +925,8 @@ void CLogPromptDlg::OnBnClickedSelectall()
 
 BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 {
+	if (GetDlgItem(IDOK)->IsWindowEnabled())
+		m_tooltips.RelayEvent(pMsg);
 	if ((pMsg->message == WM_KEYDOWN)&&(pMsg->wParam == VK_F5))//(nChar == VK_F5)
 	{
 		if (!GetDlgItem(IDOK)->IsWindowEnabled())
