@@ -277,22 +277,46 @@ void CBalloon::OnDrawBackground(CDC * pDC, CRect * pRect)
 	switch (m_pToolInfo.nEffect)
 	{
 	case BALLOON_EFFECT_HGRADIENT:
+#ifdef USE_GDI_GRADIENT
 		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], TRUE);
+#else
+		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], TRUE);
+#endif
 		break;
 	case BALLOON_EFFECT_VGRADIENT:
+#ifdef USE_GDI_GRADIENT
 		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], FALSE);
+#else
+		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor [BALLOON_COLOR_BK_END], FALSE);
+#endif
 		break;
 	case BALLOON_EFFECT_HCGRADIENT:
+#ifdef USE_GDI_GRADIENT
 		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN]);
+#else
+		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN]);
+#endif
 		break;
 	case BALLOON_EFFECT_VCGRADIENT:
+#ifdef USE_GDI_GRADIENT
 		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN], FALSE);
+#else
+		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_END], m_crColor[BALLOON_COLOR_BK_BEGIN], FALSE);
+#endif
 		break;
 	case BALLOON_EFFECT_3HGRADIENT:
+#ifdef USE_GDI_GRADIENT
 		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END]);
+#else
+		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END]);
+#endif
 		break;
 	case BALLOON_EFFECT_3VGRADIENT:
+#ifdef USE_GDI_GRADIENT
 		CGradient::DrawGDI(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END], FALSE);
+#else
+		CGradient::Draw(pDC, pRect, m_crColor[BALLOON_COLOR_BK_BEGIN], m_crColor[BALLOON_COLOR_BK_MID], m_crColor[BALLOON_COLOR_BK_END], FALSE);
+#endif
 		break;
 	default:
 		pDC->FillSolidRect(pRect, m_crColor[BALLOON_COLOR_BK_BEGIN]);

@@ -19,7 +19,6 @@
 #pragma once
 #include <windows.h>
 
-#define USE_GDI_GRADIENT
 
 /**
  * \ingroup Utils
