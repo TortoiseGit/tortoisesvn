@@ -191,6 +191,8 @@ public:
 
 	CString GetLastErrorMessage() {return m_sLastError;}
 
+	void Block(BOOL block) {m_bBlock = block;}
+
 	LONG						m_nTargetCount;		///< number of targets in the file passed to GetStatus()
 
 	CString						m_sURL;				///< the URL of the target or "(multiple targets)"

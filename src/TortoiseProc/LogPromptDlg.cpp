@@ -293,6 +293,7 @@ void CLogPromptDlg::OnOK()
 		//inside a deleted folder. If that's the case, then remove those
 		//files from the list since they'll get deleted by the parent
 		//folder automatically.
+		m_ListCtrl.Block(TRUE);
 		for (int i=0; i<arDeleted.GetCount(); i++)
 		{
 			if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
@@ -318,6 +319,7 @@ void CLogPromptDlg::OnOK()
 				}
 			}
 		} // for (int i=0; i<arDeleted.GetCount(); i++) 
+		m_ListCtrl.Block(FALSE);
 
 		//save only the files the user has selected into the temporary file
 		try
@@ -378,7 +380,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->m_ListCtrl.Show(dwShow);
 	pDlg->m_ListCtrl.CheckAll(SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED);
 
-	if (pDlg->m_ListCtrl.HasExternalsFromDifferentRepos()||pDlg->m_ListCtrl.HasExternals())
+	if (pDlg->m_ListCtrl.HasExternalsFromDifferentRepos())
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
 	} // if (bHasExternalsFromDifferentRepos) 
