@@ -124,7 +124,7 @@ BOOL CChangedDlg::OnInitDialog()
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &ChangedStatusThread, this, 0, &dwThreadId))==0)
 	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	theApp.DoWaitCursor(1);
 	GetDlgItem(IDC_CHANGEDLIST)->UpdateData(FALSE);
@@ -362,20 +362,20 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 					DWORD dwThreadId;
 					if ((m_hThread = CreateThread(NULL, 0, &ChangedStatusThread, this, 0, &dwThreadId))==0)
 					{
-						CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
+						CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 					}
 				}
 				break;
 			case ID_REVERT:
 				{
-					if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES)
+					if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 					{
 						SVN svn;
 						if (!svn.Revert(filepath, FALSE))
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
-					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES) 
+					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)  
 				} 
 				break;
 			default:

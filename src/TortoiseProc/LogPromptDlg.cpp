@@ -287,7 +287,7 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 			case ID_REVERT:
 				{
-					if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES)
+					if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 					{
 						SVN svn;
 						if (!svn.Revert(filepath, FALSE))
@@ -301,7 +301,7 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 							m_ListCtrl.DeleteItem(selIndex);
 							m_arData.RemoveAt(selIndex);
 						}
-					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES) 
+					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)  
 				} 
 				break;
 			case ID_COMPARE:

@@ -169,7 +169,7 @@ BOOL CLogDlg::OnInitDialog()
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
 	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
@@ -232,7 +232,7 @@ void CLogDlg::OnBnClickedGetall()
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
 	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 	m_bShowedAll = TRUE;
