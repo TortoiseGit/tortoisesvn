@@ -120,7 +120,15 @@ void LoadLangDll()
 						(LPTSTR)strLangProduktVersion,
 						(LPVOID *)&lpVersion,
 						&nInfoSize))
-						versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER), MAX_PATH) == 0);
+					{
+						versionmatch = FALSE;
+						TCHAR * p = _tcsrchr((LPCTSTR)lpVersion, ',');
+						if (p)
+						{
+							DWORD num = ((DWORD)p-(DWORD)lpVersion)/sizeof(TCHAR);
+							versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER), num) == 0);							
+						}
+					}
 
 					free(pBuffer);
 				} // if (pBuffer != (void*) NULL) 

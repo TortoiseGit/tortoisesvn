@@ -56,7 +56,11 @@ BOOL CTortoiseMergeApp::InitInstance()
 		langDll.Format(_T("Languages\\TortoiseMerge%d.dll"), langId);
 		
 		hInst = LoadLibrary(langDll);
-		if (CUtils::GetVersionFromFile(langDll).Compare(_T(STRPRODUCTVER))!=0)
+		CString sVer = _T(STRPRODUCTVER);
+		sVer = sVer.Left(sVer.ReverseFind(','));
+		CString sFileVer = CUtils::GetVersionFromFile(langDll);
+		sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
+		if (sFileVer.Compare(sVer)!=0)
 		{
 			FreeLibrary(hInst);
 			hInst = NULL;
