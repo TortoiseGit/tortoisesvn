@@ -119,7 +119,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 	wcsncpy(request.path, Path.GetWinPath(), MAX_PATH);
 	if (!WriteFile(m_hPipe,&request,sizeof(request),&nBytesWritten,NULL)) 
 	{
-		OutputDebugStringA("Pipe WriteFile failed\n"); 
+		OutputDebugStringA("TortoiseShell: Pipe WriteFile failed\n"); 
 		CloseHandle(m_hPipe);
 		m_hPipe = INVALID_HANDLE_VALUE;
 		return false;
@@ -129,7 +129,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 	DWORD nBytesRead; 
 	if(!ReadFile(m_hPipe,pReturnedStatus,sizeof(*pReturnedStatus),&nBytesRead,NULL))
 	{
-		OutputDebugStringA("Pipe ReadFile failed\n");
+		OutputDebugStringA("TortoiseShell: Pipe ReadFile failed\n");
 		CloseHandle(m_hPipe);
 		m_hPipe = INVALID_HANDLE_VALUE;
 		return false;
