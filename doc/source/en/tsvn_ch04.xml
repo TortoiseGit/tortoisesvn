@@ -1,4 +1,9 @@
-﻿<chapter id="tsvn-DUG">
+<!-- 
+!!! DO NOT EDIT !!!
+This file is just kept for reference and will be removed in the near future.
+All changes to the Daily Use Guide go into the files in the tsvn_DUG subdirectory.
+-->
+<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -141,7 +146,7 @@
 				tag copies. If a repository holds only one project, then
 				often people create these top-level directories:
 			</para>
-<screen>
+			<screen>
 /trunk
 /branches
 /tags
@@ -150,7 +155,7 @@
 			If a repository contains multiple projects, people often
 			index their layout by branch:
 			</para>
-<screen>
+			<screen>
 /trunk/paint
 /trunk/calc
 /branches/paint
@@ -158,8 +163,8 @@
 /tags/paint
 /tags/calc
 </screen>
-			<para>&hellip;or by project:</para>
-<screen>
+			<para>...or by project:</para>
+			<screen>
 /paint/trunk
 /paint/branches
 /paint/tags
@@ -217,7 +222,7 @@
 					<listitem>
 						<para>
 							create your desired top-level folder structure inside
-							that folder &mdash; don't put any files in it yet!
+							that folder - don't put any files in it yet!
 						</para>
 					</listitem>
 					<listitem>
@@ -464,12 +469,12 @@ subversion http://svn.collab.net/repos/svn/trunk
 			Another way to do an export is by right-dragging a working copy
 			folder to another location and choose
 			<menuchoice>
-				<guimenuitem>Subversion export here</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Subversion export here</guimenuitem>
+				</menuchoice>
 			or 
 			<menuchoice>
-				<guimenuitem>Subversion export all here</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Subversion export all here</guimenuitem>
+				</menuchoice>
 			</para>
 		</tip>
 	</sect1>
@@ -539,16 +544,16 @@ subversion http://svn.collab.net/repos/svn/trunk
 				and <literal>modified</literal> overrides <literal>normal</literal>.
 				So you can easily see if there's a file with a conflict or a modified file in a folder.
 				<tip>
-				<title>Slow Overlays</title>
-				<para>
+					<title>Slow Overlays</title>
+					<para>
 					You may notice that if you enable the recursive overlay for folders
 					that the explorer slows down remarkably when browsing working
 					copies. This depends on how big your working copy is and how much
 					RAM Windows can use for file index caching. Usually it's only
-					very slow the first time you browse such a directory &mdash; if
+					very slow the first time you browse such a directory - if
 					you browse the same directory later again it's much faster.
 				</para>
-				<para>
+					<para>
 					If you want to disable the recursive overlays for some
 					folders but not for all then you can do that by creating a
 					file called <filename>_tsvnexcluderecursive</filename> inside
@@ -556,7 +561,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 					that folder, but <emphasis>not</emphasis> for the files or
 					folders inside it.
 				</para>
-				<para>
+					<para>
 					You can also disable the overlays completely for a folder
 					by creating a file called <filename>_tsvnexcludethis</filename>
 					inside that folder. Again, this disables the overlays only
@@ -677,12 +682,12 @@ subversion http://svn.collab.net/repos/svn/trunk
 			If you want to undo changes to a file and start afresh from an earlier
 			revision, you must either use the
 			<menuchoice>
-				<guimenuitem>Revert changes from this revision</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Revert changes from this revision</guimenuitem>
+				</menuchoice>
 			command from the log dialog or the
 			<menuchoice>
-				<guimenuitem>Merge...</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Merge...</guimenuitem>
+				</menuchoice>
 			menu command.
 			</para>
 		</caution>
@@ -693,7 +698,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 			</menuchoice>
 			command allows you to revert your working to an earlier revision.
 			Say e.g. your working copy is at revision 100, but you want your
-			working copy To reflect the state which it had in revision 50 &mdash;
+			working copy To reflect the state which it had in revision 50 -
 			then simply update to revision 50.
 		</para>
 		<para>
@@ -717,8 +722,8 @@ subversion http://svn.collab.net/repos/svn/trunk
 			repository browser and save the file in question over the file in your 
 			working copy. Or you can use the log dialog and use the command 
 			<menuchoice>
-				<guimenuitem>Revert changes in this revision</guimenuitem>
-			</menuchoice>.
+					<guimenuitem>Revert changes in this revision</guimenuitem>
+				</menuchoice>.
 			This will undo only those changes made in the selected revision.
 			Changes made after that revision will be retained.
 			For reverting multiple revisions, you should use the merge command,
@@ -792,12 +797,12 @@ subversion http://svn.collab.net/repos/svn/trunk
 			additional files in your directory:
 			<variablelist>
 				<varlistentry>
-				<term>filename.ext.working</term>
+					<term>filename.ext.working</term>
 					<listitem>
 						<para>
 							This is your file as it existed in your
 							working copy before you updated your working copy
-							&mdash; that is, without conflict markers. This file has
+							- that is, without conflict markers. This file has
 							your latest changes in it and nothing else.
 						</para>
 					</listitem>
@@ -1099,7 +1104,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 		</para>
 		<para>
 			To add files from outside your working copy you can use
-			the drag&ndash;and&ndash;drop handler:
+			the drag-and-drop handler:
 			<orderedlist>
 				<listitem>
 					<para>
@@ -1108,7 +1113,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 				</listitem>
 				<listitem>
 					<para>
-						<action>right&ndash;drag</action> them
+						<action>right-drag</action> them
 						to the new location inside the working copy
 					</para>
 				</listitem>
@@ -1168,7 +1173,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 		</para>
 		<para>
 			If you want to move files inside a working copy,
-			use the drag&ndash;and&ndash;drop handler again:
+			use the drag-and-drop handler again:
 
 			<orderedlist>
 				<listitem>
@@ -1178,7 +1183,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 				</listitem>
 				<listitem>
 					<para>
-						<action>right&ndash;drag</action> them to the
+						<action>right-drag</action> them to the
 						new location inside the working copy
 					</para>
 				</listitem>
@@ -1223,16 +1228,16 @@ subversion http://svn.collab.net/repos/svn/trunk
 				If you have deleted a file or a folder and already committed
 				that delete operation to the repository, then a normal 
 				<menuchoice>
-					<guimenuitem>Revert</guimenuitem>
-				</menuchoice>
+						<guimenuitem>Revert</guimenuitem>
+					</menuchoice>
 				can't bring it back anymore. But the file or folder is not
 				lost at all. If you know the revision the file or folder got
 				deleted (if you don't, use the log dialog to find out) open
 				the repository browser and switch to that revision. Then select
 				the file or folder you deleted, right-click and select
 				<menuchoice>
-					<guimenuitem>Copy to...</guimenuitem>
-				</menuchoice>
+						<guimenuitem>Copy to...</guimenuitem>
+					</menuchoice>
 				as the target for that copy operation select the path to your
 				working copy.
 				</para>
@@ -1251,7 +1256,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 		</indexterm>
 		<para>
 			If you want to undo all changes you made in a file since
-			the last update you need to select the file, <action>right&ndash;click
+			the last update you need to select the file, <action>right-click
 			</action> to pop up the context menu and then select
 			the command
 			<menuchoice>
@@ -1302,7 +1307,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 			<xref linkend="tsvn-DUG-import-4"/>.
 			For more information about properties in subversion see the  
 			<ulink url="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
-				subversion manual
+				<citetitle>Subversion Manual</citetitle>
 			</ulink>.
 		</para>
 		<note>
@@ -1367,7 +1372,7 @@ subversion http://svn.collab.net/repos/svn/trunk
 					</para>
 				</listitem>
 			</itemizedlist>
-			But it does much more than that &mdash; it provides context menu
+			But it does much more than that - it provides context menu
 			commands which you can use to get even more information about the
 			project history.
 		</para>
@@ -2017,12 +2022,12 @@ Rev Comments
 		revision is useful if you want to e.g. recover a previously deleted
 		file. Use the 
 		<menuchoice>
-			<guimenuitem>Copy To...</guimenuitem>
-		</menuchoice>
+				<guimenuitem>Copy To...</guimenuitem>
+			</menuchoice>
 		command to do that and enter the full working copy path to where
 		you want to recover your deleted file.
 		</para>
-	</sect1>	
+	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-settings">
@@ -2271,23 +2276,23 @@ Rev Comments
 							An external diff program used for comparing different revisions of files.
 							You can specify the following parameters to the path:
 							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>
-										<para>
+									<varlistentry>
+										<term>%base</term>
+										<listitem>
+											<para>
 											The original file without your changes
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%mine</term>
+										<listitem>
+											<para>
 											Your own file, with your changes
 										</para>
-									</listitem>
-								</varlistentry>
-							</variablelist>
+										</listitem>
+									</varlistentry>
+								</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>
@@ -2299,39 +2304,39 @@ Rev Comments
 							following parameters to the path. The order of the parameters depends on the 
 							merge program you use.
 							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>
-										<para>
+									<varlistentry>
+										<term>%base</term>
+										<listitem>
+											<para>
 											the original file without your or the others changes
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%mine</term>
+										<listitem>
+											<para>
 											your own file, with your changes
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%theirs</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%theirs</term>
+										<listitem>
+											<para>
 											the file as it is in the repository
 										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%merged</term>
-									<listitem>
-										<para>
+										</listitem>
+									</varlistentry>
+									<varlistentry>
+										<term>%merged</term>
+										<listitem>
+											<para>
 											the conflicted file, the result of the merge operation
 										</para>
-									</listitem>
-								</varlistentry>
-							</variablelist>
+										</listitem>
+									</varlistentry>
+								</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-authentication">
+	<title>Authentication</title>
+	<indexterm>
+		<primary>authentication</primary>
+	</indexterm>
+	<para>
+		If the repository that you are trying to access is password protected, an 
+		authentication Dialog will show up.
+		<figure id="tsvn-fig-authentication">
+			<title>Authentication Dialog</title>
+			<graphic fileref="images/Authenticate.png"/>
+		</figure>
+		Enter you username and password. The checkbox will make TortoiseSVN store
+		the credentials in Subversion's default directory: 
+		<filename>$APPDATA\Subversion\auth</filename>. One file for each server
+		that you access. If you want to make Subversion and TortoiseSVN forget your
+		credentials, you have to delete the corresponding file(s).
+		<note>
+			<para>
+				Under Windows 2000 and above the credentials are stored encrypted in the registry. 
+				To delete the credentials go to the settings dialog and press <guibutton>Clear Auth Cache</guibutton>.
+			</para>
+		</note>
+		<tip>
+			<para>
+				If you have to authenticate against a Windows NT domain, enter your username
+				including the domain name, like: <filename>MYDOMAIN/johnd</filename>.
+			</para>
+		</tip>
+	</para>
+</sect1>

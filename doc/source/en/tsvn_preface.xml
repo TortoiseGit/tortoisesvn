@@ -1,7 +1,7 @@
-﻿<preface id="tsvn-ch-0">
+<preface id="tsvn_preface">
 	<title>Preface</title>
 	<simplesect>
-			<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
+		<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
 	</simplesect>
 	<simplesect>
 		<para>
@@ -85,83 +85,81 @@
 	<!-- =================================================================== -->
 	<sect1 id="tsvn-ch-0-sect-4">
 		<title>Acknowledgments</title>
-			<variablelist>
-				<varlistentry>
-					<term>
+		<variablelist>
+			<varlistentry>
+				<term>
 						Tim Kemp
 					</term>
-					<listitem>
-						<para>for founding the TortoiseSVN project</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>
+				<listitem>
+					<para>for founding the TortoiseSVN project</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
 						Stefan Küng
 					</term>
-					<listitem>
-						<para>for the hard work to get TortoiseSVN to what it is now</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>
+				<listitem>
+					<para>for the hard work to get TortoiseSVN to what it is now</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
 						Lübbe Onken
 					</term>
-					<listitem>
-						<para>for the beautiful icons, logo, bughunting and taking care of the documentation</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>
+				<listitem>
+					<para>for the beautiful icons, logo, bughunting and taking care of the documentation</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
 						The Subversion Book
 					</term>
-					<listitem>
-						<para>for the great introduction to Subversion and its
+				<listitem>
+					<para>for the great introduction to Subversion and its
 						chapter 2 which we copied here</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
 						The Tigris Style project
 					</term>
-					<listitem>
-						<para>for some of the styles which are reused in this documentation</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>
+				<listitem>
+					<para>for some of the styles which are reused in this documentation</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
 						Our Contributors
 					</term>
-					<listitem>
-						<para>for many hours of joy with the music they sent us</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
+				<listitem>
+					<para>for many hours of joy with the music they sent us</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 	</sect1>
-
-
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-ch-0-sect-5">
 		<title>Terminology used in this document</title>
-    <para>
+		<para>
 		To make reading the docs easier, the names of all the screens and Menus 
     from TortoiseSVN are marked up in a different font.
     The <guilabel>Log Dialog</guilabel> for instance.
     </para>
-    <para>
+		<para>
     A menu choice  is indicated with an arrow.
     <menuchoice>
-      <guimenu>TortoiseSVN</guimenu>
-      <guimenuitem>Show Log</guimenuitem>
-    </menuchoice> means: select <emphasis>Show Log</emphasis> from the
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Show Log</guimenuitem>
+			</menuchoice> means: select <emphasis>Show Log</emphasis> from the
     <emphasis>TortoiseSVN</emphasis> context menu.
     </para>
-    <para>
+		<para>
 		User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton>
 		to continue.
     </para>
-    <para>
+		<para>
     User Actions are indicated using a bold font.
     <action>ALT+A</action>: press the
     <keycap>ALT</keycap>-Key on your keyboard and while holding it down press the
@@ -169,21 +167,21 @@
     <action>Right-drag</action>: press the right mouse button and while holding it down
     <emphasis>drag</emphasis> the items to the new location.
     </para>
-    <para>
+		<para>
     System output and keyboard input is indicated with a <literal>different</literal>
     font as well.
     </para>
-    <important>
-    <para>Important notes are marked with an icon.</para>
+		<important>
+			<para>Important notes are marked with an icon.</para>
 		</important>
-    <tip>
-		<para>Tips that make your life easier.</para>
+		<tip>
+			<para>Tips that make your life easier.</para>
 		</tip>
-    <caution>
-		<para>Places where you have to be careful what you are doing.</para>
+		<caution>
+			<para>Places where you have to be careful what you are doing.</para>
 		</caution>
-    <warning>
-		<para>Where extreme care has to be taken, data corruption or other nasty things may 
+		<warning>
+			<para>Where extreme care has to be taken, data corruption or other nasty things may 
     occur if these warnings are ignored.</para>
 		</warning>
 	</sect1>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-import">
+	<title>Importing Data Into A Repository</title>
+	<indexterm>
+		<primary>import</primary>
+	</indexterm>
+	<indexterm>
+		<primary>Repository</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_IMPORT"?>
+	<sect2 id="tsvn-DUG-import-1">
+		<title>Repository Layout</title>
+		<para>
+			Before you import your data into the repository you should
+			first think about how you want to organize your data. If you
+			use one of the recommended layouts you will later have it much
+			easier.
+		</para>
+		<para>
+			There are some standard, recommended ways to organize a
+			repository. Most people create a <filename>trunk</filename>
+			directory to hold the "main line" of development, a
+			<filename>branches</filename> directory to contain branch
+			copies, and a <filename>tags</filename> directory to contain
+			tag copies. If a repository holds only one project, then
+			often people create these top-level directories:
+		</para>
+		<screen>
+/trunk
+/branches
+/tags
+</screen>
+		<para>
+			If a repository contains multiple projects, people often
+			index their layout by branch:
+		</para>
+		<screen>
+/trunk/paint
+/trunk/calc
+/branches/paint
+/branches/calc
+/tags/paint
+/tags/calc
+</screen>
+		<para>...or by project:</para>
+		<screen>
+/paint/trunk
+/paint/branches
+/paint/tags
+/calc/trunk
+/calc/branches
+/calc/tags
+</screen>
+		<para>
+			Indexing by project makes sense if the projects are not closely related
+			and each one is checked out individually. For related projects where
+			you may want to check out all projects in one go, or where the projects
+			are all tied together in a single distribution package, it is often better
+			to index by branch. This way you have only one trunk to checkout, and
+			the relationships between the sub-projects is more easily visible.
+		</para>
+		<para>
+			If you adopt a top level <filename>/trunk /tags /branches</filename>
+			approach, there is nothing to say that you have to copy the entire trunk
+			for every branch and tag, and in some ways this structure offers the
+			most flexibility.
+		</para>
+		<para>
+			For unrelated projects you may prefer to use separate repositories.
+			When you commit changes, it is the revision number of the whole
+			repository which changes, not the revision number of the project.
+			Having 2 unrelated projects share a repository can mean large gaps
+			in the revision numbers. The Subversion and TortoiseSVN projects
+			appear at the same host address, but are completely separate
+			repositories allowing independent development, and no confusion
+			over build numbers.
+		</para>
+		<para>
+			Of course, you're free to ignore these common layouts.  You
+			can create any sort of variation, whatever works best for you or
+			your team.  Remember that whatever you choose, it's not a
+			permanent commitment.  You can reorganize your repository at any
+			time.  Because branches and tags are ordinary directories,
+			TortoiseSVN can move or rename them however you wish. 
+		</para>
+		<para>
+			Switching from one layout to another is just a matter of 
+			issuing a series of server-side moves; If you don't like the 
+			way things are organized in the repository, just juggle the 
+			directories around.
+		</para>
+		<para>
+			So if you haven't already created a basic folder structure inside
+			your repository you should do that now:
+			<orderedlist>
+				<listitem>
+					<para>
+						create a new empty folder on your hard drive
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						create your desired top-level folder structure inside
+						that folder - don't put any files in it yet!
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						import this structure into the repository via a 
+						<action>right-click</action> on the folder and
+						selecting
+						<menuchoice>
+							<guimenuitem>Import...</guimenuitem>
+						</menuchoice>
+						from the context menu. This will import your temp
+						folder into the repository root to create the basic
+						repository layout.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+		<para>
+			Note that the name of the folder you are importing does not appear in
+			the repository, only its contents. For example, create the following folder
+			structure:
+<screen>
+C:\Temp\New\trunk
+C:\Temp\New\branches
+C:\Temp\New\tags
+</screen>
+			Import C:\Temp\New into the repository root, which will then look like this:
+<screen>
+/trunk
+/branches
+/tags
+</screen>
+		</para>
+		<para>
+			You can also use the repository browser to create new folders directly
+			in the repository.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-import-2">
+		<title>Import</title>
+		<indexterm>
+			<primary>temporary files</primary>
+		</indexterm>
+		<para>
+			Before you import your project into a repository you should:
+			<orderedlist>
+				<listitem>
+					<para>
+						Remove all files which are not needed to
+						build the project (temporary files, files which are
+						generated by a compiler e.g. *.obj, compiled
+						binaries, ...)
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Organize the files in folders and
+						subfolders. Although it is possible to rename/move
+						files later it is highly recommended to get your project's
+						structure straight before importing!
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+		<para>
+			Now select the top-level folder of your project
+			directory structure in the windows explorer and
+			<action>right click</action>
+			to open the context menu. Select the command
+			<menuchoice>
+				<guimenuitem>Import...</guimenuitem>
+			</menuchoice>
+			which brings up a dialog box:
+			<figure id="tsvn-DUG-import-dia-1">
+				<title>The Import dialog</title>
+				<graphic fileref="images/Import.png"/>
+			</figure>
+		</para>
+		<para>
+			In this dialog you have to enter the URL of the repository into
+			which you want to import your project.
+		</para>
+		<para>
+			The import message is used as a log message. Since you
+			usually just started your project a default <literal>initial import</literal>
+			is filled in by TortoiseSVN.
+		</para>
+		<indexterm>
+			<primary>exclude pattern</primary>
+		</indexterm>
+		<note>
+			<para>
+				Files or directories which match the 
+				<guilabel>exclude pattern</guilabel>
+				are <emphasis>not</emphasis> imported.
+			</para>
+		</note>
+		<para>
+			As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the
+			complete directory tree including all files into the repository.
+			As before, the name of the folder you import does not appear in
+			the repository, only the folder contents.
+			The project is now stored in the repository under version control.
+			Please note that the folder you imported is <emphasis>NOT</emphasis>
+			under version control! To get a version-controlled <firstterm>working copy</firstterm>
+			you need to do a Checkout of the version you just imported.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-import-3">
+		<title>Special Files</title>
+		<indexterm>
+			<primary>special files</primary>
+		</indexterm>
+		<para>
+			Sometimes you need to have a file under version control which contains
+			user specific data. That means you have a file which every developer/user
+			needs to modify to suit his/her local setup. But versioning such a file
+			is difficult because every user would commit his/her changes every
+			time to the repository.
+		</para>
+		<para>
+			In such cases we suggest to use <literal>template</literal> files.
+			You create a file which contains all the data your developers
+			will need, add that file to version control and let the developers
+			check this file out. Then, each developer has to <emphasis>make a copy</emphasis>
+			of that file and rename that copy. After that, modifying the copy
+			is not a problem anymore.
+		</para>
+		<para>
+			As an example, you can have a look at TortoiseSVN's build script. It
+			calls a file named <filename>TortoiseVars.bat</filename> which
+			doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>.
+			<filename>TortoiseVars.tmpl</filename> is the template file which
+			every developer has to create a copy from and rename that file
+			to <filename>TortoiseVars.bat</filename>. Inside that file, we added
+			comments so that the users will see which lines they have to edit
+			and change according to their local setup to get it working.
+		</para>
+		<para>
+			So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename>
+			to the ignore list of its parent folder, i.e. we've set the Subversion property
+			<literal>svn:ignored</literal> to include that filename.
+			That way it won't show up as unversioned on every commit.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-import-4">
+		<title>Referenced Projects</title>
+		<indexterm>
+			<primary>external repositories</primary>
+		</indexterm>
+		<indexterm>
+			<primary>externals</primary>
+		</indexterm>
+		<para>
+			Sometimes it is useful to construct a working copy that is made out of a number of 
+			different checkouts. For example, you may want different subdirectories to come from 
+			different locations in a repository, or perhaps from different repositories altogether. 
+			If you want that every user has the same layout, you could define the <literal>svn:externals</literal> properties.
+		</para>
+		<para>
+			Let's say you check out a working copy of /project1 to <filename>D:\dev\project1</filename>.
+			Select the folder <filename>D:\dev\project1</filename>, <action>right-click</action> and choose 
+			<menuchoice>
+				<guimenuitem>properties</guimenuitem>
+			</menuchoice>
+			from the context menu. 
+			The Properties Dialog comes up. Then go to the Subversion tab.
+			There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write 
+			in the edit box the repository url in the format <literal>name url</literal>.
+			For example
+<screen>
+subversion http://svn.collab.net/repos/svn/trunk
+</screen>
+			Now click <guibutton>Set</guibutton> and commit your changes. 
+			If an user updates their working copy the external project is checked out, too.
+		</para>
+		<para>
+			If you need more information how <application>TortoiseSVN</application> handles 
+			Properties read <xref linkend="tsvn-DUG-propertypage"/>.
+		</para>
+	</sect2>
+</sect1>

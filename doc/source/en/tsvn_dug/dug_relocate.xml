@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-relocate">
+	<title>Relocating a working copy</title>
+	<indexterm>
+		<primary>relocate</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_RELOCATE"?>
+	<para>
+		<figure id="tsvn-DUG-relocate-dia-1">
+			<title>The Relocate Dialog</title>
+			<graphic fileref="images/Relocate.png"/>
+		</figure>
+		If your repository has for some reason changed it's
+		location (IP/URL). Maybe you're even stuck and can't
+		commit and you don't want to checkout your working
+		copy again from the new location and to move all your
+		changed data back into the new working copy,
+		<menuchoice>
+			<guimenuitem>relocate</guimenuitem>
+		</menuchoice>
+		is the command you are looking for. It basically
+		does not much: it scans all "entries" files in the
+		.svn folder and changes the URL of the entries to the new value.
+	</para>
+	<caution>
+		<para>
+			Don't use the relocate command to switch your working copy to a different
+			branch! If you do that, then you will get many unexplainable error messages
+			while updating, committing, ...
+		</para>
+		<para>
+			The relocate command must <emphasis>only</emphasis> be used if the
+			URL of the server changed!
+		</para>
+	</caution>
+</sect1>

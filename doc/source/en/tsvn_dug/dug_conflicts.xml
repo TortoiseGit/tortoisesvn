@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-conflicts">
+	<title>Resolving Conflicts</title>
+	<indexterm>
+		<primary>conflict</primary>
+	</indexterm>
+	<para>
+			Once in a while, you will get a <emphasis>conflict</emphasis> when
+			you update your files from the repository. A conflict
+			occurs when two or more developers have changed the same
+			few lines of a file. As Subversion knows nothing of your
+			project, it leaves resolving the conflicts to the developers.
+			Whenever a conflict is reported, you should open the file in
+			question, and search for lines starting with the string
+			<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>.
+			The conflicting area is marked like this:
+<screen>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename
+    your changes
+=======
+    code merged from repository
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision
+</screen>
+			Also, for every conflicted file Subversion places three
+			additional files in your directory:
+			<variablelist>
+			<varlistentry>
+				<term>filename.ext.working</term>
+				<listitem>
+					<para>
+							This is your file as it existed in your
+							working copy before you updated your working copy
+							- that is, without conflict markers. This file has
+							your latest changes in it and nothing else.
+						</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>filename.ext.merge-left.rOLDREV</term>
+				<listitem>
+					<para>
+							This is the file that was the BASE
+							revision before you updated your working copy. That is,
+							it the file that you checked out before you made
+							your latest edits.
+						</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>filename.ext.merge-right.rNEWREV</term>
+				<listitem>
+					<para>
+							This is the file that your Subversion
+							client just received from the server when you updated
+							your working copy. This file corresponds to the HEAD
+							revision of the repository.
+						</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+			Here <literal>*</literal> represents some random digits that Subversion chooses,
+			OLDREV is the revision number of the file in your .svn directory,
+			and NEWREV is the revision number of the repository HEAD.
+		</para>
+	<para>
+			You can either launch an external merge tool / conflict
+			editor with the
+			<menuchoice>
+			<guimenuitem>Edit Conflict</guimenuitem>
+		</menuchoice>
+			context menu or you can use any other editor to manually
+			resolve the conflict. You should decide what the code
+			should look like and do the necessary changes.
+		</para>
+	<para>
+			Afterwards execute the command
+			<menuchoice>
+			<guimenuitem>Resolved</guimenuitem>
+		</menuchoice>
+			from the context menu and commit your modifications to the
+			repository. Please note that the Resolve command does not-really
+			resolve the conflict. It just removes the <filename>filename.ext.working
+			</filename> and <filename>filename.ext.merge-*.r*</filename> files, to
+			allow you to commit your changes.
+		</para>
+</sect1>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-patch">
+	<title>Creating and Applying Patches</title>
+	<indexterm>
+		<primary>patch</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_PATCH"?>
+	<para>
+		For open source projects (like this one) everyone has read
+		access to the repository, and anyone can make a contribution
+		to the project. So how are those contributions controlled?
+		If just anyone could commit changes, the project would be permanently
+		unstable and probably permanently broken. In this situation the
+		change is managed by submitting a <firstterm>patch</firstterm> file
+		to the development team, who do have write access.
+		They can review the patch first, and then either submit it to the
+		repository or reject it back to the author.
+	</para>
+	<para>
+		Patch files are simply Unified-Diff files showing the differences
+		between your working copy and the base revision.
+	</para>
+	<sect2 id="tsvn-DUG-patch-1">
+		<title>Creating a Patch File</title>
+		<para>
+			First you need to make <emphasis>and test</emphasis> your changes.
+			Then instead of using
+			<menuchoice>
+				<guimenuitem>Commit...</guimenuitem>
+			</menuchoice>
+			on the parent folder, you select
+			<menuchoice>
+				<guimenuitem>Create Patch...</guimenuitem>
+			</menuchoice>
+			This will produce a single file containing a summary of all the changes
+			you have made since the last update from the repository. If you create a
+			patch file, make some more changes and then create another patch, the
+			second patch file will include <emphasis>both</emphasis> sets of changes.
+		</para>
+		<para>
+			Just save the file using a filename of your choice.
+			Patch files can have any extension you like, but by convention they
+			should use the <filename>.patch</filename> extension.
+			You are now ready to submit your patch file.
+		</para>
+	</sect2>
+
+	<sect2 id="tsvn-DUG-patch-2">
+		<title>Applying a Patch File</title>
+		<para>
+			Patch files are applied to your working copy. This should be done
+			from the same folder level as was used to create the patch.
+			If you are not sure what this is, just look at the first line of
+			the patch file. For example, if the first file being worked on was
+			<filename>doc/source/english/chapter1.xml</filename>
+			and the first line in the patchfile is
+			<filename>Index: english/chapter1.xml</filename>
+			then you need to apply the patch to the
+			<filename>english</filename> folder.
+		</para>
+		<para>
+			In order to apply a patch file to your working copy, you need
+			to have at least read access to the repository.
+			The reason for this is that the merge program must
+			reference the changes back to the revision against
+			which they were made by the remote developer.
+		</para>
+		<para>
+			From the context menu for that folder, click on
+			<menuchoice>
+				<guimenuitem>Apply Patch...</guimenuitem>
+			</menuchoice>
+			This will bring up a file open dialog allowing you to select the
+			patch file to apply. By default only <filename>.patch</filename>
+			files are shown, but you can opt for "All files". Open the file
+			and TortoiseMerge runs to merge the changes from the patch file
+			with your working copy. A small window lists the files which have
+			been changed. Double click on each one in turn, review the changes
+			and save the merged files.
+		</para>
+		<para>
+			The remote developer's patch has now been applied to your working copy,
+			so you need to commit to allow everyone else to access the changes
+			from the repository.
+		</para>
+	</sect2>
+</sect1>

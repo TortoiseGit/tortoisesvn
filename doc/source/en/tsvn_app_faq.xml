@@ -1,4 +1,4 @@
-﻿<appendix id="tsvn-faq">
+<appendix id="tsvn-faq" xmlns:xi="http://www.w3.org/2003/XInclude">
 	<title>Frequently Asked Questions (FAQ)</title>
 	<simplesect>
 		<para>
@@ -11,7 +11,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-faq-installation">
 		<title>Installation issues</title>
-		<indexterm><primary>install</primary></indexterm>
+		<indexterm>
+			<primary>install</primary>
+		</indexterm>
 		<para>
 		Most of these answers came from the <application>TortoiseCVS
 		</application>
@@ -55,7 +57,9 @@
 		</sect2>
 		<sect2 id="tsvn-faq-installation-1">
 			<title>Why don't the icon overlays appear?</title>
-			<indexterm><primary>overlays</primary></indexterm>
+			<indexterm>
+				<primary>overlays</primary>
+			</indexterm>
 			<para>
 				<itemizedlist>
 					<listitem>
@@ -354,12 +358,12 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-10">
-		<title>Where is the spellchecker?</title>
-		<para>
+			<title>Where is the spellchecker?</title>
+			<para>
 		If you want to use a spellchecker when entering your log messages
 		please follow the installation instructions here: 
-		<xref linkend="tsvn-ch-1-sect-4" />
-		</para>
+		<xref linkend="tsvn-ch-1-sect-4"/>
+			</para>
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
@@ -373,9 +377,15 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</para>
 		<sect2 id="tsvn-faq-dug-1">
 			<title>I accidentally removed a file, and now it's gone!</title>
-			<indexterm><primary>remove</primary></indexterm>
-			<indexterm><primary>delete</primary></indexterm>
-			<indexterm><primary>revert</primary></indexterm>
+			<indexterm>
+				<primary>remove</primary>
+			</indexterm>
+			<indexterm>
+				<primary>delete</primary>
+			</indexterm>
+			<indexterm>
+				<primary>revert</primary>
+			</indexterm>
 			<para>
 			You can do a <guimenuitem>revert</guimenuitem> on the 
 			parent folder where you deleted the file or 
@@ -386,8 +396,8 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			use the repository browser, change to the revision where the file
 			still existed and then use the command 
 			<menuchoice>
-				<guimenuitem>Copy to...</guimenuitem>
-			</menuchoice>
+					<guimenuitem>Copy to...</guimenuitem>
+				</menuchoice>
 			from the context menu. Enter the path to your working copy as the
 			target.
 			</para>
@@ -418,7 +428,9 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</sect2>
 		<sect2 id="tsvn-faq-dug-4">
 			<title>I'm in trouble renaming a file from UPPERcase to upperCASE</title>
-			<indexterm><primary>case sensitive</primary></indexterm>
+			<indexterm>
+				<primary>case sensitive</primary>
+			</indexterm>
 			<para>There are (at least) two possible solutions to rename a file without losing it's log history.
 			It is important to rename it <emphasis>within</emphasis> subversion. 
 			Just renaming in the explorer will corrupt your working copy!!!
@@ -722,27 +734,39 @@ Folder/File2 : revision 2
 					the <emphasis>zipfolders</emphasis>. This will also
 					increase the browsing speed.
 					<orderedlist>
-						<listitem><para>Select <command>Run</command> from the
-						start menu</para></listitem>
-						<listitem><para>Type <command>regsvr32 /u %windir%\system32\zipfldr.dll</command>
-						at the prompt and click ok</para></listitem>
-						<listitem><para>The change will take effect 
+							<listitem>
+								<para>Select <command>Run</command> from the
+						start menu</para>
+							</listitem>
+							<listitem>
+								<para>Type <command>regsvr32 /u %windir%\system32\zipfldr.dll</command>
+						at the prompt and click ok</para>
+							</listitem>
+							<listitem>
+								<para>The change will take effect 
 						immediately, but you may have to restart Windows 
 						for all traces of the built-in ZIP support to 
-						disappear.</para></listitem>
-					</orderedlist>
+						disappear.</para>
+							</listitem>
+						</orderedlist>
 					If, at any time, you wish to re-enable Windows XP's 
 					built-in ZIP support, just follow these steps:
 					<orderedlist>
-						<listitem><para>Select <command>Run</command> from the
-						start menu</para></listitem>
-						<listitem><para>Type <command>regsvr32 %windir%\system32\zipfldr.dll </command>
-						at the prompt and click ok</para></listitem>
-						<listitem><para>The change will take effect 
+							<listitem>
+								<para>Select <command>Run</command> from the
+						start menu</para>
+							</listitem>
+							<listitem>
+								<para>Type <command>regsvr32 %windir%\system32\zipfldr.dll </command>
+						at the prompt and click ok</para>
+							</listitem>
+							<listitem>
+								<para>The change will take effect 
 						immediately, but you may have to restart Windows 
 						for all features of the built-in ZIP support to 
-						be available. </para></listitem>						
-					</orderedlist>
+						be available. </para>
+							</listitem>
+						</orderedlist>
 					</para>
 				</listitem>
 			</itemizedlist>
@@ -751,7 +775,9 @@ Folder/File2 : revision 2
 		</sect2>
 		<sect2 id="tsvn-faq-misc-2">
 			<title>TortoiseSVN doesn't work with VS.NET web projects?</title>
-			<indexterm><primary>VS.NET</primary></indexterm>
+			<indexterm>
+				<primary>VS.NET</primary>
+			</indexterm>
 			<para>
 			VS.NET when used with web projects can't handle the <filename>.svn
 			</filename> folders Subversion uses to store its internal information.
@@ -779,68 +805,68 @@ Folder/File2 : revision 2
 			Alternatively, upgrade your copy of VS.NET. The bug has been fixed
 			in VS.NET2005, so it no longer has this problem.
 			</para>
- 			<para>
+			<para>
 			If you still want to use TortoiseSVN with web projects, these are
 			the questions we face every few weeks and here are the answers 
 			once and for all:
 			<variablelist>
-				<varlistentry>
-					<term>You need to fix this in Subversion!</term>
-					<listitem>
-						<para>
+					<varlistentry>
+						<term>You need to fix this in Subversion!</term>
+						<listitem>
+							<para>
 						No, we don't. It's a bug in VS.NET and not in Subversion.
 						So the bug has to be fixed there.
 						In fact in VS.NET2005 it has been fixed, so if you can
 						upgrade VS.NET, the problem goes away.
 						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Why not make the foldername configurable?</term>
-					<listitem>
-						<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Why not make the foldername configurable?</term>
+						<listitem>
+							<para>
 						There are many reasons to <emphasis>not</emphasis> do that.
 						It would require major changes to the existing sourcecode,
 						it would make the interaction of different Subversion clients
 						very hard if not impossible and it would lead to confusion
 						among users.
 						</para>
-						<para>
+							<para>
 						There are more reasons, but they are very technical and
 						don't belong in this FAQ.
 						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Then just create a special version of TortoiseSVN which
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Then just create a special version of TortoiseSVN which
 					uses a different foldername, and all problems are gone!</term>
-					<listitem>
-						<para>
+						<listitem>
+							<para>
 						No, we won't. <emphasis>Your</emphasis> problems might be gone,
 						but all others which are using Subversion and TortoiseSVN would
 						get into troubles if we did that.
 						</para>
-						<para>
+							<para>
 						One of the big advantages in using this folder name is that it
 						is universal. i.e. you can use the same working copy from your
 						Linux box and from your Windows box. Very useful if you have a
 						dual boot computer and don't want to have two working copies
 						for each OS you boot.
 						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>But I can't use TortoiseSVN if that's not fixed!</term>
-					<listitem>
-						<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>But I can't use TortoiseSVN if that's not fixed!</term>
+						<listitem>
+							<para>
 						Then don't use it! Nobody forces you to use our product.
 						If you really want to use it, then you could compile
 						yourself a special version using a different foldername.
 						After all, both Subversion and TortoiseSVN are open source.
 						</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
+						</listitem>
+					</varlistentry>
+				</variablelist>
 			</para>
 			<para>
 			But you're not completely lost in this case. Usually a few days after
@@ -997,43 +1023,43 @@ SubWCRev.exe path\to\working\copy version.in version.h
 			You can set those with the registry editor 
 			<command>regedt32</command>.
 			<variablelist>
-				<varlistentry>
-					<term>HKCU\Software\TortoiseSVN\Debug</term>
-					<listitem>
-					<para>
+					<varlistentry>
+						<term>HKCU\Software\TortoiseSVN\Debug</term>
+						<listitem>
+							<para>
 					Set this value to 1 for TortoiseSVN to show you the
 					parameters it gets from the shell extension part.
 					</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>HKCU\Software\TortoiseSVN\OwnerdrawnMenus</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>HKCU\Software\TortoiseSVN\OwnerdrawnMenus</term>
+						<listitem>
+							<para>
 					Set this value to 0 if you don't want TortoiseSVN to
 					use ownerdraw menu items in the shell context menu.
 					This helps if you use something else than the windows
 					explorer or if you get problems with the context menu
 					showing up.
 					</para>
-					<para>
+							<para>
 					Set this value to 2 if you don't want TortoiseSVN to use
 					icons in the context menu at all. With this value set to 2
 					the context menu is text only.
 					</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>HKCU\Software\TortoiseSVN\BlockStatus</term>
-					<listitem>
-					<para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>HKCU\Software\TortoiseSVN\BlockStatus</term>
+						<listitem>
+							<para>
 					If you don't want the explorer to update the status
 					overlays while another TortoiseSVN command is running
 					(e.g. an update, commit, ...) then set this value to 1.
 					</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
+						</listitem>
+					</varlistentry>
+				</variablelist>
 			</para>
 			<para>
 			Please don't mess with those and any other registry setting if
@@ -1042,10 +1068,8 @@ SubWCRev.exe path\to\working\copy version.in version.h
 		</sect2>
 		<sect2 id="tsvn-faq-misc-100">
 			<title>I love TortoiseSVN, how can I do something for the developers?</title>
-			<para>
-			Thanks for asking!
-			</para>
-			&wish;
+			<para>Thanks for asking!</para>
+			<xi:include href="./wishlist.xml"/>
 		</sect2>
 	</sect1>
 </appendix>

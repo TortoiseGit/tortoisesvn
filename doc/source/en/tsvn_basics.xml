@@ -1,10 +1,12 @@
-﻿<chapter id="tsvn-ch-2">
+<chapter id="tsvn_basics">
 	<title>Basic Concepts</title>
 	<!-- this chapter is copied over from the subversion book and slightly
        modified for the TortoiseSVN client -->
 	<simplesect>
 		<para>
-		<indexterm><primary>Subversion book</primary></indexterm>
+			<indexterm>
+				<primary>Subversion book</primary>
+			</indexterm>
 		This chapter is a slightly modified version of the same chapter
 		in the Subversion book. You can read the Subversion book here:
 		<ulink url="http://svnbook.red-bean.com/">
@@ -23,17 +25,19 @@
 		<para>
 		Even though the examples in this chapter show people sharing
 		collections of program source code, keep in mind that Subversion
-		can manage any sort of file collection &mdash; it's not limited to
+		can manage any sort of file collection - it's not limited to
 		helping computer programmers.
 		</para>
 	</simplesect>
 	<sect1 id="tsvn-ch2-sect-1">
 		<title>The Repository</title>
-		<indexterm><primary>repository</primary></indexterm>
+		<indexterm>
+			<primary>repository</primary>
+		</indexterm>
 		<para>Subversion is a centralized system for sharing information.
 		At its core is a <firstterm>repository</firstterm>, which is a
 		central store of data.  The repository stores information in the
-		form of a <firstterm>filesystem tree</firstterm> &mdash; a typical
+		form of a <firstterm>filesystem tree</firstterm> - a typical
 		hierarchy of files and directories.  Any number of
 		<firstterm>clients</firstterm> connect to the repository, and
 		then read or write to these files.  By writing data, a client
@@ -85,8 +89,8 @@
         change), any changes Harry made <emphasis>won't</emphasis> be
         present in Sally's newer version of the file, because she
         never saw Harry's changes to begin with.  Harry's work is
-        still effectively lost&mdash;or at least missing from the
-        latest version of the file&mdash;and probably by accident.
+        still effectively lost - or at least missing from the
+        latest version of the file - and probably by accident.
         This is definitely a situation we want to avoid!</para>
 			<figure id="tsvn-ch2-dia2">
 				<title>The Problem to Avoid</title>
@@ -147,7 +151,7 @@
             that A and B depend on one another, and the changes made
             to each are semantically incompatible.  Suddenly A and B
             don't work together anymore. The locking system was
-            powerless to prevent the problem&mdash;yet it somehow
+            powerless to prevent the problem - yet it somehow
             provided a sense of false security.  It's easy for Harry and
             Sally to imagine that by locking files, each is beginning a
             safe, insulated task, and thus inhibits them from
@@ -186,11 +190,13 @@
 				<graphic fileref="images/ch02dia4.png"/>
 			</figure>
 			<figure id="tsvn-ch2-dia5">
-				<title>&hellip;Copy-Modify-Merge Continued</title>
+				<title>...Copy-Modify-Merge Continued</title>
 				<graphic fileref="images/ch02dia5.png"/>
 			</figure>
 			<para>
-			<indexterm><primary>conflict</primary></indexterm>
+				<indexterm>
+					<primary>conflict</primary>
+				</indexterm>
 		But what if Sally's changes <emphasis>do</emphasis> overlap
         with Harry's changes?  What then?  This situation is called a
         <firstterm>conflict</firstterm>, and it's usually not much of
@@ -227,7 +233,9 @@
 		<sect2 id="tsvn-ch-2-sect-3.1">
 			<title>Working Copies</title>
 			<para>
-			<indexterm><primary>working copy</primary></indexterm>
+				<indexterm>
+					<primary>working copy</primary>
+				</indexterm>
 			You've already read about working copies; now we'll
         demonstrate how the Subversion client creates and uses
         them.</para>
@@ -278,7 +286,7 @@
 			<sidebar id="tsvn-ch-02-sidebar-1">
 				<title>Repository URLs</title>
 				<para>Subversion repositories can be accessed through many
-          different methods &mdash; on local disk, or through various
+          different methods -; on local disk, or through various
           network protocols.  A repository location, however, is
           always a URL.  The URL schema indicates the access
           method:</para>
@@ -342,7 +350,7 @@
           syntax, allowing for server names and port numbers to be
           specified as part of the URL.  Remember that the
           <literal>file:</literal> access method is valid only for
-          locations on the same server as the client &mdash; in fact, in
+          locations on the same server as the client -; in fact, in
           accordance with convention, the server name portion of the
           URL is required to be either absent or <literal>localhost</literal>.
 		  Take great care that the <literal>file:</literal> access method may not be
@@ -358,9 +366,9 @@
           resides:</para>
 				<screen>
 file:///X:/path/to/repos
-&hellip;
+...
 file:///X|/path/to/repos
-&hellip;
+...
 </screen>
 				<para>Note that a URL uses ordinary slashes even though the native
           (non-URL) form of a path on Windows uses backslashes.</para>
@@ -399,7 +407,9 @@ file:///X|/path/to/repos
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-3.2">
 			<title>Revisions</title>
-			<indexterm><primary>revision</primary></indexterm>
+			<indexterm>
+				<primary>revision</primary>
+			</indexterm>
 			<para>An <command>svn commit</command> operation can publish
         changes to any number of files and directories as a single
         atomic transaction.  In your working copy, you can change
@@ -449,7 +459,7 @@ file:///X|/path/to/repos
         contain files from several different revisions.  For example,
         suppose you check out a working copy from a repository whose
         most recent revision is 4:</para>
-<screen>
+			<screen>
 calc/Makefile:4
      integer.c:4
      button.c:4
@@ -460,7 +470,7 @@ calc/Makefile:4
         change.  Assuming no other commits have taken place, your
         commit will create revision 5 of the repository, and your
         working copy will now look like this:</para>
-<screen>
+			<screen>
 calc/Makefile:4
      integer.c:4
      button.c:5
@@ -469,7 +479,7 @@ calc/Makefile:4
         <filename>integer.c</filename>, creating revision 6.  If you
         use <command>svn update</command> to bring your working copy
         up to date, then it will look like this:</para>
-<screen>
+			<screen>
 calc/Makefile:6
      integer.c:6
      button.c:6

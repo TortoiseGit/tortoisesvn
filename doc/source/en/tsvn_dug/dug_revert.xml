@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-revert">
+	<title>Undo Changes</title>
+	<indexterm>
+		<primary>revert</primary>
+	</indexterm>
+	<indexterm>
+		<primary>undo</primary>
+	</indexterm>
+	<para>
+		If you want to undo all changes you made in a file since
+		the last update you need to select the file, <action>right-click
+		</action> to pop up the context menu and then select
+		the command
+		<menuchoice>
+			<guimenuitem>revert</guimenuitem>
+		</menuchoice>
+		in the TortoiseSVN submenu. A dialog will pop up showing you the 
+		files you've changed and you can revert. Select those you want to 
+		revert and press
+		<guibutton>ok</guibutton>.
+		<figure id="tsvn-DUG-revert-dia-1">
+			<title>Revert dialog</title>
+			<graphic fileref="images/Revert.png"/>
+		</figure>
+	</para>
+</sect1>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-wcstatus">
+	<title>Getting Status Information</title>
+	<indexterm>
+		<primary>status</primary>
+	</indexterm>
+	<para>
+	While you are working on your working copy you often need to know
+	which files you have changed/added/removed or renamed, or even which
+	files got changed and committed by others.
+	</para>
+	<sect2 id="tsvn-DUG-wcstatus-1">
+		<title>Icon Overlays</title>
+		<indexterm>
+			<primary>overlays</primary>
+		</indexterm>
+		<para>
+			<figure id="tsvn-DUG-wcstatus-dia-1">
+				<title>Explorer showing icon overlays</title>
+				<graphic fileref="images/Overlays.png"/>
+			</figure>
+			Now that you have checked out a working copy from a Subversion
+			repository you can see your files in the windows explorer with
+			changed icons. This is one of the reasons why TortoiseSVN is so
+			popular. TortoiseSVN adds a so called overlay icon to each
+			file icon which overlaps the original file icon. Depending on
+			the Subversion status of the file the overlay icon is different.
+		 	<graphic fileref="images/InSubVersionIcon.png"/>
+			A fresh checked out working copy has a green checkmark as overlay.
+			That means the Subversion status is <literal>normal</literal>.
+			<graphic fileref="images/ModifiedIcon.png"/>
+			As soon as you start editing a file,
+			the status changes to <literal>modified</literal>
+			and the icon overlay then changes to a red exclamation
+			mark. That way you can easily see which files were changed
+			since you last updated your working copy and need to be committed.
+			<graphic fileref="images/ConflictIcon.png"/>
+			If during an update a <literal>conflict</literal> occurs then
+			the icon changes to a yellow exclamation mark.
+			<graphic fileref="images/AddedIcon.png"/> 
+			The plus sign tells you that a file or folder has been scheduled to be
+			<literal>added</literal> to version control.
+			<graphic fileref="images/DeletedIcon.png"/> 
+			This Icon shows you that some files or folders inside the current folder
+			have been scheduled do be <literal>deleted</literal> from version control
+			or a file under version control is missing in a folder.
+		</para>
+		<para>
+			The folder icons also have icon overlays displayed. By default,
+			only the status of the folder itself is shown. But you can
+			change that behaviour in the 
+			<menuchoice>
+				<guimenuitem>Settings</guimenuitem>
+			</menuchoice>
+			(<xref linkend="tsvn-DUG-settings"/>),
+			so that the status of folders is shown recursively. This will
+			make the icon overlays for folders slower and is therefore
+			not recommended on slower machines or large working copies.
+		</para>
+		<para>
+			With this setting each folder shows the status of all files below it,
+			where status <literal>conflict</literal> overrides <literal>modified</literal>
+			and <literal>modified</literal> overrides <literal>normal</literal>.
+			So you can easily see if there's a file with a conflict or a modified file in a folder.
+			<tip>
+				<title>Slow Overlays</title>
+				<para>
+					You may notice that if you enable the recursive overlay for folders
+					that the explorer slows down remarkably when browsing working
+					copies. This depends on how big your working copy is and how much
+					RAM Windows can use for file index caching. Usually it's only
+					very slow the first time you browse such a directory - if
+					you browse the same directory later again it's much faster.
+				</para>
+				<para>
+					If you want to disable the recursive overlays for some
+					folders but not for all then you can do that by creating a
+					file called <filename>_tsvnexcluderecursive</filename> inside
+					that folder. This will disable the recursive overlays for
+					that folder, but <emphasis>not</emphasis> for the files or
+					folders inside it.
+				</para>
+				<para>
+					You can also disable the overlays completely for a folder
+					by creating a file called <filename>_tsvnexcludethis</filename>
+					inside that folder. Again, this disables the overlays only
+					for that folder, not the folders inside it.
+					You can define specific paths to be excluded from showing overlays
+					on the settings page
+					(<xref linkend="tsvn-DUG-settings-overlay"/>).
+				</para>
+			</tip>
+		</para>
+		<para>
+			Unlike <application>TortoiseCVS</application> (the CVS shell
+			integration) no overlay icon for unversioned files is shown.
+			We do this because the number of icon overlays are limited system wide
+			and should be used economically.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-wcstatus-2">
+		<title>Status Of The Repository</title>
+		<indexterm>
+			<primary>status</primary>
+		</indexterm>
+		<para>
+			<figure id="tsvn-DUG-wcstatus-dia-2">
+				<title>Check for Updates</title>
+				<graphic fileref="images/RepoStatus.png"/>
+			</figure>
+			It's often very useful to know which files got changed and
+			committed by others. That's where the command
+			<menuchoice>
+				<guimenuitem>Check For Updates...</guimenuitem>
+			</menuchoice>
+			comes in handy.
+			This dialog will show you every file that has changed in any
+			way either in your working copy and in the repository. That way
+			you can check before an update if there's a possible conflict.
+		</para>
+		<para>
+			From the context menu of the dialog you can show a diff of the
+			changes or revert your local changes. TortoiseSVN automatically
+			downloads the most recent version from the repository to do
+			the diff.
+		</para>
+		<tip>
+			<title>Other Possibilities</title>
+			<para>
+				The
+				<menuchoice>
+					<guimenuitem>Check for Updates..</guimenuitem>
+				</menuchoice>
+				dialog is propably not the best choice if you don't have 
+				a network connection available.
+				In this case you can also get the local status of all your
+				files by clicking
+				<menuchoice>
+					<guimenuitem>Commit...</guimenuitem>
+				</menuchoice>.
+				The commit dialog shows you a similar list of files like the
+				<menuchoice>
+					<guimenuitem>Check for Updates...</guimenuitem>
+				</menuchoice> dialog, 
+				but without contacting the repository. if you dont' want 
+				to commit just press
+				<guibutton>Cancel</guibutton>
+				instead of
+				<guibutton>Ok</guibutton>.
+			</para>
+		</tip>
+	</sect2>
+</sect1>

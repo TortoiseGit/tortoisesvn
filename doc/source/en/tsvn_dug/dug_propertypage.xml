@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-propertypage">
+	<title>Get/Set Information About Files/Directories</title>
+	<indexterm>
+		<primary>properties</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-DUG-propertypage-dia-1">
+			<title>Subversion property page</title>
+			<graphic fileref="images/Properties.png"/>
+		</figure>
+		Sometimes you want to have a more detailed information
+		about a file/directory than just the icon overlay.
+		You can get all the information Subversion provides in the
+		explorer properties dialog. Just select the file or
+		directory and select
+		<menuchoice>
+			<guimenuitem>properties</guimenuitem>
+		</menuchoice>
+		in the context menu (note: this is the normal properties menu entry
+		the explorer provides, not in the TortoiseSVN submenu!).
+		In the properties dialog box TortoiseSVN has added a new
+		property page for files/folders under Subversion control.
+	</para>
+	<para>
+		On the Subversion page you can see all relevant
+		information about the selected file/directory. In
+		addition you can read and set the subversion properties.
+		You can add your own properties or some properties with a 
+		special meaning in subversion, they begin with <literal>svn:</literal>. 
+		The <literal>svn:externals</literal> is such a property see how to handle externals in 
+		<xref linkend="tsvn-DUG-import-4"/>.
+		For more information about properties in subversion see the  
+		<ulink url="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
+			<citetitle>Subversion Manual</citetitle>
+		</ulink>.
+		</para>
+	<note>
+		<title>commit properties</title>
+		<para>
+			Subversion properties are versioned. After you changed or added a 
+			property you have to commit your changes.
+		</para>
+	</note>
+	<tip>
+		<title>Conflicts on properties</title>
+		<para>
+			If there's a conflict on committing the changes, because another 
+			user has changed the same property Subversion generates a 
+			<filename>.prej</filename> file. Delete this file after you 
+			resolved the conflict. 
+		</para>
+	</tip>
+	<para>
+		<application>TortoiseSVN</application> could integrate with some bugtracking 
+		tools. This happens with properties, which start with <literal>bugtraq:</literal>. Please read 
+		on <xref linkend="tsvn-DUG-bugtracker"/> for further information. 
+	</para>
+</sect1>

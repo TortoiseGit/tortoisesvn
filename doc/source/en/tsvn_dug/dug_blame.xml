@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-blame">
+	<title>Who Changed Which Line?</title>
+	<indexterm>
+		<primary>blame</primary>
+		<primary>annotate</primary>
+		<primary>praise</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_BLAME"?>
+	<para>
+		<figure id="tsvn-DUG-blame-dia-1">
+			<title>The Annotate / Blame Dialog</title>
+			<graphic fileref="images/BlameDialog.png"/>
+		</figure>
+		Sometimes you need to know not only what lines have changed, but also
+		who exactly changed specific lines in a file. That's when the
+		<menuchoice>
+			<guimenuitem>Blame...</guimenuitem>
+		</menuchoice>
+		command, sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy.
+	</para>
+	<para>
+		This command lists for every line in a file the author and the revision
+		the line was changed.
+	</para>
+	<para>
+		If you're not interested in changes from earlier revisions you can
+		set the revision from which the blame should start. Set this to <literal>1</literal>,
+		if you want the blame for <emphasis>every</emphasis> revision.
+	</para>
+	<para>
+		By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>,
+		which highlights the different revisions to make it easier to read. If you
+		wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>
+	</para>
+	<para>
+		Once you press <guibutton>Ok</guibutton> TortoiseSVN starts retrieving
+		the data to create the blame file. Please note: This can take several
+		minutes to finish, depending on how much the file has changed and
+		of course your network connection to the repository. Once the blame
+		process has finished the result is written into a temporary file and
+		you can view the results.
+	</para>
+	<para>
+		TortoiseBlame, which is included with TortoiseSVN, makes the blame file
+		easier to read. When you hover the mouse over a line in the blame info
+		column, all lines with the same revision are shown with a slightly darker
+		background. Lines from other revisions which were changed by the same author
+		are shown with a much darker background. If you <action>left-click</action>
+		on a line, all lines with the same revision are highlighted, and lines from
+		other revisions by the same author are highlighted in a lighter colour.
+		This highlighting is sticky, allowing you to move the mouse without losing
+		the highlights. Click on that revision again to turn off highlighting.
+		The revision comments are shown in a hint box whenever the mouse hovers over
+		the blame info column.
+	</para>
+	<para>
+		The example shows the first thirty lines of the file
+		<filename>/Subversion/include/svn_io.h</filename> as of Revision 7566 from
+		the Subversion source. For each line it shows the
+		<literal>line number</literal>,
+		<literal>revision</literal>,
+		<literal>date of last commit</literal>, the
+		<literal>author</literal> and of course the actual
+		<literal>line</literal> in the file.
+<screen>
+line  rev    date              author     content
+
+  0  4127 03:03:39, 15.12.2002 rooneg     /**
+  1  4127 03:03:39, 15.12.2002 rooneg      * @copyright
+  2  1224 21:24:10, 08.02.2002 kfogel      * ====================================================================
+  3  4233 02:28:10, 03.01.2003 blair       * Copyright (c) 2000-2003 CollabNet.  All rights reserved.
+  4     1 06:24:14, 31.08.2001 svn         *
+  5     1 06:24:14, 31.08.2001 svn         * This software is licensed as described in the file COPYING, which
+  6     1 06:24:14, 31.08.2001 svn         * you should have received as part of this distribution.  The terms
+  7     1 06:24:14, 31.08.2001 svn         * are also available at http://subversion.tigris.org/license-1.html.
+  8     1 06:24:14, 31.08.2001 svn         * If newer versions of this license are posted there, you may use a
+  9     1 06:24:14, 31.08.2001 svn         * newer version instead, at your option.
+ 10     1 06:24:14, 31.08.2001 svn         *
+ 11     1 06:24:14, 31.08.2001 svn         * This software consists of voluntary contributions made by many
+ 12     1 06:24:14, 31.08.2001 svn         * individuals.  For exact contribution history, see the revision
+ 13     1 06:24:14, 31.08.2001 svn         * history and logs, available at http://subversion.tigris.org/.
+ 14     1 06:24:14, 31.08.2001 svn         * ====================================================================
+ 15  4127 03:03:39, 15.12.2002 rooneg      * @endcopyright
+ 16  4127 03:03:39, 15.12.2002 rooneg      *
+ 17  4127 03:03:39, 15.12.2002 rooneg      * @file svn_io.h
+ 18  4127 03:03:39, 15.12.2002 rooneg      * @brief general Subversion I/O definitions
+
+ 19     1 06:24:14, 31.08.2001 svn         */
+ 20     1 06:24:14, 31.08.2001 svn
+ 21     1 06:24:14, 31.08.2001 svn        /* ==================================================================== */
+ 22     1 06:24:14, 31.08.2001 svn
+ 23     1 06:24:14, 31.08.2001 svn
+ 24     1 06:24:14, 31.08.2001 svn        #ifndef SVN_IO_H
+ 25     1 06:24:14, 31.08.2001 svn        #define SVN_IO_H
+
+ 26     1 06:24:14, 31.08.2001 svn
+ 27     1 06:24:14, 31.08.2001 svn        #include &lt;apr.h&gt;
+ 28     1 06:24:14, 31.08.2001 svn        #include &lt;apr_pools.h&gt;
+ 29     1 06:24:14, 31.08.2001 svn        #include &lt;apr_file_io.h&gt;
+ 30   303 03:26:32, 25.10.2001 cmpilato   #include &lt;apr_thread_proc.h&gt;
+</screen>
+	</para>
+</sect1>

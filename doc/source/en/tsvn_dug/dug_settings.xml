@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-settings">
+	<title>TortoiseSVN's Settings</title>
+	<indexterm>
+		<primary>settings</primary>
+	</indexterm>
+	<para>
+		To find out what the different settings are for, just leave your
+		mouse pointer a second on the editbox/checkbox... and a helpful
+		tooltip will popup.
+	</para>
+	<sect2 id="tsvn-DUG-settings-main">
+		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
+		<title>The Settings Dialog, Main Tab</title>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-1">
+				<title>The Settings Dialog, Main Tab</title>
+				<graphic fileref="images/SettingsMain.png"/>
+			</figure>
+			Apart from setting your preferred language, this dialog allows you to
+			specify (almost) every setting TortoiseSVN has. 
+			<variablelist>
+				<varlistentry>
+					<term>Language</term>
+					<listitem>
+						<para>
+							Selects your user interface language.
+							What else did you expect?
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Exclude pattern</term>
+					<listitem>
+						<para>
+							<indexterm>
+								<primary>exclude pattern</primary>
+							</indexterm>
+							Exclude patterns are used to prevent unversioned files from
+							showing up e.g. in the commit dialog. Files matching the
+							patterns are also ignored by an import.
+							Exclude files or directories by typing in the names or extensions.
+							Patterns are separated by spaces e.g.
+							<literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
+							The first two entries refer to directories, the 
+							other four to files.
+						</para>
+						<para>
+							This exclude pattern will affect all your projects. It is not versioned, so it 
+							will not affect other users. In contrast you can also use the versioned <literal>svn:ignore</literal> 
+							property to exclude files or directories from version control. You can set the <literal>svn:ignore</literal> 
+							property using the 
+							<menuchoice>
+								<guimenuitem>Add to Ignore List</guimenuitem>
+							</menuchoice>
+							command. After commiting every other user will have the same 
+							<literal>svn:ignore</literal> property set for this project / directory as you.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Default number of log messages</term>
+					<listitem>
+						<para>
+							Limits the number of log messages that TortoiseSVN fetches when you first select
+							<menuchoice>
+								<guimenuitem>Show Log</guimenuitem>
+							</menuchoice>
+							Useful for slow connections / servers. You can always
+							<guibutton>Fetch All</guibutton> messages.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Edit...</term>
+					<listitem>
+						<para>
+							... the subversion configuration file directly.
+							Some settings cannot be modified by TortoiseSVN.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Short date / time format in log messages</term>
+					<listitem>
+						<para>
+							If the standard long messages use up too much 
+							space on your sceen use the short format.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Set filedates to "last commit time"</term>
+					<listitem>
+						<para>
+							This option tells TortoiseSVN to set the filedates to the last commit time 
+							when doing a checkout or an update. Otherwise TortoiseSVN will use 
+							the current date.
+							If you are developing software it is generally best to use the current date
+							because build systems normally look at the datestamps to decide which
+							files need compiling. If you use "last commit time" and revert to an
+							older file revision, your project may not compile as you expect it to.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Close windows automatically</term>
+					<listitem>
+						<para>
+							TortoiseSVN will automatically close all progress dialogs 
+							when the action is finished without error.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Check for newer versions</term>
+					<listitem>
+						<para>
+							If checked, TortoiseSVN will check once a week if an update is available
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Minimum logsize in chars</term>
+					<listitem>
+						<para>
+							The minimum length of a log message for a commit.
+							If you enter a shorter message than specified here, the commit is disabled.
+							This feature is very useful for reminding you to supply a proper
+							descriptive message for every commit.
+							A value of zero allows empty log messages.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Don't remove log messages when cancelling a commit</term>
+					<listitem>
+						<para>
+							If for some reason the commit is cancelled (User cancel or commit error), 
+							then TortoiseSVN will preserve the last commit message you typed if
+							you try to commit again.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Show BugID/Issue-Nr. Box</term>
+					<listitem>
+						<para>
+							Shows a textbox in the commit dialog where you can enter
+							a BugID or Issue-Nr. from a bugtracker to associate the
+							commit with that ID/number.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Paste Log template in english</term>
+					<listitem>
+						<para>
+							This only applies if you have selected a language other
+							than english for TortoiseSVN. In that case, when pasting
+							the log template in the commit dialog, the status of each
+							file is pasted in the selected language. With this option
+							checked, the status is pasted in english.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-settings-overlay">
+		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+		<title>The Settings Dialog, Look and Feel Tab</title>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-2">
+				<title>The Settings Dialog, Look and Feel Tab</title>
+				<graphic fileref="images/SettingsOverlay.png"/>
+			</figure>
+			This tab allows you to choose the items for which TortoiseSVN will
+			display icon overlays. If you feel that your icon overlays are very 
+			slow (explorer is not responsive), uncheck the
+			"Recurse into folders to fetch the status" box.
+			You can even disable all icon overlays, but where's the fun in that?
+		</para>
+		<para>
+			The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which
+			paths <emphasis>not</emphasis> to show icon overlays and status columns.
+			This is useful if you have some very big working copies containing
+			only libraries which you won't change at all and therefore don't
+			need the overlays. For example:
+		</para>
+		<para>
+			<filename>f:\development\SVN\Subversion</filename> will disable
+			the overlays on <emphasis>only</emphasis> that specific folder. You
+			still can see the overlays on all files and folder inside that folder.
+		</para>
+		<para>
+			<filename>f:\development\SVN\Subversion*</filename> will disable the
+			overlays on <emphasis>all</emphasis> files and folders whose path
+			starts with <filename>f:\development\SVN\Subversion</filename>. That
+			means you won't see overlays for any files and folders below that
+			path.
+		</para>
+		<para>
+			The same applies to the <guilabel>Include Paths</guilabel>. Only that for those
+			paths the overlays are shown even if the overlays are disabled for
+			that specific drive type.
+		</para>
+		<para>
+			You can also specify here which of the TortoiseSVN context menu
+			entries will show up in the main context menu.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-settings-network">
+		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
+		<title>The Settings Dialog, Network Tab</title>
+		<indexterm>
+			<primary>proxy server</primary>
+		</indexterm>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-4">
+				<title>The Settings Dialog, Network Tab</title>
+				<graphic fileref="images/SettingsProxy.png"/>
+			</figure>
+			Here you can configure your proxy server, if you need one to get through your company's firewall.
+		</para>
+		<para>
+			You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-settings-progs">
+		<?dbhh topicname="HIDD_SETTINGSPROGS"?>
+		<title>The Settings Dialog, Diff/Merge Tab</title>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-5">
+				<title>The Settings Dialog, Diff/Merge Tab</title>
+				<graphic fileref="images/SettingsProgs.png"/>
+			</figure>
+			Here you can define your own diff/merge programs that TortoiseSVN should use.
+			The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN.
+			<variablelist>
+				<varlistentry>
+					<term>Diff Program</term>
+					<listitem>
+						<para>
+							An external diff program used for comparing different revisions of files.
+							You can specify the following parameters to the path:
+							<variablelist>
+								<varlistentry>
+									<term>%base</term>
+									<listitem>
+										<para>
+											The original file without your changes
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%mine</term>
+									<listitem>
+										<para>
+											Your own file, with your changes
+										</para>
+									</listitem>
+								</varlistentry>
+							</variablelist>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Merge Program</term>
+					<listitem>
+						<para>
+							An external merge program used to resolve conflicted files. You can specify the 
+							following parameters to the path. The order of the parameters depends on the 
+							merge program you use.
+							<variablelist>
+								<varlistentry>
+									<term>%base</term>
+									<listitem>
+										<para>
+											the original file without your or the others changes
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%mine</term>
+									<listitem>
+										<para>
+											your own file, with your changes
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%theirs</term>
+									<listitem>
+										<para>
+											the file as it is in the repository
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%merged</term>
+									<listitem>
+										<para>
+											the conflicted file, the result of the merge operation
+										</para>
+									</listitem>
+								</varlistentry>
+							</variablelist>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Diff Viewer</term>
+					<listitem>
+						<para>
+							A viewer program for GNU diff files (patch files).
+							If you don't have one the builtin option is to use NotePad.
+							No Parameters.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-6">
+				<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
+				<graphic fileref="images/SettingsProgsAdv.png"/>
+			</figure>
+			In the advanced settings, you can define a different diff and merge program for every file extension. 
+			For instance you could associate Photoshop as the "Diff" Program for .jpg files :-)
+		</para>
+	</sect2>
+</sect1>

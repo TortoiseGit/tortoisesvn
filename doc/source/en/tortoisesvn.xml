@@ -1,38 +1,29 @@
-﻿<?xml version="1.0"?>
-<!DOCTYPE book SYSTEM "../../dtd/dblite.dtd" [
-	<!ENTITY ch00 SYSTEM "tsvn_ch00.xml">
-	<!ENTITY ch01 SYSTEM "tsvn_ch01.xml">
-	<!ENTITY ch02 SYSTEM "tsvn_ch02.xml">
-	<!ENTITY ch03 SYSTEM "tsvn_ch03.xml">
-	<!ENTITY ch04 SYSTEM "tsvn_ch04.xml">
-	<!ENTITY appa SYSTEM "tsvn_appa.xml">
-	<!ENTITY appb SYSTEM "tsvn_appb.xml">
-	<!ENTITY wish SYSTEM "wishlist.xml">
-]>
-<book id="tsvn" lang="en">
-  <title>TortoiseSVN</title>
-  <subtitle>A Subversion client for Windows</subtitle>
-  <bookinfo>
-  <edition>First</edition>
-    <authorgroup>
-    <author>
-      <firstname>Stefan</firstname>
-      <surname>Küng</surname>
-    </author>
-    <author>
-      <firstname>Lübbe</firstname>
-      <surname>Onken</surname>
-      </author>
-    </authorgroup>
-    <pubdate>$LastChangedDate$</pubdate>
-    </bookinfo>
-<!-- External entity refs -->
-  &ch00;
-  &ch01;
-  &ch02;
-  &ch03;
-  &ch04;
-  &appa;
-  &appb;
-  <index id="index"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "../../dtd/dblite.dtd">
+<book id="tsvn" lang="en" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<title>TortoiseSVN</title>
+	<subtitle>A Subversion client for Windows</subtitle>
+	<bookinfo>
+		<edition>First</edition>
+		<authorgroup>
+			<author>
+				<firstname>Stefan</firstname>
+				<surname>Küng</surname>
+			</author>
+			<author>
+				<firstname>Lübbe</firstname>
+				<surname>Onken</surname>
+			</author>
+		</authorgroup>
+		<pubdate>$LastChangedDate$</pubdate>
+	</bookinfo>
+	<!-- include external files -->
+	<xi:include href="./tsvn_preface.xml"/>
+	<xi:include href="./tsvn_introduction.xml"/>
+	<xi:include href="./tsvn_basics.xml"/>
+	<xi:include href="./tsvn_serversetup.xml"/>
+	<xi:include href="./tsvn_dug/dug.xml"/>
+	<xi:include href="./tsvn_app_faq.xml"/>
+	<xi:include href="./tsvn_app_automation.xml"/>
+	<index id="index"/>
 </book>

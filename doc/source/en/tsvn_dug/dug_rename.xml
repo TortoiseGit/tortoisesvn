@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-rename">
+	<title>Deleting, Renaming And Moving</title>
+	<indexterm>
+		<primary>delete</primary>
+	</indexterm>
+	<indexterm>
+		<primary>remove</primary>
+	</indexterm>
+	<indexterm>
+		<primary>rename</primary>
+	</indexterm>
+	<indexterm>
+		<primary>move</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_RENAME"?>
+	<para>
+		Unlike CVS, Subversion allows renaming and moving of files and
+		folders. So there are menu entries for delete and rename
+		in the TortoiseSVN submenu.
+		<figure id="tsvn-DUG-renaming-dia-1">
+			<title>Explorer context menu for versioned files</title>
+			<graphic fileref="images/ContextMenuFileControl.png"/>
+		</figure>
+	</para>
+	<para>
+		If you delete a file/directory using TSVN, the file is
+		removed from your working copy and marked for deletion.
+		The file's parent folder shows a "deleted" icon overlay.
+		You can always get the file back, if you call
+		<menuchoice>
+			<guimenuitem>revert</guimenuitem>
+		</menuchoice>
+		on the parent folder.
+	</para>
+	<para>
+		If you want to move files inside a working copy,
+		use the drag-and-drop handler again:
+		<orderedlist>
+			<listitem>
+				<para>
+					select the files or directories you want to move
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<action>right-drag</action> them to the
+					new location inside the working copy
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					release the right mouse button
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					in the popup menu select
+					<menuchoice>
+						<guimenuitem>move files in Subversion to here</guimenuitem>
+					</menuchoice>
+				</para>
+			</listitem>
+		</orderedlist>
+		If a file is deleted via the explorer but not removed from
+		version control (i.e. you delete a file as usual), the commit
+		dialog shows those files and lets you remove them from
+		version control too before the commit. So it doesn't really
+		matter, if you forget to delete the file with TortoiseSVN as
+		you are supposed to do.
+	</para>
+	<para>
+		<caution>
+			<title>Commit the parent folder</title>
+			<para>
+				Since renames and moves are done as a delete followed by an
+				add you must commit the parent folder of the renamed/moved
+				file. Only that way the deleted part of the rename/move will
+				show up in the commit dialog. If you don't commit the removed
+				part of the rename/move, it will stay behind in the repository
+				and an update of your coworkers won't remove the old file.
+			</para>
+		</caution>
+	</para>
+	<para>
+		<tip>
+			<title>Getting a deleted file or folder back</title>
+			<para>
+				If you have deleted a file or a folder and already committed
+				that delete operation to the repository, then a normal 
+				<menuchoice>
+					<guimenuitem>Revert</guimenuitem>
+				</menuchoice>
+				can't bring it back anymore. But the file or folder is not
+				lost at all. If you know the revision the file or folder got
+				deleted (if you don't, use the log dialog to find out) open
+				the repository browser and switch to that revision. Then select
+				the file or folder you deleted, right-click and select
+				<menuchoice>
+					<guimenuitem>Copy to...</guimenuitem>
+				</menuchoice>
+				as the target for that copy operation select the path to your
+				working copy.
+			</para>
+		</tip>
+	</para>
+</sect1>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-general">
+	<title>Handling TortoiseSVN</title>
+	<indexterm>
+		<primary>context menu</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-DUG-context-dir-control">
+			<title>Context menu for a directory under version control</title>
+			<graphic fileref="images/ContextMenuDirControl.png"/>
+		</figure>
+		All TortoiseSVN commands are invoked from the context menu of the windows explorer.
+		Most are directly visible, when you <action>right click</action> onto a file or folder.
+		The commands that are available depend on whether the file or folder or it's parent
+		folder is under version control or not.
+	</para>
+	<para>
+		<indexterm>
+			<primary>drag handler</primary>
+		</indexterm>
+		<indexterm>
+			<primary>drag-n-drop</primary>
+		</indexterm>
+		Other commands are available as drag handlers, when you <action>right drag</action>
+		files or folders to a new location inside working copies or when you 
+		<action>right drag</action> a non-versioned file or folder into a directory 
+		which is under version control.
+	</para>
+</sect1>

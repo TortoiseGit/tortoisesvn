@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-repobrowser">
+	<title>The Repository Browser</title>
+	<indexterm>
+		<primary>repobrowser</primary>
+	</indexterm>
+	<?dbhh topicname="HIDD_REPOSITORY_BROWSER"?>
+	<para>
+		Sometimes you need to work directly on the repository, without having
+		a working copy. That's what the <firstterm>Repository Browser</firstterm>
+		is for. What the explorer and the icon overlays are for your working
+		copy is the Repository Browser for the repository.
+			<figure id="tsvn-DUG-repobrowser-dia-1">
+			<title>The Repository Browser</title>
+			<graphic fileref="images/Repobrowser.png"/>
+		</figure>
+		With the Repository Browser you can execute commands like copy, move,
+		rename, ... directly on the repository.
+	</para>
+	<para>
+		On the top of the Repository Browser Window you can enter the URL of
+		the repository and the revision you want to browse. Browsing an older
+		revision is useful if you want to e.g. recover a previously deleted
+		file. Use the 
+		<menuchoice>
+			<guimenuitem>Copy To...</guimenuitem>
+		</menuchoice>
+		command to do that and enter the full working copy path to where
+		you want to recover your deleted file.
+	</para>
+</sect1>
