@@ -61,6 +61,7 @@ public:
 
 	CListCtrl		m_RevertList;
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void OnLvnItemchangedRevertlist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI RevertThread(LPVOID pVoid);

@@ -57,6 +57,7 @@ BEGIN_MESSAGE_MAP(CRevertDlg, CResizableDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_REVERTLIST, OnNMDblclkRevertlist)
 	ON_NOTIFY(LVN_GETINFOTIP, IDC_REVERTLIST, OnLvnGetInfoTipRevertlist)
 	ON_WM_SETCURSOR()
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_REVERTLIST, OnLvnItemchangedRevertlist)
 END_MESSAGE_MAP()
 
 
@@ -158,6 +159,7 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	pDlg->m_RevertList.SetRedraw(false);
+	BOOL bHaveChecked = FALSE;
 	try
 	{
 		CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
@@ -205,6 +207,7 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 						_tcscat(buf, ponly);
 					pDlg->m_RevertList.SetItemText(count, 1, buf);
 					pDlg->m_RevertList.SetCheck(count);
+					bHaveChecked = TRUE;
 				} 
 				// Ask SVN for the next item for strLine. 
 				// This will usually be the case for directories and svn:externals.
@@ -230,7 +233,7 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 	}
 	pDlg->m_RevertList.SetRedraw(true);
 
-	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
+	pDlg->GetDlgItem(IDOK)->EnableWindow(bHaveChecked);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
 	pDlg->m_bThreadRunning = FALSE;
 	POINT pt;
@@ -356,4 +359,19 @@ BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
 	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+}
+
+void CRevertDlg::OnLvnItemchangedRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	for (int i=0; i<m_RevertList.GetItemCount(); i++)
+	{
+		if (m_RevertList.GetCheck(i))
+		{
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			return;
+		}
+	}
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
 }
