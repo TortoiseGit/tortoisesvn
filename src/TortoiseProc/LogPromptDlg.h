@@ -98,6 +98,7 @@ public:
 		svn_wc_status_kind		textstatus;
 		svn_wc_status_kind		propstatus;
 		BOOL					checked;
+		BOOL					inunversionedfolder;
 	};
 	CArray<Data *, Data *>		m_arData;
 	CArray<Data *, Data *>		m_arAllData;

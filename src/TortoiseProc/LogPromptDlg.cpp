@@ -815,6 +815,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					data->status = stat;
 					data->textstatus = s->text_status;
 					data->propstatus = s->prop_status;
+					data->inunversionedfolder = FALSE;
 					pDlg->m_arData.Add(data);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
@@ -836,6 +837,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					data->status = stat;
 					data->textstatus = s->text_status;
 					data->propstatus = s->prop_status;
+					data->inunversionedfolder = FALSE;
 					pDlg->m_arData.Add(data);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
@@ -850,6 +852,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				alldata->status = stat;
 				alldata->textstatus = s->text_status;
 				alldata->propstatus = s->prop_status;
+				alldata->inunversionedfolder = FALSE;
 				pDlg->m_arAllData.Add(alldata);
 				while (bIsFolder && ((s = status.GetNextFileStatus(&strbuf)) != NULL))
 				{
@@ -862,6 +865,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					alldata->status = stat;
 					alldata->textstatus = s->text_status;
 					alldata->propstatus = s->prop_status;
+					alldata->inunversionedfolder = FALSE;
 					pDlg->m_arAllData.Add(alldata);
 					if ((stat == svn_wc_status_unversioned) && (PathIsDirectory(temp)))
 					{
@@ -914,6 +918,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						data->status = stat;
 						data->textstatus = s->text_status;
 						data->propstatus = s->prop_status;
+						data->inunversionedfolder = FALSE;
 						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						if (bIsFolder)
@@ -938,6 +943,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						data->status = stat;
 						data->textstatus = s->text_status;
 						data->propstatus = s->prop_status;
+						data->inunversionedfolder = FALSE;
 						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						if (PathIsDirectory(temp))
@@ -960,6 +966,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 									data->status = stat;
 									data->textstatus = s->text_status;
 									data->propstatus = s->prop_status;
+									data->inunversionedfolder = TRUE;
 									pDlg->m_arData.Add(data);
 									pDlg->m_ListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.GetLength() - 1));
 									SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
@@ -1001,11 +1008,11 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	}
 	pDlg->m_ListCtrl.SetRedraw(true);
 
-	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
-	pDlg->m_bBlock = FALSE;
 	if (pDlg->m_ListCtrl.GetItemCount()==0)
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+		pDlg->m_bBlock = FALSE;
 		pDlg->EndDialog(0);
 		return -1;
 	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
@@ -1045,21 +1052,24 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 			default:
 				{
 					pDlg->m_nUnversioned++;
-					// check if the unversioned item is just
-					// a file differing in case but still versioned
-					for (int j=0; j<pDlg->m_arAllData.GetCount(); j++)
+					if (!data->inunversionedfolder)
 					{
-						CLogPromptDlg::Data * d = pDlg->m_arAllData.GetAt(j);
-						if ((d->status != svn_wc_status_unversioned)&&(data->path.CompareNoCase(d->path)==0))
+						// check if the unversioned item is just
+						// a file differing in case but still versioned
+						for (int j=0; j<pDlg->m_arAllData.GetCount(); j++)
 						{
-							// adjust the case of the filename
-							MoveFileEx(data->path, d->path, MOVEFILE_REPLACE_EXISTING);
-							pDlg->m_ListCtrl.DeleteItem(i);
-							pDlg->m_arData.RemoveAt(i);
-							delete data;
-							i--;
-							pDlg->m_nUnversioned--;
-							break;
+							CLogPromptDlg::Data * d = pDlg->m_arAllData.GetAt(j);
+							if ((d->status != svn_wc_status_unversioned)&&(data->path.CompareNoCase(d->path)==0))
+							{
+								// adjust the case of the filename
+								MoveFileEx(data->path, d->path, MOVEFILE_REPLACE_EXISTING);
+								pDlg->m_ListCtrl.DeleteItem(i);
+								pDlg->m_arData.RemoveAt(i);
+								delete data;
+								i--;
+								pDlg->m_nUnversioned--;
+								break;
+							}
 						}
 					}
 				}
@@ -1094,6 +1104,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	pDlg->m_bBlock = FALSE;
 	return 0;
 }
 
