@@ -1146,7 +1146,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 					if (GetSelectedCount() == 1)
 					{
-						CString filename = filepath.GetFilename();
+						CString filename = filepath.GetFileOrDirectoryName();
 						if (filename.ReverseFind('.')>=0)
 						{
 							CMenu submenu;
@@ -1301,6 +1301,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_nSelected--;
 								m_nTotal--;
 								RemoveListEntry(index);
+//TODO: If the item we deleted was a directory, we should really remove all its children, too
 							}
 						}
 					}
