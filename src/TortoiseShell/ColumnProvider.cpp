@@ -78,7 +78,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 		case 1:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
 			psci->scid.pid = dwIndex;
-			psci->vt = VT_UI4;
+			psci->vt = VT_I4;
 			psci->fmt = LVCFMT_RIGHT;
 			psci->cChars = 15;
 			psci->csFlags = SHCOLSTATE_TYPE_INT | SHCOLSTATE_ONBYDEFAULT;
@@ -200,7 +200,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 				if (columnrev >= 0)
 				{
-					V_VT(pvarData) = VT_UI4;
+					V_VT(pvarData) = VT_I4;
 					V_I4(pvarData) = columnrev;
 				}
 				return S_OK;
