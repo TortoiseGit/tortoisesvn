@@ -557,10 +557,10 @@ private:
 	SVNPrompt					m_prompt;
 
 	svn_opt_revision_t *	getRevision (long revNumber);
-	void * logMessage (const char * message, char * baseDirectory = NULL);
+	void * logMessage (const char * message, char * baseDirectory = NULL, apr_pool_t * localpool = NULL);
 
 	// Convert a TSVNPathList into an array of SVN paths
-	apr_array_header_t * MakePathArray(const CTSVNPathList& pathList);
+	apr_array_header_t * MakePathArray(const CTSVNPathList& pathList, apr_pool_t * localpool = NULL);
 
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
