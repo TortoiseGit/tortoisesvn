@@ -165,9 +165,14 @@ void CChangedDlg::AddEntry(CString file, svn_wc_status_t * status)
 		m_FileListCtrl.InsertItem(index, sRelPath);
 		//SVNStatus::GetStatusString(text, buf);
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), text, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+		if ((!SVNStatus::IsImportant(status->text_status))&&(SVNStatus::IsImportant(status->prop_status)))
+			_tcscat(buf, _T(" (P only)"));
+		
 		m_FileListCtrl.SetItemText(index, 1, buf);
 		//SVNStatus::GetStatusString(repo, buf);
 		SVNStatus::GetStatusString(AfxGetResourceHandle(), repo, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+		if ((!SVNStatus::IsImportant(status->repos_text_status))&&(SVNStatus::IsImportant(status->repos_prop_status)))
+			_tcscat(buf, _T(" (P only)"));
 		m_FileListCtrl.SetItemText(index, 2, buf);
 
 		m_FileListCtrl.SetRedraw(FALSE);
