@@ -27,7 +27,7 @@
 #include "Guids.h"
 #include "Globals.h"
 #include "ShellExt.h"
-
+#include "..\\version.h"
 #include "UnicodeStrings.h"
 
 
@@ -45,11 +45,104 @@ CShellExt::CShellExt(FileState state)
 			ICC_LISTVIEW_CLASSES | ICC_WIN95_CLASSES
     };
     InitCommonControlsEx(&used);
+	LoadLangDll();
 }
 
 CShellExt::~CShellExt()
 {
 	g_cRefThisDll--;
+}
+
+void LoadLangDll()
+{
+	if (g_langid != g_ShellCache.GetLangID())
+	{
+		g_langid = g_ShellCache.GetLangID();
+		DWORD langId = g_langid;
+		TCHAR langDll[MAX_PATH];
+		HINSTANCE hInst;
+		CRegStdString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
+		do
+		{
+			_stprintf(langDll, _T("%s\\TortoiseProc%d.dll"), (LPCTSTR)str, langId);
+			BOOL versionmatch = TRUE;
+
+			struct TRANSARRAY
+			{
+				WORD wLanguageID;
+				WORD wCharacterSet;
+			};
+
+			DWORD dwReserved,dwBufferSize;
+			dwBufferSize = GetFileVersionInfoSize((LPTSTR)langDll,&dwReserved);
+
+			if (dwBufferSize > 0)
+			{
+				LPVOID pBuffer = (void*) malloc(dwBufferSize);
+
+				if (pBuffer != (void*) NULL)
+				{
+					UINT        nInfoSize = 0,
+						nFixedLength = 0;
+					LPSTR       lpVersion = NULL;
+					VOID*       lpFixedPointer;
+					TRANSARRAY* lpTransArray;
+					TCHAR       strLangProduktVersion[MAX_PATH];
+
+					GetFileVersionInfo((LPTSTR)langDll,
+						dwReserved,
+						dwBufferSize,
+						pBuffer);
+
+					// Abfragen der aktuellen Sprache
+					VerQueryValue(	pBuffer,
+						_T("\\VarFileInfo\\Translation"),
+						&lpFixedPointer,
+						&nFixedLength);
+					lpTransArray = (TRANSARRAY*) lpFixedPointer;
+
+					_stprintf(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+						lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
+
+					VerQueryValue(pBuffer,
+						(LPTSTR)strLangProduktVersion,
+						(LPVOID *)&lpVersion,
+						&nInfoSize);
+
+					versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER_INCVERSION), MAX_PATH) == 0);
+
+					free(pBuffer);
+				} // if (pBuffer != (void*) NULL) 
+			} // if (dwBufferSize > 0)  
+
+			if (!versionmatch)
+				continue;
+
+			hInst = LoadLibrary(langDll);
+			if (hInst != NULL)
+			{
+				FreeLibrary(g_hResInst);
+				g_hResInst = hInst;
+			} // if (hInst != NULL) 
+			else
+			{
+				DWORD lid = SUBLANGID(langId);
+				lid--;
+				if (lid > 0)
+				{
+					langId = MAKELANGID(PRIMARYLANGID(langId), lid);
+				}
+				else
+					langId = 0;
+			} 
+		} while ((hInst == NULL) && (langId != 0));
+		if (hInst == NULL)
+		{
+			if (g_hResInst != g_hmodThisDll)
+				FreeLibrary(g_hResInst);
+			g_hResInst = g_hmodThisDll;
+		}
+	} // if (g_langid != g_ShellCache.GetLangID()) 
 }
 
 STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)

@@ -35,7 +35,9 @@ public:
 		driveremove = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 		recursiveticker = GetTickCount();
 		driveticker = recursiveticker;
+		langticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 	}
 	DWORD GetMenuLayout()
 	{
@@ -92,6 +94,15 @@ public:
 			return FALSE;
 		return TRUE;
 	}
+	DWORD GetLangID()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT) > langticker)
+		{
+			langticker = GetTickCount();
+			langid.read();
+		} // if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
+		return (langid);
+	}
 
 private:
 	void DriveValid()
@@ -105,6 +116,7 @@ private:
 			driveremove.read();
 		}
 	}
+	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
 	CRegStdWORD driveremote;
 	CRegStdWORD drivefixed;
@@ -114,4 +126,5 @@ private:
 	DWORD recursiveticker;
 	DWORD driveticker;
 	DWORD layoutticker;
+	DWORD langticker;
 };

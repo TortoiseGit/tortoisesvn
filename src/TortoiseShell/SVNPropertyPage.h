@@ -94,7 +94,6 @@ protected:
 	const stdstring filename;
 	TCHAR stringtablebuffer[255];
 
-//#define MAKESTRING(ID) LoadString(g_hmodThisDll, ID, stringtablebuffer, sizeof(stringtablebuffer))
 };
 
 

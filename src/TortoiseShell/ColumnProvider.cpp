@@ -40,7 +40,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
 	if (dwIndex > 4)
 		return S_FALSE;
-
+	LoadLangDll();
 	wide_string ws;
 	switch (dwIndex)
 	{
@@ -143,6 +143,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
+	LoadLangDll();
 	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 4) 
 	{
 		PreserveChdir preserveChdir;
@@ -159,7 +160,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		{
 			case 0:
 				GetColumnStatus(path);
-				SVNStatus::GetStatusString(g_hmodThisDll, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+				SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				szInfo = buf;
 				break;
 			case 1:
@@ -253,6 +254,7 @@ void CShellExt::GetColumnStatus(stdstring path)
 {
 	if (columnfilepath.compare(path)==0)
 		return;
+	LoadLangDll();
 	columnfilepath = path;
 	filestatuscache * status = g_CachedStatus.GetFullStatus(path.c_str());
 	filestatus = status->status;

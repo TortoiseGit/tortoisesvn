@@ -25,6 +25,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 	if (svn.status->entry == NULL)
 		return NOERROR;
 
+	LoadLangDll();
     PROPSHEETPAGE psp;
 	ZeroMemory(&psp, sizeof(PROPSHEETPAGE));
 	HPROPSHEETPAGE hPage;
@@ -34,7 +35,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK | PSP_DLGINDIRECT;	
 	psp.hInstance = g_hmodThisDll;
 	psp.pszTemplate = NULL;
-	psp.pResource = (PROPSHEETPAGE_RESOURCE)LockResource(LoadResource(g_hmodThisDll, FindResourceEx(g_hmodThisDll, RT_DIALOG, MAKEINTRESOURCE(IDD_PROPPAGE), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))));
+	psp.pResource = (PROPSHEETPAGE_RESOURCE)LockResource(LoadResource(g_hResInst, FindResourceEx(g_hmodThisDll, RT_DIALOG, MAKEINTRESOURCE(IDD_PROPPAGE), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))));
     psp.pszIcon = MAKEINTRESOURCE(IDI_MENU);
     psp.pszTitle = _T("Subversion");
     psp.pfnDlgProc = (DLGPROC) PageProc;
@@ -284,6 +285,7 @@ void CSVNPropertyPage::InitWorkfileView()
 	{
 		if (svn.status->entry != NULL)
 		{
+			LoadLangDll();
 			TCHAR buf[MAX_PROP_STRING_LENGTH];
 			__time64_t	time;
 			int datelen = 0;
@@ -310,9 +312,9 @@ void CSVNPropertyPage::InitWorkfileView()
 #else
 				SetDlgItemText(m_hwnd, IDC_AUTHOR, svn.status->entry->cmt_author);
 #endif
-			SVNStatus::GetStatusString(g_hmodThisDll, svn.status->text_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+			SVNStatus::GetStatusString(g_hResInst, svn.status->text_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 			SetDlgItemText(m_hwnd, IDC_TEXTSTATUS, buf);
-			SVNStatus::GetStatusString(g_hmodThisDll, svn.status->prop_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+			SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 			SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
 			time = (__time64_t)svn.status->entry->text_time/1000000L;
 			Time64ToTimeString(time, buf);

@@ -25,6 +25,7 @@
 #include "CrashHandler.h"
 
 #include "resource.h"		// main symbols
+#include "..\\TortoiseShell\\resource.h"
 #include "Utils.h"
 #include "SVNStatus.h"
 #include "BrowseFolder.h"

@@ -8,6 +8,9 @@ UINT      g_cRefThisDll = 0;				///< reference count of this DLL.
 HINSTANCE g_hmodThisDll = NULL;				///< handle to this DLL itself.
 SVNFolderStatus g_CachedStatus;				///< status cache
 ShellCache g_ShellCache;					///< caching of registry entries, ...
+CRegStdWORD			g_regLang;
+DWORD				g_langid;
+HINSTANCE			g_hResInst;
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)

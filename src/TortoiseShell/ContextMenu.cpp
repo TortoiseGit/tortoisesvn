@@ -205,7 +205,7 @@ void CShellExt::InsertSVNMenuBMP(HMENU menu, UINT pos, UINT_PTR id, UINT stringi
 
 HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 {
-	HICON hIcon = (HICON)LoadImage(g_hmodThisDll, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 10, 10, LR_DEFAULTCOLOR);
+	HICON hIcon = (HICON)LoadImage(g_hResInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 10, 10, LR_DEFAULTCOLOR);
 	if (!hIcon)
 		return NULL;
 
@@ -291,6 +291,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	//drop handler
 	if (m_State == DropHandler)
 	{
+		LoadLangDll();
 		PreserveChdir preserveChdir;
 
 		if ((uFlags & CMF_DEFAULTONLY)!=0)
@@ -347,6 +348,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if (_tcscmp(buf, folder_.c_str())==0)
 		return NOERROR;
 
+	LoadLangDll();
 	bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
 	UINT idCmd = idCmdFirst;
 
@@ -840,6 +842,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 		return E_INVALIDARG;		//no, we don't
 	}
 
+	LoadLangDll();
 	HRESULT hr = E_INVALIDARG;
 	switch (myIDMap[idCmd])
 	{
@@ -976,6 +979,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 		pResult = &res;
 	*pResult = FALSE;
 
+	LoadLangDll();
 	switch (uMsg)
 	{
 		case WM_MEASUREITEM:

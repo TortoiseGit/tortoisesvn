@@ -18,6 +18,7 @@
 
 #include "stdafx.h"
 #include "resource.h"
+#include "..\\TortoiseShell\\resource.h"
 
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"

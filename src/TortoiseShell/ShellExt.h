@@ -37,6 +37,10 @@ extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
 extern	SVNFolderStatus		g_CachedStatus;			// status cache
 extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
+extern	CRegStdWORD			g_regLang;
+extern	DWORD				g_langid;
+extern	HINSTANCE			g_hResInst;
+extern	void				LoadLangDll();
 
 // The actual OLE Shell context menu handler
 /**
@@ -142,10 +146,10 @@ protected:
 	stdstring itemurl;
 	stdstring itemshorturl;
 	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
-	CRegStdWORD g_regLang;
+
 	//SVNFolderStatus CachedStatus;
 
-#define MAKESTRING(ID) LoadStringEx(g_hmodThisDll, ID, stringtablebuffer, sizeof(stringtablebuffer), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
+#define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:
 	void InsertSVNMenu(HMENU menu, UINT pos, UINT flags, UINT_PTR id, UINT stringid, UINT idCmdFirst, SVNCommands com);
 	void InsertSVNMenuBMP(HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);

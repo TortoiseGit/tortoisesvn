@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="TortoiseProcRUS"
-	ProjectGUID="{25CB6195-CF9B-4EDA-8DC4-BCCBA787A17B}"
+	Name="TortoiseLang"
+	ProjectGUID="{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -13,17 +13,17 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\bin\Debug"
-			IntermediateDirectory="..\..\obj\TortoiseProcRUS\Debug"
+			IntermediateDirectory="..\..\obj\TortoiseLang\Debug"
 			ConfigurationType="2"
 			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;TORTOISEPROCRUS_EXPORTS"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;TORTOISELANG_EXPORTS"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				UsePrecompiledHeader="3"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="4"/>
@@ -31,13 +31,13 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/TortoiseProc1049.dll"
+				OutputFile="$(OutDir)/TortoiseLang.dll"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="$(OutDir)/TortoiseProcRUS.pdb"
+				ProgramDatabaseFile="$(OutDir)/TortoiseLang.pdb"
 				SubSystem="2"
 				ResourceOnlyDLL="TRUE"
-				ImportLibrary="$(OutDir)/TortoiseProcRUS.lib"
+				ImportLibrary="$(OutDir)/TortoiseLang.lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -48,7 +48,8 @@
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories="..\TortoiseShell"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -63,19 +64,14 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\bin\Release"
-			IntermediateDirectory="..\..\obj\TortoiseProcRUS\Release"
+			IntermediateDirectory="..\..\obj\TortoiseLang\Release"
 			ConfigurationType="2"
 			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="2"
-				InlineFunctionExpansion="1"
-				OmitFramePointers="TRUE"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;TORTOISEPROCRUS_EXPORTS"
-				StringPooling="TRUE"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;TORTOISELANG_EXPORTS"
 				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="TRUE"
-				UsePrecompiledHeader="3"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="3"/>
@@ -83,14 +79,14 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/TortoiseProc1049.dll"
+				OutputFile="$(OutDir)/TortoiseLang.dll"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				ResourceOnlyDLL="TRUE"
-				ImportLibrary="$(OutDir)/TortoiseProcRUS.lib"
+				ImportLibrary="$(OutDir)/TortoiseLang.lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -101,7 +97,8 @@
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories="..\TortoiseShell"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -116,35 +113,16 @@
 		<Configuration
 			Name="Release_MBCS|Win32"
 			OutputDirectory="..\..\bin\Release_MBCS"
-			IntermediateDirectory="..\..\obj\TortoiseProcRUS\Release_MBCS"
+			IntermediateDirectory="..\..\obj\TortoiseLang\Release_MBCS"
 			ConfigurationType="2"
-			CharacterSet="2">
+			CharacterSet="1">
 			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="2"
-				InlineFunctionExpansion="1"
-				OmitFramePointers="TRUE"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;TORTOISEPROCRUS_EXPORTS"
-				StringPooling="TRUE"
-				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="TRUE"
-				UsePrecompiledHeader="3"
-				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				Name="VCCLCompilerTool"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/TortoiseProc1049.dll"
-				LinkIncremental="1"
-				GenerateDebugInformation="TRUE"
-				SubSystem="2"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				ResourceOnlyDLL="TRUE"
-				ImportLibrary="$(OutDir)/TortoiseProcRUS.lib"
-				TargetMachine="1"/>
+				ResourceOnlyDLL="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -154,7 +132,8 @@
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories="..\TortoiseShell"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -172,24 +151,21 @@
 	<Files>
 		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
 		</Filter>
 		<Filter
 			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc">
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
 			<File
 				RelativePath="..\TortoiseProc\resource.h">
-			</File>
-			<File
-				RelativePath="..\Languages\resource.h">
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
-			<File
-				RelativePath="..\Languages\res\bin168.avi">
-			</File>
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
 			<File
 				RelativePath="..\Languages\res\charlie_flipped.bmp">
 			</File>
@@ -197,22 +173,19 @@
 				RelativePath="..\Languages\res\Tortoise.ico">
 			</File>
 			<File
-				RelativePath="..\Languages\res\TortoiseProc.manifest">
-			</File>
-			<File
-				RelativePath="..\Languages\res\TortoiseProc.rc2">
-			</File>
-			<File
-				RelativePath="..\Languages\TortoiseProcRUS.rc">
+				RelativePath="..\Languages\TortoiseProcENG.rc">
 			</File>
 		</Filter>
 		<File
 			RelativePath="..\Languages\res\bin167.avi">
 		</File>
+		<File
+			RelativePath="..\Languages\res\bin168.avi">
+		</File>
+		<File
+			RelativePath="..\Languages\res\TortoiseProc.manifest">
+		</File>
 	</Files>
 	<Globals>
-		<Global
-			Name="DevPartner_IsInstrumented"
-			Value="0"/>
 	</Globals>
 </VisualStudioProject>
