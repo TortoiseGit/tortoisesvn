@@ -1155,13 +1155,13 @@ BOOL CReportCtrl::SetItem(LPRVITEM lprvi)
 	if(lprvi->nMask&RVIM_TEXTCOLOR)
 		rvi.iTextColor = lprvi->iTextColor;
 
-	if(lprvi->nMask&RVIM_IMAGE)
+	if(m_pImageList && (lprvi->nMask&RVIM_IMAGE))
 	{
 		ASSERT(m_pImageList != NULL && lprvi->iImage < m_pImageList->GetImageCount());
 		rvi.iImage = lprvi->iImage;
 	}
 
-	if(lprvi->nMask&RVIM_OVERLAY)
+	if(m_pImageList && (lprvi->nMask&RVIM_OVERLAY))
 	{
 		ASSERT(m_pImageList != NULL && lprvi->iOverlay < m_pImageList->GetImageCount());
 		rvi.iOverlay = lprvi->iOverlay;
@@ -5002,7 +5002,7 @@ INT CReportCtrl::DrawImage(CDC* pDC, CRect rect, LPRVITEM lprvi)
 	CImageList* pImageList = GetImageList();
 	INT iWidth = 0;
 
-	if(lprvi->nMask&RVIM_IMAGE)
+	if(pImageList && (lprvi->nMask&RVIM_IMAGE))
 	{
 		ASSERT(pImageList);
 		ASSERT(lprvi->iImage>=0 && lprvi->iImage<pImageList->GetImageCount());
