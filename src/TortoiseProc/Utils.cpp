@@ -57,6 +57,10 @@ CString CUtils::GetTempFile(const CString& origfilename)
 			i++;
 		} while (PathFileExists(tempfile));
 	}
+	//now create the tempfile, so that subsequent calls to GetTempFile() return
+	//different filenames.
+	HANDLE hFile = CreateFile(tempfile, GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+	CloseHandle(hFile);
 	return tempfile;
 }
 
@@ -180,8 +184,8 @@ BOOL CUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, con
 	viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
 
 	viewer = _T("\"") + viewer + _T("\"");
-	viewer = viewer + _T(" /patchpath:\"") + patchfile.GetWinPathString() + _T("\"");
-	viewer = viewer + _T(" /diff:\"") + dir.GetWinPathString() + _T("\"");
+	viewer = viewer + _T(" /diff:\"") + patchfile.GetWinPathString() + _T("\"");
+	viewer = viewer + _T(" /patchpath:\"") + dir.GetWinPathString() + _T("\"");
 	if (bReversed)
 		viewer += _T(" /reversedpatch");
 	if (!sOriginalDescription.IsEmpty())
