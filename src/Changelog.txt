@@ -20,6 +20,9 @@
 - CHG: Don't show an error if a temporary file
        can't get deleted because of a stupid
        virus scanner. (Stefan)
+- CHG: The log dialog now shows the file/foldername
+       for which the log is requested in the
+       window title. (Stefan)
 - BUG: Convert the Subversion error messages
        properly from UTF8 to UNICODE/MBCS. (Stefan)
        

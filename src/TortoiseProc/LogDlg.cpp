@@ -158,6 +158,10 @@ BOOL CLogDlg::OnInitDialog()
 
 	m_logcounter = 0;
 
+	CString sTitle;
+	GetWindowText(sTitle);
+	SetWindowText(sTitle + _T(" - ") + m_path.Mid(m_path.ReverseFind('\\')+1));
+
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMSG, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
