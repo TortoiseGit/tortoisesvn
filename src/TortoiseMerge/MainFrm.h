@@ -71,6 +71,8 @@ protected:
 	afx_msg void	OnViewLineup();
 	afx_msg void	OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI);
 	afx_msg void	OnMergeMarkasresolved();
+	afx_msg void	OnUpdateMergeNextconflict(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateMergePreviousconflict(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:

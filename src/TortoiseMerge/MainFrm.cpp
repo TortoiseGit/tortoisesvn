@@ -67,6 +67,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_VIEW_LINEUP, OnViewLineup)
 	ON_UPDATE_COMMAND_UI(ID_MERGE_MARKASRESOLVED, OnUpdateMergeMarkasresolved)
 	ON_COMMAND(ID_MERGE_MARKASRESOLVED, OnMergeMarkasresolved)
+	ON_UPDATE_COMMAND_UI(ID_MERGE_NEXTCONFLICT, OnUpdateMergeNextconflict)
+	ON_UPDATE_COMMAND_UI(ID_MERGE_PREVIOUSCONFLICT, OnUpdateMergePreviousconflict)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1207,4 +1209,14 @@ BOOL CMainFrame::MarkAsResolved()
 	else
 		return FALSE;
 	return TRUE;
+}
+
+void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()));
+}
+
+void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()));
 }
