@@ -778,6 +778,13 @@ BEGIN
                             "Se selezionato una nuova cartella verra' creata nell'archivio dove verrano eseguite le importazioni."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_SAVEAS   "Salva in..."
+    IDS_REPOBROWSE_SHOWLOG  "Visualizza log"
+    IDS_REPOBROWSE_OPEN     "open"
+END
+
 #endif    // Italian (Italy) resources
 /////////////////////////////////////////////////////////////////////////////
 

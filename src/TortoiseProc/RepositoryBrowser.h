@@ -19,6 +19,11 @@
 #include "repositorytree.h"
 #include "ResizableDialog.h"
 
+
+#define ID_POPSAVEAS		1
+#define ID_POPSHOWLOG		2
+#define	ID_POPOPEN			3
+
 /**
  * \ingroup TortoiseProc
  * Dialog to browse a repository.
@@ -72,4 +77,5 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	CString m_strUrl;
+	afx_msg void OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 };

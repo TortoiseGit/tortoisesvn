@@ -746,6 +746,13 @@ BEGIN
                             "Gibt an ob ein neuer Ordner in der Datenbank für den Import erstellt werden soll."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_SAVEAS   "Speichern unter..."
+    IDS_REPOBROWSE_SHOWLOG  "Zeige Log"
+    IDS_REPOBROWSE_OPEN     "öffnen"
+END
+
 #endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 

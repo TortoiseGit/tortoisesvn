@@ -90,7 +90,7 @@ protected:
 public:
 	afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual BOOL OnInitDialog();
-	void SetParams(CString path, long startrev = 0, long endrev = -1);
+	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL hasWC = TRUE);
 
 public:
 	CListCtrl	m_LogList;
@@ -104,6 +104,7 @@ private:
 	CString		m_sLogMsgCtrl;
 	CStringArray m_arLogMessages;
 	CDWordArray m_arRevs;
+	BOOL		m_hasWC;
 public:
 	afx_msg void OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);

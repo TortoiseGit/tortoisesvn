@@ -58,11 +58,12 @@ END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = -1 */)
+void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL hasWC)
 {
 	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
+	m_hasWC = hasWC;
 }
 
 void CLogDlg::OnPaint() 
@@ -288,12 +289,14 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				if (!PathIsDirectory(m_path))
 				{
 					temp.LoadString(IDS_LOG_POPUP_COMPARE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+					if (m_hasWC)
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 					temp.LoadString(IDS_LOG_POPUP_SAVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 				}
 				temp.LoadString(IDS_LOG_POPUP_UPDATE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+				if (m_hasWC)
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
 			}
 			else if (m_LogList.GetSelectedCount() == 2)
 			{
@@ -446,7 +449,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				OPENFILENAME ofn;		// common dialog box structure
 				TCHAR szFile[MAX_PATH];  // buffer for file name
 				ZeroMemory(szFile, sizeof(szFile));
-				_tcscpy(szFile, m_path);
+				if (m_hasWC)
+					_tcscpy(szFile, m_path);
 				// Initialize OPENFILENAME
 				ZeroMemory(&ofn, sizeof(OPENFILENAME));
 				//ofn.lStructSize = sizeof(OPENFILENAME);
@@ -474,7 +478,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return;
 					}
-				}
+				} // if (GetSaveFileName(&ofn)==TRUE)
 			} // if (cmd == ID_SAVEAS) 
 			if (cmd == ID_UPDATE)
 			{

@@ -59,19 +59,22 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult);
+	//afx_msg void OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
+
+	void Init();
+	CString MakeUrl(HTREEITEM hItem);
+	CString GetFolderUrl(HTREEITEM hItem);
+	BOOL ItemExists(HTREEITEM parent, CString item);
+
 private:
 	CString		m_strUrl;
-	int			m_nIconFolder;
 	CImageList	m_ImageList;
 	SVN			m_svn;
 	BOOL		bInit;
 
 public:
-	void Init();
-	CString MakeUrl(HTREEITEM hItem);
-	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnTvnSelchanging(NMHDR *pNMHDR, LRESULT *pResult);
-	BOOL ItemExists(HTREEITEM parent, CString item);
+	int			m_nIconFolder;
 };
 
 

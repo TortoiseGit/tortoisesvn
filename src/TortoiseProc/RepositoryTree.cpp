@@ -42,7 +42,7 @@ CRepositoryTree::~CRepositoryTree()
 BEGIN_MESSAGE_MAP(CRepositoryTree, CTreeCtrl)
 	ON_NOTIFY_REFLECT(TVN_ITEMEXPANDING, OnTvnItemexpanding)
 	ON_NOTIFY_REFLECT(TVN_GETINFOTIP, OnTvnGetInfoTip)
-	ON_NOTIFY_REFLECT(TVN_SELCHANGING, OnTvnSelchanging)
+	//ON_NOTIFY_REFLECT(NM_DBLCLK, OnNMDblclk)
 END_MESSAGE_MAP()
 
 
@@ -134,19 +134,6 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
-void CRepositoryTree::OnTvnSelchanging(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
-	*pResult = 0;
-	// prevent the user from selecting a file entry!
-	TVITEM Item;
-	Item.mask = TVIF_IMAGE;
-	Item.hItem = pNMTreeView->itemNew.hItem;
-	GetItem(&Item);
-	if (Item.iImage != m_nIconFolder)
-		*pResult = 1;
-}
-
 void CRepositoryTree::Init()
 {
 	bInit = TRUE;
@@ -201,6 +188,18 @@ void CRepositoryTree::Init()
 	bInit = FALSE;
 }
 
+CString CRepositoryTree::GetFolderUrl(HTREEITEM hItem)
+{
+	// prevent the user from selecting a file entry!
+	TVITEM Item;
+	Item.mask = TVIF_IMAGE;
+	Item.hItem = hItem;
+	GetItem(&Item);
+	if (Item.iImage != m_nIconFolder)
+		hItem = GetParentItem(hItem);
+	return MakeUrl(hItem);
+}
+
 CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
 {
 	CString strUrl = GetItemText(hItem);
@@ -232,3 +231,24 @@ BOOL CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
 	} // while (hCurrent != NULL)
 	return FALSE;
 }
+
+//void CRepositoryTree::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
+//{
+//	*pResult = 0;
+//	HTREEITEM selItem = TreeView_GetSelection(m_hWnd);
+//	CString execUrl;
+//
+//	TVITEM Item;
+//	Item.mask = TVIF_IMAGE;
+//	Item.hItem = selItem;
+//	GetItem(&Item);
+//	if (Item.iImage == m_nIconFolder)
+//	{
+//		return;
+//	}
+//	execUrl = MakeUrl(selItem);
+//	if (execUrl.Left(4).CompareNoCase(_T("http"))==0)
+//	{
+//		ShellExecute(NULL, _T("open"), execUrl, NULL, NULL, SW_SHOWNORMAL);
+//	} // if (m_strUrl.Left(4).CompareNoCase(_T("http"))==0)
+//}

@@ -749,6 +749,13 @@ BEGIN
                             "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_SAVEAS   "save as..."
+    IDS_REPOBROWSE_SHOWLOG  "show log"
+    IDS_REPOBROWSE_OPEN     "open"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -20,6 +20,9 @@
 #include "TortoiseProc.h"
 #include "RepositoryBrowser.h"
 
+#include "MessageBox.h"
+#include "LogDlg.h"
+
 
 // CRepositoryBrowser dialog
 
@@ -50,6 +53,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_WM_SIZING()
+	ON_NOTIFY(NM_RCLICK, IDC_REPOS_TREE, OnNMRclickReposTree)
 END_MESSAGE_MAP()
 
 
@@ -111,8 +115,98 @@ void CRepositoryBrowser::OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResul
 {
 	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
 	
-	m_strUrl = m_treeRepository.MakeUrl(pNMTreeView->itemNew.hItem);
+	m_strUrl = m_treeRepository.GetFolderUrl(pNMTreeView->itemNew.hItem);
 	UpdateData(FALSE);
 	*pResult = 0;
 }
 
+void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	*pResult = 0;
+	POINT point;
+	GetCursorPos(&point);
+	::MapWindowPoints(NULL, m_treeRepository.m_hWnd, &point, 1);
+	HTREEITEM hSelItem = m_treeRepository.HitTest(point);
+	//HTREEITEM hSelItem = m_treeRepository.GetSelectedItem();
+	CString url = m_treeRepository.MakeUrl(hSelItem);
+	if (hSelItem)
+	{
+		BOOL bFolder = TRUE;;
+		TVITEM Item;
+		Item.mask = TVIF_IMAGE;
+		Item.hItem = hSelItem;
+		m_treeRepository.GetItem(&Item);
+		if (Item.iImage != m_treeRepository.m_nIconFolder)
+			bFolder = FALSE;
+		CMenu popup;
+		POINT point;
+		GetCursorPos(&point);
+		if (popup.CreatePopupMenu())
+		{
+			CString temp;
+			UINT flags;
+			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+			if (bFolder)
+				flags = MF_STRING | MF_GRAYED;
+			else
+				flags = MF_STRING | MF_ENABLED;
+			popup.AppendMenu(flags, ID_POPSAVEAS, temp);
+			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);
+			temp.LoadString(IDS_REPOBROWSE_OPEN);
+			if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
+				flags = MF_STRING | MF_GRAYED;
+			else
+				flags = MF_STRING | MF_ENABLED;
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);
+
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+			GetDlgItem(IDOK)->EnableWindow(FALSE);
+			CCursor(IDC_WAIT);
+			if (cmd == ID_POPSAVEAS)
+			{
+				OPENFILENAME ofn;		// common dialog box structure
+				TCHAR szFile[MAX_PATH];  // buffer for file name
+				ZeroMemory(szFile, sizeof(szFile));
+				// Initialize OPENFILENAME
+				ZeroMemory(&ofn, sizeof(OPENFILENAME));
+				//ofn.lStructSize = sizeof(OPENFILENAME);
+				ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+				ofn.hwndOwner = this->m_hWnd;
+				ofn.lpstrFile = szFile;
+				ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+				CString temp;
+				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+				if (temp.IsEmpty())
+					ofn.lpstrTitle = NULL;
+				else
+					ofn.lpstrTitle = temp;
+				ofn.Flags = OFN_OVERWRITEPROMPT;
+
+				// Display the Open dialog box. 
+				CString tempfile;
+				if (GetSaveFileName(&ofn)==TRUE)
+				{
+					tempfile = CString(ofn.lpstrFile);
+					SVN svn;
+					if (!svn.Cat(url, -1, tempfile))
+					{
+						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						return;
+					}
+				} // if (GetSaveFileName(&ofn)==TRUE) 
+			} // if (cmd == ID_SAVEAS)
+			if (cmd == ID_POPSHOWLOG)
+			{
+				CLogDlg dlg;
+				dlg.SetParams(url, 0, -1, FALSE);
+				dlg.DoModal();
+			} // if (cmd == ID_SHOWLOG)
+			if (cmd == ID_POPOPEN)
+			{
+				ShellExecute(NULL, _T("open"), url, NULL, NULL, SW_SHOWNORMAL);
+			}
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+		} // if (popup.CreatePopupMenu()) 
+	} // if (hSelItem) 
+}

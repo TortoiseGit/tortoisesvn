@@ -178,6 +178,9 @@
 #define IDS_WARN_FOLDERNOTEXIST         400
 #define IDS_CHECKOUT_TT_DIR             500
 #define IDS_IMPORT_TT_MODULENAMECHECK   510
+#define IDS_REPOBROWSE_SAVEAS           600
+#define IDS_REPOBROWSE_SHOWLOG          601
+#define IDS_REPOBROWSE_OPEN             602
 #define IDC_LOGLIST                     1003
 #define IDC_PASSEDIT                    1004
 #define IDC_INFOTEXT                    1005

@@ -681,6 +681,13 @@ BEGIN
                             "Если опция включена, в репозитории будет создана новая папка.\nВ противном случае начальный импорт будет произведён по указанному URL."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOBROWSE_SAVEAS   "save as..."
+    IDS_REPOBROWSE_SHOWLOG  "show log"
+    IDS_REPOBROWSE_OPEN     "open"
+END
+
 #endif    // Russian resources
 /////////////////////////////////////////////////////////////////////////////
 

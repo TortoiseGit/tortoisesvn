@@ -478,7 +478,6 @@ BOOL SVN::Cat(CString url, LONG revision, CString localpath)
 {
 	apr_file_t * file;
 	svn_stream_t * stream;
-	const char *URL;
 
 	preparePath(url);
 
@@ -487,13 +486,7 @@ BOOL SVN::Cat(CString url, LONG revision, CString localpath)
 	apr_file_open(&file, CUnicodeUtils::GetUTF8(localpath), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
 	stream = svn_stream_from_aprfile(file, pool);
 
-	Err = get_url_from_target (&URL, CUnicodeUtils::GetUTF8(url));
-
-	if (Err != NULL)
-	{
-		return FALSE;
-	}
-	Err = svn_client_cat(stream, URL, getRevision(revision), &ctx, pool);
+	Err = svn_client_cat(stream, CUnicodeUtils::GetUTF8(url), getRevision(revision), &ctx, pool);
 
 	apr_file_close(file);
 	if (Err != NULL)
