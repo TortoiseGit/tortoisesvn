@@ -687,6 +687,38 @@ void CMainFrame::OnFileSave()
 			MoveFile(m_Data.m_sMergedFile, m_Data.m_sMergedFile + _T(".bak"));
 		}
 		SaveFile(this->m_Data.m_sMergedFile);
+		if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Resolve"))) != 0)
+		{
+			TCHAR buf[MAX_PATH*3];
+			GetModuleFileName(NULL, buf, MAX_PATH);
+			TCHAR * end = _tcsrchr(buf, '\\');
+			end++;
+			(*end) = 0;
+			_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
+			_tcscat(buf, this->m_Data.m_sMergedFile);
+			_tcscat(buf, _T("\" /closeonend"));
+			STARTUPINFO startup;
+			PROCESS_INFORMATION process;
+			memset(&startup, 0, sizeof(startup));
+			startup.cb = sizeof(startup);
+			memset(&process, 0, sizeof(process));
+			if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+			{
+				LPVOID lpMsgBuf;
+				FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+					FORMAT_MESSAGE_FROM_SYSTEM | 
+					FORMAT_MESSAGE_IGNORE_INSERTS,
+					NULL,
+					GetLastError(),
+					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+					(LPTSTR) &lpMsgBuf,
+					0,
+					NULL 
+					);
+				MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
+				LocalFree( lpMsgBuf );
+			}
+		}
 	}
 	else
 	{

@@ -12,6 +12,8 @@
 - ADD: Comparing an older revision with the working copy
        on folders. TME is started for this in patch mode
        to avoid "ugly" unified diffs. (Stefan)
+- ADD: TortoiseMerge can now resolve a conflicted file
+       in Subversion automatically when saving. (Stefan)
 - CHG: The locatorbar in TME shows the current view range
        with a blue background for better indication. (Stefan)
 - CHG: When showing the log in the merge dialog, it will

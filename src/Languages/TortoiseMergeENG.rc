@@ -192,8 +192,8 @@ BEGIN
     CONTROL         "Jump to first difference when loading",
                     IDC_FIRSTDIFFONLOAD,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,15,27,236,10
-    LTEXT           "Tab Size:",IDC_STATIC,15,101,54,8
-    EDITTEXT        IDC_TABSIZE,80,98,41,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Tab Size:",IDC_STATIC,15,104,54,8
+    EDITTEXT        IDC_TABSIZE,80,101,41,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Diffing",IDC_DIFFGROUP,7,157,251,59
     CONTROL         "Ignore Lineendings (recommended)",IDC_IGNORELF,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,169,236,10
@@ -208,11 +208,11 @@ BEGIN
     LTEXT           "Language:",IDC_STATIC,15,137,66,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,135,171,58,CBS_DROPDOWN | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Font:",IDC_STATIC,15,119,52,8
-    COMBOBOX        IDC_FONTNAMES,80,117,122,90,CBS_DROPDOWNLIST | 
+    LTEXT           "Font:",IDC_STATIC,15,121,52,8
+    COMBOBOX        IDC_FONTNAMES,80,119,122,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,211,117,40,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,211,119,40,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "Show Linenumbers",IDC_LINENUMBERS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,47,236,10
@@ -222,6 +222,9 @@ BEGIN
                     WS_TABSTOP,15,67,236,10
     CONTROL         "Use strikeout for deleted lines",IDC_STRIKEOUT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
+    CONTROL         "Resolve conflicted subversion status on save",
+                    IDC_RESOLVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,88,
+                    243,10
 END
 
 IDD_SETCOLORPAGE DIALOGEX 0, 0, 265, 223
