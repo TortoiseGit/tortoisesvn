@@ -128,9 +128,9 @@ if %_RELEASE_MBCS%==ON (
   devenv TortoiseSVN.sln /rebuild release_mbcs)
 if %_DEBUG%==ON (
   devenv TortoiseSVN.sln /rebuild debug)
-cd ..\Languages
+cd ..\..\Languages
 call Make_Pot.bat
-cd ..\..
+cd ..
 @echo off
 
 echo ================================================================================
@@ -148,7 +148,7 @@ if %_SETUP%==ON (
   echo building installers
 
   call MakeMsi.bat
-  cd ..\..\Languages
+  cd ..\..\..\Languages
   call Make_Installer.bat
 )
 
