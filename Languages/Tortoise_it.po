@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-02-08 20:41+0100\n"
+"PO-Revision-Date: 2005-02-15 01:56+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -177,11 +177,6 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "&Annulla"
-
-# Control-ID:1066,
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "&Chiudi automaticamente le finestre"
 
 # ID:76,
 #: ID:76
@@ -997,6 +992,21 @@ msgstr "Autore:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autori:                      Stefan Kueng, Tim Kemp"
 
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "Chiudi automaticamente in assenza di conflitti"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "Chiudi automaticamente in assenza di errori"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "Chiudi automaticamente se non ci sono fusioni, aggiunte o eliminazioni"
+
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Automatically resolve conflicted subversion status on save"
@@ -1214,15 +1224,6 @@ msgstr "Controlla se ci sono modifiche"
 msgid "Check for newer &versions"
 msgstr "Controlla la disponibilità di nuove &versioni"
 
-# ID:79,
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr ""
-"Selezionare questa casella se si desidera che la finestra si chiuda\n"
-"automaticamente una volta terminata l'operazione in corso."
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1320,6 +1321,11 @@ msgstr "Clicca su \"Avanzate\" per specificare i programmi esterni in base all'e
 #: ID:257
 msgid "Clipboard"
 msgstr "Appunti"
+
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "Chiudi manualmente"
 
 # ID:3825,
 #: ID:3825
@@ -1422,6 +1428,11 @@ msgstr "Menu contestuale"
 #: ID:73
 msgid "Continue"
 msgstr "Continua"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Convert files when diffing against BASE"
+msgstr "Converti i file quando si sta procedendo ad un confronto con la BASE"
 
 # ID:376,
 #: ID:376
@@ -1631,11 +1642,6 @@ msgstr ""
 "Taglia il testo selezionato e la copia negli appunti\n"
 "Taglia"
 
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "Non &chiudere quando vi sono conflitti"
-
 # ID:76,
 #: ID:76
 msgid "Date"
@@ -1807,11 +1813,6 @@ msgstr ""
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "Si desidera salvare i cambiamenti?"
-
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Don't convert files when diffing against BASE"
-msgstr "Non convertire i file quando si sta procedendo ad un confronto con la BASE"
 
 # ID:80,
 #: ID:73
@@ -2225,8 +2226,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "Se selezionato TortoiseSVN non creerà file temporanei per effettuare il confronto, ma confronterà il file originale con la BASE"
+msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
+msgstr "Se selezionato TortoiseSVN crea un file temporaneo per effettuare il confronto con le parole chiave non espanse."
 
 # ID:194,
 #: ID:194
@@ -2965,6 +2966,11 @@ msgstr "Applicazione"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Applicazioni (*.exe)|*.exe|Tutti i file (*.*)|*.*||"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "Avanzamento:"
+
 # Control-ID:65535,#:
 # Dlg-ID:177,
 #: Control-ID:65535
@@ -3516,6 +3522,11 @@ msgstr ""
 "Selezionare la cartella in cui esportare.\n"
 "Potreste dover creare una nuova cartella prima di procedere all'esportazione."
 
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "Selezionare come si vuole che si comporti la barra di avanzamento al termine dell'operazione."
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -4042,10 +4053,10 @@ msgstr ""
 #: ID:88
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"La cartella non è vuota\n"
-"Si è sicuri di voler procedere al ritiro in questa cartella?"
+"La cartella non è vuota!\n"
+"Si è sicuri di voler procedere al ritiro o all'esportazione in questa cartella?"
 
 # ID:81,
 #: ID:81
@@ -4713,6 +4724,17 @@ msgid ""
 msgstr ""
 "bugtraq:label\n"
 "Campo di testo dove l'utente può specificare un issue number."
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"due espressioni regolari separate da un carattere di a capo\n"
+"La prima espressione viene usata per identificare una stringa che si rifersca alla 'issue', la seconda indica come estrarre il bug ID dalla stringa."
 
 # ID:14,
 #: ID:14
