@@ -178,12 +178,13 @@ public:
 public:
 	void AddPath(const CTSVNPath& newPath);
 	bool LoadFromTemporaryFile(const CString& sFilename);
+	bool WriteToTemporaryFile(const CString& sFilename) const;
 	int GetCount() const;
 	const CTSVNPath& operator[](int index) const;
 	bool AreAllPathsFiles() const;
 	bool AreAllPathsFilesInOneDirectory() const;
 	CTSVNPath GetCommonDirectory() const;
-//	CString GetDirectory() const;
+	void SortByPathname();
 
 private:
 	typedef std::vector<CTSVNPath> PathVector;

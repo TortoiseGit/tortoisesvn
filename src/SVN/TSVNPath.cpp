@@ -386,10 +386,34 @@ CTSVNPathList::AreAllPathsFilesInOneDirectory() const
 	return true;
 }
 
-CTSVNPath 
-CTSVNPathList::GetCommonDirectory() const
+CTSVNPath CTSVNPathList::GetCommonDirectory() const
 {
 	ASSERT(!m_commonBaseDirectory.IsEmpty());
 	return m_commonBaseDirectory;
 }
 
+bool CTSVNPathList::WriteToTemporaryFile(const CString& sFilename) const
+{
+	try
+	{
+		CStdioFile file(sFilename, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+		PathVector::const_iterator it;
+		for(it = m_paths.begin(); it != m_paths.end(); ++it)
+		{
+			file.WriteString(it->GetSVNPathString()+_T("\n"));
+		} 
+		file.Close();
+	}
+	catch (CFileException* pE)
+	{
+		TRACE("CFileException in writing temp file\n");
+		pE->Delete();
+		return false;
+	}
+	return true;
+}
+
+void CTSVNPathList::SortByPathname()
+{
+	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::Compare);
+}

@@ -1880,26 +1880,17 @@ void CSVNStatusListCtrl::SetCheckOnAllDescendentsOf(const FileEntry* parentEntry
 
 bool CSVNStatusListCtrl::WriteCheckedNamesToFile(const CString& sFilename)
 {
-	try
+	CTSVNPathList checkedPaths;
+	int nListItems = GetItemCount();
+	for (int i=0; i< nListItems; i++)
 	{
-		CStdioFile file(sFilename, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-		int nListItems = GetItemCount();
-		for (int i=0; i< nListItems; i++)
+		const FileEntry* entry = GetListEntry(i);
+		ASSERT(entry != NULL);
+		if (entry->IsChecked())
 		{
-			const FileEntry* entry = GetListEntry(i);
-			ASSERT(entry != NULL);
-			if (entry->IsChecked())
-			{
-				file.WriteString(entry->path.GetSVNPathString()+_T("\n"));
-			}
-		} 
-		file.Close();
+			checkedPaths.AddPath(entry->path);
+		}
 	}
-	catch (CFileException* pE)
-	{
-		TRACE("CFileException in writing checked-item temp file!\n");
-		pE->Delete();
-		return false;
-	}
-	return true;
+	checkedPaths.SortByPathname();
+	return checkedPaths.WriteToTemporaryFile(sFilename);
 }
