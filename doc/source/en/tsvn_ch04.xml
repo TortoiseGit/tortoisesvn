@@ -541,6 +541,10 @@
 		want a changed file to be committed, just uncheck that
 		file. If you want to include an unversioned file,
 		just check that file to add it to the commit.
+		<figure id="tsvn-DUG-commit-dia-2">
+			<title>The Context Menu Of The Commit Dialog</title>
+			<graphic fileref="images/CommitContextMenu.png"/>
+		</figure>
 
 		<tip>
 				<title>Many unversioned files in the commit dialog</title>
@@ -566,7 +570,7 @@
 				</para>
 			</tip>
 		</para>
-		<figure id="tsvn-DUG-commit-dia-2">
+		<figure id="tsvn-DUG-commit-dia-3">
 			<title>The Progress dialog showing a commit in progress</title>
 			<graphic fileref="images/CommitProgress.png"/>
 		</figure>
@@ -796,6 +800,10 @@
 				<figure id="tsvn-DUG-showlog-2-dia-1">
 					<title>The Log Dialog With Context Menu</title>
 					<graphic fileref="images/LogContextMenu.png"/>
+				</figure>
+				<figure id="tsvn-DUG-showlog-2-dia-2">
+					<title>The Log Dialog With Context Menu</title>
+					<graphic fileref="images/LogContextMenu2.png"/>
 				</figure>
 
 			The Log Dialog has a context menu that allows you to
@@ -1119,6 +1127,24 @@ Rev Comments
 		</para>
 			<para>
 		You can also specify, which program TortoiseSVN shall use to establish a secure connection to a svn+ssh repository.
+		</para>
+		</sect2>
+		<sect2 id="tsvn-DUG-settings-progs">
+			<title>The Settings Dialog, Diff/Merge Tab</title>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-5">
+					<title>The Settings Dialog, Diff/Merge Tab</title>
+					<graphic fileref="images/SettingsProgs.png"/>
+				</figure>
+		Set here your own diff/merge programs TortoiseSVN should use. If you leave
+		those fields empty, TortoiseSVN will use the TortoiseMerge program.
+		</para>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-6">
+				<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
+				<graphic fileref="images/SettingsProgsAdv.png"/>
+			</figure>
+		You can set a different merge program for every file extension.
 		</para>
 		</sect2>
 	</sect1>

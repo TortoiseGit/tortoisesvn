@@ -569,6 +569,10 @@
 		wollen wählen Sie diese einfach ab. Dateien welche noch nicht unter
 		Versionskontrolle stehen können Sie durch auswählen vor dem Übertragen
 		hinzufügen lassen.
+		<figure id="tsvn-DUG-commit-dia-2">
+			<title>Das Kontext-Menu des Übertragen-Dialogs</title>
+			<graphic fileref="images/CommitContextMenu.png"/>
+		</figure>
 		<tip>
 				<title>Zu viele Dateien werden angezeigt</title>
 				<para>
@@ -610,7 +614,7 @@
 		<para>
 		Wenn Sie schlussendlich auf <guibutton>OK</guibutton> klicken wird die
 		Übertragung gestartet.
-		<figure id="tsvn-DUG-commit-dia-2">
+		<figure id="tsvn-DUG-commit-dia-3">
 			<title>Eine laufende Übertragung im Fortschrittsdialog</title>
 			<graphic fileref="images/CommitProgress.png"/>
 		</figure>
@@ -842,6 +846,10 @@
 				<figure id="tsvn-DUG-showlog-2-dia-1">
 					<title>Log-Dialog mit Kontextmenu</title>
 					<graphic fileref="images/LogContextMenu.png"/>
+				</figure>
+				<figure id="tsvn-DUG-showlog-2-dia-2">
+					<title>Log-Dialog mit Kontextmenu</title>
+					<graphic fileref="images/LogContextMenu2.png"/>
 				</figure>
 			Der Log Dialog hat ein Kontextmenu, welches Ihnen erlaubt:
 			
@@ -1213,6 +1221,25 @@ Rev Log-Meldungen
 			Sie können hier auch angeben, welche Programm TortoiseSVN benutzen
 			soll für eine sichere Verbindung zur Datenbank via SSH.
 			</para>
+		</sect2>
+		<sect2 id="tsvn-DUG-settings-progs">
+			<title>Der Einstellungsdialog, Diff/Merge Seite</title>
+			<para>
+				<figure id="tsvn-DUG-settings-dia-5">
+					<title>Der Einstellungsdialog, Diff/Merge Seite</title>
+					<graphic fileref="images/SettingsProgs.png"/>
+				</figure>
+		Setzen Sie hier die Diff/Merge Programme fest welche TortoiseSVN benutzen
+		soll. Wenn Sie die Felder leer lassen, wird TortoiseMerge benutzt.
+		</para>
+		<para>
+			<figure id="tsvn-DUG-settings-dia-6">
+				<title>Der Einstellungsdialog, Diff/Merge Spezialdialog</title>
+				<graphic fileref="images/SettingsProgsAdv.png"/>
+			</figure>
+		Sie können für jede Dateiendung ein eigenes Merge-Programm angeben, wenn
+		Sie möchten.
+		</para>
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
