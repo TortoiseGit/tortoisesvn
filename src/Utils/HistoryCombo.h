@@ -103,7 +103,7 @@ public:
 	 * \param lpszSection a section name where to put the entries, e.g. "lastloadedfiles"
 	 * \param lpszKeyPrefix a prefix to use for the history entries in registry/inifiles. E.g. "file" or "entry"
 	 */
-	CString LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix);
+	CString LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix, BOOL bUseShellURLHistory = TRUE);
 
 	/**
 	 * Returns the string in the combobox which is either selected or the user has entered.

@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "stdafx.h"
 #include "HistoryCombo.h"
-
+#include "shlwapi.h"
 
 #define MAX_HISTORY_ITEMS 10
 
@@ -71,7 +71,7 @@ int CHistoryCombo::AddString(LPCTSTR lpszString)
 	return nRet;
 }
 
-CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix) 
+CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix,  BOOL bUseShellURLHistory) 
 {
 	if (lpszSection == NULL || lpszKeyPrefix == NULL || *lpszSection == '\0')
 		return _T("");
@@ -93,7 +93,26 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 	} while (!sText.IsEmpty() && n < m_nMaxHistoryItems);
 
 	SetCurSel(0);
-
+	if (bUseShellURLHistory)
+	{
+		HWND hwndEdit;
+		// use for ComboEx
+		hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
+		if (NULL == hwndEdit)
+		{
+			//if not, try the old standby
+			if(hwndEdit==NULL)
+			{
+				CWnd* pWnd = this->GetDlgItem(1001);
+				if(pWnd)
+				{
+					hwndEdit = pWnd->GetSafeHwnd();
+				}
+			} // if(hwndEdit==NULL) 
+		} // if (NULL == hwndEdit) 
+		if (hwndEdit)
+			SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_OFF | SHACF_AUTOAPPEND_FORCE_ON | SHACF_URLALL);
+	} // if (bUseShellURLHistory) 
 	return sText;
 }
 

@@ -69,6 +69,23 @@ BOOL COpenDlg::OnInitDialog()
 
 	CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, IDC_MERGERADIO);
 
+	// turn on autocompletion for the edit controls
+	HWND hwndEdit;
+	GetDlgItem(IDC_BASEFILEEDIT, &hwndEdit);
+	if (hwndEdit)
+		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
+	GetDlgItem(IDC_THEIRFILEEDIT, &hwndEdit);
+	if (hwndEdit)
+		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
+	GetDlgItem(IDC_YOURFILEEDIT, &hwndEdit);
+	if (hwndEdit)
+		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
+	GetDlgItem(IDC_DIFFFILEEDIT, &hwndEdit);
+	if (hwndEdit)
+		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
+	GetDlgItem(IDC_DIRECTORYEDIT, &hwndEdit);
+	if (hwndEdit)
+		SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_ON | SHACF_AUTOAPPEND_FORCE_ON | SHACF_FILESYSTEM);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
