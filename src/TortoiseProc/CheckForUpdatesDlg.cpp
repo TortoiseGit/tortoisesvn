@@ -137,6 +137,24 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 			CString ver;
 			if (file.ReadString(ver))
 			{
+				CString vertemp = ver;
+				int major = _ttoi(vertemp);
+				vertemp = vertemp.Mid(vertemp.Find('.')+1);
+				int minor = _ttoi(vertemp);
+				vertemp = vertemp.Mid(vertemp.Find('.')+1);
+				int micro = _ttoi(vertemp);
+				vertemp = vertemp.Mid(vertemp.Find('.')+1);
+				int build = _ttoi(vertemp);
+				BOOL bNewer = FALSE;
+				if (major > TSVN_VERMAJOR)
+					bNewer = TRUE;
+				else if (minor > TSVN_VERMINOR)
+					bNewer = TRUE;
+				else if (micro > TSVN_VERMICRO)
+					bNewer = TRUE;
+				else if (build > TSVN_VERBUILD)
+					bNewer = TRUE;
+
 				if (_ttoi(ver)!=0)
 				{
 					temp.Format(IDS_CHECKNEWER_CURRENTVERSION, ver);
@@ -148,7 +166,7 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 					temp.LoadString(IDS_CHECKNEWER_NETERROR);
 					pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
 				}
-				else if (ver.Compare(temp)!=0)
+				else if (bNewer)
 				{
 					temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
 					pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
@@ -178,7 +196,6 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	return 0;
 }
-
 
 void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 {
