@@ -517,7 +517,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_ERR_PATCH_NOINDEX   "The line ""Index: "" was not found!"
+    IDS_ERR_PATCH_NOINDEX   "The line ""Index: "" was not found!\nEither this is not a diff file or the diff is empty."
     IDS_ERR_PATCH_NOEQUATIONCHARLINE 
                             "The line ""===="" was expected in line %d !"
     IDS_ERR_PATCH_NOREMOVEFILELINE 
