@@ -930,11 +930,11 @@ CAPTION "Property Page"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     LTEXT           "Revisjon:",IDC_STATIC,6,6,30,8
-    LTEXT           "Sist arkivert, revisjon:",IDC_STATIC,6,30,66,8
-    LTEXT           "Sist arkivert, dato:",IDC_STATIC,6,42,56,8
+    LTEXT           "Siste arkiverte revisjon:",IDC_STATIC,6,30,66,8
+    LTEXT           "Siste arkiveringsdato:",IDC_STATIC,6,42,56,8
     LTEXT           "Forfatter:",IDC_STATIC,6,54,26,8
-    LTEXT           "Status, Tekst:",IDC_STATIC,6,66,41,8
-    LTEXT           "Status, egenskaper:",IDC_STATIC,6,78,54,8
+    LTEXT           "Tekst-status:",IDC_STATIC,6,66,41,8
+    LTEXT           "Egenskap-status:",IDC_STATIC,6,78,54,8
     LTEXT           "Bane:",IDC_STATIC,6,18,16,8
     EDITTEXT        IDC_REPOURL,78,18,150,12,ES_AUTOHSCROLL | ES_READONLY |
                     NOT WS_BORDER,WS_EX_TRANSPARENT
