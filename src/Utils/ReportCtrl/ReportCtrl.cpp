@@ -5052,13 +5052,13 @@ INT CReportCtrl::DrawImage(CDC* pDC, CRect rect, LPRVITEM lprvi)
 			size.cy = m_sizeImage.cy;
 			pImageList->DrawIndirect(
 				pDC, lprvi->iImage, point, size, CPoint(0, 0),
-				nStyle, SRCCOPY, CLR_DEFAULT, crColor
+				nStyle, SRCCOPY, CLR_NONE, crColor
 			);
 
 			if(lprvi->nMask&RVIM_OVERLAY)
 				pImageList->DrawIndirect(
 					pDC, lprvi->iOverlay, point, size, CPoint(0, 0),
-					nStyle, SRCCOPY, CLR_DEFAULT, crColor
+					nStyle, SRCCOPY, CLR_NONE, crColor
 				);
 
 			iWidth = m_sizeImage.cx;
