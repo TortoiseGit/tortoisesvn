@@ -1,0 +1,49 @@
+Hacking the Docs
+================
+
+While you are working on the docs, please oberve the following rules for your markup.
+The markup is processed by XSL Transformations, FO Processors and the like. Always
+remember that you define the structure and leave the formatting to the processors
+and style sheets.
+
+Rules
+=====
+- Emphasis
+  Don't use capitalization to emphasize,
+  use <emphasis>Important</emphasis> instead
+
+- Key / Mouse Actions
+  If you want to say: "Press Alt-A to abort", use the following markup:
+  Click on <action>ALT+A</action> to abort
+  If you want to say: "Do a Right-Click to abort", use the following markup:
+  Do a <action>Right-Click</action> to abort
+
+- Gui Buttons
+  If you want to say: "Click on OK to continue", use the following markup:
+  Click on <guibutton>OK</guibutton> to continue
+
+- Gui Menus
+  If you want to say: "Select Commit from the TortoiseSVN menu", use the following markup:
+  Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem><menuchoice>
+
+- Gui Labels / Fields
+  If you want to say: "Select the URL from the URL Combobox", use the following markup:
+  "Select the URL from the <guilabel>URL</guilabel> Combobox"
+
+Use the out of line info boxes:
+===============================
+like:
+<note>
+<important>
+<tip>
+<caution>
+<warning>
+
+if you want to imform the reader about something special.
+
+Add To this Document
+====================
+Please add missing stuff to these docs and correct errors.
+
+Cheers
+-Lübbe

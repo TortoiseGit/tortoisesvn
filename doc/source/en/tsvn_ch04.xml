@@ -2,26 +2,26 @@
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
-			This document describes day to day usage of the TortoiseSVN client. 
+			This document describes day to day usage of the TortoiseSVN client.
 			It is <emphasis>not</emphasis> an introduction to version control
 			systems, and <emphasis>not</emphasis> an introduction to Subversion
-			(SVN). It is more like a place you may turn to when you know 
-			approximately what you want to do, but don't quite remember how 
+			(SVN). It is more like a place you may turn to when you know
+			approximately what you want to do, but don't quite remember how
 			to do it.
 		</para>
 		<para>
-			If you need an introduction to version control with Subversion, 
-			then we recommend you read the fantastic book: <ulink url="http://svnbook.red-bean.com/">
-				<citetitle>Subversion: The 
-			Definitive Guide</citetitle>
+			If you need an introduction to version control with Subversion,
+			then we recommend you read the fantastic book:
+      <ulink url="http://svnbook.red-bean.com/">
+			<citetitle>Subversion: The Definitive Guide</citetitle>
 			</ulink>.
 		</para>
 		<para>
-			This document is also a work in progress, just as TortoiseSVN and 
-			Subversion are. If you find any mistakes, please report them to 
-			the mailing list so we can update the documentation. Some of 
-			the screenshots in the Daily Use Guide (DUG) might not reflect the 
-			current state of the software. Please forgive us. We're working on 
+			This document is also a work in progress, just as TortoiseSVN and
+			Subversion are. If you find any mistakes, please report them to
+			the mailing list so we can update the documentation. Some of
+			the screenshots in the Daily Use Guide (DUG) might not reflect the
+			current state of the software. Please forgive us. We're working on
 			TortoiseSVN in our free time.
 		</para>
 		<para>
@@ -60,14 +60,14 @@
 				<title>Context menu for a directory under version control</title>
 				<graphic fileref="images/ContextMenuDirControl.png"/>
 			</figure>
-		  All TortoiseSVN commands are invoked from the context menu of the windows explorer. 
-		  Most are directly visible, when you <action>right click</action> onto a file or folder. 
-		  The commands that are available depend on whether the file or folder or it's parent 
+		  All TortoiseSVN commands are invoked from the context menu of the windows explorer.
+		  Most are directly visible, when you <action>right click</action> onto a file or folder.
+		  The commands that are available depend on whether the file or folder or it's parent
 		  folder is under version control or not.
 		</para>
 		<para>
-		Other commands are available as drag handlers, when you <action>right drag</action> 
-		files or folders around inside working copies or when you <action>right drag</action> 
+		Other commands are available as drag handlers, when you <action>right drag</action>
+		files or folders around inside working copies or when you <action>right drag</action>
 		a non-versioned file or folder into a directory which is under version control.
 		</para>
 	</sect1>
@@ -77,9 +77,6 @@
 	<sect1 id="tsvn-DUG-import">
 		<title>Importing Data Into A Repository</title>
 		<?dbhh topicname="HIDD_IMPORT"?>
-		<para>
-		
-		</para>
 		<sect2 id="tsvn-DUG-import-1">
 			<title>Repository Layout</title>
 			<para>
@@ -89,12 +86,12 @@
 			easier.
 			</para>
 			<para>
-			There are some standard, recommended ways to organize a 
+			There are some standard, recommended ways to organize a
 			repository. Most people create a <filename>trunk</filename>
-			directory to hold the "main line" of development, a 
-			<filename>branches</filename> directory to contain branch 
-			copies, and a <filename>tags</filename> directory to contain 
-			tag copies. If a repository holds only one project, then 
+			directory to hold the "main line" of development, a
+			<filename>branches</filename> directory to contain branch
+			copies, and a <filename>tags</filename> directory to contain
+			tag copies. If a repository holds only one project, then
 			often people create these top-level directories:
 			</para>
 			<screen>
@@ -128,8 +125,8 @@
 			can create any sort of variation, whatever works best for you or
 			your team.  Remember that whatever you choose, it's not a
 			permanent commitment.  You can reorganize your repository at any
-			time.  Because branches and tags are ordinary directories, 
-			TortoiseSVN can move or rename them however you wish.  Switching 
+			time.  Because branches and tags are ordinary directories,
+			TortoiseSVN can move or rename them however you wish.  Switching
 			from one layout to another is just a matter of issuing a series
 			of server-side moves; If you don't like the way things are
 			organized in the repository, just juggle the directories around.
@@ -161,23 +158,23 @@
 			<orderedlist>
 					<listitem>
 						<para>Remove all files which are not needed to
-				build the project (temporary files, files which are 
-				generated by a compiler e.g. *.obj, compiled 
+				build the project (temporary files, files which are
+				generated by a compiler e.g. *.obj, compiled
 				binaries, ...)</para>
 					</listitem>
 					<listitem>
-						<para>Organize the files in folders and 
-				subfolders. Although it is possible to rename/move 
-				files later it is highly recommended to get your project's 
+						<para>Organize the files in folders and
+				subfolders. Although it is possible to rename/move
+				files later it is highly recommended to get your project's
 				structure straight before importing!</para>
 					</listitem>
 				</orderedlist>
 			</para>
 			<para>
-			Now select the <emphasis>parent import</emphasis> folder of your 
+			Now select the <emphasis>parent import</emphasis> folder of your
 			directory structure in the windows explorer and <action>right click
-			</action> to open the context menu. Select the command 
-			<guimenuitem>Import...</guimenuitem> which brings up a dialog 
+			</action> to open the context menu. Select the command
+			<menuchoice><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog
 			box:
 				<figure id="tsvn-DUG-import-dia-1">
 					<title>The Import dialog</title>
@@ -185,26 +182,26 @@
 				</figure>
 			</para>
 			<para>
-			In this dialog you have to enter the URL of the repository into 
-			which you want to import your project.			
+			In this dialog you have to enter the URL of the repository into
+			which you want to import your project.
 			</para>
-			<para>The import message is used as a log message. Since you 
-			usually just started your project a default "initial import" 
+			<para>The import message is used as a log message. Since you
+			usually just started your project a default "initial import"
 			is filled in by TortoiseSVN.
 			</para>
 			<para>
-			The Import Dialog shows you files and folders that match the temporary 
+			The Import Dialog shows you files and folders that match the temporary
 			include / exclude patterns from the Main Settings Page. Files that you <action>check</action>
-			will be deleted prior to importing them into the repository and excluded from version control. 
+			will be deleted prior to importing them into the repository and excluded from version control.
 			Make sure that you check all the compiler or IDE generated files. These should normally not be versioned.
 			Uncheck all the files that you want under version control.
 			</para>
 			<para>
-			As soon as you press the OK button TortoiseSVN imports the 
-			complete directory tree including all files into the repository. 
-			Please note that this does <emphasis>NOT</emphasis> put your 
-			copy of the project under version control yet! To get a 
-			versioned working copy you need to do a Checkout of the 
+			As soon as you press the OK button TortoiseSVN imports the
+			complete directory tree including all files into the repository.
+			Please note that this does <emphasis>NOT</emphasis> put your
+			copy of the project under version control yet! To get a
+			versioned working copy you need to do a Checkout of the
 			version you just imported.
 			</para>
 		</sect2>
@@ -224,28 +221,28 @@
 		 from a repository.
 		</para>
 		<para>
-		Select a directory in windows explorer where you want to place 
-		your working copy. <action>Right-click</action> to pop up the 
-		context menu and select the command <guimenuitem>Checkout...</guimenuitem>
+		Select a directory in windows explorer where you want to place
+		your working copy. <action>Right-click</action> to pop up the
+		context menu and select the command <menuchoice><guimenuitem>Checkout...</guimenuitem></menuchoice>
 		which brings up the following dialog box:
-		If you enter a folder name that does not yet exist, then a 
+		If you enter a folder name that does not yet exist, then a
 		directory with that name is created.
 		</para>
 		<para>
-		It is recommended that you check out only the "trunk" part of the 
-		directory tree. If you specify the parent path of the 
-		directory tree in the URL then you might end up with a full 
-		harddisk since you will get a copy of the entire repository tree 
+		It is recommended that you check out only the "trunk" part of the
+		directory tree. If you specify the parent path of the
+		directory tree in the URL then you might end up with a full
+		harddisk since you will get a copy of the entire repository tree
 		including every branch and tag of your project!
 		</para>
 		<tip>
 			<title>Exporting</title>
 			<para>
-			Sometimes you may want a working copy without any of those 
+			Sometimes you may want a working copy without any of those
 			<filename>.svn</filename> directories, e.g. to create a zipped
 			tarball of your source. Instead of making a copy and then delete
 			all those directories manually, TortoiseSVN offers the command
-			<guimenuitem>Export...</guimenuitem>. If you execute this command
+			<menuchoice><guimenuitem>Export...</guimenuitem></menuchoice>. If you execute this command
 			on your working copy you'll be asked for a place to save the
 			"clean" working copy.
 			</para>
@@ -268,25 +265,25 @@
 					<title>Explorer showing icon overlays</title>
 					<graphic fileref="images/Overlays.png"/>
 				</figure>
-			Now that you have checked out a working copy from a Subversion 
-			repository you can see your files in the windows explorer with 
+			Now that you have checked out a working copy from a Subversion
+			repository you can see your files in the windows explorer with
 			changed icons. This is one of the reasons why TortoiseSVN is so
-			popular. TortoiseSVN adds a so called overlay icon to each 
-			file icon which overlaps the original file icon. Depending on 
-			the Subversion status of the file the overlay icon is different. 
-			 <graphic fileref="images/InSubVersionIcon.png"/>A fresh checked out working 
-			 copy has a green checkmark as overlay. 
-			That means the Subversion status is 	<literal>normal</literal>. 
-			<graphic fileref="images/ModifiedIcon.png"/>As soon as you start editing a file, 
+			popular. TortoiseSVN adds a so called overlay icon to each
+			file icon which overlaps the original file icon. Depending on
+			the Subversion status of the file the overlay icon is different.
+			 <graphic fileref="images/InSubVersionIcon.png"/>A fresh checked out working
+			 copy has a green checkmark as overlay.
+			That means the Subversion status is 	<literal>normal</literal>.
+			<graphic fileref="images/ModifiedIcon.png"/>As soon as you start editing a file,
 			the status changes to <literal>modified</literal>
 			and the icon overlay then changes to a red exclamation
-			mark. That way you can easily see which files were changed 
+			mark. That way you can easily see which files were changed
 			since you last updated your working copy and need to be commited.
-			<graphic fileref="images/ConflictIcon.png"/>If during an update a <literal>conflict</literal> occurs then 
+			<graphic fileref="images/ConflictIcon.png"/>If during an update a <literal>conflict</literal> occurs then
 			the icon changes to a yellow exclamation mark.
-			<graphic fileref="images/AddedIcon.png"/> The plus sign tells you that a file or folder has been scheduled to be 
+			<graphic fileref="images/AddedIcon.png"/> The plus sign tells you that a file or folder has been scheduled to be
 			<literal>added</literal> to version control.
-			<graphic fileref="images/DeletedIcon.png"/> This Icon shows you that some files or folders inside the current folder 
+			<graphic fileref="images/DeletedIcon.png"/> This Icon shows you that some files or folders inside the current folder
 			have been scheduled do be <literal>deleted</literal> from version control
 			or a file under version control is missing in a folder.
 			</para>
@@ -295,15 +292,15 @@
 			only the status of the folder itself is shown. But you can
 			change that behaviour in the settings (context menu, Settings...)
 			so that the status of folders is shown recursively. This will
-			make the icon overlays for folders slower and is therefore 
-			not recommended on slower machines. I'm using that setting on 
-			my machine (PIII, 700MHz, 512MB RAM) without problems. With this 
-			setting each folder shows the status of all files below it, 
+			make the icon overlays for folders slower and is therefore
+			not recommended on slower machines. I'm using that setting on
+			my machine (PIII, 700MHz, 512MB RAM) without problems. With this
+			setting each folder shows the status of all files below it,
 			where status <literal>conflict</literal> overrides <literal>modified</literal>
 			 and <literal>modified</literal> overrides <literal>normal</literal>.
 			 So you can easily see if there's a file with a conflict or a modified file in a folder.
-			
-			<tip>
+
+			<note>
 					<title>Slow Overlays</title>
 					<para>
 				You may notice that if you enable the recursive overlay for folders
@@ -313,10 +310,10 @@
 				very slow the first time you browse such a directory &mdash; if
 				you browse the same directory later again it's much faster.
 				</para>
-				</tip>
+				</note>
 			</para>
 			<para>
-			Unlike <application>TortoiseCVS</application> (the CVS shell 
+			Unlike <application>TortoiseCVS</application> (the CVS shell
 			integration) no overlay icon for unversioned files is shown.
 			We do this because the number of icon overlays are limited system wide
 			and should be used economically.
@@ -330,8 +327,8 @@
 					<graphic fileref="images/RepoStatus.png"/>
 				</figure>
 			It's often very useful to know which files got changed and
-			committed by others. That's where the command <guimenuitem>Check
-			For Updates...</guimenuitem> comes in handy.
+			committed by others. That's where the command <menuchoice><guimenuitem>Check
+			For Updates...</guimenuitem></menuchoice> comes in handy.
 			This dialog will show you every file that has changed in any
 			way either in your working copy and in the repository. That way
 			you can check before an update if there's a possible conflict.
@@ -343,14 +340,14 @@
 			the diff.
 			</para>
 			<tip>
-				<title>Other Possibillties</title>
+				<title>Other Possibilities</title>
 				<para>
-					<guimenuitem>The Check for Updates..</guimenuitem> dialog is propably not the best
+					<menuchoice><guimenuitem>The Check for Updates..</guimenuitem></menuchoice> dialog is propably not the best
 				choice if you don't have a network connection available.
 				In this case you can also get the local status of all your
-				files by clicking <guimenuitem>Commit...</guimenuitem>. The
+				files by clicking <menuchoice><guimenuitem>Commit...</guimenuitem></menuchoice>. The
 				commit dialog shows you a similar list of files like the
-				<guimenuitem>Check for Updates...</guimenuitem> dialog, but without contacting the
+				<menuchoice><guimenuitem>Check for Updates...</guimenuitem></menuchoice> dialog, but without contacting the
 				repository. if you dont' want to commit just press <guibutton>Cancel</guibutton>.
 				</para>
 			</tip>
@@ -370,18 +367,18 @@
 				<title>Progress dialog showing finished update</title>
 				<graphic fileref="images/UpdateFinished.png"/>
 			</figure>
-		Occasionally you may want changes done by others to get 
-		incorporated in your local working copy. The process of 
-		getting changes from the server to your local copy is 
-		known as <literal>updating</literal>. Updating may be done on 
-		single files, a set of selected files, or recursively on 
-		entire directory hierarchies. To update, select the files 
-		and/or directories you want, <action>right click</action> and select 
-		<guimenuitem>Update</guimenuitem> in the explorer context menu. 
-		A window will pop up displaying the progress of the 
+		Occasionally you may want changes done by others to get
+		incorporated in your local working copy. The process of
+		getting changes from the server to your local copy is
+		known as <literal>updating</literal>. Updating may be done on
+		single files, a set of selected files, or recursively on
+		entire directory hierarchies. To update, select the files
+		and/or directories you want, <action>right click</action> and select
+		<menuchoice><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu.
+		A window will pop up displaying the progress of the
 		update as it runs.
-		Changes done by others will be merged into your files, 
-		keeping any changes you may have done to the same files. 
+		Changes done by others will be merged into your files,
+		keeping any changes you may have done to the same files.
 		The repository is <emphasis>not</emphasis> affected by an update.
 		</para>
 		<para>
@@ -394,11 +391,11 @@
 		<para>
 		TortoiseSVN also allows you to update your working copy to a specific
 		revision, not only to the most recent one. This command is called
-		<guimenuitem>Update to Revision...</guimenuitem> and first opens
+		<menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens
 		a dialog where you can enter the required revision.
 		</para>
 		<para>
-		The <guimenuitem>Update to Revision...</guimenuitem> command allows
+		The <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> command allows
 		you to revert your working to an earlier revision. Say e.g. your
 		working copy is at revision 100, but you want your working copy
 		to reflect the state which it had in revision 50 &mdash; then simply
@@ -408,7 +405,7 @@
 			<title>Multiple Files/Folders</title>
 			<para>
 		If you select multiple files and folders in the explorer and then
-		select <guimenuitem>Update...</guimenuitem>, all of those files/folders
+		select <menuchoice><guimenuitem>Update...</guimenuitem></menuchoice>, all of those files/folders
 		are updated one by one. TortoiseSVN makes sure that all files/folders
 		which are from the same repository are updated to the exact same
 		revision! Even if between those updates another commit occured.
@@ -421,13 +418,13 @@
 	<sect1 id="tsvn-DUG-conflicts">
 		<title>Resolving Conflicts</title>
 		<para>
-		Once in a while, you will get a <emphasis>conflict</emphasis> when 
-		you update your files from the repository. A conflict 
-		occurs when two or more developers have changed the same 
-		few lines of a file. As Subversion knows nothing of your 
-		project, it leaves resolving the conflicts to the developers. 
-		Whenever a conflict is reported, you should open the file in 
-		question, and search for lines starting with the string 
+		Once in a while, you will get a <emphasis>conflict</emphasis> when
+		you update your files from the repository. A conflict
+		occurs when two or more developers have changed the same
+		few lines of a file. As Subversion knows nothing of your
+		project, it leaves resolving the conflicts to the developers.
+		Whenever a conflict is reported, you should open the file in
+		question, and search for lines starting with the string
 		<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;
 		</literal>. The conflicting area is marked like this:
 <screen>
@@ -437,15 +434,15 @@
     code merged from repository
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision
 </screen>
-		Also, for every conflicted file Subversion places three 
+		Also, for every conflicted file Subversion places three
 		additional files in your directory:
 		<variablelist>
 				<varlistentry>
 					<term>filename.*.mine</term>
 					<listitem>
-						<para>This is your file as it existed in your 
+						<para>This is your file as it existed in your
 				working copy before you updated your working copy
-				&mdash; that is, without conflict markers. This file has 
+				&mdash; that is, without conflict markers. This file has
 				your latest changes in it and nothing else.
 				</para>
 					</listitem>
@@ -453,9 +450,9 @@
 				<varlistentry>
 					<term>filename.*.rOLDREV</term>
 					<listitem>
-						<para>This is the file that was the BASE 
+						<para>This is the file that was the BASE
 				revision before you updated your working copy. That is,
-				it the file that you checked out before you made 
+				it the file that you checked out before you made
 				your latest edits.
 				</para>
 					</listitem>
@@ -463,31 +460,31 @@
 				<varlistentry>
 					<term>filename.*.rNEWREV</term>
 					<listitem>
-						<para>This is the file that your Subversion 
-				client just received from the server when you updated 
-				your working copy. This file corresponds to the HEAD 
+						<para>This is the file that your Subversion
+				client just received from the server when you updated
+				your working copy. This file corresponds to the HEAD
 				revision of the repository.
 				</para>
 					</listitem>
 				</varlistentry>
 			</variablelist>
-		Here * represents some random digits that Subversion chooses, 
-		OLDREV is the revision number of the file in your .svn directory, 
+		Here * represents some random digits that Subversion chooses,
+		OLDREV is the revision number of the file in your .svn directory,
 		and NEWREV is the revision number of the repository HEAD.
 		</para>
 		<para>
-		You can either launch an external merge tool / conflict 
-		editor with the <guimenuitem>Edit Conflict</guimenuitem> 
-		context menu or you can use any other editor to manually 
-		resolve the conflict. You should decide what the code 
+		You can either launch an external merge tool / conflict
+		editor with the <menuchoice><guimenuitem>Edit Conflict</guimenuitem></menuchoice>
+		context menu or you can use any other editor to manually
+		resolve the conflict. You should decide what the code
 		should look like and do the necessary changes.
 		</para>
 		<para>
-		Afterwards execute the command <guimenuitem>Resolved</guimenuitem>
-		from the context menu and commit your modifications to the 
+		Afterwards execute the command <menuchoice><guimenuitem>Resolved</guimenuitem></menuchoice>
+		from the context menu and commit your modifications to the
 		repository. Please note that the Resolve command does not-really
 		resolve the conflict. It just removes the <filename>filename*.mine
-		</filename> and <filename>filename*.r*</filename> files, to 
+		</filename> and <filename>filename*.r*</filename> files, to
 		allow you to commit your changes.
 		</para>
 	</sect1>
@@ -502,43 +499,43 @@
 				<title>The Commit dialog</title>
 				<graphic fileref="images/Commit.png"/>
 			</figure>
-		Sending the changes you made to your working copy is known as 
-		<firstterm>committing</firstterm> the changes. But before you 
-		commit you have to make sure that your working copy is up to 
-		date. You can either make an update directly. Or you can 
-		<guimenuitem>check for updates</guimenuitem> first, to see which 
-		files have changed locally or on the server. 
+		Sending the changes you made to your working copy is known as
+		<firstterm>committing</firstterm> the changes. But before you
+		commit you have to make sure that your working copy is up to
+		date. You can either make an update directly. Or you can
+		<menuchoice><guimenuitem>check for updates</guimenuitem></menuchoice> first, to see which
+		files have changed locally or on the server.
 		</para>
 		<para>
-		If your working copy is up to date and there are no conflicts, 
-		you are ready to commit your changes. Select any file 
-		and/or folders you want to commit and select <guimenuitem>Commit
-		</guimenuitem> from the context menu.
+		If your working copy is up to date and there are no conflicts,
+		you are ready to commit your changes. Select any file
+		and/or folders you want to commit and select <menuchoice><guimenuitem>Commit
+		</guimenuitem></menuchoice> from the context menu.
 		</para>
 		<para>
-		The commit dialog will show you every changed file, 
-		including added, deleted and unversioned files. If you don't 
-		want a changed file to be committed, just uncheck that 
-		file. If you want to include an unversioned file, 
+		The commit dialog will show you every changed file,
+		including added, deleted and unversioned files. If you don't
+		want a changed file to be committed, just uncheck that
+		file. If you want to include an unversioned file,
 		just check that file to add it to the commit.
 
 		<tip>
 				<title>Many unversioned files in the commit dialog</title>
-				<para>If you think that the TSVN commit dialog shows you too 
+				<para>If you think that the TSVN commit dialog shows you too
 			many unversioned (e.g. compiler generated or editor backup)
 			files, there are several ways to handle this. You can:
 		<itemizedlist>
 						<listitem>
-							<para>include the file into the list of 
-				temporary files on the settings page. This will affect 
+							<para>include the file into the list of
+				temporary files on the settings page. This will affect
 				every working copy you have.</para>
 						</listitem>
 						<listitem>
-							<para>add the file to the svn:ignore list 
-				using the <guimenuitem>Add to ignore list</guimenuitem>
-				context menu. This will only affect the directory on 
-				which you set the <literal>svn:ignore</literal> property. 
-				Using the SVN Property Dialog, you can alter the 
+							<para>add the file to the svn:ignore list
+				using the <menuchoice><guimenuitem>Add to ignore list</guimenuitem></menuchoice>
+				context menu. This will only affect the directory on
+				which you set the <literal>svn:ignore</literal> property.
+				Using the SVN Property Dialog, you can alter the
 				<literal>svn:ignore</literal> property for a directory.
 				</para>
 						</listitem>
@@ -551,11 +548,11 @@
 			<graphic fileref="images/CommitProgress.png"/>
 		</figure>
 		<para>
-		Doubleclicking on any modified file in the commit dialog 
+		Doubleclicking on any modified file in the commit dialog
 		will launch the external diff tool to show your changes.
 		</para>
 		<para>
-		After pressing OK, a dialog appears displaying 
+		After pressing OK, a dialog appears displaying
 		the progress of the commit.
 		</para>
 	</sect1>
@@ -570,34 +567,34 @@
 				<title>Explorer context menu for unversioned files</title>
 				<graphic fileref="images/ContextMenuFileNoControl.png"/>
 			</figure>
-		If you created new files and/or directories during 
-		your development process the you need to add them 
-		to source control too. Select the file(s) and/or directory 
-		and select the command <guimenuitem>Add</guimenuitem> from 
+		If you created new files and/or directories during
+		your development process the you need to add them
+		to source control too. Select the file(s) and/or directory
+		and select the command <menuchoice><guimenuitem>Add</guimenuitem></menuchoice> from
 		the context menu.
 		</para>
 		<para>
-		After you added the files/directories to source control 
-		the file appears with a "added" icon overlay which means you 
-		first have to commit your working copy to make those 
-		files/directories available to other developers. 
-		Adding a file/directory does <emphasis>not</emphasis> affect 
+		After you added the files/directories to source control
+		the file appears with a "added" icon overlay which means you
+		first have to commit your working copy to make those
+		files/directories available to other developers.
+		Adding a file/directory does <emphasis>not</emphasis> affect
 		the repository!
 		</para>
 		<para>
-			<tip>
+			<caution>
 				<title>Adds are recursive!</title>
 				<para>
-			If you add a directory then TortoiseSVN automatically 
-			adds all files in this directory recursively. 
-			So be careful with that command and make sure you don't 
-			have any temporary or compiler generated files 
+			If you add a directory then TortoiseSVN automatically
+			adds all files in this directory recursively.
+			So be careful with that command and make sure you don't
+			have any temporary or compiler generated files
 			in that directory!
 			</para>
-			</tip>
+			</caution>
 		</para>
 		<para>
-		To add files from outside your working copy you can use 
+		To add files from outside your working copy you can use
 		the drag&ndash;and&ndash;drop handler:
 		<orderedlist>
 				<listitem>
@@ -605,16 +602,16 @@
 				</listitem>
 				<listitem>
 					<para>
-						<action>right&ndash;drag</action> them 
+						<action>right&ndash;drag</action> them
 			to the new location inside the working copy.</para>
 				</listitem>
 				<listitem>
 					<para>release the right mouse button</para>
 				</listitem>
 				<listitem>
-					<para>in the popup menu select 
-			<guimenuitem>add files to Subversion here</guimenuitem>. 
-			The files will then be copied to the working copy and 
+					<para>in the popup menu select
+			<menuchoice><guimenuitem>add files to Subversion here</guimenuitem></menuchoice>.
+			The files will then be copied to the working copy and
 			added to version control.</para>
 				</listitem>
 			</orderedlist>
@@ -632,42 +629,42 @@
 				<graphic fileref="images/ContextMenuFileControl.png"/>
 			</figure>
 		Unlike CVS, Subversion allows renaming and moving of files and
-		folders. So there are menu entries for delete and rename 
+		folders. So there are menu entries for delete and rename
 		in the TortoiseSVN submenu.
 		</para>
 		<para>
-		If you delete a file/directory using TSVN, the file is 
-		removed from your working copy and marked for deletion. 
-		The file's parent folder shows a "deleted" icon overlay. 
-		You can always get the file back, if you call <guimenuitem>revert</guimenuitem> 
+		If you delete a file/directory using TSVN, the file is
+		removed from your working copy and marked for deletion.
+		The file's parent folder shows a "deleted" icon overlay.
+		You can always get the file back, if you call <menuchoice><guimenuitem>revert</guimenuitem></menuchoice>
 		on the parent folder.
 		</para>
 		<para>
-		If you want to move files inside a working copy, 
+		If you want to move files inside a working copy,
 		use the drag&ndash;and&ndash;drop handler again:
-		
+
 		<orderedlist>
 				<listitem>
 					<para>select the files or directories you want to move</para>
 				</listitem>
 				<listitem>
 					<para>
-						<action>right&ndash;drag</action> them to the 
+						<action>right&ndash;drag</action> them to the
 			new location inside the working copy</para>
 				</listitem>
 				<listitem>
 					<para>release the right mouse button</para>
 				</listitem>
 				<listitem>
-					<para>in the popup menu select <guimenuitem>move files in Subversion to here</guimenuitem>
+					<para>in the popup menu select <menuchoice><guimenuitem>move files in Subversion to here</guimenuitem></menuchoice>
 					</para>
 				</listitem>
 			</orderedlist>
-		If a file is deleted via the explorer but not removed from 
-		version control (i.e. you delete a file as usual), the commit 
-		dialog shows those files and lets you remove them from 
-		version control too before the commit. So it doesn't really 
-		matter, if you forget to delete the file with TortoiseSVN as 
+		If a file is deleted via the explorer but not removed from
+		version control (i.e. you delete a file as usual), the commit
+		dialog shows those files and lets you remove them from
+		version control too before the commit. So it doesn't really
+		matter, if you forget to delete the file with TortoiseSVN as
 		you are supposed to do.
 		</para>
 	</sect1>
@@ -677,26 +674,26 @@
 	<sect1 id="tsvn-DUG-revert">
 		<title>Undo Changes</title>
 		<para>
-		If you want to undo all changes you made in a file since 
+		If you want to undo all changes you made in a file since
 		the last update you need to select the file, <action>right&ndash;click
-		</action> to pop up the context menu and then select 
-		the command <guimenuitem>revert</guimenuitem> in the TortoiseSVN 
-		submenu. But be sure that you really want to do that because 
-		all your changes to the selected file or the entire directory tree since 
+		</action> to pop up the context menu and then select
+		the command <menuchoice><guimenuitem>revert</guimenuitem></menuchoice> in the TortoiseSVN
+		submenu. But be sure that you really want to do that because
+		all your changes to the selected file or the entire directory tree since
 		your last commit will be lost!
 		</para>
 		<para>
-		If you are not sure about your changes, copy your working 
-		directory to a safe location, <action>revert</action> and use a 
+		If you are not sure about your changes, copy your working
+		directory to a safe location, <action>revert</action> and use a
 		tool that's capable of diffing directories like <application>WinDiff
-		</application>, <application>BeyondCompare</application> or 
+		</application>, <application>BeyondCompare</application> or
 		<application>ExamDiff</application>, to see what has happened.
 		</para>
 		<para>
-		If you accidentally deleted a file and want to get it 
-		back without reverting everything, you can commit all 
-		changed files inside the directory to the repository and 
-		do a revert on the working directory. This will retrieve 
+		If you accidentally deleted a file and want to get it
+		back without reverting everything, you can commit all
+		changed files inside the directory to the repository and
+		do a revert on the working directory. This will retrieve
 		all files you deleted since your last commit.
 		</para>
 	</sect1>
@@ -710,19 +707,19 @@
 				<title>Subversion property page</title>
 				<graphic fileref="images/Properties.png"/>
 			</figure>
-		Sometimes you want to have a more detailed information 
-		about a file/directory than just the icon overlay. 
-		You can get all the information Subversion provides in the 
-		explorer properties dialog. Just select the file or 
-		directory and select <guimenuitem>properties</guimenuitem> in the 
-		context menu (note: this is the normal properties menu entry 
-		the explorer provides, not in the TortoiseSVN submenu!). 
-		In the properties dialog box TortoiseSVN has added a new 
+		Sometimes you want to have a more detailed information
+		about a file/directory than just the icon overlay.
+		You can get all the information Subversion provides in the
+		explorer properties dialog. Just select the file or
+		directory and select <menuchoice><guimenuitem>properties</guimenuitem></menuchoice> in the
+		context menu (note: this is the normal properties menu entry
+		the explorer provides, not in the TortoiseSVN submenu!).
+		In the properties dialog box TortoiseSVN has added a new
 		property page for files/folders under Subversion control.
 		</para>
 		<para>
-		On the Subversion page you can see all relevant 
-		information about the selected file/directory. In 
+		On the Subversion page you can see all relevant
+		information about the selected file/directory. In
 		addition you can read and set the subversion properties.
 		</para>
 	</sect1>
@@ -779,7 +776,7 @@
 				</figure>
 
 			The Log Dialog has a context menu that allows you to
-			
+
 			<itemizedlist>
 					<listitem>
 						<para>Invoke an external Diff-Tool to show you
@@ -833,30 +830,30 @@
 		<?dbhh topicname="HIDD_SWITCH"?>
 		<?dbhh topicname="HIDD_MERGE"?>
 		<para>
-		One of the features of version control systems is the ability 
-		to isolate changes onto a separate line of development. 
-		This line is known as a <firstterm>branch</firstterm>. 
-		Branches are usually used to try out new features without 
-		disturbing the main branch of development with compiler 
-		errors and bugs. As soon as the new feature of the branch 
+		One of the features of version control systems is the ability
+		to isolate changes onto a separate line of development.
+		This line is known as a <firstterm>branch</firstterm>.
+		Branches are usually used to try out new features without
+		disturbing the main branch of development with compiler
+		errors and bugs. As soon as the new feature of the branch
 		is stable enough then the branch is <firstterm>merged</firstterm>
 		back into the main branch (the trunk).
 		</para>
 		<para>
-		Another feature of version control systems is the ability 
-		to mark particular revisions (e.g. a release version), 
-		so you can at any time recreate a certain build or 
+		Another feature of version control systems is the ability
+		to mark particular revisions (e.g. a release version),
+		so you can at any time recreate a certain build or
 		environment. This proces is known as <firstterm>tagging</firstterm>.
 		</para>
 		<para>
-		Subversion does not know a special command for branching 
+		Subversion does not know a special command for branching
 		or tagging. Subversion uses so called <literal>cheap copies</literal>
-		instead. Cheap copies are something similar to links, 
-		which means that no actual copy is made but just a link 
+		instead. Cheap copies are something similar to links,
+		which means that no actual copy is made but just a link
 		to a specific file/revision is created.
 		</para>
 		<para>
-		If you have imported your project with the recommended 
+		If you have imported your project with the recommended
 		directory structure creating a branch or tag version is very simple:
 
 		<figure id="tsvn-DUG-branchtag-dia-1">
@@ -864,11 +861,11 @@
 				<graphic fileref="images/Copy.png"/>
 			</figure>
 
-		Select the parent folder of your working copy and select 
-		the command <guimenuitem>Branch/Tag...</guimenuitem> from the 
-		context menu. Enter the URL to the repository path for 
+		Select the parent folder of your working copy and select
+		the command <menuchoice><guimenuitem>Branch/Tag...</guimenuitem></menuchoice> from the
+		context menu. Enter the URL to the repository path for
 		branches or tags into the dialog. So instead of <filename>/trunk/
-		</filename> you would now use <filename>/tags/tagname</filename> where 
+		</filename> you would now use <filename>/tags/tagname</filename> where
 		<filename>tagname</filename> would be e.g. "ProjectName_v1.10".
 
 <screen>
@@ -878,33 +875,33 @@
     C:/SVNRepository/tags/ProjectName_v1.10
 </screen>
 
-		If you press OK now, Subversion just creates a cheap copy 
-		of your selected Directory <emphasis>inside the repository</emphasis>. 
-		Nothing has happened to your local Disk (yet). 
+		If you press OK now, Subversion just creates a cheap copy
+		of your selected Directory <emphasis>inside the repository</emphasis>.
+		Nothing has happened to your local Disk (yet).
 		</para>
 		<sect2 id="tsvn-DUG-switch-1">
 			<title>To Checkout or to Switch...</title>
 			<para>
-			...that is not really the question. While a checkout checks 
-			out everything from the desired branch into your working 
-			directory, a switch only transfers the changed data to your 
+			...that is not really the question. While a checkout checks
+			out everything from the desired branch into your working
+			directory, a switch only transfers the changed data to your
 			working copy. Good for the network load, good for your patience. :-)
 			</para>
 			<para>
-			To be able to work with your freshly generated copy you 
+			To be able to work with your freshly generated copy you
 			have several ways to handle it. You can:
 			<itemizedlist>
 					<listitem>
-						<para>do a <guimenuitem>Checkout</guimenuitem> of 
-				it again. You can check it out to any location on your 
-				local disk and you can create as many working copies 
+						<para>do a <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> of
+				it again. You can check it out to any location on your
+				local disk and you can create as many working copies
 				from your repository as you like.</para>
 					</listitem>
 					<listitem>
-						<para>Switch your current working copy to the 
-				newly created copy in the repository. Again select the 
-				parent folder of your project and select the command 
-				<guimenuitem>Switch...</guimenuitem> from the context menu.
+						<para>Switch your current working copy to the
+				newly created copy in the repository. Again select the
+				parent folder of your project and select the command
+				<menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu.
 				</para>
 					</listitem>
 				</itemizedlist>
@@ -912,33 +909,32 @@
 					<title>The Switch Dialog</title>
 					<graphic fileref="images/Switch.png"/>
 				</figure>
-	
-			Here you enter the URL of the branch / tag you just created. 
-			Leave the checkbox "newest revision" active. Press ok and 
+			Here you enter the URL of the branch / tag you just created.
+			Leave the checkbox <guibutton>newest revision</guibutton> active. Press ok and
 			your working copy is switched to the new branch / tag.
 			</para>
 			<para>
-			Only if you modify data, these modifications will be 
-			committed to the repository. The rest remains a cheap 
+			Only if you modify data, these modifications will be
+			committed to the repository. The rest remains a cheap
 			copy of the original.
 			</para>
 			<para>
 			From now on working with branches or tags differs a bit:
 			<itemizedlist>
 					<listitem>
-						<para>If you modify a Tag revision, 
-				TortoiseSVN will warn you if you try to commit to 
-				a <filename>/tags</filename> path in the repository. 
-				Be aware, that your local files are not write 
+						<para>If you modify a Tag revision,
+				TortoiseSVN will warn you if you try to commit to
+				a <filename>/tags</filename> path in the repository.
+				Be aware, that your local files are not write
 				protected. So working on a tag revision is <emphasis>not a good	idea</emphasis>.
-				That's the reason why we recommended 
-				the <filename>/trunk /branches /tags</filename> repository 
+				That's the reason why we recommended
+				the <filename>/trunk /branches /tags</filename> repository
 				structure in the first place. </para>
 					</listitem>
 					<listitem>
-						<para>If you modify a working copy created from 
-				a branch and commit, then all changes go to the new 
-				branch and not the main branch. Only the modifications 
+						<para>If you modify a working copy created from
+				a branch and commit, then all changes go to the new
+				branch and not the main branch. Only the modifications
 				are stored. The rest remains a cheap copy.</para>
 					</listitem>
 				</itemizedlist>
@@ -951,57 +947,58 @@
 					<title>The Merge Dialog</title>
 					<graphic fileref="images/Merge.png"/>
 				</figure>
-	
-                To merge revisions you need to go to a working copy of the 
-                branch in which you want to receive the changes, (normally the trunk) 
-                and select <guimenuitem>merge</guimenuitem> from the context menu.
-    			<orderedlist>
-    				<listitem>
-    					<para>In the "Merge current branch with" field enter the full 
-                        folder url of the branch containing your changes.  You may also 
-                        click <guimenuitem>...</guimenuitem> to browse the repository and 
-                        find the desired branch.</para>
-    				</listitem>
-    				<listitem>
-    					<para>In the "From Revision" field enter the initial revision number. 
-                        This is the revision BEFORE the changes you want to merge. 
-                        Revision numbers are auto-incremented after each commit. You want 
-                        to start merging the changes before the revision number is auto-incremented. 
-                        Click <guimenuitem>Find</guimenuitem> if you don't remember to browse the logs for the merge 
-                        directory containing the changes. This will probably never be from 
-                        revision 0.</para>
-    				</listitem>
-    				<listitem>
-    					<para>In the "To Revision" field enter the revision you want to merge 
-                        the changes into (probably the main branch). You can specify single 
-                        revisions to merge. This doesn't need to be HEAD.</para>
-    				</listitem>
-    				<listitem>
-    					<para>Click <guimenuitem>OK</guimenuitem> to complete the merge and enter a log message. Your 
-                        log message should ALWAYS include the revision numbers of this merge. 
-                        The reason for this is that when you want to apply another merge at a 
-                        later time you will need to know what you have already merged. You 
-                        can't apply a change more than once and unfortunately merge information 
-                        is not stored by Subversion. See the Subversion book for more information 
-                        about this, (search for "repeated merge problem")</para>
-    				</listitem>
-    			</orderedlist>
-                The merge is now complete. It's a good idea to have a look at the merge and see if it's 
-                as expected. Merging is usually quite complicated and conflicts can arise often if 
-                the branch has drifted far from the trunk. 
-                <para>
-                If you want to keep this branch up to date with the trunk you should always merge changes from truck to 
-                the branch immediately after merging from the branch to the trunk. Use this method 
-                and local changes won't get in your way. Of course you should still avoid re-merging  
-                trunk changes, as explained above.
-                </para>
-                <para>
-                Note: Subversion can't merge a file with a folder and vice versa - only 
-                folders to folders and files to files. If you click on a file and open up 
-                the merge dialog, then you have to give a path to a file in that dialog. If you 
-                select a folder and bring up the dialog, then you must specify a folder url 
-                for the merge.
-                </para>
+				To merge revisions you need to go to a working copy of the
+				branch in which you want to receive the changes, (normally the trunk)
+				and select <menuchoice><guimenuitem>Merge</guimenuitem></menuchoice> from the context menu.
+				<orderedlist>
+					<listitem>
+						<para>In the <guilabel>Merge current branch with</guilabel> field enter the full
+						folder url of the branch containing your changes. You may also
+						click <guibutton>...</guibutton> to browse the repository and
+						find the desired branch.</para>
+					</listitem>
+					<listitem>
+						<para>In the <guilabel>From Revision</guilabel> field enter the initial revision number.
+						This is the revision <emphasis>before</emphasis> the changes you want to merge.
+						Revision numbers are auto-incremented after each commit. You want
+						to start merging the changes before the revision number is auto-incremented.
+						Click <guibutton>Find</guibutton> if you don't remember to browse the logs for the merge
+						directory containing the changes. This will probably never be from
+						revision 0.</para>
+					</listitem>
+					<listitem>
+						<para>In the <guilabel>To Revision</guilabel> field enter the revision you want to merge
+						the changes into (probably the main branch). You can specify single
+						revisions to merge. This doesn't need to be HEAD.</para>
+					</listitem>
+					<listitem>
+						<para>Click <guibutton>OK</guibutton> to complete the merge and enter a log message. Your
+						log message should <emphasis>always</emphasis> include the revision numbers of this merge.
+						The reason for this is that when you want to apply another merge at a
+						later time you will need to know what you have already merged. You
+						can't apply a change more than once and unfortunately merge information
+						is not stored by Subversion. See the Subversion book for more information
+						about this, (search for "repeated merge problem")</para>
+					</listitem>
+				</orderedlist>
+				The merge is now complete. It's a good idea to have a look at the merge and see if it's
+				as expected. Merging is usually quite complicated and conflicts can arise often if
+				the branch has drifted far from the trunk.
+				<para>
+				If you want to keep this branch up to date with the trunk you should always merge changes from truck to
+				the branch immediately after merging from the branch to the trunk. Use this method
+				and local changes won't get in your way. Of course you should still avoid re-merging
+				trunk changes, as explained above.
+				</para>
+				<para>
+				<note>
+				Subversion can't merge a file with a folder and vice versa - only
+				folders to folders and files to files. If you click on a file and open up
+				the merge dialog, then you have to give a path to a file in that dialog. If you
+				select a folder and bring up the dialog, then you must specify a folder url
+				for the merge.
+				</note>
+				</para>
 			</para>
 		</sect2>
 	</sect1>
@@ -1016,13 +1013,13 @@
 				<title>The Relocate Dialog</title>
 				<graphic fileref="images/Relocate.png"/>
 			</figure>
-		If your repository has for some reason changed it's 
-		location (IP/URL). Maybe you're even stuck and can't 
-		commit and you don't want to checkout your working 
-		copy again from the new location and to move all your 
-		changed data back into the new working copy, <guimenuitem>relocate</guimenuitem>
-		is the command you are looking for. It basically 
-		does not much: it scans all "entries" files in the 
+		If your repository has for some reason changed it's
+		location (IP/URL). Maybe you're even stuck and can't
+		commit and you don't want to checkout your working
+		copy again from the new location and to move all your
+		changed data back into the new working copy, <menuchoice><guimenuitem>relocate</guimenuitem></menuchoice>
+		is the command you are looking for. It basically
+		does not much: it scans all "entries" files in the
 		.svn folder and changes the URL of the entries to the new value.
 		</para>
 	</sect1>
@@ -1044,7 +1041,7 @@
 					<graphic fileref="images/SettingsMain.png"/>
 				</figure>
 
-		Apart from setting your preferred language, this dialog allows you to 
+		Apart from setting your preferred language, this dialog allows you to
 		specify (almost) every setting TortoiseSVN has.
 		</para>
 			<para>
@@ -1099,8 +1096,9 @@
 				<graphic fileref="images/BlameDialog.png"/>
 			</figure>
 		Sometimes you need to know not only what lines have changed, but also
-		who exactly changed specific lines in a file. That's when the 
-		<guimenuitem>Blame...</guimenuitem>, sometimes also reffered to as <firstterm>annotate</firstterm> command comes in handy.
+		who exactly changed specific lines in a file. That's when the
+		<menuchoice><guimenuitem>Blame...</guimenuitem></menuchoice>,
+    sometimes also reffered to as <firstterm>annotate</firstterm> command comes in handy.
 		</para>
 		<para>
 		This command lists for every line in a file the author and the revision
@@ -1120,44 +1118,44 @@
 		TortoiseSVN opens your default text editor to show you the result.
 		</para>
 		<para>
-		The example shows the first thirty lines of the file 
-		<filename>/Subversion/include/svn_io.h</filename> as of Revision 7566 from 
+		The example shows the first thirty lines of the file
+		<filename>/Subversion/include/svn_io.h</filename> as of Revision 7566 from
 		the Subversion source. For each line it shows the
-		<literal>line number</literal>, 
-		<literal>revision</literal>, 
-		<literal>date of last commit</literal>, the 
+		<literal>line number</literal>,
+		<literal>revision</literal>,
+		<literal>date of last commit</literal>, the
 		<literal>author</literal> and of course the actual
 		<literal>line</literal> in the file.
 <screen>
-line   rev    date                 author     content 
+line   rev    date                 author     content
 
-     0   4127 03:03:39, 15.12.2002 rooneg     /** 
-     1   4127 03:03:39, 15.12.2002 rooneg      * @copyright 
-     2   1224 21:24:10, 08.02.2002 kfogel      * ==================================================================== 
-     3   4233 02:28:10, 03.01.2003 blair       * Copyright (c) 2000-2003 CollabNet.  All rights reserved. 
-     4      1 06:24:14, 31.08.2001 svn         * 
-     5      1 06:24:14, 31.08.2001 svn         * This software is licensed as described in the file COPYING, which 
-     6      1 06:24:14, 31.08.2001 svn         * you should have received as part of this distribution.  The terms 
-     7      1 06:24:14, 31.08.2001 svn         * are also available at http://subversion.tigris.org/license-1.html. 
-     8      1 06:24:14, 31.08.2001 svn         * If newer versions of this license are posted there, you may use a 
-     9      1 06:24:14, 31.08.2001 svn         * newer version instead, at your option. 
-    10      1 06:24:14, 31.08.2001 svn         * 
-    11      1 06:24:14, 31.08.2001 svn         * This software consists of voluntary contributions made by many 
-    12      1 06:24:14, 31.08.2001 svn         * individuals.  For exact contribution history, see the revision 
-    13      1 06:24:14, 31.08.2001 svn         * history and logs, available at http://subversion.tigris.org/. 
-    14      1 06:24:14, 31.08.2001 svn         * ==================================================================== 
-    15   4127 03:03:39, 15.12.2002 rooneg      * @endcopyright 
-    16   4127 03:03:39, 15.12.2002 rooneg      * 
-    17   4127 03:03:39, 15.12.2002 rooneg      * @file svn_io.h 
-    18   4127 03:03:39, 15.12.2002 rooneg      * @brief general Subversion I/O definitions 
-    19      1 06:24:14, 31.08.2001 svn         */ 
-    20      1 06:24:14, 31.08.2001 svn         
-    21      1 06:24:14, 31.08.2001 svn        /* ==================================================================== */ 
-    22      1 06:24:14, 31.08.2001 svn         
-    23      1 06:24:14, 31.08.2001 svn         
-    24      1 06:24:14, 31.08.2001 svn        #ifndef SVN_IO_H 
-    25      1 06:24:14, 31.08.2001 svn        #define SVN_IO_H 
-    26      1 06:24:14, 31.08.2001 svn         
+     0   4127 03:03:39, 15.12.2002 rooneg     /**
+     1   4127 03:03:39, 15.12.2002 rooneg      * @copyright
+     2   1224 21:24:10, 08.02.2002 kfogel      * ====================================================================
+     3   4233 02:28:10, 03.01.2003 blair       * Copyright (c) 2000-2003 CollabNet.  All rights reserved.
+     4      1 06:24:14, 31.08.2001 svn         *
+     5      1 06:24:14, 31.08.2001 svn         * This software is licensed as described in the file COPYING, which
+     6      1 06:24:14, 31.08.2001 svn         * you should have received as part of this distribution.  The terms
+     7      1 06:24:14, 31.08.2001 svn         * are also available at http://subversion.tigris.org/license-1.html.
+     8      1 06:24:14, 31.08.2001 svn         * If newer versions of this license are posted there, you may use a
+     9      1 06:24:14, 31.08.2001 svn         * newer version instead, at your option.
+    10      1 06:24:14, 31.08.2001 svn         *
+    11      1 06:24:14, 31.08.2001 svn         * This software consists of voluntary contributions made by many
+    12      1 06:24:14, 31.08.2001 svn         * individuals.  For exact contribution history, see the revision
+    13      1 06:24:14, 31.08.2001 svn         * history and logs, available at http://subversion.tigris.org/.
+    14      1 06:24:14, 31.08.2001 svn         * ====================================================================
+    15   4127 03:03:39, 15.12.2002 rooneg      * @endcopyright
+    16   4127 03:03:39, 15.12.2002 rooneg      *
+    17   4127 03:03:39, 15.12.2002 rooneg      * @file svn_io.h
+    18   4127 03:03:39, 15.12.2002 rooneg      * @brief general Subversion I/O definitions
+    19      1 06:24:14, 31.08.2001 svn         */
+    20      1 06:24:14, 31.08.2001 svn
+    21      1 06:24:14, 31.08.2001 svn        /* ==================================================================== */
+    22      1 06:24:14, 31.08.2001 svn
+    23      1 06:24:14, 31.08.2001 svn
+    24      1 06:24:14, 31.08.2001 svn        #ifndef SVN_IO_H
+    25      1 06:24:14, 31.08.2001 svn        #define SVN_IO_H
+    26      1 06:24:14, 31.08.2001 svn
     27      1 06:24:14, 31.08.2001 svn        #include &lt;apr.h&gt;
     28      1 06:24:14, 31.08.2001 svn        #include &lt;apr_pools.h&gt;
     29      1 06:24:14, 31.08.2001 svn        #include &lt;apr_file_io.h&gt;
@@ -1171,23 +1169,23 @@ line   rev    date                 author     content
 	<sect1 id="tsvn-DUG-donate">
 		<title>Final Step</title>
 		<para>
-		If you like TortoiseSVN and use it often, 
+		If you like TortoiseSVN and use it often,
 		please support the developers!
 		</para>
 		<para>
-		You can help us by either sending in patches and 
-		play an active role in development or you can 
+		You can help us by either sending in patches and
+		play an active role in development or you can
 		cheer up the hard working developers.
 		</para>
 		<para>
-		While working on TortoiseSVN we love to listen to music. 
-		And since we work many hours on the project we need a 
-		<emphasis>lot</emphasis> of music. Therefore we have set 
+		While working on TortoiseSVN we love to listen to music.
+		And since we work many hours on the project we need a
+		<emphasis>lot</emphasis> of music. Therefore we have set
 		up some wish-lists with our favourite music CD's and DVD's:
 
 		<itemizedlist>
 				<listitem>
-					<para>The media wish list of 
+					<para>The media wish list of
 			Stefan is <ulink url="http://www.amazon.com/o/registry/17DKTOSXX1KJK">
 			here</ulink> (English) or <ulink url="http://www.amazon.de/exec/obidos/wishlist/26JA3LXZXY4TB/">here
 			</ulink> (Deutsch).</para>
@@ -1197,7 +1195,7 @@ line   rev    date                 author     content
 			wishlist</ulink> too.</para>
 				</listitem>
 			</itemizedlist>
-		
+
 		Please have a look at the list of contributors.
 
 		</para>
