@@ -48,6 +48,7 @@ protected:
 
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL	OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
+	virtual void	ActivateFrame(int nCmdShow = -1);
 
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
 
@@ -74,6 +75,8 @@ protected:
 	virtual BOOL	PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch);
 	int				CheckResolved();
 	void			SaveFile(CString sFilePath);
+	void			WriteWindowPlacement(WINDOWPLACEMENT * pwp);
+	BOOL			ReadWindowPlacement(WINDOWPLACEMENT * pwp);
 protected: 
 	CStatusBar		m_wndStatusBar;
 	CNewToolBar		m_wndToolBar;

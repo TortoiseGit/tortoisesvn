@@ -844,7 +844,28 @@ void CMainFrame::OnClose()
 		}
 	} // ified())))
 	if ((ret == IDNO)||(ret == IDYES))
+	{
+		WINDOWPLACEMENT    wp;
+
+		// before it is destroyed, save the position of the window
+		wp.length = sizeof wp;
+
+		if ( GetWindowPlacement(&wp) )
+		{
+
+			if ( IsIconic() )
+				// never restore to Iconic state
+				wp.showCmd = SW_SHOW ;
+
+			if ((wp.flags & WPF_RESTORETOMAXIMIZED) != 0)
+				// if maximized and maybe iconic restore maximized state
+				wp.showCmd = SW_SHOWMAXIMIZED ;
+
+			// and write it to the .INI file
+			WriteWindowPlacement(&wp);
+		}
 		__super::OnClose();
+	}
 }
 
 void CMainFrame::OnEditFind()
@@ -970,4 +991,77 @@ void CMainFrame::OnFileReload()
 	} // ified())))
 	m_Data.LoadRegistry();
 	LoadViews();
+}
+
+void CMainFrame::ActivateFrame(int nCmdShow)
+{
+	// nCmdShow is the normal show mode this frame should be in
+	// translate default nCmdShow (-1)
+	if (nCmdShow == -1)
+	{
+		if (!IsWindowVisible())
+			nCmdShow = SW_SHOWNORMAL;
+		else if (IsIconic())
+			nCmdShow = SW_RESTORE;
+	}
+
+	// bring to top before showing
+	BringToTop(nCmdShow);
+
+	if (nCmdShow != -1)
+	{
+		// show the window as specified
+		WINDOWPLACEMENT wp;
+
+		if ( !ReadWindowPlacement(&wp) )
+		{
+			ShowWindow(nCmdShow);
+		}
+		else
+		{
+			if ( nCmdShow != SW_SHOWNORMAL )  
+				wp.showCmd = nCmdShow;
+
+			SetWindowPlacement(&wp);
+		}
+
+		// and finally, bring to top after showing
+		BringToTop(nCmdShow);
+	}
+	return;
+}
+
+BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
+{
+	CRegString placement = CRegString(_T("Software\\TortoiseMerge\\WindowPos"));
+	CString sPlacement = placement;
+	if (sPlacement.IsEmpty())
+		return FALSE;
+	int nRead = _stscanf(sPlacement, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
+				&pwp->flags, &pwp->showCmd,
+				&pwp->ptMinPosition.x, &pwp->ptMinPosition.y,
+				&pwp->ptMaxPosition.x, &pwp->ptMaxPosition.y,
+				&pwp->rcNormalPosition.left,  &pwp->rcNormalPosition.top,
+				&pwp->rcNormalPosition.right, &pwp->rcNormalPosition.bottom);
+	if ( nRead != 10 )  
+		return FALSE;
+	pwp->length = sizeof(WINDOWPLACEMENT);
+
+	return TRUE;
+}
+
+void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
+{
+	CRegString placement = CRegString(_T("Software\\TortoiseMerge\\WindowPos"));
+	TCHAR szBuffer[sizeof("-32767")*8 + sizeof("65535")*2];
+	int max = 1;
+	CString s;
+
+	_stprintf(szBuffer, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
+			pwp->flags, pwp->showCmd,
+			pwp->ptMinPosition.x, pwp->ptMinPosition.y,
+			pwp->ptMaxPosition.x, pwp->ptMaxPosition.y,
+			pwp->rcNormalPosition.left, pwp->rcNormalPosition.top,
+			pwp->rcNormalPosition.right, pwp->rcNormalPosition.bottom);
+	placement = szBuffer;
 }
