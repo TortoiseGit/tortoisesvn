@@ -84,7 +84,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 			if (status->entry)
 			{
 				if (status->entry->cmt_author)
-					strncpy(dirstat.author, status->entry->cmt_author, MAX_PATH);
+					strncpy(dirstat.author, status->entry->cmt_author, MAX_AUTHORLENGTH);
 				else
 					dirstat.author[0] = 0;
 				if (status->entry->url)
@@ -231,7 +231,7 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	if (status->entry)
 	{
 		if (status->entry->cmt_author)
-			strncpy(s.author, status->entry->cmt_author, MAX_PATH-1);
+			strncpy(s.author, status->entry->cmt_author, MAX_AUTHORLENGTH-1);
 		if (status->entry->url)
 			strncpy(s.url, status->entry->url, MAX_PATH-1);
 		s.rev = status->entry->cmt_rev;

@@ -39,11 +39,13 @@
 #include "SVNStatus.h"
 #include <map>
 
+#define MAX_AUTHORLENGTH 50
+
 typedef struct filestatuscache
 {
 	//TCHAR					filename[MAX_PATH];
 	svn_wc_status_kind		status;
-	char					author[MAX_PATH];
+	char					author[MAX_AUTHORLENGTH];
 	char					url[MAX_PATH];
 	svn_revnum_t			rev;
 	int						askedcounter;
