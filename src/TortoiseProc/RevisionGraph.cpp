@@ -34,8 +34,6 @@ static char THIS_FILE[] = __FILE__;
 CRevisionGraph::CRevisionGraph(void) : SVNPrompt()
 	, m_bCancelled(FALSE)
 {
-	m_app = NULL;
-	hWnd = NULL;
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
 	svn_utf_initialize(parentpool);

@@ -39,6 +39,10 @@ public:
 
 	static UINT_PTR CALLBACK OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
 
+	void SetParentWindow(HWND hWnd_param)		{ hWnd = hWnd_param; }
+	void SetApp(CWinApp* pApp)					{ m_app = pApp; }
+	
+private:
 	CString						m_server;
 	CWinApp *					m_app;
 	HWND						hWnd;

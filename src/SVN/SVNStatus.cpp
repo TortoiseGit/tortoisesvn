@@ -43,8 +43,7 @@ SVNStatus::SVNStatus(void)
 	memset (&ctx, 0, sizeof (ctx));
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
-	hWnd = NULL;
-
+	
 	// set up authentication
 	Init(m_pool);
 

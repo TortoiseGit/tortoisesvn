@@ -300,7 +300,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 	CStringArray entries;
 	CString folder = MakeUrl(hItem);
 
-	m_svn.m_app = &theApp;
+	m_svn.SetApp(&theApp);
 
 	if (m_svn.Ls(folder, m_Revision, entries, true, recursive))
 	{

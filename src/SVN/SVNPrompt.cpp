@@ -32,6 +32,7 @@
 SVNPrompt::SVNPrompt()
 {
 	m_app = NULL;
+	hWnd = NULL;
 }
 
 SVNPrompt::~SVNPrompt()

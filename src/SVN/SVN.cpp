@@ -36,8 +36,6 @@ CString	SVN::cpaths;
 
 SVN::SVN(void) : SVNPrompt()
 {
-	m_app = NULL;
-	hWnd = NULL;
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
 	svn_utf_initialize(parentpool);

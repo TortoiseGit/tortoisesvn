@@ -106,7 +106,7 @@ BOOL CChangedDlg::OnInitDialog()
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
-	this->hWnd = this->m_hWnd;
+	SetParentWindow(m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("ChangedDlg"));
