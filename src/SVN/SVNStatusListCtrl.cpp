@@ -1174,6 +1174,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									m_nSelected--;
 								DeleteItem(selIndex);
 								m_arStatusArray.RemoveAt(m_arListArray.GetAt(selIndex));
+								m_arListArray.RemoveAt(selIndex);
 							}
 						}  
 					} 
@@ -1249,11 +1250,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 						if (! fileop.fAnyOperationsAborted)
 						{
-							if (GetCheck(selIndex))
-								m_nSelected--;
-							m_nTotal--;
-							DeleteItem(selIndex);
-							m_arStatusArray.RemoveAt(m_arListArray.GetAt(selIndex));
+							POSITION pos = GetFirstSelectedItemPosition();
+							int index;
+							while ((index = GetNextSelectedItem(pos)) >= 0)
+							{
+								if (GetCheck(index))
+									m_nSelected--;
+								m_nTotal--;
+								DeleteItem(index);
+								m_arStatusArray.RemoveAt(m_arListArray.GetAt(index));
+								m_arListArray.RemoveAt(index);
+							}
 						}
 					}
 					break;
@@ -1295,6 +1302,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						m_nTotal--;
 						DeleteItem(selIndex);
 						m_arStatusArray.RemoveAt(m_arListArray.GetAt(selIndex));
+						m_arListArray.RemoveAt(selIndex);
 					}
 					break;
 				case IDSVNLC_EDITCONFLICT:
