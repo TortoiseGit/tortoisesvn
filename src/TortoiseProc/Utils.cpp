@@ -96,6 +96,10 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	memset(&startup, 0, sizeof(startup));
 	startup.cb = sizeof(startup);
 	memset(&process, 0, sizeof(process));
+	//remove possible double quotes
+	//(depends on if the user added them in the settings him/herself or not)
+	while (com.Find(_T("\"\""))>=0)
+		com.Replace(_T("\"\""), _T("\""));
 	if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)com), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 	{
 		LPVOID lpMsgBuf;
@@ -240,6 +244,10 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 	memset(&startup, 0, sizeof(startup));
 	startup.cb = sizeof(startup);
 	memset(&process, 0, sizeof(process));
+	//remove possible double quotes
+	//(depends on if the user added them in the settings him/herself or not)
+	while (viewer.Find(_T("\"\""))>=0)
+		viewer.Replace(_T("\"\""), _T("\""));
 	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 	{
 		LPVOID lpMsgBuf;
@@ -335,7 +343,6 @@ BOOL CUtils::StartTextViewer(CString file)
 	if (viewer.Find(_T("%1")) >= 0)
 	{
 		viewer.Replace(_T("%1"),  _T("\"")+file+_T("\""));
-		viewer.Replace(_T("\"\""), _T("\""));
 	}
 	else
 	{
@@ -348,6 +355,10 @@ BOOL CUtils::StartTextViewer(CString file)
 	memset(&startup, 0, sizeof(startup));
 	startup.cb = sizeof(startup);
 	memset(&process, 0, sizeof(process));
+	//remove possible double quotes
+	//(depends on if the user added them in the settings him/herself or not)
+	while (viewer.Find(_T("\"\""))>=0)
+		viewer.Replace(_T("\"\""), _T("\""));
 	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 	{
 		LPVOID lpMsgBuf;
@@ -526,17 +537,6 @@ CString CUtils::GetVersionFromFile(const CString & p_strDateiname)
 			(LPVOID *)&lpVersion,
 			&nInfoSize);
 			strReturn = (LPCTSTR)lpVersion;
-			//int iPos;
-			//do
-			//{
-			//	iPos = strReturn.Find(_T(", "));
-			//	if (iPos > -1)
-			//	{
-			//		strReturn = strReturn.Left(iPos) + _T(".")\
-			//		+ strReturn.Right(strReturn.GetLength()-iPos-2);
-			//	}
-			//} while (iPos != -1);
-
 			free(pBuffer);
 		}
 	} 
