@@ -859,7 +859,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString strLine = _T("");
 			while (file.ReadString(strLine))
 			{
-				//strLine = _T("F:\\Development\\SVN\\tortoisesvn\\src\\TortoiseShell\\Resource.aps");
+				//strLine = _T("F:\\Development\\DirSync\\DirSync.cpp");
 				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
 				name = name.Trim(_T("\n\r"));
 				CString parentfolder = strLine.Left(strLine.ReverseFind('\\'));
@@ -870,12 +870,10 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString propname(props.GetItemName(i).c_str());
 					if (propname.CompareNoCase(_T("svn:ignore"))==0)
 					{
-						TCHAR tbuf[4096];
 						stdstring stemp;
 						stdstring tmp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
-						_tcsncpy(tbuf, tmp.c_str(), 4095);
-						value = (char *)tbuf;
+						value = (char *)tmp.c_str();
 					}
 				}
 				if (value.IsEmpty())

@@ -44,6 +44,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isFolderInSVN = false;
 	isNormal = false;
 	isIgnored = false;
+	isInVersionedFolder = false;
 
 	// get selected files/folders
 	if (pDataObj)
@@ -122,6 +123,17 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						if (status == svn_wc_status_conflicted)
 							isConflicted = true;
 					}
+				} // for (int i = 0; i < count; ++i)
+				ItemIDList child (GetPIDLItem (cida, 0), &parent);
+				TCHAR buf[MAX_PATH+1];
+				_tcsncpy(buf, child.toString().c_str(), MAX_PATH);
+				TCHAR * ptr = _tcsrchr(buf, '\\');
+				if (ptr != 0)
+				{
+					*ptr = 0;
+					_tcsncat(buf, _T("\\.svn"), MAX_PATH);
+					if (PathFileExists(buf))
+						isInVersionedFolder = true;
 				}
 			}
 
@@ -467,7 +479,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCREATEREPOS, idCmdFirst, CreateRepos);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUCREATEREPOS, IDI_CREATEREPOS, idCmdFirst, CreateRepos);
-	if (!isInSVN)
+	if ((!isInSVN)&&(isInVersionedFolder))
 		if (ownerdrawn)
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUADD, idCmdFirst, Add);
 		else
@@ -477,7 +489,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIMPORT, idCmdFirst, Import);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
-	if ((!isInSVN)&&(!isIgnored))
+	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder))
 		if (ownerdrawn)
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIGNORE, idCmdFirst, Ignore);
 		else

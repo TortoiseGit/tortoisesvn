@@ -122,6 +122,7 @@ protected:
 	bool isIgnored;
 	bool isConflicted;
 	bool isFolder;
+	bool isInVersionedFolder;
 	bool isFolderInSVN;
 	bool isNormal;
 	int space;

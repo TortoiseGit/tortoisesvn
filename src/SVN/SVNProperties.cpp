@@ -24,6 +24,7 @@ svn_error_t*	SVNProperties::Refresh()
 	svn_error_t*				error = NULL;
 	svn_opt_revision_t			rev;
 
+	m_propCount = 0;
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
 	error = svn_client_proplist (&m_props,
@@ -35,7 +36,6 @@ svn_error_t*	SVNProperties::Refresh()
 	if(error != NULL)
 		return error;
 
-	m_propCount = 0;
 
 	for (int j = 0; j < m_props->nelts; j++)
 	{
