@@ -218,12 +218,10 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 					{
 						TCHAR * buf = NULL;
 						int sel = ListView_GetSelectionMark(lvh);
-						//ListView_GetItemText(lvh, sel, 0, buf, MAX_PROP_STRING_LENGTH);
 						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						SetDlgItemText(m_hwnd, IDC_EDITNAME, buf);
-						//ListView_GetItemText(lvh, sel, 1, buf, MAX_PROP_STRING_LENGTH);
-						ListView_GetItemTextEx(lvh, sel, 1, buf);
-						SetDlgItemText(m_hwnd, IDC_EDITVALUE, buf);
+						if (propmap.find(stdstring(buf)) != propmap.end())
+							SetDlgItemText(m_hwnd, IDC_EDITVALUE, propmap.find(stdstring(buf))->second.c_str());
 						delete [] buf;
 					} // if (count > 0) 
 					else
@@ -538,6 +536,14 @@ void CSVNPropertyPage::InitWorkfileView()
 #else
 						stemp = temp;
 #endif
+						propmap[props.GetItemName(i)] = stemp;
+						for (int ii=0; ii<stemp.length(); ++ii)
+						{
+							if (stemp[ii] == '\n')
+								stemp[ii] = ' ';
+							if (stemp[ii] == '\r')
+								stemp[ii] = ' ';
+						}
 						ListView_SetItemText(lvh, i, 1, (LPTSTR)(stemp.c_str()));
 					} // if (lvitem.pszText) 
 				} // for (int i=0; i<props.GetCount(); i++) 
@@ -635,6 +641,7 @@ void CSVNPropertyPage::InitWorkfileView()
 		//now go through the list of properties and add all those 
 		//which are identical on all files/folders
 		int i = 0;
+		propmap.clear();
 		for (std::vector<listproperty>::iterator I = proplist.begin(); I != proplist.end(); ++I)
 		{
 			if (I->count == filenames.size())
@@ -651,6 +658,14 @@ void CSVNPropertyPage::InitWorkfileView()
 					lvitem.stateMask = 0;
 					lvitem.cchTextMax = _tcslen(lvitem.pszText)+1;
 					ListView_InsertItem(lvh, &lvitem);
+					propmap[I->name] = I->value;
+					for (int ii=0; ii<I->value.length(); ++ii)
+					{
+						if (I->value[ii] == '\n')
+							I->value[ii] = ' ';
+						if (I->value[ii] == '\r')
+							I->value[ii] = ' ';
+					}
 					ListView_SetItemText(lvh, i, 1, (LPTSTR)(I->value.c_str()));
 					i++;
 				} // if (lvitem.pszText)

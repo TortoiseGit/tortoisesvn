@@ -43,6 +43,8 @@
 - CHG: Don't use the %APPDATA% env but the shell API to
        get the path to the config file in the settings
        dialog. (Stefan)
+- CHG: The property page shows now newlines as spaces
+       instead of as illegal chars in the listview. (Stefan)
 - BUG: TortoiseMerge could hang when diffing certain files
        and the "ignore leading whitespaces" option turned
        on and only in two pane view. (Stefan)

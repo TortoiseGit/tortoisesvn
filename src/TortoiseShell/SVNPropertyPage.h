@@ -112,6 +112,7 @@ protected:
 	};
 	HWND m_hwnd;
 	std::vector<stdstring> filenames;
+	std::map<stdstring, stdstring> propmap;
 	TCHAR stringtablebuffer[255];
 };
 
