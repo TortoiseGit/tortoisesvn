@@ -70,6 +70,7 @@ protected:
 	CBalloon	m_tooltips;
 	CButton		m_butBrowse;
 	HICON		m_hIcon;
+	BOOL		m_bSelectAll;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnBnClickedBrowse();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
@@ -87,4 +88,5 @@ public:
 	CHistoryCombo m_URLCombo;
 	CListCtrl m_FileList;
 
+	afx_msg void OnBnClickedSelectall();
 };

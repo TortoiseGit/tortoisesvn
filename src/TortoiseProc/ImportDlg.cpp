@@ -29,6 +29,7 @@
 IMPLEMENT_DYNAMIC(CImportDlg, CResizableDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CImportDlg::IDD, pParent)
+	, m_bSelectAll(TRUE)
 {
 	m_message.LoadString(IDS_IMPORT_DEFAULTMSG);
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -46,6 +47,7 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Control(pDX, IDC_FILELIST, m_FileList);
+	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 }
 
 
@@ -55,6 +57,7 @@ BEGIN_MESSAGE_MAP(CImportDlg, CResizableDialog)
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
+	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -121,6 +124,7 @@ BOOL CImportDlg::OnInitDialog()
 	AddAnchor(IDC_MESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC3, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
@@ -313,5 +317,14 @@ void CImportDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 				}
 			} // for (int i=0; i<m_FileList.GetItemCount(); i++) 
 		}
+	}
+}
+
+void CImportDlg::OnBnClickedSelectall()
+{
+	UpdateData();
+	for (int i=0; i<m_FileList.GetItemCount(); i++)
+	{
+		m_FileList.SetCheck(i, m_bSelectAll);
 	}
 }
