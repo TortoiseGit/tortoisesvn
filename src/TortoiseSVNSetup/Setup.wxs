@@ -135,9 +135,9 @@
 			<Registry Root="HKCR" Key="tsvn\DefaultIcon" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_D72059B72F5F45c3A1E54A060029452F" Type="string" />
 			<Registry Root="HKCR" Key="tsvn\shell\open\command" Value="[TARGETDIR]bin\TortoiseProc.exe /command:checkout /url:&quot;%1&quot;" Id="_BA71DAF4AF4C46b69BDA7806804A5E8A" Type="string" />
 		</Component>
-		<Component Id="C_autostart" Guid="A990D83C-0D37-428f-8954-3A7B725009D1" >
+		<!-- <Component Id="C_autostart" Guid="A990D83C-0D37-428f-8954-3A7B725009D1" >
 			<Registry Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="TSVNCache" Value="[TARGETDIR]bin\TSVNCache.exe" Id="_DE6679C450FA41159579F317E33D0353" Type="string" />
-		</Component>
+		</Component>  -->
 	  <Directory Id="D__Bin" Name="BIN" LongName="bin" >
 	      <Component Id="C__libssl" Guid="53F3D18C-528D-4b08-AB1A-8644BFD3D5F2" >
 	        <File Id="F__libeay32" Name="LIBEAY32.DLL" LongName="libeay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\libeay32.dll" KeyPath="yes" />
@@ -513,7 +513,7 @@
       <ComponentRef Id="C__TortoiseBlame" />
       <ComponentRef Id="C__Languages" />
       <ComponentRef Id="C__Sounds" />
-      <ComponentRef Id="C_autostart" />
+      <!-- <ComponentRef Id="C_autostart" /> -->
     </Feature>
     <Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
       <ComponentRef Id="C__crash" />
