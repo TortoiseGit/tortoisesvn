@@ -33,7 +33,7 @@ CAPTION "О программе TortoiseSVN"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,77,180,50,14
-    LTEXT           "TortoiseSVN, версия 0.10, built with subversion 0.22",
+    LTEXT           "TortoiseSVN, версия 0.11, собрана с Subversion 0.22.2",
                     IDC_STATIC,7,136,207,8
     LTEXT           "Авторы:",IDC_STATIC,7,150,37,8
     LTEXT           "Stefan Kung, Tim Kemp и Damian Powell",IDC_STATIC,47,
@@ -162,10 +162,9 @@ BEGIN
     LTEXT           "URL:",IDC_STATIC,7,10,23,8
     EDITTEXT        IDC_URL,49,7,151,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
-    GROUPBOX        "Редакция, извлекаемая из репозитория",IDC_STATIC,7,24,
-                    214,51
+    GROUPBOX        "Редакция",IDC_STATIC,7,24,214,51
     CONTROL         "&Головная редакция",IDC_NEWEST,"Button",
-                    BS_AUTORADIOBUTTON,13,38,75,10
+                    BS_AUTORADIOBUTTON,13,38,89,10
     CONTROL         "&Указанная",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,54,47,10
     EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -216,7 +215,7 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,47,72,
                     18
-    EDITTEXT        IDC_TEMPEXTENSIONS,100,47,145,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEMPEXTENSIONS,100,48,145,14,ES_AUTOHSCROLL
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
                     BS_MULTILINE | WS_TABSTOP,7,72,238,18
@@ -262,10 +261,9 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "ОК",IDOK,99,69,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,7,69,50,14
-    GROUPBOX        "Редакция, извлекаемая из репозитория",IDC_STATIC,7,7,
-                    142,51
+    GROUPBOX        "Редакция",IDC_STATIC,7,7,142,51
     CONTROL         "&Головная редакция",IDC_NEWEST,"Button",
-                    BS_AUTORADIOBUTTON,13,21,75,10
+                    BS_AUTORADIOBUTTON,13,21,89,10
     CONTROL         "&Указанная:",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,50,10
     EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -485,10 +483,10 @@ END
 STRINGTABLE 
 BEGIN
     IDS_MSGBOX_ABORT        "Прервать"
-    IDS_MSGBOX_RETRY        "Повтор"
+    IDS_MSGBOX_RETRY        "Повторить"
     IDS_MSGBOX_IGNORE       "Пропустить"
     IDS_MSGBOX_CANCEL       "Отмена"
-    IDS_MSGBOX_TRYAGAIN     "Ещё раз!"
+    IDS_MSGBOX_TRYAGAIN     "Повторить"
     IDS_MSGBOX_CONTINUE     "Продолжить"
 END
 
@@ -687,7 +685,7 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
+ // Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 #ifdef _WIN32
@@ -708,8 +706,8 @@ IDB_LOGOFLIPPED         BITMAP                  "charlie_flipped.bmp"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,10,0,0
- PRODUCTVERSION 0,10,0,0
+ FILEVERSION 0,11,0,0
+ PRODUCTVERSION 0,11,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -726,12 +724,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "www.tortoisesvn.org"
             VALUE "FileDescription", "TortoiseSVN client resource file for russian language"
-            VALUE "FileVersion", "0, 10, 0, 0"
+            VALUE "FileVersion", "0, 11, 0, 0"
             VALUE "InternalName", "TortoiseProcRU.dll"
             VALUE "LegalCopyright", "Copyright (C) 2003"
             VALUE "OriginalFilename", "TortoiseProc1049.dll"
             VALUE "ProductName", "TortoiseSVN"
-            VALUE "ProductVersion", "0, 10, 0, 0"
+            VALUE "ProductVersion", "0, 11, 0, 0"
         END
     END
     BLOCK "VarFileInfo"
@@ -829,9 +827,10 @@ END
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
 LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 #pragma code_page(1251)
+#include "res\TortoiseProc.rc2"  // non-Microsoft Visual C++ edited resources
 #include "afxres.rc"         // Standard components
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-
+  

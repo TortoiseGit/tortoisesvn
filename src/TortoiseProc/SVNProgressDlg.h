@@ -133,5 +133,6 @@ private:
 	void ResizeColumns();
 public:
 	afx_msg void OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnClose();
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);

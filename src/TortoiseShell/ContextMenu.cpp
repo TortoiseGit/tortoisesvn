@@ -745,7 +745,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 				}
 				CopyRect(&rtTemp, &(lpdis->rcItem));
 
-				ix = lpdis->rcItem.left + 6;
+				ix = lpdis->rcItem.left + 0; //+6
 				SetRect(&rt, ix, rtTemp.top, ix + 16, rtTemp.bottom);
 
 				HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR);
@@ -773,7 +773,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 					DeleteDC(hDCTemp);
 					DeleteObject(hbmItem);
 				} // if (hbmItem)
-				ix = rt.right + 6;//GetSystemMetrics(SM_CXFRAME) - 4;
+				ix = rt.right + 0;//+6 //GetSystemMetrics(SM_CXFRAME) - 4;
 
 				//free memory
 				DeleteObject(ii.hbmColor);

@@ -54,6 +54,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_LOGBUTTON, OnBnClickedLogbutton)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SVNPROGRESS, OnNMCustomdrawSvnprogress)
+	ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -578,4 +579,16 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		// Tell Windows to paint the control itself.
 		*pResult = CDRF_DODEFAULT;
 	}
+}
+
+void CSVNProgressDlg::OnClose()
+{
+	if (m_bCancelled)
+		TerminateThread(m_hThread, -1);
+	else
+	{
+		m_bCancelled = TRUE;
+		return;
+	}
+	__super::OnClose();
 }
