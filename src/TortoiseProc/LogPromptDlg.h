@@ -125,6 +125,8 @@ private:
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
 	CRegDWORD		m_regAddBeforeCommit;
+public:
+	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

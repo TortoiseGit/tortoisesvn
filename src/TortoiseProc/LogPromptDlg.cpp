@@ -92,6 +92,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
+	ON_NOTIFY(LVN_GETINFOTIP, IDC_FILELIST, OnLvnGetInfoTipFilelist)
 END_MESSAGE_MAP()
 
 
@@ -167,7 +168,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	CString temp = m_sPath;
 
 	//set the listcontrol to support checkboxes
-	m_ListCtrl.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
+	m_ListCtrl.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP);
 
 	m_ListCtrl.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;
@@ -1297,6 +1298,16 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
+}
+
+void CLogPromptDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
+
+	if (pGetInfoTip->cchTextMax > m_arData.GetAt(pGetInfoTip->iItem)->path.GetLength())
+		_tcsncpy(pGetInfoTip->pszText, m_arData.GetAt(pGetInfoTip->iItem)->path, pGetInfoTip->cchTextMax);
+	
+	*pResult = 0;
 }
 
 
