@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-13 17:58+0800\n"
+"PO-Revision-Date: 2004-10-01 22:52+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -112,6 +112,11 @@ msgstr "%s - 於版本: %d"
 
 # ID:151,
 #: ID:151
+msgid "%s : Remote File"
+msgstr "%s : 遠端檔案"
+
+# ID:151,
+#: ID:151
 msgid "%s : Working Base"
 msgstr "%s : 工作基礎版本"
 
@@ -186,7 +191,7 @@ msgstr "自動關閉視窗(&C)"
 
 # ID:76,
 #: ID:76
-msgid "&Compare revisions"
+msgid "&Compare Revisions"
 msgstr "比對版本差異(&C)"
 
 # ID:101,
@@ -433,7 +438,7 @@ msgstr "未知磁碟(&U)"
 
 # ID:76,
 #: ID:76
-msgid "&Update item to revision"
+msgid "&Update Item To Revision"
 msgstr "更新項目至版本(&U)"
 
 # Control-ID:65535,#:
@@ -572,7 +577,7 @@ msgstr ""
 
 # ID:101,
 #: ID:101
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr "加入資料夾(&D)..."
 
 # Control-ID:1093,
@@ -648,7 +653,7 @@ msgstr "加入"
 
 # ID:101,
 #: ID:101
-msgid "Add &file..."
+msgid "Add &File..."
 msgstr "加入檔案(&F)..."
 
 # ID:110,
@@ -996,7 +1001,7 @@ msgstr "建立資料夾(&R)..."
 
 # ID:77,
 #: ID:77
-msgid "C&reate Tag from revision"
+msgid "C&reate Tag From Revision"
 msgstr "從版本建立標記(&R)"
 
 # ID:3697,
@@ -1047,7 +1052,7 @@ msgstr "憑證尚未生效. 起始日期: %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
 msgstr "憑證|*.p12;*.pkcs12|所有檔案|*.*||"
 
 # ID:3825,
@@ -1234,15 +1239,15 @@ msgstr "正在送交"
 msgid "Compare Whitespaces"
 msgstr "比對空白字元"
 
+# ID:138,
+#: ID:138
+msgid "Compare With B&ase"
+msgstr "與基礎檔比對(&A)"
+
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "與工作複本比對(&W)"
-
-# ID:138,
-#: ID:138
-msgid "Compare with B&ase"
-msgstr "與基礎檔比對(&A)"
 
 # ID:12,
 #: ID:12
@@ -1258,6 +1263,11 @@ msgstr "完畢"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "衝突"
+
+# Control-ID:65535,
+#: ID:188
+msgid "Conflicts: %d"
+msgstr "衝突: %d"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1278,6 +1288,11 @@ msgstr "遠端複製完成"
 #: ID:73
 msgid "Copy"
 msgstr "複製"
+
+# ID:151,
+#: ID:101
+msgid "Copy To Working Copy..."
+msgstr "複製至工作複本..."
 
 # ID:13,
 #: ID:13
@@ -1904,6 +1919,15 @@ msgid "Getting log info..."
 msgstr "正在取得紀錄資訊..."
 
 # ID:2049,
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"跳至下一個差異處\n"
+"下一差異"
+
+# ID:2049,
 #: ID:2049
 msgid ""
 "Go to the next difference\n"
@@ -1911,6 +1935,15 @@ msgid ""
 msgstr ""
 "跳至下一個差異處\n"
 "下一差異"
+
+# ID:2049,
+#: ID:2051
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"跳至前一個差異處\n"
+"前一差異"
 
 # ID:2049,
 #: ID:2049
@@ -1929,7 +1962,7 @@ msgid "Help"
 msgstr "說明"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr "小提示: 按下 F5 可以重新整理選擇的子樹"
 
@@ -2124,6 +2157,11 @@ msgstr "上一次儲存的項目版本"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "啟動外部差異比對/合併程式處理衝突"
 
+# ID:188,
+#: ID:188
+msgid "Left View: "
+msgstr "左側檢視:"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -2213,11 +2251,6 @@ msgstr "訊息"
 msgid "Mime Type"
 msgstr "MIME 類型"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Minimum logsize in chars"
-msgstr "最小訊息長度"
-
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1082
@@ -2255,6 +2288,11 @@ msgstr "正在移動 %s"
 #: ID:80
 msgid "Moving..."
 msgstr "正在移動..."
+
+# ID:12,
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "編修衝突"
 
 # ID:3697,
 #: ID:3697
@@ -2322,7 +2360,7 @@ msgstr "沒有發生錯誤."
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+"for TortoiseSVN to do here..."
 msgstr ""
 "從上次送交以來沒有任何檔案\n"
 "異動或加入. TortoiseSVN 沒有\n"
@@ -2417,6 +2455,11 @@ msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
 msgid "Out of memory."
 msgstr "記憶體不足."
 
+# ID:12,
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "編修衝突(&R)"
+
 # ID:76,
 #: ID:76
 msgid "PEM"
@@ -2432,15 +2475,15 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "密碼:"
 
+# Dlg-ID:158,
+#: Control-ID:1031
+msgid "Paste Changed Filenames"
+msgstr "異動過的檔案"
+
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
 msgstr "以英文貼上訊息模版(&T)"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Paste Status Template"
-msgstr "貼上狀態模板"
 
 # ID:376,
 #: ID:376
@@ -2863,6 +2906,11 @@ msgstr "版本 / 作者:"
 msgid "Revision: "
 msgstr "版本: "
 
+# ID:188,
+#: ID:188
+msgid "Right View: "
+msgstr "右側檢視:"
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr "設定(&E)"
@@ -2971,17 +3019,16 @@ msgstr "SVN 短 UR"
 msgid "Save &As..."
 msgstr "另存新檔(&A)..."
 
-# ID:313,#:
-# ID:101,
-#: ID:101
-msgid "Save &as..."
-msgstr "另存新檔(&A)..."
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Save As"
 msgstr "另存新檔"
+
+# ID:76,
+#: ID:76
+msgid "Save Revision &To..."
+msgstr "儲存版本至(&T)..."
 
 # ID:313,#:
 # ID:101,
@@ -2994,11 +3041,6 @@ msgstr "另存新檔..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "是否儲存 %1 的變動?"
-
-# ID:76,
-#: ID:76
-msgid "Save revision &to..."
-msgstr "儲存版本至(&T)..."
 
 # ID:3601,#:
 # ID:3601,
@@ -3159,6 +3201,7 @@ msgstr "顯示差異(&D)"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
+#: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
@@ -3170,7 +3213,6 @@ msgid "Show &Log..."
 msgstr "顯示記錄(&L)..."
 
 # Control-ID:1016,
-#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
@@ -3578,10 +3620,14 @@ msgstr ""
 #: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before saving."
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"第 %d 行尚有未解決的衝突!\n"
-"請在儲存前先解決衝突."
+"%d 行還有尚未處理的衝突!\n"
+"請在儲存之前先解決它們.\n"
+"你確定要在還有衝突時儲存檔案嗎?\n"
+"如果你選擇 \"是\", 之後必須自行在其它編輯器中處理衝突!"
 
 # ID:188,
 #: ID:188
@@ -3985,7 +4031,7 @@ msgstr "是"
 
 # ID:145,
 #: ID:145
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr "全部皆是"
 
 # ID:201,
@@ -4302,6 +4348,37 @@ msgstr ""
 #: ID:80
 msgid "to %s"
 msgstr "至 %s"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"在允許送交之前必須輸入的最短記錄長度."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:logtemplate\n"
+"自動加入記錄訊息對話框中的字串.\n"
+"可以用作讓使用者填寫的記錄訊息模板."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:logwidthmarker\n"
+"設定記錄訊息一行的最大字元數.\n"
+"送交視窗中會在指定位置顯示一條淡淡的直線. 預設是 80 字."
 
 # Control-ID:1112,
 #: Control-ID:1112
