@@ -178,23 +178,7 @@ void CRevertDlg::OnOK()
 	}
 	if (!m_bRecursive)
 	{
-		try
-		{
-			CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-			for (int i=0; i<m_RevertList.GetItemCount(); i++)
-			{
-				if (m_RevertList.GetCheck(i))
-				{
-					file.WriteString(m_RevertList.GetListEntry(i)->path+_T("\n"));
-				}
-			} 
-			file.Close();
-		}
-		catch (CFileException* pE)
-		{
-			TRACE("CFileException in Add!\n");
-			pE->Delete();
-		}
+		m_RevertList.WriteCheckedNamesToFile(m_sPath);
 	}
 
 	CResizableDialog::OnOK();

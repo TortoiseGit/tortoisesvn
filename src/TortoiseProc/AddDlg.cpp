@@ -127,23 +127,7 @@ void CAddDlg::OnOK()
 	if (m_bThreadRunning)
 		return;
 	//save only the files the user has selected into the temporary file
-	try
-	{
-		CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-		for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
-		{
-			if (m_addListCtrl.GetCheck(i))
-			{
-				file.WriteString(m_addListCtrl.GetListEntry(i)->path+_T("\n"));
-			}
-		} 
-		file.Close();
-	}
-	catch (CFileException* pE)
-	{
-		TRACE("CFileException in Add!\n");
-		pE->Delete();
-	}
+	m_addListCtrl.WriteCheckedNamesToFile(m_sPath);
 
 	CResizableDialog::OnOK();
 }

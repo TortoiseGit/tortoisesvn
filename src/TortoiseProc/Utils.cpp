@@ -631,24 +631,6 @@ CString CUtils::GetFileExtFromPath(const CString& sPath)
 	return CString();
 }
 
-BOOL CUtils::PathIsParent(CString sPath1, CString sPath2)
-{
-	sPath1.Replace('\\', '/');
-	sPath2.Replace('\\', '/');
-	if (sPath1.Right(1).Compare(_T("/"))==0)
-		sPath1 = sPath1.Left(sPath1.GetLength()-1);
-	int pos = 0;
-	do
-	{
-		pos = sPath2.ReverseFind('/');
-		if (pos >= 0)
-			sPath2 = sPath2.Left(pos);
-		if (sPath2.CompareNoCase(sPath1)==0)
-			return TRUE;
-	} while (pos >= 0);
-	return FALSE;
-}
-
 CString CUtils::WritePathsToTempFile(CString paths)
 {
 	CString tempfile = CUtils::GetTempFile();
