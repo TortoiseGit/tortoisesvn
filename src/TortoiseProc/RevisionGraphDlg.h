@@ -95,6 +95,7 @@ protected:
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg BOOL	OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnFileSavegraphas();
+	afx_msg BOOL	OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
 
 	DECLARE_MESSAGE_MAP()
 private:

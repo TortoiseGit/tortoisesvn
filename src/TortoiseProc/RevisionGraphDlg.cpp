@@ -21,6 +21,12 @@
 #include <gdiplus.h>
 #include ".\revisiongraphdlg.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
 using namespace Gdiplus;
 
 // CRevisionGraphDlg dialog
@@ -77,6 +83,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableDialog)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
 	ON_COMMAND(ID_FILE_SAVEGRAPHAS, OnFileSavegraphas)
+	ON_WM_MOUSEWHEEL()
 END_MESSAGE_MAP()
 
 
@@ -1068,6 +1075,15 @@ int CRevisionGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 	return -1;  // Failure
 }
 
+BOOL CRevisionGraphDlg::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
+{
+	int pos = GetScrollPos(SB_VERT);
+	pos -= (zDelta);
+	SetScrollPos(SB_VERT, pos);
+	Invalidate();
+	return __super::OnMouseWheel(nFlags, zDelta, pt);
+}
+
 #ifdef DEBUG
 void CRevisionGraphDlg::FillTestData()
 {
@@ -1255,3 +1271,4 @@ void CRevisionGraphDlg::FillTestData()
 	m_arEntryPtrs.Add(e);
 }
 #endif //DEBUG
+
