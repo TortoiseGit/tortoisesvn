@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-07-14 10:28+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2004-07-14 22:16+0100\n"
+"Last-Translator: Stefan Küng <steveking@tigris.org>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1265,6 +1265,10 @@ msgstr "Ausschließen:"
 msgid "Export Directory:"
 msgstr "Exportverzeichnis:"
 
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "Exportiere alle Dateien"
+
 #: ID:9
 msgid "Export..."
 msgstr "Exportieren..."
@@ -2459,6 +2463,10 @@ msgid "Subversion configuration file:"
 msgstr "Subversion Konfigurationsdatei:"
 
 #: ID:14
+msgid "Subversion export all here"
+msgstr "Subversion Export alles hier"
+
+#: ID:14
 msgid "Subversion export here"
 msgstr "Subversion Export hier"
 
@@ -3094,10 +3102,6 @@ msgstr ""
 "%s\n"
 "nach %s\n"
 "exportiert"
-
-#: ID:79
-msgid "exporting %s to"
-msgstr "Exportiere %s nach"
 
 #: ID:13
 msgid "external"
