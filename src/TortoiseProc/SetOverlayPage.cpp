@@ -21,6 +21,7 @@
 #include "SetOverlayPage.h"
 #include "SetOverlayIcons.h"
 #include "Globals.h"
+#include "ShellUpdater.h"
 #include ".\setoverlaypage.h"
 
 
@@ -333,6 +334,11 @@ void CSetOverlayPage::OnBnClickedShowfolderstatus()
 
 void CSetOverlayPage::OnBnClickedSelectoverlayset()
 {
+	CString regInSubversion = CRegString(_T("Software\\TortoiseSVN\\InSubversionIcon"));
+
 	CSetOverlayIcons dlg;
 	dlg.DoModal();
+	CString newInSubversion = CRegString(_T("Software\\TortoiseSVN\\InSubversionIcon"));
+	if (regInSubversion.Compare(newInSubversion)!=0)
+		CShellUpdater::RebuildIcons();
 }

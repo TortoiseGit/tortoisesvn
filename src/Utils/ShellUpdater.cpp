@@ -132,3 +132,85 @@ it decide if parent directory shell-updates are required
 		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
 	}
 }
+
+void CShellUpdater::RebuildIcons()
+{
+	const int BUFFER_SIZE = 1024;
+	TCHAR *buf = NULL;
+	HKEY hRegKey = 0;
+	DWORD dwRegValue;
+	DWORD dwRegValueTemp;
+	DWORD dwSize;
+	DWORD dwResult;
+	LONG lRegResult;
+	stdstring sFilename;
+	stdstring sRegValueName;
+
+	lRegResult = RegOpenKeyEx(HKEY_CURRENT_USER, _T("Control Panel\\Desktop\\WindowMetrics"),
+		0, KEY_READ | KEY_WRITE, &hRegKey);
+	if (lRegResult != ERROR_SUCCESS)
+		goto Cleanup;
+
+	buf = new TCHAR[BUFFER_SIZE];
+	if(buf == NULL)
+		goto Cleanup;
+
+	// we're going to change the color depth
+	sRegValueName = _T("Shell Icon BPP");
+
+	// Read registry value
+	dwSize = BUFFER_SIZE;
+	lRegResult = RegQueryValueEx(hRegKey, sRegValueName.c_str(), NULL, NULL, 
+		(LPBYTE) buf, &dwSize);
+	if (lRegResult == ERROR_FILE_NOT_FOUND)
+	{
+		_tcsncpy(buf, _T("32"), BUFFER_SIZE);
+	}
+	else if (lRegResult != ERROR_SUCCESS)
+		goto Cleanup;
+
+	// Change registry value
+	dwRegValue = _ttoi(buf);
+	if (dwRegValue == 4)
+	{
+		dwRegValueTemp = 32;
+	}
+	else
+	{
+		dwRegValueTemp = 4;
+	}
+
+	dwSize = _sntprintf(buf, BUFFER_SIZE, _T("%d"), dwRegValueTemp) + 1; 
+	lRegResult = RegSetValueEx(hRegKey, sRegValueName.c_str(), 0, REG_SZ, 
+		(LPBYTE) buf, dwSize); 
+	if (lRegResult != ERROR_SUCCESS)
+		goto Cleanup;
+
+
+	// Update all windows
+	SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, SPI_SETNONCLIENTMETRICS, 
+		0, SMTO_ABORTIFHUNG, 5000, &dwResult);
+
+	// Reset registry value
+	dwSize = _sntprintf(buf, BUFFER_SIZE, _T("%d"), dwRegValue) + 1; 
+	lRegResult = RegSetValueEx(hRegKey, sRegValueName.c_str(), 0, REG_SZ, 
+		(LPBYTE) buf, dwSize); 
+	if(lRegResult != ERROR_SUCCESS)
+		goto Cleanup;
+
+	// Update all windows
+	SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, SPI_SETNONCLIENTMETRICS, 
+		0, SMTO_ABORTIFHUNG, 5000, &dwResult);
+
+Cleanup:
+	if (hRegKey != 0)
+	{
+		RegCloseKey(hRegKey);
+	}
+	if (buf != NULL)
+	{
+		delete buf;
+	}
+	return;
+
+}

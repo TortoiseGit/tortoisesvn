@@ -61,6 +61,8 @@ public:
 	 * Do the update, and clear the list of items waiting
 	 */
 	void Flush();
+	
+	static void RebuildIcons();
 
 private:
 	void UpdateShell();
