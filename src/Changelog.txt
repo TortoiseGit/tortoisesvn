@@ -6,6 +6,8 @@
 - CHG: The "add before commit" option in the settings dialog is
        gone, this option is now in the commit dialog where it
        belongs. (Stefan)
+- CHG: The check for newer versions is now started as an
+       separate process to not disturb normal operation. (Stefan)
 - BUG: Pressing the "Find" button in the merge dialog lead
        to an error message about the path being invalid. (Stefan)
 - BUG: ignore patterns _not_ starting with * weren't correctly

@@ -218,8 +218,15 @@ BOOL CTortoiseProcApp::InitInstance()
 				if (week != oldweek)
 				{
 					oldweek = week;
-					CCheckForUpdatesDlg dlg;
-					dlg.DoModal();
+					STARTUPINFO startup;
+					PROCESS_INFORMATION process;
+					memset(&startup, 0, sizeof(startup));
+					startup.cb = sizeof(startup);
+					memset(&process, 0, sizeof(process));
+					TCHAR com[MAX_PATH+100];
+					GetModuleFileName(NULL, com, MAX_PATH);
+					_tcscat(com, _T(" /command:updatecheck"));
+					CreateProcess(NULL, com, NULL, NULL, FALSE, 0, 0, 0, &startup, &process);
 				}
 			}
 		}
@@ -1240,6 +1247,13 @@ BOOL CTortoiseProcApp::InitInstance()
 			} // if (!svn.Diff(path, SVNRev::REV_WC, path, SVNRev::REV_BASE, TRUE, FALSE, FALSE, _T(""), sSavePath))
 			progDlg.Stop();
 		} // if (comVal.Compare(_T("cat"))==0) 
+		//#endregion
+		//#region updatecheck
+		if (comVal.Compare(_T("updatecheck"))==0)
+		{
+			CCheckForUpdatesDlg dlg;
+			dlg.DoModal();
+		} // if (comVal.Compare(_T("updatecheck"))==0)
 		//#endregion
 
 		if (TSVNMutex)
