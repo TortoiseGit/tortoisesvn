@@ -274,7 +274,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
 	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_delete (&commit_info, pathlist.MakeSVNPathArray(pool), force,
+	Err = svn_client_delete (&commit_info, MakePathArray(pathlist), force,
 							&m_ctx,
 							pool);
 	if(Err != NULL)
@@ -294,7 +294,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 
 BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 {
-	Err = svn_client_revert (pathlist.MakeSVNPathArray(pool), recurse, &m_ctx, pool);
+	Err = svn_client_revert (MakePathArray(pathlist), recurse, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -348,7 +348,7 @@ LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse)
 	message.Replace(_T("\r"), _T(""));
 	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_commit (&commit_info, 
-							pathlist.MakeSVNPathArray(pool), 
+							MakePathArray(pathlist), 
 							!recurse,
 							&m_ctx,
 							pool);
@@ -435,7 +435,7 @@ BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 	message.Replace(_T("\r"), _T(""));
 	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_mkdir (&commit_info,
-							pathlist.MakeSVNPathArray(pool),
+							MakePathArray(pathlist),
 							&m_ctx,
 							pool);
 	if(Err != NULL)
@@ -886,7 +886,7 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
 {
 	cpaths.Preallocate(10000);		//allocate 10kB memory
-	Err = svn_client_log (pathlist.MakeSVNPathArray(pool), 
+	Err = svn_client_log (MakePathArray(pathlist), 
 						revisionStart, 
 						revisionEnd, 
 						changed,
@@ -1812,4 +1812,18 @@ void SVN::SetPromptApp(CWinApp* pWinApp)
 {
 	m_prompt.SetApp(pWinApp);
 }
+
+apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList)
+{
+	apr_array_header_t *targets = apr_array_make (pool,pathList.GetCount(),sizeof(const char *));
+
+	for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
+	{
+		const char * target = apr_pstrdup (pool, pathList[nItem].GetSVNApiPath());
+		(*((const char **) apr_array_push (targets))) = target;
+	}
+	return targets;
+}
+
+
 

@@ -489,22 +489,6 @@ void CTSVNPathList::SortByPathname()
 	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::ComparisonPredicate);
 }
 
-
-apr_array_header_t * CTSVNPathList::MakeSVNPathArray(apr_pool_t* pool) const
-{
-	apr_array_header_t *targets = apr_array_make (pool,5,sizeof(const char *));
-
-	PathVector::const_iterator it;
-	for(it = m_paths.begin(); it != m_paths.end(); ++it)
-	{
-		const char * target = apr_pstrdup (pool, it->GetSVNApiPath());
-		(*((const char **) apr_array_push (targets))) = target;
-	}
-	return targets;
-}
-
-
-
 #if defined(_DEBUG)
 // Some test cases for this class
 static class CPathTests

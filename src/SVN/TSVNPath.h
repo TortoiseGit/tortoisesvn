@@ -221,12 +221,6 @@ public:
 	CTSVNPath GetCommonDirectory() const;
 	void SortByPathname();
 
-	/** Make the appropriate APR array structure to allow multiple paths to be passed
-	 *  to SVN APIs which can operate on multiple items per call 
-	 */
-	apr_array_header_t * MakeSVNPathArray(apr_pool_t* pool) const;
-
-
 private:
 	typedef std::vector<CTSVNPath> PathVector;
 	PathVector m_paths;
