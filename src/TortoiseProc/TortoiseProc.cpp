@@ -377,7 +377,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				m_pMainWnd = &progDlg;
 				//construct the module name out of the path
 				CString modname;
-				progDlg.SetParams(CSVNProgressDlg::Import, ProgOptPathIsTempFile, path, dlg.m_url, dlg.m_sMessage);
+				progDlg.SetParams(CSVNProgressDlg::Import, ProgOptPathIsTarget, path, dlg.m_url, dlg.m_sMessage);
 				progDlg.DoModal();
 			}
 		}
