@@ -88,10 +88,20 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							svn_wc_status_kind status = svn_wc_status_unversioned;
 							try
 							{
-								status = SVNStatus::GetAllStatus(str.c_str());
+								DWORD dwWaitResult = WaitForSingleObject(g_hMutex, 1000);
+								if (dwWaitResult == WAIT_OBJECT_0)
+								{
+									const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(str.c_str(), PathIsDirectory(str.c_str()));
+									if (s)
+									{
+										status = s->status;
+									}
+								}
+								ReleaseMutex(g_hMutex);
 							}
 							catch ( ... )
 							{
+								ReleaseMutex(g_hMutex);
 								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
@@ -141,11 +151,21 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							svn_wc_status_kind status = svn_wc_status_unversioned;
 							try
 							{
-								status = SVNStatus::GetAllStatus(str.c_str());
+								DWORD dwWaitResult = WaitForSingleObject(g_hMutex, 1000);
+								if (dwWaitResult == WAIT_OBJECT_0)
+								{
+									const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(str.c_str(), PathIsDirectory(str.c_str()));
+									if (s)
+									{
+										status = s->status;
+									}
+								}
+								ReleaseMutex(g_hMutex);
 								statfetched = TRUE;
 							}
 							catch ( ... )
 							{
+								ReleaseMutex(g_hMutex);
 								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
@@ -162,16 +182,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					}
 				} // for (int i = 0; i < count; ++i)
 				ItemIDList child (GetPIDLItem (cida, 0), &parent);
-				_tcsncpy(buf, child.toString().c_str(), MAX_PATH);
-				TCHAR * ptr = _tcsrchr(buf, '\\');
-				if (ptr != 0)
-				{
-					*ptr = 0;
-					_tcsncat(buf, _T("\\"), MAX_PATH);
-					_tcsncat(buf, _T(SVN_WC_ADM_DIR_NAME), MAX_PATH);
-					if (PathFileExists(buf))
-						isInVersionedFolder = true;
-				}
+				if (g_ShellCache.HasSVNAdminDir(child.toString().c_str(), FALSE))
+					isInVersionedFolder = true;
 			}
 
 
@@ -191,10 +203,20 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		svn_wc_status_kind status = svn_wc_status_unversioned;
 		try
 		{
-			status = SVNStatus::GetAllStatus(folder_.c_str());
+			DWORD dwWaitResult = WaitForSingleObject(g_hMutex, 1000);
+			if (dwWaitResult == WAIT_OBJECT_0)
+			{
+				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(folder_.c_str(), PathIsDirectory(folder_.c_str()));
+				if (s)
+				{
+					status = s->status;
+				}
+			}
+			ReleaseMutex(g_hMutex);
 		}
 		catch ( ... )
 		{
+			ReleaseMutex(g_hMutex);
 			ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
@@ -215,10 +237,20 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			svn_wc_status_kind status = svn_wc_status_unversioned;
 			try
 			{
-				status = SVNStatus::GetAllStatus(folder_.c_str());
+				DWORD dwWaitResult = WaitForSingleObject(g_hMutex, 1000);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(folder_.c_str(), TRUE);
+					if (s)
+					{
+						status = s->status;
+					}
+				}
+				ReleaseMutex(g_hMutex);
 			}
 			catch ( ... )
 			{
+				ReleaseMutex(g_hMutex);
 				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 			}
 			if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
