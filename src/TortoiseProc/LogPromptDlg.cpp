@@ -448,12 +448,29 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 
 	pDlg->m_ListCtrl.SetRedraw(false);
 
+	// Since svn_client_status() returns all files, even those in
+	// folders included with svn:externals we need to check if all
+	// files we get here belong to the same repository.
+	// It is possible to commit changes in an external folder, as long
+	// as the folder belongs to the same repository (but another path),
+	// but it is not possible to commit all files if the externals are
+	// from a different repository.
+	//
+	// To check if all files belong to the same repository, we compare the
+	// UUID's - if they're identical then the files belong to the same
+	// repository and can be committed. But if they're different, then
+	// tell the user to committ all changes in the external folders
+	// first and exit.
+	CStringA sUUID;
+	BOOL bHasExternalsFromDifferentRepos = FALSE;
+	CStringArray arExtPaths;
 	try
 	{
 		CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
 		CString strLine = _T("");
 		TCHAR buf[MAX_PATH];
-		const TCHAR * strbuf = NULL;;
+		const TCHAR * strbuf = NULL;
+		// for every selected file/folder
 		while (file.ReadString(strLine))
 		{
 			strLine.Replace('\\', '/');
@@ -466,6 +483,20 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				CString temp;
 				svn_wc_status_kind stat;
 				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+				if ((s->entry)&&(s->entry->uuid))
+				{
+					if (sUUID.IsEmpty())
+						sUUID = s->entry->uuid;
+					else
+					{
+						if (sUUID.Compare(s->entry->uuid)!=0)
+						{
+							bHasExternalsFromDifferentRepos = TRUE;
+							if (s->entry->kind == svn_node_dir)
+								arExtPaths.Add(strLine);
+						} // if (sUUID.Compare(s->entry->uuid)!=0) 
+					}
+				} // if ((s->entry)&&(s->entry->uuid)) 
 				if ((s->entry)&&(s->entry->url))
 				{
 					CUtils::Unescape((char *)s->entry->url);
@@ -490,7 +521,6 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->m_arData.Add(data);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
-					//SVNStatus::GetStatusString(stat, buf);
 					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 					if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
 						_tcscat(buf, _T("(P only)"));
@@ -510,7 +540,6 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
-						//SVNStatus::GetStatusString(stat, buf);
 						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					} // if (!CCheckTempFiles::IsTemp(strLine)) 
@@ -526,6 +555,41 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						if (SVNStatus::GetAllStatus(temp) != svn_wc_status_unversioned)
 							stat = svn_wc_status_normal;	//ignore nested layouts
 					} // if ((stat == svn_wc_status_unversioned) && (PathIsDirecory(temp)))
+					if (s->entry)
+					{
+						if (s->entry->uuid)
+						{
+							if (sUUID.IsEmpty())
+								sUUID = s->entry->uuid;
+							else
+							{
+								if (sUUID.Compare(s->entry->uuid)!=0)
+								{
+									bHasExternalsFromDifferentRepos = TRUE;
+									if (s->entry->kind == svn_node_dir)
+										arExtPaths.Add(temp);
+									continue;
+								} // if (sUUID.Compare(s->entry->uuid)!=0) 
+							}
+						} // if (s->entry->uuid)
+						else
+						{
+							// added files don't have an UUID assigned yet, so check if they're
+							// below an external folder
+							BOOL bMatch = FALSE;
+							for (int ix=0; ix<arExtPaths.GetCount(); ix++)
+							{
+								CString t = arExtPaths.GetAt(ix);
+								if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
+								{
+									bMatch = TRUE;
+									break;
+								} // if (t.CompareNoCase(temp.Left(t.GetLength()))==0) 
+							} // for (int ix=0; ix<arExtPaths.GetCount(); ix++) 
+							if (bMatch)
+								continue;
+						}
+					} // if ((s->entry)&&(s->entry->uuid)) 
 					if (SVNStatus::IsImportant(stat))
 					{
 						CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
@@ -539,7 +603,6 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 						else
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
-						//SVNStatus::GetStatusString(stat, buf);
 						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 						if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
 							_tcscat(buf, _T("(P only)"));
@@ -584,7 +647,6 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							} // if (bIsFolder) 
 							else
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
-							//SVNStatus::GetStatusString(stat, buf);
 							SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 							pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						} // if (!CCheckTempFiles::IsTemp(temp))
@@ -616,7 +678,11 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
 		pDlg->EndDialog(0);
-	}
+	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
+	if (bHasExternalsFromDifferentRepos)
+	{
+		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_EXTERNALS, IDS_APPNAME, MB_ICONINFORMATION);
+	} // if (bHasExternalsFromDifferentRepos) 
 	return 0;
 }
 

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Languages\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -379,6 +379,7 @@
 #define IDS_CERTIFICATESFILEFILTER      2502
 #define IDS_PATCHFILEFILTER             2503
 #define IDS_CHECKUPDATE_SUMMARY         2600
+#define IDS_LOGPROMPT_EXTERNALS         2700
 
 // Next default values for new objects
 // 
