@@ -1095,7 +1095,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 							CString sPath = m_ProgList.GetItemText(nItem, 1);
 							CString sMime = m_ProgList.GetItemText(nItem, 2);
 							CString sLogCopyText;
-							sLogCopyText.Format(_T("%s: %s  %s\n"),
+							sLogCopyText.Format(_T("%s: %s  %s\r\n"),
 								(LPCTSTR)sAction, (LPCTSTR)sPath, (LPCTSTR)sMime);
 							sClipdata +=  CStringA(sLogCopyText);
 						}
