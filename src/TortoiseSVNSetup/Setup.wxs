@@ -151,6 +151,7 @@
 	      <Component Id="C__help_en" Guid="012FDAFF-53D4-420b-87A2-72C88B859D09" >
 	        <File Id="F_TortoiseSVN_en" Name="TORTOI~1.CHM" LongName="TortoiseSVN_en.chm" DiskId="1" src="..\..\doc\output\TortoiseSVN_en.chm" KeyPath="yes" />
 	        <File Id="F__TortoiseMerge_en" Name="TORTOI~2.CHM" LongName="TortoiseMerge_en.chm" DiskId="1" src="..\..\doc\output\TortoiseMerge_en.chm" />
+			<RemoveFile Id="F__Tortoise_lang" Name="*.chm" LongName="*.chm" On="uninstall" />
 	      </Component>
 	      
 	      <Component Id="C__TortoiseSVN" Guid="2F1FD4CC-32F0-51FB-A9CE-9DB539518655" >
@@ -185,6 +186,13 @@
         </Component>
       </Directory>
 
+      <Directory Id="D__Languages" Name="Langua~1" LongName="Languages" >
+        <Component Id="C__Languages" Guid="B51E466F-725F-41a1-A26A-D0EDD2936933" >
+          <File Id="F__websiteurl2" Name="WEBSITE.URL" LongName="Website.url" src="Website.url" DiskId="1" />
+          <RemoveFile Id="F__Languages" Name="*.*" LongName="*.*" On="uninstall" />
+        </Component>
+      </Directory>
+
       <Directory Id="ProgramMenuFolder" Name="." SourceName="USER'S~2" LongSource="User's Programs Menu">
         <Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="Tortoise">
           <Component Id="C__WebsiteLink" Guid="3FBF0894-22EF-49fe-A1C3-A2ADCEA4B7CA" >
@@ -196,12 +204,6 @@
       <Component Id="C__ProgramMenuFolder" Guid="46F6E6A9-843F-4039-8F6C-450953BB47F2" >
         <RemoveFolder Directory="D_TortoisePrgMenu" On="uninstall" Id="_DE499A20C2C848719FF4A91F8E056C18" />
       </Component>
-
-	  <Directory Id="D_LangFiles" Name="LANGUA~1" LongName="Languages" >
-	      <Component Id="C__LangFiles" Guid="4D44CBD7-512A-4843-A251-CCBBD1D3B1D6" >
-	        <RemoveFolder Directory="D_LangFiles" On="uninstall" Id="_E05CD1EB-92C6-4a5b-91E8-1B5ABD899C47" />
-	      </Component>
-	  </Directory>
 
       <Directory Id="D__icons" Name="ICONS" LongName="icons" >
         <Component Id="C__icons" Guid="79533430-13EE-4eea-BE0F-D0A4C63C144B" >
@@ -232,7 +234,7 @@
       <ComponentRef Id="C__approveshellcomponents" />
       <ComponentRef Id="C__ProgramMenuFolder" />
       <ComponentRef Id="C__TortoiseBlame" />
-      <ComponentRef Id="C__LangFiles" />
+      <ComponentRef Id="C__Languages" />
     </Feature>
     <Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
       <ComponentRef Id="C__crash" />
