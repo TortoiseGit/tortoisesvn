@@ -70,14 +70,5 @@ BOOL SVNConfig::MatchIgnorePattern(const CString& sFilepath, apr_array_header_t 
 {
 	if (patterns == NULL)
 		return FALSE;
-	int lastSlashPos = sFilepath.ReverseFind('/');
-	if(lastSlashPos == -1)
-	{
-		lastSlashPos = sFilepath.ReverseFind('\\');
-	}
-	if (lastSlashPos >= 0)
-	{
-		return svn_cstring_match_glob_list(CUnicodeUtils::GetUTF8(sFilepath.Mid(lastSlashPos+1)),patterns);
-	}
 	return svn_cstring_match_glob_list(CUnicodeUtils::GetUTF8(sFilepath), patterns);
 }
