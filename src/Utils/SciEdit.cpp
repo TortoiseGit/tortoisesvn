@@ -26,6 +26,12 @@
 using namespace std;
 using namespace regex;
 
+
+void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
+bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return false;}
+
+
+
 #define STYLE_BOLD			11
 #define STYLE_BOLDITALIC	12
 
@@ -519,10 +525,24 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 		popup.AppendMenu(MF_SEPARATOR);
 
+		// now add any custom context menus
+		int nCustoms = 1;
+		for (INT_PTR handlerindex = 0; handlerindex < m_arContextHandlers.GetCount(); ++handlerindex)
+		{
+			CSciEditContextMenuInterface * pHandler = m_arContextHandlers.GetAt(handlerindex);
+			pHandler->InsertMenuItems(popup, nCustoms);
+		}
+		if (nCustoms)
+		{
+			// custom menu entries present, so add another separator
+			popup.AppendMenu(MF_SEPARATOR);
+		}
+		int menuid = nCustoms;
+
 		CMenu corrections;
 		corrections.CreatePopupMenu();
 		CStringA worda = CStringA(GetWordUnderCursor());
-		int nCorrections = 0;
+		int nCorrections = nCustoms;
 		if ((pChecker)&&(!worda.IsEmpty()))
 		{
 			char ** wlst;
@@ -532,7 +552,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				for (int i=0; i < ns; i++) 
 				{
 					CString sug = CString(wlst[i]);
-					corrections.InsertMenu((UINT)-1, 0, i+1, sug);
+					corrections.InsertMenu((UINT)-1, 0, menuid++, sug);
 					free(wlst[i]);
 				} 
 				free(wlst);
@@ -556,7 +576,6 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			mentry * pmean;
 			worda.MakeLower();
 			int count = pThesaur->Lookup(worda, worda.GetLength(),&pmean);
-			int menuid = 50;		//offset (spell check menu items start with 1, thesaurus entries with 50)
 			if (count)
 			{
 				mentry * pm = pmean;
@@ -602,7 +621,16 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			Call(cmd);
 			break;
 		default:
-			if (cmd <= nCorrections)
+			if (cmd < nCustoms)
+			{
+				for (INT_PTR handlerindex = 0; handlerindex < m_arContextHandlers.GetCount(); ++handlerindex)
+				{
+					CSciEditContextMenuInterface * pHandler = m_arContextHandlers.GetAt(handlerindex);
+					if (pHandler->HandleMenuItemClick(cmd, this))
+						break;
+				}		
+			}
+			else if (cmd <= nCorrections)
 			{
 				GetWordUnderCursor(true);
 				CString temp;
