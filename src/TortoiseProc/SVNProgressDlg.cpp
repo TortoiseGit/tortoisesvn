@@ -577,9 +577,12 @@ UINT CSVNProgressDlg::ProgressThread()
 							bURLFetched = TRUE;
 						CString urllower = url;
 						urllower.MakeLower();
-	//BUGBUG? - Is this /tags/ test really legitimate?  Who's to say that 
-	//all 'tags' have the word /tag/ in their URL?  
-	//Or have I misunderstood this?
+						// test if the commit goes to a tag.
+						// now since Subversion doesn't force users to
+						// create tags in the recommended /tags/ folder
+						// only a warning is shown. This won't work if the tags
+						// are stored in a non-recommended place, but the check
+						// still helps those who do.
 						if (urllower.Find(_T("/tags/"))>=0)
 							isTag = TRUE;
 						break;

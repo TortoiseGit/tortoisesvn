@@ -51,7 +51,7 @@ CString
 CWorkingFile::GetWindowName() const
 {
 	CString sErrMsg = "";
-		// TortoiseMerge allows non-existing files to be used in a merge
+	// TortoiseMerge allows non-existing files to be used in a merge
 	// Inform the user (in a non-intrusive way) if a file is absent
 	if (! this->Exists())
 	{
