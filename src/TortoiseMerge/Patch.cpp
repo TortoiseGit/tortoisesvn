@@ -132,45 +132,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 					//the line
 					//Index: <filepath>
 					//was not found at the start of a filediff!
-					
-					//maybe an empty line? 
-					if (sLine.IsEmpty())
-						break;			//then just try again
-					TCHAR type  = sLine.GetAt(0);
-					if (type == '\\')
-						break;
-					if (sLine.Left(14).Compare(_T("Cannot display"))==0)
-						break;
-					if (sLine.Left(13).Compare(_T("svn:mime-type"))==0)
-						break;
-					if (sLine.Left(20).Compare(_T("Property changes on:"))==0)
-						break;
-					if (sLine.Left(3).Compare(_T("___"))==0)
-						break;
-					if (sLine.Left(5).Compare(_T("Name:"))==0)
-						break;
-					if (sLine.Left(3).Compare(_T("   "))==0)
-						break;
-					if (sLine.Left(1).Compare(_T(" "))==0)
-						break;
-					//But before throwing an error, check first if 
-					//instead of a new filediff we just have a new chunk:
-					if (nIndex > 0)
-					{
-						nIndex--;
-						state = 4;
-						if (chunks == NULL)
-						{
-							m_sErrorMessage.Format(IDS_ERR_PATCH_UNKOWNLINETYPE, nIndex);
-							goto errorcleanup;
-						}
-
-					} // if (nIndex > 0) 
-					else
-					{
-						m_sErrorMessage.LoadString(IDS_ERR_PATCH_NOINDEX);
-						goto errorcleanup;
-					}
+					break;
 				}
 			} 
 		break;
