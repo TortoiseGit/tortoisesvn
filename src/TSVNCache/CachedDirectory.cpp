@@ -287,7 +287,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	if(!bThisDirectoryIsUnversioned)
 	{
 		ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
-
+		OutputDebugStringA("TSVNCache : svn_client_status() in CCachedDirectory::GetStatusForMember()\n");
 		svn_error_t* pErr = svn_client_status (
 			NULL,
 			m_directoryPath.GetSVNApiPath(),
@@ -319,6 +319,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			//   happens between our checks and the svn_client_status() call.
 			// - reverting a move/copy --> results in "not a working copy" (as above)
 			m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_unversioned;
+			return CStatusCacheEntry();
 		}
 	}
 	else

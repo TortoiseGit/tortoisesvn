@@ -170,7 +170,9 @@ CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 {
 	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
 
+	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetDirectoryCacheEntry waiting for lock\n");
 	AutoLocker lock(m_critSec);
+	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetDirectoryCacheEntry got lock\n");
 
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);
@@ -189,7 +191,9 @@ CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 
 CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD flags)
 {
+	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetStatusForPath waiting for lock\n");
 	AutoLocker lock(m_critSec);
+	OutputDebugStringA("TSVNCache : CSVNStatusCache::GetStatusForPath got lock\n");
 
 	bool bRecursive = !!(flags & TSVNCACHE_FLAGS_RECUSIVE_STATUS);
 

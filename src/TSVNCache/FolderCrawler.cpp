@@ -87,6 +87,7 @@ unsigned int CFolderCrawler::ThreadEntry(void* pContext)
 
 void CFolderCrawler::WorkerThread()
 {
+	OutputDebugStringA("TSVNCache : Crawler thread started\n");
 	HANDLE hWaitHandles[2];
 	hWaitHandles[0] = m_hTerminationEvent;	
 	hWaitHandles[1] = m_hWakeEvent;
@@ -153,6 +154,7 @@ void CFolderCrawler::WorkerThread()
 			Sleep(10);
 		}
 	}
+	OutputDebugStringA("TSVNCache : Crawler thread finished\n");
 	_endthread();
 }
 
