@@ -41,6 +41,8 @@
 #include <map>
 #include <set>
 
+#define EXCLUDEFILENAME "/.tsvnexcludethis"
+
 /**
  * \ingroup TortoiseShell
  * a simple utility class:
@@ -168,6 +170,7 @@ private:
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	
 	std::map<stdstring, filestatuscache> m_cache;
+	std::map<stdstring, int> m_propcache;
 	DWORD				m_TimeStamp;
 	filestatuscache		invalidstatus;
 	ShellCache			shellCache;

@@ -134,34 +134,47 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	
 	ATLTRACE2(_T("building cache for %s\n"), filepath);
 	BOOL isFolder = PathIsDirectory(filepath);
-
+	int exclude = -1;
 	if (isFolder)
 	{
 		if (shellCache.IsRecursive())
 		{
 			// initialize record members
-
+			svn_opt_revision_t rev;
+			rev.kind = svn_opt_revision_unspecified;
+			apr_hash_t * props;
+			if (svn_client_propget(&props, "tsvn:exclude", CUnicodeUtils::StdGetUTF8(filepath).c_str(), &rev, false, &ctx, pool)==NULL)
+			{
+				svn_string_t * val = (svn_string_t *)apr_hash_get(props, "tsvn:exclude", APR_HASH_KEY_STRING);
+				if (val)
+				{
+					exclude = atoi(val->data);
+				}
+			}
 			dirstat.rev = -1;
 			dirstat.status = svn_wc_status_unversioned;
 			dirstat.author = authors.GetString(NULL);
 			dirstat.url = urls.GetString(NULL);
 			dirstat.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
-			GetStatus(filepath);
-			if (status)
+			if (exclude < 1)
 			{
-				if (status->entry)
+				GetStatus(filepath);
+				if (status)
 				{
-					dirstat.author = authors.GetString (status->entry->cmt_author);
-					dirstat.url = authors.GetString (status->entry->url);
-					dirstat.rev = status->entry->cmt_rev;
-				} // if (status.status->entry)
-				dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
-			} // if (status)
-			m_cache[filepath] = dirstat;
-			m_TimeStamp = GetTickCount();
-			svn_pool_destroy (pool);				//free allocated memory
-			ClearPool();
-			return &dirstat;
+					if (status->entry)
+					{
+						dirstat.author = authors.GetString (status->entry->cmt_author);
+						dirstat.url = authors.GetString (status->entry->url);
+						dirstat.rev = status->entry->cmt_rev;
+					} // if (status.status->entry)
+					dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
+				} // if (status)
+				m_cache[filepath] = dirstat;
+				m_TimeStamp = GetTickCount();
+				svn_pool_destroy (pool);				//free allocated memory
+				ClearPool();
+				return &dirstat;
+			}
 		} // if (shellCache.IsRecursive())
 	} // if (isFolder) 
 
@@ -174,8 +187,33 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	if (p)
 		pathbuf[p-filepath] = '\0';
 
+	if (m_propcache.find(pathbuf) != m_propcache.end())
+	{
+		exclude = m_propcache[pathbuf];
+	}
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
-
+	if (exclude < 0)
+	{
+		svn_opt_revision_t rev;
+		rev.kind = svn_opt_revision_unspecified;
+		apr_hash_t * props;
+		if (svn_client_propget(&props, "tsvn:exclude", internalpath, &rev, false, &ctx, pool)==NULL)
+		{
+			svn_string_t * val = (svn_string_t *)apr_hash_get(props, "tsvn:exclude", APR_HASH_KEY_STRING);
+			if (val)
+			{
+				exclude = atoi(val->data);
+			}
+		}
+	}
+	m_propcache[pathbuf] = exclude;
+	if (exclude == 2)
+	{
+		m_TimeStamp = GetTickCount();
+		svn_pool_destroy (pool);				//free allocated memory
+		ClearPool();
+		return &invalidstatus;	
+	}
 	ctx.auth_baton = NULL;
 
 	statushash = apr_hash_make(pool);
@@ -250,6 +288,10 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 			_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 			if (!PathFileExists(pathbuf))
 				return &invalidstatus;
+			*ptr = 0;
+			_tcscat(pathbuf, _T(EXCLUDEFILENAME));
+			if (PathFileExists(pathbuf))
+				return &invalidstatus;
 		}
 	} // if (!isFolder)
 	else
@@ -257,6 +299,10 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 		_tcscat(pathbuf, _T("/"));
 		_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 		if (!PathFileExists(pathbuf))
+			return &invalidstatus;
+		_tcscpy(pathbuf, filepath);
+		_tcscat(pathbuf, _T(EXCLUDEFILENAME));
+		if (PathFileExists(pathbuf))
 			return &invalidstatus;
 	}
 	filestatuscache * ret = NULL;
