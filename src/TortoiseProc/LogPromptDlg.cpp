@@ -32,6 +32,7 @@ IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableDialog)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CLogPromptDlg::IDD, pParent)
 	, m_sLogMessage(_T(""))
+	, m_bSelectAll(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_templist.RemoveAll();
@@ -51,6 +52,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
+	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 }
 
 
@@ -63,6 +65,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
 	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
+	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 END_MESSAGE_MAP()
 
 
@@ -523,6 +526,17 @@ BOOL CLogPromptDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 	SetCursor(hCur);
 	return TRUE;
+}
+
+void CLogPromptDlg::OnBnClickedSelectall()
+{
+	UpdateData();
+	theApp.DoWaitCursor(1);
+	for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
+	{
+		m_ListCtrl.SetCheck(i, m_bSelectAll);
+	}
+	theApp.DoWaitCursor(-1);
 }
 
 

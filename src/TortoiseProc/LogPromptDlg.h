@@ -72,6 +72,7 @@ protected:
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void OnBnClickedSelectall();
 
 	void StartDiff(int fileindex);
 	DECLARE_MESSAGE_MAP()
@@ -84,6 +85,7 @@ public:
 	CDWordArray		m_arFileStatus;
 private:
 	HANDLE			m_hThread;
+	BOOL			m_bSelectAll;
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);
