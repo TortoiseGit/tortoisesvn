@@ -629,21 +629,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				m_pMainWnd = NULL;
 				TRACE(_T("copy %s to %s\n"), path, dlg.m_URL);
-				if (SVNStatus::GetAllStatusRecursive(path)==svn_wc_status_normal)
-				{
-					//no changes in the working copy, so just do a repo->repo copy
-					CSVNProgressDlg progDlg;
-					progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
-					progDlg.SetParams(Copy, FALSE, dlg.m_wcURL, dlg.m_URL, dlg.m_sLogMessage);
-					progDlg.DoModal();
-				}
-				else
-				{
-					CSVNProgressDlg progDlg;
-					progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
-					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, SVNRev::REV_WC);
-					progDlg.DoModal();
-				}
+				CSVNProgressDlg progDlg;
+				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
+				progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, SVNRev::REV_WC);
+				progDlg.DoModal();
 			}
 		}
 		//#endregion

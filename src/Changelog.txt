@@ -47,6 +47,8 @@
        dialog. (Stefan)
 - CHG: The property page shows now newlines as spaces
        instead of as illegal chars in the listview. (Stefan)
+- CHG: Always do a WC->URL copy, even if there are no local
+       modifcations. (Stefan)
 - BUG: TortoiseMerge could hang when diffing certain files
        and the "ignore leading whitespaces" option turned
        on and only in two pane view. (Stefan)
