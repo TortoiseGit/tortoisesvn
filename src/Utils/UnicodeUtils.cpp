@@ -31,27 +31,31 @@ CUnicodeUtils::~CUnicodeUtils(void)
 CStringA CUnicodeUtils::GetUTF8(CStringW string)
 {
 	char * buf;
-	buf = new char[string.GetLength()*4 - 1];
-	//char buf[MAX_PATH * 4];
+	buf = new char[string.GetLength()*4 + 1];
 	WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, string.GetLength()*4, NULL, NULL);
 	CStringA ret = CStringA(buf);
-	delete buf;
+	delete [] buf;
 	return ret;
 }
 
 CStringA CUnicodeUtils::GetUTF8(CStringA string)
 {
-	WCHAR buf[MAX_PATH * 4];
-	MultiByteToWideChar(CP_ACP, 0, string, -1, buf, MAX_PATH * 4);
+	WCHAR * buf;
+	buf = new WCHAR[string.GetLength()*4 + 1];
+	MultiByteToWideChar(CP_ACP, 0, string, -1, buf, string.GetLength()*4);
 	CStringW temp = CStringW(buf);
+	delete [] buf;
 	return (CUnicodeUtils::GetUTF8(temp));
 }
 
 CString CUnicodeUtils::GetUnicode(CStringA string)
 {
-	WCHAR buf[MAX_PATH * 4];
-	MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, MAX_PATH * 4);
-	return CString(buf);
+	WCHAR * buf;
+	buf = new WCHAR[string.GetLength()*4 + 1];
+	MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, string.GetLength()*4);
+	CString ret = CString(buf);
+	delete [] buf;
+	return ret;
 }
 #endif //_MFC_VER
 
