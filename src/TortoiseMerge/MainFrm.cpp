@@ -422,6 +422,8 @@ BOOL CMainFrame::LoadViews()
 		m_pwndRightView->DocumentUpdated();
 		m_pwndBottomView->DocumentUpdated();
 		m_wndLocatorBar.DocumentUpdated();
+		if (m_wndSplitter2.IsColumnHidden(1))
+			m_wndSplitter2.ShowColumn();
 		if (m_wndSplitter.IsRowHidden(1))
 			m_wndSplitter.ShowRow();
 		if (bGoFirstDiff)
