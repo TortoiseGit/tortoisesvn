@@ -253,16 +253,34 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 		rect.top  = 0;
 
 	HWND desktop    = ::GetDesktopWindow();
+	if (desktop == NULL)
+		return NULL;
+
 	HDC  screen_dev = ::GetDC(desktop);
+	if (screen_dev == NULL)
+		return NULL;
 
 	// Create a compatible DC
 	HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
+	if (dst_hdc == NULL)
+	{
+		::ReleaseDC(desktop, screen_dev); 
+		return NULL;
+	}
 
 	// Create a new bitmap of icon size
 	HBITMAP bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);
+	if (bmp == NULL)
+	{
+		::DeleteDC(dst_hdc);
+		::ReleaseDC(desktop, screen_dev); 
+		return NULL;
+	}
 
 	// Select it into the compatible DC
 	HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
+	if (old_dst_bmp == NULL)
+		return NULL;
 
 	// Fill the background of the compatible DC with the given colour
 	HBRUSH brush = ::CreateSolidBrush(transparentColor);
@@ -381,9 +399,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		return NOERROR;
 	//check if our menu is requested for the start menu
 	TCHAR buf[MAX_PATH];
-	SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE);
-	if (_tcscmp(buf, folder_.c_str())==0)
-		return NOERROR;
+	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE))
+	{
+		if (_tcscmp(buf, folder_.c_str())==0)
+			return NOERROR;
+	}
+	//check if our menu is requested for a subversion admin directory
 	_tcscpy(buf, folder_.c_str());
 	TCHAR * lastpart = NULL;
 	if ((lastpart = _tcsrchr(buf, '\\'))!=0)
@@ -1126,6 +1147,8 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 		case WM_MEASUREITEM:
 		{
 			MEASUREITEMSTRUCT* lpmis = (MEASUREITEMSTRUCT*)lParam;
+			if (lpmis==NULL)
+				break;
 			POINT size;
 			//get the information about the shell dc, font, ...
 			NONCLIENTMETRICS ncm;
@@ -1152,7 +1175,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 			LPCTSTR resource;
 			TCHAR *szItem;
 			DRAWITEMSTRUCT* lpdis = (DRAWITEMSTRUCT*)lParam;
-			if (lpdis->CtlType != ODT_MENU)
+			if ((lpdis==NULL)||(lpdis->CtlType != ODT_MENU))
 				return S_OK;		//not for a menu
 			resource = GetMenuTextFromResource(myIDMap[lpdis->itemID]);
 			if (resource == NULL)
@@ -1182,7 +1205,8 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 
 				//convert the icon into a bitmap
 				ICONINFO ii;
-				GetIconInfo(hIcon, &ii);
+				if (GetIconInfo(hIcon, &ii)==FALSE)
+					return S_OK;
 				HBITMAP hbmItem = ii.hbmColor; 
 				if (hbmItem)
 				{
@@ -1233,7 +1257,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 		}
 		break;
 		default:
-		return NOERROR;
+			return NOERROR;
 	}
 
 	return NOERROR;

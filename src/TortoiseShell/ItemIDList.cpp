@@ -41,13 +41,16 @@ int ItemIDList::size() const
 	if (count_ == -1)
 	{
 		count_ = 0;
-		LPCSHITEMID ptr = &item_->mkid;
-		while (ptr != 0 && ptr->cb != 0)
+		if (item_)
 		{
-			++count_;
-			LPBYTE byte = (LPBYTE) ptr;
-			byte += ptr->cb;
-			ptr = (LPCSHITEMID) byte;
+			LPCSHITEMID ptr = &item_->mkid;
+			while (ptr != 0 && ptr->cb != 0)
+			{
+				++count_;
+				LPBYTE byte = (LPBYTE) ptr;
+				byte += ptr->cb;
+				ptr = (LPCSHITEMID) byte;
+			}
 		}
 	}
 	return count_;
@@ -99,7 +102,7 @@ stdstring ItemIDList::toString()
 		parentFolder = shellFolder;
 	}
 
-	if (parentFolder != 0)
+	if ((parentFolder != 0)&&(item_ != 0))
 	{
 		hr = parentFolder->GetDisplayNameOf(item_, SHGDN_NORMAL | SHGDN_FORPARSING, &name);
 		hr = StrRetToStr (&name, item_, &szDisplayName);

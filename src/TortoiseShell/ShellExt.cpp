@@ -76,12 +76,14 @@ void LoadLangDll()
 	{
 		g_langid = g_ShellCache.GetLangID();
 		DWORD langId = g_langid;
-		TCHAR langDll[MAX_PATH];
+		TCHAR langDll[MAX_PATH*4];
 		HINSTANCE hInst = NULL;
 		TCHAR langdir[MAX_PATH] = {0};
 		char langdirA[MAX_PATH] = {0};
-		GetModuleFileName(g_hmodThisDll, langdir, MAX_PATH);
-		GetModuleFileNameA(g_hmodThisDll, langdirA, MAX_PATH);
+		if (GetModuleFileName(g_hmodThisDll, langdir, MAX_PATH)==0)
+			return;
+		if (GetModuleFileNameA(g_hmodThisDll, langdirA, MAX_PATH)==0)
+			return;
 		TCHAR * dirpoint = _tcsrchr(langdir, '\\');
 		char * dirpointA = strrchr(langdirA, '\\');
 		if (dirpoint)
@@ -124,35 +126,37 @@ void LoadLangDll()
 					TRANSARRAY* lpTransArray;
 					TCHAR       strLangProduktVersion[MAX_PATH];
 
-					GetFileVersionInfo((LPTSTR)langDll,
+					if (GetFileVersionInfo((LPTSTR)langDll,
 						dwReserved,
 						dwBufferSize,
-						pBuffer);
-
-					// Abfragen der aktuellen Sprache
-					VerQueryValue(	pBuffer,
-						_T("\\VarFileInfo\\Translation"),
-						&lpFixedPointer,
-						&nFixedLength);
-					lpTransArray = (TRANSARRAY*) lpFixedPointer;
-
-					_stprintf(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
-						lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
-
-					if (VerQueryValue(pBuffer,
-						(LPTSTR)strLangProduktVersion,
-						(LPVOID *)&lpVersion,
-						&nInfoSize))
+						pBuffer))
 					{
-						versionmatch = FALSE;
-						TCHAR * p = _tcsrchr((LPCTSTR)lpVersion, ',');
-						if (p)
+						// Abfragen der aktuellen Sprache
+						if (VerQueryValue(	pBuffer,
+							_T("\\VarFileInfo\\Translation"),
+							&lpFixedPointer,
+							&nFixedLength))
 						{
-							DWORD num = ((DWORD)p-(DWORD)lpVersion)/sizeof(TCHAR);
-							versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER), num) == 0);							
+							lpTransArray = (TRANSARRAY*) lpFixedPointer;
+
+							_stprintf(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
+								lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
+
+							if (VerQueryValue(pBuffer,
+								(LPTSTR)strLangProduktVersion,
+								(LPVOID *)&lpVersion,
+								&nInfoSize))
+							{
+								versionmatch = FALSE;
+								TCHAR * p = _tcsrchr((LPCTSTR)lpVersion, ',');
+								if (p)
+								{
+									DWORD num = ((DWORD)p-(DWORD)lpVersion)/sizeof(TCHAR);
+									versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER), num) == 0);							
+								}
+							}
 						}
 					}
-
 					free(pBuffer);
 				} // if (pBuffer != (void*) NULL) 
 			} // if (dwBufferSize > 0)  

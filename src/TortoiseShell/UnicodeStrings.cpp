@@ -77,7 +77,7 @@ std::string StringToUTF8(stdstring string) {return WideToUTF8(MultibyteToWide(st
 	};
 #pragma warning(pop)	// C4200
 
-int LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int nBufferMax, WORD wLanguage)
+int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
 {
 	const STRINGRESOURCEIMAGE* pImage;
 	const STRINGRESOURCEIMAGE* pImageEnd;
@@ -89,6 +89,9 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int nBufferMax
 #endif
 	int ret;
 
+	if (lpBuffer == NULL)
+		return 0;
+	lpBuffer[0] = 0;
 	HRSRC hResource =  FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID>>4)+1)), wLanguage);
 	if (!hResource)
 	{
@@ -119,7 +122,9 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int nBufferMax
 		return 0;
 #ifdef UNICODE
 	ret = pImage->nLength;
-	wcsncpy((wchar_t *)lpBuffer, pImage->achString, pImage->nLength);
+	if (ret > nBufferMax)
+		ret = nBufferMax;
+	wcsncpy((wchar_t *)lpBuffer, pImage->achString, ret);
 	(wchar_t)lpBuffer[ret] = 0;
 #else
 	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);

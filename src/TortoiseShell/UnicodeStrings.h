@@ -47,4 +47,4 @@ stdstring UTF8ToString(std::string string);
 std::string StringToUTF8(stdstring string);
 #endif
 
-int LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int nBufferMax, WORD wLanguage);
+int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
