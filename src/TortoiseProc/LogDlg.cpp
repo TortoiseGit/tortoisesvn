@@ -31,8 +31,6 @@
 
 // CLogDlg dialog
 
-#define SHORTLOGMESSAGEWIDTH 500
-
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CLogDlg::IDD, pParent)
@@ -290,13 +288,16 @@ void CLogDlg::OnCancel()
 
 BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges)
 {
+	LONG ticks = GetTickCount();
 	CString temp;
+	int found = 0;
 	m_LogList.SetRedraw(FALSE);
 	m_logcounter += 1;
 	if (m_startrev == -1)
 		m_startrev = rev;
 	m_LogProgress.SetPos(m_startrev-rev+m_endrev);
 	int count = m_LogList.GetItemCount();
+	int lastvisible = m_LogList.GetCountPerPage();
 	temp.Format(_T("%d"),rev);
 	m_LogList.InsertItem(count, temp);
 	m_LogList.SetItemText(count, 1, author);
@@ -310,25 +311,24 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	// this predefined fixed with, add "..." as an indication.
 	CString sShortMessage = message;
 	// Remove newlines 'cause those are not shown nicely in the listcontrol
-	sShortMessage.Replace('\n', ' ');
 	sShortMessage.Replace(_T("\r"), _T(""));
-	CString sShorterMessage = message;
-	sShorterMessage.Replace(_T("\r"), _T(""));
-	if (sShorterMessage.Find(_T("\n\n"))>=0)
-		sShortMessage = sShortMessage.Left(sShorterMessage.Find(_T("\n\n")));
-	if (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH)
+	sShortMessage.Replace('\n', ' ');
+	
+	found = sShortMessage.Find(_T("\n\n"));
+	if (found >=0)
 	{
-		// Make an initial guess on how many chars fit into the fixed width
-		int nPix = m_LogList.GetStringWidth(sShortMessage);
-		int nAvgCharWidth = nPix / sShortMessage.GetLength();
-		sShortMessage = sShortMessage.Left(SHORTLOGMESSAGEWIDTH / nAvgCharWidth + 5);
-		sShortMessage += _T("...");
-	} // if (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH) 
-	while (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH)
-	{
-		sShortMessage = sShortMessage.Left(sShortMessage.GetLength()-4);
-		sShortMessage += _T("...");
-	} // while (m_LogList.GetStringWidth(sShortMessage) > SHORTLOGMESSAGEWIDTH) 
+		if (found <=80)
+			sShortMessage = sShortMessage.Left(found);
+		else
+		{
+			found = sShortMessage.Find(_T("\n"));
+			if ((found >= 0)&&(found <=80))
+				sShortMessage = sShortMessage.Left(found);
+		}
+	}
+	else if (sShortMessage.GetLength() > 80)
+		sShortMessage = sShortMessage.Left(77) + _T("...");
+		
 	m_LogList.SetItemText(count, 3, sShortMessage);
 
 	//split multiline logentries and concatenate them
@@ -357,8 +357,12 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 		e->Delete();
 		m_bCancelled = TRUE;
 	}
-	m_LogList.SetRedraw();
+	if (count < lastvisible)
+	{
+		m_LogList.SetRedraw();
+	}
 	m_bGotRevisions = TRUE;
+	m_runningTime += (GetTickCount()-ticks);
 	return TRUE;
 }
 
@@ -368,7 +372,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CLogDlg*	pDlg;
 	pDlg = (CLogDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
-
+	pDlg->m_runningTime = 0;
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
@@ -442,6 +446,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+	TRACE(_T("\nrunning time: %d\n"), pDlg->m_runningTime);
 	return 0;
 }
 
