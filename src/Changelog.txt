@@ -3,6 +3,10 @@
        the "Get All" button. (Stefan)
 - BUG: TSVN could crash during authentication
        when fetching the remote status. (Stefan)
+- BUG: After an update, the "Show Log..." 
+       only showed the last revision instead
+       of all revisions since the last
+       update. (Stefan)
 
 Version 0.21
 - ADD: If multiple targets are selected for

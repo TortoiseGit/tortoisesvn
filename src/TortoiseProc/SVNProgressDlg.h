@@ -133,6 +133,7 @@ public:			//need to be public for the thread to access
 	CStringArray m_arPaths;
 	LONG		m_nRevision;
 	LONG		m_nRevisionEnd;
+	LONG		m_nUpdateStartRev;
 	BOOL		m_IsTempFile;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;

@@ -284,6 +284,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 							{
 								if (st.status->entry != NULL)
 								{
+									pDlg->m_nUpdateStartRev = st.status->entry->cmt_rev;
 									if (st.status->entry->uuid)
 									{
 										uuid = st.status->entry->uuid;
@@ -298,6 +299,14 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 										pDlg->m_nRevision = headrev;
 								} // if (st.status->entry != NULL) 
 							} // if ((headrev = st.GetStatus(strLine)) != (-2)) 
+							else
+							{
+								if ((headrev = st.GetStatus(strLine, FALSE)) != (-2))
+								{
+									if (st.status->entry != NULL)
+										pDlg->m_nUpdateStartRev = st.status->entry->cmt_rev;
+								}
+							}
 						} // if (pDlg->m_nRevision >= 0)
 						TRACE(_T("update file %s\n"), strLine);
 						if (!pDlg->Update(strLine, pDlg->m_nRevision, true))
@@ -559,7 +568,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
 	CLogDlg dlg;
-	dlg.SetParams(m_sPath, m_nRevisionEnd, m_nRevision);
+	dlg.SetParams(m_sPath, m_nRevisionEnd, m_nUpdateStartRev);
 	dlg.DoModal();
 }
 
