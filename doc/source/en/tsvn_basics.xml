@@ -1,4 +1,4 @@
-<chapter id="tsvn_basics">
+﻿<chapter id="tsvn_basics">
 	<title>Basic Concepts</title>
 	<!-- this chapter is copied over from the subversion book and slightly
        modified for the TortoiseSVN client -->
@@ -286,7 +286,7 @@
 			<sidebar id="tsvn-ch-02-sidebar-1">
 				<title>Repository URLs</title>
 				<para>Subversion repositories can be accessed through many
-          different methods -; on local disk, or through various
+          different methods - on local disk, or through various
           network protocols.  A repository location, however, is
           always a URL.  The URL schema indicates the access
           method:</para>
@@ -350,7 +350,7 @@
           syntax, allowing for server names and port numbers to be
           specified as part of the URL.  Remember that the
           <literal>file:</literal> access method is valid only for
-          locations on the same server as the client -; in fact, in
+          locations on the same server as the client - in fact, in
           accordance with convention, the server name portion of the
           URL is required to be either absent or <literal>localhost</literal>.
 		  Take great care that the <literal>file:</literal> access method may not be

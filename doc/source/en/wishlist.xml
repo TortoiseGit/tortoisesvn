@@ -1,21 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
 Wishlist that is included into several files
-The only valid XML solution I found was to place the wishlist inside a note, not pretty but it works
+The only valid XML solution I found was to place the wishlist inside a sidebar,
+not pretty but it works.
 -->
-<note>
+<sidebar>
 	<title>Wishlist</title>
 	<para>
-	Even though TortoiseSVN and TortoiseMerge are free, you can support the
-	developers by sending in patches and play an active role in the development.
-	You can also help to cheer us up during the endless hours we spend in front
-	of our computers.
-</para>
+		Even though TortoiseSVN and TortoiseMerge are free, you can support the
+		developers by sending in patches and play an active role in the development.
+		You can also help to cheer us up during the endless hours we spend in front
+		of our computers.
+	</para>
 	<para>
-	While working on TortoiseSVN we love to listen to music. And since we spend 
-	many hours on the project we need a <emphasis>lot</emphasis> of music. 
-	Therefore we have set up some wish-lists with our favourite music CD's and DVD's:
-	<itemizedlist>
+		While working on TortoiseSVN we love to listen to music. And since we spend
+		many hours on the project we need a <emphasis>lot</emphasis> of music.
+		Therefore we have set up some wish-lists with our favourite music CD's and DVD's:
+		<itemizedlist>
 			<listitem>
 				<para>
 				The media wish list of Stefan is 
@@ -40,7 +41,7 @@ The only valid XML solution I found was to place the wishlist inside a note, not
 			</para>
 			</listitem>
 		</itemizedlist>
-	Please have a look at the list of people who contributed to the project by 
-	sending in patches or translations.
-</para>
-</note>
+		Please have a look at the list of people who contributed to the project by
+		sending in patches or translations.
+	</para>
+</sidebar>
