@@ -26,6 +26,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 
 CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bool bRecursive)
 {
+	CString strCacheKey;
 	bool bRequestForSelf = false;
 	if(path.IsEquivalentTo(m_directoryPath))
 	{
@@ -92,7 +93,8 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		else
 		{
 			// Look up a file in our own cache
-			CacheEntryMap::iterator itMap = m_entryCache.find(GetCacheKey(path));
+			strCacheKey = GetCacheKey(path);
+			CacheEntryMap::iterator itMap = m_entryCache.find(strCacheKey);
 			if(itMap != m_entryCache.end())
 			{
 				// We've hit the cache - check for timeout
@@ -194,7 +196,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	}
 	else
 	{
-		CacheEntryMap::iterator itMap = m_entryCache.find(GetCacheKey(path));
+		CacheEntryMap::iterator itMap = m_entryCache.find(strCacheKey);
 		if(itMap != m_entryCache.end())
 		{
 			return itMap->second;

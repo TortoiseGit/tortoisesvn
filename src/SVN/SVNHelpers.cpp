@@ -53,7 +53,7 @@ SVNHelper::SVNHelper(void)
 	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
 
-	svn_error_t* err = svn_client_create_context(&m_ctx, m_pool);
+	svn_client_create_context(&m_ctx, m_pool);
 
 }
 

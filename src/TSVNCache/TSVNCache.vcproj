@@ -24,7 +24,10 @@
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;UNICODE;_UNICODE"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
+				SmallerTypeCheck="TRUE"
 				RuntimeLibrary="2"
+				TreatWChar_tAsBuiltInType="TRUE"
+				ForceConformanceInForLoopScope="TRUE"
 				UsePrecompiledHeader="3"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="TRUE"
@@ -69,14 +72,19 @@
 			IntermediateDirectory="..\..\obj\TSVNCache\Release"
 			ConfigurationType="1"
 			UseOfATL="1"
-			CharacterSet="2">
+			CharacterSet="1"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="2"
 				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;../Utils;..\TortoiseShell;..\SVN;..\..\ext\gettext\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;UNICODE;_UNICODE"
 				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				TreatWChar_tAsBuiltInType="TRUE"
+				ForceConformanceInForLoopScope="TRUE"
 				UsePrecompiledHeader="3"
-				WarningLevel="3"
+				WarningLevel="4"
 				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="3"/>
 			<Tool
