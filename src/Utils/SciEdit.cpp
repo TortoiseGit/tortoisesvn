@@ -52,12 +52,7 @@ void CSciEdit::Init(LONG lLanguage)
 	Call(SCI_SETWRAPVISUALFLAGS, SC_WRAPVISUALFLAG_END);
 	Call(SCI_AUTOCSETIGNORECASE, 1);
 	
-	TCHAR buffer[11];
-	GetLocaleInfo(LOCALE_SYSTEM_DEFAULT, LOCALE_IDEFAULTANSICODEPAGE,(TCHAR *)buffer,10);
-	buffer[10]=0;
-	int codepage=0;
-	codepage=_tstoi((TCHAR *)buffer);
-	Call(SCI_SETCODEPAGE, codepage);
+	Call(SCI_SETCODEPAGE, SC_CP_UTF8);
 	
 	// look for dictionary files and use them if found
 	long langId = GetUserDefaultLCID();
@@ -272,7 +267,7 @@ void CSciEdit::CheckSpelling()
 			Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 			if (strlen(textrange.lpstrText) > 3)
 			{
-				if (!pChecker->spell(textrange.lpstrText))
+				if (!pChecker->spell(CStringA(StringFromControl(textrange.lpstrText))))
 				{
 					//mark word as misspelled
 					Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
@@ -473,7 +468,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 		CMenu corrections;
 		corrections.CreatePopupMenu();
-		CStringA worda = StringForControl(GetWordUnderCursor());
+		CStringA worda = CStringA(GetWordUnderCursor());
 		int nCorrections = 0;
 		if ((pChecker)&&(!worda.IsEmpty()))
 		{
