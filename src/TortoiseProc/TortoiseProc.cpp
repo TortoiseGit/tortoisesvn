@@ -709,7 +709,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				SVN svn;
 				while (file.ReadString(strLine))
 				{
-					TRACE(_T("update file %s\n"), (LPCTSTR)strLine);
+					TRACE(_T("remove file %s\n"), (LPCTSTR)strLine);
 					// even though SVN::Remove takes a list of paths to delete at once
 					// we delete each item individually so we can prompt the user
 					// if something goes wrong or unversioned/modified items are

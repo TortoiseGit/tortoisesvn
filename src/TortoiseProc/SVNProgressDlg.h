@@ -162,19 +162,22 @@ private:
 	CWinThread* m_pThread;
 	Command		m_Command;
 
-	CString		m_sPath;
+	CTSVNPathList m_targetPathList;
 	CString		m_sUrl;
 	CString		m_sMessage;
 	CStringArray m_templist;
 	SVNRev		m_Revision;
 	LONG		m_nUpdateStartRev;
-	BOOL		m_IsTempFile;
+	bool		m_bRecursiveCheckout;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
 	BOOL		m_bRedEvents;
 	int			iFirstResized;
 	BOOL		bSecondResized;
 	CString		m_sModName;
+	// The path of the item we will offer to show a log for, after an 'update' is complete
+	CTSVNPath	m_updatedPath;
+
 private:
 	// In preparation for removing SVN as base class
 	// Currently needed to avoid ambiguities with the Command Enum
