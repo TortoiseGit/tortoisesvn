@@ -1,4 +1,4 @@
-<chapter id="tsvn-DUG">
+﻿<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -328,8 +328,19 @@
 				on your working copy you'll be asked for a place to save the
 				"clean" working copy without the
 				<filename>.svn</filename>
-				folders.
-
+				folders. Also, you can specify if you want to export 
+				<emphasis>all</emphasis> files or just the versioned files.
+			</para>
+			<para>
+			Another way to do an export is by right-dragging a working copy
+			folder to another location and choose
+			<menuchoice>
+				<guimenuitem>Subversion export here</guimenuitem>
+			</menuchoice>
+			or 
+			<menuchoice>
+				<guimenuitem>Subversion export all here</guimenuitem>
+			</menuchoice>
 			</para>
 		</tip>
 	</sect1>
