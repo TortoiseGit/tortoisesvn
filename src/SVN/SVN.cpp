@@ -30,6 +30,9 @@ SVN::SVN(void)
 	Err = svn_config_ensure(parentpool);
 	pool = svn_pool_create (parentpool);
 
+	m_username = NULL;
+	m_password = NULL;
+
 	// set up authentication
 
 	svn_auth_provider_object_t *provider;
@@ -444,8 +447,6 @@ BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL ch
 {
 	svn_opt_revision_t revEnd;
 	memset (&revEnd, 0, sizeof (revEnd));
-	revEnd.kind = svn_opt_revision_number;
-	revEnd.value.number = revisionEnd;
 	if(revisionEnd == -1)
 	{
 		revEnd.kind = svn_opt_revision_head;
@@ -457,7 +458,6 @@ BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL ch
 	}
 	revEnd.value.number = revisionEnd;
 
-	//revEnd = getRevision(revisionEnd);
 	preparePath(path);
 	Err = svn_client_log (target ((LPCTSTR)path), 
 						getRevision (revisionStart), 
