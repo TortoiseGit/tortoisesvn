@@ -156,7 +156,7 @@ msgstr ""
 msgid "&External"
 msgstr ""
 
-#: MenuEntry
+#: MenuEntry#: MenuEntry
 msgid "&File"
 msgstr ""
 
@@ -276,6 +276,10 @@ msgstr ""
 msgid "&Save Ctrl-S"
 msgstr ""
 
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr ""
+
 #: Control-ID:1023,
 msgid "&Save authentication"
 msgstr ""
@@ -324,7 +328,7 @@ msgstr ""
 msgid "&Username:"
 msgstr ""
 
-#: MenuEntry
+#: MenuEntry#: MenuEntry
 msgid "&View"
 msgstr ""
 
@@ -632,10 +636,6 @@ msgstr ""
 msgid "Author:                        Stefan Kueng"
 msgstr ""
 
-#: ID:272,
-msgid "Author: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
-msgstr ""
-
 #: Control-ID:65535,
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr ""
@@ -878,6 +878,10 @@ msgstr ""
 
 #: ID:3825,
 msgid "Close the active window and prompts to save the documents"
+msgstr ""
+
+#: Control-ID:1068,
+msgid "Color code in-line changes"
 msgstr ""
 
 #: Dlg-ID:138,
@@ -1508,6 +1512,10 @@ msgstr ""
 msgid "Include paths:"
 msgstr ""
 
+#: ID:79,
+msgid "Indicates the status of a folder with the overlay icon.\nIf deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+
 #: ID:76,
 msgid "Initial Import"
 msgstr ""
@@ -1824,6 +1832,10 @@ msgstr ""
 msgid "Path"
 msgstr ""
 
+#: ID:157,
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr ""
+
 #: ID:3858,#: ID:3858,
 msgid "Please enter a GUID."
 msgstr ""
@@ -2104,16 +2116,12 @@ msgstr ""
 msgid "Revision / Author:"
 msgstr ""
 
-#: ID:269,
+#: ID:15,#: ID:269,#: Dlg-ID:182,
 msgid "Revision Graph"
 msgstr ""
 
 #: ID:75,
 msgid "Revision: "
-msgstr ""
-
-#: Dlg-ID:182,
-msgid "RevisionGraph"
 msgstr ""
 
 #: ID:188,
@@ -2210,6 +2218,10 @@ msgstr ""
 
 #: ID:3841,#: ID:3841,
 msgid "Save As"
+msgstr ""
+
+#: ID:272,
+msgid "Save Graph as..."
 msgstr ""
 
 #: ID:76,
@@ -2376,6 +2388,10 @@ msgstr ""
 msgid "Show Log"
 msgstr ""
 
+#: Control-ID:1169,
+msgid "Show folderstatus"
+msgstr ""
+
 #: ID:3713,
 msgid "Show or hide the status bar\nToggle StatusBar"
 msgstr ""
@@ -2390,6 +2406,10 @@ msgstr ""
 
 #: Control-ID:1073,#: Control-ID:1073,
 msgid "Show unversioned files"
+msgstr ""
+
+#: ID:15,
+msgid "Shows a graphical representation of copies/tags/branches"
 msgstr ""
 
 #: ID:13,
@@ -2708,6 +2728,10 @@ msgstr ""
 msgid "URL: "
 msgstr ""
 
+#: ID:272,
+msgid "URL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
+msgstr ""
+
 #: ID:3866,#: ID:3866,
 msgid "Unable to load mail system support."
 msgstr ""
@@ -2828,6 +2852,10 @@ msgstr ""
 msgid "Use this if the URL of the repository has changed"
 msgstr ""
 
+#: ID:251,
+msgid "Use whole other &file"
+msgstr ""
+
 #: Control-ID:65535,
 msgid "Used for comparing different revisions of files."
 msgstr ""
@@ -2926,6 +2954,14 @@ msgstr ""
 
 #: ID:88,
 msgid "Your working copy has local modifications!\nNote: updating to another revision won't lose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
+msgstr ""
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr ""
+
+#: MenuEntry
+msgid "Zoom &Out"
 msgstr ""
 
 #: ID:10,
