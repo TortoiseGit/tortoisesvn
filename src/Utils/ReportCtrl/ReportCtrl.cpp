@@ -3373,6 +3373,7 @@ BOOL CReportCtrl::Notify(UINT nCode, INT iItem, INT iSubItem, UINT nState, LPARA
 BOOL CReportCtrl::Notify(UINT nCode, UINT nKeys, LPRVHITTESTINFO lprvhti)
 {
 	NMREPORTVIEW nmrv;
+	ZeroMemory(&nmrv, sizeof(NMREPORTVIEW));
 	nmrv.hdr.hwndFrom = GetSafeHwnd();
 	nmrv.hdr.idFrom = GetDlgCtrlID();
 	nmrv.hdr.code = nCode;
@@ -5783,6 +5784,7 @@ void CReportCtrl::OnRButtonDown(UINT nFlags, CPoint point)
 	SetFocus();
 
 	RVHITTESTINFO rvhti;
+	ZeroMemory(&rvhti, sizeof(RVHITTESTINFO));
 	rvhti.point = point;
 
 	HitTest(&rvhti);
