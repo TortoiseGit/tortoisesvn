@@ -683,6 +683,12 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		while (file.ReadString(strLine))
 		{
 			strLine.Replace('\\', '/');
+			// remove trailing / characters since they mess up the filename list
+			// However "/" and "c:/" will be left alone.
+			if (strLine.GetLength() > 1 && strLine.Right(1) == _T("/") && strLine.Right(2) != _T(":/")) 
+			{
+				strLine.Delete(strLine.GetLength()-1,1);
+			}
 			BOOL bIsFolder = PathIsDirectory(strLine);
 			SVNStatus status;
 			svn_wc_status_t *s;

@@ -96,6 +96,17 @@ BOOL CChangedDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	// remove trailing / characters since they mess up the filename list
+	// However "/" and "c:/" will be left alone.
+	if (m_path.GetLength() > 1 && m_path.Right(1) == _T("/") && m_path.Right(2) != _T(":/")) 
+	{
+		m_path.Delete(m_path.GetLength()-1,1);
+	}
+	if (m_path.GetLength() > 1 && m_path.Right(1) == _T("\\") && m_path.Right(2) != _T(":\\")) 
+	{
+		m_path.Delete(m_path.GetLength()-1,1);
+	}
+
 	m_FileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 
 	m_FileListCtrl.DeleteAllItems();
