@@ -1540,7 +1540,7 @@ void CTortoiseProcApp::CheckUpgrade()
 		// there's a leftover registry setting we have to convert and then delete it
 		CRegDWORD newregval = CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"));
 		newregval = !regval;
-		regval.removeKey();
+		regval.removeValue();
 	}
 
 	if (lVersion <= 0x01010300)
