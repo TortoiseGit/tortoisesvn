@@ -194,6 +194,7 @@ public:
 
 	CString						m_sURL;				///< the URL of the target or "(multiple targets)"
 
+	SVNRev						m_HeadRev;			///< the HEAD revision of the repository if bUpdate was TRUE
 	DECLARE_MESSAGE_MAP()
 
 private:

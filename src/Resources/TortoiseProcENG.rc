@@ -1477,6 +1477,11 @@ BEGIN
     IDS_SSL_SAVE_CERTPATH   "Save client certificate path"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOSTATUS_HEADREV  "Head revision of the repository is: %d"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -58,6 +58,7 @@ BOOL	CSVNStatusListCtrl::m_bAscending = FALSE;
 int		CSVNStatusListCtrl::m_nSortedColumn = -1;
 
 CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
+	, m_HeadRev(SVNRev::REV_HEAD)
 {
 	m_pStatLabel = NULL;
 	m_pSelectButton = NULL;
@@ -215,7 +216,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 			SVNStatus status;
 			svn_wc_status_t * s;
 			s = status.GetFirstFileStatus(strLine, &strbuf, bUpdate);
-
+			m_HeadRev = SVNRev(status.headrev);
 			if (s!=0)
 			{
 				// This one fixes a problem with externals: 

@@ -306,13 +306,13 @@ svn_wc_status_t * SVNStatus::GetFirstFileStatus(const TCHAR * path, const TCHAR 
 
 
 	m_statushash = apr_hash_make(m_pool);
-	svn_revnum_t youngest = SVN_INVALID_REVNUM;
+	headrev = SVN_INVALID_REVNUM;
 	svn_opt_revision_t rev;
 	rev.kind = svn_opt_revision_unspecified;
 	struct hashbaton_t hashbaton;
 	hashbaton.hash = m_statushash;
 	hashbaton.pool = m_pool;
-	m_err = svn_client_status (&youngest,
+	m_err = svn_client_status (&headrev,
 							internalpath,
 							&rev,
 							getstatushash,

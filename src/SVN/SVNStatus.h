@@ -160,6 +160,8 @@ public:
 	 */
 	svn_wc_status_t *			status;				///< the status result of GetStatus()
 
+	svn_revnum_t				headrev;			///< the head revision fetched with GetFirstStatus()
+
 #ifdef _MFC_VER
 friend class SVN;
 	/**

@@ -5,6 +5,8 @@
        the log message. If set to "true" or not set at all,
        then the bug-ID is appended to the log message
        like before. (Stefan)
+- ADD: The "check for updates" dialog now shows the
+       HEAD revision of the repository. (Stefan)
 - CHG: improved dialog for creating repositories. (Stefan)
 - CHG: The "paste log template in english" setting is now
        a project property (tsvn:logfilelistenglish). Set

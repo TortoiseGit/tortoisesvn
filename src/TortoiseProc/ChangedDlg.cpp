@@ -127,6 +127,13 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	}
 	pDlg->m_FileListCtrl.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL);
 
+	if (LONG(pDlg->m_FileListCtrl.m_HeadRev) >= 0)
+	{
+		CString temp;
+		temp.Format(IDS_REPOSTATUS_HEADREV, LONG(pDlg->m_FileListCtrl.m_HeadRev));
+		pDlg->GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
+	}
+
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	POINT pt;
 	GetCursorPos(&pt);
