@@ -43,7 +43,9 @@ You may have to logoff/logon to make the new environement variables take effect!
   SVN\TortoiseSVN
 - Download the tools to build the TSVN docs from 
   http://tortoisesvn.tigris.org/files/documents/406/11147/Tools.zip and
-  unzip them into SVN\TortoiseSVN\doc\.
+  unzip them into SVN\TortoiseSVN\Tools\
+- The build script also builds all the language packs, so you need the NSIS
+  installer from http://nsis.sourceforge.net/.
 - Make a copy of the file TortoiseVars.tmpl in the TSVN root folder and
   rename that copy to TortoiseVars.bat. Then simply adjust the paths as mentioned
   in that file.
