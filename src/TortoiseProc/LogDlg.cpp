@@ -40,7 +40,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_startrev(0),
 	m_endrev(0),
 	m_logcounter(0),
-	m_bStrict(FALSE)
+	m_bStrict(FALSE),
+	m_nSearchIndex(0)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -845,6 +846,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_FINDENTRY:
 					{
 						m_nSearchIndex = m_LogList.GetSelectionMark();
+						if (m_nSearchIndex < 0)
+							m_nSearchIndex = 0;
 						if (m_pFindDialog)
 						{
 							break;
