@@ -857,7 +857,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						} // if (!svn.Cat(m_path, rev, tempfile))
 						else
 						{
-							CUtils::StartTextViewer(tempfile);
+							ShellExecute(this->m_hWnd, _T("open"), tempfile, NULL, NULL, SW_SHOWNORMAL);
 						}
 					}
 					break;
@@ -1152,7 +1152,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							theApp.DoWaitCursor(-1);
 							break;
 						}
-						CUtils::StartTextViewer(tempfile);
+						ShellExecute(this->m_hWnd, _T("open"), tempfile, NULL, NULL, SW_SHOWNORMAL);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
 					}
