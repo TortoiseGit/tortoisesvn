@@ -185,25 +185,6 @@
 						</para>
 					</listitem>
 				</varlistentry>
-				<varlistentry>
-					<term>Force shell icon refresh</term>
-					<listitem>
-						<para>
-							If checked, TortoiseSVN will refresh all the overlay
-							icons after every operation without you having to
-							press F5.
-						</para>
-						<warning>
-							Explorer will refresh <emphasis>every</emphasis>
-							visible icon, not just the status overlays. If
-							you have a network share, or a CD-ROM or floppy
-							showing, then explorer will go and update all the
-							icons from their original source files, and that
-							can be <emphasis>very</emphasis> slow, blocking
-							the explorer process completely for many seconds.
-						</warning>
-					</listitem>
-				</varlistentry>
 <!-- This item has been removed, but may come back another day ...
 				<varlistentry>
 					<term>Paste Log template in english</term>

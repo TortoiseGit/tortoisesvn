@@ -33,33 +33,42 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Ausschliessen</term>
+					<term>Ausschließen</term>
 					<listitem>
 						<para>
 							<indexterm>
-								<primary>ausschliessen</primary>
+								<primary>ausschließen</primary>
 							</indexterm>
 							Ausgeschlossene, unversionierte Dateien werden nicht angezeigt
 							in z.B. dem Übertragen Dialog. Ausserdem werden solche Dateien
 							beim Importieren in ein Projektarchiv ignoriert.
-							Schliessen Sie Dateien oder Ordner aus durch Angabe von
-							Dateinamen oder Erweiterungen. Die einzelnen Muster werden
+							schließen Sie Dateien oder Ordner aus durch Angabe von
+							Dateinamen oder Erweiterungen.
+							Die einzelnen Muster werden
 							durch Leerzeichen voneinander getrennt. Zum Beispiel
 							<literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
 							Die ersten beiden Muster beziehen sich auf Ordner, die
 							restlichen vier auf Dateien.
 						</para>
+						<warning>
+							Wenn Sie die Subversion Konfigurationsdatei verwenden, um
+							ein <literal>global-ignores</literal> Muster zu definieren,
+							wird das die TortoiseSVN Einstellungen überlagern.
+							Die Subversion Konfigurationsdatei kann über die
+							<guibutton>Bearbeiten</guibutton> Schaltfläche geändert werden.
+						</warning>
 						<para>
 							Diese Auschluss-Muster beziehen sich auf alle Ihre Projekte.
 							Sie werden nicht versioniert, d.h. andere Benutzer werden davon
 							nichts mitbekommen. Im Gegensatz dazu können Sie jedoch auch
 							die versionierte Eigenschaft <literal>svn:ignore</literal> verwenden, um Dateien
-							und/oder Ordner von der Versionskontrolle auszuschliessen.
-							Sie können die <literal>svn:ignore</literal> Eigenschaft setzen durch den
+							und/oder Ordner von der Versionskontrolle auszuschließen.
+							Mit dem
 							<menuchoice>
 								<guimenuitem>Ignorieren</guimenuitem>
 							</menuchoice>
-							Befehl. Nach dem Übertragen wird jeder Benutzer dieselbe
+							Befehl können Sie die <literal>svn:ignore</literal> Eigenschaft setzen.
+							Nach dem Übertragen wird jeder Benutzer dieselbe
 							<literal>svn:ignore</literal> Eigenschaft für das Projekt oder den Ordner
 							haben wie Sie.
 							Wenn Sie einen Eintrag aus <literal>svn:ignore</literal> entfernen wollen,
@@ -134,42 +143,31 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Fenster automatisch schliessen</term>
 					<term>Fortschritts-Dialog</term>
 					<listitem>
 						<para>
-						TortoiseSVN kann den Fortschritts-Dialog automatisch schliessen
-						wenn der Befehl ohne Fehler ausgeführt wurde. Diese Einstellung erlaubt
-						Ihnen die Bedingungen zu setzen um den Dialog automatisch zu schliessen.
-						Die Standard-Einstellung (empfohlen) is <guilabel>Manuell schliessen</guilabel>
-						die Ihnen erlaubt alle Meldungen nach jeder Aktion genau zu studieren.
-						Wenn Sie möchten, können Sie den Dialog auch automatisch schliessen lassen
-						wenn keine kritischen Ereignisse aufgetreten sind.
+							TortoiseSVN kann den Fortschritts-Dialog automatisch schließen
+							wenn der Befehl ohne Fehler ausgeführt wurde. Diese Einstellung erlaubt
+							Ihnen die Bedingungen zu setzen um den Dialog automatisch zu schließen.
+							Die Standard-Einstellung (empfohlen) ist
+							<guilabel>Manuell schließen</guilabel>
+							die Ihnen erlaubt alle Meldungen nach jeder Aktion genau zu studieren.
+							Wenn Sie möchten, können Sie den Dialog auch automatisch schließen lassen
+							wenn keine kritischen Ereignisse aufgetreten sind.
 						</para>
 						<para>
-						<guilabel>Automatisch schliessen wenn kein Mischen, Hinzufügen oder Löschen</guilabel>
-						lässt den Dialog nur offen, wenn keine Datei gemischt, hinzugefügt oder gelöscht wurde.
-						Auch Konflikte und Fehler lassen den Dialog geöffnet.
+							<guilabel>Schließen, falls kein Löschen, Hinzufügen oder Zusammenführen</guilabel>
+							lässt den Dialog nur offen, wenn keine Dateien zusammengeführt, hinzugefügt oder gelöscht wurde.
+							Auch Konflikte und Fehler lassen den Dialog geöffnet.
 						</para>
 						<para>
-						<guilabel>Automatisch schliessen wenn ohne Konflikte</guilabel> schliesst den Dialog
-						automatisch wenn keine Konflikte oder Fehlermeldungen aufgetreten sind.
+							<guilabel>Schließen, falls keine Konflikte</guilabel> schließt den Dialog
+							automatisch wenn keine Konflikte oder Fehlermeldungen aufgetreten sind.
 						</para>
 						<para>
-						<guilabel>Automatisch schliessen wenn ohne Fehler</guilabel> schliesst den Dialog 
-						auch automatisch, wenn Konflikte aufgetreten sind. Der Dialog bleibt jedoch offen
-						wenn Fehler aufgetreten sind.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Nicht schliessen bei Konflikt</term>
-					<listitem>
-						<para>
-							Das automatische schliessen des Fensters wird unterdrückt, wenn
-							bei einer Aktualisierung Konflikte aufgetreten sind. Diese Option
-							ist sehr zu empfehlen, da damit Konflikte nicht etwa übersehen
-							werden.
+							<guilabel>Schließen,falls keineFehler</guilabel> schließt den Dialog 
+							auch automatisch, wenn Konflikte aufgetreten sind. Der Dialog bleibt jedoch offen
+							wenn Fehler aufgetreten sind.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -182,6 +180,7 @@
 						</para>
 					</listitem>
 				</varlistentry>
+<!-- This item has been removed, but may come back another day ...
 				<varlistentry>
 					<term>Log Schablone auf Englisch einfügen</term>
 					<listitem>
@@ -196,16 +195,17 @@
 						</para>
 					</listitem>
 				</varlistentry>
+-->
 			</variablelist>
 		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-overlay">
 		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
 		<?dbhh topicname="HIDD_OVERLAYICONS"?>
-		<title>Der Einstellungsdialog, Look And Feel Seite</title>
+		<title>Der Einstellungsdialog, Anzeige</title>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-2">
-				<title>Der Einstellungsdialog, Overlayseite</title>
+				<title>Der Einstellungsdialog, Anzeige</title>
 				<graphic fileref="images/SettingsOverlay.png"/>
 			</figure>
 			Diese Seite stellt ein, wie die überlagerten Icons angezeigt werden
@@ -215,13 +215,13 @@
 		</para>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-3">
-				<title>Der Einstellungsdialog, Overlaychooser</title>
+				<title>Auswahl der überlagerten Icons</title>
 				<graphic fileref="images/SettingsOverlayChooser.png"/>
 			</figure>
-			Sie können hier auch andere überlagerte Icons auswählen. Klicken Sie
-			auf <guibutton>Wähle Overlay Set</guibutton> und wählen Sie das
-			Set aus, das Ihnen am besten gefällt. Beachten Sie dass wenn Sie
-			das Set ändern, dieses erst nach einem Neustart des Computers
+			Sie können in TortoiseSVN auch andere überlagerte Icons auswählen.
+			Klicken Sie auf <guibutton>Wähle überlagerte Icons</guibutton> und wählen
+			Sie den Satz aus, das Ihnen am besten gefällt. Beachten Sie dass wenn Sie
+			diese Einstellung ändern, der Iconsatz erst nach einem Neustart des Computers
 			vom Explorer übernommen wird.
 		</para>
 		<para>
@@ -230,7 +230,7 @@
 			werden sollen. Dies ist nützlich wenn Sie zum Beispiel sehr grosse
 			Arbeitskopien haben, welche grosse externe Bibliotheken, welche Sie
 			selbst nie ändern werden enthalten. Sie können dann diese Pfade
-			ausschliessen. Zum Beispiel:
+			ausschließen. Zum Beispiel:
 		</para>
 		<para>
 			<filename>f:\development\SVN\Subversion</filename> deaktiviert
@@ -273,6 +273,9 @@
 		<para>
 			Sie können hier auch angeben, welche Programm TortoiseSVN benutzen
 			soll für eine sichere Verbindung zum Projektarchiv via SSH.
+			Wir empfehlen, dass Sie TortoisePlink.exe benutzen. Dabei handelt es sich
+			um eine für TortoiseSVN angepasste Version des bekannten Plink, die
+			mit TortoiseSVN zusammen installiert wird.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-progs">
@@ -286,176 +289,193 @@
 			Hier können Sie Ihre eigenen Diff/Merge Programme definieren, die <application>TortoiseSVN</application>
 			benutzen soll. In der Standardeinstellung wird das mitgelieferte Programm 
 			<application>TortoiseMerge</application> benutzt.
-			<variablelist>
-				<varlistentry>
-					<term>Diff Programm</term>
-					<listitem>
-						<para>
-							Ein externes Diff Programm um verschiedene Revisionen einer Datei zu vergleichen. 
-							Sie können folgende Parameter im Pfad angeben: 
-							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>
-										<para>
-											Die Originaldatei ohne Ihre Änderungen
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%bname</term>
-									<listitem>
-										<para>
-											Der Fenstertitel für die Originaldatei
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>
-										<para>
-											Die Datei mit Ihren eigenen Änderungen
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%yname</term>
-									<listitem>
-										<para>
-											Der Fenstertitel für Ihre Datei
-										</para>
-									</listitem>
-								</varlistentry>
-							</variablelist>
-						</para>
-						<para>
-							Bei den Fenstertiteln handelt es sich nicht um reine Dateinamen.
-							TortoiseSVN behandelt sie als Anzeigenamen und stellt den Titel 
-							entsprechend zusammen. Wenn Sie z.B. ein Diff zwischen einer Datei
-							in Revision 123 und der Arbeitskopie machen, werden die Titel
-							<filename>Dateiname : Revision 123</filename>
-							und
-							<filename>Dateiname : Arbeitskopie</filename>
-							sein.
-						</para>
-						<para>
-						Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben um
-						Schlüsselwörter zu expandieren, dann wird ein Diff-Programm immer eine
-						Differenz in dieser Zeile anzeigen. Um dies zu verhindern können Sie 
-						die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel>
-						aktivieren. Ist diese Option aktiviert, wird TortoiseSVN die Datei in der
-						Arbeitskopie zuerst so konvertieren, dass die Schlüsselwörter nicht mehr
-						expandiert sind.
-						Da dies für grosse Dateien einige Zeit dauern kann ist diese Funktion
-						optional. Die Standard-Einstellung ist die Dateien nicht zu konvertieren
-						um Zeit zu sparen.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Merge Programm</term>
-					<listitem>
-						<para>
-							Ein externes Merge Programm um Konflikte in Dateien aufzulösen. 
-							Sie können folgende Parameter im Pfad angeben.
-							Die genaue Reihenfolge hängt vom verwendeten Merge Programm ab.
-							<variablelist>
-								<varlistentry>
-									<term>%base</term>
-									<listitem>
-										<para>
-											Die Originaldatei ohne irgendwelche Änderungen
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%bname</term>
-									<listitem>
-										<para>
-											Der Fenstertitel für die Originaldatei
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mine</term>
-									<listitem>
-										<para>
-											Die Datei mit Ihren eigenen Änderungen
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%yname</term>
-									<listitem>
-										<para>
-											Der Fenstertitel für Ihre Datei
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%theirs</term>
-									<listitem>
-										<para>
-											Die Datei mit den letzten Änderungen aus dem Projektarchiv
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%tname</term>
-									<listitem>
-										<para>
-											Der Fenstertitel für die Datei im Projektarchiv
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%merged</term>
-									<listitem>
-										<para>
-											Die Konfliktdatei (das Ergebnis der Zusammenführen Operation)
-										</para>
-									</listitem>
-								</varlistentry>
-								<varlistentry>
-									<term>%mname</term>
-									<listitem>
-										<para>
-											Der Fenstertitel für die Ergebnisdatei
-										</para>
-									</listitem>
-								</varlistentry>
-							</variablelist>
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Diff Betrachter</term>
-					<listitem>
-						<para>
-							Ein Programm um GNU diff Dateien (Patch Dateien) zu betrachten.
-							Als Standard ist Notepad eingestellt. Sie brauchen keine
-							Parameter anzugeben. 
-						</para>
-						<para>
-							Das Original Windows NotePad Programm zeigt Zeilenenden,
-							die nicht dem Windows Standard (CR-LF) entsprechen, nicht
-							korrekt an. Da die meisten GNU Diffdateien Unix Zeilenenden
-							(LF) besitzen ist das Resultat entsprechend.
-							Sie können sich jedoch einen kostenlosen NotePad Ersatz
-							<ulink url="http://www.flos-freeware.ch/notepad2.html">
-								<citetitle>Notepad2</citetitle>
-							</ulink>
-							herunterladen, der nicht nur die Zeilenenden korrekt anzeigt,
-							sondern auch die hinzugefügten und gelöschten Zeilen farblich 
-							hervorhebt.
-						</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
 		</para>
+		<sect3 id="tsvn-DUG-settings-Diff">
+			<title>Diff Programm</title>
+			<para>
+				Ein externes Diff Programm, mit dem Sie verschiedene Revisionen einer 
+				Datei vergleichen können.
+				Die Dateinamen müssen gemeinsam mit anderen Parametern über die
+				Kommandozeile übergeben werden. TortoiseSVN verwendet dazu Platzhalter,
+				denen ein <literal>%</literal> vorangestell wird.
+				Die Reihenfolge der Parameter auf der Kommandozeile hängt
+				von dem von Ihnen verwendeten Diff Programm ab.
+				<variablelist>
+					<varlistentry>
+						<term>%base</term>
+						<listitem>
+							<para>
+								Die Originaldatei ohne Ihre Änderungen
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%bname</term>
+						<listitem>
+							<para>
+								Der Fenstertitel für die Originaldatei
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%mine</term>
+						<listitem>
+							<para>
+								Die Datei mit Ihren eigenen Änderungen
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%yname</term>
+						<listitem>
+							<para>
+								Der Fenstertitel für Ihre Datei
+							</para>
+						</listitem>
+					</varlistentry>
+				</variablelist>
+			</para>
+			<para>
+				Bei den Fenstertiteln handelt es sich nicht um reine Dateinamen.
+				TortoiseSVN behandelt sie als Anzeigenamen und stellt den Titel 
+				entsprechend zusammen. Wenn Sie z.B. ein Diff zwischen einer Datei
+				in Revision 123 und der Arbeitskopie machen, werden die Titel
+				<filename>Dateiname : Revision 123</filename>
+				und
+				<filename>Dateiname : Arbeitskopie</filename>
+				sein.
+			</para>
+			<para>
+				Zum Beispiel für ExamDiff Pro:
+<screen>
+C:\Path-To\ExamDiff.exe %base %mine
+</screen>
+				oder für KDiff3:
+<screen>
+C:\Path-To\kdiff3.exe %base %mine --L1 %bname --L2 %yname
+</screen>
+			</para>
+			<para>
+				Wenn Sie die <literal>svn:keywords</literal> Eigenschaft gesetzt haben um
+				Schlüsselwörter zu expandieren, dann wird ein Diff-Programm immer eine
+				Differenz in dieser Zeile anzeigen. Um dies zu verhindern können Sie 
+				die Option <guilabel>Konvertiere Dateien wenn mit BASE verglichen wird</guilabel>
+				aktivieren. Ist diese Option aktiviert, wird TortoiseSVN die Datei in der
+				Arbeitskopie zuerst so konvertieren, dass die Schlüsselwörter nicht mehr
+				expandiert sind.
+				Da dies für grosse Dateien einige Zeit dauern kann ist diese Funktion
+				optional. Die Standard-Einstellung ist die Dateien nicht zu konvertieren
+				um Zeit zu sparen.
+			</para>
+		</sect3>
+		<sect3 id="tsvn-DUG-settings-Merge">
+			<title>Merge Programm</title>
+			<para>
+				Ein externes Merge Programm, mit dem Sie Konflikte in Dateien auflösen können.
+				Die Parameterübergabe an das Programm erfolgt genau so wie beim Diff Programm.
+				<variablelist>
+					<varlistentry>
+						<term>%base</term>
+						<listitem>
+							<para>
+								Die Originaldatei ohne irgendwelche Änderungen
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%bname</term>
+						<listitem>
+							<para>
+								Der Fenstertitel für die Originaldatei
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%mine</term>
+						<listitem>
+							<para>
+								Die Datei mit Ihren eigenen Änderungen
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%yname</term>
+						<listitem>
+							<para>
+								Der Fenstertitel für Ihre Datei
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%theirs</term>
+						<listitem>
+							<para>
+								Die Datei mit den letzten Änderungen aus dem Projektarchiv
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%tname</term>
+						<listitem>
+							<para>
+								Der Fenstertitel für die Datei im Projektarchiv
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%merged</term>
+						<listitem>
+							<para>
+								Die Konfliktdatei (das Ergebnis der
+								Zusammenführen Operation)
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>%mname</term>
+						<listitem>
+							<para>
+								Der Fenstertitel für die Ergebnisdatei
+							</para>
+						</listitem>
+					</varlistentry>
+				</variablelist>
+			</para>
+			<para>
+				Zum Beispiel für Perforce WinMerge:
+<screen>
+C:\Path-To\P4WinMrg.exe %base %theirs %mine %merged
+</screen>
+				oder für KDiff3:
+<screen>
+C:\Path-To\kdiff3.exe %base %mine %theirs -o %merged
+</screen>
+			</para>
+		</sect3>
+		<sect3 id="tsvn-DUG-settings-Patch">
+			<title>Diff Betrachter</title>
+			<para>
+				Ein Programm um GNU diff Dateien (Patch Dateien) zu betrachten.
+				Als Standard ist Notepad eingestellt. Sie brauchen keine
+				Parameter anzugeben. 
+			</para>
+			<para>
+				Das Original Windows NotePad Programm zeigt Zeilenenden,
+				die nicht dem Windows Standard (CR-LF) entsprechen, nicht
+				korrekt an. Da die meisten GNU Diffdateien Unix Zeilenenden
+				(LF) besitzen ist das Resultat entsprechend.
+				Sie können sich jedoch einen kostenlosen NotePad Ersatz
+				<ulink url="http://www.flos-freeware.ch/notepad2.html">
+					<citetitle>Notepad2</citetitle>
+				</ulink>
+				herunterladen, der nicht nur die Zeilenenden korrekt anzeigt,
+				sondern auch die hinzugefügten und gelöschten Zeilen farblich 
+				hervorhebt.
+			</para>
+		</sect3>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-6">
-				<title>Der Einstellungsdialog, Diff/Merge Spezialdialog</title>
+				<title>Diff/Merge Erweiterte Einstellungen</title>
 				<graphic fileref="images/SettingsProgsAdv.png"/>
 			</figure>
 			Sie können für jede Dateiendung ein eigenes Diff oder Merge-Programm angeben,
