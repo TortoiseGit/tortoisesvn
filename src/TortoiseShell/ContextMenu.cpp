@@ -436,7 +436,10 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						break;
 					case Copy:
 						svnCmd += _T("copy /path:\"");
-						svnCmd += folder_.c_str();
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
 						break;
 					case Settings:
