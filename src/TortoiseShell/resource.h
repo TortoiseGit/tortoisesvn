@@ -109,6 +109,8 @@
 #define IDC_EDITNAME                    1014
 #define IDC_EDITVALUE                   1015
 #define IDC_SHOWLOG                     1016
+#define IDC_EDIT1                       1017
+#define IDC_REPOURL2                    1017
 
 // Next default values for new objects
 // 
@@ -116,7 +118,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        140
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1017
+#define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

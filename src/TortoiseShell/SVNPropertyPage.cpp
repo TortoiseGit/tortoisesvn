@@ -255,6 +255,7 @@ void CSVNPropertyPage::InitWorkfileView()
 			SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
 			time = (__time64_t)svn.status->entry->cmt_date/1000000L;
 			_stprintf(buf, _T("%s"), _tctime64(&time));
+			buf[_tcslen(buf)-1] = '\0';
 			SetDlgItemText(m_hwnd, IDC_CDATE, buf);
 			if (svn.status->entry->cmt_author)
 #ifdef UNICODE
@@ -268,9 +269,11 @@ void CSVNPropertyPage::InitWorkfileView()
 			SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
 			time = (__time64_t)svn.status->entry->text_time/1000000L;
 			_stprintf(buf, _T("%s"), _tctime64(&time));
+			buf[_tcslen(buf)-1] = '\0';
 			SetDlgItemText(m_hwnd, IDC_TEXTDATE, buf);
 			time = (__time64_t)svn.status->entry->prop_time/1000000L;
 			_stprintf(buf, _T("%s"), _tctime64(&time));
+			buf[_tcslen(buf)-1] = '\0';
 			SetDlgItemText(m_hwnd, IDC_PROPDATE, buf);
 			if (svn.status->locked)
 			{

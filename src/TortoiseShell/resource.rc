@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,101 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1251)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_MENU                ICON    DISCARDABLE     
-"..\\Icons\\Tortoise13by13.ico"
-IDI_APP                 ICON    DISCARDABLE     "..\\Icons\\Tortoise.ico"
-IDI_CHECKOUT            ICON    DISCARDABLE     
-"..\\Icons\\menucheckout.ico"
-IDI_UPDATE              ICON    DISCARDABLE     "..\\Icons\\menuupdate.ico"
-IDI_COMMIT              ICON    DISCARDABLE     "..\\Icons\\menucommit.ico"
-IDI_ADD                 ICON    DISCARDABLE     "..\\Icons\\menuadd.ico"
-IDI_REVERT              ICON    DISCARDABLE     "..\\Icons\\menurevert.ico"
-IDI_CLEANUP             ICON    DISCARDABLE     "..\\Icons\\menucleanup.ico"
-IDI_RESOLVE             ICON    DISCARDABLE     "..\\Icons\\menuresolve.ico"
-IDI_SWITCH              ICON    DISCARDABLE     "..\\Icons\\menuswitch.ico"
-IDI_MERGE               ICON    DISCARDABLE     "..\\Icons\\menumerge.ico"
-IDI_IMPORT              ICON    DISCARDABLE     "..\\Icons\\menuimport.ico"
-IDI_EXPORT              ICON    DISCARDABLE     "..\\Icons\\menuexport.ico"
-IDI_COPY                ICON    DISCARDABLE     "..\\Icons\\menucopy.ico"
-IDI_DELETE              ICON    DISCARDABLE     "..\\icons\\menudelete.ico"
-IDI_RENAME              ICON    DISCARDABLE     "..\\icons\\menurename.ico"
-IDI_DIFF                ICON    DISCARDABLE     "..\\icons\\menucompare.ico"
-IDI_LOG                 ICON    DISCARDABLE     "..\\Icons\\menulog.ico"
-IDI_ABOUT               ICON    DISCARDABLE     "..\\Icons\\menuabout.ico"
-IDI_SETTINGS            ICON    DISCARDABLE     
-"..\\Icons\\menusettings.ico"
-IDI_CREATEREPOS         ICON    DISCARDABLE     
-"..\\Icons\\menucreaterepos.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST MOVEABLE PURE "TortoiseShell.manifest"
-
-#ifndef _MAC
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
-FILEVERSION 0,10,0,0
-PRODUCTVERSION 0,10,0,0
-FILEFLAGSMASK 0x17L
-#ifdef _DEBUG
-FILEFLAGS 0x1L
-#else
-FILEFLAGS 0x0L
-#endif
-FILEOS 0x4L
-FILETYPE 0x2L
-FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040004b0"
-        BEGIN
-            VALUE "CompanyName", "www.tortoisesvn.org\0"
-            VALUE "FileDescription", "Shell extension part of TortoiseSVN\0"
-            VALUE "FileVersion", "0, 10, 0, 0\0"
-            VALUE "InternalName", "TortoiseSVN\0"
-            VALUE "LegalCopyright", "Copyright (C) 2003\0"
-            VALUE "OriginalFilename", "Tortoise.dll\0"
-            VALUE "ProductName", "TortoiseSVN dll\0"
-            VALUE "ProductVersion", "0, 10, 0, 0\0"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x400, 1200
-    END
-END
-
-#endif    // !_MAC
-
-#endif    // Neutral resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Russisch resources
+// Russian resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
 #ifdef _WIN32
@@ -120,8 +26,8 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 // Dialog
 //
 
-IDD_PROPPAGE DIALOG DISCARDABLE  0, 0, 232, 276
-STYLE DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+IDD_PROPPAGE DIALOG  0, 0, 232, 276
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Property Page"
 FONT 8, "MS Shell Dlg"
 BEGIN
@@ -132,25 +38,34 @@ BEGIN
     LTEXT           "Ñòàòóñ òåêñòà:",IDC_STATIC,6,66,41,8
     LTEXT           "Ñòàòóñ ñâîéñòâà:",IDC_STATIC,6,78,68,8
     LTEXT           "ÓÐË:",IDC_STATIC,6,18,16,8
-    LTEXT           "",IDC_REVISION,78,6,54,8
-    LTEXT           "",IDC_REPOURL,78,18,150,8
-    LTEXT           "",IDC_CDATE,78,42,150,8
-    LTEXT           "",IDC_TEXTDATE,123,65,105,8
-    LTEXT           "",IDC_CREVISION,78,30,150,8
-    LTEXT           "",IDC_TEXTSTATUS,78,66,41,8
-    LTEXT           "",IDC_PROPSTATUS,78,78,41,8
-    LTEXT           "",IDC_PROPDATE,123,78,105,8
-    LTEXT           "",IDC_AUTHOR,78,54,150,8
+    EDITTEXT        IDC_REVISION,78,6,54,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_REPOURL,78,18,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CDATE,78,42,150,8,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTDATE,123,65,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREVISION,78,30,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTSTATUS,78,66,41,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPSTATUS,78,78,41,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPDATE,123,78,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_AUTHOR,78,54,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "çàáëîêèðîâàííî",IDC_LOCKED,168,6,57,8
     GROUPBOX        "Ñâîéñòâà",IDC_STATIC,6,114,215,147
-    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT |
-                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER |
+    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
                     WS_BORDER | WS_TABSTOP,12,127,204,72
     PUSHBUTTON      "Hinzufugen",IDC_ADDBUTTON,168,242,50,14,WS_DISABLED
     PUSHBUTTON      "Entfernen",IDC_REMOVEBUTTON,108,241,50,14
     EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE |
-                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN |
+    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "Ïîêàçàòü æóðíàë...",IDC_SHOWLOG,146,96,72,14
 END
@@ -162,7 +77,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_PROPPAGE, DIALOG
     BEGIN
@@ -180,7 +95,7 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUCHECKOUT        "Èçâëåêàòü..."
     IDS_MENUUPDATE          "Àêòóàëèçèðîâàòü"
@@ -192,7 +107,7 @@ BEGIN
     IDS_MENURESOLVE         "Ðåøèòü êîíôëèêò"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUSWITCH          "Ïåðåêëþ÷èòüñÿ ê..."
     IDS_MENUMERGE           "Ñìåøàòü..."
@@ -202,35 +117,26 @@ BEGIN
     IDS_MENUSETTINGS        "Ïàðàìåòðû..."
     IDS_MENUABOUT           "Î ïðîãðàììå"
     IDS_MENUSUBMENU         "TortoiseSVN"
-    IDS_MENUDESCCHECKOUT    "eine Arbeitskopie von einer Datenbank 
-auschecken"
-    IDS_MENUDESCUPDATE      "aktualisiert die Arbeitskopie auf die neueste 
-Version"
+    IDS_MENUDESCCHECKOUT    "eine Arbeitskopie von einer Datenbank  \nauschecken"
+    IDS_MENUDESCUPDATE      "aktualisiert die Arbeitskopie auf die neueste  \nVersion"
     IDS_MENUDESCCOMMIT      "Ubertragt die Anderungen zur Datenbank"
     IDS_MENUDESCADD         "Fugt Dateien zur Versionskontrolle hinzu"
-    IDS_MENUDESCREVERT      "Macht alle Anderungen seit der letzten 
-Aktualisierung ruckgangig"
-    IDS_MENUDESCCLEANUP     "Beendet unterbrochene Aktionen, hebt 
-Blockierungen auf, ..."
+    IDS_MENUDESCREVERT      "Macht alle Anderungen seit der letzten  \nAktualisierung ruckgangig"
+    IDS_MENUDESCCLEANUP     "Beendet unterbrochene Aktionen, hebt  \nBlockierungen auf, ..."
     IDS_MENUDESCRESOLVE     "lost Konflikte auf"
-    IDS_MENUDESCSWITCH      "Wechselt zu einem anderen Zweig oder einer 
-anderen Markierung"
+    IDS_MENUDESCSWITCH      "Wechselt zu einem anderen Zweig oder einer  \nanderen Markierung"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
-    IDS_MENUDESCIMPORT      "Importiert eine Arbeitskopie in eine Subversion 
-Datenbank"
-    IDS_MENUDESCEXPORT      "Exportiert eine Datenbank in eine 'saubere' 
-Arbeitskopie ohne die Administrationsdateien"
+    IDS_MENUDESCIMPORT      "Importiert eine Arbeitskopie in eine Subversion  \nDatenbank"
+    IDS_MENUDESCEXPORT      "Exportiert eine Datenbank in eine 'saubere'  \nArbeitskopie ohne die Administrationsdateien"
     IDS_MENUDESCABOUT       "Zeigt Informationen uber TortoiseSVN an"
     IDS_MENUDESCCREATEREPOS "Erstellt eine Datenbank an dieser Stelle"
-    IDS_MENUDESCCOPY        "Erzeugt eine 'billige' Kopie (Link) welche fur 
-Verzweigungen/Markierungen verwendet wird"
+    IDS_MENUDESCCOPY        "Erzeugt eine 'billige' Kopie (Link) welche fur  \nVerzweigungen/Markierungen verwendet wird"
     IDS_MENUDESCMERGE       "Mischt eine Verzweigung in den aktuellen Zweig"
     IDS_MENUDESCSETTINGS    "TortoiseSVN Einstellungen"
-    IDS_MENUDESCDEFAULT     "fur diesen Befehl ist keine Beschreibung 
-vorhanden"
+    IDS_MENUDESCDEFAULT     "fur diesen Befehl ist keine Beschreibung  \nvorhanden"
     IDS_STATUSNONE          " "
     IDS_STATUSUNVERSIONED   "unkontrolliert"
     IDS_STATUSNORMAL        "normal"
@@ -241,7 +147,7 @@ vorhanden"
     IDS_STATUSMODIFIED      "verandert"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_STATUSMERGED        "gemischt"
     IDS_STATUSCONFLICTED    "konflikt"
@@ -254,36 +160,120 @@ BEGIN
     IDS_MENUREMOVE          "Loschen"
     IDS_MENUDESCREMOVE      "Loscht Dateien/Ordner"
     IDS_MENUUPDATEEXT       "Aktualisieren zu Revision..."
-    IDS_MENUDESCUPDATEEXT   "aktualisiert eine Arbeitskopie auf eine 
-angegebene Revision"
+    IDS_MENUDESCUPDATEEXT   "aktualisiert eine Arbeitskopie auf eine  \nangegebene Revision"
     IDS_COLTITLESTATUS      "SVN Status"
     IDS_COLDESCSTATUS       "Status der Datei in SVN"
     IDS_COLTITLEREV         "SVN Revision"
     IDS_COLDESCREV          "Revisionsnummer der letzten Ubertragung"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUDIFF            "Vergleiche"
-    IDS_MENUDESCDIFF        "Vergleicht die Datei mit der unveranderten 
-Version"
+    IDS_MENUDESCDIFF        "Vergleicht die Datei mit der unveranderten  \nVersion"
     IDS_DROPCOPYADDMENU     "fuge Datei(en) zu Subversion hinzu"
     IDS_DROPMOVEMENU        "verschiebe Datei(en) in Subversion hierher"
     IDS_MENULOG             "zeige Log"
-    IDS_MENUDESCLOG         "zeigt die Log-Eintrage fur die ausgewahlte 
-Datei oder Ordner"
+    IDS_MENUDESCLOG         "zeigt die Log-Eintrage fur die ausgewahlte  \nDatei oder Ordner"
     IDS_COLTITLEURL         "SVN Url"
     IDS_COLDESCURL          "URL von Subversion Dateien/Ordnern"
     IDS_COLTITLESHORTURL    "SVN kurze Url"
     IDS_COLDESCSHORTURL     "abgekurzte URL von Subversion Dateien/Ordnern"
 END
 
-#endif    // Russisch resources
+#endif    // Russian resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MENU                ICON                    "..\\Icons\\Tortoise13by13.ico"
+IDI_APP                 ICON                    "..\\Icons\\Tortoise.ico"
+IDI_CHECKOUT            ICON                    "..\\Icons\\menucheckout.ico"
+IDI_UPDATE              ICON                    "..\\Icons\\menuupdate.ico"
+IDI_COMMIT              ICON                    "..\\Icons\\menucommit.ico"
+IDI_ADD                 ICON                    "..\\Icons\\menuadd.ico"
+IDI_REVERT              ICON                    "..\\Icons\\menurevert.ico"
+IDI_CLEANUP             ICON                    "..\\Icons\\menucleanup.ico"
+IDI_RESOLVE             ICON                    "..\\Icons\\menuresolve.ico"
+IDI_SWITCH              ICON                    "..\\Icons\\menuswitch.ico"
+IDI_MERGE               ICON                    "..\\Icons\\menumerge.ico"
+IDI_IMPORT              ICON                    "..\\Icons\\menuimport.ico"
+IDI_EXPORT              ICON                    "..\\Icons\\menuexport.ico"
+IDI_COPY                ICON                    "..\\Icons\\menucopy.ico"
+IDI_DELETE              ICON                    "..\\icons\\menudelete.ico"
+IDI_RENAME              ICON                    "..\\icons\\menurename.ico"
+IDI_DIFF                ICON                    "..\\icons\\menucompare.ico"
+IDI_LOG                 ICON                    "..\\Icons\\menulog.ico"
+IDI_ABOUT               ICON                    "..\\Icons\\menuabout.ico"
+IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
+IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "TortoiseShell.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,10,0,0
+ PRODUCTVERSION 0,10,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040004b0"
+        BEGIN
+            VALUE "CompanyName", "www.tortoisesvn.org"
+            VALUE "FileDescription", "Shell extension part of TortoiseSVN"
+            VALUE "FileVersion", "0, 10, 0, 0"
+            VALUE "InternalName", "TortoiseSVN"
+            VALUE "LegalCopyright", "Copyright (C) 2003"
+            VALUE "OriginalFilename", "Tortoise.dll"
+            VALUE "ProductName", "TortoiseSVN dll"
+            VALUE "ProductVersion", "0, 10, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x400, 1200
+    END
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -297,9 +287,9 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 //
 
 IDD_PROPPAGE DIALOGEX 0, 0, 232, 276
-STYLE DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Property Page"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     LTEXT           "Revision:",IDC_STATIC,6,6,30,8
     LTEXT           "letzte Revision:",IDC_STATIC,6,30,50,8
@@ -308,25 +298,34 @@ BEGIN
     LTEXT           "Text Status:",IDC_STATIC,6,66,41,8
     LTEXT           "Eigenschafts-Status:",IDC_STATIC,6,78,68,8
     LTEXT           "URL:",IDC_STATIC,6,18,16,8
-    LTEXT           "",IDC_REVISION,78,6,54,8
-    LTEXT           "",IDC_REPOURL,78,18,150,8
-    LTEXT           "",IDC_CDATE,78,42,150,8
-    LTEXT           "",IDC_TEXTDATE,123,65,105,8
-    LTEXT           "",IDC_CREVISION,78,30,150,8
-    LTEXT           "",IDC_TEXTSTATUS,78,66,41,8
-    LTEXT           "",IDC_PROPSTATUS,78,78,41,8
-    LTEXT           "",IDC_PROPDATE,123,78,105,8
-    LTEXT           "",IDC_AUTHOR,78,54,150,8
+    EDITTEXT        IDC_REVISION,78,6,54,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_REPOURL,78,18,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CDATE,78,42,150,8,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTDATE,123,65,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREVISION,78,30,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTSTATUS,78,66,41,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPSTATUS,78,78,41,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPDATE,123,78,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_AUTHOR,78,54,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "blockiert",IDC_LOCKED,197,6,28,8
     GROUPBOX        "Eigenschaften",IDC_STATIC,6,114,215,147
-    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT |
-                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER |
+    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
                     WS_BORDER | WS_TABSTOP,12,127,204,72
     PUSHBUTTON      "Hinzufügen",IDC_ADDBUTTON,168,242,50,14,WS_DISABLED
     PUSHBUTTON      "Entfernen",IDC_REMOVEBUTTON,108,241,50,14
     EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE |
-                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN |
+    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "Zeige Log...",IDC_SHOWLOG,168,96,50,14
 END
@@ -338,7 +337,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO MOVEABLE PURE
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_PROPPAGE, DIALOG
     BEGIN
@@ -356,7 +355,7 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUCHECKOUT        "Auschecken..."
     IDS_MENUUPDATE          "Aktualisieren"
@@ -368,7 +367,7 @@ BEGIN
     IDS_MENURESOLVE         "Konflikt auflösen"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUSWITCH          "wechseln zu..."
     IDS_MENUMERGE           "mischen..."
@@ -378,35 +377,26 @@ BEGIN
     IDS_MENUSETTINGS        "Einstellungen..."
     IDS_MENUABOUT           "Über"
     IDS_MENUSUBMENU         "TortoiseSVN"
-    IDS_MENUDESCCHECKOUT    "eine Arbeitskopie von einer Datenbank 
-auschecken"
-    IDS_MENUDESCUPDATE      "aktualisiert die Arbeitskopie auf die neueste 
-Version"
+    IDS_MENUDESCCHECKOUT    "eine Arbeitskopie von einer Datenbank  \nauschecken"
+    IDS_MENUDESCUPDATE      "aktualisiert die Arbeitskopie auf die neueste  \nVersion"
     IDS_MENUDESCCOMMIT      "Überträgt die Änderungen zur Datenbank"
     IDS_MENUDESCADD         "Fügt Dateien zur Versionskontrolle hinzu"
-    IDS_MENUDESCREVERT      "Macht alle Änderungen seit der letzten 
-Aktualisierung rückgängig"
-    IDS_MENUDESCCLEANUP     "Beendet unterbrochene Aktionen, hebt 
-Blockierungen auf, ..."
+    IDS_MENUDESCREVERT      "Macht alle Änderungen seit der letzten  \nAktualisierung rückgängig"
+    IDS_MENUDESCCLEANUP     "Beendet unterbrochene Aktionen, hebt  \nBlockierungen auf, ..."
     IDS_MENUDESCRESOLVE     "löst Konflikte auf"
-    IDS_MENUDESCSWITCH      "Wechselt zu einem anderen Zweig oder einer 
-anderen Markierung"
+    IDS_MENUDESCSWITCH      "Wechselt zu einem anderen Zweig oder einer  \nanderen Markierung"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
-    IDS_MENUDESCIMPORT      "Importiert eine Arbeitskopie in eine Subversion 
-Datenbank"
-    IDS_MENUDESCEXPORT      "Exportiert eine Datenbank in eine 'saubere' 
-Arbeitskopie ohne die Administrationsdateien"
+    IDS_MENUDESCIMPORT      "Importiert eine Arbeitskopie in eine Subversion  \nDatenbank"
+    IDS_MENUDESCEXPORT      "Exportiert eine Datenbank in eine 'saubere'  \nArbeitskopie ohne die Administrationsdateien"
     IDS_MENUDESCABOUT       "Zeigt Informationen über TortoiseSVN an"
     IDS_MENUDESCCREATEREPOS "Erstellt eine Datenbank an dieser Stelle"
-    IDS_MENUDESCCOPY        "Erzeugt eine 'billige' Kopie (Link) welche für 
-Verzweigungen/Markierungen verwendet wird"
+    IDS_MENUDESCCOPY        "Erzeugt eine 'billige' Kopie (Link) welche für  \nVerzweigungen/Markierungen verwendet wird"
     IDS_MENUDESCMERGE       "Mischt eine Verzweigung in den aktuellen Zweig"
     IDS_MENUDESCSETTINGS    "TortoiseSVN Einstellungen"
-    IDS_MENUDESCDEFAULT     "für diesen Befehl ist keine Beschreibung 
-vorhanden"
+    IDS_MENUDESCDEFAULT     "für diesen Befehl ist keine Beschreibung  \nvorhanden"
     IDS_STATUSNONE          " "
     IDS_STATUSUNVERSIONED   "unkontrolliert"
     IDS_STATUSNORMAL        "normal"
@@ -417,7 +407,7 @@ vorhanden"
     IDS_STATUSMODIFIED      "verändert"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_STATUSMERGED        "gemischt"
     IDS_STATUSCONFLICTED    "konflikt"
@@ -430,36 +420,33 @@ BEGIN
     IDS_MENUREMOVE          "Löschen"
     IDS_MENUDESCREMOVE      "Löscht Dateien/Ordner"
     IDS_MENUUPDATEEXT       "Aktualisieren zu Revision..."
-    IDS_MENUDESCUPDATEEXT   "aktualisiert eine Arbeitskopie auf eine 
-angegebene Revision"
+    IDS_MENUDESCUPDATEEXT   "aktualisiert eine Arbeitskopie auf eine  \nangegebene Revision"
     IDS_COLTITLESTATUS      "SVN Status"
     IDS_COLDESCSTATUS       "Status der Datei in SVN"
     IDS_COLTITLEREV         "SVN Revision"
     IDS_COLDESCREV          "Revisionsnummer der letzten Übertragung"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUDIFF            "Vergleiche"
-    IDS_MENUDESCDIFF        "Vergleicht die Datei mit der unveränderten 
-Version"
+    IDS_MENUDESCDIFF        "Vergleicht die Datei mit der unveränderten  \nVersion"
     IDS_DROPCOPYADDMENU     "füge Datei(en) zu Subversion hinzu"
     IDS_DROPMOVEMENU        "verschiebe Datei(en) in Subversion hierher"
     IDS_MENULOG             "zeige Log"
-    IDS_MENUDESCLOG         "zeigt die Log-Einträge für die ausgewählte 
-Datei oder Ordner"
+    IDS_MENUDESCLOG         "zeigt die Log-Einträge für die ausgewählte  \nDatei oder Ordner"
     IDS_COLTITLEURL         "SVN Url"
     IDS_COLDESCURL          "URL von Subversion Dateien/Ordnern"
     IDS_COLTITLESHORTURL    "SVN kurze Url"
     IDS_COLDESCSHORTURL     "abgekürzte URL von Subversion Dateien/Ordnern"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -473,9 +460,9 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 IDD_PROPPAGE DIALOGEX 0, 0, 232, 276
-STYLE DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Property Page"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     LTEXT           "Revision:",IDC_STATIC,6,6,30,8
     LTEXT           "last commit revision:",IDC_STATIC,6,30,66,8
@@ -484,27 +471,36 @@ BEGIN
     LTEXT           "Text Status:",IDC_STATIC,6,66,41,8
     LTEXT           "Property Status:",IDC_STATIC,6,78,54,8
     LTEXT           "URL:",IDC_STATIC,6,18,16,8
-    LTEXT           "",IDC_REVISION,78,6,54,8
-    LTEXT           "",IDC_REPOURL,78,18,150,8
-    LTEXT           "",IDC_CDATE,78,42,150,8
-    LTEXT           "",IDC_TEXTDATE,123,65,105,8
-    LTEXT           "",IDC_CREVISION,78,30,150,8
-    LTEXT           "",IDC_TEXTSTATUS,78,66,41,8
-    LTEXT           "",IDC_PROPSTATUS,78,78,41,8
-    LTEXT           "",IDC_PROPDATE,123,78,105,8
-    LTEXT           "",IDC_AUTHOR,78,54,150,8
+    EDITTEXT        IDC_REPOURL,78,18,150,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CDATE,78,42,150,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTDATE,123,65,105,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREVISION,78,30,150,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTSTATUS,78,66,41,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPSTATUS,78,78,41,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPDATE,123,78,105,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_AUTHOR,78,54,150,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "locked",IDC_LOCKED,204,6,21,8
     GROUPBOX        "properties",IDC_STATIC,6,114,215,147
-    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT |
-                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER |
+    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
                     WS_BORDER | WS_TABSTOP,12,127,204,72
     PUSHBUTTON      "Add",IDC_ADDBUTTON,168,242,50,14,WS_DISABLED
     PUSHBUTTON      "Remove",IDC_REMOVEBUTTON,108,241,50,14
     EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE |
-                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN |
+    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "show log...",IDC_SHOWLOG,168,96,50,14
+    EDITTEXT        IDC_REVISION,77,7,57,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
 END
 
 
@@ -514,7 +510,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO MOVEABLE PURE
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_PROPPAGE, DIALOG
     BEGIN
@@ -533,18 +529,18 @@ END
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE MOVEABLE PURE
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE MOVEABLE PURE
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE MOVEABLE PURE
+3 TEXTINCLUDE 
 BEGIN
     "\r\n"
     "\0"
@@ -558,7 +554,7 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUCHECKOUT        "Checkout..."
     IDS_MENUUPDATE          "Update"
@@ -570,7 +566,7 @@ BEGIN
     IDS_MENURESOLVE         "Resolve"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUSWITCH          "Switch..."
     IDS_MENUMERGE           "Merge..."
@@ -581,28 +577,22 @@ BEGIN
     IDS_MENUABOUT           "About"
     IDS_MENUSUBMENU         "TortoiseSVN"
     IDS_MENUDESCCHECKOUT    "Check out a working copy from a repository"
-    IDS_MENUDESCUPDATE      "Updates the working copy to the current 
-revision"
+    IDS_MENUDESCUPDATE      "Updates the working copy to the current  \nrevision"
     IDS_MENUDESCCOMMIT      "Commits your changes to the repository"
     IDS_MENUDESCADD         "Adds file(s) to Subversion control"
-    IDS_MENUDESCREVERT      "Reverts all changes you made since the last 
-update"
-    IDS_MENUDESCCLEANUP     "Cleanup interrupted operations, locked files, 
-..."
+    IDS_MENUDESCREVERT      "Reverts all changes you made since the last  \nupdate"
+    IDS_MENUDESCCLEANUP     "Cleanup interrupted operations, locked files,  \n..."
     IDS_MENUDESCRESOLVE     "Resolves conflicted files"
     IDS_MENUDESCSWITCH      "Switch to another branch/repository"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUDESCIMPORT      "Imports the directory to a repository"
-    IDS_MENUDESCEXPORT      "Exports a repository to a clean working copy 
-without the svn administrative folders"
+    IDS_MENUDESCEXPORT      "Exports a repository to a clean working copy  \nwithout the svn administrative folders"
     IDS_MENUDESCABOUT       "Shows information about TortoiseSVN"
-    IDS_MENUDESCCREATEREPOS "Creates a repository database at the current 
-location"
-    IDS_MENUDESCCOPY        "Creates a 'cheap' copy used for branches and/or 
-tagging"
+    IDS_MENUDESCCREATEREPOS "Creates a repository database at the current  \nlocation"
+    IDS_MENUDESCCOPY        "Creates a 'cheap' copy used for branches and/or  \ntagging"
     IDS_MENUDESCMERGE       "Merges a branch into the main trunk"
     IDS_MENUDESCSETTINGS    "Tweak TortoiseSVN"
     IDS_MENUDESCDEFAULT     "no description for this command is available"
@@ -616,7 +606,7 @@ tagging"
     IDS_STATUSMODIFIED      "modified"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_STATUSMERGED        "merged"
     IDS_STATUSCONFLICTED    "conflicted"
@@ -625,24 +615,21 @@ BEGIN
     IDS_PROPPROPERTY        "Property"
     IDS_PROPVALUE           "Value"
     IDS_MENURENAME          "Rename..."
-    IDS_MENUDESCRENAME      "Renames files/directories inside source 
-control"
+    IDS_MENUDESCRENAME      "Renames files/directories inside source  \ncontrol"
     IDS_MENUREMOVE          "Remove"
     IDS_MENUDESCREMOVE      "Removes files/directories from source control"
     IDS_MENUUPDATEEXT       "Update To Revision..."
-    IDS_MENUDESCUPDATEEXT   "Updates the working copy to a specific 
-revision"
+    IDS_MENUDESCUPDATEEXT   "Updates the working copy to a specific  \nrevision"
     IDS_COLTITLESTATUS      "SVN Status"
     IDS_COLDESCSTATUS       "status of item in SVN"
     IDS_COLTITLEREV         "SVN Revision"
     IDS_COLDESCREV          "last saved revision of item"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUDIFF            "Diff"
-    IDS_MENUDESCDIFF        "Compares the file with the last commited 
-version to show you the changes you made"
+    IDS_MENUDESCDIFF        "Compares the file with the last commited  \nversion to show you the changes you made"
     IDS_DROPCOPYADDMENU     "add files to Subversion here"
     IDS_DROPMOVEMENU        "move files in Subversion to here"
     IDS_MENULOG             "show log"
@@ -653,12 +640,12 @@ version to show you the changes you made"
     IDS_COLDESCSHORTURL     "short Url of subversion items"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Italienisch (Italien) resources
+// Italian (Italy) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
 #ifdef _WIN32
@@ -672,9 +659,9 @@ LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
 //
 
 IDD_PROPPAGE DIALOGEX 0, 0, 232, 276
-STYLE DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Property Page"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     LTEXT           "Versione:",IDC_STATIC,6,6,30,8
     LTEXT           "versione dell'ultima modifica:",IDC_STATIC,6,30,92,8
@@ -683,25 +670,34 @@ BEGIN
     LTEXT           "Stato del commento:",IDC_STATIC,6,66,69,8
     LTEXT           "Stato della proprieta':",IDC_STATIC,6,78,73,8
     LTEXT           "URL:",IDC_STATIC,6,18,16,8
-    LTEXT           "",IDC_REVISION,78,6,54,8
-    LTEXT           "",IDC_REPOURL,78,18,150,8
-    LTEXT           "",IDC_CDATE,98,42,130,8
-    LTEXT           "",IDC_TEXTDATE,123,65,105,8
-    LTEXT           "",IDC_CREVISION,98,30,130,8
-    LTEXT           "",IDC_TEXTSTATUS,78,66,41,8
-    LTEXT           "",IDC_PROPSTATUS,83,78,36,8
-    LTEXT           "",IDC_PROPDATE,123,78,105,8
-    LTEXT           "",IDC_AUTHOR,98,54,130,8
+    EDITTEXT        IDC_REVISION,78,6,54,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_REPOURL,78,18,150,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CDATE,98,42,130,8,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTDATE,123,65,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREVISION,98,30,130,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTSTATUS,78,66,41,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPSTATUS,83,78,36,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPDATE,123,78,105,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_AUTHOR,98,54,130,8,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
     LTEXT           "bloccato",IDC_LOCKED,197,6,28,8
     GROUPBOX        "proprieta'",IDC_STATIC,6,114,215,147
-    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT |
-                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER |
+    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
                     WS_BORDER | WS_TABSTOP,12,127,204,72
     PUSHBUTTON      "Aggiungi",IDC_ADDBUTTON,168,242,50,14,WS_DISABLED
     PUSHBUTTON      "Rimuovi",IDC_REMOVEBUTTON,108,241,50,14
     EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE |
-                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN |
+    EDITTEXT        IDC_EDITVALUE,102,205,120,31,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     PUSHBUTTON      "Visualizza log...",IDC_SHOWLOG,155,96,63,14
 END
@@ -713,7 +709,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO MOVEABLE PURE
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_PROPPAGE, DIALOG
     BEGIN
@@ -733,18 +729,18 @@ END
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE MOVEABLE PURE
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE MOVEABLE PURE
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE MOVEABLE PURE
+3 TEXTINCLUDE 
 BEGIN
     "\r\n"
     "\0"
@@ -758,7 +754,7 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUCHECKOUT        "Scarica..."
     IDS_MENUUPDATE          "Aggiorna"
@@ -770,7 +766,7 @@ BEGIN
     IDS_MENURESOLVE         "Risolvi"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUSWITCH          "Passa a..."
     IDS_MENUMERGE           "Incorpora..."
@@ -783,30 +779,23 @@ BEGIN
     IDS_MENUDESCCHECKOUT    "Scarica una copia locale dall'archivio"
     IDS_MENUDESCUPDATE      "Aggiorna la copia locale all'ultima versione"
     IDS_MENUDESCCOMMIT      "Invia le tue modifiche all'archivio"
-    IDS_MENUDESCADD         "Aggiungi i file(s) al sistema di controllo 
-versione"
-    IDS_MENUDESCREVERT      "Annulla tutte le modifiche fatte dall'ultimo 
-aggiornamento"
-    IDS_MENUDESCCLEANUP     "Completa operazioni interrotte, rendi 
-disponibili files bloccati, ..."
+    IDS_MENUDESCADD         "Aggiungi i file(s) al sistema di controllo  \nversione"
+    IDS_MENUDESCREVERT      "Annulla tutte le modifiche fatte dall'ultimo  \naggiornamento"
+    IDS_MENUDESCCLEANUP     "Completa operazioni interrotte, rendi  \ndisponibili files bloccati, ..."
     IDS_MENUDESCRESOLVE     "Risolvi conflitti di files"
     IDS_MENUDESCSWITCH      "Passa a un'altra diramazione/archivio"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUDESCIMPORT      "Importa la cartella nell'archivio"
-    IDS_MENUDESCEXPORT      "Esporta dall'archivio una copia locale priva di 
-cartelle amministrative (.svn)"
+    IDS_MENUDESCEXPORT      "Esporta dall'archivio una copia locale priva di  \ncartelle amministrative (.svn)"
     IDS_MENUDESCABOUT       "Mostra informazioni su TortoiseSVN"
     IDS_MENUDESCCREATEREPOS "Crea un archivio alla posizione corrente"
-    IDS_MENUDESCCOPY        "Crea una copia 'veloce' da usare come 
-diramazione o come tag"
-    IDS_MENUDESCMERGE       "Incorpora le modifiche di una diramazione nel 
-tronco principale"
+    IDS_MENUDESCCOPY        "Crea una copia 'veloce' da usare come  \ndiramazione o come tag"
+    IDS_MENUDESCMERGE       "Incorpora le modifiche di una diramazione nel  \ntronco principale"
     IDS_MENUDESCSETTINGS    "Configura TortoiseSVN"
-    IDS_MENUDESCDEFAULT     "nessuna descrizione disponibile per questo 
-comando"
+    IDS_MENUDESCDEFAULT     "nessuna descrizione disponibile per questo  \ncomando"
     IDS_STATUSNONE          "N/A"
     IDS_STATUSUNVERSIONED   "non versionato"
     IDS_STATUSNORMAL        "normale"
@@ -817,7 +806,7 @@ comando"
     IDS_STATUSMODIFIED      "modificato"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_STATUSMERGED        "incorporato"
     IDS_STATUSCONFLICTED    "in conflitto"
@@ -826,25 +815,21 @@ BEGIN
     IDS_PROPPROPERTY        "Proprieta'"
     IDS_PROPVALUE           "Valore"
     IDS_MENURENAME          "Rinomina..."
-    IDS_MENUDESCRENAME      "Rinomina i files/cartelle nel sistema di 
-controllo versione"
+    IDS_MENUDESCRENAME      "Rinomina i files/cartelle nel sistema di  \ncontrollo versione"
     IDS_MENUREMOVE          "Rimuovi"
-    IDS_MENUDESCREMOVE      "Rimuovi i files/cartelle dal sistema di 
-controllo versione"
+    IDS_MENUDESCREMOVE      "Rimuovi i files/cartelle dal sistema di  \ncontrollo versione"
     IDS_MENUUPDATEEXT       "Aggiorna alla versione..."
-    IDS_MENUDESCUPDATEEXT   "Aggiorna la copia locale a una specifica 
-versione"
+    IDS_MENUDESCUPDATEEXT   "Aggiorna la copia locale a una specifica  \nversione"
     IDS_COLTITLESTATUS      "SVN stato"
     IDS_COLDESCSTATUS       "stato di un oggetto in SVN"
     IDS_COLTITLEREV         "SVN Versione"
     IDS_COLDESCREV          "ultima versione savata di un oggetto"
 END
 
-STRINGTABLE DISCARDABLE
+STRINGTABLE 
 BEGIN
     IDS_MENUDIFF            "Confronta"
-    IDS_MENUDESCDIFF        "Confronta il file all'ultima versione inviata 
-per verificare le modifiche apportate"
+    IDS_MENUDESCDIFF        "Confronta il file all'ultima versione inviata  \nper verificare le modifiche apportate"
     IDS_DROPCOPYADDMENU     "Aggiungi i files a Subversion"
     IDS_DROPMOVEMENU        "Sposta i files in Subversion"
     IDS_MENULOG             "Visualizza log"
@@ -855,7 +840,7 @@ per verificare le modifiche apportate"
     IDS_COLDESCSHORTURL     "short Url of subversion items"
 END
 
-#endif    // Italienisch (Italien) resources
+#endif    // Italian (Italy) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -869,5 +854,4 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-
 
