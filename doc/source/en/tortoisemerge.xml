@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<!DOCTYPE book SYSTEM "../tools/dtd/dblite.dtd" [
-	<!ENTITY ch00 SYSTEM "tme_ch00_en.xml">
-	<!ENTITY ch01 SYSTEM "tme_ch01_en.xml">
-	<!ENTITY ch02 SYSTEM "tme_ch02_en.xml">
-	<!ENTITY gloss SYSTEM "tme_glossary_en.xml">
-	<!ENTITY copy SYSTEM "tme_copyright_en.xml">
-	<!ENTITY colo SYSTEM "tme_colo_en.xml">
+<!DOCTYPE book SYSTEM "../../tools/dtd/dblite.dtd" [
+	<!ENTITY ch00 SYSTEM "tme_ch00.xml">
+	<!ENTITY ch01 SYSTEM "tme_ch01.xml">
+	<!ENTITY ch02 SYSTEM "tme_ch02.xml">
+	<!ENTITY gloss SYSTEM "tme_glossary.xml">
+	<!ENTITY copy SYSTEM "tme_copyright.xml">
+	<!ENTITY colo SYSTEM "tme_colo.xml">
 ]>
-<book id="tmerge">
+<book id="tmerge" lang="en">
 	<title>TortoiseMerge</title>
 	<?dbhh topicname="HIDR_MAINFRAME"?>
 	<subtitle>A Subversion client for Windows</subtitle>

@@ -134,7 +134,7 @@ div.figure p {
 	margin: 0 1em 0 2.5em;
 }
 
-.tip, .error, .caution, .done {
+.caution, .important, .note, .tip, .warning {
 	border-top: 5px solid;
 	border-left: 1px solid;
 	background-repeat: no-repeat;
@@ -158,23 +158,27 @@ div.figure p {
 	border-bottom-color: Gray;
 }
 
-.error {
-	background-image: url(icon_error_lrg.png);
-	border-color: #900;
+.tip {
+	background-image: url(images/tip.png);
+	border-color: #090;
 }
 
-.tip {
-	background-image: url(icon_info_lrg.png);
+.note {
+	border-color: #069;
+}
+
+.important {
+	background-image: url(images/important.png);
 	border-color: #069;
 }
 
 .caution {
-	background-image: url(icon_warning_lrg.png);
+	background-image: url(images/caution.png);
 	border-color: #c60;
 }
 
-.done {
-	background-image: url(icon_success_lrg.png);
-	border-color: #090;
+.warning {
+	background-image: url(images/warning.png);
+	border-color: #900;
 }
 

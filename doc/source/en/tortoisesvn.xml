@@ -1,31 +1,30 @@
 <?xml version="1.0"?>
-<!DOCTYPE book SYSTEM "../tools/dtd/dblite.dtd" [
-	<!ENTITY ch00 SYSTEM "tsvn_ch00_en.xml">
-	<!ENTITY ch01 SYSTEM "tsvn_ch01_en.xml">
-	<!ENTITY ch02 SYSTEM "tsvn_ch02_en.xml">
-	<!ENTITY ch03 SYSTEM "tsvn_ch03_en.xml">
-	<!ENTITY ch04 SYSTEM "tsvn_ch04_en.xml">
-	<!ENTITY appa SYSTEM "tsvn_appa_en.xml">
+<!DOCTYPE book SYSTEM "../../tools/dtd/dblite.dtd" [
+	<!ENTITY ch00 SYSTEM "tsvn_ch00.xml">
+	<!ENTITY ch01 SYSTEM "tsvn_ch01.xml">
+	<!ENTITY ch02 SYSTEM "tsvn_ch02.xml">
+	<!ENTITY ch03 SYSTEM "tsvn_ch03.xml">
+	<!ENTITY ch04 SYSTEM "tsvn_ch04.xml">
+	<!ENTITY appa SYSTEM "tsvn_appa.xml">
 ]>
-<book id="tsvn">
-	<title>TortoiseSVN</title>
-	<subtitle>A Subversion client for Windows</subtitle>
-	<bookinfo>
-		<edition>First</edition>
-		<authorgroup>
-			<author>
-				<firstname>Stefan</firstname>
-				<surname>K&uuml;ng</surname>
-			</author>
-			<author>
-				<firstname>L&uuml;bbe</firstname>
-				<surname>Onken</surname>
-			</author>
-		</authorgroup>
-		<pubdate>$LastChangedDate$</pubdate>
-	</bookinfo>
-	<!-- External entity refs -->
-
+<book id="tsvn" lang="en">
+  <title>TortoiseSVN</title>
+  <subtitle>A Subversion client for Windows</subtitle>
+  <bookinfo>
+  <edition>First</edition>
+    <authorgroup>
+    <author>
+      <firstname>Stefan</firstname>
+      <surname>K&uuml;ng</surname>
+    </author>
+    <author>
+      <firstname>L&uuml;bbe</firstname>
+      <surname>Onken</surname>
+      </author>
+    </authorgroup>
+    <pubdate>$LastChangedDate$</pubdate>
+    </bookinfo>
+<!-- External entity refs -->
   &ch00;
   &ch01;
   &ch02;

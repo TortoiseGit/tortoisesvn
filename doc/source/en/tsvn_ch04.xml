@@ -58,7 +58,7 @@
 		<para>
 			<figure id="tsvn-DUG-context-dir-control">
 				<title>Context menu for a directory under version control</title>
-				<graphic fileref="ContextMenuDirControl.png"/>
+				<graphic fileref="images/ContextMenuDirControl.png"/>
 			</figure>
 		  All TortoiseSVN commands are invoked from the context menu of the windows explorer. 
 		  Most are directly visible, when you <action>right click</action> onto a file or folder. 
@@ -181,7 +181,7 @@
 			box:
 				<figure id="tsvn-DUG-import-dia-1">
 					<title>The Import dialog</title>
-					<graphic fileref="Import.png"/>
+					<graphic fileref="images/Import.png"/>
 				</figure>
 			</para>
 			<para>
@@ -218,7 +218,7 @@
 		<para>
 			<figure id="tsvn-DUG-checkout-dia-1">
 				<title>The Checkout dialog</title>
-				<graphic fileref="Checkout.png"/>
+				<graphic fileref="images/Checkout.png"/>
 			</figure>
               To obtain a working copy you need to do a <firstterm>checkout</firstterm>
 		 from a repository.
@@ -266,7 +266,7 @@
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-1">
 					<title>Explorer showing icon overlays</title>
-					<graphic fileref="Overlays.png"/>
+					<graphic fileref="images/Overlays.png"/>
 				</figure>
 			Now that you have checked out a working copy from a Subversion 
 			repository you can see your files in the windows explorer with 
@@ -274,19 +274,19 @@
 			popular. TortoiseSVN adds a so called overlay icon to each 
 			file icon which overlaps the original file icon. Depending on 
 			the Subversion status of the file the overlay icon is different. 
-			 <graphic fileref="InSubVersionIcon.png"/>A fresh checked out working 
+			 <graphic fileref="images/InSubVersionIcon.png"/>A fresh checked out working 
 			 copy has a green checkmark as overlay. 
 			That means the Subversion status is 	<literal>normal</literal>. 
-			<graphic fileref="ModifiedIcon.png"/>As soon as you start editing a file, 
+			<graphic fileref="images/ModifiedIcon.png"/>As soon as you start editing a file, 
 			the status changes to <literal>modified</literal>
 			and the icon overlay then changes to a red exclamation
 			mark. That way you can easily see which files were changed 
 			since you last updated your working copy and need to be commited.
-			<graphic fileref="ConflictIcon.png"/>If during an update a <literal>conflict</literal> occurs then 
+			<graphic fileref="images/ConflictIcon.png"/>If during an update a <literal>conflict</literal> occurs then 
 			the icon changes to a yellow exclamation mark.
-			<graphic fileref="AddedIcon.png"/> The plus sign tells you that a file or folder has been scheduled to be 
+			<graphic fileref="images/AddedIcon.png"/> The plus sign tells you that a file or folder has been scheduled to be 
 			<literal>added</literal> to version control.
-			<graphic fileref="DeletedIcon.png"/> This Icon shows you that some files or folders inside the current folder 
+			<graphic fileref="images/DeletedIcon.png"/> This Icon shows you that some files or folders inside the current folder 
 			have been scheduled do be <literal>deleted</literal> from version control
 			or a file under version control is missing in a folder.
 			</para>
@@ -327,7 +327,7 @@
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-2">
 					<title>Check for Updates</title>
-					<graphic fileref="RepoStatus.png"/>
+					<graphic fileref="images/RepoStatus.png"/>
 				</figure>
 			It's often very useful to know which files got changed and
 			committed by others. That's where the command <guimenuitem>Check
@@ -364,11 +364,11 @@
 		<para>
 			<figure id="tsvn-DUG-update-dia-1">
 				<title>Progress dialog showing an update in progress</title>
-				<graphic fileref="UpdateProgress.png"/>
+				<graphic fileref="images/UpdateProgress.png"/>
 			</figure>
 			<figure id="tsvn-DUG-update-dia-2">
 				<title>Progress dialog showing finished update</title>
-				<graphic fileref="UpdateFinished.png"/>
+				<graphic fileref="images/UpdateFinished.png"/>
 			</figure>
 		Occasionally you may want changes done by others to get 
 		incorporated in your local working copy. The process of 
@@ -500,7 +500,7 @@
 		<para>
 			<figure id="tsvn-DUG-commit-dia-1">
 				<title>The Commit dialog</title>
-				<graphic fileref="Commit.png"/>
+				<graphic fileref="images/Commit.png"/>
 			</figure>
 		Sending the changes you made to your working copy is known as 
 		<firstterm>committing</firstterm> the changes. But before you 
@@ -548,7 +548,7 @@
 		</para>
 		<figure id="tsvn-DUG-commit-dia-2">
 			<title>The Progress dialog showing a commit in progress</title>
-			<graphic fileref="CommitProgress.png"/>
+			<graphic fileref="images/CommitProgress.png"/>
 		</figure>
 		<para>
 		Doubleclicking on any modified file in the commit dialog 
@@ -568,7 +568,7 @@
 		<para>
 			<figure id="tsvn-DUG-adding-dia-1">
 				<title>Explorer context menu for unversioned files</title>
-				<graphic fileref="ContextMenuFileNoControl.png"/>
+				<graphic fileref="images/ContextMenuFileNoControl.png"/>
 			</figure>
 		If you created new files and/or directories during 
 		your development process the you need to add them 
@@ -629,7 +629,7 @@
 		<para>
 			<figure id="tsvn-DUG-renaming-dia-1">
 				<title>Explorer context menu for versioned files</title>
-				<graphic fileref="ContextMenuFileControl.png"/>
+				<graphic fileref="images/ContextMenuFileControl.png"/>
 			</figure>
 		Unlike CVS, Subversion allows renaming and moving of files and
 		folders. So there are menu entries for delete and rename 
@@ -708,7 +708,7 @@
 		<para>
 			<figure id="tsvn-DUG-propertypage-dia-1">
 				<title>Subversion property page</title>
-				<graphic fileref="Properties.png"/>
+				<graphic fileref="images/Properties.png"/>
 			</figure>
 		Sometimes you want to have a more detailed information 
 		about a file/directory than just the icon overlay. 
@@ -750,7 +750,7 @@
 			<para>
 				<figure id="tsvn-DUG-showlog-1-dia-1">
 					<title>The Log Dialog</title>
-					<graphic fileref="LogMessages.png"/>
+					<graphic fileref="images/LogMessages.png"/>
 				</figure>
 
 			There are several places from where you can show the Log Dialog:
@@ -775,7 +775,7 @@
 			<para>
 				<figure id="tsvn-DUG-showlog-2-dia-1">
 					<title>The Log Dialog With Context Menu</title>
-					<graphic fileref="LogContextMenu.png"/>
+					<graphic fileref="images/LogContextMenu.png"/>
 				</figure>
 
 			The Log Dialog has a context menu that allows you to
@@ -861,7 +861,7 @@
 
 		<figure id="tsvn-DUG-branchtag-dia-1">
 				<title>The Branch/Tag Dialog</title>
-				<graphic fileref="Copy.png"/>
+				<graphic fileref="images/Copy.png"/>
 			</figure>
 
 		Select the parent folder of your working copy and select 
@@ -910,7 +910,7 @@
 				</itemizedlist>
 				<figure id="tsvn-DUG-switch-dia-1">
 					<title>The Switch Dialog</title>
-					<graphic fileref="Switch.png"/>
+					<graphic fileref="images/Switch.png"/>
 				</figure>
 	
 			Here you enter the URL of the branch / tag you just created. 
@@ -949,7 +949,7 @@
 			<para>
 				<figure id="tsvn-DUG-merge-dia-1">
 					<title>The Merge Dialog</title>
-					<graphic fileref="Merge.png"/>
+					<graphic fileref="images/Merge.png"/>
 				</figure>
 	
 			If you want to merge your changes back into the main branch, 
@@ -982,7 +982,7 @@
 		<para>
 			<figure id="tsvn-DUG-relocate-dia-1">
 				<title>The Relocate Dialog</title>
-				<graphic fileref="Relocate.png"/>
+				<graphic fileref="images/Relocate.png"/>
 			</figure>
 		If your repository has for some reason changed it's 
 		location (IP/URL). Maybe you're even stuck and can't 
@@ -1009,7 +1009,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-1">
 					<title>The Settings Dialog, Main Tab</title>
-					<graphic fileref="SettingsMain.png"/>
+					<graphic fileref="images/SettingsMain.png"/>
 				</figure>
 
 		Apart from setting your preferred language, this dialog allows you to 
@@ -1026,7 +1026,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-2">
 					<title>The Settings Dialog, Overlay Tab</title>
-					<graphic fileref="SettingsOverlay.png"/>
+					<graphic fileref="images/SettingsOverlay.png"/>
 				</figure>
 		This tab allows you to choose, for which items TortoiseSVN shall display icon overlays. If you feel that your icon overlays are very slow (explore is not responsive), uncheck the "show changed directories" box.
 		</para>
@@ -1036,7 +1036,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-3">
 					<title>The Settings Dialog, Context Menu Tab</title>
-					<graphic fileref="SettingsMenu.png"/>
+					<graphic fileref="images/SettingsMenu.png"/>
 				</figure>
 		In this tab you can specifiy which of the TortoiseSVN contex menu entries shall be show up in the main context menu.
 		</para>
@@ -1046,7 +1046,7 @@
 			<para>
 				<figure id="tsvn-DUG-settings-dia-4">
 					<title>The Settings Dialog, Network Tab</title>
-					<graphic fileref="SettingsProxy.png"/>
+					<graphic fileref="images/SettingsProxy.png"/>
 				</figure>
 		Here you can configure your proxy server, if you need one to get through youor company's firewall.
 		</para>
@@ -1064,7 +1064,7 @@
 		<para>
 			<figure id="tsvn-DUG-blame-dia-1">
 				<title>The Annotate / Blame Dialog</title>
-				<graphic fileref="BlameDialog.png"/>
+				<graphic fileref="images/BlameDialog.png"/>
 			</figure>
 		Sometimes you need to know not only what lines have changed, but also
 		who exactly changed specific lines in a file. That's when the 

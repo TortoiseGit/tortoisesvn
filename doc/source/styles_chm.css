@@ -1,0 +1,173 @@
+/************************************************************************/
+/* Custom style-sheet stuffs for the Subversion book in HTML form.      */
+/*                                                                      */
+/* If you prefer sans-serif fonts, just replace all the instances of    */
+/* 'times new roman,times,serif' with 'arial,helvetica,sans-serif'.     */
+/************************************************************************/
+
+
+/* Generic tag-level style definitions */
+
+body {
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	background: #fff;
+	color: #000;
+}
+
+/* Don't override these styles, because they interfere with standard tigris.org styles and munge the appearance of the website.
+H1
+{
+    font-size: 30pt;
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+}
+
+H2
+{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+}
+
+H3
+{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+}
+
+H4
+{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+}
+
+P,LI,UL,OL,DD,DT,TD
+{
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: normal;
+    color: black;
+}
+
+*/
+PRE
+{
+    font-size: 10pt;
+}
+TT
+{
+    font-size: 11pt;
+}
+
+TT.Filename, TT.Literal{
+	font-weight: bold;
+}
+
+.action, .guibutton, .guimenuitem {
+  font-weight: bold;	
+}
+
+A
+{
+    color: blue;
+    text-decoration: underline;
+}	
+
+A:hover 
+{
+	color: blue;
+	text-decoration: underline;
+	background-color: #DCDCDC;
+}
+
+IMG
+{
+  border: none;
+  float: left;
+}
+
+div.figure {
+	padding: 4px;
+	clear: both;
+	float: right;
+	text-align: center;
+	margin: 0px 0px 5px 10px;
+} 
+
+div.figure p {
+	margin-top: 2px;
+	margin-bottom: 0px;
+	font-size: 80%;
+	text-align: center;
+}
+
+.author
+{
+    font-size: 12pt;
+    font-style: italic;
+    font-weight: normal;
+    color: black;
+}
+
+.navfooter
+ {
+  clear: both;	
+}
+
+.preface, .chapter, .simplesect, .sect1, .sect2, .sect3 {
+	margin: 0 1em 0 1em;
+	clear: both;
+}
+.chapter .sect1 {
+	margin: 0 1em 0 1.5em;
+}
+.sect1 .sect2 {
+	margin: 0 1em 0 2em;
+}
+.sect1 .sect2 .sect3 {
+	margin: 0 1em 0 2.5em;
+}
+
+.caution, .important, .note, .tip, .warning {
+	border-top: 5px solid;
+	border-left: 1px solid;
+}
+
+.guimenuitem {
+	border: 2px solid;
+	font-size: 10pt;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	background-color: #CCCCCC;
+	border-left: #E0E0E0;
+	border-top-color: #E0E0E0;
+	border-right-color: Gray;
+	border-bottom-color: Gray;
+}
+
+.tip {
+	border-color: #090;
+}
+
+.note {
+	border-color: #069;
+}
+
+.important {
+	border-color: #069;
+}
+
+.caution {
+	border-color: #c60;
+}
+
+.warning {
+	border-color: #900;
+}
+

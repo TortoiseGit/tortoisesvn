@@ -858,7 +858,7 @@ svn+ssh://localhost/repos/TestRepo
 			<title>Creating The Repository With TortoiseSVN</title>
 			<figure id="tsvn-serversetup-local-dia-1">
 				<title>The TortoiseSVN menu for unversioned folders</title>
-				<graphic fileref="ContextMenuDirNoControl.png"/>
+				<graphic fileref="images/ContextMenuDirNoControl.png"/>
 			</figure>
 			<orderedlist>
 				<listitem>
@@ -890,7 +890,7 @@ svn+ssh://localhost/repos/TestRepo
 			Do not access a repository via the <filename>file:///</filename>
 			URL over a shared network drive! Even if you have the network
 			drive mounted to a drive letter! If you do, your repository can
-			(and most likely will) get corrupted and you would lose all your
+			(and most likely will) get corrupted and you could lose all your
 			data! 
 			</para>
 			</caution>
