@@ -519,7 +519,7 @@ BEGIN
     LTEXT           "Diff &Viewer:",IDC_STATIC,7,48,66,8
     EDITTEXT        IDC_DIFFVIEWER,80,45,151,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,242,45,51,14
-    LTEXT           "To use the default viewer (TortoiseMerge) leave the paths empty",
+    LTEXT           "To use the default viewer (TortoiseMerge) leave the paths empty or put a comment sign (#) as the first char.",
                     IDC_STATIC,7,78,286,48
 END
 

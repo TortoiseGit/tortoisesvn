@@ -3,6 +3,11 @@
        full path. (Stefan)
 - ADD: New context menu to open files with the
        default application in the commit dialog. (Stefan)
+- ADD: By placing a '#' in front of the paths for the
+       external diff/merge programs make TSVN use
+       it's own program TortoiseMerge. This helps
+       users who want to switch easily between
+       two different programs. (Stefan)
 - BUG: Log messages could be shown with an additional
        empty line between the normal lines. (Stefan)
 - BUG: The filepaths in the log messages were

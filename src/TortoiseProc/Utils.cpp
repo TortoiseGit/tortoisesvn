@@ -46,7 +46,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
 	com = regCom;
 	
-	if (com.IsEmpty())
+	if (com.IsEmpty()||(com.Left(1).Compare(_T("#"))==0))
 	{
 		// use TortoiseMerge
 		CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
@@ -129,7 +129,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
 			ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
 			viewer = buf;
 		} // if (viewer.IsEmpty())
-		if (viewer.IsEmpty() && !dir.IsEmpty())
+		if (viewer.IsEmpty() && !dir.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
 		{
 			// use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
@@ -157,7 +157,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
 		// not a unified diff
 		CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
 		viewer = diffexe;
-		if (viewer.IsEmpty())
+		if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
 		{
 			//no registry entry for a diff program
 			//use TortoiseMerge
