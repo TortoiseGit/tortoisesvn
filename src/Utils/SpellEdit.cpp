@@ -49,7 +49,7 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 		SIZE sizei, sizeo;
 		GetTextExtentPoint32(dc, _T("i"), 1, &sizei);
 		GetTextExtentPoint32(dc, _T("O"), 1, &sizeo);
-		if (sizei.cx == sizeo.cx)
+		if ((sizei.cx == sizeo.cx)&&(m_nMarginLine > 0))
 		{
 			CPen margpen(PS_SOLID, 0, ::GetSysColor(COLOR_GRAYTEXT));
 			pOldPen = dc.SelectObject( &margpen );
