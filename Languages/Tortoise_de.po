@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-09-06 13:33+0100\n"
+"PO-Revision-Date: 2004-09-08 09:18+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -543,6 +543,14 @@ msgstr "Hinzugefügt"
 msgid "Added a file remotely"
 msgstr "Datei im Projektarchiv hinzugefügt"
 
+#: ID:145
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr ""
+"Die Datei(en)\n"
+"%s  wurden zur 'Ignorieren' Liste hinzugefügt."
+
 #: ID:9
 msgid "Adds file(s) to Subversion control"
 msgstr "Fügt Datei(en) zur Versionskontrolle hinzu"
@@ -954,6 +962,10 @@ msgstr "Farben"
 #: ID:3857
 msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
+
+#: Control-ID:1125
+msgid "Comment History:"
+msgstr "Kommentarhistorie:"
 
 #: Control-ID:1110
 msgid "Commit to:"
@@ -1525,6 +1537,10 @@ msgstr "Hole Datei: %s"
 #: ID:132
 msgid "Getting file info..."
 msgstr "Hole Dateiinformation..."
+
+#: ID:132
+msgid "Getting log info..."
+msgstr "Hole Log-Information..."
 
 #: ID:2049
 msgid ""
@@ -3083,6 +3099,11 @@ msgstr "URL:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "Lupe auf Positionsleiste anzeigen"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "Betrachte Annotierungen im Texteditor"
+
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
 msgstr "Benutze \"Von\" URL"
@@ -3096,28 +3117,28 @@ msgid "Use strikeout for deleted lines"
 msgstr "Gelöschte Zeilen durchstreichen"
 
 #: ID:251
-msgid "Use text block from \"theirs\""
-msgstr "Verwende den Textblock von \"theirs\""
+msgid "Use text block from \"&theirs\""
+msgstr "Verwende \"&Anderen\" Textblock"
 
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Verwende Textblock aus \"theirs\" vor \"yours\""
+msgid "Use text block from \"&yours\""
+msgstr "Verwende \"&Eigenen\" Textblock"
 
 #: ID:251
-msgid "Use text block from \"yours\""
-msgstr "Verwende den Textblock von \"yours\""
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "Verwende \"A&nderen\" Textblock vor \"Eigenen\""
 
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Verwende Textblock aus \"yours\" vor \"theirs\""
+msgid "Use text block from \"y&ours\" before \"theirs\""
+msgstr "Verwende \"E&igenen\" Textblock vor \"Anderen\""
+
+#: ID:251
+msgid "Use th&is text block"
+msgstr "Verwende &diesen Textblock"
 
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "URL der Arbeitskopie an geänderte URL des Projektarchivs anpassen."
-
-#: ID:251
-msgid "Use this text block"
-msgstr "Verwende diesen Textblock"
 
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-07 09:11+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2004-09-07 22:48+0100\n"
+"Last-Translator: Yves Reynhout <yreynhout@skynet.be>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -140,7 +140,7 @@ msgstr "&CD-ROM"
 
 #: Control-ID:2
 msgid "&Cancel"
-msgstr "Annuleren"
+msgstr "Ann&uleren"
 
 #: Control-ID:1074
 msgid "&Checkout directory:"
@@ -579,6 +579,13 @@ msgstr "Toegevoegd"
 msgid "Added a file remotely"
 msgstr "Bestand op afstand toegevoegd"
 
+#: ID:145
+#, fuzzy
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr "Voegt geselecteerde bestand(en) toe aan de negeerlijst"
+
 #: ID:9
 msgid "Adds file(s) to Subversion control"
 msgstr "Brengt bestand(en) onder beheer van Subversion"
@@ -777,23 +784,23 @@ msgstr "&Bladeren..."
 
 #: Dlg-ID:142
 msgid "Branch / Tag"
-msgstr "Tak/label"
+msgstr "Tak / Label"
 
 #: ID:115
 msgid "Branch / Tag created successfully!"
-msgstr "Tak/label succesvol gemaakt!"
+msgstr "Tak / Label succesvol gemaakt!"
 
 #: ID:9
 msgid "Branch/Tag..."
-msgstr "Maak tak/label..."
+msgstr "Maak Tak/Label..."
 
 #: Control-ID:1009
 msgid "Bro&wse..."
-msgstr "&Bladeren..."
+msgstr "Bla&deren..."
 
 #: Control-ID:1007
 msgid "Brows&e..."
-msgstr "&Bladeren..."
+msgstr "Blad&eren..."
 
 #: ID:78
 msgid "Browse for the external diff program"
@@ -899,7 +906,7 @@ msgstr "Kijk of er updates zijn"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Check for newer &versions"
-msgstr "Controleer op nieuwere versie"
+msgstr "Controleer op nieuwere &versie"
 
 #: ID:79
 msgid ""
@@ -992,6 +999,11 @@ msgstr "Kleuren"
 #: ID:3857
 msgid "Command failed."
 msgstr "Opdracht mislukt."
+
+#: Control-ID:1125
+#, fuzzy
+msgid "Comment History:"
+msgstr "Vastleggen in:"
 
 #: Control-ID:1110
 msgid "Commit to:"
@@ -1567,6 +1579,11 @@ msgstr "Bestand %s ophalen"
 
 #: ID:132
 msgid "Getting file info..."
+msgstr "Bestandsinformatie verzamelen..."
+
+#: ID:132
+#, fuzzy
+msgid "Getting log info..."
 msgstr "Bestandsinformatie verzamelen..."
 
 #: ID:2049
@@ -3165,6 +3182,11 @@ msgstr "URL:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "Toon vergrootglas op Zoekwerkbalk"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "Gebruik tekst editor om blames te bekijken"
+
 #: Control-ID:1073
 #, fuzzy
 msgid "Use \"From:\" URL"
@@ -3179,28 +3201,33 @@ msgid "Use strikeout for deleted lines"
 msgstr "Gebruik doorhalen voor verwijderde regels"
 
 #: ID:251
-msgid "Use text block from \"theirs\""
+#, fuzzy
+msgid "Use text block from \"&theirs\""
 msgstr "Gebruik tekstgedeelte van 'hun'"
 
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Gebruik tekstgedeelte van 'hun' voor dat van 'jouw'"
-
-#: ID:251
-msgid "Use text block from \"yours\""
+#, fuzzy
+msgid "Use text block from \"&yours\""
 msgstr "Gebruik tekstgedeelte van 'jouw'"
 
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
+#, fuzzy
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "Gebruik tekstgedeelte van 'hun' voor dat van 'jouw'"
+
+#: ID:251
+#, fuzzy
+msgid "Use text block from \"y&ours\" before \"theirs\""
 msgstr "Gebruik tekstgedeelte van 'jouw' voor dat van 'hun'"
+
+#: ID:251
+#, fuzzy
+msgid "Use th&is text block"
+msgstr "Gebruik dit tekstgedeelte"
 
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Gebruik deze URL als de bibliotheek is gewijzigd"
-
-#: ID:251
-msgid "Use this text block"
-msgstr "Gebruik dit tekstgedeelte"
 
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
@@ -3571,4 +3598,5 @@ msgstr "uw versie is:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "uw versie is: %d.%d.%d.%d."
+
 
