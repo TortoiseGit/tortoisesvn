@@ -24,7 +24,7 @@ ProjectProperties::ProjectProperties(void)
 {
 	bNumber = TRUE;
 	bWarnIfNoIssue = FALSE;
-	nLogWidthMarker = 80;
+	nLogWidthMarker = 0;
 	nMinLogSize = 0;
 }
 

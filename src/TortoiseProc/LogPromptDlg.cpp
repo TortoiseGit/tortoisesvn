@@ -179,7 +179,11 @@ BOOL CLogPromptDlg::OnInitDialog()
 			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
-	m_LogMessage.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
+	if (m_ProjectProperties.nLogWidthMarker)
+	{
+		m_LogMessage.WordWrap(FALSE);
+		m_LogMessage.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
+	}
 	m_LogMessage.SetWindowText(m_ProjectProperties.sLogTemplate);
 	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
 	
