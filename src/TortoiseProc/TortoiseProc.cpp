@@ -767,6 +767,17 @@ BOOL CTortoiseProcApp::InitInstance()
 				temp.Format(IDS_PROC_MOVINGPROG, strLine);
 				CString temp2;
 				temp2.Format(IDS_PROC_CPYMVPROG2, droppath+_T("\\")+name);
+				if (strLine.CompareNoCase(droppath+_T("\\")+name)==0)
+				{
+					progress.Stop();
+					CRenameDlg dlg;
+					dlg.m_windowtitle.Format(IDS_PROC_RENAME, name);
+					if (dlg.DoModal() != IDOK)
+					{
+						return FALSE;
+					}
+					name = dlg.m_name;
+				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
 				if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE))
 				{
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
