@@ -16,9 +16,9 @@
 #define IDD_ABOUT                       136
 #define IDR_DOWNLOAD                    136
 #define IDD_LINEDIFF                    137
-#define IDD_SETCOLORPAGE                137
 #define IDB_BITMAP1                     137
 #define IDB_TTF_BMP                     137
+#define IDD_SETCOLORPAGE                138
 #define IDB_LOGOFLIPPED                 168
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
@@ -146,7 +146,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        138
+#define _APS_NEXT_RESOURCE_VALUE        139
 #define _APS_NEXT_COMMAND_VALUE         32784
 #define _APS_NEXT_CONTROL_VALUE         1066
 #define _APS_NEXT_SYMED_VALUE           101
