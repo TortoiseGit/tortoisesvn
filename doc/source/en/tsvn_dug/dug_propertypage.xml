@@ -85,6 +85,23 @@
 					<literal>yes</literal>. 
 				</para>
 			</listitem>
+			<listitem>
+				<para>
+					TortoiseSVN can use spell checker modules which are also
+					used by OpenOffice and Mozilla. If you have those installed
+					this property will determine which spell checker to use, i.e.
+					in which language the log messages for your project should
+					be made in.
+					<literal>tsvn:projectlanguage</literal> sets the language
+					module the spell checking engine should use when you enter
+					a log message. You can find the values for your language
+					on this page:
+					<ulink url="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_238z.asp">
+						<citetitle>MSDN: Language Identifiers</citetitle>
+					</ulink>
+					<literal>yes</literal>. 
+				</para>
+			</listitem>
 		</itemizedlist>
 	</para>
 	<important>

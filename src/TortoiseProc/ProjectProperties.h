@@ -29,6 +29,7 @@
 #define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
 #define PROJECTPROPNAME_LOGMINSIZE		  _T("tsvn:logminsize")
 #define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
+#define PROJECTPROPNAME_PROJECTLANGUAGE   _T("tsvn:projectlanguage")
 
 class CTSVNPathList;
 
@@ -88,42 +89,45 @@ public:
 	CString GetBugIDUrl(const CString& msg);
 
 public:
-	/* The label to show in the commit dialog where the issue number/bug id
+	/** The label to show in the commit dialog where the issue number/bug id
 	 * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
 	CString		sLabel;
 
-	/* The message string to add below the log message the user entered.
+	/** The message string to add below the log message the user entered.
 	 * It must contain the string "%BUGID%" which gets replaced by the client 
 	 * with the issue number / bug id the user entered. */
 	CString		sMessage;
 
-	/* If this is set, then the bug-id / issue number must be a number, no text */
+	/** If this is set, then the bug-id / issue number must be a number, no text */
 	BOOL		bNumber;
 
-	/* The url pointing to the issue tracker. If the url contains the string
+	/** The url pointing to the issue tracker. If the url contains the string
 	 * "%BUGID% the client has to replace it with the issue number / bug id
 	 * the user entered. */
 	CString		sUrl;
 	
-	/* If set to TRUE, show a warning dialog if the user forgot to enter
+	/** If set to TRUE, show a warning dialog if the user forgot to enter
 	 * an issue number in the commit dialog. */
 	BOOL		bWarnIfNoIssue;
 
-	/* If set to FALSE, then the bugtracking entry is inserted at the top of the
+	/** If set to FALSE, then the bugtracking entry is inserted at the top of the
 	   log message instead of at the bottom. Default is TRUE */
 	BOOL		bAppend;
 
-	/* The number of chars the width marker should be shown at. If the property
+	/** The number of chars the width marker should be shown at. If the property
 	 * is not set, then this value is 80 by default. */
 	int			nLogWidthMarker;
 
-	/* The template to use for log messages. */
+	/** The template to use for log messages. */
 	CString		sLogTemplate;
 
-	/* Minimum size a log message must have in chars */
+	/** Minimum size a log message must have in chars */
 	int			nMinLogSize;
 
-	/* TRUE if the file list to be inserted in the commit dialog should be in
+	/** TRUE if the file list to be inserted in the commit dialog should be in
 	 * english and not in the localized language. Default is TRUE */
 	BOOL		bFileListInEnglish;
+	
+	/** The language identifier this project uses for log messages. */
+	LONG		lProjectLanguage;
 };

@@ -77,9 +77,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	m_cLogMessage.Init();
-	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
-
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
 
@@ -93,6 +90,9 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
+	m_cLogMessage.Init(m_ProjectProperties.lProjectLanguage);
+	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+
 
 	m_tooltips.Create(this);
 	m_SelectAll.SetCheck(BST_INDETERMINATE);

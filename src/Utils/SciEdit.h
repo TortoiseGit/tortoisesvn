@@ -76,7 +76,7 @@ public:
 	 * Initialize the scintilla control. Must be called prior to any other
 	 * method!
 	 */
-	void		Init();
+	void		Init(LONG lLanguage = 0);
 	/**
 	 * Execute a scintilla command, e.g. SCI_GETLINE.
 	 */
@@ -117,6 +117,7 @@ protected:
 	void		CheckSpelling(void);
 	void		SuggestSpellingAlternatives(void);
 	void		DoAutoCompletion(void);
+	BOOL		LoadDictionaries(LONG lLanguageID);
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	DECLARE_MESSAGE_MAP()

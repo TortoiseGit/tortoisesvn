@@ -31,6 +31,7 @@ ProjectProperties::ProjectProperties(void)
 	nMinLogSize = 0;
 	bFileListInEnglish = TRUE;
 	bAppend = TRUE;
+	lProjectLanguage = 0;
 }
 
 ProjectProperties::~ProjectProperties(void)
@@ -62,6 +63,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 	BOOL bFoundLogTemplate = FALSE;
 	BOOL bFoundMinLogSize = FALSE;
 	BOOL bFoundFileListEnglish = FALSE;
+	BOOL bFoundProjectLanguage = FALSE;
 	path.Replace('/', '\\');
 	if (!PathIsDirectory(path))
 	{
@@ -195,6 +197,20 @@ BOOL ProjectProperties::ReadProps(CString path)
 				else
 					bFileListInEnglish = FALSE;
 				bFoundFileListEnglish = TRUE;
+			}
+			if ((!bFoundProjectLanguage)&&(sPropName.Compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0))
+			{
+				CString val;
+#ifdef UNICODE
+				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				val = sPropVal.c_str();
+#endif
+				if (!val.IsEmpty())
+				{
+					lProjectLanguage = _ttol(val);
+				}
+				bFoundProjectLanguage = TRUE;
 			}
 		}
 		if (PathIsRoot(path))

@@ -67,9 +67,6 @@ BOOL CCopyDlg::OnInitDialog()
 {
 	CStandAloneDialog::OnInitDialog();
 
-	m_cLogMessage.Init();
-	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
-
 	CTSVNPath path(m_path);
 
 	m_bFile = !path.IsDirectory();
@@ -93,6 +90,8 @@ BOOL CCopyDlg::OnInitDialog()
 	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 
 	m_ProjectProperties.ReadProps(m_path);
+	m_cLogMessage.Init(m_ProjectProperties.lProjectLanguage);
+	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 	if (m_ProjectProperties.sMessage.IsEmpty())
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
