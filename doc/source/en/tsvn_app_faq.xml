@@ -295,18 +295,11 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			</para>
 			<para>
 				To install the icons you should copy them to the 
-				directory where TortoiseSVN was installed. There you 
-				can either replace the existing icons or give them 
-				new names. If you choose not to overwrite the original 
-				ones then you also need to tweak some registry settings. 
-				Under <filename>HKCU\Software\TortoiseSVN\</filename>
-				create (or change) the keys
-				<literal>ConflictIcon</literal>,
-				<literal>InSubversionIcon</literal>,
-				<literal>AddedIcon</literal>,
-				<literal>DeletedIcon</literal> and
-				<literal>ModifiedIcon</literal> 
-				to the path and names of your own icon set.
+				directory where TortoiseSVN was installed. There you will
+				find a directory called <filename>Icons</filename> which contains
+				a separate subfolder for each available icon set. Copy your own
+				icon set in there. Then start the settings dialog, and set the
+				active icon set to the one you created.
 			</para>
 			<para>
 				After that you need to restart (or logoff) your computer 

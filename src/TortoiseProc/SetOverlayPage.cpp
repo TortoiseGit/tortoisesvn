@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetOverlayPage.h"
+#include "SetOverlayIcons.h"
 #include "Globals.h"
 #include ".\setoverlaypage.h"
 
@@ -105,6 +106,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnEnChangeExcludepaths)
 	ON_EN_CHANGE(IDC_INCLUDEPATHS, OnEnChangeIncludepaths)
 	ON_BN_CLICKED(IDC_SHOWFOLDERSTATUS, OnBnClickedShowfolderstatus)
+	ON_BN_CLICKED(IDC_SELECTOVERLAYSET, OnBnClickedSelectoverlayset)
 END_MESSAGE_MAP()
 
 
@@ -327,4 +329,10 @@ void CSetOverlayPage::OnEnChangeIncludepaths()
 void CSetOverlayPage::OnBnClickedShowfolderstatus()
 {
 	SetModified();
+}
+
+void CSetOverlayPage::OnBnClickedSelectoverlayset()
+{
+	CSetOverlayIcons dlg;
+	dlg.DoModal();
 }

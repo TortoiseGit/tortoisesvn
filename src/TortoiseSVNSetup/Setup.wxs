@@ -105,14 +105,14 @@
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\_TortoiseSVN4" Value="{C035134B-7B7D-4fcc-81B4-1E394CA267EB}" Id="_BE50C516B3444976864879716C66A602" Type="string" />
 		</Component>
 		<Component Id="C__machineregistry" Guid="4913F361-DE93-490c-81D0-1FB002EBF141" >
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\TortoiseAdded.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\TortoiseDeleted.ico" Id="_06060DF88EA34CAB9BECB0F277B7D7C6" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseAdded.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseDeleted.ico" Id="_06060DF88EA34CAB9BECB0F277B7D7C6" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_144EF42CC6B14DC8A344CD7656CE7B17" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\TortoiseInSubversion.ico" Id="_19FFFCD9435246F78F7F76A285870C72" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseInSubversion.ico" Id="_19FFFCD9435246F78F7F76A285870C72" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]bin\TortoiseMerge.exe" Id="_7ABD6ED2AA3E4F869231418117F668E2" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\TortoiseModified.ico" Id="_B2E8ECE44B6747A384B8D7B4E567DFED" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseModified.ico" Id="_B2E8ECE44B6747A384B8D7B4E567DFED" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[TARGETDIR]" Id="_DA13C02D9F0545A19698C64A47B57F5A" Type="string" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[TARGETDIR]icons\TortoiseConflict.ico" Id="_EDA19D325D75468D81C6144482C53F02" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseConflict.ico" Id="_EDA19D325D75468D81C6144482C53F02" Type="string" />
 		</Component>
 		<Component Id="C__approveshellcomponents" Guid="A5B89BEC-D213-461d-AACD-8F46477E87D0" >
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{C0351348-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" KeyPath="yes" Id="_1D2348740FDB4E30A124BDDE44B50D1F" Type="string" />
@@ -419,13 +419,60 @@
       </Component>
 
       <Directory Id="D__icons" Name="ICONS" LongName="icons" >
-        <Component Id="C__icons" Guid="79533430-13EE-4eea-BE0F-D0A4C63C144B" >
-          <File Id="F__ConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseConflict.ico" KeyPath="yes" />
-          <File Id="F__InSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseInSubversion.ico" />
-          <File Id="F__ModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseModified.ico" />
-          <File Id="F__AddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseAdded.ico" />
-          <File Id="F__DeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseDeleted.ico" />
-        </Component>
+		<Directory Id="D__iconsclassic" Name="Classic" >
+			<Component Id="C__iconsclassic" Guid="CC0571DE-4A6D-4041-912B-C470EF40114A" >
+				<File Id="F__ClassicConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseConflict.ico" KeyPath="yes" />
+				<File Id="F__ClassicInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseInSubversion.ico" />
+				<File Id="F__ClassicModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseModified.ico" />
+				<File Id="F__ClassicAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseAdded.ico" />
+				<File Id="F__ClassicDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseDeleted.ico" />
+			</Component>
+		</Directory>
+		<Directory Id="D__iconsmodern" Name="Modern" >
+			<Component Id="C__iconsmodern" Guid="09F2C74B-E4DF-428b-8366-7C0346F7309C" >
+				<File Id="F__ModernConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseConflict.ico" KeyPath="yes" />
+				<File Id="F__ModernInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseInSubversion.ico" />
+				<File Id="F__ModernModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseModified.ico" />
+				<File Id="F__ModernAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseAdded.ico" />
+				<File Id="F__ModernDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseDeleted.ico" />
+			</Component>
+		</Directory>
+		<Directory Id="D__iconsryanharris" Name="RYANHA~1" LongName="RyanHarris" >
+			<Component Id="C__iconsryanharris" Guid="4E255478-AFA9-4f06-9682-CEA3B0B4B56E" >
+				<File Id="F__RyanHarrisConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseConflict.ico" KeyPath="yes" />
+				<File Id="F__RyanHarrisInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseInSubversion.ico" />
+				<File Id="F__RyanHarrisModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseModified.ico" />
+				<File Id="F__RyanHarrisAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseAdded.ico" />
+				<File Id="F__RyanHarrisDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\RyanHarris\TortoiseDeleted.ico" />
+			</Component>
+		</Directory>
+		<Directory Id="D__iconsxpstyle" Name="XPStyle" >
+			<Component Id="C__iconsxpstyle" Guid="BEF69706-378E-4ee3-960A-617C2A2C769D" >
+				<File Id="F__XPStyleConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseConflict.ico" KeyPath="yes" />
+				<File Id="F__XPStyleInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseInSubversion.ico" />
+				<File Id="F__XPStyleModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseModified.ico" />
+				<File Id="F__XPStyleAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseAdded.ico" />
+				<File Id="F__XPStyleDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseDeleted.ico" />
+			</Component>
+		</Directory>
+		<Directory Id="D__iconsmarkphippard" Name="MARKPH~1" LongName="Mark Phippard" >
+			<Component Id="C__iconsmarkphippard" Guid="F79F394A-EFF0-47af-B5DD-BCBE24A2E321" >
+				<File Id="F__MarkPhippardConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Mark Phippard\TortoiseConflict.ico" KeyPath="yes" />
+				<File Id="F__MarkPhippardInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Mark Phippard\TortoiseInSubversion.ico" />
+				<File Id="F__MarkPhippardModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Mark Phippard\TortoiseModified.ico" />
+				<File Id="F__MarkPhippardAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Mark Phippard\TortoiseAdded.ico" />
+				<File Id="F__MarkPhippardDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Mark Phippard\TortoiseDeleted.ico" />
+			</Component>
+		</Directory>
+		<Directory Id="D__iconsstraight" Name="Straight" >
+			<Component Id="C__iconsstraight" Guid="5CF62B63-1159-4626-A449-8486104D33AB" >
+				<File Id="F__StraightConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseConflict.ico" KeyPath="yes" />
+				<File Id="F__StraightInSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseInSubversion.ico" />
+				<File Id="F__StraightModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseModified.ico" />
+				<File Id="F__StraightAddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseAdded.ico" />
+				<File Id="F__StraightDeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseDeleted.ico" />
+			</Component>
+		</Directory>
       </Directory>
 
     </Directory>
@@ -440,7 +487,12 @@
       <ComponentRef Id="C__TortoiseMerge" />
       <ComponentRef Id="C__CRuntimeSTLMFC" />
       <ComponentRef Id="C__iconv" />
-      <ComponentRef Id="C__icons" />
+      <ComponentRef Id="C__iconsclassic" />
+      <ComponentRef Id="C__iconsmodern" />
+      <ComponentRef Id="C__iconsryanharris" />
+      <ComponentRef Id="C__iconsxpstyle" />
+      <ComponentRef Id="C__iconsmarkphippard" />
+      <ComponentRef Id="C__iconsstraight" />
       <ComponentRef Id="C__WebsiteLink" />
       <ComponentRef Id="C__shellregistry" />
       <ComponentRef Id="C__machineregistry" />

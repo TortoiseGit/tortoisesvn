@@ -419,7 +419,7 @@ BEGIN
     CONTROL         "&Recurse into folders to fetch the status",
                     IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,
                     20,274,10
-    CONTROL         "&Removable drives",IDC_REMOVABLE,"Button",
+    CONTROL         "Re&movable drives",IDC_REMOVABLE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,18,62,130,10
     CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,18,72,130,10
@@ -433,7 +433,7 @@ BEGIN
     CONTROL         "&Unknown drives",IDC_UNKNOWN,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,166,82,118,10
     CONTROL         "Show &overlays only in explorer",IDC_ONLYEXPLORER,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,42,274,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,42,154,10
     GROUPBOX        "Icon Overlays / Status Columns",IDC_STATIC,7,7,286,147
     GROUPBOX        "Context Menu",IDC_STATIC,7,156,286,54
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
@@ -448,7 +448,8 @@ BEGIN
                     ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
                     WS_VSCROLL
     CONTROL         "Show folderstatus",IDC_SHOWFOLDERSTATUS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,12,31,274,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,31,154,10
+    PUSHBUTTON      "&Select Overlay Set",IDC_SELECTOVERLAYSET,180,38,106,14
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 217
@@ -807,6 +808,27 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
 END
 
+IDD_OVERLAYICONS DIALOGEX 0, 0, 271, 196
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Icon Set:",IDC_ICONSETLABEL,7,9,77,8
+    CONTROL         "",IDC_ICONLIST,"SysListView32",LVS_LIST | 
+                    LVS_SORTASCENDING | LVS_AUTOARRANGE | LVS_ALIGNLEFT | 
+                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,28,257,120
+    CONTROL         "List View",IDC_LISTRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,7,156,103,10
+    CONTROL         "Symbol View",IDC_SYMBOLRADIO,"Button",
+                    BS_AUTORADIOBUTTON,117,156,147,10
+    DEFPUSHBUTTON   "&OK",IDOK,96,175,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,155,175,50,14
+    PUSHBUTTON      "&Help",IDHELP,214,175,50,14
+    COMBOBOX        IDC_ICONSETCOMBO,106,7,158,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1159,6 +1181,15 @@ BEGIN
         RIGHTMARGIN, 244
         TOPMARGIN, 7
         BOTTOMMARGIN, 214
+    END
+
+    IDD_OVERLAYICONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        VERTGUIDE, 117
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -1614,6 +1645,8 @@ BEGIN
                             "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
     IDS_SETTINGS_SHELLFORCEREFRESH_TT 
                             "When checked, forces a refresh of the shell overlay icons after each operation.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
+    IDS_SETTINGS_ICONSETCHANGED 
+                            "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 END
 
 STRINGTABLE 

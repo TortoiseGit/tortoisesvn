@@ -205,6 +205,7 @@
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-overlay">
 		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+		<?dbhh topicname="HIDD_OVERLAYICONS"?>
 		<title>The Settings Dialog, Look and Feel Tab</title>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-2">
@@ -216,6 +217,12 @@
 			slow (explorer is not responsive), uncheck the
 			"Recurse into folders to fetch the status" box.
 			You can even disable all icon overlays, but where's the fun in that?
+		</para>
+		<para>
+			You can also change the overlay icon set by clicking on 
+			<guibutton>Select Overlay Set</guibutton>. Note that if you change 
+			overlay set, you have to restart your computer for the changes
+			to take effect.
 		</para>
 		<para>
 			The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which

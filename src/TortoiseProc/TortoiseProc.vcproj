@@ -203,6 +203,9 @@
 		<Filter
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc">
+			<File
+				RelativePath=".\resource.hm">
+			</File>
 			<Filter
 				Name="General"
 				Filter="">
@@ -1023,6 +1026,12 @@
 					RelativePath="SetMainPage.h">
 				</File>
 				<File
+					RelativePath=".\SetOverlayIcons.cpp">
+				</File>
+				<File
+					RelativePath=".\SetOverlayIcons.h">
+				</File>
+				<File
 					RelativePath="SetOverlayPage.cpp">
 				</File>
 				<File
@@ -1324,6 +1333,6 @@
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc"/>
+			Value="\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc"/>
 	</Globals>
 </VisualStudioProject>

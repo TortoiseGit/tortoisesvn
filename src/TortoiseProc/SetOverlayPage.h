@@ -120,4 +120,5 @@ public:
 	afx_msg void OnEnChangeExcludepaths();
 	afx_msg void OnEnChangeIncludepaths();
 	afx_msg void OnBnClickedShowfolderstatus();
+	afx_msg void OnBnClickedSelectoverlayset();
 };

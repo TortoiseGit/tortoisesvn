@@ -181,6 +181,7 @@
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-overlay">
 		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+		<?dbhh topicname="HIDD_OVERLAYICONS"?>
 		<title>Der Einstellungsdialog, Look And Feel Seite</title>
 		<para>
 			<figure id="tsvn-DUG-settings-dia-2">
@@ -191,6 +192,13 @@
 			sollen. Für den Fall, dass der Explorer zu langsam reagiert 
 			deaktivieren Sie die Einstellung <literal>Zeige veränderte Ordner</literal>.
 			Sie können auch alle überlagerten Icons deaktivieren, aber wo liegt der Spaß darin?
+		</para>
+		<para>
+			Sie können hier auch andere überlagerte Icons auswählen. Klicken Sie
+			auf <guibutton>Wähle Overlay Set</guibutton> und wählen Sie das
+			Set aus, das Ihnen am besten gefällt. Beachten Sie dass wenn Sie
+			das Set ändern, dieses erst nach einem Neustart des Computers
+			vom Explorer übernommen wird.
 		</para>
 		<para>
 			Die <guilabel>Ausschluss Pfade</guilabel> sagen TortoiseSVN für welche

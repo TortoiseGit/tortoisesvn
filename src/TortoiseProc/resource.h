@@ -48,6 +48,7 @@
 #define IDD_PATCH_FILE_OPEN_CUSTOM      180
 #define IDD_REVISIONGRAPH               182
 #define IDR_REVISIONGRAPH               183
+#define IDD_OVERLAYICONS                184
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -187,6 +188,7 @@
 #define IDC_NOCLOSEONRED                1123
 #define IDC_COMBOBOXEX1                 1124
 #define IDC_OLDLOGS                     1124
+#define IDC_ICONSETCOMBO                1124
 #define IDC_CHIST                       1125
 #define IDC_CHECK1                      1126
 #define IDC_TEXTBLAME                   1126
@@ -199,6 +201,7 @@
 #define IDC_STATBUTTON                  1132
 #define IDC_PATCH_TO_CLIPBOARD          1132
 #define IDC_CHECKREPO                   1132
+#define IDC_SELECTOVERLAYSET            1132
 #define IDC_GRAPHCOMBO                  1133
 #define IDC_GRAPHTYPELABEL              1134
 #define IDC_COMMITSEACHWEEK             1135
@@ -250,9 +253,13 @@
 #define IDS_SVNACTION_UPDATE            1169
 #define IDC_SHOWFOLDERSTATUS            1169
 #define IDS_SVNACTION_COMPLETED         1170
+#define IDC_ICONSETLABEL                1170
 #define IDS_SVNACTION_EXTERNAL          1171
+#define IDC_ICONLIST                    1171
 #define IDS_SVNACTION_MODIFIED          1172
+#define IDC_LISTRADIO                   1172
 #define IDS_SVNACTION_REPLACED          1173
+#define IDC_SYMBOLRADIO                 1173
 #define IDS_SVNACTION_POSTFIX           1174
 #define IDS_SVNACTION_FAILEDREVERT      1175
 #define IDS_SVNACTION_STATUS            1176
@@ -459,6 +466,7 @@
 #define IDS_SETTINGS_CLEARAUTH_TT       3105
 #define IDS_SETTINGS_COMMITFILETIMES_TT 3106
 #define IDS_SETTINGS_SHELLFORCEREFRESH_TT 3107
+#define IDS_SETTINGS_ICONSETCHANGED     3108
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202
@@ -514,9 +522,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        184
+#define _APS_NEXT_RESOURCE_VALUE        185
 #define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1170
+#define _APS_NEXT_CONTROL_VALUE         1175
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -108,7 +108,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 #endif		
     else
         return S_FALSE;
-
+	ATLTRACE2(_T("Icon loaded : %s\n"), icon.c_str());
     *pIndex = 0;
     *pdwFlags = ISIOI_ICONFILE;
     return S_OK;

@@ -120,7 +120,7 @@ msgstr ""
 msgid "&CD-ROM"
 msgstr ""
 
-#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 msgid "&Head Revision"
 msgstr ""
 
-#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:57670,#: Control-ID:57670,#: MenuEntry
+#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:57670,#: Control-ID:57670,#: MenuEntry
 msgid "&Help"
 msgstr ""
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "&Next Difference"
 msgstr ""
 
-#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr ""
 
@@ -246,10 +246,6 @@ msgstr ""
 
 #: Control-ID:1023,
 msgid "&Recurse into folders to fetch the status"
-msgstr ""
-
-#: Control-ID:1048,
-msgid "&Removable drives"
 msgstr ""
 
 #: Control-ID:1013,#: Control-ID:1100,
@@ -282,6 +278,10 @@ msgstr ""
 
 #: Control-ID:1023,
 msgid "&Save authentication"
+msgstr ""
+
+#: Control-ID:1132,
+msgid "&Select Overlay Set"
 msgstr ""
 
 #: Control-ID:1012,
@@ -456,7 +456,7 @@ msgstr ""
 msgid "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 
-#: ID:8,#: Dlg-ID:155,
+#: ID:8,#: ID:209,#: Dlg-ID:155,
 msgid "Add"
 msgstr ""
 
@@ -1108,6 +1108,10 @@ msgstr ""
 msgid "Destination disk drive is full."
 msgstr ""
 
+#: Dlg-ID:184,
+msgid "Dialog"
+msgstr ""
+
 #: ID:12,
 msgid "Diff"
 msgstr ""
@@ -1348,7 +1352,7 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: Dlg-ID:135,
+#: ID:376,#: Dlg-ID:135,
 msgid "File Patches"
 msgstr ""
 
@@ -1446,6 +1450,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Icon Overlays / Status Columns"
+msgstr ""
+
+#: Control-ID:1170,
+msgid "Icon Set:"
 msgstr ""
 
 #: Control-ID:65535,#: Control-ID:65535,
@@ -1574,6 +1582,10 @@ msgstr ""
 
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
+msgstr ""
+
+#: Control-ID:1172,
+msgid "List View"
 msgstr ""
 
 #: ID:63,
@@ -1730,6 +1742,10 @@ msgstr ""
 
 #: ID:77,
 msgid "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here..."
+msgstr ""
+
+#: ID:170,
+msgid "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
 msgstr ""
 
 #: Control-ID:65535,
@@ -1962,6 +1978,10 @@ msgstr ""
 
 #: ID:3697,
 msgid "REC"
+msgstr ""
+
+#: Control-ID:1048,
+msgid "Re&movable drives"
 msgstr ""
 
 #: ID:12,
@@ -2516,6 +2536,10 @@ msgstr ""
 msgid "Switch..."
 msgstr ""
 
+#: Control-ID:1173,
+msgid "Symbol View"
+msgstr ""
+
 #: ID:3857,#: ID:3857,
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr ""
@@ -2598,6 +2622,10 @@ msgstr ""
 
 #: ID:64,
 msgid "The patch seems outdated! The file line\n%s\nand the patchline\n%s\ndo not match!"
+msgstr ""
+
+#: ID:314,
+msgid "The path\n<i>%s</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%s</i>\nmatches it better. Do you want to use the suggested path instead?"
 msgstr ""
 
 #: ID:78,
@@ -2942,6 +2970,10 @@ msgstr ""
 
 #: ID:77,
 msgid "You selected an unversioned file.\nThe file will be added to version control when you commit."
+msgstr ""
+
+#: ID:195,
+msgid "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
 
 #: Control-ID:65535,
