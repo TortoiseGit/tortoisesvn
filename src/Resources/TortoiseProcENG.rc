@@ -121,8 +121,8 @@ CAPTION "Changed Files"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_CHANGEDLIST,"SysListView32",LVS_REPORT | 
-                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,7,7,394,171
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
+                    WS_TABSTOP,7,7,394,171
     DEFPUSHBUTTON   "&OK",IDOK,351,185,50,14
     LTEXT           "",IDC_SUMMARYTEXT,7,184,333,8
 END
