@@ -447,6 +447,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				} // if (!PathIsDirectory(m_path))
 				else
 				{
+					temp.LoadString(IDS_LOG_BROWSEREPO);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
 					temp.LoadString(IDS_LOG_POPUP_COPY);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
 				}
@@ -685,6 +687,33 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						m_pFindDialog = new CFindReplaceDialog();
 						m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
 					}
+				}
+				break;
+			case ID_REPOBROWSE:
+				{
+					int selIndex = m_LogList.GetSelectionMark();
+					long rev = m_arRevs.GetAt(selIndex);
+					CString url = m_path;
+					if (m_hasWC)
+					{
+						SVNStatus status;
+						if (status.GetStatus(m_path) != -2)
+						{
+							if (status.status->entry)
+								url = status.status->entry->url;
+						} // if (status.GetStatus(path)!=-2)
+						else
+						{
+							CMessageBox::Show(this->m_hWnd, status.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							break;
+						}
+					} // if (m_hasWC)
+
+					CRepositoryBrowser dlg(url);
+					dlg.m_nRevision = rev;
+					dlg.m_bStandAlone = TRUE;
+					dlg.DoModal();
 				}
 				break;
 			default:

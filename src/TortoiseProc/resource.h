@@ -329,6 +329,7 @@
 #define IDS_BLAME_PROGRESSINFOSTART     2104
 #define IDS_MENUREFRESH                 2150
 #define IDS_LOG_COMPAREWITHBASE         2200
+#define IDS_LOG_BROWSEREPO              2201
 #define IDS_PROC_ENTERURLLABEL          2300
 #define IDS_PROC_PATCHTITLE             2301
 #define IDS_PROC_SAVEPATCHTO            2302
