@@ -11,10 +11,20 @@ CVS
        were selected before hitting "ok". (Stefan)
 - BUG: copy/paste and drag'n'drop of unversioned
        files could crash explorer. (Stefan)
+- BUG: import with "use foldername as modulename"
+       didn't work, the modulename was some random
+       characters. (Stefan)
+- BUG: The check for temporary files when doing an
+       import wasn't able to delete those. (Stefan)
 - ADD: in the settings page there's now an option
        if the user wants to have unversioned files
        shown before a commit so (s)he can add it
        before the commit. (Stefan)
+- ADD: the add dialog now shows the files with
+       the relative path so the user can better
+       check if a file needs to be added or not.
+       This is especially usefull if folders
+       are added. (Stefan)
 - CHG: before obtaining a subversion status we
        now first check if an .svn directory
        exists - this should speed up things

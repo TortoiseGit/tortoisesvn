@@ -128,7 +128,7 @@ int CCheckTempFiles::Check(CString dirName, const BOOL recurse, const BOOL inclu
 							//TODO: replace CFile::Remove with a shell delete (trashbin)
 							//CFile::Remove(filepath);
 							TCHAR filename[MAX_PATH] = {0};
-							_tcscpy(filename, filepath);
+							_tcscpy(filename, fpath);
 							SHFILEOPSTRUCT fileop;
 							fileop.hwnd = NULL;
 							fileop.wFunc = FO_DELETE;

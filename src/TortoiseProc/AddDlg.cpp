@@ -48,6 +48,7 @@ BEGIN_MESSAGE_MAP(CAddDlg, CDialog)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_ADDLIST, OnLvnItemchangedAddlist)
 END_MESSAGE_MAP()
 
 BEGIN_RESIZER_MAP(CAddDlg)
@@ -162,6 +163,47 @@ void CAddDlg::OnOK()
 	CDialog::OnOK();
 }
 
+void CAddDlg::OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	int index = pNMLV->iItem;
+	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+		return;			//thread is still running
+	if (!m_addListCtrl.GetCheck(index))
+	{
+		if (PathIsDirectory(m_arFileList.GetAt(index)))
+		{
+			//disable all files within that folder
+			CString folderpath = m_arFileList.GetAt(index);
+			for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+			{
+				if (folderpath.CompareNoCase(m_arFileList.GetAt(i))<0)
+				{
+					m_addListCtrl.SetCheck(i, FALSE);
+				}
+			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+		} // if (PathIsDirectory(m_arFileList.GetAt(index)))
+	} // if (!m_addListCtrl.GetCheck(index))
+	else
+	{
+		if (!PathIsDirectory(m_arFileList.GetAt(index)))
+		{
+			//user selected a file, so we need to check the parent folder too
+			CString folderpath = m_arFileList.GetAt(index);
+			folderpath = folderpath.Left(folderpath.ReverseFind('\\'));
+			for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+			{
+				if (folderpath.CompareNoCase(m_arFileList.GetAt(i))==0)
+				{
+					m_addListCtrl.SetCheck(i, TRUE);
+					return;
+				}
+			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+		}
+	}
+}
+
 DWORD WINAPI AddThread(LPVOID pVoid)
 {
 	//get the status of all selected file/folders recursively
@@ -213,7 +255,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 							if (!CCheckTempFiles::IsTemp(filename))
 							{
 								pDlg->m_arFileList.Add(filename);
-								pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - filename.ReverseFind('\\') - 1));
+								pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
 								pDlg->m_addListCtrl.SetCheck(count++);
 							}
 						}
@@ -244,7 +286,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 								if (!CCheckTempFiles::IsTemp(filename))
 								{
 									pDlg->m_arFileList.Add(filename);
-									pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - filename.ReverseFind('\\') - 1));
+									pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
 									pDlg->m_addListCtrl.SetCheck(count++);
 								}
 							}
@@ -274,5 +316,6 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
 	return 0;
 }
+
 
 

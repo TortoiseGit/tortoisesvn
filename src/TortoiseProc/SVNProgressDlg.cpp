@@ -407,7 +407,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					while (file.ReadString(strLine))
 					{
 						TRACE(_T("add file %s\n"), strLine);
-						if (!pDlg->Add(strLine, true))
+						if (!pDlg->Add(strLine, false))
 						{
 							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
 							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

@@ -82,6 +82,8 @@ public:
 private:
 	HANDLE			m_hThread;
 
+public:
+	afx_msg void OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI AddThread(LPVOID pVoid);

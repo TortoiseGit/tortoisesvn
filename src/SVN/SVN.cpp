@@ -429,7 +429,8 @@ BOOL SVN::Import(CString path, CString url, CString newEntry, CString message, B
 
 	svn_client_commit_info_t *commit_info = NULL;
 
-	const char * newEntr = CUnicodeUtils::GetUTF8(newEntry);
+	CStringA temp = CUnicodeUtils::GetUTF8(newEntry);
+	const char * newEntr = temp;
 	if (newEntry.IsEmpty())
 		newEntr = NULL;
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
