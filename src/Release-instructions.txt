@@ -5,11 +5,11 @@ Subversion and TortoiseSVN before. If not please
 follow the instructions in build.txt.
 
 - go to SVN\Subversion\build\win32 and delete
-  the folder msvc-dsp and all files in it.
+  the folder msvc-vcproj and all files in it.
 - get either a subversion source tarball or
   switch your working copy to the latest
   release tag.
-- run > python gen-make.py -t dsp
+- run > python gen-make.py -t vcproj
   in the Subversion directory
 - check if there are new versions of
   neon
@@ -17,10 +17,10 @@ follow the instructions in build.txt.
   openssl
   zlib
   and download/build them if needed.
-- double click on the file subversion_msvc.dsw
+- double click on the file subversion_vcnet.sln
   and compile the project __ALL__
 - check out the latest version of TortoiseSVN
-  directly from CVS.
+  directly from the Subversion repository.
 - edit the file version.h and change all version
   defines to the new version
 - edit the Changelog.txt
@@ -44,6 +44,3 @@ follow the instructions in build.txt.
   announce the new release. Include the list
   of changes since the last release in those
   mails.
-- zip the source tree of TortoiseSVN and
-  remove all temporary files. Only the files
-  under source control should be in the zip.
