@@ -7,6 +7,11 @@
 - ADD: Implement Issue 87. TortoiseMerge shows now
        the filename and the revision in the viewtitle.
        TME gets this information from TSVN. (Stefan)
+- ADD: The repository browser now allows the selection
+       of more than one item. With this, the user can
+       now select two files/folders from different
+       urls (e.g. trunk and tags) and request a diff
+       from them. (Stefan)
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)

@@ -28,6 +28,8 @@
 #define ID_POPRENAME		6
 #define ID_POPCOPYTO		7
 #define ID_POPMKDIR			8
+#define ID_POPGNUDIFF		9
+#define ID_POPDIFF			10
 
 /**
  * \ingroup TortoiseProc
@@ -77,6 +79,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CRepositoryTree m_treeRepository;
+	CStringArray	m_templist;
+
 public:
 	BOOL m_bStandAlone;
 	CString m_strUrl;

@@ -40,6 +40,11 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl, CWnd* pParent /*=N
 
 CRepositoryBrowser::~CRepositoryBrowser()
 {
+	for (int i=0; i<m_templist.GetCount(); i++)
+	{
+		DeleteFile(m_templist.GetAt(i));
+	}
+	m_templist.RemoveAll();
 }
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
@@ -144,8 +149,19 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 	GetCursorPos(&point);
 	::MapWindowPoints(NULL, m_treeRepository.m_hWnd, &point, 1);
 	HTREEITEM hSelItem = m_treeRepository.HitTest(point);
+	UINT uSelCount = m_treeRepository.GetSelectedCount();
 	//HTREEITEM hSelItem = m_treeRepository.GetSelectedItem();
 	CString url = m_treeRepository.MakeUrl(hSelItem);
+
+	HTREEITEM hSelItem1;
+	HTREEITEM hSelItem2;
+
+	CString url1;
+	CString url2;
+
+	BOOL bFolder1;
+	BOOL bFolder2;
+
 	if (hSelItem)
 	{
 		BOOL bFolder = TRUE;;
@@ -163,48 +179,84 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			CString temp;
 			UINT flags;
-			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-			if (bFolder)
-				flags = MF_STRING | MF_GRAYED;
-			else
-				flags = MF_STRING | MF_ENABLED;
-			popup.AppendMenu(flags, ID_POPSAVEAS, temp);						// "Save as..."
-
-			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
-
-			if (m_nRevision == SVN::REV_HEAD)
+			if (uSelCount == 1)
 			{
-				temp.LoadString(IDS_REPOBROWSE_OPEN);
-				if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
-					flags = MF_STRING | MF_GRAYED;
-				else
-					flags = MF_STRING | MF_ENABLED;
-				popup.AppendMenu(flags, ID_POPOPEN, temp);							// "open"
-
-				temp.LoadString(IDS_REPOBROWSE_MKDIR);
+				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
 				if (bFolder)
-					flags = MF_STRING | MF_ENABLED;
-				else
 					flags = MF_STRING | MF_GRAYED;
-				popup.AppendMenu(flags, ID_POPMKDIR, temp);							// "create directory"
-
-				temp.LoadString(IDS_REPOBROWSE_DELETE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
-
-				temp.LoadString(IDS_REPOBROWSE_IMPORT);
-				if (bFolder)
-					flags = MF_STRING | MF_ENABLED;
 				else
-					flags = MF_STRING | MF_GRAYED;
-				popup.AppendMenu(flags, ID_POPIMPORT, temp);						// "Add/Import"
+					flags = MF_STRING | MF_ENABLED;
+				popup.AppendMenu(flags, ID_POPSAVEAS, temp);						// "Save as..."
 
-				temp.LoadString(IDS_REPOBROWSE_RENAME);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
+				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
 
-				temp.LoadString(IDS_REPOBROWSE_COPY);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
-			}
+				if (m_nRevision == SVN::REV_HEAD)
+				{
+					temp.LoadString(IDS_REPOBROWSE_OPEN);
+					if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
+						flags = MF_STRING | MF_GRAYED;
+					else
+						flags = MF_STRING | MF_ENABLED;
+					popup.AppendMenu(flags, ID_POPOPEN, temp);							// "open"
+
+					temp.LoadString(IDS_REPOBROWSE_MKDIR);
+					if (bFolder)
+						flags = MF_STRING | MF_ENABLED;
+					else
+						flags = MF_STRING | MF_GRAYED;
+					popup.AppendMenu(flags, ID_POPMKDIR, temp);							// "create directory"
+
+					temp.LoadString(IDS_REPOBROWSE_DELETE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
+
+					temp.LoadString(IDS_REPOBROWSE_IMPORT);
+					if (bFolder)
+						flags = MF_STRING | MF_ENABLED;
+					else
+						flags = MF_STRING | MF_GRAYED;
+					popup.AppendMenu(flags, ID_POPIMPORT, temp);						// "Add/Import"
+
+					temp.LoadString(IDS_REPOBROWSE_RENAME);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
+
+					temp.LoadString(IDS_REPOBROWSE_COPY);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
+				} // if (m_nRevision == SVN::REV_HEAD)
+			} // if (uSelCount == 1)
+			if (uSelCount == 2)
+			{
+				hSelItem1 = m_treeRepository.GetFirstSelectedItem();
+				hSelItem2 = m_treeRepository.GetNextSelectedItem(hSelItem1);
+
+				url1 = m_treeRepository.MakeUrl(hSelItem1);
+				url2 = m_treeRepository.MakeUrl(hSelItem2);
+
+				bFolder1 = TRUE;
+				bFolder2 = TRUE;
+
+				TVITEM Item;
+				Item.mask = TVIF_IMAGE;
+				Item.hItem = hSelItem1;
+				m_treeRepository.GetItem(&Item);
+				if (Item.iImage != m_treeRepository.m_nIconFolder)
+					bFolder1 = FALSE;
+				Item.hItem = hSelItem2;
+				m_treeRepository.GetItem(&Item);
+				if (Item.iImage != m_treeRepository.m_nIconFolder)
+					bFolder2 = FALSE;
+
+				if (bFolder1 == bFolder2)
+				{
+					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPGNUDIFF, temp);
+				} // if (bFolder1 == bFolder2)	
+				if (!bFolder1 && !bFolder2)
+				{
+					temp.LoadString(IDS_LOG_POPUP_DIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDIFF, temp);
+				} // if (!bFolder1 && !bFolder2) 
+			} // if (uSelCount == 2) 
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
@@ -279,7 +331,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 							return;
 						} // if (!svn.Remove(url, TRUE)) 
 						m_treeRepository.Refresh(hSelItem);
-					}
+					} // if (dlg.DoModal()==IDOK) 
 					theApp.DoWaitCursor(-1);
 				}
 				break;
@@ -327,7 +379,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 								return;
 							} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
 							m_treeRepository.Refresh(hSelItem);
-						}
+						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (GetOpenFileName(&ofn)==TRUE) 
 				}
@@ -357,7 +409,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 								return;
 							} // if (!svn.Move(url, filepath, TRUE)) 
 							m_treeRepository.Refresh(hSelItem);
-						}
+						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
 				}
@@ -385,7 +437,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 								return;
 							} // if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, _T("copy remotely"))) 
 							m_treeRepository.Refresh(hSelItem);
-						}
+						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
 				}
@@ -413,9 +465,50 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 								return;
 							} // if (!svn.MakeDir(url+_T("/")+dlg.m_name, _T("created directory remotely"))) 
 							m_treeRepository.RefreshMe(hSelItem);
-						}
+						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
+				}
+				break;
+			case ID_POPGNUDIFF:
+				{
+					CString tempfile = CUtils::GetTempFile();
+					tempfile += _T(".diff");
+					SVN svn;
+					if (!svn.Diff(url1, m_nRevision, url2, m_nRevision, TRUE, FALSE, TRUE, _T(""), tempfile))
+					{
+						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						DeleteFile(tempfile);
+						break;		//exit
+					} // if (!Diff(url1, m_nRevision, url2, m_nRevision, TRUE, FALSE, TRUE, _T(""), tempfile)) 
+					else
+					{
+						m_templist.Add(tempfile);
+						CUtils::StartDiffViewer(tempfile);
+					}
+					theApp.DoWaitCursor(-1);
+				}
+				break;
+			case ID_POPDIFF:
+				{
+					CString tempfile1 = CUtils::GetTempFile();
+					SVN svn;
+					if (!svn.Cat(url1, m_nRevision, tempfile1))
+					{
+						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						DeleteFile(tempfile1);
+						break;		//exit
+					} // if (!Cat(url1, m_nRevision, tempfile1))
+					m_templist.Add(tempfile1);
+					CString tempfile2 = CUtils::GetTempFile();
+					if (!svn.Cat(url2, m_nRevision, tempfile2))
+					{
+						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						DeleteFile(tempfile2);
+						break;		//exit
+					} // if (!Cat(url2, m_nRevision, tempfile2)) 
+					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2);
+					theApp.DoWaitCursor(-1);
 				}
 				break;
 			}

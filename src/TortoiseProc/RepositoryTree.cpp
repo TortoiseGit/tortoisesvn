@@ -27,7 +27,7 @@
 
 // CRepositoryTree
 
-IMPLEMENT_DYNAMIC(CRepositoryTree, CTreeCtrl)
+IMPLEMENT_DYNAMIC(CRepositoryTree, CTreeCtrlEx)
 CRepositoryTree::CRepositoryTree(const CString& strUrl) :
 	m_strUrl(strUrl)
 {
@@ -44,7 +44,7 @@ CRepositoryTree::~CRepositoryTree()
 }
 
 
-BEGIN_MESSAGE_MAP(CRepositoryTree, CTreeCtrl)
+BEGIN_MESSAGE_MAP(CRepositoryTree, CTreeCtrlEx)
 	ON_NOTIFY_REFLECT(TVN_ITEMEXPANDING, OnTvnItemexpanding)
 	ON_NOTIFY_REFLECT(TVN_GETINFOTIP, OnTvnGetInfoTip)
 	//ON_NOTIFY_REFLECT(NM_DBLCLK, OnNMDblclk)
