@@ -271,6 +271,8 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
 		this->m_Data.m_sTheirName = temp;
 		this->m_Data.m_sYourFile = sFilePath;
 		this->m_Data.m_sYourName = CUtils::GetFileNameFromPath(sFilePath);
+		this->m_Data.m_sMergedFile = sFilePath;
+		this->m_Data.m_sMergedName = CUtils::GetFileNameFromPath(sFilePath);
 		TRACE(_T("comparing %s and %s\nagainst the base file %s\n"), sTempFile, sFilePath, sBaseFile);
 	} // if (!m_Patch.PatchFile(sFilePath)) 
 	else
