@@ -1002,7 +1002,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	}
 	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 	m_bCancelled = FALSE;
-	filepath = GetRepositoryRoot(filepath, rev);
+	filepath = GetRepositoryRoot(filepath);
 	temp = temp.Mid(temp.Find(' '));
 	if (temp.Find('(')>=0)
 	{

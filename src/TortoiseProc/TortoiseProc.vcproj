@@ -20,7 +20,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
@@ -82,7 +82,7 @@
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				StringPooling="TRUE"
 				MinimalRebuild="FALSE"
@@ -148,7 +148,7 @@
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
+				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				StringPooling="TRUE"
 				MinimalRebuild="FALSE"
@@ -1043,10 +1043,10 @@
 				RelativePath="..\Languages\res\ssh.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\Tortoise.ico">
+				RelativePath="..\Languages\res\Tortoise.ico">
 			</File>
 			<File
-				RelativePath="..\Languages\res\Tortoise.ico">
+				RelativePath="..\Icons\Tortoise.ico">
 			</File>
 			<File
 				RelativePath="..\Icons\Tortoise13by13.ico">

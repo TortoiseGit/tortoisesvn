@@ -409,7 +409,7 @@ public:
 	 * Finds the repository root of a given url. 
 	 * \return The root url or an empty string
 	 */
-	CString GetRepositoryRoot(CString url, SVNRev rev = SVNRev::REV_HEAD);
+	CString GetRepositoryRoot(CString url);
 
 	/**
 	 * Releases all used memory pools.

@@ -20,6 +20,7 @@
 #include "StdAfx.h"
 #include "TortoiseProc.h"
 #include "svn.h"
+#include "client.h"
 #include "UnicodeUtils.h"
 #include <shlwapi.h>
 
@@ -1077,26 +1078,27 @@ BOOL SVN::IsRepository(const CString& strUrl)
 	return Err == NULL;
 }
 
-CString SVN::GetRepositoryRoot(CString url, SVNRev rev)
+CString SVN::GetRepositoryRoot(CString url)
 {
-	CString retUrl = url;
-	preparePath(retUrl);
-	CString findUrl = retUrl;
-	int pos = findUrl.GetLength();
-	CStringArray dummyarray;
-	while ((pos = findUrl.ReverseFind('/'))>=0)
-	{
-		if (!Ls(findUrl, rev, dummyarray))
-		{
-			//maybe it was a file?
-			//try again before giving up
-			if (!Ls(findUrl.Left(pos), rev, dummyarray))
-				return retUrl;
-		} // if (!Ls(findUrl, rev, dummyarray)) 
-		retUrl = findUrl;
-		findUrl = findUrl.Left(pos);
-	} // while ((pos = findUrl.ReverseFind('/'))>=0) 
-	return _T("");
+	svn_ra_plugin_t *ra_lib;
+	void *ra_baton, *session;
+	const char * returl;
+	CString retURL;
+	CStringA urla = CUnicodeUtils::GetUTF8(url);
+	/* Get the RA library that handles URL. */
+	if (svn_ra_init_ra_libs (&ra_baton, pool))
+		return _T("");
+	if (svn_ra_get_ra_library (&ra_lib, ra_baton, urla, pool))
+		return _T("");
+
+	/* Open a repository session to the URL. */
+	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, pool))
+		return _T("");
+
+	if (ra_lib->get_repos_root(session, &returl, pool))
+		return _T("");
+	retURL = CString(returl);
+	return retURL;
 }
 
 CString SVN::GetPristinePath(CString wcPath)
