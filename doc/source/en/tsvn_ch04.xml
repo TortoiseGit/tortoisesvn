@@ -99,6 +99,12 @@
 			<filename>$APPDATA\Subversion\auth</filename>. One file for each server
 			that you access. If you want to make Subversion and TortoiseSVN forget your
 			credentials, you have to delete the corresponding file(s).
+			<note>
+				<para>
+				Under Windows 2000 and above the credentials are stored encrypted in the registry. 
+				To delete the credentials go to the settings dialog and press <guibutton>Clear Auth Cache</guibutton>.
+				</para>
+			</note>
 			<tip>
 				<para>
 				If you have to authenticate against a Windows NT domain, enter your username
@@ -302,6 +308,29 @@
 			To not disturb the users, we also added the file <filename>TortoiseVars.bat</filename>
 			to the ignore list, i.e. we've set the Subversion property svn:ignored
 			for that file. That way it won't show up as unversioned on every commit.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-DUG-import-4">
+			<title>Referenced Projects</title>
+			<indexterm>
+				<primary>externals</primary>
+			</indexterm>
+			<para>
+				Sometimes it is useful to construct a working copy that is made out of a number of 
+				different checkouts. For example, you may want different subdirectories to come from 
+				different locations in a repository, or perhaps from different repositories altogether. 
+				If you want that every user has the same layout, you could define the svn:externals properties.
+			</para>
+			<para>
+				Let's say you check out a working copy of /project1 to D:\dev\project1.
+				Select the folder D:\dev\project1, <action>right-click</action> and choose 
+				<menuchoice><guimenuitem>properties</guimenuitem></menuchoice> from the context menu. 
+				The Properties Dialog comes up. Then go to the Subversion tab.
+				There, you can set properties. Select the "svn:externals" property from the combobox and write 
+				in the edit box the repository url in the format "name url".
+				For example "subversion http://svn.collab.net/repos/svn/trunk".
+				Now click <guibutton>Set</guibutton> and commit your changes. 
+				If an user updates their working copy the external project is checked out, too.
 			</para>
 		</sect2>
 	</sect1>
@@ -1030,7 +1059,19 @@
 			On the Subversion page you can see all relevant
 			information about the selected file/directory. In
 			addition you can read and set the subversion properties.
+			You can add your own properties or some properties with a 
+			special meaning in subversion, they begin with svn:. 
+			The svn:externals is such a property see how to handle externals in 
+			<a href="#tsvn-DUG-import-4">Referenced Projects</a>.
+			For more information about properties in subversion see the subversion manual 
+			<a href="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3</a>.
 		</para>
+		<note>
+			<para>
+			Subversion properties are versioned. After you changed or added a 
+			property you have to commit your changes.
+			</para>
+		</note>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
@@ -1369,7 +1410,11 @@
 							structure in the first place.
 						</para>
 						<para>
-### Translate from German ###
+							However, if you have to do changes on a tagged version 
+							create a new branch from this tag first and commit 
+							this branch. Do your Changes on this branch and create 
+							a new tag from this new branch, e.g. 
+							<filename>Version_1.0.1</filename>.
 						</para>
 					</listitem>
 					<listitem>

@@ -103,6 +103,14 @@
 			ablegt. Pro Server auf den Sie zugreifen wird in diesem Verzeichnis eine
 			Datei angelegt. Falls Sie wollen, dass TortoiseSVN und Subversion diese 
 			Anmeldeinformation vergessen, müssen sie die entsprechende(n) Datei(en) löschen.
+			<note>
+				<para>
+					Unter Windows 2000 und drüber werden alle Anmeldeinformation 
+					verschlüsselt in der Registry gespeichert. Um die Anmeldeinformation 
+					zu löschen, gehen Sie in den Einstellungen Dialog und drücken Sie 
+					<guibutton>Anmeldeinformationen löschen</guibutton>.
+				</para>
+			</note>
 			<tip>
 				<para>
 				Wenn Sie sich an einer Windows NT Domäne anmelden, geben Sie Ihren
@@ -317,6 +325,32 @@
 			haben die Subversion Eigenschaft <literal>svn:ignored</literal>
 			für diese Datei gesetzt. Damit erscheint diese Datei nicht in jedem
 			Übertragungsdialog als (noch) nicht versioniert.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-DUG-import-4">
+			<title>Externe eingebundene Projektarchive</title>
+			<indexterm>
+				<primary>externe projektarchive</primary>
+			</indexterm>
+			<para>
+				Manchmal ist es nützlich eine Arbeitskopie zu haben, welche aus mehreren 
+				anderen Projekten besteht. Zum Beispiel kann es vorkommen, dass Sie Unterordner 
+				haben wollen die von verschiedenen anderen Stellen des Projektarchivs kommen oder 
+				vielleicht sogar von verschiedenen Projektarchiven. Wenn Sie wollen, dass jeder 
+				Benutzer die gleiche Struktur der Arbeitskopie hat, können Sie die svn:externals 
+				Eigenschaft definieren. 
+			</para>
+			<para>
+				Nehmen wir an Sie erstellen eine Arbeitskopie von /project1 in D:\dev\project1. 
+				Selektieren Sie den Ordner D:\dev\project1, machen Sie einen <action>Rechts-Klick</action> 
+				und wählen Sie <menuchoice><guimenuitem>Eigenschaften</guimenuitem></menuchoice> 
+				aus dem Contextmenü. Der Eigenschaften Dialog erscheint, gehen Sie zu dem Tab Subversion. 
+				Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die "svn:externals"
+				Eigenschaft aus der Drop-Down Liste und schreiben Sie die zu refernzierende Projektarchiv Url 
+				in dem Format "Name Url" in das Textfeld. Zum Beispiel "subversion http://svn.collab.net/repos/svn/trunk", 
+				wenn Sie das Subversion Projektarchiv einbinden wollen. Klicken Sie jetzt auf <guibutton>Setzen</guibutton>
+				und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, 
+				wird das eingebundene Projektarchiv auch ausgecheckt. 
 			</para>
 		</sect2>
 	</sect1>
@@ -1116,8 +1150,25 @@
 		<para>
 			Auf dieser Subversion Seite können Sie alle wichtigen Informationen
 			über Dateien/Ordner unter Versionskontrolle ansehen und die speziellen
-			Subversion-Eigenschaften lesen und schreiben.
+			Subversion-Eigenschaften lesen und schreiben. Sie können Ihre eigenen 
+			Eigenschaften hinzufügen oder welche mit einer Speziellen Bedeutung in 
+			Subversion. Diese beginnen alle mit svn:. svn:externals ist so eine 
+			Eigenschaft, sehen Sie sich das Kapitel 
+			<a href="#tsvn-DUG-import-4">eingebundene Projekte</a> an, um mehr über 
+			das Thema zu erfahren. 
+			Um mehr Informationen über Eigenschaften in Subversion zu erhalten, 
+			schauen Sie sich das Subversion 
+			<a href="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
+				Handbuch 
+			</a> an. 
 		</para>
+		<note>
+			<para>
+				Subversion Eigenschaften sind auch unter Versionskontrolle. 
+				Nachdem Sie eine Eigenschaft geändert haben, müssen Sie die Änderungen 
+				zum Projektarchiv übertragen. 
+			</para>
+		</note>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
