@@ -58,6 +58,14 @@ p a, p a:hover {
   background-position: center left;
 }
 
+/* Don't display indexterms */
+.indexterm {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  background-image: none;
+}
+
 IMG {
   border: none;
 }
