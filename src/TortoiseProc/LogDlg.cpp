@@ -571,7 +571,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath();
 						m_tempFileList.AddPath(tempfile);
-						tempfile.AppendString(_T(".diff"));
+						tempfile.AppendRawString(_T(".diff"));
 						m_tempFileList.AddPath(tempfile);
 						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
@@ -597,7 +597,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath();
 						m_tempFileList.AddPath(tempfile);
-						tempfile.AppendString(_T(".diff"));
+						tempfile.AppendRawString(_T(".diff"));
 						m_tempFileList.AddPath(tempfile);
 						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
@@ -682,7 +682,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							this->m_bCancelled = FALSE;
 							CTSVNPath tempfile = CUtils::GetTempFilePath();
 							m_tempFileList.AddPath(tempfile);
-							tempfile.AppendString(_T(".diff"));
+							tempfile.AppendRawString(_T(".diff"));
 							m_tempFileList.AddPath(tempfile);
 							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 							{
@@ -1174,7 +1174,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			this->m_bCancelled = FALSE;
 			CTSVNPath tempfile = CUtils::GetTempFilePath();
 			m_tempFileList.AddPath(tempfile);
-			tempfile.AppendString(_T(".diff"));
+			tempfile.AppendRawString(_T(".diff"));
 			m_tempFileList.AddPath(tempfile);
 			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
@@ -1447,8 +1447,8 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	m_tempFileList.AddPath(tempfile1);
 	m_tempFileList.AddPath(tempfile2);
 	// Give the files that we diff the proper extension for the filetype
-	tempfile1.AppendString(path1.GetFileExtension());
-	tempfile2.AppendString(path2.GetFileExtension());
+	tempfile1.AppendRawString(path1.GetFileExtension());
+	tempfile2.AppendRawString(path2.GetFileExtension());
 	m_tempFileList.AddPath(tempfile1);
 	m_tempFileList.AddPath(tempfile2);
 	CProgressDlg progDlg;

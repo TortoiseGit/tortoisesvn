@@ -642,7 +642,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_POPGNUDIFF:
 				{
 					CTSVNPath tempfile = CUtils::GetTempFilePath();
-					tempfile.AppendString(_T(".diff"));
+					tempfile.AppendRawString(_T(".diff"));
 					SVN svn;
 					if (!svn.Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
@@ -661,7 +661,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_POPDIFF:
 				{
 					CTSVNPath tempfile1 = CUtils::GetTempFilePath();
-					tempfile1.AppendString(url1.GetFileExtension());
+					tempfile1.AppendRawString(url1.GetFileExtension());
 					SVN svn;
 					if (!svn.Cat(url1, GetRevision(), CTSVNPath(tempfile1)))
 					{
@@ -671,7 +671,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					} // if (!Cat(url1, GetRevision(), tempfile1))
 					m_templist.Add(tempfile1.GetWinPathString());
 					CTSVNPath tempfile2 = CUtils::GetTempFilePath();
-					tempfile2.AppendString(url2.GetFileExtension());
+					tempfile2.AppendRawString(url2.GetFileExtension());
 					if (!svn.Cat(url2, GetRevision(), CTSVNPath(tempfile2)))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

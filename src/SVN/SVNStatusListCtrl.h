@@ -278,7 +278,10 @@ private:
 		);
 
 	///< Adjust the checkbox-state on all descendents of a specific item
-	void CSVNStatusListCtrl::SetCheckOnAllDescendentsOf(const FileEntry* parentEntry, bool bCheck);
+	void SetCheckOnAllDescendentsOf(const FileEntry* parentEntry, bool bCheck);
+
+	///< Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
+	void FillListOfSelectedItemPaths(CTSVNPathList& pathList);
 
 	afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
@@ -294,7 +297,6 @@ private:
 	bool						m_bHasExternalsFromDifferentRepos;
 	bool						m_bHasExternals;
 	BOOL						m_bHasUnversionedItems;
-//	CArray<FileEntry *, FileEntry *> m_arStatusArray;
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
 	std::vector<DWORD>			m_arListArray;

@@ -1177,14 +1177,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 						{
-							POSITION pos = GetFirstSelectedItemPosition();
-							int index;
 							CTSVNPathList targetList;
-							
-                            while ((index = GetNextSelectedItem(pos)) >= 0)
-							{
-								targetList.AddPath(GetListEntry(index)->path);
-							}
+							FillListOfSelectedItemPaths(targetList);
+
 							SVN svn;
 							if (!svn.Revert(targetList, FALSE))
 							{
@@ -1225,7 +1220,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				case IDSVNLC_GNUDIFF1:
 					{
 						CTSVNPath tempfile = CUtils::GetTempFilePath();
-						tempfile.AppendString(_T(".diff"));
+						tempfile.AppendRawString(_T(".diff"));
 						SVN svn;
 						if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
@@ -1494,15 +1489,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							if (stat.status->entry->conflict_new)
 							{
-								theirs.AppendString(_T("/")+CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
+								theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
 							}
 							if (stat.status->entry->conflict_old)
 							{
-								base.AppendString(_T("/")+CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
+								base.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
 							}
 							if (stat.status->entry->conflict_wrk)
 							{
-								mine.AppendString(_T("/")+CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+								mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
 							}
 						}
 						CUtils::StartExtMerge(base.GetWinPathString(),theirs.GetWinPathString(),mine.GetWinPathString(),merge.GetWinPathString());
@@ -1512,12 +1507,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						SVN svn;
 						CTSVNPathList itemsToAdd;
-						POSITION pos = GetFirstSelectedItemPosition();
-						int index;
-						while ((index = GetNextSelectedItem(pos)) >= 0)
-						{
-							itemsToAdd.AddPath(GetListEntry(index)->path);
-						}
+						FillListOfSelectedItemPaths(itemsToAdd);
 
 						// We must sort items before adding, so that folders are always added
 						// *before* any of their children
@@ -1527,7 +1517,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							// The add went ok, but we now need to run through the selected items again
 							// and update their status
-							pos = GetFirstSelectedItemPosition();
+							POSITION pos = GetFirstSelectedItemPosition();
+							int index;
 							while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
 								FileEntry * e = GetListEntry(index);
@@ -1781,24 +1772,15 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
 CTSVNPath CSVNStatusListCtrl::BuildTargetFile()
 {
+	CTSVNPathList targetList;
+
+	// Get all the currently selected items into a PathList
+	FillListOfSelectedItemPaths(targetList);
+
 	CTSVNPath tempFile = CUtils::GetTempFilePath();
 	m_tempFileList.AddPath(tempFile);
-	HANDLE file = ::CreateFile (tempFile.GetWinPath(),
-		GENERIC_WRITE, 
-		FILE_SHARE_READ, 
-		0, 
-		CREATE_ALWAYS, 
-		FILE_ATTRIBUTE_TEMPORARY,
-		0);
-	POSITION pos = GetFirstSelectedItemPosition();
-	int index;
-	while ((index = GetNextSelectedItem(pos)) >= 0)
-	{
-		DWORD written = 0;
-		::WriteFile (file, (LPCTSTR)GetListEntry(index)->path.GetSVNPathString(), GetListEntry(index)->path.GetSVNPathString().GetLength()*sizeof(TCHAR), &written, 0);
-		::WriteFile (file, _T("\n"), 2, &written, 0);
-	}
-	::CloseHandle(file);
+	VERIFY(targetList.WriteToTemporaryFile(tempFile.GetWinPathString()));
+
 	return tempFile;
 }
 
@@ -1830,6 +1812,7 @@ void CSVNStatusListCtrl::RemoveListEntry(int index)
 }
 
 ///< Set a checkbox on an entry in the listbox
+// NEVER, EVER call SetCheck directly, because you'll end-up with the checkboxes and the 'checked' flag getting out of sync
 void CSVNStatusListCtrl::SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck)
 {
 	pEntry->checked = bCheck;
@@ -1879,4 +1862,17 @@ bool CSVNStatusListCtrl::WriteCheckedNamesToFile(const CString& sFilename)
 	}
 	checkedPaths.SortByPathname();
 	return checkedPaths.WriteToTemporaryFile(sFilename);
+}
+
+///< Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
+void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList)
+{
+	pathList.Clear();
+
+	POSITION pos = GetFirstSelectedItemPosition();
+	int index;
+	while ((index = GetNextSelectedItem(pos)) >= 0)
+	{
+		pathList.AddPath(GetListEntry(index)->path);
+	}
 }

@@ -148,13 +148,19 @@ public:
 	*/
 	static bool ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right);
 	/**
-	 * appends a part of a path to this path. 
+	 * appends a string to this path. 
 	 *\remark - missing slashes are not added - this is just a string concatenation, but with
 	 * preservation of the proper caching behaviour.
-	 * Paths are always stored with stripped trailing slashes, so if you want to join 
-     * a filename onto the path, you *must* explicitly include the slash at the time you call this method
+	 * If you want to join a file- or directory-name onto the path, you should use AppendPathString
 	 */
-	void AppendString(const CString& sAppend);
+	void AppendRawString(const CString& sAppend);
+
+	/**
+	* appends a part of a path to this path. 
+	*\remark - missing slashes are dealt with properly. Don't use this to append a file extension, for example
+	* 
+	*/
+	void AppendPathString(const CString& sAppend);
 
 private:
 	// All these functions are const, and all the data

@@ -365,13 +365,22 @@ CTSVNPath::ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right)
 	return Compare(left, right) < 0;
 }
 
-void CTSVNPath::AppendString(const CString& sAppend)
+void CTSVNPath::AppendRawString(const CString& sAppend)
 {
 	EnsureFwdslashPathSet();
 	CString strCopy = m_sFwdslashPath += sAppend;
 	SetFromUnknown(strCopy);
 }
 
+void CTSVNPath::AppendPathString(const CString& sAppend)
+{
+	EnsureFwdslashPathSet();
+	CString cleanAppend(sAppend);
+	cleanAppend.Replace('\\', '/');
+	cleanAppend.TrimLeft('/');
+	CString strCopy = m_sFwdslashPath + _T("/") + cleanAppend;
+	SetFromSVN(strCopy);
+}
 
 
 
@@ -528,7 +537,8 @@ public:
 	{
 		GetDirectoryTest();
 		SortTest();
-		AppendTest();
+		RawAppendTest();
+		PathAppendTest();
 	}
 
 private:
@@ -577,19 +587,35 @@ private:
 		ASSERT(testList[3].GetWinPathString() == _T("c:\\Z"));
 	}
 
-	void AppendTest()
+	void RawAppendTest()
 	{
 		CTSVNPath testPath(_T("c:/test/"));
-		testPath.AppendString(_T("/Hello"));
+		testPath.AppendRawString(_T("/Hello"));
 		ASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello"));
 
-		testPath.AppendString(_T("\\T2"));
+		testPath.AppendRawString(_T("\\T2"));
 		ASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello\\T2"));
 
 		CTSVNPath testFilePath(_T("C:\\windows\\win.ini"));
 		CTSVNPath testBasePath(_T("c:/temp/myfile.txt"));
-		testBasePath.AppendString(testFilePath.GetFileExtension());
+		testBasePath.AppendRawString(testFilePath.GetFileExtension());
 		ASSERT(testBasePath.GetWinPathString() == _T("c:\\temp\\myfile.txt.ini"));
+	}
+
+	void PathAppendTest()
+	{
+		CTSVNPath testPath(_T("c:/test/"));
+		testPath.AppendPathString(_T("/Hello"));
+		ASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello"));
+
+		testPath.AppendPathString(_T("T2"));
+		ASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello\\T2"));
+
+		CTSVNPath testFilePath(_T("C:\\windows\\win.ini"));
+		CTSVNPath testBasePath(_T("c:/temp/myfile.txt"));
+		// You wouldn't want to do this in real life - you'd use append-raw
+		testBasePath.AppendPathString(testFilePath.GetFileExtension());
+		ASSERT(testBasePath.GetWinPathString() == _T("c:\\temp\\myfile.txt\\.ini"));
 	}
 
 

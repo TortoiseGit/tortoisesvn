@@ -1020,7 +1020,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CTSVNPath linePath(strLine);
 
 				CTSVNPath fullDropPath(sDroppath);
-				fullDropPath.AppendString(_T("\\")+linePath.GetFileOrDirectoryName());
+				fullDropPath.AppendPathString(linePath.GetFileOrDirectoryName());
 				// Check for a drop-on-to-ourselves
 				if (linePath.IsEquivalentTo(fullDropPath))
 				{
@@ -1034,7 +1034,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 					// Rebuild the destination path, with the new name
 					fullDropPath.SetFromUnknown(sDroppath);
-					fullDropPath.AppendString(_T("\\")+dlg.m_name);
+					fullDropPath.AppendPathString(dlg.m_name);
 				} 
 				if (!svn.Copy(linePath, fullDropPath, SVNRev::REV_WC, _T("")))
 				{

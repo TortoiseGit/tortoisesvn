@@ -888,7 +888,7 @@ BOOL SVN::Cat(const CTSVNPath& url, SVNRev revision, const CTSVNPath& localpath)
 	CTSVNPath fullLocalPath(localpath);
 	if (fullLocalPath.IsDirectory())
 	{
-		fullLocalPath.AppendString(_T("\\") + url.GetFileOrDirectoryName());
+		fullLocalPath.AppendPathString(url.GetFileOrDirectoryName());
 	}
 	::DeleteFile(fullLocalPath.GetWinPath());
 
