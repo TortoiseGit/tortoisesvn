@@ -40,9 +40,12 @@
        which you can really use, depending on if you've selected a file
        or a folder. (Stefan)
 - BUG: Issue 11: TortoiseMerge now shows the real linenumbers when diffing. (Stefan)
-- BUG: The revision graph didn't work for paths/URLs with spaces in it. (Stefan)
 - BUG: Executing a command with multiple selected files/folders didn't work
        correctly. (Stefan)
+
+Version 1.1.4
+- BUG: The revision graph didn't work for paths/URLs with spaces in it. (Stefan)
+- BUG: The revision graph could crash when saving the graph as a picture. (Stefan)
 - BUG: Changes in externals from the same repository were shown in the commit
        dialog, but not committed even if checked. (Stefan)
 - BUG: When comparing a file with both local and remote modifications in the
