@@ -182,7 +182,7 @@ void CSetOverlayIcons::ShowIconSet()
 	if (index == CB_ERR)
 	{
 		//nothing selected. Shouldn't happen!
-		index = 0;
+		return;
 	}
 	m_cIconSet.GetLBText(index, sIconSet);
 	CString sIconSetPath = m_sIconPath + _T("\\") + sIconSet;
