@@ -48,8 +48,8 @@ Proceed:
   StrCpy $INSTDIR "$0"
   SetOutPath "$INSTDIR"
   File "..\..\doc\output\TortoiseSVN_${CountryCode}.chm"
-  StrCpy $INSTDIR "$0\Languages"
 !endif
+  StrCpy $INSTDIR "$0\Languages"
   SetOutPath $INSTDIR
   SetOverwrite ifnewer
   File "..\..\bin\*${CountryID}.dll"
