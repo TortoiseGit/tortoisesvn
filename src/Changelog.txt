@@ -2,6 +2,8 @@
        context menu command to show the log. (Stefan)
 - ADD: New option to specify the minimum size of a
        log message. (Stefan)
+- ADD: It's possible to turn off the context menu
+       icons completely with a registry setting. (Stefan)
 - CHG: Don't use the %APPDATA% env but the shell API to
        get the path to the config file in the settings
        dialog. (Stefan)

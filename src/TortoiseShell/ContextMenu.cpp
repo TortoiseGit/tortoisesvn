@@ -186,13 +186,18 @@ void CShellExt::InsertSVNMenu(BOOL ownerdrawn, HMENU menu, UINT pos, UINT_PTR id
 {
 	MAKESTRING(stringid);
 
-	if (ownerdrawn) {
+	if (ownerdrawn==1) {
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING | MF_OWNERDRAW, id, stringtablebuffer);
 	}
-	else {
+	else if (ownerdrawn==0)
+	{
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, stringtablebuffer);
 		HBITMAP bmp = IconToBitmap(icon, (COLORREF)GetSysColor(COLOR_MENU)); 
 		SetMenuItemBitmaps(menu, pos, MF_BYPOSITION, bmp, bmp);
+	}
+	else
+	{
+		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, stringtablebuffer);
 	}
 
 	// We store the relative and absolute diameter
@@ -485,11 +490,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&inf);
 	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-	if ((ownerdrawn)&&(fullver >= 0x0501))
+	if ((ownerdrawn==1)&&(fullver >= 0x0501))
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
-	else
+	else if (ownerdrawn == 0)
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
-	menuiteminfo.fType = MFT_OWNERDRAW;
+	else
+		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU| MIIM_DATA;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
 	menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
 	HBITMAP bmp = IconToBitmap(IDI_MENU, (COLORREF)GetSysColor(COLOR_MENU));
