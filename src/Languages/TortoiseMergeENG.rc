@@ -295,7 +295,7 @@ IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
 IDR_MAINFRAME TOOLBAR  16, 15
 BEGIN
     BUTTON      ID_FILE_OPEN
-    BUTTON      ID_FILE_SAVE_AS
+    BUTTON      ID_FILE_SAVE
     SEPARATOR
     BUTTON      ID_EDIT_UNDO
     BUTTON      ID_VIEW_WHITESPACES
@@ -472,12 +472,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    ID_VIEW_WHITESPACES     "Show special characters for whitespaces"
-    ID_VIEW_ONEWAYDIFF      "Switch between single and double view"
+    ID_VIEW_WHITESPACES     "Show special characters for whitespaces\nShow Whitespaces"
+    ID_VIEW_ONEWAYDIFF      "Switch between single and double pane view\nSwitch between single and double pane view"
     ID_MERGE_NEXTDIFFERENCE "Go to the next difference\nnext difference"
     ID_MERGE_PREVIOUSDIFFERENCE 
                             "Go to the previous difference\nprevious difference"
-    ID_VIEW_OPTIONS         "Adjust the settings"
+    ID_VIEW_OPTIONS         "Adjust the settings\nSettings"
 END
 
 STRINGTABLE 

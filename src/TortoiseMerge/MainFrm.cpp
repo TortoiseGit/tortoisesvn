@@ -442,6 +442,10 @@ BOOL CMainFrame::LoadViews()
 			m_pwndLeftView->GoToFirstDifference();
 		UpdateLayout();
 	}
+	if (m_Data.m_sMergedFile.IsEmpty())
+	{
+		m_Data.m_sMergedFile = m_Data.m_sYourFile;
+	}
 	SetActiveView(m_pwndLeftView);
 	return TRUE;
 }
