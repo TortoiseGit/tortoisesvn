@@ -4,14 +4,16 @@
   <xsl:param name="section.autolabel" select="1" />
   <xsl:param name="section.label.includes.component.label" select="1" />
   <xsl:param name="generate.index" select="1" />
+<xsl:param name="table.frame.border.thickness" select="'1pt'"></xsl:param>
+<xsl:param name="table.cell.border.thickness" select="'1pt'"></xsl:param>
+<xsl:param name="table.frame.border.colour" select="'#7099C5'"></xsl:param>
+<xsl:param name="table.cell.border.colour" select="'#7099C5'"></xsl:param>
 
-<xsl:param name="table.frame.border.thickness" select="'0pt'"></xsl:param>
-<xsl:param name="table.cell.border.thickness" select="'0pt'"></xsl:param>
 <xsl:attribute-set name="table.cell.padding">
-  <xsl:attribute name="padding-left">0pt</xsl:attribute>
-  <xsl:attribute name="padding-right">0pt</xsl:attribute>
-  <xsl:attribute name="padding-top">0pt</xsl:attribute>
-  <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
+  <xsl:attribute name="padding-left">4pt</xsl:attribute>
+  <xsl:attribute name="padding-right">4pt</xsl:attribute>
+  <xsl:attribute name="padding-top">2pt</xsl:attribute>
+  <xsl:attribute name="padding-bottom">2pt</xsl:attribute>
 </xsl:attribute-set>
 
 <xsl:attribute-set name="section.title.level1.properties">
