@@ -168,5 +168,7 @@ private:
 	char			emptyString[1];
 
 	stdstring		sCacheKey;
+	HANDLE			hMutex;
+
 };
 

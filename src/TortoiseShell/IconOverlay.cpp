@@ -193,17 +193,9 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 					}
 					else
 					{
-						DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
-						if (dwWaitResult == WAIT_OBJECT_0)
-						{
-							filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
-							status = s->status;
-							status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
-						} // if (dwWaitResult == WAIT_OBJECT_0) 
-						else
-							status = svn_wc_status_normal;
-						ReleaseMutex(hMutex);
-
+						filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+						status = s->status;
+						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 					}
 				}
 				else
@@ -213,17 +205,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			} // if (PathIsDirectory(g_filepath))
 			else
 			{
-				DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
-				if (dwWaitResult == WAIT_OBJECT_0)
-				{
-					filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
-					status = s->status;
-				} // if (dwWaitResult == WAIT_OBJECT_0)
-				else
-				{
-					status = svn_wc_status_unversioned;
-				}
-				ReleaseMutex(hMutex);
+				filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+				status = s->status;
 			}
 		}
 		g_filepath.clear();

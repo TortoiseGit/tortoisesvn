@@ -38,7 +38,6 @@ const char* StringPool::GetString (const char* value)
 	pool_type::const_iterator iter = pool.find (value);
 	if (iter != pool.end())
 	{
-		ATLTRACE2("found %s\n", (char*)*iter);
 		// yes -> return it
 		return *iter;
 	}
@@ -86,10 +85,22 @@ SVNFolderStatus::SVNFolderStatus(void)
 	invalidstatus.rev = -1;
 	m_nCounter = 0;
 	sCacheKey.reserve(MAX_PATH);
+	hMutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, _T("TortoiseSVNStatuscache"));
+	if (hMutex == NULL)
+	{
+		hMutex = CreateMutex(NULL, NULL,  _T("TortoiseSVNStatuscache"));
+		SetSecurityInfo(hMutex,SE_KERNEL_OBJECT,DACL_SECURITY_INFORMATION,0,0,0,0);
+		ATLTRACE2(_T("created mutex\n"));
+	}
+	else
+	{
+		ATLTRACE2(_T("opened mutex\n"));
+	}
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
 {
+	CloseHandle(hMutex);
 }
 
 filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
@@ -243,6 +254,7 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 
 filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
 {
+	filestatuscache * ret = NULL;
 	m_bColumnProvider = bColumnProvider;
 	BOOL bHasAdminDir = g_ShellCache.HasSVNAdminDir(filepath, bIsFolder);
 	
@@ -251,7 +263,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolde
 		return &invalidstatus;
 	//for the SVNStatus column, we have to check the cache to see
 	//if it's not just unversioned but ignored
-	filestatuscache * ret = GetCachedItem(filepath);
+	ret = GetCachedItem(filepath);
 	if (ret)
 		return ret;
 
@@ -259,25 +271,37 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolde
 	//it's not ignored too
 	if ((bColumnProvider)&&(!bHasAdminDir))
 		return &invalidstatus;
-
-	return BuildCache(filepath, bIsFolder);
+	DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
+	if (dwWaitResult == WAIT_OBJECT_0)
+		ret = BuildCache(filepath, bIsFolder);
+	ReleaseMutex(hMutex);
+	if (ret)
+		return ret;
+	else
+		return &invalidstatus;
 }
 
 filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 {
-	sCacheKey.assign(filepath);
-	std::map<stdstring, filestatuscache>::iterator iter;
-	if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
+	DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
+	if (dwWaitResult == WAIT_OBJECT_0)
 	{
-		ATLTRACE2(_T("cache found for %s\n"), filepath);
-		DWORD now = GetTickCount();
-		if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
+		sCacheKey.assign(filepath);
+		std::map<stdstring, filestatuscache>::iterator iter;
+		if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
 		{
-			// Cache is timeed-out
-			return NULL;
+			ATLTRACE2(_T("cache found for %s\n"), filepath);
+			DWORD now = GetTickCount();
+			ReleaseMutex(hMutex);
+			if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
+			{
+				// Cache is timeed-out
+				return NULL;
+			}
+			return (filestatuscache *)&iter->second;
 		}
-		return (filestatuscache *)&iter->second;
 	}
+	ReleaseMutex(hMutex);
 	return NULL;
 }
 
@@ -326,5 +350,4 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	else
 		str = _T(" ");
 	(*cache)[str] = s;
-	ATLTRACE2(_T("%s\n"), str.c_str());
 }

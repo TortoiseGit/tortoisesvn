@@ -36,17 +36,6 @@ CShellExt::CShellExt(FileState state)
     m_cRef = 0L;
     g_cRefThisDll++;
 
-	hMutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, _T("TortoiseSVNShell"));
-	if (hMutex == NULL)
-	{
-		hMutex = CreateMutex(NULL, NULL,  _T("TortoiseSVNShell"));
-		SetSecurityInfo(hMutex,SE_KERNEL_OBJECT,DACL_SECURITY_INFORMATION,0,0,0,0);
-		ATLTRACE2(_T("created mutex\n"));
-	}
-	else
-	{
-		ATLTRACE2(_T("opened mutex\n"));
-	}
 	
     INITCOMMONCONTROLSEX used = {
         sizeof(INITCOMMONCONTROLSEX),
@@ -60,7 +49,6 @@ CShellExt::CShellExt(FileState state)
 CShellExt::~CShellExt()
 {
 	g_cRefThisDll--;
-	CloseHandle(hMutex);
 	apr_terminate();
 }
 

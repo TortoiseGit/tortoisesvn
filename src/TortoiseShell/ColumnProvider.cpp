@@ -174,7 +174,6 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
 	LoadLangDll();
-	DWORD dwWaitResult = 0;
 	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 6) 
 	{
 		PreserveChdir preserveChdir;
@@ -193,69 +192,43 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		switch (pscid->pid) 
 		{
 			case 0:
-				dwWaitResult = WaitForSingleObject(hMutex, 100);
-				if (dwWaitResult == WAIT_OBJECT_0)
-				{
-					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-					SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-					szInfo = buf;
-				} // if (dwWaitResult == WAIT_OBJECT_0)
-				ReleaseMutex(hMutex);
+				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+				SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+				szInfo = buf;
 				break;
 			case 1:
-				dwWaitResult = WaitForSingleObject(hMutex, 100);
-				if (dwWaitResult == WAIT_OBJECT_0)
+				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+				if (columnrev >= 0)
 				{
-					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-					if (columnrev >= 0)
-					{
-						V_VT(pvarData) = VT_UI4;
-						V_I4(pvarData) = columnrev;
-					}
-				} // if (dwWaitResult == WAIT_OBJECT_0)
-
-				ReleaseMutex(hMutex);
+					V_VT(pvarData) = VT_UI4;
+					V_I4(pvarData) = columnrev;
+				}
 				return S_OK;
 				break;
 			case 2:
-				dwWaitResult = WaitForSingleObject(hMutex, 100);
-				if (dwWaitResult == WAIT_OBJECT_0)
-				{
-					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-					szInfo = itemurl;
-				} // if (dwWaitResult == WAIT_OBJECT_0)
-				ReleaseMutex(hMutex);
+				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+				szInfo = itemurl;
 				break;
 			case 3:
-				dwWaitResult = WaitForSingleObject(hMutex, 100);
-				if (dwWaitResult == WAIT_OBJECT_0)
-				{
-					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-					szInfo = itemshorturl;
-				} // if (dwWaitResult == WAIT_OBJECT_0)
-				ReleaseMutex(hMutex);
+				GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+				szInfo = itemshorturl;
 				break;
 			case 5:
-				dwWaitResult = WaitForSingleObject(hMutex, 100);
-				if (dwWaitResult == WAIT_OBJECT_0)
+				if (g_ShellCache.IsPathAllowed(path))
 				{
-					if (g_ShellCache.IsPathAllowed(path))
+					SVNProperties props = SVNProperties(path);
+					for (int i=0; i<props.GetCount(); i++)
 					{
-						SVNProperties props = SVNProperties(path);
-						for (int i=0; i<props.GetCount(); i++)
+						if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
 						{
-							if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
-							{
 #ifdef UNICODE
-								szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
+							szInfo = MultibyteToWide((char *)props.GetItemValue(i).c_str());
 #else
-								szInfo = props.GetItemValue(i);
+							szInfo = props.GetItemValue(i);
 #endif
-							}
 						}
 					}
-				} // if (dwWaitResult == WAIT_OBJECT_0)
-				ReleaseMutex(hMutex);
+				}
 				break;
 			default:
 				return S_FALSE;
@@ -284,18 +257,13 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
 		switch (pscid->pid)
 		{
-			case PIDSI_AUTHOR:			// author
-				dwWaitResult = WaitForSingleObject(hMutex, 10);
-				if (dwWaitResult == WAIT_OBJECT_0)
-				{
-					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
-					szInfo = columnauthor;
-				} // if (dwWaitResult == WAIT_OBJECT_0)
-				ReleaseMutex(hMutex);
-				break;
-			default:
-				return S_FALSE;
-		} // switch (pscid->pid)
+		case PIDSI_AUTHOR:			// author
+			GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+			szInfo = columnauthor;
+			break;
+		default:
+			return S_FALSE;
+		}
 #ifdef UNICODE
 		wide_string wsInfo = szInfo;
 #else
