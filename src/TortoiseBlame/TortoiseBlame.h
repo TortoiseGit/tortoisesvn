@@ -39,6 +39,7 @@ const COLORREF lightBlue = RGB(0xA6, 0xCA, 0xF0);
 const int blockSize = 128 * 1024;
 
 #define BLAMESPACE 20
+#define HEADER_HEIGHT 20
 
 #define MAX_LOG_LENGTH 2000
 
@@ -53,6 +54,7 @@ public:
 	HWND wMain;
 	HWND wEditor;
 	HWND wBlame;
+	HWND wHeader;
 	HWND hwndTT;
 
 	LRESULT SendEditor(UINT Msg, WPARAM wParam=0, LPARAM lParam=0);
@@ -70,6 +72,7 @@ public:
 	void InitialiseEditor();
 	LONG GetBlameWidth();
 	void DrawBlame(HDC hDC);
+	void DrawHeader(HDC hDC);
 
 	LONG						m_mouserev;
 	std::string					m_mouseauthor;

@@ -417,6 +417,35 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 	::SelectObject(hDC, oldfont);
 }
 
+void TortoiseBlame::DrawHeader(HDC hDC)
+{
+	if (hDC == NULL)
+		return;
+	if (m_font == NULL)
+		return;
+	RECT rc;
+	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
+	GetClientRect(wHeader, &rc);
+
+	::SetBkColor(hDC, ::GetSysColor(COLOR_BTNFACE));
+
+	::ExtTextOut(hDC, 0, 0, ETO_CLIPPED, &rc, _T("Revision"), 8, 0);
+	int Left = m_revwidth;
+	if (ShowDate)
+	{
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Date"), 4, 0);
+		Left += m_datewidth;
+	}
+	if (ShowAuthor)
+	{
+		::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("Author"), 6, 0);
+		Left += m_authorwidth;
+	}
+	::ExtTextOut(hDC, Left, 0, ETO_CLIPPED, &rc, _T("File Source"), 11, 0);
+
+	::SelectObject(hDC, oldfont);
+}
+
 void TortoiseBlame::StringExpand(LPSTR str)
 {
 	char * cPos = str;
@@ -451,9 +480,11 @@ void TortoiseBlame::StringExpand(LPWSTR str)
 // Forward declarations of functions included in this code module:
 ATOM				MyRegisterClass(HINSTANCE hInstance);
 ATOM				MyRegisterBlameClass(HINSTANCE hInstance);
+ATOM				MyRegisterHeaderClass(HINSTANCE hInstance);
 BOOL				InitInstance(HINSTANCE, int);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	WndBlameProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	WndHeaderProc(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE /*hPrevInstance*/,
@@ -472,6 +503,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	LoadString(hInstance, IDC_TORTOISEBLAME, szWindowClass, MAX_LOADSTRING);
 	MyRegisterClass(hInstance);
 	MyRegisterBlameClass(hInstance);
+	MyRegisterHeaderClass(hInstance);
 
 	// Perform application initialization:
 	if (!InitInstance (hInstance, nCmdShow)) 
@@ -577,6 +609,27 @@ ATOM MyRegisterBlameClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcex);
 }
 
+ATOM MyRegisterHeaderClass(HINSTANCE hInstance)
+{
+	WNDCLASSEX wcex;
+
+	wcex.cbSize = sizeof(WNDCLASSEX); 
+
+	wcex.style			= CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc	= (WNDPROC)WndHeaderProc;
+	wcex.cbClsExtra		= 0;
+	wcex.cbWndExtra		= 0;
+	wcex.hInstance		= hInstance;
+	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_TORTOISEBLAME);
+	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
+	wcex.hbrBackground	= (HBRUSH)(COLOR_BTNFACE+1);
+	wcex.lpszMenuName	= 0;
+	wcex.lpszClassName	= _T("TortoiseBlameHeader");
+	wcex.hIconSm		= LoadIcon(wcex.hInstance, (LPCTSTR)IDI_SMALL);
+
+	return RegisterClassEx(&wcex);
+}
+
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    app.wMain = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
@@ -676,6 +729,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			app.hInstance, 
 			NULL);
 		::ShowWindow(app.wBlame, SW_SHOW);
+		app.wHeader = ::CreateWindow(
+			_T("TortoiseBlameHeader"), 
+			_T("header"), 
+			WS_CHILD | WS_CLIPCHILDREN | WS_BORDER,
+			CW_USEDEFAULT, 0, 
+			CW_USEDEFAULT, 0, 
+			hWnd, 
+			NULL, 
+			app.hInstance, 
+			NULL);
+		::ShowWindow(app.wHeader, SW_SHOW);
 		return 0;
 
 	case WM_SIZE:
@@ -685,6 +749,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			RECT blamerc;
 			RECT sourcerc;
 			::GetClientRect(hWnd, &rc);
+			::SetWindowPos(app.wHeader, 0, rc.left, rc.top, rc.right-rc.left, HEADER_HEIGHT, 0);
+			rc.top += HEADER_HEIGHT;
 			blamerc.left = rc.left;
 			blamerc.top = rc.top;
 			blamerc.right = app.GetBlameWidth() > (rc.right - rc.left) ? rc.right : app.GetBlameWidth() + rc.left;
@@ -872,4 +938,28 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	return 0;
 }
 
+LRESULT CALLBACK WndHeaderProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	PAINTSTRUCT ps;
+	HDC hDC;
+	switch (message) 
+	{
+	case WM_CREATE:
+		return 0;
+	case WM_PAINT:
+		hDC = BeginPaint(app.wHeader, &ps);
+		app.DrawHeader(hDC);
+		EndPaint(app.wHeader, &ps);
+		break;
+	case WM_COMMAND:
+		break;
+	case WM_DESTROY:
+		break;
+	case WM_CLOSE:
+		return 0;
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}
 #pragma warning(pop)
