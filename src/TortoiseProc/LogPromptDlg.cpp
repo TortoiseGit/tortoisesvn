@@ -329,7 +329,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(true);
 	CString logmsg;
 	pDlg->GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
-	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)logmsg.GetLength())
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) >= (DWORD)logmsg.GetLength())
 	{
 		pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
@@ -411,7 +411,7 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (DWORD(sTemp.GetLength()) > CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0))
+	if (DWORD(sTemp.GetLength()) >= CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0))
 	{
 		if (!m_bBlock)
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
