@@ -46,7 +46,14 @@ void CSciEdit::Init()
 	m_DirectFunction = SendMessage(SCI_GETDIRECTFUNCTION, 0, 0);
 	m_DirectPointer = SendMessage(SCI_GETDIRECTPOINTER, 0, 0);
 	Call(SCI_SETMARGINWIDTHN, 1, 0);
-
+	
+	TCHAR buffer[11];
+	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IDEFAULTANSICODEPAGE,(TCHAR *)buffer,10);
+	buffer[10]=0;
+	int codepage=0;
+	codepage=_tstoi((TCHAR *)buffer);
+	Call(SCI_SETCODEPAGE, codepage);
+	
 	//Setup the spell checker and thesaurus
 	TCHAR buf[MAX_PATH];
 	CString sFolder;
