@@ -5,6 +5,8 @@
 - CHG: Removed the info picture in the commit dialog. The statistics
        are now shown in the tooltip for the info line just below
        the filelist. (Stefan)
+- BUG: The option "Don't convert files when diffing against BASE"
+       was ignored due to wrong brackets in the code. (Stefan)
 - BUG: The added icon overlay wasn't shown due to a wrong registry
        entry set during installation. (Stefan Fuhrmann)
 - BUG: The revision column wasn't sorted correctly. (Stefan Fuhrmann)
