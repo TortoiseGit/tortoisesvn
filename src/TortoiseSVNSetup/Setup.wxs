@@ -160,13 +160,15 @@
 	        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\bin\TortoisePlink.exe" />
 	        <File Id="F__SubWCRev" Name="SUBWCR~1.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release\bin\SubWCRev.exe" />
 	        
+	        <Shortcut Id="S__RTFM" Directory="D_TortoisePrgMenu" Name="TORTOI~1" LongName="TortoiseSVN" Advertise="no"
+						Target="[TARGETDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:rtfm" Show="normal" />
 	        <Shortcut Id="S__TortoiseProc" Directory="D_TortoisePrgMenu" Name="HELP" LongName="Help" Advertise="no"
 						Target="[TARGETDIR]bin\TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
 	      </Component>
 	      <Component Id="C__TortoiseMerge" Guid="2F8D9AF8-A660-47f0-83CE-DD7DA0FB73DD" >
 	        <File Id="F__TortoiseMerge" Name="TORTOI~3.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseMerge.exe" />
 	        
-	        <Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TORTOI~1" LongName="TortoiseMerge" Advertise="no"
+	        <Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TORTOI~2" LongName="TortoiseMerge" Advertise="no"
 						Target="[TARGETDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
 	      </Component>
 	      <Component Id="C__CRuntimeSTLMFC" Guid="DC08A867-1436-4dce-8907-F1E2FCFCA02A" >

@@ -217,7 +217,6 @@
 #define IDC_FILECHANGESEACHWEEKMAX      1151
 #define IDS_MSGBOX_DONOTSHOWAGAIN       1153
 #define IDS_MSGBOX_ABORT                1154
-#define IDC_PROPERTYCHANGESEACHWEEKMAX  1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDC_MOSTACTIVEAUTHORNAME        1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -419,6 +418,7 @@
 #define IDS_PROC_PROPSETSUCCESS         2307
 #define IDS_PROC_IGNORESUCCESS          2307
 #define IDS_PROC_RESOLVE                2308
+#define IDS_PROC_RTFM                   2309
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
@@ -480,7 +480,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        181
+#define _APS_NEXT_RESOURCE_VALUE        182
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1160
 #define _APS_NEXT_SYMED_VALUE           101

@@ -289,6 +289,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.DoModal();
 		}
 		//#endregion
+		//#region rtfm
+		if (comVal.Compare(_T("rtfm"))==0)
+		{
+			CMessageBox::Show(EXPLORERHWND, IDS_PROC_RTFM, IDS_APPNAME, MB_ICONINFORMATION);
+			TCHAR path[MAX_PATH];
+			SHGetFolderPath(EXPLORERHWND, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, path);
+			ShellExecute(0,_T("explore"),path,NULL,NULL,SW_SHOWNORMAL);
+		}
+		//#endregion
 		//#region log
 		if (comVal.Compare(_T("log"))==0)
 		{
