@@ -232,6 +232,8 @@ BOOL CUtils::StartTextViewer(CString file)
 	TCHAR buf[MAX_PATH+1];
 	ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
 	viewer = buf;
+	ExpandEnvironmentStrings(file, buf, MAX_PATH);
+	file = buf;
 	if (viewer.IsEmpty())
 	{
 		OPENFILENAME ofn;		// common dialog box structure
@@ -263,9 +265,9 @@ BOOL CUtils::StartTextViewer(CString file)
 		else
 			return FALSE;
 	}
-	if (viewer.Find(_T("%base")) >= 0)
+	if (viewer.Find(_T("%1")) >= 0)
 	{
-		viewer.Replace(_T("%base"),  _T("\"")+file+_T("\""));
+		viewer.Replace(_T("%1"),  _T("\"")+file+_T("\""));
 	}
 	else
 	{

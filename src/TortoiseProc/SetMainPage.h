@@ -111,4 +111,5 @@ public:
 	afx_msg void OnBnClickedDontconvert();
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
+	afx_msg void OnBnClickedEditconfig();
 };

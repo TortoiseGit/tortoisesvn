@@ -98,6 +98,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_DONTCONVERT, OnBnClickedDontconvert)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
+	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
 END_MESSAGE_MAP()
 
 
@@ -250,6 +251,10 @@ BOOL CSetMainPage::OnApply()
 	return CPropertyPage::OnApply();
 }
 
+void CSetMainPage::OnBnClickedEditconfig()
+{
+	CUtils::StartTextViewer(_T("%APPDATA%\\Subversion\\config"));
+}
 
 
 

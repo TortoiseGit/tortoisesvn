@@ -327,30 +327,32 @@ BEGIN
     COMBOBOX        IDC_LANGUAGECOMBO,80,18,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_TEMPEXTENSIONS,80,37,200,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_DEFAULTLOG,235,57,45,14,ES_AUTOHSCROLL | ES_NUMBER,
+    EDITTEXT        IDC_DEFAULTLOG,229,57,51,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
     LTEXT           "&Language:",IDC_STATIC,13,20,60,8
     LTEXT           "&Include/Exclude pattern:",IDC_STATIC,13,37,60,18
     LTEXT           "Default &number of log messages",IDC_STATIC,13,59,204,8
     CONTROL         "&Show unversioned files before committing",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,13,115,267,
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,13,132,267,
                     10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,129,267,10
+                    13,146,267,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,143,267,10
-    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,89
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,101,286,91
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,160,267,10
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,107
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,118,286,75
     CONTROL         "Don't convert files when diffing against BASE",
                     IDC_DONTCONVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,
                     76,267,10
-    LTEXT           "Font for log messages:",IDC_STATIC,13,158,105,8
-    COMBOBOX        IDC_FONTNAMES,123,156,112,90,CBS_DROPDOWNLIST | 
+    LTEXT           "Font for log messages:",IDC_STATIC,13,175,105,8
+    COMBOBOX        IDC_FONTNAMES,117,173,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,241,157,40,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,241,174,40,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
+    PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,91,51,14
+    LTEXT           "Subversion configuration file:",IDC_STATIC,13,94,210,8
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199
@@ -673,7 +675,7 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 13
         VERTGUIDE, 80
-        VERTGUIDE, 235
+        VERTGUIDE, 229
         VERTGUIDE, 280
         TOPMARGIN, 7
         BOTTOMMARGIN, 192
