@@ -1184,7 +1184,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			this->m_bCancelled = FALSE;
 			CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 			m_tempFileList.AddPath(tempfile);
-			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
@@ -1196,10 +1196,17 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				}
 				else
 				{
-					CString sWC, sRev;
-					sWC.LoadString(IDS_DIFF_WORKINGCOPY);
-					sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
-					CUtils::StartExtPatch(tempfile, m_path.GetDirectory(), sWC, sRev, TRUE);
+					if (m_hasWC)
+					{
+						CString sWC, sRev;
+						sWC.LoadString(IDS_DIFF_WORKINGCOPY);
+						sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
+						CUtils::StartExtPatch(tempfile, m_path.GetDirectory(), sWC, sRev, TRUE);
+					}
+					else
+					{
+						CUtils::StartUnifiedDiffViewer(tempfile);
+					}
 				}
 			}
 		}
