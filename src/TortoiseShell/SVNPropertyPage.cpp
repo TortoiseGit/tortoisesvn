@@ -338,12 +338,13 @@ void CSVNPropertyPage::InitWorkfileView()
 				SetDlgItemText(m_hwnd, IDC_REVISION, buf);
 				if (svn.status->entry->url)
 				{
+					Unescape((char*)svn.status->entry->url);
 #ifdef UNICODE
 					_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
 #else
 					_tcsncpy(tbuf, svn.status->entry->url, 4095);
 #endif
-					Unescape(tbuf);
+					//Unescape(tbuf);
 					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
 				} // if (svn.status->entry->url) 
 				_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
@@ -460,12 +461,13 @@ void CSVNPropertyPage::InitWorkfileView()
 				int datelen = 0;
 				if (svn.status->entry->url)
 				{
+					Unescape((char*)svn.status->entry->url);
 #ifdef UNICODE
 					_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
 #else
 					_tcsncpy(tbuf, svn.status->entry->url, 4095);
 #endif
-					Unescape(tbuf);
+					//Unescape(tbuf);
 					TCHAR * ptr = _tcsrchr(tbuf, '/');
 					if (ptr != 0)
 					{
@@ -543,12 +545,66 @@ void CSVNPropertyPage::InitWorkfileView()
 	} 
 }
 
-void CSVNPropertyPage::Unescape(LPTSTR psz)
+//void CSVNPropertyPage::Unescape(LPTSTR psz)
+//{
+//	LPTSTR pszSource = psz;
+//	LPTSTR pszDest = psz;
+//
+//	static const TCHAR szHex[] = _T("0123456789ABCDEF");
+//
+//	// Unescape special characters. The number of characters
+//	// in the *pszDest is assumed to be <= the number of characters
+//	// in pszSource (they are both the same string anyway)
+//
+//	while (*pszSource != '\0' && *pszDest != '\0')
+//	{
+//		if (*pszSource == '%')
+//		{
+//			// The next two chars following '%' should be digits
+//			if ( *(pszSource + 1) == '\0' ||
+//				 *(pszSource + 2) == '\0' )
+//			{
+//				// nothing left to do
+//				break;
+//			}
+//
+//			TCHAR nValue = '?';
+//			LPCTSTR pszLow = NULL;
+//			LPCTSTR pszHigh = NULL;
+//			pszSource++;
+//
+//			*pszSource = (TCHAR) _totupper(*pszSource);
+//			pszHigh = _tcschr(szHex, *pszSource);
+//
+//			if (pszHigh != NULL)
+//			{
+//				pszSource++;
+//				*pszSource = (TCHAR) _totupper(*pszSource);
+//				pszLow = _tcschr(szHex, *pszSource);
+//
+//				if (pszLow != NULL)
+//				{
+//					nValue = (TCHAR) (((pszHigh - szHex) << 4) +
+//									(pszLow - szHex));
+//				}
+//			} // if (pszHigh != NULL) 
+//			*pszDest++ = nValue;
+//		} 
+//		else
+//			*pszDest++ = *pszSource;
+//			
+//		pszSource++;
+//	}
+//
+//	*pszDest = '\0';
+//}
+//
+void CSVNPropertyPage::Unescape(char * psz)
 {
-	LPTSTR pszSource = psz;
-	LPTSTR pszDest = psz;
+	char * pszSource = psz;
+	char * pszDest = psz;
 
-	static const TCHAR szHex[] = _T("0123456789ABCDEF");
+	static const char szHex[] = "0123456789ABCDEF";
 
 	// Unescape special characters. The number of characters
 	// in the *pszDest is assumed to be <= the number of characters
@@ -566,23 +622,23 @@ void CSVNPropertyPage::Unescape(LPTSTR psz)
 				break;
 			}
 
-			TCHAR nValue = '?';
-			LPCTSTR pszLow = NULL;
-			LPCTSTR pszHigh = NULL;
+			char nValue = '?';
+			char * pszLow = NULL;
+			char * pszHigh = NULL;
 			pszSource++;
 
-			*pszSource = (TCHAR) _totupper(*pszSource);
-			pszHigh = _tcschr(szHex, *pszSource);
+			*pszSource = (char) toupper(*pszSource);
+			pszHigh = strchr(szHex, *pszSource);
 
 			if (pszHigh != NULL)
 			{
 				pszSource++;
-				*pszSource = (TCHAR) _totupper(*pszSource);
-				pszLow = _tcschr(szHex, *pszSource);
+				*pszSource = (char) toupper(*pszSource);
+				pszLow = strchr(szHex, *pszSource);
 
 				if (pszLow != NULL)
 				{
-					nValue = (TCHAR) (((pszHigh - szHex) << 4) +
+					nValue = (char) (((pszHigh - szHex) << 4) +
 									(pszLow - szHex));
 				}
 			} // if (pszHigh != NULL) 

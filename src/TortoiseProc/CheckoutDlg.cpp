@@ -207,7 +207,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 				m_URLCombo.SetWindowText(strUrl);
 			}
 		}
-	}
+	} // if (strUrl.Left(7) == _T("file://")) 
 	else if ((strUrl.Left(7) == _T("http://")
 		||(strUrl.Left(8) == _T("https://"))
 		||(strUrl.Left(6) == _T("svn://"))

@@ -100,6 +100,7 @@ BOOL CCopyDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	SVNStatus status;
+	CString unescapedurl;
 	long rev = status.GetStatus(m_path);
 	if ((rev == (-2))||(status.status->entry == NULL))
 	{
@@ -108,13 +109,14 @@ BOOL CCopyDlg::OnInitDialog()
 		this->EndDialog(IDCANCEL);		//exit
 	} // if ((rev == (-2))||(status.status->entry == NULL))
 	else
+	{
 		m_wcURL = CUnicodeUtils::GetUnicode(status.status->entry->url);
+		CUtils::Unescape((char *)status.status->entry->url);
+		unescapedurl = CUnicodeUtils::GetUnicode(status.status->entry->url);
+	}
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	m_URLCombo.AddString(m_wcURL);
 	m_URLCombo.SelectString(-1, m_wcURL);
-	CString unescapedurl = m_wcURL;
-	CUtils::Unescape(unescapedurl.GetBuffer());
-	unescapedurl.ReleaseBuffer();
 	GetDlgItem(IDC_FROMURL)->SetWindowText(unescapedurl);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control

@@ -5,6 +5,7 @@
 #include "TortoiseProc.h"
 #include "RelocateDlg.h"
 #include "RepositoryBrowser.h"
+#include "UnicodeUtils.h"
 #include ".\relocatedlg.h"
 
 
@@ -42,9 +43,10 @@ BOOL CRelocateDlg::OnInitDialog()
 
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 
-	CString url = m_sFromUrl;
-	CUtils::Unescape(url.GetBuffer());
-	url.ReleaseBuffer();
+	CStringA urla = CUnicodeUtils::GetUTF8(m_sFromUrl);
+	CUtils::Unescape(urla.GetBuffer());
+	urla.ReleaseBuffer();
+	CString url = CString(urla);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(url);
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));

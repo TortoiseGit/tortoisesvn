@@ -438,9 +438,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
 				if (s->entry)
 				{
+					CUtils::Unescape((char *)s->entry->url);
 					CString url = CUnicodeUtils::GetUnicode(s->entry->url);
-					CUtils::Unescape(url.GetBuffer());
-					url.ReleaseBuffer();
 					pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(url);
 				}
 				temp = strbuf;

@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "RepositoryTree.h"
+#include "UnicodeUtils.h"
 
 #include "shlobj.h"
 #include "utils.h"
@@ -31,8 +32,10 @@ CRepositoryTree::CRepositoryTree(const CString& strUrl) :
 	m_strUrl(strUrl)
 {
 	m_strUrl.TrimRight('/');
-	CUtils::Unescape(m_strUrl.GetBuffer());
-	m_strUrl.ReleaseBuffer();
+	CStringA temp = CUnicodeUtils::GetUTF8(m_strUrl);
+	CUtils::Unescape(temp.GetBuffer());
+	temp.ReleaseBuffer();
+	m_strUrl = temp;
 }
 
 CRepositoryTree::~CRepositoryTree()

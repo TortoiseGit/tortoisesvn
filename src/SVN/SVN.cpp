@@ -1144,8 +1144,10 @@ BOOL SVN::IsRepository(const CString& strUrl)
 	svn_repos_t* pRepos;
 	CString url = strUrl;
 	preparePath(url);
-	CUtils::Unescape(url.GetBuffer());
-	url.ReleaseBuffer();
+	CStringA urla = CUnicodeUtils::GetUTF8(url);
+	CUtils::Unescape(urla.GetBuffer());
+	urla.ReleaseBuffer();
+	url = urla;
 	url += _T("/");
 	int pos = url.GetLength();
 	while ((pos = url.ReverseFind('/'))>=0)
