@@ -219,10 +219,7 @@ BEGIN
     COMBOBOX        IDC_URLCOMBO,99,15,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,15,14,12
-    LTEXT           "Von:",IDC_STATIC,7,55,18,8
-    EDITTEXT        IDC_REVISON_START,39,53,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Bis:",IDC_STATIC,99,55,29,8
-    GROUPBOX        "Revision",IDC_STATIC,138,34,136,46
+    GROUPBOX        "Bis Revision",IDC_STATIC,138,34,136,46
     CONTROL         "&Neueste Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,46,74,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
@@ -233,6 +230,9 @@ BEGIN
                     IDC_STATIC,7,84,267,17
     LTEXT           "Um einen kompletten Zweig zurück in den Hauptzweig zu mischen müssen Sie die Revision angeben in der Sie den Zweig erstellt haben und die 'Neueste Revision' wählen",
                     IDC_STATIC,7,103,267,25
+    EDITTEXT        IDC_REVISON_START,13,52,51,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Von Revision",IDC_STATIC,7,35,123,46
+    PUSHBUTTON      "Suche",IDC_FINDBRANCHSTART,74,52,50,14
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 220, 54

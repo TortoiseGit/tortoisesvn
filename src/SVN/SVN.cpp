@@ -557,7 +557,7 @@ BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOO
 	return TRUE;
 }
 
-BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL changed)
+BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
 {
 	svn_opt_revision_t revEnd;
 	memset (&revEnd, 0, sizeof (revEnd));
@@ -577,7 +577,7 @@ BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL ch
 						getRevision (revisionStart), 
 						&revEnd, 
 						changed,
-						false,			// not strict by default (showing cp info)
+						strict,
 						logReceiver,	// log_message_receiver
 						(void *)this, &ctx, pool);
 

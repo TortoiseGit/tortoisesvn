@@ -219,20 +219,20 @@ BEGIN
     COMBOBOX        IDC_URLCOMBO,99,15,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,15,14,12
-    LTEXT           "From:",IDC_STATIC,7,55,18,8
-    EDITTEXT        IDC_REVISON_START,39,53,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "To:",IDC_STATIC,99,55,29,8
-    GROUPBOX        "Revision",IDC_STATIC,138,34,136,46
+    EDITTEXT        IDC_REVISON_START,13,52,51,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "To Revision",IDC_STATIC,138,35,136,46
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,46,61,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     145,62,43,10
-    EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+    EDITTEXT        IDC_REVISION_END,210,59,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
     LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.",
                     IDC_STATIC,7,84,267,17
     LTEXT           "To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.",
                     IDC_STATIC,7,103,267,17
+    GROUPBOX        "From Revision",IDC_STATIC,7,35,123,46
+    PUSHBUTTON      "Find",IDC_FINDBRANCHSTART,74,52,50,14
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 220, 54
@@ -561,9 +561,12 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 274
+        VERTGUIDE, 13
         VERTGUIDE, 99
         TOPMARGIN, 7
         BOTTOMMARGIN, 139
+        HORZGUIDE, 35
+        HORZGUIDE, 81
     END
 
     IDD_PROMPT, DIALOG

@@ -327,7 +327,7 @@ public:
 	 * \param revisionEnd the revision to stop the logs
 	 * \param changed TRUE if the log should follow changed paths 
 	 */
-	BOOL ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL changed);
+	BOOL ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL changed, BOOL strict = FALSE);
 	
 	/**
 	 * Checks out a file with \a revision to \a localpath.

@@ -21,6 +21,8 @@
 #include "TortoiseProc.h"
 #include "MergeDlg.h"
 #include "RepositoryBrowser.h"
+#include "MessageBox.h"
+#include ".\mergedlg.h"
 
 
 
@@ -53,6 +55,7 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
+	ON_BN_CLICKED(IDC_FINDBRANCHSTART, OnBnClickedFindbranchstart)
 END_MESSAGE_MAP()
 
 
@@ -171,7 +174,7 @@ void CMergeDlg::OnBnClickedBrowse()
 		{
 			m_URLCombo.SetWindowText(browser.m_strUrl);
 		}
-	}
+	} 
 	else
 	{
 		// browse local directories
@@ -194,4 +197,22 @@ void CMergeDlg::OnBnClickedRevisionHead()
 void CMergeDlg::OnBnClickedRevisionN()
 {
 	GetDlgItem(IDC_REVISION_END)->EnableWindow(TRUE);
+}
+
+void CMergeDlg::OnBnClickedFindbranchstart()
+{
+	LogHelper log;
+	log.hWnd = this->m_hWnd;
+	if (log.ReceiveLog(m_BranchURL, 0, SVN::REV_HEAD, FALSE, TRUE))
+	{
+		CString temp;
+		temp.Format(_T("%d"), log.m_firstrev);
+		GetDlgItem(IDC_REVISON_START)->SetWindowText(temp);
+	}
+	else
+	{
+		CString temp;
+		temp = log.GetLastErrorMessage();
+		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+	}
 }

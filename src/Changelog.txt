@@ -15,6 +15,10 @@
        clipboard (with Ctrl-C). Issue 64. (Stefan)
 - ADD: Search function for log messages. (Stefan)
 - ADD: Properties can be set/removed recursively. (Stefan)
+- ADD: "Find" button in the merge dialog for finding
+       the revision at which the branch occurred.
+       Please note: this works only correct if the
+       server has subversion 0.28 and higher! (Stefan)
 
 Version 0.18
 - BUG: The repository browser didn't escape the url

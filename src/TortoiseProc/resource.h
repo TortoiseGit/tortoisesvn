@@ -260,6 +260,7 @@
 #define IDC_BUTTON1                     1031
 #define IDC_LOGBUTTON                   1031
 #define IDC_MENU9                       1031
+#define IDC_FINDBRANCHSTART             1031
 #define IDC_RADIO1                      1032
 #define IDC_REVISION_HEAD               1032
 #define IDC_MENU10                      1032

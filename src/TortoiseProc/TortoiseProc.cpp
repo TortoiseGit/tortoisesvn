@@ -470,6 +470,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			} // if ((status.status == NULL) || (status.status->entry == NULL))
 			CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 			dlg.m_URL = url;
+			dlg.m_BranchURL = url;
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url1 = %s, url2 = %s, path = %s\n"), status.status->entry->url, dlg.m_URL, path);

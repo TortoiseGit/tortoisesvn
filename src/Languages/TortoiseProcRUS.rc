@@ -179,20 +179,20 @@ BEGIN
     COMBOBOX        IDC_URLCOMBO,99,13,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,13,14,12
-    LTEXT           "Начиная с\nредакции:",IDC_STATIC,7,51,39,18
-    EDITTEXT        IDC_REVISON_START,52,53,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "и до:",IDC_STATIC,99,55,23,8
-    GROUPBOX        "Редакция",IDC_STATIC,131,34,136,46
+    GROUPBOX        "Редакция",IDC_STATIC,135,35,136,46
     CONTROL         "Последняя редакция",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,138,47,87,10
+                    BS_AUTORADIOBUTTON,142,48,87,10
     CONTROL         "Указанная",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    138,63,52,10
-    EDITTEXT        IDC_REVISION_END,203,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+                    142,64,52,10
+    EDITTEXT        IDC_REVISION_END,207,62,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
     LTEXT           "Для слияния с конкретными изменениями из другой ветки разработки нужно указать номера редакций, между которыми были произведены изменения.",
                     IDC_STATIC,7,85,267,20
     LTEXT           "Для слияния целой ветки с головной веткой разработки нужно указать редакцию ветки и выделить пункт ""Головная редакция""",
                     IDC_STATIC,7,108,267,19
+    EDITTEXT        IDC_REVISON_START,13,52,51,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "From Revision",IDC_STATIC,7,35,123,46
+    PUSHBUTTON      "Find",IDC_FINDBRANCHSTART,74,52,50,14
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 229, 55
