@@ -184,6 +184,17 @@ public:
 	 */
 	bool HasAdminDir() const;
 
+	/**
+	 * Checks if the path or URL is valid on Windows.
+	 * A path is valid if conforms to the specs in the windows API.
+	 * An URL is valid if the path checked out from it is valid
+	 * on windows. That means an URL which is valid according to the WWW specs
+	 * isn't necessarily valid as a windows path (e.g. http://myserver.com/repos/file:name 
+	 * is a valid URL, but the path is illegal on windows ("file:name" is illegal), so
+	 * this function would return \c false for that URL).
+	 */
+	bool IsValidOnWindows() const;
+	
 private:
 	// All these functions are const, and all the data
 	// is mutable, in order that the hidden caching operations
@@ -219,6 +230,8 @@ private:
 	mutable __int64 m_lastWriteTime;
 	mutable bool m_bHasAdminDirKnown;
 	mutable bool m_bHasAdminDir;
+	mutable bool m_bIsValidOnWindowsKnown;
+	mutable bool m_bIsValidOnWindows;
 
 	friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };

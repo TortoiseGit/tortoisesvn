@@ -18,17 +18,22 @@
 #include "StdAfx.h"
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
+#include "regexpr2.h"
 #if defined(_MFC_VER)
 #include "MessageBox.h"
 #include "Utils.h"
 #endif
+
+using namespace std;
+using namespace regex;
 
 CTSVNPath::CTSVNPath(void) :
 	m_bDirectoryKnown(false),
 	m_bIsDirectory(false),
 	m_bIsURL(false),
 	m_bURLKnown(false),
-	m_bHasAdminDirKnown(false)
+	m_bHasAdminDirKnown(false),
+	m_bIsValidOnWindowsKnown(false)
 {
 }
 
@@ -41,7 +46,8 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 	m_bIsDirectory(false),
 	m_bIsURL(false),
 	m_bURLKnown(false),
-	m_bHasAdminDirKnown(false)
+	m_bHasAdminDirKnown(false),
+	m_bIsValidOnWindowsKnown(false)
 {
 	SetFromUnknown(sUnknownPath);
 }
@@ -297,6 +303,9 @@ void CTSVNPath::Reset()
 	m_bDirectoryKnown = false;
 	m_bURLKnown = false;
 	m_bLastWriteTimeKnown = false;
+	m_bHasAdminDirKnown = false;
+	m_bIsValidOnWindowsKnown = false;
+
 	m_sBackslashPath.Empty();
 	m_sFwdslashPath.Empty();
 	m_sUTF8FwdslashPath.Empty();
@@ -496,6 +505,37 @@ bool CTSVNPath::HasAdminDir() const
 	return m_bHasAdminDir;
 }
 
+bool CTSVNPath::IsValidOnWindows() const
+{
+	if (m_bIsValidOnWindowsKnown)
+		return m_bIsValidOnWindows;
+
+	m_bIsValidOnWindows = false;
+	match_results results;
+	match_results::backref_type br;
+	EnsureBackslashPathSet();
+	CString sMatch = m_sBackslashPath + _T("\r\n");
+	rpattern pat;
+	if (IsUrl())
+	{
+		pat.init(_T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ]|(?!lpt\\d|com\\d|aux|nul|prn|con|clock$)(([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\(?!lpt\\d|com\\d|aux|nul|prn|con|clock$))*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+	}
+	else
+	{
+		pat.init(_T("^(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ]|(?!lpt\\d|com\\d|aux|nul|prn|con|clock$)(([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\(?!lpt\\d|com\\d|aux|nul|prn|con|clock$))*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+	}
+	br = pat.match((LPCTSTR)sMatch, results);
+	if (br.matched)
+	{
+		CString sMatched = results.backref(0).str().c_str();
+		sMatched = sMatched.Trim();
+		sMatch = sMatch.Trim();
+		if (sMatch.Compare(sMatched)==0)
+			m_bIsValidOnWindows = true;
+	}
+	m_bIsValidOnWindowsKnown = true;
+	return m_bIsValidOnWindows;
+}
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -683,6 +723,7 @@ public:
 		RemoveDuplicatesTest();
 		ContainingDirectoryTest();
 		SubversionPathTest();
+		ValidPathAndUrlTest();
 #if defined(_MFC_VER)
 		ListLoadingTest();
 #endif
@@ -832,6 +873,89 @@ private:
 		testPath.SetFromUnknown(_T("http://testing special chars äöü"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20Ã¤Ã¶Ã¼") == 0);		
 #endif
+	}
+	
+	void ValidPathAndUrlTest()
+	{
+		CTSVNPath testPath;
+		testPath.SetFromWin(_T("c:\\a\\b\\c.test.txt"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\test folder\\file"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\folder\\"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\ext.ext.ext\\ext.ext.ext.ext"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\.svn"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\com\\file"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\LPT"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\com1test"));
+		ATLASSERT(testPath.IsValidOnWindows());
+
+		testPath.SetFromWin(_T("\\\\Share\\filename"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("\\\\Share\\filename.extension"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("\\\\Share\\.svn"));
+		ATLASSERT(testPath.IsValidOnWindows());
+
+		// now the negative tests
+		testPath.SetFromWin(_T("c:"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\test:folder"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\file<name"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\something*else"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\folder\\file?nofile"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\ext.>ension"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\com1\\filename"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\com1\\aux"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\com1\\AuX"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+
+		testPath.SetFromWin(_T("\\\\Share\\lpt9\\filename"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("\\\\Share\\prn"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("\\\\Share\\NUL"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		
+		// now come some URL tests
+		testPath.SetFromSVN(_T("http://myserver.com/repos/trunk"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("https://myserver.com/repos/trunk/file%20with%20spaces"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("svn://myserver.com/repos/trunk/file with spaces"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("svn+ssh://www.myserver.com/repos/trunk"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("http://localhost:90/repos/trunk"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		// and some negative URL tests
+		testPath.SetFromSVN(_T("httpp://myserver.com/repos/trunk"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("https://myserver.com/rep:os/trunk/file%20with%20spaces"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("svn://myserver.com/rep<os/trunk/file with spaces"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("svn+ssh://www.myserver.com/repos/trunk/prn/"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		testPath.SetFromSVN(_T("http://localhost:90/repos/trunk/com1"));
+		ATLASSERT(!testPath.IsValidOnWindows());
+		
 	}
 
 } TSVNPathTests;
