@@ -438,7 +438,8 @@ LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
 	CString temp;
 	if ((wParam == 1)||(wParam == 3))
 	{
-		lParam--;
+		if (wParam==3)
+			lParam--;
 		temp.Format(_T("%ld"), lParam);
 		GetDlgItem(IDC_REVISION_START)->SetWindowText(temp);
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
