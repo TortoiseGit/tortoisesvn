@@ -1045,33 +1045,88 @@
 		<sect2 id="tsvn-DUG-merge-2">
 			<title>Einen Zweig zurück in den Hauptstamm mischen</title>
 			<para>
-			Wenn Sie die Änderungen, welche Sie auf einem separaten 
-			Entwicklungszweig gemacht haben wieder zurück in den Hauptstamm
-			mischen wollen dann benutzen Sie dazu den Befehl <guimenuitem>
-			Mischen...</guimenuitem> aus dem Kontextmenu.
 				<figure id="tsvn-DUG-merge-dia-1">
-					<title>Der Mischen Dialog</title>
+					<title>The Merge Dialog</title>
 					<graphic fileref="images/Merge.png"/>
 				</figure>
-			Der Screenshot sagt eigentlich alles. Aber für diejenigen welche
-			keine Bilder wollen wiederhol ich's nochmals:
-			<itemizedlist>
-				<listitem>
-					<para>
-					Um nur bestimmte Änderungen in den Hauptstamm zu mischen
-					geben Sie die Revisionen an, in welchen diese Änderungen
-					gemacht wurden.
+				Um Änderungen aus einem Zweig in den Hauptstamm zu mischen 
+				benötigen Sie zuerst eine Arbeitskopie des Hauptstamms.
+				Wählen Sie dann <menuchoice><guimenuitem>Mischen...</guimenuitem>
+				</menuchoice> aus dem Kontextmenu.
+				<orderedlist>
+					<listitem>
+						<para>
+						Im <guilabel>Mische aktuellen Zweig mit</guilabel> Feld
+						geben Sie die vollständige URL des Zweiges welcher die
+						Änderungen enthält ein. Sie können auch den <guibutton>
+						...</guibutton> Knopf verwenden um die Datenbank nach
+						dem Zweig zu durchsuchen.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+						Im Feld <guilabel>Von Revision</guilabel>geben Sie die
+						Start-Revision ein. Dies ist die Revisionsnummer
+						<emphasis>vor</emphasis> der Änderung welche Sie
+						mischen möchten. Zum Beispiel:
+						<screen>
+Rev Log-Meldungen
+39. Arbeite an MyBranch
+38. Arbeite an trunk
+37. Arbeite an MyBranch
+36. Erstelle den Zweig MyBranch
+35. Arbeite an trunk
+34. Arbeite an trunk
+         ...
+						</screen>
+						Wenn Sie nun die Änderungen von MyBranch in den Hauptstamm
+						(trunk) mischen möchten müssen Sie 36 in das <guilabel>
+						Von Revision:</guilabel> Feld eingeben, und nicht etwa
+						37 wie Sie vielleicht denken.
+						</para>
+						<para>
+						Klicken Sie <guibutton>Suche</guibutton> wenn Sie in
+						den Log-Meldungen nach der benötigten Revisionsnummer
+						suchen möchten. Diese Revisionsnummer wird wahrscheinlich
+						nie 0 sein!
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+						Im Feld <guilabel>Zu Revision</guilabel> geben Sie die 
+						die Endrevision der Änderung(en) ein. Sie können auch
+						einzelne Revisionen mischen, dies muss nicht HEAD sein!
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+						Klicken Sie auf <guibutton>OK</guibutton> um den 
+						Mischvorgang zu starten. Wenn Sie dann die Änderungen
+						zur Datenbank übertragen wollen, erwähnen Sie in der
+						Log-Meldung welche Revisionen Sie von welchem Zweig
+						gemischt haben! Auf diese Weise können Sie später nachlesen,
+						welche Revisionen Sie bereits gemischt haben und welche
+						noch nicht. Dies ist notwendig, da ein nochmaliges
+						mischen einer bereits gemischten Revision zu einem
+						Konflikt führt.
 					</para>
-				</listitem>
-				<listitem>
-					<para>
-					Um einen kompletten Zweig in den Hauptstamm zu mischen,
-					geben Sie die Revision an in welcher der Zweig erstellt
-					wurde und HEAD.
-					</para>
-				</listitem>
-			</itemizedlist>
-			</para>
+					</listitem>
+				</orderedlist>
+				Der Mischvorgang ist nun abgeschlossen. Sie sollten nun ihre
+				Arbeitskopie überprüfen, ob alles so ist wie erwartet. Ein
+				Mischvorgang ist normalerweise recht aufwendig und kompliziert.
+				Zum Beispiel können Konflikte auftreten wenn der Zweig sich
+				schon zu weit vom Hauptast entfernt hat.
+				<para>
+				<important>
+				Subversion kann nicht eine Datei mit einem Ordner mischen und
+				umgekehrt. Nur Ordner mit Ordner und Dateien mit Dateien können
+				gemischt werden. Wenn Sie auf eine Datei klicken und den Misch-Dialog
+				aufrufen, dann müssen Sie eine URL zu einer Datei im Dialog
+				eingeben.
+				</important>
+				</para>
+			<para>
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
