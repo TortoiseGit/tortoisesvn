@@ -108,7 +108,7 @@
 			<tip>
 				<para>
 				If you have to authenticate against a Windows NT domain, enter your username
-				including the domain name, like: <action>MYDOMAIN/johnd</action>.
+				including the domain name, like: <filename>MYDOMAIN/johnd</filename>.
 				</para>
 			</tip>
 		</para>
@@ -167,6 +167,27 @@
 /calc/branches
 /calc/tags
 </screen>
+			<para>
+				Indexing by project makes sense if the projects are not closely related
+				and each one is checked out individually. For related projects where
+				you may want to check out all projects in one go, or where the projects
+				are all tied together in a single distribution package, it is often better
+				to index by branch. This way you have only one trunk to checkout, and
+				the relationships between the sub-projects is more easily visible.
+			</para>
+			<para>
+				If you adopt a top level <filename>/trunk /tags /branches</filename>
+				approach, there is nothing to say that you have to copy the entire trunk
+				for every branch and tag, and in some ways this structure offers the
+				most flexibility.
+			</para>
+			<para>
+				Another consideration is the access control for each project. Subversion
+				only controls access to the repository, not to directories within it.
+				If you want access to different projects to be restricted to different
+				groups of people, you will need to create a separate repository for
+				each project.
+			</para>
 			<para>
 				Of course, you're free to ignore these common layouts.  You
 				can create any sort of variation, whatever works best for you or
@@ -457,7 +478,7 @@
 				the status changes to <literal>modified</literal>
 				and the icon overlay then changes to a red exclamation
 				mark. That way you can easily see which files were changed
-				since you last updated your working copy and need to be commited.
+				since you last updated your working copy and need to be committed.
 				<graphic fileref="images/ConflictIcon.png"/>
 				If during an update a <literal>conflict</literal> occurs then
 				the icon changes to a yellow exclamation mark.
@@ -622,12 +643,12 @@
 			<para>
 			If you update a file or folder to a specific revision, you will get 
 			<literal>out of date</literal> error messages when you try to commit them!
-			If you want to undo changes to a file and start fresh from an earlier
+			If you want to undo changes to a file and start afresh from an earlier
 			revision, you must either use the
 			<menuchoice>
 				<guimenuitem>Revert changes from this revision</guimenuitem>
 			</menuchoice>
-			command from the logdialog or the 
+			command from the log dialog or the
 			<menuchoice>
 				<guimenuitem>Merge...</guimenuitem>
 			</menuchoice>
@@ -644,6 +665,18 @@
 			working copy To reflect the state which it had in revision 50 &mdash;
 			then simply update to revision 50.
 		</para>
+		<para>
+			In general, updating individual files to an earlier revision is
+			not a good idea as it leaves your working copy in an inconsistent
+			state. If the file you are updating has changed name, you may even
+			find that the file just disappears from your working copy because
+			no file of that name existed in the earlier revision. If you simply
+			want a local copy of an old version of a file it is better to use the
+			<menuchoice>
+				<guimenuitem>Save revision to...</guimenuitem>
+			</menuchoice>
+			command from the log dialog for that file.
+		</para>
 		<warning>
 			<para>
 			If you updated your working copy to an earlier revision, you must not
@@ -651,9 +684,14 @@
 			errors if you try to commit those changes.
 			If you want to revert some changes in your working copy, then use the 
 			repository browser and save the file in question over the file in your 
-			working copy. Or you can use the log dialog and use the command <action>revert
-			changes in this revision</action>. For reverting multiple revision, you should
-			use the merge command.
+			working copy. Or you can use the log dialog and use the command 
+			<menuchoice>
+				<guimenuitem>Revert changes in this revision</guimenuitem>
+			</menuchoice>.
+			This will undo only those changes made in the selected revision.
+			Changes made after that revision will be retained.
+			For reverting multiple revisions, you should use the merge command,
+			where you can specify the range of revisions you want to undo.
 			</para>
 		</warning>
 		<tip>
@@ -666,7 +704,7 @@
 				all of those files/folders
 				are updated one by one. TortoiseSVN makes sure that all files/folders
 				which are from the same repository are updated to the exact same
-				revision! Even if between those updates another commit occured.
+				revision! Even if between those updates another commit occurred.
 			</para>
 		</tip>
 	</sect1>
@@ -799,6 +837,18 @@
 			file. If you want to include an unversioned file,
 			just check that file to add it to the commit.
 			<tip>
+				<title>Commit files or folders?</title>
+				<para>
+					When you commit files, the commit dialog shows only
+					the files you have selected. When you commit a folder
+					the commit dialog will select the changed files automatically.
+					If you forget about a new file you created, committing the
+					folder will find it anyway. Committing a folder does <emphasis>not</emphasis>
+					mean that every file gets marked as changed; It just makes
+					your life easier by doing more work for you.
+				</para>
+			</tip>
+			<tip>
 				<title>Many unversioned files in the commit dialog</title>
 				<para>
 					If you think that the TSVN commit dialog shows you too
@@ -861,15 +911,15 @@
 		</indexterm>
 		<para>
 			You could integrate a Bugtracking Tool of your choice in <application>TortoiseSVN</application>. 
-			Therefor you have to define some Properties, which start with <literal>bugtraq:</literal>. They must be set on 
-			Directorys: (<xref linkend="tsvn-DUG-propertypage"/>)
+			Therefore you have to define some Properties, which start with <literal>bugtraq:</literal>. They must be set on 
+			Directories: (<xref linkend="tsvn-DUG-propertypage"/>)
 			<variablelist>
 				<varlistentry>
 					<term>bugtraq:message</term>
 					<listitem>
 						<para>
 							<emphasis>This Properties activates the Bugtracking System. </emphasis>
-							It's used to add a line at the end of the logmessage. Therefor it must 
+							It's used to add a line at the end of the logmessage. Therefore it must 
 							contain <literal>%BUGID%</literal>, which is replaced by the issuenumber on commit. 
 							Your Bugtracking tool could parse the logs and assign the issue to a commit. 
 							e.g <application>TortoiseSVN</application> is using <literal>Issue : %BUGID%</literal>, 
@@ -882,10 +932,10 @@
 					<listitem>
 						<para>
 							Set this property to the url of your bugtracking tool. It must be 
-							properly URI encoded and it have to contain <literal>%BUGID%</literal>.
+							properly URI encoded and it has to contain <literal>%BUGID%</literal>.
 							<literal>%BUGID%</literal>
 							is replaced with the Issuenumber you entered, so the client could 
-							jump directly to the issue. You must not provide this property, but
+							jump directly to the issue. You do not have to provide this property, but
 							then <application>TortoiseSVN</application> shows only the issuenumber
 							and not the link to it. e.g <application>TortoiseSVN</application> is 
 							using
@@ -910,10 +960,10 @@
 					<term>bugtraq:number</term>
 					<listitem>
 						<para>
-							If it's set to <literal>true</literal> only numbers are allowed in the issuenumber textfield. 
-							An exception is the comma, so you could comma separate several numbers. 
+							If it's set to <literal>true</literal> only numbers are allowed in the issuenumber textfield.
+							An Exception is the comma, so you could comma separate several numbers.
 							Valid values are <literal>true/false</literal>. 
-							<emphasis>If this property is undefined <literal>true</literal> is assumed.</emphasis>
+							<emphasis>If not defined, <literal>true</literal> is assumed.</emphasis>
 						</para>
 					</listitem>
 				</varlistentry>
@@ -921,17 +971,17 @@
 					<term>bugtraq:warnifnoissue</term>
 					<listitem>
 						<para>
-							Set this to <literal>true</literal>, if you want that
+							Set this to <literal>true</literal>, if you want
 							<application>TortoiseSVN</application>
-							warns you because of an empty issuenumber textfield. Valid values 
+							to warn you because of an empty issuenumber textfield. Valid values 
 							are <literal>true/false</literal>.
-							<emphasis>If this property is undefined <literal>true</literal> is assumed.</emphasis>
+							<emphasis>If not defined, <literal>true</literal> is assumed.</emphasis>
 						</para>
 					</listitem>
 				</varlistentry>
 			</variablelist>
 			<important>
-				<title>Set the Properties on Directorys</title>
+				<title>Set the Properties on Directories</title>
 				<para>
 					These properties must be set on directories for the system to work. 
 					If you can be sure that each user checks out only from e.g <filename>trunk/</filename>
@@ -1233,9 +1283,32 @@
 		</para>
 		<para>
 			The Log Dialog retrieves all those log messages and shows them
-			to you, including a detailed list of all files you changed for
-			each commit. But it does not only that &mdash; it provides a lot
-			of commands you can use to get even more information of the
+			to you.
+			The display is divided into 3 panes.
+			<itemizedlist>
+				<listitem>
+					<para>
+						The top pane shows a list of revisions where changes to the
+						file/folder have been committed. This summary includes the
+						date and time, the person who committed the revision and the
+						start of the log message.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						The middle pane shows the full log message for the selected
+						revision.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						The bottom pane shows a list of all files and folders that
+						were changed as part of the selected revision.
+					</para>
+				</listitem>
+			</itemizedlist>
+			But it does much more than that &mdash; it provides context menu
+			commands which you can use to get even more information about the
 			project history.
 		</para>
 		<sect2 id="tsvn-DUG-showlog-1">
@@ -1272,20 +1345,29 @@
 			<title>Getting Additional Information</title>
 			<para>
 				<figure id="tsvn-DUG-showlog-2-dia-1">
-					<title>The Log Dialog With Context Menu</title>
+					<title>The Log Dialog Top Pane with Context Menu</title>
 					<graphic fileref="images/LogContextMenu.png"/>
 				</figure>
-				<figure id="tsvn-DUG-showlog-2-dia-2">
-					<title>The Log Dialog With Context Menu</title>
-					<graphic fileref="images/LogContextMenu2.png"/>
-				</figure>
-				The Log Dialog has a context menu that allows you to
+				The top pane of the Log Dialog has a context menu that allows you to
 				<itemizedlist>
 					<listitem>
 						<para>
-							Invoke an external Diff-Tool to show you
-							all changes you made from the revision you selected to your
-							working copy
+							Compare the selected revision with your working copy.
+							The default Diff-Tool is TortoiseMerge which
+							is supplied with TortoiseSVN. This will show you a list
+							of changed files, and allow you to review the changes made
+							to each file individually.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							View the changes made in the selected revision as a
+							Unified-Diff file. If you select 2 revisions, then the
+							differences between these 2 selected revisions are shown.
+							This helps you find out exactly what changed between revisions.
+							The Unified-Diff operation is faster than invoking the "normal" external
+							diff viewer because TortoiseSVN doesn't have to fetch the
+							whole file but only the difference.
 						</para>
 					</listitem>
 					<listitem>
@@ -1294,6 +1376,14 @@
 							have an older version of that file. If the Log Dialog is shown
 							for a folder this command is available from the filelist in
 							the window where the log message is shown!
+							This option is only available when you access the log for a file.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Open the repository browser to examine the selected folder.
+							This option is only available when you access the log for
+							a directory.
 						</para>
 					</listitem>
 					<listitem>
@@ -1306,35 +1396,45 @@
 					</listitem>
 					<listitem>
 						<para>
-							Revert changes which were made in the selected
+							Update your working copy to the selected
+							revision. Useful if you want to have your working copy reflect
+							a time in the past. It is best to update a whole directory
+							in your working copy, not just one file, otherwise your
+							working copy will be inconsistent and you will be unable to
+							commit any changes.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Revert changes from which were made in the selected
 							revision. The changes are reverted in your working copy so
 							this operation does <emphasis>not</emphasis> affect the
-							repository at all!
+							repository at all! Note that this will undo the changes
+							made in that revision only. It does not replace your
+							working copy with the entire file at the earlier revision.
+							This is very useful for undoing an earlier change when
+							other unrelated changes have been made since.
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							Invoke an external Unified-Diff viewer. This
-							operation is faster than invoking the "normal" external
-							diff viewer because TortoiseSVN doesn't have to fetch the
-							whole file but only the difference.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							Show a Unified-Diff of two selected revisions.
-							This helps you find out what exactly changes between those
-							two revisions.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							Update your working copy to a selected
-							revision. Useful if you want to have your working copy reflect
-							a time in the past.
+							Search log messages for the text you enter. This searches
+							the log messages that you entered and also the action summaries
+							created by Subversion (shown in the bottom pane). The search
+							is not case sensitive.
 						</para>
 					</listitem>
 				</itemizedlist>
+			</para>
+			<para>
+				<figure id="tsvn-DUG-showlog-2-dia-2">
+					<title>The Log Dialog Bottom Pane with Context Menu</title>
+					<graphic fileref="images/LogContextMenu2.png"/>
+				</figure>
+
+				The bottom pane of the Log Dialog has a context menu that allows you to
+				show differences made in the selected revision for the selected file.
+				This context menu is only available for files shown as <literal>Modified</literal>.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-showlog-3">
@@ -1440,7 +1540,7 @@
 			Another feature of version control systems is the ability
 			to mark particular revisions (e.g. a release version),
 			so you can at any time recreate a certain build or
-			environment. This proces is known as <firstterm>tagging</firstterm>.
+			environment. This process is known as <firstterm>tagging</firstterm>.
 		</para>
 		<para>
 			Subversion does not know a special command for branching
@@ -1448,6 +1548,15 @@
 			instead. Cheap copies are something similar to links,
 			which means that no actual copy is made but just a link
 			to a specific file/revision is created.
+		</para>
+		<para>
+			Before you create a branch or tag from your working copy, you
+			must make sure it is updated to the same level as the repository.
+			Even if you know that no-one else has made any changes (maybe you
+			are the sole developer) it is still a good idea to update your
+			working copy. If you have previously committed changes in a sub-folder
+			the parent folder may not have been updated to the latest revision,
+			which can prevent a branch/tag operation from working. 
 		</para>
 		<para>
 			If you have imported your project with the recommended
@@ -1486,7 +1595,7 @@
 			copy.
 		</para>
 		<para>
-			If you have uncommited changes inside the working copy, TortoiseSVN will
+			If you have uncommitted changes inside the working copy, TortoiseSVN will
 			commit these together with creating the Tag
 		</para>
 		<sect2 id="tsvn-DUG-switch-1">
@@ -1535,6 +1644,14 @@
 							<guibutton>OK</guibutton>.
 							Your working copy is switched to the new branch / tag.
 						</para>
+						<para>
+							Switch works just like Update in that it never discards your
+							local changes. Any changes you have made to your working copy
+							which have not yet been committed will be merged when you
+							do the Switch. If you do not want this to happen then you
+							must either commit the changes before switching, or revert
+							your working copy to an already-committed revision (typically HEAD).
+						</para>
 					</listitem>
 				</itemizedlist>
 				<figure id="tsvn-DUG-switch-dia-1">
@@ -1547,20 +1664,25 @@
 				<itemizedlist>
 					<listitem>
 						<para>
-							If you modify a Tag revision,
-							TortoiseSVN will warn you if you try to commit to
-							a <filename>/tags</filename> path in the repository.
-							Be aware, that your local files are not write
-							protected. So working on a tag revision is <emphasis>not a good	idea</emphasis>.
-							That's the reason why we recommended
-							the <filename>/trunk /branches /tags</filename> repository
-							structure in the first place.
+							Tags are typically used to create a static snapshot of the
+							project at a particular stage. As such they not normally
+							used for development - that's what branches are for, which
+							is the reason we recommended the
+							<filename>/trunk /branches /tags</filename>
+							repository structure in the first place. Working on a tag
+							revision is <emphasis>not a good idea</emphasis>, but
+							because your local files are not write protected there is
+							nothing to stop you doing this by mistake.
+							However, if you try to commit to a path in the repository
+							which contains <filename>/tags</filename>, TortoiseSVN will
+							warn you.
 						</para>
 						<para>
-							However, if you have to do changes on a tagged version 
-							create a new branch from this tag first and commit 
-							this branch. Do your Changes on this branch and create 
-							a new tag from this new branch, e.g. 
+							It may be that you need to make further changes to a
+							release which you have already tagged. The correct way
+							to handle this is to create a new branch from the tag
+							first and commit the branch. Do your Changes on this
+							branch and then create a new tag from this new branch, e.g. 
 							<filename>Version_1.0.1</filename>.
 						</para>
 					</listitem>
@@ -1703,6 +1825,10 @@ Rev Comments
 			to the development team, who do have write access.
 			They can review the patch first, and then either submit it to the
 			repository or reject it back to the author.
+		</para>
+		<para>
+			Patch files are simply Unified-Diff files showing the differences
+			between your working copy and the base revision.
 		</para>
 		<sect2 id="tsvn-DUG-patch-1">
 			<title>Creating a Patch File</title>
@@ -2153,7 +2279,9 @@ Rev Comments
 						<term>Diff Viewer</term>
 						<listitem>
 							<para>
-							A viewer program for GNU diff files (patch files). If you don't have one use NotePad. No Parameters.
+							A viewer program for GNU diff files (patch files).
+							If you don't have one the builtin option is to use NotePad.
+							No Parameters.
 							</para>
 						</listitem>
 					</varlistentry>
@@ -2187,7 +2315,7 @@ Rev Comments
 			<menuchoice>
 				<guimenuitem>Blame...</guimenuitem>
 			</menuchoice>,
-			sometimes also reffered to as <firstterm>annotate</firstterm> command comes in handy.
+			sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy.
 		</para>
 		<para>
 			This command lists for every line in a file the author and the revision
@@ -2199,7 +2327,7 @@ Rev Comments
 			if you want the blame for <emphasis>every</emphasis> revision.
 		</para>
 		<para>
-			Once you press <guibutton>Ok</guibutton> TortoiseSVN starts retreiving
+			Once you press <guibutton>Ok</guibutton> TortoiseSVN starts retrieving
 			the data to create the blame file. Please note: This can take several
 			minutes to finish, depending on how much the file has changed and
 			of course your network connection to the repository. Once the blame
