@@ -1,4 +1,4 @@
-- ADD: Many speed improvements in the shell extension. (Will Dean & Stefan)
+- ADD: Many speed improvements throughout the whole program. (Will Dean & Stefan)
 - ADD: A revision graph. (Stefan)
 - ADD: A warning is shown if you try to update a locally
        modified working copy to another (earlier) revision. (Stefan)
@@ -13,6 +13,16 @@
 - ADD: The progress dialog shows some statistics info after the operation
        has finished. (Stefan)
 - ADD: TortoiseMerge shows inline diffs in the diffbar. (Jörg Mann)
+- ADD: TortoiseBlame shows linenumbers and the revision date. (Simon Large)
+- ADD: All 'status' dialogs now show the file/folder icon left of the
+       filename. (Stefan)
+- CHG: The view titles in TortoiseMerge are colored. (Stefan)
+- CHG: The context menu entries shown on the top level menu have
+       now an "SVN" prepended. (Stefan)
+- CHG: Too long error messages are split up into multiple lines so
+       the messagebox won't get bigger than the screen anymore. (Stefan)
+- CHG: An "are you sure" dialog is shown before marking a 
+       file as resolved. (Stefan)
 - CHG: The log message history is kept separately by repository. (Stefan)
 - CHG: The 'check for updates' dialog now is called
        'check for modifications' and doesn't contact the repository
@@ -24,6 +34,13 @@
        instead. (Stefan)
 - CHG: The log message history isn't limited to 255 chars
        for each entry anymore. (Stefan)
+- CHG: Updated TortoisePlink to Plink Version 0.56. (Stefan)
+- BUG: If diffing a file against the base, it was saved with the base
+       lineendings instead of its own. (Stefan)
+- BUG: Creating a patch for a single file produced a patch 
+       of the parent folder. (Stefan)
+- BUG: When copying lines to the clipboard in TortoiseMerge, LF lineendings
+       were used instead of CRLF. (Stefan)
 - BUG: Patchfiles with binaries in it could crash TortoiseMerge. (Stefan)
 - BUG: Explorer could crash when setting properties with
        illegal values. (Stefan)
