@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-03-15 11:14+0800\n"
+"PO-Revision-Date: 2005-03-25 16:59+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1071,11 +1071,6 @@ msgstr "列出檔案每一行的作者"
 msgid "Br&owse..."
 msgstr "瀏覽(&O)..."
 
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "分支 / 標記"
-
 # ID:115,
 #: ID:115
 msgid "Branch / Tag created successfully!"
@@ -1458,6 +1453,11 @@ msgstr "已複製"
 msgid "Copied remotely"
 msgstr "遠端複製完成"
 
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "複製(分支/標記)"
+
 # ID:76,
 #: ID:76
 msgid "Copy From Path"
@@ -1604,11 +1604,6 @@ msgstr "無法啟動列印工作."
 msgid "Could not start thread!"
 msgstr "無法啟動執行緒!"
 
-# Control-ID:1073,
-#: Control-ID:65535
-msgid "Create Branch/Tag on the server from:"
-msgstr "建立分支/標記於伺服器端:"
-
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
@@ -1623,6 +1618,11 @@ msgstr "建立檔案庫"
 #: ID:8
 msgid "Create Repository here"
 msgstr "在此建立檔案庫"
+
+# Control-ID:1073,
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "建立分支/標記於伺服器端:"
 
 # ID:126,
 #: ID:126
@@ -2201,13 +2201,8 @@ msgstr "最新版本(&E)"
 
 # ID:12,
 #: Control-ID:1182
-msgid "HEAD revision on the server"
+msgid "HEAD revision in the repository"
 msgstr "伺服器上最新版本"
-
-# ID:12,
-#: ID:238
-msgid "Head revision of the repository is: %d"
-msgstr "檔案庫中的最新版本是: %d"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -2510,6 +2505,16 @@ msgstr "紀錄訊息"
 msgid "Look and Feel"
 msgstr "視覺樣式"
 
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "最低版本: %ld - 最高版本: %ld"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -2772,10 +2777,6 @@ msgstr "OVR"
 #: ID:219
 msgid "One or more files are in a conflicted state."
 msgstr "尚有一個以上的檔案處於衝突狀態."
-
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "單向差異(&D)"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -3789,7 +3790,7 @@ msgstr "已跳過的缺少目標"
 
 # Control-ID:1185,
 #: Control-ID:1185
-msgid "Specific revision on the server"
+msgid "Specific revision in repository"
 msgstr "伺服器上特定版本"
 
 # ID:79,
@@ -3966,11 +3967,13 @@ msgstr "文字狀態:"
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
 "檔案\n"
 "%s\n"
-"不是正確的文字檔!"
+"不是正確的文字檔!\n"
+"請注意: UTF-16/UTF-32 編碼的文字檔會視為二進位檔."
 
 # ID:80,
 #: ID:80
@@ -4341,6 +4344,10 @@ msgstr "調校 TortoiseSVN"
 #: Control-ID:65535
 msgid "Two File Diff"
 msgstr "兩檔差異"
+
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "雙向比對(&D)"
 
 # Dlg-ID:164,
 #: Dlg-ID:164
