@@ -142,6 +142,7 @@
 #define IDC_DEFAULTLOG                  1071
 #define IDC_CHECK1                      1073
 #define IDC_MENU24                      1073
+#define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -267,6 +268,7 @@
 #define IDS_ERR_COPYITSELF              1303
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_CHECKOUT_TT_DIR             1500
+#define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510
 #define IDS_IMPORT_TT_TEMPFILES         1511
 #define IDS_REPOBROWSE_SAVEAS           1600
@@ -305,7 +307,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        164
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1074
+#define _APS_NEXT_CONTROL_VALUE         1075
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -86,6 +86,7 @@ public:
 protected:
 	CBalloon	m_tooltips;
 public:
+	BOOL	IsExport;
 	CButton m_butBrowse;
 	CEdit m_editRevision;
 	CString m_strCheckoutDirectory;

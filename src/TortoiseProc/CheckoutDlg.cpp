@@ -33,6 +33,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCheckoutDlg::IDD, pParent)
 	, m_lRevision(-1)
 	, m_strCheckoutDirectory(_T(""))
+	, IsExport(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -120,6 +121,16 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
 	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
+
+	if (IsExport)
+	{
+		CString temp;
+		temp.LoadString(IDS_PROGRS_TITLE_EXPORT);
+		this->SetWindowText(temp);
+		temp.LoadString(IDS_CHECKOUT_EXPORTDIR);
+		GetDlgItem(IDC_EXPORT_CHECKOUTDIR)->SetWindowText(temp);
+	} // if (IsExport)
+
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

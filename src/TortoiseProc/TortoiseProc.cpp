@@ -395,9 +395,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CCheckoutDlg dlg;
 				dlg.m_strCheckoutDirectory = path;
-				CString temp;
-				temp.LoadString(IDS_PROGRS_TITLE_EXPORT);
-				dlg.SetWindowText(temp);
+				dlg.IsExport = TRUE;
 				if (dlg.DoModal() == IDOK)
 				{
 					path = dlg.m_strCheckoutDirectory;
