@@ -21,6 +21,7 @@
 #include "..\\TortoiseShell\\resource.h"
 #include "SVNProperties.h"
 #include "auth_providers.h"
+#include "UnicodeStrings.h"
 
 #ifdef _MFC_VER
 #	include "SVN.h"

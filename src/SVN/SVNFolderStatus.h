@@ -18,10 +18,6 @@
 
 #pragma once
 
-#ifdef _MFC_VER
-#include "PromptDlg.h"
-#endif
-
 #include "CApr.h"
 #include "SVNStatus.h"
 

@@ -21,6 +21,7 @@
 #include "guids.h"
 #include "PreserveChdir.h"
 #include "SVNProperties.h"
+#include "UnicodeStrings.h"
 
 
 const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;

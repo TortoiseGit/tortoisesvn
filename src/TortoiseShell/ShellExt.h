@@ -19,12 +19,9 @@
 #pragma once
 
 #include "Globals.h"
-#include "UnicodeStrings.h"
-#include "UnicodeUtils.h"
 #include "registry.h"
 #include "resource.h"
 #include "ShellCache.h"
-#include "SVNStatus.h"
 #include "SVNFolderStatus.h"
 
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.

@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "SVNFolderStatus.h"
+#include "UnicodeUtils.h"
 
 extern ShellCache g_ShellCache;
 

@@ -20,6 +20,7 @@
 #include "ShellExt.h"
 #include "ItemIDList.h"
 #include "PreserveChdir.h"
+#include "UnicodeStrings.h"
 
 
 #define GetPIDLFolder(pida) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[0])

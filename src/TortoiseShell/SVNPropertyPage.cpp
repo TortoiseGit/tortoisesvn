@@ -22,6 +22,8 @@
 #include "svnpropertypage.h"
 #include "SVNProperties.h"
 #include "ProgressDlg.h"
+#include "UnicodeStrings.h"
+#include "UnicodeUtils.h"
 
 #define MAX_PROP_STRING_LENGTH		4096			//should be big enough
 
