@@ -445,22 +445,24 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 			{
 			case PATCHSTATE_REMOVED:
 				{
-					if (lRemoveLine > PatchLines.GetCount())
+					if (lAddLine > PatchLines.GetCount())
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
 						return FALSE; 
-					}
-					if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0)
+					} // if (lRemoveLine > PatchLines.GetCount())
+					if (lAddLine == 0)
+						lAddLine = 1;
+					if (sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lRemoveLine-1));
+						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
 					} // if (sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0) 
-					if (lRemoveLine > PatchLines.GetCount())
+					if (lAddLine > PatchLines.GetCount())
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, _T(""));
 						return FALSE; 
 					} // if (lRemoveLine >= PatchLines.GetCount()) 
-					PatchLines.RemoveAt(lRemoveLine-1);
+					PatchLines.RemoveAt(lAddLine-1);
 				} 
 				break;
 			case PATCHSTATE_ADDED:
