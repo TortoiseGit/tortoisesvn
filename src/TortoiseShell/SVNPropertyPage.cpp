@@ -381,6 +381,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						{
 							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(I->c_str());
+							CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
 							props.Remove(buf, checked);
 							count++;
 							dlg.SetProgress64(count, all);
@@ -420,6 +421,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						{
 							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(I->c_str());
+							CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(I->c_str()));
 							if (!props.Add(name, t.c_str(), checked))
 							{
 								::MessageBox(m_hwnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -480,6 +482,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 					break;
 			} // switch (HIWORD(wParam)) 
 	} // switch (uMessage) 
+	CShellUpdater::Instance().Flush();
 	return FALSE;
 }
 void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)

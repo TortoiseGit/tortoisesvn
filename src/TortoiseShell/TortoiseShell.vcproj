@@ -17,6 +17,7 @@
 			IntermediateDirectory="..\..\obj\TortoiseShell\Debug"
 			ConfigurationType="2"
 			UseOfMFC="0"
+			UseOfATL="1"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
 			CharacterSet="1">
 			<Tool
@@ -87,6 +88,7 @@
 			IntermediateDirectory="..\..\obj\TortoiseShell\Release"
 			ConfigurationType="2"
 			UseOfMFC="0"
+			UseOfATL="1"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
 			CharacterSet="1"
 			WholeProgramOptimization="TRUE">
@@ -201,6 +203,9 @@
 				RelativePath=".\ShellExtClassFactory.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\ShellUpdater.cpp">
+			</File>
+			<File
 				RelativePath="stdafx.cpp">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -241,6 +246,9 @@
 			</File>
 			<File
 				RelativePath=".\TortoiseSVN.cpp">
+			</File>
+			<File
+				RelativePath="..\Svn\TSVNPath.cpp">
 			</File>
 			<File
 				RelativePath=".\UnicodeStrings.cpp">
@@ -289,6 +297,9 @@
 				RelativePath=".\ShellExtClassFactory.h">
 			</File>
 			<File
+				RelativePath="..\Utils\ShellUpdater.h">
+			</File>
+			<File
 				RelativePath="stdafx.h">
 			</File>
 			<File
@@ -302,6 +313,9 @@
 			</File>
 			<File
 				RelativePath="..\SVN\SVNStatus.h">
+			</File>
+			<File
+				RelativePath="..\Svn\TSVNPath.h">
 			</File>
 			<File
 				RelativePath=".\UnicodeStrings.h">

@@ -56,3 +56,4 @@
 #include "svn_config.h"
 #include "svn_subst.h"
 
+#define CSTRING_AVAILABLE
