@@ -9,64 +9,77 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-10 14:34+0900\n"
+"PO-Revision-Date: 2004-07-17 03:06+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ID:126,#:
-#: ID:10,
+# ID:10,#:
+# ID:126,#:
+# ID:126,
+#: ID:10
+#: ID:126
 msgid " "
 msgstr " "
 
-#: ID:188,
+# ID:188,
+#: ID:188
 msgid "! %d"
 msgstr "! %d"
 
-#: ID:3868,#:
-#: ID:3868,
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
 msgid "%1 contained an unexpected object."
 msgstr "%1 は予期せぬオブジェクトを含んでいます。"
 
-#: ID:3868,#:
-#: ID:3868,
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
 msgid "%1 contains an incorrect schema."
 msgstr "%1 は不正確なスキーマを含んでいます。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "%1 contains an invalid path."
 msgstr "%1 は無効なパスを含んでいます。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "%1 could not be created because the directory is full."
 msgstr "ディレクトリがいっぱいなので %1 を作成できません。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "%1 could not be opened because there are too many open files."
 msgstr "非常に多くのファイルを開いているため、%1 を開くことができません。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "%1 could not be removed because it is the current directory."
 msgstr "%1 はカレントディレクトリのため削除出来ません。"
 
-#: ID:3868,#:
-#: ID:3868,
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
 msgid "%1 has a bad format."
 msgstr "%1 は不完全なフォーマットです。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "%1 was not found."
 msgstr "%1 は見つかりませんでした。"
 
-#: ID:3860,#:
-#: ID:3860,
+# ID:3860,#:
+# ID:3860,
+#: ID:3860
 msgid ""
 "%1: %2\n"
 "Continue running script?"
@@ -74,8 +87,9 @@ msgstr ""
 "%1: %2\n"
 "スクリプトの実行を続けますか？"
 
-#: ID:3859,#:
-#: ID:3859,
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
@@ -85,19 +99,23 @@ msgstr ""
 "このファイルを見つけることができません。\n"
 "正確なパスとファイル名であることを確認してください。"
 
-#: ID:169,
+# ID:169,
+#: ID:169
 msgid "%d files selected, %d files total"
 msgstr "選択ファイル数 %d 、全体ファイル数 %d"
 
-#: ID:151,
+# ID:151,
+#: ID:151
 msgid "%s : Working Base"
 msgstr "%s : 作業用 Base"
 
-#: ID:151,
+# ID:151,
+#: ID:151
 msgid "%s : Working Copy"
 msgstr "%s : 作業用 Copy"
 
-#: ID:145,
+# ID:145,
+#: ID:145
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
@@ -109,52 +127,64 @@ msgstr ""
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge について(&A) ..."
 
-#: Control-ID:1098,
+# Control-ID:1098,
+#: Control-ID:1098
 msgid "&Add..."
 msgstr "追加(&A) ..."
 
-#: Control-ID:1090,
+# Control-ID:1090,
+#: Control-ID:1090
 msgid "&Advanced..."
 msgstr "高度な設定(&A) ..."
 
-#: Control-ID:1013,
+# Control-ID:1013,
+#: Control-ID:1013
 msgid "&Apply Unified Diff"
 msgstr "Unified Diff を適用(&A)"
 
-#: Control-ID:1011,
+# Control-ID:1011,
+#: Control-ID:1011
 msgid "&Browse..."
 msgstr "参照(&B) ..."
 
-#: Control-ID:1091,
+# Control-ID:1091,
+#: Control-ID:1091
 msgid "&Builtin"
 msgstr "内蔵(&B)"
 
-#: Control-ID:1051,
+# Control-ID:1051,
+#: Control-ID:1051
 msgid "&CD-ROM"
 msgstr "CD-ROM ドライブ(&C)"
 
-#: Control-ID:2,#:
-#: Control-ID:2,
+# Control-ID:2,#:
+# Control-ID:2,
+#: Control-ID:2
 msgid "&Cancel"
 msgstr "キャンセル(&C)"
 
-#: Control-ID:1074,
+# Control-ID:1074,
+#: Control-ID:1074
 msgid "&Checkout directory:"
 msgstr "チェックアウト先ディレクトリ(&C):"
 
-#: Control-ID:1066,
+# Control-ID:1066,
+#: Control-ID:1066
 msgid "&Close windows automatically"
 msgstr "自動的にウィンドウを閉じる(&C)"
 
-#: Control-ID:1099,
+# Control-ID:1099,
+#: Control-ID:1099
 msgid "&Edit..."
 msgstr "編集(&E) ..."
 
-#: Control-ID:1023,
-msgid "&Enable Proxy Server"
-msgstr "プロクシサーバーを有効にする(&E)"
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Enable Proxy Server (Don't use the IE settings)"
+msgstr "プロクシサーバーを有効にする(&E) (IEの設定を利用しないでください)"
 
-#: Control-ID:1092,
+# Control-ID:1092,
+#: Control-ID:1092
 msgid "&External"
 msgstr "外部(&E)"
 
@@ -162,32 +192,42 @@ msgstr "外部(&E)"
 msgid "&File"
 msgstr "ファイル(&F)"
 
-#: Control-ID:1050,
+# Control-ID:1050,
+#: Control-ID:1050
 msgid "&Fixed drives"
 msgstr "固定ドライブ(&F)"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&From Revision"
 msgstr "元リビジョン(&F)"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&From URL:"
 msgstr "元URL(&F):"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&From WC at URL:"
 msgstr "作業用コピーのURL(&F):"
 
-#: Control-ID:1032,#:
-#: Control-ID:1019,#:
-#: Control-ID:1019,
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: Control-ID:1032
+#: Control-ID:1115
+#: Control-ID:1019
 msgid "&Head Revision"
 msgstr "最新のリビジョン(&H)"
 
-#: Control-ID:57670,#:
-#: MenuEntry#:
-#: Control-ID:9,#:
-#: Control-ID:57670,
+# Control-ID:57670,#:
+# MenuEntry#:
+# Control-ID:9,#:
+# Control-ID:57670,
+#: Control-ID:9
+#: Control-ID:57670
+#: MenuEntry
 msgid "&Help"
 msgstr "ヘルプ(&H)"
 
@@ -195,16 +235,19 @@ msgstr "ヘルプ(&H)"
 msgid "&Help Topics"
 msgstr "ヘルプトピック(&H)"
 
-#: ID:3842,#:
-#: ID:3842,
+# ID:3842,#:
+# ID:3842,
+#: ID:3842
 msgid "&Hide"
 msgstr "隠す(&H)"
 
-#: Control-ID:1023,
+# Control-ID:1023,
+#: Control-ID:1023
 msgid "&Indicate folders with changed contents"
 msgstr "内容の変更されたフォルダを示す(&I)"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&Language:"
 msgstr "言語(&L):"
 
@@ -212,20 +255,24 @@ msgstr "言語(&L):"
 msgid "&Merge"
 msgstr "マージ(&M)"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&Merge changes into the current working copy from URL:"
 msgstr "URLから現在の作業用コピーに変更をマージする(&M)"
 
-#: Control-ID:1012,
+# Control-ID:1012,
+#: Control-ID:1012
 msgid "&Merging"
 msgstr "マージ(&M)"
 
-#: Control-ID:1049,
+# Control-ID:1049,
+#: Control-ID:1049
 msgid "&Network drives"
 msgstr "ネットワークドライブ(&N)"
 
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&New "
 msgstr "新規(&N)"
 
@@ -233,8 +280,9 @@ msgstr "新規(&N)"
 msgid "&Next Difference"
 msgstr "次の相違点へ(&N)"
 
-#: Control-ID:1,#:
-#: Control-ID:1,
+# Control-ID:1,#:
+# Control-ID:1,
+#: Control-ID:1
 msgid "&OK"
 msgstr "&OK"
 
@@ -242,12 +290,14 @@ msgstr "&OK"
 msgid "&Open Ctrl-O"
 msgstr "開く(&O)\tCtrl+O"
 
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&Password:"
 msgstr "パスワード(&P):"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&Port:"
 msgstr "ポート(&P):"
 
@@ -255,22 +305,28 @@ msgstr "ポート(&P):"
 msgid "&Previous Difference"
 msgstr "前の相違点へ(&P)"
 
-#: Control-ID:1048,
+# Control-ID:1048,
+#: Control-ID:1048
 msgid "&Removable drives"
 msgstr "リムーバブルドライブ(&R)"
 
-#: Control-ID:1013,#:
-#: Control-ID:1100,
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: Control-ID:1013
+#: Control-ID:1100
 msgid "&Remove"
 msgstr "削除(&R)"
 
-#: Control-ID:1033,#:
-#: Control-ID:1116,#:
-#: Control-ID:1033,
+# Control-ID:1033,#:
+# Control-ID:1116,#:
+# Control-ID:1033,
+#: Control-ID:1033
+#: Control-ID:1116
 msgid "&Revision"
 msgstr "リビジョン(&R)"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&SSH client:"
 msgstr "&SSHクライアント:"
 
@@ -278,7 +334,8 @@ msgstr "&SSHクライアント:"
 msgid "&Save Ctrl-S"
 msgstr "保存(&S)\tCtrl+S"
 
-#: Control-ID:1012,
+# Control-ID:1012,
+#: Control-ID:1012
 msgid "&Set"
 msgstr "設定(&S)"
 
@@ -286,17 +343,20 @@ msgstr "設定(&S)"
 msgid "&Status Bar"
 msgstr "ステータスバー(&S)"
 
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&To Revision"
 msgstr "先リビジョン(&T)"
 
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&To URL:"
 msgstr "先URL(&T):"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "&To URL: "
 msgstr "先URL(&T):"
 
@@ -304,8 +364,10 @@ msgstr "先URL(&T):"
 msgid "&Toolbar"
 msgstr "ツールバー(&T)"
 
-#: Control-ID:65535,#:
-#: Control-ID:1058,
+# Control-ID:65535,#:
+# Control-ID:1058,
+#: Control-ID:65535
+#: Control-ID:1058
 msgid "&URL of repository:"
 msgstr "リポジトリの&URL:"
 
@@ -313,9 +375,11 @@ msgstr "リポジトリの&URL:"
 msgid "&Undo\tCtrl+Z"
 msgstr "元に戻す(&U)\tCtrl+Z"
 
-#: Control-ID:65535,#:
-#: Control-ID:1005,#:
-#: Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:1005,#:
+# Control-ID:65535,
+#: Control-ID:65535
+#: Control-ID:1005
 msgid "&Username:"
 msgstr "ユーザー名(&U):"
 
@@ -327,48 +391,62 @@ msgstr "ビュー(&V)"
 msgid "&Whitespaces"
 msgstr "空白を表示(&W)"
 
-#: ID:188,
+# ID:188,
+#: ID:188
 msgid "+ %d"
 msgstr "+ %d"
 
-#: ID:188,
+# ID:188,
+#: ID:188
 msgid "- %d"
 msgstr "- %d"
 
-#: Control-ID:1035,#:
-#: Control-ID:1036,#:
-#: Control-ID:1021,#:
-#: Control-ID:1022,#:
-#: Control-ID:1089,#:
-#: Control-ID:1104,
+# Control-ID:1035,#:
+# Control-ID:1036,#:
+# Control-ID:1021,#:
+# Control-ID:1022,#:
+# Control-ID:1089,#:
+# Control-ID:1104,
+#: Control-ID:1035
+#: Control-ID:1036
+#: Control-ID:1021
+#: Control-ID:1022
+#: Control-ID:1089
+#: Control-ID:1104
 msgid "..."
 msgstr "..."
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "%1 にアクセス中にハードウェア I/O エラーが通知されました。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "A locking violation occurred while accessing %1."
 msgstr "%1 にアクセス中にロック違反が発生しました。"
 
-#: ID:201,
+# ID:201,
+#: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "新しいバージョンが利用可能です。TortoiseSVNのサイト http://tortoisesvn.tigris.org から最新のバージョンをダウンロードしてください！"
 
-#: ID:3843,#:
-#: ID:3843,
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
 msgid "A required resource was unavailable."
 msgstr "要求されたリソースは利用できませんでした。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "A sharing violation occurred while accessing %1."
 msgstr "%1 にアクセス中に共有違反が発生しました。"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
@@ -376,48 +454,59 @@ msgstr ""
 "GNU形式の差分ファイル(Unified-Diff形式、パッチファイル)用のビューワプログラム。\n"
 "なければ、メモ帳を利用。"
 
-#: Control-ID:1093,
+# Control-ID:1093,
+#: Control-ID:1093
 msgid "A&dvanced..."
 msgstr "高度な設定(&D) ..."
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Abort"
 msgstr "中止"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "About"
 msgstr "TortoiseSVNについて"
 
-#: Dlg-ID:136,
+# Dlg-ID:136,
+#: Dlg-ID:136
 msgid "About TortoiseMerge"
 msgstr "TortoiseMerge について"
 
-#: Dlg-ID:129,
+# Dlg-ID:129,
+#: Dlg-ID:129
 msgid "About TortoiseSVN"
 msgstr "TortoiseSVN について"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid "Accept Once"
 msgstr "一度だけ受理する"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid "Accept Permanently"
 msgstr "永久に受理する"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "Access to %1 was denied."
 msgstr "%1 へのアクセスは拒否されました。"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "Action"
 msgstr "アクション"
 
-#: ID:3826,
+# ID:3826,
+#: ID:3826
 msgid "Activate Task List"
 msgstr "タスクリストをアクティブにする"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
@@ -427,57 +516,72 @@ msgstr ""
 "フォルダのオーバーレイを利用するならこれをアクティブにする。\n"
 "<ct=0x0000ff><b>注意：</b>サブフォルダを探しに行くため、エクスプローラの動作が遅くなります"
 
-#: ID:8,#:
-#: ID:73,#:
-#: Dlg-ID:155,
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:155,
+#: ID:8
+#: ID:73
+#: Dlg-ID:155
 msgid "Add"
 msgstr "追加"
 
-#: ID:110,
+# ID:110,
+#: ID:110
 msgid "Add Extension Specific Diff Program"
 msgstr "拡張子に対応した差分プログラムを追加"
 
-#: ID:110,
+# ID:110,
+#: ID:110
 msgid "Add Extension Specific Merge Program"
 msgstr "拡張子に対応したマージプログラムを追加"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Add To Ignore List"
 msgstr "無視リストに追加"
 
-#: ID:101,
+# ID:101,
+#: ID:101
 msgid "Add file..."
 msgstr "ファイルを追加 ..."
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Add files to Subversion here"
 msgstr "ここのバージョン管理にファイルを追加"
 
-#: ID:101,
+# ID:101,
+#: ID:101
 msgid "Add folder..."
 msgstr "フォルダを追加 ..."
 
-#: Dlg-ID:171,
+# Dlg-ID:171,
+#: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "追加／編集 － 拡張子に対応した差分／マージプログラム"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Added"
 msgstr "追加"
 
-#: ID:126,
+# ID:126,
+#: ID:126
 msgid "Added a file remotely"
 msgstr "リモート操作によるファイルの追加"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Adds file(s) to Subversion control"
 msgstr "ファイルをサブバージョン管理に追加"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Adds the selected file(s) to the 'ignore' list"
 msgstr "選択されたファイルを \"無視\" リストに追加"
 
-#: ID:2049,
+# ID:2049,
+#: ID:2049
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -485,49 +589,60 @@ msgstr ""
 "設定を調整する\n"
 "設定"
 
-#: ID:110,
+# ID:110,
+#: ID:110
 msgid "Advanced Diff Settings"
 msgstr "差分に関する高度な設定"
 
-#: Dlg-ID:170,
+# Dlg-ID:170,
+#: Dlg-ID:170
 msgid "Advanced Diff/Merge Settings"
 msgstr "差分／マージ の高度な設定"
 
-#: ID:110,
+# ID:110,
+#: ID:110
 msgid "Advanced Merge Settings"
 msgstr "マージに関する高度な設定"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "All"
 msgstr "全体"
 
-#: ID:3841,#:
-#: ID:3841,
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
 msgid "All Files (*.*)"
 msgstr "全てのファイル (*.*)"
 
-#: ID:157,#:
-#: ID:157,
+# ID:157,#:
+# ID:157,
+#: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "全てのファイル (*.*)|*.*||"
 
-#: ID:3867,#:
-#: ID:3868,#:
-#: ID:3868,
+# ID:3867,#:
+# ID:3868,#:
+# ID:3868,
+#: ID:3867
+#: ID:3868
 msgid "An attempt was made to access %1 past its end."
 msgstr "%1 へのアクセスがその終わりを通り越して行われました。"
 
-#: ID:3868,#:
-#: ID:3868,
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
 msgid "An attempt was made to read from the writing %1."
 msgstr "書き込み中の %1 から読み込もうとしました。"
 
-#: ID:3868,#:
-#: ID:3868,
+# ID:3868,#:
+# ID:3868,
+#: ID:3868
 msgid "An attempt was made to write to the reading %1."
 msgstr "読み取り中の %1 へ書き込みが行われました。"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid ""
 "An external diff program used\n"
 "for comparing different revisions of files\n"
@@ -543,7 +658,8 @@ msgstr ""
 "%base\tベースファイル\n"
 "%mine\t変更ファイル"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid ""
 "An external merge program used\n"
 "to resolve conflicted files.\n"
@@ -563,156 +679,194 @@ msgstr ""
 "%mine\t\tあなたのファイル, あなたの変更\n"
 "%base\t\tあなたの変更を除いたオリジナルファイル"
 
-#: ID:3843,#:
-#: ID:3843,
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
 msgid "An invalid argument was encountered."
 msgstr "無効な引数に遭遇しました。"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "An invalid file handle was associated with %1."
 msgstr "無効なファイルハンドルが %1 に関連付けされています。"
 
-#: ID:3859,#:
-#: ID:3859,
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
 msgid "An unexpected error occurred while reading %1."
 msgstr "%1 の読み込み中に予期せぬエラーが発生しました。"
 
-#: ID:3859,#:
-#: ID:3859,
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
 msgid "An unexpected error occurred while writing %1."
 msgstr "%1 の書き込み中に予期せぬエラーが発生しました。"
 
-#: ID:3843,#:
-#: ID:3843,
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
 msgid "An unknown error has occurred."
 msgstr "未知のエラーが発生しました。"
 
-#: ID:3867,#:
-#: ID:3868,#:
-#: ID:3868,
+# ID:3867,#:
+# ID:3868,#:
+# ID:3868,
+#: ID:3867
+#: ID:3868
 msgid "An unknown error occurred while accessing %1."
 msgstr "%1 にアクセス中に未知のエラーが発生しました。"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "An unknown line type was found in line %d !"
 msgstr "未知の行種が、行 %d で見つかりました！"
 
-#: ID:3843,#:
-#: ID:3843,
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
 msgid "An unsupported operation was attempted."
 msgstr "未サポートの操作を行おうとしました。"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid "Applies a unified diff file to the working copy"
 msgstr "unified diff 形式のファイルを作業用コピーに適用"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Apply Patch..."
 msgstr "パッチを適用 ..."
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Apply Unified Diff"
 msgstr "Unified Diff を適用"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
 msgstr "本当に元に戻してもよろしいですか？ 最後の更新以降の<b>全て</b>の変更が失われます。"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "At revision: %d"
 msgstr "リビジョン: %d"
 
-#: Dlg-ID:131,#:
-#: Dlg-ID:160,
+# Dlg-ID:131,#:
+# Dlg-ID:160,
+#: Dlg-ID:131
+#: Dlg-ID:160
 msgid "Authentication"
 msgstr "認証"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Author"
 msgstr "作者"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "作者:                        Stefan Kueng"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "作者:                      Stefan Kueng, Tim Kemp"
 
-#: Control-ID:1001,
+# Control-ID:1001,
+#: Control-ID:1001
 msgid "B&rowse..."
 msgstr "参照(&R) ..."
 
-#: Control-ID:1094,
+# Control-ID:1094,
+#: Control-ID:1094
 msgid "B&uiltin"
 msgstr "内蔵(&U)"
 
-#: Control-ID:1015,
+# Control-ID:1015,
+#: Control-ID:1015
 msgid "Backup original file"
 msgstr "オリジナルファイルをバックアップする"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Base File:"
 msgstr "Base ファイル:"
 
-#: Dlg-ID:162,
+# Dlg-ID:162,
+#: Dlg-ID:162
 msgid "Blame"
 msgstr "注釈履歴"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Blame..."
 msgstr "注釈履歴 ..."
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Blames each line of a file on an author"
 msgstr "ファイルのそれぞれの行に注釈履歴をつける"
 
-#: Control-ID:1003,
+# Control-ID:1003,
+#: Control-ID:1003
 msgid "Br&owse..."
 msgstr "参照(&O) ..."
 
-#: Dlg-ID:142,
+# Dlg-ID:142,
+#: Dlg-ID:142
 msgid "Branch / Tag"
 msgstr "分岐／タグ"
 
-#: ID:115,
+# ID:115,
+#: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "分岐／タグの生成が正常に終了しました！"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Branch/Tag..."
 msgstr "分岐／タグ ..."
 
-#: Control-ID:1009,
+# Control-ID:1009,
+#: Control-ID:1009
 msgid "Bro&wse..."
 msgstr "参照(&W) ..."
 
-#: Control-ID:1007,
+# Control-ID:1007,
+#: Control-ID:1007
 msgid "Brows&e..."
 msgstr "参照(&E) ..."
 
-#: ID:138,
+# ID:138,
+#: ID:138
 msgid "Browse Repository"
 msgstr "リポジトリを閲覧"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "Browse for the external diff program"
 msgstr "外部差分ツールを参照"
 
-#: Control-ID:1069,
+# Control-ID:1069,
+#: Control-ID:1069
 msgid "Browse..."
 msgstr "参照 ..."
 
-#: Control-ID:1096,
+# Control-ID:1096,
+#: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "内蔵(&I)"
 
-#: ID:3697,
+# ID:3697,
+#: ID:3697
 msgid "CAP"
 msgstr "CAP"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid ""
 "Can't copy \n"
 "%s\n"
@@ -724,203 +878,252 @@ msgstr ""
 "から\n"
 "%s"
 
-#: Control-ID:2,#:
-#: ID:73,#:
-#: Control-ID:2,
+# Control-ID:2,#:
+# ID:73,#:
+# Control-ID:2,
+#: ID:73
+#: Control-ID:2
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: ID:132,
+# ID:132,
+#: ID:132
 msgid "Cancelling SVN Blame..."
 msgstr "注釈履歴をキャンセル中 ..."
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid "Certificate expired or not yet valid"
 msgstr "証明書が期限切れか、もしくは無効です。"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid "Certificate expired. Valid until: %s"
 msgstr "証明書は期限切れです。 有効期限： %s"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "証明書は有効ではありません。 有効： %s"
 
-#: ID:157,
+# ID:157,
+#: ID:157
 msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
 msgstr "証明書|*.p12;*.pkcs12|全てのファイル|*.*||"
 
-#: ID:3825,
+# ID:3825,
+#: ID:3825
 msgid "Change the window position"
 msgstr "ウィンドウ位置を変更する"
 
-#: ID:3825,
+# ID:3825,
+#: ID:3825
 msgid "Change the window size"
 msgstr "ウィンドウサイズを変更する"
 
-#: Dlg-ID:158,
+# Dlg-ID:158,
+#: Dlg-ID:158
 msgid "Changed Files"
 msgstr "変更されたファイル"
 
-#: ID:163,
+# ID:163,
+#: ID:163
 msgid "Changed files: %d"
 msgstr "変更されたファイル: %d"
 
-#: ID:3887,#:
-#: ID:3887,
+# ID:3887,#:
+# ID:3887,
+#: ID:3887
 msgid "Check"
 msgstr "チェック"
 
-#: Dlg-ID:174,
+# Dlg-ID:174,
+#: Dlg-ID:174
 msgid "Check For Updates"
 msgstr "更新をチェック"
 
-#: Control-ID:1031,
+# Control-ID:1031,
+#: Control-ID:1031
 msgid "Check For Updates..."
 msgstr "更新をチェック ..."
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Check for Updates"
 msgstr "更新をチェック"
 
-#: Control-ID:1073,
+# Control-ID:1073,
+#: Control-ID:1073
 msgid "Check for newer versions"
 msgstr "新しいバージョンが利用可能かをチェック"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid ""
 "Check if you want the progress dialog to close\n"
 "automatically after the operation finishes."
 msgstr "操作終了後に、自動的に進行状況ダイアログを閉じる場合はチェックする。"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Check out a working copy from a repository"
 msgstr "リポジトリから作業用コピーをチェックアウト"
 
-#: ID:95,
+# ID:95,
+#: ID:95
 msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr "インポート前に削除したいファイルにチェックをつける。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr "右クリックメニューで、サブメニューではなくトップレベルにポップアップ表示したいものを選択。"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "ログメッセージに短い日時形式を用いる場合はチェックする"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "TortoiseSVNの最新のバージョンが利用可能かどうかをチェックしています ..."
 
-#: Dlg-ID:133,
+# Dlg-ID:133,
+#: Dlg-ID:133
 msgid "Checkout"
 msgstr "チェックアウト"
 
-#: ID:8,
+# ID:8,
+#: ID:8
 msgid "Checkout..."
 msgstr "チェックアウト ..."
 
-#: ID:8,
+# ID:8,
+#: ID:8
 msgid "Clean Up"
 msgstr "クリーンアップ"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid "Cleanup has finished"
 msgstr "クリーンアップは終了しました。"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "中断した処理、ロックファイル、... をクリーンアップする"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
 msgstr "\"高度な設定\" をクリックすると、それぞれのファイル拡張子に対応する差分プログラムを指定することができる。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "\"高度な設定\" をクリックすると、それぞれのファイル拡張子に対応するマージプログラムを指定することができる。"
 
-#: ID:3825,
+# ID:3825,
+#: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "ドキュメントを保存するために、アクティブなウィンドウとプロンプトを閉じる"
 
-#: Dlg-ID:138,
+# Dlg-ID:138,
+#: Dlg-ID:138
 msgid "Colors"
 msgstr "色"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
 
-#: Control-ID:1110,
+# Control-ID:1110,
+#: Control-ID:1110
 msgid "Commit to:"
 msgstr "コミット先:"
 
-#: ID:8,
+# ID:8,
+#: ID:8
 msgid "Commit..."
 msgstr "コミット ..."
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Commits your changes to the repository"
 msgstr "変更をリポジトリにコミット"
 
-#: Control-ID:1083,
+# Control-ID:1083,
+#: Control-ID:1083
 msgid "Committing"
 msgstr "コミット中"
 
-#: Control-ID:1019,
+# Control-ID:1019,
+#: Control-ID:1019
 msgid "Compare Whitespaces"
 msgstr "空白を比較"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Compare revisions"
 msgstr "リビジョンを比較"
 
-#: ID:138,
+# ID:138,
+#: ID:138
 msgid "Compare with Base"
 msgstr "Base と比較"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Compare with working copy"
 msgstr "作業用コピーと比較"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Compares the file with the last commited version to show you the changes you made"
 msgstr "あなたが行った変更を表示するために、最後にコミットしたバージョンとファイルを比較する"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Completed"
 msgstr "完了"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Conflicted"
 msgstr "衝突"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Continue"
 msgstr "続行"
 
-#: ID:126,
+# ID:126,
+#: ID:126
 msgid "Copied remotely"
 msgstr "リモート操作によるコピー"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Copy"
 msgstr "コピー"
 
-#: ID:101,
+# ID:101,
+#: ID:101
 msgid "Copy To..."
 msgstr "コピー ..."
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Copy files in Subversion to here"
 msgstr "バージョン管理されたファイルをここにコピー"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -928,27 +1131,33 @@ msgstr ""
 "選択範囲をクリップボードへコピーする\n"
 "コピー"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Copying %s"
 msgstr "%s をコピー中"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Copying..."
 msgstr "コピー中 ..."
 
-#: ID:188,
+# ID:188,
+#: ID:188
 msgid "Corrections"
 msgstr "訂正"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid "Could not add %s to the ignore list!"
 msgstr "%s を無視リストに追加できませんでした！"
 
-#: ID:201,
+# ID:201,
+#: ID:201
 msgid "Could not check for a newer version!"
 msgstr "最新のバージョンのチェックができませんでした！"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "Could not copy the files!\n"
 "<hr=100%>\n"
@@ -958,11 +1167,13 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid "Could not get the status!"
 msgstr "状態を取得できませんでした！"
 
-#: ID:69,
+# ID:69,
+#: ID:69
 msgid ""
 "Could not open the file\n"
 "%s"
@@ -970,7 +1181,8 @@ msgstr ""
 "ファイルを開くことができません\n"
 "%s"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
@@ -978,7 +1190,8 @@ msgstr ""
 "URLで指定したファイルを見つけることができませんでした！\n"
 "%s"
 
-#: ID:66,
+# ID:66,
+#: ID:66
 msgid ""
 "Could not retrieve version %s of the file %s.\n"
 "Patching is not possible!"
@@ -986,11 +1199,13 @@ msgstr ""
 "バージョン %s のファイル %s を取得することができませんでした。\n"
 "パッチの適用はできません！"
 
-#: ID:64,
+# ID:64,
+#: ID:64
 msgid "Could not save the file %s!"
 msgstr "ファイル %s を保存できません！"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
@@ -1000,7 +1215,8 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
@@ -1010,7 +1226,8 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "Could not start external merge program!\n"
 "<hr=100%>\n"
@@ -1020,48 +1237,59 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Could not start print job."
 msgstr "印刷ジョブを開始できません。"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid "Could not start thread!"
 msgstr "スレッドを開始できません！"
 
-#: ID:101,
+# ID:101,
+#: ID:101
 msgid "Create Folder..."
 msgstr "フォルダを作成 ..."
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Create Patch..."
 msgstr "パッチを作成 ..."
 
-#: ID:8,
+# ID:8,
+#: ID:8
 msgid "Create Repository here"
 msgstr "ここにリポジトリを作成"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "Create Tag from revision"
 msgstr "リビジョンからタグを生成"
 
-#: ID:126,
+# ID:126,
+#: ID:126
 msgid "Created folder remotely"
 msgstr "リモート操作によるフォルダ作成"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "分岐やタグ用にリポジトリ内に 'cheap' なコピーを作成する"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "Creates a repository database at the current location"
 msgstr "現在の位置にリポジトリデータベースを作成"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "全ての変更をもとに unified diff 形式ファイルを作成"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
@@ -1069,68 +1297,85 @@ msgstr ""
 "選択範囲を切り取り、クリップボードへ移動する\n"
 "切り取り"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Date"
 msgstr "日時"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Default &number of log messages"
 msgstr "デフォルトのログメッセージ数(&N)"
 
-#: ID:11,#:
-#: ID:73,#:
-#: ID:101,
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:11
+#: ID:73
+#: ID:101
 msgid "Delete"
 msgstr "削除"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Deletes files / folders from source control"
 msgstr "ソース管理からファイル／フォルダを削除"
 
-#: ID:3859,#:
-#: ID:3859,
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
 msgid "Destination disk drive is full."
 msgstr "送り先ディスクドライブはいっぱいです。"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Diff"
 msgstr "差分"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Diff File:"
 msgstr "差分ファイル:"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Diff Program"
 msgstr "差分プログラム"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Diff Viewer"
 msgstr "差分ビューワ"
 
-#: Dlg-ID:163,
+# Dlg-ID:163,
+#: Dlg-ID:163
 msgid "Diff/Merge"
 msgstr "差分／マージ"
 
-#: Control-ID:1022,
+# Control-ID:1022,
+#: Control-ID:1022
 msgid "Diffing"
 msgstr "差分中"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Directory:"
 msgstr "ディレクトリ:"
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "Disk full while accessing %1."
 msgstr "%1 にアクセス中にディスクがいっぱいになりました。"
 
-#: ID:3860,#:
-#: ID:3860,
+# ID:3860,#:
+# ID:3860,
+#: ID:3860
 msgid "Dispatch exception: %1"
 msgstr "ディスパッチ例外: %1"
 
-#: ID:3605,
+# ID:3605,
+#: ID:3605
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
@@ -1138,7 +1383,8 @@ msgstr ""
 "クリックされたボタン、メニュー、ウィンドウに対するヘルプを表示する\n"
 "ヘルプ"
 
-#: ID:3605,
+# ID:3605,
+#: ID:3605
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -1146,7 +1392,8 @@ msgstr ""
 "現在のタスクもしくはコマンドに対するヘルプを表示\n"
 "ヘルプ"
 
-#: ID:3605,
+# ID:3605,
+#: ID:3605
 msgid ""
 "Display instructions about how to use help\n"
 "Help"
@@ -1154,7 +1401,8 @@ msgstr ""
 "ヘルプの使い方を表示する\n"
 "ヘルプ"
 
-#: ID:3605,
+# ID:3605,
+#: ID:3605
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -1162,11 +1410,13 @@ msgstr ""
 "プログラムの情報、バージョン、コピーライトを表示する\n"
 "バージョン情報"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Do not show this message again"
 msgstr "このメッセージを再び表示しない"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid ""
 "Do you really want to revert all changes\n"
 "which were made in this revision?"
@@ -1174,11 +1424,13 @@ msgstr ""
 "このリビジョンに対して行われた全ての変更を\n"
 "本当に元に戻していいんですか？"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Do you want to proceed?"
 msgstr "続行してもよろしいですか？"
 
-#: ID:313,
+# ID:313,
+#: ID:313
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
@@ -1186,7 +1438,8 @@ msgstr ""
 "設定の変更を反映させるために、ドキュメントの再読み込みを行いますか？\n"
 "注意書き: 行った全ての変更が失われます！"
 
-#: ID:313,
+# ID:313,
+#: ID:313
 msgid ""
 "Do you want to reload the documents?\n"
 "You will lose all changes you've made!"
@@ -1194,19 +1447,23 @@ msgstr ""
 "ドキュメントの再読み込みを行いますか？\n"
 "行った全ての変更が失われます！"
 
-#: ID:313,
+# ID:313,
+#: ID:313
 msgid "Do you want to save your changes?"
 msgstr "変更を保存しますか？"
 
-#: Control-ID:1061,
+# Control-ID:1061,
+#: Control-ID:1061
 msgid "Don't &remove log messages when cancelling a commit"
 msgstr "コミットをキャンセルした際に、ログメッセージを削除しない(&R)"
 
-#: Control-ID:1073,
+# Control-ID:1073,
+#: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "BASE に対する差分の時はファイルを変換しない"
 
-#: Control-ID:1079,
+# Control-ID:1079,
+#: Control-ID:1079
 msgid "Drive Types"
 msgstr "ドライブの種類"
 
@@ -1214,56 +1471,70 @@ msgstr "ドライブの種類"
 msgid "E&xit"
 msgstr "終了(&X)"
 
-#: Control-ID:1095,
+# Control-ID:1095,
+#: Control-ID:1095
 msgid "E&xternal"
 msgstr "外部(&X)"
 
-#: ID:3697,
+# ID:3697,
+#: ID:3697
 msgid "EXT"
 msgstr "EXT"
 
-#: Control-ID:1031,
+# Control-ID:1031,
+#: Control-ID:1031
 msgid "Edit"
 msgstr "編集"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Edit Conflicts"
 msgstr "衝突の編集"
 
-#: ID:110,
+# ID:110,
+#: ID:110
 msgid "Edit Extension Specific Diff Program"
 msgstr "拡張子に対応した差分プログラムを編集"
 
-#: ID:110,
+# ID:110,
+#: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "拡張子に対応したマージプログラムを編集"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid "Either the name or IP of the proxy server"
 msgstr "プロクシサーバの名前もしくは IP を入力"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Empty"
 msgstr "空"
 
-#: ID:3825,
+# ID:3825,
+#: ID:3825
 msgid "Enlarge the window to full size"
 msgstr "ウィンドウを最大化する"
 
-#: Dlg-ID:135,
+# Dlg-ID:135,
+#: Dlg-ID:135
 msgid "Enter Log Message"
 msgstr "ログメッセージを入力"
 
-#: ID:126,#:
-#: Control-ID:1065,
+# ID:126,#:
+# Control-ID:1065,
+#: ID:126
+#: Control-ID:1065
 msgid "Enter Log Message:"
 msgstr "ログメッセージを入力:"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Enter URL"
 msgstr "URLを入力"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Erase everything\n"
 "Erase All"
@@ -1271,7 +1542,8 @@ msgstr ""
 "全てを削除する\n"
 "全削除"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Erase the selection\n"
 "Erase"
@@ -1279,101 +1551,132 @@ msgstr ""
 "選択範囲を削除する\n"
 "削除"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid "Error validating server certificate for %s:"
 msgstr "サーバー証明書 %s の確認エラー:"
 
-#: Control-ID:1097,
+# Control-ID:1097,
+#: Control-ID:1097
 msgid "Ex&ternal"
 msgstr "外部(&T)"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Exceptions:"
 msgstr "例外:"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Exclude pattern:"
 msgstr "除外するパターン:"
 
-#: ID:94,
+# ID:94,
+#: ID:94
 msgid "Export Directory:"
 msgstr "エクスポートディレクトリ:"
 
-#: ID:9,
+# Control-ID:1073,
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "バージョン管理外のファイルも表示する"
+
+# ID:9,
+#: ID:9
 msgid "Export..."
 msgstr "エクスポート ..."
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid "Exporting..."
 msgstr "エクスポート中 ..."
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "リポジトリからSVN管理フォルダを除いたクリーンな作業用コピーをエクスポートする"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Extension"
 msgstr "拡張子"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Extension specific programs"
 msgstr "それぞれの拡張子に対応するプログラム"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Extension:"
 msgstr "拡張子:"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "External"
 msgstr "外部"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "External Program:"
 msgstr "外部プログラム:"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Failed Revert"
 msgstr "元に戻せませんでした ..."
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Failed to create empty document."
 msgstr "空のドキュメントの生成に失敗しました。"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Failed to launch help."
 msgstr "ヘルプを起動できませんでした。"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Failed to open document."
 msgstr "ドキュメントを開くことができませんでした。"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Failed to save document."
 msgstr "ドキュメントを保存できませんでした。"
 
-#: ID:313,
+# ID:313,
+#: ID:313
 msgid "Fetching File..."
 msgstr "ファイルを取り出す ..."
 
-#: ID:313,
+# ID:313,
+#: ID:313
 msgid "Fetching version %s of file:"
 msgstr "ファイルのバージョン %s を取り出し中:"
 
-#: ID:63,#:
-#: ID:74,#:
-#: ID:77,
+# ID:63,#:
+# ID:74,#:
+# ID:77,
+#: ID:63
+#: ID:74
+#: ID:77
+#: ID:207
 msgid "File"
 msgstr "ファイル"
 
-#: Dlg-ID:135,
+# Dlg-ID:135,
+#: Dlg-ID:135
 msgid "File Patches"
 msgstr "ファイルパッチ"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -1381,47 +1684,58 @@ msgstr ""
 "指定された文字列を検索する\n"
 "検索"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "Finished!"
 msgstr "終了！！"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Font for log messages:"
 msgstr "ログメッセージ用フォント:"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Font:"
 msgstr "フォント:"
 
-#: ID:3585,
+# ID:3585,
+#: ID:3585
 msgid "For Help, press F1"
 msgstr "ヘルプを表示するには、F1を押す"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "From:"
 msgstr "元:"
 
-#: Dlg-ID:107,
+# Dlg-ID:107,
+#: Dlg-ID:107
 msgid "General"
 msgstr "一般"
 
-#: ID:144,
+# ID:144,
+#: ID:144
 msgid "Generating Patchfile..."
 msgstr "パッチファイルを作成中 ..."
 
-#: Control-ID:1031,
+# Control-ID:1031,
+#: Control-ID:1031
 msgid "Get &All"
 msgstr "全て取得(&A)"
 
-#: ID:119,
+# ID:119,
+#: ID:119
 msgid "Getting File %s"
 msgstr "取得ファイル %s"
 
-#: ID:132,
+# ID:132,
+#: ID:132
 msgid "Getting file info..."
 msgstr "ファイル情報を取得 ..."
 
-#: ID:2049,
+# ID:2049,
+#: ID:2049
 msgid ""
 "Go to the next difference\n"
 "next difference"
@@ -1429,7 +1743,8 @@ msgstr ""
 "次の相違点へ移動する\n"
 "次の相違点へ"
 
-#: ID:2049,
+# ID:2049,
+#: ID:2049
 msgid ""
 "Go to the previous difference\n"
 "previous difference"
@@ -1437,33 +1752,36 @@ msgstr ""
 "前の相違点へ移動する\n"
 "前の相違点へ"
 
-#: Control-ID:1115,
-msgid "Head Revision"
-msgstr "最新のリビジョン"
-
-#: Control-ID:1004,#:
-#: ID:12,
+# Control-ID:1004,#:
+# ID:12,
+#: ID:12
+#: Control-ID:1004
 msgid "Help"
 msgstr "ヘルプ"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid "Hostname mismatch (%s)"
 msgstr "ホスト名が合いません (%s)"
 
-#: Dlg-ID:106,
+# Dlg-ID:106,
+#: Dlg-ID:106
 msgid "Icon Overlays"
 msgstr "アイコン オーバーレイ"
 
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr "アイコン／デザイン／コード:     Luebbe Onken"
 
-#: ID:194,
+# ID:194,
+#: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr "有効にした場合、\"名前をつけて保存\" や \"開く\" ダイアログ内でのオーバーレイを非表示にする"
 
-#: ID:95,
+# ID:95,
+#: ID:95
 msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
@@ -1471,15 +1789,18 @@ msgstr ""
 "チェックすると、リポジトリに新しいフォルダが作られる。\n"
 "チェックしなければ、指定したURLへ直接インポートする。"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
 msgstr "チェックすると、TortoiseSVN は差分用にテンポラリファイルを作成する代わりに、BASE とオリジナルファイルの差分をとります。"
 
-#: ID:194,
+# ID:194,
+#: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "チェックすると、TortoiseSVNは最新のバージョンが利用可能かどうかを1週間に1回チェックします。"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid ""
 "If you cancel a commit, the log message you have entered is saved\n"
 "and filled in the edit box on the next commit.\n"
@@ -1489,47 +1810,58 @@ msgstr ""
 "もしコミットをキャンセルした場合、入力したログメッセージは次のコミットまでエディットボックス内に保存されます。\n"
 "そして、そのメッセージを編集したり変更せずに利用したりできます。"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Ignore"
 msgstr "無視"
 
-#: Control-ID:1021,
+# Control-ID:1021,
+#: Control-ID:1021
 msgid "Ignore All Whitespaces"
 msgstr "全ての空白を無視する"
 
-#: Control-ID:1020,
+# Control-ID:1020,
+#: Control-ID:1020
 msgid "Ignore Leading Whitespaces"
 msgstr "行頭の空白を無視する"
 
-#: Control-ID:1018,
+# Control-ID:1018,
+#: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
 msgstr "改行コードを無視する（推奨）"
 
-#: Dlg-ID:139,
+# Dlg-ID:139,
+#: Dlg-ID:139
 msgid "Import"
 msgstr "インポート"
 
-#: Control-ID:1056,
+# Control-ID:1056,
+#: Control-ID:1056
 msgid "Import &Message"
 msgstr "インポートメッセージ(&M)"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Import..."
 msgstr "インポート ..."
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "Imports the directory to a repository"
 msgstr "ディレクトリをリポジトリにインポート"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Initial Import"
 msgstr "初期インポート"
 
-#: Dlg-ID:161,
+# Dlg-ID:161,
+#: Dlg-ID:161
 msgid "Input"
 msgstr "入力"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -1537,22 +1869,26 @@ msgstr ""
 "クリップボードの内容を挿入する\n"
 "貼り付け"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Insufficient memory to perform operation."
 msgstr "操作を行うのに、十分なメモリがありません。"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Internal application error."
 msgstr "内部アプリケーションエラー。"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Invalid filename."
 msgstr "無効なファイル名です。"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
 "HEAD, BASE, PREV, COMMITTED, WC\n"
@@ -1586,27 +1922,33 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
-#: Control-ID:1016,
+# Control-ID:1016,
+#: Control-ID:1016
 msgid "Jump to first difference when loading"
 msgstr "ロード時に最初の相違点へ移動する"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Language:"
 msgstr "言語:"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Last commit revision:"
 msgstr "最終コミットリビジョン:"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Last saved revision of item"
 msgstr "最後に保存した項目のリビジョン"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "衝突を解決するために、外部の差分／マージプログラムを起動"
 
-#: ID:3605,
+# ID:3605,
+#: ID:3605
 msgid ""
 "List Help topics\n"
 "Help Topics"
@@ -1614,125 +1956,155 @@ msgstr ""
 "ヘルプトピックを列挙\n"
 "ヘルプトピック"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "Local Status"
 msgstr "ローカルの状態"
 
-#: ID:94,
+# ID:94,
+#: ID:94
 msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr "リポジトリURLの内容を保存する先。"
 
-#: ID:126,
+# ID:126,
+#: ID:126
 msgid "Log"
 msgstr "ログ"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Log Message"
 msgstr "ログメッセージ"
 
-#: Dlg-ID:130,
+# Dlg-ID:130,
+#: Dlg-ID:130
 msgid "Log Messages"
 msgstr "ログメッセージ"
 
-#: ID:3866,#:
-#: ID:3866,
+# ID:3866,#:
+# ID:3866,
+#: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "メールシステムDLLは無効です。"
 
-#: Dlg-ID:143,
+# Dlg-ID:143,
+#: Dlg-ID:143
 msgid "Main"
 msgstr "メイン"
 
-#: Dlg-ID:159,
+# Dlg-ID:159,
+#: Dlg-ID:159
 msgid "Menu Layout"
 msgstr "メニューレイアウト"
 
-#: Dlg-ID:141,
+# Dlg-ID:141,
+#: Dlg-ID:141
 msgid "Merge"
 msgstr "マージ"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Merge Program"
 msgstr "マージプログラム"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Merge..."
 msgstr "マージ ..."
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "Merges a branch into the main trunk"
 msgstr "分岐を本体にマージする"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Merging"
 msgstr "マージ中"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Message"
 msgstr "メッセージ"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "Mime Type"
 msgstr "Mime タイプ"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Minimum logsize in chars"
 msgstr "最小のログ文字数"
 
-#: Control-ID:1023,#:
-#: Control-ID:1082,
+# Control-ID:1023,#:
+# Control-ID:1082,
+#: Control-ID:1082
+#: Control-ID:1023
 msgid "Misc"
 msgstr "各種設定"
 
-#: ID:3887,#:
-#: ID:3887,
+# ID:3887,#:
+# ID:3887,
+#: ID:3887
 msgid "Mixed"
 msgstr "ミックス"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Modified"
 msgstr "変更"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Move files in Subversion to here"
 msgstr "バージョン管理されたファイルをここに移動"
 
-#: ID:126,
+# ID:126,
+#: ID:126
 msgid "Moved remotely"
 msgstr "リモート操作による移動"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Moving %s"
 msgstr "%s を移動中"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Moving..."
 msgstr "移動中 ..."
 
-#: ID:3697,
+# ID:3697,
+#: ID:3697
 msgid "NUM"
 msgstr "NUM"
 
-#: Dlg-ID:102,
+# Dlg-ID:102,
+#: Dlg-ID:102
 msgid "Network"
 msgstr "ネットワーク"
 
-#: Dlg-ID:30721,#:
-#: Dlg-ID:30721,
+# Dlg-ID:30721,#:
+# Dlg-ID:30721,
+#: Dlg-ID:30721
 msgid "New"
 msgstr "新規"
 
-#: Control-ID:1076,
+# Control-ID:1076,
+#: Control-ID:1076
 msgid "New Name:"
 msgstr "新しい名前:"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "No"
 msgstr "いいえ"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "No command specified!\n"
 "<hr=100%>\n"
@@ -1742,22 +2114,27 @@ msgstr ""
 "<hr=100%>\n"
 "TortoiseProc.exe はシェル拡張で利用しているため、直接呼び出すことはできません！"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid "No command value specified!"
 msgstr "何のコマンド値も指定されません！"
 
-#: ID:3843,#:
-#: ID:3843,
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
 msgid "No error message is available."
 msgstr "どのエラーメッセージも利用できません。"
 
-#: ID:3867,#:
-#: ID:3868,#:
-#: ID:3868,
+# ID:3867,#:
+# ID:3868,#:
+# ID:3868,
+#: ID:3867
+#: ID:3868
 msgid "No error occurred."
 msgstr "エラーは何も起きませんでした。"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
@@ -1766,22 +2143,27 @@ msgstr ""
 "最後のコミットから変更／追加されたファイルは存在していません。\n"
 "今回は、TortoiseSVNがすることは何もありません ..."
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Normal"
 msgstr "通常"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたというわけではありません。"
 
-#: Control-ID:1,#:
-#: ID:73,#:
-#: Control-ID:1,
+# Control-ID:1,#:
+# ID:73,#:
+# Control-ID:1,
+#: ID:73
+#: Control-ID:1
 msgid "OK"
 msgstr "OK"
 
-#: ID:3697,
+# ID:3697,
+#: ID:3697
 msgid "OVR"
 msgstr "OVR"
 
@@ -1789,29 +2171,36 @@ msgstr "OVR"
 msgid "Oneway &Diff"
 msgstr "片方の差分のみ表示(&D)"
 
-#: Control-ID:1073,
+# Control-ID:1073,
+#: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "トップフォルダのみチェックアウトする"
 
-#: Control-ID:1073,
+# Control-ID:1073,
+#: Control-ID:1073
 msgid "Only update the top folder"
 msgstr "トップフォルダのみ更新する"
 
-#: ID:3841,#:
-#: ID:101,#:
-#: ID:3841,
+# ID:3841,#:
+# ID:101,#:
+# ID:3841,
+#: ID:101
+#: ID:3841
 msgid "Open"
 msgstr "開く"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Open client certificate file"
 msgstr "クライアントの証明書を開く"
 
-#: ID:3601,
+# ID:3601,
+#: ID:3601
 msgid "Open file"
 msgstr "ファイルを開く"
 
-#: ID:3605,
+# ID:3605,
+#: ID:3605
 msgid ""
 "Opens Help\n"
 "Help Topics"
@@ -1819,101 +2208,122 @@ msgstr ""
 "ヘルプを開く\n"
 "ヘルプトピック"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "オンラインのリポジトリを調整するためにリポジトリブラウザを開く"
 
-#: ID:3843,#:
-#: ID:3843,
+# ID:3843,#:
+# ID:3843,
+#: ID:3843
 msgid "Out of memory."
 msgstr "メモリ不足です。"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "PEM"
 msgstr "PEM"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "PKCS12"
 msgstr "PKCS12"
 
-#: ID:69,
+# ID:69,
+#: ID:69
 msgid "Password:"
 msgstr "パスワード:"
 
-#: ID:376,
+# ID:376,
+#: ID:376
 msgid "Patch All"
 msgstr "全パッチ"
 
-#: ID:157,#:
-#: ID:157,
+# ID:157,#:
+# ID:157,
+#: ID:157
 msgid "Patchfiles|*.diff;*.patch|All|*.*||"
 msgstr "パッチファイル|*.diff;*.patch|全てのファイル|*.*||"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "Path"
 msgstr "パス"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a GUID."
 msgstr "GUIDを入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a currency."
 msgstr "通貨を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a date and/or time."
 msgstr "日付／時刻を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a date."
 msgstr "日付を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a number between %1 and %2."
 msgstr "%1 ～ %2 の間の数値を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a number."
 msgstr "数値を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a positive integer."
 msgstr "正の整数値を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter a time."
 msgstr "時刻を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter an integer between %1 and %2."
 msgstr "%1 ～ %2 の間の整数値を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter an integer between 0 and 255."
 msgstr "0 ～ 255 の間の整数値を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter an integer."
 msgstr "整数値を入力してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please enter no more than %1 characters."
 msgstr "%1 文字以上を入力してください。"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid ""
 "Please note:\n"
 "your working copy remains on the previous path. If you want your next changes\n"
@@ -1925,64 +2335,85 @@ msgstr ""
 "<b>切り替え</b>操作により、コピー先にパスを変更する必要があります。\n"
 "<b>切り替え</b>コマンドを使用してください。"
 
-#: ID:3858,#:
-#: ID:3858,
+# ID:3858,#:
+# ID:3858,
+#: ID:3858
 msgid "Please select a button."
 msgstr "ボタンを選択してください。"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Please specify the certificate type"
 msgstr "証明書の種類を指定してください"
 
-#: ID:132,
+# ID:132,
+#: ID:132
 msgid "Please wait - this can take several minutes. Seriously!"
 msgstr "しばらくお待ちください - この処理には数分かかるかもしれないので、注意してください！"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Please wait while cancelling..."
 msgstr "キャンセル処理が完了するまでしばらくお待ちください ..."
 
-#: ID:119,
+# ID:119,
+#: ID:119
 msgid "Please wait..."
 msgstr "しばらくお待ちください ..."
 
-#: ID:132,
+# ID:132,
+#: ID:132
 msgid "Processing revision %d of %d..."
 msgstr "処理中のリビジョン %d / %d ..."
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Program"
 msgstr "プログラム"
 
-#: ID:157,
+# ID:157,
+#: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "プログラム (*.exe)|*.*|全てのファイル (*.*)|*.*||"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "属性"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Property"
 msgstr "属性"
 
-#: Dlg-ID:107,
+# Dlg-ID:107,
+#: Dlg-ID:107
 msgid "Property Page"
 msgstr "プロパティページ"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: ID:207
+msgid "Property Status"
+msgstr "属性の状態"
+
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Property Status:"
 msgstr "属性の状態:"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
 msgstr "プロクシのタイムアウト(&T):"
 
-#: Control-ID:1080,
+# Control-ID:1080,
+#: Control-ID:1080
 msgid "Proxy Settings"
 msgstr "プロクシの設定"
 
-#: ID:3605,
+# ID:3605,
+#: ID:3605
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -1990,19 +2421,23 @@ msgstr ""
 "ドキュメントの保存を確認し、プログラムを終了する\n"
 "終了"
 
-#: Control-ID:1073,
+# Control-ID:1073,
+#: Control-ID:1073
 msgid "RAM drives"
 msgstr "RAM ドライブ"
 
-#: ID:3697,
+# ID:3697,
+#: ID:3697
 msgid "REC"
 msgstr "REC"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "行き詰る前に\"日常の利用ガイド\"を読もう"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -2010,16 +2445,20 @@ msgstr ""
 "以前に行われた元に戻す操作をやり直す\n"
 "やり直し"
 
-#: ID:3825,
+# ID:3825,
+#: ID:3825
 msgid "Reduce the window to an icon"
 msgstr "ウィンドウをアイコン化する"
 
-#: ID:101,#:
-#: ID:135,
+# ID:101,#:
+# ID:135,
+#: ID:101
+#: ID:135
 msgid "Refresh"
 msgstr "最新の情報に更新"
 
-#: ID:82,
+# ID:82,
+#: ID:82
 msgid "Reject"
 msgstr "拒否"
 
@@ -2027,7 +2466,8 @@ msgstr "拒否"
 msgid "Reload"
 msgstr "再読み込み"
 
-#: ID:2050,
+# ID:2050,
+#: ID:2050
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -2035,48 +2475,71 @@ msgstr ""
 "開いているファイルを再読み込みし、全ての変更を元に戻す。\n"
 "再読み込み"
 
-#: Dlg-ID:157,
+# Dlg-ID:157,
+#: Dlg-ID:157
 msgid "Relocate"
 msgstr "再配置"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Relocate..."
 msgstr "再配置 ..."
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "Relocating..."
 msgstr "再配置中 ..."
 
-#: ID:63,
+# Control-ID:65535,
+#: ID:207
+msgid "Remote Property Status"
+msgstr "リモートの属性の状態"
+
+# ID:63,
+#: ID:63
+#: ID:207
 msgid "Remote Status"
 msgstr "リモートの状態"
 
-#: Control-ID:65535,
+# ID:63,
+#: ID:207
+msgid "Remote Text Status"
+msgstr "リモートのテキストの状態"
+
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Removed"
 msgstr "削除"
 
-#: ID:126,
+# ID:126,
+#: ID:126
 msgid "Removed file/folder"
 msgstr "ファイル／フォルダを削除"
 
-#: Dlg-ID:151,
+# Dlg-ID:151,
+#: Dlg-ID:151
 msgid "Rename"
 msgstr "名前の変更"
 
-#: ID:97,
+# ID:97,
+#: ID:97
 msgid "Rename %s"
 msgstr "%s の名前を変更"
 
-#: ID:11,#:
-#: ID:101,
+# ID:11,#:
+# ID:101,
+#: ID:11
+#: ID:101
 msgid "Rename..."
 msgstr "名前を変更 ..."
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Renames files / folders inside source control"
 msgstr "ソース管理内でファイル／フォルダの名前を変更"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Repeat the last action\n"
 "Repeat"
@@ -2084,7 +2547,8 @@ msgstr ""
 "直前に行った操作を繰り返す\n"
 "繰り返し"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Replace specific text with different text\n"
 "Replace"
@@ -2092,81 +2556,103 @@ msgstr ""
 "指定された文字列を、他の文字列に置き換える\n"
 "置換"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Replaced"
 msgstr "置換"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Repo-Browser"
 msgstr "リポジトリブラウザ"
 
-#: Control-ID:65535,#:
-#: Control-ID:1055,#:
-#: Control-ID:65535,
+# Control-ID:65535,#:
+# Control-ID:1055,#:
+# Control-ID:65535,
+#: Control-ID:65535
+#: Control-ID:1055
 msgid "Repository"
 msgstr "リポジトリ"
 
-#: Dlg-ID:153,
+# Dlg-ID:153,
+#: Dlg-ID:153
 msgid "Repository Browser"
 msgstr "リポジトリブラウザ"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Resolve"
 msgstr "解決"
 
-#: Control-ID:1067,
+# Control-ID:1067,
+#: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
 msgstr "保存する際に、衝突したSubversionの属性を解決する"
 
-#: ID:8,
+# ID:8,
+#: ID:8
 msgid "Resolved"
 msgstr "問題の解決"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Resolves conflicted files"
 msgstr "衝突したファイルを解決する"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Restore"
 msgstr "復元"
 
-#: ID:3826,
+# ID:3826,
+#: ID:3826
 msgid "Restore the window to normal size"
 msgstr "ウィンドウを通常のサイズに戻す"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Retry"
 msgstr "再試行"
 
-#: ID:8,#:
-#: ID:73,#:
-#: Dlg-ID:175,
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: ID:8
+#: ID:73
+#: Dlg-ID:175
 msgid "Revert"
 msgstr "元に戻す"
 
-#: ID:113,
+# ID:113,
+#: ID:113
 msgid "Revert changes from this revision"
 msgstr "このリビジョン以降の変更を元に戻す"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Reverts all changes you made since the last update"
 msgstr "最後の更新から行った全ての変更を元に戻す"
 
-#: ID:76,#:
-#: Control-ID:65535,#:
-#: Control-ID:65535,
+# ID:76,#:
+# Control-ID:65535,#:
+# Control-ID:65535,
+#: ID:76
+#: Control-ID:65535
 msgid "Revision"
 msgstr "リビジョン"
 
-#: ID:119,
+# ID:119,
+#: ID:119
 msgid "Revision %d"
 msgstr "リビジョン %d"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "リビジョン／作者:"
 
-#: ID:75,
+# ID:75,
+#: ID:75
 msgid "Revision: "
 msgstr "リビジョン:"
 
@@ -2174,83 +2660,103 @@ msgstr "リビジョン:"
 msgid "S&ettings"
 msgstr "設定(&E)"
 
-#: ID:3697,
+# ID:3697,
+#: ID:3697
 msgid "SCRL"
 msgstr "SCRL"
 
-#: Control-ID:1081,
+# Control-ID:1081,
+#: Control-ID:1081
 msgid "SSH"
 msgstr "SSH"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "SVN Add..."
 msgstr "SVN 追加中 ..."
 
-#: ID:132,
+# ID:132,
+#: ID:132
 msgid "SVN Blame"
 msgstr "SVN 注釈履歴"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "SVN Checkout..."
 msgstr "SVN チェックアウト中 ..."
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "SVN Commit..."
 msgstr "SVN コミット中 ..."
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "SVN Copy..."
 msgstr "SVN コピー中 ..."
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "SVN Export..."
 msgstr "SVN エクスポート中 ..."
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "SVN Import..."
 msgstr "SVN インポート中 ..."
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "SVN Merge..."
 msgstr "SVN マージ中 ..."
 
-#: Dlg-ID:134,
+# Dlg-ID:134,
+#: Dlg-ID:134
 msgid "SVN Progress"
 msgstr "SVN 進行状況"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "SVN Resolve..."
 msgstr "SVN 解決中 ..."
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "SVN Revert..."
 msgstr "SVN 元に戻し中 ..."
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "SVN Revision"
 msgstr "リビジョン"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "SVN Status"
 msgstr "状態"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "SVN Switch..."
 msgstr "SVN 切り替え中 ..."
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid "SVN Update..."
 msgstr "SVN 更新中 ..."
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "SVN Url"
 msgstr "URL"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid "SVN mime-type"
 msgstr "mimeタイプ"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "SVN short Url"
 msgstr "短いURL"
 
@@ -2258,27 +2764,33 @@ msgstr "短いURL"
 msgid "Save &As..."
 msgstr "名前を付けて保存(&A) ..."
 
-#: ID:3841,#:
-#: ID:3841,
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
 msgid "Save As"
 msgstr "名前を付けて保存"
 
-#: ID:313,#:
-#: ID:101,
+# ID:313,#:
+# ID:101,
+#: ID:101
+#: ID:313
 msgid "Save as..."
 msgstr "名前をつけて保存 ..."
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "Save changes to %1?"
 msgstr "変更を %1 へ保存しますか？"
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Save revision to..."
 msgstr "リビジョンを保存 ..."
 
-#: ID:3601,#:
-#: ID:3601,
+# ID:3601,#:
+# ID:3601,
+#: ID:3601
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -2286,61 +2798,75 @@ msgstr ""
 "変更されたファイルを保存する\n"
 "ファイルを保存する"
 
-#: ID:144,
+# ID:144,
+#: ID:144
 msgid "Saving patchfile to:"
 msgstr "パッチファイルを保存中:"
 
-#: ID:113,
+# ID:113,
+#: ID:113
 msgid "Search log messages..."
 msgstr "ログメッセージを検索 ..."
 
-#: ID:3867,#:
-#: ID:3867,
+# ID:3867,#:
+# ID:3867,
+#: ID:3867
 msgid "Seek failed on %1"
 msgstr "%1 のシークに失敗しました。"
 
-#: Control-ID:1067,#:
-#: Control-ID:1067,
+# Control-ID:1067,#:
+# Control-ID:1067,
+#: Control-ID:1067
 msgid "Select / Deselect &All"
 msgstr "全て選択／全て非選択(&A)"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "Select Diff Application"
 msgstr "差分ツールを選択"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Select File..."
 msgstr "ファイルを選択 ..."
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "Select Merge Application"
 msgstr "マージ用アプリケーションを選択"
 
-#: Dlg-ID:173,
+# Dlg-ID:173,
+#: Dlg-ID:173
 msgid "Select Revision"
 msgstr "リビジョンを選択"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "Select SSH Client"
 msgstr "SSHクライアントを選択"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid "Select Text Editor Application"
 msgstr "テキスト編集用アプリケーションを選択"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid "Select Viewer for Diff-Files"
 msgstr "ファイルの差分を表示するビューワを選択"
 
-#: ID:3585,
+# ID:3585,
+#: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "ヘルプを表示するために、オブジェクトを選択する"
 
-#: ID:313,
+# ID:313,
+#: ID:313
 msgid "Select diff file..."
 msgstr "差分ファイルを選択 ..."
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
@@ -2348,7 +2874,8 @@ msgstr ""
 "エクスポートするフォルダを選択してください。\n"
 "これを実行する前に新しいフォルダを生成する必要があるかもしれません。"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Select the entire document\n"
 "Select All"
@@ -2356,78 +2883,103 @@ msgstr ""
 "ドキュメント全体を選択する\n"
 "全選択"
 
-#: ID:3866,#:
-#: ID:3866,
+# ID:3866,#:
+# ID:3866,
+#: ID:3866
 msgid "Send Mail failed to send message."
 msgstr "メッセージの送信に Send Mail は失敗しました。"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Sending Content"
 msgstr "内容を送信中"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Server &address:"
 msgstr "サーバーアドレス(&A):"
 
-#: Control-ID:1088,
+# Control-ID:1088,
+#: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
 msgstr "\"最後にコミットした日付\" にファイルの日付を設定する"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Setting Properties..."
 msgstr "属性を設定 ..."
 
-#: ID:107,#:
-#: ID:9,
+# ID:107,#:
+# ID:9,
+#: ID:9
+#: ID:107
 msgid "Settings"
 msgstr "設定"
 
-#: Control-ID:1105,
+# Control-ID:1105,
+#: Control-ID:1105
 msgid "Short &date/time format in log messages"
 msgstr "ログメッセージに短い日付形式を利用する(&D)"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Short Url of subversion items"
 msgstr "サブバージョン項目の短いURL"
 
-#: Control-ID:1031,#:
-#: Control-ID:1034,
+# Control-ID:1031,#:
+# Control-ID:1034,
+#: Control-ID:1031
+#: Control-ID:1034
 msgid "Show &Log"
 msgstr "ログを表示(&L)"
 
-#: Control-ID:1031,
+# Control-ID:1031,
+#: Control-ID:1031
 msgid "Show &Log..."
 msgstr "ログを表示(&L) ..."
 
-#: Control-ID:1016,
+# Control-ID:1016,
+#: Control-ID:1016
 msgid "Show &log"
 msgstr "ログを表示(&L)"
 
-#: Control-ID:1065,
+# Control-ID:1065,
+#: Control-ID:1065
 msgid "Show Diff Bar"
 msgstr "差分バーを表示"
 
-#: ID:113,
+# ID:113,
+#: ID:113
 msgid "Show Differences"
 msgstr "差分を表示"
 
-#: ID:113,
+# ID:113,
+#: ID:113
 msgid "Show Differences as Unified Diff"
 msgstr "Unified Diff 形式で差分を表示"
 
-#: Control-ID:1063,
+# Control-ID:1063,
+#: Control-ID:1063
 msgid "Show Linenumbers"
 msgstr "行番号を表示"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Show Log"
 msgstr "ログを表示"
 
-#: ID:101,
+# Control-ID:65535,
+#: ID:101
+msgid "Show Properties"
+msgstr "属性を表示"
+
+# ID:101,
+#: ID:101
 msgid "Show log"
 msgstr "ログを表示"
 
-#: ID:3713,
+# ID:3713,
+#: ID:3713
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -2435,7 +2987,8 @@ msgstr ""
 "ステータスバーを表示／非表示にする\n"
 "トグルステータスバー"
 
-#: ID:3713,
+# ID:3713,
+#: ID:3713
 msgid ""
 "Show or hide the toolbar\n"
 "Toggle ToolBar"
@@ -2443,11 +2996,13 @@ msgstr ""
 "ツールバーを表示／非表示にする\n"
 "トグルツールバー"
 
-#: Control-ID:1088,
+# Control-ID:1088,
+#: Control-ID:1088
 msgid "Show overlays only in explorer"
 msgstr "エクスプローラ上でのみオーバーレイを表示する"
 
-#: ID:2049,
+# ID:2049,
+#: ID:2049
 msgid ""
 "Show special characters for whitespaces\n"
 "Show Whitespaces"
@@ -2455,35 +3010,43 @@ msgstr ""
 "空白文字用に特殊な記号を表示する\n"
 "空白を表示"
 
-#: Control-ID:1073,
+# Control-ID:1073,
+#: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "バージョン管理外のファイルを表示する"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "最後の更新後に、ローカルおよびリポジトリ上で変更された全てのファイルを表示"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "Shows information about TortoiseSVN"
 msgstr "TortoiseSVNについての情報を表示"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Shows the log for the selected file / folder"
 msgstr "選択したファイル／フォルダのログを表示"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid "Shows the mime type of the versioned file"
 msgstr "バージョン管理されたファイルのmimeタイプを表示する"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Size"
 msgstr "サイズ"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "Skip"
 msgstr "スキップ"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid ""
 "Specify the files or folders wich TortoiseSVN\n"
 " should exclude from version control.\n"
@@ -2492,7 +3055,8 @@ msgstr ""
 "TortoiseSVNがバージョン管理から除外するファイルやフォルダを指定する。\n"
 "各パターンを空白で区切ってください。"
 
-#: ID:3604,
+# ID:3604,
+#: ID:3604
 msgid ""
 "Split the active window into panes\n"
 "Split"
@@ -2500,20 +3064,36 @@ msgstr ""
 "アクティブなウィンドウを区画に分割する\n"
 "分割"
 
-#: ID:74,#:
-#: ID:77,
+# ID:74,#:
+# ID:77,
+#: ID:74
+#: ID:77
+#: ID:207
 msgid "Status"
 msgstr "状態"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Status of item in SVN"
 msgstr "SVNの項目の状態"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "サブバージョンの設定ファイル:"
 
-#: ID:79,
+# ID:13,
+#: ID:14
+msgid "Subversion export all here"
+msgstr "バージョン管理されたファイルを全てここにエクスポート"
+
+# ID:13,
+#: ID:14
+msgid "Subversion export here"
+msgstr "バージョン管理されたファイルをここにエクスポート"
+
+# ID:79,
+#: ID:79
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
@@ -2521,7 +3101,8 @@ msgstr ""
 "リポジトリ作成中にサブバージョンはエラーを返しました！\n"
 "フォルダが空か書込み禁止でないかを確認してください。"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "<hr=100%>\n"
@@ -2531,11 +3112,13 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
-#: Dlg-ID:140,
+# Dlg-ID:140,
+#: Dlg-ID:140
 msgid "Switch To Branch / Tag"
 msgstr "分岐／タグへ切り替え"
 
-#: ID:3606,
+# ID:3606,
+#: ID:3606
 msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
@@ -2543,7 +3126,8 @@ msgstr ""
 "前のウィンドウ区画に切り替える\n"
 "前の区画"
 
-#: ID:2049,
+# ID:2049,
+#: ID:2049
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
@@ -2551,11 +3135,13 @@ msgstr ""
 "シングルビューとダブルビューを切り替える\n"
 "シングルビューとダブルビューの切り替え"
 
-#: ID:3825,
+# ID:3825,
+#: ID:3825
 msgid "Switch to the next document window"
 msgstr "次のドキュメントウィンドウに切り替える"
 
-#: ID:3606,
+# ID:3606,
+#: ID:3606
 msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
@@ -2563,36 +3149,49 @@ msgstr ""
 "次のウィンドウ区画に切り替える\n"
 "次の区画"
 
-#: ID:3825,
+# ID:3825,
+#: ID:3825
 msgid "Switch to the previous document window"
 msgstr "前のドキュメントウィンドウに切り替える"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Switch working copy to another branch / tag"
 msgstr "他の分岐／タグへ作業用コピーを切り替え"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Switch..."
 msgstr "切り替え ..."
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "システムレジストリのエントリーは削除され、INIファイルは削除されました。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Tab Size:"
 msgstr "タブ幅:"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid "Tagged the working copy to %s"
 msgstr "作業用コピーを %s へタグ付けしました。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: ID:207
+msgid "Text Status"
+msgstr "テキストの状態"
+
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Text Status:"
 msgstr "テキストの状態:"
 
-#: ID:69,
+# ID:69,
+#: ID:69
 msgid ""
 "The File\n"
 "%s\n"
@@ -2602,19 +3201,23 @@ msgstr ""
 "%s\n"
 "は有効なテキストファイルではありません！"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "The Repository was successfully created."
 msgstr "リポジトリの作成に成功しました。"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "チャンクのサイズは追加／削除した行数と合いません！"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "\"@@\" で始まる部分は、行 %d だと思われます！"
 
-#: ID:68,
+# ID:68,
+#: ID:68
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
@@ -2622,20 +3225,24 @@ msgstr ""
 "次のエラーにより、差分ツールは中止されました:\n"
 "%s"
 
-#: ID:64,
+# ID:64,
+#: ID:64
 msgid "The file %s does not exist!"
 msgstr "ファイル %s は存在していません！"
 
-#: ID:64,
+# ID:64,
+#: ID:64
 msgid "The file %s was not found in the patch file!"
 msgstr "ファイル %s はパッチファイル内で見つかりませんでした！"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "The file is too large to open."
 msgstr "ファイルが大きすぎて開けません。"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid ""
 "The file\n"
 "%s\n"
@@ -2645,7 +3252,8 @@ msgstr ""
 "%s\n"
 "はすでに存在しています！上書きしてもよろしいですか？"
 
-#: ID:88,
+# ID:88,
+#: ID:88
 msgid ""
 "The folder \n"
 "%s\n"
@@ -2657,23 +3265,28 @@ msgstr ""
 "は存在していません。\n"
 "作成しますか？"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "The line \"====\" was expected in line %d !"
 msgstr "行 \"====\" は行 %d だと思われます！"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "The line \"Index: \" was not found!"
 msgstr "行 \"Index: \" は見つかりませんでした！"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "The line indicating the new file was expected in line %d !"
 msgstr "新しいファイルを示している行は、行 %d だと思われます！"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "古いファイルを示している行は、行 %d だと思われます！"
 
-#: ID:63,
+# ID:63,
+#: ID:63
 msgid ""
 "The old file does not match the new file.\n"
 "Renaming of files is not (yet) supported!"
@@ -2681,7 +3294,8 @@ msgstr ""
 "古いファイルは新しいファイルとマッチしません。\n"
 "ファイルの名前を変更する機能は（まだ）未サポートです！"
 
-#: ID:64,
+# ID:64,
+#: ID:64
 msgid ""
 "The patch seems outdated! The file line\n"
 "%s\n"
@@ -2695,7 +3309,8 @@ msgstr ""
 "%s\n"
 "はマッチしません！"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
@@ -2703,7 +3318,8 @@ msgstr ""
 "選択されたファイル内には、まだ１つ以上の衝突マークがあります。\n"
 "本当に、ファイルに解決マークを付けてもよろしいですか？"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "The working copy has changed!\n"
 "<hr=100%>\n"
@@ -2713,7 +3329,8 @@ msgstr ""
 "<hr=100%>\n"
 "まず変更をコミット、もしくは元に戻してください。"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
@@ -2721,11 +3338,13 @@ msgstr ""
 "作業用コピーは最新ではありません！\n"
 "まず更新を行ってください。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Their File:"
 msgstr "Their ファイル:"
 
-#: ID:169,
+# ID:169,
+#: ID:169
 msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
@@ -2733,7 +3352,8 @@ msgstr ""
 "svn:externals でインクルードされた１つ以上のディレクトリ内に変更が存在します。\n"
 "それらのファイルは <b>決して</b> コミットのリストには現れません。それらのファイルは別々にコミットする必要があります。"
 
-#: ID:66,
+# ID:66,
+#: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "Please resolve those conflicts first before saving."
@@ -2741,51 +3361,64 @@ msgstr ""
 "まだ行 %d に未解決の衝突が存在しています！\n"
 "保存する前にこれらの衝突を解決してください。"
 
-#: ID:188,
+# ID:188,
+#: ID:188
 msgid "Thesaurus"
 msgstr "シソーラス"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr "本製品は、CollabNet (http://www.Collab.Net/) で開発されたソフトウェアを含んでいます。"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "このプログラムは %s （ファイル %s）へリンクされています。 このマシーンは %s とは互換性のないバージョンかもしれません。"
 
-#: ID:3857,#:
-#: ID:3857,
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "このプログラムはファイル %s を必要としますが、このシステム上で見つけることができませんでした。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Three File Diff"
 msgstr "3つのファイルの差分"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
 msgstr "特定の分岐から変更をマージするために、\"元:\" と \"先:\" の両方に同じURLを指定する必要があります。"
 
-#: Control-ID:1052,
+# Control-ID:1052,
+#: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
 msgstr "変更を見る場合は、上のファイルをダブルクリック。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "To:"
 msgstr "先:"
 
-#: ID:7,#:
-#: ID:3585,#:
-#: Dlg-ID:130,
+# ID:7,#:
+# ID:3585,#:
+# Dlg-ID:130,
+#: ID:7
+#: ID:3585
+#: Dlg-ID:130
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
-#: ID:107,
+# ID:107,
+#: ID:107
 msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
-#: ID:107,
+# ID:107,
+#: ID:107
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -2799,16 +3432,20 @@ msgstr ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 
-#: ID:9,#:
-#: ID:80,
+# ID:9,#:
+# ID:80,
+#: ID:9
+#: ID:80
 msgid "TortoiseSVN"
 msgstr "TortoiseSVN"
 
-#: ID:107,
+# ID:107,
+#: ID:107
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
-#: ID:107,
+# ID:107,
+#: ID:107
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -2830,70 +3467,86 @@ msgstr ""
 "%s\r\n"
 "zlib %s"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN 設定"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Try Again"
 msgstr "やり直し"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVNを調整"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Two File Diff"
 msgstr "2つのファイルの差分"
 
-#: Dlg-ID:164,
+# Dlg-ID:164,
+#: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "URL of subversion items"
 msgstr "サブバージョン項目のURL"
 
-#: Control-ID:65535,#:
-#: Control-ID:1076,
+# Control-ID:65535,#:
+# Control-ID:1076,
+#: Control-ID:65535
+#: Control-ID:1076
 msgid "URL:"
 msgstr "URL:"
 
-#: ID:75,
+# ID:75,
+#: ID:75
 msgid "URL: "
 msgstr "URL: "
 
-#: ID:3866,#:
-#: ID:3866,
+# ID:3866,#:
+# ID:3866,
+#: ID:3866
 msgid "Unable to load mail system support."
 msgstr "メールシステムサポートをロードできません。"
 
-#: ID:3859,#:
-#: ID:3859,
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
 msgid "Unable to read from %1, it is opened by someone else."
 msgstr "%1 から読み込めません。他の誰かが開いています。"
 
-#: ID:3865,#:
-#: ID:3865,
+# ID:3865,#:
+# ID:3865,
+#: ID:3865
 msgid "Unable to read write-only property."
 msgstr "書き込み専用属性を読み込めません。"
 
-#: ID:3865,#:
-#: ID:3865,
+# ID:3865,#:
+# ID:3865,
+#: ID:3865
 msgid "Unable to write read-only property."
 msgstr "読み込み専用属性のため書き込めません。"
 
-#: ID:3859,#:
-#: ID:3859,
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "%1 に書き込めません。読み取り専用か、他の誰かが開いています。"
 
-#: ID:3887,#:
-#: ID:3887,
+# ID:3887,#:
+# ID:3887,
+#: ID:3887
 msgid "Uncheck"
 msgstr "未チェック"
 
-#: ID:3603,
+# ID:3603,
+#: ID:3603
 msgid ""
 "Undo the last action\n"
 "Undo"
@@ -2901,12 +3554,14 @@ msgstr ""
 "直前に行った操作を取り消します\n"
 "元に戻す"
 
-#: ID:3859,#:
-#: ID:3859,
+# ID:3859,#:
+# ID:3859,
+#: ID:3859
 msgid "Unexpected file format."
 msgstr "予期せぬファイルフォーマットです。"
 
-#: ID:81,
+# ID:81,
+#: ID:81
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
@@ -2916,94 +3571,123 @@ msgstr ""
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 
-#: Control-ID:1061,
+# Control-ID:1061,
+#: Control-ID:1061
 msgid "Unknown drives"
 msgstr "未知のドライブ"
 
-#: ID:3841,#:
-#: ID:3841,
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
 msgid "Untitled"
 msgstr "未タイトル"
 
-#: ID:8,#:
-#: ID:74,#:
-#: Dlg-ID:152,
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: ID:8
+#: ID:74
+#: Dlg-ID:152
 msgid "Update"
 msgstr "更新"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Update To Revision..."
 msgstr "特定のリビジョンへ更新 ..."
 
-#: ID:76,
+# ID:76,
+#: ID:76
 msgid "Update item to revision"
 msgstr "項目を特定リビジョンへ更新"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Updates the working copy to a specific revision"
 msgstr "特定のリビジョンへ作業用コピーを更新"
 
-#: ID:9,
+# ID:9,
+#: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "現在のリビジョンに作業用コピーを更新"
 
-#: ID:144,
+# ID:144,
+#: ID:207
+msgid "Url"
+msgstr "URL"
+
+# ID:144,
+#: ID:144
 msgid "Url:"
 msgstr "URL:"
 
-#: Control-ID:1064,
+# Control-ID:1064,
+#: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "位置指定バー上の拡大ツールを利用する"
 
-#: Control-ID:1024,
+# Control-ID:1024,
+#: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "デフォルトで１画面表示を利用する"
 
-#: Control-ID:1066,
+# Control-ID:1066,
+#: Control-ID:1066
 msgid "Use strikeout for deleted lines"
 msgstr "削除された行に取り消し線を引く"
 
-#: ID:251,
+# ID:251,
+#: ID:251
 msgid "Use text block from \"theirs\""
 msgstr "\"theirs\" のテキストブロックを利用"
 
-#: ID:251,
+# ID:251,
+#: ID:251
 msgid "Use text block from \"theirs\" before \"yours\""
 msgstr "\"yours\" の前に \"theirs\" のテキストブロックを利用"
 
-#: ID:251,
+# ID:251,
+#: ID:251
 msgid "Use text block from \"yours\""
 msgstr "\"yours\" のテキストブロックを利用"
 
-#: ID:251,
+# ID:251,
+#: ID:251
 msgid "Use text block from \"yours\" before \"theirs\""
 msgstr "\"theirs\" の前に \"yours\" のテキストブロックを利用"
 
-#: ID:12,
+# ID:12,
+#: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "リポジトリのURLが変更された場合、これを用いる"
 
-#: ID:251,
+# ID:251,
+#: ID:251
 msgid "Use this text block"
 msgstr "このテキストブロックを利用"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Used for comparing different revisions of files."
 msgstr "リビジョンの異なったファイル比較用"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Used to resolve conflicted files."
 msgstr "衝突したファイルの解決用"
 
-#: ID:74,
+# ID:74,
+#: ID:74
 msgid "User cancelled"
 msgstr "キャンセルされました"
 
-#: ID:69,
+# ID:69,
+#: ID:69
 msgid "Username:"
 msgstr "ユーザー名:"
 
-#: ID:313,
+# ID:313,
+#: ID:313
 msgid ""
 "Valid command line options are:\n"
 "/base:<path to base file>\n"
@@ -3021,33 +3705,40 @@ msgstr ""
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "Value"
 msgstr "値"
 
-#: Control-ID:1075,#:
-#: Control-ID:1075,
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: Control-ID:1075
 msgid "Version"
 msgstr "バージョン"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Viewer program for GNU diff files (patch files)."
 msgstr "GNUの差分ファイル（パッチファイル）用のビューワプログラム。"
 
-#: Control-ID:1084,#:
-#: Control-ID:1084,
+# Control-ID:1084,#:
+# Control-ID:1084,
+#: Control-ID:1084
 msgid "Visit our website"
 msgstr "私たちのウェブサイトへお越しください"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Whitespace diff"
 msgstr "空白の相違"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Whitespaces"
 msgstr "空白を表示"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid ""
 "Working copy relocated to\n"
 "%s"
@@ -3055,19 +3746,23 @@ msgstr ""
 "作業用コピーは再配置されました。\n"
 "%s"
 
-#: ID:73,
+# ID:73,
+#: ID:73
 msgid "Yes"
 msgstr "はい"
 
-#: ID:145,
+# ID:145,
+#: ID:145
 msgid "Yes to all"
 msgstr "全て「はい」"
 
-#: ID:201,
+# ID:201,
+#: ID:201
 msgid "You already have the most current version installed."
 msgstr "すでに最も最新のバージョンがインストールされています。"
 
-#: ID:144,
+# ID:144,
+#: ID:144
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
@@ -3079,7 +3774,8 @@ msgstr ""
 "共有ネットワーク上のリポジトリに file:/// 経由でアクセスした場合は、データが破壊される可能性があります！\n"
 "リポジトリを作成しますか？"
 
-#: ID:88,
+# ID:88,
+#: ID:88
 msgid ""
 "You are trying to access a repository via file:/// on\n"
 "a shared network drive.\n"
@@ -3090,7 +3786,8 @@ msgstr ""
 "これは、リポジトリを破壊する可能性があります！！\n"
 "本当に実行しますか？"
 
-#: ID:77,
+# ID:77,
+#: ID:77
 msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
@@ -3098,11 +3795,13 @@ msgstr ""
 "バージョン管理されていないファイルを選択しています。\n"
 "コミットする前にバージョン管理に追加してください。"
 
-#: Control-ID:65535,
+# Control-ID:65535,
+#: Control-ID:65535
 msgid "Your File:"
 msgstr "Your ファイル:"
 
-#: ID:78,
+# ID:78,
+#: ID:78
 msgid ""
 "Your working copy appears to be on a <b>tag</b> path!\n"
 "You should first switch to a branch or the main trunk before committing."
@@ -3110,41 +3809,50 @@ msgstr ""
 "作業用コピーが<b>tag</b>パスに存在しています！\n"
 "まず、コミットする前に分岐もしくは本体へ切り替えてください。"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "added"
 msgstr "追加"
 
-#: ID:3841,#:
-#: ID:3841,
+# ID:3841,#:
+# ID:3841,
+#: ID:3841
 msgid "an unnamed file"
 msgstr "名前無しファイル"
 
-#: Control-ID:1085,#:
-#: Control-ID:1085,
+# Control-ID:1085,#:
+# Control-ID:1085,
+#: Control-ID:1085
 msgid "and support the developers"
 msgstr "そして、開発者たちをサポートしてください。"
 
-#: ID:145,
+# ID:145,
+#: ID:145
 msgid "cleaning up"
 msgstr "クリーンアップ中"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "conflicted"
 msgstr "衝突"
 
-#: Control-ID:1113,
+# Control-ID:1113,
+#: Control-ID:1113
 msgid "current version is:"
 msgstr "最新のバージョン:"
 
-#: ID:201,
+# ID:201,
+#: ID:201
 msgid "current version is: %s"
 msgstr "最新のバージョン: %s"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "deleted"
 msgstr "削除"
 
-#: ID:79,
+# ID:79,
+#: ID:79
 msgid ""
 "exported\n"
 "%s\n"
@@ -3156,74 +3864,87 @@ msgstr ""
 "から\n"
 "%s"
 
-#: ID:79,
-msgid "exporting %s to"
-msgstr "エクスポート中 %s ..."
-
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "external"
 msgstr "外部"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "ignored"
 msgstr "無視"
 
-#: ID:13,
+# ID:13,
+#: ID:13
 msgid "incomplete"
 msgstr "未完了"
 
-#: ID:11,#:
-#: Control-ID:1002,
+# ID:11,#:
+# Control-ID:1002,
+#: ID:11
+#: Control-ID:1002
 msgid "locked"
 msgstr "ロック"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "merged"
 msgstr "結合"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "missing"
 msgstr "行方不明"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "modified"
 msgstr "変更"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "no description for this command is available"
 msgstr "このコマンドへの全ての記述は無効です"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "non-versioned"
 msgstr "バージョン管理外"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "normal"
 msgstr "通常"
 
-#: ID:11,
+# ID:11,
+#: ID:11
 msgid "obstructed"
 msgstr "妨害"
 
-#: ID:3869,#:
-#: ID:3869,
+# ID:3869,#:
+# ID:3869,
+#: ID:3869
 msgid "pixels"
 msgstr "画素"
 
-#: Control-ID:1018,
+# Control-ID:1018,
+#: Control-ID:1018
 msgid "re&cursive"
 msgstr "再帰的(&C)"
 
-#: ID:10,
+# ID:10,
+#: ID:10
 msgid "replaced"
 msgstr "置換"
 
-#: Control-ID:1023,#:
-#: Control-ID:1023,
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1023
 msgid "save authentication"
 msgstr "認証を保存"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
@@ -3231,7 +3952,8 @@ msgstr ""
 "svn:eol-style\n"
 "次の内のどれか、'native'、'LF'、'CR'、'CRLF'."
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
@@ -3239,7 +3961,8 @@ msgstr ""
 "svn:executable\n"
 "この属性が設定されている場合、ファイルを実行可能形式にする。この属性はディレクトリに対して設定することはできない。フォルダに対する再帰的でない設定は失敗し、再帰的な設定の場合は子階層上のファイルに対してのみ設定される。"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
@@ -3251,7 +3974,8 @@ msgstr ""
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -3259,7 +3983,8 @@ msgstr ""
 "svn:ignore\n"
 "改行で区切られた無視するファイルパターンのリスト。"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -3277,7 +4002,8 @@ msgstr ""
 "Rev, LastChangedRevision\t最後に変更されたリビジョン。\n"
 "Id\t\t\t\t前述の４つのキーワードの略式。"
 
-#: ID:14,
+# ID:14,
+#: ID:14
 msgid ""
 "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
@@ -3285,15 +4011,18 @@ msgstr ""
 "svn:mime-type\n"
 "ファイルのMIMEタイプ。どのようにファイルをマージするかを決定する際に用い、Apache からどのように送り出すかを決める。'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。そのほかは全てバイナリとして扱われる。"
 
-#: ID:80,
+# ID:80,
+#: ID:80
 msgid "to %s"
 msgstr "%s へ"
 
-#: Control-ID:1112,
+# Control-ID:1112,
+#: Control-ID:1112
 msgid "your version is:"
 msgstr "現在使用中のバージョン:"
 
-#: ID:201,
+# ID:201,
+#: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "現在使用中のバージョン: %d.%d.%d.%d"
 
