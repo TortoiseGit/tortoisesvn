@@ -21,7 +21,7 @@
 #include "messagebox.h"
 #include "DirFileEnum.h"
 #include "AddDlg.h"
-#include ".\adddlg.h"
+#include "SVNConfig.h"
 
 
 // CAddDlg dialog
@@ -229,7 +229,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
 
 	pDlg->m_addListCtrl.SetRedraw(false);
-
+	SVNConfig config;
 	try
 	{
 		CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
@@ -285,9 +285,12 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 							CString filename;
 							while (filefinder.NextFile(filename))
 							{
-								pDlg->m_arFileList.Add(filename);
-								pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
-								pDlg->m_addListCtrl.SetCheck(count++);
+								if (!config.MatchIgnorePattern(filename))
+								{
+									pDlg->m_arFileList.Add(filename);
+									pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
+									pDlg->m_addListCtrl.SetCheck(count++);
+								}
 							} // while (filefinder.NextFile(filename))
 						} // if (bIsDir) 
 					} // if (!SVNStatus::IsImportant(stat)) 
