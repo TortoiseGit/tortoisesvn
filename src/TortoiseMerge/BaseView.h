@@ -112,7 +112,9 @@ protected:
 	BOOL			IsLineRemoved(int nLineIndex);
 
 	void			RecalcVertScrollBar(BOOL bPositionOnly = FALSE);
+	void			RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
 	void			RecalcHorzScrollBar(BOOL bPositionOnly = FALSE);
+	void			RecalcAllHorzScrollBars(BOOL bPositionOnly = FALSE);
 
 	void			ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
 

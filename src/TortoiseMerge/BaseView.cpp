@@ -472,6 +472,16 @@ int CBaseView::GetAllLineCount()
 	return nLines;
 }
 
+void CBaseView::RecalcAllVertScrollBars(BOOL bPositionOnly /*= FALSE*/)
+{
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+		m_pwndLeft->RecalcVertScrollBar(bPositionOnly);
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+		m_pwndRight->RecalcVertScrollBar(bPositionOnly);
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+		m_pwndBottom->RecalcVertScrollBar(bPositionOnly);
+}
+
 void CBaseView::RecalcVertScrollBar(BOOL bPositionOnly /*= FALSE*/)
 {
 	SCROLLINFO si;
@@ -556,6 +566,16 @@ void CBaseView::OnDoVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBa
 	if (nNewTopLine >= nLineCount)
 		nNewTopLine = nLineCount - 1;
 	ScrollToLine(nNewTopLine);
+}
+
+void CBaseView::RecalcAllHorzScrollBars(BOOL bPositionOnly /*= FALSE*/)
+{
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+		m_pwndLeft->RecalcHorzScrollBar(bPositionOnly);
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+		m_pwndRight->RecalcHorzScrollBar(bPositionOnly);
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+		m_pwndBottom->RecalcHorzScrollBar(bPositionOnly);
 }
 
 void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
@@ -1332,6 +1352,7 @@ void CBaseView::GoToFirstDifference()
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos);
+		RecalcAllVertScrollBars(TRUE);
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
@@ -1377,7 +1398,7 @@ void CBaseView::OnMergePreviousconflict()
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
-		RecalcVertScrollBar(TRUE);
+		RecalcAllVertScrollBars(TRUE);
 		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
@@ -1424,7 +1445,7 @@ void CBaseView::OnMergeNextconflict()
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
-		RecalcVertScrollBar(TRUE);
+		RecalcAllVertScrollBars(TRUE);
 		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
@@ -1470,7 +1491,7 @@ void CBaseView::OnMergeNextdifference()
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
-		RecalcVertScrollBar(TRUE);
+		RecalcAllVertScrollBars(TRUE);
 		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
@@ -1516,7 +1537,7 @@ void CBaseView::OnMergePreviousdifference()
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos, FALSE);
-		RecalcVertScrollBar(TRUE);
+		RecalcAllVertScrollBars(TRUE);
 		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
