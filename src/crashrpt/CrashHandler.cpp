@@ -316,7 +316,7 @@ BOOL CCrashHandler::GenerateErrorReport(PEXCEPTION_POINTERS pExInfo, BSTR messag
 		   ::CloseHandle(hFile);
 		   m_files.push_back(TStrStrPair(m_userDataFile, LoadResourceString(IDS_USER_DATA)));
 	   } else {
-		   m_userDataFile = "";
+		   return m_wantDebug;
 	   }
    }
 
@@ -381,12 +381,17 @@ BOOL CCrashHandler::GenerateErrorReport(PEXCEPTION_POINTERS pExInfo, BSTR messag
       m_files.push_back(TStrStrPair((LPCTSTR)rpt.getSymbolFile(i), 
       CString((LPCTSTR)IDS_SYMBOL_FILE)));
  
+   //remove the crashhandler, just in case the dialog crashes...
+   Uninstall();
    // Start a new thread to display the dialog, and then wait
    // until it completes
    m_ipc_event = ::CreateEvent(NULL, FALSE, FALSE, "ACrashHandlerEvent");
+   if (m_ipc_event == NULL)
+	   return m_wantDebug;
    DWORD threadId;
-   ::CreateThread(NULL, 0, DialogThreadExecute,
-	   reinterpret_cast<LPVOID>(this), 0, &threadId);
+   if (::CreateThread(NULL, 0, DialogThreadExecute,
+	   reinterpret_cast<LPVOID>(this), 0, &threadId) == NULL)
+	   return m_wantDebug;
    ::WaitForSingleObject(m_ipc_event, INFINITE);
    CloseHandle(m_ipc_event);
 
