@@ -103,6 +103,7 @@ BOOL CImportDlg::OnInitDialog()
 	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
 	m_ProjectProperties.ReadProps(m_path);
 	m_Message.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
+	m_Message.SetWindowText(m_ProjectProperties.sLogTemplate);
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC4, TOP_LEFT);

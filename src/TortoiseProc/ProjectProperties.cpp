@@ -58,7 +58,13 @@ BOOL ProjectProperties::ReadPropsTempfile(CString path)
 
 BOOL ProjectProperties::ReadProps(CString path)
 {
-	BOOL bFoundProps = FALSE;
+	BOOL bFoundBugtraqLabel = FALSE;
+	BOOL bFoundBugtraqMessage = FALSE;
+	BOOL bFoundBugtraqNumber = FALSE;
+	BOOL bFoundBugtraqURL = FALSE;
+	BOOL bFoundBugtraqWarnIssue = FALSE;
+	BOOL bFoundLogWidth = FALSE;
+	BOOL bFoundLogTemplate = FALSE;
 	path.Replace('/', '\\');
 	if (!PathIsDirectory(path))
 	{
@@ -71,25 +77,25 @@ BOOL ProjectProperties::ReadProps(CString path)
 		{
 			CString sPropName = props.GetItemName(i).c_str();
 			stdstring sPropVal = props.GetItemValue(i);
-			if (sPropName.Compare(BUGTRAQPROPNAME_LABEL)==0)
+			if ((!bFoundBugtraqLabel)&&(sPropName.Compare(BUGTRAQPROPNAME_LABEL)==0))
 			{
 #ifdef UNICODE
 				sLabel = MultibyteToWide((char *)sPropVal.c_str()).c_str();
 #else
 				sLabel = sPropVal.c_str();
 #endif
-				bFoundProps = TRUE;
+				bFoundBugtraqLabel = TRUE;
 			}
-			if (sPropName.Compare(BUGTRAQPROPNAME_MESSAGE)==0)
+			if ((!bFoundBugtraqMessage)&&(sPropName.Compare(BUGTRAQPROPNAME_MESSAGE)==0))
 			{
 #ifdef UNICODE
 				sMessage = MultibyteToWide((char *)sPropVal.c_str()).c_str();
 #else
 				sMessage = sPropVal.c_str();
 #endif
-				bFoundProps = TRUE;
+				bFoundBugtraqMessage = TRUE;
 			}
-			if (sPropName.Compare(BUGTRAQPROPNAME_NUMBER)==0)
+			if ((!bFoundBugtraqNumber)&&(sPropName.Compare(BUGTRAQPROPNAME_NUMBER)==0))
 			{
 				CString val;
 #ifdef UNICODE
@@ -101,18 +107,18 @@ BOOL ProjectProperties::ReadProps(CString path)
 					bNumber = FALSE;
 				else
 					bNumber = TRUE;
-				bFoundProps = TRUE;
+				bFoundBugtraqNumber = TRUE;
 			}
-			if (sPropName.Compare(BUGTRAQPROPNAME_URL)==0)
+			if ((!bFoundBugtraqURL)&&(sPropName.Compare(BUGTRAQPROPNAME_URL)==0))
 			{
 #ifdef UNICODE
 				sUrl = MultibyteToWide((char *)sPropVal.c_str()).c_str();
 #else
 				sUrl = sPropVal.c_str();
 #endif
-				bFoundProps = TRUE;
+				bFoundBugtraqURL = TRUE;
 			}
-			if (sPropName.Compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0)
+			if ((!bFoundBugtraqWarnIssue)&&(sPropName.Compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0))
 			{
 				CString val;
 #ifdef UNICODE
@@ -124,9 +130,9 @@ BOOL ProjectProperties::ReadProps(CString path)
 					bWarnIfNoIssue = TRUE;
 				else
 					bWarnIfNoIssue = FALSE;
-				bFoundProps = TRUE;
+				bFoundBugtraqWarnIssue = TRUE;
 			}
-			if (sPropName.Compare(PROJECTPROPNAME_LOGWIDTHLINE)==0)
+			if ((!bFoundLogWidth)&&(sPropName.Compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
 			{
 				CString val;
 #ifdef UNICODE
@@ -138,25 +144,31 @@ BOOL ProjectProperties::ReadProps(CString path)
 				{
 					nLogWidthMarker = _ttoi(val);
 				}
-				bFoundProps = TRUE;
+				bFoundLogWidth = TRUE;
 			}
-			if (sPropName.Compare(PROJECTPROPNAME_LOGTEMPLATE)==0)
+			if ((!bFoundLogTemplate)&&(sPropName.Compare(PROJECTPROPNAME_LOGTEMPLATE)==0))
 			{
 #ifdef UNICODE
 				sLogTemplate = MultibyteToWide((char *)sPropVal.c_str()).c_str();
 #else
 				sLogTemplate = sPropVal.c_str();
 #endif
-				bFoundProps = TRUE;
+				sLogTemplate.Replace(_T("\r"), _T(""));
+				sLogTemplate.Replace(_T("\n"), _T("\r\n"));
+				bFoundLogTemplate = TRUE;
 			}
 		}
-		if (bFoundProps)
-			return TRUE;
 		if (PathIsRoot(path))
 			return FALSE;
 		path = path.Left(path.ReverseFind('\\'));
 		if (!PathFileExists(path + _T("\\") + _T(SVN_WC_ADM_DIR_NAME)))
+		{
+			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
+				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
+				| bFoundLogTemplate)
+				return TRUE;
 			return FALSE;
+		}
 	}
 	return FALSE;		//never reached
 }

@@ -167,6 +167,9 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:message"));
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:number"));
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:url"));
+
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logtemplate"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logwidthmarker"));
 				GetComboBoxInfo(hwndCombo, &cbInfo);
 			}
 			// Create a tooltip window
@@ -298,6 +301,16 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				if (_tcscmp(name, _T("bugtraq:url"))==0)
 				{
 					LoadString(g_hResInst, IDS_TT_BQURL, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+				if (_tcscmp(name, _T("tsvn:logtemplate"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_TSVNLOGTEMPLATE, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				}
+				if (_tcscmp(name, _T("tsvn:logwidthmarker"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_TSVNLOGWIDTHMARKER, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
 				}
 
