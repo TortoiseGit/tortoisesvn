@@ -601,7 +601,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							if (dlg.DoModal() == IDOK)
 							{
 								SVN svn;
-								if (!svn.Copy(url, dlg.m_URL, rev))
+								if (!svn.Copy(url, dlg.m_URL, rev, dlg.m_sLogMessage))
 								{
 									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								}
