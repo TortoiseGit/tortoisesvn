@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CRevisionDlg, CDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CRevisionDlg::IDD, pParent)
-	, Revision(_T("HEAD"))
+	, SVNRev(_T("HEAD"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -112,13 +112,13 @@ void CRevisionDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	Revision = SVNRev(m_sRevision);
+	SVNRev::Create(m_sRevision);
 	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
 	{
-		Revision = SVNRev(_T("HEAD"));
+		SVNRev::Create(_T("HEAD"));
 	}
-	if (!Revision.IsValid())
+	if (!IsValid())
 	{
 		CWnd* ctrl = GetDlgItem(IDC_REVNUM);
 		CRect rt;

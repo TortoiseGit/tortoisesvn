@@ -43,7 +43,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CRevisionDlg : public CDialog
+class CRevisionDlg : public CDialog, public SVNRev
 {
 	DECLARE_DYNAMIC(CRevisionDlg)
 
@@ -67,6 +67,4 @@ protected:
 
 	HICON m_hIcon;
 	CString m_sRevision;
-public:
-	SVNRev Revision;
 };
