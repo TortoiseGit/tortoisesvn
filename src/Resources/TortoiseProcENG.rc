@@ -1461,6 +1461,11 @@ BEGIN
     IDS_PROGRS_CONFLICTSOCCURED "One or more files are in a conflicted state."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_PROGRS_PATHATREV    "%s - at revision: %d"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

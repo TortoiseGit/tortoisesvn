@@ -129,13 +129,17 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 	int iInsertedAt = m_ProgList.InsertItem(count, GetActionText(action, content_state, prop_state));
 	if (iInsertedAt != -1)
 	{
-		if (action != svn_wc_notify_update_completed)
+		if (action == svn_wc_notify_update_external)
 		{
-			m_ProgList.SetItemText(iInsertedAt, 1, path);
-		} // if (action != svn_wc_notify_update_completed)
-		else
+			m_ExtStack.AddHead(path);
+		}
+		
+		if (action == svn_wc_notify_update_completed)
 		{
-			temp.Format(IDS_PROGRS_ATREV, rev);
+			if (!m_ExtStack.IsEmpty())
+				temp.Format(IDS_PROGRS_PATHATREV, m_ExtStack.RemoveHead(), rev);
+			else
+				temp.Format(IDS_PROGRS_ATREV, rev);
 			m_ProgList.SetItemText(count, 1, temp);
 			m_RevisionEnd = rev;
 			if (m_bRedEvents)
@@ -146,6 +150,11 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 				m_ProgList.SetItemText(count+1, 1, temp);
 			}
 		}
+		else
+		{
+			m_ProgList.SetItemText(iInsertedAt, 1, path);
+		}
+
 		m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
 		Data * data = new Data();
 		data->path = path;

@@ -132,6 +132,7 @@ protected:
 
 	static BOOL	m_bAscending;
 	static int	m_nSortedColumn;
+	CStringList m_ExtStack;
 public:			//need to be public for the thread to access
 	virtual void OnOK();
 	CArray<Data *, Data *>		m_arData;
