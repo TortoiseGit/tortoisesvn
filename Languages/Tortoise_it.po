@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-11-25 00:18+0100\n"
+"PO-Revision-Date: 2004-11-30 18:08+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -521,6 +521,22 @@ msgstr ""
 "Per associare la copia di lavoro con un'altro ramo utilizzare il comando \"Cambia\".\n"
 "Si è sicuri di voler proseguire?"
 
+# ID:145,
+#: ID:145
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b> è un'estensione della shell.\n"
+"Ciò significa che viene integrata nell'explorer di Windows.\n"
+"Per utilizzare <b>TortoiseSVN</b> aprire una qualsiasi finestra e utilizzare il tasto destro su una qualsiasi cartella\n"
+"per visualizzare il menu contestuale con tutti i comandi disponibili\n"
+" in <b>TortoiseSVN</b>.\n"
+"Inoltre si consiglia di <u>leggere il manuale!</u>"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -708,6 +724,13 @@ msgid ""
 msgstr ""
 "Aggiungi il/i file\n"
 "%s alla lista \"Ignora\"."
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:155,
+#: ID:263
+msgid "Adding"
+msgstr "Aggiunta"
 
 # ID:9,
 #: ID:9
@@ -923,6 +946,11 @@ msgstr "Autore:                        Stefan Kueng"
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autori:                      Stefan Kueng, Tim Kemp"
+
+# Dlg-ID:141,
+#: Control-ID:1157
+msgid "Average"
+msgstr "Media"
 
 # Control-ID:1001,
 #: Control-ID:1001
@@ -1264,6 +1292,11 @@ msgstr "Invii per autore"
 msgid "Commits by week"
 msgstr "Invii per settimana"
 
+# ID:244,
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "Invia ogni settimana:"
+
 # ID:9,
 #: ID:9
 msgid "Commits your changes to the repository"
@@ -1545,6 +1578,13 @@ msgstr "Eliminato"
 #: ID:11
 msgid "Deletes files / folders from source control"
 msgstr "Elimina file / cartelle dalla copia di lavoro e dal Repository"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:263
+msgid "Deleting"
+msgstr "Eliminazione"
 
 # ID:3859,#:
 # ID:3859,
@@ -1906,6 +1946,11 @@ msgstr "File"
 msgid "File Patches"
 msgstr "Patch"
 
+# Control-ID:1138,
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "Cambiamenti nei file ogni settimana:"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -1934,6 +1979,11 @@ msgstr "Carattere:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "Per ottenere aiuto premere F1"
+
+# Control-ID:1168,
+#: Control-ID:1168
+msgid "Force shell icon refresh"
+msgstr "Forza l'aggiornamento delle icone"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2227,6 +2277,11 @@ msgstr "Ultima revisione salvata"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Avvia l'applicazione esterna di confornto / fusione per risolvere i conflitti"
 
+# Control-ID:1137,
+#: Control-ID:1137
+msgid "Least active author:"
+msgstr "Ultimo autore attivo:"
+
 # ID:188,
 #: ID:188
 msgid "Left View: "
@@ -2291,6 +2346,11 @@ msgstr "La DLL del sistema di mail non è valida."
 msgid "Main"
 msgstr "Principale"
 
+# Control-ID:1159,
+#: Control-ID:1159
+msgid "Max"
+msgstr "Massimo"
+
 # Dlg-ID:141,
 #: Dlg-ID:141
 msgid "Merge"
@@ -2326,6 +2386,11 @@ msgstr "Commento"
 msgid "Mime Type"
 msgstr "Mime Type"
 
+# Dlg-ID:143,
+#: Control-ID:1158
+msgid "Min"
+msgstr "Minimo"
+
 # Control-ID:1082,#:
 # Control-ID:1023,
 #: Control-ID:1082
@@ -2343,6 +2408,11 @@ msgstr "Misto"
 #: ID:74
 msgid "Modified"
 msgstr "Modificato"
+
+# Control-ID:1136,
+#: Control-ID:1136
+msgid "Most active author:"
+msgstr "Autori più attivi:"
 
 # ID:12,
 #: ID:12
@@ -2456,6 +2526,16 @@ msgstr "Normale"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Non tutte le chiavi di registro (o del file INI) sono state rimosse."
+
+# Control-ID:1161,
+#: Control-ID:1161
+msgid "Number of authors:"
+msgstr "Numero di autori:"
+
+# Control-ID:1160,
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "Numero di settimane:"
 
 # ID:73,#:
 # Control-ID:1,#:
@@ -2889,8 +2969,8 @@ msgstr ""
 
 # ID:74,
 #: ID:74
-msgid "Replaced"
-msgstr "Sostituito"
+msgid "Replacing"
+msgstr "Sostituzione"
 
 # ID:13,
 #: ID:13
@@ -3393,6 +3473,11 @@ msgstr "Dimensioni"
 msgid "Skipped"
 msgstr "Saltato"
 
+# ID:263,
+#: ID:263
+msgid "Skipped missing target"
+msgstr "Obbiettivo mancate saltato"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -3416,6 +3501,7 @@ msgstr ""
 # ID:74,#:
 # ID:77,#:
 # ID:207,
+#: ID:245
 #: Control-ID:1132
 #: Dlg-ID:179
 msgid "Statistics"
@@ -3759,6 +3845,11 @@ msgstr "Questa applicazione richiede il file %s, ma il file non è stato trovato
 msgid "This property is only allowed on folders, not files."
 msgstr "Questa proprietà è disponibile solo per le cartelle, non per i file."
 
+# ID:15,
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "Questa proprietà deve avere più linee. Una sola non è consentita."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
@@ -3842,6 +3933,16 @@ msgstr ""
 #: ID:80
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN Configurazione"
+
+# Control-ID:1162,
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "Totale degli invii analizzati:"
+
+# Control-ID:1163,
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "Totale dei cambiamenti nei file:"
 
 # ID:73,
 #: ID:73
@@ -4118,6 +4219,15 @@ msgstr "Visita il nostro sito"
 #: ID:219
 msgid "Warning!"
 msgstr "Attenzione!"
+
+# ID:195,
+#: ID:195
+msgid ""
+"When checked, forces a refresh of the shell overlay icons after each operation.\n"
+"Since this can slow down the explorer use it only on fast systems."
+msgstr ""
+"Quando selezionato, forza l'aggiornamento delle icone di stato dopo ogni operazione.\n"
+"Questa opzione può rallentare il sistema; utilizzarlo solo su computer veloci."
 
 # Control-ID:65535,
 #: Control-ID:65535

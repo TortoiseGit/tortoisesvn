@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-11-25 09:40+0800\n"
+"PO-Revision-Date: 2004-12-01 15:58+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -524,6 +524,21 @@ msgstr ""
 "要將工作複本與其它分支關聯, 請使用切換指令.\n"
 "你確定要重新定位嗎?"
 
+# ID:145,
+#: ID:145
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b> 是 shell 延伸程式.\n"
+"它與 Windows 檔案總管整合.\n"
+"要使用 <b>TortoiseSVN</b> 請從檔案總管中右鍵點擊任何目錄\n"
+"以帶出右鍵選單. 從那裡就可以找到所有 <b>TortoiseSVN</b> 的指令\n"
+"並請<u>閱讀說明書!</u>"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -711,6 +726,13 @@ msgid ""
 msgstr ""
 "將選定的檔案(們)\n"
 "%s忽略列表"
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:155,
+#: ID:263
+msgid "Adding"
+msgstr "正在加入"
 
 # ID:9,
 #: ID:9
@@ -925,6 +947,11 @@ msgstr "作者:                        Stefan Kueng"
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "作者:                      Stefan Kueng, Tim Kemp"
+
+# Dlg-ID:141,
+#: Control-ID:1157
+msgid "Average"
+msgstr "平均"
 
 # Control-ID:1001,
 #: Control-ID:1001
@@ -1266,6 +1293,11 @@ msgstr "依作者排序的送交紀錄"
 msgid "Commits by week"
 msgstr "依週次排序的送交紀錄"
 
+# ID:244,
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "每週送交:"
+
 # ID:9,
 #: ID:9
 msgid "Commits your changes to the repository"
@@ -1549,6 +1581,13 @@ msgstr "已刪除"
 #: ID:11
 msgid "Deletes files / folders from source control"
 msgstr "從版本控制樹中刪除檔案/資料夾"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:263
+msgid "Deleting"
+msgstr "正在刪除"
 
 # ID:3859,#:
 # ID:3859,
@@ -1907,6 +1946,11 @@ msgstr "檔案"
 msgid "File Patches"
 msgstr "檔案補綴"
 
+# Control-ID:1138,
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "每週檔案變更:"
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -1935,6 +1979,11 @@ msgstr "字型:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "按下 F1 可取得說明"
+
+# Control-ID:1168,
+#: Control-ID:1168
+msgid "Force shell icon refresh"
+msgstr "強制更新圖示."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2227,6 +2276,11 @@ msgstr "上一次儲存的項目版本"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "啟動外部差異比對/合併程式處理衝突"
 
+# Control-ID:1137,
+#: Control-ID:1137
+msgid "Least active author:"
+msgstr "最不活躍作者:"
+
 # ID:188,
 #: ID:188
 msgid "Left View: "
@@ -2291,6 +2345,11 @@ msgstr "郵件系統 DLL 錯誤."
 msgid "Main"
 msgstr "主要設定"
 
+# Control-ID:1159,
+#: Control-ID:1159
+msgid "Max"
+msgstr "最大"
+
 # Dlg-ID:141,
 #: Dlg-ID:141
 msgid "Merge"
@@ -2326,6 +2385,11 @@ msgstr "訊息"
 msgid "Mime Type"
 msgstr "MIME 類型"
 
+# Dlg-ID:143,
+#: Control-ID:1158
+msgid "Min"
+msgstr "最小"
+
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1082
@@ -2343,6 +2407,11 @@ msgstr "混合"
 #: ID:74
 msgid "Modified"
 msgstr "異動"
+
+# Control-ID:1136,
+#: Control-ID:1136
+msgid "Most active author:"
+msgstr "最活躍作者:"
 
 # ID:12,
 #: ID:12
@@ -2456,6 +2525,16 @@ msgstr "正常"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
+
+# Control-ID:1161,
+#: Control-ID:1161
+msgid "Number of authors:"
+msgstr "作者數:"
+
+# Control-ID:1160,
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "週數:"
 
 # Control-ID:1,#:
 # ID:73,#:
@@ -2888,8 +2967,8 @@ msgstr ""
 
 # ID:74,
 #: ID:74
-msgid "Replaced"
-msgstr "取代"
+msgid "Replacing"
+msgstr "正在取代"
 
 # ID:13,
 #: ID:13
@@ -3392,6 +3471,11 @@ msgstr "大小"
 msgid "Skipped"
 msgstr "略過"
 
+# ID:263,
+#: ID:263
+msgid "Skipped missing target"
+msgstr "已跳過的缺少目標"
+
 # ID:79,
 #: ID:79
 msgid ""
@@ -3414,6 +3498,7 @@ msgstr ""
 
 # ID:74,#:
 # ID:77,
+#: ID:245
 #: Control-ID:1132
 #: Dlg-ID:179
 msgid "Statistics"
@@ -3756,6 +3841,11 @@ msgstr "系統中找不到本程式需要的 %s."
 msgid "This property is only allowed on folders, not files."
 msgstr "這個性質只能設置在資料夾上, 檔案不能."
 
+# ID:15,
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "這個性質不能有分行. 只能輸入單行資料."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
@@ -3839,6 +3929,16 @@ msgstr ""
 #: ID:80
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN 設定"
+
+# Control-ID:1162,
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "總分析送交紀錄:"
+
+# Control-ID:1163,
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "總檔案變更:"
 
 # ID:73,
 #: ID:73
@@ -4115,6 +4215,15 @@ msgstr "瀏覽我們的網站"
 #: ID:219
 msgid "Warning!"
 msgstr "警告!"
+
+# ID:195,
+#: ID:195
+msgid ""
+"When checked, forces a refresh of the shell overlay icons after each operation.\n"
+"Since this can slow down the explorer use it only on fast systems."
+msgstr ""
+"勾選時, 會在每次操作後強制更新覆蓋圖示.\n"
+"這會使檔案總管變慢, 請在夠快的電腦上使用."
 
 # Control-ID:65535,
 #: Control-ID:65535
