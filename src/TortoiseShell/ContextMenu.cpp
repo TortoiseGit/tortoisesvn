@@ -326,7 +326,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 //Create Patch		//to create patch files
 //Apply Patch		//whats the complement of Diff?
 
-//#region menu
 	PreserveChdir preserveChdir;
 
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
@@ -345,6 +344,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE);
 	if (_tcscmp(buf, folder_.c_str())==0)
 		return NOERROR;
+	if (_tcsstr(folder_.c_str(), _T(SVN_WC_ADM_DIR_NAME))!=0)
+		return NOERROR;
 
 	LoadLangDll();
 	bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
@@ -356,7 +357,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	int lastSeparator = 0;
 
 	DWORD topmenu = g_ShellCache.GetMenuLayout();
-
+//#region menu
 #define HMENU(x) ((topmenu & (x)) ? hMenu : subMenu)
 #define INDEXMENU(x) ((topmenu & (x)) ? indexMenu++ : indexSubMenu++)
 	//---- separator before

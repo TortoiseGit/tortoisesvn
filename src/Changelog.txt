@@ -10,6 +10,8 @@
 - BUG: The status cache wasn't thread-safe and
        also not process-safe. Thanks to Luebbe
        for reminding me. (Stefan)
+- CHG: The context menu is disabled for ".svn"
+       directories. (Stefan)
 - ADD: Branch/Tag is available for single files
        too, not just folders. (Stefan)
 - ADD: Several new commands for the repository
