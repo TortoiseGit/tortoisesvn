@@ -700,16 +700,32 @@ BOOL SVN::CreateRepository(CString path)
 	apr_pool_t * localpool;
 	svn_repos_t * repo;
 	svn_error_t * err;
+	apr_hash_t *config;
 	apr_initialize();
 	localpool = svn_pool_create (NULL);
+	apr_hash_t *fs_config = apr_hash_make (localpool);;
 
-	err = svn_repos_create(&repo, CUnicodeUtils::GetUTF8(path), NULL, NULL, NULL, NULL, localpool);
+	apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_TXN_NOSYNC,
+		APR_HASH_KEY_STRING, "0");
+
+	apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_LOG_AUTOREMOVE,
+		APR_HASH_KEY_STRING, "1");
+
+	err = svn_config_get_config (&config, NULL, localpool);
 	if (err != NULL)
 	{
 		svn_pool_destroy(localpool);
 		apr_terminate();
 		return FALSE;
-	}
+	} // if (err != NULL)
+
+	err = svn_repos_create(&repo, CUnicodeUtils::GetUTF8(path), NULL, NULL, config, fs_config, localpool);
+	if (err != NULL)
+	{
+		svn_pool_destroy(localpool);
+		apr_terminate();
+		return FALSE;
+	} // if (err != NULL) 
 	svn_pool_destroy(localpool);
 	apr_terminate();
 	return TRUE;
