@@ -53,12 +53,12 @@ CReportOptionsCtrl::CReportOptionsCtrl()
 
 	if(!(::GetClassInfo(hInst, REPORTOPTIONSCTRL_CLASSNAME, &wndclass)))
 	{
-        wndclass.style = CS_DBLCLKS|CS_HREDRAW|CS_VREDRAW;
+        wndclass.style = CS_DBLCLKS|CS_HREDRAW|CS_VREDRAW|CS_GLOBALCLASS;
 		wndclass.lpfnWndProc = ::DefWindowProc;
 		wndclass.cbClsExtra = wndclass.cbWndExtra = 0;
 		wndclass.hInstance = hInst;
 		wndclass.hIcon = NULL;
-		wndclass.hCursor = LoadCursor(hInst, IDC_ARROW);
+		wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);
 		wndclass.hbrBackground = (HBRUSH)COLOR_WINDOW;
 		wndclass.lpszMenuName = NULL;
 		wndclass.lpszClassName = REPORTOPTIONSCTRL_CLASSNAME;

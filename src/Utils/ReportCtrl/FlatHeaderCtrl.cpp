@@ -150,12 +150,12 @@ CFHDragWnd::CFHDragWnd()
 	if(!(::GetClassInfo(hInst, FHDRAGWND_CLASSNAME, &wndclass)))
 	{
 		// otherwise we need to register a new class
-		wndclass.style = CS_SAVEBITS ;
+		wndclass.style = CS_SAVEBITS |CS_GLOBALCLASS;
 		wndclass.lpfnWndProc = ::DefWindowProc;
 		wndclass.cbClsExtra = wndclass.cbWndExtra = 0;
 		wndclass.hInstance = hInst;
 		wndclass.hIcon = NULL;
-		wndclass.hCursor = LoadCursor( hInst, IDC_ARROW);
+		wndclass.hCursor = LoadCursor( NULL, IDC_ARROW);
 		wndclass.hbrBackground = (HBRUSH)(COLOR_3DFACE + 1); 
 		wndclass.lpszMenuName = NULL;
 		wndclass.lpszClassName = FHDRAGWND_CLASSNAME;
@@ -267,12 +267,12 @@ CFHDropWnd::CFHDropWnd(COLORREF crColor)
 	if(!(::GetClassInfo(hInst, FHDROPWND_CLASSNAME, &wndclass)))
 	{
 		// otherwise we need to register a new class
-		wndclass.style = CS_SAVEBITS ;
+		wndclass.style = CS_SAVEBITS |CS_GLOBALCLASS;
 		wndclass.lpfnWndProc = ::DefWindowProc;
 		wndclass.cbClsExtra = wndclass.cbWndExtra = 0;
 		wndclass.hInstance = hInst;
 		wndclass.hIcon = NULL;
-		wndclass.hCursor = LoadCursor( hInst, IDC_ARROW );
+		wndclass.hCursor = LoadCursor( NULL, IDC_ARROW );
 		wndclass.hbrBackground = (HBRUSH)m_brush; 
 		wndclass.lpszMenuName = NULL;
 		wndclass.lpszClassName = FHDROPWND_CLASSNAME;

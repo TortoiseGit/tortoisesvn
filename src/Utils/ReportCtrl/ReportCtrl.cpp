@@ -522,12 +522,12 @@ CReportCtrl::CReportCtrl()
 
 	if(!(::GetClassInfo(hInst, REPORTCTRL_CLASSNAME, &wndclass)))
 	{
-        wndclass.style = CS_DBLCLKS|CS_HREDRAW|CS_VREDRAW;
+        wndclass.style = CS_DBLCLKS|CS_HREDRAW|CS_VREDRAW|CS_GLOBALCLASS;
 		wndclass.lpfnWndProc = ::DefWindowProc;
 		wndclass.cbClsExtra = wndclass.cbWndExtra = 0;
 		wndclass.hInstance = hInst;
 		wndclass.hIcon = NULL;
-		wndclass.hCursor = LoadCursor(hInst, IDC_ARROW);
+		wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);
 		wndclass.hbrBackground = (HBRUSH)COLOR_WINDOW;
 		wndclass.lpszMenuName = NULL;
 		wndclass.lpszClassName = REPORTCTRL_CLASSNAME;
@@ -1864,7 +1864,7 @@ BOOL CReportCtrl::SetBkImage(LPCTSTR lpszResourceName)
 	if(m_bitmap.m_hObject != NULL)
 		m_bitmap.DeleteObject();
 
-	HBITMAP hBitmap = (HBITMAP)::LoadImage( AfxGetInstanceHandle(),
+	HBITMAP hBitmap = (HBITMAP)::LoadImage( AfxGetResourceHandle(),
 			lpszResourceName, IMAGE_BITMAP, 0,0, LR_CREATEDIBSECTION );
 
 	Invalidate();
@@ -7001,12 +7001,12 @@ CReportTipCtrl::CReportTipCtrl()
 
 	if(!(::GetClassInfo(hInst, REPORTTIPCTRL_CLASSNAME, &wndcls)))
 	{
-		wndcls.style = CS_SAVEBITS ;
+		wndcls.style = CS_SAVEBITS |CS_GLOBALCLASS;
 		wndcls.lpfnWndProc = ::DefWindowProc;
 		wndcls.cbClsExtra = wndcls.cbWndExtra = 0;
 		wndcls.hInstance = hInst;
 		wndcls.hIcon = NULL;
-		wndcls.hCursor = LoadCursor(hInst, IDC_ARROW);
+		wndcls.hCursor = LoadCursor(NULL, IDC_ARROW);
 		wndcls.hbrBackground = (HBRUSH)(COLOR_INFOBK+1);
 		wndcls.lpszMenuName = NULL;
 		wndcls.lpszClassName = REPORTTIPCTRL_CLASSNAME;
