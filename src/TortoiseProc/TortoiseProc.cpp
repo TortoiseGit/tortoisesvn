@@ -410,15 +410,22 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("cleanup"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
+			CProgressDlg progress;
+			CString temp;
+			temp.LoadString(IDS_PROC_CLEANUP);
+			progress.SetTitle(temp);
+			progress.ShowModeless(PWND);
 			SVN svn;
 			if (!svn.CleanUp(path))
 			{
+				progress.Stop();
 				CString temp;
 				temp.Format(IDS_ERR_CLEANUP, svn.GetLastErrorMessage());
 				CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			}
 			else
 			{
+				progress.Stop();
 				CMessageBox::Show(EXPLORERHWND, IDS_PROC_CLEANUPFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
 			}
 		}
