@@ -341,6 +341,7 @@ BOOL CMainFrame::LoadViews()
 	if (!this->m_Data.Load())
 	{
 		::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
+		m_Data.m_sMergedFile.Empty();
 		return FALSE;
 	} // if (!this->m_Data.Load())
 	BOOL bGoFirstDiff = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"))));
