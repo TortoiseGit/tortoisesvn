@@ -1212,7 +1212,7 @@ BEGIN
                             "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
     IDS_WARN_RELOCATEREALLY "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\nIf you use Relocate to direct your working copy to another repository or branch,\nthis <b>will corrupt your working copy!</b>\nTo associate your working copy with another branch, use the Switch command.\nAre you sure you want to relocate?"
     IDS_WARN_UPDATETOREV_WITHMODS 
-                            "Your working copy has local modifications!\nNote: updating to another revision won't loose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
+                            "Your working copy has local modifications!\nNote: updating to another revision won't lose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
 END
 
 STRINGTABLE 
