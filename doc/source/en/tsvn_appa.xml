@@ -428,7 +428,13 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						</para>
 					</listitem>
 					<listitem>
-						<para>Delete your working copy and do a fresh 
+						<para>Select the <emphasis>file</emphasis> you renamed,
+						<emphasis>not</emphasis> any of its parent folders,
+						right-click and do an update. After that, update the
+						parent folder.</para>
+					</listitem>
+					<listitem>
+						<para>Or: delete your working copy and do a fresh 
 						checkout. Just updating won't work, because it will 
 						result in an obstructed update.</para>
 						<para>If you don't want to checkout the whole working
