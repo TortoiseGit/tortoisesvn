@@ -10,25 +10,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-07-06 10:58+0100\n"
+"PO-Revision-Date: 2004-07-13 10:47+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-# ID:126,#:
-# ID:10,
-#: ID:126
-#: ID:10
-msgid " "
-msgstr " "
-
-# ID:188,
-# ID:188,
-#: ID:188
-msgid "! %d"
-msgstr "! %d"
 
 # ID:3868,
 # ID:3868,#:
@@ -205,10 +192,9 @@ msgid "&Edit..."
 msgstr "&Bearbeiten..."
 
 # Control-ID:1023,
-# Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server"
-msgstr "Aktiviere &Proxy Server"
+msgid "&Enable Proxy Server (Don't use the IE settings)"
+msgstr "P&roxy Server aktivieren (IE Einstellungen nicht verwenden)"
 
 # Control-ID:1092,
 # Control-ID:1092,
@@ -251,6 +237,7 @@ msgstr "&Von AK in URL:"
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
+#: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
 msgstr "&Neueste Revision"
@@ -260,8 +247,9 @@ msgstr "&Neueste Revision"
 # MenuEntry#:
 # Control-ID:9,#:
 # Control-ID:57670,
-#: Control-ID:57670
 #: Control-ID:9
+#: Control-ID:57670
+#: MenuEntry
 msgid "&Help"
 msgstr "&Hilfe"
 
@@ -443,33 +431,6 @@ msgstr "&Ansicht"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Leerzeichen"
-
-# ID:188,
-# ID:188,
-#: ID:188
-msgid "+ %d"
-msgstr "+ %d"
-
-# ID:188,
-# ID:188,
-#: ID:188
-msgid "- %d"
-msgstr "- %d"
-
-# Control-ID:1035,#:
-# Control-ID:1036,#:
-# Control-ID:1021,#:
-# Control-ID:1022,#:
-# Control-ID:1089,#:
-# Control-ID:1104,
-#: Control-ID:1035
-#: Control-ID:1036
-#: Control-ID:1021
-#: Control-ID:1022
-#: Control-ID:1089
-#: Control-ID:1104
-msgid "..."
-msgstr "..."
 
 # ID:3867,
 # ID:3867,#:
@@ -1018,8 +979,8 @@ msgstr ""
 # Control-ID:2,#:
 # ID:73,#:
 # Control-ID:2,
-#: Control-ID:2
 #: ID:73
+#: Control-ID:2
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -1938,6 +1899,7 @@ msgstr "Hole Version %s der Datei:"
 #: ID:63
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "File"
 msgstr "Datei"
 
@@ -2037,19 +1999,11 @@ msgstr ""
 "Gehe zum vorherigen Unterschied\n"
 "vorheriger Unterschied"
 
-# Control-ID:1032,#: Control-ID:1032,#: Control-ID:1032,#: Control-ID:1019,#: Control-ID:1032,#: Control-ID:1019,
-# Control-ID:1032,#:
-# Control-ID:1019,#:
-# Control-ID:1019,
-#: Control-ID:1115
-msgid "Head Revision"
-msgstr "&Neueste Revision"
-
 # ID:12,
 # Control-ID:1004,#:
 # ID:12,
-#: Control-ID:1004
 #: ID:12
+#: Control-ID:1004
 msgid "Help"
 msgstr "Hilfe"
 
@@ -2379,8 +2333,8 @@ msgstr "Minimale Log Größe in Zeichen"
 # Control-ID:1082,
 # Control-ID:1023,#:
 # Control-ID:1082,
-#: Control-ID:1023
 #: Control-ID:1082
+#: Control-ID:1023
 msgid "Misc"
 msgstr "Allgemein"
 
@@ -2514,8 +2468,8 @@ msgstr "Nicht alle Einträge der System-Registry (oder INI Datei) wurden gelösc
 # Control-ID:1,#:
 # ID:73,#:
 # Control-ID:1,
-#: Control-ID:1
 #: ID:73
+#: Control-ID:1
 msgid "OK"
 msgstr "OK"
 
@@ -2545,8 +2499,8 @@ msgstr "Nur den obersten Ordner aktualisieren"
 # ID:3841,#:
 # ID:101,#:
 # ID:3841,
-#: ID:3841
 #: ID:101
+#: ID:3841
 msgid "Open"
 msgstr "Öffnen"
 
@@ -2771,6 +2725,7 @@ msgstr "Programme (*.exe)|*.*|Alle Dateien (*.*)|*.*||"
 # Control-ID:65535,
 # Control-ID:65535,
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "Eigenschaften"
 
@@ -2785,6 +2740,12 @@ msgstr "Eigenschaft"
 #: Dlg-ID:107
 msgid "Property Page"
 msgstr "Eigenschaften"
+
+# Control-ID:65535,
+# Control-ID:65535,
+#: ID:207
+msgid "Property Status"
+msgstr "Eigenschaften Status"
 
 # Control-ID:65535,
 # Control-ID:65535,
@@ -2895,11 +2856,24 @@ msgstr "Umplazieren..."
 msgid "Relocating..."
 msgstr "Umplazieren..."
 
+# Control-ID:65535,
+# Control-ID:65535,
+#: ID:207
+msgid "Remote Property Status"
+msgstr "Server Eigenschaften Status"
+
 # ID:63,
 # ID:63,
 #: ID:63
+#: ID:207
 msgid "Remote Status"
 msgstr "Projektarchiv Status"
+
+# ID:63,
+# ID:63,
+#: ID:207
+msgid "Remote Text Status"
+msgstr "Server Text Status"
 
 # Control-ID:1013,#: Control-ID:1100,
 # Control-ID:65535,
@@ -3216,8 +3190,8 @@ msgstr "Speichern unter"
 # ID:101,
 # ID:313,#:
 # ID:101,
-#: ID:313
 #: ID:101
+#: ID:313
 msgid "Save as..."
 msgstr "Speichern unter..."
 
@@ -3380,8 +3354,8 @@ msgstr "Setze Eigenschaften..."
 # ID:9,
 # ID:107,#:
 # ID:9,
-#: ID:107
 #: ID:9
+#: ID:107
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -3445,6 +3419,12 @@ msgstr "Zeige Zeilennummern"
 #: ID:12
 msgid "Show Log"
 msgstr "Zeige Log"
+
+# Control-ID:65535,
+# Control-ID:65535,
+#: ID:101
+msgid "Show Properties"
+msgstr "Zeige Eigenschaften"
 
 # ID:101,
 # ID:101,
@@ -3557,6 +3537,7 @@ msgstr ""
 # ID:77,
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "Status"
 msgstr "Status"
 
@@ -3571,6 +3552,12 @@ msgstr "Status eines Objekts in SVN"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Subversion Konfigurationsdatei:"
+
+# ID:13,
+# ID:13,
+#: ID:14
+msgid "Subversion export here"
+msgstr "Subversion Export hier"
 
 # ID:79,
 # ID:79,
@@ -3672,6 +3659,12 @@ msgstr "Tab Grösse:"
 #: ID:79
 msgid "Tagged the working copy to %s"
 msgstr "Arbeitskopie als %s markiert"
+
+# Control-ID:65535,
+# Control-ID:65535,
+#: ID:207
+msgid "Text Status"
+msgstr "Text Status"
 
 # Control-ID:65535,
 # Control-ID:65535,
@@ -3941,16 +3934,16 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
-"libsvn_diff %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d, %sr\n"
+"libsvn_diff %d.%d.%d, %sr\n"
+"apr %d.%d.%dr\n"
+"apr-iconv %d.%d.%dr\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
-"libsvn_diff %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d, %sr\n"
+"libsvn_diff %d.%d.%d, %sr\n"
+"apr %d.%d.%dr\n"
+"apr-iconv %d.%d.%dr\n"
 "apr-utils %d.%d.%d"
 
 # ID:9,#: ID:80,
@@ -3970,24 +3963,24 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d, %sr\n"
+"Subversion %d.%d.%d, %sr\n"
+"apr %d.%d.%dr\n"
+"apr-iconv %d.%d.%dr\n"
+"apr-utils %d.%d.%dr\n"
+"berkeley db %d.%d.%dr\n"
+"neon %sr\n"
+"%sr\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d, %sr\n"
+"Subversion %d.%d.%d, %sr\n"
+"apr %d.%d.%dr\n"
+"apr-iconv %d.%d.%dr\n"
+"apr-utils %d.%d.%dr\n"
+"berkeley db %d.%d.%dr\n"
+"neon %sr\n"
+"%sr\n"
 "zlib %s"
 
 # ID:80,
@@ -4155,6 +4148,12 @@ msgstr "Aktualisiert die Arbeitskopie auf die angegebene Revision"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Aktualisiert die Arbeitskopie auf die neueste Version"
+
+# ID:144,
+# ID:144,
+#: ID:207
+msgid "Url"
+msgstr "URL"
 
 # ID:144,
 # ID:144,
