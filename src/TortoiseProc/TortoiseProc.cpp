@@ -229,11 +229,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					m_pMainWnd = &progDlg;
 					//construct the module name out of the path
 					CString modname;
-					if (dlg.m_bUseFolderAsModule)
-						modname = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
-					else
-						modname = _T("");
-					progDlg.SetParams(Import, false, path, dlg.m_url, dlg.m_message, -1, modname);
+					progDlg.SetParams(Import, false, path, dlg.m_url, dlg.m_message);
 					logmessage = dlg.m_message;
 					progDlg.DoModal();
 				} // if (checker.Check(path, true, false)!=IDCANCEL)

@@ -387,7 +387,7 @@ BOOL SVN::Resolve(CString path, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Export(CString srcPath, CString destPath, LONG revision)
+BOOL SVN::Export(CString srcPath, CString destPath, LONG revision, BOOL force)
 {
 	preparePath(srcPath);
 	preparePath(destPath);
@@ -395,6 +395,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, LONG revision)
 	Err = svn_client_export (CUnicodeUtils::GetUTF8(srcPath),
 							CUnicodeUtils::GetUTF8(destPath),
 							getRevision (revision),
+							force,
 							&ctx,
 							pool);
 	if(Err != NULL)
@@ -425,22 +426,17 @@ BOOL SVN::Switch(CString path, CString url, LONG revision, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Import(CString path, CString url, CString newEntry, CString message, BOOL recurse)
+BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 {
 	preparePath(path);
 	preparePath(url);
 
 	svn_client_commit_info_t *commit_info = NULL;
 
-	CStringA temp = CUnicodeUtils::GetUTF8(newEntry);
-	const char * newEntr = temp;
-	if (newEntry.IsEmpty())
-		newEntr = NULL;
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_import (&commit_info,
 							CUnicodeUtils::GetUTF8(path),
 							CUnicodeUtils::GetUTF8(url),
-							newEntr,
 							!recurse,
 							&ctx,
 							pool);
@@ -947,10 +943,20 @@ BOOL SVN::Relocate(CString path, CString from, CString to, BOOL recurse)
 BOOL SVN::IsRepository(const CString& strUrl)
 {
 	svn_repos_t* pRepos;
+	CString url = strUrl;
+	preparePath(url);
+	url += _T("/");
+	int pos = url.GetLength();
+	while ((pos = url.ReverseFind('/'))>=0)
+	{
+		url = url.Left(pos);
+		Err = svn_repos_open (&pRepos, CUnicodeUtils::GetUTF8(url), pool);
+		if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
+			return TRUE;
+		if (Err == NULL)
+			return TRUE;
+	}
 
-	Err = svn_repos_open (&pRepos, CUnicodeUtils::GetUTF8(strUrl), pool);
-	if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
-		return TRUE;
 	return Err == NULL;
 }
 CString SVN::GetPristinePath(CString wcPath)

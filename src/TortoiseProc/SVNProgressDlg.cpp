@@ -241,7 +241,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Import:			//no tempfile!
 			temp.LoadString(IDS_PROGRS_TITLE_IMPORT);
 			pDlg->SetWindowText(temp);
-			if (!pDlg->Import(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_sModName, pDlg->m_sMessage, true))
+			if (!pDlg->Import(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_sMessage, true))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}

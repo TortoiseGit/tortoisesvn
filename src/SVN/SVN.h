@@ -246,8 +246,9 @@ public:
 	 * \param destPath	the path to the directory where you wish to create the exported tree.
 	 * \param revision	the revision that should be exported, which is only used 
 	 *					when exporting from a repository.
+	 * \param force		TRUE if existing files should be overwritten
 	 */
-	BOOL Export(CString srcPath, CString destPath, LONG revision);
+	BOOL Export(CString srcPath, CString destPath, LONG revision, BOOL force = TRUE);
 	/**
 	 * Switch working tree path to URL at revision
 	 *
@@ -280,12 +281,10 @@ public:
 	 *
 	 * \param path		the file/directory to import
 	 * \param url		the url to import to
-	 * \param newEntry	the new entry created in the repository directory
-	 *					identified by URL.
 	 * \param message	log message used for the 'commit'
 	 * \param recurse 
 	 */
-	BOOL Import(CString path, CString url, CString newEntry, CString message, BOOL recurse);
+	BOOL Import(CString path, CString url, CString message, BOOL recurse);
 	/**
 	 * Merge changes from path1/revision1 to path2/revision2 into the
 	 * working-copy path localPath.  path1 and path2 can be either
