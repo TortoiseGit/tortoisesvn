@@ -27,7 +27,7 @@
 		Falls der Ordnername den Sie in diesem Dialog angeben noch nicht
 		vorhanden ist, wird dieser erstellt.
 	</para>
-	<note>
+	<important>
 		<para>
 			Sie können nur in einen leeren Ordner auschecken. Wenn Sie in einen
 			vorher importieren Ordner auschecken möchten wird Subversion eine
@@ -35,7 +35,7 @@
 			in einen neuen Ordner auschecken oder alle Dateien in dem vorher
 			importieren Ordner zuerst löschen.
 		</para>
-	</note>
+	</important>
 	<para>
 		Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil
 		des Projektarchivs auszuchecken. Falls Sie den übergeordneten Pfad

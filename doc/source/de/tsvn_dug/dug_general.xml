@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-general">
 	<title>Die ersten Schritte</title>
 	<sect2 id="tsvn-DUG-general-menu">
@@ -64,14 +64,14 @@
 			lesen Sie bitte
 			<xref linkend="tsvn_serversetup"/>.
 		</para>
-		<note>
+		<important>
 			<para>
 				Unter Windows 2000 und drüber werden alle Anmeldeinformation 
 				verschlüsselt in der Registry gespeichert. Um die Anmeldeinformation 
 				zu löschen, gehen Sie in den Einstellungen Dialog und drücken Sie 
 				<guibutton>Anmeldeinformationen löschen</guibutton>.
 			</para>
-		</note>
+		</important>
 		<tip>
 			<para>
 				Wenn Sie sich an einer Windows NT Domäne anmelden, geben Sie

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-revgraph">
+	<title>Revisionsgraphen</title>
+	<indexterm>
+		<primary>revision</primary>
+	</indexterm>
+	<indexterm>
+		<primary>graph</primary>
+	</indexterm>
+	<para>
+		<figure id="tsvn-DUG-revgraph-dia-1">
+			<title>Ein Revisionsgraph</title>
+			<graphic fileref="images/RevisionGraph.png"/>
+		</figure>
+		Manchmal möchten Sie wissen, wann Zweige oder Markierungen von trunk
+		abgespalten wurden. Der ideale Weg, um dies zu untersuchen, ist ein Graph
+		oder eine Baumstruktur. Dafür ist gibt es den
+		<menuchoice>
+			<guimenuitem>Revisionsgraph</guimenuitem>.
+		</menuchoice>
+	</para>
+	<para>
+		Dieser Befehl analysiert die Revisionsgeschichte und versucht eine
+		Baumstruktur mit den Punkten, in denen Kopien oder Zweige/Markierungen
+		erstellt bzw. gelöscht wurden, darzustellen.
+
+		Bitte beachten Sie: Es kann mehrere Minuten dauern, bis alle Daten, die
+		zur Erstellung des Graphen nötig sind geladen wurden. Dies ist abhängig
+		von der Größe Ihres Projekts und natürlich von Ihrer Netzwerkverbindung
+		zum Projektarchiv.
+	</para>
+	<para>
+		Der Revisiongraph zeigt verschiedene Typen von Knotenpunkten:
+		<variablelist>
+			<varlistentry>
+				<term>Datei/Verzeichnis hinzugefügt</term>
+				<listitem>
+					<para>
+						Elemente, die hinzugefügt oder durch Kopieren erstellt
+						wurden, werden als abgerundetes Rechteck dargestellt.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Datei/Verzeichnis gelöscht</term>
+				<listitem>
+					<para>
+						Gelöschte Elemente wie z.B. ein Zweig, der nicht länger
+						benötigt wird, wird als Achteck dargestellt.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Normale Datei/Normales Verzeichnise</term>
+				<listitem>
+					<para>
+						Alle anderen Elemente werden durch ein einfaches Rechteck
+						dargestellt.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		Beachten Sie, dass der Graph nur die Punkte zeigt, an denen Elemente
+		hinzugefügt oder gelöscht wurden. Alle Revisionen eines Projektes anzuzeigen
+		würde einen riesigen Graphen erzeugen.
+		Aus diesem Grund erzeugen einfache Projektstrukturen ohne hinzugefügte oder
+		gelöschte Elemente einen leeren Revisionsgraphen.
+	</para>
+	<para>
+		Das Datum, Autor und Log-Meldung der Revision werden in einem Tooltip
+		angezeigt, sobald die Maus über ein Element bewegt wird.
+	</para>
+	<important>
+		Da Subversion nicht alle Informationen bereitstellt, ist ein gewisser
+		Grad der Interpretation notwendig, was manchmal zu seltsamen Ergebnissen
+		führen kann. Trotzdem sollte der Revisionsgraph für trunk/ normalerweise
+		brauchbare Ergebnisse liefern.
+	</important>
+</sect1>
+
