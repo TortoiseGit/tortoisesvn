@@ -142,8 +142,15 @@ public:
 	 */
 	static BOOL FileCopy(CString srcPath, CString destPath, BOOL force = TRUE);
 
+	/**
+	 * Checks if the given file has a size of less than four, which means
+	 * an 'empty' file or just newlines, i.e. an emtpy diff.
+	 */
 	static BOOL CheckForEmptyDiff(CString sDiffPath);
 
+	/**
+	 * Removes all '&' chars from a string.
+	 */
 	static void RemoveAccelerators(CString& text);
 
 	/**
