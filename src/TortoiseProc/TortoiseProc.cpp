@@ -377,7 +377,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				m_pMainWnd = &progDlg;
 				//construct the module name out of the path
 				CString modname;
-				progDlg.SetParams(CSVNProgressDlg::Import, ProgOptPathIsTempFile, path, dlg.m_url, dlg.m_message);
+				progDlg.SetParams(CSVNProgressDlg::Import, ProgOptPathIsTempFile, path, dlg.m_url, dlg.m_sMessage);
 				progDlg.DoModal();
 			}
 		}
@@ -426,7 +426,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CLogPromptDlg dlg;
 			if (parser.HasKey(_T("logmsg")))
 			{
-				dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
+				dlg.m_cLogMessage.SetText(parser.GetVal(_T("logmsg")));
 			}
 			dlg.m_sPath = path;
 			if (dlg.DoModal() == IDOK)

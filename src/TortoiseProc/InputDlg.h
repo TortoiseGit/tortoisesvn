@@ -17,8 +17,8 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 
-#include "SpellEdit.h"
 #include "ResizableDialog.h"
+#include "SciEdit.h"
 
 // CInputDlg dialog
 
@@ -39,11 +39,12 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual void OnOK();
 
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_sInputText;
 	CString m_sHintText;
 	CString m_sTitle;
-	CSpellEdit	m_Input;
+	CSciEdit	m_cInput;
 };

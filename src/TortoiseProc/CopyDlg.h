@@ -20,6 +20,7 @@
 #include "ProjectProperties.h"
 #include "ResizableDialog.h"
 #include "HistoryCombo.h"
+#include "SciEdit.h"
 
 /**
  * \ingroup TortoiseProc
@@ -80,6 +81,7 @@ public:
 	BOOL m_bDirectCopy;
 
 private:
+	CSciEdit	m_cLogMessage;
 	CFont		m_logFont;
 	BOOL		m_bFile;
 	ProjectProperties	m_ProjectProperties;

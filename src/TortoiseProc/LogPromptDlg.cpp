@@ -26,6 +26,7 @@
 #include "MessageBox.h"
 #include "SVN.h"
 #include "Registry.h"
+#include ".\logpromptdlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -38,7 +39,6 @@ static char THIS_FILE[] = __FILE__;
 IMPLEMENT_DYNAMIC(CLogPromptDlg, BaseDialogClass)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	: BaseDialogClass(CLogPromptDlg::IDD, pParent)
-	, m_sLogMessage(_T(""))
 	, m_bRecursive(FALSE)
 	, m_bShowUnversioned(FALSE)
 	, m_bBlock(FALSE)
@@ -52,9 +52,8 @@ CLogPromptDlg::~CLogPromptDlg()
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 {
 	BaseDialogClass::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
-	DDX_Control(pDX, IDC_LOGMESSAGE, m_LogMessage);
+	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
@@ -87,13 +86,11 @@ BOOL CLogPromptDlg::OnInitDialog()
 {
 	BaseDialogClass::OnInitDialog();
 
-	CUtils::CreateFontForLogs(m_logFont);
-	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
+	m_cLogMessage.Init();
+	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
-
-	UpdateData(FALSE);
 
 	OnEnChangeLogmessage();
 
@@ -123,10 +120,16 @@ BOOL CLogPromptDlg::OnInitDialog()
 	}
 	if (m_ProjectProperties.nLogWidthMarker)
 	{
-		m_LogMessage.WordWrap(FALSE);
-		m_LogMessage.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
+		m_cLogMessage.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
+		m_cLogMessage.Call(SCI_SETEDGEMODE, EDGE_LINE);
+		m_cLogMessage.Call(SCI_SETEDGECOLUMN, m_ProjectProperties.nLogWidthMarker);
 	}
-	m_LogMessage.SetWindowText(m_ProjectProperties.sLogTemplate);
+	else
+	{
+		m_cLogMessage.Call(SCI_SETEDGEMODE, EDGE_NONE);
+		m_cLogMessage.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+	}
+	m_cLogMessage.SetText(m_ProjectProperties.sLogTemplate);
 	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
@@ -293,6 +296,7 @@ void CLogPromptDlg::OnOK()
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	m_bBlock = FALSE;
 	m_sBugID.Trim();
+	m_sLogMessage = m_cLogMessage.GetText();
 	m_OldLogs.AddString(m_sLogMessage, 0);
 	m_OldLogs.SaveHistory();
 	if (!m_sBugID.IsEmpty())
@@ -305,7 +309,6 @@ void CLogPromptDlg::OnOK()
 			m_sLogMessage += _T("\n") + sBugID + _T("\n");
 		else
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
-		UpdateData(FALSE);		
 	}
 	BaseDialogClass::OnOK();
 }
@@ -401,8 +404,7 @@ void CLogPromptDlg::OnCancel()
 	if (m_bBlock)
 		return;
 	DeleteFile(m_sPath);
-	UpdateData(TRUE);
-	m_OldLogs.AddString(m_sLogMessage, 0);
+	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
 	BaseDialogClass::OnCancel();
 }
@@ -439,15 +441,6 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
-		case 'A':
-			{
-				if ((GetAsyncKeyState(VK_CONTROL)&0x8000)&&(!(GetAsyncKeyState(VK_MENU)&0x8000)))
-				{
-					// Ctrl-A pressed. Select all text in the CEdit control
-					m_LogMessage.SetSel(0, -1);
-					return TRUE;
-				}
-			}
 		}
 	}
 
@@ -521,16 +514,14 @@ void CLogPromptDlg::OnBnClickedFilllog()
 			logmsg += line;
 		}
 	}
-	m_LogMessage.ReplaceSel(logmsg, TRUE);
+	m_cLogMessage.Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)CStringA(logmsg));
 }
 
 void CLogPromptDlg::OnCbnSelchangeOldlogs()
 {
-	UpdateData();
-	if (m_OldLogs.GetString().Compare(m_sLogMessage.Left(m_OldLogs.GetString().GetLength()))!=0)
-		m_sLogMessage = m_OldLogs.GetString() + m_sLogMessage;
-	UpdateData(FALSE);
-	if (m_ProjectProperties.nMinLogSize > m_sLogMessage.GetLength())
+	if (m_OldLogs.GetString().Compare(m_cLogMessage.GetText().Left(m_OldLogs.GetString().GetLength()))!=0)
+		m_cLogMessage.SetText(m_OldLogs.GetString() + m_cLogMessage.GetText());
+	if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
 	{
 		if (!m_bBlock)
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
@@ -543,11 +534,9 @@ void CLogPromptDlg::OnCbnSelchangeOldlogs()
 
 void CLogPromptDlg::OnCbnCloseupOldlogs()
 {
-	UpdateData();
-	if (m_OldLogs.GetString().Compare(m_sLogMessage.Left(m_OldLogs.GetString().GetLength()))!=0)
-		m_sLogMessage = m_OldLogs.GetString() + m_sLogMessage;
-	UpdateData(FALSE);
-	if (m_ProjectProperties.nMinLogSize > m_sLogMessage.GetLength())
+	if (m_OldLogs.GetString().Compare(m_cLogMessage.GetText().Left(m_OldLogs.GetString().GetLength()))!=0)
+		m_cLogMessage.SetText(m_OldLogs.GetString() + m_cLogMessage.GetText());
+	if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
 	{
 		if (!m_bBlock)
 			GetDlgItem(IDOK)->EnableWindow(FALSE);

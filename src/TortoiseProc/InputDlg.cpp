@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "InputDlg.h"
-#include ".\inputdlg.h"
 #include "Registry.h"
 
 
@@ -39,8 +38,7 @@ CInputDlg::~CInputDlg()
 void CInputDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_INPUTTEXT, m_sInputText);
-	DDX_Control(pDX, IDC_INPUTTEXT, m_Input);
+	DDX_Control(pDX, IDC_INPUTTEXT, m_cInput);
 }
 
 
@@ -54,8 +52,8 @@ BOOL CInputDlg::OnInitDialog()
 {
 	CResizableDialog::OnInitDialog();
 
-	CUtils::CreateFontForLogs(m_logFont);
-	GetDlgItem(IDC_INPUTTEXT)->SetFont(&m_logFont);
+	m_cInput.Init();
+	m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
 	if (!m_sHintText.IsEmpty())
 	{
@@ -67,7 +65,7 @@ BOOL CInputDlg::OnInitDialog()
 	}
 	if (!m_sInputText.IsEmpty())
 	{
-		GetDlgItem(IDC_INPUTTEXT)->SetWindowText(m_sInputText);
+		m_cInput.SetText(m_sInputText);
 	}
 
 	AddAnchor(IDC_HINTTEXT, TOP_LEFT, TOP_RIGHT);
@@ -79,6 +77,11 @@ BOOL CInputDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
+void CInputDlg::OnOK()
+{
+	m_sInputText = m_cInput.GetText();
 }
 
 BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
@@ -95,15 +98,6 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
-		case 'A':
-			{
-				if ((GetAsyncKeyState(VK_CONTROL)&0x8000)&&(!(GetAsyncKeyState(VK_MENU)&0x8000)))
-				{
-					// Ctrl-A pressed. Select all text in the CEdit control
-					m_Input.SetSel(0, -1);
-					return TRUE;
-				}
-			}
 		}
 	}
 

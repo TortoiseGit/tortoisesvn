@@ -18,7 +18,7 @@
 #pragma once
 
 #include "ResizableDialog.h"
-#include "SpellEdit.h"
+#include "SciEdit.h"
 #include "ProjectProperties.h"
 #include "Balloon.h"
 #include "HistoryCombo.h"
@@ -82,9 +82,9 @@ protected:
 public:
 	CString m_url;
 	CString m_path;
-	CString m_message;
+	CString m_sMessage;
 	CHistoryCombo m_URLCombo;
-	CSpellEdit m_Message;
+	CSciEdit m_cMessage;
 	CHistoryCombo m_OldLogs;
 	ProjectProperties		m_ProjectProperties;
 

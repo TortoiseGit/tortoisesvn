@@ -34,7 +34,6 @@ IMPLEMENT_DYNAMIC(CImportDlg, CResizableDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CImportDlg::IDD, pParent)
 {
-	m_message.LoadString(IDS_IMPORT_DEFAULTMSG);
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_url = _T("");
 }
@@ -46,10 +45,9 @@ CImportDlg::~CImportDlg()
 void CImportDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_MESSAGE, m_message);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
-	DDX_Control(pDX, IDC_MESSAGE, m_Message);
+	DDX_Control(pDX, IDC_MESSAGE, m_cMessage);
 	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 }
 
@@ -72,8 +70,8 @@ BOOL CImportDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	CUtils::CreateFontForLogs(m_logFont);
-	GetDlgItem(IDC_MESSAGE)->SetFont(&m_logFont);
+	m_cMessage.Init();
+	m_cMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
 	if (m_url.IsEmpty())
 	{
@@ -91,10 +89,16 @@ BOOL CImportDlg::OnInitDialog()
 	m_ProjectProperties.ReadProps(m_path);
 	if (m_ProjectProperties.nLogWidthMarker)
 	{
-		m_Message.WordWrap(FALSE);
-		m_Message.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
+		m_cMessage.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
+		m_cMessage.Call(SCI_SETEDGEMODE, EDGE_LINE);
+		m_cMessage.Call(SCI_SETEDGECOLUMN, m_ProjectProperties.nLogWidthMarker);
 	}
-	m_Message.SetWindowText(m_ProjectProperties.sLogTemplate);
+	else
+	{
+		m_cMessage.Call(SCI_SETEDGEMODE, EDGE_NONE);
+		m_cMessage.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+	}
+	m_cMessage.SetText(m_ProjectProperties.sLogTemplate);
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC4, TOP_LEFT);
@@ -150,8 +154,6 @@ HCURSOR CImportDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-
 void CImportDlg::OnOK()
 {
 	if (m_URLCombo.IsWindowEnabled())
@@ -176,7 +178,8 @@ void CImportDlg::OnOK()
 		}
 	}
 	UpdateData();
-	m_OldLogs.AddString(m_message, 0);
+	m_sMessage = m_cMessage.GetText();
+	m_OldLogs.AddString(m_sMessage, 0);
 	m_OldLogs.SaveHistory();
 
 	CResizableDialog::OnOK();
@@ -255,15 +258,6 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
-		case 'A':
-			{
-				if ((GetAsyncKeyState(VK_CONTROL)&0x8000)&&(!(GetAsyncKeyState(VK_MENU)&0x8000)))
-				{
-					// Ctrl-A pressed. Select all text in the CEdit control
-					m_Message.SetSel(0, -1);
-					return TRUE;
-				}
-			}
 		}
 	}
 	return CResizableDialog::PreTranslateMessage(pMsg);
@@ -276,20 +270,18 @@ void CImportDlg::OnBnClickedHelp()
 
 void CImportDlg::OnCbnSelchangeOldlogs()
 {
-	m_message = m_OldLogs.GetString();
-	UpdateData(FALSE);
+	m_cMessage.SetText(m_OldLogs.GetString());
 }
 
 void CImportDlg::OnCbnCloseupOldlogs()
 {
-	m_message = m_OldLogs.GetString();
-	UpdateData(FALSE);
+	m_cMessage.SetText(m_OldLogs.GetString());
 }
 
 void CImportDlg::OnCancel()
 {
 	UpdateData();
-	m_OldLogs.AddString(m_message, 0);
+	m_OldLogs.AddString(m_cMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
 	CResizableDialog::OnCancel();
 }

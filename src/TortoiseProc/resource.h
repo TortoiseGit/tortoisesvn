@@ -265,6 +265,7 @@
 #define IDS_SVNACTION_STATUS            1176
 #define IDS_SVNACTION_SKIP              1177
 #define IDS_PROGS_EXTCOL                1178
+#define IDC_CUSTOM1                     1178
 #define IDS_PROGS_TOOLCOL               1179
 #define IDS_LOG_FILE                    1180
 #define IDS_SVN_USERCANCELLED           1181
@@ -525,7 +526,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        185
 #define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1175
+#define _APS_NEXT_CONTROL_VALUE         1179
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

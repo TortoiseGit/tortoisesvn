@@ -49,10 +49,10 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
-	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
+	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 }
 
 
@@ -110,8 +110,8 @@ BOOL CCopyDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	CUtils::CreateFontForLogs(m_logFont);
-	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
+	m_cLogMessage.Init();
+	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 
 	CTSVNPath path(m_path);
 
@@ -150,6 +150,18 @@ BOOL CCopyDlg::OnInitDialog()
 			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
+	if (m_ProjectProperties.nLogWidthMarker)
+	{
+		m_cLogMessage.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
+		m_cLogMessage.Call(SCI_SETEDGEMODE, EDGE_LINE);
+		m_cLogMessage.Call(SCI_SETEDGECOLUMN, m_ProjectProperties.nLogWidthMarker);
+	}
+	else
+	{
+		m_cLogMessage.Call(SCI_SETEDGEMODE, EDGE_NONE);
+		m_cLogMessage.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+	}
+	m_cLogMessage.SetText(m_ProjectProperties.sLogTemplate);
 
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -206,6 +218,7 @@ void CCopyDlg::OnOK()
 	}
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
+	m_sLogMessage = m_cLogMessage.GetText();
 	m_OldLogs.AddString(m_sLogMessage, 0);
 	m_OldLogs.SaveHistory();
 
@@ -278,20 +291,17 @@ void CCopyDlg::OnBnClickedHelp()
 
 void CCopyDlg::OnCbnSelchangeOldlogs()
 {
-	m_sLogMessage = m_OldLogs.GetString();
-	UpdateData(FALSE);
+	m_cLogMessage.SetText(m_OldLogs.GetString());
 }
 
 void CCopyDlg::OnCbnCloseupOldlogs()
 {
-	m_sLogMessage = m_OldLogs.GetString();
-	UpdateData(FALSE);
+	m_cLogMessage.SetText(m_OldLogs.GetString());
 }
 
 void CCopyDlg::OnCancel()
 {
-	UpdateData();
-	m_OldLogs.AddString(m_sLogMessage, 0);
+	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
 	CResizableDialog::OnCancel();
 }

@@ -21,11 +21,11 @@
 #include "ResizableDialog.h"
 #include "StandAloneDlg.h"
 #include "Balloon.h"
-#include "SpellEdit.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
 #include "HistoryCombo.h"
 #include "Registry.h"
+#include "SciEdit.h"
 
 /**
  * \ingroup TortoiseProc
@@ -85,12 +85,12 @@ protected:
 
 
 public:
-	CString			m_sLogMessage;
 	CString			m_sPath;
 	BOOL			m_bRecursive;
+	CSciEdit		m_cLogMessage;
+	CString			m_sLogMessage;
 
 private:
-	CSpellEdit		m_LogMessage;
 	CSVNStatusListCtrl		m_ListCtrl;
 	CHistoryCombo	m_OldLogs;
 	BOOL			m_bShowUnversioned;
@@ -98,7 +98,6 @@ private:
 	CBalloon		m_tooltips;
 	CRegDWORD		m_regAddBeforeCommit;
 	ProjectProperties		m_ProjectProperties;
-	CFont			m_logFont;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
 };
