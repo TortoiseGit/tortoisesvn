@@ -1,3 +1,8 @@
+- BUG: Main page in the settings dialog lost
+       the language settings if the combo-box
+       wasn't touched. (Stefan)
+
+Version 0.20
 - BUG: The property page was always shown in english,
        no matter what language was set. (Stefan)
 - BUG: The repository browser didn't work for file:///

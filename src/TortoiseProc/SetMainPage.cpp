@@ -203,6 +203,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bAddBeforeCommit = m_regAddBeforeCommit;
 	m_bNoRemoveLogMsg = m_regNoRemoveLogMsg;
 	m_bAutoClose = m_regAutoClose;
+	m_dwLanguage = m_regLanguage;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
@@ -238,10 +239,16 @@ BOOL CSetMainPage::OnInitDialog()
 				GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 				m_LanguageCombo.AddString(buf);
 				m_LanguageCombo.SetItemData(langcount++, loc);
-			}
-		}
-	}
+			} // if (filename.Left(12).CompareNoCase(_T("TortoiseProc"))==0) 
+		} // if (file.Right(3).CompareNoCase(_T("dll"))==0) 
+	} // for (int i=0; i<list.GetCount(); i++) 
 	
+	for (int i=0; i<m_LanguageCombo.GetCount(); i++)
+	{
+		if (m_LanguageCombo.GetItemData(i) == m_dwLanguage)
+			m_LanguageCombo.SetCurSel(i);
+	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
+
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -295,6 +302,7 @@ void CSetMainPage::OnBnClickedAutoclose()
 
 BOOL CSetMainPage::OnApply()
 {
+	UpdateData();
 	SaveData();
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
