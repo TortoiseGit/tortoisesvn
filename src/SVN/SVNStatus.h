@@ -18,10 +18,6 @@
 
 #pragma once
 #include "stdafx.h"
-#ifdef _MFC_VER
-#include "PromptDlg.h"
-#include "SimplePrompt.h"
-#endif
 #include <windows.h>
 #include "resource.h"
 #include <tchar.h>
@@ -36,6 +32,10 @@
 #include "svn_utf.h"
 #include "svn_config.h"
 #include <string>
+
+#ifdef _MFC_VER
+#	include "SVNPrompt.h"
+#endif
 
 #pragma warning (push,1)
 typedef std::basic_string<wchar_t> wide_string;
@@ -76,26 +76,14 @@ typedef std::basic_string<wchar_t> wide_string;
  *
  */
 class SVNStatus
+#ifdef _MFC_VER
+	: public SVNPrompt
+#endif
 {
 public:
 	SVNStatus(void);
 	~SVNStatus(void);
 
-#ifdef _MFC_VER
-	virtual BOOL Prompt(CString& info, BOOL hide, CString promptphrase);
-	virtual BOOL SimplePrompt(CString& username, CString& password);
-#endif
-
-	/**
-	 * Reads the Subversion text status of the working copy entry. No
-	 * recurse is done, even if the entry is a directory.
-	 * Only the status of the text entry is returned, properties
-	 * are ignored.
-	 * 
-	 * \param path the pathname of the entry
-	 * \return the status
-	 */
-	//static svn_wc_status_kind GetTextStatus(const TCHAR * path);
 
 	/**
 	 * Reads the Subversion status of the working copy entry. No
@@ -104,20 +92,6 @@ public:
 	 * then the higher value is returned.
 	 */
 	static svn_wc_status_kind GetAllStatus(const TCHAR * path, BOOL recursive = FALSE);
-
-	/**
-	 * Reads the Subversion text status of the working copy entry and all its
-	 * subitems. The resulting status is determined by using priorities for each
-	 * status. The status with the highest priority is then returned.
-	 * Only the status of the text entry is returned, properties
-	 * are ignored.
-	 * \remark Use this method only after checking that the entry is a directory. Using this
-	 * method for files is ineffective and slow.
-	 * 
-	 * \param path the pathname of the entry
-	 * \return the status
-	 */
-	//static svn_wc_status_kind GetTextStatusRecursive(const TCHAR * path);
 
 	/**
 	 * Reads the Subversion status of the working copy entry and all its
@@ -180,25 +154,18 @@ public:
 
 #ifdef _MFC_VER
 	CString GetLastErrorMsg();
+	void SaveAuthentication(BOOL save);
 #else
 	stdstring GetLastErrorMsg();
 #endif
 	svn_wc_status_kind			m_allstatus;
 
-	HWND						hWnd;
 private:
 	apr_pool_t *				m_parentpool;
 	apr_pool_t *				m_pool;
 	svn_auth_baton_t *			m_auth_baton;
 	svn_client_ctx_t 			m_ctx;
 	svn_error_t *				m_err;
-#ifdef _MFC_VER
-	static svn_error_t* userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, apr_pool_t *pool);
-	static svn_error_t* simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, apr_pool_t *pool);
-	static svn_error_t* sslserverprompt(svn_auth_cred_server_ssl_t **cred, void *baton, int failures_in, apr_pool_t *pool);
-	static svn_error_t* sslclientprompt(svn_auth_cred_client_ssl_t **cred, void *baton, apr_pool_t *pool);
-	static svn_error_t* sslpwprompt(svn_auth_cred_client_ssl_pass_t **cred, void *baton, apr_pool_t *pool);
-#endif
 	static int GetStatusRanking(svn_wc_status_kind status);
 	static void getallstatus (void *baton, const char *path, svn_wc_status_t *status);
 	static void getstatushash (void *baton, const char *path, svn_wc_status_t *status);

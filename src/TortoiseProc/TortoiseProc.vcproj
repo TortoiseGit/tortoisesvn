@@ -399,6 +399,9 @@
 					RelativePath="..\SVN\SVN.cpp">
 				</File>
 				<File
+					RelativePath="..\Svn\SVNPrompt.cpp">
+				</File>
+				<File
 					RelativePath="..\Svn\SVNProperties.cpp">
 					<FileConfiguration
 						Name="Debug|Win32">
@@ -446,6 +449,9 @@
 				Filter="h;hpp;hxx;hm;inl;inc">
 				<File
 					RelativePath="..\SVN\SVN.h">
+				</File>
+				<File
+					RelativePath="..\Svn\SVNPrompt.h">
 				</File>
 				<File
 					RelativePath="..\Svn\SVNProperties.h">
@@ -640,10 +646,10 @@
 			RelativePath="ReadMe.txt">
 		</File>
 		<File
-			RelativePath="Resource.h">
+			RelativePath="..\Languages\resource.h">
 		</File>
 		<File
-			RelativePath="..\Languages\resource.h">
+			RelativePath="Resource.h">
 		</File>
 		<File
 			RelativePath="stdafx.h">

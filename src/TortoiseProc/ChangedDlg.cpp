@@ -152,10 +152,10 @@ void CChangedDlg::AddEntry(CString file, svn_wc_status_t * status)
 	{
 		TCHAR buf[MAX_PATH];
 		m_FileListCtrl.InsertItem(index, file);
-		GetStatusString(text, buf);
+		SVNStatus::GetStatusString(text, buf);
 		//GetStatusString(theApp.m_hInstance, text, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 		m_FileListCtrl.SetItemText(index, 1, buf);
-		GetStatusString(repo, buf);
+		SVNStatus::GetStatusString(repo, buf);
 		//GetStatusString(theApp.m_hInstance, repo, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 		m_FileListCtrl.SetItemText(index, 2, buf);
 
@@ -190,18 +190,18 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	pDlg->m_arWCStatus.RemoveAll();
 	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	
-	status = pDlg->GetFirstFileStatus(pDlg->m_path, &file, true);
+	status = pDlg->m_svnstatus.GetFirstFileStatus(pDlg->m_path, &file, true);
 	if (status)
 	{
 		pDlg->AddEntry(file, status);
-		while (status = pDlg->GetNextFileStatus(&file))
+		while (status = pDlg->m_svnstatus.GetNextFileStatus(&file))
 		{
 			pDlg->AddEntry(CString(file), status);
 		}
 	} // if (status)
 	else
 	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_svnstatus.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	return 0;

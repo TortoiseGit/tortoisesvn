@@ -34,8 +34,7 @@
 #include "svn_subst.h"
 #include "svn_auth.h"
 
-#include "PromptDlg.h"
-#include "SimplePrompt.h"
+#include "SVNPrompt.h"
 
 svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
@@ -73,14 +72,12 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
  * \bug 
  *
  */
-class SVN
+class SVN : public SVNPrompt
 {
 public:
 	SVN(void);
 	~SVN(void);
 
-	virtual BOOL Prompt(CString& info, BOOL hide, CString promptphrase);
-	virtual BOOL SimplePrompt(CString& username, CString& password);
 	virtual BOOL Cancel();
 	virtual BOOL Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
 	virtual BOOL Log(LONG rev, CString author, CString date, CString message, CString& cpaths);
@@ -428,12 +425,6 @@ private:
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 	apr_array_header_t * target (LPCTSTR path);
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
-
-	static svn_error_t* userprompt(svn_auth_cred_username_t **cred, void *baton, const char *realm, apr_pool_t *pool);
-	static svn_error_t* simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, apr_pool_t *pool);
-	static svn_error_t* sslserverprompt(svn_auth_cred_server_ssl_t **cred, void *baton, int failures_in, apr_pool_t *pool);
-	static svn_error_t* sslclientprompt(svn_auth_cred_client_ssl_t **cred, void *baton, apr_pool_t *pool);
-	static svn_error_t* sslpwprompt(svn_auth_cred_client_ssl_pass_t **cred, void *baton, apr_pool_t *pool);
 		
 	static svn_error_t* cancel(void *baton);
 	static void notify( void *baton,
@@ -451,10 +442,9 @@ private:
 					const char* date, 
 					const char* msg, 
 					apr_pool_t* pool);
+	void SaveAuthentication(BOOL save);
 
 public:
-	CWinApp *					m_app;
-	HWND						hWnd;
 	const char *m_username, *m_password;
 	void get_simple_provider (svn_auth_provider_object_t **provider, apr_pool_t *pool);
 

@@ -27,7 +27,7 @@
 
 // CChangedDlg dialog
 
-class CChangedDlg : public CResizableDialog, public SVNStatus, public SVN
+class CChangedDlg : public CResizableDialog, public SVN
 {
 	DECLARE_DYNAMIC(CChangedDlg)
 
@@ -53,6 +53,7 @@ protected:
 	HANDLE			m_hThread;
 
 public:
+	SVNStatus		m_svnstatus;
 	CListCtrl		m_FileListCtrl;
 	CString			m_path;
 	CDWordArray		m_arWCStatus;
