@@ -148,29 +148,57 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 		com.Replace(_T("%merged"), _T("\"") + mergedfile.GetWinPathString() + _T("\""));
 	if (basename.IsEmpty())
 	{
-		com.Replace(_T("/basename:%bname"), _T(""));
-		com.Replace(_T("%bname"), _T(""));
+		if (basefile.IsEmpty())
+		{
+			com.Replace(_T("/basename:%bname"), _T(""));
+			com.Replace(_T("%bname"), _T(""));
+		}
+		else
+		{
+			com.Replace(_T("%bname"), _T("\"") + basefile.GetFileOrDirectoryName() + _T("\""));
+		}
 	}
 	else
 		com.Replace(_T("%bname"), _T("\"") + basename + _T("\""));
 	if (theirname.IsEmpty())
 	{
-		com.Replace(_T("/theirsname:%tname"), _T(""));
-		com.Replace(_T("%tname"), _T(""));
+		if (theirfile.IsEmpty())
+		{
+			com.Replace(_T("/theirsname:%tname"), _T(""));
+			com.Replace(_T("%tname"), _T(""));
+		}
+		else
+		{
+			com.Replace(_T("%tname"), _T("\"") + theirfile.GetFileOrDirectoryName() + _T("\""));
+		}
 	}
 	else
 		com.Replace(_T("%tname"), _T("\"") + theirname + _T("\""));
 	if (yourname.IsEmpty())
 	{
-		com.Replace(_T("/yoursname:%yname"), _T(""));
-		com.Replace(_T("%yname"), _T(""));
+		if (yourfile.IsEmpty())
+		{
+			com.Replace(_T("/yoursname:%yname"), _T(""));
+			com.Replace(_T("%yname"), _T(""));
+		}
+		else
+		{
+			com.Replace(_T("%yname"), _T("\"") + yourfile.GetFileOrDirectoryName() + _T("\""));
+		}
 	}
 	else
 		com.Replace(_T("%yname"), _T("\"") + yourname + _T("\""));
 	if (mergedname.IsEmpty())
 	{
-		com.Replace(_T("/mergedname:%mname"), _T(""));
-		com.Replace(_T("%mname"), _T(""));
+		if (mergedfile.IsEmpty())
+		{
+			com.Replace(_T("/mergedname:%mname"), _T(""));
+			com.Replace(_T("%mname"), _T(""));
+		}
+		else
+		{
+			com.Replace(_T("%mname"), _T("\"") + mergedfile.GetFileOrDirectoryName() + _T("\""));
+		}
 	}
 	else
 		com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
@@ -246,12 +274,12 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 	}
 
 	if (sName1.IsEmpty())
-		viewer.Replace(_T("%bname"), _T("\"") + file1.GetWinPathString() + _T("\""));
+		viewer.Replace(_T("%bname"), _T("\"") + file1.GetFileOrDirectoryName() + _T("\""));
 	else
 		viewer.Replace(_T("%bname"), _T("\"") + sName1 + _T("\""));
 
 	if (sName2.IsEmpty())
-		viewer.Replace(_T("%yname"), _T("\"") + file2.GetWinPathString() + _T("\""));
+		viewer.Replace(_T("%yname"), _T("\"") + file2.GetFileOrDirectoryName() + _T("\""));
 	else
 		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
 
