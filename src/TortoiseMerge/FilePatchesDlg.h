@@ -77,16 +77,18 @@ protected:
 	CListCtrl					m_cFileList;
 	CDWordArray					m_arFileStates;
 	CImageList					m_ImgList;
+	BOOL						m_bMinimized;
+	int							m_nWindowHeight;
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNcLButtonDblClk(UINT nHitTest, CPoint point);
 
 	DECLARE_MESSAGE_MAP()
 
 	CString GetFullPath(int nIndex);
-public:
-	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };

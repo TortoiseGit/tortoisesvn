@@ -27,6 +27,7 @@ CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CFilePatchesDlg::IDD, pParent)
 {
 	m_ImgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
+	m_bMinimized = FALSE;
 }
 
 CFilePatchesDlg::~CFilePatchesDlg()
@@ -121,6 +122,10 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 
 	m_cFileList.SetImageList(&m_ImgList, LVSIL_SMALL);
 	m_cFileList.SetRedraw(true);
+
+	RECT windowrect;
+	GetWindowRect(&windowrect);
+	m_nWindowHeight = windowrect.bottom - windowrect.top;
 	return TRUE;
 }
 
@@ -130,6 +135,7 @@ BEGIN_MESSAGE_MAP(CFilePatchesDlg, CDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_FILELIST, OnNMCustomdrawFilelist)
 	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
+	ON_WM_NCLBUTTONDBLCLK()
 END_MESSAGE_MAP()
 
 void CFilePatchesDlg::OnSize(UINT nType, int cx, int cy)
@@ -237,4 +243,27 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			break;
 		} // switch (cmd) 
 	} // if (popup.CreatePopupMenu()) 
+}
+
+void CFilePatchesDlg::OnNcLButtonDblClk(UINT nHitTest, CPoint point)
+{
+	if (!m_bMinimized)
+	{
+		RECT windowrect;
+		RECT clientrect;
+		GetWindowRect(&windowrect);
+		GetClientRect(&clientrect);
+		m_nWindowHeight = windowrect.bottom - windowrect.top;
+		MoveWindow(windowrect.left, windowrect.top, 
+			windowrect.right - windowrect.left,
+			m_nWindowHeight - (clientrect.bottom - clientrect.top));
+	}
+	else
+	{
+		RECT windowrect;
+		GetWindowRect(&windowrect);
+		MoveWindow(windowrect.left, windowrect.top, windowrect.right - windowrect.left, m_nWindowHeight);
+	}
+	m_bMinimized = !m_bMinimized;
+	CDialog::OnNcLButtonDblClk(nHitTest, point);
 }
