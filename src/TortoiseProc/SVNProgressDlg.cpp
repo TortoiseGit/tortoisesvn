@@ -133,7 +133,6 @@ BOOL CSVNProgressDlg::Notify(const CString& path, svn_wc_notify_action_t action,
 		{
 			m_ExtStack.AddHead(path);
 		}
-		
 		if (action == svn_wc_notify_update_completed)
 		{
 			if (!m_ExtStack.IsEmpty())
@@ -170,7 +169,20 @@ BOOL CSVNProgressDlg::Notify(const CString& path, svn_wc_notify_action_t action,
 				m_bRedEvents = TRUE;
 
 		//make colums width fit
-		ResizeColumns();
+		if (iFirstResized < 30)
+		{
+			//only resize the columns for the first 30 or so entries.
+			//after that, don't resize them anymore because that's an
+			//expensive function call and the columns will be sized
+			//close enough already.
+			ResizeColumns();
+			iFirstResized++;
+		}
+		if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
+		{
+			ResizeColumns();
+			bSecondResized = TRUE;
+		}
 
 		// Make sure the item is *entirely* visible even if the horizontal
 		// scroll bar is visible.
@@ -402,6 +414,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(TRUE);
 
 	pDlg->m_bThreadRunning = TRUE;
+	pDlg->iFirstResized = 0;
+	pDlg->bSecondResized = FALSE;
 	switch (pDlg->m_Command)
 	{
 		case Checkout:			//no tempfile!
@@ -814,6 +828,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	}
 	CString info = pDlg->BuildInfoString();
 	pDlg->GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
+	pDlg->ResizeColumns();
 	return 0;
 }
 

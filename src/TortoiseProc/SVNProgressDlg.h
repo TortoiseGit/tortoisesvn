@@ -110,10 +110,6 @@ protected:
 
 	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	/**
-	 * Resizes the columns of the progress list so that the headings are visible.
-	 */
-	void ResizeColumns();
 	void Sort();
 	static int __cdecl SortCompare(const void * pElem1, const void * pElem2);
 
@@ -136,6 +132,10 @@ protected:
 	CStringList m_ExtStack;
 public:			//need to be public for the thread to access
 	virtual void OnOK();
+	/**
+	* Resizes the columns of the progress list so that the headings are visible.
+	*/
+	void ResizeColumns();
 	CArray<Data *, Data *>		m_arData;
 
 	CListCtrl	m_ProgList;
@@ -154,6 +154,8 @@ public:			//need to be public for the thread to access
 	BOOL		m_bThreadRunning;
 	BOOL		m_bCloseOnEnd;
 	BOOL		m_bRedEvents;
+	int			iFirstResized;
+	BOOL		bSecondResized;
 	CString		m_sModName;
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);
