@@ -71,14 +71,30 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 			CStringArray entries;
 			if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), -1, entries))
 			{
+				if ((entries.GetCount() == 1)&&(entries.GetAt(0).GetAt(0)=='f')&&(entries.GetAt(0).Mid(1).CompareNoCase(GetItemText(pNMTreeView->itemNew.hItem))==0))
+				{
+					//perhaps the user specified a file instead of a directory!
+					//try to expand the parent
+					HTREEITEM hParent = GetParentItem(pNMTreeView->itemNew.hItem);
+					SHFILEINFO    sfi;
+					SHGetFileInfo(
+						(LPCTSTR)entries.GetAt(0).Mid(1), 
+						FILE_ATTRIBUTE_NORMAL,
+						&sfi, 
+						sizeof(SHFILEINFO), 
+						SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+					SetItemImage(pNMTreeView->itemNew.hItem, sfi.iIcon, sfi.iIcon);
+					Expand(hParent, TVE_EXPAND);
+					return;
+				}
 				for (int i = 0; i < entries.GetCount(); ++i)
 				{
 					CString temp;
 					temp = entries[i];
 					if (temp.GetAt(0) == 'd')
 					{
-						temp = temp.Right(temp.GetLength()-1);
-						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp)))
+						//temp = temp.Right(temp.GetLength()-1);
+						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1))))
 						{
 							HTREEITEM hItem = InsertItem(temp, m_nIconFolder, m_nIconFolder, pNMTreeView->itemNew.hItem, TVI_SORT);
 							SetItemState(hItem, 1, TVIF_CHILDREN);
@@ -88,8 +104,8 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 					if (temp.GetAt(0) == 'f')
 					{
-						temp = temp.Right(temp.GetLength()-1);
-						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp)))
+						//temp = temp.Right(temp.GetLength()-1);
+						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1))))
 						{
 							SHFILEINFO    sfi;
 							SHGetFileInfo(
@@ -100,9 +116,17 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 								SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 
 							HTREEITEM hItem = InsertItem(temp, sfi.iIcon, sfi.iIcon, pNMTreeView->itemNew.hItem, TVI_SORT);
-						}
+						} // if (!(ItemExists(pNMTreeView->itemNew.hItem, temp)))
 					}
 				} // for (int i = 0; i < entries.GetCount(); ++i) 
+				HTREEITEM hCurrent = GetNextItem(pNMTreeView->itemNew.hItem, TVGN_CHILD);
+				while (hCurrent != NULL)
+				{
+					CString temp = GetItemText(hCurrent);
+					if ((temp.GetAt(0)=='d')||(temp.GetAt(0)=='f'))
+						SetItemText(hCurrent, temp.Mid(1));
+					hCurrent = GetNextItem(hCurrent, TVGN_NEXT);
+				} // while (hCurrent != NULL)
 			} // if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), -1, entries)) 
 		} // if (GetItemData(pNMTreeView->itemNew.hItem)==0) 
 	} // if (pNMTreeView->action == TVE_EXPAND) 

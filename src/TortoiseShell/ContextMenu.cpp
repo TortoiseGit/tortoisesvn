@@ -290,6 +290,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
 		return NOERROR;					//we don't change the default action
 
+	if ((uFlags & CMF_VERBSONLY)!=0)
+		return NOERROR;					//we don't show the menu on shortcuts
+
 	if ((files_.size() == 0)&&(folder_.size() == 0))
 		return NOERROR;
 

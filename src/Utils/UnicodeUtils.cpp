@@ -21,14 +21,12 @@ CStringA CUnicodeUtils::GetUTF8(CString string)
 #endif
 }
 
-#ifdef UNICODE
-CStringW CUnicodeUtils::GetUnicode(CStringA string)
+CString CUnicodeUtils::GetUnicode(CStringA string)
 {
-	TCHAR buf[MAX_PATH * 4];
+	WCHAR buf[MAX_PATH * 4];
 	MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, MAX_PATH * 4);
-	return CStringW(buf);
+	return CString(buf);
 }
-#endif
 #endif //_MFC_VER
 
 #ifdef UNICODE

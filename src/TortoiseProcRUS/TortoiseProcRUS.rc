@@ -275,7 +275,7 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU |
 CAPTION "Обзор репозитория"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,176,258,50,14
+    DEFPUSHBUTTON   "ОК",IDOK,7,258,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,231,258,50,14
     LTEXT           "URL:",IDC_STATICURL,7,235,16,8
     EDITTEXT        IDC_URL,40,233,241,14,ES_AUTOHSCROLL
@@ -302,16 +302,17 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Перекрытие значков"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    CONTROL         "Перекрывать значки папок с изменённым содержанием",IDC_CHANGEDDIRS,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,16,220,10
-    CONTROL         "Активизировать для сменных дисков",IDC_REMOVABLE,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,30,150,10
-    CONTROL         "Активизировать для сетевых дисков",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,44,150,10
-    CONTROL         "Активизировать для жёстких дисков",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,58,150,10
-    CONTROL         "Активизировать для приводов CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,72,150,10
+    CONTROL         "Перекрывать значки папок с изменённым содержанием",
+                    IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    16,220,10
+    CONTROL         "Активизировать для сменных дисков",IDC_REMOVABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,30,150,10
+    CONTROL         "Активизировать для сетевых дисков",IDC_NETWORK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,44,150,10
+    CONTROL         "Активизировать для жёстких дисков",IDC_FIXED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,58,150,10
+    CONTROL         "Активизировать для приводов CD-ROM",IDC_CDROM,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,72,150,10
 END
 
 
@@ -451,7 +452,6 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 281
-        VERTGUIDE, 226
         TOPMARGIN, 7
         BOTTOMMARGIN, 272
     END
@@ -618,7 +618,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROC_WARNREVERT     "Вы действительно хотите произвести откат?\nИзменения, произведённые с момента последнего обновления,\nбудут безвозвратно потеряны."
-    IDS_PROC_CLEANUPFINISHED "Очистка Вашей рабочей копии от временных файлов завершена."
+    IDS_PROC_CLEANUPFINISHED 
+                            "Очистка Вашей рабочей копии от временных файлов завершена."
     IDS_PROC_REPOCREATEERR  "Ошибка при создании репозитория!\nПроверьте, что папка пуста и не защищена от записи."
     IDS_PROC_EXPORT_1       "Выберите папку, в которую будет осуществлён экспорт.\nВозможно, необходимо создать новую папку."
     IDS_PROC_EXPORT_2       "экспорт %s в"
@@ -685,7 +686,7 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
- // Neutral resources
+// Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 #ifdef _WIN32
@@ -833,4 +834,4 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
-  
+

@@ -273,8 +273,6 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	//check if an entry is selected
 	*pResult = 0;
-	if (PathIsDirectory(m_path))
-		return;					//no menus for directories!
 	int selIndex = m_LogList.GetSelectionMark();
 	if (selIndex >= 0)
 	{
@@ -287,15 +285,20 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString temp;
 			if (m_LogList.GetSelectedCount() == 1)
 			{
-				temp.LoadString(IDS_LOG_POPUP_COMPARE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
-				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				if (!PathIsDirectory(m_path))
+				{
+					temp.LoadString(IDS_LOG_POPUP_COMPARE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+					temp.LoadString(IDS_LOG_POPUP_SAVE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				}
 				temp.LoadString(IDS_LOG_POPUP_UPDATE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
 			}
 			else if (m_LogList.GetSelectedCount() == 2)
 			{
+				if (PathIsDirectory(m_path))
+					return;
 				temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
 			}
