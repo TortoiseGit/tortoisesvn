@@ -196,7 +196,7 @@
       </Directory>
 
       <Directory Id="ProgramMenuFolder" Name="." SourceName="USER'S~2" LongSource="User's Programs Menu">
-        <Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="Tortoise">
+        <Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN">
           <Component Id="C__WebsiteLink" Guid="3FBF0894-22EF-49fe-A1C3-A2ADCEA4B7CA" >
             <File Id="F__websiteurl" Name="WEBSITE.URL" LongName="Website.url" src="Website.url" DiskId="1" />
           </Component>
