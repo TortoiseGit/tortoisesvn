@@ -1,3 +1,14 @@
+Version 0.15.2
+- BUG: The "Check for updates" dialog could
+       crash for unversioned items. (Stefan)
+- BUG: Subversion got new statuses which I
+       completely missed. (Stefan)
+- BUG: in the changed dialog if an entry was selected
+       but no menu entry chosen then the 
+       OK button stayed disabled. (Stefan)
+- ADD: New context menu in the "Check for updates"
+       dialog: compare with working copy. (Stefan)
+
 Version 0.15.1
 - BUG: Making a copy didn't always work. Some 
        Pre-Commit-Hooks prevent too short

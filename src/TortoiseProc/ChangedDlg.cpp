@@ -209,6 +209,8 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				if (repoStatus > svn_wc_status_normal)
 				{
+					temp.LoadString(IDS_LOG_POPUP_COMPARE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 					temp.LoadString(IDS_SVNACTION_UPDATE);
@@ -230,6 +232,64 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 			theApp.DoWaitCursor(1);
 			switch (cmd)
 			{
+			case ID_COMPARE:
+				{
+					//user clicked on the menu item "compare with working copy"
+					//next step is to create a temporary file to hold the required revision
+					CString tempfile = CUtils::GetTempFile();
+
+					SVN svn;
+					if (!svn.Cat(filepath, SVN::REV_HEAD, tempfile))
+					{
+						CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						return;
+					}
+
+					CString diffpath = CUtils::GetDiffPath();
+					if (diffpath != "")
+					{
+
+						CString cmdline;
+						cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
+						cmdline += _T("\" ");
+						cmdline += _T(" \"") + filepath;
+						cmdline += _T("\" "); 
+						cmdline += _T(" \"") + tempfile;
+						cmdline += _T("\"");
+						STARTUPINFO startup;
+						PROCESS_INFORMATION process;
+						memset(&startup, 0, sizeof(startup));
+						startup.cb = sizeof(startup);
+						memset(&process, 0, sizeof(process));
+						if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						{
+							LPVOID lpMsgBuf;
+							FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+								FORMAT_MESSAGE_FROM_SYSTEM | 
+								FORMAT_MESSAGE_IGNORE_INSERTS,
+								NULL,
+								GetLastError(),
+								MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+								(LPTSTR) &lpMsgBuf,
+								0,
+								NULL 
+								);
+							CString temp;
+							//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
+							temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+							LocalFree( lpMsgBuf );
+						} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						//wait for the process to end
+						WaitForSingleObject(process.hProcess, INFINITE);
+						//now delete the temporary file
+						DeleteFile(tempfile);
+					} // if (diffpath != "")
+					theApp.DoWaitCursor(-1);
+					GetDlgItem(IDOK)->EnableWindow(TRUE);
+				}
+				break;
 			case ID_GNUDIFF1:
 				{
 					CString tempfile = CUtils::GetTempFile();
