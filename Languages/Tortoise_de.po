@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-09 12:24+0100\n"
+"PO-Revision-Date: 2005-03-10 09:08+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -878,6 +878,10 @@ msgstr "Verzweigung / Markierung erfolgreich erstellt!"
 msgid "Branch/Tag directly on the server (HEAD revision)"
 msgstr "Zweig/Markierung direkt im Projektarchiv (HEAD) erstellen"
 
+#: Control-ID:1185
+msgid "Branch/Tag from the revision:"
+msgstr "Verzweigen / Markieren aus Revision:"
+
 #: Control-ID:1183
 msgid "Branch/Tag the working copy"
 msgstr "Zweig/Markierung aus Arbeitskopie erstellen"
@@ -1521,6 +1525,10 @@ msgstr "E&xtern"
 msgid "EXT"
 msgstr "EXT"
 
+#: ID:113
+msgid "Edit Author"
+msgstr "Autor ändern"
+
 #: ID:12
 msgid "Edit Conflicts"
 msgstr "Konflikt bearbeiten"
@@ -1532,6 +1540,10 @@ msgstr "Bearbeite Dateityp-spezifisches Diff Programm"
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "Bearbeite Dateityp-spezifisches Merge Programm"
+
+#: ID:113
+msgid "Edit Log Message"
+msgstr "Log-Meldung ändern"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
