@@ -508,7 +508,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 							dlg.m_nRevisionEnd = rev-1;
 							dlg.DoModal();
 						}
-					}
+					} // if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_ICONQUESTION) == IDOK) 
 				}
 				break;
 			case ID_COPY:

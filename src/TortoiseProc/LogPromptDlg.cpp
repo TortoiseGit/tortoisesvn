@@ -419,7 +419,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->m_arFileStatus.Add(stat);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
-					SVNStatus::GetStatusString(stat, buf);
+					//SVNStatus::GetStatusString(stat, buf);
+					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 					if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
 						_tcscat(buf, _T("(P only)"));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
@@ -433,7 +434,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						pDlg->m_arFileStatus.Add(stat);
 						int count = pDlg->m_ListCtrl.GetItemCount();
 						pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
-						SVNStatus::GetStatusString(stat, buf);
+						//SVNStatus::GetStatusString(stat, buf);
+						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					} // if (!CCheckTempFiles::IsTemp(strLine)) 
 				} // if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(strLine))&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit")))) 
@@ -450,7 +452,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 						else
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
-						SVNStatus::GetStatusString(stat, buf);
+						//SVNStatus::GetStatusString(stat, buf);
+						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 						if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
 							_tcscat(buf, _T("(P only)"));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
@@ -467,7 +470,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 							else
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
-							SVNStatus::GetStatusString(stat, buf);
+							//SVNStatus::GetStatusString(stat, buf);
+							SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 							pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						} // if (!CCheckTempFiles::IsTemp(temp))
 					} // if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(temp))&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit")))) 

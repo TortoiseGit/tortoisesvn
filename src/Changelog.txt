@@ -22,6 +22,9 @@
 - BUG: TSVN could crash in the log dialog if
        the status of a file or folder could
        not be read. (Stefan)
+- BUG: The status strings weren't localized
+       in the commit and "Check for Updates"
+       dialog. (Stefan)
 
 Version 0.21
 - ADD: If multiple targets are selected for
