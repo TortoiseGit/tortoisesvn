@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-02-22 09:16+0100\n"
+"PO-Revision-Date: 2005-03-01 10:16+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -861,6 +861,15 @@ msgstr "Verzweigen / Markieren"
 msgid "Branch / Tag created successfully!"
 msgstr "Verzweigung / Markierung erfolgreich erstellt!"
 
+# Control-ID:1073,
+#: Control-ID:1182
+msgid "Branch/Tag directly on the server (HEAD revision)"
+msgstr "Zweig/Markierung direkt im Projektarchiv (HEAD) erstellen"
+
+#: Control-ID:1183
+msgid "Branch/Tag the working copy"
+msgstr "Zweig/Markierung aus Arbeitskopie erstellen"
+
 #: ID:9
 msgid "Branch/Tag..."
 msgstr "Verzweigen / Markieren..."
@@ -1310,11 +1319,6 @@ msgstr "Projektarchiv erstellen"
 msgid "Create Repository here"
 msgstr "Projektarchiv hier erstellen"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Create the branch/tag directly on the server"
-msgstr "Erstelle Zweig/Markierung direkt im Projektarchiv"
-
 #: ID:126
 msgid "Created folder remotely"
 msgstr "Ordner im Projektarchiv angelegt"
@@ -1687,11 +1691,6 @@ msgstr "Zeichensatz:"
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "Drücken Sie F1, um Hilfe zu erhalten"
-
-# Control-ID:1168,
-#: Control-ID:1168
-msgid "Force shell icon refresh"
-msgstr "Erzwinge Iconaktualisierung"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3745,16 +3744,6 @@ msgstr "Warnung"
 #: ID:219
 msgid "Warning!"
 msgstr "Warnung!"
-
-# ID:195,
-#: ID:195
-msgid ""
-"When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Erzwingt eine Aktualisierung der überlagerten Icons nach jeder Operation.\n"
-"\n"
-"<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
