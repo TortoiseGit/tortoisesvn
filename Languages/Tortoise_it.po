@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-26 14:41+0100\n"
+"PO-Revision-Date: 2005-01-29 14:51+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -199,6 +199,11 @@ msgstr "&Copia in..."
 #: ID:101
 msgid "&Delete"
 msgstr "Eli&mina"
+
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "&Simulazione"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -452,6 +457,11 @@ msgstr "&Annulla"
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Annulla\tCtrl+Z"
+
+# Control-ID:65535,
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "Confronto &unificato"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -1484,6 +1494,11 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:273
+msgid "Could not create device context!"
+msgstr "Impossibile creare un contesto di periferica!"
+
+# ID:81,
 #: ID:81
 msgid "Could not get the status!"
 msgstr "Impossibile ottenere lo stato!"
@@ -1807,11 +1822,6 @@ msgstr "Non visualizzare più questo messaggio"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Tipi di disco"
-
-# Control-ID:1061,
-#: Control-ID:1179
-msgid "Dry Run"
-msgstr "Simulazione"
 
 #: MenuEntry
 msgid "E&xit"
@@ -4313,11 +4323,6 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Formato del file inatteso."
-
-# Control-ID:65535,
-#: Control-ID:1180
-msgid "Unified Diff"
-msgstr "Confronto unificato"
 
 # ID:81,
 #: ID:81

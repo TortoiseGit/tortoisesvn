@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-16 23:39+0900\n"
+"PO-Revision-Date: 2005-01-31 15:34+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -199,6 +199,11 @@ msgstr "복사(&C)..."
 msgid "&Delete"
 msgstr "삭제(&D)"
 
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "가상 실행(&D)"
+
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "&Edit"
@@ -280,14 +285,10 @@ msgstr "언어(&L):"
 msgid "&Mark as resolved"
 msgstr "충돌해결상태로 표시(&M)"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "병합(&M)"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "다음 URL에서 현재 작업 공간에 차이점을 병합(&M):"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -451,6 +452,11 @@ msgstr "실행 취소(&U)"
 msgid "&Undo\tCtrl+Z"
 msgstr "실행 취소(&U)\tCtrl-Z"
 
+# Control-ID:1013,
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "Unified Diff 적용(&U)"
+
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -476,6 +482,11 @@ msgstr "보기(&V)"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "공백(&W)"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(가상 실행)"
 
 # ID:208,
 #: ID:208
@@ -1472,6 +1483,11 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:273
+msgid "Could not create device context!"
+msgstr "디바이스 컨텍스트를 열 수 없습니다!"
+
+# ID:81,
 #: ID:81
 msgid "Could not get the status!"
 msgstr "상태를 얻을 수 없습니다!"
@@ -1795,11 +1811,6 @@ msgstr "이 메시지를 다시 표시하지 않음"
 msgid "Drive Types"
 msgstr "드라이브 종류"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Dry Run"
-msgstr "가상 실행"
-
 #: MenuEntry
 msgid "E&xit"
 msgstr "종료(&X)"
@@ -1878,6 +1889,11 @@ msgid ""
 msgstr ""
 "선택한 것 지우기\n"
 "지우기"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "오류"
 
 # ID:81,
 #: ID:81
@@ -2051,8 +2067,8 @@ msgstr "강제로 쉘 아이콘 새로 고침"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "From:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "시작: (병합할 범위의 시작 URL과 리비전)"
 
 # ID:273,
 #: ID:273
@@ -2664,6 +2680,11 @@ msgstr "보통"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "일부 레지스트리(혹은 INI파일)이 삭제되지 않았습니다."
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "주의"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -3518,6 +3539,11 @@ msgstr "속성 설정..."
 msgid "Settings"
 msgstr "설정"
 
+# ID:12,
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "로그 보기(&O)"
+
 # ID:101,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3675,6 +3701,11 @@ msgstr ""
 "TortoiseSVN이 버전컨트롤 하지 않을\n"
 "파일이나 폴더를 지정하십시오.\n"
 "패턴들은 공백으로 분리하면 됩니다."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "병합할 리비전의 범위를 지정하세요"
 
 # ID:3604,
 #: ID:3604
@@ -3969,6 +4000,11 @@ msgstr ""
 "<i>%s</i>\n"
 "을(를) 찾았습니다. 위 경로를 대신 사용하시겠습니까?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "병합 결과는 작업사본에 저장되었습니다. :"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -4078,8 +4114,8 @@ msgstr "바뀐 부분을 보고 싶을 경우 위 파일들을 더블 클릭하�
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "To:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "종료: (병합할 범위의 종료 URL과 리비전)"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4468,6 +4504,11 @@ msgstr "GNU diff 파일 (패치 파일) 보기 프로그램"
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "웹 사이트 방문"
+
+# ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "경고"
 
 # ID:219,
 #: ID:219
@@ -4944,6 +4985,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "주"
+
+# ID:9,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "저장소 URL의 원하는 위치:"
 
 # Control-ID:1112,
 #: Control-ID:1112
