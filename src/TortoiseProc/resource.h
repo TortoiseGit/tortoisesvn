@@ -195,6 +195,7 @@
 #define IDS_LOG_POPUP_DIFF              800
 #define IDS_LOG_POPUP_REVERTREV         801
 #define IDS_LOG_POPUP_GNUDIFF           802
+#define IDS_LOG_COPY_SUCCESS            830
 #define IDS_PROGRESSGETFILE             900
 #define IDS_PROGRESSREVISION            901
 #define IDS_PROGRESSWAIT                902
