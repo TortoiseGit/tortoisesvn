@@ -418,6 +418,22 @@ public:
 	LONG GetHEADRevision(CString url);
 
 	/**
+	 * Set the revision property \a sName to the new value \a sValue.
+	 * \param sURL the URL of the file/folder
+	 * \param rev the revision number to change the revprop
+	 * \return the actual revision number the property value was set
+	 */
+	LONG RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev);
+
+	/**
+	 * Reads the revision property \a sName and returns its value.
+	 * \param sURL the URL of the file/folder
+	 * \param rev the revision number
+	 * \return the value of the property
+	 */
+	CString	RevPropertyGet(CString sName, CString sURL, SVNRev rev);
+
+	/**
 	 * Releases all used memory pools.
 	 */
 	void ReleasePool();

@@ -1084,6 +1084,7 @@ CString SVN::GetRepositoryRoot(CString url)
 	void *ra_baton, *session;
 	const char * returl;
 	CString retURL;
+	url.Replace('\\', '/');
 	CStringA urla = CUnicodeUtils::GetUTF8(url);
 	/* Get the RA library that handles URL. */
 	if (svn_ra_init_ra_libs (&ra_baton, pool))
@@ -1107,11 +1108,16 @@ LONG SVN::GetHEADRevision(CString url)
 	void *ra_baton, *session;
 	const char * urla;
 	LONG rev;
+	url.Replace('\\', '/');
 	CStringA tempurl = CUnicodeUtils::GetUTF8(url);
 	if (!svn_path_is_url(tempurl))
 		SVN::get_url_from_target(&urla, tempurl);
 	else
 		urla = tempurl;
+
+	if (urla == NULL)
+		return -1;
+
 	/* Get the RA library that handles URL. */
 	if (svn_ra_init_ra_libs (&ra_baton, pool))
 		return -1;
@@ -1125,6 +1131,37 @@ LONG SVN::GetHEADRevision(CString url)
 	if (ra_lib->get_latest_revnum(session, &rev, pool))
 		return -1;
 	return rev;
+}
+
+LONG SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev)
+{
+	svn_revnum_t set_rev;
+	svn_string_t*	pval;
+	sValue.Replace(_T("\r"), _T(""));
+	pval = svn_string_create (CUnicodeUtils::GetUTF8(sValue), pool);
+	Err = svn_client_revprop_set(CUnicodeUtils::GetUTF8(sName), 
+									pval, 
+									CUnicodeUtils::GetUTF8(sURL), 
+									rev, 
+									&set_rev, 
+									FALSE, 
+									&ctx, 
+									pool);
+	if (Err)
+		return 0;
+	return set_rev;
+}
+
+CString SVN::RevPropertyGet(CString sName, CString sURL, SVNRev rev)
+{
+	svn_string_t *propval;
+	svn_revnum_t set_rev;
+	Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, CUnicodeUtils::GetUTF8(sURL), rev, &set_rev, &ctx, pool);
+	if (Err)
+		return _T("");
+	if (propval->len <= 0)
+		return _T("");
+	return CUnicodeUtils::GetUnicode(propval->data);
 }
 
 CString SVN::GetPristinePath(CString wcPath)

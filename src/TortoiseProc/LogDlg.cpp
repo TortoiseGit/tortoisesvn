@@ -23,7 +23,7 @@
 #include "cursor.h"
 #include "UnicodeUtils.h"
 #include "MergeDlg.h"
-#include "LogDlg.h"
+#include "InputDlg.h"
 #include ".\logdlg.h"
 
 // CLogDlg dialog
@@ -848,8 +848,9 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 	int selIndex = pNMLV->iItem;
-
-	if (selIndex >= 0)
+	int selSub = pNMLV->iSubItem;
+	BOOL isSpecial = (GetKeyState(VK_SHIFT)<0)&&(selSub==1 || selSub==3);
+	if ((selIndex >= 0)&&(!isSpecial))
 	{
 		CString temp;
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
@@ -894,7 +895,49 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 		theApp.DoWaitCursor(-1);
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
-	} // if (selIndex >= 0)
+	}
+	if (isSpecial)
+	{
+		CString url;
+		CString name;
+		CString text;
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+		this->m_app = &theApp;
+		theApp.DoWaitCursor(1);
+		if (SVN::PathIsURL(m_path))
+			url = m_path;
+		else
+		{
+			SVNStatus s;
+			s.GetStatus(m_path);
+			if ((s.status)&&(s.status->entry)&&(s.status->entry->url))
+			{
+				url = s.status->entry->url;
+			}
+		}
+		if (selSub == 1)
+		{
+			text.LoadString(IDS_LOG_AUTHOR);
+			name = SVN_PROP_REVISION_AUTHOR;
+		}
+		else if (selSub == 3)
+		{
+			text.LoadString(IDS_LOG_MESSAGE);
+			name = SVN_PROP_REVISION_LOG;
+		}
+
+		CString value = RevPropertyGet(name, url, m_arRevs.GetAt(selIndex));
+		CInputDlg dlg;
+		dlg.m_sHintText = text;
+		dlg.m_sInputText = value;
+		if (dlg.DoModal() == IDOK)
+		{
+			if (!RevPropertySet(name, dlg.m_sInputText, url, m_arRevs.GetAt(selIndex)))
+				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		}
+		theApp.DoWaitCursor(-1);
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
 }
 
 LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
