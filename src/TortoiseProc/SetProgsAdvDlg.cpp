@@ -27,11 +27,11 @@
 IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CDialog)
 CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
 	: CDialog(CSetProgsAdvDlg::IDD, pParent)
+	, m_sType(type)
 	, m_regToolKey(_T("Software\\TortoiseSVN\\") + type + _T("Tools"))
 	, m_regDontConvertBase(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE)
-	, m_sType(type)
-	, m_ToolsValid(false)
 	, m_bDontConvertBase(false)
+	, m_ToolsValid(false)
 {
 }
 

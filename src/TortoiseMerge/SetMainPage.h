@@ -17,9 +17,9 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
+
 #include "resource.h"
 #include "registry.h"
-#include "afxwin.h"
 #include "FontPreviewCombo.h"
 
 // CSetMainPage dialog

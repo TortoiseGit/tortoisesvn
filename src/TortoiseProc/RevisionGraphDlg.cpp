@@ -19,7 +19,8 @@
 #include "TortoiseProc.h"
 #include "MemDC.h"
 #include <gdiplus.h>
-#include ".\revisiongraphdlg.h"
+#include "Revisiongraphdlg.h"
+#include "MessageBox.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -217,7 +218,7 @@ void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz)
 	SetScrollInfo(SB_HORZ, &ScrollInfo);
 }
 
-INT_PTR CRevisionGraphDlg::GetIndexOfRevision(LONG rev)
+INT_PTR CRevisionGraphDlg::GetIndexOfRevision(LONG rev) const
 {
 	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
 	{
@@ -391,8 +392,8 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
 		CString temp;
 		CRect r;
-		TEXTMETRIC tm;
-		pDC->GetTextMetrics(&tm);
+		TEXTMETRIC textMetric;
+		pDC->GetTextMetrics(&textMetric);
 		temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 		pDC->DrawText(temp, &r, DT_CALCRECT);
 		pDC->ExtTextOut(rect.left + ((rect.Width()-r.Width())/2), rect.top + m_node_rect_heigth/4, ETO_CLIPPED, NULL, temp, NULL);
@@ -727,7 +728,7 @@ void CRevisionGraphDlg::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 		// only draw the lines if they're at least partially visible
 		//if (viewrect.PtInRect(pt[0])||viewrect.PtInRect(pt[3]))
 		{
-			CPoint p[4];
+			POINT p[4];
 			// correct the scroll offset
 			p[0].x = pt[0].x - nHScrollPos;
 			p[1].x = pt[1].x - nHScrollPos;
@@ -923,10 +924,10 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 			TCHAR date[200];
 			SVN::formatDate(date, rentry->date);
 			strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
-							CUnicodeUtils::GetUnicode(rentry->url),
-							CUnicodeUtils::GetUnicode(rentry->author), 
+							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->url),
+							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->author), 
 							date,
-							CUnicodeUtils::GetUnicode(rentry->message));
+							(LPCTSTR)CUnicodeUtils::GetUnicode(rentry->message));
 		}
 	}
 	else

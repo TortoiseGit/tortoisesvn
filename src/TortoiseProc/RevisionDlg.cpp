@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RevisionDlg.h"
+#include "Balloon.h"
 
 
 // CRevisionDlg dialog

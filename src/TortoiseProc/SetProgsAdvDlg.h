@@ -18,6 +18,8 @@
 //
 #pragma once
 
+#include "Balloon.h"
+
 // CSetProgsAdvDlg dialog
 
 class CSetProgsAdvDlg : public CDialog

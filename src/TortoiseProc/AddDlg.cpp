@@ -29,7 +29,9 @@
 
 IMPLEMENT_DYNAMIC(CAddDlg, CResizableDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CAddDlg::IDD, pParent)
+	: CResizableDialog(CAddDlg::IDD, pParent),
+	m_bThreadRunning(false),
+	m_hThread(NULL)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }

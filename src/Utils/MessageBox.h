@@ -383,7 +383,7 @@ protected:
 	 * \param sValue the value name
 	 * \param value DWORD to store
 	 */
-	static void SetRegistryValue(CString sValue, DWORD value);
+	static void SetRegistryValue(const CString& sValue, DWORD value);
 	/**
 	 * Shows the modal dialog 
 	 * \param pWnd handle to the parent window or NULL
@@ -393,7 +393,7 @@ protected:
 	 * \return the value stored in the member variables for the buttons (m_uButtonXRet)
 	 * of the button pressed
 	 */
-	UINT GoModal(CWnd * pWnd, CString title, CString msg, int nDefaultButton);
+	UINT GoModal(CWnd * pWnd, const CString& title, const CString& msg, int nDefaultButton);
 
 	/**
 	 * Fills in the member variables according to the uType parameter
@@ -404,7 +404,7 @@ protected:
 	 * Calculates the size of the string in pixels
 	 * \param str the string to check the size 
 	 */
-	CSize GetTextSize(CString str);
+	CSize GetTextSize(const CString& str);
 	/**
 	 * Returns the size of the icon
 	 */

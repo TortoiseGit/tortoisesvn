@@ -24,16 +24,22 @@
 #include "InputDlg.h"
 #include "PropDlg.h"
 #include "SVNProgressDlg.h"
+#include "ProgressDlg.h"
 #include "RepositoryBrowser.h"
 #include "CopyDlg.h"
 #include "StatGraphDlg.h"
-#include ".\logdlg.h"
+#include "Logdlg.h"
+#include "MessageBox.h"
 
 // CLogDlg dialog
 
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CLogDlg::IDD, pParent)
+	: CResizableDialog(CLogDlg::IDD, pParent),
+	m_startrev(0),
+	m_endrev(0),
+	m_logcounter(0),
+	m_bStrict(FALSE)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -41,6 +47,8 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pNotifyWindow = NULL;
 	m_bThreadRunning = FALSE;
+
+
 }
 
 CLogDlg::~CLogDlg()
@@ -227,7 +235,7 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 	m_LogMsgCtrl.DeleteAllItems();
 	m_LogMsgCtrl.SetRedraw(FALSE);
 	int line = 0;
-	CString temp = _T("");
+//	CString temp = _T("");
 	int curpos = 0;
 	int curposold = 0;
 	CString linestr;
@@ -498,11 +506,11 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						int nItem = m_LogList.GetNextSelectedItem(pos);
 						CString sLogCopyText;
 						sLogCopyText.Format(_T("%s: %d\n%s: %s\n%s: %s\n%s:\n%s\n----\n%s\n\n"),
-							sRev, m_arRevs.GetAt(nItem),
-							sAuthor, m_LogList.GetItemText(nItem, 1),
-							sDate, m_LogList.GetItemText(nItem, 2),
-							sMessage, m_arLogMessages.GetAt(nItem),
-							m_arLogPaths.GetAt(nItem));
+							(LPCTSTR)sRev, m_arRevs.GetAt(nItem),
+							(LPCTSTR)sAuthor, (LPCTSTR)m_LogList.GetItemText(nItem, 1),
+							(LPCTSTR)sDate, (LPCTSTR)m_LogList.GetItemText(nItem, 2),
+							(LPCTSTR)sMessage, (LPCTSTR)m_arLogMessages.GetAt(nItem),
+							(LPCTSTR)m_arLogPaths.GetAt(nItem));
 						sClipdata +=  CStringA(sLogCopyText);
 					}
 					CUtils::WriteAsciiStringToClipboard(sClipdata);
@@ -654,16 +662,15 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_REVERTREV:
 					{
-						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
 						if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
 						{
 							CString url = this->GetURLFromPath(m_path);
 							if (url.IsEmpty())
 							{
-								CString temp;
-								temp.Format(IDS_ERR_NOURLOFFILE, m_path);
-								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								CString strMessage;
+								strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)m_path);
+								CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the folder!\n"));
 								break;		//exit
 							} // if ((rev == (-2))||(status.status->entry == NULL))
@@ -679,7 +686,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_COPY:
 					{
-						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
 						CCopyDlg dlg;
 						CString url = GetURLFromPath(m_path);
@@ -755,8 +761,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								CString revname, wcname;
 								CString ext = CUtils::GetFileExtFromPath(m_path);
-								revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
-								wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
+								revname.Format(_T("%s Revision %ld"), (LPCTSTR)CUtils::GetFileNameFromPath(m_path), rev);
+								wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)CUtils::GetFileNameFromPath(m_path));
 								CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
 							}
 						}
@@ -776,7 +782,6 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_SAVEAS:
 					{
 						//now first get the revision which is selected
-						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
 
 						OPENFILENAME ofn;		// common dialog box structure
@@ -787,9 +792,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							CString revFilename;
 							int rfind = m_path.ReverseFind('.');
 							if (rfind > 0)
-								revFilename.Format(_T("%s-%ld%s"), m_path.Left(rfind), rev, m_path.Mid(rfind));
+								revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)m_path.Left(rfind), rev, (LPCTSTR)m_path.Mid(rfind));
 							else
-								revFilename.Format(_T("%s-%ld"), m_path, rev);
+								revFilename.Format(_T("%s-%ld"), (LPCTSTR)m_path, rev);
 							_tcscpy(szFile, revFilename);
 						}
 						// Initialize OPENFILENAME
@@ -1196,7 +1201,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				CString revname, wcname;
 				CString ext = CUtils::GetFileExtFromPath(m_path);
-				revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
+				revname.Format(_T("%s Revision %ld"), (LPCTSTR)CUtils::GetFileNameFromPath(m_path), rev);
 				wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
 				CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
 			}
@@ -1340,7 +1345,8 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
 		bool bFound = FALSE;
 
-		for (int i=this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++)
+		int i;
+		for (i = this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++)
 		{
 			if (bMatchCase)
 			{
@@ -1361,7 +1367,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				msg += m_arLogPaths.GetAt(i);
 				msg = msg.MakeLower();
 				CString find = FindText.MakeLower();
-				if (msg.Find(FindText) >= 0)
+				if (msg.Find(find) >= 0)
 				{
 					bFound = TRUE;
 					break;

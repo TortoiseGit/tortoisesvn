@@ -108,6 +108,7 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
 					PostMessage(WM_COMMAND, IDOK);
 				}
 			}
+			break;
 		case 'A':
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)

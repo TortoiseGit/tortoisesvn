@@ -51,7 +51,7 @@ using std::map;
 class CCmdLineParser 
 {
 public:
-	class CValsMap : public map<CString, CString> {};
+	typedef map<CString, CString> CValsMap;
 	typedef CValsMap::const_iterator ITERPOS;
 public:
 	/**
@@ -89,7 +89,7 @@ public:
 	 * \param pos the position to check
 	 * \return TRUE if no more key/value pairs are available
 	 */
-	BOOL isLast(ITERPOS& pos) const;
+	BOOL isLast(const ITERPOS& pos) const;
 
 	/**
 	 * Checks if the given key is in the command line.

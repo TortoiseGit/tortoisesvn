@@ -23,7 +23,8 @@
 #include "MessageBox.h"
 #include "UnicodeUtils.h"
 #include "RepositoryBrowser.h"
-#include ".\copydlg.h"
+#include "Balloon.h"
+#include "BrowseFolder.h"
 
 // CCopyDlg dialog
 
@@ -143,7 +144,7 @@ BOOL CCopyDlg::OnInitDialog()
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
 
 	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), sUUID);
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
 	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 
 	m_ProjectProperties.ReadProps(m_path);
@@ -211,7 +212,7 @@ void CCopyDlg::OnOK()
 	if (m_wcURL.CompareNoCase(combourl)==0)
 	{
 		CString temp;
-		temp.Format(IDS_ERR_COPYITSELF, m_wcURL, m_URLCombo.GetString());
+		temp.Format(IDS_ERR_COPYITSELF, (LPCTSTR)m_wcURL, (LPCTSTR)m_URLCombo.GetString());
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		return;
 	}

@@ -245,8 +245,8 @@ public:
 	void	write();					///< writes the value to the registry
 		
 	operator CString();
-	CRegString& operator=(CString s);
-	CRegString& operator+=(CString s) { return *this = (CString)*this + s; }
+	CRegString& operator=(const CString& s);
+	CRegString& operator+=(const CString& s) { return *this = (CString)*this + s; }
 	
 	
 	

@@ -20,7 +20,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
-
+#include "Balloon.h"
 
 // CBlameDlg dialog
 

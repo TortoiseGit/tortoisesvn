@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "SpellEdit.h"
 
-#include "shlwapi.h"
 #include "resource.h"
 #include ".\spelledit.h"
 
@@ -40,8 +39,8 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 	{
 		SetTimer(m_timer, 4000, NULL);
 
-		RECT rect;
-		GetClientRect(&rect);
+		RECT clientRect;
+		GetClientRect(&clientRect);
 
 		CClientDC dc(this); // device context for painting
 		dc.SelectObject((*GetFont()));
@@ -70,7 +69,7 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 		pOldPen = dc.SelectObject( &mypen );
 
 		CRgn rgn;
-		rgn.CreateRectRgnIndirect(&rect);
+		rgn.CreateRectRgnIndirect(&clientRect);
 		dc.SelectObject(rgn);
 		
 		int nFirstVisible = GetFirstVisibleLine();
@@ -129,12 +128,12 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 						dc.LineTo(CharPos.x+wordsize.cx, CharPos.y+wordsize.cy);	    
 						dc.SelectObject(errorPen);
 					}				
-				} while ((pos >= 0)&&(CharPos.x < rect.right));
+				} while ((pos >= 0)&&(CharPos.x < clientRect.right));
 				//underline words
 				delete [] pBuf;
 			} // if (nLineLength > 0) 
 			i++;
-		} while ((i < this->GetLineCount())&&(CharPos.y < rect.bottom));
+		} while ((i < this->GetLineCount())&&(CharPos.y < clientRect.bottom));
 		dc.SelectObject(pOldPen);
 	} // if (nIDEvent == SPELLTIMER)
 	CEdit::OnTimer(nIDEvent);

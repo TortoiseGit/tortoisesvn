@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "afxcmn.h"
+
 #include "ResizableDialog.h"
 #include "SVNStatusListCtrl.h"
 
@@ -72,7 +72,7 @@ public:
 	CSVNStatusListCtrl	m_addListCtrl;
 	CString			m_sPath;
 	CStringArray	m_arFileList;
-	BOOL			m_bThreadRunning;
+	bool			m_bThreadRunning;
 
 private:
 	HANDLE			m_hThread;

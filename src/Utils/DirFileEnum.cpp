@@ -20,8 +20,8 @@
 
 
 CSimpleFileFind::CSimpleFileFind(const CString &sPath, LPCTSTR pPattern) :
-   m_bFirst(TRUE),
    m_dError(ERROR_SUCCESS),
+   m_bFirst(TRUE),
    m_sPathPrefix(sPath)
 {
    // Add a trailing \ to m_sPathPrefix if it is missing.

@@ -19,13 +19,12 @@
 
 #include "StdAfx.h"
 #include "TortoiseProc.h"
+#include "ProgressDlg.h"
 #include "svn.h"
-#include "svn_error_codes.h"
+#include "svn_sorts.h"
 #include "client.h"
 #include "UnicodeUtils.h"
 #include "DirFileEnum.h"
-#include <shlwapi.h>
-#include "wininet.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

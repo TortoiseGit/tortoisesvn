@@ -132,7 +132,7 @@ public:
     *
     * \return Windows error code.
     */
-   inline DWORD GetError()
+   inline DWORD GetError() const
    {
       return m_dError;
    }
@@ -144,7 +144,7 @@ public:
     *
     * \return TRUE iff the current file data is valid.
     */
-   inline BOOL IsValid()
+   inline BOOL IsValid() const
    {
       return (m_dError == ERROR_SUCCESS);
    }
@@ -154,7 +154,7 @@ public:
     *
     * \return TRUE iff we have passed the end of the directory.
     */
-   inline BOOL IsPastEnd()
+   inline BOOL IsPastEnd() const
    {
       return (m_dError == ERROR_NO_MORE_FILES);
    }
@@ -165,7 +165,7 @@ public:
     *
     * \return TRUE iff there has been an unexpected error.
     */
-   inline BOOL IsError()
+   inline BOOL IsError() const
    {
       return (m_dError != ERROR_SUCCESS)
           && (m_dError != ERROR_NO_MORE_FILES);
@@ -176,7 +176,7 @@ public:
     *
     * \return TRUE iff the current file is a directory.
     */
-   inline bool IsDirectory()
+   inline bool IsDirectory() const
    {
       return !!(m_FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
    }
@@ -186,7 +186,7 @@ public:
     *
     * \return the current file name.
     */
-   inline CString GetFileName()
+   inline CString GetFileName() const
    {
       return m_FindFileData.cFileName;
    }
@@ -196,7 +196,7 @@ public:
     *
     * \return the current file path.
     */
-   inline CString GetFilePath()
+   inline CString GetFilePath() const
    {
       return m_sPathPrefix + m_FindFileData.cFileName;
    }
@@ -208,7 +208,8 @@ public:
     * \return TRUE iff the current file is the "." or ".."
     * pseudo-directory.
     */
-   inline BOOL IsDots() {
+   inline BOOL IsDots() const 
+   {
       return IsDirectory()
           && m_FindFileData.cFileName[0] == _T('.')
           && ( (m_FindFileData.cFileName[1] == 0)

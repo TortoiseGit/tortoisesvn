@@ -17,7 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "svnproperties.h"
 
 #define BUGTRAQPROPNAME_LABEL             _T("bugtraq:label")
 #define BUGTRAQPROPNAME_MESSAGE           _T("bugtraq:message")
@@ -69,7 +68,7 @@ public:
 	 * This method calls ReadProps() for each path found in the tempfile.
 	 * \param path path to the tempfile
 	 */
-	BOOL ReadPropsTempfile(CString path);
+	BOOL ReadPropsTempfile(const CString& path);
 
 	/**
 	 * Searches for the BugID inside a log message. If one is found,

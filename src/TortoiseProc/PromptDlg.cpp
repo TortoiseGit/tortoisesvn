@@ -30,6 +30,8 @@ CPromptDlg::CPromptDlg(CWnd* pParent /*=NULL*/)
 	, m_info(_T(""))
 	, m_sPass(_T(""))
 	, m_saveCheck(FALSE)
+	, m_hide(FALSE)
+	, m_hParentWnd(NULL)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }

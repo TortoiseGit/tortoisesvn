@@ -20,7 +20,7 @@
 #include "stringutils.h"
 
 #ifdef _MFC_VER
-BOOL CStringUtils::WildCardMatch(CString wildcard, CString string)
+BOOL CStringUtils::WildCardMatch(const CString& wildcard, const CString& string)
 {
 	return _tcswildcmp(wildcard, string);
 }

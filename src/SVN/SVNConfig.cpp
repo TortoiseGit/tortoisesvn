@@ -57,8 +57,10 @@ BOOL SVNConfig::GetDefaultIgnores(apr_array_header_t** ppPatterns)
 	apr_array_header_t *patterns = NULL;
 	err = svn_wc_get_default_ignores (&(patterns), ctx.config, pool);
 	if (err)
+	{
+		ppPatterns = NULL;
 		return FALSE;
-
+	}
 	*ppPatterns = patterns;
 
 	return TRUE;
@@ -66,7 +68,8 @@ BOOL SVNConfig::GetDefaultIgnores(apr_array_header_t** ppPatterns)
 
 BOOL SVNConfig::MatchIgnorePattern(const CString& sFilepath, apr_array_header_t *patterns)
 {
-//	sFilepath.Replace('\\', '/');
+	if (patterns == NULL)
+		return FALSE;
 	int lastSlashPos = sFilepath.ReverseFind('/');
 	if(lastSlashPos == -1)
 	{

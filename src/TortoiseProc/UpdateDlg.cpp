@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "UpdateDlg.h"
+#include "Balloon.h"
 
 
 // CUpdateDlg dialog

@@ -18,12 +18,13 @@
 //
 #include "StdAfx.h"
 #include "SVNPrompt.h"
+#include "PromptDlg.h"
+#include "SimplePrompt.h"
 #include "Dlgs.h"
 
 #include "TortoiseProc.h"
 #include "svn.h"
 #include "UnicodeUtils.h"
-#include <shlwapi.h>
 #include "MessageBox.h"
 
 #include "auth_providers.h"

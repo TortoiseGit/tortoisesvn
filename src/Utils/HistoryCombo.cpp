@@ -18,7 +18,6 @@
 #include "stdafx.h"
 #include "HistoryCombo.h"
 #include "SysImageList.h"
-#include "shlwapi.h"
 #include "registry.h"
 
 #define MAX_HISTORY_ITEMS 25
@@ -140,7 +139,7 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 	{
 		//keys are of form <lpszKeyPrefix><entrynumber>
 		CString sKey;
-		sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n++);
+		sKey.Format(_T("%s\\%s%d"), (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n++);
 		sText = CRegString(sKey);
 		if (!sText.IsEmpty())
 			AddString(sText);
@@ -175,7 +174,7 @@ void CHistoryCombo::SaveHistory()
 	for (int n = 0; n < nMax; n++)
 	{
 		CString sKey;
-		sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n);
+		sKey.Format(_T("%s\\%s%d"), (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);
 		CString sText;
 		GetLBText(n, sText);
 		CRegString regkey = CRegString(sKey);
@@ -185,7 +184,7 @@ void CHistoryCombo::SaveHistory()
 	for (n = nMax; ; n++)
 	{
 		CString sKey;
-		sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n);
+		sKey.Format(_T("%s\\%s%d"), (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);
 		CRegString regkey = CRegString(sKey);
 		CString sText = regkey;
 		if (sText.IsEmpty())
@@ -203,7 +202,7 @@ void CHistoryCombo::ClearHistory(BOOL bDeleteRegistryEntries/*=TRUE*/)
 		CString sKey;
 		for (int n = 0; ; n++)
 		{
-			sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n);
+			sKey.Format(_T("%s\\%s%d"), (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);
 			CRegString regkey = CRegString(sKey);
 			CString sText = regkey;
 			if (sText.IsEmpty())
@@ -224,15 +223,12 @@ void CHistoryCombo::SetURLHistory(BOOL bURLHistory)
 		hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
 		if (NULL == hwndEdit)
 		{
-			//if not, try the old standby
-			if(hwndEdit==NULL)
+			// Try the unofficial way of getting the edit control CWnd*
+			CWnd* pWnd = this->GetDlgItem(1001);
+			if(pWnd)
 			{
-				CWnd* pWnd = this->GetDlgItem(1001);
-				if(pWnd)
-				{
-					hwndEdit = pWnd->GetSafeHwnd();
-				}
-			} // if(hwndEdit==NULL) 
+				hwndEdit = pWnd->GetSafeHwnd();
+			}
 		} // if (NULL == hwndEdit) 
 		if (hwndEdit)
 			SHAutoComplete(hwndEdit, SHACF_URLALL);
@@ -279,7 +275,7 @@ void CHistoryCombo::SetMaxHistoryItems(int nMaxItems)
 		DeleteString(m_nMaxHistoryItems);
 }
 
-CString CHistoryCombo::GetString()
+CString CHistoryCombo::GetString() const
 {
 	CString str;
 	int sel;

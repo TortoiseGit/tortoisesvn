@@ -20,7 +20,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SimplePrompt.h"
-#include ".\simpleprompt.h"
 
 
 // CSimplePrompt dialog

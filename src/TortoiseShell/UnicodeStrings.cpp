@@ -18,7 +18,7 @@
 #include "stdafx.h"
 #include "UnicodeStrings.h"
 
-std::string WideToMultibyte(wide_string wide)
+std::string WideToMultibyte(const wide_string& wide)
 {
 	char * narrow = new char[wide.length()*3+2];
 	BOOL defaultCharUsed;
@@ -29,7 +29,7 @@ std::string WideToMultibyte(wide_string wide)
 	return str;
 }
 
-std::string WideToUTF8(wide_string wide)
+std::string WideToUTF8(const wide_string& wide)
 {
 	char * narrow = new char[wide.length()*3+2];
 	int ret = (int)WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, NULL, NULL);
@@ -39,7 +39,7 @@ std::string WideToUTF8(wide_string wide)
 	return str;
 }
 
-wide_string MultibyteToWide(std::string multibyte)
+wide_string MultibyteToWide(const std::string& multibyte)
 {
 	wchar_t * wide = new wchar_t[multibyte.length()*2+2];
 	int ret = (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
@@ -49,7 +49,7 @@ wide_string MultibyteToWide(std::string multibyte)
 	return str;
 }
 
-wide_string UTF8ToWide(std::string multibyte)
+wide_string UTF8ToWide(const std::string& multibyte)
 {
 	wchar_t * wide = new wchar_t[multibyte.length()*2+2];
 	int ret = (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
@@ -59,11 +59,11 @@ wide_string UTF8ToWide(std::string multibyte)
 	return str;
 }
 #ifdef UNICODE
-stdstring UTF8ToString(std::string string) {return UTF8ToWide(string);}
-std::string StringToUTF8(stdstring string) {return WideToUTF8(string);}
+stdstring UTF8ToString(const std::string& string) {return UTF8ToWide(string);}
+std::string StringToUTF8(const stdstring& string) {return WideToUTF8(string);}
 #else
-stdstring UTF8ToString(std::string string) {return WideToMultibyte(UTF8ToWide(string));}
-std::string StringToUTF8(stdstring string) {return WideToUTF8(MultibyteToWide(string));}
+stdstring UTF8ToString(const std::string& string) {return WideToMultibyte(UTF8ToWide(string));}
+std::string StringToUTF8(const stdstring& string) {return WideToUTF8(MultibyteToWide(string));}
 #endif
 
 

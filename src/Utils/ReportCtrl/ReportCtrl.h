@@ -418,7 +418,7 @@ typedef BOOL (WINAPI *lpfnSetLayeredWindowAttributes)(
 	HWND hwnd, COLORREF crKey, BYTE xAlpha, DWORD dwFlags
 );
 
-BOOL InitLayeredWindows();
+BOOL InitLayeredWindows(void);
 
 BOOL MatchString(const CString& strString, const CString& strPattern);
 

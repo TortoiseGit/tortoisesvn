@@ -20,6 +20,9 @@
 #include "ResizableDialog.h"
 #include "SpellEdit.h"
 #include "ProjectProperties.h"
+#include "Balloon.h"
+#include "HistoryCombo.h"
+
 
 /**
  * \ingroup TortoiseProc

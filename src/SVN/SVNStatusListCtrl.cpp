@@ -208,7 +208,6 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 		m_sURL.Empty();
 
 		apr_array_header_t* pIgnorePatterns = NULL;
-		//BUGBUG - Some error handling needed here
 		config.GetDefaultIgnores(&pIgnorePatterns);
 
 		CStdioFile file(sFilePath, CFile::typeBinary | CFile::modeRead);
@@ -1775,12 +1774,12 @@ CString CSVNStatusListCtrl::GetStatistics()
 	sUnversioned = buf;
 	CString sToolTip;
 	sToolTip.Format(_T("%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d"),
-		sNormal, m_nNormal,
-		sUnversioned, m_nUnversioned,
-		sModified, m_nModified,
-		sAdded, m_nAdded,
-		sDeleted, m_nDeleted,
-		sConflicted, m_nConflicted
+		(LPCTSTR)sNormal, m_nNormal,
+		(LPCTSTR)sUnversioned, m_nUnversioned,
+		(LPCTSTR)sModified, m_nModified,
+		(LPCTSTR)sAdded, m_nAdded,
+		(LPCTSTR)sDeleted, m_nDeleted,
+		(LPCTSTR)sConflicted, m_nConflicted
 		);
 	CString sStats;
 	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, GetItemCount());

@@ -388,7 +388,7 @@ int CMessageBox::FillBoxStandard(UINT uType)
 	return 1;
 }
 
-UINT CMessageBox::GoModal(CWnd * pWnd, CString title, CString msg, int nDefaultButton)
+UINT CMessageBox::GoModal(CWnd * pWnd, const CString& title, const CString& msg, int nDefaultButton)
 {
 	NONCLIENTMETRICS ncm;
 	ncm.cbSize = sizeof(NONCLIENTMETRICS);
@@ -422,7 +422,7 @@ UINT CMessageBox::GoModal(CWnd * pWnd, CString title, CString msg, int nDefaultB
 	return (UINT)DoModal();
 }
 
-void CMessageBox::SetRegistryValue(CString sValue, DWORD value)
+void CMessageBox::SetRegistryValue(const CString& sValue, DWORD value)
 {
 	CString path;
 #ifdef XMESSAGEBOX_APPREGPATH
@@ -441,7 +441,7 @@ void CMessageBox::SetRegistryValue(CString sValue, DWORD value)
 	RegCloseKey(hKey);
 }
 
-CSize CMessageBox::GetTextSize(CString str)
+CSize CMessageBox::GetTextSize(const CString& str)
 {
 	CRect rect;
 	GetWindowRect(&rect);
@@ -760,7 +760,7 @@ BOOL CMessageBox::OnInitDialog()
 	if (m_nDefButton == 3)
 		GetDlgItem(IDC_MESSAGEBOX_BUTTON3)->SetFocus();
 
-	SetWindowPos(&this->wndTopMost,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);
+	SetWindowPos(&CWnd::wndTopMost,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);
 	SetForegroundWindow();
 	SetFocus(); //Just playing safe
 

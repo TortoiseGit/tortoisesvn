@@ -225,7 +225,7 @@ CRegString::operator CString()
 	}
 }
 
-CRegString& CRegString::operator =(CString s)
+CRegString& CRegString::operator =(const CString& s)
 {
 	if ((s==m_value)&&(!m_force))
 	{

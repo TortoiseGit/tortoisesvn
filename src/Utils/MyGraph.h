@@ -36,7 +36,7 @@ private:
 	int		GetNonZeroElementCount() const;
 	int		GetDataTotal() const;
 	void	SetTipRegion(int nGroup, const CRect& rc);
-	void	SetTipRegion(int nGroup, const CRgn* prgn);
+	void	SetTipRegion(int nGroup, CRgn* prgn);
 	int		HitTest(const CPoint& pt) const;
 	CString	GetTipText(int nGroup) const;
 
@@ -44,7 +44,7 @@ private:
 private:
 	CString			m_sLabel;										// Series label.
 	CDWordArray		m_dwaValues;									// Values array.
-	CObArray		m_oaRegions;									// Tooltip regions.
+	CArray<CRgn*,CRgn*>		m_oaRegions;									// Tooltip regions.
 };
 
 
@@ -55,11 +55,11 @@ class MyGraph : public CStatic
 {
 // Enum.
 public:
-	enum GraphType		{ Bar, Line, Pie };
+	enum GraphType		{ Bar, Line, PieChart }; // Renamed 'Pie' because it hides a GDI function name
 
 // Construction.
 public:
-	MyGraph(GraphType eGraphType = MyGraph::Pie);
+	MyGraph(GraphType eGraphType = MyGraph::PieChart);
 	virtual ~MyGraph();
 
 // Declared but not defined.
@@ -140,7 +140,7 @@ private:
 	CString			m_sTitle;
 	CDWordArray		m_dwaColors;
 	CStringArray	m_saLegendLabels;
-	CObList			m_olMyGraphSeries;
+	CList<MyGraphSeries*,MyGraphSeries*> m_olMyGraphSeries;
 	GraphType		m_eGraphType;
 };
 

@@ -95,7 +95,7 @@ public:
 	 * \param url the url of the repository
 	 * \param revision the revision to work on or to get
 	 */
-	void SetParams(Command cmd, BOOL isTempFile, CString path, CString url = _T(""), CString message = _T(""), SVNRev revision = -1, CString modName = _T(""));
+	void SetParams(Command cmd, BOOL isTempFile, const CString& path, const CString& url = _T(""), const CString& message = _T(""), SVNRev revision = -1, const CString& modName = _T(""));
 
 	CString BuildInfoString();
 

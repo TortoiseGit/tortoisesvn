@@ -92,14 +92,14 @@ public:
 	/**
 	 * Returns a 32-bit RGB color
 	 */
-	COLORREF	FixColorRef		(COLORREF clr);
+	static COLORREF	FixColorRef		(COLORREF clr);
     /**
      * Sets the created Bitmap-image (from Create32BitFromPicture) to the internal
 	 * member variables and fills in all required values for this class.
      * \param lpBitmapInfo a pointer to a BITMAPINFO structure
      * \param lpBits pointer to the image bytefield
      */
-    BOOL		SetBitmap(LPBITMAPINFO lpBitmapInfo, LPVOID lpBits);   
+    BOOL		SetBitmap(const LPBITMAPINFO lpBitmapInfo, const LPVOID lpBits);   
 
 public:
     /**

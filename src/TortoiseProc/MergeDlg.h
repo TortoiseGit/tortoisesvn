@@ -20,7 +20,7 @@
 
 #include "LogDlg.h"
 #include "ResizableDialog.h"
-
+#include "HistoryCombo.h"
 
 /**
  * \ingroup TortoiseProc

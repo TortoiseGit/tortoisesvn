@@ -17,26 +17,11 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "atlsimpstr.h"
-#include "afxtempl.h"
 
-#include "apr_general.h"
-#include "svn_pools.h"
-#include "svn_client.h"
-#include "svn_sorts.h"
-#include "svn_path.h"
-#include "svn_wc.h"
-#include "svn_utf.h"
-#include "svn_repos.h"
-#include "svn_string.h"
-#include "svn_config.h"
-#include "svn_time.h"
-#include "svn_subst.h"
-#include "svn_auth.h"
-
-#include "ProgressDlg.h"
 #include "SVNPrompt.h"
 #include "SVNRev.h"
+
+class CProgressDlg;
 
 svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,

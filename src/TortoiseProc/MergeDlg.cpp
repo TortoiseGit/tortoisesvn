@@ -21,8 +21,9 @@
 #include "TortoiseProc.h"
 #include "MergeDlg.h"
 #include "RepositoryBrowser.h"
-
-
+#include "Balloon.h"
+#include "BrowseFolder.h"
+#include "MessageBox.h"
 
 IMPLEMENT_DYNAMIC(CMergeDlg, CResizableDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
@@ -129,7 +130,7 @@ BOOL CMergeDlg::OnInitDialog()
 	if (url.IsEmpty())
 	{
 		CString temp;
-		temp.Format(IDS_ERR_NOURLOFFILE, m_wcPath);
+		temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)m_wcPath);
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		this->EndDialog(IDCANCEL);
 		return TRUE;

@@ -74,7 +74,7 @@ END_MESSAGE_MAP()
 // CFontPreviewCombo message handlers
 
 
-BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX * /*lpntme*/, 
+int CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX * /*lpntme*/, 
 						        DWORD FontType, LPARAM lParam)	
 {	
 	CFontPreviewCombo *pThis = reinterpret_cast<CFontPreviewCombo*>(lParam);
@@ -107,7 +107,7 @@ void CFontPreviewCombo::Init()
 	ZeroMemory(&lf, sizeof(LOGFONT));
 	lf.lfCharSet = ANSI_CHARSET;
 	lf.lfFaceName[0] = '\0';
-	EnumFontFamiliesEx (dc, &lf,(FONTENUMPROC) FPC_EnumFontProc,(LPARAM)this, 0); //Enumerate font
+	EnumFontFamiliesEx (dc, &lf, (FONTENUMPROC)FPC_EnumFontProc,(LPARAM)this, 0); //Enumerate font
 
     SetCurSel(0);
 }

@@ -46,7 +46,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
+int CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
 						        DWORD FontType, LPARAM lParam);	
 
 void WINAPI DDX_FontPreviewCombo (CDataExchange* pDX, int nIDC, CString& faceName);
@@ -117,7 +117,7 @@ protected:
 	int m_iMaxSampleWidth;
 
 	void AddFont (const CString& faceName);
-	friend BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
+	friend int CALLBACK FPC_EnumFontProc(ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
 						        DWORD FontType, LPARAM lParam);
 	void DeleteAllFonts (void);	
 
@@ -133,7 +133,7 @@ protected:
 
 };
 
-void WINAPI DDX_FontPreviewCombo (CDataExchange* pDX, int nIDC, CString& faceName);
+//void WINAPI DDX_FontPreviewCombo (CDataExchange* pDX, int nIDC, CString& faceName);
 
 /////////////////////////////////////////////////////////////////////////////
 

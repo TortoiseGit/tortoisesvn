@@ -21,6 +21,7 @@
 #include "SwitchDlg.h"
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
+#include "Balloon.h"
 
 
 // CSwitchDlg dialog

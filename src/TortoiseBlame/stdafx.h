@@ -16,8 +16,13 @@
 #include <memory.h>
 #include <tchar.h>
 #include <shlwapi.h>
+#include <richedit.h>
+#include <commctrl.h>
 
 #pragma warning(push)
 #pragma warning(disable: 4702)	// Unreachable code warnings in xtree
 #include <string>
+#include <vector>
+#include <map>
+#include <fstream>
 #pragma warning(pop)

@@ -29,6 +29,8 @@ IMPLEMENT_DYNAMIC(CRevertDlg, CResizableDialog)
 CRevertDlg::CRevertDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CRevertDlg::IDD, pParent)
 	, m_bSelectAll(TRUE)
+	, m_bThreadRunning(FALSE)
+	
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }

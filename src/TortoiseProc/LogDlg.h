@@ -17,11 +17,8 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "afxcmn.h"
-#include "afxtempl.h"
-#include "afxdlgs.h"
+
 #include "svn.h"
-#include "promptdlg.h"
 #include "ProjectProperties.h"
 #include "Registry.h"
 #include "ResizableDialog.h"

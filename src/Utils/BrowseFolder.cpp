@@ -17,8 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "StdAfx.h"
 #include <windowsx.h>
-#include< commctrl.h>
-#include <shlobj.h>
 #include "BrowseFolder.h"
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
@@ -52,11 +50,6 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path)
 }
 CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path)
 {
-	ASSERT(path);
-
-	if (!path)
-		return NOPATH;		//no path specified!
-
 	retVal ret = OK;		//assume OK
 
 	LPITEMIDLIST itemIDList;

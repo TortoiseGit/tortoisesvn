@@ -23,6 +23,7 @@
 #include "DirFileEnum.h"
 #include "SVNConfig.h"
 #include "SVNProperties.h"
+#include "MessageBox.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -198,12 +199,16 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
+
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	m_bBlock = TRUE;
+
+//	StatusThread(this);
+//	m_bBlock = FALSE;
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -418,7 +423,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		return (DWORD)-1;
 	} // if (pDlg->m_ListCtrl.GetItemCount()==0)
 	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), pDlg->m_ListCtrl.m_sUUID);
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)pDlg->m_ListCtrl.m_sUUID);
 	pDlg->m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 	pDlg->m_bBlock = FALSE;
 	return 0;
@@ -466,6 +471,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 					return TRUE;
 				}
 			}
+			break;
 		case 'A':
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
@@ -544,7 +550,7 @@ void CLogPromptDlg::OnBnClickedFilllog()
 			if ((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\EnglishTemplate"), FALSE)==TRUE)
 				langID = 1033;
 			SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, sizeof(buf)/sizeof(TCHAR), langID);
-			line.Format(_T("%-10s %s\r\n"), buf, m_ListCtrl.GetItemText(i,0));
+			line.Format(_T("%-10s %s\r\n"), buf, (LPCTSTR)m_ListCtrl.GetItemText(i,0));
 			logmsg += line;
 		}
 	}

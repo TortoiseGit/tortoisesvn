@@ -26,6 +26,8 @@ CBlame::CBlame()
 	m_bCancelled = FALSE;
 	m_lowestrev = -1;
 	m_highestrev = -1;
+	m_nCounter = 0;
+	m_nHeadRev = -1;
 }
 CBlame::~CBlame()
 {
@@ -42,8 +44,8 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	if (m_highestrev < revision)
 		m_highestrev = revision;
 
-	CString dateA = CString(CUnicodeUtils::GetUTF8(date));
-	infolineA.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, dateA, author);
+	CString dateA(CUnicodeUtils::GetUTF8(date));
+	infolineA.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, (LPCTSTR)dateA, (LPCTSTR)author);
 	fulllineA = line;
 	fulllineA.TrimRight(_T("\r\n"));
 	fulllineA += _T("\n");
@@ -57,14 +59,14 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	return TRUE;
 }
 
-BOOL CBlame::Log(LONG rev, const CString& /*author*/, const CString& /*date*/, const CString& message, const CString& /*cpaths*/, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/)
+BOOL CBlame::Log(LONG revision, const CString& /*author*/, const CString& /*date*/, const CString& message, const CString& /*cpaths*/, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/)
 {
-	m_progressDlg.SetProgress((DWORD)m_highestrev - rev, (DWORD)m_highestrev);
+	m_progressDlg.SetProgress((DWORD)m_highestrev - revision, (DWORD)m_highestrev);
 	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
 	{
 		CStringA msgutf8 = CUnicodeUtils::GetUTF8(message);
 		int length = msgutf8.GetLength();
-		m_saveLog.Write(&rev, sizeof(LONG));
+		m_saveLog.Write(&revision, sizeof(LONG));
 		m_saveLog.Write(&length, sizeof(int));
 		m_saveLog.Write((LPCSTR)msgutf8, length);
 	}

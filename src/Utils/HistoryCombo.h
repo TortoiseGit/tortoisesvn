@@ -17,10 +17,6 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 
-#ifndef __AFXADV_H__
-#include "afxadv.h" // needed for CRecentFileList
-#endif 
-
 /**
  * \ingroup Utils
  * Extends the CComboBoxEx class with a history of entered
@@ -127,7 +123,7 @@ public:
 	/**
 	 * Returns the string in the combobox which is either selected or the user has entered.
 	 */
-	CString GetString();
+	CString GetString() const;
 
 protected:
 	/**

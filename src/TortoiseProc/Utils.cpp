@@ -35,7 +35,7 @@ CUtils::~CUtils(void)
 {
 }
 
-CString CUtils::GetTempFile(CString origfilename)
+CString CUtils::GetTempFile(const CString& origfilename)
 {
 	TCHAR path[MAX_PATH];
 	TCHAR tempF[MAX_PATH];
@@ -51,15 +51,15 @@ CString CUtils::GetTempFile(CString origfilename)
 		int i=0;
 		do
 		{
-			tempfile.Format(_T("%s\\svn%3.3x.tmp%s"), path, i, CUtils::GetFileExtFromPath(origfilename));
+			tempfile.Format(_T("%s\\svn%3.3x.tmp%s"), path, i, (LPCTSTR)CUtils::GetFileExtFromPath(origfilename));
 			i++;
 		} while (PathFileExists(tempfile));
 	}
 	return tempfile;
 }
 
-BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile,
-						   		CString basename, CString theirname, CString yourname, CString mergedname)
+BOOL CUtils::StartExtMerge(const CString& basefile, const CString& theirfile, const CString& yourfile, const CString& mergedfile,
+						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)
 {
 
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
@@ -181,7 +181,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2, CString ext, BOOL bReversed, CString patchorig, CString patchpatched)
+BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2, CString ext, BOOL bReversed, const CString& patchorig, const CString& patchpatched)
 {
 	// change all paths to have backslashes instead of forward slashes
 	file.Replace('/', '\\');
@@ -510,7 +510,7 @@ void CUtils::Unescape(char * psz)
 	*pszDest = '\0';
 }
 
-CStringA CUtils::PathEscape(CStringA path)
+CStringA CUtils::PathEscape(const CStringA& path)
 {
 	CStringA ret = path;
 	ret.Replace((" "), ("%20"));
@@ -534,7 +534,7 @@ CStringA CUtils::PathEscape(CStringA path)
 	return ret;
 }
 
-BOOL CUtils::IsEscaped(CStringA path)
+BOOL CUtils::IsEscaped(const CStringA& path)
 {
 	if (path.Find("%20")>=0)
 		return TRUE;
@@ -685,13 +685,13 @@ CString CUtils::WritePathsToTempFile(CString paths)
 	return tempfile;
 }
 
-CString CUtils::GetLongPathname(CString path)
+CString CUtils::GetLongPathname(const CString& path)
 {
 	TCHAR pathbuf[MAX_PATH];
 	DWORD ret = ::GetLongPathName(path, pathbuf, MAX_PATH);
 	if ((ret == 0)||(ret > MAX_PATH))
 		return path;
-	return CString(pathbuf);
+	return CString(pathbuf, ret);
 }
 
 BOOL CUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
@@ -718,7 +718,7 @@ BOOL CUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
 	return (CopyFile(srcPath, destPath, !force));
 }
 
-BOOL CUtils::CheckForEmptyDiff(CString sDiffPath)
+BOOL CUtils::CheckForEmptyDiff(const CString& sDiffPath)
 {
 	DWORD length = 0;
 	HANDLE hFile = ::CreateFile(sDiffPath, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);

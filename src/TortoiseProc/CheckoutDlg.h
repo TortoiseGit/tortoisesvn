@@ -18,6 +18,8 @@
 #pragma once
 #include "SVNRev.h"
 #include "ResizableDialog.h"
+#include "Balloon.h"
+#include "HistoryCombo.h"
 
 /**
  * \ingroup TortoiseProc

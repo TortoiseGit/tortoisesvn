@@ -22,9 +22,8 @@
 #include "CheckoutDlg.h"
 #include "RepositoryBrowser.h"
 #include "Messagebox.h"
-#include "Dbghelp.h"
 #include "PathUtils.h"
-#include ".\checkoutdlg.h"
+#include "BrowseFolder.h"
 
 
 // CCheckoutDlg dialog
@@ -189,7 +188,7 @@ void CCheckoutDlg::OnOK()
 	if (!PathFileExists(m_strCheckoutDirectory))
 	{
 		CString temp;
-		temp.Format(IDS_WARN_FOLDERNOTEXIST, m_strCheckoutDirectory);
+		temp.Format(IDS_WARN_FOLDERNOTEXIST, (LPCTSTR)m_strCheckoutDirectory);
 		if (CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 		{
 			CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
@@ -282,9 +281,9 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 	CString strCheckoutDirectory;
 	if (browseFolder.Show(GetSafeHwnd(), strCheckoutDirectory) == CBrowseFolder::OK) 
 	{
-		UpdateData(true);
+		UpdateData(TRUE);
 		m_strCheckoutDirectory = strCheckoutDirectory;
-		UpdateData(false);
+		UpdateData(FALSE);
 	}
 }
 

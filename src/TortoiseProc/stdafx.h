@@ -73,6 +73,10 @@
 #include "svn_wc.h"
 #include "svn_utf.h"
 #include "svn_config.h"
+#include "svn_error_codes.h"
+#include "svn_subst.h"
+#include "svn_repos.h"
+#include "svn_time.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4702)	// Unreachable code warnings in xtree
@@ -91,6 +95,7 @@
 #include <uxtheme.h>
 #include <tmschema.h>
 #include <dlgs.h>
+#include <wininet.h>
 #pragma warning(pop)
 
 #pragma warning(push)

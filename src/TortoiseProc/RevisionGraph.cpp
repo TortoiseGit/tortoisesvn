@@ -16,8 +16,8 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "StdAfx.h"
+#include "resource.h"
 #include "client.h"
-#include "svn_error_codes.h"
 #include "UnicodeUtils.h"
 #include "registry.h"
 #include "Utils.h"
@@ -105,7 +105,7 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 								  const char* author, 
 								  const char* date, 
 								  const char* msg, 
-								  apr_pool_t* pool)
+								  apr_pool_t* localPool)
 {
 // put all data we receive into an array for later use.
 	svn_error_t * error = NULL;
@@ -120,7 +120,7 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 	if (date && date[0])
 	{
 		//Convert date to a format for humans.
-		error = svn_time_from_cstring (&e->time, date, pool);
+		error = svn_time_from_cstring (&e->time, date, localPool);
 		if (error)
 			return error;
 	}
@@ -133,7 +133,7 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 		//create a copy of the hash
 		e->ch_paths = apr_hash_make(me->pool);
 		apr_hash_index_t* hi;
-		for (hi = apr_hash_first (pool, ch_paths); hi; hi = apr_hash_next (hi))
+		for (hi = apr_hash_first (localPool, ch_paths); hi; hi = apr_hash_next (hi))
 		{
 			const char * key;
 			const char * keycopy;
@@ -261,7 +261,7 @@ BOOL CRevisionGraph::AnalyzeRevisionData(CString path)
 	return FALSE;
 }
 
-BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
+BOOL CRevisionGraph::AnalyzeRevisions(const CStringA& url, LONG startrev, LONG endrev)
 {
 	LONG forward = 1;
 	if (startrev > endrev)
@@ -279,13 +279,13 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 			temp2.Format(IDS_REVGRAPH_PROGANALYZEREV, currentrev);
 			if (!ProgressCallback(temp, temp2, forward==1 ? endrev-currentrev : startrev-currentrev, forward==1 ? endrev-startrev : startrev-endrev))
 			{
-				CStringA temp;
-				temp.LoadString(IDS_SVN_USERCANCELLED);
-				Err = svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+				CStringA temp3;
+				temp3.LoadString(IDS_SVN_USERCANCELLED);
+				Err = svn_error_create(SVN_ERR_CANCELLED, NULL, temp3);
 				return FALSE;
 			}
 		}
-		log_entry * logentry = APR_ARRAY_IDX(m_logdata, m_lHeadRevision-currentrev, log_entry *);
+		log_entry * logentry = APR_ARRAY_IDX(m_logdata, m_lHeadRevision-currentrev, log_entry*);
 		if ((logentry)&&(logentry->ch_paths))
 		{
 			ASSERT(logentry->rev == currentrev);
@@ -413,9 +413,9 @@ BOOL CRevisionGraph::CheckForwardCopies()
 		temp2.Format(IDS_REVGRAPH_PROGCHECKFORWARDREV, i);
 		if (!ProgressCallback(temp, temp2, i, m_arEntryPtrs.GetCount()))
 		{
-			CStringA temp;
-			temp.LoadString(IDS_SVN_USERCANCELLED);
-			Err = svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+			CStringA temp3;
+			temp3.LoadString(IDS_SVN_USERCANCELLED);
+			Err = svn_error_create(SVN_ERR_CANCELLED, NULL, temp3);
 			return FALSE;
 		}
 		CRevisionEntry * logentry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
@@ -453,7 +453,7 @@ BOOL CRevisionGraph::CheckForwardCopies()
 			if (!found)
 			{
 				//create a new entry as a starting point
-				log_entry * origentry = APR_ARRAY_IDX(m_logdata, m_lHeadRevision-logentry->revisionfrom, log_entry *);
+				log_entry * origentry = APR_ARRAY_IDX(m_logdata, m_lHeadRevision-logentry->revisionfrom, log_entry*);
 				CRevisionEntry * reventry = new CRevisionEntry();
 				reventry->revision = origentry->rev;
 				reventry->author = origentry->author;
@@ -630,7 +630,7 @@ int CRevisionGraph::SortCompareSourceEntry(const void * pElem1, const void * pEl
 	return (entry2->revisionto - entry1->revisionto);
 }
 
-BOOL CRevisionGraph::IsParentOrItself(const char * parent, const char * child)
+BOOL CRevisionGraph::IsParentOrItself(const char * parent, const char * child) const
 {
 	if (strncmp(parent, child, strlen(parent))==0)
 	{

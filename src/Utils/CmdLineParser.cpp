@@ -48,10 +48,8 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 	m_sCmdLine = sCmdLine;
 
 	LPCTSTR sCurrent = sCmdLine;
-#pragma warning(push)
-#pragma warning(disable: 4127)	// conditional expression is constant
-	while(true) 
-#pragma warning(pop)
+
+	for(;;)
 	{
 		//format is  -Key:"arg"
 		
@@ -198,7 +196,7 @@ CCmdLineParser::ITERPOS CCmdLineParser::getNext(ITERPOS& pos, CString& sKey, CSt
 	}
 }
 
-BOOL CCmdLineParser::isLast(ITERPOS& pos) const 
+BOOL CCmdLineParser::isLast(const ITERPOS& pos) const 
 {
 	return (pos == m_valueMap.end());
 }

@@ -16,6 +16,9 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
+
+#if 0 
+// None of these are necessary in the normal build - are they being used in a stand-alone test build?
 #include "atlsimpstr.h"
 #include "afxtempl.h"
 
@@ -39,7 +42,6 @@
 #include "SVNPrompt.h"
 #include "SVNRev.h"
 
-
 #pragma warning (push,1)
 typedef std::basic_string<wchar_t> wide_string;
 #ifdef UNICODE
@@ -48,6 +50,8 @@ typedef std::basic_string<wchar_t> wide_string;
 #	define stdstring std::string
 #endif
 #pragma warning (pop)
+
+#endif // 0
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -101,9 +105,9 @@ public:
 	apr_pool_t *				pool;			///< memory pool
 private:
 	BOOL						GetRepositoryRoot(CStringA& url);
-	BOOL						AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev);
+	BOOL						AnalyzeRevisions(const CStringA& url, LONG startrev, LONG endrev);
 	BOOL						CheckForwardCopies();
-	BOOL						IsParentOrItself(const char * parent, const char * child);
+	BOOL						IsParentOrItself(const char * parent, const char * child) const;
 	static int __cdecl			SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 	static int __cdecl			SortCompareSourceEntry(const void * pElem1, const void * pElem2);	///< sort callback function
 	CStringA					m_sRepoRoot;

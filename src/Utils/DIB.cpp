@@ -98,7 +98,7 @@ void CDib::Create32BitFromPicture (CPictureHolder* pPicture, int iWidth, int iHe
 	tempDC.SelectObject(pOldBitmap);
 }
 
-BOOL CDib::SetBitmap(LPBITMAPINFO lpBitmapInfo, LPVOID lpBits)
+BOOL CDib::SetBitmap(const LPBITMAPINFO lpBitmapInfo, const LPVOID lpBits)
 {
     DeleteObject();
 
@@ -152,8 +152,6 @@ BOOL CDib::Draw(CDC* pDC, CPoint ptDest)
 
     BOOL resVal = FALSE;
 
-    CPalette* pOldPalette = NULL;
-
     resVal = SetDIBitsToDevice(pDC->GetSafeHdc(), 
                                 ptDest.x, ptDest.y, 
                                 size.cx, size.cy,
@@ -162,9 +160,6 @@ BOOL CDib::Draw(CDC* pDC, CPoint ptDest)
                                 GetDIBits(), &m_BMinfo, 
                                 DIB_RGB_COLORS); 
 
-    if (pOldPalette)
-        pDC->SelectPalette(pOldPalette, FALSE);
-    
     return resVal;
 }
 

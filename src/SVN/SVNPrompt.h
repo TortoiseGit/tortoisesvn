@@ -17,30 +17,12 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-#include "apr_general.h"
-#include "svn_pools.h"
-#include "svn_client.h"
-#include "svn_sorts.h"
-#include "svn_path.h"
-#include "svn_wc.h"
-#include "svn_utf.h"
-#include "svn_repos.h"
-#include "svn_string.h"
-#include "svn_config.h"
-#include "svn_time.h"
-#include "svn_subst.h"
-#include "svn_auth.h"
-
-
-#include "PromptDlg.h"
-#include "SimplePrompt.h"
-#include "auth_providers.h"
 
 class SVNPrompt
 {
 public:
 	SVNPrompt();
-	~SVNPrompt();
+	virtual ~SVNPrompt();
 	void Init(apr_pool_t *pool);
 
 	svn_client_ctx_t 	ctx;

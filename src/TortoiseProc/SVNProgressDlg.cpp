@@ -136,7 +136,7 @@ BOOL CSVNProgressDlg::Notify(const CString& path, svn_wc_notify_action_t action,
 		if (action == svn_wc_notify_update_completed)
 		{
 			if (!m_ExtStack.IsEmpty())
-				temp.Format(IDS_PROGRS_PATHATREV, m_ExtStack.RemoveHead(), rev);
+				temp.Format(IDS_PROGRS_PATHATREV, (LPCTSTR)m_ExtStack.RemoveHead(), rev);
 			else
 				temp.Format(IDS_PROGRS_ATREV, rev);
 			m_ProgList.SetItemText(count, 1, temp);
@@ -318,7 +318,7 @@ CString CSVNProgressDlg::BuildInfoString()
 	return infotext;
 }
 
-void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, CString path, CString url /* = "" */, CString message /* = "" */, SVNRev revision /* = -1 */, CString modName /* = "" */)
+void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, const CString& path, const CString& url /* = "" */, const CString& message /* = "" */, SVNRev revision /* = -1 */, const CString& modName /* = "" */)
 {
 	m_Command = cmd;
 	m_IsTempFile = isTempFile;
@@ -331,7 +331,7 @@ void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, CString path, CStr
 
 void CSVNProgressDlg::ResizeColumns()
 {
-	m_ProgList.SetRedraw(false);
+	m_ProgList.SetRedraw(FALSE);
 
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
@@ -342,7 +342,7 @@ void CSVNProgressDlg::ResizeColumns()
 		m_ProgList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
 	
-	m_ProgList.SetRedraw(true);
+	m_ProgList.SetRedraw(TRUE);
 	
 }
 
@@ -445,7 +445,6 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				{
 					// first check if we have more than just one target to update
 					CStdioFile f(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead); 
-					CString temp;
 					int targetcount = 0;
 					while (f.ReadString(temp))
 						targetcount ++;
@@ -464,7 +463,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						pDlg->m_Revision = revstore;
 						if (pDlg->m_Revision.IsHead())
 						{
-							if ((targetcount > 1)&&((headrev = st.GetStatus(strLine, TRUE)) != (-2)))
+							if ((targetcount > 1)&&((headrev = st.GetStatus(strLine, true)) != (-2)))
 							{
 								if (st.status->entry != NULL)
 								{
@@ -492,12 +491,12 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 								}
 							}
 						} // if (pDlg->m_Revision.IsHead()) 
-						TRACE(_T("update file %s\n"), strLine);
+						TRACE(_T("update file %s\n"), (LPCTSTR)strLine);
 						CString sTempWindowTitle = CUtils::GetFileNameFromPath(strLine)+_T(" - ")+sWindowTitle;
 						pDlg->SetWindowText(sTempWindowTitle);
 						if (!pDlg->Update(strLine, pDlg->m_Revision, (pDlg->m_sModName.Compare(_T("yes"))!=0)))
 						{
-							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
+							TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
 							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
 						}
@@ -543,7 +542,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				}
 				else
 				{
-					TRACE(_T("%s"), pDlg->GetLastErrorMessage());
+					TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
 					CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
 				pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
@@ -602,7 +601,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					pDlg->SetWindowText(sTempWindowTitle);
 					if (!pDlg->Commit(commitString, pDlg->m_sMessage, ((nTargets == 1)&&(pDlg->m_Revision == 0))))
 					{
-						TRACE("%s", pDlg->GetLastErrorMessage());
+						TRACE("%s", (LPCTSTR)pDlg->GetLastErrorMessage());
 						CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					} // if (!pDlg->Commit(commitString, pDlg->m_sMessage, true))
 					file.Close();
@@ -638,7 +637,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						TRACE(_T("add file %s\n"), strLine);
 						if (!pDlg->Add(strLine, false))
 						{
-							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
+							TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
 							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
 						}
@@ -690,7 +689,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				}
 				if (!pDlg->Revert(sTargets, false))
 				{
-					TRACE(_T("%s"), pDlg->GetLastErrorMessage());
+					TRACE(_T("%s"), (LPCTSTR)pDlg->GetLastErrorMessage());
 					CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					break;
 				}
@@ -757,9 +756,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				{
 					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					break;
-				} // if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, true))
+				}
 				pDlg->m_nUpdateStartRev = rev;
-				if (pDlg->m_RevisionEnd > pDlg->m_nUpdateStartRev)
+				if ((pDlg->m_RevisionEnd >= 0)&&(pDlg->m_nUpdateStartRev >= 0)
+					&&((LONG)pDlg->m_RevisionEnd > (LONG)pDlg->m_nUpdateStartRev))
 					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			}
 			break;
@@ -990,8 +990,8 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		CString name = CUtils::GetFileNameFromPath(data->path);
 		CString ext = CUtils::GetFileExtFromPath(data->path);
 		CString n1, n2;
-		n1.Format(IDS_DIFF_WCNAME, name);
-		n2.Format(IDS_DIFF_BASENAME, name);
+		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
+		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
 		CUtils::StartDiffViewer(sBase, sWC, FALSE, n2, n1, ext);
 
 	}
@@ -1131,7 +1131,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 							CString sMime = m_ProgList.GetItemText(nItem, 2);
 							CString sLogCopyText;
 							sLogCopyText.Format(_T("%s: %s  %s\n"),
-								sAction, sPath, sMime);
+								(LPCTSTR)sAction, (LPCTSTR)sPath, (LPCTSTR)sMime);
 							sClipdata +=  CStringA(sLogCopyText);
 						}
 						CUtils::WriteAsciiStringToClipboard(sClipdata);
@@ -1193,8 +1193,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								{
 									CString revname, wcname;
 									CString ext = CUtils::GetFileExtFromPath(data->path);
-									revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(data->path), m_nUpdateStartRev);
-									wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(data->path));
+									revname.Format(_T("%s Revision %ld"), (LPCTSTR)CUtils::GetFileNameFromPath(data->path), m_nUpdateStartRev);
+									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)CUtils::GetFileNameFromPath(data->path));
 									CUtils::StartDiffViewer(tempfile, data->path, FALSE, revname, wcname, ext);
 								}
 							}

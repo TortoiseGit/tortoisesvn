@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include "Balloon.h"
+
 // CToolAssocDlg dialog
 
 class CToolAssocDlg : public CDialog

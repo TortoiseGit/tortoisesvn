@@ -21,7 +21,7 @@
 #include "MessageBox.h"
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
-#include ".\propdlg.h"
+#include "Propdlg.h"
 
 
 // CPropDlg dialog

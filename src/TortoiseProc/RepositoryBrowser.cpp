@@ -55,8 +55,8 @@ CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, BOOL bFile)
 	: CResizableDialog(CRepositoryBrowser::IDD, NULL)
 	, m_treeRepository(svn_url.GetPath(), bFile)
 	, m_cnrRepositoryBar(&m_barRepository)
-	, m_InitialSvnUrl(svn_url)
 	, m_bStandAlone(true)
+	, m_InitialSvnUrl(svn_url)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -783,9 +783,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 										0,
 										NULL 
 										);
-									CString temp;
-									temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-									CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+									CString strMessage;
+									strMessage.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
+									CMessageBox::Show(NULL, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 									LocalFree( lpMsgBuf );
 									break;
 								} 

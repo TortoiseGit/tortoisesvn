@@ -331,8 +331,8 @@ void CSetProgsPage::OnBnClickedExtmergeOff()
 	m_iExtMerge = 0;
 	UpdateData(FALSE);
 	SetModified();
-	GetDlgItem(IDC_EXTMERGE)->EnableWindow(false);
-	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(false);
+	GetDlgItem(IDC_EXTMERGE)->EnableWindow(FALSE);
+	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(FALSE);
 }
 
 void CSetProgsPage::OnBnClickedExtmergeOn()
@@ -340,8 +340,8 @@ void CSetProgsPage::OnBnClickedExtmergeOn()
 	m_iExtMerge = 1;
 	UpdateData(FALSE);
 	SetModified();
-	GetDlgItem(IDC_EXTMERGE)->EnableWindow(true);
-	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(true);
+	GetDlgItem(IDC_EXTMERGE)->EnableWindow(TRUE);
+	GetDlgItem(IDC_EXTMERGEBROWSE)->EnableWindow(TRUE);
 	GetDlgItem(IDC_EXTMERGE)->SetFocus();
 }
 
@@ -350,8 +350,8 @@ void CSetProgsPage::OnBnClickedDiffviewerOff()
 	m_iDiffViewer = 0;
 	UpdateData(FALSE);
 	SetModified();
-	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(false);
-	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(false);
+	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(FALSE);
+	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(FALSE);
 }
 
 void CSetProgsPage::OnBnClickedDiffviewerOn()
@@ -359,8 +359,8 @@ void CSetProgsPage::OnBnClickedDiffviewerOn()
 	m_iDiffViewer = 1;
 	UpdateData(FALSE);
 	SetModified();
-	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(true);
-	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(true);
+	GetDlgItem(IDC_DIFFVIEWER)->EnableWindow(TRUE);
+	GetDlgItem(IDC_DIFFVIEWERBROWSE)->EnableWindow(TRUE);
 	GetDlgItem(IDC_DIFFVIEWER)->SetFocus();
 }
 

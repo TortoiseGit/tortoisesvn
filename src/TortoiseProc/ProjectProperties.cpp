@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "UnicodeStrings.h"
 #include "ProjectProperties.h"
+#include "SVNProperties.h"
 
 ProjectProperties::ProjectProperties(void)
 {
@@ -35,7 +36,7 @@ ProjectProperties::~ProjectProperties(void)
 {
 }
 
-BOOL ProjectProperties::ReadPropsTempfile(CString path)
+BOOL ProjectProperties::ReadPropsTempfile(const CString& path)
 {
 	CString strLine;
 	try

@@ -20,6 +20,7 @@
 #pragma once
 
 #include "SVNUrl.h"
+#include "HistoryCombo.h"
 
 class CRepositoryTree;
 

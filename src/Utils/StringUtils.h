@@ -54,7 +54,7 @@ int wcswildcmp(const wchar_t * wild, const wchar_t * string);
 class CStringUtils
 {
 public:
-	static BOOL WildCardMatch(CString wildcard, CString string);
+	static BOOL WildCardMatch(const CString& wildcard, const CString& string);
 };
 
 #endif

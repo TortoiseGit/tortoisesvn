@@ -160,7 +160,7 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 
 				if (_ttoi(ver)!=0)
 				{
-					temp.Format(IDS_CHECKNEWER_CURRENTVERSION, ver);
+					temp.Format(IDS_CHECKNEWER_CURRENTVERSION, (LPCTSTR)ver);
 					pDlg->GetDlgItem(IDC_CURRENTVERSION)->SetWindowText(temp);
 					temp.Format(_T("%d.%d.%d.%d"), TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
 				}

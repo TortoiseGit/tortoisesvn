@@ -115,7 +115,9 @@ void CWaterEffect::Blob(int x, int y, int radius, int height, int page)
 		for(cx = left; cx < right; cx++)
 		{
 			if (cx*cx + cyq < rquad)
-			pNew[m_iWidth*(cy+y) + (cx+x)] += height;
+			{
+				pNew[m_iWidth*(cy+y) + (cx+x)] += height;
+			}
 		}
 	}
 }

@@ -59,10 +59,10 @@ CSize CHTMLFormatter::DrawHTML(CDC * pDC, CRect rect, CString str, LOGFONT font,
 
 	CFont * pOldFont = pDC->SelectObject(&tempFont);
 
-	TEXTMETRIC tm;
-	pDC->GetTextMetrics(&tm);
-	int nHeight = tm.tmHeight;
-	int nWidth = tm.tmAveCharWidth;
+	TEXTMETRIC textMetric;
+	pDC->GetTextMetrics(&textMetric);
+	int nHeight = textMetric.tmHeight;
+	int nWidth = textMetric.tmAveCharWidth;
 
 	CString strTag = _T("");
 	CString strText = _T("");
@@ -246,9 +246,7 @@ CSize CHTMLFormatter::DrawHTML(CDC * pDC, CRect rect, CString str, LOGFONT font,
 				{
 				case _T('>'):
 					i --;
-				//case _T(' '):
-				//	if (nCmd == HORZ_LINE_PERCENT)
-				//		nCmd = HORZ_LINE;
+					break;
 				case _T('%'):
 					//Gets the real number from the string
 					if (!strTag.IsEmpty())
@@ -437,7 +435,7 @@ CSize CHTMLFormatter::DrawHTML(CDC * pDC, CRect rect, CString str, LOGFONT font,
 	tempFont.DeleteObject();
 
 	//Adds the percent's length to the line's length
-	for (i = 0; i < percent.GetSize(); i++)
+	for (int i = 0; i < percent.GetSize(); i++)
 	{
 		if (percent.GetAt(i))
 			nLengthLines.SetAt(i, nLengthLines.GetAt(i) + ::MulDiv(percent.GetAt(i), sz.cx, 100));

@@ -18,13 +18,6 @@
 #pragma once
 
 #include "resource.h"
-#include <stdio.h>
-#include <windows.h>
-#include <commctrl.h>
-#include <vector>
-#include <map>
-#include <fstream>
-#include <richedit.h>
 
 #include "Scintilla.h"
 #include "SciLexer.h"

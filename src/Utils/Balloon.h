@@ -18,11 +18,9 @@
 
 #pragma once
 
-#include <afxtempl.h>
 #include "gradient.h"
 #include "htmlformatter.h"
 #include "cursor.h"
-
 
 //The styles
 #define BALLOON_ANCHOR					0x0001

@@ -19,6 +19,8 @@
 #pragma once
 
 #include "IconStatic.h"
+#include "Balloon.h"
+
 
 /**
  * \ingroup TortoiseProc

@@ -18,6 +18,7 @@
 
 #pragma once
 #include "ResizableDialog.h"
+#include "HistoryCombo.h"
 
 /**
  * \ingroup TortoiseProc

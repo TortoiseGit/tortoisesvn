@@ -24,6 +24,7 @@
 #include ".\importdlg.h"
 #include "DirFileEnum.h"
 #include "MessageBox.h"
+#include "BrowseFolder.h"
 
 
 // CImportDlg dialog
@@ -267,6 +268,7 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 					PostMessage(WM_COMMAND, IDOK);
 				}
 			}
+			break;
 		case 'A':
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)

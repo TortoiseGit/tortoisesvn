@@ -19,7 +19,6 @@
 #pragma once
 
 #include "registry.h"
-#include "Shlwapi.h"
 
 /**
  * \ingroup TortoiseProc
@@ -54,8 +53,8 @@ public:
 	 * Launches the external merge program if there is one.
 	 * \return TRUE if the program could be started
 	 */
-	static BOOL StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile,
-		CString basename = _T(""), CString theirname = _T(""), CString yourname = _T(""), CString mergedname = _T(""));
+	static BOOL StartExtMerge(const CString& basefile, const CString& theirfile, const CString& yourfile, const CString& mergedfile,
+		const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(), const CString& mergedname = CString());
 
 	/**
 	 * Launches the diff viewer application.
@@ -70,7 +69,7 @@ public:
 	 */
 	static BOOL StartDiffViewer(CString file, CString dir = _T(""), BOOL bWait = FALSE,
 		CString name1 = _T(""), CString name2 = _T(""), CString ext = _T(""), 
-		BOOL bReversed = FALSE, CString patchorig = _T(""), CString patchpatched = _T(""));
+		BOOL bReversed = FALSE, const CString& patchorig = CString(), const CString& patchpatched = CString());
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated
@@ -82,7 +81,7 @@ public:
 	/**
 	 * Returns a path to a temporary file
 	 */
-	static CString GetTempFile(CString origfilename = _T(""));
+	static CString GetTempFile(const CString& origfilename = _T(""));
 
 	/**
 	 * Replaces escaped sequences with the corresponding characters in a string.
@@ -92,12 +91,12 @@ public:
 	/**
 	 * Replaces non-URI chars with the corresponding escape sequences.
 	 */
-	static CStringA PathEscape(CStringA path);
+	static CStringA PathEscape(const CStringA& path);
 
 	/**
 	 * Returns TRUE if the path/URL contains escaped chars
 	 */
-	static BOOL IsEscaped(CStringA path);
+	static BOOL IsEscaped(const CStringA& path);
 
 	/**
 	 * Returns the version string from the VERSION resource of a dll or exe.
@@ -131,7 +130,7 @@ public:
 	/**
 	 * Returns the long pathname of a path which may be in 8.3 format.
 	 */
-	static CString GetLongPathname(CString path);
+	static CString GetLongPathname(const CString& path);
 
 	/**
 	 * Copies a file or a folder from \a srcPath to \a destpath, creating
@@ -146,7 +145,7 @@ public:
 	 * Checks if the given file has a size of less than four, which means
 	 * an 'empty' file or just newlines, i.e. an emtpy diff.
 	 */
-	static BOOL CheckForEmptyDiff(CString sDiffPath);
+	static BOOL CheckForEmptyDiff(const CString& sDiffPath);
 
 	/**
 	 * Removes all '&' chars from a string.

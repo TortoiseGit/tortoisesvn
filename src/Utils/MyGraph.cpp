@@ -62,7 +62,7 @@ MyGraphSeries::MyGraphSeries(const CString& sLabel /* = "" */ )
 /* virtual */ MyGraphSeries::~MyGraphSeries()
 {
 	for (int nGroup = 0; nGroup < m_oaRegions.GetSize(); ++nGroup) {
-		delete (CRgn*) m_oaRegions.GetAt(nGroup);
+		delete m_oaRegions.GetAt(nGroup);
 	}
 }
 
@@ -96,7 +96,7 @@ void MyGraphSeries::SetTipRegion(int nGroup, const CRect& rc)
 }
 
 //
-void MyGraphSeries::SetTipRegion(int nGroup, const CRgn* prgn)
+void MyGraphSeries::SetTipRegion(int nGroup, CRgn* prgn)
 {
 	VALIDATE;
 	_ASSERTE(0 <= nGroup);
@@ -105,8 +105,9 @@ void MyGraphSeries::SetTipRegion(int nGroup, const CRgn* prgn)
 	// If there is an existing resgion, delete it.
 	CRgn* prgnOld = NULL;
 
-	if (nGroup < m_oaRegions.GetSize()) {
-		prgnOld = static_cast<CRgn*> (m_oaRegions.GetAt(nGroup));
+	if (nGroup < m_oaRegions.GetSize()) 
+	{
+		prgnOld = m_oaRegions.GetAt(nGroup);
 		ASSERT_NULL_OR_POINTER(prgnOld, CRgn);
 	}
 
@@ -116,7 +117,7 @@ void MyGraphSeries::SetTipRegion(int nGroup, const CRgn* prgn)
 	}
 
 	// Add the new region.
-	m_oaRegions.SetAtGrow(nGroup, (CObject*) prgn);
+	m_oaRegions.SetAtGrow(nGroup, prgn);
 
 	_ASSERTE(m_oaRegions.GetSize() <= m_dwaValues.GetSize());
 }
@@ -190,7 +191,7 @@ int MyGraphSeries::HitTest(const CPoint& pt) const
 	VALIDATE;
 
 	for (int nGroup = 0; nGroup < m_oaRegions.GetSize(); ++nGroup) {
-		CRgn* prgnData = static_cast<CRgn*> (m_oaRegions.GetAt(nGroup));
+		CRgn* prgnData = m_oaRegions.GetAt(nGroup);
 		ASSERT_NULL_OR_POINTER(prgnData, CRgn);
 
 		if (prgnData  &&  prgnData->PtInRegion(pt)) {
@@ -372,8 +373,7 @@ CString MyGraph::GetTipText() const
 		POSITION pos(m_olMyGraphSeries.GetHeadPosition());
 
 		while (pos) {
-			MyGraphSeries* pSeries = 
-				(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+			MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 			ASSERT_VALID(pSeries);
 
 			int nGroup(pSeries->HitTest(pt));
@@ -454,8 +454,7 @@ int MyGraph::GetMaxSeriesSize() const
 	POSITION pos(m_olMyGraphSeries.GetHeadPosition());
 
 	while (pos) {
-		MyGraphSeries* pSeries = 
-			(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		nMax = max(nMax, pSeries->m_dwaValues.GetSize());
@@ -473,8 +472,7 @@ int MyGraph::GetMaxNonZeroSeriesSize() const
 	POSITION pos(m_olMyGraphSeries.GetHeadPosition());
 
 	while (pos) {
-		MyGraphSeries* pSeries = 
-			(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		nMax = max(nMax, pSeries->GetNonZeroElementCount());
@@ -492,8 +490,7 @@ int MyGraph::GetMaxDataValue() const
 	POSITION pos(m_olMyGraphSeries.GetHeadPosition());
 
 	while (pos) {
-		MyGraphSeries* pSeries = 
-			(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		nMax = max(nMax, pSeries->GetMaxDataValue());
@@ -511,8 +508,7 @@ int MyGraph::GetNonZeroSeriesCount() const
 	POSITION pos(m_olMyGraphSeries.GetHeadPosition());
 
 	while (pos) {
-		MyGraphSeries* pSeries = 
-			(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		if (0 < pSeries->GetNonZeroElementCount()) {
@@ -590,8 +586,7 @@ int MyGraph::AppendGroup(const CString& sLabel)
 
 	while (pos) {
 
-		MyGraphSeries* pSeries =
-			static_cast<MyGraphSeries*> (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		if (nGroup >= pSeries->m_dwaValues.GetSize()) {
@@ -667,7 +662,7 @@ void MyGraph::DrawGraph(CDC& dc)
 		}
 
 		// Draw axes unless it's a pie.
-		if (m_eGraphType != MyGraph::Pie) {
+		if (m_eGraphType != MyGraph::PieChart) {
 			DrawAxes(dc);
 		}
 
@@ -675,7 +670,7 @@ void MyGraph::DrawGraph(CDC& dc)
 		switch (m_eGraphType) {
 			case MyGraph::Bar:  DrawSeriesBar(dc);  break;
 			case MyGraph::Line: DrawSeriesLine(dc); break;
-			case MyGraph::Pie:  DrawSeriesPie(dc);  break;
+			case MyGraph::PieChart:  DrawSeriesPie(dc);  break;
 			default: _ASSERTE(! "Bad default case"); break;
 		}
 	}
@@ -691,7 +686,7 @@ void MyGraph::DrawTitle(CDC& dc)
 	CFont fontTitle;
 	VERIFY(fontTitle.CreatePointFont(m_rcGraph.Width() / TITLE_DIVISOR,
 		_T("Arial"), &dc));
-	CFont* pFontOld = static_cast<CFont*> (dc.SelectObject(&fontTitle));
+	CFont* pFontOld = dc.SelectObject(&fontTitle);
 	ASSERT_VALID(pFontOld);
 
 	// Draw the title.
@@ -717,7 +712,7 @@ void MyGraph::SetupAxes(CDC& dc)
 
 	// Since pie has no axis lines, set to full size minus GAP_PIXELS on each 
 	// side.  These are needed for legend to plot itself.
-	if (MyGraph::Pie == m_eGraphType) {
+	if (MyGraph::PieChart == m_eGraphType) {
 		m_nXAxisWidth = m_rcGraph.Width() - (GAP_PIXELS * 2);
 		m_nYAxisHeight = m_rcGraph.Height() - m_rcTitle.bottom;
 		m_ptOrigin.x = GAP_PIXELS;
@@ -750,7 +745,7 @@ void MyGraph::DrawLegend(CDC& dc)
 	CFont fontLegend;
 	VERIFY(fontLegend.CreatePointFont(m_rcGraph.Height() / LEGEND_DIVISOR, 
 		_T("Arial"), &dc));
-	CFont* pFontOld = static_cast<CFont*> (dc.SelectObject(&fontLegend));
+	CFont* pFontOld = dc.SelectObject(&fontLegend);
 	ASSERT_VALID(pFontOld);
 
 	// Get the height of each label.
@@ -812,7 +807,7 @@ void MyGraph::DrawAxes(CDC& dc) const
 {
 	VALIDATE;
 	ASSERT_VALID(&dc);
-	_ASSERTE(MyGraph::Pie != m_eGraphType);
+	_ASSERTE(MyGraph::PieChart != m_eGraphType);
 
 	dc.SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
 
@@ -844,7 +839,7 @@ void MyGraph::DrawAxes(CDC& dc) const
 		CLIP_DEFAULT_PRECIS, PROOF_QUALITY, VARIABLE_PITCH | FF_DONTCARE, 
 		_T("Arial")));
 
-	CFont* pFontOld = static_cast<CFont*> (dc.SelectObject(&fontYAxes));
+	CFont* pFontOld = dc.SelectObject(&fontYAxes);
 	ASSERT_VALID(pFontOld);
 	CSize sizYLabel(dc.GetTextExtent(m_sYAxisLabel));
 	VERIFY(dc.TextOut(GAP_PIXELS, (m_rcGraph.Height() - sizYLabel.cy) / 2,
@@ -884,8 +879,7 @@ void MyGraph::DrawAxes(CDC& dc) const
 
 	while (pos) {
 		
-		MyGraphSeries* pSeries =
-			(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		// Ignore unpopulated series if bar chart.
@@ -964,8 +958,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 
 	while (pos) {
 		
-		MyGraphSeries* pSeries =
-			(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		// Ignore unpopulated series.
@@ -1052,8 +1045,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 
 		for (int nSeries = 0; nSeries < m_olMyGraphSeries.GetCount(); ++nSeries) {
 
-			MyGraphSeries* pSeries =
-				(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+			MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 			ASSERT_VALID(pSeries);
 			
 			// Get x and y location of center of ellipse.
@@ -1136,8 +1128,7 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 
 	while (pos) {
 
-		MyGraphSeries* pSeries =
-			(MyGraphSeries*) (m_olMyGraphSeries.GetNext(pos));
+		MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
 		ASSERT_VALID(pSeries);
 
 		// Don't leave a space for empty pies.

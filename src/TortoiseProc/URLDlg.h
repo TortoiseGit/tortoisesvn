@@ -18,6 +18,8 @@
 #pragma once
 
 
+#include "HistoryCombo.h"
+
 
 /**
  * \ingroup TortoiseProc

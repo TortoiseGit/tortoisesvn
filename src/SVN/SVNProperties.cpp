@@ -20,6 +20,7 @@
 #include "ShellExt.h"
 #include "..\\TortoiseShell\\resource.h"
 #include "SVNProperties.h"
+#include "auth_providers.h"
 
 #ifdef _MFC_VER
 #	include "SVN.h"

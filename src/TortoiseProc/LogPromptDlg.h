@@ -17,13 +17,13 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "afxcmn.h"
+
 #include "ResizableDialog.h"
-#include "..\\Utils\\Balloon.h"
+#include "Balloon.h"
 #include "SpellEdit.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
-#include "afxwin.h"
+#include "HistoryCombo.h"
 
 /**
  * \ingroup TortoiseProc
