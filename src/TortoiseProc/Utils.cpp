@@ -805,6 +805,7 @@ CString CUtils::GetAppDirectory()
 CString CUtils::GetAppParentDirectory()
 {
 	CString path = GetAppDirectory();
+	path = path.Left(path.ReverseFind('\\'));
 	path = path.Left(path.ReverseFind('\\')+1);
 	return path;
 }
