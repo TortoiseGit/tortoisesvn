@@ -184,8 +184,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,129,233,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,187,233,50,14
     PUSHBUTTON      "&Help",IDHELP,243,233,50,14
-    CONTROL         "Branch/Tag from HEAD",IDC_COPYHEAD,"Button",
-                    BS_AUTORADIOBUTTON,13,73,274,10
+    CONTROL         "Branch/Tag directly on the server (HEAD revision)",
+                    IDC_COPYHEAD,"Button",BS_AUTORADIOBUTTON,13,73,274,10
     CONTROL         "Branch/Tag the working copy",IDC_COPYWC,"Button",
                     BS_AUTORADIOBUTTON,13,85,274,10
 END
