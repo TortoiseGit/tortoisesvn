@@ -8,13 +8,13 @@ a work 'in progress'.
 To implement a new language for TortoiseSVN
 follow these steps:
 
-Get the resource dll for translating, the location is
-announced on the mailing list.
+Get the resource dll for translating from the download page.
 The dlls are called "TortoiseLang.dll" and "TortoiseMergeLang.dll".
 
 To translate the dlls you can use the program
 SmartTranslator. You can get it from
 http://www.codeproject.com/tools/smarttranslator.asp
+(you need to register to be able to download the program)
 
 Start this program and set up the paths. Don't forget
 to add the *.dic to the dictionary path (it'll get created
