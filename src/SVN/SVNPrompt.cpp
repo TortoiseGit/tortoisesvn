@@ -183,7 +183,6 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred, void 
 svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void *baton, apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
-	svn_auth_ssl_cert_type_t cert_type;
 	const char *cert_file = NULL;
 
 	CString filename;
@@ -197,7 +196,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void 
 	ofn.hwndOwner = svn->hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	ofn.lpstrFilter = _T("Certificates\0*.p12;*.pem;*.pkcs12\0All\0*.*\0");
+	ofn.lpstrFilter = _T("Certificates\0*.p12;*.pkcs12\0All\0*.*\0");
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
 	ofn.nMaxFileTitle = 0;
@@ -212,31 +211,10 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void 
 	if (GetOpenFileName(&ofn)==TRUE)
 	{
 		filename = CString(ofn.lpstrFile);
-		if (filename.Right(3).CompareNoCase(_T("p12"))==0)
-		{
-			cert_type = svn_auth_ssl_pkcs12_cert_type;
-		}
-		else if (filename.Right(3).CompareNoCase(_T("pem"))==0)
-		{
-			cert_type = svn_auth_ssl_pem_cert_type;
-		}
-		else
-		{
-			if (CMessageBox::Show(svn->hWnd, IDS_SSL_CERTIFICATETYPE, IDS_APPNAME, MB_YESNO, IDI_QUESTION, IDS_SSL_PEM, IDS_SSL_PKCS12)==IDYES)
-			{
-				cert_type = svn_auth_ssl_pem_cert_type;
-			}
-			else
-			{
-				cert_type = svn_auth_ssl_pkcs12_cert_type;
-			}
-		}
 		cert_file = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(filename));
 		/* Build and return the credentials. */
 		*cred = (svn_auth_cred_client_ssl_t*)apr_pcalloc (pool, sizeof (**cred));
 		(*cred)->cert_file = cert_file;
-		(*cred)->key_file = NULL;
-		(*cred)->cert_type = cert_type;
 		return SVN_NO_ERROR;
 	} // if (GetOpenFileName(&ofn)==TRUE) 
 

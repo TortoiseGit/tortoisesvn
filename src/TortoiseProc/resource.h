@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcDEU.rc
+// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcRUS.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
