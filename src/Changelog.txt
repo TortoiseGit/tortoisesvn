@@ -1,6 +1,7 @@
 - ADD: Option to resolve a conflicted file in the status list control. (Stefan)
 - ADD: TortoiseSVN now uses its own sound files for errors, warnings
        and notifications in the progress dialog. (Stefan)
+- ADD: Allow diffing of renamed/copied files in the log dialog. (George Wieggers)
 - CHG: When an entry from the log message history combo is selected, it isn't
        inserted at the beginning of an existing text anymore but at the
        current cursor location. A text which is selected is automatically
@@ -13,6 +14,18 @@
 - CHG: When updating a working copy, the progress dialog doesn't show inoperable
        updates to folders anymore. This makes it look more consistent with the
        command line client. (Stefan)
+- CHG: Rework of the merge dialog. (Stefan)
+- CHG: Errors which occur in the progress dialog are now shown as new entries
+       instead of an interrupting dialog box. (Stefan)
+- CHG: The URL history is now kept per working copy. Only checkout/import still
+       use a global history of the URL's. (Stefan)
+- BUG: 'extended export' would also copy all the .svn folders. (Stefan)
+- BUG: the progress dialog wouldn't close by clicking on the 'X'. (Stefan)
+- BUG: Special/Invalid chars could be entered for log messages. (Stefan)
+- BUG: Deleting more than one file at the time made TSVN crash. (Stefan/Will)
+- BUG: Autocompletion could crash TSVN. (Stefan)
+- BUG: URL's which need escaping (e.g. if they have spaces) didn't work and
+       could even make TSVN crash. (Stefan)
 - BUG: The icon set chooser dialog sometimes showed the overlays only in part. (Stefan)
 
 Version 1.1.3
