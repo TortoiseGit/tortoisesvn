@@ -5,7 +5,8 @@
 #
 #, fuzzy
 msgid ""
-msgstr "Project-Id-Version: PACKAGE VERSION\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -14,6 +15,14 @@ msgstr "Project-Id-Version: PACKAGE VERSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ID:10,#: ID:126,#: ID:126,#: ID:126,
+msgid " "
+msgstr ""
+
+#: ID:188,
+msgid "! %d"
+msgstr ""
 
 #: ID:3868,#: ID:3868,
 msgid "%1 contained an unexpected object."
@@ -28,18 +37,15 @@ msgid "%1 contains an invalid path."
 msgstr ""
 
 #: ID:3867,#: ID:3867,
-msgid "%1 could not be created because the directory is "
-"full."
+msgid "%1 could not be created because the directory is full."
 msgstr ""
 
 #: ID:3867,#: ID:3867,
-msgid "%1 could not be opened because there are too many open "
-"files."
+msgid "%1 could not be opened because there are too many open files."
 msgstr ""
 
 #: ID:3867,#: ID:3867,
-msgid "%1 could not be removed because it is the current "
-"directory."
+msgid "%1 could not be removed because it is the current directory."
 msgstr ""
 
 #: ID:3868,#: ID:3868,
@@ -51,15 +57,11 @@ msgid "%1 was not found."
 msgstr ""
 
 #: ID:3860,#: ID:3860,
-msgid "%1: %2\n"
-"Continue running script?"
+msgid "%1: %2\nContinue running script?"
 msgstr ""
 
 #: ID:3859,#: ID:3859,
-msgid "%1\n"
-"Cannot find this file.\n"
-"Please verify that the correct path and file name are "
-"given."
+msgid "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
 msgstr ""
 
 #: ID:169,
@@ -75,8 +77,7 @@ msgid "%s : Working Copy"
 msgstr ""
 
 #: ID:145,
-msgid "%s\n"
-"Do you want to remove it anyway?"
+msgid "%s\nDo you want to remove it anyway?"
 msgstr ""
 
 #: MenuEntry
@@ -124,8 +125,7 @@ msgid "&Edit..."
 msgstr ""
 
 #: Control-ID:1023,
-msgid "&Enable Proxy Server (Don't use the IE "
-"settings)"
+msgid "&Enable Proxy Server (Don't use the IE settings)"
 msgstr ""
 
 #: Control-ID:1092,
@@ -181,8 +181,7 @@ msgid "&Merge"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "&Merge changes into the current working copy from "
-"URL:"
+msgid "&Merge changes into the current working copy from URL:"
 msgstr ""
 
 #: Control-ID:1012,
@@ -285,20 +284,28 @@ msgstr ""
 msgid "&Whitespaces"
 msgstr ""
 
-#: ID:3867,#: ID:3867,
-msgid "A hardware I/O error was reported while accessing "
-"%1."
+#: ID:188,
+msgid "+ %d"
+msgstr ""
+
+#: ID:188,
+msgid "- %d"
+msgstr ""
+
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1104,
+msgid "..."
 msgstr ""
 
 #: ID:3867,#: ID:3867,
-msgid "A locking violation occurred while accessing "
-"%1."
+msgid "A hardware I/O error was reported while accessing %1."
+msgstr ""
+
+#: ID:3867,#: ID:3867,
+msgid "A locking violation occurred while accessing %1."
 msgstr ""
 
 #: ID:201,
-msgid "A newer version is available. Please go to "
-"http://tortoisesvn.tigris.org and download the current "
-"version!"
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr ""
 
 #: ID:3843,#: ID:3843,
@@ -306,13 +313,11 @@ msgid "A required resource was unavailable."
 msgstr ""
 
 #: ID:3867,#: ID:3867,
-msgid "A sharing violation occurred while accessing "
-"%1."
+msgid "A sharing violation occurred while accessing %1."
 msgstr ""
 
 #: ID:79,
-msgid "A viewer program for GNU diff files (patch files).\n"
-"If you don't have one use NotePad."
+msgid "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
 msgstr ""
 
 #: Control-ID:1093,
@@ -356,10 +361,7 @@ msgid "Activate Task List"
 msgstr ""
 
 #: ID:78,
-msgid "Activate this if you want the folder overlays\n"
-"to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down "
-"explorer</ct>"
+msgid "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
 msgstr ""
 
 #: ID:8,#: ID:73,#: Dlg-ID:155,
@@ -391,8 +393,7 @@ msgid "Add folder..."
 msgstr ""
 
 #: Dlg-ID:171,
-msgid "Add/Edit Extension Specific Diff/Merge "
-"Program"
+msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr ""
 
 #: Control-ID:65535,
@@ -408,13 +409,11 @@ msgid "Adds file(s) to Subversion control"
 msgstr ""
 
 #: ID:13,
-msgid "Adds the selected file(s) to the 'ignore' "
-"list"
+msgid "Adds the selected file(s) to the 'ignore' list"
 msgstr ""
 
 #: ID:2049,
-msgid "Adjust the settings\n"
-"Settings"
+msgid "Adjust the settings\nSettings"
 msgstr ""
 
 #: ID:110,
@@ -442,39 +441,23 @@ msgid "All Files (*.*)|*.*||"
 msgstr ""
 
 #: ID:3867,#: ID:3868,#: ID:3867,#: ID:3868,
-msgid "An attempt was made to access %1 past its "
-"end."
+msgid "An attempt was made to access %1 past its end."
 msgstr ""
 
 #: ID:3868,#: ID:3868,
-msgid "An attempt was made to read from the writing "
-"%1."
+msgid "An attempt was made to read from the writing %1."
 msgstr ""
 
 #: ID:3868,#: ID:3868,
-msgid "An attempt was made to write to the reading "
-"%1."
+msgid "An attempt was made to write to the reading %1."
 msgstr ""
 
 #: ID:78,
-msgid "An external diff program used\n"
-"for comparing different revisions of files\n"
-"<hr=100%>\n"
-"You can specify the following parameters to the path:\n"
-"%base\tthe base file\n"
-"%mine\tthe modified file"
+msgid "An external diff program used\nfor comparing different revisions of files\n<hr=100%>\nYou can specify the following parameters to the path:\n%base\tthe base file\n%mine\tthe modified file"
 msgstr ""
 
 #: ID:79,
-msgid "An external merge program used\n"
-"to resolve conflicted files.\n"
-"<hr=100%>\n"
-"You can specify the following parameters to the path:\n"
-"%merged\tthe conflicted file, where to save\n"
-"%theirs\t\tthe file as it is in the repository\n"
-"%mine\t\tyour own file, with your changes\n"
-"%base\t\tthe original file without your "
-"changes"
+msgid "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
 msgstr ""
 
 #: ID:3843,#: ID:3843,
@@ -482,18 +465,15 @@ msgid "An invalid argument was encountered."
 msgstr ""
 
 #: ID:3867,#: ID:3867,
-msgid "An invalid file handle was associated with "
-"%1."
+msgid "An invalid file handle was associated with %1."
 msgstr ""
 
 #: ID:3859,#: ID:3859,
-msgid "An unexpected error occurred while reading "
-"%1."
+msgid "An unexpected error occurred while reading %1."
 msgstr ""
 
 #: ID:3859,#: ID:3859,
-msgid "An unexpected error occurred while writing "
-"%1."
+msgid "An unexpected error occurred while writing %1."
 msgstr ""
 
 #: ID:3843,#: ID:3843,
@@ -501,13 +481,11 @@ msgid "An unknown error has occurred."
 msgstr ""
 
 #: ID:3867,#: ID:3868,#: ID:3867,#: ID:3868,
-msgid "An unknown error occurred while accessing "
-"%1."
+msgid "An unknown error occurred while accessing %1."
 msgstr ""
 
 #: ID:63,
-msgid "An unknown line type was found in line %d "
-"!"
+msgid "An unknown line type was found in line %d !"
 msgstr ""
 
 #: ID:3843,#: ID:3843,
@@ -515,8 +493,7 @@ msgid "An unsupported operation was attempted."
 msgstr ""
 
 #: ID:14,
-msgid "Applies a unified diff file to the working "
-"copy"
+msgid "Applies a unified diff file to the working copy"
 msgstr ""
 
 #: ID:13,
@@ -528,8 +505,7 @@ msgid "Apply Unified Diff"
 msgstr ""
 
 #: ID:79,
-msgid "Are you sure you want to revert? You will lose <b>all</b> changes "
-"since the last update!"
+msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
 msgstr ""
 
 #: ID:77,
@@ -545,13 +521,11 @@ msgid "Author"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Author:                        Stefan "
-"Kueng"
+msgid "Author:                        Stefan Kueng"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Authors:                      Stefan Kueng, Tim "
-"Kemp"
+msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr ""
 
 #: Control-ID:1001,
@@ -627,10 +601,7 @@ msgid "CAP"
 msgstr ""
 
 #: ID:82,
-msgid "Can't copy \n"
-"%s\n"
-"to\n"
-"%s"
+msgid "Can't copy \n%s\nto\n%s"
 msgstr ""
 
 #: ID:73,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
@@ -650,8 +621,7 @@ msgid "Certificate expired. Valid until: %s"
 msgstr ""
 
 #: ID:82,
-msgid "Certificate not yet valid. Valid from: "
-"%s"
+msgid "Certificate not yet valid. Valid from: %s"
 msgstr ""
 
 #: ID:157,
@@ -695,8 +665,7 @@ msgid "Check for newer versions"
 msgstr ""
 
 #: ID:79,
-msgid "Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
+msgid "Check if you want the progress dialog to close\nautomatically after the operation finishes."
 msgstr ""
 
 #: ID:9,
@@ -704,23 +673,19 @@ msgid "Check out a working copy from a repository"
 msgstr ""
 
 #: ID:95,
-msgid "Check the files which you want to\n"
-"delete before importing."
+msgid "Check the files which you want to\ndelete before importing."
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Check those menu entries you want to appear in the top context menu "
-"instead of the submenu"
+msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr ""
 
 #: ID:80,
-msgid "Check to use a less verbose date and time format in log "
-"messages"
+msgid "Check to use a less verbose date and time format in log messages"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Checking if a newer version of TortoiseSVN is "
-"available..."
+msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr ""
 
 #: Dlg-ID:133,
@@ -740,23 +705,19 @@ msgid "Cleanup has finished"
 msgstr ""
 
 #: ID:9,
-msgid "Cleanup interrupted operations, locked files, "
-"..."
+msgid "Cleanup interrupted operations, locked files, ..."
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Click on \"Advanced\" to specify alternate diff programs based on file "
-"extension"
+msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Click on \"Advanced\" to specify alternate merge programs based on file "
-"extension"
+msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr ""
 
 #: ID:3825,
-msgid "Close the active window and prompts to save the "
-"documents"
+msgid "Close the active window and prompts to save the documents"
 msgstr ""
 
 #: Dlg-ID:138,
@@ -800,8 +761,7 @@ msgid "Compare with working copy"
 msgstr ""
 
 #: ID:12,
-msgid "Compares the file with the last commited version to show you the "
-"changes you made"
+msgid "Compares the file with the last commited version to show you the changes you made"
 msgstr ""
 
 #: ID:74,
@@ -833,8 +793,7 @@ msgid "Copy files in Subversion to here"
 msgstr ""
 
 #: ID:3603,
-msgid "Copy the selection and put it on the Clipboard\n"
-"Copy"
+msgid "Copy the selection and put it on the Clipboard\nCopy"
 msgstr ""
 
 #: ID:80,
@@ -858,9 +817,7 @@ msgid "Could not check for a newer version!"
 msgstr ""
 
 #: ID:81,
-msgid "Could not copy the files!\n"
-"<hr=100%>\n"
-"%s"
+msgid "Could not copy the files!\n<hr=100%>\n%s"
 msgstr ""
 
 #: ID:81,
@@ -868,18 +825,15 @@ msgid "Could not get the status!"
 msgstr ""
 
 #: ID:69,
-msgid "Could not open the file\n"
-"%s"
+msgid "Could not open the file\n%s"
 msgstr ""
 
 #: ID:81,
-msgid "Could not retrieve URL of the file!\n"
-"%s"
+msgid "Could not retrieve URL of the file!\n%s"
 msgstr ""
 
 #: ID:66,
-msgid "Could not retrieve version %s of the file %s.\n"
-"Patching is not possible!"
+msgid "Could not retrieve version %s of the file %s.\nPatching is not possible!"
 msgstr ""
 
 #: ID:64,
@@ -887,21 +841,15 @@ msgid "Could not save the file %s!"
 msgstr ""
 
 #: ID:81,
-msgid "Could not start diff viewer!\n"
-"<hr=100%>\n"
-"%s"
+msgid "Could not start diff viewer!\n<hr=100%>\n%s"
 msgstr ""
 
 #: ID:81,
-msgid "Could not start external diff program!\n"
-"<hr=100%>\n"
-"%s"
+msgid "Could not start external diff program!\n<hr=100%>\n%s"
 msgstr ""
 
 #: ID:81,
-msgid "Could not start external merge program!\n"
-"<hr=100%>\n"
-"%s"
+msgid "Could not start external merge program!\n<hr=100%>\n%s"
 msgstr ""
 
 #: ID:3857,#: ID:3857,
@@ -933,23 +881,19 @@ msgid "Created folder remotely"
 msgstr ""
 
 #: ID:10,
-msgid "Creates a 'cheap' copy inside the repository used for branches or "
-"tagging"
+msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr ""
 
 #: ID:10,
-msgid "Creates a repository database at the current "
-"location"
+msgid "Creates a repository database at the current location"
 msgstr ""
 
 #: ID:14,
-msgid "Creates a unified diff file with all changes you "
-"made"
+msgid "Creates a unified diff file with all changes you made"
 msgstr ""
 
 #: ID:3603,
-msgid "Cut the selection and put it on the Clipboard\n"
-"Cut"
+msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr ""
 
 #: ID:76,
@@ -965,8 +909,7 @@ msgid "Delete"
 msgstr ""
 
 #: ID:11,
-msgid "Deletes files / folders from source "
-"control"
+msgid "Deletes files / folders from source control"
 msgstr ""
 
 #: ID:3859,#: ID:3859,
@@ -1010,23 +953,19 @@ msgid "Dispatch exception: %1"
 msgstr ""
 
 #: ID:3605,
-msgid "Display help for clicked on buttons, menus and windows\n"
-"Help"
+msgid "Display help for clicked on buttons, menus and windows\nHelp"
 msgstr ""
 
 #: ID:3605,
-msgid "Display help for current task or command\n"
-"Help"
+msgid "Display help for current task or command\nHelp"
 msgstr ""
 
 #: ID:3605,
-msgid "Display instructions about how to use help\n"
-"Help"
+msgid "Display instructions about how to use help\nHelp"
 msgstr ""
 
 #: ID:3605,
-msgid "Display program information, version number and copyright\n"
-"About"
+msgid "Display program information, version number and copyright\nAbout"
 msgstr ""
 
 #: ID:80,
@@ -1034,8 +973,7 @@ msgid "Do not show this message again"
 msgstr ""
 
 #: ID:76,
-msgid "Do you really want to revert all changes\n"
-"which were made in this revision?"
+msgid "Do you really want to revert all changes\nwhich were made in this revision?"
 msgstr ""
 
 #: ID:76,
@@ -1043,14 +981,11 @@ msgid "Do you want to proceed?"
 msgstr ""
 
 #: ID:313,
-msgid "Do you want to reload the documents to reflect the settings changes?\n"
-"Note: you will lose all changes you've "
-"made!"
+msgid "Do you want to reload the documents to reflect the settings changes?\nNote: you will lose all changes you've made!"
 msgstr ""
 
 #: ID:313,
-msgid "Do you want to reload the documents?\n"
-"You will lose all changes you've made!"
+msgid "Do you want to reload the documents?\nYou will lose all changes you've made!"
 msgstr ""
 
 #: ID:313,
@@ -1058,13 +993,11 @@ msgid "Do you want to save your changes?"
 msgstr ""
 
 #: Control-ID:1061,
-msgid "Don't &remove log messages when cancelling a "
-"commit"
+msgid "Don't &remove log messages when cancelling a commit"
 msgstr ""
 
 #: Control-ID:1073,
-msgid "Don't convert files when diffing against "
-"BASE"
+msgid "Don't convert files when diffing against BASE"
 msgstr ""
 
 #: Control-ID:1079,
@@ -1124,18 +1057,15 @@ msgid "Enter URL"
 msgstr ""
 
 #: ID:3603,
-msgid "Erase everything\n"
-"Erase All"
+msgid "Erase everything\nErase All"
 msgstr ""
 
 #: ID:3603,
-msgid "Erase the selection\n"
-"Erase"
+msgid "Erase the selection\nErase"
 msgstr ""
 
 #: ID:81,
-msgid "Error validating server certificate for "
-"%s:"
+msgid "Error validating server certificate for %s:"
 msgstr ""
 
 #: Control-ID:1097,
@@ -1163,8 +1093,7 @@ msgid "Exporting..."
 msgstr ""
 
 #: ID:10,
-msgid "Exports a repository to a clean working copy without the svn "
-"administrative folders"
+msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr ""
 
 #: ID:74,
@@ -1224,8 +1153,7 @@ msgid "File Patches"
 msgstr ""
 
 #: ID:3603,
-msgid "Find the specified text\n"
-"Find"
+msgid "Find the specified text\nFind"
 msgstr ""
 
 #: ID:77,
@@ -1269,13 +1197,11 @@ msgid "Getting file info..."
 msgstr ""
 
 #: ID:2049,
-msgid "Go to the next difference\n"
-"next difference"
+msgid "Go to the next difference\nnext difference"
 msgstr ""
 
 #: ID:2049,
-msgid "Go to the previous difference\n"
-"previous difference"
+msgid "Go to the previous difference\nprevious difference"
 msgstr ""
 
 #: ID:12,#: Control-ID:1004,
@@ -1295,32 +1221,23 @@ msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr ""
 
 #: ID:194,
-msgid "If activated, prevents the overlays from showing in \"save as..\" or "
-"\"open\" dialogs"
+msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
 msgstr ""
 
 #: ID:95,
-msgid "If checked then a new folder is created in the repository.\n"
-"If not checked then the import goes directly to the specified "
-"URL."
+msgid "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
 msgstr ""
 
 #: ID:79,
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the "
-"diff but diffs the original file against "
-"BASE"
+msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
 msgstr ""
 
 #: ID:194,
-msgid "If enabled, TortoiseSVN checks once a week if a newer version is "
-"available"
+msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr ""
 
 #: ID:80,
-msgid "If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
+msgid "If you cancel a commit, the log message you have entered is saved\nand filled in the edit box on the next commit.\nYou can then either edit that message or use\nit unchanged."
 msgstr ""
 
 #: ID:73,
@@ -1364,8 +1281,7 @@ msgid "Input"
 msgstr ""
 
 #: ID:3603,
-msgid "Insert Clipboard contents\n"
-"Paste"
+msgid "Insert Clipboard contents\nPaste"
 msgstr ""
 
 #: ID:3857,#: ID:3857,
@@ -1381,21 +1297,7 @@ msgid "Invalid filename."
 msgstr ""
 
 #: ID:82,
-msgid "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
-"dates in one of the following example forms:\n"
-"{2002-02-17}\n"
-"{15:30}\n"
-"{15:30:00.200000}\n"
-"{\"2002-02-17 15:30\"}\n"
-"{\"2002-02-17 15:30 +0230\"}\n"
-"{2002-02-17T15:30}\n"
-"{2002-02-17T15:30Z}\n"
-"{2002-02-17T15:30-04:00}\n"
-"{20020217T1530}\n"
-"{20020217T1530Z}\n"
-"{20020217T1530-0500}"
+msgid "Invalid revision number! Valid revisions are:\nHEAD, BASE, PREV, COMMITTED, WC\npositive decimal numbers\ndates in one of the following example forms:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
 msgstr ""
 
 #: Control-ID:1016,
@@ -1415,13 +1317,11 @@ msgid "Last saved revision of item"
 msgstr ""
 
 #: ID:12,
-msgid "Launches the external diff / merge program to solve the "
-"conflicts"
+msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr ""
 
 #: ID:3605,
-msgid "List Help topics\n"
-"Help Topics"
+msgid "List Help topics\nHelp Topics"
 msgstr ""
 
 #: ID:63,
@@ -1429,8 +1329,7 @@ msgid "Local Status"
 msgstr ""
 
 #: ID:94,
-msgid "Location where the contents of the\n"
-"repository URL will be saved to."
+msgid "Location where the contents of the\nrepository URL will be saved to."
 msgstr ""
 
 #: ID:126,
@@ -1538,10 +1437,7 @@ msgid "No"
 msgstr ""
 
 #: ID:81,
-msgid "No command specified!\n"
-"<hr=100%>\n"
-"TortoiseProc.exe is used by the Shell extension and should not be "
-"called directly!"
+msgid "No command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
 
 #: ID:81,
@@ -1557,9 +1453,7 @@ msgid "No error occurred."
 msgstr ""
 
 #: ID:77,
-msgid "No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+msgid "No files were changed or added since\nthe last commit. There's nothing\nto do for TortoiseSVN here..."
 msgstr ""
 
 #: Control-ID:65535,
@@ -1567,8 +1461,7 @@ msgid "Normal"
 msgstr ""
 
 #: ID:3857,#: ID:3857,
-msgid "Not all of the system registry entries (or INI file) were "
-"removed."
+msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr ""
 
 #: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
@@ -1604,13 +1497,11 @@ msgid "Open file"
 msgstr ""
 
 #: ID:3605,
-msgid "Opens Help\n"
-"Help Topics"
+msgid "Opens Help\nHelp Topics"
 msgstr ""
 
 #: ID:13,
-msgid "Opens the repository browser to tweak the repository "
-"online"
+msgid "Opens the repository browser to tweak the repository online"
 msgstr ""
 
 #: ID:3843,#: ID:3843,
@@ -1658,8 +1549,7 @@ msgid "Please enter a date."
 msgstr ""
 
 #: ID:3858,#: ID:3858,
-msgid "Please enter a number between %1 and "
-"%2."
+msgid "Please enter a number between %1 and %2."
 msgstr ""
 
 #: ID:3858,#: ID:3858,
@@ -1675,13 +1565,11 @@ msgid "Please enter a time."
 msgstr ""
 
 #: ID:3858,#: ID:3858,
-msgid "Please enter an integer between %1 and "
-"%2."
+msgid "Please enter an integer between %1 and %2."
 msgstr ""
 
 #: ID:3858,#: ID:3858,
-msgid "Please enter an integer between 0 and "
-"255."
+msgid "Please enter an integer between 0 and 255."
 msgstr ""
 
 #: ID:3858,#: ID:3858,
@@ -1693,12 +1581,7 @@ msgid "Please enter no more than %1 characters."
 msgstr ""
 
 #: ID:78,
-msgid "Please note:\n"
-"your working copy remains on the previous path. If you want your next "
-"changes\n"
-"to be in the just created copy then you need to <b>switch</b> over\n"
-"to that copy path. Use the <b>Switch</b> command to do "
-"that."
+msgid "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to <b>switch</b> over\nto that copy path. Use the <b>Switch</b> command to do that."
 msgstr ""
 
 #: ID:3858,#: ID:3858,
@@ -1710,8 +1593,7 @@ msgid "Please specify the certificate type"
 msgstr ""
 
 #: ID:132,
-msgid "Please wait - this can take several minutes. "
-"Seriously!"
+msgid "Please wait - this can take several minutes. Seriously!"
 msgstr ""
 
 #: ID:13,
@@ -1763,8 +1645,7 @@ msgid "Proxy Settings"
 msgstr ""
 
 #: ID:3605,
-msgid "Quit the application; prompts to save documents\n"
-"Exit"
+msgid "Quit the application; prompts to save documents\nExit"
 msgstr ""
 
 #: Control-ID:1073,
@@ -1776,13 +1657,11 @@ msgid "REC"
 msgstr ""
 
 #: ID:12,
-msgid "Read the 'Daily Use Guide' before you are "
-"stuck..."
+msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr ""
 
 #: ID:3603,
-msgid "Redo the previously undone action\n"
-"Redo"
+msgid "Redo the previously undone action\nRedo"
 msgstr ""
 
 #: ID:3825,
@@ -1802,8 +1681,7 @@ msgid "Reload"
 msgstr ""
 
 #: ID:2050,
-msgid "Reloads the opened files and reverts all changes.\n"
-"Reload"
+msgid "Reloads the opened files and reverts all changes.\nReload"
 msgstr ""
 
 #: Dlg-ID:157,
@@ -1851,18 +1729,15 @@ msgid "Rename..."
 msgstr ""
 
 #: ID:11,
-msgid "Renames files / folders inside source "
-"control"
+msgid "Renames files / folders inside source control"
 msgstr ""
 
 #: ID:3603,
-msgid "Repeat the last action\n"
-"Repeat"
+msgid "Repeat the last action\nRepeat"
 msgstr ""
 
 #: ID:3603,
-msgid "Replace specific text with different text\n"
-"Replace"
+msgid "Replace specific text with different text\nReplace"
 msgstr ""
 
 #: ID:74,
@@ -1886,8 +1761,7 @@ msgid "Resolve"
 msgstr ""
 
 #: Control-ID:1067,
-msgid "Resolve conflicted subversion status on "
-"save"
+msgid "Resolve conflicted subversion status on save"
 msgstr ""
 
 #: ID:8,
@@ -1919,8 +1793,7 @@ msgid "Revert changes from this revision"
 msgstr ""
 
 #: ID:9,
-msgid "Reverts all changes you made since the last "
-"update"
+msgid "Reverts all changes you made since the last update"
 msgstr ""
 
 #: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
@@ -2044,8 +1917,7 @@ msgid "Save revision to..."
 msgstr ""
 
 #: ID:3601,#: ID:3601,
-msgid "Save the modified file\n"
-"Save file"
+msgid "Save the modified file\nSave file"
 msgstr ""
 
 #: ID:144,
@@ -2101,14 +1973,11 @@ msgid "Select diff file..."
 msgstr ""
 
 #: ID:79,
-msgid "Select folder to export to.\n"
-"You might need to create a new folder before performing this "
-"export."
+msgid "Select folder to export to.\nYou might need to create a new folder before performing this export."
 msgstr ""
 
 #: ID:3603,
-msgid "Select the entire document\n"
-"Select All"
+msgid "Select the entire document\nSelect All"
 msgstr ""
 
 #: ID:3866,#: ID:3866,
@@ -2184,13 +2053,11 @@ msgid "Show log"
 msgstr ""
 
 #: ID:3713,
-msgid "Show or hide the status bar\n"
-"Toggle StatusBar"
+msgid "Show or hide the status bar\nToggle StatusBar"
 msgstr ""
 
 #: ID:3713,
-msgid "Show or hide the toolbar\n"
-"Toggle ToolBar"
+msgid "Show or hide the toolbar\nToggle ToolBar"
 msgstr ""
 
 #: Control-ID:1088,
@@ -2198,8 +2065,7 @@ msgid "Show overlays only in explorer"
 msgstr ""
 
 #: ID:2049,
-msgid "Show special characters for whitespaces\n"
-"Show Whitespaces"
+msgid "Show special characters for whitespaces\nShow Whitespaces"
 msgstr ""
 
 #: Control-ID:1073,
@@ -2207,8 +2073,7 @@ msgid "Show unversioned files"
 msgstr ""
 
 #: ID:13,
-msgid "Shows all files which were changed since the last update, locally and "
-"in the repository"
+msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr ""
 
 #: ID:10,
@@ -2216,13 +2081,11 @@ msgid "Shows information about TortoiseSVN"
 msgstr ""
 
 #: ID:12,
-msgid "Shows the log for the selected file / "
-"folder"
+msgid "Shows the log for the selected file / folder"
 msgstr ""
 
 #: ID:14,
-msgid "Shows the mime type of the versioned "
-"file"
+msgid "Shows the mime type of the versioned file"
 msgstr ""
 
 #: ID:74,
@@ -2234,14 +2097,11 @@ msgid "Skip"
 msgstr ""
 
 #: ID:79,
-msgid "Specify the files or folders wich TortoiseSVN\n"
-" should exclude from version control.\n"
-"Separate the patterns with a space."
+msgid "Specify the files or folders wich TortoiseSVN\n should exclude from version control.\nSeparate the patterns with a space."
 msgstr ""
 
 #: ID:3604,
-msgid "Split the active window into panes\n"
-"Split"
+msgid "Split the active window into panes\nSplit"
 msgstr ""
 
 #: ID:74,#: ID:77,#: ID:207,
@@ -2261,15 +2121,11 @@ msgid "Subversion export here"
 msgstr ""
 
 #: ID:79,
-msgid "Subversion reported an error while creating a repository!\n"
-"Make sure the folder is empty and not write "
-"protected."
+msgid "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
 msgstr ""
 
 #: ID:81,
-msgid "Subversion reported an error while doing a cleanup!\n"
-"<hr=100%>\n"
-"%s"
+msgid "Subversion reported an error while doing a cleanup!\n<hr=100%>\n%s"
 msgstr ""
 
 #: Dlg-ID:140,
@@ -2277,14 +2133,11 @@ msgid "Switch To Branch / Tag"
 msgstr ""
 
 #: ID:3606,
-msgid "Switch back to the previous window pane\n"
-"Previous Pane"
+msgid "Switch back to the previous window pane\nPrevious Pane"
 msgstr ""
 
 #: ID:2049,
-msgid "Switch between single and double pane view\n"
-"Switch between single and double pane "
-"view"
+msgid "Switch between single and double pane view\nSwitch between single and double pane view"
 msgstr ""
 
 #: ID:3825,
@@ -2292,8 +2145,7 @@ msgid "Switch to the next document window"
 msgstr ""
 
 #: ID:3606,
-msgid "Switch to the next window pane\n"
-"Next Pane"
+msgid "Switch to the next window pane\nNext Pane"
 msgstr ""
 
 #: ID:3825,
@@ -2301,8 +2153,7 @@ msgid "Switch to the previous document window"
 msgstr ""
 
 #: ID:9,
-msgid "Switch working copy to another branch / "
-"tag"
+msgid "Switch working copy to another branch / tag"
 msgstr ""
 
 #: ID:9,
@@ -2310,8 +2161,7 @@ msgid "Switch..."
 msgstr ""
 
 #: ID:3857,#: ID:3857,
-msgid "System registry entries have been removed and the INI file (if any) "
-"was deleted."
+msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2331,9 +2181,7 @@ msgid "Text Status:"
 msgstr ""
 
 #: ID:69,
-msgid "The File\n"
-"%s\n"
-"is not a valid text file!"
+msgid "The File\n%s\nis not a valid text file!"
 msgstr ""
 
 #: ID:80,
@@ -2341,18 +2189,15 @@ msgid "The Repository was successfully created."
 msgstr ""
 
 #: ID:63,
-msgid "The chunk size did not match the number of added/removed "
-"lines!"
+msgid "The chunk size did not match the number of added/removed lines!"
 msgstr ""
 
 #: ID:63,
-msgid "The chunk start \"@@\" was expected in line %d "
-"!"
+msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr ""
 
 #: ID:68,
-msgid "The diffing engine aborted because of an error:\n"
-"%s"
+msgid "The diffing engine aborted because of an error:\n%s"
 msgstr ""
 
 #: ID:64,
@@ -2360,8 +2205,7 @@ msgid "The file %s does not exist!"
 msgstr ""
 
 #: ID:64,
-msgid "The file %s was not found in the patch "
-"file!"
+msgid "The file %s was not found in the patch file!"
 msgstr ""
 
 #: ID:3857,#: ID:3857,
@@ -2369,22 +2213,15 @@ msgid "The file is too large to open."
 msgstr ""
 
 #: ID:80,
-msgid "The file\n"
-"%s\n"
-"already exists! Do you want to overwrite "
-"it?"
+msgid "The file\n%s\nalready exists! Do you want to overwrite it?"
 msgstr ""
 
 #: ID:88,
-msgid "The folder \n"
-"%s\n"
-"does not exist.\n"
-"Would you like to create it first?"
+msgid "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
 msgstr ""
 
 #: ID:63,
-msgid "The line \"====\" was expected in line %d "
-"!"
+msgid "The line \"====\" was expected in line %d !"
 msgstr ""
 
 #: ID:63,
@@ -2392,45 +2229,31 @@ msgid "The line \"Index: \" was not found!"
 msgstr ""
 
 #: ID:63,
-msgid "The line indicating the new file was expected in line %d "
-"!"
+msgid "The line indicating the new file was expected in line %d !"
 msgstr ""
 
 #: ID:63,
-msgid "The line indicating the old file was expected in line %d "
-"!"
+msgid "The line indicating the old file was expected in line %d !"
 msgstr ""
 
 #: ID:63,
-msgid "The old file does not match the new file.\n"
-"Renaming of files is not (yet) supported!"
+msgid "The old file does not match the new file.\nRenaming of files is not (yet) supported!"
 msgstr ""
 
 #: ID:64,
-msgid "The patch seems outdated! The file line\n"
-"%s\n"
-"and the patchline\n"
-"%s\n"
-"do not match!"
+msgid "The patch seems outdated! The file line\n%s\nand the patchline\n%s\ndo not match!"
 msgstr ""
 
 #: ID:78,
-msgid "The selected file appears to still have one or more conflict markers "
-"in it.\n"
-"Are you sure you want to mark the file "
-"resolved?"
+msgid "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
 msgstr ""
 
 #: ID:81,
-msgid "The working copy has changed!\n"
-"<hr=100%>\n"
-"Please commit your changes first or "
-"revert."
+msgid "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
 msgstr ""
 
 #: ID:81,
-msgid "The working copy is not up to date!\n"
-"Please Update first."
+msgid "The working copy is not up to date!\nPlease Update first."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2438,16 +2261,11 @@ msgid "Their File:"
 msgstr ""
 
 #: ID:169,
-msgid "There are changes inside one or more directories which you have "
-"included with svn:externals.\n"
-"Those files are <b>not</b> listed for commit. You need to commit "
-"those files separately."
+msgid "There are changes inside one or more directories which you have included with svn:externals.\nThose files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
 
 #: ID:66,
-msgid "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before "
-"saving."
+msgid "There are still unresolved conflicts in line %d!\nPlease resolve those conflicts first before saving."
 msgstr ""
 
 #: ID:188,
@@ -2455,19 +2273,15 @@ msgid "Thesaurus"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "This product includes software developed by CollabNet "
-"(http://www.Collab.Net/)"
+msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
 msgstr ""
 
 #: ID:3857,#: ID:3857,
-msgid "This program is linked to the missing export %s in the file %s. This "
-"machine may have an incompatible version of "
-"%s."
+msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr ""
 
 #: ID:3857,#: ID:3857,
-msgid "This program requires the file %s, which was not found on this "
-"system."
+msgid "This program requires the file %s, which was not found on this system."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2475,13 +2289,11 @@ msgid "Three File Diff"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "To merge changes from a specific branch, you must put the same URL in "
-"both \"From:\" and \"To:\" fields."
+msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
 msgstr ""
 
 #: Control-ID:1052,
-msgid "To see the changes you made, double click on the files "
-"above."
+msgid "To see the changes you made, double click on the files above."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2497,11 +2309,7 @@ msgid "TortoiseMerge %d.%d.%d, Build %d"
 msgstr ""
 
 #: ID:107,
-msgid "TortoiseMerge %d.%d.%d, Build %d, %sr\n"
-"libsvn_diff %d.%d.%d, %sr\n"
-"apr %d.%d.%dr\n"
-"apr-iconv %d.%d.%dr\n"
-"apr-utils %d.%d.%d"
+msgid "TortoiseMerge %d.%d.%d, Build %d, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
 msgstr ""
 
 #: ID:9,#: ID:80,
@@ -2513,15 +2321,7 @@ msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr ""
 
 #: ID:107,
-msgid "TortoiseSVN %d.%d.%d, Build %d, %sr\n"
-"Subversion %d.%d.%d, %sr\n"
-"apr %d.%d.%dr\n"
-"apr-iconv %d.%d.%dr\n"
-"apr-utils %d.%d.%dr\n"
-"berkeley db %d.%d.%dr\n"
-"neon %sr\n"
-"%sr\n"
-"zlib %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d\r\nberkeley db %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
 msgstr ""
 
 #: ID:80,
@@ -2561,8 +2361,7 @@ msgid "Unable to load mail system support."
 msgstr ""
 
 #: ID:3859,#: ID:3859,
-msgid "Unable to read from %1, it is opened by someone "
-"else."
+msgid "Unable to read from %1, it is opened by someone else."
 msgstr ""
 
 #: ID:3865,#: ID:3865,
@@ -2574,8 +2373,7 @@ msgid "Unable to write read-only property."
 msgstr ""
 
 #: ID:3859,#: ID:3859,
-msgid "Unable to write to %1, it is read-only or opened by someone "
-"else."
+msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr ""
 
 #: ID:3887,#: ID:3887,
@@ -2583,8 +2381,7 @@ msgid "Uncheck"
 msgstr ""
 
 #: ID:3603,
-msgid "Undo the last action\n"
-"Undo"
+msgid "Undo the last action\nUndo"
 msgstr ""
 
 #: ID:3859,#: ID:3859,
@@ -2592,9 +2389,7 @@ msgid "Unexpected file format."
 msgstr ""
 
 #: ID:81,
-msgid "Unknown certificate issuer.\n"
-"  Fingerprint: %s\n"
-"  Distinguished name: %s"
+msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 msgstr ""
 
 #: Control-ID:1061,
@@ -2618,13 +2413,11 @@ msgid "Update item to revision"
 msgstr ""
 
 #: ID:11,
-msgid "Updates the working copy to a specific "
-"revision"
+msgid "Updates the working copy to a specific revision"
 msgstr ""
 
 #: ID:9,
-msgid "Updates the working copy to the current "
-"revision"
+msgid "Updates the working copy to the current revision"
 msgstr ""
 
 #: ID:207,
@@ -2652,8 +2445,7 @@ msgid "Use text block from \"theirs\""
 msgstr ""
 
 #: ID:251,
-msgid "Use text block from \"theirs\" before "
-"\"yours\""
+msgid "Use text block from \"theirs\" before \"yours\""
 msgstr ""
 
 #: ID:251,
@@ -2665,8 +2457,7 @@ msgid "Use text block from \"yours\" before \"theirs\""
 msgstr ""
 
 #: ID:12,
-msgid "Use this if the URL of the repository has "
-"changed"
+msgid "Use this if the URL of the repository has changed"
 msgstr ""
 
 #: ID:251,
@@ -2674,8 +2465,7 @@ msgid "Use this text block"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Used for comparing different revisions of "
-"files."
+msgid "Used for comparing different revisions of files."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2691,13 +2481,7 @@ msgid "Username:"
 msgstr ""
 
 #: ID:313,
-msgid "Valid command line options are:\n"
-"/base:<path to base file>\n"
-"/theirs:<path to their file>\n"
-"/yours:<path to your file>\n"
-"/merged:<path to resulting merged file>\n"
-"/diff:<path to unified diff file>\n"
-"/patchpath:<path to folder>"
+msgid "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/yours:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
 msgstr ""
 
 #: ID:11,
@@ -2709,8 +2493,7 @@ msgid "Version"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Viewer program for GNU diff files (patch "
-"files)."
+msgid "Viewer program for GNU diff files (patch files)."
 msgstr ""
 
 #: Control-ID:1084,#: Control-ID:1084,
@@ -2726,8 +2509,7 @@ msgid "Whitespaces"
 msgstr ""
 
 #: ID:80,
-msgid "Working copy relocated to\n"
-"%s"
+msgid "Working copy relocated to\n%s"
 msgstr ""
 
 #: ID:73,
@@ -2739,30 +2521,19 @@ msgid "Yes to all"
 msgstr ""
 
 #: ID:201,
-msgid "You already have the most current version "
-"installed."
+msgid "You already have the most current version installed."
 msgstr ""
 
 #: ID:144,
-msgid "You are creating a repository on a network share.\n"
-"This is safe, but once the repository is created you must access it "
-"by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt "
-"your data!\n"
-"Create the repository anyway?"
+msgid "You are creating a repository on a network share.\nThis is safe, but once the repository is created you must access it by some other means.\nAccessing a repository via file:/// on a network share may corrupt your data!\nCreate the repository anyway?"
 msgstr ""
 
 #: ID:88,
-msgid "You are trying to access a repository via file:/// on\n"
-"a shared network drive.\n"
-"This could lead to severe repository corruption!\n"
-"Do you really want to do that?"
+msgid "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
 msgstr ""
 
 #: ID:77,
-msgid "You selected an unversioned file.\n"
-"The file will be added to version control when you "
-"commit."
+msgid "You selected an unversioned file.\nThe file will be added to version control when you commit."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2770,9 +2541,7 @@ msgid "Your File:"
 msgstr ""
 
 #: ID:78,
-msgid "Your working copy appears to be on a <b>tag</b> path!\n"
-"You should first switch to a branch or the main trunk before "
-"committing."
+msgid "Your working copy appears to be on a <b>tag</b> path!\nYou should first switch to a branch or the main trunk before committing."
 msgstr ""
 
 #: ID:10,
@@ -2808,10 +2577,7 @@ msgid "deleted"
 msgstr ""
 
 #: ID:79,
-msgid "exported\n"
-"%s\n"
-"to\n"
-"%s"
+msgid "exported\n%s\nto\n%s"
 msgstr ""
 
 #: ID:79,
@@ -2879,50 +2645,27 @@ msgid "save authentication"
 msgstr ""
 
 #: ID:14,
-msgid "svn:eol-style\n"
-"One of 'native', 'LF', 'CR', 'CRLF'."
+msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 
 #: ID:14,
-msgid "svn:executable\n"
-"If present, make the file executable. This property cannot be set on "
-"a directory. A non-recursive attempt will fail, and a recursive "
-"attempt will set the property only on the file children of the "
-"directory."
+msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 
 #: ID:14,
-msgid "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists "
-"of a relative directory path, optional revision flags, and an URL. "
-"For example\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+msgid "svn:externals\nA newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 
 #: ID:14,
-msgid "svn:ignore\n"
-"A newline separated list of file patterns to "
-"ignore."
+msgid "svn:ignore\nA newline separated list of file patterns to ignore."
 msgstr ""
 
 #: ID:14,
-msgid "svn:keywords\n"
-"Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
-"Author, LastChangedBy\t\tThe last person to modify the file.\n"
-"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
-"Rev, LastChangedRevision\tThe last revision the object changed.\n"
-"Id\t\t\t\tA compressed summary of the previous 4 "
-"keywords."
+msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\t\t\tThe URL for the head version of the object.\nAuthor, LastChangedBy\t\tThe last person to modify the file.\nDate, LastChangedDate\t\tThe date/time the object was last modified.\nRev, LastChangedRevision\tThe last revision the object changed.\nId\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 
 #: ID:14,
-msgid "svn:mime-type\n"
-"The mimetype of the file. Used to determine whether to merge the "
-"file, and how to serve it from Apache. A mimetype beginning with "
-"'text/' (or an absent mimetype) is treated as text. Anything else is "
-"treated as binary."
+msgid "svn:mime-type\nThe mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 
 #: ID:80,
