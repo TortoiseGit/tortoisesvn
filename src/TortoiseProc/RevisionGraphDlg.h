@@ -98,7 +98,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	INT_PTR			GetIndexOfRevision(LONG rev);
-	void			SetScrollbars();
+	void			SetScrollbars(int nVert = 0, int nHorz = 0);
 	CRect *			GetViewSize();
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
 

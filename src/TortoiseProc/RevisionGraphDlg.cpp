@@ -138,11 +138,11 @@ DWORD WINAPI WorkerThread(LPVOID pVoid)
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
-	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
-	pDlg->FetchRevisionData(pDlg->m_sPath);
-	pDlg->AnalyzeRevisionData(pDlg->m_sPath);
-	pDlg->m_Progress.Stop();
-	//pDlg->FillTestData();
+	//pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
+	//pDlg->FetchRevisionData(pDlg->m_sPath);
+	//pDlg->AnalyzeRevisionData(pDlg->m_sPath);
+	//pDlg->m_Progress.Stop();
+	pDlg->FillTestData();
 	pDlg->InitView();
 	pDlg->m_bThreadRunning = FALSE;
 	pDlg->Invalidate();
@@ -156,7 +156,7 @@ void CRevisionGraphDlg::InitView()
 	SetScrollbars();
 }
 
-void CRevisionGraphDlg::SetScrollbars()
+void CRevisionGraphDlg::SetScrollbars(int nVert, int nHorz)
 {
 	CRect clientrect;
 	GetClientRect(&clientrect);
@@ -167,11 +167,12 @@ void CRevisionGraphDlg::SetScrollbars()
 	ScrollInfo.nMin = 0;
 	ScrollInfo.nMax = pRect->bottom;
 	ScrollInfo.nPage = clientrect.Height();
-	ScrollInfo.nPos = 0;
+	ScrollInfo.nPos = nVert;
 	ScrollInfo.nTrackPos = 0;
 	SetScrollInfo(SB_VERT, &ScrollInfo);
 	ScrollInfo.nMax = pRect->right;
 	ScrollInfo.nPage = clientrect.Width();
+	ScrollInfo.nPos = nHorz;
 	SetScrollInfo(SB_HORZ, &ScrollInfo);
 }
 
@@ -681,7 +682,7 @@ void CRevisionGraphDlg::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBa
 void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 {
 	__super::OnSize(nType, cx, cy);
-	SetScrollbars();
+	SetScrollbars(GetScrollPos(SB_VERT), GetScrollPos(SB_HORZ));
 	Invalidate(FALSE);
 }
 
@@ -810,71 +811,85 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 void CRevisionGraphDlg::FillTestData()
 {
 	CRevisionEntry * e = new CRevisionEntry();
-	e->level = 1;
-	e->revision = 1;
-	e->url = "/trunk";
+	e->level = 2;
+	e->revision = 100;
+	e->url = "/tags/version 23";
 	e->author = "kueng";
-	e->message = "something";
+	e->message = "tagged version 23";
+	e->revisionfrom	= 99;
+	e->pathfrom = "/trunk";
 	m_arEntryPtrs.Add(e);
-
+	
 	e = new CRevisionEntry();
 	e->level = 1;
-	e->revision = 10;
+	e->revision = 99;
 	e->url = "/trunk";
 	e->author = "kueng";
 	e->message = "something else";
 	source_entry * se = new source_entry;
-	se->pathto = "branches/testing";
-	se->revisionto = 11;
+	se->pathto = "/tags/version 23";
+	se->revisionto = 100;
 	e->sourcearray.Add(se);
 	m_arEntryPtrs.Add(e);
 
 	e = new CRevisionEntry();
 	e->level = 2;
-	e->revision = 11;
+	e->revision = 96;
+	e->url = "/tags/version2";
+	e->author = "kueng";
+	e->message = "tagged version 2";
+	e->revisionfrom	= 99;
+	e->pathfrom = "/trunk";
+	m_arEntryPtrs.Add(e);
+
+	e = new CRevisionEntry();
+	e->level = 2;
+	e->revision = 95;
+	e->url = "/tags/version1";
+	e->author = "kueng";
+	e->message = "tagged version 1";
+	e->revisionfrom	= 99;
+	e->pathfrom = "/trunk";
+	m_arEntryPtrs.Add(e);
+
+	e = new CRevisionEntry();
+	e->level = 3;
+	e->revision = 92;
+	e->url = "/branches/testingrenamed";
+	e->author = "kueng";
+	e->message = "something else renamed";
+	e->pathfrom = "/branches/testing";
+	e->revisionfrom = 91;
+	m_arEntryPtrs.Add(e);
+
+	e = new CRevisionEntry();
+	e->level = 2;
+	e->revision = 91;
 	e->url = "/branches/testing";
 	e->author = "kueng";
 	e->message = "something else";
 	e->pathfrom = "/trunk";
-	e->revisionfrom = 10;
+	e->revisionfrom = 80;
 	se = new source_entry;
 	se->pathto = "/branches/testingrenamed";
-	se->revisionto = 15;
+	se->revisionto = 92;
 	e->sourcearray.Add(se);
 	m_arEntryPtrs.Add(e);
 
 	e = new CRevisionEntry();
 	e->level = 1;
-	e->revision = 15;
-	e->url = "/branches/testing/andevenmore/testing/to/get/a/very/long/url";
+	e->revision = 90;
+	e->url = "/trunk";
 	e->author = "kueng";
-	e->message = "something on a branch";
-	e->pathfrom = "/branches/testing";
-	e->revisionfrom = 11;
+	e->message = "a start";
 	se = new source_entry;
 	se->pathto = "/tags/version1";
-	se->revisionto = 16;
+	se->revisionto = 95;
 	e->sourcearray.Add(se);
 	se = new source_entry;
 	se->pathto = "/tags/version2";
-	se->revisionto = 20;
+	se->revisionto = 96;
 	e->sourcearray.Add(se);
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 16;
-	e->url = "/tags/version1";
-	e->author = "kueng";
-	e->message = "tagged";
-	m_arEntryPtrs.Add(e);
-
-	e = new CRevisionEntry();
-	e->level = 2;
-	e->revision = 20;
-	e->url = "/tags/version2";
-	e->author = "kueng";
-	e->message = "tagged2";
 	m_arEntryPtrs.Add(e);
 }
 #endif //DEBUG
