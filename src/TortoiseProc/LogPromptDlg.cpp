@@ -407,12 +407,12 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				CString temp;
 				svn_wc_status_kind stat;
 				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-				if (s->entry)
+				if ((s->entry)&&(s->entry->url))
 				{
 					CUtils::Unescape((char *)s->entry->url);
 					CString url = CUnicodeUtils::GetUnicode(s->entry->url);
 					pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(url);
-				}
+				} // if ((s->entry)&&(s->entry->url))
 				temp = strbuf;
 				if (SVNStatus::IsImportant(stat))
 				{
