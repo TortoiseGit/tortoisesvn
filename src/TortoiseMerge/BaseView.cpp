@@ -1066,9 +1066,6 @@ void CBaseView::GoToFirstDifference()
 	if ((m_arLineStates)&&(0 < m_arLineStates->GetCount()))
 	{
 		CDiffData::DiffStates state = CDiffData::DIFFSTATE_NORMAL;
-		while ((nCenterPos < m_arLineStates->GetCount()) &&
-			(m_arLineStates->GetAt(nCenterPos++)==state))
-			;
 		while (nCenterPos < m_arLineStates->GetCount())
 		{
 			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);

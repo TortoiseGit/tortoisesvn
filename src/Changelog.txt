@@ -2,7 +2,11 @@
        empty line between the normal lines. (Stefan)
 - BUG: The filepaths in the log messages were
        shown twice. (Stefan)       
-       
+- BUG: If a difference was only one line then
+       TME skipped that when it should have gone
+       there on file load. (Stefan)
+
+
 Version 0.25
 - ADD: TME shows the differences in whitespaces
        inside a line too. (Stefan)
