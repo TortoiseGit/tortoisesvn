@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-14 10:33+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2004-07-17 19:54+0100\n"
+"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -1286,6 +1286,10 @@ msgstr "Te negeren bestanden:"
 msgid "Export Directory:"
 msgstr "Export-map:"
 
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "Exporteer ook bestanden zonder versiebeheer"
+
 #: ID:9
 msgid "Export..."
 msgstr "Exporteer..."
@@ -2500,6 +2504,10 @@ msgid "Subversion configuration file:"
 msgstr "Subversion configuratiebestand:"
 
 #: ID:14
+msgid "Subversion export all here"
+msgstr "Exporteer alles uit Subversion hierheen"
+
+#: ID:14
 msgid "Subversion export here"
 msgstr "Kopiëer bestanden uit Subversion hierheen"
 
@@ -2788,10 +2796,10 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
-"libsvn_diff %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d, %s\n"
+"libsvn_diff %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-iconv %d.%d.%d\n"
 "apr-utils %d.%d.%d"
 
 #: ID:9
@@ -2817,14 +2825,14 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d, %s\n"
+"Subversion %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-iconv %d.%d.%d\n"
+"apr-utils %d.%d.%d\n"
+"berkeley db %d.%d.%d\n"
+"neon %s\n"
+"%s\n"
 "zlib %s"
 
 #: ID:80
@@ -3149,10 +3157,6 @@ msgstr ""
 "%s\n"
 "is geëxporteerd naar\n"
 "%s"
-
-#: ID:79
-msgid "exporting %s to"
-msgstr "%s wordt geëxporteerd naar"
 
 #: ID:13
 msgid "external"
