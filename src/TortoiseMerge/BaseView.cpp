@@ -281,7 +281,7 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/, BOOL
 		m_lfBaseFont.lfItalic = (BYTE) bItalic;
 		m_lfBaseFont.lfStrikeOut = (BYTE) bStrikeOut;
 		if (bStrikeOut)
-			m_lfBaseFont.lfStrikeOut = CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
+			m_lfBaseFont.lfStrikeOut = (BYTE)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
 		m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
 		_tcsncpy(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")), 32);
 		if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
@@ -705,7 +705,7 @@ int CBaseView::GetMarginWidth()
 		int nWidth = GetCharWidth();
 		if (m_nDigits <= 0)
 		{
-			int nLength = m_arDiffLines->GetCount();
+			int nLength = (int)m_arDiffLines->GetCount();
 			// find out how many digits are needed to show the highest linenumber
 			int nDigits = 1;
 			while (nLength / 10)
@@ -1015,6 +1015,18 @@ void CBaseView::ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar)
 		m_pwndBottom->ScrollToLine(nNewTopLine, bTrackScrollBar);
 	if (m_pwndLocator)
 		m_pwndLocator->Invalidate();
+}
+
+void CBaseView::GoToLine(int nNewLine)
+{
+	//almost the same as ScrollAllToLine, but try to put the line in the
+	//middle of the view, not on top
+	int nNewTopLine = nNewLine - GetScreenLines()/2;
+	if (nNewTopLine < 0)
+		nNewTopLine = 0;
+	if (nNewTopLine >= this->m_arDiffLines->GetCount())
+		nNewTopLine = m_arDiffLines->GetCount()-1;
+	ScrollAllToLine(nNewTopLine);
 }
 
 BOOL CBaseView::OnEraseBkgnd(CDC* pDC)
@@ -1476,6 +1488,15 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 		} // if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates)) 
 	} // if ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())) 
 	CView::OnMouseMove(nFlags, point);
+}
+
+void CBaseView::SelectLines(int nLine1, int nLine2)
+{
+	if (nLine2 == -1)
+		nLine2 = nLine1;
+	m_nSelBlockStart = nLine1;
+	m_nSelBlockEnd = nLine2;
+	Invalidate();
 }
 
 

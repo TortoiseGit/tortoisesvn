@@ -383,11 +383,17 @@ BEGIN
     "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_AS,        VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
     VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
-    "S",            ID_FILE_SAVE_AS,        VIRTKEY, SHIFT, CONTROL, 
-                                                    NOINVERT
+    "D",            ID_VIEW_ONEWAYDIFF,     VIRTKEY, CONTROL, NOINVERT
+    "Q",            ID_APP_EXIT,            VIRTKEY, CONTROL, NOINVERT
+    VK_F5,          ID_MERGE_NEXTDIFFERENCE, VIRTKEY, NOINVERT
+    VK_F4,          ID_MERGE_PREVIOUSDIFFERENCE, VIRTKEY, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FINDNEXT,       VIRTKEY, NOINVERT
 END
 
 

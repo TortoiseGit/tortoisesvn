@@ -49,6 +49,8 @@ protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL	OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 
+	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
+
 	afx_msg void	OnFileSave();
 	afx_msg void	OnFileSaveAs();
 	afx_msg void	OnFileOpen();
@@ -82,6 +84,12 @@ protected:
 	BOOL			m_bInitSplitter;
 	CTempFiles		m_TempFiles;
 
+	int				m_nSearchIndex;
+	CString			m_sFindText;
+	BOOL			m_bMatchCase;
+	static const UINT m_FindDialogMessage;
+	CFindReplaceDialog *m_pFindDialog;
+
 public:
 	CLeftView *		m_pwndLeftView;
 	CRightView *	m_pwndRightView;
@@ -90,6 +98,8 @@ public:
 	CDiffData		m_Data;
 	BOOL			LoadViews();
 	afx_msg void OnClose();
+	afx_msg void OnEditFind();
+	afx_msg void OnEditFindnext();
 };
 
 

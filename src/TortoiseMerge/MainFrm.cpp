@@ -32,6 +32,7 @@
 
 
 // CMainFrame
+const UINT CMainFrame::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
 IMPLEMENT_DYNAMIC(CMainFrame, CNewFrameWnd)
 
@@ -54,6 +55,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACES, OnUpdateViewWhitespaces)
 	ON_COMMAND(ID_VIEW_OPTIONS, OnViewOptions)
 	ON_WM_CLOSE()
+	ON_COMMAND(ID_EDIT_FIND, OnEditFind)
+	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
+	ON_COMMAND(ID_EDIT_FINDNEXT, OnEditFindnext)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -72,6 +76,8 @@ static UINT indicators[] =
 
 CMainFrame::CMainFrame()
 {
+	m_pFindDialog = NULL;
+	m_nSearchIndex = 0;
 	m_bInitSplitter = FALSE;
 	m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
 }
@@ -810,4 +816,113 @@ void CMainFrame::OnClose()
 	} // ified())))
 	if ((ret == IDNO)||(ret == IDYES))
 		__super::OnClose();
+}
+
+void CMainFrame::OnEditFind()
+{
+	if (m_pFindDialog)
+	{
+		return;
+	}
+	else
+	{
+		m_pFindDialog = new CFindReplaceDialog();
+		m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+	}
+}
+
+LRESULT CMainFrame::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
+{
+    ASSERT(m_pFindDialog != NULL);
+
+    if (m_pFindDialog->IsTerminating())
+    {
+	    // invalidate the handle identifying the dialog box.
+        m_pFindDialog = NULL;
+        return 0;
+    }
+
+    if(m_pFindDialog->FindNext())
+    {
+        //read data from dialog
+        m_sFindText = m_pFindDialog->GetFindString();
+        m_bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
+	
+		OnEditFindnext();
+    } // if(m_pFindDialog->FindNext()) 
+
+    return 0;
+}
+
+void CMainFrame::OnEditFindnext()
+{
+	if (m_sFindText.IsEmpty())
+		return;
+
+	if ((m_pwndLeftView)&&(m_pwndLeftView->m_arDiffLines))
+	{
+		bool bFound = FALSE;
+
+		CString left;
+		CString right;
+		CString bottom;
+		for (int i=m_nSearchIndex; i<m_pwndLeftView->m_arDiffLines->GetCount(); i++)
+		{
+			left = m_pwndLeftView->m_arDiffLines->GetAt(i);
+			if ((m_pwndRightView)&&(m_pwndRightView->m_arDiffLines))
+				right = m_pwndRightView->m_arDiffLines->GetAt(i);
+			if ((m_pwndBottomView)&&(m_pwndBottomView->m_arDiffLines))
+				bottom = m_pwndBottomView->m_arDiffLines->GetAt(i);
+
+			if (!m_bMatchCase)
+			{
+				left = left.MakeLower();
+				right = right.MakeLower();
+				bottom = bottom.MakeLower();
+				m_sFindText = m_sFindText.MakeLower();
+			} // if (!bMatchCase)
+			if (left.Find(m_sFindText) >= 0)
+			{
+				bFound = TRUE;
+				break;
+			} // if (m_arLogMessages.GetAt(i).Find(FindText) >= 0)
+			else if (right.Find(m_sFindText) >= 0)
+			{
+				bFound = TRUE;
+				break;
+			} 
+			else if (bottom.Find(m_sFindText) >= 0)
+			{
+				bFound = TRUE;
+				break;
+			} 
+		} // for (int i=this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++) 
+		if (bFound)
+		{
+			m_nSearchIndex = i;
+			m_pwndLeftView->GoToLine(m_nSearchIndex);
+			if (left.Find(m_sFindText) >= 0)
+			{
+				m_pwndLeftView->SetFocus();
+				m_pwndLeftView->SelectLines(m_nSearchIndex);
+			}
+			else if (right.Find(m_sFindText) >= 0)
+			{
+				m_pwndRightView->SetFocus();
+				m_pwndRightView->SelectLines(m_nSearchIndex);
+			}
+			else if (bottom.Find(m_sFindText) >= 0)
+			{
+				m_pwndBottomView->SetFocus();
+				m_pwndBottomView->SelectLines(m_nSearchIndex);
+			}
+			m_nSearchIndex++;
+			if (m_nSearchIndex >= m_pwndLeftView->m_arDiffLines->GetCount())
+				m_nSearchIndex = 0;
+		} // if (bFound) 
+		else
+		{
+			m_nSearchIndex = 0;
+		}
+	} // if ((m_pwndLeftView)&&(m_pwndLeftView->m_arDiffLines)) 
 }
