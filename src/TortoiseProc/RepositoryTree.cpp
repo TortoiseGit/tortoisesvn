@@ -31,6 +31,8 @@ CRepositoryTree::CRepositoryTree(const CString& strUrl) :
 	m_strUrl(strUrl)
 {
 	m_strUrl.TrimRight('/');
+	CUtils::Unescape(m_strUrl.GetBuffer());
+	m_strUrl.ReleaseBuffer();
 }
 
 CRepositoryTree::~CRepositoryTree()

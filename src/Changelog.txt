@@ -1,5 +1,7 @@
 - BUG: The property page was always shown in english,
        no matter what language was set. (Stefan)
+- BUG: The repository browser didn't work for file:///
+       URLs which had escaped chars in it. (Stefan)
 
 Version 0.19
 - BUG: The conflicted files weren't always determined
