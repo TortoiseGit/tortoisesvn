@@ -1,29 +1,79 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-general">
-	<title>Handling TortoiseSVN</title>
-	<indexterm>
-		<primary>context menu</primary>
-	</indexterm>
-	<para>
-		<figure id="tsvn-DUG-context-dir-control">
-			<title>Context menu for a directory under version control</title>
-			<graphic fileref="images/ContextMenuDirControl.png"/>
-		</figure>
-		All TortoiseSVN commands are invoked from the context menu of the windows
-		explorer. Most are directly visible, when you <action>right click</action>
-		on a file or folder. The commands that are available depend on whether the
-		file or folder or its parent folder is under version control or not.
-	</para>
-	<para>
+	<title>Getting Started</title>
+	<sect2 id="tsvn-DUG-general-menu">
+		<title>Context Menus</title>
+		<indexterm>
+			<primary>context menu</primary>
+		</indexterm>
+		<para>
+			<figure id="tsvn-DUG-context-dir-control">
+				<title>Context menu for a directory under version control</title>
+				<graphic fileref="images/ContextMenuDirControl.png"/>
+			</figure>
+			All TortoiseSVN commands are invoked from the context menu of the windows
+			explorer. Most are directly visible, when you <action>right click</action>
+			on a file or folder. The commands that are available depend on whether the
+			file or folder or its parent folder is under version control or not.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-general-drag">
+		<title>Drag and Drop</title>
 		<indexterm>
 			<primary>drag handler</primary>
 		</indexterm>
 		<indexterm>
 			<primary>drag-n-drop</primary>
 		</indexterm>
-		Other commands are available as drag handlers, when you <action>right drag</action>
-		files or folders to a new location inside working copies or when you 
-		<action>right drag</action> a non-versioned file or folder into a directory 
-		which is under version control.
-	</para>
+		<para>
+			<figure id="tsvn-DUG-right-drag">
+				<title>Right drag menu for a directory under version control</title>
+				<graphic fileref="images/RightDragMenu.png"/>
+			</figure>
+			Other commands are available as drag handlers, when you <action>right drag</action>
+			files or folders to a new location inside working copies or when you 
+			<action>right drag</action> a non-versioned file or folder into a directory 
+			which is under version control.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-DUG-general-auth">
+		<title>Authentication</title>
+		<indexterm>
+			<primary>authentication</primary>
+		</indexterm>
+		<para>
+			If the repository that you are trying to access is password protected, an 
+			authentication Dialog will show up.
+			<figure id="tsvn-fig-authentication">
+				<title>Authentication Dialog</title>
+				<graphic fileref="images/Authenticate.png"/>
+			</figure>
+			Enter you username and password. The checkbox will make TortoiseSVN
+			store the credentials in Subversion's default directory: 
+			<filename>$APPDATA\Subversion\auth</filename>. One file for each
+			server that you access. If you want to make Subversion and
+			TortoiseSVN forget your credentials, you have to delete the
+			corresponding file(s).
+		</para>
+		<para>
+			For more information on how to set up your server for
+			authentication and access control, refer to
+			<xref linkend="tsvn_serversetup"/>
+		</para>
+		<important>
+			<para>
+				Under Windows 2000 and above the credentials are stored
+				encrypted in the registry. To delete the credentials go
+				to the settings dialog and press
+				<guibutton>Clear Auth Cache</guibutton>.
+			</para>
+		</important>
+		<tip>
+			<para>
+				If you have to authenticate against a Windows NT domain,
+				enter your username including the domain name, like:
+				<filename>MYDOMAIN/johnd</filename>.
+			</para>
+		</tip>
+	</sect2>
 </sect1>
