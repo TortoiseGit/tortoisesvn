@@ -157,6 +157,7 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/)
 						case CDiffData::DIFFSTATE_REMOVED:
 						case CDiffData::DIFFSTATE_THEIRSREMOVED:
 						case CDiffData::DIFFSTATE_YOURSREMOVED:
+							m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_ADDED);
 							break;
 						default:
 							break;
