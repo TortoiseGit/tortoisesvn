@@ -93,6 +93,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	LOADVALUEFROMFILE(m_svnStatus.switched);
 	LOADVALUEFROMFILE(m_svnStatus.text_status);
 	m_svnStatus.entry = NULL;
+	m_discardAtTime = GetTickCount()+CACHETIMEOUT;
 	return true;
 }
 
