@@ -196,6 +196,8 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	//thread change the items without prompting the user
 	if (!GetDlgItem(IDOK)->IsWindowEnabled())
 		return;
+	if ((pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED))
+		return;
 	Data * data = m_arData.GetAt(pNMLV->iItem);
 	//was the item checked?
 	if (m_ListCtrl.GetCheck(pNMLV->iItem))
