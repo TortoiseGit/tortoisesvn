@@ -31,7 +31,10 @@ rem +----------------------------------------------------------------------
 rem | for VS.Net Projects only
 rem | BEWARE, this may cause a "line too long" error if called repeatedly from the same dos box
 rem | Try to check, whether these vars are already set
-@if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
+rem | Skip batch file if it doesn't exist (on systems without VS.Net)
+if NOT "%VSINSTALLDIR%"=="" goto :vsvarsdone
+if EXIST "%VS71COMNTOOLS%\vsvars32.bat" call "%VS71COMNTOOLS%\vsvars32.bat"
+:vsvarsdone
 
 rem +----------------------------------------------------------------------
 rem | Set Paths to helper apps
@@ -57,8 +60,16 @@ rem +----------------------------------------------------------------------
 rem | Set Paths to source, stylesheets amd targets
 
 set _DOC_XML_SRC=%_APP%.xml
+
+rem Settings for PDF docs
 set _DOC_XSL_FO=%_DOC_SRC%\pdfdoc.xsl
+
+rem Settings for HTML Help docs
+set _DOC_CSS_HELP=%_DOC_SRC%\styles_chm.css
 set _DOC_XSL_HELP=%_DOC_SRC%\htmlhelp.xsl
+
+rem Settings for plain HTML docs
+set _DOC_CSS_HTML=%_DOC_SRC%\styles_*.css
 set _DOC_XSL_HTMLSINGLE=%XSLROOT%\html\docbook.xsl
 set _DOC_XSL_HTMLCHUNK=%XSLROOT%\html\chunk.xsl
 
@@ -84,12 +95,18 @@ echo PDF=%_PDF% CHM=%_CHM% HTML=%_HTML%
 echo.
 cd %_DOC_SRC%%_LANG%
 
+rem avoid error message when directory doesn't exist
+if not exist %_HTML_TARGET% goto :no_remove_htmltarget
 rmdir /s /q %_HTML_TARGET% > NUL
+:no_remove_htmltarget
 mkdir %_HTML_TARGET% > NUL
 
 rem First copy the default images and afterwards copy the localized images
 xcopy /y %_DOC_HOME%\images %_HTML_TARGET%images\ > NUL
+rem Skip the localized images if there are none
+if not exist %_DOC_SRC%\%_LANG%\images\*.* goto :imagecopydone
 xcopy /y %_DOC_SRC%\%_LANG%\images %_HTML_TARGET%images\ > NUL
+:imagecopydone
 
 if %_PDF%==ON (
   echo ----------------------------------------------------------------------
@@ -102,7 +119,7 @@ if %_CHM%==ON (
   echo ----------------------------------------------------------------------
   echo Generating Help as CHM File
   del /q %_HTML_TARGET%
-  copy %_DOC_SRC%\styles_chm.css %_HTML_TARGET% > NUL
+  copy %_DOC_CSS_HELP% %_HTML_TARGET% > NUL
   %_XSLTPROC% %_DOC_HELP_XSLTPROC_OPTS% --nonet --output %_HTML_TARGET% %_DOC_XSL_HELP% %_DOC_XML_SRC%
   call :MakeHelpContext
   %_HHCPROC% %_HTML_TARGET%\htmlhelp.hhp
@@ -113,7 +130,7 @@ if %_HTML%==ON (
   echo ----------------------------------------------------------------------
   echo Generating Help as single HTML page
   del /q %_HTML_TARGET%
-  copy %_DOC_SRC%\styles_*.css %_HTML_TARGET% > NUL
+  copy %_DOC_CSS_HTML% %_HTML_TARGET% > NUL
   %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --nonet --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
   echo ----------------------------------------------------------------------
   echo Generating Help as multiple HTML pages

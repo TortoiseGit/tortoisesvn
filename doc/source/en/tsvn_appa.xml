@@ -170,7 +170,7 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-2-2">
-			<title>Why is there no overlay icons for unversioned files?</title>
+			<title>Why is there no overlay icon for unversioned files?</title>
 			<para>
 			  For the same reason. There are only 15 slots for icon overlays available.
 			  We don't want to waste a slot for the least important information. That's why.
@@ -627,8 +627,8 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					<para>
 					To speed up browsing in the explorer you should 
 					first turn off the recursive overlays. Go to 
-					the settings dialog and uncheck <command>Indicate 
-					folders with changed contents</command>. This
+					the settings dialog and uncheck <command>Recurse
+					into folders to fetch the status</command>. This
 					will tell TortoiseSVN not to scan subfolders.
 					</para>
 					<para>
@@ -732,7 +732,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
  			<para>
 			If you still want to use TortoiseSVN with web projects, these are
-			the questions we face every few weeks and here you are the answers 
+			the questions we face every few weeks and here are the answers 
 			once and for all:
 			<variablelist>
 				<varlistentry>
