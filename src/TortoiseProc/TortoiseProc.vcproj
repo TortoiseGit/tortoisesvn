@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="Windows-1252"?>
+<?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="7.00"
 	Name="TortoiseProc"
 	ProjectGUID="{50797F06-39C5-4802-8E2B-7B7A4EF03214}"
 	Keyword="MFCProj">
@@ -34,7 +34,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib ../../../Subversion\db4-win32\lib\libdb40d.lib ../../../Subversion\Debug\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Debug\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneonD.lib ../../../Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\LibD\apr.lib ../../../Subversion\apr-util\LibD\aprutil.lib ../../../Subversion\apr-iconv\LibD\apriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibD\xml.lib"
+				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib ../../obj\ResizableLib\Debug\ResizableLib.lib ../../../Subversion\db4-win32\lib\libdb40d.lib ../../../Subversion\Debug\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Debug\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Debug\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneonD.lib ../../../Subversion\Debug\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Debug\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\LibD\apr.lib ../../../Subversion\apr-util\LibD\aprutil.lib ../../../Subversion\apr-iconv\LibD\apriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibD\xml.lib"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC;shell32"
 				GenerateDebugInformation="TRUE"
@@ -58,13 +58,7 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -95,7 +89,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib ../../../Subversion\db4-win32\lib\libdb40.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\LibR\apr.lib ../../../Subversion\apr-util\LibR\aprutil.lib ../../../Subversion\apr-iconv\LibR\apriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib"
+				AdditionalDependencies="shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib ../../obj/ResizableLib/Release/ResizableLib.Lib ../../../Subversion\db4-win32\lib\libdb40.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\LibR\apr.lib ../../../Subversion\apr-util\LibR\aprutil.lib ../../../Subversion\apr-iconv\LibR\apriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="libcd.lib;libc;shell32"
 				GenerateDebugInformation="TRUE"
@@ -122,13 +116,7 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release_MBCS|Win32"
@@ -185,17 +173,9 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
-	<References>
-	</References>
 	<Files>
 		<Filter
 			Name="Utils"
@@ -246,10 +226,10 @@
 					RelativePath="..\Utils\Gradient.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\HistoryCombo.cpp">
+					RelativePath="..\Utils\HTMLFormatter.cpp">
 				</File>
 				<File
-					RelativePath="..\Utils\HTMLFormatter.cpp">
+					RelativePath="..\Utils\HistoryCombo.cpp">
 				</File>
 				<File
 					RelativePath="..\Utils\MessageBox.cpp">
@@ -262,27 +242,6 @@
 				</File>
 				<File
 					RelativePath="RepositoryTree.cpp">
-				</File>
-				<File
-					RelativePath="stdafx.cpp">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="1"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="1"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release_MBCS|Win32">
-						<Tool
-							Name="VCCLCompilerTool"
-							UsePrecompiledHeader="1"/>
-					</FileConfiguration>
 				</File>
 				<File
 					RelativePath="..\Utils\StringUtils.cpp">
@@ -316,6 +275,27 @@
 				</File>
 				<File
 					RelativePath="..\Utils\WaterEffect.cpp">
+				</File>
+				<File
+					RelativePath="stdafx.cpp">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"/>
+					</FileConfiguration>
 				</File>
 			</Filter>
 			<Filter
@@ -352,19 +332,16 @@
 					RelativePath="..\Utils\Gradient.h">
 				</File>
 				<File
-					RelativePath="..\Utils\HistoryCombo.h">
+					RelativePath="..\Utils\HTMLFormatter.h">
 				</File>
 				<File
-					RelativePath="..\Utils\HTMLFormatter.h">
+					RelativePath="..\Utils\HistoryCombo.h">
 				</File>
 				<File
 					RelativePath="..\Utils\MessageBox.h">
 				</File>
 				<File
 					RelativePath="..\Utils\PathUtils.h">
-				</File>
-				<File
-					RelativePath="..\Utils\registry.h">
 				</File>
 				<File
 					RelativePath="RepositoryTree.h">
@@ -383,6 +360,9 @@
 				</File>
 				<File
 					RelativePath="..\Utils\WaterEffect.h">
+				</File>
+				<File
+					RelativePath="..\Utils\registry.h">
 				</File>
 			</Filter>
 		</Filter>
@@ -501,6 +481,9 @@
 					RelativePath="RepositoryBrowser.cpp">
 				</File>
 				<File
+					RelativePath="SVNProgressDlg.cpp">
+				</File>
+				<File
 					RelativePath="SetMainPage.cpp">
 				</File>
 				<File
@@ -511,9 +494,6 @@
 				</File>
 				<File
 					RelativePath="Settings.cpp">
-				</File>
-				<File
-					RelativePath="SVNProgressDlg.cpp">
 				</File>
 				<File
 					RelativePath="SwitchDlg.cpp">
@@ -571,6 +551,9 @@
 					RelativePath="RepositoryBrowser.h">
 				</File>
 				<File
+					RelativePath="SVNProgressDlg.h">
+				</File>
+				<File
 					RelativePath="SetMainPage.h">
 				</File>
 				<File
@@ -581,9 +564,6 @@
 				</File>
 				<File
 					RelativePath="Settings.h">
-				</File>
-				<File
-					RelativePath="SVNProgressDlg.h">
 				</File>
 				<File
 					RelativePath="SwitchDlg.h">
@@ -599,25 +579,25 @@
 				Name="Resource Files"
 				Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest">
 				<File
-					RelativePath="charlie_flipped.bmp">
+					RelativePath="..\Languages\res\Tortoise.ico">
 				</File>
 				<File
-					RelativePath="res\Tortoise.ico">
+					RelativePath="..\Languages\res\TortoiseProc.manifest">
 				</File>
 				<File
-					RelativePath="res\TortoiseProc.manifest">
+					RelativePath="..\Languages\res\TortoiseProc.rc2">
 				</File>
 				<File
-					RelativePath="TortoiseProc.rc">
+					RelativePath="..\Languages\TortoiseProcENG.rc">
 				</File>
 				<File
-					RelativePath="res\TortoiseProc.rc2">
+					RelativePath="..\Languages\res\bin168.avi">
+				</File>
+				<File
+					RelativePath="..\Languages\res\charlie_flipped.bmp">
 				</File>
 			</Filter>
 		</Filter>
-		<File
-			RelativePath="res\bin168.avi">
-		</File>
 		<File
 			RelativePath="ReadMe.txt">
 		</File>

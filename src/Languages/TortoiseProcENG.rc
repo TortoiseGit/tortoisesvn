@@ -1,6 +1,6 @@
 // Microsoft Visual C++ generated resource script.
 //
-#include "resource.h"
+#include "..\TortoiseProc\resource.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@ IDR_ANIMATION           AVI                     "res\\bin168.avi"
 // Bitmap
 //
 
-IDB_LOGOFLIPPED         BITMAP                  "charlie_flipped.bmp"
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -55,7 +55,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Localized resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -71,7 +71,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 IDD_ABOUT DIALOGEX 0, 0, 221, 207
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "About"
+CAPTION "About TortoiseSVN"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,77,186,50,14
@@ -153,16 +153,16 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Import"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,157,161,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,212,161,50,14
-    LTEXT           "&URL of repository:",IDC_STATIC,13,24,60,8
-    EDITTEXT        IDC_MESSAGE,13,89,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
+    DEFPUSHBUTTON   "&OK",IDOK,157,257,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,212,257,50,14
+    LTEXT           "&URL of repository:",IDC_STATIC4,13,24,60,8
+    EDITTEXT        IDC_MESSAGE,13,59,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN
-    GROUPBOX        "Import Message",IDC_STATIC,7,76,255,78
+    GROUPBOX        "Import Message",IDC_STATIC2,7,46,255,78
     COMBOBOX        IDC_URLCOMBO,78,22,159,44,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
-    GROUPBOX        "Repository",IDC_STATIC,7,7,255,53
+    GROUPBOX        "Repository",IDC_STATIC1,7,7,255,36
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,13,142,242,103
     GROUPBOX        "Temporary Files To Delete",IDC_STATIC3,7,129,255,123
@@ -198,7 +198,8 @@ BEGIN
                     93,173,109
     LTEXT           "",IDC_COMMIT_TO,6,16,173,11,SS_WORDELLIPSIS
     LTEXT           "commit to:",IDC_STATIC,6,7,173,8
-    LTEXT           "To see the changes you made, double click on the files above.",IDC_HINTLABEL,6,209,173,16
+    LTEXT           "To see the changes you made, double click on the files above.",
+                    IDC_HINTLABEL,6,209,173,16
 END
 
 IDD_MERGE DIALOGEX 0, 0, 281, 146
@@ -223,7 +224,7 @@ BEGIN
                     145,62,43,10
     EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
-    LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.", IDC_STATIC,7,84,267,37
+    LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.", IDC_STATIC,7,84,267,17
     LTEXT           "To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.", IDC_STATIC,7,103,267,17
 END
 
@@ -639,8 +640,8 @@ BEGIN
     IDS_STATUSMERGED        "merged"
     IDS_STATUSCONFLICTED    "conflicted"
     IDS_STATUSOBSTRUCTED    "obstructed"
-    IDS_STRING202           "dummy"
-    IDS_STRING203           "dummy"
+    IDS_STATUSINCOMPLETE    "incomplete"
+    IDS_STATUSIGNORED       "ignored"
     IDS_STRING204           "dummy"
     IDS_IMPORT_DEFAULTMSG   "Initial Import"
     IDS_STRING206           "dummy"
@@ -759,7 +760,7 @@ BEGIN
     IDS_ERR_COPYFILES       "Could not copy the files!\n<hr=100%>\n%s"
     IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
-    IDS_STRING292           "dummy"
+    IDS_ERR_FAILEDIGNOREPROPERTY "could not add %s to the ignore list"
     IDS_STRING293           "dummy"
     IDS_STRING294           "dummy"
     IDS_STRING295           "dummy"
@@ -811,7 +812,7 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "remote status"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Localized resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="Windows-1252"?>
+<?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="7.00"
 	Name="TortoiseProcRUS"
 	ProjectGUID="{25CB6195-CF9B-4EDA-8DC4-BCCBA787A17B}"
 	Keyword="Win32Proj">
@@ -52,13 +52,7 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -105,13 +99,7 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release_MBCS|Win32"
@@ -158,17 +146,9 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
-	<References>
-	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -178,31 +158,31 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc">
 			<File
-				RelativePath="resource.h">
+				RelativePath="..\TortoiseProc\resource.h">
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
 			<File
-				RelativePath="charlie_flipped.bmp">
+				RelativePath="..\Languages\res\Tortoise.ico">
 			</File>
 			<File
-				RelativePath="res\Tortoise.ico">
+				RelativePath="..\Languages\res\TortoiseProc.manifest">
 			</File>
 			<File
-				RelativePath="tortoiseprocRUS.rc">
+				RelativePath="..\Languages\res\TortoiseProc.rc2">
+			</File>
+			<File
+				RelativePath="..\Languages\TortoiseProcRUS.rc">
+			</File>
+			<File
+				RelativePath="..\Languages\res\bin168.avi">
+			</File>
+			<File
+				RelativePath="..\Languages\res\charlie_flipped.bmp">
 			</File>
 		</Filter>
-		<File
-			RelativePath="res\bin168.avi">
-		</File>
-		<File
-			RelativePath="ReadMe.txt">
-		</File>
-		<File
-			RelativePath="res\TortoiseProc.manifest">
-		</File>
 	</Files>
 	<Globals>
 	</Globals>

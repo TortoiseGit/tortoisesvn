@@ -1,6 +1,6 @@
 // Microsoft Visual C++ generated resource script.
 //
-#include "resource.h"
+#include "..\TortoiseProc\resource.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -13,7 +13,49 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Russian resources
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Localized resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
 #ifdef _WIN32
@@ -26,306 +68,179 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 // Dialog
 //
 
-IDD_ABOUT DIALOGEX 0, 0, 221, 214
+IDD_ABOUT DIALOGEX 0, 0, 221, 207
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "О программе TortoiseSVN"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
+CAPTION "About TortoiseSVN"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,77,193,50,14
-    LTEXT           "TortoiseSVN, версия 0.12, собрана с Subversion 0.24.2",
-                    IDC_VERSIONABOUT,7,136,207,22
-    LTEXT           "Авторы:",IDC_STATIC,7,164,37,8
-    LTEXT           "Stefan Kung, Tim Kemp и Damian Powell",IDC_STATIC,47,
-                    164,150,8
-    LTEXT           "Графика:",IDC_STATIC,7,177,35,8
-    LTEXT           "Luebbe Onken",IDC_STATIC,47,177,75,8
+    DEFPUSHBUTTON   "&OK",IDOK,77,186,50,14
+    LTEXT           "TortoiseSVN Version 0.12, built with subversion 0.24.2",
+                    IDC_VERSIONABOUT,7,136,207,21
+    LTEXT           "Authors: Stefan Kueng, Tim Kemp and Damian Powell",
+                    IDC_STATIC,7,159,170,8
+    LTEXT           "Icons:     Luebbe Onken",IDC_STATIC,7,173,77,8
+END
+
+IDD_ADD DIALOGEX 0, 0, 244, 146
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Add"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,125,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,187,125,50,14
+    CONTROL         "",IDC_ADDLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,230,107
+END
+
+IDD_CHANGEDFILES DIALOGEX 0, 0, 408, 206
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Changed Files"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,351,185,50,14
+    CONTROL         "",IDC_CHANGEDLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,394,171
+END
+
+IDD_CHECKOUT DIALOGEX 0, 0, 269, 145
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Checkout"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Repository",IDC_STATIC,7,7,255,55
+    LTEXT           "&URL of repository:",IDC_STATIC,13,23,60,8
+    COMBOBOX        IDC_URLCOMBO,78,22,159,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
+    LTEXT           "&Checkout directory:",IDC_STATIC,13,41,64,8
+    EDITTEXT        IDC_CHECKOUTDIRECTORY,78,41,159,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,241,41,14,12
+    GROUPBOX        "Revision",IDC_STATIC,7,68,255,51
+    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,13,82,61,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,98,43,10
+    EDITTEXT        IDC_REVISION_NUM,78,97,58,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    DEFPUSHBUTTON   "&OK",IDOK,157,124,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,212,124,50,14
+END
+
+IDD_COPY DIALOGEX 0, 0, 265, 65
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Copy"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,44,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,208,44,50,14
+    LTEXT           "To URL:",IDC_STATIC,7,22,25,8
+    COMBOBOX        IDC_URLCOMBO,44,22,187,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,240,22,18,14
+    LTEXT           "From URL:",IDC_STATIC,7,7,33,8
+    LTEXT           "",IDC_FROMURL,44,7,214,8
+END
+
+IDD_IMPORT DIALOGEX 0, 0, 269, 278
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Import"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,157,257,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,212,257,50,14
+    LTEXT           "&URL of repository:",IDC_STATIC4,13,24,60,8
+    EDITTEXT        IDC_MESSAGE,13,59,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    GROUPBOX        "Import Message",IDC_STATIC2,7,46,255,78
+    COMBOBOX        IDC_URLCOMBO,78,22,159,44,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
+    GROUPBOX        "Repository",IDC_STATIC1,7,7,255,36
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,13,142,242,103
+    GROUPBOX        "Temporary Files To Delete",IDC_STATIC3,7,129,255,123
 END
 
 IDD_LOGMESSAGE DIALOGEX 0, 0, 289, 245
 STYLE DS_SETFONT | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "История изменений"
+CAPTION "Log Messages"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,232,224,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,232,224,50,14
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
-                    LVS_ALIGNLEFT | WS_BORDER,7,7,275,133
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER,7,7,275,
+                    133
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
-                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,149,275,69
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,148,275,69
 END
 
-IDD_PROMPT DIALOGEX 0, 0, 229, 97
+IDD_LOGPROMPT DIALOGEX 0, 0, 186, 252
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "enter log message"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,6,231,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,129,231,50,14
+    EDITTEXT        IDC_LOGMESSAGE,6,31,173,56,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
+                    93,173,109
+    LTEXT           "",IDC_COMMIT_TO,6,16,173,11,SS_WORDELLIPSIS
+    LTEXT           "commit to:",IDC_STATIC,6,7,173,8
+    LTEXT           "To see the changes you made, double click on the files above.",
+                    IDC_HINTLABEL,6,209,173,16
+END
+
+IDD_MERGE DIALOGEX 0, 0, 281, 146
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Merge"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,125,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,224,125,50,14
+    LTEXT           "Merge current branch with:",IDC_STATIC,7,17,88,8
+    COMBOBOX        IDC_URLCOMBO,99,15,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "...",IDC_BROWSE,260,15,14,12
+    LTEXT           "From:",IDC_STATIC,7,55,18,8
+    EDITTEXT        IDC_REVISON_START,39,53,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "To:",IDC_STATIC,99,55,29,8
+    GROUPBOX        "Revision",IDC_STATIC,138,34,136,46
+    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON,145,46,61,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    145,62,43,10
+    EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_DISABLED
+    LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.", IDC_STATIC,7,84,267,17
+    LTEXT           "To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.", IDC_STATIC,7,103,267,17
+END
+
+IDD_PROMPT DIALOGEX 0, 0, 220, 94
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_TOPMOST
-CAPTION "Аутентификация"
+CAPTION "Authentication"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,7,76,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,172,76,50,14
-    LTEXT           "",IDC_INFOTEXT,7,7,215,32
-    EDITTEXT        IDC_PASSEDIT,7,44,215,14,ES_AUTOHSCROLL
-    CONTROL         "Запомнить пароль",IDC_SAVECHECK,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,62,215,10
-END
-
-IDD_CHECKOUT DIALOGEX 0, 0, 269, 145
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Создание рабочей копии"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    GROUPBOX        "Репозиторий",IDC_STATIC,7,7,255,55
-    LTEXT           "&URL репозитория:",IDC_STATIC,13,23,66,8
-    COMBOBOX        IDC_URLCOMBO,81,22,156,41,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
-                    WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
-    LTEXT           "&Рабочая копия:",IDC_STATIC,13,41,59,8
-    EDITTEXT        IDC_CHECKOUTDIRECTORY,81,41,156,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,241,41,14,12
-    GROUPBOX        "Редакция, извлекаемая из репозитория",IDC_STATIC,7,68,
-                    255,51
-    CONTROL         "&Головная редакция",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,13,82,112,10
-    CONTROL         "&Указанная:",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON | 
-                    BS_MULTILINE,13,98,68,13
-    EDITTEXT        IDC_REVISION_NUM,81,97,58,14,ES_AUTOHSCROLL | 
-                    WS_DISABLED
-    DEFPUSHBUTTON   "ОК",IDOK,157,124,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,212,124,50,14
-END
-
-IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
-    WS_THICKFRAME
-CAPTION "Ход выполнения процесса"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,307,124,50,14
-    CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
-                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "История изменений",IDC_LOGBUTTON,203,124,90,14,NOT 
-                    WS_VISIBLE
-END
-
-IDD_LOGPROMPT DIALOGEX 0, 0, 186, 259
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
-    WS_THICKFRAME
-CAPTION "Ввод комментария к новой редакции"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,238,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,129,238,50,14
-    EDITTEXT        IDC_LOGMESSAGE,7,34,172,56,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
-    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,
-                    97,172,113
-    LTEXT           "",IDC_COMMIT_TO,7,18,172,12,SS_WORDELLIPSIS
-    LTEXT           "URL репозитория для фиксирования изменений:",IDC_STATIC,
-                    7,7,172,8
-    LTEXT           "Для просмотра внесённых Вами изменений\nкликните на соответствующем файле",
-                    IDC_HINTLABEL,7,215,173,16
-END
-
-IDD_IMPORT DIALOGEX 0, 0, 269, 182
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Начальный импорт файлов в репозиторий"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,157,162,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,213,162,50,14
-    LTEXT           "URL репозитория:",IDC_STATIC,13,24,64,8
-    EDITTEXT        IDC_MESSAGE,13,89,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
-                    ES_AUTOHSCROLL | ES_WANTRETURN
-    GROUPBOX        "Комментарий",IDC_STATIC,7,76,256,78
-    COMBOBOX        IDC_URLCOMBO,78,22,159,45,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
-                    WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
-    GROUPBOX        "Репозиторий",IDC_STATIC,7,7,256,53
-END
-
-IDD_SWITCH DIALOGEX 0, 0, 228, 107
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Переход к другой ветке/редакции"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,84,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,171,84,50,14
-    LTEXT           "URL:",IDC_STATIC,7,10,23,8
-    EDITTEXT        IDC_URL,49,7,151,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
-    GROUPBOX        "Редакция",IDC_STATIC,7,24,214,51
-    CONTROL         "&Головная редакция",IDC_NEWEST,"Button",
-                    BS_AUTORADIOBUTTON,13,38,89,10
-    CONTROL         "&Указанная",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    13,54,47,10
-    EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
-END
-
-IDD_MERGE DIALOGEX 0, 0, 281, 156
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Слияние"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,7,135,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,224,135,50,14
-    LTEXT           "Объединить текущую ветку с указанной:",IDC_STATIC,7,11,
-                    88,16
-    COMBOBOX        IDC_URLCOMBO,99,13,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
-                    WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "...",IDC_BROWSE,260,13,14,12
-    LTEXT           "from:",IDC_STATIC,7,63,18,8
-    EDITTEXT        IDC_REVISON_START,37,61,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "to:",IDC_STATIC,92,63,29,8
-    GROUPBOX        "revision",IDC_STATIC,131,42,136,46
-    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON,138,55,61,10
-    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    138,71,43,10
-    EDITTEXT        IDC_REVISION_END,203,70,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
-                    WS_DISABLED
-    LTEXT           "to merge only specific changes from the other branch you have to specify the revisions between which the change occured. To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.",
-                    IDC_STATIC,7,91,267,37
-END
-
-IDD_COPY DIALOGEX 0, 0, 293, 66
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Копирование"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,7,45,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,236,45,50,14
-    LTEXT           "Куда (URL):",IDC_STATIC,7,24,46,8
-    COMBOBOX        IDC_URLCOMBO,60,24,194,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
-                    WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "...",IDC_BROWSE,268,22,18,14
-    LTEXT           "Откуда (URL):",IDC_STATIC,7,7,48,8
-    LTEXT           "",IDC_FROMURL,60,7,226,8
-END
-
-IDD_SETTINGSMAIN DIALOGEX 0, 0, 252, 130
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Основные"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
-BEGIN
-    LTEXT           "Внешная программа для\nсравнения файлов:",IDC_STATIC,7,
-                    7,93,18
-    EDITTEXT        IDC_EXTDIFF,100,7,89,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,195,7,50,14
-    LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,51,72,17
-    COMBOBOX        IDC_LANGUAGECOMBO,100,52,145,71,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,71,72,
-                    18
-    EDITTEXT        IDC_TEMPEXTENSIONS,100,72,145,14,ES_AUTOHSCROLL
-    CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
-                    BS_MULTILINE | WS_TABSTOP,7,96,238,18
-    LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,30,
-                    84,17
-    EDITTEXT        IDC_EXTMERGE,100,27,89,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Обзор ...",IDC_EXTMERGEBROWSE,195,27,50,14
-END
-
-IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Прокси-сервер"
-FONT 8, "MS Shell Dlg", 0, 0, 0x0
-BEGIN
-    LTEXT           "Адрес\nсервера:",IDC_STATIC,18,32,50,17
-    EDITTEXT        IDC_SERVERADDRESS,71,34,80,14,ES_AUTOHSCROLL
-    LTEXT           "Порт\nсервера:",IDC_STATIC,157,32,46,16
-    EDITTEXT        IDC_SERVERPORT,211,34,44,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Имя\nпользователя:",IDC_STATIC,17,52,50,16
-    EDITTEXT        IDC_USERNAME,71,52,80,14,ES_AUTOHSCROLL
-    LTEXT           "Пароль\nпользователя:",IDC_STATIC,157,54,51,16
-    EDITTEXT        IDC_PASSWORD,211,52,44,14,ES_PASSWORD | ES_AUTOHSCROLL
-    LTEXT           "Тайм-аут\n(в секундах):",IDC_STATIC,17,72,48,16
-    EDITTEXT        IDC_TIMEOUT,71,71,80,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Настройки прокси-сервера",IDC_STATIC,7,22,264,74
-    CONTROL         "Использовать прокси сервер",IDC_ENABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,118,10
-END
-
-IDD_RENAME DIALOGEX 0, 0, 234, 55
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Переименование / Перенос"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,7,34,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,177,34,50,14
-    LTEXT           "Новое имя или \nместоположение:",IDC_STATIC,7,10,68,16
-    EDITTEXT        IDC_NAME,76,11,151,14,ES_AUTOHSCROLL
-END
-
-IDD_UPDATE DIALOGEX 0, 0, 156, 90
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Обновление рабочей копии"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,99,69,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,7,69,50,14
-    GROUPBOX        "Редакция",IDC_STATIC,7,7,142,51
-    CONTROL         "&Головная редакция",IDC_NEWEST,"Button",
-                    BS_AUTORADIOBUTTON,13,21,89,10
-    CONTROL         "&Указанная:",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    13,37,50,10
-    EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
-END
-
-IDD_REPOSITORY_BROWSER DIALOGEX 0, 0, 288, 279
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
-    WS_THICKFRAME
-CAPTION "Обзор репозитория"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,7,258,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,231,258,50,14
-    LTEXT           "URL:",IDC_STATICURL,7,235,16,8
-    EDITTEXT        IDC_URL,40,233,241,14,ES_AUTOHSCROLL
-    CONTROL         "",IDC_REPOS_TREE,"SysTreeView32",TVS_HASBUTTONS | 
-                    TVS_HASLINES | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | 
-                    TVS_SHOWSELALWAYS | WS_TABSTOP | 0x800,7,7,274,218,
-                    WS_EX_CLIENTEDGE
-END
-
-IDD_ADD DIALOGEX 0, 0, 244, 146
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
-    WS_THICKFRAME
-CAPTION "Добавление файлов в репозиторий"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,7,125,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,187,125,50,14
-    CONTROL         "",IDC_ADDLIST,"SysListView32",LVS_REPORT | 
-                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,230,107
-END
-
-IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Перекрытие значков"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
-BEGIN
-    CONTROL         "Перекрывать значки папок с изменённым содержанием",
-                    IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
-                    16,220,10
-    CONTROL         "Активизировать для сменных дисков",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,30,150,10
-    CONTROL         "Активизировать для сетевых дисков",IDC_NETWORK,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,44,150,10
-    CONTROL         "Активизировать для жёстких дисков",IDC_FIXED,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,58,150,10
-    CONTROL         "Активизировать для приводов CD-ROM",IDC_CDROM,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,72,150,10
+    DEFPUSHBUTTON   "&OK",IDOK,7,73,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,163,73,50,14
+    LTEXT           "",IDC_INFOTEXT,7,7,206,32
+    EDITTEXT        IDC_PASSEDIT,7,44,206,14,ES_AUTOHSCROLL
+    CONTROL         "save authentication",IDC_SAVECHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,61,206,10
 END
 
 IDD_RELOCATE DIALOGEX 0, 0, 186, 76
@@ -334,13 +249,148 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Relocate"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,55,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,129,55,50,14
-    LTEXT           "from:",IDC_STATIC,7,7,18,8
-    LTEXT           "to:",IDC_STATIC,7,31,10,8
+    DEFPUSHBUTTON   "&OK",IDOK,7,55,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,129,55,50,14
+    LTEXT           "From URL:",IDC_STATIC,7,7,18,8
+    LTEXT           "To URL:",IDC_STATIC,7,31,10,8
     EDITTEXT        IDC_FROMURL,33,6,146,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_TOURL,33,28,146,14,ES_AUTOHSCROLL
+END
+
+IDD_RENAME DIALOGEX 0, 0, 234, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Rename"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,34,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,177,34,50,14
+    LTEXT           "new name:",IDC_STATIC,7,14,36,8
+    EDITTEXT        IDC_NAME,56,11,171,14,ES_AUTOHSCROLL
+END
+
+IDD_REPOSITORY_BROWSER DIALOGEX 0, 0, 288, 279
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Repository Browser"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,258,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,231,258,50,14
+    LTEXT           "URL: ",IDC_STATICURL,7,235,16,8
+    EDITTEXT        IDC_URL,40,233,241,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_REPOS_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | 
+                    TVS_SHOWSELALWAYS | WS_TABSTOP | 0x800,7,7,274,218,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 287, 151
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Main"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "External Diff:",IDC_STATIC,7,10,44,8
+    EDITTEXT        IDC_EXTDIFF,80,7,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTDIFFBROWSE,230,7,50,14
+    LTEXT           "Language:",IDC_STATIC,7,73,35,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,73,200,68,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Temp File Extensions:",IDC_STATIC,7,95,70,8
+    EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
+    CONTROL         "Allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,119,273,10
+    LTEXT           "External Merge:",IDC_STATIC,7,29,52,8
+    EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,230,25,50,14
+    LTEXT           "Diff Viewer:",IDC_STATIC,7,48,38,8
+    EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,230,45,50,14
+END
+
+IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Icon Overlays"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "show changed directories",IDC_CHANGEDDIRS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,16,97,10
+    CONTROL         "removable drives",IDC_REMOVABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,30,71,10
+    CONTROL         "network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,44,63,10
+    CONTROL         "fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,58,53,10
+    CONTROL         "CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,72,41,10
+END
+
+IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Proxy"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Server address:",IDC_STATIC,17,36,52,8
+    EDITTEXT        IDC_SERVERADDRESS,71,34,119,14,ES_AUTOHSCROLL
+    LTEXT           "Port:",IDC_STATIC,201,37,17,8
+    EDITTEXT        IDC_SERVERPORT,225,34,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Username:",IDC_STATIC,17,55,36,8
+    EDITTEXT        IDC_USERNAME,71,52,72,14,ES_AUTOHSCROLL
+    LTEXT           "Password:",IDC_STATIC,146,55,34,8
+    EDITTEXT        IDC_PASSWORD,189,52,66,14,ES_PASSWORD | ES_AUTOHSCROLL
+    LTEXT           "Proxy timeout in seconds:",IDC_STATIC,17,74,84,8
+    EDITTEXT        IDC_TIMEOUT,103,71,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Proxy Settings",IDC_STATIC,7,22,264,74
+    CONTROL         "Enable Proxy Server",IDC_ENABLE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,81,10
+END
+
+IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "SVN Progress"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,307,124,50,14
+    CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
+    PUSHBUTTON      "Show Log...",IDC_LOGBUTTON,243,124,50,14,NOT WS_VISIBLE
+END
+
+IDD_SWITCH DIALOGEX 0, 0, 228, 107
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Switch To Branch/Revision"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,86,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,171,86,50,14
+    LTEXT           "URL: ",IDC_STATIC,7,10,16,8
+    EDITTEXT        IDC_URL,42,7,157,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
+    GROUPBOX        "Revision",IDC_STATIC,7,24,214,51
+    CONTROL         "&Head Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+                    13,38,61,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,54,43,10
+    EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
+END
+
+IDD_UPDATE DIALOGEX 0, 0, 156, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Update"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,99,65,50,14
+    GROUPBOX        "Revision",IDC_STATIC,7,7,142,51
+    CONTROL         "&Head Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
+                    13,21,61,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,37,43,10
+    EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
 
@@ -357,7 +407,57 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 214
         TOPMARGIN, 7
-        BOTTOMMARGIN, 207
+        BOTTOMMARGIN, 200
+    END
+
+    IDD_ADD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_CHANGEDFILES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 401
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+
+    IDD_CHECKOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        VERTGUIDE, 13
+        VERTGUIDE, 78
+        VERTGUIDE, 237
+        VERTGUIDE, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_COPY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        VERTGUIDE, 44
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+        HORZGUIDE, 36
+    END
+
+    IDD_IMPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        VERTGUIDE, 13
+        VERTGUIDE, 78
+        VERTGUIDE, 237
+        VERTGUIDE, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 271
     END
 
     IDD_LOGMESSAGE, DIALOG
@@ -368,87 +468,72 @@ BEGIN
         BOTTOMMARGIN, 238
     END
 
-    IDD_PROMPT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 222
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 90
-    END
-
-    IDD_CHECKOUT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 262
-        VERTGUIDE, 13
-        VERTGUIDE, 81
-        VERTGUIDE, 237
-        VERTGUIDE, 255
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 138
-    END
-
-    IDD_SVNPROGRESS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 357
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 138
-    END
-
     IDD_LOGPROMPT, DIALOG
     BEGIN
-        LEFTMARGIN, 7
+        LEFTMARGIN, 6
         RIGHTMARGIN, 179
         TOPMARGIN, 7
-        BOTTOMMARGIN, 252
-    END
-
-    IDD_IMPORT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 263
-        VERTGUIDE, 13
-        VERTGUIDE, 78
-        VERTGUIDE, 237
-        VERTGUIDE, 255
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 176
-    END
-
-    IDD_SWITCH, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 221
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 98
+        BOTTOMMARGIN, 245
     END
 
     IDD_MERGE, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 274
+        VERTGUIDE, 99
         TOPMARGIN, 7
-        BOTTOMMARGIN, 149
+        BOTTOMMARGIN, 139
     END
 
-    IDD_COPY, DIALOG
+    IDD_PROMPT, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 286
-        VERTGUIDE, 60
+        RIGHTMARGIN, 213
         TOPMARGIN, 7
-        BOTTOMMARGIN, 59
-        HORZGUIDE, 36
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_RELOCATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 69
+    END
+
+    IDD_RENAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_REPOSITORY_BROWSER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 281
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 272
     END
 
     IDD_SETTINGSMAIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 245
-        VERTGUIDE, 100
+        RIGHTMARGIN, 280
+        VERTGUIDE, 80
+        VERTGUIDE, 220
         TOPMARGIN, 7
-        BOTTOMMARGIN, 123
+        BOTTOMMARGIN, 144
+        HORZGUIDE, 18
+    END
+
+    IDD_SETTINGSOVERLAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 187
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
     END
 
     IDD_SETTINGSPROXY, DIALOG
@@ -460,12 +545,20 @@ BEGIN
         BOTTOMMARGIN, 96
     END
 
-    IDD_RENAME, DIALOG
+    IDD_SVNPROGRESS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 227
+        RIGHTMARGIN, 357
         TOPMARGIN, 7
-        BOTTOMMARGIN, 48
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_SWITCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
     END
 
     IDD_UPDATE, DIALOG
@@ -473,40 +566,9 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 149
         TOPMARGIN, 7
-        BOTTOMMARGIN, 83
+        BOTTOMMARGIN, 79
     END
 
-    IDD_REPOSITORY_BROWSER, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 281
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 272
-    END
-
-    IDD_ADD, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 237
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 139
-    END
-
-    IDD_SETTINGSOVERLAY, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 187
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 100
-    END
-
-    IDD_RELOCATE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 69
-    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -518,42 +580,42 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_MSGBOX_ABORT        "Прервать"
-    IDS_MSGBOX_RETRY        "Повторить"
-    IDS_MSGBOX_IGNORE       "Пропустить"
-    IDS_MSGBOX_CANCEL       "Отмена"
-    IDS_MSGBOX_TRYAGAIN     "Повторить"
-    IDS_MSGBOX_CONTINUE     "Продолжить"
+    IDS_MSGBOX_ABORT        "Abort"
+    IDS_MSGBOX_RETRY        "Retry"
+    IDS_MSGBOX_IGNORE       "Ignore"
+    IDS_MSGBOX_CANCEL       "Cancel"
+    IDS_MSGBOX_TRYAGAIN     "Try Again"
+    IDS_MSGBOX_CONTINUE     "Continue"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MSGBOX_OK           "ОК"
-    IDS_MSGBOX_YES          "Да"
-    IDS_MSGBOX_NO           "Нет"
-    IDS_SVNACTION_ADD       "Добавлено:"
-    IDS_SVNACTION_COPY      "Скопировано:"
-    IDS_SVNACTION_DELETE    "Удалено:"
-    IDS_SVNACTION_RESTORE   "Восстановлено:"
-    IDS_SVNACTION_REVERT    "Совершён откат:"
-    IDS_SVNACTION_RESOLVE   "Разрешён конфликт:"
-    IDS_SVNACTION_UPDATE    "Обновлено:"
-    IDS_SVNACTION_COMPLETED "Процесс завершён."
-    IDS_SVNACTION_EXTERNAL  "Внешний"
-    IDS_SVNACTION_MODIFIED  "Изменено:"
-    IDS_SVNACTION_REPLACED  "Заменено:"
+    IDS_MSGBOX_OK           "OK"
+    IDS_MSGBOX_YES          "Yes"
+    IDS_MSGBOX_NO           "No"
+    IDS_SVNACTION_ADD       "Add"
+    IDS_SVNACTION_COPY      "Copy"
+    IDS_SVNACTION_DELETE    "Delete"
+    IDS_SVNACTION_RESTORE   "Restore"
+    IDS_SVNACTION_REVERT    "Revert"
+    IDS_SVNACTION_RESOLVE   "Resolve"
+    IDS_SVNACTION_UPDATE    "Update"
+    IDS_SVNACTION_COMPLETED "Completed"
+    IDS_SVNACTION_EXTERNAL  "External"
+    IDS_SVNACTION_MODIFIED  "Modified"
+    IDS_SVNACTION_REPLACED  "Replaced"
     IDS_SVNACTION_POSTFIX   "Postfix"
-    IDS_SVNACTION_FAILEDREVERT "Откат изменений завершился неудачей"
+    IDS_SVNACTION_FAILEDREVERT "Failed Revert"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_SVNACTION_STATUS    "Получить состояние"
-    IDS_SVNACTION_SKIP      "Пропустить"
+    IDS_SVNACTION_STATUS    "Status"
+    IDS_SVNACTION_SKIP      "Skip"
     IDS_STRING178           "dummy"
     IDS_STRING179           "dummy"
     IDS_STRING180           "dummy"
-    IDS_SVN_USERCANCELLED   "Прервано пользователем"
+    IDS_SVN_USERCANCELLED   "User cancelled"
     IDS_STRING182           "dummy"
     IDS_STRING183           "dummy"
     IDS_STRING184           "dummy"
@@ -568,85 +630,84 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_STATUSUNVERSIONED   "не контролируется"
-    IDS_STATUSNORMAL        "в норме"
-    IDS_STATUSADDED         "добавлено"
-    IDS_STATUSABSENT        "отсутствует"
-    IDS_STATUSDELETED       "удалено"
-    IDS_STATUSREPLACED      "заменено"
-    IDS_STATUSMODIFIED      "изменено"
-    IDS_STATUSMERGED        "объединено"
-    IDS_STATUSCONFLICTED    "конфликтует"
+    IDS_STATUSUNVERSIONED   "unversioned"
+    IDS_STATUSNORMAL        "normal"
+    IDS_STATUSADDED         "added"
+    IDS_STATUSABSENT        "absent"
+    IDS_STATUSDELETED       "deleted"
+    IDS_STATUSREPLACED      "replaced"
+    IDS_STATUSMODIFIED      "modified"
+    IDS_STATUSMERGED        "merged"
+    IDS_STATUSCONFLICTED    "conflicted"
     IDS_STATUSOBSTRUCTED    "obstructed"
-    IDS_STRING202           "dummy"
-    IDS_STRING203           "dummy"
+    IDS_STATUSINCOMPLETE    "incomplete"
+    IDS_STATUSIGNORED       "ignored"
     IDS_STRING204           "dummy"
-    IDS_IMPORT_DEFAULTMSG   "Начальный импорт"
+    IDS_IMPORT_DEFAULTMSG   "Initial Import"
     IDS_STRING206           "dummy"
     IDS_STRING207           "dummy"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_REVISION        "Редакция"
-    IDS_LOG_AUTHOR          "Автор"
-    IDS_LOG_DATE            "Дата"
+    IDS_LOG_REVISION        "Revision"
+    IDS_LOG_AUTHOR          "Author"
+    IDS_LOG_DATE            "Date"
     IDS_LOG_REVERT_CONFIRM  "Do you really want to revert all changes\nwhich were made in this revision?"
-    IDS_LOG_POPUP_COMPARE   "Сравнить с рабочей копией"
-    IDS_LOG_POPUP_SAVE      "Сохранить ревизию в..."
-    IDS_LOG_POPUP_COMPARETWO "Сравнить две редакции"
+    IDS_LOG_POPUP_COMPARE   "Compare with working copy"
+    IDS_LOG_POPUP_SAVE      "Save revision to..."
+    IDS_LOG_POPUP_COMPARETWO "Compare revisions"
     IDS_LOG_POPUP_UPDATE    "Update item to revision"
     IDS_LOG_POPUP_COPY      "Create Tag from revision"
-    IDS_LOGPROMPT_FILE      "Файл"
-    IDS_LOGPROMPT_STATUS    "Состояние"
-    IDS_LOGPROMPT_ASKADD    "Вы выбрали файл, ещё не находящийся в репозитории.\nПеред фиксированием изменений\nфайл будет добавлен в систему контроля версий."
+    IDS_LOGPROMPT_FILE      "File"
+    IDS_LOGPROMPT_STATUS    "Status"
+    IDS_LOGPROMPT_ASKADD    "You selected an unversioned file.\nThe file will be added to version control before committing."
     IDS_STRING220           "dummy"
-    IDS_PROGRS_ATREV        "Текущая редакция: %d"
-    IDS_PROGRS_ACTION       "Действие"
-    IDS_PROGRS_PATH         "Путь"
+    IDS_PROGRS_ATREV        "At revision: %d"
+    IDS_PROGRS_ACTION       "Action"
+    IDS_PROGRS_PATH         "Path"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROGRS_TITLEFIN     "Завершено!"
-    IDS_PROGRS_TITLE_CHECKOUT "SVN - Создание рабочей копии"
-    IDS_PROGRS_TITLE_IMPORT "SVN - Начальный импорт файлов"
-    IDS_PROGRS_TITLE_UPDATE "SVN - Обновление рабочей копии"
-    IDS_PROGRS_TITLE_COMMIT "SVN - Фиксация изменений"
-    IDS_PROGRS_TITLE_ADD    "SVN - Добавление файлов в репозиторий"
-    IDS_PROGRS_TITLE_REVERT "SVN - Процедура отката"
-    IDS_PROGRS_TITLE_RESOLVE "SVN - Разрешение конфликта"
-    IDS_PROGRS_TITLE_SWITCH "SVN - Процесс перехода к другой ветке"
-    IDS_PROGRS_TITLE_EXPORT "SVN - Экспортировать"
-    IDS_PROGRS_TITLE_MERGE  "SVN - Процесс слияния"
-    IDS_PROGRS_TITLE_COPY   "SVN - Копирование"
+    IDS_PROGRS_TITLEFIN     "Finished!"
+    IDS_PROGRS_TITLE_CHECKOUT "SVN Checkout..."
+    IDS_PROGRS_TITLE_IMPORT "SVN Import..."
+    IDS_PROGRS_TITLE_UPDATE "SVN Update..."
+    IDS_PROGRS_TITLE_COMMIT "SVN Commit..."
+    IDS_PROGRS_TITLE_ADD    "SVN Add..."
+    IDS_PROGRS_TITLE_REVERT "SVN Revert..."
+    IDS_PROGRS_TITLE_RESOLVE "SVN Resolve..."
+    IDS_PROGRS_TITLE_SWITCH "SVN Switch..."
+    IDS_PROGRS_TITLE_EXPORT "SVN Export..."
+    IDS_PROGRS_TITLE_MERGE  "SVN Merge..."
+    IDS_PROGRS_TITLE_COPY   "SVN Copy..."
     IDS_STRING236           "dummy"
     IDS_STRING237           "dummy"
     IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to <b>switch</b> over\nto that copy path. Use the <b>Switch</b> command to do that."
-    IDS_PROGRS_COMMITT_TRUNK 
-                            "your working copy appears to be on a <b>tag</b> path!\nYou should switch first to a branch or the main trunk before committing."
+    IDS_PROGRS_COMMITT_TRUNK "your working copy appears to be on a <b>tag</b> path!\nYou should switch first to a branch or the main trunk before committing."
 END
 
 STRINGTABLE 
 BEGIN
     IDS_STRING240           "dummy"
-    IDS_SETTINGS_SELECTDIFF "Укажите программу для сравнения файлов."
-    IDS_STRING242           "dummy"
+    IDS_SETTINGS_SELECTDIFF "Select Diff Application..."
+    IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
     IDS_STRING243           "dummy"
     IDS_STRING244           "dummy"
-    IDS_SETTINGS_EXTDIFF_TT "Внешняя программа, используемая для сравнения файлов."
-    IDS_SETTINGS_EXTDIFFBROWSE_TT 
-                            "Выбор внешней программы для сравнения файлов."
+    IDS_SETTINGS_EXTDIFF_TT "an external diff program used\nfor comparing different revisions of files"
+    IDS_SETTINGS_EXTDIFFBROWSE_TT "browse for the external diff program"
     IDS_SETTINGS_CHANGEDDIRS_TT 
-                            "Включите эту опцию, если Вы хотите,\nчтобы значки директорий перекрывались\nв зависимости от состояния нижележащих файлов.\n<ct=0x0000ff><b>Предупреждение:</b>Это может замедлить работу приложения explorer</ct>"
+                            "activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "Здесь можно указать расширение для временных и\nавтоматически сгенерированных файлов."
+                            "specify the file extensions which are\neither temporary or generated"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
-                            "Показывать перед фиксированием изменений список файлов,\nне добавленных в репозиторий,\nчтобы Вы могли их сразу добавить."
+                            "shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 
-                            "Внешняя программа, используемая\nдля слияния файлов и разрешения конфликтов.\n<hr=100%>\nВам нужно указать следующие параметры:\n%merged\tкуда сохранять конфликтующий файл\n%theirs\t\tфайл, как он есть в репозитории\n%mine\t\tфайл, содержащий Ваши изменения\n%base\t\tоригинальный файл, без Ваших изменений"
-    IDS_SETTINGS_PROXYSERVER_TT "Введите имя или IP-адрес прокси-сервера"
-    IDS_STRING252           "dummy"
+                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
+    IDS_SETTINGS_PROXYSERVER_TT "either the name or IP of the proxy server"
+    IDS_SETTINGS_DIFFVIEWER_TT 
+                            "a viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
     IDS_STRING253           "dummy"
     IDS_STRING254           "dummy"
     IDS_STRING255           "dummy"
@@ -654,20 +715,19 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROC_WARNREVERT     "Вы действительно хотите произвести откат?\nИзменения, произведённые с момента последнего обновления,\nбудут безвозвратно потеряны."
-    IDS_PROC_CLEANUPFINISHED 
-                            "Очистка Вашей рабочей копии от временных файлов завершена."
-    IDS_PROC_REPOCREATEERR  "Ошибка при создании репозитория!\nПроверьте, что папка пуста и не защищена от записи."
-    IDS_PROC_EXPORT_1       "Выберите папку, в которую будет осуществлён экспорт.\nВозможно, необходимо создать новую папку."
-    IDS_PROC_EXPORT_2       "экспорт %s в"
-    IDS_PROC_EXPORT_3       "Производится экспорт..."
-    IDS_PROC_EXPORT_4       "произведён экспорт\n%s\nв\n%s"
-    IDS_PROC_COPY_SUCCESS   "Рабочая копия помечена как %s"
-    IDS_PROC_SETTINGS_TITLE "Настройки TortoiseSVN"
-    IDS_PROC_DELETE_CONFIRM "Вы уверены, что хотите удалить эти файлы?"
+    IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will loose <b>all</b> changes since the last update!"
+    IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
+    IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
+    IDS_PROC_EXPORT_1       "Select Folder To Export To\nMaybe you need to create a new folder"
+    IDS_PROC_EXPORT_2       "exporting %s to"
+    IDS_PROC_EXPORT_3       "Exporting..."
+    IDS_PROC_EXPORT_4       "exported\n%s\nto\n%s"
+    IDS_PROC_COPY_SUCCESS   "Tagged the working copy to %s"
+    IDS_PROC_SETTINGS_TITLE "TortoiseSVN Settings"
+    IDS_PROC_DELETE_CONFIRM "Are you sure you want to delete the selected files?\n<hr=100%>\nPlease note: if you have modified files those modification will be lost.\nAlso unversioned items will be deleted too!"
     IDS_PROC_OVERWRITE_CONFIRM 
-                            "Файл\n%s\nуже существует! Перезаписать существующий файл?"
-    IDS_PROC_REPOCREATEFINISHED "Репозиторий создан."
+                            "the file\n%s\nalready exists! Do you want to overwrite it?"
+    IDS_PROC_REPOCREATEFINISHED "Repository created"
     IDS_PROC_RELOCATEFINISHED "Working copy relocated to\n%s"
     IDS_STRING269           "dummy"
     IDS_STRING270           "dummy"
@@ -676,7 +736,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_MSGBOX_DONOTSHOW    "Больше не показывать это сообщение"
+    IDS_MSGBOX_DONOTSHOW    "Do not show this message again"
     IDS_STRING273           "dummy"
     IDS_STRING274           "dummy"
     IDS_STRING275           "dummy"
@@ -685,22 +745,22 @@ BEGIN
     IDS_STRING278           "dummy"
     IDS_STRING279           "dummy"
     IDS_STRING280           "dummy"
-    IDS_ERR_THREADSTARTFAILED "Невозможно запустить поток!"
-    IDS_ERR_EXTDIFFSTART    "Невозможно запустить внешнюю программу сравнения файлов!\n<hr=100%>\n%s"
-    IDS_ERR_NOCOMMAND       "Не указана команда!\n<hr=100%>\nTortoiseProc.exe используется расширением пространства имён и не должна вызываться вручную."
-    IDS_ERR_NOCOMMANDVALUE  "Не указан параметр команды!"
-    IDS_ERR_NOSTATUS        "Невозможно получить состояние!"
-    IDS_ERR_CLEANUP         "Subversion: В процессе очистки произошла ошибка!\n<hr=100%>\n%s"
-    IDS_ERR_NOURLOFFILE     "Невозможно получить URL файла!"
+    IDS_ERR_THREADSTARTFAILED "Could not start thread!"
+    IDS_ERR_EXTDIFFSTART    "could not start external diff program!\n<hr=100%>\n%s"
+    IDS_ERR_NOCOMMAND       "no command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
+    IDS_ERR_NOCOMMANDVALUE  "no command value specified!"
+    IDS_ERR_NOSTATUS        "could not get the status!"
+    IDS_ERR_CLEANUP         "Subversion reported an error while doing a cleanup!\n<hr=100%>\n%s"
+    IDS_ERR_NOURLOFFILE     "Could not retrieve URL of the file!"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_ERR_WCCHANGED       "Содержимое рабочей копии изменено!\n<hr=100%>\nСначала зафиксируйте изменения\nили произведите откат."
-    IDS_ERR_COPYFILES       "Невозможно скопировать файлы!\n<hr=100%>\n%s"
-    IDS_ERR_EXTMERGESTART   "Невозможно запустить внешнюю программу слияния файлов!\n<hr=100%>\n%s"
+    IDS_ERR_WCCHANGED       "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
+    IDS_ERR_COPYFILES       "Could not copy the files!\n<hr=100%>\n%s"
+    IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
-    IDS_STRING292           "dummy"
+    IDS_ERR_FAILEDIGNOREPROPERTY "@IDS_ERR_FAILEDIGNOREPROPERTY"
     IDS_STRING293           "dummy"
     IDS_STRING294           "dummy"
     IDS_STRING295           "dummy"
@@ -708,14 +768,15 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_WARN_FOLDERNOTEXIST "Папка\n%s\nне существует. Создать новую?"
+    IDS_WARN_FOLDERNOTEXIST "The folder \n%s\ndoes not exist.\nWould you like to create it first?"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_CHECKOUT_TT_DIR     "Папка, в которую будут скопированы файлы\nиз указанного репозитория."
+    IDS_CHECKOUT_TT_DIR     "location where the contents of the\nrepository URL will be saved to."
     IDS_IMPORT_TT_MODULENAMECHECK 
-                            "Если опция включена, в репозитории будет создана новая папка.\nВ противном случае начальный импорт будет произведён по указанному URL."
+                            "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
+    IDS_IMPORT_TT_TEMPFILES "Check the files which you want to\ndelete before importing"
 END
 
 STRINGTABLE 
@@ -734,6 +795,7 @@ STRINGTABLE
 BEGIN
     IDS_LOG_POPUP_DIFF      "Show Changes"
     IDS_LOG_POPUP_REVERTREV "Revert changes from this revision"
+    IDS_LOG_POPUP_GNUDIFF   "Show Changes as Unified Diff"
 END
 
 STRINGTABLE 
@@ -743,48 +805,25 @@ BEGIN
     IDS_PROGRESSWAIT        "Please wait..."
 END
 
-#endif    // Russian resources
+STRINGTABLE 
+BEGIN
+    IDS_CHSTAT_FILECOL      "File"
+    IDS_CHSTAT_WCCOL        "local status"
+    IDS_CHSTAT_REPOCOL      "remote status"
+END
+
+#endif    // Localized resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
+// German (Switzerland) resources
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                  "charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AVI
-//
-
-IDR_ANIMATION           AVI                     "res\\bin168.avi"
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 // Microsoft Visual C++ generated resource script.
 //
-#include "resource.h"
+#include "..\TortoiseProc\resource.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@ IDR_ANIMATION           AVI                     "res\\bin168.avi"
 // Bitmap
 //
 
-IDB_LOGOFLIPPED         BITMAP                  "charlie_flipped.bmp"
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -55,7 +55,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Russian resources
+// Localized resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
 #ifdef _WIN32
@@ -640,8 +640,8 @@ BEGIN
     IDS_STATUSMERGED        "@IDS_STATUSMERGED"
     IDS_STATUSCONFLICTED    "@IDS_STATUSCONFLICTED"
     IDS_STATUSOBSTRUCTED    "@IDS_STATUSOBSTRUCTED"
-    IDS_STRING202           "dummy"
-    IDS_STRING203           "dummy"
+    IDS_STATUSINCOMPLETE    "@IDS_STATUSINCOMPLETE"
+    IDS_STATUSIGNORED       "@IDS_STATUSIGNORED"
     IDS_STRING204           "dummy"
     IDS_IMPORT_DEFAULTMSG   "@IDS_IMPORT_DEFAULTMSG"
     IDS_STRING206           "dummy"
@@ -760,7 +760,7 @@ BEGIN
     IDS_ERR_COPYFILES       "@IDS_ERR_COPYFILES"
     IDS_ERR_EXTMERGESTART   "@IDS_ERR_EXTMERGESTART"
     IDS_ERR_NOTUPTODATE     "@IDS_ERR_NOTUPTODATE"
-    IDS_STRING292           "dummy"
+    IDS_ERR_FAILEDIGNOREPROPERTY "@IDS_ERR_FAILEDIGNOREPROPERTY"
     IDS_STRING293           "dummy"
     IDS_STRING294           "dummy"
     IDS_STRING295           "dummy"
@@ -812,7 +812,7 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "@IDS_CHSTAT_REPOCOL"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Localized resources
 /////////////////////////////////////////////////////////////////////////////
 
 
