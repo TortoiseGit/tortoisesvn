@@ -273,7 +273,7 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 		if (message.GetLength()>0)
 		{
 			message.Replace(_T("\n\r"), _T("\n"));
-			message.Replace(_T("\r"), _T("\n"));
+			message.Replace(_T("\r\n"), _T("\n"));
 			message.Replace(_T("\n"), _T("\r\n"));
 			int pos = 0;
 			TCHAR buf[100000];
