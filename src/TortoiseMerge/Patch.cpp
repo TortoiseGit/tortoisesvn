@@ -280,7 +280,7 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 				} // if (sAdd.Find(',')>=0)
 				else
 				{
-					chunk->lAddStart = 0;
+					chunk->lAddStart = 1;
 					chunk->lAddLength = _ttol(sAdd);
 				}
 				state++;
@@ -514,6 +514,8 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
 						return FALSE; 
 					}
+					if (lAddLine == 0)
+						lAddLine++;
 					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0) &&
 						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0))
 					{
