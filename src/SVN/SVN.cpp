@@ -94,7 +94,11 @@ SVN::SVN(void)
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	if (!tsvn_ssh.IsEmpty())
+	{
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+			APR_HASH_KEY_STRING);
 		svn_config_set((svn_config_t *)ctx.config, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
+	}
 }
 
 SVN::~SVN(void)
