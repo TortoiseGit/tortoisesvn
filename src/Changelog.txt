@@ -3,6 +3,11 @@
 - CHG: Improved refreshing of icons after a TSVN operation. (Will)
 - CHG: Major code cleanup throughout the whole project. (Will)
 - CHG: Use the same colors for the authors in all graphs. (Stefan)
+- BUG: If a folder was deleted from the commit dialog, its children weren't
+       removed from the list shown. (Stefan)
+- BUG: if more than one file or filemask were ignored, the parent folder was
+       added to the list every time instead of just once. (Stefan)
+- BUG: The apr-iconv library wasn't patched. (Stefan)
 - BUG: Fix wrong axis labels in the 'commits by author' graph. (Stefan)
 - BUG: The "select all" checkbox behave three state even when clicking it. (Will)
 - BUG: Some dialogs were resizable even though they shouldn't be. (Stefan)
