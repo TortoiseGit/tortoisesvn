@@ -43,11 +43,13 @@ BOOL CBottomView::ShallShowContextMenu(CDiffData::DiffStates state, int /*nLine*
 	//The bottom view is always "Merged" in three-way diff
 	switch (state)
 	{
+	case CDiffData::DIFFSTATE_WHITESPACE:
 	case CDiffData::DIFFSTATE_ADDED:
 	case CDiffData::DIFFSTATE_REMOVED:
 	case CDiffData::DIFFSTATE_CONFLICTED:
 	case CDiffData::DIFFSTATE_CONFLICTEMPTY:
 	case CDiffData::DIFFSTATE_CONFLICTADDED:
+	case CDiffData::DIFFSTATE_EMPTY:
 		return TRUE;
 	default:
 		return FALSE;
