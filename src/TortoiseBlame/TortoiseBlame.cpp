@@ -44,10 +44,10 @@ TortoiseBlame::TortoiseBlame()
 	m_windowcolor = ::GetSysColor(COLOR_WINDOW);
 	m_textcolor = ::GetSysColor(COLOR_WINDOWTEXT);
 	m_texthighlightcolor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
-	m_mouserevcolor = (m_windowcolor > 0x101010 ? m_windowcolor - 0x101010 : 0);
-	m_mouseauthorcolor = (m_windowcolor > 0x404040 ? m_windowcolor - 0x404040 : 0);
+	m_mouserevcolor = InterColor(m_windowcolor, m_textcolor, 10);
+	m_mouseauthorcolor = InterColor(m_windowcolor, m_textcolor, 20);
 	m_selectedrevcolor = ::GetSysColor(COLOR_HIGHLIGHT);
-	m_selectedauthorcolor = (m_selectedrevcolor > 0x303030 ? m_selectedrevcolor - 0x303030 : 0);
+	m_selectedauthorcolor = InterColor(m_selectedrevcolor, m_texthighlightcolor, 35);
 
 	m_directPointer = 0;
 	m_directFunction = 0;
@@ -57,6 +57,29 @@ TortoiseBlame::~TortoiseBlame()
 {
 	if (m_font)
 		DeleteObject(m_font);
+}
+
+// Return a colour which is interpolated between c1 and c2.
+// Slider controls the relative proportions as a percentage:
+// Slider = 0 	represents pure c1
+// Slider = 50	represents equal mixture
+// Slider = 100	represents pure c2
+COLORREF TortoiseBlame::InterColor(COLORREF c1, COLORREF c2, int Slider)
+{
+	int r, g, b;
+	
+	// Limit Slider to 0..100% range
+	if (Slider < 0)
+		Slider = 0;
+	if (Slider > 100)
+		Slider = 100;
+	
+	// The colour components have to be treated individually.
+	r = (GetRValue(c2) * Slider + GetRValue(c1) * (100 - Slider)) / 100;
+	g = (GetGValue(c2) * Slider + GetGValue(c1) * (100 - Slider)) / 100;
+	b = (GetBValue(c2) * Slider + GetBValue(c1) * (100 - Slider)) / 100;
+	
+	return RGB(r, g, b);
 }
 
 LRESULT TortoiseBlame::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
