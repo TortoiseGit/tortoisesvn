@@ -1,6 +1,9 @@
 - ADD: From the log dialog it's now possible to start
        the repository browser so it browses the
        selected revision. (Stefan)
+- CHG: The log message editboxes now do "soft-wrap",
+       i.e. the logmessage is wrapped at the right
+       end of the dialog box. (Stefan)
 - BUG: When sorting by a column in the commit dialog
        the selections (checkboxes) got lost. (Stefan)
 - BUG: When the recursive overlay was activated, the

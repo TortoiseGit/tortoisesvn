@@ -156,6 +156,7 @@
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
 #define IDC_EDIT1                       1077
+#define IDC_MSGVIEW                     1077
 #define IDC_DRIVEGROUP                  1079
 #define IDC_PROXYGROUP                  1080
 #define IDC_SSHGROUP                    1081

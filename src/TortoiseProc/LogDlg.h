@@ -93,10 +93,7 @@ protected:
 	afx_msg void OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetInfoTipLoglist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -104,7 +101,7 @@ protected:
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
 
-	void	FillLogMessageCtrl(CString msg);
+	void	FillLogMessageCtrl(CString msg, CString paths);
 	BOOL	StartDiff(CString path1, LONG rev1, CString path2, LONG rev2);
 	void	DoDiffFromLog(int selIndex, CString temp,long rev);
 
@@ -126,7 +123,7 @@ private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
 	CStringArray m_arLogMessages;
-	CDWordArray m_arFileListStarts;
+	CStringArray m_arLogPaths;
 	CDWordArray m_arRevs;
 	BOOL		m_hasWC;
 	int			m_nSearchIndex;

@@ -63,10 +63,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(NM_CLICK, IDC_LOGLIST, OnNMClickLoglist)
 	ON_NOTIFY(NM_RCLICK, IDC_LOGLIST, OnNMRclickLoglist)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
-	ON_NOTIFY(LVN_ITEMCHANGING, IDC_LOGMSG, OnLvnItemchangingLogmsg)
 	ON_NOTIFY(NM_RCLICK, IDC_LOGMSG, OnNMRclickLogmsg)
-	ON_NOTIFY(NM_CLICK, IDC_LOGMSG, OnNMClickLogmsg)
-	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, OnLvnKeydownLogmsg)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkLogmsg)
@@ -139,7 +136,7 @@ BOOL CLogDlg::OnInitDialog()
 	LogFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
 	_tcscpy(LogFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
 	m_logFont.CreateFontIndirect(&LogFont);
-	GetDlgItem(IDC_LOGMSG)->SetFont(&m_logFont);
+	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
 
 	m_LogList.SetExtendedStyle ( LVS_EX_FULLROWSELECT );
 
@@ -183,7 +180,8 @@ BOOL CLogDlg::OnInitDialog()
 	SetWindowText(sTitle + _T(" - ") + m_path.Mid(m_path.ReverseFind('\\')+1));
 
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_LOGMSG, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_MSGVIEW, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
@@ -193,8 +191,9 @@ BOOL CLogDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CLogDlg::FillLogMessageCtrl(CString msg)
+void CLogDlg::FillLogMessageCtrl(CString msg, CString paths)
 {
+	GetDlgItem(IDC_MSGVIEW)->SetWindowText(msg);
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT );
 	m_LogMsgCtrl.DeleteAllItems();
 	m_LogMsgCtrl.SetRedraw(FALSE);
@@ -203,16 +202,16 @@ void CLogDlg::FillLogMessageCtrl(CString msg)
 	int curpos = 0;
 	int curposold = 0;
 	CString linestr;
-	while (msg.Find('\r', curpos)>=0)
+	while (paths.Find('\r', curpos)>=0)
 	{
 		curposold = curpos;
-		curpos = msg.Find('\r', curposold);
-		linestr = msg.Mid(curposold, curpos-curposold);
+		curpos = paths.Find('\r', curposold);
+		linestr = paths.Mid(curposold, curpos-curposold);
 		linestr.Trim(_T("\n\r"));
 		m_LogMsgCtrl.InsertItem(line++, linestr);
 		curpos++;
 	} // while (msg.Find('\n', curpos)>=0) 
-	linestr = msg.Mid(curpos);
+	linestr = paths.Mid(curpos);
 	linestr.Trim(_T("\n\r"));
 	m_LogMsgCtrl.InsertItem(line++, linestr);
 
@@ -224,7 +223,7 @@ void CLogDlg::OnBnClickedGetall()
 {
 	m_LogList.DeleteAllItems();
 	m_arLogMessages.RemoveAll();
-	m_arFileListStarts.RemoveAll();
+	m_arLogPaths.RemoveAll();
 	m_arRevs.RemoveAll();
 	m_logcounter = 0;
 
@@ -292,11 +291,8 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 				pos = pos + 1;		// add "\r"
 			}
 		} // if (message.GetLength()>0)
-		message += _T("\r\n---------------------------------\r\n");
-		line++;
-		m_arFileListStarts.Add(line);
-		message += cpaths;
 		m_arLogMessages.Add(message);
+		m_arLogPaths.Add(cpaths);
 		m_arRevs.Add(rev);
 	}
 	catch (CException * e)
@@ -368,14 +364,14 @@ void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	if (selIndex >= 0)
 	{
 		//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
-		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex));
+		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
 		this->m_nSearchIndex = selIndex;
 		UpdateData(FALSE);
 	}
 	else
 	{
 		//m_sLogMsgCtrl = _T("");
-		FillLogMessageCtrl(_T(""));
+		FillLogMessageCtrl(_T(""), _T(""));
 		UpdateData(FALSE);
 	}
 	*pResult = 0;
@@ -404,14 +400,13 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 		//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
 		this->m_nSearchIndex = selIndex;
-		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex));
+		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
 		UpdateData(FALSE);
 	}
 	else
 	{
-		//m_sLogMsgCtrl = "";
 		if (m_arLogMessages.GetCount()>0)
-			FillLogMessageCtrl(m_arLogMessages.GetAt(0));
+			FillLogMessageCtrl(m_arLogMessages.GetAt(0), m_arLogPaths.GetAt(0));
 		UpdateData(FALSE);
 	}
 	*pResult = 0;
@@ -828,7 +823,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
 			m_LogList.SetItemState(m_LogList.GetSelectionMark(), 0, LVIS_SELECTED);
 			m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 			m_LogList.SetSelectionMark(i);
-			FillLogMessageCtrl(m_arLogMessages.GetAt(i));
+			FillLogMessageCtrl(m_arLogMessages.GetAt(i), m_arLogPaths.GetAt(i));
 			UpdateData(FALSE);
 		}
     } // if(m_pFindDialog->FindNext()) 
@@ -855,105 +850,45 @@ void CLogDlg::OnOK()
 	}
 }
 
-void CLogDlg::OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	*pResult = 0;
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-	if (pNMLV->iItem == m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
-	{
-		*pResult = 1;
-	}
-}
-
-void CLogDlg::OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	*pResult = 0;
-	if (m_LogMsgCtrl.GetSelectionMark() < 0)
-		return;
-	if (m_LogMsgCtrl.GetSelectionMark() < (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
-	{
-		//*pResult = 1;
-		for (int i=0; i<(int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
-		{
-			m_LogMsgCtrl.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
-		}
-	} // if (pNMLV->iItem < (m_arFileListStarts.GetAt(m_LogList.GetSelectionMark())-1))
-}
-
-void CLogDlg::OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
-
-	if ((m_LogList.GetSelectionMark()>=0)&&(m_LogMsgCtrl.GetSelectionMark() < (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark())))
-	{
-		if (pLVKeyDow->wVKey == 0x43)		// c-key
-		{
-			if (GetKeyState(VK_CONTROL)!=0)
-			{
-				CStringA msg;
-				for (int i=0; i<(int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
-				{
-					msg += m_LogMsgCtrl.GetItemText(i, 0);
-					msg += "\n";
-				}
-				CSharedFile sf(GMEM_MOVEABLE | GMEM_SHARE | GMEM_ZEROINIT);
-				sf.Write(msg, msg.GetLength());
-				if (sf.GetLength() > 0)
-				{
-					OpenClipboard();
-					EmptyClipboard();
-					SetClipboardData(CF_TEXT, sf.Detach());
-					CloseClipboard();
-				} // if (sf.GetLength() > 0) 
-			} // if (GetKeyState(VK_CONTROL)!=0) 
-		} // if (pLVKeyDow->wVKey == 0x43)		// c-key 
-	} // if (m_LogMsgCtrl.GetSelectionMark() < m_arFileListStarts.GetAt(m_LogList.GetSelectionMark())) 
-
-	*pResult = 0;
-}
-
 void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	*pResult = 0;
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
-	long rev = m_arRevs.GetAt(m_LogList.GetSelectionMark());
-	if (selIndex >= (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	long rev = m_arRevs.GetAt(selIndex);
+	//entry is selected, now show the popup menu
+	CMenu popup;
+	POINT point;
+	GetCursorPos(&point);
+	if (popup.CreatePopupMenu())
 	{
-		//entry is selected, now show the popup menu
-		CMenu popup;
-		POINT point;
-		GetCursorPos(&point);
-		if (popup.CreatePopupMenu())
+		CString temp;
+		if (m_LogMsgCtrl.GetSelectedCount() == 1)
 		{
-			CString temp;
-			if (m_LogMsgCtrl.GetSelectedCount() == 1)
+			temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+			temp = temp.Left(temp.Find(' '));
+			CString t, tt;
+			t.LoadString(IDS_SVNACTION_ADD);
+			tt.LoadString(IDS_SVNACTION_DELETE);
+			if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
 			{
-				temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-				temp = temp.Left(temp.Find(' '));
-				CString t, tt;
-				t.LoadString(IDS_SVNACTION_ADD);
-				tt.LoadString(IDS_SVNACTION_DELETE);
-				if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
+				temp.LoadString(IDS_LOG_POPUP_DIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
+			}
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+			switch (cmd)
+			{
+			case ID_DIFF:
 				{
-					temp.LoadString(IDS_LOG_POPUP_DIFF);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
+					DoDiffFromLog(selIndex,temp,rev);
 				}
-				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-				switch (cmd)
-				{
-				case ID_DIFF:
-					{
-						DoDiffFromLog(selIndex,temp,rev);
-					}
-					break;
-				default:
-					break;
-				} // switch (cmd)
-			} // if (m_LogMsgCtrl.GetSelectedCount() == 1)
-		} // if (popup.CreatePopupMenu())
-	} // if (selIndex >= m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+				break;
+			default:
+				break;
+			} // switch (cmd)
+		} // if (m_LogMsgCtrl.GetSelectedCount() == 1)
+	} // if (popup.CreatePopupMenu())
 }
 
 void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
@@ -962,19 +897,16 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
-	long rev = m_arRevs.GetAt(m_LogList.GetSelectionMark());
-	if (selIndex > (int)m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	long rev = m_arRevs.GetAt(selIndex);
+	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+	temp = temp.Left(temp.Find(' '));
+	CString t, tt;
+	t.LoadString(IDS_SVNACTION_ADD);
+	tt.LoadString(IDS_SVNACTION_DELETE);
+	if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
 	{
-		CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-		temp = temp.Left(temp.Find(' '));
-		CString t, tt;
-		t.LoadString(IDS_SVNACTION_ADD);
-		tt.LoadString(IDS_SVNACTION_DELETE);
-		if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
-		{
-			DoDiffFromLog(selIndex,temp,rev);
-		}
-	} // if (selIndex >= m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+		DoDiffFromLog(selIndex,temp,rev);
+	}
 }
 
 void CLogDlg::DoDiffFromLog(int selIndex, CString temp, long rev)
