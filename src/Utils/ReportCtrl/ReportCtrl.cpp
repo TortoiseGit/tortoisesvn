@@ -7039,14 +7039,30 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CReportTipCtrl message handlers
 
+static BOOL Is_Win2000_Or_Later()
+{
+	OSVERSIONINFO osvi;
+	ZeroMemory(&osvi, sizeof osvi);
+	osvi.dwOSVersionInfoSize = sizeof osvi;
+
+	if (!GetVersionEx((OSVERSIONINFO *)&osvi)) 
+		return FALSE;
+
+	return osvi.dwMajorVersion >= 5;
+}
+
 BOOL CReportTipCtrl::Create(CReportCtrl* pReportCtrl)
 {
 	ASSERT_VALID(pReportCtrl);
 
 	m_pReportCtrl = pReportCtrl;
 
+	DWORD dwExStyle = WS_EX_TOPMOST|WS_EX_TOOLWINDOW;
+	if (Is_Win2000_Or_Later())			// WS_EX_LAYERED only supported on W2K
+		dwExStyle |= WS_EX_LAYERED;		// or later. Creation fails on NT4!
+
 	return CreateEx(
-		WS_EX_TOPMOST|WS_EX_TOOLWINDOW|WS_EX_LAYERED,
+		dwExStyle,
 		REPORTTIPCTRL_CLASSNAME, NULL,
 		WS_BORDER|WS_POPUP,
 		CRect(0, 0, 0, 0),
