@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-12-11 02:39+0900\n"
+"PO-Revision-Date: 2004-12-25 15:56+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -338,11 +338,6 @@ msgstr "이전 차이점(&P)"
 msgid "&Recurse into folders to fetch the status"
 msgstr "하위 폴더의 상태도 얻음(&R)"
 
-# Control-ID:1048,
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "이동식 디스크(&R)"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: Control-ID:1013
@@ -377,11 +372,21 @@ msgstr "SSH 클라이언트(&S):"
 msgid "&Save Ctrl-S"
 msgstr "저장(&S)"
 
+# ID:313,
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "그래프를 다른 이름으로 저장(&S)..."
+
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "인증 정보 저장(&S)"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "오버레이 모음 선택(&S)"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -644,19 +649,20 @@ msgstr "작업 목록 활성화"
 
 # ID:78,
 #: ID:78
-#, fuzzy
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
 "<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
-"아래 폴더에 포함된 파일의 subversion의 상태를 알고 싶을 때 체크합니다.\n"
+"아래 폴더에 포함된 파일의 subversion의 상태를\n"
+"알고 싶을 때 체크합니다.\n"
 "<ct=0x0000ff><b>주의:</b> 이 기능은 탐색기 성능을 떨어뜨릴 수 있습니다.</ct>"
 
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "추가"
@@ -935,21 +941,6 @@ msgstr "작성자"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "작성자:                         Stefan Kueng"
-
-# ID:272,
-#: ID:272
-msgid ""
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"작성자: %s\r\n"
-"날짜: %s\r\n"
-"\r\n"
-"커밋 로그:\r\n"
-"%s"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1278,6 +1269,11 @@ msgstr "클립보드"
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "활성화된 윈도우를 닫고, 문서를 저장할지 물어 봅니다."
+
+# Control-ID:1163,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "색상 코드 인라인 변경사항"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -1608,6 +1604,11 @@ msgstr "삭제"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
+
+# Dlg-ID:184,
+#: Dlg-ID:184
+msgid "Dialog"
+msgstr "대화상자"
 
 # ID:12,
 #: ID:12
@@ -1959,6 +1960,7 @@ msgid "File"
 msgstr "파일"
 
 # Dlg-ID:135,
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "파일 패치"
@@ -2104,6 +2106,11 @@ msgstr "호스트 이름이 다릅니다 (%s)"
 msgid "Icon Overlays / Status Columns"
 msgstr "아이콘 오버레이 / 상태 컬럼"
 
+# Control-ID:1170,
+#: Control-ID:1170
+msgid "Icon Set:"
+msgstr "아이콘 모음:"
+
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2193,6 +2200,17 @@ msgstr "현재 디렉토리를 저장소에 넣습니다."
 msgid "Include paths:"
 msgstr "포함 경로:"
 
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"오버레이 아이콘으로 폴더의 상태를 나타냅니다.\n"
+"기능이 꺼있다면, 버전관리되는 폴더는 항상 일반 오버레이 아이콘이 보이게 됩니다.\n"
+"<ct=0x0000ff><b>만약 탐색기가 느려진것 같다면, 이 기능을 끄시기 바랍니다.</b></ct>"
+
 # ID:76,
 #: ID:76
 msgid "Initial Import"
@@ -2265,6 +2283,15 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+# ID:145,
+#: ID:145
+msgid ""
+"It's not possible to rename a file just in case!\n"
+"Please read our docs on how to work around this Subversion limitation."
+msgstr ""
+"모든 파일을 변경할 수 없는 상황입니다.\n"
+"이러한 서브버전의 제한사항에 대해 어떻게 처리할지 문서를 읽으시기 바랍니다."
+
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2308,6 +2335,11 @@ msgid ""
 msgstr ""
 "도움말 주제 목록\n"
 "도움말 주제"
+
+# ID:188,
+#: Control-ID:1172
+msgid "List View"
+msgstr "리스트 뷰"
 
 # ID:63,
 #: ID:63
@@ -2526,6 +2558,19 @@ msgstr ""
 "마지막 커밋 이후로 추가되거나 변경된 것이 없습니다.\n"
 "이곳에 TortoseSVN이 할 수 있는 것이 없습니다."
 
+# ID:77,
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"마지막 커밋 이후로 추가되거나 변경된 것이\n"
+"없습니다. 이곳에 TortoseSVN이 할 수 있는\n"
+"것이 없습니다.\n"
+"버전관리 대상이 아닌 것들을 보시겠습니까?"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Normal"
@@ -2664,6 +2709,11 @@ msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 #: ID:77
 msgid "Path"
 msgstr "경로"
+
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "그림 파일 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|모두 (*.*)|*.*||"
 
 # ID:3858,#:
 # ID:3858,
@@ -2851,6 +2901,11 @@ msgstr "램 드라이브(&A)"
 #: ID:3697
 msgid "REC"
 msgstr "REC"
+
+# Control-ID:1048,
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "이동식 디스크(&M)"
 
 # ID:12,
 #: ID:12
@@ -3076,7 +3131,9 @@ msgid "Revision / Author:"
 msgstr "리비전 / 작성자"
 
 # ID:75,
+#: ID:15
 #: ID:269
+#: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "리비전:"
 
@@ -3084,13 +3141,6 @@ msgstr "리비전:"
 #: ID:75
 msgid "Revision: "
 msgstr "리비전:"
-
-# ID:76,#:
-# Control-ID:65535,#:
-# Control-ID:65535,
-#: Dlg-ID:182
-msgid "RevisionGraph"
-msgstr "리비전그래프"
 
 # ID:188,
 #: ID:188
@@ -3210,6 +3260,11 @@ msgstr "다른 이름으로 저장(&A)..."
 #: ID:3841
 msgid "Save As"
 msgstr "다른 이름으로 저장"
+
+# ID:313,
+#: ID:272
+msgid "Save Graph as..."
+msgstr "그래프를 다른 이름으로 저장..."
 
 # ID:76,
 #: ID:76
@@ -3440,6 +3495,11 @@ msgstr "줄 번호 보기"
 msgid "Show Log"
 msgstr "로그 보기"
 
+# ID:101,
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "폴더 상태 보기"
+
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -3471,6 +3531,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기"
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "복사/태그/브랜치를 그래프로 보기"
 
 # ID:13,
 #: ID:13
@@ -3642,6 +3707,11 @@ msgstr "현재 작업 사본을 다른 브랜치나 태그로 전환"
 msgid "Switch..."
 msgstr "브랜치/태그 전환..."
 
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "심볼 보기"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -3788,6 +3858,23 @@ msgstr ""
 "그리고 패치되는 행\n"
 "%s\n"
 "이 서로 맞지 않습니다."
+
+# ID:314,
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"경로\n"
+"<i>%s</i>\n"
+"이(가) 패치 파일내의 경로와 일치하지 않는 것 같습니다.\n"
+"TortoiseMerge는 다음의 유사한 경로\n"
+"<i>%s</i>\n"
+"을(를) 찾았습니다. 위 경로를 대신 사용하시겠습니까?"
 
 # ID:78,
 #: ID:78
@@ -4013,6 +4100,23 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"작성자: %s\r\n"
+"날짜: %s\r\n"
+"\r\n"
+"커밋 로그:\r\n"
+"%s"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -4186,6 +4290,11 @@ msgstr "전체파일 사용(&W)"
 msgid "Use this if the URL of the repository has changed"
 msgstr "저장소의 URL이 변경되었을때 사용"
 
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "전체파일 사용(&F)"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
@@ -4343,6 +4452,15 @@ msgstr ""
 "선택한 파일은 관리 대상이 아닙니다.\n"
 "커밋하기전에 먼저 추가하시면 됩니다."
 
+# ID:195,
+#: ID:195
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"아이콘 모음을 <i>%s</i>에서 <i>%s</i>로 바꾸었습니다..\n"
+"변경 내용은 컴퓨터를 재시작하거나, 로그오프후에 다시 로그인하기전까지는 반영되지 않습니다."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Your File:"
@@ -4367,6 +4485,14 @@ msgstr ""
 "작업 사본이 수정되었습니다!\n"
 "주의: 다른 리비전으로 업데이트하여도 현재 작업한 것들을 잃지 않습니다. 따라서\n"
 "업데이트 후, 작업 사본은 원하는 리비전의 모습대로 보이지 않을 수 있습니다."
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "크게 보기(&I)"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "작게 보기(&O)"
 
 # ID:10,
 #: ID:10
