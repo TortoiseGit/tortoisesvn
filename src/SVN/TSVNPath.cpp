@@ -169,6 +169,11 @@ CTSVNPath CTSVNPath::GetDirectory() const
 	{
 		return *this;
 	}
+	return GetContainingDirectory();
+}
+
+CTSVNPath CTSVNPath::GetContainingDirectory() const
+{
 	EnsureBackslashPathSet();
 	CTSVNPath retVal;
 	retVal.SetFromWin(m_sBackslashPath.Left(m_sBackslashPath.ReverseFind('\\')));
@@ -431,6 +436,37 @@ static class CPathTests
 public:
 	CPathTests()
 	{
+		GetDirectoryTest();
+		SortTest();
+	}
+
+private:
+	void GetDirectoryTest()
+	{
+		// Bit tricky, this test, because we need to know something about the file
+		// layout on the machine which is running the test
+		TCHAR winDir[MAX_PATH+1];
+		GetWindowsDirectory(winDir, MAX_PATH);
+		CString sWinDir(winDir);
+
+		CTSVNPath testPath;
+		// This is a file which we know will always be there
+		testPath.SetFromUnknown(sWinDir + _T("\\win.ini"));
+		ASSERT(!testPath.IsDirectory());
+		ASSERT(testPath.GetDirectory().GetWinPathString() == sWinDir);
+		ASSERT(testPath.GetContainingDirectory().GetWinPathString() == sWinDir);
+
+		// Now do the test on the win directory itself - It's hard to be sure about the containing directory
+		// but we know it must be different to the directory itself
+		testPath.SetFromUnknown(sWinDir);
+		ASSERT(testPath.IsDirectory());
+		ASSERT(testPath.GetDirectory().GetWinPathString() == sWinDir);
+		ASSERT(testPath.GetContainingDirectory().GetWinPathString() != sWinDir);
+		ASSERT(testPath.GetContainingDirectory().GetWinPathString().GetLength() < sWinDir.GetLength());
+	}
+
+	void SortTest()
+	{
 		CTSVNPathList testList;
 		CTSVNPath testPath;
 		testPath.SetFromUnknown(_T("c:/Z"));
@@ -448,8 +484,9 @@ public:
 		ASSERT(testList[1].GetWinPathString() == _T("c:\\B"));
 		ASSERT(testList[2].GetWinPathString() == _T("c:\\Test"));
 		ASSERT(testList[3].GetWinPathString() == _T("c:\\Z"));
-
 	}
+
+
 } TSVNPathTests;
 #endif
 

@@ -85,6 +85,14 @@ public:
 	 */
 	CTSVNPath GetDirectory() const;
 	/**
+	* Returns the the directory which contains the item the path refers to.
+	* If the path is a directory, then this returns the directory above it.
+	* If the path is to a file, then this returns the directory which contains the path
+	* parent directory is returned.
+	*/
+	CTSVNPath GetContainingDirectory() const;
+
+	/**
 	 * Returns the filename part of the full path.
 	 * \remark don't call this for directories.
 	 */

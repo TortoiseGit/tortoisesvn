@@ -353,10 +353,10 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 		AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals);
 
-		if ((wcFileStatus == svn_wc_status_unversioned)&& svnPath.IsDirectory())
+		if ((wcFileStatus == svn_wc_status_unversioned) && svnPath.IsDirectory())
 		{
 			//we have an unversioned folder -> get all files in it recursively!
-			AddUnversionedFolder(svnPath, workingTarget.GetDirectory(), pIgnorePatterns);
+			AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), pIgnorePatterns);
 		}
 
 		// for folders, get all statuses inside it too
