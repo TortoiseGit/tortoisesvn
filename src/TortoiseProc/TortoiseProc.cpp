@@ -1549,6 +1549,7 @@ void CTortoiseProcApp::CheckUpgrade()
 		CSoundUtils::RegisterTSVNSounds();
 		// remove all saved dialog positions
 		CRegString(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\")).removeKey();
+		CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay")).removeValue();
 	}
 	
 	// set the current version so we don't come here again until the next update!
