@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-16 11:06+0100\n"
+"PO-Revision-Date: 2005-03-17 08:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1805,10 +1805,6 @@ msgstr "&Neueste Revision"
 msgid "HEAD revision in the repository"
 msgstr "HEAD Revision im Projektarchiv"
 
-#: ID:238
-msgid "Head revision of the repository is: %d"
-msgstr "Die Kopf-Revision des Projektarchivs ist: %d"
-
 #: ID:12
 #: Control-ID:1004
 msgid "Help"
@@ -2069,6 +2065,16 @@ msgstr "Log-Meldungen"
 #: Dlg-ID:106
 msgid "Look and Feel"
 msgstr "Anzeige"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "Kleinste Revision: %ld - Größte Revision: %ld"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "Kleinste Revision: %ld - Größte Revision: %ld - Neueste Revision: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
