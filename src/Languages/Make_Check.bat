@@ -8,7 +8,7 @@ set OFile=..\..\www\translations.html
 type trans_head.html > %OFile%
 
 FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
-FOR /F "tokens=1,2*" %%i in (Languages.txt) do call :doit %%i %%j "%%k"
+FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j %%l
 
 :end
 type trans_foot.html >> %OFile%
@@ -16,7 +16,7 @@ ENDLOCAL
 goto :eof
 
 :doit
-echo Checking %3 Translation...
+echo Checking %3 %1 Translation...
 
 if exist Tortoise_%1%.po (
   set errors=0
@@ -59,7 +59,8 @@ rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po only-o
  
 ) else (
   echo ^<tr class="incomplete"^> >> %OFile%
-  echo ^<td class="lang"^>%~3 ^(%1^)^</td^> >> %OFile%
+  echo ^<td class="lang"^>%~3^</td^>>> %OFile%
+  echo ^<td class="lang"^>%1^</td^>>> %OFile%
   echo ^<td class="untrans"^>Missing^</td^> >> %OFile%
   echo ^<td class="trans"^>^&nbsp;^</td^> >> %OFile%
   echo ^<td class="fuzzy"^>^&nbsp;^</td^> >> %OFile%
