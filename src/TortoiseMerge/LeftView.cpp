@@ -90,6 +90,29 @@ void CLeftView::OnContextMenu(CPoint point, int nLine)
 					for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 					{
 						m_pwndRight->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
+						CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(i);
+						switch (state)
+						{
+						case CDiffData::DIFFSTATE_ADDED:
+						case CDiffData::DIFFSTATE_CONFLICTADDED:
+						case CDiffData::DIFFSTATE_CONFLICTED:
+						case CDiffData::DIFFSTATE_CONFLICTEMPTY:
+						case CDiffData::DIFFSTATE_IDENTICALADDED:
+						case CDiffData::DIFFSTATE_NORMAL:
+						case CDiffData::DIFFSTATE_THEIRSADDED:
+						case CDiffData::DIFFSTATE_UNKNOWN:
+						case CDiffData::DIFFSTATE_YOURSADDED:
+						case CDiffData::DIFFSTATE_EMPTY:
+							m_pwndRight->m_arLineStates->SetAt(i, state);
+							break;
+						case CDiffData::DIFFSTATE_IDENTICALREMOVED:
+						case CDiffData::DIFFSTATE_REMOVED:
+						case CDiffData::DIFFSTATE_THEIRSREMOVED:
+						case CDiffData::DIFFSTATE_YOURSREMOVED:
+							break;
+						default:
+							break;
+						}
 						m_pwndRight->SetModified();
 					} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				}
