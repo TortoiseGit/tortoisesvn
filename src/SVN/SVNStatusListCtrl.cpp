@@ -500,7 +500,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 							m_bHasExternalsFromDifferentRepos = TRUE;
 						if (s->entry->kind == svn_node_dir)
 						{
-							if ((!lastexternalpath.IsEmpty())&&(!lastexternalpath.IsAncestorOf(svnPath)))
+							if ((lastexternalpath.IsEmpty())||(!lastexternalpath.IsAncestorOf(svnPath)))
 							{
 								arExtPaths.AddPath(svnPath);
 								lastexternalpath = svnPath;
@@ -518,7 +518,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 			// to one of them
 			for (int ix=0; ix<arExtPaths.GetCount(); ix++)
 			{
-				if (svnPath.IsAncestorOf(arExtPaths[ix]))
+				if (arExtPaths[ix].IsAncestorOf(svnPath))
 				{
 					bDirectoryIsExternal = true;
 					break;
