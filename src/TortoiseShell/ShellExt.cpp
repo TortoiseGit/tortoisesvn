@@ -80,10 +80,16 @@ void LoadLangDll()
 		HINSTANCE hInst = NULL;
 		TCHAR langdir[MAX_PATH] = {0};
 		char langdirA[MAX_PATH] = {0};
-		GetModuleFileName(NULL, langdir, MAX_PATH);
-		GetModuleFileNameA(NULL, langdirA, MAX_PATH);
+		GetModuleFileName(g_hmodThisDll, langdir, MAX_PATH);
+		GetModuleFileNameA(g_hmodThisDll, langdirA, MAX_PATH);
 		TCHAR * dirpoint = _tcsrchr(langdir, '\\');
 		char * dirpointA = strrchr(langdirA, '\\');
+		if (dirpoint)
+			*dirpoint = 0;
+		if (dirpointA)
+			*dirpointA = 0;
+		dirpoint = _tcsrchr(langdir, '\\');
+		dirpointA = strrchr(langdirA, '\\');
 		if (dirpoint)
 			*dirpoint = 0;
 		if (dirpointA)

@@ -53,7 +53,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 	HINSTANCE hInst = NULL;
 	do
 	{
-		langDll.Format(_T("Languages\\TortoiseMerge%d.dll"), langId);
+		langDll.Format(_T("..\\Languages\\TortoiseMerge%d.dll"), langId);
 		
 		hInst = LoadLibrary(langDll);
 		CString sVer = _T(STRPRODUCTVER);
