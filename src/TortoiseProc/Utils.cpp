@@ -100,10 +100,8 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 		com = tortoiseMergePath;
 		if (com.IsEmpty())
 		{
-			TCHAR tmerge[MAX_PATH];
-			GetModuleFileName(NULL, tmerge, MAX_PATH);
-			com = tmerge;
-			com.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+			com = CUtils::GetAppDirectory();
+			com += _T("TortoiseMerge.exe");
 		}
 		com = _T("\"") + com + _T("\"");
 		com = com + _T(" /base:%base /theirs:%theirs /yours:%mine /merged:%merged");
@@ -178,10 +176,8 @@ BOOL CUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, con
 {
 	CString viewer;
 	// use TortoiseMerge
-	TCHAR tmerge[MAX_PATH];
-	GetModuleFileName(NULL, tmerge, MAX_PATH);
-	viewer = tmerge;
-	viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+	viewer = CUtils::GetAppDirectory();
+	viewer += _T("TortoiseMerge.exe");
 
 	viewer = _T("\"") + viewer + _T("\"");
 	viewer = viewer + _T(" /diff:\"") + patchfile.GetWinPathString() + _T("\"");
@@ -218,10 +214,8 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 	{
 		//no registry entry (or commented out) for a diff program
 		//use TortoiseMerge
-		TCHAR tmerge[MAX_PATH];
-		GetModuleFileName(NULL, tmerge, MAX_PATH);
-		viewer = tmerge;
-		viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+		viewer = CUtils::GetAppDirectory();
+		viewer += _T("TortoiseMerge.exe");
 		viewer = _T("\"") + viewer + _T("\"");
 		viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
 	}
@@ -714,14 +708,30 @@ bool CUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFor
 */
 bool CUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile)
 {
-	TCHAR tblame[MAX_PATH];
-	GetModuleFileName(NULL, tblame, MAX_PATH);
-
-	CString viewer = tblame;
-	viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseBlame.exe"));
+	CString viewer = CUtils::GetAppDirectory();
+	viewer += _T("TortoiseBlame.exe");
 	viewer += _T(" \"") + sBlameFile + _T("\"");
 	viewer += _T(" \"") + sLogFile + _T("\"");
 	viewer += _T(" \"") + sOriginalFile + _T("\"");
 	
 	return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, false);
+}
+
+CString CUtils::GetAppDirectory()
+{
+	TCHAR procpath[MAX_PATH] = {0};
+	GetModuleFileName(NULL, procpath, MAX_PATH);
+	CString langpath = procpath;
+	langpath = langpath.Left(langpath.ReverseFind('\\')+1);
+	return langpath;
+}
+
+CString CUtils::GetAppParentDirectory()
+{
+	TCHAR procpath[MAX_PATH] = {0};
+	GetModuleFileName(NULL, procpath, MAX_PATH);
+	CString langpath = procpath;
+	langpath = langpath.Left(langpath.ReverseFind('\\'));
+	langpath = langpath.Left(langpath.ReverseFind('\\')+1);
+	return langpath;
 }

@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "resource.h"
+#include "Utils.h"
 #include ".\sciedit.h"
 
 IMPLEMENT_DYNAMIC(CSciEdit, CWnd)
@@ -82,72 +83,64 @@ void CSciEdit::Init(LONG lLanguage)
 BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 {
 	//Setup the spell checker and thesaurus
-	TCHAR buf[MAX_PATH];
-	CString sFolder;
-	CString sFolderUp;
+	TCHAR buf[6];
+	CString sFolder = CUtils::GetAppDirectory();
+	CString sFolderUp = CUtils::GetAppParentDirectory();
 	CString sFile;
-	if (GetModuleFileName(NULL, buf, MAX_PATH))
-	{
-		sFolder = CString(buf);
-		sFolder = sFolder.Left(sFolder.ReverseFind('\\'));
-		sFolderUp = sFolder.Left(sFolder.ReverseFind('\\'));
-		sFolder += _T("\\");
-		sFolderUp += _T("\\");
 
-		GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));
-		sFile = buf;
-		sFile += _T("_");
-		GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf));
-		sFile += buf;
-		if (pChecker==NULL)
+	GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));
+	sFile = buf;
+	sFile += _T("_");
+	GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf));
+	sFile += buf;
+	if (pChecker==NULL)
+	{
+		if ((PathFileExists(sFolder + sFile + _T(".aff"))) &&
+			(PathFileExists(sFolder + sFile + _T(".dic"))))
 		{
-			if ((PathFileExists(sFolder + sFile + _T(".aff"))) &&
-				(PathFileExists(sFolder + sFile + _T(".dic"))))
-			{
-				pChecker = new MySpell(CStringA(sFolder + sFile + _T(".aff")), CStringA(sFolder + sFile + _T(".dic")));
-			}
-			else if ((PathFileExists(sFolder + _T("dic\\") + sFile + _T(".aff"))) &&
-				(PathFileExists(sFolder + _T("dic\\") + sFile + _T(".dic"))))
-			{
-				pChecker = new MySpell(CStringA(sFolder + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dic")));
-			}
-			else if ((PathFileExists(sFolderUp + sFile + _T(".aff"))) &&
-				(PathFileExists(sFolderUp + sFile + _T(".dic"))))
-			{
-				pChecker = new MySpell(CStringA(sFolderUp + sFile + _T(".aff")), CStringA(sFolderUp + sFile + _T(".dic")));
-			}
-			else if ((PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".aff"))) &&
-				(PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".dic"))))
-			{
-				pChecker = new MySpell(CStringA(sFolderUp + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("dic\\") + sFile + _T(".dic")));
-			}
+			pChecker = new MySpell(CStringA(sFolder + sFile + _T(".aff")), CStringA(sFolder + sFile + _T(".dic")));
 		}
-#if THESAURUS
-		if (pThesaur==NULL)
+		else if ((PathFileExists(sFolder + _T("dic\\") + sFile + _T(".aff"))) &&
+			(PathFileExists(sFolder + _T("dic\\") + sFile + _T(".dic"))))
 		{
-			if ((PathFileExists(sFolder + _T("th_") + sFile + _T(".idx"))) &&
-				(PathFileExists(sFolder + _T("th_") + sFile + _T(".dat"))))
-			{
-				pThesaur = new MyThes(CStringA(sFolder + sFile + _T(".idx")), CStringA(sFolder + sFile + _T(".dat")));
-			}
-			else if ((PathFileExists(sFolder + _T("dic\\th_") + sFile + _T(".idx"))) &&
-				(PathFileExists(sFolder + _T("dic\\th_") + sFile + _T(".dat"))))
-			{
-				pThesaur = new MyThes(CStringA(sFolder + _T("dic\\") + sFile + _T(".idx")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dat")));
-			}
-			else if ((PathFileExists(sFolderUp + _T("th_") + sFile + _T(".idx"))) &&
-				(PathFileExists(sFolderUp + _T("th_") + sFile + _T(".dat"))))
-			{
-				pThesaur = new MyThes(CStringA(sFolderUp + _T("th_") + sFile + _T(".idx")), CStringA(sFolderUp + _T("th_") + sFile + _T(".dat")));
-			}
-			else if ((PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T(".idx"))) &&
-				(PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T(".dat"))))
-			{
-				pThesaur = new MyThes(CStringA(sFolderUp + _T("dic\\th_") + sFile + _T(".idx")), CStringA(sFolderUp + _T("dic\\th_") + sFile + _T(".dat")));
-			}
+			pChecker = new MySpell(CStringA(sFolder + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dic")));
 		}
-#endif
+		else if ((PathFileExists(sFolderUp + sFile + _T(".aff"))) &&
+			(PathFileExists(sFolderUp + sFile + _T(".dic"))))
+		{
+			pChecker = new MySpell(CStringA(sFolderUp + sFile + _T(".aff")), CStringA(sFolderUp + sFile + _T(".dic")));
+		}
+		else if ((PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".aff"))) &&
+			(PathFileExists(sFolderUp + _T("dic\\") + sFile + _T(".dic"))))
+		{
+			pChecker = new MySpell(CStringA(sFolderUp + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderUp + _T("dic\\") + sFile + _T(".dic")));
+		}
 	}
+#if THESAURUS
+	if (pThesaur==NULL)
+	{
+		if ((PathFileExists(sFolder + _T("th_") + sFile + _T(".idx"))) &&
+			(PathFileExists(sFolder + _T("th_") + sFile + _T(".dat"))))
+		{
+			pThesaur = new MyThes(CStringA(sFolder + sFile + _T(".idx")), CStringA(sFolder + sFile + _T(".dat")));
+		}
+		else if ((PathFileExists(sFolder + _T("dic\\th_") + sFile + _T(".idx"))) &&
+			(PathFileExists(sFolder + _T("dic\\th_") + sFile + _T(".dat"))))
+		{
+			pThesaur = new MyThes(CStringA(sFolder + _T("dic\\") + sFile + _T(".idx")), CStringA(sFolder + _T("dic\\") + sFile + _T(".dat")));
+		}
+		else if ((PathFileExists(sFolderUp + _T("th_") + sFile + _T(".idx"))) &&
+			(PathFileExists(sFolderUp + _T("th_") + sFile + _T(".dat"))))
+		{
+			pThesaur = new MyThes(CStringA(sFolderUp + _T("th_") + sFile + _T(".idx")), CStringA(sFolderUp + _T("th_") + sFile + _T(".dat")));
+		}
+		else if ((PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T(".idx"))) &&
+			(PathFileExists(sFolderUp + _T("dic\\th_") + sFile + _T(".dat"))))
+		{
+			pThesaur = new MyThes(CStringA(sFolderUp + _T("dic\\th_") + sFile + _T(".idx")), CStringA(sFolderUp + _T("dic\\th_") + sFile + _T(".dat")));
+		}
+	}
+#endif
 	if ((pThesaur)||(pChecker))
 		return TRUE;
 	return FALSE;

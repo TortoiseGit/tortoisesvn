@@ -56,12 +56,22 @@ public:
 	static BOOL StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
 		const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(), const CString& mergedname = CString());
 
+	/**
+	 * Starts the external patch program (currently always TortoiseMerge)
+	 */
 	static BOOL StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 			const CString& sOriginalDescription = CString(), const CString& sPatchedDescription = CString(), 
 			BOOL bReversed = FALSE, BOOL bWait = FALSE);
 
+	/**
+	 * Starts the external unified diff viewer (the app associated with *.diff or *.patch files).
+	 * If no app is associated with those filetypes, the default text editor is used.
+	 */
 	static BOOL StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait = FALSE);
 
+	/**
+	 * Starts the external diff application
+	 */
 	static BOOL StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, 
 			const CString& sName1 = CString(), const CString& sName2 = CString(), BOOL bWait = FALSE);
 
@@ -155,5 +165,17 @@ public:
 	* Launch the external blame viewer
 	*/
 	static bool LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile);
+	
+	/**
+	 * Returns the path to the installation folder, in our case the TortoiseSVN/bin folder.
+	 * \remark the path returned has a trailing backslash
+	 */
+	static CString GetAppDirectory();
+	
+	/**
+	 * Returns the path to the installation parent folder, in our case the TortoiseSVN folder.
+	 * \remark the path returned has a trailing backslash
+	 */
+	static CString GetAppParentDirectory();
 
 };

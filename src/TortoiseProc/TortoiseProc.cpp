@@ -202,11 +202,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
 	CString langDll;
-	char procpath[MAX_PATH] = {0};
-	GetModuleFileNameA(NULL, procpath, MAX_PATH);
-	CStringA langpath = procpath;
-	langpath = langpath.Left(langpath.ReverseFind('\\'));
-	langpath = langpath.Left(langpath.ReverseFind('\\')+1);
+	CStringA langpath = CStringA(CUtils::GetAppParentDirectory());
 	langpath += "Languages";
 	bindtextdomain("subversion", (LPCSTR)langpath);
 	HINSTANCE hInst = NULL;

@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "registry.h"
 #include "resource.h"
+#include "Utils.h"
 #include ".\soundutils.h"
 
 #pragma comment(lib, "Winmm")
@@ -44,10 +45,7 @@ void CSoundUtils::RegisterTSVNSounds()
 	CRegString appscheme = CRegString(_T("AppEvents\\Schemes\\Apps\\TortoiseProc\\"));
 	appscheme = _T("TortoiseSVN");
 
-	TCHAR procpath[MAX_PATH] = {0};
-	GetModuleFileName(NULL, procpath, MAX_PATH);
-	CString apppath = procpath;
-	apppath = apppath.Left(apppath.ReverseFind('\\'));
+	CString apppath = CUtils::GetAppDirectory();
 	
 	CRegKey schemenamekey = CRegKey(_T("AppEvents\\Schemes\\Names"));
 	CStringList schemenames;
@@ -66,19 +64,19 @@ void CSoundUtils::RegisterTSVNSounds()
 			CRegString errorkeyval = CRegString(errorkey);
 			if (((CString)(errorkeyval)).IsEmpty())
 			{
-				errorkeyval = apppath + _T("\\TortoiseSVN_Error.wav");
+				errorkeyval = apppath + _T("TortoiseSVN_Error.wav");
 			}
 			CString warnkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Warning\\") + name + _T("\\");
 			CRegString warnkeyval = CRegString(warnkey);
 			if (((CString)(warnkeyval)).IsEmpty())
 			{
-				warnkeyval = apppath + _T("\\TortoiseSVN_Warning.wav");
+				warnkeyval = apppath + _T("TortoiseSVN_Warning.wav");
 			}
 			CString notificationkey = _T("AppEvents\\Schemes\\Apps\\TortoiseProc\\TSVN_Notification\\") + name + _T("\\");
 			CRegString notificationkeyval = CRegString(notificationkey);
 			if (((CString)(notificationkeyval)).IsEmpty())
 			{
-				notificationkeyval = apppath + _T("\\TortoiseSVN_Notification.wav");
+				notificationkeyval = apppath + _T("TortoiseSVN_Notification.wav");
 			}
 		}		
 	}

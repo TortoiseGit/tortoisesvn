@@ -167,11 +167,7 @@ BOOL CSetMainPage::OnInitDialog()
 	//set up the language selecting combobox
 	m_LanguageCombo.AddString(_T("English"));
 	m_LanguageCombo.SetItemData(0, 1033);
-	TCHAR procpathbuf[MAX_PATH];
-	GetModuleFileName(NULL, procpathbuf, MAX_PATH);
-	CString path = procpathbuf;
-	path = path.Left(path.ReverseFind('\\'));
-	path = path.Left(path.ReverseFind('\\')+1);
+	CString path = CUtils::GetAppParentDirectory();
 	path = path + _T("Languages\\");
 	CSimpleFileFind finder(path, _T("*.dll"));
 	int langcount = 1;
