@@ -24,6 +24,7 @@
 		<title>Apache Based Server</title>
 		<sect2 id="tsvn-serversetup-apache-1">
 			<title>Introduction</title>
+			<indexterm><primary>Apache</primary></indexterm>
 			<para>
 			Probably the best of all possible server setups for Subversion
 			is the Apache based one. It's not only the most mature
@@ -32,6 +33,7 @@
 			<variablelist>
 				<varlistentry>
 					<term>WebDAV</term>
+					<indexterm><primary>WebDAV</primary></indexterm>
 					<listitem>
 						<para>The Apache based Subversion server
 						uses the WebDAV protocoll which is supported by many
@@ -132,6 +134,7 @@
 					do some additional steps.</para>
 					</listitem>
 					<listitem>
+					<indexterm><primary>mod_authz_svn</primary></indexterm>
 						<para>Open the windows-explorer, go to the
 					installation directory of Subversion (usually
 					<filename>c:\program files\Subversion</filename>) and
@@ -192,9 +195,9 @@
 			located in <filename>c:\program files\apache group\apache2\conf\httpd.conf
 			</filename>) with any text editor you like (e.g. Notepad):
 
-				<orderedlist>
-					<listitem>
-						<para>Open the config file and find the lines
+			<orderedlist>
+				<listitem>
+					<para>Open the config file and find the lines
 <screen>
 #LoadModule dav_module modules/mod_dav.so
 </screen>
@@ -268,6 +271,8 @@ Require valid-user
 									case the Subversion module.</entry>
 								</row>
 								<row>
+									<indexterm><primary>SVNPath</primary></indexterm>
+									<indexterm><primary>SVNParentPath</primary></indexterm>
 									<entry>SVNParentPath D:\SVN</entry>
 									<entry>tells Subversion to look for repositories below D:\SVN</entry>
 								</row>
@@ -342,9 +347,9 @@ docs = user5,user6,user7
 					</para>
 				</listitem>
 			</itemizedlist>
-					</listitem>
-					<listitem>
-						<para>Open again the command prompt (DOS-Box),
+			</listitem>
+			<listitem>
+				<para>Open again the command prompt (DOS-Box),
 					change to the apache2 folder (usually
 					<filename>c:\program files\apache group\apache2</filename>)
 					and create a password file by entering
@@ -375,6 +380,7 @@ bin\htpasswd passwd &lt;username&gt;
 			</para>
 			<tip>
 				<title>Use SVNParentPath</title>
+				<indexterm><primary>SVNParentPath</primary></indexterm>
 				<para>
 				If you used the SVNParentPath directive then you don't have to
 				change the Apache config file everytime you add a new Subversion
@@ -389,6 +395,8 @@ bin\htpasswd passwd &lt;username&gt;
 		</sect2>
 		<sect2 id="tsvn-serversetup-apache-5">
 			<title>Authentication With A Windows Domain</title>
+			<indexterm><primary>Windows domain</primary></indexterm>
+			<indexterm><primary>domaincontroller</primary></indexterm>
 			<para>
 			As you might have noticed you need to make a username/password
 			entry in the passwd file for each user separately. And if
@@ -401,7 +409,9 @@ bin\htpasswd passwd &lt;username&gt;
 			accessing the repository from inside a LAN with a windows
 			domain controller: mod_auth_sspi!
 			</para>
-			<para>The original SSPI module was offered by Syneapps including
+			<para>
+			<indexterm><primary>SSPI</primary></indexterm>
+			The original SSPI module was offered by Syneapps including
 			sourcecode. But the development for it has been stopped. You can
 			still find that module on the internet &mdash; just do a
 			google search for it. We also have a compiled version of it
@@ -484,6 +494,7 @@ SSPIOfferBasic On
 		</sect2>
 		<sect2 id="tsvn-serversetup-apache-6">
 			<title>Securing the server with SSL</title>
+			<indexterm><primary>SSL</primary></indexterm>
 			<para>
 			The apache server doesn't have SSL support installed by default
 			due to US-export restrictions. But you can easily download the
@@ -626,6 +637,7 @@ bin\openssl x509 &ndash;in my&ndash;server.cert &ndash;out my&ndash;server.der.c
 		<title>Svnserve Based Server</title>
 		<sect2 id="tsvn-serversetup-svnserve-1">
 			<title>Introduction</title>
+			<indexterm><primary>svnserve</primary></indexterm>
 			<para>
 			There may be situations where it's not possible to use Apache as
 			your server.  Fortunately, Subversion includes <filename>svnserve</filename>

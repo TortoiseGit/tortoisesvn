@@ -4,6 +4,7 @@
 
 	<simplesect>
 		<para>
+		<indexterm><primary>version control</primary></indexterm>
 		Version control is the art of managing changes to
 		information.  It has long been a critical tool for programmers,
 		who typically spend their time making small changes to software
@@ -100,6 +101,8 @@
 			<varlistentry>
 				<term>Shell integration</term>
 				<listitem><para>
+				<indexterm><primary>Windows shell</primary></indexterm>
+				<indexterm><primary>explorer</primary></indexterm>
 				TortoiseSVN integrates seamless into the Windows shell (i.e.
 				the explorer). This means you can keep working with the tools
 				you're already familiar with. And you do not have to change into
@@ -236,6 +239,7 @@
 
 		<title>Installing TortoiseSVN</title>
 		<sect2>
+		<indexterm><primary>install</primary></indexterm>
 		<title>System requirements</title>
 		<para>
 		TortoiseSVN runs on Windows 98/Me, NT4 or Win2k SP2 or WinXP, IE5.5 or later.
@@ -253,6 +257,8 @@
 		care of the rest.
 		</para>
 		<para>
+		<indexterm><primary>spellchecker</primary></indexterm>
+		<indexterm><primary>thesaurus</primary></indexterm>
 		If you want to use a spell checker and/or thesaurus for your log messages
 		then you have to download the required dictionaries yourself. You can use
 		the same dictionary files as 

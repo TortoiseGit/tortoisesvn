@@ -55,6 +55,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-general">
 		<title>Handling TortoiseSVN</title>
+		<indexterm><primary>context menu</primary></indexterm>
 		<para>
 			<figure id="tsvn-DUG-context-dir-control">
 				<title>Context menu for a directory under version control</title>
@@ -66,6 +67,8 @@
 			folder is under version control or not.
 		</para>
 		<para>
+		<indexterm><primary>drag handler</primary></indexterm>
+		<indexterm><primary>drag-n-drop</primary></indexterm>
 		Other commands are available as drag handlers, when you <action>right drag</action>
 		files or folders to a new location inside working copies or when you 
 		<action>right drag</action> a non-versioned file or folder into a directory 
@@ -77,6 +80,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-authentication">
 		<title>Authentication</title>
+		<indexterm><primary>authentication</primary></indexterm>
 		<para>
 			If the repository that you are trying to access is password protected, an 
 			authentication Dialog will show up.
@@ -102,6 +106,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-import">
 		<title>Importing Data Into A Repository</title>
+		<indexterm><primary>import</primary></indexterm>
 		<?dbhh topicname="HIDD_IMPORT"?>
 		<sect2 id="tsvn-DUG-import-1">
 			<title>Repository Layout</title>
@@ -179,6 +184,7 @@
 		</sect2>
 		<sect2 id="tsvn-DUG-import-2">
 			<title>Import</title>
+			<indexterm><primary>tempfiles</primary></indexterm>
 			<para>
 			Before you import your project into a repository you should:
 			<orderedlist>
@@ -221,6 +227,7 @@
 				</note>
 			</para>
 			<para>
+			<indexterm><primary>exclude pattern</primary></indexterm>
 			As soon as you press the OK button TortoiseSVN imports the
 			complete directory tree including all files into the repository.
 			Please note that this does <emphasis>NOT</emphasis> put your
@@ -235,6 +242,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-checkout">
 		<title>Checking Out A Working Copy</title>
+		<indexterm><primary>checkout</primary></indexterm>
 		<?dbhh topicname="HIDD_CHECKOUT"?>
 		<para>
 			<figure id="tsvn-DUG-checkout-dia-1">
@@ -261,6 +269,7 @@
 		</para>
 		<tip>
 			<title>Exporting</title>
+			<indexterm><primary>export</primary></indexterm>
 			<para>
 			Sometimes you may want a working copy without any of those
 			<filename>.svn</filename> directories, e.g. to create a zipped
@@ -277,6 +286,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-wcstatus">
 		<title>Getting Status Information</title>
+		<indexterm><primary>status</primary></indexterm>
 		<para>
 		While you are working on your working copy you often need to know
 		which files you have changed/added/removed or renamed, or even which
@@ -284,6 +294,7 @@
 		</para>
 		<sect2 id="tsvn-DUG-wcstatus-1">
 			<title>Icon Overlays</title>
+			<indexterm><primary>overlays</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-1">
 					<title>Explorer showing icon overlays</title>
@@ -344,6 +355,7 @@
 		</sect2>
 		<sect2 id="tsvn-DUG-wcstatus-2">
 			<title>Status Of The Repository</title>
+			<indexterm><primary>status</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-2">
 					<title>Check for Updates</title>
@@ -381,6 +393,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-update">
 		<title>Update Your Working Copy With Changes From Others</title>
+		<indexterm><primary>update</primary></indexterm>
 		<para>
 			<figure id="tsvn-DUG-update-dia-1">
 				<title>Progress dialog showing an update in progress</title>
@@ -440,6 +453,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-conflicts">
 		<title>Resolving Conflicts</title>
+		<indexterm><primary>conflict</primary></indexterm>
 		<para>
 		Once in a while, you will get a <emphasis>conflict</emphasis> when
 		you update your files from the repository. A conflict
@@ -516,6 +530,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-commit">
 		<title>Sending Your Changes To The Repository</title>
+		<indexterm><primary>commit</primary></indexterm>
 		<?dbhh topicname="HIDD_LOGPROMPT"?>
 		<para>
 			<figure id="tsvn-DUG-commit-dia-1">
@@ -588,6 +603,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-adding">
 		<title>Adding New Files And Directories</title>
+		<indexterm><primary>add</primary></indexterm>
 		<?dbhh topicname="HIDD_ADD"?>
 		<para>
 			<figure id="tsvn-DUG-adding-dia-1">
@@ -649,6 +665,10 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-renaming">
 		<title>Deleting, Renaming And Moving</title>
+		<indexterm><primary>delete</primary></indexterm>
+		<indexterm><primary>remove</primary></indexterm>
+		<indexterm><primary>rename</primary></indexterm>
+		<indexterm><primary>move</primary></indexterm>
 		<?dbhh topicname="HIDD_RENAME"?>
 		<para>
 			<figure id="tsvn-DUG-renaming-dia-1">
@@ -700,6 +720,8 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-revert">
 		<title>Undo Changes</title>
+		<indexterm><primary>revert</primary></indexterm>
+		<indexterm><primary>undo</primary></indexterm>
 		<para>
 		If you want to undo all changes you made in a file since
 		the last update you need to select the file, <action>right&ndash;click
@@ -729,6 +751,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-propertypage">
 		<title>Get/Set Information About Files/Directories</title>
+		<indexterm><primary>properties</primary></indexterm>
 		<para>
 			<figure id="tsvn-DUG-propertypage-dia-1">
 				<title>Subversion property page</title>
@@ -755,6 +778,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-showlog">
 		<title>Revision Log Dialog</title>
+		<indexterm><primary>log</primary></indexterm>
 		<?dbhh topicname="HIDD_LOGMESSAGE"?>
 		<para>
 		For every change you make and commit, you also have to provide
@@ -857,6 +881,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-branchtag">
 		<title>Branching / Tagging</title>
+		<indexterm><primary>branch</primary></indexterm>
+		<indexterm><primary>tag</primary></indexterm>
+		<indexterm><primary>copy</primary></indexterm>
 		<?dbhh topicname="HIDD_COPY"?>
 		<?dbhh topicname="HIDD_SWITCH"?>
 		<?dbhh topicname="HIDD_MERGE"?>
@@ -975,6 +1002,7 @@
 		</sect2>
 		<sect2 id="tsvn-DUG-merge-2">
 			<title>Merging A Branch Back Into The Main Branch</title>
+			<indexterm><primary>merge</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-merge-dia-1">
 					<title>The Merge Dialog</title>
@@ -1056,6 +1084,7 @@ Rev Comments
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-relocate">
 		<title>Relocating a working copy</title>
+		<indexterm><primary>relocate</primary></indexterm>
 		<?dbhh topicname="HIDD_RELOCATE"?>
 		<para>
 			<figure id="tsvn-DUG-relocate-dia-1">
@@ -1077,6 +1106,7 @@ Rev Comments
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-settings">
 		<title>TortoiseSVN's Settings</title>
+		<indexterm><primary>settings</primary></indexterm>
 		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
 		<?dbhh topicname="HIDD_SETTINGSMENU"?>
 		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
@@ -1120,6 +1150,7 @@ Rev Comments
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-network">
 			<title>The Settings Dialog, Network Tab</title>
+			<indexterm><primary>proxy server</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-4">
 					<title>The Settings Dialog, Network Tab</title>
@@ -1155,6 +1186,7 @@ Rev Comments
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-blame">
 		<title>Who Changed Which Line?</title>
+		<indexterm><primary>blame</primary></indexterm>
 		<?dbhh topicname="HIDD_BLAME"?>
 		<para>
 			<figure id="tsvn-DUG-blame-dia-1">

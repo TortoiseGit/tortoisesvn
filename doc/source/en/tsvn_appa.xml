@@ -11,6 +11,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-faq-installation">
 		<title>Installation issues</title>
+		<indexterm><primary>install</primary></indexterm>
 		<para>
 		Most of these answers came from the <application>TortoiseCVS
 		</application>
@@ -19,6 +20,7 @@
 		</para>
 		<sect2 id="tsvn-faq-installation-1">
 			<title>Why don't the icon overlays appear?</title>
+			<indexterm><primary>overlays</primary></indexterm>
 			<para>
 				<itemizedlist>
 					<listitem>
@@ -317,6 +319,9 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</para>
 		<sect2 id="tsvn-faq-dug-1">
 			<title>I accidentally removed a file, and now it's gone!</title>
+			<indexterm><primary>remove</primary></indexterm>
+			<indexterm><primary>delete</primary></indexterm>
+			<indexterm><primary>revert</primary></indexterm>
 			<para>
 			You can do a <guimenuitem>revert</guimenuitem> on the 
 			parent folder where you deleted the file or 
@@ -362,6 +367,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</sect2>
 		<sect2 id="tsvn-faq-dug-4">
 			<title>I'm in trouble renaming a file from UPPERcase to upperCASE</title>
+			<indexterm><primary>case sensitive</primary></indexterm>
 			<para>There are (at least) two possible solutions to rename a file without losing it's log history.
 			It is important to rename it <emphasis>within</emphasis> subversion. 
 			Just renaming in the explorer will corrupt your working copy!!!
@@ -631,6 +637,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</sect2>
 		<sect2 id="tsvn-faq-misc-2">
 			<title>TortoiseSVN doesn't work with VS.NET web projects?</title>
+			<indexterm><primary>VS.NET</primary></indexterm>
 			<para>
 			VS.NET when used with web projects can't handle the <filename>.svn
 			</filename> folders Subversion uses to store its internal information.

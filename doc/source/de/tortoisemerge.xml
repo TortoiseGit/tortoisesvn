@@ -5,7 +5,6 @@
 	<!ENTITY ch02 SYSTEM "tme_ch02.xml">
 	<!ENTITY gloss SYSTEM "tme_glossary.xml">
 	<!ENTITY copy SYSTEM "tme_copyright.xml">
-	<!ENTITY colo SYSTEM "tme_colo.xml">
 ]>
 <book id="tmerge" lang="en">
 	<title>TortoiseMerge</title>
@@ -28,5 +27,4 @@
   &ch02;
   &gloss;
 <!--  &mergecopy;-->
-  &colo;
 </book>

@@ -4,6 +4,7 @@
        modified for the TortoiseSVN client -->
 	<simplesect>
 		<para>
+		<indexterm><primary>Subversion Buch</primary></indexterm>
 		Dieses Kapitel ist eine leicht veränderte Version desselben Kapitels
 		aus dem Subversion Buch. Sie können das Subversion Buch unter folgendem
 		Link lesen:
@@ -31,6 +32,7 @@
 	</simplesect>
 	<sect1 id="tsvn-ch2-sect-1">
 		<title>Die Datenbank</title>
+		<indexterm><primary>Datenbank</primary></indexterm>
 		<para>
 		Subversion ist ein zentralisiertes System für die Verteilung von
 		Informationen. In seinem Kern ist eine Datenbank, welche die
@@ -205,6 +207,7 @@
 				<graphic fileref="images/ch02dia5.png"/>
 			</figure>
 			<para>
+			<indexterm><primary>Konflikt</primary></indexterm>
 			Aber was, wenn die Änderungen von Sally sich mit Harry's Änderungen
 			<emphasis>tatsächlich</emphasis> beissen? Was dann? Diese Situation
 			wird ein <firstterm>Konflikt</firstterm> genannt und ist
@@ -244,6 +247,7 @@
 		<sect2 id="tsvn-ch-2-sect-3.1">
 			<title>Arbeitskopie</title>
 			<para>
+			<indexterm><primary>Arbeitskopie</primary></indexterm>
 			Sie haben bereits über Arbeitskopien gelesen; nun werden wir
 			zeigen, wie ein Subversionprogramm diese erstellt und benutzt.
 			</para>
@@ -429,6 +433,7 @@ file:///X|/path/to/repos
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-3.2">
 			<title>Revisionen</title>
+			<indexterm><primary>Revision</primary></indexterm>
 			<para>
 			Ein <command>Übertragen</command> Befehl kann Änderungen an beliebig
 			vielen Dateien und Ordnern übertragen als eine einzige

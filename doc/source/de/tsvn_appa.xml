@@ -11,6 +11,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-faq-installation">
 		<title>Installationsprobleme</title>
+		<indexterm><primary>Installation</primary></indexterm>
 		<para>
 		Die meisten dieser Antworten stammen aus dem <application>TortoiseCVS
 		</application>
@@ -19,6 +20,7 @@
 		</para>
 		<sect2 id="tsvn-faq-installation-1">
 			<title>Warum erscheinen die überlagerten Icons nicht?</title>
+			<indexterm><primary>Overlays</primary></indexterm>
 			<para>
 				<itemizedlist>
 					<listitem>
@@ -316,6 +318,11 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</para>
 		<sect2 id="tsvn-faq-dug-1">
 			<title>Ich habe irrtümlich eine Datei gelöscht, und nun ist sie weg!</title>
+			<indexterm><primary>löschen</primary></indexterm>
+			<indexterm><primary>rückgängig</primary></indexterm>
+			<indexterm><primary>remove</primary></indexterm>
+			<indexterm><primary>delete</primary></indexterm>
+			<indexterm><primary>revert</primary></indexterm>
 			<para>
 			Sie können den Befehl <guimenuitem>Rückgängig</guimenuitem>
 			auf dem übergeordneten Ordner ausführen. Dies bringt die gelöschte
@@ -354,6 +361,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		<sect2 id="tsvn-faq-dug-4">
 			<title>Ich habe Probleme, eine Datei von GROSSBuchstaben in kleinBuchstaben
 			umzubenennen</title>
+			<indexterm><primary>Gross/Kleinschreibung</primary></indexterm>
 			<para>
 			Es gibt (mindestens) zwei verschiedene Möglichkeiten, um eine umzubenennen
 			ohne die Historie zu verlieren. Es ist wichtig, dass Sie die Datei
@@ -624,6 +632,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</sect2>
 		<sect2 id="tsvn-faq-misc-2">
 			<title>TortoiseSVN funktioniert nicht mit VS.NET Web Projekten?</title>
+			<indexterm><primary>VS.NET</primary></indexterm>
 			<para>
 			VS.NET, wenn man es mit Web Projekten benutzt hat Probleme mit den
 			<filename>.svn</filename> Ordnern welche Subversion benutzt um interne
@@ -817,6 +826,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</sect2>
 		<sect2 id="tsvn-faq-misc-7">
 			<title>Was sind die versteckten Registry-Einstellungen?</title>
+			<indexterm><primary>Registry</primary></indexterm>
 			<para>
 			Es gibt ein paar Registry-Einstellungen für TortoiseSVN welche
 			nicht über den Einstellungs-Dialog zugänglich sind. Diese

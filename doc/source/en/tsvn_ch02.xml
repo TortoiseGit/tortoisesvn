@@ -1,9 +1,11 @@
-<chapter id="tsvn-ch-2">
+﻿<chapter id="tsvn-ch-2">
 	<title>Basic Concepts</title>
 	<!-- this chapter is copied over from the subversion book and slightly
        modified for the TortoiseSVN client -->
 	<simplesect>
-		<para>This chapter is a slightly modified version of the same chapter
+		<para>
+		<indexterm><primary>Subversion book</primary></indexterm>
+		This chapter is a slightly modified version of the same chapter
 		in the Subversion book. You can read the Subversion book here:
 		<ulink url="http://svnbook.red-bean.com/">
 				<citetitle>
@@ -27,6 +29,7 @@
 	</simplesect>
 	<sect1 id="tsvn-ch2-sect-1">
 		<title>The Repository</title>
+		<indexterm><primary>repository</primary></indexterm>
 		<para>Subversion is a centralized system for sharing information.
 		At its core is a <firstterm>repository</firstterm>, which is a
 		central store of data.  The repository stores information in the
@@ -186,7 +189,9 @@
 				<title>&hellip;Copy-Modify-Merge Continued</title>
 				<graphic fileref="images/ch02dia5.png"/>
 			</figure>
-			<para>But what if Sally's changes <emphasis>do</emphasis> overlap
+			<para>
+			<indexterm><primary>conflict</primary></indexterm>
+		But what if Sally's changes <emphasis>do</emphasis> overlap
         with Harry's changes?  What then?  This situation is called a
         <firstterm>conflict</firstterm>, and it's usually not much of
         a problem.  When Harry asks his client to merge the latest
@@ -221,7 +226,9 @@
 		<title>Subversion in Action</title>
 		<sect2 id="tsvn-ch-2-sect-3.1">
 			<title>Working Copies</title>
-			<para>You've already read about working copies; now we'll
+			<para>
+			<indexterm><primary>working copy</primary></indexterm>
+			You've already read about working copies; now we'll
         demonstrate how the Subversion client creates and uses
         them.</para>
 			<para>A Subversion working copy is an ordinary directory tree on
@@ -384,6 +391,7 @@ file:///X|/path/to/repos
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-3.2">
 			<title>Revisions</title>
+			<indexterm><primary>revision</primary></indexterm>
 			<para>An <command>svn commit</command> operation can publish
         changes to any number of files and directories as a single
         atomic transaction.  In your working copy, you can change
