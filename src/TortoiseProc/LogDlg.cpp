@@ -240,6 +240,7 @@ void CLogDlg::OnBnClickedGetall()
 	m_logcounter = 0;
 	m_bStrict = FALSE;
 	m_endrev = 1;
+	m_startrev = -1;
 	m_bCancelled = FALSE;
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
@@ -364,7 +365,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	{
 		if ((r != (-2))&&(pDlg->m_endrev < (-5)))
 		{
-			pDlg->m_endrev = r + pDlg->m_endrev;
+			pDlg->m_endrev = pDlg->m_startrev + pDlg->m_endrev;
 		} // if (r != (-2))
 		if (pDlg->m_endrev <= 0)
 		{
