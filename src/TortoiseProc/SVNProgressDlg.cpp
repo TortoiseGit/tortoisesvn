@@ -745,8 +745,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
 	ResizeColumns();
 
-	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE) ||
-		m_bCloseOnEnd)
+	if (((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE)&&(!(m_options & ProgOptDryRun))
+	 ||	m_bCloseOnEnd))
 	{
 		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!m_bConflictsOccurred) || m_bCloseOnEnd) 
 			PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
