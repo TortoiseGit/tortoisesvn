@@ -8,7 +8,7 @@ set OFile=..\..\www\translations.html
 type trans_head.html > %OFile%
 
 FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
-FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j %%l
+FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j %%m
 
 :end
 type trans_foot.html >> %OFile%

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-06 12:29+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2004-07-12 13:50+0100\n"
+"Last-Translator: Johan Stenqvist <johan@stenqvist.se>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr ""
 # ID:188,
 #: ID:188
 msgid "! %d"
-msgstr ""
+msgstr "! %d"
 
 #: ID:3868
 msgid "%1 contained an unexpected object."
@@ -79,284 +79,246 @@ msgstr ""
 
 # ID:169,
 #: ID:169
-#, fuzzy
 msgid "%d files selected, %d files total"
-msgstr "(Binära filer skiljer sig åt)\n"
+msgstr "%d filer markerade, %d filer totalt"
 
 # ID:151,
 #: ID:151
 #, fuzzy
 msgid "%s : Working Base"
-msgstr "%s\t(arbetskopia)"
+msgstr "%s : Fungerande basversion"
 
 # ID:151,
 #: ID:151
 #, fuzzy
 msgid "%s : Working Copy"
-msgstr "%s\t(arbetskopia)"
+msgstr "%s : Fungerande kopia"
 
 #: ID:145
-#, fuzzy
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
-msgstr "Vill du fortsätta?"
+msgstr ""
+"%s\n"
+"Vill du ta bort deni alla fall?"
 
 #: MenuEntry
-#, fuzzy
 msgid "&About TortoiseMerge..."
-msgstr "Om TortoiseMerge..."
+msgstr "&Om TortoiseMerge..."
 
 #: Control-ID:1098
-#, fuzzy
 msgid "&Add..."
-msgstr "Schemalagd: att läggas till\n"
+msgstr "&Lägg till..."
 
 # Control-ID:1090,
 #: Control-ID:1090
 msgid "&Advanced..."
-msgstr ""
+msgstr "&Avancerat..."
 
 #: Control-ID:1013
 #, fuzzy
 msgid "&Apply Unified Diff"
-msgstr "använd ARG som diff-kommando"
+msgstr "Applicera patch (\"Unified Diff\")"
 
 #: Control-ID:1011
-#, fuzzy
 msgid "&Browse..."
-msgstr "Bläddra..."
+msgstr "&Bläddra..."
 
 # Control-ID:1091,
 #: Control-ID:1091
 msgid "&Builtin"
-msgstr ""
+msgstr "&Inbyggd"
 
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
-msgstr ""
+msgstr "&CD-ROM"
 
 #: Control-ID:2
-#, fuzzy
 msgid "&Cancel"
-msgstr "Avbryt"
+msgstr "&Avbryt"
 
 #: Control-ID:1074
-#, fuzzy
 msgid "&Checkout directory:"
-msgstr "I katalogen \"%s\""
+msgstr "Mapp för &uthämtning:"
 
 #: Control-ID:1066
-#, fuzzy
 msgid "&Close windows automatically"
-msgstr "Kan inte stänga katalogen \"%s\""
+msgstr "&Stäng fönster automatiskt"
 
 # Control-ID:1099,
 #: Control-ID:1099
 msgid "&Edit..."
-msgstr ""
+msgstr "&Redigera"
 
 #: Control-ID:1023
-#, fuzzy
 msgid "&Enable Proxy Server"
-msgstr "aktivera automatiska egenskaper"
+msgstr "&Aktivera proxyserver"
 
 #: Control-ID:1092
-#, fuzzy
 msgid "&External"
-msgstr "Extern export klar.\n"
+msgstr "&Extern"
 
 #: MenuEntry
-#, fuzzy
 msgid "&File"
-msgstr "Felaktig fil"
+msgstr "&Fil"
 
 #: Control-ID:1050
-#, fuzzy
 msgid "&Fixed drives"
-msgstr "Fasta enheter"
+msgstr "&Fasta enheter"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From Revision"
-msgstr "Revision: %ld\n"
+msgstr "&Från version:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From URL:"
-msgstr "Kopierad från URL: %s\n"
+msgstr "&Från URL:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From WC at URL:"
-msgstr "Databasen på \"%s\" har uuid \"%s\", men arbetskopian har \"%s\""
+msgstr "&Från arbetskopia på URL:"
 
 #: Control-ID:1032
 #: Control-ID:1019
-#, fuzzy
 msgid "&Head Revision"
-msgstr "Revision: %ld\n"
+msgstr "&Huvudversion"
 
 #: Control-ID:57670
 #: Control-ID:9
-#, fuzzy
 msgid "&Help"
-msgstr "Hjälp"
+msgstr "&Hjälp"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Help Topics"
-msgstr "visa hjälp för ett underkommando"
+msgstr "&Hjälpavsnitt"
 
 #: ID:3842
 msgid "&Hide"
 msgstr "&Dölj"
 
 #: Control-ID:1023
-#, fuzzy
 msgid "&Indicate folders with changed contents"
-msgstr "Visa mappar med förändrat innehåll"
+msgstr "&Visa mappar med förändrat innehåll"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&Language:"
-msgstr "Språk:"
+msgstr "&Språk:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Merge"
-msgstr ".sammanslagning-vänster.r%ld"
+msgstr "&Förena"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#, fuzzy
 msgid "&Merge changes into the current working copy from URL:"
-msgstr ""
+msgstr "&Förena ändringar i arbetskopian från URL:"
 
 #: Control-ID:1012
-#, fuzzy
 msgid "&Merging"
-msgstr "Förena"
+msgstr "&Förenar"
 
 #: Control-ID:1049
-#, fuzzy
 msgid "&Network drives"
-msgstr "Felaktig nätverksdata"
+msgstr "&Nätverksenheter"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&New "
-msgstr "Ny"
+msgstr "&Ny"
 
 #: MenuEntry
 #, fuzzy
 msgid "&Next Difference"
-msgstr "Nästa diff"
+msgstr "&Nästa avvikelse"
 
 # Control-ID:1,#:
 # Control-ID:1,
 #: Control-ID:1
 msgid "&OK"
-msgstr ""
+msgstr "&OK"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Open Ctrl-O"
-msgstr "Kan inte öppna \"%s\""
+msgstr "&Öppna\tCtrl-O"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&Password:"
-msgstr "Lösenord för \"%s\": "
+msgstr "&Lösenord:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
-msgstr ""
+msgstr "&Port:"
 
 #: MenuEntry
 #, fuzzy
 msgid "&Previous Difference"
-msgstr "Konflikt: föregående basfil: %s\n"
+msgstr "&Föregående avvikelse"
 
 #: Control-ID:1048
-#, fuzzy
 msgid "&Removable drives"
-msgstr "Flyttbara enheter"
+msgstr "&Flyttbara enheter"
 
 #: Control-ID:1013
 #: Control-ID:1100
-#, fuzzy
 msgid "&Remove"
-msgstr "Ta bort"
+msgstr "&Ta bort"
 
 #: Control-ID:1033
 #: Control-ID:1116
-#, fuzzy
 msgid "&Revision"
-msgstr "Revision: %ld\n"
+msgstr "&Version"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&SSH client:"
-msgstr "Filnamn för klientcertifikat: "
+msgstr "&SSH klient:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Save Ctrl-S"
-msgstr "Kunde inte spara fil"
+msgstr "&Spara Ctrl-S"
 
 #: Control-ID:1012
-#, fuzzy
 msgid "&Set"
-msgstr "har satt egenskapen \"%s\" på \"%s\"\n"
+msgstr "&Sätt"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Status Bar"
-msgstr "Status gentemot revision: %6ld\n"
+msgstr "&Statusrad"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To Revision"
-msgstr "Uppdaterade till revision %ld.\n"
+msgstr "&Till version"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To URL:"
-msgstr "URL:en \"%s\" pekar på en katalog"
+msgstr "&Till URL:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To URL: "
-msgstr "URL:en \"%s\" pekar på en katalog"
+msgstr "&Till URL: "
 
 #: MenuEntry
-#, fuzzy
 msgid "&Toolbar"
-msgstr "Verktygsrad"
+msgstr "&Verktygsrad"
 
 #: Control-ID:65535
 #: Control-ID:1058
-#, fuzzy
 msgid "&URL of repository:"
-msgstr "Felaktig URL för databas"
+msgstr "&URL till arkiv:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Undo\tCtrl+Z"
-msgstr "Ångra\tCtrl+Z"
+msgstr "&Ångra\tCtrl+Z"
 
 #: Control-ID:65535
 #: Control-ID:1005
-#, fuzzy
 msgid "&Username:"
-msgstr "Användarnamn: "
+msgstr "&Användarnamn: "
 
 #: MenuEntry
-#, fuzzy
 msgid "&View"
-msgstr "Visa"
+msgstr "&Visa"
 
 #: MenuEntry
 #, fuzzy
@@ -366,12 +328,12 @@ msgstr "Whitespace"
 # ID:188,
 #: ID:188
 msgid "+ %d"
-msgstr ""
+msgstr "+ %d"
 
 # ID:188,
 #: ID:188
 msgid "- %d"
-msgstr ""
+msgstr "- %d"
 
 # Control-ID:1035,#:
 # Control-ID:1036,#:
@@ -386,7 +348,7 @@ msgstr ""
 #: Control-ID:1089
 #: Control-ID:1104
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
@@ -399,7 +361,7 @@ msgstr "Ett låsningsfel inträffade vid åtkomst av %1."
 # ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr ""
+msgstr "En nyare version finns tillgänglig. Surfa till http://tortoisesvn.tigris.org och ladda hem den nya versionen!"
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -410,17 +372,18 @@ msgid "A sharing violation occurred while accessing %1."
 msgstr "Ett delningsfel inträffade vid åtkomst av %1."
 
 #: ID:79
+#, fuzzy
 msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"En applikation för att visa GNU diffiler (patchfiler).\n"
+"En applikation för att visa GNU avvikelsefiler (patchfiler).\n"
 "Använd tex Notepad om du inte har någon."
 
 # Control-ID:1093,
 #: Control-ID:1093
 msgid "A&dvanced..."
-msgstr ""
+msgstr "A&vancerat..."
 
 #: ID:73
 msgid "Abort"
@@ -475,13 +438,15 @@ msgstr "Lägg till"
 
 # ID:110,
 #: ID:110
+#, fuzzy
 msgid "Add Extension Specific Diff Program"
-msgstr ""
+msgstr "Ändra filändelsebaserat föreningsprogram"
 
 # ID:110,
 #: ID:110
+#, fuzzy
 msgid "Add Extension Specific Merge Program"
-msgstr ""
+msgstr "Ändra filändelsebaserat föreningsprogram"
 
 #: ID:13
 msgid "Add To Ignore List"
@@ -501,8 +466,9 @@ msgstr "Lägg till mapp..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
+#, fuzzy
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr ""
+msgstr "Lägg till/ändra filändelsebaserat avvikelse-/föreningsprogram"
 
 #: Control-ID:65535
 msgid "Added"
@@ -532,18 +498,23 @@ msgstr ""
 #: ID:110
 #, fuzzy
 msgid "Advanced Diff Settings"
-msgstr "använd ARG som diff-kommando"
+msgstr ""
+"Ändra inställningar\n"
+"Inställningar"
 
 # Dlg-ID:170,
 #: Dlg-ID:170
+#, fuzzy
 msgid "Advanced Diff/Merge Settings"
-msgstr ""
+msgstr "Avancerade avvikelse-/föreningsinställningar"
 
 # ID:110,
 #: ID:110
 #, fuzzy
 msgid "Advanced Merge Settings"
-msgstr ".sammanslagning-vänster.r%ld"
+msgstr ""
+"Ändra inställningar\n"
+"Inställningar"
 
 #: Control-ID:65535
 msgid "All"
@@ -554,9 +525,8 @@ msgid "All Files (*.*)"
 msgstr "Alla filer (*.*)"
 
 #: ID:157
-#, fuzzy
 msgid "All Files (*.*)|*.*||"
-msgstr "(Binära filer skiljer sig åt)\n"
+msgstr "Alla filer (*.*)|*.*||"
 
 #: ID:3867
 #: ID:3868
@@ -677,14 +647,13 @@ msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Upphovsmän: Stefan Kueng, Tim Kemp"
 
 #: Control-ID:1001
-#, fuzzy
 msgid "B&rowse..."
-msgstr "Bläddra..."
+msgstr "B&läddra..."
 
 # Control-ID:1094,
 #: Control-ID:1094
 msgid "B&uiltin"
-msgstr ""
+msgstr "&Intern"
 
 #: Control-ID:1015
 msgid "Backup original file"
@@ -707,9 +676,8 @@ msgid "Blames each line of a file on an author"
 msgstr "Visar ändringar per rad i en fil, med version och av vem"
 
 #: Control-ID:1003
-#, fuzzy
 msgid "Br&owse..."
-msgstr "Bläddra..."
+msgstr "Bl&äddra..."
 
 #: Dlg-ID:142
 msgid "Branch / Tag"
@@ -724,23 +692,21 @@ msgid "Branch/Tag..."
 msgstr "Skapa gren / märke..."
 
 #: Control-ID:1009
-#, fuzzy
 msgid "Bro&wse..."
-msgstr "Bläddra..."
+msgstr "Blä&ddra..."
 
 #: Control-ID:1007
-#, fuzzy
 msgid "Brows&e..."
-msgstr "Bläddra..."
+msgstr "Bläddr&a..."
 
 #: ID:138
-#, fuzzy
 msgid "Browse Repository"
-msgstr "Databasens UUID: %s\n"
+msgstr "Utforska arkivet"
 
 #: ID:78
+#, fuzzy
 msgid "Browse for the external diff program"
-msgstr "Välj applikation för diffhantering"
+msgstr "Välj applikation för avvikelsehantering"
 
 #: Control-ID:1069
 msgid "Browse..."
@@ -749,12 +715,12 @@ msgstr "Bläddra..."
 # Control-ID:1096,
 #: Control-ID:1096
 msgid "Bu&iltin"
-msgstr ""
+msgstr "I&ntern"
 
 # ID:3697,
 #: ID:3697
 msgid "CAP"
-msgstr ""
+msgstr "CAP"
 
 #: ID:82
 msgid ""
@@ -792,7 +758,7 @@ msgstr "Certifikatet inte giltigt ännu. Giltigt från: %s"
 # ID:157,
 #: ID:157
 msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr ""
+msgstr "Certifikat|*.p12;*.pkcs12|Alla|*.*||"
 
 #: ID:3825
 msgid "Change the window position"
@@ -807,23 +773,20 @@ msgid "Changed Files"
 msgstr "Ändrade filer"
 
 #: ID:163
-#, fuzzy
 msgid "Changed files: %d"
-msgstr "Ändrade sökvägar:%s"
+msgstr "Ändrade filer: %d"
 
 #: ID:3887
 msgid "Check"
 msgstr "Markera"
 
 #: Dlg-ID:174
-#, fuzzy
 msgid "Check For Updates"
-msgstr "Ingen post för \"%s\""
+msgstr "Leta efter uppdateringar"
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Check For Updates..."
-msgstr "Ingen post för \"%s\""
+msgstr "Leta efter uppdateringar..."
 
 #: ID:13
 msgid "Check for Updates"
@@ -832,7 +795,7 @@ msgstr "Leta efter uppdateringar"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Check for newer versions"
-msgstr ""
+msgstr "Sök efter nya versioner"
 
 #: ID:79
 msgid ""
@@ -859,12 +822,12 @@ msgstr "Markera de alternativ du vill ska visas i den översta högerknappsmenyn
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr ""
+msgstr "Kryssa i för att använda ett mindre utförligt format för datum och tid i loggmeddelanden"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr ""
+msgstr "Kontrollerar om det finns en nyare version av TortoiseSVN tillgänglig..."
 
 #: Dlg-ID:133
 msgid "Checkout"
@@ -888,13 +851,14 @@ msgstr "Rensar bort efter avbrutna åtgärder; låsta filer etc"
 
 # Control-ID:65535,
 #: Control-ID:65535
+#, fuzzy
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr ""
+msgstr "Klicka på \"Avancerad\" för att ange olika föreningsprogram baserat på filändelse"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr ""
+msgstr "Klicka på \"Avancerad\" för att ange olika föreningsprogram baserat på filändelse"
 
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -913,7 +877,6 @@ msgid "Commit to:"
 msgstr "Arkivera i:"
 
 #: ID:8
-#, fuzzy
 msgid "Commit..."
 msgstr "Arkiverar..."
 
@@ -936,7 +899,7 @@ msgstr "Jämför versioner"
 #: ID:138
 #, fuzzy
 msgid "Compare with Base"
-msgstr "Konflikt: föregående basfil: %s\n"
+msgstr "Jämför med arbetskopia"
 
 #: ID:76
 msgid "Compare with working copy"
@@ -991,9 +954,8 @@ msgid "Copying..."
 msgstr "Kopierar..."
 
 #: ID:188
-#, fuzzy
 msgid "Corrections"
-msgstr "Jämför versioner"
+msgstr "Korrigeringar"
 
 #: ID:81
 msgid "Could not add %s to the ignore list!"
@@ -1002,7 +964,7 @@ msgstr "Kunde inte lägga till %s på undtantagslistan!"
 # ID:201,
 #: ID:201
 msgid "Could not check for a newer version!"
-msgstr ""
+msgstr "Kunde inte leta efter nyare version!"
 
 #: ID:81
 msgid ""
@@ -1033,7 +995,6 @@ msgstr ""
 "%s"
 
 #: ID:66
-#, fuzzy
 msgid ""
 "Could not retrieve version %s of the file %s.\n"
 "Patching is not possible!"
@@ -1046,22 +1007,24 @@ msgid "Could not save the file %s!"
 msgstr "Kunde inte spara filen %s!"
 
 #: ID:81
+#, fuzzy
 msgid ""
 "Could not start diff viewer!\n"
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Kunde inte starta extern applikation för att visa diff!\n"
+"Kunde inte starta extern applikation för konfliktlösning!\n"
 "<hr=100%>\n"
 "%s"
 
 #: ID:81
+#, fuzzy
 msgid ""
 "Could not start external diff program!\n"
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Kunde inte starta extern applikation för diffhantering!\n"
+"Kunde inte starta extern applikation för konfliktlösning!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1128,9 +1091,8 @@ msgid "Date"
 msgstr "Datum"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Default &number of log messages"
-msgstr "Normalposten saknar revisionsnummer"
+msgstr "&Standard antal loggmeddelanden"
 
 #: ID:11
 #: ID:73
@@ -1149,30 +1111,30 @@ msgstr "Otillräckligt diskutrymme på målenheten."
 #: ID:12
 #, fuzzy
 msgid "Diff"
-msgstr "Diff"
+msgstr "Patchfil:"
 
 #: Control-ID:65535
 msgid "Diff File:"
 msgstr "Patchfil:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Diff Program"
-msgstr "Fel vid anrop av externt program"
+msgstr "Redigeringsprogram för avvikelser"
 
 #: Control-ID:65535
 #, fuzzy
 msgid "Diff Viewer"
-msgstr "Diffvisning:"
+msgstr "Patchfil:"
 
 #: Dlg-ID:163
 #, fuzzy
 msgid "Diff/Merge"
-msgstr ".sammanslagning-vänster.r%ld"
+msgstr "Förenar..."
 
 #: Control-ID:1022
+#, fuzzy
 msgid "Diffing"
-msgstr "Diff"
+msgstr "Kontrollerar avvikelser"
 
 #: Control-ID:65535
 msgid "Directory:"
@@ -1235,7 +1197,6 @@ msgid "Do you want to proceed?"
 msgstr "Vill du fortsätta?"
 
 #: ID:313
-#, fuzzy
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
@@ -1244,51 +1205,46 @@ msgstr ""
 "OBS! Ändringar som inte sparats kommer att gå förlorade!"
 
 #: ID:313
-#, fuzzy
 msgid ""
 "Do you want to reload the documents?\n"
 "You will lose all changes you've made!"
 msgstr ""
-"Vill du ladda om filerna för att se de ändrade inställningarna?\n"
-"OBS! Ändringar som inte sparats kommer att gå förlorade!"
+"Vill du ladda om filerna?\n"
+"Du kommer att förlora din ändringar!"
 
 #: ID:313
-#, fuzzy
 msgid "Do you want to save your changes?"
-msgstr "Vill du fortsätta?"
+msgstr "Vill du spara dina ändringar?"
 
 #: Control-ID:1061
-#, fuzzy
 msgid "Don't &remove log messages when cancelling a commit"
-msgstr "Ta inte bort loggmeddelanden vid avbryt av arkivering"
+msgstr "&Ta inte bort loggmeddelanden vid avbruten arkivering"
 
 #: Control-ID:1073
+#, fuzzy
 msgid "Don't convert files when diffing against BASE"
-msgstr "Konvertera inte filer vid diff mot basversion"
+msgstr "Konvertera inte filer vid kontroll av avvikelse mot BASE"
 
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Enhetstyper"
 
 #: MenuEntry
-#, fuzzy
 msgid "E&xit"
-msgstr "Avsluta"
+msgstr "&Avsluta"
 
 #: Control-ID:1095
-#, fuzzy
 msgid "E&xternal"
-msgstr "Extern"
+msgstr "&Extern"
 
 # ID:3697,
 #: ID:3697
 msgid "EXT"
-msgstr ""
+msgstr "EXT"
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Edit"
-msgstr "Avsluta"
+msgstr "Redigera"
 
 #: ID:12
 msgid "Edit Conflicts"
@@ -1296,13 +1252,14 @@ msgstr "Editera konflikt"
 
 # ID:110,
 #: ID:110
+#, fuzzy
 msgid "Edit Extension Specific Diff Program"
-msgstr ""
+msgstr "Ändra filändelsebaserat föreningsprogram"
 
 # ID:110,
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
-msgstr ""
+msgstr "Ändra filändelsebaserat föreningsprogram"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -1350,19 +1307,16 @@ msgid "Error validating server certificate for %s:"
 msgstr "Fel vid validering av servercertifikat för %s:"
 
 #: Control-ID:1097
-#, fuzzy
 msgid "Ex&ternal"
-msgstr "Extern"
+msgstr "E&xtern"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Exceptions:"
-msgstr "Alternativ"
+msgstr "Undantag:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Exclude pattern:"
-msgstr "Inkludera / Exkludera:"
+msgstr "Uteslutningsmönster:"
 
 #: ID:94
 msgid "Export Directory:"
@@ -1383,26 +1337,25 @@ msgstr "Exporterar en 'ren' kopia från arkivet, utan .svn mappar"
 # ID:74,
 #: ID:74
 msgid "Extension"
-msgstr ""
+msgstr "Filändelse"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Extension specific programs"
-msgstr ""
+msgstr "Filändelsespecifika program"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Extension:"
-msgstr ""
+msgstr "Filändelse:"
 
 #: ID:74
 msgid "External"
 msgstr "Extern"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "External Program:"
-msgstr "Fel vid anrop av externt program"
+msgstr "Externt program:"
 
 #: ID:74
 msgid "Failed Revert"
@@ -1461,16 +1414,15 @@ msgstr "Font för loggmeddelanden:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Font:"
-msgstr ""
+msgstr "Font:"
 
 #: ID:3585
 msgid "For Help, press F1"
 msgstr "Tryck F1 för hjälp"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "From:"
-msgstr " (från %s:%ld)"
+msgstr "Från:"
 
 #: Dlg-ID:107
 msgid "General"
@@ -1481,9 +1433,8 @@ msgid "Generating Patchfile..."
 msgstr "Skapar patchfil..."
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Get &All"
-msgstr "Kan inte erhålla lösenord"
+msgstr "Hämta &allt"
 
 #: ID:119
 msgid "Getting File %s"
@@ -1494,20 +1445,22 @@ msgid "Getting file info..."
 msgstr "Hämtar filinformation..."
 
 #: ID:2049
+#, fuzzy
 msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
-"Hoppa till nästa diff\n"
-"nästa diff"
+"Växla till nästa fönsterpanel\n"
+"Nästa panel"
 
 #: ID:2049
+#, fuzzy
 msgid ""
 "Go to the previous difference\n"
 "previous difference"
 msgstr ""
-"Hoppa till förra diffen\n"
-"förra diffen"
+"Växla tillbaka till förra fönsterpanelen\n"
+"Föregående panel"
 
 #: Control-ID:1115
 msgid "Head Revision"
@@ -1533,7 +1486,7 @@ msgstr "Ikoner/Design/Kodning: Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr ""
+msgstr "Förhindra att ikonsymboler visas i \"spara som...\" och \"öppna\" dialoger"
 
 #: ID:95
 msgid ""
@@ -1545,12 +1498,12 @@ msgstr ""
 
 #: ID:79
 msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "Om markerad skapar TortoiseSVN inte en temporär fil för järmförelsen, utan jämför originalfilen mot basversionen"
+msgstr "Om markerad, skapar TortoiseSVN inte en temporär fil för järmförelsen, utan jämför originalfilen mot BASE"
 
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr ""
+msgstr "Låt TortoiseSVN kontrollera en gång i veckan om det finns en nyare version tillgänglig"
 
 #: ID:80
 msgid ""
@@ -1584,9 +1537,8 @@ msgid "Import"
 msgstr "Importera"
 
 #: Control-ID:1056
-#, fuzzy
 msgid "Import &Message"
-msgstr "ange loggmeddelande ARG"
+msgstr "&Importmeddelande"
 
 #: ID:9
 msgid "Import..."
@@ -1643,10 +1595,26 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
+"Ogiltigt versionsnummer! Giltiga versioner är:\n"
+"HEAD, BASE, PREV, COMMITTED, WC\n"
+"positiva heltal\n"
+"datum i något av följande format:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
 
 #: Control-ID:1016
+#, fuzzy
 msgid "Jump to first difference when loading"
-msgstr "Hoppa till första diffen när programmet startas"
+msgstr "Hoppa till första avvikelse när programmet startas"
 
 #: Control-ID:65535
 msgid "Language:"
@@ -1715,7 +1683,7 @@ msgstr "Förena"
 #: Control-ID:65535
 #, fuzzy
 msgid "Merge Program"
-msgstr ".sammanslagning-vänster.r%ld"
+msgstr "Redigeringsprogram för avvikelser"
 
 #: ID:9
 msgid "Merge..."
@@ -1730,19 +1698,17 @@ msgid "Merging"
 msgstr "Förena"
 
 #: ID:76
-#, fuzzy
 msgid "Message"
 msgstr "Loggmeddelande"
 
 #: ID:78
-#, fuzzy
 msgid "Mime Type"
-msgstr "Felaktig mime-typ"
+msgstr "Mimetyp"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Minimum logsize in chars"
-msgstr ""
+msgstr "Minsta antal tecken för loggmeddelanden"
 
 #: Control-ID:1023
 #: Control-ID:1082
@@ -1776,7 +1742,7 @@ msgstr "Flyttar..."
 # ID:3697,
 #: ID:3697
 msgid "NUM"
-msgstr ""
+msgstr "NUM"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -1825,9 +1791,8 @@ msgid ""
 msgstr "Det finns inga ändringar/tillägg."
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Normal"
-msgstr "Schemalagd: normal\n"
+msgstr "Normal"
 
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
@@ -1839,27 +1804,27 @@ msgstr "Alla registryinställningar eller .ini-filen togs inte bort."
 #: Control-ID:1
 #: ID:73
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 # ID:3697,
 #: ID:3697
 msgid "OVR"
-msgstr ""
+msgstr "OVR"
 
 #: MenuEntry
 #, fuzzy
 msgid "Oneway &Diff"
-msgstr "Envägs diff"
+msgstr "Patchfil:"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only check out the top folder"
-msgstr ""
+msgstr "Hämta endast översta mappen"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
-msgstr ""
+msgstr "Uppdatera endast översta mappen"
 
 #: ID:3841
 #: ID:101
@@ -1893,27 +1858,26 @@ msgstr "Slut på tillgängligt minne."
 # ID:76,
 #: ID:76
 msgid "PEM"
-msgstr ""
+msgstr "PEM"
 
 # ID:76,
 #: ID:76
 msgid "PKCS12"
-msgstr ""
+msgstr "PKCS12"
 
 #: ID:69
 msgid "Password:"
 msgstr "Lösenord:"
 
 #: ID:376
-#, fuzzy
 msgid "Patch All"
-msgstr "Alla tillhandahållare av autentisering förbrukade"
+msgstr "Patcha allt"
 
 # ID:157,#:
 # ID:157,
 #: ID:157
 msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr ""
+msgstr "Patchfiler|*.diff;*.patch|Alla|*.*||"
 
 #: ID:77
 msgid "Path"
@@ -2004,14 +1968,13 @@ msgid "Processing revision %d of %d..."
 msgstr "Processar version %d av %d..."
 
 #: ID:74
-#, fuzzy
 msgid "Program"
 msgstr "Program"
 
 # ID:157,
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Program (*.exe)|*.exe|Alla Files (*.*)|*.*||"
 
 #: Control-ID:65535
 msgid "Properties"
@@ -2030,9 +1993,8 @@ msgid "Property Status:"
 msgstr "Egenskapsstatus:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Proxy &timeout in seconds:"
-msgstr "Timeout för proxy i sekunder:"
+msgstr "&Timeout för proxy i sekunder:"
 
 #: Control-ID:1080
 msgid "Proxy Settings"
@@ -2047,14 +2009,13 @@ msgstr ""
 "Avsluta"
 
 #: Control-ID:1073
-#, fuzzy
 msgid "RAM drives"
-msgstr "Fasta enheter"
+msgstr "RAM enheter"
 
 # ID:3697,
 #: ID:3697
 msgid "REC"
-msgstr ""
+msgstr "REC"
 
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2082,9 +2043,8 @@ msgid "Reject"
 msgstr "Avslå"
 
 #: MenuEntry
-#, fuzzy
 msgid "Reload"
-msgstr "Ersatt"
+msgstr "Ladda om"
 
 # ID:2050,
 #: ID:2050
@@ -2092,6 +2052,8 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
+"Laddar om öppna filer och återställer alla ändringar.\n"
+"Ladda om"
 
 #: Dlg-ID:157
 msgid "Relocate"
@@ -2122,9 +2084,8 @@ msgid "Rename"
 msgstr "Byt namn"
 
 #: ID:97
-#, fuzzy
 msgid "Rename %s"
-msgstr "Byt namn"
+msgstr "Döp om %s"
 
 #: ID:11
 #: ID:101
@@ -2225,24 +2186,22 @@ msgid "Revision / Author:"
 msgstr "Version / ändrad av:"
 
 #: ID:75
-#, fuzzy
 msgid "Revision: "
-msgstr "Revision: %ld\n"
+msgstr "Version:"
 
 #: MenuEntry
-#, fuzzy
 msgid "S&ettings"
-msgstr "Inställningar"
+msgstr "&Inställningar"
 
 # ID:3697,
 #: ID:3697
 msgid "SCRL"
-msgstr ""
+msgstr "SCRL"
 
 # Control-ID:1081,
 #: Control-ID:1081
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: ID:77
 msgid "SVN Add..."
@@ -2293,9 +2252,8 @@ msgid "SVN Revision"
 msgstr "SVN Version"
 
 #: ID:11
-#, fuzzy
 msgid "SVN Status"
-msgstr "Status gentemot revision: %6ld\n"
+msgstr "SVN-status"
 
 #: ID:78
 msgid "SVN Switch..."
@@ -2311,18 +2269,16 @@ msgstr "SVN URL"
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid "SVN mime-type"
-msgstr "Felaktig mime-typ"
+msgstr "SVN mime-type"
 
 #: ID:12
 msgid "SVN short Url"
 msgstr "SVN URL (kort)"
 
 #: MenuEntry
-#, fuzzy
 msgid "Save &As..."
-msgstr "visa så lite information som möjligt"
+msgstr "S&para som..."
 
 #: ID:3841
 msgid "Save As"
@@ -2354,57 +2310,55 @@ msgid "Saving patchfile to:"
 msgstr "Sparar patchfil till:"
 
 #: ID:113
-#, fuzzy
 msgid "Search log messages..."
-msgstr "Problem vid körning av logg"
+msgstr "Sök loggmeddelanden..."
 
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "Sökning misslyckades i %1"
 
 #: Control-ID:1067
-#, fuzzy
 msgid "Select / Deselect &All"
-msgstr "Alla tillhandahållare av autentisering förbrukade"
+msgstr "Markera / avmarkera &allt"
 
 #: ID:78
+#, fuzzy
 msgid "Select Diff Application"
-msgstr "Välj applikation för diffhantering"
+msgstr "Välj föreningsapplikation"
 
 #: ID:13
 msgid "Select File..."
 msgstr "Välj fil..."
 
 #: ID:78
-#, fuzzy
 msgid "Select Merge Application"
-msgstr ".sammanslagning-vänster.r%ld"
+msgstr "Välj föreningsapplikation"
 
 #: Dlg-ID:173
-#, fuzzy
 msgid "Select Revision"
-msgstr "Revision: %ld\n"
+msgstr "Välj version"
 
 #: ID:78
-#, fuzzy
 msgid "Select SSH Client"
-msgstr "Filnamn för klientcertifikat: "
+msgstr "Välj SSH klient"
 
 #: ID:79
 msgid "Select Text Editor Application"
 msgstr "Välj applikation för textredigering"
 
 #: ID:78
+#, fuzzy
 msgid "Select Viewer for Diff-Files"
-msgstr "Välj applikation för att visa diffar"
+msgstr "Välj applikation för att visa avvikelser"
 
 #: ID:3585
 msgid "Select an object on which to get Help"
 msgstr "Markera ett objekt för att få hjälp"
 
 #: ID:313
+#, fuzzy
 msgid "Select diff file..."
-msgstr "Välj diff-fil..."
+msgstr "3-filershantering av avvikelser"
 
 #: ID:79
 msgid ""
@@ -2431,14 +2385,13 @@ msgid "Sending Content"
 msgstr "Skickar innehåll"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Server &address:"
-msgstr "Klient- och serverversion stämmer ej överens"
+msgstr "Server &adress:"
 
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
-msgstr ""
+msgstr "Sätt fildatum till \"senaste arkiveringsdatum\""
 
 #: ID:13
 msgid "Setting Properties..."
@@ -2450,9 +2403,8 @@ msgid "Settings"
 msgstr "Inställningar"
 
 #: Control-ID:1105
-#, fuzzy
 msgid "Short &date/time format in log messages"
-msgstr "Font för loggmeddelanden:"
+msgstr "Kort &datum/tid format i loggmeddelanden"
 
 #: ID:12
 msgid "Short Url of subversion items"
@@ -2460,41 +2412,37 @@ msgstr "Sökväg i arkivet (kort)"
 
 #: Control-ID:1031
 #: Control-ID:1034
-#, fuzzy
 msgid "Show &Log"
-msgstr "Problem vid körning av logg"
+msgstr "Visa &logg"
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Show &Log..."
-msgstr "Problem vid körning av logg"
+msgstr "Visa &logg..."
 
 #: Control-ID:1016
-#, fuzzy
 msgid "Show &log"
-msgstr "Problem vid körning av logg"
+msgstr "Visa &logg"
 
 # Control-ID:1065,
 #: Control-ID:1065
 #, fuzzy
 msgid "Show Diff Bar"
-msgstr "visa versionsinformation"
+msgstr "Applicera patch (\"Unified Diff\")"
 
 #: ID:113
 #, fuzzy
 msgid "Show Differences"
-msgstr "visa versionsinformation"
+msgstr "Visa &logg"
 
 #: ID:113
 #, fuzzy
 msgid "Show Differences as Unified Diff"
-msgstr "Visa ändringar som Unified Diff"
+msgstr "Visa avvikelser som \"Unified Diff\""
 
 # Control-ID:1063,
 #: Control-ID:1063
-#, fuzzy
 msgid "Show Linenumbers"
-msgstr "visa versionsinformation"
+msgstr "Visa radnummer"
 
 #: ID:12
 msgid "Show Log"
@@ -2523,7 +2471,7 @@ msgstr ""
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show overlays only in explorer"
-msgstr ""
+msgstr "Visa ikonsymboler endast i Utforskaren"
 
 #: ID:2049
 msgid ""
@@ -2534,9 +2482,8 @@ msgstr ""
 "Visa whitespace"
 
 #: Control-ID:1073
-#, fuzzy
 msgid "Show unversioned files"
-msgstr "(Binära filer skiljer sig åt)\n"
+msgstr "Visa icke versionshanterade filer"
 
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -2552,30 +2499,26 @@ msgstr "Visar historik för den valda filen / mappen"
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid "Shows the mime type of the versioned file"
-msgstr "Filen \"%s\" har binär mime-typsegenskap"
+msgstr "Visar mime-typen för den versionshanterade filen"
 
 #: ID:74
-#, fuzzy
 msgid "Size"
-msgstr "Tabbstorlek:"
+msgstr "Storlek"
 
 #: ID:74
 msgid "Skip"
 msgstr "Hoppa över"
 
 #: ID:79
-#, fuzzy
 msgid ""
 "Specify the files or folders wich TortoiseSVN\n"
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Ange de filer/mappar som TortoiseSVN ska\n"
-"inkludera/exkludera från versionshantering.\n"
-"Sökmönster för inkludering anges med prefixet '+'.\n"
-"Prioriteringsordningen är från vänster till höger."
+"exkludera från versionshantering.\n"
+"Separera sökmönster med mellanslag."
 
 #: ID:3604
 msgid ""
@@ -2587,9 +2530,8 @@ msgstr ""
 
 #: ID:74
 #: ID:77
-#, fuzzy
 msgid "Status"
-msgstr "Statusrad"
+msgstr "Status"
 
 #: ID:11
 msgid "Status of item in SVN"
@@ -2597,9 +2539,8 @@ msgstr "Status"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Subversion configuration file:"
-msgstr "Hoppar över binär fil: \"%s\"\n"
+msgstr "Konfigurationfil för Subversion:"
 
 #: ID:79
 msgid ""
@@ -2680,17 +2621,18 @@ msgid "Text Status:"
 msgstr "Status:"
 
 #: ID:69
-#, fuzzy
 msgid ""
 "The File\n"
 "%s\n"
 "is not a valid text file!"
-msgstr "Filen %s kunde inte hittas i patchfilen!"
+msgstr ""
+"Filen\n"
+"%s\n"
+"är inte en giltig textfil!"
 
 #: ID:80
-#, fuzzy
 msgid "The Repository was successfully created."
-msgstr "Sökvägen är inte en del av en databas"
+msgstr "Arkivet skapades utan problem."
 
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -2786,6 +2728,8 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
+"Den valda filen verkar fortfarande ha en eller flera konfliktmarkörer i sig.\n"
+"Är du säker på att du vill markera konflikten som löst?"
 
 #: ID:81
 msgid ""
@@ -2815,31 +2759,33 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
+"Det finns ändringar i en eller flera mappar som du har inkluderat med svn:externals.\n"
+"De filerna är <b>inte</b> markerade för arkivering. Du kommer att behöva arkerivera de filerna separat."
 
 #: ID:66
-#, fuzzy
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "Please resolve those conflicts first before saving."
 msgstr ""
-"Det finns utestående konflikter!\n"
+"Det finns utestående konflikter på rad %d!\n"
 "Var god lös dessa innan du sparar."
 
 # ID:188,
 #: ID:188
+#, fuzzy
 msgid "Thesaurus"
-msgstr ""
+msgstr "Ordbok"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr ""
+msgstr "Den här produkten innehåller programvara utvecklad av CollabNet (http://www.Collab.Net/)"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr ""
+msgstr "Det här programmet är länkad med den saknade exprten %s i filen %s. Den här datorn kan ha en inkompatibel version av %s."
 
 #: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
@@ -2847,12 +2793,12 @@ msgstr "Den här applikationen kräver filen %s, som inte kunde hittas."
 
 #: Control-ID:65535
 msgid "Three File Diff"
-msgstr "3-vägs diff"
+msgstr "3-filershantering av avvikelser"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr ""
+msgstr "För att förena ändringar från en specifik gren, måste du ange samma URL i både \"Från:\" och \"Till:\"."
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -2860,21 +2806,19 @@ msgstr "Dubbelklicka på filerna ovan för att se de ändringar som är gjorda."
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "To:"
-msgstr "Kan inte skriva till \"%s\""
+msgstr "Till:"
 
 #: ID:7
 #: ID:3585
 #: Dlg-ID:130
-#, fuzzy
 msgid "TortoiseMerge"
-msgstr "Om TortoiseMerge"
+msgstr "TortoiseMerge"
 
 # ID:107,
 #: ID:107
 msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
@@ -2885,17 +2829,21 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
+"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
 
 #: ID:9
 #: ID:80
-#, fuzzy
 msgid "TortoiseSVN"
-msgstr "Ändra inställningar för TortoiseSVN"
+msgstr "TortoiseSVN"
 
 # ID:107,
 #: ID:107
 msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d"
 
 # ID:107,
 #: ID:107
@@ -2910,6 +2858,15 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
 
 #: ID:80
 msgid "TortoiseSVN Settings"
@@ -2925,13 +2882,12 @@ msgstr "Ändra inställningar för TortoiseSVN"
 
 #: Control-ID:65535
 msgid "Two File Diff"
-msgstr "2-vägs diff"
+msgstr "2-filers avvikelsehantering"
 
 # Dlg-ID:164,
 #: Dlg-ID:164
-#, fuzzy
 msgid "URL"
-msgstr "URL: %s\n"
+msgstr "URL"
 
 #: ID:12
 msgid "URL of subversion items"
@@ -2939,14 +2895,12 @@ msgstr "Sökväg i arkivet"
 
 #: Control-ID:65535
 #: Control-ID:1076
-#, fuzzy
 msgid "URL:"
-msgstr "URL: %s\n"
+msgstr "URL:"
 
 #: ID:75
-#, fuzzy
 msgid "URL: "
-msgstr "URL: %s\n"
+msgstr "URL:"
 
 #: ID:3866
 msgid "Unable to load mail system support."
@@ -2995,9 +2949,8 @@ msgstr ""
 "  Namn: %s"
 
 #: Control-ID:1061
-#, fuzzy
 msgid "Unknown drives"
-msgstr "Okänt kommando: \"%s\"\n"
+msgstr "Okända enheter"
 
 #: ID:3841
 msgid "Untitled"
@@ -3031,9 +2984,8 @@ msgstr "URL:"
 
 # Control-ID:1064,
 #: Control-ID:1064
-#, fuzzy
 msgid "Use Magnifier on Locatorbar"
-msgstr "arbeta med en revisionsegenskap (används med -r)"
+msgstr "Använd förstoring på översikten"
 
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -3042,7 +2994,7 @@ msgstr "Använd enkel vy som standard"
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use strikeout for deleted lines"
-msgstr ""
+msgstr "Använd överstrykning för borttagna rader"
 
 #: ID:251
 msgid "Use text block from \"theirs\""
@@ -3051,7 +3003,7 @@ msgstr "Använd \"deras\" textblock"
 #: ID:251
 #, fuzzy
 msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Använd \"deras\" textblock"
+msgstr "Använd \"deras\" textblock istället för \"ditt\""
 
 #: ID:251
 msgid "Use text block from \"yours\""
@@ -3060,7 +3012,7 @@ msgstr "Använd \"ditt\" textblock"
 #: ID:251
 #, fuzzy
 msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Använd \"deras\" textblock"
+msgstr "Använd \"ditt\" textblock istället för \"deras\""
 
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
@@ -3071,16 +3023,12 @@ msgid "Use this text block"
 msgstr "Använd detta textblock"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Used for comparing different revisions of files."
-msgstr ""
-"Extern applikation som används för\n"
-"att jämföra olika versioner av filer."
+msgstr "Används för att jämföra olika versioner av filer."
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Used to resolve conflicted files."
-msgstr "Markerar konflikten i filen som löst"
+msgstr "Används för att lösa konflikter i filer."
 
 #: ID:74
 msgid "User cancelled"
@@ -3113,19 +3061,13 @@ msgid "Value"
 msgstr "Värde"
 
 #: Control-ID:1075
-#, fuzzy
 msgid "Version"
-msgstr ""
-"%s, version %s\n"
-"   kompilerad %s, %s\n"
-"\n"
+msgstr "Version"
 
 #: Control-ID:65535
 #, fuzzy
 msgid "Viewer program for GNU diff files (patch files)."
-msgstr ""
-"En applikation för att visa GNU diffiler (patchfiler).\n"
-"Använd tex Notepad om du inte har någon."
+msgstr "Applikation för att visa GNU avvikelsefiler (patchfiler)."
 
 #: Control-ID:1084
 msgid "Visit our website"
@@ -3134,7 +3076,7 @@ msgstr "Besök vår webbsida"
 #: Control-ID:65535
 #, fuzzy
 msgid "Whitespace diff"
-msgstr "\"Tomma\" tecken tillagda"
+msgstr "Patchfil:"
 
 #: Control-ID:65535
 msgid "Whitespaces"
@@ -3154,14 +3096,13 @@ msgstr "Ja"
 
 # ID:145,
 #: ID:145
-#, fuzzy
 msgid "Yes to all"
-msgstr "Kan inte skriva till \"%s\""
+msgstr "Ja på allt"
 
 # ID:201,
 #: ID:201
 msgid "You already have the most current version installed."
-msgstr ""
+msgstr "Du har redan den senaste versionen installerad."
 
 # ID:144,
 #: ID:144
@@ -3171,6 +3112,10 @@ msgid ""
 "Accessing a repository via file:/// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
+"Du skapar ett arkiv på en delad nätverksenhet.\n"
+"Det är säkert, men när arkivet är skapat måste du använda någon annan metod för att komma åt det.\n"
+"Arkivåtkomst via file:/// på en delad nätverksenhet kan förstöra dina data!\n"
+"Vill du skapa arkivet i alla fall?"
 
 # ID:88,
 #: ID:88
@@ -3180,9 +3125,12 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
+"Du försöker komma åt ett arkiv via file:/// på\n"
+"en delad nätverksenhet.\n"
+"Detta kan leda till att ditt arkiv förstörs!\n"
+"Vill du verkligen göra det?"
 
 #: ID:77
-#, fuzzy
 msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
@@ -3215,9 +3163,8 @@ msgid "and support the developers"
 msgstr "och stöd utvecklarna"
 
 #: ID:145
-#, fuzzy
 msgid "cleaning up"
-msgstr "Rensa"
+msgstr "rensar"
 
 #: ID:11
 msgid "conflicted"
@@ -3225,15 +3172,13 @@ msgstr "I konflikt"
 
 # Control-ID:1113,
 #: Control-ID:1113
-#, fuzzy
 msgid "current version is:"
-msgstr "\"%s\" är inte versionshanterad"
+msgstr "nuvarande version är:"
 
 # ID:201,
 #: ID:201
-#, fuzzy
 msgid "current version is: %s"
-msgstr "\"%s\" är inte versionshanterad"
+msgstr "nuvarande version är: %s"
 
 #: ID:10
 msgid "deleted"
@@ -3305,9 +3250,8 @@ msgid "pixels"
 msgstr "pixlar"
 
 #: Control-ID:1018
-#, fuzzy
 msgid "re&cursive"
-msgstr "Rekursivt"
+msgstr "re&kursivt"
 
 #: ID:10
 msgid "replaced"
@@ -3323,22 +3267,32 @@ msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
+"svn:eol-style\n"
+"En av 'native', 'LF', 'CR', 'CRLF'."
 
 # ID:14,
 #: ID:14
+#, fuzzy
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
+"svn:executable\n"
+"Markerar en fil som körbar. Den här egenskapen kan inte sättas på en mapp. Den går inte att sätta som icke-rekursiv, och rekursivt sätts egenskapen endast på filer."
 
 # ID:14,
 #: ID:14
+#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
+"svn:externals\n"
+"En lista av arkivsökvägar angivna en per rad. Varje rad ska innehålla mappnamn, frivillig versionsflagga samt en URL. Exempel:\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
 
 # ID:14,
 #: ID:14
@@ -3346,6 +3300,8 @@ msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
+"svn:ignore\n"
+"En lista ett filmatchningsmönster att utesluta per rad."
 
 # ID:14,
 #: ID:14
@@ -3358,6 +3314,13 @@ msgid ""
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
+"svn:keywords\n"
+"Nyckelord att expandera. Giltiga nyckelord är:\n"
+"URL, HeadURL\t\t\tURL:en för huvudversionen för filen.\n"
+"Author, LastChangedBy\t\tNamn på den som senast ändrade filen.\n"
+"Date, LastChangedDate\t\tDatum/tid för senaste ändringen av filen.\n"
+"Rev, LastChangedRevision\tSenaste versionsnummret för filen.\n"
+"Id\t\t\t\tEn kompakt sammanställning av ovan nämnda nyckelord."
 
 # ID:14,
 #: ID:14
@@ -3365,19 +3328,20 @@ msgid ""
 "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
+"svn:mime-type\n"
+"Mimetyp för en fil. Används för att avgöra om det går att förena filen och hur den ska hanteras av Apache. En mimetyp som börjar med 'text/' (eller om ingen mimetyp anges) hanteras som text. Allt annat hanteras som binärdata."
 
 #: ID:80
 msgid "to %s"
 msgstr "till %s"
 
 #: Control-ID:1112
-#, fuzzy
 msgid "your version is:"
-msgstr "\"%s\" är inte versionshanterad"
+msgstr "din version är:"
 
 # ID:201,
 #: ID:201
-#, fuzzy
 msgid "your version is: %d.%d.%d.%d"
-msgstr "\"%s\" är inte versionshanterad"
+msgstr "din version är: %d.%d.%d.%d"
+
 
