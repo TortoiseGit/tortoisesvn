@@ -316,7 +316,14 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		}
 		else
 		{
-			this->m_Data.m_sBaseFile = sFilePath;
+			if (!PathFileExists(sFilePath))
+			{
+				this->m_Data.m_sBaseFile = m_TempFiles.GetTempFilePath();
+				HANDLE hFile = CreateFile(this->m_Data.m_sBaseFile, GENERIC_WRITE, NULL, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+				CloseHandle(hFile);
+			}
+			else
+				this->m_Data.m_sBaseFile = sFilePath;
 			this->m_Data.m_sBaseName.Format(_T("%s %s"), CUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchOriginal);
 			this->m_Data.m_sYourFile = sTempFile;
 			CString temp;

@@ -293,7 +293,7 @@ BOOL CFileTextLines::Save(CString sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/
 				file.Write((LPCTSTR)sLine, sLine.GetLength());
 			} // for (int i=0; i<arPatchLines.GetCount(); i++) 
 		} // if (CUtils::IsFileUnicode(sPath)) 
-		else if (m_UnicodeType == CFileTextLines::ASCII)
+		else if ((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE))
 		{
 			for (int i=0; i<GetCount(); i++)
 			{
