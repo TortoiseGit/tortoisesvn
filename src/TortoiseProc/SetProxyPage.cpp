@@ -204,6 +204,7 @@ void CSetProxyPage::OnBnClickedEnable()
 	{
 		EnableGroup(FALSE);
 	}
+	SetModified();
 }
 
 void CSetProxyPage::EnableGroup(BOOL b)
