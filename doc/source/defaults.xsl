@@ -1,13 +1,11 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
+  <xsl:param name="draft.mode" select="no"/>
+
   <xsl:param name="fop.extensions" select="1" />
   <xsl:param name="section.autolabel" select="1" />
   <xsl:param name="section.label.includes.component.label" select="1" />
   <xsl:param name="generate.index" select="1" />
-<xsl:param name="table.frame.border.thickness" select="'1pt'"></xsl:param>
-<xsl:param name="table.cell.border.thickness" select="'1pt'"></xsl:param>
-<xsl:param name="table.frame.border.colour" select="'#7099C5'"></xsl:param>
-<xsl:param name="table.cell.border.colour" select="'#7099C5'"></xsl:param>
 
 <xsl:attribute-set name="table.cell.padding">
   <xsl:attribute name="padding-left">4pt</xsl:attribute>
