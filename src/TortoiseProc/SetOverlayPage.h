@@ -1,5 +1,6 @@
 #pragma once
-
+#include "afxwin.h"
+#include "IconStatic.h"
 
 /**
  * \ingroup TortoiseProc
@@ -66,6 +67,7 @@ private:
 	CRegDWORD		m_regDriveMaskFixed;
 	CRegDWORD		m_regDriveMaskCDROM;
 	CBalloon		m_tooltips;
+	CIconStatic		m_cDriveGroup;
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedChangeddirs();

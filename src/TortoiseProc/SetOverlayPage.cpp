@@ -27,7 +27,6 @@ CSetOverlayPage::CSetOverlayPage()
 	m_bNetwork = m_regDriveMaskRemote;
 	m_bFixed = m_regDriveMaskFixed;
 	m_bCDROM = m_regDriveMaskCDROM;
-
 }
 
 CSetOverlayPage::~CSetOverlayPage()
@@ -42,6 +41,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_NETWORK, m_bNetwork);
 	DDX_Check(pDX, IDC_FIXED, m_bFixed);
 	DDX_Check(pDX, IDC_CDROM, m_bCDROM);
+	DDX_Control(pDX, IDC_DRIVEGROUP, m_cDriveGroup);
 }
 
 
@@ -67,11 +67,10 @@ BOOL CSetOverlayPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
 
+	m_cDriveGroup.SetIcon(IDI_DRIVES);
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
-	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
-
 
 	UpdateData(FALSE);
 

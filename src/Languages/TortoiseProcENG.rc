@@ -52,6 +52,10 @@ IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+IDI_DRIVES              ICON                    "res\\Drives.ico"
+IDI_SSH                 ICON                    "res\\ssh.ico"
+IDI_PROXY               ICON                    "res\\proxy.ico"
+IDI_MISC                ICON                    "res\\misc.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -307,66 +311,72 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,231,258,50,14
 END
 
-IDD_SETTINGSMAIN DIALOGEX 0, 0, 287, 118
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 300, 199
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "&Language:",IDC_STATIC,7,9,66,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,7,200,64,CBS_DROPDOWNLIST | 
+    LTEXT           "&Language:",IDC_STATIC,19,20,54,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,18,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,7,26,73,18
-    EDITTEXT        IDC_TEMPEXTENSIONS,80,26,200,14,ES_AUTOHSCROLL
+    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,19,37,61,18
+    EDITTEXT        IDC_TEMPEXTENSIONS,80,37,200,14,ES_AUTOHSCROLL
     CONTROL         "&Show unversioned files before committing",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,7,47,273,10
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,19,98,261,
+                    10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    7,62,273,10
+                    19,113,261,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,76,273,10
-    LTEXT           "Default &number of log messages",IDC_STATIC,7,90,213,8
-    EDITTEXT        IDC_DEFAULTLOG,229,87,51,14,ES_AUTOHSCROLL | ES_NUMBER
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,127,261,10
+    LTEXT           "Default &number of log messages",IDC_STATIC,19,59,201,8
+    EDITTEXT        IDC_DEFAULTLOG,220,57,60,14,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_RIGHT
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,71
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,84,286,61
 END
 
-IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
+IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Icon Overlays"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     CONTROL         "&Indicate folders with changed contents",
                     IDC_CHANGEDDIRS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
-                    16,180,10
+                    13,286,10
     CONTROL         "&Removable drives",IDC_REMOVABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,43,180,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,48,256,10
     CONTROL         "&Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,57,180,10
+                    WS_TABSTOP,19,62,256,10
     CONTROL         "&Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,71,180,10
+                    WS_TABSTOP,19,76,256,10
     CONTROL         "&CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,85,180,10
+                    WS_TABSTOP,19,90,256,10
+    GROUPBOX        "Drive Types",IDC_DRIVEGROUP,7,30,286,83
 END
 
-IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 166
+IDD_SETTINGSPROXY DIALOGEX 0, 0, 300, 199
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Network"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     CONTROL         "&Enable Proxy Server",IDC_ENABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,264,10
-    GROUPBOX        "Proxy Settings",IDC_STATIC,7,20,264,100
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,286,10
+    GROUPBOX        "Proxy Settings",IDC_PROXYGROUP,7,20,286,100
     LTEXT           "Server &address:",IDC_STATIC,17,36,101,8
-    EDITTEXT        IDC_SERVERADDRESS,118,34,78,14,ES_AUTOHSCROLL
-    LTEXT           "&Port:",IDC_STATIC,201,37,21,8
-    EDITTEXT        IDC_SERVERPORT,225,34,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_SERVERADDRESS,118,34,101,14,ES_AUTOHSCROLL
+    LTEXT           "&Port:",IDC_STATIC,231,37,21,8
+    EDITTEXT        IDC_SERVERPORT,255,34,30,14,ES_AUTOHSCROLL | ES_NUMBER
     LTEXT           "&Username:",IDC_STATIC,17,55,101,8
-    EDITTEXT        IDC_USERNAME,118,52,78,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_USERNAME,118,52,101,14,ES_AUTOHSCROLL
     LTEXT           "&Password:",IDC_STATIC,17,74,101,8
-    EDITTEXT        IDC_PASSWORD,118,70,78,14,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,118,70,101,14,ES_PASSWORD | ES_AUTOHSCROLL
     LTEXT           "Proxy &timeout in seconds:",IDC_STATIC,17,101,101,8
-    EDITTEXT        IDC_TIMEOUT,118,98,78,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "&SSH client:",IDC_STATIC,7,132,111,8
-    EDITTEXT        IDC_SSHCLIENT,118,129,93,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_SSHBROWSE,221,129,50,14
+    EDITTEXT        IDC_TIMEOUT,118,98,101,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "&SSH client:",IDC_STATIC,17,145,101,8
+    EDITTEXT        IDC_SSHCLIENT,118,142,101,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_SSHBROWSE,235,142,50,14
+    GROUPBOX        "SSH",IDC_SSHGROUP,7,126,286,66
 END
 
 IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
@@ -420,16 +430,16 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,146,65,50,14
 END
 
-IDD_SETTINGSMENU DIALOGEX 0, 0, 308, 178
+IDD_SETTINGSMENU DIALOGEX 0, 0, 300, 199
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Menu Layout"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "Check those menu entries you want to appear in the top context menu instead of the submenu",
-                    IDC_STATIC,7,7,294,21
+                    IDC_STATIC,7,7,286,21
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
-                    WS_BORDER | WS_TABSTOP,7,28,294,143
+                    WS_BORDER | WS_TABSTOP,7,28,286,164
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
@@ -479,20 +489,20 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,254,60,50,14
 END
 
-IDD_SETTINGSPROGS DIALOGEX 0, 0, 287, 99
+IDD_SETTINGSPROGS DIALOGEX 0, 0, 300, 199
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Programs"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "External &Diff:",IDC_STATIC,7,10,66,8
-    EDITTEXT        IDC_EXTDIFF,80,7,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_EXTDIFFBROWSE,229,7,51,14
+    EDITTEXT        IDC_EXTDIFF,80,7,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTDIFFBROWSE,242,7,51,14
     LTEXT           "External &Merge:",IDC_STATIC,7,29,66,8
-    EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,229,25,51,14
+    EDITTEXT        IDC_EXTMERGE,80,26,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_EXTMERGEBROWSE,242,25,51,14
     LTEXT           "Diff &Viewer:",IDC_STATIC,7,48,66,8
-    EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,229,45,51,14
+    EDITTEXT        IDC_DIFFVIEWER,80,45,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,242,45,51,14
 END
 
 
@@ -640,31 +650,36 @@ BEGIN
     IDD_SETTINGSMAIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 280
+        RIGHTMARGIN, 293
+        VERTGUIDE, 19
         VERTGUIDE, 80
         VERTGUIDE, 220
         VERTGUIDE, 229
+        VERTGUIDE, 280
         TOPMARGIN, 7
-        BOTTOMMARGIN, 111
+        BOTTOMMARGIN, 192
     END
 
     IDD_SETTINGSOVERLAY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 187
+        RIGHTMARGIN, 293
+        VERTGUIDE, 19
+        VERTGUIDE, 275
         TOPMARGIN, 7
-        BOTTOMMARGIN, 100
+        BOTTOMMARGIN, 192
     END
 
     IDD_SETTINGSPROXY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 271
+        RIGHTMARGIN, 293
         VERTGUIDE, 17
         VERTGUIDE, 118
-        VERTGUIDE, 196
+        VERTGUIDE, 219
+        VERTGUIDE, 285
         TOPMARGIN, 7
-        BOTTOMMARGIN, 159
+        BOTTOMMARGIN, 192
     END
 
     IDD_SVNPROGRESS, DIALOG
@@ -700,9 +715,9 @@ BEGIN
     IDD_SETTINGSMENU, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 301
+        RIGHTMARGIN, 293
         TOPMARGIN, 7
-        BOTTOMMARGIN, 171
+        BOTTOMMARGIN, 192
         HORZGUIDE, 28
     END
 
@@ -736,9 +751,10 @@ BEGIN
     IDD_SETTINGSPROGS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 280
+        RIGHTMARGIN, 293
+        VERTGUIDE, 231
         TOPMARGIN, 7
-        BOTTOMMARGIN, 92
+        BOTTOMMARGIN, 192
     END
 END
 #endif    // APSTUDIO_INVOKED

@@ -32,6 +32,11 @@
 #define IDD_BLAME                       162
 #define IDR_SEARCH                      163
 #define IDD_SETTINGSPROGS               163
+#define IDI_DRIVES                      164
+#define IDI_SSH                         165
+#define IDI_PROXY                       166
+#define IDI_ICON1                       167
+#define IDI_MISC                        167
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -51,7 +56,6 @@
 #define IDC_MESSAGE                     1017
 #define IDC_DIFFVIEWER                  1017
 #define IDC_REV                         1018
-#define IDC_DIFFVIEWER2                 1018
 #define IDC_NEWEST                      1019
 #define IDC_BRANCH                      1020
 #define IDC_EXTDIFFBROWSE               1021
@@ -149,6 +153,11 @@
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
 #define IDC_EDIT1                       1077
+#define IDC_DRIVEGROUP                  1079
+#define IDC_PROXYGROUP                  1080
+#define IDC_SSHGROUP                    1081
+#define IDC_MISCGROUP                   1082
+#define IDC_COMMITGROUP                 1083
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -315,9 +324,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        164
+#define _APS_NEXT_RESOURCE_VALUE        168
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1078
+#define _APS_NEXT_CONTROL_VALUE         1084
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -71,6 +71,8 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
 	DDX_Check(pDX, IDC_AUTOCLOSE, m_bAutoClose);
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
+	DDX_Control(pDX, IDC_MISCGROUP, m_cMiscGroup);
+	DDX_Control(pDX, IDC_COMMITGROUP, m_cCommitGroup);
 }
 
 
@@ -88,6 +90,10 @@ END_MESSAGE_MAP()
 BOOL CSetMainPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
+
+	m_cMiscGroup.SetIcon(IDI_MISC);
+	m_cCommitGroup.SetIcon(IDI_COMMIT);
+
 	EnableToolTips();
 
 	m_sTempExtensions = m_regExtensions;

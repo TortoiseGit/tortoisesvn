@@ -18,6 +18,7 @@
 
 #pragma once
 #include "..\\Utils\\Balloon.h"
+#include "IconStatic.h"
 #include "afxwin.h"
 
 
@@ -90,6 +91,8 @@ private:
 	BOOL			m_bAutoClose;
 	CRegDWORD		m_regDefaultLogs;
 	CString			m_sDefaultLogs;
+	CIconStatic		m_cMiscGroup;
+	CIconStatic		m_cCommitGroup;
 
 public:
 	virtual BOOL OnInitDialog();

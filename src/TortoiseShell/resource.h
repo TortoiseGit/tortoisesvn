@@ -45,13 +45,10 @@
 #define IDS_MENUDESCCOMMIT              138
 #define IDI_SETTINGS                    138
 #define IDS_MENUDESCADD                 139
-#define IDI_ICON1                       139
 #define IDI_CREATEREPOS                 139
 #define IDS_MENUDESCREVERT              140
-#define IDI_ICON2                       140
 #define IDI_CONFLICT                    140
 #define IDS_MENUDESCCLEANUP             141
-#define IDI_ICON3                       141
 #define IDI_RELOCATE                    141
 #define IDS_MENUDESCRESOLVE             142
 #define IDI_HELP                        142

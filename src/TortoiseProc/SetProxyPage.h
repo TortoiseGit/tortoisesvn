@@ -18,6 +18,8 @@
 
 #pragma once
 #include "Balloon.h"
+#include "IconStatic.h"
+#include "afxwin.h"
 
 /**
  * \ingroup TortoiseProc
@@ -68,12 +70,23 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL OnApply();
+	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnBnClickedEnable();
+	afx_msg void OnEnChangeServeraddress();
+	afx_msg void OnEnChangeServerport();
+	afx_msg void OnEnChangeUsername();
+	afx_msg void OnEnChangePassword();
+	afx_msg void OnEnChangeTimeout();
+	afx_msg void OnEnChangeSshclient();
+	afx_msg void OnBnClickedSshbrowse();
+
 	void EnableGroup(BOOL b);
 
 	DECLARE_MESSAGE_MAP()
 private:
 	CBalloon	m_tooltips;
-public:
 	CString		m_serveraddress;
 	CRegString	m_regServeraddress;
 	CRegString	m_regServeraddress_copy;
@@ -92,15 +105,6 @@ public:
 	BOOL		m_isEnabled;
 	CRegString	m_regSSHClient;
 	CString		m_SSHClient;
-	virtual BOOL OnInitDialog();
-	afx_msg void OnBnClickedEnable();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnEnChangeServeraddress();
-	afx_msg void OnEnChangeServerport();
-	afx_msg void OnEnChangeUsername();
-	afx_msg void OnEnChangePassword();
-	afx_msg void OnEnChangeTimeout();
-	virtual BOOL OnApply();
-	afx_msg void OnEnChangeSshclient();
-	afx_msg void OnBnClickedSshbrowse();
+	CIconStatic	m_cSSHGroup;
+	CIconStatic	m_cProxyGroup;
 };
