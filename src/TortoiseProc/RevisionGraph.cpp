@@ -323,6 +323,10 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 					else if (val->action != 'M')
 					{
 						//the parent got moved, and therefore we too
+						const char * self = apr_pstrdup(pool, val->copyfrom_path);
+						const char * child = url;
+						child += strlen(key);
+						self = apr_pstrcat(pool, self, child, 0);
 						CRevisionEntry * reventry = new CRevisionEntry();
 						reventry->revision = currentrev;
 						reventry->author = logentry->author;
@@ -333,7 +337,7 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 						reventry->level = m_nRecurseLevel;
 						if (val->copyfrom_path)
 						{
-							reventry->pathfrom = val->copyfrom_path;
+							reventry->pathfrom = self;
 							reventry->revisionfrom = val->copyfrom_rev;
 						}
 						else
@@ -344,11 +348,6 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 						m_arEntryPtrs.Add(reventry);
 						if ((val->action != 'D')&&(val->copyfrom_path))
 						{
-							const char * self = apr_pstrdup(pool, val->copyfrom_path);
-							const char * child = url;
-							child += strlen(key);
-							m_sUrlAppendix = child;
-							self = apr_pstrcat(pool, self, child, 0);
 							TRACE("revision entry(2): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
 							AnalyzeRevisions(self, currentrev-1, startrev);
 						}
@@ -364,7 +363,6 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							const char * self = apr_pstrdup(pool, key);
 							const char * child = url;
 							child += strlen(val->copyfrom_path);
-							m_sUrlAppendix = child;
 							self = apr_pstrcat(pool, self, child, 0);
 							CRevisionEntry * reventry = new CRevisionEntry();
 							reventry->revision = currentrev;
@@ -376,7 +374,7 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							reventry->level = m_nRecurseLevel + 1;
 							if (val->copyfrom_path)
 							{
-								reventry->pathfrom = val->copyfrom_path;
+								reventry->pathfrom = apr_pstrcat(pool, val->copyfrom_path, child, 0);
 								reventry->revisionfrom = val->copyfrom_rev;
 							}
 							else
@@ -447,7 +445,7 @@ BOOL CRevisionGraph::CheckForwardCopies()
 				reventry->author = origentry->author;
 				reventry->date = origentry->time;
 				reventry->message = origentry->msg;
-				reventry->url = apr_pstrcat(pool, logentry->pathfrom, m_sUrlAppendix, 0);
+				reventry->url = logentry->pathfrom;
 				reventry->action = ' ';
 				// set the level to 0 to mark that entry for later (after sorting by revision)
 				// filling in the correct level.
