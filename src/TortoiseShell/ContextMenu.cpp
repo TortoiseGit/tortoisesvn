@@ -546,9 +546,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
 	if ((isInSVN)&&(!isFolder)&&(!isAdded))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUBLAME), INDEXMENU(MENUBLAME), idCmd++, IDS_MENUBLAME, IDI_BLAME, idCmdFirst, Blame);
-	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder)&&(!isOnlyOneItemSelected))
-		InsertSVNMenu(ownerdrawn, HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Ignore);
-	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder)&&(isOnlyOneItemSelected))
+	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder))
 	{
 		HMENU ignoresubmenu = CreateMenu();
 		int indexignoresub = 0;
@@ -560,17 +558,28 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		else
 			_tcscpy(ignorepath, I->c_str());
 
-		InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
-		myIDMap[idCmd - idCmdFirst] = Ignore;
-		myIDMap[idCmd++] = Ignore;
-
-		_tcscpy(maskbuf, _T("*"));
-		if (_tcsrchr(ignorepath, '.'))
+		if (isOnlyOneItemSelected)
 		{
-			_tcscat(maskbuf, _tcsrchr(ignorepath, '.'));
-			InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
-			myIDMap[idCmd - idCmdFirst] = IgnoreCaseSensitive;
-			myIDMap[idCmd++] = IgnoreCaseSensitive;
+			InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
+			myIDMap[idCmd - idCmdFirst] = Ignore;
+			myIDMap[idCmd++] = Ignore;
+
+			_tcscpy(maskbuf, _T("*"));
+			if (_tcsrchr(ignorepath, '.'))
+			{
+				_tcscat(maskbuf, _tcsrchr(ignorepath, '.'));
+				InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, maskbuf);
+				myIDMap[idCmd - idCmdFirst] = IgnoreCaseSensitive;
+				myIDMap[idCmd++] = IgnoreCaseSensitive;
+			}
+		}
+		else
+		{
+			MAKESTRING(IDS_MENUIGNOREMULTIPLE);
+			_stprintf(ignorepath, stringtablebuffer, files_.size());
+			InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
+			myIDMap[idCmd - idCmdFirst] = Ignore;
+			myIDMap[idCmd++] = Ignore;
 		}
 
 
