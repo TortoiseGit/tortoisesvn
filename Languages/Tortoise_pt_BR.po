@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISESVNPT-BR 1.0\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-11-30 12:52-0300\n"
+"PO-Revision-Date: 2004-12-01 11:46-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: CRAb <crab@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -1861,13 +1861,13 @@ msgstr "Exceções:"
 #: Control-ID:65535
 #, fuzzy
 msgid "Exclude paths:"
-msgstr "Excluir Padrão"
+msgstr "Excluir caminhos:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 #, fuzzy
 msgid "Exclude/Ignore pattern:"
-msgstr "Excluir Padrão"
+msgstr "Excluir/Ignorar padrão:"
 
 # ID:94,
 #: ID:94
@@ -2093,13 +2093,13 @@ msgstr "Tipo de gráfico:"
 #: Control-ID:1032
 #, fuzzy
 msgid "H&ead Revision"
-msgstr "&Revisão Mais Recente"
+msgstr "R&evisão Mais Recente"
 
 # ID:12,
 #: ID:238
 #, fuzzy
 msgid "Head revision of the repository is: %d"
-msgstr "Usar isto se a URL do repositório foi alterada"
+msgstr "Usar isto se a URL do repositório foi alteradaA revisão mais recente do repositório é: %d"
 
 # Control-ID:1004,#:
 # ID:12,
@@ -2216,7 +2216,7 @@ msgstr "Importar o diretório ao repositório"
 #: Control-ID:65535
 #, fuzzy
 msgid "Include paths:"
-msgstr "Excluir Padrão"
+msgstr "Incluir caminhos:"
 
 # ID:76,
 #: ID:76
@@ -2318,7 +2318,8 @@ msgstr "Abre um programa externo de diff / merge para resolver os conflitos"
 
 # Control-ID:1137,
 #: Control-ID:1137
-msgid "Least active athor:"
+#, fuzzy
+msgid "Least active author:"
 msgstr "Autor menos ativo:"
 
 # ID:188,
@@ -2361,9 +2362,8 @@ msgstr "Comentário"
 
 # Dlg-ID:130,
 #: Control-ID:1125
-#, fuzzy
 msgid "Log Message History:"
-msgstr "Histórico"
+msgstr "Histórico de comentários:"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
@@ -2372,9 +2372,8 @@ msgstr "Histórico"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
-#, fuzzy
 msgid "Look and Feel"
-msgstr "Aparência e Comportamento"
+msgstr "Aparência"
 
 # ID:3866,#:
 # ID:3866,
@@ -2429,9 +2428,8 @@ msgstr "Tipo Mime"
 
 # Dlg-ID:143,
 #: Control-ID:1158
-#, fuzzy
 msgid "Min"
-msgstr "Principal"
+msgstr "Mínimo"
 
 # Control-ID:1023,#:
 # Control-ID:1082,
@@ -2692,7 +2690,7 @@ msgstr "Remendar (Patch) Tudo"
 #: ID:157
 #, fuzzy
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "Arquivos de Correção|*.diff;*.patch|All|*.*||"
+msgstr "Arquivos de Correção (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 # ID:77,
 #: ID:77
@@ -3014,9 +3012,8 @@ msgstr ""
 
 # ID:74,
 #: ID:74
-#, fuzzy
 msgid "Replacing"
-msgstr "Substituído"
+msgstr "Substituindo"
 
 # ID:13,
 #: ID:13
@@ -3059,9 +3056,8 @@ msgstr "Restaura a janela para o tamanho normal"
 
 # ID:73,
 #: ID:73
-#, fuzzy
 msgid "Restored"
-msgstr "Restaurar"
+msgstr "Restaurado"
 
 # ID:73,
 #: ID:73
@@ -3080,9 +3076,8 @@ msgstr "Reverter"
 # ID:73,#:
 # Dlg-ID:175,
 #: ID:73
-#, fuzzy
 msgid "Reverted"
-msgstr "Reverter"
+msgstr "Revertido"
 
 # ID:9,
 #: ID:9
@@ -3255,9 +3250,8 @@ msgstr "Salvar alterações para %1?"
 
 # ID:76,
 #: ID:232
-#, fuzzy
 msgid "Save client certificate path"
-msgstr "Abrir arquivo de certificado do cliente"
+msgstr "Salvar caminho do certificado do cliente"
 
 # ID:3601,#:
 # ID:3601,
@@ -3410,9 +3404,8 @@ msgstr "Url Curto de ítens do subversion"
 
 # Control-ID:1016,
 #: Control-ID:1031
-#, fuzzy
 msgid "Show &All"
-msgstr "Mostrar &histórico..."
+msgstr "Mostr&ar Tudo"
 
 # ID:113,
 #: ID:113
@@ -3523,9 +3516,8 @@ msgstr "Tamanho"
 
 # ID:74,
 #: ID:74
-#, fuzzy
 msgid "Skipped"
-msgstr "Ignorar"
+msgstr "Ignorado"
 
 # ID:263,
 #: ID:263
@@ -3557,9 +3549,8 @@ msgstr ""
 #: ID:245
 #: Control-ID:1132
 #: Dlg-ID:179
-#, fuzzy
 msgid "Statistics"
-msgstr "Status"
+msgstr "Estattísticas"
 
 # ID:74,#:
 # ID:77,
@@ -3578,7 +3569,7 @@ msgstr "Status do item no SVN"
 #: Control-ID:1130
 #, fuzzy
 msgid "Stop On Copy"
-msgstr "Parar a cópia"
+msgstr "Parar na cópia"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4003,7 +3994,8 @@ msgstr "Total de gravações analizadas:"
 
 # Control-ID:1163,
 #: Control-ID:1163
-msgid "Total fileschanges:"
+#, fuzzy
+msgid "Total file changes:"
 msgstr "Total de arquivos alterados:"
 
 # ID:73,
@@ -4135,9 +4127,8 @@ msgstr "Atualizar para Revisão..."
 # ID:74,#:
 # Dlg-ID:152,
 #: ID:74
-#, fuzzy
 msgid "Updated"
-msgstr "Atualizar"
+msgstr "Atualizado"
 
 # ID:11,
 #: ID:11
@@ -4173,7 +4164,7 @@ msgstr "Use um visualizador de textos para ver as responsabilidades"
 #: Control-ID:1073
 #, fuzzy
 msgid "Use \"From:\" URL"
-msgstr "&Da URL:"
+msgstr "Use \"From:\" URL"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -4189,25 +4180,25 @@ msgstr "Tachar as linhas deletadas"
 #: ID:251
 #, fuzzy
 msgid "Use text block from \"&theirs\""
-msgstr "Usar bloco de texto do arquivo \"deles\""
+msgstr "Usar bloco de texto do arquivo \"&deles\""
 
 # ID:251,
 #: ID:251
 #, fuzzy
 msgid "Use text block from \"&yours\""
-msgstr "Usar bloco de texto do \"seu\" arquivo"
+msgstr "Usar bloco de texto do \"&seu\" arquivo"
 
 # ID:251,
 #: ID:251
 #, fuzzy
 msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Usar bloco de texto do arquivo \"deles\" antes do \"seus\""
+msgstr "Usar bloco de texto do arquivo \"&deles\" antes do \"&seus\""
 
 # ID:251,
 #: ID:251
 #, fuzzy
 msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Usar bloco de texto do \"seu\" arquivo antes do \"deles\""
+msgstr "Usar bloco de texto do \"&seu\" arquivo antes do \"&deles\""
 
 # ID:251,
 #: ID:251
@@ -4496,7 +4487,7 @@ msgstr "limpando"
 #: ID:245
 #, fuzzy
 msgid "commits"
-msgstr "Gravar..."
+msgstr "Grava"
 
 # ID:11,
 #: ID:11
