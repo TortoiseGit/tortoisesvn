@@ -125,9 +125,12 @@ Properties used with the regex integration:
 
 name  : bugtraq:logregex
 value : (string)
-This property contains two regular expressions, separated by a newline. The
-first expression is used to find a string which relates to a bug ID but may
-contain more than just the bug ID (e.g. "Issue #123" or "resolves issue 123").
+This property contains one or two regular expressions, separated by a newline.
+If only one expression is set, then the bare bug ID's must be matched in the
+groups of the regex string.
+If two expressions are set, then the first expression is used to find a 
+string which relates to a bug ID but may contain more than just the bug ID 
+(e.g. "Issue #123" or "resolves issue 123").
 The second expression is then used to extract the bare bug ID from the string
 extracted with the first expression.
 An example:
