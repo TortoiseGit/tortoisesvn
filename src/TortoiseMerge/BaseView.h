@@ -87,6 +87,8 @@ protected:
 	void			OnDoHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 	void			OnDoVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 
+	int				GetTabSize() {return m_nTabSize;}
+
 	int				GetLineActualLength(int index);
 	int				GetLineCount();
 	void			CalcLineCharDim();
@@ -116,6 +118,7 @@ protected:
 	int				m_nScreenLines;
 	int				m_nScreenChars;
 	int				m_nOffsetChar;
+	int				m_nTabSize;
 
 	int				m_nSelBlockStart;
 	int				m_nSelBlockEnd;

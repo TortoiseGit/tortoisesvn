@@ -1,5 +1,6 @@
 
 #include "stdafx.h"
+#include "registry.h"
 #include "TortoiseMerge.h"
 #include ".\BaseView.h"
 
@@ -37,6 +38,7 @@ CBaseView::CBaseView()
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;
+	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		m_apFonts[i] = NULL;
@@ -99,6 +101,7 @@ void CBaseView::DocumentUpdated()
 	m_nScreenLines = -1;
 	m_nTopLine = 0;
 	m_bModified = FALSE;
+	m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -750,7 +753,7 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
 		return;
 	} // if (nCount <= 0) 
 
-	int nTabSize = 4;//GetTabSize();
+	int nTabSize = GetTabSize();
 
 	int nActualOffset = 0;
 	for (int i=0; i<nOffset; i++)
@@ -989,7 +992,7 @@ void CBaseView::GoToFirstDifference()
 	int nCenterPos = 0;
 	if ((m_arLineStates)&&(0 < m_arLineStates->GetCount()))
 	{
-		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		CDiffData::DiffStates state = CDiffData::DIFFSTATE_NORMAL;
 		while ((nCenterPos < m_arLineStates->GetCount()) &&
 			(m_arLineStates->GetAt(nCenterPos++)==state))
 			;
