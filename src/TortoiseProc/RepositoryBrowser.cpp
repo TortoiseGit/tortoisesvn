@@ -412,7 +412,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CString filename = svnPath.GetFileOrDirectoryName();
 						CInputDlg input(this);
-						SetupInputDlg(&input, IDS_INPUT_ADDFOLDERLOGMSG);
+						SetupInputDlg(&input);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
@@ -471,7 +471,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CString filename = path.GetFileOrDirectoryName();
 						CInputDlg input(this);
-						SetupInputDlg(&input, IDS_INPUT_ADDLOGMSG);
+						SetupInputDlg(&input);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
@@ -500,7 +500,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
-						SetupInputDlg(&input, IDS_INPUT_MOVELOGMSG);
+						SetupInputDlg(&input);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Move(CTSVNPath(url), CTSVNPath(filepath), TRUE, input.m_sInputText))
@@ -526,7 +526,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
-						SetupInputDlg(&input, IDS_INPUT_COPYLOGMSG);
+						SetupInputDlg(&input);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.m_sInputText))
@@ -611,7 +611,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
-						SetupInputDlg(&input, IDS_INPUT_MKDIRLOGMSG);
+						SetupInputDlg(&input);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name)), input.m_sInputText))
@@ -795,13 +795,11 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	}
 }
 
-void CRepositoryBrowser::SetupInputDlg(CInputDlg * dlg, UINT title)
+void CRepositoryBrowser::SetupInputDlg(CInputDlg * dlg)
 {
 	dlg->m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 	CUtils::RemoveAccelerators(dlg->m_sHintText);
 	dlg->m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 	CUtils::RemoveAccelerators(dlg->m_sTitle);
-	dlg->m_sInputText.LoadString(title);
-	CUtils::RemoveAccelerators(dlg->m_sInputText);
 	dlg->m_pProjectProperties = &m_ProjectProperties;
 }

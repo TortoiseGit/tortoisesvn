@@ -85,7 +85,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	void DeleteSelectedEntries();
-	void SetupInputDlg(CInputDlg * dlg, UINT title);
+	void SetupInputDlg(CInputDlg * dlg);
 
 	CRepositoryTree		m_treeRepository;
 	CRepositoryBar		m_barRepository;

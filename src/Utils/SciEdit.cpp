@@ -168,7 +168,7 @@ CStringA CSciEdit::StringForControl(const CString& text)
 #ifdef UNICODE
 	int codepage = Call(SCI_GETCODEPAGE);
 	int reslen = WideCharToMultiByte(codepage, 0, text, text.GetLength(), 0, 0, 0, 0);
-	WideCharToMultiByte(codepage, 0, text, text.GetLength(), sTextA.GetBuffer(reslen+1), reslen+1, 0, 0);
+	WideCharToMultiByte(codepage, 0, text, text.GetLength(), sTextA.GetBuffer(reslen), reslen, 0, 0);
 	sTextA.ReleaseBuffer(reslen);
 #else
 	sTextA = text;

@@ -75,7 +75,6 @@ BOOL CInputDlg::OnInitDialog()
 		m_cInput.SetText(m_pProjectProperties->sLogTemplate);
 	}
 
-
 	if (!m_sHintText.IsEmpty())
 	{
 		GetDlgItem(IDC_HINTTEXT)->SetWindowText(m_sHintText);
@@ -83,10 +82,6 @@ BOOL CInputDlg::OnInitDialog()
 	if (!m_sTitle.IsEmpty())
 	{
 		this->SetWindowText(m_sTitle);
-	}
-	if (!m_sInputText.IsEmpty())
-	{
-		m_cInput.SetText(m_sInputText);
 	}
 
 	AddAnchor(IDC_HINTTEXT, TOP_LEFT, TOP_RIGHT);
