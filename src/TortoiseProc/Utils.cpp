@@ -107,6 +107,9 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 
 BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2, CString ext)
 {
+	// change all paths to have backslashes instead of forward slashes
+	file.Replace('/', '\\');
+	dir.Replace('/', '\\');
 	// if "dir" is actually a file, then don't start the unified diff viewer
 	// but the file diff application (e.g. TortoiseMerge, WinMerge, WinDiff, P4Diff, ...)
 	CString viewer;
