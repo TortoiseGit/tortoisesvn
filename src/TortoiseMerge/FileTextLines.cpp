@@ -136,7 +136,13 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	{
 		Reserve(lengthHint);
 	}
-
+	
+	if (PathIsDirectory(sFilePath))
+	{
+		m_sErrorString.Format(IDS_ERR_FILE_NOTAFILE, sFilePath);
+		return FALSE;
+	}
+	
 	if (!PathFileExists(sFilePath))
 	{
 		//file does not exist, so just return SUCCESS
