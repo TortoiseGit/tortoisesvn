@@ -104,7 +104,7 @@ protected:
 
 	void	FillLogMessageCtrl(CString msg, CString paths);
 	BOOL	StartDiff(CString path1, LONG rev1, CString path2, LONG rev2);
-	void	DoDiffFromLog(int selIndex, CString temp,long rev);
+	void	DoDiffFromLog(int selIndex, long rev);
 
 	DECLARE_MESSAGE_MAP()
 public:

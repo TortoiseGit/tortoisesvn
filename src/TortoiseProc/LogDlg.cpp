@@ -811,7 +811,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 				case ID_DIFF:
 					{
-						DoDiffFromLog(selIndex,temp,rev);
+						DoDiffFromLog(selIndex, rev);
 					}
 					break;
 				default:
@@ -969,11 +969,11 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	tt.LoadString(IDS_SVNACTION_DELETE);
 	if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
 	{
-		DoDiffFromLog(selIndex,temp,rev);
+		DoDiffFromLog(selIndex, rev);
 	}
 }
 
-void CLogDlg::DoDiffFromLog(int selIndex, CString temp, long rev)
+void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 {
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	this->m_app = &theApp;
@@ -1000,10 +1000,14 @@ void CLogDlg::DoDiffFromLog(int selIndex, CString temp, long rev)
 		} // if ((rev == (-2))||(status.status->entry == NULL))
 		filepath = CString(status.status->entry->url);
 	}
-	temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 	m_bCancelled = FALSE;
 	filepath = GetRepositoryRoot(filepath, rev);
 	temp = temp.Mid(temp.Find(' '));
+	if (temp.Find('(')>=0)
+	{
+		temp = temp.Left(temp.Find('(')-1);
+	}
 	temp = temp.Trim();
 	filepath += temp;
 	StartDiff(filepath, rev, filepath, rev-1);
