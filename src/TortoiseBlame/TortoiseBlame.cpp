@@ -45,9 +45,9 @@ TortoiseBlame::TortoiseBlame()
 	m_textcolor = ::GetSysColor(COLOR_WINDOWTEXT);
 	m_texthighlightcolor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
 	m_mouserevcolor = m_windowcolor - 0x101010;
-	m_mouseauthorcolor = m_windowcolor - 0x202020;
+	m_mouseauthorcolor = m_windowcolor - 0x404040;
 	m_selectedrevcolor = ::GetSysColor(COLOR_HIGHLIGHT);
-	m_selectedauthorcolor = m_selectedrevcolor - 0x101010;
+	m_selectedauthorcolor = m_selectedrevcolor - 0x303030;
 
 	m_directPointer = 0;
 	m_directFunction = 0;
@@ -756,23 +756,17 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			line = line + (y/heigth);
 			if (line < (LONG)app.revs.size())
 			{
-				if (app.authors[line].compare(app.m_selectedauthor) != 0)
+				if (app.revs[line] != app.m_selectedrev)
 				{
+					app.m_selectedrev = app.revs[line];
 					app.m_selectedauthor = app.authors[line];
 				}
 				else
 				{
 					app.m_selectedauthor.clear();
-				}
-				if (app.revs[line] != app.m_selectedrev)
-				{
-					app.m_selectedrev = app.revs[line];
-					::InvalidateRect(app.wBlame, NULL, FALSE);
-				}
-				else
-				{
 					app.m_selectedrev = -2;
 				}
+				::InvalidateRect(app.wBlame, NULL, FALSE);
 			}
 		}
 		break;
