@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISESVNPT-BR 1.0\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-12-15 10:43-0300\n"
+"PO-Revision-Date: 2004-12-16 16:28-0300\n"
 "Last-Translator: Emanuele Marques <emanuele@vdl.ufc.br>\n"
 "Language-Team: CRAb <crab@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -183,7 +183,7 @@ msgstr "Fe&char as janelas automaticamente"
 # ID:76,
 #: ID:76
 msgid "&Compare Revisions"
-msgstr "&Comparar revisões"
+msgstr "&Comparar Revisões"
 
 # ID:101,
 #: ID:101
@@ -523,7 +523,7 @@ msgstr ""
 "<b>ATENÇÃO:</b> Somente use o comando Reposicionar se o repositório original foi movido para uma nova URL.\n"
 "Se você usar Reposicionar para dirigir sua cópia de trabalho para outro repositório ou ramo,\n"
 "isso <b>vai corromper sua cópia de trabalho!</b>\n"
-"Para associar sua cópia de trabalho a outro ramo, use o comando Trocar.\n"
+"Para associar sua cópia de trabalho a outro ramo, use o comando Alternar.\n"
 "Você tem certeza que deseja reposicionar?"
 
 # ID:145,
@@ -1287,9 +1287,8 @@ msgstr "Fecha a janela ativa e pede para salvar os documentos"
 
 # Control-ID:1163,
 #: Control-ID:1068
-#, fuzzy
 msgid "Color code in-line changes"
-msgstr "Total de alterações de arquivos:"
+msgstr "Código de cor das mudanças in-line"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -1590,7 +1589,7 @@ msgstr "Data"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr " &Número padrão de mensagens do histórico (log)"
+msgstr " &Número padrão de mensagens do histórico"
 
 # ID:11,#:
 # ID:73,#:
@@ -1816,19 +1815,19 @@ msgstr "Expandir a janela para a tela cheia"
 # Dlg-ID:135,
 #: Dlg-ID:135
 msgid "Enter Log Message"
-msgstr "Entre o Comentário"
+msgstr "Inserir Comentário"
 
 # ID:126,#:
 # Control-ID:1065,
 #: ID:126
 #: Control-ID:1065
 msgid "Enter Log Message:"
-msgstr "Entre o Comentário"
+msgstr "Inserir Comentário"
 
 # ID:80,
 #: ID:80
 msgid "Enter URL"
-msgstr "Entre a URL"
+msgstr "Inserir URL"
 
 # ID:3603,
 #: ID:3603
@@ -2676,7 +2675,7 @@ msgstr "Senha:"
 # Dlg-ID:158,
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
-msgstr "Colar Nomes de Arquivos Alterados"
+msgstr "Colar nomes de arq. alterados"
 
 # ID:376,
 #: ID:376
@@ -2787,7 +2786,7 @@ msgstr ""
 "Por favor, note:\n"
 "sua cópia de trabalho permanece no caminho anterior. Se você quer que as alterações a seguir\n"
 "estejam na cópia recém criada, você precisa  <b>alternar</b>\n"
-"para o caminho da cópia. Use o comando <b>Trocar</b> pra fazer isso."
+"para o caminho da cópia. Use o comando <b>Alternar</b> pra fazer isso."
 
 # ID:3858,#:
 # ID:3858,
@@ -3208,7 +3207,7 @@ msgstr "SVN Status"
 # ID:78,
 #: ID:78
 msgid "SVN Switch..."
-msgstr "SVN Trocar..."
+msgstr "SVN Alternar..."
 
 # ID:77,
 #: ID:77
@@ -3689,7 +3688,7 @@ msgstr "Substituir a cópia de trabalho por um ramo / rótulo"
 # ID:9,
 #: ID:9
 msgid "Switch..."
-msgstr "Trocar..."
+msgstr "Alternar..."
 
 # ID:3857,#:
 # ID:3857,
@@ -3872,7 +3871,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Their File:"
-msgstr "Esse Arquivo:"
+msgstr "Arquivo Deles:"
 
 # como fica esse externals????
 # ID:169,
@@ -3905,7 +3904,7 @@ msgstr "Sinônimos"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr "Esse produto inclui software desenvolvido por CollabNet (http://www.collab.net/)"
+msgstr "Esse produto inclui software desenvolvido por CollabNet (http://www.collab.Net/)"
 
 # missing export ???
 # ID:3857,#:
@@ -4027,12 +4026,12 @@ msgstr "Total de alterações de arquivos:"
 # ID:73,
 #: ID:73
 msgid "Try Again"
-msgstr "Tente Novamente"
+msgstr "Tentar Novamente"
 
 # ID:251,
 #: ID:251
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "Tente uma \"Limpeza\". Se isso não funcionar, você precisa fazer obter o módulo novamente."
+msgstr "Tente uma \"Limpeza\". Se isso não funcionar, você precisa obter o módulo novamente."
 
 # Tweak ???? Estou sem dicionário1 :-S
 # ID:10,
@@ -4053,7 +4052,7 @@ msgstr "URL"
 # ID:12,
 #: ID:12
 msgid "URL of subversion items"
-msgstr "URL dos ítens do subversion"
+msgstr "URL dos itens do subversion"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -4094,7 +4093,7 @@ msgstr "Impossível carregar o suporte do sistema de correio."
 # ID:3859,
 #: ID:3859
 msgid "Unable to read from %1, it is opened by someone else."
-msgstr "I possível ler de %1, foi aberto por outra pessoa."
+msgstr "Impossível ler de %1, está aberto por outra pessoa."
 
 # ID:3865,#:
 # ID:3865,
@@ -4215,7 +4214,7 @@ msgstr "Usar \"De:\" URL"
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
-msgstr "Usar visualização em um painel por padrão"
+msgstr "Usar visualização em um painel como padrão"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -4235,12 +4234,12 @@ msgstr "Usar bloco de texto do \"&seu\" arquivo"
 # ID:251,
 #: ID:251
 msgid "Use text block from \"t&heirs\" before \"yours\""
-msgstr "Usar bloco de texto do arquivo \"&deles\" antes do \"&seu\""
+msgstr "Usar bloco de texto do arquivo \"&deles\" antes do \"seu\""
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"y&ours\" before \"theirs\""
-msgstr "Usar bloco de texto do \"&seu\" arquivo antes do \"&deles\""
+msgstr "Usar bloco de texto do \"&seu\" arquivo antes do \"deles\""
 
 # ID:251,
 #: ID:251
@@ -4280,7 +4279,7 @@ msgstr "Cancelado pelo usuário"
 # ID:69,
 #: ID:69
 msgid "Username:"
-msgstr "Usuário"
+msgstr "Usuário:"
 
 # ID:313,
 #: ID:313
@@ -4321,7 +4320,7 @@ msgstr "Programa de Visualização pra arquivos de comparação do GNU (arquivos
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
-msgstr "visite nosso website"
+msgstr "Visite nosso website"
 
 # ID:219,
 #: ID:219
@@ -4340,7 +4339,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
-msgstr "Comparação de espaçõs em branco"
+msgstr "Comparação de espaços em branco"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4353,7 +4352,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"a cópia local mudou para\n"
+"A cópia local mudou para\n"
 "%s"
 
 # ID:73,
@@ -4380,8 +4379,8 @@ msgid ""
 "Create the repository anyway?"
 msgstr ""
 "Você está criando um repositório num compartilhamento de rede.\n"
-"É seguro, mas uma vez criado, você deve acessar o repositório por outros meios.\n"
-"Acessar um repositório via file:/// em um compartilhamento de rede pode coroomper seus dados!\n"
+"É seguro, mas uma vez o repositório criado, você deve acessé-lo por outros meios.\n"
+"Acessar um repositório via file:/// em um compartilhamento de rede pode corromper seus dados!\n"
 "Criar mesmo assim?"
 
 # ID:88,
@@ -4400,7 +4399,7 @@ msgstr ""
 # ID:251,
 #: ID:251
 msgid "You have to update your working copy first."
-msgstr "Você deve atualizar sua cópia de trabalho primeiro"
+msgstr "Você deve atualizar sua cópia de trabalho primeiro."
 
 # ID:169,
 #: ID:169
@@ -4408,8 +4407,8 @@ msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
 msgstr ""
-"Você não informou o número do tópico!\n"
-"Você tem certeza de que quer escrever sem esse número?"
+"Você não informou um issue number!\n"
+"Você tem certeza de que quer gravar sem um issue number?"
 
 # ID:77,
 #: ID:77
@@ -4431,8 +4430,8 @@ msgid ""
 "Your working copy appears to be on a <b>tag</b> path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"Sua cópia de trabalho parace estar em um caminho de <b>tag</b>!\n"
-"Você deveria transferir para um branch ou para o trunk principal antes de gravar."
+"Sua cópia de trabalho parace estar em um caminho de <b>rótulo</b>!\n"
+"Você deveria alternar para um branch ou para o trunk principal antes de gravar."
 
 # ID:88,
 #: ID:88
@@ -4443,7 +4442,7 @@ msgid ""
 msgstr ""
 "Sua cópia local foi modificada!\n"
 "Nota: atualizar para outra versão não causa a perda de suas modificações. Então sua cópia local \n"
-"não vão parecer exatamente como se estivesse na  versão atualizada!"
+"não vai parecer exatamente como a versão atualizada!"
 
 #: MenuEntry
 msgid "Zoom &In"
@@ -4484,9 +4483,9 @@ msgid ""
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\n"
-"Marque como \"falso\" se você quer que o bugtracking ID seja inserido no topo da\n"
-" mensagem de log. O padrão é \"verdadeiro\", que implica na  inclusão do bugtracking ID\n"
-" na mensagem de log."
+"Marque como \"falso\" se você quer que o bugtracking ID seja inserido no topo do\n"
+" comentário. O padrão é \"verdadeiro\", que implica na  inclusão do bugtracking ID\n"
+" no comentário."
 
 # ID:14,
 #: ID:14
@@ -4505,8 +4504,8 @@ msgid ""
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\n"
-"Cadeia de caracteres que é adicionada a um comentário quando um issue number for inserido.\n"
-"A cadeia deve conter \"%BUGID%\" que deve ser substituído pelo issue number."
+"Texto que adicionado a um comentário quando um issue number for inserido.\n"
+"O texto deve conter \"%BUGID%\" que deve ser substituído pelo issue number."
 
 # ID:14,
 #: ID:14
@@ -4557,7 +4556,7 @@ msgstr "a versão atual é: %s"
 # ID:10,
 #: ID:10
 msgid "deleted"
-msgstr "deletado"
+msgstr "excluído"
 
 # ID:79,
 #: ID:79
@@ -4667,7 +4666,7 @@ msgid ""
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Se presente, fazer o arquivo excutável. Essa propriedade não pode pertencer a um diretório. Uma tentativa não recursiva irá falhar, e uma tentaviva recursiva configurará a propriedade apenas nos arquivos pertencentes ao diretório."
+"Se presente, fazer o arquivo excutável. Essa propriedade não pode pertencer a um diretório. Uma tentativa não recursiva irá falhar, e uma tentativa recursiva configurará a propriedade apenas nos arquivos pertencentes ao diretório."
 
 # ID:14,
 #: ID:14
@@ -4689,7 +4688,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\n"
-"Uma lista de padrões de arquivo a ignorar separados por quebra de linha."
+"Uma lista de padrões de arquivo a serem ignorarados separados por quebra de linha."
 
 # ID:14,
 #: ID:14
@@ -4703,12 +4702,12 @@ msgid ""
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\n"
-"Palavras chave a serem expandidas.  As palavras chave válidas são:\n"
+"Palavras-chave a serem expandidas.  As palavras-chave válidas são:\n"
 "URL, HeadURL\t\t\tURL para a revisão arual do objeto.\n"
 "Autor, Última alteração por\t\tÚltima pessoa que alterou o arquivo.\n"
 "Data, Última alteração em \t\tData/hora em que o objeto foi alterado pela última vez.\n"
 "Rev, Última revisão alterada\tÚltima revisão do objeto alterado.\n"
-"Id\t\t\t\tUm sumário das 4 palavras chave precedentes."
+"Id\t\t\t\tUm sumário das 4 palavras-chave precedentes."
 
 # ID:14,
 #: ID:14
@@ -4717,7 +4716,7 @@ msgid ""
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"O tipo mime do arquivo. Usado para determinar se o arquivo deve ser combinado, e como serví-lo a partir do Apache. Um tipo mime inciando com 'text/' (ou um tipo mime ausente) é tratado como texto. Qualquer outro é tratado como binário."
+"O tipo mime do arquivo. Usado para determinar se o arquivo deve ser combinado, e como servi-lo a partir do Apache. Um tipo mime inciando com 'text/' (ou um tipo mime ausente) é tratado como texto. Qualquer outro é tratado como binário."
 
 # ID:80,
 #: ID:80
