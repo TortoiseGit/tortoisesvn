@@ -195,7 +195,7 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			<para>
 			Falls Sie die alten Icons nicht überschreiben wollen sondern einfach
 			nur die neuen Icons benutzen müssen Sie die Registry ändern.
-			Unter <filename>HKLM\Software\TortoiseSVN\</filename> ändern Sie
+			Unter <filename>HKCU\Software\TortoiseSVN\</filename> ändern Sie
 			die Schlüssel <literal>ConflictIcon</literal>, <literal>InSubversionIcon</literal>, 
 			<literal>AddedIcon</literal>, <literal>DeletedIcon</literal> und
 			<literal>ModifiedIcon</literal> so dass die Pfade zu den neuen
