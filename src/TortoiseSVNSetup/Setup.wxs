@@ -103,6 +103,7 @@
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseAdded.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseDeleted.ico" Id="_06060DF88EA34CAB9BECB0F277B7D7C6" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_144EF42CC6B14DC8A344CD7656CE7B17" Type="string" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[TARGETDIR]bin\TSVNCache.exe" Id="_C847099F97C04eadA6ED7C1AE15DCCBA" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseInSubversion.ico" Id="_19FFFCD9435246F78F7F76A285870C72" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]bin\TortoiseMerge.exe" Id="_7ABD6ED2AA3E4F869231418117F668E2" Type="string" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\XPStyle\TortoiseModified.ico" Id="_B2E8ECE44B6747A384B8D7B4E567DFED" Type="string" />
@@ -154,6 +155,7 @@
 	        <File Id="F__TortoiseShell" Name="TORTOI~1.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\release\bin\TortoiseSVN.dll" />
 	        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\bin\TortoisePlink.exe" />
 	        <File Id="F__SubWCRev" Name="SUBWCR~1.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release\bin\SubWCRev.exe" />
+	        <File Id="F__TSVNCache" Name="TSVNCA~1.EXE" LongName="TSVNCache.exe" DiskId="1" src="..\..\bin\release\bin\TSVNCache.exe" />
 	        
 	        <Shortcut Id="S__RTFM" Directory="D_TortoisePrgMenu" Name="TORTOI~1" LongName="TortoiseSVN" Advertise="no"
 						Target="[TARGETDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:rtfm" Show="normal" />
