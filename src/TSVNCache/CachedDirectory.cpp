@@ -321,7 +321,8 @@ void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn
 
 CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive) const
 {
-	if(bRecursive)
+	// Don't return recursive status if we're unversioned ourselves.
+	if(bRecursive && m_ownStatus.GetEffectiveStatus() > svn_wc_status_unversioned)
 	{
 		CStatusCacheEntry recursiveStatus(m_ownStatus);
 		recursiveStatus.ForceStatus(GetMostImportantStatus());
