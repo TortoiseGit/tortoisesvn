@@ -324,13 +324,14 @@ BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force)
 	return TRUE;
 }
 
-BOOL SVN::Update(const CTSVNPath& path, SVNRev revision, BOOL recurse)
+BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, BOOL ignoreexternals)
 {
 	SVNPool(localpool);
-	Err = svn_client_update(NULL,
-							path.GetSVNApiPath(),
+	Err = svn_client_update2(NULL,
+							MakePathArray(pathList),
 							revision,
 							recurse,
+							ignoreexternals,
 							m_pctx,
 							localpool);
 

@@ -500,11 +500,7 @@ UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 
 UINT CSVNProgressDlg::ProgressThread()
 {
-	int updateFileCounter = 0;
-
-	// The SetParams function should have loaded something for us
-// See comments in SetParams about this ASSERT
-//	ASSERT(m_targetPathList.GetCount() > 0);
+// The SetParams function should have loaded something for us
 
 	CString temp;
 	CString sWindowTitle;
@@ -541,7 +537,6 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Update:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_UPDATE);
 			SetWindowText(sWindowTitle);
-			updateFileCounter = 0;
 			{
 				int targetcount = m_targetPathList.GetCount();
 				CString sfile;
@@ -550,7 +545,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				UuidMap uuidmap;
 				bool bRecursive = !!(m_options & ProgOptRecursive);
 				SVNRev revstore = m_Revision;
-				for(int nItem = 0; nItem < m_targetPathList.GetCount(); nItem++)
+				for(int nItem = 0; nItem < targetcount; nItem++)
 				{
 					const CTSVNPath& targetPath = m_targetPathList[nItem];
 					SVNStatus st;
@@ -572,11 +567,11 @@ UINT CSVNProgressDlg::ProgressThread()
 									else
 										headrev = iter->second;
 									m_Revision = headrev;
-								} // if (st.status->entry->uuid)
+								}
 								else
 									m_Revision = headrev;
-							} // if (st.status->entry != NULL) 
-						} // if ((headrev = st.GetStatus(strLine)) != (-2)) 
+							}
+						}
 						else
 						{
 							if ((headrev = st.GetStatus(targetPath, FALSE)) != (-2))
@@ -586,20 +581,21 @@ UINT CSVNProgressDlg::ProgressThread()
 							}
 						}
 					} // if (m_Revision.IsHead()) 
-					TRACE(_T("update file %s\n"), targetPath.GetWinPath());
-					SetWindowText(targetPath.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle);
-					if (!m_pSvn->Update(targetPath, m_Revision, bRecursive))
-					{
-						ReportSVNError();
-						break;
-					}
-					updateFileCounter++;
-					m_updatedPath = targetPath;
-				} // while (file.ReadString(strLine)) 
+				} // for(int nItem = 0; nItem < m_targetPathList.GetCount(); nItem++)
+				if (m_targetPathList.GetCount() > 1) 
+					SetWindowText(m_targetPathList.GetCommonDirectory().GetWinPathString()+_T(" - ")+sWindowTitle);
+				else if (m_targetPathList.GetCount() == 1)
+					SetWindowText(m_targetPathList[0].GetWinPathString()+_T(" - ")+sWindowTitle);
+				
+				if (!m_pSvn->Update(m_targetPathList, m_Revision, bRecursive, m_options & ProgOptIgnoreExternals))
+				{
+					ReportSVNError();
+					break;
+				}
 
 				// after an update, show the user the log button, but only if only one single item was updated
 				// (either a file or a directory)
-				if (updateFileCounter == 1)
+				if (m_targetPathList.GetCount() == 1)
 					GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			} 
 			break;
@@ -845,8 +841,10 @@ UINT CSVNProgressDlg::ProgressThread()
 
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
+	if (m_targetPathList.GetCount() != 1)
+		return;
 	CLogDlg dlg;
-	dlg.SetParams(m_updatedPath, m_RevisionEnd, m_nUpdateStartRev, TRUE);
+	dlg.SetParams(m_targetPathList[0], m_RevisionEnd, m_nUpdateStartRev, TRUE);
 	dlg.DoModal();
 }
 

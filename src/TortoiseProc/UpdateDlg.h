@@ -70,4 +70,5 @@ protected:
 public:
 	SVNRev Revision;
 	BOOL m_bNonRecursive;
+	BOOL m_bNoExternals;
 };

@@ -140,11 +140,12 @@ public:
 	BOOL Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force = FALSE);
 	/**
 	 * Update working tree path to revision.
-	 * \param path the file/directory to update
+	 * \param pathList the files/directories to update
 	 * \param revision the revision the local copy should be updated to or -1 for HEAD
 	 * \param recurse 
+	 * \param ignoreexternals if TRUE, don't update externals
 	 */
-	BOOL Update(const CTSVNPath& path, SVNRev revision, BOOL recurse);
+	BOOL Update(const CTSVNPathList& pathList, SVNRev revision, BOOL recurse, BOOL ignoreexternals);
 	/**
 	 * Commit file or directory path into repository, using message as
 	 * the log message.

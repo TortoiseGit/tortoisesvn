@@ -29,6 +29,7 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CUpdateDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_bNonRecursive(FALSE)
+	, m_bNoExternals(FALSE)
 {
 }
 
@@ -41,6 +42,7 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
+	DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
 }
 
 

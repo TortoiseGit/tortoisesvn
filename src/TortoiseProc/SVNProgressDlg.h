@@ -225,8 +225,6 @@ private:
 	bool		m_bMergesAddsDeletesOccurred;
 	int			iFirstResized;
 	BOOL		bSecondResized;
-	// The path of the item we will offer to show a log for, after an 'update' is complete
-	CTSVNPath	m_updatedPath;
 
 private:
 	// In preparation for removing SVN as base class
