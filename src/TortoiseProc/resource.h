@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -364,6 +364,7 @@
 #define IDS_INPUT_COPYLOGMSG            2004
 #define IDS_INPUT_MKDIRLOGMSG           2005
 #define IDS_INPUT_MOVELOGMSG            2006
+#define IDS_INPUT_ADDFOLDERLOGMSG       2007
 #define IDS_BLAME_PROGRESSTITLE         2100
 #define IDS_BLAME_PROGRESSINFO          2101
 #define IDS_BLAME_PROGRESSCANCEL        2102

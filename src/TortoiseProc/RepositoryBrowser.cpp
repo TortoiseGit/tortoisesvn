@@ -42,6 +42,7 @@
 #define ID_POPREFRESH		11
 #define ID_POPBLAME			12
 #define ID_POPCOPYTOWC		13
+#define ID_POPIMPORTFOLDER  14
 //#define ID_POPPROPS			17		commented out because already defined to 17 in LogDlg.h
 
 // CRepositoryBrowser dialog
@@ -284,7 +285,10 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPMKDIR, temp);	// "create directory"
 
 						temp.LoadString(IDS_REPOBROWSE_IMPORT);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORT, temp);	// "Add/Import"
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORT, temp);	// "Add/Import File"
+
+						temp.LoadString(IDS_REPOBROWSE_IMPORTFOLDER);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORTFOLDER, temp);	// "Add/Import Folder"
 					}
 
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
@@ -420,6 +424,37 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				{
 					DeleteSelectedEntries();
 					*pResult = 1; // mark HTREEITEM as deleted
+				}
+				break;
+			case ID_POPIMPORTFOLDER:
+				{
+					CString path;
+					CBrowseFolder folderBrowser;
+					folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+					if (folderBrowser.Show(GetSafeHwnd(), path)==CBrowseFolder::OK)
+					{
+						SVN svn;
+						svn.m_app = &theApp;
+						CWaitCursorEx wait_cursor;
+						CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
+						CInputDlg input(this);
+						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						CUtils::RemoveAccelerators(input.m_sHintText);
+						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						CUtils::RemoveAccelerators(input.m_sTitle);
+						input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
+						CUtils::RemoveAccelerators(input.m_sInputText);
+						if (input.DoModal() == IDOK)
+						{
+							if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
+							{
+								wait_cursor.Hide();
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								return;
+							} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
+							m_treeRepository.AddFile(url+_T("/")+filename);
+						} // if (input.DoModal() == IDOK) 
+					} // if (GetOpenFileName(&ofn)==TRUE) 
 				}
 				break;
 			case ID_POPIMPORT:
