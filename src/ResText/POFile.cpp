@@ -138,6 +138,8 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	File.open(filepath);
 	for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
 	{
+		if (I->first.size() == 0)
+			continue;
 		RESOURCEENTRY entry = I->second;
 		for (std::vector<std::wstring>::iterator II = entry.automaticcomments.begin(); II != entry.automaticcomments.end(); ++II)
 		{
