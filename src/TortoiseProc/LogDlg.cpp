@@ -1900,6 +1900,8 @@ void CLogDlg::DoSizeV1(int delta)
 	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
 	ArrangeLayout();
 	SetSplitterRange();
+	m_LogList.Invalidate();
+	GetDlgItem(IDC_MSGVIEW)->Invalidate();
 }
 
 void CLogDlg::DoSizeV2(int delta)
@@ -1919,6 +1921,8 @@ void CLogDlg::DoSizeV2(int delta)
 	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
 	ArrangeLayout();
 	SetSplitterRange();
+	GetDlgItem(IDC_MSGVIEW)->Invalidate();
+	m_LogMsgCtrl.Invalidate();
 }
 
 LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
