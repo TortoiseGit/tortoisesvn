@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-14 10:35+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2004-07-15 09:21+0100\n"
+"Last-Translator: Johan Stenqvist <johan@stenqvist.se>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1323,6 +1323,10 @@ msgstr "Uteslutningsmönster:"
 msgid "Export Directory:"
 msgstr "Exportera till folder:"
 
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "Exportera även icke versionshanterade filer"
+
 #: ID:9
 msgid "Export..."
 msgstr "Exportera..."
@@ -2559,6 +2563,10 @@ msgid "Subversion configuration file:"
 msgstr "Konfigurationsfil för Subversion:"
 
 #: ID:14
+msgid "Subversion export all here"
+msgstr "Exportera alla filer hit"
+
+#: ID:14
 msgid "Subversion export here"
 msgstr "Exportera filer hit"
 
@@ -3224,10 +3232,6 @@ msgstr ""
 "till\n"
 "%s"
 
-#: ID:79
-msgid "exporting %s to"
-msgstr "Exporterar %s till"
-
 #: ID:13
 msgid "external"
 msgstr "Extern"
@@ -3369,4 +3373,5 @@ msgstr "din version är:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "din version är: %d.%d.%d.%d"
+
 

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-14 10:40+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2004-07-15 09:16+0100\n"
+"Last-Translator: Philippe Torche <philippe.torche(no_spam)@swissonline.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -211,7 +211,6 @@ msgstr "&Fusionner les modifications dans la copie courante depuis l'URL:"
 #: Control-ID:1012
 msgid "&Merging"
 msgstr "&Fusionnement"
-
 #: Control-ID:1049
 msgid "&Network drives"
 msgstr "&Disque réseau"
@@ -884,7 +883,6 @@ msgstr "Continuer"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Copié à distance"
-
 #: ID:73
 msgid "Copy"
 msgstr "Copier"
@@ -1272,6 +1270,10 @@ msgstr "Filtre d'exclusion:"
 msgid "Export Directory:"
 msgstr "Exportation répertoire:"
 
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "Exporter également les fichiers hors du contrôle de version"
+
 #: ID:9
 msgid "Export..."
 msgstr "Exporter..."
@@ -1588,7 +1590,6 @@ msgid ""
 msgstr ""
 "Lieu ou le contenu de l'URL du\n"
 "repository va être sauvegardé."
-
 #: ID:126
 msgid "Log"
 msgstr "Journal"
@@ -2467,6 +2468,10 @@ msgid "Subversion configuration file:"
 msgstr "Fichier de configuration de Subversion:"
 
 #: ID:14
+msgid "Subversion export all here"
+msgstr "Exporter tous les fichiers à cet endroit"
+
+#: ID:14
 msgid "Subversion export here"
 msgstr "Exporter les fichiers de Subversion à cet endroit"
 
@@ -2907,7 +2912,6 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Utiliser la mise en évidence sur la barre de positionnement"
-
 #: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "Utiliser un seul carreau de fenêtre par défaut"
@@ -3106,10 +3110,6 @@ msgstr ""
 "vers\n"
 "%s"
 
-#: ID:79
-msgid "exporting %s to"
-msgstr "exportation de %s vers"
-
 #: ID:13
 msgid "external"
 msgstr "externe"
@@ -3244,4 +3244,5 @@ msgstr "votre version est:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "votre version est: %d.%d.%d.%d"
+
 

@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-07-14 10:34+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2004-07-14 20:14-0500\n"
+"Last-Translator: Boris Musa <boris@kafana.org>\n"
 "Language-Team: *_BA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -239,7 +239,7 @@ msgstr "&Iz RK u URL:"
 #: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
-msgstr "&Vodeća Revizija"
+msgstr "&Vodeću Reviziju (HEAD)"
 
 # Control-ID:57670,#:
 # MenuEntry#:
@@ -549,7 +549,7 @@ msgstr ""
 #: ID:73
 #: Dlg-ID:155
 msgid "Add"
-msgstr "Dodano"
+msgstr "Dodaj"
 
 # ID:110,
 #: ID:110
@@ -628,13 +628,13 @@ msgstr "Nepredna Postavka Razlike"
 #: Dlg-ID:170
 #, fuzzy
 msgid "Advanced Diff/Merge Settings"
-msgstr "Nepredna Postavka Razlike/Spajanja"
+msgstr "Nepredne Postavke Razlike/Spajanja"
 
 # ID:110,
 #: ID:110
 #, fuzzy
 msgid "Advanced Merge Settings"
-msgstr "Nepredna Postavka Spajanja"
+msgstr "Nepredne Postavke Spajanja"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -985,12 +985,12 @@ msgstr "Provjeri Za Obnove"
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Check For Updates..."
-msgstr "Provjeri da li su Obnove Dostupne..."
+msgstr "Provjeri za Obnove..."
 
 # ID:13,
 #: ID:13
 msgid "Check for Updates"
-msgstr "Provjeri da li su Obnove Dostupne"
+msgstr "Provjeri za Obnove"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1642,6 +1642,11 @@ msgstr "Isključni Šablon:"
 msgid "Export Directory:"
 msgstr "Izvezi Direktorij:"
 
+# Control-ID:1073,
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "Izvezi takođe datoteke bez verzije"
+
 # ID:9,
 #: ID:9
 msgid "Export..."
@@ -1764,7 +1769,7 @@ msgstr "Pismo:"
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1"
-msgstr "Za Pomoć, pritisnuti F1"
+msgstr "Za Pomoć Pritisnuti F1"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1839,7 +1844,7 @@ msgstr "Označavanje Ikonama"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "Ikone/Dizajn/Kode:     Luebbe Onken"
+msgstr "Ikone/Dizajn/Kod:     Luebbe Onken"
 
 # ID:194,
 #: ID:194
@@ -2038,7 +2043,7 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr ""
-"Lokacija gdje če sadržaj\n"
+"Lokacija gdje če sadržaj iz\n"
 "spremišta URL-a biti sačuvan."
 
 # ID:126,
@@ -2060,7 +2065,7 @@ msgstr "Poruke iz Zapisnika"
 # ID:3866,
 #: ID:3866
 msgid "Mail system DLL is invalid."
-msgstr "DLL sustav za odašiljanje i prijem poruka je neispravan."
+msgstr "Sistemski DLL elektronske pošte je neispravan."
 
 # Dlg-ID:143,
 #: Dlg-ID:143
@@ -2487,7 +2492,7 @@ msgstr "Stanje Svojstva:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
-msgstr "Vremensko &ograničenje za Proxy u sekundama:"
+msgstr "Vremensko &ograničenje (s):"
 
 # Control-ID:1080,
 #: Control-ID:1080
@@ -2537,7 +2542,7 @@ msgstr "Smanji prozor u ikonu"
 #: ID:101
 #: ID:135
 msgid "Refresh"
-msgstr "Osvježiti"
+msgstr "Osvježi"
 
 # ID:82,
 #: ID:82
@@ -2728,7 +2733,7 @@ msgstr "Vrati u početno stanje sve promjene koje su napravljene nakon zadnje do
 #: ID:76
 #: Control-ID:65535
 msgid "Revision"
-msgstr "Revizija"
+msgstr "Reviziju"
 
 # ID:119,
 #: ID:119
@@ -3180,9 +3185,13 @@ msgstr "Konfiguracijska datoteka za Subversion:"
 
 # ID:13,
 #: ID:14
-#, fuzzy
+msgid "Subversion export all here"
+msgstr "Izvezi ovdje sve Subversion datoteke"
+
+# ID:13,
+#: ID:14
 msgid "Subversion export here"
-msgstr "Kopiraj ovdje Subversion datoteke"
+msgstr "Izvezi ovdje Subversion datoteke"
 
 # ID:79,
 #: ID:79
@@ -3708,12 +3717,12 @@ msgstr "Obnovi element u reviziju"
 # ID:11,
 #: ID:11
 msgid "Updates the working copy to a specific revision"
-msgstr "Osvježi radnu kopiju sa određenom revizijom"
+msgstr "Obnavlja radnu kopiju u određenu reviziju"
 
 # ID:9,
 #: ID:9
 msgid "Updates the working copy to the current revision"
-msgstr "Osvježi radnu kopiju sa aktivnom revizijom"
+msgstr "Obnavlja radnu kopiju u aktivnu reviziju"
 
 # ID:144,
 #: ID:207
@@ -3973,11 +3982,6 @@ msgstr ""
 "u\n"
 "%s"
 
-# ID:79,
-#: ID:79
-msgid "exporting %s to"
-msgstr "izvozi %s u"
-
 # ID:13,
 #: ID:13
 msgid "external"
@@ -4145,4 +4149,5 @@ msgstr "vaša verzija je:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "vaša verzija je: %d.%d.%d.%d"
+
 

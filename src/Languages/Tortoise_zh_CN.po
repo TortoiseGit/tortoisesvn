@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-07-14 10:32+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2004-07-15 09:46+0800\n"
+"Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=GB2312\n"
@@ -1578,6 +1578,11 @@ msgstr "除外样式:"
 msgid "Export Directory:"
 msgstr "汇出目录:"
 
+# Control-ID:1073,
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "汇出无版本控制的档案"
+
 # ID:9,
 #: ID:9
 msgid "Export..."
@@ -3086,6 +3091,11 @@ msgstr "Subversion 设定档:"
 
 # ID:13,
 #: ID:14
+msgid "Subversion export all here"
+msgstr "Subversion 全部汇出至此"
+
+# ID:13,
+#: ID:14
 msgid "Subversion export here"
 msgstr "在此汇出 Subversion"
 
@@ -3861,11 +3871,6 @@ msgstr ""
 "%s\n"
 "至\n"
 "%s"
-
-# ID:79,
-#: ID:79
-msgid "exporting %s to"
-msgstr "正在汇出 %s 至"
 
 # ID:13,
 #: ID:13
