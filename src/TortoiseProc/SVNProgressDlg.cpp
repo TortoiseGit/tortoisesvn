@@ -322,7 +322,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 							}
 						} // if (pDlg->m_nRevision == (-1)) 
 						TRACE(_T("update file %s\n"), strLine);
-						if (!pDlg->Update(strLine, pDlg->m_nRevision, true))
+						if (!pDlg->Update(strLine, pDlg->m_nRevision, (pDlg->m_sModName.Compare(_T("yes"))!=0)))
 						{
 							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
 							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

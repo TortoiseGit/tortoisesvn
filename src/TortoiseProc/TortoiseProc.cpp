@@ -309,19 +309,22 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString path = parser.GetVal(_T("path"));
 			BOOL bUseTempfile = !parser.HasKey(_T("notempfile"));
 			TRACE(_T("tempfile = %s\n"), path);
+			CString sNonRecursive;
 			if (parser.HasKey(_T("rev")))
 			{
 				CUpdateDlg dlg;
 				if (dlg.DoModal() == IDOK)
 				{
 					rev = dlg.m_revnum;
+					if (dlg.m_bNonRecursive)
+						sNonRecursive = _T("yes");
 				}
 				else 
 					return FALSE;
 			}
 			CSVNProgressDlg progDlg;
 			m_pMainWnd = &progDlg;
-			progDlg.SetParams(Update, bUseTempfile, path, _T(""), _T(""), rev);
+			progDlg.SetParams(Update, bUseTempfile, path, _T(""), _T(""), rev, sNonRecursive);
 			progDlg.DoModal();
 		}
 		//#endregion

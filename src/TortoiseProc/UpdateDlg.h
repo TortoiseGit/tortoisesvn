@@ -59,6 +59,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
+	virtual void OnOK();
 	afx_msg HCURSOR OnQueryDragIcon();
 
 	DECLARE_MESSAGE_MAP()
@@ -66,9 +67,8 @@ protected:
 	HICON m_hIcon;
 public:
 	long m_revnum;			///< the revision number the user entered
+	BOOL m_bNonRecursive;
 	CEdit m_editRevNum;
 	afx_msg void OnBnClickedNewest();
 	afx_msg void OnBnClickedRevisionN();
-protected:
-	virtual void OnOK();
 };

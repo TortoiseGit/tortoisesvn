@@ -27,6 +27,7 @@ IMPLEMENT_DYNAMIC(CUpdateDlg, CDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CUpdateDlg::IDD, pParent)
 	, m_revnum(-1)
+	, m_bNonRecursive(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -43,6 +44,7 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 	{
 		DDX_Text(pDX, IDC_REVNUM, m_revnum);
 	}
+	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
 
 
