@@ -193,7 +193,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 	const TCHAR * p = _tcsrchr(filepath, '\\');
 	if (p)
 		pathbuf[p-filepath] = '\0';
-	if (!g_ShellCache.HasSVNAdminDir(pathbuf, bIsFolder))
+	if ((bIsFolder)&&(!g_ShellCache.HasSVNAdminDir(pathbuf, bIsFolder)))
 	{
 		_tcscpy(pathbuf, filepath);
 	}
