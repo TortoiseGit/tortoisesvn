@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-09 10:36+0100\n"
+"PO-Revision-Date: 2005-03-09 12:24+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1155,8 +1155,8 @@ msgid "Compare with &working copy"
 msgstr "Vergleiche mit &Arbeitskopie"
 
 #: ID:12
-msgid "Compares the file with the last commited version to show you the changes you made"
-msgstr "Vergleicht die Datei mit der letzten übertragenen Version, um Ihre Änderungen sichtbar zu machen"
+msgid "Compares the file with the last committed revision to show you the changes you made"
+msgstr "Vergleicht die Datei mit der letzten übertragenen Revision, um Ihre Änderungen sichtbar zu machen"
 
 #: ID:74
 msgid "Completed"
@@ -1275,7 +1275,7 @@ msgstr ""
 
 #: ID:66
 msgid ""
-"Could not retrieve version %s of the file %s.\n"
+"Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
 "Konnte die Revision %s der Datei %s nicht laden.\n"
@@ -1664,8 +1664,8 @@ msgid "Fetching File..."
 msgstr "Hole Datei..."
 
 #: ID:313
-msgid "Fetching version %s of file:"
-msgstr "Hole Version %s der Datei:"
+msgid "Fetching revision %s of file:"
+msgstr "Hole Revision %s der Datei:"
 
 #: ID:63
 #: ID:74
@@ -2970,7 +2970,7 @@ msgid "Short &date/time format in log messages"
 msgstr "&Kurzes Datum/Zeit Format in Log-Meldungen"
 
 #: ID:12
-msgid "Short Url of subversion items"
+msgid "Short Url of Subversion items"
 msgstr "Kurze URL von Subversion Objekten"
 
 #: Control-ID:1031
@@ -3084,7 +3084,7 @@ msgstr "Fehlendes Ziel übersprungen"
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-" should exclude from version control.\n"
+"should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Die Dateien oder Ordner, die TortoiseSVN\n"
@@ -3132,7 +3132,7 @@ msgstr "Subversion Konfigurationsdatei:"
 
 #: ID:14
 msgid "Subversion export all here"
-msgstr "Subversion Export alles hier"
+msgstr "Alle Subversion Objekte hier exportieren"
 
 #: ID:14
 msgid "Subversion export here"
@@ -3451,7 +3451,7 @@ msgstr "Dieses Produkt enthält von CollabNet (http://www.Collab.Net/) entwickel
 
 #: ID:3857
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "Dieses Programm wurde mit dem fehlenden Export %s in der Datei %s gelinkt. Dieser Computer hat eventuell eine nicht kompatible version von %s."
+msgstr "Dieses Programm wurde mit dem fehlenden Export %s in der Datei %s gelinkt. Dieser Computer hat eventuell eine nicht kompatible Version von %s."
 
 #: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
@@ -3571,7 +3571,7 @@ msgid "URL"
 msgstr "URL"
 
 #: ID:12
-msgid "URL of subversion items"
+msgid "URL of Subversion items"
 msgstr "URL von Subversion Objekten"
 
 #: Control-ID:65535
@@ -3837,7 +3837,7 @@ msgid "Yes To All"
 msgstr "Ja für alle"
 
 #: ID:201
-msgid "You already have the most current version installed."
+msgid "You already have the latest version installed."
 msgstr "Sie haben bereits die neueste Version installiert."
 
 #: ID:144
@@ -4141,7 +4141,7 @@ msgstr ""
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
 "Author, LastChangedBy\t\tThe last person to modify the file.\n"
 "Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
@@ -4149,7 +4149,7 @@ msgid ""
 msgstr ""
 "svn:keywords\n"
 "Schlüsselworte, die expandiert werden sollen. Gültige Schlüsselworte sind:\n"
-"URL, HeadURL\t\t\tDie URL für die Head-Version des Objektes.\n"
+"URL, HeadURL\t\t\tDie URL für die Head-Revision des Objektes.\n"
 "Author, LastChangedBy\t\tDie letzte Person, die die Datei geändert hat.\n"
 "Date, LastChangedDate\t\tDas Datum / die Zeit zu der das Objekt zuletzt geändert wurde.\n"
 "Rev, LastChangedRevision\tDie letzte Revision, in der das Objekt geändert wurde.\n"

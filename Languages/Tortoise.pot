@@ -981,7 +981,7 @@ msgid "Compare with &working copy"
 msgstr ""
 
 #: ID:12,
-msgid "Compares the file with the last commited version to show you the changes you made"
+msgid "Compares the file with the last committed revision to show you the changes you made"
 msgstr ""
 
 #: ID:74,
@@ -1077,7 +1077,7 @@ msgid "Could not retrieve URL of the file!\n%s"
 msgstr ""
 
 #: ID:66,
-msgid "Could not retrieve version %s of the file %s.\nPatching is not possible!"
+msgid "Could not retrieve revision %s of the file %s.\nPatching is not possible!"
 msgstr ""
 
 #: ID:64,
@@ -1401,7 +1401,7 @@ msgid "Fetching File..."
 msgstr ""
 
 #: ID:313,
-msgid "Fetching version %s of file:"
+msgid "Fetching revision %s of file:"
 msgstr ""
 
 #: ID:63,#: ID:74,#: ID:77,#: ID:207,
@@ -2489,7 +2489,7 @@ msgid "Short &date/time format in log messages"
 msgstr ""
 
 #: ID:12,
-msgid "Short Url of subversion items"
+msgid "Short Url of Subversion items"
 msgstr ""
 
 #: Control-ID:1031,
@@ -2585,7 +2585,7 @@ msgid "Skipped missing target"
 msgstr ""
 
 #: ID:79,
-msgid "Specify the files or folders which TortoiseSVN\n should exclude from version control.\nSeparate the patterns with a space."
+msgid "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
 msgstr ""
 
 #: Control-ID:65535,
@@ -2889,7 +2889,7 @@ msgid "URL"
 msgstr ""
 
 #: ID:12,
-msgid "URL of subversion items"
+msgid "URL of Subversion items"
 msgstr ""
 
 #: Control-ID:65535,#: Control-ID:1076,
@@ -3101,7 +3101,7 @@ msgid "Yes To All"
 msgstr ""
 
 #: ID:201,
-msgid "You already have the most current version installed."
+msgid "You already have the latest version installed."
 msgstr ""
 
 #: ID:144,
@@ -3293,7 +3293,7 @@ msgid "svn:ignore\nA newline separated list of file patterns to ignore."
 msgstr ""
 
 #: ID:14,
-msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\t\t\tThe URL for the head version of the object.\nAuthor, LastChangedBy\t\tThe last person to modify the file.\nDate, LastChangedDate\t\tThe date/time the object was last modified.\nRev, LastChangedRevision\tThe last revision the object changed.\nId\t\t\t\tA compressed summary of the previous 4 keywords."
+msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\t\t\tThe URL for the head revision of the object.\nAuthor, LastChangedBy\t\tThe last person to modify the file.\nDate, LastChangedDate\t\tThe date/time the object was last modified.\nRev, LastChangedRevision\tThe last revision the object changed.\nId\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 
 #: ID:14,
