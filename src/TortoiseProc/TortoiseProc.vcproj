@@ -111,7 +111,7 @@
 				Name="VCPostBuildEventTool"/>
 			<Tool
 				Name="VCPreBuildEventTool"
-				Description="..\VersionIncrementer ..\version.h"/>
+				CommandLine="..\..\bin\Release\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -734,10 +734,10 @@
 					RelativePath="..\Languages\res\ssh.ico">
 				</File>
 				<File
-					RelativePath="..\Icons\Tortoise.ico">
+					RelativePath="..\Languages\res\Tortoise.ico">
 				</File>
 				<File
-					RelativePath="..\Languages\res\Tortoise.ico">
+					RelativePath="..\Icons\Tortoise.ico">
 				</File>
 				<File
 					RelativePath="..\Icons\Tortoise13by13.ico">

@@ -1,0 +1,11 @@
+#define FILEVER        0,25,0,$WCREV$
+#define PRODUCTVER     0,25,0,$WCREV$
+#define STRFILEVER     "0, 25, 0, $WCREV$\0"
+#define STRPRODUCTVER  "0, 25, 0, $WCREV$\0"
+
+#define TSVN_VERMAJOR             0
+#define TSVN_VERMINOR             25
+#define TSVN_VERMICRO             0
+#define TSVN_VERBUILD			  $WCREV$
+
+

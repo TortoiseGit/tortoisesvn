@@ -153,7 +153,7 @@ BOOL CSetMainPage::OnInitDialog()
 			CString filename = file.Mid(file.ReverseFind('\\')+1);
 			if (filename.Left(13).CompareNoCase(_T("TortoiseMerge"))==0)
 			{
-				if (CUtils::GetVersionFromFile(file).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
+				if (CUtils::GetVersionFromFile(file).Compare(_T(STRPRODUCTVER))!=0)
 					continue;
 				DWORD loc = _tstoi(filename.Mid(13));
 				TCHAR buf[MAX_PATH];

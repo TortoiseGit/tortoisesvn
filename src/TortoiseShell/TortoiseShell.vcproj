@@ -139,7 +139,8 @@
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCPreBuildEventTool"
+				CommandLine="..\..\bin\Release\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool

@@ -72,7 +72,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		langDll.Format(_T("Languages\\TortoiseProc%d.dll"), langId);
 		
 		hInst = LoadLibrary(langDll);
-		if (CUtils::GetVersionFromFile(langDll).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
+		if (CUtils::GetVersionFromFile(langDll).Compare(_T(STRPRODUCTVER))!=0)
 		{
 			FreeLibrary(hInst);
 			hInst = NULL;

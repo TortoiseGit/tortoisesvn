@@ -102,7 +102,8 @@
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCPreBuildEventTool"
+				CommandLine="..\..\bin\Release\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -315,9 +316,6 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
-				RelativePath="..\Languages\resource.h">
-			</File>
-			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -335,6 +333,9 @@
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\Languages\resource.h">
 			</File>
 			<File
 				RelativePath=".\RightView.h">
