@@ -721,7 +721,7 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 	int offset2 = 0;
 	try
 	{
-		rpattern pat( (LPCTSTR)sRegex ); 
+		rpattern pat( (LPCTSTR)sRegex, MULTILINE ); 
 		match_results::backref_type br;
 		do 
 		{

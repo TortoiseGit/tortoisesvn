@@ -123,7 +123,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 				{
 					try
 					{
-						patBugIDRe.init((LPCTSTR)sBugIDRe);
+						patBugIDRe.init((LPCTSTR)sBugIDRe, MULTILINE);
 					}
 					catch (bad_alloc){}
 					catch (bad_regexpr){}
@@ -132,7 +132,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 				{
 					try
 					{
-						patCheckRe.init((LPCTSTR)sCheckRe);
+						patCheckRe.init((LPCTSTR)sCheckRe, MULTILINE);
 					}
 					catch (bad_alloc){}
 					catch (bad_regexpr){}
@@ -458,7 +458,7 @@ public:
 		CString sBugIDRe = _T("(\\d+)");
 		CString msg = _T("this is a test logmessage: issue 222\nIssue #456, #678, 901  #456");
 		match_results results;
-		rpattern pat( (LPCTSTR)sCheckRe ); 
+		rpattern pat( (LPCTSTR)sCheckRe, MULTILINE ); 
 		match_results::backref_type br;
 		do 
 		{
@@ -472,7 +472,7 @@ public:
 					int idoffset1=offset1;
 					int idoffset2=offset2;
 					match_results idresults;
-					rpattern idpat( (LPCTSTR)sBugIDRe );
+					rpattern idpat( (LPCTSTR)sBugIDRe, MULTILINE );
 					match_results::backref_type idbr;
 					do 
 					{
