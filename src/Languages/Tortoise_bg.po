@@ -30,8 +30,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-07-14 10:32+0100\n"
-"Last-Translator: Stefan Küng <stefan.kueng@wagner-group.ch>\n"
+"PO-Revision-Date: 2004-07-15 11:39+0300\n"
+"Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: Lubbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,7 +161,7 @@ msgstr "&Допълнителни..."
 # Control-ID:1013,
 #: Control-ID:1013
 msgid "&Apply Unified Diff"
-msgstr "&Слагане на кръпка от Unified Diff"
+msgstr "&Кърпене с Unified Diff"
 
 # Control-ID:1011,
 #: Control-ID:1011
@@ -757,12 +757,12 @@ msgstr "Прилага Unified Diff към работното копие."
 # ID:13,
 #: ID:13
 msgid "Apply Patch..."
-msgstr "Слагане на кръпка..."
+msgstr "Кърпене..."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply Unified Diff"
-msgstr "Слагане на кръпка от Unified Diff"
+msgstr "Кърпене с Unified Diff"
 
 # ID:79,
 #: ID:79
@@ -1602,6 +1602,11 @@ msgstr "Шаблон за изключване:"
 #: ID:94
 msgid "Export Directory:"
 msgstr "Директория за експорт:"
+
+# Control-ID:1073,
+#: ID:79
+msgid "Export unversioned files too"
+msgstr "Експортиране и на неконтролираните файлове"
 
 # ID:9,
 #: ID:9
@@ -3111,6 +3116,11 @@ msgstr "Конфигурационен файл на Subversion:"
 
 # ID:13,
 #: ID:14
+msgid "Subversion export all here"
+msgstr "Експортиране на всички Subversion файлове тук"
+
+# ID:13,
+#: ID:14
 msgid "Subversion export here"
 msgstr "Subversion експорт до тук"
 
@@ -3886,11 +3896,6 @@ msgstr ""
 "%s\n"
 "в\n"
 "%s"
-
-# ID:79,
-#: ID:79
-msgid "exporting %s to"
-msgstr "експортиране на  %s към"
 
 # ID:13,
 #: ID:13
