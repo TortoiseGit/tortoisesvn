@@ -90,8 +90,10 @@
 			that you access. If you want to make Subversion and TortoiseSVN forget your
 			credentials, you have to delete the corresponding file(s).
 			<tip>
+			<para>
 			If you have to authenticate against a Windows NT domain, enter your username
 			including the domain name, like: <action>MYDOMAIN/johnd</action>.
+			</para>
 			</tip>
 		</para>
 	</sect1>
@@ -1011,41 +1013,44 @@ Rev Comments
 						<para>
 						Click <guibutton>Find</guibutton> if you need to browse the logs to find this revision
 						number. This will probably never be from
-						revision 0.</para>
+						revision 0.
+						</para>
 					</listitem>
 					<listitem>
 						<para>In the <guilabel>To Revision</guilabel> field enter the revision you want to merge
 						the changes into (probably the main branch). You can specify single
-						revisions to merge. This doesn't need to be HEAD.</para>
+						revisions to merge. This doesn't need to be HEAD.
+						</para>
 					</listitem>
 					<listitem>
-						<para>Click <guibutton>OK</guibutton> to complete the merge and enter a log message. Your
+						<para>
+						Click <guibutton>OK</guibutton> to complete the merge and enter a log message. Your
 						log message should <emphasis>always</emphasis> include the revision numbers of this merge.
 						If you want to apply another merge at a later time you will need to know what you
 						have already merged. You can't apply a change more than once.
 						Unfortunately merge information is not stored by Subversion. See the
 						Subversion book for more information about this, (search for "repeated merge problem").
-					</para>
+					  </para>
 					</listitem>
 				</orderedlist>
 				The merge is now complete. It's a good idea to have a look at the merge and see if it's
 				as expected. Merging is usually quite complicated. Conflicts often arise if
 				the branch has drifted far from the trunk.
-				<para>
+			</para>
+			<para>
 				If you want to keep this branch up to date with the trunk, you should immediately merge
 				changes from truck back to the this branch. Use this method and local changes won't get
 				in your way. Of course, you should still avoid re-merging trunk changes, as explained above.
-				</para>
-				<para>
-				<important>
+			</para>
+			<important>
+			<para>
 				Subversion can't merge a file with a folder and vice versa - only
 				folders to folders and files to files. If you click on a file and open up
 				the merge dialog, then you have to give a path to a file in that dialog. If you
 				select a folder and bring up the dialog, then you must specify a folder url
 				for the merge.
-				</important>
-				</para>
 			</para>
+			</important>
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->

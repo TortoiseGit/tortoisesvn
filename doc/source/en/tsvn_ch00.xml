@@ -1,4 +1,4 @@
-<preface id="tsvn-ch-0">
+﻿<preface id="tsvn-ch-0">
 	<title>Preface</title>
 	<simplesect>
 			<graphic srccredit="TortoiseSVN Logo" fileref="images/tortoisesvn_logo_hor468x64.png"/>
@@ -144,8 +144,8 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-ch-0-sect-5">
 		<title>Terminology used in this document</title>
-
-    <para>To make reading the docs easier, all the screens and Menus from TSVN
+    <para>
+		To make reading the docs easier, all the screens and Menus from TSVN
     are marked up in a different font.
     The <guilabel>Log Dialog</guilabel> for instance.
     </para>
@@ -158,9 +158,9 @@
     <emphasis>TortoiseSVN</emphasis> context menu.
     </para>
     <para>
-    </para>
 		User Interface Buttons are indicated like this: Press <guibutton>OK</guibutton>
 		to continue.
+    </para>
     <para>
     User Actions are indicated using a bold font.
     <action>ALT+A</action>: press the
@@ -169,17 +169,17 @@
     <action>Right-drag</action>: press the right mouse button and while holding it down
     <emphasis>drag</emphasis> the items to the new location.
     </para>
-    <para>
-    <important>Important notes are marked with an icon.</important>
-    </para>
-    <para>
-    <tip>Tips that make your life easier.</tip>
-    </para>
-    <para>
-    <caution>Places where you have to be careful what you are doing.</caution>
-    </para>
-    <para>
-    <warning>Where extreme care has to be taken, data corruption or other nasty things may occur.</warning>
-    </para>
+    <important>
+    <para>Important notes are marked with an icon.</para>
+		</important>
+    <tip>
+		<para>Tips that make your life easier.</para>
+		</tip>
+    <caution>
+		<para>Places where you have to be careful what you are doing.</para>
+		</caution>
+    <warning>
+		<para>Where extreme care has to be taken, data corruption or other nasty things may occur.</para>
+		</warning>
 	</sect1>
 </preface>

@@ -73,9 +73,12 @@
 			<title>Installing Apache</title>
 			<para>
 			The first thing you need before installing Apache is a computer
-			with either Windows2000 / WinXP+SP1 or Windows2003. Please note
-			that Windows XP without the servicepack 1 will lead to bogus
+			with either Windows2000 / WinXP+SP1 or Windows2003.
+			<warning>
+			<para>Please note that Windows XP without the servicepack 1 will lead to bogus
 			network data and could therefore corrupt your repository!
+			</para>
+			</warning> 
 				<orderedlist>
 					<listitem>
 						<para>Download the latest version of the Apache
@@ -157,22 +160,29 @@
 				</para>
 				<orderedlist>
 					<listitem>
+					<para>
 					Create an empty folder with the name SVN (e.g. <filename>D:\SVN\</filename>),
-					which is used as root for all your repositories.
+					which is used as root for all your repositories. Remember the name you give
+					to this folder since you need it again when you configure Apache.
+					</para>
 					</listitem>
 					<listitem>
+					<para>
 					Create another folder <filename>MyNewRepository</filename> inside <filename>D:\SVN\</filename>.
+					</para>
 					</listitem>
 					<listitem>
+					<para>
 					Open the command prompt (or DOS-Box), change into 
 					<filename>D:\SVN\</filename> and type
 					<command>svnadmin create MyNewRepository</command>.
 					You can also use TortoiseSVN to create a repository. See 
 					<xref linkend="tsvn-serversetup-local-2" />.
+					</para>
 					</listitem>
 				</orderedlist>
 				<para>
-				Now you've got a new repository located at <filename>C:\SVN\MyNewRepository</filename>.
+				Now you've got a new repository located at <filename>D:\SVN\MyNewRepository</filename>.
 				</para>
 			<para>
 			Now you have set up Apache and Subversion, but Apache doesn't
@@ -181,6 +191,7 @@
 			repositories you have to edit the Apache config file (usually
 			located in <filename>c:\program files\apache group\apache2\conf\httpd.conf
 			</filename>) with any text editor you like (e.g. Notepad):
+
 				<orderedlist>
 					<listitem>
 						<para>Open the config file and find the lines
@@ -207,14 +218,14 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 					specify a complete path to the directory where Subversion
 					is installed. That way you don't have to copy the
 					<filename>*.so</filename> files to the apache directory for
-					every update.</para>
+					every update.
+					</para>
 					</listitem>
 					<listitem>
 						<para>Restart the apache service.</para>
 					</listitem>
 					<listitem>
-						<para>At the end of the Config file add the
-					following lines:
+						<para>At the end of the Config file add the following lines:
 <screen>
 &lt;Location /svn&gt;
 DAV svn
@@ -226,9 +237,10 @@ AuthUserFile passwd
 Require valid-user
 &lt;/Location&gt;
 </screen>
-					This configures Apache so that a Subversion repository is
-					available at http://localhost/svn/yoursubversionproject.
-					The access is restricted to known users/passwords.
+					This configures Apache so that all your Subversion repositories are
+					available at http://MyServer/svn/. The access is restricted to known 
+					users/passwords.
+					</para>
 					<para>A short explanation of what you just entered:
 					<table id="tsvn-serversetup-apache-4-table">
 						<title>Apache httpd.conf Settings</title>
@@ -246,7 +258,7 @@ Require valid-user
 									<entry>&lt;Location /svn&gt;</entry>
 									<entry>means that the Subversion repositories are
 									available from the URL <systemitem class="url">
-									http://server/svn/</systemitem>
+									http://MyServer/svn/</systemitem>
 									</entry>
 								</row>
 								<row>
@@ -257,7 +269,7 @@ Require valid-user
 								</row>
 								<row>
 									<entry>SVNParentPath D:\SVN</entry>
-									<entry>tells Subversion where to find the repositories</entry>
+									<entry>tells Subversion to look for repositories below D:\SVN</entry>
 								</row>
 								<row>
 									<entry>AuthType Basic</entry>
@@ -287,7 +299,11 @@ Require valid-user
 						</tgroup>
 					</table>
 					But that's just an example. There are many, many more
-					possibilities of what you can do with the Apache webserver.</para>
+					possibilities of what you can do with the Apache webserver.
+					</para>
+
+			<itemizedlist>
+				<listitem>
 					<para>If you want your repository to have read
 					access for everyone but write access only for specific
 					users you can change the line
@@ -300,6 +316,8 @@ Require valid-user
 &lt;/LimitExcept&gt;
 </screen>
 					</para>
+				</listitem>
+				<listitem>
 					<para>If you want to give users access only
 					for specific folders inside a repository you have to
 					uncomment the line
@@ -322,7 +340,8 @@ docs = user5,user6,user7
 @docs = rw
 </screen>
 					</para>
-					</para>
+				</listitem>
+			</itemizedlist>
 					</listitem>
 					<listitem>
 						<para>Open again the command prompt (DOS-Box),
@@ -887,12 +906,15 @@ svn+ssh://localhost/repos/TestRepo
 			form: <filename>file:///C:/SVNRepository/</filename>.
 			</para>
 			<warning>
+			<para>
 			Do not access a repository via the <filename>file:///</filename>
 			URL over a shared network drive! Even if you have the network
 			drive mounted to a drive letter! If you do, your repository can
 			(and most likely will) get corrupted and you could lose all your
 			data!
+			</para>
 			</warning>
 		</sect2>
 	</sect1>
 </chapter>
+
