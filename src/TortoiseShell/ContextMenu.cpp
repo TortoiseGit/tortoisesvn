@@ -167,7 +167,7 @@ void CShellExt::InsertSVNMenuBMP(HMENU menu, UINT pos, UINT_PTR id, UINT stringi
 
 HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
 {
-	HICON hIcon = (HICON)LoadImage(g_hmodThisDll, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	HICON hIcon = (HICON)LoadImage(g_hmodThisDll, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 10, 10, LR_DEFAULTCOLOR);
 	if (!hIcon)
 		return NULL;
 
