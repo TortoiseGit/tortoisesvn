@@ -155,7 +155,7 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 			AddString(sText);
 	} while (!sText.IsEmpty() && n < m_nMaxHistoryItems);
 
-	SetCurSel(0);
+	SetCurSel(-1);
 
 	ModifyStyleEx(WS_EX_DLGMODALFRAME | WS_EX_WINDOWEDGE, 0);
 
