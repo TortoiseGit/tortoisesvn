@@ -7,9 +7,9 @@
 			<primary>Apache</primary>
 		</indexterm>
 		<para>
-			Probably the best of all possible server setups for Subversion
-			is the Apache based one. It's not only the most mature
-			and most stable solution but has other benefits as well:
+			The most flexible of all possible server setups for Subversion
+			is the Apache based one. Although a bit more complicated to set up,
+			it offers benefits that other servers cannot:
 		</para>
 		<indexterm>
 			<primary>WebDAV</primary>
@@ -93,7 +93,7 @@
 						the server-URL correctly (if you don't have a dns name
 						for your server just enter the ip-address). I recommend
 						to install apache
-						<literal>for all users, on port 80, as a service</literal>.
+						<literal>for All Users, on Port 80, as a Service</literal>.
 						Note: if you already have IIS or any other
 						program running which listens on port 80 the
 						installation might fail. If that happens, go to the
@@ -144,26 +144,41 @@
 						<primary>mod_authz_svn</primary>
 					</indexterm>
 					<para>
-						Open the windows-explorer, go to the
-						installation directory of Subversion (usually
+						Using the windows explorer, go to the installation
+						directory of Subversion (usually
 						<filename>c:\program files\Subversion</filename>)
 						and find the files
-						<filename>/Apache2/modules/mod_dav_svn.so</filename> and
-						<filename>mod_authz_svn.so</filename>
-						- copy these files to the Apache modules directory,
-						if they're not already installed there.
-						(usually
-						<filename>c:\program files\apache group\apache2\modules)</filename>
+						<filename>/httpd/mod_dav_svn.so</filename> and
+						<filename>mod_authz_svn.so</filename>. Copy these files
+						to the Apache modules directory	(usually
+						<filename>c:\program files\apache group\apache2\modules
+						</filename>).
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Copy the files
-						<filename>libdb42.dll</filename>,
-						<filename>libeay32.dll</filename> and
-						<filename>ssleay32.dll</filename>
-						from the Subversion installation directory to the
-						apache modules directory.
+						Copy the file <filename>/bin/libdb42.dll</filename> from
+						the Subversion installation directory to the Apache
+						modules directory.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Edit Apache's configuration file (usually <filename>
+						C:\Program Files\Apache
+						Group\Apache2\conf\httpd.conf</filename>) with a text
+						editor such as Notepad and make the following changes:
+					</para>
+					<para>
+						Uncomment (remove the '<literal>#</literal>' mark) the
+						following line:
+<screen>#LoadModule dav_fs_module modules/mod_dav_fs.so</screen>
+						Add the following two lines to the end of the
+						<literal>LoadModule</literal> section.
+<screen>
+LoadModule dav_svn_module modules/mod_dav_svn.so
+LoadModule authz_svn_module modules/mod_authz_svn.so
+</screen>
 					</para>
 				</listitem>
 			</orderedlist>
@@ -242,42 +257,7 @@ svnadmin create --fs-type fsfs MyNewRepository
 			located in
 			<filename>c:\program files\apache group\apache2\conf\httpd.conf</filename>)
 			with any text editor you like (e.g. Notepad):
-			<orderedlist>
-				<listitem>
-					<para>
-						Open the config file and find the lines:
-<screen>
-#LoadModule dav_module modules/mod_dav.so
-</screen>
-						and
-<screen>
-#LoadModule dav_fs_module modules/mod_dav_fs.so
-</screen>
-						and remove the comment sign '<literal>#</literal>'.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						At the end of all those LoadModule lines add the lines
-<screen>
-LoadModule dav_svn_module modules/mod_dav_svn.so
-</screen>
-						and
-<screen>
-LoadModule authz_svn_module modules/mod_authz_svn.so
-</screen>
-						Alternatively you can specify a complete path to
-						the directory where Subversion is installed.
-						That way you don't have to copy the
-						<filename>*.so</filename> files to the apache
-						directory for every update.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						Restart the apache service.
-					</para>
-				</listitem>
+		<orderedlist>
 				<listitem>
 					<para>
 						At the end of the Config file add the following lines:
@@ -294,16 +274,20 @@ Require valid-user
 </screen>
 						This configures Apache so that all your Subversion
 						repositories are available at
-						<systemitem class="url">http://MyServer/svn/</systemitem>.
-						The access is restricted to known users/passwords.
+						<systemitem class="url">
+						http://MyServer/svn/</systemitem>.
+						Access is restricted to known users/passwords 
+						listed in the <filename>passwd</filename> file.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Open the command prompt (DOS-Box) again,
+						To create the <filename>passwd</filename>
+						file, open the command prompt (DOS-Box) again,
 						change to the apache2 folder (usually
-						<filename>c:\program files\apache group\apache2</filename>)
-						and create a password file by entering
+						<filename>c:\program files\apache
+						group\apache2</filename>)
+						and create the file by entering
 <screen>
 bin\htpasswd -c passwd &lt;username&gt;
 </screen>
@@ -317,7 +301,7 @@ bin\htpasswd passwd &lt;username&gt;
 				</listitem>
 				<listitem>
 					<para>
-						Restart the apache service again.
+						Restart the Apache service again.
 					</para>
 				</listitem>
 				<listitem>
@@ -431,14 +415,21 @@ Require valid-user
 				</listitem>
 				<listitem>
 					<para>
-						If you want to give users access only
-						for specific folders inside a repository you have to
+						Using a <filename>passwd</filename> file limits and 
+						grants access to all of your repositories as a unit. 
+						If you want more control over which users have 
+						access each folder inside a repository you can 
 						uncomment the line
 <screen>
 #AuthzSVNAccessFile svnaccessfile
 </screen>
-						and create a Subversion access file. An example file
-						would look like this:
+						and create a Subversion access file. Apache will 
+						make sure that only valid users are able to access 
+						your <filename>/svn</filename> location, and will then 
+						pass the username to Subversion's AuthzSVNAccessFile 
+						module so that it can enforce more granular access 
+						based upon rules listed in the Subversion access file.
+						An example file would look like this:
 <screen>
 [groups]
 developers = user1,user2,user3,user4
@@ -491,7 +482,9 @@ docs = user5,user6,user7
 			<para>
 				To avoid that ugly error page and have a nice looking listing
 				of all available projects instead, you can use the following PHP
-				script which generates the index for you automatically.
+				script which generates the index for you automatically.  (You 
+				will need to install PHP on your server in order to use the 
+				below file).
 			</para>
 		</tip>
 		<sidebar>
@@ -580,10 +573,10 @@ docs = user5,user6,user7
 		</indexterm>
 		<para>
 			As you might have noticed you need to make a username/password
-			entry in the passwd file for each user separately. And if
-			(for security reasons) you want your users to change the
-			password from time to time you have to change that each time
-			manually.
+			entry in the <filename>passwd</filename> file for each user 
+			separately. And if (for security reasons) you want your users 
+			to periodically change their passwords you have to make the 
+			change manually.
 		</para>
 		<para>
 			But there's a solution for that problem - at least if you're
@@ -608,12 +601,12 @@ docs = user5,user6,user7
 				<para>
 					Download the module, copy the file
 					<filename>mod_auth_sspi.so</filename>
-					in the apache modules folder.
+					into the Apache modules folder.
 				</para>
 			</listitem>
 			<listitem>
 				<para>
-					Edit the apache config file: add the line
+					Edit the Apache config file: add the line
 <screen>
 LoadModule sspi_auth_module modules/mod_auth_sspi.so
 </screen>
@@ -650,10 +643,50 @@ SSPIOfferBasic On
 		</itemizedlist>
 		<para>
 			Note that if you are authenticating using SSPI, then you don't
-			need the <literal>AuthUserFile</literal> line to define a
+			need the <filename>AuthUserFile</filename> line to define a
 			password file any more. Apache authenticates your username and
-			password against your windows domain instead.
+			password against your windows domain instead.  You will need to 
+			update the users list in your <filename>svnaccessfile</filename> 
+			to reference <literal>DOMAIN\username</literal> as well.
+
 		</para>
+		<tip>
+			<para>
+				Subversion AuthzSVNAccessFile files are case sensitive in 
+				regard to user names ("JUser" is different from "juser"). 
+			</para>
+			<para>
+				In Microsoft's world, Windows domains and usernames are not
+				case sensitive.  Even so, some network administrators like 
+				to create user accounts in CamelCase (e.g. "JUser").
+			</para>
+			<para>
+				This difference can bite you when using SSPI authentication 
+				as the windows domain and user names are passed to Subversion 
+				in the same case as the user types them in at the prompt.  
+				
+				Internet Explorer often passes the username to Apache 
+				automatically using	whatever case the account was created with.
+			</para>
+			<para>
+				The end result is that you may need at least two entries in your
+				AuthzSVNAccessFile for each user -- a lowercase entry and an 
+				entry in the same case that Internet Explorer passes to Apache.  
+				You will also need to train your users to also type in their 
+				credentials	using lower case when accessing repositories via
+				TortoiseSVN.  
+			</para>
+			<para>
+				Apache's Error and Access logs are your best friend in 
+				deciphering problems such as these as they will help you 
+				determine the username string passed onto Subversion's 
+				AuthzSVNAccessFile module. You may need to experiment with
+				the exact format of the user string in the svnaccessfile
+				(e.g. <literal>DOMAIN\user</literal> vs. 
+				<literal>DOMAIN//user</literal>) in order to get 
+				everything working.
+			</para>
+		</tip>
 		<important>
 			<title>SSL and InternetExplorer</title>
 			<para>
@@ -731,8 +764,8 @@ SSPIOfferBasic On
 					of the following lines:
 <screen>
 DocumentRoot "c:/apache/htdocs"
-ServerName new.host.name:443
-ServerAdmin you@your.address
+ServerName www.example.com:443
+ServerAdmin you@example.com
 ErrorLog logs/error_log
 TransferLog logs/access_log
 </screen>
@@ -742,7 +775,7 @@ TransferLog logs/access_log
 				<para>
 					change the line
 <screen>
-SSLCertificateFile c:/apache/conf/ssl.crt/server.crt
+SSLCertificateFile conf/ssl.crt/server.crt
 </screen>
 					to
 <screen>
@@ -750,7 +783,7 @@ SSLCertificateFile conf/ssl/my-server.cert
 </screen>
 					the line
 <screen>
-SSLCertificateKeyFile c:/apache/conf/ssl.key/server.key
+SSLCertificateKeyFile conf/ssl.key/server.key
 </screen>
 					to
 <screen>
@@ -762,7 +795,6 @@ SSLMutex  file:logs/ssl_mutex
 </screen>
 					to
 <screen>
-#SSLMutex  file:logs/ssl_mutex
 SSLMutex  default
 </screen>
 				</para>
@@ -830,8 +862,14 @@ bin\openssl x509 -in my-server.csr -out my-server.cert
 <screen>
 bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 </screen>
-					These commands created some files in the apache folder.
-					Copy the files and to the folder
+					These commands created some files in the Apache folder 
+					(<filename>my-server.der.crt</filename>,
+					<filename>my-server.csr</filename>,
+					<filename>my-server.key</filename>,
+					<filename>.rnd</filename>,
+					<filename>privkey.pem</filename>,
+					<filename>my-server.cert</filename>).
+					Copy the files to the folder
 					<filename>conf/ssl</filename> (e.g.
 					<filename>C:\program files\apache group\apache2\conf\ssl</filename>)
 					- if this folder does not exist you have to create it first.
