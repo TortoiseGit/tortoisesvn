@@ -789,6 +789,14 @@ svn_error_t* SVN::logReceiver(void* baton,
 				cpaths += temp;
 				cpaths += _T(" ");
 				cpaths += path_native.c_str();
+				if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+				{
+					CString copyfrompath = CUnicodeUtils::GetUnicode(log_item->copyfrom_path);
+					CString copyfromrev;
+					copyfromrev.Format(_T(" (from %s:%ld)"), copyfrompath, log_item->copyfrom_rev);
+					cpaths += copyfrompath;
+					cpaths += copyfromrev;
+				}
 				if (i == 500)
 				{
 					temp.Format(_T("\r\n.... and %d more ..."), sorted_paths->nelts - 500);
