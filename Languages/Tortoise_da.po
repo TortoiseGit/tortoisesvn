@@ -4,6 +4,7 @@
 #
 # Author:
 # Jan Normann Nielsen <spam@dubbekarl.dk>
+# Gunther Strube <gbs@users.sourceforge.net>
 #
 msgid ""
 msgstr ""
@@ -715,6 +716,10 @@ msgstr "Forfatter"
 msgid "Author:                        Stefan Kueng"
 msgstr "Forfatter:                     Stefan Kueng"
 
+#: ID:116,
+msgid "Authors"
+msgstr "Forfattere"
+
 #: Control-ID:65535,
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Forfatterre:                  Stefan Kueng, Tim Kemp"
@@ -834,6 +839,11 @@ msgstr "Annullerer SVN ændringsfordeling..."
 #: ID:270,
 msgid "Cancelling operation..."
 msgstr "Annullerer handling..."
+
+#: Control-ID:65535,
+#,fuzzy
+msgid "Cascaded Context Menu"
+msgstr "Cascaded kontekstmenu"
 
 #: ID:82,
 msgid "Certificate expired or not yet valid"
@@ -1045,10 +1055,6 @@ msgstr "Konflikter"
 msgid "Conflicts: %d"
 msgstr "Konflikter: %d"
 
-#: Control-ID:65535,
-msgid "Context Menu"
-msgstr "Kontekstmenu"
-
 #: ID:73,
 msgid "Continue"
 msgstr "Fortsæt"
@@ -1166,8 +1172,8 @@ msgid "Create Repository"
 msgstr "Opret versionsarkiv"
 
 #: ID:8,
-msgid "Create Repository here"
-msgstr "Opret versionsarkiv her"
+msgid "Create Repository here..."
+msgstr "Opret versionsarkiv her..."
 
 #: Control-ID:65535,
 msgid "Create copy in the repository from:"
@@ -1513,6 +1519,10 @@ msgstr "Skrifttype:"
 msgid "For Help, press F1"
 msgstr "Tryk F1 for hjælp"
 
+#: Control-ID:1200,
+msgid "From:"
+msgstr "Fra:"
+
 #: Control-ID:65535,
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Fra: (start-URL og start-revision for intervallet, der skal flettes)"
@@ -1817,6 +1827,14 @@ msgstr "Fletter"
 msgid "Message"
 msgstr "Besked"
 
+#: ID:116,
+msgid "Messages"
+msgstr "Beskeder"
+
+#: ID:116,
+msgid "Messages, Authors And Paths"
+msgstr "Beskeder, forfattere og stier"
+
 #: ID:78,
 msgid "Mime Type"
 msgstr "Mime-type"
@@ -2021,6 +2039,10 @@ msgstr "Korrekturfiler (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 #: ID:77,
 msgid "Path"
 msgstr "Sti"
+
+#: ID:116,
+msgid "Paths"
+msgstr "Stier"
 
 #: ID:157,
 msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
@@ -2296,9 +2318,13 @@ msgstr "Gendannet"
 msgid "Retry"
 msgstr "Prøv igen"
 
-#: ID:8,#: Dlg-ID:175,
+#: Dlg-ID:175,
 msgid "Revert"
 msgstr "Tilbagefør"
+
+#: ID:8,
+msgid "Revert..."
+msgstr "Tilbagefør..."
 
 #: ID:73,
 msgid "Reverted"
@@ -2785,8 +2811,8 @@ msgid "Text Status:"
 msgstr "Tekst-status:"
 
 #: ID:69,
-msgid "The File\n%s\nis not a valid text file!"
-msgstr "Filen\n%s\ner ikke en gyldig tekstfil!"
+msgid "The File\n%s\nis not a valid text file!\nNote that UTF16 and UTF32 files are treated as binary too."
+msgstr "Filen\n%s\ner ikke en gyldig tekstfil!\nBemærk, at UTF16- og UTF32-filer også opfattes som binære."
 
 #: ID:80,
 msgid "The Repository was successfully created."
@@ -2816,6 +2842,10 @@ msgstr "Filen %s blev ikke fundet i korrekturfilen!"
 #: ID:3857,#: ID:3857,
 msgid "The file is too large to open."
 msgstr "Denne fil er for stor til at blive åbnet."
+
+#: ID:145,
+msgid "The file or folder\n%s\nhas local modifications. Do you really want to move this file?"
+msgstr "Filen eller mappen\n%s\nhar lokale ændringer. Er du sikker på, at du vil flytte denne fil?"
 
 #: ID:80,
 msgid "The file\n%s\nalready exists! Do you want to overwrite it?"
@@ -2926,6 +2956,10 @@ msgstr "Tre-fils-sammenligning"
 #: Control-ID:1052,
 msgid "To see the changes you made, double click on the files above."
 msgstr "Dobbeltklik på filerne ovenfor for at se dine ændringer."
+
+#: Control-ID:1201,
+msgid "To:"
+msgstr "Til:"
 
 #: Control-ID:65535,
 msgid "To: (end URL and revision of the range to merge)"
