@@ -50,6 +50,7 @@
 #define IDR_REVISIONGRAPH               183
 #define IDD_OVERLAYICONS                184
 #define IDR_ACC_REVISIONGRAPH           185
+#define IDI_LOGFILTER                   186
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -290,6 +291,8 @@
 #define IDC_SPLITTERTOP                 1191
 #define IDC_SPLITTERBOTTOM              1192
 #define IDC_SPLITTER                    1193
+#define IDC_SEARCHEDIT                  1194
+#define IDC_FILTERICON                  1196
 #define IDS_SSL_CERTIFICATETYPE         1200
 #define IDS_SSL_ACCEPTQUESTION          1201
 #define IDS_SSL_CLIENTCERTIFICATEFILENAME 1202
@@ -439,6 +442,10 @@
 #define IDS_LOG_COPY_SUCCESS            1830
 #define IDS_LOG_MESSAGEEDITTITLE        1831
 #define IDS_LOG_AUTHOREDITTITLE         1832
+#define IDS_LOG_FILTER_ALL              1850
+#define IDS_LOG_FILTER_PATHS            1851
+#define IDS_LOG_FILTER_AUTHORS          1852
+#define IDS_LOG_FILTER_MESSAGES         1853
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902
@@ -578,9 +585,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        186
+#define _APS_NEXT_RESOURCE_VALUE        187
 #define _APS_NEXT_COMMAND_VALUE         32779
-#define _APS_NEXT_CONTROL_VALUE         1194
+#define _APS_NEXT_CONTROL_VALUE         1197
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

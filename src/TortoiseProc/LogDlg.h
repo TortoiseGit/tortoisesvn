@@ -47,6 +47,15 @@
 
 #define ID_DIFF			20
 
+
+#define LOGFILTER_ALL      1
+#define LOGFILTER_MESSAGES 2
+#define LOGFILTER_PATHS    3
+#define LOGFILTER_AUTHORS  4
+
+
+#define LOGFILTER_TIMER		101
+
 /**
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox. 
@@ -73,7 +82,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CLogDlg : public CResizableStandAloneDialog, public SVN
+class CLogDlg : public CResizableStandAloneDialog, public SVN //CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CLogDlg)
 
@@ -103,6 +112,8 @@ protected:
 	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedStatbutton();
 	afx_msg void OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnStnClickedFiltericon();
 	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -125,7 +136,8 @@ private:
 	void DoSizeV1(int delta);
 	void DoSizeV2(int delta);
 	void SetSplitterRange();
-
+	void SetFilterCueText();
+	
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 public:
@@ -146,22 +158,30 @@ private:
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
 	CStringArray m_arLogMessages;
+	CStringArray m_arShortLogMessages;
 	CArray<LogChangedPathArray*, LogChangedPathArray*> m_arLogPaths;
 	CDWordArray	m_arDates;
+	CStringArray m_arDateStrings;
 	CStringArray m_arAuthors;
 	CDWordArray m_arFileChanges;
 	CDWordArray m_arRevs;
 	CDWordArray	m_arCopies;
+	CDWordArray m_arShownList;
 	BOOL		m_hasWC;
 	int			m_nSearchIndex;
 	static const UINT m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
-//	CStringArray	m_templist;
 	CTSVNPathList m_tempFileList;
 	CFont		m_logFont;
 	CString		m_sMessageBuf;
 	CSplitterControl m_wndSplitter1;
 	CSplitterControl m_wndSplitter2;
+	CString		m_sFilterText;
+	int			m_nSelectedFilter;
+	bool		m_bNoDispUpdates;
+public:
+	afx_msg void OnEnChangeSearchedit();
+	afx_msg void OnTimer(UINT nIDEvent);
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 

@@ -49,6 +49,7 @@ IDI_DRIVES              ICON                    "Drives.ico"
 IDI_SSH                 ICON                    "ssh.ico"
 IDI_PROXY               ICON                    "proxy.ico"
 IDI_MISC                ICON                    "misc.ico"
+IDI_LOGFILTER           ICON                    "logfilter.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -226,8 +227,8 @@ CAPTION "Log Messages"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
-                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
-                    WS_TABSTOP,7,31,319,96
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | 
+                    WS_BORDER | WS_TABSTOP,7,24,319,103
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
                     WS_BORDER | WS_TABSTOP,7,231,319,77
     PUSHBUTTON      "Show &All",IDC_GETALL,7,333,50,14
@@ -243,6 +244,9 @@ BEGIN
     PUSHBUTTON      "Statistics",IDC_STATBUTTON,276,312,50,14
     CONTROL         "",IDC_SPLITTERTOP,"Static",SS_BLACKFRAME,7,126,319,5
     CONTROL         "",IDC_SPLITTERBOTTOM,"Static",SS_BLACKFRAME,7,227,319,4
+    EDITTEXT        IDC_SEARCHEDIT,107,7,219,14,ES_AUTOHSCROLL
+    ICON            IDI_LOGFILTER,IDC_FILTERICON,54,7,20,20,SS_NOTIFY | 
+                    SS_CENTERIMAGE | SS_REALSIZEIMAGE
 END
 
 IDD_LOGPROMPT DIALOGEX 0, 0, 300, 279
@@ -1827,6 +1831,14 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOGPROMPT_POPUP_PASTEFILELIST "Paste filename list"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOG_FILTER_ALL      "Messages, Authors And Paths"
+    IDS_LOG_FILTER_PATHS    "Paths"
+    IDS_LOG_FILTER_AUTHORS  "Authors"
+    IDS_LOG_FILTER_MESSAGES "Messages"
 END
 
 #endif    // English (U.S.) resources

@@ -31,6 +31,8 @@
 #include "MessageBox.h"
 #include "Registry.h"
 #include "Utils.h"
+#include "InsertControl.h"
+#include ".\logdlg.h"
 
 // CLogDlg dialog
 
@@ -42,7 +44,9 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_logcounter(0),
 	m_bStrict(FALSE),
 	m_nSearchIndex(0),
-	m_wParam(0)
+	m_wParam(0),
+	m_nSelectedFilter(LOGFILTER_ALL),
+	m_bNoDispUpdates(false)
 {
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
@@ -78,6 +82,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SPLITTERTOP, m_wndSplitter1);
 	DDX_Control(pDX, IDC_SPLITTERBOTTOM, m_wndSplitter2);
 	DDX_Check(pDX, IDC_CHECK_STOPONCOPY, m_bStrict);
+	DDX_Text(pDX, IDC_SEARCHEDIT, m_sFilterText);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -95,6 +100,10 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(EN_LINK, IDC_MSGVIEW, OnEnLinkMsgview)
 	ON_BN_CLICKED(IDC_STATBUTTON, OnBnClickedStatbutton)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGLIST, OnNMCustomdrawLoglist)
+	ON_STN_CLICKED(IDC_FILTERICON, OnStnClickedFiltericon)
+	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGLIST, OnLvnGetdispinfoLoglist)
+	ON_EN_CHANGE(IDC_SEARCHEDIT, OnEnChangeSearchedit)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -188,6 +197,10 @@ BOOL CLogDlg::OnInitDialog()
 
 	SetSplitterRange();
 
+	SetFilterCueText();
+	AddAnchor(IDC_SEARCHEDIT, TOP_RIGHT);
+	InsertControl(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), GetDlgItem(IDC_FILTERICON)->GetSafeHwnd(), INSERTCONTROL_LEFT);
+	
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
 	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
 	AddAnchor(IDC_MSGVIEW, ANCHOR(0, 40), ANCHOR(100, 90));
@@ -274,11 +287,14 @@ void CLogDlg::OnBnClickedGetall()
 
 	m_LogList.DeleteAllItems();
 	m_arLogMessages.RemoveAll();
+	m_arShortLogMessages.RemoveAll();
 	m_arLogPaths.RemoveAll();
 	m_arRevs.RemoveAll();
 	m_arAuthors.RemoveAll();
 	m_arDates.RemoveAll();
+	m_arDateStrings.RemoveAll();
 	m_arCopies.RemoveAll();
+	m_arShownList.RemoveAll();
 	m_logcounter = 0;
 	m_endrev = 1;
 	m_startrev = -1;
@@ -310,7 +326,6 @@ void CLogDlg::OnCancel()
 
 BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies)
 {
-	CString temp;
 	int found = 0;
 	m_LogList.SetRedraw(FALSE);
 	m_logcounter += 1;
@@ -319,12 +334,9 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	m_LogProgress.SetPos(m_startrev-rev+m_endrev);
 	int count = m_LogList.GetItemCount();
 	int lastvisible = m_LogList.GetCountPerPage();
-	temp.Format(_T("%d"),rev);
-	m_LogList.InsertItem(count, temp);
-	m_LogList.SetItemText(count, 1, author);
-	m_LogList.SetItemText(count, 2, date);
 	__time64_t ttime = time/1000000L;
 	m_arDates.Add((DWORD)ttime);
+	m_arDateStrings.Add(date);
 	m_arAuthors.Add(author);
 	m_arFileChanges.Add(filechanges);
 	m_arCopies.Add(copies);
@@ -351,14 +363,15 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	else if (sShortMessage.GetLength() > 80)
 		sShortMessage = sShortMessage.Left(77) + _T("...");
 		
-	m_LogList.SetItemText(count, 3, sShortMessage);
-
+	m_arShortLogMessages.Add(sShortMessage);
+	
+	m_arShownList.Add(m_arShownList.GetCount());
+	
 	//split multiline logentries and concatenate them
 	//again but this time with \r\n as line separators
 	//so that the edit control recognizes them
 	try
 	{
-		temp = "";
 		if (message.GetLength()>0)
 		{
 			m_sMessageBuf = message;
@@ -379,6 +392,7 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 		e->Delete();
 		m_bCancelled = TRUE;
 	}
+	m_LogList.SetItemCountEx(m_arShownList.GetCount());
 	if (count < lastvisible)
 	{
 		m_LogList.SetRedraw();
@@ -437,6 +451,7 @@ UINT CLogDlg::LogThread()
 		if (!ReceiveLog(CTSVNPathList(m_path), m_startrev, m_endrev, true, m_bStrict))
 		{
 			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			m_bShowedAll = FALSE;
 			break;
 		}
 		if (m_endrev <= 1)
@@ -448,16 +463,6 @@ UINT CLogDlg::LogThread()
 		}
 	}
 
-	m_LogList.SetRedraw(false);
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
-	m_LogList.SetRedraw(true);
-
 	temp.LoadString(IDS_MSGBOX_OK);
 	GetDlgItem(IDOK)->SetWindowText(temp);
 	if (!m_bShowedAll)
@@ -468,6 +473,16 @@ UINT CLogDlg::LogThread()
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = TRUE;
 	m_bThreadRunning = FALSE;
+	m_LogList.RedrawItems(0, m_arShownList.GetCount());
+	m_LogList.SetRedraw(false);
+	int mincol = 0;
+	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
+	int col;
+	for (col = mincol; col <= maxcol; col++)
+	{
+		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
+	m_LogList.SetRedraw(true);
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
@@ -497,9 +512,8 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				if (selIndex >= m_LogList.GetItemCount())
 					selIndex = m_LogList.GetItemCount()-1;
 			}
-			//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
 			this->m_nSearchIndex = selIndex;
-			FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
+			FillLogMessageCtrl(m_arLogMessages.GetAt(m_arShownList.GetAt(selIndex)), m_arLogPaths.GetAt(m_arShownList.GetAt(selIndex)));
 			UpdateData(FALSE);
 		}
 		if (pLVKeyDow->wVKey == 'C')
@@ -521,7 +535,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					sMessage.LoadString(IDS_LOG_MESSAGE);
 					while (pos)
 					{
-						int nItem = m_LogList.GetNextSelectedItem(pos);
+						int nItem = m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos));
 						CString sLogCopyText;
 						CString sPaths;
 						LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(nItem);
@@ -584,7 +598,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			point = rect.CenterPoint();
 		}
 		m_nSearchIndex = selIndex;
-
+		selIndex = m_arShownList.GetAt(selIndex);
 		if (selIndex >= 0)
 		{
 			//entry is selected, now show the popup menu
@@ -662,7 +676,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 				case ID_GNUDIFF1:
 					{
-						int selIndex = m_LogList.GetSelectionMark();
+						int selIndex = m_arShownList.GetAt(m_LogList.GetSelectionMark());
 						long rev = m_arRevs.GetAt(selIndex);
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
@@ -686,8 +700,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_GNUDIFF2:
 					{
 						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-						long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-						long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+						long rev1 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev2 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
@@ -767,7 +781,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						//user clicked on the menu item "compare with working copy"
 						//now first get the revision which is selected
-						int selIndex = m_LogList.GetSelectionMark();
+						int selIndex = m_arShownList.GetAt(m_LogList.GetSelectionMark());
 						long rev = m_arRevs.GetAt(selIndex);
 						if ((m_path.IsDirectory())||(!m_hasWC))
 						{
@@ -820,8 +834,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						//user clicked on the menu item "compare revisions"
 						//now first get the revisions which are selected
 						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-						long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-						long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+						long rev1 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+						long rev2 = m_arRevs.GetAt(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 
 						StartDiff(m_path, rev1, m_path, rev2);
 					}
@@ -896,7 +910,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_OPEN:
 					{
 						//now first get the revision which is selected
-						int selIndex = m_LogList.GetSelectionMark();
+						int selIndex = m_arShownList.GetAt(m_LogList.GetSelectionMark());
 						long rev = m_arRevs.GetAt(selIndex);
 
 						CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
@@ -917,7 +931,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				case ID_UPDATE:
 					{
 						//now first get the revision which is selected
-						int selIndex = m_LogList.GetSelectionMark();
+						int selIndex = m_arShownList.GetAt(m_LogList.GetSelectionMark());
 						long rev = m_arRevs.GetAt(selIndex);
 
 						SVN svn;
@@ -947,7 +961,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case ID_REPOBROWSE:
 					{
-						int selIndex = m_LogList.GetSelectionMark();
+						int selIndex = m_arShownList.GetAt(m_LogList.GetSelectionMark());
 						long rev = m_arRevs.GetAt(selIndex);
 						CString url = m_path.GetSVNPathString();
 						if (m_hasWC)
@@ -1002,6 +1016,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		int s = m_LogList.GetSelectionMark();
 		if (s < 0)
 			return;
+		s = m_arShownList.GetAt(s);
 		long rev = m_arRevs.GetAt(s);
 		LogChangedPath * changedpath = m_arLogPaths.GetAt(s)->GetAt(selIndex);
 		//entry is selected, now show the popup menu
@@ -1211,17 +1226,16 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 	int selIndex = pNMLV->iItem;
-	int selSub = pNMLV->iSubItem;
-	BOOL isSpecial = (GetKeyState(VK_SHIFT)<0)&&(selSub==1 || selSub==3);
-	if ((selIndex >= 0)&&(!isSpecial))
+	if (selIndex >= 0)
 	{
+		selIndex = m_arShownList.GetAt(selIndex);
 		CString temp;
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 		SetPromptApp(&theApp);
 		theApp.DoWaitCursor(1);
 		if ((!m_path.IsDirectory())&&(m_hasWC))
 		{
-			long rev = m_arRevs.GetAt(selIndex);
+			long rev = m_arShownList.GetAt(m_arRevs.GetAt(selIndex));
 			CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
 			m_tempFileList.AddPath(tempfile);
 
@@ -1304,19 +1318,19 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 		catch (bad_regexpr) {}
 
 		int i;
-		for (i = this->m_nSearchIndex; i<m_LogList.GetItemCount()&&!bFound; i++)
+		for (i = this->m_nSearchIndex; i<m_arShownList.GetCount()&&!bFound; i++)
 		{
 			if (bRegex)
 			{
 				match_results results;
 				match_results::backref_type br;
-				br = pat.match( (LPCTSTR)m_arLogMessages.GetAt(i), results );
+				br = pat.match( (LPCTSTR)m_arLogMessages.GetAt(m_arShownList.GetAt(i)), results );
 				if (br.matched)
 				{
 					bFound = true;
 					break;
 				}
-				LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+				LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(m_arShownList.GetAt(i));
 				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 				{
 					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
@@ -1345,7 +1359,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 						bFound = true;
 						break;
 					}
-					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(m_arShownList.GetAt(i));
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
@@ -1365,7 +1379,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				}
 				else
 				{
-					CString msg = m_arLogMessages.GetAt(i);
+					CString msg = m_arLogMessages.GetAt(m_arShownList.GetAt(i));
 					msg = msg.MakeLower();
 					CString find = FindText.MakeLower();
 					if (msg.Find(find) >= 0)
@@ -1373,7 +1387,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 						bFound = TRUE;
 						break;
 					}
-					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(m_arShownList.GetAt(i));
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
@@ -1392,7 +1406,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 					}
 				} 
 			}
-		} // for (int i=this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++) 
+		} // for (i = this->m_nSearchIndex; i<m_arShownList.GetItemCount()&&!bFound; i++)
 		if (bFound)
 		{
 			this->m_nSearchIndex = (i+1);
@@ -1400,11 +1414,11 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 			m_LogList.SetItemState(m_LogList.GetSelectionMark(), 0, LVIS_SELECTED);
 			m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 			m_LogList.SetSelectionMark(i);
-			FillLogMessageCtrl(m_arLogMessages.GetAt(i), m_arLogPaths.GetAt(i));
+			FillLogMessageCtrl(m_arLogMessages.GetAt(m_arShownList.GetAt(i)), m_arLogPaths.GetAt(m_arShownList.GetAt(i)));
 			UpdateData(FALSE);
 			m_nSearchIndex++;
-			if (m_nSearchIndex >= m_arLogMessages.GetCount())
-				m_nSearchIndex = (int)m_arLogMessages.GetCount()-1;
+			if (m_nSearchIndex >= m_arShownList.GetCount())
+				m_nSearchIndex = (int)m_arShownList.GetCount()-1;
 		}
     } // if(m_pFindDialog->FindNext()) 
 
@@ -1425,6 +1439,7 @@ void CLogDlg::OnOK()
 		int selIndex = m_LogList.GetSelectionMark();
 		if (selIndex >= 0)
 		{	
+			selIndex = m_arShownList.GetAt(selIndex);
 			LONG lowerRev = m_arRevs.GetAt(selIndex);
 			LONG higherRev = lowerRev;
 			POSITION pos = m_LogList.GetFirstSelectedItemPosition();
@@ -1453,6 +1468,7 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	int s = m_LogList.GetSelectionMark();
 	if (s < 0)
 		return;
+	s = m_arShownList.GetAt(s);
 	long rev = m_arRevs.GetAt(s);
 	LogChangedPath * changedpath = m_arLogPaths.GetAt(s)->GetAt(selIndex);
 
@@ -1493,6 +1509,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	filepath = GetRepositoryRoot(CTSVNPath(filepath));
 
 	int s = m_LogList.GetSelectionMark();
+	s = m_arShownList.GetAt(s);
 	LogChangedPath * changedpath = m_arLogPaths.GetAt(s)->GetAt(selIndex);
 
 	CString firstfile = changedpath->sPath;
@@ -1771,7 +1788,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			if (m_LogList.GetSelectedCount() > 1)
 				FillLogMessageCtrl(_T(" "), NULL);
 			else
-				FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
+				FillLogMessageCtrl(m_arLogMessages.GetAt(m_arShownList.GetAt(selIndex)), m_arLogPaths.GetAt(m_arShownList.GetAt(selIndex)));
 			UpdateData(FALSE);
 		}
 	}
@@ -1832,9 +1849,9 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-		if (m_arCopies.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		if (m_arShownList.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
-			if (m_arCopies.GetAt(pLVCD->nmcd.dwItemSpec))
+			if (m_arCopies.GetAt(m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec)))
 				crText = GetSysColor(COLOR_HIGHLIGHT);
 
 			// Store the color back in the NMLVCUSTOMDRAW struct.
@@ -1937,6 +1954,257 @@ void CLogDlg::SetSplitterRange()
 		ScreenToClient(rcBottom);
 		m_wndSplitter2.SetRange(rcMiddle.top+20, rcBottom.bottom-20);
 	}
+}
+
+void CLogDlg::OnStnClickedFiltericon()
+{
+	CRect rect;
+	CPoint point;
+	CString temp;
+	GetDlgItem(IDC_FILTERICON)->GetWindowRect(rect);
+	point = rect.CenterPoint();
+#define LOGMENUFLAGS(x) (MF_STRING | MF_ENABLED | (m_nSelectedFilter == x ? MF_CHECKED : MF_UNCHECKED))
+	CMenu popup;
+	if (popup.CreatePopupMenu())
+	{
+		temp.LoadString(IDS_LOG_FILTER_ALL);
+		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_ALL), LOGFILTER_ALL, temp);
+
+		popup.AppendMenu(MF_SEPARATOR, NULL);
+		
+		temp.LoadString(IDS_LOG_FILTER_MESSAGES);
+		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_MESSAGES), LOGFILTER_MESSAGES, temp);
+		temp.LoadString(IDS_LOG_FILTER_PATHS);
+		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_PATHS), LOGFILTER_PATHS, temp);
+		temp.LoadString(IDS_LOG_FILTER_AUTHORS);
+		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_AUTHORS), LOGFILTER_AUTHORS, temp);
+		m_nSelectedFilter = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		
+		SetFilterCueText();
+		SetTimer(LOGFILTER_TIMER, 1000, NULL);
+	}
+}
+
+void CLogDlg::SetFilterCueText()
+{
+	CString temp;
+	switch (m_nSelectedFilter)
+	{
+	case LOGFILTER_ALL:
+		temp.LoadString(IDS_LOG_FILTER_ALL);
+		break;
+	case LOGFILTER_MESSAGES:
+		temp.LoadString(IDS_LOG_FILTER_MESSAGES);
+		break;
+	case LOGFILTER_PATHS:
+		temp.LoadString(IDS_LOG_FILTER_PATHS);
+		break;
+	case LOGFILTER_AUTHORS:
+		temp.LoadString(IDS_LOG_FILTER_AUTHORS);
+		break;
+	}
+	// to make the cue banner text appear more to the right of the edit control
+	temp = _T("   ")+temp;	
+	::SendMessage(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), EM_SETCUEBANNER, 0, (LPARAM)(LPCTSTR)temp);
+}
+
+void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+
+	//Create a pointer to the item
+	LV_ITEM* pItem= &(pDispInfo)->item;
+
+	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(pItem->iItem >= m_arShownList.GetCount()))
+	{
+		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+		*pResult = 0;
+		return;
+	}
+
+	//Which item number?
+	int itemid = m_arShownList.GetAt(pItem->iItem);
+
+	//Do the list need text information?
+	if (pItem->mask & LVIF_TEXT)
+	{
+		//Which column?
+		switch (pItem->iSubItem)
+		{
+		case 0:	//revision
+			_stprintf(pItem->pszText, _T("%ld"), m_arRevs.GetAt(itemid));
+			break;
+		case 1: //author
+			lstrcpyn(pItem->pszText, m_arAuthors.GetAt(itemid), pItem->cchTextMax);
+			break;
+		case 2: //date
+			lstrcpyn(pItem->pszText, m_arDateStrings.GetAt(itemid), pItem->cchTextMax);
+			break;
+		case 3: //message
+			lstrcpyn(pItem->pszText, m_arShortLogMessages.GetAt(itemid), pItem->cchTextMax);
+			break;
+		}
+	}
+
+	*pResult = 0;
+}
+
+void CLogDlg::OnEnChangeSearchedit()
+{
+	UpdateData();
+	if (m_sFilterText.IsEmpty())
+	{
+		// clear the filter, i.e. make all entries appear
+		theApp.DoWaitCursor(1);
+		KillTimer(LOGFILTER_TIMER);
+		FillLogMessageCtrl(_T(""), NULL);
+		m_bNoDispUpdates = true;
+		m_arShownList.RemoveAll();
+		for (INT_PTR i=0; i<m_arLogMessages.GetCount(); ++i)
+			m_arShownList.Add(i);
+		m_bNoDispUpdates = false;
+		m_LogList.SetItemCountEx(m_arShownList.GetCount());
+		m_LogList.RedrawItems(0, m_arShownList.GetCount());
+		m_LogList.SetRedraw(false);
+		int mincol = 0;
+		int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
+		int col;
+		for (col = mincol; col <= maxcol; col++)
+		{
+			m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+		}
+		m_LogList.SetRedraw(true);
+		theApp.DoWaitCursor(-1);
+		return;
+	}
+	SetTimer(LOGFILTER_TIMER, 1000, NULL);
+}
+
+void CLogDlg::OnTimer(UINT nIDEvent)
+{
+	if (nIDEvent == LOGFILTER_TIMER)
+	{
+		theApp.DoWaitCursor(1);
+		KillTimer(LOGFILTER_TIMER);
+		FillLogMessageCtrl(_T(""), NULL);
+		// now start filter the log list
+		m_bNoDispUpdates = true;
+		
+		m_arShownList.RemoveAll();
+		bool bRegex = false;
+		rpattern pat;
+		try
+		{
+			pat.init( (LPCTSTR)m_sFilterText, MULTILINE | NOCASE );
+			bRegex = true;
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr) {}
+		
+		for (INT_PTR i=0; i<m_arLogMessages.GetCount(); ++i)
+		{
+			if (bRegex)
+			{
+				match_results results;
+				match_results::backref_type br;
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
+				{
+					br = pat.match( (LPCTSTR)m_arLogMessages.GetAt(i), results );
+					if (br.matched)
+					{
+						m_arShownList.Add(i);
+						continue;
+					}
+				}
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
+				{
+					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+					{
+						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+						br = pat.match( (LPCTSTR)cpath->sCopyFromPath, results);
+						if (br.matched)
+						{
+							m_arShownList.Add(i);
+							continue;
+						}
+						br = pat.match( (LPCTSTR)cpath->sPath, results);
+						if (br.matched)
+						{
+							m_arShownList.Add(i);
+							continue;
+						}
+					}
+				}
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
+				{
+					br = pat.match( (LPCTSTR)m_arAuthors.GetAt(i), results );
+					if (br.matched)
+					{
+						m_arShownList.Add(i);
+						continue;
+					}
+				}
+			} // if (bRegex)
+			else
+			{
+				CString find = m_sFilterText.MakeLower();
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
+				{
+					CString msg = m_arLogMessages.GetAt(i);
+					msg = msg.MakeLower();
+					if (msg.Find(find) >= 0)
+					{
+						m_arShownList.Add(i);
+						continue;
+					}
+				}
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
+				{
+					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+					{
+						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+						if (cpath->sCopyFromPath.MakeLower().Find(find)>=0)
+						{
+							m_arShownList.Add(i);
+							continue;
+						}
+						if (cpath->sPath.MakeLower().Find(find)>=0)
+						{
+							m_arShownList.Add(i);
+							continue;
+						}
+					}
+				}
+				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
+				{
+					CString msg = m_arAuthors.GetAt(i);
+					msg = msg.MakeLower();
+					if (msg.Find(find) >= 0)
+					{
+						m_arShownList.Add(i);
+						continue;
+					}
+				}
+			} // else (from if (bRegex))	
+		} // for (INT_PTR i=0; i<m_arLogMessages.GetCount(); ++i)
+		
+		m_bNoDispUpdates = false;
+		m_LogList.SetItemCountEx(m_arShownList.GetCount());
+		m_LogList.RedrawItems(0, m_arShownList.GetCount());
+		m_LogList.SetRedraw(false);
+		int mincol = 0;
+		int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
+		int col;
+		for (col = mincol; col <= maxcol; col++)
+		{
+			m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+		}
+		m_LogList.SetRedraw(true);
+		theApp.DoWaitCursor(-1);
+	} // if (nIDEvent == LOGFILTER_TIMER)
+	__super::OnTimer(nIDEvent);
 }
 
 
