@@ -264,6 +264,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pReply, DWORD* pResponseLength)
 {
 	CTSVNPath path;
+	*pResponseLength = 0;
 	if(pRequest->flags & TSVNCACHE_FLAGS_FOLDERISKNOWN)
 	{
 		path.SetFromWin(pRequest->path, !!(pRequest->flags & TSVNCACHE_FLAGS_ISFOLDER));
@@ -278,6 +279,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 VOID PipeThread(LPVOID lpvParam)
 {
+	ATLTRACE("PipeThread started\n");
 	bool * bRun = (bool *)lpvParam;
 	// The main loop creates an instance of the named pipe and 
 	// then waits for a client to connect to it. When the client 
@@ -341,6 +343,7 @@ VOID PipeThread(LPVOID lpvParam)
 
 VOID InstanceThread(LPVOID lpvParam) 
 { 
+	ATLTRACE("InstanceThread started\n");
 	TSVNCacheResponse response; 
 	DWORD cbBytesRead, cbWritten; 
 	BOOL fSuccess; 

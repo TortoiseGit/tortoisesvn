@@ -85,12 +85,14 @@ void CSVNStatusCache::Create()
 exit:
 	CloseHandle(hFile);
 	DeleteFile(path);
+	ATLTRACE("cache loaded from disk successfully!\n");
 	return;
 error:
 	CloseHandle(hFile);
 	DeleteFile(path);
 	delete m_pInstance;
 	m_pInstance = new CSVNStatusCache;
+	ATLTRACE("cache not loaded from disk\n");
 }
 void CSVNStatusCache::Destroy()
 {
