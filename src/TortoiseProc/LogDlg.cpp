@@ -993,15 +993,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								break;
 							}
 						}
-						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						temp = temp.Mid(temp.Find(' '));
-						if (temp.Find('(')>=0)
-						{
-							temp = temp.Left(temp.Find('(')-1);
-						}
-						temp = temp.Trim();
-						filepath += temp;
+						filepath += changedpath->sPath;
 						CPropDlg dlg;
 						dlg.m_rev = rev;
 						dlg.m_sPath = filepath;
@@ -1035,15 +1028,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								break;
 							}
 						}
-						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						temp = temp.Mid(temp.Find(' '));
-						if (temp.Find('(')>=0)
-						{
-							temp = temp.Left(temp.Find('(')-1);
-						}
-						temp = temp.Trim();
-						filepath += temp;
+						filepath += changedpath->sPath;
 
 						OPENFILENAME ofn;		// common dialog box structure
 						TCHAR szFile[MAX_PATH];  // buffer for file name
@@ -1130,15 +1116,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								break;
 							}
 						}
-						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 						filepath = GetRepositoryRoot(CTSVNPath(filepath));
-						temp = temp.Mid(temp.Find(' '));
-						if (temp.Find('(')>=0)
-						{
-							temp = temp.Left(temp.Find('(')-1);
-						}
-						temp = temp.Trim();
-						filepath += temp;
+						filepath += changedpath->sPath;
 
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(filepath));
 						m_tempFileList.AddPath(tempfile);
@@ -1310,6 +1289,10 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					else
 						dlg.m_sInputText.Empty();
 					m_arLogMessages.SetAt(selIndex, dlg.m_sInputText);
+					CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+					pMsgView->SetWindowText(_T(" "));
+					pMsgView->SetWindowText(dlg.m_sInputText);
+					m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
 				}
 			}
 		}
@@ -1469,7 +1452,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 			theApp.DoWaitCursor(-11);
 			return;		//exit
-		} // if ((rev == (-2))||(status.status->entry == NULL))
+		}
 	}
 	m_bCancelled = FALSE;
 	filepath = GetRepositoryRoot(CTSVNPath(filepath));
