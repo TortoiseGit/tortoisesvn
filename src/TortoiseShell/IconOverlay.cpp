@@ -172,7 +172,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 		{
 			TCHAR buf[MAX_PATH];
 			_tcscpy(buf, sPath.c_str());
-			_tcscat(buf, _T("\\.svn"));
+			_tcscat(buf, _T("\\"));
+			_tcscat(buf, _T(SVN_WC_ADM_DIR_NAME));
 			if (PathFileExists(buf))
 			{
 				if (!g_ShellCache.IsRecursive())

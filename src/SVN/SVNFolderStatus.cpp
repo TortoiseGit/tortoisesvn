@@ -335,14 +335,16 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 		if (ptr != 0)
 		{
 			*ptr = 0;
-			_tcscat(pathbuf, _T("/.svn"));
+			_tcscat(pathbuf, _T("/"));
+			_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 			if (!PathFileExists(pathbuf))
 				return &invalidstatus;
 		}
 	} // if (!isFolder)
 	else
 	{
-		_tcscat(pathbuf, _T("/.svn"));
+		_tcscat(pathbuf, _T("/"));
+		_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 		if (!PathFileExists(pathbuf))
 			return &invalidstatus;
 	}
@@ -355,8 +357,8 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 			m_pStatusCache[index-SVNFOLDERSTATUS_FOLDER].askedcounter--;
 #ifdef _DEBUG
 			SVNStatus::GetStatusString(m_pStatusCache[index-SVNFOLDERSTATUS_FOLDER].status, pathbuf);
-#endif
 			ATLTRACE2(_T("cache found for %s - %s\n"), filepath, pathbuf);
+#endif
 			return &m_pStatusCache[index-SVNFOLDERSTATUS_FOLDER];
 		} // if (index >= SVNFOLDERSTATUS_FOLDER)
 		m_FolderCache[index].askedcounter--;

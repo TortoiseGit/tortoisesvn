@@ -126,8 +126,9 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
 		if (ptr == 0)
 			return svn_wc_status_unversioned;
 		*ptr = 0;
-	}
-	_tcscat(pathbuf, _T("\\.svn"));
+	} // if (!isDir)
+	_tcscat(pathbuf, _T("\\"));
+	_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 	if (!PathFileExists(pathbuf))
 		return svn_wc_status_unversioned;
 	if ((isDir)&&(!recursive))

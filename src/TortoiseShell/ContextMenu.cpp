@@ -131,7 +131,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				if (ptr != 0)
 				{
 					*ptr = 0;
-					_tcsncat(buf, _T("\\.svn"), MAX_PATH);
+					_tcsncat(buf, _T("\\"), MAX_PATH);
+					_tcsncat(buf, _T(SVN_WC_ADM_DIR_NAME), MAX_PATH);
 					if (PathFileExists(buf))
 						isInVersionedFolder = true;
 				}
