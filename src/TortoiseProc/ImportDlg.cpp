@@ -28,7 +28,6 @@
 IMPLEMENT_DYNAMIC(CImportDlg, CDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CImportDlg::IDD, pParent)
-	, m_bUseFolderAsModule(false)
 {
 	m_message.LoadString(IDS_IMPORT_DEFAULTMSG);
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -44,7 +43,6 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_MESSAGE, m_message);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
-	DDX_Control(pDX, IDC_MODULENAMECHECK, m_folderCheck);
 }
 
 
@@ -117,7 +115,6 @@ void CImportDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_url = m_URLCombo.GetString();
 	UpdateData();
-	m_bUseFolderAsModule = (m_folderCheck.GetCheck() == BST_CHECKED);
 	CDialog::OnOK();
 }
 

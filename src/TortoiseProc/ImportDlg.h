@@ -80,7 +80,5 @@ protected:
 public:
 	CButton m_butBrowse;
 	afx_msg void OnBnClickedBrowse();
-	bool m_bUseFolderAsModule;
-	CButton m_folderCheck;
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

@@ -146,9 +146,6 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
     GROUPBOX        "Репозиторий",IDC_STATIC,7,7,256,53
-    CONTROL         "Использовать имя папки как название модуля",
-                    IDC_MODULENAMECHECK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,42,194,10
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 228, 107

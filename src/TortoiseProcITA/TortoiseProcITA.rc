@@ -267,9 +267,6 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
     GROUPBOX        "Archivio",IDC_STATIC,7,7,255,53
-    CONTROL         "usa il nome della cartella come modulo",
-                    IDC_MODULENAMECHECK,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,42,153,10
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 228, 103

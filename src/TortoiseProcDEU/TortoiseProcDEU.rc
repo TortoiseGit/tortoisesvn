@@ -249,8 +249,6 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
     GROUPBOX        "Repository",IDC_STATIC,7,7,255,53
-    CONTROL         "Benutze Ordnername als Modulename",IDC_MODULENAMECHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,42,142,10
 END
 
 IDD_CHECKOUT DIALOGEX 0, 0, 269, 145
