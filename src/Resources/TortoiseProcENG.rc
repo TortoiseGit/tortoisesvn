@@ -1245,7 +1245,7 @@ BEGIN
     IDS_SETTINGS_EXTDIFF_TT "An external diff program used\nfor comparing different revisions of files\n<hr=100%>\nYou can specify the following parameters to the path:\n%base\tthe base file\n%mine\tthe modified file"
     IDS_SETTINGS_EXTDIFFBROWSE_TT "Browse for the external diff program"
     IDS_SETTINGS_CHANGEDDIRS_TT 
-                            "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+                            "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 END
 
 STRINGTABLE 
@@ -1570,7 +1570,7 @@ BEGIN
     IDS_SETTINGS_COMMITFILETIMES_TT 
                             "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
     IDS_SETTINGS_SHELLFORCEREFRESH_TT 
-                            "When checked, forces a refresh of the shell overlay icons after each operation.\nSince this can slow down the explorer use it only on fast systems."
+                            "When checked, forces a refresh of the shell overlay icons after each operation.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 END
 
 STRINGTABLE 
