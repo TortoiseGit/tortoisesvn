@@ -457,7 +457,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUMERGE, idCmdFirst, Merge);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUMERGE, IDI_MERGE, idCmdFirst, Merge);
-	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+	if (isFolder)
 		if (ownerdrawn)
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUEXPORT, idCmdFirst, Export);
 		else

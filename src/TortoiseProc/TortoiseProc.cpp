@@ -381,46 +381,66 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			TCHAR saveto[MAX_PATH];
 			CString path = parser.GetVal(_T("path"));
-			CBrowseFolder folderBrowser;
-			temp.LoadString(IDS_PROC_EXPORT_1);
-			folderBrowser.SetInfo(temp);
-			folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-			if (folderBrowser.Show(EXPLORERHWND, saveto)==CBrowseFolder::OK)
+			if (SVNStatus::GetAllStatus(path) == svn_wc_status_unversioned)
 			{
-				CString saveplace = CString(saveto);
-				saveplace += path.Right(path.GetLength() - path.ReverseFind('\\'));
-				TRACE(_T("export %s to %s\n"), path, saveto);
-				CProgressDlg progDlg;
-				if (progDlg.IsValid())
+				CCheckoutDlg dlg;
+				dlg.m_strCheckoutDirectory = path;
+				CString temp;
+				temp.LoadString(IDS_PROGRS_TITLE_EXPORT);
+				dlg.SetWindowText(temp);
+				if (dlg.DoModal() == IDOK)
 				{
-					CString temp;
-					temp.Format(IDS_PROC_EXPORT_2, path);
-					progDlg.SetLine(1, temp, true);
-					progDlg.SetLine(2, saveto, true);
-					temp.LoadString(IDS_PROC_EXPORT_3);
-					progDlg.SetTitle(temp);
-					progDlg.SetShowProgressBar(false);
-					progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
-					progDlg.SetAnimation(IDR_ANIMATION);
-				} // if (progDlg.IsValid()){
-				SVN svn;
-				if (!svn.Export(path, saveplace, -1))
-				{
-					if (progDlg.IsValid())
-					{
-						progDlg.Stop();
-					}
-					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK);
+					path = dlg.m_strCheckoutDirectory;
+
+					CSVNProgressDlg progDlg;
+					m_pMainWnd = &progDlg;
+					progDlg.SetParams(Export, false, path, dlg.m_URL, _T(""), dlg.m_lRevision);
+					progDlg.DoModal();
 				}
-				else
+			}
+			else
+			{
+				CBrowseFolder folderBrowser;
+				temp.LoadString(IDS_PROC_EXPORT_1);
+				folderBrowser.SetInfo(temp);
+				folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+				if (folderBrowser.Show(EXPLORERHWND, saveto)==CBrowseFolder::OK)
 				{
+					CString saveplace = CString(saveto);
+					saveplace += path.Right(path.GetLength() - path.ReverseFind('\\'));
+					TRACE(_T("export %s to %s\n"), path, saveto);
+					CProgressDlg progDlg;
 					if (progDlg.IsValid())
 					{
-						progDlg.Stop();
+						CString temp;
+						temp.Format(IDS_PROC_EXPORT_2, path);
+						progDlg.SetLine(1, temp, true);
+						progDlg.SetLine(2, saveto, true);
+						temp.LoadString(IDS_PROC_EXPORT_3);
+						progDlg.SetTitle(temp);
+						progDlg.SetShowProgressBar(false);
+						progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
+						progDlg.SetAnimation(IDR_ANIMATION);
+					} // if (progDlg.IsValid()){
+					SVN svn;
+					if (!svn.Export(path, saveplace, -1))
+					{
+						if (progDlg.IsValid())
+						{
+							progDlg.Stop();
+						}
+						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK);
 					}
-					CString temp;
-					temp.Format(IDS_PROC_EXPORT_4, path, saveplace);
-					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_OK);
+					else
+					{
+						if (progDlg.IsValid())
+						{
+							progDlg.Stop();
+						}
+						CString temp;
+						temp.Format(IDS_PROC_EXPORT_4, path, saveplace);
+						CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_OK);
+					}
 				}
 			}
 		}
