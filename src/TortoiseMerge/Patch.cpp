@@ -134,6 +134,10 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					TCHAR type  = sLine.GetAt(0);
 					if (type == '\\')
 						break;
+					if (sLine.Left(14).Compare(_T("Cannot display"))==0)
+						break;
+					if (sLine.Left(13).Compare(_T("svn:mime-type"))==0)
+						break;
 					//But before throwing an error, check first if 
 					//instead of a new filediff we just have a new chunk:
 					if (nIndex > 0)
@@ -178,7 +182,7 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					//seems to be either garbage or just
 					//a binary file. So start over...
 					state = 0;
-
+					nIndex--;
 					break;
 					//m_sErrorMessage.Format(IDS_ERR_PATCH_NOREMOVEFILELINE, nIndex);
 					//goto errorcleanup;

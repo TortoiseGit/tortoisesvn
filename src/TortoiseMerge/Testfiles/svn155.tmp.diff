@@ -1,0 +1,567 @@
+Index: D:/Something/CS/Something.Else.2/Something.Else.build
+===================================================================
+--- D:/Something/CS/Something.Else.2/Something.Else.build	(revision 0)
++++ D:/Something/CS/Something.Else.2/Something.Else.build	(working copy)
+@@ -0,0 +1,55 @@
++<?xml version="1.0"?>
++<project name="Something.Else" default="build" basedir=".">
++    	<description>build file for Something.Else.2</description>
++	<property name="debug" value="true"/>
++	<property name="project.name" value="Something.Else.2"/>
++
++	<property name="src.dir" value="src"/>
++	<property name="build.dir" value="bin"/>
++	<property name="lib.dir" value="../lib"/>
++	<property name="bin.dir" value="../bin"/>
++	<property name="docs.dir" value="../docs"/>
++	<property name="tscomponents.dir" value="d:/Something/components"/>
++	
++	
++	<target name="clean" description="remove all generated files">
++       		<delete verbose="true" dir="${build.dir}" failonerror="false"/>
++    	</target>
++
++	
++    <target name="build" depends="interop" description="compiles Something.Else.2">
++	<echo message="lib = ${lib.dir}"/>
++	<mkdir dir="${build.dir}"/>
++        <csc target="library" output="${build.dir}/${project.name}.dll" debug="${debug}" >
++			<references>
++				<includes name="${lib.dir}/log4net.dll" />
++				<includes name="${bin.dir}/Else.dll" />
++				<includes name="${bin.dir}/Interop.TSMavPublicSection.dll" />
++				<includes name="${bin.dir}/TSSettings.dll" />
++				<includes name="${bin.dir}/Something.Items.dll" />
++				<includes name="${bin.dir}/Something.Users.dll" />
++			</references>
++            <sources basedir="${src.dir}">
++                <includes name="**/*.cs"/>
++            </sources>
++        </csc>
++        <copy todir="${bin.dir}">
++            <fileset basedir="${build.dir}">
++                <includes name="*.dll"/>
++            </fileset>
++        </copy>
++        
++    </target>
++    
++    <target name="interop" description="creates interop">
++    	
++    	<if uptodatefile="${bin.dir}/Interop.TSMavPublicSection.dll" comparefile="${tscomponents.dir}/TSMavPublicSection.dll">
++        	<exec program="c:\program files\microsoft.net\sdk\v1.1\bin\TlbImp" commandline="${tscomponents.dir}/TSMavPublicSection.dll /out:${bin.dir}/Interop.TSMavPublicSection.dll /namespace:TSMavPublicSection" />
++        	<copy file="${bin.dir}/Interop.TSMavPublicSection.dll" tofile="${lib.dir}/Interop.TSMavPublicSection.dll"/>
++        </if>
++        
++        
++    </target>
++    
++    
++</project>    
+\ No newline at end of file
+Index: D:/Something/CS/Something.Else.2/src/PublicPage.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/PublicPage.cs	(revision 462)
++++ D:/Something/CS/Something.Else.2/src/PublicPage.cs	(working copy)
+@@ -29,7 +29,6 @@
+ 		protected string site;
+ 		protected string key;
+ 		protected string ctxid;
+-		protected string pgid;
+ 		protected string errors;
+ 		protected string layout;
+ 			
+@@ -91,23 +90,16 @@
+ 				XmlNode idnode = doc.SelectSingleNode("//node[nbrTypeID='12']/nbrNodeID");
+ 				Ctxid = idnode.InnerXml;
+ 				
+-				if (String.Empty == this.Pgid) {
+-					if( log.IsDebugEnabled) log.Debug( "setting Pgid to Ctxid: " + this.Ctxid);
+-					this.Pgid = this.Ctxid;
+-				}
+-					
+-				this.ControllerContext.SetParam("site", this.Site); 
+-				this.ControllerContext.SetParam("key", this.Key); 
+-				this.ControllerContext.SetParam("ctxid", this.Ctxid); 
+-				this.ControllerContext.SetParam("layout", this.Layout); 
+-				this.ControllerContext.SetParam("pgid", this.Pgid); 
++				this.ControllerContext.SetParam("site", Site); 
++				this.ControllerContext.SetParam("key", Key); 
++				this.ControllerContext.SetParam("ctxid", Ctxid); 
++				this.ControllerContext.SetParam("layout", Layout); 
+ 				
+ 				if( log.IsDebugEnabled){
+-					log.Debug( "site: " + this.Site);
+-					log.Debug( "layout: " + this.Layout);
+-					log.Debug( "key: " + this.Key);
+-					log.Debug( "ctxid: " + this.Ctxid);
+-					log.Debug( "pgid: " + this.Pgid);
++					log.Debug( "site: " + Site);
++					log.Debug( "layout: " + Layout);
++					log.Debug( "key: " + Key);
++					log.Debug( "ctxid: " + Ctxid);
+ 				}
+ 				return view;
+ 			}
+@@ -142,13 +134,6 @@
+ 	
+ 		}
+ 		
+-		public String Pgid{
+-			
+-			get{ return (this.pgid == null)?"" : this.pgid; }
+-			set{ this.pgid = value; }
+-	
+-		}
+-		
+ 		public String Layout{
+ 			
+ 			get{ return (this.layout == null)?"" : this.layout; }
+Index: D:/Something/CS/Something.Else.2/src/PublicPageBrowser.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/PublicPageBrowser.cs	(revision 462)
++++ D:/Something/CS/Something.Else.2/src/PublicPageBrowser.cs	(working copy)
+@@ -42,6 +42,9 @@
+ 			publicMavFacade = new TSMavPublicSection.clsMavPublSectFacadeClass();
+ 			
+ 			 int i_ctxid;
++			 int userid;
++			 int type;
++			// should check type, only folder can have children
+ 			
+ 			
+ 			sid = getSid();
+Index: D:/Something/CS/Something.Else.2/src/FolderBrowser.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/FolderBrowser.cs	(revision 0)
++++ D:/Something/CS/Something.Else.2/src/FolderBrowser.cs	(working copy)
+@@ -0,0 +1,164 @@
++// created on 3/16/2003 at 7:02 PM
++
++using System;
++using System.Collections;
++using System.Collections.Specialized;
++using System.Web;
++using System.Xml;
++using System.Xml.Serialization;
++
++
++using Else.Ctl;
++using Something.Else.Ctl;
++
++using TSMavPublicSection;
++
++
++
++namespace Something.Else.Ctl
++{
++	[XmlRootAttribute(ElementName = "facade")]
++	public class FolderBrowser : ThrowawayForm
++	{
++		[XmlAnyElement]
++		public XmlNode item;
++		protected TSMavPublicSection.clsMavPublSectFacadeClass publicMavFacade;
++		
++		protected string site;
++		protected string ctxid;
++		protected string errors;
++		protected string sid;
++		
++		protected HttpCookieCollection cookies;
++		
++		public FolderBrowser(){}
++		
++		public override string Perform() 
++		{
++			if(Error != null && Error != "" ) return ERROR;
++			
++			publicMavFacade = new TSMavPublicSection.clsMavPublSectFacadeClass();
++			
++			 int i_ctxid;
++			 int userid;
++			 int type;
++			// should check type, only folder can have children
++			
++			
++			sid = getSid();
++			
++			
++			try{
++				
++				i_ctxid =  Convert.ToInt32(Ctxid);
++				
++			}
++			catch(Exception e){
++				
++				this.Error = e.Message;
++				return ERROR;
++			}
++			
++			int siteid;
++			HttpContext httpctx = this.ControllerContext.HttpContext;
++			if( httpctx != null){
++				siteid = (int) httpctx.Application["SiteId"];
++			}
++			else {
++			
++				siteid = Convert.ToInt32(Site);
++			}
++			
++			string xml;
++			try{
++			
++				xml = publicMavFacade.GetPublicChildrenXml(siteid,i_ctxid, sid);
++				
++			}
++			catch(Exception e){
++					
++					this.Error = e.Message;
++					
++					return ERROR;
++			}
++			
++			
++			XmlDocument doc = new XmlDocument();
++			try{
++				if (xml != null ) {
++					doc.LoadXml(xml);	
++					item = doc.DocumentElement;	
++				}
++		
++				return SUCCESS;
++				
++			}
++			catch(Exception e){
++				this.Error = e.Message;
++				this.Error += "<![CDATA[ " + xml + "]]>";
++				return ERROR;
++			}
++		}
++		
++		
++		public String Site{
++		
++			get{ return (this.site == null)? "" : this.site; }
++			set{ this.site = value; }
++		}
++
++		
++		public String Ctxid{
++			
++			get{ return this.ctxid; }
++			set{ this.ctxid = value; }
++	
++		}
++
++		
++		public String Sid{
++			
++			get{ return this.sid; }
++			set{ this.sid = value; }
++	
++		}
++			
++		public String Error{
++			
++			get{ return this.errors; }
++			set{ this.errors = value;}
++			
++		}
++
++		
++		protected HttpRequest Request 
++		{
++			get { if(this.ControllerContext.HttpContext != null){
++					return this.ControllerContext.HttpContext.Request; 
++				}
++				else return null;		
++			}
++		}
++		
++		
++		protected string getSid(){
++			
++			string sid = "";
++			if(Request == null) return "";
++			
++			this.cookies = Request.Cookies;
++			
++			if(this.cookies != null 
++			   && this.cookies["Versie5"] != null 
++			   && this.cookies["Versie5"]["SID"] != null){
++			
++				sid = this.cookies["Versie5"]["SID"];
++			}
++			
++			return  sid;
++		}
++		
++				
++	}
++}
++
+Index: D:/Something/CS/Something.Else.2/src/PublicitemBrowser.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/PublicitemBrowser.cs	(revision 462)
++++ D:/Something/CS/Something.Else.2/src/PublicitemBrowser.cs	(working copy)
+@@ -41,6 +41,8 @@
+ 			
+ 			publicMavFacade = new TSMavPublicSection.clsMavPublSectFacadeClass();
+ 			
++			 int userid;
++			 int type;
+ 			 int i_pgid;
+ 			 
+ 			// should check type, only folder can have children
+Index: D:/Something/CS/Something.Else.2/src/SettingsCtl.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/SettingsCtl.cs	(revision 462)
++++ D:/Something/CS/Something.Else.2/src/SettingsCtl.cs	(working copy)
+@@ -11,7 +11,7 @@
+ using Else.Ctl;
+ using Something.Else.Ctl;
+ 
+-using Something.Settings;
++using TSSettings;
+ 
+ 
+ 
+@@ -50,13 +50,8 @@
+ 			
+ 				case "domain-url":
+ 					
+-					this._value = settingsSrv.GetDomainURL(site);
++					this._value = settingsSrv.getDomainURL(ref site);
+ 					break;
+-
+-				case "enable-registration":
+-					this._value = settingsSrv.IsRegistrationEnabled(site).ToString();
+-					break;
+-
+ 				default:
+ 					break;
+ 			}
+Index: D:/Something/CS/Something.Else.2/src/TSLanguageShuntFactory.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/TSLanguageShuntFactory.cs	(revision 462)
++++ D:/Something/CS/Something.Else.2/src/TSLanguageShuntFactory.cs	(working copy)
+@@ -206,8 +206,8 @@
+ 			{
+ 			defaultView = (IView)modes[DEFAULT];
+ 			if (defaultView != null){
++				return defaultView;
+ 				log.Debug("Using default mode");
+-				return defaultView;
+ 			}
+ 			}
+ 			throw new NoSuitableModeException("No appropriate mode could be found for Accepts-Language \""
+Index: D:/Something/CS/Something.Else.2/src/CachingHandler.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/CachingHandler.cs	(revision 462)
++++ D:/Something/CS/Something.Else.2/src/CachingHandler.cs	(working copy)
+@@ -8,7 +8,7 @@
+ 
+ using Else;
+ using Else.Flow;
+-using Something.Settings;
++using TSSettings;
+ using Something.Else;
+  
+ 
+@@ -30,12 +30,12 @@
+ 		public void ProcessRequest(HttpContext context) 
+ 		{
+ 			
+-			Something.Settings.clsSettings settings = new Something.Settings.clsSettings();
++			TSSettings.clsSettings settings = new TSSettings.clsSettings();
+ 			int siteid = (int) context.Application["SiteId"];
+ 			
+ 			if(log.IsDebugEnabled)log.Debug("siteid= " + siteid);
+ 					
+-  			String RootPath = settings.GetPublicFilesDirectory(siteid);
++  			String RootPath = settings.GetPublicFilesDirectory(ref siteid);
+   			if(log.IsDebugEnabled)log.Debug("rootpath= " + RootPath);
+   			
+ 			String[] mykeys = context.Request.QueryString.AllKeys;	
+@@ -54,7 +54,7 @@
+ 			}
+ 			
+ 			String staticpage;
+-			staticpage = TSCACHEDITEM + sb.ToString() + ".HTM";		
++			staticpage = TSCACHEDITEM + sb.ToString();		
+ 			//staticpage = TSCACHEDITEM + GetMD5HashBinHex(sb.ToString());		
+ 		
+ 			String path = Path.Combine(RootPath, staticpage);
+@@ -91,24 +91,21 @@
+ 				}
+ 				if(sink != null){
+ 					sink.Position=0;
+-        				StreamReader sr = new StreamReader(sink, Encoding.Default);
++        				StreamReader sr = new StreamReader(sink);
+      					String content = sr.ReadToEnd();
+      							
+-					if(content.Length > 0) {	
+-						if (log.IsInfoEnabled) log.Info("Writing stream to file: " + path);
+-								
++					if(content.Length > 0){			
+         					StreamWriter writer = new StreamWriter( new System.IO.FileStream(path,
+ 				                                                FileMode.Create,
+ 				                                                 FileAccess.ReadWrite,
+ 				                                                 FileShare.ReadWrite,
+-				                                                 content.Length), Encoding.Default);
++				                                                 content.Length));
+       						writer.Write(content);
+       						writer.Flush();
+       						writer.Close();
+       					}
+       				}				
+      			}
+-				if (log.IsInfoEnabled) log.Info("Transfering to file /publicfiles/" + staticpage);
+         		context.Server.Transfer("/publicfiles/" + staticpage);
+        			
+ 		}
+Index: D:/Something/CS/Something.Else.2/src/NewsCtl.cs (deleted)
+===================================================================
+Index: D:/Something/CS/Something.Else.2/src/ItemCtl.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/ItemCtl.cs	(revision 642)
++++ D:/Something/CS/Something.Else.2/src/ItemCtl.cs	(working copy)
+@@ -70,13 +70,6 @@
+ 				
+ 				doc.LoadXml(xml);
+ 				item = doc.DocumentElement;	
+-				
+-				if(type == DISCUSSION){
+-				
+-					item = AddReplyAttachments(item);
+-				}
+-				
+-				
+ 			}
+ 			catch(Exception e){
+ 				
+@@ -121,22 +114,6 @@
+ 		}
+ 		
+ 		
+-		protected XmlNode AddReplyAttachments(XmlNode item){
+-			
+-			XmlNodeList replies = item.SelectNodes("//replies");
+-			
+-			if(replies != null){
+-				
+-				foreach(XmlNode reply in replies){
+-			
+-				
+-				}
+-			}
+-			
+-			return item;
+-		
+-		}
+-		
+ 	}
+ }
+ 
+Index: D:/Something/CS/Something.Else.2/src/SearchCtl.cs
+===================================================================
+--- D:/Something/CS/Something.Else.2/src/SearchCtl.cs	(revision 0)
++++ D:/Something/CS/Something.Else.2/src/SearchCtl.cs	(revision 0)
+@@ -0,0 +1,89 @@
++// created on 3/16/2003 at 7:02 PM
++
++using System;
++//using System.Collections;
++//using System.Collections.Specialized;
++using System.Web;
++using System.Xml;
++using System.Xml.Serialization;
++using System.Configuration;
++
++using Else.Ctl;
++using Something.Else.Ctl;
++using Something.Search;
++using log4net;
++
++namespace Something.Else.Ctl
++{
++	[XmlRootAttribute(ElementName = "facade")]
++	public class SearchCtl : ThrowawayForm
++	{
++		
++		protected String errors;
++		protected String ctxid;
++				
++		protected HttpCookieCollection cookies;
++		private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(SearchCtl));
++		
++		public SearchCtl() {}
++		
++		public override string Perform() 
++		{	
++			
++			if(Error != null && Error != "" ) {
++				if(log.IsInfoEnabled) log.Info("Error tag is not empty, return error view");
++				return ERROR;
++			}
++			
++			HttpContext httpctx = this.ControllerContext.HttpContext;
++			int siteid = (int) httpctx.Application["SiteId"];
++			
++			int ctxid;
++			try{
++				ctxid =  Convert.ToInt32(Ctxid);
++		
++			}
++			catch(Exception e){
++				
++				this.Error = e.Message + " in conversion Ctxid";
++				return ERROR;
++			}
++			
++			try {
++		        // Search settings from web.config
++		        Config mConfig = (Config) ConfigurationSettings.GetConfig("search");
++		        
++		        string searchFor = (string) this.ControllerContext.Params["searchFor"];
++		        int ancestor = Convert.ToInt32((string) this.ControllerContext.Params["ancestor"]);
++		        
++		        string[] criteria = searchFor.Split();
++		        
++		        SearchQueryBuilder sqb = new SearchQueryBuilder(mConfig, criteria, ancestor);
++		
++		        String qry = sqb.GetSql();
++
++				XmlDocument doc = new XmlDocument();
++			}
++			catch(SearchException e){
++				
++				this.Error = e.Message;
++				return ERROR;
++			}
++			return SUCCESS;		
++		}
++		
++		public String Ctxid
++		{
++			get{ return this.ctxid; }
++			set{ this.ctxid = value; }
++		}
++		
++		public String Error
++		{
++			get{ return this.errors; }
++			set{ this.errors = value;}
++			
++		}
++	}
++}
++
+Index: D:/Something/CS/Something.Else.2/bin/Something.Else.dll
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
+Index: D:/Something/CS/Something.Else.2/Something.Else.2.build (deleted)
+===================================================================
+Index: D:/Something/CS/Something.Else.2/lib/Something.Items.dll (deleted)
+===================================================================
