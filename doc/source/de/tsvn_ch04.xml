@@ -1635,6 +1635,13 @@ Rev Log-Meldungen
 				Zum Beispiel können Konflikte auftreten wenn der Zweig sich
 				schon zu weit vom Hauptast entfernt hat.
 			</para>
+			<para>
+			Wenn Sie überprüfen möchten, was für Änderungen an welchen Dateien
+			durch ein Mischen vorgenommen würden aktivieren Sie die Option
+			<guibutton>Testlauf</guibutton>.
+			Dies zwingt den Mischbefehl den Mischvorgang Testweise auszuführen,
+			<emphasis>ohne</emphasis> dabei die Arbeitskopie zu verändern.
+			</para>
 			<important>
 				<para>
 				Subversion kann nicht eine Datei mit einem Ordner zusammenführen und

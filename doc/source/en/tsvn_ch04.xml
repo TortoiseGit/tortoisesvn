@@ -1517,6 +1517,13 @@ Rev Comments
 				changes from truck back to the this branch. Use this method and local changes won't get
 				in your way. Of course, you should still avoid re-merging trunk changes, as explained above.
 			</para>
+			<para>
+			If you want to see what changes will be made by a merge and see where
+			possible conflicts may occur you can check the option
+			<guibutton>Dry Run</guibutton>. 
+			This will force the merge command to do a merge, but <emphasis>not</emphasis>
+			modify the working copy at all.
+			</para>
 			<important>
 				<para>
 				Subversion can't merge a file with a folder and vice versa - only
