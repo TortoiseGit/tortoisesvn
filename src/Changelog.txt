@@ -7,6 +7,8 @@ CVS
        is removed so TSVN works again on NT4/Win98. (Stefan)
 - BUG: renaming didn't work. (Stefan)
 - BUG: The drag'n'drop-handler didn't work. (Stefan)
+- BUG: The log for a renamed file/folder was shown
+       as two deletes instead of a delete and an add. (Stefan)
 - CHG: Some icons are changed, some new. (Lübbe)
 - CHG: If a file is deleted from the filesystem but not
        removed from version control the icon overlay

@@ -766,14 +766,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 				stdstring path_native;
 				const char *path = (const char *)item->key;
 				svn_log_changed_path_t *log_item = (svn_log_changed_path_t *)apr_hash_get (ch_paths, item->key, item->klen);
-				const char *copy_data = "";
-
-				if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
-				{
-					path_native = CUnicodeUtils::GetUnicode(log_item->copyfrom_path);
-				} // if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
-				else
-					path_native = CUnicodeUtils::GetUnicode(path);
+				path_native = CUnicodeUtils::GetUnicode(path);
 				CString temp;
 				switch (log_item->action)
 				{
