@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-17 14:24+0100\n"
+"PO-Revision-Date: 2004-12-21 17:06+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -275,10 +275,6 @@ msgstr "&Föregående avvikelse"
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Sök status rekursivt i undermappar"
 
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "&Flyttbara enheter"
-
 #: Control-ID:1013
 #: Control-ID:1100
 msgid "&Remove"
@@ -312,6 +308,11 @@ msgstr "&Spara graf som..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Spara autentisering"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "&Välj statusikonuppsättning"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -539,6 +540,7 @@ msgstr ""
 "<ct=0x0000ff><b>Varning:</b> Detta alternativ kan göra utforskaren långsam</ct>"
 
 #: ID:8
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Lägg till"
@@ -882,7 +884,6 @@ msgid "Cancelling SVN Blame..."
 msgstr "Avbryter visa ändringar per rad..."
 
 #: ID:270
-#, fuzzy
 msgid "Cancelling operation..."
 msgstr "Avbryter..."
 
@@ -977,7 +978,7 @@ msgstr "Kryssa i för att använda ett mindre utförligt format för datum och t
 # ID:270,
 #: ID:270
 msgid "Checking for forward copies"
-msgstr ""
+msgstr "Söker efter kopiornas källor"
 
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -1318,6 +1319,12 @@ msgstr "Tar bort"
 msgid "Destination disk drive is full."
 msgstr "Otillräckligt diskutrymme på målenheten."
 
+# Dlg-ID:184,
+#: Dlg-ID:184
+#, fuzzy
+msgid "Dialog"
+msgstr "Dialog"
+
 # Hur översätta "diff"
 #: ID:12
 msgid "Diff"
@@ -1605,6 +1612,7 @@ msgstr "Hämtar version %s av filen:"
 msgid "File"
 msgstr "Filnamn"
 
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "Filpatchar"
@@ -1642,7 +1650,7 @@ msgstr "Tryck F1 för hjälp"
 #: Control-ID:1168
 #, fuzzy
 msgid "Force shell icon refresh"
-msgstr "Uppdatera statusikoner i utforskaren"
+msgstr "Uppdatera statusikoner i Utforskaren"
 
 #: Control-ID:65535
 msgid "From:"
@@ -1731,6 +1739,12 @@ msgstr "Felaktigt hostnamn (%s)"
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "Ikonsymboler / statuskolumner"
+
+# Control-ID:1170,
+#: Control-ID:1170
+#, fuzzy
+msgid "Icon Set:"
+msgstr "Statusikonuppsättning:"
 
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -1878,6 +1892,16 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+# ID:145,
+#: ID:145
+#, fuzzy
+msgid ""
+"It's not possible to rename a file just in case!\n"
+"Please read our docs on how to work around this Subversion limitation."
+msgstr ""
+"Det går inte att byta namn på en fil till ett där endast stora och små bokstäver har ändrats!\n"
+"Läs i dokumentationen om hur man kan komma runt den här begränsningen i Subversion."
+
 # Hur översätta "diff"
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -1916,6 +1940,11 @@ msgid ""
 msgstr ""
 "Lista hjälpavsnitt\n"
 "Hjälpavsnitt"
+
+#: Control-ID:1172
+#, fuzzy
+msgid "List View"
+msgstr "Vänster vy:"
 
 #: ID:63
 msgid "Local Status"
@@ -2096,6 +2125,18 @@ msgid ""
 msgstr ""
 "Inga filer har ändrats eller lagts till sedan\n"
 "senaste arkiveringen."
+
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Inga filer har ändrats eller lagts till sedan\n"
+"senaste arkiveringen. Det finns inget\n"
+"för TortoiseSVN att göra här...\n"
+"Vill du se filer som inte är versionshanterade?"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2355,6 +2396,10 @@ msgstr "R&AM enheter"
 #: ID:3697
 msgid "REC"
 msgstr "REC"
+
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "&Flyttbara enheter"
 
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2932,7 +2977,6 @@ msgstr "Status"
 
 # Control-ID:1130,
 #: Control-ID:1130
-#, fuzzy
 msgid "Stop On Copy"
 msgstr "Följ inte kopieringshistorik"
 
@@ -3009,6 +3053,11 @@ msgstr "Växlar över arbetskopian till en annan gren / märke"
 #: ID:9
 msgid "Switch..."
 msgstr "Växla till..."
+
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "Symbol vy"
 
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
@@ -3136,6 +3185,23 @@ msgstr ""
 "och patchraden\n"
 "%s\n"
 " matchar inte!"
+
+# ID:314,
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Sökvägen\n"
+"<i>%s</i>\n"
+"verkar inte stämma överens med sökvägen i patchfilen.\n"
+"TortoiseMerge hittade sökvägen\n"
+"<i>%s</i>\n"
+"som stämmer bättre. Vill du använda den föreslagna sökvägen istället?"
 
 #: ID:78
 msgid ""
@@ -3539,13 +3605,12 @@ msgid "Warning!"
 msgstr "Varning!"
 
 #: ID:195
-#, fuzzy
 msgid ""
 "When checked, forces a refresh of the shell overlay icons after each operation.\n"
 "<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Aktivera detta om du vill att statusen ska uppdateras efter varje operation.\n"
-"<ct=0x0000ff><b>Varning:</b> Detta alternativ kan göra utforskaren långsam</ct>"
+"<ct=0x0000ff><b>Obs:</b> Detta alternativ kan göra utforskaren långsam</ct>"
 
 # Hur översätta "diff" och "whitespace"
 #: Control-ID:65535
@@ -3619,6 +3684,16 @@ msgid ""
 msgstr ""
 "Du har valt en fil som inte finns i arkivet.\n"
 "Den kommar att läggas till när du arkiverar dina ändringar."
+
+# ID:195,
+#: ID:195
+#, fuzzy
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"Du har ändrat statusikonuppsättningen från <i>%s</i> till <i>%s</i>.\n"
+"Det behövs en omstart eller att du loggar ut och sedan in igen för att den ska börja gälla!"
 
 #: Control-ID:65535
 msgid "Your File:"

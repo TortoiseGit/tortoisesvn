@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-01 17:38+0100\n"
+"PO-Revision-Date: 2004-12-21 17:28+0100\n"
 "Last-Translator: Michał Mielniczuk <mmielni@raks.pl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -343,11 +343,6 @@ msgstr "&Poprzednia różnica"
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Ustal wynikowy stan folderu"
 
-# Control-ID:1048,
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "Dyski &wymienne"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: Control-ID:1013
@@ -383,11 +378,22 @@ msgstr "Klient &SSH:"
 msgid "&Save Ctrl-S"
 msgstr "&Zapisz Ctrl-S"
 
+# ID:101,#:
+# ID:313,
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "&Zapisz wykres jako..."
+
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Zapisz parametry uwierzytelnienia"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "&Wybierz zestaw ikon nakładkowych"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -660,16 +666,17 @@ msgstr "Uaktywnij listę zadań"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Uaktywnij tę opcję jeżeli chcesz, by ikona folderu\n"
 "przedstawiała stan plików wewnątrz tego folderu.\n"
-"<ct=0x0000ff><b>Uwaga:</b> może to spowolnić pracę eksporatora plików</ct>"
+"<ct=0x0000ff><b>Uwaga:</b> może to spowolnić pracę eksporatora plików!</ct>"
 
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Dodaj"
@@ -901,6 +908,12 @@ msgstr "W linii %d wystąpił nieznany typ linii."
 msgid "An unsupported operation was attempted."
 msgstr "Próba wykonania niedozwolonej operacji."
 
+# ID:76,
+# Niepewne tłumaczenie zaimka 'to'. Zamiast 'w' może być też 'do'.
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "Trwa analizowanie danych o wersjach..."
+
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
@@ -1089,6 +1102,11 @@ msgstr "Anuluj"
 msgid "Cancelling SVN Blame..."
 msgstr "Anulowanie tworzenia listy autorów zmian."
 
+# ID:132,
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "Anulowanie operacji..."
+
 # ID:82,
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1198,6 +1216,11 @@ msgstr "Wskaż pozycje, które mają być pokazane na głównym poziomie menu ko
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Zaznacz by użyć krótszego formatu daty i czasu w komunikatach w logu."
 
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr "Sprawdzanie kopii w przód"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -1267,6 +1290,11 @@ msgstr "Schowek"
 msgid "Close the active window and prompts to save the documents"
 msgstr "Zamyka aktywne okno z pytaniem o zapisanie zmian w dokumencie"
 
+# Control-ID:1163,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "Kolor zmian w liniach kodu"
+
 # Dlg-ID:138,
 #: Dlg-ID:138
 msgid "Colors"
@@ -1301,7 +1329,7 @@ msgstr "Zatwierdzenia zmian z podziałem na tygodnie"
 # Control-ID:1135,
 #: Control-ID:1135
 msgid "Commits each week:"
-msgstr "Liczba operacji zatwierdzenia zmian w każdym tygodniu:"
+msgstr "Liczba operacji zatwierdzania zmian w każdym tygodniu:"
 
 # ID:9,
 #: ID:9
@@ -1602,6 +1630,11 @@ msgstr "Usuwanie"
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "Dysk docelowy jest pełny."
+
+# Dlg-ID:184,
+#: Dlg-ID:184
+msgid "Dialog"
+msgstr "Okno dialogowe"
 
 # ID:12,
 #: ID:12
@@ -1955,6 +1988,7 @@ msgid "File"
 msgstr "Plik:"
 
 # Dlg-ID:135,
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "Pliki poprawek"
@@ -1962,7 +1996,7 @@ msgstr "Pliki poprawek"
 # Control-ID:1138,
 #: Control-ID:1138
 msgid "File changes each week:"
-msgstr "Zmienione pliki w każdym tygodniu:"
+msgstr "Liczba plików zmienionych w każdym tygodniu:"
 
 # ID:3603,
 #: ID:3603
@@ -2023,19 +2057,15 @@ msgstr "Pobieranie pliku %s"
 msgid "Getting file info..."
 msgstr "Pobieranie informacji o pliku..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "Pobieranie informacji z repozytorium..."
+
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
 msgstr "Pobieranie informacji o logu..."
-
-# ID:2049,
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"Przechodzi do następnego konfliktu\n"
-"następny konflikt"
 
 # ID:2049,
 #: ID:2049
@@ -2104,6 +2134,11 @@ msgstr "Błąd w nazie hosta (%s)"
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "Ikony nakładkowe / Prezentacja stanu"
+
+# Control-ID:1170,
+#: Control-ID:1170
+msgid "Icon Set:"
+msgstr "Zestaw ikon:"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -2196,6 +2231,17 @@ msgstr "Importuje katalog do repozytorium"
 msgid "Include paths:"
 msgstr "Uwzględnij ścieżki:"
 
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"Prezentuje stan folderu za pomocą ikony nakładkowej.\n"
+"Jeśli opcja jest wyłączona, folder objęty kontrolą wersji będzie miał ikonę dla stanu 'normalny'.\n"
+"<ct=0x0000ff><b>Jeśli opcja spowoduje spowolnienie pracy eksploratora plików, wyłącz ją!</b></ct>"
+
 # ID:76,
 #: ID:76
 msgid "Initial Import"
@@ -2269,6 +2315,15 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+# ID:145,
+#: ID:145
+msgid ""
+"It's not possible to rename a file just in case!\n"
+"Please read our docs on how to work around this Subversion limitation."
+msgstr ""
+"Nie można zmienić nazwy pliku!\n"
+"Proszę sprawdzić w dokumentacji jak można obejść to ograniczenie Subversion."
+
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2312,6 +2367,11 @@ msgid ""
 msgstr ""
 "Pokazuje tematy pomocy\n"
 "Tematy pomocy"
+
+# ID:188,
+#: Control-ID:1172
+msgid "List View"
+msgstr "Lista"
 
 # ID:63,
 #: ID:63
@@ -2367,7 +2427,7 @@ msgstr "Podstawowe"
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
-msgstr "Maksimum"
+msgstr "Max"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
@@ -2407,7 +2467,7 @@ msgstr "Typ MIME"
 # Dlg-ID:143,
 #: Control-ID:1158
 msgid "Min"
-msgstr "Minimum"
+msgstr "Min"
 
 # Control-ID:1082,#:
 # Control-ID:1023,
@@ -2535,6 +2595,19 @@ msgstr ""
 "Od czasu ostatniego zatwierdzenia\n"
 "pliki nie zostały zmienione ani dodane.\n"
 "TortoiseSVN nie wykona żadnej operacji."
+
+# ID:77,
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Od czasu ostatniego zatwierdzenia\n"
+"żadne pliki nie zostały zmienione lub dodane.\n"
+"TortoiseSVN nie wykona żadnej operacji....\n"
+"Czy chcesz zobaczyć pliki nie objęte kontrolą wersji?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2673,6 +2746,11 @@ msgstr "Pliki poprawek|*.diff;*.patch|Wszystkie|*.*||"
 #: ID:77
 msgid "Path"
 msgstr "Ścieżka"
+
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Pliki graficzne (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Wszystkie (*.*)|*.*||"
 
 # ID:3858,#:
 # ID:3858,
@@ -2861,6 +2939,11 @@ msgstr "&RAM-dyski"
 #: ID:3697
 msgid "REC"
 msgstr "REC"
+
+# Control-ID:1048,
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "Dyski &wymienne"
 
 # ID:12,
 #: ID:12
@@ -3075,10 +3158,24 @@ msgstr "Wersja"
 msgid "Revision %d"
 msgstr "Wersja %d"
 
+# ID:119,
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "Wersja %ld"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Wersja / Autor:"
+
+# ID:75,
+#: ID:15
+#: ID:269
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Wykres wersji"
 
 # ID:75,
 #: ID:75
@@ -3112,7 +3209,7 @@ msgstr "SVN Dodaj..."
 # ID:132,
 #: ID:132
 msgid "SVN Blame"
-msgstr "SVN Pokaż raport o autorzach zmian"
+msgstr "SVN Pokaż raport o autorach zmian"
 
 # ID:77,
 #: ID:77
@@ -3203,6 +3300,12 @@ msgstr "Zapisz &jako..."
 #: ID:3841
 msgid "Save As"
 msgstr "Zapisz jako"
+
+# ID:101,#:
+# ID:313,
+#: ID:272
+msgid "Save Graph as..."
+msgstr "Zapisz wykres jako..."
 
 # ID:76,
 # Niepewne tłumaczenie zaimka 'to'. Zamiast 'w' może być też 'do'.
@@ -3383,7 +3486,7 @@ msgstr "Krótki adres Url dla elementów objętych SVN"
 # Control-ID:1016,
 #: Control-ID:1031
 msgid "Show &All"
-msgstr "Pokaż &wszystko"
+msgstr "&Wszystkie"
 
 # ID:113,
 #: ID:113
@@ -3433,6 +3536,11 @@ msgstr "Pokaż numery linii"
 msgid "Show Log"
 msgstr "Pokaż log"
 
+# ID:101,
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "Pokaż status folderu"
+
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -3464,6 +3572,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "Pokaż pliki nie objęte kontrolą wersji"
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Prezentuje graficzną reprezentację kopii/obrazów/rozgałęzień"
 
 # ID:13,
 #: ID:13
@@ -3635,6 +3748,11 @@ msgstr "Przełącz kopię roboczą na inne rozgałęzienie / obraz"
 msgid "Switch..."
 msgstr "Przełącz..."
 
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "Widok symboli"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -3784,6 +3902,23 @@ msgstr ""
 "i linia w poprawce\n"
 "%s\n"
 "nie pokrywają się!"
+
+# ID:314,
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Ścieżka\n"
+"<i>%s</i>\n"
+"nie pasuje do ścieżki w pliku poprawek.\n"
+"Program TortoiseMerge uważa, że ścieżka\n"
+"<i>%s</i>\n"
+"pasuje bardziej. Czy chcesz użyć sugerowanej ścieżki?"
 
 # ID:78,
 #: ID:78
@@ -3960,7 +4095,7 @@ msgstr "Ustawienia TortoiseSVN"
 # Control-ID:1162,
 #: Control-ID:1162
 msgid "Total commits analyzed:"
-msgstr "Liczba przeanalizowanych operacji zatwierdzenia zmian:"
+msgstr "Liczba przeanalizowanych operacji zatwierdzania zmian:"
 
 # Control-ID:1163,
 #: Control-ID:1163
@@ -4008,6 +4143,23 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL: "
+
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Komunikat:\r\n"
+"%s"
 
 # ID:3866,#:
 # ID:3866,
@@ -4117,6 +4269,11 @@ msgstr "Url"
 msgid "Url:"
 msgstr "Url:"
 
+# ID:251,
+#: ID:251
+msgid "Use &other text block"
+msgstr "Użyj innego &bloku tekstu"
+
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -4177,6 +4334,11 @@ msgstr "Użyj tego w &całym pliku"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Użyj tego, jeżeli adres URL repozytorium uległ zmianie"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Użyj &innego pliku w całości"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4248,8 +4410,10 @@ msgstr "Uwaga!"
 #: ID:195
 msgid ""
 "When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"Since this can slow down the explorer use it only on fast systems."
-msgstr "Liczba operacji zatwierdzania zmian w każdym tygodniu:"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
+msgstr ""
+"Jeśli opcja jest zaznaczona, po każdej operacji nastąpi odświerzenie ikon.\n"
+"<ct=0x0000ff><b>Uwaga:</b> to może spowolnić pracę eksploratora!</ct>"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4335,6 +4499,15 @@ msgstr ""
 "Zaznaczyłeś plik nie objęty kontrolą wersji.\n"
 "Podczas zatwierdzania zmian plik ten zostanie dodany do systemu kontroli."
 
+# ID:195,
+#: ID:195
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"Zmieniono zestaw ikon z <i>%s</i> na <i>%s</i>.\n"
+"Zmiana będzie widoczna dopiero po ponownym uruchomieniu komputera lub przelogowaniu użytkownika!"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Your File:"
@@ -4359,6 +4532,14 @@ msgstr ""
 "Twoja kopia robocza zawiera zmiany!\n"
 "Uwaga! Uaktualnienie do innej wersji nie spowoduje wycofania tych zmian. Kopia robocza\n"
 "nie będzie zatem wyglądała dokładnie tak, jak w wersji, do której następuje aktualizacja! "
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "Po&większ"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "Po&mniejsz"
 
 # ID:10,
 #: ID:10

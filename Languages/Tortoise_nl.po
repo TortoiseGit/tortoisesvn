@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-17 15:17+0100\n"
+"PO-Revision-Date: 2004-12-20 22:49+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -273,10 +273,6 @@ msgstr "V&orig verschil"
 msgid "&Recurse into folders to fetch the status"
 msgstr "Mappen &recursief doorlopen om de status op te halen"
 
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "&Stations met verwisselbaar medium"
-
 #: Control-ID:1013
 #: Control-ID:1100
 msgid "&Remove"
@@ -310,6 +306,10 @@ msgstr "Schema &Opslaan als..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "Authenticatie &opslaan"
+
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "&Kies overlay pictogrammenset"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -531,6 +531,7 @@ msgstr ""
 "<ct=0x0000ff><b>Let op:</b> verkenner kan hier traag van worden.</ct>"
 
 #: ID:8
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Toevoegen"
@@ -955,7 +956,6 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kies deze optie voor een verkorte datum en tijd in logboodschappen"
 
 #: ID:270
-#, fuzzy
 msgid "Checking for forward copies"
 msgstr "Controleren op voorwaartse kopieën"
 
@@ -1287,6 +1287,10 @@ msgstr "Verwijderen"
 msgid "Destination disk drive is full."
 msgstr "De doelschijf is vol."
 
+#: Dlg-ID:184
+msgid "Dialog"
+msgstr "Dialoog"
+
 #: ID:12
 msgid "Diff"
 msgstr "Verschil"
@@ -1567,6 +1571,7 @@ msgstr "Versie %s van bestand ophalen:"
 msgid "File"
 msgstr "Bestand"
 
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "Bestand-patches"
@@ -1683,6 +1688,10 @@ msgstr "Verschil in hostnamen (%s)"
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "Overlays voor Pictogrammen / Status Kolommen"
+
+#: Control-ID:1170
+msgid "Icon Set:"
+msgstr "Pictogrammenset:"
 
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -1828,6 +1837,14 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+#: ID:145
+msgid ""
+"It's not possible to rename a file just in case!\n"
+"Please read our docs on how to work around this Subversion limitation."
+msgstr ""
+"Het is niet mogelijk om alleen hoofd- en kleine letters te wijzigen!\n"
+"Lees in onze documentatie over het omzeilen van deze beperking in Subversion."
+
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
 msgstr "Spring naar eerste verschil bij het laden"
@@ -1863,6 +1880,10 @@ msgid ""
 msgstr ""
 "Toon helponderwerpen\n"
 "Helponderwerpen"
+
+#: Control-ID:1172
+msgid "List View"
+msgstr "Lijstweergave"
 
 #: ID:63
 msgid "Local Status"
@@ -2037,6 +2058,18 @@ msgstr ""
 "Er zijn geen bestanden gewijzigd of toegevoegd sinds\n"
 "de laatste vastlegging.\n"
 "TortoiseSVN heeft hier niets te doen..."
+
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Er zijn geen bestanden gewijzigd of toegevoegd sinds\n"
+"de laatste vastlegging.\n"
+"TortoiseSVN heeft hier niets te doen...\n"
+"Wilt u de bestanden zonder versiebeheer zien?"
 
 #: Control-ID:65535
 msgid "Normal"
@@ -2292,6 +2325,10 @@ msgstr "R&AM station"
 #: ID:3697
 msgid "REC"
 msgstr "REC"
+
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "&Stations met verwisselbaar medium"
 
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2934,6 +2971,10 @@ msgstr "Schakel werkkopie naar een andere tak/label"
 msgid "Switch..."
 msgstr "Wissel..."
 
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "Symboolweergave"
+
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
 msgstr "Registersleutels zijn verwijderd, evenals het INI bestand (als dat er was)."
@@ -3058,6 +3099,22 @@ msgstr ""
 "en de patchregel\n"
 "%s\n"
 "passen niet bij elkaar!"
+
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Het pad\n"
+"<i>%s</i>\n"
+"lijkt niet overeen te komen met de paden in het patchbestand.\n"
+"Volgens TortoiseSVN past het pad\n"
+"<i>%s</i>\n"
+"beter. Wilt u dit voorgestelde pad gebruiken?"
 
 #: ID:78
 msgid ""
@@ -3532,6 +3589,14 @@ msgid ""
 msgstr ""
 "U heeft een bestand zonder versiebeheer geselecteerd.\n"
 "Het bestand wordt toegevoegd aan het versiebeheer voordat wordt vastgelegd."
+
+#: ID:195
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"De pictogrammenset is gewijzigd van <i>%s</i> in <i>%s</i>.\n"
+"Deze wijziging heeft pas effect nadat u zich opnieuw heeft aangemeld of de computer heeft herstart!"
 
 #: Control-ID:65535
 msgid "Your File:"

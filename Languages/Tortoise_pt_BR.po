@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISESVNPT-BR 1.0\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-12-16 16:28-0300\n"
+"PO-Revision-Date: 2004-12-20 13:30-0300\n"
 "Last-Translator: Emanuele Marques <emanuele@vdl.ufc.br>\n"
 "Language-Team: CRAb <crab@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -342,11 +342,6 @@ msgstr "&Diferença Anterior"
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Verificar recursivamente nas pastas à procura do status"
 
-# Control-ID:1048,
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "&Mídias removíveis"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: Control-ID:1013
@@ -393,6 +388,11 @@ msgstr "&Salvar Gráfico Como..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Salvar autenticação"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "&Selecione o Conjunto de Sobreposição"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -670,6 +670,7 @@ msgstr ""
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Adicionar"
@@ -1623,6 +1624,11 @@ msgstr "Excluindo"
 msgid "Destination disk drive is full."
 msgstr "O disco de destino está cheio."
 
+# Dlg-ID:184,
+#: Dlg-ID:184
+msgid "Dialog"
+msgstr "Diálogo"
+
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -1972,6 +1978,7 @@ msgid "File"
 msgstr "Arquivo"
 
 # Dlg-ID:135,
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "Correções de arquivo"
@@ -2115,6 +2122,11 @@ msgstr "Incompatibilidade no Nome do Servidor (%s)"
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "Sobreposições de Ícones / Colunas de Status"
+
+# Control-ID:1170,
+#: Control-ID:1170
+msgid "Icon Set:"
+msgstr "Conjunto de Ícones:"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -2332,6 +2344,11 @@ msgid ""
 msgstr ""
 "Listar Tópicos de Ajuda \n"
 "Tópicos de Ajuda"
+
+# ID:188,
+#: Control-ID:1172
+msgid "List View"
+msgstr "Visão de Lista"
 
 # ID:63,
 #: ID:63
@@ -2552,6 +2569,19 @@ msgstr ""
 "Nenhum arquivo modificado ou adicionado desde\n"
 "a última gravação. O TortoiseSVN não tem nada\n"
 "a fazer aqui..."
+
+# ID:77,
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Nenhum arquivo modificado ou adicionado desde\n"
+"a última gravação. O TortoiseSVN não tem nada\n"
+"a fazer aqui...\n"
+"Deseja visualizar os arquivos sem controle de versão?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2883,6 +2913,11 @@ msgstr "Unidades R&AM"
 #: ID:3697
 msgid "REC"
 msgstr "REC"
+
+# Control-ID:1048,
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "&Mídias removíveis"
 
 # ID:12,
 #: ID:12
@@ -3690,6 +3725,11 @@ msgstr "Substituir a cópia de trabalho por um ramo / rótulo"
 msgid "Switch..."
 msgstr "Alternar..."
 
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "Visão de Símbolo"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -3838,6 +3878,23 @@ msgstr ""
 "e a linha da correção\n"
 "%s\n"
 "não conferem!"
+
+# ID:314,
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"O caminho\n"
+"<i>%s</i>\n"
+"parece não corresponder aos caminhos no arquivo de correção.\n"
+"Porém o TortoiseMerge encontrou o caminho\n"
+"<i>%s</i>\n"
+"e se encaixa melhor. Você quer usar o caminho sugerido?"
 
 # ID:78,
 #: ID:78
@@ -4418,6 +4475,15 @@ msgid ""
 msgstr ""
 "Você selecionou um arquivo sem controle de versão.\n"
 "O arquivo será adcionado ao controle de versão quando você gravar."
+
+# ID:195,
+#: ID:195
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"Você alterou o conjunto de ícones de <i>%s</i> para <i>%s</i>.\n"
+"Essa modificação não terá efeito até que você reinicie a máquina ou efetue logoff e logon novamente!"
 
 # Control-ID:65535,
 #: Control-ID:65535
