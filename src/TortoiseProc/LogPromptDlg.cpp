@@ -215,36 +215,134 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString folderpath = data->path;
 			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
 			{
-				Data * d = m_arData.GetAt(i);
-				CString t = d->path;
-				if (CUtils::PathIsParent(t, folderpath))
+				if (!m_ListCtrl.GetCheck(i))
 				{
-					m_ListCtrl.SetCheck(i, TRUE);
-					d->checked = TRUE;
+					Data * d = m_arData.GetAt(i);
+					CString t = d->path;
+					if (CUtils::PathIsParent(t, folderpath))
+					{
+						m_ListCtrl.SetCheck(i, TRUE);
+						d->checked = TRUE;
+					} // if (CUtils::PathIsParent(t, folderpath)) 
 				}
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		} // if (data->status == svn_wc_status_unversioned)
+		//is it a deleted item?
+		if (data->status == svn_wc_status_deleted)
+		{
+			CString folderpath = data->path;
+			if (PathIsDirectory(folderpath))
+			{
+				//check all children of this folder
+				for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
+				{
+					if (!m_ListCtrl.GetCheck(j))
+					{
+						Data * dd = m_arData.GetAt(j);
+						CString tt = dd->path;
+						if (folderpath.CompareNoCase(tt.Left(folderpath.GetLength()))==0)
+						{
+							m_ListCtrl.SetCheck(j, TRUE);
+							dd->checked = TRUE;
+						} // if (t.CompareNoCase(tt.Left(t.GetLength()))==0) 
+					} // if (!m_ListCtrl.GetCheck(j)) 
+				} // for (j=0; j<m_ListCtrl.GetItemCount(); j++) 
+			} // if (PathIsDirectory(folderpath)) 
+
+			//we need to check the parent folder if it is deleted and all children of that
+			//parent folder too!
+			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
+			{
+				if (!m_ListCtrl.GetCheck(i))
+				{
+					Data * d = m_arData.GetAt(i);
+					CString t = d->path;
+					if (CUtils::PathIsParent(t, folderpath))
+					{
+						if (d->status == svn_wc_status_deleted)
+						{
+							m_ListCtrl.SetCheck(i, TRUE);
+							d->checked = TRUE;
+							//now we need to check all children of this parent folder
+							for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
+							{
+								if (!m_ListCtrl.GetCheck(j))
+								{
+									Data * dd = m_arData.GetAt(j);
+									CString tt = dd->path;
+									if (t.CompareNoCase(tt.Left(t.GetLength()))==0)
+									{
+										m_ListCtrl.SetCheck(j, TRUE);
+										dd->checked = TRUE;
+									} // if (t.CompareNoCase(tt.Left(t.GetLength()))==0) 
+								} // if (!m_ListCtrl.GetCheck(j)) 
+							} // for (j=0; j<m_ListCtrl.GetItemCount(); j++) 
+						} // if (d->status == svn_wc_status_deleted) 
+					} // if (CUtils::PathIsParent(t, folderpath)) 
+				} // if (!m_ListCtrl.GetCheck(i)) 
+			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+		} // if (data->status == svn_wc_status_deleted) 
 		data->checked = TRUE;
-	}
+	} // if (m_ListCtrl.GetCheck(pNMLV->iItem)) 
 	else
 	{
+		//item was unchecked
 		if (PathIsDirectory(data->path))
 		{
 			//disable all files within that folder
 			CString folderpath = data->path;
 			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
 			{
-				Data * d = m_arData.GetAt(i);
-				CString t = d->path;
-				if (CUtils::PathIsParent(folderpath, t))
+				if (m_ListCtrl.GetCheck(i))
 				{
-					m_ListCtrl.SetCheck(i, FALSE);
-					d->checked = FALSE;
-				}
+					Data * d = m_arData.GetAt(i);
+					CString t = d->path;
+					if (CUtils::PathIsParent(folderpath, t))
+					{
+						m_ListCtrl.SetCheck(i, FALSE);
+						d->checked = FALSE;
+					} // if (CUtils::PathIsParent(folderpath, t)) 
+				} // if (m_ListCtrl.GetCheck(i)) 
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		} // if (PathIsDirectory(m_arFileList.GetAt(index)))
+		else if (data->status == svn_wc_status_deleted)
+		{
+			//a "deleted" file was unchecked, so uncheck all parent folders
+			//and all children of those parents
+			CString folderpath = data->path;
+			for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
+			{
+				if (m_ListCtrl.GetCheck(i))
+				{
+					Data * d = m_arData.GetAt(i);
+					CString t = d->path;
+					if (CUtils::PathIsParent(t, folderpath))
+					{
+						if (d->status == svn_wc_status_deleted)
+						{
+							m_ListCtrl.SetCheck(i, FALSE);
+							d->checked = FALSE;
+							//now we need to check all children of this parent folder
+							for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
+							{
+								if (m_ListCtrl.GetCheck(j))
+								{
+									Data * dd = m_arData.GetAt(j);
+									CString tt = dd->path;
+									if (t.CompareNoCase(tt.Left(t.GetLength()))==0)
+									{
+										m_ListCtrl.SetCheck(j, FALSE);
+										dd->checked = FALSE;
+									} // if (t.CompareNoCase(tt.Left(t.GetLength()))==0) 
+								} // if (m_ListCtrl.GetCheck(j)) 
+							} // for (j=0; j<m_ListCtrl.GetItemCount(); j++) 
+						} // if (d->status == svn_wc_status_deleted) 
+					} // if (CUtils::PathIsParent(t, folderpath)) 
+				} // if (m_ListCtrl.GetCheck(i))  
+			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+		} 
 		data->checked = FALSE;
-	}
+	} 
 }
 
 void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -431,7 +529,7 @@ void CLogPromptDlg::OnOK()
 	{
 		CString path = ((Data *)(m_arData.GetAt(arDeleted.GetAt(i))))->path;
 		//now check if there's a "parent folder"
-		for (j=0; j<arDeleted.GetCount(); j++)
+		for (int j=0; j<arDeleted.GetCount(); j++)
 		{
 			CString folder = ((Data *)(m_arData.GetAt(arDeleted.GetAt(j))))->path;
 			if ((PathIsDirectory(folder))&&(i!=j))
