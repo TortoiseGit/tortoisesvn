@@ -350,49 +350,16 @@ void CStatGraphDlg::ShowStats()
 	int commits = 0;
 	int filechanges = 0;
 	BOOL weekover = FALSE;
+	if (m_parDates->GetCount()>0)
+	{
+		nCurrentWeek = GetWeek(CTime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1)));
+	}
 	for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	{
 		CTime time((__time64_t)m_parDates->GetAt(i));
 		commits++;
 		filechanges += m_parFileChanges->GetAt(i);
 		weekover = FALSE;
-		if (nCurrentWeek != GetWeek(time))
-		{	
-			std::map<stdstring, LONG>::iterator iter;
-			iter = authorcommits.begin();
-			while (iter != authorcommits.end()) 
-			{
-				if (AuthorCommits.find(iter->first) == AuthorCommits.end())
-					AuthorCommits[iter->first] = 0;
-				if (AuthorCommitsMin.find(iter->first) == AuthorCommitsMin.end())
-					AuthorCommitsMin[iter->first] = 0;
-				if (AuthorCommitsMax.find(iter->first) == AuthorCommitsMax.end())
-					AuthorCommitsMax[iter->first] = 0;
-
-				AuthorCommits[iter->first] += iter->second;
-				if ((AuthorCommitsMin[iter->first] == 0)||(AuthorCommitsMin[iter->first] > iter->second))
-					AuthorCommitsMin[iter->first] = iter->second;
-				if (AuthorCommitsMax[iter->first] < iter->second)
-					AuthorCommitsMax[iter->first] = iter->second;
-				iter++;
-			}
-			authorcommits.clear();
-
-			nWeeks++;
-			nCurrentWeek = GetWeek(time);
-			if ((nCommitsMin == 0)||(nCommitsMin > commits))
-				nCommitsMin = commits;
-			if (nCommitsMax < commits)
-				nCommitsMax = commits;
-			commits = 0;
-			if ((nFileChangesMin == 0)||(nFileChangesMin > filechanges))
-				nFileChangesMin = filechanges;
-			if (nFileChangesMax < filechanges)
-				nFileChangesMax = filechanges;
-			nFileChanges += filechanges;
-			filechanges = 0;
-			weekover = TRUE;
-		}
 		stdstring author = stdstring(m_parAuthors->GetAt(i));
 		if (authorcommits.find(author) != authorcommits.end())
 		{
@@ -402,35 +369,78 @@ void CStatGraphDlg::ShowStats()
 		{
 			authorcommits[author] = 1;
 		}
+		if (nCurrentWeek != GetWeek(time))
+		{	
+			std::map<stdstring, LONG>::iterator iter;
+			iter = authors.begin();
+			while (iter != authors.end()) 
+			{
+				if (AuthorCommits.find(iter->first) == AuthorCommits.end())
+					AuthorCommits[iter->first] = 0;
+				if (AuthorCommitsMin.find(iter->first) == AuthorCommitsMin.end())
+					AuthorCommitsMin[iter->first] = -1;
+				if (AuthorCommitsMax.find(iter->first) == AuthorCommitsMax.end())
+					AuthorCommitsMax[iter->first] = 0;
+				if (authorcommits.find(iter->first) == authorcommits.end())
+					authorcommits[iter->first] = 0;
+
+				long ac = authorcommits[iter->first];
+				AuthorCommits[iter->first] += ac;
+				if ((AuthorCommitsMin[iter->first] == -1)||(AuthorCommitsMin[iter->first] > ac))
+					AuthorCommitsMin[iter->first] = ac;
+				if (AuthorCommitsMax[iter->first] < ac)
+					AuthorCommitsMax[iter->first] = ac;
+				iter++;
+			}
+			authorcommits.clear();
+
+			nWeeks++;
+			nCurrentWeek = GetWeek(time);
+			if ((nCommitsMin == -1)||(nCommitsMin > commits))
+				nCommitsMin = commits;
+			if (nCommitsMax < commits)
+				nCommitsMax = commits;
+			commits = 0;
+			if ((nFileChangesMin == -1)||(nFileChangesMin > filechanges))
+				nFileChangesMin = filechanges;
+			if (nFileChangesMax < filechanges)
+				nFileChangesMax = filechanges;
+			nFileChanges += filechanges;
+			filechanges = 0;
+			weekover = TRUE;
+		}
 	} // for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	if (!weekover)
 	{
 		std::map<stdstring, LONG>::iterator iter;
-		iter = authorcommits.begin();
-		while (iter != authorcommits.end()) 
+		iter = authors.begin();
+		while (iter != authors.end()) 
 		{
 			if (AuthorCommits.find(iter->first) == AuthorCommits.end())
 				AuthorCommits[iter->first] = 0;
 			if (AuthorCommitsMin.find(iter->first) == AuthorCommitsMin.end())
-				AuthorCommitsMin[iter->first] = 0;
+				AuthorCommitsMin[iter->first] = -1;
 			if (AuthorCommitsMax.find(iter->first) == AuthorCommitsMax.end())
 				AuthorCommitsMax[iter->first] = 0;
+			if (authorcommits.find(iter->first) == authorcommits.end())
+				authorcommits[iter->first] = 0;
 
-			AuthorCommits[iter->first] += iter->second;
-			if ((AuthorCommitsMin[iter->first] == 0)||(AuthorCommitsMin[iter->first] > iter->second))
-				AuthorCommitsMin[iter->first] = iter->second;
-			if (AuthorCommitsMax[iter->first] < iter->second)
-				AuthorCommitsMax[iter->first] = iter->second;
+			long ac = authorcommits[iter->first];
+			AuthorCommits[iter->first] += ac;
+			if ((AuthorCommitsMin[iter->first] == -1)||(AuthorCommitsMin[iter->first] > ac))
+				AuthorCommitsMin[iter->first] = ac;
+			if (AuthorCommitsMax[iter->first] < ac)
+				AuthorCommitsMax[iter->first] = ac;
 			iter++;
 		}
 		authorcommits.clear();
 
-		if ((nCommitsMin == 0)||(nCommitsMin > commits))
+		if ((nCommitsMin == -1)||(nCommitsMin > commits))
 			nCommitsMin = commits;
 		if (nCommitsMax < commits)
 			nCommitsMax = commits;
 		commits = 0;
-		if ((nFileChangesMin == 0)||(nFileChangesMin > filechanges))
+		if ((nFileChangesMin == -1)||(nFileChangesMin > filechanges))
 			nFileChangesMin = filechanges;
 		if (nFileChangesMax < filechanges)
 			nFileChangesMax = filechanges;
