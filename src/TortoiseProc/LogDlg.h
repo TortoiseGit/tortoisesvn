@@ -99,6 +99,7 @@ protected:
 	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
 	virtual void OnCancel();
 	virtual void OnOK();
@@ -111,7 +112,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL hasWC = TRUE);
+	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL hasWC = TRUE, BOOL bStrict = FALSE);
 
 public:
 	CWnd *		m_pNotifyWindow;
@@ -125,6 +126,7 @@ public:
 	BOOL		m_bCancelled;
 	BOOL		m_bShowedAll;
 	BOOL		m_bThreadRunning;
+	BOOL		m_bStrict;
 private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
@@ -137,8 +139,6 @@ private:
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
 	CFont		m_logFont;
-public:
-	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

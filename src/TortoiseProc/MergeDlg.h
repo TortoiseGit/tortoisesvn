@@ -73,6 +73,10 @@ protected:
 	afx_msg void OnBnClickedRevisionN();
 	afx_msg void OnBnClickedFindbranchstart();
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnBnClickedFindbranchend();
+	afx_msg void OnBnClickedBrowse2();
+	afx_msg void OnBnClickedRevisionHead1();
+	afx_msg void OnBnClickedRevisionN1();
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;
@@ -80,16 +84,12 @@ protected:
 	CString		m_sStartRev;
 	CString		m_sEndRev;
 	BOOL		m_bFile;
+	CHistoryCombo m_URLCombo;
+	CHistoryCombo m_URLCombo2;
 public:
 	CString m_URLFrom;
 	CString m_URLTo;
-	CHistoryCombo m_URLCombo;
 	SVNRev StartRev;
 	SVNRev EndRev;
-	CHistoryCombo m_URLCombo2;
-	afx_msg void OnBnClickedFindbranchend();
-	afx_msg void OnBnClickedBrowse2();
-	afx_msg void OnBnClickedRevisionHead1();
-	afx_msg void OnBnClickedRevisionN1();
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));

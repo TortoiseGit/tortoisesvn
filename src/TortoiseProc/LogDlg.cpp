@@ -78,12 +78,13 @@ END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL hasWC)
+void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL hasWC /* = TRUE */, BOOL bStrict /* = FALSE */)
 {
 	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
 	m_hasWC = hasWC;
+	m_bStrict = bStrict;
 }
 
 void CLogDlg::OnPaint() 
@@ -237,7 +238,7 @@ void CLogDlg::OnBnClickedGetall()
 	m_arLogPaths.RemoveAll();
 	m_arRevs.RemoveAll();
 	m_logcounter = 0;
-
+	m_bStrict = FALSE;
 	m_endrev = 1;
 	m_bCancelled = FALSE;
 	DWORD dwThreadId;
@@ -355,16 +356,17 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	long r = pDlg->GetHEADRevision(pDlg->m_path);
 	if (pDlg->m_startrev == -1)
 		pDlg->m_startrev = r;
-	if (pDlg->m_endrev < (-5))
+	if (pDlg->m_endrev < (-5) || pDlg->m_bStrict)
 	{
-		if (r != (-2))
+		if ((r != (-2))&&(pDlg->m_endrev < (-5)))
 		{
 			pDlg->m_endrev = r + pDlg->m_endrev;
 		} // if (r != (-2))
 		if (pDlg->m_endrev <= 0)
 		{
 			pDlg->m_endrev = 1;
-			pDlg->m_bShowedAll = TRUE;
+			if (!pDlg->m_bStrict)
+				pDlg->m_bShowedAll = TRUE;
 		}
 	} // if (pDlg->m_endrev < (-5))
 	else
@@ -377,7 +379,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	pDlg->m_LogProgress.SetRange32(pDlg->m_endrev, pDlg->m_startrev);
 	pDlg->m_LogProgress.SetPos(0);
 	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
-	if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true))
+	if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true, pDlg->m_bStrict))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
