@@ -96,7 +96,7 @@ SVNFolderStatus::~SVNFolderStatus(void)
 	CloseHandle(m_hInvalidationEvent);
 }
 
-const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
+const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder, BOOL bDirectFolder)
 {
 	svn_client_ctx_t *			ctx;
 	apr_hash_t *				statushash;
@@ -142,7 +142,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 	ATLTRACE2(_T("building cache for %s\n"), filepath);
 	if (bIsFolder)
 	{
-		if (g_ShellCache.IsRecursive())
+		if (g_ShellCache.IsRecursive() || bDirectFolder)
 		{
 			// initialize record members
 			dirstat.rev = -1;
@@ -165,8 +165,11 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 					dirstat.author = authors.GetString (status->entry->cmt_author);
 					dirstat.url = authors.GetString (status->entry->url);
 					dirstat.rev = status->entry->cmt_rev;
-				} // if (status.status->entry)
-				dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
+				}
+				if (!bDirectFolder)
+					dirstat.status = SVNStatus::GetAllStatusRecursive(filepath);
+				else
+					dirstat.status = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
 			} // if (status)
 			m_cache[filepath] = dirstat;
 			m_TimeStamp = GetTickCount();
@@ -280,26 +283,17 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 			return &invalidstatus;
 		}
 
-		// since the const char* could be not NULL terminated, we might get into
-		// a crash here, so guard it with a try-catch block.
-		try
+		if (fullStatus.m_status.entry != NULL)
 		{
-			if (fullStatus.m_status.entry != NULL)
-			{
-				filestat.author = authors.GetString(fullStatus.m_status.entry->cmt_author);
-				filestat.url = urls.GetString(fullStatus.m_status.entry->url);
-				filestat.rev = fullStatus.m_status.entry->cmt_rev;
-			} // if (status->entry) 
-			else
-			{
-				filestat.author = authors.GetString(NULL);
-				filestat.url = urls.GetString(NULL);
-				filestat.rev = -1;
-			}
+			filestat.author = authors.GetString(fullStatus.m_status.entry->cmt_author);
+			filestat.url = urls.GetString(fullStatus.m_status.entry->url);
+			filestat.rev = fullStatus.m_status.entry->cmt_rev;
 		}
-		catch (...)
+		else
 		{
-			return &invalidstatus;
+			filestat.author = authors.GetString(NULL);
+			filestat.url = urls.GetString(NULL);
+			filestat.rev = -1;
 		}
 		filestat.status = svn_wc_status_unversioned;
 		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.m_status.text_status);
@@ -316,6 +310,15 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 	//for the SVNStatus column, we have to check the cache to see
 	//if it's not just unversioned but ignored
 	ret = GetCachedItem(filepath);
+	if ((ret)&&(ret->status == svn_wc_status_unversioned)&&(bIsFolder)&&(bHasAdminDir))
+	{
+		// an 'unversioned' folder, but with an ADMIN dir --> nested layout!
+		ret = BuildCache(filepath, bIsFolder, TRUE);
+		if (ret)
+			return ret;
+		else
+			return &invalidstatus;
+	}
 	if (ret)
 		return ret;
 

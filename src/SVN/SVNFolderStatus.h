@@ -147,7 +147,7 @@ public:
 	FileStatusCacheEntry		invalidstatus;
 
 private:
-	const FileStatusCacheEntry * BuildCache(LPCTSTR filepath, BOOL bIsFolder);
+	const FileStatusCacheEntry * BuildCache(LPCTSTR filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
 	DWORD				GetTimeoutValue();
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	void				ClearCache();
