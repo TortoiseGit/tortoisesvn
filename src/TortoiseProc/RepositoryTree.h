@@ -76,7 +76,7 @@ public:
 	 * \return Returns the item handle of the folder created or NULL if
 	 *         creation failed
 	 */
-	HTREEITEM AddFolder(const CString& folder, bool force = false);
+	HTREEITEM AddFolder(const CString& folder, bool force = false, bool init = false);
 
 	/**
 	 * Adds the given \a file to the tree control, if it is not already

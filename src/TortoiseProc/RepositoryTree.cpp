@@ -62,9 +62,9 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 	DeleteAllItems();
 
 	if (m_bFile)
-		AddFolder(svn_url.GetParentPath(), true);
+		AddFolder(svn_url.GetParentPath(), true, true);
 	else
-		AddFolder(m_strUrl, true);
+		AddFolder(m_strUrl, true, true);
 
 	HTREEITEM hRoot = GetNextItem(RVTI_ROOT, RVGN_CHILD);
 	HTREEITEM hItem = FindUrl(m_strUrl);
@@ -76,7 +76,7 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 
 // CRepositoryTree low level update functions
 
-HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force)
+HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force, bool init)
 {
 	CString folder_path;
 	AfxExtractSubString(folder_path, SVNUrl(folder), 0, '\t');
@@ -99,7 +99,7 @@ HTREEITEM CRepositoryTree::AddFolder(const CString& folder, bool force)
 		}
 
 		DeleteDummyItem(hParentItem);
-		if (hParentItem != RVTI_ROOT)
+		if ((hParentItem != RVTI_ROOT)&&(!init))
 			SetItemData(GetItemIndex(hParentItem), 1);
 		if (force && hParentItem != RVTI_ROOT)
 			Expand(hParentItem, RVE_EXPAND);
@@ -618,5 +618,5 @@ void CRepositoryTree::Refresh(HTREEITEM hItem)
 void CRepositoryTree::RefreshMe(HTREEITEM hItem)
 {
 	if (hItem != 0)
-		LoadChildItems(hItem, GetKeyState(VK_CONTROL)&0x8000);
+		LoadChildItems(hItem, (GetKeyState(VK_CONTROL)&0x8000)!=0);
 }
