@@ -173,13 +173,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_update_completed:
 		{
 			data->bAuxItem = true;
-
-			if (!m_ExtStack.IsEmpty())
+			bool bEmpty = !!m_ExtStack.IsEmpty();
+			if (!bEmpty)
 				data->sPathColumnText.Format(IDS_PROGRS_PATHATREV, (LPCTSTR)m_ExtStack.RemoveHead(), rev);
 			else
 				data->sPathColumnText.Format(IDS_PROGRS_ATREV, rev);
 
-			if ((m_bConflictsOccurred)&&(m_ExtStack.IsEmpty()))
+			if ((m_bConflictsOccurred)&&(bEmpty))
 			{
 				// We're going to add another aux item - let's shove this current onto the list first
 				// I don't really like this, but it will do for the moment.
