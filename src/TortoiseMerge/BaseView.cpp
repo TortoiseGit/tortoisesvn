@@ -1321,7 +1321,7 @@ void CBaseView::OnMergePreviousdifference()
 			if (linestate != m_arLineStates->GetAt(--m_nSelBlockStart))
 				break;
 		} // while (nIndex < m_arLineStates->GetCount())
-		if ((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == m_arLineStates->GetAt(m_nSelBlockStart)))
+		if (((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == m_arLineStates->GetAt(m_nSelBlockStart)))||m_nSelBlockStart==0)
 			m_nSelBlockStart = m_nSelBlockStart;
 		else
 			m_nSelBlockStart = m_nSelBlockStart+1;
