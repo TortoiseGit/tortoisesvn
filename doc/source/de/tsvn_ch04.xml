@@ -1162,6 +1162,44 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-showlog-3">
+			<title>Anzeigen aller Log-Meldungen</title>
+			<para>
+				Der Log Dialog zeigt nicht immer alle Änderungen die jemals
+				gemacht wurden an. Dies aus mehreren Gründen:
+				<itemizedlist>
+					<listitem>
+						<para>
+							Bei einem grossen Projektarchiv können hunderte oder
+							gar tausende von Änderungen gespeichert sein. Und diese
+							alle Änderungen auf einmal zu laden kann sehr lange
+							dauern. Normalerweise ist man auch nur an den letzten
+							Meldungen interessiert. Standardmässig werden beim
+							ersten Aufruf des Log Dialogs die letzten hundert
+							Log-Meldungen angezeigt, aber dieser Wert kann im
+							Einstellungs-Dialog geändert werden.
+                  			<menuchoice>
+            					<guimenuitem>Einstellungen</guimenuitem>
+            				</menuchoice>
+            				(<xref linkend="tsvn-DUG-settings"/>),
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Wenn Sie den Log Dialog für einen Zweig oder eine
+							Markierung anzeigen, so werden nur die Log Meldungen
+							angezeigt bis zu dem Punkt, wo der Zweig/Markierung
+							erstellt wurde. Dies gibt eine schnelle Möglichkeit
+							herauszufinden, in welcher Revision ein Zweig erstellt
+							wurde.
+						</para>
+					</listitem>
+				</itemizedlist>
+				Wenn Sie wirklich <emphasis>alle</emphasis> Log Meldungen zurück
+				bis zur Revision 1 sehen möchten, klicken Sie auf 
+				<guibutton>Hole Alle</guibutton>.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-DUG-showlog-4">
 			<title>Ändern der Log-Meldung und des Autors</title>
 			<para>
 				Manchmal ist es notwendig, eine Log-Meldung nachträglich zu ändern.

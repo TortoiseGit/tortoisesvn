@@ -1060,7 +1060,7 @@
 					</listitem>
 					<listitem>
 						<para>
-							Invoke an externa Unified-Diff viewer. This
+							Invoke an external Unified-Diff viewer. This
 							operation is faster than invoking the "normal" external
 							diff viewer because TortoiseSVN doesn't have to fetch the
 							whole file but only the difference.
@@ -1076,7 +1076,7 @@
 					<listitem>
 						<para>
 							Update your working copy to a selected
-							revision. Usefull if you want to have your working copy reflect
+							revision. Useful if you want to have your working copy reflect
 							a time in the past.
 						</para>
 					</listitem>
@@ -1084,10 +1084,44 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-showlog-3">
+			<title>Getting all log messages</title>
+			<para>
+				The Log Dialog does not always show all changes ever made for a
+				number of reasons:
+				<itemizedlist>
+					<listitem>
+						<para>
+							For a large repository there may be hundreds or even
+							thousands of changes and fetching them all could take
+							a long time. Normally you are only interested in the
+							more recent changes. By default, the number of log
+							messages fetched is limited to 100, but you can change
+							this value in 
+                  			<menuchoice>
+            					<guimenuitem>Settings</guimenuitem>
+            				</menuchoice>
+            				(<xref linkend="tsvn-DUG-settings"/>),
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							When you check the log messages for a branch (or tag),
+							Show Log only displays log messages back to the root
+							of that particular branch - the point where the copy
+							was made. This gives a quick indication of the changes
+							that were made in that branch only.
+						</para>
+					</listitem>
+				</itemizedlist>
+				If you want to see <emphasis>all</emphasis> log messages right back
+				to revision 1, press <guibutton>Get All</guibutton>.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-DUG-showlog-4">
 			<title>Changing the log message and author</title>
 			<para>
 				Sometimes you might want to change a log message you once entered,
-				may it be because there's a spelling error in it or you want to
+				maybe because there's a spelling error in it or you want to
 				improve the message or change it for other reasons. Or you want to
 				change the author of the commit because you forgot to set up
 				authentication or...
@@ -1174,7 +1208,7 @@
 			branches or tags into the dialog. So instead of
 			<filename>trunk</filename>
 			you would now use
-			<filename>ktags/tagname</filename>
+			<filename>tags/tagname</filename>
 			where
 			<filename>tagname</filename>
 			would be e.g.
@@ -1189,7 +1223,7 @@
 
 			If you press <guibutton>OK</guibutton> now, Subversion just creates a cheap copy
 			of your selected Directory <emphasis>inside the repository</emphasis>.
-			Creating a Branch / Tag.does <emphasis>not</emphasis> affect your working
+			Creating a Branch / Tag does <emphasis>not</emphasis> affect your working
 			copy.
 		</para>
 		<sect2 id="tsvn-DUG-switch-1">
