@@ -5,12 +5,12 @@ mkdir ..\output
 
 rmdir /s /q ..\output\TortoiseSVN\
 mkdir ..\output\TortoiseSVN
-..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\help.html ..\tools\xsl\html\docbook.xsl book.xml
+mkdir ..\output\TortoiseSVN\html
+..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html\help.html ..\tools\xsl\html\docbook.xsl book.xml
 
-mkdir ..\output\TortoiseSVN\html-chunk
-..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html-chunk\ ..\tools\xsl\html\chunk.xsl book.xml
-copy styles.css ..\output\TortoiseSVN\html-chunk\
-copy ..\images\*.png ..\output\TortoiseSVN\html-chunk\
+..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html\ ..\tools\xsl\html\chunk.xsl book.xml
+copy styles.css ..\output\TortoiseSVN\html\
+copy ..\images\*.png ..\output\TortoiseSVN\html\
 
 mkdir ..\output\TortoiseSVN\html-help
 ..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html-help\ htmlhelp.xsl book.xml

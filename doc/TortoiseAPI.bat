@@ -6,4 +6,5 @@ doxygen.exe Doxyfile
 del Doxyfile
 del ..\output\API\TortoiseAPI.chm
 copy ..\output\API\html\TortoiseAPI.chm ..\output\API\TortoiseAPI.chm
+rmdir /s /q ..\output\API\html
 cd ..
