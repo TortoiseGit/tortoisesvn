@@ -1118,17 +1118,17 @@ BEGIN
     IDS_MSGBOX_OK           "OK"
     IDS_MSGBOX_YES          "Yes"
     IDS_MSGBOX_NO           "No"
-    IDS_SVNACTION_ADD       "Add"
-    IDS_SVNACTION_COPY      "Copy"
-    IDS_SVNACTION_DELETE    "Delete"
-    IDS_SVNACTION_RESTORE   "Restore"
-    IDS_SVNACTION_REVERT    "Revert"
+    IDS_SVNACTION_ADD       "Added"
+    IDS_SVNACTION_COPY      "Copied"
+    IDS_SVNACTION_DELETE    "Deleted"
+    IDS_SVNACTION_RESTORE   "Restored"
+    IDS_SVNACTION_REVERT    "Reverted"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_SVNACTION_RESOLVE   "Resolve"
-    IDS_SVNACTION_UPDATE    "Update"
+    IDS_SVNACTION_RESOLVE   "Resolved"
+    IDS_SVNACTION_UPDATE    "Updated"
     IDS_SVNACTION_COMPLETED "Completed"
     IDS_SVNACTION_EXTERNAL  "External"
     IDS_SVNACTION_MODIFIED  "Modified"
@@ -1136,7 +1136,7 @@ BEGIN
     IDS_SVNACTION_POSTFIX   "Sending Content"
     IDS_SVNACTION_FAILEDREVERT "Failed Revert"
     IDS_SVNACTION_STATUS    "Status"
-    IDS_SVNACTION_SKIP      "Skip"
+    IDS_SVNACTION_SKIP      "Skipped"
     IDS_PROGS_EXTCOL        "Extension"
     IDS_PROGS_TOOLCOL       "Program"
     IDS_LOG_FILE            "File"
