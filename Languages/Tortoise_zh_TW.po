@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-07-15 09:46+0800\n"
+"PO-Revision-Date: 2004-08-12 15:12+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgstr "合併(&M)"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "&Merge changes into the current working copy from URL:"
+msgid "&Merge changes into the current working copy which points to the URL:"
 msgstr "將URL的異動合併至工作複本(&M):"
 
 # Control-ID:1012,
@@ -434,6 +434,26 @@ msgstr "存取 %1 時發生鎖定錯誤."
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "有更新的版本. 請至 http://tortoisesvn.tigris.org 下載!"
 
+# ID:195,
+#: ID:195
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+"以換行分隔的列表, 包含要顯示圖示覆蓋的目錄.\n"
+"如果你在路徑後面加上 \"*\", 那麼此路徑下的所有檔案及子目錄也都會顯示."
+
+# ID:194,
+#: ID:194
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+"以換行分隔的列表, 列出的目錄不顯示圖示覆蓋.\n"
+"如果你在路徑後面加上 \"*\", 那麼此路徑下的所有檔案及子目錄也都不會顯示.\n"
+"列表為空時表示所有路徑都顯示圖示覆蓋."
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -578,8 +598,8 @@ msgstr "加入檔案至 Subversion 版本控制"
 
 # ID:13,
 #: ID:13
-msgid "Adds the selected file(s) to the 'ignore' list"
-msgstr "將選定的檔案加入忽略列表"
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "將選定的檔案遮罩加入忽略列表"
 
 # ID:2049,
 #: ID:2049
@@ -785,6 +805,11 @@ msgstr "瀏覽(&R)..."
 msgid "B&uiltin"
 msgstr "內建(&U)"
 
+# ID:213,
+#: ID:213
+msgid "BDB"
+msgstr "BDB"
+
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -859,6 +884,11 @@ msgstr "瀏覽..."
 #: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "內建(&I)"
+
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug編號 / 問題編號:"
 
 # ID:3697,
 #: ID:3697
@@ -980,8 +1010,13 @@ msgstr ""
 "勾選你要在匯入之前刪除\n"
 "的檔案."
 
+# ID:251,
+#: ID:251
+msgid "Check the path and/or URL you've entered."
+msgstr "請檢查你輸入的路徑或 URL."
+
 # Control-ID:65535,
-#: Control-ID:65535
+#: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr "勾選你希望出現在快顯功能表, 而不是子選單中的選單項目"
 
@@ -1019,6 +1054,11 @@ msgstr "清理完成."
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "清理未完成的作業, 鎖定檔等..."
+
+# Control-ID:1059,
+#: Control-ID:1059
+msgid "Clear Auth Cache"
+msgstr "清除認證快取"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1100,6 +1140,11 @@ msgstr "完畢"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "衝突"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Context Menu"
+msgstr "快顯功能表"
 
 # ID:73,
 #: ID:73
@@ -1271,6 +1316,11 @@ msgstr "在此建立檔案庫"
 #: ID:77
 msgid "Create Tag from revision"
 msgstr "從版本建立標記"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Create the branch/tag directly on the server"
+msgstr "直接在伺服器端建立分支/標記"
 
 # ID:126,
 #: ID:126
@@ -1570,8 +1620,13 @@ msgstr "例外:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Exclude pattern:"
-msgstr "除外樣式:"
+msgid "Exclude paths:"
+msgstr "除外路徑:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Exclude/Ignore pattern:"
+msgstr "除外/忽略樣式:"
 
 # ID:94,
 #: ID:94
@@ -1622,6 +1677,11 @@ msgstr "外部"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "外部程式:"
+
+# ID:213,
+#: ID:213
+msgid "FSFS"
+msgstr "FSFS"
 
 # ID:74,
 #: ID:74
@@ -1767,9 +1827,9 @@ msgid "Hostname mismatch (%s)"
 msgstr "站臺名稱不符 (%s)"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
-msgid "Icon Overlays"
-msgstr "圖示覆蓋"
+#: Control-ID:65535
+msgid "Icon Overlays / Status Columns"
+msgstr "圖示覆蓋 / 狀態列"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -1852,6 +1912,11 @@ msgstr "匯入..."
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "匯入目錄至檔案庫"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include paths:"
+msgstr "包含路徑:"
 
 # ID:76,
 #: ID:76
@@ -1988,6 +2053,11 @@ msgstr "紀錄訊息"
 msgid "Log Messages"
 msgstr "紀錄訊息"
 
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel"
+msgstr "視覺樣式"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -1998,11 +2068,6 @@ msgstr "郵件系統 DLL 錯誤."
 #: Dlg-ID:143
 msgid "Main"
 msgstr "主要設定"
-
-# Dlg-ID:159,
-#: Dlg-ID:159
-msgid "Menu Layout"
-msgstr "選單配置"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
@@ -2240,6 +2305,11 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "密碼:"
 
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Paste Status Template"
+msgstr "貼上狀態模板"
+
 # ID:376,
 #: ID:376
 msgid "Patch All"
@@ -2327,6 +2397,11 @@ msgstr "請輸入整數."
 #: ID:3858
 msgid "Please enter no more than %1 characters."
 msgstr "請勿輸入超過 %1 個字."
+
+# ID:251,
+#: ID:251
+msgid "Please execute the \"Cleanup\" command."
+msgstr "請執行 \"清理\" 動作."
 
 # ID:78,
 #: ID:78
@@ -2949,6 +3024,11 @@ msgstr "顯示記錄(&L)..."
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
 
+# Control-ID:1120,
+#: Control-ID:1120
+msgid "Show BugID/Issue-Nr. Box"
+msgstr "顯示Bug編號/問題編號盒"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -3395,11 +3475,6 @@ msgstr "系統中找不到本程式需要的 %s."
 msgid "Three File Diff"
 msgstr "三檔差異"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "要從指定的分支合併變更時, 必須在\"從\"和\"至\"兩欄中輸入相同的URL."
-
 # Control-ID:1052,
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -3483,6 +3558,11 @@ msgstr "TortoiseSVN 設定"
 #: ID:73
 msgid "Try Again"
 msgstr "再試一次"
+
+# ID:251,
+#: ID:251
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "試試 \"清理\". 如果它沒有效, 你需要重新取出檔案."
 
 # ID:10,
 #: ID:10
@@ -3633,6 +3713,11 @@ msgstr "Url:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "在定位列上使用放大鏡"
 
+# Control-ID:65535,
+#: Control-ID:1073
+msgid "Use \"From:\" URL"
+msgstr "使用 \"從:\" 的URL"
+
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -3734,6 +3819,11 @@ msgstr "檢視 GNU 差異檔(補綴檔)的工具程式."
 msgid "Visit our website"
 msgstr "瀏覽我們的網站"
 
+# ID:213,
+#: ID:213
+msgid "What repository type do you want to create?"
+msgstr "你要建立什麼型式的檔案庫?"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3793,6 +3883,11 @@ msgstr ""
 "協定存取檔案庫.\n"
 "這可能造成嚴重的檔案庫損壞!\n"
 "確定要這樣做嗎?"
+
+# ID:251,
+#: ID:251
+msgid "You have to update your working copy first."
+msgstr "你必須先更新工作複本."
 
 # ID:77,
 #: ID:77
