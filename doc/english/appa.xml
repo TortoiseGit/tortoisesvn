@@ -707,6 +707,53 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-6">
+			<title>What are the hidden registry settings?</title>
+			<para>
+			There are some registry settings for TortoiseSVN which aren't
+			available through the settings dialog. These registry settings
+			usually are for debugging purposes or very special occasions.
+			You can set those with the registry editor 
+			<command>regedt32</command>.
+			<variablelist>
+				<varlistentry>
+					<term>HKCU\Software\TortoiseSVN\Debug</term>
+					<listitem>
+					<para>
+					Set this value to 1 for TortoiseSVN to show you the
+					parameters it gets from the shell extension part.
+					</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>HKCU\Software\TortoiseSVN\OwnerdrawnMenus</term>
+					<listitem>
+					<para>
+					Set this value to 0 if you don't want TortoiseSVN to
+					use ownerdraw menu items in the shell context menu.
+					This helps if you use something else than the windows
+					explorer or if you get problems with the context menu
+					showing up.
+					</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>HKCU\Software\TortoiseSVN\BlockStatus</term>
+					<listitem>
+					<para>
+					If you don't want the explorer to update the status
+					overlays while another TortoiseSVN command is running
+					(e.g. an update, commit, ...) then set this value to 1.
+					</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			</para>
+			<para>
+			Please don't mess with those and any other registry setting if
+			you don't know <emphasis>exactly</emphasis> what you're doing!
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-misc-7">
 			<title>I love TortoiseSVN, how can I do 
 			something for the developers?</title>
 			<para>
