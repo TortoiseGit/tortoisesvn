@@ -321,11 +321,14 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "&Language:",IDC_STATIC,19,20,54,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,18,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,19,37,61,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,37,200,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DEFAULTLOG,229,57,51,14,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_RIGHT
+    LTEXT           "&Language:",IDC_STATIC,19,20,54,8
+    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,19,37,61,18
+    LTEXT           "Default &number of log messages",IDC_STATIC,19,59,198,8
     CONTROL         "&Show unversioned files before committing",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX,19,98,261,
                     10
@@ -334,9 +337,6 @@ BEGIN
                     19,112,261,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,19,126,261,10
-    LTEXT           "Default &number of log messages",IDC_STATIC,19,59,201,8
-    EDITTEXT        IDC_DEFAULTLOG,220,57,60,14,ES_AUTOHSCROLL | ES_NUMBER,
-                    WS_EX_RIGHT
     GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,71
     GROUPBOX        "Committing",IDC_COMMITGROUP,7,84,286,61
 END
@@ -660,7 +660,7 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 19
         VERTGUIDE, 80
-        VERTGUIDE, 220
+        VERTGUIDE, 217
         VERTGUIDE, 229
         VERTGUIDE, 280
         TOPMARGIN, 7

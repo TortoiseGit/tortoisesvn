@@ -43,6 +43,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
+	typedef HRESULT(__stdcall *PFNDRAWTHEMEPARENTBACKGROUND)(HWND hwnd, HDC hdc, RECT * prc);
 	typedef HTHEME(__stdcall *PFNOPENTHEMEDATA)(HWND hwnd, LPCWSTR pszClassList);
 	typedef BOOL(__stdcall *PFNISAPPTHEMED)();
 	typedef HRESULT (__stdcall *PFNDRAWTHEMETEXT)(HTHEME hTheme, HDC hdc, int iPartId, 

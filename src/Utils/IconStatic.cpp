@@ -85,7 +85,12 @@ bool CIconStatic::Init(UINT nIconID)
 		{
 			if ((*pfnIsAppThemed)())
 			{
-				MemDC.FillSolidRect(rCaption, pDC->GetBkColor());
+				HRESULT rr;
+				PFNDRAWTHEMEPARENTBACKGROUND pfnDrawThemeParentBackground = (PFNDRAWTHEMEPARENTBACKGROUND)GetProcAddress(hThemeDll, "DrawThemeParentBackground");
+				if (pfnDrawThemeParentBackground)
+					rr = (*pfnDrawThemeParentBackground)(this->m_hWnd, MemDC.m_hDC, NULL);
+				else
+					MemDC.FillSolidRect(rCaption, pDC->GetBkColor());
 				
 				DrawState( MemDC.m_hDC, NULL, NULL,
 					(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
@@ -101,10 +106,14 @@ bool CIconStatic::Init(UINT nIconID)
 						PFNDRAWTHEMETEXT pfn = (PFNDRAWTHEMETEXT)GetProcAddress(hThemeDll, "DrawThemeText");
 						if (pfn)
 						{
+#ifdef UNICODE
+							(*pfn)(hTheme, MemDC.m_hDC, 4, 1, m_strText, m_strText.GetLength(), 
+									DT_WORDBREAK | DT_CENTER | DT_WORD_ELLIPSIS, NULL, &rCaption);
+#else
 							CStringW m_strTextW(m_strText);
 							(*pfn)(hTheme, MemDC.m_hDC, 4, 1, m_strTextW, m_strTextW.GetLength(), 
 									DT_WORDBREAK | DT_CENTER | DT_WORD_ELLIPSIS, NULL, &rCaption);
-							
+#endif							
 							PFNCLOSETHEMEDATA pfnCloseThemeData = (PFNCLOSETHEMEDATA)GetProcAddress(hThemeDll, "CloseThemeData");
 							if (pfnCloseThemeData)
 								(*pfnCloseThemeData)(hTheme);
