@@ -1724,6 +1724,8 @@ Rev Comments
 					<para>
 					The minimum length of a log message for a commit. If you enter
 					a shorter message than specified here, the commit is disabled.
+					This feature is very useful for reminding you to supply a proper
+					descriptive message for every commit.
 					</para>
 					</listitem>
 				</varlistentry>
@@ -1754,10 +1756,10 @@ Rev Comments
 					<term>Paste Log template in english</term>
 					<listitem>
 					<para>
-					This only applies if you have selected another language
+					This only applies if you have selected a language other
 					than english for TortoiseSVN. In that case, when pasting
 					the log template in the commit dialog, the status of each
-					file is pasted in the selected language. Whith this option
+					file is pasted in the selected language. With this option
 					checked, the status is pasted in english.
 					</para>
 					</listitem>
@@ -1770,12 +1772,13 @@ Rev Comments
 			<title>The Settings Dialog, Look and Feel Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-2">
-					<title>The Settings Dialog, Overlay Tab</title>
+					<title>The Settings Dialog, Look and Feel Tab</title>
 					<graphic fileref="images/SettingsOverlay.png"/>
 				</figure>
-				This tab allows you to choose, for which items TortoiseSVN shall
+				This tab allows you to choose the items for which TortoiseSVN will
 				display icon overlays. If you feel that your icon overlays are very 
-				slow (explorer is not responsive), uncheck the "show changed directories" box.
+				slow (explorer is not responsive), uncheck the
+				"Recurse into folders to fetch the status" box.
 				You can even disable all icon overlays, but where's the fun in that?
 			</para>
 			<para>
@@ -1792,9 +1795,9 @@ Rev Comments
 			</para>
 			<para>
 				<filename>f:\development\SVN\Subversion*</filename> will disable the
-				overlays on <emphasis>all</emphasis> files and folders which path
+				overlays on <emphasis>all</emphasis> files and folders whose path
 				starts with <filename>f:\development\SVN\Subversion</filename>. That
-				means you won't see overlays for all files and folder below that
+				means you won't see overlays for any files and folders below that
 				path.
 			</para>
 			<para>
@@ -1803,8 +1806,8 @@ Rev Comments
 			that specific drive type.
 			</para>
 			<para>
-				You can also specifiy here which of the TortoiseSVN contex menu
-				entries shall show up in the main context menu.
+				You can also specify here which of the TortoiseSVN context menu
+				entries will show up in the main context menu.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-network">
@@ -1818,10 +1821,10 @@ Rev Comments
 					<title>The Settings Dialog, Network Tab</title>
 					<graphic fileref="images/SettingsProxy.png"/>
 				</figure>
-				Here you can configure your proxy server, if you need one to get through youor company's firewall.
+				Here you can configure your proxy server, if you need one to get through your company's firewall.
 			</para>
 			<para>
-				You can also specify, which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository.
+				You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository.
 			</para>
 		</sect2>
 
