@@ -930,7 +930,9 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if (pNMLV->iItem < 0)
 		return;
-
+	if (m_options & ProgOptDryRun)
+		return;	//don't do anything in a dry-run.
+		
 	const NotificationData * data = m_arData[pNMLV->iItem];
 	ASSERT(data != NULL);
 	if (data->bConflictedActionItem)
@@ -1105,6 +1107,9 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 
 void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 {
+	if (m_options & ProgOptDryRun)
+		return;	//don't do anything in a dry-run.
+
 	if (pWnd == &m_ProgList)
 	{
 		int selIndex = m_ProgList.GetSelectionMark();
