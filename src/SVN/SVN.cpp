@@ -217,6 +217,9 @@ BOOL SVN::Remove(CString path, BOOL force)
 		return FALSE;
 	}
 
+	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+
 	UpdateShell(path);
 
 	return TRUE;
@@ -291,6 +294,9 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 	
 	UpdateShell(path);
 
+	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+
 	if(commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		return commit_info->revision;
 	return -1;
@@ -313,6 +319,8 @@ BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision)
 	{
 		return FALSE;
 	}
+	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	return TRUE;
 }
 
@@ -333,6 +341,8 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force)
 	{
 		return FALSE;
 	}
+	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 
 	UpdateShell(srcPath);
 	UpdateShell(destPath);
@@ -354,6 +364,8 @@ BOOL SVN::MakeDir(CString path, CString message)
 	{
 		return FALSE;
 	}
+	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 
 	UpdateShell(path);
 
@@ -450,6 +462,8 @@ BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 	{
 		return FALSE;
 	}
+	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
+		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	return TRUE;
 }
 
