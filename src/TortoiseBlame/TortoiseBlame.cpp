@@ -422,52 +422,18 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	char blamefile[MAX_PATH] = {0};
 	char logfile[MAX_PATH] = {0};
 
-	int i=0;
-	//skip spaces
-	while (*lpCmdLine==' ') lpCmdLine++;
-
-	TCHAR * p1End = _tcschr(lpCmdLine, ' ');
-	if (*lpCmdLine == '\"')
+	if (__argc > 1)
 	{
-		lpCmdLine++;
-		p1End = _tcschr(lpCmdLine, '\"');
+		_tcscpy(blamefile, __argv[1]);
 	}
-	if (p1End)
+	if (__argc > 2)
 	{
-		_tcsncpy(blamefile, lpCmdLine, p1End-lpCmdLine);
-		lpCmdLine = p1End;
-		lpCmdLine++;
-		while (*lpCmdLine==' ') lpCmdLine++;
-		p1End = _tcschr(lpCmdLine, ' ');
-		if (*lpCmdLine == '\"')
-		{
-			lpCmdLine++;
-			p1End = _tcschr(lpCmdLine+1, '\"');
-		}
-		if (p1End)
-		{
-			_tcsncpy(logfile, lpCmdLine, p1End-lpCmdLine);
-			lpCmdLine = p1End;
-			lpCmdLine++;
-			while (*lpCmdLine==' ') lpCmdLine++;
-			p1End = _tcschr(lpCmdLine, ' ');
-			if (*lpCmdLine == '\"')
-			{
-				lpCmdLine++;
-				p1End = _tcschr(lpCmdLine+1, '\"');
-			}
-			if (p1End)
-			{
-				_tcsncpy(szOrigFilename, lpCmdLine, p1End-lpCmdLine);
-			}
-			else
-				_tcsncpy(szOrigFilename, lpCmdLine, MAX_PATH);
-		}
-		else
-			_tcsncpy(logfile, lpCmdLine, MAX_PATH);
+		_tcscpy(logfile, __argv[2]);
 	}
-	else
-		_tcsncpy(blamefile, lpCmdLine, MAX_PATH);
+	if (__argc > 3)
+	{
+		_tcscpy(szOrigFilename, __argv[3]);
+	}
 
 	if (_tcslen(blamefile)==0)
 		return 0;
