@@ -255,6 +255,11 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 				temp.LoadString(IDS_MENUREVERT);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
 			} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
+			if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted))
+			{
+				temp.LoadString(IDS_REPOBROWSE_OPEN);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+			}
 			temp.LoadString(IDS_MENUREFRESH);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -290,6 +295,11 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			case ID_REFRESH:
 				{
 					Refresh();
+				}
+				break;
+			case ID_OPEN:
+				{
+					ShellExecute(this->m_hWnd, _T("open"), filepath, NULL, NULL, SW_SHOW);
 				}
 				break;
 			default:
