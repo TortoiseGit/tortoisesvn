@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-20 17:49+0900\n"
+"PO-Revision-Date: 2004-10-01 19:11+0900\n"
 "Last-Translator: Hojin Choi <pynoos@users.kldp.net>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,11 @@ msgstr "%s - 리비전: %d"
 
 # ID:151,
 #: ID:151
+msgid "%s : Remote File"
+msgstr "%s : 원격지 파일"
+
+# ID:151,
+#: ID:151
 msgid "%s : Working Base"
 msgstr "%s: 작업 베이스"
 
@@ -183,7 +188,7 @@ msgstr "윈도우 자동 닫기(&C)"
 
 # ID:76,
 #: ID:76
-msgid "&Compare revisions"
+msgid "&Compare Revisions"
 msgstr "리비전 비교(&C)"
 
 # ID:101,
@@ -423,7 +428,7 @@ msgstr "알 수 없는 드라이브(&U)"
 
 # ID:76,
 #: ID:76
-msgid "&Update item to revision"
+msgid "&Update Item To Revision"
 msgstr "리비전으로 업데이트(&U)"
 
 # Control-ID:65535,#:
@@ -561,7 +566,7 @@ msgstr ""
 
 # ID:101,
 #: ID:101
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr "폴더 추가(&A)"
 
 # Control-ID:1093,
@@ -636,7 +641,7 @@ msgstr "추가"
 
 # ID:101,
 #: ID:101
-msgid "Add &file..."
+msgid "Add &File..."
 msgstr "파일 추가(&F)..."
 
 # ID:110,
@@ -984,8 +989,8 @@ msgstr "폴더 생성(&C)"
 
 # ID:77,
 #: ID:77
-msgid "C&reate Tag from revision"
-msgstr "이 리비전에 태그 생성(&C)"
+msgid "C&reate Tag From Revision"
+msgstr "이 리비전으로부터 태그 생성(&R)"
 
 # ID:3697,
 #: ID:3697
@@ -1035,8 +1040,8 @@ msgstr "인증서가 유효하지 않습니다. 시작일: %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr "인증서|*.p12;*.pkcs12|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgstr "인증서|*.p12;*.pkcs12*.pfx|모든 파일|*.*||"
 
 # ID:3825,
 #: ID:3825
@@ -1220,15 +1225,15 @@ msgstr "커밋 중"
 msgid "Compare Whitespaces"
 msgstr "공백들을 비교"
 
+# ID:138,
+#: ID:138
+msgid "Compare With B&ase"
+msgstr "작업하기 위해 꺼냈던 것과 비교(&A)"
+
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "리비전 비교(&w)"
-
-# ID:138,
-#: ID:138
-msgid "Compare with B&ase"
-msgstr "작업하기 위해 꺼냈던 것과 비교(&a)"
 
 # ID:12,
 #: ID:12
@@ -1244,6 +1249,11 @@ msgstr "완료"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "충돌"
+
+# Control-ID:65535,
+#: ID:188
+msgid "Conflicts: %d"
+msgstr "충돌: %d"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1264,6 +1274,11 @@ msgstr "원격 복사됨"
 #: ID:73
 msgid "Copy"
 msgstr "복사"
+
+# ID:151,
+#: ID:101
+msgid "Copy To Working Copy..."
+msgstr "작업 사본으로 복사..."
 
 # ID:13,
 #: ID:13
@@ -1892,6 +1907,15 @@ msgid "Getting log info..."
 msgstr "로그 정보 읽는 중..."
 
 # ID:2049,
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"다음 차이점으로 돌아감\n"
+"다음 차이"
+
+# ID:2049,
 #: ID:2049
 msgid ""
 "Go to the next difference\n"
@@ -1899,6 +1923,15 @@ msgid ""
 msgstr ""
 "다음 차이점으로 돌아감\n"
 "다음 차이"
+
+# ID:2049,
+#: ID:2051
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"이전 차이점으로 돌아감\n"
+"이전 차이"
 
 # ID:2049,
 #: ID:2049
@@ -1917,7 +1950,7 @@ msgid "Help"
 msgstr "도움말"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr "힌트: F5를 누르면 선택된 디렉토리를 새로 고칩니다."
 
@@ -2112,6 +2145,11 @@ msgstr "아이템의 마지막 저장 리비전"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "충돌을 해결하기 위해 외부 비교 / 병합 프로그램을 실행합니다"
 
+# ID:188,
+#: ID:188
+msgid "Left View: "
+msgstr "왼쪽:"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -2199,11 +2237,6 @@ msgstr "메시지"
 msgid "Mime Type"
 msgstr "Mime 종류"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Minimum logsize in chars"
-msgstr "최소 로그 사이즈"
-
 # Control-ID:1082,#:
 # Control-ID:1023,
 #: Control-ID:1082
@@ -2241,6 +2274,11 @@ msgstr "이동중 %s"
 #: ID:80
 msgid "Moving..."
 msgstr "이동중..."
+
+# ID:12,
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "다음 충돌(&E)"
 
 # ID:3697,
 #: ID:3697
@@ -2308,9 +2346,9 @@ msgstr "오류 발생하지 않음."
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+"for TortoiseSVN to do here..."
 msgstr ""
-"마지막 커밋 이후로 바뀐 것이 없습니다.\n"
+"마지막 커밋 이후로 추가되거나 변경된 것이 없습니다.\n"
 "이곳에 TortoseSVN이 할 수 있는 것이 없습니다."
 
 # Control-ID:65535,
@@ -2401,6 +2439,11 @@ msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하�
 msgid "Out of memory."
 msgstr "메모리 부족."
 
+# ID:12,
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "이전 충돌(&R)"
+
 # ID:76,
 #: ID:76
 msgid "PEM"
@@ -2416,15 +2459,15 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "암호:"
 
+# Dlg-ID:158,
+#: Control-ID:1031
+msgid "Paste Changed Filenames"
+msgstr "바뀐 파일 이름 붙이기"
+
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
 msgstr "영어로된 템플릿 로그 붙이기(&t)"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Paste Status Template"
-msgstr "상태 템플릿 붙이기"
 
 # ID:376,
 #: ID:376
@@ -2848,6 +2891,11 @@ msgstr "리비전 / 작성자"
 msgid "Revision: "
 msgstr "리비전:"
 
+# ID:188,
+#: ID:188
+msgid "Right View: "
+msgstr "오른쪽:"
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr "설정(&E)"
@@ -2956,16 +3004,16 @@ msgstr "SVN 짧은 URL"
 msgid "Save &As..."
 msgstr "다른 이름으로 저장(&A)..."
 
-# ID:101,
-#: ID:101
-msgid "Save &as..."
-msgstr "다른 이름으로 저장(&A)"
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Save As"
 msgstr "다른 이름으로 저장"
+
+# ID:76,
+#: ID:76
+msgid "Save Revision &To..."
+msgstr "이 리비전을 저장(&T)..."
 
 # ID:313,
 #: ID:313
@@ -2977,11 +3025,6 @@ msgstr "다른 이름으로 저장..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "변경된 것을 %1에 저장하시겠습니까?"
-
-# ID:76,
-#: ID:76
-msgid "Save revision &to..."
-msgstr "이 리비전을 저장(&T)..."
 
 # ID:3601,#:
 # ID:3601,
@@ -3142,6 +3185,7 @@ msgstr "바뀐점 보기(&D)"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
+#: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
@@ -3154,7 +3198,6 @@ msgstr "로그 보기(&L)..."
 
 # ID:101,#:
 # Control-ID:1016,
-#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "로그 보기(&L)"
@@ -3561,10 +3604,14 @@ msgstr ""
 #: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before saving."
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"아직 %d 번 줄에 해결되지 않은 충돌이 있습니다\n"
-"저장하기 전에 충돌을 해결하십시오."
+"%d 행에 아직 해결되지 않은 충돌이 있습니다.\n"
+"저장하기 전에 먼저 충돌난 것들을 해결해야합니다.\n"
+"만약 충돌난 것을 그대로 유지하여 저장하고 싶으면\n"
+"'확인'을 누르고, 다른 에디터를 사용하여 수동으로 해결해야합니다."
 
 # ID:188,
 #: ID:188
@@ -3968,7 +4015,7 @@ msgstr "예"
 
 # ID:145,
 #: ID:145
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr "모두 예"
 
 # ID:201,
@@ -4284,6 +4331,37 @@ msgstr ""
 #: ID:80
 msgid "to %s"
 msgstr "%s"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:로그 최소크기\n"
+"적어도 로그 메시지는 로그 최소 크기만큼의 내용을 포함해야 커밋 가능합니다."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:로그템플릿\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\n"
+"로그 메시지 템플릿으로 사용합니다."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:로그 폭 표시기\n"
+"로그 메시지의 가로 폭이 넘지 않아야 할 값을 지정합니다.\n"
+"이 위치 이후로 음영이 보입니다. 기본값은 80 글자."
 
 # Control-ID:1112,
 #: Control-ID:1112

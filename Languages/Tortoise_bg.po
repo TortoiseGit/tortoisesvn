@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-15 18:03+0200\n"
+"PO-Revision-Date: 2004-10-01 13:36+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: Lubbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,6 +136,11 @@ msgstr "%s - в ревизия: %d"
 
 # ID:151,
 #: ID:151
+msgid "%s : Remote File"
+msgstr "%s: Отдалечен файл"
+
+# ID:151,
+#: ID:151
 msgid "%s : Working Base"
 msgstr "%s : Работна база"
 
@@ -210,7 +215,7 @@ msgstr "&Автоматично затваряне на прозорците"
 
 # ID:76,
 #: ID:76
-msgid "&Compare revisions"
+msgid "&Compare Revisions"
 msgstr "&Сравняване на ревизии"
 
 # ID:101,
@@ -457,7 +462,7 @@ msgstr "&Непознати устройства"
 
 # ID:76,
 #: ID:76
-msgid "&Update item to revision"
+msgid "&Update Item To Revision"
 msgstr "&Обновяване на обект до ревизия"
 
 # Control-ID:65535,#:
@@ -596,7 +601,7 @@ msgstr ""
 
 # ID:101,
 #: ID:101
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr "&Добавяне на папка..."
 
 # Control-ID:1093,
@@ -672,8 +677,8 @@ msgstr "Добавяне"
 
 # ID:101,
 #: ID:101
-msgid "Add &file..."
-msgstr "&Добавяне на файл..."
+msgid "Add &File..."
+msgstr "Добавяне на &файл..."
 
 # ID:110,
 #: ID:110
@@ -1022,8 +1027,8 @@ msgstr "&Създаване на папка..."
 
 # ID:77,
 #: ID:77
-msgid "C&reate Tag from revision"
-msgstr "&Създаване на етикет от ревизия"
+msgid "C&reate Tag From Revision"
+msgstr "Създаване на &етикет от ревизия"
 
 # ID:3697,
 #: ID:3697
@@ -1073,8 +1078,8 @@ msgstr "Срокът за валидността на сертификата в�
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr "Сертификати |*.p12;*.pkcs12|Всички|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgstr "Сертификати|*.p12;*.pkcs12;*.pfx|Всички|*.*||"
 
 # ID:3825,
 #: ID:3825
@@ -1260,15 +1265,15 @@ msgstr "Поверяване"
 msgid "Compare Whitespaces"
 msgstr "Сравняване на празните символи"
 
+# ID:138,
+#: ID:138
+msgid "Compare With B&ase"
+msgstr "Сравняване с &база"
+
 # ID:76,
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "&Сравняване с работно копие"
-
-# ID:138,
-#: ID:138
-msgid "Compare with B&ase"
-msgstr "&Сравняване с база"
 
 # ID:12,
 #: ID:12
@@ -1284,6 +1289,11 @@ msgstr "Завършено"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "Конфликтни"
+
+# Control-ID:65535,
+#: ID:188
+msgid "Conflicts: %d"
+msgstr "Конфликти: %d"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1304,6 +1314,11 @@ msgstr "Копирани отдалечено"
 #: ID:73
 msgid "Copy"
 msgstr "Копиране"
+
+# ID:151,
+#: ID:101
+msgid "Copy To Working Copy..."
+msgstr "Копиране в работно копие..."
 
 # ID:13,
 #: ID:13
@@ -1934,6 +1949,15 @@ msgid "Getting log info..."
 msgstr "Получаване на информация от дневника..."
 
 # ID:2049,
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Преход до следващ конфликт\n"
+"следващ конфликт"
+
+# ID:2049,
 #: ID:2049
 msgid ""
 "Go to the next difference\n"
@@ -1941,6 +1965,15 @@ msgid ""
 msgstr ""
 "Преход до следващата разлика\n"
 "следваща разлика"
+
+# ID:2049,
+#: ID:2051
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"Преход до предишен конфликт\n"
+"предишен конфликт"
 
 # ID:2049,
 #: ID:2049
@@ -1959,7 +1992,7 @@ msgid "Help"
 msgstr "Помощ"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr "Съвет: натиснете бутона F5 за да опресните информацията за избраното поддърво."
 
@@ -2154,6 +2187,11 @@ msgstr "Последна записана ревизия на обект"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Стартира външната сравняваща / сливаща програма, за да разреши конфликтите"
 
+# ID:188,
+#: ID:188
+msgid "Left View: "
+msgstr "Изглед вляво:"
+
 # ID:3605,
 #: ID:3605
 msgid ""
@@ -2243,11 +2281,6 @@ msgstr "Съобщение"
 msgid "Mime Type"
 msgstr "МIME тип"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Minimum logsize in chars"
-msgstr "Минимална дължина на съобщението за дневника (в знаци)"
-
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1082
@@ -2285,6 +2318,11 @@ msgstr "Местене на %s"
 #: ID:80
 msgid "Moving..."
 msgstr "Местене..."
+
+# ID:12,
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "&Следващ конфликт"
 
 # ID:3697,
 #: ID:3697
@@ -2352,11 +2390,11 @@ msgstr "Няма грешки."
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+"for TortoiseSVN to do here..."
 msgstr ""
 "Няма променени или добавени файлове след\n"
 "последното поверяване. TortoiseSVN няма\n"
-"нищо за вършене тук..."
+"работа тук..."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2447,6 +2485,11 @@ msgstr "Отваря браузъра на хранилища, за да се д
 msgid "Out of memory."
 msgstr "Недостиг на оперативна памет."
 
+# ID:12,
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "&Предишен конфликт"
+
 # ID:76,
 #: ID:76
 msgid "PEM"
@@ -2462,15 +2505,15 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Парола:"
 
+# Dlg-ID:158,
+#: Control-ID:1031
+msgid "Paste Changed Filenames"
+msgstr "Вмъкване на имената на променените файлове"
+
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
 msgstr "Вмъкване на &шаблона за дневника на английски"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Paste Status Template"
-msgstr "Вмъкване на шаблон за дневника"
 
 # ID:376,
 #: ID:376
@@ -2892,6 +2935,11 @@ msgstr "Ревизия / Автор:"
 msgid "Revision: "
 msgstr "Ревизия:"
 
+# ID:188,
+#: ID:188
+msgid "Right View: "
+msgstr "Изглед вдясно:"
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr "&Настройки"
@@ -3000,17 +3048,16 @@ msgstr "SVN кратък URL"
 msgid "Save &As..."
 msgstr "Запис &като..."
 
-# ID:313,#:
-# ID:101,
-#: ID:101
-msgid "Save &as..."
-msgstr "&Запис като..."
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Save As"
 msgstr "Запис като"
+
+# ID:76,
+#: ID:76
+msgid "Save Revision &To..."
+msgstr "Запис на ревизия &към..."
 
 # ID:313,#:
 # ID:101,
@@ -3023,11 +3070,6 @@ msgstr "Запис като..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "Да се запишат ли промените в %1?"
-
-# ID:76,
-#: ID:76
-msgid "Save revision &to..."
-msgstr "&Запис на ревизия в..."
 
 # ID:3601,#:
 # ID:3601,
@@ -3188,6 +3230,7 @@ msgstr "&Показване на разлики"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
+#: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
@@ -3199,7 +3242,6 @@ msgid "Show &Log..."
 msgstr "&Дневник..."
 
 # Control-ID:1016,
-#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "&Дневник"
@@ -3607,10 +3649,14 @@ msgstr ""
 #: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before saving."
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
 "Все още има неразрешени конфликти на ред %d!\n"
-"Моля, разрешете тези конфликти преди запис."
+"Би трябвало да разрешите тези конфликти преди да запишете.\n"
+"Искате ли да запишете файла с неразрешени конфликти?\n"
+"Ako изберете \"Да\", ще трябва да разрешите конфликтите ръчно в друг текстов редактор!"
 
 # ID:188,
 #: ID:188
@@ -4014,7 +4060,7 @@ msgstr "Да"
 
 # ID:145,
 #: ID:145
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr "\"Да\" за всички"
 
 # ID:201,
@@ -4331,6 +4377,37 @@ msgstr ""
 #: ID:80
 msgid "to %s"
 msgstr "към %s"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"Минимален брой знаци, които трябва да съдържа съобщението за дневника, за да се позволи поверяване."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:logtemplate\n"
+"Текст, който се вмъква в съобщението за дневника при поверяване.\n"
+"Използвайте го като шаблон за съобщенията, които да попълнят потребителите."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:logwidthmarker\n"
+"Максимална дължина на редовете на съобщението за дневника (в знаци).\n"
+"Бляда линия се показва аа тази позиция в полето за въвеждане на съобщение за дневника. По подразбиране стойността е 80 знака."
 
 # Control-ID:1112,
 #: Control-ID:1112
