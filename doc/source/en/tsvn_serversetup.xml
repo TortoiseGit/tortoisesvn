@@ -1185,6 +1185,10 @@ svn+ssh://localhost/repos/TestRepo
 		</sect2>
 		<sect2 id="tsvn-serversetup-local-2">
 			<title>Creating The Repository With TortoiseSVN</title>
+			<indexterm>
+				<primary>create</primary>
+			</indexterm>
+			<?dbhh topicname="HIDD_REPOCREATE"?>
 			<figure id="tsvn-serversetup-local-dia-1">
 				<title>The TortoiseSVN menu for unversioned folders</title>
 				<graphic fileref="images/ContextMenuDirNoControl.png"/>
@@ -1215,7 +1219,7 @@ svn+ssh://localhost/repos/TestRepo
 						old but stable Berkeley Database (BDB) format. The FSFS format
 						is faster and it now works on network shares and Windows 98
 						without problems. The BDB format is more stable because it has
-						been tested longer. Read
+						been tested longer, but can be more difficult to administer. Read
 						<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch05.html#svn-ch-5-sect-1.2.A">
 							<citetitle>Chapter 5, Repository Data-Stores</citetitle>
 						</ulink>
