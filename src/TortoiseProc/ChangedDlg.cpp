@@ -133,8 +133,15 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 
 	if (!pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, pDlg->m_bRemote))
 	{
-		pDlg->m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, FALSE);
-		pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, FALSE);
+		if (!pDlg->m_bRemote)
+		{
+			CMessageBox::Show(pDlg->m_hWnd, pDlg->m_FileListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		}
+		else
+		{
+			pDlg->m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS, FALSE);
+			pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, FALSE);
+		}
 	}
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
 	dwShow |= pDlg->m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
