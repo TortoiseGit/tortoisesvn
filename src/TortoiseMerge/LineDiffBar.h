@@ -46,15 +46,26 @@ protected:
 	virtual CSize	CalcFixedLayout(BOOL bStretch, BOOL bHorz);
 	//virtual CSize	CalcDynamicLayout(int nLength, DWORD nMode);
 
+	void DrawBinaryDiff(CDC &dc, CRect *upperrect, CRect *lowerrect, int line);
+
 	CBitmap *		m_pCacheBitmap;
 
 	int				m_nLineIndex;
 	int				m_nLineHeight;
 	int				m_nIgnoreWS;
 
+	int				m_bBinaryDiff;
+
 	DECLARE_MESSAGE_MAP()
 public:
 	CMainFrame *	m_pMainFrm;
+
+private:
+	const TCHAR *Search(const TCHAR *haystack, size_t haystacklen, 
+						const TCHAR *needle, size_t needlelen, 
+						size_t *max);
+	void BinDiff(CDWordArray & result, CString & base, CString & your);
+	static COLORREF m_BinDiffColors[];
 };
 
 

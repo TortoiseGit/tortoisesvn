@@ -150,6 +150,8 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 						break;
 					if (sLine.Left(3).Compare(_T("   "))==0)
 						break;
+					if (sLine.Left(1).Compare(_T(" "))==0)
+						break;
 					//But before throwing an error, check first if 
 					//instead of a new filediff we just have a new chunk:
 					if (nIndex > 0)

@@ -41,6 +41,7 @@ CSetMainPage::CSetMainPage()
 	, m_bStrikeout(FALSE)
 	, m_bReloadNeeded(FALSE)
 	, m_bResolve(FALSE)
+	, m_bDisplayBinDiff(TRUE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
@@ -56,6 +57,7 @@ CSetMainPage::CSetMainPage()
 	m_regResolve = CRegDWORD(_T("Software\\TortoiseMerge\\Resolve"), FALSE);
 	m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
+	m_regDisplayBinDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
 
 	m_dwLanguage = m_regLanguage;
 	m_bBackup = m_regBackup;
@@ -69,6 +71,7 @@ CSetMainPage::CSetMainPage()
 	m_bDiffBar = m_regDiffBar;
 	m_bStrikeout = m_regStrikeout;
 	m_bResolve = m_regResolve;
+	m_bDisplayBinDiff = m_regDisplayBinDiff;
 }
 
 CSetMainPage::~CSetMainPage()
@@ -100,6 +103,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_DIFFBAR, m_bDiffBar);
 	DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
 	DDX_Check(pDX, IDC_RESOLVE, m_bResolve);
+	DDX_Check(pDX, IDC_USEBDIFF, m_bDisplayBinDiff);
 }
 
 void CSetMainPage::SaveData()
@@ -118,6 +122,7 @@ void CSetMainPage::SaveData()
 	m_regDiffBar = m_bDiffBar;
 	m_regStrikeout = m_bStrikeout;
 	m_regResolve = m_bResolve;
+	m_regDisplayBinDiff = m_bDisplayBinDiff;
 }
 
 BOOL CSetMainPage::OnApply()
@@ -144,6 +149,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bIgnoreEOL = m_regIgnoreEOL;
 	m_bOnePane = m_regOnePane;
 	m_nIgnoreWS = m_regIgnoreWS;
+	m_bDisplayBinDiff = m_regDisplayBinDiff;
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bViewLinenumbers = m_regViewLinenumbers;
@@ -252,6 +258,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
+	ON_BN_CLICKED(IDC_USEBDIFF, OnBnClickedUsebdiff)
 END_MESSAGE_MAP()
 
 
@@ -386,10 +393,7 @@ void CSetMainPage::OnCbnSelchangeFontnames()
 	SetModified();
 }
 
-
-
-
-
-
-
-
+void CSetMainPage::OnBnClickedUsebdiff()
+{
+	SetModified();
+}

@@ -108,6 +108,8 @@
 #define IDC_STRIKEOUT                   1066
 #define IDC_CHECK3                      1067
 #define IDC_RESOLVE                     1067
+#define IDC_CHECK4                      1068
+#define IDC_USEBDIFF                    1068
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDC_WEBLINK                     1084
@@ -167,7 +169,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
 #define _APS_NEXT_COMMAND_VALUE         32807
-#define _APS_NEXT_CONTROL_VALUE         1068
+#define _APS_NEXT_CONTROL_VALUE         1069
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
