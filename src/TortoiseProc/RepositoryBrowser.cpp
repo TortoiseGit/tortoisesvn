@@ -866,25 +866,21 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	if (dlg.DoModal()==IDOK)
 	{
 		int selItem = m_treeRepository.GetFirstSelectedItem();
-		CString url;
+		CTSVNPathList urls;
 		do
 		{
-			url += m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem));
-			url += _T("*");
+			urls.AddPathFromSVN(m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem)));
 			selItem = m_treeRepository.GetNextSelectedItem(selItem);
 		} while (selItem != RVI_INVALID);
-		url = url.Left(url.GetLength()-1);		//remove the trailing '*'
-		if (!svn.Remove(url, TRUE, dlg.m_sInputText))
+		if (!svn.Remove(urls, TRUE, dlg.m_sInputText))
 		{
 			wait_cursor.Hide();
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
-		} // if (!svn.Remove(url, TRUE)) 
-		while (url.Find('*')>=0)
-		{
-			m_treeRepository.DeleteUrl(url.Left(url.Find('*')));
-			url = url.Mid(url.Find('*')+1);
 		}
-		m_treeRepository.DeleteUrl(url);
-	} // if (dlg.DoModal()==IDOK) 
+		for (int i=0; i<urls.GetCount(); ++i)
+		{
+			m_treeRepository.DeleteUrl(urls[i].GetSVNPathString());
+		}
+	}
 }

@@ -23,6 +23,7 @@
 
 class CProgressDlg;
 class CTSVNPath;
+class CTSVNPathList;
 
 svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
@@ -87,7 +88,7 @@ public:
 	 */
 	BOOL Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL recurse);
 	/**
-	 * If path is a URL, use the MESSAGE to immediately attempt 
+	 * If pathlist contains an URL, use the MESSAGE to immediately attempt 
 	 * to commit a deletion of the URL from the repository. 
 	 * Else, schedule a working copy path for removal from the repository.
 	 * path's parent must be under revision control. This is just a
@@ -100,11 +101,11 @@ public:
 	 * contains locally modified and/or unversioned items. If force is set such
 	 * items will be deleted.
 	 *
-	 * \param path the file/directory to delete
+	 * \param pathlist a list of files/directories to delete
 	 * \param force if TRUE, all files including those not versioned are deleted. If FALSE the operation
 	 * will fail if a directory contains unversioned files or if the file itself is not versioned.
 	 */
-	BOOL Remove(CString path, BOOL force, CString message = _T(""));
+	BOOL Remove(CTSVNPathList pathlist, BOOL force, CString message = _T(""));
 	/**
 	 * Reverts a file/directory to its pristine state. I.e. its reverted to the state where it
 	 * was last updated with the repository.
@@ -502,6 +503,7 @@ public:
 	 * \param path the path to the files/folders which have changed.
 	 */
 	static void UpdateShell(CString path);
+	static void UpdateShell(CTSVNPathList pathlist);
 
 	/**
 	 * Checks if a given path is a valid URL.
@@ -544,6 +546,7 @@ private:
 	svn_opt_revision_t *	getRevision (long revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 	apr_array_header_t * target (LPCTSTR path);
+	apr_array_header_t * target (CTSVNPathList pathlist);
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
 		

@@ -710,11 +710,17 @@ BOOL CTortoiseProcApp::InitInstance()
 				CStdioFile file(path, CFile::typeBinary | CFile::modeRead); 
 				CString strLine = _T(""); // initialise the variable which holds each line's contents
 				BOOL bForce = FALSE;
+				SVN svn;
 				while (file.ReadString(strLine))
 				{
 					TRACE(_T("update file %s\n"), (LPCTSTR)strLine);
-					SVN svn;
-					if (!svn.Remove(strLine, bForce))
+					// even though SVN::Remove takes a list of paths to delete at once
+					// we delete each item individually so we can prompt the user
+					// if something goes wrong or unversioned/modified items are
+					// to be deleted.
+					CTSVNPathList pathlist;
+					pathlist.AddPathFromWin(strLine);
+					if (!svn.Remove(pathlist, bForce))
 					{
 						if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
 							(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
@@ -729,7 +735,7 @@ BOOL CTortoiseProcApp::InitInstance()
 							if (ret == 3)
 								bForce = TRUE;
 							if ((ret == 1)||(ret==3))
-								if (!svn.Remove(strLine, TRUE))
+								if (!svn.Remove(pathlist, TRUE))
 								{
 									CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								}

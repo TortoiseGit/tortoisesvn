@@ -287,24 +287,16 @@ void CLogPromptDlg::OnOK()
 	// Now, do all the adds - make sure that the list is sorted into order, so that parents 
 	// are added before any children
 	itemsToAdd.SortByPathname();
+	SVN svn;
 	for(int itemIndex = 0; itemIndex < itemsToAdd.GetCount(); itemIndex++)
 	{
-		//TODO: It's slow to create a new SVN object for each item, but 
-		//I'm concerned about a memory usage explosion if we keep reusing the same SVN item
-		SVN svn;
 		svn.Add(itemsToAdd[itemIndex], FALSE);
 	}
 
 	// Remove any missing items
 	// Not sure that this sort is really necessary - indeed, it might be better to do a reverse sort at this point
 	itemsToRemove.SortByPathname();
-	for(int itemIndex = 0; itemIndex < itemsToRemove.GetCount(); itemIndex++)
-	{
-		//TODO: It's slow to create a new SVN object for each item, but 
-		//I'm concerned about a memory usage explosion if we keep reusing the same SVN item
-		SVN svn;
-		svn.Remove(itemsToRemove[itemIndex].GetSVNPathString(), TRUE);
-	}
+	svn.Remove(itemsToRemove, TRUE);
 
 	if ((nUnchecked == 0)&&(m_ListCtrl.m_nTargetCount == 1))
 	{
