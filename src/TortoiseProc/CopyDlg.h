@@ -67,6 +67,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	CFont		m_logFont;
 	BOOL		m_bFile;
+	BugtraqInfo	m_BugtraqInfo;
+	CString		m_sBugID;
 public:
 	CHistoryCombo m_URLCombo;
 	CString	m_URL;

@@ -33,6 +33,7 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
 	, m_bDirectCopy(TRUE)
+	, m_sBugID(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -48,6 +49,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
+	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 }
 
 
@@ -135,6 +137,23 @@ BOOL CCopyDlg::OnInitDialog()
 	m_URLCombo.AddString(m_wcURL, 0);
 	m_URLCombo.SelectString(-1, m_wcURL);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
+
+	m_BugtraqInfo.ReadProps(m_path);
+	if (m_BugtraqInfo.sMessage.IsEmpty())
+	{
+		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
+	}
+	else
+	{
+		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
+		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
+		if (!m_BugtraqInfo.sLabel.IsEmpty())
+			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_BugtraqInfo.sLabel);
+		GetDlgItem(IDC_BUGID)->SetFocus();
+	}
+
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -142,6 +161,38 @@ BOOL CCopyDlg::OnInitDialog()
 
 void CCopyDlg::OnOK()
 {
+	CString id;
+	GetDlgItem(IDC_BUGID)->GetWindowText(id);
+	if (m_BugtraqInfo.bNumber)
+	{
+		TCHAR c = 0;
+		BOOL bInvalid = FALSE;
+		for (int i=0; i<id.GetLength(); ++i)
+		{
+			c = id.GetAt(i);
+			if ((c < '0')&&(c != ','))
+			{
+				bInvalid = TRUE;
+				break;
+			}
+			if (c > '9')
+				bInvalid = TRUE;
+		}
+		if (bInvalid)
+		{
+			CWnd* ctrl = GetDlgItem(IDC_BUGID);
+			CRect rt;
+			ctrl->GetWindowRect(rt);
+			CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+			CBalloon::ShowBalloon(ctrl, point, IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
+			return;
+		}
+	}
+	if ((m_BugtraqInfo.bWarnIfNoIssue)&&(id.IsEmpty()))
+	{
+		if (CMessageBox::Show(this->m_hWnd, IDS_LOGPROMPT_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+			return;
+	}
 	UpdateData(TRUE);
 
 	CString combourl;
@@ -156,6 +207,16 @@ void CCopyDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 
+	m_sBugID.Trim();
+	if (!m_sBugID.IsEmpty())
+	{
+		m_sBugID.Replace(_T(", "), _T(","));
+		m_sBugID.Replace(_T(" ,"), _T(","));
+		CString sBugID = m_BugtraqInfo.sMessage;
+		sBugID.Replace(_T("%BUGID%"), m_sBugID);
+		m_sLogMessage += _T("\n") + sBugID + _T("\n");
+		UpdateData(FALSE);		
+	}
 	CDialog::OnOK();
 }
 
