@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-14 11:49+0100\n"
+"PO-Revision-Date: 2004-12-21 19:07+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -343,11 +343,6 @@ msgstr "&Differenza precedente"
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Analizza le sottodirectory e recuperane lo stato"
 
-# Control-ID:1048,
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "Dischi r&emovibili"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: Control-ID:1013
@@ -394,6 +389,11 @@ msgstr "&Salva grafico come..."
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "&Salva l'autenticazione"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "&Seleziona il set di icone"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -672,6 +672,7 @@ msgstr ""
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Aggiungi"
@@ -1618,6 +1619,11 @@ msgstr "Eliminazione"
 msgid "Destination disk drive is full."
 msgstr "Il disco di destinazione è pieno."
 
+# Dlg-ID:184,
+#: Dlg-ID:184
+msgid "Dialog"
+msgstr "Dialogo"
+
 # ID:12,
 #: ID:12
 msgid "Diff"
@@ -1968,6 +1974,7 @@ msgid "File"
 msgstr "File"
 
 # Dlg-ID:135,
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "Patch"
@@ -2112,6 +2119,11 @@ msgstr "Nome dell'host in disaccordo (%s)"
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "Icone di stato"
+
+# Control-ID:1170,
+#: Control-ID:1170
+msgid "Icon Set:"
+msgstr "Set di icone:"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -2285,6 +2297,15 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+# ID:145,
+#: ID:145
+msgid ""
+"It's not possible to rename a file just in case!\n"
+"Please read our docs on how to work around this Subversion limitation."
+msgstr ""
+"Non è possibile rinominare un file cambiando solo delle maiuscole con delle minuscole o viceversa!\n"
+"Si consiglia di leggere la documentazione su come aggirare questa limitazione di Subversion."
+
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2328,6 +2349,11 @@ msgid ""
 msgstr ""
 "Elenca i contenuti dell'Aiuto\n"
 "Contenuti"
+
+# ID:188,
+#: Control-ID:1172
+msgid "List View"
+msgstr "Lista"
 
 # ID:63,
 #: ID:63
@@ -2548,6 +2574,19 @@ msgstr ""
 "Nessun file è stato modificato o aggiunto dall'ultimo\n"
 "invio. Non c'è niente che\n"
 "TortoiseSVN possa fare qui..."
+
+# ID:77,
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"Nessun file è stato modificato o aggiunto dall'ultimo\n"
+"invio. Non c'è niente che\n"
+"TortoiseSVN possa fare qui...\n"
+"Vuoi vedere i file non versionati?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2879,6 +2918,11 @@ msgstr "Dischi R&AM"
 #: ID:3697
 msgid "REC"
 msgstr "REC"
+
+# Control-ID:1048,
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "Dischi re&movibili"
 
 # ID:12,
 #: ID:12
@@ -3681,6 +3725,11 @@ msgstr "Sposta la copia di lavoro su un altro ramo / etichetta"
 msgid "Switch..."
 msgstr "Cambia..."
 
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "Simboli"
+
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
@@ -3829,6 +3878,23 @@ msgstr ""
 "del file e la linea\n"
 "%s\n"
 "nella pach non corrispondono!"
+
+# ID:314,
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"Il percorso\n"
+"<i>%s</i>\n"
+"sembra non corrispondere al percorso specificato nella patch.\n"
+"TortoiseMerge ritiene che il percorso\n"
+"<i>%s</i>\n"
+"sia più corretto. Si desidera usare il percorso suggerito invece di quello specificato?"
 
 # ID:78,
 #: ID:78
@@ -4404,6 +4470,15 @@ msgid ""
 msgstr ""
 "È stato selezionato un file senza versione.\n"
 "Il file verrà aggiunto alla versione quando si procederà all'invio."
+
+# ID:195,
+#: ID:195
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"Hai cambiato il set di icone da <i>%s</i> a <i>%s</i>.\n"
+"Il cambiamento non avrà effetto fino al prossimo riavvio del compiuter o fino alla prossima disconnessione dell'utente."
 
 # Control-ID:65535,
 #: Control-ID:65535
