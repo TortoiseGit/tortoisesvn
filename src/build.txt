@@ -21,10 +21,6 @@ You may have to logoff/logon to make the new environement variables take effect!
   the checkout path.
   Make sure you check out the Subversion source from either the 1.1.x branch or
   one of the 1.1.x tags!
-- Download the compiled berkeley db library from
-  the TortoiseSVN download area:
-  http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
-  and unzip it to SVN\Subversion\db4-win32
 - Download the newest source of the apache server
   for windows from http://httpd.apache.org/download.cgi
   Unzip the sources into SVN\Subversion
@@ -54,20 +50,6 @@ You may have to logoff/logon to make the new environement variables take effect!
 - To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
   You can get that library from here: http://wtl.sourceforge.net/
   Unzip it and then add the path to the VS.NET include path.
-
-Note: Since the Subversion project builder is broken right now, the build script
-won't work right now (until that gets fixed). A workaround for that is:
-- open a DOS box, cd to the Subversion directory.
-- type
-python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls
-  to generate the project files
-- Open the subversion_vcnet.sln file in VS.NET
-- Right click in the solution explorer on the project "libaprutil"
-- In the properties dialog, go to Linker/Input and add the string 
-  "..\db4-win32\lib\libdb42.lib" to the "Additional Dependencies" (for all builds,
-  release and debug).
-- Save the new project settings.
-- now you can use TSVN build script.
 
 Now, if you got some time left you can run the build.bat script to compile
 TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
