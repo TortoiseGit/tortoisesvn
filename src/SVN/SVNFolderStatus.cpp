@@ -187,6 +187,10 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 	const TCHAR * p = _tcsrchr(filepath, '\\');
 	if (p)
 		pathbuf[p-filepath] = '\0';
+	if (!g_ShellCache.HasSVNAdminDir(pathbuf, bIsFolder))
+	{
+		_tcscpy(pathbuf, filepath);
+	}
 
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
 	ctx->auth_baton = NULL;
