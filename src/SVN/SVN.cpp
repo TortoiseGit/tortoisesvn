@@ -305,17 +305,22 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 }
 
 
-BOOL SVN::Add(const CTSVNPath& path, BOOL recurse, BOOL force)
+BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force)
 {
-	apr_pool_t * subpool = svn_pool_create(pool);
-	Err = svn_client_add2 (path.GetSVNApiPath(), recurse, force, &m_ctx, subpool);
-	svn_pool_destroy(subpool);
-	if(Err != NULL)
+	for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
 	{
-		return FALSE;
+		TRACE(_T("add file %s\n"), pathList[nItem].GetWinPath());
+
+		apr_pool_t * subpool = svn_pool_create(pool);
+		Err = svn_client_add2 (pathList[nItem].GetSVNApiPath(), recurse, force, &m_ctx, subpool);
+		svn_pool_destroy(subpool);
+		if(Err != NULL)
+		{
+			return FALSE;
+		}
 	}
 
-	CShellUpdater::Instance().AddPathForUpdate(path);
+	CShellUpdater::Instance().AddPathsForUpdate(pathList);
 
 	return TRUE;
 }

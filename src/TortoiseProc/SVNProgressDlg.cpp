@@ -343,7 +343,13 @@ void CSVNProgressDlg::SetParams(Command cmd, int options, const CString& path, c
 		m_targetPathList.Clear();
 		m_targetPathList.AddPath(CTSVNPath(path));
 	}
-	ASSERT(m_targetPathList.GetCount() > 0);
+
+	//WGD - I'm removing this for the moment, because it can actually happen.
+	// For example, do an Add, then select all the items in the list box, right-click and choose 'Add'.
+	// Then click OK (on the now empty list)
+	// Ultimately, I think it might be better to stop the progress dialog being opened when there's no work to do
+	// but not just yet.
+//	ASSERT(m_targetPathList.GetCount() > 0);
 
 	m_sUrl = url;
 	m_sMessage = message;
@@ -441,7 +447,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	int updateFileCounter = 0;
 
 	// The SetParams function should have loaded something for us
-	ASSERT(m_targetPathList.GetCount() > 0);
+// See comments in SetParams about this ASSERT
+//	ASSERT(m_targetPathList.GetCount() > 0);
 
 	CString temp;
 	CString sWindowTitle;
@@ -456,6 +463,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	switch (m_Command)
 	{
 		case Checkout:			//no tempfile!
+			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
 			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
@@ -465,6 +473,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			break;
 		case Import:			//no tempfile!
+			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
 			sTempWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
@@ -593,14 +602,9 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Add:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 			SetWindowText(sWindowTitle);
-			for(int nTarget = 0; nTarget < m_targetPathList.GetCount() && !m_bCancelled; nTarget++)
+			if (!m_pSvn->Add(m_targetPathList, false))
 			{
-				TRACE(_T("add file %s\n"), m_targetPathList[nTarget].GetWinPath());
-				if (!m_pSvn->Add(m_targetPathList[nTarget], false))
-				{
-					ReportSVNError();
-					break;
-				}
+				ReportSVNError();
 			}
 			break;
 		case Revert:
@@ -614,6 +618,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			break;
 		case Resolve:
 			{
+				ASSERT(m_targetPathList.GetCount() == 1);
 				sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
 				SetWindowText(sWindowTitle);
 				//check if the file may still have conflict markers in it.
@@ -654,6 +659,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			break;
 		case Switch:
 			{
+				ASSERT(m_targetPathList.GetCount() == 1);
 				SVNStatus st;
 				sWindowTitle.LoadString(IDS_PROGRS_TITLE_SWITCH);
 				SetWindowText(sWindowTitle);
@@ -677,6 +683,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			break;
 		case Export:
+			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
 			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
@@ -686,6 +693,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			break;
 		case Merge:
+			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
 			SetWindowText(sWindowTitle);
 			if (m_sUrl.CompareNoCase(m_sMessage)==0)
@@ -707,6 +715,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			break;
 		case Copy:
+			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
 			SetWindowText(sWindowTitle);
 			if (!m_pSvn->Copy(m_targetPathList[0].GetSVNPathString(), m_sUrl, m_Revision, m_sMessage))

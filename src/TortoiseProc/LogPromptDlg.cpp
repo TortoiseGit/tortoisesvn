@@ -289,10 +289,7 @@ void CLogPromptDlg::OnOK()
 	// are added before any children
 	itemsToAdd.SortByPathname();
 	SVN svn;
-	for(int itemIndex = 0; itemIndex < itemsToAdd.GetCount(); itemIndex++)
-	{
-		svn.Add(itemsToAdd[itemIndex], FALSE);
-	}
+	svn.Add(itemsToAdd, FALSE);
 
 	// Remove any missing items
 	// Not sure that this sort is really necessary - indeed, it might be better to do a reverse sort at this point

@@ -1515,22 +1515,34 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				case IDSVNLC_ADD:
 					{
 						SVN svn;
+						CTSVNPathList itemsToAdd;
 						POSITION pos = GetFirstSelectedItemPosition();
 						int index;
 						while ((index = GetNextSelectedItem(pos)) >= 0)
 						{
-							if (svn.Add(GetListEntry(index)->path, FALSE, TRUE))
+							itemsToAdd.AddPath(GetListEntry(index)->path);
+						}
+
+						// We must sort items before adding, so that folders are always added
+						// *before* any of their children
+						itemsToAdd.SortByPathname();
+
+						if (svn.Add(itemsToAdd, FALSE, TRUE))
+						{
+							// The add went ok, but we now need to run through the selected items again
+							// and update their status
+							pos = GetFirstSelectedItemPosition();
+							while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
 								FileEntry * e = GetListEntry(index);
 								e->textstatus = svn_wc_status_added;
 								e->status = svn_wc_status_added;
 								SetEntryCheck(e,index,true);
 							}
-							else
-							{
-								CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								break;
-							}
+						}
+						else
+						{
+							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
 						Show(m_dwShow);
 					}
