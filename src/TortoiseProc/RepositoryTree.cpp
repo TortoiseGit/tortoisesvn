@@ -51,7 +51,7 @@ CRepositoryTree::~CRepositoryTree()
 BEGIN_MESSAGE_MAP(CRepositoryTree, CReportCtrl)
 	ON_NOTIFY_REFLECT(RVN_ITEMEXPANDING, OnTvnItemexpanding)
 	ON_NOTIFY_REFLECT(RVN_SELECTIONCHANGED, OnRvnItemSelected)
-	//ON_NOTIFY_REFLECT(TVN_GETINFOTIP, OnTvnGetInfoTip)
+	ON_NOTIFY_REFLECT(TVN_GETINFOTIP, OnTvnGetInfoTip)
 END_MESSAGE_MAP()
 
 
@@ -257,7 +257,7 @@ HTREEITEM CRepositoryTree::InsertDummyItem(HTREEITEM hItem)
 	{
 		HTREEITEM hChild = GetNextItem(hItem, RVGN_CHILD);
 		if (hChild == 0)
-			return InsertItem(_T("Dummy"), -1, -1, -1, hItem);
+			return InsertItem(_T("Error"), -1, -1, -1, hItem);
 	}
 
 	return 0;
@@ -268,7 +268,7 @@ void CRepositoryTree::DeleteDummyItem(HTREEITEM hItem)
 	if (hItem != 0)
 	{
 		HTREEITEM hChild = GetNextItem(hItem, RVGN_CHILD);
-		if (hChild != 0 && GetItemText(GetItemIndex(hChild), 0).Compare(_T("Dummy")) == 0)
+		if (hChild != 0 && GetItemText(GetItemIndex(hChild), 0).Compare(_T("Error")) == 0)
 			DeleteItem(hChild);
 	}
 }
@@ -513,7 +513,8 @@ CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
 void CRepositoryTree::OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMTVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMTVGETINFOTIP>(pNMHDR);
-	_tcscpy(pGetInfoTip->pszText, MakeUrl(pGetInfoTip->hItem));
+	if (GetItemData(GetItemIndex(pGetInfoTip->hItem)) == 0)
+		_tcsncpy(pGetInfoTip->pszText, m_svn.GetLastErrorMessage(), pGetInfoTip->cchTextMax);
 	*pResult = 0;
 }
 

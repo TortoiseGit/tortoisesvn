@@ -1069,7 +1069,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVN svn;
 			url = svn.GetURLFromPath(path);
 			bFile = !PathIsDirectory(path);
-/*
+
 			if (url.IsEmpty())
 			{
 				CURLDlg urldlg;
@@ -1081,7 +1081,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 				url = urldlg.m_url;
 			} // if (dlg.m_strUrl.IsEmpty())
-*/
+
 			CString val = parser.GetVal(_T("rev"));
 			long rev_val = _tstol(val);
 			SVNRev rev(SVNRev::REV_HEAD);
