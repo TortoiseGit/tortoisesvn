@@ -586,61 +586,6 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</orderedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-dug-5">
-			<title>
-				I deleted a file and created a file with the same name.
-				Now I can't commit?!?
-			</title>
-			<para>
-				Your're trying to fool subversion aren't you? No - seriously 
-				- what did you expect to happen?
-			</para>
-			<para>
-				Assume you're in revision #55.
-			</para>
-			<para>
-				You removed a file using TortoiseSVN, which told it 
-				to mark the file for deletion with the next commit 
-				and to remove it from the explorer. It's not really 
-				gone from the revision yet. Then you created a file with the 
-				same name and added it to TortoiseSVN, which marks the file 
-				for adding with the next commit. It's not yet added to the 
-				repository. Now you commit. Poor subversion tries to decide 
-				whether to add or remove your file at the same time 
-				in revision #56. The commit fails.
-			</para>
-			<para>
-				You should have committed immediately after you 
-				deleted the file using TortoiseSVN's
-				<menuchoice>
-					<guimenuitem>remove</guimenuitem>
-				</menuchoice>
-				command. You still have no clue what to do? Well, in that case:
-				<orderedlist>
-					<listitem>
-						<para>
-							Move that file to a safe place
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							Commit your changes. That tells the repository
-							that the file is gone in the first place
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							Copy the file back
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							Commit again
-						</para>
-					</listitem>
-				</orderedlist>
-			</para>
-		</sect2>
 		<sect2 id="tsvn-faq-dug-6">
 			<title>
 				Can I mix and match with the Subversion command line

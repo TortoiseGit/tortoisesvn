@@ -545,67 +545,6 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				</orderedlist>
 			</para>
 		</sect2>
-		<sect2 id="tsvn-faq-dug-5">
-			<title>Ich hab eine Datei gelöscht und eine neue Datei
-			mit demselben Namen erstellt. Nun kann ich nicht mehr Übertragen?</title>
-			<para>
-			Sie möchten Subversion wohl veräppeln? Nein - im Ernst -
-			was haben Sie erwartet?
-			</para>
-			<para>
-			Nehmen Sie an ihre Arbeitskopie ist auf Revision #55.
-			</para>
-			<para>
-			Sie haben eine Datei mit TortoiseSVN gelöscht. Dies markiert diese
-			Datei für die Löschung aus dem Projektarchiv bei der nächsten Übertragung.
-			Die Datei ist noch nicht wirklich gelöscht, Sie könnten sie zum
-			Beispiel mit dem <guimenuitem>Rückgängig</guimenuitem> wieder
-			zurückholen.
-			</para>
-			<para>
-			Dann haben Sie eine neue Datei erstellt mit demselben Namen und
-			haben diese zur Versionskontrolle hinzugefügt. Dies markiert diese
-			Datei für die Speicherung im Projektarchiv bei der nächsten
-			Übertragung.
-			</para>
-			<para>
-			Nun versuchen Sie Ihre Änderungen zu Übertragen. Subversion versucht
-			nun, diese Datei gleichzeitig im Projektarchiv zu löschen und
-			auch neu zu speichern (weil der Dateiname gleich ist). Da dies
-			natürlich nicht möglich ist, gibts eine Fehlermeldung.
-			</para>
-			<para>
-			Sie hätten die Löschung der Datei gleich zum Projektarchiv übertragen
-			sollen. Sie haben immer noch keine Ahnung was Sie jetzt tun sollen?
-			Nun dann:
-			<orderedlist>
-					<listitem>
-						<para>
-						Verschieben Sie die neu erstellte Datei
-						an einen sicheren Platz auf Ihrer Festplatte (ausserhalb
-						Ihrer Arbeitskopie)
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-						Übertragen Sie Ihre Änderungen. Damit wird die Datei
-						erstmal aus dem Projektarchiv gelöscht. Dies hätten Sie
-						von Anfang an so tun sollen.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-						Verschieben Sie die Datei wieder zurück in Ihre Arbeitskopie
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-						Übertragen Sie die Änderungen nochmals
-						</para>
-					</listitem>
-				</orderedlist>
-			</para>
-		</sect2>
 		<sect2 id="tsvn-faq-dug-6">
 			<title>Kann ich TortoiseSVN und andere Subversion Clients
 			gleichzeitig benutzen?</title>
