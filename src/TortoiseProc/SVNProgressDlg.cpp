@@ -396,7 +396,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 							url = pDlg->GetURLFromPath(strLine);
 							if (!url.IsEmpty())
 								bURLFetched = TRUE;
-							if (url.Find(_T("/tags/"))>=0)
+							CString urllower = url;
+							urllower.MakeLower();
+							if (urllower.Find(_T("/tags/"))>=0)
 								isTag = TRUE;
 						} // if (bURLFetched == FALSE)
 						if (commitString.IsEmpty())
