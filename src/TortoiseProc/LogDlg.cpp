@@ -83,7 +83,7 @@ void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = 
 	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
-	m_hasWC = !svn_path_is_url(CUnicodeUtils::GetUTF8(path));
+	m_hasWC = PathIsURL(path);
 	m_bStrict = bStrict;
 }
 
