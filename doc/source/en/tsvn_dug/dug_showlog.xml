@@ -88,7 +88,8 @@
 					<para>
 						Compare the selected revision with your working copy.
 						The default Diff-Tool is TortoiseMerge which
-						is supplied with TortoiseSVN. This will show you a list
+						is supplied with TortoiseSVN.
+						If the log dialog is for a folder, this will show you a list
 						of changed files, and allow you to review the changes made
 						to each file individually.
 					</para>
@@ -96,13 +97,11 @@
 				<listitem>
 					<para>
 						View the changes made in the selected revision as a
-						Unified-Diff file. If you select 2 revisions, then the
-						differences between these 2 selected revisions are shown.
-						This helps you find out exactly what changed between revisions.
+						Unified-Diff file.
 						The Unified-Diff operation is faster than invoking the 
 						<quote>normal</quote> external
-						diff viewer because TortoiseSVN doesn't have to fetch the
-						whole file but only the difference.
+						diff viewer because TortoiseSVN doesn't have to fetch
+						whole files but only the differences.
 					</para>
 				</listitem>
 				<listitem>
@@ -156,6 +155,36 @@
 						the log messages that you entered and also the action summaries
 						created by Subversion (shown in the bottom pane). The search
 						is not case sensitive.
+					</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+		<para>
+			<figure id="tsvn-DUG-showlog-2-dia-1a">
+				<title>Top Pane Context Menu for 2 Selected Files</title>
+				<graphic fileref="images/LogContextMenu1.png"/>
+			</figure>
+			If you select two revisions at once (using the usual
+			<keycap>Ctrl</keycap>-modifier), the context menu changes and
+			only gives you three options:
+			<itemizedlist>
+				<listitem>
+					<para>
+						Compare the two selected revisions using a visual
+						difference tool. The default Diff-Tool is TortoiseMerge
+						which is supplied with TortoiseSVN. This option is only
+						available for files, not folders.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						View the differences between the two selected revisions
+						as a Unified-Diff file. This works for files and folders.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Search log messages as described above.
 					</para>
 				</listitem>
 			</itemizedlist>
