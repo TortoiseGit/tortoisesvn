@@ -1589,6 +1589,7 @@ BEGIN
     IDS_PROC_IGNORESUCCESS  "Added the file(s)\n%sto the ignore list."
     IDS_PROC_RESOLVE        "Are you sure you want to mark the conflicted file(s) as resolved?"
     IDS_PROC_RTFM           "<b>TortoiseSVN</b> is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\nAnd <u>read the manual!</u>"
+    IDS_PROC_CASERENAME     "It's not possible to rename a file just in case!\nPlease read our docs on how to work around this Subversion limitation."
 END
 
 STRINGTABLE 

@@ -763,12 +763,20 @@ BOOL CTortoiseProcApp::InitInstance()
 					filepath =  filepath + dlg.m_name;
 				else
 					filepath = dlg.m_name;
-				SVN svn;
-				if (!svn.Move(path, filepath, TRUE))
+				if (path.CompareNoCase(filepath)==0)
 				{
-					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				} // if (!svn.Move(path, dlg.m_name, FALSE))
+					//rename to the same file!
+					CMessageBox::Show(EXPLORERHWND, IDS_PROC_CASERENAME, IDS_APPNAME, MB_ICONERROR);
+				}
+				else
+				{
+					SVN svn;
+					if (!svn.Move(path, filepath, TRUE))
+					{
+						TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					}
+				}
 			}
 		}
 		//#endregion

@@ -439,6 +439,7 @@
 #define IDS_PROC_IGNORESUCCESS          2307
 #define IDS_PROC_RESOLVE                2308
 #define IDS_PROC_RTFM                   2309
+#define IDS_PROC_CASERENAME             2310
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
