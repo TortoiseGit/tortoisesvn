@@ -76,7 +76,7 @@ void LoadLangDll()
 		CRegStdString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
 		do
 		{
-			_stprintf(langDll, _T("%s\\TortoiseProc%d.dll"), (LPCTSTR)str, langId);
+			_stprintf(langDll, _T("%s\\Languages\\TortoiseProc%d.dll"), (LPCTSTR)str, langId);
 			BOOL versionmatch = TRUE;
 
 			struct TRANSARRAY

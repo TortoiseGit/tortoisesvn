@@ -61,7 +61,6 @@ CMainFrame::~CMainFrame()
 {
 }
 
-
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CNewFrameWnd::OnCreate(lpCreateStruct) == -1)

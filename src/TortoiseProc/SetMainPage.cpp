@@ -118,6 +118,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_LanguageCombo.SetItemData(0, 1033);
 	CRegString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
 	CString path = str;
+	path = path + _T("\\Languages\\");
 	CDirFileList list;
 	list.BuildList(path, FALSE, FALSE);
 	int langcount = 1;
