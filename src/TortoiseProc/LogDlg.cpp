@@ -291,6 +291,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				temp.LoadString(IDS_LOG_POPUP_UPDATE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
 			}
 			else if (m_LogList.GetSelectedCount() == 2)
 			{
@@ -471,6 +473,19 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 				}
 			} // if (cmd == ID_SAVEAS) 
+			if (cmd == ID_UPDATE)
+			{
+				//now first get the revision which is selected
+				int selIndex = m_LogList.GetSelectionMark();
+				long rev = m_arRevs.GetAt(selIndex);
+
+				SVN svn;
+				if (!svn.Update(m_path, rev, TRUE))
+				{
+					CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					return;
+				}
+			}
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 		} // if (popup.CreatePopupMenu())
 	} // if (selIndex >= 0)

@@ -28,6 +28,7 @@
 #define ID_COMPARE		1
 #define ID_SAVEAS		2
 #define ID_COMPARETWO	3
+#define ID_UPDATE		4
 
 /**
  * \ingroup TortoiseProc

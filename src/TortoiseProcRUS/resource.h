@@ -88,6 +88,7 @@
 #define IDS_STRING214                   214
 #define IDS_LOG_POPUP_COMPARETWO        214
 #define IDS_STRING215                   215
+#define IDS_LOG_POPUP_UPDATE            215
 #define IDS_STRING216                   216
 #define IDS_LOGPROMPT_FILE              217
 #define IDS_LOGPROMPT_STATUS            218

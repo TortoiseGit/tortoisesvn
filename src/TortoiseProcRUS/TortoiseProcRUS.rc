@@ -1,4 +1,4 @@
-//Microsoft Visual C++ generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -11,87 +11,6 @@
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
-
-/////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1251)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                   "charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,10,0,0
- PRODUCTVERSION 0,10,0,0
- FILEFLAGSMASK 0x3fL
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x4L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040004e4"
-        BEGIN
-            VALUE "CompanyName", "www.tortoisesvn.org\0"
-            VALUE "FileDescription", "TortoiseSVN client resource file for russian language\0"
-            VALUE "FileVersion", "0, 10, 0, 0\0"
-            VALUE "InternalName", "TortoiseProcRU.dll\0"
-            VALUE "LegalCopyright", "Copyright (C) 2003\0"
-            VALUE "OriginalFilename", "TortoiseProc1049.dll\0"
-            VALUE "ProductName", "TortoiseSVN\0"
-            VALUE "ProductVersion", "0, 10, 0, 0\0"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x400, 1251
-    END
-END 
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                     "res\\Tortoise.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AVI
-//
-
-IDR_ANIMATION           AVI     MOVEABLE PURE   "res\\bin168.avi"
-#endif    // Neutral resources
-/////////////////////////////////////////////////////////////////////////////
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Russian resources
@@ -107,20 +26,19 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 // Dialog
 //
 
-IDD_ABOUT DIALOGEX  0, 0, 221, 201
+IDD_ABOUT DIALOGEX 0, 0, 221, 201
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "О программе TortoiseSVN"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,77,180,50,14
     LTEXT           "TortoiseSVN, версия 0.10",IDC_STATIC,7,136,207,8
     LTEXT           "Авторы:",IDC_STATIC,7,150,37,8
-    LTEXT           "Tim Kemp, Stefan Kung и Damian Powell",
-                    IDC_STATIC,47,150,150,8
+    LTEXT           "Tim Kemp, Stefan Kung и Damian Powell",IDC_STATIC,47,
+                    150,150,8
     LTEXT           "Графика:",IDC_STATIC,7,163,35,8
     LTEXT           "Luebbe Onken",IDC_STATIC,47,163,75,8
-
 END
 
 IDD_LOGMESSAGE DIALOGEX 0, 0, 289, 245
@@ -139,7 +57,7 @@ END
 
 IDD_PROMPT DIALOGEX 0, 0, 229, 97
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP | 
-   WS_CAPTION | WS_SYSMENU
+    WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_TOPMOST
 CAPTION "Аутентификация"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
@@ -152,7 +70,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,62,215,10
 END
 
-IDD_CHECKOUT DIALOGEX  0, 0, 269, 145
+IDD_CHECKOUT DIALOGEX 0, 0, 269, 145
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Создание рабочей копии"
@@ -166,7 +84,8 @@ BEGIN
     LTEXT           "&Рабочая копия:",IDC_STATIC,13,41,59,8
     EDITTEXT        IDC_CHECKOUTDIRECTORY,81,41,156,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_CHECKOUTDIRECTORY_BROWSE,241,41,14,12
-    GROUPBOX        "Редакция, извлекаемая из репозитория",IDC_STATIC,7,68,255,51
+    GROUPBOX        "Редакция, извлекаемая из репозитория",IDC_STATIC,7,68,
+                    255,51
     CONTROL         "&Головная редакция",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,13,82,112,10
     CONTROL         "&Указанная:",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON | 
@@ -183,19 +102,20 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
 END
 
-IDD_SVNPROGRESS DIALOGEX  0, 0, 364, 146
+IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
-  WS_THICKFRAME
+    WS_THICKFRAME
 CAPTION "Ход выполнения процесса"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,307,124,50,14
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "История изменений",IDC_LOGBUTTON,203,124,90,14,NOT WS_VISIBLE
+    PUSHBUTTON      "История изменений",IDC_LOGBUTTON,203,124,90,14,NOT 
+                    WS_VISIBLE
 END
 
-IDD_LOGPROMPT DIALOGEX  0, 0, 186, 259
+IDD_LOGPROMPT DIALOGEX 0, 0, 186, 259
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
 CAPTION "Ввод комментария к новой редакции"
@@ -209,12 +129,13 @@ BEGIN
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,
                     97,172,113
     LTEXT           "",IDC_COMMIT_TO,7,18,172,12,SS_WORDELLIPSIS
-    LTEXT           "URL репозитория для фиксирования изменений:",IDC_STATIC,7,7,172,8
+    LTEXT           "URL репозитория для фиксирования изменений:",IDC_STATIC,
+                    7,7,172,8
     LTEXT           "Для просмотра внесённых Вами изменений\nкликните на соответствующем файле",
                     IDC_HINTLABEL,7,215,173,16
 END
 
-IDD_IMPORT DIALOGEX  0, 0, 269, 182
+IDD_IMPORT DIALOGEX 0, 0, 269, 182
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Начальный импорт файлов в репозиторий"
@@ -230,11 +151,12 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
     GROUPBOX        "Репозиторий",IDC_STATIC,7,7,256,53
-    CONTROL         "Использовать имя папки как название модуля",IDC_MODULENAMECHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,42,194,10
+    CONTROL         "Использовать имя папки как название модуля",
+                    IDC_MODULENAMECHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,42,194,10
 END
 
-IDD_SWITCH DIALOGEX  0, 0, 228, 70
+IDD_SWITCH DIALOGEX 0, 0, 228, 70
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Переход к другой ветке/редакции"
@@ -246,29 +168,32 @@ BEGIN
     LTEXT           "Номер\nредакции:",IDC_STATIC,7,24,37,17
     EDITTEXT        IDC_URL,49,7,151,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_REV,49,25,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    CONTROL         "Использовать последнюю\nиз доступных редакций",IDC_NEWEST,"Button",BS_AUTOCHECKBOX | 
-                    BS_MULTILINE | WS_TABSTOP,101,24,120,16
+    CONTROL         "Использовать последнюю\nиз доступных редакций",
+                    IDC_NEWEST,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,101,24,120,16
     PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
 END
 
-IDD_MERGE DIALOGEX  0, 0, 281, 59
+IDD_MERGE DIALOGEX 0, 0, 281, 59
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Слияние"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "ОК",IDOK,7,38,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,224,38,50,14
-    LTEXT           "Объединить текущую ветку с указанной:",IDC_STATIC,7,11,88,16
-    COMBOBOX        IDC_URLCOMBO,99,13,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Объединить текущую ветку с указанной:",IDC_STATIC,7,11,
+                    88,16
+    COMBOBOX        IDC_URLCOMBO,99,13,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,13,14,12
 END
 
-IDD_COPY DIALOGEX  0, 0, 293, 66
+IDD_COPY DIALOGEX 0, 0, 293, 66
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Копирование"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "ОК",IDOK,7,45,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,236,45,50,14
@@ -280,24 +205,27 @@ BEGIN
     LTEXT           "",IDC_FROMURL,60,7,226,8
 END
 
-IDD_SETTINGSMAIN DIALOGEX  0, 0, 252, 100
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 252, 100
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Основные"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    LTEXT           "Внешная программа для\nсравнения файлов:",IDC_STATIC,7,7,93,18
+    LTEXT           "Внешная программа для\nсравнения файлов:",IDC_STATIC,7,
+                    7,93,18
     EDITTEXT        IDC_EXTDIFF,100,7,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,195,7,50,14
     LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,27,72,17
     COMBOBOX        IDC_LANGUAGECOMBO,100,28,145,30,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,47,72,18
+    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,47,72,
+                    18
     EDITTEXT        IDC_TEMPEXTENSIONS,100,47,145,14,ES_AUTOHSCROLL
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
-                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,7,72,238,18
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,7,72,238,18
 END
 
-IDD_SETTINGSPROXY DIALOGEX  0, 0, 278, 103
+IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Прокси-сервер"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
@@ -317,12 +245,11 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,7,118,10
 END
 
-IDD_RENAME DIALOGEX  0, 0, 234, 55
+IDD_RENAME DIALOGEX 0, 0, 234, 55
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Переименование / Перенос"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
-
 BEGIN
     DEFPUSHBUTTON   "ОК",IDOK,7,34,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,177,34,50,14
@@ -330,12 +257,11 @@ BEGIN
     EDITTEXT        IDC_NAME,76,11,151,14,ES_AUTOHSCROLL
 END
 
-IDD_UPDATE DIALOGEX  0, 0, 178, 55
+IDD_UPDATE DIALOGEX 0, 0, 178, 55
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Обновление рабочей копии"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
-
 BEGIN
     DEFPUSHBUTTON   "ОК",IDOK,121,34,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,7,34,50,14
@@ -344,12 +270,11 @@ BEGIN
     EDITTEXT        IDC_REVNUM,134,11,37,14,ES_AUTOHSCROLL
 END
 
-
 IDD_REPOSITORY_BROWSER DIALOGEX 0, 0, 288, 279
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
 CAPTION "Обзор репозитория"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "ОК",IDOK,176,258,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,231,258,50,14
@@ -361,7 +286,7 @@ BEGIN
                     WS_EX_CLIENTEDGE
 END
 
-IDD_ADD DIALOGEX  0, 0, 244, 146
+IDD_ADD DIALOGEX 0, 0, 244, 146
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
 CAPTION "Добавление файлов в репозиторий"
@@ -373,10 +298,10 @@ BEGIN
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,230,107
 END
 
-IDD_SETTINGSOVERLAY DIALOGEX  0, 0, 194, 107
+IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Перекрытие значков"
-FONT 8, "MS Shell Dlg"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     CONTROL         "Перекрывать значки изменённых папок",IDC_CHANGEDDIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,16,169,10
@@ -397,7 +322,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_ABOUT, DIALOG
     BEGIN
@@ -523,7 +448,7 @@ BEGIN
         BOTTOMMARGIN, 48
     END
 
- IDD_UPDATE, DIALOG
+    IDD_UPDATE, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 171
@@ -564,7 +489,7 @@ END
 // String Table
 //
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDS_MSGBOX_ABORT        "Прервать"
     IDS_MSGBOX_RETRY        "Повтор"
@@ -574,7 +499,7 @@ BEGIN
     IDS_MSGBOX_CONTINUE     "Продолжить"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDS_MSGBOX_OK           "ОК"
     IDS_MSGBOX_YES          "Да"
@@ -594,7 +519,7 @@ BEGIN
     IDS_SVNACTION_FAILEDREVERT "Операция отката завершилась неудачей"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDS_SVNACTION_STATUS    "Получить состояние"
     IDS_SVNACTION_SKIP      "Пропустить"
@@ -614,7 +539,7 @@ BEGIN
     IDS_STATUSNONE          " "
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDS_STATUSUNVERSIONED   "unversioned"
     IDS_STATUSNORMAL        "normal"
@@ -634,7 +559,7 @@ BEGIN
     IDS_STRING207           "dummy"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDS_LOG_REVISION        "Редакция"
     IDS_LOG_AUTHOR          "Автор"
@@ -643,7 +568,7 @@ BEGIN
     IDS_LOG_POPUP_COMPARE   "Сравнить с рабочей копией"
     IDS_LOG_POPUP_SAVE      "Сохранить ревизию в..."
     IDS_LOG_POPUP_COMPARETWO "Сравнить две редакции"
-    IDS_STRING215           "dummy"
+    IDS_LOG_POPUP_UPDATE    "Update item to revision"
     IDS_STRING216           "dummy"
     IDS_LOGPROMPT_FILE      "Файл"
     IDS_LOGPROMPT_STATUS    "Состояние"
@@ -683,7 +608,8 @@ BEGIN
     IDS_STRING243           "dummy"
     IDS_STRING244           "dummy"
     IDS_SETTINGS_EXTDIFF_TT "Внешняя программа, используемая для сравнения файлов."
-    IDS_SETTINGS_EXTDIFFBROWSE_TT "Выбор внешней программы для сравнения файлов."
+    IDS_SETTINGS_EXTDIFFBROWSE_TT 
+                            "Выбор внешней программы для сравнения файлов."
     IDS_SETTINGS_CHANGEDDIRS_TT 
                             "Включите эту опцию, если Вы хотите,\nчтобы значки директорий перекрывались\nв зависимости от состояния нижележащих файлов.\n<ct=0x0000ff><b>Предупреждение:</b>Это может замедлить работу приложения explorer</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
@@ -698,7 +624,7 @@ BEGIN
     IDS_STRING255           "dummy"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDS_PROC_WARNREVERT     "Вы действительно хотите произвести откат?\nИзменения, произведённые с момента последнего обновления,\nбудут безвозвратно потеряны."
     IDS_PROC_CLEANUPFINISHED "Очистка завершена."
@@ -756,7 +682,7 @@ BEGIN
     IDS_WARN_FOLDERNOTEXIST "Папка\n%s\nне существует. Создать новую?"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDS_CHECKOUT_TT_DIR     "Папка, в которую будут скопированы файлы\nиз указанного репозитория."
     IDS_IMPORT_TT_MODULENAMECHECK 
@@ -764,6 +690,87 @@ BEGIN
 END
 
 #endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,10,0,0
+ PRODUCTVERSION 0,10,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040004e4"
+        BEGIN
+            VALUE "CompanyName", "www.tortoisesvn.org"
+            VALUE "FileDescription", "TortoiseSVN client resource file for russian language"
+            VALUE "FileVersion", "0, 10, 0, 0"
+            VALUE "InternalName", "TortoiseProcRU.dll"
+            VALUE "LegalCopyright", "Copyright (C) 2003"
+            VALUE "OriginalFilename", "TortoiseProc1049.dll"
+            VALUE "ProductName", "TortoiseSVN"
+            VALUE "ProductVersion", "0, 10, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x400, 1251
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -782,18 +789,18 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -806,8 +813,8 @@ BEGIN
     "#include ""res\\TortoiseProc.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
     "#include ""afxres.rc""         // Standard components\r\n"
     "#endif\r\n"
-    "\0"				  
- END
+    "\0"
+END
 
 #endif    // APSTUDIO_INVOKED
 
@@ -821,7 +828,7 @@ BEGIN
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-  #define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_SPLITTER_RESOURCES
 #define _AFX_NO_OLE_RESOURCES
 #define _AFX_NO_TRACKER_RESOURCES
 #define _AFX_NO_PROPERTY_RESOURCES
@@ -829,11 +836,9 @@ BEGIN
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
 LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 #pragma code_page(1251)
-#include "res\TortoiseProc.rc2"  // non-Microsoft Visual C++ edited resources
 #include "afxres.rc"         // Standard components
 #endif
 
-
-
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+
