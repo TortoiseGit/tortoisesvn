@@ -21,6 +21,13 @@
 #include "TortoiseProc.h"
 #include "AboutDlg.h"
 #include "svn_version.h"
+#include "..\..\..\Subversion\apr\include\apr_version.h"
+#include "..\..\..\Subversion\apr-iconv\include\api_version.h"
+#include "..\..\..\Subversion\apr-util\include\apu_version.h"
+#include "..\..\..\Subversion\db4-win32\include\db.h"
+#include "..\..\..\Subversion\neon\src\config.h"
+#include "..\..\..\common\openssl\inc32\openssl\opensslv.h"
+#include "..\..\..\common\zlib\zlib.h"
 #include "..\version.h"
 
 #ifdef UNICODE
@@ -102,8 +109,17 @@ BOOL CAboutDlg::OnInitDialog()
 
 	//set the version string
 	CString temp;
-	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD_INCVERSION, 
-		SVN_VER_MAJOR, SVN_VER_MINOR, SVN_VER_MICRO, _T(SVN_VER_TAG));
+	temp.Format(IDS_ABOUTVERSIONBOX, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD_INCVERSION);
+	GetDlgItem(IDC_VERSIONBOX)->SetWindowText(temp);
+	temp.Format(IDS_ABOUTVERSION, 
+		SVN_VER_MAJOR, SVN_VER_MINOR, SVN_VER_MICRO, _T(SVN_VER_TAG), 
+		APR_MAJOR_VERSION, APR_MINOR_VERSION, APR_PATCH_VERSION,
+		API_MAJOR_VERSION, API_MINOR_VERSION, API_PATCH_VERSION,
+		APU_MAJOR_VERSION, APU_MINOR_VERSION, APU_PATCH_VERSION,
+		DB_VERSION_MAJOR, DB_VERSION_MINOR, DB_VERSION_PATCH,
+		NEON_VERSION_MAJOR, NEON_VERSION_MINOR,
+		_T(OPENSSL_VERSION_TEXT),
+		_T(ZLIB_VERSION));
 	GetDlgItem(IDC_VERSIONABOUT)->SetWindowText(temp);
 	temp.Format(_T("%s, %s version"), _T("TortoiseSVN"), _T(STRINGWIDTH));
 	this->SetWindowText(temp);
