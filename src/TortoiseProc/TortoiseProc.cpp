@@ -138,13 +138,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			hWndExplorer = NULL;
 		}
 
+		HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));	
+
 		//#region about
 		if (comVal.Compare(_T("about"))==0)
 		{
 			CAboutDlg dlg;
 			m_pMainWnd = &dlg;
 			dlg.DoModal();
-			return FALSE;
 		}
 		//#endregion
 		//#region log
@@ -989,6 +990,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		}
 		//#endregion
+		if (TSVNMutex)
+			::CloseHandle(TSVNMutex);
 	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the

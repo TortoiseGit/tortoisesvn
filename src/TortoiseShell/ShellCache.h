@@ -38,6 +38,16 @@ public:
 		langticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
+	}
+	DWORD BlockStatus()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT) > blockstatusticker)
+		{
+			blockstatusticker = GetTickCount();
+			blockstatus.read();
+		} // if ((GetTickCount() - REGISTRYTIMEOUT) > blockstatusticker)
+		return (blockstatus);
 	}
 	DWORD GetMenuLayout()
 	{
@@ -116,6 +126,7 @@ private:
 			driveremove.read();
 		}
 	}
+	CRegStdWORD blockstatus;
 	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
 	CRegStdWORD driveremote;
@@ -127,4 +138,5 @@ private:
 	DWORD driveticker;
 	DWORD layoutticker;
 	DWORD langticker;
+	DWORD blockstatusticker;
 };

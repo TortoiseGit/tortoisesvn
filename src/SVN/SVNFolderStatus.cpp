@@ -48,6 +48,24 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	apr_pool_t *				pool;
 	svn_error_t *				err;
 	const char *				internalpath;
+
+	//dont' build the cache if an instance of TortoiseProc is running
+	//since this could interfere with svn commands running (concurrent
+	//access of the .svn directory).
+	if (shellCache.BlockStatus())
+	{
+		HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));	
+		if (TSVNMutex != NULL)
+		{
+			if (::GetLastError() == ERROR_ALREADY_EXISTS)
+			{
+				::CloseHandle(TSVNMutex);
+				return &invalidstatus;
+			} // if (::GetLastError() == ERROR_ALREADY_EXISTS) 
+		} // if (TSVNMutex != NULL)
+		::CloseHandle(TSVNMutex);
+	}
+
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
