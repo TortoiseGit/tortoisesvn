@@ -73,6 +73,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETCURSOR()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LOGLIST, OnLvnItemchangedLoglist)
 END_MESSAGE_MAP()
 
 
@@ -1119,6 +1120,19 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 void CLogDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	if (pNMLV->iItem >= 0)
+	{
+		int selIndex = pNMLV->iItem;
+		m_nSearchIndex = selIndex;
+		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
+		UpdateData(FALSE);
+	}
+	*pResult = 0;
 }
 
 
