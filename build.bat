@@ -151,7 +151,23 @@ if %_RELEASE_MBCS%==ON (
   devenv TortoiseSVN.sln /rebuild release_mbcs)
 if %_DEBUG%==ON (
   devenv TortoiseSVN.sln /rebuild debug)
-cd ..\..\Languages
+
+echo ================================================================================
+echo building Scintilla
+cd Utils\scintilla\win32
+nmake -f scintilla.mak
+copy ..\bin\SciLexer.dll ..\..\..\..\bin\debug\bin /Y > NUL
+copy ..\bin\SciLexer.dll ..\..\..\..\bin\release\bin /Y > NUL
+copy ..\bin\SciLexer.dll ..\..\..\..\bin\release_mbcs\bin /Y > NUL
+del ..\bin\*.dll > NUL
+del ..\bin\*.exp > NUL
+del ..\bin\*.lib > NUL
+del ..\bin\*.pdb > NUL
+del *.obj > NUL
+del *.res > NUL
+del *.pdb > NUL
+
+cd ..\..\..\..\Languages
 call Make_Pot.bat
 cd ..
 @echo off

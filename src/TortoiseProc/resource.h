@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -184,6 +184,8 @@
 #define IDC_COMBOBOXEX1                 1124
 #define IDC_OLDLOGS                     1124
 #define IDC_CHIST                       1125
+#define IDC_CHECK1                      1126
+#define IDC_TEXTBLAME                   1126
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -364,6 +366,7 @@
 #define IDS_BLAME_PROGRESSCANCEL        2102
 #define IDS_BLAME_PROGRESSINFO2         2103
 #define IDS_BLAME_PROGRESSINFOSTART     2104
+#define IDS_BLAME_PROGRESSLOGSTART      2105
 #define IDS_MENUREFRESH                 2150
 #define IDS_LOG_COMPAREWITHBASE         2200
 #define IDS_LOG_BROWSEREPO              2201
@@ -430,7 +433,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        178
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1126
+#define _APS_NEXT_CONTROL_VALUE         1127
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

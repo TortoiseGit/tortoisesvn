@@ -21,10 +21,13 @@
 #include "Utils.h"
 #include "ProgressDlg.h"
 #include "TortoiseProc.h"
+#include "UnicodeUtils.h"
 
 CBlame::CBlame()
 {
 	m_bCancelled = FALSE;
+	m_lowestrev = -1;
+	m_highestrev = -1;
 }
 CBlame::~CBlame()
 {
@@ -35,6 +38,12 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 {
 	CString fullline;
 	CString fulllineA;
+
+	if ((m_lowestrev < 0)||(m_lowestrev > revision))
+		m_lowestrev = revision;
+	if (m_highestrev < revision)
+		m_highestrev = revision;
+
 	fullline.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, date, author);
 	fulllineA = line;
 	fulllineA.TrimRight(_T("\r\n"));
@@ -49,6 +58,20 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	return TRUE;
 }
 
+BOOL CBlame::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths)
+{
+	m_progressDlg.SetProgress((DWORD)m_highestrev - rev, (DWORD)m_highestrev);
+	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
+	{
+		CStringA msgutf8 = CUnicodeUtils::GetUTF8(message);
+		int length = msgutf8.GetLength();
+		m_saveLog.Write(&rev, sizeof(LONG));
+		m_saveLog.Write(&length, sizeof(int));
+		m_saveLog.Write((LPCSTR)msgutf8, length);
+	}
+	return TRUE;
+}
+
 BOOL CBlame::Cancel()
 {
 	if (m_progressDlg.HasUserCancelled())
@@ -56,13 +79,17 @@ BOOL CBlame::Cancel()
 	return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, BOOL showprogress /* = TRUE */)
+CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CString& logfile, BOOL showprogress /* = TRUE */)
 {
+	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	CString temp;
 	m_sSavePath = CUtils::GetTempFile();
 	if (m_sSavePath.IsEmpty())
 		return _T("");
-	if (!m_saveFile.Open(m_sSavePath, CFile::typeText | CFile::modeReadWrite))
+	temp = CUtils::GetFileExtFromPath(path);
+	if (!temp.IsEmpty() && !extBlame)
+		m_sSavePath += temp;
+	if (!m_saveFile.Open(m_sSavePath, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
 		return _T("");
 	CString headline;
 	headline.Format(_T("%-6s %-6s %-20s %-30s %-s \n"), _T("line"), _T("rev"), _T("date"), _T("author"), _T("content"));
@@ -89,8 +116,26 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, BO
 	{
 		m_saveFile.Close();
 		DeleteFile(m_sSavePath);
-		m_sSavePath = _T("");
-	} // if (!this->Blame(path, startrev, endrev, strict))
+		m_sSavePath.Empty();
+	}
+	if (!extBlame)
+	{
+		temp.LoadString(IDS_BLAME_PROGRESSLOGSTART);
+		m_progressDlg.SetLine(2, temp, false);
+		m_progressDlg.SetProgress((DWORD)0, (DWORD)m_highestrev);
+		logfile = CUtils::GetTempFile();
+		if (!m_saveLog.Open(logfile, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate))
+		{
+			logfile.Empty();
+			return m_sSavePath;
+		}
+		if (!this->ReceiveLog(path, SVNRev::REV_HEAD, m_lowestrev, TRUE))
+		{
+			m_saveLog.Close();
+			DeleteFile(logfile);
+			logfile.Empty();
+		}
+	}
 	m_progressDlg.Stop();
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 		m_saveFile.Close();

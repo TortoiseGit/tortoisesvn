@@ -61,6 +61,7 @@ protected:
 	afx_msg void OnBnClickedDiffviewerOn();
 	afx_msg void OnBnClickedExtdiffadvanced();
 	afx_msg void OnBnClickedExtmergeadvanced();
+	afx_msg void OnBnClickedTextblame();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -81,4 +82,6 @@ private:
 	CSetProgsAdvDlg m_dlgAdvMerge;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
+	CRegDWORD		m_regTextBlame;
+	BOOL			m_bTextBlame;
 };

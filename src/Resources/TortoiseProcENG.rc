@@ -598,7 +598,7 @@ BEGIN
     LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
                     IDC_STATIC,13,121,160,19
     PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,177,121,87,14
-    GROUPBOX        "Diff Viewer",IDC_STATIC,7,149,286,61
+    GROUPBOX        "Diff Viewer",IDC_STATIC,7,149,286,45
     LTEXT           "Viewer program for GNU diff files (patch files).",
                     IDC_STATIC,13,160,251,8
     CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
@@ -607,6 +607,8 @@ BEGIN
                     BS_AUTORADIOBUTTON,58,174,43,10
     EDITTEXT        IDC_DIFFVIEWER,105,172,159,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,271,172,14,14
+    CONTROL         "Use Text viewer to view blames",IDC_TEXTBLAME,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,196,251,10
 END
 
 IDD_SETTINGSPROGSADV DIALOGEX 0, 0, 319, 230
@@ -1308,6 +1310,7 @@ BEGIN
     IDS_BLAME_PROGRESSCANCEL "Cancelling SVN Blame..."
     IDS_BLAME_PROGRESSINFO2 "Processing revision %d of %d..."
     IDS_BLAME_PROGRESSINFOSTART "Getting file info..."
+    IDS_BLAME_PROGRESSLOGSTART "Getting log info..."
 END
 
 STRINGTABLE 

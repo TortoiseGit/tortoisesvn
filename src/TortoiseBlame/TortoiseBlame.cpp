@@ -1,0 +1,795 @@
+// TortoiseBlame - a Viewer for Subversion Blames
+
+// Copyright (C) 2003-2004 - Stefan Kueng
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+#include "stdafx.h"
+#include "TortoiseBlame.h"
+#include "registry.h"
+#define MAX_LOADSTRING 100
+
+// Global Variables:
+TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
+TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
+
+static TortoiseBlame app;
+
+TortoiseBlame::TortoiseBlame()
+{
+	hInstance = 0;
+	currentDialog = 0;
+	wMain = 0;
+	wEditor = 0;
+
+	m_font = 0;
+	m_blamewidth = 0;
+	m_revwidth = 0;
+	m_datewidth = 0;
+	m_authorwidth = 0;
+
+	m_windowcolor = ::GetSysColor(COLOR_WINDOW);
+	m_textcolor = ::GetSysColor(COLOR_WINDOWTEXT);
+	m_texthighlightcolor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
+	m_mouserevcolor = m_windowcolor - 0x101010;
+	m_mouseauthorcolor = m_windowcolor - 0x202020;
+	m_selectedrevcolor = ::GetSysColor(COLOR_HIGHLIGHT);
+	m_selectedauthorcolor = m_selectedrevcolor - 0x101010;
+
+	m_directPointer = 0;
+	m_directFunction = 0;
+}
+
+TortoiseBlame::~TortoiseBlame()
+{
+	if (m_font)
+		DeleteObject(m_font);
+}
+
+LRESULT TortoiseBlame::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
+{
+	if (m_directFunction)
+	{
+		return ((SciFnDirect) m_directFunction)(m_directPointer, Msg, wParam, lParam);
+	}
+	return ::SendMessage(wEditor, Msg, wParam, lParam);	
+}
+
+void TortoiseBlame::GetRange(int start, int end, char *text) 
+{
+	TEXTRANGE tr;
+	tr.chrg.cpMin = start;
+	tr.chrg.cpMax = end;
+	tr.lpstrText = text;
+	SendMessage(wEditor, EM_GETTEXTRANGE, 0, reinterpret_cast<LPARAM>(&tr));
+}
+
+void TortoiseBlame::SetTitle() 
+{
+	char title[MAX_PATH + 100];
+	strcpy(title, szTitle);
+	strcat(title, " - ");
+	::SetWindowText(wMain, title);
+}
+
+BOOL TortoiseBlame::OpenLogFile(const char *fileName)
+{
+	char logmsgbuf[10000+1];
+	FILE * File = fopen(fileName, "rb");
+	if (File == 0)
+	{
+		return FALSE;
+	}
+	LONG rev = 0;
+	std::string msg;
+	int slength = 0;
+	int reallength = 0;
+	size_t len = 0;
+	for (;;)
+	{
+		len = fread(&rev, sizeof(LONG), 1, File);
+		if (len == 0)
+		{
+			fclose(File);
+			return TRUE;
+		}
+		len = fread(&slength, sizeof(int), 1, File);
+		if (len == 0)
+		{
+			fclose(File);
+			return FALSE;
+		}
+		if (slength > MAX_LOG_LENGTH)
+		{
+			reallength = slength;
+			slength = MAX_LOG_LENGTH;
+		}
+		else
+			reallength = 0;
+		len = fread(logmsgbuf, sizeof(char), slength, File);
+		if (len < (size_t)slength)
+		{
+			fclose(File);
+			return FALSE;
+		}
+		msg = std::string(logmsgbuf, slength);
+		if (reallength)
+		{
+			fseek(File, reallength-MAX_LOG_LENGTH, SEEK_CUR);
+			msg = msg + _T("\n...");
+		}
+		logmessages[rev] = msg;
+	}
+}
+
+BOOL TortoiseBlame::OpenFile(const char *fileName) 
+{
+	SendEditor(SCI_SETREADONLY, FALSE);
+	SendEditor(SCI_CLEARALL);
+	SendEditor(EM_EMPTYUNDOBUFFER);
+	SetTitle();
+	SendEditor(SCI_SETSAVEPOINT);
+	SendEditor(SCI_CANCEL);
+	SendEditor(SCI_SETUNDOCOLLECTION, 0);
+	::ShowWindow(wEditor, SW_HIDE);
+	std::ifstream File;
+	File.open(fileName);
+	if (!File.good())
+	{
+		return FALSE;
+	}
+	TCHAR line[100*1024];
+	TCHAR * lineptr = NULL;
+	TCHAR * trimptr = NULL;
+	//ignore the first two lines, they're of no interest to us
+	File.getline(line, sizeof(line)/sizeof(TCHAR));
+	File.getline(line, sizeof(line)/sizeof(TCHAR));
+	do
+	{
+		File.getline(line, sizeof(line)/sizeof(TCHAR));
+		lineptr = &line[7];
+		revs.push_back(_ttol(lineptr));
+		lineptr += 7;
+		dates.push_back(std::string(lineptr, 20));
+		lineptr += 21;
+		trimptr = lineptr + 30;
+		while (*trimptr == ' ')
+		{
+			*trimptr = 0;
+			trimptr--;
+		}
+		authors.push_back(std::string(lineptr));
+		lineptr += 31;
+		SendEditor(SCI_ADDTEXT, _tcslen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
+		SendEditor(SCI_ADDTEXT, 1, (LPARAM)_T("\n"));
+	} while (File.gcount() > 0);
+
+	SendEditor(SCI_SETUNDOCOLLECTION, 1);
+	::SetFocus(wEditor);
+	SendEditor(EM_EMPTYUNDOBUFFER);
+	SendEditor(SCI_SETSAVEPOINT);
+	SendEditor(SCI_GOTOPOS, 0);
+	SendEditor(SCI_SETREADONLY, TRUE);
+
+	//check which lexer to use, depending on the filetype
+	SetupLexer(fileName);
+	::ShowWindow(wEditor, SW_SHOW);
+	m_blamewidth = 0;
+	::InvalidateRect(wMain, NULL, TRUE);
+	RECT rc;
+	GetWindowRect(wMain, &rc);
+	SetWindowPos(wMain, 0, rc.left, rc.top, rc.right-rc.left-1, rc.bottom - rc.top, 0);
+	return TRUE;
+}
+
+void TortoiseBlame::SetAStyle(int style, COLORREF fore, COLORREF back, int size, const char *face) 
+{
+	SendEditor(SCI_STYLESETFORE, style, fore);
+	SendEditor(SCI_STYLESETBACK, style, back);
+	if (size >= 1)
+		SendEditor(SCI_STYLESETSIZE, style, size);
+	if (face) 
+		SendEditor(SCI_STYLESETFONT, style, reinterpret_cast<LPARAM>(face));
+}
+
+void TortoiseBlame::InitialiseEditor() 
+{
+	m_directFunction = SendMessage(wEditor, SCI_GETDIRECTFUNCTION, 0, 0);
+	m_directPointer = SendMessage(wEditor, SCI_GETDIRECTPOINTER, 0, 0);
+	// Set up the global default style. These attributes are used wherever no explicit choices are made.
+	SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), 
+		((stdstring)(CRegStdString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")))).c_str());
+	SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\TabSize"), 4));
+	SendEditor(SCI_SETREADONLY, TRUE);
+	SendEditor(SCI_SETMARGINWIDTHN, 0);
+	SendEditor(SCI_SETMARGINWIDTHN, 1);
+	SendEditor(SCI_SETMARGINWIDTHN, 2);
+}
+
+void TortoiseBlame::Notify(SCNotification *notification) 
+{
+	switch (notification->nmhdr.code) 
+	{
+	case SCN_SAVEPOINTREACHED:
+		break;
+
+	case SCN_SAVEPOINTLEFT:
+		break;
+	case SCN_PAINTED:
+		InvalidateRect(wBlame, NULL, FALSE);
+		break;
+	}
+}
+
+void TortoiseBlame::Command(int id)
+{
+	switch (id) 
+	{
+	case IDM_EXIT:
+		::PostQuitMessage(0);
+		break;
+
+	};
+}
+
+LONG TortoiseBlame::GetBlameWidth()
+{
+	if (m_blamewidth)
+		return m_blamewidth;
+	LONG blamewidth = 0;
+	SIZE width;
+	CreateFont();
+	HDC hDC = ::GetDC(wBlame);
+	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
+	TCHAR buf[MAX_PATH];
+	_stprintf(buf, _T("%8ld "), 88888888);
+	::GetTextExtentPoint(hDC, buf, _tcslen(buf), &width);
+	m_revwidth = width.cx + BLAMESPACE;
+	blamewidth += width.cx + BLAMESPACE;
+	_stprintf(buf, _T("%20s"), _T("31.08.2001 06:24:14"));
+	::GetTextExtentPoint32(hDC, buf, _tcslen(buf), &width);
+	m_datewidth = width.cx + BLAMESPACE;
+	blamewidth += width.cx + BLAMESPACE;
+	SIZE maxwidth = {0};
+	for (std::vector<std::string>::iterator I = authors.begin(); I != authors.end(); ++I)
+	{
+		::GetTextExtentPoint32(hDC, I->c_str(), I->size(), &width);
+		if (width.cx > maxwidth.cx)
+			maxwidth = width;
+	}
+	m_authorwidth = maxwidth.cx + BLAMESPACE;
+	blamewidth += maxwidth.cx + BLAMESPACE;
+	::SelectObject(hDC, oldfont);
+	POINT pt = {blamewidth, 0};
+	LPtoDP(hDC, &pt, 1);
+	m_blamewidth = pt.x;
+	ReleaseDC(wBlame, hDC);
+	return m_blamewidth;
+}
+
+void TortoiseBlame::CreateFont()
+{
+	if (m_font)
+		return;
+	LOGFONT lf = {0};
+	lf.lfWeight = 400;
+	HDC hDC = ::GetDC(wBlame);
+	lf.lfHeight = -MulDiv((DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
+	CRegStdString fontname = CRegStdString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
+	_tcscpy(lf.lfFaceName, ((stdstring)fontname).c_str());
+	m_font = ::CreateFontIndirect(&lf);
+	ReleaseDC(wBlame, hDC);
+}
+
+void TortoiseBlame::DrawBlame(HDC hDC)
+{
+	if (hDC == NULL)
+		return;
+	if (m_font == NULL)
+		return;
+	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
+	LONG line = SendEditor(SCI_GETFIRSTVISIBLELINE);
+	LONG linesonscreen = SendEditor(SCI_LINESONSCREEN);
+	int heigth = SendEditor(SCI_TEXTHEIGHT);
+	int Y = 0;
+	TCHAR buf[MAX_PATH];
+	RECT rc;
+	BOOL sel = FALSE;
+	GetClientRect(wBlame, &rc);
+	for (int i=line; i<(line+linesonscreen); ++i)
+	{
+		sel = FALSE;
+		if (i < (int)revs.size())
+		{
+			::SetBkColor(hDC, m_windowcolor);
+			::SetTextColor(hDC, m_textcolor);
+			if (authors[i].size()>0)
+			{
+				if (authors[i].compare(m_mouseauthor)==0)
+					::SetBkColor(hDC, m_mouseauthorcolor);
+				if (authors[i].compare(m_selectedauthor)==0)
+				{
+					::SetBkColor(hDC, m_selectedauthorcolor);
+					::SetTextColor(hDC, m_texthighlightcolor);
+					sel = TRUE;
+				}
+			}
+			if ((revs[i] == m_mouserev)&&(!sel))
+				::SetBkColor(hDC, m_mouserevcolor);
+			if (revs[i] == m_selectedrev)
+			{
+				::SetBkColor(hDC, m_selectedrevcolor);
+				::SetTextColor(hDC, m_texthighlightcolor);
+			}
+			_stprintf(buf, _T("%8ld       "), revs[i]);
+			rc.right = rc.left + m_revwidth;
+			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+			rc.right = rc.left + m_revwidth + m_datewidth;
+			_stprintf(buf, _T("%20s            "), dates[i].c_str());
+			::ExtTextOut(hDC, m_revwidth, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+			rc.right = rc.left + m_revwidth + m_datewidth + m_authorwidth;
+			_stprintf(buf, _T("%-30s            "), authors[i].c_str());
+			::ExtTextOut(hDC, m_revwidth + m_datewidth, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
+			Y += heigth;
+		}
+		else
+		{
+			::SetBkColor(hDC, m_windowcolor);
+			for (int i=0; i< MAX_PATH; ++i)
+				buf[i]=' ';
+			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, MAX_PATH-1, 0);
+			Y += heigth;
+		}
+	}
+}
+
+void TortoiseBlame::StringExpand(LPSTR str)
+{
+	char * cPos = str;
+	do
+	{
+		cPos = strchr(cPos, '\n');
+		if (cPos)
+		{
+			memmove(cPos+1, cPos, strlen(cPos)*sizeof(char));
+			*cPos = '\r';
+			cPos++;
+			cPos++;
+		}
+	} while (cPos != NULL);
+}
+void TortoiseBlame::StringExpand(LPWSTR str)
+{
+	wchar_t * cPos = str;
+	do
+	{
+		cPos = wcschr(cPos, '\n');
+		if (cPos)
+		{
+			memmove(cPos+1, cPos, wcslen(cPos)*sizeof(wchar_t));
+			*cPos = '\r';
+			cPos++;
+			cPos++;
+		}
+	} while (cPos != NULL);
+}
+
+// Forward declarations of functions included in this code module:
+ATOM				MyRegisterClass(HINSTANCE hInstance);
+ATOM				MyRegisterBlameClass(HINSTANCE hInstance);
+BOOL				InitInstance(HINSTANCE, int);
+LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	WndBlameProc(HWND, UINT, WPARAM, LPARAM);
+
+int APIENTRY _tWinMain(HINSTANCE hInstance,
+                     HINSTANCE hPrevInstance,
+                     LPTSTR    lpCmdLine,
+                     int       nCmdShow)
+{
+	app.hInstance = hInstance;
+	MSG msg;
+	HACCEL hAccelTable;
+
+	::LoadLibrary("SciLexer.DLL");
+
+	// Initialize global strings
+	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+	LoadString(hInstance, IDC_TORTOISEBLAME, szWindowClass, MAX_LOADSTRING);
+	MyRegisterClass(hInstance);
+	MyRegisterBlameClass(hInstance);
+
+	// Perform application initialization:
+	if (!InitInstance (hInstance, nCmdShow)) 
+	{
+		return FALSE;
+	}
+
+	char blamefile[MAX_PATH] = {0};
+	char logfile[MAX_PATH] = {0};
+
+	int i=0;
+	//skip spaces
+	while (*lpCmdLine==' ') lpCmdLine++;
+
+	TCHAR * p1End = _tcschr(lpCmdLine, ' ');
+	if (*lpCmdLine == '\"')
+	{
+		lpCmdLine++;
+		p1End = _tcschr(lpCmdLine, '\"');
+	}
+	if (p1End)
+	{
+		_tcsncpy(blamefile, lpCmdLine, p1End-lpCmdLine);
+		lpCmdLine = p1End;
+		lpCmdLine++;
+		while (*lpCmdLine==' ') lpCmdLine++;
+		p1End = _tcschr(lpCmdLine, ' ');
+		if (*lpCmdLine == '\"')
+		{
+			lpCmdLine++;
+			p1End = _tcschr(lpCmdLine+1, '\"');
+		}
+		if (p1End)
+			_tcsncpy(logfile, lpCmdLine, p1End-lpCmdLine);
+		else
+			_tcsncpy(logfile, lpCmdLine, MAX_PATH);
+	}
+	else
+		_tcsncpy(blamefile, lpCmdLine, MAX_PATH);
+
+	app.OpenLogFile(logfile);
+	app.OpenFile(blamefile);
+
+	hAccelTable = LoadAccelerators(hInstance, (LPCTSTR)IDC_TORTOISEBLAME);
+
+	BOOL going = TRUE;
+	msg.wParam = 0;
+	while (going) 
+	{
+		going = GetMessage(&msg, NULL, 0, 0);
+		if (app.currentDialog && going) 
+		{
+			if (!IsDialogMessage(app.currentDialog, &msg)) 
+			{
+				if (TranslateAccelerator(msg.hwnd, hAccelTable, &msg) == 0) 
+				{
+					TranslateMessage(&msg);
+					DispatchMessage(&msg);
+				}
+			}
+		} 
+		else if (going) 
+		{
+			if (TranslateAccelerator(app.wMain, hAccelTable, &msg) == 0) 
+			{
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
+			}
+		}
+	}
+
+	return msg.wParam;
+}
+
+ATOM MyRegisterClass(HINSTANCE hInstance)
+{
+	WNDCLASSEX wcex;
+
+	wcex.cbSize = sizeof(WNDCLASSEX); 
+
+	wcex.style			= CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc	= (WNDPROC)WndProc;
+	wcex.cbClsExtra		= 0;
+	wcex.cbWndExtra		= 0;
+	wcex.hInstance		= hInstance;
+	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_TORTOISEBLAME);
+	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
+	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
+	wcex.lpszMenuName	= NULL;//(LPCTSTR)IDC_TORTOISEBLAME;
+	wcex.lpszClassName	= szWindowClass;
+	wcex.hIconSm		= LoadIcon(wcex.hInstance, (LPCTSTR)IDI_SMALL);
+
+	return RegisterClassEx(&wcex);
+}
+
+ATOM MyRegisterBlameClass(HINSTANCE hInstance)
+{
+	WNDCLASSEX wcex;
+
+	wcex.cbSize = sizeof(WNDCLASSEX); 
+
+	wcex.style			= CS_HREDRAW | CS_VREDRAW;
+	wcex.lpfnWndProc	= (WNDPROC)WndBlameProc;
+	wcex.cbClsExtra		= 0;
+	wcex.cbWndExtra		= 0;
+	wcex.hInstance		= hInstance;
+	wcex.hIcon			= LoadIcon(hInstance, (LPCTSTR)IDI_TORTOISEBLAME);
+	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
+	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
+	wcex.lpszMenuName	= 0;
+	wcex.lpszClassName	= _T("TortoiseBlameBlame");
+	wcex.hIconSm		= LoadIcon(wcex.hInstance, (LPCTSTR)IDI_SMALL);
+
+	return RegisterClassEx(&wcex);
+}
+
+BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
+{
+   app.wMain = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);   
+
+   if (!app.wMain)
+   {
+      return FALSE;
+   }
+
+   ShowWindow(app.wMain, nCmdShow);
+   UpdateWindow(app.wMain);
+
+   //Create the tooltips
+
+   INITCOMMONCONTROLSEX iccex; 
+   app.hwndTT;                 // handle to the ToolTip control
+   TOOLINFO ti;
+   RECT rect;                  // for client area coordinates
+   iccex.dwICC = ICC_WIN95_CLASSES;
+   iccex.dwSize = sizeof(INITCOMMONCONTROLSEX);
+   InitCommonControlsEx(&iccex);
+
+   /* CREATE A TOOLTIP WINDOW */
+   app.hwndTT = CreateWindowEx(WS_EX_TOPMOST,
+	   TOOLTIPS_CLASS,
+	   NULL,
+	   WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP,		
+	   CW_USEDEFAULT,
+	   CW_USEDEFAULT,
+	   CW_USEDEFAULT,
+	   CW_USEDEFAULT,
+	   app.wBlame,
+	   NULL,
+	   app.hInstance,
+	   NULL
+	   );
+
+   SetWindowPos(app.hwndTT,
+	   HWND_TOPMOST,
+	   0,
+	   0,
+	   0,
+	   0,
+	   SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+
+   /* GET COORDINATES OF THE MAIN CLIENT AREA */
+   GetClientRect (app.wBlame, &rect);
+
+   /* INITIALIZE MEMBERS OF THE TOOLINFO STRUCTURE */
+   ti.cbSize = sizeof(TOOLINFO);
+   ti.uFlags = TTF_SUBCLASS | TTF_PARSELINKS;
+   ti.hwnd = app.wBlame;
+   ti.hinst = app.hInstance;
+   ti.uId = 0;
+   ti.lpszText = LPSTR_TEXTCALLBACK;
+   // ToolTip control will cover the whole window
+   ti.rect.left = rect.left;    
+   ti.rect.top = rect.top;
+   ti.rect.right = rect.right;
+   ti.rect.bottom = rect.bottom;
+
+   /* SEND AN ADDTOOL MESSAGE TO THE TOOLTIP CONTROL WINDOW */
+   SendMessage(app.hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
+   SendMessage(app.hwndTT, TTM_SETMAXTIPWIDTH, 0, 600);
+   return TRUE;
+}
+
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message) 
+	{
+	case WM_CREATE:
+		app.wEditor = ::CreateWindow(
+			"Scintilla",
+			"Source",
+			WS_CHILD | WS_VSCROLL | WS_HSCROLL | WS_CLIPCHILDREN,
+			0, 0,
+			100, 100,
+			hWnd,
+			0,
+			app.hInstance,
+			0);
+		app.InitialiseEditor();
+		::ShowWindow(app.wEditor, SW_SHOW);
+		::SetFocus(app.wEditor);
+		app.wBlame = ::CreateWindow(
+			_T("TortoiseBlameBlame"), 
+			_T("blame"), 
+			WS_CHILD | WS_CLIPCHILDREN,
+			CW_USEDEFAULT, 0, 
+			CW_USEDEFAULT, 0, 
+			hWnd, 
+			NULL, 
+			app.hInstance, 
+			NULL);
+		::ShowWindow(app.wBlame, SW_SHOW);
+		return 0;
+
+	case WM_SIZE:
+		if (wParam != 1) 
+		{
+			RECT rc;
+			RECT blamerc;
+			RECT sourcerc;
+			::GetClientRect(hWnd, &rc);
+			blamerc.left = rc.left;
+			blamerc.top = rc.top;
+			blamerc.right = app.GetBlameWidth() > (rc.right - rc.left) ? rc.right : app.GetBlameWidth() + rc.left;
+			blamerc.bottom = rc.bottom;
+			sourcerc.left = blamerc.right;
+			sourcerc.top = rc.top;
+			sourcerc.bottom = rc.bottom;
+			sourcerc.right = rc.right;
+			::SetWindowPos(app.wEditor, 0, sourcerc.left, sourcerc.top, sourcerc.right - sourcerc.left, sourcerc.bottom - sourcerc.top, 0);
+			::SetWindowPos(app.wBlame, 0, blamerc.left, blamerc.top, blamerc.right - blamerc.left, blamerc.bottom - blamerc.top, 0);
+		}
+		return 0;
+
+	case WM_COMMAND:
+		app.Command(LOWORD(wParam));
+		break;
+	case WM_NOTIFY:
+		app.Notify(reinterpret_cast<SCNotification *>(lParam));
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	case WM_CLOSE:
+		::DestroyWindow(app.wEditor);
+		::PostQuitMessage(0);
+		return 0;
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}
+
+LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	PAINTSTRUCT ps;
+	TRACKMOUSEEVENT mevt;
+	HDC hDC;
+	switch (message) 
+	{
+	case WM_CREATE:
+		return 0;
+	case WM_PAINT:
+		hDC = BeginPaint(app.wBlame, &ps);
+		app.DrawBlame(hDC);
+		EndPaint(app.wBlame, &ps);
+		break;
+	case WM_COMMAND:
+		break;
+	case WM_NOTIFY:
+		switch (((LPNMHDR)lParam)->code)
+		{
+		case TTN_GETDISPINFO:
+			{
+				LPNMHDR pNMHDR = (LPNMHDR)lParam;
+				NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
+				NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
+				POINT point;
+				::GetCursorPos(&point);
+				::ScreenToClient(app.wBlame, &point);
+				LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+				int heigth = app.SendEditor(SCI_TEXTHEIGHT);
+				line = line + (point.y/heigth);
+				LONG rev = app.revs[line];
+				if (line >= (LONG)app.revs.size())
+					break;
+
+				ZeroMemory(app.m_szTip, sizeof(app.m_szTip));
+				ZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
+				if (pNMHDR->code == TTN_NEEDTEXTA)
+				{
+					std::map<LONG, std::string>::iterator iter;
+					if ((iter = app.logmessages.find(rev)) != app.logmessages.end())
+					{
+						lstrcpyn(app.m_szTip, iter->second.c_str(), MAX_LOG_LENGTH+5);
+						app.StringExpand(app.m_szTip);
+						pTTTA->lpszText = app.m_szTip;
+					}
+				}
+				else
+				{
+					std::map<LONG, std::string>::iterator iter;
+					if ((iter = app.logmessages.find(rev)) != app.logmessages.end())
+					{
+						pTTTW->lpszText = app.m_wszTip;
+						::MultiByteToWideChar( CP_ACP , 0, iter->second.c_str(), -1, app.m_wszTip, MAX_LOG_LENGTH+5);
+						app.StringExpand(app.m_wszTip);
+					}
+				}
+			}
+			break;
+		}
+		return 0;
+	case WM_DESTROY:
+		break;
+	case WM_CLOSE:
+		return 0;
+	case WM_MOUSELEAVE:
+		app.m_mouserev = -1;
+		app.m_mouseauthor.clear();
+		::InvalidateRect(app.wBlame, NULL, FALSE);
+		break;
+	case WM_MOUSEMOVE:
+		{
+			mevt.cbSize = sizeof(TRACKMOUSEEVENT);
+			mevt.dwFlags = TME_LEAVE;
+			mevt.dwHoverTime = HOVER_DEFAULT;
+			mevt.hwndTrack = app.wBlame;
+			::TrackMouseEvent(&mevt);
+			int y = ((int)(short)HIWORD(lParam));
+			LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+			int heigth = app.SendEditor(SCI_TEXTHEIGHT);
+			line = line + (y/heigth);
+			if (line < (LONG)app.revs.size())
+			{
+				if (app.authors[line].compare(app.m_mouseauthor) != 0)
+				{
+					app.m_mouseauthor = app.authors[line];
+				}
+				if (app.revs[line] != app.m_mouserev)
+				{
+					app.m_mouserev = app.revs[line];
+					::InvalidateRect(app.wBlame, NULL, FALSE);
+					SendMessage(app.hwndTT, TTM_UPDATE, 0, 0);
+				}
+			}
+		}
+		break;
+	case WM_LBUTTONDOWN:
+		{
+			int y = ((int)(short)HIWORD(lParam));
+			LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
+			int heigth = app.SendEditor(SCI_TEXTHEIGHT);
+			line = line + (y/heigth);
+			if (line < (LONG)app.revs.size())
+			{
+				if (app.authors[line].compare(app.m_selectedauthor) != 0)
+				{
+					app.m_selectedauthor = app.authors[line];
+				}
+				else
+				{
+					app.m_selectedauthor.clear();
+				}
+				if (app.revs[line] != app.m_selectedrev)
+				{
+					app.m_selectedrev = app.revs[line];
+					::InvalidateRect(app.wBlame, NULL, FALSE);
+				}
+				else
+				{
+					app.m_selectedrev = -1;
+				}
+			}
+		}
+		break;
+
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}
+

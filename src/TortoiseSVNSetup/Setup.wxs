@@ -176,6 +176,10 @@
 	        <File Id="F__mfc71" Name="MFC71.DLL" LongName="mfc71.dll" DiskId="1" src="$(env.windir)\system32\mfc71.dll" />
 	        <File Id="F__msvcp71" Name="MSVCP71.DLL" LongName="msvcp71.dll" DiskId="1" src="$(env.windir)\system32\msvcp71.dll" />
 	      </Component>
+	      <Component Id="C__TortoiseBlame" Guid="1B00F2A6-4D6B-4dbe-8B69-C8B493B4BBE5" >
+	        <File Id="F__TortoiseBlame" Name="TORTOI~4.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseBlame.exe" KeyPath="yes" />
+	        <File Id="F__SciLexer" Name="SCILEX~1.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\SciLexer.dll" />
+	      </Component>
 	  </Directory>
       <Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
         <Component Id="C__iconv" Guid="582E4865-CC41-4689-BC77-20AD85017BBC" >
@@ -224,6 +228,7 @@
       <ComponentRef Id="C__machineregistry" />
       <ComponentRef Id="C__approveshellcomponents" />
       <ComponentRef Id="C__ProgramMenuFolder" />
+      <ComponentRef Id="C__TortoiseBlame" />
     </Feature>
     <Feature Id="CrashReporter" Level="1" ConfigurableDirectory="TARGETDIR">
       <ComponentRef Id="C__crash" />
