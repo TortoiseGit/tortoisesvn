@@ -82,8 +82,7 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, BO
 	{
 		m_progressDlg.ShowModeless(CWnd::FromHandle(hWndExplorer));
 	}
-	SVNStatus s;
-	m_nHeadRev = s.GetStatus(path, TRUE);
+	m_nHeadRev = GetHEADRevision(path);
 	m_progressDlg.SetProgress((DWORD)0, (DWORD)m_nHeadRev);
 	if (!this->Blame(path, startrev, endrev))
 	{
