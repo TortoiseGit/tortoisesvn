@@ -110,6 +110,15 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
 					PostMessage(WM_COMMAND, IDOK);
 				}
 			}
+		case 'A':
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					// Ctrl-A pressed. Select all text in the CEdit control
+					m_Input.SetSel(0, -1);
+					return TRUE;
+				}
+			}
 		}
 	}
 

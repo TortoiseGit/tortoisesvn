@@ -463,6 +463,16 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 				{
 					PostMessage(WM_COMMAND, IDOK);
+					return TRUE;
+				}
+			}
+		case 'A':
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					// Ctrl-A pressed. Select all text in the CEdit control
+					m_LogMessage.SetSel(0, -1);
+					return TRUE;
 				}
 			}
 		}
