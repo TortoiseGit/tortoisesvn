@@ -806,6 +806,7 @@ BOOL SVN::Cat(CString url, SVNRev revision, CString localpath)
 	}
 	DeleteFile(localpath);
 
+	preparePath(localpath);
 	apr_file_open(&file, MakeSVNUrlOrPath(localpath), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
 	stream = svn_stream_from_aprfile(file, pool);
 
