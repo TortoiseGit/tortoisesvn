@@ -107,6 +107,7 @@ protected:
 
 private:
 	CRepositoryTree	*m_pRepositoryTree;
+	SVNUrl m_SvnUrl;
 
 	class CRepositoryCombo : public CHistoryCombo {
 		CRepositoryBar *m_bar;

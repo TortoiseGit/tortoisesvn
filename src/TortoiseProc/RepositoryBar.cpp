@@ -151,6 +151,7 @@ void CRepositoryBar::AssocTree(CRepositoryTree *repo_tree)
 
 void CRepositoryBar::ShowUrl(const SVNUrl& svn_url)
 {
+	m_SvnUrl = svn_url;
 	m_cbxUrl.SetWindowText(svn_url.GetPath());
 	m_btnRevision.SetWindowText(svn_url.GetRevisionText());
 }
@@ -170,10 +171,17 @@ void CRepositoryBar::GotoUrl(const SVNUrl& svn_url)
 
 SVNUrl CRepositoryBar::GetCurrentUrl() const
 {
-	CString path, revision;
-	m_cbxUrl.GetWindowText(path);
-	m_btnRevision.GetWindowText(revision);
-	return SVNUrl(path, revision);
+	if (m_cbxUrl.m_hWnd != 0)
+	{
+		CString path, revision;
+		m_cbxUrl.GetWindowText(path);
+		m_btnRevision.GetWindowText(revision);
+		return SVNUrl(path, revision);
+	}
+	else
+	{
+		return m_SvnUrl;
+	}
 }
 
 void CRepositoryBar::SaveHistory()
@@ -203,11 +211,10 @@ void CRepositoryBar::OnCbnSelEndOK()
 			CString path, revision;
 			m_cbxUrl.GetLBText(idx, path);
 			m_btnRevision.GetWindowText(revision);
-
-			SVNUrl new_url(path, revision);
+			m_SvnUrl = SVNUrl(path, revision);
 
 			if (m_pRepositoryTree != 0)
-				m_pRepositoryTree->ChangeToUrl(new_url);
+				m_pRepositoryTree->ChangeToUrl(m_SvnUrl);
 		}
 	}
 }
