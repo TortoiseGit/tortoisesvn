@@ -35,6 +35,7 @@ CSetProxyPage::CSetProxyPage()
 	, m_isEnabled(FALSE)
 	, m_SSHClient(_T(""))
 	, m_Exceptions(_T(""))
+	, m_bInit(FALSE)
 {
 	m_regServeraddress = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-host"), _T(""));
 	m_regServerport = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-port"), _T(""));
@@ -59,44 +60,47 @@ CSetProxyPage::~CSetProxyPage()
 
 void CSetProxyPage::SaveData()
 {
-	if (m_isEnabled)
+	if (m_bInit)
 	{
-		CString temp;
-		m_regServeraddress = m_serveraddress;
-		m_regServeraddress_copy = m_serveraddress;
-		temp.Format(_T("%d"), m_serverport);
-		m_regServerport = temp;
-		m_regServerport_copy = temp;
-		m_regUsername = m_username;
-		m_regUsername_copy = m_username;
-		m_regPassword = m_password;
-		m_regPassword_copy = m_password;
-		temp.Format(_T("%d"), m_timeout);
-		m_regTimeout = temp;
-		m_regTimeout_copy = temp;
-		m_regExceptions = m_Exceptions;
-		m_regExceptions_copy = m_Exceptions;
-	} // if (m_isEnabled)
-	else
-	{
-		m_regServeraddress.removeValue();
-		m_regServerport.removeValue();
-		m_regUsername.removeValue();
-		m_regPassword.removeValue();
-		m_regTimeout.removeValue();
-		m_regExceptions.removeValue();
+		if (m_isEnabled)
+		{
+			CString temp;
+			m_regServeraddress = m_serveraddress;
+			m_regServeraddress_copy = m_serveraddress;
+			temp.Format(_T("%d"), m_serverport);
+			m_regServerport = temp;
+			m_regServerport_copy = temp;
+			m_regUsername = m_username;
+			m_regUsername_copy = m_username;
+			m_regPassword = m_password;
+			m_regPassword_copy = m_password;
+			temp.Format(_T("%d"), m_timeout);
+			m_regTimeout = temp;
+			m_regTimeout_copy = temp;
+			m_regExceptions = m_Exceptions;
+			m_regExceptions_copy = m_Exceptions;
+		} // if (m_isEnabled)
+		else
+		{
+			m_regServeraddress.removeValue();
+			m_regServerport.removeValue();
+			m_regUsername.removeValue();
+			m_regPassword.removeValue();
+			m_regTimeout.removeValue();
+			m_regExceptions.removeValue();
 
-		CString temp;
-		m_regServeraddress_copy = m_serveraddress;
-		temp.Format(_T("%d"), m_serverport);
-		m_regServerport_copy = temp;
-		m_regUsername_copy = m_username;
-		m_regPassword_copy = m_password;
-		temp.Format(_T("%d"), m_timeout);
-		m_regTimeout_copy = temp;
-		m_regExceptions_copy = m_Exceptions;
+			CString temp;
+			m_regServeraddress_copy = m_serveraddress;
+			temp.Format(_T("%d"), m_serverport);
+			m_regServerport_copy = temp;
+			m_regUsername_copy = m_username;
+			m_regPassword_copy = m_password;
+			temp.Format(_T("%d"), m_timeout);
+			m_regTimeout_copy = temp;
+			m_regExceptions_copy = m_Exceptions;
+		}
+		m_regSSHClient = m_SSHClient;
 	}
-	m_regSSHClient = m_SSHClient;
 }
 
 void CSetProxyPage::DoDataExchange(CDataExchange* pDX)
@@ -184,6 +188,7 @@ BOOL CSetProxyPage::OnInitDialog()
 
 	UpdateData(FALSE);
 
+	m_bInit = TRUE;
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

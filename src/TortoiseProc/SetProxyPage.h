@@ -82,6 +82,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
+	BOOL		m_bInit;
 	CBalloon	m_tooltips;
 	CString		m_serveraddress;
 	CRegString	m_regServeraddress;
