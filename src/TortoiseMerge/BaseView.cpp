@@ -1243,6 +1243,8 @@ void CBaseView::OnMergeNextdifference()
 		while ((nCenterPos < m_arLineStates->GetCount()) &&
 			(m_arLineStates->GetAt(nCenterPos++)==state))
 			;
+		if (nCenterPos > 0)
+			nCenterPos--;
 		while (nCenterPos < m_arLineStates->GetCount())
 		{
 			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
@@ -1269,6 +1271,8 @@ void CBaseView::OnMergePreviousdifference()
 		while ((nCenterPos >= 0) &&
 			(m_arLineStates->GetAt(nCenterPos--)==state))
 			;
+		if (nCenterPos < (m_arLineStates->GetCount()-1))
+			nCenterPos++;
 		while (nCenterPos >= 0)
 		{
 			CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
