@@ -92,6 +92,13 @@ BOOL CChangedDlg::OnInitDialog()
 
 	m_FileListCtrl.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLREMOTETEXT | SVNSLC_COLREMOTEPROP, FALSE);
 
+	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	this->hWnd = this->m_hWnd;
+	EnableSaveRestore(_T("ChangedDlg"));
+	CenterWindow(CWnd::FromHandle(hWndExplorer));
+
 	//first start a thread to obtain the status without
 	//blocking the dialog
 	DWORD dwThreadId;
@@ -100,12 +107,6 @@ BOOL CChangedDlg::OnInitDialog()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
-	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_RIGHT);
-	this->hWnd = this->m_hWnd;
-	EnableSaveRestore(_T("ChangedDlg"));
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

@@ -153,14 +153,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
 	m_ProjectProperties.ReadPropsTempfile(m_sPath);
-	//first start a thread to obtain the file list with the status without
-	//blocking the dialog
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
-	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
-	m_bBlock = TRUE;
 
 	m_tooltips.Create(this);
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
@@ -205,6 +197,15 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("LogPromptDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
+
+	//first start a thread to obtain the file list with the status without
+	//blocking the dialog
+	DWORD dwThreadId;
+	if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	m_bBlock = TRUE;
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

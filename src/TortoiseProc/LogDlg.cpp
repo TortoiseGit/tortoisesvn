@@ -181,13 +181,7 @@ BOOL CLogDlg::OnInitDialog()
 	{
 		m_ProjectProperties.ReadProps(m_path);
 	}
-	//first start a thread to obtain the log messages without
-	//blocking the dialog
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
-	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
+
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
 	m_logcounter = 0;
@@ -208,6 +202,13 @@ BOOL CLogDlg::OnInitDialog()
 	EnableSaveRestore(_T("LogDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
+	//first start a thread to obtain the log messages without
+	//blocking the dialog
+	DWORD dwThreadId;
+	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
 	return FALSE;
 }
 

@@ -442,7 +442,9 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 
 void CSVNStatusListCtrl::Show(DWORD dwShow)
 {
-	AfxGetApp()->DoWaitCursor(1);
+	CWinApp * pApp = AfxGetApp();
+	if (pApp)
+		pApp->DoWaitCursor(1);
 	m_dwShow = dwShow;
 	SetRedraw(FALSE);
 	DeleteAllItems();
@@ -561,13 +563,16 @@ void CSVNStatusListCtrl::Show(DWORD dwShow)
 	}
 	SetRedraw(TRUE);
 	GetStatistics();
-	AfxGetApp()->DoWaitCursor(-1);
+	if (pApp)
+		pApp->DoWaitCursor(-1);
 }
 
 void CSVNStatusListCtrl::CheckAll(DWORD dwCheck)
 {
+	CWinApp * pApp = AfxGetApp();
+	if (pApp)
+		pApp->DoWaitCursor(1);
 	SelectAll(FALSE);
-	AfxGetApp()->DoWaitCursor(1);
 	SetRedraw(FALSE);
 	m_bBlock = TRUE;
 	for (int i=0; i<m_arListArray.GetCount(); ++i)
@@ -690,7 +695,8 @@ void CSVNStatusListCtrl::CheckAll(DWORD dwCheck)
 	SetRedraw(TRUE);
 	GetStatistics();
 	m_bBlock = FALSE;
-	AfxGetApp()->DoWaitCursor(-1);
+	if (pApp)
+		pApp->DoWaitCursor(-1);
 }
 
 void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
@@ -1608,8 +1614,10 @@ CString CSVNStatusListCtrl::GetStatistics()
 
 void CSVNStatusListCtrl::SelectAll(BOOL bSelect)
 {
+	CWinApp * pApp = AfxGetApp();
+	if (pApp)
+		pApp->DoWaitCursor(1);
 	m_bBlock = TRUE;
-	AfxGetApp()->DoWaitCursor(1);
 	SetRedraw(FALSE);	
 	for (int i=0; i<GetItemCount(); ++i)
 	{
@@ -1625,7 +1633,8 @@ void CSVNStatusListCtrl::SelectAll(BOOL bSelect)
 		m_nSelected = 0;
 	SetRedraw(TRUE);
 	GetStatistics();
-	AfxGetApp()->DoWaitCursor(-1);
+	if (pApp)
+		pApp->DoWaitCursor(1);
 	m_bBlock = FALSE;
 }
 

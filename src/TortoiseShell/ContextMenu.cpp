@@ -179,7 +179,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	}
 
 	// get folder background
-	if (pIDFolder) 
+	if ((pIDFolder)&&(pDataObj==NULL))
 	{
 		ItemIDList list(pIDFolder);
 		folder_ = list.toString();

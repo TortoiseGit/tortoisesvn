@@ -121,14 +121,6 @@ BOOL CRevertDlg::OnInitDialog()
 		m_RevertList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
 
-	//first start a thread to obtain the file list with the status without
-	//blocking the dialog
-	DWORD dwThreadId;
-	if ((CreateThread(NULL, 0, &RevertThread, this, 0, &dwThreadId))==0)
-	{
-		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
-	m_bThreadRunning = TRUE;
 	m_RevertList.UpdateData(FALSE);
 
 	AddAnchor(IDC_REVERTLIST, TOP_LEFT, BOTTOM_RIGHT);
@@ -138,6 +130,16 @@ BOOL CRevertDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("RevertDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
+
+	//first start a thread to obtain the file list with the status without
+	//blocking the dialog
+	DWORD dwThreadId;
+	if ((CreateThread(NULL, 0, &RevertThread, this, 0, &dwThreadId))==0)
+	{
+		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+	m_bThreadRunning = TRUE;
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

@@ -98,6 +98,14 @@ BOOL CAddDlg::OnInitDialog()
 	m_addListCtrl.Init(0);
 	m_addListCtrl.SetSelectButton(&m_SelectAll);
 
+	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
+	EnableSaveRestore(_T("AddDlg"));
+	CenterWindow(CWnd::FromHandle(hWndExplorer));
+
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	DWORD dwThreadId;
@@ -107,13 +115,6 @@ BOOL CAddDlg::OnInitDialog()
 	}
 	m_bThreadRunning = TRUE;
 
-	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_RIGHT);
-	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	AddAnchor(IDHELP, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("AddDlg"));
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
