@@ -88,6 +88,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
 
+	UpdateData(FALSE);
+	
 	OnEnChangeLogmessage();
 
 	CString temp = m_sPath;
