@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-30 16:56+0100\n"
+"PO-Revision-Date: 2005-01-21 09:34+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -263,6 +263,10 @@ msgid "&Language:"
 msgstr "&Språk:"
 
 #: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Merk som løst"
+
+#: MenuEntry
 msgid "&Merge"
 msgstr "&Flett"
 
@@ -306,6 +310,11 @@ msgstr "Å&pne Ctrl-O"
 msgid "&Password:"
 msgstr "&Passord:"
 
+# ID:376,
+#: ID:376
+msgid "&Paste"
+msgstr "&Lim inn"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
@@ -319,6 +328,10 @@ msgstr "&Forrige forskjell"
 #: Control-ID:1023
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Gå rekursivt inn i foldere for å hente status"
+
+#: ID:376
+msgid "&Redo"
+msgstr "&Gjenta"
 
 #: Control-ID:1013
 #: Control-ID:1100
@@ -388,6 +401,11 @@ msgstr "&Verktøylinje"
 msgid "&URL of repository:"
 msgstr "&Depoets adresse:"
 
+# ID:376,
+#: ID:376
+msgid "&Undo"
+msgstr "&Angre"
+
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Angre\tCtrl+Z"
@@ -417,6 +435,10 @@ msgstr "&Mellomrom"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(Flere mål er valgt)"
+
+#: ID:314
+msgid "(not found)"
+msgstr "(not found)"
 
 #: ID:208
 msgid "(property change only)"
@@ -812,6 +834,10 @@ msgstr "Forfatter:                      Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Forfattere:                   Stefan Kueng, Tim Kemp"
 
+#: Control-ID:1067
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "Løs automatisk det som er konfliktmerket under lagring"
+
 #: Control-ID:1157
 msgid "Average"
 msgstr "Gjenomsnitt"
@@ -1147,6 +1173,7 @@ msgstr "Sammenligner filen med den siste innsendte versjonen for å vise forandr
 msgid "Completed"
 msgstr "Ferdig"
 
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "I konflikt"
@@ -1163,6 +1190,11 @@ msgstr "Sammenhengsmeny"
 #: ID:73
 msgid "Continue"
 msgstr "Fortsett"
+
+# ID:376,
+#: ID:376
+msgid "Cop&y"
+msgstr "&Kopier"
 
 #: ID:73
 msgid "Copied"
@@ -1320,6 +1352,11 @@ msgstr "Lager et depot på gjeldende plassering"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Lager en enhetlig lappefil (diff-fil) med forandringene du har gjort"
+
+# ID:376,
+#: ID:376
+msgid "Cu&t"
+msgstr "Klipp &ut"
 
 #: ID:3603
 msgid ""
@@ -1692,6 +1729,16 @@ msgstr "Tving frem ikon-oppfriskning i skallet"
 msgid "From:"
 msgstr "Fra:"
 
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "Kunne ikke initialisere GDI+!"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ kunne ikke opprette punktbilde-objekt. Der er sannsynlig ikke nok minne."
+
 #: Dlg-ID:107
 msgid "General"
 msgstr "Generelt"
@@ -1716,6 +1763,14 @@ msgstr "Henter info fra depot..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "Henter logginfo..."
+
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Gå til forrige konflikt\n"
+"neste konflikt"
 
 #: ID:2049
 msgid ""
@@ -2017,6 +2072,15 @@ msgstr "Dynamisk bibliotek for e-postsystemet er ugyldig."
 msgid "Main"
 msgstr "Generelt"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Merker en fil som løst i Subversion\n"
+"Merk som løst"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -2033,6 +2097,10 @@ msgstr "Fletteprogram"
 #: ID:9
 msgid "Merge..."
 msgstr "Flett..."
+
+#: ID:263
+msgid "Merged"
+msgstr "Flettet"
 
 #: ID:10
 msgid "Merges a branch into the main trunk"
@@ -2166,6 +2234,11 @@ msgstr ""
 "siste innsending. Det er ingen ting\n"
 "å gjøre forTortoiseSVN her...\n"
 "Vil du se de ikke-versjoneret filene?"
+
+# ID:273,
+#: ID:273
+msgid "No image encoder found for %s."
+msgstr "Finner ingen bilde-koder for %s."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2558,10 +2631,6 @@ msgstr "Depot"
 msgid "Repository Browser"
 msgstr "Depot-utforsker"
 
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "Løs det som er konfliktmerket under lagring"
-
 #: ID:8
 #: ID:74
 msgid "Resolved"
@@ -2761,6 +2830,15 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr "Lagrer lappefilen(Patch-filen) til:"
 
+# Control-ID:1014,#:
+# Control-ID:1017,#:
+# Control-ID:1064,
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+msgid "Scintilla"
+msgstr "Scintilla"
+
 #: ID:113
 msgid "Search &log messages..."
 msgstr "Søk etter &loggmeldinger..."
@@ -2768,6 +2846,10 @@ msgstr "Søk etter &loggmeldinger..."
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "\"Seek\"-funsjon feilet på %1"
+
+#: ID:376
+msgid "Select &All"
+msgstr "Velg &alle"
 
 #: Control-ID:1067
 msgid "Select / Deselect &All"
@@ -2979,12 +3061,12 @@ msgstr "Hoppet over savnet mål"
 
 #: ID:79
 msgid ""
-"Specify the files or folders wich TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\n"
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Angi filene eller mappene som TortoiseSVN.\n"
-"skal holde vekk fra versjonkontroll.\n"
+"skal holdes vekk fra versjonkontroll.\n"
 "Del stiene med et mellomrom."
 
 #: ID:3604
@@ -3013,8 +3095,8 @@ msgstr "Et elements status i SVN"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "Stop On Copy"
-msgstr "Stopp under kopiering"
+msgid "Stop On Copy/Rename"
+msgstr "Stopp under kopiering/navnebytte"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -3246,6 +3328,15 @@ msgid ""
 msgstr ""
 "Det ser ut til at den valgte filen fortsatt har konfliktmerke(r)\n"
 "Er du sikker på at du vil merke filenstatus som løst?"
+
+# ID:88,
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"Målmappen er ikke tom!\n"
+"Er du sikker på at du vil sjekke ut i den mappen?"
 
 #: ID:81
 msgid ""
@@ -3533,6 +3624,17 @@ msgstr "Adresse:"
 #: ID:251
 msgid "Use &other text block"
 msgstr "Bruk &anne tekstblokk"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Bruk '*' som jokertegn når unntak angis\n"
+"Kommaer (',') brukes for å skille flere unntak\n"
+"Eksempel: *.mittlan.no, *.firmanavn.no"
 
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -4038,6 +4140,17 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Sett dette til en maksimumsbredde i tegn for loggmeldinger. En nedtonet linje vises\n"
 "på denne pososjonen li dialogboksen for loggmeldinger. 80 tegn er standard."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Sett denne til språkkoden som din loggmelding skal skrives i.\n"
+"TortoiseSVN vil dermed laste inn rett stavekontroll-modul hvis den er tilgjengelig."
 
 # ID:15,
 #: ID:15
