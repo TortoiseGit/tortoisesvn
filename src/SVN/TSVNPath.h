@@ -117,7 +117,7 @@ public:
 	CString GetFileOrDirectoryName() const;
 	/**
 	 * Returns the file extension, including the dot.
-	 * \remark don't call this for directories
+	 * \remark Returns an empty string for directories
 	 */
 	CString GetFileExtension() const;
 	/**
@@ -152,11 +152,13 @@ public:
 	*/
 	static bool ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right);
 	/**
-	 * appends a part of a path to this path. Missing slashes are added automatically.
+	 * appends a part of a path to this path. 
+	 *\remark - missing slashes are not added - this is just a string concatenation, but with
+	 * preservation of the proper caching behaviour.
+	 * Paths are always stored with stripped trailing slashes, so if you want to join 
+     * a filename onto the path, you *must* explicitly include the slash at the time you call this method
 	 */
 	void AppendString(const CString& sAppend);
-
-
 
 private:
 	// All these functions are const, and all the data

@@ -244,12 +244,14 @@ CString CTSVNPath::GetFileOrDirectoryName() const
 
 CString CTSVNPath::GetFileExtension() const
 {
-	ASSERT(!IsDirectory());
-	EnsureBackslashPathSet();
-	int dotPos = m_sBackslashPath.ReverseFind('.');
-	int slashPos = m_sBackslashPath.ReverseFind('\\');
-	if (dotPos > slashPos)
-		return m_sBackslashPath.Mid(dotPos);
+	if(!IsDirectory())
+	{
+		EnsureBackslashPathSet();
+		int dotPos = m_sBackslashPath.ReverseFind('.');
+		int slashPos = m_sBackslashPath.ReverseFind('\\');
+		if (dotPos > slashPos)
+			return m_sBackslashPath.Mid(dotPos);
+	}
 	return CString();
 }
 
@@ -349,13 +351,8 @@ CTSVNPath::ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right)
 void CTSVNPath::AppendString(const CString& sAppend)
 {
 	EnsureFwdslashPathSet();
-	if(m_sFwdslashPath[m_sFwdslashPath.GetLength()-1] != '/')
-	{
-		m_sFwdslashPath += '/';
-	}
 	CString strCopy = m_sFwdslashPath += sAppend;
-	Reset();
-	m_sFwdslashPath = strCopy;
+	SetFromUnknown(strCopy);
 }
 
 
@@ -498,6 +495,7 @@ public:
 	{
 		GetDirectoryTest();
 		SortTest();
+		AppendTest();
 	}
 
 private:
@@ -545,6 +543,22 @@ private:
 		ASSERT(testList[2].GetWinPathString() == _T("c:\\Test"));
 		ASSERT(testList[3].GetWinPathString() == _T("c:\\Z"));
 	}
+
+	void AppendTest()
+	{
+		CTSVNPath testPath(_T("c:/test/"));
+		testPath.AppendString(_T("/Hello"));
+		ASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello"));
+
+		testPath.AppendString(_T("\\T2"));
+		ASSERT(testPath.GetWinPathString() == _T("c:\\test\\Hello\\T2"));
+
+		CTSVNPath testFilePath(_T("C:\\windows\\win.ini"));
+		CTSVNPath testBasePath(_T("c:/temp/myfile.txt"));
+		testBasePath.AppendString(testFilePath.GetFileExtension());
+		ASSERT(testBasePath.GetWinPathString() == _T("c:\\temp\\myfile.txt.ini"));
+	}
+
 
 
 } TSVNPathTests;

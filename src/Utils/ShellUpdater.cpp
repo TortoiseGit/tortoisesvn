@@ -2,6 +2,7 @@
 #include "Shellupdater.h"
 #include "MessageBox.h"
 #include "TortoiseProc.h"
+#include "Registry.h"
 
 CShellUpdater::CShellUpdater(void)
 {

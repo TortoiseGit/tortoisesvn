@@ -32,6 +32,7 @@
 #include "SysImageList.h"
 #include ".\svnstatuslistctrl.h"
 #include "TSVNPath.h"
+#include "Registry.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 			= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -1496,15 +1497,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							if (stat.status->entry->conflict_new)
 							{
-								theirs.AppendString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
+								theirs.AppendString(_T("/")+CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
 							}
 							if (stat.status->entry->conflict_old)
 							{
-								base.AppendString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
+								base.AppendString(_T("/")+CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
 							}
 							if (stat.status->entry->conflict_wrk)
 							{
-								mine.AppendString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
+								mine.AppendString(_T("/")+CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
 							}
 						}
 						CUtils::StartExtMerge(base.GetWinPathString(),theirs.GetWinPathString(),mine.GetWinPathString(),merge.GetWinPathString());
@@ -1592,7 +1593,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		path3 = CUtils::GetTempFile();
 
 		SVN svn;
-		if (!svn.Cat(entry->path.GetSVNPathString(), SVNRev::REV_HEAD, path3))
+		if (!svn.Cat(entry->path, SVNRev::REV_HEAD, CTSVNPath(path3)))
 		{
 			CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;

@@ -27,6 +27,7 @@
 #include "DirFileEnum.h"
 #include "TSVNPath.h"
 #include "ShellUpdater.h"
+#include "Registry.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -901,25 +902,22 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev
 	return TRUE;
 }
 
-BOOL SVN::Cat(CString url, SVNRev revision, CString localpath)
+BOOL SVN::Cat(const CTSVNPath& url, SVNRev revision, const CTSVNPath& localpath)
 {
 	apr_file_t * file;
 	svn_stream_t * stream;
 
-	preparePath(url);
-
-	if (PathIsDirectory(localpath))
+	CTSVNPath fullLocalPath(localpath);
+	if (fullLocalPath.IsDirectory())
 	{
-		localpath += _T("\\");
-		localpath += url.Mid(url.ReverseFind('/'));
+		fullLocalPath.AppendString(_T("\\") + url.GetFileOrDirectoryName());
 	}
-	DeleteFile(localpath);
+	::DeleteFile(fullLocalPath.GetWinPath());
 
-	preparePath(localpath);
-	apr_file_open(&file, MakeSVNUrlOrPath(localpath), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
+	apr_file_open(&file, fullLocalPath.GetSVNApiPath(), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
 	stream = svn_stream_from_aprfile(file, pool);
 
-	Err = svn_client_cat(stream, MakeSVNUrlOrPath(url), revision, &m_ctx, pool);
+	Err = svn_client_cat(stream, url.GetSVNApiPath(), revision, &m_ctx, pool);
 
 	apr_file_close(file);
 	if (Err != NULL)
