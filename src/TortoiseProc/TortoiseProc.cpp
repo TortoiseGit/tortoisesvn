@@ -457,24 +457,9 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CMergeDlg dlg;
 			CString path = parser.GetVal(_T("path"));
-			if (SVNStatus::GetAllStatusRecursive(path)!=svn_wc_status_normal)
-			{
-				CMessageBox::Show(EXPLORERHWND, IDS_ERR_WCCHANGED, IDS_APPNAME, MB_ICONERROR);
-				return FALSE;
-			}
-			SVNStatus status;
-			status.GetStatus(path);
-			if ((status.status == NULL) || (status.status->entry == NULL))
-			{
-				CMessageBox::Show(EXPLORERHWND, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
-				return FALSE;		//exit
-			} // if ((status.status == NULL) || (status.status->entry == NULL))
-			CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
-			dlg.m_URL = url;
-			dlg.m_BranchURL = url;
+			dlg.m_URL = path;
 			if (dlg.DoModal() == IDOK)
 			{
-				TRACE(_T("url1 = %s, url2 = %s, path = %s\n"), status.status->entry->url, dlg.m_URL, path);
 				CSVNProgressDlg progDlg;
 				m_pMainWnd = &progDlg;
 				//progDlg.SetParams(Merge, false, path, dlg.m_URL, CUnicodeUtils::GetUnicode(status.status->entry->url),dlg.m_lStartRev);		//use the message as the second url
