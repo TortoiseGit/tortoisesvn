@@ -162,6 +162,18 @@ void CImportDlg::OnBnClickedBrowse()
 			m_URLCombo.SetWindowText(browser.m_strUrl);
 		}
 	}
+	else
+	{
+		// browse local directories
+		CBrowseFolder folderBrowser;
+		folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+		if (folderBrowser.Show(GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
+		{
+			SVN::PathToUrl(strUrl);
+
+			m_URLCombo.SetWindowText(strUrl);
+		}
+	}
 }
 
 BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
