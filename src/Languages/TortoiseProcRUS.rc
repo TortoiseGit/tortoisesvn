@@ -13,6 +13,49 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // Russian resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
@@ -29,12 +72,10 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 IDD_ABOUT DIALOGEX 0, 0, 221, 214
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "О программе TortoiseSVN"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,77,193,50,14
-    LTEXT           "TortoiseSVN, версия 0.12, собрана с Subversion 0.24.2",
-                    IDC_VERSIONABOUT,7,136,207,22
+    LTEXT           "",IDC_VERSIONABOUT,7,136,207,22
     LTEXT           "Авторы:",IDC_STATIC,7,164,37,8
     LTEXT           "Stefan Kung, Tim Kemp и Damian Powell",IDC_STATIC,47,
                     164,150,8
@@ -57,7 +98,7 @@ END
 IDD_CHANGEDFILES DIALOGEX 0, 0, 408, 206
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Changed Files"
+CAPTION "Список изменённых файлов"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,351,185,50,14
@@ -126,7 +167,8 @@ BEGIN
     GROUPBOX        "Репозиторий",IDC_STATIC1,7,7,256,37
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,14,141,242,103
-    GROUPBOX        "Temporary Files To Delete",IDC_STATIC3,8,128,255,123
+    GROUPBOX        "Список временных файлов для удаления",IDC_STATIC3,8,128,
+                    255,123
 END
 
 IDD_LOGMESSAGE DIALOGEX 0, 0, 289, 245
@@ -210,13 +252,13 @@ END
 IDD_RELOCATE DIALOGEX 0, 0, 268, 66
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Relocate"
+CAPTION "Перемещение"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "&OK",IDOK,7,45,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,211,45,50,14
-    LTEXT           "From URL:",IDC_STATIC,7,7,43,8
-    LTEXT           "To URL:",IDC_STATIC,7,25,43,8
+    DEFPUSHBUTTON   "OK",IDOK,7,45,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,211,45,50,14
+    LTEXT           "Откуда:",IDC_STATIC,7,7,43,8
+    LTEXT           "Куда (URL):",IDC_STATIC,7,25,43,8
     EDITTEXT        IDC_FROMURL,50,6,211,14,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     EDITTEXT        IDC_TOURL,50,22,186,14,ES_AUTOHSCROLL
@@ -226,12 +268,12 @@ END
 IDD_RENAME DIALOGEX 0, 0, 234, 55
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Переименование / Перенос"
+CAPTION "Переименование"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "ОК",IDOK,7,34,50,14
     PUSHBUTTON      "Отмена",IDCANCEL,177,34,50,14
-    LTEXT           "Новое имя или \nместоположение:",IDC_STATIC,7,10,68,16
+    LTEXT           "Новое имя файла:",IDC_STATIC,9,13,68,9
     EDITTEXT        IDC_NAME,76,11,151,14,ES_AUTOHSCROLL
 END
 
@@ -260,24 +302,25 @@ BEGIN
                     7,93,18
     EDITTEXT        IDC_EXTDIFF,100,7,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,218,7,50,14
-    LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,83,72,17
+    LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,83,72,18
     COMBOBOX        IDC_LANGUAGECOMBO,100,84,168,71,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Include/Exclude pattern:",IDC_STATIC,7,92,73,18
+    LTEXT           "Шаблоны имён\nвременных файлов:",IDC_STATIC,7,104,73,18
     EDITTEXT        IDC_TEMPEXTENSIONS,100,104,168,14,ES_AUTOHSCROLL
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
                     BS_MULTILINE | WS_TABSTOP,7,128,261,18
-    LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,30,
-                    84,17
+    LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,28,
+                    93,17
     EDITTEXT        IDC_EXTMERGE,100,27,89,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_EXTMERGEBROWSE,218,27,50,14
-    LTEXT           "Diff Viewer:",IDC_STATIC,7,52,38,8
+    LTEXT           "Внешняя программа для\nпросмотра изменений:",IDC_STATIC,
+                    7,50,93,21
     EDITTEXT        IDC_DIFFVIEWER,100,49,90,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Обзор ...",IDC_DIFFVIEWERROWSE,218,48,50,14
 END
 
-IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
+IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 220, 107
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Перекрытие значков"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
@@ -428,6 +471,7 @@ BEGIN
         VERTGUIDE, 255
         TOPMARGIN, 7
         BOTTOMMARGIN, 275
+        HORZGUIDE, 24
     END
 
     IDD_LOGMESSAGE, DIALOG
@@ -503,7 +547,7 @@ BEGIN
     IDD_SETTINGSOVERLAY, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 187
+        RIGHTMARGIN, 213
         TOPMARGIN, 7
         BOTTOMMARGIN, 100
     END
@@ -576,7 +620,7 @@ BEGIN
     IDS_SVNACTION_MODIFIED  "Изменено:"
     IDS_SVNACTION_REPLACED  "Заменено:"
     IDS_SVNACTION_POSTFIX   "Postfix"
-    IDS_SVNACTION_FAILEDREVERT "Откат изменений завершился неудачей"
+    IDS_SVNACTION_FAILEDREVERT "Откат изменений завершился неудачей."
 END
 
 STRINGTABLE 
@@ -688,12 +732,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROC_WARNREVERT     "Вы действительно хотите произвести откат?\nИзменения, произведённые с момента последнего обновления,\nбудут безвозвратно потеряны."
+    IDS_PROC_WARNREVERT     "Вы действительно хотите произвести откат изменений?\nВсе изменения, произведённые с момента последнего обновления,\nбудут безвозвратно потеряны."
     IDS_PROC_CLEANUPFINISHED 
-                            "Очистка Вашей рабочей копии от временных файлов завершена."
+                            "Очистка рабочей копии от временных файлов завершена."
     IDS_PROC_REPOCREATEERR  "Ошибка при создании репозитория!\nПроверьте, что папка пуста и не защищена от записи."
-    IDS_PROC_EXPORT_1       "Выберите папку, в которую будет осуществлён экспорт.\nВозможно, необходимо создать новую папку."
-    IDS_PROC_EXPORT_2       "экспорт %s в"
+    IDS_PROC_EXPORT_1       "Выберите папку, в которую будет осуществляться экспорт\nили, при необходимости, создайте новую."
+    IDS_PROC_EXPORT_2       "производится экспорт %s в"
     IDS_PROC_EXPORT_3       "Производится экспорт..."
     IDS_PROC_EXPORT_4       "произведён экспорт\n%s\nв\n%s"
     IDS_PROC_COPY_SUCCESS   "Рабочая копия помечена как %s"
@@ -742,7 +786,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_WARN_FOLDERNOTEXIST "Папка\n%s\nне существует. Создать новую?"
+    IDS_WARN_FOLDERNOTEXIST "Папка с именем\n%s\nне существует. Следует ли создавать новую?"
 END
 
 STRINGTABLE 
@@ -787,49 +831,6 @@ BEGIN
 END
 
 #endif    // Russian resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AVI
-//
-
-IDR_ANIMATION           AVI                     "res\\bin168.avi"
-IDR_MOVEANI             AVI                     "res\\bin167.avi"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
-#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
