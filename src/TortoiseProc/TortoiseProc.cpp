@@ -60,14 +60,17 @@ BOOL CTortoiseProcApp::InitInstance()
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 	long langId = loc;
 	CString langDll;
-	HINSTANCE hInst;
+	HINSTANCE hInst = NULL;
 	do
 	{
 		langDll.Format(_T("TortoiseProc%d.dll"), langId);
-		if (CUtils::GetVersionFromFile(langDll).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
-			continue;
 		
 		hInst = LoadLibrary(langDll);
+		if (CUtils::GetVersionFromFile(langDll).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
+		{
+			FreeLibrary(hInst);
+			hInst = NULL;
+		}
 		if (hInst != NULL)
 			AfxSetResourceHandle(hInst);
 		else

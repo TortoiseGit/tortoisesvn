@@ -60,7 +60,7 @@ void LoadLangDll()
 		g_langid = g_ShellCache.GetLangID();
 		DWORD langId = g_langid;
 		TCHAR langDll[MAX_PATH];
-		HINSTANCE hInst;
+		HINSTANCE hInst = NULL;
 		CRegStdString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
 		do
 		{
@@ -115,10 +115,8 @@ void LoadLangDll()
 				} // if (pBuffer != (void*) NULL) 
 			} // if (dwBufferSize > 0)  
 
-			if (!versionmatch)
-				continue;
-
-			hInst = LoadLibrary(langDll);
+			if (versionmatch)
+				hInst = LoadLibrary(langDll);
 			if (hInst != NULL)
 			{
 				FreeLibrary(g_hResInst);
