@@ -406,7 +406,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	{
 		if(!isFolder)
 			InsertSVNMenu(ownerdrawn, HMENU(MENUCONFLICTEDITOR), INDEXMENU(MENUCONFLICTEDITOR), idCmd++, IDS_MENUCONFLICT, IDI_CONFLICT, idCmdFirst, ConflictEditor);
-		InsertSVNMenu(ownerdrawn, HMENU(MENURESOLVE), INDEXMENU(MENURESOLVE), idCmd++, IDS_MENURESOLVE, idCmdFirst, IDI_RESOLVE, Resolve);
+		InsertSVNMenu(ownerdrawn, HMENU(MENURESOLVE), INDEXMENU(MENURESOLVE), idCmd++, IDS_MENURESOLVE, IDI_RESOLVE, idCmdFirst, Resolve);
 	}
 	if (isInSVN)
 		InsertSVNMenu(ownerdrawn, HMENU(MENUUPDATEEXT), INDEXMENU(MENUUPDATEEXT), idCmd++, IDS_MENUUPDATEEXT, IDI_UPDATE, idCmdFirst, UpdateExt);
