@@ -429,6 +429,13 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			{
 				try
 				{
+					// first check if we have more than just one target to update
+					CStdioFile f(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead); 
+					CString temp;
+					int targetcount = 0;
+					while (f.ReadString(temp))
+						targetcount ++;
+					f.Close();
 					// open the temp file
 					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead); 
 					CString strLine = _T(""); // initialise the variable which holds each line's contents
@@ -443,7 +450,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						pDlg->m_Revision = revstore;
 						if (pDlg->m_Revision.IsHead())
 						{
-							if ((headrev = st.GetStatus(strLine, TRUE)) != (-2))
+							if ((targetcount > 1)&&((headrev = st.GetStatus(strLine, TRUE)) != (-2)))
 							{
 								if (st.status->entry != NULL)
 								{
