@@ -245,7 +245,8 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 
 	m_bColumnProvider = bColumnProvider;
 	//first change the filename to 'internal' format
-	for (UINT i=0; i<_tcsclen(filepath); i++)
+	UINT len = _tcslen(filepath);
+	for (UINT i=0; i<len; i++)
 	{
 		if (filepath[i] == _T('\\'))
 			filepathnonconst[i] = _T('/');
