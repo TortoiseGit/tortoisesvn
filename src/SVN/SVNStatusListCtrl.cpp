@@ -82,6 +82,7 @@ CSVNStatusListCtrl::~CSVNStatusListCtrl()
 		delete entry;
 	} 
 	m_arStatusArray.RemoveAll();
+	SYS_IMAGE_LIST().Cleanup();
 }
 
 CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(int index)
