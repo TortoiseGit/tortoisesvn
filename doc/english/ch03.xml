@@ -422,7 +422,7 @@ AuthType SSPI
 <screen>
 SSPIAuth On
 SSPIAuthoritative On
-SSPIDomain &lt;domaincontroller&gt;
+SSPIDomain name_of_domaincontroller
 SSPIOfferBasic On
 </screen>
 				If you don't specify a domain controller then it assumes 
