@@ -94,7 +94,7 @@ msgstr ""
 msgid "&CD-ROM"
 msgstr ""
 
-#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "&Cancel"
 msgstr ""
 
@@ -186,7 +186,7 @@ msgstr ""
 msgid "&Next Difference"
 msgstr ""
 
-#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "&OK"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "&Remove"
 msgstr ""
 
-#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,
+#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,
 msgid "&Revision"
 msgstr ""
 
@@ -590,7 +590,7 @@ msgstr ""
 msgid "Can't copy \n%s\nto\n%s"
 msgstr ""
 
-#: Control-ID:2,#: Control-ID:2,#: ID:73,#: Control-ID:2,#: Control-ID:2,
+#: Control-ID:2,#: Control-ID:2,#: ID:73,#: Control-ID:2,
 msgid "Cancel"
 msgstr ""
 
@@ -814,12 +814,12 @@ msgstr ""
 msgid "Could not open the file\n%s"
 msgstr ""
 
-#: ID:66,
-msgid "Could not retreive version %s of the file %s.\nPatching is not possible!"
-msgstr ""
-
 #: ID:81,
 msgid "Could not retrieve URL of the file!\n%s"
+msgstr ""
+
+#: ID:66,
+msgid "Could not retrieve version %s of the file %s.\nPatching is not possible!"
 msgstr ""
 
 #: ID:64,
@@ -1454,7 +1454,7 @@ msgstr ""
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr ""
 
-#: Control-ID:1,#: Control-ID:1,#: ID:73,#: Control-ID:1,#: Control-ID:1,
+#: Control-ID:1,#: Control-ID:1,#: ID:73,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -1774,7 +1774,7 @@ msgstr ""
 msgid "Reverts all changes you made since the last update"
 msgstr ""
 
-#: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:1116,#: Control-ID:65535,#: Control-ID:65535,
+#: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Revision"
 msgstr ""
 
@@ -1915,10 +1915,6 @@ msgid "Select / Deselect &All"
 msgstr ""
 
 #: ID:78,
-msgid "Select An SSH Client"
-msgstr ""
-
-#: ID:78,
 msgid "Select Diff Application"
 msgstr ""
 
@@ -1926,8 +1922,16 @@ msgstr ""
 msgid "Select File..."
 msgstr ""
 
+#: ID:78,
+msgid "Select Merge Application"
+msgstr ""
+
 #: Dlg-ID:173,
 msgid "Select Revision"
+msgstr ""
+
+#: ID:78,
+msgid "Select SSH Client"
 msgstr ""
 
 #: ID:79,
@@ -1936,10 +1940,6 @@ msgstr ""
 
 #: ID:78,
 msgid "Select Viewer for Diff-Files"
-msgstr ""
-
-#: ID:78,
-msgid "Select a Merge Application"
 msgstr ""
 
 #: ID:3585,
@@ -1990,6 +1990,10 @@ msgstr ""
 msgid "Short Url of subversion items"
 msgstr ""
 
+#: Control-ID:1031,#: Control-ID:1034,
+msgid "Show &Log"
+msgstr ""
+
 #: Control-ID:1031,
 msgid "Show &Log..."
 msgstr ""
@@ -2014,7 +2018,7 @@ msgstr ""
 msgid "Show Linenumbers"
 msgstr ""
 
-#: ID:12,#: Control-ID:1031,#: Control-ID:1034,
+#: ID:12,
 msgid "Show Log"
 msgstr ""
 
@@ -2603,27 +2607,27 @@ msgid "save authentication"
 msgstr ""
 
 #: ID:14,
-msgid "svn:eol-style\r\nOne of 'native', 'LF', 'CR', 'CRLF'."
+msgid "svn:eol-style\nOne of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 
 #: ID:14,
-msgid "svn:executable\r\nIf present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+msgid "svn:executable\nIf present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 
 #: ID:14,
-msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\r\nfoo\t\thttp://example.com/repos/zig\r\nfoo/bar -r 1234\thttp://example.com/repos/zag"
+msgid "svn:externals\nA newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 
 #: ID:14,
-msgid "svn:ignore\r\nA newline separated list of file patterns to ignore."
+msgid "svn:ignore\nA newline separated list of file patterns to ignore."
 msgstr ""
 
 #: ID:14,
-msgid "svn:keywords\r\nKeywords to be expanded. Valid keywords are:\r\nURL, HeadURL\t\t\tThe URL for the head version of the object.\r\nAuthor, LastChangedBy\t\tThe last person to modify the file.\r\nDate, LastChangedDate\t\tThe date/time the object was last modified.\r\nRev, LastChangedRevision\tThe last revision the object changed.\r\nId\t\t\t\tA compressed summary of the previous 4 keywords."
+msgid "svn:keywords\nKeywords to be expanded. Valid keywords are:\nURL, HeadURL\t\t\tThe URL for the head version of the object.\nAuthor, LastChangedBy\t\tThe last person to modify the file.\nDate, LastChangedDate\t\tThe date/time the object was last modified.\nRev, LastChangedRevision\tThe last revision the object changed.\nId\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 
 #: ID:14,
-msgid "svn:mime-type\r\nThe mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+msgid "svn:mime-type\nThe mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 
 #: ID:80,
