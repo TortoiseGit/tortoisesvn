@@ -1,4 +1,4 @@
-<appendix id="tsvn-faq">
+﻿<appendix id="tsvn-faq">
 	<title>Häufig gestellte Fragen (FAQ)</title>
 	<simplesect>
 		<para>
@@ -249,6 +249,10 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Grösse 10x10 für Kontextmenueinträge zulässt. 
 			Wenn Sie wieder die normalen Einstellungen möchten, löschen Sie
 			den erstellten Registry-Eintrag oder setzen Sie den Wert auf 1.
+			</para>
+			<para>
+			Wird dieser Wert auf 2 gesetzt, so werden die Kontextmenus ohne Icons
+			gezeichnet. Die Menus bestehen dann aus reinem Text.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-6">
@@ -870,6 +874,10 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					Sie sonst irgendwie Probleme mit der Anzeige des
 					Kontextmenus haben.
 					</para>
+					<para>
+					Setzten Sie diesen Wert auf 2, wenn Sie überhaupt keine
+					Icons in dem Kontextmenu möchten.
+					</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -928,4 +936,4 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 	</sect1>
-</appendix>
+           
