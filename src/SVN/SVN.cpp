@@ -1702,16 +1702,8 @@ void SVN::UpdateShell(CString path)
 				temp = path.Left(pos);
 			else
 				temp = path;
-			SHFILEINFO    sfi;
-			temp.Replace('/', '\\');
-			SHGetFileInfo(
-				(LPCTSTR)temp, 
-				FILE_ATTRIBUTE_DIRECTORY,
-				&sfi, 
-				sizeof(SHFILEINFO), 
-				SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 
-			SHChangeNotify(SHCNE_UPDATEIMAGE, SHCNF_DWORD | SHCNF_FLUSH, NULL, reinterpret_cast<LPCVOID>((__int64)sfi.iIcon));
+			temp.Replace('/', '\\');
 			SHChangeNotify(SHCNE_UPDATEITEM | SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, temp, NULL);
 			path = path.Mid(pos+1);
 		} while (pos >= 0);
