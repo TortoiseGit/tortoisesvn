@@ -45,6 +45,8 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CUpdateDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
+	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
@@ -54,6 +56,10 @@ BOOL CUpdateDlg::OnInitDialog()
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	// set head revision as default revision
+	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+	GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -89,4 +95,26 @@ void CUpdateDlg::OnPaint()
 HCURSOR CUpdateDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
+}
+
+void CUpdateDlg::OnBnClickedNewest()
+{
+	GetDlgItem(IDC_REVNUM)->EnableWindow(FALSE);
+}
+
+void CUpdateDlg::OnBnClickedRevisionN()
+{
+	GetDlgItem(IDC_REVNUM)->EnableWindow();
+}
+
+void CUpdateDlg::OnOK()
+{
+	UpdateData(TRUE);
+	// if head revision, set revision as -1
+	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
+	{
+		m_revnum = -1;
+	}
+
+	CDialog::OnOK();
 }

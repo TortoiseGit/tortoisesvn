@@ -76,8 +76,10 @@ public:
 	CString m_URL;
 	CString m_rev;
 	afx_msg void OnEnUpdateRev();
-	afx_msg void OnBnClickedNewest();
-	BOOL m_IsNewest;
 	CEdit m_revctrl;
 	afx_msg void OnBnClickedBrowse();
+	afx_msg void OnBnClickedNewest();
+	afx_msg void OnBnClickedRevisionN();
+protected:
+	virtual void OnOK();
 };

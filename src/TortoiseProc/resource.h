@@ -13,7 +13,6 @@
 #define IDD_CHECKOUT                    133
 #define IDD_SVNPROGRESS                 134
 #define IDD_LOGPROMPT                   135
-#define IDD_WATCHER                     136
 #define IDD_IMPORT                      139
 #define IDD_SWITCH                      140
 #define IDD_MERGE                       141

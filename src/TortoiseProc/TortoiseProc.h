@@ -26,6 +26,7 @@
 
 #include "resource.h"		// main symbols
 #include "Utils.h"
+#include "SVNStatus.h"
 #include "BrowseFolder.h"
 #include "ProgressDlg.h"
 #include "CmdLineParser.h"
@@ -34,7 +35,6 @@
 #include "SVNProgressDlg.h"
 #include "CheckoutDlg.h"
 #include "LogPromptDlg.h"
-#include "WatcherDlg.h"
 #include "ImportDlg.h"
 #include "SwitchDlg.h"
 #include "MergeDlg.h"

@@ -490,30 +490,6 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		}
 		//#endregion
-		//#region changewatcher
-		if (comVal.Compare(_T("changewatcher"))==0)
-		{
-			//check if the watcher is already running
-			m_mutex = ::CreateMutex(NULL, FALSE, _T("TortoiseSVNWatcher"));
-			
-			if( m_mutex != NULL )
-			{   
-				if(::GetLastError()==ERROR_ALREADY_EXISTS)
-				{
-					//an instance of the watcher is already running
-					return( FALSE );
-				} // if(::GetLastError()==ERROR_ALREADY_EXISTS){
-				else
-				{
-					//the watcher is not running
-					CWatcherDlg dlg;
-					m_pMainWnd = &dlg;
-					dlg.DoModal();
-					ReleaseMutex(m_mutex);
-				}
-			}
-		}
-		//#endregion
 		//#region settings
 		if (comVal.Compare(_T("settings"))==0)
 		{

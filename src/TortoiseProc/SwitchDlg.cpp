@@ -29,7 +29,6 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSwitchDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_rev(_T("-1"))
-	, m_IsNewest(TRUE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -44,7 +43,6 @@ void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_URL, m_URL);
 	DDX_Text(pDX, IDC_REV, m_rev);
 	DDV_MaxChars(pDX, m_rev, 10);
-	DDX_Check(pDX, IDC_NEWEST, m_IsNewest);
 	DDX_Control(pDX, IDC_REV, m_revctrl);
 }
 
@@ -53,8 +51,9 @@ BEGIN_MESSAGE_MAP(CSwitchDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_EN_UPDATE(IDC_REV, OnEnUpdateRev)
-	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
+	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 
@@ -104,6 +103,11 @@ BOOL CSwitchDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	// set head revision as default revision
+	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+
+	m_revctrl.SetWindowText(_T(""));
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -119,19 +123,6 @@ void CSwitchDlg::OnEnUpdateRev()
 	if (revnum < -1)
 		revnum = -1;
 	m_rev.Format(_T("%d"),revnum);
-	UpdateData(FALSE);
-}
-
-void CSwitchDlg::OnBnClickedNewest()
-{
-	UpdateData();
-	if (m_IsNewest)
-	{
-		m_rev = _T("-1");
-		m_revctrl.EnableWindow(false);
-	}
-	else
-		m_revctrl.EnableWindow(true);
 	UpdateData(FALSE);
 }
 
@@ -174,4 +165,26 @@ void CSwitchDlg::OnBnClickedBrowse()
 		}
 	} // if (strUrl.Left(7) == _T("http://") && strUrl.GetLength() > 7)
 	UpdateData(FALSE);
+}
+
+void CSwitchDlg::OnBnClickedNewest()
+{
+	m_revctrl.EnableWindow(FALSE);
+}
+
+void CSwitchDlg::OnBnClickedRevisionN()
+{
+	m_revctrl.EnableWindow();
+}
+
+void CSwitchDlg::OnOK()
+{
+	UpdateData(TRUE);
+	// if head revision, set revision as -1
+	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
+	{
+		m_rev = _T("-1");
+	}
+
+	CDialog::OnOK();
 }

@@ -71,4 +71,8 @@ protected:
 	HICON m_hIcon;
 public:
 	long m_revnum;			///< the revision number the user entered
+	afx_msg void OnBnClickedNewest();
+	afx_msg void OnBnClickedRevisionN();
+protected:
+	virtual void OnOK();
 };

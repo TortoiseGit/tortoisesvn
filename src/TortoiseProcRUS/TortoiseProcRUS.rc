@@ -97,12 +97,6 @@ BEGIN
     PUSHBUTTON      "Отмена",IDCANCEL,212,124,50,14
 END
 
-IDD_WATCHER DIALOGEX 0, 0, 186, 90
-STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-END
-
 IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 146
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
@@ -157,22 +151,24 @@ BEGIN
                     WS_TABSTOP,13,42,194,10
 END
 
-IDD_SWITCH DIALOGEX 0, 0, 228, 70
+IDD_SWITCH DIALOGEX 0, 0, 228, 107
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Переход к другой ветке/редакции"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,47,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,171,47,50,14
+    DEFPUSHBUTTON   "OK",IDOK,7,84,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,171,84,50,14
     LTEXT           "URL:",IDC_STATIC,7,10,23,8
-    LTEXT           "Номер\nредакции:",IDC_STATIC,7,24,37,17
     EDITTEXT        IDC_URL,49,7,151,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_REV,49,25,40,14,ES_AUTOHSCROLL | WS_DISABLED
-    CONTROL         "Использовать последнюю\nиз доступных редакций",
-                    IDC_NEWEST,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
-                    WS_TABSTOP,101,24,120,16
     PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
+    GROUPBOX        "Редакция, извлекаемая из репозитория",IDC_STATIC,7,24,
+                    214,51
+    CONTROL         "&Головная редакция",IDC_NEWEST,"Button",
+                    BS_AUTORADIOBUTTON,13,38,75,10
+    CONTROL         "&Указанная",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,54,47,10
+    EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
 IDD_MERGE DIALOGEX 0, 0, 281, 59
@@ -258,17 +254,21 @@ BEGIN
     EDITTEXT        IDC_NAME,76,11,151,14,ES_AUTOHSCROLL
 END
 
-IDD_UPDATE DIALOGEX 0, 0, 178, 55
+IDD_UPDATE DIALOGEX 0, 0, 156, 90
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Обновление рабочей копии"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,121,34,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,7,34,50,14
-    LTEXT           "Обновление до редакции\n(""-1"" - последняя редакция):",
-                    IDC_STATIC,7,10,111,16
-    EDITTEXT        IDC_REVNUM,134,11,37,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "ОК",IDOK,99,69,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,7,69,50,14
+    GROUPBOX        "Редакция, извлекаемая из репозитория",IDC_STATIC,7,7,
+                    142,51
+    CONTROL         "&Головная редакция",IDC_NEWEST,"Button",
+                    BS_AUTORADIOBUTTON,13,21,75,10
+    CONTROL         "&Указанная:",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,37,50,10
+    EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
 IDD_REPOSITORY_BROWSER DIALOGEX 0, 0, 288, 279
@@ -361,14 +361,6 @@ BEGIN
         BOTTOMMARGIN, 138
     END
 
-    IDD_WATCHER, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 83
-    END
-
     IDD_SVNPROGRESS, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -402,7 +394,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 221
         TOPMARGIN, 7
-        BOTTOMMARGIN, 61
+        BOTTOMMARGIN, 98
     END
 
     IDD_MERGE, DIALOG
@@ -452,9 +444,9 @@ BEGIN
     IDD_UPDATE, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 171
+        RIGHTMARGIN, 149
         TOPMARGIN, 7
-        BOTTOMMARGIN, 48
+        BOTTOMMARGIN, 83
     END
 
     IDD_REPOSITORY_BROWSER, DIALOG
