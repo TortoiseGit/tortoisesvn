@@ -665,21 +665,21 @@ void CMainFrame::SaveFile(CString sFilePath)
 			case CDiffData::DIFFSTATE_ADDED:
 			case CDiffData::DIFFSTATE_CONFLICTADDED:
 			case CDiffData::DIFFSTATE_CONFLICTED:
-			case CDiffData::DIFFSTATE_CONFLICTEMPTY:
 			case CDiffData::DIFFSTATE_IDENTICALADDED:
 			case CDiffData::DIFFSTATE_NORMAL:
 			case CDiffData::DIFFSTATE_THEIRSADDED:
 			case CDiffData::DIFFSTATE_UNKNOWN:
 			case CDiffData::DIFFSTATE_YOURSADDED:
 			case CDiffData::DIFFSTATE_ADDEDWHITESPACE:
-			case CDiffData::DIFFSTATE_REMOVEDWHITESPACE:
 			case CDiffData::DIFFSTATE_WHITESPACE:
 			case CDiffData::DIFFSTATE_WHITESPACE_DIFF:
 				file.Add(arText->GetAt(i));
 				break;
 			case CDiffData::DIFFSTATE_EMPTY:
+			case CDiffData::DIFFSTATE_CONFLICTEMPTY:
 			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
 			case CDiffData::DIFFSTATE_REMOVED:
+			case CDiffData::DIFFSTATE_REMOVEDWHITESPACE:
 			case CDiffData::DIFFSTATE_THEIRSREMOVED:
 			case CDiffData::DIFFSTATE_YOURSREMOVED:
 				break;

@@ -105,8 +105,8 @@ void CBottomView::OnContextMenu(CPoint point, int nLine)
 				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 				{
 					m_arDiffLines->SetAt(i, m_pwndRight->m_arDiffLines->GetAt(i));
-					m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
 					m_arLineStates->SetAt(i, m_pwndRight->m_arLineStates->GetAt(i));
+					m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
 				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				
 				// your block is done, now insert their block
@@ -114,8 +114,8 @@ void CBottomView::OnContextMenu(CPoint point, int nLine)
 				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 				{
 					m_arDiffLines->InsertAt(index, m_pwndLeft->m_arDiffLines->GetAt(i));
-					m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
 					m_arLineStates->InsertAt(index++, m_pwndLeft->m_arLineStates->GetAt(i));
+					m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
 				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 
 				// now insert an empty block in both yours and theirs
@@ -133,8 +133,8 @@ void CBottomView::OnContextMenu(CPoint point, int nLine)
 				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 				{
 					m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-					m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
 					m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
+					//m_pwndLeft->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_THEIRSADDED);
 				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				
 				// your block is done, now insert their block
@@ -142,8 +142,8 @@ void CBottomView::OnContextMenu(CPoint point, int nLine)
 				for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 				{
 					m_arDiffLines->InsertAt(index, m_pwndRight->m_arDiffLines->GetAt(i));
-					m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
 					m_arLineStates->InsertAt(index++, m_pwndRight->m_arLineStates->GetAt(i));
+					//m_pwndRight->m_arLineStates->SetAt(i, CDiffData::DIFFSTATE_YOURSADDED);
 				} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 
 				// now insert an empty block in both yours and theirs
