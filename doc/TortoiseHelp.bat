@@ -2,8 +2,11 @@
 call "%VS71COMNTOOLS%\vsvars32.bat"
 cd english
 mkdir ..\output
+
+rmdir /s /q ..\output\TortoiseSVN\
 mkdir ..\output\TortoiseSVN
 ..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\help.html ..\tools\xsl\html\docbook.xsl book.xml
+
 mkdir ..\output\TortoiseSVN\html-chunk
 ..\tools\xsltproc.exe  --stringparam html.stylesheet styles.css --output ..\output\TortoiseSVN\html-chunk\ ..\tools\xsl\html\chunk.xsl book.xml
 copy styles.css ..\output\TortoiseSVN\html-chunk\
