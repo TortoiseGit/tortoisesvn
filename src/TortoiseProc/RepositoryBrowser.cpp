@@ -409,12 +409,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CString filename = svnPath.GetFileOrDirectoryName();
 						CInputDlg input(this);
-						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						CUtils::RemoveAccelerators(input.m_sHintText);
-						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						CUtils::RemoveAccelerators(input.m_sTitle);
-						input.m_sInputText.LoadString(IDS_INPUT_ADDFOLDERLOGMSG);
-						CUtils::RemoveAccelerators(input.m_sInputText);
+						SetupInputDlg(&input, IDS_INPUT_ADDFOLDERLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Import(svnPath, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
@@ -473,12 +468,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CWaitCursorEx wait_cursor;
 						CString filename = path.GetFileOrDirectoryName();
 						CInputDlg input(this);
-						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						CUtils::RemoveAccelerators(input.m_sHintText);
-						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						CUtils::RemoveAccelerators(input.m_sTitle);
-						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
-						CUtils::RemoveAccelerators(input.m_sInputText);
+						SetupInputDlg(&input, IDS_INPUT_ADDLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Import(path, CTSVNPath(url+_T("/")+filename), input.m_sInputText, FALSE))
@@ -507,12 +497,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
-						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						CUtils::RemoveAccelerators(input.m_sHintText);
-						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						CUtils::RemoveAccelerators(input.m_sTitle);
-						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
-						CUtils::RemoveAccelerators(input.m_sInputText);
+						SetupInputDlg(&input, IDS_INPUT_MOVELOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Move(CTSVNPath(url), CTSVNPath(filepath), TRUE, input.m_sInputText))
@@ -538,12 +523,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
-						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						CUtils::RemoveAccelerators(input.m_sHintText);
-						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						CUtils::RemoveAccelerators(input.m_sTitle);
-						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
-						CUtils::RemoveAccelerators(input.m_sInputText);
+						SetupInputDlg(&input, IDS_INPUT_COPYLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.m_sInputText))
@@ -628,12 +608,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						svn.SetPromptApp(&theApp);
 						CWaitCursorEx wait_cursor;
 						CInputDlg input(this);
-						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-						CUtils::RemoveAccelerators(input.m_sHintText);
-						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-						CUtils::RemoveAccelerators(input.m_sTitle);
-						input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
-						CUtils::RemoveAccelerators(input.m_sInputText);
+						SetupInputDlg(&input, IDS_INPUT_MKDIRLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
 							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name)), input.m_sInputText))
@@ -814,5 +789,30 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 		{
 			m_treeRepository.DeleteUrl(itemsToRemove[nItem].GetSVNPathString());
 		}
+	}
 }
+
+void CRepositoryBrowser::SetupInputDlg(CInputDlg * dlg, UINT title)
+{
+	dlg->m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+	CUtils::RemoveAccelerators(dlg->m_sHintText);
+	dlg->m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+	CUtils::RemoveAccelerators(dlg->m_sTitle);
+	dlg->m_sInputText.LoadString(title);
+	CUtils::RemoveAccelerators(dlg->m_sInputText);
+
+	dlg->m_cInput.Init(m_ProjectProperties.lProjectLanguage);
+	dlg->m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+	if (m_ProjectProperties.nLogWidthMarker)
+	{
+		dlg->m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_NONE);
+		dlg->m_cInput.Call(SCI_SETEDGEMODE, EDGE_LINE);
+		dlg->m_cInput.Call(SCI_SETEDGECOLUMN, m_ProjectProperties.nLogWidthMarker);
+	}
+	else
+	{
+		dlg->m_cInput.Call(SCI_SETEDGEMODE, EDGE_NONE);
+		dlg->m_cInput.Call(SCI_SETWRAPMODE, SC_WRAP_WORD);
+	}
+	dlg->m_cInput.SetText(m_ProjectProperties.sLogTemplate);
 }
