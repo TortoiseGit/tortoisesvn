@@ -1,4 +1,4 @@
-#
+﻿#
 # Danish translations for TortoiseSVN package
 # Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-06 11:42+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2004-07-27 14:53+0100\n"
+"Last-Translator: Gunther Strube <gbs@users.sourceforge.net>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,12 +21,12 @@ msgstr ""
 #: ID:126
 #: ID:10
 msgid " "
-msgstr ""
+msgstr " "
 
 # ID:188,
 #: ID:188
 msgid "! %d"
-msgstr ""
+msgstr "! %d"
 
 #: ID:3868
 msgid "%1 contained an unexpected object."
@@ -81,7 +81,7 @@ msgstr ""
 # ID:169,
 #: ID:169
 msgid "%d files selected, %d files total"
-msgstr ""
+msgstr "%d valgte filer, %d filer ialt"
 
 #: ID:151
 msgid "%s : Working Base"
@@ -92,282 +92,237 @@ msgid "%s : Working Copy"
 msgstr "%s : Arbejdskopi"
 
 #: ID:145
-#, fuzzy
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
-msgstr "Vil du gerne fortsætte?"
+msgstr ""
+"%s\n"
+"Vil du fjerne det alligevel?"
 
 #: MenuEntry
-#, fuzzy
 msgid "&About TortoiseMerge..."
-msgstr "Om TortoiseMerge..."
+msgstr "&Om TortoiseMerge..."
 
 #: Control-ID:1098
-#, fuzzy
 msgid "&Add..."
-msgstr "Tilføj..."
+msgstr "&Tilføj..."
 
 #: Control-ID:1090
-#, fuzzy
 msgid "&Advanced..."
-msgstr "Avanceret..."
+msgstr "&Avanceret..."
 
 #: Control-ID:1013
-#, fuzzy
 msgid "&Apply Unified Diff"
-msgstr "Påfør samlet differens"
+msgstr "&Påfør samlet differens"
 
 #: Control-ID:1011
-#, fuzzy
 msgid "&Browse..."
-msgstr "Gennemse..."
+msgstr "&Gennemse..."
 
 #: Control-ID:1091
-#, fuzzy
 msgid "&Builtin"
-msgstr "Intern"
+msgstr "&Intern"
 
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
-msgstr ""
+msgstr "&CD-ROM"
 
 #: Control-ID:2
-#, fuzzy
 msgid "&Cancel"
-msgstr "Afbryd"
+msgstr "&Afbryd"
 
 #: Control-ID:1074
-#, fuzzy
 msgid "&Checkout directory:"
-msgstr "Arbejdskopi-mappe:"
+msgstr "Arbejdskopi-&mappe:"
 
 #: Control-ID:1066
-#, fuzzy
 msgid "&Close windows automatically"
-msgstr "Luk automatisk vinduerne"
+msgstr "&Luk automatisk vinduerne"
 
 #: Control-ID:1099
-#, fuzzy
 msgid "&Edit..."
-msgstr "Rediger..."
+msgstr "&Rediger..."
 
 #: Control-ID:1023
-#, fuzzy
 msgid "&Enable Proxy Server"
-msgstr "Aktiver Proxy-server"
+msgstr "&Aktiver Proxy-server"
 
 #: Control-ID:1092
-#, fuzzy
 msgid "&External"
-msgstr "Eksternt"
+msgstr "&Eksternt"
 
 #: MenuEntry
-#, fuzzy
 msgid "&File"
-msgstr "Fil"
+msgstr "&Fil"
 
 #: Control-ID:1050
-#, fuzzy
 msgid "&Fixed drives"
-msgstr "Faste drev"
+msgstr "&Faste drev"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From Revision"
-msgstr "Fra revision"
+msgstr "&Fra revision"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From URL:"
-msgstr "Fra URL:"
+msgstr "&Fra URL:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&From WC at URL:"
-msgstr "Fra arbejdskopi ved URL:"
+msgstr "&Fra arbejdskopi ved URL:"
 
 #: Control-ID:1032
 #: Control-ID:1019
-#, fuzzy
 msgid "&Head Revision"
-msgstr "Nyeste revision"
+msgstr "&Nyeste revision"
 
 #: Control-ID:57670
 #: Control-ID:9
-#, fuzzy
 msgid "&Help"
-msgstr "Hjælp"
+msgstr "&Hjælp"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Help Topics"
-msgstr "Hjælpeemner"
+msgstr "&Hjælpeemner"
 
 #: ID:3842
 msgid "&Hide"
 msgstr "&Gem væk"
 
 #: Control-ID:1023
-#, fuzzy
 msgid "&Indicate folders with changed contents"
-msgstr "Indiker mapper med ændret indhold"
+msgstr "&Indiker mapper med ændret indhold"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&Language:"
-msgstr "Sprog:"
+msgstr "&Sprog:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Merge"
-msgstr "Flet"
+msgstr "&Flet"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Merge changes into the current working copy from URL:"
-msgstr ""
+msgstr "&Flet ændringer til den nuværende arbejdskopi fra URL:"
 
 #: Control-ID:1012
-#, fuzzy
 msgid "&Merging"
-msgstr "Fletter"
+msgstr "&Fletter"
 
 #: Control-ID:1049
-#, fuzzy
 msgid "&Network drives"
-msgstr "Netværksdrev"
+msgstr "&Netværksdrev"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&New "
-msgstr "Ny"
+msgstr "&Ny"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Next Difference"
-msgstr "Næste forskel"
+msgstr "&Næste forskel"
 
 # Control-ID:1,#:
 # Control-ID:1,
 #: Control-ID:1
 msgid "&OK"
-msgstr ""
+msgstr "&OK"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Open Ctrl-O"
-msgstr "Åben Ctrl-O"
+msgstr "&Åben Ctrl-O"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&Password:"
-msgstr "Kodeord:"
+msgstr "&Kodeord:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
-msgstr ""
+msgstr "&Port:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Previous Difference"
-msgstr "Foregående forskel"
+msgstr "&Foregående forskel"
 
 #: Control-ID:1048
-#, fuzzy
 msgid "&Removable drives"
-msgstr "Udskiftelige drev"
+msgstr "&Udskiftelige drev"
 
 #: Control-ID:1013
 #: Control-ID:1100
-#, fuzzy
 msgid "&Remove"
-msgstr "Fjern"
+msgstr "&Fjern"
 
 #: Control-ID:1033
 #: Control-ID:1116
-#, fuzzy
 msgid "&Revision"
-msgstr "Til revision"
+msgstr "&Revision"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&SSH client:"
-msgstr "SSH klient:"
+msgstr "&SSH klient:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Save Ctrl-S"
-msgstr "Gem Ctrl-S"
+msgstr "&Gem Ctrl-S"
 
 #: Control-ID:1012
-#, fuzzy
 msgid "&Set"
-msgstr "Sæt"
+msgstr "&Sæt"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Status Bar"
-msgstr "Statuslinie"
+msgstr "&Statuslinie"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To Revision"
-msgstr "Til revision"
+msgstr "&Til revision"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To URL:"
-msgstr "Til URL:"
+msgstr "&Til URL:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "&To URL: "
-msgstr "Til URL: "
+msgstr "&Til URL: "
 
 #: MenuEntry
-#, fuzzy
 msgid "&Toolbar"
-msgstr "Værktøjslinie"
+msgstr "&Værktøjslinie"
 
 #: Control-ID:65535
 #: Control-ID:1058
-#, fuzzy
 msgid "&URL of repository:"
-msgstr "Versionsarkiv URL:"
+msgstr "Versionsarkiv &URL:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Undo\tCtrl+Z"
-msgstr "Ophæv\tCtrl+Z"
+msgstr "&Ophæv\tCtrl+Z"
 
 #: Control-ID:65535
 #: Control-ID:1005
-#, fuzzy
 msgid "&Username:"
-msgstr "Brugernavn:"
+msgstr "&Brugernavn:"
 
 #: MenuEntry
-#, fuzzy
 msgid "&View"
-msgstr "Vis"
+msgstr "&Vis"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Whitespaces"
-msgstr "Tomtegn"
+msgstr "&Tomtegn"
 
 # ID:188,
 #: ID:188
 msgid "+ %d"
-msgstr ""
+msgstr "+ %d"
 
 # ID:188,
 #: ID:188
 msgid "- %d"
-msgstr ""
+msgstr "- %d"
 
 #: Control-ID:1035
 #: Control-ID:1036
@@ -375,9 +330,8 @@ msgstr ""
 #: Control-ID:1022
 #: Control-ID:1089
 #: Control-ID:1104
-#, fuzzy
 msgid "..."
-msgstr "Tilføj..."
+msgstr "..."
 
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
@@ -390,7 +344,7 @@ msgstr "En lås-overtrædelse opstod under adgang til %1."
 # ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr ""
+msgstr "En nyere version er til rådighed. Gå til http://tortoisesvn.tigris.org og installér den seneste version!"
 
 #: ID:3843
 msgid "A required resource was unavailable."
@@ -409,9 +363,8 @@ msgstr ""
 "Hvis du ikke har en, brug NotePad."
 
 #: Control-ID:1093
-#, fuzzy
 msgid "A&dvanced..."
-msgstr "Avanceret..."
+msgstr "&Avanceret..."
 
 #: ID:73
 msgid "Abort"
@@ -660,14 +613,12 @@ msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Udviklere:                       Stefan Kueng, Tim Kemp"
 
 #: Control-ID:1001
-#, fuzzy
 msgid "B&rowse..."
-msgstr "Gennemse..."
+msgstr "&Gennemse..."
 
 #: Control-ID:1094
-#, fuzzy
 msgid "B&uiltin"
-msgstr "Intern"
+msgstr "&Intern"
 
 #: Control-ID:1015
 msgid "Backup original file"
@@ -690,9 +641,8 @@ msgid "Blames each line of a file on an author"
 msgstr "For hver linie i filen vises hvem, hvornår og i hvilken revision, der er udført ændring"
 
 #: Control-ID:1003
-#, fuzzy
 msgid "Br&owse..."
-msgstr "Gennemse..."
+msgstr "Ge&nnemse..."
 
 #: Dlg-ID:142
 msgid "Branch / Tag"
@@ -707,14 +657,12 @@ msgid "Branch/Tag..."
 msgstr "Forgrening/Mærke..."
 
 #: Control-ID:1009
-#, fuzzy
 msgid "Bro&wse..."
-msgstr "Gennemse..."
+msgstr "Genne&mse..."
 
 #: Control-ID:1007
-#, fuzzy
 msgid "Brows&e..."
-msgstr "Gennemse..."
+msgstr "Gennem&se..."
 
 #: ID:138
 msgid "Browse Repository"
@@ -729,14 +677,13 @@ msgid "Browse..."
 msgstr "Gennemse..."
 
 #: Control-ID:1096
-#, fuzzy
 msgid "Bu&iltin"
-msgstr "Intern"
+msgstr "&Intern"
 
 # ID:3697,
 #: ID:3697
 msgid "CAP"
-msgstr ""
+msgstr "CAP"
 
 #: ID:82
 msgid ""
@@ -796,12 +743,10 @@ msgid "Check"
 msgstr "Sæt kryds"
 
 #: Dlg-ID:174
-#, fuzzy
 msgid "Check For Updates"
 msgstr "Check efter opdateringer"
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Check For Updates..."
 msgstr "Check efter opdateringer"
 
@@ -812,7 +757,7 @@ msgstr "Check efter opdateringer"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Check for newer versions"
-msgstr ""
+msgstr "Undersøg om der en nyere versioner"
 
 #: ID:79
 msgid ""
@@ -845,7 +790,7 @@ msgstr "Kryds af for at anvende et mindre ordrigt dato- og tidsformat i ændring
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr ""
+msgstr "Undersøger om der er en nyere version af TortoiseSVN til rådighed..."
 
 #: Dlg-ID:133
 msgid "Checkout"
@@ -968,9 +913,8 @@ msgid "Copying..."
 msgstr "Kopierer..."
 
 #: ID:188
-#, fuzzy
 msgid "Corrections"
-msgstr "Sammenlig revisioner"
+msgstr "Rettelser"
 
 #: ID:81
 msgid "Could not add %s to the ignore list!"
@@ -979,7 +923,7 @@ msgstr "Kunne ikke tilføje %s til Ignorér-listen!"
 # ID:201,
 #: ID:201
 msgid "Could not check for a newer version!"
-msgstr ""
+msgstr "Kunne ikke undersøge forekomsten af en nyere version!"
 
 #: ID:81
 msgid ""
@@ -1012,7 +956,6 @@ msgstr ""
 "%s"
 
 #: ID:66
-#, fuzzy
 msgid ""
 "Could not retrieve version %s of the file %s.\n"
 "Patching is not possible!"
@@ -1107,9 +1050,8 @@ msgid "Date"
 msgstr "Dato"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Default &number of log messages"
-msgstr "Underforstået antal af ændringsbeskrivelser"
+msgstr "Underforstået &antal af ændringsbeskrivelser"
 
 #: ID:11
 #: ID:73
@@ -1210,7 +1152,6 @@ msgid "Do you want to proceed?"
 msgstr "Vil du gerne fortsætte?"
 
 #: ID:313
-#, fuzzy
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
@@ -1219,12 +1160,11 @@ msgstr ""
 "Bemærk: du vil miste alle dine nuværende ændringer!"
 
 #: ID:313
-#, fuzzy
 msgid ""
 "Do you want to reload the documents?\n"
 "You will lose all changes you've made!"
 msgstr ""
-"Ønsker du at genindlæse dokumenter for at reflektere på de ændrede indstillinger?\n"
+"Ønsker du at genindlæse dokumenterne?\n"
 "Bemærk: du vil miste alle dine nuværende ændringer!"
 
 #: ID:313
@@ -1232,9 +1172,8 @@ msgid "Do you want to save your changes?"
 msgstr "Vil du gemme dine ændringer?"
 
 #: Control-ID:1061
-#, fuzzy
 msgid "Don't &remove log messages when cancelling a commit"
-msgstr "Undlad at fjerne ændringsbeskrivelser når en arkivering annulleres"
+msgstr "Undlad at &fjerne ændringsbeskrivelser når en arkivering annulleres"
 
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
@@ -1245,19 +1184,17 @@ msgid "Drive Types"
 msgstr "Drevtyper"
 
 #: MenuEntry
-#, fuzzy
 msgid "E&xit"
-msgstr "Afslut"
+msgstr "&Afslut"
 
 #: Control-ID:1095
-#, fuzzy
 msgid "E&xternal"
-msgstr "Eksternt"
+msgstr "Eks&ternt"
 
 # ID:3697,
 #: ID:3697
 msgid "EXT"
-msgstr ""
+msgstr "EXT"
 
 #: Control-ID:1031
 msgid "Edit"
@@ -1321,19 +1258,16 @@ msgid "Error validating server certificate for %s:"
 msgstr "Der opstod en fejl under validering af servercertifikatet for %s:"
 
 #: Control-ID:1097
-#, fuzzy
 msgid "Ex&ternal"
-msgstr "Eksternt"
+msgstr "Eks&ternt"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Exceptions:"
-msgstr "Fil-endelse:"
+msgstr "Hændelser:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Exclude pattern:"
-msgstr "Inkluder/Ekskluder mønster:"
+msgstr "Ekskluder mønster:"
 
 #: ID:94
 msgid "Export Directory:"
@@ -1434,7 +1368,6 @@ msgid "For Help, press F1"
 msgstr "Få Hjælp, tast F1"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "From:"
 msgstr "Fra URL:"
 
@@ -1447,9 +1380,8 @@ msgid "Generating Patchfile..."
 msgstr "Generer korrektionsfil..."
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Get &All"
-msgstr "Hent alle"
+msgstr "Hent &alle"
 
 #: ID:119
 msgid "Getting File %s"
@@ -1499,7 +1431,7 @@ msgstr "Ikoner/Design/Kode:      Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr ""
+msgstr "Hvis aktiveret, forhindres overdækningerne i at blive vist i \"gem som..\" eller \"åben\" dialoger"
 
 #: ID:95
 msgid ""
@@ -1516,7 +1448,7 @@ msgstr "Hvis afkrydset, opretter TortoiseSVN ikke en midlertidig fil for at lave
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr ""
+msgstr "Hvis aktiveret, undersøger TortoiseSVN en gang om ugen om der nyere version til rådighed"
 
 #: ID:80
 msgid ""
@@ -1550,14 +1482,12 @@ msgid "Import"
 msgstr "Importer"
 
 #: Control-ID:1056
-#, fuzzy
 msgid "Import &Message"
-msgstr "Importer ændringsbeskrivelse"
+msgstr "Importer &ændringsbeskrivelse"
 
 #: ID:9
-#, fuzzy
 msgid "Import..."
-msgstr "Importer"
+msgstr "Importer..."
 
 #: ID:10
 msgid "Imports the directory to a repository"
@@ -1610,6 +1540,21 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
+"Ulovligt revisionsnummer! Tilladte revisioner er:\n"
+"HEAD, BASE, PREV, COMMITTED, WC\n"
+"positive heltal\n"
+"datoformater i en af nedenstående eksempler:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
 
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -1704,7 +1649,7 @@ msgstr "Mimetype"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Minimum logsize in chars"
-msgstr ""
+msgstr "Minimum logstørrelse i tegn"
 
 #: Control-ID:1023
 #: Control-ID:1082
@@ -1738,7 +1683,7 @@ msgstr "Flytter..."
 # ID:3697,
 #: ID:3697
 msgid "NUM"
-msgstr ""
+msgstr "NUM"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -1791,7 +1736,7 @@ msgstr ""
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
@@ -1803,27 +1748,26 @@ msgstr "Ikke alle registreringsdatabase-elementer (eller INI fil) blev slettet."
 #: Control-ID:1
 #: ID:73
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 # ID:3697,
 #: ID:3697
 msgid "OVR"
-msgstr ""
+msgstr "OVR"
 
 #: MenuEntry
-#, fuzzy
 msgid "Oneway &Diff"
-msgstr "Enkeltvejs differens"
+msgstr "Enkeltvejs &differens"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only check out the top folder"
-msgstr ""
+msgstr "Hent kun arbejdskopi fra den øverste mappe"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
-msgstr ""
+msgstr "Opdater kun den øverste mappe"
 
 #: ID:3841
 #: ID:101
@@ -1857,12 +1801,12 @@ msgstr "Ikke mere hukommelse."
 # ID:76,
 #: ID:76
 msgid "PEM"
-msgstr ""
+msgstr "PEM"
 
 # ID:76,
 #: ID:76
 msgid "PKCS12"
-msgstr ""
+msgstr "PKCS12"
 
 #: ID:69
 msgid "Password:"
@@ -1965,12 +1909,10 @@ msgid "Processing revision %d of %d..."
 msgstr "Behandler revision %d ud af %d..."
 
 #: ID:74
-#, fuzzy
 msgid "Program"
 msgstr "Hjælpeværktøjer"
 
 #: ID:157
-#, fuzzy
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programmer (*.exe)|*.*|Alle Filer (*.*)|*.*||"
 
@@ -1991,9 +1933,8 @@ msgid "Property Status:"
 msgstr "Egenskabstatus:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Proxy &timeout in seconds:"
-msgstr "Proxy timeout i sekunder:"
+msgstr "Proxy &timeout i sekunder:"
 
 #: Control-ID:1080
 msgid "Proxy Settings"
@@ -2014,7 +1955,7 @@ msgstr "Hukommelsesdrev"
 # ID:3697,
 #: ID:3697
 msgid "REC"
-msgstr ""
+msgstr "REC"
 
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2042,9 +1983,8 @@ msgid "Reject"
 msgstr "Afvis"
 
 #: MenuEntry
-#, fuzzy
 msgid "Reload"
-msgstr "Erstattet"
+msgstr "Genindlæs"
 
 # ID:2050,
 #: ID:2050
@@ -2052,6 +1992,8 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
+"Genindlæser alle åbne filer og tilbagefører alle ændringer.\n"
+"Genindlæs"
 
 #: Dlg-ID:157
 msgid "Relocate"
@@ -2132,9 +2074,8 @@ msgid "Resolve"
 msgstr "Løs"
 
 #: Control-ID:1067
-#, fuzzy
 msgid "Resolve conflicted subversion status on save"
-msgstr "Løser konfliktende filer"
+msgstr "Løser konfliktende subversion status ved gem"
 
 #: ID:8
 msgid "Resolved"
@@ -2172,38 +2113,34 @@ msgstr "Genskaber (og tilbagefører) alle dine ændringer siden sidste opdaterin
 
 #: ID:76
 #: Control-ID:65535
-#, fuzzy
 msgid "Revision"
-msgstr "Til revision"
+msgstr "Revision"
 
 #: ID:119
-#, fuzzy
 msgid "Revision %d"
-msgstr "Ved revision: %d"
+msgstr "Revision %d"
 
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Revision / Forfatter:"
 
 #: ID:75
-#, fuzzy
 msgid "Revision: "
-msgstr "Til revision"
+msgstr "Revision: "
 
 #: MenuEntry
-#, fuzzy
 msgid "S&ettings"
-msgstr "Indstillinger"
+msgstr "&Indstillinger"
 
 # ID:3697,
 #: ID:3697
 msgid "SCRL"
-msgstr ""
+msgstr "SCRL"
 
 # Control-ID:1081,
 #: Control-ID:1081
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: ID:77
 msgid "SVN Add..."
@@ -2230,9 +2167,8 @@ msgid "SVN Export..."
 msgstr "SVN Eksport..."
 
 #: ID:77
-#, fuzzy
 msgid "SVN Import..."
-msgstr "SVN Eksport..."
+msgstr "SVN Import..."
 
 #: ID:78
 msgid "SVN Merge..."
@@ -2251,14 +2187,12 @@ msgid "SVN Revert..."
 msgstr "SVN Tilbagefør..."
 
 #: ID:11
-#, fuzzy
 msgid "SVN Revision"
-msgstr "Til revision"
+msgstr "SVN Revision"
 
 #: ID:11
-#, fuzzy
 msgid "SVN Status"
-msgstr "Tekststatus:"
+msgstr "SVN Status"
 
 #: ID:78
 msgid "SVN Switch..."
@@ -2269,23 +2203,21 @@ msgid "SVN Update..."
 msgstr "SVN Opdater..."
 
 #: ID:12
-#, fuzzy
 msgid "SVN Url"
-msgstr "SVN kort Url"
+msgstr "SVN Url"
 
 # ID:14,
 #: ID:14
 msgid "SVN mime-type"
-msgstr ""
+msgstr "SVN mime-type"
 
 #: ID:12
 msgid "SVN short Url"
 msgstr "SVN kort Url"
 
 #: MenuEntry
-#, fuzzy
 msgid "Save &As..."
-msgstr "Gem som..."
+msgstr "Gem &som..."
 
 #: ID:3841
 msgid "Save As"
@@ -2325,9 +2257,8 @@ msgid "Seek failed on %1"
 msgstr "Søgning fejlede på %1"
 
 #: Control-ID:1067
-#, fuzzy
 msgid "Select / Deselect &All"
-msgstr "Vælg / Fravælg alle"
+msgstr "Vælg / Fravælg &alle"
 
 #: ID:78
 msgid "Select Diff Application"
@@ -2338,19 +2269,16 @@ msgid "Select File..."
 msgstr "Vælg fil..."
 
 #: ID:78
-#, fuzzy
 msgid "Select Merge Application"
-msgstr "Vælg en flet-applikation"
+msgstr "Vælg flet-applikation"
 
 #: Dlg-ID:173
-#, fuzzy
 msgid "Select Revision"
-msgstr "Nyeste revision"
+msgstr "Vælg revision"
 
 #: ID:78
-#, fuzzy
 msgid "Select SSH Client"
-msgstr "Vælg en SSH-klient"
+msgstr "Vælg SSH-klient"
 
 #: ID:79
 msgid "Select Text Editor Application"
@@ -2393,9 +2321,8 @@ msgid "Sending Content"
 msgstr "Afsender indhold"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Server &address:"
-msgstr "Server-addresse:"
+msgstr "Server-&addresse:"
 
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
@@ -2411,9 +2338,8 @@ msgid "Settings"
 msgstr "Indstillinger"
 
 #: Control-ID:1105
-#, fuzzy
 msgid "Short &date/time format in log messages"
-msgstr "Vis kort dato-tidsformat i ændringsbeskrivelser"
+msgstr "Vis kort &dato-tidsformat i ændringsbeskrivelser"
 
 #: ID:12
 msgid "Short Url of subversion items"
@@ -2421,19 +2347,16 @@ msgstr "Kort Url for Subversion elementer"
 
 #: Control-ID:1031
 #: Control-ID:1034
-#, fuzzy
 msgid "Show &Log"
-msgstr "Vis ændringslog"
+msgstr "Vis ændrings&log"
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Show &Log..."
-msgstr "Vis ændringslog"
+msgstr "Vis ændrings&log"
 
 #: Control-ID:1016
-#, fuzzy
 msgid "Show &log"
-msgstr "Vis ændringslog"
+msgstr "Vis ændrings&log"
 
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -2478,7 +2401,7 @@ msgstr ""
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show overlays only in explorer"
-msgstr ""
+msgstr "Vis kun overdækninger i Explorer"
 
 #: ID:2049
 msgid ""
@@ -2489,9 +2412,8 @@ msgstr ""
 "Vis tomtegn"
 
 #: Control-ID:1073
-#, fuzzy
 msgid "Show unversioned files"
-msgstr "Vis ikke-versionerede filer før arkivering"
+msgstr "Vis ikke-versionerede filer"
 
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -2508,7 +2430,7 @@ msgstr "Viser ændringsbeskrivelser for den valgte fil / mappe"
 # ID:14,
 #: ID:14
 msgid "Shows the mime type of the versioned file"
-msgstr ""
+msgstr "Viser mime-typen af den versionerede fil"
 
 #: ID:74
 msgid "Size"
@@ -2519,16 +2441,14 @@ msgid "Skip"
 msgstr "Spring over"
 
 #: ID:79
-#, fuzzy
 msgid ""
 "Specify the files or folders wich TortoiseSVN\n"
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Angiv de filer eller mapper som TortoiseSVN\n"
-"skal inkludere eller ekskludere fra versionskontrol.\n"
-"Includeringsmønstre er foranstillet med et '+'\n"
-"Prioritetsrækkefølgen er fra venstre mod højre."
+"skal ekskludere fra versionskontrol.\n"
+"Adskil mønstrene med et mellemrum."
 
 #: ID:3604
 msgid ""
@@ -2540,9 +2460,8 @@ msgstr ""
 
 #: ID:74
 #: ID:77
-#, fuzzy
 msgid "Status"
-msgstr "Statuslinie"
+msgstr "Status"
 
 #: ID:11
 msgid "Status of item in SVN"
@@ -2641,7 +2560,6 @@ msgstr ""
 "er ikke en lovlig tekstfil!"
 
 #: ID:80
-#, fuzzy
 msgid "The Repository was successfully created."
 msgstr "Versionsarkivet blev oprettet."
 
@@ -2739,6 +2657,8 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
+"Den valgte fil ser ud til at indeholde en eller flere konfliktmarkeringer.\n"
+"Er du sikker på at du ønsker at markere filen som løst for konflikter?"
 
 #: ID:81
 msgid ""
@@ -2771,18 +2691,17 @@ msgstr ""
 "Disse filer er <b>ikke</b> angivet til at blive arkiveret. Du skal arkivere disse filer separat."
 
 #: ID:66
-#, fuzzy
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "Please resolve those conflicts first before saving."
 msgstr ""
-"Der er stadigvæk uløste konflikter!\n"
+"Der er stadigvæk uløste konflikter i linie %d!\n"
 "Løs venligst først disse konflikter før du gemmer."
 
 # ID:188,
 #: ID:188
 msgid "Thesaurus"
-msgstr ""
+msgstr "Opslagsværk"
 
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -2803,7 +2722,7 @@ msgstr "Differens mellem tre filer"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr ""
+msgstr "For at flette ændringer fra en bestemt forgrening, skal du angive den samme URL i både \"Fra:\" og \"Til:\" felterne."
 
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -2812,14 +2731,13 @@ msgstr "Dobbelt-klik på filerne ovenfor for at se dine ændringsbeskrivelser"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To:"
-msgstr ""
+msgstr "Til:"
 
 #: ID:7
 #: ID:3585
 #: Dlg-ID:130
-#, fuzzy
 msgid "TortoiseMerge"
-msgstr "Om TortoiseMerge"
+msgstr "TortoiseMerge"
 
 #: ID:107
 msgid "TortoiseMerge %d.%d.%d, Build %d"
@@ -2841,16 +2759,14 @@ msgstr ""
 
 #: ID:9
 #: ID:80
-#, fuzzy
 msgid "TortoiseSVN"
-msgstr "Optimer TortoiseSVN"
+msgstr "TortoiseSVN"
 
 #: ID:107
 msgid "TortoiseSVN %d.%d.%d, Build %d"
 msgstr "TortoiseSVN %d.%d.%d, Udgave %d"
 
 #: ID:107
-#, fuzzy
 msgid ""
 "TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
@@ -2868,7 +2784,7 @@ msgstr ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "berkeley db %d.%d.%d\r\n"
-"neon %d.%d\r\n"
+"neon %s\r\n"
 "%s\r\n"
 "zlib %s"
 
@@ -2891,7 +2807,7 @@ msgstr "Differens mellem to filer"
 # Dlg-ID:164,
 #: Dlg-ID:164
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ID:12
 msgid "URL of subversion items"
@@ -2899,14 +2815,12 @@ msgstr "URL for Subversion elementer"
 
 #: Control-ID:65535
 #: Control-ID:1076
-#, fuzzy
 msgid "URL:"
-msgstr "Til URL:"
+msgstr "URL:"
 
 #: ID:75
-#, fuzzy
 msgid "URL: "
-msgstr "Til URL: "
+msgstr "URL: "
 
 #: ID:3866
 msgid "Unable to load mail system support."
@@ -2987,7 +2901,7 @@ msgstr "Opdaterer arbejdskopien til nyeste revision"
 # ID:144,
 #: ID:144
 msgid "Url:"
-msgstr ""
+msgstr "Url:"
 
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -3006,18 +2920,16 @@ msgid "Use text block from \"theirs\""
 msgstr "Brug tekstblok fra \"deres\""
 
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Brug tekstblok fra \"deres\""
+msgstr "Brug tekstblok fra \"deres\" før \"dine\""
 
 #: ID:251
 msgid "Use text block from \"yours\""
 msgstr "Brug tekstblok fra \"dine\""
 
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Brug tekstblok fra \"deres\""
+msgstr "Brug tekstblok fra \"dine\" før \"deres\""
 
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
@@ -3066,9 +2978,8 @@ msgid "Value"
 msgstr "Værdi"
 
 #: Control-ID:1075
-#, fuzzy
 msgid "Version"
-msgstr "Endelse"
+msgstr "Version"
 
 #: Control-ID:65535
 msgid "Viewer program for GNU diff files (patch files)."
@@ -3101,12 +3012,12 @@ msgstr "Ja"
 # ID:145,
 #: ID:145
 msgid "Yes to all"
-msgstr ""
+msgstr "Ja til alle"
 
 # ID:201,
 #: ID:201
 msgid "You already have the most current version installed."
-msgstr ""
+msgstr "Du har allerede installeret den seneste version."
 
 #: ID:144
 msgid ""
@@ -3133,13 +3044,12 @@ msgstr ""
 "Ønsker du virkelig at anvende denne adgang?"
 
 #: ID:77
-#, fuzzy
 msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
 "Du har valgt en ikke-versioneret fil.\n"
-"Filen vil blive tilføjet versionskontrollen før arkivering."
+"Filen vil blive tilføjet versionskontrollen når du arkiverer."
 
 #: Control-ID:65535
 msgid "Your File:"
@@ -3164,9 +3074,8 @@ msgid "and support the developers"
 msgstr "og hjælp udviklerne"
 
 #: ID:145
-#, fuzzy
 msgid "cleaning up"
-msgstr "Oprydning"
+msgstr "oprydning"
 
 #: ID:11
 msgid "conflicted"
@@ -3175,12 +3084,12 @@ msgstr "i konflikt"
 # Control-ID:1113,
 #: Control-ID:1113
 msgid "current version is:"
-msgstr ""
+msgstr "nuværende version er:"
 
 # ID:201,
 #: ID:201
 msgid "current version is: %s"
-msgstr ""
+msgstr "nuværende version er: %s"
 
 #: ID:10
 msgid "deleted"
@@ -3240,9 +3149,8 @@ msgid "non-versioned"
 msgstr "ikke-versioneret"
 
 #: ID:10
-#, fuzzy
 msgid "normal"
-msgstr "Generelt"
+msgstr "normal"
 
 #: ID:11
 msgid "obstructed"
@@ -3253,9 +3161,8 @@ msgid "pixels"
 msgstr "punkter"
 
 #: Control-ID:1018
-#, fuzzy
 msgid "re&cursive"
-msgstr "rekursiv"
+msgstr "re&kursiv"
 
 #: ID:10
 msgid "replaced"
@@ -3266,47 +3173,42 @@ msgid "save authentication"
 msgstr "gem adgangskontrol"
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
-"svn:eol-style\r\n"
+"svn:eol-style\n"
 "En af de 'indbyggede', 'LF', 'CR', 'CRLF'."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
-"svn:executable\r\n"
+"svn:executable\n"
 "Hvis angivet, marker filen som udførbar. Denne egenskab kan ikke sættes på en mappe. Et ikke-rekursivt forsøg vil fejle, og et rekursivt forsøg vil kun sætte egenskaben på filerne indeni mappen."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
-"svn:externals\r\n"
-"En linieskift-adskilt liste af modullbeskrivelser, der hver består af en relativ mappesti, valgfrie revisionsflag, og en URL. For eksempel\r\n"
-"bop\t\thttp://eksempel.dk/arkiver/zig\r\n"
+"svn:externals\n"
+"En linieskift-adskilt liste af modullbeskrivelser, der hver består af en relativ mappesti, valgfrie revisionsflag, og en URL. For eksempel\n"
+"bop\t\thttp://eksempel.dk/arkiver/zig\n"
 "boppe/lop -r 1234\thttp://eksempel.dk/arkiver/zag"
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
-"svn:ignore\r\n"
+"svn:ignore\n"
 "En linieskift-adskilt liste af fil-mønstre der skal ignoreres."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -3316,21 +3218,20 @@ msgid ""
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
-"svn:keywords\r\n"
-"Nøgleord der udvider sig. Tilladte nøgleord er::\r\n"
-"URL, HeadURL\t\t\tURL'en for seneste version af objektet.\r\n"
-"Author, LastChangedBy\t\tDen seneste person, der ændrede filen.\r\n"
-"Date, LastChangedDate\t\tDato/tidspunkt for seneste ændring i objektet.\r\n"
-"Rev, LastChangedRevision\tDen seneste revision for det ændrede objekt.\r\n"
+"svn:keywords\n"
+"Nøgleord der udvider sig. Tilladte nøgleord er::\n"
+"URL, HeadURL\t\t\tURL'en for seneste version af objektet.\n"
+"Author, LastChangedBy\t\tDen seneste person, der ændrede filen.\n"
+"Date, LastChangedDate\t\tDato/tidspunkt for seneste ændring i objektet.\n"
+"Rev, LastChangedRevision\tDen seneste revision for det ændrede objekt.\n"
 "Id\t\t\t\tEn kortfattet opsummering af de ovenstående nøgleord."
 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
-"svn:mime-type\r\n"
+"svn:mime-type\n"
 "Filens mimetype. Bruges til at afgøre om at filen skal flettes, og hvordan den sendes fra Apache web-serveren. En mimetype der begynder med 'text/' (eller en manglende mimetype) bliver behandlet som tekst. Alt andet bliver behandlet som binært materiale."
 
 #: ID:80
@@ -3338,12 +3239,12 @@ msgid "to %s"
 msgstr "til %s"
 
 #: Control-ID:1112
-#, fuzzy
 msgid "your version is:"
-msgstr "URL for Subversion elementer"
+msgstr "din version er:"
 
 # ID:201,
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
-msgstr ""
+msgstr "din version er: %d.%d.%d.%d"
+
 
