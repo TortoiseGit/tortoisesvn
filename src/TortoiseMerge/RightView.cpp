@@ -70,7 +70,7 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 		CString temp;
 		if (!m_pwndBottom->IsWindowVisible())
 		{
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
+			temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
 		}
 		else
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);

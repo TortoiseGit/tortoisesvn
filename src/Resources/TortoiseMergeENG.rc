@@ -583,6 +583,7 @@ BEGIN
     IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK 
                             "Use text block from ""y&ours"" before ""theirs"""
     IDS_VIEWCONTEXTMENU_USETHISFILE "Use this &whole file"
+    IDS_VIEWCONTEXTMENU_USEOTHERBLOCK "Use &other text block"
 END
 
 STRINGTABLE 
@@ -643,7 +644,6 @@ END
 STRINGTABLE 
 BEGIN
     ID_MERGE_PREVIOUSCONFLICT "Go to the previous conflict\nprevious conflict"
-    ID_MERGE_NEXTCONFLICT   "Go to the next conflict\nnext conflict"
 END
 
 #endif    // English (U.S.) resources
