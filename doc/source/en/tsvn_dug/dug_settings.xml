@@ -271,6 +271,14 @@
 									</listitem>
 								</varlistentry>
 								<varlistentry>
+									<term>%bname</term>
+									<listitem>
+										<para>
+											The window title for the base file
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
 									<term>%mine</term>
 									<listitem>
 										<para>
@@ -278,7 +286,25 @@
 										</para>
 									</listitem>
 								</varlistentry>
+								<varlistentry>
+									<term>%yname</term>
+									<listitem>
+										<para>
+											The window title for your file
+										</para>
+									</listitem>
+								</varlistentry>
 							</variablelist>
+						</para>
+						<para>
+							The window titles are not pure filenames.
+							TSVN treats that as a name to display and creates
+							the names accordingly. So e.g. if you're doing a
+							diff from a file in revision 123 with a file 
+							in your working copy, the names will be
+							<filename>filename : revision 123</filename>
+							and
+							<filename>filename : working copy</filename>
 						</para>
 					</listitem>
 				</varlistentry>
@@ -301,10 +327,26 @@
 									</listitem>
 								</varlistentry>
 								<varlistentry>
+									<term>%bname</term>
+									<listitem>
+										<para>
+											The window title for the base file
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
 									<term>%mine</term>
 									<listitem>
 										<para>
 											your own file, with your changes
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%yname</term>
+									<listitem>
+										<para>
+											The window title for your file
 										</para>
 									</listitem>
 								</varlistentry>
@@ -317,11 +359,27 @@
 									</listitem>
 								</varlistentry>
 								<varlistentry>
+									<term>%tname</term>
+									<listitem>
+										<para>
+											The window title for the file in the repository
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
 									<term>%merged</term>
 									<listitem>
 										<para>
 											the conflicted file, the result of
 											the merge operation
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%mname</term>
+									<listitem>
+										<para>
+											The window title for the merged file
 										</para>
 									</listitem>
 								</varlistentry>
@@ -333,9 +391,21 @@
 					<term>Diff Viewer</term>
 					<listitem>
 						<para>
-							A viewer program for GNU diff files (patch files).
+							A viewer program for unified-diff files (patch files).
 							If you don't have one the builtin option is to use NotePad.
 							No Parameters.
+						</para>
+						<para>
+							The original Windows NotePad program does not behave
+							well on files which do not have standard CR-LF
+							line-endings. Since most unified diff files have pure
+							LF line-endings, they do not view well in NotePad.
+							However, you can download a free NotePad replacement
+							<ulink url="http://www.flos-freeware.ch/notepad2.html">
+								<citetitle>Notepad2</citetitle>
+							</ulink>
+							which not only displays the line-endings correctly,
+							but also colour codes the added and removed lines.
 						</para>
 					</listitem>
 				</varlistentry>
