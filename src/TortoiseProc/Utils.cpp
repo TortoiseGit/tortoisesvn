@@ -398,9 +398,7 @@ void CUtils::Unescape(LPTSTR psz)
 
 	while (*pszSource != '\0' && *pszDest != '\0')
 	{
-		if (*pszSource == '+')
-			*pszDest++ = ' ';
-		else if (*pszSource == '%')
+		if (*pszSource == '%')
 		{
 			// The next two chars following '%' should be digits
 			if ( *(pszSource + 1) == '\0' ||

@@ -41,6 +41,8 @@
 - BUG: If no log entry was selected a right-click
        or a left-click on the message area below
        crashed the log dialog. (Stefan)
+- BUG: The repository browser handled the "+" sign
+       in e.g svn+ssh:// url incorrectly. (Stefan)
 
 Version 0.21
 - ADD: If multiple targets are selected for
