@@ -147,9 +147,9 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, MAX_PATH, NULL, NULL);
 
 	std::wofstream File;
-	File.open(filepath, std::ios_base::binary);
-	File << _T("\xEF\xBB\xBF");
-	File.close();
+//	File.open(filepath, std::ios_base::binary);
+//	File << _T("\xEF\xBB\xBF");
+//	File.close();
 	File.imbue(std::locale(std::locale(), new utf8_conversion()));
 	File.open(filepath, std::ios_base::app);
 	File << _T("# SOME DESCRIPTIVE TITLE.\n");
