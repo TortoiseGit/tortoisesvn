@@ -84,6 +84,12 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 	m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
+	if ((m_dwFontSize==0)||(m_dwFontSize == -1))
+	{
+		CString t;
+		m_cFontSizes.GetWindowText(t);
+		m_dwFontSize = _ttoi(t);
+	}
 	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
 	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
