@@ -7,11 +7,15 @@ of the headings. Tabstop 4 works well.
 If you do not already have a screen capture/image viewer program,
 download a free copy of IrfanView from www.irfanview.com
 
+Most files have some language content and therefor exist in several
+language variants. Pure graphics files are language independent.
+A file may be marked as outdated either because the content has changed,
+or because the image quality is poor.
 Key:
-#	File is out of date and needs to be captured again.
-	This may be due to content change, or poor capture quality.
--	File is correct and up-to-date.
-.	Pure graphics file, no language content.
+#	Out-of-date language dependent file.
+-	Correct language dependent file.
+*	Out-of-date pure graphics file.
+.	Correct pure graphics file.
 
 
 En	De	Filename
@@ -32,11 +36,11 @@ En	De	Filename
 -	#	Checkout.png
 -	#	Commit.png
 -	#	CommitContextMenu.png
-#	#	CommitProgress.png
+-	#	CommitProgress.png
 .	.	ConflictIcon.png
-#	#	ContextMenuDirControl.png
+-	#	ContextMenuDirControl.png
 -	#	ContextMenuDirNoControl.png
-#	#	ContextMenuFileControl.png
+-	#	ContextMenuFileControl.png
 -	#	ContextMenuFileNoControl.png
 -	#	Copy.png
 .	.	DeletedIcon.png
@@ -45,9 +49,9 @@ En	De	Filename
 .	.	important_sml.png
 .	.	InSubVersionIcon.png
 .	.	link.png
-#	#	LogContextMenu.png
-#	#	LogContextMenu2.png
-#	#	LogMessages.png
+-	#	LogContextMenu.png
+-	#	LogContextMenu2.png
+-	#	LogMessages.png
 -	#	Merge.png
 #	#	MergeOnePane.png
 #	#	MergeOpen.png
@@ -56,7 +60,7 @@ En	De	Filename
 #	#	MergeThreePane.png
 #	#	MergeTwoPane.png
 .	.	ModifiedIcon.png
-?	?	note.png				This image is blank???
+.	.	note.png
 .	.	Overlays.png
 #	#	Properties.png
 -	#	Relocate.png
