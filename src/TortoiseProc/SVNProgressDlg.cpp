@@ -530,8 +530,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					break;
 				} // if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, true))
-				pDlg->m_nRevision = rev;
-				if (pDlg->m_nRevisionEnd > pDlg->m_nRevision)
+				pDlg->m_nUpdateStartRev = rev;
+				if (pDlg->m_nRevisionEnd > pDlg->m_nUpdateStartRev)
 					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			}
 			break;
