@@ -149,6 +149,7 @@
 #define IDS_TT_BQLOGREGEX               236
 #define IDS_MENUUNIGNORE                237
 #define IDS_MENUDESCUNIGNORE            238
+#define IDS_TT_RECURSIVE                239
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

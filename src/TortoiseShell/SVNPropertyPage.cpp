@@ -224,13 +224,17 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 			ti.hwnd = hwnd;
 			ti.hinst = NULL;
 			ti.lpszText = LPSTR_TEXTCALLBACK;
+			ti.lParam = 0;
 
 			// Send ADDTOOL messages to the tooltip control window
 			ti.uId = (UINT)GetDlgItem(hwnd, IDC_EDITVALUE);
 			SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
 			ti.uId = (UINT)cbInfo.hwndItem;
 			SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
-
+			ti.uId = (UINT)GetDlgItem(hwnd, IDC_RECURSIVE);
+			ti.lParam = IDC_RECURSIVE;
+			SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);
+			
 			return TRUE;
 		}
 	case WM_NOTIFY:
@@ -279,97 +283,105 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				lpnmtdi->szText[0] = 0;
 				lpnmtdi->lpszText = NULL;
 				lpnmtdi->uFlags = NULL;
-				if (_tcscmp(name, _T("svn:externals"))==0)
+				if (lpnmtdi->lParam == IDC_RECURSIVE)
 				{
-					LoadString(g_hResInst, IDS_TT_EXTERNALS, buf, MAX_PROP_STRING_LENGTH);
+					LoadString(g_hResInst, IDS_TT_RECURSIVE, buf, MAX_PROP_STRING_LENGTH);
 					lpnmtdi->lpszText = buf;
 				}
-				if (_tcscmp(name, _T("svn:executable"))==0)
+				else
 				{
-					LoadString(g_hResInst, IDS_TT_EXECUTABLE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("svn:mime-type"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_MIMETYPE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("svn:ignore"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_IGNORE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("svn:keywords"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_KEYWORDS, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-					nWindowWidth = 800;
-				}
-				if (_tcscmp(name, _T("svn:eol-style"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_EOLSTYLE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				
-				if (_tcscmp(name, _T("bugtraq:label"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_BQLABEL, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("bugtraq:message"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_BQMESSAGE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("bugtraq:number"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_BQNUMBER, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("bugtraq:url"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_BQURL, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("bugtraq:warnifnoissue"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_BQWARNNOISSUE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("bugtraq:append"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_BQAPPEND, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("bugtraq:logregex"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_BQLOGREGEX, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("tsvn:logtemplate"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_TSVNLOGTEMPLATE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("tsvn:logwidthmarker"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_TSVNLOGWIDTHMARKER, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("tsvn:logminsize"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_TSVNLOGMINSIZE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("tsvn:logfilelistenglish"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_TSVNLOGFILELISTENGLISH, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
-				}
-				if (_tcscmp(name, _T("tsvn:projectlanguage"))==0)
-				{
-					LoadString(g_hResInst, IDS_TT_TSVNPROJECTLANGUAGE, buf, MAX_PROP_STRING_LENGTH);
-					lpnmtdi->lpszText = buf;
+					if (_tcscmp(name, _T("svn:externals"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_EXTERNALS, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("svn:executable"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_EXECUTABLE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("svn:mime-type"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_MIMETYPE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("svn:ignore"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_IGNORE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("svn:keywords"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_KEYWORDS, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+						nWindowWidth = 800;
+					}
+					if (_tcscmp(name, _T("svn:eol-style"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_EOLSTYLE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+
+					if (_tcscmp(name, _T("bugtraq:label"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_BQLABEL, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("bugtraq:message"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_BQMESSAGE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("bugtraq:number"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_BQNUMBER, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("bugtraq:url"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_BQURL, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("bugtraq:warnifnoissue"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_BQWARNNOISSUE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("bugtraq:append"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_BQAPPEND, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("bugtraq:logregex"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_BQLOGREGEX, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("tsvn:logtemplate"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_TSVNLOGTEMPLATE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("tsvn:logwidthmarker"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_TSVNLOGWIDTHMARKER, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("tsvn:logminsize"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_TSVNLOGMINSIZE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("tsvn:logfilelistenglish"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_TSVNLOGFILELISTENGLISH, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
+					if (_tcscmp(name, _T("tsvn:projectlanguage"))==0)
+					{
+						LoadString(g_hResInst, IDS_TT_TSVNPROJECTLANGUAGE, buf, MAX_PROP_STRING_LENGTH);
+						lpnmtdi->lpszText = buf;
+					}
 				}
 
 				SendMessage(lpnmtdi->hdr.hwndFrom, TTM_SETMAXTIPWIDTH, 0, nWindowWidth);
