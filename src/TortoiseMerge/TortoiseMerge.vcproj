@@ -190,6 +190,12 @@
 				RelativePath=".\RightView.cpp">
 			</File>
 			<File
+				RelativePath=".\SetMainPage.cpp">
+			</File>
+			<File
+				RelativePath=".\Settings.cpp">
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -282,9 +288,6 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
-				RelativePath="..\Languages\resource.h">
-			</File>
-			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -304,7 +307,16 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\Languages\resource.h">
+			</File>
+			<File
 				RelativePath=".\RightView.h">
+			</File>
+			<File
+				RelativePath=".\SetMainPage.h">
+			</File>
+			<File
+				RelativePath=".\Settings.h">
 			</File>
 			<File
 				RelativePath=".\stdafx.h">
@@ -361,15 +373,15 @@
 			RelativePath="..\Languages\res\download.avi">
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseMerge.manifest">
+			RelativePath=".\res\TortoiseMerge.manifest">
 		</File>
 		<File
-			RelativePath=".\res\TortoiseMerge.manifest">
+			RelativePath="..\Languages\res\TortoiseMerge.manifest">
 		</File>
 	</Files>
 	<Globals>
 		<Global
 			Name="RESOURCE_FILE"
-			Value="\Development\Svn\TortoiseSVN\src\Languages\TortoiseMergeENG.rc"/>
+			Value="\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseMergeENG.rc"/>
 	</Globals>
 </VisualStudioProject>

@@ -6,6 +6,7 @@
 #include "OpenDlg.h"
 #include "Patch.h"
 #include "ProgressDlg.h"
+#include "Settings.h"
 
 #include "MainFrm.h"
 #include ".\mainfrm.h"
@@ -36,6 +37,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_COMMAND(ID_VIEW_ONEWAYDIFF, OnViewOnewaydiff)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_ONEWAYDIFF, OnUpdateViewOnewaydiff)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACES, OnUpdateViewWhitespaces)
+	ON_COMMAND(ID_VIEW_OPTIONS, OnViewOptions)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -670,3 +672,10 @@ void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 	pCmdUI->Enable(bEnable);
 }
 
+void CMainFrame::OnViewOptions()
+{
+	CString sTemp;
+	sTemp.LoadString(IDS_SETTINGSTITLE);
+	CSettings dlg(sTemp);
+	dlg.DoModal();
+}

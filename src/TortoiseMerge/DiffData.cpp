@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "diff.h"
 #include "TempFiles.h"
+#include "registry.h"
 #include "Resource.h"
 #include ".\diffdata.h"
 
@@ -168,6 +169,10 @@ BOOL CDiffData::Load()
 
 	CFileTextLines converted;
 	CTempFiles tempfiles;
+	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
+	CRegDWORD regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
+	DWORD dwIgnoreWS = regIgnoreWS;
+	BOOL bIgnoreEOL = ((DWORD)regIgnoreEOL)!=0;
 	if (!m_sBaseFile.IsEmpty())
 	{
 		if (!m_arBaseFile.Load(m_sBaseFile))
@@ -184,7 +189,7 @@ BOOL CDiffData::Load()
 		{
 			CString sTemp = tempfiles.GetTempFilePath();
 			fc1 = sTemp;
-			converted.Save(sTemp, TRUE, TRUE);
+			converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
 		}
 	} // if (!m_sBaseFile.IsEmpty())
 	if (!m_sTheirFile.IsEmpty())
@@ -203,7 +208,7 @@ BOOL CDiffData::Load()
 		{
 			CString sTemp = tempfiles.GetTempFilePath();
 			fc2 = sTemp;
-			converted.Save(sTemp, TRUE, TRUE);
+			converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
 		}
 	} // if (!m_sTheirFile.IsEmpty())
 	if (!m_sYourFile.IsEmpty())
@@ -222,7 +227,7 @@ BOOL CDiffData::Load()
 		{
 			CString sTemp = tempfiles.GetTempFilePath();
 			fc3 = sTemp;
-			converted.Save(sTemp, TRUE, TRUE);
+			converted.Save(sTemp, dwIgnoreWS > 0, bIgnoreEOL);
 		}
 	} // if (!m_sYourFile.IsEmpty()) 
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
@@ -287,7 +292,7 @@ BOOL CDiffData::Load()
 					m_arDiffYourBaseRight.Add(m_arYourFile.GetAt(yourline));
 					if (m_arBaseFile.GetAt(baseline).Compare(m_arYourFile.GetAt(yourline))!=0)
 					{
-						if (TRUE)		//TODO : m_bIgnoreLeadingWhitespaces
+						if (dwIgnoreWS == 2)
 						{
 							CString s1 = m_arBaseFile.GetAt(baseline);
 							s1 = s1.TrimLeft(_T(" \t"));
@@ -417,7 +422,7 @@ BOOL CDiffData::Load()
 					m_arDiffTheirBaseRight.Add(m_arTheirFile.GetAt(theirline));
 					if (m_arBaseFile.GetAt(baseline).Compare(m_arTheirFile.GetAt(theirline))!=0)
 					{
-						if (TRUE)		//TODO : m_bIgnoreLeadingWhitespaces
+						if (dwIgnoreWS == 2)
 						{
 							CString s1 = m_arBaseFile.GetAt(baseline);
 							s1 = s1.TrimLeft(_T(" \t"));

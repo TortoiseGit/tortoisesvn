@@ -186,6 +186,32 @@ BEGIN
     LTEXT           "Directory:",IDC_STATIC,14,153,46,8
 END
 
+IDD_SETMAINPAGE DIALOGEX 0, 0, 265, 156
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "General"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Misc",IDC_MISCGROUP,7,7,251,70
+    CONTROL         "Backup original file",IDC_BACKUP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,17,236,10
+    CONTROL         "Jump to first difference when loading",
+                    IDC_FIRSTDIFFONLOAD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,31,236,10
+    LTEXT           "Tab Size:",IDC_STATIC,15,61,54,8
+    EDITTEXT        IDC_TABSIZE,81,58,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Diffing",IDC_DIFFGROUP,7,81,251,68
+    CONTROL         "Ignore Lineendings (recommended)",IDC_IGNORELF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,94,236,10
+    CONTROL         "Compare Whitespaces",IDC_WSCOMPARE,"Button",
+                    BS_AUTORADIOBUTTON,15,109,236,10
+    CONTROL         "Ignore Leading Whitespaces",IDC_WSIGNORELEADING,"Button",
+                    BS_AUTORADIOBUTTON,15,119,236,10
+    CONTROL         "Ignore All Whitespaces",IDC_WSIGNOREALL,"Button",
+                    BS_AUTORADIOBUTTON,15,129,236,10
+    CONTROL         "Use one-pane view as default",IDC_ONEPANE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,45,236,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -213,6 +239,17 @@ BEGIN
         VERTGUIDE, 310
         TOPMARGIN, 7
         BOTTOMMARGIN, 202
+    END
+
+    IDD_SETMAINPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        VERTGUIDE, 7
+        VERTGUIDE, 15
+        VERTGUIDE, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -268,7 +305,9 @@ BEGIN
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "&Whitespaces",                ID_VIEW_WHITESPACES
-        MENUITEM "&Oneway Diff",                ID_VIEW_ONEWAYDIFF
+        MENUITEM "Oneway &Diff",                ID_VIEW_ONEWAYDIFF
+        MENUITEM SEPARATOR
+        MENUITEM "&Options",                    ID_VIEW_OPTIONS
     END
     POPUP "&Merge"
     BEGIN
@@ -450,6 +489,7 @@ BEGIN
     ID_MERGE_NEXTDIFFERENCE "Go to the next difference\nnext difference"
     ID_MERGE_PREVIOUSDIFFERENCE 
                             "Go to the previous difference\nprevious difference"
+    ID_VIEW_OPTIONS         "Adjust the settings"
 END
 
 STRINGTABLE 
@@ -538,6 +578,7 @@ STRINGTABLE
 BEGIN
     IDS_ABOUTVERSION        "TortoiseMerge %d.%d.%d, Build %d, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-iconv %d.%d.%d\r\napr-utils %d.%d.%d"
     IDS_ABOUTVERSIONBOX     "TortoiseMerge %d.%d.%d, Build %d"
+    IDS_SETTINGSTITLE       "Settings"
 END
 
 #endif    // English (U.S.) resources

@@ -45,3 +45,4 @@
 
 #define USE_NEW_DOCK_BAR 
 #include "NewMenu.h"
+#include <afxdlgs.h>

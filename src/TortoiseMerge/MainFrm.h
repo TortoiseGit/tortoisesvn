@@ -68,6 +68,7 @@ public:
 	afx_msg void OnViewOnewaydiff();
 	afx_msg void OnUpdateViewOnewaydiff(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateViewWhitespaces(CCmdUI *pCmdUI);
+	afx_msg void OnViewOptions();
 };
 
 
