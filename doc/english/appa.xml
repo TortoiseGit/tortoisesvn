@@ -332,10 +332,18 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						<para>Commit the changes in your working copy</para>
 					</listitem>
 					<listitem>
-						<para>Rename the file from <filename>UPPERcase</filename> to <filename>upperCASE</filename> inside the repository using the <guimenuitem>repository browser</guimenuitem>.</para>
+						<para>Rename the file from <filename>UPPERcase</filename> 
+						to <filename>upperCASE</filename> inside the repository 
+						using the <guimenuitem>repository browser</guimenuitem>.
+						</para>
 					</listitem>
 					<listitem>
-						<para>Delete your working copy and do a fresh checkout. Just updating won't work, because it will result in an obstructed update</para>
+						<para>Delete your working copy and do a fresh 
+						checkout. Just updating won't work, because it will 
+						result in an obstructed update.</para>
+						<para>If you don't want to checkout the whole working
+						copy again, delete the parent folder of the file you've
+						just renamed and do an update. </para>
 					</listitem>
 				</orderedlist>
 			</para>
