@@ -2,6 +2,9 @@
 - ADD: The "check for updates" dialog shows a "+" after
        a added/deleted filestatus if it was actually a
        rename/move/copy. (Stefan)
+- ADD: TortoiseMerge indicates the found diff (when using
+       the commands "go to next/previous diff") by selecting
+       them. (Stefan)
 - BUG: TortoiseMerge skipped diffs of one line with the
        "Next Diff" or "Previous Diff" commands. (Stefan)
 

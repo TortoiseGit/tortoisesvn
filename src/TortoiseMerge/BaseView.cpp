@@ -1235,6 +1235,8 @@ void CBaseView::GoToFirstDifference()
 void CBaseView::OnMergeNextdifference()
 {
 	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
+	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
+		nCenterPos = m_nSelBlockEnd;
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
@@ -1253,16 +1255,33 @@ void CBaseView::OnMergeNextdifference()
 				break;
 			nCenterPos++;
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
+		if (nCenterPos > (m_arLineStates->GetCount()-1))
+			nCenterPos = m_arLineStates->GetCount()-1;
+		m_nSelBlockStart = nCenterPos;
+		m_nSelBlockEnd = nCenterPos;
+		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		while (m_nSelBlockEnd < (m_arLineStates->GetCount()-1))
+		{
+			if (linestate != m_arLineStates->GetAt(++m_nSelBlockEnd))
+				break;
+		} // while (nIndex < m_arLineStates->GetCount())
+		if ((m_nSelBlockEnd == (m_arLineStates->GetCount()-1))&&(linestate == m_arLineStates->GetAt(m_nSelBlockEnd)))
+			m_nSelBlockEnd = m_nSelBlockEnd;
+		else
+			m_nSelBlockEnd = m_nSelBlockEnd-1;
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos);
+		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
 void CBaseView::OnMergePreviousdifference()
 {
 	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
+	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
+		nCenterPos = m_nSelBlockStart;
 	if ((m_arLineStates)&&(m_nTopLine < m_arLineStates->GetCount()))
 	{
 		if (nCenterPos >= m_arLineStates->GetCount())
@@ -1281,10 +1300,25 @@ void CBaseView::OnMergePreviousdifference()
 				break;
 			nCenterPos--;
 		} // while (nCenterPos > m_arLineStates->GetCount()) 
+		if (nCenterPos < 0)
+			nCenterPos = 0;
+		m_nSelBlockStart = nCenterPos;
+		m_nSelBlockEnd = nCenterPos;
+		CDiffData::DiffStates linestate = (CDiffData::DiffStates)m_arLineStates->GetAt(nCenterPos);
+		while ((m_nSelBlockStart < (m_arLineStates->GetCount()-1))&&(m_nSelBlockStart > 0))
+		{
+			if (linestate != m_arLineStates->GetAt(--m_nSelBlockStart))
+				break;
+		} // while (nIndex < m_arLineStates->GetCount())
+		if ((m_nSelBlockStart == (m_arLineStates->GetCount()-1))&&(linestate == m_arLineStates->GetAt(m_nSelBlockStart)))
+			m_nSelBlockStart = m_nSelBlockStart;
+		else
+			m_nSelBlockStart = m_nSelBlockStart+1;
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
 		ScrollAllToLine(nTopPos);
+		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
