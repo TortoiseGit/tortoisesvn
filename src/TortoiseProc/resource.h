@@ -180,6 +180,8 @@
 #define IDC_REVISION_START              1118
 #define IDC_BUGIDLABEL                  1119
 #define IDC_ENGLISHTEMPLATE             1121
+#define IDC_CHECK1                      1123
+#define IDC_NOCLOSEONRED                1123
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -403,6 +405,8 @@
 #define IDS_REPOCREATE_WHICHTYPE        3400
 #define IDS_REPOCREATE_TYPE_BDB         3401
 #define IDS_REPOCREATE_TYPE_FSFS        3402
+#define IDS_PROGRS_CONFLICTSOCCURED_WARNING 3500
+#define IDS_PROGRS_CONFLICTSOCCURED     3501
 #define IDS_SVNERR_CHECKPATHORURL       4000
 #define IDS_SVNERR_RUNCLEANUP           4001
 #define IDS_SVNERR_UPDATEFIRST          4002
@@ -414,7 +418,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        178
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1123
+#define _APS_NEXT_CONTROL_VALUE         1124
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

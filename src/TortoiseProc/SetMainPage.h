@@ -103,6 +103,8 @@ private:
 	DWORD			m_nMinLogSize;
 	CRegDWORD		m_regEnglishTemplate;
 	BOOL			m_bEnglishTemplate;
+	CRegDWORD		m_regNoCloseOnRed;
+	BOOL			m_bNoCloseOnRed;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -122,4 +124,5 @@ public:
 	afx_msg void OnEnChangeMinlogsize();
 	afx_msg void OnBnClickedClearauth();
 	afx_msg void OnBnClickedEnglishtemplate();
+	afx_msg void OnBnClickedNocloseonred();
 };

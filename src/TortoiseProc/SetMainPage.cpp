@@ -40,6 +40,7 @@ CSetMainPage::CSetMainPage()
 	, m_bCheckNewer(TRUE)
 	, m_nMinLogSize(10)
 	, m_bEnglishTemplate(FALSE)
+	, m_bNoCloseOnRed(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
@@ -53,6 +54,7 @@ CSetMainPage::CSetMainPage()
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
 	m_regMinLogSize = CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0);
 	m_regEnglishTemplate = CRegDWORD(_T("Software\\TortoiseSVN\\EnglishTemplate"), FALSE);
+	m_regNoCloseOnRed = CRegDWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -78,6 +80,7 @@ void CSetMainPage::SaveData()
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
 	m_regMinLogSize = m_nMinLogSize;
 	m_regEnglishTemplate = m_bEnglishTemplate;
+	m_regNoCloseOnRed = m_bNoCloseOnRed;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -106,6 +109,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_MINLOGSIZE, m_nMinLogSize);
 	DDV_MinMaxUInt(pDX, m_nMinLogSize, 0, 100);
 	DDX_Check(pDX, IDC_ENGLISHTEMPLATE, m_bEnglishTemplate);
+	DDX_Check(pDX, IDC_NOCLOSEONRED, m_bNoCloseOnRed);
 }
 
 
@@ -124,6 +128,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_MINLOGSIZE, OnEnChangeMinlogsize)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
 	ON_BN_CLICKED(IDC_ENGLISHTEMPLATE, OnBnClickedEnglishtemplate)
+	ON_BN_CLICKED(IDC_NOCLOSEONRED, OnBnClickedNocloseonred)
 END_MESSAGE_MAP()
 
 
@@ -152,6 +157,9 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bCheckNewer = m_regCheckNewer;
 	m_nMinLogSize = m_regMinLogSize;
 	m_bEnglishTemplate = m_regEnglishTemplate;
+	m_bNoCloseOnRed = m_regNoCloseOnRed;
+
+	GetDlgItem(IDC_NOCLOSEONRED)->EnableWindow(m_bAutoClose);
 
 	CString temp;
 	temp = m_regLastCommitTime;
@@ -255,6 +263,7 @@ void CSetMainPage::OnBnClickedNoremovelogmsg()
 void CSetMainPage::OnBnClickedAutoclose()
 {
 	SetModified();
+	GetDlgItem(IDC_NOCLOSEONRED)->EnableWindow(IsDlgButtonChecked(IDC_AUTOCLOSE));
 }
 
 void CSetMainPage::OnBnClickedShortdateformat()
@@ -297,6 +306,11 @@ void CSetMainPage::OnBnClickedEnglishtemplate()
 	SetModified();
 }
 
+void CSetMainPage::OnBnClickedNocloseonred()
+{
+	SetModified();
+}
+
 BOOL CSetMainPage::OnApply()
 {
 	UpdateData();
@@ -332,6 +346,7 @@ void CSetMainPage::OnBnClickedClearauth()
 		SHFileOperation(&fileop);
 	}
 }
+
 
 
 

@@ -40,6 +40,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bCloseOnEnd = FALSE;
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
+	m_bRedEvents = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
@@ -137,6 +138,13 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 			temp.Format(IDS_PROGRS_ATREV, rev);
 			m_ProgList.SetItemText(count, 1, temp);
 			m_RevisionEnd = rev;
+			if (m_bRedEvents)
+			{
+				temp.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
+				m_ProgList.InsertItem(count+1, temp);
+				temp.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
+				m_ProgList.SetItemText(count+1, 1, temp);
+			}
 		}
 		m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
 		Data * data = new Data();
@@ -148,6 +156,10 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 		data->prop_state = prop_state;
 		data->rev = rev;
 		m_arData.Add(data);
+		if (action == svn_wc_notify_update_update)
+			if ((content_state == svn_wc_notify_state_conflicted) || (prop_state == svn_wc_notify_state_conflicted))
+				m_bRedEvents = TRUE;
+
 		//make colums width fit
 		ResizeColumns();
 
@@ -648,7 +660,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	SetCursorPos(pt.x, pt.y);
 	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE) ||
 		pDlg->m_bCloseOnEnd)
-		pDlg->PostMessage(WM_COMMAND, 1, (LPARAM)pDlg->GetDlgItem(IDOK)->m_hWnd);
+	{
+		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!pDlg->m_bRedEvents) || pDlg->m_bCloseOnEnd) 
+			pDlg->PostMessage(WM_COMMAND, 1, (LPARAM)pDlg->GetDlgItem(IDOK)->m_hWnd);
+	}
 	return 0;
 }
 
