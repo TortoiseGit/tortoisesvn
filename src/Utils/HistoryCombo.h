@@ -23,14 +23,14 @@
 
 /**
  * \ingroup Utils
- * Extends the CComboBox class with a history of entered
+ * Extends the CComboBoxEx class with a history of entered
  * values. An example of such a combobox is the Start/Run
  * dialog which lists the programs you used last in a combobox.
  * To use this class do the following:
  * -# add both files HistoryCombo.h and HistoryCombo.cpp to your project.
- * -# add a ComboBox to your dialog
+ * -# add a ComboBoxEx to your dialog
  * -# create a variable for the ComboBox of type control
- * -# change the type of the created variable from CComboBox to
+ * -# change the type of the created variable from CComboBoxEx to
  *   CHistoryCombo
  * -# in your OnInitDialog() call the LoadHistory() method
  * -# in your OnOK() or somewhere similar call the SaveHistory() method
@@ -56,7 +56,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CHistoryCombo : public CComboBox
+class CHistoryCombo : public CComboBoxEx
 {
 // Construction
 public:
@@ -65,10 +65,11 @@ public:
 // Operations
 public:
 	/**
-	 * Overloaded from base class. It adds the string not only
-	 * to the combobox but also to the history.
+	 * Adds the URL to both the combobox and the history.
+	 * If \a pos is specified, insert the URL at the specified
+	 * position, otherwise add it to the end of the list.
 	 */
-	int AddString(LPCTSTR lpszString);
+	int AddURL(CString url, INT_PTR pos = -1);
 
 // Overrides
 	// ClassWizard generated virtual function overrides

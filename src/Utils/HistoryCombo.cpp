@@ -17,9 +17,10 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "stdafx.h"
 #include "HistoryCombo.h"
+#include "SysImageList.h"
 #include "shlwapi.h"
 
-#define MAX_HISTORY_ITEMS 10
+#define MAX_HISTORY_ITEMS 25
 
 CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
 {
@@ -35,36 +36,54 @@ BOOL CHistoryCombo::PreCreateWindow(CREATESTRUCT& cs)
 {
 	if (!m_bAllowSortStyle)  //turn off CBS_SORT style
 		cs.style &= ~CBS_SORT;
-	return CComboBox::PreCreateWindow(cs);
+	return CComboBoxEx::PreCreateWindow(cs);
 }
 
-BEGIN_MESSAGE_MAP(CHistoryCombo, CComboBox)
+BEGIN_MESSAGE_MAP(CHistoryCombo, CComboBoxEx)
 	//{{AFX_MSG_MAP(CHistoryCombo)
 	// NOTE - the ClassWizard will add and remove mapping macros here.
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-int CHistoryCombo::AddString(LPCTSTR lpszString)
+int CHistoryCombo::AddURL(CString url, INT_PTR pos)
 {
-	if (m_sSection.IsEmpty() || m_sKeyPrefix.IsEmpty())
-		return CComboBox::AddString(lpszString);
+	COMBOBOXEXITEM cbei;
+	ZeroMemory(&cbei, sizeof cbei);
+	cbei.mask = CBEIF_TEXT | CBEIF_IMAGE | CBEIF_SELECTEDIMAGE;
 
-	int nRet = -1;
-	//add the string
-	CString sString(lpszString);
-	sString.Trim(_T(" "));
-	nRet = CComboBox::InsertString(0, sString);
-	//search zhe Combo for another string like this
+	if (pos < 0)
+        cbei.iItem = GetCount();
+	else
+		cbei.iItem = pos;
+
+	url.Trim(_T(" "));
+	cbei.pszText = const_cast<LPTSTR>(url.GetString());
+
+	cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(url);
+	if (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex())
+	{
+		if (url.Left(5) == _T("http:"))
+			cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".html"));
+		else if (url.Left(6) == _T("https:"))
+			cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".shtml"));
+		else if (url.Left(5) == _T("file:"))
+			cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
+	}
+	cbei.iSelectedImage = cbei.iImage;
+
+	int nRet = InsertItem(&cbei);
+
+	//search the Combo for another string like this
 	//and delete it if one is found
-	int nIndex = FindStringExact(0, sString);
-	if (nIndex != -1 && nIndex != 0)
-		DeleteString(nIndex);
+	int nIndex = FindStringExact(0, url);
+	if (nIndex != -1 && nIndex != nRet)
+		DeleteItem(nIndex);
 
 	//truncate list to m_nMaxHistoryItems
 	int nNumItems = GetCount();
 	for (int n = m_nMaxHistoryItems; n < nNumItems; n++)
 	{
-		DeleteString(m_nMaxHistoryItems);
+		DeleteItem(m_nMaxHistoryItems);
 	}
 
 	SetCurSel(nRet);
@@ -89,7 +108,7 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix,  
 		sKey.Format(_T("%s%d"), m_sKeyPrefix, n++);
 		sText = pApp->GetProfileString(m_sSection, sKey);
 		if (!sText.IsEmpty())
-			CComboBox::AddString(sText);
+			AddURL(sText);
 	} while (!sText.IsEmpty() && n < m_nMaxHistoryItems);
 
 	SetCurSel(0);
@@ -111,8 +130,18 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix,  
 			} // if(hwndEdit==NULL) 
 		} // if (NULL == hwndEdit) 
 		if (hwndEdit)
-			SHAutoComplete(hwndEdit, SHACF_AUTOSUGGEST_FORCE_OFF | SHACF_AUTOAPPEND_FORCE_ON | SHACF_URLALL);
+			SHAutoComplete(hwndEdit, SHACF_URLALL);
 	} // if (bUseShellURLHistory) 
+
+	ModifyStyleEx(WS_EX_DLGMODALFRAME | WS_EX_WINDOWEDGE, 0);
+	SetImageList(&SYS_IMAGE_LIST());
+
+	// need to resize the control for correct display
+	CRect rect;
+	GetWindowRect(rect);
+	GetParent()->ScreenToClient(rect);
+	MoveWindow(rect.left, rect.top, rect.Width(), 100);
+
 	return sText;
 }
 
@@ -129,7 +158,7 @@ void CHistoryCombo::SaveHistory()
 	GetWindowText(sCurItem);
 	sCurItem.Trim();
 	if (!sCurItem.IsEmpty())
-		AddString(sCurItem);
+		AddURL(sCurItem, 0);
 	//save history to registry/inifile
 	int nMax = min(GetCount(), m_nMaxHistoryItems + 1);
 	for (int n = 0; n < nMax; n++)
