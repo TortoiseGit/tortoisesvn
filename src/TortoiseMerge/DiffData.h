@@ -71,26 +71,26 @@ public:
 
 	enum DiffStates
 	{
-		DIFFSTATE_UNKNOWN,
-		DIFFSTATE_NORMAL,
-		DIFFSTATE_REMOVED,
-		DIFFSTATE_REMOVEDWHITESPACE,
-		DIFFSTATE_ADDED,
-		DIFFSTATE_ADDEDWHITESPACE,
-		DIFFSTATE_WHITESPACE,
-		DIFFSTATE_WHITESPACE_DIFF,
-		DIFFSTATE_EMPTY,
-		DIFFSTATE_CONFLICTED,
-		DIFFSTATE_CONFLICTADDED,
-		DIFFSTATE_CONFLICTEMPTY,
-		DIFFSTATE_IDENTICAL,
-		DIFFSTATE_IDENTICALREMOVED,
-		DIFFSTATE_IDENTICALADDED,
-		DIFFSTATE_THEIRSREMOVED,
-		DIFFSTATE_THEIRSADDED,
-		DIFFSTATE_YOURSREMOVED,
-		DIFFSTATE_YOURSADDED,
-		DIFFSTATE_END
+		DIFFSTATE_UNKNOWN,					///< e.g. an empty file
+		DIFFSTATE_NORMAL,					///< no diffs found
+		DIFFSTATE_REMOVED,					///< line was removed
+		DIFFSTATE_REMOVEDWHITESPACE,		///< line was removed (whitespace diff)
+		DIFFSTATE_ADDED,					///< line was added
+		DIFFSTATE_ADDEDWHITESPACE,			///< line was added (whitespace diff)
+		DIFFSTATE_WHITESPACE,				///< line differs in whitespaces only
+		DIFFSTATE_WHITESPACE_DIFF,			///< the in-line diffs of whitespaces
+		DIFFSTATE_EMPTY,					///< empty line
+		DIFFSTATE_CONFLICTED,				///< conflicted line
+		DIFFSTATE_CONFLICTADDED,			///< added line results in conflict
+		DIFFSTATE_CONFLICTEMPTY,			///< removed line results in conflict
+		DIFFSTATE_IDENTICAL,				///< identical changes in theirs and yours
+		DIFFSTATE_IDENTICALREMOVED,			///< identical removed lines in theirs and yours
+		DIFFSTATE_IDENTICALADDED,			///< identical added lines in theirs and yours
+		DIFFSTATE_THEIRSREMOVED,			///< removed line in theirs
+		DIFFSTATE_THEIRSADDED,				///< added line in theirs
+		DIFFSTATE_YOURSREMOVED,				///< removed line in yours
+		DIFFSTATE_YOURSADDED,				///< added line in yours
+		DIFFSTATE_END						///< end marker for enum
 	} ;
 
 	BOOL						Load();
