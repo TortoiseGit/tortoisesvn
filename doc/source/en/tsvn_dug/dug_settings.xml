@@ -30,11 +30,14 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Exclude pattern</term>
+					<term>Exclude/Ignore pattern</term>
 					<listitem>
 						<para>
 							<indexterm>
 								<primary>exclude pattern</primary>
+							</indexterm>
+							<indexterm>
+								<primary>global ignore</primary>
 							</indexterm>
 							Exclude patterns are used to prevent unversioned files from
 							showing up e.g. in the commit dialog. Files matching the
@@ -45,6 +48,13 @@
 							The first two entries refer to directories, the 
 							other four to files.
 						</para>
+						<warning>
+							If you use the subversion configuration file to set
+							a <literal>global-ignores</literal> pattern, it will
+							override the settings you made here. The Subversion
+							configuration file is accessed using the
+							<guibutton>Edit</guibutton> as described below.
+						</warning>
 						<para>
 							This exclude pattern will affect all your projects.
 							It is not versioned, so it will not affect other users.
@@ -87,7 +97,8 @@
 					<listitem>
 						<para>
 							... the subversion configuration file directly.
-							Some settings cannot be modified by TortoiseSVN.
+							Some settings cannot be modified directly by
+							TortoiseSVN, and need to be set here instead.
 							For more information about the subversion
 							<filename>config</filename> file see the  
 							<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2">
@@ -155,6 +166,18 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Force shell icon refresh</term>
+					<listitem>
+						<para>
+							If checked, TortoiseSVN will refresh all the overlay
+							icons after every operation without you having to
+							press F5. This can slow down explorer noticeably,
+							so only use it on fast PC.
+						</para>
+					</listitem>
+				</varlistentry>
+<!-- This item has been removed, but may come back another day ...
+				<varlistentry>
 					<term>Paste Log template in english</term>
 					<listitem>
 						<para>
@@ -168,6 +191,7 @@
 						</para>
 					</listitem>
 				</varlistentry>
+-->
 			</variablelist>
 		</para>
 	</sect2>
