@@ -367,6 +367,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					{
 						temp.LoadString(IDS_PROGRS_TITLEFIN);
 						pDlg->SetWindowText(temp);
+						temp.LoadString(IDS_MSGBOX_OK);
+						pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+						pDlg->m_bCancelled = TRUE;
+						pDlg->m_bThreadRunning = FALSE;
 						pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 						return 0;
 					}
