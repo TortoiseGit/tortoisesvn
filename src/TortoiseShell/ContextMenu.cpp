@@ -371,11 +371,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUDIFF, idCmdFirst, Diff);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
-	if ((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected)&&(!isFolder))
-		if (ownerdrawn)
-			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCONFLICT, idCmdFirst, ConflictEditor);
-		else
-			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUCONFLICT, IDI_CONFLICT, idCmdFirst, ConflictEditor);
 	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
 		if (ownerdrawn)
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENULOG, idCmdFirst, Log);
@@ -393,6 +388,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	}
 
+	if ((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected)&&(!isFolder))
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCONFLICT, idCmdFirst, ConflictEditor);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUCONFLICT, IDI_CONFLICT, idCmdFirst, ConflictEditor);
 	if (isInSVN)
 		if (ownerdrawn)
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATEEXT, idCmdFirst, UpdateExt);
