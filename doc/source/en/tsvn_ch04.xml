@@ -1406,7 +1406,7 @@ Rev Comments
 		<indexterm>
 			<primary>repobrowser</primary>
 		</indexterm>
-		<?dbhh topicname="IDD_REPOSITORY_BROWSER"?>
+		<?dbhh topicname="HIDD_REPOSITORY_BROWSER"?>
 		<para>
 		Sometimes you need to work directly on the repository, without having
 		a working copy. That's what the <firstterm>Repository Browser</firstterm>
@@ -1563,16 +1563,8 @@ Rev Comments
 				slow (explore is not responsive), uncheck the "show changed directories" box.
 				You can even disable all icon overlays, but where's the fun in that?
 			</para>
-		</sect2>
-		<sect2 id="tsvn-DUG-settings-menu">
-			<?dbhh topicname="HIDD_SETTINGSMENU"?>
-			<title>The Settings Dialog, Context Menu Tab</title>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-3">
-					<title>The Settings Dialog, Context Menu Tab</title>
-					<graphic fileref="images/SettingsMenu.png"/>
-				</figure>
-				In this tab you can specifiy which of the TortoiseSVN contex menu
+				You can also specifiy here which of the TortoiseSVN contex menu
 				entries shall show up in the main context menu.
 			</para>
 		</sect2>

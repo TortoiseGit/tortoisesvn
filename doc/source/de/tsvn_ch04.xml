@@ -1509,7 +1509,7 @@ Rev Log-Meldungen
 		<indexterm>
 			<primary>repobrowser</primary>
 		</indexterm>
-		<?dbhh topicname="IDD_REPOSITORY_BROWSER"?>
+		<?dbhh topicname="HIDD_REPOSITORY_BROWSER"?>
 		<para>
 		Vielleicht möchten Sie manchmal direkt im Projektarchiv Änderungen
 		vornehmen, ohne eine Arbeitskopie zu haben oder gar auschecken zu
@@ -1661,7 +1661,7 @@ Rev Log-Meldungen
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-overlay">
 		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
-			<title>Der Einstellungsdialog, Overlayseite</title>
+			<title>Der Einstellungsdialog, Look And Feel Seite</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-2">
 					<title>Der Einstellungsdialog, Overlayseite</title>
@@ -1672,20 +1672,11 @@ Rev Log-Meldungen
 				deaktivieren Sie die Einstellung <literal>Zeige veränderte Ordner</literal>.
 				Sie können auch alle überlagerten Icons deaktivieren, aber wo liegt der Spaß darin?
 			</para>
-		</sect2>
-		<sect2 id="tsvn-DUG-settings-menu">
-		<?dbhh topicname="HIDD_SETTINGSMENU"?>
-			<title>Der Einstellungsdialog, Kontextmenuseite</title>
 			<para>
-				<figure id="tsvn-DUG-settings-dia-3">
-					<title>Der Einstellungsdialog, Kontextmenuseite</title>
-					<graphic fileref="images/SettingsMenu.png"/>
-				</figure>
-				Auf dieser Seite können Sie angeben, welche Befehle im 
+				Ausserdem können Sie angeben, welche Befehle im 
 				Hauptkontextmenu des Explorer angezeigt werden sollen und welche
 				Sie lieber im Untermenu haben wollen.
 			</para>
-		</sect2>
 		<sect2 id="tsvn-DUG-settings-network">
 		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
 			<title>Der Einstellungsdialog, Netzwerkseite</title>
