@@ -78,11 +78,13 @@ CTortoiseProcApp::CTortoiseProcApp()
 {
 	EnableHtmlHelp();
 	apr_initialize();
+	SYS_IMAGE_LIST();
 }
 
 CTortoiseProcApp::~CTortoiseProcApp()
 {
 	apr_terminate();
+	SYS_IMAGE_LIST().Cleanup();
 }
 
 // The one and only CTortoiseProcApp object

@@ -78,7 +78,6 @@ CSVNStatusListCtrl::~CSVNStatusListCtrl()
 	}
 	m_templist.RemoveAll();
 	ClearStatusArray();
-	SYS_IMAGE_LIST().Cleanup();
 }
 
 void CSVNStatusListCtrl::ClearStatusArray()
