@@ -26,6 +26,7 @@
 #include "BrowseFolder.h"
 #include "Registry.h"
 #include "TSVNPath.h"
+#include ".\copydlg.h"
 
 // CCopyDlg dialog
 
@@ -37,10 +38,13 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	, m_sBugID(_T(""))
 	, m_CopyRev(SVNRev::REV_HEAD)
 {
+	m_pLogDlg = NULL;
 }
 
 CCopyDlg::~CCopyDlg()
 {
+	if (m_pLogDlg)
+		delete m_pLogDlg;
 }
 
 void CCopyDlg::DoDataExchange(CDataExchange* pDX)
@@ -55,9 +59,14 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CCopyDlg, CDialog)
+	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
+	ON_BN_CLICKED(IDC_BROWSEFROM, OnBnClickedBrowsefrom)
+	ON_BN_CLICKED(IDC_COPYHEAD, OnBnClickedCopyhead)
+	ON_BN_CLICKED(IDC_COPYREV, OnBnClickedCopyrev)
+	ON_BN_CLICKED(IDC_COPYWC, OnBnClickedCopywc)
 END_MESSAGE_MAP()
 
 
@@ -67,8 +76,20 @@ BOOL CCopyDlg::OnInitDialog()
 
 	CTSVNPath path(m_path);
 
-	CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
-
+	if (m_CopyRev.IsHead())
+	{
+		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
+		GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(FALSE);
+	}
+	else
+	{
+		CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
+		GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(TRUE);
+		CString temp;
+		temp.Format(_T("%ld"), (LONG)m_CopyRev);
+		GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
+	}
+	
 	m_bFile = !path.IsDirectory();
 	SVN svn;
 	m_wcURL = svn.GetURLFromPath(path);
@@ -78,7 +99,7 @@ BOOL CCopyDlg::OnInitDialog()
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
 		TRACE(_T("could not retrieve the URL of the file!\n"));
 		this->EndDialog(IDCANCEL);		//exit
-	} // if ((rev == (-2))||(status.status->entry == NULL))
+	}
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	m_URLCombo.AddString(m_wcURL, 0);
@@ -255,4 +276,52 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 	}
 
 	return CDialog::PreTranslateMessage(pMsg);
+}
+
+void CCopyDlg::OnBnClickedBrowsefrom()
+{
+	UpdateData(TRUE);
+	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+		return;
+	AfxGetApp()->DoWaitCursor(1);
+	//now show the log dialog
+	if (!m_wcURL.IsEmpty())
+	{
+		delete m_pLogDlg;
+		m_pLogDlg = new CLogDlg();
+		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+		long revend = reg;
+		revend = -revend;
+		m_pLogDlg->SetParams(CTSVNPath(m_wcURL), SVNRev::REV_HEAD, revend, TRUE);
+		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->ShowWindow(SW_SHOW);
+		m_pLogDlg->m_wParam = 0;
+		m_pLogDlg->m_pNotifyWindow = this;
+	}
+	AfxGetApp()->DoWaitCursor(-1);
+}
+
+LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
+{
+	CString temp;
+	temp.Format(_T("%ld"), lParam);
+	GetDlgItem(IDC_COPYREVTEXT)->SetWindowText(temp);
+	CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
+	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(TRUE);
+	return 0;
+}
+
+void CCopyDlg::OnBnClickedCopyhead()
+{
+	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(FALSE);
+}
+
+void CCopyDlg::OnBnClickedCopyrev()
+{
+	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(TRUE);
+}
+
+void CCopyDlg::OnBnClickedCopywc()
+{
+	GetDlgItem(IDC_COPYREVTEXT)->EnableWindow(FALSE);
 }

@@ -177,10 +177,10 @@ BEGIN
     CONTROL         "HEAD revision on the server",IDC_COPYHEAD,"Button",
                     BS_AUTORADIOBUTTON,19,81,249,10
     CONTROL         "Specific revision on the server",IDC_COPYREV,"Button",
-                    BS_AUTORADIOBUTTON,19,94,188,10
+                    BS_AUTORADIOBUTTON,19,94,174,10
     CONTROL         "Working copy",IDC_COPYWC,"Button",BS_AUTORADIOBUTTON,19,
                     108,249,10
-    EDITTEXT        IDC_COPYREVTEXT,217,92,51,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COPYREVTEXT,198,92,51,14,ES_AUTOHSCROLL
     GROUPBOX        "Log Message",IDC_STATIC,7,132,286,126
     LTEXT           "Bug-ID / Issue-Nr:",IDC_BUGIDLABEL,143,140,87,8,0,
                     WS_EX_RIGHT
@@ -193,6 +193,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,129,270,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,187,270,50,14
     PUSHBUTTON      "&Help",IDHELP,243,270,50,14
+    PUSHBUTTON      "...",IDC_BROWSEFROM,254,92,14,14
 END
 
 IDD_IMPORT DIALOGEX 0, 0, 300, 190

@@ -23,6 +23,7 @@
 #include "SciEdit.h"
 #include "TSVNPath.h"
 #include "SVNRev.h"
+#include "LogDlg.h"
 
 /**
  * \ingroup TortoiseProc
@@ -70,6 +71,11 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnCbnCloseupOldlogs();
+	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnBnClickedBrowsefrom();
+	afx_msg void OnBnClickedCopyhead();
+	afx_msg void OnBnClickedCopyrev();
+	afx_msg void OnBnClickedCopywc();
 	DECLARE_MESSAGE_MAP()
 
 public:
@@ -78,6 +84,7 @@ public:
 	CString m_sLogMessage;
 	SVNRev m_CopyRev;
 private:
+	CLogDlg *	m_pLogDlg;
 	CSciEdit	m_cLogMessage;
 	CFont		m_logFont;
 	BOOL		m_bFile;

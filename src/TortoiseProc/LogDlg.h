@@ -154,4 +154,5 @@ private:
 	CFont		m_logFont;
 	CString		m_sMessageBuf;
 };
+static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 
