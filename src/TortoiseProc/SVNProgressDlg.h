@@ -179,7 +179,7 @@ private:
 	int			m_options;	// Use values from the ProgressOptions enum
 
 	CTSVNPathList m_targetPathList;
-	CString		m_sUrl;
+	CTSVNPath	m_url;
 	CString		m_sMessage;
 	CStringArray m_templist;
 	SVNRev		m_Revision;

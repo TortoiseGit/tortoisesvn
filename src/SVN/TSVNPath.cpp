@@ -207,6 +207,7 @@ void CTSVNPath::EnsureFwdslashPathSet() const
 void CTSVNPath::Reset()
 {
 	m_bDirectoryKnown = false;
+	m_bURLKnown = false;
 	m_sBackslashPath.Empty();
 	m_sFwdslashPath.Empty();
 	m_sUTF8FwdslashPath.Empty();

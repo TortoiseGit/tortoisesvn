@@ -370,11 +370,8 @@ LONG SVN::Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse)
 	return -1;
 }
 
-BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logmsg)
+BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revision, CString logmsg)
 {
-	preparePath(srcPath);
-	preparePath(destPath);
-
 	SVNPool subpool(pool);
 
 	svn_client_commit_info_t *commit_info = NULL;
@@ -384,9 +381,9 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 	else
 		m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 	Err = svn_client_copy (&commit_info,
-							MakeSVNUrlOrPath(srcPath),
+							srcPath.GetSVNApiPath(),
 							revision,
-							MakeSVNUrlOrPath(destPath),
+							destPath.GetSVNApiPath(),
 							&m_ctx,
 							subpool);
 	if(Err != NULL)
@@ -394,7 +391,7 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+		Notify(destPath.GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 	return TRUE;
 }
 

@@ -579,7 +579,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Copy(url, dlg.m_name, GetRevision(), input.m_sInputText))
+							if (!svn.Copy(CTSVNPath(url), CTSVNPath(dlg.m_name), GetRevision(), input.m_sInputText))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -632,14 +632,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					ofn.lpstrFilter = pszFilters;
 					ofn.nFilterIndex = 1;
 					// Display the Open dialog box. 
-					CString tempfile;
 					if (GetSaveFileName(&ofn)==TRUE)
 					{
 						CWaitCursorEx wait_cursor;
-						tempfile = CString(ofn.lpstrFile);
+						CTSVNPath destination(ofn.lpstrFile);
 						SVN svn;
 						svn.SetPromptApp(&theApp);
-						if (!svn.Copy(url, tempfile, GetRevision()))
+						if (!svn.Copy(CTSVNPath(url), destination, GetRevision()))
 						{
 							delete [] pszFilters;
 							wait_cursor.Hide();

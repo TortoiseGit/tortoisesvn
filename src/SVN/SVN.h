@@ -173,7 +173,7 @@ public:
 	 * \param destPath destination path
 	 * \return the new revision number
 	 */
-	BOOL Copy(CString srcPath, CString destPath, SVNRev revision, CString logmsg = _T(""));
+	BOOL Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revision, CString logmsg = _T(""));
 	/**
 	 * Move srcPath to destPath.
 	 * 

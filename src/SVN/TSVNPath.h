@@ -120,11 +120,7 @@ public:
 	 * \remark Returns an empty string for directories
 	 */
 	CString GetFileExtension() const;
-	/**
-	 * Checks if two path strings are equal. No conversion of slashes is done!
-	 * \remark for slash-independent comparison, use IsEquivalentTo()
-	 */
-	static bool ArePathStringsEqual(const CString& sP1, const CString& sP2);
+
 	bool IsEmpty() const;
 	void Reset();
 	/**
@@ -172,6 +168,11 @@ private:
 	void SetUTF8FwdslashPath(const CString& sPath) const;
 	void EnsureBackslashPathSet() const;
 	void EnsureFwdslashPathSet() const;
+	/**
+	* Checks if two path strings are equal. No conversion of slashes is done!
+	* \remark for slash-independent comparison, use IsEquivalentTo()
+	*/
+	static bool ArePathStringsEqual(const CString& sP1, const CString& sP2);
 
 private:
 	mutable CString m_sBackslashPath;

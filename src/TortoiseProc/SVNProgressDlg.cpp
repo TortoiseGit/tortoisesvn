@@ -351,7 +351,7 @@ void CSVNProgressDlg::SetParams(Command cmd, int options, const CString& path, c
 	// but not just yet.
 //	ASSERT(m_targetPathList.GetCount() > 0);
 
-	m_sUrl = url;
+	m_url.SetFromUnknown(url);
 	m_sMessage = message;
 	m_Revision = revision;
 }
@@ -465,9 +465,9 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Checkout:			//no tempfile!
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
-			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
+			sTempWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Checkout(CTSVNPath(m_sUrl), m_targetPathList[0], m_Revision, m_options & ProgOptRecursive))
+			if (!m_pSvn->Checkout(m_url, m_targetPathList[0], m_Revision, m_options & ProgOptRecursive))
 			{
 				ReportSVNError();
 			}
@@ -477,7 +477,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
 			sTempWindowTitle = m_targetPathList[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Import(m_targetPathList[0], CTSVNPath(m_sUrl), m_sMessage, true))
+			if (!m_pSvn->Import(m_targetPathList[0], CTSVNPath(m_url), m_sMessage, true))
 			{
 				ReportSVNError();
 			}
@@ -671,7 +671,7 @@ UINT CSVNProgressDlg::ProgressThread()
 						rev = st.status->entry->revision;
 					}
 				}
-				if (!m_pSvn->Switch(m_targetPathList[0].GetWinPathString(), m_sUrl, m_Revision, true))
+				if (!m_pSvn->Switch(m_targetPathList[0].GetWinPathString(), m_url.GetWinPathString(), m_Revision, true))
 				{
 					ReportSVNError();
 					break;
@@ -685,32 +685,36 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Export:
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
-			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
+			sTempWindowTitle = m_url.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Export(m_sUrl, m_targetPathList[0].GetSVNPathString(), m_Revision))
+			if (!m_pSvn->Export(m_url.GetSVNPathString(), m_targetPathList[0].GetSVNPathString(), m_Revision))
 			{
 				ReportSVNError();
 			}
 			break;
 		case Merge:
-			ASSERT(m_targetPathList.GetCount() == 1);
-			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
-			SetWindowText(sWindowTitle);
-			if (m_sUrl.CompareNoCase(m_sMessage)==0)
 			{
-				if (!m_pSvn->PegMerge(m_sUrl, m_Revision, m_RevisionEnd, 
-					SVN::PathIsURL(m_sUrl) ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
-					m_targetPathList[0].GetSVNPathString(), true, true, false, !!(m_options & ProgOptDryRun)))
+				ASSERT(m_targetPathList.GetCount() == 1);
+				sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
+				SetWindowText(sWindowTitle);
+				// Eeek!  m_sMessage is actually a path for this command...
+				CTSVNPath urlTo(m_sMessage);
+				if (m_url.IsEquivalentTo(urlTo))
 				{
-					ReportSVNError();
+					if (!m_pSvn->PegMerge(m_url.GetSVNPathString(), m_Revision, m_RevisionEnd, 
+						m_url.IsUrl() ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
+						m_targetPathList[0].GetSVNPathString(), true, true, false, !!(m_options & ProgOptDryRun)))
+					{
+						ReportSVNError();
+					}
 				}
-			}
-			else
-			{
-				if (!m_pSvn->Merge(m_sUrl, m_Revision, m_sMessage, m_RevisionEnd, m_targetPathList[0].GetSVNPathString(), 
-					true, true, false, !!(m_options & ProgOptDryRun)))
+				else
 				{
-					ReportSVNError();
+					if (!m_pSvn->Merge(m_url.GetSVNPathString(), m_Revision, m_sMessage, m_RevisionEnd, m_targetPathList[0].GetSVNPathString(), 
+						true, true, false, !!(m_options & ProgOptDryRun)))
+					{
+						ReportSVNError();
+					}
 				}
 			}
 			break;
@@ -718,7 +722,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Copy(m_targetPathList[0].GetSVNPathString(), m_sUrl, m_Revision, m_sMessage))
+			if (!m_pSvn->Copy(m_targetPathList[0], m_url, m_Revision, m_sMessage))
 			{
 				ReportSVNError();
 				break;

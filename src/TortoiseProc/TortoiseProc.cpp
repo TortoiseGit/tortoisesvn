@@ -1007,7 +1007,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("dropcopy"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
-			CString droppath = parser.GetVal(_T("droptarget"));
+			CString sDroppath = parser.GetVal(_T("droptarget"));
 			SVN svn;
 			unsigned long totalcount = 0;
 			unsigned long count = 0;
@@ -1025,23 +1025,30 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			while (file.ReadString(strLine))
 			{
-				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
+				CTSVNPath linePath(strLine);
+
+				CTSVNPath fullDropPath(sDroppath);
+				fullDropPath.AppendString(_T("\\")+linePath.GetFileOrDirectoryName());
 				CString temp;
 				temp.Format(IDS_PROC_COPYINGPROG, (LPCTSTR)strLine);
 				CString temp2;
-				temp2.Format(IDS_PROC_CPYMVPROG2, (LPCTSTR)(droppath+_T("\\")+name));
-				if (strLine.CompareNoCase(droppath+_T("\\")+name)==0)
+				temp2.Format(IDS_PROC_CPYMVPROG2, fullDropPath.GetWinPath());
+				// Check for a drop-on-to-ourselves
+				if (linePath.IsEquivalentTo(fullDropPath))
 				{
+					// Offer a rename
 					progress.Stop();
 					CRenameDlg dlg;
-					dlg.m_windowtitle.Format(IDS_PROC_RENAME, (LPCTSTR)name);
+					dlg.m_windowtitle.Format(IDS_PROC_RENAME, (LPCTSTR)linePath.GetFileOrDirectoryName());
 					if (dlg.DoModal() != IDOK)
 					{
 						return FALSE;
 					}
-					name = dlg.m_name;
-				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
-				if (!svn.Copy(strLine, droppath+_T("\\")+name, SVNRev::REV_WC, _T("")))
+					// Rebuild the destination path, with the new name
+					fullDropPath.SetFromUnknown(sDroppath);
+					fullDropPath.AppendString(_T("\\")+dlg.m_name);
+				} 
+				if (!svn.Copy(linePath, fullDropPath, SVNRev::REV_WC, _T("")))
 				{
 					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
