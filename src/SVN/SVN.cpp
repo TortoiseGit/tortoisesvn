@@ -1779,6 +1779,21 @@ CString SVN::MakeUIUrlOrPath(CStringA UrlOrPath)
 	return url;
 }
 
+BOOL SVN::EnsureConfigFile()
+{
+	apr_pool_t * localpool;
+	svn_error_t * err;
+	localpool = svn_pool_create(NULL);
+	err = svn_config_ensure(NULL, localpool);
+	if (err)
+	{
+		svn_pool_destroy(localpool);
+		return FALSE;
+	}
+	svn_pool_destroy(localpool);
+	return TRUE;
+}
+
 void SVN::UseIEProxySettings(apr_hash_t * cfg)
 {
 	CStringA exceptions;

@@ -301,6 +301,7 @@ BOOL CSetMainPage::OnApply()
 void CSetMainPage::OnBnClickedEditconfig()
 {
 	TCHAR buf[MAX_PATH];
+	SVN::EnsureConfigFile();
 	SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
 	CString path = buf;
 	path += _T("\\Subversion\\config");

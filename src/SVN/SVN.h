@@ -507,6 +507,10 @@ public:
 	 */	 	 	 	
 	static BOOL PathIsURL(const CString& path);
 
+	/**
+	 * Creates the Subversion config file if it doesn't already exist.
+	 */
+	static BOOL EnsureConfigFile();
 	static CString GetErrorString(svn_error_t * Err);
 	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	static CString MakeUIUrlOrPath(CStringA UrlOrPath);
