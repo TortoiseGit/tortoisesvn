@@ -216,28 +216,28 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 			svn_wc_status_t * s;
 			s = status.GetFirstFileStatus(strLine, &strbuf, bUpdate);
 
-			// This one fixes a problem with externals: 
-			// If a strLine is a file, svn:externals at its parent directory
-			// will also be returned by GetXXXFileStatus. Hence, we skip all
-			// status info until we found the one matching strLine.
-			if (!bIsFolder)
-			{
-				if (strLine.CompareNoCase(strbuf)!=0)
-				{
-					while (s != 0)
-					{
-						CString temp = strbuf;
-						temp.Replace('\\', '/');
-						if (temp == strLine)
-							break;
-						s = status.GetNextFileStatus(&strbuf);
-					}
-					strLine = strLine.Left(strLine.ReverseFind('/'));
-				}
-			}
-
 			if (s!=0)
 			{
+				// This one fixes a problem with externals: 
+				// If a strLine is a file, svn:externals at its parent directory
+				// will also be returned by GetXXXFileStatus. Hence, we skip all
+				// status info until we found the one matching strLine.
+				if (!bIsFolder)
+				{
+					if (strLine.CompareNoCase(strbuf)!=0)
+					{
+						while (s != 0)
+						{
+							CString temp = strbuf;
+							temp.Replace('\\', '/');
+							if (temp == strLine)
+								break;
+							s = status.GetNextFileStatus(&strbuf);
+						}
+						strLine = strLine.Left(strLine.ReverseFind('/'));
+					}
+				}
+				
 				CString temp;
 				if ((s->entry)&&(s->entry->uuid))
 				{

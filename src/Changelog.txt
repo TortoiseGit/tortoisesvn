@@ -10,6 +10,8 @@
        a project property (tsvn:logfilelistenglish). Set
        this property to "false" if you want that template
        pasted in your local language. (Stefan)
+- BUG: The log message history in the commit dialog could
+       get emptied when no log message was entered. (Stefan)
 
 Version 1.1.0
 - ADD: Width marker for log messages. (Stefan)
