@@ -286,6 +286,7 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
 	StartDiff(pNMLV->iItem);
 }
+
 void CLogPromptDlg::StartDiff(int fileindex)
 {
 	if (fileindex < 0)

@@ -5,11 +5,6 @@ TortoiseSVN:
   instead of just the tree. This also paves the way to implement functions
   which require a selection of two objects (like viewing a diff between
   two branch and trunk, ...)
-- Make double-click on files / revisions always show changes, but don't remove them from the context menu, if they are already there:
-  Log Messages, Bottom box: (There is only one action) double-click-file to show changes
-  Log Messages, Top box: double-click to show changes of revision as unified diff
-  Update Progess: double-click on any file to show changes (new), if conflicted launch conflict editor
-  Maybe other Dialogs as well?
 
 TortoiseMerge:
 - If the patchfile leaves a file completely empty, ask the user if (s)he
