@@ -24,3 +24,19 @@ Updates.txt which shows the repository revision that was used for the build.
 
 The builds happen at 0000GMT and the upload happens at 0100GMT.
 The upload takes about 5-10 minutes so should be completed by 0115GMT.
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+The current nightly build includes Will's new status cache.
+This is not activated by default as it is not yet fully functional.
+
+To activate the new cache, you have to create a registry entry
+HKCU\Software\TortoiseSVN\ExternalCache
+as DWORD and set the value to 1.
+
+That will activate the new cache and you can test it. Oh, and don't
+forget to activate the recursive overlays in our settings dialog -
+you'll be surprised!
+
+You can always switch back to the old overlay cache by setting the
+registry value HKCU\Software\TortoiseSVN\ExternalCache to 0.
