@@ -31,6 +31,7 @@
 #include "UnicodeStrings.h"
 #ifdef _MFC_VER
 #	include "SVNRev.h"
+#	include "SVNPrompt.h"
 #endif
 
 /**
@@ -58,17 +59,22 @@
  * This code has no bugs, just undocumented features!
  */
 class SVNProperties
+#ifdef _MFC_VER
+	: public SVNPrompt
+#endif
 {
 public:
 
+#ifdef _MFC_VER
+	SVNProperties(const TCHAR * filepath, SVNRev rev = SVNRev::REV_WC);
+	void SaveAuthentication(BOOL save);
+#else
 	/**
 	 * Constructor. Creates a Subversion properties object for
 	 * the specified file/directory.
 	 * \param filepath the file/directory
 	 */
 	SVNProperties(const TCHAR * filepath);
-#ifdef _MFC_VER
-	SVNProperties(const TCHAR * filepath, SVNRev rev);
 #endif
 	~SVNProperties(void);
 

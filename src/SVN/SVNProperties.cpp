@@ -16,9 +16,14 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include "stdafx.h"
 #include "SVNProperties.h"
 #include "UnicodeStrings.h"
 #include "tchar.h"
+#ifdef _MFC_VER
+#	include "UnicodeUtils.h"
+#	include "registry.h"
+#endif
 
 svn_error_t*	SVNProperties::Refresh()
 {
@@ -27,7 +32,8 @@ svn_error_t*	SVNProperties::Refresh()
 
 	m_propCount = 0;
 #ifdef _MFC_VER
-	rev = m_rev;
+	rev.kind = ((svn_opt_revision_t *)m_rev)->kind;
+	rev.value = ((svn_opt_revision_t *)m_rev)->value;
 #else
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
@@ -63,15 +69,30 @@ svn_error_t*	SVNProperties::Refresh()
 	}
 	return NULL;
 }
+
 #ifdef _MFC_VER
+
+void SVNProperties::SaveAuthentication(BOOL save)
+{
+	if (save)
+	{
+		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
+	}
+	else
+	{
+		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
+	}
+}
+
 SVNProperties::SVNProperties(const TCHAR * filepath, SVNRev rev)
+: m_rev(SVNRev::REV_WC)
 {
 	m_rev = rev;
-	SVNProperties(filepath);
-}
-#endif
+#else
+
 SVNProperties::SVNProperties(const TCHAR * filepath)
 {
+#endif
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 
 	const char * deststr = NULL;
@@ -102,11 +123,44 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 
     svn_client_get_username_provider(&(username_wc_provider), m_pool);
     *(svn_auth_provider_object_t **)apr_array_push (providers) = username_wc_provider;
+#ifdef _MFC_VER
+	// set up authentication
+	svn_auth_provider_object_t *provider;
+	/* The server-cert, client-cert, and client-cert-password providers. */
+	svn_client_get_ssl_server_trust_file_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_client_cert_file_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_client_cert_pw_file_provider (&provider, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
+	/* Two prompting providers, one for username/password, one for
+	just username. */
+	svn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 2, /* retry limit */ m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_username_prompt_provider (&provider, (svn_auth_username_prompt_func_t)userprompt, this, 2, /* retry limit */ m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+
+	/* Three prompting providers for server-certs, client-certs,
+	and client-cert-passphrases.  */
+	svn_client_get_ssl_server_trust_prompt_provider (&provider, sslserverprompt, this, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_client_cert_prompt_provider (&provider, sslclientprompt, this, 2, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_client_cert_pw_prompt_provider (&provider, sslpwprompt, this, 2, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	//set up the SVN_SSH param
+	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
+	tsvn_ssh.Replace('\\', '/');
+	if (!tsvn_ssh.IsEmpty())
+	{
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+			APR_HASH_KEY_STRING);
+		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
+	}
+#endif
 	svn_auth_open (&m_auth_baton, providers, m_pool);
 
-	//m_ctx.prompt_func = NULL;
-	//m_ctx.prompt_baton = NULL;
 	m_ctx.auth_baton = m_auth_baton;
 	// set up the configuration
 	svn_config_get_config (&(m_ctx.config), NULL, m_pool);
