@@ -474,7 +474,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				}
 				catch (CFileException* pE)
 				{
-					TRACE(_T("CFileException in Commit!\n"));
+					TRACE(_T("CFileException in Add!\n"));
 					pE->Delete();
 				}
 			}
@@ -507,7 +507,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				}
 				catch (CFileException* pE)
 				{
-					TRACE(_T("CFileException in Commit!\n"));
+					TRACE(_T("CFileException in Revert!\n"));
 					pE->Delete();
 				}
 			}
@@ -517,9 +517,41 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			}
 			break;
 		case Resolve:
-			sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
-			pDlg->SetWindowText(sWindowTitle);
-			pDlg->Resolve(pDlg->m_sPath, true);
+			{
+				sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
+				pDlg->SetWindowText(sWindowTitle);
+				//check if the file may still have conflict markers in it.
+				BOOL bMarkers = FALSE;
+				try
+				{
+					if (!PathIsDirectory(pDlg->m_sPath))
+					{
+						CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead);
+						CString strLine = _T("");
+						while (file.ReadString(strLine))
+						{
+							if (strLine.Find(_T("<<<<<<<"))==0)
+							{
+								bMarkers = TRUE;
+								break;
+							}
+						}
+						file.Close();
+					} // if (!PathIsDirectory(pDlg->m_sPath)) 
+				} 
+				catch (CFileException* pE)
+				{
+					TRACE(_T("CFileException in Resolve!\n"));
+					pE->Delete();
+				}
+				if (bMarkers)
+				{
+					if (CMessageBox::Show(pDlg->m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
+						pDlg->Resolve(pDlg->m_sPath, true);
+				} // if (bMarkers)
+				else
+					pDlg->Resolve(pDlg->m_sPath, true);
+			}
 			break;
 		case Switch:
 			{

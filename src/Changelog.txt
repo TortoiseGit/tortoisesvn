@@ -21,6 +21,8 @@
        changes when resolving a conflict. (Stefan)
 - ADD: New command in the commit dialog to ignore unversioned
        files before a commit. (Stefan)
+- ADD: The "Resolve" command checks first if there are
+       still some conflict markers in the file. (Stefan)
 - BUG: TortoiseMerge skipped diffs of one line with the
        "Next Diff" or "Previous Diff" commands. (Stefan)
 
