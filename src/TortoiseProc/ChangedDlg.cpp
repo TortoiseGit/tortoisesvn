@@ -131,6 +131,7 @@ BOOL CChangedDlg::OnInitDialog()
 
 
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
