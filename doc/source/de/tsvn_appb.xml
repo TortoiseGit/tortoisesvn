@@ -115,6 +115,8 @@
 							<entry>
 							Opens the commit dialog. The path specifies the
 							target directory or the list of files to commit.
+							You can also specify the /logmsg switch to pass
+							a predefined log message to the commit dialog.
 							</entry>
 						</row>
 						<row>
@@ -293,7 +295,7 @@
 		<para>
 		Examples:
 <screen>
-TortoiseProc.exe /command:commit /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt" /notempfile /closeonend
+TortoiseProc.exe /command:commit /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt" /logmsg:"test log message" /notempfile /closeonend
 TortoiseProc.exe /command:update /path:"c:\svn_wc\" /notempfile /closeonend
 TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt" /revstart:50 /revend:60 /notempfile /closeonend
 </screen>

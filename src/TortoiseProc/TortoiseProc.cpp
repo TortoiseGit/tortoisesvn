@@ -382,6 +382,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			CLogPromptDlg dlg;
 			CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
 			CString logmsg = logmessage;
+			if (parser.HasKey(_T("logmsg")))
+			{
+				logmessage = parser.GetVal(_T("logmsg"));
+			}
 			if (!logmsg.IsEmpty())
 				dlg.m_sLogMessage = logmsg;
 			dlg.m_sPath = path;
