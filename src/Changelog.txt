@@ -14,6 +14,10 @@
        the "recursive" checkbox activated and all subfolders
        will have the props set too, without having the files
        set those properties too. (Stefan)
+- ADD: When an update is finished, a click on an updated
+       file shows a context menu with an entry to compare
+       the file in the revision as it was before the update
+       with the working copy. (Stefan)
 - CHG: improved dialog for creating repositories. (Stefan)
 - CHG: The "paste log template in english" setting is now
        a project property (tsvn:logfilelistenglish). Set

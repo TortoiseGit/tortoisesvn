@@ -42,6 +42,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bThreadRunning = FALSE;
 	m_bRedEvents = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_nUpdateStartRev = -1;
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()
@@ -77,6 +78,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_SVNPROGRESS, OnNMDblclkSvnprogress)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickSvnprogress)
 	ON_WM_SETCURSOR()
+	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -381,7 +383,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				{
 					if (st.status->entry != NULL)
 					{
-						pDlg->m_Revision = st.status->entry->revision;
+						pDlg->m_nUpdateStartRev = st.status->entry->revision;
 					}
 				}
 				sTempWindowTitle = CUtils::GetFileNameFromPath(pDlg->m_sPath)+_T(" - ")+sWindowTitle;
@@ -988,4 +990,71 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 		} // if (pLVKeyDow->wVKey == 'C')
 	} // if (pMsg->message == WM_KEYDOWN)
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
+{
+	if (pWnd == &m_ProgList)
+	{
+		int selIndex = m_ProgList.GetSelectionMark();
+		if ((point.x == -1) && (point.y == -1))
+		{
+			CRect rect;
+			m_ProgList.GetItemRect(selIndex, &rect, LVIR_LABEL);
+			m_ProgList.ClientToScreen(&rect);
+			point.x = rect.left + rect.Width()/2;
+			point.y = rect.top + rect.Height()/2;
+		}
+
+		if ((selIndex >= 0)&&(!m_bThreadRunning)&&(GetDlgItem(IDC_LOGBUTTON)->IsWindowVisible()))
+		{
+			//entry is selected, thread has finished with updating so show the popup menu
+			CMenu popup;
+			if (popup.CreatePopupMenu())
+			{
+				Data * data = NULL;
+				CString temp;
+				if (m_ProgList.GetSelectedCount() == 1)
+				{
+					Data * data = m_arData.GetAt(selIndex);
+					if ((data)&&(!PathIsDirectory(data->path))&&(data->action == svn_wc_notify_update_update))
+					{
+						temp.LoadString(IDS_LOG_POPUP_COMPARE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+
+						int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						this->m_app = &theApp;
+						theApp.DoWaitCursor(1);
+						switch (cmd)
+						{
+						case ID_COMPARE:
+							{
+								CString tempfile = CUtils::GetTempFile();
+								m_templist.Add(tempfile);
+								SVN svn;
+								if (!svn.Cat(data->path, m_nUpdateStartRev, tempfile))
+								{
+									CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									GetDlgItem(IDOK)->EnableWindow(TRUE);
+									break;
+								} // if (!svn.Cat(m_path, rev, tempfile))
+								else
+								{
+									CString revname, wcname;
+									CString ext = CUtils::GetFileExtFromPath(data->path);
+									revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(data->path), m_nUpdateStartRev);
+									wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(data->path));
+									CUtils::StartDiffViewer(tempfile, data->path, FALSE, revname, wcname, ext);
+								}
+							}
+							break;
+						}
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						theApp.DoWaitCursor(-1);
+					}
+				}
+			}
+		}
+	}
 }
