@@ -8,15 +8,11 @@ a work 'in progress'.
 To implement a new language for TortoiseSVN
 follow these steps:
 
-Get the resource dll for translating, usually
-located under 
-http://svn.collab.net/repos/tortoisesvn/branches/release-0.xx/src/Languages/
-while "xx" means the version number of the release.
-if it's not there, then it's located here:
-http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
-The dll is called "TortoiseLang.dll".
+Get the resource dll for translating, the location is
+announced on the mailing list.
+The dlls are called "TortoiseLang.dll" and "TortoiseMergeLang.dll".
 
-To translate the dll you can use the program
+To translate the dlls you can use the program
 SmartTranslator. You can get it from
 http://www.codeproject.com/tools/smarttranslator.asp
 
