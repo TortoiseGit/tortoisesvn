@@ -44,7 +44,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bThreadRunning = FALSE;
 	m_bConflictsOccurred = FALSE;
 	m_bErrorsOccurred = FALSE;
-	m_bMergesOccurred = FALSE;
+	m_bMergesAddsDeletesOccurred = FALSE;
 	m_nUpdateStartRev = -1;
 	m_pThread = NULL;
 	m_options = ProgOptNone;
@@ -131,12 +131,14 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	{
 	case svn_wc_notify_add:
 	case svn_wc_notify_update_add:
+		m_bMergesAddsDeletesOccurred = true;
 	case svn_wc_notify_commit_added:
 	case svn_wc_notify_commit_modified:
 		data->color = GetSysColor(COLOR_HIGHLIGHT);
 		break;
 	case svn_wc_notify_delete:
 	case svn_wc_notify_update_delete:
+		m_bMergesAddsDeletesOccurred = true;
 	case svn_wc_notify_commit_deleted:
 	case svn_wc_notify_commit_replaced:
 		data->color = RGB(100,0,0);
@@ -159,7 +161,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
 		{
 			data->color = RGB(0, 100, 0);
-			m_bMergesOccurred = true;
+			m_bMergesAddsDeletesOccurred = true;
 		}
 		break;
 
@@ -830,7 +832,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 	if ((dwAutoClose == CLOSE_NOCONFLICTS)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
-	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesOccurred))
+	if ((dwAutoClose == CLOSE_NOMERGES)&&(!m_bErrorsOccurred)&&(!m_bConflictsOccurred)&&(!m_bMergesAddsDeletesOccurred))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 		
 	//Don't do anything here which might cause messages to be sent to the window

@@ -134,12 +134,12 @@ BOOL CSetMainPage::OnInitDialog()
 
 	int ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_MANUAL)));
 	m_cAutoClose.SetItemData(ind, CLOSE_MANUAL);
-	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOERROR)));
-	m_cAutoClose.SetItemData(ind, CLOSE_NOERRORS);
-	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOCONFLICTS)));
-	m_cAutoClose.SetItemData(ind, CLOSE_NOCONFLICTS);
 	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOMERGES)));
 	m_cAutoClose.SetItemData(ind, CLOSE_NOMERGES);
+	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOCONFLICTS)));
+	m_cAutoClose.SetItemData(ind, CLOSE_NOCONFLICTS);
+	ind = m_cAutoClose.AddString(CString(MAKEINTRESOURCE(IDS_PROGRS_CLOSE_NOERROR)));
+	m_cAutoClose.SetItemData(ind, CLOSE_NOERRORS);
 
 	m_sTempExtensions = m_regExtensions;
 	m_dwAutoClose = m_regAutoClose;
@@ -150,7 +150,9 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bCheckNewer = m_regCheckNewer;
 	m_bForceShellRefresh = m_regForceShellRefresh;
 
-	m_cAutoClose.SetCurSel(m_dwAutoClose);
+	for (int i=0; i<m_cAutoClose.GetCount(); ++i)
+		if (m_cAutoClose.GetItemData(i)==m_dwAutoClose)
+			m_cAutoClose.SetCurSel(i);
 
 	CString temp;
 	temp = m_regLastCommitTime;
@@ -317,7 +319,10 @@ void CSetMainPage::OnBnClickedClearauth()
 
 void CSetMainPage::OnCbnSelchangeAutoclosecombo()
 {
-	m_dwAutoClose = m_cAutoClose.GetCurSel();
+	if (m_cAutoClose.GetCurSel() != CB_ERR)
+	{
+		m_dwAutoClose = m_cAutoClose.GetItemData(m_cAutoClose.GetCurSel());
+	}
 	SetModified();
 }
 

@@ -221,7 +221,7 @@ private:
 	BOOL		m_bThreadRunning;
 	bool		m_bConflictsOccurred;
 	bool		m_bErrorsOccurred;
-	bool		m_bMergesOccurred;
+	bool		m_bMergesAddsDeletesOccurred;
 	int			iFirstResized;
 	BOOL		bSecondResized;
 	// The path of the item we will offer to show a log for, after an 'update' is complete
