@@ -27,6 +27,6 @@ public:
 	~CLeftView(void);
 protected:
 	void	OnContextMenu(CPoint point, int nLine);
-	BOOL	IsStateSelectable(CDiffData::DiffStates state);
+	BOOL	ShallShowContextMenu(CDiffData::DiffStates state, int nLine);
 	
 };

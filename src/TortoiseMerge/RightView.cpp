@@ -32,7 +32,7 @@ CRightView::~CRightView(void)
 {
 }
 
-BOOL CRightView::IsStateSelectable(CDiffData::DiffStates state)
+BOOL CRightView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 {
 	//The right view is not visible in one-way diff...
 	if (!this->IsWindowVisible())

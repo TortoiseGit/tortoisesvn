@@ -32,7 +32,7 @@ CBottomView::~CBottomView(void)
 {
 }
 
-BOOL CBottomView::IsStateSelectable(CDiffData::DiffStates state)
+BOOL CBottomView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 {
 	//The bottom view is not visible in one and two-way diff...
 	if (!this->IsWindowVisible())

@@ -125,7 +125,7 @@ protected:
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
 
-	virtual BOOL	IsStateSelectable(CDiffData::DiffStates state);
+	virtual BOOL	ShallShowContextMenu(CDiffData::DiffStates state, int nLine);
 	virtual	void	OnContextMenu(CPoint point, int nLine);
 	/**
 	 * Updates the status bar pane. Call this if the document changed.
@@ -135,6 +135,7 @@ protected:
 	UINT			m_nStatusBarID;		///< The ID of the status bar pane used by this view. Must be set by the parent class.
 
 	BOOL			m_bModified;
+	BOOL			m_bFocused;
 
 	int				m_nLineHeight;
 	int				m_nCharWidth;
@@ -171,5 +172,7 @@ protected:
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 public:
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg void OnEditCopy();
 };
 

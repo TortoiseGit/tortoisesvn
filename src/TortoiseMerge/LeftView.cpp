@@ -32,7 +32,7 @@ CLeftView::~CLeftView(void)
 {
 }
 
-BOOL CLeftView::IsStateSelectable(CDiffData::DiffStates state)
+BOOL CLeftView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 {
 	//The left view is always visible - even in one-way diff...
 	if (!m_pwndRight->IsWindowVisible())

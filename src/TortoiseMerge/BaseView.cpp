@@ -124,6 +124,8 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
 	ON_WM_KEYDOWN()
+	ON_WM_LBUTTONUP()
+	ON_COMMAND(ID_EDIT_COPY, OnEditCopy)
 END_MESSAGE_MAP()
 
 
@@ -777,11 +779,12 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	{
 		m_pMainFrame->m_Data.GetColors((CDiffData::DiffStates)m_arLineStates->GetAt(nLineIndex), crBkgnd, crText);
 		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_WHITESPACE_DIFF, crWhiteDiffBk, crWhiteDiffFg);
-		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd))
+		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd)&&m_bFocused)
 		{
 			crBkgnd = (~crBkgnd)&0x00FFFFFF;
-		}
-	}
+			crText = (~crText)&0x00FFFFFF;
+		} // if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd)) 
+	} // if ((m_arLineStates)&&(m_arLineStates->GetCount()>nLineIndex)) 
 	else
 		m_pMainFrame->m_Data.GetColors(CDiffData::DIFFSTATE_UNKNOWN, crBkgnd, crText);
 
@@ -1066,12 +1069,14 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 void CBaseView::OnKillFocus(CWnd* pNewWnd)
 {
 	CView::OnKillFocus(pNewWnd);
+	m_bFocused = FALSE;
 	Invalidate();
 }
 
 void CBaseView::OnSetFocus(CWnd* pOldWnd)
 {
 	CView::OnSetFocus(pOldWnd);
+	m_bFocused = TRUE;
 	Invalidate();
 }
 
@@ -1084,7 +1089,7 @@ int CBaseView::GetLineFromPoint(CPoint point)
 void CBaseView::OnContextMenu(CPoint point, int nLine)
 {
 }
-BOOL CBaseView::IsStateSelectable(CDiffData::DiffStates state)
+BOOL CBaseView::ShallShowContextMenu(CDiffData::DiffStates state, int nLine)
 {
 	return FALSE;
 }
@@ -1101,7 +1106,7 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nIndex);
 		if ((state != CDiffData::DIFFSTATE_NORMAL) && (state != CDiffData::DIFFSTATE_UNKNOWN))
 		{
-			if (IsStateSelectable(state))
+			if ((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0)&&(ShallShowContextMenu(state, nLine)))
 			{
 				while (nIndex >= 0)
 				{
@@ -1124,19 +1129,22 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 				else
 					m_nSelBlockEnd = nIndex-1;
 				Invalidate();
-			} // if (IsStateSelectable(state)) 
+			} // if ((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0)&&(ShallShowContextMenu(state, nLine))) 
 		} // if ((state != CDiffData::DIFFSTATE_NORMAL) && (state != CDiffData::DIFFSTATE_UNKNOWN)) 
-		OnContextMenu(point, nLine);
-		m_nSelBlockStart = -1;
-		m_nSelBlockEnd = -1;
-		if (m_pwndLeft)
-			m_pwndLeft->Invalidate();
-		if (m_pwndRight)
-			m_pwndRight->Invalidate();
-		if (m_pwndBottom)
-			m_pwndBottom->Invalidate();
-		if (m_pwndLocator)
-			m_pwndLocator->Invalidate();
+		if (ShallShowContextMenu(state, nLine))
+		{
+			OnContextMenu(point, nLine);
+			m_nSelBlockStart = -1;
+			m_nSelBlockEnd = -1;
+			if (m_pwndLeft)
+				m_pwndLeft->Invalidate();
+			if (m_pwndRight)
+				m_pwndRight->Invalidate();
+			if (m_pwndBottom)
+				m_pwndBottom->Invalidate();
+			if (m_pwndLocator)
+				m_pwndLocator->Invalidate();
+		} // if (ShallShowContextMenu(state, nLine))
 	} // if (nLine <= m_arLineStates->GetCount()) 
 }
 
@@ -1325,6 +1333,71 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		ScrollAllToLine(GetLineCount());
 	}
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
+}
+
+void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
+{
+	int nClickedLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
+	nClickedLine--;		//we need the index
+	if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
+	{
+		if (nFlags & MK_SHIFT)
+		{
+			if (m_nSelBlockStart > nClickedLine)
+				m_nSelBlockStart = nClickedLine;
+			else if ((m_nSelBlockEnd < nClickedLine)&&(m_nSelBlockStart > 0))
+				m_nSelBlockEnd = nClickedLine;
+			else
+			{
+				m_nSelBlockStart = m_nSelBlockEnd = nClickedLine;
+			}
+		} // if (nFlags & MK_SHIFT) 
+		else
+		{
+			if ((m_nSelBlockStart == nClickedLine) && (m_nSelBlockEnd == nClickedLine))
+			{
+				// deselect!
+				m_nSelBlockStart = -1;
+				m_nSelBlockEnd = -1;
+			} // if ((m_nSelBlockStart == nClickedLine) && (m_nSelBlockEnd == nClickedLine)) 
+			else
+			{
+				// select the line
+				m_nSelBlockStart = m_nSelBlockEnd = nClickedLine;
+			}
+		}
+		Invalidate();
+	} // if ((nClickedLine <= 0)&&(nClickedLine <= nLineCount)) 
+
+	CView::OnLButtonUp(nFlags, point);
+}
+
+void CBaseView::OnEditCopy()
+{
+	// first store the selected lines in one CString
+	CString sCopyData;
+	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+	{
+		if (!sCopyData.IsEmpty())
+			sCopyData += _T("\n");
+		sCopyData += this->m_arDiffLines->GetAt(i);
+	} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
+	CStringA sCopyDataASCII = CStringA(sCopyData);
+	if (!sCopyDataASCII.IsEmpty())
+	{
+		if (OpenClipboard())
+		{
+			EmptyClipboard();
+			HGLOBAL hClipboardData;
+			hClipboardData = GlobalAlloc(GMEM_DDESHARE, sCopyDataASCII.GetLength()+1);
+			char * pchData;
+			pchData = (char*)GlobalLock(hClipboardData);
+			strcpy(pchData, (LPCSTR)sCopyDataASCII);
+			GlobalUnlock(hClipboardData);
+			SetClipboardData(CF_TEXT,hClipboardData);
+			CloseClipboard();
+		} // if (OpenClipboard()) 
+	} // if (!sCopyData.IsEmpty()) 
 }
 
 
