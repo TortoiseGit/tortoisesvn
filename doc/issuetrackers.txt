@@ -95,7 +95,13 @@ value : (string)
 This value is the URL pointing to the bug tracking tool. The URL string should 
 contain the substring "%BUGID%" which the client replaces with the issue number. 
 That way the resulting URL will point directly to the correct issue.
+The URL must be properly URI encoded by the user.
 
+Please note:
+- All property names and values must be properly UTF8 encoded. The client should
+  take care of that when setting the properties.
+- If the properties are not set for a folder, the client should search upwards
+  in the working copy for them until the working copy root is reached.
 
 
 A. FAQ
