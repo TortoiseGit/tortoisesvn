@@ -677,18 +677,21 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 							if (idbr.matched)
 							{
 								// bold style up to the id match
-								Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_BOLD);
+								if (idresults.rstart(0) > 0)
+									Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_BOLD);
 								idoffset1 += idresults.rstart(0);
 								idoffset2 = idoffset1 + idresults.rlength(0);
 								ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
 								// bold and recursive style for the bug ID itself
-								Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_BOLDITALIC);
+								if (idoffset2-idoffset1 > 0)
+									Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_BOLDITALIC);
 								idoffset1 = idoffset2;
 							}
 							else
 							{
 								// bold style for the rest of the string which isn't matched
-								Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_BOLD);
+								if (offset2-idoffset1 > 0)
+									Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_BOLD);
 							}
 						} while(idbr.matched);
 					}
@@ -697,7 +700,8 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 				else
 				{
 					// bold style for the rest of the string which isn't matched
-					Call(SCI_SETSTYLING, end_pos-offset2, STYLE_DEFAULT);
+					if (end_pos-offset2 > 0)
+						Call(SCI_SETSTYLING, end_pos-offset2, STYLE_DEFAULT);
 				}
 			} while(br.matched);
 			return TRUE;
@@ -725,18 +729,25 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 					{
 						for (size_t i=1; i<results.cbackrefs(); ++i)
 						{
-							Call(SCI_SETSTYLING, results.backref(i).begin()-szMsg-offset1, STYLE_BOLD);
-							ATLTRACE("STYLE_BOLD %d chars\n", results.backref(i).begin()-szMsg-offset1);
+							if (results.backref(i).begin()-szMsg-offset1 > 0)
+							{
+								Call(SCI_SETSTYLING, results.backref(i).begin()-szMsg-offset1, STYLE_BOLD);
+								ATLTRACE("STYLE_BOLD %d chars\n", results.backref(i).begin()-szMsg-offset1);
+							}
 							offset1 = results.backref(i).end()-szMsg;
-							Call(SCI_SETSTYLING, results.backref(i).end()-results.backref(i).begin(), STYLE_BOLDITALIC);
-							ATLTRACE("STYLE_BOLDITALIC %d chars\n", results.backref(i).end()-results.backref(i).begin());
+							if (results.backref(i).end()-results.backref(i).begin() > 0)
+							{
+								Call(SCI_SETSTYLING, results.backref(i).end()-results.backref(i).begin(), STYLE_BOLDITALIC);
+								ATLTRACE("STYLE_BOLDITALIC %d chars\n", results.backref(i).end()-results.backref(i).begin());
+							}
 						}
 					}
 				}
 				else
 				{
 					// bold style for the rest of the string which isn't matched
-					Call(SCI_SETSTYLING, end_pos-offset1, STYLE_DEFAULT);
+					if (end_pos > offset1)
+						Call(SCI_SETSTYLING, end_pos-offset1, STYLE_DEFAULT);
 				}
 			} while(br.matched);
 			msg.ReleaseBuffer();
