@@ -127,15 +127,16 @@ CString SVNStatus::GetLastErrorMsg()
 			while (temp.GetLength() > 80)
 			{
 				int pos=0;
-				while (temp.Find(' ', pos)<80)
+				while ((pos>=0)&&(temp.Find(' ', pos)<80))
 				{
-					pos = temp.Find(' ');
+					pos = temp.Find(' ', pos+1);
 				}
 				if (pos==0)
 					pos = temp.Find(' ');
 				if (pos<0)
 				{
 					msg += temp;
+					temp.Empty();
 				}
 				else
 				{
