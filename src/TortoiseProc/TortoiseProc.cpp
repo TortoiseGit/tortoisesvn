@@ -1114,57 +1114,65 @@ BOOL CTortoiseProcApp::InitInstance()
 				path = CUtils::WritePathsToTempFile(path);
 			} // if (parser.HasKey(_T("notempfile"))) 
 			SVN svn;
-			CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
-			CString strLine = _T("");
-			CString filelist;
-			BOOL err = FALSE;
-			while (file.ReadString(strLine))
+			try
 			{
-				//strLine = _T("F:\\Development\\DirSync\\DirSync.cpp");
-				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
-				name = name.Trim(_T("\n\r"));
-				filelist += name + _T("\n");
-				if (parser.HasKey(_T("onlymask")))
+				CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
+				CString strLine = _T("");
+				CString filelist;
+				BOOL err = FALSE;
+				while (file.ReadString(strLine))
 				{
-					name = _T("*")+name.Mid(name.ReverseFind('.'));
-				}
-				CString parentfolder = strLine.Left(strLine.ReverseFind('\\'));
-				SVNProperties props(parentfolder);
-				CStringA value;
-				for (int i=0; i<props.GetCount(); i++)
-				{
-					CString propname(props.GetItemName(i).c_str());
-					if (propname.CompareNoCase(_T("svn:ignore"))==0)
+					//strLine = _T("F:\\Development\\DirSync\\DirSync.cpp");
+					CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
+					name = name.Trim(_T("\n\r"));
+					filelist += name + _T("\n");
+					if (parser.HasKey(_T("onlymask")))
 					{
-						stdstring stemp;
-						stdstring tmp = props.GetItemValue(i);
-						//treat values as normal text even if they're not
-						value = (char *)tmp.c_str();
+						name = _T("*")+name.Mid(name.ReverseFind('.'));
+					}
+					CString parentfolder = strLine.Left(strLine.ReverseFind('\\'));
+					SVNProperties props(parentfolder);
+					CStringA value;
+					for (int i=0; i<props.GetCount(); i++)
+					{
+						CString propname(props.GetItemName(i).c_str());
+						if (propname.CompareNoCase(_T("svn:ignore"))==0)
+						{
+							stdstring stemp;
+							stdstring tmp = props.GetItemValue(i);
+							//treat values as normal text even if they're not
+							value = (char *)tmp.c_str();
+						}
+					}
+					if (value.IsEmpty())
+						value = name;
+					else
+					{
+						value = value.Trim("\n\r");
+						value += "\n";
+						value += name;
+						value.Remove('\r');
+					}
+					if (!props.Add(_T("svn:ignore"), value))
+					{
+						CString temp;
+						temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+						CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
+						err = TRUE;
+						break;
 					}
 				}
-				if (value.IsEmpty())
-					value = name;
-				else
-				{
-					value = value.Trim("\n\r");
-					value += "\n";
-					value += name;
-					value.Remove('\r');
-				}
-				if (!props.Add(_T("svn:ignore"), value))
+				if (err == FALSE)
 				{
 					CString temp;
-					temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
-					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
-					err = TRUE;
-					break;
+					temp.Format(IDS_PROC_IGNORESUCCESS, filelist);
+					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
 				}
 			}
-			if (err == FALSE)
+			catch (CFileException* pE)
 			{
-				CString temp;
-				temp.Format(IDS_PROC_IGNORESUCCESS, filelist);
-				CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+				TRACE(_T("CFileException in Resolve!\n"));
+				pE->Delete();
 			}
 		}
 		//#endregion
