@@ -513,7 +513,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					int selIndex = m_LogList.GetSelectionMark();
 					long rev = m_arRevs.GetAt(selIndex);
-					if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_ICONQUESTION) == IDOK)
+					if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
 					{
 						SVNStatus status;
 						status.GetStatus(m_path);
