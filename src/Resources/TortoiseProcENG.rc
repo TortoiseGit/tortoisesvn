@@ -157,7 +157,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,129,156,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,189,156,48,14
     PUSHBUTTON      "&Help",IDHELP,243,156,50,14
-    CONTROL         "Ommit externals",IDC_NOEXTERNALS,"Button",
+    CONTROL         "Omit externals",IDC_NOEXTERNALS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,82,274,10
 END
 
