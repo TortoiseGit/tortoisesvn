@@ -136,7 +136,7 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	m_ToolListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+	m_ToolListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
 	m_ToolListCtrl.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_ToolListCtrl.GetDlgItem(0)))->GetItemCount()-1;

@@ -96,7 +96,7 @@ BOOL CAddDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	//set the listcontrol to support checkboxes
-	m_addListCtrl.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT);
+	m_addListCtrl.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
 	m_addListCtrl.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_addListCtrl.GetDlgItem(0)))->GetItemCount()-1;

@@ -140,7 +140,7 @@ BOOL CLogDlg::OnInitDialog()
 	m_logFont.CreateFontIndirect(&LogFont);
 	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
 
-	m_LogList.SetExtendedStyle ( LVS_EX_FULLROWSELECT );
+	m_LogList.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 
 	m_LogList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
@@ -198,7 +198,7 @@ BOOL CLogDlg::OnInitDialog()
 void CLogDlg::FillLogMessageCtrl(CString msg, CString paths)
 {
 	GetDlgItem(IDC_MSGVIEW)->SetWindowText(msg);
-	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT );
+	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
 	m_LogMsgCtrl.SetRedraw(FALSE);
 	int line = 0;

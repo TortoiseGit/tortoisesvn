@@ -199,7 +199,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	m_ProgList.SetExtendedStyle (LVS_EX_FULLROWSELECT);
+	m_ProgList.SetExtendedStyle (LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_DOUBLEBUFFER);
 
 	m_ProgList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;

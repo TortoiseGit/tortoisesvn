@@ -95,7 +95,7 @@ BOOL CChangedDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	m_FileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT );
+	m_FileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 
 	m_FileListCtrl.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_FileListCtrl.GetDlgItem(0)))->GetItemCount()-1;

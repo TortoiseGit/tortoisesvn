@@ -145,7 +145,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	CString temp = m_sPath;
 
 	//set the listcontrol to support checkboxes
-	m_ListCtrl.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT);
+	m_ListCtrl.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
 	m_ListCtrl.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_ListCtrl.GetDlgItem(0)))->GetItemCount()-1;

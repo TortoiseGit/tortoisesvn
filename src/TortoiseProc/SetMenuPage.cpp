@@ -63,7 +63,7 @@ BOOL CSetMenuPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
 
-	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT);
+	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
 	m_cMenuList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_cMenuList.GetDlgItem(0)))->GetItemCount()-1;

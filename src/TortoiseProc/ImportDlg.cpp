@@ -98,7 +98,7 @@ BOOL CImportDlg::OnInitDialog()
 	}
 
 	//set the listcontrol to support checkboxes
-	m_FileList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT);
+	m_FileList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
 	m_FileList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_FileList.GetDlgItem(0)))->GetItemCount()-1;
