@@ -29,6 +29,7 @@
 #include "..\..\..\common\openssl\inc32\openssl\opensslv.h"
 #include "..\..\..\common\zlib\zlib.h"
 #include "..\version.h"
+#include ".\aboutdlg.h"
 
 #ifdef UNICODE
 #	define STRINGWIDTH  "UNICODE"
@@ -63,6 +64,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 	//}}AFX_MSG_MAP
 	ON_WM_TIMER()
 	ON_WM_MOUSEMOVE()
+	ON_BN_CLICKED(IDC_UPDATE, OnBnClickedUpdate)
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -187,4 +189,17 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 
 
 	CDialog::OnMouseMove(nFlags, point);
+}
+
+void CAboutDlg::OnBnClickedUpdate()
+{
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	memset(&startup, 0, sizeof(startup));
+	startup.cb = sizeof(startup);
+	memset(&process, 0, sizeof(process));
+	TCHAR com[MAX_PATH+100];
+	GetModuleFileName(NULL, com, MAX_PATH);
+	_tcscat(com, _T(" /command:updatecheck"));
+	CreateProcess(NULL, com, NULL, NULL, FALSE, 0, 0, 0, &startup, &process);
 }
