@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-19 09:48+0100\n"
+"PO-Revision-Date: 2005-02-18 16:53+0100\n"
 "Last-Translator: Michał Mielniczuk <mmielni@raks.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -181,11 +181,6 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Anuluj"
 
-# Control-ID:1066,
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "Automatycznie &zamykaj okna"
-
 # ID:76,
 #: ID:76
 msgid "&Compare Revisions"
@@ -202,6 +197,11 @@ msgstr "&Kopiuj do..."
 #: ID:101
 msgid "&Delete"
 msgstr "&Usuń"
+
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "&Uruchom \"na sucho\""
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -284,14 +284,10 @@ msgstr "&Język:"
 msgid "&Mark as resolved"
 msgstr "&Oznacz jako rozwiązany"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "&Scalanie"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "&Scal zmiany z lokalną kopią roboczą, która wskazuje na adres URL:"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -460,6 +456,11 @@ msgstr "&Cofnij"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Cofnij\tCtrl+Z"
 
+# Control-ID:1013,
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "&Plik różnicowy"
+
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -485,6 +486,11 @@ msgstr "&Widok"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Białe spacje"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(suchy przebieg)"
 
 # ID:208,
 #: ID:208
@@ -996,6 +1002,21 @@ msgstr "Autor:                         Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autorzy:                    Stefan Kueng, Tim Kemp"
 
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "Automatycznie zamykaj jeśli nie ma konfliktów"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "Automatyczne zamknięcie, jeśli nie ma błędów"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "Automatyczne zamknięcie, jeśli nie ma scaleń, dodań lub usunięć"
+
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Automatically resolve conflicted subversion status on save"
@@ -1213,15 +1234,6 @@ msgstr "Sprawdź zmiany"
 msgid "Check for newer &versions"
 msgstr "Sprawdzaj czy są nowsze &wersje"
 
-# ID:79,
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr ""
-"Zaznacz jeśli chcesz, by okno wskaźnika zaawansowania\n"
-"zostało automatycznie zamknięte po zakończeniu operacji."
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1319,6 +1331,11 @@ msgstr "Kliknij na <Zaawansowane> by wskazać alternatywny program do scalania p
 #: ID:257
 msgid "Clipboard"
 msgstr "Schowek"
+
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "Zamknięcie ręczne"
 
 # ID:3825,
 #: ID:3825
@@ -1423,6 +1440,12 @@ msgstr "Menu kontekstowe"
 msgid "Continue"
 msgstr "Kontynuuj"
 
+# Control-ID:1073,
+# Tłumaczenie dosłowne.
+#: Control-ID:1073
+msgid "Convert files when diffing against BASE"
+msgstr "Konwertuj pliki w trakcie porównywania z BASE"
+
 # ID:376,
 #: ID:376
 msgid "Cop&y"
@@ -1438,6 +1461,11 @@ msgstr "Skopiowano"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Skopiowano zdalnie"
+
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "Ścieżka Kopiuj z:"
 
 # ID:151,
 #: ID:101
@@ -1630,11 +1658,6 @@ msgstr ""
 "Wycina zaznaczenie i umieszcza je w schowku\n"
 "Wytnij"
 
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "Nie zamykaj jeśli wystąpiły &konflikty"
-
 # ID:76,
 #: ID:76
 msgid "Date"
@@ -1808,12 +1831,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Czy chcesz zapisać zmiany?"
 
-# Control-ID:1073,
-# Tłumaczenie dosłowne.
-#: Control-ID:1073
-msgid "Don't convert files when diffing against BASE"
-msgstr "Nie konwertuj plików w trakcie porównywania z BASE"
-
 # ID:80,
 #: ID:73
 msgid "Don't show this message again"
@@ -1823,11 +1840,6 @@ msgstr "Nie pokazuj więcej tego komunikatu"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Typy dysków"
-
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Dry Run"
-msgstr "Uruchom \"na sucho\""
 
 #: MenuEntry
 msgid "E&xit"
@@ -1907,6 +1919,11 @@ msgid ""
 msgstr ""
 "Kasuje zaznaczenie\n"
 "Usuń"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Błąd"
 
 # ID:81,
 #: ID:81
@@ -2080,8 +2097,8 @@ msgstr "Wymuś odświeżenie ikon"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "Z:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "Od: (startowy adres URL oraz nr wersji dla operacji scalania)"
 
 # ID:273,
 #: ID:273
@@ -2188,7 +2205,7 @@ msgstr "Pomoc"
 # Control-ID:65535,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Podpowiedź: Naciśnij F5 aby odświerzyć wybraną gałąź drzewa, Ctrl-F5 aby dodatkowo wyświetlić wszystkie podgałęzie."
+msgstr "Podpowiedź: Naciśnij F5 aby odświeżyć wybraną gałąź drzewa, Ctrl-F5 aby dodatkowo wyświetlić wszystkie podgałęzie."
 
 # ID:82,
 #: ID:82
@@ -2227,8 +2244,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "Zaznaczenie tej opcji sprawia, że TortoiseSVN nie tworzy tymczasowego pliku do porównań lecz bezpośrednio porównuje plik oryginalny z plikiem BASE"
+msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
+msgstr "Jeśli opcja zaznaczona, TortoiseSVN tworzy tymczasowy plik do porównań z nie rozwiniętymi słowami kluczowymi "
 
 # ID:194,
 #: ID:194
@@ -2349,8 +2366,8 @@ msgstr "Niepoprawna nazwa pliku."
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2366,13 +2383,13 @@ msgid ""
 msgstr ""
 "Niepoprawny numer wersji! Poprawne oznaczenia wersji to:\n"
 "HEAD, BASE, PREV, COMMITTED, WC\n"
-"dodatnie liczby całkowite\n"
-"daty w jednym z podanych formatów:\n"
+"dodatnie liczby całkowite,\n"
+"daty w jednym z przykładowych formatów:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
-"{2002-02-17 15:30}\n"
-"{2002-02-17 15:30 +0230}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
 "{2002-02-17T15:30}\n"
 "{2002-02-17T15:30Z}\n"
 "{2002-02-17T15:30-04:00}\n"
@@ -2704,6 +2721,11 @@ msgstr "Zwykły"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nie wszystkie wpisy w rejestrze systemu (lub pliki INI) zostały usunięte."
 
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Uwaga"
+
 # Control-ID:1161,
 #: Control-ID:1161
 msgid "Number of authors:"
@@ -2918,14 +2940,14 @@ msgstr "Proszę użyć polecenia \"Uporządkuj\"."
 msgid ""
 "Please note:\n"
 "your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to <b>switch</b> over\n"
-"to that copy path. Use the <b>Switch</b> command to do that."
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
 msgstr ""
 "Uwaga:\n"
 "Twoja kopia robocza jest nadal przypisana do poprzedniej ścieżki w repozytorium.\n"
 "Jeśli chcesz, by kolejne zmiany były wprowadzane do utworzonej przed chwilą kopii,\n"
-"należy <b>przełączyć</b> kopię roboczą na nową ścieżkę.\n"
-"By to zrobić, użyj polecenia <b>Przełącz</b>."
+"należy przełączyć kopię roboczą na nową ścieżkę.\n"
+"By to zrobić, użyj polecenia Przełącz."
 
 # ID:3858,#:
 # ID:3858,
@@ -2967,6 +2989,11 @@ msgstr "Program"
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programy (*.exe)|*.exe|Wszystkie pliki (*.*)|*.*||"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "Wskaźnik zaawansowania:"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
@@ -3325,6 +3352,12 @@ msgstr "SVN Scalaj..."
 msgid "SVN Progress"
 msgstr "SVN Stan zaawansowania"
 
+# ID:11,#:
+# ID:101,
+#: ID:221
+msgid "SVN Rename/Move"
+msgstr "SVN Zmień nazwę/Przenieś"
+
 # ID:77,
 #: ID:77
 msgid "SVN Resolve..."
@@ -3515,6 +3548,11 @@ msgstr ""
 "Wskaż folder, do którego ma nastąpić eksport.\n"
 "Być może trzeba będzie utworzyć nowy folder przed rozpoczęciem eksportu."
 
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "Określa zachowanie wskaźnika zaawansowania po zakończeniu operacji."
+
 # ID:3603,
 #: ID:3603
 msgid ""
@@ -3561,6 +3599,11 @@ msgstr "Ustawianie parametrów..."
 #: ID:107
 msgid "Settings"
 msgstr "Ustawienia"
+
+# ID:12,
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "P&okaż log"
 
 # ID:101,
 #: ID:101
@@ -3717,6 +3760,11 @@ msgstr ""
 "Wskaż pliki lub foldery które TortoiseSVN\n"
 "powinno wykluczyć z sytemu kontroli wersji.\n"
 "Wzorce oddzielaj znakami spacji."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "Określ zakres wersji, które podlegają operacji scalania:"
 
 # ID:3604,
 #: ID:3604
@@ -4014,6 +4062,11 @@ msgstr ""
 "<i>%s</i>\n"
 "pasuje bardziej. Czy chcesz użyć sugerowanej ścieżki?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "Wynik scalania jest przechowywany w kopii roboczej:"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -4027,10 +4080,10 @@ msgstr ""
 #: ID:88
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "Folder docelowy nie jest pusty!\n"
-"Czy na pewno chcesz pobrać dane do tego folderu?"
+"Czy na pewno chcesz pobrać/wyeksportować dane do tego folderu?"
 
 # ID:81,
 #: ID:81
@@ -4123,8 +4176,8 @@ msgstr "Aby zobaczyć dokonane zmiany, kliknij dwukrotnie na powyższych plikach
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "Do:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "Do : (końcowy adres URL oraz nr wersji dla operacji scalania)"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4516,6 +4569,11 @@ msgid "Visit our website"
 msgstr "Odwiedź naszą stonę internetową"
 
 # ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "Ostrzeżenie"
+
+# ID:219,
 #: ID:219
 msgid "Warning!"
 msgstr "Uwaga!"
@@ -4630,10 +4688,10 @@ msgstr "Plik <Yours>:"
 # ID:78,
 #: ID:78
 msgid ""
-"Your working copy appears to be on a <b>tag</b> path!\n"
+"Your working copy appears to be on a tag path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"Twoja kopia robocza jest skojarzona w repozytorium ze ścieżką dla <b>obrazu</b>!\n"
+"Twoja kopia robocza jest skojarzona z katalogiem obrazu w repozytorium!\n"
 "Przed zatwierdzeniem zmian należy się przełączyć na rozgałęzienie lub główną linię projektu."
 
 # ID:88,
@@ -4698,6 +4756,17 @@ msgid ""
 msgstr ""
 "bugtraq:label\n"
 "Objaśnienie dla pola edycyjnego, w którym użytkownik wprowadza numer zgłoszenia."
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"dwa wyrażenia oddzielone znakiem nowej linii\n"
+"Pierwsze wyrażenie jest używane w celu znalezienia opisu dotyczącego zgłoszenia. Drugie wyrażenie jest używane w celu wyodrębnienia ID błędu z tego opisu."
 
 # ID:14,
 #: ID:14
@@ -5000,6 +5069,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "tydzień"
+
+# ID:9,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "co wskazuje na repozytorium pod adresem URL:"
 
 # Control-ID:1112,
 #: Control-ID:1112
