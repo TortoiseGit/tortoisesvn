@@ -1086,19 +1086,22 @@ CString SVN::GetRepositoryRoot(CString url)
 	CString retURL;
 	url.Replace('\\', '/');
 	CStringA urla = CUnicodeUtils::GetUTF8(url);
+
+	apr_pool_t * localpool = svn_pool_create(pool);
 	/* Get the RA library that handles URL. */
-	if (svn_ra_init_ra_libs (&ra_baton, pool))
+	if (svn_ra_init_ra_libs (&ra_baton, localpool))
 		return _T("");
-	if (svn_ra_get_ra_library (&ra_lib, ra_baton, urla, pool))
+	if (svn_ra_get_ra_library (&ra_lib, ra_baton, urla, localpool))
 		return _T("");
 
 	/* Open a repository session to the URL. */
-	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, pool))
+	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, localpool))
 		return _T("");
 
-	if (ra_lib->get_repos_root(session, &returl, pool))
+	if (ra_lib->get_repos_root(session, &returl, localpool))
 		return _T("");
 	retURL = CString(returl);
+	svn_pool_clear(localpool);
 	return retURL;
 }
 
@@ -1110,6 +1113,8 @@ LONG SVN::GetHEADRevision(CString url)
 	LONG rev;
 	url.Replace('\\', '/');
 	CStringA tempurl = CUnicodeUtils::GetUTF8(url);
+
+	apr_pool_t * localpool = svn_pool_create(pool);
 	if (!svn_path_is_url(tempurl))
 		SVN::get_url_from_target(&urla, tempurl);
 	else
@@ -1119,17 +1124,18 @@ LONG SVN::GetHEADRevision(CString url)
 		return -1;
 
 	/* Get the RA library that handles URL. */
-	if (svn_ra_init_ra_libs (&ra_baton, pool))
+	if (svn_ra_init_ra_libs (&ra_baton, localpool))
 		return -1;
-	if (svn_ra_get_ra_library (&ra_lib, ra_baton, urla, pool))
+	if (svn_ra_get_ra_library (&ra_lib, ra_baton, urla, localpool))
 		return -1;
 
 	/* Open a repository session to the URL. */
-	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, pool))
+	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, localpool))
 		return -1;
 
-	if (ra_lib->get_latest_revnum(session, &rev, pool))
+	if (ra_lib->get_latest_revnum(session, &rev, localpool))
 		return -1;
+	svn_pool_clear(localpool);
 	return rev;
 }
 
