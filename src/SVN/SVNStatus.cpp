@@ -239,12 +239,12 @@ CString SVNStatus::GetLastErrorMsg()
 	CString msg;
 	if (m_err != NULL)
 	{
-		msg = m_err->message;
+		msg = CUnicodeUtils::GetUnicode(m_err->message);
 		while (m_err->child)
 		{
 			m_err = m_err->child;
-			msg += "\n";
-			msg += m_err->message;
+			msg += _T("\n");
+			msg += CUnicodeUtils::GetUnicode(m_err->message);
 		}
 		return msg;
 	}

@@ -13,6 +13,8 @@
        is more organized. (Stefan)
 - CHG: The about box got a facelift: it finally
        has the correct TSVN logo in it. (Stefan)
+- BUG: Convert the Subversion error messages
+       properly from UTF8 to UNICODE/MBCS. (Stefan)
        
 Version 0.23
 - ADD: Most dialogs now have the "F1"-help
