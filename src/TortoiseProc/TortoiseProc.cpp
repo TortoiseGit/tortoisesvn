@@ -1294,7 +1294,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CCheckForUpdatesDlg dlg;
 			if (parser.HasKey(_T("visible")))
-				dlg.m_bVisible = TRUE;
+				dlg.m_bShowInfo = TRUE;
 			dlg.DoModal();
 		} // if (comVal.Compare(_T("updatecheck"))==0)
 		//#endregion
