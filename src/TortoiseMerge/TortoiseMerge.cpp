@@ -148,11 +148,17 @@ BOOL CTortoiseMergeApp::InitInstance()
 
 	// Fill in the command line options
 	pFrame->m_Data.m_sBaseFile = parser.GetVal(_T("base"));
+	pFrame->m_Data.m_sBaseFile.Replace('/', '\\');
 	pFrame->m_Data.m_sTheirFile = parser.GetVal(_T("theirs"));
+	pFrame->m_Data.m_sTheirFile.Replace('/', '\\');
 	pFrame->m_Data.m_sYourFile = parser.GetVal(_T("yours"));
+	pFrame->m_Data.m_sYourFile.Replace('/', '\\');
 	pFrame->m_Data.m_sMergedFile = parser.GetVal(_T("merged"));
+	pFrame->m_Data.m_sMergedFile.Replace('/', '\\');
 	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));
+	pFrame->m_Data.m_sPatchPath.Replace('/', '\\');
 	pFrame->m_Data.m_sDiffFile = parser.GetVal(_T("diff"));
+	pFrame->m_Data.m_sDiffFile.Replace('/', '\\');
 	if (parser.HasKey(_T("oneway")))
         pFrame->m_bOneWay = TRUE;
 	if (!pFrame->m_Data.m_sBaseFile.IsEmpty() && pFrame->m_Data.m_sYourFile.IsEmpty() && !pFrame->m_Data.m_sTheirFile.IsEmpty())

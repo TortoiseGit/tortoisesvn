@@ -69,6 +69,24 @@ CBaseView::CBaseView()
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hAddedIcon = (HICON)::LoadImage(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDI_ADDEDLINE), 
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	EnableToolTips();
+	m_ToolTips.Create(this, TTS_ALWAYSTIP);
+	                     // TTS_ALWAYSTIP - show tip even when parent is not active
+
+	// TT 3 TT Step 3A : Create tool for rectangular area on view with specific text
+	CRect r2(50,50,200,200);  // Big Blue Rectangle
+	m_ToolTips.AddTool(this, LPSTR_TEXTCALLBACK);
+
+	// TT 3 TT Step 3B : Create tool for rectangular area on view with callback text
+	CRect r3(0,0,50,50);      // Little Red Rectangle
+	m_ToolTips.AddTool(this, LPSTR_TEXTCALLBACK);
+
+	// TT 3 TT Step 3C : Create tool for child window on view with specific text
+	m_ToolTips.AddTool(this, LPSTR_TEXTCALLBACK); // rect NULL & ID passed in is 0
+
+	// ID_TOOLTIPS_BLUE_RECT, etc. are defined by their string resources
+
+	m_ToolTips.Activate(TRUE);
 }
 
 CBaseView::~CBaseView()
@@ -103,6 +121,9 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_CONTEXTMENU()
 	ON_COMMAND(ID_MERGE_NEXTDIFFERENCE, OnMergeNextdifference)
 	ON_COMMAND(ID_MERGE_PREVIOUSDIFFERENCE, OnMergePreviousdifference)
+	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
+	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
+
 END_MESSAGE_MAP()
 
 
@@ -1135,7 +1156,69 @@ void CBaseView::OnMergePreviousdifference()
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
 
+BOOL CBaseView::OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// need to handle both ANSI and UNICODE versions of the message
+	TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
+	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
+	CString strTipText;
+	UINT nID = pNMHDR->idFrom;
+	if (pNMHDR->code == TTN_NEEDTEXTA && (pTTTA->uFlags & TTF_IDISHWND) ||
+		pNMHDR->code == TTN_NEEDTEXTW && (pTTTW->uFlags & TTF_IDISHWND))
+	{
+		// idFrom is actually the HWND of the tool
+		nID = ::GetDlgCtrlID((HWND)nID);
+	}
 
+	if (pNMHDR->idFrom == (UINT)m_hWnd)
+	{
+		strTipText = m_sFullFilePath;
+	}
+	
+	if (pNMHDR->code == TTN_NEEDTEXTA)
+	{
+		char * szTip = new char[strTipText.GetLength()+1];
+		lstrcpyn(szTip, strTipText, strTipText.GetLength()+1);
+		pTTTA->lpszText = szTip;
+		//lstrcpyn(pTTTA->szText, strTipText, sizeof(pTTTA->szText));
+	}
+	else
+	{
+		wchar_t * szTip = new wchar_t[strTipText.GetLength()+1];
+		pTTTW->lpszText = szTip;
+		::MultiByteToWideChar( CP_ACP , 0, strTipText, -1, szTip, strTipText.GetLength()+1 );
+		//::MultiByteToWideChar( CP_ACP , 0, strTipText, -1, pTTTW->szText, sizeof(pTTTW->szText) );
+	}
+	*pResult = 0;
+
+	return TRUE;    // message was handled
+}
+
+
+INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+{
+	CRect rcClient;
+	GetClientRect(rcClient);
+	CRect textrect(rcClient.left, rcClient.top, rcClient.Width(), m_nLineHeight+HEADERHEIGHT);
+	if (textrect.PtInRect(point))
+	{
+		// inside the header part of the view (showing the filename)
+		pTI->hwnd = this->m_hWnd;
+		this->GetClientRect(&pTI->rect);
+		pTI->uFlags  |= TTF_ALWAYSTIP | TTF_IDISHWND;
+		pTI->uId = (UINT)m_hWnd;
+		pTI->lpszText = LPSTR_TEXTCALLBACK;
+		return 1;
+	} // if (textrect.PtInRect(point))
+	return -1;
+}
+
+BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
+{
+	m_ToolTips.Activate(TRUE);
+	m_ToolTips.RelayEvent(pMsg);
+	return CView::PreTranslateMessage(pMsg);
+}
 
 
 

@@ -59,6 +59,7 @@ public:
 	CStringArray *	m_arDiffLines;		///< Array of Strings containing all lines of the text file
 	CDWordArray	*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
+	CString			m_sFullFilePath;	///< The full path of the file shown
 
 	BOOL			m_bViewWhitespace;	///< If TRUE, then SPACE and TAB are shown as special characters
 	int				m_nTopLine;			///< The topmost text line in the view
@@ -71,6 +72,9 @@ public:
 protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual void	OnDraw(CDC * pDC);
+	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual BOOL	PreTranslateMessage(MSG* pMsg);
+	BOOL			OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void	OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
@@ -148,6 +152,7 @@ protected:
 
 	CBitmap *		m_pCacheBitmap;
 	CDC *			m_pDC;
+	CToolTipCtrl	m_ToolTips;
 
 	// These three pointers lead to the three parent
 	// classes CLeftView, CRightView and CBottomView
@@ -158,6 +163,5 @@ protected:
 	static CBaseView * m_pwndLeft;		///< Pointer to the left view. Must be set by the CLeftView parent class.
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
-
 };
 
