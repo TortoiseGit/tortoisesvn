@@ -405,7 +405,10 @@ void CMergeDlg::OnBnClickedFindbranchend()
 	if ((m_pLogDlg2)&&(m_pLogDlg2->IsWindowVisible()))
 		return;
 	CString url;
-	m_URLCombo2.GetWindowText(url);
+	if (m_bUseFromURL)
+		m_URLCombo.GetWindowText(url);
+	else
+		m_URLCombo2.GetWindowText(url);
 	AfxGetApp()->DoWaitCursor(1);
 	//now show the log dialog for the main trunk
 	if (!url.IsEmpty())
