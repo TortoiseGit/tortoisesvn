@@ -84,11 +84,15 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, TSVNCacheResponse
 		memset(&process, 0, sizeof(process));
 
 		CRegStdString cachePath(_T("Software\\TortoiseSVN\\CachePath"), _T("TSVNCache.exe"), false, HKEY_LOCAL_MACHINE);
-		if (CreateProcess(cachePath, _T(""), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+		CString sCachePath = cachePath;
+		if (CreateProcess(sCachePath.GetBuffer(MAX_PATH), _T(""), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 		{
 			// It's not appropriate to do a message box here, because there may be hundreds of calls
+			sCachePath.ReleaseBuffer();
 			ATLTRACE("Failed to start cache\n");
+			return false;
 		} 
+		sCachePath.ReleaseBuffer();
 
 		// Wait for the cache to open
 		long endTime = (long)GetTickCount()+1000;
