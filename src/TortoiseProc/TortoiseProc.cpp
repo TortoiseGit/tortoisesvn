@@ -414,6 +414,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (!err.IsEmpty())
 			{
 				CMessageBox::Show(EXPLORERHWND, err, _T("TortoiseSVN"), MB_ICONERROR);
+				// Normally, we give-up and exit at this point, but there is a trap here
+				// in that the user might need to use the settings dialog to edit the config file.
 				if(command != cmdSettings)
 				{
 					return FALSE;
