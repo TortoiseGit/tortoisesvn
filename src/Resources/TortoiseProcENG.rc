@@ -256,28 +256,28 @@ BEGIN
                     IDC_STATIC,7,7,331,8
     GROUPBOX        "From:",IDC_STATIC,7,17,331,46
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
-                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,35,126,64
-    PUSHBUTTON      "...",IDC_BROWSE,142,34,14,14
-    GROUPBOX        "Revision",IDC_STATIC,161,20,114,40
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,171,64
+    PUSHBUTTON      "...",IDC_BROWSE,193,27,19,14
+    GROUPBOX        "Revision",IDC_STATIC,217,20,114,40
     CONTROL         "&Head Revision",IDC_REVISION_HEAD1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,167,29,95,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,223,29,95,10
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
-                    167,45,44,10
-    EDITTEXT        IDC_REVISION_START,213,42,51,14,ES_AUTOHSCROLL | 
+                    223,45,44,10
+    EDITTEXT        IDC_REVISION_START,269,42,51,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,281,35,50,14
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,74,45,50,14
     GROUPBOX        "To:",IDC_STATIC,7,68,331,46
     CONTROL         "",IDC_URLCOMBO2,"ComboBoxEx32",CBS_DROPDOWN | 
-                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,86,126,62
-    PUSHBUTTON      "...",IDC_BROWSE2,142,85,14,14
-    GROUPBOX        "&To Revision",IDC_STATIC,161,72,114,40
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,79,171,62
+    PUSHBUTTON      "...",IDC_BROWSE2,193,78,19,14
+    GROUPBOX        "&To Revision",IDC_STATIC,217,72,114,40
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,167,82,86,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,223,82,86,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    167,98,45,10
-    EDITTEXT        IDC_REVISION_END,213,94,51,14,ES_AUTOHSCROLL | 
+                    223,98,45,10
+    EDITTEXT        IDC_REVISION_END,269,94,51,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,281,85,50,14
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,74,96,50,14
     LTEXT           "To merge changes from a specific branch, you must put the same URL in both ""From:"" and ""To:"" fields.",
                     IDC_STATIC,7,122,331,26
     DEFPUSHBUTTON   "&OK",IDOK,170,151,50,14
@@ -795,9 +795,11 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 338
         VERTGUIDE, 13
-        VERTGUIDE, 139
-        VERTGUIDE, 142
-        VERTGUIDE, 156
+        VERTGUIDE, 124
+        VERTGUIDE, 184
+        VERTGUIDE, 193
+        VERTGUIDE, 212
+        VERTGUIDE, 331
         TOPMARGIN, 7
         BOTTOMMARGIN, 165
     END
