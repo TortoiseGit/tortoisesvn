@@ -733,10 +733,10 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex, RE
 	{
 		rpattern pat( (LPCTSTR)sRegex, rflags ); 
 		match_results::backref_type br;
+		TCHAR * szFileContent = sFileContent.GetBuffer(sFileContent.GetLength()+1);
 		do 
 		{
-			CString matchstring = sFileContent.Mid(offset);
-			br = pat.match( (LPCTSTR)matchstring, results );
+			br = pat.match( &szFileContent[offset], results );
 			if( br.matched ) 
 			{
 				for (size_t i=1; i<results.cbackrefs(); ++i)
@@ -748,6 +748,7 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex, RE
 				offset += results.rlength(0);
 			}
 		} while((br.matched)&&(m_bRunThread));
+		sFileContent.ReleaseBuffer();
 	}
 	catch (bad_alloc) {}
 	catch (bad_regexpr) {}
