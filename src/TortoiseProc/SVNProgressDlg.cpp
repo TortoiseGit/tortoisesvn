@@ -397,10 +397,12 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 							if (svnStatus.GetStatus(strLine) != (-2))
 							{
 								if ((svnStatus.status->entry)&&(svnStatus.status->entry->url))
+								{
 									url = svnStatus.status->entry->url;
+									bStatusFetched = TRUE;
+								}
 								if (url.Find(_T("/tags/"))>=0)
 									isTag = TRUE;
-								bStatusFetched = TRUE;
 							} // if (svnStatus.GetStatus(strLine) != (-2))
 						} // if (bStatusFetched == FALSE)
 						if (commitString.IsEmpty())
