@@ -11,8 +11,8 @@ echo ===========================================================================
 echo building OpenSSL
 cd ..\common\openssl
 perl Configure VC-WIN32 > NUL
-call ms\do_masm > NUL
-call nmake -f ms\ntdll.mak > NUL
+call ms\do_masm
+call nmake -f ms\ntdll.mak
 @echo off
 
 rem ZLIB
@@ -20,7 +20,7 @@ echo ===========================================================================
 echo building ZLib
 cd ..\zlib
 copy win32\Makefile.msc Makefile.msc > NUL
-call nmake -f Makefile.msc > NUL
+call nmake -f Makefile.msc
 copy zlib.lib zlibstat.lib > NUL
 @echo off
 
@@ -33,18 +33,18 @@ copy ..\TortoiseSVN\vcnet_sln.ezt build\generator\vcnet_sln.ezt
 call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib
 copy build\generator\vcnet_sln7.ezt build\generator\vcnet_sln.ezt /Y
 del build\generator\vcnet_sln7.ezt
-devenv subversion_vcnet.sln /rebuild debug /project "__ALL__" > NUL
-devenv subversion_vcnet.sln /rebuild release /project "__ALL__" > NUL
+devenv subversion_vcnet.sln /rebuild debug /project "__ALL__"
+devenv subversion_vcnet.sln /rebuild release /project "__ALL__"
 @echo off
 
 rem TortoiseSVN
 echo ================================================================================
 echo building TortoiseSVN
 cd ..\TortoiseSVN\src
-..\bin\release\SubWCRev.exe . version.in version.h
-devenv TortoiseSVN.sln /rebuild release > NUL
-devenv TortoiseSVN.sln /rebuild release_mbcs > NUL
-devenv TortoiseSVN.sln /rebuild debug > NUL
+..\bin\release\SubWCRev.exe .. version.in version.h
+devenv TortoiseSVN.sln /rebuild release
+devenv TortoiseSVN.sln /rebuild release_mbcs
+devenv TortoiseSVN.sln /rebuild debug
 cd Languages
 FOR %%V In (*.po) Do ..\..\bin\release\ResText.exe extract TortoiseMergeLang.dll TortoiseProcLang.dll %%V -quiet
 cd ..\..
