@@ -324,7 +324,7 @@ BEGIN
     LTEXT           "&Language:",IDC_STATIC,13,20,60,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,18,200,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "&Include/Exclude pattern:",IDC_STATIC,13,37,60,18
+    LTEXT           "Exclude pattern:",IDC_STATIC,13,37,60,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,37,200,14,ES_AUTOHSCROLL
     LTEXT           "Default &number of log messages",IDC_STATIC,13,59,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,57,51,14,ES_AUTOHSCROLL | ES_NUMBER,
@@ -993,7 +993,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "Specify the files or folders wich TortoiseSVN\n should include or exclude from version control.\nSeparate the patterns with a space."
+                            "Specify the files or folders wich TortoiseSVN\n should exclude from version control.\nSeparate the patterns with a space."
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 
