@@ -789,7 +789,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 		systime.wMonth = newtime->tm_mon+1;
 		systime.wSecond = newtime->tm_sec;
 		systime.wYear = newtime->tm_year+1900;
-		GetDateFormat(locale, 0, &systime, NULL, datebuf, MAX_PATH);
+		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
 		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
 		_tcsncat(date_native, timebuf, MAX_PATH);
 		_tcsncat(date_native, _T(", "), MAX_PATH);
@@ -849,7 +849,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 		systime.wMonth = newtime->tm_mon+1;
 		systime.wSecond = newtime->tm_sec;
 		systime.wYear = newtime->tm_year+1900;
-		GetDateFormat(locale, 0, &systime, NULL, datebuf, MAX_PATH);
+		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PATH);
 		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PATH);
 		_tcsncat(date_native, timebuf, MAX_PATH);
 		_tcsncat(date_native, _T(", "), MAX_PATH);

@@ -329,7 +329,7 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
 	systime.wMonth = newtime->tm_mon+1;
 	systime.wSecond = newtime->tm_sec;
 	systime.wYear = newtime->tm_year+1900;
-	GetDateFormat(locale, 0, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
+	GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
 	GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PROP_STRING_LENGTH);
 	*buf = '\0';
 	_tcsncat(buf, timebuf, MAX_PROP_STRING_LENGTH-1);
