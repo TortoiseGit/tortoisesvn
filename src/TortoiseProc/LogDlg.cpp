@@ -920,11 +920,13 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 
 		CString value = RevPropertyGet(name, url, m_arRevs.GetAt(selIndex));
+		value.Replace(_T("\n"), _T("\r\n"));
 		CInputDlg dlg;
 		dlg.m_sHintText = text;
 		dlg.m_sInputText = value;
 		if (dlg.DoModal() == IDOK)
 		{
+			dlg.m_sInputText.Replace(_T("\r"), _T(""));
 			if (!RevPropertySet(name, dlg.m_sInputText, url, m_arRevs.GetAt(selIndex)))
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
