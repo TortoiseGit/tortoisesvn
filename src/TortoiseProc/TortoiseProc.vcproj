@@ -28,7 +28,6 @@
 				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="4"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -91,7 +90,6 @@
 				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="3"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -157,7 +155,6 @@
 				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="3"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -1062,10 +1059,10 @@
 				RelativePath="..\Languages\res\ssh.ico">
 			</File>
 			<File
-				RelativePath="..\Icons\Tortoise.ico">
+				RelativePath="..\Languages\res\Tortoise.ico">
 			</File>
 			<File
-				RelativePath="..\Languages\res\Tortoise.ico">
+				RelativePath="..\Icons\Tortoise.ico">
 			</File>
 			<File
 				RelativePath="..\Icons\Tortoise13by13.ico">

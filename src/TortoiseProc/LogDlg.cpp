@@ -1065,7 +1065,7 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
 			UpdateData(FALSE);
 			m_nSearchIndex++;
 			if (m_nSearchIndex >= m_arLogMessages.GetCount())
-				m_nSearchIndex = m_arLogMessages.GetCount()-1;
+				m_nSearchIndex = (int)m_arLogMessages.GetCount()-1;
 		}
     } // if(m_pFindDialog->FindNext()) 
 

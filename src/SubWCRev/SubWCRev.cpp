@@ -28,11 +28,11 @@ svn_status (       const char *path,
 int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, unsigned long rev)
 { 
 	char * pBuild = pBuf + index;
-	int bEof = pBuild - pBuf >= filelength;
+	int bEof = pBuild - pBuf >= (int)filelength;
 	while (memcmp( pBuild, def, strlen(def)) && !bEof)
 	{
 		pBuild++;
-		bEof = pBuild - pBuf >= filelength;
+		bEof = pBuild - pBuf >= (int)filelength;
 	}
 	if (!bEof)
 	{
@@ -41,19 +41,19 @@ int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 		sprintf(destbuf, "%Ld", rev);
 		if (strlen(def) > strlen(destbuf))
 		{
-			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - abs(pBuf - pBuild));
+			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - abs((long)(pBuf - pBuild)));
 			filelength = filelength - (strlen(def)-strlen(destbuf));
 		}
 		else if (strlen(def) < strlen(destbuf))
 		{
-			memmove(pBuild+strlen(destbuf)-strlen(def),pBuild, filelength - abs(pBuf - pBuild));
+			memmove(pBuild+strlen(destbuf)-strlen(def),pBuild, filelength - abs((long)(pBuf - pBuild)));
 			filelength = filelength + (strlen(destbuf)-strlen(def));
 		}
 		memmove(pBuild, destbuf, strlen(destbuf));
 	} // if (!bEof)
 	else
 		return FALSE;
-	index = pBuild - pBuf;
+	index = (unsigned long)(pBuild - pBuf);
 	return TRUE;
 }
 

@@ -110,7 +110,7 @@ void CTreeCtrlEx::OnLButtonDown( UINT nFlags, CPoint point )
 
 			// Invoke label editing
 			m_bEditLabelPending = TRUE;
-			m_idTimer = SetTimer(TCEX_EDITLABEL, GetDoubleClickTime(), NULL);
+			m_idTimer = (UINT)SetTimer(TCEX_EDITLABEL, GetDoubleClickTime(), NULL);
 
 			return;
 		}

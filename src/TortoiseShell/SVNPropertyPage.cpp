@@ -537,7 +537,7 @@ void CSVNPropertyPage::InitWorkfileView()
 						stemp = temp;
 #endif
 						propmap[props.GetItemName(i)] = stemp;
-						for (int ii=0; ii<stemp.length(); ++ii)
+						for (int ii=0; ii<(int)stemp.length(); ++ii)
 						{
 							if (stemp[ii] == '\n')
 								stemp[ii] = ' ';
@@ -659,7 +659,7 @@ void CSVNPropertyPage::InitWorkfileView()
 					lvitem.cchTextMax = _tcslen(lvitem.pszText)+1;
 					ListView_InsertItem(lvh, &lvitem);
 					propmap[I->name] = I->value;
-					for (int ii=0; ii<I->value.length(); ++ii)
+					for (int ii=0; ii<(int)(I->value.length()); ++ii)
 					{
 						if (I->value[ii] == '\n')
 							I->value[ii] = ' ';
