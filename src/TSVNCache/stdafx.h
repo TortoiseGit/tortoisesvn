@@ -5,6 +5,8 @@
 
 #pragma once
 
+#define _WIN32_IE 0x600
+
 
 #include <tchar.h>
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit

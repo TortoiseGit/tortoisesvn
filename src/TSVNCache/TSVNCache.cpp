@@ -20,19 +20,72 @@
 #include "stdafx.h"
 #include "SVNStatusCache.h"
 #include "CacheInterface.h"
+#include "Resource.h"
+#include "registry.h"
 #include "..\crashrpt\CrashReport.h"
 
 #include "..\version.h"
+
+#include <ShellAPI.h>
 
 #define BUFSIZE 4096
 
 CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache : " STRPRODUCTVER);// crash
 
-
 VOID				InstanceThread(LPVOID); 
 VOID				PipeThread(LPVOID);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
-bool bRun = true;
+bool				bRun = true;
+NOTIFYICONDATA		niData; 
+
+#define TRAY_CALLBACK	(WM_APP + 1)
+#define TRAYPOP_EXIT	(WM_APP + 1)
+#define TRAY_ID			101
+
+
+#define PACKVERSION(major,minor) MAKELONG(minor,major)
+DWORD GetDllVersion(LPCTSTR lpszDllName)
+{
+	HINSTANCE hinstDll;
+	DWORD dwVersion = 0;
+
+	/* For security purposes, LoadLibrary should be provided with a 
+	fully-qualified path to the DLL. The lpszDllName variable should be
+	tested to ensure that it is a fully qualified path before it is used. */
+	hinstDll = LoadLibrary(lpszDllName);
+
+	if(hinstDll)
+	{
+		DLLGETVERSIONPROC pDllGetVersion;
+		pDllGetVersion = (DLLGETVERSIONPROC)GetProcAddress(hinstDll, 
+			"DllGetVersion");
+
+		/* Because some DLLs might not implement this function, you
+		must test for it explicitly. Depending on the particular 
+		DLL, the lack of a DllGetVersion function can be a useful
+		indicator of the version. */
+
+		if(pDllGetVersion)
+		{
+			DLLVERSIONINFO dvi;
+			HRESULT hr;
+
+			ZeroMemory(&dvi, sizeof(dvi));
+			dvi.cbSize = sizeof(dvi);
+
+			hr = (*pDllGetVersion)(&dvi);
+
+			if(SUCCEEDED(hr))
+			{
+				dwVersion = PACKVERSION(dvi.dwMajorVersion, dvi.dwMinorVersion);
+			}
+		}
+
+		FreeLibrary(hinstDll);
+	}
+	return dwVersion;
+}
+
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
 	HANDLE hReloadProtection = ::CreateSemaphore(NULL, 0, 1, _T("TSVNCacheReloadProtection"));
@@ -69,6 +122,42 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	HWND hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 0, 0, NULL, 0, hInstance, 0);
 	msg.hwnd = hWnd;	
 	
+	if (CRegStdWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
+	{
+		ZeroMemory(&niData,sizeof(NOTIFYICONDATA));
+
+		DWORD dwVersion = GetDllVersion(_T("Shell32.dll"));
+
+		if (dwVersion >= PACKVERSION(6,0))
+			niData.cbSize = sizeof(NOTIFYICONDATA);
+		else if (dwVersion >= PACKVERSION(5,0))
+			niData.cbSize = NOTIFYICONDATA_V2_SIZE;
+		else 
+			niData.cbSize = NOTIFYICONDATA_V1_SIZE;
+
+		niData.uID = TRAY_ID;		// own tray icon ID
+		niData.hWnd	 = hWnd;
+		niData.uFlags = NIF_ICON|NIF_MESSAGE;
+
+		// load the icon
+		niData.hIcon =
+			(HICON)LoadImage(hInstance,
+			MAKEINTRESOURCE(IDI_TSVNCACHE),
+			IMAGE_ICON,
+			GetSystemMetrics(SM_CXSMICON),
+			GetSystemMetrics(SM_CYSMICON),
+			LR_DEFAULTCOLOR);
+
+		// set the message to send
+		// note: the message value should be in the
+		// range of WM_APP through 0xBFFF
+		niData.uCallbackMessage = TRAY_CALLBACK;
+		Shell_NotifyIcon(NIM_ADD,&niData);
+		// free icon handle
+		if(niData.hIcon && DestroyIcon(niData.hIcon))
+			niData.hIcon = NULL;
+	}
+	
 	// Create a thread which waits for incoming pipe connections 
 	hPipeThread = CreateThread( 
 		NULL,              // no security attribute 
@@ -103,6 +192,43 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message) 
 	{
+	case TRAY_CALLBACK:
+	{
+		switch(lParam)
+		{
+		case WM_LBUTTONDBLCLK:
+			//ShowWindow(hWnd, SW_RESTORE);
+			break;
+		case WM_RBUTTONUP:
+		case WM_CONTEXTMENU:
+			{
+				POINT pt;
+				GetCursorPos(&pt);
+				HMENU hMenu = CreatePopupMenu();
+				if(hMenu)
+				{
+					InsertMenu(hMenu, (UINT)-1, MF_BYPOSITION, TRAYPOP_EXIT, _T("Exit"));
+					SetForegroundWindow(hWnd);
+					TrackPopupMenu(hMenu, TPM_BOTTOMALIGN, pt.x, pt.y, 0, hWnd, NULL);
+					DestroyMenu(hMenu);
+				}
+			}
+			break;
+		}
+	}
+	break;
+	case WM_COMMAND:
+		{
+			WORD wmId    = LOWORD(wParam);
+
+			switch (wmId)
+			{
+			case TRAYPOP_EXIT:
+				DestroyWindow(hWnd);
+				break;
+			}
+			return 1;
+		}
 	case WM_ENDSESSION:
 	case WM_DESTROY:
 	case WM_QUIT:
@@ -122,14 +248,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 			CloseHandle(hPipe);
 			Sleep(100);
+			Shell_NotifyIcon(NIM_DELETE,&niData);
 			PostQuitMessage(0);
 			ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
 			return 0;
 		}
 	default:
-		return DefWindowProc(hWnd, message, wParam, lParam);
+		break;
 	}
-	return 0;
+	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
 //////////////////////////////////////////////////////////////////////////
