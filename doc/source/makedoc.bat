@@ -108,7 +108,7 @@ if %_HTML%==ON (
   echo ----------------------------------------------------------------------
   echo Generating Help as single HTML page
   del /q %_HTML_TARGET%
-  copy %_DOC_SRC%\styles_html.css %_HTML_TARGET% > NUL
+  copy %_DOC_SRC%\styles_*.css %_HTML_TARGET% > NUL
   %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
   echo ----------------------------------------------------------------------
   echo Generating Help as multiple HTML pages

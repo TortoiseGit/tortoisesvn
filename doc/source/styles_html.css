@@ -1,21 +1,13 @@
 /************************************************************************/
-/* Custom style-sheet stuffs for the TortoiseSVN documentation in       */
-/* single page HTML Help File format                                         */
+/* Custom style-sheet stuff for the TortoiseSVN documentation in        */
+/* single and multi page HTML format                                    */
 /*                                                                      */
-/* If you prefer sans-serif fonts, just replace all the instances of    */
-/* 'times new roman,times,serif' with 'arial,helvetica,sans-serif'.     */
+/* Overrides Definitions in styles_chm.css                           */
 /************************************************************************/
 
+@import url("styles_chm.css");
 
 /* Generic tag-level style definitions */
-
-body {
-	font-family: Verdana, Helvetica, Arial, sans-serif;
-	background: #fff;
-	color: #000;
-	margin: 0;
-	padding: 0;
-}
 
 /* Override the tigris.org bodycol style */
 #bodycol {
@@ -27,28 +19,6 @@ body {
 H1, H2, H3 H4
 P,LI,UL,OL,DD,DT,TD
 */
-PRE
-{
-    font-size: 10pt;
-}
-TT
-{
-    font-size: 11pt;
-}
-
-TT.Filename, TT.Literal{
-	font-weight: bold;
-}
-
-a {
-	color: blue;
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: black;
-}
 
 p a, p a:hover {
   margin-left: 5px;
@@ -66,136 +36,7 @@ p a, p a:hover {
   background-image: none;
 }
 
-IMG {
-  border: none;
-}
-
-div.figure {
-	padding: 4px;
-	clear: both;
-	text-align: center;
-	margin: 0px 0px 5px 10px;
-}
-
-div.figure p {
-	margin-top: 2px;
-	margin-bottom: 0px;
-	font-size: 80%;
-	text-align: center;
-}
-
-.author
-{
-    font-size: 12pt;
-    font-style: italic;
-    font-weight: normal;
-    color: black;
-}
-
-div.navheader, 
-div.navfooter {
-	background-color: #809BC8;
-	color: white;
-	clear: both;
-}
-
-div.navheader table th {
-	font-size: medium;
-}
-
-div.navheader table, 
-div.navfooter table {
-    border: 1px solid black;
-    border-left: 0;
-    border-right: 0;
-  }
-
-/* normal text in the footer */
-div.navfooter table td {
-	color: white;
-}
-    
-div.navheader table td a,
-div.navfooter table td a {
-	color: #fff5b0;
-	text-decoration: none;
-}
-
-/* links in header and footer */
-div.navheader table td a:hover,
-div.navfooter table td a:hover {
-	text-decoration: underline;
-	background-color: transparent;
-}
-
-div.navheader table td a:visited,
-div.navfooter table td a:visited {
-	color: #fff5b0;
-}
-
-div.navheader hr, div.navfooter hr{
-	display: none;
-}
-
-div.book,
-div.chapter,
-div.sect1, 
-div.sect2,
-div.sect3,
-div.appendix, 
-div.section, 
-div.glossary {
-	margin: 20px;
-}
-
-/* table of contents */
-div.toc {
-	border: 1px solid black;
-	padding: 0px 10px;
-	background-color: #fff9cd;
-	color: black;
-	margin-bottom: 1cm;
-	width: 80%;
-}
-
-div.toc b { font-size: 140%; }
-
-div.toc a {
-	margin-left: 5px;
-	margin-bottom: 5px;
-}
-
-/* toc definitions for different sections and chapters */
-div.book div.toc {
-	background-color: transparent;
-	border: 0;
-	padding: 0;
-	font-size: medium;
-}
-
-div.table title { background-color: #FFFFFF; width:100%; border: 0px; }
-div.table p { text-align: center; }
-div.table table {
-	background-color: #7099C5;
-	color: #ffffff;
-	font-size: 90%;
-	border-width: 0px;
-}
-div.table th {
-	text-align: center;
-	padding: 1px 4px 1px 4px;
-	border: none;
-}
-div.table td {
-	background-color: #f0f0ff;
-	color: black;
-	padding: 1px 4px 1px 4px;
-	border: none;
-}
-
 .caution, .important, .note, .tip, .warning {
-	border-top: 5px solid;
-	border-left: 1px solid;
 	background-repeat: no-repeat;
 	background-position: 5px 1.33em;
 	margin: .67em 0 0 1em;
@@ -205,51 +46,19 @@ div.table td {
 	clear: both;
 }
 
-.action, .guibutton, .guimenu, .guimenuitem {
-  font-weight: bold;
-}
-
-.guimenu, .guimenuitem, .guilabel {
-/*	font-size: 10pt; */
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	background-color: #EEE;
-}
-
-.guibutton {
-	font-size: 10pt;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	background-color: #DDD;
-	border-left: thin solid #EEE;
-	border-top: thin solid #EEE;
-	border-right: thin solid #BBB;
-	border-bottom: thin solid #BBB;
-}
-
 .tip {
 	background-image: url(images/tip.png);
-	border-color: #090;
-}
-
-.note {
-	border-color: #069;
 }
 
 .important {
 	background-image: url(images/important.png);
-	border-color: #069;
 }
 
 .caution {
 	background-image: url(images/caution.png);
-	border-color: #c60;
 }
 
 .warning {
 	background-image: url(images/warning.png);
-	border-color: #900;
 }
-
-.term { border-bottom: 1px dotted black; }
 

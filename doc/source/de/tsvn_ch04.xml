@@ -45,7 +45,7 @@
 				<listitem>
 					<para>
 					Sie haben einen Server installiert und/oder haben Zugriff
-					auf eine Subversion-Datenbank.
+					auf ein Subversion Projektarchiv.
 					</para>
 				</listitem>
 			</itemizedlist>
@@ -82,29 +82,29 @@
 	<!-- ======================== SECTION 1 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-import">
-		<title>Daten in eine Datenbank importieren</title>
+		<title>Daten in ein Projektarchiv importieren</title>
 		<indexterm><primary>importieren</primary></indexterm>
-		<indexterm><primary>Datenbank</primary></indexterm>
+		<indexterm><primary>Projektarchiv</primary></indexterm>
 		<?dbhh topicname="HIDD_IMPORT"?>
 		<para>
 		
 		</para>
 		<sect2 id="tsvn-DUG-import-1">
-			<title>Datenbank Layout</title>
+			<title>Projektarchiv Struktur</title>
 			<para>
-			Bevor Sie Daten in die Datenbank importieren sollten Sie sich 
+			Bevor Sie Daten in das Projektarchiv importieren sollten Sie sich 
 			Gedanken darüber machen wie Sie Ihre Daten organisieren wollen.
 			Wenn Sie eines der empfohlenen Layouts verwenden werden Sie es später
 			viel viel einfacher haben.
 			</para>
 			<para>
-			Es gibt ein paar empfohlene Standards um die Daten innerhalb einer
-			Datenbank zu organisieren. Die meisten Leute erstellen einen
+			Es gibt ein paar empfohlene Standards um die Daten innerhalb eines
+			Projektarchivs zu organisieren. Die meisten Leute erstellen einen
 			<filename>trunk</filename> Ordner welcher den Hauptast (Stamm)
 			der Entwicklung enthält, einen <filename>branches</filename> Ordner
 			welcher Sonder-Entwicklungszweige enthält und einen <filename>tags
-			</filename> Ordner, welcher markierte Zustände enthält. Wenn eine
-			Datenbank nur ein einziges Projekt enthält ist das folgende Layout
+			</filename> Ordner, welcher markierte Zustände enthält. Wenn ein
+			Projektarchiv nur ein einziges Projekt enthält ist das folgende Layout
 			zu empfehlen:
 			</para>
 			<screen>
@@ -113,8 +113,8 @@
 /tags
 			</screen>
 			<para>
-			Falls eine Datenbank jedoch mehrere Projekte enthält, kann das
-			Layout per branch erstellt werden:
+			Falls ein Projektarchiv jedoch mehrere Projekte enthält, kann das
+			Layout durch Verzweigungen (branch) erstellt werden:
 			</para>
 			<screen>
 /trunk/paint
@@ -144,7 +144,7 @@
 			wie Sie wollen.
 			</para>
 			<para>
-			Falls Sie noch keine Ordnerstruktur in Ihrer Datenbank angelegt
+			Falls Sie noch keine Ordnerstruktur in Ihrem Projektarchiv angelegt
 			haben sollten Sie dies jetzt tun:
 			<orderedlist>
 					<listitem>
@@ -159,8 +159,8 @@
 						</para>
 					</listitem>
 					<listitem>
-						<para>Importieren Sie diese Struktur in die Datenbank
-						durch Rechts-Klick auf den obersten Ordner und Klick
+						<para>Importieren Sie diese Struktur in das Projektarchiv
+						durch <action>Rechts-Klick</action> auf den obersten Ordner und Klick
 						auf <guimenuitem>Importieren...</guimenuitem>
 						</para>
 					</listitem>
@@ -171,7 +171,7 @@
 			<title>Importieren</title>
 			<indexterm><primary>Temporäre Dateien</primary></indexterm>
 			<para>
-			Bevor Sie ein Projekt in die Datenbank importieren sollten Sie:
+			Bevor Sie ein Projekt in das Projektarchiv importieren sollten Sie:
 			<orderedlist>
 					<listitem>
 						<para>
@@ -204,7 +204,7 @@
 				</figure>
 			</para>
 			<para>
-			Geben Sie in diesem Dialog die URL Ihrer Datenbank ein in die Sie
+			Geben Sie in diesem Dialog die URL Ihres Projektarchivs ein in das Sie
 			das Projekt importieren möchten.
 			</para>
 			<para>
@@ -220,11 +220,11 @@
 			</para>
 			<para>
 			Sobald Sie auf den OK-Knopf klicken beginnt TortoiseSVN die Daten
-			in die Datenbank zu importieren. Beachten Sie bitte, dass dadurch
+			in das Projektarchiv zu importieren. Beachten Sie bitte, dass dadurch
 			Ihre Daten <emphasis>nicht</emphasis> unter Versionskontrolle
 			gestellt werden! Um eine Arbeitskopie zu erhalten, bei welcher die
 			Daten unter Versionskontrolle sind müssen sie diese Daten frisch
-			aus der Datenbank auschecken.
+			aus dem Projektarchiv auschecken.
 			</para>
 		</sect2>
 	</sect1>
@@ -237,8 +237,8 @@
 		<indexterm><primary>checkout</primary></indexterm>
 		<?dbhh topicname="HIDD_CHECKOUT"?>
 		<para>
-		Um eine Arbeitskopie zu erhalten müssen Sie eine solche aus der
-		Subversion Datenbank zuerst auschecken.
+		Um eine Arbeitskopie zu erhalten müssen Sie zunächst eine solche aus dem
+		Subversion Projektarchiv auschecken.
 		</para>
 		<para>
 		Wählen Sie einen Ordner im Windows Explorer, wohin Sie ihre Arbeitskopie
@@ -254,8 +254,8 @@
 		</para>
 		<para>
 		Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil
-		der Datenbank auszuchecken. Falls Sie den übergeordneten Pfad
-		auschecken erhalten Sie den kompletten Dateibaum der Datenbank! So
+		des Projektarchivs auszuchecken. Falls Sie den übergeordneten Pfad
+		auschecken erhalten Sie den kompletten Dateibaum des Projektarchivs! So
 		können Sie sehr schnell Ihre Festplatte füllen, da Sie z.B. für jede
 		Markierung in <filename>tags</filename> eine separate Kopie der
 		Daten erhalten!
@@ -287,7 +287,7 @@
 		Während Sie an Ihrem Projekt arbeiten müssen Sie oft wissen, welche
 		Dateien geänder wurden, welche Sie neu hinzugefügt haben oder welche
 		Sie gelöscht haben, oder auch welche Dateien von anderen geändert
-		und zur Datenbank übertragen wurden.
+		und zum Projektarchiv übertragen wurden.
 		</para>
 		<sect2 id="tsvn-DUG-wcstatus-1">
 			<title>Überlagerte Icons</title>
@@ -297,8 +297,8 @@
 					<title>Exploreransicht mit Icon Overlays</title>
 					<graphic fileref="images/Overlays.png"/>
 				</figure>
-			Nun da Sie eine frisch ausgescheckte Arbeitskopie von einer Subversion
-			Datenbank haben zeigt Ihnen der Explorer diese Dateien und Ordner
+			Nun da Sie eine frisch ausgescheckte Arbeitskopie von einem Subversion
+			Projektarchiv haben zeigt Ihnen der Explorer diese Dateien und Ordner
 			mit leicht geänderten Icons an. Dies ist mit ein Grund weshalb
 			TortoiseSVN so populär ist. TortoiseSVN fügt jedem Datei/Ordnericon
 			ein kleines überlagertes Icon hinzu. Abhängig vom Subversion Status
@@ -312,7 +312,7 @@
 			Datei auf <literal>verändert</literal> und das überlagerte Icon
 			ändert sich zu einem roten Auszufezeichen. Auf diese Weise können
 			Sie mit einem Blick feststellen, welche Dateien Sie geändert
-			haben und noch nicht in die Datenbank übertragen worden sind.
+			haben und noch nicht in das Projektarchiv übertragen worden sind.
 			<graphic fileref="images/ConflictIcon.png"/>
 			Falls während einer Aktualisierung ein <literal>Konflikt</literal>
 			auftrat, so werden solche Dateien mit einem gelben Ausrufezeichen
@@ -364,7 +364,7 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-wcstatus-2">
-			<title>Zustand der Datenbank</title>
+			<title>Zustand des Projektarchivs</title>
 			<indexterm><primary>Status</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-2">
@@ -372,18 +372,18 @@
 					<graphic fileref="images/RepoStatus.png"/>
 				</figure>
 			Oft ist es nützlich zu wissen, welche Dateien von anderen bereits
-			geändert und in der Datenbank gespeichert wurden. Dazu gibt's
+			geändert und im Projektarchiv gespeichert wurden. Dazu gibt es
 			den Befehl <guimenuitem>Auf Änderungen überprüfen</guimenuitem>.
 			Dieser Dialog zeigt Ihnen alle Dateien, welche entweder von Ihnen
-			lokal und/oder von anderen in der Datenbank geändert wurden. So
+			lokal und/oder von anderen im Projektarchiv geändert wurden. So
 			können Sie schon vor einer Aktualisierung feststellen, ob es 
 			eventuell Konflikte geben kann.
 			</para>
 			<para>
 			Aus dem Kontex-Menu des Dialogs heraus können Sie die Änderungen
 			anzeigen (Diff), sowohl die Änderungen die Sie lokal gemacht haben
-			als auch die Änderungen von anderen in der Datenbank. TortoiseSVN
-			lädt automatisch die entsprechende Datei von der Datenbank um
+			als auch die Änderungen von anderen im Projektarchiv. TortoiseSVN
+			lädt automatisch die entsprechende Datei aus dem Projektarchiv, um
 			Ihnen die Änderungen zeigen zu können.
 			</para>
 			<tip>
@@ -391,13 +391,13 @@
 				<para>
 				Der <guimenuitem>Auf Änderungen überprüfen</guimenuitem> 
 				Dialog ist vielleicht nicht die beste Wahl wenn Sie gerade
-				keine Netzwerkverbindung zu Ihrer Datenbank haben. In diesem
+				keine Netzwerkverbindung zu Ihrem Projektarchiv haben. In diesem
 				Falle können sie die lokalen Änderungen auch mit dem
 				<guimenuitem>Übertragen</guimenuitem> Dialog ansehen. Dieser
 				Dialog zeigt Ihnen eine ähnliche Liste der geänderten Dateien,
-				jedoch ohne die Datenbank zu kontaktieren und benötigt deshalb
+				jedoch ohne das Projektarchiv zu kontaktieren und benötigt deshalb
 				auch keine Netzwerkverbindung. Sie brauche die Daten auch
-				nicht zu übertragen, nur weil Sie diesen Dialog benögiten &mdash;
+				nicht zu übertragen, nur weil Sie diesen Dialog benötigten &mdash;
 				klicken Sie einfach auf <command>Abbrechen</command> statt auf
 				<guibutton>Ok</guibutton>.
 				</para>
@@ -431,8 +431,8 @@
 		aus und eine Dialogbox wird erscheinen welche Ihnen den Fortschritt
 		der Aktualisierung anzeigt. Änderungen von anderen werden in Ihre
 		Arbeitskopie eingefügt, wobei Ihre eigenen Änderungen selbstverständlich
-		beibehalten werden. Die Datenbank selbst wird <emphasis>nicht</emphasis>
-		verändert durch eine Aktualisierung.
+		beibehalten werden. Das Projektarchiv selbst wird  durch eine Aktualisierung
+    <emphasis>nicht</emphasis> verändert.
 		</para>
 		<para>
 		Falls Sie einen <literal>Konflikt</literal> während einer Aktualisierung
@@ -474,7 +474,7 @@
 		<guimenuitem>Aktualisieren...</guimenuitem> ausführen, so werden
 		alle Dateien und Ordner auf <emphasis>dieselbe</emphasis> Revision
 		aktualisiert, sogar dann wenn zwischen den einzelnen Aktualisierungen
-		jemand anders Änderungen zur Datenbank übertragen hat.
+		jemand anders Änderungen zum Projektarchiv übertragen hat.
 		</para>
 		</tip>
 	</sect1>
@@ -498,7 +498,7 @@
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; Dateiname
     Ihre Änderungen
 =======
-    Zeilen gemischt von der Datenbank
+    Zeilen mit dem Projektarchiv zusammengeführt
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; Revision
 </screen>
 		Ausserdem wird für jede Datei in Konflikt drei weitere Dateien erstellt:
@@ -528,7 +528,7 @@
 					<term>filename.merge-right.rNEWREV</term>
 					<listitem>
 						<para>
-						Dies ist die Datei, wie sie in der Datenbank gerade
+						Dies ist die Datei, wie sie im Projektarchiv gerade
 						aktuell ist, d.h. diese Datei hat die Änderungen von
 						den anderen Mitarbeitern bereits integriert, jedoch
 						nocht nicht die Ihren.
@@ -539,7 +539,7 @@
 		Wobei <literal>*</literal> für eine zufällige Zahl steht, welche
 		Subversion wählt. OLDREV ist die Revisionsnummer der Datei bei
 		ihrer letzten Aktualisierung, und NEWREV ist die neueste Revisionsnummer
-		der Datenbank.
+		des Projektarchivs.
 		</para>
 		<para>
 		Sie können nun entweder ein Merge-Tool benutzen, welches Sie durch
@@ -562,12 +562,12 @@
 	<!-- ======================== SECTION 5 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-commit">
-		<title>Änderungen in die Datenbank übertragen</title>
+		<title>Änderungen in das Projektarchiv übertragen</title>
 		<indexterm><primary>übertragen</primary></indexterm>
 		<indexterm><primary>commit</primary></indexterm>
 		<?dbhh topicname="HIDD_LOGPROMPT"?>
 		<para>
-		Änderungen an Dateien in der Datenbank abzuspeichern wird auch 
+		Änderungen an Dateien im Projektarchiv abzuspeichern wird auch 
 		<literal>Übertragen</literal> der Änderungen genannt.
 		Vor dem Übertragen jedoch sollten Sie sicherstellen, dass Ihre
 		Arbeitskopie auch auf dem neuesten Stand ist, d.h. Sie sollten den
@@ -665,9 +665,9 @@
 		Nachdem Sie die Dateien/Ordner zur Versionskontrolle hinzugefügt haben
 		erscheinen diese mit einem Pluszeichen als überlagertes Icon im
 		Explorer, was bedeutet dass diese bei der nächsten Übertragung
-		in die Datenbank mit aufgenommen werden. Beachten Sie dass das
+		in das Projektarchiv mit aufgenommen werden. Beachten Sie dass das
 		Hinzufügen alleine die Dateien/Ordner <emphasis>nicht</emphasis>
-		in die Datenbank speichert.
+		im Projektarchiv speichert.
 		</para>
 		<para>
 			<tip>
@@ -739,9 +739,9 @@
 		<para>
 		Wenn Sie eine Datei/Ordner mit TortoiseSVN löschen, wird diese aus
 		der Arbeitskopie gelöscht und als gelöscht markiert. Solange Sie dieses
-		<literal>Löschen</literal> noch nicht zur Datenbank übertragen haben
-		können Sie die Datei/Ordner wieder zurückholen mit dem <guimenuitem>
-		Rückgängig</guimenuitem> Befehl auf dem übergeordneten Ordner.
+		<literal>Löschen</literal> noch nicht zum Projektarchiv übertragen haben
+		können Sie die Datei/Ordner mit dem <guimenuitem>Rückgängig</guimenuitem> 
+    Befehl auf dem übergeordneten Ordner wieder zurückholen.
 		</para>
 		<para>
 		Um Dateien innerhalb einer Arbeitskopie zu verschieben, benutzen Sie
@@ -836,14 +836,14 @@
 		<indexterm><primary>Log</primary></indexterm>
 		<?dbhh topicname="HIDD_LOGMESSAGE"?>
 		<para>
-		Für jede Änderung, welche sie machen und zur Datenbank übertragen
+		Für jede Änderung, welche sie machen und zum Projektarchiv übertragen
 		müssen Sie eine Log-Meldung eingeben, welche die Änderung beschreibt.
 		Damit können Sie später herausfinden, welche Änderungen wer wann
 		gemacht hat. Auf diese Weise haben Sie eine detaillierte Aufzeichnung
 		über den Fortschritt Ihres Projektes.
 		</para>
 		<para>
-		Der Log-Dialog lädt alle diese Log-Meldungen von der Datenbank und
+		Der Log-Dialog lädt alle diese Log-Meldungen aus dem Projektarchiv und
 		zeigt Ihnen diese, einschliesslich einer Liste der Dateien welche
 		in jeder Übertragung verändert wurden. Aber das ist noch nicht alles
 		&mdash; der Log-Dialog stellt auch viele Funktionen zur Verfügung mit
@@ -913,15 +913,15 @@
 					Revision zu erstellen. Dies ist nützlich für den Fall
 					dass sie vergessen haben eine bestimmte Version Ihres
 					Projektes zu markieren und Sie seitdem bereits weitere
-					Änderungen in die Datenbank übertragen haben.
+					Änderungen in das Projektarchiv übertragen haben.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 					Änderungen, welche Sie in einer bestimmten Revision
 					gemacht haben rückgängig zu machen. Die Änderungen
-					werden in Ihrer Arbeitskopie rückgängig gemacht, die
-					Datenbank selbst bleibt unverändert.
+					werden in Ihrer Arbeitskopie rückgängig gemacht, das
+					Projektarchiv selbst bleibt unverändert.
 					</para>
 				</listitem>
 				<listitem>
@@ -967,8 +967,8 @@
 		zu machen. Solche Linien werden <literal>Zweige</literal> genannt.
 		Zweige werden üblicherweise dazu benutzt, um neue Funktionen auszutesten
 		ohne dadurch die normale Entwicklung am Projekt zu stören. Sobald dann
-		eine solche neue Funktion stabil genug ist wird der Zweig zurück in
-		den Hauptstamm (<filename>trunk</filename>) gemischt.
+		eine solche neue Funktion stabil genug ist wird der Zweig mit dem
+		Hauptstamm (<filename>trunk</filename>) zusammengeführt.
 		</para>
 		<para>
 		Eine andere wichtige Funktion ist die Möglichkeit, bestimmte Zustände
@@ -992,7 +992,7 @@
 		</figure>
 		Wählen Sie den übergeordneten Ordner Ihrer Arbeitskopie und wählen
 		Sie den Befehl <guimenuitem>Verzweigen/Markieren...</guimenuitem> im
-		Kontextmenu. Geben Sie die URL der Datenbank ein, aber ändern Sie den
+		Kontextmenu. Geben Sie die URL des Projektarchivs ein, aber ändern Sie den
 		Pfad von <filename>trunk</filename> in <filename>branches/Name_des_Zweigs
 		</filename> um. Für Markierungen ändern Sie die URL in <filename>
 		tags/Name_der_Markierung</filename> um. Wobei <filename>Name_der_Markierung
@@ -1007,7 +1007,7 @@
 
 		Wenn Sie nun <guibutton>OK</guibutton> klicken erstellt TortoiseSVN eine
 		Verknüpfung von Ihrem gewählten Ordner und der aktuellen Revision
-		im Zielordner der Datenbank. Es werden (noch) keine Änderungen an Ihrer
+		im Zielordner des Projektarchivs. Es werden (noch) keine Änderungen an Ihrer
 		Arbeitskopie vorgenommen.
 		</para>
 		<para>
@@ -1057,8 +1057,8 @@
 			verändert der Befehl <guimenuitem>Wechseln zu...</guimenuitem> Ihre
 			bestenhende Arbeitskopie so dass diese genau wie auf dem erstellten
 			Zweig aussieht. Dabei werden nur die Unterschiede zwischen Ihrer
-			bestehenden Arbeitskopie zum Zweig von der Datenbank übertragen,
-			was natürlich günstig ist für die Netzwerkauslastung und Ihre Geduld.
+			bestehenden Arbeitskopie und dem Zweig des Projektarchivs übertragen,
+			was natürlich günstig für die Netzwerkauslastung und Ihre Geduld ist.
 			</para>
 			<para>
 			Um nun auf dem frisch erstellten Zweig zu arbeiten haben Sie wie
@@ -1093,26 +1093,27 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-merge-2">
-			<title>Einen Zweig zurück in den Hauptstamm mischen</title>
+			<title>Einen Zweig mit dem Hauptstamm zusammenführen</title>
+			<indexterm><primary>zusammenführen</primary></indexterm>
 			<indexterm><primary>mischen</primary></indexterm>
 			<indexterm><primary>merge</primary></indexterm>
 			<para>
 				<figure id="tsvn-DUG-merge-dia-1">
-					<title>The Merge Dialog</title>
+					<title>Der Zusammenführen Dialog</title>
 					<graphic fileref="images/Merge.png"/>
 				</figure>
-				Um Änderungen aus einem Zweig in den Hauptstamm zu mischen 
+				Um Änderungen aus einem Zweig mit dem Hauptstamm zusammenzuführen 
 				benötigen Sie zuerst eine Arbeitskopie des Hauptstamms.
-				Wählen Sie dann <menuchoice><guimenuitem>Mischen...</guimenuitem>
+				Wählen Sie dann <menuchoice><guimenuitem>Zusammenführen...</guimenuitem>
 				</menuchoice> aus dem Kontextmenu.
 				<orderedlist>
 					<listitem>
 						<para>
-						Im <guilabel>Mische aktuellen Zweig mit</guilabel> Feld
+						Im Feld <guilabel>Aktuellen Zweig zusammenführen mit:</guilabel>
 						geben Sie die vollständige URL des Zweiges welcher die
-						Änderungen enthält ein. Sie können auch den <guibutton>
-						...</guibutton> Knopf verwenden um die Datenbank nach
-						dem Zweig zu durchsuchen.
+						Änderungen enthält ein. Sie können auch die 
+            <guibutton>...</guibutton> 
+            Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
 						</para>
 					</listitem>
 					<listitem>
@@ -1120,7 +1121,7 @@
 						Im Feld <guilabel>Von Revision</guilabel>geben Sie die
 						Start-Revision ein. Dies ist die Revisionsnummer
 						<emphasis>vor</emphasis> der Änderung welche Sie
-						mischen möchten. Zum Beispiel:
+						zusammenführen möchten. Zum Beispiel:
 						<screen>
 Rev Log-Meldungen
 39. Arbeite an MyBranch
@@ -1132,7 +1133,7 @@ Rev Log-Meldungen
          ...
 						</screen>
 						Wenn Sie nun die Änderungen von MyBranch in den Hauptstamm
-						(trunk) mischen möchten müssen Sie 36 in das <guilabel>
+						(trunk) zurückführen möchten müssen Sie 36 in das <guilabel>
 						Von Revision:</guilabel> Feld eingeben, und nicht etwa
 						37 wie Sie vielleicht denken.
 						</para>
@@ -1147,35 +1148,35 @@ Rev Log-Meldungen
 						<para>
 						Im Feld <guilabel>Zu Revision</guilabel> geben Sie die 
 						die Endrevision der Änderung(en) ein. Sie können auch
-						einzelne Revisionen mischen, dies muss nicht HEAD sein!
+						einzelne Revisionen zusammenführen, dies muss nicht HEAD sein!
 						</para>
 					</listitem>
 					<listitem>
 						<para>
 						Klicken Sie auf <guibutton>OK</guibutton> um den 
-						Mischvorgang zu starten. Wenn Sie dann die Änderungen
-						zur Datenbank übertragen wollen, erwähnen Sie in der
+						Vorgang zu starten. Wenn Sie dann die Änderungen
+						zum Projektarchiv übertragen wollen, erwähnen Sie in der
 						Log-Meldung welche Revisionen Sie von welchem Zweig
-						gemischt haben! Auf diese Weise können Sie später nachlesen,
-						welche Revisionen Sie bereits gemischt haben und welche
+						zusammengeführt haben! Auf diese Weise können Sie später nachlesen,
+						welche Revisionen Sie bereits zusammengeführt haben und welche
 						noch nicht. Dies ist notwendig, da ein nochmaliges
-						mischen einer bereits gemischten Revision zu einem
+						Zusammenführen einer bereits zusammengeführten Revision zu einem
 						Konflikt führt.
 					</para>
 					</listitem>
 				</orderedlist>
-				Der Mischvorgang ist nun abgeschlossen. Sie sollten nun ihre
-				Arbeitskopie überprüfen, ob alles so ist wie erwartet. Ein
-				Mischvorgang ist normalerweise recht aufwendig und kompliziert.
+				Der Vorgang ist nun abgeschlossen. Sie sollten nun ihre
+				Arbeitskopie überprüfen, ob alles so ist wie erwartet. Das
+				Zusammenführen ist normalerweise recht aufwendig und kompliziert.
 				Zum Beispiel können Konflikte auftreten wenn der Zweig sich
 				schon zu weit vom Hauptast entfernt hat.
 				<important>
 				<para>
-				Subversion kann nicht eine Datei mit einem Ordner mischen und
+				Subversion kann nicht eine Datei mit einem Ordner zusammenführen und
 				umgekehrt. Nur Ordner mit Ordner und Dateien mit Dateien können
-				gemischt werden. Wenn Sie auf eine Datei klicken und den Misch-Dialog
-				aufrufen, dann müssen Sie eine URL zu einer Datei im Dialog
-				eingeben.
+				zusammengeführt werden. Wenn Sie auf eine Datei klicken und den 
+        Zusammenführen Dialog aufrufen, dann müssen Sie eine URL zu einer 
+        Datei im Dialog eingeben.
 				</para>
 				</important>
 			</para>
@@ -1194,9 +1195,9 @@ Rev Log-Meldungen
 				<title>Der Umplazieren Dialog</title>
 				<graphic fileref="images/Relocate.png"/>
 			</figure>
-		Sollte die URL Ihrer Datenbank sich geändert haben (z.B. DNS-Eintrag
+		Sollte die URL Ihres Projektarchivs sich geändert haben (z.B. DNS-Eintrag
 		des Servers hat sich geändert), so müssen Sie nicht erneut eine ganze
-		Arbeitskopie von der Datenbank auschecken. Es reicht wenn Sie den
+		Arbeitskopie aus dem Projektarchiv auschecken. Es reicht wenn Sie den
 		Befehl <guimenuitem>Umplazieren...</guimenuitem> ausführen und die
 		neue URL angeben.
 		</para>
@@ -1268,7 +1269,7 @@ Rev Log-Meldungen
 			</para>
 			<para>
 			Sie können hier auch angeben, welche Programm TortoiseSVN benutzen
-			soll für eine sichere Verbindung zur Datenbank via SSH.
+			soll für eine sichere Verbindung zum Projektarchiv via SSH.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-progs">
@@ -1316,7 +1317,7 @@ Rev Log-Meldungen
 		Sobald Sie auf <guibutton>OK</guibutton> klicken beginnt TortoiseSVN
 		mit der Analyse der Daten dieser Datei. Beachten Sie bitte: dies kann
 		mehrere Minuten dauern, je nach nachdem wie schnell Ihre Verbindung
-		zur Datenbank ist. Sobald der TortoiseSVN mit der Analyse fertig ist
+		zum Projektarchiv ist. Sobald der TortoiseSVN mit der Analyse fertig ist
 		wird der standard Texteditor gestartet und die das Ergebnis der Analyse
 		angezeigt.
 		</para>

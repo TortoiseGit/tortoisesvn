@@ -1,4 +1,4 @@
-﻿<appendix id="tsvn-faq">
+<appendix id="tsvn-faq">
 	<title>Häufig gestellte Fragen (FAQ)</title>
 	<simplesect>
 		<para>
@@ -257,7 +257,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Ganz einfach: TortoiseSVN trägt sich in das Software-Panel in
 			der Systemsteuerung ein, von wo aus Sie den Befehl <literal>Entfernen
 			</literal> wählen können. Dies entfernt TortoiseSVN, jedoch nicht
-			ihre mit TortoiseSVN erstellten oder benutzten Datenbanken. Sie
+			ihre mit TortoiseSVN erstellten oder benutzten Projektarchive. Sie
 			verlieren also Ihre Daten nicht.
 			</para>
 		</sect2>
@@ -359,7 +359,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</sect2>
 		<sect2 id="tsvn-faq-dug-2">
 			<title>Wenn ich eine Datei mit TortoiseSVN lösche, ist diese
-			weg. Wie kann ich diesen Löschvorgang zur Datenbank übertragen?</title>
+			weg. Wie kann ich diesen Löschvorgang zum Projektarchiv übertragen?</title>
 			<para>
 			Ganz einfach: übertragen Sie den ganzen Ordner.
 			</para>
@@ -395,9 +395,9 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 						<para>
 						Benennen Sie die Datei von <filename>DATEINAME</filename>
 						in <filename>dateiname</filename> um mit dem Umbenennen-
-						Befehl im <guimenuitem>Datenbankbrowser</guimenuitem>.
+						Befehl im <guimenuitem>Projektarchiv-Betrachter</guimenuitem>.
 						Dieses Umbenennen erfolgt <emphasis>direkt</emphasis>
-						in der Datenbank!
+						im Projektarchiv!
 						</para>
 					</listitem>
 					<listitem>
@@ -421,7 +421,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					</listitem>
 					<listitem>
 						<para>
-						Übertragen Sie diese Änderung in die Datenbank.
+						Übertragen Sie diese Änderung in das Projektarchiv.
 						</para>
 					</listitem>
 					<listitem>
@@ -432,7 +432,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					</listitem>
 					<listitem>
 						<para>
-						Übertragen Sie diese Änderung in die Datenbank.
+						Übertragen Sie diese Änderung in das Projektarchiv.
 						</para>
 					</listitem>
 				</orderedlist>
@@ -450,7 +450,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 			<para>
 			Sie haben eine Datei mit TortoiseSVN gelöscht. Dies markiert diese
-			Datei für die Löschung aus der Datenbank bei der nächsten Übertragung.
+			Datei für die Löschung aus dem Projektarchiv bei der nächsten Übertragung.
 			Die Datei ist noch nicht wirklich gelöscht, Sie könnten sie zum
 			Beispiel mit dem <guimenuitem>Rückgängig</guimenuitem> wieder
 			zurückholen.
@@ -458,17 +458,17 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 			Dann haben Sie eine neue Datei erstellt mit demselben Namen und
 			haben diese zur Versionskontrolle hinzugefügt. Dies markiert diese
-			Datei für die Speicherung in der Datenbank bei der nächsten
+			Datei für die Speicherung im Projektarchiv bei der nächsten
 			Übertragung.
 			</para>
 			<para>
 			Nun versuchen Sie Ihre Änderungen zu Übertragen. Subversion versucht
-			nun, diese Datei gleichzeitig in der Datenbank zu löschen und
+			nun, diese Datei gleichzeitig im Projektarchiv zu löschen und
 			auch neu zu speichern (weil der Dateiname gleich ist). Da dies
 			natürlich nicht möglich ist, gibts eine Fehlermeldung.
 			</para>
 			<para>
-			Sie hätten die Löschung der Datei gleich zur Datenbank übertragen
+			Sie hätten die Löschung der Datei gleich zum Projektarchiv übertragen
 			sollen. Sie haben immer noch keine Ahnung was Sie jetzt tun sollen?
 			Nun dann:
 			<orderedlist>
@@ -482,7 +482,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					<listitem>
 						<para>
 						Übertragen Sie Ihre Änderungen. Damit wird die Datei
-						erstmal von der Datenbank gelöscht. Dies hätten Sie
+						erstmal aus dem Projektarchiv gelöscht. Dies hätten Sie
 						von Anfang an so tun sollen.
 						</para>
 					</listitem>
@@ -512,14 +512,14 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		</sect2>
 		<sect2 id="tsvn-faq-dug-7">
 			<title>Kann ich mit verschiedenen Arbeitskopien von unterschiedlichen
-			Datenbanken gleichzeitig arbeiten?</title>
+			Projektarchiven gleichzeitig arbeiten?</title>
 			<para>
 			Ja, Sie können. Dies ist eine Standardfunktion von Subversion. Jeder
-			Ordner einer Arbeitskopie weiss, zu welcher Datenbank es gehört.
+			Ordner einer Arbeitskopie weiss, zu welchem Projektarchiv er gehört.
 			</para>
 			<para>
 			Wenn Sie möchten, dass bestimmte Unterordner Ihrer Arbeitskopie
-			von einer anderen Datenbank ausgecheckt werden können Sie dies
+			aus einem anderen Projektarchiv ausgecheckt werden können Sie dies
 			auch automatisieren, indem Sie die Subversion-Eigenschaft <literal>
 			svn:externals</literal> verwenden. Bitte lesen Sie dazu den Beitrag
 			im Subversion-Buch: 
@@ -535,7 +535,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			ändern diese. In der Zwischenzeit ändert jemand anders diese Datei
 			ebenfalls und überträgt diese Änderungen in Revision 25. Vielleicht
 			wird die Datei sogar nochmals geändert und wieder übertragen, so
-			dass in der Datenbank nun 26 Revisionen gespeichert sind. Wenn Sie
+			dass im Projektarchiv nun 26 Revisionen gespeichert sind. Wenn Sie
 			jetzt Ihre Arbeitskopie aktualisieren, <emphasis>kann</emphasis>
 			(nicht muss!) es einen Konflikt geben. Bitte lesen Sie dazu den
 			Abschnitt <xref linkend="tsvn-DUG-conflicts" />
@@ -732,7 +732,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<para>
 			TortoiseSVN nutzt die Subversion libraries. Und Subversion
 			unterstützt SSH mittels <systemitem class="url">svn+ssh://</systemitem> 
-			für den Zugriff auf eine Datenbank. Wenn Sie nicht den 
+			für den Zugriff auf ein Projektarchiv. Wenn Sie nicht den 
 			<literal>svnserve</literal> Server verwenden möchten, dann können
 			Sie auch einen Server mit Apache verwenden und die Verbindung
 			mittels SSL verschlüsseln.
@@ -753,8 +753,8 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			Im Ernst &mdash; Nein! Lesen Sie die Subversion
 			(<ulink url="http://subversion.tigris.org/">Webseite</ulink>.
 			Sie können Ihre Arbeitskopie so stark verkrüppeln wie Sie wollen,
-			aber wenn Sie Ihre Änderungen regelmässig in die Datenbank 
-			übertragen können Sie jederzeit zu einem funktionierenden Stand
+			aber wenn Sie Ihre Änderungen regelmässig in das Projektarchiv 
+			übertragen, können Sie jederzeit zu einem funktionierenden Stand
 			zurückkehren.
 			</para>
 			<para>

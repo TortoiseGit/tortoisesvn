@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-ch-2">
+<chapter id="tsvn-ch-2">
 	<title>Grundkonzepte</title>
 	<!-- this chapter is copied over from the subversion book and slightly
        modified for the TortoiseSVN client -->
@@ -31,14 +31,14 @@
 		</para>
 	</simplesect>
 	<sect1 id="tsvn-ch2-sect-1">
-		<title>Die Datenbank</title>
-		<indexterm><primary>Datenbank</primary></indexterm>
+		<title>Das Projektarchiv</title>
+		<indexterm><primary>Projektarchiv</primary></indexterm>
 		<para>
 		Subversion ist ein zentralisiertes System für die Verteilung von
 		Informationen. In seinem Kern ist eine Datenbank, welche die
 		Informationen in Form eines Dateisystem-Baums &mdash; einer typischen
 		Hierarchie von Dateien und Ordnern &mdash; abspeichert. Eine beliebige
-		Anzahl von Clients kontaktiert die Datenbank und liest und schreibt
+		Anzahl von Clients kontaktiert das Projektarchiv und liest und schreibt
 		von/in diese Dateien. Durch ein Schreiben von Daten stellt ein Client
 		diese Daten auch anderen zur Verfügung, durch Lesen von Daten bekommt
 		ein Client die Informationen von anderen.
@@ -50,14 +50,14 @@
 		<para>
 		Warum ist dies so interessant? Bis jetzt klingt dies alles wie die
 		Definition eines typischen Dateiservers. Und tatsächlich <emphasis>ist
-		</emphasis> die Datenbank eine Art Dateiserver, aber sie ist kein
-		typischer Dateiserver. Was die Subversion Datenbank so speziell macht,
+		</emphasis> das Projektarchiv eine Art Dateiserver, aber sie ist kein
+		typischer Dateiserver. Was das Subversion Projektarchiv so speziell macht,
 		ist, dass diese <emphasis>jede je gemachte Änderung speichert</emphasis>:
 		jede Änderung an einer Datei, sogar Änderungen am Dateibaum selbst wie das
 		Hinzufügen, Löschen oder Umbenennen/Verschieben von Dateien und Ordnern.
 		</para>
 		<para>
-		Wenn ein Client Daten von der Datenbank liest, so sieht er normalerweise
+		Wenn ein Client Daten aus dem Projektarchiv liest, so sieht er normalerweise
 		nur die aktuellste Version des Dateisystembaums. Aber ein Clientprogramm
 		hat auch die Möglichkeit, <emphasis>frühere</emphasis> Versionen zu
 		sehen. Zum Beispiel kann ein Client Fragen stellen wie "Was enthielt
@@ -84,7 +84,7 @@
 			Stellen Sie sich folgende Szene vor: angenommen, wir haben zwei
 			Mitarbeiter, Harry und Sally. Sie beide beschliessen, dieselbe
 			Datei gleichzeitig zu ändern. Wenn Harry seine Änderungen zuerst
-			in die Datenbank speichert, dann ist es möglich (ein paar Augenblicke
+			im Projektarchiv speichert, dann ist es möglich (ein paar Augenblicke
 			später), dass Sally ungewollt diese Änderungen durch ihre eigenen
 			überschreibt. Obwohl die Änderungen von Harry nicht verloren sind
 			(das Versionskontrollsystem speichert <emphasis>alle</emphasis>
@@ -146,7 +146,7 @@
 					Sally das Ende dieser Textdatei ändern möchte? Diese
 					Änderungen stören sich überhaupt nicht und könnten sehr
 					einfach gleichzeitig ausgeführt werden, in der Annahme,
-					dass diese Änderungen ohne Probleme zusammengemischt
+					dass diese Änderungen ohne Probleme zusammengeführt
 					werden. Es ist in dieser Situation völlig unnötig zu
 					warten, bis der eine mit der Arbeit fertig ist.
 					</para>
@@ -171,39 +171,40 @@
 			</itemizedlist>
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-2.3">
-			<title>Die Kopie-Ändern-Mischen Lösung</title>
+			<title>Die Kopie-Ändern-Zusammenführen Lösung</title>
 			<para>
 			Subversion, CVS und andere Versionskontrollsysteme nutzen ein
-			Kopie-Ändern-Mischen Modell als Alternative zur Sperr-Lösung.
+			Kopie-Ändern-Zusammenführen Modell als Alternative zur Sperr-Lösung.
 			In diesem Modell hat jeder Benutzer eine persönliche <firstterm>
 			Arbeitskopie</firstterm> des Projekts. Die Benutzer arbeiten dann
 			parallel und ändern jeweils ihre persönliche Arbeitskopie.
-			Schliesslich werden diese privaten Arbeitskopien zusammengeführt
-			&mdash; gemischt &mdash; zu einer endgültigen Version. Das
-			Versionskontrollsystem hilft beim Mischen, überlässt die endgültige
-			Kontrolle aber dem Benutzer selbst.
+			Schliesslich werden diese privaten Arbeitskopien zu einer endgültigen 
+      Version zusammengeführt. Das Versionskontrollsystem hilft beim 
+      Zusammenführen, überlässt die endgültige Kontrolle aber dem Benutzer 
+      selbst.
 			</para>
 			<para>
 			Hier ein Beispiel. Angenommen, Harry und Sally haben jeder eine
 			private Arbeitskopie von demselben Projekt. Sie arbeiten parallel
 			und ändern dieselbe Datei A in ihren Arbeitskopien. Sally speichert
-			ihre Änderungen zuerst in der Datenbank. Wenn Harry nun dasselbe
-			versucht, bekommt er eine Meldung von der Datenbank, dass seine
+			ihre Änderungen zuerst im Projektarchiv. Wenn Harry nun dasselbe
+			versucht, bekommt er eine Meldung vom Projektarchiv, dass seine
 			Datei nicht aktuell ist. In anderen Worten, die Datei A wurde
-			irgendwie in der Datenbank verändert, seit er sie das letzte Mal
+			irgendwie im Projektarchiv verändert, seit er sie das letzte Mal
 			aktualisiert hat. Also <firstterm>aktualisiert</firstterm>
-			Harry seine Arbeitskopie mit der Datenbank und <firstterm>mischt
-			</firstterm> die Änderungen in der Datenbank mit seinen eigenen.
+			Harry seine Arbeitskopie mit dem Projektarchiv und 
+      <firstterm>führt</firstterm> die Änderungen im Projektarchiv mit seinen 
+      eigenen zusammen.
 			Die Wahrscheinlichkeit, dass die Änderungen von Sally sich nicht
 			mit seinen eigenen beissen, ist gross, und so kann Harry gleich
-			danach die Datei in der Datenbank speichern.
+			danach die Datei im Projektarchiv speichern.
 			</para>
 			<figure id="tsvn-ch2-dia4">
-				<title>Die Kopie-Ändern-Mischen Lösung</title>
+				<title>Die Kopie-Ändern-Zusammenführen Lösung</title>
 				<graphic fileref="images/ch02dia4.png"/>
 			</figure>
 			<figure id="tsvn-ch2-dia5">
-				<title>&hellip;Kopie-Ändern-Mischen fortgesetzt</title>
+				<title>&hellip;Kopie-Ändern-Zusammenführen fortgesetzt</title>
 				<graphic fileref="images/ch02dia5.png"/>
 			</figure>
 			<para>
@@ -213,7 +214,7 @@
 			wird ein <firstterm>Konflikt</firstterm> genannt und ist
 			üblicherweise kein grosses Problem.
 			Wenn Harry in diesem Falle seine Arbeitskopie aktualisiert und die
-			Änderungen von Sally mit den seinen mischt, wird seine Kopie der
+			Änderungen von Sally mit den seinen zusammenführt, wird seine Kopie der
 			Datei A als"In Konflikt" markiert; er kann dann beide Versionen der
 			Dateiansehen und manuell wählen zwischen den Änderungen von Sally
 			oder seinen eigenen.
@@ -223,7 +224,7 @@
 			durch ein Gespräch mit Sally).
 			</para>
 			<para>
-			Das Kopie-Ändern-Mischen Modell mag ein wenig chaotisch aussehen,
+			Das Kopie-Ändern-Zusammenführen Modell mag ein wenig chaotisch aussehen,
 			aber in der Praxis bewährt es sich sehr gut. Benutzer können
 			parallel arbeiten, müssen niemals aufeinander warten. Wenn sie
 			an denselben Dateien arbeiten, stellt sich heraus, dass die meiste
@@ -266,11 +267,11 @@
 			vorgenommen haben und Sie überprüft haben, dass diese immer noch
 			korrekt funktionieren (z. B. ohne Fehler kompilierbar sind), stellt
 			Ihnen Subversion Befehle zur Verfügung, um Ihre Änderungen zu
-			publizieren (durch Speichern in der zentralen Datenbank), d. h.,
+			publizieren (durch Speichern im zentralen Projektarchiv), d. h.,
 			anderen zur Verfügung zu stellen. Falls andere Benutzer ihre
 			Änderungen veröffentlicht haben, stellt Subversion Befehle
 			zur Verfügung, mit denen Sie diese Änderungen in Ihre Arbeitskopie
-			einfügen können (durch Lesen von der zentralen Datenbank).
+			einfügen können (durch Lesen aus dem zentralen Projektarchiv).
 			</para>
 			<para>
 			Eine Arbeitskopie enthält immer auch zusätzliche Dateien, erstellt
@@ -279,43 +280,42 @@
 			mit Namen <filename>.svn</filename>, auch bekannt als der <firstterm>
 			Administrative Ordner</firstterm> der Arbeitskopie. Die Dateien in
 			jedem administrativen Ordner helfen Subversion dabei zu erkennen,
-			welche Dateien Sie verändert haben und welche Dateien sich in
-			der Datenbank durch andere Benutzer geändert haben.
+			welche Dateien Sie verändert haben und welche Dateien sich im
+			Projektarchiv durch andere Benutzer geändert haben.
 			</para>
 			<para>
-			Eine typische Subversion Datenbank enthält oft Dateien (oder
-			Sourcecode) von mehreren Projekten; normalerweise ist jedes Projekt
+			Ein typisches Subversion Projektarchiv enthält oft Dateien (oder
+			Quellcode) von mehreren Projekten; normalerweise ist jedes Projekt
 			ein Unterordner in der Dateisystemstruktur. In einem solchen
 			Umfeld enthält eine Arbeitskopie normalerweise nur einen solchen
-			Unterordner der Datenbank.
+			Unterordner des Projektarchivs.
 			</para>
 			<para>
-			Als Beispiel nehmen Sie an, dass Sie eine Datenbank haben, die zwei
+			Als Beispiel nehmen Sie an, dass Sie ein Projektarchiv haben, das zwei
 			Softwareprojekte enthält.
 			</para>
 			<figure id="tsvn-ch2-dia6">
-				<title>Das Dateisystem der Datenbank</title>
+				<title>Das Dateisystem des Projektarchivs</title>
 				<graphic fileref="images/ch02dia6.png"/>
 			</figure>
 			<para>
-			In anderen Worten, das Hauptverzeichnis der Datenbank hat zwei
-			Unterordner: <filename>paint</filename> und <filename>calc
-			</filename>
+			In anderen Worten, das Hauptverzeichnis des Projektarchivs hat zwei
+			Unterordner: <filename>paint</filename> und <filename>calc</filename>
 			</para>
 			<para>
 			Um eine Arbeitskopie zu erhalten, müssen Sie einen dieser Unterordner
-			aus der Datenbank <firstterm>Auschecken</firstterm>.
+			aus dem Projektarchiv <firstterm>Auschecken</firstterm>.
 			</para>
 			<sidebar id="tsvn-ch-02-sidebar-1">
-				<title>Datenbank URLs</title>
+				<title>Projektarchiv URLs</title>
 				<para>
-				Auf Subversion Datenbanken kann mittels vieler verschiedener
+				Auf Subversion Projektarchive kann mittels vieler verschiedener
 				Methoden zugegriffen werden &mdash; lokal oder durch verschiedene
-				Netzwerk-Protokolle. Eine Datenbankposition aber ist immer eine
-				URL. Das URL Schema zeigt die Zugriffsmethode:
+				Netzwerk-Protokolle. Auf ein Objekt im Projektarchiv wird  immer über 
+        eine URL zugegriffen. Das URL Schema zeigt die Zugriffsmethode:
 				</para>
 				<table id="tsvn-ch-02-table-1">
-					<title>Datenbank Zugriffs-URLs</title>
+					<title>Zugriffs-URLs</title>
 					<tgroup cols="2">
 						<thead>
 							<row>
@@ -328,7 +328,7 @@
 								<entry>
 									<literal>file:///</literal>
 								</entry>
-								<entry>direkter Datenbankzugriff (auf einer lokalen Festplatte)</entry>
+								<entry>direkter Zugriff (auf einer lokalen Festplatte)</entry>
 							</row>
 							<row>
 								<entry>
@@ -365,16 +365,16 @@
 				In den weitaus meisten Fällen nutzen Subversion URLs die Standardsyntax
 				und erlauben, dass Servernamen und Portnummern als Teil der URL
 				angegeben werden. Beachten Sie jedoch, dass die <literal>file:///
-				</literal> Zugriffsmethode nur möglich ist, wenn die Datenbank auf
+				</literal> Zugriffsmethode nur möglich ist, wenn das Projektarchiv auf
 				demselben Rechner liegt wie das Clientprogramm. Mit <literal>file:///
-				</literal> darf nicht auf Datenbanken auf freigegebenen Netzlaufwerken
+				</literal> darf nicht auf Projektarchive auf freigegebenen Netzlaufwerken
 				zugegriffen werden!
 				</para>
 				<para>
 				Zudem müssen Benutzer des <literal>file:///</literal> Schemas auf
 				Windowsrechnern eine nicht offizielle <quote>Standard</quote>
 				Syntax für die URL verwenden. Jede der folgenden URLs funktioniert,
-				wobei <literal>X</literal> das Laufwerk mit der Datenbank ist:
+				wobei <literal>X</literal> das Laufwerk mit dem Projektarchiv ist:
 				</para>
 				<screen>
 file:///X:/path/to/repos
@@ -403,7 +403,7 @@ file:///X|/path/to/repos
 			</para>
 			<para>
 			Danach sind Ihre Änderungen an der Datei <filename>button.c</filename>
-			in der Datenbank abgespeichert; falls jemand anders nun eine neue
+			im Projektarchiv abgespeichert; falls jemand anders nun eine neue
 			Arbeitskopie von <filename>/calc</filename> auscheckt, wird diese
 			Ihre letzten Änderungen an der Datei <filename>button.c</filename>
 			mitenthalten.
@@ -428,7 +428,7 @@ file:///X|/path/to/repos
 			Beachten Sie, dass Sally nicht angeben muss, welche Dateien genau
 			Subversion aktualisieren soll; Subversion nutzt die Informationen
 			im <filename>.svn</filename> Ordner und weitere Informationen aus
-			der Datenbank, um dies selbst festzustellen.
+			dem Projektarchiv, um dies selbst festzustellen.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-3.2">
@@ -442,30 +442,30 @@ file:///X|/path/to/repos
 			Änderungen in einem einzigen Schritt übertragen.
 			</para>
 			<para>
-			In der Datenbank wird jede Übertragung als eine einzige atomare
+			Im Projektarchiv wird jede Übertragung als eine einzige atomare
 			Transaktion behandelt: entweder werden alle Änderungen abgespeichert
 			oder gar keine. Subversion stellt dies sogar im Falle von Systemabstürzen,
 			Netzwerkproblemen, Stromausfällen oder anderen Problemen sicher.
 			</para>
 			<para>
-			Jedesmal wenn eine Datenbank eine Übertragung akzeptiert, wird
+			Jedesmal wenn ein Projektarchiv eine Übertragung akzeptiert, wird
 			dadurch ein neuer Zustand der Dateistruktur erzeugt. Ein solcher
 			Zustand wird <firstterm>Revision</firstterm> genannt.
 			Jeder Revision wird eine natürliche Zahl zugeordnet, jeweils um
 			eins grösser als die vorherige Revision. Der Ursprungszustand
-			einer Datenbank bei der Erstellung ist also Revision 0.
+			eines Projektarchivs bei der Erstellung ist also Revision 0.
 			Revision 0 enthält nichts ausser einem leeren Hauptverzeichnis.
 			</para>
 			<para>
-			Ein möglicher Weg, um sich die Datenbank vorzustellen, ist als eine
+			Ein möglicher Weg, um sich das Projektarchiv vorzustellen, ist als eine
 			Reihe von Bäumen. Stellen Sie sich eine Reihe von Revisionsnummern
 			vor, beginnend mit 0, sich von links nach rechts ausbreitend. Jede
 			Revisionsnummer hat einen Dateisystembaum, welcher an dieser Reihe
 			hängt, und jeder dieser Bäume ist eine <quote>Momentaufnahme</quote>
-			davon, wie die Datenbank nach der jeweiligen Übertragung ausgesehen hat.
+			davon, wie das Projektarchiv nach der jeweiligen Übertragung ausgesehen hat.
 			</para>
 			<figure id="tsvn-ch2-dia7">
-				<title>Die Datenbank</title>
+				<title>Das Projektarchiv</title>
 				<graphic fileref="images/ch02dia7.png"/>
 			</figure>
 			<sidebar>
@@ -474,10 +474,10 @@ file:///X|/path/to/repos
 				Anders als in vielen bekannten Versionskontrollsystemen stellt eine
 				Revisionsnummer den Zustand eines <emphasis>ganzen Dateibaumes
 				</emphasis> dar, nicht nur von einzelnen Dateien. Jede Revision
-				ist ein ganzer Dateibaum, ein bestimmter Zustand der Datenbank
+				ist ein ganzer Dateibaum, ein bestimmter Zustand des Projektarchivs
 				nach einer Übertragung. Eine andere Möglichkeit, sich eine
 				Revision vorzustellen, ist, dass eine Revision N den Zustand
-				der Datenbank nach der N-ten Übertragung darstellt.
+				des Projektarchivs nach der N-ten Übertragung darstellt.
 				Wenn ein Subversion-Benutzer von <quote>Revision 5 der Datei <filename>
 				foo.c</filename></quote> spricht, meint er in Wirklichkeit den Zustand
 				der Datei <filename>foo.c</filename> wie sie in Revision 5
@@ -488,9 +488,9 @@ file:///X|/path/to/repos
 			</sidebar>
 			<para>
 			Es ist wichtig zu beachten, dass Arbeitskopien nicht immer mit einer
-			einzigen Revision der Datenbank übereinstimmen; sie können Dateien
+			einzigen Revision des Projektarchivs übereinstimmen; sie können Dateien
 			von verschiedenen Revisionen enthalten. Nehmen Sie zum Beispiel an,
-			Sie haben aus einer Datenbank eine Arbeitskopie ausgecheckt, bei
+			Sie haben aus einem Projektarchiv eine Arbeitskopie ausgecheckt, bei
 			welcher die neueste Revision die 4 ist:
 			</para>
 <screen>
@@ -500,10 +500,10 @@ calc/Makefile:4
 </screen>
 			<para>
 			In diesem Moment entspricht die Arbeitskopie exakt der Revision 4
-			in der Datenbank. Nun nehmen Sie an, Sie ändern die Datei
+			im Projektarchiv. Nun nehmen Sie an, Sie ändern die Datei
 			<filename>button.c</filename> und übertragen diese Änderungen.
 			Nehmen Sie weiter an, dass keine weitern Änderungen vorgenommen
-			wurden und Ihre Übertragung eine neue Revision 5 in der Datenbank
+			wurden und Ihre Übertragung eine neue Revision 5 im Projektarchiv
 			erstellt. Ihre Arbeitskopie wird dann so aussehen:
 			</para>
 <screen>
@@ -531,11 +531,11 @@ calc/Makefile:6
 			markiert Ihre lokale Kopie von <filename>Makefile</filename> mit
 			Revision 6 um zu zeigen, dass diese immer noch aktuell ist. Also
 			nachdem Sie eine saubere Aktualisierung durchgeführt haben, wird
-			Ihre Arbeitskopie exakt einer Revision in der Datenbank entsprechen.
+			Ihre Arbeitskopie exakt einer Revision im Projektarchiv entsprechen.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-3.3">
-			<title>Wie Arbeitskopien die Datenbank verfolgen</title>
+			<title>Wie Arbeitskopien das Projektarchiv verfolgen</title>
 			<para>
 			Für jede Datei in einer Arbeitskopie zeichnet Subversion zwei
 			wesentliche Informationen im <filename>.svn</filename>
@@ -549,13 +549,13 @@ calc/Makefile:6
 				</listitem>
 				<listitem>
 					<para>Der Zeitpunkt, an dem die Datei zum letzten Mal mit
-					der Datenbank aktualisiert wurde.
+					dem Projektarchiv aktualisiert wurde.
 					</para>
 				</listitem>
 			</itemizedlist>
 			<para>
 			Mittels dieser Informationen ist Subversion in der Lage, durch
-			Anfragen bei der Datenbank herauszufinden, in welchem der folgenden
+			Anfragen an das Projektarchiv herauszufinden, in welchem der folgenden
 			vier Zustände eine Datei ist:
 			</para>
 			<variablelist>
@@ -563,7 +563,7 @@ calc/Makefile:6
 					<term>Unverändert und aktuell</term>
 					<listitem>
 						<para>
-						Die Datei wurde weder lokal noch in der Datenbank
+						Die Datei wurde weder lokal noch im Projektarchiv
 						verändert. Eine <command>Übertragung</command>
 						und auch eine <command>Aktualisierung</command>dieser
 						Datei bewirkt nichts.
@@ -574,9 +574,9 @@ calc/Makefile:6
 					<term>Lokal verändert und aktuell</term>
 					<listitem>
 						<para>
-						Die Datei wurde lokal verändert, aber nicht in der
-						Datenbank. Eine <command>Übertragung</command> bewirkt
-						ein Speichern dieser Änderungen in der Datenbank. Eine
+						Die Datei wurde lokal verändert, aber nicht im
+						Projektarchiv. Eine <command>Übertragung</command> bewirkt
+						ein Speichern dieser Änderungen im Projektarchiv. Eine
 						<command>Aktualisierung</command> hingegen bewirkt nichts.
 						</para>
 					</listitem>
@@ -586,10 +586,10 @@ calc/Makefile:6
 					<listitem>
 						<para>
 						Die Datei wurde lokal nicht verändert, jedoch gibt es
-						Änderungen an der Datei in der Datenbank. Eine
+						Änderungen an der Datei im Projektarchiv. Eine
 						<command>Übertragung</command> bewirkt nichts, jedoch
 						wird ein <command>Aktualisieren</command> die Änderungen
-						von der Datenbank in die lokale Kopie der Datei einfügen.
+						aus dem Projektarchiv in die lokale Kopie der Datei einfügen.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -597,13 +597,13 @@ calc/Makefile:6
 					<term>Lokal verändert und nicht aktuell</term>
 					<listitem>
 						<para>
-						Die Datei wurde lokal und in der Datenbank verändert.
-						Ein <command>Übertragen</command> wird fehlschlagen mit
-						einer Fehlermeldung. Die Datei muss zuerst <command>
-						Aktualisiert</command> werden, um die Änderungen von
-						der Datenbank in die lokale Kopie einzufügen. Falls
+						Die Datei wurde lokal und im Projektarchiv verändert.
+						Ein <command>Übertragen</command> wird mit einer Fehlermeldung 
+            fehlschlagen. Die Datei muss zuerst <command>
+						Aktualisiert</command> werden, um die Änderungen aus
+						dem Projektarchiv in die lokale Kopie einzufügen. Falls
 						Subversion nicht in der Lage sein sollte, diese
-						Änderungen selbst zu vermischen, muss der Benutzer den
+						Änderungen selbst zusammenzuführen, muss der Benutzer den
 						Konflikt manuell lösen.
 						</para>
 					</listitem>
@@ -620,7 +620,7 @@ calc/Makefile:6
 		<itemizedlist>
 			<listitem>
 				<para>
-				Wir haben den Begriff der zentralen Datenbank, der Arbeitskopie
+				Wir haben den Begriff des zentralen Projektarchivs, der Arbeitskopie
 				und der Revisionen eingeführt.
 				</para>
 			</listitem>
@@ -629,7 +629,7 @@ calc/Makefile:6
 				Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter
 				Subversion benutzen können, um Änderungen zur Verfügung zu stellen
 				und Änderungen von anderen zu übernehmen mittels des
-				Kopie-Ändern-Mischen Modells.
+				Kopie-Ändern-Zusammenführen Modells.
 				</para>
 			</listitem>
 			<listitem>

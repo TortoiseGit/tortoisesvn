@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-ch-1">
+<chapter id="tsvn-ch-1">
 
 	<title>Einleitung</title>
 
@@ -29,9 +29,9 @@
 		TortoiseSVN ist ein freies Opensource Programm für das Subversion
 		Versionskontrollsystem.
 		Das heisst, TortoiseSVN handhabt Dateien und Ordner über die Zeit.
-		Dateien werden in einer zentralen Datenbank gespeichert. Die Datenbank
-		ist ähnlich einem normalen Dateiserver, mit der Besonderheit, dass
-		sämtliche Änderungen ebenfalls gespeichert werden. Dies erlaubt es,
+		Dateien werden in einem zentralen Projektarchiv gespeichert. Das 
+    Projektarchiv entspricht einem normalen Dateiserver, mit der Besonderheit, 
+    dass sämtliche Änderungen ebenfalls gespeichert werden. Dies erlaubt es,
 		ältere Versionen von Dateien zurückzuholen und Änderungen über die
 		Zeit zu verfolgen. Dies ist der Grund, warum viele Leute Subversion
 		als eine Art <quote>Zeitmaschine</quote> ansehen.
@@ -172,8 +172,8 @@
 				<term>Atomare Übertragungen</term>
 				<listitem>
 				<para>
-				Eine Übertragung von Änderungen geht entweder komplett in die
-				Datenbank oder gar nicht. Das erlaubt Entwicklern, Änderungen
+				Eine Übertragung von Änderungen geht entweder komplett in das
+				Projektarchiv oder gar nicht. Das erlaubt Entwicklern, Änderungen
 				als zusammenhängende logische Einheit zu übertragen.
 				</para>
 				</listitem>
@@ -196,7 +196,7 @@
 				<term>Auswahl an Netzwerkschichten</term>
 				<listitem>
 				<para>
-				Subversion hat einen abstrakten Begriff des Datenbankzugriffs,
+				Subversion hat einen abstrakten Begriff des Zugriffs auf das Projektarchiv,
 				der es einfach macht, neue Netzwerkschichten zu implementieren.
 				Subversions fortgeschrittenster Netzwerkserver ist ein Modul
 				für den Apache Webserver, welcher eine Variante von HTTP genannt
@@ -204,8 +204,7 @@
 				Stabilität und Interoperabilität, und stellt verschiedene
 				Schlüsselfunktionen gratis zur Verfügung: Authentifizierung,
 				Authorisierung, Netzwerkdatenkompression, Verschlüsselung via
-				SSL und das Ansehen der
-				Datenbank in einem Internetbrowser zum Beispiel.
+				SSL und das Betrachten des Projektarchivs in einem Internetbrowser zum Beispiel.
 				Ein kleinerer Subversion Server ist ebenfalls vorhanden. Dieser
 				Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH
 				getunnelt werden kann.
@@ -220,7 +219,7 @@
 				Subversion drückt Dateiunterschiede mit Hilfe eines binären
 				Differenzalgorithmus aus, welcher identisch für Text- und
 				Binärdateien arbeitet. Beide Dateiarten werden gleich komprimiert
-				in der Datenbank abgespeichert, und jeweils nur diese Differenz
+				im Projektarchiv abgespeichert, und jeweils nur diese Differenz
 				wird in beiden Richtungen übers Netzwerk übertragen.
 				</para>
 				</listitem>
