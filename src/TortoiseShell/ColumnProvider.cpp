@@ -303,7 +303,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		return;
 	LoadLangDll();
 	columnfilepath = path;
-	EnterCriticalSection(&g_csCacheGuard);
+	AutoLocker lock(g_csCacheGuard);
 	const FileStatusCacheEntry * status;
 	if (! g_ShellCache.IsPathAllowed(path))
 		status = &g_CachedStatus.invalidstatus;
@@ -347,6 +347,5 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	else
 		itemshorturl = _T(" ");
 
-	LeaveCriticalSection(&g_csCacheGuard);
 }
 

@@ -29,7 +29,7 @@ DWORD				g_langid;
 HINSTANCE			g_hResInst;
 stdstring			g_filepath;
 svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
-CRITICAL_SECTION	g_csCacheGuard;
+CComCriticalSection	g_csCacheGuard;
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
@@ -59,13 +59,16 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     if (dwReason == DLL_PROCESS_ATTACH)
     {
 		if (g_hmodThisDll == NULL)
-			InitializeCriticalSection(&g_csCacheGuard);
+		{
+			g_csCacheGuard.Init();
+		}
+
         // Extension DLL one-time initialization
         g_hmodThisDll = hInstance;
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
-		DeleteCriticalSection(&g_csCacheGuard);
+		g_csCacheGuard.Term();
     }
     return 1;   // ok
 }

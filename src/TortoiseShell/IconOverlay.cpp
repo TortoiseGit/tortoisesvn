@@ -170,7 +170,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	//if recursive is set in the registry then check directories recursive for status and show
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
-	EnterCriticalSection(&g_csCacheGuard);
+	AutoLocker lock(g_csCacheGuard);
+
 	// Look in our caches for this item 
 	const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
 	if (s)
@@ -184,7 +185,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		// Check if we fetch icon overlays for this type of path
 		if (! g_ShellCache.IsPathAllowed(pPath))
 		{
-			LeaveCriticalSection(&g_csCacheGuard);
 			return S_FALSE;
 		}
 		// since the dwAttrib param of the IsMemberOf() function does not
@@ -216,8 +216,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			status = s->status;
 		}
 	}
-	LeaveCriticalSection(&g_csCacheGuard);
 
+	lock.Unlock();
 
 	ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 

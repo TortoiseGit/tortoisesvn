@@ -88,17 +88,15 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							svn_wc_status_kind status = svn_wc_status_unversioned;
 							try
 							{
-								EnterCriticalSection(&g_csCacheGuard);
+								AutoLocker lock(g_csCacheGuard);
 								const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(str.c_str(), PathIsDirectory(str.c_str()));
 								if (s)
 								{
 									status = s->status;
 								}
-								LeaveCriticalSection(&g_csCacheGuard);
 							}
 							catch ( ... )
 							{
-								LeaveCriticalSection(&g_csCacheGuard);
 								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
@@ -148,18 +146,16 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							svn_wc_status_kind status = svn_wc_status_unversioned;
 							try
 							{
-								EnterCriticalSection(&g_csCacheGuard);
+								AutoLocker lock(g_csCacheGuard);
 								const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(str.c_str(), PathIsDirectory(str.c_str()));
 								if (s)
 								{
 									status = s->status;
 								}
-								LeaveCriticalSection(&g_csCacheGuard);
 								statfetched = TRUE;
 							}
 							catch ( ... )
 							{
-								LeaveCriticalSection(&g_csCacheGuard);
 								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
@@ -197,17 +193,15 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		svn_wc_status_kind status = svn_wc_status_unversioned;
 		try
 		{
-			EnterCriticalSection(&g_csCacheGuard);
+			AutoLocker lock(g_csCacheGuard);
 			const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(folder_.c_str(), PathIsDirectory(folder_.c_str()));
 			if (s)
 			{
 				status = s->status;
 			}
-			LeaveCriticalSection(&g_csCacheGuard);
 		}
 		catch ( ... )
 		{
-			LeaveCriticalSection(&g_csCacheGuard);
 			ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
@@ -228,17 +222,15 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			svn_wc_status_kind status = svn_wc_status_unversioned;
 			try
 			{
-				EnterCriticalSection(&g_csCacheGuard);
+				AutoLocker lock(g_csCacheGuard);
 				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(folder_.c_str(), TRUE);
 				if (s)
 				{
 					status = s->status;
 				}
-				LeaveCriticalSection(&g_csCacheGuard);
 			}
 			catch ( ... )
 			{
-				LeaveCriticalSection(&g_csCacheGuard);
 				ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 			}
 			if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
