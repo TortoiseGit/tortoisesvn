@@ -3,9 +3,9 @@
 // Used by resource.rc
 //
 #define IDR_DLLMANIFEST                 2
-#define IDD_PROPPAGE                    107
 #define IDI_ICON5                       105
 #define IDI_MENU                        105
+#define IDD_PROPPAGE                    107
 #define IDI_APP                         108
 #define IDS_MENUCHECKOUT                120
 #define IDI_CHECKOUT                    121
@@ -113,6 +113,8 @@
 #define IDS_STATUSINCOMPLETE            196
 #define IDS_STATUSIGNORED               197
 #define IDS_DROPCOPYMENU                198
+#define IDS_PROPWAITCANCEL              199
+#define IDS_SETPROPTITLE                200
 #define IDS_STATUSEXTERNAL              204
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002

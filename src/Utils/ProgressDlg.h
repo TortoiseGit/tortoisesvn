@@ -88,13 +88,13 @@ public:
      * something like "Please wait while ...". 
      */
     void SetCancelMsg ( LPCTSTR szMessage );
-
+#ifdef _MFC_VER
 	/**
 	 * Specifies an AVI-clip that will run in the dialog box.
 	 * \param uRsrcID AVI resource identifier. To create this value use the MAKEINTRESOURCE macro.
 	 */
     void SetAnimation ( UINT uRsrcID );
-
+#endif
 	/**
 	 * Specifies an AVI-clip that will run in the dialog box.
 	 * \param hinst instance handle to the module from which the avi resource should be loaded.
@@ -126,11 +126,17 @@ public:
 	/**
 	 * Shows the progress dialog box modal.
 	 */
+#ifdef _MFC_VER
     HRESULT ShowModal ( CWnd* pwndParent );
+#endif
+    HRESULT ShowModal ( HWND hWndParent );
     /**
      * Shows the progress dialog box modeless.
      */
+#ifdef _MFC_VER
     HRESULT ShowModeless ( CWnd* pwndParent );
+#endif
+    HRESULT ShowModeless ( HWND hWndParent );
 
 	/**
 	 * Stops the progress dialog box and removes it from the screen.

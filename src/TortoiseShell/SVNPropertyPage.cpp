@@ -7,6 +7,7 @@
 #include <string>
 #include <Shlwapi.h>
 #include <commctrl.h>
+#include "ProgressDlg.h"
 
 #define MAX_PROP_STRING_LENGTH		4096			//should be big enough
 
@@ -36,10 +37,10 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 	CSVNPropertyPage *sheetpage = new CSVNPropertyPage(files_);
 
     psp.dwSize = sizeof (psp);
-    psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK | PSP_DLGINDIRECT;	
+    psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK;// | PSP_DLGINDIRECT;	
 	psp.hInstance = g_hmodThisDll;
-	psp.pszTemplate = NULL;
-	psp.pResource = (PROPSHEETPAGE_RESOURCE)LockResource(LoadResource(g_hResInst, FindResourceEx(g_hmodThisDll, RT_DIALOG, MAKEINTRESOURCE(IDD_PROPPAGE), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))));
+	psp.pszTemplate = MAKEINTRESOURCE(IDD_PROPPAGE);//NULL;
+	//psp.pResource = (PROPSHEETPAGE_RESOURCE)LockResource(LoadResource(g_hResInst, FindResourceEx(g_hResInst, RT_DIALOG, MAKEINTRESOURCE(IDD_PROPPAGE), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))));
     psp.pszIcon = MAKEINTRESOURCE(IDI_MENU);
     psp.pszTitle = _T("Subversion");
     psp.pfnDlgProc = (DLGPROC) PageProc;
@@ -80,7 +81,7 @@ BOOL CALLBACK PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam)
         sheetpage = (CSVNPropertyPage*) ((LPPROPSHEETPAGE) lParam)->lParam;
         SetWindowLong (hwnd, GWL_USERDATA, (LONG) sheetpage);
         sheetpage->SetHwnd(hwnd);
-    }
+    } // if (uMessage == WM_INITDIALOG) 
     else
     {
         sheetpage = (CSVNPropertyPage*) GetWindowLong (hwnd, GWL_USERDATA);
@@ -100,7 +101,7 @@ UINT CALLBACK PropPageCallbackProc ( HWND hwnd, UINT uMsg, LPPROPSHEETPAGE ppsp 
         CSVNPropertyPage* sheetpage = (CSVNPropertyPage*) ppsp->lParam;
         if (sheetpage != NULL)
             delete sheetpage;
-    }
+    } // if ( PSPCB_RELEASE == uMsg ) 
     return 1;
 }
 
@@ -156,14 +157,14 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						ListView_GetItemTextEx(lvh, sel, 1, buf);
 						SetDlgItemText(m_hwnd, IDC_EDITVALUE, buf);
 						delete [] buf;
-					}
+					} // if (count > 0) 
 					else
 					{
 						SetDlgItemText(m_hwnd, IDC_EDITNAME, _T(""));
 						SetDlgItemText(m_hwnd, IDC_EDITVALUE, _T(""));
-					}
-				}
-			}
+					} 
+				} // if ((code == LVN_ITEMCHANGED)||(code == LVN_ITEMACTIVATE)) 
+			} // if (wParam == IDC_PROPLIST) 
 			SetWindowLong(m_hwnd, DWL_MSGRESULT, FALSE);
 			return TRUE;        
 
@@ -184,11 +185,28 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
 						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
+						ULONG all = filenames.size();
+						ULONG count = 0;
+						CProgressDlg dlg;
+						TCHAR s[MAX_PATH];
+						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PATH);
+						dlg.SetTitle(s);
+						LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PATH);
+						dlg.SetCancelMsg(s);
+						dlg.SetTime(TRUE);
+						dlg.SetShowProgressBar(TRUE);
+						dlg.ShowModal(m_hwnd);
 						for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 						{
+							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(I->c_str());
 							props.Remove(buf, checked);
+							count++;
+							dlg.SetProgress(count, all);
+							if (dlg.HasUserCancelled())
+								break;
 						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
+						dlg.Stop();
 						delete [] buf;
 						InitWorkfileView();
 						return TRUE;
@@ -206,10 +224,26 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 #endif
 						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
 						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
+						ULONG all = filenames.size();
+						ULONG count = 0;
+						CProgressDlg dlg;
+						TCHAR s[MAX_PATH];
+						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PATH);
+						dlg.SetTitle(s);
+						LoadString(g_hResInst, IDS_PROPWAITCANCEL, s, MAX_PATH);
+						dlg.SetCancelMsg(s);
+						dlg.SetTime(TRUE);
+						dlg.SetShowProgressBar(TRUE);
+						dlg.ShowModal(m_hwnd);
 						for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I)
 						{
+							dlg.SetLine(1, I->c_str(), TRUE);
 							SVNProperties props = SVNProperties(I->c_str());
 							props.Add(name, t.c_str(), checked);
+							count++;
+							dlg.SetProgress(count, all);
+							if (dlg.HasUserCancelled())
+								break;
 							SVNStatus stat = SVNStatus();
 							if (stat.GetStatus(I->c_str())==(-2))
 							{
@@ -217,6 +251,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 								props.Remove(name);
 							}
 						} // for (std::vector<stdstring>::iterator I = filenames.begin(); I != filenames.end(); ++I) 
+						dlg.Stop();
 						InitWorkfileView();
 						delete name;
 						delete value;
@@ -251,9 +286,9 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						}
 						delete buf;
 						return TRUE;
-					}
-			}
-	}
+					} // if ((LOWORD(wParam) == IDC_EDITNAME)||(LOWORD(wParam) == IDC_EDITVALUE)) 
+			} // switch (HIWORD(wParam)) 
+	} // switch (uMessage) 
 	return FALSE;
 }
 void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
@@ -416,6 +451,31 @@ void CSVNPropertyPage::InitWorkfileView()
 			lcol2.pszText = stringtablebuffer;
 			ListView_InsertColumn(lvh, 1, &lcol2);
 		} // if (Header_GetItemCount(header)<=0)
+		if (svn.GetStatus(filenames.front().c_str())>(-2))
+		{
+			if (svn.status->entry != NULL)
+			{
+				LoadLangDll();
+				int datelen = 0;
+				if (svn.status->entry->url)
+				{
+#ifdef UNICODE
+					_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
+#else
+					_tcsncpy(tbuf, svn.status->entry->url, 4095);
+#endif
+					Unescape(tbuf);
+					TCHAR * ptr = _tcsrchr(tbuf, '/');
+					if (ptr != 0)
+					{
+						*ptr = 0;
+					}
+					SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
+				} // if (svn.status->entry->url) 
+				SetDlgItemText(m_hwnd, IDC_LOCKED, _T(""));
+			} // if (svn.status->entry != NULL)
+		} // if (svn.GetStatus(filenames.front().c_str())>(-2))
+
 		//read all properties of all selected files
 		//compare the properties and show _only_ those
 		//which are identical for all files!
@@ -526,9 +586,9 @@ void CSVNPropertyPage::Unescape(LPTSTR psz)
 					nValue = (TCHAR) (((pszHigh - szHex) << 4) +
 									(pszLow - szHex));
 				}
-			}
+			} // if (pszHigh != NULL) 
 			*pszDest++ = nValue;
-		}
+		} 
 		else
 			*pszDest++ = *pszSource;
 			

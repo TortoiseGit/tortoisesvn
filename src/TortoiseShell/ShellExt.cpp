@@ -119,7 +119,8 @@ void LoadLangDll()
 				hInst = LoadLibrary(langDll);
 			if (hInst != NULL)
 			{
-				FreeLibrary(g_hResInst);
+				if (g_hResInst != g_hmodThisDll)
+					FreeLibrary(g_hResInst);
 				g_hResInst = hInst;
 			} // if (hInst != NULL) 
 			else
@@ -139,6 +140,8 @@ void LoadLangDll()
 			if (g_hResInst != g_hmodThisDll)
 				FreeLibrary(g_hResInst);
 			g_hResInst = g_hmodThisDll;
+			str.removeValue();
+			g_langid = 0;
 		}
 	} // if (g_langid != g_ShellCache.GetLangID()) 
 }

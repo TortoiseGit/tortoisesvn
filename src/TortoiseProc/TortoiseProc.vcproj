@@ -258,6 +258,9 @@
 					RelativePath="..\Utils\PathUtils.cpp">
 				</File>
 				<File
+					RelativePath="..\Utils\ProgressDlg.cpp">
+				</File>
+				<File
 					RelativePath="..\Utils\Registry.cpp">
 				</File>
 				<File
@@ -362,6 +365,9 @@
 				</File>
 				<File
 					RelativePath="..\Utils\PathUtils.h">
+				</File>
+				<File
+					RelativePath="..\Utils\ProgressDlg.h">
 				</File>
 				<File
 					RelativePath="..\Utils\registry.h">
@@ -492,9 +498,6 @@
 					RelativePath="MergeDlg.cpp">
 				</File>
 				<File
-					RelativePath="ProgressDlg.cpp">
-				</File>
-				<File
 					RelativePath="PromptDlg.cpp">
 				</File>
 				<File
@@ -566,9 +569,6 @@
 				</File>
 				<File
 					RelativePath="MergeDlg.h">
-				</File>
-				<File
-					RelativePath="ProgressDlg.h">
 				</File>
 				<File
 					RelativePath="PromptDlg.h">
@@ -695,10 +695,10 @@
 					RelativePath="..\Icons\menuupdate.ico">
 				</File>
 				<File
-					RelativePath="..\Languages\res\Tortoise.ico">
+					RelativePath="..\Icons\Tortoise.ico">
 				</File>
 				<File
-					RelativePath="..\Icons\Tortoise.ico">
+					RelativePath="..\Languages\res\Tortoise.ico">
 				</File>
 				<File
 					RelativePath="..\Icons\Tortoise13by13.ico">
