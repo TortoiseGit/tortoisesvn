@@ -205,7 +205,7 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
 //static method
 svn_wc_status_kind SVNStatus::GetMoreImportant(svn_wc_status_kind status1, svn_wc_status_kind status2)
 {
-	if (GetStatusRanking(status1) > GetStatusRanking(status2))
+	if (GetStatusRanking(status1) >= GetStatusRanking(status2))
 		return status1;
 	return status2;
 }
