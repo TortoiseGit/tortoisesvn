@@ -2,7 +2,10 @@ CVS
 - BUG: A Path inside a local repository wasn't recognized
        as a valid repo path in the repository browser. 
        Fixes Issue 56. (Stefan)
-
+- CHG: Some icons are changed, some new. (Lübbe)
+- CHG: If a file is deleted from the filesystem but not
+       removed from version control the icon overlay
+       shows the "deleted" icon. (Stefan)
 
 Version 0.12.1
 - BUG: If an error occurred while executing a command
