@@ -32,13 +32,13 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 
 	m_hPipe = CreateFile( 
 		_T("\\\\.\\pipe\\TSVNCache"),   // pipe name 
-		GENERIC_READ |  // read and write access 
+		GENERIC_READ |					// read and write access 
 		GENERIC_WRITE, 
-		0,              // no sharing 
-		NULL,           // default security attributes
-		OPEN_EXISTING,  // opens existing pipe 
-		0,              // default attributes 
-		NULL);          // no template file 
+		0,								// no sharing 
+		NULL,							// default security attributes
+		OPEN_EXISTING,				// opens existing pipe 
+		FILE_FLAG_OVERLAPPED,			// default attributes 
+		NULL);							// no template file 
 
 
 	if (m_hPipe != INVALID_HANDLE_VALUE) 
@@ -58,8 +58,16 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 			m_hPipe = INVALID_HANDLE_VALUE;
 			return false;
 		}
-
-		return true;
+		m_hEvent = CreateEvent(NULL, FALSE, FALSE, _T("TSVNCache_OverlappedClientWait"));
+		if (m_hEvent)
+			return true;
+		ATLTRACE("CreateEvent failed"); 
+		CloseHandle(m_hPipe);
+		m_hPipe = INVALID_HANDLE_VALUE;
+		CloseHandle(m_hEvent);
+		m_hEvent = INVALID_HANDLE_VALUE;
+		return false;
+		
 	}
 
 	return false;
@@ -108,8 +116,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 	AutoLocker lock(m_critSec);
 
-	// Send a message to the pipe server. 
-	DWORD nBytesWritten;
+	DWORD nBytesRead; 
 	TSVNCacheRequest request;
 	request.flags = 0;
 	if(bRecursive)
@@ -117,34 +124,55 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 		request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
 	}
 	wcsncpy(request.path, Path.GetWinPath(), MAX_PATH);
-	if (!WriteFile(m_hPipe,&request,sizeof(request),&nBytesWritten,NULL)) 
+	ZeroMemory(&m_Overlapped, sizeof(OVERLAPPED));
+	m_Overlapped.hEvent = m_hEvent;
+	// Do the transaction in overlapped mode.
+	// That way, if anything happens which might block this call
+	// we still can get out of it. We NEVER MUST BLOCK THE SHELL!
+	// A blocked shell is a very bad user impression, because users
+	// who don't know why it's blocked might find the only solution
+	// to such a problem is a reboot and therefore they might loose
+	// valuable data. 
+	// Sure, it would be better to have no situations where the shell
+	// even can get blocked, but the timeout of 5 seconds is long enough
+	// so that users still recognize that something might be wrong and
+	// report back to us so we can investigate further.
+	if (!TransactNamedPipe(m_hPipe, &request, sizeof(request), pReturnedStatus, sizeof(*pReturnedStatus), &nBytesRead, &m_Overlapped))
 	{
-		OutputDebugStringA("TortoiseShell: Pipe WriteFile failed\n"); 
-		CloseHandle(m_hPipe);
-		m_hPipe = INVALID_HANDLE_VALUE;
-		return false;
+		if (GetLastError()!=ERROR_IO_PENDING)
+		{
+			OutputDebugStringA("TortoiseShell: TransactNamedPipe failed\n"); 
+			CloseHandle(m_hPipe);
+			CloseHandle(m_hEvent);
+			m_hPipe = INVALID_HANDLE_VALUE;
+			m_hEvent = INVALID_HANDLE_VALUE;
+			return false;
+		}
 	}
 
-	// Read from the pipe. 
-	DWORD nBytesRead; 
-	if(!ReadFile(m_hPipe,pReturnedStatus,sizeof(*pReturnedStatus),&nBytesRead,NULL))
+	DWORD dwWait = WaitForSingleObject(m_hEvent, 5000);
+	if (dwWait == WAIT_OBJECT_0)
 	{
-		OutputDebugStringA("TortoiseShell: Pipe ReadFile failed\n");
-		CloseHandle(m_hPipe);
-		m_hPipe = INVALID_HANDLE_VALUE;
-		return false;
-	}
+		if (GetOverlappedResult(m_hPipe, &m_Overlapped, &nBytesRead, FALSE))
+		{
+			if(nBytesRead == sizeof(TSVNCacheResponse))
+			{
+				// This is a full response - we need to fix-up some pointers
+				pReturnedStatus->m_status.entry = &pReturnedStatus->m_entry;
+				pReturnedStatus->m_entry.url = pReturnedStatus->m_url;
+			}
+			else
+			{
+				pReturnedStatus->m_status.entry = NULL;
+			}
 
-	if(nBytesRead == sizeof(TSVNCacheResponse))
-	{
-		// This is a full response - we need to fix-up some pointers
-		pReturnedStatus->m_status.entry = &pReturnedStatus->m_entry;
-		pReturnedStatus->m_entry.url = pReturnedStatus->m_url;
+			return true;
+		}
 	}
-	else
-	{
-		pReturnedStatus->m_status.entry = NULL;
-	}
-
-	return true;
+	OutputDebugStringA("TortoiseShell: WaitForSingleObject failed - Pipe timeout\n"); 
+	CloseHandle(m_hPipe);
+	CloseHandle(m_hEvent);
+	m_hPipe = INVALID_HANDLE_VALUE;
+	m_hEvent = INVALID_HANDLE_VALUE;
+	return false;
 }
