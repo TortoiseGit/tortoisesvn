@@ -10,6 +10,9 @@
 - ADD: Autocompletion for language-dependent keywords (usually class/method/
        variable names) in the commit dialog. (Stefan)
 - ADD: Bugtracking integration extended with regular expressions. (Stefan)
+- ADD: The autocompletion feature can be deactivated in the settings. (Stefan)
+- ADD: Paths are checked if they're valid on Windows and an error/warning
+       is shown if they're not to avoid problems later. (Stefan)
 - CHG: High color toolbar for TortoiseMerge. (Lübbe)
 - CHG: It's possible to select multiple items in the commit dialog. (Stefan)
 - CHG: Searching the log messages is now done with regular expressions. (Stefan)

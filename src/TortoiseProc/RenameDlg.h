@@ -37,10 +37,12 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
+	virtual void OnOK();
 
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_name;
 	CString m_windowtitle;
 	CString m_label;
+protected:
 };

@@ -104,6 +104,14 @@ void CCheckoutDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
+	CTSVNPath m_CheckoutDirectory;
+	m_CheckoutDirectory.SetFromWin(m_strCheckoutDirectory);
+	if (!m_CheckoutDirectory.IsValidOnWindows())
+	{
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_CHECKOUTDIRECTORY), IDS_ERR_NOVALIDPATH, TRUE, IDI_EXCLAMATION);
+		return;
+	}
+
 	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{

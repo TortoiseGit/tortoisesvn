@@ -1424,6 +1424,7 @@ BEGIN
     IDS_WARN_FOLDERNOTEMPTY "The target folder is not empty!\nAre you sure you want to checkout/export into that folder?"
     IDS_WARN_WARNING        "Warning"
     IDS_WARN_NOTE           "Notice"
+    IDS_WARN_NOVALIDPATH    "The path/url you've entered seems to be illegal on Windows!\nYou can try it anyway, but you might get an error later.\n\nA valid path on windows must not contain '<>|""?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 END
 
 STRINGTABLE 
@@ -1509,6 +1510,7 @@ BEGIN
     IDS_ERR_EMPTYDIFF       "No differences found!"
     IDS_ERR_NOTHINGTOADD    "All files are already under version control. There's nothing to add!"
     IDS_ERR_ERROR           "Error"
+    IDS_ERR_NOVALIDPATH     "This is not a valid path!\nA valid path must not contain '<>|""?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 END
 
 STRINGTABLE 
