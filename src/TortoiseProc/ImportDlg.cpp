@@ -21,6 +21,7 @@
 #include "TortoiseProc.h"
 #include "ImportDlg.h"
 #include "RepositoryBrowser.h"
+#include ".\importdlg.h"
 
 
 // CImportDlg dialog
@@ -52,6 +53,7 @@ BEGIN_MESSAGE_MAP(CImportDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -259,4 +261,44 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
 	return CResizableDialog::PreTranslateMessage(pMsg);
+}
+
+void CImportDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
+	int index = pNMLV->iItem;
+	if (m_FileList.GetCheck(index))
+	{
+		if (PathIsDirectory(m_FileList.GetItemText(index, 0)))
+		{
+			//enable all files within that folder
+			CString folderpath = m_FileList.GetItemText(index, 0);
+			for (int i=0; i<m_FileList.GetItemCount(); i++)
+			{
+				if (folderpath.CompareNoCase(m_FileList.GetItemText(i, 0).Left(folderpath.GetLength()))==0)
+				{
+					m_FileList.SetCheck(i, TRUE);
+				}
+			} // for (int i=0; i<m_FileList.GetItemCount(); i++) 
+		} // if (PathIsDirectory(m_FileList.GetItemText(index, 0))) 
+	} // if (!m_FileList.GetCheck(index)) 
+	else
+	{
+		if (!PathIsDirectory(m_FileList.GetItemText(index, 0)))
+		{
+			//user selected a file, so we need to check if the parent folder is checked
+			CString folderpath = m_FileList.GetItemText(index, 0);
+			folderpath = folderpath.Left(folderpath.ReverseFind('\\'));
+			for (int i=0; i<m_FileList.GetItemCount(); i++)
+			{
+				if (folderpath.CompareNoCase(m_FileList.GetItemText(i, 0))==0)
+				{
+					if (m_FileList.GetCheck(i))
+						m_FileList.SetCheck(index, TRUE);
+					return;
+				}
+			} // for (int i=0; i<m_FileList.GetItemCount(); i++) 
+		}
+	}
 }

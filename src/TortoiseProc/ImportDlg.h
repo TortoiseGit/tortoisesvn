@@ -87,4 +87,5 @@ public:
 	CButton m_butBrowse;
 	afx_msg void OnBnClickedBrowse();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };
