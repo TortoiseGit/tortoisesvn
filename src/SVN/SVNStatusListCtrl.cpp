@@ -122,6 +122,11 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, bool bHasCheckboxes /* = TRUE */)
 	// the relative path is always visible
 	temp.LoadString(IDS_STATUSLIST_COLFILE);
 	InsertColumn(nCol++, temp);
+	if (dwColumns & SVNSLC_COLEXT)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLEXT);
+		InsertColumn(nCol++, temp);
+	}
 	if (dwColumns & SVNSLC_COLSTATUS)
 	{
 		temp.LoadString(IDS_STATUSLIST_COLSTATUS);
@@ -640,6 +645,10 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 		icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(entry->path);
 	}
 	InsertItem(index, entryname, icon_idx);
+	if (m_dwColumns & SVNSLC_COLEXT)
+	{
+		SetItemText(index, nCol++, entry->path.GetFileExtension());
+	}
 	if (m_dwColumns & SVNSLC_COLSTATUS)
 	{
 		SVNStatus::GetStatusString(hResourceHandle, entry->status, buf, sizeof(buf)/sizeof(TCHAR), (WORD)langID);
@@ -701,53 +710,60 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 	int result = 0;
 	switch (m_nSortedColumn)
 	{
-	case 7:
+	case 8:
 		{
 			if (result == 0)
 			{
 				result = entry1->url.CompareNoCase(entry2->url);
 			}
 		}
-	case 6:
+	case 7:
 		{
 			if (result == 0)
 			{
 				result = entry1->remotepropstatus - entry2->remotepropstatus;
 			}
 		}
-	case 5:
+	case 6:
 		{
 			if (result == 0)
 			{
 				result = entry1->remotetextstatus - entry2->remotetextstatus;
 			}
 		}
-	case 4:
+	case 5:
 		{
 			if (result == 0)
 			{
 				result = entry1->propstatus - entry2->propstatus;
 			}
 		}
-	case 3:
+	case 4:
 		{
 			if (result == 0)
 			{
 				result = entry1->textstatus - entry2->textstatus;
 			}
 		}
-	case 2:
+	case 3:
 		{
 			if (result == 0)
 			{
 				result = entry1->remotestatus - entry2->remotestatus;
 			}
 		}
-	case 1:
+	case 2:
 		{
 			if (result == 0)
 			{
 				result = entry1->status - entry2->status;
+			}
+		}
+	case 1:
+		{
+			if (result == 0)
+			{
+				result = entry1->path.GetFileExtension().CompareNoCase(entry2->path.GetFileExtension());
 			}
 		}
 	case 0:		//path column
@@ -780,6 +796,11 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 		m_bAscending = TRUE;
 	m_nSortedColumn = 0;
 	// get the internal column from the visible columns
+	if (m_nSortedColumn != phdr->iItem)
+	{
+		if (m_dwColumns & SVNSLC_COLEXT)
+			m_nSortedColumn++;
+	}
 	if (m_nSortedColumn != phdr->iItem)
 	{
 		if (m_dwColumns & SVNSLC_COLSTATUS)
