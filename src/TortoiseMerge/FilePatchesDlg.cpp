@@ -156,6 +156,8 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
+	if ((pNMLV->iItem < 0) || (pNMLV->iItem >= m_arFileStates.GetCount()))
+		return;
 	if ((m_pCallBack)&&(m_arFileStates.GetAt(pNMLV->iItem)!=FPDLG_FILESTATE_PATCHED))
 	{
 		m_pCallBack->PatchFile(GetFullPath(pNMLV->iItem), m_pPatch->GetRevision(pNMLV->iItem));
