@@ -64,7 +64,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 protected:
 	void			UpdateLayout();
-	virtual BOOL	PatchFile(CString sFilePath, CString sVersion);
+	virtual BOOL	PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch);
 	BOOL			CheckResolved();
 	void			SaveFile(CString sFilePath);
 protected: 

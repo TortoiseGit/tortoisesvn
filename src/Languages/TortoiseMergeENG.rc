@@ -582,6 +582,11 @@ BEGIN
     IDS_PATCHFILEFILTER     "Patchfiles|*.diff;*.patch|All|*.*||"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_PATCH_ALL           "Patch All"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -129,6 +129,7 @@ BEGIN_MESSAGE_MAP(CFilePatchesDlg, CDialog)
 	ON_NOTIFY(LVN_GETINFOTIP, IDC_FILELIST, OnLvnGetInfoTipFilelist)
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_FILELIST, OnNMCustomdrawFilelist)
+	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
 END_MESSAGE_MAP()
 
 void CFilePatchesDlg::OnSize(UINT nType, int cx, int cy)
@@ -204,4 +205,36 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		// Tell Windows to paint the control itself.
 		*pResult = CDRF_DODEFAULT;
 	}
+}
+
+void CFilePatchesDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	*pResult = 0;
+	CString temp;
+	CMenu popup;
+	POINT point;
+	GetCursorPos(&point);
+	if (popup.CreatePopupMenu())
+	{
+		temp.LoadString(IDS_PATCH_ALL);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PATCHALL, temp);
+		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		switch (cmd)
+		{
+		case ID_PATCHALL:
+			{
+				if (m_pCallBack)
+				{
+					for (int i=0; i<m_arFileStates.GetCount(); i++)
+					{
+						if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
+							m_pCallBack->PatchFile(GetFullPath(i), m_pPatch->GetRevision(i), TRUE);
+					} // for (int i=0; i<m_arFileStates.GetCount(); i++) 
+				} // if ((m_pCallBack)&&(!temp.IsEmpty())) 
+			} 
+			break;
+		default:
+			break;
+		} // switch (cmd) 
+	} // if (popup.CreatePopupMenu()) 
 }

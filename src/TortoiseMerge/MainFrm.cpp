@@ -227,7 +227,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 }
 
 // Callback function
-BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
+BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 {
 	//first, do a "dry run" of patching...
 	if (!m_Patch.PatchFile(sFilePath))
@@ -295,6 +295,10 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
 		TRACE(_T("comparing %s\nwith the patched result %s\n"), sFilePath, sTempFile);
 	}
 	LoadViews();
+	if (bAutoPatch)
+	{
+		OnFileSave();
+	}
 	return TRUE;
 }
 

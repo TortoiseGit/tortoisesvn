@@ -99,7 +99,6 @@
 #define IDC_BUTTON22                    1061
 #define IDC_FGYOURSREMOVED              1061
 #define IDC_LANGUAGECOMBO               1062
-#define IDC_CHECK1                      1063
 #define IDC_LINENUMBERS                 1063
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
@@ -129,6 +128,7 @@
 #define IDS_GETVERSIONOFFILE            5004
 #define IDS_WARNMODIFIEDLOOSECHANGES    5005
 #define IDS_ASKFORSAVE                  5006
+#define IDS_PATCH_ALL                   6000
 #define ID_VIEW_WHITESPACES             32774
 #define ID_VIEW_ONEWAYDIFF              32775
 #define ID_MERGE_NEXTDIFFERENCE         32779

@@ -38,13 +38,14 @@ public:
 	 * \param sVersion the revision number of the file to patch
 	 * \return TRUE if patching was successful
 	 */
-	virtual BOOL PatchFile(CString sFilePath, CString sVersion) = 0;
+	virtual BOOL PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch = FALSE) = 0;
 };
 
 #define	FPDLG_FILESTATE_GOOD		0x0000
 #define	FPDLG_FILESTATE_CONFLICTED	0x0001
 #define FPDLG_FILESTATE_PATCHED		0x0002
 
+#define ID_PATCHALL					1
 /**
  * \ingroup TortoiseMerge
  *
@@ -86,4 +87,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CString GetFullPath(int nIndex);
+public:
+	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };
