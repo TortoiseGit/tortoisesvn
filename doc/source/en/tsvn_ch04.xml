@@ -700,14 +700,39 @@
 		<tip>
 			<title>Multiple Files/Folders</title>
 			<para>
-				If you select multiple files and folders in the explorer and then 				select
+				If you select multiple files and folders in the explorer and then select
 				<menuchoice>
-					<guimenuitem>Update...</guimenuitem>
+					<guimenuitem>Update</guimenuitem>
 				</menuchoice>,
 				all of those files/folders
 				are updated one by one. TortoiseSVN makes sure that all files/folders
 				which are from the same repository are updated to the exact same
 				revision! Even if between those updates another commit occurred.
+			</para>
+		</tip>
+		<tip>
+			<title>Local File Already Exists</title>
+			<para>
+				Sometimes when you try to update, the update fails with a message to
+				say that there is already a local file of the same name. This typically
+				happens when Subversion tries to checkout a newly versioned file, and finds
+				that an unversioned file of the same name already exists in your working
+				folder. Subversion will never overwrite an unversioned file - it might
+				contain something you are working on, which coincidentally has the same
+				filename as another developer has used for his newly committed file. 
+			</para>
+			<para>
+				If you get this error message, the solution is simply to rename the local
+				unversioned file. After completing the update, you can check whether
+				the renamed file is still needed.
+			</para>
+			<para>
+				If you keep getting error messages, use
+				<menuchoice>
+					<guimenuitem>Check for updates</guimenuitem>
+				</menuchoice>
+				instead to list all the problem files. That way you can deal with them
+				all at once.
 			</para>
 		</tip>
 	</sect1>
