@@ -1,5 +1,6 @@
 /************************************************************************/
-/* Generic style-sheet stuff for the TortoiseSVN documentation          */
+/* Generic style-sheet for the documentation                            */
+/* in Windows CHM Help File format                                      */
 /*                                                                      */
 /* If you prefer sans-serif fonts, just replace all the instances of    */
 /* 'times new roman,times,serif' with 'arial,helvetica,sans-serif'.     */
@@ -166,6 +167,7 @@ div.table tr {
 	background-color: #f0f0ff;
 }
 div.table td {
+	vertical-align: top;
 	padding: 2px 4px 1px 4px;
 	border: none;
 }
@@ -173,14 +175,17 @@ div.table td {
 .caution, .important, .note, .tip, .warning {
 	border-top: 5px solid;
 	border-left: 1px solid;
+	margin: 1em 0 0 1em;
+	padding: 5px 0 10px 0;
+	width: 90%;
+	clear: both;
 }
 
-.action  {
+.action, .guibutton, .guimenu, .guimenuitem {
   font-weight: bold;
 }
 
 .guibutton, .guimenu, .guimenuitem {
-  font-weight: bold;
   padding: 0px 0.5em 0px 0.5em;
 }
 

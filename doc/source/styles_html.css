@@ -1,8 +1,8 @@
 /************************************************************************/
-/* Custom style-sheet stuff for the TortoiseSVN documentation in        */
+/* Custom style-sheet stuff for the documentation in                    */
 /* single and multi page HTML format                                    */
 /*                                                                      */
-/* Overrides Definitions in styles_chm.css                           */
+/* Overrides Definitions in styles_chm.css                              */
 /************************************************************************/
 
 @import url("styles_chm.css");
@@ -39,11 +39,9 @@ p a, p a:hover {
 .caution, .important, .note, .tip, .warning {
 	background-repeat: no-repeat;
 	background-position: 5px 1.33em;
-	margin: .67em 0 0 1em;
-	padding: .33em 0 .67em 42px;
+	padding: 0 0 0 42px;
 	min-height: 52px;
 	width: 80%;
-	clear: both;
 }
 
 .tip {
