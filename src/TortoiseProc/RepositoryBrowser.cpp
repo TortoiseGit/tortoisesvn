@@ -41,7 +41,8 @@
 #define ID_POPDIFF			10
 #define ID_POPREFRESH		11
 #define ID_POPBLAME			12
-//#define ID_POPPROPS			13		commented out because already defined to 17 in LogDlg.h
+#define ID_POPCOPYTOWC		13
+//#define ID_POPPROPS			17		commented out because already defined to 17 in LogDlg.h
 
 // CRepositoryBrowser dialog
 
@@ -293,8 +294,13 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
 
 				} // if (GetRevision().IsHead()
+				else
+				{
+					temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTOWC, temp);		// "Copy To Working Copy..."
+				}
 				temp.LoadString(IDS_REPOBROWSE_COPY);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);			// "Copy To..."
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 			} // if (uSelCount == 1)
@@ -516,92 +522,90 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPCOPYTO:
 				{
-					if (GetRevision().IsHead())
+					CRenameDlg dlg;
+					dlg.m_name = url;
+					dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
+					CUtils::RemoveAccelerators(dlg.m_windowtitle);
+					if (dlg.DoModal() == IDOK)
 					{
-						CRenameDlg dlg;
-						dlg.m_name = url;
-						dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
-						CUtils::RemoveAccelerators(dlg.m_windowtitle);
-						if (dlg.DoModal() == IDOK)
+						SVN svn;
+						svn.m_app = &theApp;
+						CWaitCursorEx wait_cursor;
+						CInputDlg input(this);
+						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
+						CUtils::RemoveAccelerators(input.m_sHintText);
+						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
+						CUtils::RemoveAccelerators(input.m_sTitle);
+						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
+						CUtils::RemoveAccelerators(input.m_sInputText);
+						if (input.DoModal() == IDOK)
 						{
-							SVN svn;
-							svn.m_app = &theApp;
-							CWaitCursorEx wait_cursor;
-							CInputDlg input(this);
-							input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
-							CUtils::RemoveAccelerators(input.m_sHintText);
-							input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
-							CUtils::RemoveAccelerators(input.m_sTitle);
-							input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
-							CUtils::RemoveAccelerators(input.m_sInputText);
-							if (input.DoModal() == IDOK)
+							if (!svn.Copy(url, dlg.m_name, GetRevision(), input.m_sInputText))
 							{
-								if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, input.m_sInputText))
-								{
-									wait_cursor.Hide();
-									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-									return;
-								} // if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, _T("copy remotely"))) 
-								if (bFolder)
-									m_treeRepository.AddFolder(dlg.m_name);
-								else
-									m_treeRepository.AddFile(dlg.m_name);
-							} // if (input.DoModal() == IDOK) 
-						} // if (dlg.DoModal() == IDOK) 
-					}
-					else
-					{
-						OPENFILENAME ofn;		// common dialog box structure
-						TCHAR szFile[MAX_PATH];  // buffer for file name
-						ZeroMemory(szFile, sizeof(szFile));
-						// Initialize OPENFILENAME
-						ZeroMemory(&ofn, sizeof(OPENFILENAME));
-						//ofn.lStructSize = sizeof(OPENFILENAME);
-						ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-						ofn.hwndOwner = this->m_hWnd;
-						ofn.lpstrFile = szFile;
-						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-						CString temp;
-						temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-						CUtils::RemoveAccelerators(temp);
-						if (temp.IsEmpty())
-							ofn.lpstrTitle = NULL;
-						else
-							ofn.lpstrTitle = temp;
-						ofn.Flags = OFN_OVERWRITEPROMPT;
-
-						CString sFilter;
-						sFilter.LoadString(IDS_COMMONFILEFILTER);
-						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-						_tcscpy (pszFilters, sFilter);
-						// Replace '|' delimeters with '\0's
-						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-						while (ptr != pszFilters)
-						{
-							if (*ptr == '|')
-								*ptr = '\0';
-							ptr--;
-						} // while (ptr != pszFilters) 
-						ofn.lpstrFilter = pszFilters;
-						ofn.nFilterIndex = 1;
-						// Display the Open dialog box. 
-						CString tempfile;
-						if (GetSaveFileName(&ofn)==TRUE)
-						{
-							CWaitCursorEx wait_cursor;
-							tempfile = CString(ofn.lpstrFile);
-							SVN svn;
-							svn.m_app = &theApp;
-							if (!svn.Copy(url, tempfile, GetRevision()))
-							{
-								delete [] pszFilters;
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
-							} 
-						} // if (GetSaveFileName(&ofn)==TRUE) 
-						delete [] pszFilters;
-					}
+							}
+							if (bFolder)
+								m_treeRepository.AddFolder(dlg.m_name);
+							else
+								m_treeRepository.AddFile(dlg.m_name);
+						} // if (input.DoModal() == IDOK) 
+					} // if (dlg.DoModal() == IDOK) 
+				}
+				break;
+			case ID_POPCOPYTOWC:
+				{
+					OPENFILENAME ofn;		// common dialog box structure
+					TCHAR szFile[MAX_PATH];  // buffer for file name
+					ZeroMemory(szFile, sizeof(szFile));
+					// Initialize OPENFILENAME
+					ZeroMemory(&ofn, sizeof(OPENFILENAME));
+					//ofn.lStructSize = sizeof(OPENFILENAME);
+					ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+					ofn.hwndOwner = this->m_hWnd;
+					ofn.lpstrFile = szFile;
+					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+					CString temp;
+					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+					CUtils::RemoveAccelerators(temp);
+					if (temp.IsEmpty())
+						ofn.lpstrTitle = NULL;
+					else
+						ofn.lpstrTitle = temp;
+					ofn.Flags = OFN_OVERWRITEPROMPT;
+
+					CString sFilter;
+					sFilter.LoadString(IDS_COMMONFILEFILTER);
+					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+					_tcscpy (pszFilters, sFilter);
+					// Replace '|' delimeters with '\0's
+					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+					while (ptr != pszFilters)
+					{
+						if (*ptr == '|')
+							*ptr = '\0';
+						ptr--;
+					} // while (ptr != pszFilters) 
+					ofn.lpstrFilter = pszFilters;
+					ofn.nFilterIndex = 1;
+					// Display the Open dialog box. 
+					CString tempfile;
+					if (GetSaveFileName(&ofn)==TRUE)
+					{
+						CWaitCursorEx wait_cursor;
+						tempfile = CString(ofn.lpstrFile);
+						SVN svn;
+						svn.m_app = &theApp;
+						if (!svn.Copy(url, tempfile, GetRevision()))
+						{
+							delete [] pszFilters;
+							wait_cursor.Hide();
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							return;
+						} 
+					} // if (GetSaveFileName(&ofn)==TRUE) 
+					delete [] pszFilters;
 				}
 				break;
 			case ID_POPMKDIR:
