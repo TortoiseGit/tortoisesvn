@@ -21,6 +21,7 @@
 #include "Guids.h"
 #include "PreserveChdir.h"
 #include "UnicodeStrings.h"
+#include "..\TSVNCache\CacheInterface.h"
 
 // "The Shell calls IShellIconOverlayIdentifier::GetOverlayInfo to request the
 //  location of the handler's icon overlay. The icon overlay handler returns
@@ -43,7 +44,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
         (osv.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS &&
         osv.dwMajorVersion == 4 && osv.dwMinorVersion > 0); // plus Windows 98/Me
 	
-	// There is also a user-option to supress this
+	// There is also a user-option to suppress this
 	if(bAllowOverlayInFileDialogs && CRegStdWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE))
 	{
 		bAllowOverlayInFileDialogs = false;
@@ -178,10 +179,10 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 			return S_FALSE;
 		}
 
-		svn_wc_status_t itemStatus;
+		TSVNCacheResponse itemStatus;
 		if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(pPath, &itemStatus, !!g_ShellCache.IsRecursive()))
 		{
-			status = SVNStatus::GetMoreImportant(itemStatus.text_status, itemStatus.prop_status);
+			status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
 		}
 	}
 	else

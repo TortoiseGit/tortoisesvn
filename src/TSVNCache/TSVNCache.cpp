@@ -107,8 +107,7 @@ TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
 
 //////////////////////////////////////////////////////////////////////////
 
-VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, 
-						LPTSTR chReply, LPDWORD pchBytes)
+VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pReply, DWORD* pResponseLength)
 {
 	CTSVNPath path;
 	if(pRequest->flags & TSVNCACHE_FLAGS_FOLDERISKNOWN)
@@ -120,17 +119,24 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest,
 		path.SetFromWin(pRequest->path);
 	}
 
-	const svn_wc_status_t* pStatus = CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).Status();
+	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).BuildCacheResponse(*pReply);
 
-	memcpy(chReply, pStatus, sizeof(svn_wc_status_t));
-	*pchBytes = sizeof(svn_wc_status_t);
+	// Make sure we only send back the minmum amount necessary
+	if(pReply->m_status.entry != NULL)
+	{
+		*pResponseLength = sizeof(TSVNCacheResponse);
+	}
+	else
+	{
+		*pResponseLength = sizeof(pReply->m_status);
+	}
 }
 
 
 VOID InstanceThread(LPVOID lpvParam) 
 { 
-	TCHAR chReply[BUFSIZE]; 
-	DWORD cbBytesRead, cbReplyBytes, cbWritten; 
+	TSVNCacheResponse response; 
+	DWORD cbBytesRead, cbWritten; 
 	BOOL fSuccess; 
 	HANDLE hPipe; 
 
@@ -152,17 +158,18 @@ VOID InstanceThread(LPVOID lpvParam)
 		if (! fSuccess || cbBytesRead == 0) 
 			break; 
 
-		GetAnswerToRequest(&request, chReply, &cbReplyBytes); 
+		DWORD responseLength;
+		GetAnswerToRequest(&request, &response, &responseLength); 
 
 		// Write the reply to the pipe. 
 		fSuccess = WriteFile( 
 			hPipe,        // handle to pipe 
-			chReply,      // buffer to write from 
-			cbReplyBytes, // number of bytes to write 
+			&response,      // buffer to write from 
+			responseLength, // number of bytes to write 
 			&cbWritten,   // number of bytes written 
 			NULL);        // not overlapped I/O 
 
-		if (! fSuccess || cbReplyBytes != cbWritten) break; 
+		if (! fSuccess || responseLength != cbWritten) break; 
 	} 
 
 	// Flush the pipe to allow the client to read the pipe's contents 

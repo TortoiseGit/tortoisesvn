@@ -34,8 +34,8 @@ struct TSVNCacheRequest
 struct TSVNCacheResponse
 {
 	svn_wc_status_t m_status;
-	// TODO: We'll need to extend this to include svn_wc_entry_t and some of its members
-	// Or maybe just some of the members
+	svn_wc_entry_t m_entry;
+	char m_url[MAX_PATH+1];
 };
 
 

@@ -19,11 +19,13 @@
 #include "StdAfx.h"
 #include ".\statuscacheentry.h"
 #include "SVNStatus.h"
+#include "CacheInterface.h"
 
 CStatusCacheEntry::CStatusCacheEntry()
 {
 	SetAsUnversioned();
 	m_bSet = false;
+	m_bSVNEntryFieldSet = false;
 }
 
 CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status_t* pSVNStatus,__int64 lastWriteTime)
@@ -43,7 +45,20 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 	{
 		m_highestPriorityLocalStatus = SVNStatus::GetMoreImportant(pSVNStatus->prop_status,pSVNStatus->text_status);
 		m_svnStatus = *pSVNStatus;
-		// Currently we don't deep-copy the entry value
+
+		// Currently we don't deep-copy the whole entry value, but we do take a few members
+        if(pSVNStatus->entry != NULL)
+		{
+			m_sUrl = pSVNStatus->entry->url;
+			m_commitRevision = pSVNStatus->entry->cmt_rev;
+			m_bSVNEntryFieldSet = true;
+		}
+		else
+		{
+			m_sUrl.Empty();
+			m_commitRevision = 0;
+			m_bSVNEntryFieldSet = false;
+		}
 		m_svnStatus.entry = NULL;
 	}
 	m_bSet = true;
@@ -67,9 +82,18 @@ bool CStatusCacheEntry::HasExpired(long now) const
 	return m_discardAtTime != 0 && (now - m_discardAtTime) >= 0;
 }
 
-const svn_wc_status_t* CStatusCacheEntry::Status() const
+void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response) const
 {
-	return &m_svnStatus;
+	response.m_status = m_svnStatus;
+	if(m_bSVNEntryFieldSet)
+	{
+		ZeroMemory(&response.m_entry, sizeof(response.m_entry));
+		response.m_status.entry = &response.m_entry;
+		response.m_entry.cmt_rev = m_commitRevision;
+		response.m_entry.url = response.m_url;
+		response.m_url[0] = '\0';
+		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-1);
+	}
 }
 
 bool CStatusCacheEntry::IsVersioned() const

@@ -1,5 +1,7 @@
 #pragma once
 
+struct TSVNCacheResponse;
+
 class CRemoteCacheLink
 {
 public:
@@ -7,7 +9,7 @@ public:
 	~CRemoteCacheLink(void);
 
 public:
-	bool GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* pReturnedStatus, bool bRecursive);
+	bool GetStatusFromRemoteCache(LPCTSTR pPath, TSVNCacheResponse* pReturnedStatus, bool bRecursive);
 
 private:
 	bool EnsurePipeOpen();

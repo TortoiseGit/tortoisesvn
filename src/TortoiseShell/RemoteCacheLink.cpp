@@ -65,7 +65,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 	return false;
 }
 
-bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* pReturnedStatus, bool bRecursive)
+bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, TSVNCacheResponse* pReturnedStatus, bool bRecursive)
 {
 	if(!EnsurePipeOpen())
 	{
@@ -121,8 +121,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* 
 
 	// Read from the pipe. 
 	DWORD nBytesRead; 
-	TSVNCacheResponse response;
-	if(!ReadFile(m_hPipe,&response,sizeof(response),&nBytesRead,NULL))
+	if(!ReadFile(m_hPipe,pReturnedStatus,sizeof(*pReturnedStatus),&nBytesRead,NULL))
 	{
 		OutputDebugStringA("Pipe ReadFile failed\n");
 		CloseHandle(m_hPipe);
@@ -130,7 +129,16 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* 
 		return false;
 	}
 
-	memcpy(pReturnedStatus, &response.m_status, sizeof(*pReturnedStatus));
+	if(nBytesRead == sizeof(TSVNCacheResponse))
+	{
+		// This is a full response - we need to fix-up some pointers
+		pReturnedStatus->m_status.entry = &pReturnedStatus->m_entry;
+		pReturnedStatus->m_entry.url = pReturnedStatus->m_url;
+	}
+	else
+	{
+		pReturnedStatus->m_status.entry = NULL;
+	}
 
 	return true;
 }

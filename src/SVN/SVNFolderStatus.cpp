@@ -20,6 +20,7 @@
 #include "ShellExt.h"
 #include "SVNFolderStatus.h"
 #include "UnicodeUtils.h"
+#include "..\TSVNCache\CacheInterface.h"
 
 extern ShellCache g_ShellCache;
 
@@ -273,17 +274,17 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 
 	if(g_ShellCache.UseExternalCache())
 	{
-		svn_wc_status_t fullStatus;
+		TSVNCacheResponse fullStatus;
 		if(!m_remoteCacheLink.GetStatusFromRemoteCache(filepath, &fullStatus, false))
 		{
 			return &invalidstatus;
 		}
 
-		if (fullStatus.entry != NULL)
+		if (fullStatus.m_status.entry != NULL)
 		{
-			filestat.author = authors.GetString(fullStatus.entry->cmt_author);
-			filestat.url = urls.GetString(fullStatus.entry->url);
-			filestat.rev = fullStatus.entry->cmt_rev;
+			filestat.author = authors.GetString(fullStatus.m_status.entry->cmt_author);
+			filestat.url = urls.GetString(fullStatus.m_status.entry->url);
+			filestat.rev = fullStatus.m_status.entry->cmt_rev;
 		} // if (status->entry) 
 		else
 		{
@@ -292,8 +293,8 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 			filestat.rev = -1;
 		}
 		filestat.status = svn_wc_status_unversioned;
-		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.text_status);
-		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.prop_status);
+		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.m_status.text_status);
+		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.m_status.prop_status);
 
 		return &filestat;
 	}
