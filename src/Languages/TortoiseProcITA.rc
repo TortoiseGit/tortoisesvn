@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Italian (Italy) resources
+// Italienisch (Italien) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
 #ifdef _WIN32
@@ -296,20 +296,20 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Principale"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    LTEXT           "Programma per i Diff:",IDC_STATIC,7,10,44,8
+    LTEXT           "Programma per i Diff:",IDC_STATIC,7,10,66,8
     EDITTEXT        IDC_EXTDIFF,80,7,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Sfoglia...",IDC_EXTDIFFBROWSE,230,7,50,14
-    LTEXT           "Lingua:",IDC_STATIC,7,73,35,8
+    LTEXT           "Lingua:",IDC_STATIC,7,73,66,8
     COMBOBOX        IDC_LANGUAGECOMBO,80,73,200,68,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,95,70,8
+    LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,95,66,8
     EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
     CONTROL         "Allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,119,273,10
-    LTEXT           "External Merge:",IDC_STATIC,7,29,52,8
+    LTEXT           "External Merge:",IDC_STATIC,7,29,66,8
     EDITTEXT        IDC_EXTMERGE,80,26,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Sfoglia...",IDC_EXTMERGEBROWSE,230,25,50,14
-    LTEXT           "Diff Viewer:",IDC_STATIC,7,48,38,8
+    LTEXT           "Diff Viewer:",IDC_STATIC,7,48,66,8
     EDITTEXT        IDC_DIFFVIEWER,80,45,140,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Sfoglia...",IDC_DIFFVIEWERROWSE,230,45,50,14
 END
@@ -818,12 +818,12 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "remote status"
 END
 
-#endif    // Italian (Italy) resources
+#endif    // Italienisch (Italien) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -866,7 +866,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
