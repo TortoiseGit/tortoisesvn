@@ -937,3 +937,62 @@ BOOL CSVNProgressDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	SetCursor(hCur);
 	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
 }
+
+BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		if (pMsg->wParam == 'A')
+		{
+			if (GetKeyState(VK_CONTROL)&0x8000)
+			{
+				// Ctrl-A -> select all
+				m_ProgList.SetSelectionMark(0);
+				for (int i=0; i<m_ProgList.GetItemCount(); ++i)
+				{
+					m_ProgList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+				}
+			}
+		}
+		if (pMsg->wParam == 'C')
+		{
+			int selIndex = m_ProgList.GetSelectionMark();
+			if (selIndex >= 0)
+			{
+				if (GetKeyState(VK_CONTROL)&0x8000)
+				{
+					//Ctrl-C -> copy to clipboard
+					CStringA sClipdata;
+					POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
+					if (pos != NULL)
+					{
+						while (pos)
+						{
+							int nItem = m_ProgList.GetNextSelectedItem(pos);
+							CString sAction = m_ProgList.GetItemText(nItem, 0);
+							CString sPath = m_ProgList.GetItemText(nItem, 1);
+							CString sMime = m_ProgList.GetItemText(nItem, 2);
+							CString sLogCopyText;
+							sLogCopyText.Format(_T("%s: %s  %s\n"),
+								sAction, sPath, sMime);
+							sClipdata +=  CStringA(sLogCopyText);
+						}
+						if (OpenClipboard())
+						{
+							EmptyClipboard();
+							HGLOBAL hClipboardData;
+							hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
+							char * pchData;
+							pchData = (char*)GlobalLock(hClipboardData);
+							strcpy(pchData, (LPCSTR)sClipdata);
+							GlobalUnlock(hClipboardData);
+							SetClipboardData(CF_TEXT,hClipboardData);
+							CloseClipboard();
+						} // if (OpenClipboard()) 
+					}
+				} // if (GetKeyState(VK_CONTROL)&0x8000)
+			} // if (selIndex >= 0)
+		} // if (pLVKeyDow->wVKey == 'C')
+	} // if (pMsg->message == WM_KEYDOWN)
+	return __super::PreTranslateMessage(pMsg);
+}
