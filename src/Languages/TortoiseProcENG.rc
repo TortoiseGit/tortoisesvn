@@ -348,11 +348,11 @@ CAPTION "Main"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Misc",IDC_MISCGROUP,7,7,286,123
-    LTEXT           "&Language:",IDC_STATIC,13,17,60,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,15,200,64,CBS_DROPDOWNLIST | 
+    LTEXT           "&Language:",IDC_STATIC,13,17,86,8
+    COMBOBOX        IDC_LANGUAGECOMBO,108,15,172,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Exclude pattern:",IDC_STATIC,13,30,60,18,SS_CENTERIMAGE
-    EDITTEXT        IDC_TEMPEXTENSIONS,80,32,200,14,ES_AUTOHSCROLL
+    LTEXT           "Exclude pattern:",IDC_STATIC,13,30,85,18,SS_CENTERIMAGE
+    EDITTEXT        IDC_TEMPEXTENSIONS,108,32,172,14,ES_AUTOHSCROLL
     LTEXT           "Default &number of log messages",IDC_STATIC,13,53,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,51,51,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
@@ -496,7 +496,7 @@ BEGIN
                     IDC_STATIC,7,7,286,21
     CONTROL         "",IDC_MENULIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | 
-                    WS_BORDER | WS_TABSTOP,7,28,286,164
+                    WS_BORDER | WS_TABSTOP,7,32,286,160
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
@@ -563,7 +563,7 @@ BEGIN
     EDITTEXT        IDC_EXTDIFF,105,31,159,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,271,31,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
-                    IDC_STATIC,13,49,170,19
+                    IDC_STATIC,13,49,160,19
     PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,177,50,87,14
     GROUPBOX        "Merge Program",IDC_STATIC,7,78,286,65
     LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,89,251,
@@ -575,7 +575,7 @@ BEGIN
     EDITTEXT        IDC_EXTMERGE,105,101,159,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,271,100,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
-                    IDC_STATIC,13,121,170,19
+                    IDC_STATIC,13,121,160,19
     PUSHBUTTON      "A&dvanced...",IDC_EXTMERGEADVANCED,177,121,87,14
     GROUPBOX        "Diff Viewer",IDC_STATIC,7,149,286,43
     LTEXT           "Viewer program for GNU diff files (patch files).",
@@ -842,7 +842,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
         VERTGUIDE, 13
-        VERTGUIDE, 80
+        VERTGUIDE, 108
         VERTGUIDE, 229
         VERTGUIDE, 280
         TOPMARGIN, 7
@@ -908,6 +908,7 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 192
         HORZGUIDE, 28
+        HORZGUIDE, 32
     END
 
     IDD_SIMPLEPROMPT, DIALOG
@@ -943,6 +944,7 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 13
         VERTGUIDE, 105
+        VERTGUIDE, 173
         VERTGUIDE, 264
         VERTGUIDE, 271
         VERTGUIDE, 285
