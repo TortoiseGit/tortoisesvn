@@ -63,6 +63,7 @@
 
 		<Component Id="C__shellregistry" Guid="D3F48AA6-A01B-47c5-A314-70319092E89A" >
 			<Registry Root="HKCR" Key="Drive\shellex\ContextMenuHandlers\TortoiseSVN" KeyPath="yes" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_F9920D9B7AC24A00B3EB165F5443F396" Type="string" />
+			<Registry Root="HKCR" Key="Drive\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_428E92FA10104428898CD781195E2EE7" Type="string" />
 			<Registry Root="HKCR" Key="Directory\shellex\ContextMenuHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_FB91C533FB924DD5AF9B3C7D11ED96F5" Type="string" />
 			<Registry Root="HKCR" Key="Directory\shellex\DragDropHandlers\TortoiseSVN" Value="{3035134a-7B7D-4fcc-81B4-1E394CA267EB}" Id="_7E90BAAA1EC6477987268183EEE362BE" Type="string" />
 			<Registry Root="HKCR" Key="Directory\shellex\PropertySheetHandlers\TortoiseSVN" Value="{30351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_2D85E376087449549EFDFEF3731801BD" Type="string" />
