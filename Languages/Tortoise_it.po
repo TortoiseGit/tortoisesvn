@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-01 14:39+0100\n"
+"PO-Revision-Date: 2004-09-08 19:35+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -339,9 +339,8 @@ msgstr "&Differenza precedente"
 
 # Control-ID:1023,
 #: Control-ID:1023
-#, fuzzy
 msgid "&Recurse into folders to fetch the status"
-msgstr "&Analisi ricorsiva delle sottocartelle per recuperare lo stato"
+msgstr "&Percorri l'intera struttura per recuperare lo stato"
 
 # Control-ID:1048,
 #: Control-ID:1048
@@ -427,7 +426,7 @@ msgstr "&Annulla\tCtrl+Z"
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "&Unknown drives"
-msgstr "Dischi sconosciuti"
+msgstr "Dischi &sconosciuti"
 
 # ID:76,
 #: ID:76
@@ -666,7 +665,6 @@ msgstr "Aggiungi alla lista Ignora"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Add files to Subversion here"
 msgstr "Aggiungi qui i file al Repository"
 
@@ -684,6 +682,15 @@ msgstr "Aggiunto"
 #: ID:126
 msgid "Added a file remotely"
 msgstr "File aggiunto in remoto"
+
+# ID:13,
+#: ID:145
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr ""
+"Aggiungi il/i file\n"
+"%s alla lista \"Ignora\"."
 
 # ID:9,
 #: ID:9
@@ -1158,7 +1165,7 @@ msgstr "Pulisce operazioni interrotte, file bloccati, ..."
 # Control-ID:1059,
 #: Control-ID:1059
 msgid "Clear &Auth Cache"
-msgstr "Elimina password salvate"
+msgstr "Elimina &password salvate"
 
 # ID:195,
 #: ID:195
@@ -1194,6 +1201,11 @@ msgstr "Colori"
 #: ID:3857
 msgid "Command failed."
 msgstr "Impossibile eseguire il comando."
+
+# Control-ID:1110,
+#: Control-ID:1125
+msgid "Comment History:"
+msgstr "Cronologia dei commenti:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -1624,7 +1636,7 @@ msgstr "&Esci"
 # Control-ID:1095,
 #: Control-ID:1095
 msgid "E&xternal"
-msgstr "Esterno"
+msgstr "E&sterno"
 
 # ID:3697,
 #: ID:3697
@@ -1889,6 +1901,11 @@ msgstr "Ottenimento file %s"
 #: ID:132
 msgid "Getting file info..."
 msgstr "Ottenimeno informazioni sul file..."
+
+# ID:132,
+#: ID:132
+msgid "Getting log info..."
+msgstr "Ottenimeno informazioni..."
 
 # ID:2049,
 #: ID:2049
@@ -2223,7 +2240,6 @@ msgstr "Diversi"
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
-#, fuzzy
 msgid "Mixed"
 msgstr "Misto"
 
@@ -2426,7 +2442,7 @@ msgstr "Password:"
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
-msgstr "Incolla il Log dei cambiamenti (in inglese)"
+msgstr "I&ncolla il Log dei cambiamenti (in inglese)"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -2628,7 +2644,7 @@ msgstr ""
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "R&AM drives"
-msgstr "Dischi RAM"
+msgstr "Dischi R&AM"
 
 # ID:3697,
 #: ID:3697
@@ -2911,7 +2927,6 @@ msgstr "SVN Fondi..."
 
 # Dlg-ID:134,
 #: Dlg-ID:134
-#, fuzzy
 msgid "SVN Progress"
 msgstr "SVN Progredisci"
 
@@ -2991,7 +3006,7 @@ msgstr "Salvare cambiamenti in %1?"
 # ID:76,
 #: ID:76
 msgid "Save revision &to..."
-msgstr "Salva revisione &in..."
+msgstr "Salva revisione &come..."
 
 # ID:3601,#:
 # ID:3601,
@@ -3023,7 +3038,7 @@ msgstr "Cerca campo in %1"
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Select / Deselect &All"
-msgstr "Seleziona / Deseleziona tutto"
+msgstr "Seleziona / Deseleziona &tutti"
 
 # ID:78,
 #: ID:78
@@ -3102,7 +3117,7 @@ msgstr "Invio del contenuto"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Server &address:"
-msgstr "Indirizzo del server:"
+msgstr "&Indirizzo del server:"
 
 # Control-ID:1088,
 #: Control-ID:1088
@@ -3123,12 +3138,11 @@ msgstr "Impostazioni"
 
 # ID:115,
 #: ID:115
-#, fuzzy
 msgid ""
 "Shall the log stop on a copy?\n"
 "Click <b>Yes</b> if you need to find out where a branch started."
 msgstr ""
-"Sospendere il Log delle modifiche durante una copia?\n"
+"Sospendere il Log delle modifiche durante la copia?\n"
 "Clicca <b>Sì</b> se si vuole creare un ramo."
 
 # ID:101,
@@ -3172,7 +3186,7 @@ msgstr "Visualizza &log"
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show &overlays only in explorer"
-msgstr "Visualizza le icone di stato solo in explorer"
+msgstr "Visualizza le icone di &stato solo in explorer"
 
 # Control-ID:1065,
 #: Control-ID:1065
@@ -3829,6 +3843,11 @@ msgstr "Url:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "Usa la lente sulla barra di posizionamento"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "Usa l'editore di testo per visualizzare le revisioni invalidate"
+
 # Control-ID:65535,
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
@@ -3846,33 +3865,33 @@ msgstr "Barra le linee eliminate"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\""
-msgstr "Usa il blocco di testo dal \"loro\""
+msgid "Use text block from \"&theirs\""
+msgstr "Usa il blocco di testo dal \"&loro\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Usa il blocco di testo dal \"loro\" prima del \"tuo\""
+msgid "Use text block from \"&yours\""
+msgstr "Usa blocco di testo dal \"&tuo\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\""
-msgstr "Usa blocco di testo dal \"tuo\""
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "Usa il blocco di testo dal \"l&oro\" prima del \"tuo\""
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Usa blocco di testo dal \"tuo\""
+msgid "Use text block from \"y&ours\" before \"theirs\""
+msgstr "Usa blocco di testo dal \"t&uo\""
+
+# ID:251,
+#: ID:251
+msgid "Use th&is text block"
+msgstr "Usa &questo blocco di testo"
 
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Usa questo se l'URL  del repository è cambiato"
-
-# ID:251,
-#: ID:251
-msgid "Use this text block"
-msgstr "Usa questo blocco di testo"
 
 # Control-ID:65535,
 #: Control-ID:65535

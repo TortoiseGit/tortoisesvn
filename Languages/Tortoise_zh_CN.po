@@ -1,5 +1,5 @@
 #
-# Simplifed Chinese translations for TortoiseSVN package
+# Simplified Chinese translations for TortoiseSVN package
 # Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -8,9 +8,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN zh_TW\n"
+"Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-02 18:08+0800\n"
+"PO-Revision-Date: 2004-09-09 10:21+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -686,6 +686,15 @@ msgstr "加入的"
 msgid "Added a file remotely"
 msgstr "远程加入档案完成"
 
+# ID:13,
+#: ID:145
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr ""
+"将选定的档案(们)\n"
+"%s忽略列表"
+
 # ID:9,
 #: ID:9
 msgid "Adds file(s) to Subversion control"
@@ -1194,6 +1203,11 @@ msgstr "色彩"
 #: ID:3857
 msgid "Command failed."
 msgstr "命令失败."
+
+# Control-ID:1110,
+#: Control-ID:1125
+msgid "Comment History:"
+msgstr "批注纪录:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -1888,6 +1902,11 @@ msgstr "正在取得档案 %s"
 #: ID:132
 msgid "Getting file info..."
 msgstr "正在取得档案信息..."
+
+# ID:132,
+#: ID:132
+msgid "Getting log info..."
+msgstr "正在取得纪录信息..."
 
 # ID:2049,
 #: ID:2049
@@ -3822,6 +3841,11 @@ msgstr "Url:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "在定位列上使用放大镜"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "使用文字编辑器检视谴责"
+
 # Control-ID:65535,
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
@@ -3839,33 +3863,33 @@ msgstr "用双删除线表示已删除行"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\""
-msgstr "使用远程(theirs)的文字区块"
+msgid "Use text block from \"&theirs\""
+msgstr "使用远程(&theirs)的文字区块"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "优先使用远程(theirs)的而非本地(yours)的文字区块"
+msgid "Use text block from \"&yours\""
+msgstr "使用本地档案(&yours)的文字区块"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\""
-msgstr "使用本地档案(yours)的文字区块"
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "优先使用远程(t&heirs)的而非本地(yours)的文字区块"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "优先使用本地(yours)的而非远程(theirs)的文字区块"
+msgid "Use text block from \"y&ours\" before \"theirs\""
+msgstr "优先使用本地(y&ours)的而非远程(theirs)的文字区块"
+
+# ID:251,
+#: ID:251
+msgid "Use th&is text block"
+msgstr "使用此文字区块"
 
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "档案库的 URL 异动时可使用此功能修改"
-
-# ID:251,
-#: ID:251
-msgid "Use this text block"
-msgstr "使用此文字区块"
 
 # Control-ID:65535,
 #: Control-ID:65535

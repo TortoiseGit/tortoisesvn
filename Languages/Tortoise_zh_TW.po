@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-02 18:08+0800\n"
+"PO-Revision-Date: 2004-09-09 10:21+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -686,6 +686,15 @@ msgstr "加入的"
 msgid "Added a file remotely"
 msgstr "遠端加入檔案完成"
 
+# ID:13,
+#: ID:145
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr ""
+"將選定的檔案(們)\n"
+"%s忽略列表"
+
 # ID:9,
 #: ID:9
 msgid "Adds file(s) to Subversion control"
@@ -1194,6 +1203,11 @@ msgstr "色彩"
 #: ID:3857
 msgid "Command failed."
 msgstr "命令失敗."
+
+# Control-ID:1110,
+#: Control-ID:1125
+msgid "Comment History:"
+msgstr "註解紀錄:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -1888,6 +1902,11 @@ msgstr "正在取得檔案 %s"
 #: ID:132
 msgid "Getting file info..."
 msgstr "正在取得檔案資訊..."
+
+# ID:132,
+#: ID:132
+msgid "Getting log info..."
+msgstr "正在取得紀錄資訊..."
 
 # ID:2049,
 #: ID:2049
@@ -3822,6 +3841,11 @@ msgstr "Url:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "在定位列上使用放大鏡"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "使用文字編輯器檢視譴責"
+
 # Control-ID:65535,
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
@@ -3839,33 +3863,33 @@ msgstr "用雙刪除線表示已刪除行"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\""
-msgstr "使用遠端(theirs)的文字區塊"
+msgid "Use text block from \"&theirs\""
+msgstr "使用遠端(&theirs)的文字區塊"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "優先使用遠端(theirs)的而非本地(yours)的文字區塊"
+msgid "Use text block from \"&yours\""
+msgstr "使用本地檔案(&yours)的文字區塊"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\""
-msgstr "使用本地檔案(yours)的文字區塊"
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "優先使用遠端(t&heirs)的而非本地(yours)的文字區塊"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "優先使用本地(yours)的而非遠端(theirs)的文字區塊"
+msgid "Use text block from \"y&ours\" before \"theirs\""
+msgstr "優先使用本地(y&ours)的而非遠端(theirs)的文字區塊"
+
+# ID:251,
+#: ID:251
+msgid "Use th&is text block"
+msgstr "使用此文字區塊"
 
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "檔案庫的 URL 異動時可使用此功能修改"
-
-# ID:251,
-#: ID:251
-msgid "Use this text block"
-msgstr "使用此文字區塊"
 
 # Control-ID:65535,
 #: Control-ID:65535
