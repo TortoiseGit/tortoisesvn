@@ -5,7 +5,7 @@
     </div>
     <div align="right">
       <font size="0.7em">By Stefan K&uuml;ng and L&uuml;bbe
-      Onken, last update 2003-05-15</font>
+      Onken, last update 2003-05-16</font>
     </div>
     <hr>
     <h1 align="left">
@@ -104,8 +104,8 @@
       <dd>
         The big black box in which your valuable data resides, to
         be automagically retrieved by co-workers anywhere on the
-        planet. Subversion repositories can be accessed in three
-        ways: 
+        planet.<br>
+        Subversion repositories can be accessed in three ways: 
         <ul>
           <li>
             file:// Anywhere in your local / network filesystem.
@@ -143,8 +143,7 @@
       chapter.
     </p>
     <p>
-      You can create a local repository with TortoiseSVN very
-      easily:
+      You can easily create a local repository with TortoiseSVN:
     </p>
     <ol>
       <li>
@@ -167,8 +166,8 @@
       To access your local repository you need the path to that
       folder. Just remember that Subversion expects all
       repository paths in the form:
-      <em>"file:///SVNRepository/"</em>. For Windows users:
-      <em>"file:///C:/SVNRepository/"</em>
+      <em>file:///SVNRepository/</em>. For Windows users:
+      <em>file:///C:/SVNRepository/</em>
     </p>
     <p>
       If you run into trouble accessing a local repository on a
@@ -205,13 +204,12 @@ C:/import/tags/
       </li>
     </ol>
     <p>
-        That way you can easily create branches and tags later.
-        Please note that this is only a recommendation. You can
-        of course use any other directory structure you want but
-        it might get difficult to organize branches and tags. If
-        you choose this directory layout then TortoiseSVN will
-        warn you if you try to commit to a path in the /tags/
-        folder.
+      That way you can easily create branches and tags later.
+      Please note that this is only a recommendation. You can of
+      course use any other directory structure you want but it
+      might get difficult to organize branches and tags. If you
+      choose this directory layout then TortoiseSVN will warn you
+      if you try to commit to a path in the /tags/ folder.
     </p>
     <p>
       Now select the parent <i>import</i> folder of your
@@ -227,7 +225,7 @@ C:/import/tags/
       into which you want to import your project.
     </p>
     <p>
-      By checking <em>Use foldername as modulename</em>, the name
+      By checking "Use foldername as modulename", the name
       of the directory you selected to bring up the context menu
       is used as the SVN modulename.<br>
        We recommend to leave this option unchecked for your
@@ -243,56 +241,56 @@ C:/import/tags/
       complete directory tree including all files into the
       repository. Please note that this does <b>NOT</b> put your
       copy of the project under version control yet. To get a
-      versioned working copy you need to <em>Checkout</em> the
-      version you just imported!
+      versioned working copy you need to do a <em>Checkout</em> of
+			the version you just imported!
     </p>
     <p>
       The repository structure you just created now looks like
       this:
     </p>
 <pre>
-C:/SVNRepository/trunk/ProjectName/All
-C:/SVNRepository/trunk/ProjectName/your
-C:/SVNRepository/trunk/ProjectName/files
-C:/SVNRepository/trunk/ProjectName/are
-C:/SVNRepository/trunk/ProjectName/here
-C:/SVNRepository/trunk/ProjectName/...
-C:/SVNRepository/branches/
-C:/SVNRepository/tags/
+    C:/SVNRepository/trunk/ProjectName/All
+    C:/SVNRepository/trunk/ProjectName/your
+    C:/SVNRepository/trunk/ProjectName/files
+    C:/SVNRepository/trunk/ProjectName/are
+    C:/SVNRepository/trunk/ProjectName/here
+    C:/SVNRepository/trunk/ProjectName/...
+    C:/SVNRepository/branches/
+    C:/SVNRepository/tags/
 </pre>
     <p>
-      If you would have checked <em>Use foldername as
-      modulename</em> it would have looked like this:
+      If you would have checked "Use foldername as
+      modulename" it would have looked like this:
     </p>
 <pre>
-C:/SVNRepository/import/trunk/ProjectName/...
-C:/SVNRepository/import/branches/
-C:/SVNRepository/import/tags/
+    C:/SVNRepository/import/trunk/ProjectName/...
+    C:/SVNRepository/import/branches/
+    C:/SVNRepository/import/tags/
 </pre>
     <p>
       If you later want to import C:/myFiles/AnotherProject,
       select <em>C:/SVNRepository/trunk/</em> as URL of
-      repository and check <em>Use foldername as modulename</em>.
+      repository and check "Use foldername as modulename".
       This project is then imported into the following structure
     </p>
 <pre>
-C:/SVNRepository/trunk/ProjectName/...
-C:/SVNRepository/trunk/AnotherProject/...
-C:/SVNRepository/branches/
-C:/SVNRepository/tags/
+    C:/SVNRepository/trunk/ProjectName/...
+    C:/SVNRepository/trunk/AnotherProject/...
+    C:/SVNRepository/branches/
+    C:/SVNRepository/tags/
 </pre>
     <h1>
       Checking Out A Working Copy
     </h1>
     <p>
-      To obtain a working copy you need to <em>checkout</em> it
+      To obtain a working copy you need to do a <em>checkout</em>
       from a repository.
     </p>
     <p>
       Select a directory in windows explorer where you want to
       place your working copy. Right-click to bring up the
       context menu and select the command "Checkout..." which
-      brings up a dialog box:
+      brings up the following dialog box:
     </p>
     <p>
       <img alt="Checkout Dialog" src="images/Checkout.jpg">
@@ -314,18 +312,21 @@ C:/SVNRepository/tags/
     <p>
       Now that you have checked out a working copy from a
       Subversion repository you can see your files in the windows
-      explorer with changed icons. TortoiseSVN adds to each file
-      icon a so called "overlay icon" which overlaps the original
-      file icon. Depending on the Subversion status of the file
-      the overlay icon is different. A fresh checked out working
-      copy has a green checkmark as overlay. that means the
-      Subversion status is "normal". As soon as you start editing
-      a file, the status changes to "modified" and the icon
-      overlay then changes to a red exclamation mark. That way
-      you can easily see which files were changed since you last
-      updated your working copy and need to be commited. If
+      explorer with changed icons. TortoiseSVN adds a so called
+      "overlay icon" to each file icon which overlaps the
+      original file icon. Depending on the Subversion status of
+      the file the overlay icon is different. A fresh checked out
+      working copy has a green checkmark as overlay. that means
+      the Subversion status is "normal". As soon as you start
+      editing a file, the status changes to "modified" and the
+      icon overlay then changes to a red exclamation mark. That
+      way you can easily see which files were changed since you
+      last updated your working copy and need to be commited. If
       during an update a "conflict" occurs then the icon changes
       to a yellow exclamation mark.
+    </p>
+    <p>
+      <img alt="Icon Overlays" src="images/Overlays.jpg">
     </p>
     <p>
       The folder icons also have icon overlays displayed. By
@@ -340,9 +341,6 @@ C:/SVNRepository/tags/
       overrides "modified" and "modified" overrides "normal". So
       you can easily see if there's a file with a conflict or a
       modified file in a folder.
-    </p>
-    <p>
-      <img alt="Icon Overlays" src="images/image3.jpg">
     </p>
     <p>
       Unlike TortoiseCVS (the CVS shell integration) no overlay
@@ -373,29 +371,6 @@ C:/SVNRepository/tags/
       Changes done by others will be merged into your files,
       keeping any changes you may have done to the same files.
       The repository is <em>not</em> affected by an update.
-    </p>
-    <p>
-      If you receive reports of conflicts during the update,
-      please read the "resolving conflicts" section.
-    </p>
-    <h1>
-      Sending Your Changes To The Repository
-    </h1>
-    <p>
-      Sending the changes you made to your working copy is known
-      as <em>committing</em> the changes. But before you commit
-      your changes you really should do an <em>update</em> first.
-      See the previous chapter on how to do that.
-    </p>
-    <p>
-      As soon as you updated your working copy and resolved
-      possible conflicts you are ready to commit your changes.
-      Select any file and/or folders you want to commit and
-      select "Commit" in the context menu. A Dialog appears
-      displaying the progress of the commit.
-    </p>
-    <p>
-      <img alt="Commit Progress" src="images/image11.jpg">
     </p>
     <h1>
       Resolving Conflicts
@@ -477,6 +452,30 @@ C:/SVNRepository/tags/
       allow you to commit your changes.
     </p>
     <h1>
+      Sending Your Changes To The Repository
+    </h1>
+    <p>
+      Sending the changes you made to your working copy is known
+      as <em>committing</em> the changes. But before you commit
+      your changes you really should do an <em>update</em> first.
+      See the previous chapters on how to do that. Just select
+      <em>Commit</em> on the file or directory you want to
+      commit, to bring up the following dialog.
+    </p>
+    <p>
+      <img alt="Commit Dialog" src="images/Commit.jpg">
+    </p>
+    <p>
+      As soon as you updated your working copy and resolved
+      possible conflicts you are ready to commit your changes.
+      Select any file and/or folders you want to commit and
+      select "Commit" in the context menu. A Dialog appears
+      displaying the progress of the commit.
+    </p>
+    <p>
+      <img alt="Commit Progress" src="images/Progress.jpg">
+    </p>
+    <h1>
       Adding New Files And Directories
     </h1>
     <p>
@@ -494,9 +493,9 @@ C:/SVNRepository/tags/
     </p>
     <p>
       If you add a directory then TortoiseSVN automatically adds
-      all files in this directory recursively. So be carefull
-      with that command and make sure you don't have any tempory
-      or compiler generated files in that directory!
+      all files in this directory recursively. So be careful with
+      that command and make sure you don't have any tempory or
+      compiler generated files in that directory!
     </p>
     <p>
       If you want to add files to your working copy which are
@@ -515,6 +514,7 @@ C:/SVNRepository/tags/
       files. So there are menu entries for that in the
       TortoiseSVN submenu.
     </p>
+    <img alt="More Menus" src="images/Menu2.jpg"> 
     <p>
       For moving files inside a working copy you can either use
       the command in the TortoiseSVN submenu or use the drag and
@@ -586,42 +586,25 @@ C:/SVNRepository/tags/
       If you want to cancel all changes you made in a file since
       the last update you need to select the file, right-click to
       bring up the context menu and then select the command
-      "Revert" in the TortoiseSVN submenu. But be sure that you
-      really want to do that because all your changes will be
-      lost!
+      "Revert" in the TortoiseSVN submenu. But be sure
+      that you really want to do that because all your changes
+      since your last commit will be lost!
     </p>
     <p>
-      This is also the way if you want to get a deleted file
-      back.
+      If you are not sure about your changes, copy your working
+      directory to a safe location, revert and use a tool that's
+      capable of diffing directories like BeyondCompare or
+      ExamDiff, to see what has happened.
+    </p>
+    <p>
+      If you accidentally deleted a file and want to get it back
+      without reverting everything, you can commit all changed
+      files inside the directory to the repository and do a
+      revert on the working directory. This will retrieve all
+      files you deleted since your last commit.
     </p>
     <h1>
-      Tagging
-    </h1>
-    <p>
-      Subversion does not know a special command for tagging like
-      e.g. CVS. If you need to mark a particular revision (e.g. a
-      release version) you can either do nothing and keep a list
-      of which revision number corresponds to which name or you
-      can use Subversions <em>cheap copies</em>. Cheap copies are
-      something similar to links which means that no actual copy
-      is made but just a link to a specific file/revision.
-    </p>
-    <p>
-      If you have imported your project with the recommended
-      directory structure you would do a tag like this:
-    </p>
-    <p>
-      Select the parent folder of your working copy and select
-      the command "Branch/Tag..." in the context menu. In the
-      dialog then enter the URL to the directory part for the
-      tags, i.e. instead of /trunk/ now use /tags/tagname where
-      tagname would be e.g. "release_v1.1".
-    </p>
-    <p>
-      <img alt="" src="images/image19.jpg">
-    </p>
-    <h1>
-      Branching
+      Branching / Tagging
     </h1>
     <p>
       One of the features of version control systems, is the
@@ -634,39 +617,81 @@ C:/SVNRepository/tags/
       into the main branch.
     </p>
     <p>
-      To create a branch with TortoiseSVN select the parent
-      folder and select "Branch/Tag..." in the TortoiseSVN
-      submenu. Since both branches and tags are handled
-      identically in Subversion (they're simply cheap copies) the
-      dialog is the same as for tagging.
+		  Another feature of version control systems is the ability
+			to mark particular revisions (e.g. a release version), 
+			so you can at any time recreate a certain build or environment. 
+			This proces is known as <em>tagging</em>. 
     </p>
     <p>
-      <img alt="Branch Dialog" src="images/image19.jpg">
+      Subversion does not know a special command for branching or tagging.
+			There is a system called <em>cheap copies</em> instead. Cheap copies 
+      are something similar to links, which means that no actual copy
+      is made but just a link to a specific file/revision is created.
     </p>
     <p>
-      This time, instead of making a copy in the tags folder make
-      one inside the /branches/ folder. The only difference to
-      tags is that you must not change tags afterwards.
+      If you have imported your project with the recommended
+      directory structure creating a branch or tag version is very simple:
     </p>
     <p>
-      Now you have a separate copy of the development source tree
-      in the repository (but it doesn't use the same amount of
-      disk space - it's a 'cheap copy') on which you can work
-      independently from the main branch. But the new branch is
-      only in the repository for now. To work on the branch you
-      have first to switch your working copy to the newly created
+      <img alt="Branch / Tag / Copy" src="images/Copy.jpg">
+    </p>
+    <p>
+      Select the parent folder of your working copy and select
+      the command "Branch/Tag..." from the context menu. 
+			Enter the URL to the repository path for branches or tags into the dialog.
+      So instead of /trunk/ you would now use /tags/tagname where
+      tagname would be e.g. "ProjectName_v1.10".
+<pre>
+    C:/SVNRepository/trunk/ProjectName/...
+    C:/SVNRepository/trunk/AnotherProject/...
+    C:/SVNRepository/branches/ProjectName_SpecialDebugBuildBasedOn_v1.09/
+    C:/SVNRepository/tags/ProjectName_v1.10
+</pre>
+    </p>
+    <p>
+		If you press OK now, Subversion just creates a cheap copy of your selected 
+		Directory <em>inside the repository</em>. Nothing has happened to your local
+		Disk (yet). To be able to work with your freshly generated copy you have several
+		ways to handle it. You can:
+			  <ul>
+          <li>
+		do a <em>Checkout</em> of it again. You can check it out to any 
+		location on your local disk and you can create as many working copies 
+		from your repository as you like. 
+          </li>
+          <li>
+					 <em>Switch</em> your current working copy to the newly created
       branch. Again select the parent folder of your project and
       select the command "Switch..." from the context menu.
+          </li>
+
+        </ul>
     </p>
     <p>
       <img alt="Switch Dialog" src="images/image20.jpg">
     </p>
     <p>
-      here you enter the URL of the branch you just created.
+      here you enter the URL of the branch /tag you just created.
       Leave the checkbox "newest revision" active. Press ok and
-      your working copy represents now the new branch. If you now
-      make changes in your working copy and commit them then all
-      changes go to the new branch and not the main branch.
+      your working copy is switched to the new branch / tag. 
+    </p>
+    <p>
+		From now on working with branches or tags differs a bit:
+        <ul>
+          <li>
+					If you modify a Tag revision, TortoiseSVN will warn you if you try to
+					commit to a /tags path in the repository. Be aware, that your local 
+					files are not write protected. So working on a tag revision is 
+					not-a-good-idea(tm).
+					That's the reason why we recommend the /trunk /branches /tags
+					repository structure in the first place.
+          </li>
+          <li>
+			If you modify a working copy created from a branch and commit, then all
+      changes go to the new branch and not the main branch. 
+			Only the modifications are stored. The rest remains a <em>cheap copy</em>.
+          </li>
+					</ul>
     </p>
     <h1>
       Merging A Branch Back Into The Main Branch
@@ -685,14 +710,16 @@ C:/SVNRepository/tags/
     </p>
     <p>
       Enter the URL of the main branch and press OK. While
-      merging, there may occur one or more conflicts. See the
+      merging, one or more conflicts may occur . See the
       chapter "Resolving Conflicts" on how to do this. Once you
       have resolved all conflicts you can commit the merged files
       to the main branch.
     </p>
     <p>
-       
-    </p>
+    <h1>
+The repository browser
+    </h1>
     <p>
-       
+To be written. It's late, good night<br> 
+<em>-L&uuml;bbe</em>       
     </p>
