@@ -18,8 +18,6 @@
 //
 #include "StdAfx.h"
 #include "Shellupdater.h"
-#include "MessageBox.h"
-#include "TortoiseProc.h"
 #include "Registry.h"
 
 CShellUpdater::CShellUpdater(void)
@@ -69,7 +67,7 @@ void CShellUpdater::Flush()
 {
 	if(m_pathsForUpdating.GetCount() > 0)
 	{
-		TRACE("Flushing shell update list\n");
+		ATLTRACE("Flushing shell update list\n");
 
 		UpdateShell();
 		m_pathsForUpdating.Clear();
@@ -79,7 +77,7 @@ void CShellUpdater::Flush()
 void CShellUpdater::UpdateShell()
 {
 	// Tell the shell extension to purge its cache
-	TRACE("Setting cache invalidation event %d\n", GetTickCount());
+	ATLTRACE("Setting cache invalidation event %d\n", GetTickCount());
 	SetEvent(m_hInvalidationEvent);
 
 /*
@@ -110,7 +108,7 @@ it decide if parent directory shell-updates are required
 	// passing the list on
 	m_pathsForUpdating.RemoveDuplicates();
 
-	DWORD brute = CRegDWORD(_T("Software\\TortoiseSVN\\ForceShellUpdate"), 0);
+	DWORD brute = CRegStdWORD(_T("Software\\TortoiseSVN\\ForceShellUpdate"), 0);
 	if (brute)
 	{
 		//this method actually works, i.e. the icon overlays are updated as they
@@ -142,7 +140,7 @@ it decide if parent directory shell-updates are required
 
 		for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
 		{
-			TRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
+			ATLTRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
 			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
 		}
 	}
