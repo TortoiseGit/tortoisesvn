@@ -148,6 +148,10 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 		{
 			viewer.Replace(_T("%base"), _T("\"")+file+_T("\""));
 		}
+		else if (viewer.Find(_T("%1")) >= 0)
+		{
+			viewer.Replace(_T("%1"), _T("\"")+file+_T("\""));
+		}
 		else
 		{
 			viewer += _T(" ");
