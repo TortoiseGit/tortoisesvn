@@ -1463,6 +1463,29 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (GetCheck(selIndex))
 							m_nSelected--;
 						m_nTotal--;
+						
+						//now, if we ignored a folder, remove all its children
+						if (filepath.IsDirectory())
+						{
+							for (int i=0; i<(int)m_arListArray.size(); ++i)
+							{
+								FileEntry * entry = GetListEntry(i);
+								if (entry->status == svn_wc_status_unversioned)
+								{
+									if (!filepath.IsEquivalentTo(entry->GetPath())&&(filepath.IsAncestorOf(entry->GetPath())))
+									{
+										entry->status = svn_wc_status_ignored;
+										entry->textstatus = svn_wc_status_ignored;
+										if (GetCheck(i))
+											m_nSelected--;
+										m_nTotal--;
+										RemoveListEntry(i);
+										i--;
+									}
+								}
+							}
+						}
+						
 						CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
 						RemoveListEntry(selIndex);
 						SVNStatus status;
