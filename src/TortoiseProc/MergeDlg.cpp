@@ -56,6 +56,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
@@ -219,32 +220,28 @@ void CMergeDlg::OnBnClickedRevisionN()
 void CMergeDlg::OnBnClickedFindbranchstart()
 {
 	UpdateData(TRUE);
+	if ((m_pLogDlg)&&(m_pLogDlg->IsWindowVisible()))
+		return;
 	CString url;
 	m_URLCombo.GetWindowText(url);
-	LogHelper log;
-	log.hWnd = this->m_hWnd;
 	AfxGetApp()->DoWaitCursor(1);
-	if (log.ReceiveLog(m_BranchURL, 0, SVN::REV_HEAD, FALSE, TRUE))
+	//now show the log dialog for the main trunk
+	if (!url.IsEmpty())
 	{
-		CString temp;
-		temp.Format(_T("%d"), log.m_firstrev);
-		GetDlgItem(IDC_REVISON_START)->SetWindowText(temp);
-		//now show the log dialog for the main trunk
-		if (!url.IsEmpty())
-		{
-			if (m_pLogDlg)
-				delete [] m_pLogDlg;
-			m_pLogDlg = new CLogDlg();
-			m_pLogDlg->SetParams(url, SVN::REV_HEAD, log.m_firstrev);
-			m_pLogDlg->Create(IDD_LOGMESSAGE, this);
-			m_pLogDlg->ShowWindow(SW_SHOW);
-		} // if (!url.IsEmpty()) 
-	} // if (log.ReceiveLog(m_BranchURL, 0, SVN::REV_HEAD, FALSE, TRUE)) 
-	else
-	{
-		CString temp;
-		temp = log.GetLastErrorMessage();
-		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-	}
+		delete [] m_pLogDlg;
+		m_pLogDlg = new CLogDlg();
+		m_pLogDlg->SetParams(url, SVN::REV_HEAD, 1);
+		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->ShowWindow(SW_SHOW);
+		m_pLogDlg->m_pNotifyWindow = this;
+	} // if (!url.IsEmpty()) 
 	AfxGetApp()->DoWaitCursor(-1);
+}
+
+LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
+{
+	CString temp;
+	temp.Format(_T("%ld"), lParam);
+	GetDlgItem(IDC_REVISON_START)->SetWindowText(temp);
+	return 0;
 }

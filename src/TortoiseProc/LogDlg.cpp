@@ -22,6 +22,7 @@
 #include "messagebox.h"
 #include "cursor.h"
 #include "UnicodeUtils.h"
+#include "MergeDlg.h"
 #include "LogDlg.h"
 #include ".\logdlg.h"
 
@@ -35,6 +36,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_bCancelled = FALSE;
 	m_bShowedAll = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_pNotifyWindow = NULL;
 }
 
 CLogDlg::~CLogDlg()
@@ -809,6 +811,14 @@ void CLogDlg::OnOK()
 	if (temp.Compare(buttontext) != 0)
 		__super::OnOK();
 	m_bCancelled = TRUE;
+	if (m_pNotifyWindow)
+	{
+		int selIndex = m_LogList.GetSelectionMark();
+		if (selIndex >= 0)
+		{	
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, 0, m_arRevs.GetAt(selIndex));
+		}
+	}
 }
 
 void CLogDlg::OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult)

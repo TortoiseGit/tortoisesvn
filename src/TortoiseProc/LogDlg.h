@@ -103,6 +103,7 @@ public:
 	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL hasWC = TRUE);
 
 public:
+	CWnd *		m_pNotifyWindow;
 	CListCtrl	m_LogList;
 	CListCtrl	m_LogMsgCtrl;
 	CString		m_path;
