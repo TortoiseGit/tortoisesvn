@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-25 10:06+0100\n"
+"PO-Revision-Date: 2005-01-31 09:24+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -162,6 +162,11 @@ msgstr "&Copier vers..."
 msgid "&Delete"
 msgstr "&Effacer"
 
+# Control-ID:1179,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "&Exécution Fictive"
+
 #: Control-ID:1031
 msgid "&Edit"
 msgstr "&Editer"
@@ -227,6 +232,7 @@ msgstr "&Langage:"
 msgid "&Mark as resolved"
 msgstr "&Marquer comme résolu"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "&Fusionnner"
@@ -362,6 +368,10 @@ msgstr "Ann&uler"
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Annuler\tCtrl+Z"
+
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "&Diff Standard"
 
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -1209,6 +1219,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: ID:273
+msgid "Could not create device context!"
+msgstr "Ne peut créer le contexte du dispositif!"
+
 #: ID:81
 msgid "Could not get the status!"
 msgstr "Ne peut pas obtenir l'état!"
@@ -1478,11 +1492,6 @@ msgstr "Ne plus afficher ce message"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Type de disque"
-
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Dry Run (Does not change your working copy - use this for test runs)"
-msgstr "Execution Fictive (Ne change pas votre copie de travail - utiliser ceci pour des lancements de test)"
 
 #: MenuEntry
 msgid "E&xit"
@@ -4142,8 +4151,8 @@ msgstr "semaine"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "which points to the repository at the URL:"
-msgstr "qui pointe vers le repository à l'URL"
+msgid "which points to the repository at URL:"
+msgstr "qui pointe vers le repository à l'URL:"
 
 #: Control-ID:1112
 msgid "your version is:"

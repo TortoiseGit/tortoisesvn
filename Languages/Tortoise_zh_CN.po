@@ -7,11 +7,13 @@
 # NetCobra <netcobra@gmail.com>
 # Cecil Sheng <zcecil@csie.org>
 #
+# Dictionary:
+# <DICTIONARY>
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-12-21 18:49+0800\n"
+"PO-Revision-Date: 2005-01-24 21:54+0800\n"
 "Last-Translator: NetCobra <netcobra@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -278,6 +280,10 @@ msgid "&Language:"
 msgstr "语言(&L)"
 
 #: MenuEntry
+msgid "&Mark as resolved"
+msgstr "标记为已解决(&M)"
+
+#: MenuEntry
 msgid "&Merge"
 msgstr "合并(&M)"
 
@@ -329,6 +335,11 @@ msgstr "打开(&O) Ctrl-O"
 msgid "&Password:"
 msgstr "密码(&P)："
 
+# ID:376,
+#: ID:376
+msgid "&Paste"
+msgstr "粘贴(&P)"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
@@ -342,6 +353,12 @@ msgstr "前一条差异(&P)"
 #: Control-ID:1023
 msgid "&Recurse into folders to fetch the status"
 msgstr "递归至子目录以取得状态(&R)"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:376
+msgid "&Redo"
+msgstr "重做(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -386,7 +403,7 @@ msgstr "保存图片为(&S)..."
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Save authentication"
-msgstr "保存认证"
+msgstr "保存认证(&S)"
 
 # Control-ID:1132,
 #: Control-ID:1132
@@ -429,6 +446,11 @@ msgstr "工具栏(&V)"
 msgid "&URL of repository:"
 msgstr "文件库 &URL："
 
+# ID:376,
+#: ID:376
+msgid "&Undo"
+msgstr "撤销(&U)"
+
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "还原(&U)\tCtrl+Z"
@@ -463,6 +485,12 @@ msgstr "空白字符(&W)"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(已选择多重目标)"
+
+# ID:3867,#:
+# ID:3867,
+#: ID:314
+msgid "(not found)"
+msgstr "(未找到)"
 
 # ID:208,
 #: ID:208
@@ -507,7 +535,7 @@ msgstr ": 工作基础版本"
 # ID:151,
 #: ID:151
 msgid ": working copy"
-msgstr " : 工作复本"
+msgstr ": 工作复本"
 
 # ID:88,
 #: ID:88
@@ -946,12 +974,17 @@ msgstr "作者"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
-msgstr "作者:                        Stefan Kueng"
+msgstr "作者：                        Stefan Kueng"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "作者:                      Stefan Kueng, Tim Kemp"
+msgstr "作者：                      Stefan Kueng, Tim Kemp"
+
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "保存时自动解除 subversion 的冲突状态"
 
 # Dlg-ID:141,
 #: Control-ID:1157
@@ -1307,12 +1340,12 @@ msgstr "提交..."
 # ID:244,
 #: ID:244
 msgid "Commits by author"
-msgstr "作者:                        Stefan Kueng"
+msgstr "按作者提交次数"
 
 # ID:244,
 #: ID:244
 msgid "Commits by week"
-msgstr "将你所做的修改提交至文件库"
+msgstr "按周提交次数"
 
 # ID:244,
 #: Control-ID:1135
@@ -1355,6 +1388,7 @@ msgid "Completed"
 msgstr "完毕"
 
 # Control-ID:65535,
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "冲突"
@@ -1373,6 +1407,11 @@ msgstr "右键菜单"
 #: ID:73
 msgid "Continue"
 msgstr "继续"
+
+# ID:376,
+#: ID:376
+msgid "Cop&y"
+msgstr "复制(&Y)"
 
 # ID:74,
 #: ID:73
@@ -1483,7 +1522,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"无法打开差异查看工具!\n"
+"无法启动差异查看工具!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1505,7 +1544,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"无法打开外部合并工具!\n"
+"无法启动外部合并工具!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1559,6 +1598,11 @@ msgstr "在当前地址创建文件数据库"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "创建包含你所有修改的单一修改文件"
+
+# ID:376,
+#: ID:376
+msgid "Cu&t"
+msgstr "剪切(&T)"
 
 # ID:3603,
 #: ID:3603
@@ -2015,6 +2059,16 @@ msgstr "强制刷新图标"
 msgid "From:"
 msgstr "从："
 
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "无法初始化 GDI+"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ 无法创建位图对象，有可能是由于系统内存不足造成的。"
+
 # Dlg-ID:107,
 #: Dlg-ID:107
 msgid "General"
@@ -2044,6 +2098,15 @@ msgstr "正在从文件仓库中获取信息..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "正在取得日志信息..."
+
+# ID:2051,
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"跳转到下一个差异处\n"
+"下一差异"
 
 # ID:2049,
 #: ID:2049
@@ -2398,6 +2461,15 @@ msgstr "邮件系统 DLL 无效。"
 msgid "Main"
 msgstr "主要设置"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"把一个文件在 Subversion 中标记为已解决\n"
+"标记为已解决"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -2417,6 +2489,11 @@ msgstr "合并程序"
 #: ID:9
 msgid "Merge..."
 msgstr "合并..."
+
+# Dlg-ID:141,
+#: ID:263
+msgid "Merged"
+msgstr "已合并"
 
 # ID:10,
 #: ID:10
@@ -2579,6 +2656,11 @@ msgstr ""
 "修改或加入. TortoiseSVN 没有\n"
 "可执行的操作。\n"
 "要查看未进行版本控制的文件吗？"
+
+# ID:273,
+#: ID:273
+msgid "No image encoder found for %s."
+msgstr "没有找到适用于 %s 的图像解码器。"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3062,11 +3144,6 @@ msgstr "文件库"
 msgid "Repository Browser"
 msgstr "文件库浏览器"
 
-# Control-ID:1067,
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "保存时解除 subversion 的冲突状态"
-
 # ID:8,
 #: ID:8
 #: ID:74
@@ -3315,6 +3392,15 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr "保存补丁文件至："
 
+# Control-ID:1014,#:
+# Control-ID:1017,#:
+# Control-ID:1064,
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+msgid "Scintilla"
+msgstr "Scintilla"
+
 # ID:113,
 #: ID:113
 msgid "Search &log messages..."
@@ -3325,6 +3411,12 @@ msgstr "查找日志信息(&L)..."
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "查找错误: %1"
+
+# Control-ID:1067,#:
+# Control-ID:1067,
+#: ID:376
+msgid "Select &All"
+msgstr "全选(&A)"
 
 # Control-ID:1067,#:
 # Control-ID:1067,
@@ -3582,7 +3674,7 @@ msgstr "跳过丢失的目标项"
 # ID:79,
 #: ID:79
 msgid ""
-"Specify the files or folders wich TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\n"
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
@@ -3623,12 +3715,8 @@ msgstr "SVN 项目状态"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "Stop On Copy"
-msgstr ""
-"无法复制 \n"
-"%s\n"
-"到\n"
-"%s"
+msgid "Stop On Copy/Rename"
+msgstr "复制/重命名时终止"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3896,6 +3984,15 @@ msgid ""
 msgstr ""
 "选择的文件尚有一个以上的冲突标记。\n"
 "你确定要将其视为已解决？"
+
+# ID:88,
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"目标文件夹非空！\n"
+"你确定要取出到该文件夹吗？"
 
 # ID:81,
 #: ID:81
@@ -4241,6 +4338,17 @@ msgstr "Url："
 #: ID:251
 msgid "Use &other text block"
 msgstr "使用其它文字区块(&O)"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"可以适用通配符“*”指定异常\n"
+"多个异常可以适用逗号“,”进行分隔。\n"
+"示例：*.mylan.com, *.company.com"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -4743,7 +4851,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\r\n"
-"忽略以换行字符分隔的文件样式列表"
+"忽略以换行字符分隔的文件样式列表。"
 
 # ID:14,
 #: ID:14
@@ -4757,7 +4865,7 @@ msgid ""
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\r\n"
-"要展开的关键词.合法的关键词有：\r\n"
+"要展开的关键词。合法的关键词有：\r\n"
 "URL，HeadURL\t\t\t此对象最新版本的 URL。\r\n"
 "Author，LastChangedBy\t\t最后一个修改此文件的人。\r\n"
 "Date，LastChangedDate\t\t此文件最后修改日期。\r\n"
@@ -4819,6 +4927,17 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "设置日志信息一行的最大字符数。\n"
 "提交窗口中会在指定位置显示一条淡淡的直线，默认是 80 字符。"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"把该选项设置为希望写日志信息时所适用的语言编号。\n"
+"如果该语言的拼写检查模块有效，则 TortoiseSVN 会自动载入。"
 
 # ID:15,
 #: ID:15

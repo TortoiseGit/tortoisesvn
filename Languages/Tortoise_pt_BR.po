@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-26 15:28-0300\n"
+"PO-Revision-Date: 2005-01-31 10:40-0300\n"
 "Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -200,6 +200,11 @@ msgstr "&Copiar Para..."
 #: ID:101
 msgid "&Delete"
 msgstr "E&xcluir"
+
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "&Simulação"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -454,6 +459,11 @@ msgstr "&Desfazer"
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Desfazer\tCtrl+Z"
+
+# Control-ID:65535,
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "Comparação &Unificada"
 
 # Control-ID:1061,
 #: Control-ID:1061
@@ -1490,6 +1500,11 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:273
+msgid "Could not create device context!"
+msgstr "Não foi possível criar o dispositivo de contexto!"
+
+# ID:81,
 #: ID:81
 msgid "Could not get the status!"
 msgstr "Não foi possível obter o status!"
@@ -1815,11 +1830,6 @@ msgstr "Não exibir essa mensagem novamente"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Tipos de dispositivos"
-
-# Control-ID:1061,
-#: Control-ID:1179
-msgid "Dry Run"
-msgstr "(simulação)"
 
 #: MenuEntry
 msgid "E&xit"
@@ -3590,17 +3600,17 @@ msgstr "Visualizar &Diferenças"
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
-msgstr "Mostrar &Histórico"
+msgstr "&Histórico"
 
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Show &Log..."
-msgstr "Mostrar &Histórico..."
+msgstr "&Histórico..."
 
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Show &log"
-msgstr "Mostrar &histórico..."
+msgstr "&histórico..."
 
 # Control-ID:1088,
 #: Control-ID:1088
@@ -3615,7 +3625,7 @@ msgstr "Mostrar Barra de Comparação"
 # ID:113,
 #: ID:113
 msgid "Show Differences as &Unified Diff"
-msgstr "Mostrar Diferenças como Comparação &unificada"
+msgstr "Mostrar Diferenças como Comparação &Unificada"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -4328,11 +4338,6 @@ msgstr ""
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Formato de arquivo inesperado."
-
-# Control-ID:65535,
-#: Control-ID:1180
-msgid "Unified Diff"
-msgstr "Comparação Unificada"
 
 # ID:81,
 #: ID:81

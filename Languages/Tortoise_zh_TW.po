@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-19 13:01+0800\n"
+"PO-Revision-Date: 2005-02-01 10:23+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -201,6 +201,11 @@ msgstr "複製至(&C)..."
 msgid "&Delete"
 msgstr "刪除(&D)"
 
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "試演"
+
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "&Edit"
@@ -283,14 +288,10 @@ msgstr "語系(&L)"
 msgid "&Mark as resolved"
 msgstr "標記為已解決(&M)"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "合併(&M)"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "將URL的異動合併至工作複本(&M):"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -459,6 +460,11 @@ msgstr "復原(&U)"
 msgid "&Undo\tCtrl+Z"
 msgstr "還原(&U)\tCtrl+Z"
 
+# Control-ID:1013,
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "單一差異檔(&U)"
+
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -484,6 +490,11 @@ msgstr "檢視(&V)"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "空白字元(&W)"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(試演)"
 
 # ID:208,
 #: ID:208
@@ -1427,6 +1438,11 @@ msgstr "已複製"
 msgid "Copied remotely"
 msgstr "遠端複製完成"
 
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "從路徑複製"
+
 # ID:151,
 #: ID:101
 msgid "Copy To Working Copy..."
@@ -1807,11 +1823,6 @@ msgstr "不再顯示此訊息"
 msgid "Drive Types"
 msgstr "磁碟機類型"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Dry Run"
-msgstr "預檢"
-
 #: MenuEntry
 msgid "E&xit"
 msgstr "離開(&X)"
@@ -1890,6 +1901,11 @@ msgid ""
 msgstr ""
 "清除選擇區\n"
 "清除"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "錯誤"
 
 # ID:81,
 #: ID:81
@@ -2062,8 +2078,8 @@ msgstr "強制更新圖示."
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "從:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "從: (URL以及合併範圍的起始版本)"
 
 # ID:273,
 #: ID:273
@@ -2326,8 +2342,8 @@ msgstr "檔案名稱錯誤."
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2677,6 +2693,11 @@ msgstr "正常"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "注意"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -3533,6 +3554,11 @@ msgstr "正在設定性質..."
 msgid "Settings"
 msgstr "設定"
 
+# ID:12,
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "顯示記錄(&O)"
+
 # Control-ID:65535,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3688,6 +3714,11 @@ msgstr ""
 "指定 TortoiseSVN 不需要納入版本控制的\n"
 "目錄或檔案名稱.\n"
 "請以空白分隔項目."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "請指定你要合併的版本範圍:"
 
 # ID:3604,
 #: ID:3604
@@ -3982,6 +4013,11 @@ msgstr ""
 "<i>%s</i>\n"
 "可能是正確的路徑. 要改用找到的路徑嗎?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "合併的結果儲存在工作複本目錄:"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -4091,8 +4127,8 @@ msgstr "雙點以上檔案可顯示你所做的異動."
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "至:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr ""
 
 # ID:7,#:
 # ID:3585,#:
@@ -4481,6 +4517,11 @@ msgstr "檢視 GNU 差異檔(補綴檔)的工具程式."
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "瀏覽我們的網站"
+
+# ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "警告"
 
 # ID:219,
 #: ID:219
@@ -4957,6 +4998,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "週"
+
+# ID:9,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "指向檔案庫URL:"
 
 # Control-ID:1112,
 #: Control-ID:1112

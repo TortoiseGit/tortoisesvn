@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-01-28 08:48+0100\n"
+"PO-Revision-Date: 2005-02-01 10:03+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1168,6 +1168,11 @@ msgstr "Kopiert"
 msgid "Copied remotely"
 msgstr "Datei im Projektarchiv kopiert"
 
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "Kopiert von"
+
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "Kopiere zur Arbeitskopie.."
@@ -1213,10 +1218,6 @@ msgstr ""
 "Konnte Dateien nicht kopieren!\n"
 "<hr=100%>\n"
 "%s"
-
-#: ID:273
-msgid "Could not create device context!"
-msgstr "Konnte Gerätekontext nicht erzeugen!"
 
 #: ID:81
 msgid "Could not get the status!"
@@ -1915,8 +1916,8 @@ msgstr "Ungültiger Dateiname"
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -1931,8 +1932,8 @@ msgid ""
 "{20020217T1530-0500}"
 msgstr ""
 "Ungültige Revisionsnummer! Gültige Revisionen sind:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive Dezimalzahlen\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive Dezimalzahlen,\n"
 "Datumsangaben entsprechend der folgenden Beispiele:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
