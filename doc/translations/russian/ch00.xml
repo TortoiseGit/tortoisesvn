@@ -1,0 +1,108 @@
+<preface id="tsvn-ch-0">
+	<title>Preface</title>
+	<simplesect>
+			<graphic srccredit="TortoiseSVN Logo" fileref="tortoisesvn_logo_hor468x64.png"/>
+	</simplesect>
+	<simplesect>
+		<para>
+			<itemizedlist>
+				<listitem>
+					<para>Do you work in a team?</para>
+				</listitem>
+				<listitem>
+					<para>Has it ever happened to you that you were working
+						on a file, and someone else was working on the same
+						file? Did you loose your changes to that file 'cause
+						of that?</para>
+				</listitem>
+				<listitem>
+					<para>Have you ever saved a file, and then wanted to
+						revert the changes you made? Have you ever wished you
+						could see what a file looked like some time ago?</para>
+				</listitem>
+				<listitem>
+					<para>Have you ever found a bug in your project and
+						wanted to know when that bug got into your files?</para>
+				</listitem>
+			</itemizedlist>
+		</para>
+		<para>
+				If you answered one of the above questions with yes, then 
+				TortoiseSVN is for you! Just read on to find out how TortoiseSVN
+				can help you in your work. It's not that difficult.
+		</para>
+	</simplesect>
+	<!-- ================================================================= -->
+	<!-- ========================	SECTION	1 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-ch-0-sect-1">
+		<title>TortoiseSVN is free!</title>
+		<para>
+			TortoiseSVN is free. You don't have to pay for it, you can use it
+			any way you want. It is developed under the GP license (GPL).
+		</para>
+		<para>
+			TortoiseSVN is an Open Source project. That means you have full
+			access to the source code of this program. You can browse it
+			on this link <ulink url="http://svn.collab.net/repos/tortoisesvn/">
+				<citetitle>http://svn.collab.net/repos/tortoisesvn/</citetitle>
+			</ulink>. The most recent version (where we're working on) is
+			located under <emphasis>/trunk/</emphasis>, the released versions
+			are located under <emphasis>/tags/</emphasis>.
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ========================	SECTION	2 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-ch-0-sect-2">
+		<title>Community</title>
+		<para>
+			Both TortoiseSVN and Subversion are developed by a community of
+			people who are working on those projects. They come from different
+			countries all over the world and joined together to create wonderful
+			programs. 
+		</para>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ========================	SECTION	3 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-ch-0-sect-3">
+		<title>Acknowledgments</title>
+		<para>
+			<variablelist>
+				<varlistentry>
+					<term>
+						Tim Kemp
+					</term>
+					<listitem>
+						<para>for founding the TortoiseSVN project</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						Stefan K&uuml;ng
+					</term>
+					<listitem>
+						<para>for the hard work to get TortoiseSVN to what it is now</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						L&uuml;bbe Onken
+					</term>
+					<listitem>
+						<para>for the beautiful icons, logo, bughunting and taking care of the documentation</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						The Tigris Style project
+					</term>
+					<listitem>
+						<para>for some of the styles which are reused in this documentation</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+	</sect1>
+</preface>

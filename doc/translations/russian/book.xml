@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE book SYSTEM "../tools/dtd/dblite.dtd" [
+	<!ENTITY ch00 SYSTEM "ch00.xml">
+	<!ENTITY ch01 SYSTEM "ch01.xml">
+	<!ENTITY ch02 SYSTEM "ch02.xml">
+	<!ENTITY ch03 SYSTEM "ch03.xml">
+	<!ENTITY ch04 SYSTEM "ch04.xml">
+	<!ENTITY appa SYSTEM "appa.xml">
+	<!ENTITY gloss SYSTEM "glossary.xml">
+	<!ENTITY copy SYSTEM "copyright.xml">
+	<!ENTITY colo SYSTEM "colo.xml">
+]>
+<book id="tsvn">
+	<title>TortoiseSVN</title>
+	<subtitle>A Subversion client for Windows</subtitle>
+	<bookinfo>
+		<edition>First</edition>
+		<authorgroup>
+			<author>
+				<firstname>Stefan</firstname>
+				<surname>K&uuml;ng</surname>
+			</author>
+			<author>
+				<firstname>L&uuml;bbe</firstname>
+				<surname>Onken</surname>
+			</author>
+		</authorgroup>
+		<pagenums>??? pages (est.)</pagenums>
+		<pubdate>work in progress</pubdate>
+	</bookinfo>
+	<!-- External entity refs -->
+
+  &ch00;
+  &ch01;
+  &ch02;
+  &ch03;
+  &ch04;
+  &appa;
+  &gloss;
+  &colo;
+</book>
