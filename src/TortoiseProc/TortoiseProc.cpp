@@ -1056,30 +1056,33 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("relocate from %s to %s\n"), dlg.m_sFromUrl, dlg.m_sToUrl);
-				SVN s;
+				if (CMessageBox::Show((EXPLORERHWND), IDS_WARN_RELOCATEREALLY, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)==IDYES)
+				{
+					SVN s;
 
-				CProgressDlg progress;
-				if (progress.IsValid())
-				{
-					CString temp;
-					temp.LoadString(IDS_PROC_RELOCATING);
-					progress.SetTitle(temp);
-					progress.ShowModeless(PWND);
-				}
-				if (!s.Relocate(path, dlg.m_sFromUrl, dlg.m_sToUrl, TRUE))
-				{
+					CProgressDlg progress;
 					if (progress.IsValid())
-						progress.Stop();
-					TRACE(_T("%s\n"), s.GetLastErrorMessage());
-					CMessageBox::Show((EXPLORERHWND), s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				}
-				else
-				{
-					if (progress.IsValid())
-						progress.Stop();
-					CString temp;
-					temp.Format(IDS_PROC_RELOCATEFINISHED, dlg.m_sToUrl);
-					CMessageBox::Show((EXPLORERHWND), temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+					{
+						CString temp;
+						temp.LoadString(IDS_PROC_RELOCATING);
+						progress.SetTitle(temp);
+						progress.ShowModeless(PWND);
+					}
+					if (!s.Relocate(path, dlg.m_sFromUrl, dlg.m_sToUrl, TRUE))
+					{
+						if (progress.IsValid())
+							progress.Stop();
+						TRACE(_T("%s\n"), s.GetLastErrorMessage());
+						CMessageBox::Show((EXPLORERHWND), s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					}
+					else
+					{
+						if (progress.IsValid())
+							progress.Stop();
+						CString temp;
+						temp.Format(IDS_PROC_RELOCATEFINISHED, dlg.m_sToUrl);
+						CMessageBox::Show((EXPLORERHWND), temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+					}
 				}
 			}
 		} // if (comVal.Compare(_T("relocate"))==0)
