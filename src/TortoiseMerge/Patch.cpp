@@ -49,7 +49,7 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 	//first, skip possible garbage at the beginning
 	//garbage is finished when a line starts with "Index: "
 	//and the next line consists of only "=" characters
-	for (nIndex=0; nIndex<PatchLines.GetCount(); nIndex++)
+	for (; nIndex<PatchLines.GetCount(); nIndex++)
 	{
 		sLine = PatchLines.GetAt(nIndex);
 		if (sLine.Left(7).Compare(_T("Index: "))==0)
@@ -66,7 +66,8 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 	if ((PatchLines.GetCount()-nIndex) < 2)
 	{
 		//no file entry found.
-		return 1;		//TODO : change this return value to an error string id
+		m_sErrorMessage.LoadString(IDS_ERR_PATCH_NOINDEX);
+		goto errorcleanup;
 	} // if ((m_PatchLines.GetCount()-nIndex) < 2)
 
 	//from this point on we have the real unified diff data
@@ -138,8 +139,13 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 				if (sLine.Left(3).Compare(_T("---"))!=0)
 				{
 					//no starting "---" found
-					m_sErrorMessage.Format(IDS_ERR_PATCH_NOREMOVEFILELINE, nIndex);
-					goto errorcleanup;
+					//seems to be either garbage or just
+					//a binary file. So start over...
+					state = 0;
+
+					break;
+					//m_sErrorMessage.Format(IDS_ERR_PATCH_NOREMOVEFILELINE, nIndex);
+					//goto errorcleanup;
 				} // if (sLine.Left(3).Compare(_T("---"))!=0)
 				sLine = sLine.Mid(3);	//remove the "---"
 				sLine =sLine.Trim();
@@ -181,8 +187,26 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 				if (sLine.Left(2).Compare(_T("@@"))!=0)
 				{
 					//chunk doesn't start with "@@"
-					m_sErrorMessage.Format(IDS_ERR_PATCH_CHUNKSTARTNOTFOUND, nIndex);
-					goto errorcleanup;
+					//so there's garbage in between two filediffs
+					state = 0;
+					if (chunk)
+					{
+						delete chunk;
+						chunk = 0;
+					} // if (chunk) 
+					if (chunks)
+					{
+						for (int i=0; i<chunks->chunks.GetCount(); i++)
+						{
+							delete chunks->chunks.GetAt(i);
+						}
+						chunks->chunks.RemoveAll();
+						delete chunks;
+						chunks = NULL;
+					} // if (chunks)
+					break;		//skip the garbage
+					//m_sErrorMessage.Format(IDS_ERR_PATCH_CHUNKSTARTNOTFOUND, nIndex);
+					//goto errorcleanup;
 				} // if (sLine.Left(2).Compare(_T("@@"))!=0) 
 				sLine = sLine.Mid(2);
 				chunk = new Chunk();
