@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-DUG">
+<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -55,7 +55,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-general">
 		<title>Handling TortoiseSVN</title>
-		<indexterm><primary>context menu</primary></indexterm>
+		<indexterm>
+			<primary>context menu</primary>
+		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-context-dir-control">
 				<title>Context menu for a directory under version control</title>
@@ -67,8 +69,12 @@
 			folder is under version control or not.
 		</para>
 		<para>
-		<indexterm><primary>drag handler</primary></indexterm>
-		<indexterm><primary>drag-n-drop</primary></indexterm>
+			<indexterm>
+				<primary>drag handler</primary>
+			</indexterm>
+			<indexterm>
+				<primary>drag-n-drop</primary>
+			</indexterm>
 		Other commands are available as drag handlers, when you <action>right drag</action>
 		files or folders to a new location inside working copies or when you 
 		<action>right drag</action> a non-versioned file or folder into a directory 
@@ -80,7 +86,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-authentication">
 		<title>Authentication</title>
-		<indexterm><primary>authentication</primary></indexterm>
+		<indexterm>
+			<primary>authentication</primary>
+		</indexterm>
 		<para>
 			If the repository that you are trying to access is password protected, an 
 			authentication Dialog will show up.
@@ -94,7 +102,7 @@
 			that you access. If you want to make Subversion and TortoiseSVN forget your
 			credentials, you have to delete the corresponding file(s).
 			<tip>
-			<para>
+				<para>
 			If you have to authenticate against a Windows NT domain, enter your username
 			including the domain name, like: <action>MYDOMAIN/johnd</action>.
 			</para>
@@ -106,7 +114,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-import">
 		<title>Importing Data Into A Repository</title>
-		<indexterm><primary>import</primary></indexterm>
+		<indexterm>
+			<primary>import</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_IMPORT"?>
 		<sect2 id="tsvn-DUG-import-1">
 			<title>Repository Layout</title>
@@ -184,7 +194,9 @@
 		</sect2>
 		<sect2 id="tsvn-DUG-import-2">
 			<title>Import</title>
-			<indexterm><primary>tempfiles</primary></indexterm>
+			<indexterm>
+				<primary>tempfiles</primary>
+			</indexterm>
 			<para>
 			Before you import your project into a repository you should:
 			<orderedlist>
@@ -206,7 +218,9 @@
 			Now select the <emphasis>parent import</emphasis> folder of your
 			directory structure in the windows explorer and <action>right click
 			</action> to open the context menu. Select the command
-			<menuchoice><guimenuitem>Import...</guimenuitem></menuchoice> which brings up a dialog
+			<menuchoice>
+					<guimenuitem>Import...</guimenuitem>
+				</menuchoice> which brings up a dialog
 			box:
 				<figure id="tsvn-DUG-import-dia-1">
 					<title>The Import dialog</title>
@@ -227,7 +241,9 @@
 				</note>
 			</para>
 			<para>
-			<indexterm><primary>exclude pattern</primary></indexterm>
+				<indexterm>
+					<primary>exclude pattern</primary>
+				</indexterm>
 			As soon as you press the OK button TortoiseSVN imports the
 			complete directory tree including all files into the repository.
 			Please note that this does <emphasis>NOT</emphasis> put your
@@ -242,7 +258,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-checkout">
 		<title>Checking Out A Working Copy</title>
-		<indexterm><primary>checkout</primary></indexterm>
+		<indexterm>
+			<primary>checkout</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_CHECKOUT"?>
 		<para>
 			<figure id="tsvn-DUG-checkout-dia-1">
@@ -255,7 +273,9 @@
 		<para>
 		Select a directory in windows explorer where you want to place
 		your working copy. <action>Right-click</action> to pop up the
-		context menu and select the command <menuchoice><guimenuitem>Checkout...</guimenuitem></menuchoice>
+		context menu and select the command <menuchoice>
+				<guimenuitem>Checkout...</guimenuitem>
+			</menuchoice>
 		which brings up the following dialog box:
 		If you enter a folder name that does not yet exist, then a
 		directory with that name is created.
@@ -274,13 +294,17 @@
 		</para>
 		<tip>
 			<title>Exporting</title>
-			<indexterm><primary>export</primary></indexterm>
+			<indexterm>
+				<primary>export</primary>
+			</indexterm>
 			<para>
 			Sometimes you may want a working copy without any of those
 			<filename>.svn</filename> directories, e.g. to create a zipped
 			tarball of your source. Instead of making a copy and then delete
 			all those directories manually, TortoiseSVN offers the command
-			<menuchoice><guimenuitem>Export...</guimenuitem></menuchoice>. If you execute this command
+			<menuchoice>
+					<guimenuitem>Export...</guimenuitem>
+				</menuchoice>. If you execute this command
 			on your working copy you'll be asked for a place to save the
 			"clean" working copy.
 			</para>
@@ -291,7 +315,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-wcstatus">
 		<title>Getting Status Information</title>
-		<indexterm><primary>status</primary></indexterm>
+		<indexterm>
+			<primary>status</primary>
+		</indexterm>
 		<para>
 		While you are working on your working copy you often need to know
 		which files you have changed/added/removed or renamed, or even which
@@ -299,7 +325,9 @@
 		</para>
 		<sect2 id="tsvn-DUG-wcstatus-1">
 			<title>Icon Overlays</title>
-			<indexterm><primary>overlays</primary></indexterm>
+			<indexterm>
+				<primary>overlays</primary>
+			</indexterm>
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-1">
 					<title>Explorer showing icon overlays</title>
@@ -331,8 +359,10 @@
 			The folder icons also have icon overlays displayed. By default,
 			only the status of the folder itself is shown. But you can
 			change that behaviour in the 
-      <menuchoice><guimenuitem>Settings...</guimenuitem></menuchoice>
-			(<xref linkend="tsvn-DUG-settings" />),
+      <menuchoice>
+					<guimenuitem>Settings...</guimenuitem>
+				</menuchoice>
+			(<xref linkend="tsvn-DUG-settings"/>),
 			so that the status of folders is shown recursively. This will
 			make the icon overlays for folders slower and is therefore
 			not recommended on slower machines. I'm using that setting on
@@ -342,8 +372,8 @@
 			and <literal>modified</literal> overrides <literal>normal</literal>.
 			So you can easily see if there's a file with a conflict or a modified file in a folder.
 			<note>
-				<title>Slow Overlays</title>
-				<para>
+					<title>Slow Overlays</title>
+					<para>
 				You may notice that if you enable the recursive overlay for folders
 				that the explorer slows down remarkably when browsing working
 				copies. This depends on how big your working copy is and how much
@@ -351,7 +381,7 @@
 				very slow the first time you browse such a directory &mdash; if
 				you browse the same directory later again it's much faster.
 				</para>
-				<para>
+					<para>
 				If you want to disable the recursive overlays for some
 				folders but not for all then you can do that by creating a
 				file called <filename>_tsvnexcluderecursive</filename> inside
@@ -359,13 +389,13 @@
 				that folder, but <emphasis>not</emphasis> for the files or
 				folders inside it.
 				</para>
-				<para>
+					<para>
 				You can also disable the overlays completely for a folder
 				by creating a file called <filename>_tsvnexcludethis</filename>
 				inside that folder. Again, this disables the overlays only
 				for that folder, not the folders inside it.
 				</para>
-			</note>
+				</note>
 			</para>
 			<para>
 			Unlike <application>TortoiseCVS</application> (the CVS shell
@@ -376,15 +406,19 @@
 		</sect2>
 		<sect2 id="tsvn-DUG-wcstatus-2">
 			<title>Status Of The Repository</title>
-			<indexterm><primary>status</primary></indexterm>
+			<indexterm>
+				<primary>status</primary>
+			</indexterm>
 			<para>
 				<figure id="tsvn-DUG-wcstatus-dia-2">
 					<title>Check for Updates</title>
 					<graphic fileref="images/RepoStatus.png"/>
 				</figure>
 			It's often very useful to know which files got changed and
-			committed by others. That's where the command <menuchoice><guimenuitem>Check
-			For Updates...</guimenuitem></menuchoice> comes in handy.
+			committed by others. That's where the command <menuchoice>
+					<guimenuitem>Check
+			For Updates...</guimenuitem>
+				</menuchoice> comes in handy.
 			This dialog will show you every file that has changed in any
 			way either in your working copy and in the repository. That way
 			you can check before an update if there's a possible conflict.
@@ -398,12 +432,18 @@
 			<tip>
 				<title>Other Possibilities</title>
 				<para>
-					<menuchoice><guimenuitem>The Check for Updates..</guimenuitem></menuchoice> dialog is propably not the best
+					<menuchoice>
+						<guimenuitem>The Check for Updates..</guimenuitem>
+					</menuchoice> dialog is propably not the best
 				choice if you don't have a network connection available.
 				In this case you can also get the local status of all your
-				files by clicking <menuchoice><guimenuitem>Commit...</guimenuitem></menuchoice>. The
+				files by clicking <menuchoice>
+						<guimenuitem>Commit...</guimenuitem>
+					</menuchoice>. The
 				commit dialog shows you a similar list of files like the
-				<menuchoice><guimenuitem>Check for Updates...</guimenuitem></menuchoice> dialog, but without contacting the
+				<menuchoice>
+						<guimenuitem>Check for Updates...</guimenuitem>
+					</menuchoice> dialog, but without contacting the
 				repository. if you dont' want to commit just press <guibutton>Cancel</guibutton>.
 				</para>
 			</tip>
@@ -414,7 +454,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-update">
 		<title>Update Your Working Copy With Changes From Others</title>
-		<indexterm><primary>update</primary></indexterm>
+		<indexterm>
+			<primary>update</primary>
+		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-update-dia-1">
 				<title>Progress dialog showing an update in progress</title>
@@ -431,7 +473,9 @@
 		single files, a set of selected files, or recursively on
 		entire directory hierarchies. To update, select the files
 		and/or directories you want, <action>right click</action> and select
-		<menuchoice><guimenuitem>Update</guimenuitem></menuchoice> in the explorer context menu.
+		<menuchoice>
+				<guimenuitem>Update</guimenuitem>
+			</menuchoice> in the explorer context menu.
 		A window will pop up displaying the progress of the
 		update as it runs.
 		Changes done by others will be merged into your files,
@@ -448,7 +492,9 @@
 		<para>
 		TortoiseSVN also allows you to update your working copy to a specific
 		revision, not only to the most recent one. This command is called
-		<menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> and first opens
+		<menuchoice>
+				<guimenuitem>Update to Revision...</guimenuitem>
+			</menuchoice> and first opens
 		a dialog where you can enter the required revision.
 		</para>
 		<caution>
@@ -456,12 +502,18 @@
 		<literal>out of date</literal> error messages when you try to commit them!
 		If you want to undo changes to a file and start fresh from an earlier
 		revision, you must either use the
-    <menuchoice><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>
+    <menuchoice>
+				<guimenuitem>Revert changes from this revision</guimenuitem>
+			</menuchoice>
     command from the logdialog or the 
-    <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> menu command.
+    <menuchoice>
+				<guimenuitem>Merge...</guimenuitem>
+			</menuchoice> menu command.
 		</caution>
 		<para>
-		The <menuchoice><guimenuitem>Update to Revision...</guimenuitem></menuchoice> command allows
+		The <menuchoice>
+				<guimenuitem>Update to Revision...</guimenuitem>
+			</menuchoice> command allows
 		you to revert your working to an earlier revision. Say e.g. your
 		working copy is at revision 100, but you want your working copy
 		to reflect the state which it had in revision 50 &mdash; then simply
@@ -471,7 +523,9 @@
 			<title>Multiple Files/Folders</title>
 			<para>
 		If you select multiple files and folders in the explorer and then
-		select <menuchoice><guimenuitem>Update...</guimenuitem></menuchoice>, all of those files/folders
+		select <menuchoice>
+					<guimenuitem>Update...</guimenuitem>
+				</menuchoice>, all of those files/folders
 		are updated one by one. TortoiseSVN makes sure that all files/folders
 		which are from the same repository are updated to the exact same
 		revision! Even if between those updates another commit occured.
@@ -483,7 +537,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-conflicts">
 		<title>Resolving Conflicts</title>
-		<indexterm><primary>conflict</primary></indexterm>
+		<indexterm>
+			<primary>conflict</primary>
+		</indexterm>
 		<para>
 		Once in a while, you will get a <emphasis>conflict</emphasis> when
 		you update your files from the repository. A conflict
@@ -541,13 +597,17 @@
 		</para>
 		<para>
 		You can either launch an external merge tool / conflict
-		editor with the <menuchoice><guimenuitem>Edit Conflict</guimenuitem></menuchoice>
+		editor with the <menuchoice>
+				<guimenuitem>Edit Conflict</guimenuitem>
+			</menuchoice>
 		context menu or you can use any other editor to manually
 		resolve the conflict. You should decide what the code
 		should look like and do the necessary changes.
 		</para>
 		<para>
-		Afterwards execute the command <menuchoice><guimenuitem>Resolved</guimenuitem></menuchoice>
+		Afterwards execute the command <menuchoice>
+				<guimenuitem>Resolved</guimenuitem>
+			</menuchoice>
 		from the context menu and commit your modifications to the
 		repository. Please note that the Resolve command does not-really
 		resolve the conflict. It just removes the <filename>filename.ext.working
@@ -560,7 +620,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-commit">
 		<title>Sending Your Changes To The Repository</title>
-		<indexterm><primary>commit</primary></indexterm>
+		<indexterm>
+			<primary>commit</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_LOGPROMPT"?>
 		<para>
 			<figure id="tsvn-DUG-commit-dia-1">
@@ -571,14 +633,18 @@
 		<firstterm>committing</firstterm> the changes. But before you
 		commit you have to make sure that your working copy is up to
 		date. You can either make an update directly. Or you can
-		<menuchoice><guimenuitem>check for updates</guimenuitem></menuchoice> first, to see which
+		<menuchoice>
+			<guimenuitem>check for updates</guimenuitem>
+		</menuchoice> first, to see which
 		files have changed locally or on the server.
 		</para>
 		<para>
 		If your working copy is up to date and there are no conflicts,
 		you are ready to commit your changes. Select any file
-		and/or folders you want to commit and select <menuchoice><guimenuitem>Commit
-		</guimenuitem></menuchoice> from the context menu.
+		and/or folders you want to commit and select
+		<menuchoice>
+			<guimenuitem>Commit</guimenuitem>
+		</menuchoice> from the context menu.
 		</para>
 		<para>
 		The commit dialog will show you every changed file,
@@ -587,33 +653,34 @@
 		file. If you want to include an unversioned file,
 		just check that file to add it to the commit.
 		<figure id="tsvn-DUG-commit-dia-2">
-			<title>The Context Menu Of The Commit Dialog</title>
-			<graphic fileref="images/CommitContextMenu.png"/>
-		</figure>
-
-		<tip>
-			<title>Many unversioned files in the commit dialog</title>
-			<para>If you think that the TSVN commit dialog shows you too
+				<title>The Context Menu Of The Commit Dialog</title>
+				<graphic fileref="images/CommitContextMenu.png"/>
+			</figure>
+			<tip>
+				<title>Many unversioned files in the commit dialog</title>
+				<para>If you think that the TSVN commit dialog shows you too
 			many unversioned (e.g. compiler generated or editor backup)
 			files, there are several ways to handle this. You can:
 			<itemizedlist>
-				<listitem>
-					<para>add the file (or a wildcard extension)
+						<listitem>
+							<para>add the file (or a wildcard extension)
 					to the list of files to exclude on the settings page.
 					This will affect every working copy you have.</para>
-				</listitem>
-				<listitem>
-					<para>add the file to the svn:ignore list
-					using the <menuchoice><guimenuitem>Add to ignore list</guimenuitem></menuchoice>
+						</listitem>
+						<listitem>
+							<para>add the file to the svn:ignore list
+					using the <menuchoice>
+									<guimenuitem>Add to ignore list</guimenuitem>
+								</menuchoice>
 					context menu. This will only affect the directory on
 					which you set the <literal>svn:ignore</literal> property.
 					Using the SVN Property Dialog, you can alter the
 					<literal>svn:ignore</literal> property for a directory.
 					</para>
-				</listitem>
-			</itemizedlist>
-			</para>
-		</tip>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</tip>
 		</para>
 		<figure id="tsvn-DUG-commit-dia-3">
 			<title>The Progress dialog showing a commit in progress</title>
@@ -633,7 +700,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-adding">
 		<title>Adding New Files And Directories</title>
-		<indexterm><primary>add</primary></indexterm>
+		<indexterm>
+			<primary>add</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_ADD"?>
 		<para>
 			<figure id="tsvn-DUG-adding-dia-1">
@@ -643,7 +712,9 @@
 		If you created new files and/or directories during
 		your development process the you need to add them
 		to source control too. Select the file(s) and/or directory
-		and select the command <menuchoice><guimenuitem>Add</guimenuitem></menuchoice> from
+		and select the command <menuchoice>
+				<guimenuitem>Add</guimenuitem>
+			</menuchoice> from
 		the context menu.
 		</para>
 		<para>
@@ -683,7 +754,9 @@
 				</listitem>
 				<listitem>
 					<para>in the popup menu select
-			<menuchoice><guimenuitem>add files to Subversion here</guimenuitem></menuchoice>.
+			<menuchoice>
+							<guimenuitem>add files to Subversion here</guimenuitem>
+						</menuchoice>.
 			The files will then be copied to the working copy and
 			added to version control.</para>
 				</listitem>
@@ -695,10 +768,18 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-renaming">
 		<title>Deleting, Renaming And Moving</title>
-		<indexterm><primary>delete</primary></indexterm>
-		<indexterm><primary>remove</primary></indexterm>
-		<indexterm><primary>rename</primary></indexterm>
-		<indexterm><primary>move</primary></indexterm>
+		<indexterm>
+			<primary>delete</primary>
+		</indexterm>
+		<indexterm>
+			<primary>remove</primary>
+		</indexterm>
+		<indexterm>
+			<primary>rename</primary>
+		</indexterm>
+		<indexterm>
+			<primary>move</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_RENAME"?>
 		<para>
 			<figure id="tsvn-DUG-renaming-dia-1">
@@ -713,7 +794,9 @@
 		If you delete a file/directory using TSVN, the file is
 		removed from your working copy and marked for deletion.
 		The file's parent folder shows a "deleted" icon overlay.
-		You can always get the file back, if you call <menuchoice><guimenuitem>revert</guimenuitem></menuchoice>
+		You can always get the file back, if you call <menuchoice>
+				<guimenuitem>revert</guimenuitem>
+			</menuchoice>
 		on the parent folder.
 		</para>
 		<para>
@@ -733,7 +816,9 @@
 					<para>release the right mouse button</para>
 				</listitem>
 				<listitem>
-					<para>in the popup menu select <menuchoice><guimenuitem>move files in Subversion to here</guimenuitem></menuchoice>
+					<para>in the popup menu select <menuchoice>
+							<guimenuitem>move files in Subversion to here</guimenuitem>
+						</menuchoice>
 					</para>
 				</listitem>
 			</orderedlist>
@@ -763,13 +848,19 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-revert">
 		<title>Undo Changes</title>
-		<indexterm><primary>revert</primary></indexterm>
-		<indexterm><primary>undo</primary></indexterm>
+		<indexterm>
+			<primary>revert</primary>
+		</indexterm>
+		<indexterm>
+			<primary>undo</primary>
+		</indexterm>
 		<para>
 		If you want to undo all changes you made in a file since
 		the last update you need to select the file, <action>right&ndash;click
 		</action> to pop up the context menu and then select
-		the command <menuchoice><guimenuitem>revert</guimenuitem></menuchoice> in the TortoiseSVN
+		the command <menuchoice>
+				<guimenuitem>revert</guimenuitem>
+			</menuchoice> in the TortoiseSVN
 		submenu. A dialog will pop up showing you the files you've changed
 		and you can revert. Select those you want to revert and press
 		<guibutton>ok</guibutton>.
@@ -784,7 +875,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-propertypage">
 		<title>Get/Set Information About Files/Directories</title>
-		<indexterm><primary>properties</primary></indexterm>
+		<indexterm>
+			<primary>properties</primary>
+		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-propertypage-dia-1">
 				<title>Subversion property page</title>
@@ -794,7 +887,9 @@
 		about a file/directory than just the icon overlay.
 		You can get all the information Subversion provides in the
 		explorer properties dialog. Just select the file or
-		directory and select <menuchoice><guimenuitem>properties</guimenuitem></menuchoice> in the
+		directory and select <menuchoice>
+				<guimenuitem>properties</guimenuitem>
+			</menuchoice> in the
 		context menu (note: this is the normal properties menu entry
 		the explorer provides, not in the TortoiseSVN submenu!).
 		In the properties dialog box TortoiseSVN has added a new
@@ -811,7 +906,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-showlog">
 		<title>Revision Log Dialog</title>
-		<indexterm><primary>log</primary></indexterm>
+		<indexterm>
+			<primary>log</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_LOGMESSAGE"?>
 		<para>
 		For every change you make and commit, you also have to provide
@@ -947,9 +1044,15 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-branchtag">
 		<title>Branching / Tagging</title>
-		<indexterm><primary>branch</primary></indexterm>
-		<indexterm><primary>tag</primary></indexterm>
-		<indexterm><primary>copy</primary></indexterm>
+		<indexterm>
+			<primary>branch</primary>
+		</indexterm>
+		<indexterm>
+			<primary>tag</primary>
+		</indexterm>
+		<indexterm>
+			<primary>copy</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_COPY"?>
 		<?dbhh topicname="HIDD_SWITCH"?>
 		<?dbhh topicname="HIDD_MERGE"?>
@@ -981,12 +1084,14 @@
 		directory structure creating a branch or tag version is very simple:
 
 		<figure id="tsvn-DUG-branchtag-dia-1">
-			<title>The Branch/Tag Dialog</title>
-			<graphic fileref="images/Copy.png"/>
-		</figure>
+				<title>The Branch/Tag Dialog</title>
+				<graphic fileref="images/Copy.png"/>
+			</figure>
 
 		Select the parent folder of your working copy and select
-		the command <menuchoice><guimenuitem>Branch/Tag...</guimenuitem></menuchoice> from the
+		the command <menuchoice>
+				<guimenuitem>Branch/Tag...</guimenuitem>
+			</menuchoice> from the
 		context menu. Enter the URL to the repository path for
 		branches or tags into the dialog. So instead of <filename>/trunk/
 		</filename> you would now use <filename>/tags/tagname</filename> where
@@ -1004,7 +1109,6 @@
 		Creating a Branch / Tag.does <emphasis>not</emphasis> affect your working
 		copy.
 		</para>
-
 		<sect2 id="tsvn-DUG-switch-1">
 			<title>To Checkout or to Switch...</title>
 			<para>
@@ -1018,7 +1122,9 @@
 			have several ways to handle it. You can:
 			<itemizedlist>
 					<listitem>
-						<para>do a <menuchoice><guimenuitem>Checkout</guimenuitem></menuchoice> of
+						<para>do a <menuchoice>
+								<guimenuitem>Checkout</guimenuitem>
+							</menuchoice> of
 				it again. You can check it out to any location on your
 				local disk and you can create as many working copies
 				from your repository as you like.</para>
@@ -1027,7 +1133,9 @@
 						<para>Switch your current working copy to the
 				newly created copy in the repository. Again select the
 				parent folder of your project and select the command
-				<menuchoice><guimenuitem>Switch...</guimenuitem></menuchoice> from the context menu.
+				<menuchoice>
+								<guimenuitem>Switch...</guimenuitem>
+							</menuchoice> from the context menu.
 				</para>
 					</listitem>
 				</itemizedlist>
@@ -1068,7 +1176,9 @@
 		</sect2>
 		<sect2 id="tsvn-DUG-merge-2">
 			<title>Merging A Branch Back Into The Main Branch</title>
-			<indexterm><primary>merge</primary></indexterm>
+			<indexterm>
+				<primary>merge</primary>
+			</indexterm>
 			<para>
 				<figure id="tsvn-DUG-merge-dia-1">
 					<title>The Merge Dialog</title>
@@ -1076,7 +1186,9 @@
 				</figure>
 				To merge revisions you need to go to a working copy of the
 				branch in which you want to receive the changes, (normally the trunk).
-				Select <menuchoice><guimenuitem>Merge...</guimenuitem></menuchoice> from the context menu.
+				Select <menuchoice>
+					<guimenuitem>Merge...</guimenuitem>
+				</menuchoice> from the context menu.
 				<orderedlist>
 					<listitem>
 						<para>In the <guilabel>Merge current branch with</guilabel> field enter the full
@@ -1135,7 +1247,7 @@ Rev Comments
 				in your way. Of course, you should still avoid re-merging trunk changes, as explained above.
 			</para>
 			<important>
-			<para>
+				<para>
 				Subversion can't merge a file with a folder and vice versa - only
 				folders to folders and files to files. If you click on a file and open up
 				the merge dialog, then you have to give a path to a file in that dialog. If you
@@ -1150,7 +1262,9 @@ Rev Comments
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-relocate">
 		<title>Relocating a working copy</title>
-		<indexterm><primary>relocate</primary></indexterm>
+		<indexterm>
+			<primary>relocate</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_RELOCATE"?>
 		<para>
 			<figure id="tsvn-DUG-relocate-dia-1">
@@ -1161,7 +1275,9 @@ Rev Comments
 		location (IP/URL). Maybe you're even stuck and can't
 		commit and you don't want to checkout your working
 		copy again from the new location and to move all your
-		changed data back into the new working copy, <menuchoice><guimenuitem>relocate</guimenuitem></menuchoice>
+		changed data back into the new working copy, <menuchoice>
+				<guimenuitem>relocate</guimenuitem>
+			</menuchoice>
 		is the command you are looking for. It basically
 		does not much: it scans all "entries" files in the
 		.svn folder and changes the URL of the entries to the new value.
@@ -1172,14 +1288,16 @@ Rev Comments
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-settings">
 		<title>TortoiseSVN's Settings</title>
-		<indexterm><primary>settings</primary></indexterm>
+		<indexterm>
+			<primary>settings</primary>
+		</indexterm>
 		<para>
 		To find out what the different settings are for, just leave your
 		mouse pointer a second on the editbox/checkbox... and a helpful
 		tooltip will popup.
 		</para>
 		<sect2 id="tsvn-DUG-settings-main">
-		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
+			<?dbhh topicname="HIDD_SETTINGSMAIN"?>
 			<title>The Settings Dialog, Main Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-1">
@@ -1189,80 +1307,223 @@ Rev Comments
 			Apart from setting your preferred language, this dialog allows you to
 			specify (almost) every setting TortoiseSVN has. 
 
-			### TODO ### explain exclude patterns
-			
-			Most important might be
-			the two settings:
-			
-			<itemizedlist>
-				<listitem>
+			<variablelist>
+				<varlistentry>
+					<term>Language</term>
+					<listitem>
+					<para>Selects your user interface language. What did you expect?</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Exclude pattern</term>
+					<listitem>
 					<para>
-					Set filedates to "last commit time"
+					Exclude files or directories by typing in the names or extensions. Patterns are separated by spaces
+					e.g.  <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>. The first two entries refer to directories, the 
+					other four to files.
 					</para>
-				</listitem>
-				<listitem>
 					<para>
-					You should be familiar with version control systems
+					This exclude pattern will affect all your projects. It is not versioned, so it 
+					will not affect other users. In contrast you can also use the versioned svn:ignore 
+					property to exclude files or directories from version control. You can set the svn:ignore 
+					property using the 
+					<menuchoice>
+						<guimenuitem>Add to Ignore List</guimenuitem>
+					</menuchoice>
+					command. After commiting every other user will have the same 
+					svn:ignore property set for this project / directory as you.
 					</para>
-				</listitem>
-			</itemizedlist>
-		</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Default number of log messages</term>
+					<listitem>
+					<para>Limits the number of log messages that TortoiseSVN fetches when you first select
+					<menuchoice>
+						<guimenuitem>Show Log</guimenuitem>
+					</menuchoice>
+					Useful for slow connections / servers. You can always  <guibutton>Fetch All</guibutton> messages.
+					</para>
+					</listitem>
+				</varlistentry>
+			
+				<varlistentry>
+					<term>Short date / time format in log messages</term>
+					<listitem>
+					<para>If the standard long messages use up too much space on your sceen use the short format.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Edit...</term>
+					<listitem>
+					<para>... the subversion configuration file directly. Some settings cannot be modified by TortoiseSVN.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Check for newer versions</term>
+					<listitem>
+					<para>If checked, TortoiseSVN will check once a week if an update is available</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Set filedates to "last commit time"</term>
+					<listitem>
+					<para>
+					This option tells TortoiseSVN to set the filedates to the last commit time 
+					when doing a checkout or an update. Otherwise TortoiseSVN will use 
+					the current date.
+					</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Don't remove log messages when cancelling a commit</term>
+					<listitem>
+					<para>
+					If for some reason the commit is cancelled (User cancel or commit error), 
+					then TortoiseSVN will preserve the last commit message you typed if
+					you try to commit again.
+					</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Close windows automatically</term>
+					<listitem>
+					<para>
+					TortoiseSVN will automatically close all progress dialogs when the action is finished.
+					</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-overlay">
-		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+			<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
 			<title>The Settings Dialog, Overlay Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-2">
 					<title>The Settings Dialog, Overlay Tab</title>
 					<graphic fileref="images/SettingsOverlay.png"/>
 				</figure>
-		This tab allows you to choose, for which items TortoiseSVN shall display icon overlays. If you feel that your icon overlays are very slow (explore is not responsive), uncheck the "show changed directories" box.
+		This tab allows you to choose, for which items TortoiseSVN shall
+		display icon overlays. If you feel that your icon overlays are very 
+		slow (explore is not responsive), uncheck the "show changed directories" box.
+		You can even disable all icon overlays, but where's the fun in that?
 		</para>
 		</sect2>
+
 		<sect2 id="tsvn-DUG-settings-menu">
-		<?dbhh topicname="HIDD_SETTINGSMENU"?>
+			<?dbhh topicname="HIDD_SETTINGSMENU"?>
 			<title>The Settings Dialog, Context Menu Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-3">
 					<title>The Settings Dialog, Context Menu Tab</title>
 					<graphic fileref="images/SettingsMenu.png"/>
 				</figure>
-		In this tab you can specifiy which of the TortoiseSVN contex menu entries shall be show up in the main context menu.
+		In this tab you can specifiy which of the TortoiseSVN contex menu
+		entries shall show up in the main context menu.
 		</para>
 		</sect2>
+
 		<sect2 id="tsvn-DUG-settings-network">
-		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
+			<?dbhh topicname="HIDD_SETTINGSPROXY"?>
 			<title>The Settings Dialog, Network Tab</title>
-			<indexterm><primary>proxy server</primary></indexterm>
+			<indexterm>
+				<primary>proxy server</primary>
+			</indexterm>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-4">
 					<title>The Settings Dialog, Network Tab</title>
 					<graphic fileref="images/SettingsProxy.png"/>
 				</figure>
-		Here you can configure your proxy server, if you need one to get through youor company's firewall.
-		</para>
-		<para>
-		You can also specify, which program TortoiseSVN shall use to establish a secure connection to a svn+ssh repository.
-		</para>
+			Here you can configure your proxy server, if you need one to get through youor company's firewall.
+			</para>
+			<para>
+			You can also specify, which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository.
+			</para>
 		</sect2>
+
 		<sect2 id="tsvn-DUG-settings-progs">
-		<?dbhh topicname="HIDD_SETTINGSPROGS"?>
+			<?dbhh topicname="HIDD_SETTINGSPROGS"?>
 			<title>The Settings Dialog, Diff/Merge Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-5">
 					<title>The Settings Dialog, Diff/Merge Tab</title>
 					<graphic fileref="images/SettingsProgs.png"/>
 				</figure>
-		Set here your own diff/merge programs TortoiseSVN should use. If you leave
-		those fields empty, TortoiseSVN will use the TortoiseMerge program.
-		</para>
-		<para>
-			<figure id="tsvn-DUG-settings-dia-6">
-				<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
-				<graphic fileref="images/SettingsProgsAdv.png"/>
-			</figure>
-		In the advanced settings, you can define a different diff and merge program for every file extension.
-		</para>
+			Here you can define your own diff/merge programs that TortoiseSVN should use.
+			The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN.
+			<variablelist>
+				<varlistentry>
+					<term>Diff Program</term>
+					<listitem>
+						<para>
+						An external diff program used for comparing different revisions of files.
+						You can specify the following parameters to the path:
+						<variablelist>
+							<varlistentry>
+								<term>%base</term>
+								<listitem>the original file without your changes</listitem>
+							</varlistentry>
+							<varlistentry>
+								<term>%mine</term>
+								<listitem>your own file, with your changes</listitem>
+							</varlistentry>
+						</variablelist>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Merge Program</term>
+					<listitem>
+						<para>
+						An external merge program used to resolve conflicted files. You can specify the 
+						following parameters to the path. The order of the parameters depends on the 
+						merge program you use.
+						<variablelist>
+							<varlistentry>
+								<term>%base</term>
+								<listitem>the original file without your or the others changes</listitem>
+							</varlistentry>
+							<varlistentry>
+								<term>%mine</term>
+								<listitem> your own file, with your changes</listitem>
+							</varlistentry>
+							<varlistentry>
+								<term>%theirs</term>
+								<listitem> the file as it is in the repository</listitem>
+							</varlistentry>
+							<varlistentry>
+								<term>%merged</term>
+								<listitem> the conflicted file, the result of the merge operation</listitem>
+							</varlistentry>
+						</variablelist>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Diff Viewer</term>
+					<listitem>
+						<para>
+						A viewer program for GNU diff files (patch files). If you don't have one use NotePad. No Parameters.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			</para>
+
+			<para>
+				<figure id="tsvn-DUG-settings-dia-6">
+					<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
+					<graphic fileref="images/SettingsProgsAdv.png"/>
+				</figure>
+			In the advanced settings, you can define a different diff and merge program for every file extension. 
+			For instance you could associate Photoshop as the "Diff" Program for jpg files :-)
+			</para>
 		</sect2>
 	</sect1>
 	<!-- ================================================================= -->
@@ -1270,7 +1531,9 @@ Rev Comments
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-blame">
 		<title>Who Changed Which Line?</title>
-		<indexterm><primary>blame</primary></indexterm>
+		<indexterm>
+			<primary>blame</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_BLAME"?>
 		<para>
 			<figure id="tsvn-DUG-blame-dia-1">
@@ -1279,8 +1542,9 @@ Rev Comments
 			</figure>
 		Sometimes you need to know not only what lines have changed, but also
 		who exactly changed specific lines in a file. That's when the
-		<menuchoice><guimenuitem>Blame...</guimenuitem></menuchoice>,
-		sometimes also reffered to as <firstterm>annotate</firstterm> command comes in handy.
+		<menuchoice>
+			<guimenuitem>Blame...</guimenuitem>
+		</menuchoice>, sometimes also reffered to as <firstterm>annotate</firstterm> command comes in handy.
 		</para>
 		<para>
 		This command lists for every line in a file the author and the revision
@@ -1366,20 +1630,20 @@ line  rev    date              author     content
 		up some wish-lists with our favourite music CD's and DVD's:
 
 		<itemizedlist>
-			<listitem>
-				<para>The media wish list of Stefan is
+				<listitem>
+					<para>The media wish list of Stefan is
 			<ulink url="http://www.amazon.com/o/registry/17DKTOSXX1KJK">here</ulink>
 			(English) or 
 			<ulink url="http://www.amazon.de/exec/obidos/wishlist/26JA3LXZXY4TB/">here</ulink>
 			(Deutsch).</para>
-			</listitem>
-			<listitem>
-				<para>Lübbe has got an
+				</listitem>
+				<listitem>
+					<para>Lübbe has got an
 					<ulink url="href=http://amazon.com/gp/registry/13DTTC8JF4UD5">English (Amazon.com)</ulink> and a
 					<ulink url="href=http://www.amazon.de/exec/obidos/wishlist/3IKWLV2U0TVUA/">German (Amazon.de)</ulink> wishlist too.
 					</para>
-			</listitem>
-		</itemizedlist>
+				</listitem>
+			</itemizedlist>
 
 		Please have a look at the list of contributors.
 
