@@ -41,7 +41,7 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_sIncludePaths(_T(""))
 	, m_bShowFolderStatus(TRUE)
 {
-	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
+	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
 	m_regShowFolderStatus = CRegDWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));

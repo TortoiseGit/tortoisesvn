@@ -28,8 +28,8 @@ class ShellCache
 public:
 	ShellCache()
 	{
-		bUseExternalCache = CRegStdWORD(_T("Software\\TortoiseSVN\\ExternalCache"));
-		showrecursive = CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
+		bUseExternalCache = CRegStdWORD(_T("Software\\TortoiseSVN\\ExternalCache"), TRUE);
+		showrecursive = CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
 		folderoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
 		driveremote = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
 		drivefixed = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskFixed"), TRUE);
