@@ -326,12 +326,14 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 			if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
 			{
 				// Cache is timed-out
+				ATLTRACE("Cache timed-out\n");
 				ClearCache();
 				retVal = NULL;
 			}
 			else if(WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0)
 			{
 				// TortoiseProc has just done something which has invalidated the cache
+				ATLTRACE("Cache invalidated\n");
 				ClearCache();
 				retVal = NULL;
 			}
@@ -400,4 +402,7 @@ void SVNFolderStatus::ClearCache()
 	m_cache.clear();
 	m_mostRecentStatus = NULL;
 	m_mostRecentPath.clear();
+	// If we're about to rebuild the cache, there's no point hanging on to 
+	// an event which tells us that it's invalid
+	ResetEvent(m_hInvalidationEvent);
 }
