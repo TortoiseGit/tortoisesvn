@@ -100,7 +100,6 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 						CharPos = PosFromChar(oldpos + nLineIndex);
 						dc.MoveTo(CharPos.x, CharPos.y+wordsize.cy);
 						dc.LineTo(CharPos.x+wordsize.cx, CharPos.y+wordsize.cy);
-						MessageBeep(MB_OK);
 					}
 				} while ((pos >= 0)&&(CharPos.x < rect.right));
 				//underline words
