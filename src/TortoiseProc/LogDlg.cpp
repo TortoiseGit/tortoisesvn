@@ -1257,7 +1257,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		theApp.DoWaitCursor(1);
 		if ((!m_path.IsDirectory())&&(m_hasWC))
 		{
-			long rev = m_arShownList.GetAt(m_arRevs.GetAt(selIndex));
+			long rev = m_arRevs.GetAt(selIndex);
 			CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
 			m_tempFileList.AddPath(tempfile);
 
