@@ -1118,7 +1118,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				if (entry->remotestatus > svn_wc_status_normal)
 				{
-					temp.LoadString(IDS_SVNACTION_UPDATE);
+					temp.LoadString(IDS_MENUUPDATE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UPDATE, temp);
 					if (GetSelectedCount() == 1)
 					{
