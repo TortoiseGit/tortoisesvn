@@ -1409,6 +1409,13 @@ BEGIN
     IDS_STATUSLIST_COLURL   "Url"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOCREATE_WHICHTYPE "What repository type do you want to create?"
+    IDS_REPOCREATE_TYPE_BDB "BDB"
+    IDS_REPOCREATE_TYPE_FSFS "FSFS"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

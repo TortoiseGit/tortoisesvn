@@ -821,7 +821,7 @@ CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t 
 	return temp;
 }
 
-BOOL SVN::CreateRepository(CString path)
+BOOL SVN::CreateRepository(CString path, CString fstype)
 {
 	apr_pool_t * localpool;
 	svn_repos_t * repo;
@@ -846,8 +846,11 @@ BOOL SVN::CreateRepository(CString path)
 	{
 		svn_pool_destroy(localpool);
 		return FALSE;
-	} // if (err != NULL)
-
+	}
+	const char * fs_type = apr_pstrdup(localpool, CStringA(fstype));
+	apr_hash_set (fs_config, SVN_FS_CONFIG_FS_TYPE,
+		APR_HASH_KEY_STRING,
+		fs_type);
 	err = svn_repos_create(&repo, MakeSVNUrlOrPath(path), NULL, NULL, config, fs_config, localpool);
 	if (err != NULL)
 	{
