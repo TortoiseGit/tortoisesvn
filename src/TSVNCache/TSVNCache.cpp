@@ -88,13 +88,40 @@ DWORD GetDllVersion(LPCTSTR lpszDllName)
 	return dwVersion;
 }
 
+void DebugOutputLastError()
+{
+	LPVOID lpMsgBuf;
+	if (!FormatMessage( 
+		FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+		FORMAT_MESSAGE_FROM_SYSTEM | 
+		FORMAT_MESSAGE_IGNORE_INSERTS,
+		NULL,
+		GetLastError(),
+		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+		(LPTSTR) &lpMsgBuf,
+		0,
+		NULL ))
+	{
+		return;
+	}
+
+	// Display the string.
+	OutputDebugStringA("TSVNCache GetLastError(): ");
+	OutputDebugString((LPCTSTR)lpMsgBuf);
+	OutputDebugStringA("\n");
+
+	// Free the buffer.
+	LocalFree( lpMsgBuf );
+}
+
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
 	HANDLE hReloadProtection = ::CreateSemaphore(NULL, 0, 1, _T("TSVNCacheReloadProtection"));
 	if(hReloadProtection != INVALID_HANDLE_VALUE && GetLastError() == ERROR_ALREADY_EXISTS)
 	{
 		// An instance of TSVNCache is already running
-		ATLTRACE("TSVNCache ignoring restart\n");
+		OutputDebugStringA("TSVNCache: ignoring restart\n");
+		//ATLTRACE("TSVNCache ignoring restart\n");
 		return 0;
 	}
 
@@ -124,6 +151,12 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 0, 0, NULL, 0, hInstance, 0);
 	msg.hwnd = hWnd;	
 	
+	if (hWnd == NULL)
+	{
+		OutputDebugStringA("TSVNCache: could not create window class\n");
+		DebugOutputLastError();
+		return 0;
+	}
 	if (CRegStdWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
 	{
 		ZeroMemory(&niData,sizeof(NOTIFYICONDATA));
@@ -171,7 +204,9 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	if (hPipeThread == NULL) 
 	{
-		ATLTRACE("CreateThread failed"); 
+		//ATLTRACE("CreateThread failed"); 
+		OutputDebugStringA("TSVNCache: Could not create pipe thread\n");
+		DebugOutputLastError();
 		return 0;
 	}
 	else CloseHandle(hPipeThread); 
@@ -252,7 +287,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			Sleep(1500);
 			Shell_NotifyIcon(NIM_DELETE,&niData);
 			PostQuitMessage(0);
-			ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
+			//ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
+			OutputDebugStringA("TSVNCache: WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
 			return 0;
 		}
 	default:
@@ -281,7 +317,8 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 VOID PipeThread(LPVOID lpvParam)
 {
-	ATLTRACE("PipeThread started\n");
+	//ATLTRACE("PipeThread started\n");
+	OutputDebugStringA("TSVNCache: Pipe Thread started\n");
 	bool * bRun = (bool *)lpvParam;
 	// The main loop creates an instance of the named pipe and 
 	// then waits for a client to connect to it. When the client 
@@ -308,7 +345,9 @@ VOID PipeThread(LPVOID lpvParam)
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
-			ATLTRACE("CreatePipe failed");
+			//ATLTRACE("CreatePipe failed");
+			OutputDebugStringA("TSVNCache: CreatePipe failed\n");
+			DebugOutputLastError();
 			continue; // never leave the thread!
 		}
 		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
@@ -331,7 +370,9 @@ VOID PipeThread(LPVOID lpvParam)
 
 				if (hInstanceThread == NULL) 
 				{
-					ATLTRACE("CreateThread failed"); 
+					//ATLTRACE("CreateThread failed"); 
+					OutputDebugStringA("TSVNCache: Could not create Instance thread\n");
+					DebugOutputLastError();
 					DisconnectNamedPipe(hPipe);
 					CloseHandle(hPipe);
 					// since we're now closing this thread, we also have to close the whole application!
@@ -345,6 +386,8 @@ VOID PipeThread(LPVOID lpvParam)
 			else
 			{
 				// The client could not connect, so close the pipe. 
+				OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
+				DebugOutputLastError();
 				CloseHandle(hPipe); 
 				continue;	// don't end the thread!
 			}
@@ -360,7 +403,8 @@ VOID PipeThread(LPVOID lpvParam)
 
 VOID InstanceThread(LPVOID lpvParam) 
 { 
-	ATLTRACE("InstanceThread started\n");
+	//ATLTRACE("InstanceThread started\n");
+	OutputDebugStringA("TSVNCache: Instance thread started\n");
 	TSVNCacheResponse response; 
 	DWORD cbBytesRead, cbWritten; 
 	BOOL fSuccess; 
@@ -385,7 +429,8 @@ VOID InstanceThread(LPVOID lpvParam)
 		{
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
-			ATLTRACE("Instance thread exited\n");
+			//ATLTRACE("Instance thread exited\n");
+			OutputDebugStringA("TSVNCache: Instance thread exited\n");
 			return;
 		}
 
@@ -404,7 +449,8 @@ VOID InstanceThread(LPVOID lpvParam)
 		{
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
-			ATLTRACE("Instance thread exited\n");
+			//ATLTRACE("Instance thread exited\n");
+			OutputDebugStringA("TSVNCache: Instance thread exited\n");
 			return;
 		}
 	} 
@@ -416,6 +462,7 @@ VOID InstanceThread(LPVOID lpvParam)
 	FlushFileBuffers(hPipe); 
 	DisconnectNamedPipe(hPipe); 
 	CloseHandle(hPipe); 
-	ATLTRACE("Instance thread exited\n");
+	//ATLTRACE("Instance thread exited\n");
+	OutputDebugStringA("TSVNCache: Instance thread exited\n");
 }
 
