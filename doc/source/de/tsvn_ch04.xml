@@ -1797,7 +1797,6 @@ Rev Log-Meldungen
 					</para>
 					</listitem>
 				</varlistentry>
-### Translate ###
 
 				<varlistentry>
 					<term>Anzahl der angezeigten Log-Meldungen</term>
@@ -1827,7 +1826,7 @@ Rev Log-Meldungen
 				<varlistentry>
 					<term>Kurzes Datum/Zeit Format in Log-Meldungen</term>
 					<listitem>
-					<para>Wenn die standarmässig angezeigten langen Datums/Zeitangaben
+					<para>Wenn die standarmässig angezeigten langen Datums-/Zeitangaben
 					zu viel Platz einnehmen können Sie hier angeben das kurze
 					Format zu verwenden.
 					</para>
@@ -1870,8 +1869,9 @@ Rev Log-Meldungen
 					<listitem>
 					<para>
 					Die mindestlänge einer Log-Meldung für eine Übertragung.
-					Wenn Sie weniger Zeichen für die Log-Meldung (oder gar keine)
-					eingeben, bleibt der <guibutton>OK</guibutton> Button deaktiviert.
+					Wenn Sie weniger Zeichen für die Log-Meldung eingeben, bleibt die 
+					<guibutton>OK</guibutton> Schaltfläche deaktiviert.
+					Ein Wert von Null gestattet leere Log-Meldungen.
 					</para>
 					</listitem>
 				</varlistentry>
