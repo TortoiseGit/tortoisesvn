@@ -574,6 +574,12 @@ BEGIN
     IDS_SETTINGSTITLE       "Settings"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_COMMONFILEFILTER    "All Files (*.*)|*.*||"
+    IDS_PATCHFILEFILTER     "Patchfiles|*.diff;*.patch|All|*.*||"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

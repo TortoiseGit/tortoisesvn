@@ -1058,11 +1058,27 @@ BOOL CTortoiseProcApp::InitInstance()
 				ofn.lpstrTitle = temp;
 			ofn.Flags = OFN_OVERWRITEPROMPT;
 
+			CString sFilter;
+			sFilter.LoadString(IDS_PATCHFILEFILTER);
+			TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+			_tcscpy (pszFilters, sFilter);
+			// Replace '|' delimeters with '\0's
+			TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+			while (ptr != pszFilters)
+			{
+				if (*ptr == '|')
+					*ptr = '\0';
+				ptr--;
+			} // while (ptr != pszFilters) 
+			ofn.lpstrFilter = pszFilters;
+			ofn.nFilterIndex = 1;
 			// Display the Open dialog box. 
 			if (GetSaveFileName(&ofn)==FALSE)
 			{
+				delete [] pszFilters;
 				return FALSE;
-			}
+			} // if (GetSaveFileName(&ofn)==FALSE)
+			delete [] pszFilters;
 
 			CProgressDlg progDlg;
 			temp.LoadString(IDS_PROC_SAVEPATCHTO);

@@ -283,6 +283,20 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						ofn.lpstrTitle = temp;
 					ofn.Flags = OFN_OVERWRITEPROMPT;
 
+					CString sFilter;
+					sFilter.LoadString(IDS_COMMONFILEFILTER);
+					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+					_tcscpy (pszFilters, sFilter);
+					// Replace '|' delimeters with '\0's
+					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+					while (ptr != pszFilters)
+					{
+						if (*ptr == '|')
+							*ptr = '\0';
+						ptr--;
+					} // while (ptr != pszFilters) 
+					ofn.lpstrFilter = pszFilters;
+					ofn.nFilterIndex = 1;
 					// Display the Open dialog box. 
 					CString tempfile;
 					if (GetSaveFileName(&ofn)==TRUE)
@@ -293,12 +307,14 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						theApp.DoWaitCursor(1);
 						if (!svn.Cat(url, m_nRevision, tempfile))
 						{
+							delete [] pszFilters;
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
 						} // if (!svn.Cat(url, m_nRevision, tempfile)) 
 						theApp.DoWaitCursor(-1);
 					} // if (GetSaveFileName(&ofn)==TRUE) 
+					delete [] pszFilters;
 				}
 				break;
 			case ID_POPSHOWLOG:
@@ -347,7 +363,19 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 					ofn.hwndOwner = this->m_hWnd;
 					ofn.lpstrFile = szFile;
 					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-					ofn.lpstrFilter = _T("All\0*.*\0");
+					CString sFilter;
+					sFilter.LoadString(IDS_COMMONFILEFILTER);
+					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+					_tcscpy (pszFilters, sFilter);
+					// Replace '|' delimeters with '\0's
+					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+					while (ptr != pszFilters)
+					{
+						if (*ptr == '|')
+							*ptr = '\0';
+						ptr--;
+					} // while (ptr != pszFilters) 
+					ofn.lpstrFilter = pszFilters;
 					ofn.nFilterIndex = 1;
 					ofn.lpstrFileTitle = NULL;
 					ofn.nMaxFileTitle = 0;
@@ -374,6 +402,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						{
 							if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
 							{
+								delete [] pszFilters;
 								theApp.DoWaitCursor(-1);
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
@@ -382,6 +411,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (GetOpenFileName(&ofn)==TRUE) 
+					delete [] pszFilters;
 				}
 				break;
 			case ID_POPRENAME:

@@ -116,7 +116,19 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title)
 	ofn.hwndOwner = this->m_hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	ofn.lpstrFilter = _T("All\0*.*\0");
+	CString sFilter;
+	sFilter.LoadString(IDS_COMMONFILEFILTER);
+	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	_tcscpy (pszFilters, sFilter);
+	// Replace '|' delimeters with '\0's
+	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+	while (ptr != pszFilters)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	} // while (ptr != pszFilters) 
+	ofn.lpstrFilter = pszFilters;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
 	ofn.nMaxFileTitle = 0;
@@ -129,9 +141,10 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title)
 	if (GetOpenFileName(&ofn)==TRUE)
 	{
 		filepath = CString(ofn.lpstrFile);
+		delete [] pszFilters;
 		return TRUE;
 	} // if (GetOpenFileName(&ofn)==TRUE)
-
+	delete [] pszFilters;
 	return FALSE;			//user cancelled the dialog
 }
 

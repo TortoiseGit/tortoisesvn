@@ -32,7 +32,6 @@
 #define IDR_SEARCH                      163
 #define IDD_SETTINGSPROGS               163
 #define IDI_DRIVES                      164
-#define IDD_RENAME1                     164
 #define IDD_URL                         164
 #define IDI_SSH                         165
 #define IDI_PROXY                       166
@@ -342,6 +341,10 @@
 #define IDS_PROC_SAVEPATCHTO            2302
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
+#define IDS_COMMONFILEFILTER            2500
+#define IDS_PROGRAMSFILEFILTER          2501
+#define IDS_CERTIFICATESFILEFILTER      2502
+#define IDS_PATCHFILEFILTER             2503
 
 // Next default values for new objects
 // 

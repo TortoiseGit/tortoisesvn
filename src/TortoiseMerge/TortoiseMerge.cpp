@@ -202,13 +202,29 @@ BOOL CTortoiseMergeApp::InitInstance()
 		else
 			ofn.lpstrTitle = temp;
 		ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
+		CString sFilter;
+		sFilter.LoadString(IDS_PATCHFILEFILTER);
+		TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+		_tcscpy (pszFilters, sFilter);
+		// Replace '|' delimeters with '\0's
+		TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+		while (ptr != pszFilters)
+		{
+			if (*ptr == '|')
+				*ptr = '\0';
+			ptr--;
+		} // while (ptr != pszFilters) 
+		ofn.lpstrFilter = pszFilters;
+		ofn.nFilterIndex = 1;
 
 		// Display the Open dialog box. 
 		CString tempfile;
 		if (GetOpenFileName(&ofn)==FALSE)
 		{
+			delete [] pszFilters;
 			return FALSE;
-		}
+		} // if (GetOpenFileName(&ofn)==FALSE)
+		delete [] pszFilters;
 		pFrame->m_Data.m_sDiffFile = ofn.lpstrFile;
 	} // if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff")))) 
 

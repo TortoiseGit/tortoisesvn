@@ -1109,6 +1109,14 @@ BEGIN
     IDS_PROC_RENAME         "Rename %s"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_COMMONFILEFILTER    "All Files (*.*)|*.*||"
+    IDS_PROGRAMSFILEFILTER  "Programs (*.exe)|*.*|All Files (*.*)|*.*||"
+    IDS_CERTIFICATESFILEFILTER "Certificates|*.p12;*.pkcs12|All|*.*||"
+    IDS_PATCHFILEFILTER     "Patchfiles|*.diff;*.patch|All|*.*||"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

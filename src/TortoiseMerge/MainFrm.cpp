@@ -688,6 +688,20 @@ void CMainFrame::OnFileSaveAs()
 	if (!temp.IsEmpty())
 		ofn.lpstrTitle = temp;
 	ofn.Flags = OFN_OVERWRITEPROMPT;
+	CString sFilter;
+	sFilter.LoadString(IDS_COMMONFILEFILTER);
+	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	_tcscpy (pszFilters, sFilter);
+	// Replace '|' delimeters with '\0's
+	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+	while (ptr != pszFilters)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	} // while (ptr != pszFilters) 
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
 
 	// Display the Open dialog box. 
 	CString sFile;
@@ -696,6 +710,7 @@ void CMainFrame::OnFileSaveAs()
 		sFile = CString(ofn.lpstrFile);
 		SaveFile(sFile);
 	} // if (GetSaveFileName(&ofn)==TRUE)
+	delete [] pszFilters;
 }
 
 void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)

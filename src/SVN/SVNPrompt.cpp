@@ -235,7 +235,19 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	ofn.hwndOwner = svn->hWnd;
 	ofn.lpstrFile = szFile;
 	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	ofn.lpstrFilter = _T("Certificates\0*.p12;*.pkcs12\0All\0*.*\0");
+	CString sFilter;
+	sFilter.LoadString(IDS_CERTIFICATESFILEFILTER);
+	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	_tcscpy (pszFilters, sFilter);
+	// Replace '|' delimeters with '\0's
+	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+	while (ptr != pszFilters)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	} // while (ptr != pszFilters) 
+	ofn.lpstrFilter = pszFilters;
 	ofn.nFilterIndex = 1;
 	ofn.lpstrFileTitle = NULL;
 	ofn.nMaxFileTitle = 0;
@@ -258,7 +270,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	} // if (GetOpenFileName(&ofn)==TRUE) 
 	else
 		*cred = NULL;
-
+	delete [] pszFilters;
 	if (svn->m_app)
 		svn->m_app->DoWaitCursor(0);
 	return SVN_NO_ERROR;
