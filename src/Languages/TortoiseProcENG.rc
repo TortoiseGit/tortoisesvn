@@ -313,10 +313,12 @@ BEGIN
     LTEXT           "Include/Exclude pattern:",IDC_STATIC,7,92,73,18
     EDITTEXT        IDC_TEMPEXTENSIONS,80,92,200,14,ES_AUTOHSCROLL
     CONTROL         "Allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
-                    BS_AUTOCHECKBOX,7,124,273,10
+                    BS_AUTOCHECKBOX,7,114,273,10
     CONTROL         "Don't remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    7,140,273,10
+                    7,128,273,10
+    CONTROL         "Close windows automatically",IDC_AUTOCLOSE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,142,273,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
@@ -807,6 +809,8 @@ BEGIN
     IDS_SETTINGS_PROXYSERVER_TT "Either the name or IP of the proxy server"
     IDS_SETTINGS_DIFFVIEWER_TT 
                             "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
+    IDS_SETTINGS_AUTOCLOSE_TT 
+                            "Check if you want the progress dialog to close\nautomatically after the operation finishes."
     IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."

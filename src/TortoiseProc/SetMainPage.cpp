@@ -35,6 +35,7 @@ CSetMainPage::CSetMainPage()
 	, m_sTempExtensions(_T(""))
 	, m_sMergePath(_T(""))
 	, m_bNoRemoveLogMsg(FALSE)
+	, m_bAutoClose(FALSE)
 {
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
@@ -44,6 +45,7 @@ CSetMainPage::CSetMainPage()
 	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"));
 	m_regNoRemoveLogMsg = CRegDWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
+	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 }
 
 CSetMainPage::~CSetMainPage()
@@ -59,6 +61,7 @@ void CSetMainPage::SaveData()
 	m_regExtensions = m_sTempExtensions;
 	m_regAddBeforeCommit = m_bAddBeforeCommit;
 	m_regNoRemoveLogMsg = m_bNoRemoveLogMsg;
+	m_regAutoClose = m_bAutoClose;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -72,6 +75,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_ADDBEFORECOMMIT, m_bAddBeforeCommit);
 	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
 	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
+	DDX_Check(pDX, IDC_AUTOCLOSE, m_bAutoClose);
 }
 
 
@@ -86,6 +90,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_DIFFVIEWERROWSE, OnBnClickedDiffviewerrowse)
 	ON_EN_CHANGE(IDC_DIFFVIEWER, OnEnChangeDiffviewer)
 	ON_BN_CLICKED(IDC_NOREMOVELOGMSG, OnBnClickedNoremovelogmsg)
+	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
 END_MESSAGE_MAP()
 
 
@@ -197,6 +202,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_sTempExtensions = m_regExtensions;
 	m_bAddBeforeCommit = m_regAddBeforeCommit;
 	m_bNoRemoveLogMsg = m_regNoRemoveLogMsg;
+	m_bAutoClose = m_regAutoClose;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
@@ -205,6 +211,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_EXTDIFFBROWSE, IDS_SETTINGS_EXTDIFFBROWSE_TT);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
 	m_tooltips.AddTool(IDC_ADDBEFORECOMMIT, IDS_SETTINGS_ADDBEFORECOMMIT_TT);
+	m_tooltips.AddTool(IDC_AUTOCLOSE, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
@@ -281,12 +288,18 @@ void CSetMainPage::OnBnClickedNoremovelogmsg()
 	SetModified();
 }
 
+void CSetMainPage::OnBnClickedAutoclose()
+{
+	SetModified();
+}
+
 BOOL CSetMainPage::OnApply()
 {
 	SaveData();
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+
 
 
 

@@ -92,6 +92,8 @@ private:
 	BOOL			m_bAddBeforeCommit;
 	CRegDWORD		m_regNoRemoveLogMsg;
 	BOOL			m_bNoRemoveLogMsg;
+	CRegDWORD		m_regAutoClose;
+	BOOL			m_bAutoClose;
 public:
 	afx_msg void OnBnClickedExtdiffbrowse();
 	virtual BOOL OnInitDialog();
@@ -106,4 +108,5 @@ public:
 	afx_msg void OnBnClickedDiffviewerrowse();
 	afx_msg void OnEnChangeDiffviewer();
 	afx_msg void OnBnClickedNoremovelogmsg();
+	afx_msg void OnBnClickedAutoclose();
 };

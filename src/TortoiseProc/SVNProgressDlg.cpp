@@ -369,12 +369,12 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 
 						pDlg->m_bThreadRunning = FALSE;
 						pDlg->GetDlgItem(IDOK)->EnableWindow(true);
-						return 0;
+						break;
 					}
 					if (isTag)
 					{
 						if (CMessageBox::Show(pDlg->m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
-							return 0;
+							break;
 					}
 					if (!pDlg->Commit(commitString, pDlg->m_sMessage, true))
 					{
@@ -532,6 +532,8 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 
 	pDlg->m_bCancelled = TRUE;
 	pDlg->m_bThreadRunning = FALSE;
+	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE))
+		pDlg->PostMessage(WM_QUIT);
 	return 0;
 }
 
