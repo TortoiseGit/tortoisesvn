@@ -209,7 +209,7 @@ void CBalloon::OnDraw(CDC * pDC, CRect rect)
 	CBrush brBorder(m_crColor [BALLOON_COLOR_BORDER]);
 	
 	pDC->SetBkMode(TRANSPARENT); 
-
+	pDC->SetTextColor(m_crColor [BALLOON_COLOR_FG]);
 	//set clip region of the tooltip and draw the shadow if needed
 	if (m_pToolInfo.nStyles & BALLOON_SHADOW)
 	{
@@ -914,7 +914,7 @@ void CBalloon::SetDefaultColors()
 	SetColor(BALLOON_COLOR_BK_MID, ::GetSysColor(COLOR_INFOBK));
 	SetColor(BALLOON_COLOR_BK_END, ::GetSysColor(COLOR_INFOBK));
 	SetColor(BALLOON_COLOR_SHADOW, ::GetSysColor(COLOR_3DSHADOW));
-	SetColor(BALLOON_COLOR_BORDER, ::GetSysColor(COLOR_INFOTEXT));
+	SetColor(BALLOON_COLOR_BORDER, ::GetSysColor(COLOR_WINDOWFRAME));
 }
 
 void CBalloon::SetGradientColors(COLORREF crBegin, COLORREF crMid, COLORREF crEnd, CWnd * pWnd /* = NULL */)
