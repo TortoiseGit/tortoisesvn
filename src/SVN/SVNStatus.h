@@ -146,7 +146,7 @@ public:
 	svn_revnum_t				headrev;			///< the head revision fetched with GetFirstStatus()
 
 #ifdef _MFC_VER
-friend class SVN;
+friend class SVN;	// So that SVN can get to our m_err
 	/**
 	 * Returns the last error message as a CString object.
 	 */

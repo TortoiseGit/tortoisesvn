@@ -22,6 +22,8 @@
 #include "Revisiongraphdlg.h"
 #include "MessageBox.h"
 #include "SVN.h"
+#include "Utils.h"
+#include "UnicodeUtils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

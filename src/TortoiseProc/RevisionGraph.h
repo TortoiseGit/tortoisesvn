@@ -53,6 +53,8 @@ typedef std::basic_string<wchar_t> wide_string;
 
 #endif // 0
 
+#include "SVNPrompt.h"
+
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 struct log_entry

@@ -29,6 +29,8 @@
 #include "ShellUpdater.h"
 #include "Registry.h"
 #include "SVNHelpers.h"
+#include "SVNStatus.h"
+#include "Utils.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

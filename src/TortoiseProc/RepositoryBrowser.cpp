@@ -29,6 +29,7 @@
 #include "Repositorybrowser.h"
 #include "BrowseFolder.h"
 #include "RenameDlg.h"
+#include "Utils.h"
 
 
 #define ID_POPSAVEAS		1
@@ -653,7 +654,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					else
 					{
 						m_templist.Add(tempfile.GetWinPathString());
-						CUtils::StartDiffViewer(tempfile);
+						CUtils::StartDiffViewer(tempfile, CTSVNPath());
 					}
 					theApp.DoWaitCursor(-1); //???
 				}

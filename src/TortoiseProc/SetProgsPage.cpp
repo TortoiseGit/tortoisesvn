@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "SetProgsPage.h"
 #include "SetProgsAdvDlg.h"
-#include ".\setprogspage.h"
+#include "Utils.h"
 
 
 // CSetProgsPage dialog

@@ -49,6 +49,8 @@
 #include "CheckForUpdatesDlg.h"
 #include "RevisionGraphDlg.h"
 #include "BrowseFolder.h"
+#include "SVNStatus.h"
+#include "Utils.h"
 
 #include "libintl.h"
 
@@ -1337,7 +1339,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("createpatch"))==0)
 		{
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
-			CreatePatch(CTSVNPath(path));
+			CString savepath = CUtils::GetLongPathname(parser.GetVal(_T("savepath")));
+			CreatePatch(CTSVNPath(path), CTSVNPath(path));
 		}
 		//#endregion
 		//#region updatecheck

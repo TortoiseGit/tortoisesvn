@@ -19,8 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SetProxyPage.h"
-#include ".\setproxypage.h"
-
+#include "Utils.h"
 
 // CSetProxyPage dialog
 

@@ -18,11 +18,11 @@
 
 #pragma once
 
-#include "SVNStatus.h"
 #include "TSVNPath.h"
+#include "SVNRev.h"
 
 class SVNConfig;
-
+class SVNStatus;
 
 #define SVNSLC_COLSTATUS		0x000000002
 #define SVNSLC_COLREMOTESTATUS	0x000000004
@@ -111,10 +111,6 @@ public:
 	class FileEntry
 	{
 	public:
-//		const CString& GetPathString() const	
-//		{
-//			return path.GetSVNPathString();
-//		}
 		const CTSVNPath& GetPath() const					
 		{
 			return path;

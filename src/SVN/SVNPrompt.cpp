@@ -25,6 +25,7 @@
 #include "TortoiseProc.h"
 #include "UnicodeUtils.h"
 #include "MessageBox.h"
+#include "Utils.h"
 
 #include "auth_providers.h"
 

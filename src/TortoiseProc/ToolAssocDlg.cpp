@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "ToolAssocDlg.h"
+#include "Utils.h"
 
 
 // CToolAssocDlg dialog

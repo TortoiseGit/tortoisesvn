@@ -26,6 +26,7 @@
 #include "Balloon.h"
 #include "BrowseFolder.h"
 #include "Registry.h"
+#include "TSVNPath.h"
 
 // CCopyDlg dialog
 

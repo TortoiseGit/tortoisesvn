@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "StatGraphDlg.h"
-#include ".\statgraphdlg.h"
+#include "UnicodeUtils.h"
 
 
 // CStatGraphDlg dialog

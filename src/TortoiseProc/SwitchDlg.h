@@ -19,6 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
+#include "SVNRev.h"
 
 /**
  * \ingroup TortoiseProc

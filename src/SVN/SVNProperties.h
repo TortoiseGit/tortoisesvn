@@ -23,6 +23,8 @@
 #	include "SVNPrompt.h"
 #endif
 
+#include "UnicodeUtils.h"
+
 /**
  * \ingroup TortoiseShell
  * Subversion Properties.

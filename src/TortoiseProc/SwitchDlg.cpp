@@ -22,6 +22,7 @@
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
 #include "Balloon.h"
+#include "TSVNPath.h"
 
 
 // CSwitchDlg dialog

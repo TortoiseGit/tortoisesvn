@@ -22,7 +22,8 @@
 #include "DirFileEnum.h"
 #include "MessageBox.h"
 #include ".\setoverlayicons.h"
-
+#include "SVNStatus.h"
+#include "Utils.h"
 
 // CSetOverlayIcons dialog
 

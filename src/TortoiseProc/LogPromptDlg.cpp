@@ -27,6 +27,7 @@
 #include "SVN.h"
 #include "Registry.h"
 #include ".\logpromptdlg.h"
+#include "SVNStatus.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

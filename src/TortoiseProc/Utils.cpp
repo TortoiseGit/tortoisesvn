@@ -21,6 +21,7 @@
 #include "utils.h"
 #include "MessageBox.h"
 #include "Registry.h"
+#include "TSVNPath.h"
 
 #ifndef COMPILE_NEWAPIS_STUBS
 #	define COMPILE_NEWAPIS_STUBS
@@ -62,6 +63,10 @@ CString CUtils::GetTempFile(const CString& origfilename)
 CTSVNPath CUtils::GetTempFilePath(const CTSVNPath& origfilename)
 {
 	return CTSVNPath(GetTempFile(origfilename.GetWinPathString()));
+}
+CTSVNPath CUtils::GetTempFilePath()
+{
+	return CTSVNPath(GetTempFile());
 }
 
 

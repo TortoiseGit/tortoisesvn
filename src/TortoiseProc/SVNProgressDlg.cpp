@@ -24,6 +24,9 @@
 #include "LogDlg.h"
 #include "TSVNPath.h"
 #include "Registry.h"
+#include "SVNStatus.h"
+#include "Utils.h"
+#include "UnicodeUtils.h"
 
 
 // CSVNProgressDlg dialog

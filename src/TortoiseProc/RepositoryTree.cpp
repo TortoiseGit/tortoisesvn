@@ -23,6 +23,7 @@
 #include "SysImageList.h"
 #include "WaitCursorEx.h"
 #include "RepositoryBar.h"
+#include "TSVNPath.h"
 
 
 

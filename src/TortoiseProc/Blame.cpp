@@ -22,6 +22,8 @@
 #include "ProgressDlg.h"
 #include "TSVNPath.h"
 #include "Registry.h"
+#include "Utils.h"
+#include "UnicodeUtils.h"
 
 CBlame::CBlame()
 {

@@ -18,7 +18,8 @@
 //
 #pragma once
 
-#include "TSVNPath.h"
+class CTSVNPath;
+
 /**
  * \ingroup TortoiseProc
  * An Utility class with static classes.
@@ -66,7 +67,7 @@ public:
 	 * associated with .txt files.
 	 * \return TRUE if the program could be started.
 	 */
-	static BOOL StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir = CTSVNPath(), BOOL bWait = FALSE,
+	static BOOL StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir, BOOL bWait = FALSE,
 		CString name1 = _T(""), CString name2 = _T(""), CString ext = _T(""), 
 		BOOL bReversed = FALSE, const CString& patchorig = CString(), const CString& patchpatched = CString());
 
@@ -81,7 +82,8 @@ public:
 	 * Returns a path to a temporary file
 	 */
 	static CString GetTempFile(const CString& origfilename = CString());
-	static CTSVNPath GetTempFilePath(const CTSVNPath& origfilename = CTSVNPath());
+	static CTSVNPath GetTempFilePath(const CTSVNPath& origfilename);
+	static CTSVNPath GetTempFilePath();
 
 	/**
 	 * Replaces escaped sequences with the corresponding characters in a string.

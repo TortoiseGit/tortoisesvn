@@ -31,6 +31,7 @@
 #include "Logdlg.h"
 #include "MessageBox.h"
 #include "Registry.h"
+#include "Utils.h"
 
 // CLogDlg dialog
 
@@ -585,7 +586,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
 								break;
 							}
-							CUtils::StartDiffViewer(tempfile);
+							CUtils::StartDiffViewer(tempfile, CTSVNPath());
 						}
 					}
 					break;
@@ -611,7 +612,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
 								break;
 							}
-							CUtils::StartDiffViewer(tempfile);
+							CUtils::StartDiffViewer(tempfile, CTSVNPath());
 						}
 					}
 					break;

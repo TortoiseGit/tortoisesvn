@@ -27,10 +27,7 @@
 
 
 #include "..\\TortoiseShell\\resource.h"
-#include "Utils.h"
-#include "UnicodeUtils.h"
-#include "SVNStatus.h"
-#include "SVNRev.h"
+//#include "UnicodeUtils.h"
 
 class CTSVNPath;
 
@@ -80,7 +77,7 @@ public:
 
 private:
 	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-	BOOL CreatePatch(const CTSVNPath& path, const CTSVNPath& savepath = CTSVNPath());
+	BOOL CreatePatch(const CTSVNPath& path, const CTSVNPath& savepath);
 
 
 	DECLARE_MESSAGE_MAP()

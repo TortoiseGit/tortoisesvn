@@ -30,9 +30,10 @@
 #include "LogDlg.h"
 #include "SVNProgressDlg.h"
 #include "SysImageList.h"
-#include ".\svnstatuslistctrl.h"
+#include "Svnstatuslistctrl.h"
 #include "TSVNPath.h"
 #include "Registry.h"
+#include "SVNStatus.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 			= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -1229,7 +1230,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							break;		//exit
 						}
 						m_tempFileList.AddPath(tempfile);
-						CUtils::StartDiffViewer(tempfile);
+						CUtils::StartDiffViewer(tempfile, CTSVNPath());
 					}
 					break;
 				case IDSVNLC_UPDATE:
