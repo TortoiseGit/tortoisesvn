@@ -92,7 +92,6 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 		if (CString(mergetool) != "")
 		{
 			com = mergetool;
-			com = _T("\"") + com + _T("\"");
 		}
 	}
 	
@@ -246,7 +245,6 @@ BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const 
 		if (CString(difftool) != "")
 		{
 			viewer = difftool;
-			viewer = _T("\"") + viewer + _T("\"");
 		}
 	}
 	if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
