@@ -1,5 +1,3 @@
-#
-# Copyright (C) 2004 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 # 
 # Authors:
@@ -9,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-07-21 19:50+0900\n"
+"PO-Revision-Date: 2004-09-11 02:59+0900\n"
 "Last-Translator: Hojin Choi <pynoos@users.kldp.net>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# ID:10,#:
 # ID:126,#:
-# ID:10,
+# ID:126,
 #: ID:10
 #: ID:126
 msgid " "
@@ -96,12 +95,17 @@ msgid ""
 msgstr ""
 "%1\n"
 "위 파일을 찾을 수 없습니다.\n"
-"주어진 경로나 파일명을 확인하세요."
+"주어진 경로나 파일명을 확인하십시오."
 
 # ID:169,
 #: ID:169
 msgid "%d files selected, %d files total"
-msgstr "%d 개 선택. 총 파일 수 %d"
+msgstr "%d개 선택, 전체 %d"
+
+# ID:226,
+#: ID:226
+msgid "%s - at revision: %d"
+msgstr "%s - 리비전: %d"
 
 # ID:151,
 #: ID:151
@@ -139,7 +143,12 @@ msgstr "고급 설정(&A)"
 # Control-ID:1013,
 #: Control-ID:1013
 msgid "&Apply Unified Diff"
-msgstr "Unified diff 적용(&A)"
+msgstr "Unified Diff 적용(&A)"
+
+# ID:138,
+#: ID:138
+msgid "&Browse Repository"
+msgstr "저장소 보기(&B)"
 
 # Control-ID:1011,
 #: Control-ID:1011
@@ -172,6 +181,26 @@ msgstr "디렉토리 체크아웃(&C)"
 msgid "&Close windows automatically"
 msgstr "윈도우 자동 닫기(&C)"
 
+# ID:76,
+#: ID:76
+msgid "&Compare revisions"
+msgstr "리비전 비교(&C)"
+
+# ID:101,
+#: ID:101
+msgid "&Copy To..."
+msgstr "복사(&C)..."
+
+# ID:101,
+#: ID:101
+msgid "&Delete"
+msgstr "삭제(&D)"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "&Edit"
+msgstr "편집(&E)"
+
 # Control-ID:1099,
 #: Control-ID:1099
 msgid "&Edit..."
@@ -179,8 +208,8 @@ msgstr "편집(&E)..."
 
 # Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server (Don't use the IE settings)"
-msgstr "프록시 서버 활성화(&E) (IE 설정을 사용하지 않음)"
+msgid "&Enable Proxy Server"
+msgstr "프록시 서버 활성화(&E)"
 
 # Control-ID:1092,
 #: Control-ID:1092
@@ -212,6 +241,7 @@ msgid "&From WC at URL:"
 msgstr "현재 작업 중인 URL(&F):"
 
 # Control-ID:1032,#:
+# Control-ID:1115,#:
 # Control-ID:1019,#:
 # Control-ID:1019,
 #: Control-ID:1032
@@ -220,10 +250,8 @@ msgstr "현재 작업 중인 URL(&F):"
 msgid "&Head Revision"
 msgstr "&HEAD 리비전"
 
-# Control-ID:57670,#:
-# MenuEntry#:
 # Control-ID:9,#:
-# Control-ID:57670,
+# Control-ID:57670,#:
 #: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
@@ -240,11 +268,6 @@ msgstr "도움말 목차(&H)"
 msgid "&Hide"
 msgstr "숨기기(&H)"
 
-# Control-ID:1023,
-#: Control-ID:1023
-msgid "&Indicate folders with changed contents"
-msgstr "바뀐 내용을 폴더에 표시(&I)"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Language:"
@@ -256,8 +279,8 @@ msgstr "병합(&M)"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "&Merge changes into the current working copy from URL:"
-msgstr "다음 URL에서 현재 작업 공간에 차이점을 병합(&M):"
+msgid "&Merge changes into the current working copy which points to the URL:"
+msgstr "다음 URL에서 현재 작업 공간에 차이를 병합(&M):"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -285,9 +308,14 @@ msgstr "다음 차이점(&N)"
 msgid "&OK"
 msgstr "확인(&O)"
 
+# ID:101,
+#: ID:101
+msgid "&Open"
+msgstr "열기(&O)"
+
 #: MenuEntry
 msgid "&Open Ctrl-O"
-msgstr "열기(&O)"
+msgstr "열기(&O) Ctrl-O"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -304,6 +332,11 @@ msgstr "포트(&P):"
 msgid "&Previous Difference"
 msgstr "이전 차이점(&P)"
 
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Recurse into folders to fetch the status"
+msgstr "하위 폴더의 상태도 얻음(&R)"
+
 # Control-ID:1048,
 #: Control-ID:1048
 msgid "&Removable drives"
@@ -314,7 +347,17 @@ msgstr "이동식 디스크(&R)"
 #: Control-ID:1013
 #: Control-ID:1100
 msgid "&Remove"
-msgstr "제거(&R)"
+msgstr "삭제(&R)"
+
+# ID:101,
+#: ID:101
+msgid "&Rename..."
+msgstr "이름 바꾸기(&R)"
+
+# ID:113,
+#: ID:113
+msgid "&Revert changes from this revision"
+msgstr "이 리비전에서 바뀐 점을 되돌립니다.(&R)"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -342,7 +385,6 @@ msgstr "&Set"
 msgid "&Status Bar"
 msgstr "상태바(&S)"
 
-# Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&To Revision"
@@ -374,6 +416,16 @@ msgstr "저장소 &URL:"
 msgid "&Undo\tCtrl+Z"
 msgstr "실행 취소(&U)\tCtrl-Z"
 
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "&Unknown drives"
+msgstr "알 수 없는 드라이브(&U)"
+
+# ID:76,
+#: ID:76
+msgid "&Update item to revision"
+msgstr "리비전으로 업데이트(&U)"
+
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
@@ -389,6 +441,16 @@ msgstr "보기(&V)"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "공백(&W)"
+
+# ID:208,
+#: ID:208
+msgid "(multiple targets selected)"
+msgstr "(복수의 대상이 선택됨)"
+
+# ID:208,
+#: ID:208
+msgid "(property change only)"
+msgstr "(속성만 변경)"
 
 # ID:188,
 #: ID:188
@@ -415,6 +477,30 @@ msgstr "- %d"
 msgid "..."
 msgstr "..."
 
+# ID:151,
+#: ID:151
+msgid ": Revision %d"
+msgstr ": 리비전 %d"
+
+# ID:151,
+#: ID:151
+msgid ": working copy"
+msgstr ": 작업 사본"
+
+# ID:88,
+#: ID:88
+msgid ""
+"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
+"this <b>will corrupt your working copy!</b>\n"
+"To associate your working copy with another branch, use the Switch command.\n"
+"Are you sure you want to relocate?"
+msgstr ""
+"<b> 주의:</b> 원래 작업하던 저장소를 변경하였을 경우에만 URL 전환을 사용하기 바랍니다.\n"
+"작업중인 사본에 대하여 다른 저장소나 브랜치로 변경하였을 경우 <b>작업중인 내용이 잘못될 수 있습니다.</b>\n"
+"다른 사본으로 병합하고자 할 경우 스위치 명령을 이용하시기 바랍니다.\n"
+"정말 URL 전환을 하시겠습니까?"
+
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
@@ -432,6 +518,26 @@ msgstr "%1에 접근하는 동안 잠금 오류가 발생하였습니다."
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "새 버전이 있습니다. http://tortoisesvn.tigris.org/ 에 가셔서 최신 버전을 받으세요!"
 
+# ID:195,
+#: ID:195
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+"아이콘을 겹쳐 보일 경로들입니다.\n"
+"\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리를 포함시킵니다."
+
+# ID:194,
+#: ID:194
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+"아이콘을 겹쳐 쓰지 않을 경로들입니다.\n"
+"\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\n"
+"비워둘 경우 모든 경로에 대해 아이콘을 겹치게 됩니다."
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -442,7 +548,7 @@ msgstr "지정하신 자원은 유효하지 않습니다."
 # ID:3867,
 #: ID:3867
 msgid "A sharing violation occurred while accessing %1."
-msgstr "%1에 접근하는 동안 공유 오류가 발생하였습니다."
+msgstr "%1을 접근하는 중에 공유 위반이 발생하였습니다."
 
 # ID:79,
 #: ID:79
@@ -450,8 +556,13 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"GNU diff (patch) 파일을 보기위한 프로그램.\n"
-"NotePad 등이 없을 때 사용하세요."
+"GNU diff 파일을 보기위한 프로그램.\n"
+"적절한 것이 없으면 메모장을 사용하십시오"
+
+# ID:101,
+#: ID:101
+msgid "A&dd folder..."
+msgstr "폴더 추가(&A)"
 
 # Control-ID:1093,
 #: Control-ID:1093
@@ -523,6 +634,11 @@ msgstr ""
 msgid "Add"
 msgstr "추가"
 
+# ID:101,
+#: ID:101
+msgid "Add &file..."
+msgstr "파일 추가(&F)..."
+
 # ID:110,
 #: ID:110
 msgid "Add Extension Specific Diff Program"
@@ -538,20 +654,10 @@ msgstr "확장자에 따른 병합 프로그램 등록"
 msgid "Add To Ignore List"
 msgstr "무시 목록에 추가"
 
-# ID:101,
-#: ID:101
-msgid "Add file..."
-msgstr "파일 추가..."
-
 # ID:12,
 #: ID:12
 msgid "Add files to Subversion here"
-msgstr "여기에서 Subversion 으로 파일을 추가함"
-
-# ID:101,
-#: ID:101
-msgid "Add folder..."
-msgstr "폴더 추가..."
+msgstr "여기에서 Subversion으로 파일을 추가함"
 
 # Dlg-ID:171,
 #: Dlg-ID:171
@@ -568,6 +674,15 @@ msgstr "추가됨"
 msgid "Added a file remotely"
 msgstr "파일 추가됨"
 
+# ID:13,
+#: ID:145
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr ""
+"파일 추가\n"
+"무시 목록: %s "
+
 # ID:9,
 #: ID:9
 msgid "Adds file(s) to Subversion control"
@@ -575,8 +690,8 @@ msgstr "파일을 Subversion 관리에 추가"
 
 # ID:13,
 #: ID:13
-msgid "Adds the selected file(s) to the 'ignore' list"
-msgstr "선택된 파일들을 무시 목록에 추가"
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "선택된 파일 또는 파일 마스크를 무시 목록에 추가"
 
 # ID:2049,
 #: ID:2049
@@ -631,13 +746,13 @@ msgstr "%1에 대한 접근이 마지막을 지남"
 # ID:3868,
 #: ID:3868
 msgid "An attempt was made to read from the writing %1."
-msgstr "%1에 대해 쓰기 시도함"
+msgstr "%1에 대해 읽기 시도함"
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
 msgid "An attempt was made to write to the reading %1."
-msgstr "%1에 대해 읽기 시도함"
+msgstr "%1에 대해 쓰기 시도함"
 
 # ID:78,
 #: ID:78
@@ -781,6 +896,11 @@ msgstr "찾아보기(&R)"
 msgid "B&uiltin"
 msgstr "내장(&U)"
 
+# ID:213,
+#: ID:213
+msgid "BDB"
+msgstr "BDB"
+
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -794,17 +914,17 @@ msgstr "베이스 파일:"
 # Dlg-ID:162,
 #: Dlg-ID:162
 msgid "Blame"
-msgstr "내용변경추적"
+msgstr "수정한 사람 보기"
 
 # ID:13,
 #: ID:13
 msgid "Blame..."
-msgstr "내용변경추적..."
+msgstr "수정한 사람 보기..."
 
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
-msgstr "각 라인별로 작성자를 추적합니다"
+msgstr "소스 파일의 각 행에 대해 마지막으로 수정한 사람을 보여줍니다."
 
 # Control-ID:1003,
 #: Control-ID:1003
@@ -814,7 +934,7 @@ msgstr "찾아보기(&O)"
 # Dlg-ID:142,
 #: Dlg-ID:142
 msgid "Branch / Tag"
-msgstr "브랜치 / 태그"
+msgstr "브랜치 / 태그 만들기"
 
 # ID:115,
 #: ID:115
@@ -836,11 +956,6 @@ msgstr "찾아보기(&W)"
 msgid "Brows&e..."
 msgstr "찾아보기(&E)"
 
-# ID:138,
-#: ID:138
-msgid "Browse Repository"
-msgstr "저장소 브라우저..."
-
 # ID:78,
 #: ID:78
 msgid "Browse for the external diff program"
@@ -855,6 +970,22 @@ msgstr "찾아보기..."
 #: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "내장(&I)"
+
+# Control-ID:1119,#:
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug-ID / Issue-Nr:"
+
+# ID:101,
+#: ID:101
+msgid "C&reate Folder..."
+msgstr "폴더 생성(&C)"
+
+# ID:77,
+#: ID:77
+msgid "C&reate Tag from revision"
+msgstr "이 리비전에 태그 생성(&C)"
 
 # ID:3697,
 #: ID:3697
@@ -874,8 +1005,8 @@ msgstr ""
 "->\n"
 "%s"
 
-# Control-ID:2,#:
 # ID:73,#:
+# Control-ID:2,#:
 # Control-ID:2,
 #: ID:73
 #: Control-ID:2
@@ -885,7 +1016,7 @@ msgstr "취소"
 # ID:132,
 #: ID:132
 msgid "Cancelling SVN Blame..."
-msgstr "SVN 변경내용 추적 취소중..."
+msgstr "SVN 수정한 사람 보기 취소중..."
 
 # ID:82,
 #: ID:82
@@ -950,15 +1081,15 @@ msgstr "업데이트 확인"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "Check for newer versions"
-msgstr "새 버전 확인"
+msgid "Check for newer &versions"
+msgstr "새 버전 확인(&v)"
 
 # ID:79,
 #: ID:79
 msgid ""
 "Check if you want the progress dialog to close\n"
 "automatically after the operation finishes."
-msgstr "명령을 수행한 후 대화상자를 닫습니다"
+msgstr "명령을 수행한 후 대화상자를 닫습니다."
 
 # ID:9,
 #: ID:9
@@ -971,18 +1102,23 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
-"임포트하기전에 지우려는 \n"
-"파일들을 표시해 두세요."
+"임포트하기전에 지울\n"
+"파일들을 표시하십시오."
 
-# Control-ID:65535,
-#: Control-ID:65535
+# ID:251,
+#: ID:251
+msgid "Check the path and/or URL you've entered."
+msgstr "입력한 경로나 URL을 확인하십시오."
+
+# ID:194,
+#: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "하위메뉴에 나타내지 않고 컨텍스트 메뉴에 바로 나타낼 것을 선택하세요."
+msgstr "하위메뉴에 나타내지 않고 컨텍스트 메뉴에 바로 나타낼 것을 선택하십시오."
 
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시하려면 선택하세요"
+msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시하려면 선택하십시오"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1014,15 +1150,29 @@ msgstr "정리 완료"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "중단된 명령, 잠긴 파일들을 정리 합니다."
 
+# Control-ID:1059,
+#: Control-ID:1059
+msgid "Clear &Auth Cache"
+msgstr "인증정보 캐시 삭제(&A)"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Clears the stored authentication.\n"
+"You will have to enter your username/password again for all repositories."
+msgstr ""
+"저장된 인증정보를 제거합니다.\n"
+"다음번 보관소에 접속할 때, 사용자명과 암호를 넣어야 합니다."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "파일 확장자별로 차이점 만드는 프로그램을 등록하려면 고급 설정을 누르세요."
+msgstr "파일 확장자별로 차이점 만드는 프로그램을 등록하려면 고급 설정을 누르십시오."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "파일 확장자별로 병합하는 프로그램을 등록하려면 고급 설정을 누르세요."
+msgstr "파일 확장자별로 병합하는 프로그램을 등록하려면 고급 설정을 누르십시오."
 
 # ID:3825,
 #: ID:3825
@@ -1039,6 +1189,11 @@ msgstr "색상"
 #: ID:3857
 msgid "Command failed."
 msgstr "명령 오류."
+
+# Control-ID:1110,
+#: Control-ID:1125
+msgid "Comment History:"
+msgstr "주석 목록:"
 
 # Control-ID:1110,
 #: Control-ID:1110
@@ -1058,7 +1213,7 @@ msgstr "바뀐 내용을 저장소에 반영합니다."
 # Control-ID:1083,
 #: Control-ID:1083
 msgid "Committing"
-msgstr "커밋"
+msgstr "커밋 중"
 
 # Control-ID:1019,
 #: Control-ID:1019
@@ -1067,18 +1222,13 @@ msgstr "공백들을 비교"
 
 # ID:76,
 #: ID:76
-msgid "Compare revisions"
+msgid "Compare with &working copy"
 msgstr "리비전 비교"
 
 # ID:138,
 #: ID:138
-msgid "Compare with Base"
+msgid "Compare with B&ase"
 msgstr "작업하기 위해 꺼냈던 것과 비교"
-
-# ID:76,
-#: ID:76
-msgid "Compare with working copy"
-msgstr "작업 사본과 비교"
 
 # ID:12,
 #: ID:12
@@ -1093,7 +1243,12 @@ msgstr "완료"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Conflicted"
-msgstr "충돌함"
+msgstr "충돌"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Context Menu"
+msgstr "컨텍스트 메뉴"
 
 # ID:73,
 #: ID:73
@@ -1103,17 +1258,12 @@ msgstr "계속"
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
-msgstr "복사됨"
+msgstr "원격 복사됨"
 
 # ID:73,
 #: ID:73
 msgid "Copy"
 msgstr "복사"
-
-# ID:101,
-#: ID:101
-msgid "Copy To..."
-msgstr "다른 이름으로 복사..."
 
 # ID:13,
 #: ID:13
@@ -1132,7 +1282,7 @@ msgstr ""
 # ID:80,
 #: ID:80
 msgid "Copying %s"
-msgstr "복사중 %s"
+msgstr "복사 중 %s"
 
 # ID:80,
 #: ID:80
@@ -1246,11 +1396,6 @@ msgstr "프린트 작업을 시작할 수 없습니다."
 msgid "Could not start thread!"
 msgstr "쓰레드를 시작시킬 수 없습니다!"
 
-# ID:101,
-#: ID:101
-msgid "Create Folder..."
-msgstr "폴더 생성..."
-
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
@@ -1261,10 +1406,10 @@ msgstr "패치 생성..."
 msgid "Create Repository here"
 msgstr "현재 위치에 저장소 생성"
 
-# ID:77,
-#: ID:77
-msgid "Create Tag from revision"
-msgstr "리비전으로부터 태그 생성"
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Create the branch/tag directly on the server"
+msgstr "서버에 직접 브랜치/태그 만들기"
 
 # ID:126,
 #: ID:126
@@ -1295,6 +1440,11 @@ msgstr ""
 "선택한 부분을 잘라 클립보드에 붙여넣습니다.\n"
 "자르기"
 
+# Control-ID:1123,
+#: Control-ID:1123
+msgid "D&on't close on conflicts"
+msgstr "충돌 닫지 않기(&D)"
+
 # ID:76,
 #: ID:76
 msgid "Date"
@@ -1303,14 +1453,12 @@ msgstr "날짜"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "로그 메시지 기본값(&N)"
+msgstr "로그 메시지 기본 개수(&N)"
 
 # ID:11,#:
-# ID:73,#:
-# ID:101,
+# ID:73,
 #: ID:11
 #: ID:73
-#: ID:101
 msgid "Delete"
 msgstr "삭제"
 
@@ -1434,7 +1582,7 @@ msgid ""
 "Note: you will lose all changes you've made!"
 msgstr ""
 "다시 읽어들이시겠습니까?\n"
-"주의: 바뀐 내용이 모두 사라집니다."
+"주의: 바뀐 설정 내용이 모두 사라집니다."
 
 # ID:313,
 #: ID:313
@@ -1450,11 +1598,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "바뀐 내용을 저장하시겠습니까?"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "커밋을 취소하는 동안 로그 메시지를 지우지 말 것(&R)"
-
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
@@ -1464,6 +1607,11 @@ msgstr "베이스와 비교하는 동안 파일을 바꾸지 말 것"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "드라이브 종류"
+
+# Control-ID:1061,
+#: Control-ID:1061
+msgid "Dry Run"
+msgstr "가상 실행"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1478,11 +1626,6 @@ msgstr "외부(&X)"
 #: ID:3697
 msgid "EXT"
 msgstr "EXT"
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Edit"
-msgstr "편집"
 
 # ID:12,
 #: ID:12
@@ -1502,7 +1645,7 @@ msgstr "확장자별 병합 프로그램 편집"
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
-msgstr "프록시의 이름이나 IP를 입력하세요."
+msgstr "프록시의 이름이나 IP를 입력하십시오."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1566,18 +1709,23 @@ msgstr "예외:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Exclude pattern:"
-msgstr "제외 패턴:"
+msgid "Exclude paths:"
+msgstr "제외 경로:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Exclude/Ignore pattern:"
+msgstr "제외/무시 패턴:"
 
 # ID:94,
 #: ID:94
 msgid "Export Directory:"
 msgstr "디렉토리 익스포트:"
 
-# Control-ID:1073,
+# ID:79,
 #: ID:79
 msgid "Export unversioned files too"
-msgstr "비관리대상 파일 보기"
+msgstr "버전관리 대상이 아닌 파일도 익스포트"
 
 # ID:9,
 #: ID:9
@@ -1619,6 +1767,11 @@ msgstr "외부"
 msgid "External Program:"
 msgstr "외부 프로그램:"
 
+# ID:213,
+#: ID:213
+msgid "FSFS"
+msgstr "FSFS"
+
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
@@ -1656,11 +1809,12 @@ msgstr "파일 가져오기..."
 # ID:313,
 #: ID:313
 msgid "Fetching version %s of file:"
-msgstr "%s 버전 가져오기:"
+msgstr "리비전 %s 가져오기:"
 
 # ID:63,#:
 # ID:74,#:
-# ID:77,
+# ID:77,#:
+# ID:207,
 #: ID:63
 #: ID:74
 #: ID:77
@@ -1715,7 +1869,7 @@ msgstr "일반"
 # ID:144,
 #: ID:144
 msgid "Generating Patchfile..."
-msgstr "패치 파일 만드는 중..."
+msgstr "패치 파일 생성 중..."
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -1731,6 +1885,11 @@ msgstr "파일 읽는 중 %s"
 #: ID:132
 msgid "Getting file info..."
 msgstr "파일 정보 읽는 중..."
+
+# ID:132,
+#: ID:132
+msgid "Getting log info..."
+msgstr "로그 정보 읽는 중..."
 
 # ID:2049,
 #: ID:2049
@@ -1750,8 +1909,8 @@ msgstr ""
 "이전 차이점으로 돌아감\n"
 "이전 차이"
 
-# Control-ID:1004,#:
-# ID:12,
+# ID:12,#:
+# Control-ID:1004,
 #: ID:12
 #: Control-ID:1004
 msgid "Help"
@@ -1762,10 +1921,10 @@ msgstr "도움말"
 msgid "Hostname mismatch (%s)"
 msgstr "호스트 이름이 다릅니다 (%s)"
 
-# Dlg-ID:106,
-#: Dlg-ID:106
-msgid "Icon Overlays"
-msgstr "아이콘 오버레이"
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Icon Overlays / Status Columns"
+msgstr "아이콘 오버레이 / 상태 컬럼"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -1776,7 +1935,7 @@ msgstr "아이콘/설계/코딩:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "다른 이름으로 저장.. 또는 열기 대화 상자에 겹쳐 나타나는 것을 방지하려면 선택하세요"
+msgstr "다른 이름으로 저장.. 또는 열기 대화 상자에 겹쳐 나타나는 것을 방지하려면 선택하십시오"
 
 # ID:95,
 #: ID:95
@@ -1784,8 +1943,8 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"If checked then a new folder is created in the repository.\n"
-"If not checked then the import goes directly to the specified URL."
+"현재 보관소에 새 폴더를 만들게 합니다.\n"
+"그렇지 않을 경우 지정한 URL에 직접 임포트합니다."
 
 # ID:79,
 #: ID:79
@@ -1797,16 +1956,14 @@ msgstr "TortoiseSVN은 베이스와의 차이점을 생성하기 위해 임시�
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
 
-# ID:80,
-#: ID:80
+# ID:195,
+#: ID:195
 msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
+"If set, TortoiseSVN will set the filetimes to the time they\n"
+"were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"커밋을 취소하면 로그 메시지는 저장되며\n"
-"다음에 커밋할 때 편집창에 보이게 됩니다."
+"파일을 생성할 때, 현재 시각 대신 마지막으로 커밋한 시각으로\n"
+"파일 날짜를 바꾸려면 선택합니다."
 
 # ID:73,
 #: ID:73
@@ -1816,17 +1973,17 @@ msgstr "무시"
 # Control-ID:1021,
 #: Control-ID:1021
 msgid "Ignore All Whitespaces"
-msgstr "모든 공백문자를 무시합니다."
+msgstr "모든 공백문자 무시"
 
 # Control-ID:1020,
 #: Control-ID:1020
 msgid "Ignore Leading Whitespaces"
-msgstr "앞부분의 공백문자를 무시합니다."
+msgstr "앞부분의 공백문자 무시"
 
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
-msgstr "라인 종료문자 무시(권장)"
+msgstr "줄바꿈 문자 무시(권장)"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -1847,6 +2004,11 @@ msgstr "임포트..."
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "현재 디렉토리를 저장소에 넣습니다."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include paths:"
+msgstr "포함 경로:"
 
 # ID:76,
 #: ID:76
@@ -1981,6 +2143,11 @@ msgstr "로그 메시지"
 msgid "Log Messages"
 msgstr "로그 메시지"
 
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel"
+msgstr "모양"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -1991,11 +2158,6 @@ msgstr "메일 시스템 DLL이 유효하지 않습니다."
 #: Dlg-ID:143
 msgid "Main"
 msgstr "일반"
-
-# Dlg-ID:159,
-#: Dlg-ID:159
-msgid "Menu Layout"
-msgstr "메뉴 구성"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
@@ -2037,8 +2199,8 @@ msgstr "Mime 종류"
 msgid "Minimum logsize in chars"
 msgstr "최소 로그 사이즈"
 
-# Control-ID:1023,#:
-# Control-ID:1082,
+# Control-ID:1082,#:
+# Control-ID:1023,
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
@@ -2117,6 +2279,11 @@ msgstr ""
 msgid "No command value specified!"
 msgstr "명령 값이 지정되지 않음"
 
+# ID:113,
+#: ID:82
+msgid "No differences found!"
+msgstr "차이점이 없습니다!"
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -2152,8 +2319,8 @@ msgstr "보통"
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "일부 레지스트리(혹은 INI파일)이 삭제되지 않았습니다."
 
-# Control-ID:1,#:
 # ID:73,#:
+# Control-ID:1,#:
 # Control-ID:1,
 #: ID:73
 #: Control-ID:1
@@ -2165,14 +2332,28 @@ msgstr "확인"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:219,
+#: ID:219
+msgid "One or more files are in a conflicted state."
+msgstr "한 개 이상의 파일이 충돌 상태입니다."
+
 #: MenuEntry
 msgid "Oneway &Diff"
-msgstr "Oneway 비교(&D)"
+msgstr "단일 윈도우에서 비교(&D)"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "최상위 폴더만 체크아웃"
+
+# ID:169,
+#: ID:169
+msgid ""
+"Only numbers (optionally separated by commas)\n"
+"are allowed!"
+msgstr ""
+"숫자만 허용됩니다!\n"
+"(숫자는 쉼표로 분리되어 나열될 수 있습니다)"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -2180,9 +2361,7 @@ msgid "Only update the top folder"
 msgstr "최상위 폴더만 업데이트"
 
 # ID:3841,#:
-# ID:101,#:
 # ID:3841,
-#: ID:101
 #: ID:3841
 msgid "Open"
 msgstr "열기"
@@ -2209,7 +2388,7 @@ msgstr ""
 # ID:13,
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하세요."
+msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하십시오."
 
 # ID:3843,#:
 # ID:3843,
@@ -2232,6 +2411,16 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "암호:"
 
+# Control-ID:1121,
+#: Control-ID:1121
+msgid "Paste Log &template in english"
+msgstr "영어로된 템플릿 로그 붙이기(&t)"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Paste Status Template"
+msgstr "상태 템플릿 붙이기"
+
 # ID:376,
 #: ID:376
 msgid "Patch All"
@@ -2240,8 +2429,8 @@ msgstr "모두 패치"
 # ID:157,#:
 # ID:157,
 #: ID:157
-msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr "패치 파일|*.diff;*.patch|All|*.*||"
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 # ID:77,
 #: ID:77
@@ -2252,73 +2441,78 @@ msgstr "경로"
 # ID:3858,
 #: ID:3858
 msgid "Please enter a GUID."
-msgstr "GUID 를 입력하세요."
+msgstr "GUID 를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a currency."
-msgstr "금액을 입력하세요"
+msgstr "기간을 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a date and/or time."
-msgstr "날짜, 시간을 입력하세요"
+msgstr "날짜, 시간을 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a date."
-msgstr "날짜를 입력하세요"
+msgstr "날짜를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a number between %1 and %2."
-msgstr "%1 ~ %2사이의 값을 입력하세요"
+msgstr "%1 ~ %2사이의 값을 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a number."
-msgstr "숫자를 입력하세요"
+msgstr "숫자를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a positive integer."
-msgstr "양의 정수를 입력하세요"
+msgstr "양의 정수를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a time."
-msgstr "시간을 입력하세요"
+msgstr "시간을 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter an integer between %1 and %2."
-msgstr "%1 ~ %2 사이의 정수를 입력하세요"
+msgstr "%1 ~ %2 사이의 정수를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter an integer between 0 and 255."
-msgstr "0 ~ 255 사이의 정수를 입력하세요"
+msgstr "0 ~ 255 사이의 정수를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter an integer."
-msgstr "정수를 입력하세요"
+msgstr "정수를 입력하십시오."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter no more than %1 characters."
-msgstr "글자 %1개까지만 입력하세요"
+msgstr "글자 %1개까지만 입력하십시오."
+
+# ID:251,
+#: ID:251
+msgid "Please execute the \"Cleanup\" command."
+msgstr "\"정리\" 명령을 수행하십시오."
 
 # ID:78,
 #: ID:78
@@ -2328,20 +2522,21 @@ msgid ""
 "to be in the just created copy then you need to <b>switch</b> over\n"
 "to that copy path. Use the <b>Switch</b> command to do that."
 msgstr ""
-"주의하세요.\n"
-"작업 사본은 이전 경로에 남아 있습니다. 만약 다음 작업을 새로운 사본에서 하려면\n"
-"이전 사본으로 전환하셔야합니다."
+"주의:\n"
+"현재 작업 사본은 종전 경로를 그대로 가지고 있습니다.\n"
+"만약 태깅/브랜칭한 새로운 사본에서 작업을 하려면\n"
+"<b>전환</b>명령을 사용하시기 바랍니다."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please select a button."
-msgstr "버튼을 선택하세요."
+msgstr "버튼을 선택하십시오."
 
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
-msgstr "인증서 종류를 지정하세요."
+msgstr "인증서 종류를 지정하십시오."
 
 # ID:132,
 #: ID:132
@@ -2373,7 +2568,8 @@ msgstr "프로그램"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "프로그램 (*.exe)|*.exe|모든 파일들 (*.*)|*.*||"
 
-# Control-ID:65535,
+# Control-ID:65535,#:
+# Dlg-ID:177,
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
@@ -2389,7 +2585,7 @@ msgstr "속성"
 msgid "Property Page"
 msgstr "속성 페이지"
 
-# Control-ID:65535,
+# ID:207,
 #: ID:207
 msgid "Property Status"
 msgstr "속성 상태"
@@ -2415,13 +2611,13 @@ msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
 msgstr ""
-"응용프르그램을 종료하세요.\n"
+"응용프르그램을 종료하십시오.\n"
 "종료"
 
 # Control-ID:1073,
 #: Control-ID:1073
-msgid "RAM drives"
-msgstr "램 드라이브"
+msgid "R&AM drives"
+msgstr "램 드라이브(&A)"
 
 # ID:3697,
 #: ID:3697
@@ -2475,30 +2671,31 @@ msgstr ""
 # Dlg-ID:157,
 #: Dlg-ID:157
 msgid "Relocate"
-msgstr "재배치"
+msgstr "저장소 URL 변경"
 
-# ID:12,
+# Dlg-ID:157,
 #: ID:12
 msgid "Relocate..."
-msgstr "재배치..."
+msgstr "저장소 URL 변경"
 
 # ID:80,
 #: ID:80
 msgid "Relocating..."
 msgstr "재배치 중..."
 
-# Control-ID:65535,
+# ID:207,
 #: ID:207
 msgid "Remote Property Status"
 msgstr "원격지 속성 상태"
 
-# ID:63,
+# ID:63,#:
+# ID:207,
 #: ID:63
 #: ID:207
 msgid "Remote Status"
 msgstr "원격 상태"
 
-# ID:63,
+# ID:207,
 #: ID:207
 msgid "Remote Text Status"
 msgstr "원격 상태"
@@ -2523,10 +2720,8 @@ msgstr "이름 바꾸기"
 msgid "Rename %s"
 msgstr "%s 이름 바꾸기"
 
-# ID:11,#:
-# ID:101,
+# ID:11,
 #: ID:11
-#: ID:101
 msgid "Rename..."
 msgstr "이름 바꾸기..."
 
@@ -2584,7 +2779,7 @@ msgstr "충돌 해결"
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
-msgstr "저장할 때, 충돌상태를 해결하기"
+msgstr "저장할 때 충돌상태 해결하기"
 
 # ID:8,
 #: ID:8
@@ -2619,11 +2814,6 @@ msgstr "재시도"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "되돌리기"
-
-# ID:113,
-#: ID:113
-msgid "Revert changes from this revision"
-msgstr "이 리비전의 변경사항을 되돌리기"
 
 # ID:9,
 #: ID:9
@@ -2675,7 +2865,7 @@ msgstr "SVN 추가..."
 # ID:132,
 #: ID:132
 msgid "SVN Blame"
-msgstr "SVN 변경추적..."
+msgstr "SVN 수정한 사람 보기..."
 
 # ID:77,
 #: ID:77
@@ -2761,15 +2951,18 @@ msgstr "SVN 짧은 URL"
 msgid "Save &As..."
 msgstr "다른 이름으로 저장(&A)..."
 
+# ID:101,
+#: ID:101
+msgid "Save &as..."
+msgstr "다른 이름으로 저장(&A)"
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Save As"
 msgstr "다른 이름으로 저장"
 
-# ID:313,#:
-# ID:101,
-#: ID:101
+# ID:313,
 #: ID:313
 msgid "Save as..."
 msgstr "다른 이름으로 저장..."
@@ -2782,8 +2975,8 @@ msgstr "변경된 것을 %1에 저장하시겠습니까?"
 
 # ID:76,
 #: ID:76
-msgid "Save revision to..."
-msgstr "리비전에 저장..."
+msgid "Save revision &to..."
+msgstr "이 리비전을 저장(&T)..."
 
 # ID:3601,#:
 # ID:3601,
@@ -2802,8 +2995,8 @@ msgstr "패치 파일 저장:"
 
 # ID:113,
 #: ID:113
-msgid "Search log messages..."
-msgstr "로그 메시지 찾기..."
+msgid "Search &log messages..."
+msgstr "로그 메시지 검색..."
 
 # ID:3867,#:
 # ID:3867,
@@ -2906,22 +3099,41 @@ msgstr "마지막에 커밋 시간으로 파일 날짜 설정"
 msgid "Setting Properties..."
 msgstr "속성 설정..."
 
-# ID:107,#:
-# ID:9,
+# ID:9,#:
+# ID:107,
 #: ID:9
 #: ID:107
 msgid "Settings"
 msgstr "설정"
 
+# ID:115,
+#: ID:115
+msgid ""
+"Shall the log stop on a copy?\n"
+"Click <b>Yes</b> if you need to find out where a branch started."
+msgstr ""
+"복사본에 대하여 로그를 중지하시겠습니까?\n"
+"브랜치 시작위치를 찾고 싶을 경우 <b>예</b>를 누르십시오."
+
+# ID:101,
+#: ID:101
+msgid "Sho&w Properties"
+msgstr "속성 보기(&W)"
+
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "로그 메시지를 날짜/시간 순으로 정렬 합니다.(&D)"
+msgstr "로그 메시지에 짧은 형태의 날짜/시간 형식 사용(D)"
 
 # ID:12,
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Subversion 아이템의 짧은 URL"
+
+# ID:113,
+#: ID:113
+msgid "Show &Differences"
+msgstr "바뀐점 보기(&D)"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
@@ -2935,10 +3147,17 @@ msgstr "로그 보기(&L)"
 msgid "Show &Log..."
 msgstr "로그 보기(&L)..."
 
+# ID:101,#:
 # Control-ID:1016,
+#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "로그 보기(&L)"
+
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Show &overlays only in explorer"
+msgstr "탐색기에서만 오버레이 보기(&o)"
 
 # Control-ID:1065,
 #: Control-ID:1065
@@ -2947,13 +3166,8 @@ msgstr "비교 막대 보기"
 
 # ID:113,
 #: ID:113
-msgid "Show Differences"
-msgstr "차이점 보기"
-
-# ID:113,
-#: ID:113
-msgid "Show Differences as Unified Diff"
-msgstr "Unified Diff 형식으로 차이점 보기"
+msgid "Show Differences as &Unified Diff"
+msgstr "Unified Diff 형식으로 차이점 보기(&U)"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -2963,16 +3177,6 @@ msgstr "줄 번호 보기"
 # ID:12,
 #: ID:12
 msgid "Show Log"
-msgstr "로그 보기"
-
-# Control-ID:65535,
-#: ID:101
-msgid "Show Properties"
-msgstr "속성 보이기"
-
-# ID:101,
-#: ID:101
-msgid "Show log"
 msgstr "로그 보기"
 
 # ID:3713,
@@ -2993,11 +3197,6 @@ msgstr ""
 "툴바 보기/숨기기\n"
 "툴바 토글"
 
-# Control-ID:1088,
-#: Control-ID:1088
-msgid "Show overlays only in explorer"
-msgstr "탐색기에서만 오버레이 보기"
-
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -3010,7 +3209,7 @@ msgstr ""
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Show unversioned files"
-msgstr "비 버전 관리 파일 보기"
+msgstr "버전관리 대상이 아닌 파일 보기"
 
 # ID:13,
 #: ID:13
@@ -3050,8 +3249,8 @@ msgid ""
 "Separate the patterns with a space."
 msgstr ""
 "TortoiseSVN이 버전컨트롤 하지 않을\n"
-"파일이나 폴더를 지정하세요\n"
-"패턴들은 공백으로 분리하시면 됩니다."
+"파일이나 폴더를 지정하십시오.\n"
+"패턴들은 공백으로 분리하면 됩니다."
 
 # ID:3604,
 #: ID:3604
@@ -3063,7 +3262,8 @@ msgstr ""
 "분리"
 
 # ID:74,#:
-# ID:77,
+# ID:77,#:
+# ID:207,
 #: ID:74
 #: ID:77
 #: ID:207
@@ -3078,14 +3278,14 @@ msgstr "SVN내의 아이템 상태"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
-msgstr "Subversion 구성 파일:"
+msgstr "Subversion 설정 파일:"
 
-# Control-ID:65535,
+# ID:14,
 #: ID:14
 msgid "Subversion export all here"
 msgstr "Subversion은 모두 여기에 익스포트합니다"
 
-# ID:13,
+# ID:14,
 #: ID:14
 msgid "Subversion export here"
 msgstr "Subversion은 여기에 익스포트합니다"
@@ -3160,7 +3360,7 @@ msgstr "현재 작업 사본을 다른 브랜치나 태그로 전환"
 # ID:9,
 #: ID:9
 msgid "Switch..."
-msgstr "전환..."
+msgstr "브랜치/태그 전환..."
 
 # ID:3857,#:
 # ID:3857,
@@ -3178,7 +3378,7 @@ msgstr "탭 크기:"
 msgid "Tagged the working copy to %s"
 msgstr "현재 작업 사본에 태그를 붙입니다. (%s)"
 
-# Control-ID:65535,
+# ID:207,
 #: ID:207
 msgid "Text Status"
 msgstr "텍스트 상태"
@@ -3245,7 +3445,10 @@ msgid ""
 "The file\n"
 "%s\n"
 "already exists! Do you want to overwrite it?"
-msgstr "%s: 이미 존재하는 파일입니다. 덮어 쓰시겠습니까?"
+msgstr ""
+"이미 존재하는 파일입니다!\n"
+"%s\n"
+"덮어 쓰시겠습니까?"
 
 # ID:88,
 #: ID:88
@@ -3265,8 +3468,12 @@ msgstr "==== 가 있어야 할 라인입니다. : %d"
 
 # ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "Index:  가 들어간 라인이 발견되지 않았습니다."
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"\"Index: \" 라는 행이 없습니다!\n"
+"혹은 diff 파일이 아니거나 비어 있습니다."
 
 # ID:63,
 #: ID:63
@@ -3320,7 +3527,7 @@ msgid ""
 msgstr ""
 "작업 사본이 바뀌었습니다.\n"
 "<hr=100%>\n"
-"커밋을 먼저 하거나, 되돌리기(revert)를 먼저하세요."
+"커밋을 먼저 하거나, 되돌리기(revert)를 먼저하십시오."
 
 # ID:81,
 #: ID:81
@@ -3329,12 +3536,12 @@ msgid ""
 "Please Update first."
 msgstr ""
 "작업 사본이 저장소 보다 오래되었습니다.\n"
-"업데이트를 먼저 하세요."
+"업데이트를 먼저 하십시오."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Their File:"
-msgstr "대상 파일:"
+msgstr "저장소 파일:"
 
 # ID:169,
 #: ID:169
@@ -3352,7 +3559,7 @@ msgid ""
 "Please resolve those conflicts first before saving."
 msgstr ""
 "아직 %d 번 줄에 해결되지 않은 충돌이 있습니다\n"
-"저장하기 전에 충돌을 해결하세요."
+"저장하기 전에 충돌을 해결하십시오."
 
 # ID:188,
 #: ID:188
@@ -3381,15 +3588,10 @@ msgstr "이 프로그램이 필요한 파일이 시스템에서 발견할 수 �
 msgid "Three File Diff"
 msgstr "세 파일 비교"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "특정 브랜치의 차이를 병합하고자 할 때는 반드시 From: 과 To: 에 같은 URL을 넣어줘야합니다."
-
 # Control-ID:1052,
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
-msgstr "바뀐 부분을 보고 싶을 경우 위 파일들을 더블 클릭하세요."
+msgstr "바뀐 부분을 보고 싶을 경우 위 파일들을 더블 클릭하십시오."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3419,7 +3621,7 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, 빌드번호 %d, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3450,7 +3652,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, 빌드번호 %d, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -3468,7 +3670,12 @@ msgstr "TortoiseSVN 설정"
 # ID:73,
 #: ID:73
 msgid "Try Again"
-msgstr "다시 시도하세요"
+msgstr "다시 시도하십시오."
+
+# ID:251,
+#: ID:251
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "\"정리\"를 하십시오. 정리되지 않는다면 깨끗이 다시 체크아웃하셔야합니다."
 
 # ID:10,
 #: ID:10
@@ -3564,11 +3771,6 @@ msgstr ""
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Unknown drives"
-msgstr "알 수 없는 드라이브"
-
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -3589,11 +3791,6 @@ msgstr "업데이트"
 msgid "Update To Revision..."
 msgstr "특정 리비전으로 업데이트..."
 
-# ID:76,
-#: ID:76
-msgid "Update item to revision"
-msgstr "리비전에서 아이템 업데이트"
-
 # ID:11,
 #: ID:11
 msgid "Updates the working copy to a specific revision"
@@ -3604,7 +3801,7 @@ msgstr "작업 사본을 특정 리비전으로 업데이트"
 msgid "Updates the working copy to the current revision"
 msgstr "작업 사본을 최신 리비전으로 업데이트 합니다."
 
-# ID:144,
+# ID:207,
 #: ID:207
 msgid "Url"
 msgstr "Url"
@@ -3617,47 +3814,57 @@ msgstr "Url:"
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
-msgstr "Use Magnifier on Locatorbar"
+msgstr "위치 막대에서 돋보기 사용"
+
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Use \"From:\" URL"
+msgstr "\"From:\" URL 을 사용"
 
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
-msgstr "단일 윈도우 보기를 기본 값으로 사용합니다."
+msgstr "단일 윈도우 보기를 기본 값으로 사용"
 
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use strikeout for deleted lines"
-msgstr "지운 행에는 줄을 그어 놓습니다."
+msgstr "지워진 행에는 줄 긋기"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\""
-msgstr "Use text block from theirs"
+msgid "Use text block from \"&theirs\""
+msgstr "저장소의 텍스트 사용(&t)"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Use text block from theirs before yours"
+msgid "Use text block from \"&yours\""
+msgstr "작업사본의 텍스트 블럭을 사용(&y)"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\""
-msgstr "Use text block from yours"
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "작업사본 텍스트 앞에 저장소의 텍스트 블럭을 사용(&h)"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Use text block from yours before theirs"
+msgid "Use text block from \"y&ours\" before \"theirs\""
+msgstr "저장소 텍스트 앞에 작업사본의 텍스트 블럭 사용(&o)"
+
+# ID:251,
+#: ID:251
+msgid "Use th&is text block"
+msgstr "이 텍스트 블록 사용(&i)"
 
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "저장소의 URL이 변경되었을때 사용"
-
-# ID:251,
-#: ID:251
-msgid "Use this text block"
-msgstr "이 텍스트 블록 사용"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3720,6 +3927,16 @@ msgstr "GNU diff 파일 (패치 파일) 보기 프로그램"
 msgid "Visit our website"
 msgstr "웹 사이트 방문"
 
+# ID:219,
+#: ID:219
+msgid "Warning!"
+msgstr "TODO: Warning!"
+
+# ID:213,
+#: ID:213
+msgid "What repository type do you want to create?"
+msgstr "원하는 저장소 형식을 입력하십시오."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3736,7 +3953,7 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"작업 사본 재배치\n"
+"작업 사본 저장소 URL 변경\n"
 "%s"
 
 # ID:73,
@@ -3779,6 +3996,20 @@ msgstr ""
 "이 방법은 보관소를 망가뜨릴 위험이 있습니다.\n"
 "계속 하시겠습니까?"
 
+# ID:251,
+#: ID:251
+msgid "You have to update your working copy first."
+msgstr "먼저 작업 사본을 업데이트해야 합니다."
+
+# ID:169,
+#: ID:169
+msgid ""
+"You haven't entered an issue number!\n"
+"Are you sure you want to commit without an issue number?"
+msgstr ""
+"이슈번호를 입력하지 않았습니다!\n"
+"이슈번호 없이 커밋하시겠습니까?"
+
 # ID:77,
 #: ID:77
 msgid ""
@@ -3818,6 +4049,46 @@ msgstr "제목 없음"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "개발자 후원"
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:label\n"
+"Label text to show for the edit box where the user enters the issue number."
+msgstr ""
+"bugtraq:label\n"
+"이슈 번호를 입력 받기 위해 보이는 에디트 박스에 보일 설명."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:message\n"
+"String which is appended to a log message when an issue number is entered.\n"
+"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgstr ""
+"bugtraq:message\n"
+"이슈번호가 입력된다음 덧붙일 로그 메시지.\n"
+"이 문자열은 \"%BUGID%\"를 포함하여야 하며, 이것이 이슈번호로 치환됩니다."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:number\n"
+"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgstr ""
+"bugtraq:number\n"
+"버그트래킹 시스템이 숫자로 참조되는 구조가 아니면 \"아니오\"를 선택하십시오."
+
+# ID:14,
+#: ID:14
+msgid ""
+"bugtraq:url\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"gets replaced with the issue number."
+msgstr ""
+"bugtraq:url\n"
+"이슈트래커에 대한 URL. URL에는 이슈번호로 대치될\n"
+"\"%BUGID%\"를 포함하여야 합니다."
 
 # ID:145,
 #: ID:145
@@ -3902,7 +4173,7 @@ msgstr "이 명령에 대한 설명이 없습니다."
 # ID:10,
 #: ID:10
 msgid "non-versioned"
-msgstr "비 버전관리"
+msgstr "버전관리 대상 아님"
 
 # ID:10,
 #: ID:10
@@ -3952,7 +4223,7 @@ msgid ""
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"존재하면, 이 파일을 실행가능한 형태로 만들어 줍니다. 이 속성은 디렉토리에는 지정할 수 없습니다. 파일에 대해서는 재귀적으로 설정할 수 없습니다. 디렉토리에는 재귀적으로 설정가능하며, 이 경우 파일들에만 설정됩니다."
 
 # ID:14,
 #: ID:14
@@ -3963,7 +4234,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"개행으로 분리된 모듈 리스트입니다. 모듈은 상대 경로로 되어 있으며, 선택 사항으로 리비전 플래그와 URL을 포함할 수 있습니다. 예)\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 

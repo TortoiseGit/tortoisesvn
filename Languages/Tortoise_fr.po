@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-09 11:02+0100\n"
+"PO-Revision-Date: 2004-09-10 12:18+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -404,12 +404,12 @@ msgstr ": Copie locale"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
 msgstr ""
-"<b>ATTENTION:</b> Utiliser seulement la commande Déplacer si le repository original a été déplacé vers une nouvelle URL.\n"
+"<b>ATTENTION:</b> N'utilisez seulement la commande Déplacer que si le repository original a été déplacé vers une nouvelle URL.\n"
 "Si vous utilisez Déplacer pour diriger votre copie locale vers un autre repository ou branche,\n"
 "cela <b>va corrompre votre copie locale!</b>\n"
 "Pour associer votre copie locale avec une autre branche, utilisez la commande Basculer.\n"
@@ -1310,10 +1310,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Voulez-vous sauver vos modifications?"
 
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "Ne pas &supprimer le commentaire lors d'une annulation de livraison"
-
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "Ne pas convertir les fichiers lors d'une visualisation des différences avec la BASE"
@@ -1610,17 +1606,6 @@ msgstr ""
 "Si mis, TortoiseSVN mettra la date des fichiers à la date de leur\n"
 "dernière livraison. Si non mis, TortoiseSVN utilise la date courante. "
 
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"Si vous annuler une livraison, le commentaire que vous avez entré est sauvé\n"
-"et remis dans le champ d'édition à la prochaine livraison.\n"
-"Vous pouvez éditer ce message ou le garder inchangé."
-
 #: ID:73
 msgid "Ignore"
 msgstr "Ignorer"
@@ -1878,6 +1863,10 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "Aucune valeur de commande spécifié!"
+
+#: ID:82
+msgid "No differences found!"
+msgstr "Aucune différence trouvée!"
 
 #: ID:3843
 msgid "No error message is available."
@@ -2827,9 +2816,14 @@ msgstr ""
 msgid "The line \"====\" was expected in line %d !"
 msgstr "La ligne \"====\" était attendue à %d !"
 
+# ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "La ligne \"Index: \" n'est pas trouvée!"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"La ligne \"Index: \" n'a pas été trouvée!\n"
+"Soit ce n'est pas un fichier diff ou le diff est vide."
 
 #: ID:63
 msgid "The line indicating the new file was expected in line %d !"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-06 20:04+0900\n"
+"PO-Revision-Date: 2004-09-10 21:04+0900\n"
 "Last-Translator: daibo <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -500,14 +500,14 @@ msgstr ": 作業用 Copy"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
 msgstr ""
-"<b>注意:</b> オリジナルのリポジトリが新しいURLに移行した際にのみ、再配置コマンドを使用してください。\n"
+"<b>注意:</b> オリジナルのリポジトリが新しいURLに移行した時にのみ、再配置コマンドを使用してください。\n"
 "もし再配置コマンドを、直接作業用 Copy を他のリポジトリもしくはブランチに移すのに使用するなら、\n"
-"これは、<b>作業用 Copy を破壊するかもしれません！</b>\n"
+"<b>作業用 Copy を破壊するかもしれません！</b>\n"
 "他のブランチと作業用 Copy を関連付けるために、切り替えコマンドを利用してください。\n"
 "ほんとうに再配置を行ってもよろしいですか？"
 
@@ -684,6 +684,13 @@ msgstr "追加"
 #: ID:126
 msgid "Added a file remotely"
 msgstr "リモート操作によるファイルの追加"
+
+# ID:13,
+#: ID:145
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr "選択されたファイル %s を \"無視\" リストに追加"
 
 # ID:9,
 #: ID:9
@@ -1192,6 +1199,11 @@ msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
 
 # Control-ID:1110,
+#: Control-ID:1125
+msgid "Comment History:"
+msgstr "コメントの履歴:"
+
+# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "コミット先:"
@@ -1595,11 +1607,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "変更を保存しますか？"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "コミットをキャンセルした際に、ログメッセージを削除しない(&R)"
-
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
@@ -1887,6 +1894,11 @@ msgstr "取得ファイル %s"
 msgid "Getting file info..."
 msgstr "ファイル情報を取得 ..."
 
+# ID:132,
+#: ID:132
+msgid "Getting log info..."
+msgstr "ログ情報を取得 ..."
+
 # ID:2049,
 #: ID:2049
 msgid ""
@@ -1960,17 +1972,6 @@ msgid ""
 msgstr ""
 "セットすると、TortoiseSVNはファイル名を最終コミット日に設定します。\n"
 "セットしなければ、TortoiseSVNは現在の日時を使用します。"
-
-# ID:80,
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"もしコミットをキャンセルした場合、入力したログメッセージは次のコミットまでエディットボックス内に保存されます。\n"
-"そして、そのメッセージを編集したり変更せずに利用したりできます。"
 
 # ID:73,
 #: ID:73
@@ -2285,6 +2286,11 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "何のコマンド値も指定されません！"
+
+# ID:113,
+#: ID:82
+msgid "No differences found!"
+msgstr "違いは何も見つかりませんでした！"
 
 # ID:3843,#:
 # ID:3843,
@@ -3469,8 +3475,12 @@ msgstr "行 \"====\" は行 %d だと思われます！"
 
 # ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "行 \"Index: \" は見つかりませんでした！"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"行 \"Index: \" は見つかりませんでした！\n"
+"差分ファイルではないか、違いが存在しないかのどちらかです。"
 
 # ID:63,
 #: ID:63
@@ -3813,6 +3823,11 @@ msgstr "URL:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "位置指定バー上の拡大ツールを利用する"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "変更履歴を見るためにテキストビューワを用いる"
+
 # Control-ID:65535,
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
@@ -3830,33 +3845,33 @@ msgstr "削除された行に取り消し線を引く"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\""
-msgstr "\"theirs\" のテキストブロックを利用"
+msgid "Use text block from \"&theirs\""
+msgstr "\"&theirs\" のテキストブロックを利用"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "\"yours\" の前に \"theirs\" のテキストブロックを利用"
+msgid "Use text block from \"&yours\""
+msgstr "\"&yours\" のテキストブロックを利用"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\""
-msgstr "\"yours\" のテキストブロックを利用"
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "\"yours\" の前に \"t&heirs\" のテキストブロックを利用"
 
 # ID:251,
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "\"theirs\" の前に \"yours\" のテキストブロックを利用"
+msgid "Use text block from \"y&ours\" before \"theirs\""
+msgstr "\"theirs\" の前に \"y&ours\" のテキストブロックを利用"
+
+# ID:251,
+#: ID:251
+msgid "Use th&is text block"
+msgstr "このテキストブロックを利用(&I)"
 
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "リポジトリのURLが変更された場合、これを用いる"
-
-# ID:251,
-#: ID:251
-msgid "Use this text block"
-msgstr "このテキストブロックを利用"
 
 # Control-ID:65535,
 #: Control-ID:65535

@@ -13,12 +13,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-09 23:34+0100\n"
+"PO-Revision-Date: 2004-09-10 22:26+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
 
 # A single space
 #: ID:10
@@ -392,7 +394,7 @@ msgstr ": Werkkopie"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
@@ -1288,10 +1290,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Wilt u de wijzigingen opslaan?"
 
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "&Laat logboekbodschappen staan als een vastlegging geannuleerd wordt"
-
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "Bestanden niet converteren bij het vergelijken met BASE"
@@ -1585,17 +1583,6 @@ msgstr ""
 "Indien ingesteld, zal TortoiseSVN de bestandstijden instellen op de tijd\n"
 "dat ze het laatst vastgelegd werden. Anders neemt TortoiseSVN de huidige tijd."
 
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"Als u het vastleggen annuleert dan wordt de logboodschap bewaard\n"
-"en gebruikt bij de volgende keer.\n"
-"U kunt dan deze boodschap wijzigen of hem ongewijzigd gebruiken."
-
 #: ID:73
 msgid "Ignore"
 msgstr "Negeren"
@@ -1852,6 +1839,10 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "Geen commando opdracht gegeven!"
+
+#: ID:82
+msgid "No differences found!"
+msgstr "Geen verschillen gevonden!"
 
 #: ID:3843
 msgid "No error message is available."
@@ -2798,8 +2789,12 @@ msgid "The line \"====\" was expected in line %d !"
 msgstr "De regel '====' niet aangetroffen op regel %d !"
 
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "De regel 'Index:' is niet gevonden!"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"De regel \"Index: \" is niet gevonden!\n"
+"Dit is geen diff-bestand, of de diff is leeg."
 
 #: ID:63
 msgid "The line indicating the new file was expected in line %d !"
@@ -3457,8 +3452,12 @@ msgstr ""
 "Id\t\t\t\tEen verkorte samenvatting van de vorige vier termen."
 
 #: ID:14
-msgid "svn:mime-type\n"
-msgstr "svn:mime-type\n"
+msgid ""
+"svn:mime-type\n"
+"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+msgstr ""
+"svn:mime-type\n"
+"Het mime-type van het bestand. Wordt gebruikt om te bepalen of het bestand samengevoegd kan worden en hoe Apache het moet aanbieden. Een mime-type dat begint met 'text/' (of een ontbrekend mime-type) wordt als tekst behandeld. Alle andere mime-types worden als binair behandeld."
 
 #: ID:80
 msgid "to %s"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-09-08 09:18+0100\n"
+"PO-Revision-Date: 2004-09-10 12:35+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -392,7 +392,7 @@ msgstr ": Arbeitskopie"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
@@ -1304,10 +1304,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Wollen Sie Ihre Änderungen speichern?"
 
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "&Log-Meldung beim Abbruch einer Übertragung nicht löschen"
-
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "Dateien beim Vergleich mit BASE nicht konvertieren"
@@ -1602,16 +1598,6 @@ msgstr ""
 "Falls gesetzt, wird TortoiseSVN den Zeitstempel der Dateien auf den Zeitpunkt\n"
 "der letzten Übertragung setzen, andernfalls wird die aktuelle Zeit verwendet."
 
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"Wenn Sie eine Übertragung abbrechen, wird die Log-Meldung zwischengespeichert\n"
-"und bei der nächsten Übertragung in das Eingabefeld eingetragen."
-
 #: ID:73
 msgid "Ignore"
 msgstr "Ignorieren"
@@ -1869,6 +1855,10 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "Kein Kommandowert übergeben!"
+
+#: ID:82
+msgid "No differences found!"
+msgstr "Keine Unterschiede gefunden!"
 
 #: ID:3843
 msgid "No error message is available."
@@ -2817,9 +2807,14 @@ msgstr ""
 msgid "The line \"====\" was expected in line %d !"
 msgstr "Der Text \"====\" wurde in Zeile %d erwartet!"
 
+# ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "Die Zeile \"Index: \" wurde nicht gefunden!"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"Die \"Index: \" Zeile wurde nicht gefunden!\n"
+"Entweder handelt es sich nicht un eine Diff Datei oder die Datei ist leer."
 
 #: ID:63
 msgid "The line indicating the new file was expected in line %d !"
