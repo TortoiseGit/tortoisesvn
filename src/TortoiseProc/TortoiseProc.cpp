@@ -130,6 +130,8 @@ BOOL CTortoiseProcApp::InitInstance()
 	SetRegistryKey(_T("TortoiseSVN"));
 
 	CCmdLineParser parser = CCmdLineParser(AfxGetApp()->m_lpCmdLine);
+	if (parser == NULL)
+		return FALSE;
 
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
 		AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
