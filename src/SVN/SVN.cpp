@@ -1180,7 +1180,7 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 	return SVN_NO_ERROR;
 }
 
-BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended)
+BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
 {
 	entries.RemoveAll();
 
@@ -1191,7 +1191,7 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended)
 	Err = svn_client_ls(&hash, 
 						MakeSVNUrlOrPath(url),
 						revision,
-						FALSE, 
+						recursive, 
 						&ctx,
 						pool);
 	if (Err != NULL)

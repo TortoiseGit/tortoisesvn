@@ -383,8 +383,9 @@ public:
 	 * \param revision	the revision that you want to explore
 	 * \param entries CStringArray of subdirectories
 	 * \param extended Set to TRUE for entries in extended format (see above)
+	 * \param recursive Set this to TRUE to get all entries recursively
 	 */
-	BOOL Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended = FALSE);
+	BOOL Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended = FALSE, BOOL recursive = FALSE);
 
 	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function
