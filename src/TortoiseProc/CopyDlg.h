@@ -74,4 +74,5 @@ public:
 	CHistoryCombo m_URLCombo;
 	CString	m_URL;
 	CButton m_butBrowse;
+	CString m_sLogMessage;
 };

@@ -302,12 +302,15 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 	return -1;
 }
 
-BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision)
+BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision, CString logmsg)
 {
 	preparePath(srcPath);
 	preparePath(destPath);
 	svn_client_commit_info_t *commit_info = NULL;
-	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
+	if (logmsg.IsEmpty())
+		ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
+	else
+		ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 	Err = svn_client_copy (&commit_info,
 							CUnicodeUtils::GetUTF8(srcPath),
 							getRevision (revision),

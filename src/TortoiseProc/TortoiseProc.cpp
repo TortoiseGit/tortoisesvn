@@ -486,13 +486,13 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					//no changes in the working copy, so just do a repo->repo copy
 					CSVNProgressDlg progDlg;
-					progDlg.SetParams(Copy, FALSE, url, dlg.m_URL);
+					progDlg.SetParams(Copy, FALSE, url, dlg.m_URL, dlg.m_sLogMessage);
 					progDlg.DoModal();
 				}
 				else
 				{
 					CSVNProgressDlg progDlg;
-					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL);
+					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage);
 					progDlg.DoModal();
 				}
 			}
