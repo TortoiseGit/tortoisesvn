@@ -117,6 +117,10 @@ protected:
 	int				GetMaxLineLength();
 	int				GetLineLength(int index);
 	int				GetScreenChars();
+	int				GetAllMinScreenChars();
+	int				GetAllMaxLineLength();
+	int				GetAllLineCount();
+	int				GetAllMinScreenLines();
 	LPCTSTR			GetLineChars(int index);
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);

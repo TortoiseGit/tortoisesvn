@@ -306,6 +306,30 @@ int CBaseView::GetScreenChars()
 	return m_nScreenChars;
 }
 
+int CBaseView::GetAllMinScreenChars()
+{
+	int nChars = 0;
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+		nChars = m_pwndLeft->GetScreenChars();
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+		nChars = (nChars < m_pwndRight->GetScreenChars() ? nChars : m_pwndRight->GetScreenChars());
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+		nChars = (nChars < m_pwndBottom->GetScreenChars() ? nChars : m_pwndBottom->GetScreenChars());
+	return nChars;
+}
+
+int CBaseView::GetAllMaxLineLength()
+{
+	int nLength = 0;
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+		nLength = m_pwndLeft->GetMaxLineLength();
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+		nLength = (nLength > m_pwndRight->GetMaxLineLength() ? nLength : m_pwndRight->GetMaxLineLength());
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+		nLength = (nLength > m_pwndBottom->GetMaxLineLength() ? nLength : m_pwndBottom->GetMaxLineLength());
+	return nLength;
+}
+
 int CBaseView::GetLineHeight()
 {
 	if (m_nLineHeight == -1)
@@ -381,6 +405,30 @@ int CBaseView::GetScreenLines()
 	return m_nScreenLines;
 }
 
+int CBaseView::GetAllMinScreenLines()
+{
+	int nLines = 0;
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+		nLines = m_pwndLeft->GetScreenLines();
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+		nLines = (nLines < m_pwndRight->GetScreenLines() ? nLines : m_pwndRight->GetScreenLines());
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+		nLines = (nLines < m_pwndBottom->GetScreenLines() ? nLines : m_pwndBottom->GetScreenLines());
+	return nLines;
+}
+
+int CBaseView::GetAllLineCount()
+{
+	int nLines = 0;
+	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+		nLines = m_pwndLeft->GetLineCount();
+	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+		nLines = (nLines > m_pwndRight->GetLineCount() ? nLines : m_pwndRight->GetLineCount());
+	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+		nLines = (nLines > m_pwndBottom->GetLineCount() ? nLines : m_pwndBottom->GetLineCount());
+	return nLines;
+}
+
 void CBaseView::RecalcVertScrollBar(BOOL bPositionOnly /*= FALSE*/)
 {
 	SCROLLINFO si;
@@ -392,7 +440,7 @@ void CBaseView::RecalcVertScrollBar(BOOL bPositionOnly /*= FALSE*/)
 	} // if (bPositionOnly) 
 	else
 	{
-		if (GetScreenLines() >= GetLineCount() && m_nTopLine > 0)
+		if (GetAllMinScreenLines() >= GetAllLineCount() && m_nTopLine > 0)
 		{
 			m_nTopLine = 0;
 			Invalidate();
@@ -400,8 +448,8 @@ void CBaseView::RecalcVertScrollBar(BOOL bPositionOnly /*= FALSE*/)
 		} // if (GetScreenLines() >= GetLineCount() && m_nTopLine > 0) 
 		si.fMask = SIF_DISABLENOSCROLL | SIF_PAGE | SIF_POS | SIF_RANGE;
 		si.nMin = 0;
-		si.nMax = GetLineCount() - 1;
-		si.nPage = GetScreenLines();
+		si.nMax = GetAllLineCount() - 1;
+		si.nPage = GetAllMinScreenLines();
 		si.nPos = m_nTopLine;
 	}
 	VERIFY(SetScrollInfo(SB_VERT, &si));
@@ -478,7 +526,7 @@ void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
 	} // if (bPositionOnly) 
 	else
 	{
-		if (GetScreenChars() >= GetMaxLineLength() && m_nOffsetChar > 0)
+		if (GetAllMinScreenChars() >= GetAllMaxLineLength() && m_nOffsetChar > 0)
 		{
 			m_nOffsetChar = 0;
 			Invalidate();
@@ -486,8 +534,8 @@ void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
 		} // if (GetScreenChars() >= GetMaxLineLength() && m_nOffsetChar > 0) 
 		si.fMask = SIF_DISABLENOSCROLL | SIF_PAGE | SIF_POS | SIF_RANGE;
 		si.nMin = 0;
-		si.nMax = GetMaxLineLength() - 1;
-		si.nPage = GetScreenChars();
+		si.nMax = GetAllMaxLineLength() - 1;
+		si.nPage = GetAllMinScreenChars();
 		si.nPos = m_nOffsetChar;
 	}
 	VERIFY(SetScrollInfo(SB_HORZ, &si));
