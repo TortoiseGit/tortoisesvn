@@ -40,7 +40,7 @@ const int blockSize = 128 * 1024;
 
 #define BLAMESPACE 20
 
-#define MAX_LOG_LENGTH 1000
+#define MAX_LOG_LENGTH 2000
 
 class TortoiseBlame
 {
@@ -83,6 +83,7 @@ public:
 	wchar_t						m_wszTip[MAX_LOG_LENGTH*2+5];
 	void StringExpand(LPSTR str);
 	void StringExpand(LPWSTR str);
+	BOOL						ttVisible;
 protected:
 	void CreateFont();
 	void SetupLexer(LPCSTR filename);

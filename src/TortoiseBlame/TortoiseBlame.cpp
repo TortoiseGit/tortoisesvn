@@ -572,7 +572,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    /* INITIALIZE MEMBERS OF THE TOOLINFO STRUCTURE */
    ti.cbSize = sizeof(TOOLINFO);
-   ti.uFlags = TTF_SUBCLASS | TTF_PARSELINKS;
+   ti.uFlags = TTF_TRACK | TTF_ABSOLUTE;//TTF_SUBCLASS | TTF_PARSELINKS;
    ti.hwnd = app.wBlame;
    ti.hinst = app.hInstance;
    ti.uId = 0;
@@ -586,6 +586,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    /* SEND AN ADDTOOL MESSAGE TO THE TOOLTIP CONTROL WINDOW */
    SendMessage(app.hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
    SendMessage(app.hwndTT, TTM_SETMAXTIPWIDTH, 0, 600);
+   //SendMessage(app.hwndTT, TTM_SETDELAYTIME, TTDT_AUTOPOP, MAKELONG(50000, 0));
+   //SendMessage(app.hwndTT, TTM_SETDELAYTIME, TTDT_RESHOW, MAKELONG(1000, 0));
    return TRUE;
 }
 
@@ -689,6 +691,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
 				int heigth = app.SendEditor(SCI_TEXTHEIGHT);
 				line = line + (point.y/heigth);
+				if (line >= app.revs.size())
+					break;
 				LONG rev = app.revs[line];
 				if (line >= (LONG)app.revs.size())
 					break;
@@ -726,7 +730,10 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	case WM_MOUSELEAVE:
 		app.m_mouserev = -2;
 		app.m_mouseauthor.clear();
+		app.ttVisible = FALSE;
+		SendMessage(app.hwndTT, TTM_TRACKACTIVATE, FALSE, 0);
 		::InvalidateRect(app.wBlame, NULL, FALSE);
+		OutputDebugString(_T("WM_MOUSELEAVE\n"));
 		break;
 	case WM_MOUSEMOVE:
 		{
@@ -735,6 +742,21 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 			mevt.dwHoverTime = HOVER_DEFAULT;
 			mevt.hwndTrack = app.wBlame;
 			::TrackMouseEvent(&mevt);
+			POINT pt = {((int)(short)LOWORD(lParam)), ((int)(short)HIWORD(lParam))};
+			ClientToScreen(app.wBlame, &pt);
+			pt.x += 15;
+			pt.y += 15;
+			SendMessage(app.hwndTT, TTM_TRACKPOSITION, 0, MAKELONG(pt.x, pt.y));
+			if (!app.ttVisible)
+			{
+				TOOLINFO ti;
+				ti.cbSize = sizeof(TOOLINFO);
+				ti.hwnd = app.wBlame;
+				ti.uId = 0;
+				SendMessage(app.hwndTT, TTM_TRACKACTIVATE, TRUE, (LPARAM)&ti);
+				app.ttVisible = TRUE;
+				OutputDebugString(_T("activate tooltip\n"));
+			}
 			int y = ((int)(short)HIWORD(lParam));
 			LONG line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
 			int heigth = app.SendEditor(SCI_TEXTHEIGHT);
@@ -747,9 +769,14 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				}
 				if (app.revs[line] != app.m_mouserev)
 				{
+					LONG revstore = app.m_mouserev;
 					app.m_mouserev = app.revs[line];
-					::InvalidateRect(app.wBlame, NULL, FALSE);
-					SendMessage(app.hwndTT, TTM_UPDATE, 0, 0);
+					if (revstore != -2)
+					{
+						::InvalidateRect(app.wBlame, NULL, FALSE);
+						SendMessage(app.hwndTT, TTM_UPDATE, 0, 0);
+						OutputDebugString(_T("update tooltip\n"));
+					}
 				}
 			}
 		}
