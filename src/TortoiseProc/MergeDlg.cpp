@@ -23,6 +23,7 @@
 #include "Balloon.h"
 #include "BrowseFolder.h"
 #include "MessageBox.h"
+#include "registry.h"
 
 IMPLEMENT_DYNAMIC(CMergeDlg, CStandAloneDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
@@ -71,6 +72,7 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_FINDBRANCHEND, OnBnClickedFindbranchend)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_USEFROMURL, OnBnClickedUsefromurl)
+	ON_BN_CLICKED(IDC_WCLOG, OnBnClickedWCLog)
 END_MESSAGE_MAP()
 
 
@@ -91,7 +93,7 @@ BOOL CMergeDlg::OnInitDialog()
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		this->EndDialog(IDCANCEL);
 		return TRUE;
-	} // if ((status.status == NULL) || (status.status->entry == NULL))
+	}
 	else
 	{
 		if (!bRepeating)
@@ -100,14 +102,19 @@ BOOL CMergeDlg::OnInitDialog()
 			m_URLTo = url;
 		}
 		GetDlgItem(IDC_WCURL)->SetWindowText(url);
+		GetDlgItem(IDC_WCPATH)->SetWindowText(m_wcPath);
 	}
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
-	m_URLCombo.SetWindowText(m_URLFrom);
+	m_URLCombo.SetCurSel(0);
+	if (m_URLCombo.GetString().IsEmpty())
+		m_URLCombo.SetWindowText(m_URLFrom);
 	m_URLCombo2.SetURLHistory(TRUE);
 	m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
-	m_URLCombo2.SetWindowText(m_URLTo);
+	m_URLCombo2.SetCurSel(0);
+	if (m_URLCombo2.GetString().IsEmpty())
+		m_URLCombo2.SetWindowText(m_URLTo);
 
 	if (bRepeating)
 	{
@@ -420,6 +427,25 @@ void CMergeDlg::OnBnClickedUsefromurl()
 	UpdateData(FALSE);
 }
 
+void CMergeDlg::OnBnClickedWCLog()
+{
+	UpdateData(TRUE);
+	if ((m_pLogDlg)&&(m_pLogDlg->IsWindowVisible()))
+		return;
+	AfxGetApp()->DoWaitCursor(1);
+	//now show the log dialog for working copy
+	if (!m_wcPath.IsEmpty())
+	{
+		delete [] m_pLogDlg;
+		m_pLogDlg = new CLogDlg();
+		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, -(long)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE);
+		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->ShowWindow(SW_SHOW);
+		m_pLogDlg->m_pNotifyWindow = this;
+		m_pLogDlg->m_wParam = 0;
+	} // if (!url.IsEmpty()) 
+	AfxGetApp()->DoWaitCursor(-1);
+}
 
 
 

@@ -145,6 +145,7 @@
 #define IDC_BUGID                       1077
 #define IDC_WCURL                       1077
 #define IDC_EXCLUDEPATHS                1077
+#define IDC_WCPATH                      1078
 #define IDC_DRIVEGROUP                  1079
 #define IDC_PROXYGROUP                  1080
 #define IDC_SSHGROUP                    1081
@@ -203,6 +204,7 @@
 #define IDC_PATCH_TO_CLIPBOARD          1132
 #define IDC_CHECKREPO                   1132
 #define IDC_SELECTOVERLAYSET            1132
+#define IDC_WCLOG                       1132
 #define IDC_GRAPHCOMBO                  1133
 #define IDC_GRAPHTYPELABEL              1134
 #define IDC_COMMITSEACHWEEK             1135

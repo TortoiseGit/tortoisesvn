@@ -76,6 +76,7 @@ protected:
 	afx_msg void OnBnClickedRevisionHead1();
 	afx_msg void OnBnClickedRevisionN1();
 	afx_msg void OnBnClickedUsefromurl();
+	afx_msg void OnBnClickedWCLog();
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;

@@ -269,43 +269,54 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,243,258,50,14
 END
 
-IDD_MERGE DIALOGEX 0, 0, 345, 210
+IDD_MERGE DIALOGEX 0, 0, 345, 278
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Merge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "&Merge changes into the current working copy which points to the URL:",
+    LTEXT           "Specify the revision range which you want to merge:",
                     IDC_STATIC,7,7,331,8
-    GROUPBOX        "From:",IDC_STATIC,7,34,331,65
+    GROUPBOX        "From: (start URL and revision of the range to merge)",
+                    IDC_STATIC,7,20,331,61
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
-                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,45,238,64
-    PUSHBUTTON      "...",IDC_BROWSE,256,44,19,14
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,31,238,64
+    PUSHBUTTON      "...",IDC_BROWSE,256,30,19,14
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,281,30,50,14
     CONTROL         "&Head Revision",IDC_REVISION_HEAD1,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,63,95,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,49,95,10
     CONTROL         "&Revision",IDC_REVISION_N1,"Button",BS_AUTORADIOBUTTON,
-                    13,77,44,10
-    EDITTEXT        IDC_REVISION_START,63,74,51,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHSTART,281,44,50,14
-    GROUPBOX        "To:",IDC_STATIC,7,103,331,74
-    CONTROL         "",IDC_URLCOMBO2,"ComboBoxEx32",CBS_DROPDOWN | 
-                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,127,238,62
-    PUSHBUTTON      "...",IDC_BROWSE2,256,127,19,14,WS_DISABLED
-    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,145,86,10
-    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    13,158,45,10
-    EDITTEXT        IDC_REVISION_END,63,156,51,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,281,127,50,14
-    DEFPUSHBUTTON   "&OK",IDOK,170,189,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,229,189,50,14
-    PUSHBUTTON      "&Help",IDHELP,288,189,50,14
+                    13,63,44,10
+    EDITTEXT        IDC_REVISION_START,63,60,51,14,ES_AUTOHSCROLL
+    GROUPBOX        "To: (end URL revision of the range to merge)",
+                    IDC_STATIC,7,89,331,74
     CONTROL         "Use ""From:"" URL",IDC_USEFROMURL,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,114,238,10
-    EDITTEXT        IDC_WCURL,7,18,331,14,ES_AUTOHSCROLL | ES_READONLY | NOT 
-                    WS_BORDER
-    CONTROL         "Dry Run",IDC_DRYRUN,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,177,331,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,100,238,10
+    CONTROL         "",IDC_URLCOMBO2,"ComboBoxEx32",CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,113,238,62
+    PUSHBUTTON      "...",IDC_BROWSE2,256,113,19,14,WS_DISABLED
+    PUSHBUTTON      "Show &Log",IDC_FINDBRANCHEND,281,113,50,14
+    CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,131,86,10
+    CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
+                    13,144,45,10
+    EDITTEXT        IDC_REVISION_END,63,142,51,14,ES_AUTOHSCROLL
+    CONTROL         "Dry Run (Does not change your working copy - use this for test runs)",
+                    IDC_DRYRUN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,168,
+                    331,10
+    GROUPBOX        "",IDC_STATIC,7,177,331,71
+    LTEXT           "The result of the merge is stored in the working copy at:",
+                    IDC_STATIC,13,191,318,8
+    EDITTEXT        IDC_WCPATH,13,203,238,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    LTEXT           "which points to the repository at the URL:",IDC_STATIC,
+                    13,216,325,8
+    EDITTEXT        IDC_WCURL,13,228,318,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    PUSHBUTTON      "Sh&ow Log",IDC_WCLOG,281,205,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,170,257,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,229,257,50,14
+    PUSHBUTTON      "&Help",IDHELP,288,257,50,14
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 241, 54
@@ -933,7 +944,7 @@ BEGIN
         VERTGUIDE, 256
         VERTGUIDE, 331
         TOPMARGIN, 7
-        BOTTOMMARGIN, 203
+        BOTTOMMARGIN, 271
     END
 
     IDD_PROMPT, DIALOG

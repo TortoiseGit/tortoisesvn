@@ -204,10 +204,6 @@ msgstr ""
 msgid "&Merge"
 msgstr ""
 
-#: Control-ID:65535,
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr ""
-
 #: Control-ID:1012,
 msgid "&Merging"
 msgstr ""
@@ -1237,7 +1233,7 @@ msgid "Drive Types"
 msgstr ""
 
 #: Control-ID:1061,
-msgid "Dry Run"
+msgid "Dry Run (Does not change your working copy - use this for test runs)"
 msgstr ""
 
 #: MenuEntry
@@ -1425,7 +1421,7 @@ msgid "Force shell icon refresh"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "From:"
+msgid "From: (start URL and revision of the range to merge)"
 msgstr ""
 
 #: ID:273,
@@ -2540,6 +2536,10 @@ msgstr ""
 msgid "Specify the files or folders which TortoiseSVN\n should exclude from version control.\nSeparate the patterns with a space."
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Specify the revision range which you want to merge:"
+msgstr ""
+
 #: ID:3604,
 msgid "Split the active window into panes\nSplit"
 msgstr ""
@@ -2704,6 +2704,10 @@ msgstr ""
 msgid "The path\n<i>%s</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%s</i>\nmatches it better. Do you want to use the suggested path instead?"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "The result of the merge is stored in the working copy at:"
+msgstr ""
+
 #: ID:78,
 msgid "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
 msgstr ""
@@ -2765,7 +2769,7 @@ msgid "To see the changes you made, double click on the files above."
 msgstr ""
 
 #: Control-ID:65535,
-msgid "To:"
+msgid "To: (end URL revision of the range to merge)"
 msgstr ""
 
 #: ID:7,#: ID:3585,#: Dlg-ID:130,
@@ -3262,6 +3266,10 @@ msgstr ""
 
 #: ID:244,
 msgid "week"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "which points to the repository at the URL:"
 msgstr ""
 
 #: Control-ID:1112,
