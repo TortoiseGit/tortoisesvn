@@ -181,7 +181,7 @@ msgid "&Merge"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "&Merge changes into the current working copy from URL:"
+msgid "&Merge changes into the current working copy which points to the URL:"
 msgstr ""
 
 #: Control-ID:1012,
@@ -248,7 +248,7 @@ msgstr ""
 msgid "&Status Bar"
 msgstr ""
 
-#: Control-ID:65535,#: Control-ID:65535,
+#: Control-ID:65535,
 msgid "&To Revision"
 msgstr ""
 
@@ -306,6 +306,14 @@ msgstr ""
 
 #: ID:201,
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
+msgstr ""
+
+#: ID:195,
+msgid "A newline separated list of paths for which icon overlays are shown.\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+
+#: ID:194,
+msgid "A newline separated list of paths for which no icon overlays are shown.\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\nAn empty list will allow overlays on all paths."
 msgstr ""
 
 #: ID:3843,#: ID:3843,
@@ -409,7 +417,7 @@ msgid "Adds file(s) to Subversion control"
 msgstr ""
 
 #: ID:13,
-msgid "Adds the selected file(s) to the 'ignore' list"
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr ""
 
 #: ID:2049,
@@ -536,6 +544,10 @@ msgstr ""
 msgid "B&uiltin"
 msgstr ""
 
+#: ID:213,
+msgid "BDB"
+msgstr ""
+
 #: Control-ID:1015,
 msgid "Backup original file"
 msgstr ""
@@ -594,6 +606,10 @@ msgstr ""
 
 #: Control-ID:1096,
 msgid "Bu&iltin"
+msgstr ""
+
+#: Control-ID:1119,
+msgid "Bug-ID / Issue-Nr:"
 msgstr ""
 
 #: ID:3697,
@@ -676,7 +692,11 @@ msgstr ""
 msgid "Check the files which you want to\ndelete before importing."
 msgstr ""
 
-#: Control-ID:65535,
+#: ID:251,
+msgid "Check the path and/or URL you've entered."
+msgstr ""
+
+#: ID:194,
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr ""
 
@@ -706,6 +726,10 @@ msgstr ""
 
 #: ID:9,
 msgid "Cleanup interrupted operations, locked files, ..."
+msgstr ""
+
+#: Control-ID:1059,
+msgid "Clear Auth Cache"
 msgstr ""
 
 #: Control-ID:65535,
@@ -770,6 +794,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Conflicted"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Context Menu"
 msgstr ""
 
 #: ID:73,
@@ -874,6 +902,10 @@ msgstr ""
 
 #: ID:77,
 msgid "Create Tag from revision"
+msgstr ""
+
+#: Control-ID:1073,
+msgid "Create the branch/tag directly on the server"
 msgstr ""
 
 #: ID:126,
@@ -1077,7 +1109,11 @@ msgid "Exceptions:"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Exclude pattern:"
+msgid "Exclude paths:"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Exclude/Ignore pattern:"
 msgstr ""
 
 #: ID:94,
@@ -1118,6 +1154,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "External Program:"
+msgstr ""
+
+#: ID:213,
+msgid "FSFS"
 msgstr ""
 
 #: ID:74,
@@ -1216,8 +1256,8 @@ msgstr ""
 msgid "Hostname mismatch (%s)"
 msgstr ""
 
-#: Dlg-ID:106,
-msgid "Icon Overlays"
+#: Control-ID:65535,
+msgid "Icon Overlays / Status Columns"
 msgstr ""
 
 #: Control-ID:65535,#: Control-ID:65535,
@@ -1274,6 +1314,10 @@ msgstr ""
 
 #: ID:10,
 msgid "Imports the directory to a repository"
+msgstr ""
+
+#: Control-ID:65535,
+msgid "Include paths:"
 msgstr ""
 
 #: ID:76,
@@ -1348,16 +1392,16 @@ msgstr ""
 msgid "Log Messages"
 msgstr ""
 
+#: Dlg-ID:106,
+msgid "Look and Feel"
+msgstr ""
+
 #: ID:3866,#: ID:3866,
 msgid "Mail system DLL is invalid."
 msgstr ""
 
 #: Dlg-ID:143,
 msgid "Main"
-msgstr ""
-
-#: Dlg-ID:159,
-msgid "Menu Layout"
 msgstr ""
 
 #: Dlg-ID:141,
@@ -1524,6 +1568,10 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
+#: Control-ID:1031,
+msgid "Paste Status Template"
+msgstr ""
+
 #: ID:376,
 msgid "Patch All"
 msgstr ""
@@ -1582,6 +1630,10 @@ msgstr ""
 
 #: ID:3858,#: ID:3858,
 msgid "Please enter no more than %1 characters."
+msgstr ""
+
+#: ID:251,
+msgid "Please execute the \"Cleanup\" command."
 msgstr ""
 
 #: ID:78,
@@ -1800,7 +1852,7 @@ msgstr ""
 msgid "Reverts all changes you made since the last update"
 msgstr ""
 
-#: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
+#: ID:76,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,#: Control-ID:65535,
 msgid "Revision"
 msgstr ""
 
@@ -2026,6 +2078,10 @@ msgstr ""
 
 #: Control-ID:1016,
 msgid "Show &log"
+msgstr ""
+
+#: Control-ID:1120,
+msgid "Show BugID/Issue-Nr. Box"
 msgstr ""
 
 #: Control-ID:1065,
@@ -2296,10 +2352,6 @@ msgstr ""
 msgid "Three File Diff"
 msgstr ""
 
-#: Control-ID:65535,
-msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr ""
-
 #: Control-ID:1052,
 msgid "To see the changes you made, double click on the files above."
 msgstr ""
@@ -2338,6 +2390,10 @@ msgstr ""
 
 #: ID:73,
 msgid "Try Again"
+msgstr ""
+
+#: ID:251,
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
 msgstr ""
 
 #: ID:10,
@@ -2440,6 +2496,10 @@ msgstr ""
 msgid "Use Magnifier on Locatorbar"
 msgstr ""
 
+#: Control-ID:1073,
+msgid "Use \"From:\" URL"
+msgstr ""
+
 #: Control-ID:1024,
 msgid "Use one-pane view as default"
 msgstr ""
@@ -2508,6 +2568,10 @@ msgstr ""
 msgid "Visit our website"
 msgstr ""
 
+#: ID:213,
+msgid "What repository type do you want to create?"
+msgstr ""
+
 #: Control-ID:65535,
 msgid "Whitespace diff"
 msgstr ""
@@ -2538,6 +2602,10 @@ msgstr ""
 
 #: ID:88,
 msgid "You are trying to access a repository via file:/// on\na shared network drive.\nThis could lead to severe repository corruption!\nDo you really want to do that?"
+msgstr ""
+
+#: ID:251,
+msgid "You have to update your working copy first."
 msgstr ""
 
 #: ID:77,
