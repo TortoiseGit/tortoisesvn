@@ -223,7 +223,8 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 							// output:
 							// write leading spaces followed by the previously formatted number string
 							size_t spacesToAdd = max(0, (int)MAX_REV_STRING_LEN - (int)_tcslen (buf));
-							std::swap (szInfo, stdstring (spacesToAdd, _T(' ')) + buf);
+							stdstring spaces = stdstring(spacesToAdd, _T(' ')) + buf;
+							std::swap (szInfo, spaces);
 						}
 						// else: szInfo simply remains empty
 					}

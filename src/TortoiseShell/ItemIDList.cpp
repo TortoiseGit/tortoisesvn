@@ -83,7 +83,6 @@ stdstring ItemIDList::toString()
 	LPMALLOC pMalloc = NULL;
 	IShellFolder *shellFolder = NULL;
 	IShellFolder *parentFolder = NULL;
-	IShellFolder *theFolder = NULL;
 	STRRET name;
 	TCHAR * szDisplayName = NULL;
 	stdstring ret;

@@ -256,7 +256,7 @@ STDMETHODIMP CShellExt::GetClassID(CLSID *pclsid)
     return S_OK;
 }
 
-STDMETHODIMP CShellExt::Load(LPCOLESTR pszFileName, DWORD dwMode)
+STDMETHODIMP CShellExt::Load(LPCOLESTR /*pszFileName*/, DWORD /*dwMode*/)
 {
     return S_OK;
 }

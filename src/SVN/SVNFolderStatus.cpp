@@ -257,7 +257,6 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolde
 
 filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 {
-	filestatuscache * ret = NULL;
 	sCacheKey.assign(filepath);
 	std::map<stdstring, filestatuscache>::iterator iter;
 	if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
@@ -282,7 +281,6 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 
 	std::map<stdstring, filestatuscache> * cache = (std::map<stdstring, filestatuscache> *)(&Stat->m_cache);
 	filestatuscache s;
-	TCHAR * key = NULL;
 	if ((status)&&(status->entry))
 	{
 		s.author = Stat->authors.GetString(status->entry->cmt_author);

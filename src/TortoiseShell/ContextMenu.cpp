@@ -47,7 +47,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	if (pDataObj)
 	{
 		STGMEDIUM medium;
-		FORMATETC fmte = {g_shellidlist,
+		FORMATETC fmte = {(CLIPFORMAT)g_shellidlist,
 			(DVTARGETDEVICE FAR *)NULL, 
 			DVASPECT_CONTENT, 
 			-1, 
@@ -333,8 +333,8 @@ stdstring CShellExt::WriteFileListToTempFile()
 	TCHAR path[MAX_PATH];
 	TCHAR tempFile[MAX_PATH];
 
-	DWORD len = ::GetTempPath (MAX_PATH, path);
-	UINT unique = ::GetTempFileName (path, _T("svn"), 0, tempFile);
+	GetTempPath (MAX_PATH, path);
+	GetTempFileName (path, _T("svn"), 0, tempFile);
 
 	HANDLE file = ::CreateFile (tempFile,
 								GENERIC_WRITE, 
@@ -363,7 +363,7 @@ stdstring CShellExt::WriteFileListToTempFile()
 STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
                                          UINT indexMenu,
                                          UINT idCmdFirst,
-                                         UINT idCmdLast,
+                                         UINT /*idCmdLast*/,
                                          UINT uFlags)
 {
 	//first check if our drophandler is called
@@ -442,7 +442,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	LoadLangDll();
-	bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
+	//bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
 	UINT idCmd = idCmdFirst;
 
 	//create the submenu
@@ -469,7 +469,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCOMMIT), INDEXMENU(MENUCOMMIT), idCmd++, IDS_MENUCOMMIT, IDI_COMMIT, idCmdFirst, Commit);
 	
 	//---- separator 
-	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -490,7 +490,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUSHOWCHANGED), INDEXMENU(MENUSHOWCHANGED), idCmd++, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, idCmdFirst, ShowChanged);
 
 	//---- separator 
-	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -514,7 +514,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
 
 	//---- separator 
-	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -532,7 +532,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENURELOCATE), INDEXMENU(MENURELOCATE), idCmd++, IDS_MENURELOCATE, IDI_RELOCATE, idCmdFirst, Relocate);
 
 	//---- separator 
-	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -604,7 +604,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	//---- separator 
-	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -616,7 +616,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUAPPLYPATCH), INDEXMENU(MENUAPPLYPATCH), idCmd++, IDS_MENUAPPLYPATCH, IDI_PATCH, idCmdFirst, ApplyPatch);
 
 	//---- separator 
-	if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
+	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
 	{
 		InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 		lastSeparator = idCmd++;
@@ -671,7 +671,6 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 	HRESULT hr = E_INVALIDARG;
 	if (lpcmi == NULL)
 		return hr;
-	UINT idCmd = LOWORD(lpcmi->lpVerb);
 
 	std::string command;
 	std::string parent;
@@ -1006,7 +1005,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 // This is for the status bar and things like that:
 STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
                                          UINT uFlags,
-                                         UINT FAR *reserved,
+                                         UINT FAR * /*reserved*/,
                                          LPSTR pszName,
                                          UINT cchMax)
 {   
@@ -1158,7 +1157,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg(UINT uMsg, WPARAM wParam, LPARAM lParam)
    return HandleMenuMsg2(uMsg, wParam, lParam, &res);
 }
 
-STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT *pResult)
+STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM /*wParam*/, LPARAM lParam, LRESULT *pResult)
 {
 //a great tutorial on owner drawn menus in shell extension can be found
 //here: http://www.codeproject.com/shell/shellextguide7.asp

@@ -79,7 +79,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 
 
 
-STDMETHODIMP CShellExt::ReplacePage (UINT uPageID, LPFNADDPROPSHEETPAGE lpfnReplaceWith, LPARAM lParam)
+STDMETHODIMP CShellExt::ReplacePage (UINT /*uPageID*/, LPFNADDPROPSHEETPAGE /*lpfnReplaceWith*/, LPARAM /*lParam*/)
 {
     return E_FAIL;
 }
@@ -108,7 +108,7 @@ BOOL CALLBACK PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam)
         return FALSE;
 }
 
-UINT CALLBACK PropPageCallbackProc ( HWND hwnd, UINT uMsg, LPPROPSHEETPAGE ppsp )
+UINT CALLBACK PropPageCallbackProc ( HWND /*hwnd*/, UINT uMsg, LPPROPSHEETPAGE ppsp )
 {
     // Delete the page before closing.
     if ( PSPCB_RELEASE == uMsg )
@@ -148,7 +148,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 		{
 			InitWorkfileView();
 			HWND hwndCombo = GetDlgItem(hwnd, IDC_EDITNAME);
-			COMBOBOXINFO cbInfo;
+			COMBOBOXINFO cbInfo = {0};
 			cbInfo.cbSize = sizeof(COMBOBOXINFO);
 			if (hwndCombo)
 			{
@@ -244,7 +244,6 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 			{
 				int nWindowWidth = 400;
 				LPNMTTDISPINFO lpnmtdi = (LPNMTTDISPINFO) lParam;
-				HWND hwndCombo = GetDlgItem(m_hwnd, IDC_EDITNAME);
 				TCHAR * name = NULL;
 				TCHAR buf[MAX_PROP_STRING_LENGTH];
 				GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
@@ -487,14 +486,14 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
 
 	newtime = _localtime64(&time);
 
-	systime.wDay = newtime->tm_mday;
-	systime.wDayOfWeek = newtime->tm_wday;
-	systime.wHour = newtime->tm_hour;
+	systime.wDay = (WORD)newtime->tm_mday;
+	systime.wDayOfWeek = (WORD)newtime->tm_wday;
+	systime.wHour = (WORD)newtime->tm_hour;
 	systime.wMilliseconds = 0;
-	systime.wMinute = newtime->tm_min;
-	systime.wMonth = newtime->tm_mon+1;
-	systime.wSecond = newtime->tm_sec;
-	systime.wYear = newtime->tm_year+1900;
+	systime.wMinute = (WORD)newtime->tm_min;
+	systime.wMonth = (WORD)newtime->tm_mon+1;
+	systime.wSecond = (WORD)newtime->tm_sec;
+	systime.wYear = (WORD)newtime->tm_year+1900;
 	GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
 	GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PROP_STRING_LENGTH);
 	*buf = '\0';
@@ -516,7 +515,6 @@ void CSVNPropertyPage::InitWorkfileView()
 				LoadLangDll();
 				TCHAR buf[MAX_PROP_STRING_LENGTH];
 				__time64_t	time;
-				int datelen = 0;
 				_stprintf(buf, _T("%d"), svn.status->entry->revision);
 				SetDlgItemText(m_hwnd, IDC_REVISION, buf);
 				if (svn.status->entry->url)
@@ -649,7 +647,6 @@ void CSVNPropertyPage::InitWorkfileView()
 			if (svn.status->entry != NULL)
 			{
 				LoadLangDll();
-				int datelen = 0;
 				if (svn.status->entry->url)
 				{
 					Unescape((char*)svn.status->entry->url);
@@ -711,7 +708,7 @@ void CSVNPropertyPage::InitWorkfileView()
 		propmap.clear();
 		for (std::vector<listproperty>::iterator I = proplist.begin(); I != proplist.end(); ++I)
 		{
-			if (I->count == filenames.size())
+			if (I->count == (ULONGLONG)filenames.size())
 			{
 				stdstring stemp;
 				LVITEM lvitem = {0};
