@@ -7,6 +7,8 @@ CVS
        add dialog lead to deactivation of _all_
        files which started with the same path, eve
        if they weren't in the same folder. (Stefan)
+- BUG: menu entries were shown twice for "link" files
+       like .lnk and .rdp. This solves issue 52. (Stefan)
 - CHG: the log command now has the strict-option
        set to false instead of true. (Stefan)
 - CHG: time/date is now shown using the local
