@@ -66,7 +66,11 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual void OnOK();
+	virtual void OnCancel();
 	DECLARE_MESSAGE_MAP()
 public:
 	CString			m_sLogMessage;
@@ -77,11 +81,6 @@ public:
 	CDWordArray		m_arFileStatus;
 private:
 	HANDLE			m_hThread;
-public:
-	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-protected:
-	virtual void OnCancel();
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

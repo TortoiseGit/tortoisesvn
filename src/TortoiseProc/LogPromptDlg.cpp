@@ -61,6 +61,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
 	ON_WM_SIZING()
+	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
 END_MESSAGE_MAP()
 
 
@@ -176,6 +177,61 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 									IDS_MSGBOX_DONOTSHOW);
 		}
 	}
+}
+
+void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	*pResult = 0;
+	int selIndex = m_ListCtrl.GetSelectionMark();
+	if (selIndex >= 0)
+	{
+		CString filepath = m_arFileList.GetAt(selIndex);
+		svn_wc_status_kind wcStatus = (svn_wc_status_kind)m_arFileStatus.GetAt(selIndex);
+		//entry is selected, now show the popup menu
+		CMenu popup;
+		POINT point;
+		GetCursorPos(&point);
+		if (popup.CreatePopupMenu())
+		{
+			CString temp;
+			if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
+			{
+				temp.LoadString(IDS_MENUREVERT);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
+			}
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+			GetDlgItem(IDOK)->EnableWindow(FALSE);
+			theApp.DoWaitCursor(1);
+			switch (cmd)
+			{
+			case ID_REVERT:
+				{
+					if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES)
+					{
+						SVN svn;
+						if (!svn.Revert(filepath, FALSE))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+						else
+						{
+							//since the entry got reverted we need to remove
+							//it from the list too
+							m_ListCtrl.DeleteItem(selIndex);
+							m_arFileStatus.RemoveAt(selIndex);
+							m_arFileList.RemoveAt(selIndex);
+						}
+					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES) 
+				} 
+				break;
+			default:
+				GetDlgItem(IDOK)->EnableWindow(TRUE);
+				break;
+			} // switch (cmd)
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			theApp.DoWaitCursor(-1);
+		} // if (popup.CreatePopupMenu())
+	} // if (selIndex >= 0)
 }
 
 void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -440,6 +496,7 @@ void CLogPromptDlg::OnCancel()
 	UpdateData(TRUE);
 	CResizableDialog::OnCancel();
 }
+
 
 
 
