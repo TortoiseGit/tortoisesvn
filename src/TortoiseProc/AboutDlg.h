@@ -19,8 +19,10 @@
 
 #include "Watereffect.h"
 #include "Dib.h"
+#include "HyperLink.h"
 #include <afxctl.h>
 #include <afxwin.h>
+#include "afxwin.h"
 
 
 #define ID_EFFECTTIMER 1111
@@ -82,6 +84,8 @@ private:
 	CWaterEffect m_waterEffect;
 	CDib m_renderSrc;
 	CDib m_renderDest;
+	CHyperLink m_cWebLink;
+	CHyperLink m_cSupportLink;
 public:
 	afx_msg void OnTimer(UINT nIDEvent);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);

@@ -32,13 +32,6 @@ IDR_SEARCH              AVI                     "res\\search.avi"
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // RT_MANIFEST
 //
 
@@ -56,6 +49,13 @@ IDI_DRIVES              ICON                    "res\\Drives.ico"
 IDI_SSH                 ICON                    "res\\ssh.ico"
 IDI_PROXY               ICON                    "res\\proxy.ico"
 IDI_MISC                ICON                    "res\\misc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\tortoisesvn_logoflipped.bmp"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -74,21 +74,24 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // Dialog
 //
 
-IDD_ABOUT DIALOGEX 0, 0, 221, 286
+IDD_ABOUT DIALOGEX 0, 0, 333, 249
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "About TortoiseSVN"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "Authors:                      Stefan Kueng, Tim Kemp",
-                    IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,14,136,
+                    IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,14,68,
                     151,8
-    LTEXT           "Icons/Design/Code:     Luebbe Onken",IDC_STATIC,14,150,
+    LTEXT           "Icons/Design/Code:     Luebbe Onken",IDC_STATIC,14,80,
                     120,8
-    DEFPUSHBUTTON   "&OK",IDOK,77,265,50,14
-    GROUPBOX        "Version",IDC_VERSIONBOX,7,164,207,99
-    EDITTEXT        IDC_VERSIONABOUT,14,178,200,85,ES_MULTILINE | 
+    DEFPUSHBUTTON   "&OK",IDOK,276,228,50,14
+    GROUPBOX        "Version",IDC_VERSIONBOX,7,123,319,99
+    EDITTEXT        IDC_VERSIONABOUT,14,134,304,85,ES_MULTILINE | 
                     ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    LTEXT           "Visit our website",IDC_WEBLINK,14,95,312,8
+    LTEXT           "and support the developers",IDC_SUPPORTLINK,14,105,312,
+                    8
 END
 
 IDD_ADD DIALOGEX 0, 0, 244, 154
@@ -517,11 +520,11 @@ BEGIN
     IDD_ABOUT, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 214
+        RIGHTMARGIN, 326
         VERTGUIDE, 14
         TOPMARGIN, 7
-        BOTTOMMARGIN, 279
-        HORZGUIDE, 136
+        BOTTOMMARGIN, 242
+        HORZGUIDE, 68
     END
 
     IDD_ADD, DIALOG

@@ -52,6 +52,8 @@ CAboutDlg::~CAboutDlg()
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_WEBLINK, m_cWebLink);
+	DDX_Control(pDX, IDC_SUPPORTLINK, m_cSupportLink);
 }
 
 
@@ -126,12 +128,16 @@ BOOL CAboutDlg::OnInitDialog()
 
 	CPictureHolder tmpPic;
 	tmpPic.CreateFromBitmap(IDB_LOGOFLIPPED);
-	m_renderSrc.Create32BitFromPicture(&tmpPic,301,167);
-	m_renderDest.Create32BitFromPicture(&tmpPic,301,167);
+	m_renderSrc.Create32BitFromPicture(&tmpPic,468,64);
+	m_renderDest.Create32BitFromPicture(&tmpPic,468,64);
 
-	m_waterEffect.Create(301,167);
+	m_waterEffect.Create(468,64);
 	SetTimer(ID_EFFECTTIMER, 40, NULL);
 	SetTimer(ID_DROPTIMER, 300, NULL);
+
+	m_cWebLink.SetURL(_T("http://www.tortoisesvn.org"));
+	m_cSupportLink.SetURL(_T("http://tortoisesvn.tigris.org/contributors.html"));
+
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -170,7 +176,7 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 	{
 		// dibs are drawn upside down...
 		point.y -= 20;
-		point.y = 167-point.y;
+		point.y = 64-point.y;
 
 		if (nFlags & MK_LBUTTON)
 			m_waterEffect.Blob(point.x -15,point.y,5,1600,m_waterEffect.m_iHpage);

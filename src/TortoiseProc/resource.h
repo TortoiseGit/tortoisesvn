@@ -9,7 +9,6 @@
 #define IDD_ABOUT                       129
 #define IDD_LOGMESSAGE                  130
 #define IDD_PROMPT                      131
-#define IDB_LOGOFLIPPED                 132
 #define IDD_CHECKOUT                    133
 #define IDD_SVNPROGRESS                 134
 #define IDD_LOGPROMPT                   135
@@ -35,8 +34,8 @@
 #define IDI_DRIVES                      164
 #define IDI_SSH                         165
 #define IDI_PROXY                       166
-#define IDI_ICON1                       167
 #define IDI_MISC                        167
+#define IDB_LOGOFLIPPED                 168
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -158,6 +157,8 @@
 #define IDC_SSHGROUP                    1081
 #define IDC_MISCGROUP                   1082
 #define IDC_COMMITGROUP                 1083
+#define IDC_WEBLINK                     1084
+#define IDC_SUPPORTLINK                 1085
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -324,9 +325,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        168
+#define _APS_NEXT_RESOURCE_VALUE        169
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1084
+#define _APS_NEXT_CONTROL_VALUE         1086
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
