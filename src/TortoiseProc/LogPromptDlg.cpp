@@ -521,7 +521,7 @@ void CLogPromptDlg::OnBnClickedFilllog()
 void CLogPromptDlg::OnCbnSelchangeOldlogs()
 {
 	if (m_OldLogs.GetString().Compare(m_cLogMessage.GetText().Left(m_OldLogs.GetString().GetLength()))!=0)
-		m_cLogMessage.InsertText(m_OldLogs.GetString(), true);
+		m_cLogMessage.InsertText(m_OldLogs.GetString(), !m_cLogMessage.GetText().IsEmpty());
 	if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
