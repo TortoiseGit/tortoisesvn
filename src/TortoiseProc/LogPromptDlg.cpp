@@ -901,6 +901,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
 		pDlg->EndDialog(0);
+		return -1;
 	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
 	if (bHasExternalsFromDifferentRepos)
 	{
