@@ -185,9 +185,10 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		PreserveChdir preserveChdir;
 		stdstring szInfo;
 #ifdef UNICODE
-		std::wstring path = pscd->wszFile;
+		TCHAR * path = (TCHAR *)pscd->wszFile;
 #else
-		std::string path = WideToUTF8(pscd->wszFile);
+		std::string stdpath = WideToMultibyte(pscd->wszFile);
+		TCHAR * path = stdpath.c_str();
 #endif
 
 		// reserve for the path + trailing \0
@@ -257,9 +258,9 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
-					if (g_ShellCache.IsPathAllowed(path.c_str()))
+					if (g_ShellCache.IsPathAllowed(path))
 					{
-						SVNProperties props = SVNProperties(path.c_str());
+						SVNProperties props = SVNProperties(path);
 						for (int i=0; i<props.GetCount(); i++)
 						{
 							if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
@@ -279,12 +280,13 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				return S_FALSE;
 		}
 #ifdef UNICODE
-		wide_string wsInfo = szInfo;
+		const WCHAR * wsInfo = szInfo.c_str();
 #else
-		wide_string wsInfo = MultibyteToWide(szInfo);
+		wide_string stdwsInfo = MultibyteToWide(szInfo);
+		const WCHAR * wsInfo = stdwsInfo.c_str();
 #endif
 		V_VT(pvarData) = VT_BSTR;
-		V_BSTR(pvarData) = SysAllocString(wsInfo.c_str());
+		V_BSTR(pvarData) = SysAllocString(wsInfo);
 		return S_OK;
 	} // if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 4) 
 	if (pscid->fmtid == FMTID_SummaryInformation)
@@ -293,9 +295,10 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
 		stdstring szInfo;
 #ifdef UNICODE
-		std::wstring path = pscd->wszFile;
+		TCHAR * path = (TCHAR *)pscd->wszFile;
 #else
-		std::string path = WideToMultibyte(pscd->wszFile);
+		std::string stdpath = WideToMultibyte(pscd->wszFile);
+		TCHAR * path = stdpath.c_str();
 #endif
 
 		switch (pscid->pid)
@@ -344,18 +347,18 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 	return S_OK;
 }
 
-void CShellExt::GetColumnStatus(stdstring path, BOOL bIsDir)
+void CShellExt::GetColumnStatus(TCHAR * path, BOOL bIsDir)
 {
-	if (columnfilepath.compare(path)==0)
+	if (_tcscmp(path, columnfilepath.c_str())==0)
 		return;
 	LoadLangDll();
 	columnfilepath = path;
 	filestatuscache * status;
-	if (! g_ShellCache.IsPathAllowed(path.c_str()))
+	if (! g_ShellCache.IsPathAllowed(path))
 		status = &g_CachedStatus.invalidstatus;
 	else
 	{
-		status = g_CachedStatus.GetFullStatus(path.c_str(), bIsDir, TRUE);
+		status = g_CachedStatus.GetFullStatus(path, bIsDir, TRUE);
 	}
 	filestatus = status->status;
 

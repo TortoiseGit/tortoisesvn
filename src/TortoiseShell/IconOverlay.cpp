@@ -155,29 +155,31 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 	if (pwszPath == NULL)
 		return S_FALSE;
 #ifdef UNICODE
-	std::wstring sPath = pwszPath;
+	const TCHAR* pPath = pwszPath;
 #else
-	std::string sPath = WideToUTF8(std::basic_string<wchar_t>(pwszPath));
+	std::string snPath = WideToUTF8(std::basic_string<wchar_t>(pwszPath));
+	const TCHAR* pPath = snPath.c_str();
 #endif
+
 	//if recursive is set in the registry then check directories recursive for status and show
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
 	//also check if we already have the status for the path so we don't have to get it again (small cache)
-	if (sPath.compare(g_filepath)==0)
+	if (_tcscmp(pPath, g_filepath.c_str())==0)
 	{
 		status = filestatus;
 	}
 	else
 	{
-		if (! g_ShellCache.IsPathAllowed(sPath.c_str()))
+		if (! g_ShellCache.IsPathAllowed(pPath))
 			return S_FALSE;
 
 		// since the dwAttrib param of the IsMemberOf() function does not
 		// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
 		// we have to check if the path is a folder ourselves :(
-		if (PathIsDirectory(sPath.c_str()))
+		if (PathIsDirectory(pPath))
 		{
-			if (g_ShellCache.HasSVNAdminDir(sPath.c_str(), TRUE))
+			if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
 			{
 				if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
 				{
@@ -188,7 +190,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 					DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
 					if (dwWaitResult == WAIT_OBJECT_0)
 					{
-						filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str(), TRUE);
+						filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
 						status = s->status;
 						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 					} // if (dwWaitResult == WAIT_OBJECT_0) 
@@ -208,7 +210,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 			DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
 			if (dwWaitResult == WAIT_OBJECT_0)
 			{
-				filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str(), FALSE);
+				filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
 				status = s->status;
 			} // if (dwWaitResult == WAIT_OBJECT_0)
 			else
@@ -218,7 +220,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 			ReleaseMutex(hMutex);
 		}
 		g_filepath.clear();
-		g_filepath = sPath;
+		g_filepath = pPath;
 		filestatus = status;
 	}
 

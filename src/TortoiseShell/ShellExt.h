@@ -160,7 +160,7 @@ private:
 	void InsertSVNMenu(BOOL ownerdrawn, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);
 	stdstring WriteFileListToTempFile();
 	LPCTSTR GetMenuTextFromResource(int id);
-	void GetColumnStatus(stdstring path, BOOL bIsDir);
+	void GetColumnStatus(TCHAR * path, BOOL bIsDir);
 	HBITMAP IconToBitmap(UINT hIcon, COLORREF transparentColor);
 public:
 	CShellExt(FileState state);
