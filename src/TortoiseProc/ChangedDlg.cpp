@@ -300,7 +300,7 @@ void CChangedDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							tempfile = SVN::GetPristinePath(filepath);
 
-							if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(filepath, m_arPaths.GetAt(selIndex))))
+							if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")), TRUE)&&(SVN::GetTranslatedFile(filepath, m_arPaths.GetAt(selIndex))))
 							{
 								m_templist.Add(filepath);
 							}
@@ -431,7 +431,7 @@ void CChangedDlg::OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 	CString name = CUtils::GetFileNameFromPath(path1);
 	CString ext = CUtils::GetFileExtFromPath(path1);
 
-	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(path1, path1)))
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")), TRUE)&&(SVN::GetTranslatedFile(path1, path1)))
 	{
 		m_templist.Add(path1);
 	}

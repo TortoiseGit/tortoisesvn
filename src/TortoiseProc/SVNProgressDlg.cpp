@@ -739,7 +739,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		CString sWC = data->path;
 		CString sBase = SVN::GetPristinePath(sWC);
 
-		if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")))&&(SVN::GetTranslatedFile(sWC, sWC)))
+		if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase")), TRUE)&&(SVN::GetTranslatedFile(sWC, sWC)))
 		{
 			m_templist.Add(sWC);
 		}
