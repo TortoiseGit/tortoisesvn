@@ -105,6 +105,8 @@
 #define IDC_MAGNIFIER                   1064
 #define IDC_CHECK2                      1065
 #define IDC_DIFFBAR                     1065
+#define IDC_CHECK3                      1066
+#define IDC_STRIKEOUT                   1066
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDC_WEBLINK                     1084
@@ -148,8 +150,8 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
-#define _APS_NEXT_COMMAND_VALUE         32791
-#define _APS_NEXT_CONTROL_VALUE         1066
+#define _APS_NEXT_COMMAND_VALUE         32794
+#define _APS_NEXT_CONTROL_VALUE         1067
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

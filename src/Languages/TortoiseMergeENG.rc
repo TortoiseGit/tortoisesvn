@@ -191,7 +191,7 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,17,236,10
     CONTROL         "Jump to first difference when loading",
                     IDC_FIRSTDIFFONLOAD,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,15,31,236,10
+                    WS_TABSTOP,15,27,236,10
     LTEXT           "Tab Size:",IDC_STATIC,15,101,54,8
     EDITTEXT        IDC_TABSIZE,80,98,41,14,ES_AUTOHSCROLL | ES_NUMBER
     GROUPBOX        "Diffing",IDC_DIFFGROUP,7,157,251,59
@@ -204,22 +204,24 @@ BEGIN
     CONTROL         "Ignore All Whitespaces",IDC_WSIGNOREALL,"Button",
                     BS_AUTORADIOBUTTON,15,203,236,10
     CONTROL         "Use one-pane view as default",IDC_ONEPANE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,45,236,10
-    LTEXT           "Language:",IDC_STATIC,15,118,66,8
-    COMBOBOX        IDC_LANGUAGECOMBO,80,116,171,58,CBS_DROPDOWN | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,37,236,10
+    LTEXT           "Language:",IDC_STATIC,15,137,66,8
+    COMBOBOX        IDC_LANGUAGECOMBO,80,135,171,58,CBS_DROPDOWN | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Font:",IDC_STATIC,15,133,52,8
-    COMBOBOX        IDC_FONTNAMES,80,132,122,90,CBS_DROPDOWNLIST | 
+    LTEXT           "Font:",IDC_STATIC,15,119,52,8
+    COMBOBOX        IDC_FONTNAMES,80,117,122,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_FONTSIZES,211,133,40,47,CBS_DROPDOWN | WS_VSCROLL | 
+    COMBOBOX        IDC_FONTSIZES,211,117,40,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     CONTROL         "Show Linenumbers",IDC_LINENUMBERS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,59,236,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,47,236,10
     CONTROL         "Use Magnifier on Locatorbar",IDC_MAGNIFIER,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,15,73,236,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,57,236,10
     CONTROL         "Show Diff Bar",IDC_DIFFBAR,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,15,87,236,10
+                    WS_TABSTOP,15,67,236,10
+    CONTROL         "Use strikeout for deleted lines",IDC_STRIKEOUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
 END
 
 IDD_SETCOLORPAGE DIALOGEX 0, 0, 265, 223

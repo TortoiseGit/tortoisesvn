@@ -38,6 +38,7 @@ CSetMainPage::CSetMainPage()
 	, m_bViewLinenumbers(FALSE)
 	, m_bMagnifier(FALSE)
 	, m_bDiffBar(FALSE)
+	, m_bStrikeout(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
@@ -49,6 +50,7 @@ CSetMainPage::CSetMainPage()
 	m_regViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	m_regMagnifier = CRegDWORD(_T("Software\\TortoiseMerge\\Magnifier"), TRUE);
 	m_regDiffBar = CRegDWORD(_T("Software\\TortoiseMerge\\DiffBar"), TRUE);
+	m_regStrikeout = CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
 
 	m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
@@ -63,6 +65,7 @@ CSetMainPage::CSetMainPage()
 	m_bViewLinenumbers = m_regViewLinenumbers;
 	m_bMagnifier = m_regMagnifier;
 	m_bDiffBar = m_regDiffBar;
+	m_bStrikeout = m_regStrikeout;
 }
 
 CSetMainPage::~CSetMainPage()
@@ -86,6 +89,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_LINENUMBERS, m_bViewLinenumbers);
 	DDX_Check(pDX, IDC_MAGNIFIER, m_bMagnifier);
 	DDX_Check(pDX, IDC_DIFFBAR, m_bDiffBar);
+	DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
 }
 
 void CSetMainPage::SaveData()
@@ -102,6 +106,7 @@ void CSetMainPage::SaveData()
 	m_regViewLinenumbers = m_bViewLinenumbers;
 	m_regMagnifier = m_bMagnifier;
 	m_regDiffBar = m_bDiffBar;
+	m_regStrikeout = m_bStrikeout;
 }
 
 BOOL CSetMainPage::OnApply()
@@ -133,6 +138,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bViewLinenumbers = m_regViewLinenumbers;
 	m_bMagnifier = m_regMagnifier;
 	m_bDiffBar = m_regDiffBar;
+	m_bStrikeout = m_regStrikeout;
 
 	UINT uRadio = IDC_WSIGNORELEADING;
 	switch (m_nIgnoreWS)
@@ -220,6 +226,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_LINENUMBERS, OnBnClickedLinenumbers)
 	ON_BN_CLICKED(IDC_MAGNIFIER, OnBnClickedMagnifier)
 	ON_BN_CLICKED(IDC_DIFFBAR, OnBnClickedDiffbar)
+	ON_BN_CLICKED(IDC_STRIKEOUT, OnBnClickedStrikeout)
 	ON_EN_CHANGE(IDC_TABSIZE, OnEnChangeTabsize)
 	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
@@ -265,6 +272,11 @@ void CSetMainPage::OnBnClickedMagnifier()
 }
 
 void CSetMainPage::OnBnClickedDiffbar()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedStrikeout()
 {
 	SetModified();
 }

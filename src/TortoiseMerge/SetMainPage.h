@@ -69,6 +69,8 @@ protected:
 	CRegDWORD		m_regMagnifier;
 	BOOL			m_bDiffBar;
 	CRegDWORD		m_regDiffBar;
+	BOOL			m_bStrikeout;
+	CRegDWORD		m_regStrikeout;
 	
 	CRegDWORD		m_regFontSize;
 	DWORD			m_dwFontSize;
@@ -77,7 +79,7 @@ protected:
 
 	CComboBox		m_LanguageCombo;
 	CFontPreviewCombo m_cFontNames;
-	CComboBox m_cFontSizes;
+	CComboBox		m_cFontSizes;
 protected:
 	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnBnClickedBackup();
@@ -92,6 +94,6 @@ protected:
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnBnClickedLinenumbers();
 	afx_msg void OnBnClickedMagnifier();
-public:
 	afx_msg void OnBnClickedDiffbar();
+	afx_msg void OnBnClickedStrikeout();
 };
