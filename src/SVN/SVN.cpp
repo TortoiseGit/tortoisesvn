@@ -623,6 +623,32 @@ BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2
 	return TRUE;
 }
 
+BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, CString destpath, BOOL force, BOOL recurse, BOOL ignoreancestry)
+{
+	preparePath(source);
+	preparePath(destpath);
+
+	Err = svn_client_merge_peg (MakeSVNUrlOrPath(source),
+		revision1,
+		revision2,
+		pegrevision,
+		MakeSVNUrlOrPath(destpath),
+		recurse,
+		ignoreancestry,
+		force,
+		false,		//no 'dry-run'
+		&ctx,
+		pool);
+	if(Err != NULL)
+	{
+		return FALSE;
+	}
+
+	UpdateShell(destpath);
+
+	return TRUE;
+}
+
 BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile)
 {
 	BOOL del = FALSE;

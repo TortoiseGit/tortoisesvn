@@ -319,6 +319,7 @@ public:
 	 */
 	BOOL Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE);
 
+	BOOL PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, CString destpath, BOOL force, BOOL recurse, BOOL ignoreancestry = FALSE);
 	/**
 	 * Produce diff output which describes the delta between \a path1/\a revision1 and \a path2/\a revision2
 	 * Print the output of the diff to \a outputfile, and any errors to \a errorfile. \a path1 
