@@ -38,20 +38,19 @@ enum NodeShape
 #define RGB_DEF_NODE			RGB(0, 0, 255)
 
 #define NODE_RECT_WIDTH			200
-#define NODE_SPACE_LEFT			10
+#define NODE_SPACE_LEFT			12
 #define NODE_SPACE_RIGHT		100
 #define NODE_SPACE_LINE			20
-#define NODE_RECT_HEIGTH		50
+#define NODE_RECT_HEIGTH		60
 #define NODE_SPACE_TOP			20
-#define NODE_SPACE_BOTTOM		30
+#define NODE_SPACE_BOTTOM		20
 
-#define MAXFONTS				2
+#define MAXFONTS				4
 #define	MAX_TT_LENGTH			10000
 
 class CRevisionGraphDlg : public CResizableDialog, public CRevisionGraph
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
-
 public:
 	CRevisionGraphDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CRevisionGraphDlg();
@@ -77,9 +76,18 @@ protected:
 	LONG			m_lSelectedRev;
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[MAXFONTS];
+	int				m_nFontSize;
 	CToolTipCtrl *	m_pDlgTip;
 	char			m_szTip[MAX_TT_LENGTH+1];
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
+
+	int				m_node_rect_width;
+	int				m_node_space_left;
+	int				m_node_space_right;
+	int				m_node_space_line;
+	int				m_node_rect_heigth;
+	int				m_node_space_top;
+	int				m_node_space_bottom;
 
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
@@ -114,5 +122,7 @@ private:
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
 public:
+	afx_msg void OnViewZoomin();
+	afx_msg void OnViewZoomout();
 };
 DWORD WINAPI WorkerThread(LPVOID pVoid);
