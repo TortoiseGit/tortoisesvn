@@ -30,7 +30,8 @@
 #include "..\\version.h"
 #include "UnicodeStrings.h"
 #include "atltrace.h"
-
+#include "Accctrl.h"
+#include "Aclapi.h"
 
 // *********************** CShellExt *************************
 CShellExt::CShellExt(FileState state)
@@ -44,6 +45,7 @@ CShellExt::CShellExt(FileState state)
 	if (hMutex == NULL)
 	{
 		hMutex = CreateMutex(NULL, NULL,  _T("TortoiseSVNShell"));
+		SetSecurityInfo(hMutex,SE_KERNEL_OBJECT,DACL_SECURITY_INFORMATION,0,0,0,0);
 		ATLTRACE2(_T("created mutex\n"));
 	}
 	else
