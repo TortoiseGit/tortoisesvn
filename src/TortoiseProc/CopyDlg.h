@@ -70,7 +70,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	CFont		m_logFont;
 	BOOL		m_bFile;
-	BugtraqInfo	m_BugtraqInfo;
+	ProjectProperties	m_ProjectProperties;
 	CString		m_sBugID;
 public:
 	CHistoryCombo m_URLCombo;

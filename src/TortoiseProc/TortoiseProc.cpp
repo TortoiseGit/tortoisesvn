@@ -1110,7 +1110,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (rev_val != 0)
 				rev = SVNRev(rev_val);
 			CRepositoryBrowser dlg(SVNUrl(url, rev), bFile);
-			dlg.m_BugtraqInfo.ReadProps(path);
+			dlg.m_ProjectProperties.ReadProps(path);
 			dlg.DoModal();
 		}
 		//#endregion 

@@ -28,7 +28,8 @@
 /**
  * \ingroup TortoiseProc
  * Provides methods for retrieving information about bug/issuetrackers
- * associated with a Subversion repository/working copy.
+ * associated with a Subversion repository/working copy and other project
+ * related properties.
  *
  *
  * \version 1.0
@@ -45,11 +46,11 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class BugtraqInfo
+class ProjectProperties
 {
 public:
-	BugtraqInfo(void);
-	~BugtraqInfo(void);
+	ProjectProperties(void);
+	~ProjectProperties(void);
 
 	/**
 	 * Reads the bugtracking properties from a path. If the path is a file

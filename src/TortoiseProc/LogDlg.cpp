@@ -179,7 +179,7 @@ BOOL CLogDlg::OnInitDialog()
 
 	if (m_hasWC)
 	{
-		m_BugtraqInfo.ReadProps(m_path);
+		m_ProjectProperties.ReadProps(m_path);
 	}
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
@@ -216,7 +216,7 @@ void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	pMsgView->SetWindowText(_T(" "));
 	pMsgView->SetWindowText(msg);
-	m_BugtraqInfo.FindBugID(msg, pMsgView);
+	m_ProjectProperties.FindBugID(msg, pMsgView);
 
 	m_LogMsgCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 	m_LogMsgCtrl.DeleteAllItems();
@@ -1539,7 +1539,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 		url = msg.Mid(pEnLink->chrg.cpMin, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
 		if (!::PathIsURL(url))
 		{
-			url = m_BugtraqInfo.GetBugIDUrl(url);
+			url = m_ProjectProperties.GetBugIDUrl(url);
 		}
 		if (!url.IsEmpty())
 			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);

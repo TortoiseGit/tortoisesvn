@@ -18,19 +18,19 @@
 
 #include "StdAfx.h"
 #include "shlwapi.h"
-#include ".\BugtraqInfo.h"
+#include ".\ProjectProperties.h"
 
-BugtraqInfo::BugtraqInfo(void)
+ProjectProperties::ProjectProperties(void)
 {
 	bNumber = TRUE;
 	bWarnIfNoIssue = FALSE;
 }
 
-BugtraqInfo::~BugtraqInfo(void)
+ProjectProperties::~ProjectProperties(void)
 {
 }
 
-BOOL BugtraqInfo::ReadPropsTempfile(CString path)
+BOOL ProjectProperties::ReadPropsTempfile(CString path)
 {
 	CString strLine;
 	try
@@ -55,7 +55,7 @@ BOOL BugtraqInfo::ReadPropsTempfile(CString path)
 	return FALSE;
 }
 
-BOOL BugtraqInfo::ReadProps(CString path)
+BOOL ProjectProperties::ReadProps(CString path)
 {
 	BOOL bFoundProps = FALSE;
 	path.Replace('/', '\\');
@@ -137,7 +137,7 @@ BOOL BugtraqInfo::ReadProps(CString path)
 	return FALSE;		//never reached
 }
 
-BOOL BugtraqInfo::FindBugID(const CString& msg, CWnd * pWnd)
+BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 {
 	int offset1, offset2;
 	if (sUrl.IsEmpty())
@@ -191,7 +191,7 @@ BOOL BugtraqInfo::FindBugID(const CString& msg, CWnd * pWnd)
 	return FALSE;
 }
 
-CString BugtraqInfo::GetBugIDUrl(const CString& msg)
+CString ProjectProperties::GetBugIDUrl(const CString& msg)
 {
 	CString ret;
 	if (sUrl.IsEmpty())

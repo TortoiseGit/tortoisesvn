@@ -22,7 +22,7 @@
 #include "..\\Utils\\Balloon.h"
 #include "SpellEdit.h"
 #include "SVNStatusListCtrl.h"
-#include "BugtraqInfo.h"
+#include "ProjectProperties.h"
 #include "afxwin.h"
 
 /**
@@ -95,7 +95,7 @@ private:
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
-	BugtraqInfo		m_BugtraqInfo;
+	ProjectProperties		m_ProjectProperties;
 	CHistoryCombo	m_OldLogs;
 };
 

@@ -22,7 +22,7 @@
 #include "afxdlgs.h"
 #include "svn.h"
 #include "promptdlg.h"
-#include "BugtraqInfo.h"
+#include "ProjectProperties.h"
 #include "Registry.h"
 #include "ResizableDialog.h"
 
@@ -131,7 +131,7 @@ public:
 	BOOL		m_bThreadRunning;
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
-	BugtraqInfo m_BugtraqInfo;
+	ProjectProperties m_ProjectProperties;
 private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;

@@ -152,7 +152,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.Init(SVNSLC_COLSTATUS);
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
-	m_BugtraqInfo.ReadPropsTempfile(m_sPath);
+	m_ProjectProperties.ReadPropsTempfile(m_sPath);
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	DWORD dwThreadId;
@@ -165,7 +165,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	
-	if (m_BugtraqInfo.sMessage.IsEmpty())
+	if (m_ProjectProperties.sMessage.IsEmpty())
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
@@ -175,8 +175,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
-		if (!m_BugtraqInfo.sLabel.IsEmpty())
-			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_BugtraqInfo.sLabel);
+		if (!m_ProjectProperties.sLabel.IsEmpty())
+			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
 	m_LogMessage.SetMarginLine(CRegDWORD(_T("Software\\TortoiseSVN\\LogMessageMargin"), 80));
@@ -211,7 +211,7 @@ void CLogPromptDlg::OnOK()
 		return;
 	CString id;
 	GetDlgItem(IDC_BUGID)->GetWindowText(id);
-	if (m_BugtraqInfo.bNumber)
+	if (m_ProjectProperties.bNumber)
 	{
 		TCHAR c = 0;
 		BOOL bInvalid = FALSE;
@@ -236,7 +236,7 @@ void CLogPromptDlg::OnOK()
 			return;
 		}
 	}
-	if ((m_BugtraqInfo.bWarnIfNoIssue)&&(id.IsEmpty()))
+	if ((m_ProjectProperties.bWarnIfNoIssue)&&(id.IsEmpty()))
 	{
 		if (CMessageBox::Show(this->m_hWnd, IDS_LOGPROMPT_NOISSUEWARNING, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
 			return;
@@ -341,7 +341,7 @@ void CLogPromptDlg::OnOK()
 	{
 		m_sBugID.Replace(_T(", "), _T(","));
 		m_sBugID.Replace(_T(" ,"), _T(","));
-		CString sBugID = m_BugtraqInfo.sMessage;
+		CString sBugID = m_ProjectProperties.sMessage;
 		sBugID.Replace(_T("%BUGID%"), m_sBugID);
 		m_sLogMessage += _T("\n") + sBugID + _T("\n");
 		UpdateData(FALSE);		
