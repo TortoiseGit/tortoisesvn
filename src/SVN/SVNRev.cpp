@@ -24,6 +24,7 @@
 
 SVNRev::SVNRev(CString sRev)
 {
+	ZeroMemory(&rev, sizeof(svn_opt_revision_t));
 	Create(sRev);
 }
 

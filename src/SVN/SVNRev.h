@@ -68,6 +68,8 @@ public:
 	BOOL IsHead() const {return (rev.kind == svn_opt_revision_head);}
 	BOOL IsBase() const {return (rev.kind == svn_opt_revision_base);}
 	BOOL IsWorking() const {return (rev.kind == svn_opt_revision_working);}
+	BOOL IsPrev() const {return (rev.kind == svn_opt_revision_previous);}
+	BOOL IsCommitted() const {return (rev.kind == svn_opt_revision_committed);}
 
 	operator LONG () const;
 	operator svn_opt_revision_t * ();

@@ -215,6 +215,14 @@ CString SVNUrl::GetTextFromRev(const SVNRev& revision)
 	{
 		rev_text = _T("WC");
 	}
+	else if (revision.IsPrev())
+	{
+		rev_text = _T("PREV");
+	}
+	else if (revision.IsCommitted())
+	{
+		rev_text = _T("COMMITTED");
+	}
 	else
 	{
 		rev_text.Format(_T("%u"), (LONG)revision);
