@@ -370,6 +370,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENULOG, idCmdFirst, Log);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENULOG, IDI_LOG, idCmdFirst, Log);
+	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSHOWCHANGED, idCmdFirst, ShowChanged);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, idCmdFirst, ShowChanged);
 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
@@ -720,6 +725,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 							svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
 						break;
+					case ShowChanged:
+						svnCmd += _T("repostatus /path:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
 					default:
 						break;
 					//#endregion
@@ -833,6 +846,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			break;
 		case Relocate:
 			MAKESTRING(IDS_MENUDESCRELOCATE);
+			break;
+		case ShowChanged:
+			MAKESTRING(IDS_MENUDESCSHOWCHANGED);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1115,6 +1131,10 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case Help:
 			MAKESTRING(IDS_MENUHELP);
 			resource = MAKEINTRESOURCE(IDI_HELP);
+			break;
+		case ShowChanged:
+			MAKESTRING(IDS_MENUSHOWCHANGED);
+			resource = MAKEINTRESOURCE(IDI_SHOWCHANGED);
 			break;
 		default:
 			return NULL;

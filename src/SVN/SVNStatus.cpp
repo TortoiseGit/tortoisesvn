@@ -16,6 +16,8 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
+#include "stdafx.h"
+#include "resource.h"
 
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
@@ -48,14 +50,31 @@ SVNStatus::SVNStatus(void)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_client_get_ssl_pw_file_provider (&provider, m_pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+#ifdef _MFC_VER
+	/* Two prompting providers, one for username/password, one for
+	just username. */
+	svn_client_get_simple_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, 2, /* retry limit */ m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_username_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, 2, /* retry limit */ m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
+	/* Three prompting providers for server-certs, client-certs,
+	and client-cert-passphrases.  */
+	svn_client_get_ssl_server_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_client_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_ssl_pw_prompt_provider (&provider, (svn_client_prompt_t)prompt, this, m_pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+#endif
 	/* Build an authentication baton to give to libsvn_client. */
 	svn_auth_open (&m_auth_baton, providers, m_pool);
 	m_ctx.auth_baton = m_auth_baton;
 
-	m_ctx.auth_baton = m_auth_baton;
-	m_ctx.prompt_func = NULL;
-	m_ctx.prompt_baton = NULL;
+#ifdef _MFC_VER
+	m_ctx.prompt_func = (svn_client_prompt_t)prompt;
+	m_ctx.prompt_baton = this;
+#endif
 	// set up the configuration
 	svn_config_get_config (&(m_ctx.config), m_pool);
 }
@@ -65,6 +84,67 @@ SVNStatus::~SVNStatus(void)
 	svn_pool_destroy (m_pool);					// free the allocated memory
 	apr_terminate();
 }
+
+#ifdef _MFC_VER
+svn_error_t* SVNStatus::prompt(char **info, const char *prompt, svn_boolean_t hide, void *baton, apr_pool_t *pool)
+{
+	SVNStatus * svnstatus = (SVNStatus *)baton;
+	CString infostring;
+	if (svnstatus->Prompt(infostring, CString(prompt), hide))
+	{
+		SVN_ERR (svn_utf_cstring_to_utf8 ((const char **)info, CUnicodeUtils::GetUTF8(infostring), NULL, pool));
+		return SVN_NO_ERROR;
+	}
+	CStringA temp;
+	temp.LoadString(IDS_SVN_USERCANCELLED);
+	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+}
+
+BOOL SVNStatus::Prompt(CString& info, CString prompt, BOOL hide) 
+{
+	CPromptDlg dlg;
+	dlg.m_info = prompt;
+	dlg.m_sPass = info;
+	
+	dlg.SetHide(hide);
+
+	INT_PTR nResponse = dlg.DoModal();
+	if (nResponse == IDOK)
+	{
+		info = dlg.m_sPass;
+		if (dlg.m_saveCheck)
+		{
+			svn_auth_set_parameter(m_ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
+		}
+		else
+		{
+			svn_auth_set_parameter(m_ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
+		}
+		return TRUE;
+	}
+	if (nResponse == IDABORT)
+	{
+		//the prompt dialog box could not be shown!
+		LPVOID lpMsgBuf;
+		FormatMessage( 
+			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM | 
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+			(LPTSTR) &lpMsgBuf,
+			0,
+			NULL 
+		);
+		MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION );
+		// Free the buffer.
+		LocalFree( lpMsgBuf );
+	} // if (nResponse == IDABORT)
+	return FALSE;
+}
+#endif //_MFC_VER
+
 
 //static method
 svn_wc_status_kind SVNStatus::GetTextStatus(const TCHAR * path)

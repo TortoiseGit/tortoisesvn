@@ -778,6 +778,13 @@ BEGIN
     IDS_PROGRESSWAIT        "Bitte warten..."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_CHSTAT_FILECOL      "File"
+    IDS_CHSTAT_WCCOL        "local status"
+    IDS_CHSTAT_REPOCOL      "remote status"
+END
+
 #endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -790,6 +797,43 @@ END
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
 #endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CHANGEDFILES DIALOGEX 0, 0, 446, 191
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Changed Files"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,389,170,50,14
+    CONTROL         "",IDC_CHANGEDLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,432,158
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CHANGEDFILES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 439
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

@@ -17,6 +17,9 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
+#ifdef _MFC_VER
+#include "PromptDlg.h"
+#endif
 #include <windows.h>
 #include "resource.h"
 #include <tchar.h>
@@ -30,6 +33,7 @@
 #include "svn_wc.h"
 #include "svn_utf.h"
 #include "svn_config.h"
+
 
 
 /**
@@ -65,6 +69,11 @@ class SVNStatus
 public:
 	SVNStatus(void);
 	~SVNStatus(void);
+
+#ifdef _MFC_VER
+	virtual BOOL Prompt(CString& info, CString prompt, BOOL hide);
+#endif
+
 	/**
 	 * Reads the Subversion text status of the working copy entry. No
 	 * recurse is done, even if the entry is a directory.
@@ -152,7 +161,13 @@ private:
 	apr_pool_t *				m_pool;
 	svn_auth_baton_t *			m_auth_baton;
 	svn_client_ctx_t 			m_ctx;
-
+#ifdef _MFC_VER
+	static svn_error_t* prompt(char **info, 
+					const char *prompt, 
+					svn_boolean_t hide, 
+					void *baton, 
+					apr_pool_t *pool);
+#endif
 	//for GetFirstFileStatus and GetNextFileStatus
 	apr_hash_t *				m_statushash;
 	apr_array_header_t *		m_statusarray;

@@ -809,6 +809,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			ShellExecute(NULL, _T("open"), path, NULL, NULL, SW_SHOWNORMAL);
 		}
 		//#endregion
+		//#region repostatus
+		if (comVal.Compare(_T("repostatus"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			CChangedDlg dlg;
+			dlg.m_path = path;
+			dlg.DoModal();
+		} // if (comVal.Compare(_T("repostatus"))==0)
+		//#endregion 
 	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the

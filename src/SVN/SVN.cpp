@@ -80,9 +80,9 @@ SVN::SVN(void)
 	svn_auth_open (&auth_baton, providers, pool);
 	ctx.auth_baton = auth_baton;
 
-	svn_auth_open (&auth_baton, providers, pool);
+	//svn_auth_open (&auth_baton, providers, pool);
 
-	ctx.auth_baton = auth_baton;
+	//ctx.auth_baton = auth_baton;
 	ctx.prompt_func = (svn_client_prompt_t)prompt;
 	ctx.prompt_baton = this;
 	ctx.log_msg_func = svn_cl__get_log_message;

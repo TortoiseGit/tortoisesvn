@@ -378,6 +378,18 @@ BEGIN
     EDITTEXT        IDC_TOURL,33,28,146,14,ES_AUTOHSCROLL
 END
 
+IDD_CHANGEDFILES DIALOGEX 0, 0, 408, 206
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Changed Files"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,351,185,50,14
+    CONTROL         "",IDC_CHANGEDLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,394,171
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -544,6 +556,14 @@ BEGIN
         RIGHTMARGIN, 179
         TOPMARGIN, 6
         BOTTOMMARGIN, 69
+    END
+
+    IDD_CHANGEDFILES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 401
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -781,6 +801,13 @@ BEGIN
     IDS_PROGRESSWAIT        "Please wait..."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_CHSTAT_FILECOL      "File"
+    IDS_CHSTAT_WCCOL        "local status"
+    IDS_CHSTAT_REPOCOL      "remote status"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -793,42 +820,6 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_CHANGEDFILES DIALOGEX 0, 0, 227, 154
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Changed Files"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,170,133,50,14
-    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
-                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,213,122
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
-BEGIN
-    IDD_CHANGEDFILES, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 220
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 147
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

@@ -106,7 +106,8 @@ protected:
 		Log,
 		ConflictEditor,
 		Relocate,
-		Help
+		Help,
+		ShowChanged
 	};
 
 	FileState m_State;

@@ -30,6 +30,7 @@
 #define IDS_MSGBOX_CANCEL               157
 #define IDD_RELOCATE                    157
 #define IDS_MSGBOX_TRYAGAIN             158
+#define IDD_CHANGEDFILES                158
 #define IDS_MSGBOX_CONTINUE             159
 #define IDS_MSGBOX_OK                   160
 #define IDS_MSGBOX_YES                  161
@@ -197,6 +198,9 @@
 #define IDS_PROGRESSGETFILE             900
 #define IDS_PROGRESSREVISION            901
 #define IDS_PROGRESSWAIT                902
+#define IDS_CHSTAT_FILECOL              1000
+#define IDS_CHSTAT_WCCOL                1001
+#define IDS_CHSTAT_REPOCOL              1002
 #define IDC_LOGLIST                     1003
 #define IDC_PASSEDIT                    1004
 #define IDC_INFOTEXT                    1005
@@ -252,6 +256,7 @@
 #define IDC_LIST1                       1043
 #define IDC_FILELIST                    1043
 #define IDC_ADDLIST                     1043
+#define IDC_CHANGEDLIST                 1043
 #define IDC_LANGUAGECOMBO               1044
 #define IDC_FROMURL                     1045
 #define IDC_COMMIT_TO                   1046

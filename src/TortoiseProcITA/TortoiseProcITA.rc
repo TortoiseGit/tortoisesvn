@@ -448,6 +448,18 @@ BEGIN
                     7,72,41,10
 END
 
+IDD_CHANGEDFILES DIALOGEX 0, 0, 408, 206
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Changed Files"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,351,185,50,14
+    CONTROL         "",IDC_CHANGEDLIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,7,7,394,171
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -605,6 +617,14 @@ BEGIN
         RIGHTMARGIN, 187
         TOPMARGIN, 7
         BOTTOMMARGIN, 100
+    END
+
+    IDD_CHANGEDFILES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 401
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -840,6 +860,13 @@ BEGIN
     IDS_PROGRESSGETFILE     "Getting File %s"
     IDS_PROGRESSREVISION    "Revision %d"
     IDS_PROGRESSWAIT        "Please wait..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CHSTAT_FILECOL      "File"
+    IDS_CHSTAT_WCCOL        "local status"
+    IDS_CHSTAT_REPOCOL      "remote status"
 END
 
 #endif    // Italian (Italy) resources

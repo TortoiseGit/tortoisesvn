@@ -198,6 +198,9 @@
 #define IDS_PROGRESSGETFILE             900
 #define IDS_PROGRESSREVISION            901
 #define IDS_PROGRESSWAIT                902
+#define IDS_CHSTAT_FILECOL              1000
+#define IDS_CHSTAT_WCCOL                1001
+#define IDS_CHSTAT_REPOCOL              1002
 #define IDC_LOGLIST                     1003
 #define IDC_PASSEDIT                    1004
 #define IDC_INFOTEXT                    1005
@@ -253,6 +256,7 @@
 #define IDC_LIST1                       1043
 #define IDC_FILELIST                    1043
 #define IDC_ADDLIST                     1043
+#define IDC_CHANGEDLIST                 1043
 #define IDC_LANGUAGECOMBO               1044
 #define IDC_FROMURL                     1045
 #define IDC_COMMIT_TO                   1046

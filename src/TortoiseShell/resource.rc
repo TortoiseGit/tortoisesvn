@@ -187,6 +187,12 @@ BEGIN
     IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_MENUSHOWCHANGED     "Check for Updates"
+    IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
+END
+
 #endif    // Russian resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -231,6 +237,7 @@ IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
 IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
 IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
 IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
+IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -416,7 +423,13 @@ BEGIN
     IDS_MENURELOCATE        "Umplazieren"
     IDS_MENUDESCRELOCATE    "Falls die URL der Datenbank sich geändert hat..."
     IDS_MENUHELP            "Daily Use Guide"
-    IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
+    IDS_MENUDESCHELP        "Zeigt den ""Daily Use Guide"""
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUSHOWCHANGED     "Auf Änderungen überprüfen"
+    IDS_MENUDESCSHOWCHANGED "Zeigt alle Dateien welche verändert wurden, lokal und auf dem Server"
 END
 
 #endif    // German (Germany) resources
@@ -624,6 +637,12 @@ BEGIN
     IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
     IDS_MENUHELP            "Daily Use Guide"
     IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUSHOWCHANGED     "Check for Updates"
+    IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
 END
 
 #endif    // English (U.S.) resources
@@ -858,6 +877,12 @@ BEGIN
     IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
     IDS_MENUHELP            "Daily Use Guide"
     IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUSHOWCHANGED     "Check for Updates"
+    IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
 END
 
 #endif    // Italian (Italy) resources

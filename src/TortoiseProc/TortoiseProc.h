@@ -44,6 +44,7 @@
 #include "UpdateDlg.h"
 #include "AddDlg.h"
 #include "RelocateDlg.h"
+#include "ChangedDlg.h"
 
 
 /**
