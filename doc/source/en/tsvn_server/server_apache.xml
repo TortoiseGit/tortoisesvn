@@ -912,5 +912,30 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 				</para>
 			</listitem>
 		</orderedlist>
+		<important>
+			<title>Forcing SSL access</title>
+			<para>
+				When you've set up SSL to make your repository more secure, you
+				might want to disable the normal access via non-ssl (http) and
+				only allow https access.
+				To do this, you have to add another directive to the Subversion
+				&lt;Location&gt; block: <literal>SSLRequireSSL</literal>.
+			</para>
+			<para>
+					An example &lt;Location&gt; block would look like this:
+<screen>
+&lt;Location /svn&gt;
+DAV svn
+SVNParentPath D:\SVN
+SSLRequireSSL
+AuthType Basic
+AuthName "Subversion repositories"
+AuthUserFile passwd
+#AuthzSVNAccessFile svnaccessfile
+Require valid-user
+&lt;/Location&gt;
+</screen>
+			</para>
+		</important>
 	</sect2>
 </sect1>
