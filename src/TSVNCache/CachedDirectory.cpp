@@ -288,6 +288,22 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 	else
 	{
 		svnPath.SetFromSVN(path);
+		// Subversion returns no 'entry' field for versioned folders if they're
+		// part of another working copy (nested layouts).
+		// So we have to make sure that such an 'unversioned' folder really
+		// is unversioned.
+		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentTo(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
+		{
+			if (PathFileExists(svnPath.GetWinPathString()+_T("\\")+_T(SVN_WC_ADM_DIR_NAME)))
+			{
+				CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
+				// Mark the directory as 'versioned' (status 'normal' for now).
+				// This initial value will be overwritten from below some time later
+				pThis->m_childDirectories[svnPath] = svn_wc_status_normal;
+				// also mark the status in the status object as normal
+				status->text_status = svn_wc_status_normal;
+			}
+		}
 	}
 
 	pThis->AddEntry(svnPath, status);
