@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISESVNPT-BR 1.0\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-12-13 17:40-0300\n"
-"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
+"PO-Revision-Date: 2004-12-15 10:43-0300\n"
+"Last-Translator: Emanuele Marques <emanuele@vdl.ufc.br>\n"
 "Language-Team: CRAb <crab@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -381,6 +381,12 @@ msgstr "Client &SSH:"
 #: MenuEntry
 msgid "&Save Ctrl-S"
 msgstr "&Salvar Ctrl-S"
+
+# ID:313,#:
+# ID:101,
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "&Salvar Gráfico Como..."
 
 # Control-ID:1023,#:
 # Control-ID:1023,
@@ -947,21 +953,6 @@ msgstr "Autor"
 msgid "Author:                        Stefan Kueng"
 msgstr "Autor:                        Stefan Kueng"
 
-# ID:272,
-#: ID:272
-msgid ""
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"Autor: %s\r\n"
-"Data: %s\r\n"
-"\r\n"
-"Comentário:\r\n"
-"%s"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -1060,7 +1051,6 @@ msgstr "&Integrado"
 # Control-ID:1119,#:
 # Control-ID:1119,
 #: Control-ID:1119
-#, fuzzy
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr:"
 
@@ -1293,7 +1283,13 @@ msgstr "Área de transferência"
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
-msgstr "Feche a janela ativa e pede para salvar os documentos"
+msgstr "Fecha a janela ativa e pede para salvar os documentos"
+
+# Control-ID:1163,
+#: Control-ID:1068
+#, fuzzy
+msgid "Color code in-line changes"
+msgstr "Total de alterações de arquivos:"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -1389,7 +1385,7 @@ msgstr "Continuar"
 # ID:74,
 #: ID:73
 msgid "Copied"
-msgstr "Compiado"
+msgstr "Copiado"
 
 # ID:126,
 #: ID:126
@@ -1454,7 +1450,7 @@ msgstr ""
 # ID:81,
 #: ID:81
 msgid "Could not get the status!"
-msgstr "Não foi possível pegar o status!"
+msgstr "Não foi possível obter o status!"
 
 # ID:69,
 #: ID:69
@@ -1481,7 +1477,7 @@ msgid ""
 "Patching is not possible!"
 msgstr ""
 "Não foi possível recuperar a versão %s do arquivo %s.\n"
-"Não é possível fazer o remendo (patching)!"
+"Não é possível fazer a correção!"
 
 # ID:64,
 #: ID:64
@@ -1506,7 +1502,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Não foi possível iniciar o programa externo de differenças!\n"
+"Não foi possível iniciar o programa externo de comparação!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1535,7 +1531,7 @@ msgstr "Não é possível iniciar a thread!"
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
-msgstr "Criar Correção (Patch)..."
+msgstr "Criar Correção..."
 
 # ID:8,
 #: Dlg-ID:178
@@ -1549,9 +1545,8 @@ msgstr "Criar Repositório aqui"
 
 # Control-ID:1073,
 #: Control-ID:1073
-#, fuzzy
 msgid "Create the branch/tag directly on the server"
-msgstr "Criar Ramo/Etiqueta diretamente no servidor"
+msgstr "Criar o Ramo/Rótulo diretamente no servidor"
 
 # ID:126,
 #: ID:126
@@ -1561,17 +1556,17 @@ msgstr "Criar pasta remotamente"
 # ID:10,
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Cria um cópia rascunho dentro do repositório usado por uma ramificação ou etiquetagem (tagging)"
+msgstr "Cria um cópia rascunho dentro do repositório usado por uma ramificação ou rotulagem"
 
 # ID:10,
 #: ID:10
 msgid "Creates a repository database at the current location"
-msgstr "Cria uma base de dados de repositório na localização corrente"
+msgstr "Cria uma base de dados de repositório na localização atual"
 
 # ID:14,
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "Cria um arquivo de comparação (diff) unificado com todas as alterações feitas pelo usuário"
+msgstr "Cria um arquivo de comparação unificado com todas as alterações feitas pelo usuário"
 
 # ID:3603,
 #: ID:3603
@@ -1579,7 +1574,7 @@ msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"Recorta  a seleção e a deposita na Área de Transferência\n"
+"Recorta a seleção e a deposita na Área de Transferência\n"
 "Recorta"
 
 # Control-ID:1123,
@@ -1595,33 +1590,33 @@ msgstr "Data"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "Padrão de &number mensagens do histórico (log)"
+msgstr " &Número padrão de mensagens do histórico (log)"
 
 # ID:11,#:
 # ID:73,#:
 # ID:101,
 #: ID:11
 msgid "Delete"
-msgstr "Remover"
+msgstr "Excluir"
 
 # ID:11,#:
 # ID:73,#:
 # ID:101,
 #: ID:73
 msgid "Deleted"
-msgstr "Removido"
+msgstr "Excluído"
 
 # ID:11,
 #: ID:11
 msgid "Deletes files / folders from source control"
-msgstr "Remove arquivos / pastas do controle de origem"
+msgstr "Exclui arquivos / pastas do controle de origem"
 
 # ID:11,#:
 # ID:73,#:
 # ID:101,
 #: ID:263
 msgid "Deleting"
-msgstr "Removendo"
+msgstr "Excluindo"
 
 # ID:3859,#:
 # ID:3859,
@@ -1632,22 +1627,22 @@ msgstr "O disco de destino está cheio."
 # ID:12,
 #: ID:12
 msgid "Diff"
-msgstr "Comparação (Diff)"
+msgstr "Comparação"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff File:"
-msgstr "Arquivo de comparação:"
+msgstr "Arquivo de Comparação:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff Program"
-msgstr "Programa de Comparação (diff)"
+msgstr "Programa de Comparação"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff Viewer"
-msgstr "Visualizador de Comparação (diff)"
+msgstr "Visualizador de Comparação"
 
 # Dlg-ID:163,
 #: Dlg-ID:163
@@ -1674,7 +1669,7 @@ msgstr "Disco cheio enquanto acessando %1."
 # ID:3860,
 #: ID:3860
 msgid "Dispatch exception: %1"
-msgstr "Exceção  de despacho: %1"
+msgstr "Exceção ao desfazer correção: %1"
 
 # ID:3605,
 #: ID:3605
@@ -1700,7 +1695,7 @@ msgid ""
 "Display instructions about how to use help\n"
 "Help"
 msgstr ""
-"Exibe as intruções de uso para a ajuda\n"
+"Exibe as instruções de uso da ajuda\n"
 "Ajuda"
 
 # ID:3605,
@@ -1796,7 +1791,7 @@ msgstr "Editar Conflitos"
 # ID:110,
 #: ID:110
 msgid "Edit Extension Specific Diff Program"
-msgstr "Editar as Extensões Específicas do Programa de Comparação(Diff)"
+msgstr "Editar as Extensões Específicas do Programa de Comparação"
 
 # ID:110,
 #: ID:110
@@ -1816,24 +1811,24 @@ msgstr "Vazio"
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
-msgstr "Expandir a janela para o tamanho máximo"
+msgstr "Expandir a janela para a tela cheia"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
 msgid "Enter Log Message"
-msgstr "Entre com a Mensagem de Armazenamento"
+msgstr "Entre o Comentário"
 
 # ID:126,#:
 # Control-ID:1065,
 #: ID:126
 #: Control-ID:1065
 msgid "Enter Log Message:"
-msgstr "Entre com a Mensagem de Armazenamento"
+msgstr "Entre o Comentário"
 
 # ID:80,
 #: ID:80
 msgid "Enter URL"
-msgstr "Entre com o endereço (URL) da página"
+msgstr "Entre a URL"
 
 # ID:3603,
 #: ID:3603
@@ -1886,7 +1881,7 @@ msgstr "Exportar Diretório:"
 # Control-ID:1073,
 #: ID:79
 msgid "Export unversioned files too"
-msgstr "Exportar arquivos sem controle de versão também"
+msgstr "Exportar também arquivos sem controle de versão"
 
 # ID:9,
 #: ID:9
@@ -1901,7 +1896,7 @@ msgstr "Exportando..."
 # ID:10,
 #: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "Exportar um repositório para uma cópia de trabalho limpa sem as pastas administrativas do svn"
+msgstr "Exporta um repositório para uma cópia de trabalho limpa sem as pastas administrativas do svn"
 
 # ID:74,
 #: ID:74
@@ -1931,31 +1926,31 @@ msgstr "Programa Externo:"
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
-msgstr "Reverter falha"
+msgstr "Reverter falhou"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to create empty document."
-msgstr "Falha ao criar documento vazio"
+msgstr "Falha ao criar documento vazio."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to launch help."
-msgstr "Falha ao chamar ajuda"
+msgstr "Falha ao chamar ajuda."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to open document."
-msgstr "Falha ao abrir documento"
+msgstr "Falha ao abrir documento."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to save document."
-msgstr "Falha ao salvar documento"
+msgstr "Falha ao salvar documento."
 
 # ID:313,
 #: ID:313
@@ -1965,7 +1960,7 @@ msgstr "Obtendo arquivo..."
 # ID:313,
 #: ID:313
 msgid "Fetching version %s of file:"
-msgstr "Puxando versão %s de arquivo:"
+msgstr "Obtendo versão %s de arquivo:"
 
 # ID:63,#:
 # ID:74,#:
@@ -1980,12 +1975,12 @@ msgstr "Arquivo"
 # Dlg-ID:135,
 #: Dlg-ID:135
 msgid "File Patches"
-msgstr "Patches de arquivo"
+msgstr "Correções de arquivo"
 
 # Control-ID:1138,
 #: Control-ID:1138
 msgid "File changes each week:"
-msgstr "Arquivos alterados por semana:"
+msgstr "Arquivos alterados a cada semana:"
 
 # ID:3603,
 #: ID:3603
@@ -1993,18 +1988,18 @@ msgid ""
 "Find the specified text\n"
 "Find"
 msgstr ""
-"Localizar o texto especificado \n"
+"Localizar o texto especificado\n"
 "Localizar"
 
 # ID:77,
 #: ID:77
 msgid "Finished!"
-msgstr "Encerrado!"
+msgstr "Concluído!"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Font for log messages:"
-msgstr "Fonte para mensagens de log:"
+msgstr "Fonte para comentários:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2034,12 +2029,12 @@ msgstr "Geral"
 # ID:144,
 #: ID:144
 msgid "Generating Patchfile..."
-msgstr "Gerando Arquivo de Superfície..."
+msgstr "Gerando Arquivo de Correção..."
 
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
-msgstr "Baixando Arquivo %s"
+msgstr "Obtendo Arquivo %s"
 
 # ID:132,
 #: ID:132
@@ -2054,7 +2049,7 @@ msgstr "Adquirindo informações do repositório..."
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
-msgstr "Adiquirindo informações sobre o arquivo..."
+msgstr "Adiquirindo informações do histórico..."
 
 # ID:2049,
 #: ID:2049
@@ -2062,7 +2057,7 @@ msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
-"Vá para a próxima diferença\n"
+"Ir para a próxima diferença\n"
 "próxima diferença"
 
 # ID:2049,
@@ -2081,7 +2076,7 @@ msgid ""
 "previous difference"
 msgstr ""
 "Ir para alteração anterior \n"
-" alteração anterior"
+"alteração anterior"
 
 # Control-ID:1134,
 #: Control-ID:1134
@@ -2110,7 +2105,7 @@ msgstr "Ajuda"
 # Control-ID:1127,
 #: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
-msgstr "Dica: F5 para atuzalizar a sub árvore selecionada e Ctrl-F5 para carregar todos os filhos também"
+msgstr "Dica: Pressione F5 para atuzalizar a sub-árvore selecionada e Ctrl-F5 para carregar também todos os filhos"
 
 # ID:82,
 #: ID:82
@@ -2131,7 +2126,7 @@ msgstr "Ícones/Projeto/Código:     Luebbe Onken"
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "Se ativado, impede que as sobreposições apareçam nos diálogos \"Salvar como..\" our \"Abrir\""
+msgstr "Se ativado, impede que as sobreposições apareçam nos diálogos \"Salvar como..\" ou \"Abrir\""
 
 # ID:95,
 #: ID:95
@@ -2139,13 +2134,13 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Se verificado, então uma nova pasta será criada no repositório. \n"
-" Se não verificado, então o \"import\" vai diretamente para a URL especificada."
+"Se selecionado, então uma nova pasta será criada no repositório. \n"
+"Se não selecionado, então a importação vai diretamente para a URL especificada."
 
 # ID:79,
 #: ID:79
 msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "Se verificado, o TortoiseSVN não cria um arquivo temporário para fazer as comparações. As comparações com o arquivo original serão feitas através da BASE."
+msgstr "Se selecionado, o TortoiseSVN não cria um arquivo temporário para fazer as comparações, as comparações serão feitas com o arquivo original através da BASE."
 
 # ID:194,
 #: ID:194
@@ -2180,7 +2175,7 @@ msgstr "Ignorar Todos os Espaços em Branco"
 # Control-ID:1020,
 #: Control-ID:1020
 msgid "Ignore Leading Whitespaces"
-msgstr "Ignorar Espaços em Branco Principais"
+msgstr "Ignorar espaços em branco à esquerda"
 
 # Control-ID:1018,
 #: Control-ID:1018
@@ -2205,12 +2200,23 @@ msgstr "Importar..."
 # ID:10,
 #: ID:10
 msgid "Imports the directory to a repository"
-msgstr "Importar o diretório ao repositório"
+msgstr "Importar o diretório para um repositório"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "Incluir caminhos:"
+
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"Indica o estado de uma pasta com um ícone sobreposto.\n"
+"Se desativado, uma pasta sob o controle de versão sempre exibirá o ícone 'normal'.\n"
+"<ct=0x0000ff><b>Se o explorer parecer lento, desative esse recurso!</b></ct>"
 
 # ID:76,
 #: ID:76
@@ -2235,13 +2241,13 @@ msgstr ""
 # ID:3857,
 #: ID:3857
 msgid "Insufficient memory to perform operation."
-msgstr "Memória Insuficiente para realizar operação."
+msgstr "Memória insuficiente para realizar operação."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Internal application error."
-msgstr "Erro Interno da Aplicação"
+msgstr "Erro interno da Aplicação"
 
 # ID:3857,#:
 # ID:3857,
@@ -2287,7 +2293,7 @@ msgstr ""
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
-msgstr "Saltar à primeira diferença quando lendo"
+msgstr "Saltar à primeira diferença ao carregar"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2371,7 +2377,7 @@ msgstr "Aparência"
 # ID:3866,
 #: ID:3866
 msgid "Mail system DLL is invalid."
-msgstr "DLL principal do sistema inválida."
+msgstr "DLL do sistema de correio inválida."
 
 # Dlg-ID:143,
 #: Dlg-ID:143
@@ -2639,7 +2645,7 @@ msgstr ""
 # ID:13,
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Abrir o browser do repositório para manipulação online"
+msgstr "Abre o navegador do repositório para manipulação online"
 
 # ID:3843,#:
 # ID:3843,
@@ -2650,7 +2656,7 @@ msgstr "Sem memória."
 # ID:12,
 #: MenuEntry
 msgid "P&revious Conflict"
-msgstr "Conflitos ante&riores"
+msgstr "Conflito ante&rior"
 
 # ID:76,
 #: ID:76
@@ -2670,12 +2676,12 @@ msgstr "Senha:"
 # Dlg-ID:158,
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
-msgstr "Colar Nome de Arquivos Alterados"
+msgstr "Colar Nomes de Arquivos Alterados"
 
 # ID:376,
 #: ID:376
 msgid "Patch All"
-msgstr "Remendar (Patch) Tudo"
+msgstr "CorrigirTudo"
 
 # ID:157,#:
 # ID:157,
@@ -2688,6 +2694,11 @@ msgstr "Arquivos de Correção (*.diff, *.patch)|*.diff;*.patch|Todos (*.*)|*.*|
 msgid "Path"
 msgstr "Caminho"
 
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Imagens (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Todos (*.*)|*.*||"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
@@ -2698,7 +2709,7 @@ msgstr "Por favor, insira o GUID."
 # ID:3858,
 #: ID:3858
 msgid "Please enter a currency."
-msgstr "Por favor, insira a moeda corrente."
+msgstr "Por favor, insira uma moeda."
 
 # ID:3858,#:
 # ID:3858,
@@ -2758,7 +2769,7 @@ msgstr "Por favor, insisra um inteiro."
 # ID:3858,
 #: ID:3858
 msgid "Please enter no more than %1 characters."
-msgstr "Por favor, insista mais de %1 caracteres."
+msgstr "Por favor, não insira mais de %1 caracteres."
 
 # ID:251,
 #: ID:251
@@ -2775,8 +2786,8 @@ msgid ""
 msgstr ""
 "Por favor, note:\n"
 "sua cópia de trabalho permanece no caminho anterior. Se você quer que as alterações a seguir\n"
-"estejam na cópia recém criada, você precisa  <b>switch</b> over\n"
-"para o caminho da cópia. Use o comando <b>Switch</b> pra fazer isso."
+"estejam na cópia recém criada, você precisa  <b>alternar</b>\n"
+"para o caminho da cópia. Use o comando <b>Trocar</b> pra fazer isso."
 
 # ID:3858,#:
 # ID:3858,
@@ -2843,7 +2854,7 @@ msgstr "Status de Propriedade"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Property Status:"
-msgstr "Status de Propriedade"
+msgstr "Status de Propriedade:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2926,28 +2937,28 @@ msgstr "Reposicionar"
 # ID:12,
 #: ID:12
 msgid "Relocate..."
-msgstr "Transferir..."
+msgstr "Reposicionar..."
 
 # ID:80,
 #: ID:80
 msgid "Relocating..."
-msgstr "Transferindo..."
+msgstr "Reposicionando..."
 
 # Control-ID:65535,
 #: ID:207
 msgid "Remote Property Status"
-msgstr "Status de Propriedade Remoto"
+msgstr "Status Remoto de Propriedade"
 
 # ID:63,
 #: ID:63
 #: ID:207
 msgid "Remote Status"
-msgstr "Estado Remoto"
+msgstr "Status Remoto"
 
 # ID:63,
 #: ID:207
 msgid "Remote Text Status"
-msgstr "Estado de Texto Remoto"
+msgstr "Status Remoto de Texto"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3099,7 +3110,9 @@ msgid "Revision / Author:"
 msgstr "Revisão / Autor:"
 
 # ID:75,
+#: ID:15
 #: ID:269
+#: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Gráfico de Revisão"
 
@@ -3107,13 +3120,6 @@ msgstr "Gráfico de Revisão"
 #: ID:75
 msgid "Revision: "
 msgstr "Revisão:"
-
-# ID:76,#:
-# Control-ID:65535,#:
-# Control-ID:65535,
-#: Dlg-ID:182
-msgid "RevisionGraph"
-msgstr "Gráfico de Revisão"
 
 # ID:188,
 #: ID:188
@@ -3177,7 +3183,7 @@ msgstr "SVN Combinar..."
 # Dlg-ID:134,
 #: Dlg-ID:134
 msgid "SVN Progress"
-msgstr "SVN Processo"
+msgstr "SVN Progresso"
 
 # ID:77,
 #: ID:77
@@ -3197,7 +3203,7 @@ msgstr "SVN Revisão"
 # ID:11,
 #: ID:11
 msgid "SVN Status"
-msgstr "SVN Estado"
+msgstr "SVN Status"
 
 # ID:78,
 #: ID:78
@@ -3233,6 +3239,12 @@ msgstr "Salvar &Como..."
 #: ID:3841
 msgid "Save As"
 msgstr "Salvar Como"
+
+# ID:313,#:
+# ID:101,
+#: ID:272
+msgid "Save Graph as..."
+msgstr "Salvar Gráfico como..."
 
 # ID:76,
 #: ID:76
@@ -3274,7 +3286,7 @@ msgstr ""
 # ID:144,
 #: ID:144
 msgid "Saving patchfile to:"
-msgstr "Salvando arquivo de remendo para:"
+msgstr "Salvando arquivo de correção para:"
 
 # ID:113,
 #: ID:113
@@ -3296,7 +3308,7 @@ msgstr "Selecionar / Deselecionar &Tudo"
 # ID:78,
 #: ID:78
 msgid "Select Diff Application"
-msgstr "Selecionar Aplicação de Comparação (Diff)"
+msgstr "Selecionar Aplicação de Comparação"
 
 # ID:13,
 #: ID:13
@@ -3306,7 +3318,7 @@ msgstr "Selecionar Arquivo..."
 # ID:78,
 #: ID:78
 msgid "Select Merge Application"
-msgstr "Selecionar Aplicação de Combinação (Merge)"
+msgstr "Selecionar Aplicação de Combinação"
 
 # Dlg-ID:173,
 #: Dlg-ID:173
@@ -3326,17 +3338,17 @@ msgstr "Selecionar Editor de Texto"
 # ID:78,
 #: ID:78
 msgid "Select Viewer for Diff-Files"
-msgstr "Selecionar Visualizador para Arquivos de Comparação (Diff)"
+msgstr "Selecionar Visualizador para Arquivos de Comparação"
 
 # ID:3585,
 #: ID:3585
 msgid "Select an object on which to get Help"
-msgstr "Selecionar um objeto para o qual conseguir Ajuda"
+msgstr "Selecionar um objeto para o qual obter Ajuda"
 
 # ID:313,
 #: ID:313
 msgid "Select diff file..."
-msgstr "Selecionar arquivo de comparação (diff)..."
+msgstr "Selecionar arquivo de comparação..."
 
 # ID:79,
 #: ID:79
@@ -3344,7 +3356,7 @@ msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
-"Selecionar pasta para exportar.\n"
+"Selecionar pasta para a qual exportar.\n"
 "Você pode precisar criar uma nova pasta antes de exportar."
 
 # ID:3603,
@@ -3397,7 +3409,7 @@ msgstr "Preferências"
 # Control-ID:65535,
 #: ID:101
 msgid "Sho&w Properties"
-msgstr "Pr&opriedades"
+msgstr "Exibir Pr&opriedades"
 
 # Control-ID:1105,
 #: Control-ID:1105
@@ -3407,7 +3419,7 @@ msgstr "Formato curto de &data/tempo no histórico"
 # ID:12,
 #: ID:12
 msgid "Short Url of subversion items"
-msgstr "Url Curto de ítens do subversion"
+msgstr "Url Curto de itens do subversion"
 
 # Control-ID:1016,
 #: Control-ID:1031
@@ -3445,7 +3457,7 @@ msgstr "Visualizar s&obreposições apenas no explorer"
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Show Diff Bar"
-msgstr "Mostrar Barra de Comparação (Diff)"
+msgstr "Mostrar Barra de Comparação"
 
 # ID:113,
 #: ID:113
@@ -3455,12 +3467,17 @@ msgstr "Mostrar Diferenças como Comparação &unificada"
 # Control-ID:1063,
 #: Control-ID:1063
 msgid "Show Linenumbers"
-msgstr "Visualizar Número de Linhas"
+msgstr "Visualizar Números de Linhas"
 
 # ID:12,
 #: ID:12
 msgid "Show Log"
 msgstr "Visualizar Histórico"
+
+# Control-ID:65535,
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "Mostrar status da pasta"
 
 # Como se traduz toggle?
 # ID:3713,
@@ -3494,7 +3511,12 @@ msgstr ""
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Show unversioned files"
-msgstr "Visualizar arquivos sem versão"
+msgstr "Visualizar arquivos sem controle de versão"
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Exibe uma representação gráfica de cópias/rótulos/ramos"
 
 # ID:13,
 #: ID:13
@@ -3504,7 +3526,7 @@ msgstr "Mostrar todos os arquivos modificados deste a última atualização, loc
 # ID:10,
 #: ID:10
 msgid "Shows information about TortoiseSVN"
-msgstr "Visualizar infromação sobre o TortoiseSVN"
+msgstr "Visualizar infromações sobre o TortoiseSVN"
 
 # ID:12,
 #: ID:12
@@ -3557,7 +3579,7 @@ msgstr ""
 #: Control-ID:1132
 #: Dlg-ID:179
 msgid "Statistics"
-msgstr "Estattísticas"
+msgstr "Estatísticas"
 
 # ID:74,#:
 # ID:77,
@@ -3615,7 +3637,7 @@ msgstr ""
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
-msgstr "Transferir para Branch / Tag"
+msgstr "Alternar para Ramo / Rótulo"
 
 # Como fica pane?
 # ID:3606,
@@ -3624,8 +3646,8 @@ msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
 msgstr ""
-"Voltar a window pane anterior\n"
-"Pane Anterior"
+"Voltar ao painel anterior da janela \n"
+"Painel Anterior"
 
 # Help!!!
 # ID:2049,
@@ -3634,8 +3656,8 @@ msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr ""
-"???Substitui entre painel de visão simples e duplo\n"
-"Substitui entre painel de visão simples e duplo"
+"Alterna entre visão de painel simples e duplo\n"
+"Alterna entre visão de painel simples e duplo"
 
 # de documento ou do documento?
 # ID:3825,
@@ -3650,8 +3672,8 @@ msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
 msgstr ""
-"Ir para o próximo window pane\n"
-"Próximo Pane"
+"Ir para o próximo painel da janela\n"
+"Próximo Painel"
 
 # de documento ou do documento?
 # ID:3825,
@@ -3662,7 +3684,7 @@ msgstr "Voltar à janela de documento anterior"
 # ID:9,
 #: ID:9
 msgid "Switch working copy to another branch / tag"
-msgstr "Substituir a cópia de etrabalho por um branch / tag"
+msgstr "Substituir a cópia de trabalho por um ramo / rótulo"
 
 # ID:9,
 #: ID:9
@@ -3688,12 +3710,12 @@ msgstr "Copia atual marcada para %s"
 # Control-ID:65535,
 #: ID:207
 msgid "Text Status"
-msgstr "Estado do Texto"
+msgstr "Status do Texto"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Text Status:"
-msgstr "Estado do texto:"
+msgstr "Status do texto:"
 
 # ID:69,
 #: ID:69
@@ -3704,7 +3726,7 @@ msgid ""
 msgstr ""
 "O Arquivo\n"
 "%s\n"
-"não é uma arquivo válido!"
+"não é um arquivo de texto válido!"
 
 # ID:80,
 #: ID:80
@@ -3727,7 +3749,7 @@ msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
 msgstr ""
-"O mecanismo de diferença foi interrompido devido a um erro:\n"
+"O mecanismo de comparação foi interrompido devido a um erro:\n"
 "%s"
 
 # ID:64,
@@ -3738,7 +3760,7 @@ msgstr "O arquivo %s não existe!"
 # ID:64,
 #: ID:64
 msgid "The file %s was not found in the patch file!"
-msgstr "O arquivo %s não foi achado no arquivo patch!"
+msgstr "O arquivo %s não foi achado no arquivo de correção!"
 
 # ID:3857,#:
 # ID:3857,
@@ -3755,7 +3777,7 @@ msgid ""
 msgstr ""
 "O arquivo\n"
 "%s\n"
-"já existe! Você quer sobrescrever?"
+"já existe! Você quer sobrescrevê-lo?"
 
 # ID:88,
 #: ID:88
@@ -3787,12 +3809,12 @@ msgstr ""
 # ID:63,
 #: ID:63
 msgid "The line indicating the new file was expected in line %d !"
-msgstr "A linha indicando o novo arquivo era esperado na linha%d !"
+msgstr "A linha indicando o novo arquivo era esperado na linha %d !"
 
 # ID:63,
 #: ID:63
 msgid "The line indicating the old file was expected in line %d !"
-msgstr "A linha indicando o novo arquivo era esperada na linha %d !"
+msgstr "A linha indicando o arquivo antigo era esperada na linha %d !"
 
 # ID:63,
 #: ID:63
@@ -4045,6 +4067,23 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Data: %s\r\n"
+"\r\n"
+"Comentário:\r\n"
+"%s"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -4217,6 +4256,11 @@ msgstr "Use esse arquivo &inteiro"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Usar isto se a URL do repositório foi alterada"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Use o outro arquivo &inteiro"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4401,6 +4445,14 @@ msgstr ""
 "Nota: atualizar para outra versão não causa a perda de suas modificações. Então sua cópia local \n"
 "não vão parecer exatamente como se estivesse na  versão atualizada!"
 
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "M&ais Zoom"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "M&enos Zoom"
+
 # ID:10,
 #: ID:10
 msgid "added"
@@ -4447,37 +4499,34 @@ msgstr ""
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\n"
-"Cadeia de caracteres que é adicionada a um comentário quando um número de tópico for inserido.\n"
-"A cadeia deve conter \"%BUGID%\" que deve ser substituído pelo número do tópico."
+"Cadeia de caracteres que é adicionada a um comentário quando um issue number for inserido.\n"
+"A cadeia deve conter \"%BUGID%\" que deve ser substituído pelo issue number."
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"Marque \"falso\" se o sistema de rastreamento de bugs não contiver nenhum tópico referenciado pelos números."
+"Marque \"falso\" se o seu sistema de bugtracking contiver issues que sejam referenciadas não por números."
 
 # ID:14,
 #: ID:14
-#, fuzzy
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\n"
-"URL apontando para o rastreador de tópicos. Este deve conter o\"%BUGID%\" que \n"
-"será substituído pelo número do tópico."
+"URL apontando para o issue tracker. Este deve conter o\"%BUGID%\" que \n"
+"será substituído pelo issue number."
 
 # ID:145,
 #: ID:145
