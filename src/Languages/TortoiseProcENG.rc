@@ -412,8 +412,9 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Network"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "&Enable Proxy Server",IDC_ENABLE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,7,286,10
+    CONTROL         "&Enable Proxy Server (Don't use the IE settings)",
+                    IDC_ENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,286,
+                    10
     GROUPBOX        "Proxy Settings",IDC_PROXYGROUP,7,20,286,128
     LTEXT           "Server &address:",IDC_STATIC,17,36,101,8
     EDITTEXT        IDC_SERVERADDRESS,118,34,101,14,ES_AUTOHSCROLL

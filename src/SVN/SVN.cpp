@@ -1397,6 +1397,10 @@ void SVN::UseIEProxySettings(apr_hash_t * cfg)
 	List.dwOptionError = 0;
 	List.pOptions = Option;
 
+	CString server = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-host"), _T(""));
+	if (!server.IsEmpty())
+		return;
+
 	if(!InternetQueryOption(NULL, INTERNET_OPTION_PER_CONNECTION_OPTION, &List, &nSize))
 		return;
 
@@ -1428,6 +1432,8 @@ void SVN::UseIEProxySettings(apr_hash_t * cfg)
 		port = proxy.Mid(proxy.Find(':')+1);
 		proxy = proxy.Left(proxy.Find(':'));
 	}
+	if (proxy.IsEmpty())
+		goto ERROR_LABEL;
 
 	svn_config_t * opt = (svn_config_t *)apr_hash_get (cfg, SVN_CONFIG_CATEGORY_SERVERS,
 		APR_HASH_KEY_STRING);
