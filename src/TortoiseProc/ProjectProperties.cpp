@@ -434,7 +434,7 @@ CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
 	CString ret;
 	if (sUrl.IsEmpty())
 		return ret;
-	if (!sMessage.IsEmpty() || (!sCheckRe.IsEmpty()&&!sBugIDRe.IsEmpty()))
+	if (!sMessage.IsEmpty() || !sCheckRe.IsEmpty())
 	{
 		ret = sUrl;
 		ret.Replace(_T("%BUGID%"), sBugID);
