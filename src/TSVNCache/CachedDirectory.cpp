@@ -32,6 +32,11 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		bRequestForSelf = true;
 	}
 
+	if(path.IsEquivalentTo(CTSVNPath(_T("C:\\keil"))))
+	{
+		ATLTRACE("");
+	}
+
 	// In all most circumstances, we ask for the status of a member of this directory.
 	ATLASSERT(m_directoryPath.IsEquivalentTo(path.GetContainingDirectory()) || bRequestForSelf);
 
@@ -99,12 +104,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 					}
 					else
 					{
-						ATLTRACE("Filetime change on file %s\n", path.GetSVNApiPath());
+						ATLTRACE("Filetime change on file %ws\n", path.GetWinPath());
 					}
 				}
 				else
 				{
-					ATLTRACE("Cache timeout on file %s\n", path.GetSVNApiPath());
+					ATLTRACE("Cache timeout on file %ws\n", path.GetWinPath());
 				}
 			}
 		}
@@ -135,7 +140,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		return CStatusCacheEntry();
 	}
 
-	ATLTRACE("svn_cli_stat for '%s' (req %s)\n", m_directoryPath.GetSVNApiPath(), path.GetSVNApiPath());
+	ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
 
 	svn_wc_status_kind preUpdateStatus = m_mostImportantFileStatus;
 	m_mostImportantFileStatus = svn_wc_status_unversioned;
@@ -159,9 +164,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	{
 		// Handle an error
 		// The most likely error on a folder is that it's not part of a WC
-		// This should have been caught earlier
-//		ATLASSERT(FALSE);
-		return CStatusCacheEntry();
+		// In most circumstances, this will have been caught earlier,
+		// but in some situations, we'll get this error.
+		// If we allow ourselves to fall on through, then folders will be asked
+		// for their own status, and will set themselves as unversioned, for the 
+		// benefit of future requests
+		ATLTRACE("svn_cli_stat err: '%s'\n", pErr->message);
 	}
 
 	// Now that we've refreshed our SVN status, we can see if it's 
