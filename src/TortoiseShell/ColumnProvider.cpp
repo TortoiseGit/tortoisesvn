@@ -27,15 +27,8 @@
 #include <wininet.h>
 #include <atlexcept.h>
 
-// If this is set the SVN columns will always show if the current directory contains SVN content
-// Otherwise the user will have to add the columns via the "more..." button
-#define COLUMN_ALWAYS_SHOW 1
 
-#ifdef COLUMN_ALWAYS_SHOW
-const static int ColumnFlags = SHCOLSTATE_TYPE_STR|SHCOLSTATE_ONBYDEFAULT;
-#else
-const static int ColumnFlags = SHCOLSTATE_TYPE_STR|SHCOLSTATE_SECONDARYUI;
-#endif
+const static int ColumnFlags = SHCOLSTATE_TYPE_STR;
 
 // Defines that revision numbers occupy at most MAX_REV_STRING_LEN characters.
 // There are Perforce repositories out there that have several 100,000 revs.
@@ -334,13 +327,9 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
 STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 {
-#ifdef COLUMN_ALWAYS_SHOW
 	// psci->wszFolder (WCHAR) holds the path to the folder to be displayed
 	// Should check to see if its a "SVN" folder and if not return E_FAIL
 
-	// The only problem with doing this is that we can't add this column in non-SVN folders.
-	// Infact it shows up in non-SVN folders as some random other column).
-	// Thats why this is turned off for !COLUMN_ALWAYS_SHOW
 	PreserveChdir preserveChdir;
 #ifdef UNICODE
 	std::wstring path = psci->wszFolder;
@@ -349,12 +338,13 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 #endif
 	if (!path.empty())
 	{
-		if (svn_wc_status_unversioned==SVNStatus::GetAllStatus(path.c_str()))
+		TCHAR buf[MAX_PATH];
+		_tcscpy(buf, path.c_str());
+		_tcscat(buf, _T("\\"));
+		_tcscat(buf, _T(SVN_WC_ADM_DIR_NAME));
+		if (!PathFileExists(buf))
 			return E_FAIL;
 	}
-#else
-#endif
-
 	return S_OK;
 }
 
