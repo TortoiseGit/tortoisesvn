@@ -99,18 +99,11 @@ public:
 	filestatuscache *	GetFullStatus(LPCTSTR filepath);
 
 private:
-	int					IsCacheValid(LPCTSTR filename);
 	filestatuscache *	BuildCache(LPCTSTR filepath);
-	int					FindFile(LPCTSTR filename);
-	int					FindFirstInvalidFolder();
 	DWORD				GetTimeoutValue();
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	
 	std::map<stdstring, filestatuscache> m_cache;
-	//filestatuscache	*	m_pStatusCache;
-	//filestatuscache		m_FolderCache[SVNFOLDERSTATUS_FOLDER];
-	//int					m_nCacheCount;
-	//int					m_nFolderCount;
 	DWORD				m_TimeStamp;
 	filestatuscache		invalidstatus;
 	ShellCache			shellCache;
