@@ -894,6 +894,12 @@ BEGIN
     IDS_AUTH_PASSWORD       "Password:"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_ERR_SSL_CNMISMATCH  "Hostname mismatch"
+    IDS_ERR_SSL_EXPIREDORNOTYETVALID "Certificate expired or not yet valid"
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
