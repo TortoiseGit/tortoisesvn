@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-01-26 15:39+0100\n"
+"PO-Revision-Date: 2005-01-28 08:48+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -157,6 +157,11 @@ msgstr "&Kopieren nach..."
 #: ID:101
 msgid "&Delete"
 msgstr "&Löschen"
+
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "&Testlauf"
 
 #: Control-ID:1031
 msgid "&Edit"
@@ -359,6 +364,10 @@ msgstr "&Rückgängig"
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Rückgängig\tStrg+Z"
+
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "&Standard Diff"
 
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -1205,6 +1214,10 @@ msgstr ""
 "<hr=100%>\n"
 "%s"
 
+#: ID:273
+msgid "Could not create device context!"
+msgstr "Konnte Gerätekontext nicht erzeugen!"
+
 #: ID:81
 msgid "Could not get the status!"
 msgstr "Konnte den Status nicht ermitteln!"
@@ -1475,11 +1488,6 @@ msgstr "Diese Meldung nicht wieder anzeigen"
 #: Control-ID:1079
 msgid "Drive Types"
 msgstr "Laufwerkstypen"
-
-# Control-ID:1061,
-#: Control-ID:1179
-msgid "Dry Run"
-msgstr "&Testlauf"
 
 #: MenuEntry
 msgid "E&xit"
@@ -3543,10 +3551,6 @@ msgstr "Rückgängig|Letzte Aktuion rückgängig machen"
 #: ID:3859
 msgid "Unexpected file format."
 msgstr "Unerwartetes Dateiformat."
-
-#: Control-ID:1180
-msgid "Unified Diff"
-msgstr "&Standard Diff"
 
 #: ID:81
 msgid ""
