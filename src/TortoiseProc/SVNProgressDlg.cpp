@@ -74,6 +74,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
 	ON_WM_CLOSE()
 	ON_NOTIFY(NM_DBLCLK, IDC_SVNPROGRESS, OnNMDblclkSvnprogress)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickSvnprogress)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -611,14 +612,15 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 	temp.LoadString(IDS_PROGRS_TITLEFIN);
 	sWindowTitle = sWindowTitle + _T(" ") + temp;
 	pDlg->SetWindowText(sWindowTitle);
-	//temp.LoadString(IDS_MSGBOX_OK);
-	//pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
 
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 
 	pDlg->m_bCancelled = TRUE;
 	pDlg->m_bThreadRunning = FALSE;
+	POINT pt;
+	GetCursorPos(&pt);
+	SetCursorPos(pt.x, pt.y);
 	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE))
 		pDlg->PostMessage(WM_QUIT);
 	return 0;
@@ -865,4 +867,17 @@ int CSVNProgressDlg::SortCompare(const void * pElem1, const void * pElem2)
 	if (!m_bAscending)
 		result = -result;
 	return result;
+}
+
+BOOL CSVNProgressDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if (GetDlgItem(IDOK)->IsWindowEnabled())
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+		SetCursor(hCur);
+		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	SetCursor(hCur);
+	return TRUE;
 }

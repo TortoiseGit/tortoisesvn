@@ -149,5 +149,6 @@ public:			//need to be public for the thread to access
 	BOOL		m_bThreadRunning;
 	CString		m_sModName;
 	afx_msg void OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };
 DWORD WINAPI ProgressThread(LPVOID pVoid);
