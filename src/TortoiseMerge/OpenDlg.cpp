@@ -233,5 +233,29 @@ void COpenDlg::OnOK()
 		m_sTheirFile.Empty();
 	}
 	UpdateData(FALSE);
+	CString sFile;
+	if (!m_sUnifiedDiffFile.IsEmpty())
+		if (!PathFileExists(m_sUnifiedDiffFile))
+			sFile = m_sUnifiedDiffFile;
+	if (!m_sPatchDirectory.IsEmpty())
+		if (!PathFileExists(m_sPatchDirectory))
+			sFile = m_sPatchDirectory;
+	if (!m_sBaseFile.IsEmpty())
+		if (!PathFileExists(m_sBaseFile))
+			sFile = m_sBaseFile;
+	if (!m_sYourFile.IsEmpty())
+		if (!PathFileExists(m_sYourFile))
+			sFile = m_sYourFile;
+	if (!m_sTheirFile.IsEmpty())
+		if (!PathFileExists(m_sTheirFile))
+			sFile = m_sTheirFile;
+
+	if (!sFile.IsEmpty())
+	{
+		CString sErr;
+		sErr.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, sFile);
+		MessageBox(sErr, NULL, MB_ICONERROR);
+		return;
+	}
 	CDialog::OnOK();
 }
