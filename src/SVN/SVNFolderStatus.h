@@ -37,11 +37,11 @@
 #include "svn_config.h"
 
 #include "SVNStatus.h"
-
+#include <map>
 
 typedef struct filestatuscache
 {
-	TCHAR					filename[MAX_PATH];
+	//TCHAR					filename[MAX_PATH];
 	svn_wc_status_kind		status;
 	char					author[MAX_PATH];
 	char					url[MAX_PATH];
@@ -104,19 +104,17 @@ private:
 	int					FindFile(LPCTSTR filename);
 	int					FindFirstInvalidFolder();
 	DWORD				GetTimeoutValue();
-	static void			getstatushash (void *baton, const char *path, svn_wc_status_t *status);
-	struct hashbaton_t
-	{
-		apr_hash_t *	hash;
-		apr_pool_t *	pool;
-	};
+	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	
-	filestatuscache	*	m_pStatusCache;
-	filestatuscache		m_FolderCache[SVNFOLDERSTATUS_FOLDER];
-	int					m_nCacheCount;
-	int					m_nFolderCount;
+	std::map<stdstring, filestatuscache> m_cache;
+	//filestatuscache	*	m_pStatusCache;
+	//filestatuscache		m_FolderCache[SVNFOLDERSTATUS_FOLDER];
+	//int					m_nCacheCount;
+	//int					m_nFolderCount;
 	DWORD				m_TimeStamp;
 	filestatuscache		invalidstatus;
 	ShellCache			shellCache;
+	filestatuscache		dirstat;
+	filestatuscache		filestat;
 };
 
