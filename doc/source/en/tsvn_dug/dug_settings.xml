@@ -383,11 +383,10 @@ C:\Path-To\kdiff3.exe %base %mine --L1 %bname --L2 %yname
 				is purely due to the current value of the keyword. TSVN can
 				hide this artificial difference by first parsing the files
 				for keywords before doing the diff operation. However, this
-				could take some time, especially with large files, so this
+				can take some time, especially with large files, so this
 				behaviour is optional. If
-				<guilabel>Don't convert files when diffing against BASE</guilabel>
-				is checked (default condition) then this processing is skipped
-				to save time. If this bothers you, simply uncheck the box.
+				<guilabel>Convert files when diffing against BASE</guilabel>
+				is checked then TSVN will pre-process the files.
 			</para>
 		</sect3>
 		<sect3 id="tsvn-DUG-settings-Merge">
