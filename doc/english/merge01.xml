@@ -13,35 +13,51 @@
 	<!-- ================================================================= -->
 	<sect1 id="tmerge-ch-1-sect-1">
 		
-		<title>What is TortoiseMerge?</title>
+		<title>Overview</title>
 		<?dbhh topicname="HIDD_OPENDLG"?>
 	
 		<para>
-		TortoiseSVN is a free/open-source client for the Subversion version
-		control system.
-		That is, TortoiseSVN manages files and directories over time.
-		A tree of files is placed into a central
-		<firstterm>repository</firstterm>.  The repository is much like
-		an ordinary file server, except that it remembers every change
-		ever made to your files and directories.  This allows you to
-		recover older versions of your data, or examine the history of
-		how your data changed.  In this regard, many people think of a
-		version control system as a sort of <quote>time
-		machine</quote>.
+		TortoiseMerge is a free/open-source application. It let's you see
+		differences in text files, merge those changes and even review and
+		apply unified diff files, often called <firstterm>patches</firstterm>.
 		</para>
-		
 		<para>
-		Some version control systems are also software configuration
-		management (SCM) systems.  These systems are specifically
-		tailored to manage trees of source code, and have many features
-		that are specific to software development&mdash;such as natively
-		understanding programming languages, or supplying tools for
-		building software.  Subversion, however, is not one of these
-		systems; it is a general system that can be used to manage
-		<emphasis>any</emphasis> collection of files, including
-		source code.
+		While working on text files, e.g. source files in your favourite
+		programming language or html/xml files for your documentation or
+		website, you will often have a situation where you need to compare
+		different versions of those files. Sometimes you get a different
+		version from someone else, sometimes you just want to see the changes
+		you've made.
 		</para>
-		
+		<para>
+		If you're working with a version control system (e.g. Subversion) then
+		you sometimes get <emphasis>conflicts</emphasis> when you update your
+		working copy. This happens if someone else changed the same parts of
+		the file you're currently working on as you. Then you have to resolve
+		that conflict manually. This is where TortoiseMerge can help you.
+		</para>
+		<para>
+		The following diagram shows you the relationships among the files
+		involved in a conflict:
+		</para>
+		<para>
+			<graphic srccredit="file conflict" fileref="mergeprinciple.png"/>
+		</para>
+		<para>
+		A conflict can also occur if you try to apply an outdated patchfile.
+		In such cases you would either have to ask the person you got that
+		patchfile from for a current version or try to apply that patchfile
+		manually.
+		</para>
+		<para>
+		But now with TortoiseMerge this isn't necessary anymore - at least not
+		if you're working with a version control system like Subversion.
+		TortoiseMerge parses the patchfile for the revision/version the patch
+		was created for and automatically tries to fetch that specific version
+		from your source-control, applies the patch and lets you review both
+		your and their changes to the file. Then you can decide which changes
+		you want to keep.
+		</para>
 	</sect1>
 
 	<!-- ================================================================= -->
