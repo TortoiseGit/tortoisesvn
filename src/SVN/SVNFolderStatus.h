@@ -161,6 +161,7 @@ public:
 	SVNFolderStatus(void);
 	~SVNFolderStatus(void);
 	filestatuscache *	GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
+	filestatuscache *	GetCachedItem(LPCTSTR filepath);
 
 	filestatuscache		invalidstatus;
 private:

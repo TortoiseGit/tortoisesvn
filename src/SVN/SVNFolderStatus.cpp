@@ -267,6 +267,18 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolde
 	return BuildCache(filepath, bIsFolder);
 }
 
+filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
+{
+	filestatuscache * ret = NULL;
+	sCacheKey.assign(filepath);
+	std::map<stdstring, filestatuscache>::iterator iter;
+	if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
+	{
+		return (filestatuscache *)&iter->second;
+	}
+	return NULL;
+}
+
 void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)
 {
 	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;

@@ -174,50 +174,58 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 		if (! g_ShellCache.IsPathAllowed(pPath))
 			return S_FALSE;
 
-		// since the dwAttrib param of the IsMemberOf() function does not
-		// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
-		// we have to check if the path is a folder ourselves :(
-		if (PathIsDirectory(pPath))
+		filestatuscache * s = g_CachedStatus.GetCachedItem(pPath);
+		if (s)
 		{
-			if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
+			status = s->status;
+		}
+		else
+		{
+			// since the dwAttrib param of the IsMemberOf() function does not
+			// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
+			// we have to check if the path is a folder ourselves :(
+			if (PathIsDirectory(pPath))
 			{
-				if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
+				if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
 				{
-					status = svn_wc_status_normal;
+					if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
+					{
+						status = svn_wc_status_normal;
+					}
+					else
+					{
+						DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
+						if (dwWaitResult == WAIT_OBJECT_0)
+						{
+							filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+							status = s->status;
+							status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
+						} // if (dwWaitResult == WAIT_OBJECT_0) 
+						else
+							status = svn_wc_status_normal;
+						ReleaseMutex(hMutex);
+
+					}
 				}
 				else
 				{
-					DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
-					if (dwWaitResult == WAIT_OBJECT_0)
-					{
-						filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
-						status = s->status;
-						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
-					} // if (dwWaitResult == WAIT_OBJECT_0) 
-					else
-						status = svn_wc_status_normal;
-					ReleaseMutex(hMutex);
-
+					status = svn_wc_status_unversioned;
 				}
-			}
+			} // if (PathIsDirectory(g_filepath))
 			else
 			{
-				status = svn_wc_status_unversioned;
+				DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+					status = s->status;
+				} // if (dwWaitResult == WAIT_OBJECT_0)
+				else
+				{
+					status = svn_wc_status_unversioned;
+				}
+				ReleaseMutex(hMutex);
 			}
-		} // if (PathIsDirectory(g_filepath))
-		else
-		{
-			DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
-			if (dwWaitResult == WAIT_OBJECT_0)
-			{
-				filestatuscache * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
-				status = s->status;
-			} // if (dwWaitResult == WAIT_OBJECT_0)
-			else
-			{
-				status = svn_wc_status_unversioned;
-			}
-			ReleaseMutex(hMutex);
 		}
 		g_filepath.clear();
 		g_filepath = pPath;
