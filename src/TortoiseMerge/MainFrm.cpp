@@ -512,11 +512,11 @@ void CMainFrame::UpdateLayout()
 
 void CMainFrame::OnSize(UINT nType, int cx, int cy)
 {
-    CNewFrameWnd::OnSize(nType, cx, cy);
     if (m_bInitSplitter && nType != SIZE_MINIMIZED)
     {
 		UpdateLayout();
     } // if (m_bInitSplitter && nType != SIZE_MINIMIZED) 
+    CNewFrameWnd::OnSize(nType, cx, cy);
 }
 
 void CMainFrame::OnViewWhitespaces()
