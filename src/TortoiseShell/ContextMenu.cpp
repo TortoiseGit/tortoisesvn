@@ -59,11 +59,25 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		{
 			if (m_State == DropHandler)
 			{
+				FORMATETC etc = { CF_HDROP, NULL, DVASPECT_CONTENT, -1, TYMED_HGLOBAL };
+				STGMEDIUM stg = { TYMED_HGLOBAL };
+				if ( FAILED( pDataObj->GetData ( &etc, &stg )))
+					return E_INVALIDARG;
+
+
 				TCHAR m_szFileName[MAX_PATH];
-				int count = DragQueryFile((HDROP)medium.hGlobal, (UINT)-1, NULL, 0);
+				HDROP drop = (HDROP)GlobalLock(stg.hGlobal);
+				if ( NULL == drop )
+				{
+					ReleaseStgMedium ( &medium );
+					return E_INVALIDARG;
+				}
+
+				int count = DragQueryFile(drop, (UINT)-1, NULL, 0);
 				for (int i = 0; i < count; i++)
 				{
-					DragQueryFile((HDROP)medium.hGlobal, i, m_szFileName, sizeof(m_szFileName));
+					if (0 == DragQueryFile(drop, i, m_szFileName, sizeof(m_szFileName)))
+						continue;
 					stdstring str = stdstring(m_szFileName);
 					if (str.empty() == false)
 					{
@@ -77,7 +91,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						if (status == svn_wc_status_conflicted)
 							isConflicted = true;
 					}
-				}
+				} // for (int i = 0; i < count; i++)
+				GlobalUnlock ( drop );
 			} // if (m_State == DropHandler)
 			else
 			{
@@ -268,6 +283,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		//SHGetSpecialFolderPath(NULL, buf, CSIDL_STARTMENU, FALSE);
 		//if (_tcscmp(buf, folder_.c_str())==0)
 		//	return NOERROR;
+
 		//the drophandler only has two commands, but only one is visible at a time:
 		//if the source file(s) are under version control then those files can be moved
 		//to the new location, if they are unversioned then they can be added to the

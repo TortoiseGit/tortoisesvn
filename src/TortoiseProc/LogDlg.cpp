@@ -360,6 +360,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					long rev = m_arRevs.GetAt(selIndex);
 					this->m_bCancelled = FALSE;
 					CString tempfile = CUtils::GetTempFile();
+					tempfile += _T(".diff");
 					if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -376,6 +377,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
 					this->m_bCancelled = FALSE;
 					CString tempfile = CUtils::GetTempFile();
+					tempfile += _T(".diff");
 					if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
