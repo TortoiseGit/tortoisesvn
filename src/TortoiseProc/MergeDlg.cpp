@@ -76,6 +76,7 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_BN_CLICKED(IDC_WCLOG, OnBnClickedWCLog)
 	ON_BN_CLICKED(IDC_DRYRUNBUTTON, OnBnClickedDryrunbutton)
 	ON_BN_CLICKED(IDC_DIFFBUTTON, OnBnClickedDiffbutton)
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO, OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
 
 
@@ -463,9 +464,9 @@ void CMergeDlg::OnBnClickedUsefromurl()
 	UpdateData();
 	if (m_bUseFromURL)
 	{
-		m_URLCombo.SaveHistory();
-		GetDlgItem(IDC_URLCOMBO2)->SetWindowText(m_URLCombo.GetString());
-		m_URLTo = m_URLCombo.GetString();
+		CString str;
+		m_URLCombo.GetWindowText(str);
+		m_URLCombo2.SetWindowText(str);
 		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
 		GetDlgItem(IDC_BROWSE2)->EnableWindow(FALSE);
 	}
@@ -493,6 +494,16 @@ void CMergeDlg::OnBnClickedWCLog()
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	} // if (!url.IsEmpty()) 
 	AfxGetApp()->DoWaitCursor(-1);
+}
+
+void CMergeDlg::OnCbnEditchangeUrlcombo()
+{
+	if (m_bUseFromURL)
+	{
+		CString str;
+		m_URLCombo.GetWindowText(str);
+		m_URLCombo2.SetWindowText(str);
+	}
 }
 
 

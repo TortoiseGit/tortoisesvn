@@ -80,6 +80,7 @@ protected:
 	afx_msg void OnBnClickedWCLog();
 	afx_msg void OnBnClickedDryrunbutton();
 	afx_msg void OnBnClickedDiffbutton();
+	afx_msg void OnCbnEditchangeUrlcombo();
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;
