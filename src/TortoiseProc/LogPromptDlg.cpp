@@ -323,6 +323,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 							m_ListCtrl.SetCheck(i, FALSE);
 							d->checked = FALSE;
 							//now we need to check all children of this parent folder
+							t += _T("\\");
 							for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 							{
 								if (m_ListCtrl.GetCheck(j))
@@ -505,6 +506,7 @@ void CLogPromptDlg::OnOK()
 {
 	if (!GetDlgItem(IDOK)->IsWindowEnabled())
 		return;
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	CDWordArray arDeleted;
 	//first add all the unversioned files the user selected
 	for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
@@ -536,6 +538,7 @@ void CLogPromptDlg::OnOK()
 	for (int i=0; i<arDeleted.GetCount(); i++)
 	{
 		CString path = ((Data *)(m_arData.GetAt(arDeleted.GetAt(i))))->path;
+		path += _T("/");
 		//now check if there's a "parent folder"
 		for (int j=0; j<arDeleted.GetCount(); j++)
 		{
@@ -570,6 +573,7 @@ void CLogPromptDlg::OnOK()
 		pE->Delete();
 	}
 
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	CResizableDialog::OnOK();
 }
 
