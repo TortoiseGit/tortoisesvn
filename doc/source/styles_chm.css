@@ -152,19 +152,22 @@ div.table title { background-color: #FFFFFF; width:100%; border: 0px; }
 div.table p { text-align: center; }
 div.table table {
 	background-color: #7099C5;
-	color: #ffffff;
 	font-size: 90%;
 	border-width: 0px;
 }
 div.table th {
 	text-align: center;
+	color: white;
+	background-color: #7099C5;
 	padding: 1px 4px 1px 4px;
 	border: none;
+	vertical-align: top;
+}
+div.table tr {
+	background-color: #f0f0ff;
 }
 div.table td {
-	background-color: #f0f0ff;
-	color: black;
-	padding: 1px 4px 1px 4px;
+	padding: 2px 4px 1px 4px;
 	border: none;
 }
 

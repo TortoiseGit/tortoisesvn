@@ -7,8 +7,8 @@ set OFile=..\..\www\translations.html
 
 type trans_head.html > %OFile%
 
-FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
-if !total! GTR 1 SET /A total -= 1
+rem Count all messages in PO Template file
+FOR /F "usebackq" %%p IN (`Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
 
 echo ^<tr class="complete"^> >> %OFile%
 echo ^<td class="lang"^>Empty Catalog^</td^> >> %OFile%
@@ -44,17 +44,12 @@ if exist _Tortois_%1%.po (
   set fuz=0
   set obs=0
 
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Accel.bat _Tortois_%1.po`) DO SET errors=%%p
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po translated`) DO SET tra=%%p
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po only-fuzzy`) DO SET fuz=%%p
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po untranslated`) DO SET unt=%%p
-rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po only-obsolete`) DO SET obs=%%p
+  FOR /F "usebackq skip=1 " %%p IN (`Check_Accel.bat _Tortois_%1.po`) DO SET errors=%%p
+rem   FOR /F "usebackq" %%p IN (`Check_Attrib.bat _Tortois_%1.po --only-obsolete`) DO SET obs=%%p
+  FOR /F "usebackq" %%p IN (`Check_Attrib.bat --translated --no-obsolete _Tortois_%1.po`) DO SET tra=%%p
+  FOR /F "usebackq" %%p IN (`Check_Attrib.bat --only-fuzzy --no-obsolete _Tortois_%1.po`) DO SET fuz=%%p
+  FOR /F "usebackq" %%p IN (`Check_Attrib.bat --untranslated --no-obsolete _Tortois_%1.po`) DO SET unt=%%p
 
-  if !tra! GTR 0 SET /A tra -= 1 
-  if !fuz! GTR 0 SET /A fuz -= 1 
-  if !unt! GTR 0 SET /A unt -= 1
-
-  SET /A total=!tra!+!unt!
   SET /A tra=!tra!-!fuz!
 
   if !tra! EQU !total! (
@@ -63,7 +58,6 @@ rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat _Tortois_%1.po only-o
     SET fuz=0
   ) else (
     echo ^<tr class="incomplete"^> >> %OFile%
-    SET /A unt=!total!-!tra!-!fuz!
   )
 
   SET /A wt=200*!tra!/!total!

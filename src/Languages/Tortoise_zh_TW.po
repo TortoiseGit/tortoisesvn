@@ -14,7 +14,7 @@ msgstr ""
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=Big5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # ID:10,#:
@@ -34,49 +34,49 @@ msgstr "! %d"
 # ID:3868,
 #: ID:3868
 msgid "%1 contained an unexpected object."
-msgstr "%1 §t¦³¹w´Á¥~ªºª«¥ó."
+msgstr "%1 å«æœ‰é æœŸå¤–çš„ç‰©ä»¶."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
 msgid "%1 contains an incorrect schema."
-msgstr "%1 §t¦³¤£¥¿½Tªººõ­n."
+msgstr "%1 å«æœ‰ä¸æ­£ç¢ºçš„ç¶±è¦."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "%1 contains an invalid path."
-msgstr "%1 §t¦³¤£¦Xªkªº¸ô®|."
+msgstr "%1 å«æœ‰ä¸åˆæ³•çš„è·¯å¾‘."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "%1 could not be created because the directory is full."
-msgstr "¦]¬°¥Ø¿ı¤wº¡, %1  µLªk«Ø¥ß."
+msgstr "å› ç‚ºç›®éŒ„å·²æ»¿, %1  ç„¡æ³•å»ºç«‹."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "%1 could not be opened because there are too many open files."
-msgstr "µLªk¶}±Ò %1, ¦]¬°¤w¸g¶}±Ò¹L¦hªºÀÉ®×."
+msgstr "ç„¡æ³•é–‹å•Ÿ %1, å› ç‚ºå·²ç¶“é–‹å•Ÿéå¤šçš„æª”æ¡ˆ."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 ¬O¥Ø«e¥Ø¿ı, µLªk²¾°£."
+msgstr "%1 æ˜¯ç›®å‰ç›®éŒ„, ç„¡æ³•ç§»é™¤."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
 msgid "%1 has a bad format."
-msgstr "%1 ®æ¦¡¿ù»~."
+msgstr "%1 æ ¼å¼éŒ¯èª¤."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "%1 was not found."
-msgstr "§ä¤£¨ì %1."
+msgstr "æ‰¾ä¸åˆ° %1."
 
 # ID:3860,#:
 # ID:3860,
@@ -86,7 +86,7 @@ msgid ""
 "Continue running script?"
 msgstr ""
 "%1: %2\n"
-"­nÄ~Äò°õ¦æ?"
+"è¦ç¹¼çºŒåŸ·è¡Œ?"
 
 # ID:3859,#:
 # ID:3859,
@@ -97,23 +97,23 @@ msgid ""
 "Please verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
-"§ä¤£¨ì³o­ÓÀÉ®×.\n"
-"½Ğ½T©w¿é¤J¤F¥¿½Tªº¸ô®|©MÀÉ®×¦WºÙ."
+"æ‰¾ä¸åˆ°é€™å€‹æª”æ¡ˆ.\n"
+"è«‹ç¢ºå®šè¼¸å…¥äº†æ­£ç¢ºçš„è·¯å¾‘å’Œæª”æ¡ˆåç¨±."
 
 # ID:169,
 #: ID:169
 msgid "%d files selected, %d files total"
-msgstr "¿ï¾Ü¤F %d ­ÓÀÉ®×, ¦@¦³ %d ­ÓÀÉ®×"
+msgstr "é¸æ“‡äº† %d å€‹æª”æ¡ˆ, å…±æœ‰ %d å€‹æª”æ¡ˆ"
 
 # ID:151,
 #: ID:151
 msgid "%s : Working Base"
-msgstr "%s : ¤u§@°òÂ¦ª©¥»"
+msgstr "%s : å·¥ä½œåŸºç¤ç‰ˆæœ¬"
 
 # ID:151,
 #: ID:151
 msgid "%s : Working Copy"
-msgstr "%s : ¤u§@½Æ¥»"
+msgstr "%s : å·¥ä½œè¤‡æœ¬"
 
 # ID:145,
 #: ID:145
@@ -122,96 +122,96 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"½T©w¯uªº­n²¾°£¶Ü?"
+"ç¢ºå®šçœŸçš„è¦ç§»é™¤å—?"
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
-msgstr "Ãö©ó TortoiseMerge(&A)..."
+msgstr "é—œæ–¼ TortoiseMerge(&A)..."
 
 # Control-ID:1098,
 #: Control-ID:1098
 msgid "&Add..."
-msgstr "¥[¤J(&A)..."
+msgstr "åŠ å…¥(&A)..."
 
 # Control-ID:1090,
 #: Control-ID:1090
 msgid "&Advanced..."
-msgstr "¶i¶¥³]©w(&A)..."
+msgstr "é€²éšè¨­å®š(&A)..."
 
 # Control-ID:1013,
 #: Control-ID:1013
 msgid "&Apply Unified Diff"
-msgstr "®M¥Î³æ¤@®t²§ÀÉ(&A)"
+msgstr "å¥—ç”¨å–®ä¸€å·®ç•°æª”(&A)"
 
 # Control-ID:1011,
 #: Control-ID:1011
 msgid "&Browse..."
-msgstr "ÂsÄı(&B)..."
+msgstr "ç€è¦½(&B)..."
 
 # Control-ID:1091,
 #: Control-ID:1091
 msgid "&Builtin"
-msgstr "¤º«Ø(&B)"
+msgstr "å…§å»º(&B)"
 
 # Control-ID:1051,
 #: Control-ID:1051
 msgid "&CD-ROM"
-msgstr "¥úºĞ¾÷(&R)"
+msgstr "å…‰ç¢Ÿæ©Ÿ(&R)"
 
 # Control-ID:2,#:
 # Control-ID:2,
 #: Control-ID:2
 msgid "&Cancel"
-msgstr "¨ú®ø(&C)"
+msgstr "å–æ¶ˆ(&C)"
 
 # Control-ID:1074,
 #: Control-ID:1074
 msgid "&Checkout directory:"
-msgstr "¨ú¥X¦Ü¥Ø¿ı(&C):"
+msgstr "å–å‡ºè‡³ç›®éŒ„(&C):"
 
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "&Close windows automatically"
-msgstr "¦Û°ÊÃö³¬µøµ¡(&C)"
+msgstr "è‡ªå‹•é—œé–‰è¦–çª—(&C)"
 
 # Control-ID:1099,
 #: Control-ID:1099
 msgid "&Edit..."
-msgstr "½s¿è(&E)..."
+msgstr "ç·¨è¼¯(&E)..."
 
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Enable Proxy Server (Don't use the IE settings)"
-msgstr "¨Ï¥Î Proxy ¦øªA¾¹(¤£±Ä¥Î IE ³]©w)"
+msgstr "ä½¿ç”¨ Proxy ä¼ºæœå™¨(ä¸æ¡ç”¨ IE è¨­å®š)"
 
 # Control-ID:1092,
 #: Control-ID:1092
 msgid "&External"
-msgstr "¥~³¡(&E)"
+msgstr "å¤–éƒ¨(&E)"
 
 #: MenuEntry
 msgid "&File"
-msgstr "ÀÉ®×(&F)"
+msgstr "æª”æ¡ˆ(&F)"
 
 # Control-ID:1050,
 #: Control-ID:1050
 msgid "&Fixed drives"
-msgstr "µw¦¡ºÏºĞ(&F)"
+msgstr "ç¡¬å¼ç£ç¢Ÿ(&F)"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&From Revision"
-msgstr "±qª©¥»(&F)"
+msgstr "å¾ç‰ˆæœ¬(&F)"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&From URL:"
-msgstr "±q URL(&F):"
+msgstr "å¾ URL(&F):"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&From WC at URL:"
-msgstr "±q¤u§@½Æ¥» URL(&F):"
+msgstr "å¾å·¥ä½œè¤‡æœ¬ URL(&F):"
 
 # Control-ID:1032,#:
 # Control-ID:1019,#:
@@ -220,7 +220,7 @@ msgstr "±q¤u§@½Æ¥» URL(&F):"
 #: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
-msgstr "³Ì·sª©¥»(&H)"
+msgstr "æœ€æ–°ç‰ˆæœ¬(&H)"
 
 # Control-ID:57670,#:
 # MenuEntry#:
@@ -230,93 +230,93 @@ msgstr "³Ì·sª©¥»(&H)"
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
-msgstr "»¡©ú(&H)"
+msgstr "èªªæ˜(&H)"
 
 #: MenuEntry
 msgid "&Help Topics"
-msgstr "»¡©ú¥DÃD(&H)"
+msgstr "èªªæ˜ä¸»é¡Œ(&H)"
 
 # ID:3842,#:
 # ID:3842,
 #: ID:3842
 msgid "&Hide"
-msgstr "ÁôÂÃ (&H)"
+msgstr "éš±è— (&H)"
 
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "&Indicate folders with changed contents"
-msgstr "¼Ğ¥Ü¤º®e¦³ÅÜ°Ê¹Lªº¸ê®Æ§¨(&I)"
+msgstr "æ¨™ç¤ºå…§å®¹æœ‰è®Šå‹•éçš„è³‡æ–™å¤¾(&I)"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Language:"
-msgstr "»y¨t(&L)"
+msgstr "èªç³»(&L)"
 
 #: MenuEntry
 msgid "&Merge"
-msgstr "¦X¨Ö(&M)"
+msgstr "åˆä½µ(&M)"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Merge changes into the current working copy from URL:"
-msgstr "±NURLªº²§°Ê¦X¨Ö¦Ü¤u§@½Æ¥»(&M):"
+msgstr "å°‡URLçš„ç•°å‹•åˆä½µè‡³å·¥ä½œè¤‡æœ¬(&M):"
 
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Merging"
-msgstr "¦X¨Ö(&M)"
+msgstr "åˆä½µ(&M)"
 
 # Control-ID:1049,
 #: Control-ID:1049
 msgid "&Network drives"
-msgstr "ºô¸ôºÏºĞ(&N)"
+msgstr "ç¶²è·¯ç£ç¢Ÿ(&N)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&New "
-msgstr "·s¼W(&N)"
+msgstr "æ–°å¢(&N)"
 
 #: MenuEntry
 msgid "&Next Difference"
-msgstr "¤U¤@µ§®t²§(&N)"
+msgstr "ä¸‹ä¸€ç­†å·®ç•°(&N)"
 
 # Control-ID:1,#:
 # Control-ID:1,
 #: Control-ID:1
 msgid "&OK"
-msgstr "½T©w(&O)"
+msgstr "ç¢ºå®š(&O)"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
-msgstr "¶}±Ò(&O) Ctrl-O"
+msgstr "é–‹å•Ÿ(&O) Ctrl-O"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Password:"
-msgstr "±K½X(&P):"
+msgstr "å¯†ç¢¼(&P):"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
-msgstr "°ğ(&P):"
+msgstr "åŸ (&P):"
 
 #: MenuEntry
 msgid "&Previous Difference"
-msgstr "«e¤@µ§®t²§(&P)"
+msgstr "å‰ä¸€ç­†å·®ç•°(&P)"
 
 # Control-ID:1048,
 #: Control-ID:1048
 msgid "&Removable drives"
-msgstr "¨ø°£¦¡ºÏºĞ(&R)"
+msgstr "å¸é™¤å¼ç£ç¢Ÿ(&R)"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: Control-ID:1013
 #: Control-ID:1100
 msgid "&Remove"
-msgstr "²¾°£(&R)"
+msgstr "ç§»é™¤(&R)"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -324,57 +324,57 @@ msgstr "²¾°£(&R)"
 #: Control-ID:1033
 #: Control-ID:1116
 msgid "&Revision"
-msgstr "ª©¥»(&R)"
+msgstr "ç‰ˆæœ¬(&R)"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&SSH client:"
-msgstr "SSH ¥Î¤áºİ(&S):"
+msgstr "SSH ç”¨æˆ¶ç«¯(&S):"
 
 #: MenuEntry
 msgid "&Save Ctrl-S"
-msgstr "Àx¦s(&S) Ctrl-S"
+msgstr "å„²å­˜(&S) Ctrl-S"
 
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Set"
-msgstr "³]©w(&S)"
+msgstr "è¨­å®š(&S)"
 
 #: MenuEntry
 msgid "&Status Bar"
-msgstr "ª¬ºA¦C(&S)"
+msgstr "ç‹€æ…‹åˆ—(&S)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&To Revision"
-msgstr "¦Üª©¥»(&T)"
+msgstr "è‡³ç‰ˆæœ¬(&T)"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&To URL:"
-msgstr "¦ÜURL(&T):"
+msgstr "è‡³URL(&T):"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&To URL: "
-msgstr "¦ÜURL(&T):"
+msgstr "è‡³URL(&T):"
 
 #: MenuEntry
 msgid "&Toolbar"
-msgstr "¤u¨ã¦C(&V)"
+msgstr "å·¥å…·åˆ—(&V)"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
 #: Control-ID:65535
 #: Control-ID:1058
 msgid "&URL of repository:"
-msgstr "ÀÉ®×®w &URL:"
+msgstr "æª”æ¡ˆåº« &URL:"
 
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
-msgstr "ÁÙ­ì(&U)\tCtrl+Z"
+msgstr "é‚„åŸ(&U)\tCtrl+Z"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -382,15 +382,15 @@ msgstr "ÁÙ­ì(&U)\tCtrl+Z"
 #: Control-ID:65535
 #: Control-ID:1005
 msgid "&Username:"
-msgstr "¥Î¤á¦WºÙ(&U):"
+msgstr "ç”¨æˆ¶åç¨±(&U):"
 
 #: MenuEntry
 msgid "&View"
-msgstr "ÀËµø(&V)"
+msgstr "æª¢è¦–(&V)"
 
 #: MenuEntry
 msgid "&Whitespaces"
-msgstr "ªÅ¥Õ¦r¤¸(&W)"
+msgstr "ç©ºç™½å­—å…ƒ(&W)"
 
 # ID:188,
 #: ID:188
@@ -421,30 +421,30 @@ msgstr "..."
 # ID:3867,
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
-msgstr "¦s¨ú %1 ®Éµo¥ÍµwÅé I/O ¿ù»~."
+msgstr "å­˜å– %1 æ™‚ç™¼ç”Ÿç¡¬é«” I/O éŒ¯èª¤."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "A locking violation occurred while accessing %1."
-msgstr "¦s¨ú %1 ®Éµo¥ÍÂê©w¿ù»~."
+msgstr "å­˜å– %1 æ™‚ç™¼ç”Ÿé–å®šéŒ¯èª¤."
 
 # ID:201,
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "¦³§ó·sªºª©¥». ½Ğ¦Ü http://tortoisesvn.tigris.org ¤U¸ü!"
+msgstr "æœ‰æ›´æ–°çš„ç‰ˆæœ¬. è«‹è‡³ http://tortoisesvn.tigris.org ä¸‹è¼‰!"
 
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
 msgid "A required resource was unavailable."
-msgstr "§ä¤£¨ì»İ­nªº¸ê·½ÀÉ."
+msgstr "æ‰¾ä¸åˆ°éœ€è¦çš„è³‡æºæª”."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "A sharing violation occurred while accessing %1."
-msgstr "¦s¨ú %1 ®Éµo¥Í¦@¨É¿ù»~."
+msgstr "å­˜å– %1 æ™‚ç™¼ç”Ÿå…±äº«éŒ¯èª¤."
 
 # ID:79,
 #: ID:79
@@ -452,59 +452,59 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"¥Î¨ÓÀËµø GNU ®t²§ÀÉ (¸ÉºóÀÉ) ªºµ{¦¡.\n"
-"¦pªG¨S¦³, ¥i¥H¨Ï¥Î°O¨Æ¥»."
+"ç”¨ä¾†æª¢è¦– GNU å·®ç•°æª” (è£œç¶´æª”) çš„ç¨‹å¼.\n"
+"å¦‚æœæ²’æœ‰, å¯ä»¥ä½¿ç”¨è¨˜äº‹æœ¬."
 
 # Control-ID:1093,
 #: Control-ID:1093
 msgid "A&dvanced..."
-msgstr "¶i¶¥³]©w(&D)..."
+msgstr "é€²éšè¨­å®š(&D)..."
 
 # ID:73,
 #: ID:73
 msgid "Abort"
-msgstr "©ñ±ó"
+msgstr "æ”¾æ£„"
 
 # ID:9,
 #: ID:9
 msgid "About"
-msgstr "Ãö©ó"
+msgstr "é—œæ–¼"
 
 # Dlg-ID:136,
 #: Dlg-ID:136
 msgid "About TortoiseMerge"
-msgstr "Ãö©ó TortoiseMerge"
+msgstr "é—œæ–¼ TortoiseMerge"
 
 # Dlg-ID:129,
 #: Dlg-ID:129
 msgid "About TortoiseSVN"
-msgstr "Ãö©ó TortoiseSVN"
+msgstr "é—œæ–¼ TortoiseSVN"
 
 # ID:82,
 #: ID:82
 msgid "Accept Once"
-msgstr "¶È±µ¨ü¤@¦¸"
+msgstr "åƒ…æ¥å—ä¸€æ¬¡"
 
 # ID:82,
 #: ID:82
 msgid "Accept Permanently"
-msgstr "¥Ã¤[±µ¨ü"
+msgstr "æ°¸ä¹…æ¥å—"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "Access to %1 was denied."
-msgstr "©Úµ´¦s¨ú %1."
+msgstr "æ‹’çµ•å­˜å– %1."
 
 # ID:77,
 #: ID:77
 msgid "Action"
-msgstr "¦æ°Ê"
+msgstr "è¡Œå‹•"
 
 # ID:3826,
 #: ID:3826
 msgid "Activate Task List"
-msgstr "¥Ø«e¤u§@¦Cªí"
+msgstr "ç›®å‰å·¥ä½œåˆ—è¡¨"
 
 # ID:78,
 #: ID:78
@@ -513,9 +513,9 @@ msgid ""
 "to show the subversion status of the files below.\n"
 "<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
 msgstr ""
-"¦pªG§A·Q­n¸ê®Æ§¨¹Ï¥ÜÅã¥Ü Subversion\n"
-"ªºª¬ºA, ½Ğ±Ò¥Î¦¹¿ï¶µ.\n"
-"<ct=0x0000ff><b>ª`·N:</b>¥»¥\¯à·|©ìºCÀÉ®×Á`ºŞ°õ¦æ®Ä²v.</ct>"
+"å¦‚æœä½ æƒ³è¦è³‡æ–™å¤¾åœ–ç¤ºé¡¯ç¤º Subversion\n"
+"çš„ç‹€æ…‹, è«‹å•Ÿç”¨æ­¤é¸é ….\n"
+"<ct=0x0000ff><b>æ³¨æ„:</b>æœ¬åŠŸèƒ½æœƒæ‹–æ…¢æª”æ¡ˆç¸½ç®¡åŸ·è¡Œæ•ˆç‡.</ct>"
 
 # ID:8,#:
 # ID:73,#:
@@ -524,62 +524,62 @@ msgstr ""
 #: ID:73
 #: Dlg-ID:155
 msgid "Add"
-msgstr "¥[¤J"
+msgstr "åŠ å…¥"
 
 # ID:110,
 #: ID:110
 msgid "Add Extension Specific Diff Program"
-msgstr "®Ú¾Ú°ÆÀÉ¦W¥[¤J®t²§¤ñ¹ïµ{¦¡"
+msgstr "æ ¹æ“šå‰¯æª”ååŠ å…¥å·®ç•°æ¯”å°ç¨‹å¼"
 
 # ID:110,
 #: ID:110
 msgid "Add Extension Specific Merge Program"
-msgstr "®Ú¾Ú°ÆÀÉ¦W¥[¤J¦X¨Öµ{¦¡"
+msgstr "æ ¹æ“šå‰¯æª”ååŠ å…¥åˆä½µç¨‹å¼"
 
 # ID:13,
 #: ID:13
 msgid "Add To Ignore List"
-msgstr "¥[¤J©¿²¤¦Cªí"
+msgstr "åŠ å…¥å¿½ç•¥åˆ—è¡¨"
 
 # ID:101,
 #: ID:101
 msgid "Add file..."
-msgstr "¥[¤JÀÉ®×..."
+msgstr "åŠ å…¥æª”æ¡ˆ..."
 
 # ID:12,
 #: ID:12
 msgid "Add files to Subversion here"
-msgstr "¥[¤JÀÉ®×¦Ü Subversion"
+msgstr "åŠ å…¥æª”æ¡ˆè‡³ Subversion"
 
 # ID:101,
 #: ID:101
 msgid "Add folder..."
-msgstr "¥[¤J¸ê®Æ§¨..."
+msgstr "åŠ å…¥è³‡æ–™å¤¾..."
 
 # Dlg-ID:171,
 #: Dlg-ID:171
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "¥[¤J/½s¿è°w¹ï°ÆÀÉ¦Wªº®t²§¤ñ¹ï/¦X¨Ö¤u¨ã"
+msgstr "åŠ å…¥/ç·¨è¼¯é‡å°å‰¯æª”åçš„å·®ç•°æ¯”å°/åˆä½µå·¥å…·"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Added"
-msgstr "¥[¤Jªº"
+msgstr "åŠ å…¥çš„"
 
 # ID:126,
 #: ID:126
 msgid "Added a file remotely"
-msgstr "»·ºİ¥[¤JÀÉ®×§¹¦¨"
+msgstr "é ç«¯åŠ å…¥æª”æ¡ˆå®Œæˆ"
 
 # ID:9,
 #: ID:9
 msgid "Adds file(s) to Subversion control"
-msgstr "¥[¤JÀÉ®×¦Ü Subversion ª©¥»±±¨î"
+msgstr "åŠ å…¥æª”æ¡ˆè‡³ Subversion ç‰ˆæœ¬æ§åˆ¶"
 
 # ID:13,
 #: ID:13
 msgid "Adds the selected file(s) to the 'ignore' list"
-msgstr "±N¿ï©wªºÀÉ®×¥[¤J©¿²¤¦Cªí"
+msgstr "å°‡é¸å®šçš„æª”æ¡ˆåŠ å…¥å¿½ç•¥åˆ—è¡¨"
 
 # ID:2049,
 #: ID:2049
@@ -587,40 +587,40 @@ msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
-"½Õ®Õ³]©w­È\n"
-"³]©w"
+"èª¿æ ¡è¨­å®šå€¼\n"
+"è¨­å®š"
 
 # ID:110,
 #: ID:110
 msgid "Advanced Diff Settings"
-msgstr "¶i¶¥®t²§¤ñ¹ï³]©w"
+msgstr "é€²éšå·®ç•°æ¯”å°è¨­å®š"
 
 # Dlg-ID:170,
 #: Dlg-ID:170
 msgid "Advanced Diff/Merge Settings"
-msgstr "¶i¶¥®t²§¤ñ¹ï/¦X¨Ö³]©w"
+msgstr "é€²éšå·®ç•°æ¯”å°/åˆä½µè¨­å®š"
 
 # ID:110,
 #: ID:110
 msgid "Advanced Merge Settings"
-msgstr "¶i¶¥¦X¨Ö³]©w"
+msgstr "é€²éšåˆä½µè¨­å®š"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "All"
-msgstr "¥ş³¡"
+msgstr "å…¨éƒ¨"
 
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "All Files (*.*)"
-msgstr "©Ò¦³ÀÉ®× (*.*)"
+msgstr "æ‰€æœ‰æª”æ¡ˆ (*.*)"
 
 # ID:157,#:
 # ID:157,
 #: ID:157
 msgid "All Files (*.*)|*.*||"
-msgstr "©Ò¦³ÀÉ®× (*.*)|*.*||"
+msgstr "æ‰€æœ‰æª”æ¡ˆ (*.*)|*.*||"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -628,19 +628,19 @@ msgstr "©Ò¦³ÀÉ®× (*.*)|*.*||"
 #: ID:3867
 #: ID:3868
 msgid "An attempt was made to access %1 past its end."
-msgstr "¸Õ¹Ï¦s¨ú¶W¹L %1 ªø«×ªº³¡¤À."
+msgstr "è©¦åœ–å­˜å–è¶…é %1 é•·åº¦çš„éƒ¨åˆ†."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
 msgid "An attempt was made to read from the writing %1."
-msgstr "¸Õ¹ÏÅª¨ú¼g¤J¤¤ªº %1."
+msgstr "è©¦åœ–è®€å–å¯«å…¥ä¸­çš„ %1."
 
 # ID:3868,#:
 # ID:3868,
 #: ID:3868
 msgid "An attempt was made to write to the reading %1."
-msgstr "¸Õ¹Ï¼g¤JÅª¨ú¤¤ªº %1."
+msgstr "è©¦åœ–å¯«å…¥è®€å–ä¸­çš„ %1."
 
 # ID:78,
 #: ID:78
@@ -652,11 +652,11 @@ msgid ""
 "%base\tthe base file\n"
 "%mine\tthe modified file"
 msgstr ""
-"¥Î¨Ó¤ñ¹ï¤£¦Pª©¥»¶¡ÀÉ®×®t\n"
-"²§ªº¥~³¡µ{¦¡.\n"
-"<hr=100%>§A¥i¥H«ü©w¥H¤Uªº°Ñ¼Æ¦Ü¸ô®|¤¤:\n"
-"%base\tÀÉ®×¦WºÙ\n"
-"%mine\t²§°Ê¹LªºÀÉ®×."
+"ç”¨ä¾†æ¯”å°ä¸åŒç‰ˆæœ¬é–“æª”æ¡ˆå·®\n"
+"ç•°çš„å¤–éƒ¨ç¨‹å¼.\n"
+"<hr=100%>ä½ å¯ä»¥æŒ‡å®šä»¥ä¸‹çš„åƒæ•¸è‡³è·¯å¾‘ä¸­:\n"
+"%base\tæª”æ¡ˆåç¨±\n"
+"%mine\tç•°å‹•éçš„æª”æ¡ˆ."
 
 # ID:79,
 #: ID:79
@@ -670,44 +670,44 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"¥Î¨Ó¸Ñ¨M½Ä¬ğÀÉ®×\n"
-"ªº¥~³¡µ{¦¡, \n"
+"ç”¨ä¾†è§£æ±ºè¡çªæª”æ¡ˆ\n"
+"çš„å¤–éƒ¨ç¨‹å¼, \n"
 "<hr=100%>\n"
-"§A¥i¥H«ü©w¥H¤U°Ñ¼Æ¦Ü¸ô®|¤¤:\n"
-"%merged\tµo¥Í½Ä¬ğªºÀÉ®×¦s©ñ¦ì¸m\n"
-"@theirs\t\tÀÉ®×®w¤¤¦s©ñªºÀÉ®×\n"
-"%mine\t\t¥]§t§A©Ò°µÅÜ§óªºÀÉ®×\n"
-"%base\t\t¤£¥]§t§A©Ò°µÅÜ§óªº­ì©lÀÉ"
+"ä½ å¯ä»¥æŒ‡å®šä»¥ä¸‹åƒæ•¸è‡³è·¯å¾‘ä¸­:\n"
+"%merged\tç™¼ç”Ÿè¡çªçš„æª”æ¡ˆå­˜æ”¾ä½ç½®\n"
+"@theirs\t\tæª”æ¡ˆåº«ä¸­å­˜æ”¾çš„æª”æ¡ˆ\n"
+"%mine\t\tåŒ…å«ä½ æ‰€åšè®Šæ›´çš„æª”æ¡ˆ\n"
+"%base\t\tä¸åŒ…å«ä½ æ‰€åšè®Šæ›´çš„åŸå§‹æª”"
 
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
 msgid "An invalid argument was encountered."
-msgstr "µo²{¤£¦Xªk°Ñ¼Æ."
+msgstr "ç™¼ç¾ä¸åˆæ³•åƒæ•¸."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "An invalid file handle was associated with %1."
-msgstr "%1 ÃöÁp¨ì¤£¦XªkªºÀÉ®×¥N½X."
+msgstr "%1 é—œè¯åˆ°ä¸åˆæ³•çš„æª”æ¡ˆä»£ç¢¼."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
 msgid "An unexpected error occurred while reading %1."
-msgstr "Åª¨ú %1 ®Éµo¥Í¹w´Á¥~ªº¿ù»~."
+msgstr "è®€å– %1 æ™‚ç™¼ç”Ÿé æœŸå¤–çš„éŒ¯èª¤."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
 msgid "An unexpected error occurred while writing %1."
-msgstr "¼g¤J %1 ®Éµo¥Í¹w´Á¥~ªº¿ù»~."
+msgstr "å¯«å…¥ %1 æ™‚ç™¼ç”Ÿé æœŸå¤–çš„éŒ¯èª¤."
 
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
 msgid "An unknown error has occurred."
-msgstr "µo¥Í¤£©ú¿ù»~."
+msgstr "ç™¼ç”Ÿä¸æ˜éŒ¯èª¤."
 
 # ID:3867,#:
 # ID:3868,#:
@@ -715,150 +715,150 @@ msgstr "µo¥Í¤£©ú¿ù»~."
 #: ID:3867
 #: ID:3868
 msgid "An unknown error occurred while accessing %1."
-msgstr "¦s¨ú %1 ®Éµo¥Í¤£©ú¿ù»~."
+msgstr "å­˜å– %1 æ™‚ç™¼ç”Ÿä¸æ˜éŒ¯èª¤."
 
 # ID:63,
 #: ID:63
 msgid "An unknown line type was found in line %d !"
-msgstr "¦b²Ä %d ¦æµo²{¤£©ú«¬ºA¸ê®Æ!"
+msgstr "åœ¨ç¬¬ %d è¡Œç™¼ç¾ä¸æ˜å‹æ…‹è³‡æ–™!"
 
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
 msgid "An unsupported operation was attempted."
-msgstr "¸Õ¹Ï¶i¦æ¤£¤ä´©ªº§@·~."
+msgstr "è©¦åœ–é€²è¡Œä¸æ”¯æ´çš„ä½œæ¥­."
 
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
-msgstr "®M¥Î³æ¤@²§°ÊÀÉ¦Ü¤u§@½Æ¥»"
+msgstr "å¥—ç”¨å–®ä¸€ç•°å‹•æª”è‡³å·¥ä½œè¤‡æœ¬"
 
 # ID:13,
 #: ID:13
 msgid "Apply Patch..."
-msgstr "®M¥Î¸Éºó..."
+msgstr "å¥—ç”¨è£œç¶´..."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Apply Unified Diff"
-msgstr "®M¥Î³æ¤@®t²§ÀÉ"
+msgstr "å¥—ç”¨å–®ä¸€å·®ç•°æª”"
 
 # ID:79,
 #: ID:79
 msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "¬O§_½T©w­n´_­ì? ±q¤W¦¸§ó·s¤§«áªº<b>©Ò¦³</b>ÅÜ§ó³£·|®ø¥¢!"
+msgstr "æ˜¯å¦ç¢ºå®šè¦å¾©åŸ? å¾ä¸Šæ¬¡æ›´æ–°ä¹‹å¾Œçš„<b>æ‰€æœ‰</b>è®Šæ›´éƒ½æœƒæ¶ˆå¤±!"
 
 # ID:77,
 #: ID:77
 msgid "At revision: %d"
-msgstr "©óª©¥»: %d"
+msgstr "æ–¼ç‰ˆæœ¬: %d"
 
 # Dlg-ID:131,#:
 # Dlg-ID:160,
 #: Dlg-ID:131
 #: Dlg-ID:160
 msgid "Authentication"
-msgstr "»{ÃÒ"
+msgstr "èªè­‰"
 
 # ID:76,
 #: ID:76
 msgid "Author"
-msgstr "§@ªÌ"
+msgstr "ä½œè€…"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
-msgstr "§@ªÌ:                        Stefan Kueng"
+msgstr "ä½œè€…:                        Stefan Kueng"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "§@ªÌ:                      Stefan Kueng, Tim Kemp"
+msgstr "ä½œè€…:                      Stefan Kueng, Tim Kemp"
 
 # Control-ID:1001,
 #: Control-ID:1001
 msgid "B&rowse..."
-msgstr "ÂsÄı(&R)..."
+msgstr "ç€è¦½(&R)..."
 
 # Control-ID:1094,
 #: Control-ID:1094
 msgid "B&uiltin"
-msgstr "¤º«Ø(&U)"
+msgstr "å…§å»º(&U)"
 
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
-msgstr "³Æ¥÷­ì©lÀÉ"
+msgstr "å‚™ä»½åŸå§‹æª”"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Base File:"
-msgstr "°òÂ¦ÀÉ®×:"
+msgstr "åŸºç¤æª”æ¡ˆ:"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
 msgid "Blame"
-msgstr "Äş³d"
+msgstr "è­´è²¬"
 
 # ID:13,
 #: ID:13
 msgid "Blame..."
-msgstr "Äş³d..."
+msgstr "è­´è²¬..."
 
 # ID:13,
 #: ID:13
 msgid "Blames each line of a file on an author"
-msgstr "¦C¥XÀÉ®×¨C¤@¦æªº§@ªÌ"
+msgstr "åˆ—å‡ºæª”æ¡ˆæ¯ä¸€è¡Œçš„ä½œè€…"
 
 # Control-ID:1003,
 #: Control-ID:1003
 msgid "Br&owse..."
-msgstr "ÂsÄı(&O)..."
+msgstr "ç€è¦½(&O)..."
 
 # Dlg-ID:142,
 #: Dlg-ID:142
 msgid "Branch / Tag"
-msgstr "¤À¤ä / ¼Ğ°O"
+msgstr "åˆ†æ”¯ / æ¨™è¨˜"
 
 # ID:115,
 #: ID:115
 msgid "Branch / Tag created successfully!"
-msgstr "¤À¤ä/¼Ğ°O«Ø¥ß¦¨¥\!"
+msgstr "åˆ†æ”¯/æ¨™è¨˜å»ºç«‹æˆåŠŸ!"
 
 # ID:9,
 #: ID:9
 msgid "Branch/Tag..."
-msgstr "¤À¤ä/¼Ğ°O..."
+msgstr "åˆ†æ”¯/æ¨™è¨˜..."
 
 # Control-ID:1009,
 #: Control-ID:1009
 msgid "Bro&wse..."
-msgstr "ÂsÄı(&W)..."
+msgstr "ç€è¦½(&W)..."
 
 # Control-ID:1007,
 #: Control-ID:1007
 msgid "Brows&e..."
-msgstr "ÂsÄı(&E)..."
+msgstr "ç€è¦½(&E)..."
 
 # ID:138,
 #: ID:138
 msgid "Browse Repository"
-msgstr "ÂsÄıÀÉ®×®w"
+msgstr "ç€è¦½æª”æ¡ˆåº«"
 
 # ID:78,
 #: ID:78
 msgid "Browse for the external diff program"
-msgstr "´M§ä¥~³¡¤ñ¹ï®t²§¤u¨ã"
+msgstr "å°‹æ‰¾å¤–éƒ¨æ¯”å°å·®ç•°å·¥å…·"
 
 # Control-ID:1069,
 #: Control-ID:1069
 msgid "Browse..."
-msgstr "ÂsÄı..."
+msgstr "ç€è¦½..."
 
 # Control-ID:1096,
 #: Control-ID:1096
 msgid "Bu&iltin"
-msgstr "¤º«Ø(&I)"
+msgstr "å…§å»º(&I)"
 
 # ID:3697,
 #: ID:3697
@@ -873,9 +873,9 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"µLªk½Æ»s \n"
+"ç„¡æ³•è¤‡è£½ \n"
 "%s\n"
-" ¦Ü \n"
+" è‡³ \n"
 "%s"
 
 # Control-ID:2,#:
@@ -884,78 +884,78 @@ msgstr ""
 #: ID:73
 #: Control-ID:2
 msgid "Cancel"
-msgstr "¨ú®ø"
+msgstr "å–æ¶ˆ"
 
 # ID:132,
 #: ID:132
 msgid "Cancelling SVN Blame..."
-msgstr "¥¿¦b¨ú®ø SVN Äş³d..."
+msgstr "æ­£åœ¨å–æ¶ˆ SVN è­´è²¬..."
 
 # ID:82,
 #: ID:82
 msgid "Certificate expired or not yet valid"
-msgstr "¾ÌÃÒ¤w¨ì´Á©Î©|¥¼¥Í®Ä."
+msgstr "æ†‘è­‰å·²åˆ°æœŸæˆ–å°šæœªç”Ÿæ•ˆ."
 
 # ID:82,
 #: ID:82
 msgid "Certificate expired. Valid until: %s"
-msgstr "¾ÌÃÒ¤w¨ì´Á. ¦Xªk´Á­­: %s"
+msgstr "æ†‘è­‰å·²åˆ°æœŸ. åˆæ³•æœŸé™: %s"
 
 # ID:82,
 #: ID:82
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr "¾ÌÃÒ©|¥¼¥Í®Ä. °_©l¤é´Á: %s"
+msgstr "æ†‘è­‰å°šæœªç”Ÿæ•ˆ. èµ·å§‹æ—¥æœŸ: %s"
 
 # ID:157,
 #: ID:157
 msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr "¾ÌÃÒ|*.p12;*.pkcs12|©Ò¦³ÀÉ®×|*.*||"
+msgstr "æ†‘è­‰|*.p12;*.pkcs12|æ‰€æœ‰æª”æ¡ˆ|*.*||"
 
 # ID:3825,
 #: ID:3825
 msgid "Change the window position"
-msgstr "§ó§ïµøµ¡¦ì¸m"
+msgstr "æ›´æ”¹è¦–çª—ä½ç½®"
 
 # ID:3825,
 #: ID:3825
 msgid "Change the window size"
-msgstr "§ó§ïµøµ¡¤j¤p"
+msgstr "æ›´æ”¹è¦–çª—å¤§å°"
 
 # Dlg-ID:158,
 #: Dlg-ID:158
 msgid "Changed Files"
-msgstr "²§°Ê¹LªºÀÉ®×"
+msgstr "ç•°å‹•éçš„æª”æ¡ˆ"
 
 # ID:163,
 #: ID:163
 msgid "Changed files: %d"
-msgstr "ÅÜ°ÊÀÉ®×¼Æ: %d"
+msgstr "è®Šå‹•æª”æ¡ˆæ•¸: %d"
 
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
 msgid "Check"
-msgstr "¤Ä¿ï"
+msgstr "å‹¾é¸"
 
 # Dlg-ID:174,
 #: Dlg-ID:174
 msgid "Check For Updates"
-msgstr "ÀË¬d§ó·s"
+msgstr "æª¢æŸ¥æ›´æ–°"
 
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Check For Updates..."
-msgstr "ÀË¬d§ó·s..."
+msgstr "æª¢æŸ¥æ›´æ–°..."
 
 # ID:13,
 #: ID:13
 msgid "Check for Updates"
-msgstr "ÀË¬d§ó·s"
+msgstr "æª¢æŸ¥æ›´æ–°"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Check for newer versions"
-msgstr "ÀË¬d·sª©¥»"
+msgstr "æª¢æŸ¥æ–°ç‰ˆæœ¬"
 
 # ID:79,
 #: ID:79
@@ -963,13 +963,13 @@ msgid ""
 "Check if you want the progress dialog to close\n"
 "automatically after the operation finishes."
 msgstr ""
-"¤Ä¿ï¦¹¿ï¶µ¥i¥HÅı¶i«×µøµ¡¦b§@·~\n"
-"§¹¦¨«á¦Û°ÊÃö³¬."
+"å‹¾é¸æ­¤é¸é …å¯ä»¥è®“é€²åº¦è¦–çª—åœ¨ä½œæ¥­\n"
+"å®Œæˆå¾Œè‡ªå‹•é—œé–‰."
 
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
-msgstr "±qÀÉ®×®w¤¤¨ú¥X¤u§@½Æ¥»"
+msgstr "å¾æª”æ¡ˆåº«ä¸­å–å‡ºå·¥ä½œè¤‡æœ¬"
 
 # ID:95,
 #: ID:95
@@ -977,154 +977,154 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
-"¤Ä¿ï§A­n¦b¶×¤J¤§«e§R°£\n"
-"ªºÀÉ®×."
+"å‹¾é¸ä½ è¦åœ¨åŒ¯å…¥ä¹‹å‰åˆªé™¤\n"
+"çš„æª”æ¡ˆ."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "¤Ä¿ï§A§Æ±æ¥X²{¦b§ÖÅã¥\¯àªí, ¦Ó¤£¬O¤l¿ï³æ¤¤ªº¿ï³æ¶µ¥Ø"
+msgstr "å‹¾é¸ä½ å¸Œæœ›å‡ºç¾åœ¨å¿«é¡¯åŠŸèƒ½è¡¨, è€Œä¸æ˜¯å­é¸å–®ä¸­çš„é¸å–®é …ç›®"
 
 # ID:80,
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "¤Ä¿ï¥i¦b°O¿ı°T®§¤¤¨Ï¥Î¸ûÂ²µuªº¤é´Á¤Î®É¶¡"
+msgstr "å‹¾é¸å¯åœ¨è¨˜éŒ„è¨Šæ¯ä¸­ä½¿ç”¨è¼ƒç°¡çŸ­çš„æ—¥æœŸåŠæ™‚é–“"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr "¥¿¦bÀË¬d¬O§_¦³§ó·sª©¥»ªº TortoiseSVN..."
+msgstr "æ­£åœ¨æª¢æŸ¥æ˜¯å¦æœ‰æ›´æ–°ç‰ˆæœ¬çš„ TortoiseSVN..."
 
 # Dlg-ID:133,
 #: Dlg-ID:133
 msgid "Checkout"
-msgstr "¨ú¥X"
+msgstr "å–å‡º"
 
 # ID:8,
 #: ID:8
 msgid "Checkout..."
-msgstr "¨ú¥X..."
+msgstr "å–å‡º..."
 
 # ID:8,
 #: ID:8
 msgid "Clean Up"
-msgstr "²M²z"
+msgstr "æ¸…ç†"
 
 # ID:79,
 #: ID:79
 msgid "Cleanup has finished"
-msgstr "²M²z§¹¦¨."
+msgstr "æ¸…ç†å®Œæˆ."
 
 # ID:9,
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "²M²z¥¼§¹¦¨ªº§@·~, Âê©wÀÉµ¥..."
+msgstr "æ¸…ç†æœªå®Œæˆçš„ä½œæ¥­, é–å®šæª”ç­‰..."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "ÂIÀ» \"¶i¶¥³]©w\" ¥i®Ú¾Ú¤£¦P°ÆÀÉ¦W«ü©w¤£¦Pªº®t²§¤ñ¹ïµ{¦¡"
+msgstr "é»æ“Š \"é€²éšè¨­å®š\" å¯æ ¹æ“šä¸åŒå‰¯æª”åæŒ‡å®šä¸åŒçš„å·®ç•°æ¯”å°ç¨‹å¼"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "ÂIÀ» \"¶i¶¥³]©w\" ¥i®Ú¾Ú¤£¦P°ÆÀÉ¦W«ü©w¤£¦P¦X¨Öµ{¦¡"
+msgstr "é»æ“Š \"é€²éšè¨­å®š\" å¯æ ¹æ“šä¸åŒå‰¯æª”åæŒ‡å®šä¸åŒåˆä½µç¨‹å¼"
 
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
-msgstr "Ãö³¬¥Ø«eµøµ¡¨Ã´£¥ÜÀx¦s¤å¥ó"
+msgstr "é—œé–‰ç›®å‰è¦–çª—ä¸¦æç¤ºå„²å­˜æ–‡ä»¶"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
 msgid "Colors"
-msgstr "¦â±m"
+msgstr "è‰²å½©"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Command failed."
-msgstr "©R¥O¥¢±Ñ."
+msgstr "å‘½ä»¤å¤±æ•—."
 
 # Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
-msgstr "°e¥æ¦Ü:"
+msgstr "é€äº¤è‡³:"
 
 # ID:8,
 #: ID:8
 msgid "Commit..."
-msgstr "°e¥æ..."
+msgstr "é€äº¤..."
 
 # ID:9,
 #: ID:9
 msgid "Commits your changes to the repository"
-msgstr "±N§A©Ò°µªº­×§ï°e¥æ¦ÜÀÉ®×®w"
+msgstr "å°‡ä½ æ‰€åšçš„ä¿®æ”¹é€äº¤è‡³æª”æ¡ˆåº«"
 
 # Control-ID:1083,
 #: Control-ID:1083
 msgid "Committing"
-msgstr "¥¿¦b°e¥æ"
+msgstr "æ­£åœ¨é€äº¤"
 
 # Control-ID:1019,
 #: Control-ID:1019
 msgid "Compare Whitespaces"
-msgstr "¤ñ¹ïªÅ¥Õ¦r¤¸"
+msgstr "æ¯”å°ç©ºç™½å­—å…ƒ"
 
 # ID:76,
 #: ID:76
 msgid "Compare revisions"
-msgstr "¤ñ¹ïª©¥»®t²§"
+msgstr "æ¯”å°ç‰ˆæœ¬å·®ç•°"
 
 # ID:138,
 #: ID:138
 msgid "Compare with Base"
-msgstr "»P°òÂ¦ÀÉ¤ñ¹ï"
+msgstr "èˆ‡åŸºç¤æª”æ¯”å°"
 
 # ID:76,
 #: ID:76
 msgid "Compare with working copy"
-msgstr "»P¤u§@½Æ¥»¤ñ¹ï"
+msgstr "èˆ‡å·¥ä½œè¤‡æœ¬æ¯”å°"
 
 # ID:12,
 #: ID:12
 msgid "Compares the file with the last commited version to show you the changes you made"
-msgstr "¤ñ¹ï¦¹ÀÉ®×»P¤W¦¸°e¥æªºª©¥»¨Ã¦C¥X§A©Ò°µªº²§°Ê"
+msgstr "æ¯”å°æ­¤æª”æ¡ˆèˆ‡ä¸Šæ¬¡é€äº¤çš„ç‰ˆæœ¬ä¸¦åˆ—å‡ºä½ æ‰€åšçš„ç•°å‹•"
 
 # ID:74,
 #: ID:74
 msgid "Completed"
-msgstr "§¹²¦"
+msgstr "å®Œç•¢"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Conflicted"
-msgstr "½Ä¬ğ"
+msgstr "è¡çª"
 
 # ID:73,
 #: ID:73
 msgid "Continue"
-msgstr "Ä~Äò"
+msgstr "ç¹¼çºŒ"
 
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
-msgstr "»·ºİ½Æ»s§¹¦¨"
+msgstr "é ç«¯è¤‡è£½å®Œæˆ"
 
 # ID:73,
 #: ID:73
 msgid "Copy"
-msgstr "½Æ»s"
+msgstr "è¤‡è£½"
 
 # ID:101,
 #: ID:101
 msgid "Copy To..."
-msgstr "½Æ»s¦Ü..."
+msgstr "è¤‡è£½è‡³..."
 
 # ID:13,
 #: ID:13
 msgid "Copy files in Subversion to here"
-msgstr "±N Subversion ¤¤ªºÀÉ®×½Æ»s¦Ü¦¹³B"
+msgstr "å°‡ Subversion ä¸­çš„æª”æ¡ˆè¤‡è£½è‡³æ­¤è™•"
 
 # ID:3603,
 #: ID:3603
@@ -1132,33 +1132,33 @@ msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
-"±N¿ï¾Üªº°Ï¶ô½Æ»s¦Ü°Å¶KÃ¯\n"
-"½Æ»s"
+"å°‡é¸æ“‡çš„å€å¡Šè¤‡è£½è‡³å‰ªè²¼ç°¿\n"
+"è¤‡è£½"
 
 # ID:80,
 #: ID:80
 msgid "Copying %s"
-msgstr "¥¿¦b½Æ»s %s"
+msgstr "æ­£åœ¨è¤‡è£½ %s"
 
 # ID:80,
 #: ID:80
 msgid "Copying..."
-msgstr "¥¿¦b½Æ»s..."
+msgstr "æ­£åœ¨è¤‡è£½..."
 
 # ID:188,
 #: ID:188
 msgid "Corrections"
-msgstr "­×¥¿"
+msgstr "ä¿®æ­£"
 
 # ID:81,
 #: ID:81
 msgid "Could not add %s to the ignore list!"
-msgstr "µLªk¥[¤J %s ¦Ü©¿²¤¦Cªí!"
+msgstr "ç„¡æ³•åŠ å…¥ %s è‡³å¿½ç•¥åˆ—è¡¨!"
 
 # ID:201,
 #: ID:201
 msgid "Could not check for a newer version!"
-msgstr "µLªkÀË¬d·sª©!"
+msgstr "ç„¡æ³•æª¢æŸ¥æ–°ç‰ˆ!"
 
 # ID:81,
 #: ID:81
@@ -1167,14 +1167,14 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"µLªk½Æ»sÀÉ®×!\n"
+"ç„¡æ³•è¤‡è£½æª”æ¡ˆ!\n"
 "<hr=100%>\n"
 "%s"
 
 # ID:81,
 #: ID:81
 msgid "Could not get the status!"
-msgstr "µLªk¨ú±oª¬ºA!"
+msgstr "ç„¡æ³•å–å¾—ç‹€æ…‹!"
 
 # ID:69,
 #: ID:69
@@ -1182,7 +1182,7 @@ msgid ""
 "Could not open the file\n"
 "%s"
 msgstr ""
-"µLªk¶}±ÒÀÉ®×\n"
+"ç„¡æ³•é–‹å•Ÿæª”æ¡ˆ\n"
 "%s"
 
 # ID:81,
@@ -1191,7 +1191,7 @@ msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
 msgstr ""
-"µLªk¨ú±oÀÉ®×ªº URL!\n"
+"ç„¡æ³•å–å¾—æª”æ¡ˆçš„ URL!\n"
 "%s"
 
 # ID:66,
@@ -1200,13 +1200,13 @@ msgid ""
 "Could not retrieve version %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
-"µLªk¨ú±o %s ª©¥»ªº %s ÀÉ®×.\n"
-"µLªk¶i¦æ¸Éºó!"
+"ç„¡æ³•å–å¾— %s ç‰ˆæœ¬çš„ %s æª”æ¡ˆ.\n"
+"ç„¡æ³•é€²è¡Œè£œç¶´!"
 
 # ID:64,
 #: ID:64
 msgid "Could not save the file %s!"
-msgstr "µLªkÀx¦sÀÉ®× %s!"
+msgstr "ç„¡æ³•å„²å­˜æª”æ¡ˆ %s!"
 
 # ID:81,
 #: ID:81
@@ -1215,7 +1215,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"µLªk±Ò°Ê®t²§ÀËµø¤u¨ã!\n"
+"ç„¡æ³•å•Ÿå‹•å·®ç•°æª¢è¦–å·¥å…·!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1226,7 +1226,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"µLªk±Ò°Ê¥~³¡®t²§¤ñ¹ï¤u¨ã!\n"
+"ç„¡æ³•å•Ÿå‹•å¤–éƒ¨å·®ç•°æ¯”å°å·¥å…·!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1237,7 +1237,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"µLªk±Ò°Ê¥~³¡¦X¨Ö¤u¨ã!\n"
+"ç„¡æ³•å•Ÿå‹•å¤–éƒ¨åˆä½µå·¥å…·!\n"
 "<hr=100%>\n"
 "%s"
 
@@ -1245,52 +1245,52 @@ msgstr ""
 # ID:3857,
 #: ID:3857
 msgid "Could not start print job."
-msgstr "µLªk±Ò°Ê¦C¦L¤u§@."
+msgstr "ç„¡æ³•å•Ÿå‹•åˆ—å°å·¥ä½œ."
 
 # ID:81,
 #: ID:81
 msgid "Could not start thread!"
-msgstr "µLªk±Ò°Ê°õ¦æºü!"
+msgstr "ç„¡æ³•å•Ÿå‹•åŸ·è¡Œç·’!"
 
 # ID:101,
 #: ID:101
 msgid "Create Folder..."
-msgstr "«Ø¥ß¸ê®Æ§¨..."
+msgstr "å»ºç«‹è³‡æ–™å¤¾..."
 
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
-msgstr "«Ø¥ß¸Éºó..."
+msgstr "å»ºç«‹è£œç¶´..."
 
 # ID:8,
 #: ID:8
 msgid "Create Repository here"
-msgstr "¦b¦¹«Ø¥ßÀÉ®×®w"
+msgstr "åœ¨æ­¤å»ºç«‹æª”æ¡ˆåº«"
 
 # ID:77,
 #: ID:77
 msgid "Create Tag from revision"
-msgstr "±qª©¥»«Ø¥ß¼Ğ°O"
+msgstr "å¾ç‰ˆæœ¬å»ºç«‹æ¨™è¨˜"
 
 # ID:126,
 #: ID:126
 msgid "Created folder remotely"
-msgstr "»·ºİ«Ø¥ß¸ê®Æ§¨§¹¦¨"
+msgstr "é ç«¯å»ºç«‹è³‡æ–™å¤¾å®Œæˆ"
 
 # ID:10,
 #: ID:10
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "¦bÀÉ®×®w¤¤§Ö³t«Ø¥ß½Æ¥»°µ¬°¤À¤ä©Î¼Ğ°O¤§¥Î"
+msgstr "åœ¨æª”æ¡ˆåº«ä¸­å¿«é€Ÿå»ºç«‹è¤‡æœ¬åšç‚ºåˆ†æ”¯æˆ–æ¨™è¨˜ä¹‹ç”¨"
 
 # ID:10,
 #: ID:10
 msgid "Creates a repository database at the current location"
-msgstr "¦b¥Ø«e¦ì§}«Ø¥ßÀÉ®×¸ê®Æ®w"
+msgstr "åœ¨ç›®å‰ä½å€å»ºç«‹æª”æ¡ˆè³‡æ–™åº«"
 
 # ID:14,
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
-msgstr "«Ø¥ß¥]§t§A©Ò¦³­×§ïªº³æ¤@²§°ÊÀÉ"
+msgstr "å»ºç«‹åŒ…å«ä½ æ‰€æœ‰ä¿®æ”¹çš„å–®ä¸€ç•°å‹•æª”"
 
 # ID:3603,
 #: ID:3603
@@ -1298,18 +1298,18 @@ msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"°Å¤U¿ï¾Üªº°Ï¶ô¨Ã©ñ¨ì°Å¶KÃ¯\n"
-"°Å¤U"
+"å‰ªä¸‹é¸æ“‡çš„å€å¡Šä¸¦æ”¾åˆ°å‰ªè²¼ç°¿\n"
+"å‰ªä¸‹"
 
 # ID:76,
 #: ID:76
 msgid "Date"
-msgstr "¤é´Á"
+msgstr "æ—¥æœŸ"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Default &number of log messages"
-msgstr "¹w³]ªº¬ö¿ı°T®§¼Æ¥Ø(&N)"
+msgstr "é è¨­çš„ç´€éŒ„è¨Šæ¯æ•¸ç›®(&N)"
 
 # ID:11,#:
 # ID:73,#:
@@ -1318,65 +1318,65 @@ msgstr "¹w³]ªº¬ö¿ı°T®§¼Æ¥Ø(&N)"
 #: ID:73
 #: ID:101
 msgid "Delete"
-msgstr "§R°£"
+msgstr "åˆªé™¤"
 
 # ID:11,
 #: ID:11
 msgid "Deletes files / folders from source control"
-msgstr "±qª©¥»±±¨î¾ğ¤¤§R°£ÀÉ®×/¸ê®Æ§¨"
+msgstr "å¾ç‰ˆæœ¬æ§åˆ¶æ¨¹ä¸­åˆªé™¤æª”æ¡ˆ/è³‡æ–™å¤¾"
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
 msgid "Destination disk drive is full."
-msgstr "¥ØªººÏºĞ¤wº¡."
+msgstr "ç›®çš„ç£ç¢Ÿå·²æ»¿."
 
 # ID:12,
 #: ID:12
 msgid "Diff"
-msgstr "¤ñ¹ï®t²§"
+msgstr "æ¯”å°å·®ç•°"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff File:"
-msgstr "®t²§ÀÉ:"
+msgstr "å·®ç•°æª”:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff Program"
-msgstr "®t²§¤ñ¹ïµ{¦¡"
+msgstr "å·®ç•°æ¯”å°ç¨‹å¼"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Diff Viewer"
-msgstr "®t²§ÀËµø¤u¨ã"
+msgstr "å·®ç•°æª¢è¦–å·¥å…·"
 
 # Dlg-ID:163,
 #: Dlg-ID:163
 msgid "Diff/Merge"
-msgstr "®t²§¤ñ¹ï/¦X¨Ö"
+msgstr "å·®ç•°æ¯”å°/åˆä½µ"
 
 # Control-ID:1022,
 #: Control-ID:1022
 msgid "Diffing"
-msgstr "¤ñ¹ï®t²§"
+msgstr "æ¯”å°å·®ç•°"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Directory:"
-msgstr "¥Ø¿ı:"
+msgstr "ç›®éŒ„:"
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "Disk full while accessing %1."
-msgstr "¦s¨ú %1 ®ÉºÏºĞ¤wº¡."
+msgstr "å­˜å– %1 æ™‚ç£ç¢Ÿå·²æ»¿."
 
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
 msgid "Dispatch exception: %1"
-msgstr "¤À¬£²§±`: %1"
+msgstr "åˆ†æ´¾ç•°å¸¸: %1"
 
 # ID:3605,
 #: ID:3605
@@ -1384,8 +1384,8 @@ msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr ""
-"Åã¥ÜÂI¿ïªº«ö¶s, ¿ï³æ, ©Îµøµ¡ªº»¡©ú\n"
-"»¡©ú"
+"é¡¯ç¤ºé»é¸çš„æŒ‰éˆ•, é¸å–®, æˆ–è¦–çª—çš„èªªæ˜\n"
+"èªªæ˜"
 
 # ID:3605,
 #: ID:3605
@@ -1393,8 +1393,8 @@ msgid ""
 "Display help for current task or command\n"
 "Help"
 msgstr ""
-"Åã¥Ü¥Ø«e¤u§@©Î©R¥Oªº»¡©ú\n"
-"»¡©ú"
+"é¡¯ç¤ºç›®å‰å·¥ä½œæˆ–å‘½ä»¤çš„èªªæ˜\n"
+"èªªæ˜"
 
 # ID:3605,
 #: ID:3605
@@ -1402,8 +1402,8 @@ msgid ""
 "Display instructions about how to use help\n"
 "Help"
 msgstr ""
-"Åã¥Ü¦p¦ó¨Ï¥Î»¡©ú\n"
-"»¡©ú"
+"é¡¯ç¤ºå¦‚ä½•ä½¿ç”¨èªªæ˜\n"
+"èªªæ˜"
 
 # ID:3605,
 #: ID:3605
@@ -1411,25 +1411,25 @@ msgid ""
 "Display program information, version number and copyright\n"
 "About"
 msgstr ""
-"Åã¥ÜÀÉ®×¸ê°T, ª©¥»¸¹½X, ¥H¤Îª©Åv«Å§i\n"
-"Ãö©ó"
+"é¡¯ç¤ºæª”æ¡ˆè³‡è¨Š, ç‰ˆæœ¬è™Ÿç¢¼, ä»¥åŠç‰ˆæ¬Šå®£å‘Š\n"
+"é—œæ–¼"
 
 # ID:80,
 #: ID:80
 msgid "Do not show this message again"
-msgstr "¤£¦AÅã¥Ü¦¹°T®§"
+msgstr "ä¸å†é¡¯ç¤ºæ­¤è¨Šæ¯"
 
 # ID:76,
 #: ID:76
 msgid ""
 "Do you really want to revert all changes\n"
 "which were made in this revision?"
-msgstr "§A½T©w­n´_­ì³o­Óª©¥»ªº©Ò¦³²§°Ê¶Ü?"
+msgstr "ä½ ç¢ºå®šè¦å¾©åŸé€™å€‹ç‰ˆæœ¬çš„æ‰€æœ‰ç•°å‹•å—?"
 
 # ID:76,
 #: ID:76
 msgid "Do you want to proceed?"
-msgstr "½T©w­nÄ~Äò¶Ü?"
+msgstr "ç¢ºå®šè¦ç¹¼çºŒå—?"
 
 # ID:313,
 #: ID:313
@@ -1437,8 +1437,8 @@ msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr ""
-"½T©w­n­«·s¸ü¤J¤å¥ó¥H¤Ï¬M³]©wÅÜ§ó¶Ü?\n"
-"ª`·N: ©Ò¦³ÅÜ§ó±N¤£·|Àx¦s!"
+"ç¢ºå®šè¦é‡æ–°è¼‰å…¥æ–‡ä»¶ä»¥åæ˜ è¨­å®šè®Šæ›´å—?\n"
+"æ³¨æ„: æ‰€æœ‰è®Šæ›´å°‡ä¸æœƒå„²å­˜!"
 
 # ID:313,
 #: ID:313
@@ -1446,37 +1446,37 @@ msgid ""
 "Do you want to reload the documents?\n"
 "You will lose all changes you've made!"
 msgstr ""
-"½T©w­n­«·s¸ü¤J¤å¥ó¶Ü?\n"
-"©Ò¦³ÅÜ§ó±N¤£·|Àx¦s!"
+"ç¢ºå®šè¦é‡æ–°è¼‰å…¥æ–‡ä»¶å—?\n"
+"æ‰€æœ‰è®Šæ›´å°‡ä¸æœƒå„²å­˜!"
 
 # ID:313,
 #: ID:313
 msgid "Do you want to save your changes?"
-msgstr "¬O§_­nÀx¦s§A©Ò°µªº²§°Ê?"
+msgstr "æ˜¯å¦è¦å„²å­˜ä½ æ‰€åšçš„ç•°å‹•?"
 
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "Don't &remove log messages when cancelling a commit"
-msgstr "¨ú®ø°e¥æ®É¤£²M°£¬ö¿ı°T®§"
+msgstr "å–æ¶ˆé€äº¤æ™‚ä¸æ¸…é™¤ç´€éŒ„è¨Šæ¯"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
-msgstr "»P BASE ¤ñ¹ï²§°Ê®É¤£Âà´«ÀÉ®×"
+msgstr "èˆ‡ BASE æ¯”å°ç•°å‹•æ™‚ä¸è½‰æ›æª”æ¡ˆ"
 
 # Control-ID:1079,
 #: Control-ID:1079
 msgid "Drive Types"
-msgstr "ºÏºĞ¾÷Ãş«¬"
+msgstr "ç£ç¢Ÿæ©Ÿé¡å‹"
 
 #: MenuEntry
 msgid "E&xit"
-msgstr "Â÷¶}(&X)"
+msgstr "é›¢é–‹(&X)"
 
 # Control-ID:1095,
 #: Control-ID:1095
 msgid "E&xternal"
-msgstr "¥~³¡(&X)"
+msgstr "å¤–éƒ¨(&X)"
 
 # ID:3697,
 #: ID:3697
@@ -1486,54 +1486,54 @@ msgstr "EXT"
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Edit"
-msgstr "½s¿è"
+msgstr "ç·¨è¼¯"
 
 # ID:12,
 #: ID:12
 msgid "Edit Conflicts"
-msgstr "½s­×½Ä¬ğ"
+msgstr "ç·¨ä¿®è¡çª"
 
 # ID:110,
 #: ID:110
 msgid "Edit Extension Specific Diff Program"
-msgstr "½s¿è®Ú¾Ú°ÆÀÉ¦Wªº®t²§¤ñ¹ïµ{¦¡"
+msgstr "ç·¨è¼¯æ ¹æ“šå‰¯æª”åçš„å·®ç•°æ¯”å°ç¨‹å¼"
 
 # ID:110,
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
-msgstr "½s¿è®Ú¾Ú°ÆÀÉ¦Wªº¦X¨Öµ{¦¡"
+msgstr "ç·¨è¼¯æ ¹æ“šå‰¯æª”åçš„åˆä½µç¨‹å¼"
 
 # ID:79,
 #: ID:79
 msgid "Either the name or IP of the proxy server"
-msgstr "¿é¤J proxy ¦øªA¾¹ªº IP ©Î¦WºÙ"
+msgstr "è¼¸å…¥ proxy ä¼ºæœå™¨çš„ IP æˆ–åç¨±"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Empty"
-msgstr "ªÅªº"
+msgstr "ç©ºçš„"
 
 # ID:3825,
 #: ID:3825
 msgid "Enlarge the window to full size"
-msgstr "±Nµøµ¡©ñ¨ì³Ì¤j"
+msgstr "å°‡è¦–çª—æ”¾åˆ°æœ€å¤§"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
 msgid "Enter Log Message"
-msgstr "¿é¤J¬ö¿ı°T®§"
+msgstr "è¼¸å…¥ç´€éŒ„è¨Šæ¯"
 
 # ID:126,#:
 # Control-ID:1065,
 #: ID:126
 #: Control-ID:1065
 msgid "Enter Log Message:"
-msgstr "¿é¤J¬ö¿ı°T®§:"
+msgstr "è¼¸å…¥ç´€éŒ„è¨Šæ¯:"
 
 # ID:80,
 #: ID:80
 msgid "Enter URL"
-msgstr "¿é¤J URL"
+msgstr "è¼¸å…¥ URL"
 
 # ID:3603,
 #: ID:3603
@@ -1541,8 +1541,8 @@ msgid ""
 "Erase everything\n"
 "Erase All"
 msgstr ""
-"²M°£¥ş³¡\n"
-"²M°£¥ş³¡"
+"æ¸…é™¤å…¨éƒ¨\n"
+"æ¸…é™¤å…¨éƒ¨"
 
 # ID:3603,
 #: ID:3603
@@ -1550,117 +1550,117 @@ msgid ""
 "Erase the selection\n"
 "Erase"
 msgstr ""
-"²M°£¿ï¾Ü°Ï\n"
-"²M°£"
+"æ¸…é™¤é¸æ“‡å€\n"
+"æ¸…é™¤"
 
 # ID:81,
 #: ID:81
 msgid "Error validating server certificate for %s:"
-msgstr "%s ¦øªA¾¹¾ÌÃÒÀË®Ö¿ù»~:"
+msgstr "%s ä¼ºæœå™¨æ†‘è­‰æª¢æ ¸éŒ¯èª¤:"
 
 # Control-ID:1097,
 #: Control-ID:1097
 msgid "Ex&ternal"
-msgstr "¥~³¡(&T)"
+msgstr "å¤–éƒ¨(&T)"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Exceptions:"
-msgstr "¨Ò¥~:"
+msgstr "ä¾‹å¤–:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Exclude pattern:"
-msgstr "°£¥~¼Ë¦¡:"
+msgstr "é™¤å¤–æ¨£å¼:"
 
 # ID:94,
 #: ID:94
 msgid "Export Directory:"
-msgstr "¶×¥X¥Ø¿ı:"
+msgstr "åŒ¯å‡ºç›®éŒ„:"
 
 # Control-ID:1073,
 #: ID:79
 msgid "Export unversioned files too"
-msgstr "¶×¥XµLª©¥»±±¨îªºÀÉ®×"
+msgstr "åŒ¯å‡ºç„¡ç‰ˆæœ¬æ§åˆ¶çš„æª”æ¡ˆ"
 
 # ID:9,
 #: ID:9
 msgid "Export..."
-msgstr "¶×¥X..."
+msgstr "åŒ¯å‡º..."
 
 # ID:79,
 #: ID:79
 msgid "Exporting..."
-msgstr "¥¿¦b¶×¥X..."
+msgstr "æ­£åœ¨åŒ¯å‡º..."
 
 # ID:10,
 #: ID:10
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "±qÀÉ®×®w¤¤¶×¥X°®²bªº¤u§@½Æ¥», ¤£§t svn ºŞ²z¥Î¸ê®Æ§¨"
+msgstr "å¾æª”æ¡ˆåº«ä¸­åŒ¯å‡ºä¹¾æ·¨çš„å·¥ä½œè¤‡æœ¬, ä¸å« svn ç®¡ç†ç”¨è³‡æ–™å¤¾"
 
 # ID:74,
 #: ID:74
 msgid "Extension"
-msgstr "°ÆÀÉ¦W"
+msgstr "å‰¯æª”å"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Extension specific programs"
-msgstr "®Ú¾Ú°ÆÀÉ¦Wªºµ{¦¡"
+msgstr "æ ¹æ“šå‰¯æª”åçš„ç¨‹å¼"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Extension:"
-msgstr "°ÆÀÉ¦W:"
+msgstr "å‰¯æª”å:"
 
 # ID:74,
 #: ID:74
 msgid "External"
-msgstr "¥~³¡"
+msgstr "å¤–éƒ¨"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "External Program:"
-msgstr "¥~³¡µ{¦¡:"
+msgstr "å¤–éƒ¨ç¨‹å¼:"
 
 # ID:74,
 #: ID:74
 msgid "Failed Revert"
-msgstr "´_­ì¥¢±Ñ"
+msgstr "å¾©åŸå¤±æ•—"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to create empty document."
-msgstr "µLªk«Ø¥ßªÅ¤å¥ó."
+msgstr "ç„¡æ³•å»ºç«‹ç©ºæ–‡ä»¶."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to launch help."
-msgstr "µLªk±Ò°Ê»¡©ú."
+msgstr "ç„¡æ³•å•Ÿå‹•èªªæ˜."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to open document."
-msgstr "¶}±Ò¤å¥ó¥¢±Ñ."
+msgstr "é–‹å•Ÿæ–‡ä»¶å¤±æ•—."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Failed to save document."
-msgstr "Àx¦s¤å¥ó¥¢±Ñ."
+msgstr "å„²å­˜æ–‡ä»¶å¤±æ•—."
 
 # ID:313,
 #: ID:313
 msgid "Fetching File..."
-msgstr "¥¿¦b¨ú±oÀÉ®×..."
+msgstr "æ­£åœ¨å–å¾—æª”æ¡ˆ..."
 
 # ID:313,
 #: ID:313
 msgid "Fetching version %s of file:"
-msgstr "¥¿¦b¨ú±o²Ä %s ª©ªº:"
+msgstr "æ­£åœ¨å–å¾—ç¬¬ %s ç‰ˆçš„:"
 
 # ID:63,#:
 # ID:74,#:
@@ -1670,12 +1670,12 @@ msgstr "¥¿¦b¨ú±o²Ä %s ª©ªº:"
 #: ID:77
 #: ID:207
 msgid "File"
-msgstr "ÀÉ®×"
+msgstr "æª”æ¡ˆ"
 
 # Dlg-ID:135,
 #: Dlg-ID:135
 msgid "File Patches"
-msgstr "ÀÉ®×¸Éºó"
+msgstr "æª”æ¡ˆè£œç¶´"
 
 # ID:3603,
 #: ID:3603
@@ -1683,58 +1683,58 @@ msgid ""
 "Find the specified text\n"
 "Find"
 msgstr ""
-"·j´M«ü©w¤å¦r\n"
-"·j´M"
+"æœå°‹æŒ‡å®šæ–‡å­—\n"
+"æœå°‹"
 
 # ID:77,
 #: ID:77
 msgid "Finished!"
-msgstr "§¹¦¨!"
+msgstr "å®Œæˆ!"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Font for log messages:"
-msgstr "°T®§¬ö¿ı¦r«¬:"
+msgstr "è¨Šæ¯ç´€éŒ„å­—å‹:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Font:"
-msgstr "¦r«¬:"
+msgstr "å­—å‹:"
 
 # ID:3585,
 #: ID:3585
 msgid "For Help, press F1"
-msgstr "«ö¤U F1 ¥i¨ú±o»¡©ú"
+msgstr "æŒ‰ä¸‹ F1 å¯å–å¾—èªªæ˜"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From:"
-msgstr "±q:"
+msgstr "å¾:"
 
 # Dlg-ID:107,
 #: Dlg-ID:107
 msgid "General"
-msgstr "¤@¯ë³]©w"
+msgstr "ä¸€èˆ¬è¨­å®š"
 
 # ID:144,
 #: ID:144
 msgid "Generating Patchfile..."
-msgstr "¥¿¦b²£¥Í¸ÉºóÀÉ..."
+msgstr "æ­£åœ¨ç”¢ç”Ÿè£œç¶´æª”..."
 
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Get &All"
-msgstr "¥ş³¡¨ú¦^(&A)"
+msgstr "å…¨éƒ¨å–å›(&A)"
 
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
-msgstr "¥¿¦b¨ú±oÀÉ®× %s"
+msgstr "æ­£åœ¨å–å¾—æª”æ¡ˆ %s"
 
 # ID:132,
 #: ID:132
 msgid "Getting file info..."
-msgstr "¥¿¦b¨ú±oÀÉ®×¸ê°T..."
+msgstr "æ­£åœ¨å–å¾—æª”æ¡ˆè³‡è¨Š..."
 
 # ID:2049,
 #: ID:2049
@@ -1742,8 +1742,8 @@ msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
-"¸õ¦Ü¤U¤@­Ó®t²§³B\n"
-"¤U¤@®t²§"
+"è·³è‡³ä¸‹ä¸€å€‹å·®ç•°è™•\n"
+"ä¸‹ä¸€å·®ç•°"
 
 # ID:2049,
 #: ID:2049
@@ -1751,36 +1751,36 @@ msgid ""
 "Go to the previous difference\n"
 "previous difference"
 msgstr ""
-"¸õ¦Ü«e¤@­Ó®t²§³B\n"
-"«e¤@®t²§"
+"è·³è‡³å‰ä¸€å€‹å·®ç•°è™•\n"
+"å‰ä¸€å·®ç•°"
 
 # Control-ID:1004,#:
 # ID:12,
 #: ID:12
 #: Control-ID:1004
 msgid "Help"
-msgstr "»¡©ú"
+msgstr "èªªæ˜"
 
 # ID:82,
 #: ID:82
 msgid "Hostname mismatch (%s)"
-msgstr "¯¸»O¦WºÙ¤£²Å (%s)"
+msgstr "ç«™è‡ºåç¨±ä¸ç¬¦ (%s)"
 
 # Dlg-ID:106,
 #: Dlg-ID:106
 msgid "Icon Overlays"
-msgstr "¹Ï¥ÜÂĞ»\"
+msgstr "åœ–ç¤ºè¦†è“‹"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "¹Ï¥Ü / ³]­p / µ{¦¡:     Luebbe Onken"
+msgstr "åœ–ç¤º / è¨­è¨ˆ / ç¨‹å¼:     Luebbe Onken"
 
 # ID:194,
 #: ID:194
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "¤Ä¿ï¦¹¿ï¶µ®É, ¦b\"¥t¦s·sÀÉ\"©Î¬O\"¶}±Ò\"ªº¹ï¸Ü²°¤¤¤£Åã¥Ü¹Ï¥ÜÂĞ»\."
+msgstr "å‹¾é¸æ­¤é¸é …æ™‚, åœ¨\"å¦å­˜æ–°æª”\"æˆ–æ˜¯\"é–‹å•Ÿ\"çš„å°è©±ç›’ä¸­ä¸é¡¯ç¤ºåœ–ç¤ºè¦†è“‹."
 
 # ID:95,
 #: ID:95
@@ -1788,18 +1788,18 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"¤Ä¿ï¦¹¿ï¶µ®É, ·|¦bÀÉ®×®w¤¤«Ø¥ß·s¸ê®Æ§¨.\n"
-"¦p¥¼¤Ä¿ï, «hª½±µ¶×¤J¨ì«ü©wªº URL."
+"å‹¾é¸æ­¤é¸é …æ™‚, æœƒåœ¨æª”æ¡ˆåº«ä¸­å»ºç«‹æ–°è³‡æ–™å¤¾.\n"
+"å¦‚æœªå‹¾é¸, å‰‡ç›´æ¥åŒ¯å…¥åˆ°æŒ‡å®šçš„ URL."
 
 # ID:79,
 #: ID:79
 msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "¤Ä¿ï¦¹¿ï¶µ®É, TortoiseSVN ¤£·|«Ø¥ß¥Î©ó¤ñ¹ï®t²§ªº¼È¦sÀÉ, ¦Ó¬Oª½±µ»P­ì©lªº°òÂ¦ÀÉ¤ñ¹ï"
+msgstr "å‹¾é¸æ­¤é¸é …æ™‚, TortoiseSVN ä¸æœƒå»ºç«‹ç”¨æ–¼æ¯”å°å·®ç•°çš„æš«å­˜æª”, è€Œæ˜¯ç›´æ¥èˆ‡åŸå§‹çš„åŸºç¤æª”æ¯”å°"
 
 # ID:194,
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "±Ò¥Î®É, TortoiseSVN ¨C¶g·|ÀË¬d¤@¦¸³Ì·sª©¥»"
+msgstr "å•Ÿç”¨æ™‚, TortoiseSVN æ¯é€±æœƒæª¢æŸ¥ä¸€æ¬¡æœ€æ–°ç‰ˆæœ¬"
 
 # ID:80,
 #: ID:80
@@ -1809,59 +1809,59 @@ msgid ""
 "You can then either edit that message or use\n"
 "it unchanged."
 msgstr ""
-"¦pªG§A¨ú®ø°e¥æ, §A©Ò¿é¤Jªº¬ö¿ı°T®§·|³Q«O¦s\n"
-"¨Ã¦b¤U¦¸°e¥æ®É¦Û°Ê¶ñ¤J.\n"
-"§A¥i¥H¶i¦æ­×§ï©Î¬Oª½±µ¨Ï¥Î."
+"å¦‚æœä½ å–æ¶ˆé€äº¤, ä½ æ‰€è¼¸å…¥çš„ç´€éŒ„è¨Šæ¯æœƒè¢«ä¿å­˜\n"
+"ä¸¦åœ¨ä¸‹æ¬¡é€äº¤æ™‚è‡ªå‹•å¡«å…¥.\n"
+"ä½ å¯ä»¥é€²è¡Œä¿®æ”¹æˆ–æ˜¯ç›´æ¥ä½¿ç”¨."
 
 # ID:73,
 #: ID:73
 msgid "Ignore"
-msgstr "©¿²¤"
+msgstr "å¿½ç•¥"
 
 # Control-ID:1021,
 #: Control-ID:1021
 msgid "Ignore All Whitespaces"
-msgstr "©¿²¤©Ò¦³ªÅ¥Õ¦r¤¸"
+msgstr "å¿½ç•¥æ‰€æœ‰ç©ºç™½å­—å…ƒ"
 
 # Control-ID:1020,
 #: Control-ID:1020
 msgid "Ignore Leading Whitespaces"
-msgstr "©¿²¤¶}ÀYªºªÅ¥Õ¦r¤¸"
+msgstr "å¿½ç•¥é–‹é ­çš„ç©ºç™½å­—å…ƒ"
 
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
-msgstr "©¿²¤¦æ§À («ØÄ³)"
+msgstr "å¿½ç•¥è¡Œå°¾ (å»ºè­°)"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
 msgid "Import"
-msgstr "¶×¤J"
+msgstr "åŒ¯å…¥"
 
 # Control-ID:1056,
 #: Control-ID:1056
 msgid "Import &Message"
-msgstr "¶×¤J°T®§(&M)"
+msgstr "åŒ¯å…¥è¨Šæ¯(&M)"
 
 # ID:9,
 #: ID:9
 msgid "Import..."
-msgstr "¶×¤J..."
+msgstr "åŒ¯å…¥..."
 
 # ID:10,
 #: ID:10
 msgid "Imports the directory to a repository"
-msgstr "¶×¤J¥Ø¿ı¦ÜÀÉ®×®w"
+msgstr "åŒ¯å…¥ç›®éŒ„è‡³æª”æ¡ˆåº«"
 
 # ID:76,
 #: ID:76
 msgid "Initial Import"
-msgstr "ªì¦¸¶×¤J"
+msgstr "åˆæ¬¡åŒ¯å…¥"
 
 # Dlg-ID:161,
 #: Dlg-ID:161
 msgid "Input"
-msgstr "¿é¤J"
+msgstr "è¼¸å…¥"
 
 # ID:3603,
 #: ID:3603
@@ -1869,26 +1869,26 @@ msgid ""
 "Insert Clipboard contents\n"
 "Paste"
 msgstr ""
-"´¡¤J°Å¶KÃ¯¤º®e\n"
-"¶K¤W"
+"æ’å…¥å‰ªè²¼ç°¿å…§å®¹\n"
+"è²¼ä¸Š"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Insufficient memory to perform operation."
-msgstr "°O¾ĞÅé¤£¨¬, µLªk§¹¦¨§@·~."
+msgstr "è¨˜æ†¶é«”ä¸è¶³, ç„¡æ³•å®Œæˆä½œæ¥­."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Internal application error."
-msgstr "¤º³¡µ{¦¡¿ù»~."
+msgstr "å…§éƒ¨ç¨‹å¼éŒ¯èª¤."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Invalid filename."
-msgstr "ÀÉ®×¦WºÙ¿ù»~."
+msgstr "æª”æ¡ˆåç¨±éŒ¯èª¤."
 
 # ID:82,
 #: ID:82
@@ -1909,10 +1909,10 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
-"¿ù»~ªºª©¥»½s¸¹! ¥¿½Tªºª©¥»¦p¤U:\n"
+"éŒ¯èª¤çš„ç‰ˆæœ¬ç·¨è™Ÿ! æ­£ç¢ºçš„ç‰ˆæœ¬å¦‚ä¸‹:\n"
 "HEAD, BASE, PREV, COMMITTED, WC\n"
-"¤Q¶i¦ì¥¿¾ã¼Æ\n"
-"¦p¤U®æ¦¡¤§¤@ªº¤é´Á:\n"
+"åé€²ä½æ­£æ•´æ•¸\n"
+"å¦‚ä¸‹æ ¼å¼ä¹‹ä¸€çš„æ—¥æœŸ:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
@@ -1928,27 +1928,27 @@ msgstr ""
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
-msgstr "¸ü¤J®É¸õ¦Ü²Ä¤@­Ó®t²§³B"
+msgstr "è¼‰å…¥æ™‚è·³è‡³ç¬¬ä¸€å€‹å·®ç•°è™•"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Language:"
-msgstr "»y¨t:"
+msgstr "èªç³»:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
-msgstr "¤W¦¸°e¥æª©¥»:"
+msgstr "ä¸Šæ¬¡é€äº¤ç‰ˆæœ¬:"
 
 # ID:11,
 #: ID:11
 msgid "Last saved revision of item"
-msgstr "¤W¤@¦¸Àx¦sªº¶µ¥Øª©¥»"
+msgstr "ä¸Šä¸€æ¬¡å„²å­˜çš„é …ç›®ç‰ˆæœ¬"
 
 # ID:12,
 #: ID:12
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "±Ò°Ê¥~³¡®t²§¤ñ¹ï/¦X¨Öµ{¦¡³B²z½Ä¬ğ"
+msgstr "å•Ÿå‹•å¤–éƒ¨å·®ç•°æ¯”å°/åˆä½µç¨‹å¼è™•ç†è¡çª"
 
 # ID:3605,
 #: ID:3605
@@ -1956,13 +1956,13 @@ msgid ""
 "List Help topics\n"
 "Help Topics"
 msgstr ""
-"¦C¥X»¡©ú¥DÃD\n"
-"»¡©ú¥DÃD"
+"åˆ—å‡ºèªªæ˜ä¸»é¡Œ\n"
+"èªªæ˜ä¸»é¡Œ"
 
 # ID:63,
 #: ID:63
 msgid "Local Status"
-msgstr "¥»¦aª¬ºA"
+msgstr "æœ¬åœ°ç‹€æ…‹"
 
 # ID:94,
 #: ID:94
@@ -1970,117 +1970,117 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr ""
-"Àx¦sÀÉ®×®w URL ¤º®e\n"
-"ªº¦ì¸m."
+"å„²å­˜æª”æ¡ˆåº« URL å…§å®¹\n"
+"çš„ä½ç½®."
 
 # ID:126,
 #: ID:126
 msgid "Log"
-msgstr "¬ö¿ı"
+msgstr "ç´€éŒ„"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Log Message"
-msgstr "¬ö¿ı°T®§"
+msgstr "ç´€éŒ„è¨Šæ¯"
 
 # Dlg-ID:130,
 #: Dlg-ID:130
 msgid "Log Messages"
-msgstr "¬ö¿ı°T®§"
+msgstr "ç´€éŒ„è¨Šæ¯"
 
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
 msgid "Mail system DLL is invalid."
-msgstr "¶l¥ó¨t²Î DLL ¿ù»~."
+msgstr "éƒµä»¶ç³»çµ± DLL éŒ¯èª¤."
 
 # Dlg-ID:143,
 #: Dlg-ID:143
 msgid "Main"
-msgstr "¥D­n³]©w"
+msgstr "ä¸»è¦è¨­å®š"
 
 # Dlg-ID:159,
 #: Dlg-ID:159
 msgid "Menu Layout"
-msgstr "¿ï³æ°t¸m"
+msgstr "é¸å–®é…ç½®"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
 msgid "Merge"
-msgstr "¦X¨Ö"
+msgstr "åˆä½µ"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Merge Program"
-msgstr "¦X¨Öµ{¦¡"
+msgstr "åˆä½µç¨‹å¼"
 
 # ID:9,
 #: ID:9
 msgid "Merge..."
-msgstr "¦X¨Ö..."
+msgstr "åˆä½µ..."
 
 # ID:10,
 #: ID:10
 msgid "Merges a branch into the main trunk"
-msgstr "±N¤À¤ä¾ğ¦X¨Ö¦^¥D·F"
+msgstr "å°‡åˆ†æ”¯æ¨¹åˆä½µå›ä¸»å¹¹"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Merging"
-msgstr "¥¿¦b¦X¨Ö"
+msgstr "æ­£åœ¨åˆä½µ"
 
 # ID:76,
 #: ID:76
 msgid "Message"
-msgstr "°T®§"
+msgstr "è¨Šæ¯"
 
 # ID:78,
 #: ID:78
 msgid "Mime Type"
-msgstr "MIME Ãş«¬"
+msgstr "MIME é¡å‹"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Minimum logsize in chars"
-msgstr "³Ì¤p°T®§ªø«×"
+msgstr "æœ€å°è¨Šæ¯é•·åº¦"
 
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
-msgstr "¨ä¥L"
+msgstr "å…¶ä»–"
 
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
 msgid "Mixed"
-msgstr "²V¦X"
+msgstr "æ··åˆ"
 
 # ID:74,
 #: ID:74
 msgid "Modified"
-msgstr "²§°Ê"
+msgstr "ç•°å‹•"
 
 # ID:12,
 #: ID:12
 msgid "Move files in Subversion to here"
-msgstr "±N Subversion ¤¤ªºÀÉ®×²¾¦Ü¦¹³B"
+msgstr "å°‡ Subversion ä¸­çš„æª”æ¡ˆç§»è‡³æ­¤è™•"
 
 # ID:126,
 #: ID:126
 msgid "Moved remotely"
-msgstr "»·ºİ²¾°Ê§¹¦¨"
+msgstr "é ç«¯ç§»å‹•å®Œæˆ"
 
 # ID:80,
 #: ID:80
 msgid "Moving %s"
-msgstr "¥¿¦b²¾°Ê %s"
+msgstr "æ­£åœ¨ç§»å‹• %s"
 
 # ID:80,
 #: ID:80
 msgid "Moving..."
-msgstr "¥¿¦b²¾°Ê..."
+msgstr "æ­£åœ¨ç§»å‹•..."
 
 # ID:3697,
 #: ID:3697
@@ -2090,23 +2090,23 @@ msgstr "NUM"
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
-msgstr "ºô¸ô"
+msgstr "ç¶²è·¯"
 
 # Dlg-ID:30721,#:
 # Dlg-ID:30721,
 #: Dlg-ID:30721
 msgid "New"
-msgstr "·s¼W"
+msgstr "æ–°å¢"
 
 # Control-ID:1076,
 #: Control-ID:1076
 msgid "New Name:"
-msgstr "·s¦WºÙ:"
+msgstr "æ–°åç¨±:"
 
 # ID:73,
 #: ID:73
 msgid "No"
-msgstr "§_"
+msgstr "å¦"
 
 # ID:81,
 #: ID:81
@@ -2115,20 +2115,20 @@ msgid ""
 "<hr=100%>\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
-"¥¼«ü©w©R¥O!\n"
+"æœªæŒ‡å®šå‘½ä»¤!\n"
 "<hr=100%>\n"
-"TortoiseProc.exe ¥Î©ó shell extension, ½Ğ¤Åª½±µ°õ¦æ!"
+"TortoiseProc.exe ç”¨æ–¼ shell extension, è«‹å‹¿ç›´æ¥åŸ·è¡Œ!"
 
 # ID:81,
 #: ID:81
 msgid "No command value specified!"
-msgstr "©|¥¼«ü©w©R¥O­È!"
+msgstr "å°šæœªæŒ‡å®šå‘½ä»¤å€¼!"
 
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
 msgid "No error message is available."
-msgstr "¨S¦³¿ù»~°T®§."
+msgstr "æ²’æœ‰éŒ¯èª¤è¨Šæ¯."
 
 # ID:3867,#:
 # ID:3868,#:
@@ -2136,7 +2136,7 @@ msgstr "¨S¦³¿ù»~°T®§."
 #: ID:3867
 #: ID:3868
 msgid "No error occurred."
-msgstr "¨S¦³µo¥Í¿ù»~."
+msgstr "æ²’æœ‰ç™¼ç”ŸéŒ¯èª¤."
 
 # ID:77,
 #: ID:77
@@ -2145,20 +2145,20 @@ msgid ""
 "the last commit. There's nothing\n"
 "to do for TortoiseSVN here..."
 msgstr ""
-"±q¤W¦¸°e¥æ¥H¨Ó¨S¦³¥ô¦óÀÉ®×\n"
-"²§°Ê©Î¥[¤J. TortoiseSVN ¨S¦³\n"
-"¤°»ò¨Æ¥i°µ."
+"å¾ä¸Šæ¬¡é€äº¤ä»¥ä¾†æ²’æœ‰ä»»ä½•æª”æ¡ˆ\n"
+"ç•°å‹•æˆ–åŠ å…¥. TortoiseSVN æ²’æœ‰\n"
+"ä»€éº¼äº‹å¯åš."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Normal"
-msgstr "¥¿±`"
+msgstr "æ­£å¸¸"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "¨Ã¥¼²¾°£¥ş³¡ªºµn¿ı¬ö¿ı (©Î INI ÀÉ®×)."
+msgstr "ä¸¦æœªç§»é™¤å…¨éƒ¨çš„ç™»éŒ„ç´€éŒ„ (æˆ– INI æª”æ¡ˆ)."
 
 # Control-ID:1,#:
 # ID:73,#:
@@ -2166,7 +2166,7 @@ msgstr "¨Ã¥¼²¾°£¥ş³¡ªºµn¿ı¬ö¿ı (©Î INI ÀÉ®×)."
 #: ID:73
 #: Control-ID:1
 msgid "OK"
-msgstr "½T©w"
+msgstr "ç¢ºå®š"
 
 # ID:3697,
 #: ID:3697
@@ -2175,17 +2175,17 @@ msgstr "OVR"
 
 #: MenuEntry
 msgid "Oneway &Diff"
-msgstr "³æ¦V®t²§(&D)"
+msgstr "å–®å‘å·®ç•°(&D)"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only check out the top folder"
-msgstr "¶È¨ú¥X³Ì¤W¼h¥Ø¿ı"
+msgstr "åƒ…å–å‡ºæœ€ä¸Šå±¤ç›®éŒ„"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
-msgstr "¶È§ó·s³Ì¤W¼h¥Ø¿ı"
+msgstr "åƒ…æ›´æ–°æœ€ä¸Šå±¤ç›®éŒ„"
 
 # ID:3841,#:
 # ID:101,#:
@@ -2193,17 +2193,17 @@ msgstr "¶È§ó·s³Ì¤W¼h¥Ø¿ı"
 #: ID:101
 #: ID:3841
 msgid "Open"
-msgstr "¶}±Ò"
+msgstr "é–‹å•Ÿ"
 
 # ID:76,
 #: ID:76
 msgid "Open client certificate file"
-msgstr "¶}±Ò¥Î¤áºİ¾ÌÃÒÀÉ"
+msgstr "é–‹å•Ÿç”¨æˆ¶ç«¯æ†‘è­‰æª”"
 
 # ID:3601,
 #: ID:3601
 msgid "Open file"
-msgstr "¶}±ÒÀÉ®×"
+msgstr "é–‹å•Ÿæª”æ¡ˆ"
 
 # ID:3605,
 #: ID:3605
@@ -2211,19 +2211,19 @@ msgid ""
 "Opens Help\n"
 "Help Topics"
 msgstr ""
-"¶}±Ò»¡©ú\n"
-"»¡©ú¥DÃD"
+"é–‹å•Ÿèªªæ˜\n"
+"èªªæ˜ä¸»é¡Œ"
 
 # ID:13,
 #: ID:13
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "¶}±ÒÀÉ®×®wÂsÄı¾¹, ¶i¦æ½u¤W½Õ®ÕÀÉ®×®w"
+msgstr "é–‹å•Ÿæª”æ¡ˆåº«ç€è¦½å™¨, é€²è¡Œç·šä¸Šèª¿æ ¡æª”æ¡ˆåº«"
 
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
 msgid "Out of memory."
-msgstr "°O¾ĞÅé¤£¨¬."
+msgstr "è¨˜æ†¶é«”ä¸è¶³."
 
 # ID:76,
 #: ID:76
@@ -2238,95 +2238,95 @@ msgstr "PKCS12"
 # ID:69,
 #: ID:69
 msgid "Password:"
-msgstr "±K½X:"
+msgstr "å¯†ç¢¼:"
 
 # ID:376,
 #: ID:376
 msgid "Patch All"
-msgstr "¥ş³¡¸Éºó"
+msgstr "å…¨éƒ¨è£œç¶´"
 
 # ID:157,#:
 # ID:157,
 #: ID:157
 msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr "¸ÉºóÀÉ|*.diff;*.patch|©Ò¦³ÀÉ®×|*.*||"
+msgstr "è£œç¶´æª”|*.diff;*.patch|æ‰€æœ‰æª”æ¡ˆ|*.*||"
 
 # ID:77,
 #: ID:77
 msgid "Path"
-msgstr "¸ô®|"
+msgstr "è·¯å¾‘"
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a GUID."
-msgstr "½Ğ¿é¤J GUID."
+msgstr "è«‹è¼¸å…¥ GUID."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a currency."
-msgstr "½Ğ¿é¤J³f¹ô."
+msgstr "è«‹è¼¸å…¥è²¨å¹£."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a date and/or time."
-msgstr "½Ğ¿é¤J¤é´Á©Î®É¶¡."
+msgstr "è«‹è¼¸å…¥æ—¥æœŸæˆ–æ™‚é–“."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a date."
-msgstr "½Ğ¿é¤J¤é´Á."
+msgstr "è«‹è¼¸å…¥æ—¥æœŸ."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a number between %1 and %2."
-msgstr "½Ğ¿é¤J¤¶©ó %1 »P %2 ¤§¶¡ªº¼Æ¦r."
+msgstr "è«‹è¼¸å…¥ä»‹æ–¼ %1 èˆ‡ %2 ä¹‹é–“çš„æ•¸å­—."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a number."
-msgstr "½Ğ¿é¤J¼Æ¦r."
+msgstr "è«‹è¼¸å…¥æ•¸å­—."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a positive integer."
-msgstr "½Ğ¿é¤J¥¿¾ã¼Æ."
+msgstr "è«‹è¼¸å…¥æ­£æ•´æ•¸."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter a time."
-msgstr "½Ğ¿é¤J®É¶¡."
+msgstr "è«‹è¼¸å…¥æ™‚é–“."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter an integer between %1 and %2."
-msgstr "½Ğ¿é¤J¤¶©ó %1 »P %2 ¤§¶¡ªº¾ã¼Æ."
+msgstr "è«‹è¼¸å…¥ä»‹æ–¼ %1 èˆ‡ %2 ä¹‹é–“çš„æ•´æ•¸."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter an integer between 0 and 255."
-msgstr "½Ğ¿é¤J¤¶©ó 0 ¨ì 255 ¤§¶¡ªº¾ã¼Æ."
+msgstr "è«‹è¼¸å…¥ä»‹æ–¼ 0 åˆ° 255 ä¹‹é–“çš„æ•´æ•¸."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter an integer."
-msgstr "½Ğ¿é¤J¾ã¼Æ."
+msgstr "è«‹è¼¸å…¥æ•´æ•¸."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please enter no more than %1 characters."
-msgstr "½Ğ¤Å¿é¤J¶W¹L %1 ­Ó¦r."
+msgstr "è«‹å‹¿è¼¸å…¥è¶…é %1 å€‹å­—."
 
 # ID:78,
 #: ID:78
@@ -2336,87 +2336,87 @@ msgid ""
 "to be in the just created copy then you need to <b>switch</b> over\n"
 "to that copy path. Use the <b>Switch</b> command to do that."
 msgstr ""
-"½Ğª`·N:\n"
-"§Aªº¤u§@½Æ¥»ÁÙ¬O³]¬°¥ı«eªº¸ô®|. ¦pªG§A·Q­n¤§«áªº²§°Ê\n"
-"·|°e¥æ¨ì­è¤~«Ø¥ßªº½Æ¥», §A¥²¶·¥ı<b>¤Á´«</b>¨ì·sªº¸ô®|.\n"
-"¨Ï¥Î<b>¤Á´«</b>«ü¥O."
+"è«‹æ³¨æ„:\n"
+"ä½ çš„å·¥ä½œè¤‡æœ¬é‚„æ˜¯è¨­ç‚ºå…ˆå‰çš„è·¯å¾‘. å¦‚æœä½ æƒ³è¦ä¹‹å¾Œçš„ç•°å‹•\n"
+"æœƒé€äº¤åˆ°å‰›æ‰å»ºç«‹çš„è¤‡æœ¬, ä½ å¿…é ˆå…ˆ<b>åˆ‡æ›</b>åˆ°æ–°çš„è·¯å¾‘.\n"
+"ä½¿ç”¨<b>åˆ‡æ›</b>æŒ‡ä»¤."
 
 # ID:3858,#:
 # ID:3858,
 #: ID:3858
 msgid "Please select a button."
-msgstr "½Ğ¿ï¾Ü«ö¶s."
+msgstr "è«‹é¸æ“‡æŒ‰éˆ•."
 
 # ID:76,
 #: ID:76
 msgid "Please specify the certificate type"
-msgstr "½Ğ«ü©w¾ÌÃÒÃş«¬"
+msgstr "è«‹æŒ‡å®šæ†‘è­‰é¡å‹"
 
 # ID:132,
 #: ID:132
 msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "½Ğµy­Ô - ¥i¯à»İ­n¼Æ¤ÀÄÁ, ¯uªº!"
+msgstr "è«‹ç¨å€™ - å¯èƒ½éœ€è¦æ•¸åˆ†é˜, çœŸçš„!"
 
 # ID:13,
 #: ID:13
 msgid "Please wait while cancelling..."
-msgstr "¥¿¦b¨ú®ø, ½Ğµy­Ô..."
+msgstr "æ­£åœ¨å–æ¶ˆ, è«‹ç¨å€™..."
 
 # ID:119,
 #: ID:119
 msgid "Please wait..."
-msgstr "½Ğµy­Ô..."
+msgstr "è«‹ç¨å€™..."
 
 # ID:132,
 #: ID:132
 msgid "Processing revision %d of %d..."
-msgstr "¥¿¦b³B²zª©¥» %d ©ó %d..."
+msgstr "æ­£åœ¨è™•ç†ç‰ˆæœ¬ %d æ–¼ %d..."
 
 # ID:74,
 #: ID:74
 msgid "Program"
-msgstr "µ{¦¡"
+msgstr "ç¨‹å¼"
 
 # ID:157,
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr "µ{¦¡ (*.exe)|*.*|©Ò¦³ÀÉ®× (*.*)|*.*||"
+msgstr "ç¨‹å¼ (*.exe)|*.*|æ‰€æœ‰æª”æ¡ˆ (*.*)|*.*||"
 
 # Control-ID:65535,
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
-msgstr "©Ê½è"
+msgstr "æ€§è³ª"
 
 # ID:11,
 #: ID:11
 msgid "Property"
-msgstr "©Ê½è"
+msgstr "æ€§è³ª"
 
 # Dlg-ID:107,
 #: Dlg-ID:107
 msgid "Property Page"
-msgstr "©Ê½è­¶­±"
+msgstr "æ€§è³ªé é¢"
 
 # Control-ID:65535,
 #: ID:207
 msgid "Property Status"
-msgstr "©Ê½èª¬ºA:"
+msgstr "æ€§è³ªç‹€æ…‹:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Property Status:"
-msgstr "©Ê½èª¬ºA:"
+msgstr "æ€§è³ªç‹€æ…‹:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Proxy &timeout in seconds:"
-msgstr "Proxy ¹O®É³]©w(¬í):"
+msgstr "Proxy é€¾æ™‚è¨­å®š(ç§’):"
 
 # Control-ID:1080,
 #: Control-ID:1080
 msgid "Proxy Settings"
-msgstr "Proxy ³]©w"
+msgstr "Proxy è¨­å®š"
 
 # ID:3605,
 #: ID:3605
@@ -2424,13 +2424,13 @@ msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
 msgstr ""
-"µ²§ôµ{¦¡; ´£¥ÜÀx¦s¤å¥ó\n"
-"Â÷¶}"
+"çµæŸç¨‹å¼; æç¤ºå„²å­˜æ–‡ä»¶\n"
+"é›¢é–‹"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "RAM drives"
-msgstr "µêÀÀºÏºĞ"
+msgstr "è™›æ“¬ç£ç¢Ÿ"
 
 # ID:3697,
 #: ID:3697
@@ -2440,7 +2440,7 @@ msgstr "REC"
 # ID:12,
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr "¦b§A¥d¦í¤§«e, ½Ğ¥ı¾\Åª¤é±`¨Ï¥Î«ü«n..."
+msgstr "åœ¨ä½ å¡ä½ä¹‹å‰, è«‹å…ˆé–±è®€æ—¥å¸¸ä½¿ç”¨æŒ‡å—..."
 
 # ID:3603,
 #: ID:3603
@@ -2448,29 +2448,29 @@ msgid ""
 "Redo the previously undone action\n"
 "Redo"
 msgstr ""
-"­«°µ¤W¦¸ÁÙ­ìªº°Ê§@\n"
-"­«°µ"
+"é‡åšä¸Šæ¬¡é‚„åŸçš„å‹•ä½œ\n"
+"é‡åš"
 
 # ID:3825,
 #: ID:3825
 msgid "Reduce the window to an icon"
-msgstr "ÁY¤pµøµ¡¬°¹Ï¥Ü"
+msgstr "ç¸®å°è¦–çª—ç‚ºåœ–ç¤º"
 
 # ID:101,#:
 # ID:135,
 #: ID:101
 #: ID:135
 msgid "Refresh"
-msgstr "­«·s¾ã²z"
+msgstr "é‡æ–°æ•´ç†"
 
 # ID:82,
 #: ID:82
 msgid "Reject"
-msgstr "©Úµ´"
+msgstr "æ‹’çµ•"
 
 #: MenuEntry
 msgid "Reload"
-msgstr "­«·s¸ü¤J"
+msgstr "é‡æ–°è¼‰å…¥"
 
 # ID:2050,
 #: ID:2050
@@ -2478,71 +2478,71 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
-"­«·s¸ü¤J©Ò¦³¤w¶}±ÒªºÀÉ®×¨Ã¥BÁÙ­ì©Ò¦³ÅÜ§ó.\n"
-"­«·s¸ü¤J"
+"é‡æ–°è¼‰å…¥æ‰€æœ‰å·²é–‹å•Ÿçš„æª”æ¡ˆä¸¦ä¸”é‚„åŸæ‰€æœ‰è®Šæ›´.\n"
+"é‡æ–°è¼‰å…¥"
 
 # Dlg-ID:157,
 #: Dlg-ID:157
 msgid "Relocate"
-msgstr "­«·s©w¦ì"
+msgstr "é‡æ–°å®šä½"
 
 # ID:12,
 #: ID:12
 msgid "Relocate..."
-msgstr "­«·s©w¦ì..."
+msgstr "é‡æ–°å®šä½..."
 
 # ID:80,
 #: ID:80
 msgid "Relocating..."
-msgstr "¥¿¦b­«·s©w¦ì..."
+msgstr "æ­£åœ¨é‡æ–°å®šä½..."
 
 # Control-ID:65535,
 #: ID:207
 msgid "Remote Property Status"
-msgstr "»·ºİ©Ê½èª¬ºA:"
+msgstr "é ç«¯æ€§è³ªç‹€æ…‹:"
 
 # ID:63,
 #: ID:63
 #: ID:207
 msgid "Remote Status"
-msgstr "»·ºİª¬ºA"
+msgstr "é ç«¯ç‹€æ…‹"
 
 # ID:63,
 #: ID:207
 msgid "Remote Text Status"
-msgstr "»·ºİ¤å¦rª¬ºA:"
+msgstr "é ç«¯æ–‡å­—ç‹€æ…‹:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Removed"
-msgstr "²¾°£"
+msgstr "ç§»é™¤"
 
 # ID:126,
 #: ID:126
 msgid "Removed file/folder"
-msgstr "¤w²¾°£ÀÉ®×/¸ê®Æ§¨"
+msgstr "å·²ç§»é™¤æª”æ¡ˆ/è³‡æ–™å¤¾"
 
 # Dlg-ID:151,
 #: Dlg-ID:151
 msgid "Rename"
-msgstr "§ó§ï¦WºÙ"
+msgstr "æ›´æ”¹åç¨±"
 
 # ID:97,
 #: ID:97
 msgid "Rename %s"
-msgstr "§ó§ï %s ªº¦WºÙ"
+msgstr "æ›´æ”¹ %s çš„åç¨±"
 
 # ID:11,#:
 # ID:101,
 #: ID:11
 #: ID:101
 msgid "Rename..."
-msgstr "§ó§ï¦WºÙ..."
+msgstr "æ›´æ”¹åç¨±..."
 
 # ID:11,
 #: ID:11
 msgid "Renames files / folders inside source control"
-msgstr "§ó§ïª©¥»±±¨î¾ğ¤¤ªºÀÉ®×/¸ê®Æ§¨¦WºÙ"
+msgstr "æ›´æ”¹ç‰ˆæœ¬æ§åˆ¶æ¨¹ä¸­çš„æª”æ¡ˆ/è³‡æ–™å¤¾åç¨±"
 
 # ID:3603,
 #: ID:3603
@@ -2550,8 +2550,8 @@ msgid ""
 "Repeat the last action\n"
 "Repeat"
 msgstr ""
-"­«ÂĞ¤W¦¸°Ê§@\n"
-"­«ÂĞ"
+"é‡è¦†ä¸Šæ¬¡å‹•ä½œ\n"
+"é‡è¦†"
 
 # ID:3603,
 #: ID:3603
@@ -2559,18 +2559,18 @@ msgid ""
 "Replace specific text with different text\n"
 "Replace"
 msgstr ""
-"¥Î«ü©wªº¤å¦r¨ú¥N¯S©w¤å¦r\n"
-"¨ú¥N"
+"ç”¨æŒ‡å®šçš„æ–‡å­—å–ä»£ç‰¹å®šæ–‡å­—\n"
+"å–ä»£"
 
 # ID:74,
 #: ID:74
 msgid "Replaced"
-msgstr "¨ú¥N"
+msgstr "å–ä»£"
 
 # ID:13,
 #: ID:13
 msgid "Repo-Browser"
-msgstr "ÀÉ®×®wÂsÄı¾¹"
+msgstr "æª”æ¡ˆåº«ç€è¦½å™¨"
 
 # Control-ID:65535,#:
 # Control-ID:1055,#:
@@ -2578,47 +2578,47 @@ msgstr "ÀÉ®×®wÂsÄı¾¹"
 #: Control-ID:65535
 #: Control-ID:1055
 msgid "Repository"
-msgstr "ÀÉ®×®w"
+msgstr "æª”æ¡ˆåº«"
 
 # Dlg-ID:153,
 #: Dlg-ID:153
 msgid "Repository Browser"
-msgstr "ÀÉ®×®wÂsÄı¾¹"
+msgstr "æª”æ¡ˆåº«ç€è¦½å™¨"
 
 # ID:74,
 #: ID:74
 msgid "Resolve"
-msgstr "¸Ñ¨M"
+msgstr "è§£æ±º"
 
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
-msgstr "Àx¦s®É¸Ñ°£ subversion ªº½Ä¬ğª¬ºA"
+msgstr "å„²å­˜æ™‚è§£é™¤ subversion çš„è¡çªç‹€æ…‹"
 
 # ID:8,
 #: ID:8
 msgid "Resolved"
-msgstr "¸Ñ¨M"
+msgstr "è§£æ±º"
 
 # ID:9,
 #: ID:9
 msgid "Resolves conflicted files"
-msgstr "¸Ñ¨M¦³½Ä¬ğªºÀÉ®×"
+msgstr "è§£æ±ºæœ‰è¡çªçš„æª”æ¡ˆ"
 
 # ID:73,
 #: ID:73
 msgid "Restore"
-msgstr "ÁÙ­ì"
+msgstr "é‚„åŸ"
 
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
-msgstr "ÁÙ­ìµøµ¡¦Ü¤@¯ë¤j¤p"
+msgstr "é‚„åŸè¦–çª—è‡³ä¸€èˆ¬å¤§å°"
 
 # ID:73,
 #: ID:73
 msgid "Retry"
-msgstr "­«¸Õ"
+msgstr "é‡è©¦"
 
 # ID:8,#:
 # ID:73,#:
@@ -2627,17 +2627,17 @@ msgstr "­«¸Õ"
 #: ID:73
 #: Dlg-ID:175
 msgid "Revert"
-msgstr "´_­ì"
+msgstr "å¾©åŸ"
 
 # ID:113,
 #: ID:113
 msgid "Revert changes from this revision"
-msgstr "´_­ì¦Û¦¹ª©¥»¥H¨ÓªºÅÜ§ó"
+msgstr "å¾©åŸè‡ªæ­¤ç‰ˆæœ¬ä»¥ä¾†çš„è®Šæ›´"
 
 # ID:9,
 #: ID:9
 msgid "Reverts all changes you made since the last update"
-msgstr "´_­ì±q¤W¦¸§ó·s¤§«á¥ş³¡ªºÅÜ°Ê"
+msgstr "å¾©åŸå¾ä¸Šæ¬¡æ›´æ–°ä¹‹å¾Œå…¨éƒ¨çš„è®Šå‹•"
 
 # ID:76,#:
 # Control-ID:65535,#:
@@ -2645,26 +2645,26 @@ msgstr "´_­ì±q¤W¦¸§ó·s¤§«á¥ş³¡ªºÅÜ°Ê"
 #: ID:76
 #: Control-ID:65535
 msgid "Revision"
-msgstr "ª©¥»"
+msgstr "ç‰ˆæœ¬"
 
 # ID:119,
 #: ID:119
 msgid "Revision %d"
-msgstr "ª©¥» %d"
+msgstr "ç‰ˆæœ¬ %d"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Revision / Author:"
-msgstr "ª©¥» / §@ªÌ:"
+msgstr "ç‰ˆæœ¬ / ä½œè€…:"
 
 # ID:75,
 #: ID:75
 msgid "Revision: "
-msgstr "ª©¥»: "
+msgstr "ç‰ˆæœ¬: "
 
 #: MenuEntry
 msgid "S&ettings"
-msgstr "³]©w(&E)"
+msgstr "è¨­å®š(&E)"
 
 # ID:3697,
 #: ID:3697
@@ -2734,7 +2734,7 @@ msgstr "SVN Revert..."
 # ID:11,
 #: ID:11
 msgid "SVN Revision"
-msgstr "SVN ª©¥»"
+msgstr "SVN ç‰ˆæœ¬"
 
 # ID:11,
 #: ID:11
@@ -2764,35 +2764,35 @@ msgstr "SVN mime-type"
 # ID:12,
 #: ID:12
 msgid "SVN short Url"
-msgstr "SVN µu UR"
+msgstr "SVN çŸ­ UR"
 
 #: MenuEntry
 msgid "Save &As..."
-msgstr "¥t¦s·sÀÉ(&A)..."
+msgstr "å¦å­˜æ–°æª”(&A)..."
 
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Save As"
-msgstr "¥t¦s·sÀÉ"
+msgstr "å¦å­˜æ–°æª”"
 
 # ID:313,#:
 # ID:101,
 #: ID:101
 #: ID:313
 msgid "Save as..."
-msgstr "¥t¦s·sÀÉ..."
+msgstr "å¦å­˜æ–°æª”..."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "Save changes to %1?"
-msgstr "¬O§_Àx¦s %1 ªºÅÜ°Ê?"
+msgstr "æ˜¯å¦å„²å­˜ %1 çš„è®Šå‹•?"
 
 # ID:76,
 #: ID:76
 msgid "Save revision to..."
-msgstr "Àx¦sª©¥»¦Ü..."
+msgstr "å„²å­˜ç‰ˆæœ¬è‡³..."
 
 # ID:3601,#:
 # ID:3601,
@@ -2801,75 +2801,75 @@ msgid ""
 "Save the modified file\n"
 "Save file"
 msgstr ""
-"Àx¦sÅÜ§ó¹LªºÀÉ®×\n"
-"Àx¦sÀÉ®×"
+"å„²å­˜è®Šæ›´éçš„æª”æ¡ˆ\n"
+"å„²å­˜æª”æ¡ˆ"
 
 # ID:144,
 #: ID:144
 msgid "Saving patchfile to:"
-msgstr "Àx¦s¸ÉºóÀÉ¦Ü:"
+msgstr "å„²å­˜è£œç¶´æª”è‡³:"
 
 # ID:113,
 #: ID:113
 msgid "Search log messages..."
-msgstr "·j´M°O¿ı°T®§..."
+msgstr "æœå°‹è¨˜éŒ„è¨Šæ¯..."
 
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
 msgid "Seek failed on %1"
-msgstr "·j´M¿ù»~: %1"
+msgstr "æœå°‹éŒ¯èª¤: %1"
 
 # Control-ID:1067,#:
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Select / Deselect &All"
-msgstr "¥ş¿ï / ¥ş¤£¿ï(&A)"
+msgstr "å…¨é¸ / å…¨ä¸é¸(&A)"
 
 # ID:78,
 #: ID:78
 msgid "Select Diff Application"
-msgstr "¿ï¾Ü¤ñ¹ï®t²§¤u¨ã"
+msgstr "é¸æ“‡æ¯”å°å·®ç•°å·¥å…·"
 
 # ID:13,
 #: ID:13
 msgid "Select File..."
-msgstr "¿ï¾ÜÀÉ®×..."
+msgstr "é¸æ“‡æª”æ¡ˆ..."
 
 # ID:78,
 #: ID:78
 msgid "Select Merge Application"
-msgstr "¿ï¾Ü¦X¨Ö¤u¨ã"
+msgstr "é¸æ“‡åˆä½µå·¥å…·"
 
 # Dlg-ID:173,
 #: Dlg-ID:173
 msgid "Select Revision"
-msgstr "¿ï¾Üª©¥»"
+msgstr "é¸æ“‡ç‰ˆæœ¬"
 
 # ID:78,
 #: ID:78
 msgid "Select SSH Client"
-msgstr "¿ï¾Ü SSH ¥Î¤áºİµ{¦¡"
+msgstr "é¸æ“‡ SSH ç”¨æˆ¶ç«¯ç¨‹å¼"
 
 # ID:79,
 #: ID:79
 msgid "Select Text Editor Application"
-msgstr "¿ï¾Ü¤å¦r½s¿è¾¹"
+msgstr "é¸æ“‡æ–‡å­—ç·¨è¼¯å™¨"
 
 # ID:78,
 #: ID:78
 msgid "Select Viewer for Diff-Files"
-msgstr "¿ï¾ÜÀËµø®t²§ÀÉ¤u¨ã"
+msgstr "é¸æ“‡æª¢è¦–å·®ç•°æª”å·¥å…·"
 
 # ID:3585,
 #: ID:3585
 msgid "Select an object on which to get Help"
-msgstr "¿ï¾Ü­n¬d¸ß»¡©úªºª«¥ó"
+msgstr "é¸æ“‡è¦æŸ¥è©¢èªªæ˜çš„ç‰©ä»¶"
 
 # ID:313,
 #: ID:313
 msgid "Select diff file..."
-msgstr "¿ï¾Ü®t²§ÀÉ..."
+msgstr "é¸æ“‡å·®ç•°æª”..."
 
 # ID:79,
 #: ID:79
@@ -2877,8 +2877,8 @@ msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
-"¿ï¾Ü­n¶×¥X¦Üªº¸ê®Æ§¨.\n"
-"§A¥i¯à»İ­n¦b¶i¦æ¶×¥X¤§«e¥ı«Ø¥ß·s¸ê®Æ§¨."
+"é¸æ“‡è¦åŒ¯å‡ºè‡³çš„è³‡æ–™å¤¾.\n"
+"ä½ å¯èƒ½éœ€è¦åœ¨é€²è¡ŒåŒ¯å‡ºä¹‹å‰å…ˆå»ºç«‹æ–°è³‡æ–™å¤¾."
 
 # ID:3603,
 #: ID:3603
@@ -2886,103 +2886,103 @@ msgid ""
 "Select the entire document\n"
 "Select All"
 msgstr ""
-"¿ï¨ú¾ã¥÷¤å¥ó\n"
-"¥ş¿ï"
+"é¸å–æ•´ä»½æ–‡ä»¶\n"
+"å…¨é¸"
 
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
 msgid "Send Mail failed to send message."
-msgstr "µo°e¶l¥ó¥\¯àµLªk±H¥X°T®§."
+msgstr "ç™¼é€éƒµä»¶åŠŸèƒ½ç„¡æ³•å¯„å‡ºè¨Šæ¯."
 
 # ID:74,
 #: ID:74
 msgid "Sending Content"
-msgstr "¥¿¦b¶Ç°e¤º®e"
+msgstr "æ­£åœ¨å‚³é€å…§å®¹"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Server &address:"
-msgstr "¦øªA¾¹¦ì§}(&A):"
+msgstr "ä¼ºæœå™¨ä½å€(&A):"
 
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
-msgstr "±NÀÉ®×¤é´Á³]©w¬°³Ì«á¤@¦¸°e¥æªº®É¶¡"
+msgstr "å°‡æª”æ¡ˆæ—¥æœŸè¨­å®šç‚ºæœ€å¾Œä¸€æ¬¡é€äº¤çš„æ™‚é–“"
 
 # ID:13,
 #: ID:13
 msgid "Setting Properties..."
-msgstr "¥¿¦b³]©w©Ê½è..."
+msgstr "æ­£åœ¨è¨­å®šæ€§è³ª..."
 
 # ID:107,#:
 # ID:9,
 #: ID:9
 #: ID:107
 msgid "Settings"
-msgstr "³]©w"
+msgstr "è¨­å®š"
 
 # Control-ID:1105,
 #: Control-ID:1105
 msgid "Short &date/time format in log messages"
-msgstr "°O¿ı°T®§¨Ï¥ÎÂ²µu¤é´Á/®É¶¡®æ¦¡(&D)"
+msgstr "è¨˜éŒ„è¨Šæ¯ä½¿ç”¨ç°¡çŸ­æ—¥æœŸ/æ™‚é–“æ ¼å¼(&D)"
 
 # ID:12,
 #: ID:12
 msgid "Short Url of subversion items"
-msgstr "Subversion ¶µ¥Øªºµu URL"
+msgstr "Subversion é …ç›®çš„çŸ­ URL"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
-msgstr "Åã¥Ü°O¿ı(&L)"
+msgstr "é¡¯ç¤ºè¨˜éŒ„(&L)"
 
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Show &Log..."
-msgstr "Åã¥Ü°O¿ı(&L)..."
+msgstr "é¡¯ç¤ºè¨˜éŒ„(&L)..."
 
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Show &log"
-msgstr "Åã¥Ü°O¿ı(&L)"
+msgstr "é¡¯ç¤ºè¨˜éŒ„(&L)"
 
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Show Diff Bar"
-msgstr "Åã¥Ü®t²§¦C"
+msgstr "é¡¯ç¤ºå·®ç•°åˆ—"
 
 # ID:113,
 #: ID:113
 msgid "Show Differences"
-msgstr "Åã¥Ü®t²§"
+msgstr "é¡¯ç¤ºå·®ç•°"
 
 # ID:113,
 #: ID:113
 msgid "Show Differences as Unified Diff"
-msgstr "¥H³æ¤@²§°ÊÀÉÅã¥Ü²§°Ê"
+msgstr "ä»¥å–®ä¸€ç•°å‹•æª”é¡¯ç¤ºç•°å‹•"
 
 # Control-ID:1063,
 #: Control-ID:1063
 msgid "Show Linenumbers"
-msgstr "Åã¥Ü¦æ¸¹"
+msgstr "é¡¯ç¤ºè¡Œè™Ÿ"
 
 # ID:12,
 #: ID:12
 msgid "Show Log"
-msgstr "Åã¥Ü°O¿ı"
+msgstr "é¡¯ç¤ºè¨˜éŒ„"
 
 # Control-ID:65535,
 #: ID:101
 msgid "Show Properties"
-msgstr "Åã¥Ü©Ê½è"
+msgstr "é¡¯ç¤ºæ€§è³ª"
 
 # ID:101,
 #: ID:101
 msgid "Show log"
-msgstr "Åã¥Ü°O¿ı"
+msgstr "é¡¯ç¤ºè¨˜éŒ„"
 
 # ID:3713,
 #: ID:3713
@@ -2990,8 +2990,8 @@ msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
 msgstr ""
-"Åã¥Ü©ÎÁôÂÃª¬ºA¦C\n"
-"¶}Ãöª¬ºA¦C"
+"é¡¯ç¤ºæˆ–éš±è—ç‹€æ…‹åˆ—\n"
+"é–‹é—œç‹€æ…‹åˆ—"
 
 # ID:3713,
 #: ID:3713
@@ -2999,13 +2999,13 @@ msgid ""
 "Show or hide the toolbar\n"
 "Toggle ToolBar"
 msgstr ""
-"Åã¥Ü©ÎÁôÂÃ¤u¨ã¦C\n"
-"¶}Ãö¤u¨ã¦C"
+"é¡¯ç¤ºæˆ–éš±è—å·¥å…·åˆ—\n"
+"é–‹é—œå·¥å…·åˆ—"
 
 # Control-ID:1088,
 #: Control-ID:1088
 msgid "Show overlays only in explorer"
-msgstr "¶È¦bÀÉ®×Á`ºŞ¤¤Åã¥Ü¹Ï¥ÜÂĞ»\"
+msgstr "åƒ…åœ¨æª”æ¡ˆç¸½ç®¡ä¸­é¡¯ç¤ºåœ–ç¤ºè¦†è“‹"
 
 # ID:2049,
 #: ID:2049
@@ -3013,43 +3013,43 @@ msgid ""
 "Show special characters for whitespaces\n"
 "Show Whitespaces"
 msgstr ""
-"¥H¯S®í¦r¤¸Åã¥ÜªÅ¥Õ¦r¤¸\n"
-"Åã¥ÜªÅ¥Õ¦r¤¸"
+"ä»¥ç‰¹æ®Šå­—å…ƒé¡¯ç¤ºç©ºç™½å­—å…ƒ\n"
+"é¡¯ç¤ºç©ºç™½å­—å…ƒ"
 
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Show unversioned files"
-msgstr "Åã¥ÜµLª©¥»±±¨îªºÀÉ®×"
+msgstr "é¡¯ç¤ºç„¡ç‰ˆæœ¬æ§åˆ¶çš„æª”æ¡ˆ"
 
 # ID:13,
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "Åã¥Ü±q¤W¦¸§ó·s¥H«áÅÜ°Ê¹LªºÀÉ®×, ¤£½×¦bÀÉ®×®w¤¤©Î¦b¥»¦aºİ"
+msgstr "é¡¯ç¤ºå¾ä¸Šæ¬¡æ›´æ–°ä»¥å¾Œè®Šå‹•éçš„æª”æ¡ˆ, ä¸è«–åœ¨æª”æ¡ˆåº«ä¸­æˆ–åœ¨æœ¬åœ°ç«¯"
 
 # ID:10,
 #: ID:10
 msgid "Shows information about TortoiseSVN"
-msgstr "Åã¥ÜÃö©ó TortoiseSVN ªº¸ê°T"
+msgstr "é¡¯ç¤ºé—œæ–¼ TortoiseSVN çš„è³‡è¨Š"
 
 # ID:12,
 #: ID:12
 msgid "Shows the log for the selected file / folder"
-msgstr "Åã¥Ü¿ï©wªºÀÉ®×/¸ê®Æ§¨ªº°O¿ı"
+msgstr "é¡¯ç¤ºé¸å®šçš„æª”æ¡ˆ/è³‡æ–™å¤¾çš„è¨˜éŒ„"
 
 # ID:14,
 #: ID:14
 msgid "Shows the mime type of the versioned file"
-msgstr "Åã¥Ü¦bª©¥»±±¨î¤UÀÉ®×ªº mime Ãş«¬"
+msgstr "é¡¯ç¤ºåœ¨ç‰ˆæœ¬æ§åˆ¶ä¸‹æª”æ¡ˆçš„ mime é¡å‹"
 
 # ID:74,
 #: ID:74
 msgid "Size"
-msgstr "¤j¤p"
+msgstr "å¤§å°"
 
 # ID:74,
 #: ID:74
 msgid "Skip"
-msgstr "¸õ¹L"
+msgstr "è·³é"
 
 # ID:79,
 #: ID:79
@@ -3058,9 +3058,9 @@ msgid ""
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
-"«ü©w TortoiseSVN ¤£»İ­n¯Ç¤Jª©¥»±±¨îªº\n"
-"¥Ø¿ı©ÎÀÉ®×¦WºÙ.\n"
-"½Ğ¥HªÅ¥Õ¤À¹j¶µ¥Ø."
+"æŒ‡å®š TortoiseSVN ä¸éœ€è¦ç´å…¥ç‰ˆæœ¬æ§åˆ¶çš„\n"
+"ç›®éŒ„æˆ–æª”æ¡ˆåç¨±.\n"
+"è«‹ä»¥ç©ºç™½åˆ†éš”é …ç›®."
 
 # ID:3604,
 #: ID:3604
@@ -3068,8 +3068,8 @@ msgid ""
 "Split the active window into panes\n"
 "Split"
 msgstr ""
-"±N¥Ø«eµøµ¡¤À³Î°Ï¶ô\n"
-"¤À³Î"
+"å°‡ç›®å‰è¦–çª—åˆ†å‰²å€å¡Š\n"
+"åˆ†å‰²"
 
 # ID:74,#:
 # ID:77,
@@ -3077,27 +3077,27 @@ msgstr ""
 #: ID:77
 #: ID:207
 msgid "Status"
-msgstr "ª¬ºA"
+msgstr "ç‹€æ…‹"
 
 # ID:11,
 #: ID:11
 msgid "Status of item in SVN"
-msgstr "SVN ¶µ¥Øªºª¬ºA"
+msgstr "SVN é …ç›®çš„ç‹€æ…‹"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Subversion configuration file:"
-msgstr "Subversion ³]©wÀÉ:"
+msgstr "Subversion è¨­å®šæª”:"
 
 # ID:13,
 #: ID:14
 msgid "Subversion export all here"
-msgstr "Subversion ¥ş³¡¶×¥X¦Ü¦¹"
+msgstr "Subversion å…¨éƒ¨åŒ¯å‡ºè‡³æ­¤"
 
 # ID:13,
 #: ID:14
 msgid "Subversion export here"
-msgstr "¦b¦¹¶×¥X Subversion"
+msgstr "åœ¨æ­¤åŒ¯å‡º Subversion"
 
 # ID:79,
 #: ID:79
@@ -3105,8 +3105,8 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
-"Subversion ¦b«Ø¥ßÀÉ®×®w®É¦^³ø¿ù»~!\n"
-"½Ğ½T»{¸ê®Æ§¨¬OªÅªº¨Ã¥B¨S¦³¨¾¼g«OÅ@."
+"Subversion åœ¨å»ºç«‹æª”æ¡ˆåº«æ™‚å›å ±éŒ¯èª¤!\n"
+"è«‹ç¢ºèªè³‡æ–™å¤¾æ˜¯ç©ºçš„ä¸¦ä¸”æ²’æœ‰é˜²å¯«ä¿è­·."
 
 # ID:81,
 #: ID:81
@@ -3115,14 +3115,14 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Subversion ¦b¶i¦æ²M²z°Ê§@®É¦^³ø¿ù»~!\n"
+"Subversion åœ¨é€²è¡Œæ¸…ç†å‹•ä½œæ™‚å›å ±éŒ¯èª¤!\n"
 "<hr=100%>\n"
 "%s"
 
 # Dlg-ID:140,
 #: Dlg-ID:140
 msgid "Switch To Branch / Tag"
-msgstr "¤Á´«¦Ü¤À¤ä/¼Ğ°O"
+msgstr "åˆ‡æ›è‡³åˆ†æ”¯/æ¨™è¨˜"
 
 # ID:3606,
 #: ID:3606
@@ -3130,8 +3130,8 @@ msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
 msgstr ""
-"¤Á´«¦^«e¤@­Óµøµ¡°Ï¶ô\n"
-"«e¤@°Ï¶ô"
+"åˆ‡æ›å›å‰ä¸€å€‹è¦–çª—å€å¡Š\n"
+"å‰ä¸€å€å¡Š"
 
 # ID:2049,
 #: ID:2049
@@ -3139,13 +3139,13 @@ msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr ""
-"¦b³æ°Ï¶ô»PÂù°Ï¶ôÀËµø¼Ò¦¡¶¡¤Á´«\n"
-"¤Á´«³æ/Âù°Ï¶ô¼Ò¦¡"
+"åœ¨å–®å€å¡Šèˆ‡é›™å€å¡Šæª¢è¦–æ¨¡å¼é–“åˆ‡æ›\n"
+"åˆ‡æ›å–®/é›™å€å¡Šæ¨¡å¼"
 
 # ID:3825,
 #: ID:3825
 msgid "Switch to the next document window"
-msgstr "¤Á´«¦Ü¤U¤@­Ó¤å¥óµøµ¡"
+msgstr "åˆ‡æ›è‡³ä¸‹ä¸€å€‹æ–‡ä»¶è¦–çª—"
 
 # ID:3606,
 #: ID:3606
@@ -3153,49 +3153,49 @@ msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
 msgstr ""
-"¤Á´«¦Ü¤U¤@­Óµøµ¡°Ï¶ô\n"
-"¤U¤@°Ï¶ô"
+"åˆ‡æ›è‡³ä¸‹ä¸€å€‹è¦–çª—å€å¡Š\n"
+"ä¸‹ä¸€å€å¡Š"
 
 # ID:3825,
 #: ID:3825
 msgid "Switch to the previous document window"
-msgstr "¤Á´«¦Ü«e¤@­Ó¤å¥óµøµ¡"
+msgstr "åˆ‡æ›è‡³å‰ä¸€å€‹æ–‡ä»¶è¦–çª—"
 
 # ID:9,
 #: ID:9
 msgid "Switch working copy to another branch / tag"
-msgstr "¤Á´«¤u§@½Æ¥»¦Ü¨ä¥L¤À¤ä/¼Ğ°O"
+msgstr "åˆ‡æ›å·¥ä½œè¤‡æœ¬è‡³å…¶ä»–åˆ†æ”¯/æ¨™è¨˜"
 
 # ID:9,
 #: ID:9
 msgid "Switch..."
-msgstr "¤Á´«..."
+msgstr "åˆ‡æ›..."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
-msgstr "¨t²Îµn¿ı¬ö¿ı¤Î INI ÀÉ®×(¦pªG¦³) ²¾°£§¹¦¨."
+msgstr "ç³»çµ±ç™»éŒ„ç´€éŒ„åŠ INI æª”æ¡ˆ(å¦‚æœæœ‰) ç§»é™¤å®Œæˆ."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Tab Size:"
-msgstr "Tab ¼e«×:"
+msgstr "Tab å¯¬åº¦:"
 
 # ID:79,
 #: ID:79
 msgid "Tagged the working copy to %s"
-msgstr "¼Ğ°O¤u§@½Æ¥»¬° %s"
+msgstr "æ¨™è¨˜å·¥ä½œè¤‡æœ¬ç‚º %s"
 
 # Control-ID:65535,
 #: ID:207
 msgid "Text Status"
-msgstr "¤å¦rª¬ºA:"
+msgstr "æ–‡å­—ç‹€æ…‹:"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Text Status:"
-msgstr "¤å¦rª¬ºA:"
+msgstr "æ–‡å­—ç‹€æ…‹:"
 
 # ID:69,
 #: ID:69
@@ -3204,24 +3204,24 @@ msgid ""
 "%s\n"
 "is not a valid text file!"
 msgstr ""
-"ÀÉ®×\n"
+"æª”æ¡ˆ\n"
 "%s\n"
-"¤£¬O¥¿½Tªº¤å¦rÀÉ!"
+"ä¸æ˜¯æ­£ç¢ºçš„æ–‡å­—æª”!"
 
 # ID:80,
 #: ID:80
 msgid "The Repository was successfully created."
-msgstr "ÀÉ®×®w«Ø¥ß¦¨¥\."
+msgstr "æª”æ¡ˆåº«å»ºç«‹æˆåŠŸ."
 
 # ID:63,
 #: ID:63
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr "°Ï¶ô¤j¤p»P¥[¤J/²¾°£ªº¦æ¼Æ¤£²Å!"
+msgstr "å€å¡Šå¤§å°èˆ‡åŠ å…¥/ç§»é™¤çš„è¡Œæ•¸ä¸ç¬¦!"
 
 # ID:63,
 #: ID:63
 msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr "°Ï¶ô°_©l¼Ğ°O \"@@\" À³¸Ó¦ì©ó²Ä %d ¦æ!"
+msgstr "å€å¡Šèµ·å§‹æ¨™è¨˜ \"@@\" æ‡‰è©²ä½æ–¼ç¬¬ %d è¡Œ!"
 
 # ID:68,
 #: ID:68
@@ -3229,24 +3229,24 @@ msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
 msgstr ""
-"®t²§¤ñ¹ï¤ŞÀº°±¤î, ¿ù»~:\n"
+"å·®ç•°æ¯”å°å¼•æ“åœæ­¢, éŒ¯èª¤:\n"
 "%s"
 
 # ID:64,
 #: ID:64
 msgid "The file %s does not exist!"
-msgstr "ÀÉ®× %s ¤£¦s¦b!"
+msgstr "æª”æ¡ˆ %s ä¸å­˜åœ¨!"
 
 # ID:64,
 #: ID:64
 msgid "The file %s was not found in the patch file!"
-msgstr "¸ÉºóÀÉ¤¤§ä¤£¨ìÀÉ®×: %s!"
+msgstr "è£œç¶´æª”ä¸­æ‰¾ä¸åˆ°æª”æ¡ˆ: %s!"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "The file is too large to open."
-msgstr "ÀÉ®×¹L¤j, µLªk¶}±Ò."
+msgstr "æª”æ¡ˆéå¤§, ç„¡æ³•é–‹å•Ÿ."
 
 # ID:80,
 #: ID:80
@@ -3255,9 +3255,9 @@ msgid ""
 "%s\n"
 "already exists! Do you want to overwrite it?"
 msgstr ""
-"ÀÉ®× \n"
+"æª”æ¡ˆ \n"
 "%s\n"
-" ¤w¦s¦b! ¬O§_­nÂĞ¼g?"
+" å·²å­˜åœ¨! æ˜¯å¦è¦è¦†å¯«?"
 
 # ID:88,
 #: ID:88
@@ -3267,30 +3267,30 @@ msgid ""
 "does not exist.\n"
 "Would you like to create it first?"
 msgstr ""
-"¸ê®Æ§¨ \n"
+"è³‡æ–™å¤¾ \n"
 "%s\n"
-" ¤£¦s¦b.\n"
-"¬O§_­n¥ı«Ø¥ß?"
+" ä¸å­˜åœ¨.\n"
+"æ˜¯å¦è¦å…ˆå»ºç«‹?"
 
 # ID:63,
 #: ID:63
 msgid "The line \"====\" was expected in line %d !"
-msgstr "\"====\" ¦æÀ³¸Ó¥X²{¦b²Ä %d ¦æ!"
+msgstr "\"====\" è¡Œæ‡‰è©²å‡ºç¾åœ¨ç¬¬ %d è¡Œ!"
 
 # ID:63,
 #: ID:63
 msgid "The line \"Index: \" was not found!"
-msgstr "\"Index: \" ¦æ§ä¤£¨ì!"
+msgstr "\"Index: \" è¡Œæ‰¾ä¸åˆ°!"
 
 # ID:63,
 #: ID:63
 msgid "The line indicating the new file was expected in line %d !"
-msgstr "·sÀÉ®×ªº¼Ğ¥Ü¦æÀ³¸Ó¦ì©ó²Ä %d ¦æ!"
+msgstr "æ–°æª”æ¡ˆçš„æ¨™ç¤ºè¡Œæ‡‰è©²ä½æ–¼ç¬¬ %d è¡Œ!"
 
 # ID:63,
 #: ID:63
 msgid "The line indicating the old file was expected in line %d !"
-msgstr "ÂÂÀÉ®×ªº¼Ğ¥Ü¦æÀ³¸Ó¦ì©ó²Ä %d ¦æ!"
+msgstr "èˆŠæª”æ¡ˆçš„æ¨™ç¤ºè¡Œæ‡‰è©²ä½æ–¼ç¬¬ %d è¡Œ!"
 
 # ID:63,
 #: ID:63
@@ -3298,8 +3298,8 @@ msgid ""
 "The old file does not match the new file.\n"
 "Renaming of files is not (yet) supported!"
 msgstr ""
-"ÂÂÀÉ®×»P·sÀÉ®×¤£²Å.\n"
-"©|¤£¤ä´©ÀÉ®×§ï¦W¥\¯à!"
+"èˆŠæª”æ¡ˆèˆ‡æ–°æª”æ¡ˆä¸ç¬¦.\n"
+"å°šä¸æ”¯æ´æª”æ¡ˆæ”¹ååŠŸèƒ½!"
 
 # ID:64,
 #: ID:64
@@ -3310,11 +3310,11 @@ msgid ""
 "%s\n"
 "do not match!"
 msgstr ""
-"¸ÉºóÀÉ¦ü¥G¹LÂÂ! ÀÉ®×¤¤ªº\n"
+"è£œç¶´æª”ä¼¼ä¹éèˆŠ! æª”æ¡ˆä¸­çš„\n"
 "%s\n"
-" ¦æ»P¸ÉºóÀÉ¤¤ªº\n"
+" è¡Œèˆ‡è£œç¶´æª”ä¸­çš„\n"
 "%s\n"
-"¦æ¤£²Å¦X!"
+"è¡Œä¸ç¬¦åˆ!"
 
 # ID:78,
 #: ID:78
@@ -3322,8 +3322,8 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
-"¿ï¾ÜªºÀÉ®×©|¦³¤@­Ó¥H¤Wªº½Ä¬ğ¼Ğ°O.\n"
-"§A½T©w­n±N¤§µø¬°¤w¸Ñ¨M?"
+"é¸æ“‡çš„æª”æ¡ˆå°šæœ‰ä¸€å€‹ä»¥ä¸Šçš„è¡çªæ¨™è¨˜.\n"
+"ä½ ç¢ºå®šè¦å°‡ä¹‹è¦–ç‚ºå·²è§£æ±º?"
 
 # ID:81,
 #: ID:81
@@ -3332,9 +3332,9 @@ msgid ""
 "<hr=100%>\n"
 "Please commit your changes first or revert."
 msgstr ""
-"¤u§@½Æ¥»¤w§ó°Ê!\n"
+"å·¥ä½œè¤‡æœ¬å·²æ›´å‹•!\n"
 "<hr=100%>\n"
-"½Ğ¥ı°e¥æ§AªºÅÜ§ó©Î¬O´_­ì."
+"è«‹å…ˆé€äº¤ä½ çš„è®Šæ›´æˆ–æ˜¯å¾©åŸ."
 
 # ID:81,
 #: ID:81
@@ -3342,13 +3342,13 @@ msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
 msgstr ""
-"¤u§@½Æ¥»¤£¬O³Ì·sªº!\n"
-"½Ğ¥ı¶i¦æ§ó·s."
+"å·¥ä½œè¤‡æœ¬ä¸æ˜¯æœ€æ–°çš„!\n"
+"è«‹å…ˆé€²è¡Œæ›´æ–°."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Their File:"
-msgstr "»·ºİÀÉ®×:"
+msgstr "é ç«¯æª”æ¡ˆ:"
 
 # ID:169,
 #: ID:169
@@ -3356,8 +3356,8 @@ msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"¥H svn:externals «ü©wªº¥Ø¿ı¤¤¦³²§°Ê.\n"
-"¨º¨ÇÀÉ®× <b>¤£·|</b> ¦C¦b°e¥æ¦Cªí¤¤, ±z¥²¶·¦Û¦æ³B²z."
+"ä»¥ svn:externals æŒ‡å®šçš„ç›®éŒ„ä¸­æœ‰ç•°å‹•.\n"
+"é‚£äº›æª”æ¡ˆ <b>ä¸æœƒ</b> åˆ—åœ¨é€äº¤åˆ—è¡¨ä¸­, æ‚¨å¿…é ˆè‡ªè¡Œè™•ç†."
 
 # ID:66,
 #: ID:66
@@ -3365,50 +3365,50 @@ msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "Please resolve those conflicts first before saving."
 msgstr ""
-"²Ä %d ¦æ©|¦³¥¼¸Ñ¨Mªº½Ä¬ğ!\n"
-"½Ğ¦bÀx¦s«e¥ı¸Ñ¨M½Ä¬ğ."
+"ç¬¬ %d è¡Œå°šæœ‰æœªè§£æ±ºçš„è¡çª!\n"
+"è«‹åœ¨å„²å­˜å‰å…ˆè§£æ±ºè¡çª."
 
 # ID:188,
 #: ID:188
 msgid "Thesaurus"
-msgstr "­Ü®w"
+msgstr "å€‰åº«"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr "¥»²£«~¥]§t¥Ñ CollabNet(http;//www.Collab.Net/) ©Ò¶}µoªº³nÅé"
+msgstr "æœ¬ç”¢å“åŒ…å«ç”± CollabNet(http;//www.Collab.Net/) æ‰€é–‹ç™¼çš„è»Ÿé«”"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "§ä¤£¨ì¥»µ{¦¡³sµ²ªº %s (¥]§t©ó %s). ¥i¯à¦w¸Ë¤F¤£¬Û®eª©¥»ªº %s."
+msgstr "æ‰¾ä¸åˆ°æœ¬ç¨‹å¼é€£çµçš„ %s (åŒ…å«æ–¼ %s). å¯èƒ½å®‰è£äº†ä¸ç›¸å®¹ç‰ˆæœ¬çš„ %s."
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
-msgstr "¨t²Î¤¤§ä¤£¨ì¥»µ{¦¡»İ­nªº %s."
+msgstr "ç³»çµ±ä¸­æ‰¾ä¸åˆ°æœ¬ç¨‹å¼éœ€è¦çš„ %s."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
-msgstr "¤TÀÉ®t²§"
+msgstr "ä¸‰æª”å·®ç•°"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "­n±q«ü©wªº¤À¤ä¦X¨ÖÅÜ§ó®É, ¥²¶·¦b\"±q\"©M\"¦Ü\"¨âÄæ¤¤¿é¤J¬Û¦PªºURL."
+msgstr "è¦å¾æŒ‡å®šçš„åˆ†æ”¯åˆä½µè®Šæ›´æ™‚, å¿…é ˆåœ¨\"å¾\"å’Œ\"è‡³\"å…©æ¬„ä¸­è¼¸å…¥ç›¸åŒçš„URL."
 
 # Control-ID:1052,
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
-msgstr "ÂùÂI¥H¤WÀÉ®×¥iÅã¥Ü§A©Ò°µªº²§°Ê."
+msgstr "é›™é»ä»¥ä¸Šæª”æ¡ˆå¯é¡¯ç¤ºä½ æ‰€åšçš„ç•°å‹•."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To:"
-msgstr "¦Ü:"
+msgstr "è‡³:"
 
 # ID:7,#:
 # ID:3585,#:
@@ -3422,7 +3422,7 @@ msgstr "TortoiseMerge"
 # ID:107,
 #: ID:107
 msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, ²Õ«Ø %d"
+msgstr "TortoiseMerge %d.%d.%d, çµ„å»º %d"
 
 # ID:107,
 #: ID:107
@@ -3449,7 +3449,7 @@ msgstr "TortoiseSVN"
 # ID:107,
 #: ID:107
 msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, ²Õ«Ø %d"
+msgstr "TortoiseSVN %d.%d.%d, çµ„å»º %d"
 
 # ID:107,
 #: ID:107
@@ -3477,22 +3477,22 @@ msgstr ""
 # ID:80,
 #: ID:80
 msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN ³]©w"
+msgstr "TortoiseSVN è¨­å®š"
 
 # ID:73,
 #: ID:73
 msgid "Try Again"
-msgstr "¦A¸Õ¤@¦¸"
+msgstr "å†è©¦ä¸€æ¬¡"
 
 # ID:10,
 #: ID:10
 msgid "Tweak TortoiseSVN"
-msgstr "½Õ®Õ TortoiseSVN"
+msgstr "èª¿æ ¡ TortoiseSVN"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Two File Diff"
-msgstr "¨âÀÉ®t²§"
+msgstr "å…©æª”å·®ç•°"
 
 # Dlg-ID:164,
 #: Dlg-ID:164
@@ -3502,7 +3502,7 @@ msgstr "URL"
 # ID:12,
 #: ID:12
 msgid "URL of subversion items"
-msgstr "Subversion ¶µ¥Øªº URL"
+msgstr "Subversion é …ç›®çš„ URL"
 
 # Control-ID:65535,#:
 # Control-ID:1076,
@@ -3520,37 +3520,37 @@ msgstr "URL: "
 # ID:3866,
 #: ID:3866
 msgid "Unable to load mail system support."
-msgstr "µLªk¸ü¤J¶l¥ó¨t²Î¥\¯à."
+msgstr "ç„¡æ³•è¼‰å…¥éƒµä»¶ç³»çµ±åŠŸèƒ½."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
 msgid "Unable to read from %1, it is opened by someone else."
-msgstr "µLªkÅª¨ú %1, ¦]¬°¥t¥~¦³¤H¶}±Ò."
+msgstr "ç„¡æ³•è®€å– %1, å› ç‚ºå¦å¤–æœ‰äººé–‹å•Ÿ."
 
 # ID:3865,#:
 # ID:3865,
 #: ID:3865
 msgid "Unable to read write-only property."
-msgstr "µLªkÅª¨ú°ß¼g©Ê½è."
+msgstr "ç„¡æ³•è®€å–å”¯å¯«æ€§è³ª."
 
 # ID:3865,#:
 # ID:3865,
 #: ID:3865
 msgid "Unable to write read-only property."
-msgstr "µLªk¼g¤J°ßÅª©Ê½è."
+msgstr "ç„¡æ³•å¯«å…¥å”¯è®€æ€§è³ª."
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
 msgid "Unable to write to %1, it is read-only or opened by someone else."
-msgstr "µLªk¼g¤J %1, ¥¦¥i¯à³Q³]¬°°ßÅª©Î¥t¦³¤H¶}±Ò."
+msgstr "ç„¡æ³•å¯«å…¥ %1, å®ƒå¯èƒ½è¢«è¨­ç‚ºå”¯è®€æˆ–å¦æœ‰äººé–‹å•Ÿ."
 
 # ID:3887,#:
 # ID:3887,
 #: ID:3887
 msgid "Uncheck"
-msgstr "¨ú®ø¤Ä¿ï"
+msgstr "å–æ¶ˆå‹¾é¸"
 
 # ID:3603,
 #: ID:3603
@@ -3558,14 +3558,14 @@ msgid ""
 "Undo the last action\n"
 "Undo"
 msgstr ""
-"ÁÙ­ì¤W¦¸°Ê§@\n"
-"ÁÙ­ì"
+"é‚„åŸä¸Šæ¬¡å‹•ä½œ\n"
+"é‚„åŸ"
 
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
 msgid "Unexpected file format."
-msgstr "¹w´Á¥~ªºÀÉ®×®æ¦¡."
+msgstr "é æœŸå¤–çš„æª”æ¡ˆæ ¼å¼."
 
 # ID:81,
 #: ID:81
@@ -3574,20 +3574,20 @@ msgid ""
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 msgstr ""
-"¤£©úªº¾ÌÃÒµo¦æ¤H.\n"
-"  «ü¯¾: %s\n"
-"  ÃÑ§O¦WºÙ: %s"
+"ä¸æ˜çš„æ†‘è­‰ç™¼è¡Œäºº.\n"
+"  æŒ‡ç´‹: %s\n"
+"  è­˜åˆ¥åç¨±: %s"
 
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "Unknown drives"
-msgstr "¥¼ª¾ºÏºĞ"
+msgstr "æœªçŸ¥ç£ç¢Ÿ"
 
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "Untitled"
-msgstr "¥¼©R¦W"
+msgstr "æœªå‘½å"
 
 # ID:8,#:
 # ID:74,#:
@@ -3596,27 +3596,27 @@ msgstr "¥¼©R¦W"
 #: ID:74
 #: Dlg-ID:152
 msgid "Update"
-msgstr "§ó·s"
+msgstr "æ›´æ–°"
 
 # ID:11,
 #: ID:11
 msgid "Update To Revision..."
-msgstr "§ó·s¦Üª©¥»..."
+msgstr "æ›´æ–°è‡³ç‰ˆæœ¬..."
 
 # ID:76,
 #: ID:76
 msgid "Update item to revision"
-msgstr "§ó·s¶µ¥Ø¦Üª©¥»"
+msgstr "æ›´æ–°é …ç›®è‡³ç‰ˆæœ¬"
 
 # ID:11,
 #: ID:11
 msgid "Updates the working copy to a specific revision"
-msgstr "§ó·s¤u§@½Æ¥»¦Ü«ü©wªºª©¥»"
+msgstr "æ›´æ–°å·¥ä½œè¤‡æœ¬è‡³æŒ‡å®šçš„ç‰ˆæœ¬"
 
 # ID:9,
 #: ID:9
 msgid "Updates the working copy to the current revision"
-msgstr "§ó·s¤u§@½Æ¥»¦Ü¥Ø«eªºª©¥»"
+msgstr "æ›´æ–°å·¥ä½œè¤‡æœ¬è‡³ç›®å‰çš„ç‰ˆæœ¬"
 
 # ID:144,
 #: ID:207
@@ -3631,67 +3631,67 @@ msgstr "Url:"
 # Control-ID:1064,
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
-msgstr "¦b©w¦ì¦C¤W¨Ï¥Î©ñ¤jÃè"
+msgstr "åœ¨å®šä½åˆ—ä¸Šä½¿ç”¨æ”¾å¤§é¡"
 
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
-msgstr "¹w³]¨Ï¥Î³æ°ÏÀËµø"
+msgstr "é è¨­ä½¿ç”¨å–®å€æª¢è¦–"
 
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "Use strikeout for deleted lines"
-msgstr "¥ÎÂù§R°£½uªí¥Ü¤w§R°£¦æ"
+msgstr "ç”¨é›™åˆªé™¤ç·šè¡¨ç¤ºå·²åˆªé™¤è¡Œ"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"theirs\""
-msgstr "¨Ï¥Î»·ºİ(theirs)ªº¤å¦r°Ï¶ô"
+msgstr "ä½¿ç”¨é ç«¯(theirs)çš„æ–‡å­—å€å¡Š"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Àu¥ı¨Ï¥Î»·ºİ(theirs)ªº¦Ó«D¥»¦a(yours)ªº¤å¦r°Ï¶ô"
+msgstr "å„ªå…ˆä½¿ç”¨é ç«¯(theirs)çš„è€Œéæœ¬åœ°(yours)çš„æ–‡å­—å€å¡Š"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"yours\""
-msgstr "¨Ï¥Î¥»¦aÀÉ®×(yours)ªº¤å¦r°Ï¶ô"
+msgstr "ä½¿ç”¨æœ¬åœ°æª”æ¡ˆ(yours)çš„æ–‡å­—å€å¡Š"
 
 # ID:251,
 #: ID:251
 msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Àu¥ı¨Ï¥Î¥»¦a(yours)ªº¦Ó«D»·ºİ(theirs)ªº¤å¦r°Ï¶ô"
+msgstr "å„ªå…ˆä½¿ç”¨æœ¬åœ°(yours)çš„è€Œéé ç«¯(theirs)çš„æ–‡å­—å€å¡Š"
 
 # ID:12,
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
-msgstr "ÀÉ®×®wªº URL ²§°Ê®É¥i¨Ï¥Î¦¹¥\¯à­×§ï"
+msgstr "æª”æ¡ˆåº«çš„ URL ç•°å‹•æ™‚å¯ä½¿ç”¨æ­¤åŠŸèƒ½ä¿®æ”¹"
 
 # ID:251,
 #: ID:251
 msgid "Use this text block"
-msgstr "¨Ï¥Î¦¹¤å¦r°Ï¶ô"
+msgstr "ä½¿ç”¨æ­¤æ–‡å­—å€å¡Š"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
-msgstr "¥Î¨Ó¤ñ¹ï¤£¦Pª©¥»ªºÀÉ®×."
+msgstr "ç”¨ä¾†æ¯”å°ä¸åŒç‰ˆæœ¬çš„æª”æ¡ˆ."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Used to resolve conflicted files."
-msgstr "¥Î¨Ó¸Ñ¨M½Ä¬ğªºÀÉ®×."
+msgstr "ç”¨ä¾†è§£æ±ºè¡çªçš„æª”æ¡ˆ."
 
 # ID:74,
 #: ID:74
 msgid "User cancelled"
-msgstr "¨Ï¥ÎªÌ¨ú®ø"
+msgstr "ä½¿ç”¨è€…å–æ¶ˆ"
 
 # ID:69,
 #: ID:69
 msgid "Username:"
-msgstr "¥Î¤á¦WºÙ:"
+msgstr "ç”¨æˆ¶åç¨±:"
 
 # ID:313,
 #: ID:313
@@ -3704,45 +3704,45 @@ msgid ""
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
-"¥i¥Îªº©R¥O¦C¿ï¶µ¦³:\n"
-"/base:<°òÂ¦ÀÉªº¸ô®|>\n"
-"/theirs:<ÀÉ®×®wÀÉ®×ªº¸ô®|>\n"
-"/yours:<¥»¦aÀÉ®×ªº¸ô®|>\n"
-"/merged:<¦X¨Ö«áÀÉ®×ªº¸ô®|>\n"
-"/diff:<³æ¤@®t²§ÀÉªº¸ô®|>\n"
-"/patchpath:<¸ê®Æ§¨¸ô®|>"
+"å¯ç”¨çš„å‘½ä»¤åˆ—é¸é …æœ‰:\n"
+"/base:<åŸºç¤æª”çš„è·¯å¾‘>\n"
+"/theirs:<æª”æ¡ˆåº«æª”æ¡ˆçš„è·¯å¾‘>\n"
+"/yours:<æœ¬åœ°æª”æ¡ˆçš„è·¯å¾‘>\n"
+"/merged:<åˆä½µå¾Œæª”æ¡ˆçš„è·¯å¾‘>\n"
+"/diff:<å–®ä¸€å·®ç•°æª”çš„è·¯å¾‘>\n"
+"/patchpath:<è³‡æ–™å¤¾è·¯å¾‘>"
 
 # ID:11,
 #: ID:11
 msgid "Value"
-msgstr "­È"
+msgstr "å€¼"
 
 # Control-ID:1075,#:
 # Control-ID:1075,
 #: Control-ID:1075
 msgid "Version"
-msgstr "ª©¥»"
+msgstr "ç‰ˆæœ¬"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Viewer program for GNU diff files (patch files)."
-msgstr "ÀËµø GNU ®t²§ÀÉ(¸ÉºóÀÉ)ªº¤u¨ãµ{¦¡."
+msgstr "æª¢è¦– GNU å·®ç•°æª”(è£œç¶´æª”)çš„å·¥å…·ç¨‹å¼."
 
 # Control-ID:1084,#:
 # Control-ID:1084,
 #: Control-ID:1084
 msgid "Visit our website"
-msgstr "ÂsÄı§Ú­Ìªººô¯¸"
+msgstr "ç€è¦½æˆ‘å€‘çš„ç¶²ç«™"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
-msgstr "ªÅ¥Õ¦r¤¸®t²§"
+msgstr "ç©ºç™½å­—å…ƒå·®ç•°"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespaces"
-msgstr "ªÅ¥Õ¦r¤¸"
+msgstr "ç©ºç™½å­—å…ƒ"
 
 # ID:80,
 #: ID:80
@@ -3750,23 +3750,23 @@ msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"¤u§@½Æ¥»­«©w¦ì¦Ü\n"
+"å·¥ä½œè¤‡æœ¬é‡å®šä½è‡³\n"
 "%s"
 
 # ID:73,
 #: ID:73
 msgid "Yes"
-msgstr "¬O"
+msgstr "æ˜¯"
 
 # ID:145,
 #: ID:145
 msgid "Yes to all"
-msgstr "¥ş³¡¬Ò¬O"
+msgstr "å…¨éƒ¨çš†æ˜¯"
 
 # ID:201,
 #: ID:201
 msgid "You already have the most current version installed."
-msgstr "§A¤w¸g¦w¸Ë¤F³Ì·sª©."
+msgstr "ä½ å·²ç¶“å®‰è£äº†æœ€æ–°ç‰ˆ."
 
 # ID:144,
 #: ID:144
@@ -3776,10 +3776,10 @@ msgid ""
 "Accessing a repository via file:/// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"±z¥¿«Ø¥ß¦ì©óºô¸ôºÏºĞ¾÷¤WªºÀÉ®×®w.\n"
-"³o«Ü¦w¥ş, ¦ı¬O«Ø¥ß«á½Ğ¨Ï¥Î¨ä¥Lªº¤è¦¡¦s¨úÀÉ®×®w.\n"
-"³z¹L file:/// ¦s¨úºô¸ôºÏºĞ¾÷¤WªºÀÉ®×®w¥i¯à³y¦¨¸ê®Æ·lÃa!\n"
-"­n«Ø¥ßÀÉ®×®w¶Ü?"
+"æ‚¨æ­£å»ºç«‹ä½æ–¼ç¶²è·¯ç£ç¢Ÿæ©Ÿä¸Šçš„æª”æ¡ˆåº«.\n"
+"é€™å¾ˆå®‰å…¨, ä½†æ˜¯å»ºç«‹å¾Œè«‹ä½¿ç”¨å…¶ä»–çš„æ–¹å¼å­˜å–æª”æ¡ˆåº«.\n"
+"é€é file:/// å­˜å–ç¶²è·¯ç£ç¢Ÿæ©Ÿä¸Šçš„æª”æ¡ˆåº«å¯èƒ½é€ æˆè³‡æ–™æå£!\n"
+"è¦å»ºç«‹æª”æ¡ˆåº«å—?"
 
 # ID:88,
 #: ID:88
@@ -3789,10 +3789,10 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"±z¥¿¦b³z¹Lºô¸ôºÏºĞ¾÷¨Ï¥Î file:/// \n"
-"¨ó©w¦s¨úÀÉ®×®w.\n"
-"³o¥i¯à³y¦¨ÄY­«ªºÀÉ®×®w·lÃa!\n"
-"½T©w­n³o¼Ë°µ¶Ü?"
+"æ‚¨æ­£åœ¨é€éç¶²è·¯ç£ç¢Ÿæ©Ÿä½¿ç”¨ file:/// \n"
+"å”å®šå­˜å–æª”æ¡ˆåº«.\n"
+"é€™å¯èƒ½é€ æˆåš´é‡çš„æª”æ¡ˆåº«æå£!\n"
+"ç¢ºå®šè¦é€™æ¨£åšå—?"
 
 # ID:77,
 #: ID:77
@@ -3800,13 +3800,13 @@ msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
-"§A¿ï¾Ü¤FµLª©¥»±±¨îªºÀÉ®×.\n"
-"¥¦·|¦b°e¥æ¤§«e³Q¥[¤Jª©¥»±±¨î."
+"ä½ é¸æ“‡äº†ç„¡ç‰ˆæœ¬æ§åˆ¶çš„æª”æ¡ˆ.\n"
+"å®ƒæœƒåœ¨é€äº¤ä¹‹å‰è¢«åŠ å…¥ç‰ˆæœ¬æ§åˆ¶."
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Your File:"
-msgstr "¥»¦aÀÉ®×:"
+msgstr "æœ¬åœ°æª”æ¡ˆ:"
 
 # ID:78,
 #: ID:78
@@ -3814,50 +3814,50 @@ msgid ""
 "Your working copy appears to be on a <b>tag</b> path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"§Aªº¤u§@½Æ¥»¥¿³B©ó<b>¼Ğ°O</b>ªº¸ô®|¤U!\n"
-"§A¥²¶·¥ı¤Á´«¦Ü¥D·F, ©Î±q¥D·F¤À¤ä¤~¯à¶i¦æ°e¥æ°Ê§@."
+"ä½ çš„å·¥ä½œè¤‡æœ¬æ­£è™•æ–¼<b>æ¨™è¨˜</b>çš„è·¯å¾‘ä¸‹!\n"
+"ä½ å¿…é ˆå…ˆåˆ‡æ›è‡³ä¸»å¹¹, æˆ–å¾ä¸»å¹¹åˆ†æ”¯æ‰èƒ½é€²è¡Œé€äº¤å‹•ä½œ."
 
 # ID:10,
 #: ID:10
 msgid "added"
-msgstr "¼W¥["
+msgstr "å¢åŠ "
 
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
 msgid "an unnamed file"
-msgstr "µL¦WÀÉ®×"
+msgstr "ç„¡åæª”æ¡ˆ"
 
 # Control-ID:1085,#:
 # Control-ID:1085,
 #: Control-ID:1085
 msgid "and support the developers"
-msgstr "¨Ã½Ğ¤ä«ù¶}µoªÌ"
+msgstr "ä¸¦è«‹æ”¯æŒé–‹ç™¼è€…"
 
 # ID:145,
 #: ID:145
 msgid "cleaning up"
-msgstr "¥¿¦b²M°£"
+msgstr "æ­£åœ¨æ¸…é™¤"
 
 # ID:11,
 #: ID:11
 msgid "conflicted"
-msgstr "½Ä¬ğ"
+msgstr "è¡çª"
 
 # Control-ID:1113,
 #: Control-ID:1113
 msgid "current version is:"
-msgstr "¥Ø«eª©¥»¬O:"
+msgstr "ç›®å‰ç‰ˆæœ¬æ˜¯:"
 
 # ID:201,
 #: ID:201
 msgid "current version is: %s"
-msgstr "¥Ø«eª©¥»¬O: %s"
+msgstr "ç›®å‰ç‰ˆæœ¬æ˜¯: %s"
 
 # ID:10,
 #: ID:10
 msgid "deleted"
-msgstr "§R°£"
+msgstr "åˆªé™¤"
 
 # ID:79,
 #: ID:79
@@ -3867,89 +3867,89 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"§¹¦¨¶×¥X\n"
+"å®ŒæˆåŒ¯å‡º\n"
 "%s\n"
-"¦Ü\n"
+"è‡³\n"
 "%s"
 
 # ID:13,
 #: ID:13
 msgid "external"
-msgstr "¥~³¡"
+msgstr "å¤–éƒ¨"
 
 # ID:13,
 #: ID:13
 msgid "ignored"
-msgstr "©¿²¤"
+msgstr "å¿½ç•¥"
 
 # ID:13,
 #: ID:13
 msgid "incomplete"
-msgstr "¥¼§¹¦¨"
+msgstr "æœªå®Œæˆ"
 
 # ID:11,#:
 # Control-ID:1002,
 #: ID:11
 #: Control-ID:1002
 msgid "locked"
-msgstr "Âê©w"
+msgstr "é–å®š"
 
 # ID:11,
 #: ID:11
 msgid "merged"
-msgstr "¦X¨Ö"
+msgstr "åˆä½µ"
 
 # ID:10,
 #: ID:10
 msgid "missing"
-msgstr "¯Ê¤Ö"
+msgstr "ç¼ºå°‘"
 
 # ID:10,
 #: ID:10
 msgid "modified"
-msgstr "²§°Ê"
+msgstr "ç•°å‹•"
 
 # ID:10,
 #: ID:10
 msgid "no description for this command is available"
-msgstr "¦¹«ü¥O©|µL»¡©ú"
+msgstr "æ­¤æŒ‡ä»¤å°šç„¡èªªæ˜"
 
 # ID:10,
 #: ID:10
 msgid "non-versioned"
-msgstr "µLª©¥»±±¨î"
+msgstr "ç„¡ç‰ˆæœ¬æ§åˆ¶"
 
 # ID:10,
 #: ID:10
 msgid "normal"
-msgstr "¤@¯ë"
+msgstr "ä¸€èˆ¬"
 
 # ID:11,
 #: ID:11
 msgid "obstructed"
-msgstr "ªıÃª"
+msgstr "é˜»ç¤™"
 
 # ID:3869,#:
 # ID:3869,
 #: ID:3869
 msgid "pixels"
-msgstr "¹Ï¯À"
+msgstr "åœ–ç´ "
 
 # Control-ID:1018,
 #: Control-ID:1018
 msgid "re&cursive"
-msgstr "»¼°j(&C)"
+msgstr "éè¿´(&C)"
 
 # ID:10,
 #: ID:10
 msgid "replaced"
-msgstr "¨ú¥N"
+msgstr "å–ä»£"
 
 # Control-ID:1023,#:
 # Control-ID:1023,
 #: Control-ID:1023
 msgid "save authentication"
-msgstr "Àx¦s»{ÃÒ"
+msgstr "å„²å­˜èªè­‰"
 
 # ID:14,
 #: ID:14
@@ -3958,7 +3958,7 @@ msgid ""
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 "svn:eol-style\r\n"
-"'native', 'LF', 'CR', 'CRLF' ¥|ªÌ¤§¤@."
+"'native', 'LF', 'CR', 'CRLF' å››è€…ä¹‹ä¸€."
 
 # ID:14,
 #: ID:14
@@ -3967,7 +3967,7 @@ msgid ""
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\r\n"
-"³]©w¤§«á, ¦¹ÀÉ®×µø¬°¥i°õ¦æ. ³o­Ó©Ê½è¤£¯à³]©w¦b¥Ø¿ı¤W. «D»¼°jªº³]©w·|¥¢±Ñ, »¼°j³]©w«h·|±N¦¹©Ê½è³]©w¦b¦¹¥Ø¿ıªº©Ò¦³ÀÉ®×¤W."
+"è¨­å®šä¹‹å¾Œ, æ­¤æª”æ¡ˆè¦–ç‚ºå¯åŸ·è¡Œ. é€™å€‹æ€§è³ªä¸èƒ½è¨­å®šåœ¨ç›®éŒ„ä¸Š. ééè¿´çš„è¨­å®šæœƒå¤±æ•—, éè¿´è¨­å®šå‰‡æœƒå°‡æ­¤æ€§è³ªè¨­å®šåœ¨æ­¤ç›®éŒ„çš„æ‰€æœ‰æª”æ¡ˆä¸Š."
 
 # ID:14,
 #: ID:14
@@ -3978,7 +3978,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\r\n"
-"¥H´«¦æ¦r¤¸¤À¹jªº¼Ò²Õ¦WºÙ¦Cªí, ¨C¶µ¥i¥]§t¬Û¹ï¸ô®|, ¥i¦³¥iµLªºª©¥»¼Ğ°O, ¥H¤Î URL. ¨Ò¦p:\r\n"
+"ä»¥æ›è¡Œå­—å…ƒåˆ†éš”çš„æ¨¡çµ„åç¨±åˆ—è¡¨, æ¯é …å¯åŒ…å«ç›¸å°è·¯å¾‘, å¯æœ‰å¯ç„¡çš„ç‰ˆæœ¬æ¨™è¨˜, ä»¥åŠ URL. ä¾‹å¦‚:\r\n"
 "foo\t\thttp://example.com/repos/zig\r\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
@@ -3989,7 +3989,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\r\n"
-"©¿²¤¥H´«¦æ¦r¤¸¤À¹jªºÀÉ®×¼Ë¦¡¦Cªí"
+"å¿½ç•¥ä»¥æ›è¡Œå­—å…ƒåˆ†éš”çš„æª”æ¡ˆæ¨£å¼åˆ—è¡¨"
 
 # ID:14,
 #: ID:14
@@ -4003,12 +4003,12 @@ msgid ""
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\r\n"
-"­n®i¶}ªºÃöÁä¦r.¦XªkªºÃöÁä¦r¦³:\r\n"
-"URL, HeadURL\t\t\t¦¹ª«¥ó³Ì·sª©¥»ªº URL.\r\n"
-"Author, LastChangedBy\t\t³Ì«á¤@­Ó­×§ï¦¹ÀÉ®×ªº¤H.\r\n"
-"Date, LastChangedDate\t\t¦¹ÀÉ®×³Ì«á­×§ï¤é´Á.\r\n"
-"Rev, LastChangedRevision\t¦¹ª«¥ó¦³ÅÜ§óªº³Ì·sª©¥».\r\n"
-"Id\t\t\t\\«e¥|­ÓÃöÁä¦rªºÂ²³æ¾ã¦X."
+"è¦å±•é–‹çš„é—œéµå­—.åˆæ³•çš„é—œéµå­—æœ‰:\r\n"
+"URL, HeadURL\t\t\tæ­¤ç‰©ä»¶æœ€æ–°ç‰ˆæœ¬çš„ URL.\r\n"
+"Author, LastChangedBy\t\tæœ€å¾Œä¸€å€‹ä¿®æ”¹æ­¤æª”æ¡ˆçš„äºº.\r\n"
+"Date, LastChangedDate\t\tæ­¤æª”æ¡ˆæœ€å¾Œä¿®æ”¹æ—¥æœŸ.\r\n"
+"Rev, LastChangedRevision\tæ­¤ç‰©ä»¶æœ‰è®Šæ›´çš„æœ€æ–°ç‰ˆæœ¬.\r\n"
+"Id\t\t\t\\å‰å››å€‹é—œéµå­—çš„ç°¡å–®æ•´åˆ."
 
 # ID:14,
 #: ID:14
@@ -4017,20 +4017,20 @@ msgid ""
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
-"¦¹ÀÉ®×ªº mime Ãş«¬. ¥Î¨Ó¨M©wÀÉ®×¬O§_­n¦X¨Ö, ¥H¤Î¥Ñ Apache ¶Ç°e®É­n«ç»ò³B²z. ¥H 'text/' ¶}ÀY(©Î¨S¦³³]©w)ªº mime Ãş«¬µø¬°¤å¦r. ¨ä¥¦«hµø¬°¤G¶i¦ìÀÉ."
+"æ­¤æª”æ¡ˆçš„ mime é¡å‹. ç”¨ä¾†æ±ºå®šæª”æ¡ˆæ˜¯å¦è¦åˆä½µ, ä»¥åŠç”± Apache å‚³é€æ™‚è¦æ€éº¼è™•ç†. ä»¥ 'text/' é–‹é ­(æˆ–æ²’æœ‰è¨­å®š)çš„ mime é¡å‹è¦–ç‚ºæ–‡å­—. å…¶å®ƒå‰‡è¦–ç‚ºäºŒé€²ä½æª”."
 
 # ID:80,
 #: ID:80
 msgid "to %s"
-msgstr "¦Ü %s"
+msgstr "è‡³ %s"
 
 # Control-ID:1112,
 #: Control-ID:1112
 msgid "your version is:"
-msgstr "§Aªºª©¥»¬O:"
+msgstr "ä½ çš„ç‰ˆæœ¬æ˜¯:"
 
 # ID:201,
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
-msgstr "§Aªºª©¥»¬O: %d.%d.%d.%d"
+msgstr "ä½ çš„ç‰ˆæœ¬æ˜¯: %d.%d.%d.%d"
 
