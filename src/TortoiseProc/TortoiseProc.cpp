@@ -276,7 +276,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
-			dlg.SetParams(path, revstart, revend);
+			dlg.SetParams(path, revstart, revend, TRUE, TRUE);
 			dlg.DoModal();			
 		}
 		//#endregion
