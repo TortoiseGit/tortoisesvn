@@ -144,12 +144,15 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 					//now fill in the edit boxes so it will be easier to edit existing properties
 					if (count > 0)
 					{
-						TCHAR buf[MAX_PROP_STRING_LENGTH];
+						TCHAR * buf = NULL;
 						int sel = ListView_GetSelectionMark(lvh);
-						ListView_GetItemText(lvh, sel, 0, buf, MAX_PROP_STRING_LENGTH);
+						//ListView_GetItemText(lvh, sel, 0, buf, MAX_PROP_STRING_LENGTH);
+						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						SetDlgItemText(m_hwnd, IDC_EDITNAME, buf);
-						ListView_GetItemText(lvh, sel, 1, buf, MAX_PROP_STRING_LENGTH);
+						//ListView_GetItemText(lvh, sel, 1, buf, MAX_PROP_STRING_LENGTH);
+						ListView_GetItemTextEx(lvh, sel, 1, buf);
 						SetDlgItemText(m_hwnd, IDC_EDITVALUE, buf);
+						delete [] buf;
 					}
 					else
 					{
@@ -174,19 +177,21 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						int sel = ListView_GetSelectionMark(lvh);
 						if (sel < 0)
 							return TRUE;			//nothing selected to delete
-						TCHAR buf[MAX_PROP_STRING_LENGTH];
-						ListView_GetItemText(lvh, sel, 0, buf, MAX_PROP_STRING_LENGTH);
+						TCHAR * buf = NULL;
+						//ListView_GetItemText(lvh, sel, 0, buf, MAX_PROP_STRING_LENGTH);
+						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						SVNProperties props = SVNProperties(filename.c_str());
 						props.Remove(buf);
+						delete [] buf;
 						InitWorkfileView();
 						return TRUE;
 					}
 					if (LOWORD(wParam) == IDC_ADDBUTTON)
 					{
-						TCHAR * name = new TCHAR[MAX_PROP_STRING_LENGTH];
-						TCHAR * value = new TCHAR[MAX_PROP_STRING_LENGTH];
-						GetDlgItemText(m_hwnd, IDC_EDITNAME, name, MAX_PROP_STRING_LENGTH);
-						GetDlgItemText(m_hwnd, IDC_EDITVALUE, value, MAX_PROP_STRING_LENGTH);
+						TCHAR * name = NULL;
+						TCHAR * value = NULL;
+						GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
+						GetDlgItemTextEx(m_hwnd, IDC_EDITVALUE, value);
 						SVNProperties props = SVNProperties(filename.c_str());
 #ifdef UNICODE
 						std::string t = WideToMultibyte(value);

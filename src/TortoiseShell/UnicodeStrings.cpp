@@ -21,35 +21,43 @@
 
 std::string WideToMultibyte(wide_string wide)
 {
-	char narrow[_MAX_PATH * 3];
+	char * narrow = new char[wide.length()*3];
 	BOOL defaultCharUsed;
-	int ret = WideCharToMultiByte(CP_ACP, 0, wide.c_str(), wide.size(), narrow, _MAX_PATH*3 - 1, ".", &defaultCharUsed);
+	int ret = (int)WideCharToMultiByte(CP_ACP, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, ".", &defaultCharUsed);
 	narrow[ret] = 0;
-	return std::string(narrow);
+	std::string str = narrow;
+	delete[] narrow;
+	return str;
 }
 
 std::string WideToUTF8(wide_string wide)
 {
-	char narrow[_MAX_PATH * 3];
-	int ret = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), wide.size(), narrow, _MAX_PATH*3 - 1, NULL, NULL);
+	char * narrow = new char[wide.length()*3];
+	int ret = (int)WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, NULL, NULL);
 	narrow[ret] = 0;
-	return std::string(narrow);
+	std::string str = narrow;
+	delete[] narrow;
+	return str;
 }
 
 wide_string MultibyteToWide(std::string multibyte)
 {
-	wchar_t wide[_MAX_PATH * 3];
-	int ret = MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), multibyte.size(), wide, _MAX_PATH*3 - 1);
+	wchar_t * wide = new wchar_t[multibyte.length()*2];
+	int ret = (int)MultiByteToWideChar(CP_ACP, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
 	wide[ret] = 0;
-	return wide_string(wide);
+	wide_string str = wide;
+	delete[] wide;
+	return str;
 }
 
 wide_string UTF8ToWide(std::string multibyte)
 {
-	wchar_t wide[_MAX_PATH * 3];
-	int ret = MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), multibyte.size(), wide, _MAX_PATH*3 - 1);
+	wchar_t * wide = new wchar_t[multibyte.length()*2];
+	int ret = (int)MultiByteToWideChar(CP_UTF8, 0, multibyte.c_str(), (int)multibyte.size(), wide, (int)multibyte.length()*2 - 1);
 	wide[ret] = 0;
-	return wide_string(wide);
+	wide_string str = wide;
+	delete[] wide;
+	return str;
 }
 #ifdef UNICODE
 stdstring UTF8ToString(std::string string) {return UTF8ToWide(string);}
