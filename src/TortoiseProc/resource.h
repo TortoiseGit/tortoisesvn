@@ -32,6 +32,7 @@
 #define IDS_MSGBOX_TRYAGAIN             158
 #define IDD_CHANGEDFILES                158
 #define IDS_MSGBOX_CONTINUE             159
+#define IDD_SETTINGSMENU                159
 #define IDS_MSGBOX_OK                   160
 #define IDS_MSGBOX_YES                  161
 #define IDS_MSGBOX_NO                   162
@@ -233,21 +234,31 @@
 #define IDC_MODULENAMECHECK             1023
 #define IDC_SAVECHECK                   1023
 #define IDC_ADDBEFORECOMMIT             1023
+#define IDC_MENU1                       1023
 #define IDC_DIFFVIEWERROWSE             1024
+#define IDC_MENU3                       1024
+#define IDC_MENU4                       1026
 #define IDC_EDIT1                       1027
 #define IDC_NAME                        1027
 #define IDC_REVNUM                      1027
 #define IDC_SERVERADDRESS               1027
 #define IDC_TEMPEXTENSIONS              1027
 #define IDC_REVISON_START               1027
+#define IDC_MENU5                       1027
+#define IDC_MENU6                       1028
 #define IDC_URLCOMBO                    1029
+#define IDC_MENU7                       1029
 #define IDC_COMBO1                      1030
+#define IDC_MENU8                       1030
 #define IDC_BUTTON1                     1031
 #define IDC_LOGBUTTON                   1031
+#define IDC_MENU9                       1031
 #define IDC_RADIO1                      1032
 #define IDC_REVISION_HEAD               1032
+#define IDC_MENU10                      1032
 #define IDC_RADIO2                      1033
 #define IDC_REVISION_N                  1033
+#define IDC_MENU11                      1033
 #define IDC_REVISION_NUM                1034
 #define IDC_BROWSE                      1035
 #define IDC_EDIT2                       1036
@@ -265,15 +276,27 @@
 #define IDC_CHANGEDLIST                 1043
 #define IDC_LANGUAGECOMBO               1044
 #define IDC_FROMURL                     1045
+#define IDC_MENU12                      1045
 #define IDC_COMMIT_TO                   1046
+#define IDC_MENU13                      1046
+#define IDC_MENU14                      1047
 #define IDC_REMOVABLE                   1048
+#define IDC_MENU15                      1048
 #define IDC_NETWORK                     1049
+#define IDC_MENU16                      1049
 #define IDC_FIXED                       1050
+#define IDC_MENU17                      1050
 #define IDC_CDROM                       1051
+#define IDC_MENU18                      1051
 #define IDC_HINTLABEL                   1052
+#define IDC_MENU19                      1052
 #define IDC_REVISION_END                1053
+#define IDC_MENU20                      1053
 #define IDC_VERSIONABOUT                1054
+#define IDC_MENU21                      1054
 #define IDC_STATIC1                     1055
+#define IDC_CHECK23                     1055
+#define IDC_MENU22                      1055
 #define IDC_STATIC2                     1056
 #define IDC_STATIC3                     1057
 #define IDC_STATIC4                     1058
@@ -281,6 +304,7 @@
 #define IDC_CANCEL                      1060
 #define IDC_CHECK2                      1061
 #define IDC_NOREMOVELOGMSG              1061
+#define IDC_MENU2                       1061
 
 // Next default values for new objects
 // 

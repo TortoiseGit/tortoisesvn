@@ -26,11 +26,17 @@
 #include "registry.h"
 #include "resource.h"
 #include "SVNStatus.h"
+#include "SVNFolderStatus.h"
 
 #pragma warning (push,1)
 #include <vector>
 #include <map>
 #pragma warning (pop)
+
+extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
+extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
+extern	SVNFolderStatus		g_CachedStatus;			// status cache
+extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
 
 // The actual OLE Shell context menu handler
 /**
@@ -78,6 +84,7 @@ class CShellExt : public IContextMenu3,
 // http://www.microsoft.com/msdownload/platformsdk/sdkupdate/
 {
 protected:
+
 	enum SVNCommands
 	{
 		SubMenu = 1,

@@ -46,9 +46,11 @@ void CSettings::AddPropPages()
 	m_pMainPage = new CSetMainPage();
 	m_pOverlayPage = new CSetOverlayPage();
 	m_pProxyPage = new CSetProxyPage();
+	m_pMenuPage = new CSetMenuPage();
 
 	AddPage(m_pMainPage);
 	AddPage(m_pOverlayPage);
+	AddPage(m_pMenuPage);
 	AddPage(m_pProxyPage);
 }
 
@@ -57,6 +59,7 @@ void CSettings::RemovePropPages()
 	delete m_pMainPage;
 	delete m_pOverlayPage;
 	delete m_pProxyPage;
+	delete m_pMenuPage;
 }
 
 void CSettings::SaveData()
@@ -64,6 +67,7 @@ void CSettings::SaveData()
 	m_pMainPage->SaveData();
 	m_pOverlayPage->SaveData();
 	m_pProxyPage->SaveData();
+	m_pMenuPage->SaveData();
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)

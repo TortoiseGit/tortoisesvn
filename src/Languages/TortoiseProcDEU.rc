@@ -841,6 +841,99 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Menu Layout"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "Auschecken...",IDC_MENU1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,28,109,10
+    CONTROL         "Aktualisieren",IDC_MENU2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,39,109,10
+    CONTROL         "Übertragen",IDC_MENU3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,50,109,10
+    CONTROL         "Vergleiche",IDC_MENU4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,61,109,10
+    CONTROL         "zeige Log",IDC_MENU5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,72,109,10
+    CONTROL         "Auf Änderungen überprüfen",IDC_MENU6,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,83,109,10
+    CONTROL         "Konflikt bearbeiten",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,94,109,10
+    CONTROL         "Aktualisieren zu Revision...",IDC_MENU8,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,105,109,10
+    CONTROL         "Umbenennen...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,116,109,10
+    CONTROL         "Löschen",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,127,109,10
+    CONTROL         "Konflikt aufgelöst",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,138,109,10
+    LTEXT           "Markieren Sie die Einträge, welche im obersten Kontext-Menu erscheinen sollen anstatt im Untermenu",
+                    IDC_STATIC,7,7,266,21
+    CONTROL         "Änderungen rückgängig",IDC_MENU12,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,28,117,10
+    CONTROL         "Bereinigen",IDC_MENU13,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,39,117,10
+    CONTROL         "Verzweigen/Markieren...",IDC_MENU14,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,50,117,10
+    CONTROL         "wechseln zu...",IDC_MENU15,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,61,117,10
+    CONTROL         "mischen...",IDC_MENU16,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,72,117,10
+    CONTROL         "Exportieren...",IDC_MENU17,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,83,117,10
+    CONTROL         "Umplazieren",IDC_MENU18,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,94,117,10
+    CONTROL         "erstelle Datenbank hier",IDC_MENU19,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,105,117,10
+    CONTROL         "Hinzufügen...",IDC_MENU20,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,116,117,10
+    CONTROL         "Importieren...",IDC_MENU21,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,127,117,10
+    CONTROL         "Ignorieren",IDC_MENU22,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,138,117,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SETTINGSMENU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 273
+        VERTGUIDE, 116
+        VERTGUIDE, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+        HORZGUIDE, 28
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)

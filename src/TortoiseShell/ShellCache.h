@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
+#include "globals.h"
 #include <tchar.h>
 #include <string>
 #include "registry.h"
@@ -34,8 +35,17 @@ public:
 		driveremove = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 		recursiveticker = GetTickCount();
 		driveticker = recursiveticker;
+		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	}
-
+	DWORD GetMenuLayout()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
+		{
+			layoutticker = GetTickCount();
+			menulayout.read();
+		} // if ((GetTickCount() - REGISTRYTIMEOUT) > layoutticker)
+		return (menulayout);
+	}
 	BOOL IsRecursive()
 	{
 		if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker)
@@ -100,6 +110,8 @@ private:
 	CRegStdWORD drivefixed;
 	CRegStdWORD drivecdrom;
 	CRegStdWORD driveremove;
+	CRegStdWORD menulayout;
 	DWORD recursiveticker;
 	DWORD driveticker;
+	DWORD layoutticker;
 };

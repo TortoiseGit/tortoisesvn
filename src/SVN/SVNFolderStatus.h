@@ -22,7 +22,7 @@
 #include "PromptDlg.h"
 #endif
 #include <windows.h>
-#include "resource.h"
+//#include "resource.h"
 #include <tchar.h>
 #include <Shlwapi.h>
 #include "ShellCache.h"

@@ -405,6 +405,59 @@ BEGIN
     EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
 END
 
+IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 164
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Menu Layout"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "Checkout...",IDC_MENU1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,28,110,10
+    CONTROL         "Update",IDC_MENU2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,39,110,10
+    CONTROL         "Commit",IDC_MENU3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,50,110,10
+    CONTROL         "Diff",IDC_MENU4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    61,110,10
+    CONTROL         "Show Log",IDC_MENU5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,72,110,10
+    CONTROL         "Check for Updates",IDC_MENU6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,83,110,10
+    CONTROL         "Edit Conflicts",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,94,110,10
+    CONTROL         "Update To Revision...",IDC_MENU8,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,105,110,10
+    CONTROL         "Rename...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,116,110,10
+    CONTROL         "Delete",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,127,110,10
+    CONTROL         "Resolved",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,138,110,10
+    LTEXT           "Check those menu entries you want to appear in the top context menu instead of the submenu",
+                    IDC_STATIC,7,7,266,21
+    CONTROL         "Revert",IDC_MENU12,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,28,117,10
+    CONTROL         "Clean Up",IDC_MENU13,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,39,117,10
+    CONTROL         "Branch/Tag...",IDC_MENU14,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,50,117,10
+    CONTROL         "Switch...",IDC_MENU15,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,61,117,10
+    CONTROL         "Merge...",IDC_MENU16,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,72,117,10
+    CONTROL         "Export...",IDC_MENU17,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,83,117,10
+    CONTROL         "Relocate",IDC_MENU18,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,94,117,10
+    CONTROL         "Create Repository here",IDC_MENU19,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,105,117,10
+    CONTROL         "Add",IDC_MENU20,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    124,116,117,10
+    CONTROL         "Import...",IDC_MENU21,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,127,117,10
+    CONTROL         "Add To Ignore List",IDC_MENU22,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,138,117,10
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -581,6 +634,17 @@ BEGIN
         RIGHTMARGIN, 149
         TOPMARGIN, 7
         BOTTOMMARGIN, 79
+    END
+
+    IDD_SETTINGSMENU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 273
+        VERTGUIDE, 117
+        VERTGUIDE, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+        HORZGUIDE, 28
     END
 END
 #endif    // APSTUDIO_INVOKED
