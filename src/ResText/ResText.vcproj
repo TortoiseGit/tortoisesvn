@@ -65,11 +65,19 @@
 			OutputDirectory="..\..\bin\Release"
 			IntermediateDirectory="..\..\obj\ResText\Release"
 			ConfigurationType="1"
-			CharacterSet="1">
+			CharacterSet="1"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				Optimization="1"
+				GlobalOptimizations="TRUE"
+				FavorSizeOrSpeed="2"
+				OptimizeForProcessor="2"
+				OptimizeForWindowsApplication="FALSE"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				StringPooling="TRUE"
 				RuntimeLibrary="4"
+				BufferSecurityCheck="FALSE"
 				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
 				WarningLevel="3"
