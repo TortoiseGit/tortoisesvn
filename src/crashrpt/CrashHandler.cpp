@@ -138,6 +138,7 @@ void CCrashHandler::RemoveFile(LPCTSTR lpFile)
 	for (iter = m_files.begin(); iter != m_files.end(); ++iter) {
 		if ((*iter).first == lpFile) {
 			iter = m_files.erase(iter);
+			break;
 		}
 	}
 }
@@ -200,6 +201,7 @@ DWORD WINAPI CCrashHandler::DialogThreadExecute(LPVOID pParam)
    // add report files to zip
    TStrStrVector::iterator cur = self->m_files.begin();
    for (cur = self->m_files.begin(); cur != self->m_files.end(); cur++)
+     if (PathFileExists((*cur).first))
       zlib.AddFile((*cur).first);
 
    zlib.Close();
