@@ -625,7 +625,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
 BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 {
-	if (m_sBugID.IsEmpty() || m_sCommand.IsEmpty())
+	if (m_sCommand.IsEmpty())
 		return FALSE;
 	SCNotification* notify = (SCNotification*)nmhdr;
 	// get the text between the start and end position we have to style
@@ -643,65 +643,108 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 	textrange.chrg.cpMax = end_pos;
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	CString msg = StringFromControl(textbuffer);
-	
-	int offset1 = 0;
-	int offset2 = 0;
+	delete textbuffer;
+	int offset1 = start_pos;
+	int offset2 = start_pos;
 	
 	Call(SCI_STARTSTYLING, start_pos, 0x1f);
-	
-	try
+
+	if (!m_sBugID.IsEmpty())
 	{
-		match_results results;
-		match_results::backref_type br;
-		do 
+		try
 		{
-			br = m_patCommand.match( (LPCTSTR)msg.Mid(offset1), results );
-			if( br.matched ) 
+			match_results results;
+			match_results::backref_type br;
+			do 
 			{
-				// clear the styles up to the match position
-				Call(SCI_SETSTYLING, results.rstart(0) - offset1, STYLE_DEFAULT);
-				ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0)-offset1);
-				offset1 += results.rstart(0);
-				offset2 = offset1 + results.rlength(0);
-				ATLTRACE("matched string : %ws\n", msg.Mid(offset1, offset2-offset1));
+				br = m_patCommand.match( (LPCTSTR)msg.Mid(offset1), results );
+				if( br.matched ) 
 				{
-					int idoffset1=offset1;
-					int idoffset2=offset2;
-					match_results idresults;
-					match_results::backref_type idbr;
-					do 
+					// clear the styles up to the match position
+					Call(SCI_SETSTYLING, results.rstart(0) - offset1, STYLE_DEFAULT);
+					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0)-offset1);
+					offset1 += results.rstart(0);
+					offset2 = offset1 + results.rlength(0);
+					ATLTRACE("matched string : %ws\n", msg.Mid(offset1, offset2-offset1));
 					{
-						idbr = m_patBugID.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
-						if (idbr.matched)
+						int idoffset1=offset1;
+						int idoffset2=offset2;
+						match_results idresults;
+						match_results::backref_type idbr;
+						do 
 						{
-							// bold style up to the id match
-							Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_BOLD);
-							idoffset1 += idresults.rstart(0);
-							idoffset2 = idoffset1 + idresults.rlength(0);
-							ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
-							// bold and recursive style for the bug ID itself
-							Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_BOLDITALIC);
-							idoffset1 = idoffset2;
-						}
-						else
-						{
-							// bold style for the rest of the string which isn't matched
-							Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_BOLD);
-						}
-					} while(idbr.matched);
+							idbr = m_patBugID.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+							if (idbr.matched)
+							{
+								// bold style up to the id match
+								Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_BOLD);
+								idoffset1 += idresults.rstart(0);
+								idoffset2 = idoffset1 + idresults.rlength(0);
+								ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
+								// bold and recursive style for the bug ID itself
+								Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_BOLDITALIC);
+								idoffset1 = idoffset2;
+							}
+							else
+							{
+								// bold style for the rest of the string which isn't matched
+								Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_BOLD);
+							}
+						} while(idbr.matched);
+					}
+					offset1 = offset2;
 				}
-				offset1 = offset2;
-			}
-			else
-			{
-				// bold style for the rest of the string which isn't matched
-				Call(SCI_SETSTYLING, end_pos-offset2, STYLE_DEFAULT);
-			}
-		} while(br.matched);
-		return TRUE;
+				else
+				{
+					// bold style for the rest of the string which isn't matched
+					Call(SCI_SETSTYLING, end_pos-offset2, STYLE_DEFAULT);
+				}
+			} while(br.matched);
+			return TRUE;
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr){}
 	}
-	catch (bad_alloc) {}
-	catch (bad_regexpr){}
+	else
+	{
+		try
+		{
+			match_results results;
+			match_results::backref_type br;
+			TCHAR * szMsg = msg.GetBuffer(msg.GetLength()+1);
+			do 
+			{
+				br = m_patCommand.match( &szMsg[offset1], results );
+				if( br.matched ) 
+				{
+					// clear the styles up to the match position
+					ATLTRACE("matched string : %ws\n", results.backref(0).str().c_str());
+					Call(SCI_SETSTYLING, results.rstart(0), STYLE_DEFAULT);
+					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0));
+					offset1 += results.rstart(0);
+					{
+						for (size_t i=1; i<results.cbackrefs(); ++i)
+						{
+							Call(SCI_SETSTYLING, results.backref(i).begin()-szMsg-offset1, STYLE_BOLD);
+							ATLTRACE("STYLE_BOLD %d chars\n", results.backref(i).begin()-szMsg-offset1);
+							offset1 = results.backref(i).end()-szMsg;
+							Call(SCI_SETSTYLING, results.backref(i).end()-results.backref(i).begin(), STYLE_BOLDITALIC);
+							ATLTRACE("STYLE_BOLDITALIC %d chars\n", results.backref(i).end()-results.backref(i).begin());
+						}
+					}
+				}
+				else
+				{
+					// bold style for the rest of the string which isn't matched
+					Call(SCI_SETSTYLING, end_pos-offset1, STYLE_DEFAULT);
+				}
+			} while(br.matched);
+			msg.ReleaseBuffer();
+			return TRUE;
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr){}
+	}
 	return FALSE;
 }
 

@@ -117,19 +117,23 @@ BOOL ProjectProperties::ReadProps(CString path)
 #else
 				sCheckRe = sPropVal.c_str();
 #endif
-				sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
-				sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
-				if (!sBugIDRe.IsEmpty())
+				if (sCheckRe.Find('\n')>=0)
 				{
-					try
+					sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
+					sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
+					if (!sBugIDRe.IsEmpty())
 					{
-						patBugIDRe.init((LPCTSTR)sBugIDRe, MULTILINE);
+						try
+						{
+							patBugIDRe.init((LPCTSTR)sBugIDRe, MULTILINE);
+						}
+						catch (bad_alloc){}
+						catch (bad_regexpr){}
 					}
-					catch (bad_alloc){}
-					catch (bad_regexpr){}
 				}
 				if (!sCheckRe.IsEmpty())
 				{
+					sCheckRe = sCheckRe.Trim();
 					try
 					{
 						patCheckRe.init((LPCTSTR)sCheckRe, MULTILINE);
@@ -268,36 +272,76 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		return FALSE;
 
 	// first use the checkre string to find bug ID's in the message
-	if (!sCheckRe.IsEmpty() && !sBugIDRe.IsEmpty())
+	if (!sCheckRe.IsEmpty())
 	{
-		try
+		if (!sBugIDRe.IsEmpty())
 		{
-			match_results results;
-			match_results::backref_type br;
-			do 
+			// match with two regex strings (without grouping!)
+			try
 			{
-				br = patCheckRe.match( (LPCTSTR)msg.Mid(offset1), results );
-				if( br.matched ) 
+				match_results results;
+				match_results::backref_type br;
+				do 
 				{
-					offset1 += results.rstart(0);
-					offset2 = offset1 + results.rlength(0);
-					ATLTRACE("matched %ws\n", msg.Mid(offset1, offset2-offset1));
-					// now we have a full match. To create the links we need to extract the
-					// bare bug ID's first.
+					br = patCheckRe.match( (LPCTSTR)msg.Mid(offset1), results );
+					if( br.matched ) 
 					{
-						int idoffset1=offset1;
-						int idoffset2=offset2;
-						match_results idresults;
-						match_results::backref_type idbr;
-						do 
+						offset1 += results.rstart(0);
+						offset2 = offset1 + results.rlength(0);
+						ATLTRACE("matched %ws\n", msg.Mid(offset1, offset2-offset1));
+						// now we have a full match. To create the links we need to extract the
+						// bare bug ID's first.
 						{
-							idbr = patBugIDRe.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
-							if (idbr.matched)
+							int idoffset1=offset1;
+							int idoffset2=offset2;
+							match_results idresults;
+							match_results::backref_type idbr;
+							do 
 							{
-								idoffset1 += idresults.rstart(0);
-								idoffset2 = idoffset1 + idresults.rlength(0);
-								ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
-								CHARRANGE range = {idoffset1, idoffset2};
+								idbr = patBugIDRe.match( (LPCTSTR)msg.Mid(idoffset1, offset2-idoffset1), idresults);
+								if (idbr.matched)
+								{
+									idoffset1 += idresults.rstart(0);
+									idoffset2 = idoffset1 + idresults.rlength(0);
+									ATLTRACE("matched id : %ws\n", msg.Mid(idoffset1, idoffset2-idoffset1));
+									CHARRANGE range = {idoffset1, idoffset2};
+									pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+									CHARFORMAT2 format;
+									ZeroMemory(&format, sizeof(CHARFORMAT2));
+									format.cbSize = sizeof(CHARFORMAT2);
+									format.dwMask = CFM_LINK;
+									format.dwEffects = CFE_LINK;
+									pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+									idoffset1 = idoffset2;
+								}
+							} while(idbr.matched);
+						}
+						offset1 = offset2;
+					}
+				} while(br.matched);
+			}
+			catch (bad_alloc) {}
+			catch (bad_regexpr){}
+		}
+		else
+		{
+			try
+			{
+				match_results results;
+				match_results::backref_type br;
+				CString sMsg = msg;
+				TCHAR * szMsg = sMsg.GetBuffer(sMsg.GetLength()+1);
+				do 
+				{
+					br = patCheckRe.match( &szMsg[offset1], results );
+					if( br.matched ) 
+					{
+						for (size_t i=1; i<results.cbackrefs(); ++i)
+						{
+							ATLTRACE("matched id : %ws\n", results.backref(i).str().c_str());
+							CHARRANGE range = {results.backref(i).begin()-szMsg, results.backref(i).end()-szMsg};
+							if (range.cpMin != range.cpMax)
+							{
 								pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 								CHARFORMAT2 format;
 								ZeroMemory(&format, sizeof(CHARFORMAT2));
@@ -305,16 +349,17 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 								format.dwMask = CFM_LINK;
 								format.dwEffects = CFE_LINK;
 								pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-								idoffset1 = idoffset2;
 							}
-						} while(idbr.matched);
+						}
 					}
-					offset1 = offset2;
-				}
-			} while(br.matched);
+					offset1 += results.rstart(0);
+					offset1 += results.rlength(0);
+				} while(br.matched);
+				sMsg.ReleaseBuffer();
+			}
+			catch (bad_alloc) {}
+			catch (bad_regexpr) {}
 		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr){}
 	}
 
 	if (!sMessage.IsEmpty())
@@ -489,6 +534,36 @@ public:
 				offset1 = offset2;
 			}
 		} while(br.matched);
+
+		try
+		{
+			match_results results;
+			match_results::backref_type br;
+			CString sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
+			CString sCheckRe = _T("[Ii]ssue #?(\\d+),? ?#?(\\d+)?,? ?#?(\\d+)?,? ?#?(\\d+)?,? ?#?(\\d+)?,? ?#?(\\d+)?");
+			CString msg = _T("this is a test logmessage: issue 2222\nIssue #456, 678, #901, #100  #456");
+			TCHAR * szMsg = msg.GetBuffer(msg.GetLength()+1);
+			offset1 = 0;
+			do 
+			{
+				rpattern pat( (LPCTSTR)sCheckRe, MULTILINE ); 
+				br = pat.match( &szMsg[offset1], results );
+				ATLTRACE("matched : %ws\n", results.backref(0).str().c_str());
+				if( br.matched ) 
+				{
+					for (size_t i=1; i<results.cbackrefs(); ++i)
+					{
+						ATLTRACE("matched id : %ws\n", results.backref(i).str().c_str());
+					}
+				}
+				offset1 += results.rstart(0);
+				offset1 += results.rlength(0);
+			} while(br.matched);
+			msg.ReleaseBuffer();
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr) {}
+
 	}
 } PropTest;
 #endif
