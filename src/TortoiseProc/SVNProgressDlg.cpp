@@ -537,7 +537,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Export:
 			temp.LoadString(IDS_PROGRS_TITLE_EXPORT);
 			pDlg->SetWindowText(temp);
-			if (!pDlg->Export(pDlg->m_sUrl, pDlg->m_sPath, -1))
+			if (!pDlg->Export(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_nRevision))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}

@@ -17,6 +17,8 @@
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)
+- BUG: Export always used HEAD, even if another revision
+       was specified in the dialog. (Stefan)
 - BUG: Showing diffs for changed files from the list in
        the log dialog was done with the wrong revisions. (Stefan)
 - BUG: When adding files in a directory with svn:externals
