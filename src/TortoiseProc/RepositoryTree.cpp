@@ -22,7 +22,7 @@
 #include "RepositoryTree.h"
 
 #include "shlobj.h"
-
+#include "utils.h"
 
 // CRepositoryTree
 
@@ -207,13 +207,13 @@ CString CRepositoryTree::GetFolderUrl(HTREEITEM hItem)
 CString CRepositoryTree::MakeUrl(HTREEITEM hItem)
 {
 	CString strUrl = GetItemText(hItem);
-
 	HTREEITEM hParent = GetParentItem(hItem);
 	while (hParent != NULL)
 	{
 		strUrl.Insert(0, GetItemText(hParent) + _T("/"));
 		hParent = GetParentItem(hParent);
-	}
+	} // while (hParent != NULL)
+	strUrl = CUtils::PathEscape(strUrl);
 	return strUrl;
 }
 

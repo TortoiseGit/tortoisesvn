@@ -1,4 +1,5 @@
-
+- BUG: The repository browser didn't escape the url
+       sequences. (Stefan)
 - BUG: Explorer could crash when doing a column sort
        on really big working copies. Thanks a lot
        to Lübbe for helping in finding this bug. (Stefan)

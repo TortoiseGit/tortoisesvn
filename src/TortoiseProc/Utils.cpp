@@ -330,5 +330,24 @@ void CUtils::Unescape(LPTSTR psz)
 	*pszDest = '\0';
 }
 
-
+CString CUtils::PathEscape(CString path)
+{
+	CString ret = path;
+	ret.Replace(_T(" "), _T("%20"));
+	ret.Replace(_T("^"), _T("%5E"));
+	ret.Replace(_T("&"), _T("%26"));
+	ret.Replace(_T("`"), _T("%60"));
+	ret.Replace(_T("{"), _T("%7B"));
+	ret.Replace(_T("}"), _T("%7D"));
+	ret.Replace(_T("|"), _T("%7C"));
+	ret.Replace(_T("]"), _T("%5D"));
+	ret.Replace(_T("["), _T("%5B"));
+	ret.Replace(_T("\""), _T("%22"));
+	ret.Replace(_T("<"), _T("%3C"));
+	ret.Replace(_T(">"), _T("%3E"));
+	ret.Replace(_T("\\"), _T("%5C"));
+	ret.Replace(_T("#"), _T("%23"));
+	ret.Replace(_T("?"), _T("%3F"));
+	return ret;
+}
 

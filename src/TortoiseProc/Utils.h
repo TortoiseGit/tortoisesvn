@@ -79,4 +79,5 @@ public:
 	static CString GetTempFile();
 
 	static void Unescape(LPTSTR psz);
+	static CString PathEscape(CString path);
 };
