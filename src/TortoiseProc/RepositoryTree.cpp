@@ -386,6 +386,7 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 		// Mark item as "not successfully read"
 		SetItemData(GetItemIndex(hItem), 0);
 	}
+	m_svn.ReleasePool();
 }
 
 
