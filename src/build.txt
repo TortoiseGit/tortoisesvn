@@ -7,6 +7,7 @@ First, you need to install some utilities/programs:
 - Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
 - Get the WiX tools from http://wix.sourceforge.net and unzip them. Then add
   it to the PATH environement variable.
+
 You may have to logoff/logon to make the new environement variables take effect!
 
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
@@ -16,6 +17,8 @@ You may have to logoff/logon to make the new environement variables take effect!
   then right-click into the SVN folder and select "checkout".
   In the dialog enter the URL and add "\Subversion" to
   the checkout path.
+  Make sure you check out the Subversion source from either the 1.1.x branch or
+  one of the 1.1.x tags!
 - Download the compiled berkeley db library from
   the TortoiseSVN download area:
   http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
@@ -33,6 +36,11 @@ You may have to logoff/logon to make the new environement variables take effect!
   the folder from openssl-0.9.xx to openssl
 - Download the zlib source from 
   http://www.gzip.org/zlib/ and unzip it to SVN\common\zlib
+- Download the GNU gettext tools. They're needed for localization:
+  http://mirrors.kernel.org/gnu/gettext/gettext-runtime-0.13.bin.woe32.zip
+  http://mirrors.kernel.org/gnu/gettext/gettext-tools-0.13.bin.woe32.zip
+  http://mirrors.kernel.org/gnu/libiconv/libiconv-1.9.1.bin.woe32.zip
+  and extract them to common\gettext.
 - Download the newest neon source from 
   http://www.webdav.org/neon/ and unzip it into SVN\Subversion
   then rename the folder neon-0.xx.x to neon.
@@ -48,6 +56,20 @@ You may have to logoff/logon to make the new environement variables take effect!
   You can get that library from here: http://wtl.sourceforge.net/
   Unzip it and then add the path to the VS.NET include path.
 
+Note: Since the Subversion project builder is broken right now, the build script
+won't work right now (until that gets fixed). A workaround for that is:
+- open a DOS box, cd to the Subversion directory.
+- type
+python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zlib=..\Common\zlib --with-apr=apr --with-apr-util=apr-util --with-apr-iconv=apr-iconv --enable-nls
+  to generate the project files
+- Open the subversion_vcnet.sln file in VS.NET
+- Right click in the solution explorer on the project "libaprutil"
+- In the properties dialog, go to Linker/Input and add the string 
+  "..\db4-win32\lib\libdb42.lib" to the "Additional Dependencies" (for all builds,
+  release and debug).
+- Save the new project settings.
+- now you can use TSVN build script.
+
 Now, if you got some time left you can run the build.bat script to compile
 TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
-how fast your computer is!
+how fast your computer is (on mine, it takes 1 hour and 50 minutes)!
