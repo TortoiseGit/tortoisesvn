@@ -1,7 +1,10 @@
 #
 # Traditional Chinese translations for TortoiseSVN package
 # Copyright (C) 2004 the TortoiseSVN team
-# This file is distributed under the same license as the subversion package.
+# This file is distributed under the same license as TortoiseSVN
+#
+# Authors:
+# Cecil Sheng <cecilsheng@foquest.com.tw>, 2004
 #
 msgid ""
 msgstr ""
@@ -26,42 +29,42 @@ msgstr "! %d"
 #: ID:3868,#:
 #: ID:3868,
 msgid "%1 contained an unexpected object."
-msgstr "%1 含有預期外的物件."
+msgstr "%1 twe~."
 
 #: ID:3868,#:
 #: ID:3868,
 msgid "%1 contains an incorrect schema."
-msgstr "%1 含有不正確的綱要."
+msgstr "%1 tTn."
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "%1 contains an invalid path."
-msgstr "%1 含有不合法的路徑."
+msgstr "%1 tXk|."
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "%1 could not be created because the directory is full."
-msgstr "因為目錄已滿, %1  無法建立."
+msgstr "]?w, %1  Lk??"
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "%1 could not be opened because there are too many open files."
-msgstr "無法開啟 %1, 因為已經開啟過多的檔案."
+msgstr "Lk}?%1, ]wg}?Lh	?"
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 是目前目錄, 無法移除."
+msgstr "%1 O?e?, Lk."
 
 #: ID:3868,#:
 #: ID:3868,
 msgid "%1 has a bad format."
-msgstr "%1 格式錯誤."
+msgstr "%1 ?~."
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "%1 was not found."
-msgstr "找不到 %1."
+msgstr "??1."
 
 #: ID:3860,#:
 #: ID:3860,
@@ -70,7 +73,7 @@ msgid ""
 "Continue running script?"
 msgstr ""
 "%1: %2\n"
-"要繼續執行?"
+"nl??
 
 #: ID:3859,#:
 #: ID:3859,
@@ -80,20 +83,20 @@ msgid ""
 "Please verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
-"找不到這個檔案.\n"
-"請確定輸入了正確的路徑和檔案名稱."
+"?????\n"
+"?Tw?FT|M	?W?"
 
 #: ID:169,
 msgid "%d files selected, %d files total"
-msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
+msgstr "?F %d ??? @ %d ???
 
 #: ID:151,
 msgid "%s : Working Base"
-msgstr "%s : 工作基礎版本"
+msgstr "%s : u@礎"
 
 #: ID:151,
 msgid "%s : Working Copy"
-msgstr "%s : 工作複本"
+msgstr "%s : u@?"
 
 #: ID:145,
 msgid ""
@@ -101,229 +104,229 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"確定真的要移除嗎?"
+"Twun?"
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
-msgstr "關於 TortoiseMerge(&A)..."
+msgstr "繹 TortoiseMerge(&A)..."
 
 #: Control-ID:1098,
 msgid "&Add..."
-msgstr "加入(&A)..."
+msgstr "[J(&A)..."
 
 #: Control-ID:1090,
 msgid "&Advanced..."
-msgstr "進階設定(&A)..."
+msgstr "i]w(&A)..."
 
 #: Control-ID:1013,
 msgid "&Apply Unified Diff"
-msgstr "套用單一差異檔(&A)"
+msgstr "M??t	(&A)"
 
 #: Control-ID:1011,
 msgid "&Browse..."
-msgstr "瀏覽(&B)..."
+msgstr "糧L(&B)..."
 
 #: Control-ID:1091,
 msgid "&Builtin"
-msgstr "內建(&B)"
+msgstr "?&B)"
 
 #: Control-ID:1051,
 msgid "&CD-ROM"
-msgstr "光碟機(&R)"
+msgstr "?(&R)"
 
 #: Control-ID:2,#:
 #: Control-ID:2,
 msgid "&Cancel"
-msgstr "取消(&C)"
+msgstr "(&C)"
 
 #: Control-ID:1074,
 msgid "&Checkout directory:"
-msgstr "取出至目錄(&C):"
+msgstr "X??(&C):"
 
 #: Control-ID:1066,
 msgid "&Close windows automatically"
-msgstr "自動關閉視窗(&C)"
+msgstr "??(&C)"
 
 #: Control-ID:1099,
 msgid "&Edit..."
-msgstr "編輯(&E)..."
+msgstr "s?E)..."
 
 #: Control-ID:1023,
 msgid "&Enable Proxy Server"
-msgstr "使用 Proxy 伺服器(&E)"
+msgstr "??Proxy A(&E)"
 
 #: Control-ID:1092,
 msgid "&External"
-msgstr "外部(&E)"
+msgstr "~(&E)"
 
 #: MenuEntry
 msgid "&File"
-msgstr "檔案(&F)"
+msgstr "	?&F)"
 
 #: Control-ID:1050,
 msgid "&Fixed drives"
-msgstr "硬式磁碟(&F)"
+msgstr "w??&F)"
 
 #: Control-ID:65535,
 msgid "&From Revision"
-msgstr "從版本(&F)"
+msgstr "q(&F)"
 
 #: Control-ID:65535,
 msgid "&From URL:"
-msgstr "從 URL(&F):"
+msgstr "q URL(&F):"
 
 #: Control-ID:65535,
 msgid "&From WC at URL:"
-msgstr "從工作複本 URL(&F):"
+msgstr "qu@? URL(&F):"
 
 #: Control-ID:1032,#:
 #: Control-ID:1019,#:
 #: Control-ID:1019,
 msgid "&Head Revision"
-msgstr "最新版本(&H)"
+msgstr "?s(&H)"
 
 #: Control-ID:57670,#:
 #: MenuEntry#:
 #: Control-ID:9,#:
 #: Control-ID:57670,
 msgid "&Help"
-msgstr "說明(&H)"
+msgstr "(&H)"
 
 #: MenuEntry
 msgid "&Help Topics"
-msgstr "說明主題(&H)"
+msgstr "D��(&H)"
 
 #: ID:3842,#:
 #: ID:3842,
 msgid "&Hide"
-msgstr "隱藏 (&H)"
+msgstr "t? (&H)"
 
 #: Control-ID:1023,
 msgid "&Indicate folders with changed contents"
-msgstr "標示內容有變動過的資料夾(&I)"
+msgstr "??eS'L?(&I)"
 
 #: Control-ID:65535,
 msgid "&Language:"
-msgstr "語系(&L)"
+msgstr "yt(&L)"
 
 #: MenuEntry
 msgid "&Merge"
-msgstr "合併(&M)"
+msgstr "X?&M)"
 
 #: Control-ID:65535,
 msgid "&Merge changes into the current working copy from URL:"
-msgstr "將URL的異動合併至工作複本(&M):"
+msgstr "NURL?X??u@?(&M):"
 
 #: Control-ID:1012,
 msgid "&Merging"
-msgstr "合併(&M)"
+msgstr "X?&M)"
 
 #: Control-ID:1049,
 msgid "&Network drives"
-msgstr "網路磁碟(&N)"
+msgstr "??&N)"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&New "
-msgstr "新增(&N)"
+msgstr "sW(&N)"
 
 #: MenuEntry
 msgid "&Next Difference"
-msgstr "下一筆差異(&N)"
+msgstr "U@t(&N)"
 
 #: Control-ID:1,#:
 #: Control-ID:1,
 msgid "&OK"
-msgstr "確定(&O)"
+msgstr "Tw(&O)"
 
 #: MenuEntry
 msgid "&Open Ctrl-O"
-msgstr "開啟(&O) Ctrl-O"
+msgstr "}?&O) Ctrl-O"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&Password:"
-msgstr "密碼(&P):"
+msgstr "KX(&P):"
 
 #: Control-ID:65535,
 msgid "&Port:"
-msgstr "埠(&P):"
+msgstr "(&P):"
 
 #: MenuEntry
 msgid "&Previous Difference"
-msgstr "前一筆差異(&P)"
+msgstr "e@t(&P)"
 
 #: Control-ID:1048,
 msgid "&Removable drives"
-msgstr "卸除式磁碟(&R)"
+msgstr "??&R)"
 
 #: Control-ID:1013,#:
 #: Control-ID:1100,
 msgid "&Remove"
-msgstr "移除(&R)"
+msgstr "(&R)"
 
 #: Control-ID:1033,#:
 #: Control-ID:1116,#:
 #: Control-ID:1033,
 msgid "&Revision"
-msgstr "版本(&R)"
+msgstr "(&R)"
 
 #: Control-ID:65535,
 msgid "&SSH client:"
-msgstr "SSH 用戶端(&S):"
+msgstr "SSH ??(&S):"
 
 #: MenuEntry
 msgid "&Save Ctrl-S"
-msgstr "儲存(&S) Ctrl-S"
+msgstr "8s(&S) Ctrl-S"
 
 #: Control-ID:1012,
 msgid "&Set"
-msgstr "設定(&S)"
+msgstr "]w(&S)"
 
 #: MenuEntry
 msgid "&Status Bar"
-msgstr "狀態列(&S)"
+msgstr "AC(&S)"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&To Revision"
-msgstr "至版本(&T)"
+msgstr "?(&T)"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "&To URL:"
-msgstr "至URL(&T):"
+msgstr "?RL(&T):"
 
 #: Control-ID:65535,
 msgid "&To URL: "
-msgstr "至URL(&T):"
+msgstr "?RL(&T):"
 
 #: MenuEntry
 msgid "&Toolbar"
-msgstr "工具列(&V)"
+msgstr "u?(&V)"
 
 #: Control-ID:65535,#:
 #: Control-ID:1058,
 msgid "&URL of repository:"
-msgstr "檔案庫 &URL:"
+msgstr "	?w &URL:"
 
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
-msgstr "還原(&U)\tCtrl+Z"
+msgstr "Y?U)\tCtrl+Z"
 
 #: Control-ID:65535,#:
 #: Control-ID:1005,#:
 #: Control-ID:65535,
 msgid "&Username:"
-msgstr "用戶名稱(&U):"
+msgstr "???&U):"
 
 #: MenuEntry
 msgid "&View"
-msgstr "檢視(&V)"
+msgstr "(&V)"
 
 #: MenuEntry
 msgid "&Whitespaces"
-msgstr "空白字元(&W)"
+msgstr "t?r(&W)"
 
 #: ID:188,
 msgid "+ %d"
@@ -345,185 +348,180 @@ msgstr "..."
 #: ID:3867,#:
 #: ID:3867,
 msgid "A hardware I/O error was reported while accessing %1."
-msgstr "存取 %1 時發生硬體 I/O 錯誤."
+msgstr "s %1 ?o?wu I/O ~."
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "A locking violation occurred while accessing %1."
-msgstr "存取 %1 時發生鎖定錯誤."
+msgstr "s %1 ?o??~."
 
 #: ID:201,
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
-msgstr "有更新的版本. 請至 http://tortoisesvn.tigris.org 下載!"
+msgstr "s. ??http://tortoisesvn.tigris.org U!"
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "A required resource was unavailable."
-msgstr "找不到需要的資源檔."
+msgstr "??n?	."
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "A sharing violation occurred while accessing %1."
-msgstr "存取 %1 時發生共享錯誤."
+msgstr "s %1 ?o?@?~."
 
 #: ID:79,
 msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"用來檢視 GNU 差異檔 (補綴檔) 的程式.\n"
-"如果沒有, 可以使用記事本."
+"??? GNU t	 (?	) {.\n"
+"pGS, iH??O?."
 
 #: Control-ID:1093,
 msgid "A&dvanced..."
-msgstr "進階設定(&D)..."
+msgstr "i]w(&D)..."
 
 #: ID:73,
 msgid "Abort"
-msgstr "放棄"
+msgstr ""
 
 #: ID:9,
 msgid "About"
-msgstr "關於"
+msgstr "繹"
 
 #: Dlg-ID:136,
 msgid "About TortoiseMerge"
-msgstr "關於 TortoiseMerge"
+msgstr "繹 TortoiseMerge"
 
 #: Dlg-ID:129,
 msgid "About TortoiseSVN"
-msgstr "關於 TortoiseSVN"
+msgstr "繹 TortoiseSVN"
 
 #: ID:82,
 msgid "Accept Once"
-msgstr "僅接受一次"
+msgstr "?@"
 
 #: ID:82,
 msgid "Accept Permanently"
-msgstr "永久接受"
+msgstr "瓣["
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "Access to %1 was denied."
-msgstr "拒絕存取 %1."
+msgstr "?s %1."
 
 #: ID:77,
 msgid "Action"
-msgstr "行動"
+msgstr "?"
 
 #: ID:3826,
 msgid "Activate Task List"
-msgstr "目前工作列表"
-
+msgstr "?eu@C?
 #: ID:78,
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
 "<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
 msgstr ""
-"如果你想要資料夾圖示顯示 Subversion\n"
-"的狀態, 請啟用此選項.\n"
-"<ct=0x0000ff><b>注意:</b>本功能會拖慢檔案總管執行效率.</ct>"
+"pGAQn???? Subversion\n"
+"A, ??F?.\n"
+"<ct=0x0000ff><b>`N:</b>\??	?`??v.</ct>"
 
 #: ID:8,#:
 #: ID:73,#:
 #: Dlg-ID:155,
 msgid "Add"
-msgstr "加入"
+msgstr "[J"
 
 #: ID:110,
 msgid "Add Extension Specific Diff Program"
-msgstr "根據副檔名加入差異比對程式"
+msgstr "??b?W[Jt?"
 
 #: ID:110,
 msgid "Add Extension Specific Merge Program"
-msgstr "根據副檔名加入合併程式"
+msgstr "??b?W[JX?{"
 
 #: ID:13,
 msgid "Add To Ignore List"
-msgstr "加入忽略列表"
-
+msgstr "[JC?
 #: ID:101,
 msgid "Add file..."
-msgstr "加入檔案..."
+msgstr "[J	?.."
 
 #: ID:12,
 msgid "Add files to Subversion here"
-msgstr "加入檔案至 Subversion"
+msgstr "[J	??Subversion"
 
 #: ID:101,
 msgid "Add folder..."
-msgstr "加入資料夾..."
+msgstr "[J?..."
 
 #: Dlg-ID:171,
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "加入/編輯針對副檔名的差異比對/合併工具"
-
+msgstr "[J/s??	Wt?X?u?
 #: Control-ID:65535,
 msgid "Added"
-msgstr "加入的"
+msgstr "[J"
 
 #: ID:126,
 msgid "Added a file remotely"
-msgstr "遠端加入檔案完成"
+msgstr "?[J	?"
 
 #: ID:9,
 msgid "Adds file(s) to Subversion control"
-msgstr "加入檔案至 Subversion 版本控制"
-
+msgstr "[J	??Subversion ?
 #: ID:13,
 msgid "Adds the selected file(s) to the 'ignore' list"
-msgstr "將選定的檔案加入忽略列表"
-
+msgstr "N?	?[JC?
 #: ID:2049,
 msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
-"調校設定值\n"
-"設定"
+"??]w?n"
+"]w"
 
 #: ID:110,
 msgid "Advanced Diff Settings"
-msgstr "進階差異比對設定"
+msgstr "it?w"
 
 #: Dlg-ID:170,
 msgid "Advanced Diff/Merge Settings"
-msgstr "進階差異比對/合併設定"
+msgstr "it?X?]w"
 
 #: ID:110,
 msgid "Advanced Merge Settings"
-msgstr "進階合併設定"
+msgstr "iX?]w"
 
 #: Control-ID:65535,
 msgid "All"
-msgstr "全部"
+msgstr ""
 
 #: ID:3841,#:
 #: ID:3841,
 msgid "All Files (*.*)"
-msgstr "所有檔案 (*.*)"
+msgstr "?	?(*.*)"
 
 #: ID:157,#:
 #: ID:157,
 msgid "All Files (*.*)|*.*||"
-msgstr "所有檔案 (*.*)|*.*||"
+msgstr "?	?(*.*)|*.*||"
 
 #: ID:3867,#:
 #: ID:3868,#:
 #: ID:3868,
 msgid "An attempt was made to access %1 past its end."
-msgstr "試圖存取超過 %1 長度的部分."
+msgstr "??sWL %1 ?."
 
 #: ID:3868,#:
 #: ID:3868,
 msgid "An attempt was made to read from the writing %1."
-msgstr "試圖讀取寫入中的 %1."
+msgstr "??gJ %1."
 
 #: ID:3868,#:
 #: ID:3868,
 msgid "An attempt was made to write to the reading %1."
-msgstr "試圖寫入讀取中的 %1."
+msgstr "??gJU %1."
 
 #: ID:78,
 msgid ""
@@ -534,11 +532,11 @@ msgid ""
 "%base\tthe base file\n"
 "%mine\tthe modified file"
 msgstr ""
-"用來比對不同版本間檔案差\n"
-"異的外部程式.\n"
-"<hr=100%>你可以指定以下的參數至路徑中:\n"
-"%base\t檔案名稱\n"
-"%mine\t異動過的檔案."
+"???P	?t\n"
+"~{.\n"
+"<hr=100%>AiHwHU???|:\n"
+"%base\t	?W?n"
+"%mine\t'L	?"
 
 #: ID:79,
 msgid ""
@@ -551,159 +549,158 @@ msgid ""
 "%mine\t\tyour own file, with your changes\n"
 "%base\t\tthe original file without your changes"
 msgstr ""
-"用來解決衝突檔案\n"
-"的外部程式, \n"
+"???MI	?n"
+"~{, \n"
 "<hr=100%>\n"
-"你可以指定以下參數至路徑中:\n"
-"%merged\t發生衝突的檔案存放位置\n"
-"@theirs\t\t檔案庫中存放的檔案\n"
-"%mine\t\t包含你所做變更的檔案\n"
-"%base\t\t不包含你所做變更的原始檔"
+"AiHwHU???|:\n"
+"%merged\to?I	?s?\n"
+"@theirs\t\t	?ws	?n"
+"%mine\t\t]tA?S	?n"
+"%base\t\t]tA?S?	"
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "An invalid argument was encountered."
-msgstr "發現不合法參數."
+msgstr "o{Xk?T"
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "An invalid file handle was associated with %1."
-msgstr "%1 關聯到不合法的檔案代碼."
+msgstr "%1 繹p?Xk	?NX."
 
 #: ID:3859,#:
 #: ID:3859,
 msgid "An unexpected error occurred while reading %1."
-msgstr "讀取 %1 時發生預期外的錯誤."
+msgstr "U %1 ?o?we~~."
 
 #: ID:3859,#:
 #: ID:3859,
 msgid "An unexpected error occurred while writing %1."
-msgstr "寫入 %1 時發生預期外的錯誤."
+msgstr "gJ %1 ?o?we~~."
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "An unknown error has occurred."
-msgstr "發生不明錯誤."
+msgstr "o?~."
 
 #: ID:3867,#:
 #: ID:3868,#:
 #: ID:3868,
 msgid "An unknown error occurred while accessing %1."
-msgstr "存取 %1 時發生不明錯誤."
+msgstr "s %1 ?o?~."
 
 #: ID:63,
 msgid "An unknown line type was found in line %d !"
-msgstr "在第 %d 行發現不明型態資料!"
+msgstr "bG%d ?{A?!"
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "An unsupported operation was attempted."
-msgstr "試圖進行不支援的作業."
+msgstr "??i??@~."
 
 #: ID:14,
 msgid "Applies a unified diff file to the working copy"
-msgstr "套用單一異動檔至工作複本"
+msgstr "M?????u@?"
 
 #: ID:13,
 msgid "Apply Patch..."
-msgstr "套用補綴..."
+msgstr "M??..."
 
 #: Control-ID:65535,
 msgid "Apply Unified Diff"
-msgstr "套用單一差異檔"
+msgstr "M??t	"
 
 #: ID:79,
 msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
-msgstr "是否確定要復原? 從上次更新之後的<b>所有</b>變更都會消失!"
+msgstr "O_Twn_?qWs?<b>?</b>S|!"
 
 #: ID:77,
 msgid "At revision: %d"
-msgstr "於版本: %d"
+msgstr ": %d"
 
 #: Dlg-ID:131,#:
 #: Dlg-ID:160,
 msgid "Authentication"
-msgstr "認證"
+msgstr "{��"
 
 #: ID:76,
 msgid "Author"
-msgstr "作者"
+msgstr "@?
 
 #: Control-ID:65535,
 msgid "Author:                        Stefan Kueng"
-msgstr "作者:                        Stefan Kueng"
+msgstr "@?                        Stefan Kueng"
 
 #: Control-ID:65535,
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
-msgstr "作者:                      Stefan Kueng, Tim Kemp"
+msgstr "@?                      Stefan Kueng, Tim Kemp"
 
 #: Control-ID:1001,
 msgid "B&rowse..."
-msgstr "瀏覽(&R)..."
+msgstr "糧L(&R)..."
 
 #: Control-ID:1094,
 msgid "B&uiltin"
-msgstr "內建(&U)"
+msgstr "?&U)"
 
 #: Control-ID:1015,
 msgid "Backup original file"
-msgstr "備份原始檔"
+msgstr "??	"
 
 #: Control-ID:65535,
 msgid "Base File:"
-msgstr "基礎檔案:"
+msgstr "礎	?"
 
 #: Dlg-ID:162,
 msgid "Blame"
-msgstr "譴責"
+msgstr "ld"
 
 #: ID:13,
 msgid "Blame..."
-msgstr "譴責..."
+msgstr "ld..."
 
 #: ID:13,
 msgid "Blames each line of a file on an author"
-msgstr "列出檔案每一行的作者"
+msgstr "CX	?C@?@?
 
 #: Control-ID:1003,
 msgid "Br&owse..."
-msgstr "瀏覽(&O)..."
+msgstr "糧L(&O)..."
 
 #: Dlg-ID:142,
 msgid "Branch / Tag"
-msgstr "分支 / 標記"
+msgstr "$? ?O"
 
 #: ID:115,
 msgid "Branch / Tag created successfully!"
-msgstr "分支/標記建立成功!"
+msgstr "$??O??\!"
 
 #: ID:9,
 msgid "Branch/Tag..."
-msgstr "分支/標記..."
+msgstr "$??O..."
 
 #: Control-ID:1009,
 msgid "Bro&wse..."
-msgstr "瀏覽(&W)..."
+msgstr "糧L(&W)..."
 
 #: Control-ID:1007,
 msgid "Brows&e..."
-msgstr "瀏覽(&E)..."
+msgstr "糧L(&E)..."
 
 #: ID:138,
 msgid "Browse Repository"
-msgstr "瀏覽檔案庫"
+msgstr "糧L	?w"
 
 #: ID:78,
 msgid "Browse for the external diff program"
-msgstr "尋找外部比對差異工具"
-
+msgstr "M??u?
 #: Control-ID:1069,
 msgid "Browse..."
-msgstr "瀏覽..."
+msgstr "糧L..."
 
 #: Control-ID:1096,
 msgid "Bu&iltin"
-msgstr "內建(&I)"
+msgstr "?&I)"
 
 #: ID:3697,
 msgid "CAP"
@@ -716,238 +713,234 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"無法複製 \n"
+"Lk?s \n"
 "%s\n"
-" 至 \n"
+" ?\n"
 "%s"
 
 #: Control-ID:2,#:
 #: ID:73,#:
 #: Control-ID:2,
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: ID:132,
 msgid "Cancelling SVN Blame..."
-msgstr "正在取消 SVN 譴責..."
+msgstr "b SVN ld..."
 
 #: ID:82,
 msgid "Certificate expired or not yet valid"
-msgstr "憑證已到期或尚未生效."
+msgstr "~?w?O|?I"
 
 #: ID:82,
 msgid "Certificate expired. Valid until: %s"
-msgstr "憑證已到期. 合法期限: %s"
+msgstr "~?w?. Xkm: %s"
 
 #: ID:82,
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr "憑證尚未生效. 起始日期: %s"
+msgstr "~?|?I _l?: %s"
 
 #: ID:157,
 msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
-msgstr "憑證|*.p12;*.pkcs12|所有檔案|*.*||"
+msgstr "~?*.p12;*.pkcs12|?	?*.*||"
 
 #: ID:3825,
 msgid "Change the window position"
-msgstr "更改視窗位置"
+msgstr "??"
 
 #: ID:3825,
 msgid "Change the window size"
-msgstr "更改視窗大小"
+msgstr "?jp"
 
 #: Dlg-ID:158,
 msgid "Changed Files"
-msgstr "異動過的檔案"
+msgstr "'L	?
 
 #: ID:163,
 msgid "Changed files: %d"
-msgstr "變動檔案數: %d"
+msgstr "S???? %d"
 
 #: ID:3887,#:
 #: ID:3887,
 msgid "Check"
-msgstr "勾選"
-
+msgstr "??
 #: Dlg-ID:174,
 msgid "Check For Updates"
-msgstr "檢查更新"
+msgstr "ds"
 
 #: Control-ID:1031,
 msgid "Check For Updates..."
-msgstr "檢查更新..."
+msgstr "ds..."
 
 #: ID:13,
 msgid "Check for Updates"
-msgstr "檢查更新"
+msgstr "ds"
 
 #: Control-ID:1073,
 msgid "Check for newer versions"
-msgstr "檢查新版本"
+msgstr "ds"
 
 #: ID:79,
 msgid ""
 "Check if you want the progress dialog to close\n"
 "automatically after the operation finishes."
 msgstr ""
-"勾選此選項可以讓進度視窗在作業\n"
-"完成後自動關閉."
+"???iH鬚i?b@~\n"
+"??."
 
 #: ID:9,
 msgid "Check out a working copy from a repository"
-msgstr "從檔案庫中取出工作複本"
+msgstr "q	?wXu@?"
 
 #: ID:95,
 msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
-"勾選你要在匯入之前刪除\n"
-"的檔案."
+"??nb?JeR\n"
+"	?"
 
 #: Control-ID:65535,
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
-msgstr "勾選你希望出現在快顯功能表, 而不是子選單中的選單項目"
+msgstr "????{b???, ?Ol???
 
 #: ID:80,
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "勾選可在記錄訊息中使用較簡短的日期及時間"
+msgstr "??bOT??簡u???"
 
 #: Control-ID:65535,
 msgid "Checking if a newer version of TortoiseSVN is available..."
-msgstr "正在檢查是否有更新版本的 TortoiseSVN..."
+msgstr "bdO_s TortoiseSVN..."
 
 #: Dlg-ID:133,
 msgid "Checkout"
-msgstr "取出"
+msgstr "X"
 
 #: ID:8,
 msgid "Checkout..."
-msgstr "取出..."
+msgstr "X..."
 
 #: ID:8,
 msgid "Clean Up"
-msgstr "清理"
+msgstr "Mz"
 
 #: ID:79,
 msgid "Cleanup has finished"
-msgstr "清理完成."
+msgstr "Mz."
 
 #: ID:9,
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "清理未完成的作業, 鎖定檔等..."
+msgstr "Mz@~, 穠w	..."
 
 #: Control-ID:65535,
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "點擊 \"進階設定\" 可根據不同副檔名指定不同的差異比對程式"
+msgstr "?; \"i]w\" i??Pb?WwPt?"
 
 #: Control-ID:65535,
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "點擊 \"進階設定\" 可根據不同副檔名指定不同合併程式"
+msgstr "?; \"i]w\" i??Pb?WwPX?{"
 
 #: ID:3825,
 msgid "Close the active window and prompts to save the documents"
-msgstr "關閉目前視窗並提示儲存文件"
+msgstr "繹?e繫?xs?"
 
 #: Dlg-ID:138,
 msgid "Colors"
-msgstr "色彩"
+msgstr "?"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Command failed."
-msgstr "命令失敗."
+msgstr "RO?"
 
 #: Control-ID:1110,
 msgid "Commit to:"
-msgstr "送交至:"
+msgstr "e?:"
 
 #: ID:8,
 msgid "Commit..."
-msgstr "送交..."
+msgstr "e?."
 
 #: ID:9,
 msgid "Commits your changes to the repository"
-msgstr "將你所做的修改送交至檔案庫"
+msgstr "NA????	?w"
 
 #: Control-ID:1083,
 msgid "Committing"
-msgstr "正在送交"
-
+msgstr "be?
 #: Control-ID:1019,
 msgid "Compare Whitespaces"
-msgstr "比對空白字元"
+msgstr "??r"
 
 #: ID:76,
 msgid "Compare revisions"
-msgstr "比對版本差異"
+msgstr "?t"
 
 #: ID:138,
 msgid "Compare with Base"
-msgstr "與基礎檔比對"
-
+msgstr "P礎	?
 #: ID:76,
 msgid "Compare with working copy"
-msgstr "與工作複本比對"
-
+msgstr "Pu@??
 #: ID:12,
 msgid "Compares the file with the last commited version to show you the changes you made"
-msgstr "比對此檔案與上次送交的版本並列出你所做的異動"
+msgstr "?	?PWe?疆CXA??
 
 #: ID:74,
 msgid "Completed"
-msgstr "完畢"
+msgstr ""
 
 #: Control-ID:65535,
 msgid "Conflicted"
-msgstr "衝突"
+msgstr "I"
 
 #: ID:73,
 msgid "Continue"
-msgstr "繼續"
+msgstr "l?"
 
 #: ID:126,
 msgid "Copied remotely"
-msgstr "遠端複製完成"
+msgstr "??s"
 
 #: ID:73,
 msgid "Copy"
-msgstr "複製"
+msgstr "?s"
 
 #: ID:101,
 msgid "Copy To..."
-msgstr "複製至..."
+msgstr "?s?.."
 
 #: ID:13,
 msgid "Copy files in Subversion to here"
-msgstr "將 Subversion 中的檔案複製至此處"
+msgstr "N Subversion 	??s?B"
 
 #: ID:3603,
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
-"將選擇的區塊複製至剪貼簿\n"
-"複製"
+"N???s?YK簿\n"
+"?s"
 
 #: ID:80,
 msgid "Copying %s"
-msgstr "正在複製 %s"
+msgstr "b?s %s"
 
 #: ID:80,
 msgid "Copying..."
-msgstr "正在複製..."
+msgstr "b?s..."
 
 #: ID:188,
 msgid "Corrections"
-msgstr "修正"
+msgstr "?"
 
 #: ID:81,
 msgid "Could not add %s to the ignore list!"
-msgstr "無法加入 %s 至忽略列表!"
+msgstr "Lk[J %s ?C?
 
 #: ID:201,
 msgid "Could not check for a newer version!"
-msgstr "無法檢查新版!"
+msgstr "Lkds!"
 
 #: ID:81,
 msgid ""
@@ -955,20 +948,20 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"無法複製檔案!\n"
+"Lk?s	?\n"
 "<hr=100%>\n"
 "%s"
 
 #: ID:81,
 msgid "Could not get the status!"
-msgstr "無法取得狀態!"
+msgstr "LkoA!"
 
 #: ID:69,
 msgid ""
 "Could not open the file\n"
 "%s"
 msgstr ""
-"無法開啟檔案\n"
+"Lk}???n"
 "%s"
 
 #: ID:81,
@@ -976,7 +969,7 @@ msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
 msgstr ""
-"無法取得檔案的 URL!\n"
+"Lko	? URL!\n"
 "%s"
 
 #: ID:66,
@@ -984,12 +977,12 @@ msgid ""
 "Could not retrieve version %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
-"無法取得 %s 版本的 %s 檔案.\n"
-"無法進行補綴!"
+"Lko %s  %s 	?\n"
+"Lki?!"
 
 #: ID:64,
 msgid "Could not save the file %s!"
-msgstr "無法儲存檔案 %s!"
+msgstr "Lk8s	?%s!"
 
 #: ID:81,
 msgid ""
@@ -997,7 +990,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"無法啟動差異檢視工具!\n"
+"Lk??tu?n"
 "<hr=100%>\n"
 "%s"
 
@@ -1007,7 +1000,7 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"無法啟動外部差異比對工具!\n"
+"Lk??~t??n"
 "<hr=100%>\n"
 "%s"
 
@@ -1017,205 +1010,204 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"無法啟動外部合併工具!\n"
+"Lk??~X?u?n"
 "<hr=100%>\n"
 "%s"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Could not start print job."
-msgstr "無法啟動列印工作."
+msgstr "Lk??CLu@."
 
 #: ID:81,
 msgid "Could not start thread!"
-msgstr "無法啟動執行緒!"
+msgstr "Lk???!"
 
 #: ID:101,
 msgid "Create Folder..."
-msgstr "建立資料夾..."
+msgstr "???..."
 
 #: ID:13,
 msgid "Create Patch..."
-msgstr "建立補綴..."
+msgstr "???..."
 
 #: ID:8,
 msgid "Create Repository here"
-msgstr "在此建立檔案庫"
+msgstr "b????w"
 
 #: ID:77,
 msgid "Create Tag from revision"
-msgstr "從版本建立標記"
+msgstr "q???O"
 
 #: ID:126,
 msgid "Created folder remotely"
-msgstr "遠端建立資料夾完成"
+msgstr "????"
 
 #: ID:10,
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "在檔案庫中快速建立複本做為分支或標記之用"
+msgstr "b	?w?t???$??O?
 
 #: ID:10,
 msgid "Creates a repository database at the current location"
-msgstr "在目前位址建立檔案資料庫"
+msgstr "b?e??????w"
 
 #: ID:14,
 msgid "Creates a unified diff file with all changes you made"
-msgstr "建立包含你所有修改的單一異動檔"
+msgstr "??]tA??????
 
 #: ID:3603,
 msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"剪下選擇的區塊並放到剪貼簿\n"
-"剪下"
+"TU??矇?K簿\n"
+"TU"
 
 #: ID:76,
 msgid "Date"
-msgstr "日期"
+msgstr "?"
 
 #: Control-ID:65535,
 msgid "Default &number of log messages"
-msgstr "預設的紀錄訊息數目(&N)"
+msgstr "w]T??&N)"
 
 #: ID:11,#:
 #: ID:73,#:
 #: ID:101,
 msgid "Delete"
-msgstr "刪除"
+msgstr "R"
 
 #: ID:11,
 msgid "Deletes files / folders from source control"
-msgstr "從版本控制樹中刪除檔案/資料夾"
+msgstr "q?R	??"
 
 #: ID:3859,#:
 #: ID:3859,
 msgid "Destination disk drive is full."
-msgstr "目的磁碟已滿."
+msgstr "???w."
 
 #: ID:12,
 msgid "Diff"
-msgstr "比對差異"
+msgstr "?"
 
 #: Control-ID:65535,
 msgid "Diff File:"
-msgstr "差異檔:"
+msgstr "t	:"
 
 #: Control-ID:65535,
 msgid "Diff Program"
-msgstr "差異比對程式"
+msgstr "t?"
 
 #: Control-ID:65535,
 msgid "Diff Viewer"
-msgstr "差異檢視工具"
-
+msgstr "tu?
 #: Dlg-ID:163,
 msgid "Diff/Merge"
-msgstr "差異比對/合併"
+msgstr "t?X?
 
 #: Control-ID:1022,
 msgid "Diffing"
-msgstr "比對差異"
+msgstr "?"
 
 #: Control-ID:65535,
 msgid "Directory:"
-msgstr "目錄:"
+msgstr "?:"
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "Disk full while accessing %1."
-msgstr "存取 %1 時磁碟已滿."
+msgstr "s %1 ???w."
 
 #: ID:3860,#:
 #: ID:3860,
 msgid "Dispatch exception: %1"
-msgstr "分派異常: %1"
+msgstr ",`: %1"
 
 #: ID:3605,
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr ""
-"顯示點選的按鈕, 選單, 或視窗的說明\n"
-"說明"
+"t?I?s, ?, e\n"
+""
 
 #: ID:3605,
 msgid ""
 "Display help for current task or command\n"
 "Help"
 msgstr ""
-"顯示目前工作或命令的說明\n"
-"說明"
+"t??eu@ORO\n"
+""
 
 #: ID:3605,
 msgid ""
 "Display instructions about how to use help\n"
 "Help"
 msgstr ""
-"顯示如何使用說明\n"
-"說明"
+"t?p??\n"
+""
 
 #: ID:3605,
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
 msgstr ""
-"顯示檔案資訊, 版本號碼, 以及版權宣告\n"
-"關於"
+"t????, X, H?Yti\n"
+"繹"
 
 #: ID:80,
 msgid "Do not show this message again"
-msgstr "不再顯示此訊息"
+msgstr "At?T"
 
 #: ID:76,
 msgid ""
 "Do you really want to revert all changes\n"
 "which were made in this revision?"
-msgstr "你確定要復原這個版本的所有異動嗎?"
+msgstr "ATwn_?????"
 
 #: ID:76,
 msgid "Do you want to proceed?"
-msgstr "確定要繼續嗎?"
+msgstr "Twnl??"
 
 #: ID:313,
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
 msgstr ""
-"確定要重新載入文件以反映設定變更嗎?\n"
-"注意: 所有變更將不會儲存!"
+"TwnsJ?H?M]wS?\n"
+"`N: ?SN|8s!"
 
 #: ID:313,
 msgid ""
 "Do you want to reload the documents?\n"
 "You will lose all changes you've made!"
 msgstr ""
-"確定要重新載入文件嗎?\n"
-"所有變更將不會儲存!"
+"TwnsJ??\n"
+"?SN|8s!"
 
 #: ID:313,
 msgid "Do you want to save your changes?"
-msgstr "是否要儲存你所做的異動?"
+msgstr "O_n8sA??"
 
 #: Control-ID:1061,
 msgid "Don't &remove log messages when cancelling a commit"
-msgstr "取消送交時不清除紀錄訊息"
+msgstr "e?MT"
 
 #: Control-ID:1073,
 msgid "Don't convert files when diffing against BASE"
-msgstr "與 BASE 比對異動時不轉換檔案"
+msgstr "P BASE ???��	?
 
 #: Control-ID:1079,
 msgid "Drive Types"
-msgstr "磁碟機類型"
+msgstr "??臘"
 
 #: MenuEntry
 msgid "E&xit"
-msgstr "離開(&X)"
+msgstr "繚}(&X)"
 
 #: Control-ID:1095,
 msgid "E&xternal"
-msgstr "外部(&X)"
+msgstr "~(&X)"
 
 #: ID:3697,
 msgid "EXT"
@@ -1223,260 +1215,258 @@ msgstr "EXT"
 
 #: Control-ID:1031,
 msgid "Edit"
-msgstr "編輯"
-
+msgstr "s?
 #: ID:12,
 msgid "Edit Conflicts"
-msgstr "編修衝突"
+msgstr "s?I"
 
 #: ID:110,
 msgid "Edit Extension Specific Diff Program"
-msgstr "編輯根據副檔名的差異比對程式"
+msgstr "s??b?Wt?"
 
 #: ID:110,
 msgid "Edit Extension Specific Merge Program"
-msgstr "編輯根據副檔名的合併程式"
+msgstr "s??b?WX?{"
 
 #: ID:79,
 msgid "Either the name or IP of the proxy server"
-msgstr "輸入 proxy 伺服器的 IP 或名稱"
+msgstr "? proxy A IP FW?
 
 #: Control-ID:65535,
 msgid "Empty"
-msgstr "空的"
+msgstr "U"
 
 #: ID:3825,
 msgid "Enlarge the window to full size"
-msgstr "將視窗放到最大"
+msgstr "N?j"
 
 #: Dlg-ID:135,
 msgid "Enter Log Message"
-msgstr "輸入紀錄訊息"
+msgstr "?T"
 
 #: ID:126,#:
 #: Control-ID:1065,
 msgid "Enter Log Message:"
-msgstr "輸入紀錄訊息:"
+msgstr "?T:"
 
 #: ID:80,
 msgid "Enter URL"
-msgstr "輸入 URL"
+msgstr "? URL"
 
 #: ID:3603,
 msgid ""
 "Erase everything\n"
 "Erase All"
 msgstr ""
-"清除全部\n"
-"清除全部"
+"M\n"
+"M"
 
 #: ID:3603,
 msgid ""
 "Erase the selection\n"
 "Erase"
 msgstr ""
-"清除選擇區\n"
-"清除"
+"M??n"
+"M"
 
 #: ID:81,
 msgid "Error validating server certificate for %s:"
-msgstr "%s 伺服器憑證檢核錯誤:"
+msgstr "%s A~???~:"
 
 #: Control-ID:1097,
 msgid "Ex&ternal"
-msgstr "外部(&T)"
+msgstr "~(&T)"
 
 #: Control-ID:65535,
 msgid "Exceptions:"
-msgstr "例外:"
+msgstr "?~:"
 
 #: Control-ID:65535,
 msgid "Exclude pattern:"
-msgstr "除外樣式:"
+msgstr "~?:"
 
 #: ID:94,
 msgid "Export Directory:"
-msgstr "匯出目錄:"
+msgstr "?X?:"
 
 #: ID:9,
 msgid "Export..."
-msgstr "匯出..."
+msgstr "?X..."
 
 #: ID:79,
 msgid "Exporting..."
-msgstr "正在匯出..."
+msgstr "b?X..."
 
 #: ID:10,
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "從檔案庫中匯出乾淨的工作複本, 不含 svn 管理用資料夾"
+msgstr "q	?w?Xbu@?, t svn ?z??"
 
 #: ID:74,
 msgid "Extension"
-msgstr "副檔名"
+msgstr "b?W"
 
 #: Control-ID:65535,
 msgid "Extension specific programs"
-msgstr "根據副檔名的程式"
+msgstr "??b?W{"
 
 #: Control-ID:65535,
 msgid "Extension:"
-msgstr "副檔名:"
+msgstr "b?W:"
 
 #: ID:74,
 msgid "External"
-msgstr "外部"
+msgstr "~"
 
 #: Control-ID:65535,
 msgid "External Program:"
-msgstr "外部程式:"
+msgstr "~{:"
 
 #: ID:74,
 msgid "Failed Revert"
-msgstr "復原失敗"
+msgstr "_??
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to create empty document."
-msgstr "無法建立空文件."
+msgstr "Lk??T?."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to launch help."
-msgstr "無法啟動說明."
+msgstr "Lk??."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to open document."
-msgstr "開啟文件失敗."
+msgstr "}???"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Failed to save document."
-msgstr "儲存文件失敗."
+msgstr "8s??"
 
 #: ID:313,
 msgid "Fetching File..."
-msgstr "正在取得檔案..."
+msgstr "bo	?.."
 
 #: ID:313,
 msgid "Fetching version %s of file:"
-msgstr "正在取得第 %s 版的:"
+msgstr "boG%s :"
 
 #: ID:63,#:
 #: ID:74,#:
 #: ID:77,
 msgid "File"
-msgstr "檔案"
+msgstr "	?
 
 #: Dlg-ID:135,
 msgid "File Patches"
-msgstr "檔案補綴"
+msgstr "	??"
 
 #: ID:3603,
 msgid ""
 "Find the specified text\n"
 "Find"
 msgstr ""
-"搜尋指定文字\n"
-"搜尋"
+"jMw?\n"
+"jM"
 
 #: ID:77,
 msgid "Finished!"
-msgstr "完成!"
+msgstr "!"
 
 #: Control-ID:65535,
 msgid "Font for log messages:"
-msgstr "訊息紀錄字型:"
+msgstr "Tr:"
 
 #: Control-ID:65535,
 msgid "Font:"
-msgstr "字型:"
+msgstr "r:"
 
 #: ID:3585,
 msgid "For Help, press F1"
-msgstr "按下 F1 可取得說明"
+msgstr "U F1 io"
 
 #: Control-ID:65535,
 msgid "From:"
-msgstr "從:"
+msgstr "q:"
 
 #: Dlg-ID:107,
 msgid "General"
-msgstr "一般設定"
+msgstr "@?w"
 
 #: ID:144,
 msgid "Generating Patchfile..."
-msgstr "正在產生補綴檔..."
+msgstr "b??	..."
 
 #: Control-ID:1031,
 msgid "Get &All"
-msgstr "全部取回(&A)"
+msgstr "^(&A)"
 
 #: ID:119,
 msgid "Getting File %s"
-msgstr "正在取得檔案 %s"
+msgstr "bo	?%s"
 
 #: ID:132,
 msgid "Getting file info..."
-msgstr "正在取得檔案資訊..."
+msgstr "bo	??..."
 
 #: ID:2049,
 msgid ""
 "Go to the next difference\n"
 "next difference"
 msgstr ""
-"跳至下一個差異處\n"
-"下一差異"
+"?U@?tB\n"
+"U@t"
 
 #: ID:2049,
 msgid ""
 "Go to the previous difference\n"
 "previous difference"
 msgstr ""
-"跳至前一個差異處\n"
-"前一差異"
+"?e@?tB\n"
+"e@t"
 
 #: Control-ID:1115,
 msgid "Head Revision"
-msgstr "最新版本"
+msgstr "?s"
 
 #: Control-ID:1004,#:
 #: ID:12,
 msgid "Help"
-msgstr "說明"
+msgstr ""
 
 #: ID:82,
 msgid "Hostname mismatch (%s)"
-msgstr "站臺名稱不符 (%s)"
+msgstr "OW?��(%s)"
 
 #: Dlg-ID:106,
 msgid "Icon Overlays"
-msgstr "圖示覆蓋"
+msgstr "???\"
 
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
+msgstr "??/ ]p / {:     Luebbe Onken"
 
 #: ID:194,
 msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
-msgstr "勾選此選項時, 在\"另存新檔\"或是\"開啟\"的對話盒中不顯示圖示覆蓋."
+msgstr "???? b\"tss	\"?O\"}?"?t????\."
 
 #: ID:95,
 msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"勾選此選項時, 會在檔案庫中建立新資料夾.\n"
-"如未勾選, 則直接匯入到指定的 URL."
+"???? |b	?w??s?.\n"
+"p??h?J?w URL."
 
 #: ID:79,
 msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "勾選此選項時, TortoiseSVN 不會建立用於比對差異的暫存檔, 而是直接與原始的基礎檔比對"
-
+msgstr "???? TortoiseSVN |??O??s	, ?OP?礎	?
 #: ID:194,
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "啟用時, TortoiseSVN 每週會檢查一次最新版本"
+msgstr "??? TortoiseSVN Cg|d@?s"
 
 #: ID:80,
 msgid ""
@@ -1485,72 +1475,72 @@ msgid ""
 "You can then either edit that message or use\n"
 "it unchanged."
 msgstr ""
-"如果你取消送交, 你所輸入的紀錄訊息會被保存\n"
-"並在下次送交時自動填入.\n"
-"你可以進行修改或是直接使用."
+"pGAe?A??T|QOs\n"
+"疆bUe???J.\n"
+"AiHi??O??"
 
 #: ID:73,
 msgid "Ignore"
-msgstr "忽略"
+msgstr ""
 
 #: Control-ID:1021,
 msgid "Ignore All Whitespaces"
-msgstr "忽略所有空白字元"
+msgstr "?t?r"
 
 #: Control-ID:1020,
 msgid "Ignore Leading Whitespaces"
-msgstr "忽略開頭的空白字元"
+msgstr "}t?r"
 
 #: Control-ID:1018,
 msgid "Ignore Lineendings (recommended)"
-msgstr "忽略行尾 (建議)"
+msgstr "? (?)"
 
 #: Dlg-ID:139,
 msgid "Import"
-msgstr "匯入"
+msgstr "?J"
 
 #: Control-ID:1056,
 msgid "Import &Message"
-msgstr "匯入訊息(&M)"
+msgstr "?JT(&M)"
 
 #: ID:9,
 msgid "Import..."
-msgstr "匯入..."
+msgstr "?J..."
 
 #: ID:10,
 msgid "Imports the directory to a repository"
-msgstr "匯入目錄至檔案庫"
+msgstr "?J????w"
 
 #: ID:76,
 msgid "Initial Import"
-msgstr "初次匯入"
+msgstr "??J"
 
 #: Dlg-ID:161,
 msgid "Input"
-msgstr "輸入"
+msgstr "?"
 
 #: ID:3603,
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
 msgstr ""
-"插入剪貼簿內容\n"
-"貼上"
+"JYK簿e\n"
+"KW"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Insufficient memory to perform operation."
-msgstr "記憶體不足, 無法完成作業."
+msgstr "O??, Lk@~."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Internal application error."
-msgstr "內部程式錯誤."
+msgstr "{~."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Invalid filename."
-msgstr "檔案名稱錯誤."
+msgstr "	?W?~."
 
 #: ID:82,
 msgid ""
@@ -1570,10 +1560,10 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
-"錯誤的版本編號! 正確的版本如下:\n"
+"~s! TpU:\n"
 "HEAD, BASE, PREV, COMMITTED, WC\n"
-"十進位正整數\n"
-"如下格式之一的日期:\n"
+"Qi??\n"
+"pU?@?:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
@@ -1588,130 +1578,130 @@ msgstr ""
 
 #: Control-ID:1016,
 msgid "Jump to first difference when loading"
-msgstr "載入時跳至第一個差異處"
+msgstr "J??H@?tB"
 
 #: Control-ID:65535,
 msgid "Language:"
-msgstr "語系:"
+msgstr "yt:"
 
 #: Control-ID:65535,
 msgid "Last commit revision:"
-msgstr "上次送交版本:"
+msgstr "We?:"
 
 #: ID:11,
 msgid "Last saved revision of item"
-msgstr "上一次儲存的項目版本"
+msgstr "W@8s?"
 
 #: ID:12,
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "啟動外部差異比對/合併程式處理衝突"
+msgstr "??~t?X?{BzI"
 
 #: ID:3605,
 msgid ""
 "List Help topics\n"
 "Help Topics"
 msgstr ""
-"列出說明主題\n"
-"說明主題"
+"CXD��\n"
+"D��"
 
 #: ID:63,
 msgid "Local Status"
-msgstr "本地狀態"
+msgstr "aA"
 
 #: ID:94,
 msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr ""
-"儲存檔案庫 URL 內容\n"
-"的位置."
+"8s	?w URL e\n"
+"?."
 
 #: ID:126,
 msgid "Log"
-msgstr "紀錄"
+msgstr ""
 
 #: Control-ID:65535,
 msgid "Log Message"
-msgstr "紀錄訊息"
+msgstr "T"
 
 #: Dlg-ID:130,
 msgid "Log Messages"
-msgstr "紀錄訊息"
+msgstr "T"
 
 #: ID:3866,#:
 #: ID:3866,
 msgid "Mail system DLL is invalid."
-msgstr "郵件系統 DLL 錯誤."
+msgstr "lt?DLL ~."
 
 #: Dlg-ID:143,
 msgid "Main"
-msgstr "主要設定"
+msgstr "Dn]w"
 
 #: Dlg-ID:159,
 msgid "Menu Layout"
-msgstr "選單配置"
+msgstr "?tm"
 
 #: Dlg-ID:141,
 msgid "Merge"
-msgstr "合併"
+msgstr "X?
 
 #: Control-ID:65535,
 msgid "Merge Program"
-msgstr "合併程式"
+msgstr "X?{"
 
 #: ID:9,
 msgid "Merge..."
-msgstr "合併..."
+msgstr "X?.."
 
 #: ID:10,
 msgid "Merges a branch into the main trunk"
-msgstr "將分支樹合併回主幹"
+msgstr "N$?X?^DF"
 
 #: Control-ID:65535,
 msgid "Merging"
-msgstr "正在合併"
+msgstr "bX?
 
 #: ID:76,
 msgid "Message"
-msgstr "訊息"
+msgstr "T"
 
 #: ID:78,
 msgid "Mime Type"
-msgstr "MIME 類型"
+msgstr "MIME 臘"
 
 #: Control-ID:65535,
 msgid "Minimum logsize in chars"
-msgstr "最小訊息長度"
+msgstr "?pT?
 
 #: Control-ID:1023,#:
 #: Control-ID:1082,
 msgid "Misc"
-msgstr "其他"
+msgstr "?"
 
 #: ID:3887,#:
 #: ID:3887,
 msgid "Mixed"
-msgstr "混合"
+msgstr "VX"
 
 #: ID:74,
 msgid "Modified"
-msgstr "異動"
+msgstr "?
 
 #: ID:12,
 msgid "Move files in Subversion to here"
-msgstr "將 Subversion 中的檔案移至此處"
+msgstr "N Subversion 	??B"
 
 #: ID:126,
 msgid "Moved remotely"
-msgstr "遠端移動完成"
+msgstr "??"
 
 #: ID:80,
 msgid "Moving %s"
-msgstr "正在移動 %s"
+msgstr "b?%s"
 
 #: ID:80,
 msgid "Moving..."
-msgstr "正在移動..."
+msgstr "b?.."
 
 #: ID:3697,
 msgid "NUM"
@@ -1719,20 +1709,20 @@ msgstr "NUM"
 
 #: Dlg-ID:102,
 msgid "Network"
-msgstr "網路"
+msgstr ""
 
 #: Dlg-ID:30721,#:
 #: Dlg-ID:30721,
 msgid "New"
-msgstr "新增"
+msgstr "sW"
 
 #: Control-ID:1076,
 msgid "New Name:"
-msgstr "新名稱:"
+msgstr "sW?"
 
 #: ID:73,
 msgid "No"
-msgstr "否"
+msgstr "_"
 
 #: ID:81,
 msgid ""
@@ -1740,24 +1730,24 @@ msgid ""
 "<hr=100%>\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
 msgstr ""
-"未指定命令!\n"
+"wRO!\n"
 "<hr=100%>\n"
-"TortoiseProc.exe 用於 shell extension, 請勿直接執行!"
+"TortoiseProc.exe O shell extension, ?U?
 
 #: ID:81,
 msgid "No command value specified!"
-msgstr "尚未指定命令值!"
+msgstr "|wRO?"
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "No error message is available."
-msgstr "沒有錯誤訊息."
+msgstr "S~T."
 
 #: ID:3867,#:
 #: ID:3868,#:
 #: ID:3868,
 msgid "No error occurred."
-msgstr "沒有發生錯誤."
+msgstr "So?~."
 
 #: ID:77,
 msgid ""
@@ -1765,24 +1755,24 @@ msgid ""
 "the last commit. There's nothing\n"
 "to do for TortoiseSVN here..."
 msgstr ""
-"從上次送交以來沒有任何檔案\n"
-"異動或加入. TortoiseSVN 沒有\n"
-"什麼事可做."
+"qWe??S	?n"
+"??[J. TortoiseSVN S\n"
+"?i."
 
 #: Control-ID:65535,
 msgid "Normal"
-msgstr "正常"
+msgstr "`"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
+msgstr "疇n (?INI 	?."
 
 #: Control-ID:1,#:
 #: ID:73,#:
 #: Control-ID:1,
 msgid "OK"
-msgstr "確定"
+msgstr "Tw"
 
 #: ID:3697,
 msgid "OVR"
@@ -1790,46 +1780,46 @@ msgstr "OVR"
 
 #: MenuEntry
 msgid "Oneway &Diff"
-msgstr "單向差異(&D)"
+msgstr "?t(&D)"
 
 #: Control-ID:1073,
 msgid "Only check out the top folder"
-msgstr "僅取出最上層目錄"
+msgstr "?X?Wh?"
 
 #: Control-ID:1073,
 msgid "Only update the top folder"
-msgstr "僅更新最上層目錄"
+msgstr "?s?Wh?"
 
 #: ID:3841,#:
 #: ID:101,#:
 #: ID:3841,
 msgid "Open"
-msgstr "開啟"
+msgstr "}?
 
 #: ID:76,
 msgid "Open client certificate file"
-msgstr "開啟用戶端憑證檔"
+msgstr "}???~??
 
 #: ID:3601,
 msgid "Open file"
-msgstr "開啟檔案"
+msgstr "}???
 
 #: ID:3605,
 msgid ""
 "Opens Help\n"
 "Help Topics"
 msgstr ""
-"開啟說明\n"
-"說明主題"
+"}h\n"
+"D��"
 
 #: ID:13,
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
+msgstr "}???w糧L, i?W????w"
 
 #: ID:3843,#:
 #: ID:3843,
 msgid "Out of memory."
-msgstr "記憶體不足."
+msgstr "O??."
 
 #: ID:76,
 msgid "PEM"
@@ -1841,80 +1831,80 @@ msgstr "PKCS12"
 
 #: ID:69,
 msgid "Password:"
-msgstr "密碼:"
+msgstr "KX:"
 
 #: ID:376,
 msgid "Patch All"
-msgstr "全部補綴"
+msgstr "?"
 
 #: ID:157,#:
 #: ID:157,
 msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr "補綴檔|*.diff;*.patch|所有檔案|*.*||"
+msgstr "?	|*.diff;*.patch|?	?*.*||"
 
 #: ID:77,
 msgid "Path"
-msgstr "路徑"
+msgstr "|"
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a GUID."
-msgstr "請輸入 GUID."
+msgstr "?? GUID."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a currency."
-msgstr "請輸入貨幣."
+msgstr "??f."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a date and/or time."
-msgstr "請輸入日期或時間."
+msgstr "?????."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a date."
-msgstr "請輸入日期."
+msgstr "???."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a number between %1 and %2."
-msgstr "請輸入介於 %1 與 %2 之間的數字."
+msgstr "?? %1 P %2 ?r."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a number."
-msgstr "請輸入數字."
+msgstr "???r."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a positive integer."
-msgstr "請輸入正整數."
+msgstr "???."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter a time."
-msgstr "請輸入時間."
+msgstr "???."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer between %1 and %2."
-msgstr "請輸入介於 %1 與 %2 之間的整數."
+msgstr "?? %1 P %2 ?."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer between 0 and 255."
-msgstr "請輸入介於 0 到 255 之間的整數."
+msgstr "?? 0 ?55 ?."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter an integer."
-msgstr "請輸入整數."
+msgstr "???."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please enter no more than %1 characters."
-msgstr "請勿輸入超過 %1 個字."
+msgstr "???WL %1 ?r."
 
 #: ID:78,
 msgid ""
@@ -1923,79 +1913,77 @@ msgid ""
 "to be in the just created copy then you need to <b>switch</b> over\n"
 "to that copy path. Use the <b>Switch</b> command to do that."
 msgstr ""
-"請注意:\n"
-"你的工作複本還是設為先前的路徑. 如果你想要之後的異動\n"
-"會送交到剛才建立的複本, 你必須先<b>切換</b>到新的路徑.\n"
-"使用<b>切換</b>指令."
+"?`N:\n"
+"Au@?YO]e|. pGAQn??n"
+"|e?????, A<b>t</b>?|.\n"
+"?繕b>t</b>O."
 
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please select a button."
-msgstr "請選擇按鈕."
+msgstr "??s."
 
 #: ID:76,
 msgid "Please specify the certificate type"
-msgstr "請指定憑證類型"
+msgstr "?w~?"
 
 #: ID:132,
 msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "請稍候 - 可能需要數分鐘, 真的!"
+msgstr "?y?- i?n?l u!"
 
 #: ID:13,
 msgid "Please wait while cancelling..."
-msgstr "正在取消, 請稍候..."
+msgstr "b, ?y?.."
 
 #: ID:119,
 msgid "Please wait..."
-msgstr "請稍候..."
+msgstr "?y?.."
 
 #: ID:132,
 msgid "Processing revision %d of %d..."
-msgstr "正在處理版本 %d 於 %d..."
+msgstr "bBz %d  %d..."
 
 #: ID:74,
 msgid "Program"
-msgstr "程式"
+msgstr "{"
 
 #: ID:157,
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr "程式 (*.exe)|*.*|所有檔案 (*.*)|*.*||"
+msgstr "{ (*.exe)|*.*|?	?(*.*)|*.*||"
 
 #: Control-ID:65535,
 msgid "Properties"
-msgstr "性質"
-
+msgstr "??
 #: ID:11,
 msgid "Property"
-msgstr "性質"
-
+msgstr "??
 #: Dlg-ID:107,
 msgid "Property Page"
-msgstr "性質頁面"
+msgstr "??"
 
 #: Control-ID:65535,
 msgid "Property Status:"
-msgstr "性質狀態:"
+msgstr "??A:"
 
 #: Control-ID:65535,
 msgid "Proxy &timeout in seconds:"
-msgstr "Proxy 逾時設定(秒):"
+msgstr "Proxy O?]w(?"
 
 #: Control-ID:1080,
 msgid "Proxy Settings"
-msgstr "Proxy 設定"
+msgstr "Proxy ]w"
 
 #: ID:3605,
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
 msgstr ""
-"結束程式; 提示儲存文件\n"
-"離開"
+"{; ?xs?\n"
+"繚}"
 
 #: Control-ID:1073,
 msgid "RAM drives"
-msgstr "虛擬磁碟"
+msgstr "???
 
 #: ID:3697,
 msgid "REC"
@@ -2003,179 +1991,176 @@ msgstr "REC"
 
 #: ID:12,
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr "在你卡住之前, 請先閱讀日常使用指南..."
+msgstr "bAd?e, ?\U???n..."
 
 #: ID:3603,
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
 msgstr ""
-"重做上次還原的動作\n"
-"重做"
+"WY??@\n"
+""
 
 #: ID:3825,
 msgid "Reduce the window to an icon"
-msgstr "縮小視窗為圖示"
+msgstr "Yp??
 
 #: ID:101,#:
 #: ID:135,
 msgid "Refresh"
-msgstr "重新整理"
+msgstr "s?"
 
 #: ID:82,
 msgid "Reject"
-msgstr "拒絕"
+msgstr "?"
 
 #: MenuEntry
 msgid "Reload"
-msgstr "重新載入"
+msgstr "sJ"
 
 #: ID:2050,
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
-"重新載入所有已開啟的檔案並且還原所有變更.\n"
-"重新載入"
+"sJ?w}?	?疇BY?S.\n"
+"sJ"
 
 #: Dlg-ID:157,
 msgid "Relocate"
-msgstr "重新定位"
-
+msgstr "sw?
 #: ID:12,
 msgid "Relocate..."
-msgstr "重新定位..."
+msgstr "sw?."
 
 #: ID:80,
 msgid "Relocating..."
-msgstr "正在重新定位..."
+msgstr "bsw?."
 
 #: ID:63,
 msgid "Remote Status"
-msgstr "遠端狀態"
+msgstr "?A"
 
 #: Control-ID:65535,
 msgid "Removed"
-msgstr "移除"
+msgstr ""
 
 #: ID:126,
 msgid "Removed file/folder"
-msgstr "已移除檔案/資料夾"
+msgstr "w	??"
 
 #: Dlg-ID:151,
 msgid "Rename"
-msgstr "更改名稱"
+msgstr "??
 
 #: ID:97,
 msgid "Rename %s"
-msgstr "更改 %s 的名稱"
+msgstr "?s W?
 
 #: ID:11,#:
 #: ID:101,
 msgid "Rename..."
-msgstr "更改名稱..."
+msgstr "??.."
 
 #: ID:11,
 msgid "Renames files / folders inside source control"
-msgstr "更改版本控制樹中的檔案/資料夾名稱"
+msgstr "??	??W?
 
 #: ID:3603,
 msgid ""
 "Repeat the last action\n"
 "Repeat"
 msgstr ""
-"重覆上次動作\n"
-"重覆"
+"��W?@\n"
+"��"
 
 #: ID:3603,
 msgid ""
 "Replace specific text with different text\n"
 "Replace"
 msgstr ""
-"用指定的文字取代特定文字\n"
-"取代"
+"?w?NSw?\n"
+"N"
 
 #: ID:74,
 msgid "Replaced"
-msgstr "取代"
+msgstr "N"
 
 #: ID:13,
 msgid "Repo-Browser"
-msgstr "檔案庫瀏覽器"
+msgstr "	?w糧L"
 
 #: Control-ID:65535,#:
 #: Control-ID:1055,#:
 #: Control-ID:65535,
 msgid "Repository"
-msgstr "檔案庫"
+msgstr "	?w"
 
 #: Dlg-ID:153,
 msgid "Repository Browser"
-msgstr "檔案庫瀏覽器"
+msgstr "	?w糧L"
 
 #: ID:74,
 msgid "Resolve"
-msgstr "解決"
+msgstr "?M"
 
 #: Control-ID:1067,
 msgid "Resolve conflicted subversion status on save"
-msgstr "儲存時解除 subversion 的衝突狀態"
+msgstr "8s?? subversion IA"
 
 #: ID:8,
 msgid "Resolved"
-msgstr "解決"
+msgstr "?M"
 
 #: ID:9,
 msgid "Resolves conflicted files"
-msgstr "解決有衝突的檔案"
+msgstr "?MI	?
 
 #: ID:73,
 msgid "Restore"
-msgstr "還原"
-
+msgstr "Y?
 #: ID:3826,
 msgid "Restore the window to normal size"
-msgstr "還原視窗至一般大小"
+msgstr "Y??@?p"
 
 #: ID:73,
 msgid "Retry"
-msgstr "重試"
+msgstr "?
 
 #: ID:8,#:
 #: ID:73,#:
 #: Dlg-ID:175,
 msgid "Revert"
-msgstr "復原"
-
+msgstr "_?
 #: ID:113,
 msgid "Revert changes from this revision"
-msgstr "復原自此版本以來的變更"
+msgstr "_?H?S"
 
 #: ID:9,
 msgid "Reverts all changes you made since the last update"
-msgstr "復原從上次更新之後全部的變動"
+msgstr "_?Ws?S?
 
 #: ID:76,#:
 #: Control-ID:65535,#:
 #: Control-ID:65535,
 msgid "Revision"
-msgstr "版本"
+msgstr ""
 
 #: ID:119,
 msgid "Revision %d"
-msgstr "版本 %d"
+msgstr " %d"
 
 #: Control-ID:65535,
 msgid "Revision / Author:"
-msgstr "版本 / 作者:"
+msgstr " / @?"
 
 #: ID:75,
 msgid "Revision: "
-msgstr "版本: "
+msgstr ": "
 
 #: MenuEntry
 msgid "S&ettings"
-msgstr "設定(&E)"
+msgstr "]w(&E)"
 
 #: ID:3697,
 msgid "SCRL"
@@ -2231,7 +2216,7 @@ msgstr "SVN Revert..."
 
 #: ID:11,
 msgid "SVN Revision"
-msgstr "SVN 版本"
+msgstr "SVN "
 
 #: ID:11,
 msgid "SVN Status"
@@ -2255,30 +2240,30 @@ msgstr "SVN mime-type"
 
 #: ID:12,
 msgid "SVN short Url"
-msgstr "SVN 短 UR"
+msgstr "SVN u UR"
 
 #: MenuEntry
 msgid "Save &As..."
-msgstr "另存新檔(&A)..."
+msgstr "tss	(&A)..."
 
 #: ID:3841,#:
 #: ID:3841,
 msgid "Save As"
-msgstr "另存新檔"
+msgstr "tss	"
 
 #: ID:313,#:
 #: ID:101,
 msgid "Save as..."
-msgstr "另存新檔..."
+msgstr "tss	..."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "Save changes to %1?"
-msgstr "是否儲存 %1 的變動?"
+msgstr "O_8s %1 S?"
 
 #: ID:76,
 msgid "Save revision to..."
-msgstr "儲存版本至..."
+msgstr "8s?.."
 
 #: ID:3601,#:
 #: ID:3601,
@@ -2286,205 +2271,201 @@ msgid ""
 "Save the modified file\n"
 "Save file"
 msgstr ""
-"儲存變更過的檔案\n"
-"儲存檔案"
+"8sSL	?n"
+"8s	?
 
 #: ID:144,
 msgid "Saving patchfile to:"
-msgstr "儲存補綴檔至:"
+msgstr "8s?	?"
 
 #: ID:113,
 msgid "Search log messages..."
-msgstr "搜尋記錄訊息..."
+msgstr "jMOT..."
 
 #: ID:3867,#:
 #: ID:3867,
 msgid "Seek failed on %1"
-msgstr "搜尋錯誤: %1"
+msgstr "jM~: %1"
 
 #: Control-ID:1067,#:
 #: Control-ID:1067,
 msgid "Select / Deselect &All"
-msgstr "全選 / 全不選(&A)"
+msgstr "? ?A)"
 
 #: ID:78,
 msgid "Select Diff Application"
-msgstr "選擇比對差異工具"
-
+msgstr "??u?
 #: ID:13,
 msgid "Select File..."
-msgstr "選擇檔案..."
+msgstr "?	?.."
 
 #: ID:78,
 msgid "Select Merge Application"
-msgstr "選擇合併工具"
-
+msgstr "?X?u?
 #: Dlg-ID:173,
 msgid "Select Revision"
-msgstr "選擇版本"
+msgstr "?"
 
 #: ID:78,
 msgid "Select SSH Client"
-msgstr "選擇 SSH 用戶端程式"
+msgstr "? SSH ??{"
 
 #: ID:79,
 msgid "Select Text Editor Application"
-msgstr "選擇文字編輯器"
+msgstr "??s?"
 
 #: ID:78,
 msgid "Select Viewer for Diff-Files"
-msgstr "選擇檢視差異檔工具"
-
+msgstr "?t	u?
 #: ID:3585,
 msgid "Select an object on which to get Help"
-msgstr "選擇要查詢說明的物件"
+msgstr "?nd?"
 
 #: ID:313,
 msgid "Select diff file..."
-msgstr "選擇差異檔..."
+msgstr "?t	..."
 
 #: ID:79,
 msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
-"選擇要匯出至的資料夾.\n"
-"你可能需要在進行匯出之前先建立新資料夾."
+"?n?X??.\n"
+"Ai?nbi?Xe??s?."
 
 #: ID:3603,
 msgid ""
 "Select the entire document\n"
 "Select All"
 msgstr ""
-"選取整份文件\n"
-"全選"
-
+"???\n"
+"?
 #: ID:3866,#:
 #: ID:3866,
 msgid "Send Mail failed to send message."
-msgstr "發送郵件功能無法寄出訊息."
+msgstr "oel\?kHXT."
 
 #: ID:74,
 msgid "Sending Content"
-msgstr "正在傳送內容"
+msgstr "bjee"
 
 #: Control-ID:65535,
 msgid "Server &address:"
-msgstr "伺服器位址(&A):"
+msgstr "A?(&A):"
 
 #: Control-ID:1088,
 msgid "Set filedates to the \"last commit time\""
-msgstr "將檔案日期設定為最後一次送交的時間"
+msgstr "N	??]w??e??"
 
 #: ID:13,
 msgid "Setting Properties..."
-msgstr "正在設定性質..."
+msgstr "b]w??."
 
 #: ID:107,#:
 #: ID:9,
 msgid "Settings"
-msgstr "設定"
+msgstr "]w"
 
 #: Control-ID:1105,
 msgid "Short &date/time format in log messages"
-msgstr "記錄訊息使用簡短日期/時間格式(&D)"
+msgstr "OT??u?/??(&D)"
 
 #: ID:12,
 msgid "Short Url of subversion items"
-msgstr "Subversion 項目的短 URL"
+msgstr "Subversion ?u URL"
 
 #: Control-ID:1031,#:
 #: Control-ID:1034,
 msgid "Show &Log"
-msgstr "顯示記錄(&L)"
+msgstr "t?O(&L)"
 
 #: Control-ID:1031,
 msgid "Show &Log..."
-msgstr "顯示記錄(&L)..."
+msgstr "t?O(&L)..."
 
 #: Control-ID:1016,
 msgid "Show &log"
-msgstr "顯示記錄(&L)"
+msgstr "t?O(&L)"
 
 #: Control-ID:1065,
 msgid "Show Diff Bar"
-msgstr "顯示差異列"
+msgstr "t?tC"
 
 #: ID:113,
 msgid "Show Differences"
-msgstr "顯示差異"
+msgstr "t?t"
 
 #: ID:113,
 msgid "Show Differences as Unified Diff"
-msgstr "以單一異動檔顯示異動"
+msgstr "H?????
 
 #: Control-ID:1063,
 msgid "Show Linenumbers"
-msgstr "顯示行號"
+msgstr "t??"
 
 #: ID:12,
 msgid "Show Log"
-msgstr "顯示記錄"
+msgstr "t?O"
 
 #: ID:101,
 msgid "Show log"
-msgstr "顯示記錄"
+msgstr "t?O"
 
 #: ID:3713,
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
 msgstr ""
-"顯示或隱藏狀態列\n"
-"開關狀態列"
+"t???AC\n"
+"}繹AC"
 
 #: ID:3713,
 msgid ""
 "Show or hide the toolbar\n"
 "Toggle ToolBar"
 msgstr ""
-"顯示或隱藏工具列\n"
-"開關工具列"
+"t???u?\n"
+"}繹u?"
 
 #: Control-ID:1088,
 msgid "Show overlays only in explorer"
-msgstr "僅在檔案總管中顯示圖示覆蓋"
+msgstr "?b	?`?t????\"
 
 #: ID:2049,
 msgid ""
 "Show special characters for whitespaces\n"
 "Show Whitespaces"
 msgstr ""
-"以特殊字元顯示空白字元\n"
-"顯示空白字元"
+"HS?t?t?r\n"
+"t?t?r"
 
 #: Control-ID:1073,
 msgid "Show unversioned files"
-msgstr "顯示無版本控制的檔案"
+msgstr "t?L?	?
 
 #: ID:13,
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "顯示從上次更新以後變動過的檔案, 不論在檔案庫中或在本地端"
+msgstr "t?qWsH?'L	? ?b	?wFba?
 
 #: ID:10,
 msgid "Shows information about TortoiseSVN"
-msgstr "顯示關於 TortoiseSVN 的資訊"
+msgstr "t? TortoiseSVN ?"
 
 #: ID:12,
 msgid "Shows the log for the selected file / folder"
-msgstr "顯示選定的檔案/資料夾的記錄"
+msgstr "t??	??O"
 
 #: ID:14,
 msgid "Shows the mime type of the versioned file"
-msgstr "顯示在版本控制下檔案的 mime 類型"
+msgstr "t?b?	? mime 臘"
 
 #: ID:74,
 msgid "Size"
-msgstr "大小"
+msgstr "jp"
 
 #: ID:74,
 msgid "Skip"
-msgstr "跳過"
+msgstr "L"
 
 #: ID:79,
 msgid ""
@@ -2492,38 +2473,38 @@ msgid ""
 " should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
-"指定 TortoiseSVN 不需要納入版本控制的\n"
-"目錄或檔案名稱.\n"
-"請以空白分隔項目."
+"w TortoiseSVN ?nGJ?\n"
+"????W?\n"
+"?Ht?9j?"
 
 #: ID:3604,
 msgid ""
 "Split the active window into panes\n"
 "Split"
 msgstr ""
-"將目前視窗分割區塊\n"
-"分割"
+"N?e3??\n"
+"3?
 
 #: ID:74,#:
 #: ID:77,
 msgid "Status"
-msgstr "狀態"
+msgstr "A"
 
 #: ID:11,
 msgid "Status of item in SVN"
-msgstr "SVN 項目的狀態"
+msgstr "SVN ?A"
 
 #: Control-ID:65535,
 msgid "Subversion configuration file:"
-msgstr "Subversion 設定檔:"
+msgstr "Subversion ]w	:"
 
 #: ID:79,
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
-"Subversion 在建立檔案庫時回報錯誤!\n"
-"請確認資料夾是空的並且沒有防寫保護."
+"Subversion b????w?^~!\n"
+"?T{?OU疇BSgO?."
 
 #: ID:81,
 msgid ""
@@ -2531,70 +2512,70 @@ msgid ""
 "<hr=100%>\n"
 "%s"
 msgstr ""
-"Subversion 在進行清理動作時回報錯誤!\n"
+"Subversion bi?z?@?^~!\n"
 "<hr=100%>\n"
 "%s"
 
 #: Dlg-ID:140,
 msgid "Switch To Branch / Tag"
-msgstr "切換至分支/標記"
+msgstr "t?$??O"
 
 #: ID:3606,
 msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
 msgstr ""
-"切換回前一個視窗區塊\n"
-"前一區塊"
+"t^e@??\n"
+"e@?"
 
 #: ID:2049,
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr ""
-"在單區塊與雙區塊檢視模式間切換\n"
-"切換單/雙區塊模式"
+"b?P繒??t\n"
+"t???"
 
 #: ID:3825,
 msgid "Switch to the next document window"
-msgstr "切換至下一個文件視窗"
+msgstr "t?U@??"
 
 #: ID:3606,
 msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
 msgstr ""
-"切換至下一個視窗區塊\n"
-"下一區塊"
+"t?U@??\n"
+"U@?"
 
 #: ID:3825,
 msgid "Switch to the previous document window"
-msgstr "切換至前一個文件視窗"
+msgstr "t?e@??"
 
 #: ID:9,
 msgid "Switch working copy to another branch / tag"
-msgstr "切換工作複本至其他分支/標記"
+msgstr "tu@???$??O"
 
 #: ID:9,
 msgid "Switch..."
-msgstr "切換..."
+msgstr "t..."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
-msgstr "系統登錄紀錄及 INI 檔案(如果有) 移除完成."
+msgstr "ten?INI 	?pG) ."
 
 #: Control-ID:65535,
 msgid "Tab Size:"
-msgstr "Tab 寬度:"
+msgstr "Tab e?"
 
 #: ID:79,
 msgid "Tagged the working copy to %s"
-msgstr "標記工作複本為 %s"
+msgstr "?Ou@? %s"
 
 #: Control-ID:65535,
 msgid "Text Status:"
-msgstr "文字狀態:"
+msgstr "?A:"
 
 #: ID:69,
 msgid ""
@@ -2602,42 +2583,42 @@ msgid ""
 "%s\n"
 "is not a valid text file!"
 msgstr ""
-"檔案\n"
+"	?n"
 "%s\n"
-"不是正確的文字檔!"
+"OT?	!"
 
 #: ID:80,
 msgid "The Repository was successfully created."
-msgstr "檔案庫建立成功."
+msgstr "	?w??\."
 
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr "區塊大小與加入/移除的行數不符!"
+msgstr "?jpP[J/?禳"
 
 #: ID:63,
 msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr "區塊起始標記 \"@@\" 應該位於第 %d 行!"
+msgstr "?_l?O \"@@\" 3??G%d ?
 
 #: ID:68,
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
 msgstr ""
-"差異比對引擎停止, 錯誤:\n"
+"t?:?~:\n"
 "%s"
 
 #: ID:64,
 msgid "The file %s does not exist!"
-msgstr "檔案 %s 不存在!"
+msgstr "	?%s sb!"
 
 #: ID:64,
 msgid "The file %s was not found in the patch file!"
-msgstr "補綴檔中找不到檔案: %s!"
+msgstr "?	??? %s!"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "The file is too large to open."
-msgstr "檔案過大, 無法開啟."
+msgstr "	?Lj, Lk}?"
 
 #: ID:80,
 msgid ""
@@ -2645,9 +2626,9 @@ msgid ""
 "%s\n"
 "already exists! Do you want to overwrite it?"
 msgstr ""
-"檔案 \n"
+"	?\n"
 "%s\n"
-" 已存在! 是否要覆寫?"
+" wsb! O_n��g?"
 
 #: ID:88,
 msgid ""
@@ -2656,34 +2637,34 @@ msgid ""
 "does not exist.\n"
 "Would you like to create it first?"
 msgstr ""
-"資料夾 \n"
+"? \n"
 "%s\n"
-" 不存在.\n"
-"是否要先建立?"
+" sb.\n"
+"O_n??"
 
 #: ID:63,
 msgid "The line \"====\" was expected in line %d !"
-msgstr "\"====\" 行應該出現在第 %d 行!"
+msgstr "\"====\" ??X{bG%d ?
 
 #: ID:63,
 msgid "The line \"Index: \" was not found!"
-msgstr "\"Index: \" 行找不到!"
+msgstr "\"Index: \" ??
 
 #: ID:63,
 msgid "The line indicating the new file was expected in line %d !"
-msgstr "新檔案的標示行應該位於第 %d 行!"
+msgstr "s	??????G%d ?
 
 #: ID:63,
 msgid "The line indicating the old file was expected in line %d !"
-msgstr "舊檔案的標示行應該位於第 %d 行!"
+msgstr "?	??????G%d ?
 
 #: ID:63,
 msgid ""
 "The old file does not match the new file.\n"
 "Renaming of files is not (yet) supported!"
 msgstr ""
-"舊檔案與新檔案不符.\n"
-"尚不支援檔案改名功能!"
+"?	?Ps	?U\n"
+"|?	??\?
 
 #: ID:64,
 msgid ""
@@ -2693,19 +2674,19 @@ msgid ""
 "%s\n"
 "do not match!"
 msgstr ""
-"補綴檔似乎過舊! 檔案中的\n"
+"?	GL?! 	?\n"
 "%s\n"
-" 行與補綴檔中的\n"
+" ??	\n"
 "%s\n"
-"行不符合!"
+"?TX!"
 
 #: ID:78,
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
-"選擇的檔案尚有一個以上的衝突標記.\n"
-"你確定要將之視為已解決?"
+"?	?|@?HWI?O.\n"
+"ATwnNw?M?"
 
 #: ID:81,
 msgid ""
@@ -2713,71 +2694,71 @@ msgid ""
 "<hr=100%>\n"
 "Please commit your changes first or revert."
 msgstr ""
-"工作複本已更動!\n"
+"u@?w?\n"
 "<hr=100%>\n"
-"請先送交你的變更或是復原."
+"?e?S?O_?
 
 #: ID:81,
 msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
 msgstr ""
-"工作複本不是最新的!\n"
-"請先進行更新."
+"u@?O?s!\n"
+"?i?s."
 
 #: Control-ID:65535,
 msgid "Their File:"
-msgstr "遠端檔案:"
+msgstr "???"
 
 #: ID:169,
 msgid ""
 "There are changes inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"以 svn:externals 指定的目錄中有異動.\n"
-"那些檔案 <b>不會</b> 列在送交列表中, 您必須自行處理."
+"H svn:externals w??\n"
+"|??<b>|</b> Cbe??, z??z."
 
 #: ID:66,
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
 "Please resolve those conflicts first before saving."
 msgstr ""
-"第 %d 行尚有未解決的衝突!\n"
-"請在儲存前先解決衝突."
+"G%d ??MI!\n"
+"?b8se?MI."
 
 #: ID:188,
 msgid "Thesaurus"
-msgstr "倉庫"
+msgstr "?w"
 
 #: Control-ID:65535,
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr "本產品包含由 CollabNet(http;//www.Collab.Net/) 所開發的軟體"
+msgstr "~]t?CollabNet(http;//www.Collab.Net/) ?}onu"
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "找不到本程式連結的 %s (包含於 %s). 可能安裝了不相容版本的 %s."
+msgstr "??{s %s (]t %s). i??F?e %s."
 
 #: ID:3857,#:
 #: ID:3857,
 msgid "This program requires the file %s, which was not found on this system."
-msgstr "系統中找不到本程式需要的 %s."
+msgstr "t???{?n %s."
 
 #: Control-ID:65535,
 msgid "Three File Diff"
-msgstr "三檔差異"
+msgstr "T	t"
 
 #: Control-ID:65535,
 msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "要從指定的分支合併變更時, 必須在\"從\"和\"至\"兩欄中輸入相同的URL."
+msgstr "nqw$???? b\"q\"M\"?"???PURL."
 
 #: Control-ID:1052,
 msgid "To see the changes you made, double click on the files above."
-msgstr "雙點以上檔案可顯示你所做的異動."
+msgstr "繒?HW	?it?A??"
 
 #: Control-ID:65535,
 msgid "To:"
-msgstr "至:"
+msgstr "?"
 
 #: ID:7,#:
 #: ID:3585,#:
@@ -2787,7 +2768,7 @@ msgstr "TortoiseMerge"
 
 #: ID:107,
 msgid "TortoiseMerge %d.%d.%d, Build %d"
-msgstr "TortoiseMerge %d.%d.%d, 組建 %d"
+msgstr "TortoiseMerge %d.%d.%d, ??%d"
 
 #: ID:107,
 msgid ""
@@ -2797,7 +2778,7 @@ msgid ""
 "apr-iconv %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, 組建 %d, %s\r\n"
+"TortoiseMerge %d.%d.%d, ??%d, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -2810,7 +2791,7 @@ msgstr "TortoiseSVN"
 
 #: ID:107,
 msgid "TortoiseSVN %d.%d.%d, Build %d"
-msgstr "TortoiseSVN %d.%d.%d, 組建 %d"
+msgstr "TortoiseSVN %d.%d.%d, ??%d"
 
 #: ID:107,
 msgid ""
@@ -2824,7 +2805,7 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, 組建 %d, %s\r\n"
+"TortoiseSVN %d.%d.%d, ??%d, %s\r\n"
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-iconv %d.%d.%d\r\n"
@@ -2836,19 +2817,19 @@ msgstr ""
 
 #: ID:80,
 msgid "TortoiseSVN Settings"
-msgstr "TortoiseSVN 設定"
+msgstr "TortoiseSVN ]w"
 
 #: ID:73,
 msgid "Try Again"
-msgstr "再試一次"
+msgstr "A?@"
 
 #: ID:10,
 msgid "Tweak TortoiseSVN"
-msgstr "調校 TortoiseSVN"
+msgstr "??TortoiseSVN"
 
 #: Control-ID:65535,
 msgid "Two File Diff"
-msgstr "兩檔差異"
+msgstr "?t"
 
 #: Dlg-ID:164,
 msgid "URL"
@@ -2856,7 +2837,7 @@ msgstr "URL"
 
 #: ID:12,
 msgid "URL of subversion items"
-msgstr "Subversion 項目的 URL"
+msgstr "Subversion ? URL"
 
 #: Control-ID:65535,#:
 #: Control-ID:1076,
@@ -2870,45 +2851,43 @@ msgstr "URL: "
 #: ID:3866,#:
 #: ID:3866,
 msgid "Unable to load mail system support."
-msgstr "無法載入郵件系統功能."
+msgstr "LkJlt?\?
 
 #: ID:3859,#:
 #: ID:3859,
 msgid "Unable to read from %1, it is opened by someone else."
-msgstr "無法讀取 %1, 因為另外有人開啟."
+msgstr "LkU %1, ]t~H}?"
 
 #: ID:3865,#:
 #: ID:3865,
 msgid "Unable to read write-only property."
-msgstr "無法讀取唯寫性質."
+msgstr "LkU?g??
 
 #: ID:3865,#:
 #: ID:3865,
 msgid "Unable to write read-only property."
-msgstr "無法寫入唯讀性質."
+msgstr "LkgJ???
 
 #: ID:3859,#:
 #: ID:3859,
 msgid "Unable to write to %1, it is read-only or opened by someone else."
-msgstr "無法寫入 %1, 它可能被設為唯讀或另有人開啟."
+msgstr "LkgJ %1, i?]??tH}?"
 
 #: ID:3887,#:
 #: ID:3887,
 msgid "Uncheck"
-msgstr "取消勾選"
-
+msgstr "??
 #: ID:3603,
 msgid ""
 "Undo the last action\n"
 "Undo"
 msgstr ""
-"還原上次動作\n"
-"還原"
-
+"Y??@\n"
+"Y?
 #: ID:3859,#:
 #: ID:3859,
 msgid "Unexpected file format."
-msgstr "預期外的檔案格式."
+msgstr "we~	??."
 
 #: ID:81,
 msgid ""
@@ -2916,40 +2895,40 @@ msgid ""
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 msgstr ""
-"不明的憑證發行人.\n"
-"  指紋: %s\n"
-"  識別名稱: %s"
+"~?o?.\n"
+"  : %s\n"
+"  ��OW? %s"
 
 #: Control-ID:1061,
 msgid "Unknown drives"
-msgstr "未知磁碟"
+msgstr "??
 
 #: ID:3841,#:
 #: ID:3841,
 msgid "Untitled"
-msgstr "未命名"
+msgstr "RW"
 
 #: ID:8,#:
 #: ID:74,#:
 #: Dlg-ID:152,
 msgid "Update"
-msgstr "更新"
+msgstr "s"
 
 #: ID:11,
 msgid "Update To Revision..."
-msgstr "更新至版本..."
+msgstr "s?..."
 
 #: ID:76,
 msgid "Update item to revision"
-msgstr "更新項目至版本"
+msgstr "s??"
 
 #: ID:11,
 msgid "Updates the working copy to a specific revision"
-msgstr "更新工作複本至指定的版本"
+msgstr "su@??w"
 
 #: ID:9,
 msgid "Updates the working copy to the current revision"
-msgstr "更新工作複本至目前的版本"
+msgstr "su@???e"
 
 #: ID:144,
 msgid "Url:"
@@ -2957,55 +2936,53 @@ msgstr "Url:"
 
 #: Control-ID:1064,
 msgid "Use Magnifier on Locatorbar"
-msgstr "在定位列上使用放大鏡"
+msgstr "bw?W?Oj癡"
 
 #: Control-ID:1024,
 msgid "Use one-pane view as default"
-msgstr "預設使用單區檢視"
+msgstr "w]???"
 
 #: Control-ID:1066,
 msgid "Use strikeout for deleted lines"
-msgstr "用雙刪除線表示已刪除行"
-
+msgstr "?Ru?wR?
 #: ID:251,
 msgid "Use text block from \"theirs\""
-msgstr "使用遠端(theirs)的文字區塊"
+msgstr "???theirs)??"
 
 #: ID:251,
 msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "優先使用遠端(theirs)的而非本地(yours)的文字區塊"
+msgstr "5???theirs)?Da(yours)??"
 
 #: ID:251,
 msgid "Use text block from \"yours\""
-msgstr "使用本地檔案(yours)的文字區塊"
+msgstr "??a	?yours)??"
 
 #: ID:251,
 msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "優先使用本地(yours)的而非遠端(theirs)的文字區塊"
+msgstr "5??a(yours)?D?theirs)??"
 
 #: ID:12,
 msgid "Use this if the URL of the repository has changed"
-msgstr "檔案庫的 URL 異動時可使用此功能修改"
-
+msgstr "	?w URL ??i?F\??
 #: ID:251,
 msgid "Use this text block"
-msgstr "使用此文字區塊"
+msgstr "?F??"
 
 #: Control-ID:65535,
 msgid "Used for comparing different revisions of files."
-msgstr "用來比對不同版本的檔案."
+msgstr "???P	?"
 
 #: Control-ID:65535,
 msgid "Used to resolve conflicted files."
-msgstr "用來解決衝突的檔案."
+msgstr "???MI	?"
 
 #: ID:74,
 msgid "User cancelled"
-msgstr "使用者取消"
+msgstr "???"
 
 #: ID:69,
 msgid "Username:"
-msgstr "用戶名稱:"
+msgstr "???"
 
 #: ID:313,
 msgid ""
@@ -3017,59 +2994,59 @@ msgid ""
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
-"可用的命令列選項有:\n"
-"/base:<基礎檔的路徑>\n"
-"/theirs:<檔案庫檔案的路徑>\n"
-"/yours:<本地檔案的路徑>\n"
-"/merged:<合併後檔案的路徑>\n"
-"/diff:<單一差異檔的路徑>\n"
-"/patchpath:<資料夾路徑>"
+"i?ROC?:\n"
+"/base:<礎	|>\n"
+"/theirs:<	?w	?|>\n"
+"/yours:<a	?|>\n"
+"/merged:<X???|>\n"
+"/diff:<?t	|>\n"
+"/patchpath:<?|>"
 
 #: ID:11,
 msgid "Value"
-msgstr "值"
+msgstr "?
 
 #: Control-ID:1075,#:
 #: Control-ID:1075,
 msgid "Version"
-msgstr "版本"
+msgstr ""
 
 #: Control-ID:65535,
 msgid "Viewer program for GNU diff files (patch files)."
-msgstr "檢視 GNU 差異檔(補綴檔)的工具程式."
+msgstr " GNU t	(?	)u?."
 
 #: Control-ID:1084,#:
 #: Control-ID:1084,
 msgid "Visit our website"
-msgstr "瀏覽我們的網站"
+msgstr "糧L??"
 
 #: Control-ID:65535,
 msgid "Whitespace diff"
-msgstr "空白字元差異"
+msgstr "t?rt"
 
 #: Control-ID:65535,
 msgid "Whitespaces"
-msgstr "空白字元"
+msgstr "t?r"
 
 #: ID:80,
 msgid ""
 "Working copy relocated to\n"
 "%s"
 msgstr ""
-"工作複本重定位至\n"
+"u@?w?\n"
 "%s"
 
 #: ID:73,
 msgid "Yes"
-msgstr "是"
+msgstr "O"
 
 #: ID:145,
 msgid "Yes to all"
-msgstr "全部皆是"
+msgstr "?O"
 
 #: ID:201,
 msgid "You already have the most current version installed."
-msgstr "你已經安裝了最新版."
+msgstr "Awgw?F?s."
 
 #: ID:144,
 msgid ""
@@ -3078,10 +3055,10 @@ msgid ""
 "Accessing a repository via file:/// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"您正建立位於網路磁碟機上的檔案庫.\n"
-"這很安全, 但是建立後請使用其他的方式存取檔案庫.\n"
-"透過 file:/// 存取網路磁碟機上的檔案庫可能造成資料損壞!\n"
-"要建立檔案庫嗎?"
+"z?????W	?w.\n"
+"o?w, O???????s	?w.\n"
+"zL file:/// s??W	?wi??l獺!\n"
+"n????w?"
 
 #: ID:88,
 msgid ""
@@ -3090,64 +3067,64 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"您正在透過網路磁碟機使用 file:/// \n"
-"協定存取檔案庫.\n"
-"這可能造成嚴重的檔案庫損壞!\n"
-"確定要這樣做嗎?"
+"zbzL????file:/// \n"
+"ws	?w.\n"
+"oi?e	?wl獺!\n"
+"Twno??"
 
 #: ID:77,
 msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
-"你選擇了無版本控制的檔案.\n"
-"它會在送交之前被加入版本控制."
+"A?FL?	?\n"
+"|be?eQ[J?
 
 #: Control-ID:65535,
 msgid "Your File:"
-msgstr "本地檔案:"
+msgstr "a	?"
 
 #: ID:78,
 msgid ""
 "Your working copy appears to be on a <b>tag</b> path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"你的工作複本正處於<b>標記</b>的路徑下!\n"
-"你必須先切換至主幹, 或從主幹分支才能進行送交動作."
+"Au@?B<b>?O</b>|U!\n"
+"At?DF, aqDF$????@."
 
 #: ID:10,
 msgid "added"
-msgstr "增加"
+msgstr "W["
 
 #: ID:3841,#:
 #: ID:3841,
 msgid "an unnamed file"
-msgstr "無名檔案"
+msgstr "LW	?
 
 #: Control-ID:1085,#:
 #: Control-ID:1085,
 msgid "and support the developers"
-msgstr "並請支持開發者"
+msgstr "羸??}o?
 
 #: ID:145,
 msgid "cleaning up"
-msgstr "正在清除"
+msgstr "bM"
 
 #: ID:11,
 msgid "conflicted"
-msgstr "衝突"
+msgstr "I"
 
 #: Control-ID:1113,
 msgid "current version is:"
-msgstr "目前版本是:"
+msgstr "?eO:"
 
 #: ID:201,
 msgid "current version is: %s"
-msgstr "目前版本是: %s"
+msgstr "?eO: %s"
 
 #: ID:10,
 msgid "deleted"
-msgstr "刪除"
+msgstr "R"
 
 #: ID:79,
 msgid ""
@@ -3156,77 +3133,75 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"完成匯出\n"
+"?X\n"
 "%s\n"
-"至\n"
+"?n"
 "%s"
 
 #: ID:79,
 msgid "exporting %s to"
-msgstr "正在匯出 %s 至"
+msgstr "b?X %s ?
 
 #: ID:13,
 msgid "external"
-msgstr "外部"
+msgstr "~"
 
 #: ID:13,
 msgid "ignored"
-msgstr "忽略"
+msgstr ""
 
 #: ID:13,
 msgid "incomplete"
-msgstr "未完成"
+msgstr ""
 
 #: ID:11,#:
 #: Control-ID:1002,
 msgid "locked"
-msgstr "鎖定"
+msgstr "穠w"
 
 #: ID:11,
 msgid "merged"
-msgstr "合併"
+msgstr "X?
 
 #: ID:10,
 msgid "missing"
-msgstr "缺少"
+msgstr "??
 
 #: ID:10,
 msgid "modified"
-msgstr "異動"
+msgstr "?
 
 #: ID:10,
 msgid "no description for this command is available"
-msgstr "此指令尚無說明"
+msgstr "O|L"
 
 #: ID:10,
 msgid "non-versioned"
-msgstr "無版本控制"
-
+msgstr "L?
 #: ID:10,
 msgid "normal"
-msgstr "一般"
-
+msgstr "@?
 #: ID:11,
 msgid "obstructed"
-msgstr "阻礙"
+msgstr "礙"
 
 #: ID:3869,#:
 #: ID:3869,
 msgid "pixels"
-msgstr "圖素"
+msgstr "?"
 
 #: Control-ID:1018,
 msgid "re&cursive"
-msgstr "遞迴(&C)"
+msgstr "j(&C)"
 
 #: ID:10,
 msgid "replaced"
-msgstr "取代"
+msgstr "N"
 
 #: Control-ID:1023,#:
 #: Control-ID:1023,
 msgid "save authentication"
-msgstr "儲存認證"
+msgstr "8s{��"
 
 #: ID:14,
 msgid ""
@@ -3234,7 +3209,7 @@ msgid ""
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 "svn:eol-style\r\n"
-"'native', 'LF', 'CR', 'CRLF' 四者之一."
+"'native', 'LF', 'CR', 'CRLF' |?@."
 
 #: ID:14,
 msgid ""
@@ -3242,7 +3217,7 @@ msgid ""
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\r\n"
-"設定之後, 此檔案視為可執行. 這個性質不能設定在目錄上. 非遞迴的設定會失敗, 遞迴設定則會將此性質設定在此目錄的所有檔案上."
+"]w?	?i?o????wb?W. Dj]w|? j]wh|N??wb??	?W."
 
 #: ID:14,
 msgid ""
@@ -3252,7 +3227,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\r\n"
-"以換行字元分隔的模組名稱列表, 每項可包含相對路徑, 可有可無的版本標記, 以及 URL. 例如:\r\n"
+"H?9j??W?C?Ci]t??|, iiL?O, H?URL. ?p:\r\n"
 "foo\t\thttp://example.com/repos/zig\r\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
@@ -3262,8 +3237,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\r\n"
-"忽略以換行字元分隔的檔案樣式列表"
-
+"H?9j	??C?
 #: ID:14,
 msgid ""
 "svn:keywords\n"
@@ -3275,12 +3249,12 @@ msgid ""
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\r\n"
-"要展開的關鍵字.合法的關鍵字有:\r\n"
-"URL, HeadURL\t\t\t此物件最新版本的 URL.\r\n"
-"Author, LastChangedBy\t\t最後一個修改此檔案的人.\r\n"
-"Date, LastChangedDate\t\t此檔案最後修改日期.\r\n"
-"Rev, LastChangedRevision\t此物件有變更的最新版本.\r\n"
-"Id\t\t\t\\前四個關鍵字的簡單整合."
+"ni}繹dr.Xk繹dr:\r\n"
+"URL, HeadURL\t\t\t?s URL.\r\n"
+"Author, LastChangedBy\t\t?????	?H.\r\n"
+"Date, LastChangedDate\t\t	????n\r\n"
+"Rev, LastChangedRevision\tS?s.\r\n"
+"Id\t\t\t\\e|?dr簡?X."
 
 #: ID:14,
 msgid ""
@@ -3288,17 +3262,17 @@ msgid ""
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
-"此檔案的 mime 類型. 用來決定檔案是否要合併, 以及由 Apache 傳送時要怎麼處理. 以 'text/' 開頭(或沒有設定)的 mime 類型視為文字. 其它則視為二進位檔."
+"	? mime 臘. ??Mw	?O_nX? H??Apache je?n?Bz. H 'text/' }(?S]w) mime 臘?. ?hGi?."
 
 #: ID:80,
 msgid "to %s"
-msgstr "至 %s"
+msgstr "?%s"
 
 #: Control-ID:1112,
 msgid "your version is:"
-msgstr "你的版本是:"
+msgstr "AO:"
 
 #: ID:201,
 msgid "your version is: %d.%d.%d.%d"
-msgstr "你的版本是: %d.%d.%d.%d"
+msgstr "AO: %d.%d.%d.%d"
 

@@ -1,0 +1,3383 @@
+#
+# Swedish translations for TortoiseSVN package
+# Copyright (C) 2004 the TortoiseSVN team
+# This file is distributed under the same license as TortoiseSVN
+#
+# Authors:
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TortoiseSVN\n"
+"POT-Creation-Date: 1900-01-01 00:00+0000\n"
+"PO-Revision-Date: 2004-07-06 12:29+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# ID:126,#:
+# ID:10,
+#: ID:126
+#: ID:10
+msgid " "
+msgstr ""
+
+# ID:188,
+#: ID:188
+msgid "! %d"
+msgstr ""
+
+#: ID:3868
+msgid "%1 contained an unexpected object."
+msgstr "%1 innehåller oväntat objekt."
+
+#: ID:3868
+msgid "%1 contains an incorrect schema."
+msgstr "%1 innehåller ett felaktigt schema."
+
+#: ID:3867
+msgid "%1 contains an invalid path."
+msgstr "%1 innehåller en felaktig sökväg."
+
+#: ID:3867
+msgid "%1 could not be created because the directory is full."
+msgstr "%1 kan inte skapas eftersom mappen är full."
+
+#: ID:3867
+msgid "%1 could not be opened because there are too many open files."
+msgstr "%1 kan inte öppnas p.g.a för många öppna filer."
+
+#: ID:3867
+msgid "%1 could not be removed because it is the current directory."
+msgstr "%1 kan inte tas bort eftersom det är den aktiva mappen."
+
+#: ID:3868
+msgid "%1 has a bad format."
+msgstr "Felaktigt format: %1."
+
+#: ID:3867
+msgid "%1 was not found."
+msgstr "%1 kunde inte hittas."
+
+#: ID:3860
+msgid ""
+"%1: %2\n"
+"Continue running script?"
+msgstr ""
+"%1: %2\n"
+"Fortsätt att köra script?"
+
+#: ID:3859
+msgid ""
+"%1\n"
+"Cannot find this file.\n"
+"Please verify that the correct path and file name are given."
+msgstr ""
+"Hittar inte filen %1\n"
+"Kontrollera att sökvägen och filnamnet är korrekt."
+
+# ID:169,
+#: ID:169
+#, fuzzy
+msgid "%d files selected, %d files total"
+msgstr "(Binära filer skiljer sig åt)\n"
+
+# ID:151,
+#: ID:151
+#, fuzzy
+msgid "%s : Working Base"
+msgstr "%s\t(arbetskopia)"
+
+# ID:151,
+#: ID:151
+#, fuzzy
+msgid "%s : Working Copy"
+msgstr "%s\t(arbetskopia)"
+
+#: ID:145
+#, fuzzy
+msgid ""
+"%s\n"
+"Do you want to remove it anyway?"
+msgstr "Vill du fortsätta?"
+
+#: MenuEntry
+#, fuzzy
+msgid "&About TortoiseMerge..."
+msgstr "Om TortoiseMerge..."
+
+#: Control-ID:1098
+#, fuzzy
+msgid "&Add..."
+msgstr "Schemalagd: att läggas till\n"
+
+# Control-ID:1090,
+#: Control-ID:1090
+msgid "&Advanced..."
+msgstr ""
+
+#: Control-ID:1013
+#, fuzzy
+msgid "&Apply Unified Diff"
+msgstr "använd ARG som diff-kommando"
+
+#: Control-ID:1011
+#, fuzzy
+msgid "&Browse..."
+msgstr "Bläddra..."
+
+# Control-ID:1091,
+#: Control-ID:1091
+msgid "&Builtin"
+msgstr ""
+
+# Control-ID:1051,
+#: Control-ID:1051
+msgid "&CD-ROM"
+msgstr ""
+
+#: Control-ID:2
+#, fuzzy
+msgid "&Cancel"
+msgstr "Avbryt"
+
+#: Control-ID:1074
+#, fuzzy
+msgid "&Checkout directory:"
+msgstr "I katalogen \"%s\""
+
+#: Control-ID:1066
+#, fuzzy
+msgid "&Close windows automatically"
+msgstr "Kan inte stänga katalogen \"%s\""
+
+# Control-ID:1099,
+#: Control-ID:1099
+msgid "&Edit..."
+msgstr ""
+
+#: Control-ID:1023
+#, fuzzy
+msgid "&Enable Proxy Server"
+msgstr "aktivera automatiska egenskaper"
+
+#: Control-ID:1092
+#, fuzzy
+msgid "&External"
+msgstr "Extern export klar.\n"
+
+#: MenuEntry
+#, fuzzy
+msgid "&File"
+msgstr "Felaktig fil"
+
+#: Control-ID:1050
+#, fuzzy
+msgid "&Fixed drives"
+msgstr "Fasta enheter"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&From Revision"
+msgstr "Revision: %ld\n"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&From URL:"
+msgstr "Kopierad från URL: %s\n"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&From WC at URL:"
+msgstr "Databasen på \"%s\" har uuid \"%s\", men arbetskopian har \"%s\""
+
+#: Control-ID:1032
+#: Control-ID:1019
+#, fuzzy
+msgid "&Head Revision"
+msgstr "Revision: %ld\n"
+
+#: Control-ID:57670
+#: Control-ID:9
+#, fuzzy
+msgid "&Help"
+msgstr "Hjälp"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Help Topics"
+msgstr "visa hjälp för ett underkommando"
+
+#: ID:3842
+msgid "&Hide"
+msgstr "&Dölj"
+
+#: Control-ID:1023
+#, fuzzy
+msgid "&Indicate folders with changed contents"
+msgstr "Visa mappar med förändrat innehåll"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&Language:"
+msgstr "Språk:"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Merge"
+msgstr ".sammanslagning-vänster.r%ld"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Merge changes into the current working copy from URL:"
+msgstr ""
+
+#: Control-ID:1012
+#, fuzzy
+msgid "&Merging"
+msgstr "Förena"
+
+#: Control-ID:1049
+#, fuzzy
+msgid "&Network drives"
+msgstr "Felaktig nätverksdata"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&New "
+msgstr "Ny"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Next Difference"
+msgstr "Nästa diff"
+
+# Control-ID:1,#:
+# Control-ID:1,
+#: Control-ID:1
+msgid "&OK"
+msgstr ""
+
+#: MenuEntry
+#, fuzzy
+msgid "&Open Ctrl-O"
+msgstr "Kan inte öppna \"%s\""
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&Password:"
+msgstr "Lösenord för \"%s\": "
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "&Port:"
+msgstr ""
+
+#: MenuEntry
+#, fuzzy
+msgid "&Previous Difference"
+msgstr "Konflikt: föregående basfil: %s\n"
+
+#: Control-ID:1048
+#, fuzzy
+msgid "&Removable drives"
+msgstr "Flyttbara enheter"
+
+#: Control-ID:1013
+#: Control-ID:1100
+#, fuzzy
+msgid "&Remove"
+msgstr "Ta bort"
+
+#: Control-ID:1033
+#: Control-ID:1116
+#, fuzzy
+msgid "&Revision"
+msgstr "Revision: %ld\n"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&SSH client:"
+msgstr "Filnamn för klientcertifikat: "
+
+#: MenuEntry
+#, fuzzy
+msgid "&Save Ctrl-S"
+msgstr "Kunde inte spara fil"
+
+#: Control-ID:1012
+#, fuzzy
+msgid "&Set"
+msgstr "har satt egenskapen \"%s\" på \"%s\"\n"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Status Bar"
+msgstr "Status gentemot revision: %6ld\n"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&To Revision"
+msgstr "Uppdaterade till revision %ld.\n"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&To URL:"
+msgstr "URL:en \"%s\" pekar på en katalog"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "&To URL: "
+msgstr "URL:en \"%s\" pekar på en katalog"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Toolbar"
+msgstr "Verktygsrad"
+
+#: Control-ID:65535
+#: Control-ID:1058
+#, fuzzy
+msgid "&URL of repository:"
+msgstr "Felaktig URL för databas"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Undo\tCtrl+Z"
+msgstr "Ångra\tCtrl+Z"
+
+#: Control-ID:65535
+#: Control-ID:1005
+#, fuzzy
+msgid "&Username:"
+msgstr "Användarnamn: "
+
+#: MenuEntry
+#, fuzzy
+msgid "&View"
+msgstr "Visa"
+
+#: MenuEntry
+#, fuzzy
+msgid "&Whitespaces"
+msgstr "Whitespace"
+
+# ID:188,
+#: ID:188
+msgid "+ %d"
+msgstr ""
+
+# ID:188,
+#: ID:188
+msgid "- %d"
+msgstr ""
+
+# Control-ID:1035,#:
+# Control-ID:1036,#:
+# Control-ID:1021,#:
+# Control-ID:1022,#:
+# Control-ID:1089,#:
+# Control-ID:1104,
+#: Control-ID:1035
+#: Control-ID:1036
+#: Control-ID:1021
+#: Control-ID:1022
+#: Control-ID:1089
+#: Control-ID:1104
+msgid "..."
+msgstr ""
+
+#: ID:3867
+msgid "A hardware I/O error was reported while accessing %1."
+msgstr "Ett hårdvarufel inträffade vid åtkomst av %1."
+
+#: ID:3867
+msgid "A locking violation occurred while accessing %1."
+msgstr "Ett låsningsfel inträffade vid åtkomst av %1."
+
+# ID:201,
+#: ID:201
+msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
+msgstr ""
+
+#: ID:3843
+msgid "A required resource was unavailable."
+msgstr "En resurs som krävs är inte tillgänglig."
+
+#: ID:3867
+msgid "A sharing violation occurred while accessing %1."
+msgstr "Ett delningsfel inträffade vid åtkomst av %1."
+
+#: ID:79
+msgid ""
+"A viewer program for GNU diff files (patch files).\n"
+"If you don't have one use NotePad."
+msgstr ""
+"En applikation för att visa GNU diffiler (patchfiler).\n"
+"Använd tex Notepad om du inte har någon."
+
+# Control-ID:1093,
+#: Control-ID:1093
+msgid "A&dvanced..."
+msgstr ""
+
+#: ID:73
+msgid "Abort"
+msgstr "Avbryt"
+
+#: ID:9
+msgid "About"
+msgstr "Om"
+
+#: Dlg-ID:136
+msgid "About TortoiseMerge"
+msgstr "Om TortoiseMerge"
+
+#: Dlg-ID:129
+msgid "About TortoiseSVN"
+msgstr "Om TortoiseSVN"
+
+#: ID:82
+msgid "Accept Once"
+msgstr "Acceptera en gång"
+
+#: ID:82
+msgid "Accept Permanently"
+msgstr "Acceptera alltid"
+
+#: ID:3867
+msgid "Access to %1 was denied."
+msgstr "Åtkomst till  %1 nekades."
+
+#: ID:77
+msgid "Action"
+msgstr "Åtgärd"
+
+#: ID:3826
+msgid "Activate Task List"
+msgstr "Aktivera uppgiftslistan"
+
+#: ID:78
+msgid ""
+"Activate this if you want the folder overlays\n"
+"to show the subversion status of the files below.\n"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+msgstr ""
+"Aktivera detta om du vill att mappar ska visa status rekursivt.\n"
+"<ct=0x0000ff><b>Varning:</b> Detta alternativ kan göra utforskaren långsam</ct>"
+
+#: ID:8
+#: ID:73
+#: Dlg-ID:155
+msgid "Add"
+msgstr "Lägg till"
+
+# ID:110,
+#: ID:110
+msgid "Add Extension Specific Diff Program"
+msgstr ""
+
+# ID:110,
+#: ID:110
+msgid "Add Extension Specific Merge Program"
+msgstr ""
+
+#: ID:13
+msgid "Add To Ignore List"
+msgstr "Lägg till på undantagslistan"
+
+#: ID:101
+msgid "Add file..."
+msgstr "Lägg till fil..."
+
+#: ID:12
+msgid "Add files to Subversion here"
+msgstr "Lägg till filer här i arkivet"
+
+#: ID:101
+msgid "Add folder..."
+msgstr "Lägg till mapp..."
+
+# Dlg-ID:171,
+#: Dlg-ID:171
+msgid "Add/Edit Extension Specific Diff/Merge Program"
+msgstr ""
+
+#: Control-ID:65535
+msgid "Added"
+msgstr "Tillagd"
+
+#: ID:126
+msgid "Added a file remotely"
+msgstr "Fil lades till i arkivet"
+
+#: ID:9
+msgid "Adds file(s) to Subversion control"
+msgstr "Lägger till fil(er) i arkivet"
+
+#: ID:13
+msgid "Adds the selected file(s) to the 'ignore' list"
+msgstr "Lägger till vald(a) fil(er) på undantagslistan"
+
+#: ID:2049
+msgid ""
+"Adjust the settings\n"
+"Settings"
+msgstr ""
+"Ändra inställningar\n"
+"Inställningar"
+
+# ID:110,
+#: ID:110
+#, fuzzy
+msgid "Advanced Diff Settings"
+msgstr "använd ARG som diff-kommando"
+
+# Dlg-ID:170,
+#: Dlg-ID:170
+msgid "Advanced Diff/Merge Settings"
+msgstr ""
+
+# ID:110,
+#: ID:110
+#, fuzzy
+msgid "Advanced Merge Settings"
+msgstr ".sammanslagning-vänster.r%ld"
+
+#: Control-ID:65535
+msgid "All"
+msgstr "Alla"
+
+#: ID:3841
+msgid "All Files (*.*)"
+msgstr "Alla filer (*.*)"
+
+#: ID:157
+#, fuzzy
+msgid "All Files (*.*)|*.*||"
+msgstr "(Binära filer skiljer sig åt)\n"
+
+#: ID:3867
+#: ID:3868
+msgid "An attempt was made to access %1 past its end."
+msgstr "Försök till läsning förbi slutet i %1."
+
+#: ID:3868
+msgid "An attempt was made to read from the writing %1."
+msgstr "Ett försök gjordes att läsa från skrivningen till %1."
+
+#: ID:3868
+msgid "An attempt was made to write to the reading %1."
+msgstr "Ett försök gjordes att skriva till läsningen från %1."
+
+#: ID:78
+msgid ""
+"An external diff program used\n"
+"for comparing different revisions of files\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%base\tthe base file\n"
+"%mine\tthe modified file"
+msgstr ""
+"Ett externt program som används\n"
+"för att jämföra olika versioner av filer\n"
+"<hr=100%>\n"
+"Du kan specifiera följande parametrar i sökvägen:\n"
+"%base\tden ursprungliga filen\n"
+"%mine\ttden modifierade filen"
+
+#: ID:79
+msgid ""
+"An external merge program used\n"
+"to resolve conflicted files.\n"
+"<hr=100%>\n"
+"You can specify the following parameters to the path:\n"
+"%merged\tthe conflicted file, where to save\n"
+"%theirs\t\tthe file as it is in the repository\n"
+"%mine\t\tyour own file, with your changes\n"
+"%base\t\tthe original file without your changes"
+msgstr ""
+"En extern applikation som används för att lösa konflikter.\n"
+"<hr=100%>\n"
+"Du kan skicka med följande parametrar:\n"
+"%merged\tfilen i konflikt, som ska sparas\n"
+"%theirs\t\tfilen som den är i arkivet\n"
+"%mine\t\tfilen med dina ändringar\n"
+"%base\t\toriginalfilen, utan ändringar"
+
+#: ID:3843
+msgid "An invalid argument was encountered."
+msgstr "En felaktig parameter påträffades."
+
+#: ID:3867
+msgid "An invalid file handle was associated with %1."
+msgstr "Felaktigt filhantag associerat med %1."
+
+#: ID:3859
+msgid "An unexpected error occurred while reading %1."
+msgstr "Ett oväntat fel inträffade vid läsning från %1."
+
+#: ID:3859
+msgid "An unexpected error occurred while writing %1."
+msgstr "Ett oväntat fel inträffade vid skrivning till %1."
+
+#: ID:3843
+msgid "An unknown error has occurred."
+msgstr "Ett okänt fel har inträffat."
+
+#: ID:3867
+#: ID:3868
+msgid "An unknown error occurred while accessing %1."
+msgstr "Ett okänt fel inträffade vid åtkomst av %1."
+
+#: ID:63
+msgid "An unknown line type was found in line %d !"
+msgstr "Okänd radtyp hittades på rad %d!"
+
+#: ID:3843
+msgid "An unsupported operation was attempted."
+msgstr "Försök att utföra en åtgärd som inte stöds gjordes."
+
+#: ID:14
+msgid "Applies a unified diff file to the working copy"
+msgstr "Applicerar en patchfil i \"Unified Diff\"-format på arbetskopian"
+
+#: ID:13
+msgid "Apply Patch..."
+msgstr "Applicera patch..."
+
+#: Control-ID:65535
+msgid "Apply Unified Diff"
+msgstr "Applicera patch (\"Unified Diff\")"
+
+#: ID:79
+msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
+msgstr "Vill du verkligen återställa? Du kommer att förlora <b>alla</b> ändringar sen förra uppdateringen!"
+
+#: ID:77
+msgid "At revision: %d"
+msgstr "I version: %d"
+
+#: Dlg-ID:131
+#: Dlg-ID:160
+msgid "Authentication"
+msgstr "Autensiering"
+
+#: ID:76
+msgid "Author"
+msgstr "Ändrad av"
+
+#: Control-ID:65535
+msgid "Author:                        Stefan Kueng"
+msgstr "Upphovsman: Stefan Kueng"
+
+#: Control-ID:65535
+msgid "Authors:                      Stefan Kueng, Tim Kemp"
+msgstr "Upphovsmän: Stefan Kueng, Tim Kemp"
+
+#: Control-ID:1001
+#, fuzzy
+msgid "B&rowse..."
+msgstr "Bläddra..."
+
+# Control-ID:1094,
+#: Control-ID:1094
+msgid "B&uiltin"
+msgstr ""
+
+#: Control-ID:1015
+msgid "Backup original file"
+msgstr "Skapa backup på originalfilen"
+
+#: Control-ID:65535
+msgid "Base File:"
+msgstr "Basfil:"
+
+#: Dlg-ID:162
+msgid "Blame"
+msgstr "Visa ändringar"
+
+#: ID:13
+msgid "Blame..."
+msgstr "Visa ändringar..."
+
+#: ID:13
+msgid "Blames each line of a file on an author"
+msgstr "Visar ändringar per rad i en fil, med version och av vem"
+
+#: Control-ID:1003
+#, fuzzy
+msgid "Br&owse..."
+msgstr "Bläddra..."
+
+#: Dlg-ID:142
+msgid "Branch / Tag"
+msgstr "Skapa gren / märke"
+
+#: ID:115
+msgid "Branch / Tag created successfully!"
+msgstr "Gren / märke skapades utan fel!"
+
+#: ID:9
+msgid "Branch/Tag..."
+msgstr "Skapa gren / märke..."
+
+#: Control-ID:1009
+#, fuzzy
+msgid "Bro&wse..."
+msgstr "Bläddra..."
+
+#: Control-ID:1007
+#, fuzzy
+msgid "Brows&e..."
+msgstr "Bläddra..."
+
+#: ID:138
+#, fuzzy
+msgid "Browse Repository"
+msgstr "Databasens UUID: %s\n"
+
+#: ID:78
+msgid "Browse for the external diff program"
+msgstr "Välj applikation för diffhantering"
+
+#: Control-ID:1069
+msgid "Browse..."
+msgstr "Bläddra..."
+
+# Control-ID:1096,
+#: Control-ID:1096
+msgid "Bu&iltin"
+msgstr ""
+
+# ID:3697,
+#: ID:3697
+msgid "CAP"
+msgstr ""
+
+#: ID:82
+msgid ""
+"Can't copy \n"
+"%s\n"
+"to\n"
+"%s"
+msgstr ""
+"Kan inte kopiera \n"
+"%s\n"
+"till\n"
+"%s"
+
+#: Control-ID:2
+#: ID:73
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: ID:132
+msgid "Cancelling SVN Blame..."
+msgstr "Avbryter visa ändringar..."
+
+#: ID:82
+msgid "Certificate expired or not yet valid"
+msgstr "Certifikatet har gått ut eller är inte giltigt ännu"
+
+#: ID:82
+msgid "Certificate expired. Valid until: %s"
+msgstr "Certifikatet har gått ut. Giltigt till: %s"
+
+#: ID:82
+msgid "Certificate not yet valid. Valid from: %s"
+msgstr "Certifikatet inte giltigt ännu. Giltigt från: %s"
+
+# ID:157,
+#: ID:157
+msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
+msgstr ""
+
+#: ID:3825
+msgid "Change the window position"
+msgstr "Ändra position på fönstret"
+
+#: ID:3825
+msgid "Change the window size"
+msgstr "Ändra storlek på fönstret"
+
+#: Dlg-ID:158
+msgid "Changed Files"
+msgstr "Ändrade filer"
+
+#: ID:163
+#, fuzzy
+msgid "Changed files: %d"
+msgstr "Ändrade sökvägar:%s"
+
+#: ID:3887
+msgid "Check"
+msgstr "Markera"
+
+#: Dlg-ID:174
+#, fuzzy
+msgid "Check For Updates"
+msgstr "Ingen post för \"%s\""
+
+#: Control-ID:1031
+#, fuzzy
+msgid "Check For Updates..."
+msgstr "Ingen post för \"%s\""
+
+#: ID:13
+msgid "Check for Updates"
+msgstr "Leta efter uppdateringar"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Check for newer versions"
+msgstr ""
+
+#: ID:79
+msgid ""
+"Check if you want the progress dialog to close\n"
+"automatically after the operation finishes."
+msgstr ""
+"Markera om du vill att statusdialogen ska\n"
+"stängas automatiskt efter utförd åtgärd."
+
+#: ID:9
+msgid "Check out a working copy from a repository"
+msgstr "Hämtar en arbetskopia från ett arkiv"
+
+#: ID:95
+msgid ""
+"Check the files which you want to\n"
+"delete before importing."
+msgstr "Markera de filer som du vill ta bort innan importen."
+
+#: Control-ID:65535
+msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
+msgstr "Markera de alternativ du vill ska visas i den översta högerknappsmenyn istället för i TSVNs undermeny"
+
+# ID:80,
+#: ID:80
+msgid "Check to use a less verbose date and time format in log messages"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Checking if a newer version of TortoiseSVN is available..."
+msgstr ""
+
+#: Dlg-ID:133
+msgid "Checkout"
+msgstr "Hämta ut"
+
+#: ID:8
+msgid "Checkout..."
+msgstr "Hämta..."
+
+#: ID:8
+msgid "Clean Up"
+msgstr "Rensa"
+
+#: ID:79
+msgid "Cleanup has finished"
+msgstr "Rensning klar"
+
+#: ID:9
+msgid "Cleanup interrupted operations, locked files, ..."
+msgstr "Rensar bort efter avbrutna åtgärder; låsta filer etc"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
+msgstr ""
+
+#: ID:3825
+msgid "Close the active window and prompts to save the documents"
+msgstr "Stäng aktivt fönster och fråga om spara dokument"
+
+#: Dlg-ID:138
+msgid "Colors"
+msgstr "Färger"
+
+#: ID:3857
+msgid "Command failed."
+msgstr "Kommandot misslyckades."
+
+#: Control-ID:1110
+msgid "Commit to:"
+msgstr "Arkivera i:"
+
+#: ID:8
+#, fuzzy
+msgid "Commit..."
+msgstr "Arkiverar..."
+
+#: ID:9
+msgid "Commits your changes to the repository"
+msgstr "Sparar dina ändringar i arkivet"
+
+#: Control-ID:1083
+msgid "Committing"
+msgstr "Arkivering"
+
+#: Control-ID:1019
+msgid "Compare Whitespaces"
+msgstr "Jämför whitespace"
+
+#: ID:76
+msgid "Compare revisions"
+msgstr "Jämför versioner"
+
+#: ID:138
+#, fuzzy
+msgid "Compare with Base"
+msgstr "Konflikt: föregående basfil: %s\n"
+
+#: ID:76
+msgid "Compare with working copy"
+msgstr "Jämför med arbetskopia"
+
+#: ID:12
+msgid "Compares the file with the last commited version to show you the changes you made"
+msgstr "Jämför filen med den senaste versionen och visar de ändringar du gjort"
+
+#: ID:74
+msgid "Completed"
+msgstr "Klar"
+
+#: Control-ID:65535
+msgid "Conflicted"
+msgstr "I konflikt"
+
+#: ID:73
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: ID:126
+msgid "Copied remotely"
+msgstr "Kopierades i arkivet"
+
+#: ID:73
+msgid "Copy"
+msgstr "Kopiera"
+
+#: ID:101
+msgid "Copy To..."
+msgstr "Kopiera till..."
+
+#: ID:13
+msgid "Copy files in Subversion to here"
+msgstr "Kopiera filer hit i arkivet"
+
+#: ID:3603
+msgid ""
+"Copy the selection and put it on the Clipboard\n"
+"Copy"
+msgstr ""
+"Kopiera markeringen till Klippboken\n"
+"Kopiera"
+
+#: ID:80
+msgid "Copying %s"
+msgstr "Kopierar %s"
+
+#: ID:80
+msgid "Copying..."
+msgstr "Kopierar..."
+
+#: ID:188
+#, fuzzy
+msgid "Corrections"
+msgstr "Jämför versioner"
+
+#: ID:81
+msgid "Could not add %s to the ignore list!"
+msgstr "Kunde inte lägga till %s på undtantagslistan!"
+
+# ID:201,
+#: ID:201
+msgid "Could not check for a newer version!"
+msgstr ""
+
+#: ID:81
+msgid ""
+"Could not copy the files!\n"
+"<hr=100%>\n"
+"%s"
+msgstr ""
+"Kunde inte kopiera filerna!\n"
+"<hr=100%>\n"
+"%s"
+
+#: ID:81
+msgid "Could not get the status!"
+msgstr "Kunde inte hämta status!"
+
+#: ID:69
+msgid ""
+"Could not open the file\n"
+"%s"
+msgstr "Kunde inte öppna filen %s!"
+
+#: ID:81
+msgid ""
+"Could not retrieve URL of the file!\n"
+"%s"
+msgstr ""
+"Kunde inte hämta URL för filen!\n"
+"%s"
+
+#: ID:66
+#, fuzzy
+msgid ""
+"Could not retrieve version %s of the file %s.\n"
+"Patching is not possible!"
+msgstr ""
+"Kunde inte hämta version %s av filen %s.\n"
+"Patchning kan inte genomföras!"
+
+#: ID:64
+msgid "Could not save the file %s!"
+msgstr "Kunde inte spara filen %s!"
+
+#: ID:81
+msgid ""
+"Could not start diff viewer!\n"
+"<hr=100%>\n"
+"%s"
+msgstr ""
+"Kunde inte starta extern applikation för att visa diff!\n"
+"<hr=100%>\n"
+"%s"
+
+#: ID:81
+msgid ""
+"Could not start external diff program!\n"
+"<hr=100%>\n"
+"%s"
+msgstr ""
+"Kunde inte starta extern applikation för diffhantering!\n"
+"<hr=100%>\n"
+"%s"
+
+#: ID:81
+msgid ""
+"Could not start external merge program!\n"
+"<hr=100%>\n"
+"%s"
+msgstr ""
+"Kunde inte starta extern applikation för konfliktlösning!\n"
+"<hr=100%>\n"
+"%s"
+
+#: ID:3857
+msgid "Could not start print job."
+msgstr "Kunde inte starta utskrift."
+
+#: ID:81
+msgid "Could not start thread!"
+msgstr "Kunde inte starta tråd!"
+
+#: ID:101
+msgid "Create Folder..."
+msgstr "Skapa mapp..."
+
+#: ID:13
+msgid "Create Patch..."
+msgstr "Skapa patch..."
+
+#: ID:8
+msgid "Create Repository here"
+msgstr "Skapa arkiv här"
+
+#: ID:77
+msgid "Create Tag from revision"
+msgstr "Skapa märke för version"
+
+#: ID:126
+msgid "Created folder remotely"
+msgstr "Mapp skapades i arkivet"
+
+#: ID:10
+msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
+msgstr "Skapar en kopia i arkivet som kan användas som gren eller märke"
+
+#: ID:10
+msgid "Creates a repository database at the current location"
+msgstr "Skapar ett nytt arkiv på vald plats"
+
+#: ID:14
+msgid "Creates a unified diff file with all changes you made"
+msgstr "Skapar en patchfil med dina ändringar i \"Unified Diff\"-format"
+
+#: ID:3603
+msgid ""
+"Cut the selection and put it on the Clipboard\n"
+"Cut"
+msgstr ""
+"Klipp ut markeringen och lägg i klippboken\n"
+"Klipp up"
+
+#: ID:76
+msgid "Date"
+msgstr "Datum"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Default &number of log messages"
+msgstr "Normalposten saknar revisionsnummer"
+
+#: ID:11
+#: ID:73
+#: ID:101
+msgid "Delete"
+msgstr "Ta bort"
+
+#: ID:11
+msgid "Deletes files / folders from source control"
+msgstr "Tar bort filer / mappar ur arkivet"
+
+#: ID:3859
+msgid "Destination disk drive is full."
+msgstr "Otillräckligt diskutrymme på målenheten."
+
+#: ID:12
+#, fuzzy
+msgid "Diff"
+msgstr "Diff"
+
+#: Control-ID:65535
+msgid "Diff File:"
+msgstr "Patchfil:"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Diff Program"
+msgstr "Fel vid anrop av externt program"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Diff Viewer"
+msgstr "Diffvisning:"
+
+#: Dlg-ID:163
+#, fuzzy
+msgid "Diff/Merge"
+msgstr ".sammanslagning-vänster.r%ld"
+
+#: Control-ID:1022
+msgid "Diffing"
+msgstr "Diff"
+
+#: Control-ID:65535
+msgid "Directory:"
+msgstr "Mapp:"
+
+#: ID:3867
+msgid "Disk full while accessing %1."
+msgstr "Disken full vid åtkomst av %1."
+
+#: ID:3860
+msgid "Dispatch exception: %1"
+msgstr "Sändningsfel: %1"
+
+#: ID:3605
+msgid ""
+"Display help for clicked on buttons, menus and windows\n"
+"Help"
+msgstr ""
+"Visar hjälp för knappar, menyer och dialoger\n"
+"Hjälp"
+
+#: ID:3605
+msgid ""
+"Display help for current task or command\n"
+"Help"
+msgstr ""
+"Visar hjälp för aktuellt kommando\n"
+"Hjälp"
+
+#: ID:3605
+msgid ""
+"Display instructions about how to use help\n"
+"Help"
+msgstr ""
+"Visa instruktioner för hjälpen\n"
+"Hjälp"
+
+#: ID:3605
+msgid ""
+"Display program information, version number and copyright\n"
+"About"
+msgstr ""
+"Visa programinformation, versionsnummer och copyright\n"
+"Om"
+
+#: ID:80
+msgid "Do not show this message again"
+msgstr "Visa inte detta meddelande igen"
+
+#: ID:76
+msgid ""
+"Do you really want to revert all changes\n"
+"which were made in this revision?"
+msgstr ""
+"Vill du verkligen återställa alla ändringar\n"
+"som gjorts i den här versionen?"
+
+#: ID:76
+msgid "Do you want to proceed?"
+msgstr "Vill du fortsätta?"
+
+#: ID:313
+#, fuzzy
+msgid ""
+"Do you want to reload the documents to reflect the settings changes?\n"
+"Note: you will lose all changes you've made!"
+msgstr ""
+"Vill du ladda om filerna för att se de ändrade inställningarna?\n"
+"OBS! Ändringar som inte sparats kommer att gå förlorade!"
+
+#: ID:313
+#, fuzzy
+msgid ""
+"Do you want to reload the documents?\n"
+"You will lose all changes you've made!"
+msgstr ""
+"Vill du ladda om filerna för att se de ändrade inställningarna?\n"
+"OBS! Ändringar som inte sparats kommer att gå förlorade!"
+
+#: ID:313
+#, fuzzy
+msgid "Do you want to save your changes?"
+msgstr "Vill du fortsätta?"
+
+#: Control-ID:1061
+#, fuzzy
+msgid "Don't &remove log messages when cancelling a commit"
+msgstr "Ta inte bort loggmeddelanden vid avbryt av arkivering"
+
+#: Control-ID:1073
+msgid "Don't convert files when diffing against BASE"
+msgstr "Konvertera inte filer vid diff mot basversion"
+
+#: Control-ID:1079
+msgid "Drive Types"
+msgstr "Enhetstyper"
+
+#: MenuEntry
+#, fuzzy
+msgid "E&xit"
+msgstr "Avsluta"
+
+#: Control-ID:1095
+#, fuzzy
+msgid "E&xternal"
+msgstr "Extern"
+
+# ID:3697,
+#: ID:3697
+msgid "EXT"
+msgstr ""
+
+#: Control-ID:1031
+#, fuzzy
+msgid "Edit"
+msgstr "Avsluta"
+
+#: ID:12
+msgid "Edit Conflicts"
+msgstr "Editera konflikt"
+
+# ID:110,
+#: ID:110
+msgid "Edit Extension Specific Diff Program"
+msgstr ""
+
+# ID:110,
+#: ID:110
+msgid "Edit Extension Specific Merge Program"
+msgstr ""
+
+#: ID:79
+msgid "Either the name or IP of the proxy server"
+msgstr "Ange antingen namnet på eller IP-adressen till proxyservern."
+
+#: Control-ID:65535
+msgid "Empty"
+msgstr "Tom"
+
+#: ID:3825
+msgid "Enlarge the window to full size"
+msgstr "Maximera fönstret till full storlek"
+
+#: Dlg-ID:135
+msgid "Enter Log Message"
+msgstr "Skriv loggmeddelande"
+
+#: ID:126
+#: Control-ID:1065
+msgid "Enter Log Message:"
+msgstr "Skriv loggmeddelande:"
+
+#: ID:80
+msgid "Enter URL"
+msgstr "Skriv in URL"
+
+#: ID:3603
+msgid ""
+"Erase everything\n"
+"Erase All"
+msgstr ""
+"Radera allt\n"
+"Radera allt"
+
+#: ID:3603
+msgid ""
+"Erase the selection\n"
+"Erase"
+msgstr ""
+"Radera markeringen\n"
+"Radera"
+
+#: ID:81
+msgid "Error validating server certificate for %s:"
+msgstr "Fel vid validering av servercertifikat för %s:"
+
+#: Control-ID:1097
+#, fuzzy
+msgid "Ex&ternal"
+msgstr "Extern"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Exceptions:"
+msgstr "Alternativ"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Exclude pattern:"
+msgstr "Inkludera / Exkludera:"
+
+#: ID:94
+msgid "Export Directory:"
+msgstr "Exportera till folder:"
+
+#: ID:9
+msgid "Export..."
+msgstr "Exportera..."
+
+#: ID:79
+msgid "Exporting..."
+msgstr "Exporterar..."
+
+#: ID:10
+msgid "Exports a repository to a clean working copy without the svn administrative folders"
+msgstr "Exporterar en 'ren' kopia från arkivet, utan .svn mappar"
+
+# ID:74,
+#: ID:74
+msgid "Extension"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Extension specific programs"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Extension:"
+msgstr ""
+
+#: ID:74
+msgid "External"
+msgstr "Extern"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "External Program:"
+msgstr "Fel vid anrop av externt program"
+
+#: ID:74
+msgid "Failed Revert"
+msgstr "Återställning misslyckades"
+
+#: ID:3857
+msgid "Failed to create empty document."
+msgstr "Kunde inte skapa en tom fil."
+
+#: ID:3857
+msgid "Failed to launch help."
+msgstr "Kan inte visa hjälpen."
+
+#: ID:3857
+msgid "Failed to open document."
+msgstr "Kunde inte öppna filen."
+
+#: ID:3857
+msgid "Failed to save document."
+msgstr "Kunde inte spara filen."
+
+#: ID:313
+msgid "Fetching File..."
+msgstr "Hämtar fil..."
+
+#: ID:313
+msgid "Fetching version %s of file:"
+msgstr "Hämtar version %s av filen:"
+
+#: ID:63
+#: ID:74
+#: ID:77
+msgid "File"
+msgstr "Filnamn"
+
+#: Dlg-ID:135
+msgid "File Patches"
+msgstr "Filpatchar"
+
+#: ID:3603
+msgid ""
+"Find the specified text\n"
+"Find"
+msgstr ""
+"Sök efter text\n"
+"Sök"
+
+#: ID:77
+msgid "Finished!"
+msgstr "Klar!"
+
+#: Control-ID:65535
+msgid "Font for log messages:"
+msgstr "Font för loggmeddelanden:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Font:"
+msgstr ""
+
+#: ID:3585
+msgid "For Help, press F1"
+msgstr "Tryck F1 för hjälp"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "From:"
+msgstr " (från %s:%ld)"
+
+#: Dlg-ID:107
+msgid "General"
+msgstr "Generella inställningar"
+
+#: ID:144
+msgid "Generating Patchfile..."
+msgstr "Skapar patchfil..."
+
+#: Control-ID:1031
+#, fuzzy
+msgid "Get &All"
+msgstr "Kan inte erhålla lösenord"
+
+#: ID:119
+msgid "Getting File %s"
+msgstr "Hämtar fil %s"
+
+#: ID:132
+msgid "Getting file info..."
+msgstr "Hämtar filinformation..."
+
+#: ID:2049
+msgid ""
+"Go to the next difference\n"
+"next difference"
+msgstr ""
+"Hoppa till nästa diff\n"
+"nästa diff"
+
+#: ID:2049
+msgid ""
+"Go to the previous difference\n"
+"previous difference"
+msgstr ""
+"Hoppa till förra diffen\n"
+"förra diffen"
+
+#: Control-ID:1115
+msgid "Head Revision"
+msgstr "Huvudversion"
+
+#: Control-ID:1004
+#: ID:12
+msgid "Help"
+msgstr "Hjälp"
+
+#: ID:82
+msgid "Hostname mismatch (%s)"
+msgstr "Felaktigt hostnamn (%s)"
+
+#: Dlg-ID:106
+msgid "Icon Overlays"
+msgstr "Ikonsymboler"
+
+#: Control-ID:65535
+msgid "Icons/Design/Code:     Luebbe Onken"
+msgstr "Ikoner/Design/Kodning: Luebbe Onken"
+
+# ID:194,
+#: ID:194
+msgid "If activated, prevents the overlays from showing in \"save as..\" or \"open\" dialogs"
+msgstr ""
+
+#: ID:95
+msgid ""
+"If checked then a new folder is created in the repository.\n"
+"If not checked then the import goes directly to the specified URL."
+msgstr ""
+"Markera om en ny mapp ska skapas i arkivet.\n"
+"Annars sker importen på den angivna URL:en."
+
+#: ID:79
+msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
+msgstr "Om markerad skapar TortoiseSVN inte en temporär fil för järmförelsen, utan jämför originalfilen mot basversionen"
+
+# ID:194,
+#: ID:194
+msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
+msgstr ""
+
+#: ID:80
+msgid ""
+"If you cancel a commit, the log message you have entered is saved\n"
+"and filled in the edit box on the next commit.\n"
+"You can then either edit that message or use\n"
+"it unchanged."
+msgstr ""
+"Om du avbryter en arkivering, sparas det logmeddelande som du skrivit in\n"
+"och sätts som standard meddelande vid nästa arkivering.\n"
+"Du kan sedan välja att ändra det eller använda det oförändrat."
+
+#: ID:73
+msgid "Ignore"
+msgstr "Ignorera"
+
+#: Control-ID:1021
+msgid "Ignore All Whitespaces"
+msgstr "Ignorera alla whitespace"
+
+#: Control-ID:1020
+msgid "Ignore Leading Whitespaces"
+msgstr "Ignorera inledande whitespace"
+
+#: Control-ID:1018
+msgid "Ignore Lineendings (recommended)"
+msgstr "Ignorera radslut (rekommenderas)"
+
+#: Dlg-ID:139
+msgid "Import"
+msgstr "Importera"
+
+#: Control-ID:1056
+#, fuzzy
+msgid "Import &Message"
+msgstr "ange loggmeddelande ARG"
+
+#: ID:9
+msgid "Import..."
+msgstr "Importera..."
+
+#: ID:10
+msgid "Imports the directory to a repository"
+msgstr "Importera mappen till ett arkiv"
+
+#: ID:76
+msgid "Initial Import"
+msgstr "Första importen"
+
+#: Dlg-ID:161
+msgid "Input"
+msgstr "Inmatning"
+
+#: ID:3603
+msgid ""
+"Insert Clipboard contents\n"
+"Paste"
+msgstr ""
+"Infoga innehåll från Klippboken\n"
+"Klista in"
+
+#: ID:3857
+msgid "Insufficient memory to perform operation."
+msgstr "Otillräckligt minne för att utföra åtgärden."
+
+#: ID:3857
+msgid "Internal application error."
+msgstr "Internt fel."
+
+#: ID:3857
+msgid "Invalid filename."
+msgstr "Felaktigt filnamn."
+
+# ID:82,
+#: ID:82
+msgid ""
+"Invalid revision number! Valid revisions are:\n"
+"HEAD, BASE, PREV, COMMITTED, WC\n"
+"positive decimal numbers\n"
+"dates in one of the following example forms:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
+msgstr ""
+
+#: Control-ID:1016
+msgid "Jump to first difference when loading"
+msgstr "Hoppa till första diffen när programmet startas"
+
+#: Control-ID:65535
+msgid "Language:"
+msgstr "Språk:"
+
+#: Control-ID:65535
+msgid "Last commit revision:"
+msgstr "Senaste version:"
+
+#: ID:11
+msgid "Last saved revision of item"
+msgstr "Version"
+
+#: ID:12
+msgid "Launches the external diff / merge program to solve the conflicts"
+msgstr "Startar vald extern applikation för hantering av konflikter"
+
+#: ID:3605
+msgid ""
+"List Help topics\n"
+"Help Topics"
+msgstr ""
+"Lista hjälpavsnitt\n"
+"Hjälpavsnitt"
+
+#: ID:63
+msgid "Local Status"
+msgstr "Status lokalt"
+
+#: ID:94
+msgid ""
+"Location where the contents of the\n"
+"repository URL will be saved to."
+msgstr ""
+"Plats där innehållet på URL:en\n"
+"i arkivet ska sparas."
+
+#: ID:126
+msgid "Log"
+msgstr "Historik"
+
+#: Control-ID:65535
+msgid "Log Message"
+msgstr "Loggmeddelande"
+
+#: Dlg-ID:130
+msgid "Log Messages"
+msgstr "Historik"
+
+#: ID:3866
+msgid "Mail system DLL is invalid."
+msgstr "Felaktig DLL för mailsystem."
+
+#: Dlg-ID:143
+msgid "Main"
+msgstr "Generella"
+
+#: Dlg-ID:159
+msgid "Menu Layout"
+msgstr "Meny"
+
+#: Dlg-ID:141
+msgid "Merge"
+msgstr "Förena"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Merge Program"
+msgstr ".sammanslagning-vänster.r%ld"
+
+#: ID:9
+msgid "Merge..."
+msgstr "Förena..."
+
+#: ID:10
+msgid "Merges a branch into the main trunk"
+msgstr "Förenar en gren med en annan"
+
+#: Control-ID:65535
+msgid "Merging"
+msgstr "Förena"
+
+#: ID:76
+#, fuzzy
+msgid "Message"
+msgstr "Loggmeddelande"
+
+#: ID:78
+#, fuzzy
+msgid "Mime Type"
+msgstr "Felaktig mime-typ"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Minimum logsize in chars"
+msgstr ""
+
+#: Control-ID:1023
+#: Control-ID:1082
+msgid "Misc"
+msgstr "Övrigt"
+
+#: ID:3887
+msgid "Mixed"
+msgstr "Blandad"
+
+#: ID:74
+msgid "Modified"
+msgstr "Ändrad"
+
+#: ID:12
+msgid "Move files in Subversion to here"
+msgstr "Flytta filer hit i arkivet"
+
+#: ID:126
+msgid "Moved remotely"
+msgstr "Flyttades i arkivet"
+
+#: ID:80
+msgid "Moving %s"
+msgstr "Flyttar %s"
+
+#: ID:80
+msgid "Moving..."
+msgstr "Flyttar..."
+
+# ID:3697,
+#: ID:3697
+msgid "NUM"
+msgstr ""
+
+#: Dlg-ID:102
+msgid "Network"
+msgstr "Nätverk"
+
+#: Dlg-ID:30721
+msgid "New"
+msgstr "Ny"
+
+#: Control-ID:1076
+msgid "New Name:"
+msgstr "Nytt namn:"
+
+#: ID:73
+msgid "No"
+msgstr "Nej"
+
+#: ID:81
+msgid ""
+"No command specified!\n"
+"<hr=100%>\n"
+"TortoiseProc.exe is used by the Shell extension and should not be called directly!"
+msgstr ""
+"Ingen åtgärd angiven!\n"
+"<hr=100%>\n"
+"TortoiseProc.exe används av Utforskaren och ska inte startas direkt!"
+
+#: ID:81
+msgid "No command value specified!"
+msgstr "Parameter till åtgärd saknas!"
+
+#: ID:3843
+msgid "No error message is available."
+msgstr "Felmeddelande saknas."
+
+#: ID:3867
+#: ID:3868
+msgid "No error occurred."
+msgstr "Inga fel inträffade."
+
+#: ID:77
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"to do for TortoiseSVN here..."
+msgstr "Det finns inga ändringar/tillägg."
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Normal"
+msgstr "Schemalagd: normal\n"
+
+#: ID:3857
+msgid "Not all of the system registry entries (or INI file) were removed."
+msgstr "Alla registryinställningar eller .ini-filen togs inte bort."
+
+# Control-ID:1,#:
+# ID:73,#:
+# Control-ID:1,
+#: Control-ID:1
+#: ID:73
+msgid "OK"
+msgstr ""
+
+# ID:3697,
+#: ID:3697
+msgid "OVR"
+msgstr ""
+
+#: MenuEntry
+#, fuzzy
+msgid "Oneway &Diff"
+msgstr "Envägs diff"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Only check out the top folder"
+msgstr ""
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Only update the top folder"
+msgstr ""
+
+#: ID:3841
+#: ID:101
+msgid "Open"
+msgstr "Öppna"
+
+#: ID:76
+msgid "Open client certificate file"
+msgstr "Öppna fil med klientcertifikat"
+
+#: ID:3601
+msgid "Open file"
+msgstr "Öppna fil"
+
+#: ID:3605
+msgid ""
+"Opens Help\n"
+"Help Topics"
+msgstr ""
+"Öppnar hjälp\n"
+"Hjälpavsnitt"
+
+#: ID:13
+msgid "Opens the repository browser to tweak the repository online"
+msgstr "Visar utforskaren för arkivet"
+
+#: ID:3843
+msgid "Out of memory."
+msgstr "Slut på tillgängligt minne."
+
+# ID:76,
+#: ID:76
+msgid "PEM"
+msgstr ""
+
+# ID:76,
+#: ID:76
+msgid "PKCS12"
+msgstr ""
+
+#: ID:69
+msgid "Password:"
+msgstr "Lösenord:"
+
+#: ID:376
+#, fuzzy
+msgid "Patch All"
+msgstr "Alla tillhandahållare av autentisering förbrukade"
+
+# ID:157,#:
+# ID:157,
+#: ID:157
+msgid "Patchfiles|*.diff;*.patch|All|*.*||"
+msgstr ""
+
+#: ID:77
+msgid "Path"
+msgstr "Sökväg"
+
+#: ID:3858
+msgid "Please enter a GUID."
+msgstr "Ange en GUID."
+
+#: ID:3858
+msgid "Please enter a currency."
+msgstr "Ange en valuta."
+
+#: ID:3858
+msgid "Please enter a date and/or time."
+msgstr "Ange ett datum och / eller en tidpunkt."
+
+#: ID:3858
+msgid "Please enter a date."
+msgstr "Ange ett datum."
+
+#: ID:3858
+msgid "Please enter a number between %1 and %2."
+msgstr "Ange ett numeriskt värde mellan %1 och %2."
+
+#: ID:3858
+msgid "Please enter a number."
+msgstr "Ange ett numeriskt värde."
+
+#: ID:3858
+msgid "Please enter a positive integer."
+msgstr "Ange ett positivt heltal."
+
+#: ID:3858
+msgid "Please enter a time."
+msgstr "Ange en tidpunkt."
+
+#: ID:3858
+msgid "Please enter an integer between %1 and %2."
+msgstr "Ange ett heltal mellan %1 och %2."
+
+#: ID:3858
+msgid "Please enter an integer between 0 and 255."
+msgstr "Ange ett heltal mellan 0 och 255."
+
+#: ID:3858
+msgid "Please enter an integer."
+msgstr "Ange ett heltal."
+
+#: ID:3858
+msgid "Please enter no more than %1 characters."
+msgstr "Ange inte fler än %1 tecken."
+
+#: ID:78
+msgid ""
+"Please note:\n"
+"your working copy remains on the previous path. If you want your next changes\n"
+"to be in the just created copy then you need to <b>switch</b> over\n"
+"to that copy path. Use the <b>Switch</b> command to do that."
+msgstr ""
+"OBS:\n"
+"Din arbetskopia är fortfarande kopplad till förra sökvägen. Om du vill att ändrigar skall arkiveras\n"
+"på den nya grenen måste du <b>växla</b> till\n"
+"den sökvägen. Använd kommandot <b>Växla till</b> för att göra detta."
+
+#: ID:3858
+msgid "Please select a button."
+msgstr "Välj en knapp."
+
+#: ID:76
+msgid "Please specify the certificate type"
+msgstr "Ange typ av certifikat"
+
+#: ID:132
+msgid "Please wait - this can take several minutes. Seriously!"
+msgstr "Var god vänta - åtgärden kan ta upp till flera minuter att genomföra."
+
+#: ID:13
+msgid "Please wait while cancelling..."
+msgstr "Vänta medan operationen avbryts..."
+
+#: ID:119
+msgid "Please wait..."
+msgstr "Vänta..."
+
+#: ID:132
+msgid "Processing revision %d of %d..."
+msgstr "Processar version %d av %d..."
+
+#: ID:74
+#, fuzzy
+msgid "Program"
+msgstr "Program"
+
+# ID:157,
+#: ID:157
+msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
+msgstr ""
+
+#: Control-ID:65535
+msgid "Properties"
+msgstr "Egenskaper"
+
+#: ID:11
+msgid "Property"
+msgstr "Egenskap"
+
+#: Dlg-ID:107
+msgid "Property Page"
+msgstr "Egenskaper"
+
+#: Control-ID:65535
+msgid "Property Status:"
+msgstr "Egenskapsstatus:"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Proxy &timeout in seconds:"
+msgstr "Timeout för proxy i sekunder:"
+
+#: Control-ID:1080
+msgid "Proxy Settings"
+msgstr "Inställningar för proxy"
+
+#: ID:3605
+msgid ""
+"Quit the application; prompts to save documents\n"
+"Exit"
+msgstr ""
+"Avsluta programmet\n"
+"Avsluta"
+
+#: Control-ID:1073
+#, fuzzy
+msgid "RAM drives"
+msgstr "Fasta enheter"
+
+# ID:3697,
+#: ID:3697
+msgid "REC"
+msgstr ""
+
+#: ID:12
+msgid "Read the 'Daily Use Guide' before you are stuck..."
+msgstr "Läs i lathunden om du kört fast..."
+
+#: ID:3603
+msgid ""
+"Redo the previously undone action\n"
+"Redo"
+msgstr ""
+"Gör om det föregående ångrakommandot\n"
+"Gör om"
+
+#: ID:3825
+msgid "Reduce the window to an icon"
+msgstr "Minimera fönstret till en ikon"
+
+#: ID:101
+#: ID:135
+msgid "Refresh"
+msgstr "Uppdatera"
+
+#: ID:82
+msgid "Reject"
+msgstr "Avslå"
+
+#: MenuEntry
+#, fuzzy
+msgid "Reload"
+msgstr "Ersatt"
+
+# ID:2050,
+#: ID:2050
+msgid ""
+"Reloads the opened files and reverts all changes.\n"
+"Reload"
+msgstr ""
+
+#: Dlg-ID:157
+msgid "Relocate"
+msgstr "Omlokalisera"
+
+#: ID:12
+msgid "Relocate..."
+msgstr "Omlokalisera..."
+
+#: ID:80
+msgid "Relocating..."
+msgstr "Omlokaliserar..."
+
+#: ID:63
+msgid "Remote Status"
+msgstr "Status i arkivet"
+
+#: Control-ID:65535
+msgid "Removed"
+msgstr "Borttagen"
+
+#: ID:126
+msgid "Removed file/folder"
+msgstr "Fil / mapp togs bort"
+
+#: Dlg-ID:151
+msgid "Rename"
+msgstr "Byt namn"
+
+#: ID:97
+#, fuzzy
+msgid "Rename %s"
+msgstr "Byt namn"
+
+#: ID:11
+#: ID:101
+msgid "Rename..."
+msgstr "Byt namn..."
+
+#: ID:11
+msgid "Renames files / folders inside source control"
+msgstr "Byter namn på filer / mappar i arkivet"
+
+#: ID:3603
+msgid ""
+"Repeat the last action\n"
+"Repeat"
+msgstr ""
+"Upprepa senaste kommandot\n"
+"Upprepa"
+
+#: ID:3603
+msgid ""
+"Replace specific text with different text\n"
+"Replace"
+msgstr ""
+"Ersätt text med annan text\n"
+"Ersätt"
+
+#: ID:74
+msgid "Replaced"
+msgstr "Ersatt"
+
+#: ID:13
+msgid "Repo-Browser"
+msgstr "Arkivutforskaren"
+
+#: Control-ID:65535
+#: Control-ID:1055
+msgid "Repository"
+msgstr "Arkiv"
+
+#: Dlg-ID:153
+msgid "Repository Browser"
+msgstr "Arkivutforskaren"
+
+#: ID:74
+msgid "Resolve"
+msgstr "Lös konflikt"
+
+#: Control-ID:1067
+#, fuzzy
+msgid "Resolve conflicted subversion status on save"
+msgstr "Markerar konflikten i filen som löst"
+
+#: ID:8
+msgid "Resolved"
+msgstr "Markera konflikt som löst"
+
+#: ID:9
+msgid "Resolves conflicted files"
+msgstr "Markerar konflikten i filen som löst"
+
+#: ID:73
+msgid "Restore"
+msgstr "Återställ"
+
+#: ID:3826
+msgid "Restore the window to normal size"
+msgstr "Återställ fönstret till normal storlek"
+
+#: ID:73
+msgid "Retry"
+msgstr "Försök igen"
+
+#: ID:8
+#: ID:73
+#: Dlg-ID:175
+msgid "Revert"
+msgstr "Återställ"
+
+#: ID:113
+msgid "Revert changes from this revision"
+msgstr "Återställ till denna version"
+
+#: ID:9
+msgid "Reverts all changes you made since the last update"
+msgstr "Återställer alla ändringar sedan senaste uppdateringen"
+
+#: ID:76
+#: Control-ID:65535
+msgid "Revision"
+msgstr "Version"
+
+#: ID:119
+msgid "Revision %d"
+msgstr "Version %d"
+
+#: Control-ID:65535
+msgid "Revision / Author:"
+msgstr "Version / ändrad av:"
+
+#: ID:75
+#, fuzzy
+msgid "Revision: "
+msgstr "Revision: %ld\n"
+
+#: MenuEntry
+#, fuzzy
+msgid "S&ettings"
+msgstr "Inställningar"
+
+# ID:3697,
+#: ID:3697
+msgid "SCRL"
+msgstr ""
+
+# Control-ID:1081,
+#: Control-ID:1081
+msgid "SSH"
+msgstr ""
+
+#: ID:77
+msgid "SVN Add..."
+msgstr "Lägger till..."
+
+#: ID:132
+msgid "SVN Blame"
+msgstr "Visa ändringar..."
+
+#: ID:77
+msgid "SVN Checkout..."
+msgstr "Hämtar..."
+
+#: ID:77
+msgid "SVN Commit..."
+msgstr "Arkiverar..."
+
+#: ID:78
+msgid "SVN Copy..."
+msgstr "Kopierar..."
+
+#: ID:78
+msgid "SVN Export..."
+msgstr "Exporterar..."
+
+#: ID:77
+msgid "SVN Import..."
+msgstr "Importerar..."
+
+#: ID:78
+msgid "SVN Merge..."
+msgstr "Förenar..."
+
+#: Dlg-ID:134
+msgid "SVN Progress"
+msgstr "Förlopp"
+
+#: ID:77
+msgid "SVN Resolve..."
+msgstr "Markerar konflikt som löst..."
+
+#: ID:77
+msgid "SVN Revert..."
+msgstr "Återställer..."
+
+#: ID:11
+msgid "SVN Revision"
+msgstr "SVN Version"
+
+#: ID:11
+#, fuzzy
+msgid "SVN Status"
+msgstr "Status gentemot revision: %6ld\n"
+
+#: ID:78
+msgid "SVN Switch..."
+msgstr "Växlar..."
+
+#: ID:77
+msgid "SVN Update..."
+msgstr "Uppdaterar..."
+
+#: ID:12
+msgid "SVN Url"
+msgstr "SVN URL"
+
+# ID:14,
+#: ID:14
+#, fuzzy
+msgid "SVN mime-type"
+msgstr "Felaktig mime-typ"
+
+#: ID:12
+msgid "SVN short Url"
+msgstr "SVN URL (kort)"
+
+#: MenuEntry
+#, fuzzy
+msgid "Save &As..."
+msgstr "visa så lite information som möjligt"
+
+#: ID:3841
+msgid "Save As"
+msgstr "Spara som"
+
+#: ID:313
+#: ID:101
+msgid "Save as..."
+msgstr "Spara som..."
+
+#: ID:3857
+msgid "Save changes to %1?"
+msgstr "Spara ändringar i %1?"
+
+#: ID:76
+msgid "Save revision to..."
+msgstr "Spara version till..."
+
+#: ID:3601
+msgid ""
+"Save the modified file\n"
+"Save file"
+msgstr ""
+"Spara den ändrade filen\n"
+"Spara fil"
+
+#: ID:144
+msgid "Saving patchfile to:"
+msgstr "Sparar patchfil till:"
+
+#: ID:113
+#, fuzzy
+msgid "Search log messages..."
+msgstr "Problem vid körning av logg"
+
+#: ID:3867
+msgid "Seek failed on %1"
+msgstr "Sökning misslyckades i %1"
+
+#: Control-ID:1067
+#, fuzzy
+msgid "Select / Deselect &All"
+msgstr "Alla tillhandahållare av autentisering förbrukade"
+
+#: ID:78
+msgid "Select Diff Application"
+msgstr "Välj applikation för diffhantering"
+
+#: ID:13
+msgid "Select File..."
+msgstr "Välj fil..."
+
+#: ID:78
+#, fuzzy
+msgid "Select Merge Application"
+msgstr ".sammanslagning-vänster.r%ld"
+
+#: Dlg-ID:173
+#, fuzzy
+msgid "Select Revision"
+msgstr "Revision: %ld\n"
+
+#: ID:78
+#, fuzzy
+msgid "Select SSH Client"
+msgstr "Filnamn för klientcertifikat: "
+
+#: ID:79
+msgid "Select Text Editor Application"
+msgstr "Välj applikation för textredigering"
+
+#: ID:78
+msgid "Select Viewer for Diff-Files"
+msgstr "Välj applikation för att visa diffar"
+
+#: ID:3585
+msgid "Select an object on which to get Help"
+msgstr "Markera ett objekt för att få hjälp"
+
+#: ID:313
+msgid "Select diff file..."
+msgstr "Välj diff-fil..."
+
+#: ID:79
+msgid ""
+"Select folder to export to.\n"
+"You might need to create a new folder before performing this export."
+msgstr ""
+"Välj mapp att exportera till.\n"
+"Du kan behöva skapa en ny mapp innan du kan genomföra den här exporten."
+
+#: ID:3603
+msgid ""
+"Select the entire document\n"
+"Select All"
+msgstr ""
+"Markera hela dokumentet\n"
+"Markera allt"
+
+#: ID:3866
+msgid "Send Mail failed to send message."
+msgstr "Skicka mail misslyckades."
+
+#: ID:74
+msgid "Sending Content"
+msgstr "Skickar innehåll"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Server &address:"
+msgstr "Klient- och serverversion stämmer ej överens"
+
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Set filedates to the \"last commit time\""
+msgstr ""
+
+#: ID:13
+msgid "Setting Properties..."
+msgstr "Sätter egenskaper..."
+
+#: ID:107
+#: ID:9
+msgid "Settings"
+msgstr "Inställningar"
+
+#: Control-ID:1105
+#, fuzzy
+msgid "Short &date/time format in log messages"
+msgstr "Font för loggmeddelanden:"
+
+#: ID:12
+msgid "Short Url of subversion items"
+msgstr "Sökväg i arkivet (kort)"
+
+#: Control-ID:1031
+#: Control-ID:1034
+#, fuzzy
+msgid "Show &Log"
+msgstr "Problem vid körning av logg"
+
+#: Control-ID:1031
+#, fuzzy
+msgid "Show &Log..."
+msgstr "Problem vid körning av logg"
+
+#: Control-ID:1016
+#, fuzzy
+msgid "Show &log"
+msgstr "Problem vid körning av logg"
+
+# Control-ID:1065,
+#: Control-ID:1065
+#, fuzzy
+msgid "Show Diff Bar"
+msgstr "visa versionsinformation"
+
+#: ID:113
+#, fuzzy
+msgid "Show Differences"
+msgstr "visa versionsinformation"
+
+#: ID:113
+#, fuzzy
+msgid "Show Differences as Unified Diff"
+msgstr "Visa ändringar som Unified Diff"
+
+# Control-ID:1063,
+#: Control-ID:1063
+#, fuzzy
+msgid "Show Linenumbers"
+msgstr "visa versionsinformation"
+
+#: ID:12
+msgid "Show Log"
+msgstr "Visa historik"
+
+#: ID:101
+msgid "Show log"
+msgstr "Visa historik"
+
+#: ID:3713
+msgid ""
+"Show or hide the status bar\n"
+"Toggle StatusBar"
+msgstr ""
+"Visa eller dölj statusrad\n"
+"Växla statusrad"
+
+#: ID:3713
+msgid ""
+"Show or hide the toolbar\n"
+"Toggle ToolBar"
+msgstr ""
+"Visa eller dölj verktygsrad\n"
+"Växla verktygsrad"
+
+# Control-ID:1088,
+#: Control-ID:1088
+msgid "Show overlays only in explorer"
+msgstr ""
+
+#: ID:2049
+msgid ""
+"Show special characters for whitespaces\n"
+"Show Whitespaces"
+msgstr ""
+"Visa whitespace som specialtecken\n"
+"Visa whitespace"
+
+#: Control-ID:1073
+#, fuzzy
+msgid "Show unversioned files"
+msgstr "(Binära filer skiljer sig åt)\n"
+
+#: ID:13
+msgid "Shows all files which were changed since the last update, locally and in the repository"
+msgstr "Visar alla ändrade filer sen förra uppdateringen, både lokalt och i arkivet"
+
+#: ID:10
+msgid "Shows information about TortoiseSVN"
+msgstr "Visar information om TortoiseSVN"
+
+#: ID:12
+msgid "Shows the log for the selected file / folder"
+msgstr "Visar historik för den valda filen / mappen"
+
+# ID:14,
+#: ID:14
+#, fuzzy
+msgid "Shows the mime type of the versioned file"
+msgstr "Filen \"%s\" har binär mime-typsegenskap"
+
+#: ID:74
+#, fuzzy
+msgid "Size"
+msgstr "Tabbstorlek:"
+
+#: ID:74
+msgid "Skip"
+msgstr "Hoppa över"
+
+#: ID:79
+#, fuzzy
+msgid ""
+"Specify the files or folders wich TortoiseSVN\n"
+" should exclude from version control.\n"
+"Separate the patterns with a space."
+msgstr ""
+"Ange de filer/mappar som TortoiseSVN ska\n"
+"inkludera/exkludera från versionshantering.\n"
+"Sökmönster för inkludering anges med prefixet '+'.\n"
+"Prioriteringsordningen är från vänster till höger."
+
+#: ID:3604
+msgid ""
+"Split the active window into panes\n"
+"Split"
+msgstr ""
+"Dela det aktiva fönstret\n"
+"Dela"
+
+#: ID:74
+#: ID:77
+#, fuzzy
+msgid "Status"
+msgstr "Statusrad"
+
+#: ID:11
+msgid "Status of item in SVN"
+msgstr "Status"
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "Subversion configuration file:"
+msgstr "Hoppar över binär fil: \"%s\"\n"
+
+#: ID:79
+msgid ""
+"Subversion reported an error while creating a repository!\n"
+"Make sure the folder is empty and not write protected."
+msgstr ""
+"SVN rapporterade ett fel när nytt arkiv skapades!\n"
+"Se till att mappen är tom och inte är skrivskyddad."
+
+#: ID:81
+msgid ""
+"Subversion reported an error while doing a cleanup!\n"
+"<hr=100%>\n"
+"%s"
+msgstr ""
+"SVN rapporterade ett fel vid rensning!\n"
+"<hr=100%>\n"
+"%s"
+
+#: Dlg-ID:140
+msgid "Switch To Branch / Tag"
+msgstr "Växla till gren / märke"
+
+#: ID:3606
+msgid ""
+"Switch back to the previous window pane\n"
+"Previous Pane"
+msgstr ""
+"Växla tillbaka till förra fönsterpanelen\n"
+"Föregående panel"
+
+#: ID:2049
+msgid ""
+"Switch between single and double pane view\n"
+"Switch between single and double pane view"
+msgstr ""
+"Växla mellan enkel och dubbel vy\n"
+"Växla mellan enkel och bubbel vy"
+
+#: ID:3825
+msgid "Switch to the next document window"
+msgstr "Växla till nästa dokumentfönster"
+
+#: ID:3606
+msgid ""
+"Switch to the next window pane\n"
+"Next Pane"
+msgstr ""
+"Växla till nästa fönsterpanel\n"
+"Nästa panel"
+
+#: ID:3825
+msgid "Switch to the previous document window"
+msgstr "Växla till föregående dokumentfönster"
+
+#: ID:9
+msgid "Switch working copy to another branch / tag"
+msgstr "Växlar över arbetskopian till en annan gren / märke"
+
+#: ID:9
+msgid "Switch..."
+msgstr "Växla till..."
+
+#: ID:3857
+msgid "System registry entries have been removed and the INI file (if any) was deleted."
+msgstr "Registryinställningar och eventuell .ini-fil har tagits bort."
+
+#: Control-ID:65535
+msgid "Tab Size:"
+msgstr "Tabbstorlek:"
+
+#: ID:79
+msgid "Tagged the working copy to %s"
+msgstr "Arbetskopian märkt med %s"
+
+#: Control-ID:65535
+msgid "Text Status:"
+msgstr "Status:"
+
+#: ID:69
+#, fuzzy
+msgid ""
+"The File\n"
+"%s\n"
+"is not a valid text file!"
+msgstr "Filen %s kunde inte hittas i patchfilen!"
+
+#: ID:80
+#, fuzzy
+msgid "The Repository was successfully created."
+msgstr "Sökvägen är inte en del av en databas"
+
+#: ID:63
+msgid "The chunk size did not match the number of added/removed lines!"
+msgstr "Storleken på stycket stämmer inte med antalet nya/borttagna rader!"
+
+#: ID:63
+msgid "The chunk start \"@@\" was expected in line %d !"
+msgstr "Början på stycke (\"@@\") förväntas på rad %d!"
+
+#: ID:68
+msgid ""
+"The diffing engine aborted because of an error:\n"
+"%s"
+msgstr ""
+"Jämförelsemotorn avbröt på grund av följande fel:\n"
+"%s"
+
+#: ID:64
+msgid "The file %s does not exist!"
+msgstr "Filen %s finns inte!"
+
+#: ID:64
+msgid "The file %s was not found in the patch file!"
+msgstr "Filen %s kunde inte hittas i patchfilen!"
+
+#: ID:3857
+msgid "The file is too large to open."
+msgstr "Filen är för stor för att öppna."
+
+#: ID:80
+msgid ""
+"The file\n"
+"%s\n"
+"already exists! Do you want to overwrite it?"
+msgstr ""
+"Filen\n"
+"%s\n"
+"finns redan! Vill du skriva över den?"
+
+#: ID:88
+msgid ""
+"The folder \n"
+"%s\n"
+"does not exist.\n"
+"Would you like to create it first?"
+msgstr ""
+"Mappen \n"
+"%s\n"
+"finns inte.\n"
+"Vill du skapa den först?"
+
+#: ID:63
+msgid "The line \"====\" was expected in line %d !"
+msgstr "Texten \"====\" förväntades på rad %d!"
+
+#: ID:63
+msgid "The line \"Index: \" was not found!"
+msgstr "Raden \"Index: \" hittades inte!"
+
+#: ID:63
+msgid "The line indicating the new file was expected in line %d !"
+msgstr "Raden som visar den ny filen förväntas på rad %d!"
+
+#: ID:63
+msgid "The line indicating the old file was expected in line %d !"
+msgstr "Raden som visar den gamla filen förväntas på rad %d!"
+
+#: ID:63
+msgid ""
+"The old file does not match the new file.\n"
+"Renaming of files is not (yet) supported!"
+msgstr ""
+"Det gamla filnamnet matchar inte det nya.\n"
+"Namnbyte på filer stöds inte (ännu)!"
+
+#: ID:64
+msgid ""
+"The patch seems outdated! The file line\n"
+"%s\n"
+"and the patchline\n"
+"%s\n"
+"do not match!"
+msgstr ""
+"Patchen verkar gammal! Filraden\n"
+"%s\n"
+"och patchraden\n"
+"%s\n"
+" matchar inte!"
+
+# ID:78,
+#: ID:78
+msgid ""
+"The selected file appears to still have one or more conflict markers in it.\n"
+"Are you sure you want to mark the file resolved?"
+msgstr ""
+
+#: ID:81
+msgid ""
+"The working copy has changed!\n"
+"<hr=100%>\n"
+"Please commit your changes first or revert."
+msgstr ""
+"Arbetskopian har ändrats!\n"
+"<hr=100%>\n"
+"Arkivera dina ändringar eller återställ dem först."
+
+#: ID:81
+msgid ""
+"The working copy is not up to date!\n"
+"Please Update first."
+msgstr ""
+"Arbetskopian är inte uppdaterad!\n"
+"Uppdatera den först."
+
+#: Control-ID:65535
+msgid "Their File:"
+msgstr "\"Deras\" fil:"
+
+# ID:169,
+#: ID:169
+msgid ""
+"There are changes inside one or more directories which you have included with svn:externals.\n"
+"Those files are <b>not</b> listed for commit. You need to commit those files separately."
+msgstr ""
+
+#: ID:66
+#, fuzzy
+msgid ""
+"There are still unresolved conflicts in line %d!\n"
+"Please resolve those conflicts first before saving."
+msgstr ""
+"Det finns utestående konflikter!\n"
+"Var god lös dessa innan du sparar."
+
+# ID:188,
+#: ID:188
+msgid "Thesaurus"
+msgstr ""
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
+msgstr ""
+
+# ID:3857,#:
+# ID:3857,
+#: ID:3857
+msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+msgstr ""
+
+#: ID:3857
+msgid "This program requires the file %s, which was not found on this system."
+msgstr "Den här applikationen kräver filen %s, som inte kunde hittas."
+
+#: Control-ID:65535
+msgid "Three File Diff"
+msgstr "3-vägs diff"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
+msgstr ""
+
+#: Control-ID:1052
+msgid "To see the changes you made, double click on the files above."
+msgstr "Dubbelklicka på filerna ovan för att se de ändringar som är gjorda."
+
+# Control-ID:65535,
+#: Control-ID:65535
+#, fuzzy
+msgid "To:"
+msgstr "Kan inte skriva till \"%s\""
+
+#: ID:7
+#: ID:3585
+#: Dlg-ID:130
+#, fuzzy
+msgid "TortoiseMerge"
+msgstr "Om TortoiseMerge"
+
+# ID:107,
+#: ID:107
+msgid "TortoiseMerge %d.%d.%d, Build %d"
+msgstr ""
+
+# ID:107,
+#: ID:107
+msgid ""
+"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
+msgstr ""
+
+#: ID:9
+#: ID:80
+#, fuzzy
+msgid "TortoiseSVN"
+msgstr "Ändra inställningar för TortoiseSVN"
+
+# ID:107,
+#: ID:107
+msgid "TortoiseSVN %d.%d.%d, Build %d"
+msgstr ""
+
+# ID:107,
+#: ID:107
+msgid ""
+"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-iconv %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"berkeley db %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
+msgstr ""
+
+#: ID:80
+msgid "TortoiseSVN Settings"
+msgstr "TortoiseSVN inställningar"
+
+#: ID:73
+msgid "Try Again"
+msgstr "Försök igen"
+
+#: ID:10
+msgid "Tweak TortoiseSVN"
+msgstr "Ändra inställningar för TortoiseSVN"
+
+#: Control-ID:65535
+msgid "Two File Diff"
+msgstr "2-vägs diff"
+
+# Dlg-ID:164,
+#: Dlg-ID:164
+#, fuzzy
+msgid "URL"
+msgstr "URL: %s\n"
+
+#: ID:12
+msgid "URL of subversion items"
+msgstr "Sökväg i arkivet"
+
+#: Control-ID:65535
+#: Control-ID:1076
+#, fuzzy
+msgid "URL:"
+msgstr "URL: %s\n"
+
+#: ID:75
+#, fuzzy
+msgid "URL: "
+msgstr "URL: %s\n"
+
+#: ID:3866
+msgid "Unable to load mail system support."
+msgstr "Kunde inte ladda stöd för mailsystem."
+
+#: ID:3859
+msgid "Unable to read from %1, it is opened by someone else."
+msgstr "Kan inte läsa från %1, filen är öppnad av någon annan."
+
+#: ID:3865
+msgid "Unable to read write-only property."
+msgstr "Kan inte läsa egenskap som är markerad för endast skrivning."
+
+#: ID:3865
+msgid "Unable to write read-only property."
+msgstr "Kan inte skriva till egenskap som är markerad för endast läsning."
+
+#: ID:3859
+msgid "Unable to write to %1, it is read-only or opened by someone else."
+msgstr "Kan inte skriva till %1, filen är markerad för endast läsning eller är öppnad av någon annan."
+
+#: ID:3887
+msgid "Uncheck"
+msgstr "Avmarkera"
+
+#: ID:3603
+msgid ""
+"Undo the last action\n"
+"Undo"
+msgstr ""
+"Ångra senaste kommandot\n"
+"Ångra"
+
+#: ID:3859
+msgid "Unexpected file format."
+msgstr "Oväntat filformat."
+
+#: ID:81
+msgid ""
+"Unknown certificate issuer.\n"
+"  Fingerprint: %s\n"
+"  Distinguished name: %s"
+msgstr ""
+"Okänd utgivare av certifikat.\n"
+"  Avtryck: %s\n"
+"  Namn: %s"
+
+#: Control-ID:1061
+#, fuzzy
+msgid "Unknown drives"
+msgstr "Okänt kommando: \"%s\"\n"
+
+#: ID:3841
+msgid "Untitled"
+msgstr "Namnlös"
+
+#: ID:8
+#: ID:74
+#: Dlg-ID:152
+msgid "Update"
+msgstr "Uppdatera"
+
+#: ID:11
+msgid "Update To Revision..."
+msgstr "Uppdatera till version..."
+
+#: ID:76
+msgid "Update item to revision"
+msgstr "Uppdatera till version"
+
+#: ID:11
+msgid "Updates the working copy to a specific revision"
+msgstr "Uppdaterar arbetskopian till en specifik version"
+
+#: ID:9
+msgid "Updates the working copy to the current revision"
+msgstr "Uppdaterar arbetskopian med den senaste versionen"
+
+#: ID:144
+msgid "Url:"
+msgstr "URL:"
+
+# Control-ID:1064,
+#: Control-ID:1064
+#, fuzzy
+msgid "Use Magnifier on Locatorbar"
+msgstr "arbeta med en revisionsegenskap (används med -r)"
+
+#: Control-ID:1024
+msgid "Use one-pane view as default"
+msgstr "Använd enkel vy som standard"
+
+# Control-ID:1066,
+#: Control-ID:1066
+msgid "Use strikeout for deleted lines"
+msgstr ""
+
+#: ID:251
+msgid "Use text block from \"theirs\""
+msgstr "Använd \"deras\" textblock"
+
+#: ID:251
+#, fuzzy
+msgid "Use text block from \"theirs\" before \"yours\""
+msgstr "Använd \"deras\" textblock"
+
+#: ID:251
+msgid "Use text block from \"yours\""
+msgstr "Använd \"ditt\" textblock"
+
+#: ID:251
+#, fuzzy
+msgid "Use text block from \"yours\" before \"theirs\""
+msgstr "Använd \"deras\" textblock"
+
+#: ID:12
+msgid "Use this if the URL of the repository has changed"
+msgstr "Används när URL:en för ett arkiv har ändrats"
+
+#: ID:251
+msgid "Use this text block"
+msgstr "Använd detta textblock"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Used for comparing different revisions of files."
+msgstr ""
+"Extern applikation som används för\n"
+"att jämföra olika versioner av filer."
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Used to resolve conflicted files."
+msgstr "Markerar konflikten i filen som löst"
+
+#: ID:74
+msgid "User cancelled"
+msgstr "Åtgärd avbruten av användaren"
+
+#: ID:69
+msgid "Username:"
+msgstr "Användarnamn:"
+
+#: ID:313
+msgid ""
+"Valid command line options are:\n"
+"/base:<path to base file>\n"
+"/theirs:<path to their file>\n"
+"/yours:<path to your file>\n"
+"/merged:<path to resulting merged file>\n"
+"/diff:<path to unified diff file>\n"
+"/patchpath:<path to folder>"
+msgstr ""
+"Tillåtna kommandoradsparametrar är:\n"
+"/base:<sökväg till basfilen>\n"
+"/theirs:<sökväg till deras fil>\n"
+"/yours:<sökväg till din fil>\n"
+"/merged:<sökväg till resultatfilen>\n"
+"/diff:<sökväg till fil i \"Unified Diff\"-format>\n"
+"/patchpath:<sökväg till mapp>"
+
+#: ID:11
+msgid "Value"
+msgstr "Värde"
+
+#: Control-ID:1075
+#, fuzzy
+msgid "Version"
+msgstr ""
+"%s, version %s\n"
+"   kompilerad %s, %s\n"
+"\n"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Viewer program for GNU diff files (patch files)."
+msgstr ""
+"En applikation för att visa GNU diffiler (patchfiler).\n"
+"Använd tex Notepad om du inte har någon."
+
+#: Control-ID:1084
+msgid "Visit our website"
+msgstr "Besök vår webbsida"
+
+#: Control-ID:65535
+#, fuzzy
+msgid "Whitespace diff"
+msgstr "\"Tomma\" tecken tillagda"
+
+#: Control-ID:65535
+msgid "Whitespaces"
+msgstr "Whitespace"
+
+#: ID:80
+msgid ""
+"Working copy relocated to\n"
+"%s"
+msgstr ""
+"Arbetskopian omlokaliserad till\n"
+"%s"
+
+#: ID:73
+msgid "Yes"
+msgstr "Ja"
+
+# ID:145,
+#: ID:145
+#, fuzzy
+msgid "Yes to all"
+msgstr "Kan inte skriva till \"%s\""
+
+# ID:201,
+#: ID:201
+msgid "You already have the most current version installed."
+msgstr ""
+
+# ID:144,
+#: ID:144
+msgid ""
+"You are creating a repository on a network share.\n"
+"This is safe, but once the repository is created you must access it by some other means.\n"
+"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Create the repository anyway?"
+msgstr ""
+
+# ID:88,
+#: ID:88
+msgid ""
+"You are trying to access a repository via file:/// on\n"
+"a shared network drive.\n"
+"This could lead to severe repository corruption!\n"
+"Do you really want to do that?"
+msgstr ""
+
+#: ID:77
+#, fuzzy
+msgid ""
+"You selected an unversioned file.\n"
+"The file will be added to version control when you commit."
+msgstr ""
+"Du har valt en fil som inte finns i arkivet.\n"
+"Den kommar att läggas till när du arkiverar dina ändringar."
+
+#: Control-ID:65535
+msgid "Your File:"
+msgstr "\"Din\" fil:"
+
+#: ID:78
+msgid ""
+"Your working copy appears to be on a <b>tag</b> path!\n"
+"You should first switch to a branch or the main trunk before committing."
+msgstr ""
+"Din arbetskopia verkar peka på ett <b>märke</b>!\n"
+"Du bör <b>växla</b> den till en sidogren eller huvudgrenen innan du arkiverar dina ändringar."
+
+#: ID:10
+msgid "added"
+msgstr "Tillagd"
+
+#: ID:3841
+msgid "an unnamed file"
+msgstr "en namnlös fil"
+
+#: Control-ID:1085
+msgid "and support the developers"
+msgstr "och stöd utvecklarna"
+
+#: ID:145
+#, fuzzy
+msgid "cleaning up"
+msgstr "Rensa"
+
+#: ID:11
+msgid "conflicted"
+msgstr "I konflikt"
+
+# Control-ID:1113,
+#: Control-ID:1113
+#, fuzzy
+msgid "current version is:"
+msgstr "\"%s\" är inte versionshanterad"
+
+# ID:201,
+#: ID:201
+#, fuzzy
+msgid "current version is: %s"
+msgstr "\"%s\" är inte versionshanterad"
+
+#: ID:10
+msgid "deleted"
+msgstr "Borttagen"
+
+#: ID:79
+msgid ""
+"exported\n"
+"%s\n"
+"to\n"
+"%s"
+msgstr ""
+"Exporterade\n"
+"%s\n"
+"till\n"
+"%s"
+
+#: ID:79
+msgid "exporting %s to"
+msgstr "Exporterar %s till"
+
+#: ID:13
+msgid "external"
+msgstr "Extern"
+
+#: ID:13
+msgid "ignored"
+msgstr "Undantagen"
+
+#: ID:13
+msgid "incomplete"
+msgstr "Ofullständig"
+
+#: ID:11
+#: Control-ID:1002
+msgid "locked"
+msgstr "Låst"
+
+#: ID:11
+msgid "merged"
+msgstr "Förenad"
+
+#: ID:10
+msgid "missing"
+msgstr "Saknas"
+
+#: ID:10
+msgid "modified"
+msgstr "Ändrad"
+
+#: ID:10
+msgid "no description for this command is available"
+msgstr "Beskrivning för detta kommando saknas"
+
+#: ID:10
+msgid "non-versioned"
+msgstr "Ej i arkivet"
+
+#: ID:10
+msgid "normal"
+msgstr "Normal"
+
+#: ID:11
+msgid "obstructed"
+msgstr "Blockerad"
+
+#: ID:3869
+msgid "pixels"
+msgstr "pixlar"
+
+#: Control-ID:1018
+#, fuzzy
+msgid "re&cursive"
+msgstr "Rekursivt"
+
+#: ID:10
+msgid "replaced"
+msgstr "Ersatt"
+
+#: Control-ID:1023
+msgid "save authentication"
+msgstr "Spara"
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:eol-style\n"
+"One of 'native', 'LF', 'CR', 'CRLF'."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:executable\n"
+"If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:externals\n"
+"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"foo\t\thttp://example.com/repos/zig\n"
+"foo/bar -r 1234\thttp://example.com/repos/zag"
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:ignore\n"
+"A newline separated list of file patterns to ignore."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:keywords\n"
+"Keywords to be expanded. Valid keywords are:\n"
+"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"Author, LastChangedBy\t\tThe last person to modify the file.\n"
+"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
+"Rev, LastChangedRevision\tThe last revision the object changed.\n"
+"Id\t\t\t\tA compressed summary of the previous 4 keywords."
+msgstr ""
+
+# ID:14,
+#: ID:14
+msgid ""
+"svn:mime-type\n"
+"The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
+msgstr ""
+
+#: ID:80
+msgid "to %s"
+msgstr "till %s"
+
+#: Control-ID:1112
+#, fuzzy
+msgid "your version is:"
+msgstr "\"%s\" är inte versionshanterad"
+
+# ID:201,
+#: ID:201
+#, fuzzy
+msgid "your version is: %d.%d.%d.%d"
+msgstr "\"%s\" är inte versionshanterad"
+
