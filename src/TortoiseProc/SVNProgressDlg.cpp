@@ -775,6 +775,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			break;
 		case Copy:
+		{
 			ASSERT(m_targetPathList.GetCount() == 1);
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
 			SetWindowText(sWindowTitle);
@@ -785,7 +786,20 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_WARNING));
 			ReportNotification(sMsg);
-			break;
+		}
+		break;
+		case Rename:
+		{
+			ASSERT(m_targetPathList.GetCount() == 1);
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_RENAME);
+			SetWindowText(sWindowTitle);
+			if (!m_pSvn->Move(m_targetPathList[0], m_url, m_Revision, m_sMessage))
+			{
+				ReportSVNError();
+				break;
+			}
+		}
+		break;
 	}
 	temp.LoadString(IDS_PROGRS_TITLEFIN);
 	sWindowTitle = sWindowTitle + _T(" ") + temp;

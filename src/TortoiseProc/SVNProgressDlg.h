@@ -82,7 +82,8 @@ public:
 		Merge = 10,
 		Enum_Merge = 10,
 		Copy = 11,
-		Relocate = 12
+		Relocate = 12,
+		Rename = 13
 	} Command;
 
 private:

@@ -857,11 +857,21 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 				else
 				{
-					SVN svn;
-					if (!svn.Move(cmdLinePath, destinationPath, TRUE))
+					if ((cmdLinePath.IsDirectory())||(pathList.GetCount() > 1))
 					{
-						TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						CSVNProgressDlg progDlg;
+						progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
+						progDlg.SetParams(CSVNProgressDlg::Rename, 0, pathList, destinationPath.GetWinPathString(), CString(), SVNRev::REV_WC);
+						progDlg.DoModal();
+					}
+					else
+					{
+						SVN svn;
+						if (!svn.Move(cmdLinePath, destinationPath, TRUE))
+						{
+							TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+							CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
 					}
 				}
 			}
