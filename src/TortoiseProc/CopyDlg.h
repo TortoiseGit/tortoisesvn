@@ -67,7 +67,7 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedHelp();
-	afx_msg void OnCbnSelchangeOldlogs();
+	afx_msg void OnCbnCloseupOldlogs();
 	DECLARE_MESSAGE_MAP()
 
 public:

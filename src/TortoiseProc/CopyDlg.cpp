@@ -58,7 +58,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CCopyDlg, CDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
+	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 END_MESSAGE_MAP()
 
 
@@ -210,7 +210,7 @@ void CCopyDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
-void CCopyDlg::OnCbnSelchangeOldlogs()
+void CCopyDlg::OnCbnCloseupOldlogs()
 {
 	m_cLogMessage.InsertText(m_OldLogs.GetString());
 }

@@ -27,6 +27,7 @@
 #include "SVN.h"
 #include "Registry.h"
 #include "SVNStatus.h"
+#include ".\logpromptdlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -77,9 +78,9 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 	ON_BN_CLICKED(IDC_FILLLOG, OnBnClickedFilllog)
-	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
+	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 END_MESSAGE_MAP()
 
 // CLogPromptDlg message handlers
@@ -537,7 +538,7 @@ void CLogPromptDlg::OnBnClickedFilllog()
 	m_cLogMessage.InsertText(logmsg);
 }
 
-void CLogPromptDlg::OnCbnSelchangeOldlogs()
+void CLogPromptDlg::OnCbnCloseupOldlogs()
 {
 	if (m_OldLogs.GetString().Compare(m_cLogMessage.GetText().Left(m_OldLogs.GetString().GetLength()))!=0)
 		m_cLogMessage.InsertText(m_OldLogs.GetString(), !m_cLogMessage.GetText().IsEmpty());
@@ -608,7 +609,7 @@ void CLogPromptDlg::GetAutocompletionList()
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;
-	LONG timeout = GetTickCount()+5000;		// stop parsing after 5 seconds.
+	DWORD timeout = GetTickCount()+5000;		// stop parsing after 5 seconds.
 	try
 	{
 		CString strLine;
@@ -729,3 +730,5 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 	catch (bad_alloc) {}
 	catch (bad_regexpr) {}
 }
+
+

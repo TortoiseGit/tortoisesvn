@@ -53,7 +53,7 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CImportDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
+	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -209,7 +209,7 @@ void CImportDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
-void CImportDlg::OnCbnSelchangeOldlogs()
+void CImportDlg::OnCbnCloseupOldlogs()
 {
 	m_cMessage.InsertText(m_OldLogs.GetString());
 }

@@ -77,7 +77,7 @@ protected:
 	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnEnChangeLogmessage();
 	afx_msg void OnBnClickedFilllog();
-	afx_msg void OnCbnSelchangeOldlogs();
+	afx_msg void OnCbnCloseupOldlogs();
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
 	void Refresh();
@@ -108,4 +108,5 @@ private:
 	CButton			m_SelectAll;
 	CString			m_sBugID;
 	static UINT		WM_AUTOLISTREADY;
+public:
 };
