@@ -130,16 +130,30 @@
 			</para>
 			<para>
 			TortoiseSVN benutzt fünf überlagerte Icons für den Status:
-			<orderedlist>
-				<listitem><para>Normal</para></listitem>
-				<listitem><para>Verändert</para></listitem>
-				<listitem><para>In Konflikt</para></listitem>
-				<listitem><para>Gelöscht</para></listitem>
-				<listitem><para>Hinzugefügt</para></listitem>
-			</orderedlist>
+			<graphic fileref="images/InSubVersionIcon.png"/>
+			Normal
+			<graphic fileref="images/ModifiedIcon.png"/>
+			Verändert
+			<graphic fileref="images/ConflictIcon.png"/>
+			In Konflikt
+			<graphic fileref="images/DeletedIcon.png"/> 
+			Gelöscht
+			<graphic fileref="images/AddedIcon.png"/> 
+			Hinzugefügt
+			</para>
+			<para>
 			Am wahrscheinlichsten ist dass das Icon für <literal>Hinzugefügt</literal>
 			nicht mehr angezeigt wird. Dann das <literal>Gelöscht</literal> Icon
 			und so weiter.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-installation-2-2">
+			<title>Warum gibt es kein überlagertes Icon für nicht versionierte Dateien?</title>
+			<para>
+			  Aus dem gleichen Grund. Windows kann nur 15 überlagerte Icons verwalten und
+			  wir wollen keinen Platz für die unwichtigste Information verschwenden.
+			  Wenn Sie "nicht versionierte" ind "ignorierte" Dateien im Explorer unterscheiden wollen,
+			  schalten Sie den Explorer in die Detailansicht und aktivieren Sie die "SVN Status" Spalte. 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-3">
@@ -151,7 +165,7 @@
 				<listitem>
 					<para>Installieren Sie Microsoft's <application>
 						<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">TweakUI</ulink>
-						</application> und führen Sie die Option <literal>Icon Cache reparieren</literal>.
+						</application> und führen Sie die Option <literal>Icon Cache reparieren</literal> aus.
 					</para>
 				</listitem>
 				<listitem>

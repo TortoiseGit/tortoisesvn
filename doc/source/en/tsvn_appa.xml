@@ -126,15 +126,30 @@
 			</para>
 			<para>
 			TortoiseSVN uses five overlay slots for the status:
-			<orderedlist>
-				<listitem><para>normal</para></listitem>
-				<listitem><para>modified</para></listitem>
-				<listitem><para>conflicted</para></listitem>
-				<listitem><para>deleted</para></listitem>
-				<listitem><para>added</para></listitem>
-			</orderedlist>
+			<graphic fileref="images/InSubVersionIcon.png"/>
+			normal
+			<graphic fileref="images/ModifiedIcon.png"/>
+			modified
+			<graphic fileref="images/ConflictIcon.png"/>
+			conflicted
+			<graphic fileref="images/DeletedIcon.png"/> 
+			deleted
+			<graphic fileref="images/AddedIcon.png"/> 
+			added
+			</para>
+			<para>
 			So most likely the "added" overlay will be missing, then the "deleted"
 			and so on.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-faq-installation-2-2">
+			<title>Why is there no overlay icons for unversioned files?</title>
+			<para>
+			  For the same reason. There are only 15 slots for icon overlays available.
+			  We don't want to waste a slot for the least important information. That's why.
+			  If you want to distinguish "unversioned" and "ignored" files in the explorer,
+			  switch to the explorers detailed view and activate the column "SVN Status". 
+				Then you will see the difference.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-3">
