@@ -455,6 +455,13 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						delete buf;
 						return TRUE;
 					} // if ((LOWORD(wParam) == IDC_EDITNAME)||(LOWORD(wParam) == IDC_EDITVALUE)) 
+					break;
+				case CBN_SELCHANGE:
+					if (LOWORD(wParam) == IDC_EDITNAME)
+					{
+						SetWindowText(GetDlgItem(m_hwnd, IDC_EDITVALUE), _T(""));
+					}
+					break;
 			} // switch (HIWORD(wParam)) 
 	} // switch (uMessage) 
 	return FALSE;
