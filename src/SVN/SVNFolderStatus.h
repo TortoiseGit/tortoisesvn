@@ -41,9 +41,6 @@
 #include <map>
 #include <set>
 
-#define EXCLUDEFILENAME "/_tsvnexcludethis"
-#define EXCLUDERECURSIVEFILENAME "/_tsvnexcluderecursive"
-
 /**
  * \ingroup TortoiseShell
  * a simple utility class:

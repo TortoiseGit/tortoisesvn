@@ -778,22 +778,6 @@ Folder/File2 : revision 2
 						<guilabel>Recurse into folders to fetch the status</guilabel>.
 						This will tell TortoiseSVN not to scan subfolders.
 					</para>
-					<para>
-						If you want to disable the recursive overlays only for
-						some folders but not for all then you can do that by
-						creating a file called
-						<filename>_tsvnexcluderecursive</filename> inside
-						that folder. This will disable the recursive overlays
-						for that folder, but <emphasis>not</emphasis> for the
-						files or folders inside it.
-					</para>
-					<para>
-						You can also disable the overlays completely for
-						a folder by creating a file called
-						<filename>_tsvnexcludethis</filename>
-						inside that folder. Again, this disables the overlays
-						only for that folder, not the folders inside it.
-					</para>
 				</listitem>
 				<listitem>
 					<para>

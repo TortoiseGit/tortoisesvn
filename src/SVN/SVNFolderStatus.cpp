@@ -140,10 +140,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	BOOL isFolder = PathIsDirectory(filepath);
 	if (isFolder)
 	{
-		TCHAR exfile[MAX_PATH];
-		_tcscpy(exfile, filepath);
-		_tcscat(exfile, _T(EXCLUDERECURSIVEFILENAME));
-		if (g_ShellCache.IsRecursive() && !PathFileExists(exfile))
+		if (g_ShellCache.IsRecursive())
 		{
 			// initialize record members
 			dirstat.rev = -1;
@@ -268,10 +265,6 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 			_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 			if (!PathFileExists(pathbuf))
 				return &invalidstatus;
-			*ptr = 0;
-			_tcscat(pathbuf, _T(EXCLUDEFILENAME));
-			if (PathFileExists(pathbuf))
-				return &invalidstatus;
 		}
 	} // if (!isFolder)
 	else
@@ -279,10 +272,6 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 		_tcscat(pathbuf, _T("\\"));
 		_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
 		if (!PathFileExists(pathbuf))
-			return &invalidstatus;
-		_tcscpy(pathbuf, filepath);
-		_tcscat(pathbuf, _T(EXCLUDEFILENAME));
-		if (PathFileExists(pathbuf))
 			return &invalidstatus;
 	}
 	filestatuscache * ret = NULL;
