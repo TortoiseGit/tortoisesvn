@@ -113,7 +113,16 @@ SVNRev::~SVNRev()
 
 SVNRev::operator LONG() const
 {
-	return rev.value.number;
+	switch (rev.kind)
+	{
+	case svn_opt_revision_head:		return SVNRev::REV_HEAD;
+	case svn_opt_revision_base:		return SVNRev::REV_BASE;
+	case svn_opt_revision_working:	return SVNRev::REV_WC;
+	case svn_opt_revision_number:	return rev.value.number;
+	}
+
+	ASSERT(true);
+	return SVNRev::REV_HEAD;
 }
 
 SVNRev::operator svn_opt_revision_t * ()

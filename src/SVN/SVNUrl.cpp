@@ -225,7 +225,7 @@ CString SVNUrl::GetTextFromRev(const SVNRev& revision)
 	}
 	else
 	{
-		rev_text.Format(_T("%u"), revision);
+		rev_text.Format(_T("%u"), (LONG)revision);
 	}
 
 	return rev_text;
