@@ -247,9 +247,11 @@ void CSVNPropertyPage::InitWorkfileView()
 			SetDlgItemText(m_hwnd, IDC_REVISION, buf);
 			if (svn.status->entry->url)
 #ifdef UNICODE
-				PathSetDlgItemPath(m_hwnd, IDC_REPOURL, UTF8ToWide(svn.status->entry->url).c_str());
+				//PathSetDlgItemPath(m_hwnd, IDC_REPOURL, UTF8ToWide(svn.status->entry->url).c_str());
+				SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(svn.status->entry->url).c_str());
 #else
-				PathSetDlgItemPath(m_hwnd, IDC_REPOURL, svn.status->entry->url);
+				//PathSetDlgItemPath(m_hwnd, IDC_REPOURL, svn.status->entry->url);
+				SetDlgItemText(m_hwnd, IDC_REPOURL, svn.status->entry->url);
 #endif
 			_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
 			SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
