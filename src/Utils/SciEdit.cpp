@@ -646,8 +646,8 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	CString msg = StringFromControl(textbuffer);
 	delete textbuffer;
-	int offset1 = start_pos;
-	int offset2 = start_pos;
+	int offset1 = 0;
+	int offset2 = 0;
 	
 	Call(SCI_STARTSTYLING, start_pos, 0x1f);
 
