@@ -38,6 +38,7 @@ VOID				PipeThread(LPVOID);
 LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 bool				bRun = true;
 NOTIFYICONDATA		niData; 
+HWND				hWnd;
 
 #define TRAY_CALLBACK	(WM_APP + 1)
 #define TRAYPOP_EXIT	(WM_APP + 1)
@@ -120,7 +121,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	wcex.lpszClassName	= szWindowClass;
 	wcex.hIconSm		= 0;
 	RegisterClassEx(&wcex);
-	HWND hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 0, 0, NULL, 0, hInstance, 0);
+	hWnd = CreateWindow(_T("TSVNCacheWindow"), _T("TSVNCacheWindow"), WS_CAPTION, 0, 0, 0, 0, NULL, 0, hInstance, 0);
 	msg.hwnd = hWnd;	
 	
 	if (CRegStdWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
@@ -307,8 +308,8 @@ VOID PipeThread(LPVOID lpvParam)
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
-			ATLTRACE("CreatePipe failed"); 
-			break;
+			ATLTRACE("CreatePipe failed");
+			continue; // never leave the thread!
 		}
 		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
 		if (WaitNamedPipe(TSVN_CACHE_PIPE_NAME, 1000))
@@ -333,6 +334,10 @@ VOID PipeThread(LPVOID lpvParam)
 					ATLTRACE("CreateThread failed"); 
 					DisconnectNamedPipe(hPipe);
 					CloseHandle(hPipe);
+					// since we're now closing this thread, we also have to close the whole application!
+					// otherwise the thread is dead, but the app is still running, refusing new instances
+					// but no pipe will be available anymore.
+					SendMessage(hWnd, WM_CLOSE, 0, 0);
 					return;
 				}
 				else CloseHandle(hInstanceThread); 
@@ -341,13 +346,13 @@ VOID PipeThread(LPVOID lpvParam)
 			{
 				// The client could not connect, so close the pipe. 
 				CloseHandle(hPipe); 
-				break;
+				continue;	// don't end the thread!
 			}
 		}
 		else
 		{
 			CloseHandle(hPipe);
-			break;
+			continue;		// don't end the thread!
 		}
 	}
 	ATLTRACE("Pipe thread exited\n");
