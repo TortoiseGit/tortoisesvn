@@ -938,7 +938,7 @@ void SVN::notify( void *baton,
 		buf[0] = 0;
 	CString mime;
 	if (mime_type)
-		mime = mime_type;
+		mime = CUnicodeUtils::GetUnicode(mime_type);
 	svn->Notify(CString(buf), (svn_wc_notify_action_t)action, kind, mime, content_state, prop_state, revision);
 }
 
