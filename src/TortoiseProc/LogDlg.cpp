@@ -2086,6 +2086,12 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 {
 	if (nIDEvent == LOGFILTER_TIMER)
 	{
+		if (m_bThreadRunning)
+		{
+			// thread still running! So just restart the timer.
+			SetTimer(LOGFILTER_TIMER, 1000, NULL);
+			return;
+		}
 		theApp.DoWaitCursor(1);
 		KillTimer(LOGFILTER_TIMER);
 		FillLogMessageCtrl(_T(""), NULL);
