@@ -33,7 +33,7 @@
 
 #define PWND (hWndExplorer ? CWnd::FromHandle(hWndExplorer) : NULL)
 #define EXPLORERHWND (IsWindow(hWndExplorer) ? hWndExplorer : NULL)
-// CTortoiseProcApp construction
+
 
 CTortoiseProcApp::CTortoiseProcApp()
 {

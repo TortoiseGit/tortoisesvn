@@ -37,7 +37,7 @@ public:
 		driveticker = recursiveticker;
 		langticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	}
 	DWORD GetMenuLayout()
 	{

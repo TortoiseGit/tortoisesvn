@@ -104,12 +104,11 @@ void LoadLangDll()
 					_stprintf(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
 						lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
-					VerQueryValue(pBuffer,
+					if (VerQueryValue(pBuffer,
 						(LPTSTR)strLangProduktVersion,
 						(LPVOID *)&lpVersion,
-						&nInfoSize);
-
-					versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER_INCVERSION), MAX_PATH) == 0);
+						&nInfoSize))
+						versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER_INCVERSION), MAX_PATH) == 0);
 
 					free(pBuffer);
 				} // if (pBuffer != (void*) NULL) 

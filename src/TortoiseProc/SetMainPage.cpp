@@ -235,28 +235,6 @@ BOOL CSetMainPage::OnInitDialog()
 		}
 	}
 	
-	int index = 0;
-	switch ((int)m_regLanguage)
-	{
-	case 1033:	//english
-		index = 0;
-		break;
-	case 1031:	//german
-		index = 1;
-		break;
-	case 1040:	//italian
-		index = 2;
-		break;
-	case 1049:	//russian
-		index = 3;
-		break;
-	case 1044:	//norwegian
-		index = 4;
-		break;
-	default:
-		break;
-	}
-	m_LanguageCombo.SetCurSel(index);
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
