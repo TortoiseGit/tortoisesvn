@@ -174,9 +174,9 @@ BEGIN
     PUSHBUTTON      "...",IDC_BROWSE,273,52,14,14
     GROUPBOX        "Create copy in the repository from:",IDC_STATIC,13,69,
                     267,55
-    CONTROL         "HEAD revision of repository",IDC_COPYHEAD,"Button",
+    CONTROL         "HEAD revision in the repository",IDC_COPYHEAD,"Button",
                     BS_AUTORADIOBUTTON,19,81,249,10
-    CONTROL         "Specific repository revision",IDC_COPYREV,"Button",
+    CONTROL         "Specific revision in repository",IDC_COPYREV,"Button",
                     BS_AUTORADIOBUTTON,19,94,174,10
     CONTROL         "Working copy",IDC_COPYWC,"Button",BS_AUTORADIOBUTTON,19,
                     108,249,10
