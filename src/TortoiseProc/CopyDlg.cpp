@@ -22,7 +22,6 @@
 #include "CopyDlg.h"
 #include "RepositoryBrowser.h"
 
-
 // CCopyDlg dialog
 
 IMPLEMENT_DYNAMIC(CCopyDlg, CDialog)
@@ -99,8 +98,10 @@ BOOL CCopyDlg::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	m_URLCombo.AddString(m_URL);
 	m_URLCombo.SelectString(-1, m_URL);
-
-	GetDlgItem(IDC_FROMURL)->SetWindowText(m_URL);
+	CString unescapedurl = m_URL;
+	CUtils::Unescape(unescapedurl.GetBuffer());
+	unescapedurl.ReleaseBuffer();
+	GetDlgItem(IDC_FROMURL)->SetWindowText(unescapedurl);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

@@ -274,13 +274,15 @@ void CSVNPropertyPage::InitWorkfileView()
 			_stprintf(buf, _T("%d"), svn.status->entry->revision);
 			SetDlgItemText(m_hwnd, IDC_REVISION, buf);
 			if (svn.status->entry->url)
+			{
 #ifdef UNICODE
-				//PathSetDlgItemPath(m_hwnd, IDC_REPOURL, UTF8ToWide(svn.status->entry->url).c_str());
-				SetDlgItemText(m_hwnd, IDC_REPOURL, UTF8ToWide(svn.status->entry->url).c_str());
+				_tcsncpy(tbuf, UTF8ToWide(svn.status->entry->url).c_str(), 4095);
 #else
-				//PathSetDlgItemPath(m_hwnd, IDC_REPOURL, svn.status->entry->url);
-				SetDlgItemText(m_hwnd, IDC_REPOURL, svn.status->entry->url);
+				_tcsncpy(tbuf, svn.status->entry->url, 4095);
 #endif
+				Unescape(tbuf);
+				SetDlgItemText(m_hwnd, IDC_REPOURL, tbuf);
+			}
 			_stprintf(buf, _T("%d"), svn.status->entry->cmt_rev);
 			SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
 			time = (__time64_t)svn.status->entry->cmt_date/1000000L;
@@ -365,3 +367,58 @@ void CSVNPropertyPage::InitWorkfileView()
 	}
 }
 
+void CSVNPropertyPage::Unescape(LPTSTR psz)
+{
+	LPTSTR pszSource = psz;
+	LPTSTR pszDest = psz;
+
+	static const TCHAR szHex[] = _T("0123456789ABCDEF");
+
+	// Unescape special characters. The number of characters
+	// in the *pszDest is assumed to be <= the number of characters
+	// in pszSource (they are both the same string anyway)
+
+	while (*pszSource != '\0' && *pszDest != '\0')
+	{
+		if (*pszSource == '+')
+			*pszDest++ = ' ';
+		else if (*pszSource == '%')
+		{
+			// The next two chars following '%' should be digits
+			if ( *(pszSource + 1) == '\0' ||
+				 *(pszSource + 2) == '\0' )
+			{
+				// nothing left to do
+				break;
+			}
+
+			TCHAR nValue = '?';
+			LPCTSTR pszLow = NULL;
+			LPCTSTR pszHigh = NULL;
+			pszSource++;
+
+			*pszSource = (TCHAR) _totupper(*pszSource);
+			pszHigh = _tcschr(szHex, *pszSource);
+
+			if (pszHigh != NULL)
+			{
+				pszSource++;
+				*pszSource = (TCHAR) _totupper(*pszSource);
+				pszLow = _tcschr(szHex, *pszSource);
+
+				if (pszLow != NULL)
+				{
+					nValue = (TCHAR) (((pszHigh - szHex) << 4) +
+									(pszLow - szHex));
+				}
+			}
+			*pszDest++ = nValue;
+		}
+		else
+			*pszDest++ = *pszSource;
+			
+		pszSource++;
+	}
+
+	*pszDest = '\0';
+}

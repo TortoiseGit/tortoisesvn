@@ -24,7 +24,6 @@ CRelocateDlg::~CRelocateDlg()
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_TOURL, m_sToUrl);
 	DDX_Text(pDX, IDC_FROMURL, m_sFromUrl);
 }
 
@@ -38,6 +37,11 @@ END_MESSAGE_MAP()
 BOOL CRelocateDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
+
+	CString url = m_sToUrl;
+	CUtils::Unescape(url.GetBuffer());
+	url.ReleaseBuffer();
+	GetDlgItem(IDC_TOURL)->SetWindowText(url);
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control

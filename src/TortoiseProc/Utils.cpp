@@ -210,7 +210,61 @@ BOOL CUtils::StartDiffViewer(CString file)
 	return TRUE;
 }
 
+void CUtils::Unescape(LPTSTR psz)
+{
+	LPTSTR pszSource = psz;
+	LPTSTR pszDest = psz;
 
+	static const TCHAR szHex[] = _T("0123456789ABCDEF");
+
+	// Unescape special characters. The number of characters
+	// in the *pszDest is assumed to be <= the number of characters
+	// in pszSource (they are both the same string anyway)
+
+	while (*pszSource != '\0' && *pszDest != '\0')
+	{
+		if (*pszSource == '+')
+			*pszDest++ = ' ';
+		else if (*pszSource == '%')
+		{
+			// The next two chars following '%' should be digits
+			if ( *(pszSource + 1) == '\0' ||
+				 *(pszSource + 2) == '\0' )
+			{
+				// nothing left to do
+				break;
+			}
+
+			TCHAR nValue = '?';
+			LPCTSTR pszLow = NULL;
+			LPCTSTR pszHigh = NULL;
+			pszSource++;
+
+			*pszSource = (TCHAR) _totupper(*pszSource);
+			pszHigh = _tcschr(szHex, *pszSource);
+
+			if (pszHigh != NULL)
+			{
+				pszSource++;
+				*pszSource = (TCHAR) _totupper(*pszSource);
+				pszLow = _tcschr(szHex, *pszSource);
+
+				if (pszLow != NULL)
+				{
+					nValue = (TCHAR) (((pszHigh - szHex) << 4) +
+									(pszLow - szHex));
+				}
+			}
+			*pszDest++ = nValue;
+		}
+		else
+			*pszDest++ = *pszSource;
+			
+		pszSource++;
+	}
+
+	*pszDest = '\0';
+}
 
 
 

@@ -77,4 +77,6 @@ public:
 	 * returns a path to a temporary file
 	 */
 	static CString GetTempFile();
+
+	static void Unescape(LPTSTR psz);
 };

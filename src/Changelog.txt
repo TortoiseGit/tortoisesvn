@@ -1,3 +1,8 @@
+- BUG: the "Add" and "Add to ignore list" commands were
+       shown even if there was no working copy. (Stefan)
+- CHG: URL's are shown unescaped now, at least everywhere
+       where they can't be edited. (Stefan)
+
 Version 0.16
 - BUG: The "open" command in the repository browser
        was always active, even for URL's which 
