@@ -426,13 +426,11 @@ void CMergeDlg::OnBnClickedUsefromurl()
 		m_URLTo = m_URLFrom;
 		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
 		GetDlgItem(IDC_BROWSE2)->EnableWindow(FALSE);
-		GetDlgItem(IDC_FINDBRANCHEND)->EnableWindow(FALSE);
 	}
 	else
 	{
 		GetDlgItem(IDC_URLCOMBO2)->EnableWindow(TRUE);
 		GetDlgItem(IDC_BROWSE2)->EnableWindow(TRUE);
-		GetDlgItem(IDC_FINDBRANCHEND)->EnableWindow(TRUE);
 	}
 	UpdateData(FALSE);
 }
