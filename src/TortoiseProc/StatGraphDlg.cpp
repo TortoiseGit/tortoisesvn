@@ -70,7 +70,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 	AddAnchor(IDC_GRAPH, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GRAPHCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
-
+	EnableSaveRestore(_T("StatGraphDlg"));
 	ShowCommitsByAuthor();
 
 	return TRUE;
