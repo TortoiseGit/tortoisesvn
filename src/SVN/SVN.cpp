@@ -177,7 +177,28 @@ CString SVN::GetLastErrorMessage()
 		{
 			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
-			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
+			temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
+			while (temp.GetLength() > 80)
+			{
+				int pos=0;
+				while (temp.Find(' ', pos)<80)
+				{
+					pos = temp.Find(' ');
+				}
+				if (pos==0)
+					pos = temp.Find(' ');
+				if (pos<0)
+				{
+					msg += temp;
+				}
+				else
+				{
+					msg += temp.Left(pos+1);
+					temp = temp.Mid(pos+1);
+				}
+				msg += _T("\n");
+			}
+			msg += temp;
 		}
 		switch (Err->apr_err)
 		{
