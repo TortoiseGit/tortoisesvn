@@ -330,7 +330,9 @@
 			<para>
 			The folder icons also have icon overlays displayed. By default,
 			only the status of the folder itself is shown. But you can
-			change that behaviour in the settings (context menu, Settings...)
+			change that behaviour in the 
+      <menuchoice><guimenuitem>Settings...</guimenuitem></menuchoice>
+			(<xref linkend="tsvn-DUG-settings" />),
 			so that the status of folders is shown recursively. This will
 			make the icon overlays for folders slower and is therefore
 			not recommended on slower machines. I'm using that setting on
@@ -1158,12 +1160,13 @@ Rev Comments
 	<sect1 id="tsvn-DUG-settings">
 		<title>TortoiseSVN's Settings</title>
 		<indexterm><primary>settings</primary></indexterm>
-		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
-		<?dbhh topicname="HIDD_SETTINGSMENU"?>
-		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
-		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
-		<?dbhh topicname="HIDD_SETTINGSPROGS"?>
+		<para>
+		To find out what the different settings are for, just leave your
+		mouse pointer a second on the editbox/checkbox... and a helpful
+		tooltip will popup.
+		</para>
 		<sect2 id="tsvn-DUG-settings-main">
+		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
 			<title>The Settings Dialog, Main Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-1">
@@ -1171,15 +1174,29 @@ Rev Comments
 					<graphic fileref="images/SettingsMain.png"/>
 				</figure>
 			Apart from setting your preferred language, this dialog allows you to
-			specify (almost) every setting TortoiseSVN has.
-		</para>
-		<para>
-		To find out what the different settings are for, just leave your
-		mouse pointer a second on the editbox/checkbox... and a helpful
-		tooltip will popup.
+			specify (almost) every setting TortoiseSVN has. 
+
+			### TODO ### explain exclude patterns
+			
+			Most important might be
+			the two settings:
+			
+			<itemizedlist>
+				<listitem>
+					<para>
+					Set filedates to "last commit time"
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+					You should be familiar with version control systems
+					</para>
+				</listitem>
+			</itemizedlist>
 		</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-overlay">
+		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
 			<title>The Settings Dialog, Overlay Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-2">
@@ -1190,6 +1207,7 @@ Rev Comments
 		</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-menu">
+		<?dbhh topicname="HIDD_SETTINGSMENU"?>
 			<title>The Settings Dialog, Context Menu Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-3">
@@ -1200,6 +1218,7 @@ Rev Comments
 		</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-network">
+		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
 			<title>The Settings Dialog, Network Tab</title>
 			<indexterm><primary>proxy server</primary></indexterm>
 			<para>
@@ -1209,11 +1228,12 @@ Rev Comments
 				</figure>
 		Here you can configure your proxy server, if you need one to get through youor company's firewall.
 		</para>
-			<para>
+		<para>
 		You can also specify, which program TortoiseSVN shall use to establish a secure connection to a svn+ssh repository.
 		</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-settings-progs">
+		<?dbhh topicname="HIDD_SETTINGSPROGS"?>
 			<title>The Settings Dialog, Diff/Merge Tab</title>
 			<para>
 				<figure id="tsvn-DUG-settings-dia-5">
@@ -1228,7 +1248,7 @@ Rev Comments
 				<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
 				<graphic fileref="images/SettingsProgsAdv.png"/>
 			</figure>
-		You can define a different merge program for every file extension.
+		In the advanced settings, you can define a different diff and merge program for every file extension.
 		</para>
 		</sect2>
 	</sect1>
