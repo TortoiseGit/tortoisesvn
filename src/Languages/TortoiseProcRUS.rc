@@ -13,6 +13,49 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_ANIMATION           AVI                     "res\\bin168.avi"
+IDR_MOVEANI             AVI                     "res\\bin167.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // Russian resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
@@ -373,55 +416,55 @@ END
 
 IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 164
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
-CAPTION "Menu Layout"
+CAPTION "Внешний вид меню"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "Nicaaou ?aai?o? eiie?",IDC_MENU1,"Button",
+    CONTROL         "Создать рабочую копию",IDC_MENU1,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,28,109,10
-    CONTROL         "Iaiiaeou ?aai?o? eiie?",IDC_MENU2,"Button",
+    CONTROL         "Обновить рабочую копию",IDC_MENU2,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,39,109,10
-    CONTROL         "Caoeene?iaaou eciaiaiey",IDC_MENU3,"Button",
+    CONTROL         "Зафиксировать изменения",IDC_MENU3,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,50,109,10
-    CONTROL         "Iieacaou eciaiaiey",IDC_MENU4,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Показать изменения",IDC_MENU4,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,61,109,10
-    CONTROL         "Enoi?ey eciaiaiee",IDC_MENU5,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "История изменений",IDC_MENU5,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,72,109,10
-    CONTROL         "Nienie eciai?iiuo oaeeia",IDC_MENU6,"Button",
+    CONTROL         "Список изменённых файлов",IDC_MENU6,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,83,109,10
-    CONTROL         "?ac?aoeou eiioeeeou",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Разрешить конфликты",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,94,109,10
-    CONTROL         "Iaiiaeou ai ?aaaeoee...",IDC_MENU8,"Button",
+    CONTROL         "Обновить до редакции...",IDC_MENU8,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,105,109,10
-    CONTROL         "Ia?aeiaiiaaou...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Переименовать",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,116,109,10
-    CONTROL         "Oaaeeou",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Удалить",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,127,109,10
-    CONTROL         "Iiiaoeou eiioeeeo ?ac?aoaiiui",IDC_MENU11,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,138,109,10
-    LTEXT           "Check those menu entries you want to appear in the top context menu instead of the submenu",
+    CONTROL         "Конфликт разрешён",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,138,109,10
+    LTEXT           "Выделите команды, которые следует показывать в основном контекстном меню, на одном уровне с подчинённым меню ""TortoiseSVN"":",
                     IDC_STATIC,7,7,266,21
-    CONTROL         "Ioiaieou eciaiaiey",IDC_MENU12,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Отменить изменения",IDC_MENU12,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,28,117,10
-    CONTROL         "Oa?aou a?aiaiiua oaeeu",IDC_MENU13,"Button",
+    CONTROL         "Убрать временные файлы",IDC_MENU13,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,124,39,117,10
-    CONTROL         "Nicaaiea aaoee...",IDC_MENU14,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Создание ветки",IDC_MENU14,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,50,117,10
-    CONTROL         "Ia?aeoe e a?oaie aaoea...",IDC_MENU15,"Button",
+    CONTROL         "Перейти к другой ветке",IDC_MENU15,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,124,61,117,10
-    CONTROL         "Neeyiea...",IDC_MENU16,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Слияние",IDC_MENU16,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,72,117,10
-    CONTROL         "Yenii?oe?iaaou niaa??eiia...",IDC_MENU17,"Button",
+    CONTROL         "Экспортировать содержимое",IDC_MENU17,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,124,83,117,10
-    CONTROL         "Eciaiaiea URL ?aiiceoi?ey",IDC_MENU18,"Button",
+    CONTROL         "Изменение URL репозитория",IDC_MENU18,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,124,94,117,10
-    CONTROL         "Nicaaou caanu ?aiiceoi?ee",IDC_MENU19,"Button",
+    CONTROL         "Создать здесь репозиторий",IDC_MENU19,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,124,105,117,10
-    CONTROL         "Aiaaaeou a ?aiiceoi?ee",IDC_MENU20,"Button",
+    CONTROL         "Добавить в репозиторий",IDC_MENU20,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,124,116,117,10
-    CONTROL         "Eiii?oe?iaaou niaa??eiia..",IDC_MENU21,"Button",
+    CONTROL         "Импортировать содержимое",IDC_MENU21,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,124,127,117,10
-    CONTROL         "Aiaaaeou e nieneo eaii?e?oaiuo",IDC_MENU22,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,124,138,117,10
+    CONTROL         "Добавить к списку игнорируемых",IDC_MENU22,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,124,138,135,10
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
@@ -908,49 +951,6 @@ BEGIN
 END
 
 #endif    // Russian resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AVI
-//
-
-IDR_ANIMATION           AVI                     "res\\bin168.avi"
-IDR_MOVEANI             AVI                     "res\\bin167.avi"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_LOGOFLIPPED         BITMAP                  "res\\charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// RT_MANIFEST
-//
-
-IDR_MANIFEST            RT_MANIFEST             "res\\TortoiseProc.manifest"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
-#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
