@@ -89,13 +89,13 @@
         <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoisePlink.exe" />
         
         <Shortcut Id="S__TortoiseProc" Directory="D_TortoisePrgMenu" Name="HELP" LongName="Help" Advertise="no"
-					Target="DefaultFeature" Description="Documentation about TortoiseSVN" Arguments="/command:help" />
+					Target="[TARGETDIR]TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
       </Component>
       <Component Id="C__TortoiseMerge" Guid="2F8D9AF8-A660-47f0-83CE-DD7DA0FB73DD" >
         <File Id="F__TortoiseMerge" Name="TORTOI~3.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoiseMerge.exe" />
         
         <Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TORTOI~1" LongName="TortoiseMerge" Advertise="no"
-					Target="DefaultFeature" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" />
+					Target="[TARGETDIR]TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
       </Component>
       <Component Id="C__CRuntimeSTLMFC" Guid="DC08A867-1436-4dce-8907-F1E2FCFCA02A" >
         <File Id="F__msvcr71" Name="MSVCR71.DLL" LongName="msvcr71.dll" DiskId="1" src="$(env.windir)\system32\msvcr71.dll" KeyPath="yes" />
