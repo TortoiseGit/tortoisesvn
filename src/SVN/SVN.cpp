@@ -140,12 +140,13 @@ CString SVN::GetLastErrorMessage()
 	CString msg;
 	if (Err != NULL)
 	{
-		msg = CUnicodeUtils::GetUnicode(Err->message);
-		while (Err->child)
+		svn_error_t * ErrPtr = Err;
+		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		while (ErrPtr->child)
 		{
-			Err = Err->child;
+			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
-			msg += CUnicodeUtils::GetUnicode(Err->message);
+			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
 		}
 		return msg;
 	}

@@ -244,12 +244,13 @@ CString SVNStatus::GetLastErrorMsg()
 	CString msg;
 	if (m_err != NULL)
 	{
-		msg = CUnicodeUtils::GetUnicode(m_err->message);
-		while (m_err->child)
+		svn_error_t * ErrPtr = m_err;
+		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		while (ErrPtr->child)
 		{
-			m_err = m_err->child;
+			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
-			msg += CUnicodeUtils::GetUnicode(m_err->message);
+			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
 		}
 		return msg;
 	}
@@ -261,19 +262,20 @@ stdstring SVNStatus::GetLastErrorMsg()
 	stdstring msg;
 	if (m_err != NULL)
 	{
+		svn_error_t * ErrPtr = m_err;
 #ifdef UNICODE
-		msg = CUnicodeUtils::StdGetUnicode(m_err->message);
+		msg = CUnicodeUtils::StdGetUnicode(ErrPtr->message);
 #else
-		msg = m_err->message;
+		msg = ErrPtr->message;
 #endif
-		while (m_err->child)
+		while (ErrPtr->child)
 		{
-			m_err = m_err->child;
+			ErrPtr = ErrPtr->child;
 			msg += _T("\n");
 #ifdef UNICODE
-			msg += CUnicodeUtils::StdGetUnicode(m_err->message);
+			msg += CUnicodeUtils::StdGetUnicode(ErrPtr->message);
 #else
-			msg += m_err->message;
+			msg += ErrPtr->message;
 #endif
 		} // while (m_err->child)
 		return msg;
