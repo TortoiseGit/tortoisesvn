@@ -29,6 +29,7 @@ DWORD				g_langid;
 HINSTANCE			g_hResInst;
 stdstring			g_filepath;
 svn_wc_status_kind	g_filestatus;	///< holds the corresponding status to the file/dir above
+HANDLE				g_hMutex;
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
@@ -59,6 +60,17 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     {
         // Extension DLL one-time initialization
         g_hmodThisDll = hInstance;
+		g_hMutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, _T("TortoiseSVNStatuscache"));
+		if (g_hMutex == NULL)
+		{
+			g_hMutex = CreateMutex(NULL, NULL,  _T("TortoiseSVNStatuscache"));
+			SetSecurityInfo(g_hMutex,SE_KERNEL_OBJECT,DACL_SECURITY_INFORMATION,0,0,0,0);
+			ATLTRACE2(_T("created mutex\n"));
+		}
+		else
+		{
+			ATLTRACE2(_T("opened mutex\n"));
+		}
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
@@ -68,6 +80,7 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 
 STDAPI DllCanUnloadNow(void)
 {
+	CloseHandle(g_hMutex);
     return (g_cRefThisDll == 0 ? S_OK : S_FALSE);
 }
 

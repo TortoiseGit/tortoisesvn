@@ -157,7 +157,7 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 {
 	PreserveChdir preserveChdir;
-	svn_wc_status_kind status;
+	svn_wc_status_kind status = svn_wc_status_unversioned;
 	if (pwszPath == NULL)
 		return S_FALSE;
 #ifdef UNICODE
@@ -170,50 +170,57 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	//if recursive is set in the registry then check directories recursive for status and show
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
-
-	// Look in our caches for this item 
-	const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
-	if (s)
+	DWORD dwWaitResult = WaitForSingleObject(g_hMutex, 1000);
+	if (dwWaitResult == WAIT_OBJECT_0)
 	{
-		status = s->status;
-	}
-	else
-	{
-		// No cached status available 
-
-		// Check if we fetch icon overlays for this type of path
-		if (! g_ShellCache.IsPathAllowed(pPath))
-			return S_FALSE;
-
-		// since the dwAttrib param of the IsMemberOf() function does not
-		// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
-		// we have to check if the path is a folder ourselves :(
-		if (PathIsDirectory(pPath))
+		// Look in our caches for this item 
+		const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
+		if (s)
 		{
-			if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
+			status = s->status;
+		}
+		else
+		{
+			// No cached status available 
+
+			// Check if we fetch icon overlays for this type of path
+			if (! g_ShellCache.IsPathAllowed(pPath))
 			{
-				if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
+				ReleaseMutex(g_hMutex);
+				return S_FALSE;
+			}
+			// since the dwAttrib param of the IsMemberOf() function does not
+			// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
+			// we have to check if the path is a folder ourselves :(
+			if (PathIsDirectory(pPath))
+			{
+				if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
 				{
-					status = svn_wc_status_normal;
+					if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
+					{
+						status = svn_wc_status_normal;
+					}
+					else
+					{
+						const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+						status = s->status;
+						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
+					}
 				}
 				else
 				{
-					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
-					status = s->status;
-					status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
+					status = svn_wc_status_unversioned;
 				}
-			}
+			} // if (PathIsDirectory(g_filepath))
 			else
 			{
-				status = svn_wc_status_unversioned;
+				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+				status = s->status;
 			}
-		} // if (PathIsDirectory(g_filepath))
-		else
-		{
-			const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
-			status = s->status;
 		}
 	}
+	ReleaseMutex(g_hMutex);
+
 
 	ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 

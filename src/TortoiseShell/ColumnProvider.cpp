@@ -303,47 +303,52 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 		return;
 	LoadLangDll();
 	columnfilepath = path;
-	const FileStatusCacheEntry * status;
-	if (! g_ShellCache.IsPathAllowed(path))
-		status = &g_CachedStatus.invalidstatus;
-	else
+	DWORD dwWaitResult = WaitForSingleObject(g_hMutex, 1000);
+	if (dwWaitResult == WAIT_OBJECT_0)
 	{
-		status = g_CachedStatus.GetFullStatus(path, bIsDir, TRUE);
-	}
-	filestatus = status->status;
-
-#ifdef UNICODE
-	columnauthor = UTF8ToWide(status->author);
-#else
-	columnauthor = status->author;
-#endif
-	columnrev = status->rev;
-#ifdef UNICODE
-	itemurl = UTF8ToWide(status->url);
-#else
-	itemurl = status->url;
-#endif
-	TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
-
-	URL_COMPONENTS urlComponents;
-	memset(&urlComponents, 0, sizeof(URL_COMPONENTS));
-	urlComponents.dwStructSize = sizeof(URL_COMPONENTS);
-	urlComponents.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
-	urlComponents.lpszUrlPath = urlpath;
-	if (InternetCrackUrl(itemurl.c_str(), 0, ICU_DECODE, &urlComponents))
-	{
-		TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
-		if (ptr == NULL)
-			ptr = _tcsrchr(urlComponents.lpszUrlPath, '\\');
-		if (ptr)
+		const FileStatusCacheEntry * status;
+		if (! g_ShellCache.IsPathAllowed(path))
+			status = &g_CachedStatus.invalidstatus;
+		else
 		{
-			*ptr = '\0';
-			itemshorturl = urlComponents.lpszUrlPath;
-		} // if (ptr)
-		else 
+			status = g_CachedStatus.GetFullStatus(path, bIsDir, TRUE);
+		}
+		filestatus = status->status;
+
+#ifdef UNICODE
+		columnauthor = UTF8ToWide(status->author);
+#else
+		columnauthor = status->author;
+#endif
+		columnrev = status->rev;
+#ifdef UNICODE
+		itemurl = UTF8ToWide(status->url);
+#else
+		itemurl = status->url;
+#endif
+		TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
+
+		URL_COMPONENTS urlComponents;
+		memset(&urlComponents, 0, sizeof(URL_COMPONENTS));
+		urlComponents.dwStructSize = sizeof(URL_COMPONENTS);
+		urlComponents.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
+		urlComponents.lpszUrlPath = urlpath;
+		if (InternetCrackUrl(itemurl.c_str(), 0, ICU_DECODE, &urlComponents))
+		{
+			TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
+			if (ptr == NULL)
+				ptr = _tcsrchr(urlComponents.lpszUrlPath, '\\');
+			if (ptr)
+			{
+				*ptr = '\0';
+				itemshorturl = urlComponents.lpszUrlPath;
+			} // if (ptr)
+			else 
+				itemshorturl = _T(" ");
+		}
+		else
 			itemshorturl = _T(" ");
 	}
-	else
-		itemshorturl = _T(" ");
+	ReleaseMutex(g_hMutex);
 }
 

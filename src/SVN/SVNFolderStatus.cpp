@@ -86,24 +86,12 @@ SVNFolderStatus::SVNFolderStatus(void)
 	invalidstatus.rev = -1;
 	m_nCounter = 0;
 	sCacheKey.reserve(MAX_PATH);
-	hMutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, _T("TortoiseSVNStatuscache"));
-	if (hMutex == NULL)
-	{
-		hMutex = CreateMutex(NULL, NULL,  _T("TortoiseSVNStatuscache"));
-		SetSecurityInfo(hMutex,SE_KERNEL_OBJECT,DACL_SECURITY_INFORMATION,0,0,0,0);
-		ATLTRACE2(_T("created mutex\n"));
-	}
-	else
-	{
-		ATLTRACE2(_T("opened mutex\n"));
-	}
 
 	m_hInvalidationEvent = CreateEvent(NULL, FALSE, FALSE, _T("TortoiseSVNCacheInvalidationEvent"));
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
 {
-	CloseHandle(hMutex);
 	CloseHandle(m_hInvalidationEvent);
 }
 
@@ -281,10 +269,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 	//it's not ignored too
 	if ((bColumnProvider)&&(!bHasAdminDir))
 		return &invalidstatus;
-	DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
-	if (dwWaitResult == WAIT_OBJECT_0)
-		ret = BuildCache(filepath, bIsFolder);
-	ReleaseMutex(hMutex);
+	ret = BuildCache(filepath, bIsFolder);
 	if (ret)
 		return ret;
 	else
@@ -293,61 +278,49 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 
 const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 {
-	DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
-	if (dwWaitResult == WAIT_OBJECT_0)
-	{
-		sCacheKey.assign(filepath);
-		FileStatusMap::const_iterator iter;
-		const FileStatusCacheEntry *retVal;
+	sCacheKey.assign(filepath);
+	FileStatusMap::const_iterator iter;
+	const FileStatusCacheEntry *retVal;
 
-		if(sCacheKey == m_mostRecentPath)
+	if(sCacheKey == m_mostRecentPath)
+	{
+		// We've hit the same result as we were asked for last time
+		ATLTRACE2(_T("fast cache hit for %s\n"), filepath);
+		retVal = m_mostRecentStatus;
+	}
+	else if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
+	{
+		ATLTRACE2(_T("cache found for %s\n"), filepath);
+		retVal = &iter->second;
+		m_mostRecentStatus = retVal;
+		m_mostRecentPath = sCacheKey;
+	}
+	else
+	{
+		retVal = NULL;
+	}
+
+	if(retVal != NULL)
+	{
+		// We found something in a cache - check that the cache is not timed-out or force-invalidated
+		DWORD now = GetTickCount();
+
+		if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
 		{
-			// We've hit the same result as we were asked for last time
-			ATLTRACE2(_T("fast cache hit for %s\n"), filepath);
-			retVal = m_mostRecentStatus;
-		}
-		else if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
-		{
-			ATLTRACE2(_T("cache found for %s\n"), filepath);
-			retVal = &iter->second;
-			m_mostRecentStatus = retVal;
-			m_mostRecentPath = sCacheKey;
-		}
-		else
-		{
+			// Cache is timed-out
+			ATLTRACE("Cache timed-out\n");
+			ClearCache();
 			retVal = NULL;
 		}
-
-		if(retVal != NULL)
+		else if(WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0)
 		{
-			// We found something in a cache - check that the cache is not timed-out or force-invalidated
-			DWORD now = GetTickCount();
-
-			if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
-			{
-				// Cache is timed-out
-				ATLTRACE("Cache timed-out\n");
-				ClearCache();
-				retVal = NULL;
-			}
-			else if(WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0)
-			{
-				// TortoiseProc has just done something which has invalidated the cache
-				ATLTRACE("Cache invalidated\n");
-				ClearCache();
-				retVal = NULL;
-			}
-
-			//BUGBUG? WGD - I am concerned about releasing this mutex here, before we've actually
-			//read the value from the cache.  We're returning a pointer into data within the cache, and 
-			//it seems to me that things might move around between us letting go of the mutex and the
-			//caller of this function actually using the data.
-			// I suspect that we should really enter and leave the mutex at a slightly higher-level up the call-chain
-			ReleaseMutex(hMutex);
-			return retVal;
+			// TortoiseProc has just done something which has invalidated the cache
+			ATLTRACE("Cache invalidated\n");
+			ClearCache();
+			retVal = NULL;
 		}
+		return retVal;
 	}
-	ReleaseMutex(hMutex);
 	return NULL;
 }
 
