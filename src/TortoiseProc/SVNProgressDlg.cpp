@@ -717,10 +717,10 @@ UINT CSVNProgressDlg::ProgressThread()
 				if (bMarkers)
 				{
 					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
-						m_pSvn->Resolve(m_sPath, true);
+						m_pSvn->Resolve(CTSVNPath(m_sPath), true);
 				} // if (bMarkers)
 				else
-					m_pSvn->Resolve(m_sPath, true);
+					m_pSvn->Resolve(CTSVNPath(m_sPath), true);
 			}
 			break;
 		case Switch:

@@ -61,6 +61,10 @@ void CProgressDlg::SetTitle(LPCTSTR szTitle)
 		m_pIDlg->SetTitle(T2COLE(szTitle));
 	}
 }
+void CProgressDlg::SetTitle ( UINT idTitle)
+{
+	SetTitle(CString(MAKEINTRESOURCE(idTitle)));
+}
 
 void CProgressDlg::SetLine(DWORD dwLine, LPCTSTR szText, bool bCompactPath /* = false */)
 {

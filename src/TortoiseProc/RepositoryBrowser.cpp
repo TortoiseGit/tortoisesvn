@@ -547,7 +547,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Move(url, filepath, TRUE, input.m_sInputText))
+							if (!svn.Move(CTSVNPath(url), CTSVNPath(filepath), TRUE, input.m_sInputText))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

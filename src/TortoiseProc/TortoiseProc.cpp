@@ -488,12 +488,10 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			CProgressDlg progress;
-			CString windowTitle;
-			windowTitle.LoadString(IDS_PROC_CLEANUP);
-			progress.SetTitle(windowTitle);
+			progress.SetTitle(IDS_PROC_CLEANUP);
 			progress.ShowModeless(PWND);
 			SVN svn;
-			if (!svn.CleanUp(path))
+			if (!svn.CleanUp(CTSVNPath(path)))
 			{
 				progress.Stop();
 				CString errorMessage;
@@ -778,7 +776,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				else
 				{
 					SVN svn;
-					if (!svn.Move(path, filepath, TRUE))
+					if (!svn.Move(CTSVNPath(path), CTSVNPath(filepath), TRUE))
 					{
 						TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -930,9 +928,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CProgressDlg progress;
 			if (progress.IsValid())
 			{
-				CString strTitle;
-				strTitle.LoadString(IDS_PROC_MOVING);
-				progress.SetTitle(strTitle);
+				progress.SetTitle(IDS_PROC_MOVING);
 				progress.SetAnimation(IDR_MOVEANI);
 				progress.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 			}
@@ -954,7 +950,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 					name = dlg.m_name;
 				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
-				if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE))
+				if (!svn.Move(CTSVNPath(strLine), CTSVNPath(droppath+_T("\\")+name), FALSE))
 				{
 					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1023,9 +1019,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CProgressDlg progress;
 			if (progress.IsValid())
 			{
-				CString strTitle;
-				strTitle.LoadString(IDS_PROC_COPYING);
-				progress.SetTitle(strTitle);
+				progress.SetTitle(IDS_PROC_COPYING);
 				progress.SetAnimation(IDR_MOVEANI);
 				progress.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 			}
@@ -1122,9 +1116,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					CProgressDlg progress;
 					if (progress.IsValid())
 					{
-						CString strTitle;
-						strTitle.LoadString(IDS_PROC_RELOCATING);
-						progress.SetTitle(strTitle);
+						progress.SetTitle(IDS_PROC_RELOCATING);
 						progress.ShowModeless(PWND);
 					}
 					if (!s.Relocate(path, dlg.m_sFromUrl, dlg.m_sToUrl, TRUE))
@@ -1501,8 +1493,7 @@ BOOL CTortoiseProcApp::CreatePatch(CString path, CString savepath /*= _T("")*/)
 		strProgressDest.LoadString(IDS_CLIPBOARD_PROGRESS_DEST);
 	}
 	progDlg.SetLine(2, strProgressDest, true);
-	temp.LoadString(IDS_PROC_PATCHTITLE);
-	progDlg.SetTitle(temp);
+	progDlg.SetTitle(IDS_PROC_PATCHTITLE);
 	progDlg.SetShowProgressBar(false);
 	progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 	//progDlg.SetAnimation(IDR_ANIMATION);

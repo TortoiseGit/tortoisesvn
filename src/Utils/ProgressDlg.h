@@ -57,7 +57,11 @@ public:
 	 * sets the title of the progress dialog box.
 	 * \param szTitle pointer to a NULL-terminated string that contains the dialog box title
 	 */
-    void SetTitle ( LPCTSTR szTitle );
+	void SetTitle ( LPCTSTR szTitle );
+	/**
+	* sets the title of the progress dialog box to a string resource value.
+	*/
+	void SetTitle ( UINT idTitle);
 
     /**
      * Displays a message.

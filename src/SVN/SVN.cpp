@@ -400,20 +400,17 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 	return TRUE;
 }
 
-BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, SVNRev rev)
+BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message, SVNRev rev)
 {
-	preparePath(srcPath);
-	preparePath(destPath);
-
 	apr_pool_t * subpool = svn_pool_create(pool);
 
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
 	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_move (&commit_info,
-							MakeSVNUrlOrPath(srcPath),
+							srcPath.GetSVNApiPath(),
 							rev,
-							MakeSVNUrlOrPath(destPath),
+							destPath.GetSVNApiPath(),
 							force,
 							&m_ctx,
 							subpool);
@@ -423,10 +420,10 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, S
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+		Notify(destPath.GetUIPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
 
-	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(srcPath));
-	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(destPath));
+	CShellUpdater::Instance().AddPathForUpdate(srcPath);
+	CShellUpdater::Instance().AddPathForUpdate(destPath);
 	svn_pool_destroy(subpool);
 
 	return TRUE;
@@ -456,25 +453,23 @@ BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 	return TRUE;
 }
 
-BOOL SVN::CleanUp(CString path)
+BOOL SVN::CleanUp(const CTSVNPath& path)
 {
-	preparePath(path);
-	Err = svn_client_cleanup (MakeSVNUrlOrPath(path), &m_ctx, pool);
+	Err = svn_client_cleanup (path.GetSVNApiPath(), &m_ctx, pool);
 
 	if(Err != NULL)
 	{
 		return FALSE;
 	}
 
-	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(path));
+	CShellUpdater::Instance().AddPathForUpdate(path);
 
 	return TRUE;
 }
 
-BOOL SVN::Resolve(CString path, BOOL recurse)
+BOOL SVN::Resolve(const CTSVNPath& path, BOOL recurse)
 {
-	preparePath(path);
-	Err = svn_client_resolved (MakeSVNUrlOrPath(path),
+	Err = svn_client_resolved (path.GetSVNApiPath(),
 								recurse,
 								&m_ctx,
 								pool);
@@ -483,7 +478,7 @@ BOOL SVN::Resolve(CString path, BOOL recurse)
 		return FALSE;
 	}
 
-	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(path));
+	CShellUpdater::Instance().AddPathForUpdate(path);
 
 	return TRUE;
 }

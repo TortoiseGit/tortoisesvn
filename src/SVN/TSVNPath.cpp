@@ -377,6 +377,7 @@ CTSVNPathList::CTSVNPathList(const CTSVNPath& firstEntry)
 void CTSVNPathList::AddPath(const CTSVNPath& newPath)
 {
 	m_paths.push_back(newPath);
+	m_commonBaseDirectory.Reset();
 }
 int CTSVNPathList::GetCount() const
 {
@@ -385,6 +386,7 @@ int CTSVNPathList::GetCount() const
 void CTSVNPathList::Clear()
 {
 	m_paths.clear();
+	m_commonBaseDirectory.Reset();
 }
 
 const CTSVNPath& CTSVNPathList::operator[](int index) const
@@ -401,7 +403,7 @@ bool CTSVNPathList::AreAllPathsFiles() const
 
 bool CTSVNPathList::LoadFromTemporaryFile(const CString& sFilename)
 {
-	m_paths.clear();
+	Clear();
 	try
 	{
 		CString strLine;

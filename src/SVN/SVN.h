@@ -195,7 +195,7 @@ public:
 	 * \param revision 
 	 * \param force 
 	 */
-	BOOL Move(CString srcPath, CString destPath, BOOL force, CString message = _T(""), SVNRev rev = SVNRev::REV_HEAD);
+	BOOL Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message = _T(""), SVNRev rev = SVNRev::REV_HEAD);
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the
@@ -212,7 +212,7 @@ public:
 	 * incomplete operations, removing lockfiles, etc.
 	 * \param path the file/directory to clean up
 	 */
-	BOOL CleanUp(CString path);
+	BOOL CleanUp(const CTSVNPath& path);
 	/**
 	 * Remove the 'conflicted' state on a working copy PATH.  This will
 	 * not semantically resolve conflicts;  it just allows path to be
@@ -224,7 +224,7 @@ public:
 	 * \param path the path to resolve
 	 * \param recurse 
 	 */
-	BOOL Resolve(CString path, BOOL recurse);
+	BOOL Resolve(const CTSVNPath& path, BOOL recurse);
 	/**
 	 * Export the contents of either a subversion repository or a subversion 
 	 * working copy into a 'clean' directory (meaning a directory with no 
