@@ -1145,10 +1145,13 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 							if (data->bConflictedActionItem)
 							{
-								popup.SetDefaultItem(ID_COMPARE, FALSE);
 								temp.LoadString(IDS_MENUCONFLICT);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITCONFLICT, temp);
+								popup.SetDefaultItem(ID_EDITCONFLICT, FALSE);
 							}
+							else
+								popup.SetDefaultItem(ID_COMPARE, FALSE);
+
 							temp.LoadString(IDS_MENULOG);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
 						}
