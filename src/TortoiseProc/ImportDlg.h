@@ -22,6 +22,7 @@
 #include "DirFileList.h"
 #include "afxcmn.h"
 #include "ResizableDialog.h"
+#include "SpellEdit.h"
 
 /**
  * \ingroup TortoiseProc
@@ -66,11 +67,11 @@ protected:
 	CButton		m_butBrowse;
 	HICON		m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnBnClickedBrowse();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedBrowse();
+	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
@@ -79,6 +80,5 @@ public:
 	CString m_path;
 	CString m_message;
 	CHistoryCombo m_URLCombo;
-
-	afx_msg void OnBnClickedSelectall();
+	CSpellEdit m_Message;
 };

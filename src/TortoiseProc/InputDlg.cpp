@@ -39,6 +39,7 @@ void CInputDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_INPUTTEXT, m_sInputText);
+	DDX_Control(pDX, IDC_INPUTTEXT, m_Input);
 }
 
 

@@ -64,6 +64,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
 	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
+	DDX_Control(pDX, IDC_LOGMESSAGE, m_LogMessage);
 }
 
 

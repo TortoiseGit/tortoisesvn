@@ -20,6 +20,8 @@
 #include "afxcmn.h"
 #include "ResizableDialog.h"
 #include "..\\Utils\\Balloon.h"
+#include "SpellEdit.h"
+#include "afxwin.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
@@ -97,6 +99,7 @@ public:
 	CArray<Data *, Data *>		m_arData;
 
 	CString			m_sLogMessage;
+	CSpellEdit			m_LogMessage;
 	CListCtrl		m_ListCtrl;
 	CString			m_sPath;
 	CStringArray	m_templist;

@@ -268,6 +268,9 @@
 					RelativePath="RepositoryTree.cpp">
 				</File>
 				<File
+					RelativePath="..\Utils\SpellEdit.cpp">
+				</File>
+				<File
 					RelativePath="stdafx.cpp">
 					<FileConfiguration
 						Name="Debug|Win32">
@@ -398,6 +401,9 @@
 					RelativePath="RepositoryTree.h">
 				</File>
 				<File
+					RelativePath="..\Utils\SpellEdit.h">
+				</File>
+				<File
 					RelativePath="..\Utils\StringUtils.h">
 				</File>
 				<File
@@ -417,6 +423,232 @@
 				</File>
 				<File
 					RelativePath="..\Utils\WaterEffect.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="myspell"
+				Filter="">
+				<File
+					RelativePath="..\Utils\myspell\affentry.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\affentry.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\affixmgr.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\affixmgr.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\atypes.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\baseaffix.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\csutil.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\csutil.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\dictmgr.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\dictmgr.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\example.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\hashmgr.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\hashmgr.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\htypes.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\myspell.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\myspell.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\mythes.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\mythes.hxx">
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\suggestmgr.cxx">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release_MBCS|Win32">
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="0"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="..\Utils\myspell\suggestmgr.hxx">
 				</File>
 			</Filter>
 		</Filter>
@@ -795,10 +1027,10 @@
 					RelativePath="..\Languages\res\ssh.ico">
 				</File>
 				<File
-					RelativePath="..\Icons\Tortoise.ico">
+					RelativePath="..\Languages\res\Tortoise.ico">
 				</File>
 				<File
-					RelativePath="..\Languages\res\Tortoise.ico">
+					RelativePath="..\Icons\Tortoise.ico">
 				</File>
 				<File
 					RelativePath="..\Icons\Tortoise13by13.ico">

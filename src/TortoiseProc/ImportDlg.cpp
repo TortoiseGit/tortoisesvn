@@ -47,6 +47,7 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_MESSAGE, m_message);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
+	DDX_Control(pDX, IDC_MESSAGE, m_Message);
 }
 
 
