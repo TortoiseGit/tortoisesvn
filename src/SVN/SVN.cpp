@@ -1729,7 +1729,7 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
 	locale = MAKELCID(locale, SORT_DEFAULT);
 
-	apr_time_exp_gmt (&exploded_time, date_svn);
+	apr_time_exp_lt (&exploded_time, date_svn);
 	
 	systime.wDay = (WORD)exploded_time.tm_mday;
 	systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
