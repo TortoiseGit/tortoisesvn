@@ -91,6 +91,36 @@ BOOL CTortoiseProcApp::InitInstance()
 				langId = 0;
 		}
 	} while ((hInst == NULL) && (langId != 0));
+	TCHAR buf[6];
+	langId = loc;
+	CString sHelppath;
+	sHelppath = this->m_pszHelpFilePath;
+	sHelppath = sHelppath.MakeLower();
+	sHelppath.Replace(_T("tortoiseproc.chm"), _T("TortoiseSVN_en.chm"));
+	free((void*)m_pszHelpFilePath);
+	m_pszHelpFilePath=_tcsdup(sHelppath);
+	do
+	{
+		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));
+		CString sLang = _T("_");
+		sLang += buf;
+		sHelppath.Replace(_T("_en"), sLang);
+		if (PathFileExists(sHelppath))
+		{
+			free((void*)m_pszHelpFilePath);
+			m_pszHelpFilePath=_tcsdup(sHelppath);
+		} // if (PathFileExists(sHelppath))
+
+		DWORD lid = SUBLANGID(langId);
+		lid--;
+		if (lid > 0)
+		{
+			langId = MAKELANGID(PRIMARYLANGID(langId), lid);
+		}
+		else
+			langId = 0;
+	} while (langId);
+	
 	// InitCommonControls() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
@@ -854,9 +884,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region help
 		if (comVal.Compare(_T("help"))==0)
 		{
-			CRegString help(_T("Software\\TortoiseSVN\\Help"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
-			CString path = help;
-			ShellExecute(EXPLORERHWND, _T("open"), path, NULL, NULL, SW_SHOWNORMAL);
+			ShellExecute(EXPLORERHWND, _T("open"), m_pszHelpFilePath, NULL, NULL, SW_SHOWNORMAL);
 		}
 		//#endregion
 		//#region repostatus
