@@ -215,6 +215,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	ATLTRACE("Req: %ws\n", path.GetWinPathString());
 
 	// Stop the crawler starting on a new folder while we're doing this much more important task...
+	// Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
 	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path, bRecursive);

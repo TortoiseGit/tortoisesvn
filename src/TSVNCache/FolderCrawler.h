@@ -29,7 +29,12 @@ private:
 	std::deque<CTSVNPath> m_foldersToUpdate;
 	HANDLE m_hTerminationEvent;
 	HANDLE m_hWakeEvent;
-	LONG m_bCrawlInhibitSet;
+	
+	// This will be *asynchronously* modified by CCrawlInhibitor.
+	// So, we have to mark it volatile, preparing compiler and
+	// optimizer for the "worst".
+	volatile LONG m_lCrawlInhibitSet;
+	
 	// While the shell is still asking for items, we don't
 	// want to start crawling.  This timer is pushed-out for 
 	// every shell request, and stops us crawling until
@@ -53,11 +58,14 @@ public:
 	explicit CCrawlInhibitor(CFolderCrawler* pCrawler)
 	{
 		m_pCrawler = pCrawler;
-		::InterlockedExchange(&m_pCrawler->m_bCrawlInhibitSet, 1);
+		
+		// Count locks instead of a mere flag toggle (exchange)
+		// to allow for multiple, concurrent locks.
+		::InterlockedIncrement(&m_pCrawler->m_lCrawlInhibitSet);
 	}
 	~CCrawlInhibitor()
 	{
-		::InterlockedExchange(&m_pCrawler->m_bCrawlInhibitSet, 0);
+		::InterlockedDecrement(&m_pCrawler->m_lCrawlInhibitSet);
 		m_pCrawler->SetHoldoff();
 	}
 private:

@@ -26,7 +26,7 @@ CFolderCrawler::CFolderCrawler(void)
 	m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
 	m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
 	m_hThread = INVALID_HANDLE_VALUE;
-	m_bCrawlInhibitSet = 0;
+	m_lCrawlInhibitSet = 0;
 	m_crawlHoldoffReleasesAt = (long)GetTickCount();
 }
 
@@ -48,9 +48,10 @@ CFolderCrawler::Initialise()
 	// Don't call Initalise more than once
 	ATLASSERT(m_hThread == INVALID_HANDLE_VALUE);
 
-	OutputDebugStringA("TSVNCache : CFolderCrawler::Initialise waiting for lock\n");
-	AutoLocker lock(m_critSec);
-	OutputDebugStringA("TSVNCache : CFolderCrawler::Initialise got lock\n");
+	// Just start the worker thread. 
+	// It will wait for event being signalled.
+	// If m_hWakeEvent is already signalled the worker thread 
+	// will behave properly (with normal priority at worst).
 
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
@@ -74,11 +75,14 @@ CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
 		AutoLocker lock(m_critSec);
 		OutputDebugStringA("TSVNCache : CFolderCrawler::AddDirectoryForUpdate got lock\n");
 		m_foldersToUpdate.push_back(path);
+		
+		// set this flag while we are sync'ed 
+		// with the worker thread
+		m_bItemsAddedSinceLastCrawl = true;
 	}
 
 	ATLTRACE("Q4Crawl: %ws\n", path.GetWinPath());
 
-	m_bItemsAddedSinceLastCrawl = true;
 	SetEvent(m_hWakeEvent);
 }
 
@@ -100,7 +104,11 @@ void CFolderCrawler::WorkerThread()
 	{
 
 		DWORD waitResult = WaitForMultipleObjects(sizeof(hWaitHandles)/sizeof(hWaitHandles[0]), hWaitHandles, FALSE, INFINITE);
-		if(waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED)
+		
+		// exit event/working loop if the first event (m_hTerminationEvent)
+		// has been signalled or if one of the events has been abandoned
+		// (i.e. ~CFolderCrawler() is being executed)
+		if(waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
 		{
 			// Termination event
 			break;
@@ -115,7 +123,9 @@ void CFolderCrawler::WorkerThread()
 		{
 			CTSVNPath workingPath;
 
-			if(m_bCrawlInhibitSet)
+			// Any locks today?
+			
+			if(m_lCrawlInhibitSet > 0)
 			{
 				// We're in crawl hold-off 
 				ATLTRACE("Crawl hold-off\n");
@@ -123,6 +133,17 @@ void CFolderCrawler::WorkerThread()
 				continue;
 			}
 
+			// Take a short nap if there has been a request recently.
+			// Note, that this is an optimization and not sensitive
+			// w.r.t. synchronization.
+			// (moved out of the critical section as sync is not required)
+			
+			if(((long)GetTickCount() - m_crawlHoldoffReleasesAt) < 0)
+			{
+				Sleep(50);
+				continue;
+			}
+	
 			{
 				OutputDebugStringA("TSVNCache : CFolderCrawler::WorkerThread waiting for lock\n");
 				AutoLocker lock(m_critSec);
@@ -131,13 +152,6 @@ void CFolderCrawler::WorkerThread()
 				{
 					// Nothing left to do 
 					break;
-				}
-
-				if(((long)GetTickCount() - m_crawlHoldoffReleasesAt) < 0)
-				{
-					lock.Unlock();
-					Sleep(50);
-					continue;
 				}
 
 				if(m_bItemsAddedSinceLastCrawl)
