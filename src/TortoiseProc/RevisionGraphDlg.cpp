@@ -21,6 +21,7 @@
 #include <gdiplus.h>
 #include "Revisiongraphdlg.h"
 #include "MessageBox.h"
+#include "SVN.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

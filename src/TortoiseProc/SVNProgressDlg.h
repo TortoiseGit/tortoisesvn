@@ -19,6 +19,7 @@
 #pragma once
 
 #include "ResizableDialog.h"
+#include "SVN.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 

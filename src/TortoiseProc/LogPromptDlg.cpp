@@ -24,6 +24,7 @@
 #include "SVNConfig.h"
 #include "SVNProperties.h"
 #include "MessageBox.h"
+#include "SVN.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

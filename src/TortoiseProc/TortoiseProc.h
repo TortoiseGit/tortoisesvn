@@ -29,7 +29,6 @@
 #include "..\\TortoiseShell\\resource.h"
 #include "Utils.h"
 #include "UnicodeUtils.h"
-#include "svn.h"
 #include "SVNStatus.h"
 #include "SVNRev.h"
 

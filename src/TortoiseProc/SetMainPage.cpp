@@ -24,6 +24,7 @@
 #include "DirFileEnum.h"
 #include "..\version.h"
 #include ".\setmainpage.h"
+#include "SVN.h"
 
 
 // CSetMainPage dialog

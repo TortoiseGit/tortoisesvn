@@ -18,10 +18,8 @@
 //
 #pragma once
 
-#include "afxtempl.h"
-#include "Registry.h"
 #include "ResizableDialog.h"
-#include "afxcmn.h"
+#include "SVN.h"
 #include "SVNStatusListCtrl.h"
 
 
