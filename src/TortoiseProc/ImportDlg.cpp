@@ -101,7 +101,8 @@ BOOL CImportDlg::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
-	m_Message.SetMarginLine(CRegDWORD(_T("Software\\TortoiseSVN\\LogMessageMargin"), 80));
+	m_ProjectProperties.ReadProps(m_path);
+	m_Message.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC4, TOP_LEFT);

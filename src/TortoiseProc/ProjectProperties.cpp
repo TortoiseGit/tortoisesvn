@@ -24,6 +24,7 @@ ProjectProperties::ProjectProperties(void)
 {
 	bNumber = TRUE;
 	bWarnIfNoIssue = FALSE;
+	nLogWidthMarker = 80;
 }
 
 ProjectProperties::~ProjectProperties(void)
@@ -123,6 +124,29 @@ BOOL ProjectProperties::ReadProps(CString path)
 					bWarnIfNoIssue = TRUE;
 				else
 					bWarnIfNoIssue = FALSE;
+				bFoundProps = TRUE;
+			}
+			if (sPropName.Compare(PROJECTPROPNAME_LOGWIDTHLINE)==0)
+			{
+				CString val;
+#ifdef UNICODE
+				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				val = sPropVal.c_str();
+#endif
+				if (!val.IsEmpty())
+				{
+					nLogWidthMarker = _ttoi(val);
+				}
+				bFoundProps = TRUE;
+			}
+			if (sPropName.Compare(PROJECTPROPNAME_LOGTEMPLATE)==0)
+			{
+#ifdef UNICODE
+				sLogTemplate = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				sLogTemplate = sPropVal.c_str();
+#endif
 				bFoundProps = TRUE;
 			}
 		}

@@ -22,6 +22,7 @@
 #include "afxcmn.h"
 #include "ResizableDialog.h"
 #include "SpellEdit.h"
+#include "ProjectProperties.h"
 
 /**
  * \ingroup TortoiseProc
@@ -68,6 +69,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual void OnOK();
+	virtual void OnCancel();
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedSelectall();
@@ -84,6 +86,6 @@ public:
 	CHistoryCombo m_URLCombo;
 	CSpellEdit m_Message;
 	CHistoryCombo m_OldLogs;
-protected:
-	virtual void OnCancel();
+	ProjectProperties		m_ProjectProperties;
+
 };

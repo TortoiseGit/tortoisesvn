@@ -25,6 +25,9 @@
 #define BUGTRAQPROPNAME_URL               _T("bugtraq:url")
 #define BUGTRAQPROPNAME_WARNIFNOISSUE     _T("bugtraq:warnifnoissue")
 
+#define PROJECTPROPNAME_LOGTEMPLATE		  _T("tsvn:logtemplate")
+#define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
+
 /**
  * \ingroup TortoiseProc
  * Provides methods for retrieving information about bug/issuetrackers
@@ -53,13 +56,13 @@ public:
 	~ProjectProperties(void);
 
 	/**
-	 * Reads the bugtracking properties from a path. If the path is a file
+	 * Reads the properties from a path. If the path is a file
 	 * then the properties are read from the parent folder of that file.
 	 * \param path path to a file or a folder
 	 */
 	BOOL ReadProps(CString path);
 	/**
-	 * Reads the bugtracking properties all paths found in the tempfile.
+	 * Reads the properties from all paths found in the tempfile.
 	 * This method calls ReadProps() for each path found in the tempfile.
 	 * \param path path to the tempfile
 	 */
@@ -101,4 +104,11 @@ public:
 	/* If set to TRUE, show a warning dialog if the user forgot to enter
 	 * an issue number in the commit dialog. */
 	BOOL		bWarnIfNoIssue;
+
+	/* The number of chars the width marker should be shown at. If the property
+	 * is not set, then this value is 80 by default. */
+	int			nLogWidthMarker;
+
+	/* The template to use for log messages. */
+	CString		sLogTemplate;
 };
