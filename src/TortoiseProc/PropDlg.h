@@ -22,6 +22,8 @@ protected:
 	virtual void OnCancel();
 	virtual void OnOK();
 
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+
 	DECLARE_MESSAGE_MAP()
 
 	HANDLE		m_hThread;

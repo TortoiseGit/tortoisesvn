@@ -30,6 +30,7 @@ void CPropDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CPropDlg, CResizableDialog)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -67,7 +68,7 @@ BOOL CPropDlg::OnInitDialog()
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 
-	AddAnchor(IDC_PROPLIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_PROPERTYLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_CENTER);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -95,10 +96,33 @@ DWORD WINAPI PropThread(LPVOID pVoid)
 	{
 		CString name = props.GetItemName(i).c_str();
 		CString val = CUnicodeUtils::GetUnicode((char *)props.GetItemValue(i).c_str());
+		val.Replace('\n', ' ');
+		val.Replace('\r', ' ');
 		pDlg->m_proplist.InsertItem(i, name);
 		pDlg->m_proplist.SetItemText(i, 1, val);
 	}
+	int mincol = 0;
+	int maxcol = ((CHeaderCtrl*)(pDlg->m_proplist.GetDlgItem(0)))->GetItemCount()-1;
+	int col;
+	for (col = mincol; col <= maxcol; col++)
+	{
+		pDlg->m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
+
 	pDlg->m_proplist.SetRedraw(true);
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
 	return 0;
+}
+
+BOOL CPropDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	if ((GetDlgItem(IDOK)->IsWindowEnabled())||(pWnd != GetDlgItem(IDC_PROPERTYLIST)))
+	{
+		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
+		SetCursor(hCur);
+		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	}
+	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
+	SetCursor(hCur);
+	return TRUE;
 }
