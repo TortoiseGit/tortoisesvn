@@ -24,6 +24,7 @@
 #include "TSVNPath.h"
 #include "SplitterControl.h"
 #include "afxwin.h"
+#include "afxdtctl.h"
 
 #define ID_COMPARE		1
 #define ID_SAVEAS		2
@@ -114,6 +115,10 @@ protected:
 	afx_msg void OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnStnClickedFiltericon();
+	afx_msg void OnEnChangeSearchedit();
+	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnDtnDatetimechangeDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -137,51 +142,53 @@ private:
 	void DoSizeV2(int delta);
 	void SetSplitterRange();
 	void SetFilterCueText();
+	BOOL IsEntryInDateRange(int i);
 	
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 public:
-	CWnd *		m_pNotifyWindow;
-	ProjectProperties m_ProjectProperties;
-	WORD		m_wParam;
+	CWnd *				m_pNotifyWindow;
+	ProjectProperties	m_ProjectProperties;
+	WORD				m_wParam;
 private:
-	CListCtrl	m_LogList;
-	CListCtrl	m_LogMsgCtrl;
-	CProgressCtrl m_LogProgress;
-	CTSVNPath   m_path;
-	long		m_startrev;
-	long		m_endrev;
-	long		m_logcounter;
-	BOOL		m_bCancelled;
-	BOOL		m_bShowedAll;
-	BOOL		m_bThreadRunning;
-	BOOL		m_bStrict;
-	BOOL		m_bGotRevisions;
-	CStringArray m_arLogMessages;
-	CStringArray m_arShortLogMessages;
+	CListCtrl			m_LogList;
+	CListCtrl			m_LogMsgCtrl;
+	CProgressCtrl		m_LogProgress;
+	CTSVNPath			m_path;
+	long				m_startrev;
+	long				m_endrev;
+	long				m_logcounter;
+	BOOL				m_bCancelled;
+	BOOL				m_bShowedAll;
+	BOOL				m_bThreadRunning;
+	BOOL				m_bStrict;
+	BOOL				m_bGotRevisions;
+	CStringArray		m_arLogMessages;
+	CStringArray		m_arShortLogMessages;
 	CArray<LogChangedPathArray*, LogChangedPathArray*> m_arLogPaths;
-	CDWordArray	m_arDates;
-	CStringArray m_arDateStrings;
-	CStringArray m_arAuthors;
-	CDWordArray m_arFileChanges;
-	CDWordArray m_arRevs;
-	CDWordArray	m_arCopies;
-	CDWordArray m_arShownList;
-	BOOL		m_hasWC;
-	int			m_nSearchIndex;
-	static const UINT m_FindDialogMessage;
+	CDWordArray			m_arDates;
+	CStringArray		m_arDateStrings;
+	CStringArray		m_arAuthors;
+	CDWordArray			m_arFileChanges;
+	CDWordArray			m_arRevs;
+	CDWordArray			m_arCopies;
+	CDWordArray			m_arShownList;
+	BOOL				m_hasWC;
+	int					m_nSearchIndex;
+	static const UINT	m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
-	CTSVNPathList m_tempFileList;
-	CFont		m_logFont;
-	CString		m_sMessageBuf;
-	CSplitterControl m_wndSplitter1;
-	CSplitterControl m_wndSplitter2;
-	CString		m_sFilterText;
-	int			m_nSelectedFilter;
-	bool		m_bNoDispUpdates;
-public:
-	afx_msg void OnEnChangeSearchedit();
-	afx_msg void OnTimer(UINT nIDEvent);
+	CTSVNPathList		m_tempFileList;
+	CFont				m_logFont;
+	CString				m_sMessageBuf;
+	CSplitterControl	m_wndSplitter1;
+	CSplitterControl	m_wndSplitter2;
+	CString				m_sFilterText;
+	int					m_nSelectedFilter;
+	bool				m_bNoDispUpdates;
+	CDateTimeCtrl		m_DateFrom;
+	CDateTimeCtrl		m_DateTo;
+	DWORD				m_tFrom;
+	DWORD				m_tTo;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 

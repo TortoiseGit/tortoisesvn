@@ -337,7 +337,7 @@ VOID PipeThread(LPVOID lpvParam)
 					// since we're now closing this thread, we also have to close the whole application!
 					// otherwise the thread is dead, but the app is still running, refusing new instances
 					// but no pipe will be available anymore.
-					SendMessage(hWnd, WM_CLOSE, 0, 0);
+					PostMessage(hWnd, WM_CLOSE, 0, 0);
 					return;
 				}
 				else CloseHandle(hInstanceThread); 
@@ -381,8 +381,13 @@ VOID InstanceThread(LPVOID lpvParam)
 			&cbBytesRead, // number of bytes read 
 			NULL);        // not overlapped I/O 
 
-		if (! fSuccess || cbBytesRead == 0) 
-			break; 
+		if (! fSuccess || cbBytesRead == 0)
+		{
+			DisconnectNamedPipe(hPipe); 
+			CloseHandle(hPipe); 
+			ATLTRACE("Instance thread exited\n");
+			return;
+		}
 
 		DWORD responseLength;
 		GetAnswerToRequest(&request, &response, &responseLength); 
@@ -395,7 +400,13 @@ VOID InstanceThread(LPVOID lpvParam)
 			&cbWritten,   // number of bytes written 
 			NULL);        // not overlapped I/O 
 
-		if (! fSuccess || responseLength != cbWritten) break; 
+		if (! fSuccess || responseLength != cbWritten)
+		{
+			DisconnectNamedPipe(hPipe); 
+			CloseHandle(hPipe); 
+			ATLTRACE("Instance thread exited\n");
+			return;
+		}
 	} 
 
 	// Flush the pipe to allow the client to read the pipe's contents 

@@ -83,6 +83,8 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SPLITTERBOTTOM, m_wndSplitter2);
 	DDX_Check(pDX, IDC_CHECK_STOPONCOPY, m_bStrict);
 	DDX_Text(pDX, IDC_SEARCHEDIT, m_sFilterText);
+	DDX_Control(pDX, IDC_DATEFROM, m_DateFrom);
+	DDX_Control(pDX, IDC_DATETO, m_DateTo);
 }
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -104,6 +106,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_LOGLIST, OnLvnGetdispinfoLoglist)
 	ON_EN_CHANGE(IDC_SEARCHEDIT, OnEnChangeSearchedit)
 	ON_WM_TIMER()
+	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATETO, OnDtnDatetimechangeDateto)
+	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATEFROM, OnDtnDatetimechangeDatefrom)
 END_MESSAGE_MAP()
 
 
@@ -197,8 +201,13 @@ BOOL CLogDlg::OnInitDialog()
 
 	SetSplitterRange();
 
+	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
+	AddAnchor(IDC_DATEFROM, TOP_LEFT);
+	AddAnchor(IDC_TOLABEL, TOP_LEFT);
+	AddAnchor(IDC_DATETO, TOP_LEFT);
+
 	SetFilterCueText();
-	AddAnchor(IDC_SEARCHEDIT, TOP_RIGHT);
+	AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
 	InsertControl(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), GetDlgItem(IDC_FILTERICON)->GetSafeHwnd(), INSERTCONTROL_LEFT);
 	
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
@@ -336,6 +345,10 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	int lastvisible = m_LogList.GetCountPerPage();
 	__time64_t ttime = time/1000000L;
 	m_arDates.Add((DWORD)ttime);
+	if (m_tTo < (DWORD)ttime)
+		m_tTo = (DWORD)ttime;
+	if (m_tFrom > (DWORD)ttime)
+		m_tFrom = (DWORD)ttime;
 	m_arDateStrings.Add(date);
 	m_arAuthors.Add(author);
 	m_arFileChanges.Add(filechanges);
@@ -414,6 +427,9 @@ UINT CLogDlg::LogThread()
 	m_bThreadRunning = TRUE;
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
+	
+	m_tTo = 0;
+	m_tFrom = (DWORD)-1;
 
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
@@ -462,6 +478,12 @@ UINT CLogDlg::LogThread()
 			m_endrev = 1;
 		}
 	}
+	__time64_t rt = m_tFrom;
+	CTime tim(rt);
+	m_DateFrom.SetTime(&tim);
+	rt = m_tTo;
+	tim = rt;
+	m_DateTo.SetTime(&tim);
 
 	temp.LoadString(IDS_MSGBOX_OK);
 	GetDlgItem(IDOK)->SetWindowText(temp);
@@ -2062,7 +2084,10 @@ void CLogDlg::OnEnChangeSearchedit()
 		m_bNoDispUpdates = true;
 		m_arShownList.RemoveAll();
 		for (INT_PTR i=0; i<m_arLogMessages.GetCount(); ++i)
-			m_arShownList.Add(i);
+		{
+			if (IsEntryInDateRange(i))
+				m_arShownList.Add(i);
+		}
 		m_bNoDispUpdates = false;
 		m_LogList.SetItemCountEx(m_arShownList.GetCount());
 		m_LogList.RedrawItems(0, m_arShownList.GetCount());
@@ -2117,7 +2142,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
 				{
 					br = pat.match( (LPCTSTR)m_arLogMessages.GetAt(i), results );
-					if (br.matched)
+					if ((br.matched)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(i);
 						continue;
@@ -2130,13 +2155,13 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
 						br = pat.match( (LPCTSTR)cpath->sCopyFromPath, results);
-						if (br.matched)
+						if ((br.matched)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
 							continue;
 						}
 						br = pat.match( (LPCTSTR)cpath->sPath, results);
-						if (br.matched)
+						if ((br.matched)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
 							continue;
@@ -2146,7 +2171,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
 				{
 					br = pat.match( (LPCTSTR)m_arAuthors.GetAt(i), results );
-					if (br.matched)
+					if ((br.matched)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(i);
 						continue;
@@ -2160,7 +2185,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 				{
 					CString msg = m_arLogMessages.GetAt(i);
 					msg = msg.MakeLower();
-					if (msg.Find(find) >= 0)
+					if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(i);
 						continue;
@@ -2172,12 +2197,12 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-						if (cpath->sCopyFromPath.MakeLower().Find(find)>=0)
+						if ((cpath->sCopyFromPath.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
 							continue;
 						}
-						if (cpath->sPath.MakeLower().Find(find)>=0)
+						if ((cpath->sPath.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
 							continue;
@@ -2188,7 +2213,7 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 				{
 					CString msg = m_arAuthors.GetAt(i);
 					msg = msg.MakeLower();
-					if (msg.Find(find) >= 0)
+					if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
 					{
 						m_arShownList.Add(i);
 						continue;
@@ -2212,6 +2237,40 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 		theApp.DoWaitCursor(-1);
 	} // if (nIDEvent == LOGFILTER_TIMER)
 	__super::OnTimer(nIDEvent);
+}
+
+void CLogDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+	CTime time;
+	m_DateTo.GetTime(time);
+	if (time.GetTime() != m_tTo)
+	{
+		m_tTo = (DWORD)time.GetTime();
+		SetTimer(LOGFILTER_TIMER, 10, NULL);
+	}
+	
+	*pResult = 0;
+}
+
+void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+	CTime time;
+	m_DateFrom.GetTime(time);
+	if (time.GetTime() != m_tFrom)
+	{
+		m_tFrom = (DWORD)time.GetTime();
+		SetTimer(LOGFILTER_TIMER, 10, NULL);
+	}
+	
+	*pResult = 0;
+}
+
+BOOL CLogDlg::IsEntryInDateRange(int i)
+{
+	DWORD time = m_arDates.GetAt(i);
+	if ((time >= m_tFrom)&&(time <= m_tTo))
+		return TRUE;
+	return FALSE;
 }
 
 

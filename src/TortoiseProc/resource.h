@@ -293,8 +293,12 @@
 #define IDC_SPLITTER                    1193
 #define IDC_SEARCHEDIT                  1194
 #define IDC_FILTERICON                  1196
+#define IDC_DATETO                      1198
+#define IDC_DATEFROM                    1199
 #define IDS_SSL_CERTIFICATETYPE         1200
+#define IDC_FROMLABEL                   1200
 #define IDS_SSL_ACCEPTQUESTION          1201
+#define IDC_TOLABEL                     1201
 #define IDS_SSL_CLIENTCERTIFICATEFILENAME 1202
 #define IDS_SSL_PEM                     1203
 #define IDS_SSL_PKCS12                  1204
@@ -587,7 +591,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        187
 #define _APS_NEXT_COMMAND_VALUE         32779
-#define _APS_NEXT_CONTROL_VALUE         1197
+#define _APS_NEXT_CONTROL_VALUE         1202
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
