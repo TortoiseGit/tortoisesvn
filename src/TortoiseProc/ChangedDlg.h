@@ -9,7 +9,7 @@
 
 // CChangedDlg dialog
 
-class CChangedDlg : public CResizableDialog, public SVNStatus
+class CChangedDlg : public CResizableDialog, public SVNStatus, public SVN
 {
 	DECLARE_DYNAMIC(CChangedDlg)
 
@@ -22,23 +22,25 @@ public:
 	enum { IDD = IDD_CHANGEDFILES };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
-	virtual BOOL OnInitDialog();
+	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	afx_msg void			OnPaint();
+	afx_msg HCURSOR			OnQueryDragIcon();
+	afx_msg void			OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult);
+	virtual BOOL			OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()
 
 protected:
 	HICON			m_hIcon;
 	HANDLE			m_hThread;
-	CDWordArray		m_arWCStatus;
-	CDWordArray		m_arRepoStatus;
-	CStringArray	m_arPaths;
 
 public:
 	CListCtrl		m_FileListCtrl;
 	CString			m_path;
+	CDWordArray		m_arWCStatus;
+	CDWordArray		m_arRepoStatus;
+	CDWordArray		m_arRevisions;
+	CStringArray	m_arPaths;
 };
 
 DWORD WINAPI ChangedStatusThread(LPVOID pVoid);

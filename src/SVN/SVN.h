@@ -403,6 +403,11 @@ public:
 	 */
 	static void preparePath(CString &path);
 
+	enum
+	{
+		REV_HEAD = -1,
+		REV_BASE = -2,
+	};
 private:
 	svn_auth_baton_t *			auth_baton;
 	svn_client_ctx_t 			ctx;

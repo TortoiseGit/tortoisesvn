@@ -27,6 +27,7 @@ typedef enum
 {
 	Checkout = 1,
 	Update = 2,
+	Enum_Update = 2,
 	Commit = 3,
 	Add = 4,
 	Revert = 5,

@@ -503,9 +503,14 @@ BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOO
 
 	svn_opt_revision_t revEnd;
 	memset (&revEnd, 0, sizeof (revEnd));
-	if(revision2 == -1)
+	if(revision2 == REV_HEAD)
 	{
 		revEnd.kind = svn_opt_revision_head;
+		revision2 = 0;
+	} // if(revision2 == REV_HEAD) 
+	else if (revision2 == REV_BASE)
+	{
+		revEnd.kind = svn_opt_revision_base;
 		revision2 = 0;
 	}
 	else
@@ -874,9 +879,14 @@ void * SVN::logMessage (const char * message, char * baseDirectory)
 svn_opt_revision_t*	SVN::getRevision (long revNumber)
 {
 	memset (&rev, 0, sizeof (rev));
-	if(revNumber == -1)
+	if(revNumber == SVN::REV_HEAD)
 	{
 		rev.kind = svn_opt_revision_head;
+		revNumber = 0;
+	} // if(revNumber == SVN::REV_HEAD)
+	else if (revNumber == SVN::REV_BASE)
+	{
+		rev.kind = svn_opt_revision_base;
 		revNumber = 0;
 	}
 	else
