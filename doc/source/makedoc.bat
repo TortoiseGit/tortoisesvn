@@ -111,7 +111,7 @@ if %_HTML%==ON (
   copy %_DOC_SRC%\styles_html.css %_HTML_TARGET% > NUL
   %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
   echo ----------------------------------------------------------------------
-  echo Generating Help as multiple HTML page(s)
+  echo Generating Help as multiple HTML pages
   %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HTMLCHUNK% %_DOC_XML_SRC%
 )
 
