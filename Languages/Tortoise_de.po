@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-12-07 09:49+0100\n"
+"PO-Revision-Date: 2004-12-14 09:57+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -301,6 +301,10 @@ msgstr "&SSH Client:"
 #: MenuEntry
 msgid "&Save Ctrl-S"
 msgstr "&Speichern Strg-S"
+
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "Graph &speichern unter..."
 
 #: Control-ID:1023
 msgid "&Save authentication"
@@ -756,21 +760,6 @@ msgstr "Autor"
 msgid "Author:                        Stefan Kueng"
 msgstr "Autor:                         Stefan Küng"
 
-# ID:272,
-#: ID:272
-msgid ""
-"Author: %s\r\n"
-"Date: %s\r\n"
-"\r\n"
-"Logmessage:\r\n"
-"%s"
-msgstr ""
-"Autor: %s\r\n"
-"Datum: %s\r\n"
-"\r\n"
-"Log-Meldung:\r\n"
-"%s"
-
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autoren:                     Stefan Küng, Tim Kemp"
@@ -1043,6 +1032,11 @@ msgstr "Zwischenablage"
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Schliesst das aktive Fenster und fragt nach, ob die Daten gespeichert werden sollen"
+
+# Control-ID:1163,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "Änderungen in Zeile farbig hervorheben"
 
 #: Dlg-ID:138
 msgid "Colors"
@@ -1792,6 +1786,17 @@ msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 msgid "Include paths:"
 msgstr "Einschliess Pfade:"
 
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"Aktivieren sie dies, um den Status des aktuellen Ordners mit einem überlagerten\n"
+"Icon anzuzeigen. Falls deaktiviert, wird immer das 'normale' Icon angezeigt.\n"
+"<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
+
 #: ID:76
 msgid "Initial Import"
 msgstr "Erster Import"
@@ -2182,6 +2187,11 @@ msgstr "Patchdateien (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 msgid "Path"
 msgstr "Pfad"
 
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Bilder (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alle (*.*)|*.*||"
+
 #: ID:3858
 msgid "Please enter a GUID."
 msgstr "Bitte geben Sie eine GUID ein."
@@ -2500,17 +2510,15 @@ msgstr "Revision %ld"
 msgid "Revision / Author:"
 msgstr "Revision / Autor:"
 
+#: ID:15
 #: ID:269
+#: Dlg-ID:182
 msgid "Revision Graph"
 msgstr "Revisionsgraph"
 
 #: ID:75
 msgid "Revision: "
 msgstr "Revision:"
-
-#: Dlg-ID:182
-msgid "RevisionGraph"
-msgstr "Revisionsgraph"
 
 # ID:188,
 #: ID:188
@@ -2608,6 +2616,10 @@ msgstr "Speichern &unter..."
 #: ID:3841
 msgid "Save As"
 msgstr "Speichern unter"
+
+#: ID:272
+msgid "Save Graph as..."
+msgstr "Graph speichern unter..."
 
 #: ID:76
 msgid "Save Revision &To..."
@@ -2790,6 +2802,10 @@ msgstr "Zeige Zeilennummern"
 msgid "Show Log"
 msgstr "Zeige Log"
 
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "Zeige Ordnereigenschaften"
+
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -2817,6 +2833,11 @@ msgstr ""
 #: Control-ID:1073
 msgid "Show unversioned files"
 msgstr "Zeige nicht versionierte Dateien"
+
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Zeigt eine graphische Darstellung der Verzweigungen/Markierungen"
 
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -3282,6 +3303,23 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL: "
 
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"Autor: %s\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Log-Meldung:\r\n"
+"%s"
+
 #: ID:3866
 msgid "Unable to load mail system support."
 msgstr "Konnte Mail Unterstützung nicht laden."
@@ -3412,6 +3450,11 @@ msgstr "Verwende die &ganze Datei"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "URL der Arbeitskopie an geänderte URL des Projektarchivs anpassen."
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Verwende &gesamte andere Datei"
 
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
@@ -3571,6 +3614,14 @@ msgstr ""
 "Ihre Arbeitskopie hat lokale Modifikationen!\n"
 "Hinweis: Aktualisieren zu einer anderen Revision wird diese Änderungen beibehalten.\n"
 "Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen zu der sie aktualisieren!"
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "Ver&größern"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "Ver&kleinern"
 
 #: ID:10
 msgid "added"
