@@ -55,12 +55,26 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 
 	CStringArray PatchLines;
 	FreeMemory();
-	CStdioFile file(filename, CFile::typeText | CFile::modeRead | CFile::shareDenyNone);
-	while (file.ReadString(sLine))
+	TRY
 	{
-		PatchLines.Add(sLine);
+		CStdioFile file(filename, CFile::typeText | CFile::modeRead | CFile::shareDenyNone);
+		while (file.ReadString(sLine))
+		{
+			PatchLines.Add(sLine);
+		}
+		file.Close();
 	}
-	file.Close();
+	CATCH( CFileException, pEx )
+	{
+		// Simply show an error message to the user.
+		pEx->ReportError();
+		return FALSE;
+	}
+	AND_CATCH(CMemoryException, pEx)
+	{
+		return FALSE;
+	}
+	END_CATCH
 	nLineCount = PatchLines.GetCount();
 	//now we got all the lines of the patch file
 	//in our array - parsing can start...
