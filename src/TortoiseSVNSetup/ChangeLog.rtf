@@ -1,6 +1,108 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang2055{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}{\f1\fnil\fprq1\fcharset0 Courier New;}}
 {\*\generator Msftedit 5.41.15.1503;}\viewkind4\uc1\pard\f0\fs20 The full changelog of TortoiseSVN:\par
 \par
+\f1 Version 1.0.1\par
+- ADD: The dialog asking the user to enter an URL (e.g.\par
+       for the repo browser) has now a history of\par
+       the last used URL's for the user to select from. (Stefan)\par
+- ADD: New option to use a short version of the date\par
+       for log messages. (Thomas Epting)\par
+- ADD: The property page now shows the subversion\par
+       properties in a combobox. \par
+       There's also a tooltip showing additional\par
+       information about the svn: properties. (Stefan)\par
+- ADD: Ability to use different merge/diff programs\par
+       for different filetypes. (Thomas Epting)\par
+- ADD: Warn the user before creating a repository\par
+       on a network share. (Stefan)\par
+- ADD: Warn the user if (s)he tries to checkout/import\par
+       via file to a repository on a network share. (Stefan)\par
+- ADD: TortoiseMerge shows the line numbers \par
+       in the views. (Stefan)\par
+- ADD: Autopatch function to patch all files \par
+       automatically. (Stefan)\par
+- ADD: Line diff bar at the bottom of the two pane\par
+       view, showing the two lines above each other\par
+       (if the lines are different). Issue 88. (Stefan)\par
+- ADD: A magnifier for the locatorbar in TME. (Stefan)\par
+- CHG: Many cosmetic changes to the UI. (Stefan)\par
+- CHG: The log dialog shows now the log messages\par
+       in the fourth column (a short version) so\par
+       you can see the logs without clicking on\par
+       the revision. (Thomas Epting)\par
+- CHG: The font combobox now only shows each font\par
+       once. (Stefan)\par
+- CHG: Updated TortoisePlink to 0.53b - now \par
+       includes proxy support. \par
+- BUG: If the "Check for updates" dialog is started\par
+       for a file (not for a folder), the filename\par
+       wasn't shown. (Stefan)\par
+- BUG: Fix various bugs with svn:externals and the\par
+       commit/add dialogs. (Stefan)\par
+- BUG: The shell part didn't have the APR_ICONV_PATH\par
+       environement variable set. (Stefan)\par
+- BUG: Various bugfixes for TortoiseMerge. (Stefan)\par
+\par
+Version 1.0\par
+- ADD: New option in the settings dialog to set the \par
+       filetimes to the last commit time. This solves\par
+       issue 83. (Stefan)\par
+- ADD: From the log dialog it's now possible to start\par
+       the repository browser so it browses the\par
+       selected revision. (Stefan)\par
+- ADD: New button in the settings dialog to open\par
+       the subversion config file with the default\par
+       text editor. (Stefan)\par
+- ADD: Implement Issue 87. TortoiseMerge shows now\par
+       the filename and the revision in the viewtitle.\par
+       TME gets this information from TSVN. (Stefan)\par
+- ADD: The repository browser now allows the selection\par
+       of more than one item. With this, the user can\par
+       now select two files/folders from different\par
+       urls (e.g. trunk and tags) and request a diff\par
+       from them. (Stefan)\par
+- ADD: Implement a "Delete" command in the context menu of \par
+       the commit dialog for unversioned files. (Stefan)\par
+- ADD: TortoiseMerge can now handle UTF8 files. (Stefan)\par
+- ADD: Selecting of lines and copying them to the\par
+       clipboard in TortoiseMerge. (Stefan)\par
+- CHG: Use of an iterator to gather all the files\par
+       needed for import/commit/add. This saves a lot\par
+       of memory and is also a big speedup for large\par
+       directories. (Jon Foster)\par
+- CHG: The log message editboxes now do "soft-wrap",\par
+       i.e. the logmessage is wrapped at the right\par
+       end of the dialog box. (Stefan)\par
+- CHG: "Show unversioned files before committing" is now\par
+       enabled by default. (Stefan)\par
+- BUG: In TME it was not possible to select a diff block\par
+       completely if it started at the first line. (Stefan)\par
+- BUG: Creating a branch/tag from a modified working\par
+       copy did not include the changes from the\par
+       working copy! (Stefan)\par
+- BUG: In the Commit and the Add dialog: if a file was\par
+       selected then only the topmost parentfolder was\par
+       automatically selected instead of all intermediant\par
+       parentfolders. (Stefan)\par
+- BUG: Export always used HEAD, even if another revision\par
+       was specified in the dialog. (Stefan)\par
+- BUG: Showing diffs for changed files from the list in\par
+       the log dialog was done with the wrong revisions. (Stefan)\par
+- BUG: When adding files in a directory with svn:externals\par
+       in it already controlled files got shown in\par
+       the add dialog. (Stefan)\par
+- BUG: Some patchfiles were not parsed correctly. (Stefan)\par
+- BUG: Fixed a massive memory leak when showing logs,\par
+       also reduced memory consumption when \par
+       committing. (Stefan)\par
+- BUG: If the config file was messed up with TSVN just\par
+       crashed instead of showing the error and exit. (Stefan)\par
+- BUG: When sorting by a column in the commit dialog\par
+       the selections (checkboxes) got lost. (Stefan)\par
+- BUG: When the recursive overlay was activated, the\par
+       overlays for folders weren't shown recursive if\par
+       the explorer columns weren't sorted by name. (Stefan)\par
+\f0\par
 \f1 Version 0.26\par
 - ADD: The columns in the progress and the commit dialog \par
        are now sortable. (Stefan)\par

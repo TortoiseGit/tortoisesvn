@@ -66,7 +66,8 @@
 			OutputDirectory="..\Languages"
 			IntermediateDirectory="..\..\obj\TortoiseLang\Release"
 			ConfigurationType="2"
-			CharacterSet="1">
+			CharacterSet="1"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;TORTOISELANG_EXPORTS"
@@ -86,6 +87,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
 				ResourceOnlyDLL="TRUE"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"/>
@@ -96,41 +98,6 @@
 			<Tool
 				Name="VCPreBuildEventTool"
 				CommandLine="..\..\bin\Release\SubWCRev.exe ..\..\ ..\version.in ..\version.h"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="..\TortoiseShell"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
-		</Configuration>
-		<Configuration
-			Name="Release_MBCS|Win32"
-			OutputDirectory="..\..\bin\Release_MBCS"
-			IntermediateDirectory="..\..\obj\TortoiseLang\Release_MBCS"
-			ConfigurationType="2"
-			CharacterSet="1">
-			<Tool
-				Name="VCCLCompilerTool"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				ResourceOnlyDLL="TRUE"/>
-			<Tool
-				Name="VCMIDLTool"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool

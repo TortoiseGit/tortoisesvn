@@ -1,3 +1,4 @@
+Version 1.0.1
 - ADD: The dialog asking the user to enter an URL (e.g.
        for the repo browser) has now a history of
        the last used URL's for the user to select from. (Stefan)
@@ -28,6 +29,8 @@
        the revision. (Thomas Epting)
 - CHG: The font combobox now only shows each font
        once. (Stefan)
+- CHG: Updated TortoisePlink to 0.53b - now 
+       includes proxy support. 
 - BUG: If the "Check for updates" dialog is started
        for a file (not for a folder), the filename
        wasn't shown. (Stefan)
