@@ -20,6 +20,7 @@
        instead. (Stefan)
 - CHG: The log message history isn't limited to 255 chars
        for each entry anymore. (Stefan)
+- BUG: Patchfiles with binaries in it could crash TortoiseMerge. (Stefan)
 - BUG: Explorer could crash when setting properties with
        illegal values. (Stefan)
 - BUG: After a merge dry-run, the wc URL wasn't shown

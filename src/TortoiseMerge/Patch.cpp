@@ -195,9 +195,12 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 					//a binary file. So start over...
 					state = 0;
 					nIndex--;
+					if (chunks)
+					{
+						delete chunks;
+						chunks = NULL;
+					}
 					break;
-					//m_sErrorMessage.Format(IDS_ERR_PATCH_NOREMOVEFILELINE, nIndex);
-					//goto errorcleanup;
 				} // if (sLine.Left(3).Compare(_T("---"))!=0)
 				sLine = sLine.Mid(3);	//remove the "---"
 				sLine =sLine.Trim();
