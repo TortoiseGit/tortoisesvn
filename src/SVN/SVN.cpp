@@ -88,11 +88,6 @@ SVN::~SVN(void)
 	svn_pool_destroy (parentpool);
 }
 
-void SVN::ReleasePool()
-{
-	svn_pool_clear (pool);
-}
-
 CString SVN::CheckConfigFile()
 {
 	svn_client_ctx_t 			ctx;
@@ -268,11 +263,15 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, CString message)
 {
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
-	SVNPool subpool(pool);
-	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message), NULL, subpool);
-	Err = svn_client_delete (&commit_info, MakePathArray(pathlist, subpool), force,
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
+
+	// svn_client_delete needs to run on a sub-pool, so that after it's run, the pool
+	// cleanups get run.  For example, after a failure do to an unforced delete on 
+	// a modified file, if you don't do a cleanup, the WC stays locked
+	SVNPool subPool(pool);
+	Err = svn_client_delete (&commit_info, MakePathArray(pathlist), force,
 							&m_ctx,
-							subpool);
+							subPool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -291,8 +290,7 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 {
 	TRACE("Reverting list of %d files\n", pathlist.GetCount());
 
-	SVNPool subpool(pool);
-	Err = svn_client_revert (MakePathArray(pathlist, subpool), recurse, &m_ctx, subpool);
+	Err = svn_client_revert (MakePathArray(pathlist), recurse, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -370,9 +368,9 @@ BOOL SVN::Copy(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev revis
 	svn_client_commit_info_t *commit_info = NULL;
 	logmsg.Replace(_T("\r"), _T(""));
 	if (logmsg.IsEmpty())
-		m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")), NULL, subpool);
+		m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
 	else
-		m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg), NULL, subpool);
+		m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 	Err = svn_client_copy (&commit_info,
 							srcPath.GetSVNApiPath(),
 							revision,
@@ -394,7 +392,7 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
-	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message), NULL, subpool);
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_move (&commit_info,
 							srcPath.GetSVNApiPath(),
 							rev,
@@ -417,14 +415,13 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 
 BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 {
-	SVNPool subpool(pool);
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
-	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message), NULL, subpool);
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_mkdir (&commit_info,
 							MakePathArray(pathlist),
 							&m_ctx,
-							subpool);
+							pool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -1211,17 +1208,15 @@ svn_error_t* SVN::cancel(void *baton)
 	return SVN_NO_ERROR;
 }
 
-void * SVN::logMessage (const char * message, char * baseDirectory, apr_pool_t * localpool)
+void * SVN::logMessage (const char * message, char * baseDirectory)
 {
-	if (localpool == NULL)
-		localpool = pool;
-	log_msg_baton* baton = (log_msg_baton *) apr_palloc (localpool, sizeof (*baton));
-	baton->message = apr_pstrdup(localpool, message);
+	log_msg_baton* baton = (log_msg_baton *) apr_palloc (pool, sizeof (*baton));
+	baton->message = apr_pstrdup(pool, message);
 	baton->base_dir = baseDirectory ? baseDirectory : "";
 
 	baton->message_encoding = NULL;
 	baton->tmpfile_left = NULL;
-	baton->pool = localpool;
+	baton->pool = pool;
 
 	return baton;
 }
@@ -1767,15 +1762,13 @@ void SVN::SetPromptApp(CWinApp* pWinApp)
 	m_prompt.SetApp(pWinApp);
 }
 
-apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList, apr_pool_t * localpool)
+apr_array_header_t * SVN::MakePathArray(const CTSVNPathList& pathList)
 {
-	if (localpool == NULL)
-		localpool = pool;
-	apr_array_header_t *targets = apr_array_make (localpool,pathList.GetCount(),sizeof(const char *));
+	apr_array_header_t *targets = apr_array_make (pool,pathList.GetCount(),sizeof(const char *));
 
 	for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
 	{
-		const char * target = apr_pstrdup (localpool, pathList[nItem].GetSVNApiPath());
+		const char * target = apr_pstrdup (pool, pathList[nItem].GetSVNApiPath());
 		(*((const char **) apr_array_push (targets))) = target;
 	}
 	return targets;

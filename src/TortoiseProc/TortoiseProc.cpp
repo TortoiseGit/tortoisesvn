@@ -818,7 +818,6 @@ BOOL CTortoiseProcApp::InitInstance()
 					if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
 						(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
 					{
-						svn.ReleasePool();
 						CString msg, yes, no, yestoall;
 						msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
 						yes.LoadString(IDS_MSGBOX_YES);

@@ -791,8 +791,6 @@ UINT CSVNProgressDlg::ProgressThread()
 	sWindowTitle = sWindowTitle + _T(" ") + temp;
 	SetWindowText(sWindowTitle);
 
-	m_pSvn->ReleasePool();
-
 	GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 
