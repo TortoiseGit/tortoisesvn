@@ -205,7 +205,7 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 						<para>At the end of the Config file add the 
 					following lines:
 <screen>
-&lt;Location /svn/&gt;
+&lt;Location /svn&gt;
 DAV svn
 SVNParentPath D:\SVN
 AuthType Basic
@@ -226,7 +226,7 @@ Require valid-user
 											<tgroup cols="2">
 												<tbody>
 													<row>
-														<entry>&lt;Location /svn/&gt;</entry>
+														<entry>&lt;Location /svn&gt;</entry>
 														<entry>means that the Subversion repositories are 
 							available from the URL <systemitem class="url">
 							http://server/svn/</systemitem>
