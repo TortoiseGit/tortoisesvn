@@ -1265,11 +1265,19 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							else
 							{
 								//since the entry got reverted we need to remove
-								//it from the list too
-								m_nTotal--;
-								if (GetCheck(selIndex))
-									m_nSelected--;
-								RemoveListEntry(selIndex);
+								//it from the list too, if no remote changes are shown
+								FileEntry * fentry = m_arStatusArray.GetAt(m_arListArray.GetAt(selIndex));
+								if (fentry->propstatus <= svn_wc_status_normal)
+								{
+									m_nTotal--;
+									if (GetCheck(selIndex))
+										m_nSelected--;
+									RemoveListEntry(selIndex);
+								}
+								else
+								{
+									Show(m_dwShow);
+								}
 							}
 						}  
 					} 
