@@ -19,6 +19,7 @@
 #pragma once
 #include "..\\Utils\\Balloon.h"
 #include "IconStatic.h"
+#include "FontPreviewCombo.h"
 #include "afxwin.h"
 
 
@@ -90,6 +91,12 @@ private:
 	CString			m_sDefaultLogs;
 	CIconStatic		m_cMiscGroup;
 	CIconStatic		m_cCommitGroup;
+	CFontPreviewCombo	m_cFontNames;
+	CComboBox		m_cFontSizes;
+	CRegDWORD		m_regFontSize;
+	DWORD			m_dwFontSize;
+	CRegString		m_regFontName;
+	CString			m_sFontName;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -102,4 +109,6 @@ public:
 	afx_msg void OnBnClickedAutoclose();
 	afx_msg void OnEnChangeDefaultlog();
 	afx_msg void OnBnClickedDontconvert();
+	afx_msg void OnCbnSelchangeFontsizes();
+	afx_msg void OnCbnSelchangeFontnames();
 };

@@ -43,6 +43,8 @@ CSetMainPage::CSetMainPage()
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	m_regDontConvertBase = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), FALSE);
+	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
+	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 12);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -62,13 +64,21 @@ void CSetMainPage::SaveData()
 		m_regDefaultLogs = val;
 	else
 		m_regDefaultLogs = 100;
+
+	m_regFontName = m_sFontName;
+	m_regFontSize = m_dwFontSize;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LANGUAGECOMBO, m_LanguageCombo);
+	//DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
+	DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
+	m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
+	//m_cFontNames.GetLBText(m_cFontNames.GetCurSel(), m_sFontName);
+	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
 	DDX_Check(pDX, IDC_ADDBEFORECOMMIT, m_bAddBeforeCommit);
 	DDX_Check(pDX, IDC_NOREMOVELOGMSG, m_bNoRemoveLogMsg);
@@ -88,12 +98,19 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_AUTOCLOSE, OnBnClickedAutoclose)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnEnChangeDefaultlog)
 	ON_BN_CLICKED(IDC_DONTCONVERT, OnBnClickedDontconvert)
+	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
+	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 END_MESSAGE_MAP()
 
 
 // CSetMainPage message handlers
 BOOL CSetMainPage::OnInitDialog()
 {
+	m_cFontNames.SubclassDlgItem (IDC_FONTNAMES, this);
+	m_cFontNames.SetFontHeight(16, false);
+	m_cFontNames.SetPreviewStyle(CFontPreviewCombo::NAME_THEN_SAMPLE, false);
+	m_cFontNames.Init();
+
 	CPropertyPage::OnInitDialog();
 
 	m_cMiscGroup.SetIcon(IDI_MISC);
@@ -107,6 +124,9 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bAutoClose = m_regAutoClose;
 	m_dwLanguage = m_regLanguage;
 	m_bDontConvertBase = m_regDontConvertBase;
+	m_sFontName = m_regFontName;
+	m_dwFontSize = m_regFontSize;
+
 	CString temp;
 	temp.Format(_T("%ld"), (DWORD)m_regDefaultLogs);
 	m_sDefaultLogs = temp;
@@ -154,6 +174,20 @@ BOOL CSetMainPage::OnInitDialog()
 			m_LanguageCombo.SetCurSel(i);
 	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
 
+	int count = 0;
+	for (int i=8; i<32; i=i+2)
+	{
+		temp.Format(_T("%d"), i);
+		m_cFontSizes.AddString(temp);
+		m_cFontSizes.SetItemData(count++, i);
+	} // for (int i=6; i<20; i=i+2) 
+	for (int i=0; i<m_cFontSizes.GetCount(); i++)
+	{
+		if (m_cFontSizes.GetItemData(i) == m_dwFontSize)
+			m_cFontSizes.SetCurSel(i);
+	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
+
+
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -196,6 +230,16 @@ void CSetMainPage::OnBnClickedDontconvert()
 }
 
 void CSetMainPage::OnEnChangeDefaultlog()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnCbnSelchangeFontsizes()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnCbnSelchangeFontnames()
 {
 	SetModified();
 }

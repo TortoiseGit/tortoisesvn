@@ -122,7 +122,7 @@ BOOL CLogDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	LOGFONT LogFont;
-	LogFont.lfHeight         = -11;
+	LogFont.lfHeight         = 0 - (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 12);
 	LogFont.lfWidth          = 0;
 	LogFont.lfEscapement     = 0;
 	LogFont.lfOrientation    = 0;
@@ -135,7 +135,7 @@ BOOL CLogDlg::OnInitDialog()
 	LogFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
 	LogFont.lfQuality        = DRAFT_QUALITY;
 	LogFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
-	_tcscpy(LogFont.lfFaceName, _T("Courier New"));
+	_tcscpy(LogFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
 	m_logFont.CreateFontIndirect(&LogFont);
 	GetDlgItem(IDC_LOGMSG)->SetFont(&m_logFont);
 

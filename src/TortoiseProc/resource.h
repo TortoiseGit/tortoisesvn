@@ -36,6 +36,8 @@
 #define IDI_PROXY                       166
 #define IDI_MISC                        167
 #define IDB_LOGOFLIPPED                 168
+#define IDB_BITMAP1                     169
+#define IDB_TTF_BMP                     169
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -80,6 +82,7 @@
 #define IDC_MENU7                       1029
 #define IDC_COMBO1                      1030
 #define IDC_MENU8                       1030
+#define IDC_FONTNAMES                   1030
 #define IDC_BUTTON1                     1031
 #define IDC_LOGBUTTON                   1031
 #define IDC_MENU9                       1031
@@ -160,6 +163,7 @@
 #define IDC_COMMITGROUP                 1083
 #define IDC_WEBLINK                     1084
 #define IDC_SUPPORTLINK                 1085
+#define IDC_FONTSIZES                   1086
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -330,9 +334,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        169
+#define _APS_NEXT_RESOURCE_VALUE        170
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1086
+#define _APS_NEXT_CONTROL_VALUE         1087
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
