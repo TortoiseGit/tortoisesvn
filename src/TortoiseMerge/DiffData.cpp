@@ -493,9 +493,9 @@ BOOL CDiffData::Load()
 				}
 				else
 				{
-					ASSERT((tempdiff->latest_length == tempdiff->modified_length)&&(tempdiff->modified_length == tempdiff->original_length));
+					ASSERT(tempdiff->latest_length == tempdiff->modified_length);
 					//both theirs and yours have lines replaced
-					for (int i=0; i<tempdiff->modified_length; i++)
+					for (int i=0; i<tempdiff->original_length; i++)
 					{
 						m_arDiff3.Add(m_arBaseFile.GetAt(baseline));
 						m_arStateDiff3.Add(DIFFSTATE_IDENTICALREMOVED);
