@@ -368,19 +368,22 @@ void CRevisionGraphDlg::DrawNode(CDC * pDC, const CRect& rect,
 		pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
 		CString temp;
 		CRect r;
+		CRect textrect = rect;
+		textrect.left += 4;
+		textrect.right -= 4;
 		TEXTMETRIC textMetric;
 		pDC->GetTextMetrics(&textMetric);
 		temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 		pDC->DrawText(temp, &r, DT_CALCRECT);
-		pDC->ExtTextOut(rect.left + ((rect.Width()-r.Width())/2), rect.top + m_node_rect_heigth/4, ETO_CLIPPED, NULL, temp, NULL);
+		pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), textrect.top + m_node_rect_heigth/4, ETO_CLIPPED, NULL, temp, NULL);
 		pDC->SelectObject(GetFont(TRUE));
 		temp = CUnicodeUtils::GetUnicode(rentry->url);
-		r = rect;
+		r = textrect;
 		temp.Replace('/','\\');
 		pDC->DrawText(temp.GetBuffer(temp.GetLength()), temp.GetLength(), &r, DT_CALCRECT | DT_PATH_ELLIPSIS | DT_MODIFYSTRING);
 		temp.ReleaseBuffer();
 		temp.Replace('\\','/');
-		pDC->ExtTextOut(rect.left + ((rect.Width()-r.Width())/2), rect.top + m_node_rect_heigth/4 + m_node_rect_heigth/3, ETO_CLIPPED, &rect, temp, NULL);
+		pDC->ExtTextOut(textrect.left + 2 + ((textrect.Width()-4-r.Width())/2), textrect.top + m_node_rect_heigth/4 + m_node_rect_heigth/3, ETO_CLIPPED, &textrect, temp, NULL);
 		// Cleanup
 		if (pOldFont != 0L)
 		{
