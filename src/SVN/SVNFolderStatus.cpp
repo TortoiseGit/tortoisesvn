@@ -139,7 +139,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	for (hi = apr_hash_first (pool, statushash); hi; hi = apr_hash_next (hi))
 	{
 		svn_wc_status_t * tempstatus;
-		const char* key;
+		const char* key = NULL;
 		apr_hash_this(hi, (const void**)&key, NULL, (void **)&tempstatus);
 		if (tempstatus->entry)
 		{
@@ -177,10 +177,20 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		{
 			LPCTSTR file;
 			// files are searched only by the filename, not the full path
-			stdstring str = CUnicodeUtils::StdGetUnicode(key);
+			stdstring str;
+			if (key)
+				str = CUnicodeUtils::StdGetUnicode(key);
+			else
+				str = _T(" ");
 			
-			file = _tcsrchr(str.c_str(), '/')+1;
-			_tcscpy(m_pStatusCache[i].filename, file);
+			file = _tcsrchr(str.c_str(), '/');
+			if (file)
+			{
+				file++;
+				_tcscpy(m_pStatusCache[i].filename, file);
+			} // if (file)
+			else
+				_tcscpy(m_pStatusCache[i].filename, _T(" "));
 			m_pStatusCache[i].author[0] = 0;
 			m_pStatusCache[i].url[0] = 0;
 			m_pStatusCache[i].rev = -1;
