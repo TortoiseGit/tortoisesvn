@@ -202,9 +202,9 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
-	EnableSaveRestore(_T("LogDlg"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("LogDlg"));
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	//first start a thread to obtain the log messages without
 	//blocking the dialog

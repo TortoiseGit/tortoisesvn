@@ -18,10 +18,11 @@
 //
 #pragma once
 #include "SVNRev.h"
+#include "ResizableDialog.h"
 
 // CBlameDlg dialog
 
-class CBlameDlg : public CDialog
+class CBlameDlg : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CBlameDlg)
 

@@ -29,9 +29,9 @@
 
 // CCheckoutDlg dialog
 
-IMPLEMENT_DYNAMIC(CCheckoutDlg, CDialog)
+IMPLEMENT_DYNAMIC(CCheckoutDlg, CResizableDialog)
 CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CCheckoutDlg::IDD, pParent)
+	: CResizableDialog(CCheckoutDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_strCheckoutDirectory(_T(""))
 	, IsExport(FALSE)
@@ -46,7 +46,7 @@ CCheckoutDlg::~CCheckoutDlg()
 
 void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_REVISION_NUM, m_editRevision);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
@@ -56,7 +56,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCheckoutDlg, CDialog)
+BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
@@ -92,7 +92,7 @@ void CCheckoutDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -105,7 +105,7 @@ HCURSOR CCheckoutDlg::OnQueryDragIcon()
 
 BOOL CCheckoutDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -135,7 +135,9 @@ BOOL CCheckoutDlg::OnInitDialog()
 		GetDlgItem(IDC_NON_RECURSIVE)->ShowWindow(SW_HIDE);
 	} // if (IsExport)
 
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("CheckoutDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -196,7 +198,7 @@ void CCheckoutDlg::OnOK()
 			return;		//don't dismiss the dialog
 	} // if (!PathFileExists(m_strCheckoutDirectory))
 	UpdateData(FALSE);
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }
 
 void CCheckoutDlg::OnBnClickedRevisionN()
@@ -289,7 +291,7 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 BOOL CCheckoutDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
-	return CDialog::PreTranslateMessage(pMsg);
+	return CResizableDialog::PreTranslateMessage(pMsg);
 }
 
 void CCheckoutDlg::OnEnChangeCheckoutdirectory()

@@ -18,6 +18,7 @@
 
 #pragma once
 #include "ProjectProperties.h"
+#include "ResizableDialog.h"
 
 /**
  * \ingroup TortoiseProc
@@ -44,7 +45,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CCopyDlg : public CDialog
+class CCopyDlg : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CCopyDlg)
 

@@ -24,9 +24,9 @@
 
 // CBlameDlg dialog
 
-IMPLEMENT_DYNAMIC(CBlameDlg, CDialog)
+IMPLEMENT_DYNAMIC(CBlameDlg, CResizableDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CBlameDlg::IDD, pParent)
+	: CResizableDialog(CBlameDlg::IDD, pParent)
 	, StartRev(1)
 	, EndRev(0)
 	, m_sStartRev(_T("1"))
@@ -43,14 +43,14 @@ CBlameDlg::~CBlameDlg()
 
 void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Check(pDX, IDC_CHECK1, m_bTextView);
 }
 
 
-BEGIN_MESSAGE_MAP(CBlameDlg, CDialog)
+BEGIN_MESSAGE_MAP(CBlameDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
@@ -80,7 +80,7 @@ void CBlameDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -93,7 +93,7 @@ HCURSOR CBlameDlg::OnQueryDragIcon()
 
 BOOL CBlameDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 
 	// Set the icon for this dialog.  The framework does this automatically
 	// when the application's main window is not a dialog
@@ -104,7 +104,9 @@ BOOL CBlameDlg::OnInitDialog()
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("BlameDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -153,7 +155,7 @@ void CBlameDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }
 
 void CBlameDlg::OnBnClickedHelp()

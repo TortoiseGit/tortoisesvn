@@ -24,9 +24,9 @@
 
 
 
-IMPLEMENT_DYNAMIC(CMergeDlg, CDialog)
+IMPLEMENT_DYNAMIC(CMergeDlg, CResizableDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CMergeDlg::IDD, pParent)
+	: CResizableDialog(CMergeDlg::IDD, pParent)
 	, m_URLFrom(_T(""))
 	, m_URLTo(_T(""))
 	, StartRev(0)
@@ -50,7 +50,7 @@ CMergeDlg::~CMergeDlg()
 
 void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
@@ -60,7 +60,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
+BEGIN_MESSAGE_MAP(CMergeDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
@@ -104,7 +104,7 @@ void CMergeDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -117,7 +117,7 @@ HCURSOR CMergeDlg::OnQueryDragIcon()
 
 BOOL CMergeDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -176,7 +176,9 @@ BOOL CMergeDlg::OnInitDialog()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 	}
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("MergeDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -230,7 +232,7 @@ void CMergeDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }
 
 void CMergeDlg::OnBnClickedBrowse()

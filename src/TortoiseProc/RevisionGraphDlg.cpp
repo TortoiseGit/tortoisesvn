@@ -115,6 +115,9 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("RevisionGraphDlg"));
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

@@ -27,9 +27,9 @@
 
 // CCopyDlg dialog
 
-IMPLEMENT_DYNAMIC(CCopyDlg, CDialog)
+IMPLEMENT_DYNAMIC(CCopyDlg, CResizableDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CCopyDlg::IDD, pParent)
+	: CResizableDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
 	, m_bDirectCopy(TRUE)
@@ -44,7 +44,7 @@ CCopyDlg::~CCopyDlg()
 
 void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
@@ -54,7 +54,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCopyDlg, CDialog)
+BEGIN_MESSAGE_MAP(CCopyDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
@@ -89,7 +89,7 @@ void CCopyDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -102,7 +102,7 @@ HCURSOR CCopyDlg::OnQueryDragIcon()
 
 BOOL CCopyDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	// when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -162,7 +162,9 @@ BOOL CCopyDlg::OnInitDialog()
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
 
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("CopyDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -231,7 +233,7 @@ void CCopyDlg::OnOK()
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 		UpdateData(FALSE);		
 	}
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }
 
 void CCopyDlg::OnBnClickedBrowse()
@@ -302,7 +304,7 @@ void CCopyDlg::OnCancel()
 	UpdateData();
 	m_OldLogs.AddString(m_sLogMessage, 0);
 	m_OldLogs.SaveHistory();
-	CDialog::OnCancel();
+	CResizableDialog::OnCancel();
 }
 
 BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
@@ -321,5 +323,5 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return CDialog::PreTranslateMessage(pMsg);
+	return CResizableDialog::PreTranslateMessage(pMsg);
 }

@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 #include "SVNRev.h"
+#include "ResizableDialog.h"
 
 /**
  * \ingroup TortoiseProc
@@ -46,7 +47,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CCheckoutDlg : public CDialog
+class CCheckoutDlg : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CCheckoutDlg)
 

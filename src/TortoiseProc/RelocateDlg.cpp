@@ -25,9 +25,9 @@
 
 // CRelocateDlg dialog
 
-IMPLEMENT_DYNAMIC(CRelocateDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableDialog)
 CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CRelocateDlg::IDD, pParent)
+	: CResizableDialog(CRelocateDlg::IDD, pParent)
 	, m_sToUrl(_T(""))
 	, m_sFromUrl(_T(""))
 {
@@ -39,12 +39,12 @@ CRelocateDlg::~CRelocateDlg()
 
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_TOURL, m_URLCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CRelocateDlg, CDialog)
+BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
@@ -54,14 +54,16 @@ END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_sFromUrl);
 	m_URLCombo.SetWindowText(m_sFromUrl);
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("RelocateDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -128,7 +130,7 @@ void CRelocateDlg::OnOK()
 	m_sToUrl = m_URLCombo.GetString();
 	UpdateData(FALSE);
 
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }
 
 void CRelocateDlg::OnBnClickedHelp()

@@ -23,9 +23,9 @@
 
 // CUpdateDlg dialog
 
-IMPLEMENT_DYNAMIC(CUpdateDlg, CDialog)
+IMPLEMENT_DYNAMIC(CUpdateDlg, CResizableDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CUpdateDlg::IDD, pParent)
+	: CResizableDialog(CUpdateDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_bNonRecursive(FALSE)
 {
@@ -38,13 +38,13 @@ CUpdateDlg::~CUpdateDlg()
 
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
 
 
-BEGIN_MESSAGE_MAP(CUpdateDlg, CDialog)
+BEGIN_MESSAGE_MAP(CUpdateDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -65,7 +65,9 @@ BOOL CUpdateDlg::OnInitDialog()
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
 	GetDlgItem(IDC_REVNUM)->EnableWindow(TRUE);
 	GetDlgItem(IDC_REVNUM)->SetFocus();
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("UpdateDlg"));
 	return FALSE;  // return TRUE unless you set the focus to a control
 	               // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -91,7 +93,7 @@ void CUpdateDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -135,5 +137,5 @@ void CUpdateDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }

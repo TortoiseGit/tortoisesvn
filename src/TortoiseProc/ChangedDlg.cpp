@@ -103,9 +103,9 @@ BOOL CChangedDlg::OnInitDialog()
 	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
-	EnableSaveRestore(_T("ChangedDlg"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("ChangedDlg"));
 
 	//first start a thread to obtain the status without
 	//blocking the dialog

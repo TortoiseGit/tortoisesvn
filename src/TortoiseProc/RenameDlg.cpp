@@ -23,9 +23,9 @@
 
 // CRenameDlg dialog
 
-IMPLEMENT_DYNAMIC(CRenameDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRenameDlg, CResizableDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CRenameDlg::IDD, pParent)
+	: CResizableDialog(CRenameDlg::IDD, pParent)
 	, m_name(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -37,12 +37,12 @@ CRenameDlg::~CRenameDlg()
 
 void CRenameDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_NAME, m_name);
 }
 
 
-BEGIN_MESSAGE_MAP(CRenameDlg, CDialog)
+BEGIN_MESSAGE_MAP(CRenameDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 END_MESSAGE_MAP()
@@ -74,7 +74,7 @@ void CRenameDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -87,7 +87,7 @@ HCURSOR CRenameDlg::OnQueryDragIcon()
 
 BOOL CRenameDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -99,7 +99,9 @@ BOOL CRenameDlg::OnInitDialog()
 		this->SetWindowText(m_windowtitle);
 	if (!m_label.IsEmpty())
 		GetDlgItem(IDC_LABEL)->SetWindowText(m_label);
-	CenterWindow(CWnd::FromHandle(hWndExplorer));
+	if (hWndExplorer)
+		CenterWindow(CWnd::FromHandle(hWndExplorer));
+	EnableSaveRestore(_T("RenameDlg"));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

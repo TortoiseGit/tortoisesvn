@@ -19,6 +19,7 @@
 #pragma once
 
 #include "LogDlg.h"
+#include "ResizableDialog.h"
 
 
 /**
@@ -48,7 +49,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CMergeDlg : public CDialog
+class CMergeDlg : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CMergeDlg)
 
