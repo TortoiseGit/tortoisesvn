@@ -68,7 +68,7 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 		if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
 			uEnabled |= MF_DISABLED | MF_GRAYED;
 		CString temp;
-		if (m_pwndBottom->IsWindowVisible())
+		if (!m_pwndBottom->IsWindowVisible())
 		{
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
 		}
