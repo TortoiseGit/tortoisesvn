@@ -16,8 +16,8 @@ public:
 	CCachedDirectory(const CTSVNPath& directoryPath);
 	~CCachedDirectory(void);
 	bool IsVersioned() const;
-	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path);
-	CStatusCacheEntry GetOwnStatus() const;
+	CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive);
+	CStatusCacheEntry GetOwnStatus(bool bRecursive) const;
 	bool IsOwnStatusValid() const;
 	void PushOurStatusToParent();
 	void RefreshStatus();

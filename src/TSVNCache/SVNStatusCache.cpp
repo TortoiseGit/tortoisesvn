@@ -1,3 +1,22 @@
+// TortoiseSVN - a Windows shell extension for easy version control
+
+// External Cache Copyright (C) 2005 - Will Dean
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+//
+
 #include "StdAfx.h"
 #include "SVNStatus.h"
 #include "Svnstatuscache.h"
@@ -44,7 +63,7 @@ void CSVNStatusCache::Clear()
 
 CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 {
-	ATLASSERT(path.IsDirectory());
+	ATLASSERT(path.IsDirectory() || !PathFileExists(path.GetWinPath()));
 
 	CCachedDirectory::ItDir itMap;
 	itMap = m_directoryCache.find(path);
@@ -61,7 +80,7 @@ CCachedDirectory& CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path)
 }
 
 
-CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path)
+CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, bool bRecursive)
 {
 	AutoLocker lock(m_critSec);
 
@@ -82,7 +101,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path)
 	// Stop the crawler starting on a new folder while we're doing this much more important task...
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path);
+	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path, bRecursive);
 }
 
 // Get the status for a directory by asking the directory, rather 

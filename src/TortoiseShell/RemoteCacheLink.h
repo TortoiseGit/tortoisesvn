@@ -7,7 +7,7 @@ public:
 	~CRemoteCacheLink(void);
 
 public:
-	bool GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* pReturnedStatus);
+	bool GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* pReturnedStatus, bool bRecursive);
 
 private:
 	bool EnsurePipeOpen();

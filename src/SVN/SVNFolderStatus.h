@@ -174,6 +174,7 @@ private:
 	stdstring		m_mostRecentPath;
 	const FileStatusCacheEntry* m_mostRecentStatus;
 
+public:
 	CRemoteCacheLink m_remoteCacheLink;
 };
 

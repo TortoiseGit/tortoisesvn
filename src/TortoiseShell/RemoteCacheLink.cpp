@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "Remotecachelink.h"
 #include "ShellExt.h"
+#include "..\TSVNCache\CacheInterface.h"
 
 CRemoteCacheLink::CRemoteCacheLink(void) :
 	m_hPipe(INVALID_HANDLE_VALUE)
@@ -64,7 +65,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 	return false;
 }
 
-bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* pReturnedStatus)
+bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* pReturnedStatus, bool bRecursive)
 {
 	if(!EnsurePipeOpen())
 	{
@@ -95,7 +96,14 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* 
 
 	// Send a message to the pipe server. 
 	DWORD nBytesWritten;
-	if (!WriteFile(m_hPipe,pPath,(lstrlen(pPath)+1)*sizeof(TCHAR),&nBytesWritten,NULL)) 
+	TSVNCacheRequest request;
+	request.flags = 0;
+	if(bRecursive)
+	{
+		request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
+	}
+	wcscpy(request.path, pPath);
+	if (!WriteFile(m_hPipe,&request,sizeof(request),&nBytesWritten,NULL)) 
 	{
 		OutputDebugStringA("Pipe WriteFile failed\n"); 
 		CloseHandle(m_hPipe);
@@ -103,25 +111,18 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* 
 		return false;
 	}
 
-	BOOL bSuccess;
-	do 
-	{ 
-		// Read from the pipe. 
-		DWORD nBytesRead; 
-		bSuccess = ReadFile(m_hPipe,pReturnedStatus,sizeof(svn_wc_status_t),&nBytesRead,NULL);
-		if (!bSuccess && GetLastError() != ERROR_MORE_DATA) 
-		{
-			OutputDebugStringA("Pipe ReadFile failed\n");
-			CloseHandle(m_hPipe);
-			m_hPipe = INVALID_HANDLE_VALUE;
-			break; 
-		}
-	} while (!bSuccess);
-
-	if(!bSuccess)
+	// Read from the pipe. 
+	DWORD nBytesRead; 
+	TSVNCacheResponse response;
+	if(!ReadFile(m_hPipe,&response,sizeof(response),&nBytesRead,NULL))
 	{
-		OutputDebugStringA("Pipe GSRC failed\n");
+		OutputDebugStringA("Pipe ReadFile failed\n");
+		CloseHandle(m_hPipe);
+		m_hPipe = INVALID_HANDLE_VALUE;
+		return false;
 	}
 
-	return !!bSuccess;
+	memcpy(pReturnedStatus, &response.m_status, sizeof(*pReturnedStatus));
+
+	return true;
 }

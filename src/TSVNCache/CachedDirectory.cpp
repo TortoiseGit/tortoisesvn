@@ -8,7 +8,7 @@
 CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
-	m_mostImportantFileStatus = svn_wc_status_none;
+	m_mostImportantFileStatus = svn_wc_status_unversioned;
 }
 
 CCachedDirectory::~CCachedDirectory(void)
@@ -17,14 +17,14 @@ CCachedDirectory::~CCachedDirectory(void)
 
 CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 {
-	ATLASSERT(directoryPath.IsDirectory());
+	ATLASSERT(directoryPath.IsDirectory() || !PathFileExists(directoryPath.GetWinPath()));
 
 	m_directoryPath = directoryPath;
 	m_entriesFileTime = 0;
-	m_mostImportantFileStatus = svn_wc_status_none;
+	m_mostImportantFileStatus = svn_wc_status_unversioned;
 }
 
-CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path)
+CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bool bRecursive)
 {
 	bool bRequestForSelf = false;
 	if(path.IsEquivalentTo(m_directoryPath))
@@ -81,7 +81,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path)
 				}
 
 
-				return dirEntry.GetOwnStatus();
+				return dirEntry.GetOwnStatus(bRecursive);
 			}
 		}
 		else
@@ -177,12 +177,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path)
 		CCachedDirectory& dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 		if(dirEntry.IsOwnStatusValid())
 		{
-			return dirEntry.GetOwnStatus();
+			return dirEntry.GetOwnStatus(bRecursive);
 		}
 
 		// If the status *still* isn't valid here, it means that 
 		// the current directory is unversioned, and we shall need to ask its children for info about themselves
-		return dirEntry.GetStatusForMember(path);
+		return dirEntry.GetStatusForMember(path,bRecursive);
 	}
 	else
 	{
@@ -309,17 +309,24 @@ void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn
 	}
 }
 
-CStatusCacheEntry CCachedDirectory::GetOwnStatus() const
+CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive) const
 {
-	CStatusCacheEntry recursiveStatus(m_ownStatus);
-	recursiveStatus.ForceStatus(GetMostImportantStatus());
-	return recursiveStatus;				
+	if(bRecursive)
+	{
+		CStatusCacheEntry recursiveStatus(m_ownStatus);
+		recursiveStatus.ForceStatus(GetMostImportantStatus());
+		return recursiveStatus;				
+	}
+	else
+	{
+		return m_ownStatus;
+	}
 }
 
 void CCachedDirectory::RefreshStatus()
 {
 	// Make sure that our own status is up-to-date
-	GetStatusForMember(m_directoryPath);
+	GetStatusForMember(m_directoryPath,true);
 
 	// We also need to check if all our members have the right date on them
 	CacheEntryMap::iterator itMembers;
@@ -330,7 +337,7 @@ void CCachedDirectory::RefreshStatus()
 		if(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime()))
 		{
 			// We need to request this item as well
-			GetStatusForMember(filePath);
+			GetStatusForMember(filePath,false);
 		}
 	}
 

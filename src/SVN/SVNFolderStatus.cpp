@@ -274,7 +274,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 	if(g_ShellCache.UseExternalCache())
 	{
 		svn_wc_status_t fullStatus;
-		if(!m_remoteCacheLink.GetStatusFromRemoteCache(filepath, &fullStatus))
+		if(!m_remoteCacheLink.GetStatusFromRemoteCache(filepath, &fullStatus, false))
 		{
 			return &invalidstatus;
 		}

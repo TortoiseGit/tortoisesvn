@@ -99,7 +99,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							{
 								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
-							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
+							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 								isInSVN = true;
 							if (status == svn_wc_status_ignored)
 								isIgnored = true;
@@ -158,7 +158,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							{
 								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
 							}
-							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
+							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 								isInSVN = true;
 							if (status == svn_wc_status_ignored)
 								isIgnored = true;
