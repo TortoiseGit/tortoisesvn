@@ -792,7 +792,15 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						TCHAR szFile[MAX_PATH];  // buffer for file name
 						ZeroMemory(szFile, sizeof(szFile));
 						if (m_hasWC)
-							_tcscpy(szFile, m_path);
+						{
+							CString revFilename;
+							int rfind = m_path.ReverseFind('.');
+							if (rfind >= 0)
+								revFilename.Format(_T("%s-%ld.%s"), m_path.Left(m_path.ReverseFind('.')), rev, m_path.Mid(m_path.ReverseFind('.')));
+							else
+								revFilename.Format(_T("%s-%ld"), m_path, rev);
+							_tcscpy(szFile, revFilename);
+						}
 						// Initialize OPENFILENAME
 						ZeroMemory(&ofn, sizeof(OPENFILENAME));
 						//ofn.lStructSize = sizeof(OPENFILENAME);
