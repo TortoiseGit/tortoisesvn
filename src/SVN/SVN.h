@@ -379,6 +379,11 @@ public:
 	 */
 	static CString GetPristinePath(CString wcPath);
 
+	/**
+	 * convert path to a subversion path (replace '\' with '/')
+	 */
+	static void preparePath(CString &path);
+
 private:
 	svn_auth_baton_t *			auth_baton;
 	svn_client_ctx_t 			ctx;
@@ -393,7 +398,6 @@ private:
 
 	svn_opt_revision_t *	getRevision (long revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
-	void	preparePath(CString &path);
 	apr_array_header_t * target (LPCTSTR path);
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
 

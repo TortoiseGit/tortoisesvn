@@ -201,6 +201,7 @@ int CMailMsg::MAPISend()
 			 if (cResolveName(hMapiSession, m_to.begin()->first, &pRecip) == SUCCESS_SUCCESS) {
 				if (pFirstRecipient == NULL)
 					pFirstRecipient = &pRecipients[nIndex];
+				pRecip->ulRecipClass = MAPI_TO;
 				memcpy(&pRecipients[nIndex], pRecip, sizeof pRecipients[nIndex]);
 				buffersToFree.push_back(pRecip);
 				nIndex++;
@@ -214,6 +215,7 @@ int CMailMsg::MAPISend()
 				if ( cResolveName(hMapiSession, p->first, &pRecip) == SUCCESS_SUCCESS) {
 					if (pFirstRecipient == NULL)
 						pFirstRecipient = &pRecipients[nIndex];
+					pRecip->ulRecipClass = MAPI_CC;
 					memcpy(&pRecipients[nIndex], pRecip, sizeof pRecipients[nIndex]);
 					buffersToFree.push_back(pRecip);
 					nIndex++;
@@ -229,6 +231,7 @@ int CMailMsg::MAPISend()
 				if ( cResolveName(hMapiSession, p->first, &pRecip) == SUCCESS_SUCCESS) {
 					if (pFirstRecipient == NULL)
 						pFirstRecipient = &pRecipients[nIndex];
+					pRecip->ulRecipClass = MAPI_BCC;
 					memcpy(&pRecipients[nIndex], pRecip, sizeof pRecipients[nIndex]);
 					buffersToFree.push_back(pRecip);
 					nIndex++;
