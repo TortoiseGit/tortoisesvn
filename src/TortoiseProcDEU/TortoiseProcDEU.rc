@@ -710,7 +710,7 @@ BEGIN
     IDS_PROC_EXPORT_4       "%s\nzu %s\n exportiert"
     IDS_PROC_COPY_SUCCESS   "Arbeitskopie in %s markiert"
     IDS_PROC_SETTINGS_TITLE "TortoiseSVN Einstellungen"
-    IDS_PROC_DELETE_CONFIRM "Sind Sie sicher dass Sie die ausgewählten Dateien löschen möchten?"
+    IDS_PROC_DELETE_CONFIRM "Sind Sie sicher dass Sie die ausgewählten Dateien löschen möchten?\n<hr=100%>\nFalls Sie an Dateien Änderungen gemacht aber noch nicht\nübertragen haben werden diese verloren sein.\nEbenfalls werden Sie alle Dateien nicht unter Versionskontrolle verlieren."
     IDS_PROC_OVERWRITE_CONFIRM 
                             "Die Datei\n%s\nexistiert bereits! Möchten Sie sie überschreiben?"
     IDS_PROC_REPOCREATEFINISHED "Datenbank ist erstellt"

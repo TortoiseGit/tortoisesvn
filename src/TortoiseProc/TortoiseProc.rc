@@ -713,7 +713,7 @@ BEGIN
     IDS_PROC_EXPORT_4       "exported\n%s\nto\n%s"
     IDS_PROC_COPY_SUCCESS   "Tagged the working copy to %s"
     IDS_PROC_SETTINGS_TITLE "TortoiseSVN Settings"
-    IDS_PROC_DELETE_CONFIRM "Are you sure you want to delete the selected files?"
+    IDS_PROC_DELETE_CONFIRM "Are you sure you want to delete the selected files?\n<hr=100%>\nPlease note: if you have modified files those modification will be lost.\nAlso unversioned items will be deleted too!"
     IDS_PROC_OVERWRITE_CONFIRM 
                             "the file\n%s\nalready exists! Do you want to overwrite it?"
     IDS_PROC_REPOCREATEFINISHED "Repository created"
