@@ -242,6 +242,7 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					temp.LoadString(IDS_LOG_POPUP_COMPARE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+					popup.SetDefaultItem(ID_COMPARE, FALSE);
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 					if (repoStatus > svn_wc_status_normal)
