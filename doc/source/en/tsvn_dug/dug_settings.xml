@@ -486,4 +486,26 @@ C:\Path-To\kdiff3.exe %base %mine %theirs -o %merged
 			Photoshop as the <quote>Diff</quote> Program for .jpg files :-)
 		</para>
 	</sect2>
+	<sect2 id="tsvn-DUG-settings-sounds">
+		<title>TortoiseSVN's Sounds</title>
+		<indexterm>
+			<primary>sounds</primary>
+		</indexterm>
+		<para>
+			TortoiseSVN has three custom sounds which are installed by default.
+			<itemizedlist>
+				<listitem>
+					Error
+				</listitem>
+				<listitem>
+					Notice
+				</listitem>
+				<listitem>
+					Warning
+				</listitem>
+			</itemizedlist>
+			You can select different sounds (or turn these sounds off completely)
+			using the Windows Control Panel, not the TortoiseSVN settings dialog.
+		</para>
+	</sect2>
 </sect1>
