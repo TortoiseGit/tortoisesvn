@@ -282,9 +282,9 @@ void CLogPromptDlg::OnOK()
 		} // for (int i=0; i<arDeleted.GetCount(); i++) 
 		m_ListCtrl.Block(FALSE);
 
-		//save only the files the user has checked into the temporary file
-		m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	}
+	//save only the files the user has checked into the temporary file
+	m_ListCtrl.WriteCheckedNamesToPathList(m_pathList);
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	m_bBlock = FALSE;
