@@ -433,7 +433,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	MSG msg;
 	HACCEL hAccelTable;
 
-	::LoadLibrary("SciLexer.DLL");
+	if (::LoadLibrary("SciLexer.DLL") == NULL)
+		return FALSE;
 
 	// Initialize global strings
 	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
