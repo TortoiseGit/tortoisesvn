@@ -416,17 +416,21 @@ BOOL CTortoiseProcApp::InitInstance()
 				SVN svn;
 				if (!svn.Export(path, saveplace, -1))
 				{
+					if (progDlg.IsValid())
+					{
+						progDlg.Stop();
+					}
 					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK);
 				}
 				else
 				{
+					if (progDlg.IsValid())
+					{
+						progDlg.Stop();
+					}
 					CString temp;
 					temp.Format(IDS_PROC_EXPORT_4, path, saveplace);
 					CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK);
-				}
-				if (progDlg.IsValid())
-				{
-					progDlg.Stop();
 				}
 			}
 		}

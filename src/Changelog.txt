@@ -10,6 +10,10 @@ CVS
 - ADD: In the log dialog a new context menu entry
        for creating a tag from a specific revision.
        This solves issue 53. (Stefan)
+- ADD: In the log dialog there's a context menu
+       in the list of changed files to show the
+       changes you made to that file in that
+       revision. Solves issue 55. (Stefan)
 
 Version 0.12.1
 - BUG: If an error occurred while executing a command

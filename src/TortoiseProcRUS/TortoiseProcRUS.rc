@@ -52,8 +52,8 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,232,224,50,14
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER,7,7,275,133
-    EDITTEXT        IDC_LOGMSG,7,148,275,72,ES_MULTILINE | ES_READONLY | 
-                    WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+    CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,149,275,69
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 229, 97
@@ -728,6 +728,18 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ABOUTVERSION        "TortoiseSVN %d.%d.%d, Build %d - Subversion %d.%d.%d, %s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOG_POPUP_DIFF      "Show Changes"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRESSGETFILE     "Getting File %s"
+    IDS_PROGRESSREVISION    "Revision %d"
+    IDS_PROGRESSWAIT        "Please wait..."
 END
 
 #endif    // Russian resources

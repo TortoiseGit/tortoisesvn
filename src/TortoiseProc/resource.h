@@ -30,6 +30,7 @@
 #define IDS_MSGBOX_CANCEL               157
 #define IDD_RELOCATE                    157
 #define IDS_MSGBOX_TRYAGAIN             158
+#define IDD_CHANGEDFILES                158
 #define IDS_MSGBOX_CONTINUE             159
 #define IDS_MSGBOX_OK                   160
 #define IDS_MSGBOX_YES                  161
@@ -188,6 +189,10 @@
 #define IDS_REPOBROWSE_SHOWLOG          601
 #define IDS_REPOBROWSE_OPEN             602
 #define IDS_ABOUTVERSION                700
+#define IDS_LOG_POPUP_DIFF              800
+#define IDS_PROGRESSGETFILE             900
+#define IDS_PROGRESSREVISION            901
+#define IDS_PROGRESSWAIT                902
 #define IDC_LOGLIST                     1003
 #define IDC_PASSEDIT                    1004
 #define IDC_INFOTEXT                    1005
@@ -256,7 +261,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        158
+#define _APS_NEXT_RESOURCE_VALUE        159
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1055
 #define _APS_NEXT_SYMED_VALUE           101

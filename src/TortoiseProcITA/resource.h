@@ -188,6 +188,10 @@
 #define IDS_REPOBROWSE_SHOWLOG          601
 #define IDS_REPOBROWSE_OPEN             602
 #define IDS_ABOUTVERSION                700
+#define IDS_LOG_POPUP_DIFF              800
+#define IDS_PROGRESSGETFILE             900
+#define IDS_PROGRESSREVISION            901
+#define IDS_PROGRESSWAIT                902
 #define IDC_LOGLIST                     1003
 #define IDC_PASSEDIT                    1004
 #define IDC_INFOTEXT                    1005

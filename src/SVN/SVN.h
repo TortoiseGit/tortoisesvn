@@ -314,6 +314,9 @@ public:
 	 * \param recurse 
 	 */
 	BOOL Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE);
+
+	BOOL Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile = _T(""));
+
 	/**
 	 * fires the Log-event on each log message from revisionStart
 	 * to revisionEnd inclusive (but never fires the event
@@ -345,11 +348,27 @@ public:
 	 */
 	BOOL Ls(CString url, LONG revision, CStringArray& entries);
 
+	/**
+	 * Relocates a working copy to a new/changes repository URL. Use this function
+	 * if the URL of the repository server has changed.
+	 * \param path path to the working copy
+	 * \param from the old URL of the repository
+	 * \param to the new URL of the repository
+	 * \param recurse TRUE if the operation should be recursive
+	 * \return TRUE if successful
+	 */
 	BOOL Relocate(CString path, CString from, CString to, BOOL recurse);
+
 	/**
 	 * Checks if a windows path is a local repository
 	 */
 	BOOL IsRepository(const CString& strPath);
+
+	/**
+	 * Finds the repository root of a given url. 
+	 * \return The root url or an empty string
+	 */
+	CString GetRepositoryRoot(CString url);
 
 	/**
 	 * Returns a text representation of an action enum.

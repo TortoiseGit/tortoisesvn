@@ -450,6 +450,19 @@ BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 
 BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry)
 {
+	svn_opt_revision_t revEnd;
+	memset (&revEnd, 0, sizeof (revEnd));
+	if(revision2 == -1)
+	{
+		revEnd.kind = svn_opt_revision_head;
+		revision2 = 0;
+	}
+	else
+	{
+		revEnd.kind = svn_opt_revision_number;
+	}
+	revEnd.value.number = revision2;
+
 	preparePath(path1);
 	preparePath(path2);
 	preparePath(localPath);
@@ -457,7 +470,7 @@ BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CS
 	Err = svn_client_merge (CUnicodeUtils::GetUTF8(path1),
 							getRevision (revision1),
 							CUnicodeUtils::GetUTF8(path2),
-							getRevision (revision2),
+							&revEnd,
 							CUnicodeUtils::GetUTF8(localPath),
 							recurse,
 							ignoreanchestry,
@@ -472,6 +485,76 @@ BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CS
 
 	UpdateShell(localPath);
 
+	return TRUE;
+}
+
+BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile)
+{
+	BOOL del = FALSE;
+	apr_file_t * outfile;
+	apr_file_t * errfile;
+	apr_array_header_t *opts;
+
+	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, pool);
+
+	svn_opt_revision_t revEnd;
+	memset (&revEnd, 0, sizeof (revEnd));
+	if(revision2 == -1)
+	{
+		revEnd.kind = svn_opt_revision_head;
+		revision2 = 0;
+	}
+	else
+	{
+		revEnd.kind = svn_opt_revision_number;
+	}
+	revEnd.value.number = revision2;
+
+	preparePath(path1);
+	preparePath(path2);
+	preparePath(outputfile);
+	preparePath(errorfile);
+
+	Err = svn_io_file_open (&outfile, CUnicodeUtils::GetUTF8(outputfile),
+							APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+							APR_OS_DEFAULT, pool);
+	if (Err)
+		return FALSE;
+
+	if (errorfile.IsEmpty())
+	{
+		TCHAR path[MAX_PATH];
+		TCHAR tempF[MAX_PATH];
+		::GetTempPath (MAX_PATH, path);
+		::GetTempFileName (path, _T("svn"), 0, tempF);
+		errorfile = CString(tempF);
+		del = TRUE;
+	}
+
+	Err = svn_io_file_open (&errfile, CUnicodeUtils::GetUTF8(errorfile),
+							APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+							APR_OS_DEFAULT, pool);
+	if (Err)
+		return FALSE;
+
+	Err = svn_client_diff (opts,
+						   CUnicodeUtils::GetUTF8(path1),
+						   getRevision(revision1),
+						   CUnicodeUtils::GetUTF8(path2),
+						   &revEnd,
+						   recurse,
+						   ignoreancestry,
+						   nodiffdeleted,
+						   outfile,
+						   errfile,
+						   &ctx,
+						   pool);
+	if (Err)
+		return FALSE;
+	if (del)
+	{
+		svn_io_remove_file (CUnicodeUtils::GetUTF8(errorfile), pool);
+	}
 	return TRUE;
 }
 
@@ -715,7 +798,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 				cpaths += path_native.c_str();
 				if (i == 500)
 				{
-					temp.Format(_T("\r\n.... and %d more ..."), i - 50);
+					temp.Format(_T("\r\n.... and %d more ..."), i - 500);
 					cpaths += temp;
 					break;
 				}
@@ -967,6 +1050,26 @@ BOOL SVN::IsRepository(const CString& strUrl)
 
 	return Err == NULL;
 }
+
+CString SVN::GetRepositoryRoot(CString url)
+{
+	CString retUrl = url;
+	preparePath(retUrl);
+	CString findUrl = retUrl;
+	int pos = findUrl.GetLength();
+	CStringArray dummyarray;
+	while ((pos = findUrl.ReverseFind('/'))>=0)
+	{
+		if (!Ls(findUrl, -1, dummyarray))
+		{
+			return retUrl;
+		}
+		retUrl = findUrl;
+		findUrl = findUrl.Left(pos);
+	} // while ((pos = findUrl.ReverseFind('/'))>=0) 
+	return _T("");
+}
+
 CString SVN::GetPristinePath(CString wcPath)
 {
 	apr_pool_t * localpool;

@@ -30,6 +30,7 @@
 #define ID_COMPARETWO	3
 #define ID_UPDATE		4
 #define ID_COPY			5
+#define ID_DIFF			20
 
 /**
  * \ingroup TortoiseProc
@@ -82,37 +83,42 @@ protected:
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	HICON m_hIcon;
 
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnGetInfoTipLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	virtual BOOL OnInitDialog();
+	virtual void OnOK();
+
+	void	FillLogMessageCtrl(CString msg);
+	BOOL	StartDiff(CString path1, LONG rev1, CString path2, LONG rev2);
 
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
-	virtual BOOL OnInitDialog();
 	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL hasWC = TRUE);
 
 public:
 	CListCtrl	m_LogList;
+	CListCtrl	m_LogMsgCtrl;
 	CString		m_path;
 	long		m_startrev;
 	long		m_endrev;
 	long		m_logcounter;
 	BOOL		m_bCancelled;
 private:
+	HICON		m_hIcon;
 	HANDLE		m_hThread;
-	CString		m_sLogMsgCtrl;
 	CStringArray m_arLogMessages;
+	CDWordArray m_arFileListStarts;
 	CDWordArray m_arRevs;
 	BOOL		m_hasWC;
 public:
-	afx_msg void OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
-protected:
-	virtual void OnOK();
-public:
-	afx_msg void OnLvnGetInfoTipLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+//	afx_msg void OnLvnItemActivateLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

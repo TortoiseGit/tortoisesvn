@@ -228,9 +228,10 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,232,224,50,14
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
-                    LVS_ALIGNLEFT | WS_BORDER,7,7,275,133
-    EDITTEXT        IDC_LOGMSG,7,148,275,72,ES_MULTILINE | ES_READONLY | 
-                    WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+                    LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER,7,7,275,
+                    133
+    CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,148,275,69
 END
 
 IDD_IMPORT DIALOGEX 0, 0, 269, 182
@@ -756,6 +757,18 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ABOUTVERSION        "TortoiseSVN %d.%d.%d, Build %d - Subversion %d.%d.%d, %s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOG_POPUP_DIFF      "Zeige Änderungen"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRESSGETFILE     "Hole Datei %s"
+    IDS_PROGRESSREVISION    "Revision %d"
+    IDS_PROGRESSWAIT        "Bitte warten..."
 END
 
 #endif    // German (Germany) resources

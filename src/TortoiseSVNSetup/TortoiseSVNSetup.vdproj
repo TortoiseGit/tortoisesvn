@@ -345,6 +345,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_32A7200A297CF2B0F52BCB6F01510F82"
+        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_32A7200A297CF2B0F52BCB6F01510F82"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -359,6 +371,18 @@
         {
         "MsmKey" = "8:_33F423BFD00F4A0B8899694AD38A5EF5"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_35A06B1CB1531EB25E5F97D35C116D7D"
+        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_35A06B1CB1531EB25E5F97D35C116D7D"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1537,30 +1561,6 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -2699,6 +2699,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{A582A373-4685-4296-BEFE-614B80A702C3}:_32A7200A297CF2B0F52BCB6F01510F82"
+            {
+            "SourcePath" = "8:LIBEAY32.dll"
+            "TargetName" = "8:LIBEAY32.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{A582A373-4685-4296-BEFE-614B80A702C3}:_332F2A655B2A4DCDAF196731587E5DD2"
             {
             "SourcePath" = "8:..\\..\\bin\\release\\iconv\\ebcdic-it.so"
@@ -2737,6 +2757,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{A582A373-4685-4296-BEFE-614B80A702C3}:_35A06B1CB1531EB25E5F97D35C116D7D"
+            {
+            "SourcePath" = "8:SSLEAY32.dll"
+            "TargetName" = "8:SSLEAY32.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{A582A373-4685-4296-BEFE-614B80A702C3}:_37E5EAACE1C3464FB63AA04F7F62E671"
@@ -5055,7 +5095,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -8815,7 +8855,7 @@
         {
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_1CAF7E852D7047818E58744E15B047FD"
             {
-            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseSVN.dll"
+            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseSVN.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8843,7 +8883,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_332B62BB24F24A34B41AFE6A5CD70217"
             {
-            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseProc.exe"
+            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseProc.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8871,7 +8911,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_5710810E8D2E4F6CBB792F6953B62C73"
             {
-            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseProc1049.dll"
+            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseProc1049.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8899,7 +8939,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_8859FE2189834F49B5283CA9D04787B9"
             {
-            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseProc1031.dll"
+            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseProc1031.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8927,7 +8967,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_B8D7D40AAB204C8CA16F3D00F67A6ABF"
             {
-            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseProc1040.dll"
+            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseProc1040.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
