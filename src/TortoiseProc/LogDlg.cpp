@@ -549,14 +549,14 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					} // if (!PathIsDirectory(m_path))
 					else
 					{
-						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
-						popup.SetDefaultItem(ID_GNUDIFF1, FALSE);
 						temp.LoadString(IDS_LOG_POPUP_COMPARE);
 						if (m_hasWC)
 						{
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							popup.SetDefaultItem(ID_COMPARE, FALSE);
 						}
+						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 						temp.LoadString(IDS_LOG_BROWSEREPO);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
@@ -699,7 +699,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							CString tempfile = CUtils::GetTempFile();
 							tempfile += _T(".diff");
 							m_templist.Add(tempfile);
-							if (!Diff(m_path, SVNRev::REV_HEAD, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+							if (!Diff(m_path, SVNRev::REV_WC, m_path, rev-1, TRUE, FALSE, TRUE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
@@ -954,13 +954,13 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString tempfile = CUtils::GetTempFile();
 			tempfile += _T(".diff");
 			m_templist.Add(tempfile);
-			if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+			if (!Diff(m_path, SVNRev::REV_WC, m_path, rev-1, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			else
 			{
-				CUtils::StartDiffViewer(tempfile);
+				CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\'))); 
 			}
 		}
 		theApp.DoWaitCursor(-1);
