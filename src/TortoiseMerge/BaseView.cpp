@@ -493,6 +493,7 @@ void CBaseView::RecalcVertScrollBar(BOOL bPositionOnly /*= FALSE*/)
 	} // if (bPositionOnly) 
 	else
 	{
+		EnableScrollBarCtrl(SB_VERT, TRUE);
 		if (GetAllMinScreenLines() >= GetAllLineCount() && m_nTopLine > 0)
 		{
 			m_nTopLine = 0;
@@ -589,6 +590,7 @@ void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
 	} // if (bPositionOnly) 
 	else
 	{
+		EnableScrollBarCtrl(SB_HORZ, TRUE);
 		if (GetAllMinScreenChars() >= GetAllMaxLineLength() && m_nOffsetChar > 0)
 		{
 			m_nOffsetChar = 0;

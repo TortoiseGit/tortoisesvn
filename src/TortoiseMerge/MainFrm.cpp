@@ -243,6 +243,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
 	m_bInitSplitter = TRUE;
 
 	m_dlgFilePatches.Create(IDD_FILEPATCHES, this);
+	UpdateLayout();
 	return TRUE;
 }
 
@@ -427,7 +428,6 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndBottomView->m_sFullFilePath = _T("");
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
-			UpdateLayout();
 			m_pwndLeftView->SetHidden(FALSE);
 			m_pwndRightView->SetHidden(FALSE);
 			m_pwndBottomView->SetHidden(TRUE);
@@ -497,7 +497,6 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_pwndRightView->SetHidden(FALSE);
 			m_pwndBottomView->SetHidden(TRUE);
 		}
-		UpdateLayout();
 	} // if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
 	else if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
 	{
@@ -536,7 +535,6 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			m_wndSplitter2.ShowColumn();
 		if (m_wndSplitter.IsRowHidden(1))
 			m_wndSplitter.ShowRow();
-		UpdateLayout();
 		m_pwndLeftView->SetHidden(FALSE);
 		m_pwndRightView->SetHidden(FALSE);
 		m_pwndBottomView->SetHidden(FALSE);
@@ -550,6 +548,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 	m_pwndBottomView->DocumentUpdated();
 	m_wndLocatorBar.DocumentUpdated();
 	m_wndLineDiffBar.DocumentUpdated();
+	UpdateLayout();
 	SetActiveView(m_pwndLeftView);
 	if (bGoFirstDiff)
 		m_pwndLeftView->GoToFirstDifference();
