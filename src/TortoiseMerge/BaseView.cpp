@@ -1227,7 +1227,7 @@ BOOL CBaseView::OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult)
 	TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
 	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
 	CString strTipText;
-	UINT nID = pNMHDR->idFrom;
+	UINT nID = (UINT)pNMHDR->idFrom;
 	if (pNMHDR->code == TTN_NEEDTEXTA && (pTTTA->uFlags & TTF_IDISHWND) ||
 		pNMHDR->code == TTN_NEEDTEXTW && (pTTTW->uFlags & TTF_IDISHWND))
 	{
