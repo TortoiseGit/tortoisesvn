@@ -109,7 +109,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 				temp.Format(IDS_PROGRS_ATREV, rev);
 			m_ProgList.SetItemText(count, 1, temp);
 			m_RevisionEnd = rev;
-			if (m_bRedEvents)
+			if ((m_bRedEvents)&&(m_ExtStack.IsEmpty()))
 			{
 				temp.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
 				m_ProgList.InsertItem(count+1, temp);
@@ -822,6 +822,11 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 			// Store the color back in the NMLVCUSTOMDRAW struct.
 			pLVCD->clrText = crText;
 		}
+		else
+			//The only element exceedint the data array is the warning about
+			//critical events during the update/commit/...
+			//so draw that one red as hell.
+			pLVCD->clrText = RGB(255, 0, 0);
 	}
 }
 
