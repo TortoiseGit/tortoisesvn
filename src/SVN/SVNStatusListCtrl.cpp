@@ -32,6 +32,9 @@
 #include "SysImageList.h"
 #include ".\svnstatuslistctrl.h"
 
+const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
+	= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
+
 #define IDSVNLC_REVERT			1
 #define IDSVNLC_COMPARE			2
 #define IDSVNLC_OPEN			3
@@ -1277,6 +1280,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				m_bBlock = TRUE;
 				AfxGetApp()->DoWaitCursor(1);
+				int iItemCountBeforeMenuCmd = GetItemCount();
 				switch (cmd)
 				{
 				case IDSVNLC_REVERT:
@@ -1601,6 +1605,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				m_bBlock = FALSE;
 				AfxGetApp()->DoWaitCursor(-1);
 				GetStatistics();
+				int iItemCountAfterMenuCmd = GetItemCount();
+				if (iItemCountAfterMenuCmd != iItemCountBeforeMenuCmd)
+				{
+					CWnd* pParent = GetParent();
+					if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+					{
+						pParent->SendMessage(SVNSLNM_ITEMCOUNTCHANGED);
+					}
+				}
 			} // if (popup.CreatePopupMenu())
 		} // if (selIndex >= 0)
 	} // if (pWnd == this)

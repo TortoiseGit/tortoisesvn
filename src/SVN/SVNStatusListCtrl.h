@@ -91,6 +91,13 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 class CSVNStatusListCtrl : public CListCtrl
 {
 public:
+	
+	/**
+	 * Sent to the parent window (using ::SendMessage) after a context menu
+	 * command has finished if the item count has changed.
+	 */
+	static const UINT SVNSLNM_ITEMCOUNTCHANGED;
+
 	CSVNStatusListCtrl();
 	~CSVNStatusListCtrl();
 

@@ -72,8 +72,8 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_FILLLOG, OnBnClickedFilllog)
 	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
 	ON_CBN_CLOSEUP(IDC_OLDLOGS, OnCbnCloseupOldlogs)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 END_MESSAGE_MAP()
-
 
 // CLogPromptDlg message handlers
 // If you add a minimize button to your dialog, you will need the code below
@@ -573,12 +573,13 @@ void CLogPromptDlg::OnCbnCloseupOldlogs()
 	}
 }
 
-
-
-
-
-
-
-
-
-
+LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
+{
+	if (m_ListCtrl.GetItemCount()==0)
+	{
+		CMessageBox::Show(*this, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
+		GetDlgItem(IDCANCEL)->EnableWindow(true);
+		EndDialog(0);
+	} // if (m_ListCtrl.GetItemCount()==0)
+	return 0;
+}

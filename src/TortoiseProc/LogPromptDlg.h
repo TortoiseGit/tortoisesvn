@@ -77,6 +77,7 @@ protected:
 	afx_msg void OnBnClickedFilllog();
 	afx_msg void OnCbnSelchangeOldlogs();
 	afx_msg void OnCbnCloseupOldlogs();
+	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	void Refresh();
 	DECLARE_MESSAGE_MAP()
 public:
