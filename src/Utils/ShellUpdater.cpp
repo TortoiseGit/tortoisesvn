@@ -82,6 +82,11 @@ void CShellUpdater::UpdateShell()
 	TRACE("Setting cache invalidation event %d\n", GetTickCount());
 	SetEvent(m_hInvalidationEvent);
 
+/*
+WGD - I've removed this again, because I don't like all the flickering and flashing it causes
+It would be better to do this more intelligently by telling the cache what's changed, and letting
+it decide if parent directory shell-updates are required
+
 	// For each item, we also add each of its parents
 	// This is rather inefficient, and almost all of them will be discarded by the 
 	// de-duplication, but it's a simple and reliable way of ensuring that updates occur all 
@@ -96,6 +101,7 @@ void CShellUpdater::UpdateShell()
 			parentDir = parentDir.GetContainingDirectory();
 		}
 	}
+*/
 
 	// We use the SVN 'notify' call-back to add items to the list
 	// Because this might call-back more than once per file (for example, when committing)
