@@ -20,6 +20,7 @@
 #include "TortoiseMerge.h"
 #include "AboutDlg.h"
 #include "svn_version.h"
+#include "svn_diff.h"
 #include "..\..\..\Subversion\apr\include\apr_version.h"
 #include "..\..\..\Subversion\apr-iconv\include\api_version.h"
 #include "..\..\..\Subversion\apr-util\include\apu_version.h"
@@ -104,8 +105,9 @@ BOOL CAboutDlg::OnInitDialog()
 	CString temp, boxtitle;
 	boxtitle.Format(IDS_ABOUTVERSIONBOX, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
 	GetDlgItem(IDC_VERSIONBOX)->SetWindowText(boxtitle);
+	const svn_version_t * diffver = svn_diff_version();
 	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(STRINGWIDTH),
-		SVN_VER_MAJOR, SVN_VER_MINOR, SVN_VER_MICRO, _T(SVN_VER_TAG), 
+		diffver->major, diffver->major, diffver->patch, CString(diffver->tag), 
 		APR_MAJOR_VERSION, APR_MINOR_VERSION, APR_PATCH_VERSION,
 		API_MAJOR_VERSION, API_MINOR_VERSION, API_PATCH_VERSION,
 		APU_MAJOR_VERSION, APU_MINOR_VERSION, APU_PATCH_VERSION);
