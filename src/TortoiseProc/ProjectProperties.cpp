@@ -210,7 +210,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 		if (PathIsRoot(path))
 			return FALSE;
 		path = path.Left(path.ReverseFind('\\'));
-		if (!PathFileExists(path + _T("\\") + _T(SVN_WC_ADM_DIR_NAME)))
+		if ((!PathFileExists(path + _T("\\") + _T(SVN_WC_ADM_DIR_NAME)))||(path.IsEmpty()))
 		{
 			if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
