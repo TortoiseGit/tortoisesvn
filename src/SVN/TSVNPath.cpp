@@ -520,11 +520,11 @@ bool CTSVNPath::IsValidOnWindows() const
 	rpattern pat;
 	if (IsUrl())
 	{
-		pat.init(_T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ]|(?!lpt\\d|com\\d|aux|nul|prn|con|clock$)(([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\(?!lpt\\d|com\\d|aux|nul|prn|con|clock$))*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+		pat.init(_T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
 	}
 	else
 	{
-		pat.init(_T("^(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ]|(?!lpt\\d|com\\d|aux|nul|prn|con|clock$)(([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\(?!lpt\\d|com\\d|aux|nul|prn|con|clock$))*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+		pat.init(_T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
 	}
 	br = pat.match((LPCTSTR)sMatch, results);
 	if (br.matched)
@@ -534,6 +534,14 @@ bool CTSVNPath::IsValidOnWindows() const
 		sMatch = sMatch.Trim();
 		if (sMatch.Compare(sMatched)==0)
 			m_bIsValidOnWindows = true;
+	}
+	if (m_bIsValidOnWindows)
+	{
+		// now check for illegal filenames
+		pat.init(_T("\\\\(lpt\\d|com\\d|aux|nul|prn|con|clock\\$)(\\\\|$)"), MULTILINE | NOCASE);
+		br = pat.match((LPCTSTR)sMatch, results);
+		if (br.matched)
+			m_bIsValidOnWindows = false;
 	}
 	m_bIsValidOnWindowsKnown = true;
 	return m_bIsValidOnWindows;
@@ -898,9 +906,15 @@ private:
 		ATLASSERT(testPath.IsValidOnWindows());
 		testPath.SetFromWin(_T("c:\\com\\file"));
 		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\test\\conf"));
+		ATLASSERT(testPath.IsValidOnWindows());
 		testPath.SetFromWin(_T("c:\\LPT"));
 		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("c:\\test\\LPT"));
+		ATLASSERT(testPath.IsValidOnWindows());
 		testPath.SetFromWin(_T("c:\\com1test"));
+		ATLASSERT(testPath.IsValidOnWindows());
+		testPath.SetFromWin(_T("\\\\?\\c:\\test\\com1test"));
 		ATLASSERT(testPath.IsValidOnWindows());
 
 		testPath.SetFromWin(_T("\\\\Share\\filename"));
@@ -925,7 +939,7 @@ private:
 		ATLASSERT(!testPath.IsValidOnWindows());
 		testPath.SetFromWin(_T("c:\\com1\\filename"));
 		ATLASSERT(!testPath.IsValidOnWindows());
-		testPath.SetFromWin(_T("c:\\com1\\aux"));
+		testPath.SetFromWin(_T("c:\\com1"));
 		ATLASSERT(!testPath.IsValidOnWindows());
 		testPath.SetFromWin(_T("c:\\com1\\AuX"));
 		ATLASSERT(!testPath.IsValidOnWindows());
