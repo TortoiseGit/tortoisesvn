@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-02-01 10:23+0800\n"
+"PO-Revision-Date: 2005-02-11 23:21+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -179,11 +179,6 @@ msgstr "光碟機(&R)"
 msgid "&Cancel"
 msgstr "取消(&C)"
 
-# Control-ID:1066,
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "自動關閉視窗(&C)"
-
 # ID:76,
 #: ID:76
 msgid "&Compare Revisions"
@@ -204,7 +199,7 @@ msgstr "刪除(&D)"
 # Control-ID:1061,
 #: Control-ID:1179
 msgid "&Dry Run"
-msgstr "試演"
+msgstr "試演(&D)"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -997,6 +992,21 @@ msgstr "作者:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "作者:                      Stefan Kueng, Tim Kemp"
 
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "無衝突時自動關閉視窗"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "無錯誤時自動關閉"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "無合併, 新增, 刪除時自動關閉"
+
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Automatically resolve conflicted subversion status on save"
@@ -1321,6 +1331,11 @@ msgstr "點擊 \"進階設定\" 可根據不同副檔名指定不同合併程式
 msgid "Clipboard"
 msgstr "剪貼簿"
 
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "手動關閉"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1632,11 +1647,6 @@ msgid ""
 msgstr ""
 "剪下選擇的區塊並放到剪貼簿\n"
 "剪下"
-
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "有衝突時不關閉視窗(&O)"
 
 # ID:76,
 #: ID:76
@@ -2915,13 +2925,13 @@ msgstr "請執行 \"清理\" 動作."
 msgid ""
 "Please note:\n"
 "your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to <b>switch</b> over\n"
-"to that copy path. Use the <b>Switch</b> command to do that."
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
 msgstr ""
 "請注意:\n"
 "你的工作複本還是設為先前的路徑. 如果你想要之後的異動\n"
-"會送交到剛才建立的複本, 你必須先<b>切換</b>到新的路徑.\n"
-"使用<b>切換</b>指令."
+"會送交到剛才建立的複本, 你必須先切換到新的路徑.\n"
+"請使用切換指令."
 
 # ID:3858,#:
 # ID:3858,
@@ -2963,6 +2973,11 @@ msgstr "程式"
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "程式 (*.exe)|*.*|所有檔案 (*.*)|*.*||"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "進度視窗:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3317,6 +3332,12 @@ msgstr "SVN Merge..."
 #: Dlg-ID:134
 msgid "SVN Progress"
 msgstr "SVN Progress"
+
+# ID:11,#:
+# ID:101,
+#: ID:221
+msgid "SVN Rename/Move"
+msgstr "SVN 重新命名/移動"
 
 # ID:77,
 #: ID:77
@@ -4031,10 +4052,10 @@ msgstr ""
 #: ID:88
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "目的資料夾裡有其它檔案!\n"
-"確定要取出檔案至那個資料夾嗎?"
+"確定要取出/匯出檔案至那個資料夾嗎?"
 
 # ID:81,
 #: ID:81
@@ -4128,7 +4149,7 @@ msgstr "雙點以上檔案可顯示你所做的異動."
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
-msgstr ""
+msgstr "至: (合併結束的URL及版本)"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4637,11 +4658,11 @@ msgstr "本地檔案:"
 # ID:78,
 #: ID:78
 msgid ""
-"Your working copy appears to be on a <b>tag</b> path!\n"
+"Your working copy appears to be on a tag path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"你的工作複本正處於<b>標記</b>的路徑下!\n"
-"你必須先切換至主幹, 或從主幹分支才能進行送交動作."
+"你的工作複本是位於標記的路徑下!\n"
+"你必須先切換至主幹, 或是分支才能進行送交動作."
 
 # ID:88,
 #: ID:88

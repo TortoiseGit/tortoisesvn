@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-02-11 08:45+0100\n"
+"PO-Revision-Date: 2005-02-14 10:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,10 @@ msgstr " "
 
 #: ID:188
 msgid "! %d"
-msgstr "! %d"
+msgstr ""
+"bugtraq:logregex\n"
+"zwei durch eine Leerzeile getrennte reguläre Ausdrücke\n"
+"Der erste Ausdruck dient dazu, eine Zeichenkette, die sich auf einen Bugtrackereintrag bezieht, zu identifizieren. Der zweite Ausdruck wird verwendet, um die Eintrags-ID aus der Zeichenkette zu extrahieren."
 
 #: ID:3868
 msgid "%1 contained an unexpected object."
@@ -987,14 +990,6 @@ msgstr "Auf Änderungen prüfen"
 #: Control-ID:1073
 msgid "Check for newer &versions"
 msgstr "Prüfe auf neue &Versionen"
-
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr ""
-"Wählen Sie, wie sich die Fortschrittsanzeige nach\n"
-"dem Ende der Operation verhalten soll."
 
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -2883,6 +2878,11 @@ msgstr ""
 "Wähle Zielordner für Export.\n"
 "Vielleicht müssen Sie einen neuen Ordner erstellen."
 
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "Bestimmen Sie, wie sich die Fortschrittsanzeige am Ende einer Aktion verhalten soll."
+
 #: ID:3603
 msgid ""
 "Select the entire document\n"
@@ -3905,6 +3905,17 @@ msgid ""
 msgstr ""
 "bugtraq:label\n"
 "Beschriftung für das Eingabefeld der Bugtracker ID."
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"zwei durch eine Leerzeile getrennte reguläre Ausdrücke\n"
+"Der erste Ausdruck dient dazu, eine Zeichenkette, die sich auf einen Bugtrackereintrag bezieht, zu identifizieren. Der zweite Ausdruck wird verwendet, um die Eintrags-ID aus der Zeichenkette zu extrahieren."
 
 # ID:14,
 #: ID:14

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-31 15:34+0900\n"
+"PO-Revision-Date: 2005-02-13 18:28+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -178,11 +178,6 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "취소(&C)"
-
-# Control-ID:1066,
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "윈도우 자동 닫기(&C)"
 
 # ID:76,
 #: ID:76
@@ -987,6 +982,21 @@ msgstr "작성자:                         Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "작성자:                      Stefan Kueng, Tim Kemp"
 
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "충돌나지 않았으면 자동으로 닫습니다."
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "오류가 없으면 자동으로 닫습니다."
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "병합, 추가, 삭제가 되지 않으면 자동으로 닫습니다."
+
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Automatically resolve conflicted subversion status on save"
@@ -1205,13 +1215,6 @@ msgstr "수정내역 확인 확인"
 msgid "Check for newer &versions"
 msgstr "새 버전 확인(&V)"
 
-# ID:79,
-#: ID:79
-msgid ""
-"Check if you want the progress dialog to close\n"
-"automatically after the operation finishes."
-msgstr "명령을 수행한 후 대화상자를 닫습니다."
-
 # ID:9,
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1309,6 +1312,11 @@ msgstr "파일 확장자별로 병합하는 프로그램을 등록하려면 고�
 #: ID:257
 msgid "Clipboard"
 msgstr "클립보드"
+
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "수동으로 닫습니다."
 
 # ID:3825,
 #: ID:3825
@@ -1427,6 +1435,11 @@ msgstr "복사됨"
 msgid "Copied remotely"
 msgstr "원격 복사됨"
 
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "복사할 원본 경로"
+
 # ID:151,
 #: ID:101
 msgid "Copy To Working Copy..."
@@ -1481,11 +1494,6 @@ msgstr ""
 "복사를 할 수 없습니다!\n"
 "<hr=100%>\n"
 "%s"
-
-# ID:81,
-#: ID:273
-msgid "Could not create device context!"
-msgstr "디바이스 컨텍스트를 열 수 없습니다!"
 
 # ID:81,
 #: ID:81
@@ -1621,11 +1629,6 @@ msgid ""
 msgstr ""
 "선택한 부분을 잘라 클립보드에 붙여넣습니다.\n"
 "자르기"
-
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "충돌 닫지 않기(&D)"
 
 # ID:76,
 #: ID:76
@@ -2332,8 +2335,8 @@ msgstr "잘못된 파일명."
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2348,8 +2351,8 @@ msgid ""
 "{20020217T1530-0500}"
 msgstr ""
 "잘못된 리비전 번호입니다. 유효한 포맷은 다음과 같습니다.\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"양의 정수\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"양의 정수,\n"
 "아래와 같은 날짜 형식:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2901,13 +2904,13 @@ msgstr "\"정리\" 명령을 수행하십시오."
 msgid ""
 "Please note:\n"
 "your working copy remains on the previous path. If you want your next changes\n"
-"to be in the just created copy then you need to <b>switch</b> over\n"
-"to that copy path. Use the <b>Switch</b> command to do that."
+"to be in the just created copy then you need to switch over\n"
+"to that copy path. Use the Switch command to do that."
 msgstr ""
 "주의:\n"
 "현재 작업 사본은 종전 경로를 그대로 가지고 있습니다.\n"
 "만약 태깅/브랜칭한 새로운 사본에서 작업을 하려면\n"
-"<b>전환</b>명령을 사용하시기 바랍니다."
+"<b>브랜치/태그 전환</b>명령을 사용하여 이동하시기 바랍니다."
 
 # ID:3858,#:
 # ID:3858,
@@ -2949,6 +2952,11 @@ msgstr "프로그램"
 #: ID:157
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "프로그램 (*.exe)|*.exe|모든 파일들 (*.*)|*.*||"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "진행 대화상자:"
 
 # Control-ID:65535,#:
 # Dlg-ID:177,
@@ -3305,6 +3313,11 @@ msgstr "SVN 병합..."
 msgid "SVN Progress"
 msgstr "SVN 진행"
 
+# ID:101,
+#: ID:221
+msgid "SVN Rename/Move"
+msgstr "SVN 이름 바꾸기/이동하기"
+
 # ID:77,
 #: ID:77
 msgid "SVN Resolve..."
@@ -3491,6 +3504,11 @@ msgid ""
 msgstr ""
 "익스포트할 폴더 선택.\n"
 "익스포트하기 전에 폴더를 새로 만들어야 할 수도 있습니다."
+
+# ID:79,
+#: ID:79
+msgid "Select the behaviour of the progress dialog at the end of the operation."
+msgstr "명령을 수행한 뒤 대화상자를 어떻게 할 것인지 선택합니다."
 
 # ID:3603,
 #: ID:3603
@@ -4018,10 +4036,10 @@ msgstr ""
 #: ID:88
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "대상 폴더가 비어 있지 않습니다\n"
-"체크 아웃을 강제로 진행하시겠습니까?"
+"체크 아웃/익스포트를 강제로 진행하시겠습니까?"
 
 # ID:81,
 #: ID:81
@@ -4623,11 +4641,11 @@ msgstr "파일:"
 # ID:78,
 #: ID:78
 msgid ""
-"Your working copy appears to be on a <b>tag</b> path!\n"
+"Your working copy appears to be on a tag path!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"현재 작업 사본은 <b>태그</b> 된 곳에서 작업하고 있습니다.\n"
-"브랜치나 주 트렁크로 전환한 다음 커밋하시기 바랍니다."
+"현 작업은 태깅된 URL을 받아서 이루어 졌습니다.\n"
+"브랜치나 주 트렁크로 URL을 전환(switch)한 다음 커밋하시기 바랍니다."
 
 # ID:88,
 #: ID:88
@@ -4691,6 +4709,17 @@ msgid ""
 msgstr ""
 "bugtraq:label\n"
 "이슈 번호를 입력 받기 위해 보이는 에디트 박스에 보일 설명."
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:logregex\n"
+"two regular expressions separated by a newline\n"
+"The first expression is used to find a string referring to an issue, the second expression is used to extract the bare bug ID from that string."
+msgstr ""
+"bugtraq:logregex\n"
+"두 줄로 된 정규표현식\n"
+"첫째 줄은 참조하는 이슈를 찾는데 사용되고, 둘째 줄은 그 문자열로부터 버그 ID를 찾는데 사용됩니다."
 
 # ID:14,
 #: ID:14
