@@ -81,6 +81,7 @@
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)/TortoiseLang.dll"
 				LinkIncremental="1"
+				IgnoreAllDefaultLibraries="TRUE"
 				GenerateDebugInformation="FALSE"
 				SubSystem="2"
 				OptimizeReferences="2"
