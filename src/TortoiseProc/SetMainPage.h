@@ -97,8 +97,6 @@ private:
 	BOOL			m_bLastCommitTime;
 	CRegDWORD		m_regCheckNewer;
 	BOOL			m_bCheckNewer;
-	CRegDWORD		m_regEnglishTemplate;
-	BOOL			m_bEnglishTemplate;
 	CRegDWORD		m_regNoCloseOnRed;
 	BOOL			m_bNoCloseOnRed;
 
@@ -117,6 +115,5 @@ public:
 	afx_msg void OnBnClickedCommitfiletimes();
 	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnBnClickedClearauth();
-	afx_msg void OnBnClickedEnglishtemplate();
 	afx_msg void OnBnClickedNocloseonred();
 };

@@ -314,6 +314,8 @@ BEGIN
                             "tsvn:logwidthmarker\nSet this to the number of chars the log message should not exceed its width.\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
     IDS_TT_TSVNLOGMINSIZE   "tsvn:logminsize\nMinimum size in chars a log message must have before a commit is allowed."
     IDS_TT_BQWARNNOISSUE    "tsvn:warnifnoissue\nSet to ""yes"" if a warning shall be shown when no issue is entered in the commit dialog."
+    IDS_TT_TSVNLOGFILELISTENGLISH 
+                            "tsvn:logfilelistenglish\nSet to ""false"" if you don't want the list of changed files to be pasted in english\nin the commit dialog."
 END
 
 #endif    // English (U.S.) resources

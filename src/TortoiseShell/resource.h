@@ -138,6 +138,7 @@
 #define IDS_TT_TSVNLOGWIDTHMARKER       225
 #define IDS_TT_TSVNLOGMINSIZE           226
 #define IDS_TT_BQWARNNOISSUE            227
+#define IDS_TT_TSVNLOGFILELISTENGLISH   228
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

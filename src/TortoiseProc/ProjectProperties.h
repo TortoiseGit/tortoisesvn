@@ -28,6 +28,7 @@
 #define PROJECTPROPNAME_LOGTEMPLATE		  _T("tsvn:logtemplate")
 #define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
 #define PROJECTPROPNAME_LOGMINSIZE		  _T("tsvn:logminsize")
+#define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
 
 /**
  * \ingroup TortoiseProc
@@ -115,4 +116,8 @@ public:
 
 	/* Minimum size a log message must have in chars */
 	int			nMinLogSize;
+
+	/* TRUE if the file list to be inserted in the commit dialog should be in
+	 * english and not in the localized language. Default is TRUE */
+	BOOL		bFileListInEnglish;
 };

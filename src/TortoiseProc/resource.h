@@ -180,7 +180,6 @@
 #define IDC_REVISION_N1                 1116
 #define IDC_REVISION_START              1118
 #define IDC_BUGIDLABEL                  1119
-#define IDC_ENGLISHTEMPLATE             1121
 #define IDC_NOCLOSEONRED                1123
 #define IDC_COMBOBOXEX1                 1124
 #define IDC_OLDLOGS                     1124

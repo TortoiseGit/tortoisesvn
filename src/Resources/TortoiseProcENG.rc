@@ -399,8 +399,6 @@ BEGIN
     COMBOBOX        IDC_FONTSIZES,252,161,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,196,122,88,14
-    CONTROL         "Paste Log &template in english",IDC_ENGLISHTEMPLATE,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,180,271,10
     CONTROL         "D&on't close on conflicts",IDC_NOCLOSEONRED,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,25,116,168,10
 END
