@@ -94,11 +94,15 @@
 							sondern nur mittels Bearbeitung der Konfigurationsdatei.
 							Für mehr Informationen über die Subversion
 							<filename>config</filename> Datei lesen Sie das  
-							<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2">
-							<citetitle>Subversion Manual</citetitle></ulink>. Der Abschnitt
+								<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2">
+							<citetitle>Subversion Manual</citetitle>
+							</ulink>.
+							Der Abschnitt
 							<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4">
-							<citetitle>Automatic Property Setting</citetitle></ulink>
-							ist hier auch von Interesse.</para>
+								<citetitle>Automatic Property Setting</citetitle>
+							</ulink>
+							ist hier auch von Interesse.
+						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -166,7 +170,9 @@
 							ausgewählt haben. Wenn sie das Log Template im Übertragen Dialog
 							hinzufügen, wird der Status jeder Datei in der selektierten 
 							Sprache eingefügt. Mit dieser Option wird der Status immer in 
-							englisch eingefügt. 
+							englisch eingefügt. Dies ist z.B. dann nützlich, wenn es im Projekt
+							gefordert wird, dass Log-Meldungen auf englisch eingetragen werden
+							müssen.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -265,14 +271,40 @@
 									</listitem>
 								</varlistentry>
 								<varlistentry>
+									<term>%bname</term>
+									<listitem>
+										<para>
+											Der Fenstertitel für die Originaldatei
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
 									<term>%mine</term>
 									<listitem>
 										<para>
-											Ihre eigene Datei mit Ihren Änderungen
+											Die Datei mit Ihren eigenen Änderungen
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%yname</term>
+									<listitem>
+										<para>
+											Der Fenstertitel für Ihre Datei
 										</para>
 									</listitem>
 								</varlistentry>
 							</variablelist>
+						</para>
+						<para>
+							Bei den Fenstertiteln handelt es sich nicht um reine Dateinamen.
+							TortoiseMerge behandelt sie als Anzeigenamen und stellt den Titel 
+							entsprechend zusammen. Wenn Sie z.B. ein Diff zwischen einer Datei
+							in Revision 123 und der Arbeitskopie machen, werden die Titel
+							<filename>Dateiname : Revision 123</filename>
+							und
+							<filename>Dateiname : Arbeitskopie</filename>
+							sein.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -281,13 +313,22 @@
 					<listitem>
 						<para>
 							Ein externes Merge Programm um Konflikte in Dateien aufzulösen. 
-							Sie können folgende Parameter im Pfad angeben: (Die Reihenfolge hängt vom Merge Programm ab)
+							Sie können folgende Parameter im Pfad angeben.
+							Die genaue Reihenfolge hängt vom verwendeten Merge Programm ab.
 							<variablelist>
 								<varlistentry>
 									<term>%base</term>
 									<listitem>
 										<para>
-											Die Originaldatei ohne Ihre oder die anderen Änderungen
+											Die Originaldatei ohne irgendwelche Änderungen
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%bname</term>
+									<listitem>
+										<para>
+											Der Fenstertitel für die Originaldatei
 										</para>
 									</listitem>
 								</varlistentry>
@@ -295,7 +336,15 @@
 									<term>%mine</term>
 									<listitem>
 										<para>
-											Ihre eigene Datei mit Ihren Änderungen
+											Die Datei mit Ihren eigenen Änderungen
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%yname</term>
+									<listitem>
+										<para>
+											Der Fenstertitel für Ihre Datei
 										</para>
 									</listitem>
 								</varlistentry>
@@ -303,7 +352,15 @@
 									<term>%theirs</term>
 									<listitem>
 										<para>
-											Die Datei wie Sie im Projektarchiv ist
+											Die Datei mit den letzten Änderungen aus dem Projektarchiv
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%tname</term>
+									<listitem>
+										<para>
+											Der Fenstertitel für die Datei im Projektarchiv
 										</para>
 									</listitem>
 								</varlistentry>
@@ -311,7 +368,15 @@
 									<term>%merged</term>
 									<listitem>
 										<para>
-											Die Konfliktdatei (das Ergebnis der Merge Operation)
+											Die Konfliktdatei (das Ergebnis der Zusammenführen Operation)
+										</para>
+									</listitem>
+								</varlistentry>
+								<varlistentry>
+									<term>%mname</term>
+									<listitem>
+										<para>
+											Der Fenstertitel für die Ergebnisdatei
 										</para>
 									</listitem>
 								</varlistentry>
@@ -323,8 +388,22 @@
 					<term>Diff Betrachter</term>
 					<listitem>
 						<para>
-							Ein Programm um GNU diff Dateien (Patch Dateien) zu betrachten. 
-							Als Standard ist Notepad eingestellt. Sie brauchen keine Parameter anzugeben. 
+							Ein Programm um GNU diff Dateien (Patch Dateien) zu betrachten.
+							Als Standard ist Notepad eingestellt. Sie brauchen keine
+							Parameter anzugeben. 
+						</para>
+						<para>
+							Das Original Windows NotePad Programm zeigt Zeilenenden,
+							die nicht dem Windows Standard (CR-LF) entsprechen, nicht
+							korrekt an. Da die meisten GNU Diffdateien Unix Zeilenenden
+							(LF) besitzen ist das Resultat entsprechend.
+							Sie können sich jedoch einen kostenlosen NotePad Ersatz
+							<ulink url="http://www.flos-freeware.ch/notepad2.html">
+								<citetitle>Notepad2</citetitle>
+							</ulink>
+							herunterladen, der nicht nur die Zeilenenden korrekt anzeigt,
+							sondern auch die hinzugefügten und gelöschten Zeilen farblich 
+							hervorhebt.
 						</para>
 					</listitem>
 				</varlistentry>

@@ -92,7 +92,8 @@
 							<filename>config</filename> file see the  
 							<ulink url="http://svnbook.red-bean.com/en/1.1/ch07.html#svn-ch-7-sect-1.3.2">
 								<citetitle>Subversion Manual</citetitle>
-							</ulink>. The section on
+							</ulink>.
+							The section on
 							<ulink url="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.4">
 								<citetitle>Automatic Property Setting</citetitle>
 							</ulink>
@@ -150,16 +151,6 @@
 						<para>
 							If checked, TortoiseSVN will check once a week 
 							to see if an update is available
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Show BugID/Issue-Nr. Box</term>
-					<listitem>
-						<para>
-							Shows a textbox in the commit dialog where you can enter
-							a BugID or Issue-Nr. from a bugtracker to associate the
-							commit with that ID/number.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -298,7 +289,7 @@
 						</para>
 						<para>
 							The window titles are not pure filenames.
-							TSVN treats that as a name to display and creates
+							TortoiseMerge treats that as a name to display and creates
 							the names accordingly. So e.g. if you're doing a
 							diff from a file in revision 123 with a file 
 							in your working copy, the names will be
