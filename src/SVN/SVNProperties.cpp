@@ -177,7 +177,7 @@ BOOL SVNProperties::IsSVNProperty(int index)
 	const char *pname_utf8;
 	const char *name = StringToUTF8(SVNProperties::GetItem(index, true)).c_str();
 
-	svn_utf_cstring_to_utf8 (&pname_utf8, name, NULL, m_pool);
+	svn_utf_cstring_to_utf8 (&pname_utf8, name, m_pool);
 	svn_boolean_t is_svn_prop = svn_prop_needs_translation (pname_utf8);
 
 	return is_svn_prop;

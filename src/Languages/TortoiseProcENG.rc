@@ -829,7 +829,7 @@ BEGIN
     IDS_ERR_FAILEDIGNOREPROPERTY "could not add %s to the ignore list"
     IDS_ERR_DIFFVIEWSTART   "could not start diff viewer!"
     IDS_ERR_SSL_VALIDATE    "Error validating server certificate:"
-    IDS_ERR_SSL_UNKNOWNCA   "Unknown certificate issuer"
+    IDS_ERR_SSL_UNKNOWNCA   "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 END
 
 STRINGTABLE 
@@ -896,8 +896,13 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_ERR_SSL_CNMISMATCH  "Hostname mismatch"
+    IDS_ERR_SSL_CNMISMATCH  "Hostname mismatch (%s)"
     IDS_ERR_SSL_EXPIREDORNOTYETVALID "Certificate expired or not yet valid"
+    IDS_SSL_ACCEPTALWAYS    "Accept Permanently"
+    IDS_SSL_ACCEPTTEMP      "Accept Once"
+    IDS_SSL_REJECT          "Reject"
+    IDS_ERR_SSL_NOTYETVALID "Certificate not yet valid. Valid from: %s"
+    IDS_ERR_SSL_EXPIRED     "Certificate expired. Valid until: %s"
 END
 
 #endif    // English (U.S.) resources

@@ -111,9 +111,8 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
 		*cred = ret;
 		return SVN_NO_ERROR;
 	} // if (svn->UserPrompt(infostring, CString(realm))
-	CStringA temp1;
-	temp1.LoadString(IDS_SVN_USERCANCELLED);
-	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
+	*cred = NULL;
+	return SVN_NO_ERROR;
 }
 
 svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton, const char *realm, const char *username, apr_pool_t *pool)
@@ -129,14 +128,14 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 		*cred = ret;
 		return SVN_NO_ERROR;
 	} // if (svn->userprompt(username, password))
-	CStringA temp;
-	temp.LoadString(IDS_SVN_USERCANCELLED);
-	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp);
+	*cred = NULL;
+	return SVN_NO_ERROR;
 }
 
-svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred, void *baton, int failures_in, apr_pool_t *pool)
+svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred_p, void *baton, int failures, const svn_auth_ssl_server_cert_info_t *cert_info, apr_pool_t *pool)
 {
 	SVN * svn = (SVN *)baton;
+	int allow_perm_accept = failures & SVN_AUTH_SSL_UNKNOWNCA;
 
 	BOOL prev = FALSE;
 
@@ -144,42 +143,74 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_server_ssl_t **cred, void 
 	msg.LoadString(IDS_ERR_SSL_VALIDATE);
 	msg += _T("\n");
 	CString temp;
-	if (failures_in & SVN_AUTH_SSL_UNKNOWNCA)
+	if (failures & SVN_AUTH_SSL_UNKNOWNCA)
 	{
-		temp.LoadString(IDS_ERR_SSL_UNKNOWNCA);
+		temp.Format(IDS_ERR_SSL_UNKNOWNCA, CUnicodeUtils::GetUnicode(cert_info->fingerprint), CUnicodeUtils::GetUnicode(cert_info->issuer_dname));
 		msg += temp;
 		prev = TRUE;
 	} // if (failures_in & SVN_AUTH_SSL_UNKNOWNCA)
-	if (failures_in & SVN_AUTH_SSL_CNMISMATCH)
+	if (failures & SVN_AUTH_SSL_CNMISMATCH)
 	{
 		if (prev)
 			msg += _T("\n");
-		temp.LoadString(IDS_ERR_SSL_CNMISMATCH);
+		temp.Format(IDS_ERR_SSL_CNMISMATCH, CUnicodeUtils::GetUnicode(cert_info->hostname));
 		msg += temp;
 		prev = TRUE;
 	} // if (failures_in & SVN_AUTH_SSL_CNMISMATCH)
-	if (failures_in & (SVN_AUTH_SSL_EXPIRED | SVN_AUTH_SSL_NOTYETVALID))
+	if (failures & SVN_AUTH_SSL_NOTYETVALID)
 	{
 		if (prev)
 			msg += _T("\n");
-		temp.LoadString(IDS_ERR_SSL_EXPIREDORNOTYETVALID);
+		temp.Format(IDS_ERR_SSL_NOTYETVALID, CUnicodeUtils::GetUnicode(cert_info->valid_from));
 		msg += temp;
 		prev = TRUE;
 	} // if (failures_in & (SVN_AUTH_SSL_EXPIRED | SVN_AUTH_SSL_NOTYETVALID))
+	if (failures & SVN_AUTH_SSL_EXPIRED)
+	{
+		if (prev)
+			msg += _T("\n");
+		temp.Format(IDS_ERR_SSL_EXPIRED, CUnicodeUtils::GetUnicode(cert_info->valid_until));
+		msg += temp;
+		prev = TRUE;
+	}
 	if (prev)
 		msg += _T("\n");
 	temp.LoadString(IDS_SSL_ACCEPTQUESTION);
 	msg += temp;
-	if (CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+	if (allow_perm_accept)
 	{
-		*cred = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred));
-		(*cred)->failures_allow = failures_in;
-		return SVN_NO_ERROR;
-	} // if (CMessageBox::Show(NULL, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDOK)
-	*cred = NULL;
-	CStringA temp1;
-	temp1.LoadString(IDS_SVN_USERCANCELLED);
-	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
+		CString sAcceptAlways, sAcceptTemp, sReject;
+		sAcceptAlways.LoadString(IDS_SSL_ACCEPTALWAYS);
+		sAcceptTemp.LoadString(IDS_SSL_ACCEPTTEMP);
+		sReject.LoadString(IDS_SSL_REJECT);
+		int ret = CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_DEFBUTTON3, IDI_QUESTION, sAcceptAlways, sAcceptTemp, sReject);
+		if (ret == 1)
+		{
+			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
+			(*cred_p)->trust_permanantly = TRUE;
+		} 
+		else if (ret == 2)
+		{
+			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
+			(*cred_p)->trust_permanantly = FALSE;
+		}
+		else
+			*cred_p = NULL;
+	}
+	else
+	{
+		if (CMessageBox::Show(svn->hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+		{
+			*cred_p = (svn_auth_cred_server_ssl_t*)apr_pcalloc (pool, sizeof (**cred_p));
+			(*cred_p)->trust_permanantly = FALSE;
+			return SVN_NO_ERROR;
+		} // if (CMessageBox::Show(NULL, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDOK)
+		else
+			*cred_p = NULL;
+	}
+	if (svn->m_app)
+		svn->m_app->DoWaitCursor(0);
+	return SVN_NO_ERROR;
 }
 
 svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void *baton, apr_pool_t *pool)
@@ -220,9 +251,9 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_client_ssl_t **cred, void 
 		return SVN_NO_ERROR;
 	} // if (GetOpenFileName(&ofn)==TRUE) 
 
-	CStringA temp1;
-	temp1.LoadString(IDS_SVN_USERCANCELLED);
-	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
+	if (svn->m_app)
+		svn->m_app->DoWaitCursor(0);
+	return SVN_NO_ERROR;
 }
 
 svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_client_ssl_pass_t **cred, void *baton, apr_pool_t *pool)
@@ -239,8 +270,8 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_client_ssl_pass_t **cred, void
 		return SVN_NO_ERROR;
 	} // if (svn->UserPrompt(infostring, CString(realm))
 	*cred = NULL;
-	CStringA temp1;
-	temp1.LoadString(IDS_SVN_USERCANCELLED);
-	return svn_error_create(SVN_ERR_CANCELLED, NULL, temp1);
+	if (svn->m_app)
+		svn->m_app->DoWaitCursor(0);
+	return SVN_NO_ERROR;
 }
 
