@@ -148,7 +148,7 @@ BOOL SVN::Prompt(CString& info, CString prompt, BOOL hide)
 }
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
-BOOL SVN::Log(LONG rev, CString author, CString date, CString message, CString cpaths) {return TRUE;};
+BOOL SVN::Log(LONG rev, CString author, CString date, CString message, CString& cpaths) {return TRUE;};
 
 struct log_msg_baton
 {
@@ -670,55 +670,63 @@ svn_error_t* SVN::logReceiver(void* baton,
 
 	msg_native = CUnicodeUtils::GetUnicode(msg);
 	CString cpaths;
-
-	if (ch_paths)
+	try
 	{
-		apr_array_header_t *sorted_paths;
-		sorted_paths = apr_hash_sorted_keys(ch_paths, svn_sort_compare_items_as_paths, pool);
-		for (int i = 0; i < sorted_paths->nelts; i++)
+		cpaths.Preallocate(1000000);		//allocate 1M memory
+		if (ch_paths)
 		{
-			svn_item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_item_t));
-			stdstring path_native;
-			const char *path = (const char *)item->key;
-			svn_log_changed_path_t *log_item = (svn_log_changed_path_t *)apr_hash_get (ch_paths, item->key, item->klen);
-			const char *copy_data = "";
+			apr_array_header_t *sorted_paths;
+			sorted_paths = apr_hash_sorted_keys(ch_paths, svn_sort_compare_items_as_paths, pool);
+			for (int i = 0; i < sorted_paths->nelts; i++)
+			{
+				svn_item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_item_t));
+				stdstring path_native;
+				const char *path = (const char *)item->key;
+				svn_log_changed_path_t *log_item = (svn_log_changed_path_t *)apr_hash_get (ch_paths, item->key, item->klen);
+				const char *copy_data = "";
 
-			if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
-			{
-				path_native = CUnicodeUtils::GetUnicode(log_item->copyfrom_path);
-			} // if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
-			else
-				path_native = CUnicodeUtils::GetUnicode(path);
-			CString temp;
-			switch (log_item->action)
-			{
-			case 'M':
-				temp.LoadString(IDS_SVNACTION_MODIFIED);
-				break;
-			case 'R':
-				temp.LoadString(IDS_SVNACTION_REPLACED);
-				break;
-			case 'A':
-				temp.LoadString(IDS_SVNACTION_ADD);
-				break;
-			case 'D':
-				temp.LoadString(IDS_SVNACTION_DELETE);
-			default:
-				break;
-			} // switch (temppath->action)
-			if (!cpaths.IsEmpty())
-				cpaths += _T("\r\n");
-			cpaths += temp;
-			cpaths += _T(" ");
-			cpaths += path_native.c_str();
-			if (i == 50)
-			{
-				temp.Format(_T("\r\n.... and %d more ..."), i - 50);
+				if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+				{
+					path_native = CUnicodeUtils::GetUnicode(log_item->copyfrom_path);
+				} // if (log_item->copyfrom_path && SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+				else
+					path_native = CUnicodeUtils::GetUnicode(path);
+				CString temp;
+				switch (log_item->action)
+				{
+				case 'M':
+					temp.LoadString(IDS_SVNACTION_MODIFIED);
+					break;
+				case 'R':
+					temp.LoadString(IDS_SVNACTION_REPLACED);
+					break;
+				case 'A':
+					temp.LoadString(IDS_SVNACTION_ADD);
+					break;
+				case 'D':
+					temp.LoadString(IDS_SVNACTION_DELETE);
+				default:
+					break;
+				} // switch (temppath->action)
+				if (!cpaths.IsEmpty())
+					cpaths += _T("\r\n");
 				cpaths += temp;
-				break;
-			}
-		}
-	} // if (changed_paths)
+				cpaths += _T(" ");
+				cpaths += path_native.c_str();
+				if (i == 500)
+				{
+					temp.Format(_T("\r\n.... and %d more ..."), i - 50);
+					cpaths += temp;
+					break;
+				}
+			} // for (int i = 0; i < sorted_paths->nelts; i++) 
+		} // if (changed_paths)
+	}
+	catch (CMemoryException * e)
+	{
+		cpaths = _T("Memory Exception!");
+		e->Delete();
+	}
 
 	SVN_ERR (svn->cancel(baton));
 

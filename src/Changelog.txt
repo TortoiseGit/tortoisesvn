@@ -7,6 +7,9 @@ CVS
 - CHG: If a file is deleted from the filesystem but not
        removed from version control the icon overlay
        shows the "deleted" icon. (Stefan)
+- ADD: In the log dialog a new context menu entry
+       for creating a tag from a specific revision.
+       This solves issue 53. (Stefan)
 
 Version 0.12.1
 - BUG: If an error occurred while executing a command

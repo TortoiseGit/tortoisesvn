@@ -29,10 +29,11 @@
 #define ID_SAVEAS		2
 #define ID_COMPARETWO	3
 #define ID_UPDATE		4
+#define ID_COPY			5
 
 /**
  * \ingroup TortoiseProc
- * Shows log messages of a single file in a listbox. Used by the property sheet handler of TortoiseShell.
+ * Shows log messages of a single file or folder in a listbox. 
  *
  * \par requirements
  * win95 or later
@@ -77,7 +78,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Log(LONG rev, CString author, CString date, CString message, CString cpaths);
+	virtual BOOL Log(LONG rev, CString author, CString date, CString message, CString& cpaths);
 	virtual BOOL Cancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support

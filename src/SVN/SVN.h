@@ -81,7 +81,7 @@ public:
 	virtual BOOL Prompt(CString& info, CString prompt, BOOL hide);
 	virtual BOOL Cancel();
 	virtual BOOL Notify(CString path, svn_wc_notify_action_t action, svn_node_kind_t kind, CString myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
-	virtual BOOL Log(LONG rev, CString author, CString date, CString message, CString cpaths);
+	virtual BOOL Log(LONG rev, CString author, CString date, CString message, CString& cpaths);
 
 	/**
 	 * If a method of this class returns FALSE then you can

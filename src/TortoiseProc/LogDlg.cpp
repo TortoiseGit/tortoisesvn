@@ -21,6 +21,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "cursor.h"
+#include "UnicodeUtils.h"
 #include "LogDlg.h"
 
 // CLogDlg dialog
@@ -156,7 +157,7 @@ BOOL CLogDlg::Cancel()
 	return m_bCancelled;
 }
 
-BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CString cpaths)
+BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CString& cpaths)
 {
 	CString temp;
 	m_logcounter += 1;
@@ -183,12 +184,11 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 		};
 	} // if (message.GetLength()>0)
 	temp += _T("\r\n---------------------------------\r\n");
-	temp += cpaths;
+	temp += *cpaths;
 	m_arLogMessages.Add(temp);
 	m_arRevs.Add(rev);
 	m_LogList.SetRedraw();
 	return TRUE;
-
 }
 
 //this is the thread function which calls the subversion function
@@ -293,6 +293,11 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 					temp.LoadString(IDS_LOG_POPUP_SAVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				} // if (!PathIsDirectory(m_path))
+				else
+				{
+					temp.LoadString(IDS_LOG_POPUP_COPY);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
 				}
 				temp.LoadString(IDS_LOG_POPUP_UPDATE);
 				if (m_hasWC)
@@ -308,195 +313,229 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
 			CCursor(IDC_WAIT);
-			if (cmd == ID_COMPARE)
+			switch (cmd)
 			{
-				//user clicked on the menu item "compare with working copy"
-				//now first get the revision which is selected
-				int selIndex = m_LogList.GetSelectionMark();
-				long rev = m_arRevs.GetAt(selIndex);
-				//next step is to create a temporary file to hold the required revision
-				TCHAR path[MAX_PATH];
-				TCHAR tempF[MAX_PATH];
-				DWORD len = ::GetTempPath (MAX_PATH, path);
-				UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
-				CString tempfile = CString(tempF);
-
-				SVN svn;
-				if (!svn.Cat(m_path, rev, tempfile))
+			case ID_COPY:
 				{
-					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					GetDlgItem(IDOK)->EnableWindow(TRUE);
-					return;
-				}
-
-				CString diffpath = CUtils::GetDiffPath();
-				if (diffpath != "")
-				{
-
-					CString cmdline;
-					cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
-					cmdline += _T("\" ");
-					cmdline += _T(" \"") + tempfile;
-					cmdline += _T("\" "); 
-					cmdline += _T(" \"") + m_path;
-					cmdline += _T("\"");
-					STARTUPINFO startup;
-					PROCESS_INFORMATION process;
-					memset(&startup, 0, sizeof(startup));
-					startup.cb = sizeof(startup);
-					memset(&process, 0, sizeof(process));
-					if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+					int selIndex = m_LogList.GetSelectionMark();
+					long rev = m_arRevs.GetAt(selIndex);
+					CCopyDlg dlg;
+					SVNStatus status;
+					status.GetStatus(m_path);
+					if (status.status->entry == NULL)
 					{
-						LPVOID lpMsgBuf;
-						FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-										FORMAT_MESSAGE_FROM_SYSTEM | 
-										FORMAT_MESSAGE_IGNORE_INSERTS,
-										NULL,
-										GetLastError(),
-										MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-										(LPTSTR) &lpMsgBuf,
-										0,
-										NULL 
-										);
-						CString temp;
-						//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
-						temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-						LocalFree( lpMsgBuf );
-					} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-					//wait for the process to end
-					WaitForSingleObject(process.hProcess, INFINITE);
-					//now delete the temporary file
-					DeleteFile(tempfile);
-				} // if (diffpath != "")
-			} // if (cmd == ID_COMPARE)
-			if (cmd == ID_COMPARETWO)
-			{
-				//user clicked on the menu item "compare revisions"
-				//now first get the revisions which are selected
-				POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-				long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-				long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-				//next step is to create a temporary file to hold the required revision
-				TCHAR path[MAX_PATH];
-				TCHAR tempF[MAX_PATH];
-				DWORD len = ::GetTempPath (MAX_PATH, path);
-				UINT unique = ::GetTempFileName (path, _T("svn"), 0, tempF);
-				CString tempfile1 = CString(tempF);
-				len = ::GetTempPath (MAX_PATH, path);
-				unique = ::GetTempFileName (path, _T("svn"), 0, tempF);
-				CString tempfile2 = CString(tempF);
-
-				SVN svn;
-				if (!svn.Cat(m_path, rev1, tempfile1))
-				{
-					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					GetDlgItem(IDOK)->EnableWindow(TRUE);
-					return;
-				}
-				if (!svn.Cat(m_path, rev2, tempfile2))
-				{
-					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					GetDlgItem(IDOK)->EnableWindow(TRUE);
-					return;
-				}
-
-				CString diffpath = CUtils::GetDiffPath();
-				if (diffpath != _T(""))
-				{
-
-					CString cmdline;
-					cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
-					cmdline += _T("\" ");
-					cmdline += _T(" \"") + tempfile2;
-					cmdline += _T("\" "); 
-					cmdline += _T(" \"") + tempfile1;
-					cmdline += _T("\"");
-					STARTUPINFO startup;
-					PROCESS_INFORMATION process;
-					memset(&startup, 0, sizeof(startup));
-					startup.cb = sizeof(startup);
-					memset(&process, 0, sizeof(process));
-					if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
+						TRACE(_T("could not retrieve the URL of the folder!\n"));
+						break;		//exit
+					} // if ((rev == (-2))||(status.status->entry == NULL))
+					CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
+					dlg.m_URL = url;
+					if (dlg.DoModal() == IDOK)
 					{
-						LPVOID lpMsgBuf;
-						FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-										FORMAT_MESSAGE_FROM_SYSTEM | 
-										FORMAT_MESSAGE_IGNORE_INSERTS,
-										NULL,
-										GetLastError(),
-										MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-										(LPTSTR) &lpMsgBuf,
-										0,
-										NULL 
-										);
-						CString temp;
-						//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
-						temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
-						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-						LocalFree( lpMsgBuf );
-					} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-					//wait for the process to end
-					WaitForSingleObject(process.hProcess, INFINITE);
-					//now delete the temporary files
-					DeleteFile(tempfile1);
-					DeleteFile(tempfile2);
-				} // if (diffpath != "")
-			} // if (cmd == ID_COMPARE)
-			if (cmd == ID_SAVEAS)
-			{
-				//now first get the revision which is selected
-				int selIndex = m_LogList.GetSelectionMark();
-				long rev = m_arRevs.GetAt(selIndex);
-
-				OPENFILENAME ofn;		// common dialog box structure
-				TCHAR szFile[MAX_PATH];  // buffer for file name
-				ZeroMemory(szFile, sizeof(szFile));
-				if (m_hasWC)
-					_tcscpy(szFile, m_path);
-				// Initialize OPENFILENAME
-				ZeroMemory(&ofn, sizeof(OPENFILENAME));
-				//ofn.lStructSize = sizeof(OPENFILENAME);
-				ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-				ofn.hwndOwner = this->m_hWnd;
-				ofn.lpstrFile = szFile;
-				ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-				CString temp;
-				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				//ofn.lpstrTitle = "Save revision to...\0";
-				if (temp.IsEmpty())
-					ofn.lpstrTitle = NULL;
-				else
-					ofn.lpstrTitle = temp;
-				ofn.Flags = OFN_OVERWRITEPROMPT;
-
-				// Display the Open dialog box. 
-				CString tempfile;
-				if (GetSaveFileName(&ofn)==TRUE)
+						SVN svn;
+						if (!svn.Copy(url, dlg.m_URL, rev))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+					} // if (dlg.DoModal() == IDOK) 
+				} 
+				break;
+			case ID_COMPARE:
 				{
-					tempfile = CString(ofn.lpstrFile);
+					//user clicked on the menu item "compare with working copy"
+					//now first get the revision which is selected
+					int selIndex = m_LogList.GetSelectionMark();
+					long rev = m_arRevs.GetAt(selIndex);
+					//next step is to create a temporary file to hold the required revision
+					TCHAR path[MAX_PATH];
+					TCHAR tempF[MAX_PATH];
+					DWORD len = ::GetTempPath (MAX_PATH, path);
+					UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
+					CString tempfile = CString(tempF);
+
 					SVN svn;
 					if (!svn.Cat(m_path, rev, tempfile))
+					{
+						CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						return;
+					}
+
+					CString diffpath = CUtils::GetDiffPath();
+					if (diffpath != "")
+					{
+
+						CString cmdline;
+						cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
+						cmdline += _T("\" ");
+						cmdline += _T(" \"") + tempfile;
+						cmdline += _T("\" "); 
+						cmdline += _T(" \"") + m_path;
+						cmdline += _T("\"");
+						STARTUPINFO startup;
+						PROCESS_INFORMATION process;
+						memset(&startup, 0, sizeof(startup));
+						startup.cb = sizeof(startup);
+						memset(&process, 0, sizeof(process));
+						if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						{
+							LPVOID lpMsgBuf;
+							FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+								FORMAT_MESSAGE_FROM_SYSTEM | 
+								FORMAT_MESSAGE_IGNORE_INSERTS,
+								NULL,
+								GetLastError(),
+								MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+								(LPTSTR) &lpMsgBuf,
+								0,
+								NULL 
+								);
+							CString temp;
+							//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
+							temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+							LocalFree( lpMsgBuf );
+						} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						//wait for the process to end
+						WaitForSingleObject(process.hProcess, INFINITE);
+						//now delete the temporary file
+						DeleteFile(tempfile);
+					} // if (diffpath != "")
+				}
+				break;
+			case ID_COMPARETWO:
+				{
+					//user clicked on the menu item "compare revisions"
+					//now first get the revisions which are selected
+					POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+					long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+					long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+					//next step is to create a temporary file to hold the required revision
+					TCHAR path[MAX_PATH];
+					TCHAR tempF[MAX_PATH];
+					DWORD len = ::GetTempPath (MAX_PATH, path);
+					UINT unique = ::GetTempFileName (path, _T("svn"), 0, tempF);
+					CString tempfile1 = CString(tempF);
+					len = ::GetTempPath (MAX_PATH, path);
+					unique = ::GetTempFileName (path, _T("svn"), 0, tempF);
+					CString tempfile2 = CString(tempF);
+
+					SVN svn;
+					if (!svn.Cat(m_path, rev1, tempfile1))
+					{
+						CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						return;
+					}
+					if (!svn.Cat(m_path, rev2, tempfile2))
+					{
+						CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						return;
+					}
+
+					CString diffpath = CUtils::GetDiffPath();
+					if (diffpath != _T(""))
+					{
+
+						CString cmdline;
+						cmdline = _T("\"")+diffpath; //ensure the diff exe is prepend the commandline
+						cmdline += _T("\" ");
+						cmdline += _T(" \"") + tempfile2;
+						cmdline += _T("\" "); 
+						cmdline += _T(" \"") + tempfile1;
+						cmdline += _T("\"");
+						STARTUPINFO startup;
+						PROCESS_INFORMATION process;
+						memset(&startup, 0, sizeof(startup));
+						startup.cb = sizeof(startup);
+						memset(&process, 0, sizeof(process));
+						if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)cmdline), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						{
+							LPVOID lpMsgBuf;
+							FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+								FORMAT_MESSAGE_FROM_SYSTEM | 
+								FORMAT_MESSAGE_IGNORE_INSERTS,
+								NULL,
+								GetLastError(),
+								MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+								(LPTSTR) &lpMsgBuf,
+								0,
+								NULL 
+								);
+							CString temp;
+							//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
+							temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+							LocalFree( lpMsgBuf );
+						} // if (CreateProcess(diffpath, cmdline, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+						//wait for the process to end
+						WaitForSingleObject(process.hProcess, INFINITE);
+						//now delete the temporary files
+						DeleteFile(tempfile1);
+						DeleteFile(tempfile2);
+					} // if (diffpath != "")
+				}
+				break;
+			case ID_SAVEAS:
+				{
+					//now first get the revision which is selected
+					int selIndex = m_LogList.GetSelectionMark();
+					long rev = m_arRevs.GetAt(selIndex);
+
+					OPENFILENAME ofn;		// common dialog box structure
+					TCHAR szFile[MAX_PATH];  // buffer for file name
+					ZeroMemory(szFile, sizeof(szFile));
+					if (m_hasWC)
+						_tcscpy(szFile, m_path);
+					// Initialize OPENFILENAME
+					ZeroMemory(&ofn, sizeof(OPENFILENAME));
+					//ofn.lStructSize = sizeof(OPENFILENAME);
+					ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+					ofn.hwndOwner = this->m_hWnd;
+					ofn.lpstrFile = szFile;
+					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+					CString temp;
+					temp.LoadString(IDS_LOG_POPUP_SAVE);
+					//ofn.lpstrTitle = "Save revision to...\0";
+					if (temp.IsEmpty())
+						ofn.lpstrTitle = NULL;
+					else
+						ofn.lpstrTitle = temp;
+					ofn.Flags = OFN_OVERWRITEPROMPT;
+
+					// Display the Open dialog box. 
+					CString tempfile;
+					if (GetSaveFileName(&ofn)==TRUE)
+					{
+						tempfile = CString(ofn.lpstrFile);
+						SVN svn;
+						if (!svn.Cat(m_path, rev, tempfile))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							return;
+						}
+					} // if (GetSaveFileName(&ofn)==TRUE)
+				}
+				break;
+			case ID_UPDATE:
+				{
+					//now first get the revision which is selected
+					int selIndex = m_LogList.GetSelectionMark();
+					long rev = m_arRevs.GetAt(selIndex);
+
+					SVN svn;
+					if (!svn.Update(m_path, rev, TRUE))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						return;
 					}
-				} // if (GetSaveFileName(&ofn)==TRUE)
-			} // if (cmd == ID_SAVEAS) 
-			if (cmd == ID_UPDATE)
-			{
-				//now first get the revision which is selected
-				int selIndex = m_LogList.GetSelectionMark();
-				long rev = m_arRevs.GetAt(selIndex);
-
-				SVN svn;
-				if (!svn.Update(m_path, rev, TRUE))
-				{
-					CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					GetDlgItem(IDOK)->EnableWindow(TRUE);
-					return;
 				}
+				break;
+			default:
+				break;
 			}
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 		} // if (popup.CreatePopupMenu())
