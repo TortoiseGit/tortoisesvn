@@ -340,6 +340,10 @@ void CSciEdit::DoAutoCompletion()
 	CString word = GetWordUnderCursor();
 	if (word.GetLength() < 3)
 		return;		//don't autocomplete yet, word is too short
+	int pos = Call(SCI_GETCURRENTPOS);
+	if (pos > Call(SCI_WORDENDPOSITION, pos, TRUE))
+		return;
+	
 	CString sAutoCompleteList;
 	
 	for (INT_PTR index = 0; index < m_autolist.GetCount(); ++index)
@@ -374,7 +378,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 		switch(lpnmhdr->code)
 		{
 		case SCN_CHARADDED:
-			if (lpSCN->ch < 32)
+			if ((lpSCN->ch < 32)&&(lpSCN->ch != 13)&&(lpSCN->ch != 10))
 				Call(SCI_DELETEBACK);
 			else
 			{
