@@ -682,6 +682,18 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,192,265,10
 END
 
+IDD_PROPERTIES DIALOGEX 0, 0, 246, 105
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,97,84,50,14
+    CONTROL         "",IDC_PROPERTYLIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
+                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,232,71
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -990,6 +1002,14 @@ BEGIN
         RIGHTMARGIN, 272
         TOPMARGIN, 7
         BOTTOMMARGIN, 218
+    END
+
+    IDD_PROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 239
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
     END
 END
 #endif    // APSTUDIO_INVOKED
