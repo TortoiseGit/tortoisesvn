@@ -64,6 +64,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedBrowse();
 	DECLARE_MESSAGE_MAP()
+	CFont		m_logFont;
 
 public:
 	CHistoryCombo m_URLCombo;
