@@ -1,0 +1,32 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE book SYSTEM "../../tools/dtd/dblite.dtd" [
+	<!ENTITY ch00 SYSTEM "tme_ch00.xml">
+	<!ENTITY ch01 SYSTEM "tme_ch01.xml">
+	<!ENTITY ch02 SYSTEM "tme_ch02.xml">
+	<!ENTITY gloss SYSTEM "tme_glossary.xml">
+	<!ENTITY copy SYSTEM "tme_copyright.xml">
+	<!ENTITY colo SYSTEM "tme_colo.xml">
+]>
+<book id="tmerge" lang="en">
+	<title>TortoiseMerge</title>
+	<?dbhh topicname="HIDR_MAINFRAME"?>
+	<subtitle>Ein Diff/Merge Programm</subtitle>
+	<bookinfo>
+		<edition>First</edition>
+		<authorgroup>
+			<author>
+				<firstname>Stefan</firstname>
+				<surname>Küng</surname>
+			</author>
+		</authorgroup>
+		<pubdate>$LastChangedDate$</pubdate>
+	</bookinfo>
+	<!-- External entity refs -->
+
+  &ch00;
+  &ch01;
+  &ch02;
+  &gloss;
+<!--  &mergecopy;-->
+  &colo;
+</book>

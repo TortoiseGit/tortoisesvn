@@ -1,0 +1,112 @@
+﻿<chapter id="tmerge-ch-1">
+
+	<title>Einführung</title>
+	
+	<simplesect>
+		<para>
+		</para>
+	</simplesect>
+
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 1 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-1-sect-1">
+		
+		<title>Übersicht</title>
+	
+		<para>
+		TortoiseMerge ist ein freies Open-Source Programm. Sie können damit
+		Unterschiede in Textdateien zeigen, diese Unterschiede zusammenmischen
+		und sogar sogenannte Patchdateien kontrollieren und hinzufügen.
+		</para>
+		<para>
+		Wenn Sie mit Textdateien, z.B. Quelltexten ihrer bevorzugten 
+		Programmiersprache oder HTML/XML Dateien ihrer Dokumentation oder Webseite
+		arbeiten werden Sie öfters in eine Situation kommen wo Sie verschiedene
+		Versionen von solchen Dateien vergleichen möchten. Manchmal kriegen Sie
+		eine veränderte Datei von jemand anderem, manchmal möchten Sie einfach
+		nachsehen was Sie an einer Datei schon alles geändert haben.
+		</para>
+		<para>
+		Wenn Sie mit einem Versionskontrollsystem arbeiten (z.B. Subversion)
+		dann werden Sie manchmal einen <emphasis>Konflikt</emphasis> erhalten
+		wenn Sie ihre Arbeitskopie aktualisieren. Dies passiert wenn jemand
+		anders dieselben Stellen derselben Datei geändert hat wie Sie.
+		Dann müssen Sie diesen Konflikt von Hand wieder auflösen. Und TortoiseMerge
+		hilft Ihnen dabei.
+		</para>
+		<para>
+		Das folgende Diagramm zeigt die Beziehung zwischen den verschiedenen
+		Dateien bei einem Konflikt:
+		</para>
+		<para>
+			<graphic srccredit="file conflict" fileref="images/mergeprinciple.png"/>
+		</para>
+		<para>
+		Ein Konflikt kann auch auftreten, wenn Sie versuchen eine veraltete
+		Patchdatei zu ihrem Projekt hinzuzufügen. In solchen Fällen können
+		Sie entweder die Person von welcher Sie die Patchdatei haben nach einer
+		aktuelleren Patchdatei fragen, oder Sie können versuchen die Patchdatei
+		von Hand hinzuzufügen.
+		</para>
+		<para>
+		Aber jetzt mit TortoiseMerge ist die kein Problem mehr, zumindest nicht
+		wenn Sie mit einem Versionskontrollsystem wie Subversion arbeiten.
+		TortoiseMerge untersucht die Patchdatei nach Versionsinformationen, also
+		der Revision/Version wo diese Datei erstellt wurde und versucht dann
+		genau diese Version der Datei zu holen. Danach wird
+		die Patchdatei hinzugefügt und evtl. Konflikte angezeigt, welche Sie
+		dann bequem mit TortoiseMerge auflösen können.
+		</para>
+	</sect1>
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 2 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-1-sect-2">
+	
+	<title>TortoiseMerge's Geschichte</title>
+		
+		<para>
+		Während der Arbeit an <ulink url="http://tortoisesvn.tigris.org">
+		<citetitle>TortoiseSVN</citetitle></ulink> war es jedesmal sehr lästig,
+		wenn jemand uns Patches zugeschickt hat mit Fehlerkorrekturen oder
+		Erweiterungen. Denn es gab bis dahin nur ein Kommandozeilentool <literal>
+		patch.exe</literal>, erhältlich bei <ulink url="http://unxutils.sourceforge.net/">
+		<citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> welches 
+		solche Dateien zu einem Projekt hinzufügen konnte. Die Durchsicht 
+		solcher Änderungen war daher Aufwendig und schwierig, insbesondere 
+		wenn die Patchdatei schon veraltet war.
+		</para>
+		
+		<para>
+		Das war auch der Hauptgrund, weshalb TortoiseSVN keinen Befehl "Erstelle Patch"
+		implementiert hatte: wir wollten lieber die ganzen Dateien von den
+		Usern haben statt der Patchdateien, weil es für uns einfacher war
+		Änderungen auf diese Weise zum Projekt hinzuzufügen.
+		</para>
+		
+		<para>
+		Also haben wir viel Zeit damit verbracht, das Internet nach einem
+		guten grafischen Tool abzusuchen welches Patchdateien zu Projekten
+		hinzufügen konnte. Aber alles was wir fanden war, dass ein solches
+		Programm nicht existierte.
+		Um eine lange Geschichte zu einem Ende zu bringen: wir haben dann
+		beschlossen dass wenn niemand anders ein solches Tool anbietet müssen
+		wir eben selbst eines schreiben. So entstand TortoiseMerge.
+		</para>
+		
+		<para>
+		Da TortoiseSVN schon die Subversion Funktionsbibliothek benutzt welche
+		eine gute Diff-Engine enthält wars nur natürlich dieselbe 
+		Funktionsbibliothek auch für TortoiseMerge zu nutzen. Dies an Stelle der
+		weit verbreiteten GNU Diffbibliothek. Dies reduziert ebenfalls die Grösse
+		der Exe-Datei da TortoiseSVN und TortoiseMerge beide dieselben dll's
+		benutzen können.
+		</para>
+	
+	</sect1>
+
+</chapter>
+

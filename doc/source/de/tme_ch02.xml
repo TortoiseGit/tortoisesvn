@@ -1,0 +1,269 @@
+﻿<chapter id="tmerge-ch-2">
+
+	<title>TortoiseMerge benutzen</title>
+	
+	<simplesect>
+		<para>
+		</para>
+	</simplesect>
+
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 1 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-2-sect-1">
+		
+		<title>Dateien öffnen</title>
+		<?dbhh topicname="HIDD_OPENDLG"?>
+	
+		<para>
+		Wenn Sie TortoiseMerge ohne irgendwelchen Kommandozeilenparametern
+		starten dann müssen Sie die Dateien von Hand öffnen. Unter dem 
+		<guimenuitem>Datei</guimenuitem> Menu finden Sie den Befehl
+		<guimenuitem>Öffnen</guimenuitem>.
+		</para>
+
+		<para>
+			<graphic srccredit="The Open Dialog" fileref="images/MergeOpen.png"/>
+		</para>
+
+		<para>
+		Das erste was Sie entscheiden müssen ist ob Sie Dateien vergleichen/mischen
+		möchten oder ob Sie eine Patchdatei zum Projekt hinzufügen möchten.
+		Je nachdem was Sie wählen werden die entsprechenden Knöpfe und Eingabefelder
+		aktiviert.
+		</para>
+		
+		<sect2 id="tmerge-ch-2-sect-1-1">
+		
+			<title>Vergleichen / Mischen</title>
+			
+			<para>
+			Wenn Sie Dateien vergleichen/mischen möchten müssen Sie mindestens
+			zwei der drei möglichen Pfade für "Basis", "Ihrer" und "Deren"
+			eingeben. Wenn Sie nur zwei Dateien auswählen, wird TortoiseMerge
+			ihnen die Unterschiede zwischen diesen Dateien anzeigen. Entweder in
+			einem Fenster oder in zwei Fenstern nebeneinander. Sie können zwischen
+			den beiden Ansichtsarten (ein oder zwei Fenster) hin und her schalten.
+			</para>
+			<para>
+				<graphic srccredit="Ein-Fenster Ansicht" fileref="images/MergeOnePane.png"/>
+				<graphic srccredit="Zwei-Fenster Ansicht" fileref="images/MergeTwoPane.png"/>
+			</para>
+	
+			<para>
+			Für den Fall dass Sie drei Dateien mischen möchten zeigt TortoiseMerge
+			Ihnen diese in einer Drei-Fenster Ansicht. Diese Ansicht wird ebenfalls
+			verwendet für das Auflösen von Konflikten.
+			</para>
+			<para>
+				<graphic srccredit="Drei-Fenster Ansicht" fileref="images/MergeThreePane.png"/>
+			</para>
+			<para>
+			Die linke Ansicht zeigt Ihnen die Unterschiede von "Deren" Datei
+			mit der "Basis" Datei, während die rechte Ansicht die Unterschiede
+			zwischen "Ihrer" Datei und der "Basis" Datei zeigt.
+			Die untere Ansicht zeigt Ihnen das Ergebnis der Mischung der drei
+			Dateien, inklusive möglicher Konflikte.
+			</para>
+			<para>
+			Die Beziehungen zwischen "Basis", "Ihrer" und "Deren" sind im
+			untenstehenden Diagramm erklärt.
+			</para>
+			<para>
+				<graphic srccredit="file conflict" fileref="images/mergeprinciple.png"/>
+			</para>
+			<para>
+			Die "Basis" Datei entspricht der ältesten Version einer Datei, von
+			welcher aus die Änderungen an "Ihrer" und "Deren" Datei gemacht
+			werden. "Ihrer" entspricht dabei der Basisdatei mit allen Änderungen 
+			welche <emphasis>Sie</emphasis> gemacht haben. "Deren" entspricht
+			der Basisdatei mit allen Änderungen welche <emphasis>jemand anders</emphasis>
+			gemacht hat.
+			</para>		
+		</sect2>
+
+		<sect2 id="tmerge-ch-2-sect-1-2">
+		
+			<title>Patchdateien hinzufügen</title>
+			
+			<para>
+			Wenn Sie eine Patchdatei zu einem Projekt hinzufügen möchten (resp.
+			die Änderungen welche die Patchdatei enthält) müssen Sie sowohl
+			die Patchdatei selbst sowie auch den Ordner des Projektes angeben.
+			Stellen Sie sicher, dass die Pfade in der Patchdatei übereinstimmen
+			mit dem Projektordner.
+			</para>
+			<caution>
+				<para>
+				Zur Zeit können nur Patchdateien im <emphasis>Unified Diff Format
+				</emphasis> verwendet werden. Und auch nur solche, welche mittels
+				einem Subversion Client erstellt wurden. Andere Formate wie zum
+				Beispiel Patchdateien von CVS Programmen erstellt werden nicht
+				unterstützt!
+				</para>
+			</caution>
+			
+			<para>
+			Sofern TortoiseMerge in der Lage ist die Patchdatei zu lesen wird
+			ein kleines Dialogfenster angezeigt mit allen Dateien welche von
+			der Patchdatei geändert werden müssen/sollen.
+			<graphic srccredit="Patch Filelist" fileref="images/MergePatchWindow.png"/>
+			Wenn der Dateiname schwarz gezeigt wird, dann kann der Patch ohne
+			Probleme übernommen werden. Das bedeutet dass die Patchdatei aktuell
+			genug ist.
+			Ist der Dateiname hingegen rot angezeigt, dann kann der Patch nicht
+			übernommen werden da die Datei schon anderweitig geändert wurde.
+			</para>
+			<para>
+			Aber keine Angst. Wenn Sie mit Subversion arbeiten können Sie die
+			benötigte Dateiversion automatisch zurückholen. TortoiseMerge startet
+			dazu TortoiseSVN, holt die benötigte Dateiversion, führt die Änderungen
+			der Patchdatei hinzu und zeigt Ihnen dann die Dreifenster-Ansicht,
+			damit Sie eventuelle Konflikte sehen und auflösen können.
+			Dabei ist die "Basis" die Datei mit der alten Version zu welcher
+			der Patch gehört, "Ihrer" ist die Datei wie sie in Ihrer Arbeitskopie
+			vorhanden ist und "Deren" ist die gepatchte Basisdatei.
+			</para>			
+		</sect2>
+	</sect1>
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 2 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-2-sect-2">
+	
+		<title>Mischen / Konflikte auflösen</title>
+		
+		<para>
+		TortoiseMerge <emphasis>zeigt</emphasis> Ihnen nicht nur die 
+		Unterschiede zwischen Dateien an sondern lässt Sie diese Änderungen
+		auch in die andere Datei übernehmen und Konflikte lösen.
+		</para>	
+		<para>
+		Wenn Sie in der Zweifenster-Ansicht sind, dann können Sie die Datei im
+		rechten Fenster ("Ihrer") ändern. Um Unterschiede der linken Datei in
+		die rechte zu übernehmen, machen Sie einen <action>Rechts-Klick</action>
+		auf die unterschiedliche Zeile und wählen Sie den gewünschten Befehl
+		aus dem Kontextmenu aus.
+		</para>
+		<para>
+		Wenn Sie in der Dreifenster-Ansicht sind (auch <emphasis>Misch-Ansicht</emphasis>
+		oder <emphasis>Konflikt-Ansicht</emphasis> genannt) können Sie nur die
+		Ergebnis-Datei im unteren Fenster bearbeiten. Wie auch in der Zweifenster-
+		Ansicht können Sie durch <action>Rechts-Klicken</action> auf Zeilen im
+		Konflikt ein Kontextmenu anzeigen lassen und dann Auswählen wie Sie den
+		Konflikt gerne auflösen möchten.
+		</para>
+	
+	</sect1>
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 3 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-2-sect-3">
+	
+		<title>Einstellungen</title>
+		<?dbhh topicname="HIDD_SETMAINPAGE"?>
+		<?dbhh topicname="HIDD_SETCOLORPAGE"?>
+		
+		<para>
+			<graphic srccredit="Die Einstellungs-Hauptseite" fileref="images/SettingsGeneral.png"/>
+		</para>
+		<para>
+			<graphic srccredit="Die Einstellungs-Farbenseite" fileref="images/SettingsColors.png"/>
+		</para>
+	</sect1>
+
+	<!-- ================================================================= -->
+	<!-- ======================== SECTION 3 ============================== -->
+	<!-- ================================================================= -->
+	<sect1 id="tmerge-ch-2-sect-4">
+	
+		<title>Tastenkombinationen</title>
+
+		<variablelist>
+  			<varlistentry>
+  				<term>Ctrl-Q</term>
+  				<listitem>
+  					<para>
+  					Programm verlassen
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Ctrl-C</term>
+  				<listitem>
+  					<para>
+  					Die gewählten Zeilen in die Zwischenablage kopieren
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Ctrl-F</term>
+  				<listitem>
+  					<para>
+  					Öffnet den Suchen Dialog
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Ctrl-O</term>
+  				<listitem>
+  					<para>
+  					Öffnet Dateien
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Ctrl-S</term>
+  				<listitem>
+  					<para>
+  					Speichert die Änderungen
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Ctrl-Shift-S</term>
+  				<listitem>
+  					<para>
+  					Speichern unter...
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>F7 oder cursor-rechts</term>
+  				<listitem>
+  					<para>
+  					Gehe zum nächsten Unterschied
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Shift-F7 oder cursor-links</term>
+  				<listitem>
+  					<para>
+  					Gehe zum vorherigen Unterschied
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Ctrl-D</term>
+  				<listitem>
+  					<para>
+  					Wechselt zwischen der Ein- und Zweifenster-Ansicht
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>Ctrl-R</term>
+  				<listitem>
+  					<para>
+  					Lädt die Dateien neu und verwirft alle Änderungen
+  					</para>
+  				</listitem>
+  			</varlistentry>
+ 		</variablelist>
+	</sect1>
+
+</chapter>
