@@ -961,7 +961,21 @@
 						<para>In the <guilabel>From Revision</guilabel> field enter the initial revision number.
 						This is the revision <emphasis>before</emphasis> the changes you want to merge.
 						Revision numbers are auto-incremented after each commit. You want
-						to start merging the changes before the revision number is auto-incremented.
+						to start merging the changes before the revision number is auto-incremented. For example,
+						if your log messages look something like this:
+						<screen>
+Rev Comments
+39. Working on MyBranch
+38. Working on trunk
+37. Working on MyBranch
+36. Create branch MyBranch
+35. Working on trunk
+34. Working on trunk
+         ...
+						</screen>If you now want to merge the changes from MyBranch into the trunk you have 
+						to choose 36 as the <guilabel>From Revision</guilabel>. Not 37 as you might think.
+						</para>
+						<para>
 						Click <guibutton>Find</guibutton> if you need to browse the logs to find this revision
 						number. This will probably never be from
 						revision 0.</para>
