@@ -402,8 +402,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 		m_pLogDlg->m_pNotifyWindow = this;
-		m_pLogDlg->m_wParam = 0;
-	} // if (!url.IsEmpty()) 
+	}
 	AfxGetApp()->DoWaitCursor(-1);
 }
 
@@ -427,28 +426,27 @@ void CMergeDlg::OnBnClickedFindbranchend()
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 		m_pLogDlg2->m_pNotifyWindow = this;
-		m_pLogDlg2->m_wParam = 1;
-	} // if (!url.IsEmpty()) 
+	}
 	AfxGetApp()->DoWaitCursor(-1);
 }
 
 LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
 {
 	CString temp;
-	temp.Format(_T("%ld"), lParam);
 	if (wParam == 0)
 	{
+		lParam--;
+		temp.Format(_T("%ld"), lParam);
 		GetDlgItem(IDC_REVISION_START)->SetWindowText(temp);
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 		GetDlgItem(IDC_REVISION_START)->EnableWindow(TRUE);
-
 	}
 	else
 	{
+		temp.Format(_T("%ld"), lParam);
 		GetDlgItem(IDC_REVISION_END)->SetWindowText(temp);
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 		GetDlgItem(IDC_REVISION_END)->EnableWindow(TRUE);
-
 	}
 	return 0;
 }
@@ -490,8 +488,6 @@ void CMergeDlg::OnBnClickedWCLog()
 		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, -(long)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
-		m_pLogDlg->m_pNotifyWindow = this;
-		m_pLogDlg->m_wParam = 0;
 	} // if (!url.IsEmpty()) 
 	AfxGetApp()->DoWaitCursor(-1);
 }

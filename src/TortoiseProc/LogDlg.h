@@ -120,7 +120,6 @@ private:
 public:
 	CWnd *		m_pNotifyWindow;
 	ProjectProperties m_ProjectProperties;
-	WORD		m_wParam;
 private:
 	CListCtrl	m_LogList;
 	CListCtrl	m_LogMsgCtrl;

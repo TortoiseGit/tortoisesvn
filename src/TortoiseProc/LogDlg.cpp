@@ -1404,7 +1404,21 @@ void CLogDlg::OnOK()
 		int selIndex = m_LogList.GetSelectionMark();
 		if (selIndex >= 0)
 		{	
-			m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam, m_arRevs.GetAt(selIndex));
+			LONG lowerRev = m_arRevs.GetAt(selIndex);
+			LONG higherRev = lowerRev;
+			POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+			int index = 0;
+			while (pos)
+			{
+				index = m_LogList.GetNextSelectedItem(pos);
+				LONG rev = m_arRevs.GetAt(index);
+				if (lowerRev > rev)
+					lowerRev = rev;
+				if (higherRev < rev)
+					higherRev = rev;
+			}
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, 0, lowerRev);
+			m_pNotifyWindow->SendMessage(WM_REVSELECTED, 1, higherRev);
 		}
 	}
 }
