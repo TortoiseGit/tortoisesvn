@@ -668,7 +668,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							} // if ((rev == (-2))||(status.status->entry == NULL))
 							else
 							{
-								CSVNProgressDlg dlg(CWnd::FromHandle(this->m_hWnd));
+								CSVNProgressDlg dlg;
 								dlg.SetParams(CSVNProgressDlg::Enum_Merge, ProgOptPathIsTarget, m_path.GetSVNPathString(), url, url, rev);		//use the message as the second url
 								dlg.m_RevisionEnd = rev-1;
 								dlg.DoModal();
