@@ -152,7 +152,7 @@ BOOL CResModule::ExtractString(UINT nID)
 		{
 			std::wstring str = std::wstring(szBuf);
 			TCHAR szTempBuf[1024];
-			_stprintf(szTempBuf, _T("#: ID : %d, "), nID);
+			_stprintf(szTempBuf, _T("#: ID:%d,"), nID);
 			RESOURCEENTRY entry = m_StringEntries[str];
 			entry.reference = entry.reference.append(szTempBuf);
 			m_StringEntries[str] = entry;
@@ -166,21 +166,6 @@ DONE_ERROR:
 	UnlockResource(hglStringTable);
 	FreeResource(hglStringTable);
 	MYERROR;
-
-	//TCHAR szBuf[2048*2];
-	//ZeroMemory(szBuf, sizeof(szBuf));
-	//if (::LoadString(m_hResDll, nID, szBuf, sizeof(szBuf)/sizeof(TCHAR)))
-	//{
-	//	CUtils::StringExtend(szBuf);
-	//	std::wstring str = std::wstring(szBuf);
-	//	TCHAR szTempBuf[1024];
-	//	_stprintf(szTempBuf, _T("#: ID : %d, "), nID);
-	//	RESOURCEENTRY entry = m_StringEntries[str];
-	//	entry.reference = entry.reference.append(szTempBuf);
-	//	m_StringEntries[str] = entry;
-	//	return TRUE;
-	//}
-	//return TRUE;		// don't throw an error for an unknown ID, just ignore it
 }
 
 BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
@@ -566,7 +551,7 @@ BOOL CResModule::ExtractDialog(UINT nID)
 		CUtils::StringExtend(szBuf);
 
 		TCHAR szTempBuf[1024];
-		_stprintf(szTempBuf, _T("#: Dlg-ID : %d, "), nID);
+		_stprintf(szTempBuf, _T("#: Dlg-ID:%d,"), nID);
 		std::wstring wstr = std::wstring(szBuf);
 		RESOURCEENTRY entry = m_StringEntries[wstr];
 		entry.reference = entry.reference.append(szTempBuf);
@@ -590,7 +575,7 @@ BOOL CResModule::ExtractDialog(UINT nID)
 			CUtils::StringExtend(szTitle);
 
 			TCHAR szTempBuf[1024];
-			_stprintf(szTempBuf, _T("#: Control-ID : %d, "), dlgItem.id);
+			_stprintf(szTempBuf, _T("#: Control-ID:%d,"), dlgItem.id);
 			std::wstring wstr = std::wstring(szTitle);
 			RESOURCEENTRY entry = m_StringEntries[wstr];
 			entry.reference = entry.reference.append(szTempBuf);
