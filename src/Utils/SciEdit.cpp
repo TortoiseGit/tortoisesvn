@@ -313,6 +313,36 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 	return CWnd::OnChildNotify(message, wParam, lParam, pLResult);
 }
 
+BEGIN_MESSAGE_MAP(CSciEdit, CWnd)
+	ON_WM_KEYDOWN()
+END_MESSAGE_MAP()
+
+void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	switch (nChar)
+	{
+	case (VK_TAB):
+		{
+			if (GetKeyState(VK_CONTROL)&0x8000)
+			{
+				//Ctrl-Tab was pressed, this means we should provide the user with
+				//a list of possible spell checking alternatives to the word under
+				//the cursor
+				SuggestSpellingAlternatives();
+				return;
+			}
+		}
+		break;
+	case (VK_ESCAPE):
+		{
+			if ((Call(SCI_AUTOCACTIVE)==0)&&(Call(SCI_CALLTIPACTIVE)==0))
+				::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
+		}
+		break;
+	}
+	CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= true*/)
@@ -335,23 +365,4 @@ void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= 
 			return; // already in the array
 	}
 	return InsertAt(nMin, elem);
-}
-BEGIN_MESSAGE_MAP(CSciEdit, CWnd)
-	ON_WM_KEYDOWN()
-END_MESSAGE_MAP()
-
-void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
-{
-	if (nChar == VK_TAB)
-	{
-		if (GetKeyState(VK_CONTROL)&0x8000)
-		{
-			//Ctrl-Tab was pressed, this means we should provide the user with
-			//a list of possible spell checking alternatives to the word under
-			//the cursor
-			SuggestSpellingAlternatives();
-			return;
-		}
-	}
-	CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
 }
