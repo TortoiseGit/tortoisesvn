@@ -1448,7 +1448,7 @@
 			um. Wobei
 			<filename>Name_der_Markierung</filename>
 			z.B.
-			<filename>Version_1.01</filename> ist.
+			<filename>ProjectName_v1.10</filename> ist.
 
 <screen>
     C:/SVNRepository/trunk/ProjectName/...
@@ -1457,7 +1457,9 @@
     C:/SVNRepository/tags/ProjectName_v1.10
 </screen>
 
-			Wenn Sie nun <guibutton>OK</guibutton> klicken erstellt TortoiseSVN eine
+			Wenn Sie nun
+			<guibutton>OK</guibutton>
+			klicken erstellt TortoiseSVN eine
 			Verknüpfung von Ihrem gewählten Ordner und der aktuellen Revision
 			im Zielordner des Projektarchivs. Es werden (noch) keine Änderungen an Ihrer
 			Arbeitskopie vorgenommen.
@@ -1512,6 +1514,7 @@
 							<guilabel>neueste Revision</guilabel>
 							aktiv und klicken Sie auf
 							<guibutton>OK</guibutton>.
+							Ihre Arbeitskopie wird nun zum gewählten Zweig umgestellt.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -1583,7 +1586,7 @@
 							Im Feld <guilabel>Von:</guilabel>
 							geben Sie die vollständige URL des Start-Zweiges welcher die
 							Änderungen enthält ein. Sie können auch die 
-							<guibutton>...</guibutton> 
+							<guibutton>...</guibutton>
 							Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
 						</para>
 					</listitem>
@@ -1592,7 +1595,7 @@
 							Im Feld <guilabel>bis:</guilabel>
 							geben Sie die vollständige URL des End-Zweiges welcher die
 							Änderungen enthält ein. Sie können auch die 
-							<guibutton>...</guibutton> 
+							<guibutton>...</guibutton>
 							Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
 						</para>
 					</listitem>
@@ -1652,22 +1655,118 @@ Rev Log-Meldungen
 				schon zu weit vom Hauptast entfernt hat.
 			</para>
 			<para>
-			Wenn Sie überprüfen möchten, was für Änderungen an welchen Dateien
-			durch ein Mischen vorgenommen würden aktivieren Sie die Option
-			<guibutton>Testlauf</guibutton>.
-			Dies zwingt den Mischbefehl den Mischvorgang Testweise auszuführen,
-			<emphasis>ohne</emphasis> dabei die Arbeitskopie zu verändern.
+				Wenn Sie diesen Zweig auf dem gleichen Stand wie "trunk" halten wollen,
+				sollten Sie sofort alle Änderungen von "trunk" mit dem Zweig zusammenführen.
+				Wenn Sie diese Technik anwenden, werden Ihnen lokale Änderungen nicht in die
+				Quere kommen. Selbstverständlich sollten Sie, wie oben erklärt, es vermeiden,
+				Änderungen zweifach zusammenzuführen.
+			</para>
+			<para>
+				Wenn Sie überprüfen möchten, was für Änderungen an welchen Dateien
+				beim Zusammenführen vorgenommen würden, aktivieren Sie die Option
+				<guibutton>
+					Testlauf
+				</guibutton>.
+				Dies zwingt den Mischbefehl den Mischvorgang Testweise auszuführen,
+				<emphasis>ohne</emphasis> dabei die Arbeitskopie zu verändern.
 			</para>
 			<important>
 				<para>
 				Subversion kann nicht eine Datei mit einem Ordner zusammenführen und
 				umgekehrt. Nur Ordner mit Ordner und Dateien mit Dateien können
 				zusammengeführt werden. Wenn Sie auf eine Datei klicken und den 
-        Zusammenführen Dialog aufrufen, dann müssen Sie eine URL zu einer 
-        Datei im Dialog eingeben.
+				Zusammenführen Dialog aufrufen, dann müssen Sie eine URL zu einer
+				Datei im Dialog eingeben.
 				</para>
 			</important>
 		</sect2>
+	</sect1>
+	<!-- ================================================================= -->
+	<!-- ================================================================= -->
+	<sect1 id="tsvn-DUG-patch">
+		<title>Erzeugen und Anwenden von Patches</title>
+		<indexterm>
+			<primary>patch</primary>
+		</indexterm>
+		<?dbhh topicname="HIDD_PATCH"?>
+		<para>
+			In Open Source Projekten (wie diesem) hat jedermann Lesezugriff
+			auf das Projektarchiv, und jeder kann einen Beitrag zum Projekt
+			leisten. Wie sollen diese Beiträge nun kontrolliert werden?
+			Wenn jeder stets seine Änderungen in das Projektarchiv übertragen
+			würde, wäre das Projekt permanent unstabil und wahrscheinlich sogar
+			nicht funktionsfähig.
+			Dieses Prooblem wird gelöst, indem ein <firstterm>Patch</firstterm>
+			an das Entwicklerteam geschickt wird.
+			Die Entwickler können den Patch überprüfen und dann entweder in das
+			Projektarchiv übertragen oder verwerfen und an den Autor zurückschicken.
+		</para>
+### Translate to German Start ###
+		<sect2 id="tsvn-DUG-patch-1">
+			<title>Erzeugen einer Patchdatei</title>
+			<para>
+				Zunächst müssen Sie Ihre Änderungen selbstverständlich selber
+				<emphasis>testen</emphasis>.
+				Anstatt den übergeordneten Ordner zum Projektarchiv zu
+				<menuchoice>
+					<guimenuitem>Übertragen...</guimenuitem>
+				</menuchoice>,
+				wählen Sie
+				<menuchoice>
+					<guimenuitem>Patch erzeugen...</guimenuitem>
+				</menuchoice>
+				This will produce a single file containing a summary of all the changes
+				you have made since the last update from the repository. If you create a
+				patch file, make some more changes and then create another patch, the
+				second patch file will include <emphasis>both</emphasis> sets of changes.
+			</para>
+			<para>
+				Just save the file using a filename of your choice.
+				Patch files can have any extension you like, but by convention they
+				should use the <filename>.patch</filename> extension.
+				You are now ready to submit your patch file.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-DUG-patch-2">
+			<title>Applying a Patch File</title>
+			<para>
+				Patch files are applied to your working copy. This should be done
+				from the same folder level as was used to create the patch.
+				If you are not sure what this is, just look at the first line of
+				the patch file. For example, if the first file being worked on was
+				<filename>doc/source/english/chapter1.xml</filename>
+				and the first line in the patchfile is
+				<filename>Index: english/chapter1.xml</filename>
+				then you need to apply the patch to the
+				<filename>english</filename> folder.
+			</para>
+			<para>
+				In order to apply a patch file to your working copy, you need
+				to have at least read access to the repository.
+				The reason for this is that the merge program must
+				reference the changes back to the revision against
+				which they were made by the remote developer.
+			</para>
+			<para>
+				From the context menu for that folder, click on
+				<menuchoice>
+					<guimenuitem>Apply Patch...</guimenuitem>
+				</menuchoice>
+				This will bring up a file open dialog allowing you to select the
+				patch file to apply. By default only <filename>.patch</filename>
+				files are shown, but you can opt for "All files". Open the file
+				and TortoiseMerge runs to merge the changes from the patch file
+				with your working copy. A small window lists the files which have
+				been changed. Double click on each one in turn, review the changes
+				and save the merged files.
+			</para>
+			<para>
+				The remote developer's patch has now been applied to your working copy,
+				so you need to commit to allow everyone else to access the changes
+				from the repository.
+			</para>
+		</sect2>
+### Translate to German End ###
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
@@ -1841,6 +1940,13 @@ Rev Log-Meldungen
 					Datum der letzen Übertragung der Datei zu setzen bei einem
 					Auschecken oder einer Aktualisierung. Ansonsten setzt 
 					TortoiseSVN das aktuelle Datum.
+					Wenn Sie Software entwickeln, ist es normalerweise am besten,
+					das aktuelle Datum zu verwenden, da Systeme zum automatischen
+					Erstellen von Software normalerweise auf die Zeitstempel 
+					zurückgreifen, um zu entscheiden, ob eine Dati übersetzt werden soll.
+					Wenn Sie das "Datum der letzten Übertragung" verwenden und auf eine
+					ältere Dateiversion zurückgreifen, kann es passieren, daß sich das
+					Projekt nicht so übersetzen lässt, wie erwartet.
 					</para>
 					</listitem>
 				</varlistentry>
@@ -2191,3 +2297,4 @@ line  rev    date              author     content
 		</para>
 	</sect1>
 </chapter>
+
