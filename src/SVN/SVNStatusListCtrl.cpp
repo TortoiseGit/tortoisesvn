@@ -1285,14 +1285,33 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (! fileop.fAnyOperationsAborted)
 						{
 							POSITION pos = NULL;
+							CTSVNPathList deletedlist;	//to store list of deleted folders
 							while ((pos = GetFirstSelectedItemPosition()) != 0)
 							{
 								int index = GetNextSelectedItem(pos);
 								if (GetCheck(index))
 									m_nSelected--;
 								m_nTotal--;
+								FileEntry * fentry = GetListEntry(index);
+								if (fentry->isfolder)
+									deletedlist.AddPath(fentry->path);
 								RemoveListEntry(index);
-//TODO: If the item we deleted was a directory, we should really remove all its children, too
+							}
+							// now go through the list of deleted folders
+							// and remove all their children from the list too!
+							int nListboxEntries = GetItemCount();
+							for (int folderindex = 0; folderindex < deletedlist.GetCount(); ++folderindex)
+							{
+								CTSVNPath folderpath = deletedlist[folderindex];
+								for (int i=0; i<nListboxEntries; ++i)
+								{
+									FileEntry * entry = GetListEntry(i);
+									if (folderpath.IsAncestorOf(entry->path))
+									{
+										RemoveListEntry(i--);
+										nListboxEntries--;
+									}
+								}
 							}
 						}
 					}
