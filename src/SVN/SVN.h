@@ -342,8 +342,8 @@ public:
 	 * \remark - the use of two overloaded functions rather than default parameters is to avoid the
 	 * CTSVNPath constructor (and hence #include) being visible in this header file
 	 */
-	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
-	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile);
+	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
+	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile);
 
 	/**
 	 * Produce diff output which describes the delta between the filesystem object \a path in 
@@ -353,8 +353,8 @@ public:
 	 *
 	 * All other options are handled identically to Diff().
 	 */
-	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
-	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile);
+	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
+	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile);
 
 	/**
 	 * fires the Log-event on each log message from revisionStart

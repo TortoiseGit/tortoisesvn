@@ -703,7 +703,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
-						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -727,7 +727,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
-						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -814,7 +814,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							m_tempFileList.AddPath(tempfile);
 							tempfile.AppendRawString(_T(".diff"));
 							m_tempFileList.AddPath(tempfile);
-							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
@@ -1283,7 +1283,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			this->m_bCancelled = FALSE;
 			CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 			m_tempFileList.AddPath(tempfile);
-			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev, TRUE, FALSE, TRUE, TRUE, _T(""), tempfile))
 			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}

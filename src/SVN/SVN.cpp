@@ -740,12 +740,12 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 	return TRUE;
 }
 
-BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile)
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile)
 {
-	return Diff(path1, revision1, path2, revision2, recurse, ignoreancestry, nodiffdeleted, options, outputfile, CTSVNPath());
+	return Diff(path1, revision1, path2, revision2, recurse, ignoreancestry, nodiffdeleted, ignorecontenttype, options, outputfile, CTSVNPath());
 }
 
-BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -779,7 +779,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 	if (Err)
 		return FALSE;
 
-	Err = svn_client_diff (opts,
+	Err = svn_client_diff2 (opts,
 						   path1.GetSVNApiPath(),
 						   revision1,
 						   path2.GetSVNApiPath(),
@@ -787,6 +787,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 						   recurse,
 						   ignoreancestry,
 						   nodiffdeleted,
+						   ignorecontenttype,
 						   outfile,
 						   errfile,
 						   m_pctx,
@@ -802,12 +803,12 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 	return TRUE;
 }
 
-BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile)
+BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile)
 {
-	return PegDiff(path, pegrevision, startrev, endrev, recurse, ignoreancestry, nodiffdeleted, options, outputfile, CTSVNPath());
+	return PegDiff(path, pegrevision, startrev, endrev, recurse, ignoreancestry, nodiffdeleted, ignorecontenttype, options, outputfile, CTSVNPath());
 }
 
-BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -841,7 +842,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 	if (Err)
 		return FALSE;
 
-	Err = svn_client_diff_peg (opts,
+	Err = svn_client_diff_peg2 (opts,
 		path.GetSVNApiPath(),
 		pegrevision,
 		startrev,
@@ -849,6 +850,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 		recurse,
 		ignoreancestry,
 		nodiffdeleted,
+		ignorecontenttype,
 		outfile,
 		errfile,
 		m_pctx,
