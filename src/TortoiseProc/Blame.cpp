@@ -44,10 +44,11 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	if (m_highestrev < revision)
 		m_highestrev = revision;
 
-	infolineA.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, CUnicodeUtils::GetUTF8(date), author);
+	CString dateA = CString(CUnicodeUtils::GetUTF8(date));
+	infolineA.Format(_T("%6ld %6ld %20s %-30s "), linenumber, revision, dateA, author);
 	fulllineA = line;
 	fulllineA.TrimRight(_T("\r\n"));
-	fulllineA += "\n";
+	fulllineA += _T("\n");
 	if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
 	{
 		m_saveFile.WriteString(infolineA);
