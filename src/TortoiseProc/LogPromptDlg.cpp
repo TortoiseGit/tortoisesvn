@@ -34,10 +34,16 @@ CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	, m_sLogMessage(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_templist.RemoveAll();
 }
 
 CLogPromptDlg::~CLogPromptDlg()
 {
+	for (int i=0; i<m_templist.GetCount(); i++)
+	{
+		DeleteFile(m_templist.GetAt(i));
+	}
+	m_templist.RemoveAll();
 }
 
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
@@ -188,6 +194,25 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		return;		//we don't compare a deleted file (nothing) with something
 	CString path1 = m_arFileList.GetAt(pNMLV->iItem);
 	CString path2 = SVN::GetPristinePath(path1);
+
+	//TODO:
+	//as soon as issue 1361 of subversion 
+	//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
+	//uncomment the lines below and delete the 
+	//line above. This will then allow diff-viewers which
+	//don't ignore different line endings to work correctly
+
+	//CString path2 = CUtils::GetTempFile();
+	//SVN svn;
+	//if (!svn.Cat(path1, -1, path2))
+	//{
+	//	path2 = SVN::GetPristinePath(path1);
+	//}
+	//else
+	//{
+	//	m_templist.Add(path2);
+	//}
+
 	CString diffpath = CUtils::GetDiffPath();
 	if (diffpath != _T(""))
 	{
@@ -236,6 +261,7 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		}
 		else
 		{
+			m_templist.Add(tempfile);
 			CUtils::StartDiffViewer(tempfile);
 		}
 	}

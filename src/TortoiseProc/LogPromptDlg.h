@@ -73,6 +73,7 @@ public:
 	CListCtrl		m_ListCtrl;
 	CString			m_sPath;
 	CStringArray	m_arFileList;
+	CStringArray	m_templist;
 	CDWordArray		m_arFileStatus;
 private:
 	HANDLE			m_hThread;
