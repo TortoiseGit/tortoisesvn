@@ -698,15 +698,15 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 
 int CBaseView::GetMarginWidth()
 {
-	if ((m_bViewLinenumbers)&&(m_arLineStates)&&(m_arLineStates->GetCount()))
+	if ((m_bViewLinenumbers)&&(m_arDiffLines)&&(m_arDiffLines->GetCount()))
 	{
 		int nWidth = GetCharWidth();
 		if (m_nDigits <= 0)
 		{
-			int nLength = m_arLineStates->GetCount();
+			int nLength = m_arDiffLines->GetCount();
 			// find out how many digits are needed to show the highest linenumber
-			int nDigits = 0;
-			while (nLength % 10)
+			int nDigits = 1;
+			while (nLength / 10)
 			{
 				nDigits++;
 				nLength /= 10;
@@ -1451,6 +1451,8 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 	{
 		if ((m_pwndRight)&&(m_pwndRight->m_arLineStates)&&(m_pwndLeft)&&(m_pwndLeft->m_arLineStates))
 		{
+			nMouseLine = (nMouseLine > m_pwndRight->m_arLineStates->GetCount() ? -1 : nMouseLine);
+			nMouseLine = (nMouseLine > m_pwndLeft->m_arLineStates->GetCount() ? -1 : nMouseLine);
 			CDiffData::DiffStates state1 = (CDiffData::DiffStates)m_pwndRight->m_arLineStates->GetAt(nMouseLine);
 			CDiffData::DiffStates state2 = (CDiffData::DiffStates)m_pwndLeft->m_arLineStates->GetAt(nMouseLine);
 
