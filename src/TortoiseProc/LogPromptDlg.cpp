@@ -527,12 +527,12 @@ void CLogPromptDlg::OnCbnSelchangeOldlogs()
 		m_cLogMessage.SetText(m_OldLogs.GetString() + m_cLogMessage.GetText());
 	if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
 	{
-		if (!m_bBlock)
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
 	else
 	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
+		if (!m_bBlock)
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
 }
 
@@ -542,12 +542,12 @@ void CLogPromptDlg::OnCbnCloseupOldlogs()
 		m_cLogMessage.SetText(m_OldLogs.GetString() + m_cLogMessage.GetText());
 	if (m_ProjectProperties.nMinLogSize > m_cLogMessage.GetText().GetLength())
 	{
-		if (!m_bBlock)
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
 	else
 	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
+		if (!m_bBlock)
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
 }
 
