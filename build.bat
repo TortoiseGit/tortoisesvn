@@ -66,7 +66,7 @@ echo building Subversion
 cd ..\..\Subversion
 rem perl apr-util\build\w32locatedb.pl dll .\db4-win32\include .\db4-win32\lib
 copy build\generator\vcnet_sln.ezt build\generator\vcnet_sln7.ezt
-copy ..\TortoiseSVN\vcnet_sln.ezt build\generator\vcnet_sln.ezt
+copy %startdir%\vcnet_sln.ezt build\generator\vcnet_sln.ezt
 rem next line is commented because the vcproj generator is broken!
 rem Workaround: execute that line, then open subversion_vcnet.sln and add "..\db4-win32\lib\libdb42.lib"
 rem to the libaprutil project as an additional link
@@ -74,14 +74,14 @@ rem call python gen-make.py -t vcproj --with-openssl=..\Common\openssl --with-zl
 copy build\generator\vcnet_sln7.ezt build\generator\vcnet_sln.ezt /Y
 del neon\config.h
 del neon\config.hw
-copy ..\TortoiseSVN\neonconfig.hw neon\config.hw
+copy %startdir%\neonconfig.hw neon\config.hw
 del build\generator\vcnet_sln7.ezt
 if DEFINED _DEBUG (
   rem first, compile without any network/repository support
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
-  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
-  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.hw
+  copy %startdir%\svn_private_config.h subversion\svn_private_config.h
+  copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q Debug > NUL
   devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__"
   ren Debug\subversion subversion_netless
@@ -95,8 +95,8 @@ if DEFINED _RELEASE_OR_RELEASE_MBCS (
   rem first, compile without any network/repository support
   ren subversion\svn_private_config.h  svn_private_config_copy.h
   ren subversion\svn_private_config.hw  svn_private_config_copy.hw
-  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
-  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.hw
+  copy %startdir%\svn_private_config.h subversion\svn_private_config.h
+  copy %startdir%\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q Release > NUL
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
   ren Release\subversion subversion_netless
@@ -110,7 +110,7 @@ if DEFINED _RELEASE_OR_RELEASE_MBCS (
 rem TortoiseSVN
 echo ================================================================================
 echo copying files
-cd ..\TortoiseSVN
+cd %startdir%
 if DEFINED _DEBUG (
   if EXIST bin\debug\iconv rmdir /S /Q bin\debug\iconv > NUL
   mkdir bin\debug\iconv > NUL
