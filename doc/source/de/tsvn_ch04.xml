@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-DUG">
+<chapter id="tsvn-DUG">
 	<title>Hilfe für die tägliche Arbeit</title>
 	<simplesect>
 		<para>
@@ -540,8 +540,9 @@
 					Ordner erstellen. Und auch hier gilt, die überlagerten Icons
 					werden nur für diesen Ordner deaktiviert, nicht für die
 					Ordner innerhalb dieses Ordners.
-					Sie können bestimmte Pfade auch ausschliessen durch Angabe
-					der Pfade im Einstellungs-Dialog, Look and Feel Tab.
+					Sie können die Anzeige der Icons für bestimmte Pfade auch
+					mittels der Einstellungen ausschliessen
+					(<xref linkend="tsvn-DUG-settings-overlay"/>).
 				</para>
 			</tip>
 			</para>
@@ -1926,7 +1927,7 @@ Rev Log-Meldungen
 				Sie können auch alle überlagerten Icons deaktivieren, aber wo liegt der Spaß darin?
 			</para>
 			<para>
-				Die <term>Ausschluss Pfade</term> sagen TortoiseSVN für welche
+				Die <guilabel>Ausschluss Pfade</guilabel> sagen TortoiseSVN für welche
 				Pfade die überlagerten Icons <emphasis>nicht</emphasis> gezeichnet
 				werden sollen. Dies ist nützlich wenn Sie zum Beispiel sehr grosse
 				Arbeitskopien haben, welche grosse externe Bibliotheken, welche Sie
@@ -1947,7 +1948,7 @@ Rev Log-Meldungen
 				keine überlagerten Icons angezeigt werden.
 			</para>
 			<para>
-			Das gleiche gilt für die <term>Einschliess Pfade</term>. Nur dass für
+			Das gleiche gilt für die <guilabel>Einschliess Pfade</guilabel>. Nur dass für
 			diese Pfade die Icons auch gezeichnet werden, wenn diese für den entsprechenden
 			Laufwerks-Typ deaktiviert wurden.
 			</para>

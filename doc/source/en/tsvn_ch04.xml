@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-DUG">
+<chapter id="tsvn-DUG">
 	<title>Daily Use Guide</title>
 	<simplesect>
 		<para>
@@ -461,7 +461,7 @@
 				The folder icons also have icon overlays displayed. By default,
 				only the status of the folder itself is shown. But you can
 				change that behaviour in the 
-      			<menuchoice>
+				<menuchoice>
 					<guimenuitem>Settings</guimenuitem>
 				</menuchoice>
 				(<xref linkend="tsvn-DUG-settings"/>),
@@ -496,9 +496,9 @@
 					by creating a file called <filename>_tsvnexcludethis</filename>
 					inside that folder. Again, this disables the overlays only
 					for that folder, not the folders inside it.
-					Also, there's a setting in the look and feel tab in the
-					settings dialog where you can set specific paths to be
-					excluded from showing overlays.
+					You can define specific paths to be excluded from showing overlays
+					on the settings page
+					(<xref linkend="tsvn-DUG-settings-overlay"/>).
 				</para>
 			</tip>
 			</para>
@@ -1223,10 +1223,10 @@
 							more recent changes. By default, the number of log
 							messages fetched is limited to 100, but you can change
 							this value in 
-                  			<menuchoice>
-            					<guimenuitem>Settings</guimenuitem>
-            				</menuchoice>
-            				(<xref linkend="tsvn-DUG-settings"/>),
+							<menuchoice>
+								<guimenuitem>Settings</guimenuitem>
+							</menuchoice>
+						(<xref linkend="tsvn-DUG-settings"/>),
 						</para>
 					</listitem>
 					<listitem>
@@ -1779,7 +1779,7 @@ Rev Comments
 				You can even disable all icon overlays, but where's the fun in that?
 			</para>
 			<para>
-				The <term>Exclude Paths</term> are used to tell TortoiseSVN for which
+				The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN for which
 				paths <emphasis>not</emphasis> to show icon overlays and status columns.
 				This is useful if you have some very big working copies containing
 				only libraries which you won't change at all and therefore don't
@@ -1798,7 +1798,7 @@ Rev Comments
 				path.
 			</para>
 			<para>
-			The same applies to the <term>Include Paths</term>. Only that for those
+			The same applies to the <guilabel>Include Paths</guilabel>. Only that for those
 			paths the overlays are shown even if the overlays are disabled for
 			that specific drive type.
 			</para>
