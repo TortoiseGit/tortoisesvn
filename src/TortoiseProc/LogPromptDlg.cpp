@@ -472,6 +472,13 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(url);
 				} // if ((s->entry)&&(s->entry->url))
 				temp = strbuf;
+				if ((stat == svn_wc_status_unversioned) && (PathIsDirectory(temp)))
+				{
+					//check if the unversioned folder is maybe versioned. This
+					//could happen with nested layouts
+					if (SVNStatus::GetAllStatus(temp) != svn_wc_status_unversioned)
+						stat = svn_wc_status_normal;	//ignore nested layouts
+				} // if ((stat == svn_wc_status_unversioned) && (PathIsDirecory(temp)))
 				if (SVNStatus::IsImportant(stat))
 				{
 					CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
@@ -511,6 +518,13 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				{
 					temp = strbuf;
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+					if ((stat == svn_wc_status_unversioned) && (PathIsDirectory(temp)))
+					{
+						//check if the unversioned folder is maybe versioned. This
+						//could happen with nested layouts
+						if (SVNStatus::GetAllStatus(temp) != svn_wc_status_unversioned)
+							stat = svn_wc_status_normal;	//ignore nested layouts
+					} // if ((stat == svn_wc_status_unversioned) && (PathIsDirecory(temp)))
 					if (SVNStatus::IsImportant(stat))
 					{
 						CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
