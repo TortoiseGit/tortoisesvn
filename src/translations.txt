@@ -30,13 +30,13 @@ If you want to implement a new language for TortoiseSVN do the following.
 
 2) Tortoise.pot is the template (hence .pot) for the translation.
    Rename Tortoise.pot to Tortoise_xx.po, where xx is your two letter ISO 
-	 country code. If you're not sure about your country code, look here:
-	 http://www.iso.ch/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html
-	 The German PO file would be named Tortoise_de.po
+   country code. If you're not sure about your country code, look here:
+   http://www.iso.ch/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html
+   The German PO file would be named Tortoise_de.po
 
 3) Now translate what you can using poEdit. If you are not sure with one or
    the other translation, mark it as "fuzzy"
-	 If you are not sure about the meaning of the original sentence ask on the list.
+   If you are not sure about the meaning of the original sentence ask on the list.
 
 4) Add a header with '#' comments to the PO file that explains which language 
    you translated and the terminology you used, like:
@@ -70,7 +70,7 @@ Adding to an existing translation
 
 5) Translate what you can and send the resulting PO file back to the mailing
    list.
-   
+
 What now?
 ---------
 That's all you have to do. We'll take care of creating the ressource dlls and
