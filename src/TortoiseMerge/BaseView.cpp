@@ -1018,7 +1018,7 @@ void CBaseView::OnContextMenu(CWnd* pWnd, CPoint point)
 {
 	int nLine = GetLineFromPoint(point);
 
-	if (nLine <= m_arLineStates->GetCount())
+	if ((nLine <= m_arLineStates->GetCount())&&(nLine > m_nTopLine))
 	{
 		int nIndex = nLine - 1;
 		CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nIndex);
