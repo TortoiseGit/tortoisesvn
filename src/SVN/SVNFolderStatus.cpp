@@ -134,7 +134,10 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	m_nCacheCount = apr_hash_count(statushash);
 	m_pStatusCache = new filestatuscache[m_nCacheCount];
 	if (!m_pStatusCache)
+	{
+		m_nCacheCount = 0;
 		return &invalidstatus;
+	}
 	int i=0;
 	for (hi = apr_hash_first (pool, statushash); hi; hi = apr_hash_next (hi))
 	{
@@ -227,6 +230,8 @@ int SVNFolderStatus::FindFile(LPCTSTR filename)
 	{
 		// files are searched only by the filename, not the full path
 		file = _tcsrchr(filename, '/')+1;
+		if (!file)
+			return -1;
 	}
 	for (int i=0; i<m_nCacheCount; i++)
 	{
@@ -251,6 +256,7 @@ int SVNFolderStatus::IsCacheValid(LPCTSTR filename)
 	else
 	{
 		ATLTRACE2(_T("cache timeout\n"));
+		return -1;
 	}
 	if (i>=SVNFOLDERSTATUS_FOLDER)
 	{
