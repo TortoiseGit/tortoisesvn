@@ -1014,17 +1014,33 @@ BOOL CTortoiseProcApp::InitInstance()
 				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
 				if (!svn.Move(pathList[nPath], destPath, FALSE))
 				{
-					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					return FALSE;		//get out of here
-				} // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) 
+					if (SVNStatus::GetAllStatus(pathList[nPath]) > svn_wc_status_normal)
+					{
+						// file/folder seems to have local modifications. Ask the user if
+						// a force is requested.
+						if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_FORCEMOVE, IDS_APPNAME, MB_YESNO)==IDYES)
+						{
+							if (!svn.Move(pathList[nPath], destPath, TRUE))
+							{
+								CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								return FALSE;		//get out of here
+							}
+						}
+					}
+					else
+					{
+						TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+						CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						return FALSE;		//get out of here
+					}
+				} 
 				count++;
 				if (progress.IsValid())
 				{
 					progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, pathList[nPath].GetWinPath());
 					progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, destPath.GetWinPath());
 					progress.SetProgress(count, pathList.GetCount());
-				} // if (progress.IsValid())
+				}
 				if ((progress.IsValid())&&(progress.HasUserCancelled()))
 				{
 					CMessageBox::Show(EXPLORERHWND, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
