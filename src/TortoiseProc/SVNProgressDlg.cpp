@@ -319,7 +319,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						sfile = strLine;
 					} // while (file.ReadString(strLine)) 
 					file.Close();
-					CFile::Remove(pDlg->m_sPath);
+					DeleteFile(pDlg->m_sPath);
 					pDlg->m_sPath = sfile;		// the log would be shown for the last selected file/dir in the list
 				}
 				catch (CFileException* pE)
@@ -414,7 +414,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					else
 						logmessage.removeValue();
 					file.Close();
-					CFile::Remove(pDlg->m_sPath);
+					DeleteFile(pDlg->m_sPath);
 				}
 				catch (CFileException* pE)
 				{
@@ -447,7 +447,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						}
 					}
 					file.Close();
-					CFile::Remove(pDlg->m_sPath);
+					DeleteFile(pDlg->m_sPath);
 				}
 				catch (CFileException* pE)
 				{
@@ -480,7 +480,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						}
 					}
 					file.Close();
-					CFile::Remove(pDlg->m_sPath);
+					DeleteFile(pDlg->m_sPath);
 				}
 				catch (CFileException* pE)
 				{

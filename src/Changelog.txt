@@ -13,6 +13,9 @@
        is more organized. (Stefan)
 - CHG: The about box got a facelift: it finally
        has the correct TSVN logo in it. (Stefan)
+- CHG: Don't show an error if a temporary file
+       can't get deleted because of a stupid
+       virus scanner. (Stefan)
 - BUG: Convert the Subversion error messages
        properly from UTF8 to UNICODE/MBCS. (Stefan)
        
