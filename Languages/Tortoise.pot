@@ -73,6 +73,10 @@ msgid "%s - at revision: %d"
 msgstr ""
 
 #: ID:151,
+msgid "%s : Remote File"
+msgstr ""
+
+#: ID:151,
 msgid "%s : Working Base"
 msgstr ""
 
@@ -129,7 +133,7 @@ msgid "&Close windows automatically"
 msgstr ""
 
 #: ID:76,
-msgid "&Compare revisions"
+msgid "&Compare Revisions"
 msgstr ""
 
 #: ID:101,
@@ -313,7 +317,7 @@ msgid "&Unknown drives"
 msgstr ""
 
 #: ID:76,
-msgid "&Update item to revision"
+msgid "&Update Item To Revision"
 msgstr ""
 
 #: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
@@ -393,7 +397,7 @@ msgid "A viewer program for GNU diff files (patch files).\nIf you don't have one
 msgstr ""
 
 #: ID:101,
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr ""
 
 #: Control-ID:1093,
@@ -445,7 +449,7 @@ msgid "Add"
 msgstr ""
 
 #: ID:101,
-msgid "Add &file..."
+msgid "Add &File..."
 msgstr ""
 
 #: ID:110,
@@ -681,7 +685,7 @@ msgid "C&reate Folder..."
 msgstr ""
 
 #: ID:77,
-msgid "C&reate Tag from revision"
+msgid "C&reate Tag From Revision"
 msgstr ""
 
 #: ID:3697,
@@ -713,7 +717,7 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr ""
 
 #: ID:157,
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
 msgstr ""
 
 #: ID:3825,
@@ -852,12 +856,12 @@ msgstr ""
 msgid "Compare Whitespaces"
 msgstr ""
 
-#: ID:76,
-msgid "Compare with &working copy"
+#: ID:138,
+msgid "Compare With B&ase"
 msgstr ""
 
-#: ID:138,
-msgid "Compare with B&ase"
+#: ID:76,
+msgid "Compare with &working copy"
 msgstr ""
 
 #: ID:12,
@@ -870,6 +874,10 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "Conflicted"
+msgstr ""
+
+#: ID:188,
+msgid "Conflicts: %d"
 msgstr ""
 
 #: Control-ID:65535,
@@ -886,6 +894,10 @@ msgstr ""
 
 #: ID:73,
 msgid "Copy"
+msgstr ""
+
+#: ID:101,
+msgid "Copy To Working Copy..."
 msgstr ""
 
 #: ID:13,
@@ -1308,8 +1320,16 @@ msgstr ""
 msgid "Getting log info..."
 msgstr ""
 
+#: ID:2051,
+msgid "Go to the next conflict\nnext conflict"
+msgstr ""
+
 #: ID:2049,
 msgid "Go to the next difference\nnext difference"
+msgstr ""
+
+#: ID:2051,
+msgid "Go to the previous conflict\nprevious conflict"
 msgstr ""
 
 #: ID:2049,
@@ -1320,7 +1340,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: Control-ID:65535,
+#: Control-ID:1127,
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr ""
 
@@ -1440,6 +1460,10 @@ msgstr ""
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr ""
 
+#: ID:188,
+msgid "Left View: "
+msgstr ""
+
 #: ID:3605,
 msgid "List Help topics\nHelp Topics"
 msgstr ""
@@ -1504,10 +1528,6 @@ msgstr ""
 msgid "Mime Type"
 msgstr ""
 
-#: Control-ID:65535,
-msgid "Minimum logsize in chars"
-msgstr ""
-
 #: Control-ID:1082,#: Control-ID:1023,
 msgid "Misc"
 msgstr ""
@@ -1534,6 +1554,10 @@ msgstr ""
 
 #: ID:80,
 msgid "Moving..."
+msgstr ""
+
+#: MenuEntry
+msgid "N&ext Conflict"
 msgstr ""
 
 #: ID:3697,
@@ -1577,7 +1601,7 @@ msgid "No error occurred."
 msgstr ""
 
 #: ID:77,
-msgid "No files were changed or added since\nthe last commit. There's nothing\nto do for TortoiseSVN here..."
+msgid "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here..."
 msgstr ""
 
 #: Control-ID:65535,
@@ -1640,6 +1664,10 @@ msgstr ""
 msgid "Out of memory."
 msgstr ""
 
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr ""
+
 #: ID:76,
 msgid "PEM"
 msgstr ""
@@ -1652,12 +1680,12 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
-#: Control-ID:1121,
-msgid "Paste Log &template in english"
+#: Control-ID:1031,
+msgid "Paste Changed Filenames"
 msgstr ""
 
-#: Control-ID:1031,
-msgid "Paste Status Template"
+#: Control-ID:1121,
+msgid "Paste Log &template in english"
 msgstr ""
 
 #: ID:376,
@@ -1952,6 +1980,10 @@ msgstr ""
 msgid "Revision: "
 msgstr ""
 
+#: ID:188,
+msgid "Right View: "
+msgstr ""
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr ""
@@ -2040,12 +2072,12 @@ msgstr ""
 msgid "Save &As..."
 msgstr ""
 
-#: ID:101,
-msgid "Save &as..."
-msgstr ""
-
 #: ID:3841,#: ID:3841,
 msgid "Save As"
+msgstr ""
+
+#: ID:76,
+msgid "Save Revision &To..."
 msgstr ""
 
 #: ID:313,
@@ -2054,10 +2086,6 @@ msgstr ""
 
 #: ID:3857,#: ID:3857,
 msgid "Save changes to %1?"
-msgstr ""
-
-#: ID:76,
-msgid "Save revision &to..."
 msgstr ""
 
 #: ID:3601,#: ID:3601,
@@ -2168,7 +2196,7 @@ msgstr ""
 msgid "Show &Differences"
 msgstr ""
 
-#: Control-ID:1031,#: Control-ID:1034,
+#: ID:101,#: Control-ID:1031,#: Control-ID:1034,
 msgid "Show &Log"
 msgstr ""
 
@@ -2176,7 +2204,7 @@ msgstr ""
 msgid "Show &Log..."
 msgstr ""
 
-#: ID:101,#: Control-ID:1016,
+#: Control-ID:1016,
 msgid "Show &log"
 msgstr ""
 
@@ -2413,7 +2441,7 @@ msgid "There are changes inside one or more directories which you have included 
 msgstr ""
 
 #: ID:66,
-msgid "There are still unresolved conflicts in line %d!\nPlease resolve those conflicts first before saving."
+msgid "There are still unresolved conflicts in line %d!\nYou should resolve those conflicts first before saving.\nDo you want to save the file with the conflicts still there?\nIf you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
 
 #: ID:188,
@@ -2673,7 +2701,7 @@ msgid "Yes"
 msgstr ""
 
 #: ID:145,
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr ""
 
 #: ID:201,
@@ -2846,6 +2874,18 @@ msgstr ""
 
 #: ID:80,
 msgid "to %s"
+msgstr ""
+
+#: ID:15,
+msgid "tsvn:logminsize\nMinimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+
+#: ID:15,
+msgid "tsvn:logtemplate\nString which is inserted in the log message boxes in the commit dialogs.\nUse this as a log message templates for users to fill in."
+msgstr ""
+
+#: ID:15,
+msgid "tsvn:logwidthmarker\nSet this to the number of chars the log message should not exceed its width.\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 
 #: Control-ID:1112,
