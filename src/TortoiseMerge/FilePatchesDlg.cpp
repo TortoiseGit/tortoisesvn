@@ -8,6 +8,7 @@ IMPLEMENT_DYNAMIC(CFilePatchesDlg, CDialog)
 CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CFilePatchesDlg::IDD, pParent)
 {
+	m_ImgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
 }
 
 CFilePatchesDlg::~CFilePatchesDlg()
@@ -42,6 +43,10 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 		m_sPath = m_sPath.Left(m_sPath.GetLength()-1);
 
 	m_sPath = m_sPath + _T("\\");
+	for (int i=m_ImgList.GetImageCount();i>0;i--)
+	{
+		m_ImgList.Remove(0);
+	}
 
 	m_cFileList.SetExtendedStyle(LVS_EX_INFOTIP | LVS_EX_FULLROWSELECT);
 	m_cFileList.DeleteAllItems();
@@ -57,8 +62,16 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 		CString sFile = m_pPatch->GetFilename(i);
 		sFile.Replace('/', '\\');
 		sFile = sFile.Mid(sFile.ReverseFind('\\')+1);
-		m_cFileList.InsertItem(i, sFile);
 		m_arFileStates.Add(m_pPatch->PatchFile(GetFullPath(i)));
+		SHFILEINFO    sfi;
+		SHGetFileInfo(
+			GetFullPath(i), 
+			FILE_ATTRIBUTE_NORMAL,
+			&sfi, 
+			sizeof(SHFILEINFO), 
+			SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+		m_cFileList.InsertItem(i, sFile, m_ImgList.Add(sfi.hIcon));
+
 	} // for(int i=0; i<m_pPatch->GetNumberOfFiles(); i++) 
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
@@ -67,6 +80,8 @@ BOOL CFilePatchesDlg::Init(CPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, 
 	{
 		m_cFileList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
+
+	m_cFileList.SetImageList(&m_ImgList, LVSIL_SMALL);
 	m_cFileList.SetRedraw(true);
 	return TRUE;
 }

@@ -31,7 +31,6 @@
 #define IDD_INPUTDLG                    161
 #define IDD_BLAME                       162
 #define IDR_SEARCH                      163
-#define IDD_PROPPAGE_MEDIUM             163
 #define IDD_SETTINGSPROGS               163
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -52,6 +51,7 @@
 #define IDC_MESSAGE                     1017
 #define IDC_DIFFVIEWER                  1017
 #define IDC_REV                         1018
+#define IDC_DIFFVIEWER2                 1018
 #define IDC_NEWEST                      1019
 #define IDC_BRANCH                      1020
 #define IDC_EXTDIFFBROWSE               1021

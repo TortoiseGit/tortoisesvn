@@ -53,7 +53,7 @@ protected:
 	CString						m_sPath;
 	CListCtrl					m_cFileList;
 	CDWordArray					m_arFileStates;
-
+	CImageList					m_ImgList;
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnSize(UINT nType, int cx, int cy);
