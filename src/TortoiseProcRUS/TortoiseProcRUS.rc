@@ -130,22 +130,25 @@ BEGIN
                     IDC_HINTLABEL,7,215,173,16
 END
 
-IDD_IMPORT DIALOGEX 0, 0, 269, 182
+IDD_IMPORT DIALOGEX 0, 0, 269, 281
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Начальный импорт файлов в репозиторий"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "ОК",IDOK,157,162,50,14
-    PUSHBUTTON      "Отмена",IDCANCEL,213,162,50,14
-    LTEXT           "URL репозитория:",IDC_STATIC,13,24,64,8
-    EDITTEXT        IDC_MESSAGE,13,89,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
+    DEFPUSHBUTTON   "ОК",IDOK,157,261,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,213,261,50,14
+    LTEXT           "URL репозитория:",IDC_STATIC4,13,24,64,8
+    EDITTEXT        IDC_MESSAGE,13,60,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN
-    GROUPBOX        "Комментарий",IDC_STATIC,7,76,256,78
+    GROUPBOX        "Комментарий",IDC_STATIC2,7,47,256,78
     COMBOBOX        IDC_URLCOMBO,78,22,159,45,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
-    GROUPBOX        "Репозиторий",IDC_STATIC,7,7,256,53
+    GROUPBOX        "Репозиторий",IDC_STATIC1,7,7,256,37
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,14,141,242,103
+    GROUPBOX        "Temporary Files To Delete",IDC_STATIC3,8,128,255,123
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 228, 107
@@ -428,7 +431,7 @@ BEGIN
         VERTGUIDE, 237
         VERTGUIDE, 255
         TOPMARGIN, 7
-        BOTTOMMARGIN, 176
+        BOTTOMMARGIN, 275
     END
 
     IDD_SWITCH, DIALOG
@@ -740,6 +743,7 @@ BEGIN
     IDS_CHECKOUT_TT_DIR     "Папка, в которую будут скопированы файлы\nиз указанного репозитория."
     IDS_IMPORT_TT_MODULENAMECHECK 
                             "Если опция включена, в репозитории будет создана новая папка.\nВ противном случае начальный импорт будет произведён по указанному URL."
+    IDS_IMPORT_TT_TEMPFILES "Check the files which you want to\ndelete before importing"
 END
 
 STRINGTABLE 

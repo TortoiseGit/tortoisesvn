@@ -251,22 +251,25 @@ BEGIN
                     IDC_HINTLABEL,7,202,173,16
 END
 
-IDD_IMPORT DIALOGEX 0, 0, 269, 182
+IDD_IMPORT DIALOGEX 0, 0, 269, 282
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "Importa"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,157,161,50,14
-    PUSHBUTTON      "Annulla",IDCANCEL,212,161,50,14
-    LTEXT           "URL dell'archivio:",IDC_STATIC,13,24,60,8
-    EDITTEXT        IDC_MESSAGE,13,89,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
+    DEFPUSHBUTTON   "OK",IDOK,157,261,50,14
+    PUSHBUTTON      "Annulla",IDCANCEL,212,261,50,14
+    LTEXT           "URL dell'archivio:",IDC_STATIC4,13,24,60,8
+    EDITTEXT        IDC_MESSAGE,13,60,242,60,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_AUTOHSCROLL | ES_WANTRETURN
-    GROUPBOX        "Messaggio",IDC_STATIC,7,76,255,78
+    GROUPBOX        "Messaggio",IDC_STATIC2,7,47,255,78
     COMBOBOX        IDC_URLCOMBO,78,22,159,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,241,22,14,12
-    GROUPBOX        "Archivio",IDC_STATIC,7,7,255,53
+    GROUPBOX        "Archivio",IDC_STATIC1,7,7,255,37
+    CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,13,143,242,103
+    GROUPBOX        "Temporary Files To Delete",IDC_STATIC3,7,130,255,123
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 228, 103
@@ -538,7 +541,7 @@ BEGIN
         VERTGUIDE, 237
         VERTGUIDE, 255
         TOPMARGIN, 7
-        BOTTOMMARGIN, 175
+        BOTTOMMARGIN, 275
     END
 
     IDD_SWITCH, DIALOG
@@ -834,6 +837,7 @@ BEGIN
     IDS_CHECKOUT_TT_DIR     "Cartella dove salvare il contenuto dell'archivio specificato."
     IDS_IMPORT_TT_MODULENAMECHECK 
                             "Se selezionato una nuova cartella verra' creata nell'archivio dove verrano eseguite le importazioni."
+    IDS_IMPORT_TT_TEMPFILES "Check the files which you want to\ndelete before importing"
 END
 
 STRINGTABLE 

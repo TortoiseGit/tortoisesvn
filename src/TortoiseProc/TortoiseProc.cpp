@@ -221,12 +221,13 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (!logmsg.IsEmpty())
 				dlg.m_message = logmsg;
 			CString path = parser.GetVal(_T("path"));
+			dlg.m_path = path;
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("url = %s\n"), dlg.m_url);
-				CCheckTempFiles checker;
-				if (checker.Check(path, true, false)!=IDCANCEL)
-				{
+				//CCheckTempFiles checker;
+				//if (checker.Check(path, true, false)!=IDCANCEL)
+				//{
 					CSVNProgressDlg progDlg;
 					m_pMainWnd = &progDlg;
 					//construct the module name out of the path
@@ -234,9 +235,9 @@ BOOL CTortoiseProcApp::InitInstance()
 					progDlg.SetParams(Import, false, path, dlg.m_url, dlg.m_message);
 					logmessage = dlg.m_message;
 					progDlg.DoModal();
-				} // if (checker.Check(path, true, false)!=IDCANCEL)
-				else
-					logmessage.removeValue();
+				//} // if (checker.Check(path, true, false)!=IDCANCEL)
+				//else
+				//	logmessage.removeValue();
 			}
 			else
 				logmessage.removeValue();

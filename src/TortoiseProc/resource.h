@@ -188,6 +188,7 @@
 #define IDS_WARN_FOLDERNOTEXIST         400
 #define IDS_CHECKOUT_TT_DIR             500
 #define IDS_IMPORT_TT_MODULENAMECHECK   510
+#define IDS_IMPORT_TT_TEMPFILES         511
 #define IDS_REPOBROWSE_SAVEAS           600
 #define IDS_REPOBROWSE_SHOWLOG          601
 #define IDS_REPOBROWSE_OPEN             602
@@ -267,6 +268,10 @@
 #define IDC_HINTLABEL                   1052
 #define IDC_REVISION_END                1053
 #define IDC_VERSIONABOUT                1054
+#define IDC_STATIC1                     1055
+#define IDC_STATIC2                     1056
+#define IDC_STATIC3                     1057
+#define IDC_STATIC4                     1058
 
 // Next default values for new objects
 // 
@@ -274,7 +279,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        159
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1055
+#define _APS_NEXT_CONTROL_VALUE         1059
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -25,9 +25,9 @@
 
 // CImportDlg dialog
 
-IMPLEMENT_DYNAMIC(CImportDlg, CDialog)
+IMPLEMENT_DYNAMIC(CImportDlg, CResizableDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CImportDlg::IDD, pParent)
+	: CResizableDialog(CImportDlg::IDD, pParent)
 {
 	m_message.LoadString(IDS_IMPORT_DEFAULTMSG);
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -39,14 +39,15 @@ CImportDlg::~CImportDlg()
 
 void CImportDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_MESSAGE, m_message);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
+	DDX_Control(pDX, IDC_FILELIST, m_FileList);
 }
 
 
-BEGIN_MESSAGE_MAP(CImportDlg, CDialog)
+BEGIN_MESSAGE_MAP(CImportDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
@@ -55,7 +56,7 @@ END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 
 	// Set the icon for this dialog.  The framework does this automatically
 	//  when the application's main window is not a dialog
@@ -64,10 +65,55 @@ BOOL CImportDlg::OnInitDialog()
 
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 
+	//set the listcontrol to support checkboxes
+	m_FileList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT);
+
+	m_FileList.DeleteAllItems();
+	int c = ((CHeaderCtrl*)(m_FileList.GetDlgItem(0)))->GetItemCount()-1;
+	while (c>=0)
+		m_FileList.DeleteColumn(c--);
+	CString temp;
+	temp.LoadString(IDS_LOGPROMPT_FILE);
+	m_FileList.InsertColumn(0, temp);
+
+	m_FileList.SetRedraw(false);
+
+	CDirFileList filelist;
+	filelist.BuildList(m_path, TRUE, TRUE);
+	for (int i=0; i<filelist.GetCount(); i++)
+	{
+		if (CCheckTempFiles::IsTemp(filelist.GetAt(i)))
+		{
+			m_FileList.InsertItem(m_FileList.GetItemCount(), filelist.GetAt(i));
+			m_FileList.SetCheck(m_FileList.GetItemCount()-1, TRUE);
+		}
+	}
+	int mincol = 0;
+	int maxcol = ((CHeaderCtrl*)(m_FileList.GetDlgItem(0)))->GetItemCount()-1;
+	int col;
+	for (col = mincol; col <= maxcol; col++)
+	{
+		m_FileList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+	}
+	m_FileList.SetRedraw(true);
+
+
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MODULENAMECHECK, IDS_IMPORT_TT_MODULENAMECHECK);
+	m_tooltips.AddTool(IDC_FILELIST, IDS_IMPORT_TT_TEMPFILES);
 	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
+
+	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_STATIC4, TOP_LEFT);
+	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_STATIC2, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_MESSAGE, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_STATIC3, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -97,7 +143,7 @@ void CImportDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -115,7 +161,40 @@ void CImportDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_url = m_URLCombo.GetString();
 	UpdateData();
-	CDialog::OnOK();
+
+	// first we check the size of all filepaths together
+	DWORD len = 0;
+	for (int j=0; j<m_FileList.GetItemCount(); j++)
+	{
+		if (m_FileList.GetCheck(j))
+		{
+			len += m_FileList.GetItemText(j,0).GetLength() + sizeof(TCHAR);
+		}
+	}
+	TCHAR * filenames = new TCHAR[len+(4*sizeof(TCHAR))];
+	ZeroMemory(filenames, len+(4*sizeof(TCHAR)));
+	TCHAR * fileptr = filenames;
+	for (int i=0; i<m_FileList.GetItemCount(); i++)
+	{
+		if (m_FileList.GetCheck(i))
+		{
+			_tcscpy(fileptr, m_FileList.GetItemText(i,0));
+			fileptr = _tcsninc(fileptr, _tcslen(fileptr)+1);
+		} // if (m_FileList.GetCheck(i))
+	} // for (int i=0; i<m_FileList.GetItemCount(); i++)
+	*fileptr = '\0';
+
+	SHFILEOPSTRUCT fileop;
+	fileop.hwnd = this->m_hWnd;
+	fileop.wFunc = FO_DELETE;
+	fileop.pFrom = filenames;
+	fileop.pTo = _T("");
+	fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
+	fileop.lpszProgressTitle = _T("deleting files");
+	SHFileOperation(&fileop);
+
+	delete [] filenames;
+	CResizableDialog::OnOK();
 }
 
 void CImportDlg::OnBnClickedBrowse()
@@ -179,5 +258,5 @@ void CImportDlg::OnBnClickedBrowse()
 BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
-	return CDialog::PreTranslateMessage(pMsg);
+	return CResizableDialog::PreTranslateMessage(pMsg);
 }

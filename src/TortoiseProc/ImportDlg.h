@@ -19,6 +19,10 @@
 #include "afxwin.h"
 #include "HistoryCombo.h"
 #include "Balloon.h"
+#include "CheckTempFiles.h"
+#include "DirFileList.h"
+#include "afxcmn.h"
+#include "ResizableDialog.h"
 
 /**
  * \ingroup TortoiseProc
@@ -51,7 +55,7 @@
  * \bug 
  *
  */
-class CImportDlg : public CDialog
+class CImportDlg : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CImportDlg)
 
@@ -73,8 +77,10 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CString m_url;
+	CString m_path;
 	CString m_message;
 	CHistoryCombo m_URLCombo;
+	CListCtrl m_FileList;
 protected:
 	CBalloon	m_tooltips;
 public:
