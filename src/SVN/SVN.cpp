@@ -192,6 +192,9 @@ BOOL SVN::Checkout(CString moduleName, CString destPath, LONG revision, BOOL rec
 	{
 		return FALSE;
 	}
+
+	UpdateShell(destPath);
+
 	return TRUE;
 }
 
@@ -208,6 +211,9 @@ BOOL SVN::Remove(CString path, BOOL force)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -220,6 +226,9 @@ BOOL SVN::Revert(CString path, BOOL recurse)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -233,6 +242,9 @@ BOOL SVN::Add(CString path, BOOL recurse)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -249,6 +261,9 @@ BOOL SVN::Update(CString path, LONG revision, BOOL recurse)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -268,6 +283,8 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 	{
 		return 0;
 	}
+	
+	UpdateShell(path);
 
 	if(commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		return commit_info->revision;
@@ -311,6 +328,10 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(srcPath);
+	UpdateShell(destPath);
+
 	return TRUE;
 }
 
@@ -328,6 +349,9 @@ BOOL SVN::MakeDir(CString path, CString message)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -340,6 +364,9 @@ BOOL SVN::CleanUp(CString path)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -354,6 +381,9 @@ BOOL SVN::Resolve(CString path, BOOL recurse)
 	{
 		return FALSE;
 	}
+
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -389,6 +419,9 @@ BOOL SVN::Switch(CString path, CString url, LONG revision, BOOL recurse)
 	{
 		return FALSE;
 	}
+	
+	UpdateShell(path);
+
 	return TRUE;
 }
 
@@ -440,6 +473,9 @@ BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CS
 	{
 		return FALSE;
 	}
+
+	UpdateShell(localPath);
+
 	return TRUE;
 }
 
@@ -921,6 +957,14 @@ CString SVN::GetPristinePath(CString wcPath)
 	svn_pool_destroy(localpool);
 	apr_terminate();
 	return temp;
+}
+
+void SVN::UpdateShell(CString path)
+{
+	if (PathIsDirectory(path))
+		SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH, path, NULL);
+	else
+		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, path, NULL);
 }
 
 typedef struct

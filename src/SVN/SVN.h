@@ -400,7 +400,7 @@ private:
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 	apr_array_header_t * target (LPCTSTR path);
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
-
+	void UpdateShell(CString path);
 	static svn_error_t* prompt(char **info, 
 					const char *prompt, 
 					svn_boolean_t hide, 
