@@ -142,7 +142,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		}
 		isFolder = true;
 	}
-	if (files_.size() == 1)
+	if ((files_.size() == 1)&&(m_State != DropHandler))
 	{
 		isOnlyOneItemSelected = true;
 		if (PathIsDirectory(files_.front().c_str()))

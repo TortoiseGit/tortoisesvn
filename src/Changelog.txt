@@ -1,3 +1,8 @@
+Repository
+- BUG: right-dragging a single file/folder resulted
+       in error message "cannot copy path ... into
+       its own child ...". (Stefan)
+
 Version 0.14
 - BUG: A Path inside a local repository wasn't recognized
        as a valid repo path in the repository browser. 
