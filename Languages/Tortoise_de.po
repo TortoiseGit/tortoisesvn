@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-04 10:34+0100\n"
+"PO-Revision-Date: 2005-03-08 12:10+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,6 +105,17 @@ msgid ""
 msgstr ""
 "%s\n"
 "Wollen Sie sie trotzden löschen?"
+
+# ID:69,
+#: ID:69
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"ist ein Verzeichnis, keine Datei!\n"
+"TortoiseMerge kann Verzeichnisse nicht vergleichen."
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
@@ -3884,12 +3895,12 @@ msgstr ""
 "Deshalb wird Ihre Arbeitskopie nicht exakt der Revision entsprechen zu der sie aktualisieren!"
 
 #: MenuEntry
-msgid "Zoom &In"
-msgstr "Ver&größern"
+msgid "Zoom &In\tCtrl-+"
+msgstr "Ver&größern\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out"
-msgstr "Ver&kleinern"
+msgid "Zoom &Out\tCtrl--"
+msgstr "Ver&kleinern\tCtrl--"
 
 #: ID:10
 msgid "added"
