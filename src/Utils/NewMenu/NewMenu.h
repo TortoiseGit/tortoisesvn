@@ -927,7 +927,7 @@ protected:
     MENUINFO menuInfo = {0};
     menuInfo.cbSize = sizeof(menuInfo);
     menuInfo.fMask = MIM_BACKGROUND;
-    if(::GetMenuInfo(::GetMenu(m_hWnd),&menuInfo) && menuInfo.hbrBack)
+    if(::MyGetMenuInfo(::GetMenu(m_hWnd),&menuInfo) && menuInfo.hbrBack)
     {
       CDC* pDC = GetWindowDC(); 
       CRect clientRect;
