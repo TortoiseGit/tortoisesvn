@@ -3,6 +3,8 @@
 	<!ENTITY ch00 SYSTEM "tme_ch00.xml">
 	<!ENTITY ch01 SYSTEM "tme_ch01.xml">
 	<!ENTITY ch02 SYSTEM "tme_ch02.xml">
+	<!ENTITY appa SYSTEM "tme_appa.xml">
+	<!ENTITY appb SYSTEM "tme_appb.xml">
 	<!ENTITY gloss SYSTEM "tme_glossary.xml">
 	<!ENTITY copy SYSTEM "tme_copyright.xml">
 ]>
@@ -29,6 +31,8 @@
   &ch00;
   &ch01;
   &ch02;
+  &appa;
+  &appb;
   &gloss;
 <!--  &mergecopy;-->
 </book>

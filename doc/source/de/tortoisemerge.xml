@@ -3,10 +3,12 @@
 	<!ENTITY ch00 SYSTEM "tme_ch00.xml">
 	<!ENTITY ch01 SYSTEM "tme_ch01.xml">
 	<!ENTITY ch02 SYSTEM "tme_ch02.xml">
+	<!ENTITY appa SYSTEM "tme_appa.xml">
+	<!ENTITY appb SYSTEM "tme_appb.xml">
 	<!ENTITY gloss SYSTEM "tme_glossary.xml">
 	<!ENTITY copy SYSTEM "tme_copyright.xml">
 ]>
-<book id="tmerge" lang="en">
+<book id="tmerge" lang="de">
 	<title>TortoiseMerge</title>
 	<?dbhh topicname="HIDR_MAINFRAME"?>
 	<subtitle>Ein Diff/Merge Programm</subtitle>
@@ -25,6 +27,8 @@
   &ch00;
   &ch01;
   &ch02;
+  &appa;
+  &appb;
   &gloss;
 <!--  &mergecopy;-->
 </book>

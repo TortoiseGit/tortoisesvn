@@ -1,0 +1,118 @@
+﻿<appendix id="tme-commandline">
+	<title>Kommandozeilenparameter</title>
+	<simplesect>
+		<para>
+		TortoiseMerge kann mittels verschiedener Kommandozeilenparameter gestartet
+		werden um Dateien direkt beim Programmstart zu laden.
+		</para>
+	</simplesect>
+	<sect1 id="tme-commandline-sect-1">
+	<title>Kommandozeilenparameter</title>
+		<variablelist>
+  			<varlistentry>
+  				<term>/?</term>
+  				<listitem>
+  					<para>
+  					Zeigt einen Info-Dialog an mit allen möglichen 
+					Kommandozeilenparametern.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>/base:&quot;path/to/basefile&quot;</term>
+  				<listitem>
+  					<para>
+  					Gibt die Base-Datei an
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>/basename:name</term>
+  				<listitem>
+  					<para>
+  					Gibt den String an, welcher als View-Titel verwendet
+  					werden soll.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>/theirs:&quot;path/to/theirfile&quot;</term>
+  				<listitem>
+  					<para>
+  					Gibt die Their-Datei an
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>/theirname:name</term>
+  				<listitem>
+  					<para>
+  					Gibt den String an, welcher als View-Titel verwendet
+  					werden soll.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>/yours:&quot;path/to/yourfile&quot;</term>
+  				<listitem>
+  					<para>
+  					Gibt die Your-Datei an
+  					</para>
+  				</listitem>
+  			</varlistentry>
+   			<varlistentry>
+  				<term>/yourname:name</term>
+  				<listitem>
+  					<para>
+  					Gibt den String an, welcher als View-Titel verwendet
+  					werden soll.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+ 			<varlistentry>
+  				<term>/merged:&quot;path/to/mergedfile&quot;</term>
+  				<listitem>
+  					<para>
+  					Gibt die Merged-Datei an, in welche das Ergebnis gespeichert
+  					wird.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+   			<varlistentry>
+  				<term>/mergedname:name</term>
+  				<listitem>
+  					<para>
+  					Gibt den String an, welcher als View-Titel verwendet
+  					werden soll.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+ 			<varlistentry>
+  				<term>/diff:&quot;path/to/unified_diff_file&quot;</term>
+  				<listitem>
+  					<para>
+  					Gibt die Diff-Datei an
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>/patchpath:&quot;path/to/patchfolder&quot;</term>
+  				<listitem>
+  					<para>
+  					Gibt den Pfad an, zu welchem die Patchdatei hinzugefügt werden
+  					soll.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+  			<varlistentry>
+  				<term>/oneway</term>
+  				<listitem>
+  					<para>
+  					Wenn vorhanden, TortoiseMerge nutzt den Ein-Pane-View.
+  					</para>
+  				</listitem>
+  			</varlistentry>
+		</variablelist>
+	</sect1>
+</appendix>
+
