@@ -38,6 +38,7 @@
 #define IDSVNLC_GNUDIFF1		6
 #define IDSVNLC_UPDATE			7
 #define IDSVNLC_LOG				8
+#define IDSVNLC_EDITCONFLICT	9
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCLICKA, 0, OnHdnItemclick)
@@ -81,7 +82,7 @@ CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(int index)
 		return NULL;
 	if (index >= m_arListArray.GetCount())
 		return NULL;
-	if (m_arListArray.GetAt(index) >= m_arStatusArray.GetCount())
+	if ((INT_PTR)m_arListArray.GetAt(index) >= m_arStatusArray.GetCount())
 		return NULL;
 	return m_arStatusArray.GetAt(m_arListArray.GetAt(index));
 }
@@ -1145,6 +1146,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
 					}
 				}
+				if (wcStatus == svn_wc_status_conflicted)
+				{
+					temp.LoadString(IDS_MENUCONFLICT);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EDITCONFLICT, temp);
+				}
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				m_bBlock = TRUE;
 				AfxGetApp()->DoWaitCursor(1);
@@ -1289,6 +1295,41 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						m_nTotal--;
 						DeleteItem(selIndex);
 						m_arStatusArray.RemoveAt(m_arListArray.GetAt(selIndex));
+					}
+					break;
+				case IDSVNLC_EDITCONFLICT:
+					{
+						filepath.Replace('/','\\');
+						CString theirs;
+						CString mine;
+						CString base;
+						CString merge = filepath;
+						CString path = merge.Left(merge.ReverseFind('\\'));
+						path = path + _T("\\");
+
+						//we have the conflicted file (%merged)
+						//now look for the other required files
+						SVNStatus stat;
+						stat.GetStatus(merge);
+						if (stat.status->entry)
+						{
+							if (stat.status->entry->conflict_new)
+							{
+								theirs = stat.status->entry->conflict_new;
+								theirs = path + theirs;
+							}
+							if (stat.status->entry->conflict_old)
+							{
+								base = stat.status->entry->conflict_old;
+								base = path + base;
+							}
+							if (stat.status->entry->conflict_wrk)
+							{
+								mine = stat.status->entry->conflict_wrk;
+								mine = path + mine;
+							}
+						}
+						CUtils::StartExtMerge(base, theirs, mine, merge);
 					}
 					break;
 				default:
@@ -1466,7 +1507,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
 		if (m_arListArray.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
-			FileEntry * entry = GetListEntry(pLVCD->nmcd.dwItemSpec);
+			FileEntry * entry = GetListEntry((int)pLVCD->nmcd.dwItemSpec);
 			if (entry == NULL)
 				return;
 
