@@ -95,6 +95,9 @@ BOOL CTortoiseProcApp::InitInstance()
 
 	CCmdLineParser parser = CCmdLineParser(AfxGetApp()->m_lpCmdLine);
 
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
+		AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
+
 	if (!parser.HasKey(_T("command")))
 	{
 		CMessageBox::Show(NULL, _T("TortoiseSVN should run automatically when Windows starts.\nYou do NOT run it directly.\nIt is designed to crash if you run it directly for the purpose\nof testing the crash handler.\n<ct=0x0000FF>Do NOT send the crashreport!!!!</ct>"), _T("TortoiseSVN"), MB_ICONINFORMATION);
