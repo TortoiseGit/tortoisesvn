@@ -483,4 +483,28 @@ C:\Path-To\kdiff3.exe %base %mine %theirs -o %merged
 			festlegen :-)
 		</para>
 	</sect2>
+	<sect2 id="tsvn-DUG-settings-sounds">
+		<title>Sounds in TortoiseSVN</title>
+		<indexterm>
+			<primary>sounds</primary>
+		</indexterm>
+		<para>
+			TortoiseSVN liefert drei eigene Sounds mit, die automatisch installiert
+			werden.
+			<itemizedlist>
+				<listitem>
+					Error (Fehler)
+				</listitem>
+				<listitem>
+					Notice (Hinweis)
+				</listitem>
+				<listitem>
+					Warning (Warnung)
+				</listitem>
+			</itemizedlist>
+			Sie können andere Sounds in der Systemsteuerung unter 
+			Sounds und Audiogeräte festlegen oder aber diese dort auch deaktivieren.
+			Dies ist nicht in den Einstellungen von TortoiseSVN möglich.
+		</para>
+	</sect2>
 </sect1>
