@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-02 11:03+0100\n"
+"PO-Revision-Date: 2005-03-04 10:34+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3298,6 +3298,20 @@ msgstr ""
 "%s\n"
 "stimmen nicht überein!"
 
+# ID:88,
+#: ID:88
+msgid ""
+"The path/url you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Der Pfad/die URL, die Sie eingegeben haben sind vermutlich unter Windows nicht zulässing!\n"
+"Sie können es trotzdem versuchen, müssen aber mit Folgefehlern rechnen.\n"
+"Eine gültige Pfadangabe unter Windows darf keine '<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # ID:314,
 #: ID:314
 msgid ""
@@ -3386,6 +3400,17 @@ msgstr ""
 #: ID:188
 msgid "Thesaurus"
 msgstr "Thesaurus"
+
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Dies ist kein gültiger Pfad!\n"
+"Eine gültige Pfadangabe unter Windows darf keine '<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"

@@ -3,7 +3,7 @@ rem Script to build the language dlls
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
-set OFile=..\www\translations.html
+set OFile=translations.html
 set LogFile=statusreport.txt
 
 ..\bin\release\bin\SubWCRev.exe . trans_head.html %OFile%

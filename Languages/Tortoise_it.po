@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-02-15 01:56+0100\n"
+"PO-Revision-Date: 2005-03-03 01:31+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1007,11 +1007,6 @@ msgstr "Chiudi automaticamente in assenza di errori"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Chiudi automaticamente se non ci sono fusioni, aggiunte o eliminazioni"
 
-# Control-ID:1067,
-#: Control-ID:1067
-msgid "Automatically resolve conflicted subversion status on save"
-msgstr "Risolvi automaticamente lo stato di conflitto quando si salva"
-
 # Dlg-ID:141,
 #: Control-ID:1157
 msgid "Average"
@@ -1071,6 +1066,16 @@ msgstr "Ramo / Etichetta"
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Ramo / Etichetta creata con successo!"
+
+# Control-ID:1073,
+#: Control-ID:1182
+msgid "Branch/Tag directly on the server (HEAD revision)"
+msgstr "Crea Ramo/Etichetta direttamente sul server (Revisione di testa)"
+
+# ID:79,
+#: Control-ID:1183
+msgid "Branch/Tag the working copy"
+msgstr "Crea Ramo/Etichetta dalla copia di lavoro"
 
 # ID:9,
 #: ID:9
@@ -1603,11 +1608,6 @@ msgstr "Crea Repository"
 msgid "Create Repository here"
 msgstr "Crea un Repository qui"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Create the branch/tag directly on the server"
-msgstr "Crea il ramo/l'etichetta direttamente sul server"
-
 # ID:126,
 #: ID:126
 msgid "Created folder remotely"
@@ -2073,11 +2073,6 @@ msgstr "Carattere:"
 msgid "For Help, press F1"
 msgstr "Per ottenere aiuto premere F1"
 
-# Control-ID:1168,
-#: Control-ID:1168
-msgid "Force shell icon refresh"
-msgstr "Forza l'aggiornamento delle icone"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
@@ -2267,6 +2262,11 @@ msgstr "Ignora gli spazi ad inizio linea"
 #: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
 msgstr "Ignora i caratteri di fine linea (raccomandato)"
+
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Ignore case changes"
+msgstr "Ignora maiuscole/minuscole"
 
 # Dlg-ID:139,
 #: Dlg-ID:139
@@ -2680,6 +2680,12 @@ msgstr ""
 "invio. Non c'è niente che\n"
 "TortoiseSVN possa fare qui...\n"
 "Vuoi vedere i file non versionati?"
+
+# ID:3843,#:
+# ID:3843,
+#: ID:273
+msgid "No graph available"
+msgstr "Nessun grafico disponibile"
 
 # ID:273,
 #: ID:273
@@ -4429,6 +4435,11 @@ msgstr "Usa l'editor di testo per visualizzare le revisioni non validate"
 msgid "Use \"From:\" URL"
 msgstr "Usa URL \"Da\""
 
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "Use autocompletion of filepaths and keywords"
+msgstr "Completa automaticamente percorsi e parole chiave"
+
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -4549,15 +4560,6 @@ msgstr "Attenzione"
 #: ID:219
 msgid "Warning!"
 msgstr "Attenzione!"
-
-# ID:195,
-#: ID:195
-msgid ""
-"When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Quando selezionato forza l'aggiornamento delle icone di stato dopo ogni operazione.\n"
-"<ct=0x0000ff><b>Attenzione:</b> questo può comportare un rallentamento di explorer!</ct>"
 
 # Control-ID:65535,
 #: Control-ID:65535

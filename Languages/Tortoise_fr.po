@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-02-17 09:54+0100\n"
+"PO-Revision-Date: 2005-03-02 11:54+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -818,10 +818,6 @@ msgstr "Fermeture automatique s'il n'y a pas d'erreurs"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Fermeture automatique s'il n'y a pas de fusions, ajouts ou suppressions"
 
-#: Control-ID:1067
-msgid "Automatically resolve conflicted subversion status on save"
-msgstr "Résoudre automatiquement les statuts conflictuels de subversion lors de la sauvegarde"
-
 #: Control-ID:1157
 msgid "Average"
 msgstr "Moyenne"
@@ -870,6 +866,15 @@ msgstr "Branche / Etiquette"
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Branche / Etiquette créée avec succès!"
+
+# Control-ID:1073,
+#: Control-ID:1182
+msgid "Branch/Tag directly on the server (HEAD revision)"
+msgstr "Créer la branche/Etiquette directement sur le serveur (HEAD révision)"
+
+#: Control-ID:1183
+msgid "Branch/Tag the working copy"
+msgstr "Créer la branche/Etiquette de la version locale"
 
 #: ID:9
 msgid "Branch/Tag..."
@@ -1318,11 +1323,6 @@ msgstr "Créer un repository"
 msgid "Create Repository here"
 msgstr "Créer un repository ici"
 
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Create the branch/tag directly on the server"
-msgstr "Créer la branche/Etiquette directement sur le serveur"
-
 #: ID:126
 msgid "Created folder remotely"
 msgstr "Créé répertoire à distance"
@@ -1696,11 +1696,6 @@ msgstr "Police:"
 msgid "For Help, press F1"
 msgstr "Pour l'aide, presser F1"
 
-# Control-ID:1168,
-#: Control-ID:1168
-msgid "Force shell icon refresh"
-msgstr "Forcer le rafraîchissement des icônes du shell"
-
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
@@ -1861,6 +1856,11 @@ msgstr "Ignorer les espacements en début de lignes"
 #: Control-ID:1018
 msgid "Ignore Lineendings (recommended)"
 msgstr "Ignorer les types de fin de lignes (recommandé)"
+
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Ignore case changes"
+msgstr "Ignorer les changement de case"
 
 #: Dlg-ID:139
 msgid "Import"
@@ -2209,6 +2209,10 @@ msgstr ""
 "la dernière livraison. Il n'y a rien\n"
 "à faire pour TortoiseSVN ici...\n"
 "Voulez-vous voir les fichiers non versionés?"
+
+#: ID:273
+msgid "No graph available"
+msgstr "Aucun graphique disponible"
 
 # ID:273,
 #: ID:273
@@ -3643,6 +3647,11 @@ msgstr "Utiliser le visualisateur texte pour voir les condamnations"
 msgid "Use \"From:\" URL"
 msgstr "&Utiliser l'URL \"Depuis:\""
 
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "Use autocompletion of filepaths and keywords"
+msgstr "Utiliser l'autocompletion des chemins de fichiers ou de mots-clé"
+
 #: Control-ID:1024
 msgid "Use one-pane view as default"
 msgstr "Utiliser un seul carreau de fenêtre par défaut"
@@ -3744,15 +3753,6 @@ msgstr "Avertissement"
 #: ID:219
 msgid "Warning!"
 msgstr "Avertissement!"
-
-# ID:195,
-#: ID:195
-msgid ""
-"When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
-msgstr ""
-"Si cochée, force un rafraîchissement des icônes de recouvrement du shell après chaque opération.\n"
-"<ct=0x0000ff><b>Attention:</b> ceci peut ralentir l'utilisation de l'explorateur!</ct>"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
