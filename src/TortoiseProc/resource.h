@@ -352,6 +352,7 @@
 #define IDS_LOG_POPUP_REVERTREV         1801
 #define IDS_LOG_POPUP_GNUDIFF           1802
 #define IDS_LOG_POPUP_FIND              1803
+#define IDS_LOG_POPUP_OPEN              1804
 #define IDS_LOG_COPY_SUCCESS            1830
 #define IDS_LOG_STRICTQUESTION          1831
 #define IDS_PROGRESSGETFILE             1900

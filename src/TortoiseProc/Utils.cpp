@@ -36,13 +36,26 @@ CUtils::~CUtils(void)
 {
 }
 
-CString CUtils::GetTempFile()
+CString CUtils::GetTempFile(CString origfilename)
 {
 	TCHAR path[MAX_PATH];
 	TCHAR tempF[MAX_PATH];
 	DWORD len = ::GetTempPath (MAX_PATH, path);
-	UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
-	CString tempfile = CString(tempF);
+	CString tempfile;
+	if (origfilename.IsEmpty())
+	{
+		UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
+		tempfile = CString(tempF);
+	}
+	else
+	{
+		int i=0;
+		do
+		{
+			tempfile.Format(_T("%s\\svn%3.3x.tmp%s"), path, i, CUtils::GetFileExtFromPath(origfilename));
+			i++;
+		} while (PathFileExists(tempfile));
+	}
 	return tempfile;
 }
 

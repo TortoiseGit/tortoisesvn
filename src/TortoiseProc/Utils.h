@@ -82,7 +82,7 @@ public:
 	/**
 	 * Returns a path to a temporary file
 	 */
-	static CString GetTempFile();
+	static CString GetTempFile(CString origfilename = _T(""));
 
 	/**
 	 * Replaces escaped sequences with the corresponding characters in a string.

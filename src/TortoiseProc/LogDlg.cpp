@@ -571,6 +571,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 						temp.LoadString(IDS_LOG_POPUP_SAVE);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+						temp.LoadString(IDS_LOG_POPUP_OPEN);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 					}
 					else
 					{
@@ -852,6 +854,27 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						delete [] pszFilters;
 					}
 					break;
+				case ID_OPEN:
+					{
+						//now first get the revision which is selected
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+
+						CString tempfile = CUtils::GetTempFile(m_path);
+						m_templist.Add(tempfile);
+						SVN svn;
+						if (!svn.Cat(m_path, rev, tempfile))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							break;
+						} // if (!svn.Cat(m_path, rev, tempfile))
+						else
+						{
+							CUtils::StartTextViewer(tempfile);
+						}
+					}
+					break;
 				case ID_UPDATE:
 					{
 						//now first get the revision which is selected
@@ -951,6 +974,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				temp.LoadString(IDS_LOG_POPUP_OPEN);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				switch (cmd)
 				{
@@ -1092,6 +1117,56 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							} // if (!svn.Cat(m_path, rev, tempfile)) 
 						} // if (GetSaveFileName(&ofn)==TRUE)
 						delete [] pszFilters;
+						GetDlgItem(IDOK)->EnableWindow(TRUE);
+						theApp.DoWaitCursor(-1);
+					}
+					break;
+				case ID_OPEN:
+					{
+						GetDlgItem(IDOK)->EnableWindow(FALSE);
+						this->m_app = &theApp;
+						theApp.DoWaitCursor(1);
+						CString filepath;
+						if (SVN::PathIsURL(m_path))
+						{
+							filepath = m_path;
+						}
+						else
+						{
+							SVN svn;
+							filepath = svn.GetURLFromPath(m_path);
+							if (filepath.IsEmpty())
+							{
+								theApp.DoWaitCursor(-1);
+								CString temp;
+								temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								TRACE(_T("could not retrieve the URL of the file!\n"));
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								break;
+							}
+						}
+						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+						filepath = GetRepositoryRoot(filepath);
+						temp = temp.Mid(temp.Find(' '));
+						if (temp.Find('(')>=0)
+						{
+							temp = temp.Left(temp.Find('(')-1);
+						}
+						temp = temp.Trim();
+						filepath += temp;
+
+						CString tempfile = CUtils::GetTempFile(filepath);
+						m_templist.Add(tempfile);
+						SVN svn;
+						if (!svn.Cat(filepath, rev, tempfile))
+						{
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							theApp.DoWaitCursor(-1);
+							break;
+						}
+						CUtils::StartTextViewer(tempfile);
 						GetDlgItem(IDOK)->EnableWindow(TRUE);
 						theApp.DoWaitCursor(-1);
 					}
