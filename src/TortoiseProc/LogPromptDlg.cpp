@@ -265,6 +265,7 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				temp.LoadString(IDS_LOG_COMPAREWITHBASE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+				popup.SetDefaultItem(ID_COMPARE, FALSE);
 				temp.LoadString(IDS_MENUREVERT);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
 			} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
