@@ -56,7 +56,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 		com = com + _T(" /basename:%bname /theirsname:%tname /yoursname:%yname /mergedname:%mname");
 	}
 
-	TCHAR buf[MAX_PATH];
+	TCHAR buf[32*1024];
 	_tcscpy(buf, basefile);
 	PathQuoteSpaces(buf);
 	basefile = CString(buf);
@@ -131,7 +131,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 				CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
 				viewer = txtexe;
 			} // if (viewer.IsEmpty()) 
-			TCHAR buf[MAX_PATH+1];
+			TCHAR buf[32*1024];
 			ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
 			viewer = buf;
 		} // if (viewer.IsEmpty())
@@ -241,7 +241,7 @@ BOOL CUtils::StartTextViewer(CString file)
 	viewer = viewer + _T("\\Shell\\Open\\Command\\");
 	CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
 	viewer = txtexe;
-	TCHAR buf[MAX_PATH+1];
+	TCHAR buf[32*1024];
 	ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
 	viewer = buf;
 	ExpandEnvironmentStrings(file, buf, MAX_PATH);
