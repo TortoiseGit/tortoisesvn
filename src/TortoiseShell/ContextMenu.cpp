@@ -311,12 +311,16 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		//if the source file(s) are under version control then those files can be moved
 		//to the new location, if they are unversioned then they can be added to the
 		//working copy
-		if ((!isInSVN)&&(isFolderInSVN))
-			InsertSVNMenu(hMenu, indexMenu, MF_STRING | MF_BYPOSITION, idCmdFirst, IDS_DROPCOPYADDMENU, idCmdFirst, DropCopyAdd);
-		else if ((isInSVN)&&(isFolderInSVN))
-			InsertSVNMenu(hMenu, indexMenu, MF_STRING | MF_BYPOSITION, idCmdFirst, IDS_DROPMOVEMENU, idCmdFirst, DropMove);
+		UINT idCmd = idCmdFirst;
 
-		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, 1));;
+		if ((!isInSVN)&&(isFolderInSVN))
+			InsertSVNMenu(hMenu, indexMenu++, MF_STRING | MF_BYPOSITION, idCmd++, IDS_DROPCOPYADDMENU, idCmdFirst, DropCopyAdd);
+		else if ((isInSVN)&&(isFolderInSVN))
+			InsertSVNMenu(hMenu, indexMenu++, MF_STRING | MF_BYPOSITION, idCmd++, IDS_DROPMOVEMENU, idCmdFirst, DropMove);
+		if ((isInSVN)&&(isFolderInSVN))
+			InsertSVNMenu(hMenu, indexMenu++, MF_STRING | MF_BYPOSITION, idCmd++, IDS_DROPCOPYMENU, idCmdFirst, DropCopy);
+
+		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 	}
 
 //missing commands:
@@ -720,6 +724,15 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					case DropCopyAdd:
 						tempfile = WriteFileListToTempFile();
 						svnCmd += _T("dropcopyadd /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						svnCmd += _T(" /droptarget:\"");
+						svnCmd += folder_.c_str();
+						svnCmd += _T("\"";)
+						break;
+					case DropCopy:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("dropcopy /path:\"");
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /droptarget:\"");

@@ -159,9 +159,13 @@
 #define IDS_STRING272                   272
 #define IDS_MSGBOX_DONOTSHOW            272
 #define IDS_STRING273                   273
+#define IDS_PROC_COPYING                273
 #define IDS_STRING274                   274
+#define IDS_PROC_COPYINGPROG            274
 #define IDS_STRING275                   275
+#define IDS_PROC_MOVINGPROG             275
 #define IDS_STRING276                   276
+#define IDS_PROC_CPYMVPROG2             276
 #define IDS_STRING277                   277
 #define IDS_STRING278                   278
 #define IDS_STRING279                   279

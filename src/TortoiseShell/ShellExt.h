@@ -103,6 +103,7 @@ protected:
 		DropCopyAdd,
 		DropMoveAdd,
 		DropMove,
+		DropCopy,
 		Log,
 		ConflictEditor,
 		Relocate,

@@ -112,6 +112,7 @@
 #define IDS_MENUDESCIGNORE              195
 #define IDS_STATUSINCOMPLETE            196
 #define IDS_STATUSIGNORED               197
+#define IDS_DROPCOPYMENU                198
 #define IDS_STATUSEXTERNAL              204
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002

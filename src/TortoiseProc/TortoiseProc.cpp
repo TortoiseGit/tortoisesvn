@@ -748,10 +748,60 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
 				CString temp;
-				temp.Format(_T("moving %s"), strLine);
+				temp.Format(IDS_PROC_MOVINGPROG, strLine);
 				CString temp2;
-				temp2.Format(_T("to %s"), droppath+_T("\\")+name);
+				temp2.Format(IDS_PROC_CPYMVPROG2, droppath+_T("\\")+name);
 				if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE))
+				{
+					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
+					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					return FALSE;		//get out of here
+				} // if (!svn.Move(strLine, droppath+_T("\\")+name, FALSE)) 
+				count++;
+				if (progress.IsValid())
+				{
+					progress.SetLine(1, temp, true);
+					progress.SetLine(2, temp2, true);
+					progress.SetProgress(count, totalcount);
+				} // if (progress.IsValid())
+				if ((progress.IsValid())&&(progress.HasUserCancelled()))
+				{
+					CMessageBox::Show(EXPLORERHWND, IDS_SVN_USERCANCELLED, IDS_APPNAME, MB_ICONINFORMATION);
+					return FALSE;
+				}
+			}
+		}
+		//#endregion
+		//#region dropcopy
+		if (comVal.Compare(_T("dropcopy"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			CString droppath = parser.GetVal(_T("droptarget"));
+			SVN svn;
+			unsigned long totalcount = 0;
+			unsigned long count = 0;
+			CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
+			CString strLine = _T("");
+			while (file.ReadString(strLine))
+				totalcount++;
+			file.SeekToBegin();
+			CProgressDlg progress;
+			if (progress.IsValid())
+			{
+				CString temp;
+				temp.LoadString(IDS_PROC_COPYING);
+				progress.SetTitle(temp);
+				progress.SetAnimation(IDR_MOVEANI);
+				progress.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
+			}
+			while (file.ReadString(strLine))
+			{
+				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
+				CString temp;
+				temp.Format(IDS_PROC_COPYINGPROG, strLine);
+				CString temp2;
+				temp2.Format(IDS_PROC_CPYMVPROG2, droppath+_T("\\")+name);
+				if (!svn.Copy(strLine, droppath+_T("\\")+name, -1, _T("")))
 				{
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
