@@ -21,7 +21,7 @@
 }
 #define GetDlgItemTextEx(hwndDlg, _id, __buf) \
 {\
-	int nLen = 10;\
+	int nLen = 1024;\
 	int nRes;\
 	do\
 	{\
