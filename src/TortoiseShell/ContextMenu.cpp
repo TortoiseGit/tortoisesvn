@@ -535,14 +535,19 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	MENUITEMINFO menuiteminfo;
 	ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
-	if (ownerdrawn)
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+	if ((ownerdrawn)&&(fullver >= 0x0501))
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
 	else
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
 	menuiteminfo.fType = MFT_OWNERDRAW;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
 	menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
-	HBITMAP bmp = IconToBitmap(IDI_ABOUT, (COLORREF)GetSysColor(COLOR_MENU));
+	HBITMAP bmp = IconToBitmap(IDI_MENU, (COLORREF)GetSysColor(COLOR_MENU));
 	menuiteminfo.hbmpChecked = bmp;
 	menuiteminfo.hbmpUnchecked = bmp;
 	menuiteminfo.hSubMenu = subMenu;
