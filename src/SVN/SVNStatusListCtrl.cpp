@@ -73,11 +73,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
 {
-	for (int i=0; i<m_templist.GetCount(); i++)
-	{
-		DeleteFile(m_templist.GetAt(i));
-	}
-	m_templist.RemoveAll();
+	m_tempFileList.DeleteAllFiles();
 	ClearStatusArray();
 }
 
@@ -978,7 +974,7 @@ void CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 
 bool CSVNStatusListCtrl::EntryPathCompareNoCase(const FileEntry* pEntry1, const FileEntry* pEntry2)
 {
-	return CTSVNPath::Compare(pEntry1->path, pEntry2->path) < 0;
+	return CTSVNPath::ComparisonPredicate(pEntry1->path, pEntry2->path);
 }
 
 bool CSVNStatusListCtrl::IsEntryVersioned(const FileEntry* pEntry1)
@@ -1237,15 +1233,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							DeleteFile(tempfile.GetWinPath());
 							break;		//exit
 						}
-						m_templist.Add(tempfile.GetWinPathString());
+						m_tempFileList.AddPath(tempfile);
 						CUtils::StartDiffViewer(tempfile);
 					}
 					break;
 				case IDSVNLC_UPDATE:
 					{
-						CString tempFile = BuildTargetFile();
+						CTSVNPath tempFile = BuildTargetFile();
 						CSVNProgressDlg dlg(CWnd::FromHandle(m_hWnd));
-						dlg.SetParams(CSVNProgressDlg::Enum_Update, ProgOptPathIsTempFile, tempFile);
+						dlg.SetParams(CSVNProgressDlg::Enum_Update, ProgOptPathIsTempFile, tempFile.GetWinPathString());
 						dlg.DoModal();
 					}
 					break;
@@ -1611,12 +1607,12 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 			CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
 		}
-		m_templist.Add(path3);
+		m_tempFileList.AddPath(CTSVNPath(path3));
 	}
 
 	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path1, entry->path)))
 	{
-		m_templist.Add(path1.GetWinPathString());
+		m_tempFileList.AddPath(path1);
 	}
 	else
 	{
@@ -1787,11 +1783,11 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
-CString CSVNStatusListCtrl::BuildTargetFile()
+CTSVNPath CSVNStatusListCtrl::BuildTargetFile()
 {
-	CString tempFile = CUtils::GetTempFile();
-	m_templist.Add(tempFile);
-	HANDLE file = ::CreateFile (tempFile,
+	CTSVNPath tempFile = CUtils::GetTempFilePath();
+	m_tempFileList.AddPath(tempFile);
+	HANDLE file = ::CreateFile (tempFile.GetWinPath(),
 		GENERIC_WRITE, 
 		FILE_SHARE_READ, 
 		0, 

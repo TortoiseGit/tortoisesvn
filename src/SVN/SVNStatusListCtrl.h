@@ -243,7 +243,7 @@ private:
 	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays
 	void BuildStatistics();	///< build the statistics
 	void StartDiff(int fileindex);	///< start the external diff program
-	CString BuildTargetFile();		///< builds a temporary files containing the paths of the selected entries
+	CTSVNPath BuildTargetFile();		///< builds a temporary files containing the paths of the selected entries
 	//static int __cdecl SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
 	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
 
@@ -298,7 +298,7 @@ private:
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
 	std::vector<DWORD>			m_arListArray;
-	CStringArray				m_templist;
+	CTSVNPathList				m_tempFileList;
 	CString						m_sLastError;
 
 	LONG						m_nUnversioned;
