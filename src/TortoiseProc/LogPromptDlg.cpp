@@ -745,7 +745,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 			strLine.Replace('\\', '/');
 			// remove trailing / characters since they mess up the filename list
 			// However "/" and "c:/" will be left alone.
-			if (strLine.GetLength() > 1 && strLine.Right(1) == _T("/") && strLine.Right(2) != _T(":/")) 
+			if (strLine.GetLength() > 1 && strLine.Right(1) == _T("/")) 
 			{
 				strLine.Delete(strLine.GetLength()-1,1);
 			}
