@@ -1034,6 +1034,8 @@ svn_error_t* SVN::logReceiver(void* baton,
 			apr_array_header_t *sorted_paths;
 			sorted_paths = svn_sort__hash(ch_paths, svn_sort_compare_items_as_paths, pool);
 			cpaths = _T("");
+			if (cpaths.GetAllocLength() < (sorted_paths->nelts * MAX_PATH))
+				cpaths.Preallocate(sorted_paths->nelts * MAX_PATH);
 			for (int i = 0; i < sorted_paths->nelts; i++)
 			{
 				svn_sort__item_t *item = &(APR_ARRAY_IDX (sorted_paths, i, svn_sort__item_t));
