@@ -146,7 +146,8 @@ const char* CTSVNPath::GetSVNApiPath() const
 	{
 		if (!CUtils::IsEscaped(m_sUTF8FwdslashPath))
 		{
-			return CUtils::PathEscape(m_sUTF8FwdslashPath);
+			m_sUTF8FwdslashPathEscaped = CUtils::PathEscape(m_sUTF8FwdslashPath);
+			return m_sUTF8FwdslashPathEscaped;
 		}
 	}
 #endif // _MFC_VER

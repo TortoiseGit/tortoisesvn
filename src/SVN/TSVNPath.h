@@ -202,6 +202,7 @@ private:
 	mutable CString m_sFwdslashPath;
 	mutable CString m_sUIPath;
 	mutable	CStringA m_sUTF8FwdslashPath;
+	mutable CStringA m_sUTF8FwdslashPathEscaped;
 	// Have we yet determined if this is a directory or not?
 	mutable bool m_bDirectoryKnown;
 	mutable bool m_bIsDirectory;
