@@ -752,6 +752,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 
 void CLogPromptDlg::Refresh()
 {
+	GetDlgItem(IDOK)->EnableWindow(false);
 	CString temp;
 	for (int i=0; i<m_arData.GetCount(); i++)
 	{
