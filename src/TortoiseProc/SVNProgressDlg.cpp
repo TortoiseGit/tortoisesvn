@@ -494,6 +494,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			if (!pDlg->Copy(pDlg->m_sPath, pDlg->m_sUrl, -1))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				break;
 			}
 			else
 				logmessage.removeValue();
