@@ -34,7 +34,7 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
-	, m_bDirectCopy(TRUE)
+	, m_bDirectCopy(FALSE)
 	, m_sBugID(_T(""))
 {
 }
@@ -48,7 +48,6 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
-	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Control(pDX, IDC_OLDLOGS, m_OldLogs);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
@@ -67,6 +66,8 @@ BOOL CCopyDlg::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	CTSVNPath path(m_path);
+
+	CheckRadioButton(IDC_COPYHEAD, IDC_COPYWC, IDC_COPYHEAD);
 
 	m_bFile = !path.IsDirectory();
 	SVN svn;
@@ -128,6 +129,9 @@ void CCopyDlg::OnOK()
 	}
 	UpdateData(TRUE);
 
+	if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYWC) == IDC_COPYHEAD)
+		m_bDirectCopy = TRUE;
+		
 	CString combourl;
 	m_URLCombo.GetWindowText(combourl);
 	if (m_wcURL.CompareNoCase(combourl)==0)

@@ -76,7 +76,6 @@ public:
 	CTSVNPath m_path;
 	CString m_sLogMessage;
 	BOOL m_bDirectCopy;
-
 private:
 	CSciEdit	m_cLogMessage;
 	CFont		m_logFont;
