@@ -1182,15 +1182,14 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							POSITION pos = GetFirstSelectedItemPosition();
 							int index;
-							CString filelist;
-// TODO: This bit could be done by building a TSVNPathList and passing that to Revert
+							CTSVNPathList targetList;
+							
                             while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
-								filelist += GetListEntry(index)->path.GetSVNPathString();
-								filelist += _T("*");
+								targetList.AddPath(GetListEntry(index)->path);
 							}
 							SVN svn;
-							if (!svn.Revert(filelist, FALSE))
+							if (!svn.Revert(targetList, FALSE))
 							{
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							}

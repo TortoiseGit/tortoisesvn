@@ -292,17 +292,16 @@ BOOL SVN::Remove(CTSVNPathList pathlist, BOOL force, CString message)
 	return TRUE;
 }
 
-BOOL SVN::Revert(CString path, BOOL recurse)
+BOOL SVN::Revert(CTSVNPathList pathlist, BOOL recurse)
 {
-	preparePath(path);
-	Err = svn_client_revert (target(path), recurse, &m_ctx, pool);
+	Err = svn_client_revert (target(pathlist), recurse, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
 		return FALSE;
 	}
 
-	UpdateShell(path);
+	UpdateShell(pathlist);
 
 	return TRUE;
 }
@@ -342,15 +341,14 @@ BOOL SVN::Update(const CTSVNPath& path, SVNRev revision, BOOL recurse)
 	return TRUE;
 }
 
-LONG SVN::Commit(CString path, CString message, BOOL recurse)
+LONG SVN::Commit(CTSVNPathList pathlist, CString message, BOOL recurse)
 {
-	preparePath(path);
 	svn_client_commit_info_t *commit_info = NULL;
 
 	message.Replace(_T("\r"), _T(""));
 	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_commit (&commit_info, 
-							target ((LPCTSTR)path), 
+							target (pathlist), 
 							!recurse,
 							&m_ctx,
 							pool);
@@ -361,9 +359,12 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 	}
 	
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
-
-	UpdateShell(path);
+	{
+		//TODO: we somehow have to differ between paths and URL's
+		for (int i=0; i<pathlist.GetCount(); ++i)
+			Notify(pathlist[i].GetSVNPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+	}
+	UpdateShell(pathlist);
 	if(commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		return commit_info->revision;
 
@@ -432,15 +433,13 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, S
 	return TRUE;
 }
 
-BOOL SVN::MakeDir(CString path, CString message)
+BOOL SVN::MakeDir(CTSVNPathList pathlist, CString message)
 {
-	preparePath(path);
-
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
 	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_mkdir (&commit_info,
-							target(path),
+							target(pathlist),
 							&m_ctx,
 							pool);
 	if(Err != NULL)
@@ -448,9 +447,13 @@ BOOL SVN::MakeDir(CString path, CString message)
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
-		Notify(path, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+	{
+		//TODO: we somehow have to differ between paths and URL's
+		for (int i=0; i<pathlist.GetCount(); ++i)
+			Notify(pathlist[i].GetSVNPathString(), svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
+	}
 
-	UpdateShell(path);
+	UpdateShell(pathlist);
 
 	return TRUE;
 }
@@ -887,11 +890,10 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 	return TRUE;
 }
 
-BOOL SVN::ReceiveLog(CString path, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
+BOOL SVN::ReceiveLog(CTSVNPathList pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
 {
 	cpaths.Preallocate(10000);		//allocate 10kB memory
-	preparePath(path);
-	Err = svn_client_log (target ((LPCTSTR)path), 
+	Err = svn_client_log (target (pathlist), 
 						revisionStart, 
 						revisionEnd, 
 						changed,
@@ -1321,37 +1323,6 @@ apr_array_header_t * SVN::target(CTSVNPathList pathlist)
 		const char * target = apr_pstrdup (pool, pathlist[i].GetSVNApiPath());
 		(*((const char **) apr_array_push (targets))) = target;	
 	}
-	return targets;
-}
-
-apr_array_header_t * SVN::target (LPCTSTR path)
-{
-	CString p = CString(path);
-	apr_array_header_t *targets = apr_array_make (pool,
-												5,
-												sizeof (const char *));
-
-	int curPos = 0;
-	int curPosOld = 0;
-	CString targ;
-	while (p.Find('*', curPos)>=0)
-	{
-		curPosOld = curPos;
-		curPos = p.Find('*', curPosOld);
-		targ = p.Mid(curPosOld, curPos-curPosOld);
-		targ.Trim(_T("*"));
-		const char * target = apr_pstrdup (pool, MakeSVNUrlOrPath(targ));
-		(*((const char **) apr_array_push (targets))) = target;
-		curPos++;
-	}
-	targ = p.Mid(curPos);
-	targ.Trim(_T("*"));
-	if (!targ.IsEmpty())
-	{
-		const char * target = apr_pstrdup (pool, MakeSVNUrlOrPath(targ));
-		(*((const char **) apr_array_push (targets))) = target;
-	}
-
 	return targets;
 }
 

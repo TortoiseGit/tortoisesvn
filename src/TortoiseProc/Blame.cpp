@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "Blame.h"
 #include "ProgressDlg.h"
+#include "TSVNPath.h"
 
 CBlame::CBlame()
 {
@@ -130,7 +131,9 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CS
 			logfile.Empty();
 			return m_sSavePath;
 		}
-		if (!this->ReceiveLog(path, SVNRev::REV_HEAD, m_lowestrev, TRUE))
+		CTSVNPathList targetList;
+		targetList.AddPathFromWin(path);
+		if (!this->ReceiveLog(targetList, SVNRev::REV_HEAD, m_lowestrev, TRUE))
 		{
 			m_saveLog.Close();
 			DeleteFile(logfile);

@@ -577,73 +577,60 @@ UINT CSVNProgressDlg::ProgressThread()
 			SetWindowText(sWindowTitle);
 			if (m_IsTempFile)
 			{
-				try
+				CTSVNPathList pathlist;
+				pathlist.LoadFromTemporaryFile(m_sPath);
+				if (pathlist.GetCount()==0)
 				{
-					CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead);
-					CString strLine = _T("");
-					CString commitString = _T("");
-					BOOL isTag = FALSE;
-					BOOL bURLFetched = FALSE;
-					CString url;
-					int nTargets = 0;
-					while (file.ReadString(strLine))
-					{
-						nTargets++;
-						if (bURLFetched == FALSE)
-						{
-							url = m_pSvn->GetURLFromPath(strLine);
-							if (!url.IsEmpty())
-								bURLFetched = TRUE;
-							CString urllower = url;
-							urllower.MakeLower();
-							if (urllower.Find(_T("/tags/"))>=0)
-								isTag = TRUE;
-						} // if (bURLFetched == FALSE)
-						if (commitString.IsEmpty())
-							commitString = strLine;
-						else
-							commitString = commitString + _T("*") + strLine;
-					} // while (file.ReadString(strLine)) 
-					if (commitString.IsEmpty())
-					{
-						SetWindowText(sWindowTitle);
-						temp.LoadString(IDS_MSGBOX_OK);
+					SetWindowText(sWindowTitle);
+					temp.LoadString(IDS_MSGBOX_OK);
 
-						GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
+					GetDlgItem(IDCANCEL)->EnableWindow(FALSE);
+					GetDlgItem(IDOK)->EnableWindow(TRUE);
 
-						m_bThreadRunning = FALSE;
-						GetDlgItem(IDOK)->EnableWindow(true);
-						break;
-					}
-					if (isTag)
-					{
-						if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
-							break;
-					} // if (isTag)
-					sTempWindowTitle = CUtils::GetFileNameFromPath(commitString)+_T(" - ")+sWindowTitle;
+					m_bThreadRunning = FALSE;
+					GetDlgItem(IDOK)->EnableWindow(true);
+					break;
+				}
+				if (pathlist.GetCount()==1)
+				{
+					sTempWindowTitle = pathlist[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 					SetWindowText(sTempWindowTitle);
-					if (!m_pSvn->Commit(commitString, m_sMessage, ((nTargets == 1)&&(m_Revision == 0))))
-					{
-						ReportSVNError();
-					} // if (!Commit(commitString, m_sMessage, true))
-					file.Close();
-					DeleteFile(m_sPath);
 				}
-				catch (CFileException* pE)
+				BOOL isTag = FALSE;
+				BOOL bURLFetched = FALSE;
+				CString url;
+				for (int i=0; i<pathlist.GetCount(); ++i)
 				{
-					TRACE(_T("CFileException in Commit!\n"));
-					TCHAR error[10000] = {0};
-					pE->GetErrorMessage(error, 10000);
-					CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
-					pE->Delete();
+					if (bURLFetched == FALSE)
+					{
+						url = m_pSvn->GetURLFromPath(pathlist[i].GetWinPath());
+						if (!url.IsEmpty())
+							bURLFetched = TRUE;
+						CString urllower = url;
+						urllower.MakeLower();
+						if (urllower.Find(_T("/tags/"))>=0)
+							isTag = TRUE;
+						break;
+					}					
 				}
+				if (isTag)
+				{
+					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
+						break;
+				}
+				if (!m_pSvn->Commit(pathlist, m_sMessage, ((pathlist.GetCount() == 1)&&(m_Revision == 0))))
+				{
+					ReportSVNError();
+				}
+				DeleteFile(m_sPath);
 			}
 			else
 			{
 				sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;
 				SetWindowText(sTempWindowTitle);
-				m_pSvn->Commit(m_sPath, m_sMessage, true);
+				CTSVNPathList pathlist;
+				pathlist.AddPathFromWin(m_sPath);
+				m_pSvn->Commit(pathlist, m_sMessage, true);
 			}
 			break;
 		case Add:
@@ -668,7 +655,9 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			else
 			{
-				m_pSvn->Commit(m_sPath, m_sMessage, true);
+				CTSVNPath target;
+				target.SetFromWin(m_sPath);
+				m_pSvn->Add(target, true);
 			}
 			break;
 		case Revert:
@@ -676,38 +665,22 @@ UINT CSVNProgressDlg::ProgressThread()
 			SetWindowText(sWindowTitle);
 			if (m_IsTempFile)
 			{
-				CString sTargets;
-				try
+				CTSVNPathList targetList;
+				if (targetList.LoadFromTemporaryFile(m_sPath))
 				{
-					CStdioFile file(m_sPath, CFile::typeBinary | CFile::modeRead);
-					CString strLine = _T("");
-					while (file.ReadString(strLine)&&(!m_bCancelled))
-					{
-						if (sTargets.IsEmpty())
-							sTargets = strLine;
-						else
-							sTargets = sTargets + _T("*") + strLine;
-					}
-					file.Close();
 					DeleteFile(m_sPath);
-				}
-				catch (CFileException* pE)
-				{
-					TRACE(_T("CFileException in Revert!\n"));
-					TCHAR error[10000] = {0};
-					pE->GetErrorMessage(error, 10000);
-					CMessageBox::Show(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
-					pE->Delete();
-				}
-				if (!m_pSvn->Revert(sTargets, (m_sUrl.Compare(_T("recursive"))==0)))
-				{
-					ReportSVNError();
-					break;
+					if (!m_pSvn->Revert(targetList, (m_sUrl.Compare(_T("recursive"))==0)))
+					{
+						ReportSVNError();
+						break;
+					}					
 				}
 			}
 			else
 			{
-				m_pSvn->Revert(m_sPath, true);
+				CTSVNPathList targetlist;
+				targetlist.AddPathFromWin(m_sPath);
+				m_pSvn->Revert(targetlist, true);
 			}
 			break;
 		case Resolve:

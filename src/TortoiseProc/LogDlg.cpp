@@ -426,7 +426,9 @@ UINT CLogDlg::LogThread()
 	m_bGotRevisions = FALSE;
 	while ((m_bCancelled == FALSE)&&(m_bGotRevisions == FALSE))
 	{
-		if (!ReceiveLog(m_path.GetSVNPathString(), m_startrev, m_endrev, true, m_bStrict))
+		CTSVNPathList targetList;
+		targetList.AddPath(m_path);
+		if (!ReceiveLog(targetList, m_startrev, m_endrev, true, m_bStrict))
 		{
 			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			break;

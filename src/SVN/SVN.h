@@ -107,12 +107,12 @@ public:
 	 */
 	BOOL Remove(CTSVNPathList pathlist, BOOL force, CString message = _T(""));
 	/**
-	 * Reverts a file/directory to its pristine state. I.e. its reverted to the state where it
+	 * Reverts a list of files/directories to its pristine state. I.e. its reverted to the state where it
 	 * was last updated with the repository.
 	 * \param path the file/directory to revert
 	 * \param recurse 
 	 */
-	BOOL Revert(CString path, BOOL recurse);
+	BOOL Revert(CTSVNPathList pathlist, BOOL recurse);
 	/**
 	 * Schedule a working copy path for addition to the repository.
 	 * path's parent must be under revision control already, but path is
@@ -152,7 +152,7 @@ public:
 	 * \param recurse 
 	 * \param revision the resulting revision number. return value.
 	 */
-	LONG Commit(CString path, CString message, BOOL recurse);
+	LONG Commit(CTSVNPathList pathlist, CString message, BOOL recurse);
 	/**
 	 * Copy srcPath to destPath.
 	 * 
@@ -208,7 +208,7 @@ public:
 	 * \param path 
 	 * \param message 
 	 */
-	BOOL MakeDir(CString path, CString message);
+	BOOL MakeDir(CTSVNPathList pathlist, CString message);
 	/**
 	 * Recursively cleanup a working copy directory DIR, finishing any
 	 * incomplete operations, removing lockfiles, etc.
@@ -354,7 +354,7 @@ public:
 	 * \param revisionEnd the revision to stop the logs
 	 * \param changed TRUE if the log should follow changed paths 
 	 */
-	BOOL ReceiveLog(CString path, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict = FALSE);
+	BOOL ReceiveLog(CTSVNPathList pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict = FALSE);
 	
 	/**
 	 * Checks out a file with \a revision to \a localpath.
@@ -545,7 +545,6 @@ private:
 	static CString				cpaths;
 	svn_opt_revision_t *	getRevision (long revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
-	apr_array_header_t * target (LPCTSTR path);
 	apr_array_header_t * target (CTSVNPathList pathlist);
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);

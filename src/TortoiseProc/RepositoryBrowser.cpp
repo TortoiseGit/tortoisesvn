@@ -669,7 +669,9 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.MakeDir(url+_T("/")+dlg.m_name, input.m_sInputText))
+							CTSVNPathList targetlist;
+							targetlist.AddPathFromSVN(url+_T("/")+dlg.m_name);
+							if (!svn.MakeDir(targetlist, input.m_sInputText))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
