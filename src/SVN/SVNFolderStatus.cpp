@@ -228,7 +228,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 			return &m_pStatusCache[index-SVNFOLDERSTATUS_FOLDER];
 		} // if (index >= SVNFOLDERSTATUS_FOLDER)
 		m_FolderCache[index].askedcounter--;
-		m_TimeStamp = GetTickCount();
 		return &m_FolderCache[index];
 	} // if (index >= 0)
 	return &invalidstatus;
@@ -261,7 +260,8 @@ int SVNFolderStatus::FindFile(LPCTSTR filename)
 int SVNFolderStatus::IsCacheValid(LPCTSTR filename)
 {
 	int i = -1;
-	if ((GetTickCount() - m_TimeStamp) < GetTimeoutValue())
+	DWORD now = GetTickCount();
+	if ((now - m_TimeStamp) < GetTimeoutValue())
 	{
 		i = FindFile(filename);
 	}
@@ -272,11 +272,11 @@ int SVNFolderStatus::IsCacheValid(LPCTSTR filename)
 	}
 	if (i>=SVNFOLDERSTATUS_FOLDER)
 	{
-		if ((m_pStatusCache[i-SVNFOLDERSTATUS_FOLDER].askedcounter > 0)&&((GetTickCount() - m_TimeStamp) < GetTimeoutValue()))
+		if (m_pStatusCache[i-SVNFOLDERSTATUS_FOLDER].askedcounter > 0)
 			return i;
 		return -1;
-	} // if (i>=0)
-	if ((i>=0)&&(m_FolderCache[i].askedcounter > 0)&&((GetTickCount() - m_TimeStamp) < GetTimeoutValue()))
+	} // if (i>=SVNFOLDERSTATUS_FOLDER) 
+	if ((i>=0)&&(m_FolderCache[i].askedcounter > 0))
 		return i;
 	//ATLTRACE2(_T("file %s not found\n"), filename);
 	return -1;
@@ -317,7 +317,6 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 
 	if (! shellCache.IsPathAllowed(filepath))
 		return &invalidstatus;
-
 
 	BOOL isFolder = PathIsDirectory(filepath);
 	TCHAR pathbuf[MAX_PATH];

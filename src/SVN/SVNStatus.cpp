@@ -264,7 +264,7 @@ stdstring SVNStatus::GetLastErrorMsg()
 }
 #endif
 
-svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */)
+svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */, bool noignore /* = false */)
 {
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
@@ -290,7 +290,7 @@ svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */)
 							FALSE,		//descend
 							TRUE,		//getall
 							update,		//update
-							TRUE,		//noignore
+							noignore,		//noignore
 							&m_ctx,
 							m_pool);
 

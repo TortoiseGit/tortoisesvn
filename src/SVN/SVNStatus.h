@@ -121,7 +121,7 @@ public:
 	 * \return If update is set to true the HEAD revision of the repository is returned. If update is false then -1 is returned.
 	 * \remark If the return value is -2 then the status could not be obtained.
 	 */
-	svn_revnum_t GetStatus(const TCHAR * path, bool update = false);
+	svn_revnum_t GetStatus(const TCHAR * path, bool update = false, bool noignore = false);
 
 
 	/**
