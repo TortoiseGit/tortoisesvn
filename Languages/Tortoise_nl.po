@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-11-22 15:23+0100\n"
+"PO-Revision-Date: 2004-12-17 15:17+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -303,6 +303,10 @@ msgstr "&SSH client:"
 msgid "&Save Ctrl-S"
 msgstr "Op&slaan\tCtrl-S"
 
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "Schema &Opslaan als..."
+
 #: Control-ID:1023
 msgid "&Save authentication"
 msgstr "Authenticatie &opslaan"
@@ -412,6 +416,20 @@ msgstr ""
 "Om uw werkkopie met een andere tak te associëren, gebruikt u het Wissel-commando.\n"
 "Bent u er zeker van dat u wenst te verhuizen?"
 
+#: ID:145
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b> is een shell-extensie.\n"
+"Dat betekent dat het is geïntegreerd in de Windows Verkenner.\n"
+"Om <b>TortoiseSVN</b> te gebruiken opent u de verkenner en klikt u met de rechter muisknop op\n"
+"een folder om het contextmenu te tonen. Hierin vindt u alle <b>TortoiseSVN</b> commando's.\n"
+"Voor meer informatie: <u>Raadpleeg de handleiding!</u>"
+
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
 msgstr "Een fysieke I/O fout is opgetreden bij het benaderen van %1."
@@ -506,7 +524,7 @@ msgstr "Takenlijst activeren"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Selecteer deze optie als u de overlays van mappen de subversion\n"
 "status van onderliggende bestanden wilt laten zien.\n"
@@ -561,6 +579,10 @@ msgid ""
 msgstr ""
 "Geselecteerde bestand(en)\n"
 "%stoegevoegd aan de negeerlijst."
+
+#: ID:263
+msgid "Adding"
+msgstr "Toevoegen"
 
 #: ID:9
 msgid "Adds file(s) to Subversion control"
@@ -687,6 +709,10 @@ msgstr "Een onbekend soort regel aangetroffen op regel %d !"
 msgid "An unsupported operation was attempted."
 msgstr "Poging om een niet ondersteunde actie uit te voeren."
 
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "Analyseer revisiedata..."
+
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
 msgstr "Past een universeel diff bestand toe op de werkkopie"
@@ -727,6 +753,10 @@ msgstr "Auteur:                        Stefan Kueng"
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Auteurs:\tStefan Kueng, Tim Kemp"
+
+#: Control-ID:1157
+msgid "Average"
+msgstr "Gemiddelde"
 
 #: Control-ID:1001
 msgid "B&rowse..."
@@ -832,6 +862,10 @@ msgstr "Annuleren"
 msgid "Cancelling SVN Blame..."
 msgstr "Afbreken van SVN Verklaren..."
 
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "Opdracht wordt afgebroken..."
+
 #: ID:82
 msgid "Certificate expired or not yet valid"
 msgstr "Certificaat is verlopen of nog niet geldig"
@@ -920,6 +954,11 @@ msgstr "Selecteer de menuopties die in het contextmenu moeten verschijnen in pla
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kies deze optie voor een verkorte datum en tijd in logboodschappen"
 
+#: ID:270
+#, fuzzy
+msgid "Checking for forward copies"
+msgstr "Controleren op voorwaartse kopieën"
+
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Controle of een nieuwe versie van TortoiseSVN beschikbaar is..."
@@ -976,6 +1015,10 @@ msgstr "Klembord"
 msgid "Close the active window and prompts to save the documents"
 msgstr "Sluit het actieve venster en vraagt om de bestanden op te slaan"
 
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "Kleurcoderen van in-line wijzigingen"
+
 #: Dlg-ID:138
 msgid "Colors"
 msgstr "Kleuren"
@@ -999,6 +1042,10 @@ msgstr "Vastleggingen per auteur"
 #: ID:244
 msgid "Commits by week"
 msgstr "Vastleggingen per week"
+
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "Vastleggingen per week:"
 
 #: ID:9
 msgid "Commits your changes to the repository"
@@ -1231,6 +1278,10 @@ msgstr "Verwijderd"
 #: ID:11
 msgid "Deletes files / folders from source control"
 msgstr "Verwijderd bestanden/mappen uit versiebeheer"
+
+#: ID:263
+msgid "Deleting"
+msgstr "Verwijderen"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -1520,6 +1571,10 @@ msgstr "Bestand"
 msgid "File Patches"
 msgstr "Bestand-patches"
 
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "Bestandswijzigingen per week:"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -1544,6 +1599,10 @@ msgstr "Lettertype:"
 msgid "For Help, press F1"
 msgstr "Druk op F1 voor help"
 
+#: Control-ID:1168
+msgid "Force shell icon refresh"
+msgstr "Forceer verversen van ikonen"
+
 #: Control-ID:65535
 msgid "From:"
 msgstr "Van URL:"
@@ -1564,17 +1623,13 @@ msgstr "Bestand %s ophalen"
 msgid "Getting file info..."
 msgstr "Bestandsinformatie verzamelen..."
 
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "Informatie wordt opgehaald uit bibliotheek..."
+
 #: ID:132
 msgid "Getting log info..."
 msgstr "Ophalen logboek informatie..."
-
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"Ga naar volgende conflict\n"
-"volgend conflict"
 
 #: ID:2049
 msgid ""
@@ -1666,7 +1721,7 @@ msgid "Ignore"
 msgstr "Negeren"
 
 #: ID:15
-msgid "Ignore %d item(s)"
+msgid "Ignore %d items"
 msgstr "%d zaken negeren"
 
 #: Control-ID:1021
@@ -1700,6 +1755,16 @@ msgstr "Plaatst de map in een bibliotheek"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "Op te nemen paden:"
+
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"Toont de status van een map met een overlay ikoon.\n"
+"Als deze optie is uitgeschakeld, dan wordt altijd het 'normale' overlay ikoon getoond.\n"
+"<ct=0x0000ff><b>Als verkenner traag reageert, deactiveer dan deze optie!</b></ct>"
 
 #: ID:76
 msgid "Initial Import"
@@ -1783,6 +1848,10 @@ msgstr "Laatst bewaarde revisie van het onderdeel"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Start extern diff/merge programma om conflicten op te lossen"
 
+#: Control-ID:1137
+msgid "Least active author:"
+msgstr "Minst actieve auteur:"
+
 #: ID:188
 msgid "Left View: "
 msgstr "Linker beeld:"
@@ -1835,6 +1904,10 @@ msgstr "De DLL van het mailsysteem is ongeldig."
 msgid "Main"
 msgstr "Algemeen"
 
+#: Control-ID:1159
+msgid "Max"
+msgstr "Max"
+
 #: Dlg-ID:141
 msgid "Merge"
 msgstr "Samenvoegen"
@@ -1863,6 +1936,10 @@ msgstr "Boodschap"
 msgid "Mime Type"
 msgstr "Mime-type"
 
+#: Control-ID:1158
+msgid "Min"
+msgstr "Min"
+
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
@@ -1875,6 +1952,10 @@ msgstr "Gemengd"
 #: ID:74
 msgid "Modified"
 msgstr "Gewijzigd"
+
+#: Control-ID:1136
+msgid "Most active author:"
+msgstr "Meest actieve auteur:"
 
 #: ID:12
 msgid "Move files in Subversion to here"
@@ -1964,6 +2045,14 @@ msgstr "Normaal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Niet alle registersleutels (of INI bestand) zijn verwijderd."
+
+#: Control-ID:1161
+msgid "Number of authors:"
+msgstr "Aantal auteurs:"
+
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "Aantal weken:"
 
 #: ID:73
 #: Control-ID:1
@@ -2057,6 +2146,10 @@ msgstr "Patchbestanden (*.diff, *.patch)|*.diff;*.patch|Alle bestanden(*.*)|*.*|
 #: ID:77
 msgid "Path"
 msgstr "Pad"
+
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Plaatjes (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
 
 #: ID:3858
 msgid "Please enter a GUID."
@@ -2303,7 +2396,7 @@ msgstr ""
 "Vervangen"
 
 #: ID:74
-msgid "Replaced"
+msgid "Replacing"
 msgstr "Vervangen"
 
 #: ID:13
@@ -2366,9 +2459,21 @@ msgstr "Revisie"
 msgid "Revision %d"
 msgstr "Revisie %d"
 
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "Revisie %ld"
+
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Revisie / Auteur:"
+
+#: ID:15
+#: ID:269
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Revisie Schema"
 
 #: ID:75
 msgid "Revision: "
@@ -2469,6 +2574,10 @@ msgstr "Opslaan &als..."
 #: ID:3841
 msgid "Save As"
 msgstr "Opslaan als"
+
+#: ID:272
+msgid "Save Graph as..."
+msgstr "Schema Opslaan als..."
 
 #: ID:76
 msgid "Save Revision &To..."
@@ -2649,6 +2758,10 @@ msgstr "Toon regelnummers"
 msgid "Show Log"
 msgstr "Toon logboek"
 
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "Toon mapstatus"
+
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -2677,6 +2790,10 @@ msgstr ""
 msgid "Show unversioned files"
 msgstr "Toon bestanden zonder versiebeheer"
 
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Geeft een grafische weergace van kopieën, labels en takken"
+
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Toont alle bestanden die sinds de laatste verversing zijn gewijzigd, zowel lokaal als in de bibliotheek"
@@ -2701,6 +2818,10 @@ msgstr "Grootte"
 msgid "Skipped"
 msgstr "Overgeslagen"
 
+#: ID:263
+msgid "Skipped missing target"
+msgstr "Ontbrekend doel overgeslagen"
+
 #: ID:79
 msgid ""
 "Specify the files or folders wich TortoiseSVN\n"
@@ -2719,6 +2840,7 @@ msgstr ""
 "Splits actieve venster in tweeën\n"
 "Splits"
 
+#: ID:245
 #: Control-ID:1132
 #: Dlg-ID:179
 msgid "Statistics"
@@ -3008,6 +3130,10 @@ msgstr "Voor dit programma is het bestand %s vereist, maar dat ontbreekt op deze
 msgid "This property is only allowed on folders, not files."
 msgstr "Deze eigenschap is alleen geldig voor mappen, niet voor bestanden."
 
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "Deze eigenschap mag geen meerdere regels bevatten. Slechts één regel toegestaan."
+
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Diff van drie bestanden"
@@ -3079,6 +3205,14 @@ msgstr ""
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN Instellingen"
 
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "Totaal aantal geanalyseerde vastleggingen:"
+
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "Totaal aantal bestandswijzigingen:"
+
 #: ID:73
 msgid "Try Again"
 msgstr "Opnieuw proberen"
@@ -3111,6 +3245,22 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL:"
+
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"Auteur: %s\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Logboodschap:\r\n"
+"%s"
 
 #: ID:3866
 msgid "Unable to load mail system support."
@@ -3191,6 +3341,10 @@ msgstr "URL"
 msgid "Url:"
 msgstr "URL:"
 
+#: ID:251
+msgid "Use &other text block"
+msgstr "Gebruik &ander tekstgedeelte"
+
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Toon vergrootglas op Zoekwerkbalk"
@@ -3239,6 +3393,10 @@ msgstr "&Gebruik dit gehele bestand"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Gebruik deze URL als de bibliotheek is gewijzigd"
+
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Gebruik het gehele andere &bestand"
 
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
@@ -3293,6 +3451,14 @@ msgstr "Bezoek onze website"
 #: ID:219
 msgid "Warning!"
 msgstr "Waarschuwing!"
+
+#: ID:195
+msgid ""
+"When checked, forces a refresh of the shell overlay icons after each operation.\n"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
+msgstr ""
+"Selecteer deze optie als u alle overlay ikonen wilt verversen na elke actie.\n"
+"<ct=0x0000ff><b>Let op:</b> verkenner kan hier traag van worden.</ct>"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3388,6 +3554,14 @@ msgstr ""
 "De werkkopie heeft lokale wijzigingen!\n"
 "N.B.: deze wijzigingen gaan niet verloren bij het verversen naar een andere revisie,\n"
 "de werkkopie zal dus niet exact gelijk zijn aan de revisie waarnaar u ververst!"
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "&Inzoomen"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "&Uitzoomen"
 
 #: ID:10
 msgid "added"

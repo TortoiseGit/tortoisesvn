@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-05 09:58+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2004-12-17 14:24+0100\n"
+"Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,7 +106,7 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"Vill du ta bort deni alla fall?"
+"Vill du ta bort den i alla fall?"
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
@@ -143,10 +143,6 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "&Avbryt"
-
-#: Control-ID:1074
-msgid "&Checkout directory:"
-msgstr "Mapp för &uthämtning:"
 
 #: Control-ID:1066
 msgid "&Close windows automatically"
@@ -254,6 +250,7 @@ msgid "&OK"
 msgstr "&OK"
 
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Öppna"
 
@@ -288,8 +285,8 @@ msgid "&Remove"
 msgstr "&Ta bort"
 
 #: ID:101
-msgid "&Rename..."
-msgstr "&Döp om..."
+msgid "&Rename/Move..."
+msgstr "&Döp om/Flytta..."
 
 #: ID:113
 msgid "&Revert changes from this revision"
@@ -307,6 +304,14 @@ msgstr "&SSH klient:"
 #: MenuEntry
 msgid "&Save Ctrl-S"
 msgstr "&Spara Ctrl-S"
+
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "&Spara graf som..."
+
+#: Control-ID:1023
+msgid "&Save authentication"
+msgstr "&Spara autentisering"
 
 #: Control-ID:1012
 msgid "&Set"
@@ -394,6 +399,11 @@ msgstr ": Version %d"
 
 # Osäker på var denna visas
 #: ID:151
+msgid ": working base"
+msgstr ": Arbetsbas"
+
+# Osäker på var denna visas
+#: ID:151
 msgid ": working copy"
 msgstr ": arbetskopia"
 
@@ -410,6 +420,22 @@ msgstr ""
 "kommer detta att <b>förstöra din arbetskopia!</b>\n"
 "För att peka om din arbetskopia med en annan gren ska du använda kommandot \"växla till\".\n"
 "Är du säker på att du vill omlokalisera?"
+
+# ID:145,
+#: ID:145
+#, fuzzy
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b> är en shell extension.\n"
+"Det betyder att den är integrerad med Utforskaren.\n"
+"För att använda <b>TortoiseSVN</b> öppna ett utforskarfönster och högerklicka på \n"
+"valfri mapp, i menyn som visas så finns alla <b>TortoiseSVN</b> kommandon.\n"
+"<u>Glöm inte att läsa manualen!</u>"
 
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
@@ -507,13 +533,12 @@ msgstr "Aktivera uppgiftslistan"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Aktivera detta om du vill att mappar ska visa status rekursivt.\n"
 "<ct=0x0000ff><b>Varning:</b> Detta alternativ kan göra utforskaren långsam</ct>"
 
 #: ID:8
-#: ID:73
 #: Dlg-ID:155
 msgid "Add"
 msgstr "Lägg till"
@@ -545,6 +570,7 @@ msgstr "Lägg till filer här i arkivet"
 msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "Lägg till/ändra filändelsebaserat avvikelse-/föreningsprogram"
 
+#: ID:73
 #: Control-ID:65535
 msgid "Added"
 msgstr "Tillagd"
@@ -553,6 +579,10 @@ msgstr "Tillagd"
 msgid "Added a file remotely"
 msgstr "Fil lades till i arkivet"
 
+#: ID:126
+msgid "Added a folder remotely"
+msgstr "Mapp lades till i arkivet"
+
 #: ID:145
 msgid ""
 "Added the file(s)\n"
@@ -560,6 +590,10 @@ msgid ""
 msgstr ""
 "Lagt till fil(er)\n"
 "%spå undantagslistan."
+
+#: ID:263
+msgid "Adding"
+msgstr "Lägger till"
 
 #: ID:9
 msgid "Adds file(s) to Subversion control"
@@ -603,6 +637,11 @@ msgstr "Alla filer (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "Alla filer (*.*)|*.*||"
+
+# ID:82,
+#: ID:82
+msgid "All files are already under version control. There's nothing to add!"
+msgstr "Alla filer är versionshanterade. Det finns inget att lägga till!"
 
 #: ID:3867
 #: ID:3868
@@ -685,6 +724,10 @@ msgstr "Okänd radtyp hittades på rad %d!"
 msgid "An unsupported operation was attempted."
 msgstr "Försök att utföra en åtgärd som inte stöds gjordes."
 
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "Analysera versions data..."
+
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
 msgstr "Applicerar en patchfil i \"Unified Diff\"-format på arbetskopian"
@@ -697,6 +740,11 @@ msgstr "Applicera patch..."
 msgid "Apply Unified Diff"
 msgstr "Applicera patch (\"Unified Diff\")"
 
+# ID:145,
+#: ID:145
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "Är du säker på att du vill markera alla konflikter som lösta?"
+
 #: ID:79
 msgid "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
 msgstr "Vill du verkligen återställa? Du kommer att förlora <b>alla</b> ändringar sen förra uppdateringen!"
@@ -708,7 +756,7 @@ msgstr "I version: %d"
 #: Dlg-ID:131
 #: Dlg-ID:160
 msgid "Authentication"
-msgstr "Autensiering"
+msgstr "Autentisering"
 
 #: ID:76
 msgid "Author"
@@ -722,6 +770,10 @@ msgstr "Upphovsman: Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Upphovsmän: Stefan Kueng, Tim Kemp"
 
+#: Control-ID:1157
+msgid "Average"
+msgstr "Medel"
+
 #: Control-ID:1001
 msgid "B&rowse..."
 msgstr "B&läddra..."
@@ -730,10 +782,6 @@ msgstr "B&läddra..."
 msgid "B&uiltin"
 msgstr "&Intern"
 
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Skapa backup på originalfilen"
@@ -741,6 +789,11 @@ msgstr "Skapa backup på originalfilen"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Basfil:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkley Database (DBD)"
 
 #: Dlg-ID:162
 msgid "Blame"
@@ -828,6 +881,11 @@ msgstr "Avbryt"
 msgid "Cancelling SVN Blame..."
 msgstr "Avbryter visa ändringar per rad..."
 
+#: ID:270
+#, fuzzy
+msgid "Cancelling operation..."
+msgstr "Avbryter..."
+
 #: ID:82
 msgid "Certificate expired or not yet valid"
 msgstr "Certifikatet har gått ut eller är inte giltigt ännu"
@@ -841,7 +899,7 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Certifikatet inte giltigt ännu. Giltigt från: %s"
 
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Certifikat|*.p12;*.pkcs12;*.pfx|Alla|*.*||"
 
 #: ID:3825
@@ -872,8 +930,14 @@ msgstr "Leta efter uppdateringar"
 msgid "Check For Updates..."
 msgstr "Leta efter uppdateringar..."
 
+#: Control-ID:1132
+#, fuzzy
+msgid "Check Repository"
+msgstr "Kontrollera arkiv"
+
 #: ID:13
-msgid "Check for Updates"
+#, fuzzy
+msgid "Check for Modifications"
 msgstr "Leta efter uppdateringar"
 
 #: Control-ID:1073
@@ -910,6 +974,11 @@ msgstr "Markera de alternativ du vill ska visas i den översta högerknappsmenyn
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kryssa i för att använda ett mindre utförligt format för datum och tid i loggmeddelanden"
 
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr ""
+
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Kontrollerar om det finns en nyare version av TortoiseSVN tillgänglig..."
@@ -917,6 +986,11 @@ msgstr "Kontrollerar om det finns en nyare version av TortoiseSVN tillgänglig..
 #: Dlg-ID:133
 msgid "Checkout"
 msgstr "Hämta ut"
+
+#: Control-ID:1074
+#, fuzzy
+msgid "Checkout &directory:"
+msgstr "Mapp för &uthämtning:"
 
 #: ID:8
 msgid "Checkout..."
@@ -957,9 +1031,19 @@ msgstr "Klicka på \"Avancerat...\" för att ange olika avvikelseprogram baserat
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "Klicka på \"Avancerat...\" för att ange olika föreningsprogram baserat på filändelse"
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "Urklipp"
+
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "Stäng aktivt fönster och fråga om spara dokument"
+
+# Control-ID:1068,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "Färgkoda ändringar inom en rad"
 
 #: Dlg-ID:138
 msgid "Colors"
@@ -969,10 +1053,6 @@ msgstr "Färger"
 msgid "Command failed."
 msgstr "Kommandot misslyckades."
 
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "Kommentarshistorik:"
-
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "Arkivera i:"
@@ -980,6 +1060,21 @@ msgstr "Arkivera i:"
 #: ID:8
 msgid "Commit..."
 msgstr "Arkivera..."
+
+#: ID:244
+#, fuzzy
+msgid "Commits by author"
+msgstr "Arkiveringar per upphovsman"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "Arkiveringar veckovis"
+
+# Control-ID:1135,
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "Arkiveringar varje vecka:"
 
 #: ID:9
 msgid "Commits your changes to the repository"
@@ -1026,13 +1121,13 @@ msgstr "Snabbvalsmeny"
 msgid "Continue"
 msgstr "Fortsätt"
 
+#: ID:73
+msgid "Copied"
+msgstr "Kopierad"
+
 #: ID:126
 msgid "Copied remotely"
 msgstr "Kopierades i arkivet"
-
-#: ID:73
-msgid "Copy"
-msgstr "Kopiera"
 
 # Osäker på var denna visas
 #: ID:101
@@ -1048,7 +1143,7 @@ msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
-"Kopiera markeringen till Klippboken\n"
+"Kopiera markeringen till urklipp\n"
 "Kopiera"
 
 #: ID:80
@@ -1155,6 +1250,10 @@ msgstr "Kunde inte starta tråd!"
 msgid "Create Patch..."
 msgstr "Skapa patch..."
 
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Skapa arkiv här"
+
 #: ID:8
 msgid "Create Repository here"
 msgstr "Skapa arkiv här"
@@ -1184,8 +1283,8 @@ msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"Klipp ut markeringen och lägg i klippboken\n"
-"Klipp up"
+"Klipp ut markeringen och lägg i urklipp\n"
+"Klipp ut"
 
 #: Control-ID:1123
 msgid "D&on't close on conflicts"
@@ -1200,13 +1299,20 @@ msgid "Default &number of log messages"
 msgstr "&Standard antal loggmeddelanden"
 
 #: ID:11
-#: ID:73
 msgid "Delete"
 msgstr "Ta bort"
+
+#: ID:73
+msgid "Deleted"
+msgstr "Borttaget"
 
 #: ID:11
 msgid "Deletes files / folders from source control"
 msgstr "Tar bort filer / mappar ur arkivet"
+
+#: ID:263
+msgid "Deleting"
+msgstr "Tar bort"
 
 #: ID:3859
 msgid "Destination disk drive is full."
@@ -1324,6 +1430,10 @@ msgstr "Vill du spara dina ändringar?"
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "Konvertera inte filer vid kontroll av avvikelse mot basversion"
+
+#: ID:73
+msgid "Don't show this message again"
+msgstr "Visa inte detta meddelande igen"
 
 #: Control-ID:1079
 msgid "Drive Types"
@@ -1460,10 +1570,6 @@ msgstr "Extern"
 msgid "External Program:"
 msgstr "Externt program:"
 
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
-
 #: ID:74
 msgid "Failed Revert"
 msgstr "Återställning misslyckades"
@@ -1503,6 +1609,11 @@ msgstr "Filnamn"
 msgid "File Patches"
 msgstr "Filpatchar"
 
+# Control-ID:1138,
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "Filändringar varje vecka:"
+
 #: ID:3603
 msgid ""
 "Find the specified text\n"
@@ -1527,6 +1638,12 @@ msgstr "Font:"
 msgid "For Help, press F1"
 msgstr "Tryck F1 för hjälp"
 
+# Control-ID:1168,
+#: Control-ID:1168
+#, fuzzy
+msgid "Force shell icon refresh"
+msgstr "Uppdatera statusikoner i utforskaren"
+
 #: Control-ID:65535
 msgid "From:"
 msgstr "Från:"
@@ -1539,10 +1656,6 @@ msgstr "Generella inställningar"
 msgid "Generating Patchfile..."
 msgstr "Skapar patchfil..."
 
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "Hämta &allt"
-
 #: ID:119
 msgid "Getting File %s"
 msgstr "Hämtar fil %s"
@@ -1551,18 +1664,14 @@ msgstr "Hämtar fil %s"
 msgid "Getting file info..."
 msgstr "Hämtar filinformation..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "Hämtar information från arkiv..."
+
 #: ID:132
 msgid "Getting log info..."
 msgstr "Hämtar logginformation..."
-
-# Hur översätta "diff"
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"Gå till nästa avvikelse\n"
-"nästa avvikelse"
 
 # Hur översätta "diff"
 #: ID:2049
@@ -1591,6 +1700,19 @@ msgstr ""
 "Gå till förra avvikelsen\n"
 "föregående avvikelse"
 
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "Graf typ:"
+
+#: Control-ID:1032
+msgid "H&ead Revision"
+msgstr "&Huvudversion"
+
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "Arkivets huvudversion är: %d"
+
 #: ID:12
 #: Control-ID:1004
 msgid "Help"
@@ -1598,8 +1720,9 @@ msgstr "Hjälp"
 
 # ???
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Tips: Tryck F5 för att uppdatera valt underträd"
+#, fuzzy
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Tips: Tryck F5 för att uppdatera valt underträd och Ctrl-F5 för att också ladda in alla barnnoder"
 
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -1645,6 +1768,10 @@ msgstr ""
 msgid "Ignore"
 msgstr "Ignorera"
 
+#: ID:15
+msgid "Ignore %d items"
+msgstr "Ignorera %d objekt"
+
 #: Control-ID:1021
 msgid "Ignore All Whitespaces"
 msgstr "Ignorera alla whitespace"
@@ -1677,6 +1804,18 @@ msgstr "Importera mappen till ett arkiv"
 msgid "Include paths:"
 msgstr "Inkluderingsfiler:"
 
+# ID:79,
+#: ID:79
+#, fuzzy
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"Indikera mappstatus.\n"
+"Avaktiverat så visas den \"normala\" statusikonen.\n"
+"<ct=0x0000ff><b>Om utforskaren verkar långsam så avaktivera den här funktionen!</b></ct>"
+
 #: ID:76
 msgid "Initial Import"
 msgstr "Första importen"
@@ -1690,7 +1829,7 @@ msgid ""
 "Insert Clipboard contents\n"
 "Paste"
 msgstr ""
-"Infoga innehåll från Klippboken\n"
+"Infoga innehåll från urklipp\n"
 "Klista in"
 
 #: ID:3857
@@ -1760,6 +1899,12 @@ msgstr "Version"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Startar vald extern applikation för hantering av konflikter"
 
+# Control-ID:1137,
+#: Control-ID:1137
+#, fuzzy
+msgid "Least active author:"
+msgstr "Minst aktiv:"
+
 #: ID:188
 msgid "Left View: "
 msgstr "Vänster vy:"
@@ -1792,6 +1937,10 @@ msgstr "Historik"
 msgid "Log Message"
 msgstr "Loggmeddelande"
 
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "Logmeddelande historik:"
+
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "Historik"
@@ -1808,6 +1957,11 @@ msgstr "Felaktig DLL för mailsystem."
 #: Dlg-ID:143
 msgid "Main"
 msgstr "Generella"
+
+# Control-ID:1159,
+#: Control-ID:1159
+msgid "Max"
+msgstr "Max"
 
 #: Dlg-ID:141
 msgid "Merge"
@@ -1838,6 +1992,10 @@ msgstr "Loggmeddelande"
 msgid "Mime Type"
 msgstr "Mime-typ"
 
+#: Control-ID:1158
+msgid "Min"
+msgstr "Min"
+
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
@@ -1850,6 +2008,12 @@ msgstr "Blandad"
 #: ID:74
 msgid "Modified"
 msgstr "Ändrad"
+
+# Control-ID:1136,
+#: Control-ID:1136
+#, fuzzy
+msgid "Most active author:"
+msgstr "Mest aktiv:"
 
 #: ID:12
 msgid "Move files in Subversion to here"
@@ -1874,6 +2038,12 @@ msgstr "N&ästa konflikt"
 #: ID:3697
 msgid "NUM"
 msgstr "NUM"
+
+# Control-ID:1129,
+#: Control-ID:1129
+#, fuzzy
+msgid "Native Filesystem (FSFS)"
+msgstr "Lokalt filsystem (FSFS)"
 
 #: Dlg-ID:102
 msgid "Network"
@@ -1934,6 +2104,17 @@ msgstr "Normal"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Alla registryinställningar eller .ini-filen togs inte bort."
+
+# Control-ID:1161,
+#: Control-ID:1161
+#, fuzzy
+msgid "Number of authors:"
+msgstr "Antal upphovsmän:"
+
+# Control-ID:1160,
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "Antal veckor:"
 
 #: ID:73
 #: Control-ID:1
@@ -2017,10 +2198,6 @@ msgstr "Lösenord:"
 msgid "Paste Changed Filenames"
 msgstr "Klistra in namn på ändrade filer"
 
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "Klistra in &logmallar på engelska"
-
 #: ID:376
 msgid "Patch All"
 msgstr "Patcha allt"
@@ -2032,6 +2209,11 @@ msgstr "Patchfiler (*.diff, *.patch)|*.diff;*.patch|Alla (*.*)|*.*||"
 #: ID:77
 msgid "Path"
 msgstr "Sökväg"
+
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "Bilder (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Alla (*.*)|*.*||"
 
 #: ID:3858
 msgid "Please enter a GUID."
@@ -2277,8 +2459,8 @@ msgstr ""
 "Ersätt"
 
 #: ID:74
-msgid "Replaced"
-msgstr "Ersatt"
+msgid "Replacing"
+msgstr "Ersätter"
 
 #: ID:13
 msgid "Repo-Browser"
@@ -2293,15 +2475,12 @@ msgstr "Arkiv"
 msgid "Repository Browser"
 msgstr "Arkivutforskaren"
 
-#: ID:74
-msgid "Resolve"
-msgstr "Lös konflikt"
-
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
 msgstr "Markera konflikten som löst vid spara"
 
 #: ID:8
+#: ID:74
 msgid "Resolved"
 msgstr "Markera konflikt som löst"
 
@@ -2309,23 +2488,26 @@ msgstr "Markera konflikt som löst"
 msgid "Resolves conflicted files"
 msgstr "Markerar konflikten i filen som löst"
 
-#: ID:73
-msgid "Restore"
-msgstr "Återställ"
-
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "Återställ fönstret till normal storlek"
+
+#: ID:73
+msgid "Restored"
+msgstr "Återställd"
 
 #: ID:73
 msgid "Retry"
 msgstr "Försök igen"
 
 #: ID:8
-#: ID:73
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Återställ"
+
+#: ID:73
+msgid "Reverted"
+msgstr "Återställd"
 
 #: ID:9
 msgid "Reverts all changes you made since the last update"
@@ -2340,9 +2522,21 @@ msgstr "Version"
 msgid "Revision %d"
 msgstr "Version %d"
 
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "Version %ld"
+
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Version / ändrad av:"
+
+#: ID:15
+#: ID:269
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "Versions graf:"
 
 #: ID:75
 msgid "Revision: "
@@ -2366,47 +2560,47 @@ msgstr "SSH"
 
 #: ID:77
 msgid "SVN Add..."
-msgstr "Lägger till..."
+msgstr "SVN Lägg till..."
 
 #: ID:132
 msgid "SVN Blame"
-msgstr "Ändringar per rad"
+msgstr "SVN Ändringar per rad"
 
 #: ID:77
 msgid "SVN Checkout..."
-msgstr "Hämtar..."
+msgstr "SVN Hämta..."
 
 #: ID:77
 msgid "SVN Commit..."
-msgstr "Arkiverar..."
+msgstr "SVN Arkivera..."
 
 #: ID:78
 msgid "SVN Copy..."
-msgstr "Kopierar..."
+msgstr "SVN Kopiera..."
 
 #: ID:78
 msgid "SVN Export..."
-msgstr "Exporterar..."
+msgstr "SVN Exportera..."
 
 #: ID:77
 msgid "SVN Import..."
-msgstr "Importerar..."
+msgstr "SVN Importera..."
 
 #: ID:78
 msgid "SVN Merge..."
-msgstr "Förenar..."
+msgstr "SVN Förena..."
 
 #: Dlg-ID:134
 msgid "SVN Progress"
-msgstr "Förlopp"
+msgstr "SVN Förlopp"
 
 #: ID:77
 msgid "SVN Resolve..."
-msgstr "Markerar konflikt som löst..."
+msgstr "SVN Markera konflikt som löst..."
 
 #: ID:77
 msgid "SVN Revert..."
-msgstr "Återställer..."
+msgstr "SVN Återställ..."
 
 #: ID:11
 msgid "SVN Revision"
@@ -2418,11 +2612,11 @@ msgstr "SVN-status"
 
 #: ID:78
 msgid "SVN Switch..."
-msgstr "Växlar..."
+msgstr "SVN Växla..."
 
 #: ID:77
 msgid "SVN Update..."
-msgstr "Uppdaterar..."
+msgstr "SVN Uppdatera..."
 
 # Var används denna?
 #: ID:12
@@ -2446,9 +2640,18 @@ msgstr "S&para som..."
 msgid "Save As"
 msgstr "Spara som"
 
+#: ID:272
+msgid "Save Graph as..."
+msgstr "Spara graf som..."
+
 #: ID:76
 msgid "Save Revision &To..."
 msgstr "Spara version &till..."
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "Spara till urklipp"
 
 #: ID:313
 msgid "Save as..."
@@ -2457,6 +2660,10 @@ msgstr "Spara som..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "Spara ändringar i %1?"
+
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Spara sökväg till klientcertifikat"
 
 #: ID:3601
 msgid ""
@@ -2537,6 +2744,10 @@ msgstr ""
 "Markera hela dokumentet\n"
 "Markera allt"
 
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "Välj vilken typ av arkiv vill du skapa:"
+
 #: ID:3866
 msgid "Send Mail failed to send message."
 msgstr "Skicka mail misslyckades."
@@ -2562,14 +2773,6 @@ msgstr "Sätter egenskaper..."
 msgid "Settings"
 msgstr "Inställningar"
 
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
-msgstr ""
-"Ska loggen stanna vid en kopiering?\n"
-"Klicka <b>Ja</b> om du behöver ta reda på vart en gren startar."
-
 #: ID:101
 msgid "Sho&w Properties"
 msgstr "&Visa egenskaper"
@@ -2581,6 +2784,10 @@ msgstr "Kort &datum/tid format i loggmeddelanden"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Sökväg i arkivet (kort)"
+
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "Visa &alla"
 
 # Hur översätta "differences"
 #: ID:113
@@ -2623,6 +2830,10 @@ msgstr "Visa radnummer"
 msgid "Show Log"
 msgstr "Visa historik"
 
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "&Visa mappegenskaper"
+
 #: ID:3713
 msgid ""
 "Show or hide the status bar\n"
@@ -2651,6 +2862,11 @@ msgstr ""
 msgid "Show unversioned files"
 msgstr "Visa icke versionshanterade filer"
 
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "Visar en grafisk representation av kopior/märken/grenar"
+
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
 msgstr "Visar alla ändrade filer sen förra uppdateringen, både lokalt och i arkivet"
@@ -2672,8 +2888,13 @@ msgid "Size"
 msgstr "Storlek"
 
 #: ID:74
-msgid "Skip"
-msgstr "Hoppa över"
+msgid "Skipped"
+msgstr "Hoppades över"
+
+# ID:263,
+#: ID:263
+msgid "Skipped missing target"
+msgstr "Hoppade över mål som saknades"
 
 #: ID:79
 msgid ""
@@ -2693,6 +2914,12 @@ msgstr ""
 "Dela det aktiva fönstret\n"
 "Dela"
 
+#: ID:245
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "Statistik"
+
 #: ID:74
 #: ID:77
 #: ID:207
@@ -2702,6 +2929,12 @@ msgstr "Status"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "Status"
+
+# Control-ID:1130,
+#: Control-ID:1130
+#, fuzzy
+msgid "Stop On Copy"
+msgstr "Följ inte kopieringshistorik"
 
 #: Control-ID:65535
 msgid "Subversion configuration file:"
@@ -2971,6 +3204,16 @@ msgstr "Det här programmet är länkad med den saknade exprten %s i filen %s. D
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Den här applikationen kräver filen %s, som inte kunde hittas."
 
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Den här egenskapen är endast tillåten på mappar, inte filer."
+
+# ID:15,
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "Den här egenskapen får inte innehålla mer än en rad. "
+
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "3-filershantering av avvikelser"
@@ -3042,6 +3285,16 @@ msgstr ""
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN inställningar"
 
+# Control-ID:1162,
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "Analyserade arkiveringar:"
+
+# Control-ID:1163,
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "Antal filändringar:"
+
 #: ID:73
 msgid "Try Again"
 msgstr "Försök igen"
@@ -3074,6 +3327,23 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL:"
+
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"Ändrad av: %s\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Loggmeddelande:\r\n"
+"%s"
 
 #: ID:3866
 msgid "Unable to load mail system support."
@@ -3126,7 +3396,6 @@ msgid "Untitled"
 msgstr "Namnlös"
 
 #: ID:8
-#: ID:74
 #: Dlg-ID:152
 msgid "Update"
 msgstr "Uppdatera"
@@ -3134,6 +3403,10 @@ msgstr "Uppdatera"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "Uppdatera till version..."
+
+#: ID:74
+msgid "Updated"
+msgstr "Uppdaterad"
 
 #: ID:11
 msgid "Updates the working copy to a specific revision"
@@ -3150,6 +3423,11 @@ msgstr "Url"
 #: ID:144
 msgid "Url:"
 msgstr "Url:"
+
+#: ID:251
+#, fuzzy
+msgid "Use &other text block"
+msgstr "Använd det &andra textblocket"
 
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
@@ -3191,9 +3469,19 @@ msgstr "Använd \"di&tt\" textblock istället för \"deras\""
 msgid "Use th&is text block"
 msgstr "Använd &detta textblock"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "Använd &hela den här filen"
+
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Används när URL:en för ett arkiv har ändrats"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "Använd hela den andra &filen"
 
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
@@ -3250,9 +3538,14 @@ msgstr "Besök vår webbsida"
 msgid "Warning!"
 msgstr "Varning!"
 
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Vilken typ av arkiv vill du skapa?"
+#: ID:195
+#, fuzzy
+msgid ""
+"When checked, forces a refresh of the shell overlay icons after each operation.\n"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
+msgstr ""
+"Aktivera detta om du vill att statusen ska uppdateras efter varje operation.\n"
+"<ct=0x0000ff><b>Varning:</b> Detta alternativ kan göra utforskaren långsam</ct>"
 
 # Hur översätta "diff" och "whitespace"
 #: Control-ID:65535
@@ -3339,6 +3632,25 @@ msgstr ""
 "Din arbetskopia verkar peka på ett <b>märke</b>!\n"
 "Du bör <b>växla</b> den till en sidogren eller huvudgrenen innan du arkiverar dina ändringar."
 
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"Din arbetskopia har lokala ändringar!\n"
+"OBS: vid uppdatering till en annan version så behålls de ändringarna så\n"
+"arbetskopian kommer inte att bli identisk med versionen du uppdaterar till!"
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "Zooma &in"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "Zooma &ut"
+
 #: ID:10
 msgid "added"
 msgstr "Tillagd"
@@ -3350,6 +3662,25 @@ msgstr "en namnlös fil"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "och stöd utvecklarna"
+
+#: ID:245
+#, fuzzy
+msgid "author"
+msgstr "Ändrad av"
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Sätt till \"false\" om du vill att ett bugg-/ärende ID infogas längst upp i\n"
+"loggmeddelandet. Default är \"true\" som betyder att bugg-/ärende ID\n"
+"läggs till sist i loggmeddelandet."
 
 #: ID:14
 msgid ""
@@ -3390,6 +3721,11 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "rensar"
+
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "arkiveringar"
 
 #: ID:11
 msgid "conflicted"
@@ -3478,7 +3814,7 @@ msgstr "Ersatt"
 
 #: Control-ID:1023
 msgid "save authentication"
-msgstr "Spara"
+msgstr "Spara autentisering"
 
 #: ID:14
 msgid ""
@@ -3546,6 +3882,18 @@ msgstr ""
 msgid "to %s"
 msgstr "till %s"
 
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Sätt till \"false\" om du inte vill att listan med de ändrade filerna infogas\n"
+"på engelska i arkiveringsdialogrutan."
+
 #: ID:15
 msgid ""
 "tsvn:logminsize\n"
@@ -3574,6 +3922,21 @@ msgstr ""
 "Markeras med en linje i inmatningsfältet för logmeddelanden.\n"
 "Standard är 80 tecken."
 
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Sätt till \"yes\" om en varning skall visas om inget ärende anges i arkiveringsdialogrutan."
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "vecka"
+
 #: Control-ID:1112
 msgid "your version is:"
 msgstr "din version är:"
@@ -3581,4 +3944,5 @@ msgstr "din version är:"
 #: ID:201
 msgid "your version is: %d.%d.%d.%d"
 msgstr "din version är: %d.%d.%d.%d"
+
 
