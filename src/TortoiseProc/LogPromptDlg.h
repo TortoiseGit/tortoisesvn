@@ -50,13 +50,17 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CLogPromptDlg : public CResizableStandAloneDialog
+class CLogPromptDlg : public CResizableStandAloneDialog, public CSciEditContextMenuInterface
 {
 	DECLARE_DYNAMIC(CLogPromptDlg)
 
 public:
 	CLogPromptDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CLogPromptDlg();
+
+	// CSciEditContextMenuInterface
+	virtual void		InsertMenuItems(CMenu& mPopup, int& nCmd);
+	virtual bool		HandleMenuItemClick(int cmd, CSciEdit * pSciEdit);
 
 private:
 	static UINT StatusThreadEntry(LPVOID pVoid);
@@ -76,7 +80,6 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnEnChangeLogmessage();
-	afx_msg void OnBnClickedFilllog();
 	afx_msg void OnCbnCloseupOldlogs();
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
@@ -108,5 +111,6 @@ private:
 	CButton			m_SelectAll;
 	CString			m_sBugID;
 	static UINT		WM_AUTOLISTREADY;
+	int				m_nPopupPasteListCmd;
 public:
 };

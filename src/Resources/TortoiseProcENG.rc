@@ -268,7 +268,6 @@ BEGIN
     LTEXT           "",IDC_STATISTICS,149,202,144,8,0,WS_EX_RIGHT
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTO3STATE | WS_TABSTOP,6,213,143,10
-    PUSHBUTTON      "Paste Changed Filenames",IDC_FILLLOG,187,218,106,14
     LTEXT           "To see the changes you made, double click on the files above.",
                     IDC_HINTLABEL,6,227,165,23
     DEFPUSHBUTTON   "&OK",IDOK,129,258,50,14
@@ -1820,6 +1819,11 @@ BEGIN
     IDS_PROGRS_CLOSE_NOERROR "Auto-close if no errors"
     IDS_PROGRS_CLOSE_NOCONFLICTS "Auto-close if no conflicts"
     IDS_PROGRS_CLOSE_NOMERGES "Auto-close if no merges, adds or deletes"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOGPROMPT_POPUP_PASTEFILELIST "Paste filename list"
 END
 
 #endif    // English (U.S.) resources
