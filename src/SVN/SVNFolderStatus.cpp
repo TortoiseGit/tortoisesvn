@@ -269,13 +269,15 @@ int SVNFolderStatus::FindFile(LPCTSTR filename)
 		file = _tcsrchr(filename, '/')+1;
 		if (!file)
 			return -1;
+
+		for (int i=0; i<m_nCacheCount; i++)
+		{
+			if (_tcscmp(file, m_pStatusCache[i].filename) == 0)
+				return i+SVNFOLDERSTATUS_FOLDER;
+		} // for (int i=0; i<m_nCacheCount; i++)
+		return -1;
 	}
-	for (int i=0; i<m_nCacheCount; i++)
-	{
-		if (_tcscmp(file, m_pStatusCache[i].filename) == 0)
-			return i+SVNFOLDERSTATUS_FOLDER;
-	} // for (int i=0; i<m_nCacheCount; i++)
-	for (i=0; i<m_nFolderCount; i++)
+	for (int i=0; i<m_nFolderCount; i++)
 	{
 		if (_tcscmp(file, m_FolderCache[i].filename) == 0)
 			return i;
