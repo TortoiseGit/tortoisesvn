@@ -19,7 +19,6 @@
 
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "CheckTempFiles.h"
 #include "messagebox.h"
 #include "SysImageList.h"
 #include "UnicodeUtils.h"

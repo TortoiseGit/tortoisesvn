@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "messagebox.h"
-#include "CheckTempFiles.h"
 #include "DirFileEnum.h"
 #include "AddDlg.h"
 #include ".\adddlg.h"
@@ -248,14 +247,11 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 				stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
 				if (SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)
 				{
-					if ((!CCheckTempFiles::IsTemp(strLine))||(!bIsDir))
-					{
-						//we add 'temporary' files always if they are not recursively added from a directory
-						pDlg->m_arFileList.Add(strLine);
-						int count = pDlg->m_addListCtrl.GetItemCount();
-						pDlg->m_addListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1));
-						pDlg->m_addListCtrl.SetCheck(count);
-					} // if ((!CCheckTempFiles::IsTemp(strLine))||(!bIsDir))
+					//we add 'temporary' files always if they are not recursively added from a directory
+					pDlg->m_arFileList.Add(strLine);
+					int count = pDlg->m_addListCtrl.GetItemCount();
+					pDlg->m_addListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1));
+					pDlg->m_addListCtrl.SetCheck(count);
 					if (bIsDir)
 					{
 						//we have an unversioned folder -> get all files in it recursively!
@@ -264,12 +260,9 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 						CString filename;
 						while (filefinder.NextFile(filename))
 						{
-							if (!CCheckTempFiles::IsTemp(filename))
-							{
-								pDlg->m_arFileList.Add(filename);
-								pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
-								pDlg->m_addListCtrl.SetCheck(count++);
-							} // if (!CCheckTempFiles::IsTemp(filename)) 
+							pDlg->m_arFileList.Add(filename);
+							pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
+							pDlg->m_addListCtrl.SetCheck(count++);
 						} // while (filefinder.NextFile(filename))
 					} // if (bIsDir) 
 				} // if (!SVNStatus::IsImportant(stat)) 
@@ -279,13 +272,10 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 					stat = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
 					if ((SVNStatus::GetMoreImportant(svn_wc_status_normal, stat)!=stat)&&((stat!=svn_wc_status_ignored)||(!bIsDir)))
 					{
-						if ((!CCheckTempFiles::IsTemp(temp))||(!bIsDir))
-						{
-							pDlg->m_arFileList.Add(temp);
-							int count = pDlg->m_addListCtrl.GetItemCount();
-							pDlg->m_addListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
-							pDlg->m_addListCtrl.SetCheck(count);
-						} // if ((!CCheckTempFiles::IsTemp(temp))||(!bIsDir)) 
+						pDlg->m_arFileList.Add(temp);
+						int count = pDlg->m_addListCtrl.GetItemCount();
+						pDlg->m_addListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
+						pDlg->m_addListCtrl.SetCheck(count);
 						if (bIsDir)
 						{
 							//we have an unversioned folder -> get all files in it recursively!
@@ -294,12 +284,9 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 							CString filename;
 							while (filefinder.NextFile(filename))
 							{
-								if (!CCheckTempFiles::IsTemp(filename))
-								{
-									pDlg->m_arFileList.Add(filename);
-									pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
-									pDlg->m_addListCtrl.SetCheck(count++);
-								} // if (!CCheckTempFiles::IsTemp(filename)) 
+								pDlg->m_arFileList.Add(filename);
+								pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
+								pDlg->m_addListCtrl.SetCheck(count++);
 							} // while (filefinder.NextFile(filename))
 						} // if (bIsDir) 
 					} // if (!SVNStatus::IsImportant(stat)) 

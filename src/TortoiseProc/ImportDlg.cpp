@@ -31,7 +31,6 @@
 IMPLEMENT_DYNAMIC(CImportDlg, CResizableDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CImportDlg::IDD, pParent)
-	, m_bSelectAll(TRUE)
 {
 	m_message.LoadString(IDS_IMPORT_DEFAULTMSG);
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -48,18 +47,13 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_MESSAGE, m_message);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
-	DDX_Control(pDX, IDC_FILELIST, m_FileList);
-	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 }
 
 
 BEGIN_MESSAGE_MAP(CImportDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
-	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
-	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -100,46 +94,7 @@ BOOL CImportDlg::OnInitDialog()
 		m_URLCombo.EnableWindow(FALSE);
 	}
 
-	//set the listcontrol to support checkboxes
-	m_FileList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
-
-	m_FileList.DeleteAllItems();
-	int c = ((CHeaderCtrl*)(m_FileList.GetDlgItem(0)))->GetItemCount()-1;
-	while (c>=0)
-		m_FileList.DeleteColumn(c--);
-	CString temp;
-	temp.LoadString(IDS_LOGPROMPT_FILE);
-	m_FileList.InsertColumn(0, temp);
-
-	m_FileList.SetRedraw(false);
-	CDirFileEnum filefinder(m_path);
-	CString filename;
-	int itemCount = 0;
-	while (filefinder.NextFile(filename))
-	{
-		if (CCheckTempFiles::IsTemp(filename))
-		{
-			m_FileList.InsertItem(itemCount, filename);
-			m_FileList.SetCheck(itemCount, TRUE);
-			itemCount++;
-		}
-	}
-
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_FileList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_FileList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
-	m_FileList.SetRedraw(true);
-
-
 	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_MODULENAMECHECK, IDS_IMPORT_TT_MODULENAMECHECK);
-	m_tooltips.AddTool(IDC_FILELIST, IDS_IMPORT_TT_TEMPFILES);
-	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
-	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
 	AddAnchor(IDC_STATIC1, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_STATIC4, TOP_LEFT);
@@ -147,9 +102,6 @@ BOOL CImportDlg::OnInitDialog()
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
 	AddAnchor(IDC_STATIC2, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MESSAGE, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_STATIC3, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 
@@ -216,47 +168,6 @@ void CImportDlg::OnOK()
 				return;
 		} // if (GetDriveType(temp)==DRIVE_REMOTE) 
 	} // if (m_url.Left(7).CompareNoCase(_T("file://"))==0) 
-	// first we check the size of all filepaths together
-	DWORD len = 0;
-	for (int j=0; j<m_FileList.GetItemCount(); j++)
-	{
-		if (m_FileList.GetCheck(j))
-		{
-			len += m_FileList.GetItemText(j,0).GetLength() + sizeof(TCHAR);
-		}
-	}
-	TCHAR * filenames = new TCHAR[len+(4*sizeof(TCHAR))];
-	ZeroMemory(filenames, len+(4*sizeof(TCHAR)));
-	TCHAR * fileptr = filenames;
-	for (int i=(m_FileList.GetItemCount()-1); i>=0; i--)
-	{
-		if (m_FileList.GetCheck(i))
-		{
-			CString temp = m_FileList.GetItemText(i,0);
-			_tcscpy(fileptr, m_FileList.GetItemText(i,0));
-			fileptr = _tcsninc(fileptr, _tcslen(fileptr)+1);
-		} // if (m_FileList.GetCheck(i))
-	} // for (int i=0; i<m_FileList.GetItemCount(); i++)
-	*fileptr = '\0';
-	if (_tcslen(filenames)!=0)
-	{
-		SHFILEOPSTRUCT fileop;
-		fileop.hwnd = this->m_hWnd;
-		fileop.wFunc = FO_DELETE;
-		fileop.pFrom = filenames;
-		fileop.pTo = _T("");
-		fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
-		fileop.lpszProgressTitle = _T("deleting files");
-		SHFileOperation(&fileop);
-		if (fileop.fAnyOperationsAborted)
-		{
-			delete [] filenames;
-			CResizableDialog::OnCancel();
-			return;
-		}
-	} // if (_tcslen(filenames)!=0) 
-
-	delete [] filenames;
 	CResizableDialog::OnOK();
 }
 
@@ -324,53 +235,3 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 	return CResizableDialog::PreTranslateMessage(pMsg);
 }
 
-void CImportDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-	*pResult = 0;
-	int index = pNMLV->iItem;
-	if (m_FileList.GetCheck(index))
-	{
-		if (PathIsDirectory(m_FileList.GetItemText(index, 0)))
-		{
-			//enable all files within that folder
-			CString folderpath = m_FileList.GetItemText(index, 0);
-			for (int i=0; i<m_FileList.GetItemCount(); i++)
-			{
-				if (folderpath.CompareNoCase(m_FileList.GetItemText(i, 0).Left(folderpath.GetLength()))==0)
-				{
-					m_FileList.SetCheck(i, TRUE);
-				}
-			} // for (int i=0; i<m_FileList.GetItemCount(); i++) 
-		} // if (PathIsDirectory(m_FileList.GetItemText(index, 0))) 
-	} // if (!m_FileList.GetCheck(index)) 
-	else
-	{
-		if (!PathIsDirectory(m_FileList.GetItemText(index, 0)))
-		{
-			//user selected a file, so we need to check if the parent folder is checked
-			CString folderpath = m_FileList.GetItemText(index, 0);
-			folderpath = folderpath.Left(folderpath.ReverseFind('\\'));
-			for (int i=0; i<m_FileList.GetItemCount(); i++)
-			{
-				if (folderpath.CompareNoCase(m_FileList.GetItemText(i, 0))==0)
-				{
-					if (m_FileList.GetCheck(i))
-						m_FileList.SetCheck(index, TRUE);
-					return;
-				}
-			} // for (int i=0; i<m_FileList.GetItemCount(); i++) 
-		}
-	}
-}
-
-void CImportDlg::OnBnClickedSelectall()
-{
-	UpdateData();
-	theApp.DoWaitCursor(1);
-	for (int i=0; i<m_FileList.GetItemCount(); i++)
-	{
-		m_FileList.SetCheck(i, m_bSelectAll);
-	}
-	theApp.DoWaitCursor(-1);
-}

@@ -20,7 +20,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "messagebox.h"
-#include "CheckTempFiles.h"
 #include "LogPromptDlg.h"
 #include "UnicodeUtils.h"
 #include ".\logpromptdlg.h"
@@ -673,21 +672,18 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				} // if (SVNStatus::IsImportant(stat)) 
 				if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))
 				{
-					if (!CCheckTempFiles::IsTemp(strLine))
-					{
-						CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
-						data->checked = FALSE;
-						data->path = strLine;
-						data->line = strLine;
-						data->status = stat;
-						data->textstatus = s->text_status;
-						data->propstatus = s->prop_status;
-						pDlg->m_arData.Add(data);
-						int count = pDlg->m_ListCtrl.GetItemCount();
-						pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
-						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
-						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
-					} // if (!CCheckTempFiles::IsTemp(strLine)) 
+					CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+					data->checked = FALSE;
+					data->path = strLine;
+					data->line = strLine;
+					data->status = stat;
+					data->textstatus = s->text_status;
+					data->propstatus = s->prop_status;
+					pDlg->m_arData.Add(data);
+					int count = pDlg->m_ListCtrl.GetItemCount();
+					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
+					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 				} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
 				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
 				{
@@ -759,48 +755,42 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					} // if (SVNStatus::IsImportant(stat)) 
 					if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))
 					{
-						if (!CCheckTempFiles::IsTemp(temp))
+						CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+						data->checked = FALSE;
+						data->path = temp;
+						data->line = strLine;
+						data->status = stat;
+						data->textstatus = s->text_status;
+						data->propstatus = s->prop_status;
+						pDlg->m_arData.Add(data);
+						int count = pDlg->m_ListCtrl.GetItemCount();
+						if (bIsFolder)
 						{
-							CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
-							data->checked = FALSE;
-							data->path = temp;
-							data->line = strLine;
-							data->status = stat;
-							data->textstatus = s->text_status;
-							data->propstatus = s->prop_status;
-							pDlg->m_arData.Add(data);
+							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
+							//we have an unversioned folder -> get all files in it recursively!
 							int count = pDlg->m_ListCtrl.GetItemCount();
-							if (bIsFolder)
+							CDirFileEnum filefinder(temp);
+							CString filename;
+							while (filefinder.NextFile(filename))
 							{
-								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
-								//we have an unversioned folder -> get all files in it recursively!
-								int count = pDlg->m_ListCtrl.GetItemCount();
-								CDirFileEnum filefinder(temp);
-								CString filename;
-								while (filefinder.NextFile(filename))
-								{
-									filename.Replace('\\', '/');
-									if (!CCheckTempFiles::IsTemp(filename))
-									{
-										CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
-										data->checked = FALSE;
-										data->path = filename;
-										data->line = strLine;
-										data->status = stat;
-										data->textstatus = s->text_status;
-										data->propstatus = s->prop_status;
-										pDlg->m_arData.Add(data);
-										pDlg->m_ListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.GetLength() - 1));
-										SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
-										pDlg->m_ListCtrl.SetItemText(count++, 1, buf);
-									} // if (!CCheckTempFiles::IsTemp(filename))
-								} // while (filefinder.NextFile(filename))
-							} // if (bIsFolder) 
-							else
-								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
-							SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
-							pDlg->m_ListCtrl.SetItemText(count, 1, buf);
-						} // if (!CCheckTempFiles::IsTemp(temp))
+								filename.Replace('\\', '/');
+								CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
+								data->checked = FALSE;
+								data->path = filename;
+								data->line = strLine;
+								data->status = stat;
+								data->textstatus = s->text_status;
+								data->propstatus = s->prop_status;
+								pDlg->m_arData.Add(data);
+								pDlg->m_ListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.GetLength() - 1));
+								SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+								pDlg->m_ListCtrl.SetItemText(count++, 1, buf);
+							} // while (filefinder.NextFile(filename))
+						} // if (bIsFolder) 
+						else
+							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
+						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
+						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
 				} // while ((s = status.GetNextFileStatus(&strbuf)) != NULL) 
 			} // if (s!=0) 

@@ -19,7 +19,6 @@
 #include "afxwin.h"
 #include "HistoryCombo.h"
 #include "Balloon.h"
-#include "CheckTempFiles.h"
 #include "DirFileList.h"
 #include "afxcmn.h"
 #include "ResizableDialog.h"
@@ -66,11 +65,9 @@ protected:
 	CBalloon	m_tooltips;
 	CButton		m_butBrowse;
 	HICON		m_hIcon;
-	BOOL		m_bSelectAll;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void OnBnClickedBrowse();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -82,7 +79,6 @@ public:
 	CString m_path;
 	CString m_message;
 	CHistoryCombo m_URLCombo;
-	CListCtrl m_FileList;
 
 	afx_msg void OnBnClickedSelectall();
 };
