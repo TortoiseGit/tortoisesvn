@@ -1,0 +1,18 @@
+<refentry id="table.properties">
+<refnamediv>
+<refname>table.properties</refname>
+<refpurpose>Properties associated with a table</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<src:fragment id='table.properties.frag'>
+<xsl:attribute-set name="table.properties" use-attribute-sets="formal.object.properties"/>
+</src:fragment>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+
+<para>The styling for tables.</para>
+
+</refsect1>
+</refentry>
