@@ -275,6 +275,42 @@
 		den Rest.
 		</para>
 		<para>
+		Wenn Sie eine Rechtschreibkorrektur und/oder einen Thesaurus für die
+		Eingabe der Log-Meldungen möchten müssen Sie die entsprechenden Wörterbücher
+		selbst herunterladen. Sie können dieselben Wörterbuch-Dateien benutzen
+		wie 
+		<ulink url="http://openoffice.org"><citetitle>OpenOffice</citetitle></ulink>
+		und
+		<ulink url="http://mozilla.org"><citetitle>Mozilla</citetitle></ulink> 
+		nutzen. Sie finden solche Wörterbücher an verschiedenen Orten:
+		<itemizedlist>
+		<listitem><para>
+		<ulink url="http://lingucomponent.openoffice.org/spell_dic.html">
+			<citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle>
+		</ulink></para></listitem>
+		<listitem><para>
+		<ulink url="http://lingucomponent.openoffice.org/thes_dic.html">
+			<citetitle>http://lingucomponent.openoffice.org/thes_dic.html</citetitle>
+		</ulink></para></listitem>
+		</itemizedlist>
+		Sie können auch die Wörterbücher benutzen welche Mozilla installiert. Sie
+		finden diese im Installationsverzeichnis von Mozilla.
+		</para>
+		<para>
+		Wenn Sie die Wörterbücher haben, müssen Sie diese möglicherweise erst
+		umbenennen so dass die Dateinamen nur die Länderabkürzungen aufweisen.
+		Zum Beispiel:
+		<itemizedlist>
+			<listitem><para>de_CH.aff</para></listitem>
+			<listitem><para>de_CH.dic</para></listitem>
+			<listitem><para>de_CH.idx</para></listitem>
+			<listitem><para>de_CH.dat</para></listitem>			
+		</itemizedlist>
+		Danach kopieren Sie diese Dateien einfach in das Installationsverzeichnis
+		von TortoiseSVN. Wenn Sie TortoiseSVN das nächste Mal starten, ist die
+		Rechtschreibkorrektur und der Thesaurus bereit.
+		</para>
+		<para>
 		Falls Sie irgendwelche Probleme während oder nach der Installation
 		von TortoiseSVN haben sollten, sehen Sie bitte zunächst im Kapitel
 		<xref linkend="tsvn-faq"/> nach.

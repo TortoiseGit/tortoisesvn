@@ -239,7 +239,7 @@
 		<title>System requirements</title>
 		<para>
 		TortoiseSVN runs on Windows 98/Me, NT4 or Win2k SP2 or WinXP, IE5.5 or later.
-		Win98/ME cannot host repositories, check the following Subversion FAQ entry
+		Win98/ME <emphasis>can not</emphasis> host repositories, check the following Subversion FAQ entry
 		<ulink url="http://subversion.tigris.org/project_faq.html">
 			<citetitle>What operating systems does Subversion run on?</citetitle>
 		</ulink> to find out why.
@@ -251,6 +251,41 @@
 		TortoiseSVN comes with an easy to use installer. Doubleclick on the
 		installer file and follow the instructions. The installer will take
 		care of the rest.
+		</para>
+		<para>
+		If you want to use a spell checker and/or thesaurus for your log messages
+		then you have to download the required dictionaries yourself. You can use
+		the same dictionary files as 
+		<ulink url="http://openoffice.org"><citetitle>OpenOffice</citetitle></ulink>
+		and 
+		<ulink url="http://mozilla.org"><citetitle>Mozilla</citetitle></ulink> use.
+		You can find the required dictionary files on various places:
+		<itemizedlist>
+		<listitem><para>
+		<ulink url="http://lingucomponent.openoffice.org/spell_dic.html">
+			<citetitle>http://lingucomponent.openoffice.org/spell_dic.html</citetitle>
+		</ulink></para></listitem>
+		<listitem><para>
+		<ulink url="http://lingucomponent.openoffice.org/thes_dic.html">
+			<citetitle>http://lingucomponent.openoffice.org/thes_dic.html</citetitle>
+		</ulink></para></listitem>
+		</itemizedlist>
+		You can also use the dictionaries which get installed with Mozilla. They're
+		located in the installation folder of Mozilla.
+		</para>
+		<para>
+		Once you got the dictionary and thesaurus files, you probably need to
+		rename them so that the filenames only have the locale chars in it.
+		Example:
+		<itemizedlist>
+			<listitem><para>en_US.aff</para></listitem>
+			<listitem><para>en_US.dic</para></listitem>
+			<listitem><para>en_US.idx</para></listitem>
+			<listitem><para>en_US.dat</para></listitem>			
+		</itemizedlist>
+		Then just copy them to the installation folder of TortoiseSVN. The next
+		time you start TortoiseSVN, the spell checker and thesaurus will be
+		available.
 		</para>
 		<para>
 		If you encounter any problems while or after installing TortoiseSVN
