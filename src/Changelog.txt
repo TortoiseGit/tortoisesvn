@@ -3,6 +3,8 @@
        just to a repo->repo copy. (Stefan)
 - BUG: Authentication when viewing remote properties lead
        to a crash. (Stefan)
+- BUG: Even if no entries are added to the right-drag context
+       menu, the separator still was added. (Stefan)
 
 Version 1.0.8
 - CHG: The OK button in the commit dialog is enabled by default,
