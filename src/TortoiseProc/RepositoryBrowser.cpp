@@ -202,7 +202,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 			if (cmd == ID_POPSHOWLOG)
 			{
 				CLogDlg dlg;
-				dlg.SetParams(url, 0, -1, FALSE);
+				dlg.SetParams(url, SVN::REV_HEAD, 0, FALSE);
 				dlg.DoModal();
 			} // if (cmd == ID_SHOWLOG)
 			if (cmd == ID_POPOPEN)
