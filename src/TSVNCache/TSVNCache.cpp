@@ -169,7 +169,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 
 	if (hPipeThread == NULL) 
 	{
-		printf("CreateThread failed"); 
+		ATLTRACE("CreateThread failed"); 
 		return 0;
 	}
 	else CloseHandle(hPipeThread); 
@@ -247,7 +247,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				NULL);          // no template file 
 
 			CloseHandle(hPipe);
-			Sleep(100);
+			Sleep(1500);
 			Shell_NotifyIcon(NIM_DELETE,&niData);
 			PostQuitMessage(0);
 			ATLTRACE("WM_CLOSE/QUIT/DESTROY/ENDSESSION\n");
@@ -306,11 +306,11 @@ VOID PipeThread(LPVOID lpvParam)
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
-			printf("CreatePipe failed"); 
+			ATLTRACE("CreatePipe failed"); 
 			break;
 		}
 
-		if (WaitNamedPipe(TSVN_CACHE_PIPE_NAME, 100))
+		if (WaitNamedPipe(TSVN_CACHE_PIPE_NAME, 1000))
 		{
 			// Wait for the client to connect; if it succeeds, 
 			// the function returns a nonzero value. If the function returns 
@@ -329,23 +329,26 @@ VOID PipeThread(LPVOID lpvParam)
 
 				if (hInstanceThread == NULL) 
 				{
-					printf("CreateThread failed"); 
+					ATLTRACE("CreateThread failed"); 
+					DisconnectNamedPipe(hPipe);
+					CloseHandle(hPipe);
 					return;
 				}
 				else CloseHandle(hInstanceThread); 
 			} 
-			else 
+			else
+			{
 				// The client could not connect, so close the pipe. 
 				CloseHandle(hPipe); 
+				break;
+			}
 		}
 		else
 		{
-			// no connection
-			// close the pipe so it can be reopened
 			CloseHandle(hPipe);
+			break;
 		}
 	}
-	CloseHandle(hPipe);
 	ATLTRACE("Pipe thread exited\n");
 }
 
