@@ -214,7 +214,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		// all the files in the directory, filtering for the ones we're interested in
 		status.SetFilter(pathList);
 
-		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths))
+		if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true))
 		{
 			bRet = FALSE;
 		}
@@ -223,7 +223,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 	{
 		for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
 		{
-			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths))
+			if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false))
 			{
 				bRet = FALSE;
 			}
@@ -244,7 +244,8 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 							const CTSVNPath& target, 
 							bool bFetchStatusFromRepository,
 							CStringA& strCurrentRepositoryUUID,
-							CTSVNPathList& arExtPaths
+							CTSVNPathList& arExtPaths,
+							bool bAllDirect
 							)
 {
 	apr_array_header_t* pIgnorePatterns = NULL;
@@ -344,7 +345,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 		// for folders, get all statuses inside it too
 		if(workingTarget.IsDirectory())
 		{
-			ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryUUID, arExtPaths, pIgnorePatterns);
+			ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryUUID, arExtPaths, pIgnorePatterns, bAllDirect);
 		} 
 
 	} // if (s!=0) 
@@ -366,9 +367,6 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			bool bInExternal					// Are we in an 'external' folder
 			)
 {
-//WGD - I think I was wrong with this assumption
-//	ASSERT(basePath.IsDirectory());
-
 	FileEntry * entry = new FileEntry();
 	entry->path = path;
 	entry->basepath = basePath;
@@ -452,7 +450,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 
 void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& basePath, 
 										  CStringA& strCurrentRepositoryUUID, 
-										  CTSVNPathList& arExtPaths, apr_array_header_t *pIgnorePatterns)
+										  CTSVNPathList& arExtPaths, apr_array_header_t *pIgnorePatterns, bool bAllDirect)
 {
 	svn_wc_status_t * s;
 	// This is the item path returned from GetNextFileStatus - it's a forward-slash path
@@ -518,7 +516,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 		if (wcFileStatus == svn_wc_status_unversioned)
 			m_bHasUnversionedItems = TRUE;
 
-		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, false, bDirectoryIsExternal);
+		const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal);
 
 		if ((wcFileStatus == svn_wc_status_unversioned)&&(!SVNConfig::MatchIgnorePattern(entry->path.GetSVNPathString(),pIgnorePatterns)))
 		{
