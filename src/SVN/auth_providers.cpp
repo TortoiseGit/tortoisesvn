@@ -215,13 +215,13 @@ int tsvn_write_auth_data (apr_hash_t *hash,
 		}
 		blobin.cbData = username->len;
 		blobin.pbData = (BYTE *)username->data;
-		if (lpfnCryptProtectData(&blobin, NULL, NULL, NULL, NULL, NULL, &blobout))
+		if (lpfnCryptProtectData(&blobin, L"tsvnauth", NULL, NULL, NULL, NULL, &blobout))
 		{
 			tsvn_write_to_registry(reguser, blobout.pbData, blobout.cbData);
 			LocalFree(blobout.pbData);
 			blobin.cbData = password->len;
 			blobin.pbData = (BYTE *)password->data;
-			if (lpfnCryptProtectData(&blobin, NULL, NULL, NULL, NULL, NULL, &blobout))
+			if (lpfnCryptProtectData(&blobin, L"tsvnauth", NULL, NULL, NULL, NULL, &blobout))
 			{
 				tsvn_write_to_registry(regkey, blobout.pbData, blobout.cbData);
 				LocalFree(blobout.pbData);
