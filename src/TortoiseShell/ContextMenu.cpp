@@ -770,7 +770,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					//#region case
 					case Checkout:
 						svnCmd += _T("checkout /path:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Update:
@@ -818,33 +818,33 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						break;
 					case Cleanup:
 						svnCmd += _T("cleanup /path:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Resolve:
 						svnCmd += _T("resolve /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Switch:
 						svnCmd += _T("switch /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Import:
 						svnCmd += _T("import /path:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Export:
 						svnCmd += _T("export /path:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case About:
@@ -852,23 +852,23 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						break;
 					case CreateRepos:
 						svnCmd += _T("repocreate /path:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Merge:
 						svnCmd += _T("merge /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Copy:
 						svnCmd += _T("copy /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Settings:
@@ -880,9 +880,9 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					case Rename:
 						svnCmd += _T("rename /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Remove:
@@ -894,17 +894,17 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					case Diff:
 						svnCmd += _T("diff /path:\"");
 						if (files_.size() == 1)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else if (files_.size() == 2)
 						{
 							std::vector<stdstring>::iterator I = files_.begin();
-							svnCmd += I->c_str();
+							svnCmd += *I;
 							I++;
 							svnCmd += _T("\" /path2:\"");
-							svnCmd += I->c_str();
+							svnCmd += *I;
 						}
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case DropCopyAdd:
@@ -913,7 +913,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"";)
 						break;
 					case DropCopy:
@@ -922,7 +922,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"";)
 						break;
 					case DropMove:
@@ -931,7 +931,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case DropExport:
@@ -940,7 +940,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case DropExportExtended:
@@ -949,72 +949,72 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						svnCmd += tempfile;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /droptarget:\"");
-						svnCmd += folder_.c_str();
+						svnCmd += folder_;
 						svnCmd += _T("\"");
 						svnCmd += _T(" /extended");
 						break;
 					case Log:
 						svnCmd += _T("log /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case ConflictEditor:
 						svnCmd += _T("conflicteditor /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Relocate:
 						svnCmd += _T("relocate /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case ShowChanged:
 						svnCmd += _T("repostatus /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case RepoBrowse:
 						svnCmd += _T("repobrowser /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case Blame:
 						svnCmd += _T("blame /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case CreatePatch:
 						svnCmd += _T("createpatch /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					case ApplyPatch:
 						svnCmd = _T(" /patchpath:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						myIDMap.clear();
 						if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
@@ -1038,9 +1038,9 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					case RevisionGraph:
 						svnCmd += _T("revisiongraph /path:\"");
 						if (files_.size() > 0)
-							svnCmd += files_.front().c_str();
+							svnCmd += files_.front();
 						else
-							svnCmd += folder_.c_str();
+							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
 					default:
