@@ -22,6 +22,16 @@
 #define PATCHSTATE_ADDED	1
 #define PATCHSTATE_CONTEXT	2
 
+/**
+ * \ingroup TortoiseMerge
+ *
+ * Handles unified diff files, parses them and also is able to
+ * apply those diff files.
+ *
+ * \todo enhance the parser to work with other diff files than
+ * those created by subversion clients.
+ * \todo rewrite the parser to use regular expressions
+ */
 class CPatch
 {
 public:

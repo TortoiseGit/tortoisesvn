@@ -23,6 +23,8 @@
  * \ingroup TortoiseMerge
  *
  * Represents an array of text lines which are read from a file.
+ * This class is also responsible for determing the encoding of
+ * the file (e.g. UNICODE, UTF8, ASCII, ...).
  */
 class CFileTextLines : public CStringArray
 {
