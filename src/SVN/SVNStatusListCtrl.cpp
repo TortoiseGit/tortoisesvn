@@ -777,7 +777,7 @@ int CSVNStatusListCtrl::SortCompare(const void * pElem1, const void * pElem2)
 		{
 			if (result == 0)
 			{
-				result = entry1->url.Compare(entry2->url);
+				result = entry1->url.CompareNoCase(entry2->url);
 			}
 		}
 	case 6:
@@ -826,7 +826,7 @@ int CSVNStatusListCtrl::SortCompare(const void * pElem1, const void * pElem2)
 		{
 			if (result == 0)
 			{
-				result = entry1->path.Compare(entry2->path);
+				result = entry1->path.CompareNoCase(entry2->path);
 			}
 		}
 		break;
