@@ -1,4 +1,8 @@
 CVS
+- CHG: the log command now has the strict-option
+       set to false instead of true. (Stefan)
+
+Version 0.11.2
 - BUG: entering the settings page without
        activating the icon overlay page
        resulted in complete loss of 

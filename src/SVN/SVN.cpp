@@ -463,7 +463,7 @@ BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL ch
 						getRevision (revisionStart), 
 						&revEnd, 
 						changed,
-						true,			// strict by default (not showing cp info)
+						false,			// not strict by default (showing cp info)
 						logReceiver,	// log_message_receiver
 						(void *)this, &ctx, pool);
 
