@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-15 10:08+0200\n"
+"PO-Revision-Date: 2005-02-03 01:37+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -239,6 +239,11 @@ msgstr "&Копиране в..."
 msgid "&Delete"
 msgstr "&Изтриване"
 
+# Control-ID:1061,
+#: Control-ID:1179
+msgid "&Dry Run"
+msgstr "&Симулация"
+
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "&Edit"
@@ -321,14 +326,10 @@ msgstr "&Език:"
 msgid "&Mark as resolved"
 msgstr "&Отбелязване като разрешен"
 
+#: Control-ID:1
 #: MenuEntry
 msgid "&Merge"
 msgstr "&Сливане"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "&Merge changes into the current working copy which points to the URL:"
-msgstr "&Сливане на промените в текущото работно копие, което сочи към следния URL:"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -497,6 +498,11 @@ msgstr "&Отменяне"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Отмяна"
 
+# Control-ID:1013,
+#: Control-ID:1180
+msgid "&Unified Diff"
+msgstr "&Unified Diff"
+
 # Control-ID:1061,
 #: Control-ID:1061
 msgid "&Unknown drives"
@@ -522,6 +528,11 @@ msgstr "&Изглед"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Празни символи"
+
+# Control-ID:1061,
+#: ID:219
+msgid "(dry run)"
+msgstr "(симулация)"
 
 # ID:208,
 #: ID:208
@@ -1467,6 +1478,11 @@ msgstr "Копирани"
 msgid "Copied remotely"
 msgstr "Копирани отдалечено"
 
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "Копиране от път"
+
 # ID:151,
 #: ID:101
 msgid "Copy To Working Copy..."
@@ -1851,11 +1867,6 @@ msgstr "Да не се показва повече това съобщение"
 msgid "Drive Types"
 msgstr "Тип устройства"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Dry Run"
-msgstr "Симулация"
-
 #: MenuEntry
 msgid "E&xit"
 msgstr "&Изход"
@@ -1934,6 +1945,11 @@ msgid ""
 msgstr ""
 "Изтриване на селекция\n"
 "Изтриване"
+
+# ID:82,
+#: ID:82
+msgid "Error"
+msgstr "Грешка"
 
 # ID:81,
 #: ID:81
@@ -2106,8 +2122,8 @@ msgstr "Принудително опресняване на иконките"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "From:"
-msgstr "От:"
+msgid "From: (start URL and revision of the range to merge)"
+msgstr "От: (начален URL и ревизия на поредицата за сливане)"
 
 # ID:273,
 #: ID:273
@@ -2370,8 +2386,8 @@ msgstr "Невалидно име на файл."
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2386,8 +2402,8 @@ msgid ""
 "{20020217T1530-0500}"
 msgstr ""
 "Невалиден номер на ревизия! Валидни ревизии са:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"положителни десетични числа\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"положителни десетични числа,\n"
 "дати в една от следните форми:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -2721,6 +2737,11 @@ msgstr "Нормални"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не всички записи в системния регистър (или INI файлът) са премахнати."
+
+# ID:88,
+#: ID:88
+msgid "Notice"
+msgstr "Забележка"
 
 # Control-ID:1161,
 #: Control-ID:1161
@@ -3576,6 +3597,11 @@ msgstr "Установяване на свойства..."
 msgid "Settings"
 msgstr "Настройки"
 
+# ID:12,
+#: Control-ID:1132
+msgid "Sh&ow Log"
+msgstr "&Дневник"
+
 # Control-ID:65535,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3731,6 +3757,11 @@ msgstr ""
 "Укажете файловете или директориите, които TortoiseSVN\n"
 " трябва да изключи от контрол.\n"
 "Разделете шаблоните със интервал."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Specify the revision range which you want to merge:"
+msgstr "Укажете поредицата от ревизии, която искате да слеете:"
 
 # ID:3604,
 #: ID:3604
@@ -4025,6 +4056,11 @@ msgstr ""
 "<i>%s</i>\n"
 "съответства по-добре. Желаете ли да се използва предложения път?"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "The result of the merge is stored in the working copy at:"
+msgstr "Резултатът от сливането се записва в работното копие в:"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -4134,8 +4170,8 @@ msgstr "За да видите промените, които сте напра�
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "To:"
-msgstr "Към:"
+msgid "To: (end URL and revision of the range to merge)"
+msgstr "До: (краен URL и ревизия на поредицата за сливане)"
 
 # ID:7,#:
 # ID:3585,#:
@@ -4524,6 +4560,11 @@ msgstr "Програма за разглеждане на GNU diff файлов�
 #: Control-ID:1084
 msgid "Visit our website"
 msgstr "Посетете нашия сайт"
+
+# ID:219,
+#: ID:88
+msgid "Warning"
+msgstr "Предупреждение"
 
 # ID:219,
 #: ID:219
@@ -5001,6 +5042,11 @@ msgstr ""
 #: ID:244
 msgid "week"
 msgstr "седмица"
+
+# ID:9,
+#: Control-ID:65535
+msgid "which points to the repository at URL:"
+msgstr "което сочи към хранилище с URL:"
 
 # Control-ID:1112,
 #: Control-ID:1112

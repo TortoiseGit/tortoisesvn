@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-31 09:24+0100\n"
+"PO-Revision-Date: 2005-02-01 10:19+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1173,6 +1173,11 @@ msgstr "Copié"
 msgid "Copied remotely"
 msgstr "Copié à distance"
 
+# ID:76,
+#: ID:76
+msgid "Copy From Path"
+msgstr "Copier depuis le Chemin"
+
 #: ID:101
 msgid "Copy To Working Copy..."
 msgstr "Copier vers la Copie locale..."
@@ -1218,10 +1223,6 @@ msgstr ""
 "Ne peut pas copier le fichier!\n"
 "<hr=100%>\n"
 "%s"
-
-#: ID:273
-msgid "Could not create device context!"
-msgstr "Ne peut créer le contexte du dispositif!"
 
 #: ID:81
 msgid "Could not get the status!"
@@ -1920,8 +1921,8 @@ msgstr "Nom de fichier invalide"
 #: ID:82
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"positive decimal numbers\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"positive decimal numbers,\n"
 "dates in one of the following example forms:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
@@ -1937,8 +1938,8 @@ msgid ""
 msgstr ""
 "Numéro de révision invalide! Les révisions valables sont:\n"
 "HEAD, BASE, PREV, COMMITTED, WC\n"
-"chiffres décimaux positifs\n"
-"dates sous une forme suivante:\n"
+"nombres décimaux positifs,\n"
+"dates sous une des formes des exemples suivants:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
