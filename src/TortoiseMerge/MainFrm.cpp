@@ -644,6 +644,10 @@ void CMainFrame::SaveFile(CString sFilePath)
 	else if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 	{
 		arText = m_pwndRightView->m_arDiffLines;
+		if (!m_Data.m_sYourFile.IsEmpty())
+			pOriginFile = &m_Data.m_arYourFile;
+		else if (!m_Data.m_sTheirFile.IsEmpty())
+			pOriginFile = &m_Data.m_arTheirFile;
 		arStates = m_pwndRightView->m_arLineStates;
 		m_pwndRightView->SetModified(FALSE);
 	} 
