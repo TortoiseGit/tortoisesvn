@@ -478,6 +478,8 @@ void CCachedDirectory::UpdateCurrentStatus()
 
 		m_currentFullStatus = newStatus;
 
+		// Our status has changed - tell the shell
+		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_directoryPath.GetWinPath(), NULL);
 		// And tell our parent, if we've got one...
 		CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
 		if(!parentPath.IsEmpty())
@@ -485,9 +487,6 @@ void CCachedDirectory::UpdateCurrentStatus()
 			// We have a parent
 			CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath).UpdateChildDirectoryStatus(m_directoryPath, 	m_currentFullStatus);
 		}
-
-		// Our status has changed - tell the shell
-		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_directoryPath.GetWinPath(), NULL);
 	}
 	m_bCurrentFullStatusValid = true;
 }
