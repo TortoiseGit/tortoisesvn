@@ -194,23 +194,15 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 		temp = "";
 		if (message.GetLength()>0)
 		{
-			int curPos= 0;
-			CString resToken= message.Tokenize(_T("\n\r"),curPos);
-			temp += resToken+_T("\r\n");
-			line++;
-			resToken= message.Tokenize(_T("\n\r"),curPos);
-			while (resToken != _T(""))
-			{
-				temp += resToken+_T("\r\n");
-				line++;
-				resToken= message.Tokenize(_T("\n\r"),curPos);
-			};
+			message.Replace(_T("\r\n"), _T("\n"));
+			message.Replace(_T("\r"), _T("\n"));
+			message.Replace(_T("\n"), _T("\n\r"));
 		} // if (message.GetLength()>0)
-		temp += _T("\r\n---------------------------------\r\n");
+		message += _T("\r\n---------------------------------\r\n");
 		line++;
 		m_arFileListStarts.Add(line);
-		temp += cpaths;
-		m_arLogMessages.Add(temp);
+		message += cpaths;
+		m_arLogMessages.Add(message);
 		m_arRevs.Add(rev);
 	}
 	catch (CException * e)
