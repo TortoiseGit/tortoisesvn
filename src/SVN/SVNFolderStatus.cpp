@@ -304,6 +304,12 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 				return &invalidstatus;
 		}
 	} // if (!isFolder)
+	else
+	{
+		_tcscat(pathbuf, _T("/.svn"));
+		if (!PathFileExists(pathbuf))
+			return &invalidstatus;
+	}
 
 	int index = IsCacheValid(filepath);
 	if (index >= 0)
