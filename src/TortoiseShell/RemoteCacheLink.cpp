@@ -11,7 +11,7 @@ CRemoteCacheLink::CRemoteCacheLink(void) :
 	m_dummyStatus.prop_status = svn_wc_status_none;
 	m_dummyStatus.repos_text_status = svn_wc_status_none;
 	m_dummyStatus.repos_prop_status = svn_wc_status_none;
-
+	m_lastTimeout = 0;
 	m_critSec.Init();
 }
 
@@ -70,6 +70,13 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* 
 	if(!EnsurePipeOpen())
 	{
 		// We've failed to open the pipe - try and start the cache
+		// but only if the last try to start the cache was a certain time
+		// ago. If we just try over and over again without a small pause
+		// in between, the explorer is rendered unusable!
+		// Failing to start the cache can have different reasons: missing exe,
+		// missing registry key, corrupt exe, ...
+		if (((long)GetTickCount() - m_lastTimeout) < 0)
+			return false;
 		STARTUPINFO startup;
 		PROCESS_INFORMATION process;
 		memset(&startup, 0, sizeof(startup));
@@ -89,6 +96,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(LPCTSTR pPath, svn_wc_status_t* 
 		{
 			if(((long)GetTickCount() - endTime) > 0)
 			{
+				m_lastTimeout = (long)GetTickCount()+10000;
 				return false;
 			}
 		}

@@ -16,4 +16,5 @@ private:
 	HANDLE m_hPipe;
 	CComCriticalSection m_critSec;
 	svn_wc_status_t m_dummyStatus;
+	long m_lastTimeout;
 };
