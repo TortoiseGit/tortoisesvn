@@ -495,7 +495,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						progDlg.SetAnimation(IDR_ANIMATION);
 					} // if (progDlg.IsValid()){
 					SVN svn;
-					if (!svn.Export(path, saveplace, -1))
+					if (!svn.Export(path, saveplace, SVN::REV_WC))
 					{
 						if (progDlg.IsValid())
 						{
