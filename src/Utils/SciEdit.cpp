@@ -413,12 +413,24 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
+	int anchor = Call(SCI_GETANCHOR);
+	int currentpos = Call(SCI_GETCURRENTPOS);
 	if ((point.x == -1) && (point.y == -1))
 	{
 		CRect rect;
 		GetClientRect(&rect);
 		ClientToScreen(&rect);
 		point = rect.CenterPoint();
+	}
+	else
+	{
+		// change the cursor position to the point where the user
+		// right-clicked.
+		CPoint clientpoint = point;
+		ScreenToClient(&clientpoint);
+		int pointpos = Call(SCI_POSITIONFROMPOINT, clientpoint.x, clientpoint.y);
+		Call(SCI_SETANCHOR, pointpos);
+		Call(SCI_SETCURRENTPOS, pointpos);
 	}
 	CString sMenuItemText;
 	CMenu popup;
@@ -553,6 +565,9 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 #endif
 		}
 	}
+	// restore the anchor and cursor position
+	Call(SCI_SETCURRENTPOS, currentpos);
+	Call(SCI_SETANCHOR, anchor);
 }
 
 //////////////////////////////////////////////////////////////////////////
