@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Languages\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -41,7 +41,6 @@
 #define IDB_TTF_BMP                     169
 #define IDD_SETTINGSPROGSADV            170
 #define IDD_TOOLASSOC                   171
-#define IDI_INFO                        172
 #define IDD_REVISION                    173
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -200,7 +199,6 @@
 #define IDC_TOOLBROWSE                  1104
 #define IDC_SHORTDATEFORMAT             1105
 #define IDC_SUMMARYTEXT                 1106
-#define IDC_INFOPIC                     1107
 #define IDC_STATISTICS                  1108
 #define IDC_COMBOBOXEX1                 1109
 #define IDC_COMMITLABEL                 1110

@@ -187,7 +187,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HINTLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_INFOPIC, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -1043,7 +1042,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		sDeleted, pDlg->m_nDeleted,
 		sConflicted, pDlg->m_nConflicted
 		);
-	pDlg->m_tooltips.AddTool(pDlg->GetDlgItem(IDC_INFOPIC), sToolTip);
+	pDlg->m_tooltips.AddTool(pDlg->GetDlgItem(IDC_STATISTICS), sToolTip);
 	CString sStats;
 	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, pDlg->m_nSelected, pDlg->m_nTotal);
 	pDlg->GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);

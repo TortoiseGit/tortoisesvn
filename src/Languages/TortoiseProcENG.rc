@@ -49,7 +49,6 @@ IDI_DRIVES              ICON                    "res\\Drives.ico"
 IDI_SSH                 ICON                    "res\\ssh.ico"
 IDI_PROXY               ICON                    "res\\proxy.ico"
 IDI_MISC                ICON                    "res\\misc.ico"
-IDI_INFO                ICON                    "res\\info.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -209,7 +208,7 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,243,315,50,14
 END
 
-IDD_LOGPROMPT DIALOGEX 0, 0, 300, 275
+IDD_LOGPROMPT DIALOGEX 0, 0, 300, 265
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
     WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 CAPTION "Enter Log Message"
@@ -222,15 +221,13 @@ BEGIN
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
                     93,287,109
     LTEXT           "To see the changes you made, double click on the files above.",
-                    IDC_HINTLABEL,6,240,165,28
-    DEFPUSHBUTTON   "&OK",IDOK,186,254,50,14
-    PUSHBUTTON      "&Cancel",IDCANCEL,243,254,50,14
+                    IDC_HINTLABEL,6,227,165,28
+    DEFPUSHBUTTON   "&OK",IDOK,186,244,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,243,244,50,14
     EDITTEXT        IDC_COMMIT_TO,6,17,287,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,6,213,230,10
-    ICON            IDI_INFO,IDC_INFOPIC,252,212,20,20,SS_NOTIFY | 
-                    SS_CENTERIMAGE | SS_REALSIZEIMAGE,WS_EX_TRANSPARENT
     LTEXT           "",IDC_STATISTICS,6,202,287,8,0,WS_EX_RIGHT
 END
 
@@ -713,7 +710,7 @@ BEGIN
         RIGHTMARGIN, 293
         VERTGUIDE, 236
         TOPMARGIN, 7
-        BOTTOMMARGIN, 268
+        BOTTOMMARGIN, 258
     END
 
     IDD_MERGE, DIALOG
