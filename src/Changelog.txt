@@ -19,6 +19,8 @@
 - ADD: The ignore patterns work on unversioned folders. (Stefan)
 - ADD: TortoiseMerge allows to keep both "yours" and "theirs"
        changes when resolving a conflict. (Stefan)
+- ADD: New command in the commit dialog to ignore unversioned
+       files before a commit. (Stefan)
 - BUG: TortoiseMerge skipped diffs of one line with the
        "Next Diff" or "Previous Diff" commands. (Stefan)
 

@@ -25,6 +25,7 @@
 #include ".\logpromptdlg.h"
 #include "DirFileEnum.h"
 #include "SVNConfig.h"
+#include "SVNProperties.h"
 
 // CLogPromptDlg dialog
 BOOL	CLogPromptDlg::m_bAscending = FALSE;
@@ -402,6 +403,8 @@ void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);
+					temp.LoadString(IDS_MENUIGNORE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_IGNORE, temp);
 				}
 				temp.LoadString(IDS_MENUREFRESH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);
@@ -469,6 +472,42 @@ void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							m_ListCtrl.DeleteItem(selIndex);
 							m_arData.RemoveAt(selIndex);
 						} // if (! fileop.fAnyOperationsAborted) 
+					}
+					break;
+				case ID_IGNORE:
+					{
+						filepath.Replace('\\', '/');
+						CString name = filepath.Mid(filepath.ReverseFind('/')+1);
+						CString parentfolder = filepath.Left(filepath.ReverseFind('/'));
+						SVNProperties props(parentfolder);
+						CStringA value;
+						for (int i=0; i<props.GetCount(); i++)
+						{
+							CString propname(props.GetItemName(i).c_str());
+							if (propname.CompareNoCase(_T("svn:ignore"))==0)
+							{
+								stdstring stemp;
+								stdstring tmp = props.GetItemValue(i);
+								//treat values as normal text even if they're not
+								value = (char *)tmp.c_str();
+							}
+						}
+						if (value.IsEmpty())
+							value = name;
+						else
+						{
+							value = value.Trim("\n\r");
+							value += "\n";
+							value += name;
+							value.Remove('\r');
+						}
+						if (!props.Add(_T("svn:ignore"), value))
+						{
+							CString temp;
+							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+						} // if (!props.Add(_T("svn:ignore"), value))
+						Refresh();
 					}
 					break;
 				default:
