@@ -115,6 +115,7 @@ void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 
 BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
 {
+	bool bNoNotify = false;
 	NotificationData * data = new NotificationData();
 	data->path = path;
 	data->action = action;
@@ -138,6 +139,14 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		data->color = RGB(100,0,0);
 		break;
 	case svn_wc_notify_update_update:
+		// if this is an inoperative dir change, don't show the nofification.
+		// an inoperative dir change is when a directory gets updated without
+		// any real change in either text or properties.
+		if ((kind == svn_node_dir)
+			&& ((prop_state == svn_wc_notify_state_inapplicable)
+			|| (prop_state == svn_wc_notify_state_unknown)
+			|| (prop_state == svn_wc_notify_state_unchanged)))
+			bNoNotify = true;
 		if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
 		{
 			data->color = RGB(255, 0, 0);
@@ -192,22 +201,27 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	} // switch (action)
 
-	if (data->sActionColumnText.IsEmpty())
+	if (bNoNotify)
+		delete data;
+	else
 	{
-		data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
-	}
-	if(!data->bAuxItem)
-	{
-		data->sPathColumnText = path.GetUIPathString();
-	}
+		if (data->sActionColumnText.IsEmpty())
+		{
+			data->sActionColumnText = SVN::GetActionText(action, content_state, prop_state);
+		}
+		if(!data->bAuxItem)
+		{
+			data->sPathColumnText = path.GetUIPathString();
+		}
 
-	m_arData.push_back(data);
-	AddItemToList(data);
+		m_arData.push_back(data);
+		AddItemToList(data);
 
-	if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
-	{
-		ResizeColumns();
-		bSecondResized = TRUE;
+		if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))
+		{
+			ResizeColumns();
+			bSecondResized = TRUE;
+		}
 	}
 
 	return TRUE;
