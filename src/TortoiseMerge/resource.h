@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
+// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   100

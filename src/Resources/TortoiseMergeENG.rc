@@ -222,9 +222,6 @@ BEGIN
                     WS_TABSTOP,15,67,236,10
     CONTROL         "Use strikeout for deleted lines",IDC_STRIKEOUT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,77,236,10
-    CONTROL         "Automatically resolve conflicted subversion status on save",
-                    IDC_RESOLVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,88,
-                    243,10
     CONTROL         "Color code in-line changes",IDC_USEBDIFF,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,171,236,10
 END

@@ -730,7 +730,6 @@ void CMainFrame::OnFileSave()
 		MoveFile(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"));
 	}
 	SaveFile(this->m_Data.m_mergedFile.GetFilename());
-	MarkAsResolved();
 }
 
 void CMainFrame::OnFileSaveAs()

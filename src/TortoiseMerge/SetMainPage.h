@@ -72,8 +72,6 @@ protected:
 	CRegDWORD		m_regDiffBar;
 	BOOL			m_bStrikeout;
 	CRegDWORD		m_regStrikeout;
-	BOOL			m_bResolve;
-	CRegDWORD		m_regResolve;
 	BOOL			m_bDisplayBinDiff;
 	CRegDWORD		m_regDisplayBinDiff;
 	
@@ -101,6 +99,5 @@ protected:
 	afx_msg void OnBnClickedMagnifier();
 	afx_msg void OnBnClickedDiffbar();
 	afx_msg void OnBnClickedStrikeout();
-	afx_msg void OnBnClickedResolve();
 	afx_msg void OnBnClickedUsebdiff();
 };
