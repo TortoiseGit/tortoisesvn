@@ -309,13 +309,23 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		<sect2 id="tsvn-faq-dug-1">
 			<title>Ich habe irrtümlich eine Datei gelöscht, und nun ist sie weg!</title>
 			<para>
-			Sie können mit dem Befehl <guimenuitem>Rückgängig</guimenuitem>
+			Sie können den Befehl <guimenuitem>Rückgängig</guimenuitem>
 			auf dem übergeordneten Ordner ausführen. Dies bringt die gelöschte
 			Datei wieder zurück. Aber seien Sie vorsichtig: Sie werden <emphasis>
 			alle</emphasis> Änderungen verlieren, welche Sie an Dateien in
 			diesem Ordner gemacht haben. Das heisst nicht nur die gelöschte
 			Datei wird wiederhergestellt, sondern auch Änderungen an anderen
 			Dateien.
+			</para>
+			<para>
+			Als Alternative können Sie Subversion's <command>revert</command> Befehl
+			verwenden um nur die gelöschte Datei wiederherzustellen.
+			Bitte lesen Sie dazu den Beitrag <ulink url="http://svnbook.red-bean.com/html-chunk/ch03s05.html#svn-ch-3-sect-4.3.3">
+					<citetitle>svn revert</citetitle>
+				</ulink>
+			im <ulink url="http://svnbook.red-bean.com/">
+					<citetitle>Subversion-Buch</citetitle>
+				</ulink>. 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-2">
