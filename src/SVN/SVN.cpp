@@ -780,7 +780,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
 	if (author)
 		author_native = CUnicodeUtils::GetUnicode(author);
 	if (line)
-		line_native = CUnicodeUtils::GetUnicode(line);
+		line_native = CString(line);
 
 	if (date && date[0])
 	{
