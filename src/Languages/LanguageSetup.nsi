@@ -38,14 +38,16 @@ Section "Hauptgruppe" SEC01
   ReadRegStr $0 HKLM "software\TortoiseSVN" "Directory"
   StrCmp $0 "" NotInstalled Installed
 Installed:
-  StrCpy $INSTDIR "$0\Languages"
-  SetOutPath $INSTDIR
   Goto Proceed
 NotInstalled:
   MessageBox MB_OK "TortoiseSVN not installed!"
   Abort
 Proceed:
+  StrCpy $INSTDIR "$0"
   SetOutPath "$INSTDIR"
+  File "..\..\doc\output\TortoiseSVN_de.chm"
+  StrCpy $INSTDIR "$0\Languages"
+  SetOutPath $INSTDIR
   SetOverwrite ifnewer
   File "..\..\bin\TortoiseMerge*.dll"
   File "..\..\bin\TortoiseProc*.dll"
