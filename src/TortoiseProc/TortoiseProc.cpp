@@ -144,7 +144,7 @@ static const struct CommandInfo
 	{	cmdMerge,			_T("merge"),			false	},
 	{	cmdCopy,			_T("copy"),				false	},
 	{	cmdSettings,		_T("settings"),			false	},
-	{	cmdRemove,			_T("remove"),			false	},
+	{	cmdRemove,			_T("remove"),			true	},
 	{	cmdRename,			_T("rename"),			false	},
 	{	cmdDiff,			_T("diff"),				false	},
 	{	cmdDropCopyAdd,		_T("dropcopyadd"),		true	},
