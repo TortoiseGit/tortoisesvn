@@ -191,10 +191,11 @@ void CImportDlg::OnOK()
 	TCHAR * filenames = new TCHAR[len+(4*sizeof(TCHAR))];
 	ZeroMemory(filenames, len+(4*sizeof(TCHAR)));
 	TCHAR * fileptr = filenames;
-	for (int i=0; i<m_FileList.GetItemCount(); i++)
+	for (int i=(m_FileList.GetItemCount()-1); i>=0; i--)
 	{
 		if (m_FileList.GetCheck(i))
 		{
+			CString temp = m_FileList.GetItemText(i,0);
 			_tcscpy(fileptr, m_FileList.GetItemText(i,0));
 			fileptr = _tcsninc(fileptr, _tcslen(fileptr)+1);
 		} // if (m_FileList.GetCheck(i))
@@ -214,6 +215,7 @@ void CImportDlg::OnOK()
 		{
 			delete [] filenames;
 			CResizableDialog::OnCancel();
+			return;
 		}
 	} // if (_tcslen(filenames)!=0) 
 
