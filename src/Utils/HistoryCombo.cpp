@@ -115,6 +115,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 
 	//search the Combo for another string like this
 	//and delete it if one is found
+	str.Trim();
 	int nIndex = FindStringExact(0, str);
 	if (nIndex != -1 && nIndex != nRet)
 	{
