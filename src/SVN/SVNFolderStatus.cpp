@@ -99,7 +99,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 	svn_client_ctx_t *			ctx;
 	apr_hash_t *				statushash;
 	apr_pool_t *				pool;
-	svn_error_t *				err;
+	svn_error_t *				err = NULL; // If svn_client_status comes out through catch(...), err would else be unassigned
 	const char *				internalpath;
 
 	//dont' build the cache if an instance of TortoiseProc is running
@@ -250,17 +250,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolde
 
 	if (! g_ShellCache.HasSVNAdminDir(filepath, bIsFolder))
 		return &invalidstatus;
-	filestatuscache * ret = NULL;
-	sCacheKey.assign(filepath);
-	std::map<stdstring, filestatuscache>::iterator iter;
-	if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
-	{
-		ATLTRACE2(_T("cache found for %s\n"), filepath);
-		ret = (filestatuscache *)&iter->second;
-		DWORD now = GetTickCount();
-		if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
-			ret = NULL;
-	}
+	filestatuscache * ret = GetCachedItem(filepath);
 	if (ret)
 		return ret;
 
@@ -274,6 +264,13 @@ filestatuscache * SVNFolderStatus::GetCachedItem(LPCTSTR filepath)
 	std::map<stdstring, filestatuscache>::iterator iter;
 	if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
 	{
+		ATLTRACE2(_T("cache found for %s\n"), filepath);
+		DWORD now = GetTickCount();
+		if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
+		{
+			// Cache is timeed-out
+			return NULL;
+		}
 		return (filestatuscache *)&iter->second;
 	}
 	return NULL;
