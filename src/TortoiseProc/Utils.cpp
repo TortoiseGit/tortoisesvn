@@ -124,7 +124,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 	{
 		CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
 		viewer = v;
-		if (viewer.IsEmpty() && dir.IsEmpty())
+		if ((viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0)) && dir.IsEmpty())
 		{
 			//first try the default app which is associated with diff files
 			CRegString diff = CRegString(_T(".diff\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
@@ -144,14 +144,14 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
 			viewer = buf;
 		} // if (viewer.IsEmpty())
-		if (viewer.IsEmpty() && !dir.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
+		if ((viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0)) && !dir.IsEmpty())
 		{
 			// use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
 			viewer = viewer + _T(" /patchpath:%path /diff:%base");
 		} // if (viewer.IsEmpty() && !dir.IsEmpty())
-		if (viewer.IsEmpty())
+		if (viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
 			return FALSE;
 		if (viewer.Find(_T("%base")) >= 0)
 		{
