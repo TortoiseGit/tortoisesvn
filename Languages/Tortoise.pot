@@ -184,7 +184,7 @@ msgstr ""
 msgid "&Head Revision"
 msgstr ""
 
-#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:57670,#: Control-ID:57670,#: MenuEntry
+#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:9,#: Control-ID:57670,#: Control-ID:57670,#: MenuEntry
 msgid "&Help"
 msgstr ""
 
@@ -616,16 +616,16 @@ msgstr ""
 msgid "B&uiltin"
 msgstr ""
 
-#: ID:213,
-msgid "BDB"
-msgstr ""
-
 #: Control-ID:1015,
 msgid "Backup original file"
 msgstr ""
 
 #: Control-ID:65535,
 msgid "Base File:"
+msgstr ""
+
+#: Control-ID:1128,
+msgid "Berkeley Database (BDB)"
 msgstr ""
 
 #: Dlg-ID:162,
@@ -696,7 +696,7 @@ msgstr ""
 msgid "Can't copy \n%s\nto\n%s"
 msgstr ""
 
-#: ID:73,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
+#: ID:73,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,#: Control-ID:2,
 msgid "Cancel"
 msgstr ""
 
@@ -717,7 +717,7 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr ""
 
 #: ID:157,
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr ""
 
 #: ID:3825,
@@ -976,6 +976,10 @@ msgstr ""
 msgid "Create Patch..."
 msgstr ""
 
+#: Dlg-ID:178,
+msgid "Create Repository"
+msgstr ""
+
 #: ID:8,
 msgid "Create Repository here"
 msgstr ""
@@ -1230,10 +1234,6 @@ msgstr ""
 
 #: Control-ID:65535,
 msgid "External Program:"
-msgstr ""
-
-#: ID:213,
-msgid "FSFS"
 msgstr ""
 
 #: ID:74,
@@ -1564,6 +1564,10 @@ msgstr ""
 msgid "NUM"
 msgstr ""
 
+#: Control-ID:1129,
+msgid "Native Filesystem (FSFS)"
+msgstr ""
+
 #: Dlg-ID:102,
 msgid "Network"
 msgstr ""
@@ -1612,7 +1616,7 @@ msgstr ""
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr ""
 
-#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
+#: ID:73,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,#: Control-ID:1,
 msgid "OK"
 msgstr ""
 
@@ -1682,10 +1686,6 @@ msgstr ""
 
 #: Control-ID:1031,
 msgid "Paste Changed Filenames"
-msgstr ""
-
-#: Control-ID:1121,
-msgid "Paste Log &template in english"
 msgstr ""
 
 #: ID:376,
@@ -2088,6 +2088,10 @@ msgstr ""
 msgid "Save changes to %1?"
 msgstr ""
 
+#: ID:232,
+msgid "Save client certificate path"
+msgstr ""
+
 #: ID:3601,#: ID:3601,
 msgid "Save the modified file\nSave file"
 msgstr ""
@@ -2152,6 +2156,10 @@ msgstr ""
 msgid "Select the entire document\nSelect All"
 msgstr ""
 
+#: Control-ID:65535,
+msgid "Select the type of repository you want to create:"
+msgstr ""
+
 #: ID:3866,#: ID:3866,
 msgid "Send Mail failed to send message."
 msgstr ""
@@ -2177,7 +2185,7 @@ msgid "Settings"
 msgstr ""
 
 #: ID:115,
-msgid "Shall the log stop on a copy?\nClick <b>Yes</b> if you need to find out where a branch started."
+msgid "Shall the log stop on a copy?\nClick <b>Yes</b> if you need to find out where a branch started.\nClick <b>No</b> if you want to see all log entries."
 msgstr ""
 
 #: ID:101,
@@ -2636,6 +2644,10 @@ msgstr ""
 msgid "Use th&is text block"
 msgstr ""
 
+#: ID:251,
+msgid "Use this &whole file"
+msgstr ""
+
 #: ID:12,
 msgid "Use this if the URL of the repository has changed"
 msgstr ""
@@ -2678,10 +2690,6 @@ msgstr ""
 
 #: ID:219,
 msgid "Warning!"
-msgstr ""
-
-#: ID:213,
-msgid "What repository type do you want to create?"
 msgstr ""
 
 #: Control-ID:65535,
@@ -2746,6 +2754,10 @@ msgstr ""
 
 #: Control-ID:1085,#: Control-ID:1085,
 msgid "and support the developers"
+msgstr ""
+
+#: ID:15,
+msgid "bugtraq:append\nSet to \"false\" if you want the bugtracking ID to be inserted at the top of the\nlog message. The default is \"true\" which means the bugtracking ID\nis appended to the log message."
 msgstr ""
 
 #: ID:14,
@@ -2877,6 +2889,10 @@ msgid "to %s"
 msgstr ""
 
 #: ID:15,
+msgid "tsvn:logfilelistenglish\nSet to \"false\" if you don't want the list of changed files to be pasted in english\nin the commit dialog."
+msgstr ""
+
+#: ID:15,
 msgid "tsvn:logminsize\nMinimum size in chars a log message must have before a commit is allowed."
 msgstr ""
 
@@ -2886,6 +2902,10 @@ msgstr ""
 
 #: ID:15,
 msgid "tsvn:logwidthmarker\nSet this to the number of chars the log message should not exceed its width.\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+
+#: ID:15,
+msgid "tsvn:warnifnoissue\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 
 #: Control-ID:1112,
