@@ -447,6 +447,11 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				SuggestSpellingAlternatives();
 				return;
 			}
+			else
+			{
+				::PostMessage(GetParent()->GetSafeHwnd(), WM_NEXTDLGCTL, GetKeyState(VK_SHIFT)&0x8000, 0);
+				return;
+			}
 		}
 		break;
 	case (VK_ESCAPE):
