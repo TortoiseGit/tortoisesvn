@@ -484,8 +484,8 @@ BEGIN
     EDITTEXT        IDC_EXCEPTIONS,118,123,101,14,ES_AUTOHSCROLL
     GROUPBOX        "SSH",IDC_SSHGROUP,7,151,286,59
     LTEXT           "&SSH client:",IDC_STATIC,17,167,101,8
-    EDITTEXT        IDC_SSHCLIENT,118,164,101,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_SSHBROWSE,235,164,50,14
+    EDITTEXT        IDC_SSHCLIENT,17,178,202,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_SSHBROWSE,235,177,50,14
 END
 
 IDD_SVNPROGRESS DIALOGEX 0, 0, 364, 152
@@ -601,24 +601,24 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Diff Program",IDC_STATIC,7,7,286,65
     LTEXT           "Used for comparing different revisions of files.",
-                    IDC_STATIC,13,18,251,8
+                    IDC_STATIC,13,16,251,8
     CONTROL         "&Builtin",IDC_EXTDIFF_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,13,32,41,10
+                    WS_GROUP,13,26,46,10
     CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,
-                    58,32,43,10
-    EDITTEXT        IDC_EXTDIFF,105,31,159,14,ES_AUTOHSCROLL | WS_GROUP
+                    13,37,46,10
+    EDITTEXT        IDC_EXTDIFF,59,31,205,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,271,31,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",
                     IDC_STATIC,13,49,160,19
     PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,177,50,87,14
     GROUPBOX        "Merge Program",IDC_STATIC,7,78,286,65
-    LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,89,251,
+    LTEXT           "Used to resolve conflicted files.",IDC_STATIC,13,87,251,
                     8
     CONTROL         "B&uiltin",IDC_EXTMERGE_OFF,"Button",BS_AUTORADIOBUTTON | 
-                    WS_GROUP,13,103,41,10
+                    WS_GROUP,13,97,46,10
     CONTROL         "E&xternal",IDC_EXTMERGE_ON,"Button",BS_AUTORADIOBUTTON,
-                    58,103,43,10
-    EDITTEXT        IDC_EXTMERGE,105,101,159,14,ES_AUTOHSCROLL | WS_GROUP
+                    13,107,46,10
+    EDITTEXT        IDC_EXTMERGE,59,101,205,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTMERGEBROWSE,271,100,14,14
     LTEXT           "Click on ""Advanced"" to specify alternate merge programs based on file extension",
                     IDC_STATIC,13,121,160,19
@@ -627,10 +627,10 @@ BEGIN
     LTEXT           "Viewer program for GNU diff files (patch files).",
                     IDC_STATIC,13,160,251,8
     CONTROL         "Bu&iltin",IDC_DIFFVIEWER_OFF,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,13,174,41,10
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,170,46,10
     CONTROL         "Ex&ternal",IDC_DIFFVIEWER_ON,"Button",
-                    BS_AUTORADIOBUTTON,58,174,43,10
-    EDITTEXT        IDC_DIFFVIEWER,105,172,159,14,ES_AUTOHSCROLL | WS_GROUP
+                    BS_AUTORADIOBUTTON,13,179,46,10
+    EDITTEXT        IDC_DIFFVIEWER,59,174,205,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_DIFFVIEWERBROWSE,271,172,14,14
 END
 
@@ -1082,7 +1082,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
         VERTGUIDE, 13
-        VERTGUIDE, 105
+        VERTGUIDE, 59
         VERTGUIDE, 173
         VERTGUIDE, 264
         VERTGUIDE, 271
