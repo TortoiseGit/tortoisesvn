@@ -5,7 +5,10 @@
        missing the new subversion statuses. (Stefan)
 - CHG: Changed the behaviour of the Log and Updates
        dialog if a network timeout occured. (Stefan)
-       
+- CHG: If the option "recursive overlays" is not set
+       then the status for folders is always set to
+       "normal" to speed things up a little. (Stefan)
+
 Version 0.15.2
 - BUG: The "Check for updates" dialog could
        crash for unversioned items. (Stefan)

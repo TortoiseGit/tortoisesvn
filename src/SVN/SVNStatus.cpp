@@ -324,10 +324,12 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 	apr_pool_t *				pool;
 	svn_error_t *				err;
 	const char *				internalpath;
+	BOOL						isDir;
 
 	TCHAR						pathbuf[MAX_PATH];
 	_tcscpy(pathbuf, path);
-	if (!PathIsDirectory(path))
+	isDir = PathIsDirectory(path);
+	if (!isDir)
 	{
 		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
 		if (ptr == 0)
@@ -339,6 +341,8 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 	_tcscat(pathbuf, _T("\\.svn"));
 	if (!PathFileExists(pathbuf))
 		return svn_wc_status_unversioned;
+	if (isDir)
+		return svn_wc_status_normal;
 
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
