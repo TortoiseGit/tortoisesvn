@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-12-20 16:20+0100\n"
+"PO-Revision-Date: 2004-12-30 16:56+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -497,8 +497,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"En lA newline separated list of paths for which icon overlays are shown.\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+"En linjeskift-delt liste over stier hvor ikonoverlegg vises.\n"
+"Hvis du legger til tegnet \"*\" på enden av stien, inkluderes alle undermappene også."
 
 # ID:194,
 #: ID:194
@@ -1482,9 +1482,8 @@ msgstr "Stasjonstyper"
 
 # Control-ID:1061,
 #: Control-ID:1061
-#, fuzzy
 msgid "Dry Run"
-msgstr "Tørrkjøring"
+msgstr "Testkjøring"
 
 #: MenuEntry
 msgid "E&xit"
@@ -1570,7 +1569,7 @@ msgstr "Stier å ekskludere:"
 
 #: Control-ID:65535
 msgid "Exclude/Ignore pattern:"
-msgstr "Ignorérings-sti:"
+msgstr "Sti for ignoréring:"
 
 #: ID:94
 msgid "Export Directory:"
@@ -1921,6 +1920,15 @@ msgstr ""
 "{20020217T1530}\n"
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
+
+# ID:145,
+#: ID:145
+msgid ""
+"It's not possible to rename a file just in case!\n"
+"Please read our docs on how to work around this Subversion limitation."
+msgstr ""
+"Det går ikke å kun forandre små og store bokstaver i filnavn!\n"
+"Se på dokumentasjonen for å gå rundt denne Subversion-begrensningen."
 
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2608,7 +2616,7 @@ msgstr "Revisjon/forfatter:"
 #: ID:269
 #: Dlg-ID:182
 msgid "Revision Graph"
-msgstr "Revisjon, graf: "
+msgstr "Revisjon, grafisk: "
 
 #: ID:75
 msgid "Revision: "
@@ -2833,7 +2841,7 @@ msgstr "Tjener&adresse:"
 
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
-msgstr "Sett fildatoer til siste innsendings-stidspunkt"
+msgstr "Sett fildatoer til det samme som siste innsendings-tidspunkt"
 
 #: ID:13
 msgid "Setting Properties..."
@@ -3493,7 +3501,7 @@ msgstr "Uten tittel"
 #: ID:8
 #: Dlg-ID:152
 msgid "Update"
-msgstr "Oppdatering"
+msgstr "Oppdater"
 
 #: ID:11
 msgid "Update To Revision..."
