@@ -33,14 +33,12 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
     PROPSHEETPAGE psp;
 	ZeroMemory(&psp, sizeof(PROPSHEETPAGE));
 	HPROPSHEETPAGE hPage;
-    //CSVNPropertyPage *sheetpage = new CSVNPropertyPage(files_.front());
 	CSVNPropertyPage *sheetpage = new CSVNPropertyPage(files_);
 
     psp.dwSize = sizeof (psp);
-    psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK;// | PSP_DLGINDIRECT;	
-	psp.hInstance = g_hmodThisDll;
-	psp.pszTemplate = MAKEINTRESOURCE(IDD_PROPPAGE);//NULL;
-	//psp.pResource = (PROPSHEETPAGE_RESOURCE)LockResource(LoadResource(g_hResInst, FindResourceEx(g_hResInst, RT_DIALOG, MAKEINTRESOURCE(IDD_PROPPAGE), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))));
+    psp.dwFlags = PSP_USEREFPARENT | PSP_USETITLE | PSP_USEICONID | PSP_USECALLBACK;	
+	psp.hInstance = g_hResInst;
+	psp.pszTemplate = MAKEINTRESOURCE(IDD_PROPPAGE);
     psp.pszIcon = MAKEINTRESOURCE(IDI_MENU);
     psp.pszTitle = _T("Subversion");
     psp.pfnDlgProc = (DLGPROC) PageProc;
