@@ -64,10 +64,12 @@ public:
 	SVNRev(CString sRev);
 	~SVNRev();
 
-	BOOL IsValid() {return m_bIsValid;}
-	BOOL IsHead() {return (rev.kind == svn_opt_revision_head);}
+	BOOL IsValid() const {return m_bIsValid;}
+	BOOL IsHead() const {return (rev.kind == svn_opt_revision_head);}
+	BOOL IsBase() const {return (rev.kind == svn_opt_revision_base);}
+	BOOL IsWorking() const {return (rev.kind == svn_opt_revision_working);}
 
-	operator LONG ();
+	operator LONG () const;
 	operator svn_opt_revision_t * ();
 	enum
 	{

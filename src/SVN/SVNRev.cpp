@@ -111,7 +111,7 @@ SVNRev::~SVNRev()
 {
 }
 
-SVNRev::operator LONG()
+SVNRev::operator LONG() const
 {
 	return rev.value.number;
 }
