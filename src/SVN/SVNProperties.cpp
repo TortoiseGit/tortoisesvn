@@ -334,7 +334,8 @@ stdstring SVNProperties::GetLastErrorMsg()
 	if (m_error != NULL)
 	{
 		svn_error_t * ErrPtr = m_error;
-		msg = UTF8ToString(ErrPtr->message);
+		if (ErrPtr->message)
+			msg = UTF8ToString(ErrPtr->message);
 		while (ErrPtr->child)
 		{
 			ErrPtr = ErrPtr->child;
