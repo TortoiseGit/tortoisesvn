@@ -1213,11 +1213,49 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if ((pMsg->message == WM_KEYDOWN)&&(pMsg->wParam == VK_F5))//(nChar == VK_F5)
+	if (pMsg->message == WM_KEYDOWN)
 	{
-		if (!GetDlgItem(IDC_GETALL)->IsWindowEnabled())
-			return __super::PreTranslateMessage(pMsg);
-		OnBnClickedGetall();
+		switch (pMsg->wParam)
+		{
+		case VK_F5:
+			{
+				if (!GetDlgItem(IDC_GETALL)->IsWindowEnabled())
+					return __super::PreTranslateMessage(pMsg);
+				OnBnClickedGetall();
+			}
+			break;
+		case 'F':
+			{
+				if (GetKeyState(VK_CONTROL)&0x8000)
+				{
+					if (m_pFindDialog)
+					{
+						break;
+					}
+					else
+					{
+						m_pFindDialog = new CFindReplaceDialog();
+						m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+					}
+				}
+			}	
+			break;
+		case VK_F3:
+			{
+				if (m_pFindDialog)
+				{
+					break;
+				}
+				else
+				{
+					m_pFindDialog = new CFindReplaceDialog();
+					m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+				}
+			}
+			break;
+		default:
+			break;
+		}
 	}
 
 	return __super::PreTranslateMessage(pMsg);
