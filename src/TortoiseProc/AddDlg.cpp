@@ -289,15 +289,16 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 
 				// Add to the selection list, if all 3 conditions are met:
 
+				firstRun = false;
+
 				if (nonVersioned && !ignore && actuallySelected)
 				{
-					firstRun = false;
 
 					pDlg->m_arFileList.Add(item);
 					int count = pDlg->m_addListCtrl.GetItemCount();
 					pDlg->m_addListCtrl.InsertItem(count, item.Mid(root.GetLength()));
 					pDlg->m_addListCtrl.SetCheck(count);
-					if (bIsDir)
+					if (PathIsDirectory(item))
 					{
 						//we have an unversioned folder -> get all files in it recursively!
 						int count = pDlg->m_addListCtrl.GetItemCount();
@@ -305,8 +306,9 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 						CString filename;
 						while (filefinder.NextFile(filename))
 						{
-							if (firstRun || !config.MatchIgnorePattern(filename))
+							if (!config.MatchIgnorePattern(filename))
 							{
+								filename.Replace('\\', '/');
 								pDlg->m_arFileList.Add(filename);
 								pDlg->m_addListCtrl.InsertItem(count, filename.Mid(root.GetLength()));
 								pDlg->m_addListCtrl.SetCheck(count++);

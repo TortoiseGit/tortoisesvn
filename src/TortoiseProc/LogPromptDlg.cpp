@@ -903,7 +903,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						data->propstatus = s->prop_status;
 						pDlg->m_arData.Add(data);
 						int count = pDlg->m_ListCtrl.GetItemCount();
-						if (bIsFolder)
+						if (PathIsDirectory(temp))
 						{
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 							pDlg->m_nTotal++;
@@ -933,7 +933,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						} // if (bIsFolder) 
 						else
 						{
-							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
+							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 							pDlg->m_nTotal++;
 						}
 						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
