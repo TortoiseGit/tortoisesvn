@@ -330,6 +330,8 @@ void CLogPromptDlg::OnOK()
 	m_sBugID.Trim();
 	if (!m_sBugID.IsEmpty())
 	{
+		m_sBugID.Replace(_T(", "), _T(","));
+		m_sBugID.Replace(_T(" ,"), _T(","));
 		CString sBugID = m_BugtraqInfo.sMessage;
 		sBugID.Replace(_T("%BUGID%"), m_sBugID);
 		m_sLogMessage += _T("\n") + sBugID + _T("\n");
