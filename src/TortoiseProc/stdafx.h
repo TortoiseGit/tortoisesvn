@@ -84,6 +84,7 @@
 #include <vector>
 #include <map>
 #include <set>
+#include <algorithm>
 #pragma warning(pop)
 
 #pragma warning(push)

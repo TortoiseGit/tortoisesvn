@@ -175,7 +175,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 		m_LogMessage.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
 	}
 	m_LogMessage.SetWindowText(m_ProjectProperties.sLogTemplate);
-	//m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
@@ -199,16 +198,12 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
-
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &StatusThread, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	m_bBlock = TRUE;
-
-//	StatusThread(this);
-//	m_bBlock = FALSE;
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -382,8 +377,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	BOOL success = pDlg->m_ListCtrl.GetStatus(pDlg->m_sPath);
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALS;
 	dwShow |= DWORD(pDlg->m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
-	pDlg->m_ListCtrl.Show(dwShow);
-	pDlg->m_ListCtrl.CheckAll(SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED);
+	pDlg->m_ListCtrl.Show(dwShow, SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED);
 
 	if (pDlg->m_ListCtrl.HasExternalsFromDifferentRepos())
 	{

@@ -75,7 +75,7 @@ public:
 	static BOOL m_bCheck;		///< state of the checkbox on closing the dialog
 	TCHAR m_title[MAX_PATH];
 protected:
-	static void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize);
+	static void SetFont(HWND hwnd,LPTSTR FontName,int FontSize);
 
 	static int CALLBACK BrowseCallBackProc(HWND  hwnd,UINT  uMsg,LPARAM  lParam,LPARAM  lpData);
 	static LRESULT APIENTRY CheckBoxSubclassProc(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam);

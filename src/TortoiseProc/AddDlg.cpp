@@ -180,8 +180,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	pDlg->m_addListCtrl.GetStatus(pDlg->m_sPath);
-	pDlg->m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
-	pDlg->m_addListCtrl.CheckAll(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
+	pDlg->m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS, SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTS);
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);

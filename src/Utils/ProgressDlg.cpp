@@ -28,10 +28,10 @@ extern "C" const GUID IID_IProgressDialog = {0xebbc7c04, 0x315e, 0x11d2, 0xb6, 0
 #endif
 
 CProgressDlg::CProgressDlg() :
+			m_pIDlg(NULL),
 		    m_bValid(false),			//not valid by default
             m_isVisible(false),
-		    m_dwDlgFlags(PROGDLG_NORMAL), 
-		    m_pIDlg(NULL)
+		    m_dwDlgFlags(PROGDLG_NORMAL)
 {
 	HRESULT hr;
 

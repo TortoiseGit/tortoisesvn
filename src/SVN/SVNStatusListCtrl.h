@@ -89,7 +89,7 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  */
 class CSVNStatusListCtrl : public CListCtrl
 {
-public:
+public: 
 	
 	/**
 	 * Sent to the parent window (using ::SendMessage) after a context menu
@@ -117,11 +117,11 @@ public:
 		svn_wc_status_kind		remotestatus;			///< remote status
 		svn_wc_status_kind		remotetextstatus;		///< remote text status
 		svn_wc_status_kind		remotepropstatus;		///< remote property status
-		BOOL					checked;				///< if the file is checked in the list control
-		BOOL					inunversionedfolder;	///< if the file is inside an unversioned folder
-		BOOL					inexternal;				///< if the item is in an external folder
-		BOOL					direct;					///< directly included (TRUE) or just a child of a folder
-		BOOL					isfolder;				///< TRUE if entry refers to a folder
+		bool					checked;				///< if the file is checked in the list control
+		bool					inunversionedfolder;	///< if the file is inside an unversioned folder
+		bool					inexternal;				///< if the item is in an external folder
+		bool					direct;					///< directly included (TRUE) or just a child of a folder
+		bool					isfolder;				///< TRUE if entry refers to a folder
 	};
 
 	/**
@@ -139,13 +139,14 @@ public:
 	 * \param bUpdate TRUE if the remote status is requested too.
 	 * \return TRUE on success.
 	 */
-	BOOL GetStatus(CString sFilePath, bool bUpdate = FALSE);
+	BOOL GetStatus(CString sFilePath, bool bUpdate = false);
 
 	/**
 	 * Populates the list control with the previously (with GetStatus) gathered status information.
 	 * \param dwShow mask of file types to show. Use the SVNSLC_SHOWxxx defines.
+	 * \param dwCheck mask of file types to check. Use SVNLC_SHOWxxx defines. Default (0) means 'use the entry's stored check status'
 	 */
-	void Show(DWORD dwShow);
+	void Show(DWORD dwShow, DWORD dwCheck = 0);
 
 	/**
 	 * If during the call to GetStatus() some svn:externals are found from different
@@ -195,10 +196,9 @@ public:
 	/**
 	 * Checks entries of a specified type. E.g. all files which have
 	 * a Subversion status of "modified".
-	 * \param dwCheck mask of file types to check. Use SVNLC_SHOWxxx defines.
 	 */
-	void CheckAll(DWORD dwCheck);
-
+	
+public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
 	void Block(BOOL block) {m_bBlock = block;}
@@ -215,12 +215,35 @@ public:
 
 private:
 	void Sort();	///< Sorts the control by columns
-	void AddEntry(FileEntry * entry, WORD langID);	///< add an entry to the control
+	void AddEntry(FileEntry * entry, WORD langID, int listIndex);	///< add an entry to the control
 	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays
-	void Stat();	///< build the statistics
+	void BuildStatistics();	///< build the statistics
 	void StartDiff(int fileindex);	///< start the external diff program
 	CString BuildTargetFile();		///< builds a temporary files containing the paths of the selected entries
-	static int __cdecl SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
+	//static int __cdecl SortCompare(const void * pElem1, const void * pElem2);	///< sort callback function
+	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
+
+	///< Process one line of the command file supplied to GetStatus
+	bool FetchStatusForSinglePathLine(const CString& strLine, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CStringArray& arExtPaths); 
+
+	///< Create 'status' data for each item in an unversioned folder
+	void AddUnversionedFolder(const CString& strFolderName, const CString& strBasePath, apr_array_header_t *pIgnorePatterns);
+
+	///< Read the contents of one versioned folder
+	void ReadFolderStatus(SVNStatus& status, const CString& strBasePath, CStringA& strCurrentRepositoryUUID, CStringArray& arExtPaths, apr_array_header_t *pIgnorePatterns);
+
+	///< Clear the status vector (contains custodial pointers)
+	void ClearStatusArray();
+
+	///< Sort predicate function - Compare the paths of two entries without regard to case
+	static bool EntryPathCompareNoCase(const FileEntry* pEntry1, const FileEntry* pEntry2);
+
+	///< Predicate used to build a list of only the versioned entries of the FileEntry array
+	static bool IsEntryVersioned(const FileEntry* pEntry1);
+
+	///< Look up the relevant show flags for a particular SVN status value
+	DWORD GetShowFlagsFromSVNStatus(svn_wc_status_kind status);
+
 
 	afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
@@ -231,13 +254,15 @@ private:
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 
 private:
-	static BOOL					m_bAscending;		///< sort direction
+	static bool					m_bAscending;		///< sort direction
 	static int					m_nSortedColumn;	///< which column to sort
-	BOOL						m_bHasExternalsFromDifferentRepos;
-	BOOL						m_bHasExternals;
+	bool						m_bHasExternalsFromDifferentRepos;
+	bool						m_bHasExternals;
 	BOOL						m_bHasUnversionedItems;
-	CArray<FileEntry *, FileEntry *> m_arStatusArray;
-	CDWordArray					m_arListArray;
+//	CArray<FileEntry *, FileEntry *> m_arStatusArray;
+	typedef std::vector<FileEntry*> FileEntryVector;
+	FileEntryVector				m_arStatusArray;
+	std::vector<DWORD>			m_arListArray;
 	CStringArray				m_templist;
 	CString						m_sLastError;
 

@@ -57,7 +57,7 @@ public:
 	 * \param *patterns the array of ignore patterns. Get this array with GetDefaultIgnores()
 	 * \return TRUE if the filename matches a pattern, FALSE if it doesn't.
 	 */
-	BOOL MatchIgnorePattern(const CString& sFilepath, apr_array_header_t *patterns);
+	static BOOL MatchIgnorePattern(const CString& sFilepath, apr_array_header_t *patterns);
 private:
 	apr_pool_t *				parentpool;
 	apr_pool_t *				pool;			///< memory pool
