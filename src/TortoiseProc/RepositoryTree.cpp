@@ -35,7 +35,7 @@ CRepositoryTree::CRepositoryTree(const CString& strUrl) :
 	CStringA temp = CUnicodeUtils::GetUTF8(m_strUrl);
 	CUtils::Unescape(temp.GetBuffer());
 	temp.ReleaseBuffer();
-	m_strUrl = temp;
+	m_strUrl = CUnicodeUtils::GetUnicode(temp);
 }
 
 CRepositoryTree::~CRepositoryTree()

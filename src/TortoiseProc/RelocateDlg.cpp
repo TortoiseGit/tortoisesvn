@@ -46,7 +46,7 @@ BOOL CRelocateDlg::OnInitDialog()
 	CStringA urla = CUnicodeUtils::GetUTF8(m_sFromUrl);
 	CUtils::Unescape(urla.GetBuffer());
 	urla.ReleaseBuffer();
-	CString url = CString(urla);
+	CString url = CUnicodeUtils::GetUnicode(urla);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(url);
 
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
