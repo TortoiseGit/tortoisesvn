@@ -22,6 +22,7 @@
 #include "messagebox.h"
 #include "SVNProgressDlg.h"
 #include "UnicodeUtils.h"
+#include <map>
 #include ".\svnprogressdlg.h"
 
 
@@ -263,33 +264,51 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 			pDlg->SetWindowText(temp);
 			if (pDlg->m_IsTempFile)
 			{
-				LONG rev = pDlg->m_nRevision;
 				try
 				{
 					// open the temp file
 					CStdioFile file(pDlg->m_sPath, CFile::typeBinary | CFile::modeRead); 
 					CString strLine = _T(""); // initialise the variable which holds each line's contents
 					CString sfile;
+					CStringA uuid;
+					std::map<CStringA, LONG> uuidmap;
+					LONG revstore = pDlg->m_nRevision;
 					while (file.ReadString(strLine))
 					{
 						SVNStatus st;
-						if (st.GetStatus(strLine) != (-2))
+						LONG headrev = -1;
+						pDlg->m_nRevision = revstore;
+						if (pDlg->m_nRevision == (-1))
 						{
-							if (st.status->entry != NULL)
+							if ((headrev = st.GetStatus(strLine, TRUE)) != (-2))
 							{
-								pDlg->m_nRevision = st.status->entry->revision;
-							}
-						}
+								if (st.status->entry != NULL)
+								{
+									if (st.status->entry->uuid)
+									{
+										uuid = st.status->entry->uuid;
+										std::map<CStringA, LONG>::iterator iter;
+										if ((iter = uuidmap.find(uuid)) == uuidmap.end())
+											uuidmap[uuid] = headrev;
+										else
+											headrev = iter->second;
+										pDlg->m_nRevision = headrev;
+									} // if (st.status->entry->uuid)
+									else
+										pDlg->m_nRevision = st.status->entry->revision;
+								} // if (st.status->entry != NULL) 
+							} // if ((headrev = st.GetStatus(strLine)) != (-2)) 
+						} // if (pDlg->m_nRevision >= 0)
 						TRACE(_T("update file %s\n"), strLine);
-						if (!pDlg->Update(strLine, rev, true))
+						if (!pDlg->Update(strLine, pDlg->m_nRevision, true))
 						{
 							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
 							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
-						}
+						} // if (!pDlg->Update(strLine, rev, true)) 
 						updateFileCounter++;
 						sfile = strLine;
-					}
+					} // while (file.ReadString(strLine)) 
 					file.Close();
 					CFile::Remove(pDlg->m_sPath);
 					pDlg->m_sPath = sfile;		// the log would be shown for the last selected file/dir in the list
