@@ -119,6 +119,7 @@ BOOL CCopyDlg::OnInitDialog()
 	m_logFont.CreateFontIndirect(&LogFont);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFont(&m_logFont);
 
+	m_bFile = !PathIsDirectory(m_path);
 	SVNStatus status;
 	CString unescapedurl;
 	long rev = status.GetStatus(m_path);
@@ -176,7 +177,7 @@ void CCopyDlg::OnBnClickedBrowse()
 		if (svn.IsRepository(strFile))
 		{
 			// browse repository - show repository browser
-			CRepositoryBrowser browser(strUrl, this);
+			CRepositoryBrowser browser(strUrl, this, m_bFile);
 			if (browser.DoModal() == IDOK)
 			{
 				m_URLCombo.SetWindowText(browser.GetPath(true));
@@ -201,7 +202,7 @@ void CCopyDlg::OnBnClickedBrowse()
 		||(strUrl.Left(10) == _T("svn+ssl://"))) && strUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
-		CRepositoryBrowser browser(strUrl, this);
+		CRepositoryBrowser browser(strUrl, this, m_bFile);
 		if (browser.DoModal() == IDOK)
 		{
 			m_URLCombo.SetWindowText(browser.GetPath(true));

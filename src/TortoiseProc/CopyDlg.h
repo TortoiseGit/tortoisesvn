@@ -66,7 +66,7 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	DECLARE_MESSAGE_MAP()
 	CFont		m_logFont;
-
+	BOOL		m_bFile;
 public:
 	CHistoryCombo m_URLCombo;
 	CString	m_URL;

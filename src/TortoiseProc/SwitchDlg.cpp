@@ -103,6 +103,7 @@ BOOL CSwitchDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
+	m_bFolder = PathIsDirectory(m_path);
 	SVNStatus status;
 	status.GetStatus(m_path);
 	m_URLCombo.SetURLHistory(TRUE);
@@ -136,7 +137,7 @@ void CSwitchDlg::OnBnClickedBrowse()
 		if (svn.IsRepository(strFile))
 		{
 			// browse repository - show repository browser
-			CRepositoryBrowser browser(strUrl, this);
+			CRepositoryBrowser browser(strUrl, this, !m_bFolder);
 			if (browser.DoModal() == IDOK)
 			{
 				m_URLCombo.SetWindowText(browser.GetPath(true));
@@ -161,7 +162,7 @@ void CSwitchDlg::OnBnClickedBrowse()
 		||(strUrl.Left(10) == _T("svn+ssl://"))) && strUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
-		CRepositoryBrowser browser(strUrl, this);
+		CRepositoryBrowser browser(strUrl, this, !m_bFolder);
 		if (browser.DoModal() == IDOK)
 		{
 			m_URLCombo.SetWindowText(browser.GetPath(true));

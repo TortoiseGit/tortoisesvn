@@ -74,6 +74,7 @@ protected:
 
 	CString m_rev;
 	CHistoryCombo m_URLCombo;
+	BOOL	m_bFolder;
 public:
 	CString m_path;
 	CString m_URL;

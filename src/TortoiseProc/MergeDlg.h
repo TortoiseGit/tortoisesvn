@@ -77,6 +77,7 @@ protected:
 	CLogDlg *	m_pLogDlg;
 	CString		m_sStartRev;
 	CString		m_sEndRev;
+	BOOL		m_bFile;
 public:
 	CString m_URL;
 	CString m_BranchURL;
