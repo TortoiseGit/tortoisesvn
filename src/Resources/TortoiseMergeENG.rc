@@ -548,7 +548,7 @@ BEGIN
     IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND 
                             "Could not retrieve version %s of the file %s.\nPatching is not possible!"
     IDS_ERR_MAINFRAME_FILEHASCONFLICTS 
-                            "There are still unresolved conflicts in line %d!\nPlease resolve those conflicts first before saving."
+                            "There are still unresolved conflicts in line %d!\nYou should resolve those conflicts first before saving.\nDo you want to save the file with the conflicts still there?\nIf you click YES, then you have to manually resolve the conflicts in another editor!"
 END
 
 STRINGTABLE 

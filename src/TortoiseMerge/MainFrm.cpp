@@ -664,7 +664,6 @@ void CMainFrame::SaveFile(CString sFilePath)
 			{
 			case CDiffData::DIFFSTATE_ADDED:
 			case CDiffData::DIFFSTATE_CONFLICTADDED:
-			case CDiffData::DIFFSTATE_CONFLICTED:
 			case CDiffData::DIFFSTATE_IDENTICALADDED:
 			case CDiffData::DIFFSTATE_NORMAL:
 			case CDiffData::DIFFSTATE_THEIRSADDED:
@@ -674,6 +673,28 @@ void CMainFrame::SaveFile(CString sFilePath)
 			case CDiffData::DIFFSTATE_WHITESPACE:
 			case CDiffData::DIFFSTATE_WHITESPACE_DIFF:
 				file.Add(arText->GetAt(i));
+				break;
+			case CDiffData::DIFFSTATE_CONFLICTED:
+				{
+					int first = i;
+					int last = i;
+					do 
+					{
+						last++;
+					} while(((CDiffData::DiffStates)arStates->GetAt(last))==CDiffData::DIFFSTATE_CONFLICTED);
+					file.Add(_T("<<<<<<< .mine"));
+					for (int j=first; j<last; j++)
+					{
+						file.Add(m_pwndRightView->m_arDiffLines->GetAt(j));
+					}
+					file.Add(_T("======="));
+					for (int j=first; j<last; j++)
+					{
+						file.Add(m_pwndLeftView->m_arDiffLines->GetAt(j));
+					}
+					file.Add(_T(">>>>>>> .theirs"));
+					i = last-1;
+				}
 				break;
 			case CDiffData::DIFFSTATE_EMPTY:
 			case CDiffData::DIFFSTATE_CONFLICTEMPTY:
@@ -697,54 +718,54 @@ void CMainFrame::OnFileSave()
 	if (this->m_Data.m_sMergedFile.IsEmpty())
 		return OnFileSaveAs();
 	int nConflictLine = CheckResolved();
-	if (nConflictLine < 0)
-	{
-		if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
-		{
-			DeleteFile(m_Data.m_sMergedFile + _T(".bak"));
-			MoveFile(m_Data.m_sMergedFile, m_Data.m_sMergedFile + _T(".bak"));
-		}
-		SaveFile(this->m_Data.m_sMergedFile);
-		if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Resolve"))) != 0)
-		{
-			TCHAR buf[MAX_PATH*3];
-			GetModuleFileName(NULL, buf, MAX_PATH);
-			TCHAR * end = _tcsrchr(buf, '\\');
-			end++;
-			(*end) = 0;
-			_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
-			_tcscat(buf, this->m_Data.m_sMergedFile);
-			_tcscat(buf, _T("\" /closeonend"));
-			STARTUPINFO startup;
-			PROCESS_INFORMATION process;
-			memset(&startup, 0, sizeof(startup));
-			startup.cb = sizeof(startup);
-			memset(&process, 0, sizeof(process));
-			if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
-			{
-				LPVOID lpMsgBuf;
-				FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL 
-					);
-				MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
-				LocalFree( lpMsgBuf );
-			}
-		}
-	}
-	else
+	if (nConflictLine >= 0)
 	{
 		CString sTemp;
 		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
-		MessageBox(sTemp, 0, MB_ICONERROR);
-		if (m_pwndBottomView)
-			m_pwndBottomView->GoToLine(nConflictLine);
+		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
+		{
+			if (m_pwndBottomView)
+				m_pwndBottomView->GoToLine(nConflictLine);
+			return;
+		}
+	}
+	if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
+	{
+		DeleteFile(m_Data.m_sMergedFile + _T(".bak"));
+		MoveFile(m_Data.m_sMergedFile, m_Data.m_sMergedFile + _T(".bak"));
+	}
+	SaveFile(this->m_Data.m_sMergedFile);
+	if ((nConflictLine<0)&&(((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Resolve"))) != 0))
+	{
+		TCHAR buf[MAX_PATH*3];
+		GetModuleFileName(NULL, buf, MAX_PATH);
+		TCHAR * end = _tcsrchr(buf, '\\');
+		end++;
+		(*end) = 0;
+		_tcscat(buf, _T("TortoiseProc.exe /command:resolve /path:\""));
+		_tcscat(buf, this->m_Data.m_sMergedFile);
+		_tcscat(buf, _T("\" /closeonend"));
+		STARTUPINFO startup;
+		PROCESS_INFORMATION process;
+		memset(&startup, 0, sizeof(startup));
+		startup.cb = sizeof(startup);
+		memset(&process, 0, sizeof(process));
+		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+		{
+			LPVOID lpMsgBuf;
+			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL 
+				);
+			MessageBox((LPCTSTR)lpMsgBuf, _T("TortoiseMerge"), MB_OK | MB_ICONINFORMATION);
+			LocalFree( lpMsgBuf );
+		}
 	}
 }
 
@@ -755,10 +776,12 @@ void CMainFrame::OnFileSaveAs()
 	{
 		CString sTemp;
 		sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, nConflictLine+1);
-		MessageBox(sTemp, 0, MB_ICONERROR);
-		if (m_pwndBottomView)
-			m_pwndBottomView->GoToLine(nConflictLine);
-		return;
+		if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)!=IDYES)
+		{
+			if (m_pwndBottomView)
+				m_pwndBottomView->GoToLine(nConflictLine);
+			return;
+		}
 	}
 	OPENFILENAME ofn;		// common dialog box structure
 	TCHAR szFile[MAX_PATH];  // buffer for file name
