@@ -308,6 +308,46 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem, BOOL recursive)
 	if (m_svn.Ls(folder, m_Revision, entries, true, recursive))
 	{
 		DeleteChildItems(hItem);
+		if (entries.GetCount() == 1)
+		{
+			TCHAR type = entries[0].GetAt(0);
+			CString name = entries.GetAt(0).Mid(1).Left(entries.GetAt(0).Find('\t')-1);
+			if ((type == 'f')&&(name.CompareNoCase(GetItemText(GetItemIndex(hItem), 0))==0))
+			{
+				//we only got one file returned, which also has the same name
+				//as the parent "folder". Now we need to check if the parent is really
+				//a folder!
+				CString item = entries.GetAt(0);
+				entries.RemoveAll();
+				if (m_svn.Ls(folder.Left(folder.ReverseFind('/')), m_Revision, entries, true, recursive))
+				{
+					BOOL found = FALSE;
+					for (int j=0; j<entries.GetCount(); ++j)
+					{
+						if (entries.GetAt(j).CompareNoCase(item)==0)
+						{
+							found = TRUE;
+							break;
+						}
+					}
+					if (found)
+					{
+						hItem = GetNextItem(hItem, RVGN_PARENT);
+						DeleteChildItems(hItem);
+						folder = folder.Left(folder.ReverseFind('/'));
+					}
+					else
+					{
+						entries.RemoveAll();
+						entries.Add(item);
+					}
+				}
+				else
+				{
+					entries.Add(item);
+				}
+			}
+		}
 		for (int i = 0; i < entries.GetCount(); ++i)
 		{
 			TCHAR type = entries[i].GetAt(0);

@@ -16,6 +16,8 @@
        update first. (Stefan)
 - CHG: The Repository Browser now sorts the date column
        by the real date, not the text. (Stefan)
+- BUG: When an URL to a file was entered in the repository
+       browser, it was treated as a folder. (Stefan)
 - BUG: Right-drag export of more than one folder made the
        additional folders exported inside the previous
        ones. (Stefan)
