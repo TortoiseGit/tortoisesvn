@@ -463,7 +463,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	} // if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 
-	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCREATEPATCH), INDEXMENU(MENUCREATEPATCH), idCmd++, IDS_MENUCREATEPATCH, IDI_CREATEPATCH, idCmdFirst, CreatePatch);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUAPPLYPATCH), INDEXMENU(MENUAPPLYPATCH), idCmd++, IDS_MENUAPPLYPATCH, IDI_PATCH, idCmdFirst, ApplyPatch);
