@@ -183,11 +183,7 @@ void CLogPromptDlg::OnOK()
 		}
 		if (bInvalid)
 		{
-			CWnd* ctrl = GetDlgItem(IDC_BUGID);
-			CRect rt;
-			ctrl->GetWindowRect(rt);
-			CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
-			CBalloon::ShowBalloon(ctrl, point, IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
+			CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_BUGID), IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
 			return;
 		}
 	}

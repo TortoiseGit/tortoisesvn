@@ -492,8 +492,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CRect rect;
 			m_LogList.GetItemRect(selIndex, &rect, LVIR_LABEL);
 			m_LogList.ClientToScreen(&rect);
-			point.x = rect.left + rect.Width()/2;
-			point.y = rect.top + rect.Height()/2;
+			point = rect.CenterPoint();
 		}
 		m_nSearchIndex = selIndex;
 
@@ -625,7 +624,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							if (url.IsEmpty())
 							{
 								CString strMessage;
-								strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetWinPathString()));
+								strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
 								CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the folder!\n"));
 								break;		//exit
@@ -898,8 +897,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CRect rect;
 			m_LogMsgCtrl.GetItemRect(selIndex, &rect, LVIR_LABEL);
 			m_LogMsgCtrl.ClientToScreen(&rect);
-			point.x = rect.left + rect.Width()/2;
-			point.y = rect.top + rect.Height()/2;
+			point = rect.CenterPoint();
 		}
 		if (selIndex < 0)
 			return;

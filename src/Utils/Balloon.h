@@ -292,6 +292,12 @@ public:
 	static void	ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, LPCTSTR szIcon, UINT nDirection = BALLOON_RIGHT_TOP, UINT nEffect = BALLOON_EFFECT_SOLID, COLORREF crStart = NULL, COLORREF crMid = NULL, COLORREF crEnd = NULL);
 	//@}
 
+	/** 
+	 * Helper function to return the center point of a dialog control 
+	 * Useful for passing to ShowBalloon
+	 */
+	static CPoint GetCtrlCentre(CWnd* pDlgWnd, UINT ctrlId);
+
 
 	/** \name ToolTips 
 	 * handling of tooltips.

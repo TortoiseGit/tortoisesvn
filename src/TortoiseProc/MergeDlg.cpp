@@ -155,11 +155,7 @@ void CMergeDlg::OnOK()
 	}
 	if (!StartRev.IsValid())
 	{
-		CWnd* ctrl = GetDlgItem(IDC_REVISION_START);
-		CRect rt;
-		ctrl->GetWindowRect(rt);
-		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
-		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return;
 	}
 
@@ -170,11 +166,7 @@ void CMergeDlg::OnOK()
 	}
 	if (!EndRev.IsValid())
 	{
-		CWnd* ctrl = GetDlgItem(IDC_REVISION_END);
-		CRect rt;
-		ctrl->GetWindowRect(rt);
-		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
-		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return;
 	}
 

@@ -1078,8 +1078,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			CRect rect;
 			GetItemRect(selIndex, &rect, LVIR_LABEL);
 			ClientToScreen(&rect);
-			point.x = rect.left + rect.Width()/2;
-			point.y = rect.top + rect.Height()/2;
+			point = rect.CenterPoint();
 		}
 		if (selIndex >= 0)
 		{

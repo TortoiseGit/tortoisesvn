@@ -93,11 +93,7 @@ void CBlameDlg::OnOK()
 	EndRev = SVNRev(m_sEndRev);
 	if (!StartRev.IsValid())
 	{
-		CWnd* ctrl = GetDlgItem(IDC_REVISON_START);
-		CRect rt;
-		ctrl->GetWindowRect(rt);
-		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
-		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISON_START), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return;
 	}
 	EndRev = SVNRev(m_sEndRev);
@@ -107,11 +103,7 @@ void CBlameDlg::OnOK()
 	}
 	if (!EndRev.IsValid())
 	{
-		CWnd* ctrl = GetDlgItem(IDC_REVISION_END);
-		CRect rt;
-		ctrl->GetWindowRect(rt);
-		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
-		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_END), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return;
 	}
 

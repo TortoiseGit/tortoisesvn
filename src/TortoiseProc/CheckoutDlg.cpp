@@ -112,11 +112,7 @@ void CCheckoutDlg::OnOK()
 		Revision = SVNRev(m_sRevision);
 	if (!Revision.IsValid())
 	{
-		CWnd* ctrl = GetDlgItem(IDC_REVISION_NUM);
-		CRect rt;
-		ctrl->GetWindowRect(rt);
-		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
-		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this,IDC_REVISION_NUM), IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
 		return;
 	}
 

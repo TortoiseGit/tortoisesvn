@@ -1537,3 +1537,17 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 	}
 
 }
+
+CPoint 
+CBalloon::GetCtrlCentre(CWnd* pDlgWnd, UINT ctrlId)
+{
+	CWnd* pCtrl = pDlgWnd->GetDlgItem(ctrlId);
+	if(pCtrl == NULL)
+	{
+		ASSERT(FALSE);
+		return CPoint(200,200);
+	}
+	CRect ctrlRect;
+	pCtrl->GetWindowRect(ctrlRect);
+	return ctrlRect.CenterPoint();
+}
