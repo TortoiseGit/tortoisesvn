@@ -390,6 +390,15 @@ CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
 
 BOOL ProjectProperties::CheckBugID(const CString& sID)
 {
+	if (!sCheckRe.IsEmpty()&&(!bNumber))
+	{
+		CString sBugID = sID;
+		sBugID.Replace(_T(", "), _T(","));
+		sBugID.Replace(_T(" ,"), _T(","));
+		CString sMsg = sMessage;
+		sMsg.Replace(_T("%BUGID%"), sBugID);
+		return HasBugID(sMsg);
+	}
 	if (bNumber)
 	{
 		// check if the revision actually _is_ a number

@@ -117,6 +117,9 @@ numbers are allowed as the issue number. One exception is the ',' char, which is
 used to separate multiple issues.
 The client must never complain if the text box is left empty, i.e. if no issue
 number is given. Not all commits are assigned to an issue!
+Note: if the property bugtraq:logregex is set and this property is set to false,
+then the client should use the regex against the created string which is added
+to the log message to check if the bug ID is valid.
 
 Properties used with the regex integration:
 
