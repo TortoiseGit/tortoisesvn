@@ -1,8 +1,8 @@
 - ADD: A warning is shown if a file with local modifications
        should be removed. (Stefan)
-- ADD: Changing of log-messages and author of any revsision
+- ADD: Changing of log-messages and author of any revision
        is possible from the log dialog - if the server has
-       the required hooks set up. (Stefan)
+       the required hooks set up to change revprops. (Stefan)
 - ADD: Document the command line params of TSVN. (Stefan)
 - ADD: The add and revert command can now be cancelled
        during operation. (Stefan)
