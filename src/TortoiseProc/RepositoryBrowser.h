@@ -65,18 +65,20 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual BOOL OnInitDialog();
 
 	HICON m_hIcon;
 
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
+
+	CRepositoryTree m_treeRepository;
 public:
 	BOOL m_bStandAlone;
-	CRepositoryTree m_treeRepository;
-	virtual BOOL OnInitDialog();
-	afx_msg void OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	CString m_strUrl;
-	afx_msg void OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult);
+	LONG m_nRevision;
 };

@@ -32,6 +32,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl, CWnd* pParent /*=N
 	: CResizableDialog(CRepositoryBrowser::IDD, pParent),
 	m_treeRepository(strUrl)
 	, m_strUrl(_T(""))
+	, m_nRevision(SVN::REV_HEAD)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_bStandAlone = FALSE;
@@ -101,7 +102,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	m_treeRepository.Init();
+	m_treeRepository.Init(m_nRevision);
 
 	if (m_bStandAlone)
 	{
@@ -163,35 +164,38 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
 
-			temp.LoadString(IDS_REPOBROWSE_OPEN);
-			if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
-				flags = MF_STRING | MF_GRAYED;
-			else
-				flags = MF_STRING | MF_ENABLED;
-			popup.AppendMenu(flags, ID_POPOPEN, temp);							// "open"
+			if (m_nRevision == SVN::REV_HEAD)
+			{
+				temp.LoadString(IDS_REPOBROWSE_OPEN);
+				if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
+					flags = MF_STRING | MF_GRAYED;
+				else
+					flags = MF_STRING | MF_ENABLED;
+				popup.AppendMenu(flags, ID_POPOPEN, temp);							// "open"
 
-			temp.LoadString(IDS_REPOBROWSE_MKDIR);
-			if (bFolder)
-				flags = MF_STRING | MF_ENABLED;
-			else
-				flags = MF_STRING | MF_GRAYED;
-			popup.AppendMenu(flags, ID_POPMKDIR, temp);							// "create directory"
+				temp.LoadString(IDS_REPOBROWSE_MKDIR);
+				if (bFolder)
+					flags = MF_STRING | MF_ENABLED;
+				else
+					flags = MF_STRING | MF_GRAYED;
+				popup.AppendMenu(flags, ID_POPMKDIR, temp);							// "create directory"
 
-			temp.LoadString(IDS_REPOBROWSE_DELETE);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
+				temp.LoadString(IDS_REPOBROWSE_DELETE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
 
-			temp.LoadString(IDS_REPOBROWSE_IMPORT);
-			if (bFolder)
-				flags = MF_STRING | MF_ENABLED;
-			else
-				flags = MF_STRING | MF_GRAYED;
-			popup.AppendMenu(flags, ID_POPIMPORT, temp);						// "Add/Import"
-			
-			temp.LoadString(IDS_REPOBROWSE_RENAME);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
-			
-			temp.LoadString(IDS_REPOBROWSE_COPY);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
+				temp.LoadString(IDS_REPOBROWSE_IMPORT);
+				if (bFolder)
+					flags = MF_STRING | MF_ENABLED;
+				else
+					flags = MF_STRING | MF_GRAYED;
+				popup.AppendMenu(flags, ID_POPIMPORT, temp);						// "Add/Import"
+
+				temp.LoadString(IDS_REPOBROWSE_RENAME);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"
+
+				temp.LoadString(IDS_REPOBROWSE_COPY);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
+			}
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
@@ -226,12 +230,12 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						SVN svn;
 						svn.m_app = &theApp;
 						theApp.DoWaitCursor(1);
-						if (!svn.Cat(url, -1, tempfile))
+						if (!svn.Cat(url, m_nRevision, tempfile))
 						{
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
-						} // if (!svn.Cat(url, -1, tempfile)) 
+						} // if (!svn.Cat(url, m_nRevision, tempfile)) 
 						theApp.DoWaitCursor(-1);
 					} // if (GetSaveFileName(&ofn)==TRUE) 
 				}
@@ -239,7 +243,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 			case ID_POPSHOWLOG:
 				{
 					CLogDlg dlg;
-					dlg.SetParams(url, SVN::REV_HEAD, 0, FALSE);
+					dlg.SetParams(url, m_nRevision, 0, FALSE);
 					dlg.DoModal();
 				}
 				break;

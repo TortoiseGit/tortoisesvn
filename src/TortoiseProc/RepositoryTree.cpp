@@ -75,7 +75,7 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 			
 			SetItemData(pNMTreeView->itemNew.hItem, 1);
 			CStringArray entries;
-			if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), -1, entries))
+			if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), m_nRevision, entries))
 			{
 				if ((entries.GetCount() == 1)&&(entries.GetAt(0).GetAt(0)=='f')&&(entries.GetAt(0).Mid(1).CompareNoCase(GetItemText(pNMTreeView->itemNew.hItem))==0))
 				{
@@ -138,7 +138,7 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 						SetItemText(hCurrent, temp.Mid(1));
 					hCurrent = GetNextItem(hCurrent, TVGN_NEXT);
 				} // while (hCurrent != NULL)
-			} // if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), -1, entries)) 
+			} // if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), m_nRevision, entries)) 
 			theApp.DoWaitCursor(-1);
 		} // if (GetItemData(pNMTreeView->itemNew.hItem)==0) 
 	} // if (pNMTreeView->action == TVE_EXPAND) 
@@ -146,8 +146,9 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
-void CRepositoryTree::Init()
+void CRepositoryTree::Init(LONG revision)
 {
+	m_nRevision = revision;
 	bInit = TRUE;
 	HIMAGELIST  hSystemImageList; 
 	SHFILEINFO    ssfi; 

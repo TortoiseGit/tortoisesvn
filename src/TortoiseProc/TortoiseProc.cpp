@@ -922,6 +922,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			} // if (dlg.m_strUrl.IsEmpty())
 			CRepositoryBrowser dlg(url);
 			dlg.m_bStandAlone = TRUE;
+			CString val = parser.GetVal(_T("rev"));
+			long rev = _tstol(val);
+			if (rev != 0)
+				dlg.m_nRevision = rev;
 			dlg.DoModal();
 		}
 		//#endregion 

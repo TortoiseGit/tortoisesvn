@@ -57,7 +57,7 @@ public:
 	//afx_msg void OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
 
-	void Init();
+	void Init(LONG revision);
 	CString MakeUrl(HTREEITEM hItem);
 	CString GetFolderUrl(HTREEITEM hItem);
 	HTREEITEM ItemExists(HTREEITEM parent, CString item);
@@ -69,6 +69,7 @@ private:
 	CImageList	m_ImageList;
 	SVN			m_svn;
 	BOOL		bInit;
+	LONG		m_nRevision;
 
 public:
 	int			m_nIconFolder;
