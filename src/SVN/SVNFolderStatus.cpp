@@ -87,6 +87,7 @@ SVNFolderStatus::SVNFolderStatus(void)
 	invalidstatus.url = emptyString;
 	invalidstatus.rev = -1;
 	m_nCounter = 0;
+	sCacheKey.reserve(MAX_PATH);
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
@@ -250,8 +251,9 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolde
 	if (! g_ShellCache.HasSVNAdminDir(filepath, bIsFolder))
 		return &invalidstatus;
 	filestatuscache * ret = NULL;
+	sCacheKey.assign(filepath);
 	std::map<stdstring, filestatuscache>::iterator iter;
-	if ((iter = m_cache.find(filepath)) != m_cache.end())
+	if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
 	{
 		ATLTRACE2(_T("cache found for %s\n"), filepath);
 		ret = (filestatuscache *)&iter->second;

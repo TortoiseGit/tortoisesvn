@@ -73,6 +73,7 @@ public:
 		columnrevformat.Grouping = _ttoi(szBuffer);
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
 		columnrevformat.NegativeOrder = _ttoi(szBuffer);
+		sAdminDirCacheKey.reserve(MAX_PATH);
 	}
 	DWORD BlockStatus()
 	{
@@ -266,7 +267,8 @@ public:
 		if ((GetTickCount() - ADMINDIRTIMEOUT) < admindirticker)
 		{
 			std::map<stdstring, BOOL>::iterator iter;
-			if ((iter = admindircache.find(buf)) != admindircache.end())
+			sAdminDirCacheKey.assign(buf);
+			if ((iter = admindircache.find(sAdminDirCacheKey)) != admindircache.end())
 			{
 				return iter->second;
 			}
@@ -378,5 +380,6 @@ private:
 	TCHAR szDecSep[5];
 	TCHAR szThousandsSep[5];
 	std::map<stdstring, BOOL> admindircache;
+	stdstring sAdminDirCacheKey;
 	DWORD admindirticker;
 };

@@ -181,5 +181,7 @@ private:
 	StringPool		authors;       
 	StringPool		urls;
 	char			emptyString[1];
+
+	stdstring		sCacheKey;
 };
 
