@@ -62,6 +62,9 @@ END_MESSAGE_MAP()
 
 int CHistoryCombo::AddString(CString str, INT_PTR pos)
 {
+	if (str.IsEmpty())
+		return -1;
+	
 	COMBOBOXEXITEM cbei;
 	ZeroMemory(&cbei, sizeof cbei);
 	cbei.mask = CBEIF_TEXT;
