@@ -748,7 +748,10 @@ void SVN::PathToUrl(CString &path)
 	// convert \ to /
 	path.Replace('\\','/');
 	// prepend file:///
-	path.Insert(0, _T("file:///"));
+	if (path.GetAt(0) == '/')
+		path.Insert(0, _T("file://"));
+	else
+		path.Insert(0, _T("file:///"));
 	path.TrimRight(_T("/\\"));			//remove trailing slashes
 }
 

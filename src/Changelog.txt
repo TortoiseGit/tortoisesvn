@@ -5,6 +5,8 @@ CVS
 - BUG: Resizing of dialogs didn't work correctly
        so I changed the resizing system (Stefan)
 - BUG: corrected tooltip in the checkout dialog (Stefan)
+- BUG: for network paths TSVN created a file:// path
+       with five instead of four slashes. (Stefan)
 - CHG: Repository browser now has a minimal size
        so that resizing works better. (Stefan)
 - CHG: if the checkout directory is left empty
