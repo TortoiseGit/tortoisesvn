@@ -182,6 +182,14 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	if (pDlg->m_addListCtrl.GetItemCount()==0)
+	{
+		CMessageBox::Show(pDlg->m_hWnd, IDS_ERR_NOTHINGTOADD, IDS_APPNAME, MB_ICONINFORMATION);
+		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+		pDlg->m_bThreadRunning = FALSE;
+		pDlg->EndDialog(0);
+		return (DWORD)-1;
+	}
 	pDlg->m_bThreadRunning = FALSE;
 	return 0;
 }
