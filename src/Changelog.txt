@@ -4,6 +4,8 @@
 - ADD: When creating branches/tags, you now can choose if
        you want to use the working copy as the source or
        just to a repo->repo copy. (Stefan)
+- ADD: If the "check for updates" can't connect to the
+       repository, just show the local status. (Stefan)
 - CHG: The Repository Browser now sorts the date column
        by the real date, not the text. (Stefan)
 - BUG: Authentication when viewing remote properties lead
