@@ -17,6 +17,12 @@ body {
 	padding: 0;
 }
 
+/* Override the tigris.org bodycol style */
+#bodycol {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
 /* Don't override these styles, because they interfere with standard tigris.org styles and munge the appearance of the website.
 H1, H2, H3 H4
 P,LI,UL,OL,DD,DT,TD
