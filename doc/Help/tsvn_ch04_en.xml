@@ -157,10 +157,6 @@
 		<sect2 id="tsvn-DUG-import-2">
 			<title>Import</title>
 			<para>
-				<figure id="tsvn-DUG-import-dia-1">
-					<title>The Import dialog</title>
-					<graphic fileref="Import.png"/>
-				</figure>
 			Before you import your project into a repository you should:
 			<orderedlist>
 					<listitem>
@@ -183,6 +179,10 @@
 			</action> to open the context menu. Select the command 
 			<guimenuitem>Import...</guimenuitem> which brings up a dialog 
 			box:
+				<figure id="tsvn-DUG-import-dia-1">
+					<title>The Import dialog</title>
+					<graphic fileref="Import.png"/>
+				</figure>
 			</para>
 			<para>
 			In this dialog you have to enter the URL of the repository into 
@@ -206,32 +206,6 @@
 			copy of the project under version control yet! To get a 
 			versioned working copy you need to do a Checkout of the 
 			version you just imported.
-			</para>
-			<para>
-			The repository structure you just created now looks like this:
-<screen>
-    C:/SVNRepository/ProjectName/trunk/All
-    C:/SVNRepository/ProjectName/trunk/your
-    C:/SVNRepository/ProjectName/trunk/files
-    C:/SVNRepository/ProjectName/trunk/are
-    C:/SVNRepository/ProjectName/trunk/here
-    C:/SVNRepository/ProjectName/trunk/...
-    C:/SVNRepository/ProjectName/branches/
-    C:/SVNRepository/ProjectName/tags/ 
-</screen>
-			If you later want to import <filename>C:/myFiles/AnotherProject</filename>, organise it in the same way 
-			(We recommend putting trunk, branches and tags below the 
-			project hierarchy), select <filename>C:/SVNRepository/</filename>
-			as URL of repository and import your project. This project is 
-			then imported into the following structure:
-<screen>
-    C:/SVNRepository/ProjectName/trunk/...
-    C:/SVNRepository/ProjectName/branches/
-    C:/SVNRepository/ProjectName/tags/
-    C:/SVNRepository/AnotherProject/trunk/...
-    C:/SVNRepository/AnotherProject/branches/
-    C:/SVNRepository/AnotherProject/tags/
-</screen>
 			</para>
 		</sect2>
 	</sect1>
