@@ -116,7 +116,8 @@ DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
 	CChangedDlg * pDlg;
 	pDlg = (CChangedDlg *)pVoid;
 
-	pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, TRUE);
+	if (!pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, TRUE))
+		pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, FALSE);
 	pDlg->m_FileListCtrl.Show(SVNSLC_SHOWVERSIONEDBUTNORMAL);
 
 	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
