@@ -125,9 +125,16 @@ public:
 	 */
 	static int Compare(const CTSVNPath& left, const CTSVNPath& right);
 	/**
+	* Compares two paths and return true if left is earlier in sort order than right
+	* (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
+	*/
+	static bool ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right);
+	/**
 	 * appends a part of a path to this path. Missing slashes are added automatically.
 	 */
 	void AppendString(const CString& sAppend);
+
+
 
 private:
 	// All these functions are const, and all the data

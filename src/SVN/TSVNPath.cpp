@@ -285,6 +285,12 @@ CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
 	return left.m_sFwdslashPath.CompareNoCase(right.m_sFwdslashPath);
 }
 
+bool
+CTSVNPath::ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right)
+{
+	return Compare(left, right) < 0;
+}
+
 void CTSVNPath::AppendString(const CString& sAppend)
 {
 	EnsureFwdslashPathSet();
@@ -415,5 +421,35 @@ bool CTSVNPathList::WriteToTemporaryFile(const CString& sFilename) const
 
 void CTSVNPathList::SortByPathname()
 {
-	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::Compare);
+	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::ComparisonPredicate);
 }
+
+#if defined(_DEBUG)
+// Some test cases for this class
+static class CPathTests
+{
+public:
+	CPathTests()
+	{
+		CTSVNPathList testList;
+		CTSVNPath testPath;
+		testPath.SetFromUnknown(_T("c:/Z"));
+		testList.AddPath(testPath);
+		testPath.SetFromUnknown(_T("c:/B"));
+		testList.AddPath(testPath);
+		testPath.SetFromUnknown(_T("c:\\a"));
+		testList.AddPath(testPath);
+		testPath.SetFromUnknown(_T("c:/Test"));
+		testList.AddPath(testPath);
+
+		testList.SortByPathname();
+
+		ASSERT(testList[0].GetWinPathString() == _T("c:\\a"));
+		ASSERT(testList[1].GetWinPathString() == _T("c:\\B"));
+		ASSERT(testList[2].GetWinPathString() == _T("c:\\Test"));
+		ASSERT(testList[3].GetWinPathString() == _T("c:\\Z"));
+
+	}
+} TSVNPathTests;
+#endif
+
