@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-08-26 00:19+0100\n"
+"PO-Revision-Date: 2004-09-01 14:39+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,6 +103,11 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr "%d file selezionati, %d file totali"
 
+# ID:77,
+#: ID:226
+msgid "%s - at revision: %d"
+msgstr "%s - alla revisione: %d"
+
 # ID:151,
 #: ID:151
 msgid "%s : Working Base"
@@ -141,6 +146,11 @@ msgstr "&Avanzate..."
 msgid "&Apply Unified Diff"
 msgstr "&Applica confronto unificato"
 
+# ID:138,
+#: ID:138
+msgid "&Browse Repository"
+msgstr "&Esplora il Repository"
+
 # Control-ID:1011,
 #: Control-ID:1011
 msgid "&Browse..."
@@ -172,6 +182,23 @@ msgstr "&Ritira directory:"
 msgid "&Close windows automatically"
 msgstr "&Chiudi automaticamente la finestra"
 
+# ID:76,
+#: ID:76
+msgid "&Compare revisions"
+msgstr "&Confronta le revisioni"
+
+# ID:101,
+#: ID:101
+msgid "&Copy To..."
+msgstr "&Copia in..."
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:101
+msgid "&Delete"
+msgstr "Eli&mina"
+
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "&Edit"
@@ -184,7 +211,7 @@ msgstr "&Modifica..."
 
 # Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server (Don't use the IE settings)"
+msgid "&Enable Proxy Server"
 msgstr "&Abilita il server proxy"
 
 # Control-ID:1092,
@@ -284,8 +311,14 @@ msgstr "&Prossima differenza"
 msgid "&OK"
 msgstr "&OK"
 
+# ID:101,#:
+# ID:3841,#:
+# ID:3841,
+#: ID:101
+msgid "&Open"
+msgstr "&Apri"
+
 #: MenuEntry
-#, fuzzy
 msgid "&Open Ctrl-O"
 msgstr "&Apri Ctrl-A"
 
@@ -297,7 +330,6 @@ msgstr "&Password:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "&Port:"
 msgstr "&Port:"
 
@@ -309,7 +341,7 @@ msgstr "&Differenza precedente"
 #: Control-ID:1023
 #, fuzzy
 msgid "&Recurse into folders to fetch the status"
-msgstr "&Analisi ricorsiva delle cartelle"
+msgstr "&Analisi ricorsiva delle sottocartelle per recuperare lo stato"
 
 # Control-ID:1048,
 #: Control-ID:1048
@@ -322,6 +354,17 @@ msgstr "&Dischi removibili"
 #: Control-ID:1100
 msgid "&Remove"
 msgstr "&Elimina"
+
+# ID:11,#:
+# ID:101,
+#: ID:101
+msgid "&Rename..."
+msgstr "&Rinomina..."
+
+# ID:113,
+#: ID:113
+msgid "&Revert changes from this revision"
+msgstr "&Ripristina annullando tutte le modifiche di questa revisione"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -342,9 +385,8 @@ msgstr "&Salva Ctrl-S"
 
 # Control-ID:1012,
 #: Control-ID:1012
-#, fuzzy
 msgid "&Set"
-msgstr "&Definisci"
+msgstr "&Imposta"
 
 #: MenuEntry
 msgid "&Status Bar"
@@ -387,6 +429,11 @@ msgstr "&Annulla\tCtrl+Z"
 msgid "&Unknown drives"
 msgstr "Dischi sconosciuti"
 
+# ID:76,
+#: ID:76
+msgid "&Update item to revision"
+msgstr "A&ggiorna l'elemento alla revisione"
+
 # Control-ID:65535,#:
 # Control-ID:1005,#:
 # Control-ID:65535,
@@ -407,6 +454,11 @@ msgstr "&Spaziature"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(selezione multipla)"
+
+# Dlg-ID:107,
+#: ID:208
+msgid "(property change only)"
+msgstr "(solo proprietà)"
 
 # ID:188,
 #: ID:188
@@ -432,6 +484,31 @@ msgstr "- %d"
 #: Control-ID:1104
 msgid "..."
 msgstr "..."
+
+# ID:119,
+#: ID:151
+msgid ": Revision %d"
+msgstr ": Revisione %d"
+
+# ID:151,
+#: ID:151
+msgid ": working copy"
+msgstr ": copia di lavoro"
+
+# ID:88,
+#: ID:88
+msgid ""
+"<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
+"If you use Relocate to direct you working copy to another repository or branch,\n"
+"this <b>will corrupt your working copy!</b>\n"
+"To associate your working copy with another branch, use the Switch command.\n"
+"Are you sure you want to relocate?"
+msgstr ""
+"<b>ATTENZIONE!</b> Utilizzare il comando Sposta solo se il repository originale ha cambiato URL.\n"
+"Se si utilizza \"Sposta\" per indirizzare la propria copia di lavoro su un'altro Repository o su un ramo,\n"
+"l'operazione in corso <b>corromperà la copia di lavoro!</b>\n"
+"Per associare la copia di lavoro con un'altro ramo utilizzare il comando \"Cambia\".\n"
+"Si è sicuri di voler proseguire?"
 
 # ID:3867,#:
 # ID:3867,
@@ -490,6 +567,11 @@ msgid ""
 msgstr ""
 "Un applicazione per visualizzare i file di confronto GNU (file di patch).\n"
 "Se non se ne possiede uno usare NotePad."
+
+# ID:101,
+#: ID:101
+msgid "A&dd folder..."
+msgstr "Aggiungi &directory..."
 
 # Control-ID:1093,
 #: Control-ID:1093
@@ -562,44 +644,36 @@ msgstr ""
 msgid "Add"
 msgstr "Aggiungi"
 
-# ID:110,
-#: ID:110
-#, fuzzy
-msgid "Add Extension Specific Diff Program"
-msgstr "Aggiunge applicazione di confronto secondo l'estensione"
+# ID:101,
+#: ID:101
+msgid "Add &file..."
+msgstr "Aggiungi &file..."
 
 # ID:110,
 #: ID:110
-#, fuzzy
+msgid "Add Extension Specific Diff Program"
+msgstr "Aggiungi applicazione di confronto per estensione specifica"
+
+# ID:110,
+#: ID:110
 msgid "Add Extension Specific Merge Program"
-msgstr "Aggiunge applicazione di fusione secondo l'estensione"
+msgstr "Aggiungi applicazione di fusione per estensione specifica"
 
 # ID:13,
 #: ID:13
 msgid "Add To Ignore List"
 msgstr "Aggiungi alla lista Ignora"
 
-# ID:101,
-#: ID:101
-msgid "Add file..."
-msgstr "Aggiungi file..."
-
 # ID:12,
 #: ID:12
 #, fuzzy
 msgid "Add files to Subversion here"
-msgstr "Aggiungi file a Subversion"
-
-# ID:101,
-#: ID:101
-msgid "Add folder..."
-msgstr "Aggiungi directory..."
+msgstr "Aggiungi qui i file al Repository"
 
 # Dlg-ID:171,
 #: Dlg-ID:171
-#, fuzzy
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr "Aggiunge/modifica applicazione di confronto/fusione secondo l'estensione"
+msgstr "Aggiungi/modifici applicazione di confronto/fusione per estensione specifica"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -729,9 +803,8 @@ msgstr "Il programma ha incontrato un argomento non valido."
 # ID:3867,#:
 # ID:3867,
 #: ID:3867
-#, fuzzy
 msgid "An invalid file handle was associated with %1."
-msgstr "Una descrizione di file non valida è stata associata a %1."
+msgstr "Un handle non valido è stato associato a %1."
 
 # ID:3859,#:
 # ID:3859,
@@ -887,11 +960,6 @@ msgstr "S&foglia..."
 msgid "Brows&e..."
 msgstr "S&foglia..."
 
-# ID:138,
-#: ID:138
-msgid "Browse Repository"
-msgstr "Esplora il Repository"
-
 # ID:78,
 #: ID:78
 msgid "Browse for the external diff program"
@@ -912,9 +980,18 @@ msgstr "I&ntegrato"
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr."
 
+# ID:101,
+#: ID:101
+msgid "C&reate Folder..."
+msgstr "C&rea cartella..."
+
+# ID:77,
+#: ID:77
+msgid "C&reate Tag from revision"
+msgstr "C&rea etichetta dalla revisione"
+
 # ID:3697,
 #: ID:3697
-#, fuzzy
 msgid "CAP"
 msgstr "MAIU"
 
@@ -1145,18 +1222,13 @@ msgstr "Confronta le spaziature"
 
 # ID:76,
 #: ID:76
-msgid "Compare revisions"
-msgstr "Confronta le revisioni"
+msgid "Compare with &working copy"
+msgstr "Confronta con la copia di &lavoro"
 
 # ID:138,
 #: ID:138
-msgid "Compare with Base"
-msgstr "Confronta con la Base"
-
-# ID:76,
-#: ID:76
-msgid "Compare with working copy"
-msgstr "Confronta con la copia di lavoro"
+msgid "Compare with B&ase"
+msgstr "Confronta con la B&ase"
 
 # ID:12,
 #: ID:12
@@ -1193,16 +1265,10 @@ msgstr "Copiato in remoto"
 msgid "Copy"
 msgstr "Copia"
 
-# ID:101,
-#: ID:101
-msgid "Copy To..."
-msgstr "Copia in..."
-
 # ID:13,
 #: ID:13
-#, fuzzy
 msgid "Copy files in Subversion to here"
-msgstr "Copia qui i file di Subversion"
+msgstr "Copia qui i file del Repository"
 
 # ID:3603,
 #: ID:3603
@@ -1325,14 +1391,8 @@ msgstr "Impossibile eseguire il lavoro di stampa."
 
 # ID:81,
 #: ID:81
-#, fuzzy
 msgid "Could not start thread!"
 msgstr "Impossibile avviare il thread!"
-
-# ID:101,
-#: ID:101
-msgid "Create Folder..."
-msgstr "Crea cartella..."
 
 # ID:13,
 #: ID:13
@@ -1343,11 +1403,6 @@ msgstr "Crea patch..."
 #: ID:8
 msgid "Create Repository here"
 msgstr "Crea un Repository qui"
-
-# ID:77,
-#: ID:77
-msgid "Create Tag from revision"
-msgstr "Crea una etichetta dalla revisione"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1403,15 +1458,13 @@ msgstr "&Numero predefinito di commenti"
 # ID:101,
 #: ID:11
 #: ID:73
-#: ID:101
 msgid "Delete"
 msgstr "Elimina"
 
 # ID:11,
 #: ID:11
-#, fuzzy
 msgid "Deletes files / folders from source control"
-msgstr "Elimina file / cartelle dalla directory controllata da svn"
+msgstr "Elimina file / cartelle dalla copia di lavoro e dal Repository"
 
 # ID:3859,#:
 # ID:3859,
@@ -1463,7 +1516,6 @@ msgstr "Disco pieno durante l'accesso a %1."
 # ID:3860,#:
 # ID:3860,
 #: ID:3860
-#, fuzzy
 msgid "Dispatch exception: %1"
 msgstr "Eccezione: %1"
 
@@ -1496,12 +1548,11 @@ msgstr ""
 
 # ID:3605,
 #: ID:3605
-#, fuzzy
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
 msgstr ""
-"Visualizza le informazioni su programma, sulla versione e sul copyright\n"
+"Visualizza le informazioni sul programma, sulla versione e sul copyright\n"
 "Riguardo a"
 
 # ID:80,
@@ -1577,7 +1628,6 @@ msgstr "Esterno"
 
 # ID:3697,
 #: ID:3697
-#, fuzzy
 msgid "EXT"
 msgstr "EXT"
 
@@ -1588,15 +1638,13 @@ msgstr "Modifica i conflitti"
 
 # ID:110,
 #: ID:110
-#, fuzzy
 msgid "Edit Extension Specific Diff Program"
-msgstr "Modifica il programma di confronto secondo le estensioni"
+msgstr "Modifica programma di confronto per estensione specifica"
 
 # ID:110,
 #: ID:110
-#, fuzzy
 msgid "Edit Extension Specific Merge Program"
-msgstr "Modifica il programma di fusione secondo le estensioni"
+msgstr "Modifica programma di fusione per estensione specifica"
 
 # ID:79,
 #: ID:79
@@ -1665,13 +1713,11 @@ msgstr "Eccezioni:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Exclude paths:"
-msgstr "Filtro d'esclusione:"
+msgstr "Escludi percorsi:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Exclude/Ignore pattern:"
 msgstr "Filtro d'esclusione:"
 
@@ -1683,7 +1729,7 @@ msgstr "Esporta directory:"
 # ID:79,
 #: ID:79
 msgid "Export unversioned files too"
-msgstr "Esporta anche i file privi di versione"
+msgstr "Esporta anche i file senza versione"
 
 # ID:9,
 #: ID:9
@@ -1707,9 +1753,8 @@ msgstr "Estensione"
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Extension specific programs"
-msgstr "Programma specifico per estensione"
+msgstr "Programma specifico per l'estensione"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2090,13 +2135,12 @@ msgstr "Stato locale"
 
 # ID:94,
 #: ID:94
-#, fuzzy
 msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr ""
 "Posizione in cui verranno salvati i contenuti\n"
-"del ULR del repository."
+"del Repository selezionato."
 
 # ID:126,
 #: ID:126
@@ -2181,7 +2225,7 @@ msgstr "Diversi"
 #: ID:3887
 #, fuzzy
 msgid "Mixed"
-msgstr "Misti"
+msgstr "Misto"
 
 # ID:74,
 #: ID:74
@@ -2190,9 +2234,8 @@ msgstr "Modificato"
 
 # ID:12,
 #: ID:12
-#, fuzzy
 msgid "Move files in Subversion to here"
-msgstr "Sposta qui dei file di Subversion"
+msgstr "Sposta qui i file di Subversion"
 
 # ID:126,
 #: ID:126
@@ -2331,7 +2374,6 @@ msgstr "Aggiorna solo la cartella principale"
 # ID:101,#:
 # ID:3841,#:
 # ID:3841,
-#: ID:101
 #: ID:3841
 msgid "Open"
 msgstr "Apri"
@@ -2383,9 +2425,8 @@ msgstr "Password:"
 
 # Control-ID:1121,
 #: Control-ID:1121
-#, fuzzy
 msgid "Paste Log &template in english"
-msgstr "Incolla il Log (in inglese)"
+msgstr "Incolla il Log dei cambiamenti (in inglese)"
 
 # Control-ID:1031,
 #: Control-ID:1031
@@ -2400,8 +2441,8 @@ msgstr "Applica patch a tutti"
 # ID:157,#:
 # ID:157,
 #: ID:157
-msgid "Patchfiles|*.diff;*.patch|All|*.*||"
-msgstr "File patch|*.diff;*.patch|Tutti i file|*.*||"
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "File patch (*.diff, *.patch)|*.diff;*.patch|Tutti i file (*.*)|*.*||"
 
 # ID:77,
 #: ID:77
@@ -2557,7 +2598,6 @@ msgstr "Pagina delle proprietà"
 
 # ID:207,
 #: ID:207
-#, fuzzy
 msgid "Property Status"
 msgstr "Stato delle proprietà"
 
@@ -2694,15 +2734,13 @@ msgstr "Rinomina %s"
 # ID:11,#:
 # ID:101,
 #: ID:11
-#: ID:101
 msgid "Rename..."
 msgstr "Rinomina..."
 
 # ID:11,
 #: ID:11
-#, fuzzy
 msgid "Renames files / folders inside source control"
-msgstr "Rinomina file / cartelle all'interno del source control"
+msgstr "Rinomina file / cartelle all'interno della copia di lavoro e del Repository"
 
 # ID:3603,
 #: ID:3603
@@ -2788,11 +2826,6 @@ msgstr "Riprova"
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "Ripristina"
-
-# ID:113,
-#: ID:113
-msgid "Revert changes from this revision"
-msgstr "Annulla tutte le modifiche di questa revisione"
 
 # ID:9,
 #: ID:9
@@ -2931,6 +2964,12 @@ msgstr "SVN Url corta"
 msgid "Save &As..."
 msgstr "Salva &come..."
 
+# ID:101,#:
+# ID:313,
+#: ID:101
+msgid "Save &as..."
+msgstr "Sa&lva come..."
+
 # ID:3841,#:
 # ID:3841,
 #: ID:3841
@@ -2939,7 +2978,6 @@ msgstr "Salva come"
 
 # ID:101,#:
 # ID:313,
-#: ID:101
 #: ID:313
 msgid "Save as..."
 msgstr "Salva come..."
@@ -2952,8 +2990,8 @@ msgstr "Salvare cambiamenti in %1?"
 
 # ID:76,
 #: ID:76
-msgid "Save revision to..."
-msgstr "Salvare la revisione in..."
+msgid "Save revision &to..."
+msgstr "Salva revisione &in..."
 
 # ID:3601,#:
 # ID:3601,
@@ -2972,8 +3010,8 @@ msgstr "Salva la patch in:"
 
 # ID:113,
 #: ID:113
-msgid "Search log messages..."
-msgstr "Cerca commenti nel log..."
+msgid "Search &log messages..."
+msgstr "Cerca commenti nel &log..."
 
 # ID:3867,#:
 # ID:3867,
@@ -3090,8 +3128,13 @@ msgid ""
 "Shall the log stop on a copy?\n"
 "Click <b>Yes</b> if you need to find out where a branch started."
 msgstr ""
-"Il log dovrebbe fermarsi durante una copia?\n"
-"Clicca <b>Sì</b> se si necessiti di capire dove ha inizio un ramo."
+"Sospendere il Log delle modifiche durante una copia?\n"
+"Clicca <b>Sì</b> se si vuole creare un ramo."
+
+# ID:101,
+#: ID:101
+msgid "Sho&w Properties"
+msgstr "Mostra &proprietà"
 
 # Control-ID:1105,
 #: Control-ID:1105
@@ -3102,6 +3145,11 @@ msgstr "Usa formato &corto per date e orari nei commenti"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "Url semplice degli elementi di Subversion"
+
+# ID:113,
+#: ID:113
+msgid "Show &Differences"
+msgstr "Mostra &differenze"
 
 # Control-ID:1031,#:
 # Control-ID:1034,
@@ -3116,6 +3164,7 @@ msgid "Show &Log..."
 msgstr "Visualizza &Log..."
 
 # Control-ID:1016,
+#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Visualizza &log"
@@ -3132,13 +3181,8 @@ msgstr "Mostra la barra di confronto"
 
 # ID:113,
 #: ID:113
-msgid "Show Differences"
-msgstr "Mostra le differenze"
-
-# ID:113,
-#: ID:113
-msgid "Show Differences as Unified Diff"
-msgstr "Visualizza le differenze come confronto unificato"
+msgid "Show Differences as &Unified Diff"
+msgstr "Visualizza le differenze come confronto &unificato"
 
 # Control-ID:1063,
 #: Control-ID:1063
@@ -3149,16 +3193,6 @@ msgstr "Mostra i numeri di linea"
 #: ID:12
 msgid "Show Log"
 msgstr "Visualizza Log"
-
-# ID:101,
-#: ID:101
-msgid "Show Properties"
-msgstr "Mostra le proprietà"
-
-# ID:101,
-#: ID:101
-msgid "Show log"
-msgstr "Visualizza log"
 
 # ID:3713,
 #: ID:3713
@@ -3356,9 +3390,8 @@ msgstr "Dimensione tabulatore:"
 
 # ID:79,
 #: ID:79
-#, fuzzy
 msgid "Tagged the working copy to %s"
-msgstr "Etichettamento della copia di lavoro sotto %s"
+msgstr "Copia di lavoro etichettata come %s"
 
 # ID:207,
 #: ID:207
@@ -3447,9 +3480,8 @@ msgstr ""
 
 # ID:63,
 #: ID:63
-#, fuzzy
 msgid "The line \"====\" was expected in line %d !"
-msgstr "La linea \"====\" era attesa alla linea %d !"
+msgstr "Atteso \"====\" alla linea %d !"
 
 # ID:63,
 #: ID:63
@@ -3772,11 +3804,6 @@ msgstr "Aggiorna"
 msgid "Update To Revision..."
 msgstr "Aggiorna alla revisione..."
 
-# ID:76,
-#: ID:76
-msgid "Update item to revision"
-msgstr "Aggiorna l'elemento alla revisione"
-
 # ID:11,
 #: ID:11
 msgid "Updates the working copy to a specific revision"
@@ -3819,7 +3846,6 @@ msgstr "Barra le linee eliminate"
 
 # ID:251,
 #: ID:251
-#, fuzzy
 msgid "Use text block from \"theirs\""
 msgstr "Usa il blocco di testo dal \"loro\""
 
@@ -4258,7 +4284,6 @@ msgstr ""
 
 # ID:80,
 #: ID:80
-#, fuzzy
 msgid "to %s"
 msgstr "verso %s"
 

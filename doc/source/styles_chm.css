@@ -16,15 +16,13 @@ body {
 	padding: 0;
 }
 
-
-
 PRE
 {
     font-size: 10pt;
 }
 TT
 {
-    font-size: 11pt;
+    font-size: 12pt;
 }
 
 TT.Filename, TT.Literal{
@@ -117,6 +115,7 @@ div.chapter,
 div.sect1, 
 div.sect2,
 div.sect3,
+div.preface,
 div.appendix, 
 div.section, 
 div.glossary {
@@ -176,7 +175,11 @@ div.table td {
 	border-left: 1px solid;
 }
 
-.action, .guibutton, .guimenu, .guimenuitem {
+.action  {
+  font-weight: bold;
+}
+
+.guibutton, .guimenu, .guimenuitem {
   font-weight: bold;
   padding: 0px 0.5em 0px 0.5em;
 }

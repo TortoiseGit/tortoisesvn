@@ -1,4 +1,4 @@
-﻿<chapter id="tsvn-DUG">
+<chapter id="tsvn-DUG">
 	<title>Hilfe für die tägliche Arbeit</title>
 	<simplesect>
 		<para>
@@ -271,9 +271,11 @@
 				<primary>Dateien ausschließen</primary>
 			</indexterm>
 			<note>
+				<para>
 				Dateien oder Verzeichnisse, die dem
 				<guilabel>Dateien ausschließen</guilabel>
 				Muster entsprechen werden <emphasis>nicht</emphasis> importiert.
+				</para>
 			</note>
 			<para>
 				Sobald Sie auf <guibutton>OK</guibutton> klicken beginnt TortoiseSVN die Daten
@@ -383,8 +385,8 @@
 			haben möchten. Öffnen Sie dann mittels <action>Rechts-Klick</action> das
 			Kontext-Menu und wählen Sie den Befehl
 			<menuchoice>
-				<guimenuitem>Auschecken...</guimenuitem>,
-			</menuchoice>
+				<guimenuitem>Auschecken...</guimenuitem>
+			</menuchoice>,
 			was Sie zu folgendem Dialog führt:
 			<figure id="tsvn-DUG-checkout-dia-1">
 				<title>Der Auscheck-Dialog</title>
@@ -394,11 +396,13 @@
 			vorhanden ist, wird dieser erstellt.
 		</para>
 		<note>
+			<para>
 			Sie können nur in einen leeren Ordner auschecken. Wenn Sie in einen
 			vorher importieren Ordner auschecken möchten wird Subversion eine
 			Fehlermeldung ausgeben. Sie müssen die importierten Dateien entweder
 			in einen neuen Ordner auschecken oder alle Dateien in dem vorher
 			importieren Ordner zuerst löschen.
+			</para>
 		</note>
 		<para>
 			Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil
@@ -570,8 +574,8 @@
 				geändert und im Projektarchiv gespeichert wurden. Dazu gibt es
 				den Befehl
 				<menuchoice>
-					<guimenuitem>Auf Änderungen überprüfen</guimenuitem>.
-				</menuchoice>
+					<guimenuitem>Auf Änderungen überprüfen</guimenuitem>
+				</menuchoice>.
 				Dieser Dialog zeigt Ihnen alle Dateien, welche entweder von Ihnen
 				lokal und/oder von anderen im Projektarchiv geändert wurden. So
 				können Sie schon vor einer Aktualisierung feststellen, ob es 
@@ -587,10 +591,10 @@
 			<tip>
 				<title>Weitere Möglichkeiten</title>
 				<para>
-				Der 
+					Der
 					<menuchoice>
-						<guimenuitem>Auf Änderungen überprüfen</guimenuitem>.
-					</menuchoice>
+						<guimenuitem>Auf Änderungen überprüfen</guimenuitem>
+					</menuchoice>.
 					Dialog ist vielleicht nicht die beste Wahl wenn Sie gerade
 					keine Netzwerkverbindung zu Ihrem Projektarchiv haben. In diesem
 					Falle können sie die lokalen Änderungen auch mit dem
@@ -661,6 +665,7 @@
 			eingeben können, auf welche die Arbeitskopie aktualisiert werden soll.
 		</para>
 		<caution>
+			<para>
 			Wenn Sie eine Datei oder Ordner auf eine bestimmte Revision aktualisieren,
 			werden Sie <literal>out of date</literal> Fehlermeldungen erhalten sobald
 			Sie versuchen, diese Dateien oder Ordner zu übertragen.
@@ -674,6 +679,7 @@
 				<guimenuitem>Zusammenführen...</guimenuitem>
 			</menuchoice>
 			verwenden.
+			</para>
 		</caution>
 		<para>
 			Der Befehl
@@ -686,16 +692,18 @@
 			Sie ganz einfach die Arbeitskopie auf Revision 50.
 		</para>
 		<warning>
-		Wenn Sie Ihre Arbeitskopie auf eine frühere Revision aktualisiert haben,
-		dürfen Sie keine Änderungen an den Dateien mehr vornehmen! Sie werden
-		eine Fehlermeldung erhalten, wenn Sie versuchen, diese Änderungen zu
-		übertragen.
-		Wenn Sie Änderungen rückgängig machen wollen, benutzen Sie den 
-		Projektarchiv-Browser und speichern Sie die gewünschte Datei über
-		die Datei in der Arbeitskopie. Oder Sie können den Log-Dialog benutzen
-		und den Befehl "Änderungen dieser Revision rückgängig machen". Um
-		mehrere Revisionen rückgängig zu machen, benutzen Sie den "Mischen"
-		Befehl.
+			<para>
+			Wenn Sie Ihre Arbeitskopie auf eine frühere Revision aktualisiert haben,
+			dürfen Sie keine Änderungen an den Dateien mehr vornehmen! Sie werden
+			eine Fehlermeldung erhalten, wenn Sie versuchen, diese Änderungen zu
+			übertragen.
+			Wenn Sie Änderungen rückgängig machen wollen, benutzen Sie den 
+			Projektarchiv-Browser und speichern Sie die gewünschte Datei über
+			die Datei in der Arbeitskopie. Oder Sie können den Log-Dialog benutzen
+			und den Befehl "Änderungen dieser Revision rückgängig machen". Um
+			mehrere Revisionen rückgängig zu machen, benutzen Sie den "Zusammenführen"
+			Befehl.
+			</para>
 		</warning>
 		<tip>
 			<title>Mehrere Dateien/Ordner</title>
@@ -788,8 +796,8 @@
 			Anschliessend müssen Sie Subversion noch mitteilen, dass Sie den
 			Konflikt aufgelöst haben. Dies geschieht mit dem Befehl
 			<menuchoice>
-				<guimenuitem>Konflikt aufgelöst</guimenuitem>.
-			</menuchoice>
+				<guimenuitem>Konflikt aufgelöst</guimenuitem>
+			</menuchoice>.
 			Bitte beachten Sie dass dieser
 			Befehl <emphasis>nicht</emphasis> den Konflikt selbst löst, sondern
 			nur Subversion mitteilt dass Sie selbst den Konflikt bereits gelöst
@@ -820,8 +828,8 @@
 			</menuchoice>
 			sofort ausführen oder zunächst mittels
 			<menuchoice>
-				<guimenuitem>Auf Änderungen überprüfen</guimenuitem>.
-			</menuchoice>
+				<guimenuitem>Auf Änderungen überprüfen</guimenuitem>
+			</menuchoice>.
 		</para>
 		<para>
 			Wenn Ihre Arbeitskopie auf dem neuesten Stand ist und keine Konflikte
@@ -866,8 +874,8 @@
 								Fügen Sie diese Dateien zur Liste der ignorierten
 								Dateien hinzu mit dem Befehl
 								<menuchoice>
-									<guimenuitem>Ignorieren</guimenuitem>.
-								</menuchoice>
+									<guimenuitem>Ignorieren</guimenuitem>
+								</menuchoice>.
 								Dadurch werden diese Dateien in die Ordner-Eigenschaft <literal>
 								svn:ignore</literal> aufgenommen, welche Sie mittels
 								des normalen Eigenschaftsdialog des Explorers (auf der
@@ -965,7 +973,7 @@
 					<para>
 						Im erscheinenden Popupmenu wählen Sie 
 						<menuchoice>
-							<guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem>.
+							<guimenuitem>Dateien zu Subversion hier hinzufügen</guimenuitem>
 						</menuchoice>.
 						Die Dateien
 						werden dann in die Arbeitskopie kopiert und zur 
@@ -1380,9 +1388,11 @@
 				ausgeführt (Anzeige der Änderungen dieser Revision).
 			</para>
 			<warning>
-				Da die Revisions-Properties (z.B. das svn:log Property für Log-Meldungen) 
-				in Subversion nicht aufgezeichnet werden überschreiben Änderungen 
+				<para>
+				Da die Revisionseigenschaften (z.B. <literal>svn:log</literal> für Log-Meldungen) 
+				in Subversion nicht aufgezeichnet werden, überschreiben Änderungen 
 				den alten Wert für <emphasis>immer</emphasis>.
+				</para>
 			</warning>
 		</sect2>
 	</sect1>
@@ -2107,11 +2117,19 @@ Rev Log-Meldungen
 							<variablelist>
 									<varlistentry>
 										<term>%base</term>
-										<listitem>Die Originaldatei ohne Ihre Änderungen</listitem>
+										<listitem>
+											<para>
+											Die Originaldatei ohne Ihre Änderungen
+											</para>
+										</listitem>
 									</varlistentry>
 									<varlistentry>
 										<term>%mine</term>
-										<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
+										<listitem>
+											<para>
+											Ihre eigene Datei mit Ihren Änderungen
+											</para>
+										</listitem>
 									</varlistentry>
 								</variablelist>
 							</para>
@@ -2126,19 +2144,35 @@ Rev Log-Meldungen
 							<variablelist>
 									<varlistentry>
 										<term>%base</term>
-										<listitem>Die Originaldatei ohne Ihre oder die anderen Änderungen</listitem>
+										<listitem>
+											<para>
+											Die Originaldatei ohne Ihre oder die anderen Änderungen
+											</para>
+										</listitem>
 									</varlistentry>
 									<varlistentry>
 										<term>%mine</term>
-										<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
+										<listitem>
+											<para>
+											Ihre eigene Datei mit Ihren Änderungen
+											</para>
+										</listitem>
 									</varlistentry>
 									<varlistentry>
 										<term>%theirs</term>
-										<listitem>Die Datei wie Sie im Projektarchiv ist</listitem>
+										<listitem>
+											<para>
+											Die Datei wie Sie im Projektarchiv ist
+											</para>
+										</listitem>
 									</varlistentry>
 									<varlistentry>
 										<term>%merged</term>
-										<listitem>Die Konfliktdatei (das Ergebnis der Merge Operation)</listitem>
+										<listitem>
+											<para>
+											Die Konfliktdatei (das Ergebnis der Merge Operation)
+											</para>
+										</listitem>
 									</varlistentry>
 								</variablelist>
 							</para>
@@ -2187,7 +2221,7 @@ Rev Log-Meldungen
 			welche Zeile in einer Datei verantwortlich ist. Dazu gibt es den
 			Befehl
 			<menuchoice>
-				<guimenuitem>Annotieren...</guimenuitem>.
+				<guimenuitem>Annotieren...</guimenuitem>
 			</menuchoice>,
 			manchmal auch <firstterm>Beschuldigen</firstterm> genannt.
 		</para>
