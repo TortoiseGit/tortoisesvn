@@ -395,6 +395,7 @@
 #define IDS_LOG_POPUP_GNUDIFF           1802
 #define IDS_LOG_POPUP_FIND              1803
 #define IDS_LOG_COPY_SUCCESS            1830
+#define IDS_LOG_STRICTQUESTION          1831
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902

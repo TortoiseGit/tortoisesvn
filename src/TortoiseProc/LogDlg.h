@@ -127,6 +127,7 @@ public:
 	BOOL		m_bShowedAll;
 	BOOL		m_bThreadRunning;
 	BOOL		m_bStrict;
+	BOOL		m_bGotRevisions;
 private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
@@ -134,6 +135,7 @@ private:
 	CStringArray m_arLogPaths;
 	CDWordArray m_arRevs;
 	BOOL		m_hasWC;
+	BOOL		m_bGotAllPressed;
 	int			m_nSearchIndex;
 	static const UINT m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;

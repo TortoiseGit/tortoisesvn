@@ -40,6 +40,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pNotifyWindow = NULL;
 	m_bThreadRunning = FALSE;
+	m_bGotAllPressed = FALSE;
 }
 
 CLogDlg::~CLogDlg()
@@ -238,18 +239,32 @@ void CLogDlg::OnBnClickedGetall()
 	m_arLogPaths.RemoveAll();
 	m_arRevs.RemoveAll();
 	m_logcounter = 0;
-	m_bStrict = FALSE;
 	m_endrev = 1;
 	m_startrev = -1;
 	m_bCancelled = FALSE;
+
+	if ((m_bStrict)&&(m_bGotAllPressed == FALSE))
+	{
+		if (CMessageBox::Show(this->m_hWnd, IDS_LOG_STRICTQUESTION, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDNO)
+		{
+			m_bStrict = FALSE;
+			m_bShowedAll = TRUE;
+			GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
+		}
+	}
+	else
+	{
+		m_bStrict = FALSE;
+		m_bShowedAll = TRUE;
+		GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
+	}
+	m_bGotAllPressed = TRUE;
 	DWORD dwThreadId;
 	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-	m_bShowedAll = TRUE;
-	GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
 }
 
 BOOL CLogDlg::Cancel()
@@ -343,6 +358,7 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 		m_bCancelled = TRUE;
 	}
 	m_LogList.SetRedraw();
+	m_bGotRevisions = TRUE;
 	return TRUE;
 }
 
@@ -385,9 +401,21 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	pDlg->m_LogProgress.SetRange32(pDlg->m_endrev, pDlg->m_startrev);
 	pDlg->m_LogProgress.SetPos(0);
 	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
-	if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true, pDlg->m_bStrict))
+	pDlg->m_bGotRevisions = FALSE;
+	while ((pDlg->m_bCancelled == FALSE)&&(pDlg->m_bGotRevisions == FALSE))
 	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true, pDlg->m_bStrict))
+		{
+			CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			break;
+		}
+		if (pDlg->m_endrev <= 1)
+			break;
+		pDlg->m_endrev -= (LONG)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+		if (pDlg->m_endrev <= 0)
+		{
+			pDlg->m_endrev = 1;
+		}
 	}
 
 	pDlg->m_LogList.SetRedraw(false);
