@@ -141,12 +141,28 @@ void CSVNPropertyPage::SetHwnd(HWND newHwnd)
 
 BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam)
 {
+	if (hwnd == hwndTT)
+	{
+		ATLTRACE2(_T("hwndTT message\n"));
+	}
 	switch (uMessage)
 	{
-		case WM_INITDIALOG:
+	case WM_INITDIALOG:
+		{
 			InitWorkfileView();
-			return TRUE;    
-
+			HWND hwndCombo = GetDlgItem(hwnd, IDC_EDITNAME);
+			if (hwndCombo)
+			{
+				// Initialize the combobox with the default svn: properties
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:externals"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:executable"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:mime-type"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:ignore"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:keywords"));
+				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:eol-style"));
+			}
+			return TRUE;
+		}
 		case WM_NOTIFY:
 			//
 			// Respond to notifications.
@@ -182,7 +198,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						SetDlgItemText(m_hwnd, IDC_EDITVALUE, _T(""));
 					} 
 				} // if ((code == LVN_ITEMCHANGED)||(code == LVN_ITEMACTIVATE)) 
-			} // if (wParam == IDC_PROPLIST) 
+			} // if (wParam == IDC_PROPLIST)
 			SetWindowLong(m_hwnd, DWL_MSGRESULT, FALSE);
 			return TRUE;        
 

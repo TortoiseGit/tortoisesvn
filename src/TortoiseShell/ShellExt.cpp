@@ -53,7 +53,7 @@ CShellExt::CShellExt(FileState state)
 	
     INITCOMMONCONTROLSEX used = {
         sizeof(INITCOMMONCONTROLSEX),
-			ICC_LISTVIEW_CLASSES | ICC_WIN95_CLASSES
+			ICC_LISTVIEW_CLASSES | ICC_WIN95_CLASSES | ICC_BAR_CLASSES | ICC_USEREX_CLASSES
     };
     InitCommonControlsEx(&used);
 	LoadLangDll();

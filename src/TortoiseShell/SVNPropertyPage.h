@@ -92,6 +92,7 @@ public:
 	virtual BOOL PageProc(HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 
 	//virtual const stdstring &GetFilename() const { return filename; }
+	HWND hwndTT;
 
 protected:
 	/**
@@ -112,7 +113,6 @@ protected:
 	HWND m_hwnd;
 	std::vector<stdstring> filenames;
 	TCHAR stringtablebuffer[255];
-
 };
 
 
