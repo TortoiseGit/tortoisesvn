@@ -95,6 +95,7 @@ BOOL COpenDlg::OnInitDialog()
 void COpenDlg::OnBnClickedBasefilebrowse()
 {
 	CString temp;
+	UpdateData();
 	temp.LoadString(IDS_SELECTFILE);
 	BrowseForFile(m_sBaseFile, temp);
 	UpdateData(FALSE);
@@ -103,6 +104,7 @@ void COpenDlg::OnBnClickedBasefilebrowse()
 void COpenDlg::OnBnClickedTheirfilebrowse()
 {
 	CString temp;
+	UpdateData();
 	temp.LoadString(IDS_SELECTFILE);
 	BrowseForFile(m_sTheirFile, temp);
 	UpdateData(FALSE);
@@ -111,6 +113,7 @@ void COpenDlg::OnBnClickedTheirfilebrowse()
 void COpenDlg::OnBnClickedYourfilebrowse()
 {
 	CString temp;
+	UpdateData();
 	temp.LoadString(IDS_SELECTFILE);
 	BrowseForFile(m_sYourFile, temp);
 	UpdateData(FALSE);
@@ -168,6 +171,7 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title)
 void COpenDlg::OnBnClickedDifffilebrowse()
 {
 	CString temp;
+	UpdateData();
 	temp.LoadString(IDS_SELECTFILE);
 	BrowseForFile(m_sUnifiedDiffFile, temp);
 	UpdateData(FALSE);
@@ -176,6 +180,7 @@ void COpenDlg::OnBnClickedDifffilebrowse()
 void COpenDlg::OnBnClickedDirectorybrowse()
 {
 	CBrowseFolder folderBrowser;
+	UpdateData();
 	folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
 	folderBrowser.Show(GetSafeHwnd(), m_sPatchDirectory);
 	UpdateData(FALSE);
