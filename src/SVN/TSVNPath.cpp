@@ -140,6 +140,8 @@ const char* CTSVNPath::GetSVNApiPath() const
 	{
 		SetUTF8FwdslashPath(m_sFwdslashPath);
 	}
+#if defined(_MFC_VER)
+//BUGBUG HORRIBLE!!! - CUtils::IsEscaped doesn't need to be MFC-only
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
 		if (!CUtils::IsEscaped(m_sUTF8FwdslashPath))
@@ -148,6 +150,7 @@ const char* CTSVNPath::GetSVNApiPath() const
 			return m_sUTF8FwdslashPathEscaped;
 		}
 	}
+#endif // _MFC_VER
 	return m_sUTF8FwdslashPath;
 }
 
@@ -155,6 +158,8 @@ const CString& CTSVNPath::GetUIPathString() const
 {
 	if (m_sUIPath.IsEmpty())
 	{
+#if defined(_MFC_VER)
+		//BUGBUG HORRIBLE!!! - CUtils::IsEscaped doesn't need to be MFC-only
 		if (IsUrl())
 		{
 			CStringA sUIPathA = GetSVNApiPath();
@@ -163,6 +168,7 @@ const CString& CTSVNPath::GetUIPathString() const
 			m_sUIPath = CUnicodeUtils::GetUnicode(sUIPathA);
 		}
 		else
+#endif 
 		{
 			m_sUIPath = GetWinPathString();
 		}
