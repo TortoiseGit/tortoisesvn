@@ -112,7 +112,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL hasWC = TRUE, BOOL bStrict = FALSE);
+	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
 
 public:
 	CWnd *		m_pNotifyWindow;

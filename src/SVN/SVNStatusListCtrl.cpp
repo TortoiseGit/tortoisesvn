@@ -1219,7 +1219,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString tempfile = CUtils::GetTempFile();
 						tempfile += _T(".diff");
 						SVN svn;
-						if (!svn.Diff(entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							DeleteFile(tempfile);

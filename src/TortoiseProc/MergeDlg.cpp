@@ -349,7 +349,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 	{
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
-		m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, 1, TRUE, TRUE);
+		m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 		m_pLogDlg->m_pNotifyWindow = this;
@@ -370,7 +370,7 @@ void CMergeDlg::OnBnClickedFindbranchend()
 	{
 		delete [] m_pLogDlg2;
 		m_pLogDlg2 = new CLogDlg();
-		m_pLogDlg2->SetParams(url, SVNRev::REV_HEAD, 1, TRUE, TRUE);
+		m_pLogDlg2->SetParams(url, SVNRev::REV_HEAD, 1, TRUE);
 		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 		m_pLogDlg2->m_pNotifyWindow = this;

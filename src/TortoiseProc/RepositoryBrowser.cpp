@@ -386,7 +386,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					CLogDlg dlg;
 					long revend = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 					revend = -revend;
-					dlg.SetParams(url, GetRevision(), revend, FALSE);
+					dlg.SetParams(url, GetRevision(), revend);
 					dlg.DoModal();
 				}
 				break;

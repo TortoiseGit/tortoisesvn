@@ -78,12 +78,12 @@ END_MESSAGE_MAP()
 
 
 
-void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL hasWC /* = TRUE */, BOOL bStrict /* = FALSE */)
+void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = -1 */, BOOL bStrict /* = FALSE */)
 {
 	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
-	m_hasWC = hasWC;
+	m_hasWC = !svn_path_is_url(CUnicodeUtils::GetUTF8(path));
 	m_bStrict = bStrict;
 }
 
@@ -598,7 +598,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString tempfile = CUtils::GetTempFile();
 						tempfile += _T(".diff");
 						m_templist.Add(tempfile);
-						if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -618,7 +618,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						CString tempfile = CUtils::GetTempFile();
 						tempfile += _T(".diff");
 						m_templist.Add(tempfile);
-						if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -699,7 +699,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							CString tempfile = CUtils::GetTempFile();
 							tempfile += _T(".diff");
 							m_templist.Add(tempfile);
-							if (!Diff(m_path, SVNRev::REV_WC, m_path, rev-1, TRUE, FALSE, TRUE, _T(""), tempfile))
+							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev-1, TRUE, FALSE, TRUE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
@@ -954,7 +954,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString tempfile = CUtils::GetTempFile();
 			tempfile += _T(".diff");
 			m_templist.Add(tempfile);
-			if (!Diff(m_path, SVNRev::REV_WC, m_path, rev-1, TRUE, FALSE, TRUE, _T(""), tempfile))
+			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev-1, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
