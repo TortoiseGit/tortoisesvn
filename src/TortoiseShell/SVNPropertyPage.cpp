@@ -497,7 +497,10 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, TCHAR * buf)
 		systime.wMonth = (WORD)newtime->tm_mon+1;
 		systime.wSecond = (WORD)newtime->tm_sec;
 		systime.wYear = (WORD)newtime->tm_year+1900;
-		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
+		if (CRegStdWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
+			GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
+		else
+			GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, MAX_PROP_STRING_LENGTH);
 		GetTimeFormat(locale, 0, &systime, NULL, timebuf, MAX_PROP_STRING_LENGTH);
 		*buf = '\0';
 		_tcsncat(buf, timebuf, MAX_PROP_STRING_LENGTH-1);
