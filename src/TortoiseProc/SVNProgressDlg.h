@@ -23,6 +23,22 @@
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
+/** Options which can be used to configure the way the dialog box works
+ *
+ */
+typedef enum
+{
+	ProgOptNone = 0,
+	ProgOptRecursive = 0x01,
+	ProgOptNonRecursive = 0x00,
+	// The path parameter is the name of a temporary file
+	ProgOptPathIsTempFile = 0x02,
+	// The path parameter is a real target 
+	ProgOptPathIsTarget = 0x00,		
+	// Don't actually do the merge - just practice it
+	ProgOptDryRun = 0x04
+} ProgressOptions;
+
 
 /**
  * \ingroup TortoiseProc
@@ -72,7 +88,6 @@ public:
 		Relocate = 12
 	} Command;
 
-
 	DECLARE_DYNAMIC(CSVNProgressDlg)
 
 public:
@@ -100,7 +115,7 @@ public:
 	 * \param url the url of the repository
 	 * \param revision the revision to work on or to get
 	 */
-	void SetParams(Command cmd, BOOL isTempFile, const CString& path, const CString& url = _T(""), const CString& message = _T(""), SVNRev revision = -1, const CString& modName = _T(""));
+	void SetParams(Command cmd, int options, const CString& path, const CString& url = CString(), const CString& message = CString(), SVNRev revision = -1); 
 
 	CString BuildInfoString();
 
@@ -161,6 +176,7 @@ private:
 	CListCtrl	m_ProgList;
 	CWinThread* m_pThread;
 	Command		m_Command;
+	int			m_options;	// Use values from the ProgressOptions enum
 
 	CTSVNPathList m_targetPathList;
 	CString		m_sUrl;
@@ -168,13 +184,11 @@ private:
 	CStringArray m_templist;
 	SVNRev		m_Revision;
 	LONG		m_nUpdateStartRev;
-	bool		m_bRecursiveCheckout;
 	BOOL		m_bCancelled;
 	BOOL		m_bThreadRunning;
 	BOOL		m_bRedEvents;
 	int			iFirstResized;
 	BOOL		bSecondResized;
-	CString		m_sModName;
 	// The path of the item we will offer to show a log for, after an 'update' is complete
 	CTSVNPath	m_updatedPath;
 

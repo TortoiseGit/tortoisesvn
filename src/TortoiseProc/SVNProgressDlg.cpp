@@ -44,7 +44,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_nUpdateStartRev = -1;
 	m_pThread = NULL;
-	m_bRecursiveCheckout = false;
+	m_options = ProgOptNone;
 
 	m_pSvn = this;
 }
@@ -328,26 +328,12 @@ CString CSVNProgressDlg::BuildInfoString()
 	return infotext;
 }
 
-void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, const CString& path, const CString& url /* = "" */, const CString& message /* = "" */, SVNRev revision /* = -1 */, const CString& modName /* = "" */)
+void CSVNProgressDlg::SetParams(Command cmd, int options, const CString& path, const CString& url /* = "" */, const CString& message /* = "" */, SVNRev revision /* = -1 */)
 {
 	m_Command = cmd;
+	m_options = options;
 
-	// Some nasty person (is that you, Stefan, you bad, bad, man?) has abused the isTempFile flag and used it
-	// for something completely unrelated on the Checkout command.
-	// I have arranged for a dozen archangels to pray for him simultaneously at the next full moon,
-	// but I suspect it's too late, and it's an eternity of fire and brimstone for him in the next life.
-	// (It was at least commented in the Checkout code, so I shouldn't be too rude...)
-	bool bReallyTwuelyATempFileHonest;
-	if(cmd == Checkout)
-	{
-		m_bRecursiveCheckout = !!isTempFile;
-		bReallyTwuelyATempFileHonest = false;
-	}
-	else
-	{
-		bReallyTwuelyATempFileHonest = !!isTempFile;
-	}
-	if(bReallyTwuelyATempFileHonest)
+	if(m_options & ProgOptPathIsTempFile)
 	{
 		m_targetPathList.LoadFromTemporaryFile(path);
 		::DeleteFile(path);
@@ -359,11 +345,9 @@ void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, const CString& pat
 	}
 	ASSERT(m_targetPathList.GetCount() > 0);
 
-//	m_sPath = path;
 	m_sUrl = url;
 	m_sMessage = message;
 	m_Revision = revision;
-	m_sModName = modName;
 }
 
 void CSVNProgressDlg::ResizeColumns()
@@ -475,7 +459,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
 			sTempWindowTitle = CUtils::GetFileNameFromPath(m_sUrl)+_T(" - ")+sWindowTitle;
 			SetWindowText(sTempWindowTitle);
-			if (!m_pSvn->Checkout(CTSVNPath(m_sUrl), m_targetPathList[0], m_Revision, m_bRecursiveCheckout))
+			if (!m_pSvn->Checkout(CTSVNPath(m_sUrl), m_targetPathList[0], m_Revision, m_options & ProgOptRecursive))
 			{
 				ReportSVNError();
 			}
@@ -499,7 +483,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				CStringA uuid;
 				typedef std::map<CStringA, LONG> UuidMap;
 				UuidMap uuidmap;
-				bool bNonRecursive = (m_sModName.Compare(_T("yes"))!=0);
+				bool bRecursive = !!(m_options & ProgOptRecursive);
 				SVNRev revstore = m_Revision;
 				for(int nItem = 0; nItem < m_targetPathList.GetCount(); nItem++)
 				{
@@ -539,7 +523,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					} // if (m_Revision.IsHead()) 
 					TRACE(_T("update file %s\n"), targetPath.GetWinPath());
 					SetWindowText(targetPath.GetFileOrDirectoryName()+_T(" - ")+sWindowTitle);
-					if (!m_pSvn->Update(targetPath, m_Revision, !bNonRecursive))
+					if (!m_pSvn->Update(targetPath, m_Revision, bRecursive))
 					{
 						ReportSVNError();
 						break;
@@ -622,7 +606,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		case Revert:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Revert(m_targetPathList, (m_sUrl.Compare(_T("recursive"))==0)))
+			if (!m_pSvn->Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
 			{
 				ReportSVNError();
 				break;
@@ -708,7 +692,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			{
 				if (!m_pSvn->PegMerge(m_sUrl, m_Revision, m_RevisionEnd, 
 					SVN::PathIsURL(m_sUrl) ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
-					m_targetPathList[0].GetSVNPathString(), true, true, false, (m_sModName.CompareNoCase(_T("dryrun"))==0)))
+					m_targetPathList[0].GetSVNPathString(), true, true, false, !!(m_options & ProgOptDryRun)))
 				{
 					ReportSVNError();
 				}
@@ -716,7 +700,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			else
 			{
 				if (!m_pSvn->Merge(m_sUrl, m_Revision, m_sMessage, m_RevisionEnd, m_targetPathList[0].GetSVNPathString(), 
-					true, true, false, (m_sModName.CompareNoCase(_T("dryrun"))==0)))
+					true, true, false, !!(m_options & ProgOptDryRun)))
 				{
 					ReportSVNError();
 				}
