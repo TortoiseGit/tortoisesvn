@@ -78,7 +78,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="1"
-				GlobalOptimizations="TRUE"
+				GlobalOptimizations="FALSE"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
@@ -144,7 +144,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="1"
-				GlobalOptimizations="TRUE"
+				GlobalOptimizations="FALSE"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="2"
 				OptimizeForWindowsApplication="TRUE"
@@ -786,10 +786,10 @@
 					RelativePath="..\Languages\res\ssh.ico">
 				</File>
 				<File
-					RelativePath="..\Languages\res\Tortoise.ico">
+					RelativePath="..\Icons\Tortoise.ico">
 				</File>
 				<File
-					RelativePath="..\Icons\Tortoise.ico">
+					RelativePath="..\Languages\res\Tortoise.ico">
 				</File>
 				<File
 					RelativePath="..\Icons\Tortoise13by13.ico">
