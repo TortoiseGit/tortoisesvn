@@ -642,6 +642,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						else
 						{
+							if (CUtils::CheckForEmptyDiff(tempfile))
+							{
+								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+								break;
+							}
 							CUtils::StartDiffViewer(tempfile);
 						}
 					}
@@ -662,6 +667,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						} // if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 						else
 						{
+							if (CUtils::CheckForEmptyDiff(tempfile))
+							{
+								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+								break;
+							}
 							CUtils::StartDiffViewer(tempfile);
 						}
 					}
@@ -743,6 +753,11 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							} 
 							else
 							{
+								if (CUtils::CheckForEmptyDiff(tempfile))
+								{
+									CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+									break;
+								}
 								CString sWC, sRev;
 								sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 								sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
@@ -1008,10 +1023,17 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			}
 			else
 			{
-				CString sWC, sRev;
-				sWC.LoadString(IDS_DIFF_WORKINGCOPY);
-				sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
-				CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev); 
+				if (CUtils::CheckForEmptyDiff(tempfile))
+				{
+					CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
+				}
+				else
+				{
+					CString sWC, sRev;
+					sWC.LoadString(IDS_DIFF_WORKINGCOPY);
+					sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
+					CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev); 
+				}
 			}
 		}
 		theApp.DoWaitCursor(-1);

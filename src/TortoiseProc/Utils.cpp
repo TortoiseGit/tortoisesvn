@@ -675,3 +675,17 @@ BOOL CUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
 	}
 	return (CopyFile(srcPath, destPath, !force));
 }
+
+BOOL CUtils::CheckForEmptyDiff(CString sDiffPath)
+{
+	DWORD length = 0;
+	HANDLE hFile = ::CreateFile(sDiffPath, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
+	if (hFile == INVALID_HANDLE_VALUE)
+		return TRUE;
+	length = ::GetFileSize(hFile, NULL);
+	::CloseHandle(hFile);
+	if (length < 4)
+		return TRUE;
+	return FALSE;
+
+}

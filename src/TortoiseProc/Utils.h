@@ -141,4 +141,6 @@ public:
 	 * copied.
 	 */
 	static BOOL FileCopy(CString srcPath, CString destPath, BOOL force = TRUE);
+
+	static BOOL CheckForEmptyDiff(CString sDiffPath);
 };

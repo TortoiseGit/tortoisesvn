@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -318,6 +318,7 @@
 #define IDS_ERR_SSL_EXPIRED             1302
 #define IDS_ERR_COPYITSELF              1303
 #define IDS_ERR_INVALIDREV              1304
+#define IDS_ERR_EMPTYDIFF               1305
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_WARN_RELOCATEREALLY         1402
