@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-11-30 08:44+0100\n"
+"PO-Revision-Date: 2004-12-07 09:49+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -525,7 +525,7 @@ msgstr "Aktiviere die Task-Liste"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Aktivieren Sie dies, um den Subversion Status von Dateien und Unterordnern\n"
 "auf dem Ordnersymbol anzuzeigen.\n"
@@ -712,6 +712,10 @@ msgstr "Ein unbekannter Zeilentyp wurde in Zeile %d gefunden!"
 msgid "An unsupported operation was attempted."
 msgstr "Es wurde versucht eine nicht unterstützte Operation durchzuführen."
 
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "Analysiere Revisionsdaten..."
+
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
 msgstr "Wendet ein Standard Diff auf Ihre Arbeitskopie an"
@@ -751,6 +755,21 @@ msgstr "Autor"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "Autor:                         Stefan Küng"
+
+# ID:272,
+#: ID:272
+msgid ""
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"Autor: %s\r\n"
+"Datum: %s\r\n"
+"\r\n"
+"Log-Meldung:\r\n"
+"%s"
 
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -868,6 +887,10 @@ msgstr "Abbrechen"
 msgid "Cancelling SVN Blame..."
 msgstr "SVN Annotieren abbrechen..."
 
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "Operation abbrechen..."
+
 #: ID:82
 msgid "Certificate expired or not yet valid"
 msgstr "Zertifikat abgelaufen oder noch nicht gültig"
@@ -956,6 +979,11 @@ msgstr "Markieren Sie die Einträge, welche im obersten Kontext-Menu erscheinen 
 #: ID:80
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Markieren Sie dies, um ein kürzeres Datum-/Zeitformat in den Log-Meldungen zu erhalten."
+
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr "Prüfe auf Vorwärts-Kopien"
 
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -1629,17 +1657,14 @@ msgstr "Hole Datei: %s"
 msgid "Getting file info..."
 msgstr "Hole Dateiinformation..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "Hole weitere Informationen vom Projektarchiv..."
+
 #: ID:132
 msgid "Getting log info..."
 msgstr "Hole Log-Information..."
-
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"Gehe zum nächsten Konflikt\n"
-"nächster Konflikt"
 
 #: ID:2049
 msgid ""
@@ -2465,13 +2490,27 @@ msgstr "Revision"
 msgid "Revision %d"
 msgstr "Revision %d"
 
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "Revision %ld"
+
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "Revision / Autor:"
 
+#: ID:269
+msgid "Revision Graph"
+msgstr "Revisionsgraph"
+
 #: ID:75
 msgid "Revision: "
 msgstr "Revision:"
+
+#: Dlg-ID:182
+msgid "RevisionGraph"
+msgstr "Revisionsgraph"
 
 # ID:188,
 #: ID:188
@@ -3320,6 +3359,10 @@ msgstr "URL"
 msgid "Url:"
 msgstr "URL:"
 
+#: ID:251
+msgid "Use &other text block"
+msgstr "Verwende &anderen Textblock"
+
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Lupe auf Positionsleiste anzeigen"
@@ -3429,7 +3472,7 @@ msgstr "Warnung!"
 #: ID:195
 msgid ""
 "When checked, forces a refresh of the shell overlay icons after each operation.\n"
-"Since this can slow down the explorer use it only on fast systems."
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "Erzwingt eine Aktualisierung der überlagerten Icons nach jeder Operation.\n"
 "<ct=0x0000ff><b>Achtung:</b> Dies kann den Explorer ausbremsen!</ct>"
