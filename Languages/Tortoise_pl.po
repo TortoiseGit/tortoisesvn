@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TORTOISE SVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-21 11:05+0100\n"
+"PO-Revision-Date: 2004-08-13 10:36+0100\n"
 "Last-Translator: Michał Mielniczuk <mmielni@raks.pl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -165,7 +165,7 @@ msgstr "&Anuluj"
 # Control-ID:1074,
 #: Control-ID:1074
 msgid "&Checkout directory:"
-msgstr "&Katalog dla pobrania:"
+msgstr "&Katalog docelowy:"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -255,8 +255,8 @@ msgstr "Scalanie"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "&Merge changes into the current working copy from URL:"
-msgstr "Wprowadź do bieżącej kopii roboczej zmiany spod adresu URL:"
+msgid "&Merge changes into the current working copy which points to the URL:"
+msgstr "Scal zmiany z lokalną kopią roboczą, która wskazuje na adres URL:"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -431,6 +431,30 @@ msgstr "Podczas dostępu do %1 wystąpiło naruszenie systemu blokad."
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "Jest dostępna nowsza wersja. Odwiedź stronę http://tortoisesvn.tigris.org i ściągnij aktualną wersję!"
 
+# ID:195,
+#: ID:195
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+"Lista ścieżek, dla których ikony nakładkowe są wyświetlane.\n"
+"Separatorem jest znak nowej linii.\n"
+"Użycie znaku \"*\" na końcu ścieżki spowoduje objęcie wyświetlaniem\n"
+"także wszystkich plików i katalogów poniżej tej ścieżki. "
+
+# ID:194,
+#: ID:194
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+"Lista ścieżek, dla których ikony nakładkowe nie są wyświetlane.\n"
+"Separatorem jest znak nowej linii.\n"
+"Użycie znaku \"*\" na końcu ścieżki spowoduje wyłączenie wyświetlania\n"
+"także we wszystkich plikach i katalogach poniżej tej ścieżki.\n"
+"Pusta lista oznacza wyświetlanie ikon dla wszystkich ścieżek."
+
 # ID:3843,#:
 # ID:3843,
 #: ID:3843
@@ -575,8 +599,8 @@ msgstr "Dodaj plik(i) do systemu kontroli Subversion"
 
 # ID:13,
 #: ID:13
-msgid "Adds the selected file(s) to the 'ignore' list"
-msgstr "Dodaj zaznaczone pliki do listy ignorowanych."
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Dodaje zaznaczone pliki lub maski plików do listy ignorowanych."
 
 # ID:2049,
 #: ID:2049
@@ -625,7 +649,6 @@ msgstr "Wszystkie pliki (*.*)|*.*||"
 # Nie wiadomo do końca, w jakiej sytuacji taki komunikat się pojawia. Dlatego tłumaczenie ma charakter dosłowny.
 #: ID:3867
 #: ID:3868
-#, fuzzy
 msgid "An attempt was made to access %1 past its end."
 msgstr "Wystąpiła próba dostępu do %1 poza jego końcem."
 
@@ -786,6 +809,11 @@ msgstr "Przeglądaj..."
 msgid "B&uiltin"
 msgstr "Wbud."
 
+# ID:213,
+#: ID:213
+msgid "BDB"
+msgstr "BDB"
+
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -860,6 +888,11 @@ msgstr "Przeglądaj..."
 #: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "Wbud."
+
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-ID / Issue-Nr:"
+msgstr "ID błędu / Nr zgłoszenia:"
 
 # ID:3697,
 #: ID:3697
@@ -981,8 +1014,13 @@ msgstr ""
 "Zaznacz pliki, które mają być usunięte\n"
 "przed operacją importu."
 
+# ID:251,
+#: ID:251
+msgid "Check the path and/or URL you've entered."
+msgstr "Sprawdź wprowadzoną ścieżkę i/lub adres URL."
+
 # Control-ID:65535,
-#: Control-ID:65535
+#: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr "Wskaż pozycje, które mają być pokazane na głównym poziomie menu kontekstowego zamiast w menu podrzędnym."
 
@@ -1020,6 +1058,11 @@ msgstr "Porządkowanie zostało zakończone"
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Porządkuje przerwane operacje, zablokowane pliki, ..."
+
+# Control-ID:1059,
+#: Control-ID:1059
+msgid "Clear Auth Cache"
+msgstr "Wyczyść param. uwierzyt."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1095,7 +1138,6 @@ msgstr "Porównuje dany plik z jego ostatnią zatwierdzoną wersją aby pokazać
 # ID:74,
 # Brak pewności co do rodzaju gramatycznego. Być może powinno być 'zakończony'
 #: ID:74
-#, fuzzy
 msgid "Completed"
 msgstr "Zakończone"
 
@@ -1103,6 +1145,11 @@ msgstr "Zakończone"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "W stanie konfliktu"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Context Menu"
+msgstr "Menu kontekstowe"
 
 # ID:73,
 #: ID:73
@@ -1127,7 +1174,7 @@ msgstr "Skopiuj do..."
 # ID:13,
 #: ID:13
 msgid "Copy files in Subversion to here"
-msgstr "Skopiuj tutaj pliki z Subversion "
+msgstr "Skopiuj tutaj pliki objęte Subversion "
 
 # ID:3603,
 #: ID:3603
@@ -1275,6 +1322,11 @@ msgstr "Twórz repozytorium tutaj"
 msgid "Create Tag from revision"
 msgstr "Twórz obraz z wersji"
 
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Create the branch/tag directly on the server"
+msgstr "Twórz rozgałęzienie/obraz bezpośrednio na serwerze"
+
 # ID:126,
 #: ID:126
 msgid "Created folder remotely"
@@ -1283,7 +1335,6 @@ msgstr "Folder utworzony zdalnie"
 # ID:10,
 # 'Cheap' jako 'tani' nie bardzo pasuje. Stąd zmiana na 'quasi', co chyba jest bliższe rzeczywistemu znaczeniu operacji opisanej przez tłumaczony tekst.
 #: ID:10
-#, fuzzy
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "Tworzy w repozytorium 'quasi' kopię używaną przy tworzeniu rozgałęzień lub obrazów"
 
@@ -1470,7 +1521,6 @@ msgstr "Nie usuwaj komunikatów z logu jeśli anulowano operację zatwierdzania 
 # Control-ID:1073,
 # Tłumaczenie dosłowne.
 #: Control-ID:1073
-#, fuzzy
 msgid "Don't convert files when diffing against BASE"
 msgstr "Nie konwertuj plików w trakcie porównywania z BASE"
 
@@ -1580,8 +1630,13 @@ msgstr "Wyjątki:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Exclude pattern:"
-msgstr "Pomiń pliki / foldery o wzorcu:"
+msgid "Exclude paths:"
+msgstr "Pomiń ścieżki:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Exclude/Ignore pattern:"
+msgstr "Pomiń/ignoruj pliki o wzorcu:"
 
 # ID:94,
 #: ID:94
@@ -1632,6 +1687,11 @@ msgstr "Zewn."
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "Program zewnętrzny:"
+
+# ID:213,
+#: ID:213
+msgid "FSFS"
+msgstr "FSFS"
 
 # ID:74,
 #: ID:74
@@ -1720,7 +1780,7 @@ msgstr "Aby wyświetlić pomoc, naciśnij F1"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From:"
-msgstr "Od:"
+msgstr "Z:"
 
 # Dlg-ID:107,
 #: Dlg-ID:107
@@ -1735,7 +1795,7 @@ msgstr "Tworzenie pliku poprawkowego..."
 # Control-ID:1031,
 #: Control-ID:1031
 msgid "Get &All"
-msgstr "Pobierz wszystko"
+msgstr "Weź wszystko"
 
 # ID:119,
 #: ID:119
@@ -1778,9 +1838,9 @@ msgid "Hostname mismatch (%s)"
 msgstr "Błąd w nazie hosta (%s)"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
-msgid "Icon Overlays"
-msgstr "Ikony nakładkowe"
+#: Control-ID:65535
+msgid "Icon Overlays / Status Columns"
+msgstr "Ikony nakładkowe / Prezentacja stanu"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -1853,7 +1913,6 @@ msgstr "Importuj"
 # Control-ID:1056,
 # Ewentualnie może też być 'importuj komunikat'.
 #: Control-ID:1056
-#, fuzzy
 msgid "Import &Message"
 msgstr "Komunikat importu"
 
@@ -1867,6 +1926,11 @@ msgstr "Importuj..."
 msgid "Imports the directory to a repository"
 msgstr "Importuje katalog do repozytorium"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include paths:"
+msgstr "Uwzględnij ścieżki:"
+
 # ID:76,
 #: ID:76
 msgid "Initial Import"
@@ -1875,7 +1939,6 @@ msgstr "Import inicjujący"
 # Dlg-ID:161,
 # Tłumaczenie niepewne. Być może jest to czasownik, wtedy raczej będzie 'wprowadź'.
 #: Dlg-ID:161
-#, fuzzy
 msgid "Input"
 msgstr "Wejście"
 
@@ -1954,7 +2017,7 @@ msgstr "Język:"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Last commit revision:"
-msgstr "Ostatnio zatwierdzona wersja:"
+msgstr "Ostatnia wersja:"
 
 # ID:11,
 #: ID:11
@@ -1983,7 +2046,6 @@ msgstr "Stan lokalny"
 # ID:94,
 # Może też być: 'Lokalizacja, w której zostanie zapisana zawartość adresu URL repozytorium'. Ale to chyba nie ma sensu.
 #: ID:94
-#, fuzzy
 msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
@@ -2006,6 +2068,11 @@ msgstr "Komunikat w logu"
 msgid "Log Messages"
 msgstr "Komunikaty w logu"
 
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel"
+msgstr "Wygląd i działanie"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -2016,11 +2083,6 @@ msgstr "DLL systemu pocztowego jest niepoprawny."
 #: Dlg-ID:143
 msgid "Main"
 msgstr "Podstawowe"
-
-# Dlg-ID:159,
-#: Dlg-ID:159
-msgid "Menu Layout"
-msgstr "Menu kontekstowe"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
@@ -2060,7 +2122,7 @@ msgstr "Typ MIME"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Minimum logsize in chars"
-msgstr "Minimalny rozmiar logu w znakach"
+msgstr "Minimalny rozmiar komunikatu w logu (w znakach)"
 
 # Control-ID:1082,#:
 # Control-ID:1023,
@@ -2083,9 +2145,8 @@ msgstr "Zmodyfikowany"
 # ID:12,
 # Tłumaczenie dosłowne. Wątpliwości dotyczą głównie tłumaczenia zaimka 'in'.
 #: ID:12
-#, fuzzy
 msgid "Move files in Subversion to here"
-msgstr "Przenieś tutaj pliki w Subversion"
+msgstr "Przenieś tutaj pliki objęte Subversion"
 
 # ID:126,
 #: ID:126
@@ -2205,7 +2266,7 @@ msgstr "Pobierz tylko folder najwyższego poziomu"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Only update the top folder"
-msgstr "Zaktualizuj tylko folder na najwyższym poziomie"
+msgstr "Uaktualnij tylko folder na najwyższym poziomie"
 
 # ID:101,#:
 # ID:3841,#:
@@ -2259,6 +2320,11 @@ msgstr "PKCS12"
 #: ID:69
 msgid "Password:"
 msgstr "Hasło:"
+
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Paste Status Template"
+msgstr "Wstaw listę zmian do logu"
 
 # ID:376,
 #: ID:376
@@ -2347,6 +2413,11 @@ msgstr "Proszę podać liczbę całkowitą."
 #: ID:3858
 msgid "Please enter no more than %1 characters."
 msgstr "Proszę wprowadzić nie więcej niż %1 znaków."
+
+# ID:251,
+#: ID:251
+msgid "Please execute the \"Cleanup\" command."
+msgstr "Proszę użyć polecenia \"Uporządkuj\"."
 
 # ID:78,
 #: ID:78
@@ -2519,9 +2590,7 @@ msgid "Relocating..."
 msgstr "Przenoszenie..."
 
 # ID:207,
-# Tłumaczenie mocno niepewne. Może być też 'Stan właściwości zdalnej'.
 #: ID:207
-#, fuzzy
 msgid "Remote Property Status"
 msgstr "Zdalny stan właściwości"
 
@@ -2535,9 +2604,8 @@ msgstr "Stan zdalny"
 # ID:207,
 # Tłumaczenie mocno niepewne. Może być też 'stan tekstu zdalnego' lub 'zdalny stan tekstowy'.
 #: ID:207
-#, fuzzy
 msgid "Remote Text Status"
-msgstr "Zdalny stan tekstu"
+msgstr "Zdalny stan zawartości"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -2776,7 +2844,7 @@ msgstr "SVN Przełącz..."
 # ID:77,
 #: ID:77
 msgid "SVN Update..."
-msgstr "SVN Zaktualizuj..."
+msgstr "SVN Uaktualnij..."
 
 # ID:12,
 #: ID:12
@@ -2819,7 +2887,6 @@ msgstr "Zapisz zmiany do %1?"
 # ID:76,
 # Niepewne tłumaczenie zaimka 'to'. Zamiast 'w' może być też 'do'.
 #: ID:76
-#, fuzzy
 msgid "Save revision to..."
 msgstr "Zapisz wersję w..."
 
@@ -2978,6 +3045,11 @@ msgstr "Pokaż log"
 msgid "Show &log"
 msgstr "Pokaż log"
 
+# Control-ID:1120,
+#: Control-ID:1120
+msgid "Show BugID/Issue-Nr. Box"
+msgstr "Pokaż pole <ID błędu / Nr zgłoszenia:>"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -3122,12 +3194,12 @@ msgstr "Plik konfiguracyjny Subversion:"
 # ID:14,
 #: ID:14
 msgid "Subversion export all here"
-msgstr "Subversion wyeksportuje wszystko tutaj"
+msgstr "Wyeksportuj tutaj dane objęte Subversion"
 
 # ID:14,
 #: ID:14
 msgid "Subversion export here"
-msgstr "Subversion wyeksportuje tutaj"
+msgstr "Wyeksportuj tutaj wszystkie dane objęte Subversion"
 
 # ID:79,
 #: ID:79
@@ -3220,12 +3292,12 @@ msgstr "Oznaczenie kopii roboczej jako %s"
 # ID:207,
 #: ID:207
 msgid "Text Status"
-msgstr "Stan tekstu"
+msgstr "Stan zawartości"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Text Status:"
-msgstr "Stan tekstu:"
+msgstr "Stan zawartości:"
 
 # ID:69,
 #: ID:69
@@ -3246,7 +3318,6 @@ msgstr "Repozytorium zostało utworzone poprawnie."
 # ID:63,
 # Tlumaczenie dosłowne.
 #: ID:63
-#, fuzzy
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Rozmiar bloku nie pokrywa się z liczbą dodanych/usuniętych linii!"
 
@@ -3375,7 +3446,7 @@ msgid ""
 "Please Update first."
 msgstr ""
 "Kopia robocza nie jest aktualna.\n"
-"Musisz najpierw zaktualizować jej zawartość."
+"Musisz najpierw uaktualnić jej zawartość."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3426,11 +3497,6 @@ msgstr "Ten program wymaga pliku %s, który nie został znaleziony w systemie."
 #: Control-ID:65535
 msgid "Three File Diff"
 msgstr "Porównanie trzech plików"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "Aby scalić zmiany z konkretnego rozgałęzienia, należy podać ten sam adres URL w polach Z: i Do:."
 
 # Control-ID:1052,
 #: Control-ID:1052
@@ -3515,6 +3581,11 @@ msgstr "Ustawienia TortoiseSVN"
 #: ID:73
 msgid "Try Again"
 msgstr "Spróbuj ponownie"
+
+# ID:251,
+#: ID:251
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "Spróbuj użyć opcji \"Uporządkuj\". Jeśli to nie pomoże, na nowo pobierz dane."
 
 # ID:10,
 #: ID:10
@@ -3628,17 +3699,17 @@ msgstr "Bez nazwy"
 #: ID:74
 #: Dlg-ID:152
 msgid "Update"
-msgstr "Zaktualizuj"
+msgstr "Uaktualnij"
 
 # ID:11,
 #: ID:11
 msgid "Update To Revision..."
-msgstr "Zaktualizuj do wersji..."
+msgstr "Uaktualnij do wersji..."
 
 # ID:76,
 #: ID:76
 msgid "Update item to revision"
-msgstr "Zaktualizuj element do wersji"
+msgstr "Uaktualnij element do wersji"
 
 # ID:11,
 #: ID:11
@@ -3664,6 +3735,11 @@ msgstr "Url:"
 #: Control-ID:1064
 msgid "Use Magnifier on Locatorbar"
 msgstr "Użyj lupy na pasku położenia"
+
+# Control-ID:65535,
+#: Control-ID:1073
+msgid "Use \"From:\" URL"
+msgstr "Użyj adresu z pola \"Od:\":"
 
 # Control-ID:1024,
 #: Control-ID:1024
@@ -3698,7 +3774,6 @@ msgstr "Użyj bloku tekstu z <yours> przed <theirs>"
 # ID:12,
 # Tłumaczenie dosłowne.
 #: ID:12
-#, fuzzy
 msgid "Use this if the URL of the repository has changed"
 msgstr "Użyj tego, jeżeli adres URL repozytorium uległ zmianie"
 
@@ -3768,6 +3843,11 @@ msgstr "Przeglądarka plików różnicowych (plików poprawek)."
 msgid "Visit our website"
 msgstr "Odwiedź naszą stonę internetową"
 
+# ID:213,
+#: ID:213
+msgid "What repository type do you want to create?"
+msgstr "Jaki typ repozytorium chcesz utworzyć?"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3828,6 +3908,11 @@ msgstr ""
 "na współdzielonym dysku sieciowym za pomocą składni file:///.\n"
 "Może to doprowadzić do poważnego uszkodzenia repozytorium!\n"
 "Czy na pewno chcesz to zrobić?"
+
+# ID:251,
+#: ID:251
+msgid "You have to update your working copy first."
+msgstr "Musisz najpierw uaktualnić swoją kopię roboczą."
 
 # ID:77,
 #: ID:77
@@ -3957,12 +4042,11 @@ msgstr "poza kontrolą wersji"
 # ID:10,
 #: ID:10
 msgid "normal"
-msgstr "zwykły"
+msgstr "normalny"
 
 # ID:11,
 # Dosłownie 'zatamowany', 'zagrodzony', ale w tu chyba nie pasuje. Może też być 'zablokowany', ale wtedy w oryginale byłoby raczej 'locked'.
 #: ID:11
-#, fuzzy
 msgid "obstructed"
 msgstr "niedostępny"
 
@@ -3973,10 +4057,10 @@ msgid "pixels"
 msgstr "piksele"
 
 # Control-ID:1018,
-# Wątpliwości co do rodzaju gramatycznego. Może powinno być 'rekurencyjny'.
+# 'Rekurencyjnie" nie mieści się na oknie
 #: Control-ID:1018
 msgid "re&cursive"
-msgstr "rekurencyjnie"
+msgstr "rekurencja"
 
 # ID:10,
 #: ID:10
@@ -4001,7 +4085,6 @@ msgstr ""
 # ID:14,
 # Tłumaczenie dosłowne. Wątpliwości dotyczą zwłaszcza fragmentu o rekurencji.
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory. A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
@@ -4012,7 +4095,6 @@ msgstr ""
 # ID:14,
 # W pierwszej części tłumaczenie jest dosłowne. Przydałby się zwłaszcza jakiś zamiennik słowa 'specyfikator'. W drugiej części 'revision flags' zostało przetłumaczone jako 'numer wersji', bo chyba o to chodzi.
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
@@ -4036,7 +4118,6 @@ msgstr ""
 # ID:14,
 # Wątpliwości budzi tłumaczenie formuły: 'Keyword to be expanded'. Obecne tłumaczenie jest dosłowne, ale chyba niezbyt udane.
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -4057,7 +4138,6 @@ msgstr ""
 # ID:14,
 # Nie wiem, czy przetłumaczony tekst dokładnie odpowiada sensowi oryginału. 
 #: ID:14
-#, fuzzy
 msgid ""
 "svn:mime-type\n"
 "The mimetype of the file. Used to determine whether to merge the file, and how to serve it from Apache. A mimetype beginning with 'text/' (or an absent mimetype) is treated as text. Anything else is treated as binary."
