@@ -1165,16 +1165,17 @@ void	SVN::preparePath(CString &path)
 	path.Trim();
 	path.TrimRight(_T("/\\"));			//remove trailing slashes
 	path.Replace('\\','/');
-	if ((path.Left(7).CompareNoCase(_T("http://"))==0) ||
-		(path.Left(8).CompareNoCase(_T("https://"))==0) ||
-		(path.Left(6).CompareNoCase(_T("svn://"))==0) ||
-		(path.Left(10).CompareNoCase(_T("svn-ssh://"))==0))
-	{
-		TCHAR buf[8192];
-		DWORD len = 8192;
-		UrlCanonicalize(path, buf, &len, URL_ESCAPE_UNSAFE);
-		path = CString(buf);
-	}
+	//if ((path.Left(7).CompareNoCase(_T("http://"))==0) ||
+	//	(path.Left(8).CompareNoCase(_T("https://"))==0) ||
+	//	(path.Left(6).CompareNoCase(_T("svn://"))==0) ||
+	//	(path.Left(10).CompareNoCase(_T("svn+ssh://"))==0))
+	//{
+	//	TCHAR buf[8192];
+	//	DWORD len = 8192;
+	//	UrlCanonicalize(path, buf, &len, URL_ESCAPE_UNSAFE);
+	//	path = CString(buf);
+	//	path = CUtils::PathEscape(CStringA(path));
+	//}
 }
 
 svn_error_t* svn_cl__get_log_message (const char **log_msg,
@@ -1277,12 +1278,22 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 	apr_hash_index_t *hi;
     svn_dirent_t* val;
 	const char* key;
+	BOOL first = TRUE;
     for (hi = apr_hash_first(pool, hash); hi; hi = apr_hash_next(hi)) 
 	{
         apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
 		CString temp;
 		if (val->kind == svn_node_dir)
+		{
+			//remove the following lines when Subversion fixes the ls command to
+			//not return the requested folder itself too for just 'special' foldernames
+			if ((first)&&(CUtils::GetFileNameFromPath(CString(MakeSVNUrlOrPath(url))).Compare(CString(key))==0))
+			{
+				first = FALSE;
+				continue;
+			}
 			temp = "d";
+		}
 		else if (val->kind == svn_node_file)
 			temp = "f";
 		else
