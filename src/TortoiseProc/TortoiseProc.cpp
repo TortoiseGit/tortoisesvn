@@ -805,16 +805,29 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				TRACE(_T("relocate from %s to %s\n"), dlg.m_sFromUrl, dlg.m_sToUrl);
 				SVN s;
+
+				CProgressDlg progress;
+				if (progress.IsValid())
+				{
+					CString temp;
+					temp.LoadString(IDS_PROC_RELOCATING);
+					progress.SetTitle(temp);
+					progress.ShowModeless(PWND);
+				}
 				if (!s.Relocate(path, dlg.m_sFromUrl, dlg.m_sToUrl, TRUE))
 				{
+					if (progress.IsValid())
+						progress.Stop();
 					TRACE(_T("%s\n"), s.GetLastErrorMessage());
-					CMessageBox::Show(hWnd, s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					CMessageBox::Show((hWnd ? (hWnd) : NULL), s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
 				else
 				{
+					if (progress.IsValid())
+						progress.Stop();
 					CString temp;
 					temp.Format(IDS_PROC_RELOCATEFINISHED, dlg.m_sToUrl);
-					CMessageBox::Show(hWnd, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+					CMessageBox::Show((hWnd ? (hWnd) : NULL), temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
 				}
 			}
 		} // if (comVal.Compare(_T("relocate"))==0)

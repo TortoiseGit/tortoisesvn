@@ -847,6 +847,7 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int
 SVNFolderStatus::SVNFolderStatus(void)
 {
 	m_pStatusCache = NULL;
+	m_TimeStamp = 0;
 }
 
 SVNFolderStatus::~SVNFolderStatus(void)
@@ -936,6 +937,7 @@ void SVNFolderStatus::BuildCache(LPCTSTR folderpath)
 	}
 	svn_pool_destroy (pool);				//free allocated memory
 	apr_terminate();
+	m_TimeStamp = GetTickCount();
 }
 
 int SVNFolderStatus::FindFile(LPCTSTR filename)
@@ -980,7 +982,7 @@ svn_wc_status_kind SVNFolderStatus::GetFileStatus(LPCTSTR filepath)
 			{
 				if (_tcsicmp(filename, m_pStatusCache[j].filename) == 0)
 				{
-					if (m_pStatusCache[j].askedcounter--)
+					if ((m_pStatusCache[j].askedcounter--)&&((GetTickCount() - m_TimeStamp) < SVNFOLDERSTATUS_CACHETIMEOUT))
 						return m_pStatusCache[j].status;
 					break;
 				}

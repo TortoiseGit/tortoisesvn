@@ -8,6 +8,9 @@
 - CHG: If the option "recursive overlays" is not set
        then the status for folders is always set to
        "normal" to speed things up a little. (Stefan)
+- CHG: Added a timeout to the status cache. This
+       is a workaround so that refreshing (pressing
+       F5) isn't needed that much. (Stefan)
 
 Version 0.15.2
 - BUG: The "Check for updates" dialog could

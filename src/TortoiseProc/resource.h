@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcITA.rc
+// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcRUS.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -152,6 +152,7 @@
 #define IDS_PROC_RELOCATEFINISHED       268
 #define IDS_PROC_MOVING                 269
 #define IDS_STRING270                   270
+#define IDS_PROC_RELOCATING             270
 #define IDS_APPNAME                     271
 #define IDS_STRING272                   272
 #define IDS_MSGBOX_DONOTSHOW            272

@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -739,7 +739,7 @@ BEGIN
     IDS_PROC_REPOCREATEFINISHED "Datenbank ist erstellt"
     IDS_PROC_RELOCATEFINISHED "Arbeitskopie geändert zu\n%s"
     IDS_PROC_MOVING         "Verschieben..."
-    IDS_STRING270           "dummy"
+    IDS_PROC_RELOCATING     "Ändern..."
     IDS_APPNAME             "TortoiseSVN"
 END
 
@@ -822,12 +822,12 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "Server Status"
 END
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -870,7 +870,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -210,6 +210,7 @@ typedef struct filestatuscache
 } filestatuscache;
 
 #define SVNFOLDERSTATUS_CACHETIMES 5
+#define SVNFOLDERSTATUS_CACHETIMEOUT 2000
 /**
  * \ingroup TortoiseShell
  * This class represents a caching mechanism for the
@@ -263,5 +264,6 @@ private:
 	TCHAR	m_currentfolder[MAX_PATH];			///< holds the path of the current folder
 	filestatuscache	*	m_pStatusCache;
 	int		m_nCacheCount;
+	DWORD	m_TimeStamp;
 	
 };

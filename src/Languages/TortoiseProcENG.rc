@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -736,7 +736,7 @@ BEGIN
     IDS_PROC_REPOCREATEFINISHED "Repository created"
     IDS_PROC_RELOCATEFINISHED "Working copy relocated to\n%s"
     IDS_PROC_MOVING         "Moving..."
-    IDS_STRING270           "dummy"
+    IDS_PROC_RELOCATING     "Relocating..."
     IDS_APPNAME             "TortoiseSVN"
 END
 
@@ -818,12 +818,12 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "remote status"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -866,7 +866,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
