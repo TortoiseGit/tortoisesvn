@@ -77,6 +77,9 @@ void CSetProgsPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EXTDIFF, m_sDiffPath);
 	DDX_Text(pDX, IDC_DIFFVIEWER, m_sDiffViewerPath);
 	DDX_Text(pDX, IDC_EXTMERGE, m_sMergePath);
+	DDX_Radio(pDX, IDC_EXTDIFF_OFF, m_iExtDiff);
+	DDX_Radio(pDX, IDC_DIFFVIEWER_OFF, m_iDiffViewer);
+	DDX_Radio(pDX, IDC_EXTMERGE_OFF, m_iExtMerge);
 	DDX_Check(pDX, IDC_DONTCONVERT, m_bDontConvertBase);
 
 	GetDlgItem(IDC_EXTDIFF)->EnableWindow(m_iExtDiff == 1);
@@ -255,15 +258,12 @@ BOOL CSetProgsPage::OnInitDialog()
 
 	m_sDiffPath = m_regDiffPath;
 	m_iExtDiff = IsExternal(m_sDiffPath);
-	m_sDiffPath.TrimLeft(_T('#'));
 
 	m_sDiffViewerPath = m_regDiffViewerPath;
 	m_iDiffViewer = IsExternal(m_sDiffViewerPath);
-	m_sDiffViewerPath.TrimLeft(_T('#'));
 
 	m_sMergePath = m_regMergePath;
 	m_iExtMerge = IsExternal(m_sMergePath);
-	m_sMergePath.TrimLeft(_T('#'));
 
 	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTDIFF), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 	SHAutoComplete(::GetDlgItem(m_hWnd, IDC_DIFFVIEWER), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
