@@ -28,6 +28,7 @@ ShellCache g_ShellCache;					///< caching of registry entries, ...
 CRegStdWORD			g_regLang;
 DWORD				g_langid;
 HINSTANCE			g_hResInst;
+stdstring			g_filepath;
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)

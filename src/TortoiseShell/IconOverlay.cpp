@@ -163,7 +163,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
 	//also check if we already have the status for the path so we don't have to get it again (small cache)
-	if (sPath.compare(filepath)==0)
+	if (sPath.compare(g_filepath)==0)
 	{
 		status = filestatus;
 	}
@@ -203,7 +203,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			{
 				status = svn_wc_status_unversioned;
 			}
-		} // if (PathIsDirectory(filepath))
+		} // if (PathIsDirectory(g_filepath))
 		else
 		{
 			DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
@@ -218,8 +218,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			}
 			ReleaseMutex(hMutex);
 		}
-		filepath.clear();
-		filepath = sPath;
+		g_filepath.clear();
+		g_filepath = sPath;
 		filestatus = status;
 	}
 
