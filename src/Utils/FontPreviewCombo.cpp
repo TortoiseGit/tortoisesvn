@@ -74,17 +74,32 @@ END_MESSAGE_MAP()
 // CFontPreviewCombo message handlers
 
 
-BOOL CALLBACK FPC_EnumFontProc (LPLOGFONT lplf, LPTEXTMETRIC lptm, DWORD dwType, LPARAM lpData)	
+BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
+						        DWORD FontType, LPARAM lParam)	
 {	
-	CFontPreviewCombo *pThis = reinterpret_cast<CFontPreviewCombo*>(lpData);		
-	int index = pThis->AddString(lplf->lfFaceName);
-	ASSERT(index!=-1);
-	int maxLen = lptm->tmMaxCharWidth * _tcslen(lplf->lfFaceName);
-	int ret = pThis->SetItemData (index, dwType); 
+	CFontPreviewCombo *pThis = reinterpret_cast<CFontPreviewCombo*>(lParam);
+	BOOL bExists = FALSE;
+	TCHAR buf[32];
+	for (int i=0; i<pThis->GetCount(); i++)
+	{
+		pThis->GetLBText(i, buf);
+		if (_tcscmp(buf, lpelfe->elfLogFont.lfFaceName)==0)
+		{
+			bExists = TRUE;
+			break;
+		} // if (_tcscmp(buf, lpelfe->elfLogFont.lfFaceName)==0 
+	} // for (int i=0; i<pThis->GetCount(); i++) 
+	if (!bExists)
+	{
+		int index = pThis->AddString(lpelfe->elfLogFont.lfFaceName);
+		ASSERT(index!=-1);
+		int maxLen = lpntme->ntmTm.tmMaxCharWidth * _tcslen(lpelfe->elfLogFont.lfFaceName);
+		int ret = pThis->SetItemData (index, FontType); 
 
-	ASSERT(ret!=-1);
+		ASSERT(ret!=-1);
 
-	pThis->AddFont (lplf->lfFaceName);
+		pThis->AddFont (lpelfe->elfLogFont.lfFaceName);
+	}
 	
 	return TRUE;
 }
@@ -93,13 +108,17 @@ BOOL CALLBACK FPC_EnumFontProc (LPLOGFONT lplf, LPTEXTMETRIC lptm, DWORD dwType,
 
 void CFontPreviewCombo::Init()
 {
+	LOGFONT lf;
 	m_img.Detach();
 	m_img.Create(IDB_TTF_BMP, GLYPH_WIDTH, 1, RGB(255,255,255));
 	CClientDC dc(this);		
 
 	ResetContent();
 	DeleteAllFonts();
-	EnumFonts (dc, 0,(FONTENUMPROC) FPC_EnumFontProc,(LPARAM)this); //Enumerate font
+	ZeroMemory(&lf, sizeof(LOGFONT));
+	lf.lfCharSet = DEFAULT_CHARSET;
+	lf.lfFaceName[0] = '\0';
+	EnumFontFamiliesEx (dc, 0,(FONTENUMPROC) FPC_EnumFontProc,(LPARAM)this, 0); //Enumerate font
 
     SetCurSel(0);
 }

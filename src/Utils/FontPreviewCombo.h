@@ -1,3 +1,11 @@
+/*
+   - Replaced the deprecated EnumFonts function with the recommended
+     EnumFontFamiliesEx() API call.
+   - Filter the various fonts, so that fonts with the same name only
+     appear once in the combobox.
+   
+   01-03-04 | Stefan Kueng
+*/
 /*********************************************************************
 
    Copyright (C) 2002 Smaller Animals Software, Inc.
@@ -41,8 +49,8 @@
 #include <afxwin.h>
 #include <afxtempl.h>
 
-BOOL CALLBACK FPC_EnumFontProc (LPLOGFONT lplf, LPTEXTMETRIC lptm, 
-						        DWORD dwType, LPARAM lpData);	
+BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
+						        DWORD FontType, LPARAM lParam);	
 
 void WINAPI DDX_FontPreviewCombo (CDataExchange* pDX, int nIDC, CString& faceName);
 // FontPreviewCombo.h : header file
@@ -112,7 +120,8 @@ protected:
 	int m_iMaxSampleWidth;
 
 	void AddFont (const CString& faceName);
-	friend BOOL CALLBACK FPC_EnumFontProc (LPLOGFONT, LPTEXTMETRIC, DWORD, LPARAM);
+	friend BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
+						        DWORD FontType, LPARAM lParam);
 	void DeleteAllFonts (void);	
 
 	// Generated message map functions
