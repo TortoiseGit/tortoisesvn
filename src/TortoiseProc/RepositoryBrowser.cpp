@@ -347,6 +347,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					CRenameDlg dlg;
 					dlg.m_name = url;
+					dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
 					if (dlg.DoModal() == IDOK)
 					{
 						SVN svn;
