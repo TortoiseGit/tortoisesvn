@@ -244,12 +244,21 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
 {
 	m_bColumnProvider = bColumnProvider;
-
-	if (! g_ShellCache.HasSVNAdminDir(filepath, bIsFolder))
+	BOOL bHasAdminDir = g_ShellCache.HasSVNAdminDir(filepath, bIsFolder);
+	
+	//no overlay for unversioned folders
+	if ((!bColumnProvider)&&(!bHasAdminDir))
 		return &invalidstatus;
+	//for the SVNStatus column, we have to check the cache to see
+	//if it's not just unversioned but ignored
 	filestatuscache * ret = GetCachedItem(filepath);
 	if (ret)
 		return ret;
+
+	//if it's not in the cache and has no admin dir, then we assume
+	//it's not ignored too
+	if ((bColumnProvider)&&(!bHasAdminDir))
+		return &invalidstatus;
 
 	return BuildCache(filepath, bIsFolder);
 }
