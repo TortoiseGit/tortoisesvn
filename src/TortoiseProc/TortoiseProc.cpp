@@ -1147,11 +1147,14 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVN svn;
 			CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
 			CString strLine = _T("");
+			CString filelist;
+			BOOL err = FALSE;
 			while (file.ReadString(strLine))
 			{
 				//strLine = _T("F:\\Development\\DirSync\\DirSync.cpp");
 				CString name = strLine.Right(strLine.GetLength() - strLine.ReverseFind('\\') - 1);
 				name = name.Trim(_T("\n\r"));
+				filelist += name + _T("\n");
 				if (parser.HasKey(_T("onlymask")))
 				{
 					name = _T("*")+name.Mid(name.ReverseFind('.'));
@@ -1184,7 +1187,15 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString temp;
 					temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
 					CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONERROR);
+					err = TRUE;
+					break;
 				}
+			}
+			if (err == FALSE)
+			{
+				CString temp;
+				temp.Format(IDS_PROC_IGNORESUCCESS, filelist);
+				CMessageBox::Show(EXPLORERHWND, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
 			}
 		}
 		//#endregion

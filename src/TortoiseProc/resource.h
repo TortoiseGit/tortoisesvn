@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -371,6 +371,8 @@
 #define IDS_PROC_CLEANUP                2304
 #define IDS_PROC_REMOVEFORCE            2305
 #define IDS_PROC_YESTOALL               2306
+#define IDS_PROC_PROPSETSUCCESS         2307
+#define IDS_PROC_IGNORESUCCESS          2307
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
