@@ -19,7 +19,6 @@
 #include "StdAfx.h"
 #include "Resource.h"
 #include "Utils.h"
-#include "FileTextLines.h"
 #include "UnicodeUtils.h"
 #include "TortoiseMerge.h"
 #include ".\patch.h"
@@ -67,6 +66,7 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 		m_sErrorMessage = PatchLines.GetErrorString();
 		return FALSE;
 	} // if (!PatchLines.Load(filename)) 
+	m_UnicodeType = PatchLines.GetUnicodeType();
 	FreeMemory();
 	nLineCount = PatchLines.GetCount();
 	//now we got all the lines of the patch file
@@ -467,6 +467,13 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 		for (int j=0; j<chunk->arLines.GetCount(); j++)
 		{
 			CString sPatchLine = chunk->arLines.GetAt(j);
+			if (m_UnicodeType != CFileTextLines::UTF8)
+			{
+				if (PatchLines.GetUnicodeType()==CFileTextLines::UTF8)
+				{
+					sPatchLine = CUnicodeUtils::GetUnicode(sPatchLine);
+				}
+			}
 			int nPatchState = (int)chunk->arLinesStates.GetAt(j);
 			switch (nPatchState)
 			{
@@ -529,7 +536,6 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 	} // if (!sSavePath.IsEmpty())
 	return TRUE;
 }
-
 
 
 

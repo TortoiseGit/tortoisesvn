@@ -17,6 +17,8 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
+#include "FileTextLines.h"
+
 
 #define PATCHSTATE_REMOVED	0
 #define PATCHSTATE_ADDED	1
@@ -67,4 +69,5 @@ protected:
 
 	CArray<Chunks*, Chunks*>	m_arFileDiffs;
 	CString						m_sErrorMessage;
+	CFileTextLines::UnicodeType m_UnicodeType;
 };
