@@ -24,6 +24,7 @@
 // Global Variables:
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
+TCHAR szOrigFilename[MAX_PATH];
 
 static TortoiseBlame app;
 
@@ -81,6 +82,7 @@ void TortoiseBlame::SetTitle()
 	char title[MAX_PATH + 100];
 	strcpy(title, szTitle);
 	strcat(title, " - ");
+	strcat(title, szOrigFilename);
 	::SetWindowText(wMain, title);
 }
 
@@ -416,6 +418,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		return FALSE;
 	}
 
+	ZeroMemory(szOrigFilename, MAX_PATH);
 	char blamefile[MAX_PATH] = {0};
 	char logfile[MAX_PATH] = {0};
 
@@ -442,7 +445,24 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 			p1End = _tcschr(lpCmdLine+1, '\"');
 		}
 		if (p1End)
+		{
 			_tcsncpy(logfile, lpCmdLine, p1End-lpCmdLine);
+			lpCmdLine = p1End;
+			lpCmdLine++;
+			while (*lpCmdLine==' ') lpCmdLine++;
+			p1End = _tcschr(lpCmdLine, ' ');
+			if (*lpCmdLine == '\"')
+			{
+				lpCmdLine++;
+				p1End = _tcschr(lpCmdLine+1, '\"');
+			}
+			if (p1End)
+			{
+				_tcsncpy(szOrigFilename, lpCmdLine, p1End-lpCmdLine);
+			}
+			else
+				_tcsncpy(szOrigFilename, lpCmdLine, MAX_PATH);
+		}
 		else
 			_tcsncpy(logfile, lpCmdLine, MAX_PATH);
 	}

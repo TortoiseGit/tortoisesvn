@@ -1225,6 +1225,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseBlame.exe"));
 						viewer += _T(" \"") + tempfile + _T("\"");
 						viewer += _T(" \"") + logfile + _T("\"");
+						viewer += _T(" \"") + CUtils::GetFileNameFromPath(path) + _T("\"");
 						STARTUPINFO startup;
 						PROCESS_INFORMATION process;
 						memset(&startup, 0, sizeof(startup));
