@@ -725,18 +725,18 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 	{
 		if (m_pwndBottomView)
 		{
-			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines)&&(m_pwndBottomView->IsModified()))
 			{
 				bEnable = TRUE;
-			} // if (m_pwndBottomView->IsWindowVisible()) 
+			} 
 		} // if (m_pwndBottomView) 
 		if (m_pwndRightView)
 		{
-			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
+			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines)&&(m_pwndRightView->IsModified()))
 			{
 				bEnable = TRUE;
-			} // if (m_pwndRightView->IsWindowVisible()) 
-		} 
+			} 
+		} // if (m_pwndRightView)
 	} // if (!this->m_Data.m_sMergedFile.IsEmpty())
 	pCmdUI->Enable(bEnable);
 }
