@@ -1,0 +1,299 @@
+CVS
+- BUG: In the Add dialog unversioned folders
+       with items in it lead to a crash (Stefan)
+- BUG: removed the unused "Help" button from the 
+       settings page (Stefan)
+- BUG: The coloring in the progress dialog was wrong 
+       if the wc contained svn:externals (Stefan)
+- BUG: TortoiseSVN wasn't working on Win98-based
+       systems anymore 'cause we now use UNICODE.
+       So changed the code to compile for either
+       MBCS _or_ UNICODE. This means we have
+       to provide two binary versions of TSVN 
+       from now on (Stefan)
+- CHG: The menu items now are properly aligned
+       for both with and without icons (Stefan)
+
+Version 0.9.1
+- BUG: the zlib dll lead to some crashes, so
+       I went back to statically linked zlib (Stefan)
+- BUG: The prompt dialog for log messages wasn't
+       resized properly. (Stefan)
+- BUG: The check for temp files was case aware (Stefan)
+       
+Version 0.9 (Subversion 0.21, rev 5631)
+- BUG: in some dialog the repository browser button
+       was disabled (Stefan)
+- BUG: the "show log" menu was shown even if there
+       were multiple files selected (Stefan)
+- BUG: icon overlays weren't shown correctly if only
+       the properties changed (Stefan)
+- BUG: revision numbers weren't correct for HEAD (Stefan)
+- BUG: workaround for strange apr behaviour when 
+       opening a file with WRITE|CREATE (Stefan)
+- BUG: import dialog ignored the "use foldername
+       as modulename" checkbox (Stefan)
+- BUG: repository browser now works for https URLs (Stefan)
+- BUG: import and commit log messages were limited
+       in number of lines (Stefan)
+- BUG: files matching the temporary extensions were
+       not added even if the user explicitely selected
+       them for adding. (Stefan)
+- BUG: The folder icon overlay dissapeared if the
+       svn:ignored property was set and an ignored
+       file was in the folder (Stefan)
+- ADD: in the commit dialog (logprompt) there's now
+       a label showing to where the commit goes so
+       the user can see if (s)he committing to
+       a branch or trunk (or worse: to a tag) (Stefan)
+- ADD: in the "show log" dialog its now possible to
+       select two revisions and the context menu then
+       allows to compare those two revisions (Stefan)
+- ADD: browse button for merge dialog (Stefan)
+- ADD: log messages now have a list of the changed/added
+       removed and moved files added (Stefan)
+- ADD: tooltips for import and checkout dialog (Stefan)
+- ADD: the user can now decide for each authentication
+       prompt if (s)he wants to save it or not (Stefan)
+- ADD: if import or commit get interrupted 'cause of
+       an error the log message is preserved (Stefan)
+- ADD: a doubleclick on the file list in the commit
+       dialog starts the external diff program so you
+       can see the changes you made to the files
+       before committing (Stefan)
+- ADD: The temporary file mask now can have wildcards
+       like ? and * too. (Stefan)
+- ADD: Icon overlays can now be disabled for different
+       drive types (Stefan)
+- CHG: the ok button is disabled in the show log dialog
+       while popup-commands are executed (Stefan)
+- CHG: when committing, only files in versioned dirs are
+       shown to the user for adding before the commit
+       occurs (Stefan)
+- CHG: order in which the files are passed to the diff
+       program (Stefan)
+- CHG: the icon overlay should now be faster. This 
+       affects mostly big directories but smaller ones
+       should profit from it too. (Stefan)
+- CHG: converted both projects (shell and main part)
+       to UNICODE. This to support non-ANSI characters
+       both for viewing and entering. This also solves
+       Issue 37. (Stefan)
+- CHG: the temp file mask is now stored under HKCU
+       instead of HKLM (Stefan)
+
+Version 0.8.1
+- BUG: the add menu was missing for single files (Stefan)
+- BUG: the "update to revision" command updated always to HEAD
+       (Stefan)
+- BUG: if the user selected unversioned items for updating
+       then TSVN could crash (Stefan)
+- BUG: in the copy dialog the error message from subversion
+       was not shown (only the beep was heard). (Stefan)
+- BUG: if the user pressed "Cancel" in the authentication
+       dialog then still another retry was made (Stefan)
+- BUG: if the URL in the combobox was deleted then the
+       repository browser button was disabled forever. (Stefan)
+- BUG: if the repository browser was used a second time then
+       the icons of the items were gone. (Stefan)
+- BUG: the history combo now works as expected (Stefan)
+- CHG: in the switch dialog now the 'switch to branch'
+       checkbox is removed since the 'update to revision'
+       command does exactly this. (Stefan)
+- CHG: the copy command now uses the progess dialog (Stefan)
+- CHG: use always wc->url in copy command (Stefan)
+- ADD: the progress dialog now shows the different actions
+       in color. Also it now shows directly if during an
+       update a file gets conflicted or merged. (Stefan)
+- ADD: cancellation for the log command. (Stefan)
+- ADD: the branch/tag dialog now shows from which URL the
+       branch/tag is made. (Stefan)
+- ADD: a 'browse repository' button in the switch dialog (Stefan)
+- ADD: "show log" now in the TSVN submenu too (Stefan)
+
+Version 0.8
+- CHG: most used commands are now in the top context menu and
+       not in the submenu anymore (Stefan)
+- CHG: Modified the SVN Progress dialog so that the columns are
+       resized before any data is added. Also ensured that all
+       items are *entirely* visible even if the horizontal scroll
+       bar is visible. (Damian)
+- CHG: icon for cleanup command (Stefan)
+- ADD: drag and drop handler for adding files to a working copy
+       and for moving files inside a working copy (Stefan)
+- ADD: the commit dialog now shows all unversioned files
+       and lets the user select them to add before committing,
+       issue #22 (Stefan)
+- ADD: A browse for folder button to the Checkout dialog.
+       Modified the initial value of the checkout directory field
+       contain the current working directory (InitInstanceMade
+       method of the CTortoiseProcApp class). (Damian)
+- ADD: If the user selects two files then there's now a "Diff"
+       entry in the submenu which starts the external diff program
+       on those two files. It's not required that the two files
+       be under version control - it works on every two files.
+       This is a handy and fast way to see the diff. (Stefan)
+- ADD: delete and rename command has now an own menu icon (Stefan)
+- BUG: the "save as..." dialog didn't show up under NT4 'cause
+       of the changed size of OPENFILENAME structure (Stefan)
+- BUG: the property page wasn't shown in the selected language
+       but in the system default language (Stefan)
+
+Version 0.7
+- BUG: log messages were not converted back from utf8 before 
+       showing them to the user (Stefan)
+- BUG: copy dialog did not work properly (Stefan)
+- BUG: revert wasn't shown for folders (Stefan)
+- BUG: context menu on the start-button wasn't shown
+       correctly - it's disabled there now (Stefan)
+- BUG: submenu entry on older system wasn't shown (Stefan)
+- CHG: the watcher process is now disabled. I.e. renames/moves
+       and copy operations don't work anymore directly in 
+       explorer (Stefan)
+- ADD: in the import dialog it's now possible to specify if
+       the foldername should be used as the new module name
+       or (if not checked) if the contents of the folder 
+       should be imported directly to the url. (Stefan)
+- ADD: if the user selects a directory for "Add" then
+       a dialog shows up showing all unversioned items
+       recursively in that folder. (Stefan)
+- ADD: internationalization (i18l) of TortoiseProc part. (Stefan)
+- ADD: runtime switching of languages (Stefan)
+- ADD: german language (Stefan)
+- ADD: italian language (Federico Barbieri)
+
+Version 0.6.1 (Subversion 0.18.1)
+- BUG: the log message was not utf8 converted. (Stefan)
+- CHG: in the update dialog when pressing "Show Log..." the logs
+       are now shown in reverse order like the normal log dialog.
+       (Stefan)
+- ADD: several commands which take longer to finish can now be
+       cancelled thanks to new API in Subversion. (Stefan)
+- ADD: before committing a check is done on the urlpath if a 
+       "/tags/" is in there which will generate now a warning.
+       (Stefan)
+- ADD: the apr-iconv modules for UTF8 conversion are now included
+       (Stefan)
+
+Version 0.6 (Subversion 0.18)
+- BUG: authentication did not work (Stefan)
+- BUG: if in commit no file was selected then subversion crashed
+       (Stefan)
+- CHG: the external diff program is now called differently so we
+       get greater compatibility with other diff programs. (Stefan)
+- ENH: the repository browser now uses the correct icons from the
+       system icon list for folders and files. (Stefan)
+- ADD: after an update of a working copy a "show log..." button
+       is shown which will (if pressed) get the logs for the
+       revisions since the last update. (Stefan)
+
+Version 0.5.1 (Subversion rev: 4753)
+- BUG: the width and height of the context menu is now calculated
+       correctly according to the length of the string and the
+       selected system font. (Stefan)
+- BUG: columnprovider crashed for unversioned files inside a working
+       copy. (Stefan)
+- BUG: committing of several selected files resulted in several
+       separate commits instead of only one. (Stefan)
+- BUG: the modulename in checkout was ignored. (Stefan)
+- ENH: resizable dialogs now have a resize grip on the bottom right
+       corner to show the user that they are resizable. (Stefan)
+- ADD: a diff command exists now in the context menu for comparing
+       the changes to the text-base (changes since last commit).
+       (Stefan)
+- ADD: when doing a commit TSVN now determines first which files
+       need a commit and let the user select which of these
+       are actually needed for a commit. This makes it also easier
+       to write log messages since its visible which files have
+       changed. (Stefan)
+       
+Version 0.5
+- BUG: two separators could appear together in submenu (Tim)
+- BUG: changed the projects to using the berkeley db
+       built with VC.NET instead of VC6.
+       This inconsistency caused heap corruption when accessing
+       the db. Solved different bugs related to local repository
+       access. (Stefan)
+- BUG: the "browse for external diff program" dialog wouldn't
+       show up 'cause the stringbuffer must be initialized to zero
+       (Stefan)
+- BUG: in the explorer file menu the TortoiseSVN menu entry got
+       added every time the file menu was selected which lead to
+       multiple menu entries. (Stefan)
+- BUG: selecting a link and choosing "properties" caused explorer 
+       to crash. (Stefan)
+- BUG: when no status of a file could be obtained (wc locked, ...)
+       then the commands copy, merge and switch crashed. (Stefan)
+- BUG: if an older revision could not get checked out (subversion
+       throws an error) then the command "compare with working copy"
+       would crash. (Stefan)
+- BUG: the changewatcher process didn't check for svn_wc_status_none.
+       (Stefan)
+- BUG: renaming files didn't work (via menu, not via changewatcher)
+       Issue 12 (Stefan)
+- BUG: the call of the external diff failed when the filename 
+       contained spaces. Issue 11 (Stefan)
+- BUG: hopefully fixed the icon spacing in the submenu (modelled it
+       on the new menu in windows. (Tim)
+- CHG: made the required API changes in the authentication subversion
+       uses. (Stefan)
+- ENH: issue #4 done. Urls have now a dropdown combobox with the
+       last entered values. (Stefan)
+- ENH: issue 10 done. Save revision of a file now works in the
+       log dialog from the context menu. (Stefan)
+- ENH: issue 2: update to a specific revision is now possible through
+       the shift-right-click context menu. Then the command "update"
+       changes to "update to revision...". (Stefan)
+- ENH: issue #6 done. you can now sepcify a revision in the checkout 
+       dialog (Tim)
+- ADD: issue #7 done. You can now browse the local filesystem for a 
+       local repository. You can also browse a repository (local and 
+       remote) for paths (Tim)
+- ADD: the settings dialog contains now a page for proxy settings.
+       (Stefan)
+- ADD: two new column providers: one for the revision number and
+       the second overrides the predefined "author" column. (Stefan)
+- ADD: added browse button to the Import dialog. You can now browse 
+       the local filesystem for a local repository. You can also 
+       browse a repository (local and remote) for paths. (Tim)
+
+Version 0.4
+- BUG: errors were not displayed to the user for commit and add 
+       (Stefan)
+- BUG: in the log dialog the wrong log entries were shown when
+       the selection was changed with the up/down key (Stefan)
+- BUG: fixed HKLM and HKCU discrepancies in the registry settings
+       (Stefan)
+- BUG: now the watcher checks first if the file actually WAS under
+       subversion control before trying to redo the action (Stefan)
+- ENH: Revert now asks an "are you sure?" to prevent unintentional
+       data loss (Stefan)
+- ENH: added context menu icons (Stefan)
+- ENH: added a check for temporary files when doing import/add (Stefan)
+- ENH: added a crashhandler for better bug tracking - does NOT work
+       with the shell integration part (sad, but true) (Stefan)
+- ENH: improved speed of the column handler (Stefan)
+- ENH: show messagebox when 'cleanup' has finished (Stefan)
+- ENH: improved speed for icon overlay by adding small cache (Stefan)
+- CHG: while receiving log messages display them so the user can
+       see that something is going on (Stefan)
+- CHG: overlay for anything else than 'normal' is now shown as 
+       'modified'. 'obstructed' and 'conflicted' are shown as
+       'conflicted' as before. (Stefan)
+
+Version 0.3
+- ENH: log messages are now received from the HEAD of the repository
+  and not from the workingcopy revision on. (Stefan)
+- BUG: properties page in explorer crashed when a non versioned item
+  inside a versioned directory was selected. (Tim)
+- BUG: crash in Win95/98/Me because of 'normal' parameter instead of
+  unicode. (Stefan)
+- ENH: new command in log window to compare the working copy with an
+  older revision. (Stefan)
+
+Version 0.2
+- basic functions are working (Tim/Stefan)
+- removed WxWindows part and changed to MFC (Stefan)
+
+Version 0.1
+starting, very few thing are working and even more crashing. (Tim)

@@ -1,0 +1,183 @@
+<html>
+
+<head>
+<title>TortoiseSVN FAQ</title>
+</head>
+
+<body>
+<h1><a name="questions">TortoiseSVN FAQ</a></h1>
+<h3>Introduction</h3>
+<p>Most of this FAQ is taken from the FAQ on <a href=http://www.tortoisecvs.org/faq.html>TortoiseCVS</a>.</p>
+<h3>Project questions</h3>
+<br><a href="#whatistortoiseSVN">What is TortoiseSVN?</a>
+
+<h3>Installation issues</h3>
+<br><a href="#whydonticonsappear">Why don't the icon overlays appear?</a>
+<br><a href="#whyisiconcachebuggy">Why do the overlay icons sometimes change to random graphics?</a>
+<br><a href="#howchangedefaulticons">Those icons are grotesque, I want better ones!</a>
+<br><a href="#uninstallation">How do I uninstall TortoiseSVN?</a>
+
+<h3>Daily use questions</h3>
+<br><a href="#ooopsundeletion">I accidentally removed a file, and now it's gone!</a>
+<br><a href="#commitremove">When I remove a file it vanishes, how do I commit it?</a>
+<br><a href="#showlog">Where's the "Show Log" command?</a>
+<br><a href="#mixandmatch">Can I mix and match with the svn command line client?</a>
+<br><a href="#lotsofwc">Can I work on lots of working copies from different repositories at once?</a>
+<br><a href="#conflicts">How does TortoiseSVN handle conflicts?</a>
+
+<h3>Misc</h3>
+<br><a href="#love">I love TortoiseSVN, how do I give some money towards it?</a>
+
+<h2><a name="whatistortoiseSVN">What is TortoiseSVN?</a></h2>
+<p>TortoiseSVN lets you work with files under <a
+href="http://subversion.tigris.org">Subversion</a> version control directly from
+Windows Explorer.  It is freely available under the <a href=http://www.opensource.org/licenses/gpl-license.php>GPL</a> open source
+license.  For more general information and screen shots, go to <a href="http://www.tortoisesvn.org">www.tortoisesvn.org</a>.
+
+<h2><a name="whydonticonsappear">Why don't the icon overlays appear?</a></h2>
+
+<ul>
+<li>If you are using Windows 95 the icon overlays won't appear.  You can try the instructions
+for Windows NT4 below if you like, but it may still not work.
+<li>If you are using Windows NT4, you need to
+install the IE4 shell or desktop extensions to get a more recent version
+of Explorer.
+
+To do this install IE4, and choose Yes to install the active desktop.
+Don't worry, you can turn off the actual active desktop later by right
+clicking on it.  It's the new version of Explorer that we are after.
+
+<p>If you've already installed IE5, you must either: <ol> <li>Uninstall
+IE5 and then install IE4 with desktop extensions, and then install IE5
+again. What a palaver.  <li>Run IE5 setup with command line switches to
+install the IE4 desktop (shell) extensions.  This may cause problems, <a
+href="http://groups.google.com/groups?hl=en&safe=off&th=a141d6286e4b302a,4&seekm=OlDwT17y%24GA.280%40cppssbbsa04#p">read
+this usenet thread</a> for the source of this information.  <p>The
+command must be run from the folder that contains the ie5setup.exe file.
+If the browser appears unstable afterwards just run the IE5 repair function.
+
+<p>For Win95: ie5setup.exe /c:"ie5wzd /e:IE4Shell WIN /I:Y"
+
+<p>For WinNT: ie5setup.exe /c:"ie5wzd /e:IE4Shell NTx86 /I:Y" </ol>
+
+<p>For IE6: <ol> <li>Run IE6 setup with command line switches to install
+the IE4 desktop (shell) extensions. The same caveats apply as for IE5.
+<p>The command must be run from the folder that contains the
+ie6setup.exe file.
+
+<p>For WinNT: ie6setup.exe /c:"ie6wzd /e:IE4Shell NTx86 /I:Y" </ol>
+
+<p>The shortcut labelled Win NT Explorer on your start
+menu probably points to <tt>C:\WINNT\explorer.scf</tt> and
+<b>doesn't</b> get the overlays.  <p>Create a new shortcut to
+<br><tt>%windir%\Explorer.exe /n, /e</tt> <br>and it may get the overlays.
+
+<li>If you're using an IntelliPoint mouse driver, and launching Explorer
+via a mouse click, you need to upgrade from version 3 to version 3.2 of
+IntelliPoint.  Strangely, launching Explorer from the Start menu gives
+icons in this case, but not when launched from the mouse.
+
+</ul>
+
+<h2><a name="whyisiconcachebuggy">Why do the overlay icons sometimes
+change to random graphics?</a></h2> The Windows icon cache is a fairly
+buggy creature.   You can solve this in one of the following ways:
+
+<ul> <li>Install Microsoft's <a
+href="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">TweakUI</a>
+and run the option to rebuild icons.  <li>Or increase the icon cache size. Go to
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer and
+add a new String Value called "Max Cached Icons". The default value is 500 -
+try increasing it to 2048 (see <a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">http://support.microsoft.com/support/kb/articles/Q132/6/68.asp</a> for more details).  <li>Or delete the file called ShellIconCache
+in your Windows directory.  And reboot.
+
+</ul>
+
+<h2><a name="howchangedefaulticons">Those icons are grotesque, I
+want better ones!</a></h2>
+You can create your own icon set if you want. And if you do please
+contribute them to the rest of the world!
+<p>The icons should have at least two sizes (16x16 and 32x32 with 16 colors), for
+Windows XP there should also be a set with 48x48 pixels</p>
+<p>to install the icons you should copy them to the directory where
+TortoiseSVN was installed. There you can either replace the existing icons or give them
+new names. If you choose not to overwrite the original ones then you also need to tweak
+some registry settings. Under HKLM\Software\TortoiseSVN\ change the keys ConflictIcon, InSubversionIcon and ModifiedIcon
+to the path and names of your own icon set.</p>
+<p>after that you need to restart (or logoff) your computer so that explorer reads
+in the icons again. Alternatively you can flush the icon cache with the
+<a href=http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp>TweakUI</a>
+tool from Microsoft. For WinXP you can get it <a href=http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp>here</a></p>
+
+<h2><a name="uninstallation">How do I uninstall TortoiseSVN?</a></h2>
+<p>Simply uninstall from Add/Remove Programs in the Windows
+control panel.</p>
+
+<h2><a name="ooopsundeletion">I accidentally removed a file, and
+now it's gone!</a></h2>
+You can do a <em>revert</em> on the parent folder where you deleted
+the file. But use that carefully: you will loose all changes you
+made in that folder since you last committed!
+
+<h2><a name="commitremove">When I remove a file it vanishes, how do I
+commit it?</a></h2> Easy, you commit the whole directory!  Right click
+in the Explorer window next to the file, and choose commit.  I nearly
+always commit things from the top level directory - it is recursive
+through the whole project.
+
+<h2><a name="showlog">Where's the "Show Log" command?</a></h2>
+It's available at two locations:
+<ul>
+  <li>after an update there's a button to show the log for all the revisions you just updated to</li>
+  <li>select a file, right-click to get the context menu, click on "properties" to get the explorer
+      properties dialog. Select the TortoiseSVN tab and then theres the button to show the log.</li>
+</ul>
+<h2><a name="mixandmatch">Can I mix and match with the Subversion command line
+client?</a></h2> Yes, you can change from one client to another whenever you
+want.
+
+<h2><a name="lotsofwc">Can I work on lots of working copies from different
+repositories at once?</a></h2> Yes, you can.  This is a standard feature
+of SVN.  Each directory which was checked out of SVN remembers where it
+came from. You can even multiply select working copies which came from
+different places, and update or commit them all at once.
+<p>If you want to have different subdirectories to come from different repositories
+you can set a special Subversion property called <em>svn:externals</em>. Please
+look at the chapter <a href=http://svnbook.red-bean.com/html-chunk/ch06s03.html>External Definitions</a>
+in the <a href=http://svnbook.red-bean.com>Subversion Book</a>.
+
+<h2><a name="conflicts">How does TortoiseSVN handle conflicts?</a></h2>
+Imagine you check out revision 24 of a file and started editing it. In the
+meantime, someone else committed revision 25, and shortly after that
+revision 26. You tell TortoiseSVN to update your file now, and SVN will try
+to incorporate all the changes between revision 24 and 26 into your local
+file.
+<p>
+But if the changes made between 24 and 26 were too close to or even
+overlap with the changes you have made, SVN detects a conflict and creates
+<em>conflict markers</em> in the file. Subversion also creates three
+special files for every conflicted file:
+<ol>
+<li><em>filename.*.mine</em> This is your file as it existed in your working copy
+before you updated your working copy—that is, without conflict markers.
+This file has your latest changes in it and nothing else.
+<li><em>filename.*.rOLDREV</em> This is the file that was the BASE revision
+before you updated your working copy. That is, the file that you checked
+out before you made your latest edits.
+<li><em>filename.*.rNEWREV</em>This is the file that your Subversion client
+just received from the server when you updated your working copy. This file
+corresponds to the HEAD revision of the repository.
+</ol>
+At this point TortoiseSVN will not allow you to committ the conflicted file
+until you <em>resolved</em> the conflict. To tell TortoiseSVN that you
+resolved the conflict simply delete the three additional files or use
+the command <em>resolve</em> to do that for you.
+
+<h2><a name="love">I love TortoiseSVN, how do I give some money towards it?</a></h2>
+<p>Thank you for offering!</p>
+<p>We set up wish lists for both of us. The media wish list of Stefan is <a href=http://www.amazon.com/o/registry/17DKTOSXX1KJK>here</a>
+and the wish list of Tim can be found <a href=http://www.amazon.co.uk/exec/obidos/wishlist/2U803HOYD098W>here</a>.</p>
+
+
+</body>
+</html>

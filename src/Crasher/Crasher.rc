@@ -1,0 +1,407 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT_CRASHER DIALOGEX 0, 0, 205, 97
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Ueber Crasher "
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Schliessen",IDOK,154,7,44,14
+    LTEXT           "Crasher Software Error Reporting tool\nStefan Küng",
+                    IDC_STATIC,7,7,136,23
+    LTEXT           "Version  1.0\n\nBasiert auf der Arbeit von Jim Crafton's BlackBox Utility.\nStack trace und exception trapping code von \nJohn Robbins BugSlayerUtils",
+                    IDC_STATIC,7,37,191,53
+END
+
+IDD_CRASHER_ERR_DLG DIALOGEX 0, 0, 320, 308
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Crasher"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Schliessen",IDCANCEL,261,86,52,14
+    PUSHBUTTON      "&Kopieren",IDC_COPY_TO_CLIPBOARD,261,112,52,14
+    PUSHBUTTON      "&Speichern...",IDC_SAVE_TO_FILE,261,130,52,14
+    PUSHBUTTON      "Senden an...",IDC_MAILTO,261,155,52,14
+    PUSHBUTTON      "Information...",IDC_MACHINE_INFO,261,201,52,14
+    PUSHBUTTON      "Status...",IDC_MACHINE_STATE,261,221,52,14
+    PUSHBUTTON      "&Ueber...",IDC_ABOUT,261,287,52,14
+    LTEXT           "",IDC_INTRO2,1,2,318,73
+    GROUPBOX        "Grund der Schutzverletzung",IDC_STATIC,6,83,251,45
+    GROUPBOX        "Register",IDC_STATIC,6,132,251,63
+    GROUPBOX        "Stack Trace",IDC_STATIC,6,198,251,103
+    LISTBOX         IDC_STACKTRACE,11,208,242,88,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_EXCEPTION,12,93,242,31
+    LTEXT           "Static",IDC_REGISTER,12,143,242,48
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,76,320,1
+    ICON            IDI_BUG,IDC_BUG_LBL,6,7,20,20
+    LTEXT           "Static",IDC_INTRO,30,6,283,65
+END
+
+IDD_INIT_DLG DIALOGEX 0, 0, 179, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Hole und Analsysiere Absturzdaten"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CTEXT           "Ein Programm ist abgestürzt...\nBitte warten Sie während die Systeminformationen gesammelt werden...",
+                    IDC_STATIC,32,7,140,25
+    LTEXT           "Aktualisiere...",IDC_PROGRESS_LABEL,7,35,165,13,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    ICON            IDI_BUG,IDC_STATIC,7,7,20,20
+END
+
+IDD_MACHINE_INFO_DLG DIALOGEX 0, 0, 300, 167
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Computer Information"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Schliessen",IDOK,243,7,50,14
+    GROUPBOX        "CPU",IDC_STATIC,7,7,233,37
+    GROUPBOX        "Betriebssystem",IDC_STATIC,7,47,233,40
+    GROUPBOX        "Speicher",IDC_STATIC,7,92,233,68
+    LTEXT           "Static",IDC_CPU_LABEL,12,17,209,23
+    LTEXT           "Static",IDC_OS_LABEL,11,58,173,25
+    LTEXT           "Static",IDC_MEM_LABEL,11,100,223,55
+END
+
+IDD_MACHINESTATE_DLG DIALOGEX 0, 0, 317, 169
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Computer Status"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Schliessen",IDOK,260,7,50,14
+    GROUPBOX        "laufende Prozesse während Absturz:",IDC_STATIC,7,7,250,
+                    65
+    GROUPBOX        "geladene Module des gewählten Prozesses:",IDC_STATIC,7,
+                    77,250,85
+    LISTBOX         IDC_PROCESS_LIST,11,17,242,51,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_PROCESS_MODULE_LIST,11,88,242,70,
+                    LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUT_CRASHER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_CRASHER_ERR_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        VERTGUIDE, 6
+        VERTGUIDE, 313
+        BOTTOMMARGIN, 301
+        HORZGUIDE, 7
+    END
+
+    IDD_INIT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_MACHINE_INFO_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_MACHINESTATE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APPNAME             "TortoiseSVN"
+    IDS_MAILADDRESS         "steveking@gmx.ch"
+    IDS_ERRORLABEL          "TortoiseSVN has caused an exception.\n\nUm die Fehlerbehebung zu erleichtern werden soviel Information wie möglich gesammelt über den Programmabsturz. Sie können dann diese Informationen entweder für eine spätere Verwendung abspeichern oder direkt dem Entwickler zumailen."
+    IDS_ERRNOMAPI           "MAPI ist auf diesem Rechner nicht installiert. Bitte speichern Sie die Informationen auf der Festplatte und schicken diese dem Entwickler zu."
+    IDS_UPDATEDLGPROGRESSLABEL "Aktualisiere...  %d %%"
+    IDS_MEMORYINFO          "Aktuelle Speicherauslastung:\t\t%d%%\nGesamter physikalischer Speicher:\t%d bytes\nVerfügbarer physikalischer Speicher:\t%d bytes\nGesamter virtueller Speicher:\t\t%d bytes\nVerfügbarer virtueller Speicher:\t\t%d bytes"
+    IDS_WINDOWSINFO         "Windows OS: %s\nVersion %d.%04d\nBuild Number %d\n%s\n"
+    IDS_PROCESSORINFO       "Anzahl Prozessoren: %d\nProzessortyp: %s"
+END
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CRASHER_ERR_DLG DIALOGEX 0, 0, 320, 308
+STYLE DS_SETFONT | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Crasher"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDCANCEL,261,86,52,14
+    PUSHBUTTON      "&Copy",IDC_COPY_TO_CLIPBOARD,261,112,52,14
+    PUSHBUTTON      "&Save...",IDC_SAVE_TO_FILE,261,130,52,14
+    PUSHBUTTON      "Mail to...",IDC_MAILTO,261,155,52,14
+    PUSHBUTTON      "Information...",IDC_MACHINE_INFO,261,201,52,14
+    PUSHBUTTON      "State...",IDC_MACHINE_STATE,261,221,52,14
+    PUSHBUTTON      "&About...",IDC_ABOUT,261,287,52,14
+    LTEXT           "",IDC_INTRO2,1,2,318,73
+    GROUPBOX        "Exception Reason",IDC_STATIC,6,83,251,45
+    GROUPBOX        "Registers",IDC_STATIC,6,132,251,63
+    GROUPBOX        "Stack Trace",IDC_STATIC,6,198,251,103
+    LISTBOX         IDC_STACKTRACE,11,208,242,88,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_EXCEPTION,12,93,242,31
+    LTEXT           "Static",IDC_REGISTER,12,143,242,48
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,76,320,1
+    ICON            IDI_BUG,IDC_BUG_LBL,6,7,20,20
+    LTEXT           "Static",IDC_INTRO,30,6,283,65
+END
+
+IDD_ABOUT_CRASHER DIALOGEX 0, 0, 205, 97
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "About Crasher "
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,164,7,34,14
+    LTEXT           "Crasher Software Error Reporting tool\nStefan Küng",
+                    IDC_STATIC,7,7,136,23
+    LTEXT           "Version  1.0\n\nBased on the work of Jim Crafton and his BlackBox utility.\nStack trace and exception trapping code from \nJohn Robbins BugSlayerUtils",
+                    IDC_STATIC,7,37,191,53
+END
+
+IDD_MACHINE_INFO_DLG DIALOG  0, 0, 265, 166
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Machine Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,208,7,50,14
+    GROUPBOX        "CPU",IDC_STATIC,7,7,195,37
+    GROUPBOX        "Operating System",IDC_STATIC,7,47,194,40
+    GROUPBOX        "Memory",IDC_STATIC,7,91,194,68
+    LTEXT           "Static",IDC_CPU_LABEL,12,17,186,23
+    LTEXT           "Static",IDC_OS_LABEL,11,58,186,25
+    LTEXT           "Static",IDC_MEM_LABEL,11,100,186,55
+END
+
+IDD_MACHINESTATE_DLG DIALOG  0, 0, 317, 169
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Machine State"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,260,7,50,14
+    GROUPBOX        "Running Processes at crash:",IDC_STATIC,7,7,250,65
+    GROUPBOX        "Modules Loaded by Selected Process",IDC_STATIC,7,77,250,
+                    85
+    LISTBOX         IDC_PROCESS_LIST,11,17,242,51,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_PROCESS_MODULE_LIST,11,88,242,70,
+                    LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+END
+
+IDD_INIT_DLG DIALOGEX 0, 0, 179, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Retreiving and analyzing crash data"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CTEXT           "A crash has occurred...\nPlease wait while gathering system information...",
+                    IDC_STATIC,32,7,140,25
+    LTEXT           "Updating...",IDC_PROGRESS_LABEL,7,35,165,13,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    ICON            IDI_BUG,IDC_STATIC,7,7,20,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CRASHER_ERR_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        VERTGUIDE, 6
+        VERTGUIDE, 313
+        BOTTOMMARGIN, 301
+        HORZGUIDE, 7
+    END
+
+    IDD_ABOUT_CRASHER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+    IDD_MACHINE_INFO_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_MACHINESTATE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+
+    IDD_INIT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS 
+BEGIN
+    "C",            IDC_COPY_TO_CLIPBOARD,  VIRTKEY, CONTROL, NOINVERT
+    "S",            IDC_SAVE_TO_FILE,       VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_BUG                 ICON                    "bug.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APPNAME             "TortoiseSVN"
+    IDS_MAILADDRESS         "steveking@gmx.ch"
+    IDS_ERRORLABEL          "TortoiseSVN has caused an exception.\n\nTo help the development process I will try to gather as much information as possible about the crash and the state of your machine at the time of the crash. You can then either send this data via email to the developer or just save it to disk for later use."
+    IDS_ERRNOMAPI           "MAPI not installed on this computer!\nCould not send file. Please save the file on your harddisk and mail them manually."
+    IDS_UPDATEDLGPROGRESSLABEL "Update...  %d %%"
+    IDS_MEMORYINFO          "Current Memory Load:\t\t%%d%\nTotal Physical Memory:\t\t%d bytes\nAvailable Physical Memory:\t\t%d bytes\nTotal Virtual Memory:\t\t%d bytes\nAvailable Virtual Memory:\t\t%d bytes"
+    IDS_WINDOWSINFO         "Windows OS: %s\nVersion %d.%04d\nBuild Number %d\n%s\n"
+    IDS_PROCESSORINFO       "Number of Processors: %d\nProcessor Type: %s"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

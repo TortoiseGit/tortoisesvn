@@ -1,0 +1,50 @@
+Translations
+------------
+
+TortoiseSVN is still in development so
+translations of all resources is also
+a work 'in progress'.
+
+To implement a new language for TortoiseSVN
+follow these steps:
+
+With VS.NET:
+- get the sources from CVS
+- start VS.NET, open the TortoiseSVN solution file
+- create a new project: Win32, set it for dll.
+  the project name should be "TortoiseProcXXX" where
+  XXX is a three letter abreviation of your language
+  (ENG for english, DEU for german, ...)
+- in the project properties, Linker, Advanced change
+  the setting "Resource Only Dll" to "yes (/NOENTRY)"
+- also change the settings under "General" for the
+  output directories to ../../bin/Debug and ../../bin/Release
+  and for the intermediate directory to 
+  ../../obj/Debug/TortoiseProcXXX and 
+  ../../Release/TortoiseProcXXX.
+- switch to the resource tab
+- select all dialog resources from the main project
+  (TortoiseProc)
+- copy those resources to your new language project.
+- also do that for the string resources
+- now start translating the resources
+- save your project
+- compile your language project
+
+- switch to the resource tab, select the string
+  resources from TortoiseProc.
+- right-click on the string resources, select
+  "insert copy..." and make a copy for your
+  language.
+- translate the string resources
+
+without VS.NET:
+- make a copy of /src/TortoiseProc/TortoiseProc.rc
+  and /src/TortoiseShell/resource.rc
+- rename your copies to something with the
+  language name in it.
+- open those files in a text editor
+- translate all texts
+- save the files, zip them and send them to
+  dev@tortoisesvn.tigris.org
+
