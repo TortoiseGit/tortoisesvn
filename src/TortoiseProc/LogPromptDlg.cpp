@@ -388,7 +388,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(true);
 	CString logmsg;
 	pDlg->GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
-	if (pDlg->m_ProjectProperties.nMinLogSize > (DWORD)logmsg.GetLength())
+	if (pDlg->m_ProjectProperties.nMinLogSize > logmsg.GetLength())
 	{
 		pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
@@ -402,7 +402,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
 		pDlg->m_bBlock = FALSE;
 		pDlg->EndDialog(0);
-		return -1;
+		return (DWORD)-1;
 	}
 	if (pDlg->m_ListCtrl.GetItemCount()==0)
 	{
@@ -410,7 +410,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
 		pDlg->m_bBlock = FALSE;
 		pDlg->EndDialog(0);
-		return -1;
+		return (DWORD)-1;
 	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
 	pDlg->m_bBlock = FALSE;
 	return 0;
@@ -494,7 +494,7 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (DWORD(sTemp.GetLength()) >= m_ProjectProperties.nMinLogSize)
+	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
 	{
 		if (!m_bBlock)
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
@@ -539,7 +539,7 @@ void CLogPromptDlg::OnCbnSelchangeOldlogs()
 	if (m_OldLogs.GetString().Compare(m_sLogMessage.Left(m_OldLogs.GetString().GetLength()))!=0)
 		m_sLogMessage = m_OldLogs.GetString() + m_sLogMessage;
 	UpdateData(FALSE);
-	if (m_ProjectProperties.nMinLogSize > (DWORD)m_sLogMessage.GetLength())
+	if (m_ProjectProperties.nMinLogSize > m_sLogMessage.GetLength())
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
@@ -555,7 +555,7 @@ void CLogPromptDlg::OnCbnCloseupOldlogs()
 	if (m_OldLogs.GetString().Compare(m_sLogMessage.Left(m_OldLogs.GetString().GetLength()))!=0)
 		m_sLogMessage = m_OldLogs.GetString() + m_sLogMessage;
 	UpdateData(FALSE);
-	if (m_ProjectProperties.nMinLogSize > (DWORD)m_sLogMessage.GetLength())
+	if (m_ProjectProperties.nMinLogSize > m_sLogMessage.GetLength())
 	{
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}

@@ -28,7 +28,8 @@ BOOL CStringUtils::WildCardMatch(CString wildcard, CString string)
 
 int strwildcmp(const char *wild, const char *string)
 {
-	const char *cp, *mp;
+	const char *cp = NULL;
+	const char *mp = NULL;
 	while ((*string) && (*wild != '*')) 
 	{
 		if ((*wild != *string) && (*wild != '?')) 
@@ -70,7 +71,8 @@ int strwildcmp(const char *wild, const char *string)
 
 int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 {
-	const wchar_t *cp, *mp;
+	const wchar_t *cp = NULL;
+	const wchar_t *mp = NULL;
 	while ((*string) && (*wild != '*')) 
 	{
 		if ((*wild != *string) && (*wild != '?')) 

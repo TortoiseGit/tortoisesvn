@@ -57,7 +57,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, LONG revision, const CString& author
 	return TRUE;
 }
 
-BOOL CBlame::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths)
+BOOL CBlame::Log(LONG rev, const CString& /*author*/, const CString& /*date*/, const CString& message, const CString& /*cpaths*/)
 {
 	m_progressDlg.SetProgress((DWORD)m_highestrev - rev, (DWORD)m_highestrev);
 	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
@@ -142,7 +142,7 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CS
 	return m_sSavePath;
 }
 
-BOOL CBlame::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev)
+BOOL CBlame::Notify(const CString& /*path*/, svn_wc_notify_action_t /*action*/, svn_node_kind_t /*kind*/, const CString& /*myme_type*/, svn_wc_notify_state_t /*content_state*/, svn_wc_notify_state_t /*prop_state*/, LONG rev)
 {
 	CString temp;
 	temp.Format(IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);

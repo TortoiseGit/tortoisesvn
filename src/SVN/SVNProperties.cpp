@@ -155,7 +155,7 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 	const void *key;
 	stdstring key_native;
 	void *val;
-	svn_string_t *propval;
+	svn_string_t *propval = NULL;
 	const char *node_name_native;
 	const char *pname_utf8;
 	m_error = NULL;
@@ -208,8 +208,10 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 
 	if (name)
 		return key_native;
-	else
+	else if (propval)
 		return (TCHAR *)propval->data;
+	else
+		return NULL;
 }
 
 BOOL SVNProperties::IsSVNProperty(int index)

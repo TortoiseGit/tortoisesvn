@@ -388,7 +388,6 @@ void CBalloon::RelayEvent(MSG* pMsg)
 {
 	CWnd * pWnd = NULL;
 	CPoint pt;
-	BOOL bSetNewTool = FALSE;
 	CString str;
 	CRect rect;
 
@@ -450,7 +449,7 @@ void CBalloon::RelayEvent(MSG* pMsg)
 	}
 }
 
-void CBalloon::SetNewToolTip(CWnd * pWnd, CPoint * pt /* = NULL */)
+void CBalloon::SetNewToolTip(CWnd * pWnd, CPoint * /*pt*/ /* = NULL */)
 {
 	m_pDisplayedWnd = NULL;
 	Pop();
@@ -772,7 +771,8 @@ int CBalloon::GetNextVertDirection(int nDirection)
 
 BOOL CBalloon::TestHorizDirection(int x, int cx, int w_cx, int nDirection, LPRECT rect)
 {
-	int left,right;
+	int left = 0;
+	int right = 0;
 	
 	switch (nDirection)
 	{
@@ -800,7 +800,8 @@ BOOL CBalloon::TestHorizDirection(int x, int cx, int w_cx, int nDirection, LPREC
 
 BOOL CBalloon::TestVertDirection(int y, int cy, int w_cy, int nDirection, LPRECT rect)
 {
-	int top,bottom;
+	int top = 0;
+	int bottom = 0;
 
 	switch (nDirection)
 	{
@@ -841,13 +842,13 @@ LPLOGFONT CBalloon::GetSystemToolTipFont() const
 }
 
 
-void CBalloon::Redraw(BOOL bRedraw /* = TRUE */)
+void CBalloon::Redraw(BOOL /*bRedraw*/ /* = TRUE */)
 {
 }
 
 void CBalloon::SetStyles(DWORD nStyles, CWnd * pWnd /* = NULL */)
 {
-	ModifyStyles(nStyles, -1, pWnd);
+	ModifyStyles(nStyles, (DWORD)-1, pWnd);
 }
 
 void CBalloon::ModifyStyles(DWORD nAddStyles, DWORD nRemoveStyles, CWnd * pWnd /* = NULL */)
@@ -993,14 +994,14 @@ void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showClose
 }
 void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, LPCTSTR szIcon, 
 							UINT nDirection, UINT nEffect, 
-							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
+							COLORREF /*crStart*/, COLORREF /*crMid*/, COLORREF /*crEnd*/)
 {
 	HICON hIcon = (HICON)::LoadImage(NULL, szIcon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
 	ShowBalloon(pWnd, pt, nIdText, showCloseButton, hIcon, nDirection, nEffect);
 }
 void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, LPCTSTR szIcon, 
 							UINT nDirection, UINT nEffect, 
-							COLORREF crStart, COLORREF crMid, COLORREF crEnd)
+							COLORREF /*crStart*/, COLORREF /*crMid*/, COLORREF /*crEnd*/)
 {
 	HICON hIcon = (HICON)::LoadImage(NULL, szIcon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
 	ShowBalloon(pWnd, pt, sText, showCloseButton, hIcon, nDirection, nEffect);
@@ -1138,7 +1139,7 @@ void CBalloon::RemoveAllTools()
 
 void CBalloon::SetMaskTool(CWnd * pWnd, UINT nMask /* = 0 */)
 {
-	ModifyMaskTool(pWnd, nMask, -1);
+	ModifyMaskTool(pWnd, nMask, (UINT)-1);
 }
 
 void CBalloon::ModifyMaskTool(CWnd * pWnd, UINT nAddMask, UINT nRemoveMask)
@@ -1373,10 +1374,10 @@ BOOL CBalloon::SetFont(LPCTSTR lpszFaceName, int nSizePoints /* = 8 */,
 
 	_tcscpy (lf.lfFaceName, lpszFaceName);
 	lf.lfHeight = -MulDiv (nSizePoints, GetDeviceCaps (pDC->m_hDC, LOGPIXELSY), 72);
-	lf.lfUnderline = bUnderline;
+	lf.lfUnderline = (BYTE)bUnderline;
 	lf.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
-	lf.lfStrikeOut = bStrikeOut;
-	lf.lfItalic = bItalic;
+	lf.lfStrikeOut = (BYTE)bStrikeOut;
+	lf.lfItalic = (BYTE)bItalic;
 
 	if (pDC)
 		ReleaseDC(pDC);

@@ -383,7 +383,7 @@ int SuggestMgr::ngsuggest(char** wlst, char * word, HashMgr* pHMgr)
 
   struct hentry* hp = NULL;
   int col = -1;
-  while ((hp = pHMgr->walk_hashtable(col, hp))) {
+  while ((hp = pHMgr->walk_hashtable(col, hp))!=0) {
     sc = ngram(3, word, hp->word, NGRAM_LONGER_WORSE);
     if (sc > scores[lp]) {
       scores[lp] = sc;

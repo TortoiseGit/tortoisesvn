@@ -48,7 +48,10 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 	m_sCmdLine = sCmdLine;
 
 	LPCTSTR sCurrent = sCmdLine;
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
 	while(true) 
+#pragma warning(pop)
 	{
 		//format is  -Key:"arg"
 		

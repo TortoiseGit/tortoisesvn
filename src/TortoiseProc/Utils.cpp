@@ -39,11 +39,11 @@ CString CUtils::GetTempFile(CString origfilename)
 {
 	TCHAR path[MAX_PATH];
 	TCHAR tempF[MAX_PATH];
-	DWORD len = ::GetTempPath (MAX_PATH, path);
+	::GetTempPath (MAX_PATH, path);
 	CString tempfile;
 	if (origfilename.IsEmpty())
 	{
-		UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
+		::GetTempFileName (path, TEXT("svn"), 0, tempF);
 		tempfile = CString(tempF);
 	}
 	else

@@ -127,7 +127,7 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax,
 	lpBuffer[ret] = 0;
 #else
 	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);
-	(TCHAR)lpBuffer[ret] = 0;
+	lpBuffer[ret] = 0;
 #endif
 	return ret;
 }

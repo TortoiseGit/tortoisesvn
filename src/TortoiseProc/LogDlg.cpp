@@ -283,7 +283,6 @@ void CLogDlg::OnCancel()
 
 BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths)
 {
-	int line = 0;
 	CString temp;
 	m_LogList.SetRedraw(FALSE);
 	m_logcounter += 1;
@@ -333,7 +332,6 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 			m_sMessageBuf = message;
 			m_sMessageBuf.Replace(_T("\n\r"), _T("\n"));
 			m_sMessageBuf.Replace(_T("\r\n"), _T("\n"));
-			int pos = 0;
 			if (m_sMessageBuf.Right(1).Compare(_T("\n"))==0)
 				m_sMessageBuf = m_sMessageBuf.Left(m_sMessageBuf.GetLength()-1);
 		} // if (message.GetLength()>0)
@@ -1268,7 +1266,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 }
 
-LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
+LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     ASSERT(m_pFindDialog != NULL);
 
@@ -1351,7 +1349,7 @@ void CLogDlg::OnOK()
 	}
 }
 
-void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	*pResult = 0;
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();

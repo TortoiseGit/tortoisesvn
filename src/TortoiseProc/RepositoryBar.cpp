@@ -30,11 +30,15 @@
 
 IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 
+#pragma warning(push)
+#pragma warning(disable: 4355)	// 'this' used in base member initializer list
+
 CRepositoryBar::CRepositoryBar() :
 	m_pRepositoryTree(0),
 	m_cbxUrl(this)
 {
 }
+#pragma warning(pop)
 
 CRepositoryBar::~CRepositoryBar()
 {
@@ -257,12 +261,12 @@ END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CRepositoryBarCnr, CStatic)
 
-BOOL CRepositoryBarCnr::OnEraseBkgnd(CDC* pDC)
+BOOL CRepositoryBarCnr::OnEraseBkgnd(CDC* /* pDC */)
 {
 	return TRUE;
 }
 
-void CRepositoryBarCnr::OnSize(UINT nType, int cx, int cy)
+void CRepositoryBarCnr::OnSize(UINT /* nType */, int cx, int cy)
 {
 	m_pbarRepository->MoveWindow(0, 0, cx, cy);
 }

@@ -195,12 +195,12 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
+void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR * /* pNMHDR */, LRESULT *pResult)
 {
 	*pResult = 0;	// Force standard behaviour
 }
 
-void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
+void CRepositoryBrowser::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 {
 	if ((point.x == -1) && (point.y == -1))
 	{
@@ -214,7 +214,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 	ShowContextMenu(point, &Result);
 }
 
-void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pResult)
+void CRepositoryBrowser::OnRVNItemRClickUpReposTree(NMHDR * /* pNMHDR */, LRESULT *pResult)
 {
 	POINT point;
 	GetCursorPos(&point);

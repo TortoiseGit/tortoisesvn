@@ -215,7 +215,7 @@ void CFHDragWnd::OnPaint()
         OnDraw(&dc);
 }
 
-BOOL CFHDragWnd::OnEraseBkgnd(CDC* pDC) 
+BOOL CFHDragWnd::OnEraseBkgnd(CDC* /*pDC*/) 
 {
 	return TRUE;
 }
@@ -615,7 +615,7 @@ INT CFlatHeaderCtrl::GetItemWidth(LPHDITEM lphdi, BOOL bIncludeSort)
 	INT iWidth = 0;
 
 	CBitmap* pBitmap = NULL;
-	BITMAP biBitmap;
+	BITMAP biBitmap = {0};
 	if(lphdi->fmt&HDF_BITMAP)
 	{
 		ASSERT(lphdi->mask&HDI_BITMAP);
@@ -989,11 +989,11 @@ void CFlatHeaderCtrl::DrawItem(CDC* pDC, CRect rect, LPHDITEM lphdi, BOOL bSort,
 	switch(lphdi->fmt&HDF_JUSTIFYMASK)
 	{
 	case HDF_LEFT:
-		rect.left += (iWidth = DrawImage(pDC, rect, lphdi, FALSE)) ? iWidth+m_iSpacing : 0;
+		rect.left += ((iWidth = DrawImage(pDC, rect, lphdi, FALSE))!=0) ? iWidth+m_iSpacing : 0;
 		if(lphdi->fmt&HDF_IMAGE && !iWidth)
 			break;
 		rect.right -= bSort ? m_iSpacing+m_sizeArrow.cx : 0;
-		rect.left += (iWidth = DrawText(pDC, rect, lphdi)) ? iWidth+m_iSpacing : 0;
+		rect.left += ((iWidth = DrawText(pDC, rect, lphdi))!=0) ? iWidth+m_iSpacing : 0;
 		if(bSort)
 		{
 			rect.right += m_iSpacing+m_sizeArrow.cx;
@@ -1003,12 +1003,12 @@ void CFlatHeaderCtrl::DrawItem(CDC* pDC, CRect rect, LPHDITEM lphdi, BOOL bSort,
 		break;
 
 	case HDF_CENTER:
-		rect.left += (iWidth = DrawImage(pDC, rect, lphdi, FALSE)) ? iWidth+m_iSpacing : 0;
+		rect.left += ((iWidth = DrawImage(pDC, rect, lphdi, FALSE))!=0) ? iWidth+m_iSpacing : 0;
 		if(lphdi->fmt&HDF_IMAGE && !iWidth)
 			break;
 
 		rect.left += bSort ? m_iSpacing+m_sizeArrow.cx : 0;
-		rect.right -= (iWidth=DrawBitmap(pDC, rect, lphdi, pBitmap, &BitmapInfo, TRUE)) ? iWidth+m_iSpacing:0;
+		rect.right -= ((iWidth=DrawBitmap(pDC, rect, lphdi, pBitmap, &BitmapInfo, TRUE))!=0) ? iWidth+m_iSpacing:0;
 		if(bSort)
 		{
 			rect.left -= m_iSpacing+m_sizeArrow.cx;
@@ -1019,15 +1019,15 @@ void CFlatHeaderCtrl::DrawItem(CDC* pDC, CRect rect, LPHDITEM lphdi, BOOL bSort,
 
 	case HDF_RIGHT:
 		if(!(lphdi->fmt&HDF_BITMAP_ON_RIGHT))
-			rect.left += (iWidth=DrawBitmap(pDC, rect, lphdi, pBitmap, &BitmapInfo, FALSE)) ? iWidth+m_iSpacing:0;
+			rect.left += ((iWidth=DrawBitmap(pDC, rect, lphdi, pBitmap, &BitmapInfo, FALSE))!=0) ? iWidth+m_iSpacing:0;
 
-		rect.left += (iWidth = DrawImage(pDC, rect, lphdi, FALSE)) ? iWidth+m_iSpacing : 0;
+		rect.left += ((iWidth = DrawImage(pDC, rect, lphdi, FALSE))!=0) ? iWidth+m_iSpacing : 0;
 		if(lphdi->fmt&HDF_IMAGE && !iWidth)
 			break;
 
 		rect.left += bSort && (lphdi->fmt&HDF_BITMAP_ON_RIGHT) ? m_iSpacing+m_sizeArrow.cx : 0;
 		if(lphdi->fmt&HDF_BITMAP_ON_RIGHT)
-			rect.right -= (iWidth=DrawBitmap(pDC, rect, lphdi, pBitmap, &BitmapInfo, TRUE)) ? iWidth+m_iSpacing:0;
+			rect.right -= ((iWidth=DrawBitmap(pDC, rect, lphdi, pBitmap, &BitmapInfo, TRUE))!=0) ? iWidth+m_iSpacing:0;
 		if(bSort)
 		{
 			rect.left -= (lphdi->fmt&HDF_BITMAP_ON_RIGHT) ? m_iSpacing+m_sizeArrow.cx:0;
@@ -1071,7 +1071,7 @@ INT CFlatHeaderCtrl::DrawImage(CDC* pDC, CRect rect, LPHDITEM lphdi, BOOL bRight
 	return iWidth;
 }
 
-INT CFlatHeaderCtrl::DrawBitmap(CDC* pDC, CRect rect, LPHDITEM lphdi, CBitmap* pBitmap, BITMAP* pBitmapInfo, BOOL bRight)
+INT CFlatHeaderCtrl::DrawBitmap(CDC* pDC, CRect rect, LPHDITEM /*lphdi*/, CBitmap* pBitmap, BITMAP* pBitmapInfo, BOOL bRight)
 {
 	INT iWidth = 0;
 
@@ -1210,7 +1210,7 @@ INT CFlatHeaderCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 		pTI->hwnd = GetSafeHwnd();
 		pTI->uFlags = TTF_ALWAYSTIP;
 		pTI->lpszText = LPSTR_TEXTCALLBACK;
-		pTI->uId = FLATHEADER_TT_MAGIC;
+		pTI->uId = (UINT_PTR)FLATHEADER_TT_MAGIC;
 	}
 
 	return iResult;
@@ -1219,7 +1219,7 @@ INT CFlatHeaderCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 /////////////////////////////////////////////////////////////////////////////
 // CHeaderCtrl message handlers
 
-LRESULT CFlatHeaderCtrl::OnInsertItem(WPARAM wParam, LPARAM lParam)
+LRESULT CFlatHeaderCtrl::OnInsertItem(WPARAM wParam, LPARAM /*lParam*/)
 {
 	HDITEMEX hditemex;
 	hditemex.iMinWidth = 0;
@@ -1246,7 +1246,7 @@ LRESULT CFlatHeaderCtrl::OnInsertItem(WPARAM wParam, LPARAM lParam)
 	return lResult;
 }
 
-LRESULT CFlatHeaderCtrl::OnDeleteItem(WPARAM wParam, LPARAM lParam)
+LRESULT CFlatHeaderCtrl::OnDeleteItem(WPARAM wParam, LPARAM /*lParam*/)
 {
 	ASSERT((INT)wParam < m_arrayHdrItemEx.GetSize());
 	m_arrayHdrItemEx.RemoveAt(wParam);
@@ -1254,7 +1254,7 @@ LRESULT CFlatHeaderCtrl::OnDeleteItem(WPARAM wParam, LPARAM lParam)
 	return Default();
 }
 
-LRESULT CFlatHeaderCtrl::OnSetImageList(WPARAM wParam, LPARAM lParam)
+LRESULT CFlatHeaderCtrl::OnSetImageList(WPARAM /*wParam*/, LPARAM lParam)
 {
 	IMAGEINFO info;
 	ZeroMemory(&info, sizeof info);
@@ -1340,7 +1340,7 @@ LRESULT CFlatHeaderCtrl::OnSetHotDivider(WPARAM wParam, LPARAM lParam)
 	return(LRESULT)m_iHotDivider;
 }
 
-LRESULT CFlatHeaderCtrl::OnLayout(WPARAM wParam, LPARAM lParam)
+LRESULT CFlatHeaderCtrl::OnLayout(WPARAM /*wParam*/, LPARAM lParam)
 {
 	LPHDLAYOUT lphdlayout = (LPHDLAYOUT)lParam;
 
@@ -1358,7 +1358,7 @@ LRESULT CFlatHeaderCtrl::OnLayout(WPARAM wParam, LPARAM lParam)
 	return lResult;
 }
 
-BOOL CFlatHeaderCtrl::OnToolTipNotify(UINT nId, NMHDR *pNMHDR, LRESULT *pResult)
+BOOL CFlatHeaderCtrl::OnToolTipNotify(UINT /*nId*/, NMHDR *pNMHDR, LRESULT * /*pResult*/)
 {
 	TOOLTIPTEXT *pTTT = (TOOLTIPTEXT *)pNMHDR;
 
@@ -1389,12 +1389,12 @@ void CFlatHeaderCtrl::OnSysColorChange()
 	m_crText = ::GetSysColor(COLOR_BTNTEXT);
 }
 
-LRESULT CFlatHeaderCtrl::OnGetFont(WPARAM wParam, LPARAM lParam)
+LRESULT CFlatHeaderCtrl::OnGetFont(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     return (LRESULT)m_font.m_hObject;
 }
 
-LRESULT CFlatHeaderCtrl::OnSetFont(WPARAM wParam, LPARAM lParam)
+LRESULT CFlatHeaderCtrl::OnSetFont(WPARAM wParam, LPARAM /*lParam*/)
 {
 	LRESULT lResult = Default();
 
@@ -1411,7 +1411,7 @@ LRESULT CFlatHeaderCtrl::OnSetFont(WPARAM wParam, LPARAM lParam)
 	return lResult;
 }
 
-BOOL CFlatHeaderCtrl::OnEraseBkgnd(CDC* pDC) 
+BOOL CFlatHeaderCtrl::OnEraseBkgnd(CDC* /*pDC*/) 
 {
 	return TRUE;
 }

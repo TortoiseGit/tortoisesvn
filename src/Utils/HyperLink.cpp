@@ -120,10 +120,8 @@ void CHyperLink::OnClicked()
     GotoURL(m_strURL);
 }
 
-HBRUSH CHyperLink::CtlColor(CDC* pDC, UINT nCtlColor) 
+HBRUSH CHyperLink::CtlColor(CDC* pDC, UINT /*nCtlColor*/) 
 {
-    ASSERT(nCtlColor == CTLCOLOR_STATIC);
-
     if (m_bOverControl)
         pDC->SetTextColor(m_crHoverColor);
     else

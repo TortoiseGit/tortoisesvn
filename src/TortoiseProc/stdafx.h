@@ -62,8 +62,6 @@
 #include <afxctl.h>
 #include <afxtempl.h>
 
-//#include <atlbase.h>
-
 #ifndef UNICODE
 #include "multimon.h"
 #endif
@@ -88,13 +86,18 @@
 #include <set>
 #pragma warning(pop)
 
+#pragma warning(push)
+#pragma warning(disable: 4201)	// nonstandard extension used : nameless struct/union (in MMSystem.h)
 #include <vfw.h>
 #include <shlobj.h>
 #include <Shlwapi.h>
 #include <shlguid.h>
 #include <uxtheme.h>
 #include <tmschema.h>
+#pragma warning(pop)
 
+#pragma warning(push)
+#pragma warning(disable: 4005)	// macro redefinition
 #include "..\..\..\Subversion\apr\include\apr_version.h"
 #include "..\..\..\Subversion\apr-iconv\include\api_version.h"
 #include "..\..\..\Subversion\apr-util\include\apu_version.h"
@@ -102,5 +105,6 @@
 #include "..\..\..\Subversion\neon\src\config.h"
 #include "..\..\..\common\openssl\inc32\openssl\opensslv.h"
 #include "..\..\..\common\zlib\zlib.h"
+#pragma warning(pop)
 
 

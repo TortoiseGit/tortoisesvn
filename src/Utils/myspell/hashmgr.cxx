@@ -84,8 +84,8 @@ int HashMgr::add_word(const char * word, int wl, const char * aff, int al)
     struct hentry * dp = &tableptr[i];
     struct hentry* hp;
     if (dp->word == NULL) {
-       dp->wlen = wl;
-       dp->alen = al;
+       dp->wlen = (short)wl;
+       dp->alen = (short)al;
        dp->word = mystrdup(word);
        dp->astr = mystrdup(aff);
        dp->next = NULL;
@@ -94,8 +94,8 @@ int HashMgr::add_word(const char * word, int wl, const char * aff, int al)
     } else {
        hp = (struct hentry *) malloc (sizeof(struct hentry));
        if (hp == NULL) return 1;
-       hp->wlen = wl;
-       hp->alen = al;
+       hp->wlen = (short)wl;
+       hp->alen = (short)al;
        hp->word = mystrdup(word);
        hp->astr = mystrdup(aff);
        hp->next = NULL;      

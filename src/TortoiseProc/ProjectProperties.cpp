@@ -219,7 +219,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 			return FALSE;
 		}
 	}
-	return FALSE;		//never reached
+	//return FALSE;		//never reached
 }
 
 BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)

@@ -549,7 +549,7 @@ protected:
 	CReportCtrl *m_pReportCtrl;
 
 	BOOL m_bLayeredWindows;
-	UINT m_nAlpha;
+	BYTE m_nAlpha;
 
 	CRect m_rectText;
 	CRect m_rectTip;

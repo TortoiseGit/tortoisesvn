@@ -25,7 +25,7 @@ class CDlgTemplate
 public:
 
 	CDlgTemplate(){};
-    CDlgTemplate(LPCTSTR caption, DWORD style, int x, int y, int w, int h,
+    CDlgTemplate(LPCTSTR caption, DWORD style, short x, short y, short w, short h,
         LPCTSTR font = NULL, LONG fontSize = 8)
     {
 
@@ -61,7 +61,7 @@ public:
     }
 
     void AddComponent(LPCTSTR type, LPCTSTR caption, DWORD style, DWORD exStyle,
-        int x, int y, int w, int h, WORD id)
+        short x, short y, short w, short h, WORD id)
     {
 
         DLGITEMTEMPLATE item;
@@ -89,8 +89,8 @@ public:
 
     }
 
-    void AddButton(LPCTSTR caption, DWORD style, DWORD exStyle, int x, int y,
-        int w, int h, WORD id)
+    void AddButton(LPCTSTR caption, DWORD style, DWORD exStyle, short x, short y,
+        short w, short h, WORD id)
     {
 
         AddStandardComponent(0x0080, caption, style, exStyle, x, y, w, h, id);
@@ -100,8 +100,8 @@ public:
 
     }
 
-    void AddEditBox(LPCTSTR caption, DWORD style, DWORD exStyle, int x, int y,
-        int w, int h, WORD id)
+    void AddEditBox(LPCTSTR caption, DWORD style, DWORD exStyle, short x, short y,
+        short w, short h, WORD id)
     {
 
         AddStandardComponent(0x0081, caption, style, exStyle, x, y, w, h, id);
@@ -111,8 +111,8 @@ public:
 
     }
 
-    void AddStatic(LPCTSTR caption, DWORD style, DWORD exStyle, int x, int y,
-        int w, int h, WORD id)
+    void AddStatic(LPCTSTR caption, DWORD style, DWORD exStyle, short x, short y,
+        short w, short h, WORD id)
     {
 
         AddStandardComponent(0x0082, caption, style, exStyle, x, y, w, h, id);
@@ -122,8 +122,8 @@ public:
 
     }
 
-    void AddListBox(LPCTSTR caption, DWORD style, DWORD exStyle, int x, int y,
-        int w, int h, WORD id)
+    void AddListBox(LPCTSTR caption, DWORD style, DWORD exStyle, short x, short y,
+        short w, short h, WORD id)
     {
 
         AddStandardComponent(0x0083, caption, style, exStyle, x, y, w, h, id);
@@ -133,8 +133,8 @@ public:
 
     }
 
-    void AddScrollBar(LPCTSTR caption, DWORD style, DWORD exStyle, int x, int y,
-        int w, int h, WORD id)
+    void AddScrollBar(LPCTSTR caption, DWORD style, DWORD exStyle, short x, short y,
+        short w, short h, WORD id)
     {
 
         AddStandardComponent(0x0084, caption, style, exStyle, x, y, w, h, id);
@@ -144,8 +144,8 @@ public:
 
     }
 
-    void AddComboBox(LPCTSTR caption, DWORD style, DWORD exStyle, int x, int y,
-        int w, int h, WORD id)
+    void AddComboBox(LPCTSTR caption, DWORD style, DWORD exStyle, short x, short y,
+        short w, short h, WORD id)
     {
 
         AddStandardComponent(0x0085, caption, style, exStyle, x, y, w, h, id);
@@ -174,7 +174,7 @@ public:
 protected:
 
     void AddStandardComponent(WORD type, LPCTSTR caption, DWORD style,
-        DWORD exStyle, int x, int y, int w, int h, WORD id)
+        DWORD exStyle, short x, short y, short w, short h, WORD id)
     {
 
         DLGITEMTEMPLATE item;

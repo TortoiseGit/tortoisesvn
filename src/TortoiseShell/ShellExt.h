@@ -209,9 +209,9 @@ public:
     STDMETHODIMP GetClassID(CLSID *pclsid);
     STDMETHODIMP Load(LPCOLESTR pszFileName, DWORD dwMode);
     STDMETHODIMP IsDirty(void) { return S_OK; };
-    STDMETHODIMP Save(LPCOLESTR pszFileName, BOOL fRemember) { return S_OK; };
-    STDMETHODIMP SaveCompleted(LPCOLESTR pszFileName) { return S_OK; };
-    STDMETHODIMP GetCurFile(LPOLESTR *ppszFileName) { return S_OK; };
+    STDMETHODIMP Save(LPCOLESTR /*pszFileName*/, BOOL /*fRemember*/) { return S_OK; };
+    STDMETHODIMP SaveCompleted(LPCOLESTR /*pszFileName*/) { return S_OK; };
+    STDMETHODIMP GetCurFile(LPOLESTR * /*ppszFileName*/) { return S_OK; };
 	//@}
 
 	/** \name IShellIconOverlayIdentifier 

@@ -74,7 +74,7 @@ END_MESSAGE_MAP()
 // CFontPreviewCombo message handlers
 
 
-BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme, 
+BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX * /*lpntme*/, 
 						        DWORD FontType, LPARAM lParam)	
 {	
 	CFontPreviewCombo *pThis = reinterpret_cast<CFontPreviewCombo*>(lParam);
@@ -84,10 +84,9 @@ BOOL CALLBACK FPC_EnumFontProc (ENUMLOGFONTEX * lpelfe, NEWTEXTMETRICEX *lpntme,
 	} // if (_tcscmp(buf, lpelfe->elfLogFont.lfFaceName)==0 
 	int index = pThis->AddString(lpelfe->elfLogFont.lfFaceName);
 	ASSERT(index!=-1);
-	int maxLen = (int)(lpntme->ntmTm.tmMaxCharWidth * _tcslen(lpelfe->elfLogFont.lfFaceName));
 	int ret = pThis->SetItemData (index, FontType); 
 
-	ASSERT(ret!=-1);
+	VERIFY(ret!=-1);
 
 	pThis->AddFont (lpelfe->elfLogFont.lfFaceName);
 	
@@ -169,8 +168,7 @@ void CFontPreviewCombo::DrawItem(LPDRAWITEMSTRUCT lpDIS)
 	int iPosY = 0;
 	HFONT hf = NULL;
 	CFont* cf;
-	BOOL lookupResult = m_fonts.Lookup (csCurFontName, (void*&)cf) != NULL;
-	_ASSERTE (lookupResult);
+	m_fonts.Lookup (csCurFontName, (void*&)cf);
 	switch (m_style)
 	{
 	case NAME_GUI_FONT:
@@ -348,7 +346,7 @@ CFontPreviewCombo::AddFont (const CString& faceName)
 			cf->CreateFont(m_iFontHeight,0,0,0,FW_NORMAL,FALSE, FALSE, 
 			FALSE,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,
 			CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH, faceName);
-		_ASSERTE (createFontResult);
+		VERIFY (createFontResult);
 		CFont* old_cf = NULL;
 		if (m_fonts.Lookup(faceName, (void*&)old_cf))
 			delete old_cf;

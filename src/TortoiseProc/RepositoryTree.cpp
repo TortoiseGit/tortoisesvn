@@ -64,7 +64,6 @@ void CRepositoryTree::ChangeToUrl(const SVNUrl& svn_url)
 	else
 		AddFolder(m_strUrl, true, true);
 
-	HTREEITEM hRoot = GetNextItem(RVTI_ROOT, RVGN_CHILD);
 	HTREEITEM hItem = FindUrl(m_strUrl);
 	if (hItem != 0)
 		SetSelection(hItem);

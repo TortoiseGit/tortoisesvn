@@ -85,7 +85,7 @@ int  DictMgr::parse_file(const char * dictpath, const char * etype)
              char * tp = line;
              char * piece;
              i = 0;
-             while ((piece=mystrsep(&tp,' '))) {
+             while ((piece=mystrsep(&tp,' '))!=0) {
                 if (*piece != '\0') {
                     switch(i) {
                        case 0: break;

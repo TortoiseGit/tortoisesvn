@@ -9,7 +9,7 @@ extern char * mystrdup(const char * s);
 using namespace std;
 
 int 
-main(int argc, char** argv)
+main(int /*argc*/, char** argv)
 {
 
     char * af;

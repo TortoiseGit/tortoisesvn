@@ -259,7 +259,7 @@ get_os_username (apr_pool_t *pool)
 static svn_error_t *
 tsvn_simple_first_creds (void **credentials,
 					void **iter_baton,
-					void *provider_baton,
+					void * /*provider_baton*/,
 					apr_hash_t *parameters,
 					const char *realmstring,
 					apr_pool_t *pool)
@@ -339,7 +339,7 @@ tsvn_simple_first_creds (void **credentials,
 static svn_error_t *
 tsvn_simple_save_creds (svn_boolean_t *saved,
 				   void *credentials,
-				   void *provider_baton,
+				   void * /*provider_baton*/,
 				   apr_hash_t *parameters,
 				   const char *realmstring,
 				   apr_pool_t *pool)
@@ -476,8 +476,11 @@ tsvn_prompt_for_simple_creds (svn_auth_cred_simple_t **cred_p,
 	}
 	else
 	{
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
 		SVN_ERR (pb->prompt_func (cred_p, pb->prompt_baton, realmstring,
 			def_username, may_save, pool));
+#pragma warning(pop)
 	}
 
 	return SVN_NO_ERROR;
@@ -500,9 +503,12 @@ tsvn_simple_prompt_first_creds (void **credentials_p,
 		SVN_AUTH_PARAM_NO_AUTH_CACHE,
 		APR_HASH_KEY_STRING);
 
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
 	SVN_ERR (tsvn_prompt_for_simple_creds ((svn_auth_cred_simple_t **) credentials_p,
 		pb, parameters, realmstring, TRUE,
 		! no_auth_cache, pool));
+#pragma warning(pop)
 
 	ibaton->retries = 0;
 	*iter_baton = ibaton;
@@ -535,9 +541,12 @@ tsvn_simple_prompt_next_creds (void **credentials_p,
 	}
 	ib->retries++;
 
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
 	SVN_ERR (tsvn_prompt_for_simple_creds ((svn_auth_cred_simple_t **) credentials_p,
 		pb, parameters, realmstring, FALSE,
 		! no_auth_cache, pool));
+#pragma warning(pop)
 
 	return SVN_NO_ERROR;
 }

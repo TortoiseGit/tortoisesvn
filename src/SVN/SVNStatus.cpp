@@ -495,7 +495,11 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 	} // switch (status) 
 }
 
+#ifdef UNICODE
+int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int /*nBufferMax*/, WORD wLanguage)
+#else
 int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
+#endif
 {
 	const STRINGRESOURCEIMAGE* pImage;
 	const STRINGRESOURCEIMAGE* pImageEnd;
@@ -542,12 +546,12 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
 	lpBuffer[ret] = 0;
 #else
 	ret = WideCharToMultiByte(CP_ACP, 0, pImage->achString, pImage->nLength, (LPSTR)lpBuffer, nBufferMax-1, ".", &defaultCharUsed);
-	(TCHAR)lpBuffer[ret] = 0;
+	lpBuffer[ret] = 0;
 #endif
 	return ret;
 }
 
-void SVNStatus::getallstatus(void * baton, const char * path, svn_wc_status_t * status)
+void SVNStatus::getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 {
 	svn_wc_status_kind * s = (svn_wc_status_kind *)baton;
 	*s = SVNStatus::GetMoreImportant(*s, status->text_status);

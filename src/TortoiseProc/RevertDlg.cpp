@@ -172,10 +172,6 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 			SVNStatus status;
 			svn_wc_status_t *s;
 
-			// Determine whether the item the user selected (strLine) is a directory.
-
-			BOOL bIsDir = PathIsDirectory(strLine);
-
 			// The directory that contains this item.
 			// Even if strLine is a directory, we will hold its root. 
 			// Thus, we can distinguish sub-items with the same relative 
@@ -362,9 +358,9 @@ BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
-void CRevertDlg::OnLvnItemchangedRevertlist(NMHDR *pNMHDR, LRESULT *pResult)
+void CRevertDlg::OnLvnItemchangedRevertlist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 	for (int i=0; i<m_RevertList.GetItemCount(); i++)
 	{

@@ -47,7 +47,6 @@ void CSpellEdit::OnTimer(UINT nIDEvent)
 		dc.SelectObject((*GetFont()));
 		CPen* pOldPen;
 		SIZE sizei, sizeo;
-		BOOL monospace = FALSE;
 		GetTextExtentPoint32(dc, _T("i"), 1, &sizei);
 		GetTextExtentPoint32(dc, _T("O"), 1, &sizeo);
 		if (sizei.cx == sizeo.cx)
@@ -341,7 +340,7 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 			for (int i=0; i < ns; i++) 
 			{
 				CString sug = CString(wlst[i]);
-				corrections.InsertMenu(-1, 0, i+1, sug);
+				corrections.InsertMenu((UINT)-1, 0, i+1, sug);
 				free(wlst[i]);
 			} 
 			free(wlst);
@@ -349,12 +348,12 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 
 		if ((ns > 0)&&(point.x >= 0))
 		{
-			menu.InsertMenu(-1, MF_BYPOSITION | MF_SEPARATOR);
+			menu.InsertMenu((UINT)-1, MF_BYPOSITION | MF_SEPARATOR);
 #ifdef IDS_SPELLEDIT_CORRECTIONS
 			m_i18l.LoadString(IDS_SPELLEDIT_CORRECTIONS);
-			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, m_i18l);
+			menu.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, m_i18l);
 #else
-			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, _T("Corrections"));
+			menu.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)corrections.m_hMenu, _T("Corrections"));
 #endif
 			nCorrections = ns;
 		}
@@ -379,9 +378,9 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 				for (int j=0; j < pm->count; j++) 
 				{
 					CString sug = CString(pm->psyns[j]);
-					submenu->InsertMenu(-1, 0, menuid++, sug);
+					submenu->InsertMenu((UINT)-1, 0, menuid++, sug);
 				}
-				thesaurs.InsertMenu(-1, MF_POPUP, (UINT_PTR)(submenu->m_hMenu), CString(pm->defn));
+				thesaurs.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)(submenu->m_hMenu), CString(pm->defn));
 				pm++;
 			}
 		}  
@@ -389,9 +388,9 @@ void CSpellEdit::OnContextMenu(CWnd* pWnd, CPoint point)
 		{
 #ifdef IDS_SPELLEDIT_THESAURUS
 			m_i18l.LoadString(IDS_SPELLEDIT_THESAURUS);
-			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, m_i18l);
+			menu.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, m_i18l);
 #else
-			menu.InsertMenu(-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, _T("Thesaurus"));
+			menu.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, _T("Thesaurus"));
 #endif
 			nThesaurs = menuid;
 		}

@@ -458,7 +458,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow)
 		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
 		switch (status)
 		{
-		case 0:
 		case svn_wc_status_none:
 		case svn_wc_status_unversioned:
 			if (dwShow & SVNSLC_SHOWUNVERSIONED)
@@ -582,7 +581,6 @@ void CSVNStatusListCtrl::CheckAll(DWORD dwCheck)
 		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
 		switch (status)
 		{
-		case 0:
 		case svn_wc_status_none:
 		case svn_wc_status_unversioned:
 			if (dwCheck & SVNSLC_SHOWUNVERSIONED)
@@ -1232,7 +1230,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								filename = _T("*")+filename.Mid(filename.ReverseFind('.'));
 								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, filename);
 								temp.LoadString(IDS_MENUIGNORE);
-								popup.InsertMenu(-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
+								popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
 							}
 						}
 						else

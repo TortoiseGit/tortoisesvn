@@ -105,7 +105,6 @@ BOOL CDib::SetBitmap(LPBITMAPINFO lpBitmapInfo, LPVOID lpBits)
         return FALSE;
 
     HDC hDC = NULL;
-    BITMAPINFOHEADER& bmih = lpBitmapInfo->bmiHeader;
 
     DWORD dwBitmapInfoSize = sizeof(BITMAPINFO);
 

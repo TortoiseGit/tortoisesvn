@@ -575,14 +575,14 @@ void AffixMgr::encodeit(struct affentry * ptr, char * cs)
           // set the proper bits in the condition array vals for those chars
 	  for (j=0;j<nm;j++) {
 	     k = (unsigned int) mbr[j];
-             ptr->conds[k] = ptr->conds[k] | (1 << n);
+             ptr->conds[k] = ptr->conds[k] | (char)(1 << n);
           }
 	} else {
 	  // complement so set all of them and then unset indicated ones
-	   for (j=0;j<SETSIZE;j++) ptr->conds[j] = ptr->conds[j] | (1 << n);
+	   for (j=0;j<SETSIZE;j++) ptr->conds[j] = ptr->conds[j] | (char)(1 << n);
 	   for (j=0;j<nm;j++) {
 	     k = (unsigned int) mbr[j];
-             ptr->conds[k] = ptr->conds[k] & ~(1 << n);
+             ptr->conds[k] = ptr->conds[k] & ~((char)(1 << n));
 	   }
         }
         neg = 0;
@@ -593,9 +593,9 @@ void AffixMgr::encodeit(struct affentry * ptr, char * cs)
          // but first handle special case of . inside condition
          if (c == '.') {
 	    // wild card character so set them all
-            for (j=0;j<SETSIZE;j++) ptr->conds[j] = ptr->conds[j] | (1 << n);
+            for (j=0;j<SETSIZE;j++) ptr->conds[j] = ptr->conds[j] | (char)(1 << n);
          } else {  
-	    ptr->conds[(unsigned int) c] = ptr->conds[(unsigned int)c] | (1 << n);
+	    ptr->conds[(unsigned int) c] = ptr->conds[(unsigned int)c] | (char)(1 << n);
          }
       }
       n++;
@@ -605,7 +605,7 @@ void AffixMgr::encodeit(struct affentry * ptr, char * cs)
 
     i++;
   }
-  ptr->numconds = n;
+  ptr->numconds = (short)n;
   return;
 }
 
@@ -897,7 +897,7 @@ int  AffixMgr::parse_try(char * line)
    char * piece;
    int i = 0;
    int np = 0;
-   while ((piece=mystrsep(&tp,' '))) {
+   while ((piece=mystrsep(&tp,' '))!=0) {
       if (*piece != '\0') {
           switch(i) {
 	      case 0: { np++; break; }
@@ -927,7 +927,7 @@ int  AffixMgr::parse_set(char * line)
    char * piece;
    int i = 0;
    int np = 0;
-   while ((piece=mystrsep(&tp,' '))) {
+   while ((piece=mystrsep(&tp,' '))!=0) {
       if (*piece != '\0') {
           switch(i) {
 	     case 0: { np++; break; }
@@ -957,7 +957,7 @@ int  AffixMgr::parse_cpdflag(char * line)
    char * piece;
    int i = 0;
    int np = 0;
-   while ((piece=mystrsep(&tp,' '))) {
+   while ((piece=mystrsep(&tp,' '))!=0) {
       if (*piece != '\0') {
           switch(i) {
 	     case 0: { np++; break; }
@@ -983,7 +983,7 @@ int  AffixMgr::parse_cpdmin(char * line)
    char * piece;
    int i = 0;
    int np = 0;
-   while ((piece=mystrsep(&tp,' '))) {
+   while ((piece=mystrsep(&tp,' '))!=0) {
       if (*piece != '\0') {
           switch(i) {
 	     case 0: { np++; break; }
@@ -1014,7 +1014,7 @@ int  AffixMgr::parse_reptable(char * line, FILE * af)
    char * piece;
    int i = 0;
    int np = 0;
-   while ((piece=mystrsep(&tp,' '))) {
+   while ((piece=mystrsep(&tp,' '))!=0) {
        if (*piece != '\0') {
           switch(i) {
 	     case 0: { np++; break; }
@@ -1049,7 +1049,7 @@ int  AffixMgr::parse_reptable(char * line, FILE * af)
         i = 0;
         reptable[j].pattern = NULL;
         reptable[j].replacement = NULL;
-        while ((piece=mystrsep(&tp,' '))) {
+        while ((piece=mystrsep(&tp,' '))!=0) {
            if (*piece != '\0') {
                switch(i) {
                   case 0: {
@@ -1089,7 +1089,7 @@ int  AffixMgr::parse_maptable(char * line, FILE * af)
    char * piece;
    int i = 0;
    int np = 0;
-   while ((piece=mystrsep(&tp,' '))) {
+   while ((piece=mystrsep(&tp,' '))!=0) {
        if (*piece != '\0') {
           switch(i) {
 	     case 0: { np++; break; }
@@ -1124,7 +1124,7 @@ int  AffixMgr::parse_maptable(char * line, FILE * af)
         i = 0;
         maptable[j].set = NULL;
         maptable[j].len = 0;
-        while ((piece=mystrsep(&tp,' '))) {
+        while ((piece=mystrsep(&tp,' '))!=0) {
            if (*piece != '\0') {
                switch(i) {
                   case 0: {
@@ -1171,7 +1171,7 @@ int  AffixMgr::parse_affix(char * line, const char at, FILE * af)
    // split affix header line into pieces
 
    int np = 0;
-   while ((piece=mystrsep(&tp,' '))) {
+   while ((piece=mystrsep(&tp,' '))!=0) {
       if (*piece != '\0') {
           switch(i) {
              // piece 1 - is type of affix
@@ -1218,7 +1218,7 @@ int  AffixMgr::parse_affix(char * line, const char at, FILE * af)
       np = 0;
 
       // split line into pieces
-      while ((piece=mystrsep(&tp,' '))) {
+      while ((piece=mystrsep(&tp,' '))!=0) {
          if (*piece != '\0') {
              switch(i) {
 
@@ -1246,7 +1246,7 @@ int  AffixMgr::parse_affix(char * line, const char at, FILE * af)
                 case 2: { 
                           np++;
                           nptr->strip = mystrdup(piece);
-                          nptr->stripl = strlen(nptr->strip);
+                          nptr->stripl = (short)strlen(nptr->strip);
                           if (strcmp(nptr->strip,"0") == 0) {
                               free(nptr->strip);
                               nptr->strip=mystrdup("");
@@ -1259,7 +1259,7 @@ int  AffixMgr::parse_affix(char * line, const char at, FILE * af)
                 case 3: { 
 		          np++;
                           nptr->appnd = mystrdup(piece);
-                          nptr->appndl = strlen(nptr->appnd);
+                          nptr->appndl = (short)strlen(nptr->appnd);
                           if (strcmp(nptr->appnd,"0") == 0) {
                               free(nptr->appnd);
                               nptr->appnd=mystrdup("");

@@ -121,10 +121,14 @@ CString SVN::CheckConfigFile()
 
 }
 
+#pragma warning(push)
+#pragma warning(disable: 4100)	// unreferenced formal parameter
+
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
 BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
+#pragma warning(pop)
 
 struct log_msg_baton
 {
@@ -479,7 +483,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 			const TCHAR * strbuf = NULL;
 			svn_wc_status_t * s;
 			SVNStatus status;
-			if (s = status.GetFirstFileStatus(srcPath, &strbuf))
+			if ((s = status.GetFirstFileStatus(srcPath, &strbuf))!=0)
 			{
 				DWORD maxval = status.GetVersionedCount();
 				DWORD current = 0;
@@ -514,7 +518,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 						return FALSE;
 					}
 				}
-				while (s = status.GetNextFileStatus(&strbuf))
+				while ((s = status.GetNextFileStatus(&strbuf))!=0)
 				{
 					if ((s->text_status == svn_wc_status_unversioned)||
 						(s->text_status == svn_wc_status_ignored)||
@@ -1114,7 +1118,10 @@ svn_error_t* SVN::logReceiver(void* baton,
 		e->Delete();
 	}
 	cpaths.FreeExtra();
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
 	SVN_ERR (svn->cancel(baton));
+#pragma warning(pop)
 
 	if (svn->Log(rev, author_native, date_native, msg_native, cpaths))
 	{
@@ -1212,7 +1219,7 @@ void	SVN::preparePath(CString &path)
 
 svn_error_t* svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
-									apr_array_header_t * commit_items,
+									apr_array_header_t * /*commit_items*/,
 									void *baton, 
 									apr_pool_t * pool)
 {
@@ -1279,10 +1286,13 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 
 	else
 	{
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
 		SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, canontarget,
 			FALSE, 0, pool));
 		SVN_ERR (svn_wc_entry (&entry, canontarget, adm_access, FALSE, pool));
 		SVN_ERR (svn_wc_adm_close (adm_access));
+#pragma warning(pop)
 
 		*URL = entry ? entry->url : NULL;
 	}
@@ -1311,7 +1321,6 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 	apr_hash_index_t *hi;
     svn_dirent_t* val;
 	const char* key;
-	BOOL first = TRUE;
     for (hi = apr_hash_first(pool, hash); hi; hi = apr_hash_next(hi)) 
 	{
         apr_hash_this(hi, (const void**)&key, NULL, (void**)&val);
@@ -1569,14 +1578,14 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 
 	newtime = _localtime64(&ttime);
 
-	systime.wDay = newtime->tm_mday;
-	systime.wDayOfWeek = newtime->tm_wday;
-	systime.wHour = newtime->tm_hour;
+	systime.wDay = (WORD)newtime->tm_mday;
+	systime.wDayOfWeek = (WORD)newtime->tm_wday;
+	systime.wHour = (WORD)newtime->tm_hour;
 	systime.wMilliseconds = 0;
-	systime.wMinute = newtime->tm_min;
-	systime.wMonth = newtime->tm_mon+1;
-	systime.wSecond = newtime->tm_sec;
-	systime.wYear = newtime->tm_year+1900;
+	systime.wMinute = (WORD)newtime->tm_min;
+	systime.wMonth = (WORD)newtime->tm_mon+1;
+	systime.wSecond = (WORD)newtime->tm_sec;
+	systime.wYear = (WORD)newtime->tm_year+1900;
 	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
 	{
 		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, MAX_PATH);

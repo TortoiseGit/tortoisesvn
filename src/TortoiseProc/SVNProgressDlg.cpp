@@ -678,7 +678,7 @@ void CSVNProgressDlg::OnClose()
 {
 	if (m_bCancelled)
 	{
-		TerminateThread(m_hThread, -1);
+		TerminateThread(m_hThread, (DWORD)-1);
 		m_bThreadRunning = FALSE;
 	}
 	else
@@ -1010,7 +1010,6 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CMenu popup;
 			if (popup.CreatePopupMenu())
 			{
-				Data * data = NULL;
 				CString temp;
 				if (m_ProgList.GetSelectedCount() == 1)
 				{

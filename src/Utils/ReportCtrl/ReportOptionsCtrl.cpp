@@ -208,7 +208,7 @@ BOOL CReportOptionsCtrl::SetRadioButton(HTREEITEM hItem)
 	return SetRadioButton(hParent, iIndex);
 }
 
-BOOL CReportOptionsCtrl::GetRadioButton(HTREEITEM hParent, INT& iIndex, HTREEITEM& hCheckItem)
+BOOL CReportOptionsCtrl::GetRadioButton(HTREEITEM hParent, INT& iIndex, HTREEITEM& /*hCheckItem*/)
 {
 	HTREEITEM hItem = GetNextItem(hParent, RVGN_CHILD);
 
@@ -516,7 +516,7 @@ BOOL CReportOptionsCtrl::CreateRuntimeClass(HTREEITEM hItem)
 	{
 		ASSERT(m_lpEdit == NULL);
 
-		VERIFY(m_lpEdit = (CReportOptionsEdit*)pRuntimeClass->CreateObject());
+		VERIFY((m_lpEdit = (CReportOptionsEdit*)pRuntimeClass->CreateObject())!=0);
 		ASSERT(m_lpEdit->IsKindOf(RUNTIME_CLASS(CReportOptionsEdit)));
 
 		SetItemText(iItem, 0, strItem);
@@ -544,7 +544,7 @@ BOOL CReportOptionsCtrl::CreateRuntimeClass(HTREEITEM hItem)
 	{
 		ASSERT(m_lpCombo == NULL);
 
-		VERIFY(m_lpCombo = (CReportOptionsCombo*)pRuntimeClass->CreateObject());
+		VERIFY((m_lpCombo = (CReportOptionsCombo*)pRuntimeClass->CreateObject())!=0);
 		ASSERT(m_lpCombo->IsKindOf(RUNTIME_CLASS(CReportOptionsCombo)));
 
 		SetItemText(iItem, 0, strItem);
@@ -572,7 +572,7 @@ BOOL CReportOptionsCtrl::CreateRuntimeClass(HTREEITEM hItem)
 	return FALSE;
 }
 
-BOOL CReportOptionsCtrl::DeleteRuntimeClass(BOOL bUpdateFromControl, BOOL bNotify)
+BOOL CReportOptionsCtrl::DeleteRuntimeClass(BOOL bUpdateFromControl, BOOL /*bNotify*/)
 {
 	if(m_hControl == NULL)
 		return FALSE;
@@ -809,7 +809,7 @@ void CReportOptionsCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CReportCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-LRESULT CReportOptionsCtrl::OnCloseControl(WPARAM wParam, LPARAM lParam)
+LRESULT CReportOptionsCtrl::OnCloseControl(WPARAM wParam, LPARAM /*lParam*/)
 {
 	if(m_hControl != NULL)
 		DeleteRuntimeClass(wParam == VK_ESCAPE ? FALSE:TRUE, TRUE);
@@ -870,7 +870,7 @@ BOOL CReportOptionsEdit::PreTranslateMessage(MSG* pMsg)
 	return CEdit::PreTranslateMessage(pMsg);
 }
 
-void CReportOptionsEdit::OnKillFocus(CWnd* pNewWnd) 
+void CReportOptionsEdit::OnKillFocus(CWnd* /*pNewWnd*/) 
 {
 	if(m_bIgnoreLostFocus == FALSE)
 	{
@@ -922,7 +922,7 @@ BOOL CReportOptionsCombo::PreTranslateMessage(MSG* pMsg)
 	return CComboBox::PreTranslateMessage(pMsg);
 }
 
-void CReportOptionsCombo::OnKillFocus(CWnd* pNewWnd) 
+void CReportOptionsCombo::OnKillFocus(CWnd* /*pNewWnd*/) 
 {
 	if(m_bIgnoreLostFocus == FALSE)
 	{

@@ -139,10 +139,9 @@ void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize)
 
 }
 
-int CBrowseFolder::BrowseCallBackProc(HWND  hwnd,UINT  uMsg,LPARAM  lParam,LPARAM  lpData)
+int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM /*lParam*/, LPARAM /*lpData*/)
 {
 	RECT ListViewRect,Dialog;
-	CBrowseFolder * pDlg = (CBrowseFolder *)lpData;
 	//Initialization callback message
 	if (uMsg == BFFM_INITIALIZED)
 	{

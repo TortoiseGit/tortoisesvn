@@ -229,7 +229,7 @@ void CWaterEffect::SmoothWater(int npage)
 	}
 }
 
-void CWaterEffect::DrawWater(int page, int LightModifier, DWORD* pSrcImage, DWORD* pTargetImage)
+void CWaterEffect::DrawWater(int /*page*/, int /*LightModifier*/, DWORD* pSrcImage, DWORD* pTargetImage)
 {
 	int dx, dy;
 	int x, y;

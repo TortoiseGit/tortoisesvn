@@ -52,7 +52,7 @@ public:
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
 		for (int i=0; i<27; i++)
 		{
-			drivetypecache[i] = -1;
+			drivetypecache[i] = (UINT)-1;
 		}
 		TCHAR szBuffer[5];
 		columnrevformatticker = GetTickCount();

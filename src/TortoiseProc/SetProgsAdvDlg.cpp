@@ -273,13 +273,13 @@ void CSetProgsAdvDlg::OnBnClickedRemovetool()
 	m_ToolListCtrl.SetFocus();
 }
 
-void CSetProgsAdvDlg::OnNMClickToollistctrl(NMHDR *pNMHDR, LRESULT *pResult)
+void CSetProgsAdvDlg::OnNMClickToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
 {
 	EnableBtns();
 	*pResult = 0;
 }
 
-void CSetProgsAdvDlg::OnNMDblclkToollistctrl(NMHDR *pNMHDR, LRESULT *pResult)
+void CSetProgsAdvDlg::OnNMDblclkToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
 {
 	OnBnClickedEdittool();
 	*pResult = 0;

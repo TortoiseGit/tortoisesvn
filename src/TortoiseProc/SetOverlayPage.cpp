@@ -267,9 +267,9 @@ void CSetOverlayPage::InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags)
 	m_cMenuList.SetCheck(nIndex, topmenu & dwFlags);
 }
 
-void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult)
+void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	SetModified(TRUE);
 	if (m_cMenuList.GetItemCount() > 0)
 	{

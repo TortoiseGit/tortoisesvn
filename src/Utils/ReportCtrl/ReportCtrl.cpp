@@ -449,7 +449,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CReportView drawing
 
-void CReportView::OnDraw(CDC* pDC)
+void CReportView::OnDraw(CDC* /*pDC*/)
 {
 	;
 }
@@ -487,7 +487,7 @@ CReportCtrl* CReportView::GetReportCtrlPtr()
 /////////////////////////////////////////////////////////////////////////////
 // CReportView implementation
 
-BOOL CReportView::OnEraseBkgnd(CDC* pDC)
+BOOL CReportView::OnEraseBkgnd(CDC* /*pDC*/)
 {
 	return TRUE;
 }
@@ -504,7 +504,7 @@ void CReportView::OnSize(UINT nType, int cx, int cy)
 	}
 }
 
-void CReportView::OnSetFocus(CWnd* pOldWnd)
+void CReportView::OnSetFocus(CWnd* /*pOldWnd*/)
 {
 	if(m_bCreated && GetReportCtrlPtr()->GetSafeHwnd() != NULL)
 		GetReportCtrlPtr()->SetFocus();
@@ -959,9 +959,10 @@ INT CReportCtrl::GetActiveSubItemCount()
 
 INT CReportCtrl::GetSubItemWidth(INT iSubItem)
 {
+#ifdef DEBUG
 	INT iSubItems = (INT)m_arraySubItems.GetSize();
 	ASSERT(iSubItem <= iSubItems);
-
+#endif
 	try
 	{
 		INT iWidth = m_arraySubItems[iSubItem].iWidth;
@@ -2148,11 +2149,13 @@ BOOL CReportCtrl::ModifyStyle(DWORD dwRemove, DWORD dwAdd, UINT nFlags)
 INT CReportCtrl::DefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList)
 {
 	INT i;
+#ifdef DEBUG
 	INT iSubItems = (INT)m_arraySubItems.GetSize();
 
 	ASSERT(iSubItem <= iSubItems);
 	ASSERT(lprvs->lpszText != NULL); // Must supply (descriptive) text for subitem selector
 	ASSERT(_tcslen(lprvs->lpszText) < FLATHEADER_TEXT_MAX);
+#endif
 
 	try
 	{
@@ -2202,11 +2205,13 @@ INT CReportCtrl::DefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList
 
 BOOL CReportCtrl::RedefineSubItem(INT iSubItem, LPRVSUBITEM lprvs, BOOL bUpdateList)
 {
+#ifdef DEBUG
 	INT iSubItems = (INT)m_arraySubItems.GetSize();
 
 	ASSERT(iSubItem <= iSubItems);
 	ASSERT(lprvs->lpszText != NULL); // Must supply (descriptive) text for subitem selector
 	ASSERT(_tcslen(lprvs->lpszText) < FLATHEADER_TEXT_MAX);
+#endif
 
 	try
 	{
@@ -3078,7 +3083,6 @@ BOOL CReportCtrl::Expand(HTREEITEM hItem, UINT nCode)
 		DeselectDescendents(lptiAncestor);
 	}
 
-	INT iRows = (INT)m_arrayRows.GetSize();
 	INT iFirst = GetScrollPos32(SB_VERT), iLast;
 	GetVisibleRows(TRUE, &iFirst, &iLast);
 
@@ -3216,7 +3220,7 @@ INT CReportCtrl::PreviewHeight(CFont* pFont, LPCTSTR lpszText, LPRECT lpRect)
 		if(lpRect != NULL)
 			rect = *lpRect;
 
-		CFont* pDCFont = pDC->SelectObject(pFont);
+		pDC->SelectObject(pFont);
 		iHeight = pDC->DrawText( lpszText, -1, rect, DT_CALCRECT|DT_EXPANDTABS|DT_WORDBREAK|DT_NOCLIP );
 		ReleaseDC(pDC);
 	}
@@ -3297,7 +3301,7 @@ BOOL CReportCtrl::CreatePalette()
 		LOGPALETTE *pLP = (LOGPALETTE *) new BYTE[nSize];
 
 		pLP->palVersion = 0x300;
-		pLP->palNumEntries = iColors;
+		pLP->palNumEntries = (WORD)iColors;
 
 		INT i;
 		for( i=0;i<iUserColors;i++ )
@@ -3808,7 +3812,7 @@ CReportCtrl::ITEM& CReportCtrl::GetItemStruct(INT iItem, INT iSubItem, UINT nMas
 		}
 		else
 		{
-			VERIFY(lpItem = CacheAdd(iItem));
+			VERIFY((lpItem = CacheAdd(iItem))!=0);
 			lpItem->rdData.New(iSubItems);
 		}
 
@@ -3982,8 +3986,10 @@ CReportCtrl::LPTREEITEM CReportCtrl::GetVisibleAncestor(LPTREEITEM lpti, LPBOOL 
 
 BOOL CReportCtrl::SetSubItemWidthImpl(INT iSubItem, INT iWidth)
 {
+#ifdef DEBUG
 	INT iSubItems = (INT)m_arraySubItems.GetSize();
 	ASSERT(iSubItem <= iSubItems);
+#endif
 
 	try
 	{
@@ -4023,7 +4029,7 @@ BOOL CReportCtrl::SetSubItemWidthImpl(INT iSubItem, INT iWidth)
 	}
 }
 
-void CReportCtrl::GetExpandedItemText(LPRVITEM lprvi)
+void CReportCtrl::GetExpandedItemText(LPRVITEM /*lprvi*/)
 {
 }
 
@@ -4069,7 +4075,6 @@ CReportCtrl::LPTREEITEM CReportCtrl::GetTreeFocus()
 
 void CReportCtrl::SetTreeFocus(LPTREEITEM lptiFocus)
 {
-	INT iRows = (INT)m_arrayRows.GetSize();
 	INT iFirst = GetScrollPos32(SB_VERT), iLast;
 
 	if(lptiFocus != NULL)
@@ -4581,7 +4586,6 @@ void CReportCtrl::SelectionToSortedArray(CArray<INT, INT>& arrayRows)
 		iSize = (INT)arrayRows.GetSize();
 		if(iSize)
 		{
-			INT iTest = arrayRows[iPos];
 			if(arrayRows[iPos] <= iRow)
 			{
 				while(iPos<iSize && arrayRows[iPos] <= iRow)
@@ -4967,10 +4971,10 @@ void CReportCtrl::DrawItem(CDC* pDC, CRect rect, LPRVITEM lprvi)
 	{
 		INT iWidth = 0;
 
-		rect.left += (iWidth = DrawImage(pDC, rect, lprvi)) ? iWidth+m_iSpacing : 0;
+		rect.left += ((iWidth = DrawImage(pDC, rect, lprvi))!=0) ? iWidth+m_iSpacing : 0;
 		if(lprvi->nMask&RVIM_IMAGE && !iWidth)
 			return;
-		rect.left += (iWidth = DrawCheck(pDC, rect, lprvi)) ? iWidth+m_iSpacing : 0;
+		rect.left += ((iWidth = DrawCheck(pDC, rect, lprvi))!=0) ? iWidth+m_iSpacing : 0;
 		if(lprvi->nMask&RVIM_CHECK && !iWidth)
 			return;
 		DrawText(pDC, rect, lprvi);
@@ -5489,7 +5493,7 @@ void CReportCtrl::OnWindowPosChanging(WINDOWPOS FAR* lpwndpos)
 	}
 }
 
-LRESULT CReportCtrl::OnGetFont(WPARAM wParam, LPARAM lParam)
+LRESULT CReportCtrl::OnGetFont(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     return (LRESULT)m_font.m_hObject;
 }
@@ -5546,12 +5550,12 @@ LRESULT CReportCtrl::OnSetFont(WPARAM wParam, LPARAM lParam)
 }
 
 
-BOOL CReportCtrl::OnEraseBkgnd(CDC* pDC)
+BOOL CReportCtrl::OnEraseBkgnd(CDC* /*pDC*/)
 {
 	return TRUE;
 }
 
-void CReportCtrl::OnNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS FAR* lpncsp)
+void CReportCtrl::OnNcCalcSize(BOOL /*bCalcValidRects*/, NCCALCSIZE_PARAMS FAR* lpncsp)
 {
 	LONG lStyle = ::GetWindowLong(m_hWnd, GWL_STYLE);
 
@@ -5611,7 +5615,7 @@ void CReportCtrl::OnPaint()
 		dc.SelectPalette(pPalette, FALSE);
 }
 
-void CReportCtrl::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+void CReportCtrl::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* /*pScrollBar*/)
 {
 	INT iScrollPos = GetScrollPos32(SB_HORZ);
 	INT iScroll;
@@ -5660,7 +5664,7 @@ void CReportCtrl::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	}
 }
 
-void CReportCtrl::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+void CReportCtrl::OnVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBar*/)
 {
 	INT iFirst = GetScrollPos32(SB_VERT), iLast;
 	INT iItems = GetVisibleRows(TRUE, &iFirst, &iLast);
@@ -6331,9 +6335,9 @@ void CReportCtrl::OnHdnItemClick(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = FALSE;
 }
 
-void CReportCtrl::OnHdnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
+void CReportCtrl::OnHdnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 {
-	LPNMHEADER lpnmhdr = (LPNMHEADER)pNMHDR;
+	//LPNMHEADER lpnmhdr = (LPNMHEADER)pNMHDR;
 
 	if(m_hEditWnd != NULL)
 		EndEdit();
@@ -6499,12 +6503,12 @@ BOOL CReportSubItemListCtrl::UpdateList()
 	return TRUE;
 }
 
-BOOL CReportSubItemListCtrl::Include(INT iSubItem)
+BOOL CReportSubItemListCtrl::Include(INT /*iSubItem*/)
 {
 	return TRUE;
 }
 
-BOOL CReportSubItemListCtrl::Disable(INT iSubItem)
+BOOL CReportSubItemListCtrl::Disable(INT /*iSubItem*/)
 {
 	return FALSE;
 }
@@ -6546,7 +6550,8 @@ void CReportSubItemListCtrl::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 
 		if(lpDrawItemStruct->itemState&ODS_SELECTED)
 		{
-			pDC->FillRect(rcItem, &CBrush(::GetSysColor(COLOR_3DSHADOW)));
+			CBrush brush(::GetSysColor(COLOR_3DSHADOW));
+			pDC->FillRect(rcItem, &brush);
 			pDC->SetTextColor(bDisable ? ::GetSysColor(COLOR_BTNFACE) : ::GetSysColor(COLOR_3DHIGHLIGHT));
 		}
 		else
@@ -6589,7 +6594,6 @@ BOOL CReportSubItemListCtrl::BeginDrag(CPoint pt)
 	if(GetCount() <= 0)
 		return FALSE;
 
-	BOOL bAutoScroll = FALSE;
 	INT iItem = ItemFromPt(pt);
 	if(iItem >= 0)
 	{
@@ -6648,7 +6652,7 @@ UINT CReportSubItemListCtrl::Dragging(CPoint pt)
 	return DL_STOPCURSOR;
 }
 
-void CReportSubItemListCtrl::CancelDrag(CPoint pt)
+void CReportSubItemListCtrl::CancelDrag(CPoint /*pt*/)
 {
 	m_pReportCtrl->m_wndHeader.SendMessage(HDM_SETHOTDIVIDER, FALSE, -1);
 
@@ -6661,7 +6665,7 @@ void CReportSubItemListCtrl::CancelDrag(CPoint pt)
 	m_iSubItem = -1;
 }
 
-void CReportSubItemListCtrl::Dropped(INT iSrcIndex, CPoint pt)
+void CReportSubItemListCtrl::Dropped(INT /*iSrcIndex*/, CPoint /*pt*/)
 {
 	m_pReportCtrl->m_wndHeader.SendMessage(HDM_SETHOTDIVIDER, FALSE, -1);
 
@@ -6873,7 +6877,7 @@ void CReportEditCtrl::OnKillFocus(CWnd* pNewWnd)
 
 				nmrvie.hWnd = GetSafeHwnd();
 
-				VERIFY(nmrvie.lpszText = str.GetBuffer(REPORTCTRL_MAX_TEXT));
+				VERIFY((nmrvie.lpszText = str.GetBuffer(REPORTCTRL_MAX_TEXT))!=0);
 
 				bResult = pWnd->Notify((LPNMREPORTVIEW)&nmrvie);
 
