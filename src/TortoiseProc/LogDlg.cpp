@@ -507,6 +507,24 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
+BOOL CLogDlg::DiffPossible(LogChangedPath * changedpath, long rev)
+{
+	CString added, deleted;
+	added.LoadString(IDS_SVNACTION_ADD);
+	deleted.LoadString(IDS_SVNACTION_DELETE);
+
+	if ((rev > 1)&&(changedpath->sAction.Compare(deleted)!=0))
+	{
+		if (changedpath->sAction.Compare(added)==0) // file is added
+		{
+			if (changedpath->lCopyFromRev == 0)
+				return FALSE; // but file was not added with history
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
+
 void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 {
 //#region m_LogList
@@ -931,10 +949,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CString temp;
 			if (m_LogMsgCtrl.GetSelectedCount() == 1)
 			{
-				CString t, tt;
-				t.LoadString(IDS_SVNACTION_ADD);
-				tt.LoadString(IDS_SVNACTION_DELETE);
-				if ((rev > 1)&&(changedpath->sAction.Compare(t)!=0)&&(changedpath->sAction.Compare(tt)!=0))
+				if (DiffPossible(changedpath, rev))
 				{
 					temp.LoadString(IDS_LOG_POPUP_DIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
@@ -1421,12 +1436,9 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	if (s < 0)
 		return;
 	long rev = m_arRevs.GetAt(s);
-	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-	temp = temp.Left(temp.Find(' '));
-	CString t, tt;
-	t.LoadString(IDS_SVNACTION_ADD);
-	tt.LoadString(IDS_SVNACTION_DELETE);
-	if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
+	LogChangedPath * changedpath = m_arLogPaths.GetAt(s)->GetAt(selIndex);
+
+	if (DiffPossible(changedpath, rev))
 	{
 		DoDiffFromLog(selIndex, rev);
 	}
@@ -1459,17 +1471,26 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 			return;		//exit
 		} // if ((rev == (-2))||(status.status->entry == NULL))
 	}
-	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 	m_bCancelled = FALSE;
 	filepath = GetRepositoryRoot(CTSVNPath(filepath));
-	temp = temp.Mid(temp.Find(' '));
-	if (temp.Find(_T(" (from "))>=0)
+
+	int s = m_LogList.GetSelectionMark();
+	LogChangedPath * changedpath = m_arLogPaths.GetAt(s)->GetAt(selIndex);
+
+	CString firstfile = changedpath->sPath;
+	CString secondfile = firstfile;
+	long fromrev = rev - 1;
+
+	if (changedpath->lCopyFromRev > 0) // is it an added file with history?
 	{
-		temp = temp.Left(temp.Find(_T(" (from "))-1);
+		secondfile = changedpath->sCopyFromPath;
+		fromrev = changedpath->lCopyFromRev;
 	}
-	temp = temp.Trim();
-	filepath += temp;
-	StartDiff(CTSVNPath(filepath), rev, CTSVNPath(filepath), rev-1);
+
+	firstfile = filepath + firstfile.Trim();
+	secondfile = filepath + secondfile.Trim();
+
+	StartDiff(CTSVNPath(firstfile), rev, CTSVNPath(secondfile), fromrev);
 	theApp.DoWaitCursor(-1);
 	GetDlgItem(IDOK)->EnableWindow(TRUE);
 }
@@ -1477,11 +1498,12 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2)
 {
 	CTSVNPath tempfile1 = CUtils::GetTempFilePath(path1);
-	CTSVNPath tempfile2 = CUtils::GetTempFilePath(path2);
 	// The mere process of asking for a temp file creates it as a zero length file
 	// We need to clean these up after us
-	m_tempFileList.AddPath(tempfile1);
+	m_tempFileList.AddPath(tempfile1); 
+	CTSVNPath tempfile2 = CUtils::GetTempFilePath(path2);
 	m_tempFileList.AddPath(tempfile2);
+
 	CProgressDlg progDlg;
 	if (progDlg.IsValid())
 	{
@@ -1498,13 +1520,14 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 		theApp.DoWaitCursor(-1);
 		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return FALSE;
-	} // if (!Cat(path1, rev1, tempfile1))
+	}
 	if (progDlg.IsValid())
 	{
 		progDlg.SetProgress(1, 2);
 		progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)path2.GetUIPathString());
 		progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISION, rev2);
 	}
+
 	if (!Cat(path2, rev2, tempfile2))
 	{
 		theApp.DoWaitCursor(-1);

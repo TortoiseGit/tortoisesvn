@@ -115,6 +115,7 @@ public:
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
 	UINT LogThread();
+	BOOL DiffPossible(LogChangedPath * changedpath, long rev);
 
 public:
 	CWnd *		m_pNotifyWindow;
