@@ -832,7 +832,7 @@ void SVN::notify( void *baton,
 {
 	SVN * svn = (SVN *)baton;
 	WCHAR buf[MAX_PATH];
-	if (MultiByteToWideChar(CP_UTF8, 0, path, -1, buf, MAX_PATH))
+	if (!MultiByteToWideChar(CP_UTF8, 0, path, -1, buf, MAX_PATH))
 		buf[0] = 0;
 	CString mime;
 	if (mime_type)
