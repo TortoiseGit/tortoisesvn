@@ -278,7 +278,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		return CStatusCacheEntry();
 	}
 
-	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_unversioned;
+	m_mostImportantFileStatus = svn_wc_status_unversioned;
 	m_childDirectories.clear();
 
 	if(!bThisDirectoryIsUnversioned)
@@ -314,6 +314,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			// - renaming a folder with many subfolders --> results in "not a working copy" if the revert
 			//   happens between our checks and the svn_client_status() call.
 			// - reverting a move/copy --> results in "not a working copy" (as above)
+			m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_unversioned;
 		}
 	}
 	else
@@ -440,7 +441,6 @@ bool
 CCachedDirectory::IsOwnStatusValid() const
 {
 	return m_ownStatus.HasBeenSet() && !m_ownStatus.HasExpired(GetTickCount());
-
 }
 
 svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
