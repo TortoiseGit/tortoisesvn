@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-08 12:10+0100\n"
+"PO-Revision-Date: 2005-03-09 10:36+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -624,10 +624,11 @@ msgstr "Ordner im Projektarchiv angelegt"
 #: ID:145
 msgid ""
 "Added the file(s)\n"
-"%sto the ignore list."
+"%s\n"
+"to the ignore list."
 msgstr ""
-"Die Datei(en)\n"
-"%s  wurden zur 'Ignorieren' Liste hinzugefügt."
+"Die folgenden Einträge wurden zur 'Ignorieren' Liste hinzugefügt:\n"
+"%s"
 
 #: ID:263
 msgid "Adding"
@@ -639,7 +640,7 @@ msgstr "Fügt Datei(en) zur Versionskontrolle hinzu"
 
 #: ID:13
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Fügt die gewählte(n) Datei(en) oder die Dateimasken zur 'Ignorieren' Liste hinzu"
+msgstr "Fügt die gewählte(n) Datei(en) oder Dateimasken zur 'Ignorieren' Liste hinzu"
 
 #: ID:2049
 msgid ""
@@ -1259,6 +1260,10 @@ msgstr ""
 "Konnte die Datei\n"
 "%s\n"
 "nicht öffnen."
+
+#: ID:82
+msgid "Could not remove %s from the ignored list"
+msgstr "Konnte %s nicht aus der 'Ignorieren' Liste entfernen!"
 
 #: ID:81
 msgid ""
@@ -2565,6 +2570,10 @@ msgstr "Projektarchiv Status"
 msgid "Remote Text Status"
 msgstr "Inhalt Server"
 
+#: ID:15
+msgid "Remove From Ignore List"
+msgstr "Aus der 'Ignorieren' Liste entfernen"
+
 #: Control-ID:65535
 msgid "Removed"
 msgstr "Entfernt"
@@ -2572,6 +2581,19 @@ msgstr "Entfernt"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Datei / Ordner gelöscht"
+
+#: ID:145
+msgid ""
+"Removed the file(s)\n"
+"%s\n"
+"from the ignored list."
+msgstr ""
+"Die folgenden Einträge wurden aus der 'Ignorieren' Liste entfernt:\n"
+"%s"
+
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "Entfernt die gewählte(n) Datei(en) oder Dateimasken aus der 'Ignorieren' Liste"
 
 #: Dlg-ID:151
 msgid "Rename"
