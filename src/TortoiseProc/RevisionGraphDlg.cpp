@@ -104,6 +104,8 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_WM_MOUSEWHEEL()
 	ON_COMMAND(ID_VIEW_ZOOMIN, OnViewZoomin)
 	ON_COMMAND(ID_VIEW_ZOOMOUT, OnViewZoomout)
+	ON_COMMAND(ID_MENUEXIT, OnMenuexit)
+	ON_COMMAND(ID_MENUHELP, OnMenuhelp)
 END_MESSAGE_MAP()
 
 
@@ -143,7 +145,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("RevisionGraphDlg"));
-
+	SetSizeGripVisibility(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -1233,6 +1235,16 @@ void CRevisionGraphDlg::OnViewZoomout()
 	}
 }
 
+void CRevisionGraphDlg::OnMenuexit()
+{
+	EndDialog(IDOK);
+}
+
+void CRevisionGraphDlg::OnMenuhelp()
+{
+	OnHelp();
+}
+
 #ifdef DEBUG
 void CRevisionGraphDlg::FillTestData()
 {
@@ -1420,6 +1432,8 @@ void CRevisionGraphDlg::FillTestData()
 	m_arEntryPtrs.Add(e);
 }
 #endif //DEBUG
+
+
 
 
 

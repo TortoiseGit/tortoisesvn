@@ -49,7 +49,7 @@ enum NodeShape
 #define MAXFONTS				4
 #define	MAX_TT_LENGTH			10000
 
-class CRevisionGraphDlg : public CResizableStandAloneDialog, public CRevisionGraph
+class CRevisionGraphDlg : public CResizableStandAloneDialog, public CRevisionGraph //CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
 public:
@@ -109,6 +109,8 @@ protected:
 	afx_msg BOOL	OnMouseWheel(UINT nFlags, short zDelta, CPoint pt);
 	afx_msg void	OnViewZoomin();
 	afx_msg void	OnViewZoomout();
+	afx_msg void	OnMenuexit();
+	afx_msg void	OnMenuhelp();
 
 	DECLARE_MESSAGE_MAP()
 private:
@@ -126,7 +128,7 @@ private:
 	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 	void			DoZoom(int nZoomFactor);
-	static UINT WorkerThread(LPVOID pVoid);
+	static UINT		WorkerThread(LPVOID pVoid);
 
 
 };
