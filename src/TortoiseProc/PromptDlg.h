@@ -46,11 +46,6 @@
  * any damage to your computer, causes your pet to fall ill, increases baldness
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
- * 
- * \todo 
- *
- * \bug 
- *
  */
 class CPromptDlg : public CDialog
 {

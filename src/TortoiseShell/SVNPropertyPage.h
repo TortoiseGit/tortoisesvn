@@ -73,11 +73,6 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  * 
- * \todo use the themed controls for Windows XP
- * \todo better handling of SVN properties
- *
- * \bug 
- *
  */
 class CSVNPropertyPage
 {

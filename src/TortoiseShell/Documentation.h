@@ -17,9 +17,6 @@
  * provides are directly accessible from the Explorer Context-Menu
  * (right-click).
  *
- * \todo insert a picture here which shows the explorer with
- * a directory under Subversion control.
- *
  * \section Requirements Requirements
  * TortoiseSVN runs under Win95, Win98, WinME, WinNT4 (SP6), Win2k and WinXP.
  * You also need at least Internet Explorer Version 5 or higher.

@@ -40,6 +40,11 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 
 CSVNProgressDlg::~CSVNProgressDlg()
 {
+	for (int i=0; i<m_templist.GetCount(); i++)
+	{
+		DeleteFile(m_templist.GetAt(i));
+	}
+	m_templist.RemoveAll();
 }
 
 void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
@@ -717,24 +722,10 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		CString sWC = m_arPaths.GetAt(pNMLV->iItem);
 		CString sBase = SVN::GetPristinePath(sWC);
 
-		//TODO:
-		//as soon as issue 1361 of subversion 
-		//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
-		//uncomment the lines below and delete the 
-		//line above. This will then allow diff-viewers which
-		//don't ignore different line endings to work correctly
-
-		//CString path2 = CUtils::GetTempFile();
-		//SVN svn;
-		//if (!svn.Cat(path1, SVN::REV_BASE, path2))
-		//{
-		//	path2 = SVN::GetPristinePath(path1);
-		//}
-		//else
-		//{
-		//	m_templist.Add(path2);
-		//}
-
+		if (SVN::GetTranslatedFile(sWC, sWC))
+		{
+			m_templist.Add(sWC);
+		}
 		CUtils::StartDiffViewer(sBase, sWC);
 
 	}

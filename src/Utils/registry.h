@@ -40,10 +40,6 @@
  * 
  * \version 1.0 
  * \date 06-2002
- * \todo
- * \bug
- * \warning
- *
  */
 class CRegBase
 {
@@ -125,10 +121,6 @@ public:	//members
  * added base class CRegBase with methods removeKey() and removeValue()
  * \version 1.0 
  * \date 06-2002
- * \todo
- * \bug
- * \warning
- *
  */
 class CRegDWORD : public CRegBase
 {
@@ -236,9 +228,6 @@ protected:
  * added base class CRegBase with methods removeKey() and removeValue()
  * \version 1.0 
  * \date 06-2002
- * \todo
- * \bug
- * \warning
  */
 class CRegString : public CRegBase
 {
@@ -336,9 +325,6 @@ protected:
  * added base class CRegBase with methods removeKey() and removeValue()
  * \version 1.0 
  * \date 06-2002
- * \todo
- * \bug
- * \warning
  */
 class CRegRect : public CRegBase
 {
@@ -444,9 +430,6 @@ protected:
  * added base class CRegBase with methods removeKey() and removeValue()
  * \version 1.0 
  * \date 06-2002
- * \todo
- * \bug
- * \warning
  */
 class CRegPoint : public CRegBase
 {
@@ -649,10 +632,6 @@ protected:
  * 
  * \version 1.0 
  * \date 11-2002
- * \todo
- * \bug
- * \warning
- *
  */
 class CRegStdWORD : public CRegStdBase
 {

@@ -274,23 +274,12 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						tempfile = SVN::GetPristinePath(filepath);
 
-						//TODO:
-						//as soon as issue 1361 of subversion 
-						//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
-						//uncomment the lines below and delete the 
-						//line above. This will then allow diff-viewers which
-						//don't ignore different line endings to work correctly
-
-						//CString tempfile = CUtils::GetTempFile();
-						//SVN svn;
-						//if (!svn.Cat(filepath, SVN::REV_BASE, tempfile))
-						//{
-						//	tempfile = SVN::GetPristinePath(filepath);
-						//}
-						//else
-						//{
-						//	m_templist.Add(filepath);
-						//}
+						if (SVN::GetTranslatedFile(filepath, m_arPaths.GetAt(selIndex)))
+						{
+							m_templist.Add(filepath);
+						}
+						else
+							filepath = m_arPaths.GetAt(selIndex);
 					}
 					else
 					{
@@ -411,23 +400,9 @@ void CChangedDlg::OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 
 	CString path2 = SVN::GetPristinePath(path1);
 
-	//TODO:
-	//as soon as issue 1361 of subversion 
-	//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
-	//uncomment the lines below and delete the 
-	//line above. This will then allow diff-viewers which
-	//don't ignore different line endings to work correctly
-
-	//CString path2 = CUtils::GetTempFile();
-	//SVN svn;
-	//if (!svn.Cat(path1, SVN::REV_BASE, path2))
-	//{
-	//	path2 = SVN::GetPristinePath(path1);
-	//}
-	//else
-	//{
-	//	m_templist.Add(path2);
-	//}
-
+	if (SVN::GetTranslatedFile(path1, path1))
+	{
+		m_templist.Add(path1);
+	}
 	CUtils::StartDiffViewer(path2, path1);
 }

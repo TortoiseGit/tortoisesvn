@@ -66,11 +66,6 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
  * any damage to your computer, causes your pet to fall ill, increases baldness
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
- * 
- * \todo 
- *
- * \bug 
- *
  */
 class SVN : public SVNPrompt
 {
@@ -430,6 +425,16 @@ public:
 	 * If no text base exists for the file then the returned string is empty.
 	 */
 	static CString GetPristinePath(CString wcPath);
+
+	/**
+	 * Returns the path to a translated version of sFile. If no translation of the
+	 * file is needed, then sTranslatedFile will be the same as sFile. If translation
+	 * is needed, then sTranslatedFile points to a translated file. The caller is
+	 * responsible to delete that translated file after use!
+	 * \param bForceRepair Repair any inconsistent line endings.
+	 * \return TRUE if a translation was needed and the file in sTranslatedFile needs deleting after use
+	 */
+	static BOOL GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForceRepair = TRUE);
 
 	/**
 	 * convert path to a subversion path (replace '\' with '/')

@@ -50,9 +50,6 @@
  * first version
  *
  * \date 11-28-2002
- * \todo
- * \bug
- * \warning
  */
 class CProgressDlg  
 {

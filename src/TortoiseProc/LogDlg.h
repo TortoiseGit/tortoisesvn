@@ -64,14 +64,6 @@
  * any damage to your computer, causes your pet to fall ill, increases baldness
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
- * 
- * \todo add possibility to specify how many log entries are shown
- * \todo show the log messages in a text edit control below the listcontrol
- *	     when the user selects a specific entry to avoid an overloaded
- *       listcontrol
- *
- * \bug 
- *
  */
 class CLogDlg : public CResizableDialog, public SVN
 {

@@ -65,13 +65,6 @@ typedef enum
  * any damage to your computer, causes your pet to fall ill, increases baldness
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
- * 
- * \todo implement missing commands
- * \todo add ownerdraw to the listbox to colorize the entries
- * \todo filter notify messages for specific commands
- *
- * \bug 
- *
  */
 class CSVNProgressDlg : public CResizableDialog, public SVN
 {
@@ -131,6 +124,7 @@ public:			//need to be public for the thread to access
 	CDWordArray	m_arActionCStates;
 	CDWordArray	m_arActionPStates;
 	CStringArray m_arPaths;
+	CStringArray m_templist;
 	LONG		m_nRevision;
 	LONG		m_nRevisionEnd;
 	LONG		m_nUpdateStartRev;

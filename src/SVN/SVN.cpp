@@ -1210,6 +1210,34 @@ CString SVN::GetPristinePath(CString wcPath)
 	return temp;
 }
 
+BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForceRepair /*= TRUE*/)
+{
+	svn_wc_adm_access_t *adm_access;          
+	apr_pool_t * localpool;
+	svn_error_t * err;
+	apr_initialize();
+	localpool = svn_pool_create(NULL);
+	const char * translatedPath = NULL;
+	preparePath(sFile);
+	CStringA temp = CUnicodeUtils::GetUTF8(sFile);
+	const char * originPath = temp;
+	err = svn_wc_adm_probe_open (&adm_access, NULL, originPath, FALSE, FALSE, localpool);
+	if (err)
+		goto error;
+	err = svn_wc_translated_file((const char **)&translatedPath, originPath, adm_access, bForceRepair, localpool);
+	svn_wc_adm_close(adm_access);
+	if (err)
+		goto error;
+	
+	sTranslatedFile = CUnicodeUtils::GetUnicode(translatedPath);
+	return (translatedPath != originPath);
+
+error:
+	svn_pool_destroy(localpool);
+	apr_terminate();
+	return FALSE;
+}
+
 void SVN::UpdateShell(CString path)
 {
 	//updating the left pane (tree view) of the explorer

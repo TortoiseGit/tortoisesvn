@@ -569,11 +569,18 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString path = parser.GetVal(_T("path"));
 			CString path2 = parser.GetVal(_T("path2"));
+			BOOL bDelete = FALSE;
 			if (path2.IsEmpty())
 			{
 				path2 = SVN::GetPristinePath(path);
+				if (SVN::GetTranslatedFile(path, path))
+				{
+					bDelete = TRUE;
+				}
 			}
 			CUtils::StartDiffViewer(path2, path);
+			if (bDelete)
+				DeleteFile(path);
 		}
 		//#endregion
 		//#region dropcopyadd

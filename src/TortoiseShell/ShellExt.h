@@ -68,11 +68,6 @@ extern	void				LoadLangDll();
  * any damage to your computer, causes your pet to fall ill, increases baldness
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
- * 
- * \todo implement the missing interfaces
- * \todo ownerdraw menus to get nice icons on the menu entries
- *
- * \bug 
  *
  */
 class CShellExt : public IContextMenu3,

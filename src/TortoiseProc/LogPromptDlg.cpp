@@ -295,26 +295,17 @@ void CLogPromptDlg::StartDiff(int fileindex)
 		return;		//we don't compare an added file to itself
 	if (m_arFileStatus.GetAt(fileindex) == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
-	CString path1 = m_arFileList.GetAt(fileindex);
-	CString path2 = SVN::GetPristinePath(path1);
+	CString path1;
+	CString path2 = SVN::GetPristinePath(m_arFileList.GetAt(fileindex));
 
-	//TODO:
-	//as soon as issue 1361 of subversion 
-	//http://subversion.tigris.org/issues/show_bug.cgi?id=1361
-	//uncomment the lines below and delete the 
-	//line above. This will then allow diff-viewers which
-	//don't ignore different line endings to work correctly
-
-	//CString path2 = CUtils::GetTempFile();
-	//SVN svn;
-	//if (!svn.Cat(path1, SVN::REV_BASE, path2))
-	//{
-	//	path2 = SVN::GetPristinePath(path1);
-	//}
-	//else
-	//{
-	//	m_templist.Add(path2);
-	//}
+	if (SVN::GetTranslatedFile(path1, m_arFileList.GetAt(fileindex)))
+	{
+		m_templist.Add(path1);
+	}
+	else
+	{
+		path1 = m_arFileList.GetAt(fileindex);
+	}
 
 	CUtils::StartDiffViewer(path2, path1);
 }
