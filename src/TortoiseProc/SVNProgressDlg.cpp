@@ -1149,6 +1149,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								temp.LoadString(IDS_MENUCONFLICT);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITCONFLICT, temp);
 							}
+							temp.LoadString(IDS_MENULOG);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
 						}
 
 						int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -1180,6 +1182,16 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						case ID_EDITCONFLICT:
 							{
 								SVN::StartConflictEditor(data->path);
+							}
+							break;
+						case ID_LOG:
+							{
+								CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+								long revend = reg;
+								revend = -revend;
+								CLogDlg dlg;
+								dlg.SetParams(data->path, m_RevisionEnd, m_nUpdateStartRev, TRUE);
+								dlg.DoModal();
 							}
 							break;
 						}
