@@ -282,6 +282,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	m_mostImportantFileStatus = svn_wc_status_unversioned;
 	m_childDirectories.clear();
 	m_entryCache.clear();
+	m_bCurrentFullStatusValid = false;
 
 	if(!bThisDirectoryIsUnversioned)
 	{
@@ -324,7 +325,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	{
 		ATLTRACE("Skipped SVN status for unversioned folder\n");
 	}
-
 	// Now that we've refreshed our SVN status, we can see if it's 
 	// changed the 'most important' status value for this directory.
 	// If it has, then we should tell our parent
@@ -465,7 +465,7 @@ svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
 void CCachedDirectory::UpdateCurrentStatus()
 {
 	svn_wc_status_kind newStatus = CalculateRecursiveStatus();
-	if(newStatus != m_currentFullStatus)
+	if (newStatus != m_currentFullStatus)
 	{
 		if ((m_currentFullStatus == svn_wc_status_unversioned) && (!m_directoryPath.HasAdminDir()))
 		{
@@ -480,6 +480,7 @@ void CCachedDirectory::UpdateCurrentStatus()
 
 		// Our status has changed - tell the shell
 		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_directoryPath.GetWinPath(), NULL);
+
 		// And tell our parent, if we've got one...
 		CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
 		if(!parentPath.IsEmpty())
@@ -499,7 +500,7 @@ void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn
 	ATLTRACE("Dir %ws, child %ws, newStatus %d, currentStatus %d\n", 
 		m_directoryPath.GetWinPath(),
 		childDir.GetWinPath(), childStatus, currentStatus);
-	if(currentStatus != childStatus)
+	if ((currentStatus != childStatus)||(!IsOwnStatusValid()))
 	{
 		m_childDirectories[childDir] = childStatus;
 
@@ -533,11 +534,12 @@ void CCachedDirectory::RefreshStatus()
 
 	// We also need to check if all our file members have the right date on them
 	CacheEntryMap::iterator itMembers;
+	DWORD now = GetTickCount();
 	for(itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
 		CTSVNPath filePath(m_directoryPath);
 		filePath.AppendPathString(itMembers->first);
-		if(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime()))
+		if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
 		{
 			// We need to request this item as well
 			GetStatusForMember(filePath,false);
