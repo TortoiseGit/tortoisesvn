@@ -169,8 +169,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 		if (!m_BugtraqInfo.sLabel.IsEmpty())
 			GetDlgItem(IDC_BUGIDLABEL)->SetWindowText(m_BugtraqInfo.sLabel);
 		GetDlgItem(IDC_BUGID)->SetFocus();
-		if (m_BugtraqInfo.bNumber)
-			GetDlgItem(IDC_BUGID)->ModifyStyle(NULL, ES_NUMBER);
 	}
 	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
@@ -198,6 +196,33 @@ void CLogPromptDlg::OnOK()
 {
 	if (m_bBlock)
 		return;
+	if (m_BugtraqInfo.bNumber)
+	{
+		CString id;
+		TCHAR c = 0;
+		BOOL bInvalid = FALSE;
+		GetDlgItem(IDC_BUGID)->GetWindowText(id);
+		for (int i=0; i<id.GetLength(); ++i)
+		{
+			c = id.GetAt(i);
+			if ((c < '0')&&(c != ','))
+			{
+				bInvalid = TRUE;
+				break;
+			}
+			if (c > '9')
+				bInvalid = TRUE;
+		}
+		if (bInvalid)
+		{
+			CWnd* ctrl = GetDlgItem(IDC_BUGID);
+			CRect rt;
+			ctrl->GetWindowRect(rt);
+			CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+			CBalloon::ShowBalloon(ctrl, point, IDS_LOGPROMPT_ONLYNUMBERS, TRUE, IDI_EXCLAMATION);
+			return;
+		}
+	}
 	m_bBlock = TRUE;
 	CDWordArray arDeleted;
 	//first add all the unversioned files the user selected
