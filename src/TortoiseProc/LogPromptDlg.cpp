@@ -196,6 +196,8 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			CString temp;
 			if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
 			{
+				temp.LoadString(IDS_LOG_COMPAREWITHBASE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 				temp.LoadString(IDS_MENUREVERT);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
 			}
@@ -224,6 +226,11 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO)==IDYES) 
 				} 
 				break;
+			case ID_COMPARE:
+				{
+					StartDiff(selIndex);
+				}
+				break;
 			default:
 				GetDlgItem(IDOK)->EnableWindow(TRUE);
 				break;
@@ -242,13 +249,17 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	if (!GetDlgItem(IDOK)->IsWindowEnabled())
 		return;
 
-	if (pNMLV->iItem < 0)
+	StartDiff(pNMLV->iItem);
+}
+void CLogPromptDlg::StartDiff(int fileindex)
+{
+	if (fileindex < 0)
 		return;
-	if (m_arFileStatus.GetAt(pNMLV->iItem) == svn_wc_status_added)
+	if (m_arFileStatus.GetAt(fileindex) == svn_wc_status_added)
 		return;		//we don't compare an added file to itself
-	if (m_arFileStatus.GetAt(pNMLV->iItem) == svn_wc_status_deleted)
+	if (m_arFileStatus.GetAt(fileindex) == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
-	CString path1 = m_arFileList.GetAt(pNMLV->iItem);
+	CString path1 = m_arFileList.GetAt(fileindex);
 	CString path2 = SVN::GetPristinePath(path1);
 
 	//TODO:

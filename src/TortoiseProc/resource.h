@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Languages\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -296,6 +296,7 @@
 #define IDS_BLAME_PROGRESSTITLE         2100
 #define IDS_BLAME_PROGRESSINFO          2101
 #define IDS_BLAME_PROGRESSCANCEL        2102
+#define IDS_LOG_COMPAREWITHBASE         2200
 
 // Next default values for new objects
 // 

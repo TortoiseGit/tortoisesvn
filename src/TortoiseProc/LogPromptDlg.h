@@ -71,6 +71,7 @@ protected:
 	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual void OnOK();
 	virtual void OnCancel();
+	void StartDiff(int fileindex);
 	DECLARE_MESSAGE_MAP()
 public:
 	CString			m_sLogMessage;
