@@ -5,3 +5,4 @@
 (MULTILINE) .pl, .pm, .cgi = ^\s*sub\s+(\w+)
 .bas, .frm, .cls = (?<=(Public |Private )?(Sub|Function|Property Get|Property Set|Property Let) )(\w+)(?=\(.*\))
 (MULTILINE) .php = \s+class|(?<=(?=public|private|)\s+function)\s(\w+)|::(\w+)|->(\w+)
+(MULTILINE|NOCASE) .vb = (?:class|function|sub)\s+(\w+)(?:\s*(?:[\(\']|$))
