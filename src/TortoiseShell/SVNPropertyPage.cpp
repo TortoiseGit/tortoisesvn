@@ -151,6 +151,8 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 		{
 			InitWorkfileView();
 			HWND hwndCombo = GetDlgItem(hwnd, IDC_EDITNAME);
+			COMBOBOXINFO cbInfo;
+			cbInfo.cbSize = sizeof(COMBOBOXINFO);
 			if (hwndCombo)
 			{
 				// Initialize the combobox with the default svn: properties
@@ -160,17 +162,49 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:ignore"));
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:keywords"));
 				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:eol-style"));
+				GetComboBoxInfo(hwndCombo, &cbInfo);
 			}
+			// Create a tooltip window
+			HWND hwndTT = CreateWindowEx(WS_EX_TOPMOST,
+										TOOLTIPS_CLASS,
+										NULL,
+										WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP,		
+										CW_USEDEFAULT,
+										CW_USEDEFAULT,
+										CW_USEDEFAULT,
+										CW_USEDEFAULT,
+										hwnd,
+										NULL,
+										g_hResInst,
+										NULL
+										);
+
+			SetWindowPos(hwndTT, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+
+			TOOLINFO ti;
+			ti.cbSize = sizeof(TOOLINFO);
+			ti.uFlags = TTF_SUBCLASS | TTF_IDISHWND;
+			ti.hwnd = hwnd;
+			ti.hinst = NULL;
+			ti.lpszText = LPSTR_TEXTCALLBACK;
+
+			// Send ADDTOOL messages to the tooltip control window
+			ti.uId = (UINT)GetDlgItem(hwnd, IDC_EDITVALUE);
+			SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
+			ti.uId = (UINT)cbInfo.hwndItem;
+			SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
+
 			return TRUE;
 		}
-		case WM_NOTIFY:
+	case WM_NOTIFY:
+		{
+			LPNMHDR point = (LPNMHDR)lParam;
+			int code = point->code;
 			//
 			// Respond to notifications.
 			//    
 			if (wParam == IDC_PROPLIST)
 			{
-				LPNMHDR point = (LPNMHDR)lParam;
-				int code = point->code;
 				if ((code == NM_CLICK)||(code == LVN_ITEMACTIVATE))
 				{
 					//enable the remove button if a row in the listcontrol is selected
@@ -199,9 +233,57 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 					} 
 				} // if ((code == LVN_ITEMCHANGED)||(code == LVN_ITEMACTIVATE)) 
 			} // if (wParam == IDC_PROPLIST)
+			if (code == TTN_GETDISPINFO)
+			{
+				int nWindowWidth = 400;
+				LPNMTTDISPINFO lpnmtdi = (LPNMTTDISPINFO) lParam;
+				HWND hwndCombo = GetDlgItem(m_hwnd, IDC_EDITNAME);
+				TCHAR * name = NULL;
+				TCHAR buf[MAX_PROP_STRING_LENGTH];
+				GetDlgItemTextEx(m_hwnd, IDC_EDITNAME, name);
+				lpnmtdi->hinst = NULL;
+				lpnmtdi->szText[0] = 0;
+				lpnmtdi->lpszText = NULL;
+				lpnmtdi->uFlags = NULL;
+				if (_tcscmp(name, _T("svn:externals"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_EXTERNALS, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				} // if (_tcscmp(name, _T("svn:externals"))==0) 
+				if (_tcscmp(name, _T("svn:executable"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_EXECUTABLE, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				} // if (_tcscmp(name, _T("svn:executable"))==0)
+				if (_tcscmp(name, _T("svn:mime-type"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_MIMETYPE, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				} // if (_tcscmp(name, _T("svn:mime-type"))==0) 
+				if (_tcscmp(name, _T("svn:ignore"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_IGNORE, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				} // if (_tcscmp(name, _T("svn:ignore"))==0) 
+				if (_tcscmp(name, _T("svn:keywords"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_KEYWORDS, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+					nWindowWidth = 800;
+				} // if (_tcscmp(name, _T("svn:keywords"))==0)
+				if (_tcscmp(name, _T("svn:eol-style"))==0)
+				{
+					LoadString(g_hResInst, IDS_TT_EOLSTYLE, buf, MAX_PROP_STRING_LENGTH);
+					lpnmtdi->lpszText = buf;
+				} // if (_tcscmp(name, _T("svn:eol-style"))==0) 
+				
+				SendMessage(lpnmtdi->hdr.hwndFrom, TTM_SETMAXTIPWIDTH, 0, nWindowWidth);
+				delete [] name;
+			} // if (code == TTN_GETDISPINFO) 
 			SetWindowLong(m_hwnd, DWL_MSGRESULT, FALSE);
 			return TRUE;        
 
+			}
 		case WM_DESTROY:
 			return TRUE;
 
@@ -578,60 +660,6 @@ void CSVNPropertyPage::InitWorkfileView()
 	} 
 }
 
-//void CSVNPropertyPage::Unescape(LPTSTR psz)
-//{
-//	LPTSTR pszSource = psz;
-//	LPTSTR pszDest = psz;
-//
-//	static const TCHAR szHex[] = _T("0123456789ABCDEF");
-//
-//	// Unescape special characters. The number of characters
-//	// in the *pszDest is assumed to be <= the number of characters
-//	// in pszSource (they are both the same string anyway)
-//
-//	while (*pszSource != '\0' && *pszDest != '\0')
-//	{
-//		if (*pszSource == '%')
-//		{
-//			// The next two chars following '%' should be digits
-//			if ( *(pszSource + 1) == '\0' ||
-//				 *(pszSource + 2) == '\0' )
-//			{
-//				// nothing left to do
-//				break;
-//			}
-//
-//			TCHAR nValue = '?';
-//			LPCTSTR pszLow = NULL;
-//			LPCTSTR pszHigh = NULL;
-//			pszSource++;
-//
-//			*pszSource = (TCHAR) _totupper(*pszSource);
-//			pszHigh = _tcschr(szHex, *pszSource);
-//
-//			if (pszHigh != NULL)
-//			{
-//				pszSource++;
-//				*pszSource = (TCHAR) _totupper(*pszSource);
-//				pszLow = _tcschr(szHex, *pszSource);
-//
-//				if (pszLow != NULL)
-//				{
-//					nValue = (TCHAR) (((pszHigh - szHex) << 4) +
-//									(pszLow - szHex));
-//				}
-//			} // if (pszHigh != NULL) 
-//			*pszDest++ = nValue;
-//		} 
-//		else
-//			*pszDest++ = *pszSource;
-//			
-//		pszSource++;
-//	}
-//
-//	*pszDest = '\0';
-//}
-//
 void CSVNPropertyPage::Unescape(char * psz)
 {
 	char * pszSource = psz;

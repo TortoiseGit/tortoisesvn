@@ -121,6 +121,12 @@
 #define IDS_MENUAPPLYPATCH              207
 #define IDS_MENUDESCCREATEPATCH         208
 #define IDS_MENUDESCAPPLYPATCH          209
+#define IDS_TT_IGNORE                   210
+#define IDS_TT_KEYWORDS                 211
+#define IDS_TT_EXECUTABLE               212
+#define IDS_TT_EOLSTYLE                 213
+#define IDS_TT_MIMETYPE                 214
+#define IDS_TT_EXTERNALS                215
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
