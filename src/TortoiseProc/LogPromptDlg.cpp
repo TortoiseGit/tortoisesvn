@@ -399,6 +399,7 @@ void CLogPromptDlg::OnOK()
 {
 	if (!GetDlgItem(IDOK)->IsWindowEnabled())
 		return;
+	CDWordArray arDeleted;
 	//first add all the unversioned files the user selected
 	for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 	{
@@ -414,9 +415,35 @@ void CLogPromptDlg::OnOK()
 			{
 				SVN svn;
 				svn.Remove(data->path, TRUE);
+			} // if (data->status == svn_wc_status_missing)
+			if (data->status == svn_wc_status_deleted)
+			{
+				arDeleted.Add(j);
 			}
-		}
-	}
+		} // if (m_ListCtrl.GetCheck(j)) 
+	} // for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
+
+	//the next step: find all deleted files and check if they're 
+	//inside a deleted folder. If that's the case, then remove those
+	//files from the list since they'll get deleted by the parent
+	//folder automatically.
+	for (int i=0; i<arDeleted.GetCount(); i++)
+	{
+		CString path = ((Data *)(m_arData.GetAt(arDeleted.GetAt(i))))->path;
+		//now check if there's a "parent folder"
+		for (j=0; j<arDeleted.GetCount(); j++)
+		{
+			CString folder = ((Data *)(m_arData.GetAt(arDeleted.GetAt(j))))->path;
+			if ((PathIsDirectory(folder))&&(i!=j))
+			{
+				if (folder.CompareNoCase(path.Left(folder.GetLength()))==0)
+				{
+					m_ListCtrl.SetCheck(arDeleted.GetAt(i), FALSE);
+				} 
+			} // if (PathIsDirectory(folder)) 
+		} // for (j=i; j<arDeleted.GetCount(); j++) 
+	} // for (int i=0; i<arDeleted.GetCount(); i++) 
+
 	//save only the files the user has selected into the temporary file
 	try
 	{
