@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-10-25 14:07+0900\n"
+"PO-Revision-Date: 2004-12-23 17:17+0900\n"
 "Last-Translator: daibo <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -178,11 +178,6 @@ msgstr "CD-ROM ドライブ(&C)"
 msgid "&Cancel"
 msgstr "キャンセル(&C)"
 
-# Control-ID:1074,
-#: Control-ID:1074
-msgid "&Checkout directory:"
-msgstr "チェックアウト先ディレクトリ(&C):"
-
 # Control-ID:1066,
 #: Control-ID:1066
 msgid "&Close windows automatically"
@@ -350,11 +345,6 @@ msgstr "前の相違点へ(&P)"
 msgid "&Recurse into folders to fetch the status"
 msgstr "状態を取得するために、再帰的にフォルダを操作する(&R)"
 
-# Control-ID:1048,
-#: Control-ID:1048
-msgid "&Removable drives"
-msgstr "リムーバブルドライブ(&R)"
-
 # Control-ID:1013,#:
 # Control-ID:1100,
 #: Control-ID:1013
@@ -389,6 +379,23 @@ msgstr "&SSHクライアント:"
 #: MenuEntry
 msgid "&Save Ctrl-S"
 msgstr "保存(&S)\tCtrl+S"
+
+# ID:313,#:
+# ID:101,
+#: MenuEntry
+msgid "&Save Graph As..."
+msgstr "グラフを別名で保存(&S) ..."
+
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Save authentication"
+msgstr "認証を保存(&S)"
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "&Select Overlay Set"
+msgstr "オーバレイ用のセットを選択(&S)"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -499,6 +506,11 @@ msgstr ": リビジョン %d"
 
 # ID:151,
 #: ID:151
+msgid ": working base"
+msgstr ": 作業用 Base"
+
+# ID:151,
+#: ID:151
 msgid ": working copy"
 msgstr ": 作業用 Copy"
 
@@ -516,6 +528,21 @@ msgstr ""
 "<b>作業用 Copy を破壊するかもしれません！</b>\n"
 "他のブランチと作業用 Copy を関連付けるために、切り替えコマンドを利用してください。\n"
 "本当に再配置を行ってもよろしいですか？"
+
+# ID:145,
+#: ID:145
+msgid ""
+"<b>TortoiseSVN</b> is a shell extension.\n"
+"That means it is integrated into the Windows explorer.\n"
+"To use <b>TortoiseSVN</b> please open the explorer and right-click on any folder you like\n"
+"to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
+"And <u>read the manual!</u>"
+msgstr ""
+"<b>TortoiseSVN</b> はシェル拡張です。\n"
+"つまり、エクスプローラに統合されます。\n"
+"<b>TortoiseSVN</b> を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックし、\n"
+"コンテキストメニューを表示させて <b>TortoiseSVN</b> の全コマンドを探してみてください。\n"
+"あと、 <u>マニュアルも読んでね！！</u>"
 
 # ID:3867,#:
 # ID:3867,
@@ -636,17 +663,17 @@ msgstr "タスクリストをアクティブにする"
 msgid ""
 "Activate this if you want the folder overlays\n"
 "to show the subversion status of the files below.\n"
-"<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
 msgstr ""
 "フォルダ以下のサブバージョンの状態を表示するために、\n"
 "フォルダのオーバーレイを利用するならこれをアクティブにする。\n"
-"<ct=0x0000ff><b>注意：</b>サブフォルダを探しに行くため、エクスプローラの動作が遅くなります</ct>"
+"<ct=0x0000ff><b>注意：</b>サブフォルダを探しに行くため、エクスプローラの動作が遅くなります！</ct>"
 
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
-#: ID:73
+#: ID:209
 #: Dlg-ID:155
 msgid "Add"
 msgstr "追加"
@@ -682,6 +709,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "追加／編集 － 拡張子に対応した差分／マージプログラム"
 
 # Control-ID:65535,
+#: ID:73
 #: Control-ID:65535
 msgid "Added"
 msgstr "追加"
@@ -702,6 +730,13 @@ msgid ""
 "Added the file(s)\n"
 "%sto the ignore list."
 msgstr "ファイル %s を \"無視\" リストに追加。"
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:155,
+#: ID:263
+msgid "Adding"
+msgstr "追加中"
 
 # ID:9,
 #: ID:9
@@ -753,6 +788,11 @@ msgstr "全てのファイル (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "全てのファイル (*.*)|*.*||"
+
+# ID:82,
+#: ID:82
+msgid "All files are already under version control. There's nothing to add!"
+msgstr "全てのファイルはすでにバージョン管理下にあります。何も追加するものはありません！"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -861,6 +901,11 @@ msgstr "未知の改行コードが、行 %d で見つかりました！"
 msgid "An unsupported operation was attempted."
 msgstr "未サポートの操作を行おうとしました。"
 
+# ID:76,
+#: ID:269
+msgid "Analyze revision data..."
+msgstr "リビジョンデータを解析 ..."
+
 # ID:14,
 #: ID:14
 msgid "Applies a unified diff file to the working copy"
@@ -875,6 +920,11 @@ msgstr "パッチを適用 ..."
 #: Control-ID:65535
 msgid "Apply Unified Diff"
 msgstr "Unified-Diff を適用"
+
+# ID:145,
+#: ID:145
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "本当に、衝突ファイルを解決に変更してもよろしいですか？"
 
 # ID:79,
 #: ID:79
@@ -907,6 +957,11 @@ msgstr "作者:                        Stefan Kueng"
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "作者:                      Stefan Kueng, Tim Kemp"
+
+# Dlg-ID:141,
+#: Control-ID:1157
+msgid "Average"
+msgstr "平均"
 
 # Control-ID:1001,
 #: Control-ID:1001
@@ -1039,6 +1094,11 @@ msgstr "キャンセル"
 msgid "Cancelling SVN Blame..."
 msgstr "注釈履歴をキャンセル中 ..."
 
+# ID:132,
+#: ID:270
+msgid "Cancelling operation..."
+msgstr "キャンセル処理中 ..."
+
 # ID:82,
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1095,10 +1155,15 @@ msgstr "更新をチェック"
 msgid "Check For Updates..."
 msgstr "更新をチェック ..."
 
+# ID:8,
+#: Control-ID:1132
+msgid "Check Repository"
+msgstr "リポジトリをチェック"
+
 # ID:13,
 #: ID:13
-msgid "Check for Updates"
-msgstr "更新をチェック"
+msgid "Check for Modifications"
+msgstr "修正をチェック"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1139,6 +1204,11 @@ msgstr "右クリックメニューで、サブメニューではなくトップ
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "ログメッセージに短い日時形式を用いる場合はチェックする"
 
+# ID:270,
+#: ID:270
+msgid "Checking for forward copies"
+msgstr "前方向コピーをチェック中"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -1148,6 +1218,11 @@ msgstr "TortoiseSVN の最新のバージョンが利用可能かどうかをチ
 #: Dlg-ID:133
 msgid "Checkout"
 msgstr "チェックアウト"
+
+# Control-ID:1074,
+#: Control-ID:1074
+msgid "Checkout &directory:"
+msgstr "チェックアウトディレクトリ(&D):"
 
 # ID:8,
 #: ID:8
@@ -1193,10 +1268,20 @@ msgstr "\"高度な設定\" をクリックすると、それぞれのファイ�
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr "\"高度な設定\" をクリックすると、それぞれのファイル拡張子に対応するマージプログラムを指定することができる。"
 
+# ID:257,
+#: ID:257
+msgid "Clipboard"
+msgstr "クリップボード"
+
 # ID:3825,
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
 msgstr "ドキュメントを保存するために、アクティブなウィンドウとプロンプトを閉じる"
+
+# Control-ID:1163,
+#: Control-ID:1068
+msgid "Color code in-line changes"
+msgstr "変更された行内の色コード"
 
 # Dlg-ID:138,
 #: Dlg-ID:138
@@ -1210,11 +1295,6 @@ msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
 
 # Control-ID:1110,
-#: Control-ID:1125
-msgid "Comment History:"
-msgstr "コメントの履歴:"
-
-# Control-ID:1110,
 #: Control-ID:1110
 msgid "Commit to:"
 msgstr "コミット先:"
@@ -1223,6 +1303,21 @@ msgstr "コミット先:"
 #: ID:8
 msgid "Commit..."
 msgstr "コミット ..."
+
+# Control-ID:1110,
+#: ID:244
+msgid "Commits by author"
+msgstr "作者によるコミット"
+
+# ID:244,
+#: ID:244
+msgid "Commits by week"
+msgstr "週毎のコミット数"
+
+# Control-ID:1135,
+#: Control-ID:1135
+msgid "Commits each week:"
+msgstr "週毎のコミット数:"
 
 # ID:9,
 #: ID:9
@@ -1279,15 +1374,15 @@ msgstr "コンテキストメニュー"
 msgid "Continue"
 msgstr "続行"
 
+# ID:74,
+#: ID:73
+msgid "Copied"
+msgstr "コピー"
+
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
 msgstr "リモート操作によるコピー"
-
-# ID:73,
-#: ID:73
-msgid "Copy"
-msgstr "コピー"
 
 # ID:151,
 #: ID:101
@@ -1493,8 +1588,14 @@ msgstr "デフォルトのログメッセージ数(&N)"
 # ID:73,#:
 # ID:101,
 #: ID:11
-#: ID:73
 msgid "Delete"
+msgstr "削除"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:73
+msgid "Deleted"
 msgstr "削除"
 
 # ID:11,
@@ -1502,11 +1603,23 @@ msgstr "削除"
 msgid "Deletes files / folders from source control"
 msgstr "ソース管理からファイル／フォルダを削除"
 
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:263
+msgid "Deleting"
+msgstr "削除中"
+
 # ID:3859,#:
 # ID:3859,
 #: ID:3859
 msgid "Destination disk drive is full."
 msgstr "送り先ディスクドライブはいっぱいです。"
+
+# Dlg-ID:184,
+#: Dlg-ID:184
+msgid "Dialog"
+msgstr "ダイアログ"
 
 # ID:12,
 #: ID:12
@@ -1637,6 +1750,11 @@ msgstr "変更を保存しますか？"
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
 msgstr "BASE に対する差分の時はファイルを変換しない"
+
+# ID:80,
+#: ID:73
+msgid "Don't show this message again"
+msgstr "このメッセージを再び表示しない"
 
 # Control-ID:1079,
 #: Control-ID:1079
@@ -1852,9 +1970,15 @@ msgid "File"
 msgstr "ファイル"
 
 # Dlg-ID:135,
+#: ID:376
 #: Dlg-ID:135
 msgid "File Patches"
 msgstr "ファイルパッチ"
+
+# Control-ID:1138,
+#: Control-ID:1138
+msgid "File changes each week:"
+msgstr "週毎の変更ファイル数:"
 
 # ID:3603,
 #: ID:3603
@@ -1885,6 +2009,11 @@ msgstr "フォント:"
 msgid "For Help, press F1"
 msgstr "ヘルプを表示するには、F1を押す"
 
+# Control-ID:1168,
+#: Control-ID:1168
+msgid "Force shell icon refresh"
+msgstr "シェルのアイコンを強制初期化する"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "From:"
@@ -1900,11 +2029,6 @@ msgstr "一般"
 msgid "Generating Patchfile..."
 msgstr "パッチファイルを作成中 ..."
 
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Get &All"
-msgstr "全て取得(&A)"
-
 # ID:119,
 #: ID:119
 msgid "Getting File %s"
@@ -1915,19 +2039,15 @@ msgstr "取得ファイル %s"
 msgid "Getting file info..."
 msgstr "ファイル情報を取得 ..."
 
+# ID:269,
+#: ID:269
+msgid "Getting information from repository..."
+msgstr "レジストリから情報を取得中 ..."
+
 # ID:132,
 #: ID:132
 msgid "Getting log info..."
 msgstr "ログ情報を取得 ..."
-
-# ID:2049,
-#: ID:2051
-msgid ""
-"Go to the next conflict\n"
-"next conflict"
-msgstr ""
-"次の衝突点へ移動する\n"
-"次の衝突点へ"
 
 # ID:2049,
 #: ID:2049
@@ -1956,6 +2076,18 @@ msgstr ""
 "前の相違点へ移動する\n"
 "前の相違点へ"
 
+# Control-ID:1134,
+#: Control-ID:1134
+msgid "Graph type:"
+msgstr "グラフの種類:"
+
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: Control-ID:1032
+msgid "H&ead Revision"
+msgstr "最新のリビジョン(&E)"
+
 # ID:12,
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -1982,6 +2114,11 @@ msgstr "ホスト名が合いません (%s)"
 #: Control-ID:65535
 msgid "Icon Overlays / Status Columns"
 msgstr "アイコンオーバーレイ／状態"
+
+# Control-ID:1170,
+#: Control-ID:1170
+msgid "Icon Set:"
+msgstr "アイコンセット:"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -2028,6 +2165,11 @@ msgid "Ignore"
 msgstr "無視"
 
 # Control-ID:1021,
+#: ID:15
+msgid "Ignore %d items"
+msgstr "%d 個の項目を無視する"
+
+# Control-ID:1021,
 #: Control-ID:1021
 msgid "Ignore All Whitespaces"
 msgstr "全ての空白を無視する"
@@ -2066,6 +2208,17 @@ msgstr "ディレクトリをリポジトリにインポート"
 #: Control-ID:65535
 msgid "Include paths:"
 msgstr "含めるパス:"
+
+# ID:79,
+#: ID:79
+msgid ""
+"Indicates the status of a folder with the overlay icon.\n"
+"If deactivated, a versioned folder will always have the 'normal' overlay icon shown.\n"
+"<ct=0x0000ff><b>If the explorer seems slow, deactivate this feature!</b></ct>"
+msgstr ""
+"フォルダの状態をアイコンのオーバーレイで示す。\n"
+"無効にすると、バージョン管理されたフォルダは常に '通常' のアイコンがオーバレイされます。\n"
+"<ct=0x0000ff><b>もしエクスプローラが遅いなら、この機能を無効にしてください！</b></ct>"
 
 # ID:76,
 #: ID:76
@@ -2139,6 +2292,15 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+# ID:145,
+#: ID:145
+msgid ""
+"It's not possible to rename a file just in case!\n"
+"Please read our docs on how to work around this Subversion limitation."
+msgstr ""
+"万一に備えて、名前を変更することはできません！\n"
+"このサブバージョンの制限について、どのように動作しているかを本を見て確認してください。"
+
 # Control-ID:1016,
 #: Control-ID:1016
 msgid "Jump to first difference when loading"
@@ -2164,6 +2326,11 @@ msgstr "最後に保存した項目のリビジョン"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "衝突を解決するために、外部の差分／マージプログラムを起動"
 
+# Control-ID:1137,
+#: Control-ID:1137
+msgid "Least active author:"
+msgstr "活発でない作者:"
+
 # ID:188,
 #: ID:188
 msgid "Left View: "
@@ -2177,6 +2344,11 @@ msgid ""
 msgstr ""
 "ヘルプトピックを列挙\n"
 "ヘルプトピック"
+
+# ID:188,
+#: Control-ID:1172
+msgid "List View"
+msgstr "リストビュー: "
 
 # ID:63,
 #: ID:63
@@ -2201,6 +2373,11 @@ msgid "Log Message"
 msgstr "ログメッセージ"
 
 # Dlg-ID:130,
+#: Control-ID:1125
+msgid "Log Message History:"
+msgstr "ログメッセージの履歴:"
+
+# Dlg-ID:130,
 #: Dlg-ID:130
 msgid "Log Messages"
 msgstr "ログメッセージ"
@@ -2220,6 +2397,11 @@ msgstr "メールシステムDLLは無効です。"
 #: Dlg-ID:143
 msgid "Main"
 msgstr "メイン"
+
+# Control-ID:1159,
+#: Control-ID:1159
+msgid "Max"
+msgstr "最大"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
@@ -2256,6 +2438,11 @@ msgstr "メッセージ"
 msgid "Mime Type"
 msgstr "Mime タイプ"
 
+# Dlg-ID:143,
+#: Control-ID:1158
+msgid "Min"
+msgstr "最小"
+
 # Control-ID:1023,#:
 # Control-ID:1082,
 #: Control-ID:1082
@@ -2273,6 +2460,11 @@ msgstr "ミックス"
 #: ID:74
 msgid "Modified"
 msgstr "変更"
+
+# Control-ID:1136,
+#: Control-ID:1136
+msgid "Most active author:"
+msgstr "最も活発な作者:"
 
 # ID:12,
 #: ID:12
@@ -2375,6 +2567,18 @@ msgstr ""
 "最後のコミットから変更／追加されたファイルは存在していません。\n"
 "今回は、TortoiseSVN がすることは何もありません ..."
 
+# ID:77,
+#: ID:170
+msgid ""
+"No files were changed or added since\n"
+"the last commit. There's nothing\n"
+"for TortoiseSVN to do here...\n"
+"Do you want to see the unversioned files?"
+msgstr ""
+"最後のコミットから変更／追加されたファイルは存在していません。\n"
+"今回は、TortoiseSVN がすることは何もありません ...\n"
+"バージョン管理されていないファイルを確認しますか？"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Normal"
@@ -2385,6 +2589,16 @@ msgstr "通常"
 #: ID:3857
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたわけではありません。"
+
+# Control-ID:1161,
+#: Control-ID:1161
+msgid "Number of authors:"
+msgstr "作者の数:"
+
+# Control-ID:1160,
+#: Control-ID:1160
+msgid "Number of weeks:"
+msgstr "経過した週:"
 
 # Control-ID:1,#:
 # ID:73,#:
@@ -2502,6 +2716,11 @@ msgstr "パッチファイル (*.diff;*.patch)|*.diff;*.patch|全てのファイ
 #: ID:77
 msgid "Path"
 msgstr "パス"
+
+# ID:157,
+#: ID:157
+msgid "Pictures (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
+msgstr "画像 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|すべてのファイル (*.*)|*.*||"
 
 # ID:3858,#:
 # ID:3858,
@@ -2689,6 +2908,11 @@ msgstr "R&AM ドライブ"
 msgid "REC"
 msgstr "REC"
 
+# Control-ID:1048,
+#: Control-ID:1048
+msgid "Re&movable drives"
+msgstr "リムーバブルドライブ(&M)"
+
 # ID:12,
 #: ID:12
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -2815,8 +3039,8 @@ msgstr ""
 
 # ID:74,
 #: ID:74
-msgid "Replaced"
-msgstr "置換"
+msgid "Replacing"
+msgstr "置換中"
 
 # ID:13,
 #: ID:13
@@ -2836,11 +3060,6 @@ msgstr "リポジトリ"
 msgid "Repository Browser"
 msgstr "リポジトリブラウザ"
 
-# ID:74,
-#: ID:74
-msgid "Resolve"
-msgstr "解決"
-
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
@@ -2848,6 +3067,7 @@ msgstr "保存する際に、衝突した Subversion の属性を解決する"
 
 # ID:8,
 #: ID:8
+#: ID:74
 msgid "Resolved"
 msgstr "問題の解決"
 
@@ -2856,15 +3076,15 @@ msgstr "問題の解決"
 msgid "Resolves conflicted files"
 msgstr "衝突したファイルを解決する"
 
-# ID:73,
-#: ID:73
-msgid "Restore"
-msgstr "復元"
-
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "ウィンドウを通常のサイズに戻す"
+
+# ID:73,
+#: ID:73
+msgid "Restored"
+msgstr "復元"
 
 # ID:73,
 #: ID:73
@@ -2875,9 +3095,15 @@ msgstr "再試行"
 # ID:73,#:
 # Dlg-ID:175,
 #: ID:8
-#: ID:73
 #: Dlg-ID:175
 msgid "Revert"
+msgstr "元に戻す"
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: ID:73
+msgid "Reverted"
 msgstr "元に戻す"
 
 # ID:9,
@@ -2898,10 +3124,24 @@ msgstr "リビジョン"
 msgid "Revision %d"
 msgstr "リビジョン %d"
 
+# ID:119,
+#: ID:269
+#: ID:270
+#: ID:271
+msgid "Revision %ld"
+msgstr "リビジョン %ld"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Revision / Author:"
 msgstr "リビジョン／作者:"
+
+# ID:75,
+#: ID:15
+#: ID:269
+#: Dlg-ID:182
+msgid "Revision Graph"
+msgstr "リビジョングラフ"
 
 # ID:75,
 #: ID:75
@@ -3027,10 +3267,21 @@ msgstr "名前を付けて保存(&A) ..."
 msgid "Save As"
 msgstr "名前を付けて保存"
 
+# ID:313,#:
+# ID:101,
+#: ID:272
+msgid "Save Graph as..."
+msgstr "グラフを別名で保存 ..."
+
 # ID:76,
 #: ID:76
 msgid "Save Revision &To..."
 msgstr "リビジョンを保存(&T) ..."
+
+# Control-ID:1132,
+#: Control-ID:1132
+msgid "Save To Clipboard"
+msgstr "クリップボードに保存"
 
 # ID:313,#:
 # ID:101,
@@ -3182,17 +3433,6 @@ msgstr "属性を設定 ..."
 msgid "Settings"
 msgstr "設定"
 
-# ID:115,
-#: ID:115
-msgid ""
-"Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started.\n"
-"Click <b>No</b> if you want to see all log entries."
-msgstr ""
-"コピー（ブランチやタグ）が発生した時点で、ログの取得を中止しますか？\n"
-"もしブランチがどこから始ったかを知りたいなら、<b>はい</b> をクリックしてください。\n"
-"全てのログを参照したいなら、<b>いいえ</b> をクリックしてください。"
-
 # Control-ID:65535,
 #: ID:101
 msgid "Sho&w Properties"
@@ -3207,6 +3447,11 @@ msgstr "ログメッセージに短い日付形式を利用する(&D)"
 #: ID:12
 msgid "Short Url of subversion items"
 msgstr "サブバージョン項目の短いURL"
+
+# Control-ID:1016,
+#: Control-ID:1031
+msgid "Show &All"
+msgstr "全て表示(&A)"
 
 # ID:113,
 #: ID:113
@@ -3256,6 +3501,11 @@ msgstr "行番号を表示"
 msgid "Show Log"
 msgstr "ログを表示"
 
+# Control-ID:65535,
+#: Control-ID:1169
+msgid "Show folderstatus"
+msgstr "フォルダの状態を表示(&W)"
+
 # ID:3713,
 #: ID:3713
 msgid ""
@@ -3288,6 +3538,11 @@ msgstr ""
 msgid "Show unversioned files"
 msgstr "バージョン管理外のファイルを表示する"
 
+# ID:15,
+#: ID:15
+msgid "Shows a graphical representation of copies/tags/branches"
+msgstr "コピー／タグ／ブランチをグラフ表示する"
+
 # ID:13,
 #: ID:13
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -3315,8 +3570,13 @@ msgstr "サイズ"
 
 # ID:74,
 #: ID:74
-msgid "Skip"
+msgid "Skipped"
 msgstr "スキップ"
+
+# ID:263,
+#: ID:263
+msgid "Skipped missing target"
+msgstr "ターゲットが見つからないのでスキップします"
 
 # ID:79,
 #: ID:79
@@ -3339,6 +3599,14 @@ msgstr ""
 
 # ID:74,#:
 # ID:77,
+#: ID:245
+#: Control-ID:1132
+#: Dlg-ID:179
+msgid "Statistics"
+msgstr "統計"
+
+# ID:74,#:
+# ID:77,
 #: ID:74
 #: ID:77
 #: ID:207
@@ -3349,6 +3617,11 @@ msgstr "状態"
 #: ID:11
 msgid "Status of item in SVN"
 msgstr "SVNの項目の状態"
+
+# Control-ID:1130,
+#: Control-ID:1130
+msgid "Stop On Copy"
+msgstr "コピーが発生したら止める"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3436,6 +3709,11 @@ msgstr "他の分岐／タグへ作業用コピーを切り替え"
 #: ID:9
 msgid "Switch..."
 msgstr "切り替え ..."
+
+# Control-ID:1173,
+#: Control-ID:1173
+msgid "Symbol View"
+msgstr "シンボルビュー"
 
 # ID:3857,#:
 # ID:3857,
@@ -3586,6 +3864,23 @@ msgstr ""
 "%s\n"
 "はマッチしません！"
 
+# ID:314,
+#: ID:314
+msgid ""
+"The path\n"
+"<i>%s</i>\n"
+"seems not to match the paths in the patchfile.\n"
+"But TortoiseMerge found the path\n"
+"<i>%s</i>\n"
+"matches it better. Do you want to use the suggested path instead?"
+msgstr ""
+"パス\n"
+"<i>%s</i>\n"
+"はパスファイル内のものと一致していないようです。\n"
+"しかし、TortoiseMerge は\n"
+"<i>%s</i>\n"
+"のパスがより適合している判断しました。こちらのパスを変わりに利用しますか？"
+
 # ID:78,
 #: ID:78
 msgid ""
@@ -3668,6 +3963,11 @@ msgstr "このプログラムはファイル %s を必要としますが、こ�
 #: ID:15
 msgid "This property is only allowed on folders, not files."
 msgstr "このプロパティはフォルダに対してのみ有効で、ファイルに対しては有効ではありません。"
+
+# ID:15,
+#: ID:15
+msgid "This property must not have multiple lines. Only one line is allowed."
+msgstr "この属性に複数行入力することはできません。１行のみにしてください。"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3753,6 +4053,16 @@ msgstr ""
 msgid "TortoiseSVN Settings"
 msgstr "TortoiseSVN 設定"
 
+# Control-ID:1162,
+#: Control-ID:1162
+msgid "Total commits analyzed:"
+msgstr "解析を行った総コミット数:"
+
+# Control-ID:1163,
+#: Control-ID:1163
+msgid "Total file changes:"
+msgstr "総変更ファイル数:"
+
 # ID:73,
 #: ID:73
 msgid "Try Again"
@@ -3794,6 +4104,23 @@ msgstr "URL:"
 #: ID:75
 msgid "URL: "
 msgstr "URL: "
+
+# ID:272,
+#: ID:272
+msgid ""
+"URL: %s\r\n"
+"Author: %s\r\n"
+"Date: %s\r\n"
+"\r\n"
+"Logmessage:\r\n"
+"%s"
+msgstr ""
+"URL: %s\r\n"
+"作者: %s\r\n"
+"日時: %s\r\n"
+"\r\n"
+"ログメッセージ:\r\n"
+"%s"
 
 # ID:3866,#:
 # ID:3866,
@@ -3867,7 +4194,6 @@ msgstr "未タイトル"
 # ID:74,#:
 # Dlg-ID:152,
 #: ID:8
-#: ID:74
 #: Dlg-ID:152
 msgid "Update"
 msgstr "更新"
@@ -3876,6 +4202,13 @@ msgstr "更新"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "特定のリビジョンへ更新 ..."
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: ID:74
+msgid "Updated"
+msgstr "更新"
 
 # ID:11,
 #: ID:11
@@ -3896,6 +4229,11 @@ msgstr "URL"
 #: ID:144
 msgid "Url:"
 msgstr "URL:"
+
+# ID:251,
+#: ID:251
+msgid "Use &other text block"
+msgstr "他のテキストブロックを利用(&O)"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -3956,6 +4294,11 @@ msgstr "このファイル全体を利用する(&W)"
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "リポジトリのURLが変更された場合、これを用いる"
+
+# ID:251,
+#: ID:251
+msgid "Use whole other &file"
+msgstr "他のファイル全体を利用する(&F)"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4022,6 +4365,15 @@ msgstr "私たちのウェブサイトへお越しください"
 #: ID:219
 msgid "Warning!"
 msgstr "警告！"
+
+# ID:78,
+#: ID:195
+msgid ""
+"When checked, forces a refresh of the shell overlay icons after each operation.\n"
+"<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
+msgstr ""
+"チェックした際に、それぞれの操作後にシェルのアイコンオーバーレイを強制初期化します。\n"
+"<ct=0x0000ff><b>注意：</b>本操作により、エクスプローラの動作が遅くなります！</ct>"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4105,6 +4457,15 @@ msgstr ""
 "バージョン管理されていないファイルを選択しています。\n"
 "コミットする前にバージョン管理に追加してください。"
 
+# ID:195,
+#: ID:195
+msgid ""
+"You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
+"That change won't take effect until you restart your computer or logoff and logon again!"
+msgstr ""
+"アイコンセットを <i>%s</i> から <i>%s</i> に変更しました。\n"
+"この変更は、再起動するか再ログインするまで反映されません！"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Your File:"
@@ -4118,6 +4479,24 @@ msgid ""
 msgstr ""
 "作業用コピーが<b>tag</b>パスに存在しています！\n"
 "まず、コミットする前に分岐もしくは本体へ切り替えてください。"
+
+# ID:88,
+#: ID:88
+msgid ""
+"Your working copy has local modifications!\n"
+"Note: updating to another revision won't lose those modifications so the working copy\n"
+"won't look exactly as it was in the revision you're updating to!"
+msgstr ""
+"作業用コピーはローカルで変更されています！\n"
+"注意: 他のリビジョンへ更新する際に、これらの変更は失われないかもしれません！"
+
+#: MenuEntry
+msgid "Zoom &In"
+msgstr "ズームイン(&I)"
+
+#: MenuEntry
+msgid "Zoom &Out"
+msgstr "ズームアウト(&O)"
 
 # ID:10,
 #: ID:10
@@ -4135,6 +4514,11 @@ msgstr "名前無しファイル"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "そして、開発者たちをサポートしてください。"
+
+# ID:76,
+#: ID:245
+msgid "author"
+msgstr "作者"
 
 # ID:15,
 #: ID:15
@@ -4192,6 +4576,12 @@ msgstr ""
 #: ID:145
 msgid "cleaning up"
 msgstr "クリーンアップ中"
+
+# ID:8,
+#: ID:244
+#: ID:245
+msgid "commits"
+msgstr "コミット"
 
 # ID:11,
 #: ID:11
@@ -4427,6 +4817,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "コミットダイアログに issue を何も入力しないとき警告を表示するなら、 \"yes\" にする。"
+
+# ID:244,
+#: ID:244
+msgid "week"
+msgstr "週"
 
 # Control-ID:1112,
 #: Control-ID:1112
