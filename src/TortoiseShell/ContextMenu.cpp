@@ -745,7 +745,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 				}
 				CopyRect(&rtTemp, &(lpdis->rcItem));
 
-				ix = lpdis->rcItem.left + 0; //+6
+				ix = lpdis->rcItem.left + space;
 				SetRect(&rt, ix, rtTemp.top, ix + 16, rtTemp.bottom);
 
 				HICON hIcon = (HICON)LoadImage(GetModuleHandle(_T("TortoiseSVN")), resource, IMAGE_ICON, 0, 0, LR_DEFAULTCOLOR);
@@ -773,7 +773,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 					DeleteDC(hDCTemp);
 					DeleteObject(hbmItem);
 				} // if (hbmItem)
-				ix = rt.right + 0;//+6 //GetSystemMetrics(SM_CXFRAME) - 4;
+				ix = rt.right + space;
 
 				//free memory
 				DeleteObject(ii.hbmColor);
@@ -812,20 +812,23 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 {
 	LPCTSTR resource = NULL;
-
+	space = 6;
 	switch (id)
 	{
 		case SubMenu:
 			MAKESTRING(IDS_MENUSUBMENU);
 			resource = MAKEINTRESOURCE(IDI_MENU);
+			space = 0;
 			break;
 		case Checkout:
 			MAKESTRING(IDS_MENUCHECKOUT);
 			resource = MAKEINTRESOURCE(IDI_CHECKOUT);
+			space = 0;
 			break;
 		case Update:
 			MAKESTRING(IDS_MENUUPDATE);
 			resource = MAKEINTRESOURCE(IDI_UPDATE);
+			space = 0;
 			break;
 		case UpdateExt:
 			MAKESTRING(IDS_MENUUPDATEEXT);
@@ -838,6 +841,7 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case Commit:
 			MAKESTRING(IDS_MENUCOMMIT);
 			resource = MAKEINTRESOURCE(IDI_COMMIT);
+			space = 0;
 			break;
 		case CreateRepos:
 			MAKESTRING(IDS_MENUCREATEREPOS);

@@ -118,6 +118,7 @@ protected:
 	bool isFolder;
 	bool isFolderInSVN;
 	bool isNormal;
+	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring filepath;				///< holds the last file/dir path
 	svn_wc_status_kind filestatus;	///< holds the corresponding status to the file/dir above
