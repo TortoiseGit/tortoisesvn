@@ -73,6 +73,7 @@ private:
 
 
 	BOOL			m_bShowChangedDirs;
+	BOOL			m_bShowFolderStatus;
 	BOOL			m_bOnlyExplorer;
 	BOOL			m_bRemovable;
 	BOOL			m_bNetwork;
@@ -81,6 +82,7 @@ private:
 	BOOL			m_bRAM;
 	BOOL			m_bUnknown;
 	CRegDWORD		m_regShowChangedDirs;
+	CRegDWORD		m_regShowFolderStatus;
 	CRegDWORD		m_regOnlyExplorer;
 	CRegDWORD		m_regDriveMaskRemovable;
 	CRegDWORD		m_regDriveMaskRemote;
@@ -116,4 +118,5 @@ public:
 	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnEnChangeExcludepaths();
 	afx_msg void OnEnChangeIncludepaths();
+	afx_msg void OnBnClickedShowfolderstatus();
 };

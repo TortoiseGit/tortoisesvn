@@ -38,8 +38,10 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bOnlyExplorer(FALSE)
 	, m_sExcludePaths(_T(""))
 	, m_sIncludePaths(_T(""))
+	, m_bShowFolderStatus(TRUE)
 {
 	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
+	m_regShowFolderStatus = CRegDWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
 	m_regDriveMaskRemovable = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 	m_regDriveMaskRemote = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
@@ -52,6 +54,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regIncludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 
 	m_bShowChangedDirs = m_regShowChangedDirs;
+	m_bShowFolderStatus = m_regShowFolderStatus;
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
 	m_bNetwork = m_regDriveMaskRemote;
@@ -85,6 +88,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
 	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
 	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
+	DDX_Check(pDX, IDC_SHOWFOLDERSTATUS, m_bShowFolderStatus);
 }
 
 
@@ -100,6 +104,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
 	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnEnChangeExcludepaths)
 	ON_EN_CHANGE(IDC_INCLUDEPATHS, OnEnChangeIncludepaths)
+	ON_BN_CLICKED(IDC_SHOWFOLDERSTATUS, OnBnClickedShowfolderstatus)
 END_MESSAGE_MAP()
 
 
@@ -108,6 +113,7 @@ void CSetOverlayPage::SaveData()
 	if (m_bInitialized)
 	{
 		m_regShowChangedDirs = m_bShowChangedDirs;
+		m_regShowFolderStatus = m_bShowFolderStatus;
 		m_regOnlyExplorer = m_bOnlyExplorer;
 		m_regDriveMaskRemovable = m_bRemovable;
 		m_regDriveMaskRemote = m_bNetwork;
@@ -137,6 +143,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHANGEDDIRS, IDS_SETTINGS_CHANGEDDIRS_TT);
+	m_tooltips.AddTool(IDC_SHOWFOLDERSTATUS, IDS_SETTINGS_FOLDERSTATUS_TT);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
 	m_tooltips.AddTool(IDC_EXCLUDEPATHS, IDS_SETTINGS_EXCLUDELIST_TT);	
@@ -313,6 +320,11 @@ void CSetOverlayPage::OnEnChangeExcludepaths()
 }
 
 void CSetOverlayPage::OnEnChangeIncludepaths()
+{
+	SetModified();
+}
+
+void CSetOverlayPage::OnBnClickedShowfolderstatus()
 {
 	SetModified();
 }
