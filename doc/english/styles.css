@@ -14,7 +14,7 @@ body {
 	color: #000;
 }
 
-/*
+/* Don't override these styles, because they interfere with standard tigris.org styles and munge the appearance of the website.
 H1
 {
     font-size: 30pt;
@@ -147,8 +147,15 @@ div.figure p {
 }
 
 .guimenuitem {
-	border: 1px solid;
+	border: 2px solid;
 	font-size: 10pt;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	background-color: #CCCCCC;
+	border-left: #E0E0E0;
+	border-top-color: #E0E0E0;
+	border-right-color: Gray;
+	border-bottom-color: Gray;
 }
 
 .error {

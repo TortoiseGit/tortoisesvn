@@ -121,7 +121,7 @@
 			<itemizedlist>
 					<listitem>
 						<para>Install Microsoft's <application>
-						<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">	TweakUI</ulink>
+								<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">	TweakUI</ulink>
 							</application> and run the option 	to rebuild icons.</para>
 					</listitem>
 					<listitem>
@@ -171,7 +171,9 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 			After that you need to restart (or logoff) your computer 
 			so that explorer reads in the icons again. 
 			Alternatively you can flush the icon cache with the 
-			<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp"><application>TweakUI</application></ulink>
+			<ulink url="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">
+					<application>TweakUI</application>
+				</ulink>
 			tool from Microsoft. For
 			WinXP you can get it <ulink url="http://www.microsoft.com/windowsxp/pro/downloads/powertoys.asp">here</ulink>.
 			</para>
@@ -318,33 +320,44 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-4">
-			<title>I'm in trouble renaming a file from 
-			UPPERCASE to lowercase</title>
+			<title>I'm in trouble renaming a file from UPPERcase to upperCASE</title>
+			<para>There are (at least) two possible solutions to rename a file without losing it's log history.
+			It is important to rename it <emphasis>within</emphasis> subversion. 
+			Just renaming in the explorer will corrupt your working copy!!!
+			</para>
 			<para>
-			Follow those steps:
+			Solution A) 
 			<orderedlist>
 					<listitem>
-						<para>Rename from <filename>UPPERCASE</filename>
-				to <filename>UPPERCASE_</filename>
+						<para>Commit the changes in your working copy</para>
+					</listitem>
+					<listitem>
+						<para>Rename the file from <filename>UPPERcase</filename> to <filename>upperCASE</filename> inside the repository using the <guimenuitem>repository browser</guimenuitem>.</para>
+					</listitem>
+					<listitem>
+						<para>Delete your working copy and do a fresh checkout. Just updating won't work, because it will result in an obstructed update</para>
+					</listitem>
+				</orderedlist>
+			</para>
+			<para>
+			Solution B)
+			<orderedlist>
+					<listitem>
+						<para>Rename from <filename>UPPERcase</filename>to <filename>UPPERcase_</filename>
+						with the <guimenuitem>rename</guimenuitem> command in the TortoiseSVN submenu.
 						</para>
 					</listitem>
 					<listitem>
 						<para>Commit the changes</para>
 					</listitem>
 					<listitem>
-						<para>Rename from <filename>UPPERCASE_</filename>
-				to <filename>lowercase</filename>
+						<para>Rename from <filename>UPPERcase_</filename>to <filename>upperCASE</filename>
 						</para>
 					</listitem>
 					<listitem>
 						<para>Commit the changes</para>
 					</listitem>
 				</orderedlist>
-			That way you won't lose the log-history of the file. 
-			Just remember to rename it <emphasis>within</emphasis> subversion, 
-			i.e. with the special rename command in the TortoiseSVN
-			submenu. Just renaming in the explorer will 
-			corrupt your working copy!!!
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-5">
@@ -543,7 +556,7 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 					</listitem>
 					<listitem>
 						<para>
-						<ulink url="http://www.prestosoft.com/">Examdiff or Examdiff Pro</ulink>, an excellent Free or 
+							<ulink url="http://www.prestosoft.com/">Examdiff or Examdiff Pro</ulink>, an excellent Free or 
 				Shareware tool, The 3.2 Version can handle unicode</para>
 					</listitem>
 					<listitem>

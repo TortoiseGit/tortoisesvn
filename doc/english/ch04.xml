@@ -56,10 +56,10 @@
 	<sect1 id="tsvn-DUG-general">
 		<title>Handling TortoiseSVN</title>
 		<para>
-				<figure id="tsvn-DUG-context-dir-control">
-					<title>Context menu for a directory under version contorl</title>
-					<graphic fileref="ContextMenuDirControl.png"/>
-				</figure>
+			<figure id="tsvn-DUG-context-dir-control">
+				<title>Context menu for a directory under version control</title>
+				<graphic fileref="ContextMenuDirControl.png"/>
+			</figure>
 		  All TortoiseSVN commands are invoked from the context menu of the windows explorer. 
 		  Most are directly visible, when you <action>right click</action> onto a file or folder. 
 		  The commands that are available depend on whether the file or folder or it's parent 
@@ -1006,10 +1006,10 @@
 		<title>Relocating a working copy</title>
 		<?dbhh topicname="HIDD_RELOCATE"?>
 		<para>
-				<figure id="tsvn-DUG-relocate-dia-1">
-					<title>The Relocate Dialog</title>
-					<graphic fileref="Relocate.png"/>
-				</figure>
+			<figure id="tsvn-DUG-relocate-dia-1">
+				<title>The Relocate Dialog</title>
+				<graphic fileref="Relocate.png"/>
+			</figure>
 		If your repository has for some reason changed it's 
 		location (IP/URL). Maybe you're even stuck and can't 
 		commit and you don't want to checkout your working 
