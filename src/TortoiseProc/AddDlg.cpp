@@ -22,6 +22,7 @@
 #include "CheckTempFiles.h"
 #include "DirFileList.h"
 #include "AddDlg.h"
+#include ".\adddlg.h"
 
 
 // CAddDlg dialog
@@ -29,6 +30,7 @@
 IMPLEMENT_DYNAMIC(CAddDlg, CResizableDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CAddDlg::IDD, pParent)
+	, m_bSelectAll(TRUE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -41,6 +43,7 @@ void CAddDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_ADDLIST, m_addListCtrl);
+	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 }
 
 
@@ -49,6 +52,7 @@ BEGIN_MESSAGE_MAP(CAddDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_ADDLIST, OnLvnItemchangedAddlist)
+	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 END_MESSAGE_MAP()
 
 
@@ -121,6 +125,7 @@ BOOL CAddDlg::OnInitDialog()
 	m_addListCtrl.UpdateData(FALSE);
 
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_LEFT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -150,6 +155,17 @@ void CAddDlg::OnOK()
 	}
 
 	CResizableDialog::OnOK();
+}
+
+void CAddDlg::OnBnClickedSelectall()
+{
+	UpdateData();
+	theApp.DoWaitCursor(1);
+	for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+	{
+		m_addListCtrl.SetCheck(i, m_bSelectAll);
+	}
+	theApp.DoWaitCursor(-1);
 }
 
 void CAddDlg::OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -203,7 +219,6 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
 
-		
 	pDlg->m_addListCtrl.SetRedraw(false);
 
 	try
@@ -306,6 +321,7 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
 	return 0;
 }
+
 
 
 

@@ -77,9 +77,11 @@ public:
 	virtual BOOL OnInitDialog();
 private:
 	HANDLE			m_hThread;
+	BOOL			m_bSelectAll;
 
 public:
 	afx_msg void OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedSelectall();
 };
 
 DWORD WINAPI AddThread(LPVOID pVoid);

@@ -323,8 +323,10 @@ void CImportDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 void CImportDlg::OnBnClickedSelectall()
 {
 	UpdateData();
+	theApp.DoWaitCursor(1);
 	for (int i=0; i<m_FileList.GetItemCount(); i++)
 	{
 		m_FileList.SetCheck(i, m_bSelectAll);
 	}
+	theApp.DoWaitCursor(-1);
 }
