@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-19 13:44+0900\n"
+"PO-Revision-Date: 2004-10-27 13:31+0900\n"
 "Last-Translator: Hojin Choi <pynoos@users.kldp.net>\n"
 "Language-Team: Korean <pynoos@users.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -315,6 +315,7 @@ msgstr "확인(&O)"
 
 # ID:101,
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "열기(&O)"
 
@@ -356,8 +357,8 @@ msgstr "삭제(&R)"
 
 # ID:101,
 #: ID:101
-msgid "&Rename..."
-msgstr "이름 바꾸기(&R)"
+msgid "&Rename/Move..."
+msgstr "이름 바꾸기/이동하기(&R)"
 
 # ID:113,
 #: ID:113
@@ -1961,8 +1962,8 @@ msgstr "도움말"
 
 # Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "힌트: F5를 누르면 선택된 디렉토리를 새로 고칩니다."
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "힌트: 선택된 디렉토리를 새로 고치려면, F5를 누르시고, 모든 하위까지 고치려면 Ctrl+F5를 누르세요."
 
 # ID:82,
 #: ID:82
@@ -3656,6 +3657,11 @@ msgstr "This program is linked to the missing export %s in the file %s. This mac
 #: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "이 프로그램이 필요한 파일이 시스템에서 발견할 수 없습니다. : %s"
+
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "이 속성은 폴더에만 적용되며, 파일에는 적용되지 않습니다."
 
 # Control-ID:65535,
 #: Control-ID:65535

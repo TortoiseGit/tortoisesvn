@@ -6,6 +6,9 @@
 !define MUI_WELCOMEPAGE_TITLE_3LINES true
 
 !include "PRODUCT.nsh"
+
+;Makro to upgrade existing language dlls without registering them
+!define UPGRADEDLL_NOREGISTER
 !include "UpgradeDLL.nsh"
 
 SetCompressor lzma

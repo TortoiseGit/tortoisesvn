@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-18 13:21+0200\n"
+"PO-Revision-Date: 2004-10-26 10:38+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: Lubbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -345,6 +345,7 @@ msgstr "&OK"
 # ID:101,#:
 # ID:3841,
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Отваряне"
 
@@ -387,8 +388,8 @@ msgstr "&Премахване"
 # ID:11,#:
 # ID:101,
 #: ID:101
-msgid "&Rename..."
-msgstr "&Преименуване..."
+msgid "&Rename/Move..."
+msgstr "&Преименуване/преместване..."
 
 # ID:113,
 #: ID:113
@@ -711,6 +712,11 @@ msgstr "Добавен"
 # ID:126,
 #: ID:126
 msgid "Added a file remotely"
+msgstr "Създадена е папка отдалечено"
+
+# ID:126,
+#: ID:126
+msgid "Added a folder remotely"
 msgstr "Създадена е папка отдалечено"
 
 # ID:13,
@@ -1982,6 +1988,11 @@ msgstr ""
 "Преход до предишната разлика\n"
 "предишна разлика"
 
+# ID:12,
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "Главната ревизия на хранлището е: %d"
+
 # Control-ID:1004,#:
 # ID:12,
 #: ID:12
@@ -1991,8 +2002,8 @@ msgstr "Помощ"
 
 # Control-ID:65535,
 #: Control-ID:1127
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Съвет: натиснете бутона F5, за да опресните информацията за избраното поддърво."
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Съвет: натиснете бутона F5, за да обновите информацията за избраното поддърво, а Ctrl-F5 - и за поддиректориите."
 
 # ID:82,
 #: ID:82
@@ -3689,6 +3700,11 @@ msgstr "Тази програма е свързана с липсващ изно
 #: ID:3857
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Програмата изисква файлът %s, който не е открит в тази система."
+
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Това свойство е позволено за папки, но не и за файлове."
 
 # Control-ID:65535,
 #: Control-ID:65535

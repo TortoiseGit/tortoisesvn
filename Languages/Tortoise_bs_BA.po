@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-10-04 16:57-0500\n"
+"PO-Revision-Date: 2004-10-27 04:18-0500\n"
 "Last-Translator: Boris Musa <boris@kafana.org>\n"
 "Language-Team: *_BA\n"
 "MIME-Version: 1.0\n"
@@ -348,6 +348,7 @@ msgstr "&OK"
 # ID:101,#:
 # ID:3841,
 #: ID:101
+#: ID:113
 msgid "&Open"
 msgstr "&Otvori"
 
@@ -391,7 +392,8 @@ msgstr "&Izbriši"
 # ID:11,#:
 # ID:101,
 #: ID:101
-msgid "&Rename..."
+#, fuzzy
+msgid "&Rename/Move..."
 msgstr "P&romijeni ime..."
 
 # ID:113,
@@ -729,13 +731,19 @@ msgstr "Dodano"
 msgid "Added a file remotely"
 msgstr "Dodana datoteka daljinski"
 
+# ID:126,
+#: ID:126
+#, fuzzy
+msgid "Added a folder remotely"
+msgstr "Dodana datoteka daljinski"
+
 # ID:13,
 #: ID:145
 #, fuzzy
 msgid ""
 "Added the file(s)\n"
 "%sto the ignore list."
-msgstr "Dodane datoteku(e) %s u 'ignore' listu "
+msgstr "Dodane datoteka(e) %s u 'ignore' listu "
 
 # ID:9,
 #: ID:9
@@ -961,11 +969,6 @@ msgstr "P&retraži..."
 msgid "B&uiltin"
 msgstr "Unuta&rnji"
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -975,6 +978,11 @@ msgstr "Napravi rezervnu kopiju orginalne datoteke"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Bazna datoteka:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkeley baza podataka (BDB)"
 
 # Dlg-ID:162,
 #: Dlg-ID:162
@@ -1100,7 +1108,7 @@ msgstr "Certifikat jos uvijek nije ispravan. Certifikat je važeći od: %s"
 
 # ID:157,
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Certifikati|*.p12;*.pkcs12;*.pfx|Svi|*.*||"
 
 # ID:3825,
@@ -1267,7 +1275,6 @@ msgstr "Izvršavanje naredbe nije uspjelo."
 
 # Control-ID:1110,
 #: Control-ID:1125
-#, fuzzy
 msgid "Comment History:"
 msgstr "Istorija poruka:"
 
@@ -1299,13 +1306,11 @@ msgstr "Usporedi razmaknice"
 
 # ID:138,
 #: ID:138
-#, fuzzy
 msgid "Compare With B&ase"
 msgstr "Poredi sa b&azom"
 
 # ID:76,
 #: ID:76
-#, fuzzy
 msgid "Compare with &working copy"
 msgstr "Poredi sa &radnom kopijom"
 
@@ -1496,6 +1501,12 @@ msgstr "Nit ne može biti otpočeta!"
 #: ID:13
 msgid "Create Patch..."
 msgstr "Kreiraj zakrpu..."
+
+# ID:8,
+#: Dlg-ID:178
+#, fuzzy
+msgid "Create Repository"
+msgstr "Kreiraj spremište ovdje"
 
 # ID:8,
 #: ID:8
@@ -1715,7 +1726,6 @@ msgstr "Tipovi diska"
 
 # Control-ID:1061,
 #: Control-ID:1061
-#, fuzzy
 msgid "Dry Run"
 msgstr "Dry Run"
 
@@ -1820,7 +1830,7 @@ msgstr "Iznimke:"
 #: Control-ID:65535
 #, fuzzy
 msgid "Exclude paths:"
-msgstr "Isključni šablon:"
+msgstr "Isključene staze:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1878,11 +1888,6 @@ msgstr "Spoljašnji"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "Spoljašnji program:"
-
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
 
 # ID:74,
 #: ID:74
@@ -2043,6 +2048,11 @@ msgstr ""
 "Idi na prethodnu razliku\n"
 "prethodna razlika"
 
+# ID:12,
+#: ID:238
+msgid "Head revision of the repository is: %d"
+msgstr "Vodeća revizija spremišta je: %d"
+
 # Control-ID:1004,#:
 # ID:12,
 #: ID:12
@@ -2053,8 +2063,8 @@ msgstr "Pomoć"
 # Control-ID:65535,
 #: Control-ID:1127
 #, fuzzy
-msgid "Hint: Press F5 to refresh the selected subtree"
-msgstr "Savjet: Pritisni F5 da osvježiš selektirani ogranak"
+msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
+msgstr "Savjet: Pritisnite F5 da osvježite selektirani ogranak i Ctrl-F5 da učitate sve pozicije u stablu"
 
 # ID:82,
 #: ID:82
@@ -2152,7 +2162,7 @@ msgstr "Uvozi direktorije u spremište"
 #: Control-ID:65535
 #, fuzzy
 msgid "Include paths:"
-msgstr "Isključni šablon:"
+msgstr "Uvrštene staze:"
 
 # ID:76,
 #: ID:76
@@ -2398,6 +2408,11 @@ msgstr "Slj&edeći konflikt"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Native Filesystem (FSFS)"
+
 # Dlg-ID:102,
 #: Dlg-ID:102
 msgid "Network"
@@ -2583,11 +2598,6 @@ msgstr "Šifra:"
 #, fuzzy
 msgid "Paste Changed Filenames"
 msgstr "Promjenjene datoteke"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "Unesi šablon &dnevnika na engleskom"
 
 # ID:376,
 #: ID:376
@@ -2786,7 +2796,6 @@ msgstr ""
 
 # Control-ID:1073,
 #: Control-ID:1073
-#, fuzzy
 msgid "R&AM drives"
 msgstr "R&AM diskovi"
 
@@ -3143,7 +3152,6 @@ msgstr "Sačuvaj kao"
 
 # ID:76,
 #: ID:76
-#, fuzzy
 msgid "Save Revision &To..."
 msgstr "Sačuvaj reviziju &u..."
 
@@ -3158,6 +3166,12 @@ msgstr "Sačuvaj kao..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "Sačuvaj promjene u %1?"
+
+# ID:76,
+#: ID:232
+#, fuzzy
+msgid "Save client certificate path"
+msgstr "Otvori datoteku sa klijent certifikatom"
 
 # ID:3601,#:
 # ID:3601,
@@ -3255,6 +3269,12 @@ msgstr ""
 "Izaberi cijeli dokument\n"
 "Izaberi Sve"
 
+# ID:213,
+#: Control-ID:65535
+#, fuzzy
+msgid "Select the type of repository you want to create:"
+msgstr "Koju vrstu spremišta želite da napravite?"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -3290,9 +3310,11 @@ msgstr "Podešavanja"
 
 # Need to translate 'log' string in this context. 
 #: ID:115
+#, fuzzy
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
 msgstr ""
 "Da li treba zaustaviti log na kopiranje?\n"
 "Odaberi <b>Da</b> ako trebaš da pronađeš početak ogranka."
@@ -3779,6 +3801,11 @@ msgstr "Ovaj program je povezan sa nedostajućim izvozom (export) %s u datoteci 
 msgid "This program requires the file %s, which was not found on this system."
 msgstr "Ovaj program zahtijeva datoteku %s, koja nije pronađena u sistemu."
 
+# ID:15,
+#: ID:15
+msgid "This property is only allowed on folders, not files."
+msgstr "Postavljanje ovog svojstva je dupušteno samo na direktorijima, ne na datotekama."
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Three File Diff"
@@ -4023,7 +4050,6 @@ msgstr "Upotrijebi promatrač teksta za pregledanje osuda"
 
 # Control-ID:65535,
 #: Control-ID:1073
-#, fuzzy
 msgid "Use \"From:\" URL"
 msgstr "Upotrijebi \"Iz:\" URL"
 
@@ -4065,6 +4091,12 @@ msgstr "Upotrijebi blok teksta iz \"yours\" (tvoj) prije \"theirs\" (njihov)"
 #: ID:251
 msgid "Use th&is text block"
 msgstr "Upotrijeb&i ovaj blok teksta"
+
+# ID:251,
+#: ID:251
+#, fuzzy
+msgid "Use this &whole file"
+msgstr "Opotrijebi &cijelu datoteku"
 
 # ID:12,
 #: ID:12
@@ -4139,11 +4171,6 @@ msgstr "Posjetite našu internet stranicu"
 #: ID:219
 msgid "Warning!"
 msgstr "Upozorenje!"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Koju vrstu spremišta želite da napravite?"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -4260,6 +4287,20 @@ msgstr "datotaka bez imena"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "i podržite TortoiseSVN programere"
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Postavi u \"false\" ako želite da bugtracking ID bude ubačen na početak\n"
+"poruke dnevnika. Zadana vrijednost je \"true\" sto znači da je bugtracking ID\n"
+"dodan na kraj poruke dnevnika."
 
 # edit box
 #: ID:14
@@ -4504,6 +4545,18 @@ msgstr "u %s"
 #: ID:15
 #, fuzzy
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Postavi u \"false\" ako ne želite da lista promijenjenih datoteka bude unešena na engleskom\n"
+"u prozor za izvršenje promjena."
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -4533,6 +4586,16 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Postavi ovo u broj slova koji poruka dnevnika ne bih trebala premašiti.\n"
 "Izblijedila linija je pokazana na toj poziciji. Početna vrijednost je 80 slova."
+
+# ID:15,
+#: ID:15
+#, fuzzy
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Postavi u \"yes\" ako želite prikazati upozorenje kada broj spornog pitanja nije unesen u izvršni prozor."
 
 # Control-ID:1112,
 #: Control-ID:1112
