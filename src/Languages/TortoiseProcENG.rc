@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -133,7 +133,7 @@ END
 IDD_COPY DIALOGEX 0, 0, 295, 129
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Copy"
+CAPTION "Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "From URL:",IDC_STATIC,7,7,65,8
@@ -372,7 +372,7 @@ END
 IDD_SWITCH DIALOGEX 0, 0, 256, 107
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Switch To Branch/Revision"
+CAPTION "Switch To Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "URL: ",IDC_STATIC,7,10,44,8
@@ -425,14 +425,14 @@ BEGIN
                     WS_TABSTOP,7,83,110,10
     CONTROL         "Edit Conflicts",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,106,110,10
-    CONTROL         "Update To Revision...",IDC_MENU8,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,117,110,10
-    CONTROL         "Rename...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,128,110,10
-    CONTROL         "Delete",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,139,110,10
     CONTROL         "Resolved",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,150,110,10
+                    WS_TABSTOP,7,116,110,10
+    CONTROL         "Update To Revision...",IDC_MENU8,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,127,110,10
+    CONTROL         "Rename...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,138,110,10
+    CONTROL         "Delete",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,148,110,10
     CONTROL         "Revert",IDC_MENU12,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,28,117,10
     CONTROL         "Clean Up",IDC_MENU13,"Button",BS_AUTOCHECKBOX | 
@@ -766,27 +766,27 @@ BEGIN
     IDS_PROGRS_TITLE_COPY   "SVN Copy..."
     IDS_PROGRS_COPY_WARNING "Please note:\nyour working copy remains on the previous path. If you want your next changes\nto be in the just created copy then you need to <b>switch</b> over\nto that copy path. Use the <b>Switch</b> command to do that."
     IDS_PROGRS_COMMITT_TRUNK 
-                            "your working copy appears to be on a <b>tag</b> path!\nYou should switch first to a branch or the main trunk before committing."
-    IDS_SETTINGS_SELECTDIFF "Select Diff Application..."
+                            "Your working copy appears to be on a <b>tag</b> path!\nYou should first switch to a branch or the main trunk before committing."
+    IDS_SETTINGS_SELECTDIFF "Select Diff Application"
     IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
-    IDS_SETTINGS_SELECTMERGE "Select a Merge Application..."
-    IDS_SETTINGS_EXTDIFF_TT "an external diff program used\nfor comparing different revisions of files"
-    IDS_SETTINGS_EXTDIFFBROWSE_TT "browse for the external diff program"
+    IDS_SETTINGS_SELECTMERGE "Select a Merge Application"
+    IDS_SETTINGS_EXTDIFF_TT "An external diff program used\nfor comparing different revisions of files"
+    IDS_SETTINGS_EXTDIFFBROWSE_TT "Browse for the external diff program"
     IDS_SETTINGS_CHANGEDDIRS_TT 
-                            "activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
+                            "Activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
-                            "specify the files or folders wich TortoiseSVN\n should include or exclude from version control.\nInclude patterns are prefixed with a '+'\nPriority order is from left to right"
+                            "Specify the files or folders wich TortoiseSVN\n should include or exclude from version control.\nInclude patterns are prefixed with a '+'\nPriority order is from left to right"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
-                            "shows unversioned files before committing so\nyou can choose to add them if you want"
+                            "Shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_SETTINGS_EXTMERGE_TT 
-                            "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
-    IDS_SETTINGS_PROXYSERVER_TT "either the name or IP of the proxy server"
+                            "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
+    IDS_SETTINGS_PROXYSERVER_TT "Either the name or IP of the proxy server"
     IDS_SETTINGS_DIFFVIEWER_TT 
-                            "a viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
+                            "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
     IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
@@ -800,9 +800,9 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROC_SETTINGS_TITLE "TortoiseSVN Settings"
-    IDS_PROC_DELETE_CONFIRM "Are you sure you want to delete the selected files?\n<hr=100%>\nPlease note: if you have modified files those modification will be lost.\nAlso unversioned items will be deleted too!"
+    IDS_PROC_DELETE_CONFIRM "Are you sure you want to delete the selected files?\n<hr=100%>\nPlease note: if you have modified files, those modification will be lost.\nUnversioned items will be deleted too!"
     IDS_PROC_OVERWRITE_CONFIRM 
-                            "the file\n%s\nalready exists! Do you want to overwrite it?"
+                            "The file\n%s\nalready exists! Do you want to overwrite it?"
     IDS_PROC_REPOCREATEFINISHED "Repository created"
     IDS_PROC_RELOCATEFINISHED "Working copy relocated to\n%s"
     IDS_PROC_MOVING         "Moving..."
@@ -818,18 +818,18 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ERR_THREADSTARTFAILED "Could not start thread!"
-    IDS_ERR_EXTDIFFSTART    "could not start external diff program!\n<hr=100%>\n%s"
-    IDS_ERR_NOCOMMAND       "no command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
-    IDS_ERR_NOCOMMANDVALUE  "no command value specified!"
-    IDS_ERR_NOSTATUS        "could not get the status!"
+    IDS_ERR_EXTDIFFSTART    "Could not start external diff program!\n<hr=100%>\n%s"
+    IDS_ERR_NOCOMMAND       "No command specified!\n<hr=100%>\nTortoiseProc.exe is used by the Shell extension and should not be called directly!"
+    IDS_ERR_NOCOMMANDVALUE  "No command value specified!"
+    IDS_ERR_NOSTATUS        "Could not get the status!"
     IDS_ERR_CLEANUP         "Subversion reported an error while doing a cleanup!\n<hr=100%>\n%s"
     IDS_ERR_NOURLOFFILE     "Could not retrieve URL of the file!"
     IDS_ERR_WCCHANGED       "The working copy has changed!\n<hr=100%>\nPlease commit your changes first or revert."
     IDS_ERR_COPYFILES       "Could not copy the files!\n<hr=100%>\n%s"
-    IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>"
+    IDS_ERR_EXTMERGESTART   "Could not start external merge program!\n<hr=100%>"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
-    IDS_ERR_FAILEDIGNOREPROPERTY "could not add %s to the ignore list"
-    IDS_ERR_DIFFVIEWSTART   "could not start diff viewer!"
+    IDS_ERR_FAILEDIGNOREPROPERTY "Could not add %s to the ignore list!"
+    IDS_ERR_DIFFVIEWSTART   "Could not start diff viewer!"
     IDS_ERR_SSL_VALIDATE    "Error validating server certificate:"
     IDS_ERR_SSL_UNKNOWNCA   "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
 END
@@ -841,21 +841,21 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CHECKOUT_TT_DIR     "location where the contents of the\nrepository URL will be saved to."
+    IDS_CHECKOUT_TT_DIR     "Location where the contents of the\nrepository URL will be saved to."
 END
 
 STRINGTABLE 
 BEGIN
     IDS_IMPORT_TT_MODULENAMECHECK 
                             "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
-    IDS_IMPORT_TT_TEMPFILES "Check the files which you want to\ndelete before importing"
+    IDS_IMPORT_TT_TEMPFILES "Check the files which you want to\ndelete before importing."
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOBROWSE_SAVEAS   "save as..."
-    IDS_REPOBROWSE_SHOWLOG  "show log"
-    IDS_REPOBROWSE_OPEN     "open"
+    IDS_REPOBROWSE_SAVEAS   "Save as..."
+    IDS_REPOBROWSE_SHOWLOG  "Show log"
+    IDS_REPOBROWSE_OPEN     "Open"
     IDS_REPOBROWSE_COPY     "Copy To..."
     IDS_REPOBROWSE_DELETE   "Delete"
     IDS_REPOBROWSE_IMPORT   "Add file..."
@@ -893,7 +893,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_LOG_COPY_SUCCESS    "Tag created successfully!"
+    IDS_LOG_COPY_SUCCESS    "Branch / Tag created successfully!"
 END
 
 STRINGTABLE 
@@ -925,12 +925,12 @@ BEGIN
     IDS_INPUT_MOVELOGMSG    "Moved remotely"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1010,7 +1010,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
