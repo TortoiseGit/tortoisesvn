@@ -337,7 +337,14 @@ VOID PipeThread(LPVOID lpvParam)
 				// The client could not connect, so close the pipe. 
 				CloseHandle(hPipe); 
 		}
+		else
+		{
+			// no connection
+			// close the pipe so it can be reopened
+			CloseHandle(hPipe);
+		}
 	}
+	CloseHandle(hPipe);
 	ATLTRACE("Pipe thread exited\n");
 }
 
