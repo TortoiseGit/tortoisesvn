@@ -63,13 +63,12 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(NM_CLICK, IDC_LOGLIST, OnNMClickLoglist)
-	ON_NOTIFY(NM_RCLICK, IDC_LOGLIST, OnNMRclickLoglist)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
-	ON_NOTIFY(NM_RCLICK, IDC_LOGMSG, OnNMRclickLogmsg)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkLogmsg)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
+	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 
@@ -436,121 +435,154 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
-void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 {
-	//check if an entry is selected
-	*pResult = 0;
-	int selIndex = m_LogList.GetSelectionMark();
-	this->m_nSearchIndex = selIndex;
-
-	if (selIndex >= 0)
+//#region m_LogList
+	if (pWnd == &m_LogList)
 	{
-		//entry is selected, now show the popup menu
-		CMenu popup;
-		POINT point;
-		GetCursorPos(&point);
-		if (popup.CreatePopupMenu())
+		int selIndex = m_LogList.GetSelectionMark();
+		if ((point.x == -1) && (point.y == -1))
 		{
-			CString temp;
-			if (m_LogList.GetSelectedCount() == 1)
-			{
-				if (!PathIsDirectory(m_path))
-				{
-					temp.LoadString(IDS_LOG_POPUP_COMPARE);
-					if (m_hasWC)
-					{
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
-						popup.SetDefaultItem(ID_COMPARE, FALSE);
-					}
-					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
-					popup.AppendMenu(MF_SEPARATOR, NULL);
-					temp.LoadString(IDS_LOG_POPUP_SAVE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
-				} // if (!PathIsDirectory(m_path))
-				else
-				{
-					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
-					popup.SetDefaultItem(ID_GNUDIFF1, FALSE);
-					popup.AppendMenu(MF_SEPARATOR, NULL);
-					temp.LoadString(IDS_LOG_BROWSEREPO);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
-					temp.LoadString(IDS_LOG_POPUP_COPY);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
-				}
-				temp.LoadString(IDS_LOG_POPUP_UPDATE);
-				if (m_hasWC)
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
-				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
-				if (m_hasWC)
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
-			}
-			else if (m_LogList.GetSelectedCount() == 2)
-			{
-				if (!PathIsDirectory(m_path))
-				{
-					temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
-				}
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
-			}
-			popup.AppendMenu(MF_SEPARATOR, NULL);
-			temp.LoadString(IDS_LOG_POPUP_FIND);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
+			CRect rect;
+			m_LogList.GetItemRect(selIndex, &rect, LVIR_LABEL);
+			m_LogList.ClientToScreen(&rect);
+			point.x = rect.left + rect.Width()/2;
+			point.y = rect.top + rect.Height()/2;
+		}
+		m_nSearchIndex = selIndex;
 
-			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
-			this->m_app = &theApp;
-			theApp.DoWaitCursor(1);
-			switch (cmd)
+		if (selIndex >= 0)
+		{
+			//entry is selected, now show the popup menu
+			CMenu popup;
+			if (popup.CreatePopupMenu())
 			{
-			case ID_GNUDIFF1:
+				CString temp;
+				if (m_LogList.GetSelectedCount() == 1)
 				{
-					int selIndex = m_LogList.GetSelectionMark();
-					long rev = m_arRevs.GetAt(selIndex);
-					this->m_bCancelled = FALSE;
-					CString tempfile = CUtils::GetTempFile();
-					tempfile += _T(".diff");
-					m_templist.Add(tempfile);
-					if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!PathIsDirectory(m_path))
 					{
-						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						break;		//exit
-					} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+						temp.LoadString(IDS_LOG_POPUP_COMPARE);
+						if (m_hasWC)
+						{
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							popup.SetDefaultItem(ID_COMPARE, FALSE);
+						}
+						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+						popup.AppendMenu(MF_SEPARATOR, NULL);
+						temp.LoadString(IDS_LOG_POPUP_SAVE);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+					} // if (!PathIsDirectory(m_path))
 					else
 					{
-						CUtils::StartDiffViewer(tempfile);
+						temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+						popup.SetDefaultItem(ID_GNUDIFF1, FALSE);
+						popup.AppendMenu(MF_SEPARATOR, NULL);
+						temp.LoadString(IDS_LOG_BROWSEREPO);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
+						temp.LoadString(IDS_LOG_POPUP_COPY);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
 					}
+					temp.LoadString(IDS_LOG_POPUP_UPDATE);
+					if (m_hasWC)
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+					temp.LoadString(IDS_LOG_POPUP_REVERTREV);
+					if (m_hasWC)
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
 				}
-				break;
-			case ID_GNUDIFF2:
+				else if (m_LogList.GetSelectedCount() == 2)
 				{
-					POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-					long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-					long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-					this->m_bCancelled = FALSE;
-					CString tempfile = CUtils::GetTempFile();
-					tempfile += _T(".diff");
-					m_templist.Add(tempfile);
-					if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!PathIsDirectory(m_path))
 					{
-						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						break;		//exit
-					} // if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
-					else
-					{
-						CUtils::StartDiffViewer(tempfile);
+						temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
 					}
+					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 				}
-				break;
-			case ID_REVERTREV:
+				popup.AppendMenu(MF_SEPARATOR, NULL);
+				temp.LoadString(IDS_LOG_POPUP_FIND);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
+
+				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+				GetDlgItem(IDOK)->EnableWindow(FALSE);
+				this->m_app = &theApp;
+				theApp.DoWaitCursor(1);
+				switch (cmd)
 				{
-					int selIndex = m_LogList.GetSelectionMark();
-					long rev = m_arRevs.GetAt(selIndex);
-					if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
+				case ID_GNUDIFF1:
 					{
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+						this->m_bCancelled = FALSE;
+						CString tempfile = CUtils::GetTempFile();
+						tempfile += _T(".diff");
+						m_templist.Add(tempfile);
+						if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+						{
+							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							break;		//exit
+						} // if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+						else
+						{
+							CUtils::StartDiffViewer(tempfile);
+						}
+					}
+					break;
+				case ID_GNUDIFF2:
+					{
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+						long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+						this->m_bCancelled = FALSE;
+						CString tempfile = CUtils::GetTempFile();
+						tempfile += _T(".diff");
+						m_templist.Add(tempfile);
+						if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+						{
+							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							break;		//exit
+						} // if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+						else
+						{
+							CUtils::StartDiffViewer(tempfile);
+						}
+					}
+					break;
+				case ID_REVERTREV:
+					{
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+						if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION) == IDYES)
+						{
+							SVNStatus status;
+							status.GetStatus(m_path);
+							if ((status.status == NULL)&&(status.status->entry == NULL))
+							{
+								CString temp;
+								temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+								CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+								TRACE(_T("could not retrieve the URL of the folder!\n"));
+								break;		//exit
+							} // if ((rev == (-2))||(status.status->entry == NULL))
+							else
+							{
+								CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
+								CSVNProgressDlg dlg;
+								dlg.SetParams(Enum_Merge, false, m_path, url, url, rev);		//use the message as the second url
+								dlg.m_nRevisionEnd = rev-1;
+								dlg.DoModal();
+							}
+						} // if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_ICONQUESTION) == IDOK) 
+					}
+					break;
+				case ID_COPY:
+					{
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+						CCopyDlg dlg;
 						SVNStatus status;
 						status.GetStatus(m_path);
 						if ((status.status == NULL)&&(status.status->entry == NULL))
@@ -560,210 +592,237 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 							TRACE(_T("could not retrieve the URL of the folder!\n"));
 							break;		//exit
-						} // if ((rev == (-2))||(status.status->entry == NULL))
+						} // if (status.status->entry == NULL) 
 						else
 						{
 							CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
-							CSVNProgressDlg dlg;
-							dlg.SetParams(Enum_Merge, false, m_path, url, url, rev);		//use the message as the second url
-							dlg.m_nRevisionEnd = rev-1;
-							dlg.DoModal();
+							dlg.m_URL = url;
+							dlg.m_path = m_path;
+							if (dlg.DoModal() == IDOK)
+							{
+								SVN svn;
+								if (!svn.Copy(url, dlg.m_URL, rev))
+								{
+									CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								}
+								else
+								{
+									CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
+								}
+							} // if (dlg.DoModal() == IDOK) 
 						}
-					} // if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_ICONQUESTION) == IDOK) 
-				}
-				break;
-			case ID_COPY:
-				{
-					int selIndex = m_LogList.GetSelectionMark();
-					long rev = m_arRevs.GetAt(selIndex);
-					CCopyDlg dlg;
-					SVNStatus status;
-					status.GetStatus(m_path);
-					if ((status.status == NULL)&&(status.status->entry == NULL))
+					} 
+					break;
+				case ID_COMPARE:
 					{
-						CString temp;
-						temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
-						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-						TRACE(_T("could not retrieve the URL of the folder!\n"));
-						break;		//exit
-					} // if (status.status->entry == NULL) 
-					else
-					{
-						CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
-						dlg.m_URL = url;
-						dlg.m_path = m_path;
-						if (dlg.DoModal() == IDOK)
-						{
-							SVN svn;
-							if (!svn.Copy(url, dlg.m_URL, rev))
-							{
-								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							}
-							else
-							{
-								CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
-							}
-						} // if (dlg.DoModal() == IDOK) 
-					}
-				} 
-				break;
-			case ID_COMPARE:
-				{
-					//user clicked on the menu item "compare with working copy"
-					//now first get the revision which is selected
-					int selIndex = m_LogList.GetSelectionMark();
-					long rev = m_arRevs.GetAt(selIndex);
-					CString tempfile = CUtils::GetTempFile();
-					m_templist.Add(tempfile);
-					SVN svn;
-					if (!svn.Cat(m_path, rev, tempfile))
-					{
-						CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
-						break;
-					} // if (!svn.Cat(m_path, rev, tempfile))
-					else
-					{
-						CString revname, wcname;
-						CString ext = CUtils::GetFileExtFromPath(m_path);
-						revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
-						wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
-						CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
-					}
-				}
-				break;
-			case ID_COMPARETWO:
-				{
-					//user clicked on the menu item "compare revisions"
-					//now first get the revisions which are selected
-					POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-					long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-					long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
-
-					StartDiff(m_path, rev1, m_path, rev2);
-				}
-				break;
-			case ID_SAVEAS:
-				{
-					//now first get the revision which is selected
-					int selIndex = m_LogList.GetSelectionMark();
-					long rev = m_arRevs.GetAt(selIndex);
-
-					OPENFILENAME ofn;		// common dialog box structure
-					TCHAR szFile[MAX_PATH];  // buffer for file name
-					ZeroMemory(szFile, sizeof(szFile));
-					if (m_hasWC)
-						_tcscpy(szFile, m_path);
-					// Initialize OPENFILENAME
-					ZeroMemory(&ofn, sizeof(OPENFILENAME));
-					//ofn.lStructSize = sizeof(OPENFILENAME);
-					ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-					ofn.hwndOwner = this->m_hWnd;
-					ofn.lpstrFile = szFile;
-					ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-					CString temp;
-					temp.LoadString(IDS_LOG_POPUP_SAVE);
-					//ofn.lpstrTitle = "Save revision to...\0";
-					if (temp.IsEmpty())
-						ofn.lpstrTitle = NULL;
-					else
-						ofn.lpstrTitle = temp;
-					ofn.Flags = OFN_OVERWRITEPROMPT;
-
-					CString sFilter;
-					sFilter.LoadString(IDS_COMMONFILEFILTER);
-					TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-					_tcscpy (pszFilters, sFilter);
-					// Replace '|' delimeters with '\0's
-					TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-					while (ptr != pszFilters)
-					{
-						if (*ptr == '|')
-							*ptr = '\0';
-						ptr--;
-					} // while (ptr != pszFilters) 
-					ofn.lpstrFilter = pszFilters;
-					ofn.nFilterIndex = 1;
-					// Display the Open dialog box. 
-					CString tempfile;
-					if (GetSaveFileName(&ofn)==TRUE)
-					{
-						tempfile = CString(ofn.lpstrFile);
+						//user clicked on the menu item "compare with working copy"
+						//now first get the revision which is selected
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+						CString tempfile = CUtils::GetTempFile();
+						m_templist.Add(tempfile);
 						SVN svn;
 						if (!svn.Cat(m_path, rev, tempfile))
 						{
-							delete [] pszFilters;
+							CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							GetDlgItem(IDOK)->EnableWindow(TRUE);
+							break;
+						} // if (!svn.Cat(m_path, rev, tempfile))
+						else
+						{
+							CString revname, wcname;
+							CString ext = CUtils::GetFileExtFromPath(m_path);
+							revname.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(m_path), rev);
+							wcname.Format(IDS_DIFF_WCNAME, CUtils::GetFileNameFromPath(m_path));
+							CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
+						}
+					}
+					break;
+				case ID_COMPARETWO:
+					{
+						//user clicked on the menu item "compare revisions"
+						//now first get the revisions which are selected
+						POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+						long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+						long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+
+						StartDiff(m_path, rev1, m_path, rev2);
+					}
+					break;
+				case ID_SAVEAS:
+					{
+						//now first get the revision which is selected
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+
+						OPENFILENAME ofn;		// common dialog box structure
+						TCHAR szFile[MAX_PATH];  // buffer for file name
+						ZeroMemory(szFile, sizeof(szFile));
+						if (m_hasWC)
+							_tcscpy(szFile, m_path);
+						// Initialize OPENFILENAME
+						ZeroMemory(&ofn, sizeof(OPENFILENAME));
+						//ofn.lStructSize = sizeof(OPENFILENAME);
+						ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+						ofn.hwndOwner = this->m_hWnd;
+						ofn.lpstrFile = szFile;
+						ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+						CString temp;
+						temp.LoadString(IDS_LOG_POPUP_SAVE);
+						//ofn.lpstrTitle = "Save revision to...\0";
+						if (temp.IsEmpty())
+							ofn.lpstrTitle = NULL;
+						else
+							ofn.lpstrTitle = temp;
+						ofn.Flags = OFN_OVERWRITEPROMPT;
+
+						CString sFilter;
+						sFilter.LoadString(IDS_COMMONFILEFILTER);
+						TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+						_tcscpy (pszFilters, sFilter);
+						// Replace '|' delimeters with '\0's
+						TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+						while (ptr != pszFilters)
+						{
+							if (*ptr == '|')
+								*ptr = '\0';
+							ptr--;
+						} // while (ptr != pszFilters) 
+						ofn.lpstrFilter = pszFilters;
+						ofn.nFilterIndex = 1;
+						// Display the Open dialog box. 
+						CString tempfile;
+						if (GetSaveFileName(&ofn)==TRUE)
+						{
+							tempfile = CString(ofn.lpstrFile);
+							SVN svn;
+							if (!svn.Cat(m_path, rev, tempfile))
+							{
+								delete [] pszFilters;
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								break;
+							} // if (!svn.Cat(m_path, rev, tempfile)) 
+						} // if (GetSaveFileName(&ofn)==TRUE)
+						delete [] pszFilters;
+					}
+					break;
+				case ID_UPDATE:
+					{
+						//now first get the revision which is selected
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+
+						SVN svn;
+						if (!svn.Update(m_path, rev, TRUE))
+						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							GetDlgItem(IDOK)->EnableWindow(TRUE);
 							break;
-						} // if (!svn.Cat(m_path, rev, tempfile)) 
-					} // if (GetSaveFileName(&ofn)==TRUE)
-					delete [] pszFilters;
-				}
-				break;
-			case ID_UPDATE:
-				{
-					//now first get the revision which is selected
-					int selIndex = m_LogList.GetSelectionMark();
-					long rev = m_arRevs.GetAt(selIndex);
-
-					SVN svn;
-					if (!svn.Update(m_path, rev, TRUE))
-					{
-						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						GetDlgItem(IDOK)->EnableWindow(TRUE);
-						break;
+						}
 					}
-				}
-				break;
-			case ID_FINDENTRY:
-				{
-					m_nSearchIndex = m_LogList.GetSelectionMark();
-					if (m_pFindDialog)
+					break;
+				case ID_FINDENTRY:
 					{
-						break;
-					}
-					else
-					{
-						m_pFindDialog = new CFindReplaceDialog();
-						m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
-					}
-				}
-				break;
-			case ID_REPOBROWSE:
-				{
-					int selIndex = m_LogList.GetSelectionMark();
-					long rev = m_arRevs.GetAt(selIndex);
-					CString url = m_path;
-					if (m_hasWC)
-					{
-						SVNStatus status;
-						if (status.GetStatus(m_path) != -2)
+						m_nSearchIndex = m_LogList.GetSelectionMark();
+						if (m_pFindDialog)
 						{
-							if (status.status->entry)
-								url = status.status->entry->url;
-						} // if (status.GetStatus(path)!=-2)
-						else
-						{
-							CMessageBox::Show(this->m_hWnd, status.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-							GetDlgItem(IDOK)->EnableWindow(TRUE);
 							break;
 						}
-					} // if (m_hasWC)
+						else
+						{
+							m_pFindDialog = new CFindReplaceDialog();
+							m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+						}
+					}
+					break;
+				case ID_REPOBROWSE:
+					{
+						int selIndex = m_LogList.GetSelectionMark();
+						long rev = m_arRevs.GetAt(selIndex);
+						CString url = m_path;
+						if (m_hasWC)
+						{
+							SVNStatus status;
+							if (status.GetStatus(m_path) != -2)
+							{
+								if (status.status->entry)
+									url = status.status->entry->url;
+							} // if (status.GetStatus(path)!=-2)
+							else
+							{
+								CMessageBox::Show(this->m_hWnd, status.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+								GetDlgItem(IDOK)->EnableWindow(TRUE);
+								break;
+							}
+						} // if (m_hasWC)
 
-					CRepositoryBrowser dlg(url);
-					dlg.m_nRevision = rev;
-					dlg.m_bStandAlone = TRUE;
-					dlg.DoModal();
+						CRepositoryBrowser dlg(url);
+						dlg.m_nRevision = rev;
+						dlg.m_bStandAlone = TRUE;
+						dlg.DoModal();
+					}
+					break;
+				default:
+					break;
+				} // switch (cmd)
+				theApp.DoWaitCursor(-1);
+				GetDlgItem(IDOK)->EnableWindow(TRUE);
+			} // if (popup.CreatePopupMenu())
+		} // if (selIndex >= 0)
+	} // if (pWnd == &m_LogList)
+//#endregion
+//#region m_LogMsgCtrl
+	if (pWnd == &m_LogMsgCtrl)
+	{
+		int selIndex = m_LogMsgCtrl.GetSelectionMark();
+		if ((point.x == -1) && (point.y == -1))
+		{
+			CRect rect;
+			m_LogMsgCtrl.GetItemRect(selIndex, &rect, LVIR_LABEL);
+			m_LogMsgCtrl.ClientToScreen(&rect);
+			point.x = rect.left + rect.Width()/2;
+			point.y = rect.top + rect.Height()/2;
+		}
+		if (selIndex < 0)
+			return;
+		int s = m_LogList.GetSelectionMark();
+		if (s < 0)
+			return;
+		long rev = m_arRevs.GetAt(s);
+		//entry is selected, now show the popup menu
+		CMenu popup;
+		if (popup.CreatePopupMenu())
+		{
+			CString temp;
+			if (m_LogMsgCtrl.GetSelectedCount() == 1)
+			{
+				temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
+				temp = temp.Left(temp.Find(' '));
+				CString t, tt;
+				t.LoadString(IDS_SVNACTION_ADD);
+				tt.LoadString(IDS_SVNACTION_DELETE);
+				if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
+				{
+					temp.LoadString(IDS_LOG_POPUP_DIFF);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
 				}
-				break;
-			default:
-				break;
-			} // switch (cmd)
-			theApp.DoWaitCursor(-1);
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
+				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+				switch (cmd)
+				{
+				case ID_DIFF:
+					{
+						DoDiffFromLog(selIndex,temp,rev);
+					}
+					break;
+				default:
+					break;
+				} // switch (cmd)
+			} // if (m_LogMsgCtrl.GetSelectedCount() == 1)
 		} // if (popup.CreatePopupMenu())
-	} // if (selIndex >= 0)
+	} // if (pWnd == &m_LogMsgCtrl) 
+//#endregion
+
 }
 
 void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -894,50 +953,6 @@ void CLogDlg::OnOK()
 	}
 }
 
-void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	*pResult = 0;
-	int selIndex = m_LogMsgCtrl.GetSelectionMark();
-	if (selIndex < 0)
-		return;
-	int s = m_LogList.GetSelectionMark();
-	if (s < 0)
-		return;
-	long rev = m_arRevs.GetAt(s);
-	//entry is selected, now show the popup menu
-	CMenu popup;
-	POINT point;
-	GetCursorPos(&point);
-	if (popup.CreatePopupMenu())
-	{
-		CString temp;
-		if (m_LogMsgCtrl.GetSelectedCount() == 1)
-		{
-			temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-			temp = temp.Left(temp.Find(' '));
-			CString t, tt;
-			t.LoadString(IDS_SVNACTION_ADD);
-			tt.LoadString(IDS_SVNACTION_DELETE);
-			if ((rev > 1)&&(temp.Compare(t)!=0)&&(temp.Compare(tt)!=0))
-			{
-				temp.LoadString(IDS_LOG_POPUP_DIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
-			}
-			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-			switch (cmd)
-			{
-			case ID_DIFF:
-				{
-					DoDiffFromLog(selIndex,temp,rev);
-				}
-				break;
-			default:
-				break;
-			} // switch (cmd)
-		} // if (m_LogMsgCtrl.GetSelectedCount() == 1)
-	} // if (popup.CreatePopupMenu())
-}
-
 void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	*pResult = 0;
@@ -1053,6 +1068,7 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	revname2.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(path2), rev2);
 	return CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, revname2, revname1, ext);
 }
+
 
 
 

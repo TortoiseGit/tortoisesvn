@@ -43,7 +43,7 @@ protected:
 	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void			OnPaint();
 	afx_msg HCURSOR			OnQueryDragIcon();
-	afx_msg void			OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void			OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void			OnNMDblclkChangedlist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual BOOL			OnInitDialog();
 	virtual void			OnOK();

@@ -4,6 +4,9 @@
 - CHG: When "Ignore all whitespaces" is active and 
        "don't show whitespaces" then the line diff bar
        doesn't show those whitespaces. (Stefan)
+- CHG: The context menus can now be activated by
+       either a right-click or the special
+       windows key or shift-F10. (Stefan)
 - BUG: Remove compiler optimizations which lead 
        to a crash in the repo browser. (Stefan)
 - BUG: Applying a patch which had the whole file

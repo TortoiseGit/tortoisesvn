@@ -71,9 +71,10 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnBnClickedSelectall();
+	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 
 	void StartDiff(int fileindex);
 	void Refresh();
@@ -102,8 +103,6 @@ private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;
 	CFont			m_logFont;
-public:
-	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

@@ -72,10 +72,10 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_SETCURSOR()
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
-	ON_NOTIFY(NM_RCLICK, IDC_FILELIST, OnNMRclickFilelist)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_FILELIST, OnLvnItemchangedFilelist)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickFilelist)
+	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
 
@@ -345,110 +345,118 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	} 
 }
 
-void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 {
-	*pResult = 0;
-	int selIndex = m_ListCtrl.GetSelectionMark();
-	if (selIndex >= 0)
+	if (pWnd == &m_ListCtrl)
 	{
-		Data * data = m_arData.GetAt(selIndex);
-		CString filepath = data->path;
-		svn_wc_status_kind wcStatus = data->status;
-		//entry is selected, now show the popup menu
-		CMenu popup;
-		POINT point;
-		GetCursorPos(&point);
-		if (popup.CreatePopupMenu())
+		int selIndex = m_ListCtrl.GetSelectionMark();
+		if ((point.x == -1) && (point.y == -1))
 		{
-			CString temp;
-			if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
+			CRect rect;
+			m_ListCtrl.GetItemRect(selIndex, &rect, LVIR_LABEL);
+			m_ListCtrl.ClientToScreen(&rect);
+			point.x = rect.left + rect.Width()/2;
+			point.y = rect.top + rect.Height()/2;
+		}
+		if (selIndex >= 0)
+		{
+			Data * data = m_arData.GetAt(selIndex);
+			CString filepath = data->path;
+			svn_wc_status_kind wcStatus = data->status;
+			//entry is selected, now show the popup menu
+			CMenu popup;
+			if (popup.CreatePopupMenu())
 			{
-				temp.LoadString(IDS_LOG_COMPAREWITHBASE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
-				popup.SetDefaultItem(ID_COMPARE, FALSE);
-				temp.LoadString(IDS_MENUREVERT);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
-			} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
-			if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted))
-			{
-				temp.LoadString(IDS_REPOBROWSE_OPEN);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
-			} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted))
-			if (wcStatus == svn_wc_status_unversioned)
-			{
-				temp.LoadString(IDS_REPOBROWSE_DELETE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);
-			}
-			temp.LoadString(IDS_MENUREFRESH);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);
-			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-			GetDlgItem(IDOK)->EnableWindow(FALSE);
-			theApp.DoWaitCursor(1);
-			switch (cmd)
-			{
-			case ID_REVERT:
+				CString temp;
+				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
 				{
-					if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
+					temp.LoadString(IDS_LOG_COMPAREWITHBASE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+					popup.SetDefaultItem(ID_COMPARE, FALSE);
+					temp.LoadString(IDS_MENUREVERT);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERT, temp);
+				} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
+				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted))
+				{
+					temp.LoadString(IDS_REPOBROWSE_OPEN);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+				} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted))
+				if (wcStatus == svn_wc_status_unversioned)
+				{
+					temp.LoadString(IDS_REPOBROWSE_DELETE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);
+				}
+				temp.LoadString(IDS_MENUREFRESH);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);
+				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+				GetDlgItem(IDOK)->EnableWindow(FALSE);
+				theApp.DoWaitCursor(1);
+				switch (cmd)
+				{
+				case ID_REVERT:
 					{
-						SVN svn;
-						if (!svn.Revert(filepath, FALSE))
+						if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 						{
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						}
-						else
+							SVN svn;
+							if (!svn.Revert(filepath, FALSE))
+							{
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							}
+							else
+							{
+								//since the entry got reverted we need to remove
+								//it from the list too
+								m_ListCtrl.DeleteItem(selIndex);
+								m_arData.RemoveAt(selIndex);
+							}
+						} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)  
+					} 
+					break;
+				case ID_COMPARE:
+					{
+						StartDiff(selIndex);
+					}
+					break;
+				case ID_REFRESH:
+					{
+						Refresh();
+					}
+					break;
+				case ID_OPEN:
+					{
+						ShellExecute(this->m_hWnd, _T("open"), filepath, NULL, NULL, SW_SHOW);
+					}
+					break;
+				case ID_DELETE:
+					{
+						TCHAR buf[MAX_PATH];
+						ZeroMemory(buf, sizeof(buf));
+						_tcsncpy(buf, filepath, MAX_PATH);
+						SHFILEOPSTRUCT fileop;
+						fileop.hwnd = this->m_hWnd;
+						fileop.wFunc = FO_DELETE;
+						fileop.pFrom = buf;
+						fileop.pTo = _T("");
+						fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
+						fileop.lpszProgressTitle = _T("deleting file");
+						SHFileOperation(&fileop);
+
+						if (! fileop.fAnyOperationsAborted)
 						{
-							//since the entry got reverted we need to remove
-							//it from the list too
 							m_ListCtrl.DeleteItem(selIndex);
 							m_arData.RemoveAt(selIndex);
-						}
-					} // if (CMessageBox::Show(this->m_hWnd, IDS_PROC_WARNREVERT, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)  
-				} 
-				break;
-			case ID_COMPARE:
-				{
-					StartDiff(selIndex);
-				}
-				break;
-			case ID_REFRESH:
-				{
-					Refresh();
-				}
-				break;
-			case ID_OPEN:
-				{
-					ShellExecute(this->m_hWnd, _T("open"), filepath, NULL, NULL, SW_SHOW);
-				}
-				break;
-			case ID_DELETE:
-				{
-					TCHAR buf[MAX_PATH];
-					ZeroMemory(buf, sizeof(buf));
-					_tcsncpy(buf, filepath, MAX_PATH);
-					SHFILEOPSTRUCT fileop;
-					fileop.hwnd = this->m_hWnd;
-					fileop.wFunc = FO_DELETE;
-					fileop.pFrom = buf;
-					fileop.pTo = _T("");
-					fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
-					fileop.lpszProgressTitle = _T("deleting file");
-					SHFileOperation(&fileop);
-
-					if (! fileop.fAnyOperationsAborted)
-					{
-						m_ListCtrl.DeleteItem(selIndex);
-						m_arData.RemoveAt(selIndex);
-					} // if (! fileop.fAnyOperationsAborted) 
-				}
-				break;
-			default:
+						} // if (! fileop.fAnyOperationsAborted) 
+					}
+					break;
+				default:
+					GetDlgItem(IDOK)->EnableWindow(TRUE);
+					break;
+				} // switch (cmd)
 				GetDlgItem(IDOK)->EnableWindow(TRUE);
-				break;
-			} // switch (cmd)
-			GetDlgItem(IDOK)->EnableWindow(TRUE);
-			theApp.DoWaitCursor(-1);
-		} // if (popup.CreatePopupMenu())
-	} // if (selIndex >= 0)
+				theApp.DoWaitCursor(-1);
+			} // if (popup.CreatePopupMenu())
+		} // if (selIndex >= 0)
+	}
 }
 
 void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -987,6 +995,7 @@ int CLogPromptDlg::SortCompare(const void * pElem1, const void * pElem2)
 		result = -result;
 	return result;
 }
+
 
 
 
