@@ -26,7 +26,7 @@ SVNStatus::SVNStatus(void)
 {
 	apr_initialize();
 	m_pool = svn_pool_create (NULL);				// create the memory pool
-	svn_config_ensure(m_pool);
+	svn_config_ensure(NULL, m_pool);
 
 	memset (&m_ctx, 0, sizeof (m_ctx));
 
@@ -76,7 +76,7 @@ SVNStatus::SVNStatus(void)
 	m_ctx.prompt_baton = this;
 #endif
 	// set up the configuration
-	svn_config_get_config (&(m_ctx.config), m_pool);
+	svn_config_get_config (&(m_ctx.config), NULL, m_pool);
 }
 
 SVNStatus::~SVNStatus(void)
@@ -248,7 +248,7 @@ svn_wc_status_kind SVNStatus::GetTextStatusRecursive(const TCHAR * path)
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
-	svn_config_ensure(pool);
+	svn_config_ensure(NULL, pool);
 
 	//we need to convert the path to subversion internal format
 	//the internal format uses '/' instead of the windows '\'
@@ -275,7 +275,7 @@ svn_wc_status_kind SVNStatus::GetTextStatusRecursive(const TCHAR * path)
 	svn_auth_open (&auth_baton, providers, pool);
 
 	// set up the configuration
-	svn_config_get_config (&(ctx.config), pool);
+	svn_config_get_config (&(ctx.config), NULL, pool);
 
 	ctx.auth_baton = auth_baton;
 
@@ -347,7 +347,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
-	svn_config_ensure(pool);
+	svn_config_ensure(NULL, pool);
 
 	//we need to convert the path to subversion internal format
 	//the internal format uses '/' instead of the windows '\'
@@ -374,7 +374,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path)
 	svn_auth_open (&auth_baton, providers, pool);
 
 	// set up the configuration
-	svn_config_get_config (&(ctx.config), pool);
+	svn_config_get_config (&(ctx.config), NULL, pool);
 
 	ctx.auth_baton = auth_baton;
 
@@ -443,7 +443,7 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
 	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
-	svn_config_ensure(pool);
+	svn_config_ensure(NULL, pool);
 
 	//we need to convert the path to subversion internal format
 	//the internal format uses '/' instead of the windows '\'
@@ -470,7 +470,7 @@ svn_wc_status_kind SVNStatus::GetAllStatusRecursive(const TCHAR * path)
 	svn_auth_open (&auth_baton, providers, pool);
 
 	// set up the configuration
-	svn_config_get_config (&(ctx.config), pool);
+	svn_config_get_config (&(ctx.config), NULL, pool);
 
 	ctx.auth_baton = auth_baton;
 
