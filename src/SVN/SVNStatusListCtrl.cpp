@@ -1325,6 +1325,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									}
 									else
 									{
+										SetItemState(index, 0, LVIS_SELECTED);
 										Show(m_dwShow);
 									}
 								}
