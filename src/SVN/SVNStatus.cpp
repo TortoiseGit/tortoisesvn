@@ -47,6 +47,8 @@ SVNStatus::SVNStatus(void)
 	// set up authentication
 	Init(m_pool);
 
+	svn_utf_initialize(m_pool);
+
 	// set up the configuration
 	m_err = svn_config_get_config (&(ctx.config), NULL, m_pool);
 
@@ -158,6 +160,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
 		return svn_wc_status_normal;
 
 	pool = svn_pool_create (NULL);				// create the memory pool
+	svn_utf_initialize(pool);
 
 	const char * deststr = NULL;
 	svn_utf_cstring_to_utf8(&deststr, "dummy", pool);
