@@ -31,7 +31,7 @@ SetCompressor lzma
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "..\..\bin\LanguagePack_no.exe"
+OutFile "..\..\bin\LanguagePack_${PRODUCT_VERSION}_no.exe"
 ShowInstDetails show
 
 Section "Hauptgruppe" SEC01
