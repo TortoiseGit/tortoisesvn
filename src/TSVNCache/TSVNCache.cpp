@@ -127,7 +127,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).BuildCacheResponse(*pReply);
 
-	// Make sure we only send back the minmum amount necessary
+	// Make sure we only send back the minimum amount necessary
 	if(pReply->m_status.entry != NULL)
 	{
 		*pResponseLength = sizeof(TSVNCacheResponse);

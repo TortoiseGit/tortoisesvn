@@ -280,17 +280,26 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BO
 			return &invalidstatus;
 		}
 
-		if (fullStatus.m_status.entry != NULL)
+		// since the const char* could be not NULL terminated, we might get into
+		// a crash here, so guard it with a try-catch block.
+		try
 		{
-			filestat.author = authors.GetString(fullStatus.m_status.entry->cmt_author);
-			filestat.url = urls.GetString(fullStatus.m_status.entry->url);
-			filestat.rev = fullStatus.m_status.entry->cmt_rev;
-		} // if (status->entry) 
-		else
+			if (fullStatus.m_status.entry != NULL)
+			{
+				filestat.author = authors.GetString(fullStatus.m_status.entry->cmt_author);
+				filestat.url = urls.GetString(fullStatus.m_status.entry->url);
+				filestat.rev = fullStatus.m_status.entry->cmt_rev;
+			} // if (status->entry) 
+			else
+			{
+				filestat.author = authors.GetString(NULL);
+				filestat.url = urls.GetString(NULL);
+				filestat.rev = -1;
+			}
+		}
+		catch (...)
 		{
-			filestat.author = authors.GetString(NULL);
-			filestat.url = urls.GetString(NULL);
-			filestat.rev = -1;
+			return &invalidstatus;
 		}
 		filestat.status = svn_wc_status_unversioned;
 		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.m_status.text_status);

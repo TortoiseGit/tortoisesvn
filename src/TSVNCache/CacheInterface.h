@@ -18,6 +18,7 @@
 //
 
 #pragma once
+#include "wininet.h"
 
 // The name of the named-pipe for the cache
 #define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache")
@@ -35,15 +36,14 @@ struct TSVNCacheResponse
 {
 	svn_wc_status_t m_status;
 	svn_wc_entry_t m_entry;
-	char m_url[MAX_PATH+1];
+	char m_url[INTERNET_MAX_URL_LENGTH+1];
 };
 
 
-// Set this flag if you already know whether or not the item is a folder
+/// Set this flag if you already know whether or not the item is a folder
 #define TSVNCACHE_FLAGS_FOLDERISKNOWN		0x01
-// Set this flag if the item is a folder
+/// Set this flag if the item is a folder
 #define TSVNCACHE_FLAGS_ISFOLDER			0x02
-// Set this flag if you want recursive folder status (safely ignored for file paths)
+/// Set this flag if you want recursive folder status (safely ignored for file paths)
 #define TSVNCACHE_FLAGS_RECUSIVE_STATUS		0x04
-
 

@@ -85,14 +85,17 @@ bool CStatusCacheEntry::HasExpired(long now) const
 void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response) const
 {
 	response.m_status = m_svnStatus;
+	// initialize all data to make sure the const char* pointers
+	// don't point to garbage data and are zero terminated
+	ZeroMemory(&response.m_entry, sizeof(response.m_entry));
+	response.m_url[0] = '\0';
 	if(m_bSVNEntryFieldSet)
 	{
 		ZeroMemory(&response.m_entry, sizeof(response.m_entry));
 		response.m_status.entry = &response.m_entry;
 		response.m_entry.cmt_rev = m_commitRevision;
 		response.m_entry.url = response.m_url;
-		response.m_url[0] = '\0';
-		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-1);
+		strncat(response.m_url, m_sUrl, sizeof(response.m_url)-strlen(m_sUrl)-1);
 	}
 }
 
