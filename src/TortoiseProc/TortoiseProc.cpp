@@ -457,7 +457,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
-			dlg.SetParams(cmdLinePath.GetWinPathString(), revstart, revend, !parser.HasKey(_T("nostrict")));
+			dlg.SetParams(cmdLinePath.GetWinPathString(), revstart, revend, parser.HasKey(_T("strict")));
 			dlg.DoModal();			
 		}
 		//#endregion

@@ -231,7 +231,7 @@ BEGIN
     CONTROL         "",IDC_MSGVIEW,"RichEdit20A",ES_MULTILINE | ES_READONLY | 
                     ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
                     144,286,84
-    CONTROL         "Stop On Copy",IDC_CHECK_STOPONCOPY,"Button",
+    CONTROL         "Stop On Copy/Rename",IDC_CHECK_STOPONCOPY,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,63,335,113,10
     PUSHBUTTON      "Statistics",IDC_STATBUTTON,243,312,50,14
 END
