@@ -1425,8 +1425,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_IGNORE:
 					{
-						CString name = filepath.GetFilename();
-						CTSVNPath parentfolder = filepath.GetDirectory();
+						CString name = filepath.GetFileOrDirectoryName();
+						CTSVNPath parentfolder = filepath.GetContainingDirectory();
 						SVNProperties props(parentfolder.GetSVNPathString());
 						CStringA value;
 						for (int i=0; i<props.GetCount(); i++)
