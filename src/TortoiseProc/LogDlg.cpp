@@ -2155,19 +2155,22 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
 				{
 					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
-					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+					bool bGoing = true;
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
 						br = pat.match( (LPCTSTR)cpath->sCopyFromPath, results);
 						if ((br.matched)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
+							bGoing = false;
 							continue;
 						}
 						br = pat.match( (LPCTSTR)cpath->sPath, results);
 						if ((br.matched)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
+							bGoing = false;
 							continue;
 						}
 					}
@@ -2198,17 +2201,20 @@ void CLogDlg::OnTimer(UINT nIDEvent)
 				if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
 				{
 					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
-					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+					bool bGoing = true;
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 					{
 						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
 						if ((cpath->sCopyFromPath.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
+							bGoing = false;
 							continue;
 						}
 						if ((cpath->sPath.MakeLower().Find(find)>=0)&&(IsEntryInDateRange(i)))
 						{
 							m_arShownList.Add(i);
+							bGoing = false;
 							continue;
 						}
 					}
