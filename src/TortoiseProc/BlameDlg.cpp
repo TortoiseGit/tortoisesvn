@@ -20,7 +20,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
-#include ".\blamedlg.h"
+#include "Balloon.h"
 
 
 // CBlameDlg dialog
@@ -28,8 +28,8 @@
 IMPLEMENT_DYNAMIC(CBlameDlg, CDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CBlameDlg::IDD, pParent)
-	, m_lStartRev(1)
-	, m_lEndRev(0)
+	, StartRev(0)
+	, EndRev(0)
 {
 }
 
@@ -41,11 +41,8 @@ CBlameDlg::~CBlameDlg()
 void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_REVISON_START, m_lStartRev);
-	if (GetDlgItem(IDC_REVISION_END)->IsWindowEnabled())
-	{
-		DDX_Text(pDX, IDC_REVISION_END, m_lEndRev);
-	}
+	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
+	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 }
 
 
@@ -121,10 +118,29 @@ void CBlameDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	// if head revision, set revision as -1
+	StartRev = SVNRev(m_sStartRev);
+	if (!StartRev.IsValid())
+	{
+		CWnd* ctrl = GetDlgItem(IDC_REVISON_START);
+		CRect rt;
+		ctrl->GetWindowRect(rt);
+		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
+	}
+	EndRev = SVNRev(m_sEndRev);
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
-		m_lEndRev = -1;
+		EndRev = SVNRev(_T("HEAD"));
+	}
+	if (!EndRev.IsValid())
+	{
+		CWnd* ctrl = GetDlgItem(IDC_REVISION_END);
+		CRect rt;
+		ctrl->GetWindowRect(rt);
+		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
 	}
 
 	UpdateData(FALSE);

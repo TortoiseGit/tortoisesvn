@@ -331,6 +331,7 @@
 #define IDS_ERR_SSL_NOTYETVALID         1301
 #define IDS_ERR_SSL_EXPIRED             1302
 #define IDS_ERR_COPYITSELF              1303
+#define IDS_ERR_INVALIDREV              1304
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_WARN_SHAREFILEACCESS        1401
 #define IDS_CHECKOUT_TT_DIR             1500

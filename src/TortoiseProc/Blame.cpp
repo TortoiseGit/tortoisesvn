@@ -55,7 +55,7 @@ BOOL CBlame::Cancel()
 	return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(CString path, LONG startrev, LONG endrev, BOOL showprogress /* = TRUE */)
+CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, BOOL showprogress /* = TRUE */)
 {
 	CString temp;
 	m_sSavePath = CUtils::GetTempFile();

@@ -1081,7 +1081,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CBlame blame;
 				CString tempfile;
-				tempfile = blame.BlameToTempFile(path, dlg.m_lStartRev, dlg.m_lEndRev, TRUE);
+				tempfile = blame.BlameToTempFile(path, dlg.StartRev, dlg.EndRev, TRUE);
 				if (!tempfile.IsEmpty())
 				{
 					//open the default text editor for the result file

@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-
+#include "SVNRev.h"
 
 // CBlameDlg dialog
 
@@ -44,7 +44,11 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
+protected:
+	CString m_sStartRev;
+	CString m_sEndRev;
+
 public:
-	long m_lStartRev;
-	long m_lEndRev;
+	SVNRev	StartRev;
+	SVNRev	EndRev;
 };
