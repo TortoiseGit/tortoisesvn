@@ -275,6 +275,7 @@ void CChangedDlg::OnNMRclickChangedlist(NMHDR *pNMHDR, LRESULT *pResult)
 				}
 				break;
 			default:
+				GetDlgItem(IDOK)->EnableWindow(TRUE);
 				break;
 			} // switch (cmd)
 		} // if (popup.CreatePopupMenu())
