@@ -93,7 +93,16 @@ public:
 		_tcscpy(pathbuf, path);
 		PathRemoveFileSpec(pathbuf);
 		PathAddBackslash(pathbuf);
-		UINT drivetype = GetDriveType(pathbuf);
+		UINT drivetype = 0;
+		if (_tcsncmp(pathbuf, drivetypepathcache, MAX_PATH-1)==0)
+			drivetype = drivetypecache;
+		else
+		{
+			drivetype = GetDriveType(pathbuf);
+			drivetypecache = drivetype;
+			_tcsncpy(drivetypepathcache, pathbuf, MAX_PATH);
+		}
+			
 		if ((drivetype == DRIVE_REMOVABLE)&&(!IsRemovable()))
 			return FALSE;
 		if ((drivetype == DRIVE_FIXED)&&(!IsFixed()))
@@ -139,4 +148,6 @@ private:
 	DWORD layoutticker;
 	DWORD langticker;
 	DWORD blockstatusticker;
+	UINT  drivetypecache;
+	TCHAR drivetypepathcache[MAX_PATH];
 };
