@@ -146,7 +146,9 @@ DWORD WINAPI WorkerThread(LPVOID pVoid)
 	//pDlg->FetchRevisionData(pDlg->m_sPath);
 	//pDlg->AnalyzeRevisionData(pDlg->m_sPath);
 	//pDlg->m_Progress.Stop();
+#ifdef DEBUG
 	pDlg->FillTestData();
+#endif
 	pDlg->InitView();
 	pDlg->m_bThreadRunning = FALSE;
 	pDlg->Invalidate();
