@@ -26,20 +26,20 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 // Dialog
 //
 
-IDD_ABOUT DIALOGEX 0, 0, 221, 201
+IDD_ABOUT DIALOGEX 0, 0, 221, 214
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "О программе TortoiseSVN"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,77,180,50,14
+    DEFPUSHBUTTON   "OK",IDOK,77,193,50,14
     LTEXT           "TortoiseSVN, версия 0.11.2, собрана с Subversion 0.23",
-                    IDC_STATIC,7,136,207,8
-    LTEXT           "Авторы:",IDC_STATIC,7,150,37,8
+                    IDC_VERSIONABOUT,7,136,207,22
+    LTEXT           "Авторы:",IDC_STATIC,7,164,37,8
     LTEXT           "Stefan Kung, Tim Kemp и Damian Powell",IDC_STATIC,47,
-                    150,150,8
-    LTEXT           "Графика:",IDC_STATIC,7,163,35,8
-    LTEXT           "Luebbe Onken",IDC_STATIC,47,163,75,8
+                    164,150,8
+    LTEXT           "Графика:",IDC_STATIC,7,177,35,8
+    LTEXT           "Luebbe Onken",IDC_STATIC,47,177,75,8
 END
 
 IDD_LOGMESSAGE DIALOGEX 0, 0, 289, 245
@@ -331,6 +331,21 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,72,150,10
 END
 
+IDD_RELOCATE DIALOGEX 0, 0, 186, 76
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Relocate"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,55,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,55,50,14
+    LTEXT           "from:",IDC_STATIC,7,7,18,8
+    LTEXT           "to:",IDC_STATIC,7,31,10,8
+    EDITTEXT        IDC_FROMURL,33,6,146,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_TOURL,33,28,146,14,ES_AUTOHSCROLL
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -345,7 +360,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 214
         TOPMARGIN, 7
-        BOTTOMMARGIN, 194
+        BOTTOMMARGIN, 207
     END
 
     IDD_LOGMESSAGE, DIALOG
@@ -486,6 +501,14 @@ BEGIN
         RIGHTMARGIN, 187
         TOPMARGIN, 7
         BOTTOMMARGIN, 100
+    END
+
+    IDD_RELOCATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 69
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -705,6 +728,11 @@ BEGIN
     IDS_REPOBROWSE_OPEN     "open"
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTVERSION        "TortoiseSVN %d.%d.%d, Build %d - Subversion %d.%d.%d, %s"
+END
+
 #endif    // Russian resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -724,45 +752,6 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 //
 
 IDB_LOGOFLIPPED         BITMAP                  "charlie_flipped.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,11,2,0
- PRODUCTVERSION 0,11,0,0
- FILEFLAGSMASK 0x3fL
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x4L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040004e4"
-        BEGIN
-            VALUE "CompanyName", "www.tortoisesvn.org"
-            VALUE "FileDescription", "TortoiseSVN client resource file for russian language"
-            VALUE "FileVersion", "0, 11, 0, 0"
-            VALUE "InternalName", "TortoiseProcRU.dll"
-            VALUE "LegalCopyright", "Copyright (C) 2003"
-            VALUE "OriginalFilename", "TortoiseProc1049.dll"
-            VALUE "ProductName", "TortoiseSVN"
-            VALUE "ProductVersion", "0, 11, 0, 0"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x400, 1251
-    END
-END
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -786,58 +775,6 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 //
 
 IDR_ANIMATION           AVI                     "res\\bin168.avi"
-#endif    // Neutral resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
-#pragma code_page(1252)
-#endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_RELOCATE DIALOGEX 0, 0, 186, 76
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
-CAPTION "Relocate"
-FONT 8, "MS Shell Dlg", 400, 0, 0x1
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,55,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,129,55,50,14
-    LTEXT           "from:",IDC_STATIC,7,7,18,8
-    LTEXT           "to:",IDC_STATIC,7,31,10,8
-    EDITTEXT        IDC_FROMURL,33,6,146,14,ES_AUTOHSCROLL | ES_READONLY | 
-                    NOT WS_BORDER
-    EDITTEXT        IDC_TOURL,33,28,146,14,ES_AUTOHSCROLL
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
-BEGIN
-    IDD_RELOCATE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 69
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -874,7 +811,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // English (U.S.) resources
+#endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 

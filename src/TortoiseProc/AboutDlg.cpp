@@ -20,6 +20,8 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "AboutDlg.h"
+#include "svn_version.h"
+#include "..\version.h"
 
 
 // CAboutDlg dialog
@@ -92,6 +94,12 @@ BOOL CAboutDlg::OnInitDialog()
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	//set the version string
+	CString temp;
+	temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD_INCVERSION, 
+		SVN_VER_MAJOR, SVN_VER_MINOR, SVN_VER_MICRO, _T(SVN_VER_TAG));
+	GetDlgItem(IDC_VERSIONABOUT)->SetWindowText(temp);
 
 	CPictureHolder tmpPic;
 	tmpPic.CreateFromBitmap(IDB_LOGOFLIPPED);

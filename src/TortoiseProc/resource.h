@@ -185,6 +185,7 @@
 #define IDS_REPOBROWSE_SAVEAS           600
 #define IDS_REPOBROWSE_SHOWLOG          601
 #define IDS_REPOBROWSE_OPEN             602
+#define IDS_ABOUTVERSION                700
 #define IDC_LOGLIST                     1003
 #define IDC_PASSEDIT                    1004
 #define IDC_INFOTEXT                    1005
@@ -247,6 +248,7 @@
 #define IDC_CDROM                       1051
 #define IDC_HINTLABEL                   1052
 #define IDC_REVISION_END                1053
+#define IDC_VERSIONABOUT                1054
 
 // Next default values for new objects
 // 
@@ -254,7 +256,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        158
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1054
+#define _APS_NEXT_CONTROL_VALUE         1055
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

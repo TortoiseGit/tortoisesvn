@@ -110,7 +110,8 @@
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCPreBuildEventTool"
+				CommandLine="..\VersionIncrementer ..\version.h"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
