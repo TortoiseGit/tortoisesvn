@@ -557,43 +557,43 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						if (SVNStatus::GetAllStatus(temp) != svn_wc_status_unversioned)
 							stat = svn_wc_status_normal;	//ignore nested layouts
 					} // if ((stat == svn_wc_status_unversioned) && (PathIsDirecory(temp)))
-					if (s->entry)
-					{
-						if (s->entry->uuid)
-						{
-							if (sUUID.IsEmpty())
-								sUUID = s->entry->uuid;
-							else
-							{
-								if (sUUID.Compare(s->entry->uuid)!=0)
-								{
-									bHasExternalsFromDifferentRepos = TRUE;
-									if (s->entry->kind == svn_node_dir)
-										arExtPaths.Add(temp);
-									continue;
-								} // if (sUUID.Compare(s->entry->uuid)!=0) 
-							}
-						} // if (s->entry->uuid)
-						else
-						{
-							// added files don't have an UUID assigned yet, so check if they're
-							// below an external folder
-							BOOL bMatch = FALSE;
-							for (int ix=0; ix<arExtPaths.GetCount(); ix++)
-							{
-								CString t = arExtPaths.GetAt(ix);
-								if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
-								{
-									bMatch = TRUE;
-									break;
-								} // if (t.CompareNoCase(temp.Left(t.GetLength()))==0) 
-							} // for (int ix=0; ix<arExtPaths.GetCount(); ix++) 
-							if (bMatch)
-								continue;
-						}
-					} // if ((s->entry)&&(s->entry->uuid)) 
 					if (SVNStatus::IsImportant(stat))
 					{
+						if (s->entry)
+						{
+							if (s->entry->uuid)
+							{
+								if (sUUID.IsEmpty())
+									sUUID = s->entry->uuid;
+								else
+								{
+									if (sUUID.Compare(s->entry->uuid)!=0)
+									{
+										bHasExternalsFromDifferentRepos = TRUE;
+										if (s->entry->kind == svn_node_dir)
+											arExtPaths.Add(temp);
+										continue;
+									} // if (sUUID.Compare(s->entry->uuid)!=0) 
+								}
+							} // if (s->entry->uuid)
+							else
+							{
+								// added files don't have an UUID assigned yet, so check if they're
+								// below an external folder
+								BOOL bMatch = FALSE;
+								for (int ix=0; ix<arExtPaths.GetCount(); ix++)
+								{
+									CString t = arExtPaths.GetAt(ix);
+									if (t.CompareNoCase(temp.Left(t.GetLength()))==0)
+									{
+										bMatch = TRUE;
+										break;
+									} // if (t.CompareNoCase(temp.Left(t.GetLength()))==0) 
+								} // for (int ix=0; ix<arExtPaths.GetCount(); ix++) 
+								if (bMatch)
+									continue;
+							}
+						} // if ((s->entry)&&(s->entry->uuid)) 
 						CLogPromptDlg::Data * data = new CLogPromptDlg::Data();
 						data->checked = FALSE;
 						data->path = temp;
