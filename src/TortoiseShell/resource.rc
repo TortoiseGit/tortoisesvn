@@ -181,6 +181,8 @@ BEGIN
     IDS_COLDESCSHORTURL     "short Url of subversion items"
     IDS_MENUCONFLICT        "Разрешить конфликты"
     IDS_MENUDESCCONFLICT    "Запускает внешнюю программу слияния файлов, для разрешения конфликтов"
+    IDS_MENURELOCATE        "Relocate"
+    IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
 END
 
 #endif    // Russian resources
@@ -225,6 +227,7 @@ IDI_ABOUT               ICON                    "..\\Icons\\menuabout.ico"
 IDI_SETTINGS            ICON                    "..\\Icons\\menusettings.ico"
 IDI_CREATEREPOS         ICON                    "..\\Icons\\menucreaterepos.ico"
 IDI_CONFLICT            ICON                    "..\\Icons\\menuconflict.ico"
+IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -446,6 +449,8 @@ BEGIN
     IDS_COLDESCSHORTURL     "abgekьrzte URL von Subversion Dateien/Ordnern"
     IDS_MENUCONFLICT        "lцse Konflikt"
     IDS_MENUDESCCONFLICT    "startet den externen Diff/Merge Editor um den Konflikt zu lцsen"
+    IDS_MENURELOCATE        "Umplazieren"
+    IDS_MENUDESCRELOCATE    "Falls die URL der Datenbank sich geдndert hat..."
 END
 
 #endif    // German (Germany) resources
@@ -649,6 +654,8 @@ BEGIN
     IDS_COLDESCSHORTURL     "short Url of subversion items"
     IDS_MENUCONFLICT        "edit conflicts"
     IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
+    IDS_MENURELOCATE        "Relocate"
+    IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
 END
 
 #endif    // English (U.S.) resources
@@ -852,6 +859,8 @@ BEGIN
     IDS_COLDESCSHORTURL     "short Url of subversion items"
     IDS_MENUCONFLICT        "edit conflicts"
     IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
+    IDS_MENURELOCATE        "Relocate"
+    IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
 END
 
 #endif    // Italian (Italy) resources

@@ -927,6 +927,17 @@ BOOL SVN::Ls(CString url, LONG revision, CStringArray& entries)
 	return Err == NULL;
 }
 
+BOOL SVN::Relocate(CString path, CString from, CString to, BOOL recurse)
+{
+	preparePath(path);
+	preparePath(from);
+	preparePath(to);
+	Err = svn_client_relocate(CUnicodeUtils::GetUTF8(path), CUnicodeUtils::GetUTF8(from), CUnicodeUtils::GetUTF8(to), recurse, &ctx, pool);
+	if (Err != NULL)
+		return FALSE;
+	return TRUE;
+}
+
 BOOL SVN::IsRepository(const CString& strUrl)
 {
 	svn_repos_t* pRepos;

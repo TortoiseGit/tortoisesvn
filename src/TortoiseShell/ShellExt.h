@@ -104,7 +104,8 @@ protected:
 		DropMoveAdd,
 		DropMove,
 		Log,
-		ConflictEditor
+		ConflictEditor,
+		Relocate
 	};
 
 	FileState m_State;

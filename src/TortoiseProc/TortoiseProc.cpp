@@ -558,7 +558,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
 					CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				}
+				} // if (!svn.Move(path, dlg.m_name, FALSE))
 			}
 		}
 		//#endregion
@@ -760,6 +760,34 @@ BOOL CTortoiseProcApp::InitInstance()
 			CUtils::StartExtMerge(base, theirs, mine, merge);
 		} 
 		//#endregion
+		if (comVal.Compare(_T("relocate"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			SVNStatus svn;
+			svn.GetStatus(path);
+			CRelocateDlg dlg;
+			if ((svn.status->entry)&&(svn.status->entry->url))
+			{
+				dlg.m_sFromUrl = svn.status->entry->url;
+				dlg.m_sToUrl = svn.status->entry->url;
+			}
+			if (dlg.DoModal() == IDOK)
+			{
+				TRACE(_T("relocate from %s to %s\n"), dlg.m_sFromUrl, dlg.m_sToUrl);
+				SVN s;
+				if (!s.Relocate(path, dlg.m_sFromUrl, dlg.m_sToUrl, TRUE))
+				{
+					TRACE(_T("%s\n"), s.GetLastErrorMessage());
+					CMessageBox::Show(NULL, s.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				}
+				else
+				{
+					CString temp;
+					temp.Format(IDS_PROC_RELOCATEFINISHED, dlg.m_sToUrl);
+					CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+				}
+			}
+		}
 	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the

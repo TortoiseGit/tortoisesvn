@@ -47,11 +47,10 @@ CVS
        lets the user select those files and they
        will be deleted from version control before
        the commit. (Stefan)
-- ADD: reduced the need to press F5 in the explorer
-       to refresh the icon overlays. (Stefan)
 - ADD: better caching of subversion statuses. (Stefan)
 - ADD: two new icon overlays for status "deleted"
        and for status "added". (Stefan)
+- ADD: new command "relocate". (Stefan)
 
 Version 0.11.2
 - BUG: entering the settings page without

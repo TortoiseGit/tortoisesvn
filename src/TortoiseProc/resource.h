@@ -28,6 +28,7 @@
 #define IDD_ADD                         155
 #define IDS_MSGBOX_IGNORE               156
 #define IDS_MSGBOX_CANCEL               157
+#define IDD_RELOCATE                    157
 #define IDS_MSGBOX_TRYAGAIN             158
 #define IDS_MSGBOX_CONTINUE             159
 #define IDS_MSGBOX_OK                   160
@@ -148,6 +149,7 @@
 #define IDS_STRING267                   267
 #define IDS_PROC_REPOCREATEFINISHED     267
 #define IDS_STRING268                   268
+#define IDS_PROC_RELOCATEFINISHED       268
 #define IDS_STRING269                   269
 #define IDS_STRING270                   270
 #define IDS_APPNAME                     271
@@ -250,7 +252,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        157
+#define _APS_NEXT_RESOURCE_VALUE        158
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1054
 #define _APS_NEXT_SYMED_VALUE           101

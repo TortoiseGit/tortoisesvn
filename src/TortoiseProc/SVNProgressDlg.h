@@ -35,7 +35,8 @@ typedef enum
 	Switch,
 	Export,
 	Merge,
-	Copy
+	Copy,
+	Relocate
 } Command;
 
 /**

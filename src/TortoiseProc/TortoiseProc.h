@@ -43,6 +43,7 @@
 #include "RenameDlg.h"
 #include "UpdateDlg.h"
 #include "AddDlg.h"
+#include "RelocateDlg.h"
 
 
 /**

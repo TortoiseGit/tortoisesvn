@@ -120,6 +120,46 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_RELOCATE DIALOGEX 0, 0, 186, 76
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Relocate"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,55,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,55,50,14
+    LTEXT           "from:",IDC_STATIC,7,7,18,8
+    LTEXT           "to:",IDC_STATIC,7,31,10,8
+    EDITTEXT        IDC_FROMURL,33,6,146,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    EDITTEXT        IDC_TOURL,33,28,146,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_RELOCATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 69
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -744,7 +784,7 @@ BEGIN
     IDS_PROC_OVERWRITE_CONFIRM 
                             "Il file\n%s\nesiste gia'! Vuoi sovrascriverlo?"
     IDS_PROC_REPOCREATEFINISHED "Repository created."
-    IDS_STRING268           "dummy"
+    IDS_PROC_RELOCATEFINISHED "Working copy relocated to\n%s"
     IDS_STRING269           "dummy"
     IDS_STRING270           "dummy"
     IDS_APPNAME             "TortoiseSVN"

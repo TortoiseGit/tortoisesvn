@@ -346,6 +346,7 @@ public:
 	 */
 	BOOL Ls(CString url, LONG revision, CStringArray& entries);
 
+	BOOL Relocate(CString path, CString from, CString to, BOOL recurse);
 	/**
 	 * Checks if a windows path is a local repository
 	 */

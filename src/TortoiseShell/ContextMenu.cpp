@@ -426,6 +426,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUEXPORT, idCmdFirst, Export);
 		else
 			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUEXPORT, IDI_EXPORT, idCmdFirst, Export);
+	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURELOCATE, idCmdFirst, Relocate);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENURELOCATE, IDI_RELOCATE, idCmdFirst, Relocate);
 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
@@ -670,6 +675,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 							svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
 						break;
+					case Relocate:
+						svnCmd += _T("relocate /path:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
 					default:
 						break;
 					//#endregion
@@ -777,6 +790,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			break;
 		case ConflictEditor:
 			MAKESTRING(IDS_MENUDESCCONFLICT);
+			break;
+		case Relocate:
+			MAKESTRING(IDS_MENUDESCRELOCATE);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1043,6 +1059,11 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case ConflictEditor:
 			MAKESTRING(IDS_MENUCONFLICT);
 			resource = MAKEINTRESOURCE(IDI_CONFLICT);
+			break;
+		case Relocate:
+			MAKESTRING(IDS_MENURELOCATE);
+			resource = MAKEINTRESOURCE(IDI_RELOCATE);
+			break;
 		case Settings:
 			MAKESTRING(IDS_MENUSETTINGS);
 			resource = MAKEINTRESOURCE(IDI_SETTINGS);
