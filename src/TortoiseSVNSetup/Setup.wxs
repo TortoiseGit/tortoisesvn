@@ -2,11 +2,11 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
   <Product 	UpgradeCode="3E07F1EB-9543-437C-9DE2-58FFCADD39A9" 
   			Name="TortoiseSVN" 
-			Id="407C784F-CD73-43b1-8143-352375008DC8"
-			Version="1.0.8"
+			Id="A860D1F3-DF21-4bbe-8410-062E11FD2F97"
+			Version="1.1.0"
 			Manufacturer="TortoiseSVN" 
 			Language="1033">
-    <Package 	Id="A5AAB81C-0B14-4fd5-8707-18AFFE6959EC"
+    <Package 	Id="54174151-8919-4ddb-900C-B119E7568525"
 				Keywords="Sourcecontrol Subversion Shell" 
 				Description="Subversion Client" 
 				Comments="Windows Shell Integration For SubVersion Source Control" 
@@ -65,44 +65,6 @@
         <File Id="F__subversionlicense" Name="SUBVER~1.TXT" LongName="Subversion license.txt" DiskId="1" src="Subversion license.txt" />
         <File Id="F__tortoisesvnlicense" Name="TORTOI~1.TXT" LongName="TortoiseSVN License.txt" DiskId="1" src="..\gpl.txt" />
       </Component>
-      <Component Id="C__libssl" Guid="53F3D18C-528D-4b08-AB1A-8644BFD3D5F2" >
-        <File Id="F__libeay32" Name="LIBEAY32.DLL" LongName="libeay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\libeay32.dll" KeyPath="yes" />
-        <File Id="F__ssleay32" Name="SSLEAY32.DLL" LongName="ssleay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\ssleay32.dll" />
-      </Component>
-      <Component Id="C__berkeleydb" Guid="DFD268E2-1B3B-4341-9243-E028E1416040" >
-        <File Id="F__libdb42" Name="LIBDB42.DLL" LongName="libdb42.dll" DiskId="1" src="..\..\..\Subversion\db4-win32\bin\libdb42.dll" KeyPath="yes" />
-      </Component>
-
-      <Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
-        <File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="dbghelp.dll" />
-        <File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\release\CrashRpt.dll" KeyPath="yes" />
-      </Component>
-
-      <Component Id="C__help_en" Guid="012FDAFF-53D4-420b-87A2-72C88B859D09" >
-        <File Id="F_TortoiseSVN_en" Name="TORTOI~1.CHM" LongName="TortoiseSVN_en.chm" DiskId="1" src="..\..\doc\output\TortoiseSVN_en.chm" KeyPath="yes" />
-        <File Id="F__TortoiseMerge_en" Name="TORTOI~2.CHM" LongName="TortoiseMerge_en.chm" DiskId="1" src="..\..\doc\output\TortoiseMerge_en.chm" />
-      </Component>
-      
-      <Component Id="C__TortoiseSVN" Guid="2F1FD4CC-32F0-51FB-A9CE-9DB539518655" >
-        <File Id="F__TortoiseProc" Name="TORTOI~1.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoiseProc.exe" KeyPath="yes" />
-        <File Id="F__TortoiseShell" Name="TORTOI~1.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoiseSVN.dll" />
-        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\TortoisePlink.exe" />
-        
-        <Shortcut Id="S__TortoiseProc" Directory="D_TortoisePrgMenu" Name="HELP" LongName="Help" Advertise="no"
-					Target="[TARGETDIR]TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
-      </Component>
-      <Component Id="C__TortoiseMerge" Guid="2F8D9AF8-A660-47f0-83CE-DD7DA0FB73DD" >
-        <File Id="F__TortoiseMerge" Name="TORTOI~3.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\TortoiseMerge.exe" />
-        
-        <Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TORTOI~1" LongName="TortoiseMerge" Advertise="no"
-					Target="[TARGETDIR]TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
-      </Component>
-      <Component Id="C__CRuntimeSTLMFC" Guid="DC08A867-1436-4dce-8907-F1E2FCFCA02A" >
-        <File Id="F__msvcr71" Name="MSVCR71.DLL" LongName="msvcr71.dll" DiskId="1" src="$(env.windir)\system32\msvcr71.dll" KeyPath="yes" />
-        <File Id="F__mfc71u" Name="MFC71U.DLL" LongName="mfc71u.dll" DiskId="1" src="$(env.windir)\system32\mfc71u.dll" />
-        <File Id="F__mfc71" Name="MFC71.DLL" LongName="mfc71.dll" DiskId="1" src="$(env.windir)\system32\mfc71.dll" />
-        <File Id="F__msvcp71" Name="MSVCP71.DLL" LongName="msvcp71.dll" DiskId="1" src="$(env.windir)\system32\msvcp71.dll" />
-      </Component>
 
 		<Component Id="C__shellregistry" Guid="D3F48AA6-A01B-47c5-A314-70319092E89A" >
 			<Registry Root="HKCR" Key="Drive\shellex\ContextMenuHandlers\TortoiseSVN" KeyPath="yes" Value="{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_F9920D9B7AC24A00B3EB165F5443F396" />
@@ -113,24 +75,24 @@
 			<Registry Root="HKCR" Key="Folder\shellex\ColumnHandlers\{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="" Id="_B4DEDCD9C43D400F906D14B21BAA297E" />
 			<Registry Root="HKCR" Key="Folder\shellex\ContextMenuHandlers\TortoiseSVN" Value="{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_CB48DAD85B7B459A9E81C4A82EF4BF2B" />
 			<Registry Root="HKCR" Key="Folder\shellex\DragDropHandlers\TortoiseSVN" Value="{C035134A-7B7D-4fcc-81B4-1E394CA267EB}" Id="_FD52B6DA67C142CF9827680867DE80AF" />
-			<Registry Root="HKCR" Key="CLSID\{C035134C-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_1AC3643934F64DAA8BD9526D7444678A" />
+			<Registry Root="HKCR" Key="CLSID\{C035134C-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_1AC3643934F64DAA8BD9526D7444678A" />
 			<Registry Root="HKCR" Key="CLSID\{C035134C-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_9A406BB1F3704CBD81869F7F9A575C90" />
 			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}" Name="*" Value="" Id="_5915B62ECE2F4CD5B84BFA1CB973E301" />
-			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_353BE23FB73A4C1D9477645477FA6032" />
+			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_353BE23FB73A4C1D9477645477FA6032" />
 			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_85AF844B39CD4AF5B08BF5E1122BA0FA" />
 			<Registry Root="HKCR" Key="CLSID\{C0351346-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_23323DBDB50B423AA8E7BFDEB509FB25" />
-			<Registry Root="HKCR" Key="CLSID\{C035134B-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_0FEE3EC5B47047EBB31CC528984939A0" />
+			<Registry Root="HKCR" Key="CLSID\{C035134B-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_0FEE3EC5B47047EBB31CC528984939A0" />
 			<Registry Root="HKCR" Key="CLSID\{C035134B-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_C69C06D7BD234F1EA1CF3C2C65314015" />
 			<Registry Root="HKCR" Key="CLSID\{C0351349-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_0E31B843222F4B6DAB9D17B29A04FECE" />
-			<Registry Root="HKCR" Key="CLSID\{C0351349-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_752D118885FD49A0A7625B8A2BB911EB" />
+			<Registry Root="HKCR" Key="CLSID\{C0351349-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_752D118885FD49A0A7625B8A2BB911EB" />
 			<Registry Root="HKCR" Key="CLSID\{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_05D4B035AC4640969E68CA1118DD1131" />
-			<Registry Root="HKCR" Key="CLSID\{C0351347-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_0D67AAE7DA084FDF907F646A36DDE2B1" />
+			<Registry Root="HKCR" Key="CLSID\{C0351347-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_0D67AAE7DA084FDF907F646A36DDE2B1" />
 			<Registry Root="HKCR" Key="CLSID\{C0351347-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_EF88C7762F764A42BAB4315C65805DB6" />
 			<Registry Root="HKCR" Key="CLSID\{C0351347-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_9ECA7377CDA949FB9BF833069BDE4760" />
 			<Registry Root="HKCR" Key="CLSID\{C035134A-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_9E928B201B01460BBA74BE139C09FFD1" />
-			<Registry Root="HKCR" Key="CLSID\{C035134A-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_DA1D1488E3E144678056D6AB0B9ABDFC" />
+			<Registry Root="HKCR" Key="CLSID\{C035134A-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_DA1D1488E3E144678056D6AB0B9ABDFC" />
 			<Registry Root="HKCR" Key="CLSID\{C0351348-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Name="ThreadingModel" Value="Apartment" Id="_DFDD4BC787B24414AC4D68F73D0BAECC" />
-			<Registry Root="HKCR" Key="CLSID\{C0351348-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]tortoisesvn.dll" Id="_F66E793DF4C24CBB9FE0C269884616DC" />
+			<Registry Root="HKCR" Key="CLSID\{C0351348-7B7D-4fcc-81B4-1E394CA267EB}\InProcServer32" Value="[TARGETDIR]bin\tortoisesvn.dll" Id="_F66E793DF4C24CBB9FE0C269884616DC" />
 			<Registry Root="HKCR" Key="CLSID\{C0351348-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_6FB49CE1BF484E9DA950FB12BE1522A7" />
 			<Registry Root="HKCR" Key="lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_E2F0A70A63E84805BBF6781659E1558A" />
 			<Registry Root="HKCR" Key="InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Id="_734B600DBE1A477C8BFCF38DBE26EA89" />
@@ -143,14 +105,14 @@
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\_TortoiseSVN4" Value="{C035134B-7B7D-4fcc-81B4-1E394CA267EB}" Id="_BE50C516B3444976864879716C66A602" />
 		</Component>
 		<Component Id="C__userregistry" Guid="0CF9CCE2-5C2A-455d-AABE-031A553D12F0" >
-			<Registry Root="HKCU" Key="Software\[Manufacturer]" Name="SSH" Value="[TARGETDIR]TortoisePlink.exe" KeyPath="yes" Id="_54C6201AF7B54DCF87A9224014D0D0C7" />
+			<Registry Root="HKCU" Key="Software\[Manufacturer]" Name="SSH" Value="[TARGETDIR]bin\TortoisePlink.exe" KeyPath="yes" Id="_54C6201AF7B54DCF87A9224014D0D0C7" />
 		</Component>
 		<Component Id="C__machineregistry" Guid="4913F361-DE93-490c-81D0-1FB002EBF141" >
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[TARGETDIR]icons\TortoiseAdded.ico" KeyPath="yes" Id="_0420474DA5564BCDBDA699049D561034" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[TARGETDIR]icons\TortoiseDeleted.ico" Id="_06060DF88EA34CAB9BECB0F277B7D7C6" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]TortoiseProc.exe" Id="_144EF42CC6B14DC8A344CD7656CE7B17" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[TARGETDIR]bin\TortoiseProc.exe" Id="_144EF42CC6B14DC8A344CD7656CE7B17" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[TARGETDIR]icons\TortoiseInSubversion.ico" Id="_19FFFCD9435246F78F7F76A285870C72" />
-			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]TortoiseMerge.exe" Id="_7ABD6ED2AA3E4F869231418117F668E2" />
+			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[TARGETDIR]bin\TortoiseMerge.exe" Id="_7ABD6ED2AA3E4F869231418117F668E2" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[TARGETDIR]icons\TortoiseModified.ico" Id="_B2E8ECE44B6747A384B8D7B4E567DFED" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[TARGETDIR]" Id="_DA13C02D9F0545A19698C64A47B57F5A" />
 			<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[TARGETDIR]icons\TortoiseConflict.ico" Id="_EDA19D325D75468D81C6144482C53F02" />
@@ -164,10 +126,61 @@
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{C0351349-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_DA71E1D52B69440B8ED17B3525AE8E4C" />
 			<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{C035134B-7B7D-4fcc-81B4-1E394CA267EB}" Value="TortoiseSVN" Id="_F0052C2095E04B12A90D7803CEEE2978" />
 		</Component>
+
+	  <Directory Id="D__Bin" Name="BIN" LongName="bin" >
+	      <Component Id="C__libssl" Guid="53F3D18C-528D-4b08-AB1A-8644BFD3D5F2" >
+	        <File Id="F__libeay32" Name="LIBEAY32.DLL" LongName="libeay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\libeay32.dll" KeyPath="yes" />
+	        <File Id="F__ssleay32" Name="SSLEAY32.DLL" LongName="ssleay32.dll" DiskId="1" src="..\..\..\Common\openssl\out32dll\ssleay32.dll" />
+	      </Component>
+	      <Component Id="C__berkeleydb" Guid="DFD268E2-1B3B-4341-9243-E028E1416040" >
+	        <File Id="F__libdb42" Name="LIBDB42.DLL" LongName="libdb42.dll" DiskId="1" src="..\..\..\Subversion\db4-win32\bin\libdb42.dll" KeyPath="yes" />
+	      </Component>
+
+	      <Component Id="C__apr" Guid="A1388B55-1EC3-4199-9EF7-72DDA13F164A" >
+	        <File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr.dll" DiskId="1" src="..\..\..\Subversion\apr\Release\libapr.dll" KeyPath="yes" />
+	        <File Id="F__libaprutil" Name="LIBAPR~1.DLL" LongName="libaprutil.dll" DiskId="1" src="..\..\..\Subversion\apr-util\Release\libaprutil.dll" />
+	        <File Id="F__libapriconv" Name="LIBAPR~2.DLL" LongName="libapriconv.dll" DiskId="1" src="..\..\..\Subversion\apr-iconv\Release\libapriconv.dll" />
+	      </Component>
+
+	      <Component Id="C__gettext" Guid="A0CCA4FD-553C-465f-8E73-1BE7B3AFB83D" >
+	        <File Id="F__intl" Name="INTL.DLL" LongName="intl.dll" DiskId="1" src="..\..\..\Common\gettext\bin\intl.dll" KeyPath="yes" />
+	        <File Id="F__gtxiconv" Name="ICONV.DLL" LongName="iconv.dll" DiskId="1" src="..\..\..\Common\gettext\bin\iconv.dll" />
+	      </Component>
 	
+	      <Component Id="C__crash" Guid="B9F4D4E1-83BE-4224-A000-FBC637AD6058" >
+	        <File Id="F__dbghelp" Name="DBGHELP.DLL" LongName="dbghelp.dll" DiskId="1" src="dbghelp.dll" />
+	        <File Id="F__crashrpt" Name="CRASHRPT.DLL" LongName="CrashRpt.dll" DiskId="1" src="..\..\bin\release\bin\CrashRpt.dll" KeyPath="yes" />
+	      </Component>
+	
+	      <Component Id="C__help_en" Guid="012FDAFF-53D4-420b-87A2-72C88B859D09" >
+	        <File Id="F_TortoiseSVN_en" Name="TORTOI~1.CHM" LongName="TortoiseSVN_en.chm" DiskId="1" src="..\..\doc\output\TortoiseSVN_en.chm" KeyPath="yes" />
+	        <File Id="F__TortoiseMerge_en" Name="TORTOI~2.CHM" LongName="TortoiseMerge_en.chm" DiskId="1" src="..\..\doc\output\TortoiseMerge_en.chm" />
+	      </Component>
+	      
+	      <Component Id="C__TortoiseSVN" Guid="2F1FD4CC-32F0-51FB-A9CE-9DB539518655" >
+	        <File Id="F__TortoiseProc" Name="TORTOI~1.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseProc.exe" KeyPath="yes" />
+	        <File Id="F__TortoiseShell" Name="TORTOI~1.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseSVN.dll" />
+	        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\bin\TortoisePlink.exe" />
+	        
+	        <Shortcut Id="S__TortoiseProc" Directory="D_TortoisePrgMenu" Name="HELP" LongName="Help" Advertise="no"
+						Target="[TARGETDIR]bin\TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
+	      </Component>
+	      <Component Id="C__TortoiseMerge" Guid="2F8D9AF8-A660-47f0-83CE-DD7DA0FB73DD" >
+	        <File Id="F__TortoiseMerge" Name="TORTOI~3.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseMerge.exe" />
+	        
+	        <Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TORTOI~1" LongName="TortoiseMerge" Advertise="no"
+						Target="[TARGETDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
+	      </Component>
+	      <Component Id="C__CRuntimeSTLMFC" Guid="DC08A867-1436-4dce-8907-F1E2FCFCA02A" >
+	        <File Id="F__msvcr71" Name="MSVCR71.DLL" LongName="msvcr71.dll" DiskId="1" src="$(env.windir)\system32\msvcr71.dll" KeyPath="yes" />
+	        <File Id="F__mfc71u" Name="MFC71U.DLL" LongName="mfc71u.dll" DiskId="1" src="$(env.windir)\system32\mfc71u.dll" />
+	        <File Id="F__mfc71" Name="MFC71.DLL" LongName="mfc71.dll" DiskId="1" src="$(env.windir)\system32\mfc71.dll" />
+	        <File Id="F__msvcp71" Name="MSVCP71.DLL" LongName="msvcp71.dll" DiskId="1" src="$(env.windir)\system32\msvcp71.dll" />
+	      </Component>
+	  </Directory>
       <Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
         <Component Id="C__iconv" Guid="582E4865-CC41-4689-BC77-20AD85017BBC" >
-          <FileGroup Prefix="" filter="*.so" src="..\..\..\Subversion\apr-iconv\LibR\iconv" DiskId="1"/>
+          <FileGroup Prefix="" filter="*.so" src="..\..\..\Subversion\apr-iconv\Release\iconv" DiskId="1"/>
         </Component>
       </Directory>
 
@@ -185,11 +198,11 @@
 
       <Directory Id="D__icons" Name="ICONS" LongName="icons" >
         <Component Id="C__icons" Guid="79533430-13EE-4eea-BE0F-D0A4C63C144B" >
-          <File Id="F__ConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Icons\ConflictIcon.ico" KeyPath="yes" />
-          <File Id="F__InSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Icons\InSubversionIcon.ico" />
-          <File Id="F__ModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Icons\ModifiedIcon.ico" />
-          <File Id="F__AddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Icons\AddedIcon.ico" />
-          <File Id="F__DeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Icons\DeletedIcon.ico" />
+          <File Id="F__ConflictIcon" Name="TORTOI~1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\ConflictIcon.ico" KeyPath="yes" />
+          <File Id="F__InSubversionIcon" Name="TORTOI~2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\InSubversionIcon.ico" />
+          <File Id="F__ModifiedIcon" Name="TORTOI~3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\ModifiedIcon.ico" />
+          <File Id="F__AddedIcon" Name="TORTOI~4.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\AddedIcon.ico" />
+          <File Id="F__DeletedIcon" Name="TORTOI~5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\DeletedIcon.ico" />
         </Component>
       </Directory>
 
@@ -198,6 +211,8 @@
       <ComponentRef Id="C__infofiles" />
       <ComponentRef Id="C__libssl" />
       <ComponentRef Id="C__berkeleydb" />
+      <ComponentRef Id="C__apr" />
+      <ComponentRef Id="C__gettext" />
       <ComponentRef Id="C__help_en" />
       <ComponentRef Id="C__TortoiseSVN" />
       <ComponentRef Id="C__TortoiseMerge" />
@@ -1207,7 +1222,7 @@ Click "Next" to start the installation.</Text>
     <Binary Id="UpFldrBtn" src="UpFldrBtn.bmp" />
     <Binary Id="NewFldrBtn" src="NewFldrBtn.bmp" />
     <Binary Id="TSVNBanner" src="tortoisesvn_logo.jpg" />
-    <Icon Id="TSVNIcon" src="..\Icons\Tortoise.ico" />
+    <Icon Id="TSVNIcon" src="..\Resources\Tortoise.ico" />
   </Product>
 </Wix>
 
