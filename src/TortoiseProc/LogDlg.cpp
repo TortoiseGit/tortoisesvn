@@ -356,6 +356,8 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 			if (m_sMessageBuf.Right(1).Compare(_T("\n"))==0)
 				m_sMessageBuf = m_sMessageBuf.Left(m_sMessageBuf.GetLength()-1);
 		} // if (message.GetLength()>0)
+		else
+			m_sMessageBuf.Empty();
 		m_arLogMessages.Add(m_sMessageBuf);
 		m_arLogPaths.Add(cpaths);
 		m_arRevs.Add(rev);
