@@ -623,6 +623,10 @@ BOOL CTortoiseProcApp::InitInstance()
 			CCopyDlg dlg;
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			dlg.m_path = path;
+			CRegString logmessage = CRegString(_T("\\Software\\TortoiseSVN\\lastlogmessage"));
+			CString logmsg = logmessage;
+			if (!logmsg.IsEmpty())
+				dlg.m_sLogMessage = logmsg;
 			if (dlg.DoModal() == IDOK)
 			{
 				m_pMainWnd = NULL;
@@ -631,6 +635,14 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.m_bCloseOnEnd = parser.HasKey(_T("closeonend"));
 				progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, (dlg.m_bDirectCopy ? SVNRev::REV_HEAD : SVNRev::REV_WC));
 				progDlg.DoModal();
+			}
+			else
+			{
+				CRegStdWORD nodelete = CRegStdWORD(_T("Software\\TortoiseSVN\\NoDeleteLogMsg"));
+				if (!nodelete)
+					logmessage.removeValue();
+				else
+					logmessage = dlg.m_sLogMessage;
 			}
 		}
 		//#endregion
