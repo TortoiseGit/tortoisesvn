@@ -93,7 +93,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 			psci->vt = VT_BSTR;
 			psci->fmt = LVCFMT_RIGHT;
 			psci->cChars = 15;
-			psci->csFlags = SHCOLSTATE_TYPE_INT | SHCOLSTATE_ONBYDEFAULT;
+			psci->csFlags = ColumnFlags;
 
 			MAKESTRING(IDS_COLTITLEREV);
 #ifdef UNICODE
