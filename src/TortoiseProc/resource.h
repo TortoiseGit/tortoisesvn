@@ -193,6 +193,7 @@
 #define IDS_SVNACTION_FAILEDREVERT      1175
 #define IDS_SVNACTION_STATUS            1176
 #define IDS_SVNACTION_SKIP              1177
+#define IDS_CHDLG_POPUP_REVERT          1178
 #define IDS_SVN_USERCANCELLED           1181
 #define IDS_SSL_CERTIFICATETYPE         1200
 #define IDS_SSL_ACCEPTQUESTION          1201
@@ -300,7 +301,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        161
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1062
+#define _APS_NEXT_CONTROL_VALUE         1063
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
