@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "SVNPrompt.h"
+#include "Dlgs.h"
 
 #include "TortoiseProc.h"
 #include "svn.h"
@@ -91,6 +92,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 	if (nResponse == IDOK)
 	{
 		info = dlg.m_sPass;
+		may_save = dlg.m_saveCheck;
 		if (m_app)
 			m_app->DoWaitCursor(0);
 		return TRUE;
@@ -311,10 +313,11 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	temp.LoadString(IDS_SSL_CLIENTCERTIFICATEFILENAME);
 	CUtils::RemoveAccelerators(temp);
 	ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY;
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_ENABLEHOOK | OFN_ENABLESIZING | OFN_EXPLORER;
+	ofn.lpfnHook = SVNPrompt::OFNHookProc;
 
 	// Display the Open dialog box. 
-
+	svn->m_server.Empty();
 	if (GetOpenFileName(&ofn)==TRUE)
 	{
 		filename = CString(ofn.lpstrFile);
@@ -322,7 +325,26 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 		/* Build and return the credentials. */
 		*cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
 		(*cred)->cert_file = cert_file;
-		(*cred)->may_save = TRUE;
+		(*cred)->may_save = ((ofn.Flags & OFN_READONLY)!=0);
+
+		if ((*cred)->may_save)
+		{
+			CString regpath = _T("Software\\tigris.org\\Subversion\\Servers\\");
+			CString groups = regpath;
+			groups += _T("groups\\");
+			CString server = CString(realm);
+			int f1 = server.Find('<')+9;
+			int len = server.Find(':', 10)-f1;
+			server = server.Mid(f1, len);
+			svn->m_server = server;
+			groups += server;
+			CRegString server_groups = CRegString(groups);
+			server_groups = server;
+			regpath += server;
+			regpath += _T("\\ssl-client-cert-file");
+			CRegString client_cert_filepath_reg = CRegString(regpath);
+			client_cert_filepath_reg = filename;
+		}
 	} // if (GetOpenFileName(&ofn)==TRUE) 
 	else
 		*cred = NULL;
@@ -330,6 +352,27 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	if (svn->m_app)
 		svn->m_app->DoWaitCursor(0);
 	return SVN_NO_ERROR;
+}
+
+UINT_PTR CALLBACK SVNPrompt::OFNHookProc(HWND hdlg, UINT uiMsg, WPARAM wParam, LPARAM lParam)
+{
+	SVNPrompt * lpPrompt = (SVNPrompt *)lParam;
+	CString temp;
+	switch (uiMsg)
+	{
+
+	case WM_NOTIFY:
+        // look for the CDN_INITDONE notification telling you Windows
+        // has has finished initializing the dialog box
+		LPOFNOTIFY lpofn = (LPOFNOTIFY)lParam;
+		if (lpofn->hdr.code == CDN_INITDONE)
+		{
+			temp.LoadString(IDS_SSL_SAVE_CERTPATH);
+			SendMessage(::GetParent(hdlg), CDM_SETCONTROLTEXT, chx1, (LPARAM)(LPCTSTR)temp);
+			return TRUE;
+		}
+	} 
+	return FALSE;
 }
 
 svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, void *baton, const char * realm, svn_boolean_t may_save, apr_pool_t *pool)
@@ -344,6 +387,21 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(password));
 		ret->may_save = may_save;
 		*cred = ret;
+		if (!svn->m_server.IsEmpty())
+		{
+			if ((*cred)->may_save)
+			{
+				CString regpath = _T("Software\\tigris.org\\Subversion\\Servers\\");
+				CString groups = regpath + _T("groups\\");
+				groups += svn->m_server;
+				CRegString server_groups = CRegString(groups);
+				server_groups = svn->m_server;
+				regpath += svn->m_server;
+				regpath += _T("\\ssl-client-cert-password");
+				CRegString client_cert_password_reg = CRegString(regpath);
+				client_cert_password_reg = CString(ret->password);
+			}
+		}
 	} // if (svn->UserPrompt(infostring, CString(realm))
 	else
 		*cred = NULL;
