@@ -33,6 +33,8 @@
 #define TAB_CHARACTER				_T('\xBB')
 #define SPACE_CHARACTER				_T('\xB7')
 
+#define WHITESPACE_CHARS			_T(" \t\xBB\xB7")
+
 #define MAXFONTS 8
 
 CBaseView * CBaseView::m_pwndLeft = NULL;
@@ -903,12 +905,12 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 						ExpandChars(pszLeftLine, 0, m_pwndLeft->GetLineLength(nLineIndex), sOtherLine);
 				}
 				CString line2 = line;
-				line2 = line2.TrimLeft(_T(" \t"));
+				line2 = line2.TrimLeft(WHITESPACE_CHARS);
 				nCount = line.GetLength() - line2.GetLength();
 				VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
 				origin.x += nCount * nCharWidth;
-				line = line.TrimLeft(_T(" \t"));
-				sOtherLine = sOtherLine.TrimLeft(_T(" \t"));
+				line = line.TrimLeft(WHITESPACE_CHARS);
+				sOtherLine = sOtherLine.TrimLeft(WHITESPACE_CHARS);
 				while (!line.IsEmpty())
 				{
 					if (sOtherLine.GetAt(0) == line.GetAt(0))
@@ -921,24 +923,26 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					}
 					else
 					{
-						sOtherLine = sOtherLine.TrimLeft(_T(" \t"));
-						sOtherLine = sOtherLine.TrimLeft(TAB_CHARACTER);
-						sOtherLine = sOtherLine.TrimLeft(SPACE_CHARACTER);
-						nCount = line.GetLength() - sOtherLine.GetLength();
-						if (nCount < 0)
-							nCount = -nCount;
-						else
-						{
-							pDC->SetBkColor(crWhiteDiffBk);
-							pDC->SetTextColor(crWhiteDiffFg);
-						}
+						nCount = line.GetLength();
+						line2 = line;
+						line2.TrimLeft(WHITESPACE_CHARS);
+						nCount = line.GetLength() - line2.GetLength();
+						pDC->SetBkColor(crWhiteDiffBk);
+						pDC->SetTextColor(crWhiteDiffFg);
 						VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+						sOtherLine = sOtherLine.TrimLeft(WHITESPACE_CHARS);
 						pDC->SetBkColor(crBkgnd);
 						pDC->SetTextColor(crText);
 						origin.x += nCount * nCharWidth;
-						line = line.TrimLeft(_T(" \t"));
-						line = line.TrimLeft(TAB_CHARACTER);
-						line = line.TrimLeft(SPACE_CHARACTER);
+						int len = line.GetLength();
+						line = line.TrimLeft(WHITESPACE_CHARS);
+						if (len == line.GetLength())
+						{
+							line = line.Mid(nCount);
+							VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, line.GetLength(), NULL));
+							origin.x += line.GetLength() * nCharWidth;
+							line.Empty();
+						}
 					}
 				} // while (!line.IsEmpty())
 			}
