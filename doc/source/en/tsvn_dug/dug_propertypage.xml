@@ -63,7 +63,7 @@
 		<itemizedlist>
 			<listitem>
 				<para>
-					<literal>tsvn:minlogmsgsize</literal>
+					<literal>tsvn:logminsize</literal>
 					sets the minimum length of a log message for a commit.
 					If you enter a shorter message than specified here, the commit
 					is disabled. This feature is very useful for reminding you to
@@ -92,7 +92,7 @@
 					a multi-line text string which will be inserted in the commit
 					message box when you start a commit. You can then edit it to
 					include the required information. Note: if you are also using
-					<literal>tsvn:minlogmsgsize</literal>, be sure to set the length
+					<literal>tsvn:logminsize</literal>, be sure to set the length
 					longer than the template or you will lose the protection mechanism.
 				</para>
 			</listitem>
