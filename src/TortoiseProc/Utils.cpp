@@ -609,3 +609,27 @@ CString CUtils::GetLongPathName(CString path)
 		return path;
 	return CString(pathbuf);
 }
+
+BOOL CUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
+{
+	srcPath.Replace('/', '\\');
+	destPath.Replace('/', '\\');
+	// now make sure that the destination directory exists
+	int ind = 0;
+	while (destPath.Find('\\', ind)>=0)
+	{
+		if (!PathIsDirectory(destPath.Left(destPath.Find('\\', ind))))
+		{
+			if (!CreateDirectory(destPath.Left(destPath.Find('\\', ind)), NULL))
+				return FALSE;
+		}
+		ind = destPath.Find('\\', ind)+1;
+	}
+	if (PathIsDirectory(srcPath))
+	{
+		if (!PathIsDirectory(destPath))
+			return CreateDirectory(destPath, NULL);
+		return TRUE;
+	}
+	return (CopyFile(srcPath, destPath, !force));
+}

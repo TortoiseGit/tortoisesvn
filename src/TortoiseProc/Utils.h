@@ -97,4 +97,6 @@ public:
 	 */
 	static CString WritePathsToTempFile(CString paths);
 	static CString GetLongPathName(CString path);
+
+	static BOOL FileCopy(CString srcPath, CString destPath, BOOL force = TRUE);
 };
