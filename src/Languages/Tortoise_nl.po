@@ -9,24 +9,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-09 22:48+0100\n"
+"PO-Revision-Date: 2004-07-13 20:26+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-# ID:126,#:
-# ID:10,
-#: ID:126
-#: ID:10
-msgid " "
-msgstr " "
-
-# ID:188,
-#: ID:188
-msgid "! %d"
-msgstr "! %d"
 
 #: ID:3868
 msgid "%1 contained an unexpected object."
@@ -143,9 +131,10 @@ msgstr "&Sluit vensters automatisch"
 msgid "&Edit..."
 msgstr "&Wijzigen..."
 
+# Control-ID:1023,
 #: Control-ID:1023
-msgid "&Enable Proxy Server"
-msgstr "&Proxy Server inschakelen"
+msgid "&Enable Proxy Server (Don't use the IE settings)"
+msgstr "&Activeer Proxyserver (gebruik niet de instellingen van Internet Explorer)"
 
 #: Control-ID:1092
 msgid "&External"
@@ -172,6 +161,7 @@ msgid "&From WC at URL:"
 msgstr "&Van werkkopie in URL:"
 
 #: Control-ID:1032
+#: Control-ID:1115
 #: Control-ID:1019
 msgid "&Head Revision"
 msgstr "&Meest recente revisie (HEAD)"
@@ -180,8 +170,9 @@ msgstr "&Meest recente revisie (HEAD)"
 # MenuEntry#:
 # Control-ID:9,#:
 # Control-ID:57670,
-#: Control-ID:57670
 #: Control-ID:9
+#: Control-ID:57670
+#: MenuEntry
 msgid "&Help"
 msgstr "&Help"
 
@@ -317,25 +308,6 @@ msgstr "B&eeld"
 #: MenuEntry
 msgid "&Whitespaces"
 msgstr "&Spaties en lege regels"
-
-# ID:188,
-#: ID:188
-msgid "+ %d"
-msgstr "+ %d"
-
-# ID:188,
-#: ID:188
-msgid "- %d"
-msgstr "- %d"
-
-#: Control-ID:1035
-#: Control-ID:1036
-#: Control-ID:1021
-#: Control-ID:1022
-#: Control-ID:1089
-#: Control-ID:1104
-msgid "..."
-msgstr ".."
 
 #: ID:3867
 msgid "A hardware I/O error was reported while accessing %1."
@@ -700,8 +672,8 @@ msgstr ""
 "kan niet gekopieerd worden naar\n"
 "%s"
 
-#: Control-ID:2
 #: ID:73
+#: Control-ID:2
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -1339,6 +1311,7 @@ msgstr "Versie %s van bestand ophelen:"
 #: ID:63
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "File"
 msgstr "Bestand"
 
@@ -1371,7 +1344,6 @@ msgid "For Help, press F1"
 msgstr "Druk op F1 voor help"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "From:"
 msgstr "Van URL:"
 
@@ -1411,14 +1383,10 @@ msgstr ""
 "Ga naar vorig verschil\n"
 "vorig verschil"
 
-#: Control-ID:1115
-msgid "Head Revision"
-msgstr "Meest recente revisie (HEAD)"
-
 # Control-ID:1004,#:
 # ID:12,
-#: Control-ID:1004
 #: ID:12
+#: Control-ID:1004
 msgid "Help"
 msgstr "Help"
 
@@ -1658,8 +1626,8 @@ msgstr "Mime-type"
 msgid "Minimum logsize in chars"
 msgstr "Minimum aantal tekens in log"
 
-#: Control-ID:1023
 #: Control-ID:1082
+#: Control-ID:1023
 msgid "Misc"
 msgstr "Divers"
 
@@ -1752,8 +1720,8 @@ msgstr "Niet alle registersleutels (of INI bestand) zijn verwijderd."
 # Control-ID:1,#:
 # ID:73,#:
 # Control-ID:1,
-#: Control-ID:1
 #: ID:73
+#: Control-ID:1
 msgid "OK"
 msgstr "OK"
 
@@ -1774,8 +1742,8 @@ msgstr "Alleen de bovenste map ophalen"
 msgid "Only update the top folder"
 msgstr "Alleen de bovenste map verversen"
 
-#: ID:3841
 #: ID:101
+#: ID:3841
 msgid "Open"
 msgstr "Openen"
 
@@ -1922,6 +1890,7 @@ msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programma's (*.exe)|*.exe|Alle Bestanden (*.*)|*.*||"
 
 #: Control-ID:65535
+#: Dlg-ID:177
 msgid "Properties"
 msgstr "Eigenschappen"
 
@@ -1933,14 +1902,17 @@ msgstr "Eigenschap"
 msgid "Property Page"
 msgstr "Eigenschappen"
 
+#: ID:207
+msgid "Property Status"
+msgstr "Status Eigenschappen:"
+
 #: Control-ID:65535
 msgid "Property Status:"
 msgstr "Status Eigenschappen:"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Proxy &timeout in seconds:"
-msgstr "Proxy timeout in seconden:"
+msgstr "Proxy &timeout in seconden:"
 
 #: Control-ID:1080
 msgid "Proxy Settings"
@@ -2012,9 +1984,18 @@ msgstr "Verplaats..."
 msgid "Relocating..."
 msgstr "Verleggen..."
 
+#: ID:207
+msgid "Remote Property Status"
+msgstr "Status remote eigenschappen"
+
 #: ID:63
+#: ID:207
 msgid "Remote Status"
 msgstr "Remote status"
+
+#: ID:207
+msgid "Remote Text Status"
+msgstr "Status remote tekst"
 
 #: Control-ID:65535
 msgid "Removed"
@@ -2079,9 +2060,8 @@ msgid "Resolve"
 msgstr "Oplossen"
 
 #: Control-ID:1067
-#, fuzzy
 msgid "Resolve conflicted subversion status on save"
-msgstr "Lost conflicten in bestanden op"
+msgstr "Lost conflicten in bestanden op bij opslaan"
 
 #: ID:8
 msgid "Resolved"
@@ -2135,9 +2115,8 @@ msgid "Revision: "
 msgstr "Revisie:"
 
 #: MenuEntry
-#, fuzzy
 msgid "S&ettings"
-msgstr "Instellingen"
+msgstr "&Instellingen"
 
 # ID:3697,
 #: ID:3697
@@ -2198,9 +2177,8 @@ msgid "SVN Revision"
 msgstr "SVN Revisie"
 
 #: ID:11
-#, fuzzy
 msgid "SVN Status"
-msgstr "Status Tekst:"
+msgstr "SVN Status"
 
 #: ID:78
 msgid "SVN Switch..."
@@ -2224,16 +2202,15 @@ msgid "SVN short Url"
 msgstr "korte URL van SVN"
 
 #: MenuEntry
-#, fuzzy
 msgid "Save &As..."
-msgstr "Opslaan als..."
+msgstr "Opslaan &als..."
 
 #: ID:3841
 msgid "Save As"
 msgstr "Opslaan als"
 
-#: ID:313
 #: ID:101
+#: ID:313
 msgid "Save as..."
 msgstr "Opslaan als..."
 
@@ -2266,9 +2243,8 @@ msgid "Seek failed on %1"
 msgstr "Positioneren mislukt in %1"
 
 #: Control-ID:1067
-#, fuzzy
 msgid "Select / Deselect &All"
-msgstr "Alles selecteren/deselecteren"
+msgstr "&Alles selecteren/deselecteren"
 
 #: ID:78
 msgid "Select Diff Application"
@@ -2279,7 +2255,6 @@ msgid "Select File..."
 msgstr "Selecteer bestand..."
 
 #: ID:78
-#, fuzzy
 msgid "Select Merge Application"
 msgstr "Selecteer een samenvoeg-applicatie"
 
@@ -2288,7 +2263,6 @@ msgid "Select Revision"
 msgstr "Selecteer revisie"
 
 #: ID:78
-#, fuzzy
 msgid "Select SSH Client"
 msgstr "Selecteer een SSH Client"
 
@@ -2333,9 +2307,8 @@ msgid "Sending Content"
 msgstr "Inhoud wordt verstuurd"
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Server &address:"
-msgstr "Server adres:"
+msgstr "Server &adres:"
 
 #: Control-ID:1088
 msgid "Set filedates to the \"last commit time\""
@@ -2345,15 +2318,14 @@ msgstr "Zet datum/tijd van bestanden op tijdstip laatste vastlegging"
 msgid "Setting Properties..."
 msgstr "Bezig met eigenschappen wijzigen..."
 
-#: ID:107
 #: ID:9
+#: ID:107
 msgid "Settings"
 msgstr "Instellingen"
 
 #: Control-ID:1105
-#, fuzzy
 msgid "Short &date/time format in log messages"
-msgstr "Verkorte datum/tijd in logboek-boodschappen"
+msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 
 #: ID:12
 msgid "Short Url of subversion items"
@@ -2361,14 +2333,12 @@ msgstr "Korte URL van Subversion onderdelen"
 
 #: Control-ID:1031
 #: Control-ID:1034
-#, fuzzy
 msgid "Show &Log"
-msgstr "Toon logboek"
+msgstr "Toon &logboek"
 
 #: Control-ID:1031
-#, fuzzy
 msgid "Show &Log..."
-msgstr "Toon logboek..."
+msgstr "Toon &logboek..."
 
 #: Control-ID:1016
 msgid "Show &log"
@@ -2393,6 +2363,10 @@ msgstr "Toon regelnummers"
 #: ID:12
 msgid "Show Log"
 msgstr "Toon logboek"
+
+#: ID:101
+msgid "Show Properties"
+msgstr "Eigenschappen"
 
 #: ID:101
 msgid "Show log"
@@ -2475,6 +2449,7 @@ msgstr ""
 
 #: ID:74
 #: ID:77
+#: ID:207
 msgid "Status"
 msgstr "Statusbalk"
 
@@ -2485,6 +2460,10 @@ msgstr "Status van het onderdeel in SVN"
 #: Control-ID:65535
 msgid "Subversion configuration file:"
 msgstr "Subversion configuratiebestand:"
+
+#: ID:14
+msgid "Subversion export here"
+msgstr "Kopiëer bestanden uit Subversion hierheen"
 
 #: ID:79
 msgid ""
@@ -2559,6 +2538,10 @@ msgstr "Tabstop:"
 #: ID:79
 msgid "Tagged the working copy to %s"
 msgstr "Werkkopie opgenomen als label %s"
+
+#: ID:207
+msgid "Text Status"
+msgstr "Status Tekst"
 
 #: Control-ID:65535
 msgid "Text Status:"
@@ -2761,16 +2744,16 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
-"libsvn_diff %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d, %sr\n"
+"libsvn_diff %d.%d.%d, %sr\n"
+"apr %d.%d.%dr\n"
+"apr-iconv %d.%d.%dr\n"
 "apr-utils %d.%d.%d"
 msgstr ""
-"TortoiseMerge %d.%d.%d, Build %d, %s\r\n"
-"libsvn_diff %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
+"TortoiseMerge %d.%d.%d, Build %d, %s\n"
+"libsvn_diff %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-iconv %d.%d.%d\n"
 "apr-utils %d.%d.%d"
 
 #: ID:9
@@ -2786,24 +2769,24 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d"
 # ID:107,
 #: ID:107
 msgid ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d, %sr\n"
+"Subversion %d.%d.%d, %sr\n"
+"apr %d.%d.%dr\n"
+"apr-iconv %d.%d.%dr\n"
+"apr-utils %d.%d.%dr\n"
+"berkeley db %d.%d.%dr\n"
+"neon %sr\n"
+"%sr\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-iconv %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
+"TortoiseSVN %d.%d.%d, Build %d, %s\n"
+"Subversion %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-iconv %d.%d.%d\n"
+"apr-utils %d.%d.%d\n"
+"berkeley db %d.%d.%d\n"
+"neon %s\n"
+"%s\n"
 "zlib %s"
 
 #: ID:80
@@ -2833,14 +2816,12 @@ msgstr "URL van Subversion onderdelen"
 
 #: Control-ID:65535
 #: Control-ID:1076
-#, fuzzy
 msgid "URL:"
-msgstr "Naar URL:"
+msgstr "URL:"
 
 #: ID:75
-#, fuzzy
 msgid "URL: "
-msgstr "Naar URL:"
+msgstr "URL:"
 
 #: ID:3866
 msgid "Unable to load mail system support."
@@ -2917,6 +2898,10 @@ msgstr "Ververst de werkkopie naar een bepaalde revisie"
 #: ID:9
 msgid "Updates the working copy to the current revision"
 msgstr "Ververst de werkkopie naar de huidige revisie"
+
+#: ID:207
+msgid "Url"
+msgstr "URL"
 
 #: ID:144
 msgid "Url:"
@@ -3183,9 +3168,8 @@ msgid "pixels"
 msgstr "pixels"
 
 #: Control-ID:1018
-#, fuzzy
 msgid "re&cursive"
-msgstr "recursief"
+msgstr "re&cursief"
 
 #: ID:10
 msgid "replaced"
