@@ -775,6 +775,9 @@ int CSVNStatusListCtrl::SortCompare(const void * pElem1, const void * pElem2)
 void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
+	*pResult = 0;
+	if (m_bBlock)
+		return;
 	m_bBlock = TRUE;
 	if (m_nSortedColumn == phdr->iItem)
 		m_bAscending = !m_bAscending;
@@ -818,7 +821,19 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
 			m_nSortedColumn++;
 	}
 	Sort();
-	*pResult = 0;
+
+	CHeaderCtrl * pHeader = GetHeaderCtrl();
+	HDITEM HeaderItem = {0};
+	HeaderItem.mask = HDI_FORMAT;
+	for (int i=0; i<pHeader->GetItemCount(); ++i)
+	{
+		pHeader->GetItem(i, &HeaderItem);
+		HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+		pHeader->SetItem(i, &HeaderItem);
+	}
+	pHeader->GetItem(m_nSortedColumn, &HeaderItem);
+	HeaderItem.fmt |= (m_bAscending ? HDF_SORTDOWN : HDF_SORTUP);
+	pHeader->SetItem(m_nSortedColumn, &HeaderItem);
 	m_bBlock = FALSE;
 }
 
