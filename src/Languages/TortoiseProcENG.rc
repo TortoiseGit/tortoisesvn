@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -191,7 +191,7 @@ END
 IDD_LOGPROMPT DIALOGEX 0, 0, 232, 252
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
     WS_THICKFRAME
-CAPTION "enter log message"
+CAPTION "Enter Log Message"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,6,231,50,14
@@ -202,7 +202,7 @@ BEGIN
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
                     93,219,109
     LTEXT           "",IDC_COMMIT_TO,6,16,219,11,SS_WORDELLIPSIS
-    LTEXT           "commit to:",IDC_STATIC,6,7,219,8
+    LTEXT           "Commit to:",IDC_STATIC,6,7,219,8
     LTEXT           "To see the changes you made, double click on the files above.",
                     IDC_HINTLABEL,6,209,219,16
 END
@@ -274,7 +274,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,34,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,177,34,50,14
-    LTEXT           "new name:",IDC_STATIC,7,14,36,8
+    LTEXT           "New Name:",IDC_STATIC,7,14,36,8
     EDITTEXT        IDC_NAME,56,11,171,14,ES_AUTOHSCROLL
 END
 
@@ -322,13 +322,13 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Icon Overlays"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "indicate folders with changed contents",IDC_CHANGEDDIRS,
+    CONTROL         "Indicate folders with changed contents",IDC_CHANGEDDIRS,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,16,139,10
-    CONTROL         "removable drives",IDC_REMOVABLE,"Button",
+    CONTROL         "Removable drives",IDC_REMOVABLE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,30,71,10
-    CONTROL         "network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,44,63,10
-    CONTROL         "fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "Fixed drives",IDC_FIXED,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,58,53,10
     CONTROL         "CD-ROM",IDC_CDROM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     7,72,41,10
@@ -727,10 +727,10 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will loose <b>all</b> changes since the last update!"
+    IDS_PROC_WARNREVERT     "Are you sure you want to revert? You will lose <b>all</b> changes since the last update!"
     IDS_PROC_CLEANUPFINISHED "Cleanup has finished"
     IDS_PROC_REPOCREATEERR  "Subversion reported an error while creating a repository!\nMake sure the folder is empty and not write protected."
-    IDS_PROC_EXPORT_1       "Select Folder To Export To\nMaybe you need to create a new folder"
+    IDS_PROC_EXPORT_1       "Select folder to export to.\nYou might need to create a new folder before performing this export."
     IDS_PROC_EXPORT_2       "exporting %s to"
     IDS_PROC_EXPORT_3       "Exporting..."
     IDS_PROC_EXPORT_4       "exported\n%s\nto\n%s"
@@ -820,8 +820,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_CHSTAT_FILECOL      "File"
-    IDS_CHSTAT_WCCOL        "local status"
-    IDS_CHSTAT_REPOCOL      "remote status"
+    IDS_CHSTAT_WCCOL        "Local Status"
+    IDS_CHSTAT_REPOCOL      "Remote Status"
 END
 
 STRINGTABLE 
@@ -829,12 +829,12 @@ BEGIN
     IDS_LOG_COPY_SUCCESS    "Tag created successfully!"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -877,7 +877,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
