@@ -570,9 +570,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
 						this->m_bCancelled = FALSE;
-						CTSVNPath tempfile = CUtils::GetTempFilePath();
-						m_tempFileList.AddPath(tempfile);
-						tempfile.AppendRawString(_T(".diff"));
+						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
 						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
@@ -586,7 +584,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
 								break;
 							}
-							CUtils::StartDiffViewer(tempfile, CTSVNPath());
+							CUtils::StartUnifiedDiffViewer(tempfile);
 						}
 					}
 					break;
@@ -596,15 +594,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
 						long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
 						this->m_bCancelled = FALSE;
-						CTSVNPath tempfile = CUtils::GetTempFilePath();
-						m_tempFileList.AddPath(tempfile);
-						tempfile.AppendRawString(_T(".diff"));
+						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
 						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
-						} // if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+						}
 						else
 						{
 							if (CUtils::CheckForEmptyDiff(tempfile))
@@ -612,7 +608,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CMessageBox::Show(m_hWnd, IDS_ERR_EMPTYDIFF, IDS_APPNAME, MB_ICONERROR);
 								break;
 							}
-							CUtils::StartDiffViewer(tempfile, CTSVNPath());
+							CUtils::StartUnifiedDiffViewer(tempfile);
 						}
 					}
 					break;
@@ -629,7 +625,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
 								TRACE(_T("could not retrieve the URL of the folder!\n"));
 								break;		//exit
-							} // if ((rev == (-2))||(status.status->entry == NULL))
+							}
 							else
 							{
 								CSVNProgressDlg dlg;
@@ -637,7 +633,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								dlg.m_RevisionEnd = rev-1;
 								dlg.DoModal();
 							}
-						} // if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_ICONQUESTION) == IDOK) 
+						}
 					}
 					break;
 				case ID_COPY:
@@ -652,7 +648,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 							TRACE(_T("could not retrieve the URL of the folder!\n"));
 							break;		//exit
-						} // if (status.status->entry == NULL) 
+						}
 						else
 						{
 							dlg.m_URL = url;
@@ -700,17 +696,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CString sWC, sRev;
 								sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 								sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
-//BUGBUG - The old line had 
-//	m_path.Left(m_path.Find('\\')) as a way of generating the 'dir' parameter
-// This doesn't feel right to me - it's very likely to generate c: or similar 
-// Is doing a path.GetDirectory the right thing?
-// OLD LINE - CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev);
-								CUtils::StartDiffViewer(tempfile, m_path.GetDirectory(), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev);
+								CUtils::StartExtPatch(tempfile, m_path.GetDirectory(), sWC, sRev, TRUE);
 							}
 						}
 						else
 						{
-							CTSVNPath tempfile = CUtils::GetTempFilePath();
+							CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
 							m_tempFileList.AddPath(tempfile);
 							SVN svn;
 							if (!svn.Cat(m_path, rev, tempfile))
@@ -718,14 +709,13 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								GetDlgItem(IDOK)->EnableWindow(TRUE);
 								break;
-							} // if (!svn.Cat(m_path, rev, tempfile))
+							} 
 							else
 							{
 								CString revname, wcname;
-								CString ext = m_path.GetFileExtension();
 								revname.Format(_T("%s Revision %ld"), (LPCTSTR)m_path.GetFilename(), rev);
 								wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)m_path.GetFilename());
-								CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
+								CUtils::StartExtDiff(tempfile, m_path, revname, wcname);
 							}
 						}
 					}
@@ -1152,7 +1142,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		if ((!m_path.IsDirectory())&&(m_hasWC))
 		{
 			long rev = m_arRevs.GetAt(selIndex);
-			CTSVNPath tempfile = CUtils::GetTempFilePath();
+			CTSVNPath tempfile = CUtils::GetTempFilePath(m_path);
 			m_tempFileList.AddPath(tempfile);
 
 			SVN svn;
@@ -1160,23 +1150,20 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				GetDlgItem(IDOK)->EnableWindow(TRUE);
-			} // if (!svn.Cat(m_path, rev, tempfile))
+			}
 			else
 			{
 				CString revname, wcname;
-				CString ext = m_path.GetFileExtension();
 				revname.Format(_T("%s Revision %ld"), (LPCTSTR)m_path.GetFilename(), rev);
 				wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)m_path.GetFilename());
-				CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
+				CUtils::StartExtDiff(tempfile, m_path, revname, wcname);
 			}
 		} 
 		else
 		{
 			long rev = m_arRevs.GetAt(selIndex);
 			this->m_bCancelled = FALSE;
-			CTSVNPath tempfile = CUtils::GetTempFilePath();
-			m_tempFileList.AddPath(tempfile);
-			tempfile.AppendRawString(_T(".diff"));
+			CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 			m_tempFileList.AddPath(tempfile);
 			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
@@ -1193,8 +1180,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					CString sWC, sRev;
 					sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 					sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
-//BUGBUG - see warning around line 749
-					CUtils::StartDiffViewer(tempfile, m_path.GetDirectory(), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev); 
+					CUtils::StartExtPatch(tempfile, m_path.GetDirectory(), sWC, sRev, TRUE);
 				}
 			}
 		}
@@ -1442,15 +1428,10 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 
 BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path2, LONG rev2)
 {
-	CTSVNPath tempfile1 = CUtils::GetTempFilePath();
-	CTSVNPath tempfile2 = CUtils::GetTempFilePath();
+	CTSVNPath tempfile1 = CUtils::GetTempFilePath(path1);
+	CTSVNPath tempfile2 = CUtils::GetTempFilePath(path2);
 	// The mere process of asking for a temp file creates it as a zero length file
 	// We need to clean these up after us
-	m_tempFileList.AddPath(tempfile1);
-	m_tempFileList.AddPath(tempfile2);
-	// Give the files that we diff the proper extension for the filetype
-	tempfile1.AppendRawString(path1.GetFileExtension());
-	tempfile2.AppendRawString(path2.GetFileExtension());
 	m_tempFileList.AddPath(tempfile1);
 	m_tempFileList.AddPath(tempfile2);
 	CProgressDlg progDlg;
@@ -1489,10 +1470,9 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	}
 	theApp.DoWaitCursor(-1);
 	CString revname1, revname2;
-	CString ext = path1.GetFileExtension();
 	revname1.Format(_T("%s Revision %ld"), (LPCTSTR)path1.GetFileOrDirectoryName(), rev1);
 	revname2.Format(_T("%s Revision %ld"), (LPCTSTR)path2.GetFileOrDirectoryName(), rev2);
-	return CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, revname2, revname1, ext);
+	return CUtils::StartExtDiff(tempfile2, tempfile1, revname2, revname1);
 }
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)

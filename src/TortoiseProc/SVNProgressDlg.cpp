@@ -1071,7 +1071,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 						case ID_COMPARE:
 							{
-								CTSVNPath tempfile = CUtils::GetTempFilePath();
+								CTSVNPath tempfile = CUtils::GetTempFilePath(data->path);
 								m_templist.AddPath(tempfile);
 								SVN svn;
 								if (!svn.Cat(data->path, m_nUpdateStartRev, tempfile))
@@ -1083,10 +1083,9 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								else
 								{
 									CString revname, wcname;
-									CString ext = data->path.GetFileExtension();
 									revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetFileOrDirectoryName(), m_nUpdateStartRev);
 									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
-									CUtils::StartDiffViewer(tempfile, data->path, FALSE, revname, wcname, ext);
+									CUtils::StartExtDiff(tempfile, data->path, revname, wcname);
 								}
 							}
 							break;

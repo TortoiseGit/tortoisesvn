@@ -893,9 +893,9 @@ BOOL CTortoiseProcApp::InitInstance()
 						::DeleteFile(temporaryFile.GetWinPath());
 					}
 				}
-			} // if (path2.IsEmpty())
+			} 
 			else
-				CUtils::StartDiffViewer(CTSVNPath(path2), cmdLinePath, TRUE);
+				CUtils::StartExtDiff(CTSVNPath(path2), cmdLinePath);
 		}
 		//#endregion
 		//#region dropcopyadd

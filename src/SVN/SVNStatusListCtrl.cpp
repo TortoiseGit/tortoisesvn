@@ -1210,9 +1210,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_GNUDIFF1:
 					{
-						CTSVNPath tempfile = CUtils::GetTempFilePath();
-						m_tempFileList.AddPath(tempfile);
-						tempfile.AppendRawString(_T(".diff"));
+						CTSVNPath tempfile = CUtils::GetTempFilePath(CTSVNPath(_T("Test.diff")));
 						m_tempFileList.AddPath(tempfile);
 						SVN svn;
 						if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
@@ -1220,7 +1218,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
 						}
-						CUtils::StartDiffViewer(tempfile, CTSVNPath());
+						CUtils::StartUnifiedDiffViewer(tempfile);
 					}
 					break;
 				case IDSVNLC_UPDATE:
@@ -1624,7 +1622,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 
 	if (entry->remotestatus > svn_wc_status_normal)
 	{
-		remotePath = CUtils::GetTempFilePath();
+		remotePath = CUtils::GetTempFilePath(entry->path);
 
 		SVN svn;
 		if (!svn.Cat(entry->path, SVNRev::REV_HEAD, remotePath))
@@ -1645,7 +1643,6 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	}
 
 	CString name = entry->path.GetFilename();
-	CString ext = entry->path.GetFileExtension();
 	CString n1, n2, n3;
 	n1.Format(IDS_DIFF_WCNAME, name);
 	n2.Format(IDS_DIFF_BASENAME, name);
@@ -1653,10 +1650,10 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 
 	if (basePath.IsEmpty())
 		// Hasn't changed locally - diff remote against WC
-		CUtils::StartDiffViewer(wcPath, remotePath, FALSE, n1, n3, ext);
+		CUtils::StartExtDiff(wcPath, remotePath, n1, n3);
 	else if (remotePath.IsEmpty())
 		// Diff WC against its base
-		CUtils::StartDiffViewer(basePath, wcPath, FALSE, n2, n1, ext);
+		CUtils::StartExtDiff(basePath, wcPath, n2, n1);
 	else
 		// Three-way diff
 		CUtils::StartExtMerge(basePath, remotePath, basePath, CTSVNPath(), n2, n3, n1);

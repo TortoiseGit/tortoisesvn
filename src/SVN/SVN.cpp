@@ -1829,6 +1829,6 @@ BOOL SVN::DiffFileAgainstBase(const CTSVNPath& filePath, CTSVNPath& temporaryFil
 	CString n1, n2;
 	n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 	n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-	return CUtils::StartDiffViewer(basePath, wcPath, TRUE, n2, n1, wcPath.GetFileExtension());
+	return CUtils::StartExtDiff(basePath, wcPath, n2, n1, TRUE);
 }
 

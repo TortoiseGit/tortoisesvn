@@ -56,20 +56,14 @@ public:
 	static BOOL StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
 		const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(), const CString& mergedname = CString());
 
-	/**
-	 * Launches the diff viewer application.
-	 * If dir is a directory then TortoiseMerge is started.
-	 * If dir is a file then the specified diff application is started (e.g. WinMerge, TortoiseMerge, WinDiff, ...).
-	 * If \a ext is a valid file extension (including the dot), a per extension diff application is started
-	 * when defined for the given extension. Otherwise the default diff application is started.
-	 * If dir is empty then an application which can show unified diff files is started, either
-	 * the specified one, the one associated with .diff files and as the last fallback the application
-	 * associated with .txt files.
-	 * \return TRUE if the program could be started.
-	 */
-	static BOOL StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir, BOOL bWait = FALSE,
-		CString name1 = _T(""), CString name2 = _T(""), CString ext = _T(""), 
-		BOOL bReversed = FALSE, const CString& patchorig = CString(), const CString& patchpatched = CString());
+	static BOOL StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
+			const CString& sOriginalDescription = CString(), const CString& sPatchedDescription = CString(), 
+			BOOL bReversed = FALSE, BOOL bWait = FALSE);
+
+	static BOOL StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait = FALSE);
+
+	static BOOL StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, 
+			const CString& sName1 = CString(), const CString& sName2 = CString(), BOOL bWait = FALSE);
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated

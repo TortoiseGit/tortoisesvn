@@ -170,134 +170,114 @@ BOOL CUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir, BOOL bWait,	CString name1, CString name2, CString ext, BOOL bReversed, const CString& patchorig, const CString& patchpatched)
+BOOL CUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, const CString& sOriginalDescription, const CString& sPatchedDescription, BOOL bReversed, BOOL bWait)
 {
-	// if "dir" is actually a file, then don't start the unified diff viewer
-	// but the file diff application (e.g. TortoiseMerge, WinMerge, WinDiff, P4Diff, ...)
 	CString viewer;
-	if (dir.IsDirectory() || (dir.IsEmpty()))
+	// use TortoiseMerge
+	TCHAR tmerge[MAX_PATH];
+	GetModuleFileName(NULL, tmerge, MAX_PATH);
+	viewer = tmerge;
+	viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+
+	viewer = _T("\"") + viewer + _T("\"");
+	viewer = viewer + _T(" /patchpath:\"") + patchfile.GetWinPathString() + _T("\"");
+	viewer = viewer + _T(" /diff:\"") + dir.GetWinPathString() + _T("\"");
+	if (bReversed)
+		viewer += _T(" /reversedpatch");
+	if (!sOriginalDescription.IsEmpty())
+		viewer = viewer + _T(" /patchoriginal:\"") + sOriginalDescription + _T("\"");
+	if (!sPatchedDescription.IsEmpty())
+		viewer = viewer + _T(" /patchpatched:\"") + sPatchedDescription + _T("\"");
+	if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, !!bWait))
 	{
-		CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
-		viewer = v;
-		if ((viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0)) && dir.IsEmpty())
-		{
-			//first try the default app which is associated with diff files
-			CRegString diff = CRegString(_T(".diff\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-			viewer = diff;
-			viewer = viewer + _T("\\Shell\\Open\\Command\\");
-			CRegString diffexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
-			viewer = diffexe;
-			if (viewer.IsEmpty())
-			{
-				CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
-				viewer = txt;
-				viewer = viewer + _T("\\Shell\\Open\\Command\\");
-				CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
-				viewer = txtexe;
-			} // if (viewer.IsEmpty()) 
-			TCHAR buf[32*1024];
-			ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
-			viewer = buf;
-		} // if (viewer.IsEmpty())
-		if ((viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0)) && !dir.IsEmpty())
-		{
-			// use TortoiseMerge
-			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
-			viewer = tortoiseMergePath;
-			if (viewer.IsEmpty())
-			{
-				TCHAR tmerge[MAX_PATH];
-				GetModuleFileName(NULL, tmerge, MAX_PATH);
-				viewer = tmerge;
-				viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
-			}
-			viewer = _T("\"") + viewer + _T("\"");
-			viewer = viewer + _T(" /patchpath:%path /diff:%base");
-			if (!patchorig.IsEmpty())
-				viewer = viewer + _T(" /patchoriginal:\"") + patchorig + _T("\"");
-			if (!patchpatched.IsEmpty())
-				viewer = viewer + _T(" /patchpatched:\"") + patchpatched + _T("\"");
-		} // if (viewer.IsEmpty() && !dir.IsEmpty())
-		if (viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
-			return FALSE;
-		if (viewer.Find(_T("%base")) >= 0)
-		{
-			viewer.Replace(_T("%base"), _T("\"")+file.GetWinPathString()+_T("\""));
-		}
-		else if (viewer.Find(_T("%1")) >= 0)
-		{
-			viewer.Replace(_T("%1"), _T("\"")+file.GetWinPathString()+_T("\""));
-		}
-		else
-		{
-			viewer += _T(" ");
-			viewer += _T("\"") + file.GetWinPathString() + _T("\"");
-		}
-		if (viewer.Find(_T("%path")) >= 0)
-		{
-			viewer.Replace(_T("%path"), _T("\"") + dir.GetWinPathString() + _T("\""));
-		}
-		if (bReversed)
-			viewer += _T(" /reversedpatch");
-	} // if ((PathIsDirectory(dir)) || (dir.IsEmpty())) 
-	else
+		return FALSE;
+	}
+	return TRUE;
+}
+
+BOOL CUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait)
+{
+	CString viewer;
+	CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
+	viewer = diffexe;
+	if (!file2.GetFileExtension().IsEmpty())
 	{
-		// not a unified diff
-		CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
-		viewer = diffexe;
-		if (ext != "")
+		// is there an extension specific diff tool?
+		CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + file2.GetFileExtension().MakeLower());
+		if (CString(difftool) != "")
 		{
-			// is there an extension specific diff tool?
-			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + ext.MakeLower());
-			if (CString(difftool) != "")
-			{
-				viewer = difftool;
-				viewer = _T("\"") + viewer + _T("\"");
-			}
-		}
-		if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
-		{
-			//no registry entry for a diff program
-			//use TortoiseMerge
-			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
-			viewer = tortoiseMergePath;
-			if (viewer.IsEmpty())
-			{
-				TCHAR tmerge[MAX_PATH];
-				GetModuleFileName(NULL, tmerge, MAX_PATH);
-				viewer = tmerge;
-				viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
-			}
+			viewer = difftool;
 			viewer = _T("\"") + viewer + _T("\"");
-			viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
-		} 
-		if (viewer.Find(_T("%base")) >= 0)
-		{
-			viewer.Replace(_T("%base"),  _T("\"")+file.GetWinPathString()+_T("\""));
 		}
-		if (viewer.Find(_T("%mine")) >= 0)
-		{
-			viewer.Replace(_T("%mine"),  _T("\"")+dir.GetWinPathString()+_T("\""));
-		}
-		if (name1.IsEmpty())
-		{
-			name1 = file.GetWinPathString();
-		}
-		viewer.Replace(_T("%bname"), _T("\"") + name1 + _T("\""));
-		if (name2.IsEmpty())
-		{
-			name2 = dir.GetWinPathString();
-		}
-		viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
+	}
+	if (viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
+	{
+		//no registry entry (or commented out) for a diff program
+		//use TortoiseMerge
+		TCHAR tmerge[MAX_PATH];
+		GetModuleFileName(NULL, tmerge, MAX_PATH);
+		viewer = tmerge;
+		viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseMerge.exe"));
+		viewer = _T("\"") + viewer + _T("\"");
+		viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
+	}
+	if (viewer.Find(_T("%base")) >= 0)
+	{
+		viewer.Replace(_T("%base"),  _T("\"")+file1.GetWinPathString()+_T("\""));
+	}
+	if (viewer.Find(_T("%mine")) >= 0)
+	{
+		viewer.Replace(_T("%mine"),  _T("\"")+file2.GetWinPathString()+_T("\""));
 	}
 
-	UINT idErrMessageFormat;
-	if ((dir.IsDirectory()) || (dir.IsEmpty()))
-		idErrMessageFormat = IDS_ERR_DIFFVIEWSTART;
+	if (sName1.IsEmpty())
+		viewer.Replace(_T("%bname"), _T("\"") + file1.GetWinPathString() + _T("\""));
 	else
-		idErrMessageFormat = IDS_ERR_EXTDIFFSTART;
+		viewer.Replace(_T("%bname"), _T("\"") + sName1 + _T("\""));
 
-	if(!LaunchApplication(viewer, idErrMessageFormat, !!bWait))
+	if (sName2.IsEmpty())
+		viewer.Replace(_T("%yname"), _T("\"") + file2.GetWinPathString() + _T("\""));
+	else
+		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
+
+	if(!LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, !!bWait))
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+BOOL CUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
+{
+	CString viewer;
+	CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
+	viewer = v;
+	if (viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
+	{
+		//first try the default app which is associated with diff files
+		CRegString diff = CRegString(_T(".diff\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+		viewer = diff;
+		viewer = viewer + _T("\\Shell\\Open\\Command\\");
+		CRegString diffexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+		viewer = diffexe;
+		if (viewer.IsEmpty())
+		{
+			CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+			viewer = txt;
+			viewer = viewer + _T("\\Shell\\Open\\Command\\");
+			CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+			viewer = txtexe;
+		}
+		TCHAR buf[MAX_PATH];
+		ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
+		viewer = buf;
+	}
+	if (viewer.Find(_T("%1"))>=0)
+		viewer.Replace(_T("%1"), _T("\"") + patchfile.GetWinPathString() + _T("\""));
+	else
+		viewer += _T(" \"") + patchfile.GetWinPathString() + _T("\"");
+
+	if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, !!bWait))
 	{
 		return FALSE;
 	}
