@@ -1099,6 +1099,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							temp.LoadString(IDS_LOG_COMPAREWITHBASE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
 						}
+						else
+						{
+							temp.LoadString(IDS_LOG_POPUP_COMPARE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+						}
 						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 						if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing))
 						{
@@ -1118,9 +1123,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UPDATE, temp);
 					if (GetSelectedCount() == 1)
 					{
-						temp.LoadString(IDS_LOG_POPUP_COMPARE);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
-						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 						temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
 					}

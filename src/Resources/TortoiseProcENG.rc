@@ -227,7 +227,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
-                    WS_TABSTOP,7,7,319,120
+                    WS_TABSTOP,7,31,319,96
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
                     WS_BORDER | WS_TABSTOP,7,231,319,77
     PUSHBUTTON      "Show &All",IDC_GETALL,7,333,50,14
