@@ -233,7 +233,7 @@ CString CSVNProgressDlg::BuildInfoString()
 		{
 		case svn_wc_notify_add:
 		case svn_wc_notify_update_add:
-//BUGBUG -  Should svn_wc_notify_commit_added be here too?
+		case svn_wc_notify_commit_added:
 			added++;
 			break;
 		case svn_wc_notify_copy:
