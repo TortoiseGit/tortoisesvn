@@ -83,7 +83,7 @@ void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = 
 	m_path = path;
 	m_startrev = startrev;
 	m_endrev = endrev;
-	m_hasWC = PathIsURL(path);
+	m_hasWC = !PathIsURL(path);
 	m_bStrict = bStrict;
 }
 
@@ -1267,7 +1267,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 
 BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	if (!m_bThreadRunning)
+	if (m_bThreadRunning)
 	{
 		// only show the wait cursor over the list control
 		if ((pWnd)&&
