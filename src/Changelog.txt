@@ -3,8 +3,15 @@
        in the settings dialog. A new "Get All"
        button then fetches the rest of the log
        messages if needed. (Stefan)
+- CHG: Rewrite of the status cache. The time
+       for sorting a by a column should now
+       take much less time and scale much
+       better than before. (Stefan)
 - BUG: Empty lines were not shown in log
        messages. (Stefan)
+- BUG: Temp files weren't deleted before an
+       import even if they were marked for
+       deletion. (Stefan)
 
 Version 0.20.2
 - BUG: crash bug not fixed in 0.20.1 (one Ctrl-Z
