@@ -209,7 +209,6 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 		if (popup.CreatePopupMenu())
 		{
 			CString temp;
-			UINT flags;
 			if (uSelCount == 1)
 			{
 				// Let "Open" be the very first entry, like in Explorer
