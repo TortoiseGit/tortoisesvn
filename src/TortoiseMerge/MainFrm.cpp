@@ -593,7 +593,7 @@ void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
 void CMainFrame::OnViewOnewaydiff()
 {
 	m_bOneWay = !m_bOneWay;
-	LoadViews(FALSE);
+	LoadViews(TRUE);
 }
 
 int CMainFrame::CheckResolved()
