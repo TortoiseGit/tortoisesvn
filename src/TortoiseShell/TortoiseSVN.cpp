@@ -65,18 +65,14 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
+		DeleteCriticalSection(&g_csCacheGuard);
     }
     return 1;   // ok
 }
 
 STDAPI DllCanUnloadNow(void)
 {
-	if (g_cRefThisDll == 0)
-	{
-		DeleteCriticalSection(&g_csCacheGuard);
-		return S_OK;
-	}
-	return S_FALSE;
+	return (g_cRefThisDll == 0 ? S_OK : S_FALSE);
 }
 
 STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
