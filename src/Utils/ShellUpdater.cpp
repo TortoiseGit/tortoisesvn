@@ -108,40 +108,27 @@ it decide if parent directory shell-updates are required
 	// passing the list on
 	m_pathsForUpdating.RemoveDuplicates();
 
-	DWORD brute = CRegStdWORD(_T("Software\\TortoiseSVN\\ForceShellUpdate"), 0);
-	if (brute)
-	{
-		//this method actually works, i.e. the icon overlays are updated as they
-		//should. The problem is that _every_ icon is refreshed, even those
-		//located on a server share. And this can block the explorer for about 5
-		//seconds on my computer in the office. So use this function only if the
-		//user requests it!
-		SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_FLUSHNOWAIT, 0, 0);
-	}
-	else
-	{
-		//updating the left pane (tree view) of the explorer
-		//is more difficult (if not impossible) than I thought.
-		//Using SHChangeNotify() doesn't work at all. I found that
-		//the shell receives the message, but then checks the files/folders
-		//itself for changes. And since the folders which are shown
-		//in the tree view haven't changed the icon-overlay is
-		//not updated!
-		//a workaround for this problem would be if this method would
-		//rename the folders, do a SHChangeNotify(SHCNE_RMDIR, ...),
-		//rename the folders back and do an SHChangeNotify(SHCNE_UPDATEDIR, ...)
-		//
-		//But I'm not sure if that is really a good workaround - it'll possibly
-		//slows down the explorer and also causes more HD usage.
-		//
-		//So this method only updates the files and folders in the normal
-		//explorer view by telling the explorer that the folder icon itself
-		//has changed.
+	//updating the left pane (tree view) of the explorer
+	//is more difficult (if not impossible) than I thought.
+	//Using SHChangeNotify() doesn't work at all. I found that
+	//the shell receives the message, but then checks the files/folders
+	//itself for changes. And since the folders which are shown
+	//in the tree view haven't changed the icon-overlay is
+	//not updated!
+	//a workaround for this problem would be if this method would
+	//rename the folders, do a SHChangeNotify(SHCNE_RMDIR, ...),
+	//rename the folders back and do an SHChangeNotify(SHCNE_UPDATEDIR, ...)
+	//
+	//But I'm not sure if that is really a good workaround - it'll possibly
+	//slows down the explorer and also causes more HD usage.
+	//
+	//So this method only updates the files and folders in the normal
+	//explorer view by telling the explorer that the folder icon itself
+	//has changed.
 
-		for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
-		{
-			ATLTRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
-			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
-		}
+	for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
+	{
+		ATLTRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
+		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
 	}
 }

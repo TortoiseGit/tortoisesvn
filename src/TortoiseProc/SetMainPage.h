@@ -98,8 +98,6 @@ private:
 	BOOL			m_bLastCommitTime;
 	CRegDWORD		m_regCheckNewer;
 	BOOL			m_bCheckNewer;
-	CRegDWORD		m_regForceShellRefresh;
-	BOOL			m_bForceShellRefresh;
 	CComboBox		m_cAutoClose;
 
 public:
@@ -116,6 +114,5 @@ public:
 	afx_msg void OnBnClickedCommitfiletimes();
 	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnBnClickedClearauth();
-	afx_msg void OnBnClickedForceshellrefresh();
 	afx_msg void OnCbnSelchangeAutoclosecombo();
 };

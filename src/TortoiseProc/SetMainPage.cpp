@@ -38,7 +38,6 @@ CSetMainPage::CSetMainPage()
 	, m_bShortDateFormat(FALSE)
 	, m_bLastCommitTime(FALSE)
 	, m_bCheckNewer(TRUE)
-	, m_bForceShellRefresh(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
@@ -49,7 +48,6 @@ CSetMainPage::CSetMainPage()
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
-	m_regForceShellRefresh = CRegDWORD(_T("Software\\TortoiseSVN\\ForceShellUpdate"), FALSE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -72,7 +70,6 @@ void CSetMainPage::SaveData()
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
-	m_regForceShellRefresh = m_bForceShellRefresh;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -96,7 +93,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
-	DDX_Check(pDX, IDC_FORCESHELLREFRESH, m_bForceShellRefresh);
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
 }
 
@@ -112,7 +108,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
 	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
-	ON_BN_CLICKED(IDC_FORCESHELLREFRESH, OnBnClickedForceshellrefresh)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
 END_MESSAGE_MAP()
 
@@ -148,7 +143,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bCheckNewer = m_regCheckNewer;
-	m_bForceShellRefresh = m_regForceShellRefresh;
 
 	for (int i=0; i<m_cAutoClose.GetCount(); ++i)
 		if (m_cAutoClose.GetItemData(i)==m_dwAutoClose)
@@ -167,7 +161,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_CHECKNEWERVERSION, IDS_SETTINGS_CHECKNEWER_TT);
 	m_tooltips.AddTool(IDC_CLEARAUTH, IDS_SETTINGS_CLEARAUTH_TT);
 	m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
-	m_tooltips.AddTool(IDC_FORCESHELLREFRESH, IDS_SETTINGS_SHELLFORCEREFRESH_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
 
 	//set up the language selecting combobox
@@ -272,11 +265,6 @@ void CSetMainPage::OnBnClickedCommitfiletimes()
 }
 
 void CSetMainPage::OnBnClickedChecknewerversion()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedForceshellrefresh()
 {
 	SetModified();
 }

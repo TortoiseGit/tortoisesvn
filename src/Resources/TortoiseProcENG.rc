@@ -413,8 +413,6 @@ BEGIN
     COMBOBOX        IDC_FONTSIZES,252,175,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
     PUSHBUTTON      "Clear &Auth Cache",IDC_CLEARAUTH,196,122,88,14
-    CONTROL         "Force shell icon refresh",IDC_FORCESHELLREFRESH,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,140,216,10
     COMBOBOX        IDC_AUTOCLOSECOMBO,108,106,176,75,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Progress dialog:",IDC_STATIC,13,109,87,8
@@ -1671,8 +1669,6 @@ BEGIN
                             "Clears the stored authentication.\nYou will have to enter your username/password again for all repositories."
     IDS_SETTINGS_COMMITFILETIMES_TT 
                             "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
-    IDS_SETTINGS_SHELLFORCEREFRESH_TT 
-                            "When checked, forces a refresh of the shell overlay icons after each operation.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer!</ct>"
     IDS_SETTINGS_ICONSETCHANGED 
                             "You've changed the icon set from <i>%s</i> to <i>%s</i>.\nThat change won't take effect until you restart your computer or logoff and logon again!"
     IDS_SETTINGS_PROXYEXCEPTIONS_TT 
