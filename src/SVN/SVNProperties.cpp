@@ -48,7 +48,7 @@ svn_error_t*	SVNProperties::Refresh()
 								StringToUTF8(m_path).c_str(), 
 								&rev,
 								false,	//recurse
-								&ctx,
+								&m_ctx,
 								m_pool);
 	if(m_error != NULL)
 		return m_error;
@@ -93,11 +93,11 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	svn_utf_cstring_to_utf8(&deststr, "dummy", m_pool);
 	svn_utf_cstring_from_utf8(&deststr, "dummy", m_pool);
 
-	memset (&ctx, 0, sizeof (ctx));
+	memset (&m_ctx, 0, sizeof (m_ctx));
 
 	svn_config_ensure(NULL, m_pool);
 	// set up the configuration
-	if (svn_config_get_config (&(ctx.config), NULL, m_pool))
+	if (svn_config_get_config (&(m_ctx.config), NULL, m_pool))
 	{
 		::MessageBox(NULL, this->GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 		svn_pool_destroy (m_pool);					// free the allocated memory
@@ -109,7 +109,7 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	m_path = UTF8ToString(svn_path_internal_style (StringToUTF8(filepath).c_str(), m_pool));
 
 #ifdef _MFC_VER
-	Init(m_pool);
+	Init(m_pool, &m_ctx);
 
 	CString path = filepath;
 	path.Trim();
@@ -131,7 +131,7 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
-		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}

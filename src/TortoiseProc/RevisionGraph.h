@@ -103,6 +103,8 @@ public:
 	BOOL						m_bCancelled;
 	apr_array_header_t *		m_logdata;
 	apr_pool_t *				pool;			///< memory pool
+	svn_client_ctx_t 			m_ctx;
+
 private:
 	BOOL						GetRepositoryRoot(CStringA& url);
 	BOOL						AnalyzeRevisions(const CStringA& url, LONG startrev, LONG endrev);

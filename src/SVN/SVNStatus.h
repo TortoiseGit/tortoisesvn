@@ -186,9 +186,7 @@ private:
 		apr_hash_t *	hash;
 	} hash_baton_t;
 
-#ifndef _MFC_VER
 	svn_client_ctx_t 			ctx;
-#endif
 	svn_wc_status_kind			m_allstatus;	///< used by GetAllStatus and GetAllStatusRecursive
 	svn_auth_baton_t *			m_auth_baton;	///< authentication baton
 	svn_error_t *				m_err;			///< Subversion error baton

@@ -36,7 +36,7 @@ CString	SVN::cpaths;
 
 SVN::SVN(void) : SVNPrompt()
 {
-	memset (&ctx, 0, sizeof (ctx));
+	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
 	svn_utf_initialize(parentpool);
 	const char * deststr = NULL;
@@ -47,7 +47,7 @@ SVN::SVN(void) : SVNPrompt()
 	pool = svn_pool_create (parentpool);
 	// set up the configuration
 	if (Err == 0)
-		Err = svn_config_get_config (&(ctx.config), NULL, pool);
+		Err = svn_config_get_config (&(m_ctx.config), NULL, pool);
 
 	if (Err != 0)
 	{
@@ -58,21 +58,21 @@ SVN::SVN(void) : SVNPrompt()
 	} // if (Err != 0) 
 
 	// set up authentication
-	Init(pool);
+	Init(pool, &m_ctx);
 
-	ctx.log_msg_func = svn_cl__get_log_message;
-	ctx.log_msg_baton = logMessage("");
-	ctx.notify_func = notify;
-	ctx.notify_baton = this;
-	ctx.cancel_func = cancel;
-	ctx.cancel_baton = this;
+	m_ctx.log_msg_func = svn_cl__get_log_message;
+	m_ctx.log_msg_baton = logMessage("");
+	m_ctx.notify_func = notify;
+	m_ctx.notify_baton = this;
+	m_ctx.cancel_func = cancel;
+	m_ctx.cancel_baton = this;
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
-		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
@@ -254,7 +254,7 @@ BOOL SVN::Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL r
 								MakeSVNUrlOrPath(destPath),
 								revision,
 								recurse,
-								&ctx,
+								&m_ctx,
 								pool );
 
 	if(Err != NULL)
@@ -273,9 +273,9 @@ BOOL SVN::Remove(CString path, BOOL force, CString message)
 
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
-	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_delete (&commit_info, target(path), force,
-							&ctx,
+							&m_ctx,
 							pool);
 	if(Err != NULL)
 	{
@@ -293,7 +293,7 @@ BOOL SVN::Remove(CString path, BOOL force, CString message)
 BOOL SVN::Revert(CString path, BOOL recurse)
 {
 	preparePath(path);
-	Err = svn_client_revert (target(path), recurse, &ctx, pool);
+	Err = svn_client_revert (target(path), recurse, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -309,7 +309,7 @@ BOOL SVN::Revert(CString path, BOOL recurse)
 BOOL SVN::Add(CString path, BOOL recurse, BOOL force)
 {
 	preparePath(path);
-	Err = svn_client_add2 (MakeSVNUrlOrPath(path), recurse, force, &ctx, pool);
+	Err = svn_client_add2 (MakeSVNUrlOrPath(path), recurse, force, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -328,7 +328,7 @@ BOOL SVN::Update(CString path, SVNRev revision, BOOL recurse)
 							MakeSVNUrlOrPath(path),
 							revision,
 							recurse,
-							&ctx,
+							&m_ctx,
 							pool);
 
 	if(Err != NULL)
@@ -347,13 +347,13 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 	svn_client_commit_info_t *commit_info = NULL;
 
 	message.Replace(_T("\r"), _T(""));
-	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_commit (&commit_info, 
 							target ((LPCTSTR)path), 
 							!recurse,
-							&ctx,
+							&m_ctx,
 							pool);
-	ctx.log_msg_baton = logMessage("");
+	m_ctx.log_msg_baton = logMessage("");
 	if(Err != NULL)
 	{
 		return 0;
@@ -379,14 +379,14 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 	svn_client_commit_info_t *commit_info = NULL;
 	logmsg.Replace(_T("\r"), _T(""));
 	if (logmsg.IsEmpty())
-		ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
+		m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(_T("made a copy")));
 	else
-		ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
+		m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 	Err = svn_client_copy (&commit_info,
 							MakeSVNUrlOrPath(srcPath),
 							revision,
 							MakeSVNUrlOrPath(destPath),
-							&ctx,
+							&m_ctx,
 							subpool);
 	if(Err != NULL)
 	{
@@ -408,13 +408,13 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, S
 
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
-	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_move (&commit_info,
 							MakeSVNUrlOrPath(srcPath),
 							rev,
 							MakeSVNUrlOrPath(destPath),
 							force,
-							&ctx,
+							&m_ctx,
 							subpool);
 	if(Err != NULL)
 	{
@@ -437,10 +437,10 @@ BOOL SVN::MakeDir(CString path, CString message)
 
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
-	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_mkdir (&commit_info,
 							target(path),
-							&ctx,
+							&m_ctx,
 							pool);
 	if(Err != NULL)
 	{
@@ -457,7 +457,7 @@ BOOL SVN::MakeDir(CString path, CString message)
 BOOL SVN::CleanUp(CString path)
 {
 	preparePath(path);
-	Err = svn_client_cleanup (MakeSVNUrlOrPath(path), &ctx, pool);
+	Err = svn_client_cleanup (MakeSVNUrlOrPath(path), &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -474,7 +474,7 @@ BOOL SVN::Resolve(CString path, BOOL recurse)
 	preparePath(path);
 	Err = svn_client_resolved (MakeSVNUrlOrPath(path),
 								recurse,
-								&ctx,
+								&m_ctx,
 								pool);
 	if(Err != NULL)
 	{
@@ -652,7 +652,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 			revision,
 			force,
 			NULL,
-			&ctx,
+			&m_ctx,
 			pool);
 		if(Err != NULL)
 		{
@@ -672,7 +672,7 @@ BOOL SVN::Switch(CString path, CString url, SVNRev revision, BOOL recurse)
 							MakeSVNUrlOrPath(url),
 							revision,
 							recurse,
-							&ctx,
+							&m_ctx,
 							pool);
 	if(Err != NULL)
 	{
@@ -691,14 +691,14 @@ BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
-	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
+	m_ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_import (&commit_info,
 							MakeSVNUrlOrPath(path),
 							MakeSVNUrlOrPath(url),
 							!recurse,
-							&ctx,
+							&m_ctx,
 							pool);
-	ctx.log_msg_baton = logMessage("");
+	m_ctx.log_msg_baton = logMessage("");
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -723,7 +723,7 @@ BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2
 							ignoreanchestry,
 							force,
 							dryrun,
-							&ctx,
+							&m_ctx,
 							pool);
 	if(Err != NULL)
 	{
@@ -749,7 +749,7 @@ BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pe
 		ignoreancestry,
 		force,
 		dryrun,
-		&ctx,
+		&m_ctx,
 		pool);
 	if(Err != NULL)
 	{
@@ -809,7 +809,7 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 						   nodiffdeleted,
 						   outfile,
 						   errfile,
-						   &ctx,
+						   &m_ctx,
 						   localpool);
 	if (Err)
 	{
@@ -871,7 +871,7 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 		nodiffdeleted,
 		outfile,
 		errfile,
-		&ctx,
+		&m_ctx,
 		localpool);
 	if (Err)
 	{
@@ -896,7 +896,7 @@ BOOL SVN::ReceiveLog(CString path, SVNRev revisionStart, SVNRev revisionEnd, BOO
 						changed,
 						strict,
 						logReceiver,	// log_message_receiver
-						(void *)this, &ctx, pool);
+						(void *)this, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -923,7 +923,7 @@ BOOL SVN::Cat(CString url, SVNRev revision, CString localpath)
 	apr_file_open(&file, MakeSVNUrlOrPath(localpath), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
 	stream = svn_stream_from_aprfile(file, pool);
 
-	Err = svn_client_cat(stream, MakeSVNUrlOrPath(url), revision, &ctx, pool);
+	Err = svn_client_cat(stream, MakeSVNUrlOrPath(url), revision, &m_ctx, pool);
 
 	apr_file_close(file);
 	if (Err != NULL)
@@ -1052,7 +1052,7 @@ BOOL SVN::Blame(CString path, SVNRev startrev, SVNRev endrev)
 							 endrev,  
 							 blameReceiver,  
 							 (void *)this,  
-							 &ctx,  
+							 &m_ctx,  
 							 pool );
 
 	if(Err != NULL)
@@ -1402,7 +1402,7 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 #pragma warning(disable: 4127)	// conditional expression is constant
 	SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, target,
 		FALSE, 0, pool));
-	SVN_ERR (svn_client_uuid_from_path(UUID, target, adm_access, &ctx, pool));
+	SVN_ERR (svn_client_uuid_from_path(UUID, target, adm_access, &m_ctx, pool));
 	SVN_ERR (svn_wc_adm_close (adm_access));
 #pragma warning(pop)
 
@@ -1422,7 +1422,7 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 						MakeSVNUrlOrPath(url),
 						revision,
 						recursive, 
-						&ctx,
+						&m_ctx,
 						subpool);
 	if (Err != NULL)
 	{
@@ -1467,7 +1467,7 @@ BOOL SVN::Relocate(CString path, CString from, CString to, BOOL recurse)
 	preparePath(path);
 	preparePath(from);
 	preparePath(to);
-	Err = svn_client_relocate(MakeSVNUrlOrPath(path), MakeSVNUrlOrPath(from), MakeSVNUrlOrPath(to), recurse, &ctx, pool);
+	Err = svn_client_relocate(MakeSVNUrlOrPath(path), MakeSVNUrlOrPath(from), MakeSVNUrlOrPath(to), recurse, &m_ctx, pool);
 	if (Err != NULL)
 		return FALSE;
 	return TRUE;
@@ -1531,7 +1531,7 @@ CString SVN::GetRepositoryRoot(CString url)
 		return _T("");
 
 	/* Open a repository session to the URL. */
-	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, localpool))
+	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &m_ctx, localpool))
 		return _T("");
 
 	if (ra_lib->get_repos_root(session, &returl, localpool))
@@ -1566,7 +1566,7 @@ LONG SVN::GetHEADRevision(CString url)
 		return -1;
 
 	/* Open a repository session to the URL. */
-	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &ctx, localpool))
+	if (svn_client__open_ra_session (&session, ra_lib, urla, NULL, NULL, NULL, FALSE, FALSE, &m_ctx, localpool))
 		return -1;
 
 	if (ra_lib->get_latest_revnum(session, &rev, localpool))
@@ -1587,7 +1587,7 @@ LONG SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev
 									rev, 
 									&set_rev, 
 									FALSE, 
-									&ctx, 
+									&m_ctx, 
 									pool);
 	if (Err)
 		return 0;
@@ -1598,7 +1598,7 @@ CString SVN::RevPropertyGet(CString sName, CString sURL, SVNRev rev)
 {
 	svn_string_t *propval;
 	svn_revnum_t set_rev;
-	Err = svn_client_revprop_get(MakeSVNUrlOrPath(sName), &propval, MakeSVNUrlOrPath(sURL), rev, &set_rev, &ctx, pool);
+	Err = svn_client_revprop_get(MakeSVNUrlOrPath(sName), &propval, MakeSVNUrlOrPath(sURL), rev, &set_rev, &m_ctx, pool);
 	if (Err)
 		return _T("");
 	if (propval==NULL)

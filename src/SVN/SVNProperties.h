@@ -138,7 +138,7 @@ private:		//members
 	svn_error_t *				m_error;
 #ifdef _MFC_VER
 	SVNRev						m_rev;
-#else
-	svn_client_ctx_t 			ctx;
 #endif
+	svn_client_ctx_t 			m_ctx;
+
 };

@@ -45,7 +45,7 @@ SVNStatus::SVNStatus(void)
 	svn_config_ensure(NULL, m_pool);
 	
 	// set up authentication
-	Init(m_pool);
+	Init(m_pool, &ctx);
 
 	svn_utf_initialize(m_pool);
 

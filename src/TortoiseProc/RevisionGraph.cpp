@@ -34,7 +34,7 @@ static char THIS_FILE[] = __FILE__;
 CRevisionGraph::CRevisionGraph(void) : SVNPrompt()
 	, m_bCancelled(FALSE)
 {
-	memset (&ctx, 0, sizeof (ctx));
+	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
 	svn_utf_initialize(parentpool);
 
@@ -42,7 +42,7 @@ CRevisionGraph::CRevisionGraph(void) : SVNPrompt()
 	pool = svn_pool_create (parentpool);
 	// set up the configuration
 	if (Err == 0)
-		Err = svn_config_get_config (&(ctx.config), NULL, pool);
+		Err = svn_config_get_config (&(m_ctx.config), NULL, pool);
 
 	if (Err != 0)
 	{
@@ -53,17 +53,17 @@ CRevisionGraph::CRevisionGraph(void) : SVNPrompt()
 	} // if (Err != 0) 
 
 	// set up authentication
-	Init(pool);
+	Init(pool, &m_ctx);
 
-	ctx.cancel_func = cancel;
-	ctx.cancel_baton = this;
+	m_ctx.cancel_func = cancel;
+	m_ctx.cancel_baton = this;
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
-		svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_ctx.config, SVN_CONFIG_CATEGORY_CONFIG,
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
@@ -212,7 +212,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 		TRUE,
 		FALSE,
 		logDataReceiver,
-		(void *)this, &ctx, pool);
+		(void *)this, &m_ctx, pool);
 
 	if(Err != NULL)
 	{
@@ -658,7 +658,7 @@ BOOL CRevisionGraph::GetRepositoryRoot(CStringA& url)
 		return FALSE;
 
 	/* Open a repository session to the URL. */
-	if ((Err = svn_client__open_ra_session (&session, ra_lib, url, NULL, NULL, NULL, FALSE, FALSE, &ctx, localpool))!=0)
+	if ((Err = svn_client__open_ra_session (&session, ra_lib, url, NULL, NULL, NULL, FALSE, FALSE, &m_ctx, localpool))!=0)
 		return FALSE;
 
 	if ((Err = ra_lib->get_repos_root(session, &returl, localpool))!=0)

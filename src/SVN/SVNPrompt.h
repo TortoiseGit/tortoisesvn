@@ -23,10 +23,7 @@ class SVNPrompt
 public:
 	SVNPrompt();
 	virtual ~SVNPrompt();
-	void Init(apr_pool_t *pool);
-
-	svn_client_ctx_t 	ctx;
-	svn_auth_baton_t *	auth_baton;
+	void Init(apr_pool_t *pool, svn_client_ctx_t* ctx);
 
 	virtual BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
 	virtual BOOL SimplePrompt(CString& username, CString& password, BOOL& may_save);
@@ -43,6 +40,7 @@ public:
 	void SetApp(CWinApp* pApp)					{ m_app = pApp; }
 	
 private:
+	svn_auth_baton_t *			auth_baton;
 	CString						m_server;
 	CWinApp *					m_app;
 	HWND						hWnd;

@@ -519,7 +519,7 @@ public:
 	static void UseIEProxySettings(apr_hash_t * cfg);
 	svn_error_t *				Err;			///< Global error object struct
 private:
-	//svn_client_ctx_t 			ctx;
+	svn_client_ctx_t 			m_ctx;
 	apr_hash_t *				statushash;
 	apr_array_header_t *		statusarray;
 	svn_wc_status_t *			status;
