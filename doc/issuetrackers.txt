@@ -81,6 +81,7 @@ which is replaced with the issue number the user entered before applied to the
 log message. The client will add the resulting string as a new line to the end 
 of the log message the user entered:
 logmessage + "\n" + resultstring + "\n"
+The client should make sure that the string doesn't have multiple lines.
 If more than one issue number is entered by the user (separated by commas), the 
 client must make sure that there's no whitespace chars before and after the 
 comma. And also the whole issue number string must be trimmed.

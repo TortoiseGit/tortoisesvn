@@ -319,6 +319,7 @@ BEGIN
     IDS_TT_BQAPPEND         "bugtraq:append\nSet to ""false"" if you want the bugtracking ID to be inserted at the top of the\nlog message. The default is ""true"" which means the bugtracking ID\nis appended to the log message."
     IDS_ERR_PROPNOTONFILE   "This property is only allowed on folders, not files."
     IDS_MENUIGNOREMULTIPLE  "Ignore %d items"
+    IDS_ERR_PROPNOMULTILINE "This property must not have multiple lines. Only one line is allowed."
 END
 
 #endif    // English (U.S.) resources

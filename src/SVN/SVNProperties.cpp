@@ -270,6 +270,32 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 #endif
 		return FALSE;
 	}
+	if (strncmp(pname_utf8.c_str(), "bugtraq:message", 15)==0)
+	{
+		// make sure that the bugtraq:message property only contains one single line!
+		for (apr_size_t i=0; i<pval->len; ++i)
+		{
+			if ((pval->data[i] == '\n')||(pval->data[0] == '\r'))
+			{
+#ifdef _MFC_VER
+				CString temp;
+				temp.LoadString(IDS_ERR_PROPNOMULTILINE);
+				CStringA tempA = CStringA(temp);
+				m_error = svn_error_create(NULL, NULL, tempA);
+#else
+				TCHAR string[1024];
+				LoadStringEx(g_hResInst, IDS_ERR_PROPNOMULTILINE, string, 1024, (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+#ifdef UNICODE
+				std::string stringA = WideToMultibyte(wide_string(string));
+#else
+				std::string stringA = std::string(string);
+#endif
+				m_error = svn_error_create(NULL, NULL, stringA.c_str());
+#endif
+				return FALSE;
+			}
+		}
+	}
 	if ((recurse)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))
 	{
 		//The bugtraq and tsvn properties must only be set on folders.

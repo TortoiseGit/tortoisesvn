@@ -142,6 +142,7 @@
 #define IDS_TT_BQAPPEND                 229
 #define IDS_ERR_PROPNOTONFILE           230
 #define IDS_MENUIGNOREMULTIPLE          231
+#define IDS_ERR_PROPNOMULTILINE         232
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
