@@ -906,7 +906,11 @@ svn+ssh://localhost/repos/TestRepo
 					<para>
 						<action>Right-click</action> on the just
 				created folder and select <guimenuitem>Create Repository here...</guimenuitem>
-				from the TortoiseSVN submenu. A repository is
+				from the TortoiseSVN submenu. You could create a repository with 
+				the fsfs backend or with the old but stable berkely database (bdb) 
+				format. The fsfs format is faster and it now works on network shares 
+				and Windows 98 without problems. The BDB format is more stable 
+				because it has been tested longer. A repository is
 				then created inside the new folder. <emphasis>Don't edit
 				those files yourself!!!</emphasis>. If you get any errors
 				make sure that the folder is empty and not write protected.
@@ -920,11 +924,13 @@ svn+ssh://localhost/repos/TestRepo
 			</para>
 			<warning>
 			<para>
-			Do not access a repository via the <filename>file:///</filename>
-			URL over a shared network drive! Even if you have the network
-			drive mounted to a drive letter! If you do, your repository can
-			(and most likely will) get corrupted and you could lose all your
-			data!
+			If you created a BDB repository do not access a repository via the 
+			<filename>file:///</filename> URL over a shared network drive! Even 
+			if you have the network drive mounted to a drive letter! If you do, 
+			your repository can (and most likely will) get corrupted and you could 
+			lose all your data!
+			If you really need to access a repository trough a network share use the
+			Subversion Server 1.1 or higher and create a repository with the fsfs format.
 			</para>
 			</warning>
 		</sect2>
