@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-import">
 	<title>Importing Data Into A Repository</title>
 	<indexterm>
@@ -25,7 +25,7 @@
 			tag copies. If a repository holds only one project, then
 			often people create these top-level directories:
 		</para>
-		<screen>
+<screen>
 /trunk
 /branches
 /tags
@@ -34,7 +34,7 @@
 			If a repository contains multiple projects, people often
 			index their layout by branch:
 		</para>
-		<screen>
+<screen>
 /trunk/paint
 /trunk/calc
 /branches/paint
@@ -42,8 +42,10 @@
 /tags/paint
 /tags/calc
 </screen>
-		<para>...or by project:</para>
-		<screen>
+		<para>
+			...or by project:
+		</para>
+<screen>
 /paint/trunk
 /paint/branches
 /paint/tags
@@ -107,7 +109,7 @@
 				<listitem>
 					<para>
 						import this structure into the repository via a 
-						<action>right-click</action> on the folder and
+						<action>right click</action> on the folder and
 						selecting
 						<menuchoice>
 							<guimenuitem>Import...</guimenuitem>
@@ -128,7 +130,8 @@ C:\Temp\New\trunk
 C:\Temp\New\branches
 C:\Temp\New\tags
 </screen>
-			Import C:\Temp\New into the repository root, which will then look like this:
+			Import <filename>C:\Temp\New</filename> into the repository root,
+			which will then look like this:
 <screen>
 /trunk
 /branches
@@ -192,13 +195,13 @@ C:\Temp\New\tags
 		<indexterm>
 			<primary>exclude pattern</primary>
 		</indexterm>
-		<note>
+		<important>
 			<para>
 				Files or directories which match the 
 				<guilabel>exclude pattern</guilabel>
 				are <emphasis>not</emphasis> imported.
 			</para>
-		</note>
+		</important>
 		<para>
 			As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the
 			complete directory tree including all files into the repository.
@@ -206,7 +209,8 @@ C:\Temp\New\tags
 			the repository, only the folder contents.
 			The project is now stored in the repository under version control.
 			Please note that the folder you imported is <emphasis>NOT</emphasis>
-			under version control! To get a version-controlled <firstterm>working copy</firstterm>
+			under version control! To get a version-controlled
+			<firstterm>working copy</firstterm>
 			you need to do a Checkout of the version you just imported.
 		</para>
 	</sect2>
@@ -233,7 +237,8 @@ C:\Temp\New\tags
 		<para>
 			As an example, you can have a look at TortoiseSVN's build script. It
 			calls a file named <filename>TortoiseVars.bat</filename> which
-			doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>.
+			doesn't exist in the repository. Only the file
+			<filename>TortoiseVars.tmpl</filename>.
 			<filename>TortoiseVars.tmpl</filename> is the template file which
 			every developer has to create a copy from and rename that file
 			to <filename>TortoiseVars.bat</filename>. Inside that file, we added
@@ -241,8 +246,9 @@ C:\Temp\New\tags
 			and change according to their local setup to get it working.
 		</para>
 		<para>
-			So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename>
-			to the ignore list of its parent folder, i.e. we've set the Subversion property
+			So as not to disturb the users, we also added the file
+			<filename>TortoiseVars.bat</filename> to the ignore list of its
+			parent folder, i.e. we've set the Subversion property
 			<literal>svn:ignored</literal> to include that filename.
 			That way it won't show up as unversioned on every commit.
 		</para>
@@ -256,31 +262,38 @@ C:\Temp\New\tags
 			<primary>externals</primary>
 		</indexterm>
 		<para>
-			Sometimes it is useful to construct a working copy that is made out of a number of 
-			different checkouts. For example, you may want different subdirectories to come from 
-			different locations in a repository, or perhaps from different repositories altogether. 
-			If you want that every user has the same layout, you could define the <literal>svn:externals</literal> properties.
+			Sometimes it is useful to construct a working copy that is made out
+			of a number of different checkouts. For example, you may want different
+			subdirectories to come from different locations in a repository, or
+			perhaps from different repositories altogether. 
+			If you want every user to have the same layout, you can define the
+			<literal>svn:externals</literal> properties.
 		</para>
 		<para>
-			Let's say you check out a working copy of /project1 to <filename>D:\dev\project1</filename>.
-			Select the folder <filename>D:\dev\project1</filename>, <action>right-click</action> and choose 
+			Let's say you check out a working copy of
+			<filename>/project1</filename> to
+			<filename>D:\dev\project1</filename>.
+			Select the folder <filename>D:\dev\project1</filename>,
+			<action>right click</action> and choose 
 			<menuchoice>
 				<guimenuitem>properties</guimenuitem>
 			</menuchoice>
 			from the context menu. 
 			The Properties Dialog comes up. Then go to the Subversion tab.
-			There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write 
-			in the edit box the repository url in the format <literal>name url</literal>.
+			There, you can set properties. Select the
+			<literal>svn:externals</literal> property from the combobox and
+			write in the edit box the repository url in the format
+			<literal>name url</literal>.
 			For example
 <screen>
 subversion http://svn.collab.net/repos/svn/trunk
 </screen>
 			Now click <guibutton>Set</guibutton> and commit your changes. 
-			If an user updates their working copy the external project is checked out, too.
+			If a user updates their working copy the external project is checked out, too.
 		</para>
 		<para>
-			If you need more information how <application>TortoiseSVN</application> handles 
-			Properties read <xref linkend="tsvn-DUG-propertypage"/>.
+			If you need more information how <application>TortoiseSVN</application>
+			handles Properties read <xref linkend="tsvn-DUG-propertypage"/>.
 		</para>
 	</sect2>
 </sect1>

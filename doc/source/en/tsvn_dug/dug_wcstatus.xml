@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-wcstatus">
 	<title>Getting Status Information</title>
 	<indexterm>
 		<primary>status</primary>
 	</indexterm>
 	<para>
-	While you are working on your working copy you often need to know
-	which files you have changed/added/removed or renamed, or even which
-	files got changed and committed by others.
+		While you are working on your working copy you often need to know
+		which files you have changed/added/removed or renamed, or even which
+		files got changed and committed by others.
 	</para>
 	<sect2 id="tsvn-DUG-wcstatus-1">
 		<title>Icon Overlays</title>
@@ -59,9 +59,10 @@
 		</para>
 		<para>
 			With this setting each folder shows the status of all files below it,
-			where status <literal>conflict</literal> overrides <literal>modified</literal>
-			and <literal>modified</literal> overrides <literal>normal</literal>.
-			So you can easily see if there's a file with a conflict or a modified file in a folder.
+			where status <literal>conflict</literal> overrides
+			<literal>modified</literal> and <literal>modified</literal> overrides
+			<literal>normal</literal>. So you can easily see if there's a file
+			with a conflict or a modified file in a folder.
 			<tip>
 				<title>Slow Overlays</title>
 				<para>
@@ -142,11 +143,11 @@
 				<menuchoice>
 					<guimenuitem>Check for Updates...</guimenuitem>
 				</menuchoice> dialog, 
-				but without contacting the repository. if you dont' want 
+				but without contacting the repository. if you don't want 
 				to commit just press
 				<guibutton>Cancel</guibutton>
 				instead of
-				<guibutton>Ok</guibutton>.
+				<guibutton>OK</guibutton>.
 			</para>
 		</tip>
 	</sect2>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-branchtag">
 	<title>Branching / Tagging</title>
 	<indexterm>
@@ -173,8 +173,9 @@
 					<para>
 						If you modify a working copy created from
 						a branch and commit, then all changes go to the new
-						branch and <emphasis>not</emphasis> the main branch. Only the modifications
-						are stored. The rest remains a cheap copy.
+						branch and <emphasis>not</emphasis> the main branch.
+						Only the modifications are stored.
+						The rest remains a cheap copy.
 					</para>
 				</listitem>
 			</itemizedlist>
@@ -202,8 +203,9 @@
 			<orderedlist>
 				<listitem>
 					<para>
-						In the <guilabel>From:</guilabel> field enter the full folder url of the 
-						start branch or tag containing your changes. You may also click
+						In the <guilabel>From:</guilabel> field enter the full
+						folder url of the start branch or tag containing your changes.
+						You may also click
 						<guibutton>...</guibutton>
 						to browse the repository and find the desired branch.
 					</para>
@@ -211,18 +213,20 @@
 				<listitem>
 					<para>
 						In the <guilabel>To:</guilabel> field enter the full
-						folder url of the end branch or tag containing your changes. You may also
-						click
+						folder url of the end branch or tag containing your changes.
+						You may also click
 						<guibutton>...</guibutton>
 						to browse the repository and find the desired branch.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						In the <guilabel>From Revision</guilabel> field enter the initial revision number.
-						This is the revision <emphasis>before</emphasis> the changes you want to merge.
-						Revision numbers are auto-incremented after each commit. You want
-						to start merging the changes before the revision number is auto-incremented. For example,
+						In the <guilabel>From Revision</guilabel> field enter the
+						initial revision number. This is the revision
+						<emphasis>before</emphasis> the changes you want to merge.
+						Revision numbers are auto-incremented after each commit.
+						You want to start merging the changes before the revision
+						number is auto-incremented. For example,
 						if your log messages look something like this:
 <screen>
 Rev Comments
@@ -234,41 +238,48 @@ Rev Comments
 34. Working on trunk
          ...
 </screen>
-						If you now want to merge the changes from MyBranch into the trunk you have 
-						to choose 36 as the <guilabel>From Revision</guilabel>. Not 37 as you might think.
+						If you now want to merge the changes from MyBranch into
+						the trunk you have to choose 36 as the
+						<guilabel>From Revision</guilabel>. Not 37 as you might think.
 					</para>
 					<para>
-						Click on <guibutton>Show Log</guibutton>, if you need to browse the
-						logs to find this revision number. This will probably never be from
-						revision 0.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						In the <guilabel>To Revision</guilabel> field enter the revision you want to merge
-						the changes into (probably the main branch). You can specify single
-						revisions to merge. This doesn't need to be HEAD.
+						Click on <guibutton>Show Log</guibutton>, if you need to
+						browse the logs to find this revision number. This will
+						probably never be from revision 0.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Click <guibutton>OK</guibutton> to complete the merge and enter a log message. Your
-						log message should <emphasis>always</emphasis> include the revision numbers of this merge.
-						If you want to apply another merge at a later time you will need to know what you
-						have already merged. You can't apply a change more than once.
-						Unfortunately merge information is not stored by Subversion. See the
-						Subversion book for more information about this, (search for "repeated merge problem").
+						In the <guilabel>To Revision</guilabel> field enter the
+						revision you want to merge the changes into (probably the
+						main branch). You can specify single revisions to merge.
+						This doesn't need to be HEAD.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Click <guibutton>OK</guibutton> to complete the merge and
+						enter a log message. Your log message should
+						<emphasis>always</emphasis> include the revision numbers
+						of this merge.
+						If you want to apply another merge at a later time you
+						will need to know what you have already merged. You can't
+						apply a change more than once.Unfortunately merge information
+						is not stored by Subversion. See the Subversion book for
+						more information about this,
+						(search for "repeated merge problem").
 					</para>
 				</listitem>
 			</orderedlist>
-			The merge is now complete. It's a good idea to have a look at the merge and see if it's
-			as expected. Merging is usually quite complicated. Conflicts often arise if
-			the branch has drifted far from the trunk.
+			The merge is now complete. It's a good idea to have a look at the
+			merge and see if it's as expected. Merging is usually quite complicated.
+			Conflicts often arise if the branch has drifted far from the trunk.
 		</para>
 		<para>
-			If you want to keep this branch up to date with the trunk, you should immediately merge
-			changes from trunk back to the this branch. Use this method and local changes won't get
-			in your way. Of course, you should still avoid re-merging trunk changes, as explained above.
+			If you want to keep this branch up to date with the trunk, you should
+			immediately merge changes from trunk back to the this branch. Use
+			this method and local changes won't get in your way. Of course, you
+			should still avoid re-merging trunk changes, as explained above.
 		</para>
 		<para>
 			If you want to see what changes will be made by a merge and see where
@@ -282,10 +293,10 @@ Rev Comments
 		<important>
 			<para>
 				Subversion can't merge a file with a folder and vice versa - only
-				folders to folders and files to files. If you click on a file and open up
-				the merge dialog, then you have to give a path to a file in that dialog. If you
-				select a folder and bring up the dialog, then you must specify a folder url
-				for the merge.
+				folders to folders and files to files. If you click on a file and
+				open up the merge dialog, then you have to give a path to a file
+				in that dialog. If you select a folder and bring up the dialog,
+				then you must specify a folder url for the merge.
 			</para>
 		</important>
 	</sect2>

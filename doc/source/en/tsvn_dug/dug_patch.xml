@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-patch">
 	<title>Creating and Applying Patches</title>
 	<indexterm>
@@ -40,7 +40,8 @@
 		<para>
 			Just save the file using a filename of your choice.
 			Patch files can have any extension you like, but by convention they
-			should use the <filename>.patch</filename> extension.
+			should use the <filename>.patch</filename> or
+			<filename>.diff</filename> extension.
 			You are now ready to submit your patch file.
 		</para>
 	</sect2>
@@ -72,6 +73,7 @@
 			</menuchoice>
 			This will bring up a file open dialog allowing you to select the
 			patch file to apply. By default only <filename>.patch</filename>
+			or <filename>.diff</filename>
 			files are shown, but you can opt for "All files". Open the file
 			and TortoiseMerge runs to merge the changes from the patch file
 			with your working copy. A small window lists the files which have

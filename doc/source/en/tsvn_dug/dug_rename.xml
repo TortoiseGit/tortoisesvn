@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-rename">
 	<title>Deleting, Renaming And Moving</title>
 	<indexterm>
@@ -69,39 +69,35 @@
 		matter, if you forget to delete the file with TortoiseSVN as
 		you are supposed to do.
 	</para>
-	<para>
-		<caution>
-			<title>Commit the parent folder</title>
-			<para>
-				Since renames and moves are done as a delete followed by an
-				add you must commit the parent folder of the renamed/moved
-				file. Only that way the deleted part of the rename/move will
-				show up in the commit dialog. If you don't commit the removed
-				part of the rename/move, it will stay behind in the repository
-				and an update of your coworkers won't remove the old file.
-			</para>
-		</caution>
-	</para>
-	<para>
-		<tip>
-			<title>Getting a deleted file or folder back</title>
-			<para>
-				If you have deleted a file or a folder and already committed
-				that delete operation to the repository, then a normal 
-				<menuchoice>
-					<guimenuitem>Revert</guimenuitem>
-				</menuchoice>
-				can't bring it back anymore. But the file or folder is not
-				lost at all. If you know the revision the file or folder got
-				deleted (if you don't, use the log dialog to find out) open
-				the repository browser and switch to that revision. Then select
-				the file or folder you deleted, right-click and select
-				<menuchoice>
-					<guimenuitem>Copy to...</guimenuitem>
-				</menuchoice>
-				as the target for that copy operation select the path to your
-				working copy.
-			</para>
-		</tip>
-	</para>
+	<caution>
+		<title>Commit the parent folder</title>
+		<para>
+			Since renames and moves are done as a delete followed by an
+			add you must commit the parent folder of the renamed/moved
+			file. Only that way the deleted part of the rename/move will
+			show up in the commit dialog. If you don't commit the removed
+			part of the rename/move, it will stay behind in the repository
+			and an update of your coworkers won't remove the old file.
+		</para>
+	</caution>
+	<tip>
+		<title>Getting a deleted file or folder back</title>
+		<para>
+			If you have deleted a file or a folder and already committed
+			that delete operation to the repository, then a normal 
+			<menuchoice>
+				<guimenuitem>Revert</guimenuitem>
+			</menuchoice>
+			can't bring it back anymore. But the file or folder is not
+			lost at all. If you know the revision the file or folder got
+			deleted (if you don't, use the log dialog to find out) open
+			the repository browser and switch to that revision. Then select
+			the file or folder you deleted, right-click and select
+			<menuchoice>
+				<guimenuitem>Copy to...</guimenuitem>
+			</menuchoice>
+			as the target for that copy operation select the path to your
+			working copy.
+		</para>
+	</tip>
 </sect1>

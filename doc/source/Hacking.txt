@@ -39,8 +39,10 @@ Rules
 - Key / Mouse Actions
   If you want to say: "Press Alt-A to abort", use the following markup:
   Click on <action>ALT+A</action> to abort
-  If you want to say: "Do a Right-Click to abort", use the following markup:
-  Do a <action>Right-Click</action> to abort
+  If you want to say: "Do a right click to abort", use the following markup:
+  Do a <action>right click</action> to abort
+  For consistency, please use 'left click' instead of 'left-click' or
+  'leftclick'. The same applies to 'right click' and 'double click'.
 
 - Gui Buttons
   If you want to say: "Click on OK to continue", use the following markup:
@@ -83,6 +85,12 @@ Require valid-user
 &lt;/Location&gt;
 </screen>
 
+- Figures (graphics) should use a format like this:
+  <figure id="tsvn-DUG-settings-dia-1">
+	<title>The Settings Dialog, Main Tab</title>
+	<graphic fileref="images/SettingsMain.png"/>
+  </figure>
+
 - Links:
   Use this <xref linkend="tsvn-DUG-import-4"/> to reference internal sections.
   Use ulink for external links. This should be formatted as
@@ -91,15 +99,56 @@ Require valid-user
   	<citetitle>SVN book</citetitle>
   </ulink>.
 
-- Lists
-  A list is declared with <itemizedlist> and a listitem with <listitem>
+- A list of bullet points is declared as follows:
+  <itemizedlist>
+  	<listitem>
+  		paragraphs in point 1
+  	</listitem>
+  	<listitem>
+  		paragraphs in point 2
+  	</listitem>
+  </itemizedlist>
+  Each paragraph should be enclosed in <para> tags.
+
+- A numbered list is declared as follows:
+  <orderedlist>
+  	<listitem>
+  		paragraphs in point 1
+  	</listitem>
+  	<listitem>
+  		paragraphs in point 2
+  	</listitem>
+  </orderedlist>
+  Each paragraph should be enclosed in <para> tags.
+
+- A list with headings for each item is declared as follows:
+  <variablelist>
+  	<varlistentry>
+  		<term>First heading</term>
+  		<listitem>
+  			paragraphs in point 1
+  		</listitem>
+  	</varlistentry>
+  	<varlistentry>
+  		<term>Second heading</term>
+  		<listitem>
+  			paragraphs in point 2
+  		</listitem>
+  	</varlistentry>
+  </variablelist>
+  Each paragraph should be enclosed in <para> tags.
 
 - Mark Filenames with <filename>Hacking.txt</filename>
 
 - Mark URLS with <systemitem class="url">file:///C:/SVNRepository/</systemitem>
 
 - Mark application names with <application>TortoiseSVN</application>
-  
+
+- Place markers where you want an index entry to point to:
+  <indexterm>
+  	<primary>text to go in index</primary>
+  </indexterm>
+
 - Avoid quotes (" or ').
   Use <literal> instead, because normally you refer to input or output text.
   If you really want to quote something, use <quote>Hello, world</quote>.
@@ -113,7 +162,6 @@ Require valid-user
 Use the out of line info boxes:
 ===============================
 like:
-<note>
 <important>
 <tip>
 <caution>

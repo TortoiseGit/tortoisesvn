@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-bugtracker">
 	<title>Integration with Bugtracking Systems</title>
 	<indexterm>
@@ -8,41 +8,65 @@
 		<primary>bugtracker</primary>
 	</indexterm>
 	<para>
-			You can integrate a Bugtracking Tool of your choice in <application>TortoiseSVN</application>. 
-			To do this, you have to define some properties, which start with <literal>bugtraq:</literal>.
-			They must be set on Folders: (<xref linkend="tsvn-DUG-propertypage"/>)
-			<variablelist>
+		You can integrate a Bugtracking Tool of your choice in
+		<application>TortoiseSVN</application>. To do this, you have to define
+		some properties, which start with <literal>bugtraq:</literal>.
+		They must be set on Folders: (<xref linkend="tsvn-DUG-propertypage"/>)
+		<variablelist>
 			<varlistentry>
 				<term>bugtraq:message</term>
 				<listitem>
 					<para>
-						<emphasis>This property activates the Bugtracking System. </emphasis>
-							If this property is set, then <application>TortoiseSVN</application> will
-							prompt you to enter an issue number when you commit your changes. 
-							It's used to add a line at the end of the logmessage. It must contain
-							<literal>%BUGID%</literal>, which is replaced with the issuenumber on commit. 
-							This ensures that your commit log contains a reference to the issuenumber
-							which is always in a consistent format and can be parsed by your
-							Bugtracking tool to associate the issuenumber with a particular commit. 
-							e.g the TortoiseSVN project is using <literal>Issue : %BUGID%</literal>, 
-							but this depends on your Tool.
-						</para>
+						<emphasis>
+							This property activates the Bugtracking System.
+						</emphasis>
+						If this property is set, then <application>TortoiseSVN</application>
+						will prompt you to enter an issue number when you commit
+						your changes. It's used to add a line at the end of the
+						logmessage. It must contain
+						<literal>%BUGID%</literal>, which is replaced with the
+						issuenumber on commit. This ensures that your commit log
+						contains a reference to the issuenumber which is always
+						in a consistent format and can be parsed by your
+						Bugtracking tool to associate the issuenumber with a
+						particular commit. e.g the TortoiseSVN project is using
+						<literal>Issue : %BUGID%</literal>, 
+						but this depends on your Tool.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>bugtraq:append</term>
+				<listitem>
+					<para>
+						This property defines if the bug-ID is appended (true)
+						to the end of the log message or inserted (false) at the
+						start of the log message. Valid values are
+						<literal>true/false</literal>.
+						<emphasis>
+							If not defined, <literal>true</literal> is assumed,
+							so that existing projects don't break.
+						</emphasis>
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>bugtraq:url</term>
 				<listitem>
 					<para>
-							Set this property to the url of your bugtracking tool. It must be 
-							properly URI encoded and it has to contain <literal>%BUGID%</literal>.
-							<literal>%BUGID%</literal> is replaced with the Issuenumber you entered.
-							This allows <application>TortoiseSVN</application> to display a link
-							in the log dialog, so when you are looking at the revision log you can
-							jump directly to your bugtracking tool.
-							You do not have to provide this property, but then
-							<application>TortoiseSVN</application> shows only the issuenumber
-							and not the link to it. e.g the TortoiseSVN project is using
-							<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
+						Set this property to the url of your bugtracking tool.
+						It must be properly URI encoded and it has to contain
+						<literal>%BUGID%</literal>.
+						<literal>%BUGID%</literal> is replaced with the Issuenumber
+						you entered. This allows <application>TortoiseSVN</application>
+						to display a link in the log dialog, so when you are looking
+						at the revision log you can jump directly to your
+						bugtracking tool.
+						You do not have to provide this property, but then
+						<application>TortoiseSVN</application> shows only the
+						issuenumber and not the link to it.
+						e.g the TortoiseSVN project is using
+						<literal>http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -50,22 +74,27 @@
 				<term>bugtraq:label</term>
 				<listitem>
 					<para>
-							This text is shown by <application>TortoiseSVN</application> on
-							the commit dialog to label the edit box where you enter the issuenumber. 
-							If it's not set, <literal>Bug-ID / Issue-Nr:</literal> will be displayed.
-							Keep in mind though that the window will not be resized to fit this label,
-							so keep the size of the label below 20-25 characters. 
-						</para>
+						This text is shown by <application>TortoiseSVN</application>
+						on the commit dialog to label the edit box where you enter
+						the issuenumber. If it's not set,
+						<literal>Bug-ID / Issue-Nr:</literal> will be displayed.
+						Keep in mind though that the window will not be resized
+						to fit this label, so keep the size of the label below
+						20-25 characters. 
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term>bugtraq:number</term>
 				<listitem>
 					<para>
-							If it's set to <literal>true</literal> only numbers are allowed in the issuenumber textfield.
-							An exception is the comma, so you could comma separate several numbers.
-							Valid values are <literal>true/false</literal>. 
-							<emphasis>If not defined, <literal>true</literal> is assumed.</emphasis>
+						If set to <literal>true</literal> only numbers are allowed
+						in the issuenumber textfield.
+						An exception is the comma, so you can comma separate several
+						numbers. Valid values are <literal>true/false</literal>. 
+						<emphasis>
+							If not defined, <literal>true</literal> is assumed.
+						</emphasis>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -73,11 +102,13 @@
 				<term>bugtraq:warnifnoissue</term>
 				<listitem>
 					<para>
-							Set this to <literal>true</literal>, if you want
-							<application>TortoiseSVN</application>
-							to warn you because of an empty issuenumber textfield. Valid values 
-							are <literal>true/false</literal>.
-							<emphasis>If not defined, <literal>true</literal> is assumed.</emphasis>
+						Set this to <literal>true</literal>, if you want
+						<application>TortoiseSVN</application> to warn you
+						because of an empty issuenumber textfield. Valid values 
+						are <literal>true/false</literal>.
+						<emphasis>
+							If not defined, <literal>true</literal> is assumed.
+						</emphasis>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -93,7 +124,8 @@
 				If you can be sure that each user checks out only from e.g
 				<filename>trunk/</filename> and not some subfolder, then it's enough if
 				you set the properties on <filename>trunk/</filename>.
-				If you can't be sure, you should set the properties recursively on each subfolder.
+				If you can't be sure, you should set the properties recursively
+				on each subfolder.
 				A property setting deeper in the project hierarchy overrides settings on
 				higher levels (closer to <filename>trunk/</filename>).
 			</para>

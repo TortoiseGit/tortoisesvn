@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-add">
 	<title>Adding New Files And Directories</title>
 	<indexterm>
@@ -27,18 +27,16 @@
 		Adding a file/directory does <emphasis>not</emphasis> affect
 		the repository!
 	</para>
-	<para>
-		<tip>
-			<title>Many Adds</title>
-			<para>
-				You can also use the Add command on already versioned
-				folders. In that case, the add dialog will show you all
-				unversioned files inside that versioned folder.
-				This helps if you have many new files and need them to
-				add at once.
-			</para>
-		</tip>
-	</para>
+	<tip>
+		<title>Many Adds</title>
+		<para>
+			You can also use the Add command on already versioned
+			folders. In that case, the add dialog will show you all
+			unversioned files inside that versioned folder.
+			This helps if you have many new files and need them to
+			add at once.
+		</para>
+	</tip>
 	<para>
 		To add files from outside your working copy you can use
 		the drag-and-drop handler:

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-authentication">
 	<title>Authentication</title>
 	<indexterm>
@@ -16,12 +16,13 @@
 		<filename>$APPDATA\Subversion\auth</filename>. One file for each server
 		that you access. If you want to make Subversion and TortoiseSVN forget your
 		credentials, you have to delete the corresponding file(s).
-		<note>
+		<important>
 			<para>
-				Under Windows 2000 and above the credentials are stored encrypted in the registry. 
-				To delete the credentials go to the settings dialog and press <guibutton>Clear Auth Cache</guibutton>.
+				Under Windows 2000 and above the credentials are stored encrypted
+				in the registry. To delete the credentials go to the settings dialog
+				and press <guibutton>Clear Auth Cache</guibutton>.
 			</para>
-		</note>
+		</important>
 		<tip>
 			<para>
 				If you have to authenticate against a Windows NT domain, enter your username

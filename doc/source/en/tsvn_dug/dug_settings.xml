@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-settings">
 	<title>TortoiseSVN's Settings</title>
 	<indexterm>
@@ -46,19 +46,25 @@
 							other four to files.
 						</para>
 						<para>
-							This exclude pattern will affect all your projects. It is not versioned, so it 
-							will not affect other users. In contrast you can also use the versioned <literal>svn:ignore</literal> 
-							property to exclude files or directories from version control. You can set the <literal>svn:ignore</literal> 
+							This exclude pattern will affect all your projects.
+							It is not versioned, so it will not affect other users.
+							By contrast you can also use the versioned
+							<literal>svn:ignore</literal> 
+							property to exclude files or directories from version
+							control. You can set the <literal>svn:ignore</literal> 
 							property using the 
 							<menuchoice>
 								<guimenuitem>Add to Ignore List</guimenuitem>
 							</menuchoice>
-							command. After commiting every other user will have the same 
-							<literal>svn:ignore</literal> property set for this project / directory as you.
-							If you want to remove an ignored file from <literal>svn:ignore</literal>,
+							command. After commiting every other user will have
+							the same <literal>svn:ignore</literal> property set
+							for this project / directory as you.
+							If you want to remove an ignored file from
+							<literal>svn:ignore</literal>,
 							you have to edit the parent folder properties. Read
 							<xref linkend="tsvn-DUG-ignore"/> and
-							<xref linkend="tsvn-DUG-propertypage"/> for more information. 
+							<xref linkend="tsvn-DUG-propertypage"/>
+							for more information. 
 						</para>
 					</listitem>
 				</varlistentry>
@@ -66,7 +72,8 @@
 					<term>Default number of log messages</term>
 					<listitem>
 						<para>
-							Limits the number of log messages that TortoiseSVN fetches when you first select
+							Limits the number of log messages that TortoiseSVN
+							fetches when you first select
 							<menuchoice>
 								<guimenuitem>Show Log</guimenuitem>
 							</menuchoice>
@@ -84,9 +91,11 @@
 							For more information about the subversion
 							<filename>config</filename> file see the  
 							<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07.html#svn-ch-7-sect-1.3.2">
-							<citetitle>Subversion Manual</citetitle></ulink>. The section on
+								<citetitle>Subversion Manual</citetitle>
+							</ulink>. The section on
 							<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.4">
-							<citetitle>Automatic Property Setting</citetitle></ulink>
+								<citetitle>Automatic Property Setting</citetitle>
+							</ulink>
 							is of particular interest, and that is configured here.
 						</para>
 					</listitem>
@@ -104,13 +113,15 @@
 					<term>Set filedates to "last commit time"</term>
 					<listitem>
 						<para>
-							This option tells TortoiseSVN to set the filedates to the last commit time 
-							when doing a checkout or an update. Otherwise TortoiseSVN will use 
-							the current date.
-							If you are developing software it is generally best to use the current date
-							because build systems normally look at the datestamps to decide which
-							files need compiling. If you use "last commit time" and revert to an
-							older file revision, your project may not compile as you expect it to.
+							This option tells TortoiseSVN to set the filedates to
+							the last commit time when doing a checkout or an update.
+							Otherwise TortoiseSVN will use the current date.
+							If you are developing software it is generally best
+							to use the current date because build systems normally
+							look at the datestamps to decide which files need
+							compiling. If you use "last commit time" and revert
+							to an older file revision, your project may not compile
+							as you expect it to.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -137,7 +148,8 @@
 					<term>Check for newer versions</term>
 					<listitem>
 						<para>
-							If checked, TortoiseSVN will check once a week if an update is available
+							If checked, TortoiseSVN will check once a week 
+							to see if an update is available
 						</para>
 					</listitem>
 				</varlistentry>
@@ -222,10 +234,12 @@
 				<title>The Settings Dialog, Network Tab</title>
 				<graphic fileref="images/SettingsProxy.png"/>
 			</figure>
-			Here you can configure your proxy server, if you need one to get through your company's firewall.
+			Here you can configure your proxy server, if you need one to get
+			through your company's firewall.
 		</para>
 		<para>
-			You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository.
+			You can also specify which program TortoiseSVN should use to
+			establish a secure connection to a svn+ssh repository.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-DUG-settings-progs">
@@ -236,14 +250,16 @@
 				<title>The Settings Dialog, Diff/Merge Tab</title>
 				<graphic fileref="images/SettingsProgs.png"/>
 			</figure>
-			Here you can define your own diff/merge programs that TortoiseSVN should use.
-			The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN.
+			Here you can define your own diff/merge programs that TortoiseSVN
+			should use. The basic setting is to use the builtin TortoiseMerge
+			which is installed alongside TortoiseSVN.
 			<variablelist>
 				<varlistentry>
 					<term>Diff Program</term>
 					<listitem>
 						<para>
-							An external diff program used for comparing different revisions of files.
+							An external diff program used for comparing different
+							revisions of files.
 							You can specify the following parameters to the path:
 							<variablelist>
 								<varlistentry>
@@ -270,15 +286,17 @@
 					<term>Merge Program</term>
 					<listitem>
 						<para>
-							An external merge program used to resolve conflicted files. You can specify the 
-							following parameters to the path. The order of the parameters depends on the 
+							An external merge program used to resolve conflicted
+							files. You can specify the following parameters to
+							the path. The order of the parameters depends on the 
 							merge program you use.
 							<variablelist>
 								<varlistentry>
 									<term>%base</term>
 									<listitem>
 										<para>
-											the original file without your or the others changes
+											the original file without your or
+											the others changes
 										</para>
 									</listitem>
 								</varlistentry>
@@ -302,7 +320,8 @@
 									<term>%merged</term>
 									<listitem>
 										<para>
-											the conflicted file, the result of the merge operation
+											the conflicted file, the result of
+											the merge operation
 										</para>
 									</listitem>
 								</varlistentry>
@@ -327,8 +346,9 @@
 				<title>The Settings Dialog, Diff/Merge Advanced Dialog</title>
 				<graphic fileref="images/SettingsProgsAdv.png"/>
 			</figure>
-			In the advanced settings, you can define a different diff and merge program for every file extension. 
-			For instance you could associate Photoshop as the "Diff" Program for .jpg files :-)
+			In the advanced settings, you can define a different diff and merge
+			program for every file extension. For instance you could associate
+			Photoshop as the "Diff" Program for .jpg files :-)
 		</para>
 	</sect2>
 </sect1>

@@ -21,10 +21,11 @@
 		<menuchoice>
 			<guimenuitem>Blame...</guimenuitem>
 		</menuchoice>
-		command, sometimes also referred to as <firstterm>annotate</firstterm> command comes in handy.
+		command, sometimes also referred to as <firstterm>annotate</firstterm>
+		command comes in handy.
 	</para>
 	<para>
-		This command lists for every line in a file the author and the revision
+		This command lists, for every line in a file, the author and the revision
 		the line was changed.
 	</para>
 	<para>
@@ -34,11 +35,12 @@
 	</para>
 	<para>
 		By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>,
-		which highlights the different revisions to make it easier to read. If you
-		wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>
+		which highlights the different revisions to make it easier to read.
+		If you wish to print or edit the blame file, select
+		<guilabel>Use Text viewer to view blames</guilabel>
 	</para>
 	<para>
-		Once you press <guibutton>Ok</guibutton> TortoiseSVN starts retrieving
+		Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving
 		the data to create the blame file. Please note: This can take several
 		minutes to finish, depending on how much the file has changed and
 		of course your network connection to the repository. Once the blame
@@ -59,7 +61,7 @@
 		256 colour mode.
 	</para>
 	<para>
-		If you <action>left-click</action>
+		If you <action>left click</action>
 		on a line, all lines with the same revision are highlighted, and lines from
 		other revisions by the same author are highlighted in a lighter colour.
 		This highlighting is sticky, allowing you to move the mouse without losing

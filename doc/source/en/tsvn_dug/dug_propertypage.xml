@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-propertypage">
 	<title>Get/Set Information About Files/Directories</title>
 	<indexterm>
@@ -28,8 +28,8 @@
 		addition you can read and set the subversion properties.
 		You can add your own properties, or some properties with a 
 		special meaning in subversion. These begin with <literal>svn:</literal>. 
-		The <literal>svn:externals</literal> is such a property; see how to handle externals in 
-		<xref linkend="tsvn-DUG-import-4"/>.
+		<literal>svn:externals</literal> is such a property; see how to handle
+		externals in <xref linkend="tsvn-DUG-import-4"/>.
 		For more information about properties in subversion see the  
 		<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.3">
 			<citetitle>Subversion Manual</citetitle>
@@ -39,61 +39,78 @@
 		TortoiseSVN has a few special properties of its own, and these begin
 		with <literal>tsvn:</literal>.
 		<itemizedlist>
-		<listitem>
-			<para>
-				<literal>tsvn:minlogmsgsize</literal>
-				sets the minimum length of a log message for a commit.
-				If you enter a shorter message than specified here, the commit is disabled.
-				This feature is very useful for reminding you to supply a proper
-				descriptive message for every commit. If this property is not set,
-				or the value is zero, empty log messages are allowed.
-			</para>
-			<para>
-				<literal>tsvn:logwidthmarker</literal> is used with projects which
-				require log messages to be formatted with some maximum width
-				(typically 80 characters) before a line break. Setting this
-				property to a non-zero will do 2 things in the log message
-				entry dialog: it places a marker to indicate the maximum width,
-				and it disables word wrap in the display, so that you can see
-				whether the text you entered is too long. Note: this feature
-				will only work correctly if you have a fixed-width font
-				selected for log messages.
-			</para>
-			<para>
-				<literal>tsvn:logtemplate</literal> is used with projects which
-				have rules about log message formatting. The property holds
-				a multi-line text string which will be inserted in the commit
-				message box when you start a commit. You can then edit it to
-				include the required information. Note: if you are also using
-				<literal>tsvn:minlogmsgsize</literal>, be sure to set the length
-				longer than the template or you will lose the protection mechanism.
-			</para>
-		</listitem>
+			<listitem>
+				<para>
+					<literal>tsvn:minlogmsgsize</literal>
+					sets the minimum length of a log message for a commit.
+					If you enter a shorter message than specified here, the commit
+					is disabled. This feature is very useful for reminding you to
+					supply a proper descriptive message for every commit.
+					If this property is not set,
+					or the value is zero, empty log messages are allowed.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<literal>tsvn:logwidthmarker</literal> is used with projects which
+					require log messages to be formatted with some maximum width
+					(typically 80 characters) before a line break. Setting this
+					property to a non-zero will do 2 things in the log message
+					entry dialog: it places a marker to indicate the maximum width,
+					and it disables word wrap in the display, so that you can see
+					whether the text you entered is too long. Note: this feature
+					will only work correctly if you have a fixed-width font
+					selected for log messages.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<literal>tsvn:logtemplate</literal> is used with projects which
+					have rules about log message formatting. The property holds
+					a multi-line text string which will be inserted in the commit
+					message box when you start a commit. You can then edit it to
+					include the required information. Note: if you are also using
+					<literal>tsvn:minlogmsgsize</literal>, be sure to set the length
+					longer than the template or you will lose the protection mechanism.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					In the Commit dialog you have the option to paste in the
+					list of changed files, including the status of each file
+					(added, modified, etc).
+					<literal>tsvn:logfilelistenglish</literal> defines whether
+					the file status is inserted in english or in the localized
+					language. If the property is not set, the default is
+					<literal>yes</literal>. 
+				</para>
+			</listitem>
 		</itemizedlist>
 	</para>
 	<important>
 		<title>Set the properties on folders</title>
 		<para>
-			These <literal>tsvn:</literal> properties must be set on folders for the system to work. 
+			These <literal>tsvn:</literal> properties must be set on
+			<emphasis>folders</emphasis> for the system to work. 
 			When you commit a file or folder the properties are read from that folder.
 			If the properties are not found there, TortoiseSVN will search upwards
 			through the folder tree to find them until it comes to an unversioned
 			folder, or the tree root (eg. <literal>C:\</literal>) is found.
 			If you can be sure that each user checks out only from e.g
-			<filename>trunk/</filename> and not some subfolder, then it's enough if
-			you set the properties on <filename>trunk/</filename>.
+			<filename>trunk/</filename> and not some subfolder, then it is
+			sufficient to set the properties on <filename>trunk/</filename>.
 			If you can't be sure, you should set the properties recursively on each subfolder.
 			A property setting deeper in the project hierarchy overrides settings on
 			higher levels (closer to <filename>trunk/</filename>).
 		</para>
 	</important>
-	<note>
+	<important>
 		<title>Commit properties</title>
 		<para>
 			Subversion properties are versioned. After you change or add a 
 			property you have to commit your changes.
 		</para>
-	</note>
+	</important>
 	<tip>
 		<title>Conflicts on properties</title>
 		<para>

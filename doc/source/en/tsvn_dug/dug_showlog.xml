@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-showlog">
 	<title>Revision Log Dialog</title>
 	<indexterm>
@@ -78,8 +78,8 @@
 				<title>The Log Dialog Top Pane with Context Menu</title>
 				<graphic fileref="images/LogContextMenu.png"/>
 			</figure>
-				The top pane of the Log Dialog has a context menu that allows you to
-				<itemizedlist>
+			The top pane of the Log Dialog has a context menu that allows you to
+			<itemizedlist>
 				<listitem>
 					<para>
 						Compare the selected revision with your working copy.
@@ -95,7 +95,8 @@
 						Unified-Diff file. If you select 2 revisions, then the
 						differences between these 2 selected revisions are shown.
 						This helps you find out exactly what changed between revisions.
-						The Unified-Diff operation is faster than invoking the "normal" external
+						The Unified-Diff operation is faster than invoking the 
+						<quote>normal</quote> external
 						diff viewer because TortoiseSVN doesn't have to fetch the
 						whole file but only the difference.
 					</para>
@@ -243,7 +244,7 @@
 		<para>
 			Once you've set up your server with the required hooks, you can
 			change both author and log message of any revision. To do that with
-			TortoiseSVN you must <action>doubleclick</action> on either the
+			TortoiseSVN you must <action>double click</action> on either the
 			author or logmessage column in the log dialog while holding down
 			the SHIFT-key. If you don't press the SHIFT-key or don't click on
 			one of these columns the default doubleclick action is executed
@@ -252,7 +253,8 @@
 		<warning>
 			<para>
 				Because Subversion's revision properties are not versioned, making 
-				modifications to such a property (for example, the <literal>svn:log</literal> commit 
+				modifications to such a property (for example, the
+				<literal>svn:log</literal> commit 
 				message property) will overwrite the previous value of that 
 				property <emphasis>forever</emphasis>.
 			</para>
