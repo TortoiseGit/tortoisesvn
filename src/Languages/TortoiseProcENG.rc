@@ -162,10 +162,10 @@ CAPTION "Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC,7,7,286,66
-    LTEXT           "From WC at URL:",IDC_STATIC,13,18,80,8
+    LTEXT           "&From WC at URL:",IDC_STATIC,13,18,80,8
     EDITTEXT        IDC_FROMURL,13,28,255,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    LTEXT           "To &URL:",IDC_STATIC,13,42,80,8
+    LTEXT           "&To URL:",IDC_STATIC,13,42,80,8
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,52,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,52,14,14
@@ -289,7 +289,7 @@ EXSTYLE WS_EX_TOPMOST
 CAPTION "Authentication"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Username:",IDC_INFOTEXT,7,9,64,9
+    LTEXT           "&Username:",IDC_INFOTEXT,7,9,64,9
     EDITTEXT        IDC_PASSEDIT,74,7,160,14,ES_AUTOHSCROLL
     CONTROL         "save authentication",IDC_SAVECHECK,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,20,227,10
@@ -303,10 +303,10 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Relocate"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "From URL:",IDC_STATIC,7,7,70,8
+    LTEXT           "&From URL:",IDC_STATIC,7,7,70,8
     EDITTEXT        IDC_FROMURL,7,17,268,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    LTEXT           "To &URL:",IDC_STATIC,7,31,70,8
+    LTEXT           "&To URL:",IDC_STATIC,7,31,70,8
     CONTROL         "",IDC_TOURL,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,44,268,57
     PUSHBUTTON      "...",IDC_BROWSE,279,42,14,14
@@ -441,7 +441,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "&Show Log...",IDC_LOGBUTTON,183,124,60,14,NOT 
+    PUSHBUTTON      "Show &Log...",IDC_LOGBUTTON,183,124,60,14,NOT 
                     WS_VISIBLE
     DEFPUSHBUTTON   "&OK",IDOK,250,124,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,307,124,50,14
@@ -453,7 +453,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Switch To Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "To &URL: ",IDC_STATIC,7,10,44,8
+    LTEXT           "&To URL: ",IDC_STATIC,7,10,44,8
     CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,20,268,53
     PUSHBUTTON      "...",IDC_BROWSE,279,20,14,14
@@ -505,9 +505,9 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | WS_POPUP |
 CAPTION "Authentication"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "Username:",IDC_STATIC,7,10,62,8
+    LTEXT           "&Username:",IDC_STATIC,7,10,62,8
     EDITTEXT        IDC_USEREDIT,69,7,144,14,ES_AUTOHSCROLL
-    LTEXT           "Password:",IDC_STATIC,7,31,34,8
+    LTEXT           "&Password:",IDC_STATIC,7,31,34,8
     EDITTEXT        IDC_PASSEDIT,69,28,144,14,ES_PASSWORD | ES_AUTOHSCROLL
     CONTROL         "save authentication",IDC_SAVECHECK,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,49,206,10
@@ -658,7 +658,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION |
 CAPTION "Check For Updates"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,65,95,50,14
+    DEFPUSHBUTTON   "&OK",IDOK,65,95,50,14
     LTEXT           "Checking if a newer version of TortoiseSVN is available...",
                     IDC_STATIC,7,7,172,19
     LTEXT           "your version is:",IDC_YOURVERSION,7,28,172,8
