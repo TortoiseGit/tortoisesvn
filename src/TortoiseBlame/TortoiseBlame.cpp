@@ -190,21 +190,24 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	do
 	{
 		File.getline(line, sizeof(line)/sizeof(TCHAR));
-		lineptr = &line[7];
-		revs.push_back(_ttol(lineptr));
-		lineptr += 7;
-		dates.push_back(std::string(lineptr, 20));
-		lineptr += 21;
-		trimptr = lineptr + 30;
-		while (*trimptr == ' ')
+		if (File.gcount()>0)
 		{
-			*trimptr = 0;
-			trimptr--;
+			lineptr = &line[7];
+			revs.push_back(_ttol(lineptr));
+			lineptr += 7;
+			dates.push_back(std::string(lineptr, 20));
+			lineptr += 21;
+			trimptr = lineptr + 30;
+			while (*trimptr == ' ')
+			{
+				*trimptr = 0;
+				trimptr--;
+			}
+			authors.push_back(std::string(lineptr));
+			lineptr += 31;
+			SendEditor(SCI_ADDTEXT, _tcslen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
+			SendEditor(SCI_ADDTEXT, 1, (LPARAM)_T("\n"));
 		}
-		authors.push_back(std::string(lineptr));
-		lineptr += 31;
-		SendEditor(SCI_ADDTEXT, _tcslen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
-		SendEditor(SCI_ADDTEXT, 1, (LPARAM)_T("\n"));
 	} while (File.gcount() > 0);
 
 	SendEditor(SCI_SETUNDOCOLLECTION, 1);
