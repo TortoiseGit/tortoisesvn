@@ -1,3 +1,4 @@
+Version 0.26
 - ADD: The columns in the progress and the commit dialog 
        are now sortable. (Stefan)
 - ADD: It's possible now to drag on the locatorbar
@@ -12,6 +13,12 @@
        it's own program TortoiseMerge. This helps
        users who want to switch easily between
        two different programs. (Stefan)
+- ADD: german translation of the TSVN docs. (Stefan)
+- ADD: the helpfile is chosen according to the
+       selected language. (Stefan)
+- ADD: Configurable font and fontsize in TME. (Stefan)
+- ADD: Configurable font and fontsize for log messages
+       in TSVN. (Stefan)
 - BUG: Log messages could be shown with an additional
        empty line between the normal lines. (Stefan)
 - BUG: The filepaths in the log messages were
@@ -21,7 +28,8 @@
        there on file load. (Stefan)
 - BUG: Filenames with ";" in it could not be
        committed. (Stefan)
-
+- BUG: The groupbox text was shown black in the
+       settings dialog on some systems. (Stefan)
 
 Version 0.25
 - ADD: TME shows the differences in whitespaces
