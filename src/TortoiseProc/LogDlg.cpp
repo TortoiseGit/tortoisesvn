@@ -560,9 +560,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 						temp.LoadString(IDS_LOG_BROWSEREPO);
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
-						temp.LoadString(IDS_LOG_POPUP_COPY);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
 					}
+					temp.LoadString(IDS_LOG_POPUP_COPY);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
 					temp.LoadString(IDS_LOG_POPUP_UPDATE);
 					if (m_hasWC)
 						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
