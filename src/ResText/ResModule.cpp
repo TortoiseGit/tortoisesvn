@@ -937,13 +937,17 @@ const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, int * w
 		bEx = FALSE;
 		if (newDialog)
 		{
-			newDialog[(*wordcount)++] = GET_WORD(res++);
-			newDialog[(*wordcount)++] = GET_WORD(res++);
+			newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
+			newDialog[(*wordcount)++] = GET_WORD(res++);	//exStyle
+			style = GET_DWORD(res);
+			newDialog[(*wordcount)++] = GET_WORD(res++);	//style
+			newDialog[(*wordcount)++] = GET_WORD(res++);	//style
 		} // if (newDialog)
 		else
 		{
-			(*wordcount) += 2;
-			res += 2;
+			res += 4;
+			style = GET_DWORD(res);
+			(*wordcount) += 4;
 		}
 	}
 
