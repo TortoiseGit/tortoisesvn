@@ -20,6 +20,9 @@
 #include ".\statuscacheentry.h"
 #include "SVNStatus.h"
 #include "CacheInterface.h"
+#include "registry.h"
+
+DWORD cachetimeout = (DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
 CStatusCacheEntry::CStatusCacheEntry()
 {
@@ -32,7 +35,7 @@ CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status_t* pSVNStatus,__int64 l
 {
 	SetStatus(pSVNStatus);
 	m_lastWriteTime = lastWriteTime;
-	m_discardAtTime = GetTickCount()+CACHETIMEOUT;
+	m_discardAtTime = GetTickCount()+cachetimeout;
 }
 
 bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
@@ -93,7 +96,7 @@ bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
 	LOADVALUEFROMFILE(m_svnStatus.switched);
 	LOADVALUEFROMFILE(m_svnStatus.text_status);
 	m_svnStatus.entry = NULL;
-	m_discardAtTime = GetTickCount()+CACHETIMEOUT;
+	m_discardAtTime = GetTickCount()+cachetimeout;
 	return true;
 }
 
@@ -123,7 +126,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 		}
 		m_svnStatus.entry = NULL;
 	}
-	m_discardAtTime = GetTickCount()+CACHETIMEOUT;
+	m_discardAtTime = GetTickCount()+cachetimeout;
 	m_bSet = true;
 }
 
@@ -131,7 +134,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 void CStatusCacheEntry::SetAsUnversioned()
 {
 	ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
-	m_discardAtTime = GetTickCount()+CACHETIMEOUT;	// 10 minutes timeout - even unversioned items can get versioned
+	m_discardAtTime = GetTickCount()+cachetimeout;
 	m_highestPriorityLocalStatus = svn_wc_status_unversioned;
 	m_svnStatus.prop_status = svn_wc_status_unversioned;
 	m_svnStatus.text_status = svn_wc_status_unversioned;
@@ -193,7 +196,7 @@ bool CStatusCacheEntry::ForceStatus(svn_wc_status_kind forcedStatus)
 		m_highestPriorityLocalStatus = newStatus;
 		m_svnStatus.text_status = newStatus;
 		m_svnStatus.prop_status = newStatus;
-		m_discardAtTime = GetTickCount()+CACHETIMEOUT;
+		m_discardAtTime = GetTickCount()+cachetimeout;
 		return true;
 	}
 	return false;

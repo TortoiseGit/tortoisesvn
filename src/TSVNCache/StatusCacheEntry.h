@@ -2,6 +2,7 @@
 
 struct TSVNCacheResponse;
 #define CACHETIMEOUT	600000
+extern DWORD cachetimeout;
 
 class CStatusCacheEntry
 {
