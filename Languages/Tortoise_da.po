@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-10 14:12+0100\n"
+"PO-Revision-Date: 2005-03-21 10:32+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1574,12 +1574,8 @@ msgid "H&ead Revision"
 msgstr "&Nyeste revision"
 
 #: Control-ID:1182,
-msgid "HEAD revision of repository"
-msgstr "HEAD-revision af versionsarkivet"
-
-#: ID:238,
-msgid "Head revision of the repository is: %d"
-msgstr "Nyeste revision af versionsarkivet er: %d"
+msgid "HEAD revision in the repository"
+msgstr "Nyeste revision i versionsarkivet"
 
 #: ID:12,#: Control-ID:1004,
 msgid "Help"
@@ -1768,6 +1764,14 @@ msgstr "Logbeskeder"
 #: Dlg-ID:106,
 msgid "Look and Feel"
 msgstr "Tema"
+
+#: ID:238,
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "Laveste revision: %ld - Højeste revision: %ld"
+
+#: ID:238,
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "Laveste revision: %ld - Højeste revision: %ld - Nyeste revision: %ld"
 
 #: ID:3866,#: ID:3866,
 msgid "Mail system DLL is invalid."
@@ -2672,8 +2676,8 @@ msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
 
 #: Control-ID:1185,
-msgid "Specific repository revision"
-msgstr "Specifik revision af versionsarkivet"
+msgid "Specific revision in repository"
+msgstr "Specifik revision i versionsarkivet"
 
 #: ID:79,
 msgid "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
