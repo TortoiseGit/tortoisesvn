@@ -299,8 +299,8 @@ HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer
 				can either replace the existing icons or give them 
 				new names. If you choose not to overwrite the original 
 				ones then you also need to tweak some registry settings. 
-				Under <filename>HKCU\Software\TortoiseSVN\</filename> change 
-				the keys
+				Under <filename>HKCU\Software\TortoiseSVN\</filename>
+				create (or change) the keys
 				<literal>ConflictIcon</literal>,
 				<literal>InSubversionIcon</literal>,
 				<literal>AddedIcon</literal>,

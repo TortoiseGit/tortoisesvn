@@ -66,6 +66,13 @@
 			Just remember that Subversion expects all repository paths in the form
 			<systemitem class="url">file:///C:/SVNRepository/</systemitem>
 		</para>
+		<para>
+			To access a repository located on a network share you can either
+			use drive mapping, or you can use the UNC path. For UNC paths,
+			the form is
+			<systemitem class="url">file:///\ServerName/path/to/repos/</systemitem>.
+			Note the backslash before the server name.
+		</para>
 		<warning>
 			<para>
 				Do not create or access a Berkeley DB repository on a network share.
