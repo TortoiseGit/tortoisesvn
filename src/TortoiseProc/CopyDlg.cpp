@@ -31,7 +31,7 @@ IMPLEMENT_DYNAMIC(CCopyDlg, CDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
-	, m_sLogMessage(_T("made a copy"))
+	, m_sLogMessage(_T(""))
 	, m_bDirectCopy(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
