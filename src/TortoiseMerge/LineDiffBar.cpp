@@ -68,6 +68,9 @@ CSize CLineDiffBar::CalcFixedLayout(BOOL bStretch, BOOL bHorz)
 	{
 		size.cx = bHorz ? 32767 : m_sizeDefault.cx;
 		size.cy = bHorz ? 2*m_nLineHeight : 32767;
+		BOOL bDiffBar = CRegDWORD(_T("Software\\TortoiseMerge\\DiffBar"), TRUE);
+		if (!bDiffBar)
+			size.cy = 0;
 		if (m_pMainFrm)
 		{
 			// hide the line bar if either the right view is hidden (one pane view)

@@ -67,6 +67,8 @@ protected:
 	CRegDWORD		m_regViewLinenumbers;
 	BOOL			m_bMagnifier;
 	CRegDWORD		m_regMagnifier;
+	BOOL			m_bDiffBar;
+	CRegDWORD		m_regDiffBar;
 	
 	CRegDWORD		m_regFontSize;
 	DWORD			m_dwFontSize;
@@ -90,4 +92,6 @@ protected:
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnBnClickedLinenumbers();
 	afx_msg void OnBnClickedMagnifier();
+public:
+	afx_msg void OnBnClickedDiffbar();
 };

@@ -103,6 +103,8 @@
 #define IDC_LINENUMBERS                 1063
 #define IDC_CHECK1                      1064
 #define IDC_MAGNIFIER                   1064
+#define IDC_CHECK2                      1065
+#define IDC_DIFFBAR                     1065
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDC_WEBLINK                     1084
@@ -146,7 +148,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32784
-#define _APS_NEXT_CONTROL_VALUE         1065
+#define _APS_NEXT_CONTROL_VALUE         1066
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
