@@ -188,15 +188,12 @@ BOOL CUtils::StartExtMerge(const CString& basefile, const CString& theirfile, co
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name1, CString name2, CString ext, BOOL bReversed, const CString& patchorig, const CString& patchpatched)
+BOOL CUtils::StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir, BOOL bWait,	CString name1, CString name2, CString ext, BOOL bReversed, const CString& patchorig, const CString& patchpatched)
 {
-	// change all paths to have backslashes instead of forward slashes
-	file.Replace('/', '\\');
-	dir.Replace('/', '\\');
 	// if "dir" is actually a file, then don't start the unified diff viewer
 	// but the file diff application (e.g. TortoiseMerge, WinMerge, WinDiff, P4Diff, ...)
 	CString viewer;
-	if ((PathIsDirectory(dir)) || (dir.IsEmpty()))
+	if (dir.IsDirectory() || (dir.IsEmpty()))
 	{
 		CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
 		viewer = v;
@@ -243,20 +240,20 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			return FALSE;
 		if (viewer.Find(_T("%base")) >= 0)
 		{
-			viewer.Replace(_T("%base"), _T("\"")+file+_T("\""));
+			viewer.Replace(_T("%base"), _T("\"")+file.GetWinPathString()+_T("\""));
 		}
 		else if (viewer.Find(_T("%1")) >= 0)
 		{
-			viewer.Replace(_T("%1"), _T("\"")+file+_T("\""));
+			viewer.Replace(_T("%1"), _T("\"")+file.GetWinPathString()+_T("\""));
 		}
 		else
 		{
 			viewer += _T(" ");
-			viewer += _T("\"") + file + _T("\"");
+			viewer += _T("\"") + file.GetWinPathString() + _T("\"");
 		}
 		if (viewer.Find(_T("%path")) >= 0)
 		{
-			viewer.Replace(_T("%path"), _T("\"") + dir + _T("\""));
+			viewer.Replace(_T("%path"), _T("\"") + dir.GetWinPathString() + _T("\""));
 		}
 		if (bReversed)
 			viewer += _T(" /reversedpatch");
@@ -294,20 +291,20 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 		} // if (diffexe == "")
 		if (viewer.Find(_T("%base")) >= 0)
 		{
-			viewer.Replace(_T("%base"),  _T("\"")+file+_T("\""));
+			viewer.Replace(_T("%base"),  _T("\"")+file.GetWinPathString()+_T("\""));
 		}
 		if (viewer.Find(_T("%mine")) >= 0)
 		{
-			viewer.Replace(_T("%mine"),  _T("\"")+dir+_T("\""));
+			viewer.Replace(_T("%mine"),  _T("\"")+dir.GetWinPathString()+_T("\""));
 		}
 		if (name1.IsEmpty())
 		{
-			name1 = file;
+			name1 = file.GetWinPathString();
 		}
 		viewer.Replace(_T("%bname"), _T("\"") + name1 + _T("\""));
 		if (name2.IsEmpty())
 		{
-			name2 = dir;
+			name2 = dir.GetWinPathString();
 		}
 		viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
 	}
@@ -335,7 +332,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			NULL 
 			);
 		CString temp;
-		if ((PathIsDirectory(dir)) || (dir.IsEmpty()))
+		if ((dir.IsDirectory()) || (dir.IsEmpty()))
 			temp.Format(IDS_ERR_DIFFVIEWSTART, lpMsgBuf);
 		else
 			temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
@@ -700,10 +697,10 @@ BOOL CUtils::FileCopy(CString srcPath, CString destPath, BOOL force)
 	return (CopyFile(srcPath, destPath, !force));
 }
 
-BOOL CUtils::CheckForEmptyDiff(const CString& sDiffPath)
+BOOL CUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
 {
 	DWORD length = 0;
-	HANDLE hFile = ::CreateFile(sDiffPath, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
+	HANDLE hFile = ::CreateFile(sDiffPath.GetWinPath(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 		return TRUE;
 	length = ::GetFileSize(hFile, NULL);

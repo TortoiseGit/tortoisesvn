@@ -1228,16 +1228,16 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_GNUDIFF1:
 					{
-						CString tempfile = CUtils::GetTempFile();
-						tempfile += _T(".diff");
+						CTSVNPath tempfile = CUtils::GetTempFilePath();
+						tempfile.AppendString(_T(".diff"));
 						SVN svn;
-						if (!svn.PegDiff(entry->path.GetSVNPathString(), SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!svn.PegDiff(entry->path, SVNRev::REV_WC, SVNRev::REV_WC, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							DeleteFile(tempfile);
+							DeleteFile(tempfile.GetWinPath());
 							break;		//exit
 						}
-						m_templist.Add(tempfile);
+						m_templist.Add(tempfile.GetWinPathString());
 						CUtils::StartDiffViewer(tempfile);
 					}
 					break;
@@ -1594,7 +1594,7 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		return;		//we don't compare new files with nothing
 	if (entry->path.IsDirectory())
 		return;		//we also don't compare folders
-	CString path1;
+	CTSVNPath path1;
 	CString path2;
 	CString path3;
 
@@ -1614,13 +1614,13 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		m_templist.Add(path3);
 	}
 
-	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path1, entry->path.GetSVNPathString())))
+	if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path1, entry->path)))
 	{
-		m_templist.Add(path1);
+		m_templist.Add(path1.GetWinPathString());
 	}
 	else
 	{
-		path1 = entry->path.GetSVNPathString();
+		path1 = entry->path;
 	}
 
 	CString name = entry->path.GetFilename();
@@ -1631,11 +1631,11 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	n3.Format(IDS_DIFF_REMOTENAME, name);
 
 	if (path2.IsEmpty())
-		CUtils::StartDiffViewer(path1, path3, FALSE, n1, n3, ext);
+		CUtils::StartDiffViewer(path1, CTSVNPath(path3), FALSE, n1, n3, ext);
 	else if (path3.IsEmpty())
-		CUtils::StartDiffViewer(path2, path1, FALSE, n2, n1, ext);
+		CUtils::StartDiffViewer(CTSVNPath(path2), path1, FALSE, n2, n1, ext);
 	else
-		CUtils::StartExtMerge(path2, path3, path1, _T(""), n2, n3, n1);
+		CUtils::StartExtMerge(path2, path3, path1.GetWinPathString(), _T(""), n2, n3, n1);
 }
 
 CString CSVNStatusListCtrl::GetStatisticsString()

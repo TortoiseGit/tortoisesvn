@@ -32,6 +32,7 @@
 #include "SVNStatus.h"
 #include "SVNRev.h"
 
+class CTSVNPath;
 
 /**
  * \ingroup TortoiseProc
@@ -79,7 +80,7 @@ public:
 
 private:
 	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-	BOOL CreatePatch(CString path, CString savepath = _T(""));
+	BOOL CreatePatch(const CTSVNPath& path, const CTSVNPath& savepath = CTSVNPath());
 
 
 	DECLARE_MESSAGE_MAP()

@@ -304,7 +304,7 @@ public:
 	 */
 	BOOL Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE, BOOL dryrun = FALSE);
 
-	BOOL PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, CString destpath, BOOL force, BOOL recurse, BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE);
+	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE);
 	/**
 	 * Produce diff output which describes the delta between \a path1/\a revision1 and \a path2/\a revision2
 	 * Print the output of the diff to \a outputfile, and any errors to \a errorfile. \a path1 
@@ -328,8 +328,12 @@ public:
 	 * 
 	 * \a diff_options (an array of <tt>const char *</tt>) is used to pass 
 	 * additional command line options to the diff processes invoked to compare files.
+	 *
+	 * \remark - the use of two overloaded functions rather than default parameters is to avoid the
+	 * CTSVNPath constructor (and hence #include) being visible in this header file
 	 */
-	BOOL Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile = _T(""));
+	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
+	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile);
 
 	/**
 	 * Produce diff output which describes the delta between the filesystem object \a path in 
@@ -339,7 +343,8 @@ public:
 	 *
 	 * All other options are handled identically to Diff().
 	 */
-	BOOL PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile = _T(""));
+	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
+	BOOL PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile);
 
 	/**
 	 * fires the Log-event on each log message from revisionStart
@@ -489,7 +494,7 @@ public:
 	 * \param bForceRepair Repair any inconsistent line endings.
 	 * \return TRUE if a translation was needed and the file in sTranslatedFile needs deleting after use
 	 */
-	static BOOL GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForceRepair = TRUE);
+	static BOOL GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, BOOL bForceRepair = TRUE);
 
 	/**
 	 * convert path to a subversion path (replace '\' with '/')

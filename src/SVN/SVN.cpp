@@ -722,16 +722,13 @@ BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2
 	return TRUE;
 }
 
-BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, CString destpath, BOOL force, BOOL recurse, BOOL ignoreancestry, BOOL dryrun)
+BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, const CTSVNPath& destpath, BOOL force, BOOL recurse, BOOL ignoreancestry, BOOL dryrun)
 {
-	preparePath(source);
-	preparePath(destpath);
-
-	Err = svn_client_merge_peg (MakeSVNUrlOrPath(source),
+	Err = svn_client_merge_peg (source.GetSVNApiPath(),
 		revision1,
 		revision2,
 		pegrevision,
-		MakeSVNUrlOrPath(destpath),
+		destpath.GetSVNApiPath(),
 		recurse,
 		ignoreancestry,
 		force,
@@ -748,7 +745,12 @@ BOOL SVN::PegMerge(CString source, SVNRev revision1, SVNRev revision2, SVNRev pe
 	return TRUE;
 }
 
-BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile)
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile)
+{
+	return Diff(path1, revision1, path2, revision2, recurse, ignoreancestry, nodiffdeleted, options, outputfile, CTSVNPath());
+}
+
+BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -759,37 +761,33 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
-	preparePath(path1);
-	preparePath(path2);
-	preparePath(outputfile);
-	preparePath(errorfile);
-
-	Err = svn_io_file_open (&outfile, MakeSVNUrlOrPath(outputfile),
+	Err = svn_io_file_open (&outfile, outputfile.GetSVNApiPath(),
 							APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
 							APR_OS_DEFAULT, localpool);
 	if (Err)
 		return FALSE;
 
+	CTSVNPath workingErrorFile;
 	if (errorfile.IsEmpty())
 	{
-		TCHAR path[MAX_PATH];
-		TCHAR tempF[MAX_PATH];
-		::GetTempPath (MAX_PATH, path);
-		::GetTempFileName (path, _T("svn"), 0, tempF);
-		errorfile = CString(tempF);
+		workingErrorFile = CUtils::GetTempFilePath();
 		del = TRUE;
 	}
+	else
+	{
+		workingErrorFile = errorfile;
+	}
 
-	Err = svn_io_file_open (&errfile, MakeSVNUrlOrPath(errorfile),
+	Err = svn_io_file_open (&errfile, workingErrorFile.GetSVNApiPath(),
 							APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
 							APR_OS_DEFAULT, localpool);
 	if (Err)
 		return FALSE;
 
 	Err = svn_client_diff (opts,
-						   MakeSVNUrlOrPath(path1),
+						   path1.GetSVNApiPath(),
 						   revision1,
-						   MakeSVNUrlOrPath(path2),
+						   path2.GetSVNApiPath(),
 						   revision2,
 						   recurse,
 						   ignoreancestry,
@@ -804,12 +802,17 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 	}
 	if (del)
 	{
-		svn_io_remove_file (MakeSVNUrlOrPath(errorfile), localpool);
+		svn_io_remove_file (workingErrorFile.GetSVNApiPath(), localpool);
 	}
 	return TRUE;
 }
 
-BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile)
+BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile)
+{
+	return PegDiff(path, pegrevision, startrev, endrev, recurse, ignoreancestry, nodiffdeleted, options, outputfile, CTSVNPath());
+}
+
+BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SVNRev endrev, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -820,34 +823,31 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
-	preparePath(path);
-	preparePath(outputfile);
-	preparePath(errorfile);
-
-	Err = svn_io_file_open (&outfile, MakeSVNUrlOrPath(outputfile),
+	Err = svn_io_file_open (&outfile, outputfile.GetSVNApiPath(),
 		APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
 		APR_OS_DEFAULT, localpool);
 	if (Err)
 		return FALSE;
 
+	CTSVNPath workingErrorFile;
 	if (errorfile.IsEmpty())
 	{
-		TCHAR path[MAX_PATH];
-		TCHAR tempF[MAX_PATH];
-		::GetTempPath (MAX_PATH, path);
-		::GetTempFileName (path, _T("svn"), 0, tempF);
-		errorfile = CString(tempF);
+		workingErrorFile = CUtils::GetTempFilePath();
 		del = TRUE;
 	}
+	else
+	{
+		workingErrorFile = errorfile;
+	}
 
-	Err = svn_io_file_open (&errfile, MakeSVNUrlOrPath(errorfile),
+	Err = svn_io_file_open (&errfile, workingErrorFile.GetSVNApiPath(),
 		APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
 		APR_OS_DEFAULT, localpool);
 	if (Err)
 		return FALSE;
 
 	Err = svn_client_diff_peg (opts,
-		MakeSVNUrlOrPath(path),
+		path.GetSVNApiPath(),
 		pegrevision,
 		startrev,
 		endrev,
@@ -864,7 +864,7 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 	}
 	if (del)
 	{
-		svn_io_remove_file (MakeSVNUrlOrPath(errorfile), localpool);
+		svn_io_remove_file (workingErrorFile.GetSVNApiPath(), localpool);
 	}
 	return TRUE;
 }
@@ -1568,7 +1568,7 @@ CString SVN::GetPristinePath(const CString& wcPath)
 	return temp;
 }
 
-BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForceRepair /*= TRUE*/)
+BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, BOOL bForceRepair /*= TRUE*/)
 {
 	svn_wc_adm_access_t *adm_access;          
 	svn_error_t * err;
@@ -1579,8 +1579,7 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 	svn_utf_cstring_from_utf8(&deststr, "dummy", localpool);
 
 	const char * translatedPath = NULL;
-	preparePath(sFile);
-	CStringA temp = MakeSVNUrlOrPath(sFile);
+	CStringA temp = sFile.GetSVNApiPath();
 	const char * originPath = svn_path_canonicalize(temp, localpool);
 	err = svn_wc_adm_probe_open2 (&adm_access, NULL, originPath, FALSE, 0, localpool);
 	if (err)
@@ -1590,7 +1589,7 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 	if (err)
 		return FALSE;
 	
-	sTranslatedFile = MakeUIUrlOrPath(translatedPath);
+	sTranslatedFile.SetFromUnknown(MakeUIUrlOrPath(translatedPath));
 	return (translatedPath != originPath);
 }
 

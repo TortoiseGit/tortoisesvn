@@ -66,7 +66,7 @@ public:
 	 * associated with .txt files.
 	 * \return TRUE if the program could be started.
 	 */
-	static BOOL StartDiffViewer(CString file, CString dir = _T(""), BOOL bWait = FALSE,
+	static BOOL StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir = CTSVNPath(), BOOL bWait = FALSE,
 		CString name1 = _T(""), CString name2 = _T(""), CString ext = _T(""), 
 		BOOL bReversed = FALSE, const CString& patchorig = CString(), const CString& patchpatched = CString());
 
@@ -140,7 +140,7 @@ public:
 	 * Checks if the given file has a size of less than four, which means
 	 * an 'empty' file or just newlines, i.e. an emtpy diff.
 	 */
-	static BOOL CheckForEmptyDiff(const CString& sDiffPath);
+	static BOOL CheckForEmptyDiff(const CTSVNPath& sDiffPath);
 
 	/**
 	 * Removes all '&' chars from a string.

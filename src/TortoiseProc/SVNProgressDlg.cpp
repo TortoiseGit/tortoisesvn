@@ -701,9 +701,9 @@ UINT CSVNProgressDlg::ProgressThread()
 				CTSVNPath urlTo(m_sMessage);
 				if (m_url.IsEquivalentTo(urlTo))
 				{
-					if (!m_pSvn->PegMerge(m_url.GetSVNPathString(), m_Revision, m_RevisionEnd, 
+					if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, 
 						m_url.IsUrl() ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_WC), 
-						m_targetPathList[0].GetSVNPathString(), true, true, false, !!(m_options & ProgOptDryRun)))
+						m_targetPathList[0], true, true, false, !!(m_options & ProgOptDryRun)))
 					{
 						ReportSVNError();
 					}
@@ -916,19 +916,19 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(Enum_Merge == m_Command)))
 	{
-		CString sWC = data->path;
-		CString sBase = SVN::GetPristinePath(sWC);
+		CTSVNPath sWC = CTSVNPath(data->path);
+		CString sBase = SVN::GetPristinePath(data->path);
 
 		if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(sWC, sWC)))
 		{
-			m_templist.Add(sWC);
+			m_templist.Add(sWC.GetWinPathString());
 		}
 		CString name = CUtils::GetFileNameFromPath(data->path);
 		CString ext = CUtils::GetFileExtFromPath(data->path);
 		CString n1, n2;
 		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-		CUtils::StartDiffViewer(sBase, sWC, FALSE, n2, n1, ext);
+		CUtils::StartDiffViewer(CTSVNPath(sBase), sWC, FALSE, n2, n1, ext);
 
 	}
 }
@@ -1131,7 +1131,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									CString ext = CUtils::GetFileExtFromPath(data->path);
 									revname.Format(_T("%s Revision %ld"), (LPCTSTR)CUtils::GetFileNameFromPath(data->path), m_nUpdateStartRev);
 									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)CUtils::GetFileNameFromPath(data->path));
-									CUtils::StartDiffViewer(tempfile.GetWinPathString(), data->path, FALSE, revname, wcname, ext);
+									CUtils::StartDiffViewer(tempfile, CTSVNPath(data->path), FALSE, revname, wcname, ext);
 								}
 							}
 							break;

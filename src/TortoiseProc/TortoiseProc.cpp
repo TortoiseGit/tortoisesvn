@@ -788,24 +788,24 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region diff
 		if (comVal.Compare(_T("diff"))==0)
 		{
-			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
+			CTSVNPath path(CUtils::GetLongPathname(parser.GetVal(_T("path"))));
 			CString path2 = CUtils::GetLongPathname(parser.GetVal(_T("path2")));
 			BOOL bDelete = FALSE;
 			if (path2.IsEmpty())
 			{
-				if (PathIsDirectory(path))
+				if (path.IsDirectory())
 				{
-					path = CUtils::WritePathsToTempFile(path);
+					path.SetFromWin(CUtils::WritePathsToTempFile(path.GetWinPathString()), false);
 					CChangedDlg dlg;
-					dlg.m_path = path;
+					dlg.m_path = path.GetWinPathString();
 					dlg.DoModal();
-					DeleteFile(path);
+					::DeleteFile(path.GetWinPath());
 				}
 				else
 				{
-					CString name = CUtils::GetFileNameFromPath(path);
-					CString ext = CUtils::GetFileExtFromPath(path);
-					path2 = SVN::GetPristinePath(path);
+					CString name = path.GetFilename();
+					CString ext = path.GetFileExtension();
+					path2 = SVN::GetPristinePath(path.GetSVNPathString());
 					if ((!CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), TRUE))&&(SVN::GetTranslatedFile(path, path)))
 					{
 						bDelete = TRUE;
@@ -813,13 +813,13 @@ BOOL CTortoiseProcApp::InitInstance()
 					CString n1, n2;
 					n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 					n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-					CUtils::StartDiffViewer(path2, path, TRUE, n2, n1, ext);
+					CUtils::StartDiffViewer(CTSVNPath(path2), CTSVNPath(path), TRUE, n2, n1, ext);
 				}
 			} // if (path2.IsEmpty())
 			else
-				CUtils::StartDiffViewer(path2, path, TRUE);
+				CUtils::StartDiffViewer(CTSVNPath(path2), CTSVNPath(path), TRUE);
 			if (bDelete)
-				DeleteFile(path);
+				::DeleteFile(path.GetWinPath());
 		}
 		//#endregion
 		//#region dropcopyadd
@@ -1351,7 +1351,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("createpatch"))==0)
 		{
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
-			CreatePatch(path);
+			CreatePatch(CTSVNPath(path));
 		}
 		//#endregion
 		//#region updatecheck
@@ -1437,12 +1437,13 @@ CTortoiseProcApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, 
 	return 0;
 }
 
-BOOL CTortoiseProcApp::CreatePatch(CString path, CString savepath /*= _T("")*/)
+BOOL CTortoiseProcApp::CreatePatch(const CTSVNPath& path, const CTSVNPath& cmdLineSavePath /*= _T("")*/)
 {
 	OPENFILENAME ofn;		// common dialog box structure
 	CString temp;
+	CTSVNPath savePath;
 
-	if (savepath.IsEmpty())
+	if (cmdLineSavePath.IsEmpty())
 	{
 		TCHAR szFile[MAX_PATH];  // buffer for file name
 		ZeroMemory(szFile, sizeof(szFile));
@@ -1486,18 +1487,29 @@ BOOL CTortoiseProcApp::CreatePatch(CString path, CString savepath /*= _T("")*/)
 			return FALSE;
 		} // if (GetSaveFileName(&ofn)==FALSE)
 		delete [] pszFilters;
-		savepath = ofn.lpstrFile;
+		savePath = CTSVNPath(ofn.lpstrFile);
+	}
+	else
+	{
+		savePath = cmdLineSavePath;
 	}
 
-	bool bToClipboard = _tcsstr(savepath, PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
+	// This is horrible and I should be ashamed of myself, but basically, the 
+	// the file-open dialog writes ".TSVNPatchToClipboard" to its file field if the user clicks
+	// the "Save To Clipboard" button.
+	bool bToClipboard = _tcsstr(savePath.GetWinPath(), PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
 
 	CProgressDlg progDlg;
 	temp.LoadString(IDS_PROC_SAVEPATCHTO);
 	progDlg.SetLine(1, temp, true);
-	CString strProgressDest(savepath);
+	CString strProgressDest;
 	if(bToClipboard)
 	{
 		strProgressDest.LoadString(IDS_CLIPBOARD_PROGRESS_DEST);
+	}
+	else
+	{
+		strProgressDest = savePath.GetUIPathString();
 	}
 	progDlg.SetLine(2, strProgressDest, true);
 	progDlg.SetTitle(IDS_PROC_PATCHTITLE);
@@ -1505,24 +1517,25 @@ BOOL CTortoiseProcApp::CreatePatch(CString path, CString savepath /*= _T("")*/)
 	progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 	//progDlg.SetAnimation(IDR_ANIMATION);
 
-	CString strTempPatchFile;
+	CTSVNPath tempPatchFilePath;
 	if (bToClipboard)
-		strTempPatchFile = CUtils::GetTempFile();
+		tempPatchFilePath = CUtils::GetTempFilePath();
 	else
-		strTempPatchFile = savepath;
+		tempPatchFilePath = savePath;
 
-	path = path.TrimRight('\\');
-	CString sDir;
-	if (!PathIsDirectory(path))
+	CTSVNPath sDir;
+	if (!path.IsDirectory())
 	{
-		SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
-		sDir = path.Mid(path.ReverseFind('\\')+1);
+		::SetCurrentDirectory(path.GetDirectory().GetWinPath());
+		sDir.SetFromWin(path.GetFilename());
 	}
 	else
-		SetCurrentDirectory(path);
+	{
+		::SetCurrentDirectory(path.GetWinPath());
+	}
 
 	SVN svn;
-	if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, _T(""), strTempPatchFile))
+	if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, _T(""), tempPatchFilePath))
 	{
 		progDlg.Stop();
 		::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1532,18 +1545,15 @@ BOOL CTortoiseProcApp::CreatePatch(CString path, CString savepath /*= _T("")*/)
 	if(bToClipboard)
 	{
 		// The user actually asked for the patch to be written to the clipboard
-
 		CStringA sClipdata;
-
-		FILE* inFile = _tfopen(strTempPatchFile, _T("rb"));
+		FILE* inFile = _tfopen(tempPatchFilePath.GetWinPath(), _T("rb"));
 		if(inFile)
 		{
 			char chunkBuffer[16384];
 			while(!feof(inFile))
 			{
 				size_t readLength = fread(chunkBuffer, 1, sizeof(chunkBuffer), inFile);
-
-				sClipdata += CStringA(chunkBuffer, (int)readLength);
+				sClipdata.Append(chunkBuffer, (int)readLength);
 			}
 			fclose(inFile);
 
@@ -1554,7 +1564,9 @@ BOOL CTortoiseProcApp::CreatePatch(CString path, CString savepath /*= _T("")*/)
 
 	progDlg.Stop();
 	if (bToClipboard)
-		DeleteFile(strTempPatchFile);
+	{
+		DeleteFile(tempPatchFilePath.GetWinPath());
+	}
 	return TRUE;
 }
 

@@ -687,18 +687,18 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 				break;
 			case ID_POPGNUDIFF:
 				{
-					CString tempfile = CUtils::GetTempFile();
-					tempfile += _T(".diff");
+					CTSVNPath tempfile = CUtils::GetTempFilePath();
+					tempfile.AppendString(_T(".diff"));
 					SVN svn;
-					if (!svn.Diff(url1.GetSVNPathString(), GetRevision(), url2.GetSVNPathString(), GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!svn.Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						DeleteFile(tempfile);
+						::DeleteFile(tempfile.GetWinPath());
 						break;		//exit
 					} // if (!Diff(url1, GetRevision(), url2, GetRevision(), TRUE, FALSE, TRUE, _T(""), tempfile)) 
 					else
 					{
-						m_templist.Add(tempfile);
+						m_templist.Add(tempfile.GetWinPathString());
 						CUtils::StartDiffViewer(tempfile);
 					}
 					theApp.DoWaitCursor(-1); //???
@@ -725,7 +725,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						break;		//exit
 					} // if (!Cat(url2, GetRevision(), tempfile2)) 
 					CString ext = url1.GetFileExtension();
-					CUtils::StartDiffViewer(tempfile2.GetWinPathString(), tempfile1.GetWinPathString(), FALSE, url1.GetUIPathString(), url2.GetUIPathString(), ext);
+					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1.GetUIPathString(), url2.GetUIPathString(), ext);
 					theApp.DoWaitCursor(-1); //???
 				}
 				break;

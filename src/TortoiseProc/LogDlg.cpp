@@ -626,10 +626,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						int selIndex = m_LogList.GetSelectionMark();
 						long rev = m_arRevs.GetAt(selIndex);
 						this->m_bCancelled = FALSE;
-						CString tempfile = CUtils::GetTempFile();
-						tempfile += _T(".diff");
+						CTSVNPath tempfile = CUtils::GetTempFilePath();
+						tempfile.AppendString(_T(".diff"));
 						m_tempFileList.AddPath(CTSVNPath(tempfile));
-						if (!PegDiff(m_path.GetSVNPathString(), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -651,10 +651,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
 						long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
 						this->m_bCancelled = FALSE;
-						CString tempfile = CUtils::GetTempFile();
-						tempfile += _T(".diff");
-						m_tempFileList.AddPath(CTSVNPath(tempfile));
-						if (!PegDiff(m_path.GetSVNPathString(), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+						CTSVNPath tempfile = CUtils::GetTempFilePath();
+						tempfile.AppendString(_T(".diff"));
+						m_tempFileList.AddPath(tempfile);
+						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev2, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;		//exit
@@ -735,10 +735,10 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						if ((m_path.IsDirectory())||(!m_hasWC))
 						{
 							this->m_bCancelled = FALSE;
-							CString tempfile = CUtils::GetTempFile();
-							tempfile += _T(".diff");
-							m_tempFileList.AddPath(CTSVNPath(tempfile));
-							if (!PegDiff(m_path.GetSVNPathString(), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+							CTSVNPath tempfile = CUtils::GetTempFilePath();
+							tempfile.AppendString(_T(".diff"));
+							m_tempFileList.AddPath(tempfile);
+							if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 							{
 								CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;		//exit
@@ -758,7 +758,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 // This doesn't feel right to me - it's very likely to generate c: or similar 
 // Is doing a path.GetDirectory the right thing?
 // OLD LINE - CUtils::StartDiffViewer(tempfile, m_path.Left(m_path.Find('\\')), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev);
-								CUtils::StartDiffViewer(tempfile, m_path.GetDirectory().GetSVNPathString(), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev);
+								CUtils::StartDiffViewer(tempfile, m_path.GetDirectory(), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev);
 							}
 						}
 						else
@@ -778,7 +778,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CString ext = m_path.GetFileExtension();
 								revname.Format(_T("%s Revision %ld"), (LPCTSTR)m_path.GetFilename(), rev);
 								wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)m_path.GetFilename());
-								CUtils::StartDiffViewer(tempfile.GetWinPathString(), m_path.GetWinPathString(), FALSE, revname, wcname, ext);
+								CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
 							}
 						}
 					}
@@ -1219,17 +1219,17 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				CString ext = m_path.GetFileExtension();
 				revname.Format(_T("%s Revision %ld"), (LPCTSTR)m_path.GetFilename(), rev);
 				wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)m_path.GetFilename());
-				CUtils::StartDiffViewer(tempfile.GetWinPathString(), m_path.GetWinPathString(), FALSE, revname, wcname, ext);
+				CUtils::StartDiffViewer(tempfile, m_path, FALSE, revname, wcname, ext);
 			}
 		} 
 		else
 		{
 			long rev = m_arRevs.GetAt(selIndex);
 			this->m_bCancelled = FALSE;
-			CString tempfile = CUtils::GetTempFile();
-			tempfile += _T(".diff");
-			m_tempFileList.AddPath(CTSVNPath(tempfile));
-			if (!PegDiff(m_path.GetSVNPathString(), (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+			CTSVNPath tempfile = CUtils::GetTempFilePath();
+			tempfile.AppendString(_T(".diff"));
+			m_tempFileList.AddPath(tempfile);
+			if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), SVNRev::REV_WC, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 			{
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
@@ -1245,7 +1245,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 					sRev.Format(IDS_DIFF_REVISIONPATCHED, rev);
 //BUGBUG - see warning around line 749
-					CUtils::StartDiffViewer(tempfile, m_path.GetDirectory().GetSVNPathString(), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev); 
+					CUtils::StartDiffViewer(tempfile, m_path.GetDirectory(), FALSE, _T(""), _T(""), _T(""), TRUE, sWC, sRev); 
 				}
 			}
 		}
@@ -1548,7 +1548,7 @@ BOOL CLogDlg::StartDiff(const CTSVNPath& path1, LONG rev1, const CTSVNPath& path
 	CString ext = path1.GetFileExtension();
 	revname1.Format(_T("%s Revision %ld"), (LPCTSTR)path1.GetFileOrDirectoryName(), rev1);
 	revname2.Format(_T("%s Revision %ld"), (LPCTSTR)path2.GetFileOrDirectoryName(), rev2);
-	return CUtils::StartDiffViewer(tempfile2.GetWinPathString(), tempfile1.GetWinPathString(), FALSE, revname2, revname1, ext);
+	return CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, revname2, revname1, ext);
 }
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
