@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-02-13 18:28+0900\n"
+"PO-Revision-Date: 2005-02-18 01:58+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1420,6 +1420,11 @@ msgstr "컨텍스트 메뉴"
 msgid "Continue"
 msgstr "계속"
 
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Convert files when diffing against BASE"
+msgstr "베이스와 비교할 때, 파일을 변환합니다."
+
 # ID:376,
 #: ID:376
 msgid "Cop&y"
@@ -1798,11 +1803,6 @@ msgstr ""
 #: ID:313
 msgid "Do you want to save your changes?"
 msgstr "바뀐 내용을 저장하시겠습니까?"
-
-# Control-ID:1073,
-#: Control-ID:1073
-msgid "Don't convert files when diffing against BASE"
-msgstr "베이스와 비교하는 동안 파일을 바꾸지 말 것"
 
 # ID:80,
 #: ID:73
@@ -2216,8 +2216,8 @@ msgstr ""
 
 # ID:79,
 #: ID:79
-msgid "If checked, TortoiseSVN doesn't create a temporary file to do the diff but diffs the original file against BASE"
-msgstr "TortoiseSVN은 베이스와의 차이점을 생성하기 위해 임시파일을 만들지 않고 원본과 비교합니다."
+msgid "If checked, TortoiseSVN creates a temporary file to do the diff with the keywords not expanded"
+msgstr "TortoiseSVN이 svn:keywords 들을 치환하지 않고 차이점을 생성합니다."
 
 # ID:194,
 #: ID:194
