@@ -30,6 +30,16 @@ CUtils::~CUtils(void)
 {
 }
 
+CString CUtils::GetTempFile()
+{
+	TCHAR path[MAX_PATH];
+	TCHAR tempF[MAX_PATH];
+	DWORD len = ::GetTempPath (MAX_PATH, path);
+	UINT unique = ::GetTempFileName (path, TEXT("svn"), 0, tempF);
+	CString tempfile = CString(tempF);
+	return tempfile;
+}
+
 CString CUtils::GetDiffPath()
 {
 	CString diffpath;
@@ -136,3 +146,71 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 
 	return TRUE;
 }
+
+BOOL CUtils::StartDiffViewer(CString file)
+{
+	CRegString v = CRegString(_T("Software\\TortoiseSVN\\DiffViewer"));
+	CString viewer = v;
+	if (viewer.IsEmpty())
+	{
+		//first try the default app which is associated with diff files
+		CRegString diff = CRegString(_T(".diff\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+		viewer = diff;
+		viewer = viewer + _T("\\Shell\\Open\\Command\\");
+		CRegString diffexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+		viewer = diffexe;
+		if (viewer.IsEmpty())
+		{
+			CRegString txt = CRegString(_T(".txt\\"), _T(""), FALSE, HKEY_CLASSES_ROOT);
+			viewer = txt;
+			viewer = viewer + _T("\\Shell\\Open\\Command\\");
+			CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
+			viewer = txtexe;
+		}
+	} // if (viewer.IsEmpty())
+	if (viewer.IsEmpty())
+		return FALSE;
+
+	if (viewer.Find(_T("%1")) >= 0)
+	{
+		viewer.Replace(_T("%1"), file);
+	}
+	else
+	{
+		viewer += _T(" ");
+		viewer += file;
+	}
+
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	memset(&startup, 0, sizeof(startup));
+	startup.cb = sizeof(startup);
+	memset(&process, 0, sizeof(process));
+	if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+	{
+		LPVOID lpMsgBuf;
+		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+			FORMAT_MESSAGE_FROM_SYSTEM | 
+			FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+			(LPTSTR) &lpMsgBuf,
+			0,
+			NULL 
+			);
+		CString temp;
+		temp.Format(IDS_ERR_EXTMERGESTART, lpMsgBuf);
+		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+		LocalFree( lpMsgBuf );
+		return FALSE;
+	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
+
+
+	return TRUE;
+}
+
+
+
+
+

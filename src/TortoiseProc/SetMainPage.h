@@ -77,6 +77,8 @@ private:
 	CRegString		m_regDiffPath;
 	CString			m_sMergePath;
 	CRegString		m_regMergePath;
+	CString			m_sDiffViewerPath;
+	CRegString		m_regDiffViewerPath;
 	CRegString		m_regExtensions;
 	CString			m_sTempExtensions;
 	CBalloon		m_tooltips;
@@ -97,4 +99,6 @@ public:
 	afx_msg void OnBnClickedAddbeforecommit();
 	afx_msg void OnBnClickedExtmergebrowse();
 	afx_msg void OnEnChangeExtmerge();
+	afx_msg void OnBnClickedDiffviewerrowse();
+	afx_msg void OnEnChangeDiffviewer();
 };

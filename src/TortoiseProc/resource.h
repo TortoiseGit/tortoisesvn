@@ -121,6 +121,7 @@
 #define IDS_STRING240                   240
 #define IDS_SETTINGS_SELECTDIFF         241
 #define IDS_STRING242                   242
+#define IDS_SETTINGS_SELECTDIFFVIEWER   242
 #define IDS_STRING243                   243
 #define IDS_STRING244                   244
 #define IDS_SETTINGS_EXTDIFF_TT         245
@@ -134,6 +135,7 @@
 #define IDS_SETTINGS_EXTMERGE_TT        250
 #define IDS_SETTINGS_PROXYSERVER_TT     251
 #define IDS_STRING252                   252
+#define IDS_SETTINGS_DIFFVIEWER_TT      252
 #define IDS_STRING253                   253
 #define IDS_STRING254                   254
 #define IDS_STRING255                   255
@@ -192,6 +194,7 @@
 #define IDS_ABOUTVERSION                700
 #define IDS_LOG_POPUP_DIFF              800
 #define IDS_LOG_POPUP_REVERTREV         801
+#define IDS_LOG_POPUP_GNUDIFF           802
 #define IDS_PROGRESSGETFILE             900
 #define IDS_PROGRESSREVISION            901
 #define IDS_PROGRESSWAIT                902
@@ -209,6 +212,7 @@
 #define IDC_MODNAME                     1016
 #define IDC_EXTMERGE                    1016
 #define IDC_MESSAGE                     1017
+#define IDC_DIFFVIEWER                  1017
 #define IDC_REV                         1018
 #define IDC_NEWEST                      1019
 #define IDC_BRANCH                      1020
@@ -220,6 +224,7 @@
 #define IDC_MODULENAMECHECK             1023
 #define IDC_SAVECHECK                   1023
 #define IDC_ADDBEFORECOMMIT             1023
+#define IDC_DIFFVIEWERROWSE             1024
 #define IDC_EDIT1                       1027
 #define IDC_NAME                        1027
 #define IDC_REVNUM                      1027

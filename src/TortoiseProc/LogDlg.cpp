@@ -336,19 +336,55 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 				if (m_hasWC)
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 			}
 			else if (m_LogList.GetSelectedCount() == 2)
 			{
-				if (PathIsDirectory(m_path))
-					return;
-				temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
+				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
+				if (!PathIsDirectory(m_path))
+				{
+					temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
+				}
 			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
 			CCursor(IDC_WAIT);
 			switch (cmd)
 			{
+			case ID_GNUDIFF1:
+				{
+					int selIndex = m_LogList.GetSelectionMark();
+					long rev = m_arRevs.GetAt(selIndex);
+					this->m_bCancelled = FALSE;
+					CString tempfile = CUtils::GetTempFile();
+					if (!Diff(m_path, rev-1, m_path, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
+					{
+						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						DeleteFile(tempfile);
+						break;		//exit
+					}
+					CUtils::StartDiffViewer(tempfile);
+				}
+				break;
+			case ID_GNUDIFF2:
+				{
+					POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+					long rev1 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+					long rev2 = m_arRevs.GetAt(m_LogList.GetNextSelectedItem(pos));
+					this->m_bCancelled = FALSE;
+					CString tempfile = CUtils::GetTempFile();
+					if (!Diff(m_path, rev2, m_path, rev1, TRUE, FALSE, TRUE, _T(""), tempfile))
+					{
+						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						DeleteFile(tempfile);
+						break;		//exit
+					}
+					CUtils::StartDiffViewer(tempfile);
+				}
+				break;
 			case ID_REVERTREV:
 				{
 					int selIndex = m_LogList.GetSelectionMark();

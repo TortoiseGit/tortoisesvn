@@ -127,6 +127,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				return FALSE;
 			}
 		}
+
 		//#region about
 		if (comVal.Compare(_T("about"))==0)
 		{

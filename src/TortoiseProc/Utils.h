@@ -65,4 +65,13 @@ public:
 	 * \return TRUE if the program could be started
 	 */
 	static BOOL StartExtMerge(CString basefile, CString theirfile, CString yourfile, CString mergedfile);
+
+	/**
+	 * launches the diff viewer application or the standard app which is associated
+	 * with diff files or if nothing helps then start the default text editor.
+	 * \return TRUE if the program could be started.
+	 */
+	static BOOL StartDiffViewer(CString file);
+
+	static CString GetTempFile();
 };

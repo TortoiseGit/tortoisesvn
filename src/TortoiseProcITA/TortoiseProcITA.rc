@@ -331,25 +331,28 @@ BEGIN
     LTEXT           "",IDC_FROMURL,44,7,214,8
 END
 
-IDD_SETTINGSMAIN DIALOGEX 0, 0, 195, 127
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 286, 158
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Principale"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "Programma per i Diff:",IDC_STATIC,7,7,46,17
-    EDITTEXT        IDC_EXTDIFF,70,7,59,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Sfoglia...",IDC_EXTDIFFBROWSE,138,7,50,14
-    LTEXT           "Lingua:",IDC_STATIC,7,53,35,8
-    COMBOBOX        IDC_LANGUAGECOMBO,70,52,118,68,CBS_DROPDOWNLIST | 
+    EDITTEXT        IDC_EXTDIFF,70,7,150,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Sfoglia...",IDC_EXTDIFFBROWSE,229,7,50,14
+    LTEXT           "Lingua:",IDC_STATIC,7,82,35,8
+    COMBOBOX        IDC_LANGUAGECOMBO,70,81,209,68,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,69,63,
+    LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,98,63,
                     19
-    EDITTEXT        IDC_TEMPEXTENSIONS,70,71,118,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEMPEXTENSIONS,70,100,209,14,ES_AUTOHSCROLL
     CONTROL         "allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,99,181,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,128,272,10
     LTEXT           "External Merge:",IDC_STATIC,7,29,52,8
-    EDITTEXT        IDC_EXTMERGE,70,26,58,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Sfoglia...",IDC_EXTMERGEBROWSE,138,25,50,14
+    EDITTEXT        IDC_EXTMERGE,70,26,150,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Sfoglia...",IDC_EXTMERGEBROWSE,229,25,50,14
+    LTEXT           "Diff Viewer:",IDC_STATIC,7,48,38,8
+    EDITTEXT        IDC_DIFFVIEWER,70,45,150,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse...",IDC_DIFFVIEWERROWSE,230,45,50,14
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
@@ -556,10 +559,11 @@ BEGIN
     IDD_SETTINGSMAIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 188
+        RIGHTMARGIN, 279
         VERTGUIDE, 70
+        VERTGUIDE, 220
         TOPMARGIN, 7
-        BOTTOMMARGIN, 120
+        BOTTOMMARGIN, 151
     END
 
     IDD_SETTINGSPROXY, DIALOG
@@ -726,7 +730,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING240           "dummy"
     IDS_SETTINGS_SELECTDIFF "Seleziona l'applicazione da usare per i confronti (Diff)..."
-    IDS_STRING242           "dummy"
+    IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
     IDS_STRING243           "dummy"
     IDS_STRING244           "dummy"
     IDS_SETTINGS_EXTDIFF_TT "un programma per confrontare diverse versioni di un file"
@@ -740,7 +744,8 @@ BEGIN
     IDS_SETTINGS_EXTMERGE_TT 
                             "an external merge program used\nto resolve conflicted files.\n<hr=100%>\nyou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
     IDS_SETTINGS_PROXYSERVER_TT "il nome o l'indirizzo ip del server proxy"
-    IDS_STRING252           "dummy"
+    IDS_SETTINGS_DIFFVIEWER_TT 
+                            "a viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
     IDS_STRING253           "dummy"
     IDS_STRING254           "dummy"
     IDS_STRING255           "dummy"
@@ -827,6 +832,7 @@ STRINGTABLE
 BEGIN
     IDS_LOG_POPUP_DIFF      "Show Changes"
     IDS_LOG_POPUP_REVERTREV "Revert changes from this revision"
+    IDS_LOG_POPUP_GNUDIFF   "Show Changes As Unified Diff"
 END
 
 STRINGTABLE 

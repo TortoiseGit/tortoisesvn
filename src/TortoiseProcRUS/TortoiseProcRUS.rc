@@ -210,7 +210,7 @@ BEGIN
     LTEXT           "",IDC_FROMURL,60,7,226,8
 END
 
-IDD_SETTINGSMAIN DIALOGEX 0, 0, 252, 130
+IDD_SETTINGSMAIN DIALOGEX 0, 0, 275, 161
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Основные"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
@@ -218,20 +218,23 @@ BEGIN
     LTEXT           "Внешная программа для\nсравнения файлов:",IDC_STATIC,7,
                     7,93,18
     EDITTEXT        IDC_EXTDIFF,100,7,89,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,195,7,50,14
-    LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,51,72,17
-    COMBOBOX        IDC_LANGUAGECOMBO,100,52,145,71,CBS_DROPDOWNLIST | 
+    PUSHBUTTON      "Обзор ...",IDC_EXTDIFFBROWSE,218,7,50,14
+    LTEXT           "Используемый язык\nинтерфейса:",IDC_STATIC,7,83,72,17
+    COMBOBOX        IDC_LANGUAGECOMBO,100,84,168,71,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,71,72,
+    LTEXT           "Расширение для\nвременных файлов:",IDC_STATIC,7,103,72,
                     18
-    EDITTEXT        IDC_TEMPEXTENSIONS,100,72,145,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEMPEXTENSIONS,100,104,168,14,ES_AUTOHSCROLL
     CONTROL         "Разрешить добавление файлов непосредственно\nперед фиксированием изменений",
                     IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
-                    BS_MULTILINE | WS_TABSTOP,7,96,238,18
+                    BS_MULTILINE | WS_TABSTOP,7,128,261,18
     LTEXT           "Внешняя программа для\nслияния файлов:",IDC_STATIC,7,30,
                     84,17
     EDITTEXT        IDC_EXTMERGE,100,27,89,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Обзор ...",IDC_EXTMERGEBROWSE,195,27,50,14
+    PUSHBUTTON      "Обзор ...",IDC_EXTMERGEBROWSE,218,27,50,14
+    LTEXT           "Diff Viewer:",IDC_STATIC,7,52,38,8
+    EDITTEXT        IDC_DIFFVIEWER,100,49,90,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Обзор ...",IDC_DIFFVIEWERROWSE,218,48,50,14
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
@@ -445,10 +448,10 @@ BEGIN
     IDD_SETTINGSMAIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 245
+        RIGHTMARGIN, 268
         VERTGUIDE, 100
         TOPMARGIN, 7
-        BOTTOMMARGIN, 123
+        BOTTOMMARGIN, 154
     END
 
     IDD_SETTINGSPROXY, DIALOG
@@ -631,7 +634,7 @@ STRINGTABLE
 BEGIN
     IDS_STRING240           "dummy"
     IDS_SETTINGS_SELECTDIFF "Укажите программу для сравнения файлов."
-    IDS_STRING242           "dummy"
+    IDS_SETTINGS_SELECTDIFFVIEWER "Select Viewer for Diff-Files"
     IDS_STRING243           "dummy"
     IDS_STRING244           "dummy"
     IDS_SETTINGS_EXTDIFF_TT "Внешняя программа, используемая для сравнения файлов."
@@ -646,7 +649,8 @@ BEGIN
     IDS_SETTINGS_EXTMERGE_TT 
                             "Внешняя программа, используемая\nдля слияния файлов и разрешения конфликтов.\n<hr=100%>\nВам нужно указать следующие параметры:\n%merged\tкуда сохранять конфликтующий файл\n%theirs\t\tфайл, как он есть в репозитории\n%mine\t\tфайл, содержащий Ваши изменения\n%base\t\tоригинальный файл, без Ваших изменений"
     IDS_SETTINGS_PROXYSERVER_TT "Введите имя или IP-адрес прокси-сервера"
-    IDS_STRING252           "dummy"
+    IDS_SETTINGS_DIFFVIEWER_TT 
+                            "a viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
     IDS_STRING253           "dummy"
     IDS_STRING254           "dummy"
     IDS_STRING255           "dummy"
@@ -734,6 +738,7 @@ STRINGTABLE
 BEGIN
     IDS_LOG_POPUP_DIFF      "Show Changes"
     IDS_LOG_POPUP_REVERTREV "Revert changes from this revision"
+    IDS_LOG_POPUP_GNUDIFF   "Show changes as Unified Diff"
 END
 
 STRINGTABLE 

@@ -60,7 +60,6 @@ CRegDWORD::~CRegDWORD(void)
 
 DWORD	CRegDWORD::read()
 {
-	ASSERT(m_key != _T(""));
 	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
 	{
 		int size = sizeof(m_value);
@@ -83,7 +82,6 @@ DWORD	CRegDWORD::read()
 
 void CRegDWORD::write()
 {
-	ASSERT(m_key != _T(""));
 	DWORD disp;
 	if (RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &m_hKey, &disp)!=ERROR_SUCCESS)
 	{
@@ -160,7 +158,6 @@ CRegString::~CRegString(void)
 
 CString	CRegString::read()
 {
-	ASSERT(m_key != _T(""));
 	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
 	{
 		int size = 0;
@@ -188,7 +185,6 @@ CString	CRegString::read()
 
 void CRegString::write()
 {
-	ASSERT(m_key != _T(""));
 	DWORD disp;
 	if (RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &m_hKey, &disp)!=ERROR_SUCCESS)
 	{
@@ -268,7 +264,6 @@ CRegRect::~CRegRect(void)
 
 CRect	CRegRect::read()
 {
-	ASSERT(m_key != _T(""));
 	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
 	{
 		int size = 0;
@@ -296,7 +291,6 @@ CRect	CRegRect::read()
 
 void CRegRect::write()
 {
-	ASSERT(m_key != _T(""));
 	DWORD disp;
 	if (RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &m_hKey, &disp)!=ERROR_SUCCESS)
 	{
@@ -373,7 +367,6 @@ CRegPoint::~CRegPoint(void)
 
 CPoint	CRegPoint::read()
 {
-	ASSERT(m_key != _T(""));
 	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
 	{
 		int size = 0;
@@ -401,7 +394,6 @@ CPoint	CRegPoint::read()
 
 void CRegPoint::write()
 {
-	ASSERT(m_key != _T(""));
 	DWORD disp;
 	if (RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &m_hKey, &disp)!=ERROR_SUCCESS)
 	{
