@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 #include "UnicodeUtils.h"
 #include "Utils.h"
+#include "StringUtils.h"
 #include "DirFileEnum.h"
 #include "SVNConfig.h"
 #include "SVNProperties.h"
@@ -1343,10 +1344,27 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						}
-						if (GetCheck(selIndex))
-							m_nSelected--;
-						m_nTotal--;
-						RemoveListEntry(selIndex);
+						for (int i=0; i<GetItemCount(); ++i)
+						{
+							FileEntry * entry = GetListEntry(i);
+							if (entry == NULL)
+								continue;								
+							CString f = entry->path;
+							if (CUtils::PathIsParent(parentfolder, f))
+							{
+								if (f.Mid(parentfolder.GetLength()).Find('/')<=0)
+								{
+									if (CStringUtils::WildCardMatch(name, f))
+									{
+										if (GetCheck(i))
+											m_nSelected--;
+										m_nTotal--;
+										RemoveListEntry(i);
+										i--;
+									}
+								}
+							}
+						}
 					}
 					break;
 				case IDSVNLC_IGNORE:
