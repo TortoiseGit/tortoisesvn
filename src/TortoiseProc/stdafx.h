@@ -11,20 +11,39 @@
 
 // Modify the following defines if you have to target a platform prior to the ones specified below.
 // Refer to MSDN for the latest info on corresponding values for different platforms.
-#ifndef WINVER				// Allow use of features specific to Windows 95 and Windows NT 4 or later.
-#define WINVER 0x0501		// Change this to the appropriate value to target Windows 98 and Windows 2000 or later.
+#ifdef UNICODE
+#	ifndef WINVER
+#		define WINVER 0x0501
+#	endif
+#	ifndef _WIN32_WINNT
+#		define _WIN32_WINNT 0x0501
+#	endif						
+#	ifndef _WIN32_WINDOWS
+#		define _WIN32_WINDOWS 0x0501
+#	endif
+#else
+#	ifndef WINVER
+#		define WINVER 0x0410
+#	endif
+#	ifndef _WIN32_WINNT
+#		define _WIN32_WINNT 0x0500
+#	endif						
+#	ifndef _WIN32_WINDOWS
+#		define _WIN32_WINDOWS 0x0410
+#	endif
+// some defines which are missing if WINVER < 0x0500
+#define MB_CANCELTRYCONTINUE		0x00000006L
+#define DFCS_TRANSPARENT			0x0800
+#define DFCS_HOT					0x1000
+#define IDC_HAND					MAKEINTRESOURCE(32649)
+#define IDTRYAGAIN					10
+#define IDCONTINUE					11
 #endif
 
-#ifndef _WIN32_WINNT		// Allow use of features specific to Windows NT 4 or later.
-#define _WIN32_WINNT 0x0501		// Change this to the appropriate value to target Windows 98 and Windows 2000 or later.
-#endif						
 
-#ifndef _WIN32_WINDOWS		// Allow use of features specific to Windows 98 or later.
-#define _WIN32_WINDOWS 0x0410 // Change this to the appropriate value to target Windows Me or later.
-#endif
 
-#ifndef _WIN32_IE			// Allow use of features specific to IE 4.0 or later.
-#define _WIN32_IE 0x0500	// Change this to the appropriate value to target IE 5.0 or later.
+#ifndef _WIN32_IE
+#define _WIN32_IE 0x0501
 #endif
 
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
@@ -40,6 +59,10 @@
 #include <afxcmn.h>			// MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 #include <afxdlgs.h>
+
+#ifndef UNICODE
+#include "multimon.h"
+#endif
 
 #ifndef LVS_EX_DOUBLEBUFFER
 #define LVS_EX_DOUBLEBUFFER     0x00010000
