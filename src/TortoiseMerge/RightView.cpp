@@ -94,7 +94,6 @@ void CRightView::OnContextMenu(CPoint point, int nLine)
 					for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 					{
 						m_arDiffLines->SetAt(i, m_pwndLeft->m_arDiffLines->GetAt(i));
-						m_arLineStates->SetAt(i, m_pwndLeft->m_arLineStates->GetAt(i));
 						SetModified();
 					} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				}

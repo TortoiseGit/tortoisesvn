@@ -90,7 +90,6 @@ void CLeftView::OnContextMenu(CPoint point, int nLine)
 					for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 					{
 						m_pwndRight->m_arDiffLines->SetAt(i, m_arDiffLines->GetAt(i));
-						m_pwndRight->m_arLineStates->SetAt(i, m_arLineStates->GetAt(i));
 						m_pwndRight->SetModified();
 					} // for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++) 
 				}
