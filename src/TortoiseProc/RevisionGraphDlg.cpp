@@ -138,11 +138,11 @@ DWORD WINAPI WorkerThread(LPVOID pVoid)
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
-	//pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
-	//pDlg->FetchRevisionData(pDlg->m_sPath);
-	//pDlg->AnalyzeRevisionData(pDlg->m_sPath);
-	//pDlg->m_Progress.Stop();
-	pDlg->FillTestData();
+	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
+	pDlg->FetchRevisionData(pDlg->m_sPath);
+	pDlg->AnalyzeRevisionData(pDlg->m_sPath);
+	pDlg->m_Progress.Stop();
+	//pDlg->FillTestData();
 	pDlg->InitView();
 	pDlg->m_bThreadRunning = FALSE;
 	pDlg->Invalidate();
@@ -505,7 +505,7 @@ void CRevisionGraphDlg::BuildConnections()
 				pt[3].x += NODE_SPACE_LEFT;
 				connections2.SetAt(reventry->level-1, connections2.GetAt(reventry->level-1)-1);
 			}
-			else
+			else if (reventry->level > reventry2->level)
 			{
 				//      2-----1
 				//      |
@@ -529,6 +529,10 @@ void CRevisionGraphDlg::BuildConnections()
 				pt[3].x = ((((CRevisionEntry*)m_arEntryPtrs.GetAt(GetIndexOfRevision(sentry->revisionto)))->level-1)*(NODE_RECT_WIDTH+NODE_SPACE_LEFT+NODE_SPACE_RIGHT));
 				pt[3].x += NODE_SPACE_LEFT+NODE_RECT_WIDTH;
 				connections2.SetAt(reventry2->level-1, connections2.GetAt(reventry2->level-1)-1);
+			}
+			else
+			{
+				// same level!
 			}
 			m_arConnections.Add(pt);
 		}

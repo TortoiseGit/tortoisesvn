@@ -406,42 +406,54 @@ BOOL CRevisionGraph::CheckForwardCopies()
 				//create a new entry as a starting point
 				log_entry * origentry = APR_ARRAY_IDX(m_logdata, logentry->revisionfrom-1, log_entry *);
 				CRevisionEntry * reventry = new CRevisionEntry();
-				svn_log_changed_path_t *val;
-				apr_hash_index_t* hi = apr_hash_first (pool, origentry->ch_paths);
-				if (hi)
-				{
-					apr_hash_this(hi, (const void**)&reventry->url, NULL, (void**)&val);
-					reventry->revision = origentry->rev;
-					reventry->author = origentry->author;
-					reventry->date = origentry->time;
-					reventry->message = origentry->msg;
-					reventry->url = logentry->pathfrom;
-					reventry->action = val->action;
-					reventry->level = logentry->level;		//????
-					if (val->copyfrom_path)
-					{
-						reventry->pathfrom = val->copyfrom_path;
-						reventry->revisionfrom = val->copyfrom_rev;
-					}
-					else
-					{
-						reventry->pathfrom = NULL;
-						reventry->revisionfrom = 0;
-					}
-					source_entry * sentry = new source_entry;
-					sentry->pathto = logentry->url;
-					sentry->revisionto = logentry->revision;
-					reventry->sourcearray.Add(sentry);
-					TRACE("revision entry: %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-					m_arEntryPtrs.Add(reventry);
-				}
-				else
-					delete reventry;
+				reventry->revision = origentry->rev;
+				reventry->author = origentry->author;
+				reventry->date = origentry->time;
+				reventry->message = origentry->msg;
+				reventry->url = logentry->pathfrom;
+				reventry->action = ' ';
+				// set the level to 0 to mark that entry for later (after sorting by revision)
+				// filling in the correct level.
+				reventry->level = 0;
+				reventry->pathfrom = NULL;
+				reventry->revisionfrom = 0;
+				source_entry * sentry = new source_entry;
+				sentry->pathto = logentry->url;
+				sentry->revisionto = logentry->revision;
+				reventry->sourcearray.Add(sentry);
+				TRACE("revision entry: %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
+				m_arEntryPtrs.Add(reventry);
 			}
 		}
 	}
 	//now sort the array by revisions
 	qsort(m_arEntryPtrs.GetData(), m_arEntryPtrs.GetSize(), sizeof(CRevisionEntry *), (GENERICCOMPAREFN)SortCompare);
+	
+	//now that the array is sorted by revision (highest revision first)
+	//we can go through it and assign each entry with level 0 the level
+	//of the last entry with the same url.
+	for (INT_PTR i=0; i<m_arEntryPtrs.GetCount(); ++i)
+	{
+		CRevisionEntry * logentry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+		if (logentry->level == 0)
+		{
+			for (INT_PTR j=i; j<m_arEntryPtrs.GetCount(); ++j)
+			{
+				CRevisionEntry * reventry = (CRevisionEntry*)m_arEntryPtrs.GetAt(i);
+				if (strcmp(logentry->url, reventry->url)==0)
+				{
+					logentry->level = reventry->level;
+					break;
+				}
+			}
+		}
+		//now let's hope that we have set a level here.
+		//but there's a slight chance that we still don't have a level to
+		//assign the entry to. In that case, default to level 1.
+		if (logentry->level == 0)
+			logentry->level = 1;
+	}
+	
 	return TRUE;
 }
 
