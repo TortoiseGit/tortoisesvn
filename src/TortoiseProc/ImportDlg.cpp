@@ -255,6 +255,19 @@ void CImportDlg::OnBnClickedBrowse()
 BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 {
 	m_tooltips.RelayEvent(pMsg);
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_RETURN:
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					PostMessage(WM_COMMAND, IDOK);
+				}
+			}
+		}
+	}
 	return CResizableDialog::PreTranslateMessage(pMsg);
 }
 

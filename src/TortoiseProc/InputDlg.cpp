@@ -95,3 +95,22 @@ BOOL CInputDlg::OnInitDialog()
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
+
+BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_RETURN:
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					PostMessage(WM_COMMAND, IDOK);
+				}
+			}
+		}
+	}
+
+	return CResizableDialog::PreTranslateMessage(pMsg);
+}

@@ -441,11 +441,25 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 {
 	if (!m_bBlock)
 		m_tooltips.RelayEvent(pMsg);
-	if ((pMsg->message == WM_KEYDOWN)&&(pMsg->wParam == VK_F5))//(nChar == VK_F5)
+	if (pMsg->message == WM_KEYDOWN)
 	{
-		if (m_bBlock)
-			return CResizableDialog::PreTranslateMessage(pMsg);
-		Refresh();
+		switch (pMsg->wParam)
+		{
+		case VK_F5:
+			{
+				if (m_bBlock)
+					return CResizableDialog::PreTranslateMessage(pMsg);
+				Refresh();
+			}
+			break;
+		case VK_RETURN:
+			{
+				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				{
+					PostMessage(WM_COMMAND, IDOK);
+				}
+			}
+		}
 	}
 
 	return CResizableDialog::PreTranslateMessage(pMsg);

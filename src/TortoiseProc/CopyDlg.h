@@ -61,6 +61,8 @@ protected:
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
+	virtual void OnCancel();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedBrowse();
@@ -81,6 +83,4 @@ public:
 	CString m_sLogMessage;
 	BOOL m_bDirectCopy;
 	CHistoryCombo m_OldLogs;
-protected:
-	virtual void OnCancel();
 };
