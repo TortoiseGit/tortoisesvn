@@ -160,7 +160,9 @@ void LoadLangDll()
 					}
 					free(pBuffer);
 				} // if (pBuffer != (void*) NULL) 
-			} // if (dwBufferSize > 0)  
+			} // if (dwBufferSize > 0) 
+			else
+				versionmatch = FALSE; 
 
 			if (versionmatch)
 				hInst = LoadLibrary(langDll);
@@ -189,7 +191,7 @@ void LoadLangDll()
 			g_hResInst = g_hmodThisDll;
 			CRegStdWORD lid(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 			lid.removeValue();
-			g_langid = 0;
+			g_langid = 1033;
 		}
 	} // if (g_langid != g_ShellCache.GetLangID()) 
 }
