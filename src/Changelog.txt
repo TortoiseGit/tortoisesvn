@@ -2,6 +2,8 @@
 - ADD: If all versioned files are selected in the commit dialog, and
        only one target was selected in the explorer for commit then
        commit recursively instead of committing the file list. (Stefan)
+- BUG: TortoiseMerge calculated the size of the scrollbars wrong for
+       files with many tabs in it. (Stefan)
 - BUG: The cache for the drivetypes were initialized wrong. This
        lead to access to the diskette drive even if overlays
        for removable drives was disabled. (Stefan)

@@ -377,7 +377,18 @@ int CBaseView::GetLineActualLength(int index)
 {
 	if (m_arDiffLines == NULL)
 		return 0;
-	int nLineLength = m_arDiffLines->GetAt(index).GetLength();
+	CString sLine = m_arDiffLines->GetAt(index);
+	int nTabSize = GetTabSize();
+
+	int nLineLength = 0;
+	for (int i=0; i<sLine.GetLength(); i++)
+	{
+		if (sLine[i] == _T('\t'))
+			nLineLength += (nTabSize - nLineLength % nTabSize);
+		else
+			nLineLength ++;
+	} // for (int i=0; i<nOffset; i++) 
+
 	ASSERT(nLineLength >= 0);
 	return nLineLength;
 }
