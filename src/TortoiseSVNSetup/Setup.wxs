@@ -521,8 +521,8 @@
     </Feature>
     
     <Media Id="1" Cabinet="TSVN.cab" EmbedCab="yes" CompressionLevel="high" />
-    <CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" />
-    <CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[TARGETDIR]changelog.txt" />
+    <CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" />
+    <CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[TARGETDIR]changelog.txt" Return="check" />
     <CustomAction Id="DIRCA_TARGETDIR" Property="TARGETDIR" Value="[ProgramFilesFolder]\[ProductName]" Execute="firstSequence" />
 
     <CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
@@ -923,7 +923,7 @@ Click "Close" to exit.</Text>
           <Condition Action="show">REMOVE=""</Condition>
           <Condition Action="hide">REMOVE&lt;&gt;""</Condition>
         </Control>
-        <Control Id="ShowChangelogBox" Type="CheckBox" Property="ShowChangelog" X="9" Y="220" Width="354" Height="32">
+        <Control Id="ShowChangelogBox" Type="CheckBox" Property="ShowChangelog" X="9" Y="220" Width="354" Height="32" CheckBoxValue="yes" >
           <Text>{\Sans_Serif13}Show the changelog after installation is complete</Text>
           <Condition Action="show">REMOVE=""</Condition>
           <Condition Action="hide">REMOVE&lt;&gt;""</Condition>
