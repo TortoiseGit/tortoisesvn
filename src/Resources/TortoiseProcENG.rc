@@ -370,7 +370,7 @@ BEGIN
     LTEXT           "Subversion configuration file:",IDC_STATIC,13,71,210,8
     PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,68,55,14
     CONTROL         "Check for newer versions",IDC_CHECKNEWERVERSION,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,116,271,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,116,179,10
     GROUPBOX        "Committing",IDC_COMMITGROUP,7,134,286,76
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
@@ -379,7 +379,7 @@ BEGIN
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     13,155,271,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,106,271,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,106,173,10
     LTEXT           "Font for log messages:",IDC_STATIC,13,170,115,8
     COMBOBOX        IDC_FONTNAMES,130,167,112,90,CBS_DROPDOWNLIST | 
                     CBS_OWNERDRAWVARIABLE | CBS_SORT | CBS_HASSTRINGS | 
@@ -390,6 +390,7 @@ BEGIN
     EDITTEXT        IDC_MINLOGSIZE,239,142,40,12,ES_AUTOHSCROLL | ES_NUMBER
     CONTROL         "Show BugID/Issue-Nr. Box",IDC_SHOWBUGIDBOX,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,183,271,10
+    PUSHBUTTON      "Clear Auth Cache",IDC_CLEARAUTH,196,111,88,14
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 217

@@ -121,4 +121,5 @@ public:
 	afx_msg void OnBnClickedChecknewerversion();
 	afx_msg void OnEnChangeMinlogsize();
 	afx_msg void OnBnClickedShowbugidbox();
+	afx_msg void OnBnClickedClearauth();
 };

@@ -123,6 +123,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
 	ON_EN_CHANGE(IDC_MINLOGSIZE, OnEnChangeMinlogsize)
 	ON_BN_CLICKED(IDC_SHOWBUGIDBOX, OnBnClickedShowbugidbox)
+	ON_BN_CLICKED(IDC_CLEARAUTH, OnBnClickedClearauth)
 END_MESSAGE_MAP()
 
 
@@ -315,6 +316,24 @@ void CSetMainPage::OnBnClickedEditconfig()
 	CUtils::StartTextViewer(path);
 }
 
+void CSetMainPage::OnBnClickedClearauth()
+{
+	CRegStdString auth = CRegStdString(_T("Software\\TortoiseSVN\\Auth\\"));
+	auth.removeKey();
+	TCHAR pathbuf[MAX_PATH] = {0};
+	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, pathbuf)==S_OK)
+	{
+		_tcscat(pathbuf, _T("\\Subversion\\auth"));
+		SHFILEOPSTRUCT fileop;
+		fileop.hwnd = this->m_hWnd;
+		fileop.wFunc = FO_DELETE;
+		fileop.pFrom = pathbuf;
+		fileop.pTo = NULL;
+		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT;
+		fileop.lpszProgressTitle = _T("deleting file");
+		SHFileOperation(&fileop);
+	}
+}
 
 
 
