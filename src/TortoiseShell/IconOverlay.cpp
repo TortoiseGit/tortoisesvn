@@ -155,7 +155,6 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 #else
 	std::string sPath = WideToUTF8(std::basic_string<wchar_t>(pwszPath));
 #endif
-	CRegStdWORD showrecursive(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 	//if recursive is set in the registry then check directories recursive for status and show
 	//the overlay with the highest priority on the folder.
 	//since this can be slow for big directories it is optional - but very neat
@@ -166,32 +165,32 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 	}
 	else
 	{
-		CRegStdWORD driveremote(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
-		CRegStdWORD drivefixed(_T("Software\\TortoiseSVN\\DriveMaskFixed"));
-		CRegStdWORD drivecdrom(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
-		CRegStdWORD driveremove(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
-		TCHAR pathbuf[MAX_PATH+4];
-		_tcscpy(pathbuf, sPath.c_str());
-		PathRemoveFileSpec(pathbuf);
-		PathAddBackslash(pathbuf);
-		UINT drivetype = GetDriveType(pathbuf);
-		if ((drivetype == DRIVE_REMOVABLE)&&(driveremove == 0))
-			return S_FALSE;
-		if ((drivetype == DRIVE_FIXED)&&(drivefixed == 0))
-			return S_FALSE;
-		if ((drivetype == DRIVE_REMOTE)&&(driveremote == 0))
-			return S_FALSE;
-		if ((drivetype == DRIVE_CDROM)&&(drivecdrom == 0))
-			return S_FALSE;
-
-		if ((showrecursive == 0)||(!PathIsDirectory(sPath.c_str())))
-			status = g_CachedStatus.GetFileStatus(sPath.c_str());
-		else
-			status = SVNStatus::GetAllStatusRecursive(sPath.c_str());
 		if (PathIsDirectory(sPath.c_str()))
 		{
-			if (status == svn_wc_status_ignored)
-				status = svn_wc_status_normal;
+			TCHAR buf[MAX_PATH];
+			_tcscpy(buf, sPath.c_str());
+			_tcscat(buf, _T("\\.svn"));
+			if (PathFileExists(buf))
+			{
+				if (!g_ShellCache.IsRecursive())
+				{
+					status = svn_wc_status_normal;
+				}
+				else
+				{
+					filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
+					status = s->status;
+				}
+			} // if (PathFileExists(buf))
+			else
+			{
+				status = svn_wc_status_unversioned;
+			}
+		} // if (PathIsDirectory(filepath))
+		else
+		{
+			filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
+			status = s->status;
 		}
 		filepath.clear();
 		filepath = sPath;

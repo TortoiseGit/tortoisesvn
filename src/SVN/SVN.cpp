@@ -22,6 +22,7 @@
 #include "svn.h"
 #include "UnicodeUtils.h"
 #include <shlwapi.h>
+#include "DirFileList.h"
 
 SVN::SVN(void)
 {
@@ -1112,8 +1113,31 @@ CString SVN::GetPristinePath(CString wcPath)
 
 void SVN::UpdateShell(CString path)
 {
+	preparePath(path);
 	if (PathIsDirectory(path))
+	{
 		SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH, path, NULL);
+		//if recursive overlay is set, then all folders above 
+		//and below this folder also "changed" and need to be updated
+
+		//first check all folders below
+		CDirFileList list;
+		list.BuildList(path, TRUE, TRUE);
+		for (int i=0; i<list.GetCount(); i++)
+		{
+			CString folder = list.GetAt(i);
+			if (PathIsDirectory(folder))
+			{
+				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH, folder, NULL);
+			}
+		} // for (int i=0; i<list.GetCount(); i++) 
+		CString folder = path;
+		do
+		{
+			folder = folder.Left(folder.ReverseFind('/'));
+			SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH, folder, NULL);
+		} while (PathFileExists(folder + _T("/.svn")));
+	}
 	else
 		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, path, NULL);
 }

@@ -155,24 +155,6 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
 		TCHAR buf[MAX_PATH];
 
-		CRegStdWORD driveremote(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
-		CRegStdWORD drivefixed(_T("Software\\TortoiseSVN\\DriveMaskFixed"));
-		CRegStdWORD drivecdrom(_T("Software\\TortoiseSVN\\DriveMaskCDROM"));
-		CRegStdWORD driveremove(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
-		TCHAR pathbuf[MAX_PATH+4];
-		_tcscpy(pathbuf, path.c_str());
-		PathRemoveFileSpec(pathbuf);
-		PathAddBackslash(pathbuf);
-		UINT drivetype = GetDriveType(pathbuf);
-		if ((drivetype == DRIVE_REMOVABLE)&&(driveremove == 0))
-			return S_FALSE;
-		if ((drivetype == DRIVE_FIXED)&&(drivefixed == 0))
-			return S_FALSE;
-		if ((drivetype == DRIVE_REMOTE)&&(driveremote == 0))
-			return S_FALSE;
-		if ((drivetype == DRIVE_CDROM)&&(drivecdrom == 0))
-			return S_FALSE;
-
 		switch (pscid->pid) 
 		{
 			case 0:
@@ -271,18 +253,9 @@ void CShellExt::GetColumnStatus(stdstring path)
 {
 	if (columnfilepath.compare(path)==0)
 		return;
-	CRegStdWORD showrecursive(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 	columnfilepath = path;
-	filestatuscache * status = g_CachedStatusColumn.GetFullFileStatus(path.c_str());
-	//if recursive is set in the registry then check directories recursive for status and show
-	//the column info with the highest priority on the folder.
-	//since this can be slow for big directories it is optional - but very neat.
-	if ((showrecursive == 0)||(!PathIsDirectory(path.c_str())))
-		filestatus = status->status;
-	else if (showrecursive != 0)
-		filestatus = SVNStatus::GetAllStatusRecursive(path.c_str());
-	else
-		filestatus = status->status;
+	filestatuscache * status = g_CachedStatus.GetFullStatus(path.c_str());
+	filestatus = status->status;
 
 #ifdef UNICODE
 	columnauthor = UTF8ToWide(status->author);

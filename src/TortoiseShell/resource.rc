@@ -921,110 +921,181 @@ LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Dialog
+//
+
+IDD_PROPPAGE DIALOGEX 0, 0, 232, 276
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Property Page"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Revisjon:",IDC_STATIC,6,6,30,8
+    LTEXT           "Sist arkivert, revisjon:",IDC_STATIC,6,30,66,8
+    LTEXT           "Sist arkivert, dato:",IDC_STATIC,6,42,56,8
+    LTEXT           "Forfatter:",IDC_STATIC,6,54,26,8
+    LTEXT           "Status, Tekst:",IDC_STATIC,6,66,41,8
+    LTEXT           "Status, egenskaper:",IDC_STATIC,6,78,54,8
+    LTEXT           "Bane:",IDC_STATIC,6,18,16,8
+    EDITTEXT        IDC_REPOURL,78,18,150,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CDATE,78,42,150,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTDATE,123,65,105,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_CREVISION,78,30,150,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_TEXTSTATUS,78,66,41,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPSTATUS,78,78,41,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_PROPDATE,123,78,105,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_AUTHOR,78,54,150,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+    LTEXT           "Låst",IDC_LOCKED,204,6,21,8
+    GROUPBOX        "Egenskaper",IDC_STATIC,6,114,215,147
+    CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT |
+                    LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER |
+                    WS_BORDER | WS_TABSTOP,12,127,204,72
+    PUSHBUTTON      "Legg til",IDC_ADDBUTTON,12,223,84,14,WS_DISABLED
+    PUSHBUTTON      "Slett",IDC_REMOVEBUTTON,12,242,84,14
+    EDITTEXT        IDC_EDITNAME,12,205,84,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDITVALUE,102,205,120,50,ES_MULTILINE |
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN |
+                    WS_VSCROLL
+    PUSHBUTTON      "Vis logg...",IDC_SHOWLOG,7,96,211,14
+    EDITTEXT        IDC_REVISION,77,7,57,12,ES_AUTOHSCROLL | ES_READONLY |
+                    NOT WS_BORDER,WS_EX_TRANSPARENT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        VERTGUIDE, 12
+        VERTGUIDE, 96
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 269
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUCHECKOUT        "Checkout..."
-    IDS_MENUUPDATE          "Update"
-    IDS_MENUCOMMIT          "Commit"
-    IDS_MENUCREATEREPOS     "Create Repository here"
-    IDS_MENUADD             "Add"
-    IDS_MENUREVERT          "Revert"
-    IDS_MENUCLEANUP         "Clean Up"
-    IDS_MENURESOLVE         "Resolve"
+    IDS_MENUCHECKOUT        "Hent ut..."
+    IDS_MENUUPDATE          "Oppdater"
+    IDS_MENUCOMMIT          "Arkiver"
+    IDS_MENUCREATEREPOS     "Lag arkiv her"
+    IDS_MENUADD             "Legg til"
+    IDS_MENUREVERT          "Tilbakestill"
+    IDS_MENUCLEANUP         "Rensk"
+    IDS_MENURESOLVE         "Løs"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUSWITCH          "Switch..."
-    IDS_MENUMERGE           "Merge..."
-    IDS_MENUBRANCH          "Branch/Tag..."
-    IDS_MENUIMPORT          "Import..."
-    IDS_MENUEXPORT          "Export..."
-    IDS_MENUSETTINGS        "Settings..."
-    IDS_MENUABOUT           "About"
+    IDS_MENUSWITCH          "Bytt..."
+    IDS_MENUMERGE           "Flett..."
+    IDS_MENUBRANCH          "Gren/Merke..."
+    IDS_MENUIMPORT          "Importer..."
+    IDS_MENUEXPORT          "Eksporter..."
+    IDS_MENUSETTINGS        "Instillinger..."
+    IDS_MENUABOUT           "Om"
     IDS_MENUSUBMENU         "TortoiseSVN"
-    IDS_MENUDESCCHECKOUT    "Check out a working copy from a repository"
-    IDS_MENUDESCUPDATE      "Updates the working copy to the current  \nrevision"
-    IDS_MENUDESCCOMMIT      "Commits your changes to the repository"
-    IDS_MENUDESCADD         "Adds file(s) to Subversion control"
-    IDS_MENUDESCREVERT      "Reverts all changes you made since the last  \nupdate"
-    IDS_MENUDESCCLEANUP     "Cleanup interrupted operations, locked files,  \n..."
-    IDS_MENUDESCRESOLVE     "Resolves conflicted files"
-    IDS_MENUDESCSWITCH      "Switch to another branch/repository"
+    IDS_MENUDESCCHECKOUT    "Hent ut en arbeidskopi fra et arkiv"
+    IDS_MENUDESCUPDATE      "Oppdaterer arbeidskopien til gjeldende  \nrevisjon"
+    IDS_MENUDESCCOMMIT      "Arkiverer endringene til arkivet"
+    IDS_MENUDESCADD         "Legger file(er) under Subversion-kontroll"
+    IDS_MENUDESCREVERT      "Tilbakestiller filen slik den var etter forrige  \noppdatering"
+    IDS_MENUDESCCLEANUP     "Fikser opp avbrutte operasjoner, låste filer,  \n..."
+    IDS_MENUDESCRESOLVE     "Løs konflikter"
+    IDS_MENUDESCSWITCH      "Bytte til en annen gren/merke"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUDESCIMPORT      "Imports the directory to a repository"
-    IDS_MENUDESCEXPORT      "Exports a repository to a clean working copy  \nwithout the svn administrative folders"
-    IDS_MENUDESCABOUT       "Shows information about TortoiseSVN"
-    IDS_MENUDESCCREATEREPOS "Creates a repository database at the current  \nlocation"
-    IDS_MENUDESCCOPY        "Creates a 'cheap' copy used for branches and/or  \ntagging"
-    IDS_MENUDESCMERGE       "Merges a branch into the main trunk"
-    IDS_MENUDESCSETTINGS    "Tweak TortoiseSVN"
-    IDS_MENUDESCDEFAULT     "no description for this command is available"
-    IDS_STATUSNONE          "none"
-    IDS_STATUSUNVERSIONED   "unversioned"
+    IDS_MENUDESCIMPORT      "Importerer katalogen til et arkiv"
+    IDS_MENUDESCEXPORT      "Eksporterer et arkiv til en ren arbeidskatalog  \nuten administrative (.svn) mapper"
+    IDS_MENUDESCABOUT       "Viser informasjon om TortoiseSVN"
+    IDS_MENUDESCCREATEREPOS "Lager en arkivdatabase på gjeldende  \nsted"
+    IDS_MENUDESCCOPY        "Lager en 'billig' kopi til bruk for grener og/eller  \nmerker"
+    IDS_MENUDESCMERGE       "Fletter en gren sammen med hovedarkivet"
+    IDS_MENUDESCSETTINGS    "Juster TortoiseSVN"
+    IDS_MENUDESCDEFAULT     "det er ingen tilgjengelig forklaring for denne kommandoen"
+    IDS_STATUSNONE          "ingen"
+    IDS_STATUSUNVERSIONED   "uversjonert"
     IDS_STATUSNORMAL        "normal"
-    IDS_STATUSADDED         "added"
-    IDS_STATUSABSENT        "absent"
-    IDS_STATUSDELETED       "deleted"
-    IDS_STATUSREPLACED      "replaced"
-    IDS_STATUSMODIFIED      "modified"
+    IDS_STATUSADDED         "lagt til"
+    IDS_STATUSABSENT        "borte"
+    IDS_STATUSDELETED       "slettet"
+    IDS_STATUSREPLACED      "byttet"
+    IDS_STATUSMODIFIED      "endret"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_STATUSMERGED        "merged"
-    IDS_STATUSCONFLICTED    "conflicted"
-    IDS_STATUSOBSTRUCTED    "obstructed"
-    IDS_PROPLOCKED          "locked"
-    IDS_PROPPROPERTY        "Property"
-    IDS_PROPVALUE           "Value"
-    IDS_MENURENAME          "Rename..."
-    IDS_MENUDESCRENAME      "Renames files/directories inside source  \ncontrol"
-    IDS_MENUREMOVE          "Delete"
-    IDS_MENUDESCREMOVE      "Deletesfiles/directories from source control"
-    IDS_MENUUPDATEEXT       "Update To Revision..."
-    IDS_MENUDESCUPDATEEXT   "Updates the working copy to a specific  \nrevision"
-    IDS_COLTITLESTATUS      "SVN Status"
-    IDS_COLDESCSTATUS       "status of item in SVN"
-    IDS_COLTITLEREV         "SVN Revision"
-    IDS_COLDESCREV          "last saved revision of item"
+    IDS_STATUSMERGED        "flettet"
+    IDS_STATUSCONFLICTED    "i konflikt"
+    IDS_STATUSOBSTRUCTED    "sperret"
+    IDS_PROPLOCKED          "låst"
+    IDS_PROPPROPERTY        "Egenskap"
+    IDS_PROPVALUE           "Verdi"
+    IDS_MENURENAME          "Døp om..."
+    IDS_MENUDESCRENAME      "Døper om filer/kataloger under kilde-  \nkontroll"
+    IDS_MENUREMOVE          "Slett"
+    IDS_MENUDESCREMOVE      "Sletter filer/kataloger fra kildekontroll"
+    IDS_MENUUPDATEEXT       "Oppdater til revisjon..."
+    IDS_MENUDESCUPDATEEXT   "Oppdaterer arbeidskopien til en spesifisert  \nrevisjon"
+    IDS_COLTITLESTATUS      "SVN-status"
+    IDS_COLDESCSTATUS       "status på et element i SVN"
+    IDS_COLTITLEREV         "SVN-revisjon"
+    IDS_COLDESCREV          "sist lagrede revisjon av et element"
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUDIFF            "Diff"
-    IDS_MENUDESCDIFF        "Compares the file with the last commited  \nversion to show you the changes you made"
-    IDS_DROPCOPYADDMENU     "add files to Subversion here"
-    IDS_DROPMOVEMENU        "move files in Subversion to here"
-    IDS_MENULOG             "show log"
-    IDS_MENUDESCLOG         "shows the log for the selected file/folder"
-    IDS_COLTITLEURL         "SVN Url"
-    IDS_COLDESCURL          "URL of subversion items"
-    IDS_COLTITLESHORTURL    "SVN short Url"
-    IDS_COLDESCSHORTURL     "short Url of subversion items"
-    IDS_MENUCONFLICT        "edit conflicts"
-    IDS_MENUDESCCONFLICT    "launches the external merge/diff program to solve the conflicts"
-    IDS_MENURELOCATE        "Relocate"
-    IDS_MENUDESCRELOCATE    "Use this if the url of the repository changed"
+    IDS_MENUDIFF            "Forskjell"
+    IDS_MENUDESCDIFF        "Sammenligner filen mot den siste arkiverte  \nversjonen for å vise dine endringer"
+    IDS_DROPCOPYADDMENU     "legg filer til Subversion her"
+    IDS_DROPMOVEMENU        "flytt filer i Subversion her"
+    IDS_MENULOG             "vis logg"
+    IDS_MENUDESCLOG         "viser loggen for den valgte filen/mappen"
+    IDS_COLTITLEURL         "bane, SVN"
+    IDS_COLDESCURL          "bane, Subversion-elementer"
+    IDS_COLTITLESHORTURL    "kort bane, SVN"
+    IDS_COLDESCSHORTURL     "kort bane, Subversion-elementer"
+    IDS_MENUCONFLICT        "rediger konflikter"
+    IDS_MENUDESCCONFLICT    "starter et annet flette/diff-program for å løse konflikter"
+    IDS_MENURELOCATE        "Re-lokalisér"
+    IDS_MENUDESCRELOCATE    "Bruk denne hvis banen til arkivet har endret seg"
     IDS_MENUHELP            "Daily Use Guide"
-    IDS_MENUDESCHELP        "Shows the ""Daily Use Guide"""
+    IDS_MENUDESCHELP        "Viser ""Daily Use Guide"""
 END
 
 STRINGTABLE 
 BEGIN
-    IDS_MENUSHOWCHANGED     "Check for Updates"
-    IDS_MENUDESCSHOWCHANGED "shows all files which were changed since the last update, locally and on the repository"
-    IDS_MENUIGNORE          "Add To Ignore List"
-    IDS_MENUDESCIGNORE      "adds the selected fil(s) to the ""ignore"" list"
-    IDS_STATUSINCOMPLETE    "incomplete"
-    IDS_STATUSIGNORED       "ignored"
-    IDS_STATUSEXTERNAL      "external"
+    IDS_MENUSHOWCHANGED     "Se etter oppdateringer"
+    IDS_MENUDESCSHOWCHANGED "viser alle filene som er endret siden siste oppdatering, lokalt og i arkivet"
+    IDS_MENUIGNORE          "Legg til i ignorerings-liste"
+    IDS_MENUDESCIGNORE      "valgt(e) fil(er) legges til ""ignorerings-listen"""
+    IDS_STATUSINCOMPLETE    "ufullstendig"
+    IDS_STATUSIGNORED       "ignorert"
+    IDS_STATUSEXTERNAL      "ekstern"
 END
 
 #endif    // Norwegian (Bokmal) resources

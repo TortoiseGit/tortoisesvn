@@ -20,11 +20,13 @@
 #include <windows.h>
 #include "registry.h"
 #include "SVNStatus.h"
+#include "SVNFolderStatus.h"
+#include "ShellCache.h"
 
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
-extern	SVNFolderStatus		g_CachedStatus;			// status cache for icon overlays
-extern	SVNFolderStatus		g_CachedStatusColumn;	// status cache for columns
+extern	SVNFolderStatus		g_CachedStatus;			// status cache
+extern	ShellCache			g_ShellCache;			// caching of registry entries, ...
 /**
  * Since we need an own COM-object for every different
  * Icon-Overlay implemented this enum defines which class
