@@ -175,7 +175,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	char wcfullpath[MAX_PATH];
 	LPTSTR dummy;
 	GetFullPathName(wc, MAX_PATH, wcfullpath, &dummy);
-	apr_terminate();
+	apr_terminate2();
 	if ((bErrOnMods)&&(bHasMods))
 	{
 		printf("%s has local modifications!\n", wcfullpath);
