@@ -216,6 +216,8 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 	textrange.lpstrText = textbuffer;	
 	int pos = Call(SCI_GETCURRENTPOS);
 	textrange.chrg.cpMin = Call(SCI_WORDSTARTPOSITION, pos, TRUE);
+	if (pos == textrange.chrg.cpMin)
+		return CString();
 	textrange.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	if (bSelectWord)
