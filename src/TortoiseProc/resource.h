@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SubVersion\TortoiseSVN\src\Languages\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Languages\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -171,6 +171,7 @@
 #define IDC_EDIT1                       1077
 #define IDC_MSGVIEW                     1077
 #define IDC_EXCEPTIONS                  1077
+#define IDC_MINLOGSIZE                  1077
 #define IDC_DRIVEGROUP                  1079
 #define IDC_PROXYGROUP                  1080
 #define IDC_SSHGROUP                    1081

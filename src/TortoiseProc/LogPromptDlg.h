@@ -79,6 +79,8 @@ protected:
 	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnBnClickedShowunversioned();
+	afx_msg void OnEnChangeLogmessage();
 
 	void StartDiff(int fileindex);
 	void Refresh();
@@ -101,7 +103,7 @@ public:
 	CArray<Data *, Data *>		m_arAllData;
 
 	CString			m_sLogMessage;
-	CSpellEdit			m_LogMessage;
+	CSpellEdit		m_LogMessage;
 	CListCtrl		m_ListCtrl;
 	CString			m_sPath;
 	CStringArray	m_templist;
@@ -116,6 +118,7 @@ public:
 	LONG			m_nSelected;
 	BOOL			m_bRecursive;
 	BOOL			m_nTargetCount;
+	BOOL			m_bBlock;
 private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;
@@ -123,7 +126,6 @@ private:
 	BOOL			m_bShowUnversioned;
 	CRegDWORD		m_regAddBeforeCommit;
 public:
-	afx_msg void OnBnClickedShowunversioned();
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

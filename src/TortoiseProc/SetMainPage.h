@@ -99,6 +99,8 @@ private:
 	BOOL			m_bLastCommitTime;
 	CRegDWORD		m_regCheckNewer;
 	BOOL			m_bCheckNewer;
+	CRegDWORD		m_regMinLogSize;
+	DWORD			m_nMinLogSize;
 
 public:
 	virtual BOOL OnInitDialog();
@@ -115,4 +117,5 @@ public:
 	afx_msg void OnBnClickedEditconfig();
 	afx_msg void OnBnClickedCommitfiletimes();
 	afx_msg void OnBnClickedChecknewerversion();
+	afx_msg void OnEnChangeMinlogsize();
 };

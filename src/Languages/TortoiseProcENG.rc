@@ -352,13 +352,13 @@ BEGIN
     PUSHBUTTON      "Edit",IDC_EDITCONFIG,229,77,51,14
     CONTROL         "Check for newer versions",IDC_CHECKNEWERVERSION,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,92,267,10
-    GROUPBOX        "Committing",IDC_COMMITGROUP,7,122,286,70
+    GROUPBOX        "Committing",IDC_COMMITGROUP,7,117,286,75
     CONTROL         "Set filedates to the ""last commit time""",
                     IDC_COMMITFILETIMES,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,133,267,10
+                    WS_TABSTOP,13,137,267,10
     CONTROL         "Don't &remove log messages when cancelling a commit",
                     IDC_NOREMOVELOGMSG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,148,267,10
+                    13,150,267,10
     CONTROL         "&Close windows automatically",IDC_AUTOCLOSE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,162,267,10
     LTEXT           "Font for log messages:",IDC_STATIC,13,177,115,8
@@ -367,6 +367,8 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_FONTSIZES,248,175,32,47,CBS_DROPDOWN | WS_VSCROLL | 
                     WS_TABSTOP
+    LTEXT           "Minimum logsize in chars",IDC_STATIC,13,126,216,8
+    EDITTEXT        IDC_MINLOGSIZE,239,124,40,12,ES_AUTOHSCROLL | ES_NUMBER
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 300, 199

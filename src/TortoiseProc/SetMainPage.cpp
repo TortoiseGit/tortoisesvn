@@ -38,6 +38,7 @@ CSetMainPage::CSetMainPage()
 	, m_bShortDateFormat(FALSE)
 	, m_bLastCommitTime(FALSE)
 	, m_bCheckNewer(TRUE)
+	, m_nMinLogSize(10)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"));
@@ -49,6 +50,7 @@ CSetMainPage::CSetMainPage()
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
 	m_regCheckNewer = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE);
+	m_regMinLogSize = CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 10);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -72,6 +74,7 @@ void CSetMainPage::SaveData()
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
 	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
+	m_regMinLogSize = m_nMinLogSize;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -91,6 +94,8 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
 	DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
 	DDX_Check(pDX, IDC_CHECKNEWERVERSION, m_bCheckNewer);
+	DDX_Text(pDX, IDC_MINLOGSIZE, m_nMinLogSize);
+	DDV_MinMaxUInt(pDX, m_nMinLogSize, 0, 100);
 }
 
 
@@ -106,6 +111,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 	ON_BN_CLICKED(IDC_EDITCONFIG, OnBnClickedEditconfig)
 	ON_BN_CLICKED(IDC_CHECKNEWERVERSION, OnBnClickedChecknewerversion)
+	ON_EN_CHANGE(IDC_MINLOGSIZE, OnEnChangeMinlogsize)
 END_MESSAGE_MAP()
 
 
@@ -132,6 +138,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bCheckNewer = m_regCheckNewer;
+	m_nMinLogSize = m_regMinLogSize;
 
 	CString temp;
 	temp = m_regLastCommitTime;
@@ -236,6 +243,11 @@ void CSetMainPage::OnBnClickedShortdateformat()
 }
 
 void CSetMainPage::OnEnChangeDefaultlog()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnEnChangeMinlogsize()
 {
 	SetModified();
 }

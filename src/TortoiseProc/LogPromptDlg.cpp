@@ -41,6 +41,7 @@ CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	, m_bRecursive(FALSE)
 	, m_nTargetCount(0)
 	, m_bShowUnversioned(FALSE)
+	, m_bBlock(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_templist.RemoveAll();
@@ -91,6 +92,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_WM_CONTEXTMENU()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
+	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 END_MESSAGE_MAP()
 
 
@@ -161,6 +163,8 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	UpdateData(FALSE);
 
+	OnEnChangeLogmessage();
+
 	CString temp = m_sPath;
 
 	//set the listcontrol to support checkboxes
@@ -191,6 +195,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+	m_bBlock = TRUE;
 	m_ListCtrl.UpdateData(FALSE);
 
 	m_tooltips.Create(this);
@@ -209,6 +214,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("LogPromptDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
+
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -217,13 +223,12 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
-	//if the OK button is not active means the thread is still running - so let the
-	//thread change the items without prompting the user
-	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+
+	if (m_bBlock)
 		return;
 	if ((pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED))
 		return;
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	m_bBlock = TRUE;
 	Data * data = m_arData.GetAt(pNMLV->iItem);
 	//was the item checked?
 	if (m_ListCtrl.GetCheck(pNMLV->iItem))
@@ -379,7 +384,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		data->checked = FALSE;
 		m_nSelected--;
 	} 
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	m_bBlock = FALSE;
 	CString sStats;
 	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, m_nTotal);
 	GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
@@ -431,7 +436,7 @@ void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				temp.LoadString(IDS_MENUREFRESH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-				GetDlgItem(IDOK)->EnableWindow(FALSE);
+				m_bBlock = TRUE;
 				theApp.DoWaitCursor(1);
 				switch (cmd)
 				{
@@ -533,10 +538,10 @@ void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					break;
 				default:
-					GetDlgItem(IDOK)->EnableWindow(TRUE);
+					m_bBlock = FALSE;
 					break;
 				} // switch (cmd)
-				GetDlgItem(IDOK)->EnableWindow(TRUE);
+				m_bBlock = FALSE;
 				theApp.DoWaitCursor(-1);
 			} // if (popup.CreatePopupMenu())
 		} // if (selIndex >= 0)
@@ -550,8 +555,8 @@ void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
-	//if the OK button is not active means the thread is still running
-	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+
+	if (m_bBlock)
 		return;
 
 	StartDiff(pNMLV->iItem);
@@ -590,9 +595,9 @@ void CLogPromptDlg::StartDiff(int fileindex)
 
 void CLogPromptDlg::OnOK()
 {
-	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+	if (m_bBlock)
 		return;
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	m_bBlock = TRUE;
 	CDWordArray arDeleted;
 	//first add all the unversioned files the user selected
 	//and check if all versioned files are selected
@@ -685,7 +690,7 @@ void CLogPromptDlg::OnOK()
 	}
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	m_bBlock = FALSE;
 	CResizableDialog::OnOK();
 }
 
@@ -696,7 +701,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	//in a listcontrol. 
 	CLogPromptDlg*	pDlg;
 	pDlg = (CLogPromptDlg*)pVoid;
-	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
+	pDlg->m_bBlock = TRUE;
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
 
 	pDlg->m_ListCtrl.SetRedraw(false);
@@ -985,8 +990,8 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	}
 	pDlg->m_ListCtrl.SetRedraw(true);
 
-	pDlg->GetDlgItem(IDOK)->EnableWindow(true);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	pDlg->m_bBlock = FALSE;
 	if (pDlg->m_ListCtrl.GetItemCount()==0)
 	{
 		CMessageBox::Show(pDlg->m_hWnd, IDS_LOGPROMPT_NOTHINGTOCOMMIT, IDS_APPNAME, MB_ICONINFORMATION);
@@ -1083,7 +1088,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 
 void CLogPromptDlg::OnCancel()
 {
-	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+	if (m_bBlock)
 		return;
 	DeleteFile(m_sPath);
 	UpdateData(TRUE);
@@ -1092,7 +1097,7 @@ void CLogPromptDlg::OnCancel()
 
 BOOL CLogPromptDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	if (GetDlgItem(IDOK)->IsWindowEnabled())
+	if (!m_bBlock)
 	{
 		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 		SetCursor(hCur);
@@ -1130,11 +1135,11 @@ void CLogPromptDlg::OnBnClickedSelectall()
 
 BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (GetDlgItem(IDOK)->IsWindowEnabled())
+	if (!m_bBlock)
 		m_tooltips.RelayEvent(pMsg);
 	if ((pMsg->message == WM_KEYDOWN)&&(pMsg->wParam == VK_F5))//(nChar == VK_F5)
 	{
-		if (!GetDlgItem(IDOK)->IsWindowEnabled())
+		if (m_bBlock)
 			return CResizableDialog::PreTranslateMessage(pMsg);
 		Refresh();
 	}
@@ -1144,7 +1149,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 
 void CLogPromptDlg::Refresh()
 {
-	GetDlgItem(IDOK)->EnableWindow(false);
+	m_bBlock = TRUE;
 	CString temp;
 	for (int i=0; i<m_arData.GetCount(); i++)
 	{
@@ -1185,7 +1190,7 @@ void CLogPromptDlg::Refresh()
 void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
-	if (!GetDlgItem(IDOK)->IsWindowEnabled())
+	if (m_bBlock)
 		return;
 	if (m_nSortedColumn == phdr->iItem)
 		m_bAscending = !m_bAscending;
@@ -1201,7 +1206,7 @@ void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 	//fill in the data for the listcontrol again, but this
 	//time sorted.
 	TCHAR buf[MAX_PATH];
-	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	m_bBlock = TRUE;
 	for (int i=0; i<m_arData.GetCount(); i++)
 	{
 		Data * data = m_arData.GetAt(i);
@@ -1215,7 +1220,7 @@ void CLogPromptDlg::OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		m_ListCtrl.SetItemText(i, 1, buf);
 		m_ListCtrl.SetCheck(i, data->checked);
 	} // for (int i=0; i<m_arData.GetCount(); i++) 
-	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	m_bBlock = FALSE;
 	m_ListCtrl.SetRedraw(TRUE);
 
 	*pResult = 0;
@@ -1264,8 +1269,22 @@ void CLogPromptDlg::OnBnClickedShowunversioned()
 {
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
-	if (GetDlgItem(IDOK)->IsWindowEnabled())
+	if (!m_bBlock)
 		Refresh();
+}
+
+void CLogPromptDlg::OnEnChangeLogmessage()
+{
+	CString sTemp;
+	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
+	if (sTemp.GetLength() > CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 10))
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
 }
 
 
