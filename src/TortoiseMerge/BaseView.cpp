@@ -1250,24 +1250,24 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					{
 						nIndex--;
 						break;
-					} // if (nIndex == 0) 
+					}
 					if (state != (CDiffData::DiffStates)m_arLineStates->GetAt(--nIndex))
 						break;
-				} // while (nIndex >= 0)
+				}
 				m_nSelBlockStart = nIndex+1;
 				while (nIndex < (m_arLineStates->GetCount()-1))
 				{
 					if (state != (CDiffData::DiffStates)m_arLineStates->GetAt(++nIndex))
 						break;
-				} // while (nIndex < m_arLineStates->GetCount())
+				}
 				if ((nIndex == (m_arLineStates->GetCount()-1))&&(state == (CDiffData::DiffStates)m_arLineStates->GetAt(nIndex)))
 					m_nSelBlockEnd = nIndex;
 				else
 					m_nSelBlockEnd = nIndex-1;
 				Invalidate();
-			} // if ((m_nSelBlockStart<0)&&(m_nSelBlockEnd<0)&&(ShallShowContextMenu(state, nLine))) 
+			}
 		} // if ((state != CDiffData::DIFFSTATE_NORMAL) && (state != CDiffData::DIFFSTATE_UNKNOWN)) 
-		if (ShallShowContextMenu(state, nLine))
+		if ((m_nSelBlockStart <= (nLine-1))&&(m_nSelBlockEnd >= (nLine-1))&&(ShallShowContextMenu(state, nLine)))
 		{
 			OnContextMenu(point, nLine);
 			m_nSelBlockStart = -1;
