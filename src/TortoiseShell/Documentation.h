@@ -348,6 +348,11 @@
  */
 
 /**
+ * \defgroup TortoiseMerge TortoiseMerge
+ * A separate Diff/Merge program, shipped with TortoiseSVN.
+ */
+
+/**
  * \defgroup Utils Utils
  * Utility classes and functions not specific to TortoiseSVN, i.e. they
  * could be used in other programs too.
