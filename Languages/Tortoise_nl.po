@@ -6,6 +6,14 @@
 # Note: Lines starting with #: are required, they are the link to the resource IDs
 #       Lines starting with # provide comments to the translators
 #
+# 20050318 JML: Added a list of frequently used translations
+#
+# English                               Dutch
+# ----------------------------------    --------------------------------
+# Commit                                Vastleggen
+# Revision                              Revisie
+# Update                                Verversen
+#
 # Authors:
 # Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>
 # Yves Reynhout <yvesr@ultragenda.com>
@@ -13,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-04 16:20+0100\n"
+"PO-Revision-Date: 2005-03-18 14:14+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,6 +115,16 @@ msgid ""
 msgstr ""
 "%s\n"
 "Wilt u het toch verwijderen?"
+
+#: ID:69
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"is geen bestand maar een map!\n"
+"TortoiseMerge kan geen verschillen in mappen tonen."
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
@@ -408,6 +426,7 @@ msgstr "- %d"
 
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -601,10 +620,12 @@ msgstr "Bestand op afstand toegevoegd"
 #: ID:145
 msgid ""
 "Added the file(s)\n"
-"%sto the ignore list."
+"%s\n"
+"to the ignore list."
 msgstr ""
-"Geselecteerde bestand(en)\n"
-"%stoegevoegd aan de negeerlijst."
+"Bestand(en)\n"
+"%s\n"
+"toegevoegd aan de negeerlijst."
 
 #: ID:263
 msgid "Adding"
@@ -832,21 +853,9 @@ msgstr "Geeft van een bestand de auteur per regel"
 msgid "Br&owse..."
 msgstr "&Bladeren..."
 
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "Tak / Label"
-
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Tak / Label succesvol gemaakt!"
-
-#: Control-ID:1182
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "Maak tak/label rechtstreeks op de server (HEAD revisie)"
-
-#: Control-ID:1183
-msgid "Branch/Tag the working copy"
-msgstr "Tak/label maken van werkkopie"
 
 #: ID:9
 msgid "Branch/Tag..."
@@ -1109,8 +1118,8 @@ msgid "Compare with &working copy"
 msgstr "Vergelijk met &werkkopie"
 
 #: ID:12
-msgid "Compares the file with the last commited version to show you the changes you made"
-msgstr "Vergelijkt het bestand met de laatste vastgelegde versie om de door u gemaakte wijzigingen te tonen"
+msgid "Compares the file with the last committed revision to show you the changes you made"
+msgstr "Vergelijkt het bestand met de laatste vastgelegde revisie om de door u gemaakte wijzigingen te tonen"
 
 #: ID:74
 msgid "Completed"
@@ -1148,6 +1157,10 @@ msgstr "Gekopieerd"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Op afstand gekopiëerd"
+
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Kopiëren (Tak / Label)"
 
 #: ID:76
 msgid "Copy From Path"
@@ -1211,6 +1224,10 @@ msgid ""
 "%s"
 msgstr "Kan bestand %s niet openen"
 
+#: ID:82
+msgid "Could not remove %s from the ignored list"
+msgstr "%s kon niet uit de negeerlijst worden verwijderd"
+
 #: ID:81
 msgid ""
 "Could not retrieve URL of the file!\n"
@@ -1221,10 +1238,10 @@ msgstr ""
 
 #: ID:66
 msgid ""
-"Could not retrieve version %s of the file %s.\n"
+"Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
-"Kan versie %s van bestand %s niet ophalen.\n"
+"Kan revisie %s van bestand %s niet ophalen.\n"
 "Patchen is niet mogelijk!"
 
 #: ID:64
@@ -1280,6 +1297,10 @@ msgstr "Maak hier een bibliotheek"
 #: ID:8
 msgid "Create Repository here"
 msgstr "Maak hier een bibliotheek"
+
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "Maak een kopie in de bibliotheek van:"
 
 #: ID:126
 msgid "Created folder remotely"
@@ -1465,6 +1486,10 @@ msgstr "E&xtern"
 msgid "EXT"
 msgstr "EXT"
 
+#: ID:113
+msgid "Edit Author"
+msgstr "Auteur wijzigen"
+
 #: ID:12
 msgid "Edit Conflicts"
 msgstr "Bewerk conflicten"
@@ -1476,6 +1501,18 @@ msgstr "Wijzig extensie-specifiek Diff-programma"
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "Wijzig extensie-specifiek Merge-programma"
+
+#: ID:113
+msgid "Edit Log Message"
+msgstr "Logboek boodschap wijzigen"
+
+#: ID:115
+msgid "Edit author name"
+msgstr "Wijzig auteursnaam"
+
+#: ID:115
+msgid "Edit log message"
+msgstr "Logboek boodschap wijzigen"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -1607,8 +1644,8 @@ msgid "Fetching File..."
 msgstr "Bestand ophalen..."
 
 #: ID:313
-msgid "Fetching version %s of file:"
-msgstr "Versie %s van bestand ophalen:"
+msgid "Fetching revision %s of file:"
+msgstr "Revisie %s van bestand ophalen:"
 
 #: ID:63
 #: ID:74
@@ -1726,9 +1763,9 @@ msgstr "Soort grafiek:"
 msgid "H&ead Revision"
 msgstr "&Meest recente revisie (HEAD)"
 
-#: ID:238
-msgid "Head revision of the repository is: %d"
-msgstr "Head revisie van de bibliotheek is: %d"
+#: Control-ID:1182
+msgid "HEAD revision in the repository"
+msgstr "HEAD revisie van de bibliotheek"
 
 #: ID:12
 #: Control-ID:1004
@@ -1979,6 +2016,14 @@ msgstr "Logboek boodschappen"
 msgid "Look and Feel"
 msgstr "Uitzicht en Gedrag"
 
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "Laagste revisie: %ld - Hoogste revisie: %ld"
+
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "Lowest Revision: %ld - Highest Revision: %ld - Head revisie: %ld"
+
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "De DLL van het mailsysteem is ongeldig."
@@ -2186,10 +2231,6 @@ msgstr "OVR"
 msgid "One or more files are in a conflicted state."
 msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
 
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "Eenrichtings-&Diff"
-
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Alleen de bovenste map ophalen"
@@ -2250,9 +2291,9 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
-msgstr "Plak namen van gewijzigde bestanden"
+#: ID:172
+msgid "Paste filename list"
+msgstr "Plak lijst bestandsnamen"
 
 #: ID:376
 msgid "Patch All"
@@ -2482,6 +2523,10 @@ msgstr "Remote status"
 msgid "Remote Text Status"
 msgstr "Status remote tekst"
 
+#: ID:15
+msgid "Remove From Ignore List"
+msgstr "Verwijder uit negeerlijst"
+
 #: Control-ID:65535
 msgid "Removed"
 msgstr "Verwijderd"
@@ -2489,6 +2534,20 @@ msgstr "Verwijderd"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Bestand/map verwijderd"
+
+#: ID:145
+msgid ""
+"Removed the file(s)\n"
+"%s\n"
+"from the ignored list."
+msgstr ""
+"Geselecteerde bestand(en)\n"
+"%s\n"
+"verwijderd uit de negeerlijst."
+
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "Verwijdert bestand(en) of het bestandspatroon uit de negeerlijst"
 
 #: Dlg-ID:151
 msgid "Rename"
@@ -2858,7 +2917,7 @@ msgid "Short &date/time format in log messages"
 msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 
 #: ID:12
-msgid "Short Url of subversion items"
+msgid "Short Url of Subversion items"
 msgstr "Korte URL van Subversion onderdelen"
 
 #: Control-ID:1031
@@ -2967,10 +3026,14 @@ msgstr "Overgeslagen"
 msgid "Skipped missing target"
 msgstr "Ontbrekend doel overgeslagen"
 
+#: Control-ID:1185
+msgid "Specific revision in repository"
+msgstr "Bepaalde revisie in de bibliotheek"
+
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-" should exclude from version control.\n"
+"should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Geef de bestanden of mappen die TortoiseSVN\n"
@@ -3270,7 +3333,7 @@ msgid ""
 msgstr ""
 "De werkkopie is gewijzigd!\n"
 "<hr=100%>\n"
-"U moet eerst de wijzigingen vastleggen of de originele versie terugzetten."
+"U moet eerst de wijzigingen vastleggen of de originele revisie terugzetten."
 
 # ID:81,
 #: ID:81
@@ -3434,12 +3497,16 @@ msgstr "TortoiseSVN tweaken"
 msgid "Two File Diff"
 msgstr "Diff van twee bestanden"
 
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "Tweerichtings-&Diff"
+
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
 
 #: ID:12
-msgid "URL of subversion items"
+msgid "URL of Subversion items"
 msgstr "URL van Subversion onderdelen"
 
 #: Control-ID:65535
@@ -3683,6 +3750,10 @@ msgstr "Diff van spaties en witregels"
 msgid "Whitespaces"
 msgstr "Spaties en lege regels"
 
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "Werkkopie"
+
 #: ID:80
 msgid ""
 "Working copy relocated to\n"
@@ -3699,9 +3770,8 @@ msgstr "Ja"
 msgid "Yes To All"
 msgstr "Ja op alles"
 
-# ID:201,
 #: ID:201
-msgid "You already have the most current version installed."
+msgid "You already have the latest version installed."
 msgstr "De meest recente versie is reeds geïnstalleerd."
 
 #: ID:144
@@ -3779,12 +3849,12 @@ msgstr ""
 "de werkkopie zal dus niet exact gelijk zijn aan de revisie waarnaar u ververst!"
 
 #: MenuEntry
-msgid "Zoom &In"
-msgstr "&Inzoomen"
+msgid "Zoom &In\tCtrl-+"
+msgstr "&Inzoomen\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out"
-msgstr "&Uitzoomen"
+msgid "Zoom &Out\tCtrl--"
+msgstr "&Uitzoomen\tCtrl--"
 
 #: ID:10
 msgid "added"
@@ -3996,7 +4066,7 @@ msgstr ""
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
 "Author, LastChangedBy\t\tThe last person to modify the file.\n"
 "Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
@@ -4004,7 +4074,7 @@ msgid ""
 msgstr ""
 "svn:keywords\n"
 "Termen die vervangen moeten worden. Geldige termen zijn:\n"
-"URL, HeadURL\t\t\tDe URL voor de recentste versie van het object.\n"
+"URL, HeadURL\t\t\tDe URL voor de recentste revisie van het object.\n"
 "Author, LastChangedBy\t\tDe persoon die de laatste wijziging in het bestand heeft gedaan.\n"
 "Date, LastChangedDate\t\tDe datum/tijd van de laatste wijziging van het object.\n"
 "Rev, LastChangedRevision\tDe laatste revisie waarin het object is gewijzigd.\n"
