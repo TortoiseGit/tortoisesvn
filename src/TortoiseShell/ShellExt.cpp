@@ -29,7 +29,7 @@
 #include "ShellExt.h"
 #include "..\\version.h"
 #include "UnicodeStrings.h"
-
+#include "atltrace.h"
 
 
 // *********************** CShellExt *************************
@@ -39,6 +39,17 @@ CShellExt::CShellExt(FileState state)
 	
     m_cRef = 0L;
     g_cRefThisDll++;
+
+	hMutex = OpenMutex(MUTEX_ALL_ACCESS, FALSE, _T("TortoiseSVNShell"));
+	if (hMutex == NULL)
+	{
+		hMutex = CreateMutex(NULL, NULL,  _T("TortoiseSVNShell"));
+		ATLTRACE2(_T("created mutex\n"));
+	}
+	else
+	{
+		ATLTRACE2(_T("opened mutex\n"));
+	}
 	
     INITCOMMONCONTROLSEX used = {
         sizeof(INITCOMMONCONTROLSEX),

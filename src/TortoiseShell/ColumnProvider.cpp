@@ -155,29 +155,49 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 #endif
 
 		TCHAR buf[MAX_PATH];
-
+		DWORD dwWaitResult = 0;
 		switch (pscid->pid) 
 		{
 			case 0:
-				GetColumnStatus(path);
-				SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
-				szInfo = buf;
+				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					GetColumnStatus(path);
+					SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+					szInfo = buf;
+					ReleaseMutex(hMutex);
+				} // if (dwWaitResult == WAIT_OBJECT_0)
 				break;
 			case 1:
-				GetColumnStatus(path);
-				if (columnrev >= 0)
-					_sntprintf(buf, MAX_PATH, _T("%d"), columnrev);
-				else
-					buf[0] = '\0';
+				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					GetColumnStatus(path);
+					if (columnrev >= 0)
+						_sntprintf(buf, MAX_PATH, _T("%d"), columnrev);
+					else
+						buf[0] = '\0';
+					ReleaseMutex(hMutex);
+				}
 				szInfo = buf;
 				break;
 			case 2:
-				GetColumnStatus(path);
-				szInfo = itemurl;
+				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					GetColumnStatus(path);
+					szInfo = itemurl;
+					ReleaseMutex(hMutex);
+				}
 				break;
 			case 3:
-				GetColumnStatus(path);
-				szInfo = itemshorturl;
+				dwWaitResult = WaitForSingleObject(hMutex, 10000);
+				if (dwWaitResult == WAIT_OBJECT_0)
+				{
+					GetColumnStatus(path);
+					szInfo = itemshorturl;
+					ReleaseMutex(hMutex);
+				}
 				break;
 			default:
 				return S_FALSE;

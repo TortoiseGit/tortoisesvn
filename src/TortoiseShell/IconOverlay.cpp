@@ -181,8 +181,13 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 				}
 				else
 				{
-					filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
-					status = s->status;
+					DWORD dwWaitResult = WaitForSingleObject(hMutex, 10000);
+					if (dwWaitResult == WAIT_OBJECT_0)
+					{
+						filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
+						status = s->status;
+						ReleaseMutex(hMutex);
+					} // if (dwWaitResult == WAIT_OBJECT_0) 
 				}
 			} // if (PathFileExists(buf))
 			else
@@ -192,8 +197,13 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 		} // if (PathIsDirectory(filepath))
 		else
 		{
-			filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
-			status = s->status;
+			DWORD dwWaitResult = WaitForSingleObject(hMutex, 10000);
+			if (dwWaitResult == WAIT_OBJECT_0)
+			{
+				filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
+				status = s->status;
+				ReleaseMutex(hMutex);
+			} // if (dwWaitResult == WAIT_OBJECT_0)
 		}
 		filepath.clear();
 		filepath = sPath;
