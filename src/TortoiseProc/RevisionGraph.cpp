@@ -24,6 +24,12 @@
 #include "SVN.h"
 #include ".\revisiongraph.h"
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
 
 CRevisionGraph::CRevisionGraph(void) : SVNPrompt()
 	, m_bCancelled(FALSE)
@@ -561,23 +567,26 @@ BOOL CRevisionGraph::CheckForwardCopies()
 				// same level and url, now connect those two
 				// but first check if they're not already connected!
 				BOOL bConnected = FALSE;
-				for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)
+				if (reventry->action != 'D')
 				{
-					if (((source_entry *)reventry->sourcearray.GetAt(k))->revisionto == preventry->revision)
-						bConnected = TRUE;
-				}
-				for (INT_PTR k=0; k<preventry->sourcearray.GetCount(); ++k)
-				{
-					if (((source_entry *)preventry->sourcearray.GetAt(k))->revisionto == reventry->revision)
-						bConnected = TRUE;
-				}
-				if (!bConnected)
-				{
-					source_entry * sentry = new source_entry;
-					sentry->pathto = preventry->url;
-					sentry->revisionto = preventry->revision;
-					reventry->sourcearray.Add(sentry);
-					break;
+					for (INT_PTR k=0; k<reventry->sourcearray.GetCount(); ++k)
+					{
+						if (((source_entry *)reventry->sourcearray.GetAt(k))->revisionto == preventry->revision)
+							bConnected = TRUE;
+					}
+					for (INT_PTR k=0; k<preventry->sourcearray.GetCount(); ++k)
+					{
+						if (((source_entry *)preventry->sourcearray.GetAt(k))->revisionto == reventry->revision)
+							bConnected = TRUE;
+					}
+					if (!bConnected)
+					{
+						source_entry * sentry = new source_entry;
+						sentry->pathto = preventry->url;
+						sentry->revisionto = preventry->revision;
+						reventry->sourcearray.Add(sentry);
+						break;
+					}
 				}
 			}
 		}
