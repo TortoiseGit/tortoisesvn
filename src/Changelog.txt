@@ -31,6 +31,9 @@
 - BUG: Changes made on folders in the repo-
        browser weren't shown (refresh did
        not work). (Stefan)
+- BUG: "An invalid argument was encountered"
+       in the log-dialog when working only
+       with keyboard got fixed. (Stefan)
 
 Version 0.20.2
 - BUG: crash bug not fixed in 0.20.1 (one Ctrl-Z

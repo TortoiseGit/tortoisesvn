@@ -162,7 +162,8 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
-	return TRUE;  // return TRUE unless you set the focus to a control
+	GetDlgItem(IDC_LOGLIST)->SetFocus();
+	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
@@ -371,7 +372,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	else
 	{
 		//m_sLogMsgCtrl = "";
-		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex));
+		FillLogMessageCtrl(m_arLogMessages.GetAt(0));
 		UpdateData(FALSE);
 	}
 	*pResult = 0;
