@@ -4,21 +4,19 @@ Note: I assume that you already have compiled
 Subversion and TortoiseSVN before. If not please
 follow the instructions in build.txt.
 
-- go to SVN\Subversion\build\win32 and delete
-  the folder msvc-vcproj and all files in it.
 - get either a subversion source tarball or
   switch your working copy to the latest
   release tag.
-- run > python gen-make.py -t vcproj
-  in the Subversion directory
 - check if there are new versions of
   neon
   apache webserver
   openssl
   zlib
   and download/build them if needed.
+- run > python gen-make.py -t vcproj --with-openssl=path\to\openssl --with-zlib=path\to\zlib
+  in the Subversion directory
 - double click on the file subversion_vcnet.sln
-  and compile the project __ALL__
+  and rebuild the project __ALL__
 - check out the latest version of TortoiseSVN
   directly from the Subversion repository.
 - edit the file version.h and change all version
