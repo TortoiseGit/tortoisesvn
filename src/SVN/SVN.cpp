@@ -37,6 +37,14 @@ SVN::SVN(void)
 	if (Err == 0)
 		Err = svn_config_get_config (&(ctx.config), NULL, pool);
 
+	if (Err != 0)
+	{
+		::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		svn_pool_destroy (pool);
+		svn_pool_destroy (parentpool);
+		apr_terminate();
+		exit(-1);
+	} // if (Err != 0) 
 	// set up authentication
 
 	svn_auth_provider_object_t *provider;

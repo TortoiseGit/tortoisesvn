@@ -4,6 +4,8 @@
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)
+_ BUG: If the config file was messed up with TSVN just
+       crashed instead of showing the error and exit. (Stefan)
 - BUG: When sorting by a column in the commit dialog
        the selections (checkboxes) got lost. (Stefan)
 - BUG: When the recursive overlay was activated, the

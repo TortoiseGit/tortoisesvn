@@ -81,7 +81,15 @@ SVNStatus::SVNStatus(void)
 	ctx.auth_baton = m_auth_baton;
 
 	// set up the configuration
-	svn_config_get_config (&(ctx.config), NULL, m_pool);
+	m_err = svn_config_get_config (&(ctx.config), NULL, m_pool);
+
+	if (m_err)
+	{
+		::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+		svn_pool_destroy (m_pool);					// free the allocated memory
+		apr_terminate();
+		exit(-1);
+	} // if (m_err) 
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
