@@ -28,7 +28,8 @@ IMPLEMENT_DYNAMIC(CSwitchDlg, CDialog)
 CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CSwitchDlg::IDD, pParent)
 	, m_URL(_T(""))
-	, m_rev(_T("-1"))
+	, m_rev(_T("HEAD"))
+	, Revision(_T("HEAD"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -42,15 +43,12 @@ void CSwitchDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_NUM, m_rev);
-	DDV_MaxChars(pDX, m_rev, 10);
-	DDX_Control(pDX, IDC_REVISION_NUM, m_revctrl);
 }
 
 
 BEGIN_MESSAGE_MAP(CSwitchDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_EN_UPDATE(IDC_REV, OnEnUpdateRev)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
@@ -118,24 +116,9 @@ BOOL CSwitchDlg::OnInitDialog()
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 
-	m_revctrl.SetWindowText(_T(""));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
-}
-
-void CSwitchDlg::OnEnUpdateRev()
-{
-	UpdateData(TRUE);
-	if (m_rev.Compare(_T("-"))==0)
-		return;
-	if (m_rev.IsEmpty())
-		return;
-	long revnum = _tstol((LPCTSTR(m_rev)));
-	if (revnum < -1)
-		revnum = -1;
-	m_rev.Format(_T("%d"),revnum);
-	UpdateData(FALSE);
 }
 
 void CSwitchDlg::OnBnClickedBrowse()
@@ -186,12 +169,12 @@ void CSwitchDlg::OnBnClickedBrowse()
 
 void CSwitchDlg::OnBnClickedNewest()
 {
-	m_revctrl.EnableWindow(FALSE);
+	GetDlgItem(IDC_REVISION_NUM)->EnableWindow(FALSE);
 }
 
 void CSwitchDlg::OnBnClickedRevisionN()
 {
-	m_revctrl.EnableWindow();
+	GetDlgItem(IDC_REVISION_NUM)->EnableWindow(TRUE);
 }
 
 void CSwitchDlg::OnOK()
@@ -202,7 +185,17 @@ void CSwitchDlg::OnOK()
 	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
-		m_rev = _T("-1");
+		m_rev = _T("HEAD");
+	}
+	Revision = SVNRev(m_rev);
+	if (!Revision.IsValid())
+	{
+		CWnd* ctrl = GetDlgItem(IDC_REVISION_NUM);
+		CRect rt;
+		ctrl->GetWindowRect(rt);
+		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
 	}
 
 	m_URLCombo.SaveHistory();

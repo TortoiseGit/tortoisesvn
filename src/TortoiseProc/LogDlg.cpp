@@ -573,7 +573,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 								CSVNProgressDlg dlg;
 								dlg.SetParams(Enum_Merge, false, m_path, url, url, rev);		//use the message as the second url
-								dlg.m_nRevisionEnd = rev-1;
+								dlg.m_RevisionEnd = rev-1;
 								dlg.DoModal();
 							}
 						} // if (CMessageBox::Show(this->m_hWnd, IDS_LOG_REVERT_CONFIRM, IDS_APPNAME, MB_ICONQUESTION) == IDOK) 

@@ -25,6 +25,11 @@
        still some conflict markers in the file. (Stefan)
 - ADD: All edit boxes where a log message can be entered
        support now spell checking and a thesaurus. (Stefan)
+- ADD: Revision numbers can now be entered the same way
+       as the command line client. That means you can
+       enter a revision number as before, but you can
+       also enter "HEAD", "BASE", "PREV", "COMMITTED", "WC"
+       or a date as the revision number. (Stefan)
 - BUG: TortoiseMerge skipped diffs of one line with the
        "Next Diff" or "Previous Diff" commands. (Stefan)
 

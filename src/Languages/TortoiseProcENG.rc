@@ -144,8 +144,8 @@ BEGIN
                     BS_AUTORADIOBUTTON,13,100,76,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,116,74,10
-    EDITTEXT        IDC_REVISION_NUM,100,115,58,14,ES_AUTOHSCROLL | 
-                    ES_NUMBER | WS_DISABLED
+    EDITTEXT        IDC_REVISION_NUM,100,115,136,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
     DEFPUSHBUTTON   "&OK",IDOK,186,143,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,245,143,48,14
     CONTROL         "Only check out the top folder",IDC_NON_RECURSIVE,"Button",
@@ -245,14 +245,14 @@ BEGIN
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,16,268,64
     PUSHBUTTON      "...",IDC_BROWSE,279,16,14,14
     GROUPBOX        "&From Revision",IDC_STATIC,7,35,123,46
-    EDITTEXT        IDC_REVISON_START,13,52,51,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_REVISON_START,13,52,51,14,ES_AUTOHSCROLL
     PUSHBUTTON      "Find",IDC_FINDBRANCHSTART,74,52,50,14
     GROUPBOX        "&To Revision",IDC_STATIC,139,35,154,46
     CONTROL         "&Head Revision",IDC_REVISION_HEAD,"Button",
                     BS_AUTORADIOBUTTON,145,46,81,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    145,62,74,10
-    EDITTEXT        IDC_REVISION_END,219,60,66,14,ES_AUTOHSCROLL | ES_NUMBER | 
+                    145,62,71,10
+    EDITTEXT        IDC_REVISION_END,219,60,66,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
     LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.",
                     IDC_STATIC,7,84,286,26
@@ -438,7 +438,7 @@ BEGIN
                     BS_AUTORADIOBUTTON,13,60,80,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,76,73,10
-    EDITTEXT        IDC_REVISION_NUM,94,75,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
+    EDITTEXT        IDC_REVISION_NUM,94,75,58,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
     DEFPUSHBUTTON   "&OK",IDOK,186,108,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,243,108,50,14
@@ -454,9 +454,8 @@ BEGIN
     CONTROL         "&Head Revision",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
                     13,21,106,10
     CONTROL         "&Revision",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
-                    13,37,111,10
-    EDITTEXT        IDC_REVNUM,132,36,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
-                    WS_DISABLED
+                    13,37,85,10
+    EDITTEXT        IDC_REVNUM,105,36,85,14,ES_AUTOHSCROLL | WS_DISABLED
     DEFPUSHBUTTON   "&OK",IDOK,89,81,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,146,81,50,14
     CONTROL         "Only update the top folder",IDC_NON_RECURSIVE,"Button",

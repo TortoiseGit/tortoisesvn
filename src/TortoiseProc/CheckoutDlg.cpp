@@ -31,7 +31,7 @@
 IMPLEMENT_DYNAMIC(CCheckoutDlg, CDialog)
 CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCheckoutDlg::IDD, pParent)
-	, m_lRevision(-1)
+	, Revision(_T("HEAD"))
 	, m_strCheckoutDirectory(_T(""))
 	, IsExport(FALSE)
 	, m_bNonRecursive(FALSE)
@@ -49,10 +49,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_REVISION_NUM, m_editRevision);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
-	if (m_editRevision.IsWindowEnabled())
-	{
-		DDX_Text(pDX, IDC_REVISION_NUM, m_lRevision);
-	}
+	DDX_Text(pDX, IDC_REVISION_NUM, m_sRevision);
 	DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strCheckoutDirectory);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
@@ -144,6 +141,23 @@ void CCheckoutDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
+	// if head revision, set revision as -1
+	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
+	{
+		Revision = SVNRev(_T("HEAD"));
+	}
+	else
+		Revision = SVNRev(m_sRevision);
+	if (!Revision.IsValid())
+	{
+		CWnd* ctrl = GetDlgItem(IDC_REVISION_NUM);
+		CRect rt;
+		ctrl->GetWindowRect(rt);
+		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
+	}
+
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 
@@ -161,11 +175,6 @@ void CCheckoutDlg::OnOK()
 		} // if (GetDriveType(temp)==DRIVE_REMOTE) 
 	} // if (m_url.Left(7).CompareNoCase(_T("file://"))==0) 
 
-	// if head revision, set revision as -1
-	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
-	{
-		m_lRevision = -1;
-	}
 	if (m_strCheckoutDirectory.IsEmpty())
 	{
 		return;			//don't dismiss the dialog

@@ -26,7 +26,7 @@
 IMPLEMENT_DYNAMIC(CUpdateDlg, CDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CUpdateDlg::IDD, pParent)
-	, m_revnum(-1)
+	, Revision(_T("HEAD"))
 	, m_bNonRecursive(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -39,11 +39,7 @@ CUpdateDlg::~CUpdateDlg()
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_REVNUM, m_editRevNum);
-	if (m_editRevNum.IsWindowEnabled())
-	{
-		DDX_Text(pDX, IDC_REVNUM, m_revnum);
-	}
+	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
 
@@ -118,11 +114,22 @@ void CUpdateDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
+	Revision = SVNRev(m_sRevision);
 	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
 	{
-		m_revnum = -1;
+		Revision = SVNRev(_T("HEAD"));
 	}
+	if (!Revision.IsValid())
+	{
+		CWnd* ctrl = GetDlgItem(IDC_REVNUM);
+		CRect rt;
+		ctrl->GetWindowRect(rt);
+		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
+	}
+
 	UpdateData(FALSE);
 
 	CDialog::OnOK();

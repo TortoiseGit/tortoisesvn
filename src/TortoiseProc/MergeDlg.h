@@ -71,12 +71,14 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;
+	CString		m_sStartRev;
+	CString		m_sEndRev;
 public:
 	CString m_URL;
 	CString m_BranchURL;
 	CHistoryCombo m_URLCombo;
-	long m_lStartRev;
-	long m_lEndRev;
+	SVNRev StartRev;
+	SVNRev EndRev;
 	afx_msg void OnBnClickedRevisionHead();
 	afx_msg void OnBnClickedRevisionN();
 	afx_msg void OnBnClickedFindbranchstart();

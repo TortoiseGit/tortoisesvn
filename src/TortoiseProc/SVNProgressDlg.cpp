@@ -34,11 +34,12 @@ int		CSVNProgressDlg::m_nSortedColumn = -1;
 IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableDialog)
 CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CSVNProgressDlg::IDD, pParent)
+	, m_Revision(_T("HEAD"))
+	, m_RevisionEnd(0)
 {
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-	m_nRevisionEnd = 0;
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()
@@ -133,7 +134,7 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 		{
 			temp.Format(IDS_PROGRS_ATREV, rev);
 			m_ProgList.SetItemText(count, 1, temp);
-			m_nRevisionEnd = rev;
+			m_RevisionEnd = rev;
 		}
 		//m_ProgList.SetItemText(iInsertedAt, 2, mime_type);
 		Data * data = new Data();
@@ -156,14 +157,14 @@ BOOL CSVNProgressDlg::Notify(CString path, svn_wc_notify_action_t action, svn_no
 	return TRUE;
 }
 
-void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, CString path, CString url /* = "" */, CString message /* = "" */, LONG revision /* = -1 */, CString modName /* = "" */)
+void CSVNProgressDlg::SetParams(Command cmd, BOOL isTempFile, CString path, CString url /* = "" */, CString message /* = "" */, SVNRev revision /* = -1 */, CString modName /* = "" */)
 {
 	m_Command = cmd;
 	m_IsTempFile = isTempFile;
 	m_sPath = path;
 	m_sUrl = url;
 	m_sMessage = message;
-	m_nRevision = revision;
+	m_Revision = revision;
 	m_sModName = modName;
 }
 
@@ -257,7 +258,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Checkout:			//no tempfile!
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
 			pDlg->SetWindowText(sWindowTitle);
-			if (!pDlg->Checkout(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_nRevision, pDlg->m_IsTempFile /* temfile used as recursive/nonrecursive */))
+			if (!pDlg->Checkout(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_Revision, pDlg->m_IsTempFile /* temfile used as recursive/nonrecursive */))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
@@ -285,13 +286,13 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					CString sfile;
 					CStringA uuid;
 					std::map<CStringA, LONG> uuidmap;
-					LONG revstore = pDlg->m_nRevision;
+					LONG revstore = pDlg->m_Revision;
 					while (file.ReadString(strLine))
 					{
 						SVNStatus st;
 						LONG headrev = -1;
-						pDlg->m_nRevision = revstore;
-						if (pDlg->m_nRevision == (-1))
+						pDlg->m_Revision = revstore;
+						if (pDlg->m_Revision.IsHead())
 						{
 							if ((headrev = st.GetStatus(strLine, TRUE)) != (-2))
 							{
@@ -306,10 +307,10 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 											uuidmap[uuid] = headrev;
 										else
 											headrev = iter->second;
-										pDlg->m_nRevision = headrev;
+										pDlg->m_Revision = headrev;
 									} // if (st.status->entry->uuid)
 									else
-										pDlg->m_nRevision = headrev;
+										pDlg->m_Revision = headrev;
 								} // if (st.status->entry != NULL) 
 							} // if ((headrev = st.GetStatus(strLine)) != (-2)) 
 							else
@@ -320,14 +321,14 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 										pDlg->m_nUpdateStartRev = st.status->entry->cmt_rev;
 								}
 							}
-						} // if (pDlg->m_nRevision == (-1)) 
+						} // if (pDlg->m_Revision.IsHead()) 
 						TRACE(_T("update file %s\n"), strLine);
-						if (!pDlg->Update(strLine, pDlg->m_nRevision, (pDlg->m_sModName.Compare(_T("yes"))!=0)))
+						if (!pDlg->Update(strLine, pDlg->m_Revision, (pDlg->m_sModName.Compare(_T("yes"))!=0)))
 						{
 							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
 							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
-						} // if (!pDlg->Update(strLine, pDlg->m_nRevision, true))  
+						}
 						updateFileCounter++;
 						sfile = strLine;
 					} // while (file.ReadString(strLine)) 
@@ -346,17 +347,17 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				// (either a file or a directory)
 				if (updateFileCounter == 1)
 					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
-			}
+			} // if (pDlg->m_IsTempFile) 
 			else
 			{
 				//check the revision of the directory before the update
-				LONG rev = pDlg->m_nRevision;
+				LONG rev = pDlg->m_Revision;
 				SVNStatus st;
 				if (st.GetStatus(pDlg->m_sPath) != (-2))
 				{
 					if (st.status->entry != NULL)
 					{
-						pDlg->m_nRevision = st.status->entry->revision;
+						pDlg->m_Revision = st.status->entry->revision;
 					}
 				}
 				if (pDlg->Update(pDlg->m_sPath, rev, true))
@@ -566,20 +567,20 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 						rev = st.status->entry->revision;
 					}
 				}
-				if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, true))
+				if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_Revision, true))
 				{
 					CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					break;
 				} // if (!pDlg->Switch(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, true))
 				pDlg->m_nUpdateStartRev = rev;
-				if (pDlg->m_nRevisionEnd > pDlg->m_nUpdateStartRev)
+				if (pDlg->m_RevisionEnd > pDlg->m_nUpdateStartRev)
 					pDlg->GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 			}
 			break;
 		case Export:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
 			pDlg->SetWindowText(sWindowTitle);
-			if (!pDlg->Export(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_nRevision))
+			if (!pDlg->Export(pDlg->m_sUrl, pDlg->m_sPath, pDlg->m_Revision))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
@@ -587,7 +588,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Merge:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
 			pDlg->SetWindowText(sWindowTitle);
-			if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_nRevision, pDlg->m_sMessage, pDlg->m_nRevisionEnd, pDlg->m_sPath, true, true))
+			if (!pDlg->Merge(pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_sMessage, pDlg->m_RevisionEnd, pDlg->m_sPath, true, true))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
@@ -595,7 +596,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 		case Copy:
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
 			pDlg->SetWindowText(sWindowTitle);
-			if (!pDlg->Copy(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_nRevision, pDlg->m_sMessage))
+			if (!pDlg->Copy(pDlg->m_sPath, pDlg->m_sUrl, pDlg->m_Revision, pDlg->m_sMessage))
 			{
 				CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				break;
@@ -626,7 +627,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
 	CLogDlg dlg;
-	dlg.SetParams(m_sPath, m_nRevisionEnd, m_nUpdateStartRev);
+	dlg.SetParams(m_sPath, m_RevisionEnd, m_nUpdateStartRev);
 	dlg.DoModal();
 }
 

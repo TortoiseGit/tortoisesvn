@@ -61,14 +61,14 @@ protected:
 	afx_msg void OnPaint();
 	virtual void OnOK();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnBnClickedNewest();
+	afx_msg void OnBnClickedRevisionN();
 
 	DECLARE_MESSAGE_MAP()
 
 	HICON m_hIcon;
+	CString m_sRevision;
 public:
-	long m_revnum;			///< the revision number the user entered
+	SVNRev Revision;
 	BOOL m_bNonRecursive;
-	CEdit m_editRevNum;
-	afx_msg void OnBnClickedNewest();
-	afx_msg void OnBnClickedRevisionN();
 };

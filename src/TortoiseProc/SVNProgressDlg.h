@@ -97,7 +97,7 @@ public:
 	 * \param url the url of the repository
 	 * \param revision the revision to work on or to get
 	 */
-	void SetParams(Command cmd, BOOL isTempFile, CString path, CString url = _T(""), CString message = _T(""), LONG revision = -1, CString modName = _T(""));
+	void SetParams(Command cmd, BOOL isTempFile, CString path, CString url = _T(""), CString message = _T(""), SVNRev revision = -1, CString modName = _T(""));
 
 // Dialog Data
 	enum { IDD = IDD_SVNPROGRESS };
@@ -141,8 +141,8 @@ public:			//need to be public for the thread to access
 	CString		m_sUrl;
 	CString		m_sMessage;
 	CStringArray m_templist;
-	LONG		m_nRevision;
-	LONG		m_nRevisionEnd;
+	SVNRev		m_Revision;
+	SVNRev		m_RevisionEnd;
 	LONG		m_nUpdateStartRev;
 	BOOL		m_IsTempFile;
 	BOOL		m_bCancelled;

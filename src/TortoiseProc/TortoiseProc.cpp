@@ -275,7 +275,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 				CSVNProgressDlg progDlg;
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Checkout, !dlg.m_bNonRecursive, strPath, dlg.m_URL, _T(""), dlg.m_lRevision);
+				progDlg.SetParams(Checkout, !dlg.m_bNonRecursive, strPath, dlg.m_URL, _T(""), dlg.Revision);
 				progDlg.DoModal();
 			}
 		}
@@ -308,7 +308,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region update
 		if (comVal.Compare(_T("update"))==0)
 		{
-			LONG rev = -1;
+			SVNRev rev = SVNRev(_T("HEAD"));
 			CString path = parser.GetVal(_T("path"));
 			BOOL bUseTempfile = !parser.HasKey(_T("notempfile"));
 			TRACE(_T("tempfile = %s\n"), path);
@@ -318,7 +318,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CUpdateDlg dlg;
 				if (dlg.DoModal() == IDOK)
 				{
-					rev = dlg.m_revnum;
+					rev = dlg.Revision;
 					if (dlg.m_bNonRecursive)
 						sNonRecursive = _T("yes");
 				}
@@ -474,10 +474,9 @@ BOOL CTortoiseProcApp::InitInstance()
 
 			if (dlg.DoModal() == IDOK)
 			{
-				TRACE(_T("url = %s, revision = %s\n"), dlg.m_URL, dlg.m_rev);
 				CSVNProgressDlg progDlg;
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Switch, false, path, dlg.m_URL, _T(""), _tstol((LPCTSTR)dlg.m_rev));
+				progDlg.SetParams(Switch, false, path, dlg.m_URL, _T(""), dlg.Revision);
 				progDlg.DoModal();
 			}
 		}
@@ -498,7 +497,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
 					CSVNProgressDlg progDlg;
 					m_pMainWnd = &progDlg;
-					progDlg.SetParams(Export, false, path, dlg.m_URL, _T(""), dlg.m_lRevision);
+					progDlg.SetParams(Export, false, path, dlg.m_URL, _T(""), dlg.Revision);
 					progDlg.DoModal();
 				}
 			}
@@ -559,8 +558,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CSVNProgressDlg progDlg;
 				m_pMainWnd = &progDlg;
-				progDlg.SetParams(Merge, false, path, dlg.m_URL, dlg.m_URL, dlg.m_lStartRev);		//use the message as the second url
-				progDlg.m_nRevisionEnd = dlg.m_lEndRev;
+				progDlg.SetParams(Merge, false, path, dlg.m_URL, dlg.m_URL, dlg.StartRev);		//use the message as the second url
+				progDlg.m_RevisionEnd = dlg.EndRev;
 				progDlg.DoModal();
 			}
 		}

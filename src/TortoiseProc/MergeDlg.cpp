@@ -31,8 +31,8 @@ IMPLEMENT_DYNAMIC(CMergeDlg, CDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMergeDlg::IDD, pParent)
 	, m_URL(_T(""))
-	, m_lStartRev(0)
-	, m_lEndRev(-1)
+	, StartRev(0)
+	, EndRev(_T("HEAD"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pLogDlg = NULL;
@@ -48,11 +48,8 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
-	DDX_Text(pDX, IDC_REVISON_START, m_lStartRev);
-	if (GetDlgItem(IDC_REVISION_END)->IsWindowEnabled())
-	{
-		DDX_Text(pDX, IDC_REVISION_END, m_lEndRev);
-	}
+	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
+	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 }
 
 
@@ -145,14 +142,35 @@ void CMergeDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	m_URLCombo.SaveHistory();
-	m_URL = m_URLCombo.GetString();
+	StartRev = SVNRev(m_sStartRev);
+	if (!StartRev.IsValid())
+	{
+		CWnd* ctrl = GetDlgItem(IDC_REVISON_START);
+		CRect rt;
+		ctrl->GetWindowRect(rt);
+		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
+	}
 
 	// if head revision, set revision as -1
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
-		m_lEndRev = -1;
+		EndRev = SVNRev(_T("HEAD"));
 	}
+	if (!EndRev.IsValid())
+	{
+		CWnd* ctrl = GetDlgItem(IDC_REVISION_END);
+		CRect rt;
+		ctrl->GetWindowRect(rt);
+		CPoint point = CPoint((rt.left+rt.right)/2, (rt.top+rt.bottom)/2);
+		CBalloon::ShowBalloon(this, point, IDS_ERR_INVALIDREV, TRUE, IDI_EXCLAMATION);
+		return;
+	}
+
+	m_URLCombo.SaveHistory();
+	m_URL = m_URLCombo.GetString();
+
 
 	UpdateData(FALSE);
 

@@ -20,6 +20,7 @@
 #include "afxwin.h"
 #include "HistoryCombo.h"
 #include "Balloon.h"
+#include "SVNRev.h"
 
 /**
  * \ingroup TortoiseProc
@@ -78,10 +79,11 @@ protected:
 	DECLARE_MESSAGE_MAP()
 protected:
 	CBalloon		m_tooltips;
+	CString			m_sRevision;
 public:
 	CHistoryCombo	m_URLCombo;
 	CString			m_URL;
-	long			m_lRevision;
+	SVNRev			Revision;
 	BOOL			IsExport;
 	BOOL			m_bNonRecursive;
 	CButton			m_butBrowse;
