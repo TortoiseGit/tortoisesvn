@@ -212,48 +212,45 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 			UINT flags;
 			if (uSelCount == 1)
 			{
-				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-				if (bFolder)
-					flags = MF_STRING | MF_GRAYED;
-				else
-					flags = MF_STRING | MF_ENABLED;
-				popup.AppendMenu(flags, ID_POPSAVEAS, temp);						// "Save as..."
+				// Let "Open" be the very first entry, like in Explorer
+				if (GetRevision().IsHead())
+				{
+					if (!(bFolder && url.Left(4).CompareNoCase(_T("http")) != 0))
+					{
+						temp.LoadString(IDS_REPOBROWSE_OPEN);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPOPEN, temp);		// "open"
+					}
+				}
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);			// "Show Log..."
 
-				temp.LoadString(IDS_REPOBROWSE_REFRESH);
 				if (bFolder)
-					flags = MF_STRING | MF_ENABLED;
+				{
+					temp.LoadString(IDS_REPOBROWSE_REFRESH);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPREFRESH, temp);		// "Refresh"
+				}
 				else
-					flags = MF_STRING | MF_GRAYED;
-				popup.AppendMenu(flags, ID_POPREFRESH, temp);						// "Refresh"
+				{
+					temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSAVEAS, temp);		// "Save as..."
+				}
 
 				if (GetRevision().IsHead())
 				{
-					temp.LoadString(IDS_REPOBROWSE_OPEN);
-					if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
-						flags = MF_STRING | MF_GRAYED;
-					else
-						flags = MF_STRING | MF_ENABLED;
-					popup.AppendMenu(flags, ID_POPOPEN, temp);							// "open"
+					popup.AppendMenu(MF_SEPARATOR);
 
-					temp.LoadString(IDS_REPOBROWSE_MKDIR);
 					if (bFolder)
-						flags = MF_STRING | MF_ENABLED;
-					else
-						flags = MF_STRING | MF_GRAYED;
-					popup.AppendMenu(flags, ID_POPMKDIR, temp);							// "create directory"
+					{
+						temp.LoadString(IDS_REPOBROWSE_MKDIR);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPMKDIR, temp);	// "create directory"
+
+						temp.LoadString(IDS_REPOBROWSE_IMPORT);
+						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPIMPORT, temp);	// "Add/Import"
+					}
 
 					temp.LoadString(IDS_REPOBROWSE_DELETE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPDELETE, temp);		// "Remove"
-
-					temp.LoadString(IDS_REPOBROWSE_IMPORT);
-					if (bFolder)
-						flags = MF_STRING | MF_ENABLED;
-					else
-						flags = MF_STRING | MF_GRAYED;
-					popup.AppendMenu(flags, ID_POPIMPORT, temp);						// "Add/Import"
 
 					temp.LoadString(IDS_REPOBROWSE_RENAME);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPRENAME, temp);		// "Rename"

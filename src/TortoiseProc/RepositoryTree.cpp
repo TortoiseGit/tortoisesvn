@@ -346,7 +346,10 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 	if (rvi.nState & RVIS_TREECLOSED)
 	{
 		if (GetItemData(GetItemIndex(pNMTreeView->hItem)) == 0)
+		{
+			DeleteDummyItem(pNMTreeView->hItem);
 			LoadChildItems(pNMTreeView->hItem);
+		}
 	}
 }
 
