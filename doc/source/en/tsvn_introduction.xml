@@ -244,27 +244,7 @@
 			</indexterm>
 			<title>System requirements</title>
 			<para>
-				TortoiseSVN runs on Windows 98/Me, Win2k SP2 or WinXP,
-				IE5.5 or later.
-			</para>
-			<para>
-				It also works on WinNT4 and Win95, but you need to have the
-				IE4 shell extensions installed to get a newer shell version.
-				Check the following FAQ entry
-				<xref linkend="tsvn-faq-installation-1"/>
-				to find out how.
-				The minimum shell version is 4.72! We have reports that
-				TortoiseSVN works on these old systems,
-				but use it at your own risk.
-			</para>
-			<para>
-				Win98/ME <emphasis>can not</emphasis> host BDB repositories,
-				check the following Subversion FAQ entry
-				<ulink url="http://subversion.tigris.org/project_faq.html#portability">
-					<citetitle>What operating systems does Subversion run on?</citetitle>
-				</ulink>
-				to find out why. However, you can use an Fsfs repository,
-				introduced in Subversion 1.1.0.
+				TortoiseSVN runs on Win2k SP2, WinXP or higher.
 			</para>
 		</sect2>
 		<sect2>
@@ -272,8 +252,8 @@
 			<para>
 				TortoiseSVN comes with an easy to use installer. Doubleclick on
 				the installer file and follow the instructions. The installer
-				will take care of the rest. On WinNT, Win2K, WinXP and later,
-				be sure to select the <literal>Install for all users</literal>
+				will take care of the rest. 
+				Make sure to select the <literal>Install for all users</literal>
 				option, unless you <emphasis>really</emphasis> want to restrict
 				its use to the current user only.
 			</para>
