@@ -1232,7 +1232,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (popup.CreatePopupMenu())
 			{
 				CString temp;
-				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added))
+				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added)
+					&&(wcStatus != svn_wc_status_missing)&&(wcStatus != svn_wc_status_deleted))
 				{
 					if (GetSelectedCount() == 1)
 					{
