@@ -19,6 +19,7 @@
 #pragma once
 
 #include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "Balloon.h"
 #include "SpellEdit.h"
 #include "SVNStatusListCtrl.h"
@@ -49,7 +50,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CLogPromptDlg : public CResizableDialog
+class CLogPromptDlg : public CStandAloneDialog<CResizableDialog>
 {
 	DECLARE_DYNAMIC(CLogPromptDlg)
 
@@ -65,16 +66,12 @@ private:
 	enum { IDD = IDD_LOGPROMPT };
 
 protected:
-	HICON		m_hIcon;
-
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();

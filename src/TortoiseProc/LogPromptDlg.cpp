@@ -35,15 +35,14 @@ static char THIS_FILE[] = __FILE__;
 
 // CLogPromptDlg dialog
 
-IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CLogPromptDlg, BaseDialogClass)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CLogPromptDlg::IDD, pParent)
+	: BaseDialogClass(CLogPromptDlg::IDD, pParent)
 	, m_sLogMessage(_T(""))
 	, m_bRecursive(FALSE)
 	, m_bShowUnversioned(FALSE)
 	, m_bBlock(FALSE)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CLogPromptDlg::~CLogPromptDlg()
@@ -52,7 +51,7 @@ CLogPromptDlg::~CLogPromptDlg()
 
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	BaseDialogClass::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_LogMessage);
@@ -63,7 +62,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
+BEGIN_MESSAGE_MAP(CLogPromptDlg, BaseDialogClass)
 	ON_WM_SIZE()
 	ON_WM_SIZING()
 	ON_WM_PAINT()
@@ -83,45 +82,11 @@ END_MESSAGE_MAP()
 // to draw the icon.  For MFC applications using the document/view model,
 // this is automatically done for you by the framework.
 
-void CLogPromptDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-// the minimized window.
-HCURSOR CLogPromptDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
 
 BOOL CLogPromptDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	// when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	BaseDialogClass::OnInitDialog();
+
 	LOGFONT LogFont;
 	LogFont.lfHeight         = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8), GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
 	LogFont.lfWidth          = 0;
@@ -357,7 +322,7 @@ void CLogPromptDlg::OnOK()
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 		UpdateData(FALSE);		
 	}
-	CResizableDialog::OnOK();
+	BaseDialogClass::OnOK();
 }
 
 UINT CLogPromptDlg::StatusThreadEntry(LPVOID pVoid)
@@ -454,7 +419,7 @@ void CLogPromptDlg::OnCancel()
 	UpdateData(TRUE);
 	m_OldLogs.AddString(m_sLogMessage, 0);
 	m_OldLogs.SaveHistory();
-	CResizableDialog::OnCancel();
+	BaseDialogClass::OnCancel();
 }
 
 void CLogPromptDlg::OnBnClickedSelectall()
@@ -476,7 +441,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 		case VK_F5:
 			{
 				if (m_bBlock)
-					return CResizableDialog::PreTranslateMessage(pMsg);
+					return BaseDialogClass::PreTranslateMessage(pMsg);
 				Refresh();
 			}
 			break;
@@ -501,7 +466,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return CResizableDialog::PreTranslateMessage(pMsg);
+	return BaseDialogClass::PreTranslateMessage(pMsg);
 }
 
 void CLogPromptDlg::Refresh()
