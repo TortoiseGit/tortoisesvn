@@ -183,9 +183,9 @@ DONE_ERROR:
 	//return TRUE;		// don't throw an error for an unknown ID, just ignore it
 }
 
-BOOL CResModule::ReplaceString(UINT nID)
+BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
 {
-	HRSRC		hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_STRING);
+	HRSRC		hrsrc = FindResourceEx(m_hResDll, RT_STRING, MAKEINTRESOURCE(nID), wLanguage);
 	HGLOBAL		hglStringTable;
 	LPWSTR		p;
 
@@ -255,7 +255,7 @@ BOOL CResModule::ReplaceString(UINT nID)
 		if (newlen)
 		{
 			newTable[index++] = newlen;
-			wcscpy((wchar_t *)&newTable[index], szBuf);
+			wcsncpy((wchar_t *)&newTable[index], szBuf, newlen);
 			index += newlen;
 			m_bTranslatedStrings++;
 		} // if (newlen)
@@ -263,14 +263,14 @@ BOOL CResModule::ReplaceString(UINT nID)
 		{
 			newTable[index++] = len;
 			if (len)
-				wcscpy((wchar_t *)&newTable[index], p);
+				wcsncpy((wchar_t *)&newTable[index], p, len);
 			index += len;
 			if (len)
 				m_bDefaultStrings++;
 		}
 		p += len;
 	}
-	if (!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), 1033, newTable, (nMem + (nMem % 2))*2))
+	if (!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), wLanguage, newTable, (nMem + (nMem % 2))*2))
 	{
 		delete [] newTable;
 		goto DONE_ERROR;
@@ -339,15 +339,15 @@ DONE_ERROR:
 	MYERROR;
 }
 
-BOOL CResModule::ReplaceMenu(UINT nID)
+BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
 {
-	HRSRC		hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_MENU);
+	HRSRC		hrsrc = FindResourceEx(m_hResDll, RT_MENU, MAKEINTRESOURCE(nID), wLanguage);
 	HGLOBAL		hglMenuTemplate;
 	WORD		version, offset;
 	LPWSTR		p;
 
 	if (!hrsrc)
-		MYERROR;
+		MYERROR;	//just the language wasn't found
 
 	hglMenuTemplate = LoadResource(m_hResDll, hrsrc);
 
@@ -385,7 +385,7 @@ BOOL CResModule::ReplaceMenu(UINT nID)
 				delete [] newMenu;
 				goto DONE_ERROR;
 			} // if (!CountMemReplaceMenuResource(p, &index, newMenu))
-			if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), 1033, newMenu, (nMem + (nMem % 2)+2)*2))
+			if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), wLanguage, newMenu, (nMem + (nMem % 2)+2)*2))
 			{
 				delete [] newMenu;
 				goto DONE_ERROR;
@@ -476,7 +476,6 @@ const WORD* CResModule::CountMemReplaceMenuResource(const WORD * res, int * word
 {
 	WORD		flags;
 	WORD		id = 0;
-	LPCWSTR		str;
 
 	//struct PopupMenuItem { 
 	//	WORD   fItemFlags; 
@@ -605,13 +604,13 @@ BOOL CResModule::ExtractDialog(UINT nID)
 	return (TRUE);
 }
 
-BOOL CResModule::ReplaceDialog(UINT nID)
+BOOL CResModule::ReplaceDialog(UINT nID, WORD wLanguage)
 {
 	const WORD*	lpDlg;
 	HRSRC		hrsrc;
 	HGLOBAL		hGlblDlgTemplate;
 
-	hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_DIALOG);
+	hrsrc = FindResourceEx(m_hResDll, RT_DIALOG, MAKEINTRESOURCE(nID), wLanguage);
 
 	if (hrsrc == NULL)
 		MYERROR;
@@ -639,7 +638,7 @@ BOOL CResModule::ReplaceDialog(UINT nID)
 		delete [] newDialog;
 		goto DONE_ERROR;
 	}
-	if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), 1033, newDialog, (nMem + (nMem % 2))*2))
+	if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), wLanguage, newDialog, (nMem + (nMem % 2))*2))
 	{
 		delete [] newDialog;
 		goto DONE_ERROR;
@@ -1195,29 +1194,36 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType,
 
 BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam)
 {
+	CResModule* lpResModule = (CResModule*)lParam;
+	return EnumResourceLanguages(hModule, lpszType, lpszName, (ENUMRESLANGPROC)&lpResModule->EnumResWriteLangCallback, lParam);
+}
+
+BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG lParam)
+{
 	BOOL bRes = FALSE;
 	CResModule* lpResModule = (CResModule*)lParam;
+
 
 	lpResModule->m_hUpdateRes = BeginUpdateResource(lpResModule->sDestFile.c_str(), FALSE);
 	if (lpszType == RT_STRING)
 	{
 		if (IS_INTRESOURCE(lpszName))
 		{
-			bRes = lpResModule->ReplaceString(LOWORD(lpszName));
+			bRes = lpResModule->ReplaceString(LOWORD(lpszName), wLanguage);
 		}
 	} 
 	else if (lpszType == RT_MENU)
 	{
 		if (IS_INTRESOURCE(lpszName))
 		{
-			bRes = lpResModule->ReplaceMenu(LOWORD(lpszName));
+			bRes = lpResModule->ReplaceMenu(LOWORD(lpszName), wLanguage);
 		}
 	}
 	else if (lpszType == RT_DIALOG)
 	{
 		if (IS_INTRESOURCE(lpszName))
 		{
-			bRes = lpResModule->ReplaceDialog(LOWORD(lpszName));
+			bRes = lpResModule->ReplaceDialog(LOWORD(lpszName), wLanguage);
 		}
 	}
 	if (!EndUpdateResource(lpResModule->m_hUpdateRes, !bRes))

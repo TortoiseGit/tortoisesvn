@@ -58,12 +58,13 @@ public:
 private:
 	static  BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam);
 	static  BOOL CALLBACK EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG lParam);
+	static  BOOL CALLBACK EnumResWriteLangCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG lParam);
 	BOOL	ExtractString(UINT nID);
 	BOOL	ExtractDialog(UINT nID);
 	BOOL	ExtractMenu(UINT nID);
-	BOOL	ReplaceString(UINT nID);
-	BOOL	ReplaceDialog(UINT nID);
-	BOOL	ReplaceMenu(UINT nID);
+	BOOL	ReplaceString(UINT nID, WORD wLanguage);
+	BOOL	ReplaceDialog(UINT nID, WORD wLanguage);
+	BOOL	ReplaceMenu(UINT nID, WORD wLanguage);
 
 	const WORD*	ParseMenuResource(const WORD * res);
 	const WORD*	CountMemReplaceMenuResource(const WORD * res, int * wordcount, WORD * newMenu);
