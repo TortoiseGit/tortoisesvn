@@ -650,11 +650,15 @@ BOOL CTortoiseProcApp::InitInstance()
 			CRenameDlg dlg;
 			CString filename = path.Right(path.GetLength() - path.ReverseFind('\\') - 1);
 			CString filepath = path.Left(path.ReverseFind('\\') + 1);
+			SetCurrentDirectory(filepath);
 			dlg.m_name = filename;
 			if (dlg.DoModal() == IDOK)
 			{
 				TRACE(_T("rename file %s to %s\n"), path, dlg.m_name);
-				filepath =  filepath + dlg.m_name;
+				if (PathIsRelative(dlg.m_name) && !PathIsURL(dlg.m_name))
+					filepath =  filepath + dlg.m_name;
+				else
+					filepath = dlg.m_name;
 				SVN svn;
 				if (!svn.Move(path, filepath, TRUE))
 				{

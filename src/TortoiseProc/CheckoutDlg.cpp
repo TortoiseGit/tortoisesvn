@@ -122,6 +122,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	//m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	//m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
+	SHAutoComplete(GetDlgItem(IDC_CHECKOUTDIRECTORY)->m_hWnd, SHACF_FILESYSTEM);
 	if (IsExport)
 	{
 		CString temp;

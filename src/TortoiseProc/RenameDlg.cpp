@@ -92,6 +92,9 @@ BOOL CRenameDlg::OnInitDialog()
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
+
+	SHAutoComplete(GetDlgItem(IDC_NAME)->m_hWnd, SHACF_DEFAULT);
+
 	if (!m_windowtitle.IsEmpty())
 		this->SetWindowText(m_windowtitle);
 	if (!m_label.IsEmpty())
