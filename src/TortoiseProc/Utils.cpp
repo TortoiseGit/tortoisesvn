@@ -53,7 +53,10 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 		// is there an extension specific merge tool?
 		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + ext.MakeLower());
 		if (CString(mergetool) != "")
+		{
 			com = mergetool;
+			com = _T("\"") + com + _T("\"");
+		}
 	}
 	
 	if (com.IsEmpty()||(com.Left(1).Compare(_T("#"))==0))
@@ -61,23 +64,10 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 		// use TortoiseMerge
 		CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 		com = tortoiseMergePath;
+		com = _T("\"") + com + _T("\"");
 		com = com + _T(" /base:%base /theirs:%theirs /yours:%mine /merged:%merged");
 		com = com + _T(" /basename:%bname /theirsname:%tname /yoursname:%yname /mergedname:%mname");
 	}
-
-	TCHAR buf[32*1024];
-	_tcscpy(buf, basefile);
-	PathQuoteSpaces(buf);
-	basefile = CString(buf);
-	_tcscpy(buf, theirfile);
-	PathQuoteSpaces(buf);
-	theirfile = CString(buf);
-	_tcscpy(buf, yourfile);
-	PathQuoteSpaces(buf);
-	yourfile = CString(buf);
-	_tcscpy(buf, mergedfile);
-	PathQuoteSpaces(buf);
-	mergedfile = CString(buf);
 
 	com.Replace(_T("%base"), _T("\"") + basefile + _T("\""));
 	com.Replace(_T("%theirs"), _T("\"") + theirfile + _T("\""));
@@ -149,6 +139,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			// use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
+			viewer = _T("\"") + viewer + _T("\"");
 			viewer = viewer + _T(" /patchpath:%path /diff:%base");
 		} // if (viewer.IsEmpty() && !dir.IsEmpty())
 		if (viewer.IsEmpty() || (viewer.Left(1).Compare(_T("#"))==0))
@@ -189,6 +180,7 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			//use TortoiseMerge
 			CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
 			viewer = tortoiseMergePath;
+			viewer = _T("\"") + viewer + _T("\"");
 			viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
 		} // if (diffexe == "")
 		if (viewer.Find(_T("%base")) >= 0)
