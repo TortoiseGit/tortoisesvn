@@ -600,7 +600,7 @@ void CLogPromptDlg::GetAutocompletionList()
 	// the format of that file is:
 	// file extensions separated with commas '=' regular expression to use
 	// example:
-	// .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
+	// (MULTILINE|NOCASE) .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
 	// .cpp = (?<=[^\s]::)\b\w+\b
 	
 	CStringArray arExtensions;
@@ -609,6 +609,7 @@ void CLogPromptDlg::GetAutocompletionList()
 	sRegexFile += _T("autolist.txt");
 	if (!m_bRunThread)
 		return;
+	REGEX_FLAGS rflags = NOFLAGS;
 	DWORD timeout = GetTickCount()+5000;		// stop parsing after 5 seconds.
 	try
 	{
@@ -617,6 +618,16 @@ void CLogPromptDlg::GetAutocompletionList()
 		while (m_bRunThread && (GetTickCount()<timeout) && file.ReadString(strLine))
 		{
 			CString sRegex = strLine.Mid(strLine.Find('=')+1).Trim();
+			CString sFlags = (strLine[0] == '(' ? strLine.Left(strLine.Find(')')+1).Trim(_T(" ()")) : _T(""));
+			rflags |= sFlags.Find(_T("GLOBAL"))>=0 ? GLOBAL : NOFLAGS;
+			rflags |= sFlags.Find(_T("MULTILINE"))>=0 ? MULTILINE : NOFLAGS;
+			rflags |= sFlags.Find(_T("SINGLELINE"))>=0 ? SINGLELINE : NOFLAGS;
+			rflags |= sFlags.Find(_T("RIGHTMOST"))>=0 ? RIGHTMOST : NOFLAGS;
+			rflags |= sFlags.Find(_T("NORMALIZE"))>=0 ? NORMALIZE : NOFLAGS;
+			rflags |= sFlags.Find(_T("NOCASE"))>=0 ? NOCASE : NOFLAGS;
+				
+			if (!sFlags.IsEmpty())
+				strLine = strLine.Mid(strLine.Find(')')+1).Trim();
 			int pos = -1;
 			while ((pos = strLine.Find(','))>=0)
 			{
@@ -665,7 +676,7 @@ void CLogPromptDlg::GetAutocompletionList()
 					}
 				}
 				if (!sRegex.IsEmpty())
-					ScanFile(entry->GetPath().GetWinPathString(), sRegex);
+					ScanFile(entry->GetPath().GetWinPathString(), sRegex, rflags);
 			}
 		}
 	}
@@ -677,7 +688,7 @@ void CLogPromptDlg::GetAutocompletionList()
 	}
 }
 
-void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
+void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags)
 {
 	CString sFileContent;
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
@@ -717,21 +728,24 @@ void CLogPromptDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 	if (sFileContent.IsEmpty()|| !m_bRunThread)
 		return;
 	match_results results;
-	int offset1 = 0;
-	int offset2 = 0;
+	int offset = 0;
 	try
 	{
-		rpattern pat( (LPCTSTR)sRegex, MULTILINE ); 
+		rpattern pat( (LPCTSTR)sRegex, rflags ); 
 		match_results::backref_type br;
 		do 
 		{
-			br = pat.match( (LPCTSTR)sFileContent.Mid(offset1), results );
+			CString matchstring = sFileContent.Mid(offset);
+			br = pat.match( (LPCTSTR)matchstring, results );
 			if( br.matched ) 
 			{
-				offset1 += results.rstart(0);
-				offset2 = offset1 + results.rlength(0);
-				m_autolist.AddSorted(sFileContent.Mid(offset1, offset2-offset1));
-				offset1 = offset2;
+				for (size_t i=1; i<results.cbackrefs(); ++i)
+				{
+					m_autolist.AddSorted((LPCTSTR)results.backref(i).str().c_str());
+					ATLTRACE("group %d is \"%ws\"\n", i, results.backref(i).str().c_str());
+				}
+				offset += results.rstart(0);
+				offset += results.rlength(0);
 			}
 		} while((br.matched)&&(m_bRunThread));
 	}

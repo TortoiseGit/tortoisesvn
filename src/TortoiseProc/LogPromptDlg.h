@@ -82,7 +82,7 @@ protected:
 	afx_msg LRESULT OnAutoListReady(WPARAM, LPARAM);
 	void Refresh();
 	void GetAutocompletionList();
-	void ScanFile(const CString& sFilePath, const CString& sRegex);
+	void ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags);
 
 	DECLARE_MESSAGE_MAP()
 

@@ -709,6 +709,8 @@ BOOL CSciEdit::MarkEnteredBugID(NMHDR* nmhdr)
 
 void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= true*/)
 {
+	if (elem.IsEmpty())
+		return;
 	if (GetCount()==0)
 		return InsertAt(0, elem);
 	
