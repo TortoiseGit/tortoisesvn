@@ -22,7 +22,7 @@ echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/tr
 echo ^</tr^> >> %OFile%
 
 
-FOR /F "eol=# tokens=1,2,3,4,5 delims=;" %%i in (Languages.txt) do call :doit %%i %%j %%m
+FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j "%%m"
 
 :end
 type trans_foot.html >> %OFile%
@@ -30,7 +30,7 @@ ENDLOCAL
 goto :eof
 
 :doit
-echo Checking %3 %1 Translation...
+echo Checking %~3 %1 Translation...
 
 if exist Tortoise_%1%.po (
   set errors=0
@@ -42,20 +42,23 @@ if exist Tortoise_%1%.po (
   FOR /F " usebackq skip=1 " %%p IN (`Check_Accel.bat Tortoise_%1.po`) DO SET errors=%%p
   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po translated`) DO SET tra=%%p
   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po only-fuzzy`) DO SET fuz=%%p
-  FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po untranslated`) DO SET unt=%%p
+rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po untranslated`) DO SET unt=%%p
 rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po only-obsolete`) DO SET obs=%%p
-
-  if !tra! EQU !total! (
-    echo ^<tr class="complete"^> >> %OFile%
-  ) else (
-    echo ^<tr class="incomplete"^> >> %OFile%
-  )
 
   if !tra! GTR 1 SET /A tra -= 1 
   if !fuz! GTR 1 SET /A fuz -= 1 
-  if !unt! GTR 1 SET /A unt -= 1
+rem  if !unt! GTR 1 SET /A unt -= 1
 
-  SET /A tra = !tra! - !fuz!
+  SET /A tra=!tra!-!fuz!
+
+  if !tra! EQU !total! (
+    echo ^<tr class="complete"^> >> %OFile%
+    SET unt=0
+    SET fuz=0
+  ) else (
+    echo ^<tr class="incomplete"^> >> %OFile%
+    SET /A unt=!total!-!tra!-!fuz!
+  )
 
   SET /A wt=200*!tra!/!total!
   SET /A wf=200*!fuz!/!total!
