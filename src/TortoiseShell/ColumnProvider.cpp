@@ -354,7 +354,14 @@ void CShellExt::GetColumnStatus(stdstring path)
 		return;
 	LoadLangDll();
 	columnfilepath = path;
-	filestatuscache * status = g_CachedStatus.GetFullStatus(path.c_str(), TRUE);
+	filestatuscache * status;
+	if (! g_ShellCache.IsPathAllowed(path.c_str()))
+		status = &g_CachedStatus.invalidstatus;
+	else
+	{
+		BOOL bIsFolder = PathIsDirectory(path.c_str());
+		status = g_CachedStatus.GetFullStatus(path.c_str(), bIsFolder, TRUE);
+	}
 	filestatus = status->status;
 
 #ifdef UNICODE

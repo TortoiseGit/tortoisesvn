@@ -93,7 +93,7 @@ SVNFolderStatus::~SVNFolderStatus(void)
 {
 }
 
-filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
+filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL bIsFolder)
 {
 	svn_client_ctx_t *			ctx;
 	apr_hash_t *				statushash;
@@ -137,8 +137,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	urls.clear();
 	
 	ATLTRACE2(_T("building cache for %s\n"), filepath);
-	BOOL isFolder = PathIsDirectory(filepath);
-	if (isFolder)
+	if (bIsFolder)
 	{
 		if (g_ShellCache.IsRecursive())
 		{
@@ -177,7 +176,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 			m_nCounter++;
 			return &invalidstatus;
 		}
-	} // if (isFolder) 
+	} // if (bIsFolder) 
 	
 	m_nCounter = 0;
 	
@@ -244,18 +243,14 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 	return SVNFOLDERSTATUS_CACHETIMEOUT;
 }
 
-filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumnProvider)
+filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
 {
 	TCHAR pathbuf[MAX_PATH];
 
-	if (! g_ShellCache.IsPathAllowed(filepath))
-		return &invalidstatus;
-
 	m_bColumnProvider = bColumnProvider;
 
-	BOOL isFolder = PathIsDirectory(filepath);
 	_tcscpy(pathbuf, filepath);
-	if (!isFolder)
+	if (!bIsFolder)
 	{
 		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
 		if (ptr != 0)
@@ -266,7 +261,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 			if (!PathFileExists(pathbuf))
 				return &invalidstatus;
 		}
-	} // if (!isFolder)
+	} // if (!bIsFolder)
 	else
 	{
 		_tcscat(pathbuf, _T("\\"));
@@ -287,7 +282,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 	if (ret)
 		return ret;
 
-	return BuildCache(filepath);
+	return BuildCache(filepath, bIsFolder);
 }
 
 void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)

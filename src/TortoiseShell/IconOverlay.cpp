@@ -189,7 +189,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 					DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
 					if (dwWaitResult == WAIT_OBJECT_0)
 					{
-						filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
+						filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str(), TRUE);
 						status = s->status;
 						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 					} // if (dwWaitResult == WAIT_OBJECT_0) 
@@ -209,7 +209,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 			DWORD dwWaitResult = WaitForSingleObject(hMutex, 1000);
 			if (dwWaitResult == WAIT_OBJECT_0)
 			{
-				filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str());
+				filestatuscache * s = g_CachedStatus.GetFullStatus(sPath.c_str(), FALSE);
 				status = s->status;
 			} // if (dwWaitResult == WAIT_OBJECT_0)
 			else

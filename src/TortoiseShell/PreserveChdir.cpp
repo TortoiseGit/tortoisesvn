@@ -17,14 +17,22 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "PreserveChdir.h"
-#include <direct.h>
+#include <string.h>
+#include <tchar.h>
 
 PreserveChdir::PreserveChdir()
 {
-	getcwd(originalCurrentDirectory, _MAX_PATH);
+	GetCurrentDirectory(MAX_PATH, originalCurrentDirectory);
 }
 
 PreserveChdir::~PreserveChdir()
 {
-	chdir(originalCurrentDirectory);
+	TCHAR currentDirectory[MAX_PATH + 1];
+
+	// _tchdir is an expensive function - don't call it unless we really have to
+	GetCurrentDirectory(MAX_PATH, currentDirectory);
+	if(_tcscmp(currentDirectory, originalCurrentDirectory) != 0)
+	{
+		SetCurrentDirectory(originalCurrentDirectory);
+	}
 }
