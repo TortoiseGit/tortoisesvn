@@ -1427,6 +1427,8 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
 void CLogDlg::OnOK()
 {
+	if (GetFocus() != GetDlgItem(IDOK))
+		return;
 	CString temp;
 	CString buttontext;
 	GetDlgItem(IDOK)->GetWindowText(buttontext);

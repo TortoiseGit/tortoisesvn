@@ -869,6 +869,8 @@ void CSVNProgressDlg::OnClose()
 
 void CSVNProgressDlg::OnOK()
 {
+	if (GetFocus() != GetDlgItem(IDOK))
+		return;
 	if ((m_bCancelled)&&(!m_bThreadRunning))
 	{
 		// I have made this wait a sensible amount of time (10 seconds) for the thread to finish
