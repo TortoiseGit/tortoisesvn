@@ -197,7 +197,10 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			}
 		}
 	}
-	else if ((strUrl.Left(7) == _T("http://")||(strUrl.Left(8) == _T("https://"))) && strUrl.GetLength() > 7)
+	else if ((strUrl.Left(7) == _T("http://")
+		||(strUrl.Left(8) == _T("https://"))
+		||(strUrl.Left(6) == _T("svn://"))
+		||(strUrl.Left(10) == _T("svn+ssl://"))) && strUrl.GetLength() > 6)
 	{
 		// browse repository - show repository browser
 		CRepositoryBrowser browser(strUrl, this);

@@ -155,7 +155,10 @@ void CSwitchDlg::OnBnClickedBrowse()
 			}
 		}
 	}
-	else if ((m_URL.Left(7) == _T("http://")||(m_URL.Left(8) == _T("https://"))) && m_URL.GetLength() > 7)
+	else if ((m_URL.Left(7) == _T("http://")
+		||(m_URL.Left(8) == _T("https://"))
+		||(m_URL.Left(6) == _T("svn://"))
+		||(m_URL.Left(10) == _T("svn+ssl://"))) && m_URL.GetLength() > 6)
 	{
 		// browse repository - show repository browser
 		CRepositoryBrowser browser(m_URL, this);
