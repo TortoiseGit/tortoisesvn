@@ -100,7 +100,7 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 	return TRUE;
 }
 
-BOOL CUtils::StartDiffViewer(CString file, CString dir)
+BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait)
 {
 	// if "dir" is actually a file, then don't start the unified diff viewer
 	// but the file diff application (e.g. TortoiseMerge, WinMerge, WinDiff, P4Diff, ...)
@@ -213,6 +213,10 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir)
 		return FALSE;
 	} // if (CreateProcess(NULL /*(LPCTSTR)diffpath*/, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
 
+	if (bWait)
+	{
+		WaitForInputIdle(process.hProcess, 10000);
+	}
 
 	return TRUE;
 }

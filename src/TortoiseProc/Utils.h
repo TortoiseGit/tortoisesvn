@@ -65,7 +65,7 @@ public:
 	 * associated with .txt files.
 	 * \return TRUE if the program could be started.
 	 */
-	static BOOL StartDiffViewer(CString file, CString dir = _T(""));
+	static BOOL StartDiffViewer(CString file, CString dir = _T(""), BOOL bWait = FALSE);
 
 	/**
 	 * Launches the standard text viewer/editor application which is associated

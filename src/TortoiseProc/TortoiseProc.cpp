@@ -578,7 +578,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					bDelete = TRUE;
 				}
 			}
-			CUtils::StartDiffViewer(path2, path);
+			CUtils::StartDiffViewer(path2, path, TRUE);
 			if (bDelete)
 				DeleteFile(path);
 		}
