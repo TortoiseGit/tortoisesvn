@@ -53,6 +53,7 @@ BOOL CPatch::OpenUnifiedDiffFile(CString filename)
 	CString sLine;
 	INT_PTR nIndex = 0;
 	INT_PTR nLineCount = 0;
+	g_crasher.AddFile((LPCSTR)(LPCTSTR)filename, (LPCSTR)(LPCTSTR)_T("unified diff file"));
 
 	CStringArray PatchLines;
 	FreeMemory();
