@@ -267,14 +267,14 @@ CString CSVNProgressDlg::BuildInfoString()
 	}
 	if (conflicted)
 	{
-		temp.LoadString(IDS_STATUSCONFLICTED);
+		temp.LoadString(IDS_SVNACTION_CONFLICTED);
 		infotext += temp;
 		temp.Format(_T(":%d "), conflicted);
 		infotext += temp;
 	}
 	if (merged)
 	{
-		temp.LoadString(IDS_STATUSMERGED);
+		temp.LoadString(IDS_SVNACTION_MERGED);
 		infotext += temp;
 		infotext.AppendFormat(_T(":%d "), merged);
 	}
