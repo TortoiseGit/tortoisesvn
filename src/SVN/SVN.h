@@ -459,6 +459,7 @@ public:
 	CString	RevPropertyGet(CString sName, CString sURL, SVNRev rev);
 
 	CString GetURLFromPath(CString path);
+	CString GetUUIDFromPath(CString path);
 
 	/**
 	 * Releases all used memory pools.
@@ -540,6 +541,7 @@ private:
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 	apr_array_header_t * target (LPCTSTR path);
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
+	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
 		
 	static svn_error_t* cancel(void *baton);
 	static void notify( void *baton,

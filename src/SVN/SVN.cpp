@@ -1335,6 +1335,33 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 	return SVN_NO_ERROR;
 }
 
+CString SVN::GetUUIDFromPath(CString path)
+{
+	preparePath(path);
+	const char * UUID;
+	Err = get_uuid_from_target(&UUID, MakeSVNUrlOrPath(path));
+	if (Err)
+		return _T("");
+	if (UUID==NULL)
+		return _T("");
+	CString ret = CString(UUID);
+	return ret;
+}
+
+svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
+{
+	svn_wc_adm_access_t *adm_access;          
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
+	SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, target,
+		FALSE, 0, pool));
+	SVN_ERR (svn_client_uuid_from_path(UUID, target, adm_access, NULL, pool));
+	SVN_ERR (svn_wc_adm_close (adm_access));
+#pragma warning(pop)
+
+	return SVN_NO_ERROR;
+}
+
 BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
 {
 	entries.RemoveAll();

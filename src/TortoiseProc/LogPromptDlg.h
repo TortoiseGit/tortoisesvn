@@ -83,6 +83,7 @@ public:
 	CString			m_sLogMessage;
 	CSpellEdit		m_LogMessage;
 	CSVNStatusListCtrl		m_ListCtrl;
+	CHistoryCombo	m_OldLogs;
 	CString			m_sPath;
 
 	BOOL			m_bRecursive;
@@ -96,7 +97,6 @@ private:
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
-	CHistoryCombo	m_OldLogs;
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

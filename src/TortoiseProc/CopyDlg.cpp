@@ -129,6 +129,7 @@ BOOL CCopyDlg::OnInitDialog()
 	m_bFile = !PathIsDirectory(m_path);
 	SVN svn;
 	m_wcURL = svn.GetURLFromPath(m_path);
+	CString sUUID = svn.GetUUIDFromPath(m_path);
 	if (m_wcURL.IsEmpty())
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
@@ -141,7 +142,9 @@ BOOL CCopyDlg::OnInitDialog()
 	m_URLCombo.SelectString(-1, m_wcURL);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
 
-	m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
+	CString reg;
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), sUUID);
+	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 
 	m_ProjectProperties.ReadProps(m_path);
 	if (m_ProjectProperties.sMessage.IsEmpty())

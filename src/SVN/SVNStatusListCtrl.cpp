@@ -243,7 +243,10 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 				if ((s->entry)&&(s->entry->uuid))
 				{
 					if (sUUID.IsEmpty())
+					{
 						sUUID = s->entry->uuid;
+						m_sUUID = sUUID;
+					}
 					else
 					{
 						if (sUUID.Compare(s->entry->uuid)!=0)

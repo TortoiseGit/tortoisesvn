@@ -174,7 +174,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 		m_LogMessage.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
 	}
 	m_LogMessage.SetWindowText(m_ProjectProperties.sLogTemplate);
-	m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
+	//m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
@@ -413,7 +413,10 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		pDlg->m_bBlock = FALSE;
 		pDlg->EndDialog(0);
 		return (DWORD)-1;
-	} // if (pDlg->m_ListCtrl.GetItemCount()==0) 
+	} // if (pDlg->m_ListCtrl.GetItemCount()==0)
+	CString reg;
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), pDlg->m_ListCtrl.m_sUUID);
+	pDlg->m_OldLogs.LoadHistory(reg, _T("logmsgs"));
 	pDlg->m_bBlock = FALSE;
 	return 0;
 }
