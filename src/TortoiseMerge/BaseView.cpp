@@ -136,6 +136,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_MOUSEMOVE()
 	ON_COMMAND(ID_MERGE_PREVIOUSCONFLICT, OnMergePreviousconflict)
 	ON_COMMAND(ID_MERGE_NEXTCONFLICT, OnMergeNextconflict)
+	ON_WM_LBUTTONDBLCLK()
 END_MESSAGE_MAP()
 
 
@@ -1713,6 +1714,42 @@ void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
 	CView::OnLButtonUp(nFlags, point);
 }
 
+void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
+{
+	int nClickedLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
+	nClickedLine--;		//we need the index
+	if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
+	{
+		// doubleclick on the margin?
+		if (point.x <= GetMarginWidth())
+		{
+			//toggle between linestates
+			CDiffData::DiffStates state = (CDiffData::DiffStates)m_arLineStates->GetAt(nClickedLine);
+			switch (state)
+			{
+			case CDiffData::DIFFSTATE_ADDED:
+			case CDiffData::DIFFSTATE_ADDEDWHITESPACE:
+			case CDiffData::DIFFSTATE_IDENTICALADDED:
+			case CDiffData::DIFFSTATE_THEIRSADDED:
+			case CDiffData::DIFFSTATE_YOURSADDED:
+				state = CDiffData::DIFFSTATE_REMOVED;
+				break;
+			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
+			case CDiffData::DIFFSTATE_REMOVED:
+			case CDiffData::DIFFSTATE_REMOVEDWHITESPACE:
+			case CDiffData::DIFFSTATE_THEIRSREMOVED:
+			case CDiffData::DIFFSTATE_YOURSREMOVED:
+				state = CDiffData::DIFFSTATE_ADDED;
+				break;
+			}
+			m_arLineStates->SetAt(nClickedLine, state);
+			Invalidate();
+		}
+	}
+
+	CView::OnLButtonDblClk(nFlags, point);
+}
+
 void CBaseView::OnEditCopy()
 {
 	// first store the selected lines in one CString
@@ -1783,6 +1820,7 @@ void CBaseView::SelectLines(int nLine1, int nLine2)
 	m_nSelBlockEnd = nLine2;
 	Invalidate();
 }
+
 
 
 
