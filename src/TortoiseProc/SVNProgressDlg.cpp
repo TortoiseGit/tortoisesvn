@@ -286,7 +286,7 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 					CString sfile;
 					CStringA uuid;
 					std::map<CStringA, LONG> uuidmap;
-					LONG revstore = pDlg->m_Revision;
+					SVNRev revstore = pDlg->m_Revision;
 					while (file.ReadString(strLine))
 					{
 						SVNStatus st;
