@@ -41,7 +41,7 @@ void CSVNStatusCache::Create()
 #define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) goto exit;
 #define LOADVALUEFROMFILE2(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) goto error;
 	DWORD read = 0;
-	int value = 0;
+	int value = -1;
 
 	HANDLE hFile = INVALID_HANDLE_VALUE;
 	// find the location of the cache
