@@ -55,6 +55,7 @@ BEGIN_MESSAGE_MAP(CImportDlg, CResizableDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -105,6 +106,7 @@ BOOL CImportDlg::OnInitDialog()
 	AddAnchor(IDC_MESSAGE, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 
 	EnableSaveRestore(_T("ImportDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -237,3 +239,7 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 	return CResizableDialog::PreTranslateMessage(pMsg);
 }
 
+void CImportDlg::OnBnClickedHelp()
+{
+	OnHelp();
+}

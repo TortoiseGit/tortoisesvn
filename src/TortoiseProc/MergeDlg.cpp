@@ -61,6 +61,7 @@ BEGIN_MESSAGE_MAP(CMergeDlg, CDialog)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDC_FINDBRANCHSTART, OnBnClickedFindbranchstart)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -273,4 +274,8 @@ LPARAM CMergeDlg::OnRevSelected(WPARAM wParam, LPARAM lParam)
 	temp.Format(_T("%ld"), lParam);
 	GetDlgItem(IDC_REVISON_START)->SetWindowText(temp);
 	return 0;
+}
+void CMergeDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }

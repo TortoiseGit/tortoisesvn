@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "SwitchDlg.h"
 #include "RepositoryBrowser.h"
+#include ".\switchdlg.h"
 
 
 // CSwitchDlg dialog
@@ -52,6 +53,7 @@ BEGIN_MESSAGE_MAP(CSwitchDlg, CDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -203,4 +205,9 @@ void CSwitchDlg::OnOK()
 
 	UpdateData(FALSE);
 	CDialog::OnOK();
+}
+
+void CSwitchDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }

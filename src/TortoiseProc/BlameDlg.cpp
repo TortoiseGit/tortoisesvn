@@ -21,6 +21,7 @@
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
 #include "Balloon.h"
+#include ".\blamedlg.h"
 
 
 // CBlameDlg dialog
@@ -52,6 +53,7 @@ BEGIN_MESSAGE_MAP(CBlameDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -148,4 +150,9 @@ void CBlameDlg::OnOK()
 	UpdateData(FALSE);
 
 	CDialog::OnOK();
+}
+
+void CBlameDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }

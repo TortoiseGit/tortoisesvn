@@ -63,6 +63,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedBrowse();
+	afx_msg void OnBnClickedHelp();
 	DECLARE_MESSAGE_MAP()
 	CFont		m_logFont;
 

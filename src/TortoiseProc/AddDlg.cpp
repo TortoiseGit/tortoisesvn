@@ -22,6 +22,7 @@
 #include "DirFileEnum.h"
 #include "AddDlg.h"
 #include "SVNConfig.h"
+#include ".\adddlg.h"
 
 
 // CAddDlg dialog
@@ -52,6 +53,7 @@ BEGIN_MESSAGE_MAP(CAddDlg, CResizableDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_ADDLIST, OnLvnItemchangedAddlist)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -128,6 +130,7 @@ BOOL CAddDlg::OnInitDialog()
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("AddDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -341,6 +344,12 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 	pDlg->m_bThreadRunning = FALSE;
 	return 0;
 }
+
+void CAddDlg::OnBnClickedHelp()
+{
+	OnHelp();
+}
+
 
 
 

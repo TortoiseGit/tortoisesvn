@@ -24,6 +24,7 @@
 #include "Messagebox.h"
 #include "Dbghelp.h"
 #include "PathUtils.h"
+#include ".\checkoutdlg.h"
 
 
 // CCheckoutDlg dialog
@@ -63,6 +64,7 @@ BEGIN_MESSAGE_MAP(CCheckoutDlg, CDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_CHECKOUTDIRECTORY_BROWSE, OnBnClickedCheckoutdirectoryBrowse)
 	ON_EN_CHANGE(IDC_CHECKOUTDIRECTORY, OnEnChangeCheckoutdirectory)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 // If you add a minimize button to your dialog, you will need the code below
@@ -299,4 +301,9 @@ void CCheckoutDlg::OnEnChangeCheckoutdirectory()
 	{
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
+}
+
+void CCheckoutDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }

@@ -81,6 +81,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_NOTIFY(HDN_ITEMCLICK, 0, OnHdnItemclickFilelist)
 	ON_WM_CONTEXTMENU()
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -190,6 +191,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("LogPromptDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return FALSE;  // return TRUE unless you set the focus to a control
@@ -1226,6 +1228,11 @@ int CLogPromptDlg::SortCompare(const void * pElem1, const void * pElem2)
 	if (!m_bAscending)
 		result = -result;
 	return result;
+}
+
+void CLogPromptDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }
 
 

@@ -72,6 +72,7 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnPaint();
+	afx_msg void OnBnClickedHelp();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:

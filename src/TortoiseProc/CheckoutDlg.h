@@ -75,6 +75,7 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedCheckoutdirectoryBrowse();
 	afx_msg void OnEnChangeCheckoutdirectory();
+	afx_msg void OnBnClickedHelp();
 
 	DECLARE_MESSAGE_MAP()
 protected:

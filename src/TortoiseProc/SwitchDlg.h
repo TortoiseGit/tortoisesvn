@@ -68,6 +68,7 @@ protected:
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedNewest();
 	afx_msg void OnBnClickedRevisionN();
+	afx_msg void OnBnClickedHelp();
 
 	DECLARE_MESSAGE_MAP()
 

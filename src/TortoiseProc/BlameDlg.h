@@ -39,6 +39,7 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedRevisionHead();
 	afx_msg void OnBnClickedRevisionN();
+	afx_msg void OnBnClickedHelp();
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 

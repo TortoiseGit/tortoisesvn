@@ -78,6 +78,7 @@ protected:
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnHdnItemclickFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+	afx_msg void OnBnClickedHelp();
 
 	void StartDiff(int fileindex);
 	void Refresh();

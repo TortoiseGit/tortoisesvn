@@ -23,6 +23,7 @@
 #include "MessageBox.h"
 #include "UnicodeUtils.h"
 #include "RepositoryBrowser.h"
+#include ".\copydlg.h"
 
 // CCopyDlg dialog
 
@@ -52,6 +53,7 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -205,4 +207,9 @@ void CCopyDlg::OnBnClickedBrowse()
 			m_URLCombo.SetWindowText(browser.GetPath(true));
 		}
 	}
+}
+
+void CCopyDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }

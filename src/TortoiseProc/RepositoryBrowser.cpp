@@ -24,6 +24,7 @@
 #include "InputDlg.h"
 #include "LogDlg.h"
 #include "WaitCursorEx.h"
+#include ".\repositorybrowser.h"
 
 
 #define ID_POPSAVEAS		1
@@ -87,6 +88,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
 	ON_NOTIFY(RVN_ITEMRCLICK, IDC_REPOS_TREE, OnRVNItemRClickReposTree)
 	ON_NOTIFY(RVN_ITEMRCLICKUP, IDC_REPOS_TREE, OnRVNItemRClickUpReposTree)
 	ON_NOTIFY(RVN_KEYDOWN, IDC_REPOS_TREE, OnRVNKeyDownReposTree)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -177,6 +179,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	AddAnchor(IDC_REPOS_BAR_CNR, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("RepositoryBrowser"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -618,4 +621,9 @@ void CRepositoryBrowser::OnOK()
 {
 	m_barRepository.SaveHistory();
 	CResizableDialog::OnOK();
+}
+
+void CRepositoryBrowser::OnBnClickedHelp()
+{
+	OnHelp();
 }

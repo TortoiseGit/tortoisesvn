@@ -47,6 +47,7 @@ void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRelocateDlg, CDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -133,4 +134,9 @@ void CRelocateDlg::OnOK()
 	UpdateData(FALSE);
 
 	CDialog::OnOK();
+}
+
+void CRelocateDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }

@@ -68,6 +68,10 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnBnClickedRevisionHead();
+	afx_msg void OnBnClickedRevisionN();
+	afx_msg void OnBnClickedFindbranchstart();
+	afx_msg void OnBnClickedHelp();
 	DECLARE_MESSAGE_MAP()
 
 	CLogDlg *	m_pLogDlg;
@@ -79,8 +83,5 @@ public:
 	CHistoryCombo m_URLCombo;
 	SVNRev StartRev;
 	SVNRev EndRev;
-	afx_msg void OnBnClickedRevisionHead();
-	afx_msg void OnBnClickedRevisionN();
-	afx_msg void OnBnClickedFindbranchstart();
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));

@@ -81,6 +81,7 @@ protected:
 	afx_msg void OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedHelp();
 
 	DECLARE_MESSAGE_MAP()
 

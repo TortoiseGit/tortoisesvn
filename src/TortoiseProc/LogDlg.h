@@ -90,6 +90,7 @@ protected:
 
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnPaint();
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -97,6 +98,7 @@ protected:
 	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedHelp();
 	virtual void OnCancel();
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -133,8 +135,6 @@ private:
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
 	CFont		m_logFont;
-public:
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

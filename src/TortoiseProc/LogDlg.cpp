@@ -71,6 +71,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETCURSOR()
+	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -189,6 +190,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_LOGMSG, MIDDLE_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
 	EnableSaveRestore(_T("LogDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -1102,6 +1104,11 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 	SetCursor(hCur);
 	return TRUE;
+}
+
+void CLogDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }
 
 
