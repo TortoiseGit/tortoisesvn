@@ -106,17 +106,21 @@
 		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-wcstatus-dia-2">
-				<title>Check for Updates</title>
+				<title>Check for Modifications</title>
 				<graphic fileref="images/RepoStatus.png"/>
 			</figure>
-			It's often very useful to know which files got changed and
+			It's often very useful to know which files you have
+			changed and also which files got changed and
 			committed by others. That's where the command
 			<menuchoice>
-				<guimenuitem>Check For Updates...</guimenuitem>
+				<guimenuitem>Check For Modifications...</guimenuitem>
 			</menuchoice>
 			comes in handy.
 			This dialog will show you every file that has changed in any
-			way either in your working copy and in the repository. That way
+			way in your working copy, as well as any unversioned files
+			you may have. If you click on the
+			<guibutton>Check Repository</guibutton> then you can also
+			look for changes in the repository. That way
 			you can check before an update if there's a possible conflict.
 		</para>
 		<para>
@@ -125,30 +129,5 @@
 			downloads the most recent version from the repository to do
 			the diff.
 		</para>
-		<tip>
-			<title>Other Possibilities</title>
-			<para>
-				The
-				<menuchoice>
-					<guimenuitem>Check for Updates..</guimenuitem>
-				</menuchoice>
-				dialog is propably not the best choice if you don't have 
-				a network connection available.
-				In this case you can also get the local status of all your
-				files by clicking
-				<menuchoice>
-					<guimenuitem>Commit...</guimenuitem>
-				</menuchoice>.
-				The commit dialog shows you a similar list of files like the
-				<menuchoice>
-					<guimenuitem>Check for Updates...</guimenuitem>
-				</menuchoice> dialog, 
-				but without contacting the repository. if you don't want 
-				to commit just press
-				<guibutton>Cancel</guibutton>
-				instead of
-				<guibutton>OK</guibutton>.
-			</para>
-		</tip>
 	</sect2>
 </sect1>
