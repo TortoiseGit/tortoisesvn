@@ -230,7 +230,10 @@ BOOL CUtils::StartDiffViewer(CString file)
 			viewer = viewer + _T("\\Shell\\Open\\Command\\");
 			CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
 			viewer = txtexe;
-		}
+		} // if (viewer.IsEmpty()) 
+		TCHAR buf[MAX_PATH+1];
+		ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
+		viewer = buf;
 	} // if (viewer.IsEmpty())
 	if (viewer.IsEmpty())
 	{
@@ -310,6 +313,9 @@ BOOL CUtils::StartTextViewer(CString file)
 	viewer = viewer + _T("\\Shell\\Open\\Command\\");
 	CRegString txtexe = CRegString(viewer, _T(""), FALSE, HKEY_CLASSES_ROOT);
 	viewer = txtexe;
+	TCHAR buf[MAX_PATH+1];
+	ExpandEnvironmentStrings(viewer, buf, MAX_PATH);
+	viewer = buf;
 	if (viewer.IsEmpty())
 	{
 		OPENFILENAME ofn;		// common dialog box structure

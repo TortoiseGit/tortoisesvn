@@ -7,6 +7,10 @@
        only showed the last revision instead
        of all revisions since the last
        update. (Stefan)
+- BUG: When looking for the associated program
+       for a specific filetype (e.g. *.txt)
+       the environement variables weren't
+       expanded. (Stefan)
 
 Version 0.21
 - ADD: If multiple targets are selected for
