@@ -56,11 +56,12 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 	
 	if (pNMTreeView->action == TVE_EXPAND)
 	{
-		CWaitCursor wait;
 		if (GetItemData(pNMTreeView->itemNew.hItem)==0)
 		{
 			if (bInit)
 				return;
+			theApp.DoWaitCursor(1);
+			m_svn.m_app = &theApp;
 			HTREEITEM hChild = GetChildItem(pNMTreeView->itemNew.hItem);
 			if (hChild && GetItemText(hChild).Compare(_T("Dummy")) == 0)
 			{
@@ -85,6 +86,7 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 						SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 					SetItemImage(pNMTreeView->itemNew.hItem, sfi.iIcon, sfi.iIcon);
 					Expand(hParent, TVE_EXPAND);
+					theApp.DoWaitCursor(-1);
 					return;
 				}
 				for (int i = 0; i < entries.GetCount(); ++i)
@@ -128,6 +130,7 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 					hCurrent = GetNextItem(hCurrent, TVGN_NEXT);
 				} // while (hCurrent != NULL)
 			} // if (m_svn.Ls(MakeUrl(pNMTreeView->itemNew.hItem), -1, entries)) 
+			theApp.DoWaitCursor(-1);
 		} // if (GetItemData(pNMTreeView->itemNew.hItem)==0) 
 	} // if (pNMTreeView->action == TVE_EXPAND) 
 

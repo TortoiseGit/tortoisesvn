@@ -140,7 +140,6 @@ BOOL CLogDlg::OnInitDialog()
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK);
 	}
-	//UpdateData(FALSE);
 	GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 
 	m_logcounter = 0;
@@ -223,7 +222,6 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-
 	if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -348,7 +346,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			}
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
-			CCursor(IDC_WAIT);
+			this->m_app = &theApp;
+			theApp.DoWaitCursor(1);
 			switch (cmd)
 			{
 			case ID_GNUDIFF1:
@@ -418,7 +417,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
 						TRACE(_T("could not retrieve the URL of the folder!\n"));
 						break;		//exit
-					} // if ((rev == (-2))||(status.status->entry == NULL))
+					} // if (status.status->entry == NULL) 
 					CString url = CUnicodeUtils::GetUnicode(status.status->entry->url);
 					dlg.m_URL = url;
 					if (dlg.DoModal() == IDOK)
@@ -564,7 +563,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				break;
 			default:
 				break;
-			}
+			} // switch (cmd)
+			theApp.DoWaitCursor(-1);
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 		} // if (popup.CreatePopupMenu())
 	} // if (selIndex >= 0)
@@ -617,12 +617,13 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 				}
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				GetDlgItem(IDOK)->EnableWindow(FALSE);
-				CCursor(IDC_WAIT);
-				
+				this->m_app = &theApp;
+				theApp.DoWaitCursor(1);
 				//get the filename
 				SVNStatus status;
 				if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
 				{
+					theApp.DoWaitCursor(-1);
 					CMessageBox::Show(NULL, IDS_ERR_NOURLOFFILE, IDS_APPNAME, MB_ICONERROR);
 					TRACE(_T("could not retrieve the URL of the file!\n"));
 					return;		//exit
@@ -631,7 +632,6 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 				CString filepath = CString(status.status->entry->url);
 				m_bCancelled = FALSE;
 				filepath = GetRepositoryRoot(filepath);
-				CCursor(IDC_WAIT);
 				temp = temp.Mid(temp.Find(' '));
 				temp = temp.Trim();
 				filepath += temp;
@@ -645,6 +645,7 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 				default:
 					break;
 				} // switch (cmd)
+				theApp.DoWaitCursor(-1);
 				GetDlgItem(IDOK)->EnableWindow(TRUE);
 			} // if (m_LogMsgCtrl.GetSelectedCount() == 1)
 		} // if (popup.CreatePopupMenu())
@@ -677,12 +678,14 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 		progDlg.ShowModeless(this);
 	}
 	m_bCancelled = FALSE;
+	this->m_app = &theApp;
+	theApp.DoWaitCursor(1);
 	if (!Cat(path1, rev1, tempfile1))
 	{
+		theApp.DoWaitCursor(-1);
 		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return FALSE;
-	}
-	CCursor(IDC_WAIT);
+	} // if (!Cat(path1, rev1, tempfile1))
 	if (progDlg.IsValid())
 	{
 		progDlg.SetProgress((DWORD)1,(DWORD)2);
@@ -694,10 +697,10 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	}
 	if (!Cat(path2, rev2, tempfile2))
 	{
+		theApp.DoWaitCursor(-1);
 		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		return FALSE;
 	}
-	CCursor(IDC_WAIT);
 	if (progDlg.IsValid())
 	{
 		progDlg.SetProgress((DWORD)2,(DWORD)2);
@@ -734,6 +737,7 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 				);
 			CString temp;
 			//temp.Format("could not start external diff program!\n<hr=100%>\n%s", lpMsgBuf);
+			theApp.DoWaitCursor(-1);
 			temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
 			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 			LocalFree( lpMsgBuf );
@@ -746,8 +750,10 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 		//now delete the temporary files
 		DeleteFile(tempfile1);
 		DeleteFile(tempfile2);
+		theApp.DoWaitCursor(-1);
 		return TRUE;
 	} // if (diffpath != _T("")) 
+	theApp.DoWaitCursor(-1);
 	return FALSE;
 }
 

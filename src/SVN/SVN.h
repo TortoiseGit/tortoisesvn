@@ -414,7 +414,6 @@ private:
 	svn_opt_revision_t			rev;			///< subversion revision. used by getRevision()
 	svn_error_t *				Err;			///< Global error object struct
 
-
 	svn_opt_revision_t *	getRevision (long revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 	apr_array_header_t * target (LPCTSTR path);
@@ -443,6 +442,7 @@ private:
 					apr_pool_t* pool);
 
 public:
+	CWinApp *					m_app;
 	const char *m_username, *m_password;
 	void get_simple_provider (svn_auth_provider_object_t **provider, apr_pool_t *pool);
 

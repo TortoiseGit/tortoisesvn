@@ -161,7 +161,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			GetDlgItem(IDOK)->EnableWindow(FALSE);
-			CCursor(IDC_WAIT);
+			//CCursor(IDC_WAIT);
 			if (cmd == ID_POPSAVEAS)
 			{
 				OPENFILENAME ofn;		// common dialog box structure
@@ -188,11 +188,15 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 				{
 					tempfile = CString(ofn.lpstrFile);
 					SVN svn;
+					svn.m_app = &theApp;
+					theApp.DoWaitCursor(1);
 					if (!svn.Cat(url, -1, tempfile))
 					{
+						theApp.DoWaitCursor(-1);
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return;
 					}
+					theApp.DoWaitCursor(-1);
 				} // if (GetSaveFileName(&ofn)==TRUE) 
 			} // if (cmd == ID_SAVEAS)
 			if (cmd == ID_POPSHOWLOG)

@@ -25,6 +25,7 @@
 
 SVN::SVN(void)
 {
+	m_app = NULL;
 	apr_initialize();
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
@@ -124,6 +125,8 @@ BOOL SVN::Prompt(CString& info, CString prompt, BOOL hide)
 		{
 			svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
 		}
+		if (m_app)
+			m_app->DoWaitCursor(0);
 		return TRUE;
 	}
 	if (nResponse == IDABORT)

@@ -99,7 +99,6 @@ BOOL CTortoiseProcApp::InitInstance()
 	CString comVal = parser.GetVal(_T("command"));
 	if (comVal.IsEmpty())
 	{
-		//CMessageBox::Show(NULL, "no command value specified!", "Error", MB_ICONERROR);
 		CMessageBox::Show(NULL, IDS_ERR_NOCOMMANDVALUE, IDS_APPNAME, MB_ICONERROR);
 		return FALSE;
 	}
