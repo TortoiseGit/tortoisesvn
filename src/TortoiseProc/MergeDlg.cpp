@@ -388,7 +388,7 @@ void CMergeDlg::OnBnClickedRevisionN1()
 void CMergeDlg::OnBnClickedFindbranchstart()
 {
 	UpdateData(TRUE);
-	if ((m_pLogDlg)&&::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
 	CString url;
 	m_URLCombo.GetWindowText(url);
@@ -410,7 +410,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 void CMergeDlg::OnBnClickedFindbranchend()
 {
 	UpdateData(TRUE);
-	if ((m_pLogDlg2)&&::IsWindow(m_pLogDlg2->GetSafeHwnd())(m_pLogDlg2->IsWindowVisible()))
+	if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
 		return;
 	CString url;
 	if (m_bUseFromURL)
