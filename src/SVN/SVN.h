@@ -105,14 +105,14 @@ public:
 	 * \param force if TRUE, all files including those not versioned are deleted. If FALSE the operation
 	 * will fail if a directory contains unversioned files or if the file itself is not versioned.
 	 */
-	BOOL Remove(CTSVNPathList pathlist, BOOL force, CString message = _T(""));
+	BOOL Remove(const CTSVNPathList& pathlist, BOOL force, CString message = _T(""));
 	/**
 	 * Reverts a list of files/directories to its pristine state. I.e. its reverted to the state where it
 	 * was last updated with the repository.
 	 * \param path the file/directory to revert
 	 * \param recurse 
 	 */
-	BOOL Revert(CTSVNPathList pathlist, BOOL recurse);
+	BOOL Revert(const CTSVNPathList& pathlist, BOOL recurse);
 	/**
 	 * Schedule a working copy path for addition to the repository.
 	 * path's parent must be under revision control already, but path is
@@ -152,7 +152,7 @@ public:
 	 * \param recurse 
 	 * \param revision the resulting revision number. return value.
 	 */
-	LONG Commit(CTSVNPathList pathlist, CString message, BOOL recurse);
+	LONG Commit(const CTSVNPathList& pathlist, CString message, BOOL recurse);
 	/**
 	 * Copy srcPath to destPath.
 	 * 
@@ -208,7 +208,7 @@ public:
 	 * \param path 
 	 * \param message 
 	 */
-	BOOL MakeDir(CTSVNPathList pathlist, CString message);
+	BOOL MakeDir(const CTSVNPathList& pathlist, CString message);
 	/**
 	 * Recursively cleanup a working copy directory DIR, finishing any
 	 * incomplete operations, removing lockfiles, etc.
@@ -354,7 +354,7 @@ public:
 	 * \param revisionEnd the revision to stop the logs
 	 * \param changed TRUE if the log should follow changed paths 
 	 */
-	BOOL ReceiveLog(CTSVNPathList pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict = FALSE);
+	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict = FALSE);
 	
 	/**
 	 * Checks out a file with \a revision to \a localpath.
@@ -500,10 +500,9 @@ public:
 
 	/**
 	 * Tells the shell (explorer) to update the icon overlays.
-	 * \param path the path to the files/folders which have changed.
+	 * \param paths the list of paths of the files/folders which have changed.
 	 */
-	static void UpdateShell(CString path);
-	static void UpdateShell(CTSVNPathList pathlist);
+	static void UpdateShell(const CTSVNPathList& paths);
 
 	/**
 	 * Checks if a given path is a valid URL.
@@ -545,10 +544,8 @@ private:
 	static CString				cpaths;
 	svn_opt_revision_t *	getRevision (long revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
-	apr_array_header_t * target (CTSVNPathList pathlist);
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
-		
 	static svn_error_t* cancel(void *baton);
 	static void notify( void *baton,
 					const char *path,

@@ -15,6 +15,12 @@ CTSVNPath::CTSVNPath(void) :
 CTSVNPath::~CTSVNPath(void)
 {
 }
+// Create a TSVNPath object from an unknown path type (same as using SetFromUnknown)
+CTSVNPath::CTSVNPath(const CString& sUnknownPath)
+{
+	SetFromUnknown(sUnknownPath);
+}
+
 void CTSVNPath::SetFromSVN(const char* pPath)
 {
 	Reset();
@@ -362,32 +368,16 @@ CTSVNPathList::CTSVNPathList()
 
 }
 
+// A constructor which allows a path list to be easily built which one initial entry in
+CTSVNPathList::CTSVNPathList(const CTSVNPath& firstEntry)
+{
+	AddPath(firstEntry);
+}
+
 void CTSVNPathList::AddPath(const CTSVNPath& newPath)
 {
 	m_paths.push_back(newPath);
 }
-
-void CTSVNPathList::AddPathFromSVN(const CString& newPath)
-{
-	CTSVNPath path;
-	path.SetFromSVN(newPath);
-	AddPath(path);
-}
-
-void CTSVNPathList::AddPathFromWin(const CString& newPath)
-{
-	CTSVNPath path;
-	path.SetFromWin(newPath);
-	AddPath(path);
-}
-
-void CTSVNPathList::AddPathFromUnknown(const CString& newPath)
-{
-	CTSVNPath path;
-	path.SetFromUnknown(newPath);
-	AddPath(path);
-}
-
 int 
 CTSVNPathList::GetCount() const
 {
@@ -493,6 +483,22 @@ void CTSVNPathList::SortByPathname()
 {
 	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::ComparisonPredicate);
 }
+
+
+apr_array_header_t * CTSVNPathList::MakeSVNPathArray(apr_pool_t* pool) const
+{
+	apr_array_header_t *targets = apr_array_make (pool,5,sizeof(const char *));
+
+	PathVector::const_iterator it;
+	for(it = m_paths.begin(); it != m_paths.end(); ++it)
+	{
+		const char * target = apr_pstrdup (pool, it->GetSVNApiPath());
+		(*((const char **) apr_array_push (targets))) = target;
+	}
+	return targets;
+}
+
+
 
 #if defined(_DEBUG)
 // Some test cases for this class

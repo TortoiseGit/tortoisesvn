@@ -596,41 +596,42 @@ UINT CSVNProgressDlg::ProgressThread()
 					sTempWindowTitle = pathlist[0].GetFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 					SetWindowText(sTempWindowTitle);
 				}
-				BOOL isTag = FALSE;
-				BOOL bURLFetched = FALSE;
-				CString url;
+					BOOL isTag = FALSE;
+					BOOL bURLFetched = FALSE;
+					CString url;
 				for (int i=0; i<pathlist.GetCount(); ++i)
-				{
-					if (bURLFetched == FALSE)
 					{
+						if (bURLFetched == FALSE)
+						{
 						url = m_pSvn->GetURLFromPath(pathlist[i].GetWinPath());
-						if (!url.IsEmpty())
-							bURLFetched = TRUE;
-						CString urllower = url;
-						urllower.MakeLower();
-						if (urllower.Find(_T("/tags/"))>=0)
-							isTag = TRUE;
+							if (!url.IsEmpty())
+								bURLFetched = TRUE;
+							CString urllower = url;
+							urllower.MakeLower();
+//BUGBUG? - Is this /tags/ test really legitmate?  Who's to say that 
+//all 'tags' have the word /tag/ in their URL?  
+//Or have I misunderstood this?
+							if (urllower.Find(_T("/tags/"))>=0)
+								isTag = TRUE;
 						break;
-					}					
+					}
 				}
-				if (isTag)
-				{
-					if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
-						break;
+					if (isTag)
+					{
+						if (CMessageBox::Show(m_hWnd, IDS_PROGRS_COMMITT_TRUNK, IDS_APPNAME, MB_OKCANCEL | MB_DEFBUTTON2 | MB_ICONEXCLAMATION)==IDCANCEL)
+							break;
 				}
 				if (!m_pSvn->Commit(pathlist, m_sMessage, ((pathlist.GetCount() == 1)&&(m_Revision == 0))))
-				{
-					ReportSVNError();
+					{
+						ReportSVNError();
 				}
-				DeleteFile(m_sPath);
-			}
+					DeleteFile(m_sPath);
+				}
 			else
 			{
 				sTempWindowTitle = CUtils::GetFileNameFromPath(m_sPath)+_T(" - ")+sWindowTitle;
 				SetWindowText(sTempWindowTitle);
-				CTSVNPathList pathlist;
-				pathlist.AddPathFromWin(m_sPath);
-				m_pSvn->Commit(pathlist, m_sMessage, true);
+				m_pSvn->Commit(CTSVNPathList(CTSVNPath(m_sPath)), m_sMessage, true);
 			}
 			break;
 		case Add:
@@ -671,16 +672,15 @@ UINT CSVNProgressDlg::ProgressThread()
 					DeleteFile(m_sPath);
 					if (!m_pSvn->Revert(targetList, (m_sUrl.Compare(_T("recursive"))==0)))
 					{
-						ReportSVNError();
-						break;
-					}					
+					ReportSVNError();
+					break;
 				}
+					DeleteFile(m_sPath);
+			}
 			}
 			else
 			{
-				CTSVNPathList targetlist;
-				targetlist.AddPathFromWin(m_sPath);
-				m_pSvn->Revert(targetlist, true);
+				m_pSvn->Revert(CTSVNPathList(CTSVNPath(m_sPath)), true);
 			}
 			break;
 		case Resolve:

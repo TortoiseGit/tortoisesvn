@@ -41,6 +41,8 @@ class CTSVNPath
 public:
 	CTSVNPath(void);
 	~CTSVNPath(void);
+	// Create a TSVNPath object from an unknown path type (same as using SetFromUnknown)
+	explicit CTSVNPath(const CString& sUnknownPath);
 
 public:
 	/**
@@ -204,12 +206,11 @@ class CTSVNPathList
 {
 public:
 	CTSVNPathList();
+	// A constructor which allows a path list to be easily built which one initial entry in
+	explicit CTSVNPathList(const CTSVNPath& firstEntry);
 
 public:
 	void AddPath(const CTSVNPath& newPath);
-	void AddPathFromSVN(const CString& newPath);
-	void AddPathFromWin(const CString& newPath);
-	void AddPathFromUnknown(const CString& newPath);
 	bool LoadFromTemporaryFile(const CString& sFilename);
 	bool WriteToTemporaryFile(const CString& sFilename) const;
 	int GetCount() const;
@@ -218,6 +219,12 @@ public:
 	bool AreAllPathsFilesInOneDirectory() const;
 	CTSVNPath GetCommonDirectory() const;
 	void SortByPathname();
+
+	/** Make the appropriate APR array structure to allow multiple paths to be passed
+	 *  to SVN APIs which can operate on multiple items per call 
+	 */
+	apr_array_header_t * MakeSVNPathArray(apr_pool_t* pool) const;
+
 
 private:
 	typedef std::vector<CTSVNPath> PathVector;

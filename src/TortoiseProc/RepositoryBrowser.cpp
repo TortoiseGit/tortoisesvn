@@ -669,9 +669,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CUtils::RemoveAccelerators(input.m_sInputText);
 						if (input.DoModal() == IDOK)
 						{
-							CTSVNPathList targetlist;
-							targetlist.AddPathFromSVN(url+_T("/")+dlg.m_name);
-							if (!svn.MakeDir(targetlist, input.m_sInputText))
+							if (!svn.MakeDir(CTSVNPathList(CTSVNPath(url+_T("/")+dlg.m_name)), input.m_sInputText))
 							{
 								wait_cursor.Hide();
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -868,21 +866,21 @@ void CRepositoryBrowser::DeleteSelectedEntries()
 	if (dlg.DoModal()==IDOK)
 	{
 		int selItem = m_treeRepository.GetFirstSelectedItem();
-		CTSVNPathList urls;
+		CTSVNPathList itemsToRemove;
 		do
 		{
-			urls.AddPathFromSVN(m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem)));
+			itemsToRemove.AddPath(CTSVNPath(m_treeRepository.MakeUrl(m_treeRepository.GetItemHandle(selItem))));
 			selItem = m_treeRepository.GetNextSelectedItem(selItem);
 		} while (selItem != RVI_INVALID);
-		if (!svn.Remove(urls, TRUE, dlg.m_sInputText))
+		if (!svn.Remove(itemsToRemove, TRUE, dlg.m_sInputText))
 		{
 			wait_cursor.Hide();
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return;
-		}
-		for (int i=0; i<urls.GetCount(); ++i)
+		} // if (!svn.Remove(url, TRUE)) 
+		for(int nItem = 0; nItem < itemsToRemove.GetCount(); nItem++)
 		{
-			m_treeRepository.DeleteUrl(urls[i].GetSVNPathString());
+			m_treeRepository.DeleteUrl(itemsToRemove[nItem].GetSVNPathString());
 		}
-	}
+}
 }

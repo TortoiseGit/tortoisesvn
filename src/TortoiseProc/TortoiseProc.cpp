@@ -717,10 +717,11 @@ BOOL CTortoiseProcApp::InitInstance()
 					// even though SVN::Remove takes a list of paths to delete at once
 					// we delete each item individually so we can prompt the user
 					// if something goes wrong or unversioned/modified items are
-					// to be deleted.
-					CTSVNPathList pathlist;
-					pathlist.AddPathFromWin(strLine);
-					if (!svn.Remove(pathlist, bForce))
+					// to be deleted
+//					const CTSVNPathList& pathList = CTSVNPathList(CTSVNPath(strLine));
+					CTSVNPath path(strLine);
+					CTSVNPathList pathList(path);
+					if (!svn.Remove(pathList, bForce))
 					{
 						if ((svn.Err->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
 							(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
@@ -735,7 +736,7 @@ BOOL CTortoiseProcApp::InitInstance()
 							if (ret == 3)
 								bForce = TRUE;
 							if ((ret == 1)||(ret==3))
-								if (!svn.Remove(pathlist, TRUE))
+								if (!svn.Remove(pathList, TRUE))
 								{
 									CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								}
