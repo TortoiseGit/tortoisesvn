@@ -800,6 +800,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	} // if (nLength == 0) 
 
 	LPCTSTR pszChars = GetLineChars(nLineIndex);
+	if (pszChars == NULL)
+		return;
 
 	// Draw the line
 	CPoint origin(rc.left - m_nOffsetChar * GetCharWidth(), rc.top);
@@ -830,12 +832,14 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 				if (this == m_pwndLeft)
 				{
 					LPCTSTR pszRightLine = m_pwndRight->m_arDiffLines->GetAt(nLineIndex);
-					ExpandChars(pszRightLine, 0, m_pwndRight->GetLineLength(nLineIndex), sOtherLine);
+					if (pszRightLine)
+						ExpandChars(pszRightLine, 0, m_pwndRight->GetLineLength(nLineIndex), sOtherLine);
 				} // if (this == m_pwndLeft)
 				else if (this == m_pwndRight)
 				{
 					LPCTSTR pszLeftLine = m_pwndLeft->m_arDiffLines->GetAt(nLineIndex);
-					ExpandChars(pszLeftLine, 0, m_pwndLeft->GetLineLength(nLineIndex), sOtherLine);
+					if (pszLeftLine)
+						ExpandChars(pszLeftLine, 0, m_pwndLeft->GetLineLength(nLineIndex), sOtherLine);
 				}
 				CString line2 = line;
 				line2 = line2.TrimLeft(_T(" \t"));

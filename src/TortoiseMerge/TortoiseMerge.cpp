@@ -142,7 +142,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 	// To create the main window, this code creates a new frame window
 	// object and then sets it as the application's main window object
 	CMainFrame* pFrame = new CMainFrame;
-	if (!pFrame)
+	if (pFrame == NULL)
 		return FALSE;
 	m_pMainWnd = pFrame;
 	// create and load the frame with its resources
