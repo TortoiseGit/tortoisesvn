@@ -49,7 +49,7 @@ public:
 
 protected:
 	void		FreeMemory();
-
+	BOOL		HasExpandedKeyWords(const CString& line);
 	struct Chunk
 	{
 		LONG					lRemoveStart;

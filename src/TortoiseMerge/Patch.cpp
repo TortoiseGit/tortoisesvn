@@ -486,7 +486,7 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 					} // if (lRemoveLine > PatchLines.GetCount())
 					if (lAddLine == 0)
 						lAddLine = 1;
-					if (sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)
+					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0)&&(!HasExpandedKeyWords(sPatchLine)))
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
@@ -517,7 +517,8 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 					if (lAddLine == 0)
 						lAddLine++;
 					if ((sPatchLine.Compare(PatchLines.GetAt(lAddLine-1))!=0) &&
-						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0))
+						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0)&&
+						(!HasExpandedKeyWords(sPatchLine)))
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, sPatchLine, PatchLines.GetAt(lAddLine-1));
 						return FALSE; 
@@ -539,6 +540,28 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 	return TRUE;
 }
 
+BOOL CPatch::HasExpandedKeyWords(const CString& line)
+{
+	if (line.Find(_T("$LastChangedDate"))>=0)
+		return TRUE;
+	if (line.Find(_T("$Date"))>=0)
+		return TRUE;
+	if (line.Find(_T("$LastChangedRevision"))>=0)
+		return TRUE;
+	if (line.Find(_T("$Rev"))>=0)
+		return TRUE;
+	if (line.Find(_T("$LastChangedBy"))>=0)
+		return TRUE;
+	if (line.Find(_T("$Author"))>=0)
+		return TRUE;
+	if (line.Find(_T("$HeadURL"))>=0)
+		return TRUE;
+	if (line.Find(_T("$URL"))>=0)
+		return TRUE;
+	if (line.Find(_T("$Id"))>=0)
+		return TRUE;
+	return FALSE;
+}
 
 
 
