@@ -130,6 +130,7 @@ void CBaseView::UpdateStatusBar()
 			switch (state)
 			{
 			case CDiffData::DIFFSTATE_ADDED:
+			case CDiffData::DIFFSTATE_ADDEDWHITESPACE:
 			case CDiffData::DIFFSTATE_IDENTICALADDED:
 			case CDiffData::DIFFSTATE_THEIRSADDED:
 			case CDiffData::DIFFSTATE_YOURSADDED:
@@ -138,6 +139,7 @@ void CBaseView::UpdateStatusBar()
 				break;
 			case CDiffData::DIFFSTATE_IDENTICALREMOVED:
 			case CDiffData::DIFFSTATE_REMOVED:
+			case CDiffData::DIFFSTATE_REMOVEDWHITESPACE:
 			case CDiffData::DIFFSTATE_THEIRSREMOVED:
 			case CDiffData::DIFFSTATE_YOURSREMOVED:
 				nRemovedLines++;
@@ -550,6 +552,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		switch (state)
 		{
 		case CDiffData::DIFFSTATE_ADDED:
+		case CDiffData::DIFFSTATE_ADDEDWHITESPACE:
 		case CDiffData::DIFFSTATE_THEIRSADDED:
 		case CDiffData::DIFFSTATE_YOURSADDED:
 		case CDiffData::DIFFSTATE_IDENTICALADDED:
@@ -557,6 +560,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 			icon = m_hAddedIcon;
 			break;
 		case CDiffData::DIFFSTATE_REMOVED:
+		case CDiffData::DIFFSTATE_REMOVEDWHITESPACE:
 		case CDiffData::DIFFSTATE_THEIRSREMOVED:
 		case CDiffData::DIFFSTATE_YOURSREMOVED:
 		case CDiffData::DIFFSTATE_IDENTICALREMOVED:
@@ -646,6 +650,7 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
 	switch (state)
 	{
 	case CDiffData::DIFFSTATE_REMOVED:
+	case CDiffData::DIFFSTATE_REMOVEDWHITESPACE:
 	case CDiffData::DIFFSTATE_THEIRSREMOVED:
 	case CDiffData::DIFFSTATE_YOURSREMOVED:
 	case CDiffData::DIFFSTATE_IDENTICALREMOVED:

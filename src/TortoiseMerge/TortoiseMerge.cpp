@@ -75,7 +75,14 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->m_Data.m_sMergedFile = parser.GetVal(_T("merged"));
 	pFrame->m_Data.m_sPatchPath = parser.GetVal(_T("patchpath"));
 	pFrame->m_Data.m_sDiffFile = parser.GetVal(_T("diff"));
-	pFrame->m_bOneWay = parser.HasKey(_T("oneway"));
+	if (parser.HasKey(_T("oneway")))
+        pFrame->m_bOneWay = TRUE;
+	if (!pFrame->m_Data.m_sBaseFile.IsEmpty() && pFrame->m_Data.m_sYourFile.IsEmpty() && !pFrame->m_Data.m_sTheirFile.IsEmpty())
+	{
+		pFrame->m_Data.m_sYourFile = pFrame->m_Data.m_sTheirFile;
+		pFrame->m_Data.m_sTheirFile.Empty();
+	}
+
 	if ((parser.HasKey(_T("patchpath")))&&(!parser.HasVal(_T("diff"))))
 	{
 		// A path was given for applying a patchfile, but
