@@ -57,7 +57,7 @@ void CTortoiseProcApp::CrashProgram()
 BOOL CTortoiseProcApp::InitInstance()
 {
 	//set the resource dll for the required language
-	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
 	CString langDll;
 	HINSTANCE hInst = NULL;
