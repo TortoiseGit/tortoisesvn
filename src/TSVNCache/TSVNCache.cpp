@@ -120,9 +120,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest,
 		path.SetFromWin(pRequest->path);
 	}
 
-	bool bRecursiveStatus = !!(pRequest->flags & TSVNCACHE_FLAGS_RECUSIVE_STATUS);
-
-	const svn_wc_status_t* pStatus = CSVNStatusCache::Instance().GetStatusForPath(path, bRecursiveStatus).Status();
+	const svn_wc_status_t* pStatus = CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags).Status();
 
 	memcpy(chReply, pStatus, sizeof(svn_wc_status_t));
 	*pchBytes = sizeof(svn_wc_status_t);

@@ -8,6 +8,7 @@
 CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
+	m_propsDirTime = 0;
 	m_mostImportantFileStatus = svn_wc_status_unversioned;
 }
 
@@ -21,12 +22,14 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 
 	m_directoryPath = directoryPath;
 	m_entriesFileTime = 0;
+	m_propsDirTime = 0;
 	m_mostImportantFileStatus = svn_wc_status_unversioned;
 }
 
 CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bool bRecursive)
 {
 	CString strCacheKey;
+	bool bThisDirectoryIsUnversioned = false;
 	bool bRequestForSelf = false;
 	if(path.IsEquivalentTo(m_directoryPath))
 	{
@@ -44,12 +47,18 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	// Check if the entries file has been changed
 	CTSVNPath entriesFilePath(m_directoryPath);
 	entriesFilePath.AppendPathString(_T(SVN_WC_ADM_DIR_NAME) _T("\\entries"));
-	if(m_entriesFileTime == entriesFilePath.GetLastWriteTime())
+	CTSVNPath propsDirPath(m_directoryPath);
+	propsDirPath.AppendPathString(_T(SVN_WC_ADM_DIR_NAME) _T("\\props"));
+	if(m_entriesFileTime == entriesFilePath.GetLastWriteTime() && m_propsDirTime == propsDirPath.GetLastWriteTime())
 	{
 		if(m_entriesFileTime == 0)
 		{
 			// We are a folder which is not in a working copy
+			bThisDirectoryIsUnversioned = true;
 			m_ownStatus.SetStatus(NULL);
+
+			// We should never have anything in our file item cache if we're unversioned
+			ATLASSERT(m_entryCache.empty());
 
 			// However, a member *DIRECTORY* might be the top of WC
 			// so we need to ask them to get their own status
@@ -120,9 +129,10 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 	{
 		if(m_entriesFileTime != 0)
 		{
-			ATLTRACE("Entries file change seen for %s\n", path.GetSVNApiPath());
+			ATLTRACE("Entries file change seen for %ws\n", path.GetWinPath());
 		}
 		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
+		m_propsDirTime = propsDirPath.GetLastWriteTime();
 		m_entryCache.clear();
 	}
 
@@ -142,36 +152,45 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		return CStatusCacheEntry();
 	}
 
-	ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
 
 	svn_wc_status_kind preUpdateStatus = m_mostImportantFileStatus;
 	m_mostImportantFileStatus = svn_wc_status_unversioned;
 	m_childDirectories.clear();
 
-	svn_error_t* pErr = svn_client_status (
-		NULL,
-		m_directoryPath.GetSVNApiPath(),
-		&revision,
-		GetStatusCallback,
-		this,
-		mainCache.m_bDoRecursiveFetches,		//descend
-		TRUE,									//getall
-		mainCache.m_bGetRemoteStatus,			//update
-		TRUE,									//noignore
-		mainCache.m_svnHelp.ClientContext(),
-		subPool
-		);
-
-	if(pErr)
+	if(!bThisDirectoryIsUnversioned)
 	{
-		// Handle an error
-		// The most likely error on a folder is that it's not part of a WC
-		// In most circumstances, this will have been caught earlier,
-		// but in some situations, we'll get this error.
-		// If we allow ourselves to fall on through, then folders will be asked
-		// for their own status, and will set themselves as unversioned, for the 
-		// benefit of future requests
-		ATLTRACE("svn_cli_stat err: '%s'\n", pErr->message);
+		ATLTRACE("svn_cli_stat for '%ws' (req %ws)\n", m_directoryPath.GetWinPath(), path.GetWinPath());
+
+		svn_error_t* pErr = svn_client_status (
+			NULL,
+			m_directoryPath.GetSVNApiPath(),
+			&revision,
+			GetStatusCallback,
+			this,
+			mainCache.m_bDoRecursiveFetches,		//descend
+			TRUE,									//getall
+			mainCache.m_bGetRemoteStatus,			//update
+			TRUE,									//noignore
+			mainCache.m_svnHelp.ClientContext(),
+			subPool
+			);
+
+		if(pErr)
+		{
+			// Handle an error
+			// The most likely error on a folder is that it's not part of a WC
+			// In most circumstances, this will have been caught earlier,
+			// but in some situations, we'll get this error.
+			// If we allow ourselves to fall on through, then folders will be asked
+			// for their own status, and will set themselves as unversioned, for the 
+			// benefit of future requests
+			ATLTRACE("svn_cli_stat err: '%s'\n", pErr->message);
+			ATLASSERT(FALSE);
+		}
+	}
+	else
+	{
+		ATLTRACE("Skipped SVN status for unversioned folder\n");
 	}
 
 	// Now that we've refreshed our SVN status, we can see if it's 
@@ -339,7 +358,7 @@ void CCachedDirectory::RefreshStatus()
 	// Make sure that our own status is up-to-date
 	GetStatusForMember(m_directoryPath,true);
 
-	// We also need to check if all our members have the right date on them
+	// We also need to check if all our file members have the right date on them
 	CacheEntryMap::iterator itMembers;
 	for(itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{

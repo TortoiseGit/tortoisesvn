@@ -25,7 +25,7 @@ public:
 
 public:
 	void Clear();
-	CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, bool bRecursive);
+	CStatusCacheEntry GetStatusForPath(const CTSVNPath& path, DWORD flags);
 	void Dump();
 	void EnableRecursiveFetch(bool bEnable);
 	void EnableRemoteStatus(bool bEnable);
