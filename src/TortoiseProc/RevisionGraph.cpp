@@ -209,6 +209,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	urlpath.SetFromSVN(url);
 	SVN svn;
 	m_sRepoRoot = svn.GetRepositoryRoot(urlpath);
+	url = m_sRepoRoot;
 	if (m_sRepoRoot.IsEmpty())
 		return FALSE;
 
