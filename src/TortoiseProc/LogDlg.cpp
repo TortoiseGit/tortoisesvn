@@ -188,6 +188,7 @@ BOOL CLogDlg::OnInitDialog()
 	AddAnchor(IDC_GETALL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	this->hWnd = this->m_hWnd;
+	EnableSaveRestore(_T("LogDlg"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	return FALSE;  // return TRUE unless you set the focus to a control

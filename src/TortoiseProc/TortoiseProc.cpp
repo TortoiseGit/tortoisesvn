@@ -128,7 +128,16 @@ BOOL CTortoiseProcApp::InitInstance()
 	// InitCommonControls() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
-	InitCommonControls();
+	
+    INITCOMMONCONTROLSEX used = {
+        sizeof(INITCOMMONCONTROLSEX),
+			ICC_ANIMATE_CLASS | ICC_BAR_CLASSES | ICC_COOL_CLASSES | ICC_DATE_CLASSES |
+			ICC_HOTKEY_CLASS | ICC_INTERNET_CLASSES | ICC_LINK_CLASS | ICC_LISTVIEW_CLASSES |
+			ICC_NATIVEFNTCTL_CLASS | ICC_PAGESCROLLER_CLASS | ICC_PROGRESS_CLASS |
+			ICC_STANDARD_CLASSES | ICC_TAB_CLASSES | ICC_TREEVIEW_CLASSES | ICC_UPDOWN_CLASS |
+			ICC_USEREX_CLASSES | ICC_WIN95_CLASSES
+    };
+    InitCommonControlsEx(&used);
 	AfxOleInit();
 	CWinApp::InitInstance();
 	SetRegistryKey(_T("TortoiseSVN"));
@@ -335,13 +344,6 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (comVal.Compare(_T("add"))==0)
 		{
 			CString path = parser.GetVal(_T("path"));
-			//if the user selected a folder
-			//then we scan recursively for unversioned
-			//files to show to the user
-			CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
-			CString strLine = _T("");
-			file.ReadString(strLine);
-			file.Close();
 			CAddDlg dlg;
 			dlg.m_sPath = path;
 			if (dlg.DoModal() == IDOK)
@@ -352,6 +354,10 @@ BOOL CTortoiseProcApp::InitInstance()
 				progDlg.SetParams(Add, true, path);
 				progDlg.DoModal();
 			} // if (dlg.DoModal() == IDOK) // if (dlg.DoModal() == IDOK) 
+			else
+			{
+				DeleteFile(path);
+			}
 		}
 		//#endregion
 		//#region revert
