@@ -132,70 +132,6 @@
 			<Tool
 				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
-		<Configuration
-			Name="Release_MBCS|Win32"
-			OutputDirectory="..\..\bin\Release_MBCS\bin"
-			IntermediateDirectory="..\..\obj\TortoiseProc\Release_MBCS"
-			ConfigurationType="1"
-			UseOfMFC="2"
-			CharacterSet="2"
-			WholeProgramOptimization="TRUE">
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="1"
-				GlobalOptimizations="FALSE"
-				InlineFunctionExpansion="1"
-				FavorSizeOrSpeed="2"
-				OptimizeForWindowsApplication="TRUE"
-				AdditionalIncludeDirectories="&quot;../../../Subversion/apr-util/include&quot;;&quot;../../../Subversion/apr-util/xml/expat/lib&quot;;../../../Subversion/subversion/include;../../../Subversion/subversion/libsvn_client;../../../Subversion/apr/include;..\TortoiseProc;..\Utils;..\SVN;..\ResizableLib;..\crashrpt;..\TortoiseShell;..\..\ext\gettext\include;..\Utils\scintilla\include"
-				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APU_HAVE_DB=1"
-				StringPooling="TRUE"
-				MinimalRebuild="FALSE"
-				RuntimeLibrary="2"
-				BufferSecurityCheck="FALSE"
-				TreatWChar_tAsBuiltInType="TRUE"
-				UsePrecompiledHeader="3"
-				WarningLevel="4"
-				DebugInformationFormat="3"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../../Subversion\db4-win32\lib\libdb42.lib ../../../Subversion\Release\subversion\libsvn_repos\libsvn_repos-1.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_fs\libsvn_fs-1.lib ../../../Subversion\Release\subversion\libsvn_fs_base\libsvn_fs_base-1.lib ../../../Subversion\Release\subversion\libsvn_fs_fs\libsvn_fs_fs-1.lib ../../../Subversion\Release\subversion\libsvn_ra_dav\libsvn_ra_dav-1.lib ../../../Subversion\Release\subversion\libsvn_ra_local\libsvn_ra_local-1.lib ../../../Subversion\Release\subversion\libsvn_ra\libsvn_ra-1.lib ../../../Subversion\Release\subversion\libsvn_ra_svn\libsvn_ra_svn-1.lib ../../../Subversion\neon\libneon.lib ../../../Subversion\Release\subversion\libsvn_wc\libsvn_wc-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\Release\subversion\libsvn_delta\libsvn_delta-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../../Subversion\apr-util\xml\expat\lib\LibR\xml.lib ../../ext/gettext/lib/intl.lib"
-				LinkIncremental="1"
-				IgnoreDefaultLibraryNames="libcd;libc;shell32"
-				DelayLoadDLLs="gdiplus.dll;libdb42.dll;libeay32.dll"
-				GenerateDebugInformation="TRUE"
-				SubSystem="2"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				TargetMachine="1"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
-				MkTypLibCompatible="FALSE"/>
-			<Tool
-				Name="VCPostBuildEventTool"/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-				Culture="1033"
-				AdditionalIncludeDirectories="&quot;$(IntDir)&quot;;..\TortoiseShell"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
-		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -426,12 +362,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
 						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\Utils\myspell\affentry.hxx">
@@ -446,12 +376,6 @@
 						</FileConfiguration>
 						<FileConfiguration
 							Name="Release|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
 							<Tool
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
@@ -480,12 +404,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
 						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\Utils\myspell\csutil.hxx">
@@ -500,12 +418,6 @@
 						</FileConfiguration>
 						<FileConfiguration
 							Name="Release|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
 							<Tool
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
@@ -528,12 +440,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
 						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\Utils\myspell\hashmgr.cxx">
@@ -545,12 +451,6 @@
 						</FileConfiguration>
 						<FileConfiguration
 							Name="Release|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
 							<Tool
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
@@ -576,12 +476,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
 						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\Utils\myspell\myspell.hxx">
@@ -600,12 +494,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
 						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="..\Utils\myspell\mythes.hxx">
@@ -620,12 +508,6 @@
 						</FileConfiguration>
 						<FileConfiguration
 							Name="Release|Win32">
-							<Tool
-								Name="VCCLCompilerTool"
-								UsePrecompiledHeader="0"/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release_MBCS|Win32">
 							<Tool
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"/>
@@ -1162,12 +1044,6 @@
 			</FileConfiguration>
 			<FileConfiguration
 				Name="Release|Win32">
-				<Tool
-					Name="VCCLCompilerTool"
-					UsePrecompiledHeader="1"/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release_MBCS|Win32">
 				<Tool
 					Name="VCCLCompilerTool"
 					UsePrecompiledHeader="1"/>

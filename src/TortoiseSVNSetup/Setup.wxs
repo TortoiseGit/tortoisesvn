@@ -52,12 +52,7 @@
     </Property>
     <Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
     <Condition Message="[ProductName] needs at least shell32.dll version 4.72">(NOT (""=VERSIONSHELL)) OR (Installed)</Condition>
-	<?if $(env.TSVNBUILD) = release ?>
 	  <Condition Message="This installer requires an NT based OS">(VersionNT)</Condition>
-	<?endif ?>
-	<?if $(env.TSVNBUILD) = release_mbcs ?>
-	  <Condition Message="[ProductName] requires at least Windows98. Also this installer doesn't run on NT based systems">(400&lt;Version9X)</Condition>
-	<?endif ?>
 	 
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Component Id="C__infofiles" Guid="625A2E1E-90D3-4107-8AE8-C5C37975FEA0" >
@@ -155,8 +150,8 @@
 	      </Component>
 	      
 	      <Component Id="C__TortoiseSVN" Guid="2F1FD4CC-32F0-51FB-A9CE-9DB539518655" >
-	        <File Id="F__TortoiseProc" Name="TORTOI~1.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseProc.exe" KeyPath="yes" />
-	        <File Id="F__TortoiseShell" Name="TORTOI~1.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseSVN.dll" />
+	        <File Id="F__TortoiseProc" Name="TORTOI~1.EXE" LongName="TortoiseProc.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseProc.exe" KeyPath="yes" />
+	        <File Id="F__TortoiseShell" Name="TORTOI~1.DLL" LongName="TortoiseSVN.dll" DiskId="1" src="..\..\bin\release\bin\TortoiseSVN.dll" />
 	        <File Id="F__TortoisePlink" Name="TORTOI~2.EXE" LongName="TortoisePlink.exe" DiskId="1" src="..\..\bin\release\bin\TortoisePlink.exe" />
 	        <File Id="F__SubWCRev" Name="SUBWCR~1.EXE" LongName="SubWCRev.exe" DiskId="1" src="..\..\bin\release\bin\SubWCRev.exe" />
 	        
@@ -166,7 +161,7 @@
 						Target="[TARGETDIR]bin\TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
 	      </Component>
 	      <Component Id="C__TortoiseMerge" Guid="2F8D9AF8-A660-47f0-83CE-DD7DA0FB73DD" >
-	        <File Id="F__TortoiseMerge" Name="TORTOI~3.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseMerge.exe" />
+	        <File Id="F__TortoiseMerge" Name="TORTOI~3.EXE" LongName="TortoiseMerge.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseMerge.exe" />
 	        
 	        <Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TORTOI~2" LongName="TortoiseMerge" Advertise="no"
 						Target="[TARGETDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
@@ -178,8 +173,8 @@
 	        <File Id="F__msvcp71" Name="MSVCP71.DLL" LongName="msvcp71.dll" DiskId="1" src="$(env.windir)\system32\msvcp71.dll" />
 	      </Component>
 	      <Component Id="C__TortoiseBlame" Guid="1B00F2A6-4D6B-4dbe-8B69-C8B493B4BBE5" >
-	        <File Id="F__TortoiseBlame" Name="TORTOI~4.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\TortoiseBlame.exe" KeyPath="yes" />
-	        <File Id="F__SciLexer" Name="SCILEX~1.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\$(env.TSVNBUILD)\bin\SciLexer.dll" />
+	        <File Id="F__TortoiseBlame" Name="TORTOI~4.EXE" LongName="TortoiseBlame.exe" DiskId="1" src="..\..\bin\release\bin\TortoiseBlame.exe" KeyPath="yes" />
+	        <File Id="F__SciLexer" Name="SCILEX~1.DLL" LongName="SciLexer.dll" DiskId="1" src="..\..\bin\release\bin\SciLexer.dll" />
 	      </Component>
 	  </Directory>
       <Directory Id="D__Iconv" Name="ICONV" LongName="iconv" >
