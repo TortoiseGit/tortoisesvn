@@ -1037,11 +1037,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		int selIndex = m_ProgList.GetSelectionMark();
 		if ((point.x == -1) && (point.y == -1))
 		{
+			// Menu was invoked from the keyboard rather than by right-clicking
 			CRect rect;
 			m_ProgList.GetItemRect(selIndex, &rect, LVIR_LABEL);
 			m_ProgList.ClientToScreen(&rect);
-			point.x = rect.left + rect.Width()/2;
-			point.y = rect.top + rect.Height()/2;
+			point = rect.CenterPoint();
 		}
 
 		if ((selIndex >= 0)&&(!m_bThreadRunning)&&(GetDlgItem(IDC_LOGBUTTON)->IsWindowVisible()))

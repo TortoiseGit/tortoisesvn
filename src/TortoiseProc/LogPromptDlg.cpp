@@ -26,7 +26,6 @@
 #include "MessageBox.h"
 #include "SVN.h"
 #include "Registry.h"
-#include ".\logpromptdlg.h"
 #include "SVNStatus.h"
 
 #ifdef _DEBUG
@@ -74,10 +73,6 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 END_MESSAGE_MAP()
 
 // CLogPromptDlg message handlers
-// If you add a minimize button to your dialog, you will need the code below
-// to draw the icon.  For MFC applications using the document/view model,
-// this is automatically done for you by the framework.
-
 
 BOOL CLogPromptDlg::OnInitDialog()
 {
@@ -402,7 +397,7 @@ UINT CLogPromptDlg::StatusThread()
 }
 
 void CLogPromptDlg::OnCancel()
-{
+{ 
 	if (m_bBlock)
 		return;
 	DeleteFile(m_sPath);

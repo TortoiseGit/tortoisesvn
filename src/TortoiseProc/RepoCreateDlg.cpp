@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RepoCreateDlg.h"
-#include ".\repocreatedlg.h"
 
 
 // CRepoCreateDlg dialog
