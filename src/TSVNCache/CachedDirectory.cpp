@@ -134,6 +134,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		m_entriesFileTime = entriesFilePath.GetLastWriteTime();
 		m_propsDirTime = propsDirPath.GetLastWriteTime();
 		m_entryCache.clear();
+		strCacheKey = GetCacheKey(path);
 	}
 
 	CSVNStatusCache& mainCache = CSVNStatusCache::Instance();
