@@ -20,6 +20,7 @@
 
 #include "stdafx.h"
 #include "IconStatic.h"
+#include ".\iconstatic.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -75,14 +76,6 @@ bool CIconStatic::Init(UINT nIconID)
 	m_MemBMP.DeleteObject();
 	m_MemBMP.CreateCompatibleBitmap(pDC, rCaption.Width(), rCaption.Height());
 	pOldBMP = MemDC.SelectObject(&m_MemBMP);
-
-	MemDC.FillSolidRect(rCaption, GetParent()->GetDC()->GetBkColor());
-	
-    DrawState( MemDC.m_hDC, NULL, NULL,
-		(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
-		NULL, 3, 0, 16, 16, DST_ICON | DSS_NORMAL);
-
-	rCaption.left += 22;
 	
 	HMODULE hThemeDll = LoadLibrary(_T("UxTheme.dll"));
 	if (hThemeDll)
@@ -92,6 +85,13 @@ bool CIconStatic::Init(UINT nIconID)
 		{
 			if ((*pfnIsAppThemed)())
 			{
+				MemDC.FillSolidRect(rCaption, pDC->GetBkColor());
+				
+				DrawState( MemDC.m_hDC, NULL, NULL,
+					(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
+					NULL, 3, 0, 16, 16, DST_ICON | DSS_NORMAL);
+
+				rCaption.left += 22;
 				PFNOPENTHEMEDATA pfnOpenThemeData = (PFNOPENTHEMEDATA)GetProcAddress(hThemeDll, "OpenThemeData");
 				if (pfnOpenThemeData)
 				{
@@ -112,6 +112,16 @@ bool CIconStatic::Init(UINT nIconID)
 					} // if (hTheme)
 				} // if (pfnOpenThemeData) 
 			} // if ((*pfnIsAppThemed)()) 
+			else
+			{
+				MemDC.FillSolidRect(rCaption, GetSysColor(COLOR_BTNFACE));
+				
+				DrawState( MemDC.m_hDC, NULL, NULL,
+					(LPARAM)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(m_nIconID), IMAGE_ICON, 16, 16, LR_VGACOLOR | LR_SHARED), 
+					NULL, 3, 0, 16, 16, DST_ICON | DSS_NORMAL);
+
+				rCaption.left += 22;
+			}
 		} // if (pfnIsAppThemed)
 		else
 		{
