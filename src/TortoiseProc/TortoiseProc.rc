@@ -290,6 +290,8 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Temp File Extensions:",IDC_STATIC,7,52,70,8
     EDITTEXT        IDC_TEMPEXTENSIONS,80,50,108,14,ES_AUTOHSCROLL
+    CONTROL         "allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,77,181,10
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
@@ -679,7 +681,8 @@ BEGIN
                             "activate this if you want the folder overlays\nto show the subversion status of the files below.\n<ct=0x0000ff><b>Caution:</b> this can slow down explorer</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "specify the file extensions which are\neither temporary or generated"
-    IDS_STRING249           "dummy"
+    IDS_SETTINGS_ADDBEFORECOMMIT_TT 
+                            "shows unversioned files before committing so\nyou can choose to add them if you want"
     IDS_STRING250           "dummy"
     IDS_SETTINGS_PROXYSERVER_TT "either the name or IP of the proxy server"
     IDS_STRING252           "dummy"

@@ -118,6 +118,14 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CMessageBox::Show(NULL, _T("Test command successfully executed"), _T("Info"), MB_OK);
 			return FALSE;
+		} // if (comVal.Compare(_T("test"))==0)
+		{
+			SVN svn;
+			if (!svn.GetLastErrorMessage().IsEmpty())
+			{
+				CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+				return FALSE;
+			}
 		}
 		//#region about
 		if (comVal.Compare(_T("about"))==0)
@@ -154,7 +162,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			long revend = _tstol(val);
 			if (revstart == 0)
 			{
-				revstart = rev;
+				revstart = -1;
 			}
 			if (revend == 0)
 				revend = 1;

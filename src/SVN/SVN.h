@@ -313,7 +313,7 @@ public:
 	 * \param force		see description
 	 * \param recurse 
 	 */
-	BOOL Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse);
+	BOOL Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE);
 	/**
 	 * fires the Log-event on each log message from revisionStart
 	 * to revisionEnd inclusive (but never fires the event

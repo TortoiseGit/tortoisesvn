@@ -326,6 +326,8 @@ BEGIN
     LTEXT           "estensione per i file temporanei:",IDC_STATIC,7,47,63,
                     19
     EDITTEXT        IDC_TEMPEXTENSIONS,70,49,118,14,ES_AUTOHSCROLL
+    CONTROL         "allow add before commit",IDC_ADDBEFORECOMMIT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,77,181,10
 END
 
 IDD_SETTINGSPROXY DIALOGEX 0, 0, 278, 103
@@ -708,7 +710,8 @@ BEGIN
                             "selezionare se desideri che l'icona delle cartelle mostri lo stato dei files contenuti.\n<ct=0x0000ff><b>Attenzione:</b> l'operazione potrebbe rallentare explorer.</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "specificare l'estensione da utilizzare per i files temporanei"
-    IDS_STRING249           "dummy"
+    IDS_SETTINGS_ADDBEFORECOMMIT_TT 
+                            "*********************************************************"
     IDS_STRING250           "dummy"
     IDS_SETTINGS_PROXYSERVER_TT "il nome o l'indirizzo ip del server proxy"
     IDS_STRING252           "dummy"

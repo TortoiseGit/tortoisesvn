@@ -5,6 +5,16 @@ CVS
 - BUG: if a folder was renamed in a working copy
        with a system rename (not a 'svn rename')
        then explorer crashed. Issue 39. (Stefan)
+- BUG: if an error occured while reading the
+       config file it wasn't reported. (Stefan)
+- BUG: the settings page crashed if not all pages
+       were selected before hitting "ok". (Stefan)
+- BUG: copy/paste and drag'n'drop of unversioned
+       files could crash explorer. (Stefan)
+- ADD: in the settings page there's now an option
+       if the user wants to have unversioned files
+       shown before a commit so (s)he can add it
+       before the commit. (Stefan)
 
 Version 0.9.2
 - BUG: In the Add dialog unversioned folders

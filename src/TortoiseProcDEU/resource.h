@@ -125,6 +125,7 @@
 #define IDS_STRING248                   248
 #define IDS_SETTINGS_TEMPEXTENSIONS_TT  248
 #define IDS_STRING249                   249
+#define IDS_SETTINGS_ADDBEFORECOMMIT_TT 249
 #define IDS_STRING250                   250
 #define IDS_SETTINGS_PROXYSERVER_TT     251
 #define IDS_STRING252                   252
@@ -198,6 +199,7 @@
 #define IDC_ENABLE                      1023
 #define IDC_MODULENAMECHECK             1023
 #define IDC_SAVECHECK                   1023
+#define IDC_ADDBEFORECOMMIT             1023
 #define IDC_EDIT1                       1027
 #define IDC_NAME                        1027
 #define IDC_REVNUM                      1027

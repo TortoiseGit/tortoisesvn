@@ -57,28 +57,54 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 
 		if (SUCCEEDED(hres) && medium.hGlobal)
 		{
-			// Enumerate PIDLs which the user has selected
-			CIDA* cida = (CIDA*)medium.hGlobal;
-			ItemIDList parent( GetPIDLFolder (cida));
-
-			int count = cida->cidl;
-			for (int i = 0; i < count; ++i)
+			if (m_State == DropHandler)
 			{
-				ItemIDList child (GetPIDLItem (cida, i), &parent);
-				stdstring str = child.toString();
-				if (str.empty() == false)
+				TCHAR m_szFileName[MAX_PATH];
+				int count = DragQueryFile((HDROP)medium.hGlobal, (UINT)-1, NULL, 0);
+				for (int i = 0; i < count; i++)
 				{
-					files_.push_back(str);
-					//get the Subversion status of the item
-					svn_wc_status_kind status = SVNStatus::GetAllStatus(str.c_str());
-					if (status != svn_wc_status_unversioned)
-						isInSVN = true;
-					if (status == svn_wc_status_normal)
-						isNormal = true;
-					if (status == svn_wc_status_conflicted)
-						isConflicted = true;
+					DragQueryFile((HDROP)medium.hGlobal, i, m_szFileName, sizeof(m_szFileName));
+					stdstring str = stdstring(m_szFileName);
+					if (str.empty() == false)
+					{
+						files_.push_back(str);
+						//get the Subversion status of the item
+						svn_wc_status_kind status = SVNStatus::GetAllStatus(str.c_str());
+						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
+							isInSVN = true;
+						if (status == svn_wc_status_normal)
+							isNormal = true;
+						if (status == svn_wc_status_conflicted)
+							isConflicted = true;
+					}
+				}
+			} // if (m_State == DropHandler)
+			else
+			{
+				//Enumerate PIDLs which the user has selected
+				CIDA* cida = (CIDA*)medium.hGlobal;
+				ItemIDList parent( GetPIDLFolder (cida));
+
+				int count = cida->cidl;
+				for (int i = 0; i < count; ++i)
+				{
+					ItemIDList child (GetPIDLItem (cida, i), &parent);
+					stdstring str = child.toString();
+					if (str.empty() == false)
+					{
+						files_.push_back(str);
+						//get the Subversion status of the item
+						svn_wc_status_kind status = SVNStatus::GetAllStatus(str.c_str());
+						if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
+							isInSVN = true;
+						if (status == svn_wc_status_normal)
+							isNormal = true;
+						if (status == svn_wc_status_conflicted)
+							isConflicted = true;
+					}
 				}
 			}
+
 
 			if (medium.pUnkForRelease)
 			{
@@ -94,7 +120,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		ItemIDList list(pIDFolder);
 		folder_ = list.toString();
 		svn_wc_status_kind status = SVNStatus::GetAllStatus(folder_.c_str());
-		if (status != svn_wc_status_unversioned)
+		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 		{
 			isFolderInSVN = true;
 			isInSVN = true;
@@ -108,7 +134,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		{
 			folder_ = files_.front();
 			svn_wc_status_kind status = SVNStatus::GetAllStatus(folder_.c_str());
-			if (status != svn_wc_status_unversioned)
+			if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored))
 				isFolderInSVN = true;
 			isFolder = true;
 		}
@@ -303,7 +329,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	menuiteminfo.hSubMenu = subMenu;
 	menuiteminfo.wID = idCmd;
 	InsertMenuItem(hMenu, indexMenu++, TRUE, &menuiteminfo);
-	myIDMap[idCmd] = SubMenu;
+	myIDMap[idCmd++] = SubMenu;
 
 	//separator after
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;

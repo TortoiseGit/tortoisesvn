@@ -300,7 +300,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				if (s->entry)
 					pDlg->GetDlgItem(IDC_COMMIT_TO)->SetWindowText(CUnicodeUtils::GetUnicode(s->entry->url));
 				temp = strbuf;
-				if (stat > svn_wc_status_normal)
+				if ((stat > svn_wc_status_normal)&&(stat != svn_wc_status_ignored))
 				{
 					pDlg->m_arFileList.Add(strLine);
 					pDlg->m_arFileStatus.Add(stat);
@@ -310,7 +310,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					pDlg->m_ListCtrl.SetCheck(count);
 				} // if (stat > svn_wc_status_normal)
-				if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(strLine)))
+				if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(strLine))&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))
 				{
 					if (!CCheckTempFiles::IsTemp(strLine))
 					{
@@ -327,7 +327,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 				{
 					temp = strbuf;
 					stat = max(s->text_status, s->prop_status);
-					if (stat > svn_wc_status_normal)
+					if ((stat > svn_wc_status_normal)&&(stat != svn_wc_status_ignored))
 					{
 						pDlg->m_arFileList.Add(temp);
 						pDlg->m_arFileStatus.Add(stat);
@@ -337,7 +337,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						pDlg->m_ListCtrl.SetCheck(count);
 					}
-					if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(temp)))
+					if ((stat == svn_wc_status_unversioned)&&(!PathIsDirectory(temp))&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"))))
 					{
 						if (!CCheckTempFiles::IsTemp(temp))
 						{

@@ -34,6 +34,11 @@ CSetProxyPage::CSetProxyPage()
 	, m_isEnabled(FALSE)
 {
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
+	m_regServeraddress = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regServerport = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regUsername = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regPassword = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
+	m_regTimeout = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
 }
 
 CSetProxyPage::~CSetProxyPage()
@@ -95,12 +100,6 @@ BOOL CSetProxyPage::OnInitDialog()
 	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
-	m_regServeraddress = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-host"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regServerport = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-port"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regUsername = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-username"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regPassword = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-password"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regTimeout = CRegString(_T("Software\\Tigris.org\\Subversion\\Servers\\global\\http-proxy-timeout"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	
 	m_serveraddress = m_regServeraddress;
 	m_serverport = _ttoi((LPCTSTR)(CString)m_regServerport);
 	m_username = m_regUsername;

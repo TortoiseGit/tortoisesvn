@@ -31,6 +31,11 @@ CSetMainPage::CSetMainPage()
 	, m_sTempExtensions(_T(""))
 {
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
+	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
+	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
+	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"));
+
 }
 
 CSetMainPage::~CSetMainPage()
@@ -42,6 +47,7 @@ void CSetMainPage::SaveData()
 	m_regDiffPath = m_sDiffPath;
 	m_regLanguage = m_dwLanguage;
 	m_regExtensions = m_sTempExtensions;
+	m_regAddBeforeCommit = m_bAddBeforeCommit;
 }
 
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
@@ -51,6 +57,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LANGUAGECOMBO, m_LanguageCombo);
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 	DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
+	DDX_Check(pDX, IDC_ADDBEFORECOMMIT, m_bAddBeforeCommit);
 }
 
 
@@ -59,6 +66,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_EN_CHANGE(IDC_EXTDIFF, OnEnChangeExtdiff)
 	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_EN_CHANGE(IDC_TEMPEXTENSIONS, OnEnChangeTempextensions)
+	ON_BN_CLICKED(IDC_ADDBEFORECOMMIT, OnBnClickedAddbeforecommit)
 END_MESSAGE_MAP()
 
 
@@ -100,19 +108,15 @@ BOOL CSetMainPage::OnInitDialog()
 	CPropertyPage::OnInitDialog();
 	EnableToolTips();
 
-	m_regDiffPath = CRegString(_T("Software\\TortoiseSVN\\Diff"));
-	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
-	//m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"), _T(""), 0, HKEY_LOCAL_MACHINE);
-	m_regExtensions = CRegString(_T("Software\\TortoiseSVN\\TempFileExtensions"));
-
-
 	m_sDiffPath = m_regDiffPath;
 	m_sTempExtensions = m_regExtensions;
+	m_bAddBeforeCommit = m_regAddBeforeCommit;
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTDIFF, IDS_SETTINGS_EXTDIFF_TT);
 	m_tooltips.AddTool(IDC_EXTDIFFBROWSE, IDS_SETTINGS_EXTDIFFBROWSE_TT);
 	m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
+	m_tooltips.AddTool(IDC_ADDBEFORECOMMIT, IDS_SETTINGS_ADDBEFORECOMMIT_TT);
 	m_tooltips.SetEffectBk(CBalloon::BALLOON_EFFECT_HGRADIENT);
 	m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
 
@@ -166,9 +170,15 @@ void CSetMainPage::OnEnChangeTempextensions()
 	SetModified();
 }
 
+void CSetMainPage::OnBnClickedAddbeforecommit()
+{
+	SetModified();
+}
+
 BOOL CSetMainPage::OnApply()
 {
 	SaveData();
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
 }
+

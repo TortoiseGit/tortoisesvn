@@ -81,6 +81,8 @@ private:
 	CComboBox		m_LanguageCombo;
 	CRegDWORD		m_regLanguage;
 	DWORD			m_dwLanguage;
+	CRegDWORD		m_regAddBeforeCommit;
+	BOOL			m_bAddBeforeCommit;
 
 public:
 	afx_msg void OnBnClickedExtdiffbrowse();
@@ -90,4 +92,5 @@ public:
 	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnEnChangeTempextensions();
 	virtual BOOL OnApply();
+	afx_msg void OnBnClickedAddbeforecommit();
 };

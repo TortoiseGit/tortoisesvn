@@ -27,7 +27,7 @@ SVN::SVN(void)
 	apr_initialize();
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
-	svn_config_ensure(parentpool);
+	Err = svn_config_ensure(parentpool);
 	pool = svn_pool_create (parentpool);
 
 	// set up authentication
@@ -123,8 +123,8 @@ SVN::SVN(void)
 	ctx.cancel_baton = this;
 
 	// set up the configuration
-	svn_config_get_config (&(ctx.config), pool);
-
+	if (Err == 0)
+		Err = svn_config_get_config (&(ctx.config), pool);
 }
 
 SVN::~SVN(void)
@@ -448,7 +448,7 @@ BOOL SVN::Import(CString path, CString url, CString newEntry, CString message, B
 	return TRUE;
 }
 
-BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse)
+BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry)
 {
 	preparePath(path1);
 	preparePath(path2);
@@ -460,6 +460,7 @@ BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CS
 							getRevision (revision2),
 							CUnicodeUtils::GetUTF8(localPath),
 							recurse,
+							ignoreanchestry,
 							force,
 							false,		//no 'dry-run'
 							&ctx,

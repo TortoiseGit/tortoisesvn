@@ -350,6 +350,9 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Temp Dateiendungen:",IDC_STATIC,7,52,72,8
     EDITTEXT        IDC_TEMPEXTENSIONS,80,50,108,14,ES_AUTOHSCROLL
+    CONTROL         "Erlaube Hinzufügen vor dem Übertragen",
+                    IDC_ADDBEFORECOMMIT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,77,181,10
 END
 
 IDD_SETTINGSOVERLAY DIALOGEX 0, 0, 194, 107
@@ -660,7 +663,8 @@ BEGIN
                             "Aktivieren Sie dies um den Subversion Status von Dateien und Unterordnern\nauf dem Ordnersymbol anzuzeigen.\n<ct=0x0000ff><b>Achtung:</b>Dies kann den Explorer ausbremsen!</ct>"
     IDS_SETTINGS_TEMPEXTENSIONS_TT 
                             "geben Sie die Dateiendungen für\ntemporäre oder erzeugte Dateien an"
-    IDS_STRING249           "dummy"
+    IDS_SETTINGS_ADDBEFORECOMMIT_TT 
+                            "Zeigt alle unkontrollierten Dateien vor dem Übertragen an\nso dass Sie diese zur Versionskontrolle hinzufügen können"
     IDS_STRING250           "dummy"
     IDS_SETTINGS_PROXYSERVER_TT 
                             "Entweder der Name oder die IP Nummer des Proxyservers"
