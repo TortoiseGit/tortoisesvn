@@ -255,63 +255,92 @@
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 3 ============================== -->
 	<!-- ================================================================= -->
-	<sect1 id="tsvn-DUG-overlays">
-		<title>Icon Overlays</title>
-		
+	<sect1 id="tsvn-DUG-wcstatus">
+		<title>Getting Status Information</title>
 		<para>
-		Now that you have checked out a working copy from a Subversion 
-		repository you can see your files in the windows explorer with 
-		changed icons. This is one of the reasons why TortoiseSVN is so
-		popular. TortoiseSVN adds a so called overlay icon to each 
-		file icon which overlaps the original file icon. Depending on 
-		the Subversion status of the file the overlay icon is different. 
-		A fresh checked out working copy has a green checkmark as overlay. 
-		That means the Subversion status is <literal>normal</literal>. As soon 
-		as you start editing a file, the status changes to <literal>modified
-		</literal> and the icon overlay then changes to a red exclamation
-		mark. That way you can 	easily see which files were changed 
-		since you last updated your working copy and need to be commited.
-		If during an update a <literal>conflict</literal> occurs then 
-		the icon changes to a yellow exclamation mark.
-		<figure id="tsvn-DUG-overlays-dia-1">
-			<title>Explorer showing icon overlays</title>
-			<graphic fileref="Overlays.png"/>
-		</figure>
+		While you are working on your working copy you often need to know
+		which files you have changed/added/removed or renamed, or even which
+		files got changed and committed by others.
 		</para>
-		<para>
-		The folder icons also have icon overlays displayed. By default,
-		only the status of the folder itself is shown. But you can
-		change that behaviour in the settings (context menu, Settings...)
-		so that the status of folders is shown recursively. This will
-		make the icon overlays for folders slower and is therefore 
-		not recommended on slower machines. I'm using that setting on 
-		my machine (PIII, 700MHz, 512MB RAM) without problems. With this 
-		setting each folder shows the status of all files below it, 
-		where status <literal>conflict</literal> overrides <literal>modified
-		</literal> and <literal>modified</literal> overrides <literal>normal
-		</literal>. So you can easily see if there's a file with a 
-		conflict or a modified file in a folder.
 		
-		<sidebar>
-			<title>Slow Overlays</title>
+		<sect2 id="tsvn-DUG-wcstatus-1">
+			<title>Icon Overlays</title>
+			
 			<para>
-			You may notice that if you enable the recursive overlay for folders
-			that the explorer slows down remarkably when browsing working
-			copies. This depends on how big your working copy is and how much
-			RAM Windows can use for file index caching. Usually it's only
-			very slow the first time you browse such a directory &mdash; if
-			you browse the same directory later again it's much faster.
-			</para>			
-		</sidebar>
-		
-		</para>
-
-		<para>
-		Unlike <application>TortoiseCVS</application> (the CVS shell 
-		integration) no overlay icon for unversioned files is shown.
-		We do this because the number of icon overlays are limited system wide
-		and should be used economically.
-		</para>	
+			Now that you have checked out a working copy from a Subversion 
+			repository you can see your files in the windows explorer with 
+			changed icons. This is one of the reasons why TortoiseSVN is so
+			popular. TortoiseSVN adds a so called overlay icon to each 
+			file icon which overlaps the original file icon. Depending on 
+			the Subversion status of the file the overlay icon is different. 
+			A fresh checked out working copy has a green checkmark as overlay. 
+			That means the Subversion status is <literal>normal</literal>. As soon 
+			as you start editing a file, the status changes to <literal>modified
+			</literal> and the icon overlay then changes to a red exclamation
+			mark. That way you can 	easily see which files were changed 
+			since you last updated your working copy and need to be commited.
+			If during an update a <literal>conflict</literal> occurs then 
+			the icon changes to a yellow exclamation mark.
+			<figure id="tsvn-DUG-overlays-dia-1">
+				<title>Explorer showing icon overlays</title>
+				<graphic fileref="Overlays.png"/>
+			</figure>
+			</para>
+			<para>
+			The folder icons also have icon overlays displayed. By default,
+			only the status of the folder itself is shown. But you can
+			change that behaviour in the settings (context menu, Settings...)
+			so that the status of folders is shown recursively. This will
+			make the icon overlays for folders slower and is therefore 
+			not recommended on slower machines. I'm using that setting on 
+			my machine (PIII, 700MHz, 512MB RAM) without problems. With this 
+			setting each folder shows the status of all files below it, 
+			where status <literal>conflict</literal> overrides <literal>modified
+			</literal> and <literal>modified</literal> overrides <literal>normal
+			</literal>. So you can easily see if there's a file with a 
+			conflict or a modified file in a folder.
+			
+			<sidebar>
+				<title>Slow Overlays</title>
+				<para>
+				You may notice that if you enable the recursive overlay for folders
+				that the explorer slows down remarkably when browsing working
+				copies. This depends on how big your working copy is and how much
+				RAM Windows can use for file index caching. Usually it's only
+				very slow the first time you browse such a directory &mdash; if
+				you browse the same directory later again it's much faster.
+				</para>			
+			</sidebar>
+			
+			</para>
+	
+			<para>
+			Unlike <application>TortoiseCVS</application> (the CVS shell 
+			integration) no overlay icon for unversioned files is shown.
+			We do this because the number of icon overlays are limited system wide
+			and should be used economically.
+			</para>	
+		</sect2>
+		<sect2 id="tsvn-DUG-wcstatus-2">
+			<title>Status Of The Repository</title>
+			
+			<para>
+			It's often very useful to know which files got changed and
+			committed by others. That's where the command <guimenuitem>Check
+			For Updates...</guimenuitem> comes in handy.
+			<!-- we definitely need a picture here of the CheckForUpdates -->
+			<!-- dialog   ### TODO ###                                    -->
+			This dialog will show you every file that has changed in any
+			way either in your working copy and in the repository. That way
+			you can check before an update if there's a possible conflict.
+			</para>
+			<para>
+			From the context menu of the dialog you can show a diff of the
+			changes or revert your local changes. TortoiseSVN automatically
+			downloads the most recent version from the repository to do
+			the diff.
+			</para>
+		</sect2>
 	</sect1>
 	
 	<!-- ================================================================= -->
