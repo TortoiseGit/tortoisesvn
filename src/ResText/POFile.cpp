@@ -43,27 +43,32 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 			//empty line means end of entry!
 			RESOURCEENTRY resEntry;
 			std::wstring msgid;
+			int type = 0;
 			for (std::vector<std::wstring>::iterator I = entry.begin(); I != entry.end(); ++I)
 			{
 				if (_tcsncmp(I->c_str(), _T("# "), 2)==0)
 				{
 					//user comment
-					resEntry.translatorcomments = I->c_str();
+					resEntry.translatorcomments.push_back(I->c_str());
+					type = 0;
 				}
 				if (_tcsncmp(I->c_str(), _T("#."), 2)==0)
 				{
 					//automatic comments
-					resEntry.automaticcomments = I->c_str();
+					resEntry.automaticcomments.push_back(I->c_str());
+					type = 0;
 				}
 				if (_tcsncmp(I->c_str(), _T("#:"), 2)==0)
 				{
 					//reference
 					resEntry.reference = I->c_str();
+					type = 0;
 				}
 				if (_tcsncmp(I->c_str(), _T("#,"), 2)==0)
 				{
 					//flag
 					resEntry.flag = I->c_str();
+					type = 0;
 				}
 				if (_tcsncmp(I->c_str(), _T("msgid"), 5)==0)
 				{
@@ -71,14 +76,31 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 					msgid = I->c_str();
 					msgid = std::wstring(msgid.substr(7, msgid.size() - 8));
 					nEntries++;
+					type = 1;
 				}
 				if (_tcsncmp(I->c_str(), _T("msgstr"), 6)==0)
 				{
 					//message string
-					resEntry.msgstr += I->c_str();
+					resEntry.msgstr = I->c_str();
 					resEntry.msgstr = resEntry.msgstr.substr(8, resEntry.msgstr.length() - 9);
 					if (resEntry.msgstr.size()>0)
 						nTranslated++;
+					type = 2;
+				}
+				if (_tcsncmp(I->c_str(), _T("\""), 1)==0)
+				{
+					if (type == 1)
+					{
+						std::wstring temp = I->c_str();
+						temp = temp.substr(1, temp.length()-2);
+						msgid += temp;
+					}
+					if (type == 2)
+					{
+						std::wstring temp = I->c_str();
+						temp = temp.substr(1, temp.length()-2);
+						resEntry.msgstr += temp;
+					}
 				}
 			}
 			entry.clear();
@@ -116,10 +138,15 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	File.open(filepath);
 	for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
 	{
-		if (I->second.translatorcomments.length() > 0)
-			File << (I->second.translatorcomments.c_str()) << _T("\n");
-		if (I->second.automaticcomments.length() > 0)
-			File << (I->second.automaticcomments.c_str()) << _T("\n");
+		RESOURCEENTRY entry = I->second;
+		for (std::vector<std::wstring>::iterator II = entry.automaticcomments.begin(); II != entry.automaticcomments.end(); ++II)
+		{
+			File << II->c_str() << _T("\n");
+		}
+		for (std::vector<std::wstring>::iterator II = entry.translatorcomments.begin(); II != entry.translatorcomments.end(); ++II)
+		{
+			File << II->c_str() << _T("\n");
+		}
 		if (I->second.reference.length() > 0)
 			File << (I->second.reference.c_str()) << _T("\n");
 		if (I->second.flag.length() > 0)

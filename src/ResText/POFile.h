@@ -5,8 +5,8 @@
 
 typedef struct tagResourceEntry
 {
-	std::wstring	translatorcomments;
-	std::wstring	automaticcomments;
+	std::vector<std::wstring>	translatorcomments;
+	std::vector<std::wstring>	automaticcomments;
 	std::wstring	reference;
 	std::wstring	flag;
 	std::wstring	msgstr;
