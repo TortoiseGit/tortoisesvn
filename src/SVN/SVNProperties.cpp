@@ -46,8 +46,9 @@ svn_error_t*	SVNProperties::Refresh()
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
 #endif
-	m_error = svn_client_proplist (&m_props,
-								m_path.GetSVNApiPath(), 
+	m_error = svn_client_proplist2 (&m_props,
+								m_path.GetSVNApiPath(),
+								&rev,
 								&rev,
 								false,	//recurse
 								&m_ctx,
@@ -297,14 +298,14 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 				if ((status->entry)&&(status->entry->kind == svn_node_dir))
 				{
 					// a versioned folder, so set the property!
-					m_error = svn_client_propset (pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, m_pool);
+					m_error = svn_client_propset2 (pname_utf8.c_str(), pval, path.GetSVNApiPath(), false, false, &m_ctx, m_pool);
 				}
 			}
 			status = stat.GetNextFileStatus(path);
 		} while ((status != 0)&&(m_error == NULL));
 	}
 	else 
-		m_error = svn_client_propset (pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, m_pool);
+		m_error = svn_client_propset2 (pname_utf8.c_str(), pval, m_path.GetSVNApiPath(), recurse, false, &m_ctx, m_pool);
 	if (m_error != NULL)
 	{
 		return FALSE;
@@ -326,7 +327,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse)
 
 	pname_utf8 = StringToUTF8(Name);
 
-	m_error = svn_client_propset (pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(), recurse, m_pool);
+	m_error = svn_client_propset2 (pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(), recurse, false, &m_ctx, m_pool);
 	if (m_error != NULL)
 	{
 		return FALSE;
