@@ -479,6 +479,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev rev
 	{
 		// our own "export" function with a callback and the ability to export
 		// unversioned items too
+		// BUGBUG: If a folder is marked as deleted, we export that folder too!
 		if (extended)
 		{
 			CDirFileEnum lister1(srcPath.GetWinPathString());
