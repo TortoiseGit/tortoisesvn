@@ -114,7 +114,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 	{
 		request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
 	}
-	wcscpy(request.path, Path.GetWinPath());
+	wcsncpy(request.path, Path.GetWinPath(), MAX_PATH);
 	if (!WriteFile(m_hPipe,&request,sizeof(request),&nBytesWritten,NULL)) 
 	{
 		OutputDebugStringA("Pipe WriteFile failed\n"); 
