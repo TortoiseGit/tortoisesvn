@@ -42,6 +42,17 @@
 		Links, d.h. es wird keine richtige Kopie erstellt sondern nur eine
 		Verknüpfung auf eine bestimmte Revision.
 	</para>
+	<sect2 id="tsvn-DUG-branch-1">
+		<title>Erstellen eines Zweigs oder einer Markierung</title>
+		<para>
+			Bevor Sie einen Zweig oder eine Markierung ihrer Arbeitskopie
+			erstellen sollten Sie sicherstellen dass Ihre Arbeitskopie auf
+			dem gleichen Stand wie das Projektarchiv ist. Sogar wenn Sie sicher
+			sind dass niemand anders eine Übertragung gemacht hat (zum Beispiel
+			wenn Sie der einzige Entwickler sind) ist es trotzdem eine gute
+			Idee eine Aktualisierung Ihrer Arbeitskopie zu machen.
+		</para>
+	</sect2>
 	<para>
 		Wenn Sie beim Importieren die empfohlene Ordnerstruktur gewählt haben
 		ist ein Verzweigen oder Markieren sehr einfach:
@@ -171,129 +182,5 @@
 				</listitem>
 			</itemizedlist>
 		</para>
-	</sect2>
-	<sect2 id="tsvn-DUG-merge-2">
-		<title>Einen Zweig mit dem Hauptstamm zusammenführen</title>
-		<indexterm>
-			<primary>zusammenführen</primary>
-		</indexterm>
-		<indexterm>
-			<primary>mischen</primary>
-		</indexterm>
-		<indexterm>
-			<primary>merge</primary>
-		</indexterm>
-		<?dbhh topicname="HIDD_MERGE"?>
-		<para>
-			<figure id="tsvn-DUG-merge-dia-1">
-				<title>Der Zusammenführen Dialog</title>
-				<graphic fileref="images/Merge.png"/>
-			</figure>
-			Um Änderungen aus einem Zweig mit dem Hauptstamm zusammenzuführen,
-			benötigen Sie zuerst eine Arbeitskopie des Hauptstamms.
-			Wählen Sie dann
-			<menuchoice>
-				<guimenuitem>Zusammenführen...</guimenuitem>
-			</menuchoice>
-			aus dem Kontextmenu.
-			<orderedlist>
-				<listitem>
-					<para>
-						Im Feld <guilabel>Von:</guilabel>
-						geben Sie die vollständige URL des Start-Zweiges welcher die
-						Änderungen enthält ein. Sie können auch die 
-						<guibutton>...</guibutton>
-						Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						Im Feld <guilabel>bis:</guilabel>
-						geben Sie die vollständige URL des End-Zweiges welcher die
-						Änderungen enthält ein. Sie können auch die 
-						<guibutton>...</guibutton>
-						Schaltfläche verwenden um das Projektarchiv nach dem Zweig zu durchsuchen.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						Im Feld <guilabel>Von Revision</guilabel>geben Sie die
-						Start-Revision ein. Dies ist die Revisionsnummer
-						<emphasis>vor</emphasis> der Änderung welche Sie
-						zusammenführen möchten. Zum Beispiel:
-<screen>
-Rev Log-Meldungen
-39. Arbeite an MyBranch
-38. Arbeite an trunk
-37. Arbeite an MyBranch
-36. Erstelle den Zweig MyBranch
-35. Arbeite an trunk
-34. Arbeite an trunk
-         ...
-</screen>
-						Wenn Sie nun die Änderungen von MyBranch in den Hauptstamm
-						(trunk) zurückführen möchten müssen Sie 36 in das <guilabel>
-						Von Revision:</guilabel> Feld eingeben, und nicht etwa
-						37 wie Sie vielleicht denken.
-					</para>
-					<para>
-						Klicken Sie <guibutton>Zeige Log</guibutton>, wenn Sie in
-						den Log-Meldungen nach der benötigten Revisionsnummer
-						suchen möchten. Diese Revisionsnummer wird wahrscheinlich
-						nie 0 sein!
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						Im Feld <guilabel>Zu Revision</guilabel> geben Sie die 
-						die Endrevision der Änderung(en) ein. Sie können auch
-						einzelne Revisionen zusammenführen, dies muss nicht HEAD sein!
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						Klicken Sie auf <guibutton>OK</guibutton> um den 
-						Vorgang zu starten. Wenn Sie dann die Änderungen
-						zum Projektarchiv übertragen wollen, erwähnen Sie in der
-						Log-Meldung welche Revisionen Sie von welchem Zweig
-						zusammengeführt haben! Auf diese Weise können Sie später nachlesen,
-						welche Revisionen Sie bereits zusammengeführt haben und welche
-						noch nicht. Dies ist notwendig, da ein nochmaliges
-						Zusammenführen einer bereits zusammengeführten Revision zu einem
-						Konflikt führt.
-					</para>
-				</listitem>
-			</orderedlist>
-			Der Vorgang ist nun abgeschlossen. Sie sollten nun ihre
-			Arbeitskopie überprüfen, ob alles so ist wie erwartet. Das
-			Zusammenführen ist normalerweise recht aufwendig und kompliziert.
-			Zum Beispiel können Konflikte auftreten wenn der Zweig sich
-			schon zu weit vom Hauptast entfernt hat.
-		</para>
-		<para>
-			Wenn Sie diesen Zweig auf dem gleichen Stand wie <literal>trunk</literal> halten wollen,
-			sollten Sie sofort alle Änderungen von <literal>trunk</literal> mit dem Zweig zusammenführen.
-			Wenn Sie diese Technik anwenden, werden Ihnen lokale Änderungen nicht in die
-			Quere kommen. Selbstverständlich sollten Sie, wie oben erklärt, es vermeiden,
-			Änderungen zweifach zusammenzuführen.
-		</para>
-		<para>
-			Wenn Sie überprüfen möchten, was für Änderungen an welchen Dateien
-			beim Zusammenführen vorgenommen würden, aktivieren Sie die Option
-			<guibutton>
-				Testlauf
-			</guibutton>.
-			Dies zwingt den Mischbefehl den Mischvorgang Testweise auszuführen,
-			<emphasis>ohne</emphasis> dabei die Arbeitskopie zu verändern.
-		</para>
-		<important>
-			<para>
-				Subversion kann nicht eine Datei mit einem Ordner zusammenführen und
-				umgekehrt. Nur Ordner mit Ordner und Dateien mit Dateien können
-				zusammengeführt werden. Wenn Sie auf eine Datei klicken und den 
-				Zusammenführen Dialog aufrufen, dann müssen Sie eine URL zu einer
-				Datei im Dialog eingeben.
-			</para>
-		</important>
 	</sect2>
 </sect1>
