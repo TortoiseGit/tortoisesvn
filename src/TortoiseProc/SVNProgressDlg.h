@@ -18,7 +18,8 @@
 
 #pragma once
 
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
+#include "StandAloneDlg.h"
 #include "SVN.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
@@ -65,7 +66,7 @@ typedef enum
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CSVNProgressDlg : public CResizableDialog, SVN
+class CSVNProgressDlg : public CResizableStandAloneDialog, SVN
 {
 public:
 	// These names collide with functions in SVN
@@ -128,13 +129,10 @@ protected:
 	virtual BOOL Cancel();
 	virtual void OnCancel();
 
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	void Sort();
 	static int __cdecl SortCompare(const void * pElem1, const void * pElem2);
 
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedLogbutton();

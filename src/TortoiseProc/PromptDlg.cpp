@@ -24,16 +24,15 @@
 
 // CPromtDlg dialog
 
-IMPLEMENT_DYNAMIC(CPromptDlg, CDialog)
+IMPLEMENT_DYNAMIC(CPromptDlg, CStandAloneDialog)
 CPromptDlg::CPromptDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CPromptDlg::IDD, pParent)
+	: CStandAloneDialog(CPromptDlg::IDD, pParent)
 	, m_info(_T(""))
 	, m_sPass(_T(""))
 	, m_saveCheck(FALSE)
 	, m_hide(FALSE)
 	, m_hParentWnd(NULL)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CPromptDlg::~CPromptDlg()
@@ -42,7 +41,7 @@ CPromptDlg::~CPromptDlg()
 
 void CPromptDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_INFOTEXT, m_info);
 	DDX_Text(pDX, IDC_PASSEDIT, m_sPass);
 	DDX_Control(pDX, IDC_PASSEDIT, m_pass);
@@ -54,20 +53,13 @@ void CPromptDlg::SetHide(BOOL hide)
 	m_hide = hide;
 }
 
-BEGIN_MESSAGE_MAP(CPromptDlg, CDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CPromptDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
-
 
 
 BOOL CPromptDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CStandAloneDialog::OnInitDialog();
 
 	if (m_hide)
 	{
@@ -86,40 +78,4 @@ BOOL CPromptDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
-// If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
-
-void CPromptDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CPromptDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
 

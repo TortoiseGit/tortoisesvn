@@ -49,26 +49,24 @@
 
 // CRepositoryBrowser dialog
 
-IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableDialog)
+IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableStandAloneDialog)
 
 CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, BOOL bFile)
-	: CResizableDialog(CRepositoryBrowser::IDD, NULL)
+	: CResizableStandAloneDialog(CRepositoryBrowser::IDD, NULL)
 	, m_treeRepository(svn_url.GetPath(), bFile)
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_bStandAlone(true)
 	, m_InitialSvnUrl(svn_url)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CRepositoryBrowser::CRepositoryBrowser(const SVNUrl& svn_url, CWnd* pParent, BOOL bFile)
-	: CResizableDialog(CRepositoryBrowser::IDD, pParent)
+	: CResizableStandAloneDialog(CRepositoryBrowser::IDD, pParent)
 	, m_treeRepository(svn_url.GetPath(), bFile)
 	, m_cnrRepositoryBar(&m_barRepository)
 	, m_InitialSvnUrl(svn_url)
 	, m_bStandAlone(false)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
@@ -82,16 +80,12 @@ CRepositoryBrowser::~CRepositoryBrowser()
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_REPOS_TREE, m_treeRepository);
 }
 
 
-BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
-	ON_WM_SIZE()
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
-	ON_WM_SIZING()
+BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_NOTIFY(RVN_ITEMRCLICK, IDC_REPOS_TREE, OnRVNItemRClickReposTree)
 	ON_NOTIFY(RVN_ITEMRCLICKUP, IDC_REPOS_TREE, OnRVNItemRClickUpReposTree)
 	ON_NOTIFY(RVN_KEYDOWN, IDC_REPOS_TREE, OnRVNKeyDownReposTree)
@@ -118,49 +112,9 @@ CString CRepositoryBrowser::GetPath() const
 	return GetURL().GetPath();
 }
 
-
-
-// CRepositoryBrowser message handlers
-
-void CRepositoryBrowser::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CRepositoryBrowser::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 BOOL CRepositoryBrowser::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	// when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
 	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
@@ -841,7 +795,7 @@ void CRepositoryBrowser::OnRVNKeyDownReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 void CRepositoryBrowser::OnOK()
 {
 	m_barRepository.SaveHistory();
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CRepositoryBrowser::OnBnClickedHelp()

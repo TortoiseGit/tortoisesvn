@@ -29,15 +29,14 @@
 
 // CCopyDlg dialog
 
-IMPLEMENT_DYNAMIC(CCopyDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CCopyDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CCopyDlg::IDD, pParent)
 	, m_URL(_T(""))
 	, m_sLogMessage(_T(""))
 	, m_bDirectCopy(TRUE)
 	, m_sBugID(_T(""))
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CCopyDlg::~CCopyDlg()
@@ -46,7 +45,7 @@ CCopyDlg::~CCopyDlg()
 
 void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Check(pDX, IDC_DIRECTCOPY, m_bDirectCopy);
@@ -56,9 +55,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CCopyDlg, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
@@ -66,49 +63,9 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableDialog)
 END_MESSAGE_MAP()
 
 
-// If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
-
-void CCopyDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CCopyDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 BOOL CCopyDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	// when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_cLogMessage.Init();
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -235,7 +192,7 @@ void CCopyDlg::OnOK()
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 		UpdateData(FALSE);		
 	}
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CCopyDlg::OnBnClickedBrowse()
@@ -303,7 +260,7 @@ void CCopyDlg::OnCancel()
 {
 	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
-	CResizableDialog::OnCancel();
+	CResizableStandAloneDialog::OnCancel();
 }
 
 BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
@@ -322,5 +279,5 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return CResizableDialog::PreTranslateMessage(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }

@@ -21,7 +21,7 @@
 #include "SVNUrl.h"
 #include "RepositoryTree.h"
 #include "RepositoryBar.h"
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 
 
@@ -48,7 +48,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CRepositoryBrowser : public CResizableDialog
+class CRepositoryBrowser : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRepositoryBrowser)
 
@@ -73,10 +73,6 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 
-	HICON m_hIcon;
-
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnRVNItemRClickUpReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);

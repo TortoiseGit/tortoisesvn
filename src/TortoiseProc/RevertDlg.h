@@ -18,13 +18,13 @@
 
 #pragma once
 
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
 
 
 // CRevertDlg dialog
 
-class CRevertDlg : public CResizableDialog
+class CRevertDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CRevertDlg)
 
@@ -36,13 +36,10 @@ public:
 	enum { IDD = IDD_REVERT };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);

@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
 
 /**
@@ -45,7 +45,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CAddDlg : public CResizableDialog
+class CAddDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CAddDlg)
 
@@ -57,10 +57,7 @@ public:
 	enum { IDD = IDD_ADD };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHelp();
 	virtual BOOL OnInitDialog();

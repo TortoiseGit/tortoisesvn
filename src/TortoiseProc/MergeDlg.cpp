@@ -25,9 +25,9 @@
 #include "BrowseFolder.h"
 #include "MessageBox.h"
 
-IMPLEMENT_DYNAMIC(CMergeDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CMergeDlg, CResizableStandAloneDialog)
 CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CMergeDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CMergeDlg::IDD, pParent)
 	, m_URLFrom(_T(""))
 	, m_URLTo(_T(""))
 	, StartRev(0)
@@ -35,7 +35,6 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, m_bUseFromURL(TRUE)
 	, m_bDryRun(FALSE)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pLogDlg = NULL;
 	m_pLogDlg2 = NULL;
 	bRepeating = FALSE;
@@ -51,7 +50,7 @@ CMergeDlg::~CMergeDlg()
 
 void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
@@ -61,9 +60,7 @@ void CMergeDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeDlg, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CMergeDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_BROWSE2, OnBnClickedBrowse2)
@@ -80,49 +77,9 @@ END_MESSAGE_MAP()
 
 // CMergeDlg message handlers
 
-// If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
-
-void CMergeDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CMergeDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 BOOL CMergeDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
@@ -233,7 +190,7 @@ void CMergeDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CMergeDlg::OnBnClickedBrowse()

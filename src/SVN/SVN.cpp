@@ -740,7 +740,7 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 		return FALSE;
 	}
 
-	CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(destpath));
+	CShellUpdater::Instance().AddPathForUpdate(destpath);
 
 	return TRUE;
 }

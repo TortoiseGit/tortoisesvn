@@ -25,9 +25,9 @@
 
 // CRelocateDlg dialog
 
-IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableStandAloneDialog)
 CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CRelocateDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CRelocateDlg::IDD, pParent)
 	, m_sToUrl(_T(""))
 	, m_sFromUrl(_T(""))
 {
@@ -39,12 +39,12 @@ CRelocateDlg::~CRelocateDlg()
 
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_TOURL, m_URLCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableDialog)
+BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
@@ -54,7 +54,7 @@ END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -130,7 +130,7 @@ void CRelocateDlg::OnOK()
 	m_sToUrl = m_URLCombo.GetString();
 	UpdateData(FALSE);
 
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CRelocateDlg::OnBnClickedHelp()

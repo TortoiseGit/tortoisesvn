@@ -20,7 +20,7 @@
 
 #include "svn.h"
 #include "ProjectProperties.h"
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "TSVNPath.h"
 
 #define ID_COMPARE		1
@@ -69,7 +69,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CLogDlg : public CResizableDialog, public SVN
+class CLogDlg : public CResizableStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CLogDlg)
 
@@ -87,10 +87,8 @@ protected:
 
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
-	afx_msg void OnPaint();
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedGetall();
@@ -135,7 +133,6 @@ private:
 	BOOL		m_bThreadRunning;
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
-	HICON		m_hIcon;
 	CStringArray m_arLogMessages;
 	CStringArray m_arLogPaths;
 	CDWordArray	m_arDates;

@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 
+#include "StandAloneDlg.h"
 #include "Watereffect.h"
 #include "Dib.h"
 #include "HyperLink.h"
@@ -49,7 +50,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CAboutDlg : public CDialog
+class CAboutDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CAboutDlg)
 
@@ -61,12 +62,9 @@ public:
 	enum { IDD = IDD_ABOUT };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 
 	DECLARE_MESSAGE_MAP()
 public:

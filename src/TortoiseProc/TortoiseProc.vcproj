@@ -203,15 +203,6 @@
 		<Filter
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc">
-			<File
-				RelativePath="..\Utils\StandAloneDlg.cpp">
-			</File>
-			<File
-				RelativePath="..\Svn\SVNHelpers.cpp">
-			</File>
-			<File
-				RelativePath="..\Svn\SVNHelpers.h">
-			</File>
 			<Filter
 				Name="General"
 				Filter="">
@@ -383,6 +374,12 @@
 				</File>
 				<File
 					RelativePath="..\Utils\SciEdit.h">
+				</File>
+				<File
+					RelativePath="..\Utils\StandAloneDlg.cpp">
+				</File>
+				<File
+					RelativePath="..\Utils\StandAloneDlg.h">
 				</File>
 				<File
 					RelativePath="..\Utils\SysImageList.cpp">
@@ -676,6 +673,12 @@
 			</File>
 			<File
 				RelativePath="..\Svn\SVNConfig.h">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNHelpers.cpp">
+			</File>
+			<File
+				RelativePath="..\Svn\SVNHelpers.h">
 			</File>
 			<File
 				RelativePath="..\Svn\SVNPrompt.cpp">

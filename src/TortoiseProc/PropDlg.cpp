@@ -27,9 +27,9 @@
 
 // CPropDlg dialog
 
-IMPLEMENT_DYNAMIC(CPropDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CPropDlg, CResizableStandAloneDialog)
 CPropDlg::CPropDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CPropDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CPropDlg::IDD, pParent)
 	, m_rev(SVNRev::REV_WC)
 {
 }
@@ -40,12 +40,12 @@ CPropDlg::~CPropDlg()
 
 void CPropDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_PROPERTYLIST, m_proplist);
 }
 
 
-BEGIN_MESSAGE_MAP(CPropDlg, CResizableDialog)
+BEGIN_MESSAGE_MAP(CPropDlg, CResizableStandAloneDialog)
 	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
@@ -54,7 +54,7 @@ END_MESSAGE_MAP()
 
 BOOL CPropDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_proplist.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 
@@ -92,13 +92,13 @@ BOOL CPropDlg::OnInitDialog()
 void CPropDlg::OnCancel()
 {
 	if (GetDlgItem(IDOK)->IsWindowEnabled())
-		CResizableDialog::OnCancel();
+		CResizableStandAloneDialog::OnCancel();
 }
 
 void CPropDlg::OnOK()
 {
 	if (GetDlgItem(IDOK)->IsWindowEnabled())
-		CResizableDialog::OnOK();
+		CResizableStandAloneDialog::OnOK();
 }
 
 UINT CPropDlg::PropThreadEntry(LPVOID pVoid)
@@ -141,7 +141,7 @@ BOOL CPropDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	{
 		HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 		SetCursor(hCur);
-		return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+		return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 	}
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
 	SetCursor(hCur);

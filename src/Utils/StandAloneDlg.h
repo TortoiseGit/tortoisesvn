@@ -19,6 +19,8 @@
 
 #pragma once
 
+#include "ResizableDialog.h"
+
 /**
 * \ingroup TortoiseProc
 *
@@ -26,7 +28,8 @@
 * of a 'dialog-style application'
 * Just provides the boiler-plate code for dealing with application icons
 * 
-*\remark Replace all references to CDialog or CResizableDialog in your dialog class with 'BaseDialogClass'
+*\remark Replace all references to CDialog or CResizableDialog in your dialog class with 
+* either CResizableStandaloneDialog or CStandalongDialog, as appropriate
 *
 *
 * \par requirements
@@ -48,15 +51,13 @@
 * or makes your car start emitting strange noises when you try to start it up.
 * This code has many bugs, but it being free means I can't be bothered to fix them
 */
-template <typename BaseType> class CStandAloneDialog : public BaseType
+template <typename BaseType> class CStandAloneDialogTmpl : public BaseType
 {
-public:
-	CStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
+protected:
+	CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = NULL) : BaseType(nIDTemplate, pParentWnd)
 	{
 		m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	}
-
-protected:
 	virtual BOOL OnInitDialog()
 	{
 		BaseType::OnInitDialog();
@@ -69,6 +70,7 @@ protected:
 		return FALSE;
 	}
 
+protected:
 	afx_msg void OnPaint()
 	{
 		if (IsIconic())
@@ -93,17 +95,17 @@ protected:
 			BaseType::OnPaint();
 		}
 	}
-
+private:
 	HCURSOR OnQueryDragIcon()
 	{
 		return static_cast<HCURSOR>(m_hIcon);
 	}
 
-protected:
-	typedef CStandAloneDialog<BaseType>	BaseDialogClass;
-
+private:
 	DECLARE_MESSAGE_MAP()
-
 private:
 	HICON m_hIcon;
 };
+
+typedef CStandAloneDialogTmpl<CResizableDialog> CResizableStandAloneDialog;
+typedef CStandAloneDialogTmpl<CDialog> CStandAloneDialog;

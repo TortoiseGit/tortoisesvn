@@ -27,12 +27,11 @@
 
 // CAddDlg dialog
 
-IMPLEMENT_DYNAMIC(CAddDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CAddDlg, CResizableStandAloneDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CAddDlg::IDD, pParent),
+	: CResizableStandAloneDialog(CAddDlg::IDD, pParent),
 	m_bThreadRunning(false)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CAddDlg::~CAddDlg()
@@ -41,59 +40,20 @@ CAddDlg::~CAddDlg()
 
 void CAddDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_ADDLIST, m_addListCtrl);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 }
 
-
-BEGIN_MESSAGE_MAP(CAddDlg, CResizableDialog)
-	ON_WM_SIZE()
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CAddDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
-// CAddDlg message handlers
-void CAddDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	} // if (IsIconic()) 
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CAddDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 BOOL CAddDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CResizableStandAloneDialog::OnInitDialog();
 
 	//set the listcontrol to support checkboxes
 	m_addListCtrl.Init(0);
@@ -127,7 +87,7 @@ void CAddDlg::OnOK()
 	//save only the files the user has selected into the temporary file
 	m_addListCtrl.WriteCheckedNamesToFile(m_sPath);
 
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CAddDlg::OnCancel()
@@ -135,7 +95,7 @@ void CAddDlg::OnCancel()
 	if (m_bThreadRunning)
 		return;
 
-	CResizableDialog::OnCancel();
+	CResizableStandAloneDialog::OnCancel();
 }
 
 void CAddDlg::OnBnClickedSelectall()

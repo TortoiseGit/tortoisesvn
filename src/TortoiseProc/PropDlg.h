@@ -19,11 +19,11 @@
 
 #pragma once
 
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 
 // CPropDlg dialog
 
-class CPropDlg : public CResizableDialog
+class CPropDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CPropDlg)
 

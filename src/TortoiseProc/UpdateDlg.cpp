@@ -24,13 +24,12 @@
 
 // CUpdateDlg dialog
 
-IMPLEMENT_DYNAMIC(CUpdateDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CUpdateDlg, CResizableStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CUpdateDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CUpdateDlg::IDD, pParent)
 	, Revision(_T("HEAD"))
 	, m_bNonRecursive(FALSE)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CUpdateDlg::~CUpdateDlg()
@@ -39,26 +38,20 @@ CUpdateDlg::~CUpdateDlg()
 
 void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 	DDX_Check(pDX, IDC_NON_RECURSIVE, m_bNonRecursive);
 }
 
 
-BEGIN_MESSAGE_MAP(CUpdateDlg, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CUpdateDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CResizableStandAloneDialog::OnInitDialog();
 
 	// Since this dialog is called to update to a specific revision, we should
 	// enable and set focus to the edit control so that the user can enter the
@@ -71,38 +64,6 @@ BOOL CUpdateDlg::OnInitDialog()
 	EnableSaveRestore(_T("UpdateDlg"));
 	return FALSE;  // return TRUE unless you set the focus to a control
 	               // EXCEPTION: OCX Property Pages should return FALSE
-}
-
-void CUpdateDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CUpdateDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
 }
 
 void CUpdateDlg::OnBnClickedNewest()
@@ -138,5 +99,5 @@ void CUpdateDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }

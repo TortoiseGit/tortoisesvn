@@ -18,6 +18,7 @@
 #pragma once
 
 
+#include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 
 
@@ -27,7 +28,7 @@
  *
  * \author kueng
  */
-class CURLDlg : public CDialog
+class CURLDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CURLDlg)
 
@@ -39,12 +40,9 @@ public:
 	enum { IDD = IDD_URL };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 
 	DECLARE_MESSAGE_MAP()
 	CHistoryCombo m_URLCombo;

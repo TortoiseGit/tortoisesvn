@@ -19,7 +19,7 @@
 #pragma once
 
 #include "LogDlg.h"
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 
 /**
@@ -49,7 +49,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CMergeDlg : public CResizableDialog
+class CMergeDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CMergeDlg)
 
@@ -61,13 +61,10 @@ public:
 	enum { IDD = IDD_MERGE };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedRevisionHead();

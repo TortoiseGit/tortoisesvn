@@ -36,9 +36,9 @@ static char THIS_FILE[] = __FILE__;
 
 // CLogPromptDlg dialog
 
-IMPLEMENT_DYNAMIC(CLogPromptDlg, BaseDialogClass)
+IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableStandAloneDialog)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
-	: BaseDialogClass(CLogPromptDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CLogPromptDlg::IDD, pParent)
 	, m_bRecursive(FALSE)
 	, m_bShowUnversioned(FALSE)
 	, m_bBlock(FALSE)
@@ -51,7 +51,7 @@ CLogPromptDlg::~CLogPromptDlg()
 
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 {
-	BaseDialogClass::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
@@ -61,11 +61,7 @@ void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CLogPromptDlg, BaseDialogClass)
-	ON_WM_SIZE()
-	ON_WM_SIZING()
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
@@ -84,7 +80,7 @@ END_MESSAGE_MAP()
 
 BOOL CLogPromptDlg::OnInitDialog()
 {
-	BaseDialogClass::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_cLogMessage.Init();
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -310,7 +306,7 @@ void CLogPromptDlg::OnOK()
 		else
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 	}
-	BaseDialogClass::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 UINT CLogPromptDlg::StatusThreadEntry(LPVOID pVoid)
@@ -406,7 +402,7 @@ void CLogPromptDlg::OnCancel()
 	DeleteFile(m_sPath);
 	m_OldLogs.AddString(m_cLogMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
-	BaseDialogClass::OnCancel();
+	CResizableStandAloneDialog::OnCancel();
 }
 
 void CLogPromptDlg::OnBnClickedSelectall()
@@ -428,7 +424,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 		case VK_F5:
 			{
 				if (m_bBlock)
-					return BaseDialogClass::PreTranslateMessage(pMsg);
+					return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 				Refresh();
 			}
 			break;
@@ -444,7 +440,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return BaseDialogClass::PreTranslateMessage(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CLogPromptDlg::Refresh()

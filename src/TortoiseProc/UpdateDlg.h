@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 
 
 /**
@@ -44,7 +44,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CUpdateDlg : public CResizableDialog
+class CUpdateDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CUpdateDlg)
 
@@ -58,15 +58,12 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPaint();
 	virtual void OnOK();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedNewest();
 	afx_msg void OnBnClickedRevisionN();
 
 	DECLARE_MESSAGE_MAP()
 
-	HICON m_hIcon;
 	CString m_sRevision;
 public:
 	SVNRev Revision;

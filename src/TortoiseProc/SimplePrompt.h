@@ -18,11 +18,12 @@
 //
 #pragma once
 
+#include "StandAloneDlg.h"
 #include "resource.h"
 
 // CSimplePrompt dialog
 
-class CSimplePrompt : public CDialog
+class CSimplePrompt : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CSimplePrompt)
 
@@ -34,12 +35,9 @@ public:
 	enum { IDD = IDD_SIMPLEPROMPT };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 
 	DECLARE_MESSAGE_MAP()
 public:

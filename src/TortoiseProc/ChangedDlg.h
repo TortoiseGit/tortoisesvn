@@ -18,7 +18,8 @@
 //
 #pragma once
 
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
+#include "StandAloneDlg.h"
 #include "SVN.h"
 #include "SVNStatusListCtrl.h"
 #include "Registry.h"
@@ -26,7 +27,7 @@
 
 // CChangedDlg dialog
 
-class CChangedDlg : public CResizableDialog, public SVN
+class CChangedDlg : public CResizableStandAloneDialog, public SVN
 {
 	DECLARE_DYNAMIC(CChangedDlg)
 
@@ -39,8 +40,6 @@ public:
 
 protected:
 	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void			OnPaint();
-	afx_msg HCURSOR			OnQueryDragIcon();
 	afx_msg void			OnBnClickedCheckrepo();
 	afx_msg void			OnBnClickedShowunversioned();
 	virtual BOOL			OnInitDialog();
@@ -57,7 +56,6 @@ public:
 	CString			m_path;
 
 private:
-	HICON			m_hIcon;
 	CRegDWORD		m_regAddBeforeCommit;
 	CSVNStatusListCtrl	m_FileListCtrl;
 	bool			m_bRemote;

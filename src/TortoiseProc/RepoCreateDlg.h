@@ -33,9 +33,6 @@ public:
 	enum { IDD = IDD_REPOCREATE };
 
 protected:
-	HICON m_hIcon;
-	afx_msg HCURSOR OnQueryDragIcon();
-	afx_msg void OnPaint();
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();

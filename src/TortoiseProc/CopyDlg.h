@@ -18,7 +18,7 @@
 
 #pragma once
 #include "ProjectProperties.h"
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 #include "SciEdit.h"
 
@@ -47,7 +47,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CCopyDlg : public CResizableDialog
+class CCopyDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CCopyDlg)
 
@@ -59,15 +59,12 @@ public:
 	enum { IDD = IDD_COPY };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 	virtual void OnCancel();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnCbnSelchangeOldlogs();

@@ -24,9 +24,9 @@
 
 // CStatGraphDlg dialog
 
-IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableStandAloneDialog)
 CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CStatGraphDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CStatGraphDlg::IDD, pParent)
 {
 }
 
@@ -39,13 +39,13 @@ CStatGraphDlg::~CStatGraphDlg()
 
 void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_GRAPH, m_graph);
 	DDX_Control(pDX, IDC_GRAPHCOMBO, m_cGraphType);
 }
 
 
-BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableDialog)
+BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_CBN_SELCHANGE(IDC_GRAPHCOMBO, OnCbnSelchangeGraphcombo)
 END_MESSAGE_MAP()
 
@@ -54,7 +54,7 @@ END_MESSAGE_MAP()
 
 BOOL CStatGraphDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	CString temp;
 	int sel = 0;

@@ -30,11 +30,10 @@
 
 // CImportDlg dialog
 
-IMPLEMENT_DYNAMIC(CImportDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CImportDlg, CResizableStandAloneDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CImportDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CImportDlg::IDD, pParent)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_url = _T("");
 }
 
@@ -44,7 +43,7 @@ CImportDlg::~CImportDlg()
 
 void CImportDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
 	DDX_Control(pDX, IDC_MESSAGE, m_cMessage);
@@ -52,9 +51,7 @@ void CImportDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CImportDlg, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CImportDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_CBN_SELCHANGE(IDC_OLDLOGS, OnCbnSelchangeOldlogs)
@@ -63,12 +60,7 @@ END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_cMessage.Init();
 	m_cMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -118,42 +110,6 @@ BOOL CImportDlg::OnInitDialog()
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
-// If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
-
-void CImportDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CImportDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 void CImportDlg::OnOK()
 {
 	if (m_URLCombo.IsWindowEnabled())
@@ -182,7 +138,7 @@ void CImportDlg::OnOK()
 	m_OldLogs.AddString(m_sMessage, 0);
 	m_OldLogs.SaveHistory();
 
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CImportDlg::OnBnClickedBrowse()
@@ -258,9 +214,9 @@ BOOL CImportDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
-		}
-	}
-	return CResizableDialog::PreTranslateMessage(pMsg);
+				}
+			}
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CImportDlg::OnBnClickedHelp()
@@ -283,5 +239,5 @@ void CImportDlg::OnCancel()
 	UpdateData();
 	m_OldLogs.AddString(m_cMessage.GetText(), 0);
 	m_OldLogs.SaveHistory();
-	CResizableDialog::OnCancel();
+	CResizableStandAloneDialog::OnCancel();
 }

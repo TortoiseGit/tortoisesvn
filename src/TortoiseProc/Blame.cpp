@@ -115,7 +115,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	}
 	m_nHeadRev = GetHEADRevision(path);
 	m_progressDlg.SetProgress((DWORD)0, (DWORD)m_nHeadRev);
-	if (!this->Blame(CTSVNPath(path), startrev, endrev))
+	if (!this->Blame(path, startrev, endrev))
 	{
 		m_saveFile.Close();
 		DeleteFile(m_sSavePath);
@@ -132,7 +132,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 			logfile.Empty();
 			return m_sSavePath;
 		}
-		if (!this->ReceiveLog(CTSVNPathList(CTSVNPath(path)), SVNRev::REV_HEAD, m_lowestrev, TRUE))
+		if (!this->ReceiveLog(CTSVNPathList(path), SVNRev::REV_HEAD, m_lowestrev, TRUE))
 		{
 			m_saveLog.Close();
 			DeleteFile(logfile);

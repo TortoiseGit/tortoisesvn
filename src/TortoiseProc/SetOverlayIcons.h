@@ -17,13 +17,13 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 #pragma once
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "Registry.h"
 
 
 // CSetOverlayIcons dialog
 
-class CSetOverlayIcons : public CResizableDialog
+class CSetOverlayIcons : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CSetOverlayIcons)
 
@@ -38,8 +38,6 @@ protected:
 	virtual void			DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL			OnInitDialog();
 	virtual void			OnOK();
-	afx_msg void			OnPaint();
-	afx_msg HCURSOR			OnQueryDragIcon();
 	afx_msg void			OnBnClickedListradio();
 	afx_msg void			OnBnClickedSymbolradio();
 	afx_msg void			OnCbnSelchangeIconsetcombo();
@@ -49,7 +47,6 @@ protected:
 	void					AddFileTypeGroup(CString sFileType, bool bSmallIcons);
 	DECLARE_MESSAGE_MAP()
 protected:
-	HICON			m_hIcon;
 	CComboBox		m_cIconSet;
 	CListCtrl		m_cIconList;
 

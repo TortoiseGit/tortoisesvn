@@ -33,11 +33,10 @@ using namespace Gdiplus;
 
 // CRevisionGraphDlg dialog
 
-IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CRevisionGraphDlg, CResizableStandAloneDialog)
 CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CRevisionGraphDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CRevisionGraphDlg::IDD, pParent)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_bThreadRunning = FALSE;
 	m_lSelectedRev = -1;
 	m_pDlgTip = NULL;
@@ -79,19 +78,12 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 
 void CRevisionGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 }
 
-// The system calls this function to obtain the cursor to display while the user drags
-// the minimized window.
-HCURSOR CRevisionGraphDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
 
-BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableDialog)
+BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
 	ON_WM_ERASEBKGND()
 	ON_WM_HSCROLL()
 	ON_WM_VSCROLL()
@@ -110,7 +102,7 @@ END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_pDlgTip = new CToolTipCtrl;
 	if(!m_pDlgTip->Create(this))
@@ -267,30 +259,14 @@ void CRevisionGraphDlg::OnPaint()
 	CRect rect;
 	GetClientRect(&rect);
 
-	if (IsIconic())
+	if (m_bThreadRunning)
 	{
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
+		dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
+		CResizableStandAloneDialog::OnPaint();
+		return;
 	}
-	else
-	{
-		if (m_bThreadRunning)
-		{
-			dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
-			CResizableDialog::OnPaint();
-			return;
-		}
-		GetViewSize();
-		DrawGraph(&dc, rect, GetScrollPos(SB_VERT), GetScrollPos(SB_HORZ));
-	}
+	GetViewSize();
+	DrawGraph(&dc, rect, GetScrollPos(SB_VERT), GetScrollPos(SB_HORZ));
 }
 
 void CRevisionGraphDlg::DrawOctangle(CDC * pDC, const CRect& rect)

@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "StandAloneDlg.h"
 #include "Balloon.h"
 #include "SVNStatusListCtrl.h"
@@ -50,7 +50,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CLogPromptDlg : public CStandAloneDialog<CResizableDialog>
+class CLogPromptDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CLogPromptDlg)
 

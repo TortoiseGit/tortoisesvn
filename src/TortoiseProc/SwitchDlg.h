@@ -17,7 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #pragma once
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 
 /**
@@ -46,7 +46,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CSwitchDlg : public CResizableDialog
+class CSwitchDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CSwitchDlg)
 
@@ -58,13 +58,10 @@ public:
 	enum { IDD = IDD_SWITCH };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
-	afx_msg HCURSOR OnQueryDragIcon();
-	afx_msg void OnPaint();
 	afx_msg void OnBnClickedBrowse();
 	afx_msg void OnBnClickedNewest();
 	afx_msg void OnBnClickedRevisionN();

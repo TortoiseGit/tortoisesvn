@@ -24,12 +24,11 @@
 
 // CRevisionDlg dialog
 
-IMPLEMENT_DYNAMIC(CRevisionDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRevisionDlg, CStandAloneDialog)
 CRevisionDlg::CRevisionDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CRevisionDlg::IDD, pParent)
+	: CStandAloneDialog(CRevisionDlg::IDD, pParent)
 	, SVNRev(_T("HEAD"))
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CRevisionDlg::~CRevisionDlg()
@@ -38,25 +37,19 @@ CRevisionDlg::~CRevisionDlg()
 
 void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevisionDlg, CDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CRevisionDlg, CStandAloneDialog)
 	ON_BN_CLICKED(IDC_NEWEST, OnBnClickedNewest)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 END_MESSAGE_MAP()
 
 BOOL CRevisionDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CStandAloneDialog::OnInitDialog();
 
 	// set head revision as default revision
 	CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
@@ -64,38 +57,6 @@ BOOL CRevisionDlg::OnInitDialog()
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
-}
-
-void CRevisionDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CRevisionDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
 }
 
 void CRevisionDlg::OnBnClickedNewest()
@@ -131,5 +92,5 @@ void CRevisionDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }

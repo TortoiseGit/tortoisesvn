@@ -18,12 +18,13 @@
 //
 #pragma once
 #include "SVNRev.h"
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
+#include "StandAloneDlg.h"
 #include "Registry.h"
 
 // CBlameDlg dialog
 
-class CBlameDlg : public CResizableDialog
+class CBlameDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CBlameDlg)
 
@@ -35,10 +36,7 @@ public:
 	enum { IDD = IDD_BLAME };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedRevisionHead();
 	afx_msg void OnBnClickedRevisionN();
 	afx_msg void OnBnClickedHelp();

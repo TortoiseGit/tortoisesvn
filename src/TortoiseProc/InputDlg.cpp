@@ -24,9 +24,9 @@
 
 // CInputDlg dialog
 
-IMPLEMENT_DYNAMIC(CInputDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CInputDlg, CResizableStandAloneDialog)
 CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CInputDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CInputDlg::IDD, pParent)
 	, m_sInputText(_T(""))
 {
 }
@@ -37,12 +37,12 @@ CInputDlg::~CInputDlg()
 
 void CInputDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_INPUTTEXT, m_cInput);
 }
 
 
-BEGIN_MESSAGE_MAP(CInputDlg, CResizableDialog)
+BEGIN_MESSAGE_MAP(CInputDlg, CResizableStandAloneDialog)
 END_MESSAGE_MAP()
 
 
@@ -50,7 +50,7 @@ END_MESSAGE_MAP()
 
 BOOL CInputDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_cInput.Init();
 	m_cInput.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -102,5 +102,5 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 
-	return CResizableDialog::PreTranslateMessage(pMsg);
+	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }

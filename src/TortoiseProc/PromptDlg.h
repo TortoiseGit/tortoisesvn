@@ -19,6 +19,7 @@
 #pragma once
 
 #include "resource.h"
+#include "StandAloneDlg.h"
 
 /**
  * \ingroup TortoiseProc
@@ -45,7 +46,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CPromptDlg : public CDialog
+class CPromptDlg : public CStandAloneDialog
 {
 	DECLARE_DYNAMIC(CPromptDlg)
 
@@ -58,12 +59,9 @@ public:
 	enum { IDD = IDD_PROMPT };
 
 protected:
-	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPaint();
-	afx_msg HCURSOR OnQueryDragIcon();
 
 	DECLARE_MESSAGE_MAP()
 public:

@@ -23,11 +23,10 @@
 
 // CURLDlg dialog
 
-IMPLEMENT_DYNAMIC(CURLDlg, CDialog)
+IMPLEMENT_DYNAMIC(CURLDlg, CStandAloneDialog)
 CURLDlg::CURLDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CURLDlg::IDD, pParent)
+	: CStandAloneDialog(CURLDlg::IDD, pParent)
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_url = _T("");
 }
 
@@ -37,54 +36,18 @@ CURLDlg::~CURLDlg()
 
 void CURLDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 }
 
 
-BEGIN_MESSAGE_MAP(CURLDlg, CDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CURLDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
 
-// CURLDlg message handlers
-
-void CURLDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CURLDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 BOOL CURLDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CStandAloneDialog::OnInitDialog();
 
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
@@ -102,6 +65,6 @@ void CURLDlg::OnOK()
 		UpdateData();
 	} // if (m_URLCombo.IsWindowEnabled()) 
 
-	CDialog::OnOK();
+	CStandAloneDialog::OnOK();
 }
 

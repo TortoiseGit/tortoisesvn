@@ -26,11 +26,10 @@
 
 // CSetOverlayIcons dialog
 
-IMPLEMENT_DYNAMIC(CSetOverlayIcons, CResizableDialog)
+IMPLEMENT_DYNAMIC(CSetOverlayIcons, CResizableStandAloneDialog)
 CSetOverlayIcons::CSetOverlayIcons(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CSetOverlayIcons::IDD, pParent)
-{
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	: CResizableStandAloneDialog(CSetOverlayIcons::IDD, pParent)
+{ 
 	m_regInSubversion = CRegString(_T("Software\\TortoiseSVN\\InSubversionIcon"));
 	m_regModified = CRegString(_T("Software\\TortoiseSVN\\ModifiedIcon"));
 	m_regConflicted = CRegString(_T("Software\\TortoiseSVN\\ConflictIcon"));
@@ -44,54 +43,22 @@ CSetOverlayIcons::~CSetOverlayIcons()
 
 void CSetOverlayIcons::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_ICONSETCOMBO, m_cIconSet);
 	DDX_Control(pDX, IDC_ICONLIST, m_cIconList);
 }
 
 
-BEGIN_MESSAGE_MAP(CSetOverlayIcons, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CSetOverlayIcons, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_LISTRADIO, OnBnClickedListradio)
 	ON_BN_CLICKED(IDC_SYMBOLRADIO, OnBnClickedSymbolradio)
 	ON_CBN_SELCHANGE(IDC_ICONSETCOMBO, OnCbnSelchangeIconsetcombo)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
-void CSetOverlayIcons::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-HCURSOR CSetOverlayIcons::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 BOOL CSetOverlayIcons::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_ImageList.Create(16, 16, ILC_COLOR32 | ILC_MASK, 20, 10);
 	m_ImageListBig.Create(32, 32, ILC_COLOR32 | ILC_MASK, 20, 10);
@@ -350,7 +317,7 @@ void CSetOverlayIcons::OnOK()
 			}
 		}
 	}
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CSetOverlayIcons::OnBnClickedHelp()

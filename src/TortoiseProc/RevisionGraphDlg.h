@@ -16,7 +16,7 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "RevisionGraph.h"
 #include "ProgressDlg.h"
 
@@ -48,7 +48,7 @@ enum NodeShape
 #define MAXFONTS				4
 #define	MAX_TT_LENGTH			10000
 
-class CRevisionGraphDlg : public CResizableDialog, public CRevisionGraph
+class CRevisionGraphDlg : public CResizableStandAloneDialog, public CRevisionGraph
 {
 	DECLARE_DYNAMIC(CRevisionGraphDlg)
 public:
@@ -66,7 +66,6 @@ public:
 	void			FillTestData();
 #endif
 protected:
-	HICON			m_hIcon;
 	DWORD			m_dwTicks;
 	CRect			m_ViewRect;
 	CPtrArray		m_arConnections;
@@ -92,7 +91,6 @@ protected:
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual BOOL	OnInitDialog();
 	virtual BOOL	PreTranslateMessage(MSG* pMsg);
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void	OnPaint();
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
 	afx_msg void	OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);

@@ -26,14 +26,13 @@
 
 // CRevertDlg dialog
 
-IMPLEMENT_DYNAMIC(CRevertDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CRevertDlg, CResizableStandAloneDialog)
 CRevertDlg::CRevertDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CRevertDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CRevertDlg::IDD, pParent)
 	, m_bSelectAll(TRUE)
 	, m_bThreadRunning(FALSE)
 	
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CRevertDlg::~CRevertDlg()
@@ -47,61 +46,25 @@ CRevertDlg::~CRevertDlg()
 
 void CRevertDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_REVERTLIST, m_RevertList);
 	DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 }
 
 
-BEGIN_MESSAGE_MAP(CRevertDlg, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CRevertDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
-// CRevertDlg message handlers
-void CRevertDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	} // if (IsIconic()) 
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CRevertDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
 
 BOOL CRevertDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
-	
 	m_RevertList.Init(SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS);
 	m_RevertList.SetSelectButton(&m_SelectAll);
 	
@@ -184,7 +147,7 @@ void CRevertDlg::OnOK()
 		m_RevertList.WriteCheckedNamesToFile(m_sPath);
 	}
 
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CRevertDlg::OnCancel()
@@ -192,7 +155,7 @@ void CRevertDlg::OnCancel()
 	if (m_bThreadRunning)
 		return;
 
-	CResizableDialog::OnCancel();
+	CResizableStandAloneDialog::OnCancel();
 }
 
 void CRevertDlg::OnBnClickedHelp()
@@ -214,7 +177,7 @@ BOOL CRevertDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	}
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
-	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
 void CRevertDlg::OnBnClickedSelectall()

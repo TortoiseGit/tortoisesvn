@@ -25,9 +25,9 @@
 
 // CBlameDlg dialog
 
-IMPLEMENT_DYNAMIC(CBlameDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CBlameDlg, CResizableStandAloneDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CBlameDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CBlameDlg::IDD, pParent)
 	, StartRev(1)
 	, EndRev(0)
 	, m_sStartRev(_T("1"))
@@ -39,67 +39,28 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 
 CBlameDlg::~CBlameDlg()
 {
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_REVISON_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Check(pDX, IDC_CHECK1, m_bTextView);
 }
 
 
-BEGIN_MESSAGE_MAP(CBlameDlg, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CBlameDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_REVISION_HEAD, OnBnClickedRevisionHead)
 	ON_BN_CLICKED(IDC_REVISION_N, OnBnClickedRevisionN)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
-void CBlameDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CBlameDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
 
 BOOL CBlameDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-
-	// Set the icon for this dialog.  The framework does this automatically
-	// when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	CResizableStandAloneDialog::OnInitDialog();
 
 	m_bTextView = m_regTextView;
 	// set head revision as default revision
@@ -156,7 +117,7 @@ void CBlameDlg::OnOK()
 
 	UpdateData(FALSE);
 
-	CResizableDialog::OnOK();
+	CResizableStandAloneDialog::OnOK();
 }
 
 void CBlameDlg::OnBnClickedHelp()

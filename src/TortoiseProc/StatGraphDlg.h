@@ -18,12 +18,12 @@
 
 #pragma once
 
-#include "ResizableDialog.h"
+#include "StandAloneDlg.h"
 #include "MyGraph.h"
 
 // CStatGraphDlg dialog
 
-class CStatGraphDlg : public CResizableDialog
+class CStatGraphDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CStatGraphDlg)
 

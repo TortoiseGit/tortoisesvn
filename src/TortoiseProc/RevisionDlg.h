@@ -21,6 +21,7 @@
 
 // For base class
 #include "SVNRev.h"
+#include "StandAloneDlg.h"
 
 /**
  * \ingroup TortoiseProc
@@ -45,7 +46,7 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
-class CRevisionDlg : public CDialog, public SVNRev
+class CRevisionDlg : public CStandAloneDialog, public SVNRev
 {
 	DECLARE_DYNAMIC(CRevisionDlg)
 
@@ -59,14 +60,11 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPaint();
 	virtual void OnOK();
-	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBnClickedNewest();
 	afx_msg void OnBnClickedRevisionN();
 
 	DECLARE_MESSAGE_MAP()
 
-	HICON m_hIcon;
 	CString m_sRevision;
 };

@@ -31,9 +31,9 @@
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
 
-IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableStandAloneDialog)
 CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CSVNProgressDlg::IDD, pParent)
+	: CResizableStandAloneDialog(CSVNProgressDlg::IDD, pParent)
 	, m_Revision(_T("HEAD"))
 	, m_RevisionEnd(0)
 {
@@ -41,7 +41,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
 	m_bRedEvents = FALSE;
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_nUpdateStartRev = -1;
 	m_pThread = NULL;
 	m_options = ProgOptNone;
@@ -65,16 +64,12 @@ CSVNProgressDlg::~CSVNProgressDlg()
 
 void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_SVNPROGRESS, m_ProgList);
 }
 
 
-BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
-	ON_WM_SIZE()
-	ON_WM_SIZING()
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_LOGBUTTON, OnBnClickedLogbutton)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SVNPROGRESS, OnNMCustomdrawSvnprogress)
 	ON_WM_CLOSE()
@@ -84,41 +79,6 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
 	ON_WM_CONTEXTMENU()
 END_MESSAGE_MAP()
 
-// If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
-
-void CSVNProgressDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CSVNProgressDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
 
 BOOL CSVNProgressDlg::Cancel()
 {
@@ -374,10 +334,6 @@ void CSVNProgressDlg::ResizeColumns()
 BOOL CSVNProgressDlg::OnInitDialog()
 {
 	__super::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	m_ProgList.SetExtendedStyle (LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_DOUBLEBUFFER);
 
@@ -1023,7 +979,7 @@ BOOL CSVNProgressDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	}
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
-	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
 BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)

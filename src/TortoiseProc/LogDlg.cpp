@@ -34,9 +34,9 @@
 
 // CLogDlg dialog
 
-IMPLEMENT_DYNAMIC(CLogDlg, CResizableDialog)
+IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CLogDlg::IDD, pParent),
+	: CResizableStandAloneDialog(CLogDlg::IDD, pParent),
 	m_startrev(0),
 	m_endrev(0),
 	m_logcounter(0),
@@ -45,7 +45,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
 	m_bShowedAll = FALSE;
-	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pNotifyWindow = NULL;
 	m_bThreadRunning = FALSE;
 
@@ -59,7 +58,7 @@ CLogDlg::~CLogDlg()
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CResizableDialog::DoDataExchange(pDX);
+	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LOGLIST, m_LogList);
 	DDX_Control(pDX, IDC_LOGMSG, m_LogMsgCtrl);
 	DDX_Control(pDX, IDC_PROGRESS, m_LogProgress);
@@ -68,9 +67,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
-BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
-	ON_WM_PAINT()
-	ON_WM_QUERYDRAGICON()
+BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
@@ -96,46 +93,10 @@ void CLogDlg::SetParams(const CString& path, long startrev /* = 0 */, long endre
 	m_bStrict = bStrict;
 }
 
-void CLogDlg::OnPaint() 
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // device context for painting
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// Center icon in client rectangle
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// Draw the icon
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CResizableDialog::OnPaint();
-	}
-}
-
-// The system calls this function to obtain the cursor to display while the user drags
-//  the minimized window.
-HCURSOR CLogDlg::OnQueryDragIcon()
-{
-	return static_cast<HCURSOR>(m_hIcon);
-}
-
 BOOL CLogDlg::OnInitDialog()
 {
-	CResizableDialog::OnInitDialog();
-	// Set the icon for this dialog.  The framework does this automatically
-	// when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
-
+	CResizableStandAloneDialog::OnInitDialog();
+	
 	CUtils::CreateFontForLogs(m_logFont);
 	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
@@ -610,7 +571,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						this->m_bCancelled = FALSE;
 						CTSVNPath tempfile = CUtils::GetTempFilePath();
 						tempfile.AppendString(_T(".diff"));
-						m_tempFileList.AddPath(CTSVNPath(tempfile));
+						m_tempFileList.AddPath(tempfile);
 						if (!PegDiff(m_path, (m_hasWC ? SVNRev::REV_WC : SVNRev::REV_HEAD), rev-1, rev, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1600,7 +1561,7 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	}
 	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
 	SetCursor(hCur);
-	return CResizableDialog::OnSetCursor(pWnd, nHitTest, message);
+	return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 }
 
 void CLogDlg::OnBnClickedHelp()
