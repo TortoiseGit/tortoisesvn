@@ -179,7 +179,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			m_ownStatus.SetStatus(NULL);
 
 			// We should never have anything in our file item cache if we're unversioned
-			ATLVERIFY(m_entryCache.empty());
+			ATLASSERT(m_entryCache.empty());
 			
 			// However, a member *DIRECTORY* might be the top of WC
 			// so we need to ask them to get their own status
@@ -465,29 +465,28 @@ svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus() const
 void CCachedDirectory::UpdateCurrentStatus()
 {
 	svn_wc_status_kind newStatus = CalculateRecursiveStatus();
+	if ((m_currentFullStatus == svn_wc_status_unversioned) && (!m_directoryPath.HasAdminDir()))
+	{
+		// this directory is unversioned, i.e. it doesn't even contain an admin dir, so
+		// a status change is irrelevant because it can't have a status!
+		m_bCurrentFullStatusValid = true;
+		return;
+	}
+	ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);
+
 	if (newStatus != m_currentFullStatus)
 	{
-		if ((m_currentFullStatus == svn_wc_status_unversioned) && (!m_directoryPath.HasAdminDir()))
-		{
-			// this directory is unversioned, i.e. it doesn't even contain an admin dir, so
-			// a status change is irrelevant because it can't have a status!
-			m_bCurrentFullStatusValid = true;
-			return;
-		}
-		ATLTRACE("Dir %ws, status change to %d\n", m_directoryPath.GetWinPath(), newStatus);
-
-		m_currentFullStatus = newStatus;
-
 		// Our status has changed - tell the shell
 		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, m_directoryPath.GetWinPath(), NULL);
+	}
+	m_currentFullStatus = newStatus;
 
-		// And tell our parent, if we've got one...
-		CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
-		if(!parentPath.IsEmpty())
-		{
-			// We have a parent
-			CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath).UpdateChildDirectoryStatus(m_directoryPath, 	m_currentFullStatus);
-		}
+	// And tell our parent, if we've got one...
+	CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
+	if(!parentPath.IsEmpty())
+	{
+		// We have a parent
+		CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath).UpdateChildDirectoryStatus(m_directoryPath, 	m_currentFullStatus);
 	}
 	m_bCurrentFullStatusValid = true;
 }
@@ -535,14 +534,26 @@ void CCachedDirectory::RefreshStatus()
 	// We also need to check if all our file members have the right date on them
 	CacheEntryMap::iterator itMembers;
 	DWORD now = GetTickCount();
+	
 	for(itMembers = m_entryCache.begin(); itMembers != m_entryCache.end(); ++itMembers)
 	{
-		CTSVNPath filePath(m_directoryPath);
-		filePath.AppendPathString(itMembers->first);
-		if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
+		if (itMembers->first)
 		{
-			// We need to request this item as well
-			GetStatusForMember(filePath,false);
+			CTSVNPath filePath(m_directoryPath);
+			filePath.AppendPathString(itMembers->first);
+			if (!filePath.IsEquivalentTo(m_directoryPath))
+			{
+				if ((itMembers->second.HasExpired(now))||(!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
+				//if ((!itMembers->second.DoesFileTimeMatch(filePath.GetLastWriteTime())))
+				{
+					// We need to request this item as well
+					GetStatusForMember(filePath,false);
+					// GetStatusForMember now has recreated the m_entryCache map.
+					// So we have to get out of this for-loop since the iterator now
+					// is invalid!
+					break;
+				}
+			}
 		}
 	}
 }
