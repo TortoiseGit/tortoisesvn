@@ -329,6 +329,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	menuiteminfo.hSubMenu = subMenu;
 	menuiteminfo.wID = idCmd;
 	InsertMenuItem(hMenu, indexMenu++, TRUE, &menuiteminfo);
+	myIDMap[idCmd - idCmdFirst] = SubMenu;
 	myIDMap[idCmd++] = SubMenu;
 
 	//separator after

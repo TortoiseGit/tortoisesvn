@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CDialog)
 	ON_NOTIFY(NM_CLICK, IDC_LOGLIST, OnNMClickLoglist)
 	ON_NOTIFY(NM_RCLICK, IDC_LOGLIST, OnNMRclickLoglist)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
+	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 
@@ -198,6 +199,13 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 	__super::OnSize(nType, cx, cy);
 
 	UPDATE_RESIZER;
+}
+
+void CLogDlg::OnSizing(UINT fwSide, LPRECT pRect)
+{
+	__super::OnSizing(fwSide, pRect);
+
+	RESIZER_MINSIZE(220, 100, fwSide, pRect);
 }
 
 //this is the thread function which calls the subversion function
@@ -496,6 +504,7 @@ void CLogDlg::OnOK()
 		__super::OnOK();
 	m_bCancelled = TRUE;
 }
+
 
 
 

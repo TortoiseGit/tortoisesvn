@@ -112,6 +112,7 @@ protected:
 	virtual void OnOK();
 public:
 	afx_msg void OnLvnGetInfoTipLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);
