@@ -1278,3 +1278,7 @@ void SVN::UpdateShell(CString path)
 	SHChangeNotify(SHCNE_UPDATEIMAGE | SHCNF_FLUSH, SHCNF_DWORD, NULL, reinterpret_cast<LPCVOID>((__int64)sfiopen.iIcon));
 }
 
+BOOL SVN::PathIsURL(CString path)
+{
+	return svn_path_is_url(CUnicodeUtils::GetUTF8(path));
+}

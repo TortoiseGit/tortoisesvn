@@ -949,18 +949,28 @@ void CLogDlg::DoDiffFromLog(int selIndex, CString temp, long rev)
 	this->m_app = &theApp;
 	theApp.DoWaitCursor(1);
 	//get the filename
-	SVNStatus status;
-	if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
+	CString filepath;
+	if (SVN::PathIsURL(m_path))
 	{
-		theApp.DoWaitCursor(-1);
-		CString temp;
-		temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
-		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-		TRACE(_T("could not retrieve the URL of the file!\n"));
-		return;		//exit
-	} // if ((rev == (-2))||(status.status->entry == NULL))
+		filepath = m_path;
+	}
+	else
+	{
+		SVNStatus status;
+		if ((status.GetStatus(m_path) == (-2))||(status.status->entry == NULL))
+		{
+			theApp.DoWaitCursor(-1);
+			CString temp;
+			temp.Format(IDS_ERR_NOURLOFFILE, status.GetLastErrorMsg());
+			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+			TRACE(_T("could not retrieve the URL of the file!\n"));
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
+			theApp.DoWaitCursor(-11);
+			return;		//exit
+		} // if ((rev == (-2))||(status.status->entry == NULL))
+		filepath = CString(status.status->entry->url);
+	}
 	temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-	CString filepath = CString(status.status->entry->url);
 	m_bCancelled = FALSE;
 	filepath = GetRepositoryRoot(filepath);
 	temp = temp.Mid(temp.Find(' '));

@@ -447,6 +447,10 @@ public:
 	 */
 	static void UpdateShell(CString path);
 
+	/**
+	 * Checks if a given path is a valid URL.
+	 */	 	 	 	
+	static BOOL PathIsURL(CString path);
 
 	enum
 	{
