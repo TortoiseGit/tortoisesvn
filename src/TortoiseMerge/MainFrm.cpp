@@ -261,9 +261,15 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
 		} // if (!m_Patch.PatchFile(sFilePath, sTempFile, sBaseFile)) 
+		CString temp;
+		temp.Format(_T("%s Revision %s"), CUtils::GetFileNameFromPath(sFilePath), sVersion);
 		this->m_Data.m_sBaseFile = sBaseFile;
+		this->m_Data.m_sBaseName = temp;
 		this->m_Data.m_sTheirFile = sTempFile;
+		temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
+		this->m_Data.m_sTheirName = temp;
 		this->m_Data.m_sYourFile = sFilePath;
+		this->m_Data.m_sYourName = CUtils::GetFileNameFromPath(sFilePath);
 		TRACE(_T("comparing %s and %s\nagainst the base file %s\n"), sTempFile, sFilePath, sBaseFile);
 	} // if (!m_Patch.PatchFile(sFilePath)) 
 	else
@@ -274,9 +280,13 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
 		{
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return FALSE;
-		}
+		} // if (!m_Patch.PatchFile(sFilePath, sTempFile)) 
 		this->m_Data.m_sBaseFile = sFilePath;
+		this->m_Data.m_sBaseName = CUtils::GetFileNameFromPath(sFilePath);
 		this->m_Data.m_sYourFile = sTempFile;
+		CString temp;
+		temp.Format(_T("%s : patched"), CUtils::GetFileNameFromPath(sFilePath));
+		this->m_Data.m_sYourName = temp;
 		this->m_Data.m_sTheirFile.Empty();
 		this->m_Data.m_sMergedFile = sFilePath;
 		TRACE(_T("comparing %s\nwith the patched result %s\n"), sFilePath, sTempFile);
