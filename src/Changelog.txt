@@ -3,6 +3,8 @@
 - BUG: Explorer could crash when doing a column sort
        on really big working copies. Thanks a lot
        to Lübbe for helping in finding this bug. (Stefan)
+- BUG: Some parts of the log message itself were selectable
+       in the log dialog. (Stefan)
 - CHG: Removed the limitation for property lengths
        in the property page. (Stefan)
 - CHG: Status text from "unversioned" to "non-versioned".
