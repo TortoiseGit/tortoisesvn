@@ -278,6 +278,7 @@ BOOL CUtils::StartTextViewer(CString file)
 	viewer = buf;
 	ExpandEnvironmentStrings(file, buf, MAX_PATH);
 	file = buf;
+	file = _T("\"")+file+_T("\"");
 	if (viewer.IsEmpty())
 	{
 		OPENFILENAME ofn;		// common dialog box structure
