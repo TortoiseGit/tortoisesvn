@@ -66,7 +66,7 @@ private:
 	// This thread will kick-off the update, when it's a suitable time
 	static DWORD WINAPI UpdateThreadEntry(LPVOID pVoid);
 	void UpdateThread();
-	void UpdateShell(const CTSVNPathList& pathlist);
+	void UpdateShell();
 
 
 private:

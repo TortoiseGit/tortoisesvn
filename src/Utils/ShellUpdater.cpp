@@ -92,15 +92,23 @@ void CShellUpdater::Flush()
 	{
 		TRACE("Flushing shell update list\n");
 
-		UpdateShell(m_pathsForUpdating);
+		UpdateShell();
 		m_pathsForUpdating.Clear();
 	}
 }
 
-void CShellUpdater::UpdateShell(const CTSVNPathList& pathlist)
+void CShellUpdater::UpdateShell()
 {
 	// Tell the shell extension to purge its cache
+	TRACE("Setting cache invalidation event %d\n", GetTickCount());
 	SetEvent(m_hInvalidationEvent);
+
+	// We use the SVN 'notify' call-back to add items to the list
+	// Because this might call-back more than once per file (for example, when committing)
+	// it's possible that there may be duplicates in the list.
+	// There's no point asking the shell to do more than it has to, so we remove the duplicates before
+	// passing the list on
+	m_pathsForUpdating.RemoveDuplicates();
 
 	DWORD brute = CRegDWORD(_T("Software\\TortoiseSVN\\ForceShellUpdate"), 0);
 	if (brute)
@@ -132,7 +140,7 @@ void CShellUpdater::UpdateShell(const CTSVNPathList& pathlist)
 		//explorer view by telling the explorer that the folder icon itself
 		//has changed.
 
-		for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
+		for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
 		{
 			// WGD: There seems to be a great disparity between the documentation for SHChangeNotify 
 			// and the reality.  We used to make one call, with (SHCNE_UPDATEITEM | SHCNE_UPDATEDIR) as
@@ -143,13 +151,15 @@ void CShellUpdater::UpdateShell(const CTSVNPathList& pathlist)
 			// than making one with the two flags combined, I think splitting the flags into 
 			// two calls is better
 			// It has the additional merit of actually working on my XP machines...
-			if(pathlist[nPath].IsDirectory())
+			if(m_pathsForUpdating[nPath].IsDirectory())
 			{
-				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
+				TRACE("Shell Dir Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
+				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPathString(), NULL);
 			}
 			else
 			{
-				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, pathlist[nPath].GetWinPathString(), NULL);
+				TRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
+				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPathString(), NULL);
 			}
 		}
 	}

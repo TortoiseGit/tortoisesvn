@@ -303,10 +303,10 @@ bool CTSVNPath::IsEmpty() const
 
 // Test if both paths refer to the same item
 // Ignores case and slash direction
-bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs)
+bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
 {
 	// Try and find a slash direction which avoids having to convert
-	// both files
+	// both filenames
 	if(!m_sBackslashPath.IsEmpty())
 	{
 		// *We've* got a \ path - make sure that the RHS also has a \ path
@@ -360,9 +360,14 @@ CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
 }
 
 bool
-CTSVNPath::ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right)
+CTSVNPath::PredLeftEarlierThanRight(const CTSVNPath& left, const CTSVNPath& right)
 {
 	return Compare(left, right) < 0;
+}
+bool
+CTSVNPath::PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right)
+{
+	return left.IsEquivalentTo(right);
 }
 
 void CTSVNPath::AppendRawString(const CString& sAppend)
@@ -509,7 +514,7 @@ bool CTSVNPathList::WriteToTemporaryFile(const CString& sFilename) const
 
 void CTSVNPathList::SortByPathname()
 {
-	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::ComparisonPredicate);
+	std::sort(m_paths.begin(), m_paths.end(), &CTSVNPath::PredLeftEarlierThanRight);
 }
 
 void CTSVNPathList::DeleteAllFiles()
@@ -523,7 +528,13 @@ void CTSVNPathList::DeleteAllFiles()
 	Clear();
 }
 
-
+void CTSVNPathList::RemoveDuplicates()
+{
+	SortByPathname();
+	// Remove the duplicates
+	// (Unique moves them to the end of the vector, then erase chops them off)
+	m_paths.erase(std::unique(m_paths.begin(), m_paths.end(), &CTSVNPath::PredLeftEquivalentToRight), m_paths.end());
+}
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -539,6 +550,7 @@ public:
 		SortTest();
 		RawAppendTest();
 		PathAppendTest();
+		RemoveDuplicatesTest();
 	}
 
 private:
@@ -618,8 +630,28 @@ private:
 		ASSERT(testBasePath.GetWinPathString() == _T("c:\\temp\\myfile.txt\\.ini"));
 	}
 
+	void RemoveDuplicatesTest()
+	{
+		CTSVNPathList list;
+		list.AddPath(CTSVNPath(_T("Z")));
+		list.AddPath(CTSVNPath(_T("A")));
+		list.AddPath(CTSVNPath(_T("E")));
+		list.AddPath(CTSVNPath(_T("e")));
+
+		ASSERT(list.GetCount() == 4);
+
+		list.RemoveDuplicates();
+
+		ASSERT(list.GetCount() == 3);
+
+		ASSERT(list[0].GetWinPathString() == _T("A"));
+		ASSERT(list[1].GetWinPathString().CompareNoCase(_T("e")) == 0);
+		ASSERT(list[2].GetWinPathString() == _T("Z"));
+	}
+
 
 
 } TSVNPathTests;
 #endif
+
 

@@ -126,7 +126,7 @@ public:
 	/**
 	 * Checks if two paths are equal. The slashes are taken care of.
 	 */
-	bool IsEquivalentTo(const CTSVNPath& rhs);
+	bool IsEquivalentTo(const CTSVNPath& rhs) const;
 	/**
 	 * Checks if \c possibleDescendant is a child of this path.
 	 */
@@ -146,7 +146,11 @@ public:
 	* Compares two paths and return true if left is earlier in sort order than right
 	* (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
 	*/
-	static bool ComparisonPredicate(const CTSVNPath& left, const CTSVNPath& right);
+	static bool PredLeftEarlierThanRight(const CTSVNPath& left, const CTSVNPath& right);
+	/* As PredLeftLessThanRight, but for checking if paths are equivalent 
+	*/
+	static bool PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right);
+
 	/**
 	 * appends a string to this path. 
 	 *\remark - missing slashes are not added - this is just a string concatenation, but with
@@ -232,6 +236,8 @@ public:
 	/** Delete all the files in the list, then clear the list
 	 */
 	void DeleteAllFiles();
+	/** Remove duplicate entries from the list (sorts the list as a side-effect */
+	void RemoveDuplicates();
 
 private:
 	typedef std::vector<CTSVNPath> PathVector;
