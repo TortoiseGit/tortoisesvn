@@ -37,6 +37,16 @@ SVNUrl::SVNUrl(const CString& svn_url) :
 {
 }
 
+SVNUrl::SVNUrl(const CString& path, const CString& revision) :
+	CString(Unescape(path + _T("?") + revision))
+{
+}
+
+SVNUrl::SVNUrl(const CString& path, LONG revision) :
+	CString(Unescape(path + _T("?") + GetTextFromRev(revision)))
+{
+}
+
 SVNUrl::SVNUrl(const SVNUrl& other) :
 	CString(other)
 {
@@ -62,7 +72,7 @@ void SVNUrl::SetPath(const CString& path)
 {
 	CString new_path = Unescape(path);
 
-	int rev_pos = ReverseFind(_T('@'));
+	int rev_pos = ReverseFind(_T('?'));
 	if (rev_pos >= 0)
 		*this = new_path + Mid(rev_pos);
 	else
@@ -73,7 +83,7 @@ CString SVNUrl::GetPath(bool escaped) const
 {
 	CString path = *this;
 
-	int rev_pos = path.ReverseFind(_T('@'));
+	int rev_pos = path.ReverseFind(_T('?'));
 	if (rev_pos >= 0)
 		path = path.Left(rev_pos);
 
@@ -91,18 +101,9 @@ void SVNUrl::SetRevision(LONG revision)
 	{
 		svn_url = GetPath();
 	}
-	else if (revision == SVN::REV_BASE)
-	{
-		svn_url = GetPath() + _T("@BASE");
-	}
-	else if (revision == SVN::REV_WC)
-	{
-		svn_url = GetPath() + _T("@WC");
-	}
 	else
 	{
-		svn_url.Format(_T("@%u"), revision);
-		svn_url= GetPath() + svn_url;
+		svn_url = GetPath() + GetTextFromRev(revision);
 	}
 
 	*this = svn_url;
@@ -110,7 +111,7 @@ void SVNUrl::SetRevision(LONG revision)
 
 LONG SVNUrl::GetRevision() const
 {
-	int rev_pos = ReverseFind(_T('@'));
+	int rev_pos = ReverseFind(_T('?'));
 
 	if (rev_pos < 0)
 	{
@@ -137,7 +138,7 @@ LONG SVNUrl::GetRevision() const
 
 CString SVNUrl::GetRevisionText() const
 {
-	int rev_pos = ReverseFind(_T('@'));
+	int rev_pos = ReverseFind(_T('?'));
 
 	if (rev_pos < 0)
 		return _T("HEAD");
@@ -173,7 +174,8 @@ CString SVNUrl::GetParentPath() const
 	else
 	{
 		path = path.Left(rev_pos);
-		if (path.Left(rev_pos-1).ReverseFind('/') < 0)
+		path.TrimRight('/');
+		if (path.ReverseFind('/') < 0)
 			path = _T("");
 	}
 
@@ -216,6 +218,31 @@ CString SVNUrl::Unescape(const CString& url)
 	temp.ReleaseBuffer();
 	return CUnicodeUtils::GetUnicode(temp);
 }
+
+CString SVNUrl::GetTextFromRev(LONG revision)
+{
+	CString rev_text;
+
+	if (revision == SVN::REV_HEAD)
+	{
+		rev_text = _T("HEAD");
+	}
+	else if (revision == SVN::REV_BASE)
+	{
+		rev_text = _T("BASE");
+	}
+	else if (revision == SVN::REV_WC)
+	{
+		rev_text = _T("WC");
+	}
+	else
+	{
+		rev_text.Format(_T("%u"), revision);
+	}
+
+	return rev_text;
+}
+
  
 
 #ifdef _DEBUG
@@ -244,29 +271,35 @@ public:
 //			CPPUNIT_ASSERT( SVNUrl(_T("M%FCller")) == _T("Müller"));
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/c")) == _T("http://a/b/c"));
 			CPPUNIT_ASSERT( SVNUrl(_T("http:\\\\a\\b\\c")) == _T("http://a/b/c"));
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a/b/c")) == _T("file:///x:/a/b/c"));
+			CPPUNIT_ASSERT( SVNUrl(_T("file:\\\\\\x:\\a\\b\\c")) == _T("file:///x:/a/b/c"));
 		}
 
 		// GetPath/SetPath tests
 		{
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b")).GetPath() == _T("http://a/b") );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/")).GetPath() == _T("http://a/b") );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b@22")).GetPath() == _T("http://a/b") );
-//			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/@22")).GetPath() == _T("http://a/b") );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?22")).GetPath() == _T("http://a/b") );
+//			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/?22")).GetPath() == _T("http://a/b") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/b")).GetPath() == _T("file:///a/b") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/b/")).GetPath() == _T("file:///a/b") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/b?22")).GetPath() == _T("file:///a/b") );
+//			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/b/?22")).GetPath() == _T("file:///a/b") );
 		}
 
 		// GetRevision/SetRevision tests
 		{
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b")).GetRevision() == SVN::REV_HEAD );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/")).GetRevision() == SVN::REV_HEAD );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b@42")).GetRevision() == 42 );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/@42")).GetRevision() == 42 );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b@HEAD")).GetRevision() == SVN::REV_HEAD );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b@BASE")).GetRevision() == SVN::REV_BASE );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?42")).GetRevision() == 42 );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b/?42")).GetRevision() == 42 );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?HEAD")).GetRevision() == SVN::REV_HEAD );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?BASE")).GetRevision() == SVN::REV_BASE );
 
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b")).GetRevisionText() == _T("HEAD") );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b@42")).GetRevisionText() == _T("42") );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b@HEAD")).GetRevisionText() == _T("HEAD") );
-			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b@bAsE")).GetRevisionText() == _T("BASE") );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?42")).GetRevisionText() == _T("42") );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?HEAD")).GetRevisionText() == _T("HEAD") );
+			CPPUNIT_ASSERT( SVNUrl(_T("http://a/b?bAsE")).GetRevisionText() == _T("BASE") );
 		}
 
 		// URL root tests
@@ -281,6 +314,30 @@ public:
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a.b.com")).GetRootPath() == _T("http://a.b.com") );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a.b.com/d/e")).IsRoot() == false );
 			CPPUNIT_ASSERT( SVNUrl(_T("http://a.b.com/d/e")).GetRootPath() == _T("http://a.b.com") );
+
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a")).IsRoot() == true );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a")).GetRootPath() == _T("file:///a") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/")).IsRoot() == true );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/")).GetRootPath() == _T("file:///a") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/b")).IsRoot() == false );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a/b")).GetRootPath() == _T("file:///a") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a.b.com")).IsRoot() == true );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a.b.com")).GetRootPath() == _T("file:///a.b.com") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a.b.com/d/e")).IsRoot() == false );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///a.b.com/d/e")).GetRootPath() == _T("file:///a.b.com") );
+
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:")).IsRoot() == true );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:")).GetRootPath() == _T("file:///x:") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/")).IsRoot() == true );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/")).GetRootPath() == _T("file:///x:") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a")).IsRoot() == false );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a")).GetRootPath() == _T("file:///x:") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a")).GetPath() == _T("file:///x:/a") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a/")).IsRoot() == false );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a/")).GetRootPath() == _T("file:///x:") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a/")).GetPath() == _T("file:///x:/a") );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a/b")).IsRoot() == false );
+			CPPUNIT_ASSERT( SVNUrl(_T("file:///x:/a/b")).GetRootPath() == _T("file:///x:") );
 		}
 	}
 } SVNUrlTest;

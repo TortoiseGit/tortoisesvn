@@ -26,7 +26,7 @@
  * \ingroup TortoiseProc
  * SVNUrl is a specialized CString class which is aware of Subversion URLs.
  * In addition to the normal conventions for URLs, SVNUrls may include a
- * revision information in the form "PATH@REV".
+ * revision information in the form "PATH?REV".
  *
  * This class accepts both the unescaped or escaped form of a SVNUrl.
  * However, it always stores the unescaped form. To get the escaped form
@@ -57,6 +57,8 @@ class SVNUrl : public CString
 public:
 	SVNUrl();
 	SVNUrl(const CString& svn_url);
+	SVNUrl(const CString& path, const CString& revision);
+	SVNUrl(const CString& path, LONG revision);
 	SVNUrl(const SVNUrl& other);
 
 	SVNUrl& operator=(const CString& svn_url);
@@ -118,6 +120,10 @@ public:
 	 * are removed.
 	 */
 	static CString Unescape(const CString& url);
+	/**
+	 * Returns the textual representation of \a revision.
+	 */
+	static CString GetTextFromRev(LONG revision);
 
 };
 
