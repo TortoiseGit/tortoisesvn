@@ -32,7 +32,7 @@ CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status_t* pSVNStatus,__int64 l
 {
 	SetStatus(pSVNStatus);
 	m_lastWriteTime = lastWriteTime;
-	m_discardAtTime = GetTickCount()+600000;
+	m_discardAtTime = GetTickCount()+CACHETIMEOUT;
 }
 
 bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
@@ -122,6 +122,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 		}
 		m_svnStatus.entry = NULL;
 	}
+	m_discardAtTime = GetTickCount()+CACHETIMEOUT;
 	m_bSet = true;
 }
 
@@ -129,7 +130,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 void CStatusCacheEntry::SetAsUnversioned()
 {
 	ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
-	m_discardAtTime = GetTickCount()+600000;	// 10 minutes timeout - even unversioned items can get versioned
+	m_discardAtTime = GetTickCount()+CACHETIMEOUT;	// 10 minutes timeout - even unversioned items can get versioned
 	m_highestPriorityLocalStatus = svn_wc_status_unversioned;
 	m_svnStatus.prop_status = svn_wc_status_unversioned;
 	m_svnStatus.text_status = svn_wc_status_unversioned;
@@ -191,7 +192,7 @@ bool CStatusCacheEntry::ForceStatus(svn_wc_status_kind forcedStatus)
 		m_highestPriorityLocalStatus = newStatus;
 		m_svnStatus.text_status = newStatus;
 		m_svnStatus.prop_status = newStatus;
-
+		m_discardAtTime = GetTickCount()+CACHETIMEOUT;
 		return true;
 	}
 	return false;

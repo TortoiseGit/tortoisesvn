@@ -1,6 +1,7 @@
 #pragma once
 
 struct TSVNCacheResponse;
+#define CACHETIMEOUT	600000
 
 class CStatusCacheEntry
 {
