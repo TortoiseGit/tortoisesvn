@@ -154,26 +154,50 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 			cbInfo.cbSize = sizeof(COMBOBOXINFO);
 			if (hwndCombo)
 			{
+#				define FOLDERPROPS 1
+#				define FILEPROPS   2
+				int iShowProps = 0;
+				if (filenames.size() == 1)
+				{
+					if (PathIsDirectory(filenames.front().c_str()))
+						iShowProps = FOLDERPROPS;
+					else
+						iShowProps = FILEPROPS;
+				}
+				else
+				{
+					// when multiple items are selected, show all available properties
+					iShowProps = FILEPROPS | FOLDERPROPS;
+				}
 				// Initialize the combobox with the default svn: properties
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:externals"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:executable"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:mime-type"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:ignore"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:keywords"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:eol-style"));
+				if (iShowProps & FILEPROPS)
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:eol-style"));
+				if (iShowProps & FILEPROPS)
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:executable"));
+				if (iShowProps & FOLDERPROPS)
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:externals"));
+				if (iShowProps & FOLDERPROPS)
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:ignore"));
+				if (iShowProps & FILEPROPS)
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:keywords"));
+				if (iShowProps & FILEPROPS)
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("svn:mime-type"));
 
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:label"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:message"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:number"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:url"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:warnifnoissue"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:append"));
+				if (iShowProps & FOLDERPROPS)
+				{
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:label"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:message"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:number"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:url"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:warnifnoissue"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("bugtraq:append"));
 
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logtemplate"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logwidthmarker"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logminsize"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logfilelistenglish"));
-				SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:projectlanguage"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logtemplate"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logwidthmarker"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logminsize"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:logfilelistenglish"));
+					SendMessage(hwndCombo, CB_ADDSTRING, 0, (LPARAM)_T("tsvn:projectlanguage"));
+				}
 				GetComboBoxInfo(hwndCombo, &cbInfo);
 			}
 			// Create a tooltip window
