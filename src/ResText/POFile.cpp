@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "shlwapi.h"
 #include <fstream>
+#include "codecvt.h"
 #include "Utils.h"
 #include ".\pofile.h"
 
@@ -32,7 +33,13 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 	WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, MAX_PATH, NULL, NULL);
 
 	std::wifstream File;
+	File.imbue(std::locale(std::locale(), new utf8_conversion()));
 	File.open(filepath);
+	if (!File.good())
+	{
+		_ftprintf(stderr, _T("can't open input file %s\n"), szPath);
+		return FALSE;
+	}
 	TCHAR line[100*1024];
 	std::vector<std::wstring> entry;
 	do
@@ -121,6 +128,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 			entry.push_back(line);
 		}
 	} while (File.gcount() > 0);
+	printf(File.getloc().name().c_str());
 	File.close();
 	if (!m_bQuiet)
 		_tcprintf(_T("%d Entries found, %d were already translated and %d got deleted\n"), nEntries, nTranslated, nDeleted);
@@ -137,7 +145,14 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	WideCharToMultiByte(CP_ACP, NULL, szPath, -1, filepath, MAX_PATH, NULL, NULL);
 
 	std::wofstream File;
-	File.open(filepath);
+	File.open(filepath, std::ios_base::binary);
+	File << _T("\xEF\xBB\xBF");
+	File.close();
+	File.imbue(std::locale(std::locale(), new utf8_conversion()));
+	File.open(filepath, std::ios_base::app);
+	File << _T("msgid \"\"\n");
+	File << _T("msgstr \"\"\n");
+	File << _T("\"Content-Type: text/plain; charset=utf-8\\n\"\n\n");
 	for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
 	{
 		if (I->first.size() == 0)
