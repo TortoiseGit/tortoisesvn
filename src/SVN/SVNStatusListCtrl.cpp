@@ -1391,11 +1391,14 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						else
 						{
+							CString basepath;
 							for (int i=0; i<GetItemCount(); ++i)
 							{
 								FileEntry * entry = GetListEntry(i);
 								if (entry == NULL)
-									continue;								
+									continue;	
+								if (basepath.IsEmpty())
+									basepath = entry->basepath;
 								CString f = entry->path;
 								if (CUtils::PathIsParent(parentfolder, f))
 								{
@@ -1412,6 +1415,38 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									}
 								}
 							}
+							SVNStatus status;
+							svn_wc_status_t * s;
+							const TCHAR * strbuf = NULL;
+							s = status.GetFirstFileStatus(parentfolder, &strbuf, FALSE);
+							if (s!=0)
+							{
+								FileEntry * entry = new FileEntry();
+								entry->path = strbuf;
+								entry->basepath = basepath;
+								entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+								entry->textstatus = s->text_status;
+								entry->propstatus = s->prop_status;
+								entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+								entry->remotetextstatus = s->repos_text_status;
+								entry->remotepropstatus = s->repos_prop_status;
+								entry->inunversionedfolder = FALSE;
+								entry->checked = TRUE;
+								entry->inexternal = FALSE;
+								entry->direct = FALSE;
+								if (s->entry)
+								{
+									if (s->entry->url)
+									{
+										CUtils::Unescape((char *)s->entry->url);
+										entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+									}
+								}
+								int i = m_arStatusArray.Add(entry);
+								m_arListArray.Add(i);
+								AddEntry(entry);
+							}
+
 						}
 					}
 					break;
@@ -1452,7 +1487,39 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (GetCheck(selIndex))
 							m_nSelected--;
 						m_nTotal--;
+						CString basepath = m_arStatusArray.GetAt(m_arListArray.GetAt(selIndex))->basepath;
 						RemoveListEntry(selIndex);
+						SVNStatus status;
+						svn_wc_status_t * s;
+						const TCHAR * strbuf = NULL;
+						s = status.GetFirstFileStatus(parentfolder, &strbuf, FALSE);
+						if (s!=0)
+						{
+							FileEntry * entry = new FileEntry();
+							entry->path = strbuf;
+							entry->basepath = basepath;
+							entry->status = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+							entry->textstatus = s->text_status;
+							entry->propstatus = s->prop_status;
+							entry->remotestatus = SVNStatus::GetMoreImportant(s->repos_text_status, s->repos_prop_status);
+							entry->remotetextstatus = s->repos_text_status;
+							entry->remotepropstatus = s->repos_prop_status;
+							entry->inunversionedfolder = FALSE;
+							entry->checked = TRUE;
+							entry->inexternal = FALSE;
+							entry->direct = FALSE;
+							if (s->entry)
+							{
+								if (s->entry->url)
+								{
+									CUtils::Unescape((char *)s->entry->url);
+									entry->url = CUnicodeUtils::GetUnicode(s->entry->url);
+								}
+							}
+							int i = m_arStatusArray.Add(entry);
+							m_arListArray.Add(i);
+							AddEntry(entry);
+						}
 					}
 					break;
 				case IDSVNLC_EDITCONFLICT:
