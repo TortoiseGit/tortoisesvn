@@ -2,6 +2,17 @@
        issue 92. (Stefan)
 - ADD: TortoiseBlame for viewing blames. Issue 95. (Stefan)
 - ADD: Integration with bug/issuetrackers. (Stefan)
+- ADD: The commit dialog got a log history combobox. (Stefan)
+- ADD: Finish message when ignoring files. (Stefan)
+- CHG: TortoiseMerge doesn't complain anymore when doing diffs
+       of files which have/have not the keywords expanded. (Stefan)
+- CHG: The repository browser closes the connection after each
+       ls command to prevent too many svnserve processes on
+       the server hanging around. (Stefan)
+- BUG: TortoiseMerge showed bad view titles in merge view. (Stefan)
+- BUG: TortoiseMerge parsed diff files which had binary files
+       mentioned in it poorly and could crash. (Stefan)
+- BUG: the patched apr-iconv couldn't find our so files. (Stefan)
 - BUG: Diffing files without a file extension but with the
        path/URL having a dot in it could lead to a crash. (Stefan)
 - BUG: The language packs weren't used, even if checked in
