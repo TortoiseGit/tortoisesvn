@@ -131,7 +131,7 @@ protected:
 	FileState m_State;
 	ULONG	m_cRef;
 	//std::map<int,std::string> verbMap;
-	std::map<unsigned int, int>	myIDMap;
+	std::map<UINT_PTR, int>	myIDMap;
 	stdstring	folder_;
 	std::vector<stdstring> files_;
 	bool isOnlyOneItemSelected;
@@ -181,7 +181,7 @@ public:
 	//@{
 	STDMETHODIMP	QueryContextMenu(HMENU hMenu, UINT indexMenu, UINT idCmdFirst, UINT idCmdLast, UINT uFlags);
 	STDMETHODIMP	InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi);
-	STDMETHODIMP	GetCommandString(UINT idCmd, UINT uFlags, UINT FAR *reserved, LPSTR pszName, UINT cchMax);
+	STDMETHODIMP	GetCommandString(UINT_PTR idCmd, UINT uFlags, UINT FAR *reserved, LPSTR pszName, UINT cchMax);
 	STDMETHODIMP	HandleMenuMsg(UINT uMsg, WPARAM wParam, LPARAM lParam);
 	//@}
 

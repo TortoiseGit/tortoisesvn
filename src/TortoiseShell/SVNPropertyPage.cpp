@@ -97,12 +97,12 @@ BOOL CALLBACK PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam)
     if (uMessage == WM_INITDIALOG)
     {
         sheetpage = (CSVNPropertyPage*) ((LPPROPSHEETPAGE) lParam)->lParam;
-        SetWindowLong (hwnd, GWL_USERDATA, (LONG) sheetpage);
+        SetWindowLongPtr (hwnd, GWLP_USERDATA, (LONG_PTR) sheetpage);
         sheetpage->SetHwnd(hwnd);
     } // if (uMessage == WM_INITDIALOG) 
     else
     {
-        sheetpage = (CSVNPropertyPage*) GetWindowLong (hwnd, GWL_USERDATA);
+        sheetpage = (CSVNPropertyPage*) GetWindowLongPtr (hwnd, GWLP_USERDATA);
     }
 
     if (sheetpage != 0L)
@@ -323,7 +323,7 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 				SendMessage(lpnmtdi->hdr.hwndFrom, TTM_SETMAXTIPWIDTH, 0, nWindowWidth);
 				delete [] name;
 			} // if (code == TTN_GETDISPINFO) 
-			SetWindowLong(m_hwnd, DWL_MSGRESULT, FALSE);
+			SetWindowLongPtr (m_hwnd, DWLP_MSGRESULT, FALSE);
 			return TRUE;        
 
 			}
@@ -344,8 +344,8 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 						ListView_GetItemTextEx(lvh, sel, 0, buf);
 						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
 						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
-						ULONG all = filenames.size();
-						ULONG count = 0;
+						ULONGLONG all = filenames.size();
+						ULONGLONG count = 0;
 						CProgressDlg dlg;
 						TCHAR s[MAX_PATH];
 						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PATH);
@@ -383,8 +383,8 @@ BOOL CSVNPropertyPage::PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM
 #endif
 						HWND hCheck = GetDlgItem(m_hwnd, IDC_RECURSIVE);
 						BOOL checked = (SendMessage(hCheck,(UINT) BM_GETCHECK, 0, 0) == BST_CHECKED);
-						ULONG all = filenames.size();
-						ULONG count = 0;
+						ULONGLONG all = filenames.size();
+						ULONGLONG count = 0;
 						CProgressDlg dlg;
 						TCHAR s[MAX_PATH];
 						LoadString(g_hResInst, IDS_SETPROPTITLE, s, MAX_PATH);
@@ -572,7 +572,7 @@ void CSVNPropertyPage::InitWorkfileView()
 						lvitem.iSubItem = 0;
 						lvitem.state = 0;
 						lvitem.stateMask = 0;
-						lvitem.cchTextMax = _tcslen(lvitem.pszText)+1;
+						lvitem.cchTextMax = (int)min(_tcslen(lvitem.pszText)+1, (size_t)INT_MAX);
 						ListView_InsertItem(lvh, &lvitem);
 						temp = props.GetItemValue(i);
 						//treat values as normal text even if they're not
@@ -701,7 +701,7 @@ void CSVNPropertyPage::InitWorkfileView()
 					lvitem.iSubItem = 0;
 					lvitem.state = 0;
 					lvitem.stateMask = 0;
-					lvitem.cchTextMax = _tcslen(lvitem.pszText)+1;
+					lvitem.cchTextMax = (int)min(_tcslen(lvitem.pszText)+1, (size_t)INT_MAX);
 					ListView_InsertItem(lvh, &lvitem);
 					propmap[I->name] = I->value;
 					for (int ii=0; ii<(int)(I->value.length()); ++ii)
@@ -728,7 +728,9 @@ void CSVNPropertyPage::Unescape(char * psz)
 	char * pszSource = psz;
 	char * pszDest = psz;
 
-	static const char szHex[] = "0123456789ABCDEF";
+	// under VS.NET2k5 strchr() wants this to be a non-const array :/
+
+	static char szHex[] = "0123456789ABCDEF";
 
 	// Unescape special characters. The number of characters
 	// in the *pszDest is assumed to be <= the number of characters

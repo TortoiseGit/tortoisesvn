@@ -263,7 +263,7 @@ private:
 				return;
 			excludeliststr = (stdstring)excludelist;
 			exvector.clear();
-			int pos = 0, pos_ant = 0;
+			size_t pos = 0, pos_ant = 0;
 			pos = excludeliststr.find(_T("\n"), pos_ant);
 			while (pos != stdstring::npos)
 			{
@@ -289,7 +289,7 @@ private:
 				return;
 			includeliststr = (stdstring)includelist;
 			invector.clear();
-			int pos = 0, pos_ant = 0;
+			size_t pos = 0, pos_ant = 0;
 			pos = includeliststr.find(_T("\n"), pos_ant);
 			while (pos != stdstring::npos)
 			{

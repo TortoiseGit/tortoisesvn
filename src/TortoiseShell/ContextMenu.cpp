@@ -593,7 +593,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		ZeroMemory(stringtablebuffer, sizeof(stringtablebuffer));
 		GetMenuTextFromResource(IgnoreSub);
 		menuiteminfo.dwTypeData = stringtablebuffer;
-		menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
+		menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
 		InsertMenuItem(HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), TRUE, &menuiteminfo);
 		myIDMap[idCmd - idCmdFirst] = IgnoreSub;
 		myIDMap[idCmd++] = IgnoreSub;
@@ -641,7 +641,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU| MIIM_DATA;
 	menuiteminfo.fType = MFT_OWNERDRAW;
  	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
-	menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
+	menuiteminfo.cch = (UINT)min(_tcslen(menuiteminfo.dwTypeData), UINT_MAX);
 	HBITMAP bmp = IconToBitmap(IDI_MENU, (COLORREF)GetSysColor(COLOR_MENU));
 	menuiteminfo.hbmpChecked = bmp;
 	menuiteminfo.hbmpUnchecked = bmp;
@@ -1000,7 +1000,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 }
 
 // This is for the status bar and things like that:
-STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
+STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
                                          UINT uFlags,
                                          UINT FAR *reserved,
                                          LPSTR pszName,

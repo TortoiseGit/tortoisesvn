@@ -148,13 +148,14 @@ void LoadLangDll()
 								&nInfoSize))
 							{
 								versionmatch = FALSE;
-								TCHAR * p = _tcsrchr((LPCTSTR)lpVersion, ',');
+								const TCHAR * p = _tcsrchr((LPCTSTR)lpVersion, ',');
 								if (p)
 								{
 									DWORD num = ((DWORD)p-(DWORD)lpVersion)/sizeof(TCHAR);
 									versionmatch = (_tcsncmp((LPCTSTR)lpVersion, _T(STRPRODUCTVER), num) == 0);							
 								}
 							}
+
 						}
 					}
 					free(pBuffer);

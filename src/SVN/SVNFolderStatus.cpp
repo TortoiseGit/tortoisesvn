@@ -179,7 +179,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	//since subversion can do this in one step
 	TCHAR pathbuf[MAX_PATH+4];
 	_tcscpy(pathbuf, filepath);
-	TCHAR * p = _tcsrchr(filepath, '/');
+	const TCHAR * p = _tcsrchr(filepath, '/');
 	if (p)
 		pathbuf[p-filepath] = '\0';
 
