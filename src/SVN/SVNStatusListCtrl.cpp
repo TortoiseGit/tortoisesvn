@@ -1449,17 +1449,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							if (stat.status->entry->conflict_new)
 							{
-								theirs = stat.status->entry->conflict_new;
+								theirs = CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new);
 								theirs = path + theirs;
 							}
 							if (stat.status->entry->conflict_old)
 							{
-								base = stat.status->entry->conflict_old;
+								base = CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old);
 								base = path + base;
 							}
 							if (stat.status->entry->conflict_wrk)
 							{
-								mine = stat.status->entry->conflict_wrk;
+								mine = CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk);
 								mine = path + mine;
 							}
 						}

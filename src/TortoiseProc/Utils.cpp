@@ -81,15 +81,38 @@ BOOL CUtils::StartExtMerge(CString basefile, CString theirfile, CString yourfile
 		com = com + _T(" /base:%base /theirs:%theirs /yours:%mine /merged:%merged");
 		com = com + _T(" /basename:%bname /theirsname:%tname /yoursname:%yname /mergedname:%mname");
 	}
-
-	com.Replace(_T("%base"), _T("\"") + basefile + _T("\""));
-	com.Replace(_T("%theirs"), _T("\"") + theirfile + _T("\""));
-	com.Replace(_T("%mine"), _T("\"") + yourfile + _T("\""));
-	com.Replace(_T("%merged"), _T("\"") + mergedfile + _T("\""));
-	com.Replace(_T("%bname"), _T("\"") + basename + _T("\""));
-	com.Replace(_T("%tname"), _T("\"") + theirname + _T("\""));
-	com.Replace(_T("%yname"), _T("\"") + yourname + _T("\""));
-	com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
+	if (basefile.IsEmpty())
+		com.Replace(_T("/base:%base"), _T(""));
+	else
+		com.Replace(_T("%base"), _T("\"") + basefile + _T("\""));
+	if (theirfile.IsEmpty())
+		com.Replace(_T("/theirs:%theirs"), _T(""));
+	else
+		com.Replace(_T("%theirs"), _T("\"") + theirfile + _T("\""));
+	if (yourfile.IsEmpty())
+		com.Replace(_T("/yours:%mine"), _T(""));
+	else
+		com.Replace(_T("%mine"), _T("\"") + yourfile + _T("\""));
+	if (mergedfile.IsEmpty())
+		com.Replace(_T("/merged:%merged"), _T(""));
+	else
+		com.Replace(_T("%merged"), _T("\"") + mergedfile + _T("\""));
+	if (basename.IsEmpty())
+		com.Replace(_T("/basename:%bname"), _T(""));
+	else
+		com.Replace(_T("%bname"), _T("\"") + basename + _T("\""));
+	if (theirname.IsEmpty())
+		com.Replace(_T("/theirsname:%tname"), _T(""));
+	else
+		com.Replace(_T("%tname"), _T("\"") + theirname + _T("\""));
+	if (yourname.IsEmpty())
+		com.Replace(_T("/yoursname:%yname"), _T(""));
+	else
+		com.Replace(_T("%yname"), _T("\"") + yourname + _T("\""));
+	if (mergedname.IsEmpty())
+		com.Replace(_T("/mergedname:%mname"), _T(""));
+	else
+		com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
 
 	STARTUPINFO startup;
 	PROCESS_INFORMATION process;
@@ -241,8 +264,14 @@ BOOL CUtils::StartDiffViewer(CString file, CString dir, BOOL bWait,	CString name
 			viewer += _T(" ");
 			viewer += _T("\"") + dir + _T("\"");
 		}
-		viewer.Replace(_T("%bname"), _T("\"") + name1 + _T("\""));
-		viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
+		if (name1.IsEmpty())
+			viewer.Replace(_T("/basename:%bname"), _T(""));
+		else
+			viewer.Replace(_T("%bname"), _T("\"") + name1 + _T("\""));
+		if (name2.IsEmpty())
+			viewer.Replace(_T("/yoursname:%yname"), _T(""));
+		else
+			viewer.Replace(_T("%yname"), _T("\"") + name2 + _T("\""));
 	}
 
 	STARTUPINFO startup;
