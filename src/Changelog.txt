@@ -36,6 +36,7 @@
 - CHG: The properties page now only shows those properties in the combobox
        which you can really use, depending on if you've selected a file
        or a folder. (Stefan)
+- BUG: Issue 11: TortoiseMerge now shows the real linenumbers when diffing. (Stefan)
 - BUG: The revision graph didn't work for paths/URLs with spaces in it. (Stefan)
 - BUG: Executing a command with multiple selected files/folders didn't work
        correctly. (Stefan)

@@ -64,6 +64,7 @@ public:
 
 	CStdCStringArray* m_arDiffLines;		///< Array of Strings containing all lines of the text file
 	CStdDWORDArray*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
+	CStdDWORDArray*	m_arLineLines;		///< Array of line numbers
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
 	CString			m_sFullFilePath;	///< The full path of the file shown
 
@@ -138,6 +139,7 @@ protected:
 	int				GetAllLineCount() const;
 	int				GetAllMinScreenLines() const;
 	LPCTSTR			GetLineChars(int index) const;
+	int				GetLineNumber(int index) const;
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
 	int				GetMarginWidth();

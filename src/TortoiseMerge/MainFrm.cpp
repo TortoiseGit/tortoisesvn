@@ -459,6 +459,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			{
 				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
 				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
+				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
 			}
 			m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + _T(" - ") + m_Data.m_yourFile.GetWindowName();
 			m_pwndLeftView->m_sFullFilePath = m_pwndLeftView->m_sWindowName;
@@ -477,6 +478,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			{
 				m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffYourBaseLeft;
 				m_pwndLeftView->m_arLineStates = &m_Data.m_arStateYourBaseLeft;
+				m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesYourBaseLeft;
 			}
 			m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName();
 			m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename();
@@ -484,6 +486,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			{
 				m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseRight;
 				m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseRight;
+				m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseRight;
 			}
 			m_pwndRightView->m_sWindowName = m_Data.m_yourFile.GetWindowName();
 			m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
@@ -501,6 +504,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		{
 			m_pwndLeftView->m_arDiffLines = &m_Data.m_arDiffTheirBaseBoth;
 			m_pwndLeftView->m_arLineStates = &m_Data.m_arStateTheirBaseBoth;
+			m_pwndLeftView->m_arLineLines = &m_Data.m_arLinesTheirBaseBoth;
 		}
 		m_pwndLeftView->m_sWindowName = _T("Theirs - ") + m_Data.m_theirFile.GetWindowName();
 		m_pwndLeftView->m_sFullFilePath = m_Data.m_theirFile.GetFilename();
@@ -508,6 +512,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		{
 			m_pwndRightView->m_arDiffLines = &m_Data.m_arDiffYourBaseBoth;
 			m_pwndRightView->m_arLineStates = &m_Data.m_arStateYourBaseBoth;
+			m_pwndRightView->m_arLineLines = &m_Data.m_arLinesYourBaseBoth;
 		}
 		m_pwndRightView->m_sWindowName = _T("Yours - ") + m_Data.m_yourFile.GetWindowName();
 		m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
@@ -515,6 +520,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		{
 			m_pwndBottomView->m_arDiffLines = &m_Data.m_arDiff3;
 			m_pwndBottomView->m_arLineStates = &m_Data.m_arStateDiff3;
+			m_pwndBottomView->m_arLineLines = &m_Data.m_arLinesDiff3;
 		}
 		m_pwndBottomView->m_sWindowName = _T("Merged - ") + m_Data.m_mergedFile.GetWindowName();
 		m_pwndBottomView->m_sFullFilePath = m_Data.m_mergedFile.GetFilename();

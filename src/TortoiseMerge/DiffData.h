@@ -62,6 +62,8 @@
 #define DIFFSTATE_YOURSREMOVED_DEFAULT_BG			RGB(255,200,120)
 #define DIFFSTATE_YOURSADDED_DEFAULT_BG				RGB(180,255,120)
 
+
+#define DIFF_EMPTYLINENUMBER						((DWORD)-1)
 class CDiffData
 {
 public:
@@ -127,20 +129,27 @@ public:
 
 	CStdCStringArray			m_arDiffYourBaseBoth;
 	CStdDWORDArray				m_arStateYourBaseBoth;
+	CStdDWORDArray				m_arLinesYourBaseBoth;
 	CStdCStringArray			m_arDiffYourBaseLeft;
 	CStdDWORDArray				m_arStateYourBaseLeft;
+	CStdDWORDArray				m_arLinesYourBaseLeft;
 	CStdCStringArray			m_arDiffYourBaseRight;
 	CStdDWORDArray				m_arStateYourBaseRight;
+	CStdDWORDArray				m_arLinesYourBaseRight;
 
 	CStdCStringArray			m_arDiffTheirBaseBoth;
 	CStdDWORDArray				m_arStateTheirBaseBoth;
+	CStdDWORDArray				m_arLinesTheirBaseBoth;
 	CStdCStringArray			m_arDiffTheirBaseLeft;
 	CStdDWORDArray				m_arStateTheirBaseLeft;
+	CStdDWORDArray				m_arLinesTheirBaseLeft;
 	CStdCStringArray			m_arDiffTheirBaseRight;
 	CStdDWORDArray				m_arStateTheirBaseRight;
+	CStdDWORDArray				m_arLinesTheirBaseRight;
 
 	CStdCStringArray			m_arDiff3;
 	CStdDWORDArray				m_arStateDiff3;
+	CStdDWORDArray				m_arLinesDiff3;
 
 	CString						m_sError;
 

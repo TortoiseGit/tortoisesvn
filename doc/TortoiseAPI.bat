@@ -18,3 +18,10 @@ del output\doxygen\SubversionAPI.chm
 copy output\doxygen\html\SubversionAPI.chm output\doxygen\SubversionAPI.chm
 rmdir /s /q output\doxygen\html
 
+type API\DoxyfileSVNTrunk > Doxyfile
+echo HHC_LOCATION=%HHCLOC% >> Doxyfile
+doxygen.exe Doxyfile
+del Doxyfile
+del output\doxygen\SubversionAPI.chm
+copy output\doxygen\html\SubversionAPI.chm output\doxygen\SubversionAPITrunk.chm
+rmdir /s /q output\doxygen\html

@@ -445,6 +445,15 @@ LPCTSTR CBaseView::GetLineChars(int index) const
 	return m_arDiffLines->GetAt(index);
 }
 
+int CBaseView::GetLineNumber(int index) const
+{
+	if (m_arLineLines == NULL)
+		return -1;
+	if (m_arLineLines->GetAt(index)==DIFF_EMPTYLINENUMBER)
+		return -1;
+	return m_arLineLines->GetAt(index);
+}
+
 int CBaseView::GetScreenLines()
 {
 	if (m_nScreenLines == -1)
@@ -746,15 +755,19 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		}
 		if ((m_bViewLinenumbers)&&(m_nDigits))
 		{
-			CString sLinenumberFormat;
-			CString sLinenumber;
-			sLinenumberFormat.Format(_T("%%%dd"), m_nDigits);
-			sLinenumber.Format(sLinenumberFormat, nLineIndex+1);
-			pdc->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
-			pdc->SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
+			int nLineNumber = GetLineNumber(nLineIndex);
+			if (nLineNumber >= 0)
+			{
+				CString sLinenumberFormat;
+				CString sLinenumber;
+				sLinenumberFormat.Format(_T("%%%dd"), m_nDigits);
+				sLinenumber.Format(sLinenumberFormat, nLineNumber+1);
+				pdc->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
+				pdc->SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
 
-			pdc->SelectObject(GetFont());
-			pdc->ExtTextOut(rect.left + 18, rect.top, ETO_CLIPPED, &rect, sLinenumber, NULL);
+				pdc->SelectObject(GetFont());
+				pdc->ExtTextOut(rect.left + 18, rect.top, ETO_CLIPPED, &rect, sLinenumber, NULL);
+			}
 		} // if (m_bViewLinenumbers) 
 	} // if (nLineIndex >= 0)
 }
