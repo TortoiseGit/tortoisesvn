@@ -21,7 +21,7 @@
 #include "svn.h"
 #include "promptdlg.h"
 
-#include "resizer.h"
+#include "ResizableDialog.h"
 
 typedef enum
 {
@@ -70,11 +70,9 @@ typedef enum
  * \bug 
  *
  */
-class CSVNProgressDlg : public CDialog, public SVN
+class CSVNProgressDlg : public CResizableDialog, public SVN
 {
 	DECLARE_DYNAMIC(CSVNProgressDlg)
-
-	DECLARE_RESIZER;
 
 public:
 	CSVNProgressDlg(CWnd* pParent = NULL);   // standard constructor
@@ -90,9 +88,6 @@ public:
 	 * \param revision the revision to work on or to get
 	 */
 	void SetParams(Command cmd, BOOL isTempFile, CString path, CString url = _T(""), CString message = _T(""), LONG revision = -1, CString modName = _T(""));
-
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 
 // Dialog Data
 	enum { IDD = IDD_SVNPROGRESS };

@@ -25,9 +25,9 @@
 
 // CLogDlg dialog
 
-IMPLEMENT_DYNAMIC(CLogDlg, CDialog)
+IMPLEMENT_DYNAMIC(CLogDlg, CResizableDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CLogDlg::IDD, pParent)
+	: CResizableDialog(CLogDlg::IDD, pParent)
 	, m_sLogMsgCtrl(_T(""))
 {
 	m_bCancelled = FALSE;
@@ -40,13 +40,13 @@ CLogDlg::~CLogDlg()
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LOGLIST, m_LogList);
 	DDX_Text(pDX, IDC_LOGMSG, m_sLogMsgCtrl);
 }
 
 
-BEGIN_MESSAGE_MAP(CLogDlg, CDialog)
+BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
@@ -56,12 +56,6 @@ BEGIN_MESSAGE_MAP(CLogDlg, CDialog)
 	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
-
-BEGIN_RESIZER_MAP(CLogDlg)
-    RESIZER(IDC_LOGLIST,RS_BORDER,RS_BORDER,RS_BORDER,IDC_LOGMSG,0)
-	RESIZER(IDC_LOGMSG, RS_BORDER, IDC_LOGLIST, RS_BORDER, IDOK, 0)
-	RESIZER(IDOK, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, RS_BORDER, 0)
-END_RESIZER_MAP
 
 
 void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = -1 */)
@@ -73,7 +67,6 @@ void CLogDlg::SetParams(CString path, long startrev /* = 0 */, long endrev /* = 
 
 void CLogDlg::OnPaint() 
 {
-	RESIZER_GRIP;
 	if (IsIconic())
 	{
 		CPaintDC dc(this); // device context for painting
@@ -93,7 +86,7 @@ void CLogDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -106,7 +99,7 @@ HCURSOR CLogDlg::OnQueryDragIcon()
 
 BOOL CLogDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	// when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -149,7 +142,10 @@ BOOL CLogDlg::OnInitDialog()
 
 	m_logcounter = 0;
 
-	INIT_RESIZER;
+	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_LOGMSG, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -192,20 +188,6 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 	m_LogList.SetRedraw();
 	return TRUE;
 
-}
-
-void CLogDlg::OnSize(UINT nType, int cx, int cy)
-{
-	__super::OnSize(nType, cx, cy);
-
-	UPDATE_RESIZER;
-}
-
-void CLogDlg::OnSizing(UINT fwSide, LPRECT pRect)
-{
-	__super::OnSizing(fwSide, pRect);
-
-	RESIZER_MINSIZE(220, 100, fwSide, pRect);
 }
 
 //this is the thread function which calls the subversion function

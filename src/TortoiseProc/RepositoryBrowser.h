@@ -17,8 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #pragma once
 #include "repositorytree.h"
-#include "resizer.h"
-
+#include "ResizableDialog.h"
 
 /**
  * \ingroup TortoiseProc
@@ -48,11 +47,10 @@
  * \bug 
  *
  */
-class CRepositoryBrowser : public CDialog
+class CRepositoryBrowser : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CRepositoryBrowser)
 
-	DECLARE_RESIZER;
 public:
 	CRepositoryBrowser(const CString& strUrl, CWnd* pParent = NULL);   // standard constructor
 	virtual ~CRepositoryBrowser();
@@ -74,6 +72,4 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 	CString m_strUrl;
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 };

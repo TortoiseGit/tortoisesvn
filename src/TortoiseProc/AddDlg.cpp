@@ -26,9 +26,9 @@
 
 // CAddDlg dialog
 
-IMPLEMENT_DYNAMIC(CAddDlg, CDialog)
+IMPLEMENT_DYNAMIC(CAddDlg, CResizableDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CAddDlg::IDD, pParent)
+	: CResizableDialog(CAddDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -39,29 +39,22 @@ CAddDlg::~CAddDlg()
 
 void CAddDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_ADDLIST, m_addListCtrl);
 }
 
 
-BEGIN_MESSAGE_MAP(CAddDlg, CDialog)
+BEGIN_MESSAGE_MAP(CAddDlg, CResizableDialog)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_ADDLIST, OnLvnItemchangedAddlist)
 END_MESSAGE_MAP()
 
-BEGIN_RESIZER_MAP(CAddDlg)
-	RESIZER(IDC_FILELIST, RS_BORDER, RS_BORDER, RS_BORDER, IDOK, 0)
-	RESIZER(IDOK, RS_BORDER, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, 0)
-	RESIZER(IDCANCEL, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, RS_BORDER, 0)
-END_RESIZER_MAP
-
 
 // CAddDlg message handlers
 void CAddDlg::OnPaint() 
 {
-	RESIZER_GRIP;
 	if (IsIconic())
 	{
 		CPaintDC dc(this); // device context for painting
@@ -81,7 +74,7 @@ void CAddDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 // The system calls this function to obtain the cursor to display while the user drags
@@ -91,16 +84,9 @@ HCURSOR CAddDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-void CAddDlg::OnSize(UINT nType, int cx, int cy)
-{
-	__super::OnSize(nType, cx, cy);
-
-	UPDATE_RESIZER;
-}
-
 BOOL CAddDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
@@ -134,8 +120,9 @@ BOOL CAddDlg::OnInitDialog()
 	}
 	m_addListCtrl.UpdateData(FALSE);
 
-	INIT_RESIZER;
-
+	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_LEFT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -161,7 +148,7 @@ void CAddDlg::OnOK()
 		pE->Delete();
 	}
 
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }
 
 void CAddDlg::OnLvnItemchangedAddlist(NMHDR *pNMHDR, LRESULT *pResult)

@@ -26,9 +26,9 @@
 
 // CSVNProgressDlg dialog
 
-IMPLEMENT_DYNAMIC(CSVNProgressDlg, CDialog)
+IMPLEMENT_DYNAMIC(CSVNProgressDlg, CResizableDialog)
 CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CSVNProgressDlg::IDD, pParent)
+	: CResizableDialog(CSVNProgressDlg::IDD, pParent)
 {
 	m_bCancelled = FALSE;
 	m_bThreadRunning = FALSE;
@@ -42,12 +42,12 @@ CSVNProgressDlg::~CSVNProgressDlg()
 
 void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_SVNPROGRESS, m_ProgList);
 }
 
 
-BEGIN_MESSAGE_MAP(CSVNProgressDlg, CDialog)
+BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableDialog)
 	ON_WM_SIZE()
 	ON_WM_SIZING()
 	ON_WM_PAINT()
@@ -56,19 +56,12 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CDialog)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SVNPROGRESS, OnNMCustomdrawSvnprogress)
 END_MESSAGE_MAP()
 
-BEGIN_RESIZER_MAP(CSVNProgressDlg)
-    RESIZER(IDC_SVNPROGRESS,RS_BORDER,RS_BORDER,RS_BORDER,IDOK,0)
-	RESIZER(IDOK, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, RS_BORDER, 0)
-	RESIZER(IDC_LOGBUTTON, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, RS_BORDER, 0)
-END_RESIZER_MAP
-
 // If you add a minimize button to your dialog, you will need the code below
 //  to draw the icon.  For MFC applications using the document/view model,
 //  this is automatically done for you by the framework.
 
 void CSVNProgressDlg::OnPaint() 
 {
-	RESIZER_GRIP;
 	if (IsIconic())
 	{
 		CPaintDC dc(this); // device context for painting
@@ -88,7 +81,7 @@ void CSVNProgressDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -214,26 +207,12 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	m_arActionCStates.RemoveAll();
 	m_arActionPStates.RemoveAll();
 
-	INIT_RESIZER;
-
+	AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
-
-void CSVNProgressDlg::OnSize(UINT nType, int cx, int cy)
-{
-	__super::OnSize(nType, cx, cy);
-
-	UPDATE_RESIZER;
-}
-
-void CSVNProgressDlg::OnSizing(UINT fwSide, LPRECT pRect)
-{
-	__super::OnSizing(fwSide, pRect);
-
-	RESIZER_MINSIZE(300, 200, fwSide, pRect);
-}
-
 
 
 DWORD WINAPI ProgressThread(LPVOID pVoid)

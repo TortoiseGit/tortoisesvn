@@ -18,8 +18,7 @@
 
 #pragma once
 #include "afxcmn.h"
-#include "resizer.h"
-
+#include "ResizableDialog.h"
 
 
 /**
@@ -51,11 +50,9 @@
  * \bug 
  *
  */
-class CAddDlg : public CDialog
+class CAddDlg : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CAddDlg)
-
-	DECLARE_RESIZER;
 
 public:
 	CAddDlg(CWnd* pParent = NULL);   // standard constructor
@@ -67,7 +64,6 @@ public:
 protected:
 	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	virtual void OnOK();

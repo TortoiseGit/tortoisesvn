@@ -89,7 +89,7 @@ public:
 
 // Implementation
 
-	DECLARE_MESSAGE_MAP()
+	//DECLARE_MESSAGE_MAP()
 private:
 	HANDLE	m_mutex;
 };

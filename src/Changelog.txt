@@ -2,6 +2,8 @@ CVS
 - BUG: if all files were deselected in the commit
        dialog then the progress dialog couldn't be
        closed anymore. (Stefan)
+- BUG: Resizing of dialogs didn't work correctly
+       so I changed the resizing system (Stefan)
 - CHG: Repository browser now has a minimal size
        so that resizing works better. (Stefan)
        

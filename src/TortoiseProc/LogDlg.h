@@ -22,8 +22,8 @@
 #include "svn.h"
 #include "promptdlg.h"
 
-#include "resizer.h"
 #include "Registry.h"
+#include "ResizableDialog.h"
 
 #define ID_COMPARE		1
 #define ID_SAVEAS		2
@@ -63,11 +63,10 @@
  * \bug 
  *
  */
-class CLogDlg : public CDialog, public SVN
+class CLogDlg : public CResizableDialog, public SVN
 {
 	DECLARE_DYNAMIC(CLogDlg)
 
-	DECLARE_RESIZER;
 public:
 	CLogDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CLogDlg();
@@ -88,7 +87,6 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	virtual BOOL OnInitDialog();
 	void SetParams(CString path, long startrev = 0, long endrev = -1);
@@ -112,7 +110,6 @@ protected:
 	virtual void OnOK();
 public:
 	afx_msg void OnLvnGetInfoTipLoglist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

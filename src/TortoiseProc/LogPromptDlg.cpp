@@ -27,9 +27,9 @@
 
 // CLogPromptDlg dialog
 
-IMPLEMENT_DYNAMIC(CLogPromptDlg, CDialog)
+IMPLEMENT_DYNAMIC(CLogPromptDlg, CResizableDialog)
 CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CLogPromptDlg::IDD, pParent)
+	: CResizableDialog(CLogPromptDlg::IDD, pParent)
 	, m_sLogMessage(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -41,13 +41,13 @@ CLogPromptDlg::~CLogPromptDlg()
 
 void CLogPromptDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_LOGMESSAGE, m_sLogMessage);
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
 }
 
 
-BEGIN_MESSAGE_MAP(CLogPromptDlg, CDialog)
+BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
@@ -55,15 +55,6 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_FILELIST, OnNMDblclkFilelist)
 	ON_WM_SIZING()
 END_MESSAGE_MAP()
-
-BEGIN_RESIZER_MAP(CLogPromptDlg)
-	RESIZER(IDC_COMMIT_TO,RS_BORDER,RS_BORDER,RS_BORDER,RS_KEEPSIZE,0)
-    RESIZER(IDC_LOGMESSAGE,RS_BORDER,IDC_COMMIT_TO,RS_BORDER,IDC_FILELIST,0)
-	RESIZER(IDC_FILELIST, RS_BORDER, IDC_LOGMESSAGE, RS_BORDER, IDC_HINTLABEL, 0)
-	RESIZER(IDC_HINTLABEL, RS_BORDER, RS_KEEPSIZE, RS_BORDER, IDOK, 0)
-	RESIZER(IDOK, RS_BORDER, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, 0)
-	RESIZER(IDCANCEL, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, RS_BORDER, 0)
-END_RESIZER_MAP
 
 
 // CLogPromptDlg message handlers
@@ -73,7 +64,6 @@ END_RESIZER_MAP
 
 void CLogPromptDlg::OnPaint() 
 {
-	RESIZER_GRIP;
 	if (IsIconic())
 	{
 		CPaintDC dc(this); // device context for painting
@@ -93,7 +83,7 @@ void CLogPromptDlg::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -104,23 +94,9 @@ HCURSOR CLogPromptDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-void CLogPromptDlg::OnSize(UINT nType, int cx, int cy)
-{
-	__super::OnSize(nType, cx, cy);
-
-	UPDATE_RESIZER;
-}
-
-void CLogPromptDlg::OnSizing(UINT fwSide, LPRECT pRect)
-{
-	CDialog::OnSizing(fwSide, pRect);
-
-	RESIZER_MINSIZE(290, 250, fwSide, pRect);
-}
-
 BOOL CLogPromptDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	//  when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -159,7 +135,13 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_ListCtrl.UpdateData(FALSE);
 
 	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
-	INIT_RESIZER;
+
+	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_HINTLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_LEFT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -275,7 +257,7 @@ void CLogPromptDlg::OnOK()
 		pE->Delete();
 	}
 
-	CDialog::OnOK();
+	CResizableDialog::OnOK();
 }
 
 DWORD WINAPI StatusThread(LPVOID pVoid)

@@ -31,9 +31,9 @@
 
 // CTortoiseProcApp
 
-BEGIN_MESSAGE_MAP(CTortoiseProcApp, CWinApp)
-	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
-END_MESSAGE_MAP()
+//BEGIN_MESSAGE_MAP(CTortoiseProcApp, CWinApp)
+//	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
+//END_MESSAGE_MAP()
 
 
 // CTortoiseProcApp construction

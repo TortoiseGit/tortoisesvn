@@ -23,9 +23,9 @@
 
 // CRepositoryBrowser dialog
 
-IMPLEMENT_DYNAMIC(CRepositoryBrowser, CDialog)
+IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableDialog)
 CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl, CWnd* pParent /*=NULL*/)
-	: CDialog(CRepositoryBrowser::IDD, pParent),
+	: CResizableDialog(CRepositoryBrowser::IDD, pParent),
 	m_treeRepository(strUrl)
 	, m_strUrl(_T(""))
 {
@@ -38,13 +38,13 @@ CRepositoryBrowser::~CRepositoryBrowser()
 
 void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
+	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_REPOS_TREE, m_treeRepository);
 	DDX_Text(pDX, IDC_URL, m_strUrl);
 }
 
 
-BEGIN_MESSAGE_MAP(CRepositoryBrowser, CDialog)
+BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
 	ON_NOTIFY(TVN_SELCHANGED, IDC_REPOS_TREE, OnTvnSelchangedReposTree)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
@@ -52,20 +52,11 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CDialog)
 	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
-BEGIN_RESIZER_MAP(CRepositoryBrowser)
-    RESIZER(IDC_REPOS_TREE,RS_BORDER,RS_BORDER,RS_BORDER,IDC_URL,0)
-	RESIZER(IDC_STATICURL, RS_BORDER, RS_KEEPSIZE, RS_KEEPSIZE, IDOK, 0)
-	RESIZER(IDC_URL, IDC_STATICURL, RS_KEEPSIZE, RS_BORDER, IDOK, 0)
-	RESIZER(IDCANCEL, RS_KEEPSIZE, RS_KEEPSIZE, RS_BORDER, RS_BORDER, 0)
-	RESIZER(IDOK, RS_KEEPSIZE, RS_KEEPSIZE, IDCANCEL, RS_BORDER, 0)
-END_RESIZER_MAP
-
 
 // CRepositoryBrowser message handlers
 
 void CRepositoryBrowser::OnPaint() 
 {
-	RESIZER_GRIP;
 	if (IsIconic())
 	{
 		CPaintDC dc(this); // device context for painting
@@ -85,7 +76,7 @@ void CRepositoryBrowser::OnPaint()
 	}
 	else
 	{
-		CDialog::OnPaint();
+		CResizableDialog::OnPaint();
 	}
 }
 
@@ -98,7 +89,7 @@ HCURSOR CRepositoryBrowser::OnQueryDragIcon()
 
 BOOL CRepositoryBrowser::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableDialog::OnInitDialog();
 	// Set the icon for this dialog.  The framework does this automatically
 	// when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
@@ -107,8 +98,11 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_treeRepository.Init();
 	m_treeRepository.SelectItem(m_treeRepository.GetRootItem());
 
-	INIT_RESIZER;
-
+	AddAnchor(IDC_REPOS_TREE, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_STATICURL, BOTTOM_LEFT);
+	AddAnchor(IDC_URL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_LEFT);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -122,16 +116,3 @@ void CRepositoryBrowser::OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResul
 	*pResult = 0;
 }
 
-void CRepositoryBrowser::OnSize(UINT nType, int cx, int cy)
-{
-	CDialog::OnSize(nType, cx, cy);
-
-	UPDATE_RESIZER;
-}
-
-void CRepositoryBrowser::OnSizing(UINT fwSide, LPRECT pRect)
-{
-	CDialog::OnSizing(fwSide, pRect);
-
-	RESIZER_MINSIZE(300, 300, fwSide, pRect);
-}

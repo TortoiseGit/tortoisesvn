@@ -18,8 +18,7 @@
 
 #pragma once
 #include "afxcmn.h"
-#include "resizer.h"
-
+#include "ResizableDialog.h"
 
 /**
  * \ingroup TortoiseProc
@@ -49,11 +48,10 @@
  * \bug 
  *
  */
-class CLogPromptDlg : public CDialog
+class CLogPromptDlg : public CResizableDialog
 {
 	DECLARE_DYNAMIC(CLogPromptDlg)
 
-	DECLARE_RESIZER;
 public:
 	CLogPromptDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CLogPromptDlg();
@@ -65,7 +63,6 @@ protected:
 	HICON m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-	afx_msg void OnSize(UINT nType, int cx, int cy);
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
@@ -82,7 +79,6 @@ private:
 public:
 	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);

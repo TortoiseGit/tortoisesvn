@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by TortoiseProcITA.rc
+// Used by TortoiseProcRUS.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1

@@ -13,6 +13,110 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUCHECKOUT        "Auschecken..."
+    IDS_MENUUPDATE          "Aktualisieren"
+    IDS_MENUCOMMIT          "Ubertragen"
+    IDS_MENUCREATEREPOS     "erstelle Datenbank hier"
+    IDS_MENUADD             "Hinzufugen"
+    IDS_MENUREVERT          "Anderungen ruckgangig"
+    IDS_MENUCLEANUP         "Aufraumen"
+    IDS_MENURESOLVE         "Konflikt auflosen"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUSWITCH          "wechseln zu..."
+    IDS_MENUMERGE           "mischen..."
+    IDS_MENUBRANCH          "Verzweigen/Markieren..."
+    IDS_MENUIMPORT          "Importieren..."
+    IDS_MENUEXPORT          "Exportieren..."
+    IDS_MENUSETTINGS        "Einstellungen..."
+    IDS_MENUABOUT           "Uber"
+    IDS_MENUSUBMENU         "TortoiseSVN"
+    IDS_MENUDESCCHECKOUT    "eine Arbeitskopie von einer Datenbank auschecken"
+    IDS_MENUDESCUPDATE      "aktualisiert die Arbeitskopie auf die neueste Version"
+    IDS_MENUDESCCOMMIT      "Ubertragt die Anderungen zur Datenbank"
+    IDS_MENUDESCADD         "Fugt Dateien zur Versionskontrolle hinzu"
+    IDS_MENUDESCREVERT      "Macht alle Anderungen seit der letzten Aktualisierung ruckgangig"
+    IDS_MENUDESCCLEANUP     "Beendet unterbrochene Aktionen, hebt Blockierungen auf, ..."
+    IDS_MENUDESCRESOLVE     "lost Konflikte auf"
+    IDS_MENUDESCSWITCH      "Wechselt zu einem anderen Zweig oder einer anderen Markierung"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUDESCIMPORT      "Importiert eine Arbeitskopie in eine Subversion Datenbank"
+    IDS_MENUDESCEXPORT      "Exportiert eine Datenbank in eine 'saubere' Arbeitskopie ohne die Administrationsdateien"
+    IDS_MENUDESCABOUT       "Zeigt Informationen uber TortoiseSVN an"
+    IDS_MENUDESCCREATEREPOS "Erstellt eine Datenbank an dieser Stelle"
+    IDS_MENUDESCCOPY        "Erzeugt eine 'billige' Kopie (Link) welche fur Verzweigungen/Markierungen verwendet wird"
+    IDS_MENUDESCMERGE       "Mischt eine Verzweigung in den aktuellen Zweig"
+    IDS_MENUDESCSETTINGS    "TortoiseSVN Einstellungen"
+    IDS_MENUDESCDEFAULT     "fur diesen Befehl ist keine Beschreibung vorhanden"
+    IDS_STATUSNONE          " "
+    IDS_STATUSUNVERSIONED   "unkontrolliert"
+    IDS_STATUSNORMAL        "normal"
+    IDS_STATUSADDED         "hinzugefugt"
+    IDS_STATUSABSENT        "nicht vorhanden"
+    IDS_STATUSDELETED       "geloscht"
+    IDS_STATUSREPLACED      "ersetzt"
+    IDS_STATUSMODIFIED      "verandert"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STATUSMERGED        "gemischt"
+    IDS_STATUSCONFLICTED    "konflikt"
+    IDS_STATUSOBSTRUCTED    "versperrt"
+    IDS_PROPLOCKED          "blockiert"
+    IDS_PROPPROPERTY        "Eigenschaft"
+    IDS_PROPVALUE           "Wert"
+    IDS_MENURENAME          "Umbenennen..."
+    IDS_MENUDESCRENAME      "Benennt Ordner/Dateien um"
+    IDS_MENUREMOVE          "Loschen"
+    IDS_MENUDESCREMOVE      "Loscht Dateien/Ordner"
+    IDS_MENUUPDATEEXT       "Aktualisieren zu Revision..."
+    IDS_MENUDESCUPDATEEXT   "aktualisiert eine Arbeitskopie auf eine angegebene Revision"
+    IDS_COLTITLESTATUS      "SVN Status"
+    IDS_COLDESCSTATUS       "Status der Datei in SVN"
+    IDS_COLTITLEREV         "SVN Revision"
+    IDS_COLDESCREV          "Revisionsnummer der letzten Ubertragung"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENUDIFF            "Vergleiche"
+    IDS_MENUDESCDIFF        "Vergleicht die Datei mit der unveranderten Version"
+    IDS_DROPCOPYADDMENU     "fuge Datei(en) zu Subversion hinzu"
+    IDS_DROPMOVEMENU        "verschiebe Datei(en) in Subversion hierher"
+    IDS_MENULOG             "zeige Log"
+    IDS_MENUDESCLOG         "zeigt die Log-Eintrage fur die ausgewahlte Datei oder Ordner"
+    IDS_COLTITLEURL         "SVN Url"
+    IDS_COLDESCURL          "URL von Subversion Dateien/Ordnern"
+    IDS_COLTITLESHORTURL    "SVN kurze Url"
+    IDS_COLDESCSHORTURL     "abgekurzte URL von Subversion Dateien/Ordnern"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
