@@ -1281,7 +1281,7 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (sTemp.GetLength() > CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 10))
+	if (DWORD(sTemp.GetLength()) > CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 10))
 	{
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
