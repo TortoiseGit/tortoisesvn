@@ -345,6 +345,13 @@ void CTSVNPathList::AddPathFromWin(const CString& newPath)
 	AddPath(path);
 }
 
+void CTSVNPathList::AddPathFromUnknown(const CString& newPath)
+{
+	CTSVNPath path;
+	path.SetFromUnknown(newPath);
+	AddPath(path);
+}
+
 int 
 CTSVNPathList::GetCount() const
 {

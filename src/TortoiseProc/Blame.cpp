@@ -132,7 +132,7 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CS
 			return m_sSavePath;
 		}
 		CTSVNPathList targetList;
-		targetList.AddPathFromWin(path);
+		targetList.AddPathFromUnknown(path);
 		if (!this->ReceiveLog(targetList, SVNRev::REV_HEAD, m_lowestrev, TRUE))
 		{
 			m_saveLog.Close();
