@@ -153,15 +153,6 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
-
-	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)m_sLogMessage.GetLength())
-	{
-		GetDlgItem(IDOK)->EnableWindow(FALSE);
-	}
-	else
-	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
-	}
 	
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\UseBugTracker"), FALSE) == FALSE)
 	{
@@ -312,6 +303,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg = (CLogPromptDlg*)pVoid;
 	pDlg->m_bBlock = TRUE;
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
+	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
 
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
@@ -340,6 +332,14 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)pDlg->m_sLogMessage.GetLength())
+	{
+		pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
+	else
+	{
+		pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
 	pDlg->m_bBlock = FALSE;
 	return 0;
 }
@@ -408,7 +408,8 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
 	if (DWORD(sTemp.GetLength()) > CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0))
 	{
-		GetDlgItem(IDOK)->EnableWindow(TRUE);
+		if (!m_bBlock)
+			GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
 	else
 	{
