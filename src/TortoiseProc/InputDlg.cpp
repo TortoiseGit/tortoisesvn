@@ -67,7 +67,8 @@ BOOL CInputDlg::OnInitDialog()
 
 	AddAnchor(IDC_HINTTEXT, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_INPUTTEXT, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDOK, BOTTOM_CENTER);
+	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+	AddAnchor(IDOK, BOTTOM_RIGHT);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }

@@ -257,14 +257,16 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 					dlg.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 					dlg.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 					dlg.m_sInputText.LoadString(IDS_INPUT_REMOVELOGMSG);
-					dlg.DoModal();
-					if (!svn.Remove(url, TRUE, dlg.m_sInputText))
+					if (dlg.DoModal()==IDOK)
 					{
-						theApp.DoWaitCursor(-1);
-						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						return;
-					} // if (!svn.Remove(url, TRUE)) 
-					m_treeRepository.Refresh(hSelItem);
+						if (!svn.Remove(url, TRUE, dlg.m_sInputText))
+						{
+							theApp.DoWaitCursor(-1);
+							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							return;
+						} // if (!svn.Remove(url, TRUE)) 
+						m_treeRepository.Refresh(hSelItem);
+					}
 					theApp.DoWaitCursor(-1);
 				}
 				break;
@@ -303,14 +305,16 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 						input.m_sInputText.LoadString(IDS_INPUT_ADDLOGMSG);
-						input.DoModal();
-						if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
+						if (input.DoModal() == IDOK)
 						{
-							theApp.DoWaitCursor(-1);
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							return;
-						} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
-						m_treeRepository.Refresh(hSelItem);
+							if (!svn.Import(path, url+_T("/")+filename, input.m_sInputText, FALSE))
+							{
+								theApp.DoWaitCursor(-1);
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								return;
+							} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
+							m_treeRepository.Refresh(hSelItem);
+						}
 						theApp.DoWaitCursor(-1);
 					} // if (GetOpenFileName(&ofn)==TRUE) 
 				}
@@ -331,14 +335,16 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 						input.m_sInputText.LoadString(IDS_INPUT_MOVELOGMSG);
-						input.DoModal();
-						if (!svn.Move(url, filepath, TRUE, input.m_sInputText))
+						if (input.DoModal() == IDOK)
 						{
-							theApp.DoWaitCursor(-1);
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							return;
-						} // if (!svn.Move(url, filepath, TRUE)) 
-						m_treeRepository.Refresh(hSelItem);
+							if (!svn.Move(url, filepath, TRUE, input.m_sInputText))
+							{
+								theApp.DoWaitCursor(-1);
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								return;
+							} // if (!svn.Move(url, filepath, TRUE)) 
+							m_treeRepository.Refresh(hSelItem);
+						}
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
 				}
@@ -357,14 +363,16 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
-						input.DoModal();
-						if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, input.m_sInputText))
+						if (input.DoModal() == IDOK)
 						{
-							theApp.DoWaitCursor(-1);
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							return;
-						} // if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, _T("copy remotely"))) 
-						m_treeRepository.Refresh(hSelItem);
+							if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, input.m_sInputText))
+							{
+								theApp.DoWaitCursor(-1);
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								return;
+							} // if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, _T("copy remotely"))) 
+							m_treeRepository.Refresh(hSelItem);
+						}
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
 				}
@@ -383,14 +391,16 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 						input.m_sHintText.LoadString(IDS_INPUT_ENTERLOG);
 						input.m_sTitle.LoadString(IDS_INPUT_LOGTITLE);
 						input.m_sInputText.LoadString(IDS_INPUT_MKDIRLOGMSG);
-						input.DoModal();
-						if (!svn.MakeDir(url+_T("/")+dlg.m_name, input.m_sInputText))
+						if (input.DoModal() == IDOK)
 						{
-							theApp.DoWaitCursor(-1);
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-							return;
-						} // if (!svn.MakeDir(url+_T("/")+dlg.m_name, _T("created directory remotely"))) 
-						m_treeRepository.RefreshMe(hSelItem);
+							if (!svn.MakeDir(url+_T("/")+dlg.m_name, input.m_sInputText))
+							{
+								theApp.DoWaitCursor(-1);
+								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+								return;
+							} // if (!svn.MakeDir(url+_T("/")+dlg.m_name, _T("created directory remotely"))) 
+							m_treeRepository.RefreshMe(hSelItem);
+						}
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
 				}
