@@ -134,7 +134,7 @@ CString CSciEdit::GetText()
 	return sText;
 }
 
-CString CSciEdit::GetWordUnderCursor()
+CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 {
 	char textbuffer[100];
 	TEXTRANGEA textrange;
@@ -143,6 +143,11 @@ CString CSciEdit::GetWordUnderCursor()
 	textrange.chrg.cpMin = Call(SCI_WORDSTARTPOSITION, pos, TRUE);
 	textrange.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+	if (bSelectWord)
+	{
+		Call(SCI_SETSEL, textrange.chrg.cpMin, textrange.chrg.cpMax);
+		Call(SCI_SETCURRENTPOS, textrange.chrg.cpMin);
+	}
 	return CString(textbuffer);
 }
 
@@ -223,6 +228,34 @@ void CSciEdit::CheckSpelling()
 	}
 }
 
+void CSciEdit::SuggestSpellingAlternatives()
+{
+	if (pChecker == NULL)
+		return;
+	CString word = GetWordUnderCursor(true);
+	if (word.IsEmpty())
+		return;
+	char ** wlst;
+	int ns = pChecker->suggest(&wlst, CStringA(word));
+	if (ns > 0)
+	{
+		CString suggestions;
+		for (int i=0; i < ns; i++) 
+		{
+			suggestions += CString(wlst[i]) + m_separator;
+			free(wlst[i]);
+		} 
+		free(wlst);
+		suggestions.TrimRight(m_separator);
+		if (suggestions.IsEmpty())
+			return;
+		Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
+		Call(SCI_AUTOCSHOW, 0, (LPARAM)(LPCSTR)CStringA(suggestions));
+		Call(SCI_AUTOCSETDROPRESTOFWORD, 1);
+	}
+
+}
+
 void CSciEdit::DoAutoCompletion()
 {
 	if (m_autolist.GetCount()==0)
@@ -294,4 +327,23 @@ void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= 
 			return; // already in the array
 	}
 	return InsertAt(nMin, elem);
+}
+BEGIN_MESSAGE_MAP(CSciEdit, CWnd)
+	ON_WM_KEYDOWN()
+END_MESSAGE_MAP()
+
+void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	if (nChar == VK_TAB)
+	{
+		if (GetKeyState(VK_CONTROL)&0x8000)
+		{
+			//Ctrl-Tab was pressed, this means we should provide the user with
+			//a list of possible spell checking alternatives to the word under
+			//the cursor
+			SuggestSpellingAlternatives();
+			return;
+		}
+	}
+	CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
 }

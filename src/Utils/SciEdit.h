@@ -100,7 +100,7 @@ public:
 	/**
 	 * Returns the word located under the cursor.
 	 */
-	CString		GetWordUnderCursor();
+	CString		GetWordUnderCursor(bool bSelectWord = false);
 private:
 	HMODULE		m_hModule;
 	LRESULT		m_DirectFunction;
@@ -112,5 +112,9 @@ private:
 protected:
 	virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
 	void		CheckSpelling(void);
+	void		SuggestSpellingAlternatives(void);
 	void		DoAutoCompletion(void);
+public:
+	DECLARE_MESSAGE_MAP()
+	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 };
