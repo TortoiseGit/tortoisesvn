@@ -57,8 +57,8 @@ public:
 	virtual ~CLogPromptDlg();
 
 private:
-	static DWORD WINAPI StatusThreadEntry(LPVOID pVoid);
-	DWORD StatusThread();
+	static UINT StatusThreadEntry(LPVOID pVoid);
+	UINT StatusThread();
 
 // Dialog Data
 	enum { IDD = IDD_LOGPROMPT };
@@ -100,7 +100,6 @@ private:
 	CBalloon		m_tooltips;
 	CRegDWORD		m_regAddBeforeCommit;
 	ProjectProperties		m_ProjectProperties;
-	HANDLE			m_hThread;
 	CFont			m_logFont;
 	CButton			m_SelectAll;
 	CString			m_sBugID;

@@ -48,16 +48,18 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-protected:
-	HICON			m_hIcon;
-	HANDLE			m_hThread;
-	CRegDWORD		m_regAddBeforeCommit;
+private:
+	static UINT ChangedStatusThreadEntry(LPVOID pVoid);
+	UINT ChangedStatusThread();
 
-public:
-	CSVNStatusListCtrl	m_FileListCtrl;
+public: 
 	CString			m_path;
+
+private:
+	HICON			m_hIcon;
+	CRegDWORD		m_regAddBeforeCommit;
+	CSVNStatusListCtrl	m_FileListCtrl;
 	bool			m_bRemote;
 	BOOL			m_bShowUnversioned;
 };
 
-DWORD WINAPI ChangedStatusThread(LPVOID pVoid);

@@ -216,8 +216,7 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, LogThreadEntry, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -269,8 +268,7 @@ void CLogDlg::OnBnClickedGetall()
 	m_endrev = 1;
 	m_startrev = -1;
 	m_bCancelled = FALSE;
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, LogThreadEntry, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -375,14 +373,14 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 }
 
 //this is the thread function which calls the subversion function
-DWORD WINAPI CLogDlg::LogThreadEntry(LPVOID pVoid)
+UINT CLogDlg::LogThreadEntry(LPVOID pVoid)
 {
 	return ((CLogDlg*)pVoid)->LogThread();
 }
 
 
 //this is the thread function which calls the subversion function
-DWORD CLogDlg::LogThread()
+UINT CLogDlg::LogThread()
 {
 	m_bThreadRunning = TRUE;
 	// to make gettext happy

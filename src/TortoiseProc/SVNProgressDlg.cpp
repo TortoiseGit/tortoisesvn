@@ -42,6 +42,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	m_bRedEvents = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_nUpdateStartRev = -1;
+	m_pThread = NULL;
 
 	m_pSvn = this;
 }
@@ -59,6 +60,10 @@ CSVNProgressDlg::~CSVNProgressDlg()
 		delete data;
 	} // for (int i=0; i<m_arData.GetCount(); i++)
 	m_arData.RemoveAll();
+	if(m_pThread != NULL)
+	{
+		delete m_pThread;
+	}
 }
 
 void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
@@ -376,11 +381,17 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &ProgressThreadEntry, this, 0, &dwThreadId))==0)
+	m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
+	if (m_pThread==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_ICONERROR);
 	}
+	else
+	{
+		m_pThread->m_bAutoDelete = FALSE;
+		m_pThread->ResumeThread();
+	}
+
 	UpdateData(FALSE);
 
 	// Call this early so that the column headings aren't hidden before any
@@ -398,8 +409,13 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
+void CSVNProgressDlg::ReportSVNError() const
+{
+	TRACE(_T("%s"), (LPCTSTR)m_pSvn->GetLastErrorMessage());
+	CMessageBox::Show(m_hWnd, m_pSvn->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+}
 
-DWORD WINAPI CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
+UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 {
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
@@ -407,14 +423,7 @@ DWORD WINAPI CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 	return ((CSVNProgressDlg*)pVoid)->ProgressThread();
 }
 
-void 
-CSVNProgressDlg::ReportSVNError() const
-{
-	TRACE(_T("%s"), (LPCTSTR)m_pSvn->GetLastErrorMessage());
-	CMessageBox::Show(m_hWnd, m_pSvn->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-}
-
-DWORD CSVNProgressDlg::ProgressThread()
+UINT CSVNProgressDlg::ProgressThread()
 {
 	int updateFileCounter = 0;
 
@@ -817,15 +826,19 @@ DWORD CSVNProgressDlg::ProgressThread()
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
+
+	CString info = BuildInfoString();
+	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
+	ResizeColumns();
+
 	if ((WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"), FALSE) ||
 		m_bCloseOnEnd)
 	{
 		if (!(WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\AutoCloseNoForReds"), FALSE) || (!m_bRedEvents) || m_bCloseOnEnd) 
 			PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 	}
-	CString info = BuildInfoString();
-	GetDlgItem(IDC_INFOTEXT)->SetWindowText(info);
-	ResizeColumns();
+	//Don't do anything here which might cause messages to be sent to the window
+	//The window thread is probably now blocked in OnOK if we've done an autoclose
 	return 0;
 }
 
@@ -841,7 +854,7 @@ void CSVNProgressDlg::OnClose()
 {
 	if (m_bCancelled)
 	{
-		TerminateThread(m_hThread, (DWORD)-1);
+		TerminateThread(m_pThread->m_hThread, (DWORD)-1);
 		m_bThreadRunning = FALSE;
 	}
 	else
@@ -856,7 +869,12 @@ void CSVNProgressDlg::OnOK()
 {
 	if ((m_bCancelled)&&(!m_bThreadRunning))
 	{
-		WaitForSingleObject(m_hThread, 10);
+		// I have made this wait a sensible amount of time (10 seconds) for the thread to finish
+		// You must be careful in the thread that after posting the WM_COMMAND/IDOK message, you 
+		// don't do any more operations on the window which might require message passing
+		// If you try to send windows messages once we're waiting here, then the thread can't finished
+		// because the Window's message loop is blocked at this wait
+		WaitForSingleObject(m_pThread->m_hThread, 10000);
 		__super::OnOK();
 	}
 	m_bCancelled = TRUE;

@@ -136,8 +136,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_Progress.SetTime();
 
 	m_dwTicks = GetTickCount();
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &WorkerThread, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -163,7 +162,7 @@ BOOL CRevisionGraphDlg::ProgressCallback(CString text, CString text2, DWORD done
 	return TRUE;
 }
 
-DWORD WINAPI WorkerThread(LPVOID pVoid)
+UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user

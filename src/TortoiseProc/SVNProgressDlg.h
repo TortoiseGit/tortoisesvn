@@ -138,8 +138,8 @@ protected:
 public:			//need to be public for the thread to access
 
 private:
-	static DWORD WINAPI ProgressThreadEntry(LPVOID pVoid);
-	DWORD ProgressThread();
+	static UINT ProgressThreadEntry(LPVOID pVoid);
+	UINT ProgressThread();
 	virtual void OnOK();
 	void ReportSVNError() const;
 public:
@@ -159,7 +159,7 @@ private:
 	CArray<Data *, Data *>		m_arData;
 
 	CListCtrl	m_ProgList;
-	HANDLE		m_hThread;
+	CWinThread* m_pThread;
 	Command		m_Command;
 
 	CString		m_sPath;

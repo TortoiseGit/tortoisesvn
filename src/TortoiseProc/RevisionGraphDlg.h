@@ -67,7 +67,6 @@ public:
 #endif
 protected:
 	HICON			m_hIcon;
-	HANDLE			m_hThread;
 	DWORD			m_dwTicks;
 	CRect			m_ViewRect;
 	CPtrArray		m_arConnections;
@@ -123,6 +122,8 @@ private:
 	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
+	static UINT WorkerThread(LPVOID pVoid);
+
+
 public:
 };
-DWORD WINAPI WorkerThread(LPVOID pVoid);

@@ -115,8 +115,7 @@ BOOL CRevertDlg::OnInitDialog()
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
-	DWORD dwThreadId;
-	if ((CreateThread(NULL, 0, RevertThreadEntry, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(RevertThreadEntry, this)==0)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -126,12 +125,12 @@ BOOL CRevertDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-DWORD WINAPI CRevertDlg::RevertThreadEntry(LPVOID pVoid)
+UINT CRevertDlg::RevertThreadEntry(LPVOID pVoid)
 {
 	return ((CRevertDlg*)pVoid)->RevertThread();
 }
 
-DWORD CRevertDlg::RevertThread()
+UINT CRevertDlg::RevertThread()
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user

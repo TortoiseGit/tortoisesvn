@@ -94,8 +94,7 @@ BOOL CCheckForUpdatesDlg::OnInitDialog()
 
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &CheckThread, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(CheckThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -119,11 +118,14 @@ void CCheckForUpdatesDlg::OnCancel()
 	CDialog::OnCancel();
 }
 
-DWORD WINAPI CheckThread(LPVOID pVoid)
+UINT CCheckForUpdatesDlg::CheckThreadEntry(LPVOID pVoid)
 {
-	CCheckForUpdatesDlg* pDlg;
-	pDlg = (CCheckForUpdatesDlg*)pVoid;
-	pDlg->m_bThreadRunning = TRUE;
+	return ((CCheckForUpdatesDlg*)pVoid)->CheckThread();
+}
+
+UINT CCheckForUpdatesDlg::CheckThread()
+{
+	m_bThreadRunning = TRUE;
 
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
@@ -161,24 +163,24 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 				if (_ttoi(ver)!=0)
 				{
 					temp.Format(IDS_CHECKNEWER_CURRENTVERSION, (LPCTSTR)ver);
-					pDlg->GetDlgItem(IDC_CURRENTVERSION)->SetWindowText(temp);
+					GetDlgItem(IDC_CURRENTVERSION)->SetWindowText(temp);
 					temp.Format(_T("%d.%d.%d.%d"), TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
 				}
 				if (_ttoi(ver)==0)
 				{
 					temp.LoadString(IDS_CHECKNEWER_NETERROR);
-					pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+					GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
 				}
 				else if (bNewer)
 				{
 					temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
-					pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
-					pDlg->m_bShowInfo = TRUE;
+					GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+					m_bShowInfo = TRUE;
 				}
 				else
 				{
 					temp.LoadString(IDS_CHECKNEWER_YOURUPTODATE);
-					pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+					GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
 				}
 			}
 		}
@@ -186,17 +188,17 @@ DWORD WINAPI CheckThread(LPVOID pVoid)
 		{
 			e->Delete();
 			temp.LoadString(IDS_CHECKNEWER_NETERROR);
-			pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+			GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
 		}
 	}
 	else
 	{
 		temp.LoadString(IDS_CHECKNEWER_YOURUPTODATE);
-		pDlg->GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
+		GetDlgItem(IDC_CHECKRESULT)->SetWindowText(temp);
 	}
 	DeleteFile(tempfile);
-	pDlg->m_bThreadRunning = FALSE;
-	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+	m_bThreadRunning = FALSE;
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	return 0;
 }
 

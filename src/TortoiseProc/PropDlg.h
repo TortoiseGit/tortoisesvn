@@ -36,8 +36,8 @@ public:
 
 
 private:
-	static DWORD WINAPI PropThreadEntry(LPVOID pVoid);
-	DWORD PropThread();
+	static UINT PropThreadEntry(LPVOID pVoid);
+	UINT PropThread();
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support

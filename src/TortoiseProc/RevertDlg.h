@@ -52,8 +52,8 @@ protected:
 	void StartDiff(int fileindex);
 
 private:
-	static DWORD WINAPI RevertThreadEntry(LPVOID pVoid);
-	DWORD RevertThread();
+	static UINT RevertThreadEntry(LPVOID pVoid);
+	UINT RevertThread();
 
 public:
 	CString			m_sPath;

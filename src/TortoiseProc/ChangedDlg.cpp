@@ -113,8 +113,7 @@ BOOL CChangedDlg::OnInitDialog()
 
 	//first start a thread to obtain the status without
 	//blocking the dialog
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &ChangedStatusThread, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -123,40 +122,41 @@ BOOL CChangedDlg::OnInitDialog()
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
-DWORD WINAPI ChangedStatusThread(LPVOID pVoid)
+UINT CChangedDlg::ChangedStatusThreadEntry(LPVOID pVoid)
 {
-	CChangedDlg * pDlg;
-	pDlg = (CChangedDlg *)pVoid;
+	return ((CChangedDlg*)pVoid)->ChangedStatusThread();
+}
 
-	pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
-	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
-	pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
+UINT CChangedDlg::ChangedStatusThread()
+{
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
+	GetDlgItem(IDC_CHECKREPO)->EnableWindow(FALSE);
+	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(FALSE);
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	if (!pDlg->m_FileListCtrl.GetStatus(pDlg->m_path, pDlg->m_bRemote))
+	if (!m_FileListCtrl.GetStatus(m_path, m_bRemote))
 	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_FileListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		CMessageBox::Show(m_hWnd, m_FileListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 	}
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
-	dwShow |= pDlg->m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
-	pDlg->m_FileListCtrl.Show(dwShow);
+	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
+	m_FileListCtrl.Show(dwShow);
 
-	if (LONG(pDlg->m_FileListCtrl.m_HeadRev) >= 0)
+	if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
 	{
 		CString temp;
-		temp.Format(IDS_REPOSTATUS_HEADREV, LONG(pDlg->m_FileListCtrl.m_HeadRev));
-		pDlg->GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
+		temp.Format(IDS_REPOSTATUS_HEADREV, LONG(m_FileListCtrl.m_HeadRev));
+		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
 	}
 
-	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
-	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
-	pDlg->GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
-	pDlg->GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
+	GetDlgItem(IDC_CHECKREPO)->EnableWindow(TRUE);
+	GetDlgItem(IDC_SHOWUNVERSIONED)->EnableWindow(TRUE);
 	return 0;
 }
 
@@ -175,8 +175,7 @@ void CChangedDlg::OnCancel()
 void CChangedDlg::OnBnClickedCheckrepo()
 {
 	m_bRemote = TRUE;
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &ChangedStatusThread, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}

@@ -43,11 +43,14 @@ protected:
 	virtual void OnCancel();
 
 	DECLARE_MESSAGE_MAP()
+
+private:
+	static UINT CheckThreadEntry(LPVOID pVoid);
+	UINT CheckThread();
+
 public:
-	HANDLE		m_hThread;
 	BOOL		m_bThreadRunning;
 	BOOL		m_bShowInfo;
 	BOOL		m_bVisible;
 };
 
-DWORD WINAPI CheckThread(LPVOID pVoid);

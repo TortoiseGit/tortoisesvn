@@ -199,8 +199,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, StatusThreadEntry, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(StatusThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -347,13 +346,12 @@ void CLogPromptDlg::OnOK()
 	CResizableDialog::OnOK();
 }
 
-DWORD WINAPI 
-CLogPromptDlg::StatusThreadEntry(LPVOID pVoid)
+UINT CLogPromptDlg::StatusThreadEntry(LPVOID pVoid)
 {
 	return ((CLogPromptDlg*)pVoid)->StatusThread();
 }
 
-DWORD CLogPromptDlg::StatusThread()
+UINT CLogPromptDlg::StatusThread()
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
@@ -495,8 +493,7 @@ BOOL CLogPromptDlg::PreTranslateMessage(MSG* pMsg)
 void CLogPromptDlg::Refresh()
 {
 	m_bBlock = TRUE;
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, StatusThreadEntry, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(StatusThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}

@@ -77,8 +77,7 @@ BOOL CPropDlg::OnInitDialog()
 	m_proplist.SetRedraw(false);
 
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, PropThreadEntry, this, 0, &dwThreadId))==0)
+	if (AfxBeginThread(PropThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -101,12 +100,12 @@ void CPropDlg::OnOK()
 		CResizableDialog::OnOK();
 }
 
-DWORD WINAPI CPropDlg::PropThreadEntry(LPVOID pVoid)
+UINT CPropDlg::PropThreadEntry(LPVOID pVoid)
 {
 	return ((CPropDlg*)pVoid)->PropThread();
 }
 
-DWORD CPropDlg::PropThread()
+UINT CPropDlg::PropThread()
 {
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));

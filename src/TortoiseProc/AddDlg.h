@@ -68,8 +68,8 @@ protected:
 	virtual void OnCancel();
 
 private:
-	static DWORD WINAPI AddThreadEntry(LPVOID pVoid);
-	DWORD AddThread();
+	static UINT AddThreadEntry(LPVOID pVoid);
+	UINT AddThread();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -79,7 +79,6 @@ public:
 private:
 	CSVNStatusListCtrl	m_addListCtrl;
 	bool			m_bThreadRunning;
-	HANDLE			m_hThread;
 	CButton			m_SelectAll;
 };
 

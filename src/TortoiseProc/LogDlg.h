@@ -115,8 +115,8 @@ public:
 	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
 
 private:
-	static DWORD WINAPI LogThreadEntry(LPVOID pVoid);
-	DWORD LogThread();
+	static UINT LogThreadEntry(LPVOID pVoid);
+	UINT LogThread();
 
 public:
 	CWnd *		m_pNotifyWindow;
@@ -136,7 +136,6 @@ private:
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
 	HICON		m_hIcon;
-	HANDLE		m_hThread;
 	CStringArray m_arLogMessages;
 	CStringArray m_arLogPaths;
 	CDWordArray	m_arDates;

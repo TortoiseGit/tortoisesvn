@@ -30,8 +30,7 @@
 IMPLEMENT_DYNAMIC(CAddDlg, CResizableDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CAddDlg::IDD, pParent),
-	m_bThreadRunning(false),
-	m_hThread(NULL)
+	m_bThreadRunning(false)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -111,8 +110,7 @@ BOOL CAddDlg::OnInitDialog()
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
-	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &AddThreadEntry, this, 0, &dwThreadId))==0)
+	if(AfxBeginThread(AddThreadEntry, this) == NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -150,11 +148,11 @@ void CAddDlg::OnBnClickedSelectall()
 	theApp.DoWaitCursor(-1);
 }
 
-DWORD WINAPI CAddDlg::AddThreadEntry(LPVOID pVoid)
+UINT CAddDlg::AddThreadEntry(LPVOID pVoid)
 {
 	return ((CAddDlg*)pVoid)->AddThread();
 }
-DWORD CAddDlg::AddThread()
+UINT CAddDlg::AddThread()
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
