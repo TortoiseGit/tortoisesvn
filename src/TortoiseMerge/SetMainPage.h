@@ -65,6 +65,7 @@ protected:
 	
 	CComboBox		m_LanguageCombo;
 public:
+	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnBnClickedBackup();
 	afx_msg void OnBnClickedIgnorelf();
 	afx_msg void OnBnClickedOnepane();

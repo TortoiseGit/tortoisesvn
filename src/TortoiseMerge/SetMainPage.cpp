@@ -36,7 +36,7 @@ CSetMainPage::CSetMainPage()
 	, m_bIgnoreEOL(FALSE)
 	, m_bOnePane(FALSE)
 {
-	m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
+	m_regLanguage = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
 	m_regFirstDiffOnLoad = CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"));
 	m_regTabSize = CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
@@ -67,6 +67,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_IGNORELF, m_bIgnoreEOL);
 	DDX_Check(pDX, IDC_ONEPANE, m_bOnePane);
 	DDX_Control(pDX, IDC_LANGUAGECOMBO, m_LanguageCombo);
+	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
 }
 
 void CSetMainPage::SaveData()
@@ -91,6 +92,14 @@ BOOL CSetMainPage::OnApply()
 BOOL CSetMainPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
+
+	m_dwLanguage = m_regLanguage;
+	m_bBackup = m_regBackup;
+	m_bFirstDiffOnLoad = m_regFirstDiffOnLoad;
+	m_nTabSize = m_regTabSize;
+	m_bIgnoreEOL = m_regIgnoreEOL;
+	m_bOnePane = m_regOnePane;
+	m_nIgnoreWS = m_regIgnoreWS;
 
 	UINT uRadio = IDC_WSIGNORELEADING;
 	switch (m_nIgnoreWS)
@@ -125,11 +134,11 @@ BOOL CSetMainPage::OnInitDialog()
 		if (file.Right(3).CompareNoCase(_T("dll"))==0)
 		{
 			CString filename = file.Mid(file.ReverseFind('\\')+1);
-			if (filename.Left(12).CompareNoCase(_T("TortoiseMerge"))==0)
+			if (filename.Left(13).CompareNoCase(_T("TortoiseMerge"))==0)
 			{
 				if (CUtils::GetVersionFromFile(file).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
 					continue;
-				DWORD loc = _tstoi(filename.Mid(12));
+				DWORD loc = _tstoi(filename.Mid(13));
 				TCHAR buf[MAX_PATH];
 				GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 				m_LanguageCombo.AddString(buf);
@@ -150,6 +159,7 @@ BOOL CSetMainPage::OnInitDialog()
 }
 
 BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
+	ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnCbnSelchangeLanguagecombo)
 	ON_BN_CLICKED(IDC_BACKUP, OnBnClickedBackup)
 	ON_BN_CLICKED(IDC_IGNORELF, OnBnClickedIgnorelf)
 	ON_BN_CLICKED(IDC_ONEPANE, OnBnClickedOnepane)
@@ -162,6 +172,11 @@ END_MESSAGE_MAP()
 
 
 // CSetMainPage message handlers
+
+void CSetMainPage::OnCbnSelchangeLanguagecombo()
+{
+	SetModified();
+}
 
 void CSetMainPage::OnBnClickedBackup()
 {

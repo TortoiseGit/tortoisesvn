@@ -198,8 +198,8 @@ BEGIN
     CONTROL         "Use one-pane view as default",IDC_ONEPANE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,15,45,236,10
     LTEXT           "Language:",IDC_STATIC,15,77,66,8
-    COMBOBOX        IDC_LANGUAGECOMBO,81,75,170,58,CBS_DROPDOWN | CBS_SORT | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_LANGUAGECOMBO,81,75,170,58,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
 END
 
 IDD_SETCOLORPAGE DIALOGEX 0, 0, 265, 223
