@@ -258,10 +258,23 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-	if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true))
-	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-	}  
+	//if ((pDlg->m_startrev == SVN::REV_HEAD)&&(pDlg->m_endrev <= 1))
+	//{
+	//	//don't show the "Get All" button if already all revisions
+	//	//are requested
+	//	pDlg->GetDlgItem(IDC_GETALL)->ShowWindow(SW_HIDE);
+	//}
+	//else
+	//{
+	//	//disable the "Get All" button while we're receiving
+	//	//log messages.
+	//	pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
+	//}
+
+	//if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true))
+	//{
+	//	CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+	//}  
 
 	pDlg->m_LogList.SetRedraw(false);
 	int mincol = 0;
@@ -275,6 +288,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 
 	temp.LoadString(IDS_MSGBOX_OK);
 	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
+	//pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
 	pDlg->m_bCancelled = TRUE;
 	return 0;
 }
