@@ -41,7 +41,9 @@
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				CommandLine="cd ..\..\Languages
+Make_Pot.bat"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool

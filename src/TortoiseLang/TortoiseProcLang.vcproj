@@ -43,7 +43,9 @@
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				CommandLine="cd ..\..\Languages
+Make_Pot.bat"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool
@@ -109,25 +111,25 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Resources\bin167.avi">
-		</File>
-		<File
 			RelativePath="..\Languages\res\bin167.avi">
 		</File>
 		<File
-			RelativePath="..\Resources\bin168.avi">
+			RelativePath="..\Resources\bin167.avi">
 		</File>
 		<File
 			RelativePath="..\Languages\res\bin168.avi">
 		</File>
 		<File
+			RelativePath="..\Resources\bin168.avi">
+		</File>
+		<File
 			RelativePath="..\Resources\search.avi">
 		</File>
 		<File
-			RelativePath="..\Resources\TortoiseProc.manifest">
+			RelativePath="..\Languages\res\TortoiseProc.manifest">
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseProc.manifest">
+			RelativePath="..\Resources\TortoiseProc.manifest">
 		</File>
 	</Files>
 	<Globals>
