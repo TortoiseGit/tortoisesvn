@@ -88,9 +88,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						svn_wc_status_kind status = svn_wc_status_unversioned;
 						try
 						{
-							int * a = NULL;
 							status = SVNStatus::GetAllStatus(str.c_str());
-							*a = 0;
 						}
 						catch ( ... )
 						{
