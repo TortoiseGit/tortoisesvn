@@ -441,6 +441,37 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		if (_tcscmp(buf, folder_.c_str())==0)
 			return NOERROR;
 	}
+	//check if our menu is requested for the trash bin folder
+	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_BITBUCKET, FALSE))
+	{
+		if (_tcscmp(buf, folder_.c_str())==0)
+			return NOERROR;
+	}
+	//check if our menu is requested for the virtual folder containing icons for the Control Panel applications
+	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_CONTROLS, FALSE))
+	{
+		if (_tcscmp(buf, folder_.c_str())==0)
+			return NOERROR;
+	}
+	//check if our menu is requested for the cookies folder
+	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_COOKIES, FALSE))
+	{
+		if (_tcscmp(buf, folder_.c_str())==0)
+			return NOERROR;
+	}
+	//check if our menu is requested for the internet folder
+	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_INTERNET, FALSE))
+	{
+		if (_tcscmp(buf, folder_.c_str())==0)
+			return NOERROR;
+	}
+	//check if our menu is requested for the printer folder
+	if (SHGetSpecialFolderPath(NULL, buf, CSIDL_PRINTERS, FALSE))
+	{
+		if (_tcscmp(buf, folder_.c_str())==0)
+			return NOERROR;
+	}
+	
 	//check if our menu is requested for a subversion admin directory
 	_tcscpy(buf, folder_.c_str());
 	TCHAR * lastpart = NULL;
