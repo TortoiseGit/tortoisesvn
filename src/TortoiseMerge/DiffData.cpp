@@ -269,9 +269,9 @@ BOOL CDiffData::Load()
 		{
 			for (int i=0; i<tempdiff->original_length; i++)
 			{
-				m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
 				if (tempdiff->type == svn_diff__type_common)
 				{
+					m_arDiffYourBaseBoth.Add(m_arYourFile.GetAt(yourline));
 					if (m_arBaseFile.GetAt(baseline).Compare(m_arYourFile.GetAt(yourline))!=0)
 					{
 						if (dwIgnoreWS == 2)
@@ -307,9 +307,10 @@ BOOL CDiffData::Load()
 						m_arStateYourBaseBoth.Add(DIFFSTATE_NORMAL);
 					}
 					yourline++;		//in both files
-				}
+				} // if (tempdiff->type == svn_diff__type_common) 
 				else
 				{
+					m_arDiffYourBaseBoth.Add(m_arBaseFile.GetAt(baseline));
 					m_arStateYourBaseBoth.Add(DIFFSTATE_REMOVED);
 				}
 				baseline++;
