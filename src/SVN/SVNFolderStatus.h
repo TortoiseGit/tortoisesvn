@@ -175,7 +175,6 @@ private:
 	std::map<stdstring, filestatuscache> m_cache;
 	DWORD				m_TimeStamp;
 	filestatuscache		invalidstatus;
-	ShellCache			shellCache;
 	filestatuscache		dirstat;
 	filestatuscache		filestat;
 	

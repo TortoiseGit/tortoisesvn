@@ -22,6 +22,8 @@
 #include "SVNFolderStatus.h"
 #include "UnicodeUtils.h"
 
+extern ShellCache g_ShellCache;
+
 // get / auto-alloc a string "copy"
 
 const char* StringPool::GetString (const char* value)
@@ -102,7 +104,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	//dont' build the cache if an instance of TortoiseProc is running
 	//since this could interfere with svn commands running (concurrent
 	//access of the .svn directory).
-	if (shellCache.BlockStatus())
+	if (g_ShellCache.BlockStatus())
 	{
 		HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));	
 		if (TSVNMutex != NULL)
@@ -141,7 +143,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		TCHAR exfile[MAX_PATH];
 		_tcscpy(exfile, filepath);
 		_tcscat(exfile, _T(EXCLUDERECURSIVEFILENAME));
-		if (shellCache.IsRecursive() && !PathFileExists(exfile))
+		if (g_ShellCache.IsRecursive() && !PathFileExists(exfile))
 		{
 			// initialize record members
 			dirstat.rev = -1;
@@ -172,7 +174,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 			svn_pool_destroy (pool);				//free allocated memory
 			ClearPool();
 			return &dirstat;
-		} // if (shellCache.IsRecursive())
+		} // if (g_ShellCache.IsRecursive())
 		if ((m_bColumnProvider)&&(m_nCounter<1))
 		{
 			m_nCounter++;
@@ -240,7 +242,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 
 DWORD SVNFolderStatus::GetTimeoutValue()
 {
-	if (shellCache.IsRecursive())
+	if (g_ShellCache.IsRecursive())
 		return SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT;
 	return SVNFOLDERSTATUS_CACHETIMEOUT;
 }
@@ -249,7 +251,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 {
 	TCHAR pathbuf[MAX_PATH];
 
-	if (! shellCache.IsPathAllowed(filepath))
+	if (! g_ShellCache.IsPathAllowed(filepath))
 		return &invalidstatus;
 
 	m_bColumnProvider = bColumnProvider;
@@ -302,7 +304,7 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumn
 void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)
 {
 	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
-	if ((status->entry)&&(Stat->shellCache.IsRecursive())&&(status->entry->kind == svn_node_dir))
+	if ((status->entry)&&(g_ShellCache.IsRecursive())&&(status->entry->kind == svn_node_dir))
 		return;
 
 	std::map<stdstring, filestatuscache> * cache = (std::map<stdstring, filestatuscache> *)(&Stat->m_cache);
