@@ -211,12 +211,12 @@
 				<orderedlist>
 					<listitem>
 						<para>
-							create a new empty folder on your harddrive
+							create a new empty folder on your hard drive
 						</para>
 					</listitem>
 					<listitem>
 						<para>
-							create your desired folder structure inside
+							create your desired top-level folder structure inside
 							that folder &mdash; don't put any files in it yet!
 						</para>
 					</listitem>
@@ -225,10 +225,32 @@
 							import this structure into the repository via a 
 							<action>right-click</action> on the folder and
 							selecting <guimenuitem>Import...</guimenuitem> 
-							from the context menu.
+							from the context menu. This will import your temp
+							folder into the repository root to create the basic
+							repository layout.
 						</para>
 					</listitem>
 				</orderedlist>
+			</para>
+			<para>
+				Note that the name of the folder you are importing does not appear in
+				the repository, only its contents. For example, create the following folder
+				structure:
+<screen>
+C:\Temp\New\trunk
+C:\Temp\New\branches
+C:\Temp\New\tags
+</screen>
+				Import C:\Temp\New into the repository root, which will then look like this:
+<screen>
+/trunk
+/branches
+/tags
+</screen>
+			</para>
+			<para>
+				You can also use the repository browser to create new folders directly
+				in the repository.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-import-2">
@@ -258,7 +280,7 @@
 				</orderedlist>
 			</para>
 			<para>
-				Now select the <emphasis>parent import</emphasis> folder of your
+				Now select the top-level folder of your project
 				directory structure in the windows explorer and
 				<action>right click</action>
 				to open the context menu. Select the command
@@ -293,10 +315,12 @@
 			<para>
 				As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the
 				complete directory tree including all files into the repository.
-				Please note that this does <emphasis>NOT</emphasis> put your
-				copy of the project under version control yet! To get a
-				versioned working copy you need to do a Checkout of the
-				version you just imported.
+				As before, the name of the folder you import does not appear in
+				the repository, only the folder contents.
+				The project is now stored in the repository under version control.
+				Please note that the folder you imported is <emphasis>NOT</emphasis>
+				under version control! To get a version-controlled <firstterm>working copy</firstterm>
+				you need to do a Checkout of the version you just imported.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-import-3">
@@ -330,9 +354,10 @@
 			and change according to their local setup to get it working.
 			</para>
 			<para>
-			To not disturb the users, we also added the file <filename>TortoiseVars.bat</filename>
-			to the ignore list, i.e. we've set the Subversion property <literal>svn:ignored</literal>
-			for that file. That way it won't show up as unversioned on every commit.
+			So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename>
+			to the ignore list of its parent folder, i.e. we've set the Subversion property
+			<literal>svn:ignored</literal> to include that filename.
+			That way it won't show up as unversioned on every commit.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-import-4">
@@ -359,7 +384,10 @@
 				The Properties Dialog comes up. Then go to the Subversion tab.
 				There, you can set properties. Select the <literal>svn:externals</literal> property from the combobox and write 
 				in the edit box the repository url in the format <literal>name url</literal>.
-				For example <literal>subversion http://svn.collab.net/repos/svn/trunk</literal>.
+				For example
+<screen>
+subversion http://svn.collab.net/repos/svn/trunk
+</screen>
 				Now click <guibutton>Set</guibutton> and commit your changes. 
 				If an user updates their working copy the external project is checked out, too.
 			</para>
@@ -2359,12 +2387,30 @@ Rev Comments
 			if you want the blame for <emphasis>every</emphasis> revision.
 		</para>
 		<para>
+			By default the blame file is viewed using <firstterm>TortoiseBlame</firstterm>,
+			which highlights the different revisions to make it easier to read. If you
+			wish to print or edit the blame file, select <guilabel>Use Text viewer to view blames</guilabel>
+		</para>
+		<para>
 			Once you press <guibutton>Ok</guibutton> TortoiseSVN starts retrieving
 			the data to create the blame file. Please note: This can take several
 			minutes to finish, depending on how much the file has changed and
 			of course your network connection to the repository. Once the blame
 			process has finished the result is written into a temporary file and
-			TortoiseSVN opens your default text editor to show you the result.
+			you can view the results.
+		</para>
+		<para>
+			TortoiseBlame, which is included with TortoiseSVN, makes the blame file
+			easier to read. When you hover the mouse over a line in the blame info
+			column, all lines with the same revision are shown with a slightly darker
+			background. Lines from other revisions which were changed by the same author
+			are shown with a much darker background. If you <action>left-click</action>
+			on a line, all lines with the same revision are highlighted, and lines from
+			other revisions by the same author are highlighted in a lighter colour.
+			This highlighting is sticky, allowing you to move the mouse without losing
+			the highlights. Click on that revision again to turn off highlighting.
+			The revision comments are shown in a hint box whenever the mouse hovers over
+			the blame info column.
 		</para>
 		<para>
 			The example shows the first thirty lines of the file

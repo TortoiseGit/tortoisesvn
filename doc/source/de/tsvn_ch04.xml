@@ -210,10 +210,33 @@
 						<para>
 							Importieren Sie diese Struktur in das Projektarchiv
 							durch <action>Rechts-Klick</action> auf den obersten Ordner und Klick
-							auf <guimenuitem>Importieren...</guimenuitem>
+							auf <guimenuitem>Importieren...</guimenuitem>. Dies importiert
+							Ihren Ordner in das Projektarchiv und erstellt so die
+							gewünschte Ordnerstruktur.
 						</para>
 					</listitem>
 				</orderedlist>
+				<para>
+					Beachten Sie dass der Name des Ordner welchen Sie importieren
+					<emphasis>nicht</emphasis> im Projektarchiv erscheint, nur
+					dessen Inhalt. Erstellen Sie zum Beispiel folgende Ordnerstruktur:
+<screen>
+C:\Temp\New\trunk
+C:\Temp\New\branches
+C:\Temp\New\tags
+</screen>
+					Importieren Sie C:\Temp\New ins Projektarchiv, welches dann 
+					so aussieht:
+<screen>
+/trunk
+/branches
+/tags
+</screen>
+				</para>
+				<para>
+					Sie können auch den Projektarchiv-Browser benutzen um neue
+					Ordner direkt im Projektarchiv zu erstellen.
+				</para>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-DUG-import-2">
@@ -717,6 +740,31 @@
 				alle Dateien und Ordner auf <emphasis>dieselbe</emphasis> Revision
 				aktualisiert, sogar dann wenn zwischen den einzelnen Aktualisierungen
 				jemand anders Änderungen zum Projektarchiv übertragen hat.
+			</para>
+		</tip>
+		<tip>
+			<title>Lokale Datei existiert bereits</title>
+			<para>
+				Manchmal wird die Aktualisierung mit einer Fehlermeldung abbrechen
+				welche besagt dass eine Datei mit demselben Namen bereits existiert.
+				Dies passiert wenn Subversion eine neu versionierte Datei auschecken
+				möchte, aber eine Datei mit demselben Namen und Pfad bereits in
+				Ihrer Arbeitskopie vorhanden ist. Subversion wird niemals eine
+				solche Datei überschreiben - Sie könnten dadurch ja wichtige Daten
+				verlieren.
+			</para>
+			<para>
+				Wenn Sie diese Fehlermeldung erhalten ist die Lösung sehr einfach:
+				Benennen Sie die unversionierte Datei in Ihrer Arbeitskopie um.
+				Danach führen Sie die Aktualisierung nochmals durch.
+			</para>
+			<para>
+				Wenn Sie diese Fehlermeldung immer wieder erhalten, benutzen Sie
+				<menuchoice>
+					<guimenuitem>Auf Aktualisierungen prüfen</guimenuitem>
+				</menuchoice>
+				um eine Liste von allen problematischen Dateien zu erhalten. Dadurch
+				können Sie alle Konflikte auf einmal beheben.
 			</para>
 		</tip>
 	</sect1>

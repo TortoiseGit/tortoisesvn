@@ -32,6 +32,14 @@
 			and try again.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-faq-installation-0A">
+			<title>I installed TortoiseSVN as Administrator. Now when I log in as me, it's not there</title>
+			<para>
+			When you started the installation you forgot to select the option
+			to "install for all users" instead of "just for me". The easiest
+			way to correct that is to uninstall, reboot, then reinstall.
+			</para>
+		</sect2>
 		<sect2 id="tsvn-faq-installation-00">
 			<title>When upgrading TortoiseSVN, do I have to deinstall the existing version first?</title>
 			<para>

@@ -262,12 +262,27 @@
 		<indexterm><primary>Installation</primary></indexterm>
 		<title>Systemanforderungen</title>
 		<para>
-		TortoiseSVN läuft unter Windows 98/Me, NT4, Win2k SP2 oder WinXP,
-		mit IE5.5 oder neuer. Win98/ME kann nicht zum Anlegen von Projektarchiven
-		verwendet werden. Lesen Sie in der Subversion FAQ
-		<ulink url="http://subversion.tigris.org/project_faq.html">
+		TortoiseSVN läuft unter Windows 98/Me, Win2k SP2 oder WinXP,
+		mit IE5.5 oder neuer. 
+		</para>
+		<para>
+		Es funktioniert auch unter NT4 und Windows95, aber Sie müssen dafür die
+		Shell-Erweiterungen des Internet-Explorer4 (IE4) installieren um eine
+		neuere Version der Shell zu erhalten.
+		Eine Anleitung dazu gibts im FAQ-Eintrag
+		<xref linkend="tsvn-faq-installation-1"/>.
+		Die Mindest-Version der Shell ist 4.72! Wir haben Berichte dass
+		TortoiseSVN auf diesen alten Systemen läuft, benutzen Sie es aber auf
+		eigenes Risiko.
+		</para>
+		<para>
+		Win98/ME kann <emphasis>keine</emphasis> BDB Projektarchive beherbergen,
+		sehen Sie dazu den folgenden Subversion FAQ-Eintrag:
+		<ulink url="http://subversion.tigris.org/project_faq.html#portability">
 			<citetitle>What operating systems does Subversion run on?</citetitle>
-		</ulink> nach, warum dies nicht geht.
+		</ulink>.
+		Sie können allerdings ein FSFS Projektarchiv verwenden, welches ab 
+		Subversion 1.1.0 verfügbar ist.
 		</para>
 	</sect2>
 	<sect2>
@@ -276,7 +291,9 @@
 		TortoiseSVN wird mit einem einfach zu benutzenden Installationsprogramm
 		geliefert. Doppelklicken Sie auf das Installationsprogramm und folgen
 		Sie den Anweisungen. Das Installationsprogramm kümmert sich um
-		den Rest.
+		den Rest. Auf NT4/Win2k/XP-Systemen sollten Sie die Option "install for
+		all users" aktivieren, ausser Sie möchten TortoiseSVN wirklich nur
+		für den aktuellen Benutzer installieren.
 		</para>
 		<para>
 		<indexterm><primary>Rechtschreibkorrektur</primary></indexterm>

@@ -32,6 +32,16 @@
 			<filename>c:\</filename> und versuchen Sie's erneut.
 			</para>
 		</sect2>
+		<sect2 id="tsvn-faq-installation-0A">
+			<title>Ich habe TortoiseSVN als Administrator installiert. Wenn ich mich nun
+			als Benutzer anmelde erscheinen keine Kontextmenus</title>
+			<para>
+			Als Sie die Installation durchführten, haben Sie vergessen die Option
+			"install for all users" zu aktivieren statt "just for me". Der einfachste
+			Weg dies zu korrigieren ist, TortoiseSVN zu deinstallieren, rebooten
+			und erneut (korrekt) zu installieren.
+			</para>
+		</sect2>
 		<sect2 id="tsvn-faq-installation-00">
 			<title>Muss ich eine alte Version von TortoiseSVN zuerst deinstallieren,
 			bevor ich die neue Version installieren kann?</title>
