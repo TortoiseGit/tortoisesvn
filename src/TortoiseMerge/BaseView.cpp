@@ -248,6 +248,8 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/, BOOL
 		m_lfBaseFont.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
 		m_lfBaseFont.lfItalic = (BYTE) bItalic;
 		m_lfBaseFont.lfStrikeOut = (BYTE) bStrikeOut;
+		m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
+		_tcsncpy(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")), 32);
 		if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
 		{
 			delete m_apFonts[nIndex];
@@ -905,7 +907,7 @@ int CBaseView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	memset(&m_lfBaseFont, 0, sizeof(m_lfBaseFont));
-	lstrcpy(m_lfBaseFont.lfFaceName, _T("Courier New"));
+	//lstrcpy(m_lfBaseFont.lfFaceName, _T("Courier New"));
 	//lstrcpy(m_lfBaseFont.lfFaceName, _T("FixedSys"));
 	m_lfBaseFont.lfHeight = 0;
 	m_lfBaseFont.lfWeight = FW_NORMAL;

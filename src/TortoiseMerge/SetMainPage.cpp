@@ -46,6 +46,9 @@ CSetMainPage::CSetMainPage()
 	m_regOnePane = CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"));
 	m_regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 	
+	m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
+	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
+
 	m_dwLanguage = m_regLanguage;
 	m_bBackup = m_regBackup;
 	m_bFirstDiffOnLoad = m_regFirstDiffOnLoad;
@@ -69,7 +72,10 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_IGNORELF, m_bIgnoreEOL);
 	DDX_Check(pDX, IDC_ONEPANE, m_bOnePane);
 	DDX_Control(pDX, IDC_LANGUAGECOMBO, m_LanguageCombo);
+	DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
+	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
+	m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
 }
 
 void CSetMainPage::SaveData()
@@ -81,6 +87,8 @@ void CSetMainPage::SaveData()
 	m_regIgnoreEOL = m_bIgnoreEOL;
 	m_regOnePane = m_bOnePane;
 	m_regIgnoreWS = m_nIgnoreWS;
+	m_regFontName = m_sFontName;
+	m_regFontSize = m_dwFontSize;
 }
 
 BOOL CSetMainPage::OnApply()
@@ -93,6 +101,11 @@ BOOL CSetMainPage::OnApply()
 
 BOOL CSetMainPage::OnInitDialog()
 {
+	m_cFontNames.SubclassDlgItem (IDC_FONTNAMES, this);
+	m_cFontNames.SetFontHeight(16, false);
+	m_cFontNames.SetPreviewStyle(CFontPreviewCombo::NAME_THEN_SAMPLE, false);
+	m_cFontNames.Init();
+
 	CPropertyPage::OnInitDialog();
 
 	m_dwLanguage = m_regLanguage;
@@ -102,6 +115,8 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bIgnoreEOL = m_regIgnoreEOL;
 	m_bOnePane = m_regOnePane;
 	m_nIgnoreWS = m_regIgnoreWS;
+	m_sFontName = m_regFontName;
+	m_dwFontSize = m_regFontSize;
 
 	UINT uRadio = IDC_WSIGNORELEADING;
 	switch (m_nIgnoreWS)
@@ -155,6 +170,20 @@ BOOL CSetMainPage::OnInitDialog()
 			m_LanguageCombo.SetCurSel(i);
 	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
 
+	CString temp;
+	int count = 0;
+	for (int i=6; i<32; i=i+2)
+	{
+		temp.Format(_T("%d"), i);
+		m_cFontSizes.AddString(temp);
+		m_cFontSizes.SetItemData(count++, i);
+	} // for (int i=6; i<20; i=i+2) 
+	for (int i=0; i<m_cFontSizes.GetCount(); i++)
+	{
+		if (m_cFontSizes.GetItemData(i) == m_dwFontSize)
+			m_cFontSizes.SetCurSel(i);
+	} // for (int i=0; i<m_LanguageCombo.GetCount(); i++) 
+
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
@@ -170,6 +199,8 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_WSIGNORELEADING, OnBnClickedWsignoreleading)
 	ON_BN_CLICKED(IDC_WSIGNOREALL, OnBnClickedWsignoreall)
 	ON_EN_CHANGE(IDC_TABSIZE, OnEnChangeTabsize)
+	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
+	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 END_MESSAGE_MAP()
 
 
@@ -261,6 +292,16 @@ void CSetMainPage::OnBnClickedWsignoreall()
 }
 
 void CSetMainPage::OnEnChangeTabsize()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnCbnSelchangeFontsizes()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnCbnSelchangeFontnames()
 {
 	SetModified();
 }

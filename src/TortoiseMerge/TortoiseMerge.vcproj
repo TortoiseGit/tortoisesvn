@@ -163,6 +163,9 @@
 				RelativePath=".\FileTextLines.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\FontPreviewCombo.cpp">
+			</File>
+			<File
 				RelativePath="..\Utils\HyperLink.cpp">
 			</File>
 			<File
@@ -276,6 +279,9 @@
 				RelativePath=".\FileTextLines.h">
 			</File>
 			<File
+				RelativePath="..\Utils\FontPreviewCombo.h">
+			</File>
+			<File
 				RelativePath="..\Utils\HyperLink.h">
 			</File>
 			<File
@@ -309,6 +315,9 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
+				RelativePath="..\Languages\resource.h">
+			</File>
+			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -326,9 +335,6 @@
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\Languages\resource.h">
 			</File>
 			<File
 				RelativePath=".\RightView.h">
@@ -369,6 +375,9 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
 			<File
+				RelativePath="..\Languages\res\download.avi">
+			</File>
+			<File
 				RelativePath="..\Languages\res\lineadded.ico">
 			</File>
 			<File
@@ -384,6 +393,9 @@
 				RelativePath="..\Languages\res\TortoiseMerge.ico">
 			</File>
 			<File
+				RelativePath="..\Languages\res\TortoiseMerge.manifest">
+			</File>
+			<File
 				RelativePath="..\Languages\res\TortoiseMerge.rc2">
 			</File>
 			<File
@@ -395,16 +407,10 @@
 			<File
 				RelativePath="..\Languages\res\tortoisesvn_logoflipped.bmp">
 			</File>
+			<File
+				RelativePath="..\Languages\res\ttf_glyph.bmp">
+			</File>
 		</Filter>
-		<File
-			RelativePath="..\Languages\res\download.avi">
-		</File>
-		<File
-			RelativePath=".\res\TortoiseMerge.manifest">
-		</File>
-		<File
-			RelativePath="..\Languages\res\TortoiseMerge.manifest">
-		</File>
 	</Files>
 	<Globals>
 		<Global

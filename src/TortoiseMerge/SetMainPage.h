@@ -20,6 +20,7 @@
 #include "resource.h"
 #include "registry.h"
 #include "afxwin.h"
+#include "FontPreviewCombo.h"
 
 // CSetMainPage dialog
 
@@ -63,7 +64,14 @@ protected:
 	DWORD			m_nIgnoreWS;
 	CRegDWORD		m_regIgnoreWS;
 	
+	CRegDWORD		m_regFontSize;
+	DWORD			m_dwFontSize;
+	CRegString		m_regFontName;
+	CString			m_sFontName;
+
 	CComboBox		m_LanguageCombo;
+	CFontPreviewCombo m_cFontNames;
+	CComboBox m_cFontSizes;
 public:
 	afx_msg void OnCbnSelchangeLanguagecombo();
 	afx_msg void OnBnClickedBackup();
@@ -74,4 +82,6 @@ public:
 	afx_msg void OnBnClickedWsignoreleading();
 	afx_msg void OnBnClickedWsignoreall();
 	afx_msg void OnEnChangeTabsize();
+	afx_msg void OnCbnSelchangeFontsizes();
+	afx_msg void OnCbnSelchangeFontnames();
 };

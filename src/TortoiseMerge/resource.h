@@ -16,6 +16,8 @@
 #define IDD_ABOUT                       136
 #define IDR_DOWNLOAD                    136
 #define IDD_SETCOLORPAGE                137
+#define IDB_BITMAP1                     137
+#define IDB_TTF_BMP                     137
 #define IDB_LOGOFLIPPED                 168
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
@@ -59,6 +61,7 @@
 #define IDC_FGUNKNOWN                   1028
 #define IDC_BKNORMAL                    1029
 #define IDC_FGNORMAL                    1030
+#define IDC_FONTNAMES                   1030
 #define IDC_BKREMOVED                   1031
 #define IDC_FGREMOVED                   1032
 #define IDC_BKWHITESPACEREMOVED         1033
@@ -100,6 +103,7 @@
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDC_WEBLINK                     1084
 #define IDC_SUPPORTLINK                 1085
+#define IDC_FONTSIZES                   1086
 #define IDS_ERR_FILE_OPEN               1100
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701
@@ -131,7 +135,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        137
+#define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32784
 #define _APS_NEXT_CONTROL_VALUE         1063
 #define _APS_NEXT_SYMED_VALUE           101
