@@ -166,6 +166,7 @@ int CMailMsg::MAPISend()
    MapiMessage          message;
    std::vector<MapiRecipDesc*>	buffersToFree;
    MapiRecipDesc*       pRecip;
+   MapiRecipDesc		grecip;
 
    if (m_bReady || Initialize())
    {
@@ -205,6 +206,19 @@ int CMailMsg::MAPISend()
 				memcpy(&pRecipients[nIndex], pRecip, sizeof pRecipients[nIndex]);
 				buffersToFree.push_back(pRecip);
 				nIndex++;
+			 }
+			 else
+			 {
+				 if (pFirstRecipient == NULL)
+					 pFirstRecipient = &pRecipients[nIndex];
+				 grecip.ulRecipClass = MAPI_TO;
+				 grecip.lpEntryID = 0;
+				 grecip.lpszName = 0;
+				 grecip.ulEIDSize = 0;
+				 grecip.ulReserved = 0;
+				 grecip.lpszAddress = (LPTSTR)(LPCTSTR)m_to.begin()->first;
+				 memcpy(&pRecipients[nIndex], &grecip, sizeof pRecipients[nIndex]);
+				 nIndex++;
 			 }
          }		
          if (m_cc.size())
