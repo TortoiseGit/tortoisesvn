@@ -28,9 +28,11 @@ CSysImageList * CSysImageList::instance = 0;
 CSysImageList::CSysImageList()
 {
 	SHFILEINFO ssfi;
+	TCHAR windir[MAX_PATH];
+	GetWindowsDirectory(windir, MAX_PATH);
 	HIMAGELIST hSystemImageList =
 		(HIMAGELIST)SHGetFileInfo(
-			_T("c:\\"),
+			windir,
 			0,
 			&ssfi, sizeof ssfi,
 			SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
