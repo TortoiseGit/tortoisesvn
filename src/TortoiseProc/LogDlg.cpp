@@ -274,6 +274,7 @@ BOOL CLogDlg::Log(LONG rev, CString author, CString date, CString message, CStri
 {
 	int line = 0;
 	CString temp;
+	m_LogList.SetRedraw(FALSE);
 	m_logcounter += 1;
 	if (m_startrev == -1)
 		m_startrev = rev;
