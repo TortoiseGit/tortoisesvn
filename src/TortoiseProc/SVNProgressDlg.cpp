@@ -843,7 +843,7 @@ UINT CSVNProgressDlg::ProgressThread()
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
 	CLogDlg dlg;
-	dlg.SetParams(m_updatedPath, m_nUpdateStartRev, m_RevisionEnd, TRUE);
+	dlg.SetParams(m_updatedPath, m_RevisionEnd, m_nUpdateStartRev, TRUE);
 	dlg.DoModal();
 }
 
