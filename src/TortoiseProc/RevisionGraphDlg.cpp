@@ -1018,18 +1018,57 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 	{
 		tempfile = CString(ofn.lpstrFile);
 		//create dc to paint on
+		CWindowDC ddc(this);
 		CDC dc;
-		if (dc.CreateCompatibleDC(NULL)==0)
+		if (!dc.CreateCompatibleDC(&ddc))
 		{
-			CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NODC, IDS_APPNAME, MB_ICONERROR);
+			LPVOID lpMsgBuf;
+			if (!FormatMessage( 
+				FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL ))
+			{
+				return;
+			}
+
+			// Display the string.
+			MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+
+			// Free the buffer.
+			LocalFree( lpMsgBuf );
 			return;
 		}
 		CRect rect;
 		rect = GetViewSize();
-		HBITMAP hbm = ::CreateCompatibleBitmap(dc.m_hDC, rect.Width(), rect.Height());
+		HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
 		if (hbm==0)
 		{
-			CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NODC, IDS_APPNAME, MB_ICONERROR);
+			LPVOID lpMsgBuf;
+			if (!FormatMessage( 
+				FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+				FORMAT_MESSAGE_FROM_SYSTEM | 
+				FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				GetLastError(),
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+				(LPTSTR) &lpMsgBuf,
+				0,
+				NULL ))
+			{
+				return;
+			}
+
+			// Display the string.
+			MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+
+			// Free the buffer.
+			LocalFree( lpMsgBuf );
 			return;
 		}
 		HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
@@ -1042,43 +1081,41 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 		CString sErrormessage;
 		if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
 		{   
-			//HDC hMemDC = ::CreateCompatibleDC(dc.m_hDC);
-			//HBITMAP hbm = ::CreateCompatibleBitmap(dc.m_hDC, rect.Width(), rect.Height());
-			//::SelectObject(hMemDC, hbm);
-			//::BitBlt(hMemDC, 0, 0, rect.Width(), rect.Height(), dc.m_hDC, 0, 0, SRCCOPY);
-			Bitmap bitmap(hbm, NULL);
-			if (bitmap.GetLastStatus()==Ok)
 			{
-				// Get the CLSID of the encoder.
-				int ret = 0;
-				if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
-					ret = GetEncoderClsid(L"image/png", &encoderClsid);
-				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
-					ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
-					ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
-					ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
-				else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
-					ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+				Bitmap bitmap(hbm, NULL);
+				if (bitmap.GetLastStatus()==Ok)
+				{
+					// Get the CLSID of the encoder.
+					int ret = 0;
+					if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".png"))==0)
+						ret = GetEncoderClsid(L"image/png", &encoderClsid);
+					else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpg"))==0)
+						ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+					else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".jpeg"))==0)
+						ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+					else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".bmp"))==0)
+						ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
+					else if (CUtils::GetFileExtFromPath(tempfile).CompareNoCase(_T(".gif"))==0)
+						ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+					else
+					{
+						tempfile += _T(".jpg");
+						ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+					}
+					if (ret >= 0)
+					{
+						CStringW tfile = CStringW(tempfile);
+						bitmap.Save(tfile, &encoderClsid, NULL);
+					}
+					else
+					{
+						sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CUtils::GetFileExtFromPath(tempfile));
+					}
+				}
 				else
 				{
-					tempfile += _T(".jpg");
-					ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+					sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
 				}
-				if (ret >= 0)
-				{
-					CStringW tfile = CStringW(tempfile);
-					bitmap.Save(tfile, &encoderClsid, NULL);
-				}
-				else
-				{
-					sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CUtils::GetFileExtFromPath(tempfile));
-				}
-			}
-			else
-			{
-				sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
 			}
 			GdiplusShutdown(gdiplusToken);
 		}
