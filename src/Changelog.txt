@@ -1,6 +1,10 @@
 - ADD: Autocompletion for paths/filenames in the commit dialog. (Stefan)
 - CHG: Improved refreshing of icons after a TSVN operation. (Will)
 - CHG: Major code cleanup throughout the whole project. (Will)
+- CHG: Use the same colors for the authors in all graphs. (Stefan)
+- BUG: Fix wrong axis labels in the 'commits by author' graph. (Stefan)
+- BUG: The "select all" checkbox behave three state even when clicking it. (Will)
+- BUG: Some dialogs were resizable even though they shouldn't be. (Stefan)
 - BUG: Adding and committing of files with a reversed sort order of
        the files in the add/commit dialog didn't work correctly. (Will)
 - BUG: The drive type wasn't recognized correctly on Win98. (Will)
