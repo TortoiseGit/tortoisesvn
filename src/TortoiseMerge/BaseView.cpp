@@ -1754,6 +1754,8 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 
 void CBaseView::OnEditCopy()
 {
+	if ((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd))
+		return;
 	// first store the selected lines in one CString
 	CString sCopyData;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
