@@ -498,10 +498,6 @@
 		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-update-dia-1">
-				<title>Progress dialog showing an update in progress</title>
-				<graphic fileref="images/UpdateProgress.png"/>
-			</figure>
-			<figure id="tsvn-DUG-update-dia-2">
 				<title>Progress dialog showing finished update</title>
 				<graphic fileref="images/UpdateFinished.png"/>
 			</figure>
@@ -694,7 +690,7 @@
 			from the context menu.
 			<figure id="tsvn-DUG-commit-dia-1">
 				<title>The Commit dialog</title>
-				<graphic fileref="images/Commit.png"/>
+				<graphic fileref="images/CommitContextMenu.png"/>
 			</figure>
 		</para>
 		<para>
@@ -703,10 +699,6 @@
 			want a changed file to be committed, just uncheck that
 			file. If you want to include an unversioned file,
 			just check that file to add it to the commit.
-			<figure id="tsvn-DUG-commit-dia-2">
-				<title>The Context Menu Of The Commit Dialog</title>
-				<graphic fileref="images/CommitContextMenu.png"/>
-			</figure>
 			<tip>
 				<title>Many unversioned files in the commit dialog</title>
 				<para>

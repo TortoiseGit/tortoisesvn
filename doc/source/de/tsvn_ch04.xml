@@ -532,10 +532,6 @@
 		</indexterm>
 		<para>
 			<figure id="tsvn-DUG-update-dia-1">
-				<title>Aktualisierung läuft im Fortschritss-Dialog</title>
-				<graphic fileref="images/UpdateProgress.png"/>
-			</figure>
-			<figure id="tsvn-DUG-update-dia-2">
 				<title>Aktualisierung fertig im Fortschritts-Dialog</title>
 				<graphic fileref="images/UpdateFinished.png"/>
 			</figure>
@@ -737,7 +733,7 @@
 			im Kontextmenu aus. Der folgenden Dialog erscheint:
 			<figure id="tsvn-DUG-commit-dia-1">
 				<title>Der Übertragen Dialog</title>
-				<graphic fileref="images/Commit.png"/>
+				<graphic fileref="images/CommitContextMenu.png"/>
 			</figure>
 		</para>
 		<para>
@@ -748,10 +744,6 @@
 			wollen wählen Sie diese einfach ab. Dateien welche noch nicht unter
 			Versionskontrolle stehen können Sie durch auswählen vor dem Übertragen
 			hinzufügen lassen.
-			<figure id="tsvn-DUG-commit-dia-2">
-				<title>Das Kontext-Menu des Übertragen-Dialogs</title>
-				<graphic fileref="images/CommitContextMenu.png"/>
-			</figure>
 			<tip>
 				<title>Zu viele Dateien werden angezeigt</title>
 				<para>
