@@ -37,7 +37,10 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-0A">
-			<title>I installed TortoiseSVN as Administrator. Now when I log in as me, it's not there</title>
+			<title>
+				I installed TortoiseSVN as Administrator.
+				Now when I log in as me, it's not there
+			</title>
 			<para>
 				When you started the installation you forgot to select the option
 				to <literal>install for all users</literal> instead of 
@@ -46,7 +49,10 @@
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-00">
-			<title>When upgrading TortoiseSVN, do I have to uninstall the existing version first?</title>
+			<title>
+				When upgrading TortoiseSVN, do I have to uninstall the
+				existing version first?
+			</title>
 			<para>
 				No. You can just install the new version over the old one. The 
 				installer will take care of uninstalling the old version first
@@ -360,7 +366,10 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-installation-7">
-			<title>I installed a new version of TortoiseSVN, but the new functions aren't visible?!?</title>
+			<title>
+				I installed a new version of TortoiseSVN, but
+				the new functions aren't visible?!?
+			</title>
 			<para>
 				TortoiseSVN is a Windows explorer shell extension. 
 				So after updating you <emphasis>must</emphasis> restart 
@@ -415,15 +424,14 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			</para>
 		</sect2>
 	</sect1>
-	<!-- INDENTATION CORRECTIONS DONE UP TO HERE -->
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 2 ============================== -->
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-faq-dug">
 		<title>Daily use questions</title>
 		<para>
-		This section answers questions about problems you may encounter
-		while using TortoiseSVN on a daily basis.
+			This section answers questions about problems you may encounter
+			while using TortoiseSVN on a daily basis.
 		</para>
 		<sect2 id="tsvn-faq-dug-1">
 			<title>I accidentally removed a file, and now it's gone!</title>
@@ -437,43 +445,49 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 				<primary>revert</primary>
 			</indexterm>
 			<para>
-			You can do a <guimenuitem>revert</guimenuitem> on the 
-			parent folder where you deleted the file or 
-			directory.
+				You can do a
+				<menuchoice>
+					<guimenuitem>revert</guimenuitem>
+				</menuchoice>
+				on the parent folder where you deleted the file or 
+				directory.
 			</para>
 			<para>
-			If you have already committed the deleted file, then you can
-			use the repository browser, change to the revision where the file
-			still existed and then use the command 
-			<menuchoice>
+				If you have already committed the deleted file, then you can
+				use the repository browser, change to the revision where the file
+				still existed and then use the command 
+				<menuchoice>
 					<guimenuitem>Copy to...</guimenuitem>
 				</menuchoice>
-			from the context menu. Enter the path to your working copy as the
-			target.
+				from the context menu. Enter the path to your working copy
+				as the target.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-2">
-			<title>When I remove a file it vanishes, how 
-			do I commit it?</title>
+			<title>When I remove a file it vanishes, how do I commit it?</title>
 			<para>
-			Easy, you commit the whole directory! 
-			<action>Right-click</action> in the Explorer window 
-			next to the file, and choose <guimenuitem>commit</guimenuitem>. 
-			I nearly always commit things from the top level 
-			directory - it is recursive through the whole project. 
+				Easy, you commit the whole directory! 
+				<action>Right-click</action> in the Explorer window 
+				next to the file, and choose
+				<menuchoice>
+					<guimenuitem>commit</guimenuitem>
+				</menuchoice>.
+				I nearly always commit things from the top level 
+				directory - it is recursive through the whole project. 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-3">
 			<title>I always get an error when I check out a single file</title>
 			<para>
-			There's nothing wrong with it. Subversion only allows you to 
-			check out directories - not files. A warning is not 
-			possible because TortoiseSVN has no possibility to check 
-			if a URL (e.g. <systemitem class="url">
-			http://svn.collab.net/svn/repos/trunk/README</systemitem>) 
-			is a file or a folder (ok, it could - but that would
-			take a few seconds to check...). But subversion itself 
-			complains if it's a file.... 
+				There's nothing wrong with it. Subversion only allows you to 
+				check out directories - not files. A warning is not 
+				possible because TortoiseSVN has no possibility to check 
+				if a URL (e.g.
+				<systemitem class="url">
+				http://svn.collab.net/svn/repos/trunk/README</systemitem>) 
+				is a file or a folder (ok, it could - but that would
+				take a few seconds to check...). But subversion itself 
+				complains if it's a file... 
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-4">
@@ -481,126 +495,169 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 			<indexterm>
 				<primary>case sensitive</primary>
 			</indexterm>
-			<para>There are (at least) two possible solutions to rename a file without losing it's log history.
-			It is important to rename it <emphasis>within</emphasis> subversion. 
-			Just renaming in the explorer will corrupt your working copy!!!
+			<para>
+				There are (at least) two possible solutions to rename a file
+				without losing its log history. It is important to rename it
+				<emphasis>within</emphasis> subversion. Just renaming in the
+				explorer will corrupt your working copy!!!
 			</para>
 			<para>
-			Solution A) (recommended)
-			<orderedlist>
+				Solution A) (recommended)
+				<orderedlist>
 					<listitem>
-						<para>Commit the changes in your working copy</para>
-					</listitem>
-					<listitem>
-						<para>Rename the file from <filename>UPPERcase</filename> 
-						to <filename>upperCASE</filename> inside the repository 
-						using the <guimenuitem>repository browser</guimenuitem>.
+						<para>
+							Commit the changes in your working copy.
 						</para>
 					</listitem>
 					<listitem>
-						<para>Select the <emphasis>file</emphasis> you renamed,
-						<emphasis>not</emphasis> any of its parent folders,
-						right-click and do an update. After that, update the
-						parent folder.</para>
+						<para>
+							Rename the file from
+							<filename>UPPERcase</filename> to
+							<filename>upperCASE</filename> inside the repository 
+							using the
+							<menuchoice>
+								<guimenuitem>repository browser</guimenuitem>
+							</menuchoice>.
+						</para>
 					</listitem>
 					<listitem>
-						<para>Or: delete your working copy and do a fresh 
-						checkout. Just updating won't work, because it will 
-						result in an obstructed update.</para>
-						<para>If you don't want to checkout the whole working
-						copy again, delete the parent folder of the file you've
-						just renamed and do an update. </para>
+						<para>
+							Select the <emphasis>file</emphasis> you renamed,
+							<emphasis>not</emphasis> any of its parent folders,
+							right-click and do an update. After that, update the
+							parent folder.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Or: delete your working copy and do a fresh 
+							checkout. Just updating won't work, because it will 
+							result in an obstructed update.
+						</para>
+						<para>
+							If you don't want to checkout the whole working
+							copy again, delete the parent folder of the file
+							you've just renamed and do an update.
+						</para>
 					</listitem>
 				</orderedlist>
 			</para>
 			<para>
-			Solution B)
-			<orderedlist>
+				Solution B)
+				<orderedlist>
 					<listitem>
-						<para>Rename from <filename>UPPERcase</filename>to <filename>UPPERcase_</filename>
-						with the <guimenuitem>rename</guimenuitem> command in the TortoiseSVN submenu.
+						<para>
+							Rename from
+							<filename>UPPERcase</filename> to
+							<filename>UPPERcase_</filename> with the
+							<menuchoice>
+								<guimenuitem>rename</guimenuitem>
+							</menuchoice>
+							command in the TortoiseSVN submenu.
 						</para>
 					</listitem>
 					<listitem>
-						<para>Commit the changes</para>
-					</listitem>
-					<listitem>
-						<para>Rename from <filename>UPPERcase_</filename>to <filename>upperCASE</filename>
+						<para>
+							Commit the changes
 						</para>
 					</listitem>
 					<listitem>
-						<para>Commit the changes</para>
+						<para>
+							Rename from
+							<filename>UPPERcase_</filename> to
+							<filename>upperCASE</filename>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Commit the changes
+						</para>
 					</listitem>
 				</orderedlist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-5">
-			<title>I deleted a file and created a file with 
-			the same name. Now I can't commit?!?</title>
+			<title>
+				I deleted a file and created a file with the same name.
+				Now I can't commit?!?
+			</title>
 			<para>
-			Your're trying to fool subversion aren't you? No - seriously 
-			- what did you expect to happen?
+				Your're trying to fool subversion aren't you? No - seriously 
+				- what did you expect to happen?
 			</para>
 			<para>
-			Assume you're in revision #55.
-			</para>
-			<para>You removed a file using TortoiseSVN, which told it 
-			to mark the file for deletion with the next commit 
-			and to remove it from the explorer. It's not really 
-			gone from the revision yet. Then you created a file with the 
-			same name and added it to TortoiseSVN, which marks the file 
-			for adding with the next commit. It's not yet added to the 
-			repository. Now you commit. Poor subversion tries to decide 
-			whether to add or remove your file at the same time 
-			in revision #56. The commit fails.
+				Assume you're in revision #55.
 			</para>
 			<para>
-			You should have committed immediately after you 
-			deleted the file using TortoiseSVN's <guimenuitem>remove
-			</guimenuitem> command. You still have no clue what 
-			to do? Well, in that case:
-			
-			<orderedlist>
+				You removed a file using TortoiseSVN, which told it 
+				to mark the file for deletion with the next commit 
+				and to remove it from the explorer. It's not really 
+				gone from the revision yet. Then you created a file with the 
+				same name and added it to TortoiseSVN, which marks the file 
+				for adding with the next commit. It's not yet added to the 
+				repository. Now you commit. Poor subversion tries to decide 
+				whether to add or remove your file at the same time 
+				in revision #56. The commit fails.
+			</para>
+			<para>
+				You should have committed immediately after you 
+				deleted the file using TortoiseSVN's
+				<menuchoice>
+					<guimenuitem>remove</guimenuitem>
+				</menuchoice>
+				command. You still have no clue what to do? Well, in that case:
+				<orderedlist>
 					<listitem>
-						<para>Move that file to a safe place</para>
+						<para>
+							Move that file to a safe place
+						</para>
 					</listitem>
 					<listitem>
-						<para>Commit your changes. That tells the 
-				repository, that the file is gone in the 
-				first place</para>
+						<para>
+							Commit your changes. That tells the repository
+							that the file is gone in the first place
+						</para>
 					</listitem>
 					<listitem>
-						<para>Copy the file back</para>
+						<para>
+							Copy the file back
+						</para>
 					</listitem>
 					<listitem>
-						<para>Commit again</para>
+						<para>
+							Commit again
+						</para>
 					</listitem>
 				</orderedlist>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-6">
-			<title>Can I mix and match with the Subversion 
-			command line client or another Subversion client?</title>
+			<title>
+				Can I mix and match with the Subversion command line
+				client or another Subversion client?
+			</title>
 			<para>
-			Yes, you can change from one client to another 
-			whenever you want.
+				Yes, you can change from one client to another 
+				whenever you want.
 			</para>
 			<para>
-			There's only one exception: if you use the special build to work
-			around the VS.NET bug with web projects then you can't use any
-			other subversion clients anymore. You're stuck with that special
-			build. Other Subversion clients won't recognize your working copies.
+				There's only one exception: if you use the special build to work
+				around the VS.NET bug with web projects then you can't use any
+				other subversion clients anymore. You're stuck with that special
+				build. Other Subversion clients won't recognize your working copies.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-7">
-			<title>Can I work on lots of working copies 
-			from different repositories at once?</title>
+			<title>
+				Can I work on lots of working copies 
+				from different repositories at once?
+			</title>
 			<para>
-			Yes, you can. This is a standard feature of Subversion. 
-			Each directory which was checked out of Subversion remembers 
-			where it came from. You can even multiply select 
-			working copies which came from different places, and 
-			update or commit them all at once. 
+				Yes, you can. This is a standard feature of Subversion. 
+				Each directory which was checked out of Subversion remembers 
+				where it came from. You can even multiply select 
+				working copies which came from different places, and 
+				update or commit them all at once. 
 			</para>
 			<para>
 				If you want to have different subdirectories to come 
@@ -620,95 +677,62 @@ HKCU\Software\TortoiseSVN\OwnerdrawnMenus
 		<sect2 id="tsvn-faq-dug-8">
 			<title>How does TortoiseSVN handle conflicts?</title>
 			<para>
-			Imagine you check out revision 24 of a file and started 
-			editing it. In the meantime, someone else committed 
-			revision 25, and shortly after that revision 26. You 
-			tell TortoiseSVN to update your file now, and Subversion will 
-			try to incorporate all the changes between revision 24 
-			and 26 into your local file. 
+				Imagine you check out revision 24 of a file and started 
+				editing it. In the meantime, someone else committed 
+				revision 25, and shortly after that revision 26. You 
+				tell TortoiseSVN to update your file now, and Subversion will 
+				try to incorporate all the changes between revision 24 
+				and 26 into your local file. 
 			</para>
 			<para>
-			But if the changes made between 24 and 26 were too 
-			close to or even overlap with the changes you have 
-			made, Subversion detects a conflict and creates conflict 
-			markers in the file. Subversion also creates three special 
-			files for every conflicted file:
-			
-			<variablelist>
-					<varlistentry>
-						<term>filename.*.mine</term>
-						<listitem>
-							<para>This is your file as it existed in your 
-					working copy before you updated your working copy
-					- that is, without conflict markers. This file has 
-					your latest changes in it and nothing else.
-					</para>
-						</listitem>
-					</varlistentry>
-					<varlistentry>
-						<term>filename.*.rOLDREV</term>
-						<listitem>
-							<para>This is the file that was the BASE 
-					revision before you updated your working copy. That is,
-					it the file that you checked out before you made 
-					your latest edits.
-					</para>
-						</listitem>
-					</varlistentry>
-					<varlistentry>
-						<term>filename.*.rNEWREV</term>
-						<listitem>
-							<para>This is the file that your Subversion 
-					client just received from the server when you updated 
-					your working copy. This file corresponds to the HEAD 
-					revision of the repository.
-					</para>
-						</listitem>
-					</varlistentry>
-				</variablelist>
-			At this point TortoiseSVN will not allow you to commit 
-			the conflicted file until you <emphasis>resolved</emphasis> 
-			the conflict. To tell TortoiseSVN that you resolved the 
-			conflict simply delete the three additional files 
-			or use the command <guimenuitem>resolved</guimenuitem> to 
-			do that for you.
+				But if the changes made between 24 and 26 were too 
+				close to or even overlap with the changes you have 
+				made, Subversion detects a conflict and creates conflict 
+				markers in the file. You then have to resolve these conflicts
+				yourself. Read
+				<xref linkend="tsvn-DUG-conflicts"/> to find out more.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-dug-9">
-			<title>I tried to commit my changes and got a message telling me my
-			working copy is out-of-date</title>
+			<title>
+				I tried to commit my changes and got a message telling me
+				my working copy is out-of-date
+			</title>
 			<para>
-			That means you need to use the <guimenuitem>Update</guimenuitem>
-			command to update your working copy to the same level as the repository.
+				That means you need to use the
+				<menuchoice>
+					<guimenuitem>Update</guimenuitem>
+				</menuchoice>
+				command to update your working copy to the same level as the repository.
 			</para>
 			<para>
-			It may not be obvious why you need to do this, especially if you
-			<emphasis>know</emphasis> the repository has not changed. The answer
-			is simply that your working copy is not completely updated by a commit.
-			Only changed files and folders get updated automatically.
-			Consider this example on a newly created repository:
+				It may not be obvious why you need to do this, especially if you
+				<emphasis>know</emphasis> the repository has not changed. The answer
+				is simply that your working copy is not completely updated by a
+				commit.Only changed files and folders get updated automatically.
+				Consider this example on a newly created repository:
 <screen>
 Add Folder in revision 1
 Add File1 and File2 in revision 2
 Modify File1 and commit in revision 3
 </screen>
-			Now the repository is at revision 3, but in your working copy the
-			revisions look like this:
+				Now the repository is at revision 3, but in your working copy
+				the revisions look like this:
 <screen>
 Folder       : revision 1
 Folder/File1 : revision 3
 Folder/File2 : revision 2
 </screen>
-			Now if you modify File2 and try to commit, it fails. The client
-			tells the repository that File2 is at revision 2 with local
-			modifications, but the repository is already at revision 3.
-			If you then do an update, File2 will be at revision 3 as well
-			(and of course your local changes will still be there).
+				Now if you modify File2 and try to commit, it fails. The client
+				tells the repository that File2 is at revision 2 with local
+				modifications, but the repository is already at revision 3.
+				If you then do an update, File2 will be at revision 3 as well
+				(and of course your local changes will still be there).
 			</para>
 			<para>
-			The same thing may happen if you try to create a branch or tag.
-			The answer is always the same:
-			If your working copy is out-of-date, update it!
+				The same thing may happen if you try to create a branch or tag.
+				The answer is always the same:
+				If your working copy is out-of-date, update it!
 			</para>
 		</sect2>
 	</sect1>
@@ -720,103 +744,125 @@ Folder/File2 : revision 2
 		<sect2 id="tsvn-faq-misc-1">
 			<title>TortoiseSVN seems very slow on big directories</title>
 			<para>
-			To show you the file and folder icon overlays TortoiseSVN must 
-			fetch the status each time you open such a folder in the explorer.
-			This takes usually only a few seconds, but can take much longer
-			if you have either a slow harddisk or a very big directory.
+				To show you the file and folder icon overlays TortoiseSVN must 
+				fetch the status each time you open such a folder in the explorer.
+				This takes usually only a few seconds, but can take much longer
+				if you have either a slow harddisk or a very big directory.
 			</para>
 			<para>
-			Note: usually it's only very slow the first time you open a 
-			versioned folder. If you browse the same directory later again it's
-			much faster due to internal caching.
+				Note: usually it's only very slow the first time you open a 
+				versioned folder. If you browse the same directory later again it's
+				much faster due to internal caching.
 			</para>
-			<para>You can try to speed things up by:</para>
+			<para>
+				You can try to speed things up by:
+			</para>
 			<itemizedlist>
 				<listitem>
 					<para>
-					To speed up browsing in the explorer you should 
-					first turn off the recursive overlays. Go to 
-					the settings dialog and uncheck <command>Recurse
-					into folders to fetch the status</command>. This
-					will tell TortoiseSVN not to scan subfolders.
+						To speed up browsing in the explorer you should 
+						first turn off the recursive overlays. Go to 
+						the settings dialog and uncheck
+						<guilabel>Recurse into folders to fetch the status</guilabel>.
+						This will tell TortoiseSVN not to scan subfolders.
 					</para>
 					<para>
-					If you want to disable the recursive overlays only for some
-					folders but not for all then you can do that by creating a
-					file called <filename>_tsvnexcluderecursive</filename> inside
-					that folder. This will disable the recursive overlays for
-					that folder, but <emphasis>not</emphasis> for the files or
-					folders inside it.
+						If you want to disable the recursive overlays only for
+						some folders but not for all then you can do that by
+						creating a file called
+						<filename>_tsvnexcluderecursive</filename> inside
+						that folder. This will disable the recursive overlays
+						for that folder, but <emphasis>not</emphasis> for the
+						files or folders inside it.
 					</para>
 					<para>
-					You can also disable the overlays completely for a folder
-					by creating a file called <filename>_tsvnexcludethis</filename>
-					inside that folder. Again, this disables the overlays only
-					for that folder, not the folders inside it.
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-					Whenever the <emphasis>last modified time</emphasis> of
-					a file changed, TortoiseSVN needs to do a complete diff (!)
-					of that file to find out if it has changed. If you often
-					change a file, undo the changes and save the file again
-					you'll encounter a slowdown in browsing. A fresh checkout
-					of your working copy would solve that problem.
+						You can also disable the overlays completely for
+						a folder by creating a file called
+						<filename>_tsvnexcludethis</filename>
+						inside that folder. Again, this disables the overlays
+						only for that folder, not the folders inside it.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					There are several Virus scanners around that interfere with TortoiseSVN.
-					Most of the time they lock files inside the <filename>.svn</filename>
-					Status directory, which can cause TortoiseSVN to hang or to become very slow. 
-					Sometimes you might even get an <emphasis>Access Denied</emphasis> error.
-					</para>
-					<para>
-					Try to configure your virus scanner so that it ignores <filename>.svn</filename>
-					directories.
-					</para>
-					<para>
-					Virus scanners that are known to behave badly are: McAfee, Norton Antivirus, ...
+						Whenever the <emphasis>last modified time</emphasis>
+						of a file changed, TortoiseSVN needs to do a complete
+						diff (!) of that file to find out if it has changed.
+						If you often change a file, undo the changes and save
+						the file again you'll encounter a slowdown in browsing.
+						A fresh checkout of your working copy would solve
+						that problem.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					If you're working on Windows XP then you can also disable
-					the <emphasis>zipfolders</emphasis>. This will also
-					increase the browsing speed.
-					<orderedlist>
+						There are several Virus scanners around that interfere
+						with TortoiseSVN. Most of the time they lock files
+						inside the <filename>.svn</filename>
+						Status directory, which can cause TortoiseSVN to hang
+						or to become very slow. Sometimes you might even get
+						an <emphasis>Access Denied</emphasis> error.
+					</para>
+					<para>
+						Try to configure your virus scanner so that it
+						ignores <filename>.svn</filename> directories.
+					</para>
+					<para>
+						Virus scanners that are known to behave badly are:
+						McAfee, Norton Antivirus, ...
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						If you're working on Windows XP then you can also
+						disable the <emphasis>zipfolders</emphasis>. This will
+						also increase the browsing speed.
+						<orderedlist>
 							<listitem>
-								<para>Select <command>Run</command> from the
-						start menu</para>
+								<para>
+									Select <command>Run</command> from the
+									start menu
+								</para>
 							</listitem>
 							<listitem>
-								<para>Type <command>regsvr32 /u %windir%\system32\zipfldr.dll</command>
-						at the prompt and click ok</para>
+								<para>
+									Type
+									<command>regsvr32 /u %windir%\system32\zipfldr.dll</command>
+									at the prompt and click ok
+								</para>
 							</listitem>
 							<listitem>
-								<para>The change will take effect 
-						immediately, but you may have to restart Windows 
-						for all traces of the built-in ZIP support to 
-						disappear.</para>
+								<para>
+									The change will take effect immediately,
+									but you may have to restart Windows 
+									for all traces of the built-in ZIP support
+									to disappear.
+								</para>
 							</listitem>
 						</orderedlist>
-					If, at any time, you wish to re-enable Windows XP's 
-					built-in ZIP support, just follow these steps:
-					<orderedlist>
+						If, at any time, you wish to re-enable Windows XP's 
+						built-in ZIP support, just follow these steps:
+						<orderedlist>
 							<listitem>
-								<para>Select <command>Run</command> from the
-						start menu</para>
+								<para>
+									Select <command>Run</command> from the
+									start menu
+								</para>
 							</listitem>
 							<listitem>
-								<para>Type <command>regsvr32 %windir%\system32\zipfldr.dll </command>
-						at the prompt and click ok</para>
+								<para>
+									Type
+									<command>regsvr32 %windir%\system32\zipfldr.dll </command>
+									at the prompt and click ok
+								</para>
 							</listitem>
 							<listitem>
-								<para>The change will take effect 
-						immediately, but you may have to restart Windows 
-						for all features of the built-in ZIP support to 
-						be available. </para>
+								<para>
+									The change will take effect immediately,
+									but you may have to restart Windows 
+									for all features of the built-in ZIP
+									support to be available.
+								</para>
 							</listitem>
 						</orderedlist>
 					</para>
@@ -831,207 +877,220 @@ Folder/File2 : revision 2
 				<primary>VS.NET</primary>
 			</indexterm>
 			<para>
-			VS.NET when used with web projects can't handle the <filename>.svn
-			</filename> folders Subversion uses to store its internal information.
-			This is <emphasis>not</emphasis> a bug in Subversion. The bug is in
-			VS.NET and the frontpage extensions it uses. Even though you might
-			argue that Windows can't handle such foldernames, it's not correct.
-			Windows can handle such folders very well, you just can't create them
-			with the explorer.
-			</para>
-			<para>However, this bug applies only when you use web projects, 
-			which is not the same as ASP.NET projects. Usually, when you want to
-			create an ASP.NET project, you choose to create a web project. But 
-			you can create or convert an ASP.NET project as a class project. 
-			With some minor tweaking, you won't notice the difference, and you 
-			then can use TortoiseSVN and SVN with <filename>.svn</filename> 
-			folders without problems.
-			</para>
-			<para>There is a really good blog post that helps you to convert 
-			your ASP.NET web projects to ASP.NET class project. You can find it
-			<ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
-				<citetitle>here</citetitle>
-			</ulink>.
-			If you follow those instructions, you'll have a
-			VS.NET working with ASP.NET projects and Subversion without troubles.
+				VS.NET when used with web projects can't handle the
+				<filename>.svn</filename> folders Subversion uses to store its
+				internal information. This is <emphasis>not</emphasis> a bug in
+				Subversion. The bug is in VS.NET and the frontpage extensions
+				it uses. Even though you might argue that Windows can't handle
+				such foldernames, it's not correct.
+				Windows can handle such folders very well, you just can't
+				create them with the explorer.
 			</para>
 			<para>
-			Alternatively, upgrade your copy of VS.NET. The bug has been fixed
-			in VS.NET2005, so it no longer has this problem.
+				However, this bug applies only when you use web projects, 
+				which is not the same as ASP.NET projects. Usually, when you
+				want to create an ASP.NET project, you choose to create a web
+				project. But you can create or convert an ASP.NET project as a
+				class project. 
+				With some minor tweaking, you won't notice the difference,
+				and you then can use TortoiseSVN and SVN with
+				<filename>.svn</filename> folders without problems.
 			</para>
 			<para>
-			If you still want to use TortoiseSVN with web projects, these are
-			the questions we face every few weeks and here are the answers 
-			once and for all:
-			<variablelist>
+				There is a really good blog post that helps you to convert 
+				your ASP.NET web projects to ASP.NET class project. You can
+				find it
+				<ulink url="http://www.pluralsight.com/fritz/Samples/aspdotnet_without_web_projects.htm">
+					<citetitle>here</citetitle>
+				</ulink>.
+				If you follow those instructions, you'll have a VS.NET working
+				with ASP.NET projects and Subversion without troubles.
+			</para>
+			<para>
+				Alternatively, upgrade your copy of VS.NET. The bug has been
+				fixed in VS.NET2005, so it no longer has this problem.
+			</para>
+			<para>
+				If you still want to use TortoiseSVN with web projects, these
+				are the questions we face every few weeks and here are the
+				answers once and for all:
+				<variablelist>
 					<varlistentry>
 						<term>You need to fix this in Subversion!</term>
 						<listitem>
 							<para>
-						No, we don't. It's a bug in VS.NET and not in Subversion.
-						So the bug has to be fixed there.
-						In fact in VS.NET2005 it has been fixed, so if you can
-						upgrade VS.NET, the problem goes away.
-						</para>
+								No, we don't. It's a bug in VS.NET and not in
+								Subversion. So the bug has to be fixed there.
+								In fact in VS.NET2005 it has been fixed, so if
+								you can upgrade VS.NET, the problem goes away.
+							</para>
 						</listitem>
 					</varlistentry>
 					<varlistentry>
 						<term>Why not make the foldername configurable?</term>
 						<listitem>
 							<para>
-						There are many reasons to <emphasis>not</emphasis> do that.
-						It would require major changes to the existing sourcecode,
-						it would make the interaction of different Subversion clients
-						very hard if not impossible and it would lead to confusion
-						among users.
-						</para>
+								There are many reasons <emphasis>not</emphasis>
+								to do that. It would require major changes to
+								the existing sourcecode, it would make the
+								interaction of different Subversion clients
+								very hard if not impossible and it would lead
+								to confusion among users.
+							</para>
 							<para>
-						There are more reasons, but they are very technical and
-						don't belong in this FAQ.
-						</para>
+								There are more reasons, but they are very
+								technical and don't belong in this FAQ.
+							</para>
 						</listitem>
 					</varlistentry>
 					<varlistentry>
-						<term>Then just create a special version of TortoiseSVN which
-					uses a different foldername, and all problems are gone!</term>
+						<term>
+							Then just create a special version of TortoiseSVN
+							which uses a different foldername, and all
+							problems are gone!
+						</term>
 						<listitem>
 							<para>
-						No, we won't. <emphasis>Your</emphasis> problems might be gone,
-						but all others which are using Subversion and TortoiseSVN would
-						get into troubles if we did that.
-						</para>
+								No, we won't. <emphasis>Your</emphasis> problems
+								might be gone, but all others who are using
+								Subversion and TortoiseSVN would get into
+								troubles if we did that.
+							</para>
 							<para>
-						One of the big advantages in using this folder name is that it
-						is universal. i.e. you can use the same working copy from your
-						Linux box and from your Windows box. Very useful if you have a
-						dual boot computer and don't want to have two working copies
-						for each OS you boot.
-						</para>
+								One of the big advantages in using this folder
+								name is that it is universal. i.e. you can use
+								the same working copy from your Linux box and
+								from your Windows box. Very useful if you have
+								a dual boot computer and don't want to have
+								two working copies for each OS you boot.
+							</para>
 						</listitem>
 					</varlistentry>
 					<varlistentry>
 						<term>But I can't use TortoiseSVN if that's not fixed!</term>
 						<listitem>
 							<para>
-						Then don't use it! Nobody forces you to use our product.
-						If you really want to use it, then you could compile
-						yourself a special version using a different foldername.
-						After all, both Subversion and TortoiseSVN are open source.
-						</para>
+								Then don't use it! Nobody forces you to use our
+								product. If you really want to use it, then you
+								could compile yourself a special version using
+								a different foldername. After all, both
+								Subversion and TortoiseSVN are open source.
+							</para>
 						</listitem>
 					</varlistentry>
 				</variablelist>
 			</para>
 			<para>
-			But you're not completely lost in this case. Usually a few days after
-			each official release of TortoiseSVN some people upload an installer
-			for TortoiseSVN which is specially compiled to use <filename>_svn</filename>
-			instead of the default <filename>.svn</filename> foldername. You can
-			use that version then. Just be aware that we don't support that
-			version at all!
+				But you're not completely lost in this case. Usually a few days
+				after each official release of TortoiseSVN some people upload
+				an installer for TortoiseSVN which is specially compiled to use
+				<filename>_svn</filename> instead of the default
+				<filename>.svn</filename> foldername. You can use that version
+				then. Just be aware that we don't support that version at all!
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-3">
 			<title>Does TortoiseSVN support SSH?</title>
 			<para>
-			TortoiseSVN uses Subversion. And Subversion supports SSH 
-			<systemitem class="url">svn+ssh://</systemitem> (repository 
-			reachable via svnserve). If you don't want to use the svnserve
-			server but Apache instead (which I would recommend!) then
-			Subversion supports secure connections via SSL.
+				TortoiseSVN uses Subversion. And Subversion supports SSH 
+				<systemitem class="url">svn+ssh://</systemitem> (repository 
+				reachable via svnserve). If you don't want to use the svnserve
+				server but Apache instead (which I would recommend!) then
+				Subversion supports secure connections via SSL.
 			</para>
 			<para>
-			A guide on how to secure your Apache server with SSL you can find
-			in <xref linkend="tsvn-serversetup-apache-6"/>
+				A guide on how to secure your Apache server with SSL can be
+				found in <xref linkend="tsvn-serversetup-apache-6"/>
 			</para>
 			<para>
-			Please have a look at the subversion book and the 
-			INSTALL file of subversion on how to use <systemitem class="url">
-			svn+ssh://</systemitem>
+				Please have a look at the subversion book and the 
+				INSTALL file of subversion on how to use
+				<systemitem class="url">svn+ssh://</systemitem>
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-4">
 			<title>Can I get the project revision number into my project?</title>
 			<para>
-			If you want the revision number in your program version number you
-			need an additional tool to do that. You can find the tool 
-			<literal>SubWCRev.exe</literal> on the download page on our website 
-			or in your <application>TortoiseSVN</application> Folder under 
-			<filename>bin</filename>.
+				If you want the revision number in your program version number
+				you need an additional tool to do that. You can find the tool 
+				<literal>SubWCRev.exe</literal> on the download page on our
+				website or in your TortoiseSVN Folder under 
+				<filename>bin</filename>.
 			</para>
 			<para>
-			This tool traverses your whole working copy for the most recent
-			revision. Once that revision is found, it replaces all occurences
-			of the following strings:
-			<variablelist>
-				<varlistentry>
-					<term>$WCREV$</term>
-					<listitem>
-						This string will be replaced by the revision 
-						number of your working copy. 
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>$WCMODS?Modified:Not modified$</term>
-					<listitem>
-						If you have local modifications, the string between 
-						Question mark and colon will be inserted. If you 
-						haven't local modifications, the string between colon 
-						dollar sign will be inserted. In our example above 
-						<literal>Modified</literal>
-						or <literal>Not modified</literal>.
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>$WCDATE$</term>
-					<listitem>
-						Will be replaced by the date of your revision. 
-					</listitem>
-				</varlistentry>
-			</variablelist>
+				This tool traverses your whole working copy for the most recent
+				revision. Once that revision is found, it replaces all
+				occurrences of the following strings:
+				<variablelist>
+					<varlistentry>
+						<term>$WCREV$</term>
+						<listitem>
+							This string will be replaced by the revision 
+							number of your working copy. 
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>$WCMODS?Modified:Not modified$</term>
+						<listitem>
+							If you have local modifications, the string between 
+							Question mark and colon will be inserted. If you 
+							have no local modifications, the string between colon 
+							and dollar sign will be inserted. In our example above 
+							<literal>Modified</literal> or
+							<literal>Not modified</literal>.
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>$WCDATE$</term>
+						<listitem>
+							Will be replaced by the date of the highest revision
+							in your working copy. 
+						</listitem>
+					</varlistentry>
+				</variablelist>
 			</para>
 			<para>
-			As an example, have a look at the file <filename>version.in</filename>
-			in the
-			<ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">
-				<citetitle>TortoiseSVN source tree</citetitle>
-			</ulink>.
-			This file is used in TortoiseSVN and its resource files. The
-			SubWCRev.exe tool is called from the build script like this:
+				As an example, have a look at the file
+				<filename>version.in</filename> in the
+				<ulink url="http://svn.collab.net/repos/tortoisesvn/trunk/src/version.in">
+					<citetitle>TortoiseSVN source tree</citetitle>
+				</ulink>.
+				This file is used in TortoiseSVN and its resource files. The
+				SubWCRev.exe tool is called from the build script like this:
 <screen>
 SubWCRev.exe path\to\working\copy version.in version.h
 </screen>
-			This creates a new file <filename>version.h</filename> with all
-			the strings above replaced with the values of the working copy. 
-			The <filename>version.h</filename>
-			file is then used in the project itself and included in the 
-			resource files for the version information.
+				This creates a new file <filename>version.h</filename> with all
+				the strings above replaced with the values of the working copy. 
+				The <filename>version.h</filename>
+				file is then used in the project itself and included in the 
+				resource files for the version information.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-5">
 			<title>Can I lose data, when I use TortoiseSVN?</title>
 			<para>
-			TortoiseSVN uses Subversion. Nuff said :-)
+				TortoiseSVN uses Subversion. Nuff said :-)
 			</para>
 			<para>
-			Seriously - No! Read the Subversion pages. You can 
-			screw up your working copy any way you like, but if you 
-			commit your data regularly, you can always revert to a 
-			functional state. Just remember that TortoiseSVN was not made to protect 
-			you against stupidity (e.g. Format C:). 
+				Seriously - No! Read the Subversion pages. You can 
+				screw up your working copy any way you like, but if you 
+				commit your data regularly, you can always revert to a 
+				functional state. Just remember that TortoiseSVN was not made
+				to protect you against stupidity (e.g. Format C:). 
 			</para>
 			<para>
-			You can only lose your data if you throw your computer out
-			of the window, format your harddrive, nail your 
-			harddrive to a wall...
+				You can only lose your data if you throw your computer out
+				of the window, format your harddrive, nail your 
+				harddrive to a wall...
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-6">
 			<title>I'm looking for an external diff tool</title>
 			<para>
-			This list is by no means complete, but might help 
-			you to find something: 
-			<itemizedlist>
+				This list is by no means complete, but might help 
+				you to find something: 
+				<itemizedlist>
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
@@ -1057,7 +1116,8 @@ SubWCRev.exe path\to\working\copy version.in version.h
 							<ulink url="http://www.prestosoft.com/">
 								<citetitle>Examdiff or Examdiff Pro</citetitle>
 							</ulink>,
-							an excellent Free or Shareware tool, The 3.2 Version can handle unicode
+							an excellent Free or Shareware tool,
+							The 3.2 version can handle unicode.
 						</para>
 					</listitem>
 					<listitem>
@@ -1073,8 +1133,9 @@ SubWCRev.exe path\to\working\copy version.in version.h
 							<ulink url="http://www.scintilla.org/SciTEDownload.html">
 								<citetitle>SciTE</citetitle>
 							</ulink>,
-							for showing unified diffs, it has built-in support for syntax-coloring, since it's
-							not only a viewer but a Text Editor as well.
+							for showing unified diffs, it has built-in support
+							for syntax-coloring, since it's not only a viewer
+							but a Text Editor as well.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -1083,15 +1144,15 @@ SubWCRev.exe path\to\working\copy version.in version.h
 		<sect2 id="tsvn-faq-misc-7">
 			<title>I'm looking for an external merge tool</title>
 			<para>
-			This list is by no means complete, but might help 
-			you to find something: 
-			<itemizedlist>
+				This list is by no means complete, but might help 
+				you to find something: 
+				<itemizedlist>
 					<listitem>
 						<para>
 							<ulink url="http://winmerge.sourceforge.net/">
 								<citetitle>WinMerge</citetitle>
 							</ulink>,
-							a great open-source viewer
+							a great open-source viewer.
 						</para>
 					</listitem>
 					<listitem>
@@ -1119,7 +1180,7 @@ SubWCRev.exe path\to\working\copy version.in version.h
 							<ulink url="http://sourceforge.net/projects/conflicteditor/">
 								<citetitle>CvsConflictEditor</citetitle>
 							</ulink>,
-							buggy but has potential
+							buggy but has potential.
 						</para>
 					</listitem>
 				</itemizedlist>
@@ -1131,58 +1192,60 @@ SubWCRev.exe path\to\working\copy version.in version.h
 				<primary>Registry</primary>
 			</indexterm>
 			<para>
-			There are some registry settings for TortoiseSVN which aren't
-			available through the settings dialog. These registry settings
-			usually are for debugging purposes or very special occasions.
-			You can set those with the registry editor 
-			<command>regedt32</command>.
-			<variablelist>
+				There are some registry settings for TortoiseSVN which aren't
+				available through the settings dialog. These registry settings
+				usually are for debugging purposes or very special occasions.
+				You can set those with the registry editor 
+				<command>regedt32</command>.
+				<variablelist>
 					<varlistentry>
 						<term>HKCU\Software\TortoiseSVN\Debug</term>
 						<listitem>
 							<para>
-					Set this value to 1 for TortoiseSVN to show you the
-					parameters it gets from the shell extension part.
-					</para>
+								Set this value to 1 for TortoiseSVN to show you the
+								parameters it gets from the shell extension part.
+							</para>
 						</listitem>
 					</varlistentry>
 					<varlistentry>
 						<term>HKCU\Software\TortoiseSVN\OwnerdrawnMenus</term>
 						<listitem>
 							<para>
-					Set this value to 0 if you don't want TortoiseSVN to
-					use ownerdraw menu items in the shell context menu.
-					This helps if you use something else than the windows
-					explorer or if you get problems with the context menu
-					showing up.
-					</para>
+								Set this value to 0 if you don't want TortoiseSVN to
+								use ownerdraw menu items in the shell context menu.
+								This helps if you use something else than the windows
+								explorer or if you get problems with the context menu
+								showing up.
+							</para>
 							<para>
-					Set this value to 2 if you don't want TortoiseSVN to use
-					icons in the context menu at all. With this value set to 2
-					the context menu is text only.
-					</para>
+								Set this value to 2 if you don't want TortoiseSVN
+								to use icons in the context menu at all. With this
+								value set to 2 the context menu is text only.
+							</para>
 						</listitem>
 					</varlistentry>
 					<varlistentry>
 						<term>HKCU\Software\TortoiseSVN\BlockStatus</term>
 						<listitem>
 							<para>
-					If you don't want the explorer to update the status
-					overlays while another TortoiseSVN command is running
-					(e.g. an update, commit, ...) then set this value to 1.
-					</para>
+								If you don't want the explorer to update the status
+								overlays while another TortoiseSVN command is running
+								(e.g. an update, commit, ...) then set this value to 1.
+							</para>
 						</listitem>
 					</varlistentry>
 				</variablelist>
 			</para>
 			<para>
-			Please don't mess with those and any other registry setting if
-			you don't know <emphasis>exactly</emphasis> what you're doing!
+				Please don't mess with those and any other registry setting if
+				you don't know <emphasis>exactly</emphasis> what you're doing!
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-100">
 			<title>I love TortoiseSVN, how can I do something for the developers?</title>
-			<para>Thanks for asking!</para>
+			<para>
+				Thanks for asking!
+			</para>
 			<xi:include href="./wishlist.xml"/>
 		</sect2>
 	</sect1>

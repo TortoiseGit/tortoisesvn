@@ -21,6 +21,8 @@ if "%1"=="pdf" SET _PDF=ON
 if "%1"=="PDF" SET _PDF=ON
 if "%1"=="chm" SET _CHM=ON
 if "%1"=="CHM" SET _CHM=ON
+if "%1"=="single" SET _HTML=SINGLE
+if "%1"=="SINGLE" SET _HTML=SINGLE
 if "%1"=="html" SET _HTML=ON
 if "%1"=="HTML" SET _HTML=ON
 shift
@@ -134,15 +136,17 @@ if %_CHM%==ON (
   copy %_HTML_TARGET%\htmlhelp.chm %_HELP_TARGET%
 )
 
-if %_HTML%==ON (
+if not %_HTML%==OFF (
   echo ----------------------------------------------------------------------
   echo Generating Help as single HTML page
   del /q %_HTML_TARGET%
   copy %_DOC_CSS_HTML% %_HTML_TARGET% > NUL
   %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET%\help-onepage.html %_DOC_XSL_HTMLSINGLE% %_DOC_XML_SRC%
-  echo ----------------------------------------------------------------------
-  echo Generating Help as multiple HTML pages
-  %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HTMLCHUNK% %_DOC_XML_SRC%
+  if %_HTML%==ON (
+    echo ----------------------------------------------------------------------
+    echo Generating Help as multiple HTML pages
+    %_XSLTPROC% %_DOC_HTML_XSLTPROC_OPTS% --output %_HTML_TARGET% %_DOC_XSL_HTMLCHUNK% %_DOC_XML_SRC%
+  )
 )
 
 

@@ -10,6 +10,28 @@ your editor.
 
 Rules
 =====
+- Separate XML tags from content
+  In most cases, the XML tag should be included on a line by itself,
+  and the content should be indented, eg.
+  <para>
+  	Contents of the paragraph, which
+  	may span several lines or just one.
+  </para>
+  Some tags are only used for a few words, eg. <emphasis> and these
+  may be included inline. But please do not break such a tag over
+  a line boundary. eg <emphasis>NOT
+  </emphasis> like this.
+  
+- Use leading tabs, not spaces
+  Please set up your editor NOT to expand tabs to spaces. If anyone
+  else views the file with different tab settings it will look a mess.
+  Recommended tab setting for viewing is 4 spaces.
+
+- Avoid very long lines
+  Most of the files have kept line length to within 80 characters when
+  viewed at tabstop=4, although this is not rigidly adhered to. Using
+  very long lines just makes the file harder to read and edit.
+
 - Emphasis
   Don't use capitalization to emphasize,
   use <emphasis>Important</emphasis> instead
@@ -25,8 +47,13 @@ Rules
   Click on <guibutton>OK</guibutton> to continue
 
 - Gui Menus
-  If you want to say: "Select Commit from the TortoiseSVN menu", use the following markup:
-  Select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit</guimenuitem></menuchoice>
+  If you want to say: "Select Commit from the TortoiseSVN menu", use the following
+  markup, with layout shown:
+  Select
+  <menuchoice>
+  	<guimenu>TortoiseSVN</guimenu>
+  	<guimenuitem>Commit</guimenuitem>
+  </menuchoice>
 
 - Gui Labels / Fields
   If you want to say: "Select the URL from the URL Combobox", use the following markup:
@@ -36,20 +63,53 @@ Rules
   "Enter <literal>something</literal> to continue"
   "The <literal>svn:ignore</literal> property"
 
+- Typing on a command line is marked with <command> like:
+  "Enter <command>DIR/W</command> at the command prompt.
+
+- Multiline input/output or file content is marked using <screen>.
+  Note that any leading spaces are also included in the formatting,
+  so this text normally appears hard against the left margin in the
+  XML source file. The <screen> tag should also be left aligned. eg.
+  the content of the Apache config file is shown as follows:
+<screen>
+&lt;Location /svn&gt;
+DAV svn
+SVNParentPath D:\SVN
+AuthType Basic
+AuthName "Subversion repositories"
+AuthUserFile passwd
+#AuthzSVNAccessFile svnaccessfile
+Require valid-user
+&lt;/Location&gt;
+</screen>
+
 - Links:
-  Use ulink for external links <ulink url="http://svnbook.red-bean.com/">svn book</ulink>.
   Use this <xref linkend="tsvn-DUG-import-4"/> to reference internal sections.
+  Use ulink for external links. This should be formatted as
+  as shown below:
+  <ulink url="http://svnbook.red-bean.com/">
+  	<citetitle>SVN book</citetitle>
+  </ulink>.
 
 - Lists
   A list is declared with <itemizedlist> and a listitem with <listitem>
 
 - Mark Filenames with <filename>Hacking.txt</filename>
 
+- Mark URLS with <systemitem class="url">file:///C:/SVNRepository/</systemitem>
+
 - Mark application names with <application>TortoiseSVN</application>
   
 - Avoid quotes (" or ').
-  Use <literal> instead, because normally you refer to input or output text
+  Use <literal> instead, because normally you refer to input or output text.
+  If you really want to quote something, use <quote>Hello, world</quote>.
+  Using literal quote characters can cause 'overflow' errors during
+  formatting.
 
+- Don't use literal '<' and '>' marks
+  The XML interpreter will get confused as they look like tag chars.
+  Use &lt; for < and &gt; for >
+  
 Use the out of line info boxes:
 ===============================
 like:
@@ -59,7 +119,7 @@ like:
 <caution>
 <warning>
 
-if you want to imform the reader about something special.
+if you want to inform the reader about something special.
 
 Add To this Document
 ====================

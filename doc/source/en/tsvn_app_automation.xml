@@ -1,15 +1,16 @@
-﻿<appendix id="tsvn-automation">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<appendix id="tsvn-automation">
 	<title>Automating TortoiseSVN</title>
 	<simplesect>
 		<para>
-		Since all commands for TortoiseSVN are controlled through command
-		line parameters, you can automate it with batch scripts or start specific
-		commands and dialogs from other programs (e.g. your favourite text editor).
+			Since all commands for TortoiseSVN are controlled through command
+			line parameters, you can automate it with batch scripts or start specific
+			commands and dialogs from other programs (e.g. your favourite text editor).
 		</para>
 		<para>
-		For most use cases you might want to use the official Subversion command
-		line client to do automation. But if you want GUI dialogs for still
-		required user input or progress information you can use TortoiseSVN.
+			For most use cases you might want to use the official Subversion command
+			line client to do automation. But if you want GUI dialogs for still
+			required user input or progress information you can use TortoiseSVN.
 		</para>
 	</simplesect>
 	<!-- ================================================================= -->
@@ -17,41 +18,44 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-automation-basics">
 		<title>TortoiseSVN Commands</title>
-		<indexterm><primary>automation</primary></indexterm>
-		<indexterm><primary>command line</primary></indexterm>
-
+		<indexterm>
+			<primary>automation</primary>
+		</indexterm>
+		<indexterm>
+			<primary>command line</primary>
+		</indexterm>
 		<para>
-		All commands are specified with the parameter <option>/command:abcd</option>
-		where <literal>abcd</literal> is the required command name. Most of these
-		commands need at least one path argument, which is given with 
-		<option>/path:"some\path"</option>. In the following table the command 
-		refers to the <option>/command:abcd</option> parameter and the path
-		refers to the <option>/path:"some\path"</option> parameter.
+			All commands are specified with the parameter <option>/command:abcd</option>
+			where <literal>abcd</literal> is the required command name. Most of these
+			commands need at least one path argument, which is given with 
+			<option>/path:"some\path"</option>. In the following table the command 
+			refers to the <option>/command:abcd</option> parameter and the path
+			refers to the <option>/path:"some\path"</option> parameter.
 		</para>
 		<para>
-		Since some of the commands can take a list of target paths (e.g. committing
-		several specific files) the <option>/path</option> parameter can take
-		several paths, separated by a <literal>*</literal> character.
+			Since some of the commands can take a list of target paths (e.g. committing
+			several specific files) the <option>/path</option> parameter can take
+			several paths, separated by a <literal>*</literal> character.
 		</para>	
 		<para>
-		Since TortoiseSVN uses temporary files to pass multiple arguments between
-		the shell extension and the main program, you <emphasis>must</emphasis>
-		add the <option>/notempfile</option> parameter! If you don't, the command
-		won't work and the file you pass with the <option>/path</option> parameter
-		will be deleted!
+			Since TortoiseSVN uses temporary files to pass multiple arguments between
+			the shell extension and the main program, you <emphasis>must</emphasis>
+			add the <option>/notempfile</option> parameter! If you don't, the command
+			won't work and the file you pass with the <option>/path</option> parameter
+			will be deleted!
 		</para>
 		<para>
-		The progress dialog which is used for commits, updates and many more commands
-		usually stays open after the command has finished until the user presses
-		the <guibutton>OK</guibutton> button. This can be changed by checking
-		the corresponding option in the settings dialog. But using that setting
-		will close the progress dialog, no matter if you start the command
-		from your batchfile or from the TortoiseSVN context menu.
+			The progress dialog which is used for commits, updates and many more commands
+			usually stays open after the command has finished until the user presses
+			the <guibutton>OK</guibutton> button. This can be changed by checking
+			the corresponding option in the settings dialog. But using that setting
+			will close the progress dialog, no matter if you start the command
+			from your batchfile or from the TortoiseSVN context menu.
 		</para>
 		<para>
-		To close the progress dialog at the end of a command automatically without
-		using the permanent setting you can pass the <option>/closeonend</option>
-		parameter.
+			To close the progress dialog at the end of a command automatically without
+			using the permanent setting you can pass the <option>/closeonend</option>
+			parameter.
 		</para>
 		<para>
 			<table id="tsvn-automation-1-table">
@@ -61,194 +65,198 @@
 					<colspec colnum="2" colwidth="3*"/>
 					<thead>
 						<row>
-						<entry>Command</entry>
-						<entry>Description</entry>
+							<entry>Command</entry>
+							<entry>Description</entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>about</entry>
 							<entry>
-							Shows the About-dialog. This is also shown if no
-							command is given.
+								Shows the About-dialog. This is also shown if no
+								command is given.
 							</entry>
 						</row>
 						<row>
 							<entry>log</entry>
 							<entry>
-							Opens the log dialog. The path specifies the
-							file or folder for which the log should be shown.
-							Two additional options can be set: <option>/revstart:xxx</option>
-							and <option>/revend:xxx</option>.
+								Opens the log dialog. The path specifies the
+								file or folder for which the log should be shown.
+								Two additional options can be set:
+								<option>/revstart:xxx</option> and
+								<option>/revend:xxx</option>.
 							</entry>
 						</row>
 						<row>
 							<entry>checkout</entry>
 							<entry>
-							Opens the checkout dialog. The <option>/path</option> specifies the
-							target directory.
+								Opens the checkout dialog. The <option>/path</option>
+								specifies the target directory.
 							</entry>
 						</row>
 						<row>
 							<entry>import</entry>
 							<entry>
-							Opens the import dialog. The path specifies the
-							directory with the data to import.
+								Opens the import dialog. The path specifies
+								the directory with the data to import.
 							</entry>
 						</row>
 						<row>
 							<entry>update</entry>
 							<entry>
-							Updates the working copy in <option>/path</option> to
-							HEAD. If the option <option>/rev</option> is given
-							then a dialog is shown to ask the user to which
-							revision the update should go.
+								Updates the working copy in <option>/path</option> to
+								HEAD. If the option <option>/rev</option> is given
+								then a dialog is shown to ask the user to which
+								revision the update should go.
 							</entry>
 						</row>
 						<row>
 							<entry>commit</entry>
 							<entry>
-							Opens the commit dialog. The path specifies the
-							target directory or the list of files to commit.
-							You can also specify the /logmsg switch to pass
-							a predefined log message to the commit dialog.
+								Opens the commit dialog. The path specifies the
+								target directory or the list of files to commit.
+								You can also specify the /logmsg switch to pass
+								a predefined log message to the commit dialog.
 							</entry>
 						</row>
 						<row>
 							<entry>add</entry>
 							<entry>
-							Adds the files in <option>/path</option> to version
-							control.
+								Adds the files in <option>/path</option> to
+								version control.
 							</entry>
 						</row>
 						<row>
 							<entry>revert</entry>
 							<entry>
-							Reverts local modifications of a working copy.
-							The <option>/path</option> tells which items
-							to revert.
+								Reverts local modifications of a working copy.
+								The <option>/path</option> tells which items
+								to revert.
 							</entry>
 						</row>
 						<row>
 							<entry>cleanup</entry>
 							<entry>
-							Cleans up interrupted or aborted operations and unlocks
-							the working copy in <option>/path</option>.
+								Cleans up interrupted or aborted operations and
+								unlocks the working copy in <option>/path</option>.
 							</entry>
 						</row>
 						<row>
 							<entry>resolve</entry>
 							<entry>
-							Marks a conflicted file specified in <option>/path</option>
-							as resolved.
+								Marks a conflicted file specified in 
+								<option>/path</option> as resolved.
 							</entry>
 						</row>
 						<row>
 							<entry>repocreate</entry>
 							<entry>
-							Creates a repository in <option>/path</option>
+								Creates a repository in <option>/path</option>
 							</entry>
 						</row>
 						<row>
 							<entry>switch</entry>
 							<entry>
-							Opens the switch dialog. The path specifies the
-							target directory.
+								Opens the switch dialog. The path specifies the
+								target directory.
 							</entry>
 						</row>
 						<row>
 							<entry>export</entry>
 							<entry>
-							Exports the working copy in <option>/path</option>
-							to another directory. If the <option>/path</option>
-							points to an unversioned directory, a dialog will ask
-							for an URL to export to the dir in <option>/path</option>.
+								Exports the working copy in <option>/path</option>
+								to another directory. If the <option>/path</option>
+								points to an unversioned directory, a dialog will ask
+								for an URL to export to the dir in <option>/path</option>.
 							</entry>
 						</row>
 						<row>
 							<entry>merge</entry>
 							<entry>
-							Opens the merge dialog. The path specifies the
-							target directory.
+								Opens the merge dialog. The path specifies the
+								target directory.
 							</entry>
 						</row>
 						<row>
 							<entry>copy</entry>
 							<entry>
-							Brings up the branch/tag dialog. The <option>/path</option>
-							is the working copy to branch/tag from.
+								Brings up the branch/tag dialog.
+								The <option>/path</option>
+								is the working copy to branch/tag from.
 							</entry>
 						</row>
 						<row>
 							<entry>settings</entry>
 							<entry>
-							Opens the settings dialog.
+								Opens the settings dialog.
 							</entry>
 						</row>
 						<row>
 							<entry>remove</entry>
 							<entry>
-							Removes the file(s) in <option>/path</option> from
-							version control.
+								Removes the file(s) in <option>/path</option> from
+								version control.
 							</entry>
 						</row>
 						<row>
 							<entry>rename</entry>
 							<entry>
-							Renames the file in <option>/path</option>. The new
-							name for the file is asked with a dialog.
+								Renames the file in <option>/path</option>. The new
+								name for the file is asked with a dialog.
 							</entry>
 						</row>
 						<row>
 							<entry>diff</entry>
 							<entry>
-							Starts the external diff program specified in the
-							TortoiseSVN settings. The <option>/path</option>
-							specifies the first file. If the option <option>/path2</option>
-							is set, then the diff program is started with those
-							two files. If <option>/path2</option> is ommitted, then
-							the diff is done between the file in <option>/path</option>
-							and its BASE.
+								Starts the external diff program specified in the
+								TortoiseSVN settings. The <option>/path</option>
+								specifies the first file.
+								If the option <option>/path2</option>
+								is set, then the diff program is started with those
+								two files. If <option>/path2</option> is ommitted,
+								then the diff is done between the file in
+								<option>/path</option> and its BASE.
 							</entry>
 						</row>
 						<row>
 							<entry>conflicteditor</entry>
 							<entry>
-							Starts the conflicteditor specified in the TortoiseSVN
-							settings with the correct files for the conflicted
-							file in <option>/path</option>.
+								Starts the conflicteditor specified in the TortoiseSVN
+								settings with the correct files for the conflicted
+								file in <option>/path</option>.
 							</entry>
 						</row>
 						<row>
 							<entry>relocate</entry>
 							<entry>
-							Opens the relocate dialog. The <option>/path</option>
-							specifies the working copy path to relocate.
+								Opens the relocate dialog. The <option>/path</option>
+								specifies the working copy path to relocate.
 							</entry>
 						</row>
 						<row>
 							<entry>help</entry>
 							<entry>
-							Opens the help file.
+								Opens the help file.
 							</entry>
 						</row>
 						<row>
 							<entry>repostatus</entry>
 							<entry>
-							Opens the check-for-updates dialog. The path specifies the
-							working copy directory.
+								Opens the check-for-updates dialog. The path
+								specifies the working copy directory.
 							</entry>
 						</row>
 						<row>
 							<entry>repobrowser</entry>
 							<entry>
-							Starts the repository browser dialog, pointing to
-							the URL of the working copy given in <option>/path</option>
-							or <option>/path</option> points directly to an URL.
-							An additional option <option>/rev:xxx</option> can
-							be used to specify the revision which the repository
-							browser should show. If the <option>/rev:xxx</option>
-							is ommitted, it defaults to HEAD.
+								Starts the repository browser dialog, pointing to
+								the URL of the working copy given in
+								<option>/path</option> or <option>/path</option>
+								points directly to an URL.
+								An additional option <option>/rev:xxx</option> can
+								be used to specify the revision which the repository
+								browser should show. If the <option>/rev:xxx</option>
+								is omitted, it defaults to HEAD.
 							</entry>
 						</row>
 						<row>
@@ -262,25 +270,25 @@
 						<row>
 							<entry>blame</entry>
 							<entry>
-							Opens the blame dialog for the file specified 
-							in <option>/path</option>.
+								Opens the blame dialog for the file specified 
+								in <option>/path</option>.
 							</entry>
 						</row>
 						<row>
 							<entry>cat</entry>
 							<entry>
-							Saves a file from an URL or working copy path given
-							in <option>/path</option> to the location given in
-							<option>/savepath:path</option>. The revision is
-							given in <option>/revision:xxx</option>. This can
-							be used to get a file with a specific revision.
+								Saves a file from an URL or working copy path given
+								in <option>/path</option> to the location given in
+								<option>/savepath:path</option>. The revision is
+								given in <option>/revision:xxx</option>. This can
+								be used to get a file with a specific revision.
 							</entry>
 						</row>
 						<row>
 							<entry>createpatch</entry>
 							<entry>
-							Creates a patch file for the path given in
-							<option>/path</option>.
+								Creates a patch file for the path given in
+								<option>/path</option>.
 							</entry>
 						</row>
 					</tbody>
@@ -288,11 +296,15 @@
 			</table>
 		</para>
 		<para>
-		Examples:
+			Examples (which should be entered on one line):
 <screen>
-TortoiseProc.exe /command:commit /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt" /logmsg:"test log message" /notempfile /closeonend
+TortoiseProc.exe /command:commit /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt"
+                 /logmsg:"test log message" /notempfile /closeonend
+
 TortoiseProc.exe /command:update /path:"c:\svn_wc\" /notempfile /closeonend
-TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt" /revstart:50 /revend:60 /notempfile /closeonend
+
+TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
+                 /revstart:50 /revend:60 /notempfile /closeonend
 </screen>
 		</para>
 	</sect1>
