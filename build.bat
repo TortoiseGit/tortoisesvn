@@ -72,32 +72,44 @@ del build\generator\vcnet_sln7.ezt
 if %_DEBUG%==ON (
   rem first, compile without any network/repository support
   ren subversion\svn_private_config.h  svn_private_config_copy.h
+  ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
+  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q Debug > NUL
   devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__"
   ren Debug\subversion subversion_netless
   del subversion\svn_private_config.h
+  del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
+  ren subversion\svn_private_config_copy.hw svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /build debug /project "__ALL__")
 if %_RELEASE%==ON (
   rem first, compile without any network/repository support
   ren subversion\svn_private_config.h  svn_private_config_copy.h
+  ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
+  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q Release > NUL
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
   ren Release\subversion subversion_netless
   del subversion\svn_private_config.h
+  del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
+  ren subversion\svn_private_config_copy.hw svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
 ) else if %_RELEASE_MBCS%==ON (
   rem first, compile without any network/repository support
   ren subversion\svn_private_config.h  svn_private_config_copy.h
+  ren subversion\svn_private_config.hw  svn_private_config_copy.hw
   copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.h
+  copy ..\TortoiseSVN\svn_private_config.h subversion\svn_private_config.hw
   rmdir /s /q Release > NUL
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__"
   ren Release\subversion subversion_netless
   del subversion\svn_private_config.h
+  del subversion\svn_private_config.hw
   ren subversion\svn_private_config_copy.h svn_private_config.h
+  ren subversion\svn_private_config_copy.hw svn_private_config.hw
   devenv subversion_vcnet.sln /useenv /build release /project "__ALL__")
 @echo off
 rem TortoiseSVN
