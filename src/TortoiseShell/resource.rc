@@ -58,6 +58,7 @@ IDI_REPOBROWSE          ICON                    "..\\Resources\\menurepobrowse.i
 IDI_BLAME               ICON                    "..\\Resources\\menublame.ico"
 IDI_PATCH               ICON                    "..\\Resources\\menupatch.ico"
 IDI_CREATEPATCH         ICON                    "..\\Resources\\menudiff.ico"
+IDI_REVISIONGRAPH       ICON                    "..\\Resources\\menurevisiongraph.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -320,6 +321,9 @@ BEGIN
     IDS_ERR_PROPNOTONFILE   "This property is only allowed on folders, not files."
     IDS_MENUIGNOREMULTIPLE  "Ignore %d items"
     IDS_ERR_PROPNOMULTILINE "This property must not have multiple lines. Only one line is allowed."
+    IDS_MENUREVISIONGRAPH   "Revision Graph"
+    IDS_MENUDESCREVISIONGRAPH 
+                            "Shows a graphical representation of copies/tags/branches"
 END
 
 #endif    // English (U.S.) resources

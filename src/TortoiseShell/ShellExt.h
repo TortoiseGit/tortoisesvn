@@ -121,7 +121,8 @@ protected:
 		RepoBrowse,
 		Blame,
 		ApplyPatch,
-		CreatePatch
+		CreatePatch,
+		RevisionGraph
 	};
 
 	FileState m_State;

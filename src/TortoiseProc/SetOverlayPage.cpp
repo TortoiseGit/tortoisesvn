@@ -160,6 +160,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 	InsertItem(IDS_MENUDIFF, IDI_DIFF, MENUDIFF);
 	InsertItem(IDS_MENULOG, IDI_LOG, MENULOG);
 	InsertItem(IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, MENUSHOWCHANGED);
+	InsertItem(IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, MENUREVISIONGRAPH);
 	InsertItem(IDS_MENUREPOBROWSE, IDI_REPOBROWSE, MENUREPOBROWSE);
 	InsertItem(IDS_MENUCONFLICT, IDI_CONFLICT, MENUCONFLICTEDITOR);
 	InsertItem(IDS_MENURESOLVE, IDI_RESOLVE, MENURESOLVE);
@@ -281,6 +282,7 @@ void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *pRes
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFF : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENULOG : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSHOWCHANGED : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREVISIONGRAPH : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREPOBROWSE : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCONFLICTEDITOR : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURESOLVE : 0;

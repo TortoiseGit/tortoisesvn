@@ -499,6 +499,8 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREPOBROWSE), HMENU(MENUREPOBROWSE), INDEXMENU(MENUREPOBROWSE), idCmd++, IDS_MENUREPOBROWSE, IDI_REPOBROWSE, idCmdFirst, RepoBrowse);
 	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUSHOWCHANGED), HMENU(MENUSHOWCHANGED), INDEXMENU(MENUSHOWCHANGED), idCmd++, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, idCmdFirst, ShowChanged);
+	if (((isInSVN)&&(isOnlyOneItemSelected)&&(!isAdded))||((isFolder)&&(isFolderInSVN)&&(!isAdded)))
+		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVISIONGRAPH), HMENU(MENUREVISIONGRAPH), INDEXMENU(MENUREVISIONGRAPH), idCmd++, IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, idCmdFirst, RevisionGraph);
 
 	//---- separator 
 	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
@@ -989,6 +991,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						} // if (CreateProcess(tortoiseMergePath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0) 
 						return NOERROR;
 						break;
+					case RevisionGraph:
+						svnCmd += _T("revisiongraph /path:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
 					default:
 						break;
 					//#endregion
@@ -1128,6 +1138,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			break;
 		case CreatePatch:
 			MAKESTRING(IDS_MENUDESCCREATEPATCH);
+			break;
+		case RevisionGraph:
+			MAKESTRING(IDS_MENUDESCREVISIONGRAPH);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1501,6 +1514,12 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			resource = MAKEINTRESOURCE(IDI_CREATEPATCH);
 			SETSPACE(MENUCREATEPATCH);
 			PREPENDSVN(MENUCREATEPATCH);
+			break;
+		case RevisionGraph:
+			MAKESTRING(IDS_MENUREVISIONGRAPH);
+			resource = MAKEINTRESOURCE(IDI_REVISIONGRAPH);
+			SETSPACE(MENUREVISIONGRAPH);
+			PREPENDSVN(MENUREVISIONGRAPH);
 			break;
 		default:
 			return NULL;

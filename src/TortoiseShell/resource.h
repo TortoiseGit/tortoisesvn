@@ -143,6 +143,8 @@
 #define IDS_ERR_PROPNOTONFILE           230
 #define IDS_MENUIGNOREMULTIPLE          231
 #define IDS_ERR_PROPNOMULTILINE         232
+#define IDS_MENUREVISIONGRAPH           233
+#define IDS_MENUDESCREVISIONGRAPH       234
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -164,12 +166,14 @@
 #define IDI_BLAME                       5146
 #define IDI_PATCH                       5147
 #define IDI_CREATEPATCH                 5150
+#define IDI_ICON1                       5151
+#define IDI_REVISIONGRAPH               5151
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5151
+#define _APS_NEXT_RESOURCE_VALUE        5152
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11019
 #define _APS_NEXT_SYMED_VALUE           5101
