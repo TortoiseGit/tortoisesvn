@@ -132,7 +132,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC,7,7,286,66
     LTEXT           "&URL of repository:",IDC_STATIC,13,18,80,8
-    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN |
+    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,28,14,14
     LTEXT           "&Checkout directory:",IDC_EXPORT_CHECKOUTDIR,13,42,80,8
@@ -160,7 +160,7 @@ BEGIN
     EDITTEXT        IDC_FROMURL,13,28,255,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     LTEXT           "To &URL:",IDC_STATIC,13,42,80,8
-    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN |
+    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,52,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,52,14,14
     GROUPBOX        "Log Message",IDC_STATIC,7,78,286,71
@@ -178,7 +178,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Repository",IDC_STATIC1,7,7,286,43
     LTEXT           "&URL of repository:",IDC_STATIC4,13,18,80,8
-    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN |
+    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,13,28,255,64
     PUSHBUTTON      "...",IDC_BROWSE,273,28,14,14
     GROUPBOX        "Import &Message",IDC_STATIC2,7,55,286,78
@@ -240,7 +240,7 @@ CAPTION "Merge"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "&Merge current branch with:",IDC_STATIC,7,7,132,8
-    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN |
+    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,16,268,64
     PUSHBUTTON      "...",IDC_BROWSE,279,16,14,14
     GROUPBOX        "&From Revision",IDC_STATIC,7,35,123,46
@@ -286,7 +286,7 @@ BEGIN
     EDITTEXT        IDC_FROMURL,7,17,268,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     LTEXT           "To &URL:",IDC_STATIC,7,31,70,8
-    CONTROL         "",IDC_TOURL,"ComboBoxEx32",CBS_DROPDOWN |
+    CONTROL         "",IDC_TOURL,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,44,268,57
     PUSHBUTTON      "...",IDC_BROWSE,279,42,14,14
     DEFPUSHBUTTON   "&OK",IDOK,186,68,50,14
@@ -427,7 +427,7 @@ CAPTION "Switch To Branch / Tag"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "To &URL: ",IDC_STATIC,7,10,44,8
-    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN |
+    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,7,20,268,53
     PUSHBUTTON      "...",IDC_BROWSE,279,20,14,14
     GROUPBOX        "Revision",IDC_STATIC,7,47,286,51
@@ -587,7 +587,7 @@ BEGIN
     LTEXT           "URL:",IDC_LABEL,7,14,35,8
     DEFPUSHBUTTON   "&OK",IDOK,120,34,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,177,34,50,14
-    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN |
+    CONTROL         "",IDC_URLCOMBO,"ComboBoxEx32",CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,49,12,178,66
 END
 
@@ -1027,7 +1027,7 @@ BEGIN
     IDS_PROC_DELETE_CONFIRM "Are you sure you want to delete the selected files?\n<hr=100%>\nPlease note: if you have modified files, <b>those modification will be lost</b>.\nUnversioned items will be deleted too!"
     IDS_PROC_OVERWRITE_CONFIRM 
                             "The file\n%s\nalready exists! Do you want to overwrite it?"
-    IDS_PROC_REPOCREATEFINISHED "TheRepository was successfully created."
+    IDS_PROC_REPOCREATEFINISHED "The Repository was successfully created."
     IDS_PROC_RELOCATEFINISHED "Working copy relocated to\n%s"
     IDS_PROC_MOVING         "Moving..."
     IDS_PROC_RELOCATING     "Relocating..."
