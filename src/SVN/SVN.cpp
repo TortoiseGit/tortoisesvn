@@ -1196,8 +1196,11 @@ CString SVN::GetRepositoryRoot(CString url)
 	{
 		if (!Ls(findUrl, -1, dummyarray))
 		{
-			return retUrl;
-		}
+			//maybe it was a file?
+			//try again before giving up
+			if (!Ls(findUrl.Left(pos), -1, dummyarray))
+				return retUrl;
+		} // if (!Ls(findUrl, -1, dummyarray)) 
 		retUrl = findUrl;
 		findUrl = findUrl.Left(pos);
 	} // while ((pos = findUrl.ReverseFind('/'))>=0) 
