@@ -308,7 +308,7 @@ BOOL CUtils::StartTextViewer(CString file)
 	else
 	{
 		viewer += _T(" ");
-		viewer += file;
+		viewer += _T("\"")+file+_T("\"");
 	}
 
 	STARTUPINFO startup;
