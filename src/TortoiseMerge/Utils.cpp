@@ -36,7 +36,13 @@ BOOL CUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath
 		// no path set, so use TortoiseSVN as default
 		sSCMPath = CRegString(_T("Software\\TortoiseSVN\\ProcPath"), _T(""), false, HKEY_LOCAL_MACHINE);
 		if (sSCMPath.IsEmpty())
-			return FALSE;
+		{
+			TCHAR pszSCMPath[MAX_PATH];
+			GetModuleFileName(NULL, pszSCMPath, MAX_PATH);
+			sSCMPath = pszSCMPath;
+			sSCMPath = sSCMPath.Left(sSCMPath.ReverseFind('\\'));
+			sSCMPath += _T("\\TortoiseProc.exe");
+		}
 		sSCMPath += _T(" /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4");
 	} // if (sSCMPath.IsEmpty()) 
 	CString sTemp;
