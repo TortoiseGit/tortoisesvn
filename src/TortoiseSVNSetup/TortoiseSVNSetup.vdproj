@@ -69,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_071DC6D82E634B69929E3A9319C98E62"
+        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_074CCB1146CC439AA7B985494C057C69"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -291,12 +297,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_33C99DC957C34B31902FDA02462CD829"
-        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_355C5193EC74451C934A878E14F37B73"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -341,24 +341,6 @@
         {
         "MsmKey" = "8:_36FC747746D04FF08473A73304CA7709"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_372DB2AB3265411DA33422F03AA5A4BD"
-        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_372DB2AB3265411DA33422F03AA5A4BD"
-        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_372DB2AB3265411DA33422F03AA5A4BD"
-        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -923,6 +905,24 @@
         {
         "MsmKey" = "8:_9047685290644EB78580F77236ABC2C4"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_90A87CF496FE4E6E9D5083FFA7969647"
+        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_90A87CF496FE4E6E9D5083FFA7969647"
+        "OwnerKey" = "8:_586B27263A3F4251A7A37B65A2555826"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_90A87CF496FE4E6E9D5083FFA7969647"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1619,6 +1619,24 @@
         {
         "MsmKey" = "8:_FDB1D302722541FE94E15D915F52687E"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1CAF7E852D7047818E58744E15B047FD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_332B62BB24F24A34B41AFE6A5CD70217"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -6654,350 +6672,6 @@
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
-                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_215E78A4D27A489196F79FB0FC357BE5"
-                            {
-                            "Name" = "8:Classes"
-                            "Condition" = "8:"
-                            "AlwaysCreate" = "11:FALSE"
-                            "DeleteAtUninstall" = "11:FALSE"
-                            "Transitive" = "11:FALSE"
-                                "Keys"
-                                {
-                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_B3A4EF0E3AB044B8A87E74F086FA4B8C"
-                                    {
-                                    "Name" = "8:CLSID"
-                                    "Condition" = "8:"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "DeleteAtUninstall" = "11:FALSE"
-                                    "Transitive" = "11:FALSE"
-                                        "Keys"
-                                        {
-                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_0D0E32B916A443A3A37F4BF61B624DC7"
-                                            {
-                                            "Name" = "8:{C0351346-7B7D-4fcc-81B4-1E394CA267EB}"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_FF4FE2DA2CF84832A26DFC7028C8D911"
-                                                    {
-                                                    "Name" = "8:InProcServer32"
-                                                    "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
-                                                    "Transitive" = "11:FALSE"
-                                                        "Keys"
-                                                        {
-                                                        }
-                                                        "Values"
-                                                        {
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_AE61751F83A243ABACF92BF3F87B3C79"
-                                                            {
-                                                            "Name" = "8:ThreadingModel"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:Apartment"
-                                                            }
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_BFCF545E33DC4673A6AFDC146E8D1B2C"
-                                                            {
-                                                            "Name" = "8:"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:[TARGETDIR]tortoisesvn.dll"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                "Values"
-                                                {
-                                                    "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_5DC1C9088BDC462DB3D3E626AAB21DB9"
-                                                    {
-                                                    "Name" = "8:"
-                                                    "Condition" = "8:"
-                                                    "Transitive" = "11:FALSE"
-                                                    "ValueTypes" = "3:1"
-                                                    "Value" = "8:TortoiseSVN"
-                                                    }
-                                                }
-                                            }
-                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_449D5AFC9B014527AB1EC343B6F24570"
-                                            {
-                                            "Name" = "8:{C0351349-7B7D-4fcc-81B4-1E394CA267EB}"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_6C56266025D145808E473121CB5817C8"
-                                                    {
-                                                    "Name" = "8:InProcServer32"
-                                                    "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
-                                                    "Transitive" = "11:FALSE"
-                                                        "Keys"
-                                                        {
-                                                        }
-                                                        "Values"
-                                                        {
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_0D2EEE4D488047FC892781BCBDE1A19F"
-                                                            {
-                                                            "Name" = "8:"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:[TARGETDIR]tortoisesvn.dll"
-                                                            }
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_7BBCC3D1D1714C2095352A11F378AC8B"
-                                                            {
-                                                            "Name" = "8:ThreadingModel"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:Apartment"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                "Values"
-                                                {
-                                                }
-                                            }
-                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_4A8B9ADA6F6446E986842B0E2CBE6240"
-                                            {
-                                            "Name" = "8:{C035134C-7B7D-4fcc-81B4-1E394CA267EB}"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_7330993E0EBE4F998235BCA9ED26396E"
-                                                    {
-                                                    "Name" = "8:InProcServer32"
-                                                    "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
-                                                    "Transitive" = "11:FALSE"
-                                                        "Keys"
-                                                        {
-                                                        }
-                                                        "Values"
-                                                        {
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_19618F72A42742A2A28F7E3A621E506F"
-                                                            {
-                                                            "Name" = "8:"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:[TARGETDIR]tortoisesvn.dll"
-                                                            }
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_F847AA4BC7C844A99AA5B9AD74AD472D"
-                                                            {
-                                                            "Name" = "8:ThreadingModel"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:Apartment"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                "Values"
-                                                {
-                                                }
-                                            }
-                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_62A351D29ECE41979F6EF1FB8C400142"
-                                            {
-                                            "Name" = "8:{C0351347-7B7D-4fcc-81B4-1E394CA267EB}"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_8B7648DFC2C04259A59E9BD0E2385AED"
-                                                    {
-                                                    "Name" = "8:InProcServer32"
-                                                    "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
-                                                    "Transitive" = "11:FALSE"
-                                                        "Keys"
-                                                        {
-                                                        }
-                                                        "Values"
-                                                        {
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_757F030EC3CF469E84417A2DC8C33331"
-                                                            {
-                                                            "Name" = "8:"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:[TARGETDIR]tortoisesvn.dll"
-                                                            }
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_CE64259C149F4063A1B5D4995EB070C8"
-                                                            {
-                                                            "Name" = "8:ThreadingModel"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:Apartment"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                "Values"
-                                                {
-                                                }
-                                            }
-                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_7C28C9665D524A14A711FEB4959ADEFC"
-                                            {
-                                            "Name" = "8:{C0351348-7B7D-4fcc-81B4-1E394CA267EB}"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_0AEAEEF25FBF4907A3410BD57D5F7684"
-                                                    {
-                                                    "Name" = "8:InProcServer32"
-                                                    "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
-                                                    "Transitive" = "11:FALSE"
-                                                        "Keys"
-                                                        {
-                                                        }
-                                                        "Values"
-                                                        {
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_DC2BDB214232486ABD45F96DB007F29D"
-                                                            {
-                                                            "Name" = "8:"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:[TARGETDIR]tortoisesvn.dll"
-                                                            }
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_F73663A534F44263A9496CF189A71DFF"
-                                                            {
-                                                            "Name" = "8:ThreadingModel"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:Apartment"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                "Values"
-                                                {
-                                                }
-                                            }
-                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_992034D15BDD4435A92EAA34954B8AAB"
-                                            {
-                                            "Name" = "8:{C035134B-7B7D-4fcc-81B4-1E394CA267EB}"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_4FF3121864874C26AA7CDB9032485871"
-                                                    {
-                                                    "Name" = "8:InProcServer32"
-                                                    "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
-                                                    "Transitive" = "11:FALSE"
-                                                        "Keys"
-                                                        {
-                                                        }
-                                                        "Values"
-                                                        {
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_7A0558C4DD7E4743BE4BFAA00977330A"
-                                                            {
-                                                            "Name" = "8:"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:[TARGETDIR]tortoisesvn.dll"
-                                                            }
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_F0F608BBE5C34590BFCCA9AB307A3298"
-                                                            {
-                                                            "Name" = "8:ThreadingModel"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:Apartment"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                "Values"
-                                                {
-                                                }
-                                            }
-                                            "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_B00FF18111C5437AAE80152FFA088AD2"
-                                            {
-                                            "Name" = "8:{C035134A-7B7D-4fcc-81B4-1E394CA267EB}"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                    "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_44881F7C7A144AE195BD57DF8BCE9FD4"
-                                                    {
-                                                    "Name" = "8:InProcServer32"
-                                                    "Condition" = "8:"
-                                                    "AlwaysCreate" = "11:FALSE"
-                                                    "DeleteAtUninstall" = "11:FALSE"
-                                                    "Transitive" = "11:FALSE"
-                                                        "Keys"
-                                                        {
-                                                        }
-                                                        "Values"
-                                                        {
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_7C90B84AE0A34392B8C9625D745D34A1"
-                                                            {
-                                                            "Name" = "8:ThreadingModel"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:Apartment"
-                                                            }
-                                                            "{35AE352C-BC79-4EF9-ABD8-61F467188583}:_823014DB40BA4C619E59A6F6B9511349"
-                                                            {
-                                                            "Name" = "8:"
-                                                            "Condition" = "8:"
-                                                            "Transitive" = "11:FALSE"
-                                                            "ValueTypes" = "3:1"
-                                                            "Value" = "8:[TARGETDIR]tortoisesvn.dll"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                                "Values"
-                                                {
-                                                }
-                                            }
-                                        }
-                                        "Values"
-                                        {
-                                        }
-                                    }
-                                }
-                                "Values"
-                                {
-                                }
-                            }
                             "{6A471EEF-D31B-40F8-BCF6-C9E8EC783F36}:_A6FA21E4BECF476FA96FCDBDB59140C5"
                             {
                             "Name" = "8:[Manufacturer]"
@@ -8886,7 +8560,7 @@
         }
         "MergeModule"
         {
-            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_33C99DC957C34B31902FDA02462CD829"
+            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_071DC6D82E634B69929E3A9319C98E62"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -8900,7 +8574,7 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_372DB2AB3265411DA33422F03AA5A4BD"
+            "{35A69C6E-5BA4-440D-803D-762B59A45393}:_90A87CF496FE4E6E9D5083FFA7969647"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -8919,7 +8593,7 @@
         {
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_1CAF7E852D7047818E58744E15B047FD"
             {
-            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseSVN.dll"
+            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseSVN.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8947,7 +8621,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_332B62BB24F24A34B41AFE6A5CD70217"
             {
-            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseProc.exe"
+            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseProc.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -8975,7 +8649,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_47FB14D99868470FB43FAFED607CA3D7"
             {
-            "SourcePath" = "8:..\\..\\bin\\Release\\TortoisePlink.exe"
+            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoisePlink.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
@@ -9031,7 +8705,7 @@
             }
             "{8062640A-2EEE-46E9-AB67-688E9A886E9F}:_A3CB2406496C4E81A282159CE2264781"
             {
-            "SourcePath" = "8:..\\..\\bin\\Release\\TortoiseMerge.exe"
+            "SourcePath" = "8:..\\..\\bin\\Debug\\TortoiseMerge.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_F9F601A1AF234792BFB9B321FC1D35CE"
