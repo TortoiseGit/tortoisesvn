@@ -21,6 +21,9 @@
 #include "registry.h"
 #define MAX_LOADSTRING 100
 
+#pragma warning(push)
+#pragma warning(disable:4127)		// conditional expression is constant
+
 // Global Variables:
 TCHAR szTitle[MAX_LOADSTRING];					// The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];			// the main window class name
@@ -252,7 +255,11 @@ void TortoiseBlame::InitialiseEditor()
 		((stdstring)(CRegStdString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")))).c_str());
 	SendEditor(SCI_SETTABWIDTH, (DWORD)CRegStdWORD(_T("Software\\TortoiseMerge\\TabSize"), 4));
 	SendEditor(SCI_SETREADONLY, TRUE);
-	SendEditor(SCI_SETMARGINWIDTHN, 0);
+	int pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)_T("_99999"));
+	if (ShowLine)
+		SendEditor(SCI_SETMARGINWIDTHN, 0, pix);
+	else
+		SendEditor(SCI_SETMARGINWIDTHN, 0);
 	SendEditor(SCI_SETMARGINWIDTHN, 1);
 	SendEditor(SCI_SETMARGINWIDTHN, 2);
 }
@@ -315,13 +322,6 @@ LONG TortoiseBlame::GetBlameWidth()
 		}
 		m_authorwidth = maxwidth.cx + BLAMESPACE;
 		blamewidth += m_authorwidth;
-	}
-	if (ShowLine)
-	{
-		_stprintf(buf, _T("%6ld"), 888888);
-		::GetTextExtentPoint(hDC, buf, _tcslen(buf), &width);
-		m_linewidth = width.cx + BLAMESPACE / 2;
-		blamewidth += m_linewidth;
 	}
 	::SelectObject(hDC, oldfont);
 	POINT pt = {blamewidth, 0};
@@ -402,12 +402,6 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				_stprintf(buf, _T("%-30s            "), authors[i].c_str());
 				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 				Left += m_authorwidth;
-			}
-			if (ShowLine)
-			{
-				_stprintf(buf, _T("%6ld       "), i + 1);
-				rc.right = rc.left + Left + m_linewidth;
-				::ExtTextOut(hDC, Left, Y, ETO_CLIPPED, &rc, buf, _tcslen(buf), 0);
 			}
 			Y += heigth;
 		}
@@ -878,3 +872,4 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	return 0;
 }
 
+#pragma warning(pop)
