@@ -1086,7 +1086,7 @@ CString SVN::GetPristinePath(CString wcPath)
 		return temp;
 	}
 	if (pristinePath != NULL)
-		temp = CString(pristinePath);
+		temp = CUnicodeUtils::GetUnicode(pristinePath);
 	svn_pool_destroy(localpool);
 	apr_terminate();
 	return temp;
