@@ -78,10 +78,10 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 		case 1:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
 			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
+			psci->vt = VT_UI4;
 			psci->fmt = LVCFMT_RIGHT;
 			psci->cChars = 15;
-			psci->csFlags = ColumnFlags;
+			psci->csFlags = SHCOLSTATE_TYPE_INT | SHCOLSTATE_ONBYDEFAULT;
 
 			MAKESTRING(IDS_COLTITLEREV);
 #ifdef UNICODE
@@ -209,28 +209,13 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 					if (columnrev >= 0)
 					{
-						// First, have to convert the revision number into a string.
-						// Allocate a "sufficient" number of bytes for that.
-						// (3 decimals per 8 bits + 1 for the trailing \0)
-
-						TCHAR plainNumber[sizeof(columnrev)* 3 + 1];
-						_i64tot (columnrev, plainNumber, 10);
-
-						if (GetNumberFormat (LOCALE_USER_DEFAULT, 0, 
-											 plainNumber, g_ShellCache.GetNumberFmt(), 
-											 buf, MAX_PATH) != 0)
-						{
-							// output:
-							// write leading spaces followed by the previously formatted number string
-							size_t spacesToAdd = max(0, (int)MAX_REV_STRING_LEN - (int)_tcslen (buf));
-							stdstring spaces = stdstring(spacesToAdd, _T(' ')) + buf;
-							std::swap (szInfo, spaces);
-						}
-						// else: szInfo simply remains empty
+						V_VT(pvarData) = VT_UI4;
+						V_I4(pvarData) = columnrev;
 					}
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 
 				ReleaseMutex(hMutex);
+				return S_OK;
 				break;
 			case 2:
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
