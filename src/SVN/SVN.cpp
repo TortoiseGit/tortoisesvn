@@ -509,9 +509,13 @@ BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force,
 					maxval++;
 			}
 			CDirFileEnum lister2(srcPath);
+			CString sSVN_ADMIN_DIR = _T("\\");
+			sSVN_ADMIN_DIR += _T(SVN_WC_ADM_DIR_NAME);
+			sSVN_ADMIN_DIR += _T("\\");
 			while (lister2.NextFile(srcfile, NULL))
 			{
-				if (srcfile.Find(_T(SVN_WC_ADM_DIR_NAME))>=0)
+				
+				if ((srcfile.Find(sSVN_ADMIN_DIR+_T("\\"))>=0)||(srcfile.Right(sSVN_ADMIN_DIR.GetLength()).Compare(sSVN_ADMIN_DIR)==0))
 					continue;	// exclude everything inside an admin directory
 				current++;
 				CString destination = destPath + _T("\\") + srcfile.Mid(srcPath.GetLength());
