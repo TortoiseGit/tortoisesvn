@@ -126,7 +126,7 @@ CString SVN::CheckConfigFile()
 
 BOOL SVN::Cancel() {return FALSE;};
 BOOL SVN::Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev) {return TRUE;};
-BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges) {return TRUE;};
+BOOL SVN::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges, BOOL copies) {return TRUE;};
 BOOL SVN::BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line) {return TRUE;}
 #pragma warning(pop)
 
@@ -1103,6 +1103,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 
 	msg_native = CUnicodeUtils::GetUnicode(msg);
 	int filechanges = 0;
+	BOOL copies = FALSE;
 	try
 	{
 		if (ch_paths)
@@ -1151,6 +1152,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 					CString copyfromrev;
 					copyfromrev.Format(_T(" (from %s:%ld)"), copyfrompath, log_item->copyfrom_rev);
 					cpaths += copyfromrev;
+					copies = TRUE;
 				}
 			} // for (int i = 0; i < sorted_paths->nelts; i++) 
 		} // if (ch_paths)
@@ -1166,7 +1168,7 @@ svn_error_t* SVN::logReceiver(void* baton,
 	SVN_ERR (svn->cancel(baton));
 #pragma warning(pop)
 
-	if (svn->Log(rev, author_native, date_native, msg_native, cpaths, time_temp, filechanges))
+	if (svn->Log(rev, author_native, date_native, msg_native, cpaths, time_temp, filechanges, copies))
 	{
 		return error;
 	}

@@ -287,7 +287,7 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
-BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges)
+BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges, BOOL copies)
 {
 	LONG ticks = GetTickCount();
 	CString temp;
@@ -307,6 +307,7 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 	m_arDates.Add((DWORD)ttime);
 	m_arAuthors.Add(author);
 	m_arFileChanges.Add(filechanges);
+	m_arCopies.Add(copies);
 	// Add as many characters from the log message to the list control
 	// so it has a fixed width. If the log message is longer than
 	// this predefined fixed with, add "..." as an indication.
@@ -1635,9 +1636,9 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-		if (m_arLogPaths.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		if (m_arCopies.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
-			if (m_arLogPaths.GetAt(pLVCD->nmcd.dwItemSpec).Find(_T("(from "))>=0)
+			if (m_arCopies.GetAt(pLVCD->nmcd.dwItemSpec))
 				crText = GetSysColor(COLOR_HIGHLIGHT);
 
 			// Store the color back in the NMLVCUSTOMDRAW struct.
