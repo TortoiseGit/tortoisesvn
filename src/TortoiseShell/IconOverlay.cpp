@@ -168,72 +168,81 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	const TCHAR* pPath = snPath.c_str();
 #endif
 
-	//if recursive is set in the registry then check directories recursive for status and show
-	//the overlay with the highest priority on the folder.
-	//since this can be slow for big directories it is optional - but very neat
-
-	if(g_ShellCache.UseExternalCache())
+	// since the shell calls each and every overlay handler with the same filepath
+	// we use a small 'fast' cache of just one path here.
+	// To make sure that cache expires, clear it as soon as one handler is used.
+	if (_tcscmp(pPath, g_filepath.c_str())==0)
 	{
-		if (!g_ShellCache.IsPathAllowed(pPath))
-		{
-			return S_FALSE;
-		}
-
-		TSVNCacheResponse itemStatus;
-		if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(pPath, &itemStatus, !!g_ShellCache.IsRecursive()))
-		{
-			status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
-		}
+		status = g_filestatus;
 	}
 	else
 	{
-		AutoLocker lock(g_csCacheGuard);
-
-		// Look in our caches for this item 
-		const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
-		if (s)
+		if(g_ShellCache.UseExternalCache())
 		{
-			status = s->status;
-		}
-		else
-		{
-			// No cached status available 
-
-			// Check if we fetch icon overlays for this type of path
-			if (! g_ShellCache.IsPathAllowed(pPath))
+			if (!g_ShellCache.IsPathAllowed(pPath))
 			{
 				return S_FALSE;
 			}
-			// since the dwAttrib param of the IsMemberOf() function does not
-			// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
-			// we have to check if the path is a folder ourselves :(
-			if (PathIsDirectory(pPath))
+
+			TSVNCacheResponse itemStatus;
+			if(g_CachedStatus.m_remoteCacheLink.GetStatusFromRemoteCache(pPath, &itemStatus, !!g_ShellCache.IsRecursive()))
 			{
-				if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
+				status = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);
+			}
+		}
+		else
+		{
+			AutoLocker lock(g_csCacheGuard);
+
+			// Look in our caches for this item 
+			const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
+			if (s)
+			{
+				status = s->status;
+			}
+			else
+			{
+				// No cached status available 
+
+				// Check if we fetch icon overlays for this type of path
+				if (! g_ShellCache.IsPathAllowed(pPath))
 				{
-					if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
+					return S_FALSE;
+				}
+				// since the dwAttrib param of the IsMemberOf() function does not
+				// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
+				// we have to check if the path is a folder ourselves :(
+				if (PathIsDirectory(pPath))
+				{
+					if (g_ShellCache.HasSVNAdminDir(pPath, TRUE))
 					{
-						status = svn_wc_status_normal;
+						if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
+						{
+							status = svn_wc_status_normal;
+						}
+						else
+						{
+							const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
+							status = s->status;
+							status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
+						}
 					}
 					else
 					{
-						const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, TRUE);
-						status = s->status;
-						status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
+						status = svn_wc_status_unversioned;
 					}
-				}
+				} // if (PathIsDirectory(g_filepath))
 				else
 				{
-					status = svn_wc_status_unversioned;
+					const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
+					status = s->status;
 				}
-			} // if (PathIsDirectory(g_filepath))
-			else
-			{
-				const FileStatusCacheEntry * s = g_CachedStatus.GetFullStatus(pPath, FALSE);
-				status = s->status;
 			}
 		}
 	}
+	g_filepath.clear();
+	g_filepath = pPath;
+	g_filestatus = status;
 
 	ATLTRACE("Status %d for file %ws\n", status, pwszPath);
 
@@ -251,39 +260,60 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_external:
 		case svn_wc_status_incomplete:
 			if (m_State == Versioned)
+			{
+				g_filepath.clear();
 				return S_OK;
+			}
 			else
 				return S_FALSE;
 		case svn_wc_status_added:
 			if (m_State == Added)
+			{
+				g_filepath.clear();
 				return S_OK;
+			}
 			else
 				return S_FALSE;
 		case svn_wc_status_missing:
 		case svn_wc_status_deleted:
 			if (m_State == Deleted)
+			{
+				g_filepath.clear();
 				return S_OK;
+			}
 			else
 				return S_FALSE;
 		case svn_wc_status_replaced:
 			if (m_State == Modified)
+			{
+				g_filepath.clear();
 				return S_OK;
+			}
 			else
 				return S_FALSE;
 		case svn_wc_status_modified:
 			if (m_State == Modified)
+			{
+				g_filepath.clear();
 				return S_OK;
+			}
 			else
 				return S_FALSE;
 		case svn_wc_status_merged:
 			if (m_State == Modified)
+			{
+				g_filepath.clear();
 				return S_OK;
+			}
 			else
 				return S_FALSE;
 		case svn_wc_status_conflicted:
 		case svn_wc_status_obstructed:
 			if (m_State == Conflict)
+			{
+				g_filepath.clear();
 				return S_OK;
+			}
 			else
 				return S_FALSE;
 		default:
