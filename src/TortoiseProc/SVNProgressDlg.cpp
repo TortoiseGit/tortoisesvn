@@ -307,14 +307,14 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 										pDlg->m_nUpdateStartRev = st.status->entry->cmt_rev;
 								}
 							}
-						} // if (pDlg->m_nRevision >= 0)
+						} // if (pDlg->m_nRevision == (-1)) 
 						TRACE(_T("update file %s\n"), strLine);
 						if (!pDlg->Update(strLine, pDlg->m_nRevision, true))
 						{
 							TRACE(_T("%s"), pDlg->GetLastErrorMessage());
 							CMessageBox::Show(NULL, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							break;
-						} // if (!pDlg->Update(strLine, rev, true)) 
+						} // if (!pDlg->Update(strLine, pDlg->m_nRevision, true))  
 						updateFileCounter++;
 						sfile = strLine;
 					} // while (file.ReadString(strLine)) 
@@ -325,7 +325,9 @@ DWORD WINAPI ProgressThread(LPVOID pVoid)
 				catch (CFileException* pE)
 				{
 					TRACE(_T("CFileException in Update!\n"));
+					pE->ReportError();
 					pE->Delete();
+					updateFileCounter = 0;
 				}
 				// after an update, show the user the log button, but only if only one single item was updated
 				// (either a file or a directory)
