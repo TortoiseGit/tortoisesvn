@@ -862,7 +862,10 @@ void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
-	long rev = m_arRevs.GetAt(selIndex);
+	int s = m_LogList.GetSelectionMark();
+	if (s < 0)
+		return;
+	long rev = m_arRevs.GetAt(s);
 	//entry is selected, now show the popup menu
 	CMenu popup;
 	POINT point;
@@ -903,7 +906,10 @@ void CLogDlg::OnNMDblclkLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 	int selIndex = m_LogMsgCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
-	long rev = m_arRevs.GetAt(selIndex);
+	int s = m_LogList.GetSelectionMark();
+	if (s < 0)
+		return;
+	long rev = m_arRevs.GetAt(s);
 	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 	temp = temp.Left(temp.Find(' '));
 	CString t, tt;
