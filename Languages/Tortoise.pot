@@ -68,6 +68,10 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr ""
 
+#: ID:226,
+msgid "%s - at revision: %d"
+msgstr ""
+
 #: ID:151,
 msgid "%s : Working Base"
 msgstr ""
@@ -96,6 +100,10 @@ msgstr ""
 msgid "&Apply Unified Diff"
 msgstr ""
 
+#: ID:138,
+msgid "&Browse Repository"
+msgstr ""
+
 #: Control-ID:1011,
 msgid "&Browse..."
 msgstr ""
@@ -120,6 +128,18 @@ msgstr ""
 msgid "&Close windows automatically"
 msgstr ""
 
+#: ID:76,
+msgid "&Compare revisions"
+msgstr ""
+
+#: ID:101,
+msgid "&Copy To..."
+msgstr ""
+
+#: ID:101,
+msgid "&Delete"
+msgstr ""
+
 #: Control-ID:1031,
 msgid "&Edit"
 msgstr ""
@@ -129,7 +149,7 @@ msgid "&Edit..."
 msgstr ""
 
 #: Control-ID:1023,
-msgid "&Enable Proxy Server (Don't use the IE settings)"
+msgid "&Enable Proxy Server"
 msgstr ""
 
 #: Control-ID:1092,
@@ -204,6 +224,10 @@ msgstr ""
 msgid "&OK"
 msgstr ""
 
+#: ID:101,
+msgid "&Open"
+msgstr ""
+
 #: MenuEntry
 msgid "&Open Ctrl-O"
 msgstr ""
@@ -232,6 +256,14 @@ msgstr ""
 msgid "&Remove"
 msgstr ""
 
+#: ID:101,
+msgid "&Rename..."
+msgstr ""
+
+#: ID:113,
+msgid "&Revert changes from this revision"
+msgstr ""
+
 #: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1116,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,#: Control-ID:1033,
 msgid "&Revision"
 msgstr ""
@@ -246,6 +278,10 @@ msgstr ""
 
 #: Control-ID:1012,
 msgid "&Set"
+msgstr ""
+
+#: ID:101,
+msgid "&Show log"
 msgstr ""
 
 #: MenuEntry
@@ -280,6 +316,10 @@ msgstr ""
 msgid "&Unknown drives"
 msgstr ""
 
+#: ID:76,
+msgid "&Update item to revision"
+msgstr ""
+
 #: Control-ID:65535,#: Control-ID:1005,#: Control-ID:65535,
 msgid "&Username:"
 msgstr ""
@@ -296,6 +336,10 @@ msgstr ""
 msgid "(multiple targets selected)"
 msgstr ""
 
+#: ID:208,
+msgid "(property change only)"
+msgstr ""
+
 #: ID:188,
 msgid "+ %d"
 msgstr ""
@@ -306,6 +350,18 @@ msgstr ""
 
 #: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1035,#: Control-ID:1035,#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1104,
 msgid "..."
+msgstr ""
+
+#: ID:151,
+msgid ": Revision %d"
+msgstr ""
+
+#: ID:151,
+msgid ": working copy"
+msgstr ""
+
+#: ID:88,
+msgid "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\nIf you use Relocate to direct you working copy to another repository or branch,\nthis <b>will corrupt your working copy!</b>\nTo associate your working copy with another branch, use the Switch command.\nAre you sure you want to relocate?"
 msgstr ""
 
 #: ID:3867,#: ID:3867,
@@ -338,6 +394,10 @@ msgstr ""
 
 #: ID:79,
 msgid "A viewer program for GNU diff files (patch files).\nIf you don't have one use NotePad."
+msgstr ""
+
+#: ID:101,
+msgid "A&dd folder..."
 msgstr ""
 
 #: Control-ID:1093,
@@ -388,6 +448,10 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
+#: ID:101,
+msgid "Add &file..."
+msgstr ""
+
 #: ID:110,
 msgid "Add Extension Specific Diff Program"
 msgstr ""
@@ -400,16 +464,8 @@ msgstr ""
 msgid "Add To Ignore List"
 msgstr ""
 
-#: ID:101,
-msgid "Add file..."
-msgstr ""
-
 #: ID:12,
 msgid "Add files to Subversion here"
-msgstr ""
-
-#: ID:101,
-msgid "Add folder..."
 msgstr ""
 
 #: Dlg-ID:171,
@@ -604,10 +660,6 @@ msgstr ""
 msgid "Brows&e..."
 msgstr ""
 
-#: ID:138,
-msgid "Browse Repository"
-msgstr ""
-
 #: ID:78,
 msgid "Browse for the external diff program"
 msgstr ""
@@ -622,6 +674,14 @@ msgstr ""
 
 #: Control-ID:1119,
 msgid "Bug-ID / Issue-Nr:"
+msgstr ""
+
+#: ID:101,
+msgid "C&reate Folder..."
+msgstr ""
+
+#: ID:77,
+msgid "C&reate Tag from revision"
 msgstr ""
 
 #: ID:3697,
@@ -789,15 +849,11 @@ msgid "Compare Whitespaces"
 msgstr ""
 
 #: ID:76,
-msgid "Compare revisions"
+msgid "Compare with &working copy"
 msgstr ""
 
 #: ID:138,
-msgid "Compare with Base"
-msgstr ""
-
-#: ID:76,
-msgid "Compare with working copy"
+msgid "Compare with B&ase"
 msgstr ""
 
 #: ID:12,
@@ -826,10 +882,6 @@ msgstr ""
 
 #: ID:73,
 msgid "Copy"
-msgstr ""
-
-#: ID:101,
-msgid "Copy To..."
 msgstr ""
 
 #: ID:13,
@@ -904,20 +956,12 @@ msgstr ""
 msgid "Could not start thread!"
 msgstr ""
 
-#: ID:101,
-msgid "Create Folder..."
-msgstr ""
-
 #: ID:13,
 msgid "Create Patch..."
 msgstr ""
 
 #: ID:8,
 msgid "Create Repository here"
-msgstr ""
-
-#: ID:77,
-msgid "Create Tag from revision"
 msgstr ""
 
 #: Control-ID:1073,
@@ -956,7 +1000,7 @@ msgstr ""
 msgid "Default &number of log messages"
 msgstr ""
 
-#: ID:11,#: ID:73,#: ID:101,
+#: ID:11,#: ID:73,
 msgid "Delete"
 msgstr ""
 
@@ -1564,7 +1608,7 @@ msgstr ""
 msgid "Only update the top folder"
 msgstr ""
 
-#: ID:101,#: ID:3841,#: ID:3841,
+#: ID:3841,#: ID:3841,
 msgid "Open"
 msgstr ""
 
@@ -1613,7 +1657,7 @@ msgid "Patch All"
 msgstr ""
 
 #: ID:157,#: ID:157,
-msgid "Patchfiles|*.diff;*.patch|All|*.*||"
+msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr ""
 
 #: ID:77,
@@ -1816,7 +1860,7 @@ msgstr ""
 msgid "Rename %s"
 msgstr ""
 
-#: ID:11,#: ID:101,
+#: ID:11,
 msgid "Rename..."
 msgstr ""
 
@@ -1878,10 +1922,6 @@ msgstr ""
 
 #: ID:8,#: ID:73,#: Dlg-ID:175,
 msgid "Revert"
-msgstr ""
-
-#: ID:113,
-msgid "Revert changes from this revision"
 msgstr ""
 
 #: ID:9,
@@ -1992,11 +2032,15 @@ msgstr ""
 msgid "Save &As..."
 msgstr ""
 
+#: ID:101,
+msgid "Save &as..."
+msgstr ""
+
 #: ID:3841,#: ID:3841,
 msgid "Save As"
 msgstr ""
 
-#: ID:101,#: ID:313,
+#: ID:313,
 msgid "Save as..."
 msgstr ""
 
@@ -2005,7 +2049,7 @@ msgid "Save changes to %1?"
 msgstr ""
 
 #: ID:76,
-msgid "Save revision to..."
+msgid "Save revision &to..."
 msgstr ""
 
 #: ID:3601,#: ID:3601,
@@ -2017,7 +2061,7 @@ msgid "Saving patchfile to:"
 msgstr ""
 
 #: ID:113,
-msgid "Search log messages..."
+msgid "Search &log messages..."
 msgstr ""
 
 #: ID:3867,#: ID:3867,
@@ -2100,12 +2144,20 @@ msgstr ""
 msgid "Shall the log stop on a copy?\nClick <b>Yes</b> if you need to find out where a branch started."
 msgstr ""
 
+#: ID:101,
+msgid "Sho&w Properties"
+msgstr ""
+
 #: Control-ID:1105,
 msgid "Short &date/time format in log messages"
 msgstr ""
 
 #: ID:12,
 msgid "Short Url of subversion items"
+msgstr ""
+
+#: ID:113,
+msgid "Show &Differences"
 msgstr ""
 
 #: Control-ID:1031,#: Control-ID:1034,
@@ -2129,11 +2181,7 @@ msgid "Show Diff Bar"
 msgstr ""
 
 #: ID:113,
-msgid "Show Differences"
-msgstr ""
-
-#: ID:113,
-msgid "Show Differences as Unified Diff"
+msgid "Show Differences as &Unified Diff"
 msgstr ""
 
 #: Control-ID:1063,
@@ -2142,14 +2190,6 @@ msgstr ""
 
 #: ID:12,
 msgid "Show Log"
-msgstr ""
-
-#: ID:101,
-msgid "Show Properties"
-msgstr ""
-
-#: ID:101,
-msgid "Show log"
 msgstr ""
 
 #: ID:3713,
@@ -2502,10 +2542,6 @@ msgstr ""
 
 #: ID:11,
 msgid "Update To Revision..."
-msgstr ""
-
-#: ID:76,
-msgid "Update item to revision"
 msgstr ""
 
 #: ID:11,
