@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-01 10:16+0100\n"
+"PO-Revision-Date: 2005-03-02 11:03+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2209,6 +2209,10 @@ msgstr ""
 "\n"
 "Soll TortoiseSVN die nicht versionierten Dateien angezeigen?"
 
+#: ID:273
+msgid "No graph available"
+msgstr "Keine Grafik vorhanden"
+
 # ID:273,
 #: ID:273
 msgid "No image encoder found for %s."
@@ -3642,6 +3646,11 @@ msgstr "Betrachte Annotierungen im Texteditor"
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
 msgstr "Benutze \"Von\" URL"
+
+# Control-ID:1184,
+#: Control-ID:1184
+msgid "Use autocompletion of filepaths and keywords"
+msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
 
 #: Control-ID:1024
 msgid "Use one-pane view as default"
