@@ -225,6 +225,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	return TRUE;
 }
 
+// Callback function
 BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
 {
 	//first, do a "dry run" of patching...
@@ -275,8 +276,9 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion)
 			return FALSE;
 		}
 		this->m_Data.m_sBaseFile = sFilePath;
-		this->m_Data.m_sTheirFile = sTempFile;
-		this->m_Data.m_sYourFile.Empty();
+		this->m_Data.m_sYourFile = sTempFile;
+		this->m_Data.m_sTheirFile.Empty();
+		this->m_Data.m_sMergedFile = sFilePath;
 		TRACE(_T("comparing %s\nwith the patched result %s\n"), sFilePath, sTempFile);
 	}
 	LoadViews();
@@ -527,21 +529,15 @@ void CMainFrame::SaveFile(CString sFilePath)
 	CStringArray * arText = NULL;
 	CDWordArray * arStates = NULL;
 	CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
-	if (m_pwndBottomView)
+	if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
 	{
-		if (m_pwndBottomView->IsWindowVisible())
-		{
-			arText = m_pwndBottomView->m_arDiffLines;
-			arStates = m_pwndBottomView->m_arLineStates;
-		} // if (m_pwndBottomView->IsWindowVisible()) 
+		arText = m_pwndBottomView->m_arDiffLines;
+		arStates = m_pwndBottomView->m_arLineStates;
 	} // if (m_pwndBottomView) 
-	else if (m_pwndRightView)
+	else if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
 	{
-		if (m_pwndRightView->IsWindowVisible())
-		{
-			arText = m_pwndRightView->m_arDiffLines;
-			arStates = m_pwndRightView->m_arLineStates;
-		} // if (m_pwndRightView->IsWindowVisible()) 
+		arText = m_pwndRightView->m_arDiffLines;
+		arStates = m_pwndRightView->m_arLineStates;
 	} 
 	else
 	{
@@ -645,11 +641,18 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 	{
 		if (m_pwndBottomView)
 		{
-			if (m_pwndBottomView->IsWindowVisible())
+			if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_arDiffLines))
 			{
 				bEnable = TRUE;
 			} // if (m_pwndBottomView->IsWindowVisible()) 
 		} // if (m_pwndBottomView) 
+		if (m_pwndRightView)
+		{
+			if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
+			{
+				bEnable = TRUE;
+			} // if (m_pwndRightView->IsWindowVisible()) 
+		} 
 	} // if (!this->m_Data.m_sMergedFile.IsEmpty())
 	pCmdUI->Enable(bEnable);
 }
@@ -664,7 +667,7 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 			bEnable = TRUE;
 		} // if (m_pwndBottomView->IsWindowVisible()) 
 	} // if (m_pwndBottomView) 
-	else if (m_pwndRightView)
+	if (m_pwndRightView)
 	{
 		if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_arDiffLines))
 		{
