@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-07-17 03:06+0900\n"
-"Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
+"PO-Revision-Date: 2004-08-12 17:15+0900\n"
+"Last-Translator: daibo <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,7 +205,7 @@ msgstr "元リビジョン(&F)"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&From URL:"
-msgstr "元URL(&F):"
+msgstr "元 URL(&F):"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -257,8 +257,8 @@ msgstr "マージ(&M)"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "&Merge changes into the current working copy from URL:"
-msgstr "URLから現在の作業用コピーに変更をマージする(&M)"
+msgid "&Merge changes into the current working copy which points to the URL:"
+msgstr "次のURLを指す現在の作業用コピーに変更をマージする(&M):"
 
 # Control-ID:1012,
 #: Control-ID:1012
@@ -353,12 +353,12 @@ msgstr "先リビジョン(&T)"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&To URL:"
-msgstr "先URL(&T):"
+msgstr "先 URL(&T):"
 
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&To URL: "
-msgstr "先URL(&T):"
+msgstr "先 URL(&T):"
 
 #: MenuEntry
 msgid "&Toolbar"
@@ -432,6 +432,26 @@ msgstr "%1 にアクセス中にロック違反が発生しました。"
 #: ID:201
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version!"
 msgstr "新しいバージョンが利用可能です。TortoiseSVNのサイト http://tortoisesvn.tigris.org から最新のバージョンをダウンロードしてください！"
+
+# ID:195,
+#: ID:195
+msgid ""
+"A newline separated list of paths for which icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgstr ""
+"改行で分けられた、アイコンのオーバーレイを表示するパス。\n"
+"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが含まれます。"
+
+# ID:194,
+#: ID:194
+msgid ""
+"A newline separated list of paths for which no icon overlays are shown.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"An empty list will allow overlays on all paths."
+msgstr ""
+"改行で分けられた、アイコンのオーバーレイを表示しないパス。\n"
+"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外されます。\n"
+"何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となります。"
 
 # ID:3843,#:
 # ID:3843,
@@ -577,8 +597,8 @@ msgstr "ファイルをサブバージョン管理に追加"
 
 # ID:13,
 #: ID:13
-msgid "Adds the selected file(s) to the 'ignore' list"
-msgstr "選択されたファイルを \"無視\" リストに追加"
+msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "選択されたファイルもしくはファイルマスクを \"無視\" リストに追加"
 
 # ID:2049,
 #: ID:2049
@@ -785,6 +805,11 @@ msgstr "参照(&R) ..."
 msgid "B&uiltin"
 msgstr "内蔵(&U)"
 
+# ID:213,
+#: ID:213
+msgid "BDB"
+msgstr "BDB"
+
 # Control-ID:1015,
 #: Control-ID:1015
 msgid "Backup original file"
@@ -859,6 +884,11 @@ msgstr "参照 ..."
 #: Control-ID:1096
 msgid "Bu&iltin"
 msgstr "内蔵(&I)"
+
+# Control-ID:1119,
+#: Control-ID:1119
+msgid "Bug-ID / Issue-Nr:"
+msgstr "Bug-ID / Issue-Nr:"
 
 # ID:3697,
 #: ID:3697
@@ -955,7 +985,7 @@ msgstr "更新をチェック"
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Check for newer versions"
-msgstr "新しいバージョンが利用可能かをチェック"
+msgstr "新しいバージョンが利用可能かどうかをチェックする"
 
 # ID:79,
 #: ID:79
@@ -976,8 +1006,13 @@ msgid ""
 "delete before importing."
 msgstr "インポート前に削除したいファイルにチェックをつける。"
 
+# ID:251,
+#: ID:251
+msgid "Check the path and/or URL you've entered."
+msgstr "入力したパス、もしくはURLをチェックしてください。"
+
 # Control-ID:65535,
-#: Control-ID:65535
+#: ID:194
 msgid "Check those menu entries you want to appear in the top context menu instead of the submenu"
 msgstr "右クリックメニューで、サブメニューではなくトップレベルにポップアップ表示したいものを選択。"
 
@@ -1015,6 +1050,11 @@ msgstr "クリーンアップは終了しました。"
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "中断した処理、ロックファイル、... をクリーンアップする"
+
+# Control-ID:1059,
+#: Control-ID:1059
+msgid "Clear Auth Cache"
+msgstr "認証用キャッシュをクリアする"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1096,6 +1136,11 @@ msgstr "完了"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "衝突"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Context Menu"
+msgstr "コンテキストメニュー"
 
 # ID:73,
 #: ID:73
@@ -1267,6 +1312,11 @@ msgstr "ここにリポジトリを作成"
 #: ID:77
 msgid "Create Tag from revision"
 msgstr "リビジョンからタグを生成"
+
+# Control-ID:1073,
+#: Control-ID:1073
+msgid "Create the branch/tag directly on the server"
+msgstr "ブランチ／タグをサーバー上に直接作成する"
 
 # ID:126,
 #: ID:126
@@ -1568,8 +1618,13 @@ msgstr "例外:"
 
 # Control-ID:65535,
 #: Control-ID:65535
-msgid "Exclude pattern:"
-msgstr "除外するパターン:"
+msgid "Exclude paths:"
+msgstr "除外するパス:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Exclude/Ignore pattern:"
+msgstr "除外／無視するパターン:"
 
 # ID:94,
 #: ID:94
@@ -1620,6 +1675,11 @@ msgstr "外部"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "外部プログラム:"
+
+# ID:213,
+#: ID:213
+msgid "FSFS"
+msgstr "FSFS"
 
 # ID:74,
 #: ID:74
@@ -1765,9 +1825,9 @@ msgid "Hostname mismatch (%s)"
 msgstr "ホスト名が合いません (%s)"
 
 # Dlg-ID:106,
-#: Dlg-ID:106
-msgid "Icon Overlays"
-msgstr "アイコン オーバーレイ"
+#: Control-ID:65535
+msgid "Icon Overlays / Status Columns"
+msgstr "アイコンオーバーレイ／状態"
 
 # Control-ID:65535,#:
 # Control-ID:65535,
@@ -1849,6 +1909,11 @@ msgstr "インポート ..."
 #: ID:10
 msgid "Imports the directory to a repository"
 msgstr "ディレクトリをリポジトリにインポート"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Include paths:"
+msgstr "除外するパス:"
 
 # ID:76,
 #: ID:76
@@ -1983,6 +2048,11 @@ msgstr "ログメッセージ"
 msgid "Log Messages"
 msgstr "ログメッセージ"
 
+# Dlg-ID:106,
+#: Dlg-ID:106
+msgid "Look and Feel"
+msgstr "外観"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -1993,11 +2063,6 @@ msgstr "メールシステムDLLは無効です。"
 #: Dlg-ID:143
 msgid "Main"
 msgstr "メイン"
-
-# Dlg-ID:159,
-#: Dlg-ID:159
-msgid "Menu Layout"
-msgstr "メニューレイアウト"
 
 # Dlg-ID:141,
 #: Dlg-ID:141
@@ -2234,6 +2299,11 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "パスワード:"
 
+# Control-ID:1031,
+#: Control-ID:1031
+msgid "Paste Status Template"
+msgstr "状態のテンプレートを貼り付ける"
+
 # ID:376,
 #: ID:376
 msgid "Patch All"
@@ -2321,6 +2391,11 @@ msgstr "整数値を入力してください。"
 #: ID:3858
 msgid "Please enter no more than %1 characters."
 msgstr "%1 文字以上を入力してください。"
+
+# ID:251,
+#: ID:251
+msgid "Please execute the \"Cleanup\" command."
+msgstr "\"Cleanup\" コマンドを実行してください。"
 
 # ID:78,
 #: ID:78
@@ -2943,6 +3018,11 @@ msgstr "ログを表示(&L) ..."
 msgid "Show &log"
 msgstr "ログを表示(&L)"
 
+# Control-ID:1120,
+#: Control-ID:1120
+msgid "Show BugID/Issue-Nr. Box"
+msgstr "BugID/Issue-Nr. を表示する"
+
 # Control-ID:1065,
 #: Control-ID:1065
 msgid "Show Diff Bar"
@@ -3388,11 +3468,6 @@ msgstr "このプログラムはファイル %s を必要としますが、こ�
 msgid "Three File Diff"
 msgstr "3つのファイルの差分"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "To merge changes from a specific branch, you must put the same URL in both \"From:\" and \"To:\" fields."
-msgstr "特定の分岐から変更をマージするために、\"元:\" と \"先:\" の両方に同じURLを指定する必要があります。"
-
 # Control-ID:1052,
 #: Control-ID:1052
 msgid "To see the changes you made, double click on the files above."
@@ -3476,6 +3551,11 @@ msgstr "TortoiseSVN 設定"
 #: ID:73
 msgid "Try Again"
 msgstr "やり直し"
+
+# ID:251,
+#: ID:251
+msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgstr "\"Cleanup\" を試してみてください。もしうまくいかないなら、新規にチェックアウトしなおす必要があります。"
 
 # ID:10,
 #: ID:10
@@ -3626,6 +3706,11 @@ msgstr "URL:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "位置指定バー上の拡大ツールを利用する"
 
+# Control-ID:65535,
+#: Control-ID:1073
+msgid "Use \"From:\" URL"
+msgstr "\"From\"\" URL を利用する"
+
 # Control-ID:1024,
 #: Control-ID:1024
 msgid "Use one-pane view as default"
@@ -3727,6 +3812,11 @@ msgstr "GNUの差分ファイル（パッチファイル）用のビューワプ
 msgid "Visit our website"
 msgstr "私たちのウェブサイトへお越しください"
 
+# ID:213,
+#: ID:213
+msgid "What repository type do you want to create?"
+msgstr "どのタイプのリポジトリを作成しますか？"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3785,6 +3875,11 @@ msgstr ""
 "file:/// 経由で共有ネットワークドライブ上のリポジトリにアクセスしようとしています。\n"
 "これは、リポジトリを破壊する可能性があります！！\n"
 "本当に実行しますか？"
+
+# ID:251,
+#: ID:251
+msgid "You have to update your working copy first."
+msgstr "まず、作業用コピーを更新してください。"
 
 # ID:77,
 #: ID:77
@@ -3894,7 +3989,7 @@ msgstr "結合"
 # ID:10,
 #: ID:10
 msgid "missing"
-msgstr "行方不明"
+msgstr "紛失"
 
 # ID:10,
 #: ID:10
@@ -3909,7 +4004,7 @@ msgstr "このコマンドへの全ての記述は無効です"
 # ID:10,
 #: ID:10
 msgid "non-versioned"
-msgstr "バージョン管理外"
+msgstr "管理外"
 
 # ID:10,
 #: ID:10
