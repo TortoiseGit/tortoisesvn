@@ -44,7 +44,7 @@ CSetMainPage::CSetMainPage()
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	m_regDontConvertBase = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), FALSE);
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
-	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 10);
+	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 }
 
 CSetMainPage::~CSetMainPage()
