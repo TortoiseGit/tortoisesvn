@@ -22,6 +22,12 @@
 #include "afxdlgs.h"
 #include "MessageBox.h"
 
+#ifndef COMPILE_NEWAPIS_STUBS
+#	define COMPILE_NEWAPIS_STUBS
+#endif
+#define WANT_GETLONGPATHNAME_WRAPPER
+#include "NewAPIs.h"
+
 CUtils::CUtils(void)
 {
 }
@@ -588,7 +594,7 @@ CString CUtils::WritePathsToTempFile(CString paths)
 				temp = paths.Left(pos);
 			else
 				temp = paths;
-			temp = CUtils::GetLongPathName(temp);
+			temp = CUtils::GetLongPathname(temp);
 			file.WriteString(temp + _T("\n"));
 			paths = paths.Mid(pos+1);
 		} while (pos >= 0);
@@ -602,7 +608,7 @@ CString CUtils::WritePathsToTempFile(CString paths)
 	return tempfile;
 }
 
-CString CUtils::GetLongPathName(CString path)
+CString CUtils::GetLongPathname(CString path)
 {
 	TCHAR pathbuf[MAX_PATH];
 	DWORD ret = ::GetLongPathName(path, pathbuf, MAX_PATH);

@@ -130,7 +130,7 @@ public:
 	/**
 	 * Returns the long pathname of a path which may be in 8.3 format.
 	 */
-	static CString GetLongPathName(CString path);
+	static CString GetLongPathname(CString path);
 
 	/**
 	 * Copies a file or a folder from \a srcPath to \a destpath, creating
