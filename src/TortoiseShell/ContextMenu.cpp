@@ -153,6 +153,61 @@ void CShellExt::InsertSVNMenu(HMENU menu, UINT pos, UINT flags, UINT_PTR id, UIN
 	myIDMap[id] = com;
 }
 
+void CShellExt::InsertSVNMenuBMP(HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com)
+{
+	MAKESTRING(stringid);
+	InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING, id, stringtablebuffer);
+	HBITMAP bmp = IconToBitmap(icon, (COLORREF)GetSysColor(COLOR_MENU)); 
+	SetMenuItemBitmaps(menu, pos, MF_BYPOSITION, bmp, bmp);
+	// We store the relative and absolute diameter
+	// (drawitem callback uses absolute, others relative)
+	myIDMap[id - idCmdFirst] = com;
+	myIDMap[id] = com;
+}
+
+HBITMAP CShellExt::IconToBitmap(UINT uIcon, COLORREF transparentColor)
+{
+	HICON hIcon = (HICON)LoadImage(g_hmodThisDll, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	if (!hIcon)
+		return NULL;
+
+	RECT     rect;
+
+	rect.right = ::GetSystemMetrics(SM_CXMENUCHECK);
+	rect.bottom = ::GetSystemMetrics(SM_CYMENUCHECK);
+
+	rect.left =
+		rect.top  = 0;
+
+	HWND desktop    = ::GetDesktopWindow();
+	HDC  screen_dev = ::GetDC(desktop);
+
+	// Create a compatible DC
+	HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
+
+	// Create a new bitmap of icon size
+	HBITMAP bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);
+
+	// Select it into the compatible DC
+	HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
+
+	// Fill the background of the compatible DC with the given colour
+	HBRUSH brush = ::CreateSolidBrush(transparentColor);
+	::FillRect(dst_hdc, &rect, brush);
+	::DeleteObject(brush);
+
+	// Draw the icon into the compatible DC
+	::DrawIconEx(dst_hdc, 0, 0, hIcon, rect.right, rect.bottom, 0, NULL, DI_NORMAL);
+
+	// Restore settings
+	::SelectObject(dst_hdc, old_dst_bmp);
+	::DeleteDC(dst_hdc);
+	::ReleaseDC(desktop, screen_dev); 
+	DestroyIcon(hIcon);
+	return bmp;
+}
+
+
 stdstring CShellExt::WriteFileListToTempFile()
 {
 	//write all selected files and paths to a temporary file
@@ -249,16 +304,27 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	bool extended = ((uFlags & CMF_EXTENDEDVERBS)!=0);		//true if shift was pressed for the context menu
 	UINT idCmd = idCmdFirst;
 
+
 	////separator before
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
 
+	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE);
 	//now fill in the entries 
 	if ((!isInSVN)&&(isFolder))
-		InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCHECKOUT, idCmdFirst, Checkout);
+		if (ownerdrawn)
+			InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCHECKOUT, idCmdFirst, Checkout);
+		else
+			InsertSVNMenuBMP(hMenu, indexMenu++, idCmd++, IDS_MENUCHECKOUT, IDI_CHECKOUT, idCmdFirst, Checkout);
 	if ((isInSVN)&&(!extended))
-		InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATE, idCmdFirst, Update);
+		if (ownerdrawn)
+			InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATE, idCmdFirst, Update);
+		else
+			InsertSVNMenuBMP(hMenu, indexMenu++, idCmd++, IDS_MENUUPDATE, IDI_UPDATE, idCmdFirst, Update);
 	if (isInSVN)
-		InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCOMMIT, idCmdFirst, Commit);
+		if (ownerdrawn)
+			InsertSVNMenu(hMenu, indexMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCOMMIT, idCmdFirst, Commit);
+		else
+			InsertSVNMenuBMP(hMenu, indexMenu++, idCmd++, IDS_MENUCOMMIT, IDI_COMMIT, idCmdFirst, Commit);
 	
 	//create the submenu
 	HMENU subMenu = CreateMenu();
@@ -266,13 +332,25 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	int lastSeparator = 0;
 
 	if (isInSVN)
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATEEXT, idCmdFirst, UpdateExt);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUUPDATEEXT, idCmdFirst, UpdateExt);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUUPDATEEXT, IDI_UPDATE, idCmdFirst, UpdateExt);
 	if ((isInSVN)&&(isOnlyOneItemSelected))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURENAME, idCmdFirst, Rename);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURENAME, idCmdFirst, Rename);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENURENAME, IDI_RENAME, idCmdFirst, Rename);
 	if (isInSVN)
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREMOVE, idCmdFirst, Remove);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREMOVE, idCmdFirst, Remove);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, Remove);
 	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENULOG, idCmdFirst, Log);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENULOG, idCmdFirst, Log);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENULOG, IDI_LOG, idCmdFirst, Log);
 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
@@ -281,29 +359,65 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	if ((!isInSVN)&&(isFolder)&&(!isFolderInSVN))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCREATEREPOS, idCmdFirst, CreateRepos);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCREATEREPOS, idCmdFirst, CreateRepos);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUCREATEREPOS, IDI_CREATEREPOS, idCmdFirst, CreateRepos);
 	if (!isInSVN)
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUADD, idCmdFirst, Add);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUADD, idCmdFirst, Add);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
 	if (((isInSVN)&&(!isNormal))||((isFolder)&&(isFolderInSVN)))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREVERT, idCmdFirst, Revert);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREVERT, idCmdFirst, Revert);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, Revert);
 	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUDIFF, idCmdFirst, Diff);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUDIFF, idCmdFirst, Diff);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
 	if (files_.size() == 2)	//compares the two selected files
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUDIFF, idCmdFirst, Diff);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUDIFF, idCmdFirst, Diff);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCLEANUP, idCmdFirst, Cleanup);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCLEANUP, idCmdFirst, Cleanup);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
 	if ((isInSVN)&&(isConflicted)&&(isOnlyOneItemSelected))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURESOLVE, idCmdFirst, Resolve);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENURESOLVE, idCmdFirst, Resolve);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENURESOLVE, IDI_RESOLVE, idCmdFirst, Resolve);
 	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSWITCH, idCmdFirst, Switch);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSWITCH, idCmdFirst, Switch);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUSWITCH, IDI_SWITCH, idCmdFirst, Switch);
 	if ((isInSVN)&&(isOnlyOneItemSelected))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUMERGE, idCmdFirst, Merge);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUMERGE, idCmdFirst, Merge);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUMERGE, IDI_MERGE, idCmdFirst, Merge);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUBRANCH, idCmdFirst, Copy);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUBRANCH, idCmdFirst, Copy);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUBRANCH, IDI_COPY, idCmdFirst, Copy);
 	if ((!isInSVN)&&(isFolder))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIMPORT, idCmdFirst, Import);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUIMPORT, idCmdFirst, Import);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUEXPORT, idCmdFirst, Export);
+		if (ownerdrawn)
+			InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUEXPORT, idCmdFirst, Export);
+		else
+			InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUEXPORT, IDI_EXPORT, idCmdFirst, Export);
 
 	if (idCmd != (lastSeparator + 1) && indexSubMenu != 0)
 	{
@@ -311,8 +425,14 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	}
 
-	InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSETTINGS, idCmdFirst, Settings);
-	InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUABOUT, idCmdFirst, About);
+	if (ownerdrawn)
+		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSETTINGS, idCmdFirst, Settings);
+	else
+		InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUSETTINGS, IDI_SETTINGS, idCmdFirst, Settings);
+	if (ownerdrawn)
+		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUABOUT, idCmdFirst, About);
+	else
+		InsertSVNMenuBMP(subMenu, indexSubMenu++, idCmd++, IDS_MENUABOUT, IDI_ABOUT, idCmdFirst, About);
 
 
 
@@ -322,10 +442,16 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	MENUITEMINFO menuiteminfo;
 	ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
-	menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
+	if (ownerdrawn)
+		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU;
+	else
+		menuiteminfo.fMask = MIIM_STRING | MIIM_ID | MIIM_SUBMENU | MIIM_CHECKMARKS | MIIM_DATA;
 	menuiteminfo.fType = MFT_OWNERDRAW;
- 	//menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
-	//menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
+ 	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
+	menuiteminfo.cch = _tcslen(menuiteminfo.dwTypeData);
+	HBITMAP bmp = IconToBitmap(IDI_ABOUT, (COLORREF)GetSysColor(COLOR_MENU));
+	menuiteminfo.hbmpChecked = bmp;
+	menuiteminfo.hbmpUnchecked = bmp;
 	menuiteminfo.hSubMenu = subMenu;
 	menuiteminfo.wID = idCmd;
 	InsertMenuItem(hMenu, indexMenu++, TRUE, &menuiteminfo);

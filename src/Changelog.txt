@@ -16,6 +16,11 @@ CVS
        desktop by default. (Stefan)
 - CHG: unified interface elements. Issue 45. (Stefan)
 - CHG: made the menu entries align with others. (Stefan)
+- CHG: the menu icons are still ownerdrawn, but
+       if the registry entry 
+       (DWORD)HKCU\Software\TortoiseSVN\OwnerdrawnMenus
+       is set to 0 (zero) then TortoiseSVN uses
+       the system to draw the icons. (Stefan)       
 - ADD: in the property page it's now possible to
        select and copy/paste the information. This
        fixes issue 46. (Stefan)

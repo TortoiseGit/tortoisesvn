@@ -133,9 +133,11 @@ protected:
 #define MAKESTRING(ID) LoadStringEx(g_hmodThisDll, ID, stringtablebuffer, sizeof(stringtablebuffer), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:
 	void InsertSVNMenu(HMENU menu, UINT pos, UINT flags, UINT_PTR id, UINT stringid, UINT idCmdFirst, SVNCommands com);
+	void InsertSVNMenuBMP(HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com);
 	stdstring WriteFileListToTempFile();
 	LPCTSTR GetMenuTextFromResource(int id);
 	void GetColumnStatus(stdstring path);
+	HBITMAP IconToBitmap(UINT hIcon, COLORREF transparentColor);
 public:
 	CShellExt(FileState state);
 	virtual ~CShellExt();
