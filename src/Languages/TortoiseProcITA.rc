@@ -56,7 +56,7 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Localized resources
+// Italian (Italy) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
 #ifdef _WIN32
@@ -211,7 +211,8 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,125,50,14
     PUSHBUTTON      "&Annulla",IDCANCEL,224,125,50,14
-    LTEXT           "Incorpora la diramazione corrente in:",IDC_STATIC,7,17,88,8
+    LTEXT           "Incorpora la diramazione corrente in:",IDC_STATIC,7,17,
+                    88,8
     COMBOBOX        IDC_URLCOMBO,99,15,153,46,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
                     WS_VSCROLL | WS_TABSTOP
     PUSHBUTTON      "...",IDC_BROWSE,260,15,14,12
@@ -225,8 +226,10 @@ BEGIN
                     145,62,43,10
     EDITTEXT        IDC_REVISION_END,210,61,58,14,ES_AUTOHSCROLL | ES_NUMBER | 
                     WS_DISABLED
-    LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.", IDC_STATIC,7,84,267,17
-    LTEXT           "To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.", IDC_STATIC,7,103,267,17
+    LTEXT           "To merge only specific changes from the other branch you have to specify the revisions between which the change occured.",
+                    IDC_STATIC,7,84,267,17
+    LTEXT           "To merge a complete branch back into the trunk you have to specify the revision the branch was created and HEAD.",
+                    IDC_STATIC,7,103,267,17
 END
 
 IDD_PROMPT DIALOGEX 0, 0, 220, 94
@@ -240,8 +243,9 @@ BEGIN
     PUSHBUTTON      "&Annulla",IDCANCEL,163,73,50,14
     LTEXT           "",IDC_INFOTEXT,7,7,206,32
     EDITTEXT        IDC_PASSEDIT,7,44,206,14,ES_AUTOHSCROLL
-    CONTROL         "Ricorda login e password per questa connessione.",IDC_SAVECHECK,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,61,206,10
+    CONTROL         "Ricorda login e password per questa connessione.",
+                    IDC_SAVECHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,61,
+                    206,10
 END
 
 IDD_RELOCATE DIALOGEX 0, 0, 186, 76
@@ -356,7 +360,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,307,124,50,14
     CONTROL         "",IDC_SVNPROGRESS,"SysListView32",LVS_REPORT | 
                     LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,350,113
-    PUSHBUTTON      "Visualizza Log...",IDC_LOGBUTTON,243,124,50,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Visualizza Log...",IDC_LOGBUTTON,243,124,50,14,NOT 
+                    WS_VISIBLE
 END
 
 IDD_SWITCH DIALOGEX 0, 0, 228, 107
@@ -371,8 +376,8 @@ BEGIN
     EDITTEXT        IDC_URL,42,7,157,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BROWSE,203,7,18,14
     GROUPBOX        "Versione",IDC_STATIC,7,24,214,51
-    CONTROL         "&Ultima Versione",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
-                    13,38,61,10
+    CONTROL         "&Ultima Versione",IDC_NEWEST,"Button",
+                    BS_AUTORADIOBUTTON,13,38,61,10
     CONTROL         "&Versione",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,54,43,10
     EDITTEXT        IDC_REV,78,53,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -387,8 +392,8 @@ BEGIN
     DEFPUSHBUTTON   "&OK",IDOK,7,65,50,14
     PUSHBUTTON      "&Annulla",IDCANCEL,99,65,50,14
     GROUPBOX        "Versione",IDC_STATIC,7,7,142,51
-    CONTROL         "&Ultima Versione",IDC_NEWEST,"Button",BS_AUTORADIOBUTTON,
-                    13,21,61,10
+    CONTROL         "&Ultima Versione",IDC_NEWEST,"Button",
+                    BS_AUTORADIOBUTTON,13,21,61,10
     CONTROL         "&Versione",IDC_REVISION_N,"Button",BS_AUTORADIOBUTTON,
                     13,37,43,10
     EDITTEXT        IDC_REVNUM,78,36,58,14,ES_AUTOHSCROLL | WS_DISABLED
@@ -569,7 +574,6 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 79
     END
-
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -686,7 +690,8 @@ BEGIN
     IDS_STRING236           "dummy"
     IDS_STRING237           "dummy"
     IDS_PROGRS_COPY_WARNING "Nota bene:\n la copia locale rimarra' al percorso originale. \nSe desideri che le prossime modifiche vengano apportate nella copia locale appena \ncreata devi usare <b>passa a</b> e spostarti nella nouva copia."
-    IDS_PROGRS_COMMITT_TRUNK "La copia locale risulta essere un <b>tag</b>.\nDovresti passare a una diramazione oppure alla copia principale prima di\ninviare le nouve modifiche."
+    IDS_PROGRS_COMMITT_TRUNK 
+                            "La copia locale risulta essere un <b>tag</b>.\nDovresti passare a una diramazione oppure alla copia principale prima di\ninviare le nouve modifiche."
 END
 
 STRINGTABLE 
@@ -762,7 +767,7 @@ BEGIN
     IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
     IDS_ERR_FAILEDIGNOREPROPERTY "could not add %s to the ignore list"
-    IDS_STRING293           "dummy"
+    IDS_ERR_DIFFVIEWSTART   "could not start Diff-viewer!"
     IDS_STRING294           "dummy"
     IDS_STRING295           "dummy"
 END
@@ -813,7 +818,7 @@ BEGIN
     IDS_CHSTAT_REPOCOL      "remote status"
 END
 
-#endif    // Localized resources
+#endif    // Italian (Italy) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -834,7 +839,7 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 1 TEXTINCLUDE 
 BEGIN
-    "resource.h\0"
+    "..\\TortoiseProc\\resource.h\0"
 END
 
 2 TEXTINCLUDE 

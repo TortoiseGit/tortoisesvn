@@ -200,7 +200,7 @@ BOOL CUtils::StartDiffViewer(CString file)
 			NULL 
 			);
 		CString temp;
-		temp.Format(IDS_ERR_EXTMERGESTART, lpMsgBuf);
+		temp.Format(IDS_ERR_DIFFVIEWSTART, lpMsgBuf);
 		CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 		LocalFree( lpMsgBuf );
 		return FALSE;

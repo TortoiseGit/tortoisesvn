@@ -764,7 +764,7 @@ BEGIN
     IDS_ERR_EXTMERGESTART   "could not start external merge program!\n<hr=100%>"
     IDS_ERR_NOTUPTODATE     "The working copy is not up to date!\nPlease Update first."
     IDS_ERR_FAILEDIGNOREPROPERTY "could not add %s to the ignore list"
-    IDS_STRING293           "dummy"
+    IDS_ERR_DIFFVIEWSTART   "could not start diff viewer!"
     IDS_STRING294           "dummy"
     IDS_STRING295           "dummy"
 END
@@ -836,7 +836,7 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 1 TEXTINCLUDE 
 BEGIN
-    "resource.h\0"
+    "..\\TortoiseProc\\resource.h\0"
 END
 
 2 TEXTINCLUDE 

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by TortoiseProc.rc
+// Used by f:\Development\Svn\tortoisesvn\src\Languages\TortoiseProcITA.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -177,7 +177,7 @@
 #define IDS_ERR_NOTUPTODATE             291
 #define IDS_STRING292                   292
 #define IDS_ERR_FAILEDIGNOREPROPERTY    292
-#define IDS_STRING293                   293
+#define IDS_ERR_DIFFVIEWSTART           293
 #define IDS_STRING294                   294
 #define IDS_STRING295                   295
 #define IDS_WARN_FOLDERNOTEXIST         400

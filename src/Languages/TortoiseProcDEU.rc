@@ -708,7 +708,8 @@ BEGIN
                             "geben Sie die Dateiendungen für\ntemporäre oder erzeugte Dateien an"
     IDS_SETTINGS_ADDBEFORECOMMIT_TT 
                             "Zeigt alle unkontrollierten Dateien vor dem Übertragen an\nso dass Sie diese zur Versionskontrolle hinzufügen können"
-    IDS_SETTINGS_EXTMERGE_TT "Ein externes Merge Programm\num Konflikte in Dateien zu lösen\n<hr=100%>\nSie können folgende Parameter für das Programm angeben:\n%merged\tDie Datei mit Konflikt, wo zu speichern\n%theirs\t\tDie Datei wie sie in der Datenbank ist\n%mine\t\tIhre eigene Datei, mit Ihren Änderungen\n%base\t\tDie Originaldatei, ohne Ihre Änderungen"
+    IDS_SETTINGS_EXTMERGE_TT 
+                            "Ein externes Merge Programm\num Konflikte in Dateien zu lösen\n<hr=100%>\nSie können folgende Parameter für das Programm angeben:\n%merged\tDie Datei mit Konflikt, wo zu speichern\n%theirs\t\tDie Datei wie sie in der Datenbank ist\n%mine\t\tIhre eigene Datei, mit Ihren Änderungen\n%base\t\tDie Originaldatei, ohne Ihre Änderungen"
     IDS_SETTINGS_PROXYSERVER_TT 
                             "Entweder der Name oder die IP Nummer des Proxyservers"
     IDS_SETTINGS_DIFFVIEWER_TT 
@@ -767,7 +768,7 @@ BEGIN
     IDS_ERR_NOTUPTODATE     "Die Arbeitskopie ist nicht aktuell.\nBitte aktualisieren Sie diese."
     IDS_ERR_FAILEDIGNOREPROPERTY 
                             "Konnte %s nicht zur ignorieren Liste hinzufügen"
-    IDS_STRING293           "dummy"
+    IDS_ERR_DIFFVIEWSTART   "Konnte Diff-Viewer nicht starten!"
     IDS_STRING294           "dummy"
     IDS_STRING295           "dummy"
 END
@@ -839,7 +840,7 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 1 TEXTINCLUDE 
 BEGIN
-    "resource.h\0"
+    "..\\TortoiseProc\\resource.h\0"
 END
 
 2 TEXTINCLUDE 
