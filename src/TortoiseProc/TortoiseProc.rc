@@ -752,7 +752,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_CHECKOUT_TT_DIR     "location where the contents of the\nrepository URL will be saved to.\nNo new folder will be created!"
+    IDS_CHECKOUT_TT_DIR     "location where the contents of the\nrepository URL will be saved to."
     IDS_IMPORT_TT_MODULENAMECHECK 
                             "If checked then a new folder is created in the repository.\nIf not checked then the import goes directly to the specified URL."
 END
