@@ -1,11 +1,13 @@
 //------------------------------------------------------------------------------
 // File    : NewMenu.h 
-// Version : 1.18
-// Date    : 30. November 2003
+// Version : 1.19
+// Date    : 6. February 2004
 // Author  : Bruno Podetti
 // Email   : Podetti@gmx.net
 // Web     : www.podetti.com/NewMenu 
 // Systems : VC6.0/7.0 and VC7.1 (Run under (Window 98/ME), Windows Nt 2000/XP)
+//           for all systems it will be the best when you install the latest IE
+//           it is recommended for CNewToolBar
 //
 // You are free to use/modify this code but leave this header intact.
 // This class is public domain so you are free to use it any of your 
@@ -21,6 +23,16 @@
 // new constant for having the same color in the toolbar, you can define this
 // also in the projekt definition
 //#define USE_NEW_DOCK_BAR
+
+// for using my CNewMenu in the GuiToolkit see
+// http://www.codeproject.com/library/guitoolkit.asp
+// you need to #define _GUILIB_   in the ExtLib.h  and include this file
+// the constant for exporting importing these classes can be changed in the 
+// next release GUILIBDLLEXPORT!!!
+
+#ifndef GUILIBDLLEXPORT
+#define GUILIBDLLEXPORT
+#endif
 
 #pragma warning(push)
 #pragma warning(disable : 4211)
@@ -75,15 +87,30 @@ enum Win32Type
   WinXP
 };
 
-extern const Win32Type g_Shell;
-extern BOOL bRemoteSession;
+Win32Type GUILIBDLLEXPORT IsShellType();
+
+extern const Win32Type GUILIBDLLEXPORT g_Shell;
+extern BOOL GUILIBDLLEXPORT bRemoteSession;
 
 /////////////////////////////////////////////////////////////////////////////
 // Support for getting menuinfo without runtime-error
 
 #if(WINVER < 0x0500)
 
+#define MNS_NOCHECK         0x80000000
+#define MNS_MODELESS        0x40000000
+#define MNS_DRAGDROP        0x20000000
+#define MNS_AUTODISMISS     0x10000000
+#define MNS_NOTIFYBYPOS     0x08000000
+#define MNS_CHECKORBMP      0x04000000
+
+#define MIM_MAXHEIGHT               0x00000001
 #define MIM_BACKGROUND              0x00000002
+#define MIM_HELPID                  0x00000004
+#define MIM_MENUDATA                0x00000008
+#define MIM_STYLE                   0x00000010
+#define MIM_APPLYTOSUBMENUS         0x80000000
+
 
 typedef struct tagMENUINFO
 {
@@ -97,19 +124,44 @@ typedef struct tagMENUINFO
 }   MENUINFO, FAR *LPMENUINFO;
 typedef MENUINFO CONST FAR *LPCMENUINFO;
 
-BOOL GetMenuInfo( HMENU hMenu, LPMENUINFO pInfo);
+BOOL GUILIBDLLEXPORT GetMenuInfo( HMENU hMenu, LPMENUINFO pInfo);
+BOOL GUILIBDLLEXPORT SetMenuInfo( HMENU hMenu, LPCMENUINFO pInfo);
+
 #endif
+
+/////////////////////////////////////////////////////////////////////////////
+// Forwarddeclaration and global function for menu drawing
+void GUILIBDLLEXPORT DrawGradient(CDC* pDC,CRect& Rect,
+                                  COLORREF StartColor,COLORREF EndColor, 
+                                  BOOL bHorizontal,BOOL bUseSolid=FALSE);
+
+COLORREF GUILIBDLLEXPORT DarkenColorXP(COLORREF color);
+COLORREF GUILIBDLLEXPORT DarkenColor( long lScale, COLORREF lColor);
+
+COLORREF GUILIBDLLEXPORT MixedColor(COLORREF colorA,COLORREF colorB);
+COLORREF GUILIBDLLEXPORT MidColor(COLORREF colorA,COLORREF colorB);
+
+COLORREF GUILIBDLLEXPORT LightenColor( long lScale, COLORREF lColor);
+
+COLORREF GUILIBDLLEXPORT BleachColor(int Add, COLORREF color);
+
+COLORREF GUILIBDLLEXPORT GetXpHighlightColor();
+COLORREF GUILIBDLLEXPORT GrayColor(COLORREF crColor); 
 
 
 /////////////////////////////////////////////////////////////////////////////
 // Global helperfunctions
-UINT GetSafeTimerID(HWND hWnd, const UINT uiElapse);
-BOOL DrawMenubarItem(CWnd* pWnd,CMenu* pMenu, UINT nItemIndex,UINT nState);
+UINT GUILIBDLLEXPORT GetSafeTimerID(HWND hWnd, const UINT uiElapse);
 
-WORD NumBitmapColors(LPBITMAPINFOHEADER lpBitmap);
-HBITMAP LoadColorBitmap(LPCTSTR lpszResourceName, HMODULE hInst, int* pNumcol=NULL);
+BOOL GUILIBDLLEXPORT DrawMenubarItem(CWnd* pWnd,CMenu* pMenu, UINT nItemIndex,UINT nState);
+void GUILIBDLLEXPORT UpdateMenuBarColor(HMENU hMenu=NULL);
+CBrush GUILIBDLLEXPORT *GetMenuBarBrush();
 
-void UpdateMenuBarColor(HMENU hMenu=NULL);
+int GUILIBDLLEXPORT NumScreenColors();
+WORD GUILIBDLLEXPORT NumBitmapColors(LPBITMAPINFOHEADER lpBitmap);
+HBITMAP GUILIBDLLEXPORT LoadColorBitmap(LPCTSTR lpszResourceName, HMODULE hInst, int* pNumcol=NULL);
+
+COLORREF GUILIBDLLEXPORT MakeGrayAlphablend(CBitmap* pBitmap, int weighting, COLORREF blendcolor);
 
 /////////////////////////////////////////////////////////////////////////////
 // Forwarddeclaration for drawing purpose
@@ -119,7 +171,7 @@ class CNewDockBar;
 /////////////////////////////////////////////////////////////////////////////
 // CNewMenuIcons menu icons for drawing
 
-class CNewMenuIcons : public CObject
+class GUILIBDLLEXPORT CNewMenuIcons : public CObject
 {
   DECLARE_DYNCREATE(CNewMenuIcons)
 
@@ -136,9 +188,11 @@ public:
 
   virtual BOOL LoadToolBar(LPCTSTR lpszResourceName, HMODULE hInst);
   virtual BOOL LoadToolBar(WORD* pToolInfo, COLORREF crTransparent=CLR_NONE);
+  virtual BOOL LoadToolBar(HBITMAP hBitmap, CSize size, UINT* pID, COLORREF crTransparent=CLR_NONE);
 
   virtual BOOL DoMatch(LPCTSTR lpszResourceName, HMODULE hInst);
   virtual BOOL DoMatch(WORD* pToolInfo, COLORREF crTransparent=CLR_NONE);
+  virtual BOOL DoMatch(HBITMAP hBitmap, CSize size, UINT* pID);
 
   virtual BOOL LoadBitmap(int nWidth, int nHeight, LPCTSTR lpszResourceName, HMODULE hInst=NULL);
 
@@ -161,6 +215,7 @@ public:
 public:
   LPCTSTR m_lpszResourceName;
   HMODULE m_hInst;
+  HBITMAP m_hBitmap;
   int m_nColors;
   COLORREF m_crTransparent;
 
@@ -172,7 +227,7 @@ public:
 
 /////////////////////////////////////////////////////////////////////////////
 // CNewMenuBitmaps menu icons for drawing
-class CNewMenuBitmaps : public CNewMenuIcons
+class GUILIBDLLEXPORT CNewMenuBitmaps : public CNewMenuIcons
 {
   DECLARE_DYNCREATE(CNewMenuBitmaps)
 
@@ -193,7 +248,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 // CNewMenuItemData menu item data for drawing
 
-class CNewMenuItemData : public CObject
+class GUILIBDLLEXPORT CNewMenuItemData : public CObject
 {
   DECLARE_DYNCREATE(CNewMenuItemData)
 
@@ -202,8 +257,11 @@ public:
   virtual ~CNewMenuItemData();
 
 public:
-  LPCTSTR GetString();
-  void SetString(LPCTSTR szMenuText);
+  // get the item text, 
+  // hAccel=INVALID_HANDLE_VALUE = gets the default from the frame
+  // hAccel=NULL disable accelerator support
+  virtual CString GetString(HACCEL hAccel=NULL);
+  virtual void SetString(LPCTSTR szMenuText);
 
 #if defined(_DEBUG) || defined(_AFXDLL)
   // Diagnostic Support
@@ -226,9 +284,28 @@ public:
 };
 
 /////////////////////////////////////////////////////////////////////////////
+// CNewMenuItemDataTitle menu item data for drawing menu Title
+
+class GUILIBDLLEXPORT CNewMenuItemDataTitle : public CNewMenuItemData
+{
+  DECLARE_DYNCREATE(CNewMenuItemDataTitle)
+
+public:
+  CNewMenuItemDataTitle();
+  virtual ~CNewMenuItemDataTitle();
+
+public:
+  COLORREF m_clrTitle;
+  COLORREF m_clrLeft;
+  COLORREF m_clrRight;
+
+  CFont m_Font;
+};
+
+/////////////////////////////////////////////////////////////////////////////
 // CNewMenu the new menu class
 
-class CNewMenu : public CMenu
+class GUILIBDLLEXPORT CNewMenu : public CMenu
 {
   friend class CNewMenuHook;
   friend class CNewMenuIcons;
@@ -270,6 +347,7 @@ public:
   virtual BOOL LoadMenu(LPCTSTR lpszResourceName);
   virtual BOOL LoadMenu(int nResource);
 
+  BOOL LoadToolBar(HBITMAP hBitmap, CSize size, UINT* pID, COLORREF crTransparent=CLR_NONE);
   BOOL LoadToolBar(WORD* pIconInfo, COLORREF crTransparent=CLR_NONE);
   BOOL LoadToolBar(LPCTSTR lpszResourceName, HMODULE hInst = NULL);
   BOOL LoadToolBar(UINT nToolBar, HMODULE hInst = NULL);
@@ -307,7 +385,7 @@ public:
 
   // Same as ModifyMenu but replacement for CNewMenu
   BOOL ModifyODMenu(UINT nPosition, UINT nFlags, UINT nIDNewItem = 0,LPCTSTR lpszNewItem = NULL);
-	BOOL ModifyODMenu(UINT nPosition, UINT nFlags, UINT nIDNewItem, const CBitmap* pBmp);
+  BOOL ModifyODMenu(UINT nPosition, UINT nFlags, UINT nIDNewItem, const CBitmap* pBmp);
 
   // functions for modifying a menu option, use the ModifyODMenu call (see above define)
   BOOL ModifyODMenu(LPCTSTR lpstrText, UINT nID=0, int nIconNormal=-1);
@@ -344,7 +422,7 @@ public:
   // Measure an item  
   virtual void MeasureItem(LPMEASUREITEMSTRUCT lpMIS);
   // Draw title of the menu
-  virtual void DrawTitle(LPDRAWITEMSTRUCT lpDIS,BOOL bIsMenuBar);
+  virtual void DrawTitle(LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar);
   // Erase the Background of the menu
   virtual BOOL EraseBkgnd(HWND hWnd,HDC hDC);
 
@@ -358,7 +436,13 @@ public:
   static LOGFONT GetMenuTitleFont();
 
   // Menutitle function
-  BOOL SetMenuTitle(LPCTSTR pTitle,UINT nTitleFlags=MFT_TOP_TITLE);
+  BOOL SetMenuTitle(LPCTSTR pTitle, UINT nTitleFlags=MFT_TOP_TITLE, int nIconNormal = -1);
+  BOOL SetMenuTitle(LPCTSTR pTitle, UINT nTitleFlags, CBitmap* pBmp);
+  BOOL SetMenuTitle(LPCTSTR pTitle, UINT nTitleFlags, CImageList *pil, int xoffset);
+  BOOL SetMenuTitle(LPCTSTR pTitle, UINT nTitleFlags, CNewMenuIcons* pIcons, int nIndex);
+
+  BOOL SetMenuTitleColor(COLORREF clrTitle=CLR_DEFAULT, COLORREF clrLeft=CLR_DEFAULT, COLORREF clrRight=CLR_DEFAULT);
+
   BOOL RemoveMenuTitle();
 
   // Function to set how menu is drawn, either original or XP style
@@ -372,14 +456,13 @@ public:
 
   // Function to set how icons were drawn in normal mode 
   //(enable=TRUE means they are drawn blended)
-  static BOOL SetXpBlendig(BOOL bEnable=TRUE);
-  static BOOL GetXpBlendig();
+  static BOOL SetXpBlending(BOOL bEnable=TRUE);
+  static BOOL GetXpBlending();
 
   // Function to set how default menu border were drawn
   //(enable=TRUE means that all menu in the application has the same border)
   static BOOL SetNewMenuBorderAllMenu(BOOL bEnable=TRUE);
   static BOOL GetNewMenuBorderAllMenu();
-
 
   static void OnSysColorChange();
 
@@ -408,6 +491,9 @@ public:
 
   // Return the last itemrect from a menubaritem.
   CRect GetLastActiveMenuRect();
+  void SetLastMenuRect(HDC hDC, LPRECT pRect);
+  void SetLastMenuRect(LPRECT pRect);
+
   HMENU GetParent();
   BOOL IsPopup();
   BOOL SetPopup(BOOL bIsPopup=TRUE);
@@ -424,6 +510,16 @@ public:
   DWORD_PTR GetMenuData() const;
   void* GetMenuDataPtr() const;
 
+// <IAIN/>
+  // enable or disable the global accelerator drawing
+  static BOOL  SetAcceleratorsDraw (BOOL bDraw);
+  static BOOL  GetAcceleratorsDraw ();
+
+  // INVALID_HANDLE_VALUE = Draw default frame's accel. NULL = Off
+  HACCEL  SetAccelerator (HACCEL hAccel);
+  HACCEL  GetAccelerator ();
+// </IAIN>
+
 // Miscellaneous Protected Member functions
 protected:
   CNewMenuIcons* GetMenuIcon(int &nIndex, UINT nID, CImageList *pil, int xoffset);
@@ -433,12 +529,11 @@ protected:
   CNewMenuIcons* GetToolbarIcons(UINT nToolBar, HMODULE hInst=NULL);
 
   DWORD SetMenuIcons(CNewMenuIcons* pMenuIcons);
+
   BOOL Replace(UINT nID, UINT nNewID);
 
   static BOOL IsNewShell();
   BOOL IsMenuBar(HMENU hMenu=NULL);
-
-  void SetLastMenuRect(HDC hDC, LPRECT pRect);
 
   CNewMenuItemData* FindMenuItem(UINT nID);
   CNewMenu* FindMenuOption(int nId, int& nLoc);
@@ -447,6 +542,7 @@ protected:
   CNewMenu* FindAnotherMenuOption(int nId, int& nLoc, CArray<CNewMenu*,CNewMenu*>&newSubs, CArray<int,int&>&newLocs);
 
   CNewMenuItemData* NewODMenu(UINT pos, UINT nFlags, UINT nID, LPCTSTR string);
+  CNewMenuItemDataTitle* GetMemuItemDataTitle();
 
   void SynchronizeMenu();
   void InitializeMenuList(int value);
@@ -500,6 +596,9 @@ protected:
   static CMenuTheme* m_pActMenuDrawing;
   static LOGFONT m_MenuTitleFont;
   static CTypedPtrList<CPtrList, CNewMenuIcons*>* m_pSharedMenuIcons;
+// <IAIN/>
+  static  BOOL m_bDrawAccelerators;
+// </IAIN>
 
   int m_iconX;
   int m_iconY;
@@ -525,13 +624,16 @@ protected:
   DWORD m_dwOpenMenu;
 
   void* m_pData;
+// <IAIN/>
+  HACCEL  m_hAccelToDraw;
+// </IAIN>
 };
 
 /////////////////////////////////////////////////////////////////////////////
 // CNewFrame<> template for easy using of the new menu
 
 template<class baseClass>
-class CNewFrame : public baseClass
+class GUILIBDLLEXPORT CNewFrame : public baseClass
 {
   typedef CNewFrame<baseClass> MyNewFrame;
 public:
@@ -548,7 +650,12 @@ public:
   }
 
   // control bar docking
-  void EnableDocking(DWORD dwDockStyle);
+  void EnableDocking(DWORD dwDockStyle)
+  {
+    baseClass::EnableDocking(dwDockStyle);
+    // Owerite registering for floating frame
+    m_pFloatingFrameClass = RUNTIME_CLASS(CNewMiniDockFrameWnd);
+  }
 
 private:
   static const AFX_MSGMAP_ENTRY _messageEntries[];
@@ -658,7 +765,7 @@ protected:
     {   
       CPoint pt;
       GetCursorPos(&pt);
-      SendMessage(WM_NCHITTEST, 0, MAKELONG(pt.x, pt.y));
+      SendMessage(WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
     }
   }
 
@@ -793,7 +900,7 @@ protected:
   }
 
 #if _MFC_VER < 0x0700 
- 	afx_msg void OnActivateApp(BOOL bActive, HTASK hTask)
+  afx_msg void OnActivateApp(BOOL bActive, HTASK hTask)
   {
     baseClass::OnActivateApp(bActive, hTask);
     DrawSmallBorder();
@@ -841,6 +948,7 @@ protected:
 #endif
 };
 
+#ifndef _GUILIB_
 #ifdef _AFXDLL
   #if _MFC_VER < 0x0700 
     template<class baseClass>
@@ -852,30 +960,21 @@ protected:
 #else
   template<class baseClass>
   const AFX_MSGMAP CNewFrame<baseClass>::messageMap = { &baseClass::messageMap, GetMessageEntries()};
-#endif
+#endif // _AFXDLL
+#endif // _GUILIB_
 
 /////////////////////////////////////////////////////////////////////////////
 // CNewMiniDockFrameWnd for docking toolbars with new menu
 
-class CNewMiniDockFrameWnd: public CNewFrame<CMiniDockFrameWnd> 
+class GUILIBDLLEXPORT CNewMiniDockFrameWnd: public CNewFrame<CMiniDockFrameWnd> 
 {
   DECLARE_DYNCREATE(CNewMiniDockFrameWnd) 
 };
 
-// control bar docking
-template<class baseClass>
-void CNewFrame<baseClass>::EnableDocking(DWORD dwDockStyle)
-{
-  baseClass::EnableDocking(dwDockStyle);
-  // Owerite registering for floating frame
-  m_pFloatingFrameClass = RUNTIME_CLASS(CNewMiniDockFrameWnd);
-}
-
-
 /////////////////////////////////////////////////////////////////////////////
 // CNewDialog for dialog implementation
 
-class CNewDialog : public CNewFrame<CDialog>
+class GUILIBDLLEXPORT CNewDialog : public CNewFrame<CDialog>
 {
   DECLARE_DYNAMIC(CNewDialog);
 
@@ -899,7 +998,7 @@ protected:
 /////////////////////////////////////////////////////////////////////////////
 // CNewMiniFrameWnd for menu to documents
 
-class CNewMiniFrameWnd : public CNewFrame<CMiniFrameWnd>
+class GUILIBDLLEXPORT CNewMiniFrameWnd : public CNewFrame<CMiniFrameWnd>
 {
   DECLARE_DYNCREATE(CNewMiniFrameWnd)
 };
@@ -907,7 +1006,7 @@ class CNewMiniFrameWnd : public CNewFrame<CMiniFrameWnd>
 /////////////////////////////////////////////////////////////////////////////
 // CNewMDIChildWnd for menu to documents
 
-class CNewMDIChildWnd : public CNewFrame<CMDIChildWnd>
+class GUILIBDLLEXPORT CNewMDIChildWnd : public CNewFrame<CMDIChildWnd>
 {
   DECLARE_DYNCREATE(CNewMDIChildWnd)
 };
@@ -915,7 +1014,7 @@ class CNewMDIChildWnd : public CNewFrame<CMDIChildWnd>
 /////////////////////////////////////////////////////////////////////////////
 // CNewFrameWnd for menu to documents
 
-class CNewFrameWnd : public CNewFrame<CFrameWnd>
+class GUILIBDLLEXPORT CNewFrameWnd : public CNewFrame<CFrameWnd>
 {
   DECLARE_DYNCREATE(CNewFrameWnd)
 
@@ -948,7 +1047,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 // CNewMDIFrameWnd for menu to documents
 
-class CNewMDIFrameWnd : public CNewFrame<CMDIFrameWnd>
+class GUILIBDLLEXPORT CNewMDIFrameWnd : public CNewFrame<CMDIFrameWnd>
 {
   DECLARE_DYNCREATE(CNewMDIFrameWnd);
   HMENU m_hShowMenu;
@@ -986,7 +1085,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 // CNewMultiDocTemplate for menu to documents
 
-class CNewMultiDocTemplate: public CMultiDocTemplate
+class GUILIBDLLEXPORT CNewMultiDocTemplate: public CMultiDocTemplate
 {
   DECLARE_DYNAMIC(CNewMultiDocTemplate)
 
@@ -1001,10 +1100,11 @@ public:
   ~CNewMultiDocTemplate();
 };
 
+
 /////////////////////////////////////////////////////////////////////////////
 // CNewMemDC helperclass for drawing off screen 
 
-class CNewMemDC: public CDC
+class GUILIBDLLEXPORT CNewMemDC: public CDC
 {
   CRect m_rect;
   CBitmap* m_pOldBitmap;
@@ -1046,7 +1146,7 @@ public:
 #define  NEW_MENU_DEFAULT_BORDER      4
 #define  NEW_MENU_CHANGE_MENU_STYLE   8
 
-class CNewMenuHelper
+class GUILIBDLLEXPORT CNewMenuHelper
 {
 private:
   DWORD m_dwOldFlags;
@@ -1061,20 +1161,20 @@ public:
 
 /////////////////////////////////////////////////////////////////////////////
 // CNewDockBar support for office2003 colors.
-class CNewDockBar : public CDockBar
+class GUILIBDLLEXPORT CNewDockBar : public CDockBar
 {
-	DECLARE_DYNCREATE(CNewDockBar)
+  DECLARE_DYNCREATE(CNewDockBar)
 public:
   CNewDockBar(BOOL bFloating = FALSE);   // TRUE if attached to CMiniDockFrameWnd
   virtual ~CNewDockBar();
 
 #ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
+  virtual void AssertValid() const;
+  virtual void Dump(CDumpContext& dc) const;
 #endif
 
 protected:
-	DECLARE_MESSAGE_MAP()
+  DECLARE_MESSAGE_MAP()
 public:
 
   void EraseNonClient();

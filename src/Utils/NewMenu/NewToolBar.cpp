@@ -1,16 +1,19 @@
 //------------------------------------------------------------------------------
 // File    : NewToolBar.cpp 
-// Version : 1.10
-// Date    : 30. November 2003
+// Version : 1.11
+// Date    : 6. February 2004
 // Author  : Bruno Podetti
 // Email   : Podetti@gmx.net
 // Web     : www.podetti.com/NewMenu 
 // Systems : VC6.0/7.0 and VC7.1 (Run under (Window 98/ME), Windows Nt 2000/XP)
+//           for all systems it will be the best when you install the latest IE
+//           it is recommended for CNewToolBar
 //
 // For bugreport please add following informations
-// - The CNewToolBar version number (Example CNewToolBar 1.10)
+// - The CNewToolBar version number (Example CNewToolBar 1.11)
 // - Operating system Win95 / WinXP and language (English / Japanese / German etc.)
 // - Intalled service packs
+// - Version of internet explorer (important for CNewToolBar)
 // - Short description how to reproduce the bug
 // - Pictures/Sample are wellcome too
 // - You can write in English or German to the above email-address.
@@ -23,6 +26,11 @@
 // - Adding shade to icons
 // - Correcting checked state
 // - Adding text
+//
+// 25. Januar 2004 1.11
+// icons now centered and text drawing support, thanks to juergen schmitz
+// Added support for DropDown Buttons
+// Added support for Windows-Controls, like comoboxes, thanks to Jean-Michel LE FOL
 //
 // 23. November 2003 (1.10)
 // - Work with Themes (manifest)
@@ -46,6 +54,7 @@
 //------------------------------------------------------------------------------
 
 #include "stdafx.h"
+#include "NewMenu.h"
 #include "NewToolBar.h"
 
 #ifdef _DEBUG
@@ -59,20 +68,17 @@ static char THIS_FILE[] = __FILE__;
 #define CX_BORDER_GRIPPER 2
 #define CY_BORDER_GRIPPER 2
 
-// declarations from CNewMenu
-extern COLORREF DarkenColorXP(COLORREF color);
-extern COLORREF DarkenColor( long lScale, COLORREF lColor);
-extern COLORREF MixedColor(COLORREF colorA,COLORREF colorB);
-extern COLORREF LightenColor( long lScale, COLORREF lColor);
-extern COLORREF GetXpHighlightColor();
+#ifndef BTNS_DROPDOWN
+#define BTNS_DROPDOWN   TBSTYLE_DROPDOWN    // 0x0008
+#endif
 
-extern void DrawGradient(CDC* pDC,CRect& Rect, COLORREF StartColor,COLORREF EndColor, BOOL bHorizontal,BOOL bUseSolid=FALSE);
-extern HBITMAP LoadColorBitmap(LPCTSTR lpszResourceName, HMODULE hInst, int* pNumcol);
 
 // CNewToolBar
 
 IMPLEMENT_DYNAMIC(CNewToolBar, CToolBar)
 CNewToolBar::CNewToolBar()
+: m_pCustomizeMenu(NULL),
+  m_DoCheck(0)
 {
 }
 
@@ -89,39 +95,6 @@ BEGIN_MESSAGE_MAP(CNewToolBar, CToolBar)
 END_MESSAGE_MAP()
 
 
-COLORREF CNewToolBar::MakeGrayAlphablend(CBitmap* pBitmap, int weighting, COLORREF blendcolor)
-{
-  CDC myDC;
-  // Create a compatible bitmap to the screen
-  myDC.CreateCompatibleDC(0);
-  // Select the bitmap into the DC
-  CBitmap* pOldBitmap = myDC.SelectObject(pBitmap);
-
-  BITMAP myInfo = {0};
-  GetObject((HGDIOBJ)pBitmap->m_hObject,sizeof(myInfo),&myInfo);
-
-  for (int nHIndex = 0; nHIndex < myInfo.bmHeight; nHIndex++)
-  {
-    for (int nWIndex = 0; nWIndex < myInfo.bmWidth; nWIndex++)
-    {
-      COLORREF ref = myDC.GetPixel(nWIndex,nHIndex);
-
-      // make it gray
-      DWORD nAvg =  (GetRValue(ref) + GetGValue(ref) + GetBValue(ref))/3;	
-
-      // Algorithme for alphablending
-      //dest' = ((weighting * source) + ((255-weighting) * dest)) / 256
-      DWORD refR = ((weighting * nAvg) + ((255-weighting) * GetRValue(blendcolor))) / 256;
-      DWORD refG = ((weighting * nAvg) + ((255-weighting) * GetGValue(blendcolor))) / 256;;
-      DWORD refB = ((weighting * nAvg) + ((255-weighting) * GetBValue(blendcolor))) / 256;;
-
-      myDC.SetPixel(nWIndex,nHIndex,RGB(refR,refG,refB));
-    }
-  }
-  COLORREF topLeftColor = myDC.GetPixel(0,0);
-  myDC.SelectObject(pOldBitmap);
-  return topLeftColor;
-}
 
 // CNewToolBar message handlers
 void CNewToolBar::DrawGripper(CDC* pDC, const CRect& rect)
@@ -347,6 +320,33 @@ BOOL CNewToolBar::OnEraseBkgnd(CDC* pDC)
 
   case CNewMenu::STYLE_XP_2003_NOBORDER:
   case CNewMenu::STYLE_XP_2003:
+    if(NumScreenColors()<256)
+    {
+      CRect rcToolBar = rect;
+      if(m_dwStyle & CBRS_ORIENT_HORZ)
+      {
+        rcToolBar.left += m_cxLeftBorder; 
+        rcToolBar.right -= m_cxRightBorder;
+
+        if(!(m_dwStyle & CBRS_FLOATING))
+        {
+          rcToolBar.bottom = rect.bottom - 2;
+          rcToolBar.top = rect.top + 2;
+        }
+      }
+      else
+      {
+        rcToolBar.top += m_cxLeftBorder;
+        rcToolBar.bottom -= m_cxRightBorder;
+        rcToolBar.left += m_cxLeftBorder;
+        rcToolBar.right -= m_cxRightBorder;
+      }
+
+      PaintToolBarBackGnd(pDC);
+      COLORREF menuColor = GetXpHighlightColor();
+      pDC->FillSolidRect(rcToolBar,DarkenColor(30,menuColor));
+    }
+    else
     {
       COLORREF clrUpperColor, clrMediumColor, clrBottomColor, clrDarkLine;
       COLORREF menuColor = CNewMenu::GetMenuBarColor2003();
@@ -480,10 +480,35 @@ BOOL CNewToolBar::OnEraseBkgnd(CDC* pDC)
 
   case CNewMenu::STYLE_ICY:
   case CNewMenu::STYLE_ICY_NOBORDER:
+    if(NumScreenColors()<256)
+    {
+      CRect rcToolBar = rect;
+      if(m_dwStyle & CBRS_ORIENT_HORZ)
+      {
+        rcToolBar.left += m_cxLeftBorder; 
+        rcToolBar.right -= m_cxRightBorder;
+
+        if(!(m_dwStyle & CBRS_FLOATING))
+        {
+          rcToolBar.bottom = rect.bottom - 2;
+          rcToolBar.top = rect.top + 2;
+        }
+      }
+      else
+      {
+        rcToolBar.top += m_cxLeftBorder;
+        rcToolBar.bottom -= m_cxRightBorder;
+        rcToolBar.left += m_cxLeftBorder;
+        rcToolBar.right -= m_cxRightBorder;
+      }
+
+      PaintToolBarBackGnd(pDC);
+      COLORREF menuColor = CNewMenu::GetMenuBarColor();
+      pDC->FillSolidRect(rcToolBar,DarkenColor(30,menuColor));
+    }
+    else
     {
       COLORREF menuColor = CNewMenu::GetMenuColor();
-      COLORREF colorBack = CNewMenu::GetMenuBarColor();
-
       COLORREF clrUpperColor = LightenColor(60,menuColor);
       COLORREF clrMediumColor = menuColor;
       COLORREF clrBottomColor = DarkenColor(60,menuColor);
@@ -695,15 +720,36 @@ void CNewToolBar::PaintOrangeState(CDC *pDC, CRect rc, bool bHot)
   pDC->SelectObject(pOldPen);
 }
 
-BOOL CNewToolBar::PaintHotButton(LPNMCUSTOMDRAW lpNMCustomDraw)
-{
+// here we draw only the button background with border
+BOOL CNewToolBar::PaintHotButton(LPNMTBCUSTOMDRAW lpNMTBCustomDraw)
+{ 
+  LPNMCUSTOMDRAW lpNMCustomDraw = &lpNMTBCustomDraw->nmcd;
   CDC* pDC = CDC::FromHandle(lpNMCustomDraw->hdc);
+
+  int nIndex = CommandToIndex((UINT)lpNMCustomDraw->dwItemSpec);
+  UINT nID = 0;
+  UINT nStyle = 0;
+  int iImage = 0;
+  GetButtonInfo(nIndex,nID,nStyle,iImage);
+
+   int cx=0, cy=0;
+  CImageList* pImgList = (lpNMCustomDraw->uItemState&CDIS_DISABLED)?&m_ImageListDisabled:&m_ImageList;
+  ::ImageList_GetIconSize(pImgList->GetSafeHandle(),&cx,&cy);
 
   switch (CNewMenu::GetMenuDrawMode())
   {
   case CNewMenu::STYLE_XP:
   case CNewMenu::STYLE_XP_NOBORDER:
     {
+      if(lpNMCustomDraw->uItemState&CDIS_INDETERMINATE)
+      {
+        COLORREF colorBitmap = MixedColor(CNewMenu::GetMenuBarColor(),GetSysColor(COLOR_WINDOW));
+        pDC->FillSolidRect(&(lpNMCustomDraw->rc),colorBitmap);
+
+        COLORREF colorBorder = GetSysColor(COLOR_HIGHLIGHT);
+        pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);
+      }
+      else
       if (lpNMCustomDraw->uItemState&CDIS_CHECKED ||
           lpNMCustomDraw->uItemState&CDIS_HOT)
       {
@@ -711,6 +757,13 @@ BOOL CNewToolBar::PaintHotButton(LPNMCUSTOMDRAW lpNMCustomDraw)
         COLORREF colorBorder = GetSysColor(COLOR_HIGHLIGHT);
         pDC->FillSolidRect(&(lpNMCustomDraw->rc),colorSel);
         pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);
+        // we are a menu button
+        if(BTNS_DROPDOWN&nStyle )
+        {
+          CRect rect(lpNMCustomDraw->rc);
+          rect.left = lpNMCustomDraw->rc.right-13;
+          pDC->Draw3dRect(rect,colorBorder,colorBorder);
+        }
       }
     }
     break;
@@ -722,20 +775,52 @@ BOOL CNewToolBar::PaintHotButton(LPNMCUSTOMDRAW lpNMCustomDraw)
         COLORREF colorSel = LightenColor(60,colorMid);
         COLORREF colorBorder = DarkenColor(60,colorMid);
         CRect rect(lpNMCustomDraw->rc);
-        if(lpNMCustomDraw->uItemState == CDIS_HOT)
-        { 	 
+        BOOL bDrawBorder = FALSE;
+        if(lpNMCustomDraw->uItemState&CDIS_INDETERMINATE)
+        {
+          if(NumScreenColors()<256)
+          {
+            pDC->FillSolidRect(rect,colorSel);
+          }
+          else
+          {
+            COLORREF menuColor = CNewMenu::GetMenuColor();
+            COLORREF clrUpperColor = LightenColor(60,menuColor);
+            COLORREF clrMediumColor = menuColor;
+            COLORREF clrBottomColor = DarkenColor(60,menuColor);
+
+            rect.bottom = (rect.bottom+rect.top)/2;
+            DrawGradient(pDC,rect,clrUpperColor,clrMediumColor,false);
+            rect.top = rect.bottom;
+            rect.bottom = lpNMCustomDraw->rc.bottom;
+            DrawGradient(pDC,rect,clrMediumColor,clrBottomColor,false);
+          }
+          pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);
+        }
+        else if(lpNMCustomDraw->uItemState == CDIS_HOT)
+        {
           DrawGradient(pDC,rect,colorSel,colorMid,false);
-          pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);  
+          pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);
+          bDrawBorder = TRUE;
         }
         else if (lpNMCustomDraw->uItemState == (CDIS_HOT | CDIS_SELECTED))
         {
           DrawGradient(pDC,rect,colorMid,colorBorder,false);
           pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);  
+          bDrawBorder = TRUE;
         }
         else if (lpNMCustomDraw->uItemState&CDIS_CHECKED)
         {
           pDC->FillSolidRect(&(lpNMCustomDraw->rc),colorSel);
           pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);  
+          bDrawBorder = TRUE;
+        }
+        // we are a menu button
+        if(bDrawBorder && BTNS_DROPDOWN&nStyle)
+        {
+          CRect rect(lpNMCustomDraw->rc);
+          rect.left = lpNMCustomDraw->rc.right-13;//lpNMCustomDraw->rc.left + 3 + 4 + cx;
+          pDC->Draw3dRect(rect,colorBorder,colorBorder);
         }
       }
       break;
@@ -743,13 +828,35 @@ BOOL CNewToolBar::PaintHotButton(LPNMCUSTOMDRAW lpNMCustomDraw)
     case CNewMenu::STYLE_XP_2003_NOBORDER:
     case CNewMenu::STYLE_XP_2003: 
     {
-      if(lpNMCustomDraw->uItemState == CDIS_HOT)
-      { 	 
+      BOOL bDrawBorder = FALSE;      
+      if(lpNMCustomDraw->uItemState&CDIS_INDETERMINATE)  
+      {
+        COLORREF colorMenu = CNewMenu::GetMenuBarColor2003();
+        CRect rect(lpNMCustomDraw->rc);
+        if(NumScreenColors() <= 256)
+        {
+          pDC->FillSolidRect(rect,colorMenu);
+        }
+        else
+        {
+          COLORREF colorBitmap = colorMenu;
+          colorMenu = MixedColor(DarkenColor(10,GetSysColor(COLOR_WINDOW)),CNewMenu::GetMenuColor());
+
+          DrawGradient(pDC,rect,colorMenu,colorBitmap,FALSE,TRUE);
+        }
+
+        COLORREF colorBorder = GetSysColor(COLOR_HIGHLIGHT);
+        pDC->Draw3dRect(rect,colorBorder,colorBorder);  
+      }
+      else if(lpNMCustomDraw->uItemState == CDIS_HOT)
+      {
         PaintOrangeState(pDC,lpNMCustomDraw->rc, true);
+        bDrawBorder = TRUE;
       }
       else if (lpNMCustomDraw->uItemState == (CDIS_HOT | CDIS_SELECTED))
       {
         PaintOrangeState(pDC,lpNMCustomDraw->rc, false);
+        bDrawBorder = TRUE;
       }
       else if (lpNMCustomDraw->uItemState&CDIS_CHECKED)
       {
@@ -757,41 +864,136 @@ BOOL CNewToolBar::PaintHotButton(LPNMCUSTOMDRAW lpNMCustomDraw)
         COLORREF colorBorder = RGB(4, 2, 132);//GetSysColor(COLOR_HIGHLIGHT);
         pDC->FillSolidRect(&(lpNMCustomDraw->rc),colorSel);
         pDC->Draw3dRect(&(lpNMCustomDraw->rc),colorBorder,colorBorder);  
+        bDrawBorder = TRUE;
+      }
+      // we are a menu button
+      if(bDrawBorder && BTNS_DROPDOWN&nStyle)
+      {
+        COLORREF colorBorder = RGB(4, 2, 132);//GetSysColor(COLOR_HIGHLIGHT);
+        CRect rect(lpNMCustomDraw->rc);
+        rect.left = lpNMCustomDraw->rc.right-13;//lpNMCustomDraw->rc.left + 3 + 4 + cx;
+        pDC->Draw3dRect(rect,colorBorder,colorBorder);
       }
     }
     break;
 
   default:
     {
-      if(lpNMCustomDraw->uItemState == CDIS_HOT)
-      { 	 
+      BOOL bDrawBorder = FALSE;
+      if(lpNMCustomDraw->uItemState == CDIS_HOT )
+      {
         pDC->Draw3dRect(&(lpNMCustomDraw->rc),GetSysColor(COLOR_HIGHLIGHTTEXT),GetSysColor(COLOR_BTNSHADOW));
+        bDrawBorder = TRUE;
       }
-      else if (lpNMCustomDraw->uItemState == (CDIS_HOT | CDIS_SELECTED))
+      else if (lpNMCustomDraw->uItemState == (CDIS_HOT | CDIS_SELECTED)||
+         lpNMCustomDraw->uItemState&CDIS_INDETERMINATE)
       {
         pDC->Draw3dRect(&(lpNMCustomDraw->rc),GetSysColor(COLOR_BTNSHADOW),GetSysColor(COLOR_HIGHLIGHTTEXT));
+        bDrawBorder = TRUE;
       }
       else if (lpNMCustomDraw->uItemState&CDIS_CHECKED)
-      { 	 
+      {
         pDC->Draw3dRect(&(lpNMCustomDraw->rc),GetSysColor(COLOR_BTNSHADOW),GetSysColor(COLOR_HIGHLIGHTTEXT));
+        bDrawBorder = TRUE;
+      }
+      // we are a menu button
+      if(bDrawBorder && BTNS_DROPDOWN&nStyle && !(lpNMCustomDraw->uItemState&CDIS_INDETERMINATE) )
+      {
+        CRect rect(lpNMCustomDraw->rc);
+        rect.left = lpNMCustomDraw->rc.right-13;//lpNMCustomDraw->rc.left + 3 + 4 + cx;
+        if(lpNMCustomDraw->uItemState == CDIS_HOT)
+        {
+          pDC->Draw3dRect(rect,GetSysColor(COLOR_HIGHLIGHTTEXT),GetSysColor(COLOR_BTNSHADOW));
+        }
+        else
+        {
+          pDC->Draw3dRect(rect,GetSysColor(COLOR_BTNSHADOW),GetSysColor(COLOR_HIGHLIGHTTEXT));
+        }
       }
     }
     break;
   }
+  if(BTNS_DROPDOWN&nStyle)
+  {
+    COLORREF colorDropDown;
+    if(lpNMCustomDraw->uItemState&CDIS_DISABLED)
+    {
+      colorDropDown = GetSysColor(COLOR_GRAYTEXT);
+    }
+    else
+    {
+      colorDropDown = GetSysColor(COLOR_WINDOWTEXT);
+    }
+    CRect rect(lpNMCustomDraw->rc);
+    rect.left = lpNMCustomDraw->rc.right-13;//lpNMCustomDraw->rc.left + 3 + 4 + cx;
+
+    CPen pen(PS_SOLID,0,colorDropDown);
+    CPen* pOldPen = pDC->SelectObject(&pen);
+
+    CPoint cetner = rect.CenterPoint(); 
+    pDC->MoveTo(cetner+CPoint(-2,-1));pDC->LineTo(cetner+CPoint(+3,-1));
+    pDC->MoveTo(cetner+CPoint(-1,-0));pDC->LineTo(cetner+CPoint(+2,-0));
+    pDC->MoveTo(cetner+CPoint(-0,+1));pDC->LineTo(cetner+CPoint(+1,+1));
+    
+    pDC->SelectObject(pOldPen);
+  }
+
   return TRUE;
 }
 
-void CNewToolBar::PaintTBButton(LPNMCUSTOMDRAW pInfo)
-{	
-  CImageList* pImgList = (pInfo->uItemState&CDIS_DISABLED)?&m_ImageListDisabled:&m_ImageList;
+// here we draw the button image
+void CNewToolBar::PaintTBButton(LPNMTBCUSTOMDRAW lpNMTBCustomDraw)
+{
+  LPNMCUSTOMDRAW pInfo = &lpNMTBCustomDraw->nmcd;
   CDC *pDC = CDC::FromHandle(pInfo->hdc);
-  CPoint ptImage(pInfo->rc.left+3,pInfo->rc.top+3);
 
-  int nIndex = CommandToIndex(pInfo->dwItemSpec);
+  int nIndex = CommandToIndex((UINT)pInfo->dwItemSpec);
   UINT nID = 0;
   UINT nStyle = 0;
   int iImage = 0;
-  GetButtonInfo(nIndex,nID,nStyle,iImage);
+  GetButtonInfo(nIndex,nID,nStyle,iImage); 
+
+  int cx=0, cy=0;
+  CImageList* pImgList = (pInfo->uItemState&CDIS_DISABLED)?&m_ImageListDisabled:&m_ImageList;
+  ::ImageList_GetIconSize(pImgList->GetSafeHandle(),&cx,&cy);
+
+  // always center image
+  CPoint ptImage((pInfo->rc.left + pInfo->rc.right - cx) / 2 ,
+                 (pInfo->rc.top + pInfo->rc.bottom - cy) / 2);
+
+  if(BTNS_DROPDOWN&nStyle)
+  {
+    ptImage.x -= 7;
+  }
+  CString sText = GetButtonText(nIndex);
+  if (!sText.IsEmpty())
+  {
+    // correcting of image
+    DWORD dwStyle = GetStyle();
+    if(dwStyle&TBSTYLE_LIST)
+    {// text on the right side
+      ptImage.x = pInfo->rc.left+3;
+    }
+    else
+    {// text on the left side
+      ptImage.y = pInfo->rc.top+4;
+    }
+
+    CFont* pOldFont = (CFont*)pDC->SelectStockObject(ANSI_VAR_FONT);
+    int iOldMode = pDC->SetBkMode(TRANSPARENT);
+    CRect rect(lpNMTBCustomDraw->rcText);
+    if (pInfo->uItemState&CDIS_DISABLED)
+    {
+      pDC->SetTextColor(GetSysColor(COLOR_GRAYTEXT));
+    }
+    else
+    { 
+      pDC->SetTextColor(GetSysColor(COLOR_WINDOWTEXT));
+    }
+    pDC->DrawText(sText, rect, DT_CENTER);
+    pDC->SetBkMode(iOldMode);
+    pDC->SelectObject(pOldFont);
+  }
 
   switch (CNewMenu::GetMenuDrawMode())
   {
@@ -799,19 +1001,17 @@ void CNewToolBar::PaintTBButton(LPNMCUSTOMDRAW pInfo)
   case CNewMenu::STYLE_XP_NOBORDER:
     if(pInfo->uItemState&CDIS_HOT && !(pInfo->uItemState&CDIS_SELECTED))
     {
-      int cx,cy;
-      ::ImageList_GetIconSize(pImgList->GetSafeHandle(),&cx,&cy);
       CSize imgSize(cx,cy);
 
-      ptImage.x = pInfo->rc.left+4;
-      ptImage.y = pInfo->rc.top+4;
+      ptImage.x += 1;
+      ptImage.y += 1;
       // draws the icon blended
       HICON hDrawIcon2 = pImgList->ExtractIcon(iImage);
       pDC->DrawState(ptImage, imgSize, hDrawIcon2, DSS_MONO,(HBRUSH)NULL);
       DestroyIcon(hDrawIcon2);
 
-      ptImage.x = pInfo->rc.left+2;
-      ptImage.y = pInfo->rc.top+2;
+      ptImage.x -= 2;
+      ptImage.y -= 2;
     }
     break;
 
@@ -822,8 +1022,8 @@ void CNewToolBar::PaintTBButton(LPNMCUSTOMDRAW pInfo)
   default:
     if((pInfo->uItemState&CDIS_SELECTED))
     {
-      ptImage.x = pInfo->rc.left+4;
-      ptImage.y = pInfo->rc.top+4;
+      ptImage.x += 1;
+      ptImage.y += 1;
     }
     if(m_ImageList.GetSafeHandle())
     {
@@ -857,7 +1057,6 @@ void CNewToolBar::PaintTBButton(LPNMCUSTOMDRAW pInfo)
 
 void CNewToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 {
-  LPNMCUSTOMDRAW pNMCD = (LPNMCUSTOMDRAW)(pNMHDR);
   LPNMTBCUSTOMDRAW lpNMCustomDraw = (LPNMTBCUSTOMDRAW) pNMHDR;
   *pResult = CDRF_DODEFAULT;
 
@@ -878,11 +1077,11 @@ void CNewToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
     break;
 
   case CDDS_ITEMPREPAINT:
-    if(PaintHotButton(pNMCD))
+    if(PaintHotButton(lpNMCustomDraw))
     {
       *pResult = CDRF_DODEFAULT|TBCDRF_NOEDGES;//CDRF_SKIPDEFAULT;
     }
-    PaintTBButton(&lpNMCustomDraw->nmcd);
+    PaintTBButton(lpNMCustomDraw);
     *pResult = CDRF_SKIPDEFAULT;
     break;
 
@@ -893,9 +1092,13 @@ void CNewToolBar::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
 int CNewToolBar::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-  if (CToolBar::OnCreate(lpCreateStruct) == -1)
-    return -1;
+  // For correct handling of toolbar highliting the TBSTYLE_FLAT style has to be set
+  ASSERT(lpCreateStruct->style&TBSTYLE_FLAT);
 
+  if (CToolBar::OnCreate(lpCreateStruct) == -1)
+  {
+    return -1;
+  }
   //typedef HRESULT (WINAPI* FktSetWindowTheme)(HWND hwnd, LPCWSTR pszSubAppName, LPCWSTR pszSubIdList);
   //extern FktSetWindowTheme pSetWindowTheme;
   //if(pSetWindowTheme)
@@ -913,7 +1116,7 @@ int CNewToolBar::OnCreate(LPCREATESTRUCT lpCreateStruct)
       scheme.clrBtnHighlight = CLR_DEFAULT;//DarkenColorXP(CNewMenu::GetMenuBarColor());;
       scheme.clrBtnShadow= DarkenColorXP(CNewMenu::GetMenuBarColorXP());
 
-      ::SendMessage(m_hWnd,TB_SETCOLORSCHEME,0,(LPARAM)&scheme);
+      SendMessage(TB_SETCOLORSCHEME,0,(LPARAM)&scheme);
     }
     break;
 
@@ -927,7 +1130,7 @@ int CNewToolBar::OnCreate(LPCREATESTRUCT lpCreateStruct)
       scheme.clrBtnHighlight = CLR_DEFAULT;//DarkenColorXP(CNewMenu::GetMenuBarColor());;
       scheme.clrBtnShadow= DarkenColorXP(CNewMenu::GetMenuBarColor2003());
 
-      ::SendMessage(m_hWnd,TB_SETCOLORSCHEME,0,(LPARAM)&scheme);
+      SendMessage(TB_SETCOLORSCHEME,0,(LPARAM)&scheme);
     }
     break;
 
@@ -935,6 +1138,83 @@ int CNewToolBar::OnCreate(LPCREATESTRUCT lpCreateStruct)
     break;
   } 
   return 0;
+}
+
+LRESULT CNewToolBar::DefWindowProc(UINT nMsg, WPARAM wParam, LPARAM lParam)
+{
+  LRESULT result = CToolBar::DefWindowProc ( nMsg, wParam, lParam);
+  if(m_DoCheck && nMsg == TB_GETBUTTON && result)
+  {
+    TBBUTTON* pButton = (TBBUTTON*)lParam;
+    if(pButton && (pButton->fsStyle&TBSTYLE_SEP) && pButton->idCommand!=0 )
+    {
+      if(m_DoCheck==1)
+      {
+        pButton->fsState |= TBSTATE_HIDDEN;
+      }
+      else
+      {
+        pButton->fsState &= ~TBSTATE_HIDDEN;
+      }
+    }
+  }
+  return result;
+}
+
+
+CSize CNewToolBar::CalcDynamicLayout (int nLength, DWORD dwMode)
+{
+  bool bHideControls = (dwMode & LM_VERTDOCK) == LM_VERTDOCK;
+  m_DoCheck = bHideControls ? 1 : 2;
+  CSize size = CToolBar::CalcDynamicLayout (nLength, dwMode);
+  m_DoCheck = 0;
+
+  if ( dwMode & LM_COMMIT )
+  {
+    int nCountBtn = (int)SendMessage(TB_BUTTONCOUNT, 0, 0);
+    TBBUTTON tbButton;
+    for(int i=0;i<nCountBtn;i++)
+    {
+      if ( !SendMessage(TB_GETBUTTON, i, (LPARAM)&tbButton) ||
+        !((tbButton.fsStyle&TBSTYLE_SEP) && tbButton.idCommand!=0) )
+      { // coninue by error or not controls
+        continue; 
+      }
+      CWnd* pWnd = GetDlgItem (tbButton.idCommand);
+      if ( !pWnd->GetSafeHwnd() )
+      {
+        continue;
+      }
+      if ( bHideControls )
+      {
+        GetToolBarCtrl().HideButton (tbButton.idCommand, true);
+        pWnd->ShowWindow (SW_HIDE);
+      }
+      else
+      {
+        GetToolBarCtrl().HideButton (tbButton.idCommand, false);
+        // Update control position
+        CRect rectTBItem;
+        if(SendMessage(TB_GETITEMRECT, i, (LPARAM)&rectTBItem))
+        {
+          rectTBItem.InflateRect(-1,-1);
+          CRect rectControl;
+          pWnd->GetWindowRect(rectControl);
+          UINT nFlags = SWP_NOACTIVATE|SWP_NOZORDER|SWP_SHOWWINDOW;
+          if ( rectControl.Width() == rectTBItem.Width() )
+          {
+            nFlags |= SWP_NOSIZE;
+          }
+          // center the control in the heigt
+          int nOffsety = (rectTBItem.Height()-rectControl.Height())/2;
+          rectTBItem.OffsetRect(0,nOffsety);
+
+          pWnd->SetWindowPos (NULL, rectTBItem.left, rectTBItem.top, rectTBItem.Width(), rectTBItem.Height(),nFlags);
+        }
+      }
+    }
+  }
+  return size;
 }
  
 void CNewToolBar::OnBarStyleChange(DWORD dwOldStyle, DWORD dwNewStyle)
@@ -984,6 +1264,14 @@ void CNewToolBar::OnPaint()
   myDraw.nmcd.rc = client;
   myDraw.nmcd.hdc = dc.m_hDC;
 
+  COLORSCHEME colorscheme = {0};
+  colorscheme.dwSize = sizeof(colorscheme);
+  if(SendMessage(TB_GETCOLORSCHEME,0,(LPARAM)&colorscheme))
+  {
+    myDraw.clrBtnHighlight = colorscheme.clrBtnHighlight;
+    myDraw.clrBtnFace = colorscheme.clrBtnShadow;
+  }
+
   myDraw.nmcd.dwDrawStage = CDDS_PREPAINT; 
   LRESULT result = pParent->SendMessage(WM_NOTIFY,myDraw.nmcd.hdr.idFrom,(LPARAM)&myDraw);
 
@@ -993,12 +1281,8 @@ void CNewToolBar::OnPaint()
   myDraw.nmcd.dwDrawStage = CDDS_POSTERASE; 
   result = pParent->SendMessage(WM_NOTIFY,myDraw.nmcd.hdr.idFrom,(LPARAM)&myDraw);
 
-  int nCountBtn = (int)SendMessage (TB_BUTTONCOUNT, 0, 0);
-
-  TBBUTTON tbButton;
-  CPoint pt;
-  GetCursorPos(&pt);
-  ScreenToClient(&pt);
+  int nCountBtn = (int)SendMessage(TB_BUTTONCOUNT, 0, 0);
+  //int nHotItem = (int)SendMessage(TB_GETHOTITEM,0,0);
 
   COLORREF clrUpperColor = GetSysColor(COLOR_3DLIGHT);
   COLORREF clrBottomColor = GetSysColor(COLOR_3DDKSHADOW);
@@ -1023,12 +1307,15 @@ void CNewToolBar::OnPaint()
 
   case CNewMenu::STYLE_ICY:
   case CNewMenu::STYLE_ICY_NOBORDER:
-    clrUpperColor = LightenColor(150,clrBottomColor);    
+    clrBottomColor = clrUpperColor = LightenColor(150,clrBottomColor);
     break;
-
-  //default:
-  //  break;
   }
+
+  TBBUTTON tbButton;
+  CPoint pt;
+  GetCursorPos(&pt);
+  ScreenToClient(&pt);
+  DWORD dwStyle = GetStyle();//TBSTYLE_LIST 
 
   for(int i=0;i<nCountBtn;i++)
   {
@@ -1038,12 +1325,17 @@ void CNewToolBar::OnPaint()
       continue; 
     }
 
-    GetItemRect(i,&myDraw.nmcd.rc);    
+    GetItemRect(i,&myDraw.nmcd.rc);
     if (tbButton.fsStyle == TBSTYLE_SEP) 
     {
       CRect rect(myDraw.nmcd.rc);
       if (!(tbButton.fsState & TBSTATE_WRAP) || ! IsFloating())
       {
+        if(tbButton.idCommand && GetDlgItem(tbButton.idCommand))
+        {
+          // do not draw seperators under controls
+          continue;
+        }
         if (m_dwStyle & CBRS_ORIENT_HORZ)
         {
           rect.left = ((rect.left + rect.right)/2)-1;
@@ -1125,7 +1417,49 @@ void CNewToolBar::OnPaint()
         {
           myDraw.nmcd.uItemState |= CDIS_HOT;
         }
+        myDraw.rcText = CRect(0,0,0,0);
+        if(tbButton.iString!=(-1))
+        {
+          int nSize = (int)SendMessage(TB_GETBUTTONTEXT,tbButton.idCommand,0);
+          if(nSize!=(-1))
+          {
+            PTCHAR nBuffer = (PTCHAR)_alloca((nSize+2)*sizeof(TCHAR));
+            *nBuffer = 0;
+            SendMessage(TB_GETBUTTONTEXT,tbButton.idCommand,(LPARAM)nBuffer);
+            SIZE size = {0,0};
+            VERIFY(::GetTextExtentPoint32(dc.m_hDC,nBuffer,nSize,&size));
+            if(dwStyle&TBSTYLE_LIST)
+            {// text will be shown right
+              int nBorderY = (myDraw.nmcd.rc.bottom-myDraw.nmcd.rc.top-size.cy)/2;
+              myDraw.rcText.top = myDraw.nmcd.rc.top+nBorderY+2;
+              myDraw.rcText.bottom = myDraw.rcText.top+size.cy;
 
+              if(tbButton.fsStyle&BTNS_DROPDOWN)
+              { 
+                myDraw.rcText.right = myDraw.nmcd.rc.right-13 - 4;
+                myDraw.rcText.left  = myDraw.nmcd.rc.left + m_sizeImage.cx + 4;
+              }
+              else
+              {
+                myDraw.rcText.right = myDraw.nmcd.rc.right - 2;
+                myDraw.rcText.left  = myDraw.nmcd.rc.left  + m_sizeImage.cx + 4;
+              }
+            }
+            else
+            {// text will be shown below
+              int nBorderX = (myDraw.nmcd.rc.right-myDraw.nmcd.rc.left-size.cx)/2;
+              if(tbButton.fsStyle&BTNS_DROPDOWN)
+              {
+                nBorderX -= 7;
+              }
+              myDraw.rcText.left = myDraw.nmcd.rc.left+nBorderX;
+              myDraw.rcText.right = myDraw.rcText.left+size.cx;
+
+              myDraw.rcText.bottom = myDraw.nmcd.rc.bottom-1;
+              myDraw.rcText.top = myDraw.nmcd.rc.bottom-size.cy;
+            }
+          }
+        }
         myDraw.nmcd.dwItemSpec  = tbButton.idCommand;
         myDraw.nmcd.lItemlParam = tbButton.dwData;
 
@@ -1136,7 +1470,7 @@ void CNewToolBar::OnPaint()
         result = pParent->SendMessage(WM_NOTIFY,myDraw.nmcd.hdr.idFrom,(LPARAM)&myDraw);
       }
     }
-  }  
+  }
 
   myDraw.nmcd.dwDrawStage = CDDS_POSTPAINT; 
   result = pParent->SendMessage(WM_NOTIFY,myDraw.nmcd.hdr.idFrom,(LPARAM)&myDraw);
@@ -1210,7 +1544,8 @@ void CNewToolBar::PaintToolBarBackGnd(CDC* pDC)
     case CNewMenu::STYLE_ICY:
     case CNewMenu::STYLE_ICY_NOBORDER:
     default:
-      tempBrush.CreateSolidBrush(GetSysColor(COLOR_3DLIGHT));
+      tempBrush.CreateSolidBrush(CNewMenu::GetMenuBarColor());
+      //tempBrush.CreateSolidBrush(GetSysColor(COLOR_3DLIGHT));
       break;
     }
     menuInfo.hbrBack = tempBrush;
@@ -1224,13 +1559,103 @@ void CNewToolBar::PaintToolBarBackGnd(CDC* pDC)
     ScreenToClient(windowRect);
 
     CBrush *pBrush = CBrush::FromHandle(menuInfo.hbrBack);
-    // need for win95/98/me
-    VERIFY(pBrush->UnrealizeObject());
-    CPoint oldOrg = pDC->SetBrushOrg(windowRect.left,0);
- 
-    ScreenToClient(clientRect);
-    pDC->FillRect(clientRect,pBrush);
-    //pDC->FillSolidRect(clientRect,RGB(255,0,0));
-    pDC->SetBrushOrg(oldOrg);
+    if(pBrush)
+    {
+      // need for win95/98/me
+      VERIFY(pBrush->UnrealizeObject());
+      CPoint oldOrg = pDC->SetBrushOrg(windowRect.left,0);
+
+      ScreenToClient(clientRect);
+      pDC->FillRect(clientRect,pBrush);
+      //pDC->FillSolidRect(clientRect,RGB(255,0,0));
+      pDC->SetBrushOrg(oldOrg);
+    }
   }
 }
+
+bool CNewToolBar::SetMenuButtonID(UINT nCommandID)
+{
+  int nTBIndex = CommandToIndex (nCommandID);
+  if(nTBIndex==-1)
+  {
+    return false;
+  }
+  return SetMenuButton(nTBIndex);
+}
+
+bool CNewToolBar::SetMenuButton (int nIndex)
+{
+  SendMessage(TB_SETEXTENDEDSTYLE, 0, (LPARAM)TBSTYLE_EX_DRAWDDARROWS);
+
+  TBBUTTON button;
+  if(SendMessage(TB_GETBUTTON,nIndex,(LPARAM)&button))
+  {
+    SetButtonStyle(nIndex,button.fsStyle | TBBS_DROPDOWN);
+    return true;
+  }
+  return false;
+}
+
+bool CNewToolBar::InsertControl (int nIndex, CWnd* pControl, DWORD_PTR dwData)
+{
+  HWND hWnd = pControl->GetSafeHwnd();
+  if(!hWnd)
+  {
+    return false;
+  }
+  // Set the same font as in toolbar
+  pControl->SetFont(GetFont());
+
+  int nCount = (int)SendMessage(TB_BUTTONCOUNT, 0, 0);
+  CRect rect;
+  pControl->GetWindowRect(&rect);
+
+  TBBUTTON tbbutton = {0};
+  tbbutton.iBitmap = rect.Width();
+  tbbutton.idCommand = pControl->GetDlgCtrlID();
+  tbbutton.fsStyle = TBSTYLE_SEP;
+  tbbutton.iString = -1;
+  tbbutton.dwData = dwData;
+
+  if ( nIndex < 0 || nIndex > nCount )
+  {
+    nIndex = nCount;
+  }
+  if (SendMessage(TB_INSERTBUTTON, nIndex, (LPARAM)&tbbutton) )
+  {
+    m_bDelayedButtonLayout = true;
+    GetItemRect(nIndex,rect);
+    //pControl->SetWindowPos(NULL,rect.top,rect.left,0,0,SWP_NOZORDER|SWP_NOSIZE|SWP_FRAMECHANGED);
+    return true;
+  }
+  return false;
+}
+
+void CNewToolBar::TrackPopupMenu (UINT nID, CMenu* pMenu)
+{
+  int nTBIndex = CommandToIndex (nID);
+  if(pMenu && nTBIndex!=-1)
+  {
+    CRect rcTBItem;
+    GetItemRect (nTBIndex, rcTBItem);
+    ClientToScreen (rcTBItem);
+
+    SetButtonStyle (nTBIndex, GetButtonStyle (nTBIndex)|TBBS_INDETERMINATE);
+    UpdateWindow();
+
+    // Need to set the rectangle of the button! 
+    CNewMenu* pNewMenu = DYNAMIC_DOWNCAST(CNewMenu,pMenu);
+    if(pNewMenu)
+    {
+      CNewMenu* pParentMenu = DYNAMIC_DOWNCAST(CNewMenu,CMenu::FromHandlePermanent(pNewMenu->GetParent()));
+      if(pParentMenu)
+      {
+        pParentMenu->SetLastMenuRect(rcTBItem);
+      }
+    }    
+    pMenu->TrackPopupMenu(TPM_LEFTBUTTON, rcTBItem.left, rcTBItem.bottom, GetParentFrame(),rcTBItem);
+    SetButtonStyle (nTBIndex, GetButtonStyle (nTBIndex)&~TBBS_INDETERMINATE);
+  }
+}
+
+
