@@ -49,7 +49,7 @@ BOOL BugtraqInfo::ReadPropsTempfile(CString path)
 	}
 	catch (CFileException* pE)
 	{
-		TRACE("CFileException in Commit!\n");
+		TRACE("CFileException in ReadPropsTempfile!\n");
 		pE->Delete();
 	}
 	return FALSE;
