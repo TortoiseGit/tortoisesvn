@@ -107,6 +107,8 @@ UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int
 		box.m_hIcon = (HICON)::LoadImage(NULL, icon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
 	else
 		box.m_bDestroyIcon = TRUE;
+	if (!IsWindow(hWnd))
+		hWnd = NULL;
 	return box.GoModal(CWnd::FromHandle(hWnd), lpCaption, lpMessage, nDef);	
 }
 
@@ -121,6 +123,8 @@ UINT CMessageBox::Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef
 		box.m_hIcon = (HICON)::LoadImage(NULL, icon, IMAGE_ICON, 0, 0, LR_SHARED | LR_DEFAULTSIZE);
 	else
 		box.m_bDestroyIcon = TRUE;
+	if (!IsWindow(hWnd))
+		hWnd = NULL;
 	return box.GoModal(CWnd::FromHandle(hWnd), lpCaption, lpMessage, nDef);
 }
 
@@ -195,6 +199,8 @@ UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UIN
 	}
 	else
 		box.m_sCheckbox = lpCheckMessage;
+	if (!IsWindow(hWnd))
+		hWnd = NULL;
 	return box.GoModal(CWnd::FromHandle(hWnd), lpCaption, lpMessage, box.FillBoxStandard(uType));
 }
 
@@ -211,6 +217,8 @@ UINT CMessageBox::Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uTy
 {
 	CMessageBox box;
 	
+	if (!IsWindow(hWnd))
+		hWnd = NULL;
 	return box.GoModal(CWnd::FromHandle(hWnd), lpCaption, lpMessage, box.FillBoxStandard(uType));
 }
 
