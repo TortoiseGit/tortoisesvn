@@ -1,6 +1,9 @@
 - ADD: TME shows the differences in whitespaces
        inside a line too. (Stefan)
-
+- BUG: Fixed a bug in LogDlg, where Double-click 
+       and right-click behaved differently. 
+       Double-Click tried to fetch the log for 
+       a wrong revision. (Luebbe)
 
 Version 0.24
 - ADD: A new separate program to apply patches,
