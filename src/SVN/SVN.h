@@ -361,11 +361,23 @@ public:
 	 * a "d" if the entry is a directory, a "f" if it is a file or a "u" if the type of the 
 	 * entry is unknown. So to retrieve only the name of the entry you have to cut off the
 	 * first character of the string.
+	 *
+	 * If \a extended is set to TRUE, all entries are provided in extended format. In this case,
+	 * not only the name of the entry, but also a number of additional information is provided
+	 * in the returned string array. Additional data includes the revision number and the author
+	 * of the last change, the file size and the date of the last change (in this order). Each
+	 * item is separated by a TAB '\t' character from the previous one.
+	 *
+	 * \note The "extended" entry format is surely not a good solution for general purpose, and
+	 * should be revised in the future. But it is exactly what is needed for the upcoming Repository
+	 * Browser.
+	 *
 	 * \param url url to the repository you wish to ls.
 	 * \param revision	the revision that you want to explore
 	 * \param entries CStringArray of subdirectories
+	 * \param extended Set to TRUE for entries in extended format (see above)
 	 */
-	BOOL Ls(CString url, LONG revision, CStringArray& entries);
+	BOOL Ls(CString url, LONG revision, CStringArray& entries, BOOL extended = FALSE);
 
 	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function
@@ -499,7 +511,7 @@ private:
 					const char * line,
 					apr_pool_t * pool);
 	void SaveAuthentication(BOOL save);
-
+	static void formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt = false);
 
 };
 
