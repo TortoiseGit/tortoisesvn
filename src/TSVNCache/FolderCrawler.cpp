@@ -153,6 +153,7 @@ void CFolderCrawler::WorkerThread()
 			Sleep(10);
 		}
 	}
+	_endthread();
 }
 
 void CFolderCrawler::SetHoldoff()
