@@ -18,12 +18,13 @@
 
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "RepositoryBrowser.h"
 
 #include "MessageBox.h"
 #include "InputDlg.h"
 #include "LogDlg.h"
 #include "PropDlg.h"
+#include "Blame.h"
+#include "BlameDlg.h"
 #include "WaitCursorEx.h"
 #include ".\repositorybrowser.h"
 
@@ -39,7 +40,8 @@
 #define ID_POPGNUDIFF		9
 #define ID_POPDIFF			10
 #define ID_POPREFRESH		11
-//#define ID_POPPROPS			12		commented out because already defined to 17 in LogDlg.h
+#define ID_POPBLAME			12
+//#define ID_POPPROPS			13		commented out because already defined to 17 in LogDlg.h
 
 // CRepositoryBrowser dialog
 
@@ -253,6 +255,12 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);			// "Show Log..."
+
+				if (!bFolder)
+				{
+					temp.LoadString(IDS_MENUBLAME);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPBLAME, temp);			// "Blame..."
+				}
 
 				if (bFolder)
 				{
@@ -686,6 +694,65 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					dlg.DoModal();
 				}
 				break;
+			case ID_POPBLAME:
+				{
+					CBlameDlg dlg;
+					if (dlg.DoModal() == IDOK)
+					{
+						CBlame blame;
+						CString tempfile;
+						CString logfile;
+						tempfile = blame.BlameToTempFile(url, dlg.StartRev, dlg.EndRev, logfile, TRUE);
+						if (!tempfile.IsEmpty())
+						{
+							if (logfile.IsEmpty())
+							{
+								//open the default text editor for the result file
+								CUtils::StartTextViewer(tempfile);
+							}
+							else
+							{
+								TCHAR tblame[MAX_PATH];
+								GetModuleFileName(NULL, tblame, MAX_PATH);
+								CString viewer = tblame;
+								viewer.Replace(_T("TortoiseProc.exe"), _T("TortoiseBlame.exe"));
+								viewer += _T(" \"") + tempfile + _T("\"");
+								viewer += _T(" \"") + logfile + _T("\"");
+								viewer += _T(" \"") + CUtils::GetFileNameFromPath(url) + _T("\"");
+								STARTUPINFO startup;
+								PROCESS_INFORMATION process;
+								memset(&startup, 0, sizeof(startup));
+								startup.cb = sizeof(startup);
+								memset(&process, 0, sizeof(process));
+
+								if (CreateProcess(NULL, const_cast<TCHAR*>((LPCTSTR)viewer), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+								{
+									LPVOID lpMsgBuf;
+									FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+										FORMAT_MESSAGE_FROM_SYSTEM | 
+										FORMAT_MESSAGE_IGNORE_INSERTS,
+										NULL,
+										GetLastError(),
+										MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+										(LPTSTR) &lpMsgBuf,
+										0,
+										NULL 
+										);
+									CString temp;
+									temp.Format(IDS_ERR_EXTDIFFSTART, lpMsgBuf);
+									CMessageBox::Show(NULL, temp, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+									LocalFree( lpMsgBuf );
+									break;
+								} 
+							}
+						} // if (!tempfile.IsEmpty()) 
+						else
+						{
+							CMessageBox::Show(this->m_hWnd, blame.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						}
+					} // if (dlg.DoModal() == IDOK) 
+					
+				}
 			default:
 				break;
 			}
