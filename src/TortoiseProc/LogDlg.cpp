@@ -1354,60 +1354,100 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         //read data from dialog
         CString FindText = m_pFindDialog->GetFindString();
         bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
-		bool bFound = FALSE;
+		bool bFound = false;
+		bool bRegex = false;
+		rpattern pat;
+		try
+		{
+			pat.init( (LPCTSTR)FindText, MULTILINE | (bMatchCase ? NOFLAGS : NOCASE) );
+			bRegex = true;
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr) {}
 
 		int i;
 		for (i = this->m_nSearchIndex; i<m_LogList.GetItemCount()&&!bFound; i++)
 		{
-			if (bMatchCase)
+			if (bRegex)
 			{
-				if (m_arLogMessages.GetAt(i).Find(FindText) >= 0)
+				match_results results;
+				match_results::backref_type br;
+				br = pat.match( (LPCTSTR)m_arLogMessages.GetAt(i), results );
+				if (br.matched)
 				{
-					bFound = TRUE;
+					bFound = true;
 					break;
 				}
 				LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
 				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 				{
 					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					if (cpath->sCopyFromPath.Find(FindText)>=0)
+					br = pat.match( (LPCTSTR)cpath->sCopyFromPath, results);
+					if (br.matched)
 					{
-						bFound = TRUE;
+						bFound = true;
 						break;
 					}
-					if (cpath->sPath.Find(FindText)>=0)
+					br = pat.match( (LPCTSTR)cpath->sPath, results);
+					if (br.matched)
 					{
-						bFound = TRUE;
+						bFound = true;
 						break;
 					}
 				}
 			}
 			else
 			{
-				CString msg = m_arLogMessages.GetAt(i);
-				msg = msg.MakeLower();
-				CString find = FindText.MakeLower();
-				if (msg.Find(find) >= 0)
+				if (bMatchCase)
 				{
-					bFound = TRUE;
-					break;
+					if (m_arLogMessages.GetAt(i).Find(FindText) >= 0)
+					{
+						bFound = true;
+						break;
+					}
+					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+					{
+						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+						if (cpath->sCopyFromPath.Find(FindText)>=0)
+						{
+							bFound = true;
+							break;
+						}
+						if (cpath->sPath.Find(FindText)>=0)
+						{
+							bFound = true;
+							break;
+						}
+					}
 				}
-				LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
-				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
+				else
 				{
-					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					if (cpath->sCopyFromPath.MakeLower().Find(find)>=0)
+					CString msg = m_arLogMessages.GetAt(i);
+					msg = msg.MakeLower();
+					CString find = FindText.MakeLower();
+					if (msg.Find(find) >= 0)
 					{
 						bFound = TRUE;
 						break;
 					}
-					if (cpath->sPath.MakeLower().Find(find)>=0)
+					LogChangedPathArray * cpatharray = m_arLogPaths.GetAt(i);
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 					{
-						bFound = TRUE;
-						break;
+						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+						if (cpath->sCopyFromPath.MakeLower().Find(find)>=0)
+						{
+							bFound = TRUE;
+							break;
+						}
+						if (cpath->sPath.MakeLower().Find(find)>=0)
+						{
+							bFound = TRUE;
+							break;
+						}
 					}
-				}
-			} 
+				} 
+			}
 		} // for (int i=this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++) 
 		if (bFound)
 		{
