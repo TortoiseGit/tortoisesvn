@@ -1,21 +1,17 @@
-#
-# Brazilian Portuguese translation for TortoiseSVN
-# Copyright (C) 2004-2005 the TortoiseSVN team
-# This file is distributed under the same license as TortoiseSVN
-#
-# Authors:
-# Humberto Osório <humberto@vdl.ufc.br>
-# CRAb <crab@yahoogroups.com>
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: TortoiseSVN\n"
+"Project-Id-Version: TORTOISESVNPT-BR 1.0\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-01-07 11:12-0300\n"
-"Last-Translator: Humberto Osório <humberto@vdl.ufc.br>\n"
-"Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
+"PO-Revision-Date: 2005-01-18 11:06-0300\n"
+"Last-Translator: Emanuele Marques <emanuele@vdl.ufc.br>\n"
+"Language-Team: CRAb <crab@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # ID:126,#:
@@ -280,6 +276,10 @@ msgid "&Language:"
 msgstr "&Linguagem:"
 
 #: MenuEntry
+msgid "&Mark as resolved"
+msgstr "&Marcar como resolvido"
+
+#: MenuEntry
 msgid "&Merge"
 msgstr "&Combinar"
 
@@ -332,6 +332,11 @@ msgstr "&Abrir Ctrl-O"
 msgid "&Password:"
 msgstr "&Senha:"
 
+# ID:376,
+#: ID:376
+msgid "&Paste"
+msgstr "&Colar"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "&Port:"
@@ -345,6 +350,12 @@ msgstr "&Diferença Anterior"
 #: Control-ID:1023
 msgid "&Recurse into folders to fetch the status"
 msgstr "&Verificar recursivamente nas pastas à procura do status"
+
+# Control-ID:1013,#:
+# Control-ID:1100,
+#: ID:376
+msgid "&Redo"
+msgstr "&Refazer"
 
 # Control-ID:1013,#:
 # Control-ID:1100,
@@ -435,6 +446,11 @@ msgstr "&Barra de Ferramentas"
 msgid "&URL of repository:"
 msgstr "&URL do repositório:"
 
+# ID:376,
+#: ID:376
+msgid "&Undo"
+msgstr "&Desfazer"
+
 #: MenuEntry
 msgid "&Undo\tCtrl+Z"
 msgstr "&Desfazer\tCtrl+Z"
@@ -469,6 +485,12 @@ msgstr "&Espaços em branco"
 #: ID:208
 msgid "(multiple targets selected)"
 msgstr "(múltiplos alvos selecionados)"
+
+# ID:3867,#:
+# ID:3867,
+#: ID:314
+msgid "(not found)"
+msgstr "(não encontrado)"
 
 # Dlg-ID:107,
 #: ID:208
@@ -963,6 +985,11 @@ msgstr "Autor:                        Stefan Kueng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autores:                      Stefan Kueng, Tim Kemp"
 
+# Control-ID:1067,
+#: Control-ID:1067
+msgid "Automatically resolve conflicted subversion status on save"
+msgstr "Resolver o status de conflito no subversion automaticamente ao salvar"
+
 # Dlg-ID:141,
 #: Control-ID:1157
 msgid "Average"
@@ -1367,6 +1394,7 @@ msgid "Completed"
 msgstr "Concluído"
 
 # Control-ID:65535,
+#: ID:263
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "Conflitante"
@@ -1385,6 +1413,11 @@ msgstr "Menu de Contexto"
 #: ID:73
 msgid "Continue"
 msgstr "Continuar"
+
+# ID:376,
+#: ID:376
+msgid "Cop&y"
+msgstr "Cop&iar"
 
 # ID:74,
 #: ID:73
@@ -1571,6 +1604,11 @@ msgstr "Cria uma base de dados de repositório na localização atual"
 #: ID:14
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Cria um arquivo de comparação unificado com todas as alterações feitas pelo usuário"
+
+# ID:376,
+#: ID:376
+msgid "Cu&t"
+msgstr "Recor&tar"
 
 # ID:3603,
 #: ID:3603
@@ -2031,6 +2069,16 @@ msgstr "Forçar atualização de ícones pelo shell"
 msgid "From:"
 msgstr "De:"
 
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't be initialized!"
+msgstr "GDI+ não pôde ser iniciado!"
+
+# ID:273,
+#: ID:273
+msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
+msgstr "GDI+ não pôde criar o objeto de bitmap. Você provavelmente não possui memória suficiente."
+
 # Dlg-ID:107,
 #: Dlg-ID:107
 msgid "General"
@@ -2060,6 +2108,15 @@ msgstr "Adquirindo informações do repositório..."
 #: ID:132
 msgid "Getting log info..."
 msgstr "Adiquirindo informações do histórico..."
+
+# ID:2049,
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Ir para o próximo conflito \n"
+"próximo conflito"
 
 # ID:2049,
 #: ID:2049
@@ -2413,6 +2470,15 @@ msgstr "DLL do sistema de correio inválida."
 msgid "Main"
 msgstr "Principal"
 
+# ID:2051,
+#: ID:2051
+msgid ""
+"Marks a file as resolved in Subversion\n"
+"Mark as resolved"
+msgstr ""
+"Marca um arquivo como resolvido no Subversion\n"
+"Marcar como resolvido"
+
 # Control-ID:1159,
 #: Control-ID:1159
 msgid "Max"
@@ -2432,6 +2498,11 @@ msgstr "Programa de Combinação"
 #: ID:9
 msgid "Merge..."
 msgstr "Combinar..."
+
+# Dlg-ID:141,
+#: ID:263
+msgid "Merged"
+msgstr "Combinado"
 
 # ID:10,
 #: ID:10
@@ -2595,6 +2666,11 @@ msgstr ""
 "a última gravação. O TortoiseSVN não tem nada\n"
 "a fazer aqui...\n"
 "Deseja visualizar os arquivos sem controle de versão?"
+
+# ID:273,
+#: ID:273
+msgid "No image encoder found for %s."
+msgstr "Nenhum codificador de imagem encontrado para %s."
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3080,11 +3156,6 @@ msgstr "Repositório"
 msgid "Repository Browser"
 msgstr "Navegador do Repositório"
 
-# Control-ID:1067,
-#: Control-ID:1067
-msgid "Resolve conflicted subversion status on save"
-msgstr "Resolver o status de conflito no subversion ao salvar"
-
 # ID:8,
 #: ID:8
 #: ID:74
@@ -3335,6 +3406,15 @@ msgstr ""
 msgid "Saving patchfile to:"
 msgstr "Salvando arquivo de correção para:"
 
+# Control-ID:1014,#:
+# Control-ID:1017,#:
+# Control-ID:1064,
+#: Control-ID:1014
+#: Control-ID:1017
+#: Control-ID:1064
+msgid "Scintilla"
+msgstr "Scintilla"
+
 # ID:113,
 #: ID:113
 msgid "Search &log messages..."
@@ -3345,6 +3425,12 @@ msgstr "Pesquisar &histórico..."
 #: ID:3867
 msgid "Seek failed on %1"
 msgstr "Busca falhou em %1"
+
+# Control-ID:1067,#:
+# Control-ID:1067,
+#: ID:376
+msgid "Select &All"
+msgstr "Selecionar &Tudo"
 
 # Control-ID:1067,#:
 # Control-ID:1067,
@@ -3643,8 +3729,8 @@ msgstr "Status do item no SVN"
 
 # Control-ID:1130,
 #: Control-ID:1130
-msgid "Stop On Copy"
-msgstr "Parar Na Cópia"
+msgid "Stop On Copy/Rename"
+msgstr "Parar Na Cópia/Renomear"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3917,6 +4003,15 @@ msgid ""
 msgstr ""
 "O arquivo selecionado parece conter uma ou mais marcas de conflito.\n"
 "Você tem certeza que quer marcar como resolvido?"
+
+# ID:88,
+#: ID:88
+msgid ""
+"The target folder is not empty!\n"
+"Are you sure you want to check out into that folder?"
+msgstr ""
+"A pasta de destino não está vazia!\n"
+"Você tem certeza que deseja obter o conteúdo do repositório para essa pasta?"
 
 # ID:81,
 #: ID:81
@@ -4265,6 +4360,17 @@ msgstr "Url:"
 #: ID:251
 msgid "Use &other text block"
 msgstr "Usar &outro bloco de texto"
+
+# ID:195,
+#: ID:195
+msgid ""
+"Use '*' as a wildcard character when specifying an exception\n"
+"To separate multiple exceptions, use commas (',').\n"
+"Example: *.mylan.com, *.company.com"
+msgstr ""
+"Use '*' como caractere de máscara ao especificar uma exceção\n"
+"Para separar múltiplas exceções, use vírgulas (',').\n"
+"Exemplo: *.mylan.com, *.company.com"
 
 # Control-ID:1064,
 #: Control-ID:1064
@@ -4843,6 +4949,17 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Configurar a largura máxima de um comentário em caracteres.\n"
 "Será mostrada uma linha no diálogo de gravação mostrando essa posição. O padrão é 80 caracteres."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Selecione o número do idioma no qual você deseja que os comentários sejam escritos.\n"
+"TortoiseSVN irá carregar o módulo de verificação ortográfica apropriado, se estiver disponível."
 
 # ID:15,
 #: ID:15
