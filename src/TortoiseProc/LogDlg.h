@@ -20,8 +20,8 @@
 
 #include "svn.h"
 #include "ProjectProperties.h"
-#include "Registry.h"
 #include "ResizableDialog.h"
+#include "TSVNPath.h"
 
 #define ID_COMPARE		1
 #define ID_SAVEAS		2
@@ -112,7 +112,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
+	void SetParams(const CString& path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
@@ -126,7 +126,7 @@ private:
 	CListCtrl	m_LogList;
 	CListCtrl	m_LogMsgCtrl;
 	CProgressCtrl m_LogProgress;
-	CString		m_path;
+	CTSVNPath   m_path;
 	long		m_startrev;
 	long		m_endrev;
 	long		m_logcounter;
