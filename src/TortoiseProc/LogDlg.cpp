@@ -1072,6 +1072,18 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	return CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, revname2, revname1, ext);
 }
 
+BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if ((pMsg->message == WM_KEYDOWN)&&(pMsg->wParam == VK_F5))//(nChar == VK_F5)
+	{
+		if (!GetDlgItem(IDC_GETALL)->IsWindowEnabled())
+			return __super::PreTranslateMessage(pMsg);
+		OnBnClickedGetall();
+	}
+
+	return __super::PreTranslateMessage(pMsg);
+}
+
 
 
 
