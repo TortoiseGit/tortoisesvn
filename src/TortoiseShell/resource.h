@@ -43,7 +43,6 @@
 #define IDS_MENUDESCUPDATE              137
 #define IDI_ABOUT                       137
 #define IDS_MENUDESCCOMMIT              138
-#define IDI_ICON1                       138
 #define IDI_SETTINGS                    138
 #define IDS_MENUDESCADD                 139
 #define IDS_MENUDESCREVERT              140
@@ -88,6 +87,10 @@
 #define IDS_DROPMOVEMENU                179
 #define IDS_MENULOG                     180
 #define IDS_MENUDESCLOG                 181
+#define IDS_COLTITLEURL                 182
+#define IDS_COLDESCURL                  183
+#define IDS_COLTITLESHORTURL            184
+#define IDS_COLDESCSHORTURL             185
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

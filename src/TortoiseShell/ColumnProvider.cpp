@@ -22,6 +22,8 @@
 #include "UnicodeStrings.h"
 #include "PreserveChdir.h"
 #include <string>
+#include <Shlwapi.h>
+#include <wininet.h>
 
 // If this is set the SVN columns will always show if the current directory contains SVN content
 // Otherwise the user will have to add the columns via the "more..." button
@@ -36,7 +38,7 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR|SHCOLSTATE_SECONDARYUI;
 // IColumnProvider members
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
-	if (dwIndex > 2)
+	if (dwIndex > 4)
 		return S_FALSE;
 
 	wide_string ws;
@@ -85,6 +87,48 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 #endif
 			break;
 		case 2:
+			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
+			psci->scid.pid = dwIndex;
+			psci->vt = VT_BSTR;
+			psci->fmt = LVCFMT_LEFT;
+			psci->cChars = 30;
+			psci->csFlags = ColumnFlags;
+
+			MAKESTRING(IDS_COLTITLEURL);
+#ifdef UNICODE
+			lstrcpyW(psci->wszTitle, stringtablebuffer);
+#else
+			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+#endif
+			MAKESTRING(IDS_COLDESCURL);
+#ifdef UNICODE
+			lstrcpyW(psci->wszDescription, stringtablebuffer);
+#else
+			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+#endif
+			break;
+		case 3:
+			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
+			psci->scid.pid = dwIndex;
+			psci->vt = VT_BSTR;
+			psci->fmt = LVCFMT_LEFT;
+			psci->cChars = 30;
+			psci->csFlags = ColumnFlags;
+
+			MAKESTRING(IDS_COLTITLESHORTURL);
+#ifdef UNICODE
+			lstrcpyW(psci->wszTitle, stringtablebuffer);
+#else
+			lstrcpyW(psci->wszTitle, MultibyteToWide(stringtablebuffer).c_str());
+#endif
+			MAKESTRING(IDS_COLDESCSHORTURL);
+#ifdef UNICODE
+			lstrcpyW(psci->wszDescription, stringtablebuffer);
+#else
+			lstrcpyW(psci->wszDescription, MultibyteToWide(stringtablebuffer).c_str());
+#endif
+			break;
+		case 4:
 			psci->scid.fmtid = FMTID_SummaryInformation;	// predefined FMTID
 			psci->scid.pid   = PIDSI_AUTHOR;				// Predefined - author
 			psci->vt         = VT_LPSTR;					// We'll return the data as a string
@@ -99,12 +143,10 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
-	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 2) 
+	if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 4) 
 	{
 		PreserveChdir preserveChdir;
 		stdstring szInfo;
-		svn_wc_status_kind status;
-		CRegStdWORD showrecursive(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 #ifdef UNICODE
 		std::wstring path = pscd->wszFile;
 #else
@@ -134,44 +176,25 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		switch (pscid->pid) 
 		{
 			case 0:
-				//if recursive is set in the registry then check directories recursive for status and show
-				//the column info with the highest priority on the folder.
-				//since this can be slow for big directories it is optional - but very neat.
-				if ((showrecursive == 0)||(!PathIsDirectory(path.c_str())))
-					status = SVNStatus::GetAllStatus(path.c_str());
-				else if (showrecursive != 0)
-					status = SVNStatus::GetAllStatusRecursive(path.c_str());
-
-				SVNStatus::GetStatusString(g_hmodThisDll, status, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+				GetColumnStatus(path);
+				SVNStatus::GetStatusString(g_hmodThisDll, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 				szInfo = buf;
 				break;
 			case 1:
-				if (columnfilepath.compare(path)==0)
-				{
+				GetColumnStatus(path);
+				if (columnrev >= 0)
 					_sntprintf(buf, MAX_PATH, _T("%d"), columnrev);
-					szInfo = buf;
-				}
 				else
-				{
-					SVNStatus status;
-					if (status.GetStatus(path.c_str()) != (-2))
-					{
-						if (status.status->entry == NULL)
-							return S_FALSE;
-						_sntprintf(buf, MAX_PATH, _T("%d"), status.status->entry->cmt_rev);
-						szInfo = buf;
-						columnrev = status.status->entry->cmt_rev;
-						if (status.status->entry->cmt_author == NULL)
-							return S_FALSE;
-#ifdef UNICODE
-						columnauthor = UTF8ToWide(status.status->entry->cmt_author);
-#else
-						columnauthor = status.status->entry->cmt_author;
-#endif
-					}
-					else
-						return S_FALSE;
-				}
+					buf[0] = '\0';
+				szInfo = buf;
+				break;
+			case 2:
+				GetColumnStatus(path);
+				szInfo = itemurl;
+				break;
+			case 3:
+				GetColumnStatus(path);
+				szInfo = itemshorturl;
 				break;
 			default:
 				return S_FALSE;
@@ -199,32 +222,11 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		switch (pscid->pid)
 		{
 			case PIDSI_AUTHOR:			// author
-				if (columnfilepath.compare(path)==0)
-				{
-					szInfo = columnauthor;
-				}
-				else
-				{
-					SVNStatus status;
-					if (status.GetStatus(path.c_str()) != (-2))
-					{
-						if (status.status->entry == NULL)
-							return S_FALSE;
-						columnrev = status.status->entry->cmt_rev;
-						if (status.status->entry->cmt_author == NULL)
-							return S_FALSE;
-#ifdef UNICODE
-						szInfo = UTF8ToWide(status.status->entry->cmt_author);
-						columnauthor = UTF8ToWide(status.status->entry->cmt_author);
-#else
-						szInfo = status.status->entry->cmt_author;
-						columnauthor = status.status->entry->cmt_author;
-#endif
-					}
-					else
-						return S_FALSE;
-				}
+				GetColumnStatus(path);
+				szInfo = columnauthor;
 				break;
+			default:
+				return S_FALSE;
 		} // switch (pscid->pid)
 #ifdef UNICODE
 		wide_string wsInfo = szInfo;
@@ -263,5 +265,75 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 #endif
 
 	return S_OK;
+}
+
+void CShellExt::GetColumnStatus(stdstring path)
+{
+	if (columnfilepath.compare(path)==0)
+		return;
+	CRegStdWORD showrecursive(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
+	columnfilepath = path;
+	SVNStatus status;
+	if (status.GetStatus(path.c_str()) != (-2))
+	{
+		//if recursive is set in the registry then check directories recursive for status and show
+		//the column info with the highest priority on the folder.
+		//since this can be slow for big directories it is optional - but very neat.
+		if ((showrecursive == 0)||(!PathIsDirectory(path.c_str())))
+			filestatus = status.status->text_status > status.status->prop_status ? status.status->text_status : status.status->prop_status;
+		else if (showrecursive != 0)
+			filestatus = SVNStatus::GetAllStatusRecursive(path.c_str());
+		else
+			filestatus = status.status->text_status > status.status->prop_status ? status.status->text_status : status.status->prop_status;
+
+		if (status.status->entry != NULL)
+		{
+			if (status.status->entry->cmt_author != NULL)
+#ifdef UNICODE
+				columnauthor = UTF8ToWide(status.status->entry->cmt_author);
+#else
+				columnauthor = status.status->entry->cmt_author;
+#endif
+			else
+				columnauthor = _T(" ");
+			columnrev = status.status->entry->cmt_rev;
+			if (status.status->entry->url)
+			{
+#ifdef UNICODE
+				itemurl = UTF8ToWide(status.status->entry->url);
+#else
+				itemurl = status.status->entry->url;
+#endif
+				TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
+
+				URL_COMPONENTS urlComponents;
+				memset(&urlComponents, 0, sizeof(URL_COMPONENTS));
+				urlComponents.dwStructSize = sizeof(URL_COMPONENTS);
+				urlComponents.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
+				urlComponents.lpszUrlPath = urlpath;
+				if (InternetCrackUrl(itemurl.c_str(), 0, ICU_DECODE, &urlComponents))
+				{
+					TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
+					*ptr = '\0';
+					itemshorturl = urlComponents.lpszUrlPath;
+				}
+				else
+					itemshorturl = _T(" ");
+
+			} // if (status.status->entry->url)
+			else
+			{
+				itemurl = _T(" ");
+				itemshorturl = _T(" ");
+			}
+		} // if (status.status->entry != NULL)
+		else
+		{
+			columnrev = -1;
+			columnauthor = _T(" ");
+			itemurl = _T(" ");
+			itemshorturl = _T(" ");
+		}
+	} // if (status.GetStatus(path.c_str()) != (-2))
 }
 

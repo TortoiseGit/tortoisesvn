@@ -29,6 +29,10 @@ CVS
        check if a file needs to be added or not.
        This is especially usefull if folders
        are added. (Stefan)
+- ADD: Two new column providers: one for the URL
+       of subversion files/folders and the other
+       for a shortened URL without the server
+       and file part. (Stefan)
 - CHG: before obtaining a subversion status we
        now first check if an .svn directory
        exists - this should speed up things

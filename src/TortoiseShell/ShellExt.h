@@ -120,10 +120,12 @@ protected:
 	bool isNormal;
 	TCHAR stringtablebuffer[255];
 	stdstring filepath;				///< holds the last file/dir path
-	svn_wc_status_kind filestatus;		///< holds the corresponding status to the file/dir above
-	stdstring columnfilepath;			///< holds the last file/dir path for the column provider
+	svn_wc_status_kind filestatus;	///< holds the corresponding status to the file/dir above
+	stdstring columnfilepath;		///< holds the last file/dir path for the column provider
 	stdstring columnauthor;			///< holds the corresponding author of the file/dir above
-	svn_revnum_t columnrev;				///< holds the corresponding revision to the file/dir above
+	stdstring itemurl;
+	stdstring itemshorturl;
+	svn_revnum_t columnrev;			///< holds the corresponding revision to the file/dir above
 	CRegStdWORD g_regLang;
 	SVNFolderStatus CachedStatus;
 
@@ -132,6 +134,7 @@ private:
 	void InsertSVNMenu(HMENU menu, UINT pos, UINT flags, UINT_PTR id, UINT stringid, UINT idCmdFirst, SVNCommands com);
 	stdstring WriteFileListToTempFile();
 	LPCTSTR GetMenuTextFromResource(int id);
+	void GetColumnStatus(stdstring path);
 public:
 	CShellExt(FileState state);
 	virtual ~CShellExt();
