@@ -114,9 +114,15 @@ protected:
 public:
 	void SetParams(CString path, long startrev = 0, long endrev = -1, BOOL bStrict = FALSE);
 
+private:
+	static DWORD WINAPI LogThreadEntry(LPVOID pVoid);
+	DWORD LogThread();
+
 public:
 	CWnd *		m_pNotifyWindow;
+	ProjectProperties m_ProjectProperties;
 	WORD		m_wParam;
+private:
 	CListCtrl	m_LogList;
 	CListCtrl	m_LogMsgCtrl;
 	CProgressCtrl m_LogProgress;
@@ -129,8 +135,6 @@ public:
 	BOOL		m_bThreadRunning;
 	BOOL		m_bStrict;
 	BOOL		m_bGotRevisions;
-	ProjectProperties m_ProjectProperties;
-private:
 	HICON		m_hIcon;
 	HANDLE		m_hThread;
 	CStringArray m_arLogMessages;
@@ -149,4 +153,3 @@ private:
 	CString		m_sMessageBuf;
 };
 
-DWORD WINAPI LogThread(LPVOID pVoid);

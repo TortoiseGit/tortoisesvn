@@ -217,7 +217,7 @@ BOOL CLogDlg::OnInitDialog()
 	//first start a thread to obtain the log messages without
 	//blocking the dialog
 	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
+	if ((m_hThread = CreateThread(NULL, 0, LogThreadEntry, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -270,7 +270,7 @@ void CLogDlg::OnBnClickedGetall()
 	m_startrev = -1;
 	m_bCancelled = FALSE;
 	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &LogThread, this, 0, &dwThreadId))==0)
+	if ((m_hThread = CreateThread(NULL, 0, LogThreadEntry, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -375,81 +375,86 @@ BOOL CLogDlg::Log(LONG rev, const CString& author, const CString& date, const CS
 }
 
 //this is the thread function which calls the subversion function
-DWORD WINAPI LogThread(LPVOID pVoid)
+DWORD WINAPI CLogDlg::LogThreadEntry(LPVOID pVoid)
 {
-	CLogDlg*	pDlg;
-	pDlg = (CLogDlg*)pVoid;
-	pDlg->m_bThreadRunning = TRUE;
+	return ((CLogDlg*)pVoid)->LogThread();
+}
+
+
+//this is the thread function which calls the subversion function
+DWORD CLogDlg::LogThread()
+{
+	m_bThreadRunning = TRUE;
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
-	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-	long r = pDlg->GetHEADRevision(pDlg->m_path);
-	if (pDlg->m_startrev == -1)
-		pDlg->m_startrev = r;
-	if (pDlg->m_endrev < (-5) || pDlg->m_bStrict)
+	GetDlgItem(IDOK)->SetWindowText(temp);
+	long r = GetHEADRevision(m_path);
+	if (m_startrev == -1)
+		m_startrev = r;
+	if (m_endrev < (-5) || m_bStrict)
 	{
-		if ((r != (-2))&&(pDlg->m_endrev < (-5)))
+		if ((r != (-2))&&(m_endrev < (-5)))
 		{
-			pDlg->m_endrev = pDlg->m_startrev + pDlg->m_endrev;
+			m_endrev = m_startrev + m_endrev;
 		} // if (r != (-2))
-		if (pDlg->m_endrev <= 0)
+		if (m_endrev <= 0)
 		{
-			pDlg->m_endrev = 1;
-			if (!pDlg->m_bStrict)
-				pDlg->m_bShowedAll = TRUE;
+			m_endrev = 1;
+			if (!m_bStrict)
+				m_bShowedAll = TRUE;
 		}
-	} // if (pDlg->m_endrev < (-5))
+	} // if (m_endrev < (-5))
 	else
 	{
-		pDlg->m_bShowedAll = TRUE;
+		m_bShowedAll = TRUE;
 	}
 	//disable the "Get All" button while we're receiving
 	//log messages.
-	pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
-	pDlg->GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
-	pDlg->m_LogProgress.SetRange32(pDlg->m_endrev, pDlg->m_startrev);
-	pDlg->m_LogProgress.SetPos(0);
-	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
-	pDlg->m_bGotRevisions = FALSE;
-	while ((pDlg->m_bCancelled == FALSE)&&(pDlg->m_bGotRevisions == FALSE))
+	GetDlgItem(IDC_GETALL)->EnableWindow(FALSE);
+	GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(FALSE);
+	m_LogProgress.SetRange32(m_endrev, m_startrev);
+	m_LogProgress.SetPos(0);
+	GetDlgItem(IDC_PROGRESS)->ShowWindow(TRUE);
+	m_bGotRevisions = FALSE;
+	while ((m_bCancelled == FALSE)&&(m_bGotRevisions == FALSE))
 	{
-		if (!pDlg->ReceiveLog(pDlg->m_path, pDlg->m_startrev, pDlg->m_endrev, true, pDlg->m_bStrict))
+		if (!ReceiveLog(m_path, m_startrev, m_endrev, true, m_bStrict))
 		{
-			CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			break;
 		}
-		if (pDlg->m_endrev <= 1)
+		if (m_endrev <= 1)
 			break;
-		pDlg->m_endrev -= (LONG)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-		if (pDlg->m_endrev <= 0)
+		m_endrev -= (LONG)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+		if (m_endrev <= 0)
 		{
-			pDlg->m_endrev = 1;
+			m_endrev = 1;
 		}
 	}
 
-	pDlg->m_LogList.SetRedraw(false);
+	m_LogList.SetRedraw(false);
 	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(pDlg->m_LogList.GetDlgItem(0)))->GetItemCount()-1;
+	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
 	int col;
 	for (col = mincol; col <= maxcol; col++)
 	{
-		pDlg->m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+		m_LogList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
-	pDlg->m_LogList.SetRedraw(true);
+	m_LogList.SetRedraw(true);
 
 	temp.LoadString(IDS_MSGBOX_OK);
-	pDlg->GetDlgItem(IDOK)->SetWindowText(temp);
-	if (!pDlg->m_bShowedAll)
+	GetDlgItem(IDOK)->SetWindowText(temp);
+	if (!m_bShowedAll)
 	{
-		pDlg->GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
-		pDlg->GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
+		GetDlgItem(IDC_GETALL)->EnableWindow(TRUE);
+		GetDlgItem(IDC_CHECK_STOPONCOPY)->EnableWindow(TRUE);
 	}
-	pDlg->GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
-	pDlg->m_bCancelled = TRUE;
-	pDlg->m_bThreadRunning = FALSE;
+	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
+	m_bCancelled = TRUE;
+	m_bThreadRunning = FALSE;
 	POINT pt;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
