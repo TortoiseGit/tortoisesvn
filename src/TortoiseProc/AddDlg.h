@@ -72,13 +72,14 @@ private:
 	DWORD AddThread();
 
 	DECLARE_MESSAGE_MAP()
+
 public:
-	CSVNStatusListCtrl	m_addListCtrl;
 	CString			m_sPath;
-	CStringArray	m_arFileList;
-	bool			m_bThreadRunning;
 
 private:
+	CSVNStatusListCtrl	m_addListCtrl;
+	CStringArray	m_arFileList;
+	bool			m_bThreadRunning;
 	HANDLE			m_hThread;
 	CButton			m_SelectAll;
 };
