@@ -216,11 +216,11 @@ SectionEnd
 
 Function un.onUninstSuccess
   HideWindow
-  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) wurde erfolgreich deinstalliert."
+  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) was successfully removed from your computer."
 FunctionEnd
 
 Function un.onInit
-  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Möchten Sie $(^Name) und alle seinen Komponenten deinstallieren?" IDYES +2
+  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Are you sure you want to completely remove $(^Name) and all of its components?" IDYES +2
   Abort
 FunctionEnd
 
@@ -233,6 +233,7 @@ Section Uninstall
   Delete "$INSTDIR\Changelog.txt"
   Delete "$INSTDIR\iconv\*.so"
   Delete "$INSTDIR\icons\*.*"
+  Delete "$INSTDIR\Languages\*.*"
   Delete "$INSTDIR\ssleay32.dll"
   Delete "$INSTDIR\libeay32.dll"
   Delete "$INSTDIR\libdb42.dll"
@@ -251,6 +252,7 @@ Section Uninstall
   RMDir "$SMPROGRAMS\Tortoise"
   RMDir "$INSTDIR\iconv"
   RMDir "$INSTDIR\icons"
+  RMDir "$INSTDIR\Languages"
   RMDir "$INSTDIR"
 
 
