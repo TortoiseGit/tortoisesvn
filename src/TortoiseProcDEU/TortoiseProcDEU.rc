@@ -50,8 +50,8 @@ IDR_MAINFRAME           ICON                    "res\\Tortoise.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,9,2,0
- PRODUCTVERSION 0,9,2,0
+ FILEVERSION 0,10,0,0
+ PRODUCTVERSION 0,10,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -68,12 +68,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "www.tortoisesvn.org"
             VALUE "FileDescription", "TortoiseSVN client Resourcendatei für Deutsch"
-            VALUE "FileVersion", "0, 9, 2, 0"
+            VALUE "FileVersion", "0, 10, 0, 0"
             VALUE "InternalName", "TortoiseProcDEU.dll"
             VALUE "LegalCopyright", "Copyright (C) 2003"
             VALUE "OriginalFilename", "TortoiseProc1031.dll"
             VALUE "ProductName", "TortoiseSVN"
-            VALUE "ProductVersion", "0, 9, 2, 0"
+            VALUE "ProductVersion", "0, 10, 0, 0"
         END
     END
     BLOCK "VarFileInfo"
@@ -313,16 +313,17 @@ BEGIN
     LTEXT           "",IDC_FROMURL,40,7,218,8
 END
 
-IDD_ABOUT DIALOGEX 0, 0, 221, 186
+IDD_ABOUT DIALOGEX 0, 0, 221, 194
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "About TortoiseSVN"
+CAPTION "Über TortoiseSVN"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,77,165,50,14
-    LTEXT           "TortoiseSVN Version 0.9.2",IDC_STATIC,7,136,207,8
+    DEFPUSHBUTTON   "OK",IDOK,77,173,50,14
+    LTEXT           "TortoiseSVN Version 0.10",IDC_STATIC,7,136,207,8
     LTEXT           "Authors: Tim Kemp, Stefan Küng und Damian Powell",
                     IDC_STATIC,7,148,166,8
+    LTEXT           "Icons:     Lübbe Onken",IDC_STATIC,7,161,73,8
 END
 
 IDD_ADD DIALOGEX 0, 0, 244, 146
@@ -503,7 +504,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 214
         TOPMARGIN, 7
-        BOTTOMMARGIN, 179
+        BOTTOMMARGIN, 187
     END
 
     IDD_ADD, DIALOG

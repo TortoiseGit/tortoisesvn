@@ -314,8 +314,15 @@ void CShellExt::GetColumnStatus(stdstring path)
 				if (InternetCrackUrl(itemurl.c_str(), 0, ICU_DECODE, &urlComponents))
 				{
 					TCHAR * ptr = _tcsrchr(urlComponents.lpszUrlPath, '/');
-					*ptr = '\0';
-					itemshorturl = urlComponents.lpszUrlPath;
+					if (ptr == NULL)
+						ptr = _tcsrchr(urlComponents.lpszUrlPath, '\\');
+					if (ptr)
+					{
+						*ptr = '\0';
+						itemshorturl = urlComponents.lpszUrlPath;
+					} // if (ptr)
+					else 
+						itemshorturl = _T(" ");
 				}
 				else
 					itemshorturl = _T(" ");

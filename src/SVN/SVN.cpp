@@ -210,6 +210,7 @@ CString SVN::GetLastErrorMessage()
 BOOL SVN::Checkout(CString moduleName, CString destPath, LONG revision, BOOL recurse)
 {
 	preparePath(destPath);
+	preparePath(moduleName);
 
 	Err = svn_client_checkout (	CUnicodeUtils::GetUTF8(moduleName),
 								CUnicodeUtils::GetUTF8(destPath),

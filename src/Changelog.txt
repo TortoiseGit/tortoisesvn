@@ -20,6 +20,8 @@ CVS
        anymore if (in the settings) the icon
        overlays for removable drives is turned off.
        (Stefan)
+- BUG: Pathnames weren't correctly converted for
+       checkouts. (Stefan)
 - ADD: in the settings page there's now an option
        if the user wants to have unversioned files
        shown before a commit so (s)he can add it
@@ -33,6 +35,7 @@ CVS
        of subversion files/folders and the other
        for a shortened URL without the server
        and file part. (Stefan)
+- ADD: new icons (Luebbe)
 - CHG: before obtaining a subversion status we
        now first check if an .svn directory
        exists - this should speed up things

@@ -23,6 +23,7 @@
 #include "RepositoryBrowser.h"
 #include "Messagebox.h"
 #include "Dbghelp.h"
+#include "PathUtils.h"
 
 
 // CCheckoutDlg dialog
@@ -140,12 +141,7 @@ void CCheckoutDlg::OnOK()
 		temp.Format(IDS_WARN_FOLDERNOTEXIST, m_strCheckoutDirectory);
 		if (CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 		{
-			//MakeSureDirectoryPathExists needs the dbghelp.dll which comes with win2k and later
-			//for older systems we must redistribute that dll.
-			//if (m_strCheckoutDirectory.Right(1).Compare(_T("\\"))!=0)
-			//	MakeSureDirectoryPathExists(m_strCheckoutDirectory+_T("\\"));
-			//else
-			//	MakeSureDirectoryPathExists(m_strCheckoutDirectory);
+			CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
 		}
 		else
 			return;		//don't dismiss the dialog
