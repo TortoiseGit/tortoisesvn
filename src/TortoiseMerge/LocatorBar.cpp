@@ -143,42 +143,52 @@ void CLocatorBar::OnPaint()
 	int identcount = 0;
 	int linecount = 0;
 	
-	for (int i=0; i<m_arLeft.GetCount(); i++)
+	if (m_pMainFrm->m_pwndLeftView->IsWindowVisible())
 	{
-		identcount = LOWORD(m_arLeft.GetAt(i));
-		state = HIWORD(m_arLeft.GetAt(i));
-		COLORREF color, color2;
-		m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
-		cacheDC.FillSolidRect(rect.left, rect.Height()*linecount/m_nLines, 
-			barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
-		linecount += identcount;
-	} // for (int i=0; i<m_arLeft.GetCount(); i++) 
+		for (int i=0; i<m_arLeft.GetCount(); i++)
+		{
+			identcount = LOWORD(m_arLeft.GetAt(i));
+			state = HIWORD(m_arLeft.GetAt(i));
+			COLORREF color, color2;
+			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
+			cacheDC.FillSolidRect(rect.left, rect.Height()*linecount/m_nLines, 
+				barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
+			linecount += identcount;
+		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
+	} // if (m_pMainFrm->m_pwndLeftView->IsWindowVisible()) 
 	state = 0;
 	identcount = 0;
 	linecount = 0;
-	for (int i=0; i<m_arRight.GetCount(); i++)
+
+	if (m_pMainFrm->m_pwndRightView->IsWindowVisible())
 	{
-		identcount = LOWORD(m_arRight.GetAt(i));
-		state = HIWORD(m_arRight.GetAt(i));
-		COLORREF color, color2;
-		m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
-		cacheDC.FillSolidRect(rect.left + (rect.Width()*2/3), rect.Height()*linecount/m_nLines, 
-			barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
-		linecount += identcount;
-	} // for (int i=0; i<m_arLeft.GetCount(); i++) 
+		for (int i=0; i<m_arRight.GetCount(); i++)
+		{
+			identcount = LOWORD(m_arRight.GetAt(i));
+			state = HIWORD(m_arRight.GetAt(i));
+			COLORREF color, color2;
+			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
+			cacheDC.FillSolidRect(rect.left + (rect.Width()*2/3), rect.Height()*linecount/m_nLines, 
+				barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
+			linecount += identcount;
+		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
+	} // if (m_pMainFrm->m_pwndRightView->IsWindowVisible()) 
 	state = 0;
 	identcount = 0;
 	linecount = 0;
-	for (int i=0; i<m_arBottom.GetCount(); i++)
+	if (m_pMainFrm->m_pwndBottomView->IsWindowVisible())
 	{
-		identcount = LOWORD(m_arBottom.GetAt(i));
-		state = HIWORD(m_arBottom.GetAt(i));
-		COLORREF color, color2;
-		m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
-		cacheDC.FillSolidRect(rect.left + (rect.Width()/3), rect.Height()*linecount/m_nLines, 
-			barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
-		linecount += identcount;
-	} // for (int i=0; i<m_arLeft.GetCount(); i++) 
+		for (int i=0; i<m_arBottom.GetCount(); i++)
+		{
+			identcount = LOWORD(m_arBottom.GetAt(i));
+			state = HIWORD(m_arBottom.GetAt(i));
+			COLORREF color, color2;
+			m_pMainFrm->m_Data.GetColors((CDiffData::DiffStates)state, color, color2);
+			cacheDC.FillSolidRect(rect.left + (rect.Width()/3), rect.Height()*linecount/m_nLines, 
+				barwidth, max(rect.Height()*(linecount+identcount)/m_nLines,1), color);
+			linecount += identcount;
+		} // for (int i=0; i<m_arLeft.GetCount(); i++) 
+	} // if (m_pMainFrm->m_pwndBottomView->IsWindowVisible()) 
 
 	if (m_nLines == 0)
 		m_nLines = 1;
