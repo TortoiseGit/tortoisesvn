@@ -38,11 +38,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		bRequestForSelf = true;
 	}
 
-	if(path.IsEquivalentTo(CTSVNPath(_T("C:\\keil"))))
-	{
-		ATLTRACE("");
-	}
-
 	// In all most circumstances, we ask for the status of a member of this directory.
 	ATLASSERT(m_directoryPath.IsEquivalentTo(path.GetContainingDirectory()) || bRequestForSelf);
 

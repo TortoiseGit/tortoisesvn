@@ -103,11 +103,6 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 	// Stop the crawler starting on a new folder while we're doing this much more important task...
 	CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
-	if(path.IsEquivalentTo(CTSVNPath(_T("N:\\will\\svn\\TortoiseSVN\\src"))))
-	{
-		ATLTRACE("");
-	}
-
 	return m_mostRecentStatus = GetDirectoryCacheEntry(path.GetContainingDirectory()).GetStatusForMember(path, bRecursive);
 }
 
