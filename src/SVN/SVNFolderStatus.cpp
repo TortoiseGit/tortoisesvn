@@ -20,7 +20,6 @@
 #include "resource.h"
 
 #include "SVNFolderStatus.h"
-#include "SVNStatus.h"
 #include "UnicodeUtils.h"
 
 
@@ -53,41 +52,41 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
 
-	//ATLTRACE2(_T("building cache for %s\n"), filepath);
+	ATLTRACE2(_T("building cache for %s\n"), filepath);
 	BOOL isFolder = PathIsDirectory(filepath);
 
 	if (isFolder)
 	{
-		SVNStatus status;
-		status.GetStatus(filepath);
+		GetStatus(filepath);
 		int index = FindFirstInvalidFolder();
 		m_FolderCache[index].author[0] = 0;
 		m_FolderCache[index].url[0] = 0;
 		m_FolderCache[index].rev = -1;
 		m_FolderCache[index].status = svn_wc_status_unversioned;
 		_tcsncpy(m_FolderCache[index].filename, filepath, MAX_PATH);
-		if (status.status)
+		if (status)
 		{
-			if (status.status->entry)
+			//if (status.status->entry)
+			if (status->entry)
 			{
-				if (status.status->entry->cmt_author)
-					strncpy(m_FolderCache[index].author, status.status->entry->cmt_author, MAX_PATH);
+				if (status->entry->cmt_author)
+					strncpy(m_FolderCache[index].author, status->entry->cmt_author, MAX_PATH);
 				else
 					m_FolderCache[index].author[0] = 0;
-				if (status.status->entry->url)
-					strncpy(m_FolderCache[index].url, status.status->entry->url, MAX_PATH);
+				if (status->entry->url)
+					strncpy(m_FolderCache[index].url, status->entry->url, MAX_PATH);
 				else
 					m_FolderCache[index].url[0] = 0;
-				m_FolderCache[index].rev = status.status->entry->cmt_rev;
+				m_FolderCache[index].rev = status->entry->cmt_rev;
 			} // if (status.status->entry)
-			m_FolderCache[index].status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, status.status->text_status);
-			m_FolderCache[index].status = SVNStatus::GetMoreImportant(m_FolderCache[index].status, status.status->prop_status);
+			m_FolderCache[index].status = SVNStatus::GetMoreImportant(svn_wc_status_unversioned, status->text_status);
+			m_FolderCache[index].status = SVNStatus::GetMoreImportant(m_FolderCache[index].status, status->prop_status);
 			if (shellCache.IsRecursive())
 			{
 				m_FolderCache[index].status = SVNStatus::GetAllStatusRecursive(filepath);
 			}
-			m_FolderCache[index].askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 		} // if (status.status)
+		m_FolderCache[index].askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 		m_TimeStamp = GetTickCount();
 		return &m_FolderCache[index];
 	}
@@ -140,7 +139,8 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	for (hi = apr_hash_first (pool, statushash); hi; hi = apr_hash_next (hi))
 	{
 		svn_wc_status_t * tempstatus;
-		apr_hash_this(hi, NULL, NULL, (void **)&tempstatus);
+		const char* key;
+		apr_hash_this(hi, (const void**)&key, NULL, (void **)&tempstatus);
 		if (tempstatus->entry)
 		{
 			if (tempstatus->entry->cmt_author)
@@ -175,7 +175,12 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		} // if (tempstatus->entry)
 		else
 		{
-			m_pStatusCache[i].filename[0] = 0;
+			LPCTSTR file;
+			// files are searched only by the filename, not the full path
+			wide_string str = CUnicodeUtils::StdGetUnicode(key);
+			
+			file = _tcsrchr(str.c_str(), '/')+1;
+			_tcscpy(m_pStatusCache[i].filename, file);
 			m_pStatusCache[i].author[0] = 0;
 			m_pStatusCache[i].url[0] = 0;
 			m_pStatusCache[i].rev = -1;
@@ -215,12 +220,12 @@ int SVNFolderStatus::FindFile(LPCTSTR filename)
 	}
 	for (int i=0; i<m_nCacheCount; i++)
 	{
-		if (_tcsicmp(file, m_pStatusCache[i].filename) == 0)
+		if (_tcscmp(file, m_pStatusCache[i].filename) == 0)
 			return i+SVNFOLDERSTATUS_FOLDER;
 	} // for (int i=0; i<m_nCacheCount; i++)
 	for (i=0; i<m_nFolderCount; i++)
 	{
-		if (_tcsicmp(file, m_FolderCache[i].filename) == 0)
+		if (_tcscmp(file, m_FolderCache[i].filename) == 0)
 			return i;
 	}
 	return -1;		//not found!

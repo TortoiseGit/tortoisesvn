@@ -36,6 +36,7 @@
 #include "svn_utf.h"
 #include "svn_config.h"
 
+#include "SVNStatus.h"
 
 
 typedef struct filestatuscache
@@ -90,7 +91,7 @@ typedef struct filestatuscache
  * \bug 
  *
  */
-class SVNFolderStatus
+class SVNFolderStatus : public SVNStatus
 {
 public:
 	SVNFolderStatus(void);
