@@ -239,13 +239,6 @@ void CStatGraphDlg::ShowCommitsByDate()
 	for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	{
 		weekover = FALSE;
-		stdstring author = stdstring(m_parAuthors->GetAt(i));
-		if (authorcommits.find(author) != authorcommits.end())
-		{
-			authorcommits[author] += 1;
-		}
-		else
-			authorcommits[author] = 1;
 		CTime time((__time64_t)m_parDates->GetAt(i));
 		if (week != GetWeek(time))
 		{
@@ -268,6 +261,13 @@ void CStatGraphDlg::ShowCommitsByDate()
 			authorcommits.clear();
 			weekover = TRUE;
 		}
+		stdstring author = stdstring(m_parAuthors->GetAt(i));
+		if (authorcommits.find(author) != authorcommits.end())
+		{
+			authorcommits[author] += 1;
+		}
+		else
+			authorcommits[author] = 1;
 	}
 	if (!weekover)
 	{
@@ -330,15 +330,6 @@ void CStatGraphDlg::ShowStats()
 		commits++;
 		filechanges += m_parFileChanges->GetAt(i);
 		weekover = FALSE;
-		stdstring author = stdstring(m_parAuthors->GetAt(i));
-		if (authorcommits.find(author) != authorcommits.end())
-		{
-			authorcommits[author] += 1;
-		}
-		else
-		{
-			authorcommits[author] = 1;
-		}
 		if (nCurrentWeek != GetWeek(time))
 		{	
 			std::map<stdstring, LONG>::iterator iter;
@@ -375,6 +366,15 @@ void CStatGraphDlg::ShowStats()
 			nFileChanges += filechanges;
 			filechanges = 0;
 			weekover = TRUE;
+		}
+		stdstring author = stdstring(m_parAuthors->GetAt(i));
+		if (authorcommits.find(author) != authorcommits.end())
+		{
+			authorcommits[author] += 1;
+		}
+		else
+		{
+			authorcommits[author] = 1;
 		}
 	} // for (int i=m_parDates->GetCount()-1; i>=0; --i)
 	if (!weekover)
