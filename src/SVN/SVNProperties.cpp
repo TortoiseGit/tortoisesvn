@@ -17,13 +17,18 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "stdafx.h"
+#include "..\\TortoiseShell\\resource.h"
 #include "SVNProperties.h"
+#include "SVNStatus.h"
 #include "UnicodeStrings.h"
 #include "tchar.h"
 #ifdef _MFC_VER
 #	include "SVN.h"
 #	include "UnicodeUtils.h"
 #	include "registry.h"
+#else
+#include "registry.h"
+extern	HINSTANCE			g_hResInst;
 #endif
 
 svn_error_t*	SVNProperties::Refresh()
@@ -178,7 +183,7 @@ stdstring SVNProperties::GetItem(int index, BOOL name)
 
 			//If this is a special Subversion property, it is stored as
 			//UTF8, so convert to the native format.
-			if ((svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0))
+			if ((svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0)||(strncmp(pname_utf8, "tsvn:", 5)==0))
 			{
 				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
 				if (m_error != NULL)
@@ -223,14 +228,54 @@ BOOL SVNProperties::Add(const TCHAR * Name, const char * Value, BOOL recurse)
 	pval = svn_string_create (Value, m_pool);
 
 	pname_utf8 = StringToUTF8(Name);
-	if ((svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0))
+	if ((svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))
 	{
 		m_error = svn_subst_translate_string (&pval, pval, NULL, m_pool);
 		if (m_error != NULL)
 			return FALSE;
 	}
-
-	m_error = svn_client_propset (pname_utf8.c_str(), pval, StringToUTF8(m_path).c_str(), recurse, m_pool);
+	if ((!PathIsDirectory(m_path.c_str()))&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
+	{
+		//bugtraq: and tsvn: properties are not allowed on files.
+#ifdef _MFC_VER
+		CString temp;
+		temp.LoadString(IDS_ERR_PROPNOTONFILE);
+		CStringA tempA = CStringA(temp);
+		m_error = svn_error_create(NULL, NULL, tempA);
+#else
+		TCHAR string[1024];
+		LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+#ifdef UNICODE
+		std::string stringA = WideToMultibyte(wide_string(string));
+#else
+		std::string stringA = std::string(string);
+#endif
+		m_error = svn_error_create(NULL, NULL, stringA.c_str());
+#endif
+		return FALSE;
+	}
+	if ((recurse)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))
+	{
+		//The bugtraq and tsvn properties must only be set on folders.
+		const TCHAR * path;
+		SVNStatus stat;
+		svn_wc_status_t * status = NULL;
+		status = stat.GetFirstFileStatus(m_path.c_str(), &path);
+		do 
+		{
+			if (status)
+			{
+				if ((status->entry)&&(status->entry->kind == svn_node_dir))
+				{
+					// a versioned folder, so set the property!
+					m_error = svn_client_propset (pname_utf8.c_str(), pval, StringToUTF8(path).c_str(), false, m_pool);
+				}
+			}
+			status = stat.GetNextFileStatus(&path);
+		} while ((status != 0)&&(m_error == NULL));
+	}
+	else 
+		m_error = svn_client_propset (pname_utf8.c_str(), pval, StringToUTF8(m_path).c_str(), recurse, m_pool);
 	if (m_error != NULL)
 	{
 		return FALSE;

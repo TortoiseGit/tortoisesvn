@@ -7,6 +7,13 @@
        like before. (Stefan)
 - ADD: The "check for updates" dialog now shows the
        HEAD revision of the repository. (Stefan)
+- ADD: Setting bugtraq: and tsvn: properties recursively
+       now makes sure that the properties are only set
+       on subfolder and skipped for files, i.e. you
+       can set those properties on the /trunk folder with
+       the "recursive" checkbox activated and all subfolders
+       will have the props set too, without having the files
+       set those properties too. (Stefan)
 - CHG: improved dialog for creating repositories. (Stefan)
 - CHG: The "paste log template in english" setting is now
        a project property (tsvn:logfilelistenglish). Set
