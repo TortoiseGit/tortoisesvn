@@ -287,6 +287,9 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status_t * status)
 {
 	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
+	if ((status->entry)&&(Stat->shellCache.IsRecursive())&&(status->entry->kind == svn_node_dir))
+		return;
+
 	std::map<stdstring, filestatuscache> * cache = (std::map<stdstring, filestatuscache> *)(&Stat->m_cache);
 	filestatuscache s;
 	TCHAR * key = NULL;

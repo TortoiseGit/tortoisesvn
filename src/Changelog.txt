@@ -1,3 +1,7 @@
+- BUG: When the recursive overlay was activated, the
+       overlays for folders weren't shown recursive if
+       the explorer columns weren't sorted by name. (Stefan)
+
 Version 0.26
 - ADD: The columns in the progress and the commit dialog 
        are now sortable. (Stefan)
