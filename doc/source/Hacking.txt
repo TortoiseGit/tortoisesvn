@@ -4,7 +4,7 @@ Hacking the Docs
 While you are working on the docs, please oberve the following rules for your markup.
 The markup is processed by XSL Transformations, FO Processors and the like. Always
 remember that you define the structure and leave the formatting to the processors
-and style sheets.
+For more information about tags in docbook read http://www.docbook.org/tdg/index.html.
 
 Rules
 =====
@@ -31,10 +31,13 @@ Rules
   "Select the URL from the <guilabel>URL</guilabel> Combobox"
 
 - Links
-  Use ulink <ulink url="http://svnbook.red-bean.com/">
+  Use ulink for extern links <ulink url="http://svnbook.red-bean.com/">svn book</ulink>.
+  Use this <xref linkend="tsvn-DUG-import-4"/> to reference internal sections.
 
 - Lists
   A list is declared with <itemizedlist> and a listitem with <listitem>
+
+- Mark Filenames with <filename>Hacking.txt</filename>
 
 Use the out of line info boxes:
 ===============================

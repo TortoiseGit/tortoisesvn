@@ -332,6 +332,9 @@
 			<indexterm>
 				<primary>externe projektarchive</primary>
 			</indexterm>
+			<indexterm>
+				<primary>externals</primary>
+			</indexterm>
 			<para>
 				Manchmal ist es nützlich eine Arbeitskopie zu haben, welche aus mehreren 
 				anderen Projekten besteht. Zum Beispiel kann es vorkommen, dass Sie Unterordner 
@@ -341,8 +344,8 @@
 				Eigenschaft definieren. 
 			</para>
 			<para>
-				Nehmen wir an Sie erstellen eine Arbeitskopie von /project1 in D:\dev\project1. 
-				Selektieren Sie den Ordner D:\dev\project1, machen Sie einen <action>Rechts-Klick</action> 
+				Nehmen wir an Sie erstellen eine Arbeitskopie von /project1 in <filename>D:\dev\project1</filename>. 
+				Selektieren Sie den Ordner <filename>D:\dev\project1</filename>, machen Sie einen <action>Rechts-Klick</action> 
 				und wählen Sie <menuchoice><guimenuitem>Eigenschaften</guimenuitem></menuchoice> 
 				aus dem Contextmenü. Der Eigenschaften Dialog erscheint, gehen Sie zu dem Tab Subversion. 
 				Dort können Sie Eigenschaften anschauen, verändern oder setzen. Wählen Sie die "svn:externals"
@@ -351,6 +354,10 @@
 				wenn Sie das Subversion Projektarchiv einbinden wollen. Klicken Sie jetzt auf <guibutton>Setzen</guibutton>
 				und übertragen Sie die Änderungen in das Projektarchiv. Wenn jetzt ein Benutzer seine Arbeitskopie aktualisiert, 
 				wird das eingebundene Projektarchiv auch ausgecheckt. 
+			</para>
+			<para>
+				Wenn sie mehr Informationen brauchen, wie <application>TortoiseSVN</application> 
+				Eigenschaften behandelt lesen Sie <xref linkend="tsvn-DUG-propertypage"/>.
 			</para>
 		</sect2>
 	</sect1>
@@ -1154,13 +1161,13 @@
 			Eigenschaften hinzufügen oder welche mit einer Speziellen Bedeutung in 
 			Subversion. Diese beginnen alle mit svn:. svn:externals ist so eine 
 			Eigenschaft, sehen Sie sich das Kapitel 
-			<a href="#tsvn-DUG-import-4">eingebundene Projekte</a> an, um mehr über 
+			<xref linkend="tsvn-DUG-import-4"/> an, um mehr über 
 			das Thema zu erfahren. 
 			Um mehr Informationen über Eigenschaften in Subversion zu erhalten, 
 			schauen Sie sich das Subversion 
-			<a href="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
+			<ulink url="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
 				Handbuch 
-			</a> an. 
+			</ulink> an. 
 		</para>
 		<note>
 			<para>
@@ -1169,6 +1176,14 @@
 				zum Projektarchiv übertragen. 
 			</para>
 		</note>
+		<tip>
+			<para>
+				Sollte es zu einem Konflikt beim übertragen zum Server kommen, weil 
+				ein anderer Benutzer die gleiche Eigenschaft geändert hat, generiert 
+				Subversion eine <filename>.prej</filename> Datei. Löschen Sie diese Datei, nachdem Sie den 
+				Konflikt aufgelöst haben. 
+			</para>
+		</tip>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->

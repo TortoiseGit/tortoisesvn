@@ -322,8 +322,8 @@
 				If you want that every user has the same layout, you could define the svn:externals properties.
 			</para>
 			<para>
-				Let's say you check out a working copy of /project1 to D:\dev\project1.
-				Select the folder D:\dev\project1, <action>right-click</action> and choose 
+				Let's say you check out a working copy of /project1 to <filename>D:\dev\project1</filename>.
+				Select the folder <filename>D:\dev\project1</filename>, <action>right-click</action> and choose 
 				<menuchoice><guimenuitem>properties</guimenuitem></menuchoice> from the context menu. 
 				The Properties Dialog comes up. Then go to the Subversion tab.
 				There, you can set properties. Select the "svn:externals" property from the combobox and write 
@@ -331,6 +331,10 @@
 				For example "subversion http://svn.collab.net/repos/svn/trunk".
 				Now click <guibutton>Set</guibutton> and commit your changes. 
 				If an user updates their working copy the external project is checked out, too.
+			</para>
+			<para>
+				If you need more information how <application>TortoiseSVN</application> handles 
+				Properties read <xref linkend="tsvn-DUG-propertypage"/>.
 			</para>
 		</sect2>
 	</sect1>
@@ -1062,9 +1066,11 @@
 			You can add your own properties or some properties with a 
 			special meaning in subversion, they begin with svn:. 
 			The svn:externals is such a property see how to handle externals in 
-			<a href="#tsvn-DUG-import-4">Referenced Projects</a>.
-			For more information about properties in subversion see the subversion manual 
-			<a href="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3</a>.
+			<xref linkend="tsvn-DUG-import-4"/>.
+			For more information about properties in subversion see the  
+			<ulink url="http://svnbook.red-bean.com/svnbook/ch07s02.html#svn-ch-7-sect-2.3">
+				subversion manual
+			</ulink>.
 		</para>
 		<note>
 			<para>
@@ -1072,6 +1078,14 @@
 			property you have to commit your changes.
 			</para>
 		</note>
+		<tip>
+			<para>
+				If there's a conflict on committing the changes, because another 
+				user has changed the same property Subversion generates a 
+				<filename>.prej</filename> file. Delete this file after you 
+				resolved the conflict. 
+			</para>
+		</tip>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ================================================================= -->
