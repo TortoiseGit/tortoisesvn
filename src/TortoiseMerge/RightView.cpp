@@ -73,7 +73,7 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/)
 			temp.LoadString(IDS_VIEWCONTEXTMENU_USEOTHERBLOCK);
 		}
 		else
-			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);
+			temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
 		popup.AppendMenu(MF_STRING | uEnabled, ID_USEBLOCK, temp);
 
 		if (!m_pwndBottom->IsWindowVisible())
