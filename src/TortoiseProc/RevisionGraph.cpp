@@ -361,7 +361,8 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 								else
 								{
 									// get all the information from that source too.
-									AnalyzeRevisions(val->copyfrom_path, currentrev-1, 1);
+									if (!AnalyzeRevisions(val->copyfrom_path, currentrev-1, 1))
+										return FALSE;
 								}
 							}
 							else
@@ -481,7 +482,8 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							else
 							{
 								// get all the information from that source too.
-								AnalyzeRevisions(self, currentrev-1, 1);
+								if (!AnalyzeRevisions(self, currentrev-1, 1))
+									return FALSE;
 							}
 						}
 						else
@@ -597,7 +599,8 @@ BOOL CRevisionGraph::AnalyzeRevisions(CStringA url, LONG startrev, LONG endrev)
 							m_arEntryPtrs.Add(reventry);
 							TRACELEVELSPACE;
 							TRACE("revision entry(4): %ld - level %d - %s\n", reventry->revision, reventry->level, reventry->url);
-							AnalyzeRevisions(self, currentrev+1, startrev > endrev ? startrev : endrev);
+							if (!AnalyzeRevisions(self, currentrev+1, startrev > endrev ? startrev : endrev))
+								return FALSE;
 						}
 					}
 				}
