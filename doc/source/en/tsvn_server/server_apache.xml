@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-serversetup-apache">
 	<title>Apache Based Server</title>
 	<sect2 id="tsvn-serversetup-apache-1">
@@ -490,10 +490,12 @@ docs = user5,user6,user7
 			</para>
 			<para>
 				To avoid that ugly error page and have a nice looking listing
-				of all available projects instead, you can use a PHP script
-				which generates the index for you automatically.
-<programlisting role="PHP">
-<![CDATA[
+				of all available projects instead, you can use the following PHP
+				script which generates the index for you automatically.
+			</para>
+		</tip>
+		<sidebar>
+<programlisting role="PHP"><![CDATA[
 <html>
 <head>
 <title>Subversion Repositories</title>
@@ -537,8 +539,8 @@ docs = user5,user6,user7
 
 </body>
 </html>
-]]>
-</programlisting>
+]]></programlisting>
+			<para>
 				Save the lines above to a file <filename>svn_index.php</filename>
 				and store that file in your web root folder. Next you have
 				to tell Apache to show that page instead of the error:
@@ -566,7 +568,7 @@ docs = user5,user6,user7
 					</listitem>
 				</itemizedlist>
 			</para>
-		</tip>
+		</sidebar>
 	</sect2>
 	<sect2 id="tsvn-serversetup-apache-5">
 		<title>Authentication With A Windows Domain</title>
