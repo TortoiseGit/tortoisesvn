@@ -164,6 +164,7 @@ BOOL CTortoiseProcApp::InitInstance()
     };
     InitCommonControlsEx(&used);
 	AfxOleInit();
+	AfxInitRichEdit2();
 	CWinApp::InitInstance();
 	SetRegistryKey(_T("TortoiseSVN"));
 
@@ -276,7 +277,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 			CLogDlg dlg;
 			m_pMainWnd = &dlg;
-			dlg.SetParams(path, revstart, revend, TRUE);
+			dlg.SetParams(path, revstart, revend, !parser.HasKey(_T("nostrict")));
 			dlg.DoModal();			
 		}
 		//#endregion

@@ -62,7 +62,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -209,8 +209,6 @@ BEGIN
     CONTROL         "",IDC_LOGLIST,"SysListView32",LVS_REPORT | 
                     LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | 
                     WS_TABSTOP,7,7,286,133
-    EDITTEXT        IDC_MSGVIEW,7,146,286,81,ES_MULTILINE | ES_READONLY | 
-                    ES_WANTRETURN | WS_VSCROLL
     CONTROL         "",IDC_LOGMSG,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
                     LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,233,286,75
     PUSHBUTTON      "Get &All",IDC_GETALL,129,315,50,14,WS_DISABLED
@@ -218,6 +216,9 @@ BEGIN
     PUSHBUTTON      "&Help",IDHELP,243,315,50,14
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",NOT WS_VISIBLE | 
                     WS_BORDER,7,317,114,9
+    CONTROL         "",IDC_MSGVIEW,"RichEdit20A",ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | WS_BORDER | WS_VSCROLL | WS_TABSTOP,7,
+                    144,286,84
 END
 
 IDD_LOGPROMPT DIALOGEX 0, 0, 300, 265
@@ -1446,12 +1447,12 @@ BEGIN
     IDS_STATUSLIST_MULTIPLETARGETS "(multiple targets selected)"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1494,7 +1495,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -75,6 +75,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_WM_SETCURSOR()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LOGLIST, OnLvnItemchangedLoglist)
+	ON_NOTIFY(EN_LINK, IDC_MSGVIEW, OnEnLinkMsgview)
 END_MESSAGE_MAP()
 
 
@@ -145,7 +146,8 @@ BOOL CLogDlg::OnInitDialog()
 	_tcscpy(LogFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
 	m_logFont.CreateFontIndirect(&LogFont);
 	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
-
+	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
+	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
 	m_LogList.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
 
 	m_LogList.DeleteAllItems();
@@ -1335,6 +1337,19 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		m_nSearchIndex = selIndex;
 		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex), m_arLogPaths.GetAt(selIndex));
 		UpdateData(FALSE);
+	}
+	*pResult = 0;
+}
+
+void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	ENLINK *pEnLink = reinterpret_cast<ENLINK *>(pNMHDR);
+	if (pEnLink->msg == WM_LBUTTONUP)
+	{
+		CString url;
+		GetDlgItem(IDC_MSGVIEW)->GetWindowText(url);
+		url = url.Mid(pEnLink->chrg.cpMin+1, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
+		ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 	}
 	*pResult = 0;
 }

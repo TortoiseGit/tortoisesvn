@@ -141,6 +141,8 @@ private:
 	CFindReplaceDialog *m_pFindDialog;
 	CStringArray	m_templist;
 	CFont		m_logFont;
+public:
+	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);
