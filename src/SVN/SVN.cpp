@@ -1071,15 +1071,24 @@ apr_array_header_t * SVN::target (LPCTSTR path)
 												5,
 												sizeof (const char *));
 
-	int curPos= 0;
-
-	CString resToken= p.Tokenize(_T("*"),curPos);
-	while (resToken != _T(""))
+	int curPos = 0;
+	int curPosOld = 0;
+	CString targ;
+	while (p.Find('*', curPos)>=0)
 	{
-		const char * target = apr_pstrdup (pool, CUnicodeUtils::GetUTF8(resToken));
+		curPosOld = curPos;
+		curPos = p.Find('*', curPosOld);
+		targ = p.Mid(curPosOld, curPos-curPosOld);
+		targ.Trim(_T("*"));
+		const char * target = apr_pstrdup (pool, CUnicodeUtils::GetUTF8(targ));
 		(*((const char **) apr_array_push (targets))) = target;
-		resToken= p.Tokenize(_T("*"),curPos);
-	};
+		curPos++;
+	} // while (p.Find('*', curPos)>=0) 
+	targ = p.Mid(curPos);
+	targ.Trim(_T("*"));
+	const char * target = apr_pstrdup (pool, CUnicodeUtils::GetUTF8(targ));
+	(*((const char **) apr_array_push (targets))) = target;
+
 	return targets;
 }
 
