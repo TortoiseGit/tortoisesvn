@@ -321,7 +321,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 		/* Build and return the credentials. */
 		*cred = (svn_auth_cred_ssl_client_cert_t*)apr_pcalloc (pool, sizeof (**cred));
 		(*cred)->cert_file = cert_file;
-		(*cred)->may_save = may_save;
+		(*cred)->may_save = TRUE;
 	} // if (GetOpenFileName(&ofn)==TRUE) 
 	else
 		*cred = NULL;
