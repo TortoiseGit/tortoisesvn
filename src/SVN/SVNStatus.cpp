@@ -31,14 +31,12 @@ SVNStatus::SVNStatus(void)
 {
 	apr_initialize();
 	m_pool = svn_pool_create (NULL);				// create the memory pool
+	memset (&ctx, 0, sizeof (ctx));
 #ifdef _MFC_VER
 	svn_config_ensure(NULL, m_pool);
 	hWnd = NULL;
 	m_app = NULL;
-#endif
-	memset (&ctx, 0, sizeof (ctx));
 
-#ifdef _MFC_VER
 	// set up authentication
 	svn_auth_provider_object_t *provider;
 
@@ -126,7 +124,51 @@ void SVNStatus::SaveAuthentication(BOOL save)
 		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
 	}
 }
-#endif //_MFC_VER
+
+CString SVNStatus::GetLastErrorMsg()
+{
+	CString msg;
+	if (m_err != NULL)
+	{
+		svn_error_t * ErrPtr = m_err;
+		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		while (ErrPtr->child)
+		{
+			ErrPtr = ErrPtr->child;
+			msg += _T("\n");
+			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
+		}
+		return msg;
+	}
+	return _T("");
+}
+#else
+stdstring SVNStatus::GetLastErrorMsg()
+{
+	stdstring msg;
+	if (m_err != NULL)
+	{
+		svn_error_t * ErrPtr = m_err;
+#ifdef UNICODE
+		msg = CUnicodeUtils::StdGetUnicode(ErrPtr->message);
+#else
+		msg = ErrPtr->message;
+#endif
+		while (ErrPtr->child)
+		{
+			ErrPtr = ErrPtr->child;
+			msg += _T("\n");
+#ifdef UNICODE
+			msg += CUnicodeUtils::StdGetUnicode(ErrPtr->message);
+#else
+			msg += ErrPtr->message;
+#endif
+		} // while (m_err->child)
+		return msg;
+	} // if (m_err != NULL)
+	return msg;
+}
+#endif
 
 //static method
 svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
@@ -244,52 +286,6 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 	} // switch (status)
 	return 0;
 }
-
-#ifdef _MFC_VER
-CString SVNStatus::GetLastErrorMsg()
-{
-	CString msg;
-	if (m_err != NULL)
-	{
-		svn_error_t * ErrPtr = m_err;
-		msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
-		while (ErrPtr->child)
-		{
-			ErrPtr = ErrPtr->child;
-			msg += _T("\n");
-			msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
-		}
-		return msg;
-	}
-	return _T("");
-}
-#else
-stdstring SVNStatus::GetLastErrorMsg()
-{
-	stdstring msg;
-	if (m_err != NULL)
-	{
-		svn_error_t * ErrPtr = m_err;
-#ifdef UNICODE
-		msg = CUnicodeUtils::StdGetUnicode(ErrPtr->message);
-#else
-		msg = ErrPtr->message;
-#endif
-		while (ErrPtr->child)
-		{
-			ErrPtr = ErrPtr->child;
-			msg += _T("\n");
-#ifdef UNICODE
-			msg += CUnicodeUtils::StdGetUnicode(ErrPtr->message);
-#else
-			msg += ErrPtr->message;
-#endif
-		} // while (m_err->child)
-		return msg;
-	} // if (m_err != NULL)
-	return msg;
-}
-#endif
 
 svn_revnum_t SVNStatus::GetStatus(const TCHAR * path, bool update /* = false */, bool noignore /* = false */)
 {
@@ -466,7 +462,7 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, TCHAR * string)
 		default:
 			buf = _T("\0");
 			break;
-	}
+	} // switch (status) 
 	_stprintf(string, _T("%s"), buf);
 }
 
@@ -519,7 +515,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 		default:
 			LoadStringEx(hInst, IDS_STATUSNONE, string, size, lang);
 			break;
-	}
+	} // switch (status) 
 }
 
 int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPCTSTR lpBuffer, int nBufferMax, WORD wLanguage)
@@ -589,8 +585,7 @@ void SVNStatus::getstatushash(void * baton, const char * path, svn_wc_status_t *
 }
 
 apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,
-										int (*comparison_func) (const sort_item *,
-                                        const sort_item *),
+										int (*comparison_func) (const sort_item *, const sort_item *),
 										apr_pool_t *pool)
 {
 	apr_hash_index_t *hi;
@@ -614,13 +609,12 @@ apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,
 	return ary;
 }
 
-int SVNStatus::sort_compare_items_as_paths (const sort_item *a,
-                                 const sort_item *b)
+int SVNStatus::sort_compare_items_as_paths (const sort_item *a, const sort_item *b)
 {
-  const char *astr, *bstr;
+	const char *astr, *bstr;
 
-  astr = (const char*)a->key;
-  bstr = (const char*)b->key;
-  return svn_path_compare_paths (astr, bstr);
+	astr = (const char*)a->key;
+	bstr = (const char*)b->key;
+	return svn_path_compare_paths (astr, bstr);
 }
 

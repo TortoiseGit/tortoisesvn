@@ -39,13 +39,13 @@
 #pragma warning (push,1)
 typedef std::basic_string<wchar_t> wide_string;
 #ifdef UNICODE
-#define stdstring wide_string
+#	define stdstring wide_string
 #else
-#define stdstring std::string
+#	define stdstring std::string
 #endif
 #pragma warning (pop)
 
-typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
+//typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /**
  * \ingroup TortoiseShell
@@ -61,7 +61,7 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  *
  * \date 10-10-2002
  *
- * \author kueng
+ * \author Stefan Kueng
  *
  * \par license
  * This code is absolutely free to use and modify. The code is provided "as is" with
@@ -84,7 +84,7 @@ public:
 	 * Reads the Subversion status of the working copy entry. No
 	 * recurse is done, even if the entry is a directory.
 	 * If the status of the text and property part are different
-	 * then the higher value is returned.
+	 * then the more important status is returned.
 	 */
 	static svn_wc_status_kind GetAllStatus(const TCHAR * path, BOOL recursive = FALSE);
 
@@ -93,7 +93,7 @@ public:
 	 * subitems. The resulting status is determined by using priorities for
 	 * each status. The status with the highest priority is then returned.
 	 * If the status of the text and property part are different then
-	 * the one with the higher priority is returned.
+	 * the more important status is returned.
 	 */
 	static svn_wc_status_kind GetAllStatusRecursive(const TCHAR * path);
 
@@ -105,11 +105,18 @@ public:
 	 */	 	 	 	 	
 	static svn_wc_status_kind GetMoreImportant(svn_wc_status_kind status1, svn_wc_status_kind status2);
 	
+	/**
+	 * Checks if a status is "important", i.e. if the status indicates that the user should know about it.
+	 * E.g. a "normal" status is not important, but "modified" is.
+	 * \param status the status to check
+	 */
 	static BOOL IsImportant(svn_wc_status_kind status) {return (GetMoreImportant(svn_wc_status_added, status)==status);}
+
 	/**
 	 * Reads the Subversion text status of the working copy entry. No
 	 * recurse is done, even if the entry is a directory.
 	 * The result is stored in the public member variable status.
+	 * Use this method if you need detailed information about a file/folder, not just the raw status (like "normal", "modified").
 	 * 
 	 * \param path the pathname of the entry
 	 * \param update true if the status should be updated with the repository. Default is false.
@@ -117,7 +124,6 @@ public:
 	 * \remark If the return value is -2 then the status could not be obtained.
 	 */
 	svn_revnum_t GetStatus(const TCHAR * path, bool update = false, bool noignore = false);
-
 
 	/**
 	 * Returns a string representation of a Subversion status.
@@ -136,6 +142,7 @@ public:
 	 * \return the status
 	 */
 	svn_wc_status_t * GetFirstFileStatus(const TCHAR * path, const TCHAR ** retPath, bool update = false);
+
 	/**
 	 * Returns the status of the next file in the filelist. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileStatus() for details.
@@ -153,39 +160,73 @@ public:
 	svn_wc_status_t *			status;				///< the status result of GetStatus()
 
 #ifdef _MFC_VER
+	/**
+	 * Returns the last error message as a CString object.
+	 */
 	CString GetLastErrorMsg();
+
+	/**
+	 * Call this method before any other method which might require authentication
+	 * (e.g. GetStatus with update).
+	 * \param save if TRUE, the authentication data is stored in the users %APPDATA% folder.
+	 */
 	void SaveAuthentication(BOOL save);
 #else
+	/**
+	 * Returns the last error message as a CString object.
+	 */
 	stdstring GetLastErrorMsg();
 #endif
-	svn_client_ctx_t 			ctx;
-	svn_wc_status_kind			m_allstatus;
+
 
 protected:
-	apr_pool_t *				m_pool;
+	apr_pool_t *				m_pool;			///< the memory pool
 private:
-	svn_auth_baton_t *			m_auth_baton;
-	svn_error_t *				m_err;
-	static int GetStatusRanking(svn_wc_status_kind status);
-	static void getallstatus (void *baton, const char *path, svn_wc_status_t *status);
-	static void getstatushash (void *baton, const char *path, svn_wc_status_t *status);
-
-	typedef struct sort_item {
+	typedef struct sort_item
+	{
 		const void *key;
 		apr_ssize_t klen;
 		void *value;
 	} sort_item;
 
-	static apr_array_header_t * sort_hash (apr_hash_t *ht, int (*comparison_func) (const sort_item *,
-										const sort_item *), apr_pool_t *pool);
-
-	static int __cdecl sort_compare_items_as_paths (const sort_item *a, const sort_item *b);
-
-	struct hashbaton_t
+	typedef struct hashbaton_t
 	{
 		apr_hash_t *	hash;
 		apr_pool_t *	pool;
-	};
+	} hash_baton_t;
+
+	svn_client_ctx_t 			ctx;
+	svn_wc_status_kind			m_allstatus;	///< used by GetAllStatus and GetAllStatusRecursive
+	svn_auth_baton_t *			m_auth_baton;	///< authentication baton
+	svn_error_t *				m_err;			///< Subversion error baton
+
+	/**
+	 * Returns a numeric value indicating the importance of a status. 
+	 * A higher number indicates a more important status.
+	 */
+	static int GetStatusRanking(svn_wc_status_kind status);
+
+	/**
+	 * Callback function which collects the raw status from a svn_client_status() function call
+	 */
+	static void getallstatus (void *baton, const char *path, svn_wc_status_t *status);
+
+	/**
+	 * Callback function which stores the raw status from a svn_client_status() function call
+	 * in a hashtable.
+	 */
+	static void getstatushash (void *baton, const char *path, svn_wc_status_t *status);
+
+	/**
+	 * helper function to sort a hash to an array
+	 */
+	static apr_array_header_t * sort_hash (apr_hash_t *ht, int (*comparison_func) (const sort_item *,
+										const sort_item *), apr_pool_t *pool);
+
+	/**
+	 * Callback function used by qsort() which does the comparison of two elements
+	 */
+	static int __cdecl sort_compare_items_as_paths (const sort_item *a, const sort_item *b);
 
 	//for GetFirstFileStatus and GetNextFileStatus
 	apr_hash_t *				m_statushash;
