@@ -24,6 +24,7 @@
 #include "registry.h"
 
 #define REGISTRYTIMEOUT 2000
+#define DRIVETYPETIMEOUT 300000		// 5 min
 class ShellCache
 {
 public:
@@ -36,6 +37,7 @@ public:
 		driveremove = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemovable"));
 		recursiveticker = GetTickCount();
 		driveticker = recursiveticker;
+		drivetypeticker = recursiveticker;
 		langticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
@@ -99,8 +101,9 @@ public:
 		if ((drivenumber >=0)&&(drivenumber < 25))
 		{
 			drivetype = drivetypecache[drivenumber];
-			if (drivetype == -1)
+			if ((drivetype == -1)||((GetTickCount() - DRIVETYPETIMEOUT)>drivetypeticker))
 			{
+				drivetypeticker = GetTickCount();
 				TCHAR pathbuf[MAX_PATH+4];
 				_tcscpy(pathbuf, path);
 				PathRemoveFileSpec(pathbuf);
@@ -168,6 +171,7 @@ private:
 	CRegStdWORD menulayout;
 	DWORD recursiveticker;
 	DWORD driveticker;
+	DWORD drivetypeticker;
 	DWORD layoutticker;
 	DWORD langticker;
 	DWORD blockstatusticker;

@@ -145,7 +145,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 
 		if (status)
 		{
-			//if (status.status->entry)
 			if (status->entry)
 			{
 				dirstat.author = authors.GetString (status->entry->cmt_author);
@@ -165,7 +164,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		ClearPool();
 		apr_terminate();
 		return &dirstat;
-	}
+	} // if (isFolder) 
 
 	//it's a file, not a folder. So fill in the cache with
 	//all files inside the same folder as the asked file is
@@ -178,8 +177,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		if (p)
 			pathbuf[p-filepath] = '\0';
 	} // if (!isFolder)
-	//we need to convert the path to subversion internal format
-	//the internal format uses '/' instead of the windows '\'
 
 	internalpath = svn_path_internal_style (CUnicodeUtils::StdGetUTF8(pathbuf).c_str(), pool);
 
