@@ -602,7 +602,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			BOOL repeat = FALSE;
 			CMergeDlg dlg;
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
-			dlg.m_URLFrom = path;
+			dlg.m_wcPath = path;
 			do 
 			{	
 				if (dlg.DoModal() == IDOK)

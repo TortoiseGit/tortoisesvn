@@ -128,11 +128,11 @@ BOOL CMergeDlg::OnInitDialog()
 
 	m_bFile = !PathIsDirectory(m_URLFrom);
 	SVN svn;
-	CString url = svn.GetURLFromPath(m_URLFrom);
+	CString url = svn.GetURLFromPath(m_wcPath);
 	if (url.IsEmpty())
 	{
 		CString temp;
-		temp.Format(IDS_ERR_NOURLOFFILE, m_URLFrom);
+		temp.Format(IDS_ERR_NOURLOFFILE, m_wcPath);
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		this->EndDialog(IDCANCEL);
 		return TRUE;
@@ -253,6 +253,8 @@ void CMergeDlg::OnBnClickedBrowse()
 			if (browser.DoModal() == IDOK)
 			{
 				m_URLCombo.SetWindowText(browser.GetPath());
+				if (m_bUseFromURL)
+					m_URLCombo2.SetWindowText(browser.GetPath());
 			}
 		}
 		else
@@ -265,6 +267,8 @@ void CMergeDlg::OnBnClickedBrowse()
 				SVN::PathToUrl(strUrl);
 
 				m_URLCombo.SetWindowText(strUrl);
+				if (m_bUseFromURL)
+					m_URLCombo2.SetWindowText(strUrl);
 			}
 		}
 	}
@@ -278,6 +282,8 @@ void CMergeDlg::OnBnClickedBrowse()
 		if (browser.DoModal() == IDOK)
 		{
 			m_URLCombo.SetWindowText(browser.GetPath());
+			if (m_bUseFromURL)
+				m_URLCombo2.SetWindowText(browser.GetPath());
 		}
 	} 
 	else
@@ -290,6 +296,8 @@ void CMergeDlg::OnBnClickedBrowse()
 			SVN::PathToUrl(strUrl);
 
 			m_URLCombo.SetWindowText(strUrl);
+			if (m_bUseFromURL)
+				m_URLCombo2.SetWindowText(strUrl);
 		}
 	}
 }

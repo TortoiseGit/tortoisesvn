@@ -1,3 +1,9 @@
+- BUG: After a merge dry-run, the wc URL wasn't shown
+       correctly. This bug didn't affect the actual
+       merge, only the UI. (Stefan)
+- BUG: The right-drag "move/copy in Subversion here" menu
+       entries were missing. (Stefan)
+
 Version 1.1.1
 - ADD: The path to client certificates and the client
        certificate password can now be saved. (Stefan)
