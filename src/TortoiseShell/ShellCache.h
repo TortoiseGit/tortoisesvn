@@ -22,10 +22,13 @@
 #include <tchar.h>
 #include <string>
 #include <vector>
+#include <map>
 #include "registry.h"
+#include "svn_wc.h"
 
 #define REGISTRYTIMEOUT 2000
 #define EXCLUDELISTTIMEOUT 5000
+#define ADMINDIRTIMEOUT 10000
 #define DRIVETYPETIMEOUT 300000		// 5 min
 #define NUMBERFMTTIMEOUT 300000
 class ShellCache
@@ -51,6 +54,7 @@ public:
 		columnrevformatticker = recursiveticker;
 		excludelistticker = recursiveticker;
 		includelistticker = recursiveticker;
+		admindirticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
@@ -246,6 +250,39 @@ public:
 		} // if ((GetTickCount() - NUMBERFMTTIMEOUT) > columnrevformatticker)
 		return &columnrevformat;
 	}
+	BOOL HasSVNAdminDir(LPCTSTR path, BOOL bIsDir)
+	{
+		TCHAR buf[MAX_PATH];
+		BOOL hasAdminDir = FALSE;
+		_tcscpy(buf, path);
+		if (! bIsDir)
+		{
+			TCHAR * ptr = _tcsrchr(buf, '\\');
+			if (ptr != 0)
+			{
+				*ptr = 0;
+			}
+		}
+		if ((GetTickCount() - ADMINDIRTIMEOUT) < admindirticker)
+		{
+			std::map<stdstring, BOOL>::iterator iter;
+			if ((iter = admindircache.find(buf)) != admindircache.end())
+			{
+				ATLTRACE2(_T("AdminDirCache found for %s\n"), path);
+				return iter->second;
+			}
+		}
+		TCHAR buf2[MAX_PATH];
+		_tcscpy(buf2, buf);
+		_tcscat(buf2, _T("\\"));
+		_tcscat(buf2, _T(SVN_WC_ADM_DIR_NAME));
+		hasAdminDir = PathFileExists(buf2);
+		admindirticker = GetTickCount();
+		admindircache.clear();
+		admindircache[buf] = hasAdminDir;
+		ATLTRACE2(_T("AdminDirCache built for %s\n"), path);
+		return hasAdminDir;
+	}
 private:
 	void DriveValid()
 	{
@@ -342,4 +379,6 @@ private:
 	NUMBERFMT columnrevformat;
 	TCHAR szDecSep[5];
 	TCHAR szThousandsSep[5];
+	std::map<stdstring, BOOL> admindircache;
+	DWORD admindirticker;
 };

@@ -245,35 +245,15 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 
 filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
 {
-	TCHAR pathbuf[MAX_PATH];
-
 	m_bColumnProvider = bColumnProvider;
 
-	_tcscpy(pathbuf, filepath);
-	if (!bIsFolder)
-	{
-		TCHAR * ptr = _tcsrchr(pathbuf, '\\');
-		if (ptr != 0)
-		{
-			*ptr = 0;
-			_tcscat(pathbuf, _T("\\"));
-			_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
-			if (!PathFileExists(pathbuf))
-				return &invalidstatus;
-		}
-	} // if (!bIsFolder)
-	else
-	{
-		_tcscat(pathbuf, _T("\\"));
-		_tcscat(pathbuf, _T(SVN_WC_ADM_DIR_NAME));
-		if (!PathFileExists(pathbuf))
-			return &invalidstatus;
-	}
+	if (! g_ShellCache.HasSVNAdminDir(filepath, bIsFolder))
+		return &invalidstatus;
 	filestatuscache * ret = NULL;
 	std::map<stdstring, filestatuscache>::iterator iter;
 	if ((iter = m_cache.find(filepath)) != m_cache.end())
 	{
-		ATLTRACE2(_T("cache found for %s - %s\n"), filepath, pathbuf);
+		ATLTRACE2(_T("cache found for %s\n"), filepath);
 		ret = (filestatuscache *)&iter->second;
 		DWORD now = GetTickCount();
 		if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))

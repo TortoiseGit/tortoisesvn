@@ -148,7 +148,7 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 //  IShellIconOverlayIdentifier::GetOverlayInfo method to determine which icon
 //  to display."
 
-STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
+STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib)
 {
 	PreserveChdir preserveChdir;
 	svn_wc_status_kind status;
@@ -172,13 +172,12 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 		if (! g_ShellCache.IsPathAllowed(sPath.c_str()))
 			return S_FALSE;
 
+		// since the dwAttrib param of the IsMemberOf() function does not
+		// have the SFGAO_FOLDER flag set at all (it's 0 for files and folders!)
+		// we have to check if the path is a folder ourselves :(
 		if (PathIsDirectory(sPath.c_str()))
 		{
-			TCHAR buf[MAX_PATH];
-			_tcscpy(buf, sPath.c_str());
-			_tcscat(buf, _T("\\"));
-			_tcscat(buf, _T(SVN_WC_ADM_DIR_NAME));
-			if (PathFileExists(buf))
+			if (g_ShellCache.HasSVNAdminDir(sPath.c_str(), TRUE))
 			{
 				if ((!g_ShellCache.IsRecursive()) && (!g_ShellCache.IsFolderOverlay()))
 				{
@@ -198,7 +197,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /* dwAttrib */)
 					ReleaseMutex(hMutex);
 
 				}
-			} // if (PathFileExists(buf))
+			}
 			else
 			{
 				status = svn_wc_status_unversioned;

@@ -200,7 +200,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
-					GetColumnStatus(path);
+					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 					SVNStatus::GetStatusString(g_hResInst, filestatus, buf, sizeof(buf), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
 					szInfo = buf;
 				} // if (dwWaitResult == WAIT_OBJECT_0)
@@ -210,7 +210,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
-					GetColumnStatus(path);
+					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 					if (columnrev >= 0)
 					{
 						// First, have to convert the revision number into a string.
@@ -239,7 +239,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
-					GetColumnStatus(path);
+					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 					szInfo = itemurl;
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 				ReleaseMutex(hMutex);
@@ -248,7 +248,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				dwWaitResult = WaitForSingleObject(hMutex, 100);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
-					GetColumnStatus(path);
+					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 					szInfo = itemshorturl;
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 				ReleaseMutex(hMutex);
@@ -304,7 +304,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				dwWaitResult = WaitForSingleObject(hMutex, 10);
 				if (dwWaitResult == WAIT_OBJECT_0)
 				{
-					GetColumnStatus(path);
+					GetColumnStatus(path, pscd->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
 					szInfo = columnauthor;
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 				ReleaseMutex(hMutex);
@@ -338,17 +338,13 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
 #endif
 	if (!path.empty())
 	{
-		TCHAR buf[MAX_PATH];
-		_tcscpy(buf, path.c_str());
-		_tcscat(buf, _T("\\"));
-		_tcscat(buf, _T(SVN_WC_ADM_DIR_NAME));
-		if (!PathFileExists(buf))
+		if (! g_ShellCache.HasSVNAdminDir(path.c_str(), TRUE))
 			return E_FAIL;
 	}
 	return S_OK;
 }
 
-void CShellExt::GetColumnStatus(stdstring path)
+void CShellExt::GetColumnStatus(stdstring path, BOOL bIsDir)
 {
 	if (columnfilepath.compare(path)==0)
 		return;
@@ -359,8 +355,7 @@ void CShellExt::GetColumnStatus(stdstring path)
 		status = &g_CachedStatus.invalidstatus;
 	else
 	{
-		BOOL bIsFolder = PathIsDirectory(path.c_str());
-		status = g_CachedStatus.GetFullStatus(path.c_str(), bIsFolder, TRUE);
+		status = g_CachedStatus.GetFullStatus(path.c_str(), bIsDir, TRUE);
 	}
 	filestatus = status->status;
 
