@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CLogPromptDlg, CResizableDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
+	ON_BN_CLICKED(IDC_FILLLOG, OnBnClickedFilllog)
 END_MESSAGE_MAP()
 
 
@@ -177,6 +178,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_HINTLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_FILLLOG, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -304,7 +306,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	pDlg->m_bBlock = TRUE;
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(false);
 	pDlg->GetDlgItem(IDOK)->EnableWindow(false);
-
+	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(false);
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
@@ -332,6 +334,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	pDlg->GetDlgItem(IDCANCEL)->EnableWindow(true);
+	pDlg->GetDlgItem(IDC_FILLLOG)->EnableWindow(true);
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > (DWORD)pDlg->m_sLogMessage.GetLength())
 	{
 		pDlg->GetDlgItem(IDOK)->EnableWindow(FALSE);
@@ -416,6 +419,24 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 		GetDlgItem(IDOK)->EnableWindow(FALSE);
 	}
 }
+
+void CLogPromptDlg::OnBnClickedFilllog()
+{
+	if (m_bBlock)
+		return;
+	CString logmsg;
+	for (int i=0; i<m_ListCtrl.GetItemCount(); ++i)
+	{
+		if (m_ListCtrl.GetCheck(i))
+		{
+			CString line;
+			line.Format(_T("%-10s %s\r\n"), m_ListCtrl.GetItemText(i, 1), m_ListCtrl.GetItemText(i,0));
+			logmsg += line;
+		}
+	}
+	m_LogMessage.ReplaceSel(logmsg, TRUE);
+}
+
 
 
 

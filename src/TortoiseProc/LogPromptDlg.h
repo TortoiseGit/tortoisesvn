@@ -73,6 +73,7 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnEnChangeLogmessage();
+	afx_msg void OnBnClickedFilllog();
 	void Refresh();
 	DECLARE_MESSAGE_MAP()
 public:
@@ -91,7 +92,6 @@ private:
 	BOOL			m_bShowUnversioned;
 	CButton			m_SelectAll;
 	CString			m_sBugID;
-public:
 };
 
 DWORD WINAPI StatusThread(LPVOID pVoid);
