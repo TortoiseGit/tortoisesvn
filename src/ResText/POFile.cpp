@@ -17,7 +17,7 @@ CPOFile::~CPOFile(void)
 BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 {
 	if (!PathFileExists(szPath))
-		MYERROR;
+		return FALSE;
 
 	if (!m_bQuiet)
 		_tcprintf(_T("parsing file %s...\n"), szPath);

@@ -58,22 +58,15 @@ int _tmain(int argc, _TCHAR* argv[])
 			stdstring sDllFile;
 			stdstring sPoFile;
 			++arg;
-			if (!PathFileExists(arg->c_str()))
-			{
-				_ftprintf(stderr, _T("the resource dll <%s> does not exist!\n"), arg->c_str());
-				return -1;
-			}
-			sDllFile = stdstring(arg->c_str());
-			++arg;
-			if (arg == arguments.end())
-			{
-				_ftprintf(stderr, _T("missing path to destination file!\n"));
-				return -1;
-			}
-			sPoFile = stdstring(arg->c_str());
+			
+			std::vector<std::wstring> filelist = arguments;
+			filelist.erase(filelist.begin());
+			sPoFile = stdstring((--filelist.end())->c_str());
+			filelist.erase(--filelist.end());
+			
 			CResModule module;
 			module.SetQuiet(bQuiet);
-			if (!module.ExtractResources(sDllFile.c_str(), sPoFile.c_str(), bNoUpdate))
+			if (!module.ExtractResources(filelist, sPoFile.c_str(), bNoUpdate))
 				return -1;
 			bShowHelp = false;
 		}
@@ -110,7 +103,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		_tcprintf(_T("usage:\n"));
 		_tcprintf(_T("\n"));
-		_tcprintf(_T("ResText extract <resource.dll> <po-file> [-quiet] [-noupdate]\n"));
+		_tcprintf(_T("ResText extract <resource.dll> [<resource.dll> ...] <po-file> [-quiet] [-noupdate]\n"));
 		_tcprintf(_T("Extracts all strings from the resource dll and writes them to the po-file\n"));
 		_tcprintf(_T("-quiet: don't print progress messages\n"));
 		_tcprintf(_T("-noupdate: overwrite the po-file\n"));
