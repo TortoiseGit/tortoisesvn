@@ -107,7 +107,7 @@ BOOL CSwitchDlg::OnInitDialog()
 	status.GetStatus(m_path);
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
-	if (status.status->entry != NULL)
+	if ((status.status)&&(status.status->entry != NULL))
 	{
 		m_path = status.status->entry->url;
 		m_URLCombo.AddString(m_path, 0);
