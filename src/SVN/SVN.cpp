@@ -799,6 +799,11 @@ BOOL SVN::Cat(CString url, SVNRev revision, CString localpath)
 
 	preparePath(url);
 
+	if (PathIsDirectory(localpath))
+	{
+		localpath += _T("\\");
+		localpath += url.Mid(url.ReverseFind('/'));
+	}
 	DeleteFile(localpath);
 
 	apr_file_open(&file, MakeSVNUrlOrPath(localpath), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
