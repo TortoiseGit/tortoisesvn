@@ -68,10 +68,10 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
 		case 1:
 			psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
 			psci->scid.pid = dwIndex;
-			psci->vt = VT_BSTR;
-			psci->fmt = LVCFMT_LEFT;
+			psci->vt = VT_I8;
+			psci->fmt = LVCFMT_RIGHT;
 			psci->cChars = 15;
-			psci->csFlags = ColumnFlags;
+			psci->csFlags = SHCOLSTATE_TYPE_INT | SHCOLSTATE_ONBYDEFAULT;
 
 			MAKESTRING(IDS_COLTITLEREV);
 #ifdef UNICODE
@@ -174,9 +174,13 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 				{
 					GetColumnStatus(path);
 					if (columnrev >= 0)
-						_sntprintf(buf, MAX_PATH, _T("%d"), columnrev);
-					else
-						buf[0] = '\0';
+					{
+						V_VT(pvarData) = VT_I8;
+						V_I8(pvarData) = columnrev;
+						ReleaseMutex(hMutex);
+						return S_OK;
+					} // if (columnrev >= 0)
+					buf[0] = '\0';
 					szInfo = buf;
 				} // if (dwWaitResult == WAIT_OBJECT_0)
 				ReleaseMutex(hMutex);
@@ -210,7 +214,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		V_VT(pvarData) = VT_BSTR;
 		V_BSTR(pvarData) = SysAllocString(wsInfo.c_str());
 		return S_OK;
-	}
+	} // if (pscid->fmtid == CLSID_TortoiseSVN_UPTODATE && pscid->pid < 4) 
 	if (pscid->fmtid == FMTID_SummaryInformation)
 	{
 		PreserveChdir preserveChdir;
