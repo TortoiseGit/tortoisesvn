@@ -285,7 +285,12 @@ BOOL CUtils::StartUnifiedDiffViewer(const CTSVNPath& patchfile, BOOL bWait)
 		viewer = buf;
 	}
 	if (viewer.Find(_T("%1"))>=0)
-		viewer.Replace(_T("%1"), _T("\"") + patchfile.GetWinPathString() + _T("\""));
+	{
+		if (viewer.Find(_T("\"%1\"")) >= 0)
+			viewer.Replace(_T("%1"), patchfile.GetWinPathString());
+		else
+			viewer.Replace(_T("%1"), _T("\"") + patchfile.GetWinPathString() + _T("\""));
+	}
 	else
 		viewer += _T(" \"") + patchfile.GetWinPathString() + _T("\"");
 
@@ -360,7 +365,10 @@ BOOL CUtils::StartTextViewer(CString file)
 	}
 	if (viewer.Find(_T("%1")) >= 0)
 	{
-		viewer.Replace(_T("%1"),  _T("\"")+file+_T("\""));
+		if (viewer.Find(_T("\"%1\"")) >= 0)
+			viewer.Replace(_T("%1"), file);
+		else
+			viewer.Replace(_T("%1"),  _T("\"")+file+_T("\""));
 	}
 	else
 	{
