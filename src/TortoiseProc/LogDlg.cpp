@@ -222,7 +222,12 @@ void CLogDlg::FillLogMessageCtrl(CString msg)
 
 void CLogDlg::OnBnClickedGetall()
 {
-	m_startrev = m_endrev-1;
+	m_LogList.DeleteAllItems();
+	m_arLogMessages.RemoveAll();
+	m_arFileListStarts.RemoveAll();
+	m_arRevs.RemoveAll();
+	m_logcounter = 0;
+
 	m_endrev = 1;
 	m_bCancelled = FALSE;
 	DWORD dwThreadId;
