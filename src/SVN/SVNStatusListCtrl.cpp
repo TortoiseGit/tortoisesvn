@@ -697,6 +697,8 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
 	TCHAR buf[100];
 	int index = GetItemCount();
 	int nCol = 1;
+	CString ponly;
+	ponly.LoadString(IDS_STATUSLIST_PROPONLY);
 	CString entryname = entry->path.Right(entry->path.GetLength() - entry->basepath.GetLength() - 1);
 	if (entryname.IsEmpty())
 		entryname = entry->path.Mid(entry->path.ReverseFind('/')+1);
@@ -708,7 +710,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
 			(entry->status != svn_wc_status_normal)&&
 			(entry->status != svn_wc_status_unversioned)&&
 			(!SVNStatus::IsImportant(entry->textstatus)))
-			_tcscat(buf, _T("(P only)"));
+			_tcscat(buf, ponly);
 		SetItemText(index, nCol++, buf);
 	}
 	if (m_dwColumns & SVNSLC_COLREMOTESTATUS)
@@ -718,7 +720,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry)
 			(entry->status != svn_wc_status_normal)&&
 			(entry->status != svn_wc_status_unversioned)&&
 			(!SVNStatus::IsImportant(entry->remotetextstatus)))
-			_tcscat(buf, _T("(P only)"));
+			_tcscat(buf, ponly);
 		SetItemText(index, nCol++, buf);
 	}
 	if (m_dwColumns & SVNSLC_COLTEXTSTATUS)

@@ -193,13 +193,14 @@ DWORD WINAPI RevertThread(LPVOID pVoid)
 
 				if (stat == SVNStatus::GetMoreImportant(stat, svn_wc_status_added))
 				{
-
+					CString ponly;
+					ponly.LoadString(IDS_STATUSLIST_PROPONLY);
 					pDlg->m_arFileList.Add(item);
 					int count = pDlg->m_RevertList.GetItemCount();
 					pDlg->m_RevertList.InsertItem(count, item.Mid(root.GetLength()));
 					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 					if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
-						_tcscat(buf, _T("(P only)"));
+						_tcscat(buf, ponly);
 					pDlg->m_RevertList.SetItemText(count, 1, buf);
 					pDlg->m_RevertList.SetCheck(count);
 				} 
