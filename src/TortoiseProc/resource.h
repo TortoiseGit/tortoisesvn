@@ -39,6 +39,8 @@
 #define IDB_LOGOFLIPPED                 168
 #define IDB_BITMAP1                     169
 #define IDB_TTF_BMP                     169
+#define IDD_SETTINGSPROGSADV            170
+#define IDD_TOOLASSOC                   171
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -170,8 +172,25 @@
 #define IDC_REVTEXT                     1087
 #define IDC_CHECK3                      1088
 #define IDC_COMMITFILETIMES             1088
+#define IDC_DIFFVIEWERBROWSE            1089
+#define IDC_EXTDIFFADVANCED             1090
+#define IDC_EXTDIFF_OFF                 1091
+#define IDC_EXTDIFF_ON                  1092
+#define IDC_EXTMERGEADVANCED            1093
+#define IDC_EXTMERGE_OFF                1094
+#define IDC_EXTMERGE_ON                 1095
+#define IDC_DIFFVIEWER_OFF              1096
+#define IDC_DIFFVIEWER_ON               1097
+#define IDC_ADDTOOL                     1098
+#define IDC_EDITTOOL                    1099
+#define IDC_REMOVETOOL                  1100
 #define IDS_AUTH_USERNAME               1100
+#define IDC_TOOLS                       1101
 #define IDS_AUTH_PASSWORD               1101
+#define IDC_TOOLLISTCTRL                1101
+#define IDC_EXTEDIT                     1102
+#define IDC_TOOLEDIT                    1103
+#define IDC_TOOLBROWSE                  1104
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -196,6 +215,8 @@
 #define IDS_SVNACTION_FAILEDREVERT      1175
 #define IDS_SVNACTION_STATUS            1176
 #define IDS_SVNACTION_SKIP              1177
+#define IDS_PROGS_EXTCOL                1178
+#define IDS_PROGS_TOOLCOL               1179
 #define IDS_SVN_USERCANCELLED           1181
 #define IDS_REPO_BROWSEREV              1190
 #define IDS_SSL_CERTIFICATETYPE         1200
@@ -314,6 +335,12 @@
 #define IDS_REPOBROWSE_IMPORTFOLDER     1608
 #define IDS_ABOUTVERSION                1700
 #define IDS_ABOUTVERSIONBOX             1701
+#define IDS_DLGTITLE_ADD_DIFF_TOOL      1750
+#define IDS_DLGTITLE_ADD_MERGE_TOOL     1751
+#define IDS_DLGTITLE_EDIT_DIFF_TOOL     1752
+#define IDS_DLGTITLE_EDIT_MERGE_TOOL    1753
+#define IDS_DLGTITLE_ADV_DIFF           1754
+#define IDS_DLGTITLE_ADV_MERGE          1755
 #define IDS_LOG_POPUP_DIFF              1800
 #define IDS_LOG_POPUP_REVERTREV         1801
 #define IDS_LOG_POPUP_GNUDIFF           1802
@@ -352,9 +379,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        170
+#define _APS_NEXT_RESOURCE_VALUE        172
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1089
+#define _APS_NEXT_CONTROL_VALUE         1105
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

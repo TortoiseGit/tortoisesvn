@@ -453,6 +453,81 @@ CRegPoint& CRegPoint::operator =(CPoint s)
 	return *this;
 }
 
+/////////////////////////////////////////////////////////////////////
+
+CRegKey::CRegKey(const CString& key, HKEY base)
+{
+	m_base = base;
+	m_hKey = NULL;
+	m_path = key;
+	m_path.TrimLeft(_T("\\"));
+}
+
+CRegKey::~CRegKey()
+{
+	if (m_hKey)
+		RegCloseKey(m_hKey);
+}
+
+DWORD CRegKey::createKey()
+{
+	DWORD disp;
+	DWORD rc = RegCreateKeyEx(m_base, m_path, 0, _T(""), REG_OPTION_NON_VOLATILE, KEY_WRITE, NULL, &m_hKey, &disp);
+	if (rc != ERROR_SUCCESS)
+	{
+		return rc;
+	}
+	return RegCloseKey(m_hKey);
+}
+
+DWORD CRegKey::removeKey()
+{
+	RegOpenKeyEx(m_base, m_path, 0, KEY_WRITE, &m_hKey);
+	return SHDeleteKey(m_base, (LPCTSTR)m_path);
+}
+
+bool CRegKey::getValues(CStringList& values)
+{
+	values.RemoveAll();
+
+	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	{
+		for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
+		{ 
+			TCHAR value[255];
+			DWORD size = sizeof value / sizeof TCHAR;
+			rc = RegEnumValue(m_hKey, i, value, &size, NULL, NULL, NULL, NULL);
+			if (rc == ERROR_SUCCESS) 
+			{
+				values.AddTail(value);
+			}
+		}
+	}
+
+	return values.GetCount() > 0;
+}
+
+bool CRegKey::getSubKeys(CStringList& subkeys)
+{
+	subkeys.RemoveAll();
+
+	if (RegOpenKeyEx(m_base, m_path, 0, KEY_EXECUTE, &m_hKey)==ERROR_SUCCESS)
+	{
+		for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
+		{ 
+			TCHAR value[1024];
+			DWORD size = sizeof value / sizeof TCHAR;
+			FILETIME last_write_time;
+			rc = RegEnumKeyEx(m_hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
+			if (rc == ERROR_SUCCESS) 
+			{
+				subkeys.AddTail(value);
+			}
+		}
+	}
+
+	return subkeys.GetCount() > 0;
+}
 #endif
 
 /////////////////////////////////////////////////////////////////////
@@ -657,3 +732,4 @@ CRegStdWORD::operator DWORD()
 		return read();
 	}
 }
+

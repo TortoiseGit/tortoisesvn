@@ -18,6 +18,7 @@
 
 #pragma once
 #include "..\\Utils\\Balloon.h"
+#include "SetProgsAdvDlg.h"
 #include "afxwin.h"
 
 
@@ -50,18 +51,34 @@ protected:
 	afx_msg void OnEnChangeExtdiff();
 	afx_msg void OnBnClickedExtmergebrowse();
 	afx_msg void OnEnChangeExtmerge();
-	afx_msg void OnBnClickedDiffviewerrowse();
+	afx_msg void OnBnClickedDiffviewerbrowse();
 	afx_msg void OnEnChangeDiffviewer();
+	afx_msg void OnBnClickedExtdiffOff();
+	afx_msg void OnBnClickedExtdiffOn();
+	afx_msg void OnBnClickedExtmergeOff();
+	afx_msg void OnBnClickedExtmergeOn();
+	afx_msg void OnBnClickedDiffviewerOff();
+	afx_msg void OnBnClickedDiffviewerOn();
+	afx_msg void OnBnClickedExtdiffadvanced();
+	afx_msg void OnBnClickedExtmergeadvanced();
 
 	DECLARE_MESSAGE_MAP()
 
 private:
+	bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
+
+private:
 	CString			m_sDiffPath;
-	CRegString		m_regDiffPath;
 	CString			m_sMergePath;
-	CRegString		m_regMergePath;
 	CString			m_sDiffViewerPath;
+	CRegString		m_regDiffPath;
+	CRegString		m_regMergePath;
 	CRegString		m_regDiffViewerPath;
+	int             m_iExtDiff;
+	int             m_iExtMerge;
+	int             m_iDiffViewer;
+	CSetProgsAdvDlg m_dlgAdvDiff;
+	CSetProgsAdvDlg m_dlgAdvMerge;
 	CBalloon		m_tooltips;
 	BOOL			m_bInitialized;
 };

@@ -463,6 +463,59 @@ protected:
 	BOOL	m_force;					///< indicates if no cache should be used, i.e. always read and write directly from registry
 };
 
+/**
+ * \ingroup CommonClasses
+ * Manages a registry key (not a value). Provides methods to create and remove the
+ * key and to query the list of values and subkeys.
+ *
+ * \par requirements 
+ * - win98 or later, win2k or later, win95 with IE4 or later, winNT4 with IE4 or later
+ * - import library Shlwapi.lib
+ *
+ * \author Thomas Epting
+ *
+ * \par license 
+ * This code is absolutely free to use and modify. The code is provided "as is" with
+ * no expressed or implied warranty. The author accepts no liability if it causes
+ * any damage to your computer, causes your pet to fall ill, increases baldness 
+ * or makes your car start emitting strange noises when you start it up.
+ * This code has no bugs, just undocumented features!
+ * 
+ * \version 1.0 
+ * \date 02-2004
+ */
+class CRegKey
+{
+public:	//methods
+	/**
+	 * Constructor.
+	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey"
+	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
+	 */
+	CRegKey(const CString& key, HKEY base = HKEY_CURRENT_USER);
+	~CRegKey();
+
+	/**
+	 * Creates the registry key if it does not already exist.
+	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 */
+	DWORD createKey();
+	/**
+	 * Removes the whole registry key including all values. So if you set the registry
+	 * entry to be HKCU\Software\Company\Product\key there will only be
+	 * HKCU\Software\Company\Product key in the registry.
+	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 */
+	DWORD removeKey();
+
+	bool getValues(CStringList& values);		///< returns the list of values
+	bool getSubKeys(CStringList& subkeys);		///< returns the list of subkeys
+
+public:	//members
+	HKEY m_base;		///< handle to the registry base
+	HKEY m_hKey;		///< handle to the open registry key
+	CString m_path;		///< the path to the key
+};
 #endif
 
 typedef std::wstring wide_string;
@@ -671,3 +724,4 @@ protected:
 	BOOL	m_read;					///< indicates if the value has already been read from the registry
 	BOOL	m_force;				///< indicates if no cache should be used, i.e. always read and write directly from registry
 };
+
