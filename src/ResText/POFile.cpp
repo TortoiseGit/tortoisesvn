@@ -151,7 +151,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 //	File << _T("\xEF\xBB\xBF");
 //	File.close();
 	File.imbue(std::locale(std::locale(), new utf8_conversion()));
-	File.open(filepath, std::ios_base::app);
+	File.open(filepath, std::ios_base::binary);
 	File << _T("# SOME DESCRIPTIVE TITLE.\n");
 	File << _T("# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER\n");
 	File << _T("# This file is distributed under the same license as the PACKAGE package.\n");
