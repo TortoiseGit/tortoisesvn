@@ -94,6 +94,8 @@ private:
 	CRegDWORD		m_regTopmenu;
 	CRegString		m_regExcludePaths;
 	CString			m_sExcludePaths;
+	CRegString		m_regIncludePaths;
+	CString			m_sIncludePaths;
 
 	CImageList		m_imgList;
 	CListCtrl		m_cMenuList;
@@ -113,4 +115,5 @@ public:
 	afx_msg void OnBnClickedOnlyexplorer();
 	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnEnChangeExcludepaths();
+	afx_msg void OnEnChangeIncludepaths();
 };

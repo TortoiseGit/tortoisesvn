@@ -1,7 +1,8 @@
+Version 1.1.0 RC1
 - ADD: New button in the commit dialog which will 
        fill the log message box with the status
        and filename of all selected files. (Stefan)
-- ADD: Option to exclude specific paths from showing
+- ADD: Option to exclude/include specific paths from showing
        icon overlays. (Stefan)
 - ADD: On Win2k and later, the authentication data is now
        encrypted before saved. The encryption is not available
@@ -20,6 +21,11 @@
 - CHG: Updated TortoisePlink to version 0.55. (Stefan)
 - CHG: The Repository Browser now sorts the date column
        by the real date, not the text. (Stefan)
+- CHG: The foldername for which an update is done for is
+       shown in the progress dialog title. (Stefan)
+- CHG: Temporary files created for diffing retain their 
+       original file extensions so that external tools
+       can determine the file type for the diff. (Stefan)
 - BUG: When an URL to a file was entered in the repository
        browser, it was treated as a folder. (Stefan)
 - BUG: Right-drag export of more than one folder made the
@@ -31,6 +37,13 @@
        menu, the separator was still added. (Stefan)
 - BUG: TortoiseMerge could crash when parsing invalid, corrupted
        or unsupported patchfiles. (Stefan)
+- DEV: Patched the libintl library to use the apr-iconv library
+       instead of its own iconv library. Those libs are basically
+       the same, and with that patch we save 800KB for the additional
+       iconv library. (Stefan)
+- DEV: Patched apr-iconv to first check in the modules path for the
+       *.so files so we don't get into conflicts with the APR_ICONV_PATH
+       environment variable anymore.
 
 Version 1.0.8
 - CHG: The OK button in the commit dialog is enabled by default,

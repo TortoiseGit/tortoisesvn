@@ -499,6 +499,8 @@
 					Ordner erstellen. Und auch hier gilt, die überlagerten Icons
 					werden nur für diesen Ordner deaktiviert, nicht für die
 					Ordner innerhalb dieses Ordners.
+					Sie können bestimmte Pfade auch ausschliessen durch Angabe
+					der Pfade im Einstellungs-Dialog, Look and Feel Tab.
 				</para>
 			</tip>
 			</para>
@@ -1843,6 +1845,11 @@ Rev Log-Meldungen
 				welcher Pfad mit <filename>f:\development\SVN\Subversion</filename>
 				beginnt. Das bedeutet dass auch für alle Dateien und Ordner innerhalb
 				keine überlagerten Icons angezeigt werden.
+			</para>
+			<para>
+			Das gleiche gilt für die <term>Einschliess Pfade</term>. Nur dass für
+			diese Pfade die Icons auch gezeichnet werden, wenn diese für den entsprechenden
+			Laufwerks-Typ deaktiviert wurden.
 			</para>
 			<para>
 				Ausserdem können Sie angeben, welche Befehle im 

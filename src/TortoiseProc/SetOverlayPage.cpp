@@ -37,6 +37,7 @@ CSetOverlayPage::CSetOverlayPage()
 	, m_bUnknown(FALSE)
 	, m_bOnlyExplorer(FALSE)
 	, m_sExcludePaths(_T(""))
+	, m_sIncludePaths(_T(""))
 {
 	m_regShowChangedDirs = CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 	m_regOnlyExplorer = CRegDWORD(_T("Software\\TortoiseSVN\\OverlaysOnlyInExplorer"), FALSE);
@@ -48,6 +49,7 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regDriveMaskUnknown = CRegDWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	m_regExcludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
+	m_regIncludePaths = CRegString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 
 	m_bShowChangedDirs = m_regShowChangedDirs;
 	m_bOnlyExplorer = m_regOnlyExplorer;
@@ -60,6 +62,8 @@ CSetOverlayPage::CSetOverlayPage()
 	m_topmenu = m_regTopmenu;
 	m_sExcludePaths = m_regExcludePaths;
 	m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
+	m_sIncludePaths = m_regIncludePaths;
+	m_sIncludePaths.Replace(_T("\n"), _T("\r\n"));
 }
 
 CSetOverlayPage::~CSetOverlayPage()
@@ -80,6 +84,7 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_ONLYEXPLORER, m_bOnlyExplorer);
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
 	DDX_Text(pDX, IDC_EXCLUDEPATHS, m_sExcludePaths);
+	DDX_Text(pDX, IDC_INCLUDEPATHS, m_sIncludePaths);
 }
 
 
@@ -94,6 +99,7 @@ BEGIN_MESSAGE_MAP(CSetOverlayPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_ONLYEXPLORER, OnBnClickedOnlyexplorer)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
 	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnEnChangeExcludepaths)
+	ON_EN_CHANGE(IDC_INCLUDEPATHS, OnEnChangeIncludepaths)
 END_MESSAGE_MAP()
 
 
@@ -111,8 +117,15 @@ void CSetOverlayPage::SaveData()
 		m_regDriveMaskUnknown = m_bUnknown;
 		m_regTopmenu = m_topmenu;
 		m_sExcludePaths.Replace(_T("\r"), _T(""));
+		if (m_sExcludePaths.Right(1).Compare(_T("\n"))!=0)
+			m_sExcludePaths += _T("\n");
 		m_regExcludePaths = m_sExcludePaths;
 		m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
+		m_sIncludePaths.Replace(_T("\r"), _T(""));
+		if (m_sIncludePaths.Right(1).Compare(_T("\n"))!=0)
+			m_sIncludePaths += _T("\n");
+		m_regIncludePaths = m_sIncludePaths;
+		m_sIncludePaths.Replace(_T("\n"), _T("\r\n"));
 	}
 }
 
@@ -127,6 +140,7 @@ BOOL CSetOverlayPage::OnInitDialog()
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
 	m_tooltips.AddTool(IDC_EXCLUDEPATHS, IDS_SETTINGS_EXCLUDELIST_TT);	
+	m_tooltips.AddTool(IDC_INCLUDEPATHS, IDS_SETTINGS_INCLUDELIST_TT);	
 
 	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
@@ -292,6 +306,11 @@ void CSetOverlayPage::OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult)
 }
 
 void CSetOverlayPage::OnEnChangeExcludepaths()
+{
+	SetModified();
+}
+
+void CSetOverlayPage::OnEnChangeIncludepaths()
 {
 	SetModified();
 }

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by f:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -109,6 +109,7 @@
 #define IDC_EDIT2                       1036
 #define IDC_BROWSE2                     1036
 #define IDC_CHECKOUTDIRECTORY_BROWSE    1036
+#define IDC_INCLUDEPATHS                1036
 #define IDC_REPOS_TREE                  1037
 #define IDC_SERVERPORT                  1038
 #define IDC_USERNAME                    1039
@@ -431,6 +432,7 @@
 #define IDS_SETTINGS_ONLYEXPLORER_TT    3101
 #define IDS_SETTINGS_MENULAYOUT_TT      3102
 #define IDS_SETTINGS_EXCLUDELIST_TT     3103
+#define IDS_SETTINGS_INCLUDELIST_TT     3104
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202

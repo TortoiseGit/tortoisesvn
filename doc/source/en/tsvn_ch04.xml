@@ -463,6 +463,9 @@
 					by creating a file called <filename>_tsvnexcludethis</filename>
 					inside that folder. Again, this disables the overlays only
 					for that folder, not the folders inside it.
+					Also, there's a setting in the look and feel tab in the
+					settings dialog where you can set specific paths to be
+					excluded from showing overlays.
 				</para>
 			</tip>
 			</para>
@@ -1714,6 +1717,11 @@ Rev Comments
 				starts with <filename>f:\development\SVN\Subversion</filename>. That
 				means you won't see overlays for all files and folder below that
 				path.
+			</para>
+			<para>
+			The same applies to the <term>Include Paths</term>. Only that for those
+			paths the overlays are shown even if the overlays are disabled for
+			that specific drive type.
 			</para>
 			<para>
 				You can also specifiy here which of the TortoiseSVN contex menu

@@ -42,6 +42,7 @@ public:
 		driveram = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRAM"));
 		driveunknown = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
+		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		recursiveticker = GetTickCount();
 		folderoverlayticker = GetTickCount();
 		driveticker = recursiveticker;
@@ -49,6 +50,7 @@ public:
 		langticker = recursiveticker;
 		columnrevformatticker = recursiveticker;
 		excludelistticker = recursiveticker;
+		includelistticker = recursiveticker;
 		menulayout = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		langid = CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 		blockstatus = CRegStdWORD(_T("Software\\TortoiseSVN\\BlockStatus"), 0);
@@ -136,6 +138,20 @@ public:
 	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
+		IncludeListValid();
+		for (std::vector<stdstring>::iterator I = invector.begin(); I != invector.end(); ++I)
+		{
+			if (I->empty())
+				continue;
+			if (I->at(I->size()-1)=='*')
+			{
+				stdstring str = I->substr(0, I->size()-1);
+				if (_tcsnicmp(str.c_str(), path, str.size())==0)
+					return TRUE;
+			}
+			else if (_tcsicmp(I->c_str(), path)==0)
+				return TRUE;
+		}
 		UINT drivetype = 0;
 		int drivenumber = PathGetDriveNumber(path);
 		if ((drivenumber >=0)&&(drivenumber < 25))
@@ -263,6 +279,32 @@ private:
 			excludeliststr = (stdstring)excludelist;
 		}
 	}
+	void IncludeListValid()
+	{
+		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>includelistticker)
+		{
+			includelistticker = GetTickCount();
+			includelist.read();
+			if (includeliststr.compare((stdstring)includelist)==0)
+				return;
+			includeliststr = (stdstring)includelist;
+			invector.clear();
+			int pos = 0, pos_ant = 0;
+			pos = includeliststr.find(_T("\n"), pos_ant);
+			while (pos != stdstring::npos)
+			{
+				stdstring token = includeliststr.substr(pos_ant, pos-pos_ant);
+				invector.push_back(token);
+				pos_ant = pos+1;
+				pos = includeliststr.find(_T("\n"), pos_ant);
+			}
+			if (!includeliststr.empty())
+			{
+				invector.push_back(includeliststr.substr(pos_ant, includeliststr.size()-1));
+			}
+			includeliststr = (stdstring)includelist;
+		}
+	}
 	CRegStdWORD blockstatus;
 	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
@@ -277,6 +319,9 @@ private:
 	CRegStdString excludelist;
 	stdstring excludeliststr;
 	std::vector<stdstring> exvector;
+	CRegStdString includelist;
+	stdstring includeliststr;
+	std::vector<stdstring> invector;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
 	DWORD driveticker;
@@ -286,6 +331,7 @@ private:
 	DWORD blockstatusticker;
 	DWORD columnrevformatticker;
 	DWORD excludelistticker;
+	DWORD includelistticker;
 	UINT  drivetypecache[27];
 	TCHAR drivetypepathcache[MAX_PATH];
 	NUMBERFMT columnrevformat;
