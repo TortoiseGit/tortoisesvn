@@ -28,6 +28,7 @@
 #include "TSVNPath.h"
 #include "ShellUpdater.h"
 #include "Registry.h"
+#include "SVNHelpers.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -95,10 +96,9 @@ void SVN::ReleasePool()
 CString SVN::CheckConfigFile()
 {
 	svn_client_ctx_t 			ctx;
-	apr_pool_t *				pool;
+	SVNPool						pool;
 	svn_error_t *				Err;
 
-	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
 
 	Err = svn_config_ensure(NULL, pool);
@@ -122,7 +122,6 @@ CString SVN::CheckConfigFile()
 			msg += _T("\n") + temp;
 		}
 	}
-	svn_pool_destroy(pool);
 	return msg;
 }
 
@@ -311,9 +310,8 @@ BOOL SVN::Add(const CTSVNPathList& pathList, BOOL recurse, BOOL force)
 	{
 		TRACE(_T("add file %s\n"), pathList[nItem].GetWinPath());
 
-		apr_pool_t * subpool = svn_pool_create(pool);
+		SVNPool subpool(pool);
 		Err = svn_client_add2 (pathList[nItem].GetSVNApiPath(), recurse, force, &m_ctx, subpool);
-		svn_pool_destroy(subpool);
 		if(Err != NULL)
 		{
 			return FALSE;
@@ -378,7 +376,7 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 	preparePath(srcPath);
 	preparePath(destPath);
 
-	apr_pool_t * subpool = svn_pool_create(pool);
+	SVNPool subpool(pool);
 
 	svn_client_commit_info_t *commit_info = NULL;
 	logmsg.Replace(_T("\r"), _T(""));
@@ -394,18 +392,16 @@ BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logms
 							subpool);
 	if(Err != NULL)
 	{
-		svn_pool_destroy(subpool);
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
 		Notify(destPath, svn_wc_notify_update_completed, svn_node_none, _T(""), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown, commit_info->revision);
-	svn_pool_destroy(subpool);
 	return TRUE;
 }
 
 BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, CString message, SVNRev rev)
 {
-	apr_pool_t * subpool = svn_pool_create(pool);
+	SVNPool subpool(pool);
 
 	svn_client_commit_info_t *commit_info = NULL;
 	message.Replace(_T("\r"), _T(""));
@@ -419,7 +415,6 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 							subpool);
 	if(Err != NULL)
 	{
-		svn_pool_destroy(subpool);
 		return FALSE;
 	}
 	if (commit_info && SVN_IS_VALID_REVNUM (commit_info->revision))
@@ -427,7 +422,6 @@ BOOL SVN::Move(const CTSVNPath& srcPath, const CTSVNPath& destPath, BOOL force, 
 
 	CShellUpdater::Instance().AddPathForUpdate(srcPath);
 	CShellUpdater::Instance().AddPathForUpdate(destPath);
-	svn_pool_destroy(subpool);
 
 	return TRUE;
 }
@@ -765,7 +759,7 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 	apr_file_t * errfile;
 	apr_array_header_t *opts;
 
-	apr_pool_t * localpool = svn_pool_create(pool);
+	SVNPool localpool(pool);
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
@@ -810,14 +804,12 @@ BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2,
 						   localpool);
 	if (Err)
 	{
-		svn_pool_clear(localpool);
 		return FALSE;
 	}
 	if (del)
 	{
 		svn_io_remove_file (MakeSVNUrlOrPath(errorfile), localpool);
 	}
-	svn_pool_clear(localpool);
 	return TRUE;
 }
 
@@ -828,7 +820,7 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 	apr_file_t * errfile;
 	apr_array_header_t *opts;
 
-	apr_pool_t * localpool = svn_pool_create(pool);
+	SVNPool localpool(pool);
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
@@ -872,14 +864,12 @@ BOOL SVN::PegDiff(CString path, SVNRev pegrevision, SVNRev startrev, SVNRev endr
 		localpool);
 	if (Err)
 	{
-		svn_pool_clear(localpool);
 		return FALSE;
 	}
 	if (del)
 	{
 		svn_io_remove_file (MakeSVNUrlOrPath(errorfile), localpool);
 	}
-	svn_pool_clear(localpool);
 	return TRUE;
 }
 
@@ -999,11 +989,11 @@ CString SVN::GetActionText(svn_wc_notify_action_t action, svn_wc_notify_state_t 
 
 BOOL SVN::CreateRepository(CString path, CString fstype)
 {
-	apr_pool_t * localpool;
 	svn_repos_t * repo;
 	svn_error_t * err;
 	apr_hash_t *config;
-	localpool = svn_pool_create (NULL);
+
+	SVNPool localpool;
 
 	const char * deststr = NULL;
 	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
@@ -1020,7 +1010,6 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	err = svn_config_get_config (&config, NULL, localpool);
 	if (err != NULL)
 	{
-		svn_pool_destroy(localpool);
 		return FALSE;
 	}
 	const char * fs_type = apr_pstrdup(localpool, CStringA(fstype));
@@ -1030,10 +1019,8 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 	err = svn_repos_create(&repo, MakeSVNUrlOrPath(path), NULL, NULL, config, fs_config, localpool);
 	if (err != NULL)
 	{
-		svn_pool_destroy(localpool);
 		return FALSE;
 	} // if (err != NULL) 
-	svn_pool_destroy(localpool);
 	return TRUE;
 }
 
@@ -1371,7 +1358,7 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended, BOOL recursive)
 {
 	entries.RemoveAll();
-	apr_pool_t * subpool = svn_pool_create(pool);
+	SVNPool subpool(pool);
 
 	preparePath(url);
 
@@ -1385,7 +1372,6 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 						subpool);
 	if (Err != NULL)
 	{
-		svn_pool_destroy(subpool);
 		return FALSE;
 	}
 
@@ -1417,7 +1403,6 @@ BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended,
 		}
 		entries.Add(temp);
     }
-    svn_pool_destroy(subpool);
 	return Err == NULL;
 }
 
@@ -1478,11 +1463,10 @@ CString SVN::GetRepositoryRoot(CString url)
 	svn_ra_plugin_t *ra_lib;
 	void *ra_baton, *session;
 	const char * returl;
-	CString retURL;
 	url.Replace('\\', '/');
 	CStringA urla = MakeSVNUrlOrPath(url);
 
-	apr_pool_t * localpool = svn_pool_create(pool);
+	SVNPool localpool(pool);
 	/* Get the RA library that handles URL. */
 	if (svn_ra_init_ra_libs (&ra_baton, localpool))
 		return _T("");
@@ -1495,9 +1479,8 @@ CString SVN::GetRepositoryRoot(CString url)
 
 	if (ra_lib->get_repos_root(session, &returl, localpool))
 		return _T("");
-	retURL = CString(returl);
-	svn_pool_clear(localpool);
-	return retURL;
+
+	return CString(returl);
 }
 
 LONG SVN::GetHEADRevision(CString url)
@@ -1509,7 +1492,7 @@ LONG SVN::GetHEADRevision(CString url)
 	url.Replace('\\', '/');
 	CStringA tempurl = MakeSVNUrlOrPath(url);
 
-	apr_pool_t * localpool = svn_pool_create(pool);
+	SVNPool localpool(pool);
 	if (!svn_path_is_url(tempurl))
 		SVN::get_url_from_target(&urla, tempurl);
 	else
@@ -1530,7 +1513,6 @@ LONG SVN::GetHEADRevision(CString url)
 
 	if (ra_lib->get_latest_revnum(session, &rev, localpool))
 		return -1;
-	svn_pool_clear(localpool);
 	return rev;
 }
 
@@ -1569,9 +1551,8 @@ CString SVN::RevPropertyGet(CString sName, CString sURL, SVNRev rev)
 
 CString SVN::GetPristinePath(const CString& wcPath)
 {
-	apr_pool_t * localpool;
 	svn_error_t * err;
-	localpool = svn_pool_create (NULL);
+	SVNPool localpool;
 
 	const char * deststr = NULL;
 	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
@@ -1584,21 +1565,18 @@ CString SVN::GetPristinePath(const CString& wcPath)
 
 	if (err != NULL)
 	{
-		svn_pool_destroy(localpool);
 		return temp;
 	}
 	if (pristinePath != NULL)
 		temp = MakeUIUrlOrPath(pristinePath);
-	svn_pool_destroy(localpool);
 	return temp;
 }
 
 BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForceRepair /*= TRUE*/)
 {
 	svn_wc_adm_access_t *adm_access;          
-	apr_pool_t * localpool;
 	svn_error_t * err;
-	localpool = svn_pool_create(NULL);
+	SVNPool localpool;
 
 	const char * deststr = NULL;
 	svn_utf_cstring_to_utf8(&deststr, "dummy", localpool);
@@ -1610,18 +1588,14 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 	const char * originPath = svn_path_canonicalize(temp, localpool);
 	err = svn_wc_adm_probe_open2 (&adm_access, NULL, originPath, FALSE, 0, localpool);
 	if (err)
-		goto error;
+		return FALSE;
 	err = svn_wc_translated_file((const char **)&translatedPath, originPath, adm_access, bForceRepair, localpool);
 	svn_wc_adm_close(adm_access);
 	if (err)
-		goto error;
+		return FALSE;
 	
 	sTranslatedFile = MakeUIUrlOrPath(translatedPath);
 	return (translatedPath != originPath);
-
-error:
-	svn_pool_destroy(localpool);
-	return FALSE;
 }
 
 BOOL SVN::PathIsURL(const CString& path)
@@ -1693,16 +1667,13 @@ CString SVN::MakeUIUrlOrPath(CStringA UrlOrPath)
 
 BOOL SVN::EnsureConfigFile()
 {
-	apr_pool_t * localpool;
 	svn_error_t * err;
-	localpool = svn_pool_create(NULL);
+	SVNPool localpool;
 	err = svn_config_ensure(NULL, localpool);
 	if (err)
 	{
-		svn_pool_destroy(localpool);
 		return FALSE;
 	}
-	svn_pool_destroy(localpool);
 	return TRUE;
 }
 
