@@ -67,6 +67,7 @@ public:
 	void			FillTestData();
 #endif
 protected:
+	BOOL			m_bNoGraph;
 	DWORD			m_dwTicks;
 	CRect			m_ViewRect;
 	CPtrArray		m_arConnections;

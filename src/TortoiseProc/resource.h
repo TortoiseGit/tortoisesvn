@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Subversion\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MANIFEST                    1
 #define IDR_MAINFRAME                   1
@@ -543,6 +543,7 @@
 #define IDS_REVGRAPH_ERR_NOBITMAP       4361
 #define IDS_REVGRAPH_ERR_NOENCODER      4362
 #define IDS_REVGRAPH_ERR_NODC           4363
+#define IDS_REVGRAPH_ERR_NOGRAPH        4363
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002

@@ -162,7 +162,13 @@ svn_error_t* CRevisionGraph::logDataReceiver(void* baton,
 		temp.LoadString(IDS_REVGRAPH_PROGGETREVS);
 		temp2.Format(IDS_REVGRAPH_PROGCURRENTREV, rev);
 		if (!me->ProgressCallback(temp, temp2, me->m_lHeadRevision - rev, me->m_lHeadRevision))
+		{
 			me->m_bCancelled = TRUE;
+			CStringA temp3;
+			temp3.LoadString(IDS_SVN_USERCANCELLED);
+			error = svn_error_create(SVN_ERR_CANCELLED, NULL, temp3);
+			return error;
+		}
 	}
 	APR_ARRAY_PUSH(me->m_logdata, log_entry *) = e;
 	return SVN_NO_ERROR;

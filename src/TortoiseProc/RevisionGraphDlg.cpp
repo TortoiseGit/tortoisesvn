@@ -44,7 +44,10 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	m_bThreadRunning = FALSE;
 	m_lSelectedRev = -1;
 	m_pDlgTip = NULL;
+	m_bNoGraph = FALSE;
 
+	m_ViewRect.SetRectEmpty();
+	
 	m_nFontSize = 12;
 	m_node_rect_width = NODE_RECT_WIDTH;
 	m_node_space_left = NODE_SPACE_LEFT;
@@ -168,14 +171,17 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	pDlg->m_bThreadRunning = TRUE;
 	pDlg->m_Progress.ShowModeless(pDlg->m_hWnd);
+	pDlg->m_bNoGraph = FALSE;
 	if (!pDlg->FetchRevisionData(pDlg->m_sPath))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		pDlg->m_bNoGraph = TRUE;
 		goto cleanup;
 	}
 	if (!pDlg->AnalyzeRevisionData(pDlg->m_sPath))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		pDlg->m_bNoGraph = TRUE;
 	}
 #ifdef DEBUG
 	//pDlg->FillTestData();
@@ -190,6 +196,7 @@ cleanup:
 
 void CRevisionGraphDlg::InitView()
 {
+	m_ViewRect.SetRectEmpty();
 	GetViewSize();
 	BuildConnections();
 	SetScrollbars();
@@ -268,6 +275,14 @@ void CRevisionGraphDlg::OnPaint()
 	{
 		dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
 		CResizableStandAloneDialog::OnPaint();
+		return;
+	}
+	else if (m_bNoGraph)
+	{
+		CString sNoGraphText;
+		sNoGraphText.LoadString(IDS_REVGRAPH_ERR_NOGRAPH);
+		dc.FillSolidRect(rect, RGB(255,255,255));
+		dc.ExtTextOut(20,20,ETO_CLIPPED,NULL,sNoGraphText,NULL);
 		return;
 	}
 	GetViewSize();
@@ -1196,7 +1211,6 @@ void CRevisionGraphDlg::DoZoom(int nZoomFactor)
 		}
 		m_apFonts[i] = NULL;
 	}
-	m_ViewRect.SetRect(0,0,0,0);
 	InitView();
 	Invalidate();
 }
