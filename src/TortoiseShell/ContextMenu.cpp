@@ -317,12 +317,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		//working copy
 		UINT idCmd = idCmdFirst;
 
-		if ((!isInSVN)&&(isFolderInSVN))
-			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, DropCopyAdd);
-		else if ((isInSVN)&&(isFolderInSVN))
+		if ((isInSVN)&&(isFolderInSVN))
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, DropMove);
 		if ((isInSVN)&&(isFolderInSVN))
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, DropCopy);
+		if ((isInSVN)&&(isFolderInSVN))
+			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, DropCopyAdd);
 
 		return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, (USHORT)(idCmd - idCmdFirst)));
 	}
