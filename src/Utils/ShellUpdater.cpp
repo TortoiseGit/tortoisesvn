@@ -25,28 +25,13 @@
 CShellUpdater::CShellUpdater(void)
 {
 	m_hInvalidationEvent = CreateEvent(NULL, FALSE, FALSE, _T("TortoiseSVNCacheInvalidationEvent"));
-
-	// We need to start our worker thread
-	DWORD threadId;
-	if((m_hThread = CreateThread(NULL, 0, UpdateThreadEntry, this, 0, &threadId)) == NULL)
-	{
-		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-	}
 }
 
 CShellUpdater::~CShellUpdater(void)
 {
 	Flush();
 
-	// Stop the worker thread
-	m_terminationEvent.SetEvent();
-	if(WaitForSingleObject(m_hThread, 5000) != WAIT_OBJECT_0)
-	{
-		TRACE("Error shutting-down shell update worker thread\n");
-	}
-
 	CloseHandle(m_hInvalidationEvent);
-	CloseHandle(m_hThread);
 }
 
 CShellUpdater& CShellUpdater::Instance()
@@ -61,19 +46,16 @@ CShellUpdater& CShellUpdater::Instance()
 */
 void CShellUpdater::AddPathForUpdate(const CTSVNPath& path)
 {
-	CSingleLock lock(&m_critSec, TRUE);
-
 	// Tell the shell extension to purge its cache - we'll redo this when 
 	// we actually do the shell-updates, but sometimes there's an earlier update, which
 	// might benefit from cache invalidation
 	SetEvent(m_hInvalidationEvent);
 
 	m_pathsForUpdating.AddPath(path);
-	m_updateAt = (long)GetTickCount() + 5000;
 }
 /** 
 * Add a list of paths for updating.
-* The update will happen at some suitable time in the future
+* The update will happen when the list is destroyed, at the end of excecution
 */
 void CShellUpdater::AddPathsForUpdate(const CTSVNPathList& pathList)
 {
@@ -83,29 +65,8 @@ void CShellUpdater::AddPathsForUpdate(const CTSVNPathList& pathList)
 	}
 }
 
-// This thread will kick-off the update, when it's a suitable time
-DWORD CShellUpdater::UpdateThreadEntry(LPVOID pVoid)
-{
-	((CShellUpdater*)pVoid)->UpdateThread();
-	return 0;
-}
-void CShellUpdater::UpdateThread()
-{
-	while(WaitForSingleObject(m_terminationEvent.m_hObject, 1000) == WAIT_TIMEOUT)
-	{
-		CSingleLock lock(&m_critSec, TRUE);
-		if(((long)GetTickCount() - m_updateAt) > 0)
-		{
-			// It's time to update
-			Flush();
-		}
-	}
-}
-
 void CShellUpdater::Flush()
 {
-	CSingleLock lock(&m_critSec, TRUE);
-
 	if(m_pathsForUpdating.GetCount() > 0)
 	{
 		TRACE("Flushing shell update list\n");
@@ -120,6 +81,21 @@ void CShellUpdater::UpdateShell()
 	// Tell the shell extension to purge its cache
 	TRACE("Setting cache invalidation event %d\n", GetTickCount());
 	SetEvent(m_hInvalidationEvent);
+
+	// For each item, we also add each of its parents
+	// This is rather inefficient, and almost all of them will be discarded by the 
+	// de-duplication, but it's a simple and reliable way of ensuring that updates occur all 
+	// the way up the hierarchy, which is important if recursive status is in use
+	int nPaths = m_pathsForUpdating.GetCount();
+	for(int nPath = 0; nPath < nPaths; nPath++)
+	{
+		CTSVNPath parentDir = m_pathsForUpdating[nPath].GetContainingDirectory();
+		while(!parentDir.IsEmpty())
+		{
+			m_pathsForUpdating.AddPath(parentDir);
+			parentDir = parentDir.GetContainingDirectory();
+		}
+	}
 
 	// We use the SVN 'notify' call-back to add items to the list
 	// Because this might call-back more than once per file (for example, when committing)
@@ -160,25 +136,8 @@ void CShellUpdater::UpdateShell()
 
 		for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
 		{
-			// WGD: There seems to be a great disparity between the documentation for SHChangeNotify 
-			// and the reality.  We used to make one call, with (SHCNE_UPDATEITEM | SHCNE_UPDATEDIR) as
-			// the first parameter.  Personally, I've *never* found that to work, at all.
-			// Very careful experimentation lead me to believe that one should call with *just*
-			// SHCNE_UPDATEITEM, even if the item which has changed is a folder.
-			// Anyway, I can think of no logical reason why making two calls should be *worse*
-			// than making one with the two flags combined, I think splitting the flags into 
-			// two calls is better
-			// It has the additional merit of actually working on my XP machines...
-			if(m_pathsForUpdating[nPath].IsDirectory())
-			{
-				TRACE("Shell Dir Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
-				SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
-			}
-			else
-			{
-				TRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
-				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
-			}
+			TRACE("Shell Item Update for %ws (%d)\n", m_pathsForUpdating[nPath].GetWinPathString(), GetTickCount());
+			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSH, m_pathsForUpdating[nPath].GetWinPath(), NULL);
 		}
 	}
 }

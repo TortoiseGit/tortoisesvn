@@ -26,7 +26,8 @@ CUnicodeUtils::CUnicodeUtils(void)
 CUnicodeUtils::~CUnicodeUtils(void)
 {
 }
-#ifdef _MFC_VER
+
+#if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
 
 CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
 {

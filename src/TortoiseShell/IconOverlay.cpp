@@ -173,7 +173,15 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	AutoLocker lock(g_csCacheGuard);
 
 	// Look in our caches for this item 
-	const FileStatusCacheEntry * s = g_CachedStatus.GetCachedItem(pPath);
+	const FileStatusCacheEntry * s = NULL;
+	if(g_ShellCache.UseExternalCache())
+	{
+		s = g_CachedStatus.GetFullStatus(pPath, FALSE, FALSE);
+	}
+	else
+	{
+		s = g_CachedStatus.GetCachedItem(pPath);
+	}
 	if (s)
 	{
 		status = s->status;

@@ -18,6 +18,11 @@
 
 #pragma once
 
+#if defined(_MFC_VER)
+// CSTRING is always available in an MFC build
+#define CSTRING_AVAILABLE
+#endif
+
 /**
 * \ingroup Utils
 * This class represents a path and the corresponding methods to convert the path
@@ -49,6 +54,7 @@ public:
 	 * Set the path as an UTF8 string with forward slashes
 	 */
 	void SetFromSVN(const char* pPath);
+	void SetFromSVN(const char* pPath, bool bIsDirectory);
 	void SetFromSVN(const CString& sPath);
 	/**
 	 * Set the path as UNICODE with backslashes
@@ -145,11 +151,7 @@ public:
 	 * Compares two paths. Slash format is irrelevant.
 	 */
 	static int Compare(const CTSVNPath& left, const CTSVNPath& right);
-	/**
-	* Compares two paths and return true if left is earlier in sort order than right
-	* (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
-	*/
-	static bool PredLeftEarlierThanRight(const CTSVNPath& left, const CTSVNPath& right);
+
 	/* As PredLeftLessThanRight, but for checking if paths are equivalent 
 	*/
 	static bool PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right);
@@ -169,6 +171,12 @@ public:
 	*/
 	void AppendPathString(const CString& sAppend);
 
+	/**
+	* Get the file modification time - returns zero for files which don't exist
+	* Returns a FILETIME structure cast to an __int64, for easy comparisons
+	*/
+	__int64 GetLastWriteTime() const;
+
 private:
 	// All these functions are const, and all the data
 	// is mutable, in order that the hidden caching operations
@@ -187,6 +195,8 @@ private:
 	*/
 	static bool ArePathStringsEqual(const CString& sP1, const CString& sP2);
 
+	void UpdateAttributes() const;
+
 private:
 	mutable CString m_sBackslashPath;
 	mutable CString m_sFwdslashPath;
@@ -195,9 +205,20 @@ private:
 	// Have we yet determined if this is a directory or not?
 	mutable bool m_bDirectoryKnown;
 	mutable bool m_bIsDirectory;
+	mutable bool m_bLastWriteTimeKnown;
 	mutable bool m_bURLKnown;
 	mutable bool m_bIsURL;
+	mutable __int64 m_lastWriteTime;
+
+	friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };
+
+/**
+* Compares two paths and return true if left is earlier in sort order than right
+* (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
+*/
+bool operator<(const CTSVNPath& left, const CTSVNPath& right);
+
 
 //////////////////////////////////////////////////////////////////////////
 

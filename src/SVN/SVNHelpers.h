@@ -55,18 +55,22 @@ private:
 };
 
 
-/*
-// The time is not yet right for this base class, but I'm thinking about it...
+//////////////////////////////////////////////////////////////////////////
 
-class SVNHelperBase
+
+
+class SVNHelper
 {
 public:
-	SVNHelperBase(void);
-	~SVNHelperBase(void);
+	SVNHelper(void);
+	~SVNHelper(void);
+
+public:
+	apr_pool_t*			Pool() const { return m_pool; }
+	svn_client_ctx_t*	ClientContext() const { return m_ctx; }
 
 protected:
 	apr_pool_t *		m_pool;	
 	svn_client_ctx_t *	m_ctx;
 };
 
-*/

@@ -33,14 +33,10 @@ class CUnicodeUtils
 public:
 	CUnicodeUtils(void);
 	~CUnicodeUtils(void);
-#ifdef _MFC_VER
+#if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
 	static CStringA GetUTF8(const CStringW& string);
 	static CStringA GetUTF8(const CStringA& string);
-#ifdef UNICODE
-	static CStringW GetUnicode(const CStringA& string);
-#else
-	static CStringA GetUnicode(const CStringA& string);
-#endif
+	static CString GetUnicode(const CStringA& string);
 #endif
 #ifdef UNICODE
 	static std::string StdGetUTF8(const wide_string& wide);

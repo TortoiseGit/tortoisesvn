@@ -44,6 +44,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseBlame", "TortoiseBl
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TSVNCache", "TSVNCache\TSVNCache.vcproj", "{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -92,6 +96,10 @@ Global
 		{4424F9D2-12EE-49A7-941E-45767900BEA3}.Debug.Build.0 = Debug|Win32
 		{4424F9D2-12EE-49A7-941E-45767900BEA3}.Release.ActiveCfg = Release|Win32
 		{4424F9D2-12EE-49A7-941E-45767900BEA3}.Release.Build.0 = Release|Win32
+		{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}.Debug.ActiveCfg = Debug|Win32
+		{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}.Debug.Build.0 = Debug|Win32
+		{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}.Release.ActiveCfg = Release|Win32
+		{A00D2EDC-B4F5-4B41-94BA-13961DE5D296}.Release.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionItems) = postSolution
 		build.txt = build.txt

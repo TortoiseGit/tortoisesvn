@@ -20,6 +20,7 @@
 
 #include "CApr.h"
 #include "SVNStatus.h"
+#include "RemoteCacheLink.h"
 
 /**
  * \ingroup TortoiseShell
@@ -151,7 +152,6 @@ private:
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	void				ClearCache();
 	
-	BOOL				m_bColumnProvider;
 	int					m_nCounter;
 	typedef std::map<stdstring, FileStatusCacheEntry> FileStatusMap;
 	FileStatusMap			m_cache;
@@ -174,5 +174,6 @@ private:
 	stdstring		m_mostRecentPath;
 	const FileStatusCacheEntry* m_mostRecentStatus;
 
+	CRemoteCacheLink m_remoteCacheLink;
 };
 

@@ -270,7 +270,34 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(LPCTSTR filepath, BOOL bIsFolder, BOOL bColumnProvider)
 {
 	const FileStatusCacheEntry * ret = NULL;
-	m_bColumnProvider = bColumnProvider;
+
+	if(g_ShellCache.UseExternalCache())
+	{
+		svn_wc_status_t fullStatus;
+		if(!m_remoteCacheLink.GetStatusFromRemoteCache(filepath, &fullStatus))
+		{
+			return &invalidstatus;
+		}
+
+		if (fullStatus.entry != NULL)
+		{
+			filestat.author = authors.GetString(fullStatus.entry->cmt_author);
+			filestat.url = urls.GetString(fullStatus.entry->url);
+			filestat.rev = fullStatus.entry->cmt_rev;
+		} // if (status->entry) 
+		else
+		{
+			filestat.author = authors.GetString(NULL);
+			filestat.url = urls.GetString(NULL);
+			filestat.rev = -1;
+		}
+		filestat.status = svn_wc_status_unversioned;
+		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.text_status);
+		filestat.status = SVNStatus::GetMoreImportant(filestat.status, fullStatus.prop_status);
+
+		return &filestat;
+	}
+
 	BOOL bHasAdminDir = g_ShellCache.HasSVNAdminDir(filepath, bIsFolder);
 	
 	//no overlay for unversioned folders

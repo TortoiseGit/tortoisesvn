@@ -28,6 +28,7 @@ class ShellCache
 public:
 	ShellCache()
 	{
+		bUseExternalCache = CRegStdWORD(_T("Software\\TortoiseSVN\\ExternalCache"));
 		showrecursive = CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"));
 		folderoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\FolderOverlay"), TRUE);
 		driveremote = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskRemote"));
@@ -40,6 +41,7 @@ public:
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		recursiveticker = GetTickCount();
 		folderoverlayticker = GetTickCount();
+		externalCacheTicker = recursiveticker;
 		driveticker = recursiveticker;
 		drivetypeticker = recursiveticker;
 		langticker = recursiveticker;
@@ -93,6 +95,15 @@ public:
 			showrecursive.read();
 		} // if ((GetTickCount() - REGISTRYTIMEOUT)>recursiveticker)
 		return (showrecursive);
+	}
+	BOOL UseExternalCache()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>externalCacheTicker)
+		{
+			externalCacheTicker = GetTickCount();
+			bUseExternalCache.read();
+		} 
+		return bUseExternalCache;
 	}
 	BOOL IsFolderOverlay()
 	{
@@ -342,6 +353,7 @@ private:
 	CRegStdWORD blockstatus;
 	CRegStdWORD langid;
 	CRegStdWORD showrecursive;
+	CRegStdWORD bUseExternalCache;
 	CRegStdWORD folderoverlay;
 	CRegStdWORD driveremote;
 	CRegStdWORD drivefixed;
@@ -356,6 +368,7 @@ private:
 	CRegStdString includelist;
 	stdstring includeliststr;
 	std::vector<stdstring> invector;
+	DWORD externalCacheTicker;
 	DWORD recursiveticker;
 	DWORD folderoverlayticker;
 	DWORD driveticker;
