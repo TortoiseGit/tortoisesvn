@@ -56,6 +56,8 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 void CTSVNPath::SetFromSVN(const char* pPath)
 {
 	Reset();
+	if (pPath == NULL)
+		return;
 	int len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, NULL, 0);
 	if (len)
 	{
@@ -878,8 +880,10 @@ private:
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "c:/a/b/c/d/e") == 0);
 		testPath.SetFromUnknown(_T("http://testing/"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing") == 0);
-		testPath.SetFromUnknown(_T("http://testing again"));
+		testPath.SetFromSVN(NULL);
+		ATLASSERT(strlen(testPath.GetSVNApiPath())==0);
 #if defined(_MFC_VER)
+		testPath.SetFromUnknown(_T("http://testing again"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20again") == 0);
 		testPath.SetFromUnknown(_T("http://testing special chars äöü"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(), "http://testing%20special%20chars%20Ã¤Ã¶Ã¼") == 0);		
