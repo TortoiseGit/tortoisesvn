@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 
 rem +----------------------------------------------------------------------
 rem | extracting the parameters for the generation process
@@ -83,8 +83,8 @@ rmdir /s /q %_HTML_TARGET% > NUL
 mkdir %_HTML_TARGET% > NUL
 
 rem First copy the default images and afterwards copy the localized images
-xcopy %_DOC_HOME%\images %_HTML_TARGET%images\ > NUL
-xcopy %_DOC_SRC%\%_LANG%\images %_HTML_TARGET%images\ > NUL
+xcopy /y %_DOC_HOME%\images %_HTML_TARGET%images\ > NUL
+xcopy /y %_DOC_SRC%\%_LANG%\images %_HTML_TARGET%images\ > NUL
 
 if %_PDF%==ON (
   echo ----------------------------------------------------------------------
