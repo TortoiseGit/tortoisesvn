@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-propertypage">
 	<title>Lesen/Schreiben von Informationen über Dateien/Ordner</title>
 	<indexterm>
@@ -41,6 +41,64 @@
 			Handbuch 
 		</ulink> an. 
 	</para>
+	<para>
+		TortoiseSVN hat ein paar eigene spezielle Eigenschaften, und diese
+		beginnen mit <literal>tsvn:</literal>.
+		<itemizedlist>
+		<listitem>
+			<para>
+				<literal>tsvn:minlogmsgsize</literal>
+				Setzt die minimale Länge einer Log-Meldung für eine Übertragung.
+				Wenn Sie eine Log-Meldung eingeben welche kürzer ist als mit
+				dieser Eigenschaft festgelegt, dann bleibt die Übertragung
+				deaktiviert. Dies ist nützlich wenn Sie die Benutzer dazu anhalten
+				möchten, für jede Übertragung eine gute Log-Meldung zu schreiben.
+				Wenn diese Eigenschaft nicht gesetzt ist, sind leere Log-Meldungen
+				erlaubt.
+			</para>
+			<para>
+				<literal>tsvn:logwidthmarker</literal>
+				kann für Projekte benutzt werden, welche Log-Meldungen mit einer
+				maximalen Zeilenlänge (typischerweise 80 Zeichen) haben möchten.
+				Wenn diese Eigenschaft auf einen Wert ungleich 0 gesetzt wird,
+				wird einerseits der Wortumbruch für die Log-Meldung abgeschaltet
+				und andererseits eine vertikale Linie gezeichnet um die maximale
+				Zeilenlänge anzuzeigen. Auf diese Weise können Sie jederzeit
+				sehen, ob Ihre Log-Meldung die maximale Zeilenlänge schon 
+				überschreitet oder nicht.
+				Beachten Sie: dies funktioniert nur korrekt, wenn Sie einen
+				Font mit fester Breite für die Log-Meldungsbox ausgewählt haben.
+			</para>
+			<para>
+				<literal>tsvn:logtemplate</literal>
+				wird für Projekte benutzt welche Regeln für die Formatierung
+				der Log-Meldungen haben. Diese Eigenschaft enthält einen 
+				mehrzeiligen Text, welcher automatisch im Übertragungsdialog
+				in die Textbox eingefügt wird. Sie können dann diesen Text
+				so abändern/ausfüllen entsprechend Ihrer Übertragung.
+			</para>
+		</listitem>
+		</itemizedlist>
+	</para>
+	<important>
+		<title>Setzen Sie die Eigenschaften für Ordner</title>
+		<para>
+			Diese <literal>tsvn:</literal> Eigenschaften müssen auf Ordnern
+			und nicht Dateien gesetzt werden. Wenn Sie eine Datei oder einen Ordner
+			übertragen dann werden diese Eigenschaften von eben diesem Ordner
+			gelesen. Wenn die Eigenschaften nicht gefunden werden, sucht TortoiseSVN
+			im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die
+			Eigenschaften gefunden wurden oder der oberste Ordner der Arbeitskopie
+			gefunden wurde.
+			Wenn Sie also sicher sind dass alle Benutzer ihre Arbeitskopie z.B.
+			von <filename>/trunk</filename> ausgecheckt haben, reicht es aus die
+			Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein
+			können, dann müssen Sie diese Eigenschaften auch auf den Unterordnern
+			Ihres Projektes setzen. Beachten Sie: eine Eigenschaft welche auf
+			Unterordnern gesetzt ist überschreibt dieselbe Eigenschaft auf 
+			übergeordneten Ordnern.
+		</para>
+	</important>
 	<note>
 		<title>Eigenschaften zum Projektarchiv Übertragen</title>
 		<para>

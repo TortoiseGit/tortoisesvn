@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-blame">
 	<title>Wer hat welche Zeile geändert?</title>
 	<indexterm>
@@ -41,6 +41,30 @@
 		angezeigt.
 	</para>
 	<para>
+		<figure id="tsvn-DUG-blame-dia-2">
+			<title>TortoiseBlame</title>
+			<graphic fileref="images/TortoiseBlame.png"/>
+		</figure>
+		TortoiseBlame welches bei TortoiseSVN mit dabei ist macht eine solche
+		Annotierung leichter lesbar. Wenn Sie mit dem Mauszeiger über eine
+		Zeile in der linken Spalte fahren, werden alle Zeilen welche in derselben
+		Revision geändert wurden mit einer dunkleren Farbe dargestellt. Zeilen
+		von anderen Revisionen, aber demselben Author werden mit einem helleren
+		Hintergrund dargestellt. Die Einfärbung funktioniert eventuell nicht 
+		optimal wenn Sie ihren Monitor auf nur 256 Farben eingestellt haben.
+	</para>
+	<para>
+		Wenn Sie auf eine Zeile <action>Links-Klicken</action> werden alle Zeilen
+		derselben Revision markiert, und Zeilen von anderen Revisionen aber demselben
+		Author werden in einer anderen Farbe dargestellt. Diese Markierung bleibt
+		bestehen, so dass Sie den Mauszeiger bewegen können ohne die Einfärbung
+		zu verlieren. Klicken Sie nochmals auf diese Revision um die Markierung
+		wieder aufzuheben.
+	</para>
+	<para>
+		Die Log-Meldungen für die Revisionen werden als Tooltip gezeigt wenn
+		Sie den Mauszeiger über die linke Spalte bewegen.
+	</para>	<para>
 		Das Beispiel zeigt die ersten dreissig Zeilen der Datei
 		<filename>/Subversion/include/svn_io.h</filename> der Revision 7566
 		des Subversion Projektes. Für jede Zeile wird gezeigt:

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-revert">
 	<title>Änderungen Rückgängig machen</title>
 	<indexterm>
@@ -26,4 +26,16 @@
 			<graphic fileref="images/Revert.png"/>
 		</figure>
 	</para>
+	<tip>
+	<title>Änderungen rückgängig machen welche bereits Übertragen wurden</title>
+		<para>
+			<menuchoice>
+				<guimenuitem>Revert</guimenuitem>
+			</menuchoice>
+			wird nur lokale Änderungen rückgängig machen. Es wird <emphasis>nicht</emphasis>
+			Änderungen, welche bereits Übertragen wurden rückgängig machen.
+			Wenn Sie solche Änderungen rückgängig machen wollen, sehen Sie dazu
+			<xref linkend="tsvn-DUG-showlog"/> für weitere Informationen.
+		</para>
+	</tip>
 </sect1>

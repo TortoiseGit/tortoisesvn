@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-settings">
 	<title>TortoiseSVN's Einstellungen</title>
 	<indexterm>
@@ -88,7 +88,13 @@
 							Öffnet die Subversion-Konfigurationsdatei im Standard-Texteditor.
 							Einige Einstellungen können nicht mit TortoiseSVN vorgenommen werden
 							sondern nur mittels Bearbeitung der Konfigurationsdatei.
-						</para>
+							Für mehr Informationen über die Subversion
+							<filename>config</filename> Datei lesen Sie das  
+							<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07.html#svn-ch-7-sect-1.3.2">
+							<citetitle>Subversion Manual</citetitle></ulink>. Der Abschnitt
+							<ulink url="http://svnbook.red-bean.com/svnbook-1.1/ch07s02.html#svn-ch-7-sect-2.4">
+							<citetitle>Automatic Property Setting</citetitle></ulink>
+							ist hier auch von Interesse.</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
@@ -129,41 +135,22 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Nicht schliessen bei Konflikt</term>
+					<listitem>
+						<para>
+							Das automatische schliessen des Fensters wird unterdrückt, wenn
+							bei einer Aktualisierung Konflikte aufgetreten sind. Diese Option
+							ist sehr zu empfehlen, da damit Konflikte nicht etwa übersehen
+							werden.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Prüfe auf Aktualisierung</term>
 					<listitem>
 						<para>
 							Wenn gewählt wird TortoiseSVN einmal pro Woche
 							überprüfen, ob eine neuere Version vorhanden ist.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Minimale Log Grösse in Zeichen</term>
-					<listitem>
-						<para>
-							Die mindestlänge einer Log-Meldung für eine Übertragung.
-							Wenn Sie weniger Zeichen für die Log-Meldung eingeben, bleibt die 
-							<guibutton>OK</guibutton> Schaltfläche deaktiviert.
-							Ein Wert von Null gestattet leere Log-Meldungen.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Log-Meldungen beim Abbruch einer Übertragung nicht löschen</term>
-					<listitem>
-						<para>
-							Wenn aus irgendeinem Grund eine Übertragung abgebrochen wird
-							wird die Log-Meldung gespeichert und beim erneuten Aufruf
-							des Übertragungsdialogs automatisch wieder eingefügt.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Zeige BugID/Issue-Nr. Box</term>
-					<listitem>
-						<para>
-							Zeigt eine Textbox im Übertragungsdialog wo Sie eine Bug-ID
-							oder Issue-Nummer für einen Bugtracker eingeben können.
 						</para>
 					</listitem>
 				</varlistentry>

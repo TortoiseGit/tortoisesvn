@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-commit">
 	<title>Änderungen in das Projektarchiv übertragen</title>
 	<indexterm>
@@ -93,7 +93,14 @@
 		</figure>
 	</para>
 	<tip>
-		<title>Integration mit Bugtracking Systemen</title>
+		<title>Spezielle Ordner Eigenschaften</title>
+		<para>
+			Es gibt mehrere spezielle Ordner-Eigenschaften welche z.B. für die
+			Formatierung von Log-Meldungen verwendet werden können. Sehen
+			Sie dazu <xref linkend="tsvn-DUG-propertypage"/>.
+		</para>
+	</tip>
+	<tip>		<title>Integration mit Bugtracking Systemen</title>
 		<para>
 			Wenn Sie Bugtracking aktiviert haben, können Sie rechts oben bei 
 			<guilabel>Bug-ID / Issue-Nr:</guilabel> eine oder mehrere Eintragsnummer(n)
