@@ -179,7 +179,6 @@ const CString& CTSVNPath::GetUIPathString() const
 void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 {
 	m_sFwdslashPath = sPath;
-	m_sFwdslashPath.Trim();
 	m_sFwdslashPath.Replace('\\', '/');
 	m_sFwdslashPath.TrimRight('/');	
 
@@ -200,7 +199,6 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 void CTSVNPath::SetBackslashPath(const CString& sPath) const
 {
 	m_sBackslashPath = sPath;
-	m_sBackslashPath.Trim();
 	m_sBackslashPath.Replace('/', '\\');
 	m_sBackslashPath.TrimRight('\\');
 	// Make sure that root directories look like 'C:\' rather than 'C:'
@@ -390,7 +388,10 @@ bool CTSVNPath::ArePathStringsEqual(const CString& sP1, const CString& sP2)
 
 bool CTSVNPath::IsEmpty() const
 {
-	return m_sFwdslashPath.IsEmpty() && m_sBackslashPath.IsEmpty();
+	// Check the backward slash path first, since the chance that this
+	// one is set is higher. In case of a 'false' return value it's a little
+	// bit faster.
+	return m_sBackslashPath.IsEmpty() && m_sFwdslashPath.IsEmpty();
 }
 
 // Test if both paths refer to the same item
