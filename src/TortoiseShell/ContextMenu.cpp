@@ -514,7 +514,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 	BOOL ownerdrawn = CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE);
 	//now fill in the entries 
-	if ((!isInSVN)&&(isFolder))
+	if (isFolder)
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCHECKOUT), HMENU(MENUCHECKOUT), INDEXMENU(MENUCHECKOUT), idCmd++, IDS_MENUCHECKOUT, IDI_CHECKOUT, idCmdFirst, Checkout);
 
 	if ((isInSVN)&&(!isAdded))
