@@ -35,9 +35,14 @@
 #define PWND (hWndExplorer ? CWnd::FromHandle(hWndExplorer) : NULL)
 #define EXPLORERHWND (IsWindow(hWndExplorer) ? hWndExplorer : NULL)
 
+BEGIN_MESSAGE_MAP(CTortoiseProcApp, CWinApp)
+	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
+END_MESSAGE_MAP()
+
 
 CTortoiseProcApp::CTortoiseProcApp()
 {
+	EnableHtmlHelp();
 }
 
 

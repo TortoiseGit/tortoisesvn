@@ -55,6 +55,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-import">
 		<title>Importing Data Into A Repository</title>
+		<?dbhh topicname="HIDD_IMPORT"?>
 		<para>
 		
 		</para>
@@ -211,6 +212,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-checkout">
 		<title>Checking Out A Working Copy</title>
+		<?dbhh topicname="HIDD_CHECKOUT"?>
 		<para>
 			<figure id="tsvn-DUG-checkout-dia-1">
 				<title>The Checkout dialog</title>
@@ -492,6 +494,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-commit">
 		<title>Sending Your Changes To The Repository</title>
+		<?dbhh topicname="HIDD_LOGPROMPT"?>
 		<para>
 			<figure id="tsvn-DUG-commit-dia-1">
 				<title>The Commit dialog</title>
@@ -559,6 +562,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-adding">
 		<title>Adding New Files And Directories</title>
+		<?dbhh topicname="HIDD_ADD"?>
 		<para>
 			<figure id="tsvn-DUG-adding-dia-1">
 				<title>Explorer context menu for unversioned files</title>
@@ -619,6 +623,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-renaming">
 		<title>Deleting, Renaming And Moving</title>
+		<?dbhh topicname="HIDD_RENAME"?>
 		<para>
 			<figure id="tsvn-DUG-renaming-dia-1">
 				<title>Explorer context menu for versioned files</title>
@@ -723,6 +728,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-showlog">
 		<title>Revision Log Dialog</title>
+		<?dbhh topicname="HIDD_LOGMESSAGE"?>
 		<para>
 		For every change you make and commit, you also have to provide
 		a log message for that change. That way you can later find out
@@ -820,6 +826,9 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-branchtag">
 		<title>Branching / Tagging</title>
+		<?dbhh topicname="HIDD_COPY"?>
+		<?dbhh topicname="HIDD_SWITCH"?>
+		<?dbhh topicname="HIDD_MERGE"?>
 		<para>
 		One of the features of version control systems is the ability 
 		to isolate changes onto a separate line of development. 
@@ -966,6 +975,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-relocate">
 		<title>Relocating a working copy</title>
+		<?dbhh topicname="HIDD_RELOCATE"?>
 		<para>
 		If your repository has for some reason changed it's 
 		location (IP/URL). Maybe you're even stuck and can't 
@@ -982,6 +992,10 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-settings">
 		<title>TortoiseSVN's Settings</title>
+		<?dbhh topicname="HIDD_SETTINGSMAIN"?>
+		<?dbhh topicname="HIDD_SETTINGSMENU"?>
+		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
+		<?dbhh topicname="HIDD_SETTINGSPROXY"?>
 		<sect2 id="tsvn-DUG-settings-main">
 			<title>The Settings Dialog, Main Tab</title>
 			<para>
@@ -1038,6 +1052,7 @@
 	<!-- ================================================================= -->
 	<sect1 id="tsvn-DUG-blame">
 		<title>Who Changed Which Line?</title>
+		<?dbhh topicname="HIDD_BLAME"?>
 		<para>
 			<figure id="tsvn-DUG-blame-dia-1">
 				<title>The Annotate / Blame Dialog</title>
