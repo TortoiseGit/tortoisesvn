@@ -640,12 +640,17 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		// item itself, but it will use the new color we set here.
 		// We'll cycle the colors through red, green, and light blue.
 
+		// Tell Windows to paint the control itself.
+		*pResult = CDRF_DODEFAULT;
+
 		COLORREF crText = RGB(0,0,0);
 
 		if (m_arData.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
 			Data * data = m_arData.GetAt(pLVCD->nmcd.dwItemSpec);
-
+			if (data == NULL)
+				return;
+				
 			switch (data->action)
 			{
 			case svn_wc_notify_add:
@@ -675,9 +680,6 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 			// Store the color back in the NMLVCUSTOMDRAW struct.
 			pLVCD->clrText = crText;
 		}
-
-		// Tell Windows to paint the control itself.
-		*pResult = CDRF_DODEFAULT;
 	}
 }
 
