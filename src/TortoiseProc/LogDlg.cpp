@@ -1035,10 +1035,16 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
 					bFound = TRUE;
 					break;
 				} // if (m_arLogMessages.GetAt(i).Find(FindText) >= 0) 
+				if (m_arLogPaths.GetAt(i).Find(FindText) >= 0)
+				{
+					bFound = TRUE;
+					break;
+				}
 			} // if (bMatchCase) 
 			else
 			{
 				CString msg = m_arLogMessages.GetAt(i);
+				msg += m_arLogPaths.GetAt(i);
 				msg = msg.MakeLower();
 				CString find = FindText.MakeLower();
 				if (msg.Find(FindText) >= 0)
@@ -1057,6 +1063,9 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
 			m_LogList.SetSelectionMark(i);
 			FillLogMessageCtrl(m_arLogMessages.GetAt(i), m_arLogPaths.GetAt(i));
 			UpdateData(FALSE);
+			m_nSearchIndex++;
+			if (m_nSearchIndex >= m_arLogMessages.GetCount())
+				m_nSearchIndex = m_arLogMessages.GetCount()-1;
 		}
     } // if(m_pFindDialog->FindNext()) 
 
