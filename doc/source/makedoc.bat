@@ -7,6 +7,8 @@ shift
 SET _LANG=%1
 shift
 
+if "%TortoiseVars%"=="" call ..\..\TortoiseVars.bat
+
 SET _PDF=OFF
 SET _CHM=OFF
 SET _HTML=OFF
@@ -36,9 +38,10 @@ if "%OS%"=="Windows_NT" set _DOC_SRC=%~dp0
 
 set _DOC_HOME=%_DOC_SRC%..\
 SET _DOCTOOLS=%_DOC_HOME%tools\
-SET _XSLTPROC=%_DOCTOOLS%xsltproc.exe
-SET _HHCPROC=%_DOCTOOLS%hhc.exe
-SET _FOPPROC=%_DOCTOOLS%fop\fop.bat
+
+SET _XSLTPROC=xsltproc.exe
+SET _HHCPROC=hhc.exe
+SET _FOPPROC=fop.bat
 
 set _OUTPUT=%_DOC_HOME%output
 

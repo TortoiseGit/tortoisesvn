@@ -5,6 +5,8 @@ rem BEWARE, this may cause a "line too long" error if called repeatedly from the
 rem Try to check, whether these vars are already set
 @if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 
+if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
+
 set APPS=TortoiseSVN TortoiseMerge
 set TARGETS=pdf chm html
 
