@@ -150,8 +150,9 @@ BOOL CLogPromptDlg::OnInitDialog()
 	}
 	m_ListCtrl.UpdateData(FALSE);
 
+	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 	INIT_RESIZER;
-	return TRUE;  // return TRUE unless you set the focus to a control
+	return FALSE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
 
