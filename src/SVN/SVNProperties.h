@@ -29,6 +29,9 @@
 #include "svn_config.h"
 #include <string>
 #include "UnicodeStrings.h"
+#ifdef _MFC_VER
+#	include "SVNRev.h"
+#endif
 
 /**
  * \ingroup TortoiseShell
@@ -57,12 +60,16 @@
 class SVNProperties
 {
 public:
+
 	/**
 	 * Constructor. Creates a Subversion properties object for
 	 * the specified file/directory.
 	 * \param filepath the file/directory
 	 */
 	SVNProperties(const TCHAR * filepath);
+#ifdef _MFC_VER
+	SVNProperties(const TCHAR * filepath, SVNRev rev);
+#endif
 	~SVNProperties(void);
 
 	/**
@@ -136,5 +143,7 @@ private:		//members
 	apr_array_header_t *		m_props;			
 	int							m_propCount;		///< number of properties found
 	svn_error_t *				m_error;
-
+#ifdef _MFC_VER
+	SVNRev						m_rev;
+#endif
 };

@@ -26,8 +26,12 @@ svn_error_t*	SVNProperties::Refresh()
 	m_error = NULL;
 
 	m_propCount = 0;
+#ifdef _MFC_VER
+	rev = m_rev;
+#else
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
+#endif
 	m_error = svn_client_proplist (&m_props,
 								StringToUTF8(m_path).c_str(), 
 								&rev,
@@ -59,7 +63,13 @@ svn_error_t*	SVNProperties::Refresh()
 	}
 	return NULL;
 }
-
+#ifdef _MFC_VER
+SVNProperties::SVNProperties(const TCHAR * filepath, SVNRev rev)
+{
+	m_rev = rev;
+	SVNProperties(filepath);
+}
+#endif
 SVNProperties::SVNProperties(const TCHAR * filepath)
 {
 	m_pool = svn_pool_create (NULL);				// create the memory pool
