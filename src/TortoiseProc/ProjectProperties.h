@@ -24,6 +24,7 @@
 #define BUGTRAQPROPNAME_NUMBER            _T("bugtraq:number")
 #define BUGTRAQPROPNAME_URL               _T("bugtraq:url")
 #define BUGTRAQPROPNAME_WARNIFNOISSUE     _T("bugtraq:warnifnoissue")
+#define BUGTRAQPROPNAME_APPEND		      _T("bugtraq:append")
 
 #define PROJECTPROPNAME_LOGTEMPLATE		  _T("tsvn:logtemplate")
 #define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
@@ -106,6 +107,10 @@ public:
 	/* If set to TRUE, show a warning dialog if the user forgot to enter
 	 * an issue number in the commit dialog. */
 	BOOL		bWarnIfNoIssue;
+
+	/* If set to FALSE, then the bugtracking entry is inserted at the top of the
+	   log message instead of at the bottom. Default is TRUE */
+	BOOL		bAppend;
 
 	/* The number of chars the width marker should be shown at. If the property
 	 * is not set, then this value is 80 by default. */

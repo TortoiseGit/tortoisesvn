@@ -221,7 +221,10 @@ void CCopyDlg::OnOK()
 		m_sBugID.Replace(_T(" ,"), _T(","));
 		CString sBugID = m_ProjectProperties.sMessage;
 		sBugID.Replace(_T("%BUGID%"), m_sBugID);
-		m_sLogMessage += _T("\n") + sBugID + _T("\n");
+		if (m_ProjectProperties.bAppend)
+			m_sLogMessage += _T("\n") + sBugID + _T("\n");
+		else
+			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 		UpdateData(FALSE);		
 	}
 	CDialog::OnOK();

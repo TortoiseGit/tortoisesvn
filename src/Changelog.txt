@@ -1,5 +1,10 @@
 - ADD: The path to client certificates and the client
        certificate password can now be saved. (Stefan)
+- ADD: New bugtracking property "bugtraq:append". If set to
+       "false", then the bug-ID is inserted at the top of
+       the log message. If set to "true" or not set at all,
+       then the bug-ID is appended to the log message
+       like before. (Stefan)
 - CHG: improved dialog for creating repositories. (Stefan)
 - CHG: The "paste log template in english" setting is now
        a project property (tsvn:logfilelistenglish). Set

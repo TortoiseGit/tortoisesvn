@@ -27,6 +27,7 @@ ProjectProperties::ProjectProperties(void)
 	nLogWidthMarker = 0;
 	nMinLogSize = 0;
 	bFileListInEnglish = TRUE;
+	bAppend = TRUE;
 }
 
 ProjectProperties::~ProjectProperties(void)
@@ -65,6 +66,7 @@ BOOL ProjectProperties::ReadProps(CString path)
 	BOOL bFoundBugtraqNumber = FALSE;
 	BOOL bFoundBugtraqURL = FALSE;
 	BOOL bFoundBugtraqWarnIssue = FALSE;
+	BOOL bFoundBugtraqAppend = FALSE;
 	BOOL bFoundLogWidth = FALSE;
 	BOOL bFoundLogTemplate = FALSE;
 	BOOL bFoundMinLogSize = FALSE;
@@ -135,6 +137,20 @@ BOOL ProjectProperties::ReadProps(CString path)
 				else
 					bWarnIfNoIssue = FALSE;
 				bFoundBugtraqWarnIssue = TRUE;
+			}
+			if ((!bFoundBugtraqAppend)&&(sPropName.Compare(BUGTRAQPROPNAME_APPEND)==0))
+			{
+				CString val;
+#ifdef UNICODE
+				val = MultibyteToWide((char *)sPropVal.c_str()).c_str();
+#else
+				val = sPropVal.c_str();
+#endif
+				if (val.CompareNoCase(_T("true"))==0)
+					bAppend = TRUE;
+				else
+					bAppend = FALSE;
+				bFoundBugtraqAppend = TRUE;
 			}
 			if ((!bFoundLogWidth)&&(sPropName.Compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
 			{
@@ -210,26 +226,36 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 	int offset1, offset2;
 	if (sUrl.IsEmpty())
 		return FALSE;
-	//if we have a message format, we look for that in the last line of the log
-	//message only
+
 	if (!sMessage.IsEmpty())
 	{
-		CString sLastLine;
-		if (msg.ReverseFind('\n')>=0)
-			sLastLine = msg.Mid(msg.ReverseFind('\n')+1);
+		CString sBugLine;
+		if (bAppend)
+		{
+			if (msg.ReverseFind('\n')>=0)
+				sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+		}
+		else
+		{
+			if (msg.Find('\n')>=0)
+				sBugLine = msg.Left(msg.Find('\n'));
+		}
 		if (sMessage.Find(_T("%BUGID%"))<0)
 			return FALSE;
 		CString sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
 		CString sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
-		if (sLastLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
 			return FALSE;
-		if (sLastLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+		if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
 			return FALSE;
-		CString sBugIDPart = sLastLine.Mid(sFirstPart.GetLength(), sLastLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
+		CString sBugIDPart = sBugLine.Mid(sFirstPart.GetLength(), sBugLine.GetLength() - sFirstPart.GetLength() - sLastPart.GetLength());
 		if (sBugIDPart.IsEmpty())
 			return FALSE;
 		//the bug id part can contain several bug id's, separated by commas
-        offset1 = msg.GetLength() - sLastLine.GetLength() + sFirstPart.GetLength();
+		if (bAppend)
+			offset1 = msg.GetLength() - sBugLine.GetLength() + sFirstPart.GetLength();
+		else
+			offset1 = sFirstPart.GetLength();
 		sBugIDPart.Trim(_T(","));
 		while (sBugIDPart.Find(',')>=0)
 		{
