@@ -569,7 +569,14 @@ void CMainFrame::OnFileSave()
 	if (this->m_Data.m_sMergedFile.IsEmpty())
 		return OnFileSaveAs();
 	if (CheckResolved())
+	{
+		if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
+		{
+			DeleteFile(m_Data.m_sMergedFile + _T(".bak"));
+			MoveFile(m_Data.m_sMergedFile, m_Data.m_sMergedFile + _T(".bak"));
+		}
 		SaveFile(this->m_Data.m_sMergedFile);
+	}
 	else
 	{
 		CString sTemp;
