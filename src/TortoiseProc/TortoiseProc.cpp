@@ -27,6 +27,7 @@
 #include "DirFileList.h"
 #include "SVNProperties.h"
 #include "Blame.h"
+
 #include "..\version.h"
 
 #ifndef UNICODE
@@ -228,7 +229,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			long revend = _tstol(val);
 			if (revstart == 0)
 			{
-				revstart = SVN::REV_HEAD;
+				revstart = SVNRev::REV_HEAD;
 			}
 			if (revend == 0)
 			{
@@ -526,7 +527,7 @@ BOOL CTortoiseProcApp::InitInstance()
 						progDlg.SetAnimation(IDR_ANIMATION);
 					} // if (progDlg.IsValid()){
 					SVN svn;
-					if (!svn.Export(path, saveplace, SVN::REV_WC))
+					if (!svn.Export(path, saveplace, SVNRev::REV_WC))
 					{
 						if (progDlg.IsValid())
 						{
@@ -584,7 +585,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				else
 				{
 					CSVNProgressDlg progDlg;
-					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, SVN::REV_WC);
+					progDlg.SetParams(Copy, FALSE, path, dlg.m_URL, dlg.m_sLogMessage, SVNRev::REV_WC);
 					progDlg.DoModal();
 				}
 			}
@@ -874,7 +875,7 @@ BOOL CTortoiseProcApp::InitInstance()
 					}
 					name = dlg.m_name;
 				} // if (strLine.CompareNoCase(droppath+_T("\\")+name)==0) 
-				if (!svn.Copy(strLine, droppath+_T("\\")+name, SVN::REV_WC, _T("")))
+				if (!svn.Copy(strLine, droppath+_T("\\")+name, SVNRev::REV_WC, _T("")))
 				{
 					TRACE(_T("%s\n"), svn.GetLastErrorMessage());
 					CMessageBox::Show(EXPLORERHWND, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -1101,7 +1102,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString revision = parser.GetVal(_T("revision"));
 			LONG rev = _ttol(revision);
 			if (rev==0)
-				rev = SVN::REV_HEAD;
+				rev = SVNRev::REV_HEAD;
 			SVN svn;
 			if (!svn.Cat(path, rev, savepath))
 			{
@@ -1168,12 +1169,12 @@ BOOL CTortoiseProcApp::InitInstance()
 			SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
 			CString sDir = path.Mid(path.ReverseFind('\\')+1);
 			SVN svn;
-			if (!svn.Diff(sDir, SVN::REV_BASE, sDir, SVN::REV_WC, TRUE, FALSE, FALSE, _T(""), ofn.lpstrFile))
+			if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, _T(""), ofn.lpstrFile))
 			{
 				progDlg.Stop();
 				::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				DeleteFile(ofn.lpstrFile);
-			} // if (!svn.Diff(path, SVN::REV_WC, path, SVN::REV_BASE, TRUE, FALSE, FALSE, _T(""), sSavePath))
+			} // if (!svn.Diff(path, SVNRev::REV_WC, path, SVNRev::REV_BASE, TRUE, FALSE, FALSE, _T(""), sSavePath))
 			progDlg.Stop();
 		} // if (comVal.Compare(_T("cat"))==0) 
 		//#endregion

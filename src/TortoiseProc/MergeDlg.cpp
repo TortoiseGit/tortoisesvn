@@ -240,7 +240,7 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 	{
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
-		m_pLogDlg->SetParams(url, SVN::REV_HEAD, 1);
+		m_pLogDlg->SetParams(url, SVNRev::REV_HEAD, 1);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 		m_pLogDlg->m_pNotifyWindow = this;

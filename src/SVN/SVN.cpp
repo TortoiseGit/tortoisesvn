@@ -158,7 +158,7 @@ CString SVN::GetLastErrorMessage()
 	return _T("");
 }
 
-BOOL SVN::Checkout(CString moduleName, CString destPath, LONG revision, BOOL recurse)
+BOOL SVN::Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL recurse)
 {
 	preparePath(destPath);
 	preparePath(moduleName);
@@ -166,7 +166,7 @@ BOOL SVN::Checkout(CString moduleName, CString destPath, LONG revision, BOOL rec
 	Err = svn_client_checkout (	NULL,			// we don't need the resulting revision
 								CUnicodeUtils::GetUTF8(moduleName),
 								CUnicodeUtils::GetUTF8(destPath),
-								getRevision (revision),
+								revision,
 								recurse,
 								&ctx,
 								pool );
@@ -235,12 +235,12 @@ BOOL SVN::Add(CString path, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Update(CString path, LONG revision, BOOL recurse)
+BOOL SVN::Update(CString path, SVNRev revision, BOOL recurse)
 {
 	preparePath(path);
 	Err = svn_client_update(NULL,
 							CUnicodeUtils::GetUTF8(path),
-							getRevision (revision),
+							revision,
 							recurse,
 							&ctx,
 							pool);
@@ -283,7 +283,7 @@ LONG SVN::Commit(CString path, CString message, BOOL recurse)
 	return -1;
 }
 
-BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision, CString logmsg)
+BOOL SVN::Copy(CString srcPath, CString destPath, SVNRev revision, CString logmsg)
 {
 	preparePath(srcPath);
 	preparePath(destPath);
@@ -295,7 +295,7 @@ BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision, CString logmsg)
 		ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(logmsg));
 	Err = svn_client_copy (&commit_info,
 							CUnicodeUtils::GetUTF8(srcPath),
-							getRevision (revision),
+							revision,
 							CUnicodeUtils::GetUTF8(destPath),
 							&ctx,
 							pool);
@@ -308,7 +308,7 @@ BOOL SVN::Copy(CString srcPath, CString destPath, LONG revision, CString logmsg)
 	return TRUE;
 }
 
-BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, LONG rev)
+BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, SVNRev rev)
 {
 	preparePath(srcPath);
 	preparePath(destPath);
@@ -317,7 +317,7 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force, CString message, L
 	ctx.log_msg_baton = logMessage(CUnicodeUtils::GetUTF8(message));
 	Err = svn_client_move (&commit_info,
 							CUnicodeUtils::GetUTF8(srcPath),
-							getRevision (rev),
+							rev,
 							CUnicodeUtils::GetUTF8(destPath),
 							force,
 							&ctx,
@@ -390,7 +390,7 @@ BOOL SVN::Resolve(CString path, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Export(CString srcPath, CString destPath, LONG revision, BOOL force)
+BOOL SVN::Export(CString srcPath, CString destPath, SVNRev revision, BOOL force)
 {
 	preparePath(srcPath);
 	preparePath(destPath);
@@ -398,7 +398,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, LONG revision, BOOL force)
 	Err = svn_client_export(NULL,		//no resulting revision needed
 							CUnicodeUtils::GetUTF8(srcPath),
 							CUnicodeUtils::GetUTF8(destPath),
-							getRevision (revision),
+							revision,
 							force,
 							&ctx,
 							pool);
@@ -409,7 +409,7 @@ BOOL SVN::Export(CString srcPath, CString destPath, LONG revision, BOOL force)
 	return TRUE;
 }
 
-BOOL SVN::Switch(CString path, CString url, LONG revision, BOOL recurse)
+BOOL SVN::Switch(CString path, CString url, SVNRev revision, BOOL recurse)
 {
 	preparePath(path);
 	preparePath(url);
@@ -417,7 +417,7 @@ BOOL SVN::Switch(CString path, CString url, LONG revision, BOOL recurse)
 	Err = svn_client_switch(NULL,
 							CUnicodeUtils::GetUTF8(path),
 							CUnicodeUtils::GetUTF8(url),
-							getRevision (revision),
+							revision,
 							recurse,
 							&ctx,
 							pool);
@@ -455,29 +455,16 @@ BOOL SVN::Import(CString path, CString url, CString message, BOOL recurse)
 	return TRUE;
 }
 
-BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry)
+BOOL SVN::Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry)
 {
-	svn_opt_revision_t revEnd;
-	memset (&revEnd, 0, sizeof (revEnd));
-	if(revision2 == -1)
-	{
-		revEnd.kind = svn_opt_revision_head;
-		revision2 = 0;
-	}
-	else
-	{
-		revEnd.kind = svn_opt_revision_number;
-	}
-	revEnd.value.number = revision2;
-
 	preparePath(path1);
 	preparePath(path2);
 	preparePath(localPath);
 
 	Err = svn_client_merge (CUnicodeUtils::GetUTF8(path1),
-							getRevision (revision1),
+							revision1,
 							CUnicodeUtils::GetUTF8(path2),
-							&revEnd,
+							revision2,
 							CUnicodeUtils::GetUTF8(localPath),
 							recurse,
 							ignoreanchestry,
@@ -495,7 +482,7 @@ BOOL SVN::Merge(CString path1, LONG revision1, CString path2, LONG revision2, CS
 	return TRUE;
 }
 
-BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile)
+BOOL SVN::Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile)
 {
 	BOOL del = FALSE;
 	apr_file_t * outfile;
@@ -503,29 +490,6 @@ BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOO
 	apr_array_header_t *opts;
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, pool);
-
-	svn_opt_revision_t revEnd;
-	memset (&revEnd, 0, sizeof (revEnd));
-	if(revision2 == REV_HEAD)
-	{
-		revEnd.kind = svn_opt_revision_head;
-		revision2 = 0;
-	} // if(revision2 == REV_HEAD) 
-	else if (revision2 == REV_BASE)
-	{
-		revEnd.kind = svn_opt_revision_base;
-		revision2 = 0;
-	}
-	else if (revision2 == REV_WC)
-	{
-		revEnd.kind = svn_opt_revision_working;
-		revision2 = 0;
-	}
-	else
-	{
-		revEnd.kind = svn_opt_revision_number;
-	}
-	revEnd.value.number = revision2;
 
 	preparePath(path1);
 	preparePath(path2);
@@ -556,9 +520,9 @@ BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOO
 
 	Err = svn_client_diff (opts,
 						   CUnicodeUtils::GetUTF8(path1),
-						   getRevision(revision1),
+						   revision1,
 						   CUnicodeUtils::GetUTF8(path2),
-						   &revEnd,
+						   revision2,
 						   recurse,
 						   ignoreancestry,
 						   nodiffdeleted,
@@ -575,25 +539,12 @@ BOOL SVN::Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOO
 	return TRUE;
 }
 
-BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
+BOOL SVN::ReceiveLog(CString path, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict /* = FALSE */)
 {
-	svn_opt_revision_t revEnd;
-	memset (&revEnd, 0, sizeof (revEnd));
-	if(revisionEnd == -1)
-	{
-		revEnd.kind = svn_opt_revision_head;
-		revisionEnd = 0;
-	}
-	else
-	{
-		revEnd.kind = svn_opt_revision_number;
-	}
-	revEnd.value.number = revisionEnd;
-
 	preparePath(path);
 	Err = svn_client_log (target ((LPCTSTR)path), 
-						getRevision (revisionStart), 
-						&revEnd, 
+						revisionStart, 
+						revisionEnd, 
 						changed,
 						strict,
 						logReceiver,	// log_message_receiver
@@ -606,7 +557,7 @@ BOOL SVN::ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL ch
 	return TRUE;
 }
 
-BOOL SVN::Cat(CString url, LONG revision, CString localpath)
+BOOL SVN::Cat(CString url, SVNRev revision, CString localpath)
 {
 	apr_file_t * file;
 	svn_stream_t * stream;
@@ -618,7 +569,7 @@ BOOL SVN::Cat(CString url, LONG revision, CString localpath)
 	apr_file_open(&file, CUnicodeUtils::GetUTF8(localpath), APR_WRITE | APR_CREATE, APR_OS_DEFAULT, pool);
 	stream = svn_stream_from_aprfile(file, pool);
 
-	Err = svn_client_cat(stream, CUnicodeUtils::GetUTF8(url), getRevision(revision), &ctx, pool);
+	Err = svn_client_cat(stream, CUnicodeUtils::GetUTF8(url), revision, &ctx, pool);
 
 	apr_file_close(file);
 	if (Err != NULL)
@@ -724,25 +675,12 @@ BOOL SVN::CreateRepository(CString path)
 	return TRUE;
 }
 
-BOOL SVN::Blame(CString path, LONG startrev, LONG endrev)
+BOOL SVN::Blame(CString path, SVNRev startrev, SVNRev endrev)
 {
-	svn_opt_revision_t revEnd;
-	memset (&revEnd, 0, sizeof (revEnd));
-	if(endrev == -1)
-	{
-		revEnd.kind = svn_opt_revision_head;
-		endrev = 0;
-	}
-	else
-	{
-		revEnd.kind = svn_opt_revision_number;
-	}
-	revEnd.value.number = endrev;
-
 	preparePath(path);
 	Err = svn_client_blame ( CUnicodeUtils::GetUTF8(path),
-							 getRevision (startrev),  
-							 &revEnd,  
+							 startrev,  
+							 endrev,  
 							 blameReceiver,  
 							 (void *)this,  
 							 &ctx,  
@@ -943,34 +881,6 @@ void * SVN::logMessage (const char * message, char * baseDirectory)
 	return baton;
 }
 
-svn_opt_revision_t*	SVN::getRevision (long revNumber)
-{
-	memset (&rev, 0, sizeof (rev));
-	if(revNumber == SVN::REV_HEAD)
-	{
-		rev.kind = svn_opt_revision_head;
-		revNumber = 0;
-	} // if(revNumber == SVN::REV_HEAD)
-	else if (revNumber == SVN::REV_BASE)
-	{
-		rev.kind = svn_opt_revision_base;
-		revNumber = 0;
-	}
-	else if (revNumber == SVN::REV_WC)
-	{
-		rev.kind = svn_opt_revision_working;
-		revNumber = 0;
-	}
-	else
-	{
-		rev.kind = svn_opt_revision_number;
-	}
-
-	rev.value.number = revNumber;
-
-	return &rev;
-}
-
 void SVN::PathToUrl(CString &path)
 {
 	path.Trim();
@@ -1082,7 +992,7 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 	return SVN_NO_ERROR;
 }
 
-BOOL SVN::Ls(CString url, LONG revision, CStringArray& entries, BOOL extended)
+BOOL SVN::Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended)
 {
 	entries.RemoveAll();
 
@@ -1092,7 +1002,7 @@ BOOL SVN::Ls(CString url, LONG revision, CStringArray& entries, BOOL extended)
 
 	Err = svn_client_ls(&hash, 
 						CUnicodeUtils::GetUTF8(url),
-						getRevision(revision),
+						revision,
 						FALSE, 
 						&ctx,
 						pool);
@@ -1164,7 +1074,7 @@ BOOL SVN::IsRepository(const CString& strUrl)
 	return Err == NULL;
 }
 
-CString SVN::GetRepositoryRoot(CString url, LONG rev)
+CString SVN::GetRepositoryRoot(CString url, SVNRev rev)
 {
 	CString retUrl = url;
 	preparePath(retUrl);

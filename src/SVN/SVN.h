@@ -35,6 +35,7 @@
 #include "svn_auth.h"
 
 #include "SVNPrompt.h"
+#include "SVNRev.h"
 
 svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
@@ -92,7 +93,7 @@ public:
 	 * \param revision the revision number to check out
 	 * \param recurse TRUE if you want to check out all subdirs and files (recommended)
 	 */
-	BOOL Checkout(CString moduleName, CString destPath, LONG revision, BOOL recurse);
+	BOOL Checkout(CString moduleName, CString destPath, SVNRev revision, BOOL recurse);
 	/**
 	 * If path is a URL, use the MESSAGE to immediately attempt 
 	 * to commit a deletion of the URL from the repository. 
@@ -138,7 +139,7 @@ public:
 	 * \param revision the revision the local copy should be updated to or -1 for HEAD
 	 * \param recurse 
 	 */
-	BOOL Update(CString path, LONG revision, BOOL recurse);
+	BOOL Update(CString path, SVNRev revision, BOOL recurse);
 	/**
 	 * Commit file or directory path into repository, using message as
 	 * the log message.
@@ -179,7 +180,7 @@ public:
 	 * \param destPath destination path
 	 * \return the new revision number
 	 */
-	BOOL Copy(CString srcPath, CString destPath, LONG revision, CString logmsg = _T(""));
+	BOOL Copy(CString srcPath, CString destPath, SVNRev revision, CString logmsg = _T(""));
 	/**
 	 * Move srcPath to destPath.
 	 * 
@@ -201,7 +202,7 @@ public:
 	 * \param revision 
 	 * \param force 
 	 */
-	BOOL Move(CString srcPath, CString destPath, BOOL force, CString message = _T(""), LONG rev = SVN::REV_HEAD);
+	BOOL Move(CString srcPath, CString destPath, BOOL force, CString message = _T(""), SVNRev rev = SVNRev::REV_HEAD);
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the
@@ -243,7 +244,7 @@ public:
 	 *					when exporting from a repository.
 	 * \param force		TRUE if existing files should be overwritten
 	 */
-	BOOL Export(CString srcPath, CString destPath, LONG revision, BOOL force = TRUE);
+	BOOL Export(CString srcPath, CString destPath, SVNRev revision, BOOL force = TRUE);
 	/**
 	 * Switch working tree path to URL at revision
 	 *
@@ -257,7 +258,7 @@ public:
 	 * \param revision the revision number to switch to
 	 * \param recurse 
 	 */
-	BOOL Switch(CString path, CString url, LONG revision, BOOL recurse);
+	BOOL Switch(CString path, CString url, SVNRev revision, BOOL recurse);
 	/**
 	 * Import file or directory path into repository directory url at
 	 * head and using LOG_MSG as the log message for the (implied)
@@ -308,7 +309,7 @@ public:
 	 * \param force		see description
 	 * \param recurse 
 	 */
-	BOOL Merge(CString path1, LONG revision1, CString path2, LONG revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE);
+	BOOL Merge(CString path1, SVNRev revision1, CString path2, SVNRev revision2, CString localPath, BOOL force, BOOL recurse, BOOL ignoreanchestry = FALSE);
 
 	/**
 	 * Produce diff output which describes the delta between \a path1/\a revision1 and \a path2/\a revision2
@@ -334,7 +335,7 @@ public:
 	 * \a diff_options (an array of <tt>const char *</tt>) is used to pass 
 	 * additional command line options to the diff processes invoked to compare files.
 	 */
-	BOOL Diff(CString path1, LONG revision1, CString path2, LONG revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile = _T(""));
+	BOOL Diff(CString path1, SVNRev revision1, CString path2, SVNRev revision2, BOOL recurse, BOOL ignoreancestry, BOOL nodiffdeleted, CString options, CString outputfile, CString errorfile = _T(""));
 
 	/**
 	 * fires the Log-event on each log message from revisionStart
@@ -347,14 +348,14 @@ public:
 	 * \param revisionEnd the revision to stop the logs
 	 * \param changed TRUE if the log should follow changed paths 
 	 */
-	BOOL ReceiveLog(CString path, LONG revisionStart, LONG revisionEnd, BOOL changed, BOOL strict = FALSE);
+	BOOL ReceiveLog(CString path, SVNRev revisionStart, SVNRev revisionEnd, BOOL changed, BOOL strict = FALSE);
 	
 	/**
 	 * Checks out a file with \a revision to \a localpath.
 	 * \param revision the revision of the file to checkout
 	 * \param localpath the place to store the file
 	 */
-	BOOL Cat(CString url, LONG revision, CString localpath);
+	BOOL Cat(CString url, SVNRev revision, CString localpath);
 
 	/**
 	 * Lists the sub directories under a repository URL. The returned strings start with either
@@ -377,7 +378,7 @@ public:
 	 * \param entries CStringArray of subdirectories
 	 * \param extended Set to TRUE for entries in extended format (see above)
 	 */
-	BOOL Ls(CString url, LONG revision, CStringArray& entries, BOOL extended = FALSE);
+	BOOL Ls(CString url, SVNRev revision, CStringArray& entries, BOOL extended = FALSE);
 
 	/**
 	 * Relocates a working copy to a new/changes repository URL. Use this function
@@ -398,7 +399,7 @@ public:
 	 * \param startrev the revision from which the check is done from
 	 * \param endrev the end revision where the check is stopped
 	 */
-	BOOL Blame(CString path, LONG startrev, LONG endrev);
+	BOOL Blame(CString path, SVNRev startrev, SVNRev endrev);
 	/**
 	 * Checks if a windows path is a local repository
 	 */
@@ -408,7 +409,7 @@ public:
 	 * Finds the repository root of a given url. 
 	 * \return The root url or an empty string
 	 */
-	CString GetRepositoryRoot(CString url, LONG rev = SVN::REV_HEAD);
+	CString GetRepositoryRoot(CString url, SVNRev rev = SVNRev::REV_HEAD);
 
 	/**
 	 * Returns a text representation of an action enum.
@@ -463,13 +464,6 @@ public:
 	 * Checks if a given path is a valid URL.
 	 */	 	 	 	
 	static BOOL PathIsURL(CString path);
-
-	enum
-	{
-		REV_HEAD = -1,		///< head revision
-		REV_BASE = -2,		///< base revision
-		REV_WC = -3,		///< revision of the working copy
-	};
 
 private:
 	svn_auth_baton_t *			auth_baton;

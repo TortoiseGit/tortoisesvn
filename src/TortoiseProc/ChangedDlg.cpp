@@ -317,11 +317,11 @@ void CChangedDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							tempfile = CUtils::GetTempFile();
 
 							SVN svn;
-							if (!svn.Cat(filepath, SVN::REV_HEAD, tempfile))
+							if (!svn.Cat(filepath, SVNRev::REV_HEAD, tempfile))
 							{
 								CMessageBox::Show(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								break;
-							} // if (!svn.Cat(filepath, SVN::REV_HEAD, tempfile))
+							} // if (!svn.Cat(filepath, SVNRev::REV_HEAD, tempfile))
 							m_templist.Add(tempfile);
 						}
 						if (repoStatus <= svn_wc_status_normal)
@@ -343,12 +343,12 @@ void CChangedDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						CString tempfile = CUtils::GetTempFile();
 						tempfile += _T(".diff");
-						if (!Diff(filepath, SVN::REV_WC, filepath, SVN::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
+						if (!Diff(filepath, SVNRev::REV_WC, filepath, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
 						{
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							DeleteFile(tempfile);
 							break;		//exit
-						} // if (!Diff(filepath, SVN::REV_WC, filepath, SVN::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
+						} // if (!Diff(filepath, SVNRev::REV_WC, filepath, SVNRev::REV_HEAD, TRUE, FALSE, TRUE, _T(""), tempfile))
 						m_templist.Add(tempfile);
 						CUtils::StartDiffViewer(tempfile);
 						theApp.DoWaitCursor(-1);

@@ -33,7 +33,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl, CWnd* pParent /*=N
 	: CResizableDialog(CRepositoryBrowser::IDD, pParent),
 	m_treeRepository(strUrl)
 	, m_strUrl(_T(""))
-	, m_nRevision(SVN::REV_HEAD)
+	, m_nRevision(SVNRev::REV_HEAD)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_bStandAlone = FALSE;
@@ -112,7 +112,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 
 	CString temp1, temp2;
 	temp1.LoadString(IDS_REPO_BROWSEREV);
-	if (m_nRevision == SVN::REV_HEAD)
+	if (m_nRevision == SVNRev::REV_HEAD)
 		temp2 = _T("HEAD");
 	else
 		temp2.Format(_T("%ld"), m_nRevision);
@@ -202,7 +202,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
 
-				if (m_nRevision == SVN::REV_HEAD)
+				if (m_nRevision == SVNRev::REV_HEAD)
 				{
 					temp.LoadString(IDS_REPOBROWSE_OPEN);
 					if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
@@ -233,7 +233,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 
 					temp.LoadString(IDS_REPOBROWSE_COPY);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
-				} // if (m_nRevision == SVN::REV_HEAD)
+				} // if (m_nRevision == SVNRev::REV_HEAD)
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
@@ -471,12 +471,12 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 						input.m_sInputText.LoadString(IDS_INPUT_COPYLOGMSG);
 						if (input.DoModal() == IDOK)
 						{
-							if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, input.m_sInputText))
+							if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, input.m_sInputText))
 							{
 								theApp.DoWaitCursor(-1);
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
-							} // if (!svn.Copy(url, dlg.m_name, SVN::REV_HEAD, _T("copy remotely"))) 
+							} // if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, _T("copy remotely"))) 
 							m_treeRepository.Refresh(hSelItem);
 						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
