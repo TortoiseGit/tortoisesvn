@@ -81,6 +81,7 @@ protected:
 	afx_msg void OnCbnCloseupOldlogs();
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	void Refresh();
+	void GetAutocompletionList(CAutoCompletionList& list);
 	DECLARE_MESSAGE_MAP()
 
 
@@ -91,6 +92,7 @@ public:
 	CString			m_sLogMessage;
 
 private:
+	CAutoCompletionList		m_autolist;
 	CSVNStatusListCtrl		m_ListCtrl;
 	CHistoryCombo	m_OldLogs;
 	BOOL			m_bShowUnversioned;

@@ -1,3 +1,21 @@
+// TortoiseSVN - a Windows shell extension for easy version control
+
+// Copyright (C) 2003-2004 - Stefan Kueng
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+//
 #include "StdAfx.h"
 #include ".\sciedit.h"
 
@@ -116,11 +134,36 @@ CString CSciEdit::GetText()
 	return sText;
 }
 
+CString CSciEdit::GetWordUnderCursor()
+{
+	char textbuffer[100];
+	TEXTRANGEA textrange;
+	textrange.lpstrText = textbuffer;	
+	int pos = Call(SCI_GETCURRENTPOS);
+	textrange.chrg.cpMin = Call(SCI_WORDSTARTPOSITION, pos, TRUE);
+	textrange.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
+	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+	return CString(textbuffer);
+}
+
 void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 {
 	Call(SCI_STYLESETFONT, STYLE_DEFAULT, (LPARAM)(LPCSTR)CStringA(sFontName));
 	Call(SCI_STYLESETSIZE, STYLE_DEFAULT, iFontSizeInPoints);
 	Call(SCI_STYLECLEARALL);
+}
+
+void CSciEdit::SetAutoCompletionList(const CAutoCompletionList& list, const TCHAR separator)
+{
+	//copy the autocompletion list.
+	
+	//SK: instead of creating a copy of that list, we could accept a pointer
+	//to the list and use that instead. But then the caller would have to make
+	//sure that the list persists over the lifetime of the control!
+	m_autolist.RemoveAll();
+	for (INT_PTR i=0; i<list.GetCount(); ++i)
+		m_autolist.Add(list[i]);
+	m_separator = separator;
 }
 
 void CSciEdit::CheckSpelling()
@@ -180,6 +223,34 @@ void CSciEdit::CheckSpelling()
 	}
 }
 
+void CSciEdit::DoAutoCompletion()
+{
+	if (m_autolist.GetCount()==0)
+		return;
+	CString word = GetWordUnderCursor();
+	if (word.GetLength() < 3)
+		return;		//don't autocomplete yet, word is too short
+	CString sAutoCompleteList;
+	
+	for (INT_PTR index = 0; index < m_autolist.GetCount(); ++index)
+	{
+		int compare = word.CompareNoCase(m_autolist[index].Left(word.GetLength()));
+		if (compare>0)
+			continue;
+		else if (compare == 0)
+		{
+			sAutoCompleteList += m_autolist[index] + m_separator;
+		}
+		else
+			break;
+	}
+	sAutoCompleteList.TrimRight(m_separator);
+	if (sAutoCompleteList.IsEmpty())
+		return;
+	Call(SCI_AUTOCSETSEPARATOR, (WPARAM)CStringA(m_separator).GetAt(0));
+	Call(SCI_AUTOCSHOW, word.GetLength(), (LPARAM)(LPCSTR)CStringA(sAutoCompleteList));
+}
+
 BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult)
 {
 	if (message != WM_NOTIFY)
@@ -193,9 +264,34 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 		{
 		case SCN_CHARADDED:
 			CheckSpelling();
+			DoAutoCompletion();
 			return TRUE;
 			break;
 		}
 	}
 	return CWnd::OnChildNotify(message, wParam, lParam, pLResult);
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+void CAutoCompletionList::AddSorted(const CString& elem, bool bNoDuplicates /*= true*/)
+{
+	if (GetCount()==0)
+		return InsertAt(0, elem);
+	
+	int nMin = 0;
+	int nMax = GetUpperBound();
+	while (nMin <= nMax)
+	{
+		UINT nHit = (UINT)(nMin + nMax) >> 1; // fast devide by 2
+		int cmp = elem.CompareNoCase(GetAt(nHit));
+
+		if (cmp > 0)
+			nMin = nHit + 1;
+		else if (cmp < 0)
+			nMax = nHit - 1;
+		else if (bNoDuplicates)
+			return; // already in the array
+	}
+	return InsertAt(nMin, elem);
 }

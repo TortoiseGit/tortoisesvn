@@ -394,6 +394,9 @@ UINT CLogPromptDlg::StatusThread()
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_ListCtrl.m_sUUID);
 	m_OldLogs.LoadHistory(reg, _T("logmsgs"));
+	m_autolist.RemoveAll();
+	GetAutocompletionList(m_autolist);
+	m_cLogMessage.SetAutoCompletionList(m_autolist, '*');
 	m_bBlock = FALSE;
 	return 0;
 }
@@ -580,3 +583,33 @@ LRESULT CLogPromptDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 	return 0;
 }
 
+void CLogPromptDlg::GetAutocompletionList(CAutoCompletionList& list)
+{
+	TCHAR buf[MAX_PATH];
+	int nListItems = m_ListCtrl.GetItemCount();
+	for (int i=0; i<nListItems; ++i)
+	{
+		CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
+		if (entry->IsChecked())
+		{
+			svn_wc_status_kind status = entry->status;
+			if (status == svn_wc_status_unversioned)
+				status = svn_wc_status_added;
+			if (status == svn_wc_status_missing)
+				status = svn_wc_status_deleted;
+			WORD langID = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
+			if ((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\EnglishTemplate"), FALSE)==TRUE)
+				langID = 1033;
+			SVNStatus::GetStatusString(AfxGetResourceHandle(), status, buf, sizeof(buf)/sizeof(TCHAR), langID);
+			list.AddSorted(buf);
+			CString sRelativePath = m_ListCtrl.GetItemText(i,0);
+			int slashpos = -1;
+			do 
+			{
+				list.AddSorted(sRelativePath);
+				slashpos = sRelativePath.Find('/');
+				sRelativePath = sRelativePath.Mid(slashpos+1);
+			} while(slashpos > 0);
+		}
+	}
+}
