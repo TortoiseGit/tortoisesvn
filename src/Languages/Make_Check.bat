@@ -37,6 +37,7 @@ rem   FOR /F " usebackq skip=1 " %%p IN (`Check_Attrib.bat Tortoise_%1.po only-o
     echo ^<tr class="incomplete"^> >> %OFile%
   )
 
+  if !tra! GTR 1 SET /A tra -= 1 
   if !fuz! GTR 1 SET /A fuz -= 1 
   if !unt! GTR 1 SET /A unt -= 1
 
