@@ -17,11 +17,7 @@ END_MESSAGE_MAP()
 CTortoiseMergeApp::CTortoiseMergeApp()
 {
 	EnableHtmlHelp();
-
-	// TODO: add construction code here,
-	// Place all significant initialization in InitInstance
 }
-
 
 // The one and only CTortoiseMergeApp object
 CTortoiseMergeApp theApp;
@@ -120,12 +116,12 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 END_MESSAGE_MAP()
 
 // App command to run the dialog
+
+
+// CTortoiseMergeApp message handlers
+
 void CTortoiseMergeApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
-
-
-// CTortoiseMergeApp message handlers
-

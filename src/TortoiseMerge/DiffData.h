@@ -34,7 +34,7 @@ public:
 	int							GetLineActualLength(int index);
 	LPCTSTR						GetLineChars(int index);
 	static void					GetColors(DiffStates state, COLORREF &crBkgnd, COLORREF &crText);
-
+	CString						GetError() {return m_sError;}
 public:
 	CString						m_sBaseFile;
 	CString						m_sTheirFile;
@@ -68,7 +68,7 @@ public:
 	CStringArray				m_arDiff3;
 	CDWordArray					m_arStateDiff3;
 
-
+	CString						m_sError;
 
 	static int					abort_on_pool_failure (int retcode);
 protected:

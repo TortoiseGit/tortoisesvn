@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "diff.h"
+#include "Resource.h"
 #include ".\diffdata.h"
 
 int CDiffData::abort_on_pool_failure (int retcode)
@@ -162,15 +163,27 @@ BOOL CDiffData::Load()
 
 	if (!m_sBaseFile.IsEmpty())
 	{
-		m_arBaseFile.Load(m_sBaseFile);
+		if (!m_arBaseFile.Load(m_sBaseFile))
+		{
+			m_sError = m_arBaseFile.GetErrorString();
+			return FALSE;
+		}
 	} // if (!m_sBaseFile.IsEmpty())
 	if (!m_sTheirFile.IsEmpty())
 	{
-		m_arTheirFile.Load(m_sTheirFile);
+		if (!m_arTheirFile.Load(m_sTheirFile))
+		{
+			m_sError = m_arTheirFile.GetErrorString();
+			return FALSE;
+		}
 	} // if (!m_sTheirFile.IsEmpty())
 	if (!m_sYourFile.IsEmpty())
 	{
-		m_arYourFile.Load(m_sYourFile);
+		if (!m_arYourFile.Load(m_sYourFile))
+		{
+			m_sError = m_arYourFile.GetErrorString();
+			return FALSE;
+		}
 	} // if (!m_sYourFile.IsEmpty()) 
 	//#region if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
 	if ((!m_sBaseFile.IsEmpty()) && (!m_sYourFile.IsEmpty()) && m_sTheirFile.IsEmpty())
@@ -179,8 +192,16 @@ BOOL CDiffData::Load()
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));
+			CString sMsg = CString(svnerr->message);
+			while (svnerr->child)
+			{
+				svnerr = svnerr->child;
+				sMsg += _T("\n");
+				sMsg += CString(svnerr->message);
+			} // while (m_err->child)
 			apr_pool_destroy (pool);					// free the allocated memory
 			apr_terminate();
+			m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 			return FALSE;
 		} // if (m_svnerr)
 		svn_diff_t * tempdiff = m_diffYourBase;
@@ -271,10 +292,18 @@ BOOL CDiffData::Load()
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));
+			CString sMsg = CString(svnerr->message);
+			while (svnerr->child)
+			{
+				svnerr = svnerr->child;
+				sMsg += _T("\n");
+				sMsg += CString(svnerr->message);
+			} // while (m_err->child)
 			apr_pool_destroy (pool);					// free the allocated memory
 			apr_terminate();
+			m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 			return FALSE;
-		}
+		} // if (m_svnerr)
 		svn_diff_t * tempdiff = m_diffTheirBase;
 		LONG baseline = 0;
 		LONG theirline = 0;
@@ -363,8 +392,16 @@ BOOL CDiffData::Load()
 		if (svnerr)
 		{
 			TRACE(_T("diff-error in CDiffData::Load()\n"));
+			CString sMsg = CString(svnerr->message);
+			while (svnerr->child)
+			{
+				svnerr = svnerr->child;
+				sMsg += _T("\n");
+				sMsg += CString(svnerr->message);
+			} // while (m_err->child)
 			apr_pool_destroy (pool);					// free the allocated memory
 			apr_terminate();
+			m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 			return FALSE;
 		} // if (m_svnerr)
 		svn_diff_t * tempdiff = m_diffTheirYourBase;

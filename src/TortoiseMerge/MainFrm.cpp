@@ -256,11 +256,24 @@ void CMainFrame::OnFileOpen()
 	this->m_Data.m_sYourFile = dlg.m_sYourFile;
 	this->m_Data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
 	this->m_Data.m_sPatchPath = dlg.m_sPatchDirectory;
-	if (this->m_Data.m_sBaseFile.IsEmpty())
+	LoadViews();
+}
+
+void CMainFrame::LoadViews()
+{
+	if (!this->m_Data.Load())
 	{
-		//base file is empty, that means the user has either made a mistake
-		//or (more likely) that a unified diff file was given for patching
-		if (!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile))
+		::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
+		return;
+	}
+	if (m_Data.m_sBaseFile.IsEmpty())
+	{
+		if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
+		{
+			m_Data.m_sBaseFile = m_Data.m_sTheirFile;
+			m_Data.m_sTheirFile.Empty();
+		} // if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty()) 
+		else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)))
 		{
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
 			return;
@@ -280,20 +293,6 @@ void CMainFrame::OnFileOpen()
 				m_wndSplitter.HideRow(1);
 			UpdateLayout();
 		} // if (m_Patch.GetNumberOfFiles() > 0) 
-	} // if (this->m_Data.m_sBaseFile.IsEmpty()) 
-	LoadViews();
-}
-
-void CMainFrame::LoadViews()
-{
-	this->m_Data.Load();
-	if (m_Data.m_sBaseFile.IsEmpty())
-	{
-		if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty())
-		{
-			m_Data.m_sBaseFile = m_Data.m_sTheirFile;
-			m_Data.m_sTheirFile.Empty();
-		} // if (!m_Data.m_sYourFile.IsEmpty() && !m_Data.m_sTheirFile.IsEmpty()) 
 	} // if (m_Data.m_sBaseFile.IsEmpty()) 
 	if (!m_Data.m_sBaseFile.IsEmpty() && !m_Data.m_sYourFile.IsEmpty() && m_Data.m_sTheirFile.IsEmpty())
 	{

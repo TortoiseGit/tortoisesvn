@@ -1,4 +1,5 @@
 #include "StdAfx.h"
+#include "Resource.h"
 #include ".\filetextlines.h"
 
 CFileTextLines::CFileTextLines(void)
@@ -96,7 +97,7 @@ BOOL CFileTextLines::Load(CString sFilePath)
 	m_LineEndings = CFileTextLines::AUTOLINE;
 	m_bUnicode = -1;
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
-	if (hFile == NULL)
+	if (hFile == INVALID_HANDLE_VALUE)
 	{
 		this->GetLastError();
 		return FALSE;
@@ -136,6 +137,8 @@ BOOL CFileTextLines::Load(CString sFilePath)
 	}
 	catch (CException * e)
 	{
+		e->GetErrorMessage(m_sErrorString.GetBuffer(4096), 4096);
+		m_sErrorString.ReleaseBuffer();
 		e->Delete();
 		bRetval = FALSE;
 	}
@@ -149,6 +152,7 @@ BOOL CFileTextLines::Save(CString sFilePath)
 		CFile file;
 		if (!file.Open(sFilePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
 		{
+			m_sErrorString.Format(IDS_ERR_FILE_OPEN, sFilePath);
 			return FALSE;
 		} // if (!file.Open(sSavePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary)) 
 		if (m_bUnicode)
@@ -208,6 +212,8 @@ BOOL CFileTextLines::Save(CString sFilePath)
 	}
 	catch (CException * e)
 	{
+		e->GetErrorMessage(m_sErrorString.GetBuffer(4096), 4096);
+		m_sErrorString.ReleaseBuffer();
 		e->Delete();
 		return FALSE;
 	}
@@ -227,7 +233,7 @@ void CFileTextLines::GetLastError()
 			0,
 			NULL 
 			);
-		m_sErrorString = CString((LPCTSTR)lpMsgBuf);
+		m_sErrorString = (LPCTSTR)lpMsgBuf;
 		LocalFree( lpMsgBuf );
 }
 
