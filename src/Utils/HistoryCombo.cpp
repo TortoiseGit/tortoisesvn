@@ -26,6 +26,7 @@ CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
 {
 	m_nMaxHistoryItems = MAX_HISTORY_ITEMS;
 	m_bAllowSortStyle = bAllowSortStyle;
+	m_bURLHistory = FALSE;
 }
 
 CHistoryCombo::~CHistoryCombo()
@@ -45,37 +46,45 @@ BEGIN_MESSAGE_MAP(CHistoryCombo, CComboBoxEx)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-int CHistoryCombo::AddURL(CString url, INT_PTR pos)
+int CHistoryCombo::AddString(CString str, INT_PTR pos)
 {
 	COMBOBOXEXITEM cbei;
 	ZeroMemory(&cbei, sizeof cbei);
-	cbei.mask = CBEIF_TEXT | CBEIF_IMAGE | CBEIF_SELECTEDIMAGE;
+	cbei.mask = CBEIF_TEXT;
 
 	if (pos < 0)
         cbei.iItem = GetCount();
 	else
 		cbei.iItem = pos;
 
-	url.Trim(_T(" "));
-	cbei.pszText = const_cast<LPTSTR>(url.GetString());
+	str.Trim(_T(" "));
+	cbei.pszText = const_cast<LPTSTR>(str.GetString());
 
-	cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(url);
-	if (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex())
+	if (m_bURLHistory)
 	{
-		if (url.Left(5) == _T("http:"))
-			cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".html"));
-		else if (url.Left(6) == _T("https:"))
-			cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".shtml"));
-		else if (url.Left(5) == _T("file:"))
-			cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
+		cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(str);
+		if (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex())
+		{
+			if (str.Left(5) == _T("http:"))
+				cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".html"));
+			else if (str.Left(6) == _T("https:"))
+				cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(_T(".shtml"));
+			else if (str.Left(5) == _T("file:"))
+				cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
+			else if (str.Left(4) == _T("svn:"))
+				cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
+			else if (str.Left(8) == _T("svn+ssh:"))
+				cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
+		}
+		cbei.iSelectedImage = cbei.iImage;
+		cbei.mask |= CBEIF_IMAGE | CBEIF_SELECTEDIMAGE;
 	}
-	cbei.iSelectedImage = cbei.iImage;
 
 	int nRet = InsertItem(&cbei);
 
 	//search the Combo for another string like this
 	//and delete it if one is found
-	int nIndex = FindStringExact(0, url);
+	int nIndex = FindStringExact(0, str);
 	if (nIndex != -1 && nIndex != nRet)
 		DeleteItem(nIndex);
 
@@ -90,7 +99,7 @@ int CHistoryCombo::AddURL(CString url, INT_PTR pos)
 	return nRet;
 }
 
-CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix,  BOOL bUseShellURLHistory) 
+CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 {
 	if (lpszSection == NULL || lpszKeyPrefix == NULL || *lpszSection == '\0')
 		return _T("");
@@ -108,33 +117,12 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix,  
 		sKey.Format(_T("%s%d"), m_sKeyPrefix, n++);
 		sText = pApp->GetProfileString(m_sSection, sKey);
 		if (!sText.IsEmpty())
-			AddURL(sText);
+			AddString(sText);
 	} while (!sText.IsEmpty() && n < m_nMaxHistoryItems);
 
 	SetCurSel(0);
-	if (bUseShellURLHistory)
-	{
-		HWND hwndEdit;
-		// use for ComboEx
-		hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
-		if (NULL == hwndEdit)
-		{
-			//if not, try the old standby
-			if(hwndEdit==NULL)
-			{
-				CWnd* pWnd = this->GetDlgItem(1001);
-				if(pWnd)
-				{
-					hwndEdit = pWnd->GetSafeHwnd();
-				}
-			} // if(hwndEdit==NULL) 
-		} // if (NULL == hwndEdit) 
-		if (hwndEdit)
-			SHAutoComplete(hwndEdit, SHACF_URLALL);
-	} // if (bUseShellURLHistory) 
 
 	ModifyStyleEx(WS_EX_DLGMODALFRAME | WS_EX_WINDOWEDGE, 0);
-	SetImageList(&SYS_IMAGE_LIST());
 
 	// need to resize the control for correct display
 	CRect rect;
@@ -158,7 +146,7 @@ void CHistoryCombo::SaveHistory()
 	GetWindowText(sCurItem);
 	sCurItem.Trim();
 	if (!sCurItem.IsEmpty())
-		AddURL(sCurItem, 0);
+		AddString(sCurItem, 0);
 	//save history to registry/inifile
 	int nMax = min(GetCount(), m_nMaxHistoryItems + 1);
 	for (int n = 0; n < nMax; n++)
@@ -199,6 +187,34 @@ void CHistoryCombo::ClearHistory(BOOL bDeleteRegistryEntries/*=TRUE*/)
 			pApp->WriteProfileString(m_sSection, sKey, NULL); // remove entry
 		}
 	}
+}
+
+void CHistoryCombo::SetURLHistory(BOOL bURLHistory)
+{
+	m_bURLHistory = bURLHistory;
+
+	if (m_bURLHistory)
+	{
+		HWND hwndEdit;
+		// use for ComboEx
+		hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
+		if (NULL == hwndEdit)
+		{
+			//if not, try the old standby
+			if(hwndEdit==NULL)
+			{
+				CWnd* pWnd = this->GetDlgItem(1001);
+				if(pWnd)
+				{
+					hwndEdit = pWnd->GetSafeHwnd();
+				}
+			} // if(hwndEdit==NULL) 
+		} // if (NULL == hwndEdit) 
+		if (hwndEdit)
+			SHAutoComplete(hwndEdit, SHACF_URLALL);
+	} // if (bUseShellURLHistory) 
+
+	SetImageList(&SYS_IMAGE_LIST());
 }
 
 void CHistoryCombo::SetMaxHistoryItems(int nMaxItems)

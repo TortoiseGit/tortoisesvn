@@ -31,7 +31,9 @@
  * -# add a ComboBoxEx to your dialog
  * -# create a variable for the ComboBox of type control
  * -# change the type of the created variable from CComboBoxEx to
- *   CHistoryCombo
+ *    CHistoryCombo
+ * -# in your OnInitDialog() call SetURLHistory(TRUE) if your ComboBox
+ *    contains URLs
  * -# in your OnInitDialog() call the LoadHistory() method
  * -# in your OnOK() or somewhere similar call the SaveHistory() method
  * 
@@ -61,15 +63,16 @@ class CHistoryCombo : public CComboBoxEx
 // Construction
 public:
 	CHistoryCombo(BOOL bAllowSortStyle = FALSE);
+	virtual ~CHistoryCombo();
 
 // Operations
 public:
 	/**
-	 * Adds the URL to both the combobox and the history.
-	 * If \a pos is specified, insert the URL at the specified
+	 * Adds the string \a str to both the combobox and the history.
+	 * If \a pos is specified, insert the string at the specified
 	 * position, otherwise add it to the end of the list.
 	 */
-	int AddURL(CString url, INT_PTR pos = -1);
+	int AddString(CString str, INT_PTR pos = -1);
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -86,6 +89,13 @@ public:
 	 * itself is deleted.
 	 */
 	void ClearHistory(BOOL bDeleteRegistryEntries = TRUE);
+	/**
+	 * When \a bURLHistory is TRUE, treat the combo box entries
+	 * as URLs. This activates Shell URL auto completion and
+	 * the display of special icons in front of the combobox
+	 * entries. Default is FALSE.
+	 */
+	void SetURLHistory(BOOL bURLHistory);
 	/**
 	 * Sets the maximum numbers of entries in the history list.
 	 * If the history is larger as \em nMaxItems then the last
@@ -104,21 +114,19 @@ public:
 	 * \param lpszSection a section name where to put the entries, e.g. "lastloadedfiles"
 	 * \param lpszKeyPrefix a prefix to use for the history entries in registry/inifiles. E.g. "file" or "entry"
 	 */
-	CString LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix, BOOL bUseShellURLHistory = TRUE);
+	CString LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix);
 
 	/**
 	 * Returns the string in the combobox which is either selected or the user has entered.
 	 */
 	CString GetString();
 
-	virtual ~CHistoryCombo();
-
 protected:
 	CString m_sSection;
 	CString m_sKeyPrefix;
 	int m_nMaxHistoryItems;
 	BOOL m_bAllowSortStyle;
-
+	BOOL m_bURLHistory;
 
 	DECLARE_MESSAGE_MAP()
 };

@@ -90,7 +90,10 @@ BOOL CImportDlg::OnInitDialog()
 	GetDlgItem(IDC_MESSAGE)->SetFont(&m_logFont);
 
 	if (m_url.IsEmpty())
+	{
+		m_URLCombo.SetURLHistory(TRUE);
 		m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
+	}
 	else
 	{
 		m_URLCombo.SetWindowText(m_url);

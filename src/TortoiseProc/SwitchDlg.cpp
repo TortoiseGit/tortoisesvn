@@ -105,11 +105,12 @@ BOOL CSwitchDlg::OnInitDialog()
 
 	SVNStatus status;
 	status.GetStatus(m_path);
+	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	if (status.status->entry != NULL)
 	{
 		m_path = status.status->entry->url;
-		m_URLCombo.AddURL(m_path, 0);
+		m_URLCombo.AddString(m_path, 0);
 		m_URLCombo.SelectString(-1, m_path);
 		m_URL = m_path;
 	}

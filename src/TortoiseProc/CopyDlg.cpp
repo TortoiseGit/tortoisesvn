@@ -132,8 +132,9 @@ BOOL CCopyDlg::OnInitDialog()
 		CUtils::Unescape((char *)status.status->entry->url);
 		unescapedurl = CUnicodeUtils::GetUnicode(status.status->entry->url);
 	}
+	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
-	m_URLCombo.AddURL(m_wcURL, 0);
+	m_URLCombo.AddString(m_wcURL, 0);
 	m_URLCombo.SelectString(-1, m_wcURL);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(unescapedurl);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));

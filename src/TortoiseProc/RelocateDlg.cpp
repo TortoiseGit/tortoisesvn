@@ -56,6 +56,7 @@ BOOL CRelocateDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
+	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 
 	CStringA urla = CUnicodeUtils::GetUTF8(m_sFromUrl);

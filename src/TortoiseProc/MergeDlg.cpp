@@ -129,6 +129,7 @@ BOOL CMergeDlg::OnInitDialog()
 		m_URL = CUnicodeUtils::GetUnicode(status.status->entry->url);
 	m_BranchURL = m_URL;
 
+	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
 	m_URLCombo.SetWindowText(m_URL);
 
