@@ -3,25 +3,12 @@ rem Script to build the language dlls
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
-set OFile=translations.html
 set LogFile=statusreport.txt
 
-..\bin\release\bin\SubWCRev.exe . trans_head.html %OFile%
 
 rem Count all messages in PO Template file
 FOR /F "usebackq" %%p IN (`Check_Attrib.bat Tortoise.pot`) DO SET total=%%p
 FOR /F "usebackq" %%p IN (`svnversion .`) DO SET version=%%p
-
-echo ^<tr class="complete"^> >> %OFile%
-echo ^<td class="lang"^>Empty Catalog^</td^> >> %OFile%
-echo ^<td class="lang"^>^&nbsp;^</td^> >> %OFile%
-echo ^<td class="trans"^>^&nbsp;^</td^> >> %OFile%
-echo ^<td class="fuzzy"^>^&nbsp;^</td^> >> %OFile%
-echo ^<td class="untrans"^>!total!^</td^> >> %OFile%
-echo ^<td class="untrans"^>^&nbsp;^</td^> >> %OFile%
-echo ^<td class="graph"^>^&nbsp;^</td^> >> %OFile%
-echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/trunk/Languages/Tortoise.pot"^>Tortoise.pot^</a^>^</td^> >> %OFile%
-echo ^</tr^> >> %OFile%
 
 copy Tortoise_*.po _Tortois_*.po /Y
 FOR %%i in (_Tortois_*.po) do msgmerge --no-wrap --quiet --no-fuzzy-matching -s %%i Tortoise.pot -o %%i
@@ -39,7 +26,6 @@ del _Tortois_*.po /Q
 del *.mo
 
 :end
-type trans_foot.html >> %OFile%
 ENDLOCAL
 goto :eof
 
@@ -67,11 +53,7 @@ rem   FOR /F "usebackq" %%p IN (`Check_Attrib.bat _Tortois_%1.po --only-obsolete
   echo. >> %LogFile%
 
   if !tra! EQU !total! (
-    echo ^<tr class="complete"^> >> %OFile%
     SET unt=0
-rem    SET fuz=0
-  ) else (
-    echo ^<tr class="incomplete"^> >> %OFile%
   )
 
   SET /A tra=!tra!-!fuz!
@@ -82,27 +64,6 @@ rem    SET fuz=0
 
   SET /A tra=!wt!/2
 
-  echo ^<td class="lang"^>%~3^</td^>>> %OFile%
-  echo ^<td class="lang"^>%1^</td^>>> %OFile%
-  echo ^<td class="trans"^>!tra! ^%%^</td^>>> %OFile%
-  echo ^<td class="fuzzy"^>!fuz!^</td^>>> %OFile%
-  echo ^<td class="untrans"^>!unt!^</td^>>> %OFile%
-  echo ^<td class="untrans"^>!errors!^</td^>>> %OFile%
-  echo ^<td class="graph"^>>> %OFile%
-  echo ^<img src="images/translated.png" width="!wt!" height="16"/^>^<img src="images/fuzzy.png" width="!wf!" height="16"/^>^<img src="images/untranslated.png" width="!wu!" height="16"/^>>> %OFile%
-  echo ^</td^>>> %OFile%
- 
-) else (
-  echo ^<tr class="incomplete"^> >> %OFile%
-  echo ^<td class="lang"^>%~4^</td^>>> %OFile%
-  echo ^<td class="lang"^>%1^</td^>>> %OFile%
-  echo ^<td class="trans"^>^&nbsp;^</td^> >> %OFile%
-  echo ^<td class="fuzzy"^>^&nbsp;^</td^> >> %OFile%
-  echo ^<td class="untrans"^>^&nbsp;^</td^> >> %OFile%
-  echo ^<td class="untrans"^>Missing^</td^> >> %OFile%
-  echo ^<td class="graph"^>^<img src="images/untranslated.png" width="200" height="16"/^>^</td^> >> %OFile%
 )
-echo ^<td class="download"^>^<a href="http://svn.collab.net/repos/tortoisesvn/trunk/Languages/Tortoise_%1.po"^>Tortoise_%1.po^</a^>^</td^> >> %OFile%
-echo ^</tr^> >> %OFile%
 
 goto :eof
