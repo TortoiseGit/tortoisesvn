@@ -31,6 +31,7 @@ IMPLEMENT_DYNAMIC(CLogDlg, CResizableDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CLogDlg::IDD, pParent)
 {
+	m_pFindDialog = NULL;
 	m_bCancelled = FALSE;
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -46,6 +47,7 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOGMSG, m_LogMsgCtrl);
 }
 
+const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_WM_PAINT()
@@ -57,6 +59,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(NM_RCLICK, IDC_LOGMSG, OnNMRclickLogmsg)
 	ON_NOTIFY(NM_CLICK, IDC_LOGMSG, OnNMClickLogmsg)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, OnLvnKeydownLogmsg)
+	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 END_MESSAGE_MAP()
 
 
@@ -261,6 +264,7 @@ void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
 		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex));
+		this->m_nSearchIndex = selIndex;
 		UpdateData(FALSE);
 	}
 	else
@@ -294,6 +298,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				selIndex = m_LogList.GetItemCount()-1;
 		}
 		//m_sLogMsgCtrl = m_arLogMessages.GetAt(selIndex);
+		this->m_nSearchIndex = selIndex;
 		FillLogMessageCtrl(m_arLogMessages.GetAt(selIndex));
 		UpdateData(FALSE);
 	}
@@ -311,6 +316,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	//check if an entry is selected
 	*pResult = 0;
 	int selIndex = m_LogList.GetSelectionMark();
+	this->m_nSearchIndex = selIndex;
+
 	if (selIndex >= 0)
 	{
 		//entry is selected, now show the popup menu
@@ -320,6 +327,8 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		if (popup.CreatePopupMenu())
 		{
 			CString temp;
+			temp.LoadString(IDS_LOG_POPUP_FIND);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
 			if (m_LogList.GetSelectedCount() == 1)
 			{
 				if (!PathIsDirectory(m_path))
@@ -575,6 +584,17 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 				}
 				break;
+			case ID_FINDENTRY:
+				{
+					m_nSearchIndex = m_LogList.GetSelectionMark();
+					if (m_pFindDialog)
+					{
+						return;
+					}
+					m_pFindDialog = new CFindReplaceDialog();
+					m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);									
+				}
+				break;
 			default:
 				break;
 			} // switch (cmd)
@@ -582,6 +602,61 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 		} // if (popup.CreatePopupMenu())
 	} // if (selIndex >= 0)
+}
+
+LRESULT CLogDlg::OnFindDialogMessage(WPARAM wParam, LPARAM lParam)
+{
+    ASSERT(m_pFindDialog != NULL);
+
+    if (m_pFindDialog->IsTerminating())
+    {
+	    // invalidate the handle identifying the dialog box.
+        m_pFindDialog = NULL;
+        return 0;
+    }
+
+    if(m_pFindDialog->FindNext())
+    {
+        //read data from dialog
+        CString FindText = m_pFindDialog->GetFindString();
+        bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
+		bool bFound = FALSE;
+
+		for (int i=this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++)
+		{
+			if (bMatchCase)
+			{
+				if (m_arLogMessages.GetAt(i).Find(FindText) >= 0)
+				{
+					bFound = TRUE;
+					break;
+				} // if (m_arLogMessages.GetAt(i).Find(FindText) >= 0) 
+			} // if (bMatchCase) 
+			else
+			{
+				CString msg = m_arLogMessages.GetAt(i);
+				msg = msg.MakeLower();
+				CString find = FindText.MakeLower();
+				if (msg.Find(FindText) >= 0)
+				{
+					bFound = TRUE;
+					break;
+				} // if (msg.Find(FindText) >= 0) 
+			} 
+		} // for (int i=this->m_nSearchIndex; i<m_LogList.GetItemCount(); i++) 
+		if (bFound)
+		{
+			this->m_nSearchIndex = (i+1);
+			m_LogList.EnsureVisible(i, FALSE);
+			m_LogList.SetItemState(m_LogList.GetSelectionMark(), 0, LVIS_SELECTED);
+			m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+			m_LogList.SetSelectionMark(i);
+			FillLogMessageCtrl(m_arLogMessages.GetAt(i));
+			UpdateData(FALSE);
+		}
+    } // if(m_pFindDialog->FindNext()) 
+
+    return 0;
 }
 
 void CLogDlg::OnOK()

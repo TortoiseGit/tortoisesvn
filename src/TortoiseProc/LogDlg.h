@@ -19,6 +19,7 @@
 #pragma once
 #include "afxcmn.h"
 #include "afxtempl.h"
+#include "afxdlgs.h"
 #include "svn.h"
 #include "promptdlg.h"
 
@@ -33,6 +34,7 @@
 #define ID_REVERTREV	6
 #define ID_GNUDIFF1		7
 #define ID_GNUDIFF2		8
+#define ID_FINDENTRY	9
 
 #define ID_DIFF			20
 
@@ -94,6 +96,7 @@ protected:
 	afx_msg void OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetInfoTipLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
 	virtual BOOL OnInitDialog();
 	virtual void OnOK();
 
@@ -119,6 +122,9 @@ private:
 	CDWordArray m_arFileListStarts;
 	CDWordArray m_arRevs;
 	BOOL		m_hasWC;
+	int			m_nSearchIndex;
+	static const UINT m_FindDialogMessage;
+	CFindReplaceDialog *m_pFindDialog;
 public:
 //	afx_msg void OnLvnItemActivateLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
