@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-03-10 09:08+0100\n"
+"PO-Revision-Date: 2005-03-14 09:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -425,6 +425,7 @@ msgstr "- %d"
 
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -873,19 +874,6 @@ msgstr "Verzweigen / Markieren"
 msgid "Branch / Tag created successfully!"
 msgstr "Verzweigung / Markierung erfolgreich erstellt!"
 
-# Control-ID:1073,
-#: Control-ID:1182
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "Zweig/Markierung direkt im Projektarchiv (HEAD) erstellen"
-
-#: Control-ID:1185
-msgid "Branch/Tag from the revision:"
-msgstr "Verzweigen / Markieren aus Revision:"
-
-#: Control-ID:1183
-msgid "Branch/Tag the working copy"
-msgstr "Zweig/Markierung aus Arbeitskopie erstellen"
-
 #: ID:9
 msgid "Branch/Tag..."
 msgstr "Verzweigen / Markieren..."
@@ -1327,6 +1315,10 @@ msgstr "Konnte Druckauftrag nicht starten."
 msgid "Could not start thread!"
 msgstr "Thread konnte nicht gestartet werden!"
 
+#: Control-ID:65535
+msgid "Create Branch/Tag on the server from:"
+msgstr "Erstelle Verzweigung / Markierung auf dem Server aus:"
+
 #: ID:13
 msgid "Create Patch..."
 msgstr "Erzeuge Patch..."
@@ -1544,6 +1536,14 @@ msgstr "Bearbeite Dateityp-spezifisches Merge Programm"
 #: ID:113
 msgid "Edit Log Message"
 msgstr "Log-Meldung ändern"
+
+#: ID:115
+msgid "Edit author name"
+msgstr "Autor bearbeiten"
+
+#: ID:115
+msgid "Edit log message"
+msgstr "Log-Meldung bearbeiten"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -1800,6 +1800,10 @@ msgstr "Diagrammtyp:"
 #: Control-ID:1032
 msgid "H&ead Revision"
 msgstr "&Neueste Revision"
+
+#: Control-ID:1182
+msgid "HEAD revision on the server"
+msgstr "HEAD (neueste) Revision auf dem Server"
 
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -2348,8 +2352,8 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Passwort:"
 
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
+#: ID:172
+msgid "Paste filename list"
 msgstr "Geänderte Dateinamen einfügen"
 
 #: ID:376
@@ -3093,6 +3097,11 @@ msgstr "Übersprungen"
 msgid "Skipped missing target"
 msgstr "Fehlendes Ziel übersprungen"
 
+# Control-ID:1185,
+#: Control-ID:1185
+msgid "Specific revision on the server"
+msgstr "Revisionsnummer auf dem Server"
+
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
@@ -3831,6 +3840,10 @@ msgstr "Leerzeichen Diff"
 #: Control-ID:65535
 msgid "Whitespaces"
 msgstr "Leerzeichen"
+
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "Arbeitskopie"
 
 #: ID:80
 msgid ""
