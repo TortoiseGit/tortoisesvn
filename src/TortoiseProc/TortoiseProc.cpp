@@ -1001,7 +1001,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			//now look for the other required files
 			SVNStatus stat;
 			stat.GetStatus(merge);
-			if (stat.status->entry)
+			if ((stat.status)&&(stat.status->entry))
 			{
 				if (stat.status->entry->conflict_new)
 				{
