@@ -222,15 +222,18 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 			// status info until we found the one matching strLine.
 			if (!bIsFolder)
 			{
-				while (s != 0)
+				if (strLine.CompareNoCase(strbuf)!=0)
 				{
-					CString temp = strbuf;
-					temp.Replace('\\', '/');
-					if (temp == strLine)
-						break;
-					s = status.GetNextFileStatus(&strbuf);
+					while (s != 0)
+					{
+						CString temp = strbuf;
+						temp.Replace('\\', '/');
+						if (temp == strLine)
+							break;
+						s = status.GetNextFileStatus(&strbuf);
+					}
+					strLine = strLine.Left(strLine.ReverseFind('/'));
 				}
-				strLine = strLine.Left(strLine.ReverseFind('/'));
 			}
 
 			if (s!=0)
@@ -1112,6 +1115,9 @@ void CSVNStatusListCtrl::Stat()
 			case svn_wc_status_conflicted:
 			case svn_wc_status_obstructed:
 				m_nConflicted++;
+				break;
+			case svn_wc_status_ignored:
+				m_nUnversioned++;
 				break;
 			default:
 				{
