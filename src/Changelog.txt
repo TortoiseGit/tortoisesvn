@@ -1,5 +1,5 @@
 - ADD: Filter for the log dialog. (Stefan)
-- ADD: New, improved overlay cache. (Will Dean)
+- ADD: New, improved overlay cache. (Will Dean, Stefan)
 - ADD: Option to resolve a conflicted file in the status list control. (Stefan)
 - ADD: TortoiseSVN now uses its own sound files for errors, warnings
        and notifications in the progress dialog. (Stefan)
@@ -42,6 +42,14 @@
 - BUG: Issue 11: TortoiseMerge now shows the real linenumbers when diffing. (Stefan)
 - BUG: Executing a command with multiple selected files/folders didn't work
        correctly. (Stefan)
+
+Version 1.1.5
+- BUG: Diffing from the modified list in the log dialog didn't work. (Stefan)
+- BUG: Searching case-insensitive in the log dialog would 
+       convert all paths to lowercase which prevents their 
+       further use for e.g. diffing. (Stefan)
+- BUG: Right-drag exporting files would create intermediate
+       folders and throw an error message. (Stefan)
 
 Version 1.1.4
 - BUG: The revision graph didn't work for paths/URLs with spaces in it. (Stefan)
