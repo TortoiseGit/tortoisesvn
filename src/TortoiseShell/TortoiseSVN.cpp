@@ -58,9 +58,10 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 #endif
     if (dwReason == DLL_PROCESS_ATTACH)
     {
+		if (g_hmodThisDll == NULL)
+			InitializeCriticalSection(&g_csCacheGuard);
         // Extension DLL one-time initialization
         g_hmodThisDll = hInstance;
-		InitializeCriticalSection(&g_csCacheGuard);
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
@@ -70,8 +71,12 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 
 STDAPI DllCanUnloadNow(void)
 {
-	DeleteCriticalSection(&g_csCacheGuard);
-    return (g_cRefThisDll == 0 ? S_OK : S_FALSE);
+	if (g_cRefThisDll == 0)
+	{
+		DeleteCriticalSection(&g_csCacheGuard);
+		return S_OK;
+	}
+	return S_FALSE;
 }
 
 STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
