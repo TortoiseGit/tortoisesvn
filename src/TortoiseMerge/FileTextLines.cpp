@@ -274,7 +274,7 @@ CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
 	sLine.ReleaseBuffer(outputLen);
 }
 
-BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/, BOOL bIgnoreLineendings /*= FALSE*/)
+BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= FALSE*/, BOOL bIgnoreLineendings /*= FALSE*/, BOOL bIgnoreCase /*= FALSE*/)
 {
 	if (bIgnoreLineendings)
 		m_LineEndings = AUTOLINE;
@@ -299,6 +299,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 					sLine.Replace(_T(" "), _T(""));
 					sLine.Replace(_T("\t"), _T(""));
 				}
+				if (bIgnoreCase)
+					sLine = sLine.MakeLower();
 				file.Write((LPCTSTR)sLine, sLine.GetLength());
 				switch (m_LineEndings)
 				{
@@ -328,6 +330,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 				{
 					StripAsciiWhiteSpace(sLine);
 				}
+				if (bIgnoreCase)
+					sLine = sLine.MakeLower();
 				switch (m_LineEndings)
 				{
 				case CR:
@@ -361,6 +365,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, BOOL bIgnoreWhitespaces /*= 
 				{
 					StripAsciiWhiteSpace(sLine);
 				} // if (bIgnoreWhitespaces)
+				if (bIgnoreCase)
+					sLine = sLine.MakeLower();
 
 				switch (m_LineEndings)
 				{

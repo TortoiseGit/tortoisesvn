@@ -178,8 +178,10 @@ BOOL CDiffData::Load()
 	CTempFiles tempfiles;
 	CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 	CRegDWORD regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
+	CRegDWORD regIgnoreCase = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
 	DWORD dwIgnoreWS = regIgnoreWS;
 	BOOL bIgnoreEOL = ((DWORD)regIgnoreEOL)!=0;
+	BOOL bIgnoreCase = ((DWORD)regIgnoreCase)!=0;
 	if (IsBaseFileInUse())
 	{
 		if (!m_arBaseFile.Load(m_baseFile.GetFilename()))
@@ -189,7 +191,7 @@ BOOL CDiffData::Load()
 		} // if (!m_arBaseFile.Load(m_sBaseFile))
 		CFileTextLines converted(m_arBaseFile);
 		sConvertedBaseFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedBaseFilename, dwIgnoreWS > 0, bIgnoreEOL);
+		converted.Save(sConvertedBaseFilename, dwIgnoreWS > 0, bIgnoreEOL, bIgnoreCase);
 	} // if (IsBaseFileInUse())
 
 	if (IsTheirFileInUse())
@@ -203,7 +205,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arTheirFile);
 		sConvertedTheirFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedTheirFilename, dwIgnoreWS > 0, bIgnoreEOL);
+		converted.Save(sConvertedTheirFilename, dwIgnoreWS > 0, bIgnoreEOL, bIgnoreCase);
 	} // if (IsTheirFileInUse())
 
 	if (IsYourFileInUse())
@@ -217,7 +219,7 @@ BOOL CDiffData::Load()
 		}
 		CFileTextLines converted(m_arYourFile);
 		sConvertedYourFilename = tempfiles.GetTempFilePath();
-		converted.Save(sConvertedYourFilename, dwIgnoreWS > 0, bIgnoreEOL);
+		converted.Save(sConvertedYourFilename, dwIgnoreWS > 0, bIgnoreEOL, bIgnoreCase);
 	} // if (IsYourFileInUse()) 
 
 	// Calculate the number of lines in the largest of the three files

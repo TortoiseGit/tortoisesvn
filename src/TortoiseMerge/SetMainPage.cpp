@@ -41,6 +41,7 @@ CSetMainPage::CSetMainPage()
 	, m_bStrikeout(FALSE)
 	, m_bReloadNeeded(FALSE)
 	, m_bDisplayBinDiff(TRUE)
+	, m_bCaseInsensitive(FALSE)
 {
 	m_regLanguage = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
@@ -56,6 +57,7 @@ CSetMainPage::CSetMainPage()
 	m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
 	m_regDisplayBinDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
+	m_regCaseInsensitive = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
 
 	m_dwLanguage = m_regLanguage;
 	m_bBackup = m_regBackup;
@@ -69,6 +71,7 @@ CSetMainPage::CSetMainPage()
 	m_bDiffBar = m_regDiffBar;
 	m_bStrikeout = m_regStrikeout;
 	m_bDisplayBinDiff = m_regDisplayBinDiff;
+	m_bCaseInsensitive = m_regCaseInsensitive;
 }
 
 CSetMainPage::~CSetMainPage()
@@ -100,6 +103,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_DIFFBAR, m_bDiffBar);
 	DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
 	DDX_Check(pDX, IDC_USEBDIFF, m_bDisplayBinDiff);
+	DDX_Check(pDX, IDC_CASEINSENSITIVE, m_bCaseInsensitive);
 }
 
 void CSetMainPage::SaveData()
@@ -118,6 +122,7 @@ void CSetMainPage::SaveData()
 	m_regDiffBar = m_bDiffBar;
 	m_regStrikeout = m_bStrikeout;
 	m_regDisplayBinDiff = m_bDisplayBinDiff;
+	m_regCaseInsensitive = m_bCaseInsensitive;
 }
 
 BOOL CSetMainPage::OnApply()
@@ -151,6 +156,7 @@ BOOL CSetMainPage::OnInitDialog()
 	m_bMagnifier = m_regMagnifier;
 	m_bDiffBar = m_regDiffBar;
 	m_bStrikeout = m_regStrikeout;
+	m_bCaseInsensitive = m_bCaseInsensitive;
 
 	UINT uRadio = IDC_WSIGNORELEADING;
 	switch (m_nIgnoreWS)
@@ -252,6 +258,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 	ON_BN_CLICKED(IDC_USEBDIFF, OnBnClickedUsebdiff)
+	ON_BN_CLICKED(IDC_CASEINSENSITIVE, OnBnClickedCaseinsensitive)
 END_MESSAGE_MAP()
 
 
@@ -386,3 +393,7 @@ void CSetMainPage::OnBnClickedUsebdiff()
 	SetModified();
 }
 
+void CSetMainPage::OnBnClickedCaseinsensitive()
+{
+	SetModified();
+}
