@@ -684,9 +684,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region settings
 		if (comVal.Compare(_T("settings"))==0)
 		{
-			CString strTitle;
-			strTitle.LoadString(IDS_PROC_SETTINGS_TITLE);
-			CSettings dlg(strTitle);
+			CSettings dlg(IDS_PROC_SETTINGS_TITLE);
 			if (dlg.DoModal()==IDOK)
 			{
 				dlg.SaveData();
