@@ -214,6 +214,7 @@ BOOL CLogDlg::OnInitDialog()
 void CLogDlg::FillLogMessageCtrl(const CString& msg, const CString& paths)
 {
 	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+	pMsgView->SetWindowText(_T(" "));
 	pMsgView->SetWindowText(msg);
 	m_BugtraqInfo.FindBugID(msg, pMsgView);
 
