@@ -36,6 +36,7 @@ public:
 	 * \param bTrackScrollBar If TRUE, then the scrollbars are affected too.
 	 */
 	void			ScrollToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
+	void			ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 
 	CStringArray *	m_arDiffLines;		///< Array of Strings containing all lines of the text file
 	CDWordArray	*	m_arLineStates;		///< Array of Strings containing a diff state for each text line
@@ -131,5 +132,8 @@ protected:
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 
+public:
+	afx_msg void OnMergeNextdifference();
+	afx_msg void OnMergePreviousdifference();
 };
 

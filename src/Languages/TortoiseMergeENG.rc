@@ -199,12 +199,18 @@ IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
 
 IDR_MAINFRAME TOOLBAR  16, 15
 BEGIN
-    BUTTON      ID_EDIT_CUT
-    BUTTON      ID_EDIT_COPY
-    BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE_AS
     SEPARATOR
-    BUTTON      ID_APP_ABOUT
-    BUTTON      ID_CONTEXT_HELP
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_VIEW_WHITESPACES
+    SEPARATOR
+    BUTTON      ID_MERGE_PREVIOUSDIFFERENCE
+    BUTTON      ID_MERGE_NEXTDIFFERENCE
+    SEPARATOR
+    BUTTON      ID_VIEW_ONEWAYDIFF
+    SEPARATOR
+    BUTTON      ID_HELP
 END
 
 
@@ -223,21 +229,20 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "E&xit",                       ID_APP_EXIT
     END
-    POPUP "&Edit"
-    BEGIN
-        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
-        MENUITEM SEPARATOR
-        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
-        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
-        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
-    END
     POPUP "&View"
     BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
         MENUITEM SEPARATOR
         MENUITEM "&Whitespaces",                ID_VIEW_WHITESPACES
-        MENUITEM "&Oneway diff",                ID_VIEW_ONEWAYDIFF
+        MENUITEM "&Oneway Diff",                ID_VIEW_ONEWAYDIFF
+    END
+    POPUP "&Merge"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Next Difference",            ID_MERGE_NEXTDIFFERENCE
+        MENUITEM "&Previous Difference",        ID_MERGE_PREVIOUSDIFFERENCE
     END
     POPUP "&Help"
     BEGIN
@@ -265,10 +270,12 @@ BEGIN
     VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
     "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
     VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
-    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_AS,        VIRTKEY, SHIFT, CONTROL, 
+                                                    NOINVERT
 END
 
 
@@ -406,6 +413,10 @@ END
 STRINGTABLE 
 BEGIN
     ID_VIEW_WHITESPACES     "Show special characters for whitespaces"
+    ID_VIEW_ONEWAYDIFF      "Switch between single and double view"
+    ID_MERGE_NEXTDIFFERENCE "Go to the next difference\nnext difference"
+    ID_MERGE_PREVIOUSDIFFERENCE 
+                            "Go to the previous difference\nprevious difference"
 END
 
 STRINGTABLE 
@@ -480,6 +491,12 @@ END
 STRINGTABLE 
 BEGIN
     IDS_ERR_FILE_OPEN       "Could not open the file\n%s"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_OPEN            "Open file"
+    ID_FILE_SAVE            "Save the modified file\nSave file"
 END
 
 #endif    // English (U.S.) resources

@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -75,7 +75,7 @@
 			CharacterSet="1">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils"
+				AdditionalIncludeDirectories="..\..\..\SubVersion\apr\include;..\..\..\SubVersion\subversion\include;..\..\..\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC"
 				MinimalRebuild="FALSE"
 				RuntimeLibrary="2"
@@ -160,6 +160,12 @@
 				RelativePath=".\MainFrm.cpp">
 			</File>
 			<File
+				RelativePath="..\Utils\NewMenu\NewMenu.cpp">
+			</File>
+			<File
+				RelativePath="..\Utils\NewMenu\NewToolBar.cpp">
+			</File>
+			<File
 				RelativePath=".\OpenDlg.cpp">
 			</File>
 			<File
@@ -232,6 +238,12 @@
 			</File>
 			<File
 				RelativePath=".\MainFrm.h">
+			</File>
+			<File
+				RelativePath="..\Utils\NewMenu\NewMenu.h">
+			</File>
+			<File
+				RelativePath="..\Utils\NewMenu\NewToolBar.h">
 			</File>
 			<File
 				RelativePath=".\OpenDlg.h">
@@ -310,10 +322,10 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath=".\res\TortoiseMerge.manifest">
+			RelativePath="..\Languages\res\TortoiseMerge.manifest">
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseMerge.manifest">
+			RelativePath=".\res\TortoiseMerge.manifest">
 		</File>
 	</Files>
 	<Globals>

@@ -117,10 +117,10 @@ void CLocatorBar::OnPaint()
 	GetClientRect(rect);
 	int nTopLine = 0;
 	int nBottomLine = 0;
-	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndBottomView))
+	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
 	{
-		nTopLine = m_pMainFrm->m_pwndBottomView->m_nTopLine;
-		nBottomLine = nTopLine + m_pMainFrm->m_pwndBottomView->GetScreenLines();
+		nTopLine = m_pMainFrm->m_pwndLeftView->m_nTopLine;
+		nBottomLine = nTopLine + m_pMainFrm->m_pwndLeftView->GetScreenLines();
 	}
 	CDC cacheDC;
 	VERIFY(cacheDC.CreateCompatibleDC(&dc));

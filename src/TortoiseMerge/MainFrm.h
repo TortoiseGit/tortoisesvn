@@ -10,8 +10,10 @@
 #include "Utils.h"
 #include "TempFiles.h"
 #include "XSplitter.h"
+#include "NewMenu.h"
+#include "NewToolBar.h"
 
-class CMainFrame : public CFrameWnd, public CPatchFilesDlgCallBack
+class CMainFrame : public CNewFrameWnd, public CPatchFilesDlgCallBack
 {
 	
 public:
@@ -45,9 +47,8 @@ protected:
 	void			SaveFile(CString sFilePath);
 protected: 
 	CStatusBar		m_wndStatusBar;
-	CToolBar		m_wndToolBar;
+	CNewToolBar		m_wndToolBar;
 	CReBar			m_wndReBar;
-	CReBar			m_wndReBarLeft;
 	CLocatorBar		m_wndLocatorBar;
 	CXSplitter		m_wndSplitter;
 	CXSplitter		m_wndSplitter2;
@@ -66,6 +67,7 @@ public:
 	BOOL			LoadViews();
 	afx_msg void OnViewOnewaydiff();
 	afx_msg void OnUpdateViewOnewaydiff(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewWhitespaces(CCmdUI *pCmdUI);
 };
 
 

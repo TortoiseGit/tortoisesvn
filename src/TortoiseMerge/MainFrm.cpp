@@ -16,15 +16,15 @@
 
 // CMainFrame
 
-IMPLEMENT_DYNAMIC(CMainFrame, CFrameWnd)
+IMPLEMENT_DYNAMIC(CMainFrame, CNewFrameWnd)
 
-BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
+BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_WM_CREATE()
 	// Global help commands
-	ON_COMMAND(ID_HELP_FINDER, CFrameWnd::OnHelpFinder)
-	ON_COMMAND(ID_HELP, CFrameWnd::OnHelp)
-	ON_COMMAND(ID_CONTEXT_HELP, CFrameWnd::OnContextHelp)
-	ON_COMMAND(ID_DEFAULT_HELP, CFrameWnd::OnHelpFinder)
+	ON_COMMAND(ID_HELP_FINDER, CNewFrameWnd::OnHelpFinder)
+	ON_COMMAND(ID_HELP, CNewFrameWnd::OnHelp)
+	ON_COMMAND(ID_CONTEXT_HELP, CNewFrameWnd::OnContextHelp)
+	ON_COMMAND(ID_DEFAULT_HELP, CNewFrameWnd::OnHelpFinder)
 	ON_COMMAND(ID_FILE_OPEN, OnFileOpen)
 	ON_COMMAND(ID_VIEW_WHITESPACES, OnViewWhitespaces)
 	ON_WM_SIZE()
@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_FILE_SAVE_AS, OnUpdateFileSaveAs)
 	ON_COMMAND(ID_VIEW_ONEWAYDIFF, OnViewOnewaydiff)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_ONEWAYDIFF, OnUpdateViewOnewaydiff)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACES, OnUpdateViewWhitespaces)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -53,6 +54,7 @@ static UINT indicators[] =
 CMainFrame::CMainFrame()
 {
 	m_bInitSplitter = FALSE;
+	m_bOneWay = FALSE;
 }
 
 CMainFrame::~CMainFrame()
@@ -62,21 +64,16 @@ CMainFrame::~CMainFrame()
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
+	if (CNewFrameWnd::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	if (!m_wndToolBar.CreateEx(this) ||
-		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME))
+	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT | TBSTYLE_WRAPABLE| CBRS_SIZE_DYNAMIC) ||
+		 !m_wndToolBar.LoadToolBar(IDR_MAINFRAME))
 	{
 		TRACE0("Failed to create toolbar\n");
 		return -1;      // fail to create
 	}
-	if (!m_wndReBar.Create(this) ||
-		!m_wndReBar.AddBar(&m_wndToolBar))
-	{
-		TRACE0("Failed to create rebar\n");
-		return -1;      // fail to create
-	}
+	m_wndToolBar.SetWindowText(_T("Main"));
 
 	if (!m_wndStatusBar.Create(this) ||
 		!m_wndStatusBar.SetIndicators(indicators,
@@ -84,7 +81,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	{
 		TRACE0("Failed to create status bar\n");
 		return -1;      // fail to create
-	}
+	} 
 
 	m_wndToolBar.SetBarStyle(m_wndToolBar.GetBarStyle() |
 		CBRS_TOOLTIPS | CBRS_FLYBY);
@@ -95,13 +92,23 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		TRACE0("Failed to create dialogbar\n");
 		return -1;		// fail to create
 	}
+	//if (!m_wndReBar.Create(this) ||
+	//	!m_wndReBar.AddBar(&m_wndToolBar))
+	//{
+	//	TRACE0("Failed to create rebar\n");
+	//	return -1;      // fail to create
+	//}
 
+	m_DefaultNewMenu.LoadToolBar(IDR_MAINFRAME);
+	m_DefaultNewMenu.SetXpBlendig();
+	m_DefaultNewMenu.SetSelectDisableMode(FALSE);
 	return 0;
 }
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
-	if( !CFrameWnd::PreCreateWindow(cs) )
+	CNewMenu::SetMenuDrawMode(CNewMenu::STYLE_XP);
+	if( !CNewFrameWnd::PreCreateWindow(cs) )
 		return FALSE;
 	return TRUE;
 }
@@ -112,12 +119,12 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 #ifdef _DEBUG
 void CMainFrame::AssertValid() const
 {
-	CFrameWnd::AssertValid();
+	CNewFrameWnd::AssertValid();
 }
 
 void CMainFrame::Dump(CDumpContext& dc) const
 {
-	CFrameWnd::Dump(dc);
+	CNewFrameWnd::Dump(dc);
 }
 
 #endif //_DEBUG
@@ -418,7 +425,7 @@ void CMainFrame::UpdateLayout()
 
 void CMainFrame::OnSize(UINT nType, int cx, int cy)
 {
-    CFrameWnd::OnSize(nType, cx, cy);
+    CNewFrameWnd::OnSize(nType, cx, cy);
     CRect cr;
     GetWindowRect(&cr);
 
@@ -442,12 +449,6 @@ void CMainFrame::OnViewWhitespaces()
 		bViewWhitespaces = m_pwndLeftView->m_bViewWhitespace;
 
 	bViewWhitespaces = !bViewWhitespaces;
-	UINT uMenuCheck = MF_BYCOMMAND;
-	if (bViewWhitespaces)
-		uMenuCheck |= MF_CHECKED;
-	else
-		uMenuCheck |= MF_UNCHECKED;
-	this->GetMenu()->CheckMenuItem(ID_VIEW_WHITESPACES, uMenuCheck);
 	if (m_pwndLeftView)
 	{
 		m_pwndLeftView->m_bViewWhitespace = bViewWhitespaces;
@@ -463,6 +464,12 @@ void CMainFrame::OnViewWhitespaces()
 		m_pwndBottomView->m_bViewWhitespace = bViewWhitespaces;
 		m_pwndBottomView->Invalidate();
 	} // if (m_pwndBottomView) 
+}
+
+void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
+{
+	if (m_pwndLeftView)
+		pCmdUI->SetCheck(m_pwndLeftView->m_bViewWhitespace);
 }
 
 void CMainFrame::OnViewOnewaydiff()
@@ -636,13 +643,7 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 
 void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 {
-	UINT uMenuCheck = MF_BYCOMMAND;
-	if (m_bOneWay)
-		uMenuCheck |= MF_CHECKED;
-	else
-		uMenuCheck |= MF_UNCHECKED;
-	this->GetMenu()->CheckMenuItem(ID_VIEW_ONEWAYDIFF, uMenuCheck);
-
+	pCmdUI->SetCheck(m_bOneWay);
 	BOOL bEnable = TRUE;
 	if (m_pwndBottomView)
 	{
@@ -651,3 +652,4 @@ void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 	} // if (m_pwndBottomView)
 	pCmdUI->Enable(bEnable);
 }
+
