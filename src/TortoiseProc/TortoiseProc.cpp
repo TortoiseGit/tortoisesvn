@@ -152,8 +152,11 @@ BOOL CTortoiseProcApp::InitInstance()
 				{
 					CMessageBox::Show(NULL, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
 					return FALSE;
-				} 
-				rev = svn.status->entry->revision;
+				} // if (rev == (-2))
+				if (svn.status->entry)
+					rev = svn.status->entry->revision;
+				else 
+					rev = -1;
 			}
 			CString val = parser.GetVal(_T("revstart"));
 			long revstart = _tstol(val);

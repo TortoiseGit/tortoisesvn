@@ -185,6 +185,6 @@ void CSwitchDlg::OnOK()
 	{
 		m_rev = _T("-1");
 	}
-
+	UpdateData(FALSE);
 	CDialog::OnOK();
 }

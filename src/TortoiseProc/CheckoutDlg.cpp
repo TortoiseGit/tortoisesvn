@@ -150,7 +150,8 @@ void CCheckoutDlg::OnOK()
 		}
 		else
 			return;		//don't dismiss the dialog
-	}
+	} // if (!PathFileExists(m_strCheckoutDirectory))
+	UpdateData(FALSE);
 	CDialog::OnOK();
 }
 

@@ -115,6 +115,7 @@ void CUpdateDlg::OnOK()
 	{
 		m_revnum = -1;
 	}
+	UpdateData(FALSE);
 
 	CDialog::OnOK();
 }

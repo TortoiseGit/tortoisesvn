@@ -203,7 +203,7 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}  
-		
+
 	pDlg->m_LogList.SetRedraw(false);
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(pDlg->m_LogList.GetDlgItem(0)))->GetItemCount()-1;
