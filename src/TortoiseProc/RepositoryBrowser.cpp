@@ -647,6 +647,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 			case ID_POPDIFF:
 				{
 					CString tempfile1 = CUtils::GetTempFile();
+					if (url1.ReverseFind('.')>=0)
+						tempfile1 += url1.Mid(url1.ReverseFind('.'));
 					SVN svn;
 					if (!svn.Cat(url1, GetRevision(), tempfile1))
 					{
@@ -656,6 +658,8 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 					} // if (!Cat(url1, GetRevision(), tempfile1))
 					m_templist.Add(tempfile1);
 					CString tempfile2 = CUtils::GetTempFile();
+					if (url2.ReverseFind('.')>=0)
+						tempfile2 += url2.Mid(url2.ReverseFind('.'));
 					if (!svn.Cat(url2, GetRevision(), tempfile2))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

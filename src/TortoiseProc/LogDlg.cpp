@@ -1162,6 +1162,10 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 {
 	CString tempfile1 = CUtils::GetTempFile();
 	CString tempfile2 = CUtils::GetTempFile();
+	if (path1.ReverseFind('.')>=0)
+		tempfile1 += path1.Mid(path1.ReverseFind('.'));
+	if (path2.ReverseFind('.')>=0)
+		tempfile2 += path2.Mid(path2.ReverseFind('.'));
 	m_templist.Add(tempfile1);
 	m_templist.Add(tempfile2);
 	CProgressDlg progDlg;
