@@ -1025,104 +1025,10 @@ SubWCRev.exe path\to\working\copy version.in version.h
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-6">
-			<title>I'm looking for an external diff tool</title>
+			<title>I'm looking for an external diff or merge tool</title>
 			<para>
-				This list is by no means complete, but might help 
-				you to find something: 
-				<itemizedlist>
-					<listitem>
-						<para>
-							<ulink url="http://winmerge.sourceforge.net/">
-								<citetitle>WinMerge</citetitle>
-							</ulink>,
-							a great open-source viewer
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4diff.zip">
-								<citetitle>Perforce Win Diff</citetitle>
-							</ulink>,
-							a free tool from Perforce. You can download the full
-							<ulink url="http://www.perforce.com/perforce/loadprog.html">
-								<citetitle>installer</citetitle>
-							</ulink>
-							here.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="http://www.prestosoft.com/">
-								<citetitle>Examdiff or Examdiff Pro</citetitle>
-							</ulink>,
-							an excellent Free or Shareware tool,
-							The 3.2 version can handle unicode.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="http://www.scootersoftware.com/">
-								<citetitle>Beyond Compare</citetitle>
-							</ulink>,
-							an excellent Shareware tool, can handle Unicode
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="http://www.scintilla.org/SciTEDownload.html">
-								<citetitle>SciTE</citetitle>
-							</ulink>,
-							for showing unified diffs, it has built-in support
-							for syntax-coloring, since it's not only a viewer
-							but a Text Editor as well.
-						</para>
-					</listitem>
-				</itemizedlist>
-			</para>
-		</sect2>
-		<sect2 id="tsvn-faq-misc-7">
-			<title>I'm looking for an external merge tool</title>
-			<para>
-				This list is by no means complete, but might help 
-				you to find something: 
-				<itemizedlist>
-					<listitem>
-						<para>
-							<ulink url="http://winmerge.sourceforge.net/">
-								<citetitle>WinMerge</citetitle>
-							</ulink>,
-							a great open-source viewer.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="ftp://ftp.perforce.com/pub/perforce/r03.1/bin.ntx86/p4winmrg.zip">
-								<citetitle>Perforce Win Diff</citetitle>
-							</ulink>,
- 							a free tool from Perforce. You can find the full
-							<ulink url="http://www.perforce.com/perforce/loadprog.html">
-								<citetitle>installer</citetitle>
-							</ulink>
-							here.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="http://www.accurev.com/free/tkdiff/">
-								<citetitle>TkDiff</citetitle>
-							</ulink>,
- 							uses TCL/TK
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							<ulink url="http://sourceforge.net/projects/conflicteditor/">
-								<citetitle>CvsConflictEditor</citetitle>
-							</ulink>,
-							buggy but has potential.
-						</para>
-					</listitem>
-				</itemizedlist>
+				Take a look at
+				<xref linkend="tsvn-DUG-diff-tools"/>.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-faq-misc-20">

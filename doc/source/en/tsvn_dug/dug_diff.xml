@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sect1 id="tsvn-DUG-diff">
+	<title>Viewing Differences</title>
+	<indexterm>
+		<primary>diff</primary>
+	</indexterm>
+	<para>
+		One of the commonest requirements in project development is to
+		see what has changed. You might want to look at the differences
+		between two revisions of the same file, or the differences between
+		two separate files.
+		TortoiseSVN provides some builtin tools for this, and also
+		allows you to use your own favourite diff program.
+	</para>
+	<sect2 id="tsvn-DUG-diff-file">
+	<title>File Differences</title>
+		<variablelist>
+			<varlistentry>
+				<term>Local changes</term>
+				<listitem>
+					<para>
+						If you want to see what changes <emphasis>you</emphasis>
+						have made in your working copy, just use the explorer
+						context menu and select
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Diff</guimenuitem>
+						</menuchoice>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Difference from a previous revision</term>
+				<listitem>
+					<para>
+						If you want to see the difference between a particular
+						revision and your working copy, use the Revision Log
+						dialog, select the revision of interest, then select
+						<guimenuitem>Compare with working copy</guimenuitem>
+						from the context menu.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Difference between two previous revisions</term>
+				<listitem>
+					<para>
+						If you want to see the difference between two revisions
+						which are already committed, use the Revision Log
+						dialog and select the two revisions you want to compare
+						(using the usual <keycap>Ctrl</keycap>-modifier).
+						Then select <guimenuitem>Compare revisions</guimenuitem>
+						from the context menu.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>All changes made in a commit</term>
+				<listitem>
+					<para>
+						If you want to see the changes made to all files
+						in a particular revision in one view, you can
+						use Unified-Diff output (GNU patch format). This shows
+						only the differences with a few lines of context. It
+						is harder to read than a visual file compare, but will
+						show all the changes together. From the Revision Log
+						dialog select the revision of interest, then select
+						<guimenuitem>Show Differences as Unified-Diff</guimenuitem>
+						from the context menu.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Difference between files</term>
+				<listitem>
+					<para>
+						If you want to see the differences between two different
+						files, you can do that directly in explorer by selecting
+						both files (using the usual <keycap>Ctrl</keycap>-modifier).
+						Then from the explorer context menu select
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Diff</guimenuitem>
+						</menuchoice>.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</sect2>
+	<sect2 id="tsvn-DUG-diff-dir">
+	<title>Folder Differences</title>
+	<para>
+		The builtin tools supplied with TortoiseSVN do not support viewing
+		differences between directory hierarchies. But if you have an external
+		tool which does support that feature, you can use that instead.
+		In the next section we tell you about some tools which we have used.
+	</para>
+	</sect2>
+	<sect2 id = "tsvn-DUG-diff-tools">
+	<title>External Diff/Merge Tools</title>
+		<indexterm>
+			<primary>diff tools</primary>
+		</indexterm>
+		<indexterm>
+			<primary>merge tools</primary>
+		</indexterm>
+		<para>
+			If the tools we	provide don't do what you need, try one of the many
+			open-source or commercial programs available. Everyone has their own
+			favourites, and this list is by no means complete, but here are a few
+			that you might consider:
+		</para>
+		<variablelist>
+			<varlistentry>
+				<term>WinMerge</term>
+				<listitem>
+					<para>
+						<ulink url="http://winmerge.sourceforge.net/">
+							<citetitle>WinMerge</citetitle>
+						</ulink>
+						is a great open-source diff viewer and merge tool.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Perforce WinDiff</term>
+				<listitem>
+					<para>
+						Perforce is a commercial RCS, but you can download the
+						diff/merge tool for free. Download the full installer from
+						<ulink url="http://www.perforce.com/perforce/loadprog.html">
+							<citetitle>Perforce</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>KDiff3</term>
+				<listitem>
+					<para>
+						KDiff3 is a free diff tool which can also handle
+						directories. You can download it from
+						<ulink url="http://kdiff3.sf.net/">
+							<citetitle>here</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>ExamDiff</term>
+				<listitem>
+					<para>
+						ExamDiff Standard is freeware. It can handle
+						files but not directories.
+						ExamDiff Pro is shareware and adds a number
+						of goodies including directory diff and editing
+						capability.
+						In both flavours, version 3.2 and above can handle
+						unicode. You can download them from
+						<ulink url="http://www.prestosoft.com/">
+							<citetitle>PrestoSoft</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Beyond Compare</term>
+				<listitem>
+					<para>
+						Similar to ExamDiff Pro, this is an excellent shareware
+						diff tool which can handle directory diffs and unicode.
+						Download it from
+						<ulink url="http://www.scootersoftware.com/">
+							<citetitle>Scooter Software</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>SciTE</term>
+				<listitem>
+					<para>
+						This text editor includes syntax colouring for unified diffs,
+						making them much easier to read. Download it from
+						<ulink url="http://www.scintilla.org/SciTEDownload.html">
+							<citetitle>Scintilla</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Notepad2</term>
+				<listitem>
+					<para>
+						Notepad2 is designed as a replacement for the standard
+						Windows Notepad program, and is based on the Scintilla
+						open-source edit control. As well as being good for
+						viewing unified diffs, it is much better than the
+						Windows notepad for most jobs. Download it for free
+						<ulink url="http://www.flos-freeware.ch/notepad2.html">
+							<citetitle>here</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>TkDiff</term>
+				<listitem>
+					<para>
+						A free diff/merge tool which uses TCL/TK.
+						Download it 
+						<ulink url="http://www.accurev.com/free/tkdiff/">
+							<citetitle>here</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>CVSConflictEditor</term>
+				<listitem>
+					<para>
+						This open source merge tool is buggy, but has potential.
+						Download it 
+						<ulink url="http://sourceforge.net/projects/conflicteditor/">
+							<citetitle>here</citetitle>
+						</ulink>.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<para>
+			Read <xref linkend="tsvn-DUG-settings-progs"/> for information
+			on how to set up TortoiseSVN to use these tools.
+		</para>
+	</sect2>
+</sect1>
