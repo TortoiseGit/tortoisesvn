@@ -270,7 +270,8 @@ C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername
 </screen>
 						Or if you trust the security on your computer and it's surroundings:
 <screen>
-C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername -pw password
+C:\Program Files\TortoiseSVN\TortoisePlink.exe -l windowsUsername
+                                               -pw password
 </screen>
 					</para>
 				</listitem>
