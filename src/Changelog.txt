@@ -1,9 +1,6 @@
 - ADD: The dialog asking the user to enter an URL (e.g.
        for the repo browser) has now a history of
        the last used URL's for the user to select from. (Stefan)
-- BUG: The shell part didn't have the APR_ICONV_PATH
-       environement variable set. (Stefan)
-
 - ADD: New option to use a short version of the date
        for log messages. (Thomas Epting)
 - ADD: The property page now shows the subversion
@@ -28,6 +25,8 @@
        wasn't shown. (Stefan)
 - BUG: Fix various bugs with svn:externals and the
        commit/add dialogs. (Stefan)
+- BUG: The shell part didn't have the APR_ICONV_PATH
+       environement variable set. (Stefan)
 - BUG: Various bugfixes for TortoiseMerge. (Stefan)
 
 Version 1.0

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2004 - Tim Kemp and Stefan Kueng
+// Copyright (C) 2003-2004 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -464,6 +464,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					}
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+					popup.AppendMenu(MF_SEPARATOR, NULL);
 					temp.LoadString(IDS_LOG_POPUP_SAVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
 				} // if (!PathIsDirectory(m_path))
@@ -472,6 +473,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
 					popup.SetDefaultItem(ID_GNUDIFF1, FALSE);
+					popup.AppendMenu(MF_SEPARATOR, NULL);
 					temp.LoadString(IDS_LOG_BROWSEREPO);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
 					temp.LoadString(IDS_LOG_POPUP_COPY);
@@ -494,6 +496,7 @@ void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 			}
+			popup.AppendMenu(MF_SEPARATOR, NULL);
 			temp.LoadString(IDS_LOG_POPUP_FIND);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
 
@@ -1050,6 +1053,7 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	revname2.Format(_T("%s Revision %ld"), CUtils::GetFileNameFromPath(path2), rev2);
 	return CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, revname2, revname1, ext);
 }
+
 
 
 
