@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sect1 id="tsvn-DUG-merge">
 	<title>Zusammenführen</title>
 	<?dbhh topicname="HIDD_MERGE"?>
@@ -16,7 +16,7 @@
 	<para>
 		Es ist wichtig zu verstehen, wie Verzweigen und Zusammenführen in Subversion
 		funktioniert bevor Sie es benutzen, denn es kann unter Umständen sehr
-		komplex werden. Wir empfehlen Ihnen, das Kapitel 
+		komplex werden. Wir empfehlen Ihnen, das Kapitel
 		<ulink url="http://svnbook.red-bean.com/en/1.1/ch04.html">
 			<citetitle>Branching and Merging</citetitle>
 		</ulink>
@@ -29,16 +29,26 @@
 		benutzt.
 	</para>
 	<para>
+		Es ist wichtig, in Erinnerung zu behalten, dass das Zusammenführen (Merge) eng mit
+		dem Bilden von Differenzen (Diff) verwandt ist. Das Zusammenführen erfolgt, indem
+		eine Liste von Differenzen zwischen zwei (Zeit)Punkten im Projekarchiv erstellt wird
+		und diese Differenzen auf Ihre Arbeitskopie angewendet werden. Wenn Sie also die
+		Änderungen aus Revision N ermitteln wollen, müssen Sie diese mit Revision N-1
+		vergleichen. Anfänger fragen sich oft
+		<quote>Warum muss ich 1 von der Startrevision abziehen?</quote>
+		Denken Sie an den zugrundeliegenden Diff Prozess, um sich das Bild zu verdeutlichen.
+	</para>
+	<para>
 		Es gibt im Grunde zwei Fälle fürs Zusammenführen, welche ein wenig unterschiedlich
 		gehandhabt werden. Diese werden weiter unten beschrieben.
 	</para>
-	
+
 	<sect2 id="tsvn-DUG-merge-2">
 		<title>Einen Revisionsbereich zusammenführen</title>
 		<para>
-			Diese Methode wird benutzt wenn Sie eine oder mehrere
-			Übertragungen an einem Zweig (oder den Stamm) gemacht haben und diese
-			Änderungen nun zu einem anderen Zweig zusammenführen möchten.
+			Diese Methode wird benutzt wenn Sie Änderungen an einem Zweig (branch)
+			oder Stamm (trunk) der Entwicklung gemacht haben und diese nun in einem
+			anderen Zweig (bzw. Stamm) zusammenführen möchten.
 		</para>
 		<para>
 			<figure id="tsvn-DUG-merge-dia-1">
@@ -46,12 +56,12 @@
 				<graphic fileref="images/Merge.png"/>
 			</figure>
 			Um Revisionen mit einem Zweig zusammenzuführen, müssen Sie eine
-			Arbeitskopie des Ziel-Zweiges haben, meist ist dies der Hauptstamm (trunk).
+			Arbeitskopie des Ziel-Zweiges haben, meist ist dies der Stamm.
 			Wählen Sie
 			<menuchoice>
 				<guimenuitem>Zusammenführen...</guimenuitem>
 			</menuchoice>
-			vom Kontext-Menu.
+			aus dem Kontext-Menu.
 			<orderedlist>
 				<listitem>
 					<para>
@@ -92,25 +102,49 @@ Rev Log-Meldung
 						Wenn Sie nun die Änderungen welche Sie an MeinZweig gemacht haben
 						mit dem Hauptast zusammenführen möchten, müssen Sie die Revisionsnummer 36
 						als Anfangsrevision angeben, nicht die 37 wie Sie vielleicht denken.
+						Wenn Sie Revision 37 als Startrevision wählen, wird die
+						Differenzenbildung ab dieser Revision beginnen und die Änderungen aus
+						Revision 37 nicht mitbekommen.
 					</para>
 					<para>
 						Der einfachste Weg um die Revisionsnummern herauszufinden ist
 						ein Klick auf <guibutton>Zeige Log</guibutton>. Dies zeigt Ihnen die
 						letzten Änderungen inklusive der Log-Meldungen an. Wählen Sie die
-						gewünschte Revision im Log-Dialog und klicken Sie auf <guibutton>OK</guibutton>.
+						gewünschte Revision im Log-Dialog und klicken Sie auf
+						<guibutton>OK</guibutton>.
+					</para>
+					<para>
+						Wenn Sie bereits Änderungen aus diesem Zweig zusammengeführt haben,
+						so haben Sie hoffentlich auch in der Log-Meldung notiert, welche
+						Revisionen das waren. In diesem Fall knnen Sie einfach mit Hilfe der
+						<guibutton>Zeige Log</guibutton>
+						Schaltfläche nachschauen. Verwenden Sie die Endrevision des letzten
+						Zusammenführens als Startrevision der geplanten Aktion. Wenn Sie zum
+						Beispiel zuletzt die Revisionen 37 bis 39 mit Ihrer Arbeitskopie
+						zusammengeführt haben, sollte die Startrevision für die aktuelle
+						Aktion 39 sein.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 						Im <guilabel>Zu Revision</guilabel> Feld geben Sie die letzte
-						Revision im Bereich an, welchen Sie mit der Arbeitskopie zusammenführen möchten.
-						Meist wird dies <literal>HEAD</literal> sein, zwingend ist dies jedoch
-						nicht. Sie können auch eine einzelne Revision zusammenführen.
+						Revision im Bereich an, welchen Sie mit der Arbeitskopie zusammenführen
+						möchten. Meist wird dies <literal>HEAD</literal> sein, zwingend ist dies
+						jedoch nicht. Sie können auch eine einzelne Revision zusammenführen.
+					</para>
+					<para>
+						Falls ausser Ihnen noch andere Persionen Daten in das Projektarchiv
+						übertragen, seien Sie vorsichtig mit der Verwendung der HEAD Revision.
+						Diese entspricht eventuell nicht der Revision die Sie erwarten, weil
+						seit Ihrer letzten Aktualisierung jemand anderes Daten übertragen haben
+						kann.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Klicken Sie auf <guibutton>OK</guibutton> um das Zusammenführen abzuschliessen.
+						Klicken Sie auf
+						<guibutton>OK</guibutton>,
+						um das Zusammenführen abzuschliessen.
 					</para>
 				</listitem>
 			</orderedlist>
@@ -242,3 +276,4 @@ Rev Log-Meldung
 		</para>
 	</sect2>
 </sect1>
+
