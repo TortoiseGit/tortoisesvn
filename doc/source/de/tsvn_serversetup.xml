@@ -498,6 +498,105 @@ docs = user5,user6,user7
 					and a new project has a home...
 				</para>
 			</tip>
+			<tip>
+				<title>Index of projects under SVNParentPath</title>
+				<indexterm>
+					<primary>Index of projects</primary>
+				</indexterm>
+				<para>
+					The advantage of using the SVNParentPath directive is that
+					you don't have to change the Apache config each time you
+					create a new repository, but you also don't have an index
+					of all created and available projects. If you point your
+					browser to the path SVNParentPath points to, you will get
+					a nasty error page showing.
+				</para>
+				<para>
+					To avoid that ugly error page and have a nice looking listing
+					of all available projects instead, you can use a PHP script
+					which generates the index for you automatically.
+<programlisting role="PHP">
+<![CDATA[
+<html>
+<head>
+<title>Subversion Repositories</title>
+</head>
+<body>
+
+<h2>Subversion Repositories</h2>
+<p>
+<?php
+    $svnparentpath = "C:/svn";
+    $svnparenturl = "/svn";
+
+    $dh = opendir( $svnparentpath );
+    if( $dh ) {
+        while( $dir = readdir( $dh ) ) {
+            $svndir = $svnparentpath . "/" . $dir;
+            $svndbdir = $svndir . "/db";
+            $svnfstypefile = $svndbdir . "/fs-type";
+            if( is_dir( $svndir ) && is_dir( $svndbdir ) ) 
+						{
+              echo "<a href=\"" . $svnparenturl . "/" . $dir . "\">" .
+                        $dir . "</a>\n";
+  						if( file_exists( $svnfstypefile ) )
+              {
+              	$handle = fopen ("$svnfstypefile", "r");
+  							$buffer = fgets($handle, 4096);
+  							fclose( $handle );
+  							$buffer = chop( $buffer );
+  							if( strcmp( $buffer, "fsfs" )==0 )
+  							{
+  								echo " (FSFS) <br />\n";
+  							}
+  							else
+  							{
+  								echo " (BDB) <br />\n";
+  							}
+              }
+              else
+              {
+              	echo " (BDB) <br />\n";
+              }
+            }
+        }
+        closedir( $dh );
+    }
+?>
+</p>
+
+</body>
+</html>
+]]>
+</programlisting>
+					Save the lines above to a file <filename>svn_index.php</filename>
+					and store that file in your web root folder. Next you have
+					to tell Apache to show that page instead of the error:
+					<itemizedlist>
+						<listitem>
+							<para>
+							Uncomment (remove the '#' char) from the following line
+							in your Apache config file:
+<screen>
+#LoadModule rewrite_module modules/mod_rewrite.so
+</screen>
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+							Add the following lines just below your &lt;Location&gt;
+							block where you define your Subversion stuff:
+<screen>
+    RewriteEngine on
+    RewriteRule ^/svn$ /svn_index.php [PT]
+    RewriteRule ^/svn/$ /svn_index.php [PT]
+    RewriteRule ^/svn/index.html$ /svn_index.php [PT] 
+</screen>
+							</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+			</tip>
 		</sect2>
 		<sect2 id="tsvn-serversetup-apache-5">
 			<title>Authentication With A Windows Domain</title>
