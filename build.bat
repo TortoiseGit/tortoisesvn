@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 set starttime=%time%
 rem
@@ -41,6 +41,7 @@ rem TortoiseSVN
 echo ================================================================================
 echo building TortoiseSVN
 cd ..\TortoiseSVN\src
+..\bin\release\SubWCRev.exe . version.in version.h
 devenv TortoiseSVN.sln /rebuild release > NUL
 devenv TortoiseSVN.sln /rebuild release_mbcs > NUL
 devenv TortoiseSVN.sln /rebuild debug > NUL
