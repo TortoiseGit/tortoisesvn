@@ -20,7 +20,8 @@ public:
 	CStatusCacheEntry GetOwnStatus(bool bRecursive);
 	bool IsOwnStatusValid() const;
 	void RefreshStatus();
-
+	BOOL SaveToDisk(HANDLE hFile);
+	BOOL LoadFromDisk(HANDLE hFile);
 private:
 	static void GetStatusCallback(void *baton, const char *path, svn_wc_status_t *status);
 	void AddEntry(const CTSVNPath& path, const svn_wc_status_t* pSVNStatus);

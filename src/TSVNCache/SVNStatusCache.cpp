@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - Will Dean
+// External Cache Copyright (C) 2005 - Will Dean, Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "SVNStatus.h"
 #include "Svnstatuscache.h"
 #include "CacheInterface.h"
+#include "shlobj.h"
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -36,9 +37,105 @@ void CSVNStatusCache::Create()
 {
 	ATLASSERT(m_pInstance == NULL);
 	m_pInstance = new CSVNStatusCache;
+
+#define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) goto exit;
+#define LOADVALUEFROMFILE2(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) goto error;
+	DWORD read = 0;
+	int value = 0;
+
+	HANDLE hFile = INVALID_HANDLE_VALUE;
+	// find the location of the cache
+	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
+	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
+	{
+		_tcscat(path, _T("\\TSVNCache"));
+		if (!PathIsDirectory(path))
+			CreateDirectory(path, NULL);
+		_tcscat(path, _T("\\cache"));
+		hFile = CreateFile(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+		if (hFile != INVALID_HANDLE_VALUE)
+		{
+			LOADVALUEFROMFILE(value);
+			if (value != 0)
+			{
+				goto exit;
+			}
+			int mapsize = 0;
+			LOADVALUEFROMFILE(mapsize);
+			for (int i=0; i<mapsize; ++i)
+			{
+				LOADVALUEFROMFILE2(value);	
+				if (value)
+				{
+					CString sKey;
+					if (!ReadFile(hFile, sKey.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+					{
+						sKey.ReleaseBuffer(0);
+						goto error;
+					}
+					sKey.ReleaseBuffer(value);
+					CCachedDirectory cacheddir;
+					if (!cacheddir.LoadFromDisk(hFile))
+						goto error;
+					m_pInstance->m_directoryCache[CTSVNPath(sKey)] = cacheddir;
+				}
+			}
+		}
+	}
+exit:
+	CloseHandle(hFile);
+	DeleteFile(path);
+	return;
+error:
+	CloseHandle(hFile);
+	DeleteFile(path);
+	delete m_pInstance;
+	m_pInstance = new CSVNStatusCache;
 }
 void CSVNStatusCache::Destroy()
 {
+#define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) goto error;
+	DWORD written = 0;
+	int value = 0;
+	// save the cache to disk
+	HANDLE hFile;
+	// find a location to write the cache to
+	TCHAR path[MAX_PATH];		//MAX_PATH ok here.
+	if (SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, path)==S_OK)
+	{
+		_tcscat(path, _T("\\TSVNCache"));
+		if (!PathIsDirectory(path))
+			CreateDirectory(path, NULL);
+		_tcscat(path, _T("\\cache"));
+		hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+		if (hFile != INVALID_HANDLE_VALUE)
+		{
+			value = 0;		// 'version'
+			WRITEVALUETOFILE(value);
+			value = (int)m_pInstance->m_directoryCache.size();
+			WRITEVALUETOFILE(value);
+			for (CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin(); I != m_pInstance->m_directoryCache.end(); ++I)
+			{
+				CString key = I->first.GetWinPathString();
+				value = key.GetLength();
+				WRITEVALUETOFILE(value);
+				if (value)
+				{
+					if (!WriteFile(hFile, key, value*sizeof(TCHAR), &written, NULL))
+						goto error;
+					if (!I->second.SaveToDisk(hFile))
+						goto error;
+				}
+			}
+		}
+	}
+
+	delete m_pInstance;
+	m_pInstance = NULL;
+	return;
+error:
+	CloseHandle(hFile);
+	DeleteFile(path);
 	delete m_pInstance;
 	m_pInstance = NULL;
 }
@@ -118,19 +215,17 @@ static class StatusCacheTests
 public:
 	StatusCacheTests()
 	{
-		apr_initialize();
-		CSVNStatusCache::Create();
+		//apr_initialize();
+		//CSVNStatusCache::Create();
+		//{
+		//	CSVNStatusCache& cache = CSVNStatusCache::Instance();
 
-		{
-//			CSVNStatusCache& cache = CSVNStatusCache::Instance();
+		//	cache.GetStatusForPath(CTSVNPath(_T("D:/Development/SVN/TortoiseSVN")), TSVNCACHE_FLAGS_RECUSIVE_STATUS);
+		//	cache.GetStatusForPath(CTSVNPath(_T("D:/Development/SVN/Subversion")), TSVNCACHE_FLAGS_RECUSIVE_STATUS);
+		//}
 
-//		cache.GetStatusForPath(CTSVNPath(_T("n:/will/tsvntest/file1.txt")));
-//		cache.GetStatusForPath(CTSVNPath(_T("n:/will/tsvntest/NonVersion/Test1.txt")));
-
-		}
-
-		CSVNStatusCache::Destroy();
-		apr_terminate();
+		//CSVNStatusCache::Destroy();
+		//apr_terminate();
 	}
 
 } StatusCacheTests;

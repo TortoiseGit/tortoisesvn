@@ -16,6 +16,8 @@ public:
 	void SetStatus(const svn_wc_status_t* pSVNStatus);
 	bool HasBeenSet() const;
 
+	bool SaveToDisk(HANDLE hFile);
+	bool LoadFromDisk(HANDLE hFile);
 private:
 	void SetAsUnversioned();
 

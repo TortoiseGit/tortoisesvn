@@ -28,6 +28,130 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_bCurrentFullStatusValid = false;
 }
 
+BOOL CCachedDirectory::SaveToDisk(HANDLE hFile)
+{
+#define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
+	DWORD written = 0;
+	int value = 0;
+	WRITEVALUETOFILE(value);	// 'version' of this save-format
+	value = (int)m_entryCache.size();
+	WRITEVALUETOFILE(value);	// size of the cache map
+	// now iterate through the maps and save every entry.
+	for (CacheEntryMap::iterator I = m_entryCache.begin(); I != m_entryCache.end(); ++I)
+	{
+		CString key = I->first;
+		value = key.GetLength();
+		WRITEVALUETOFILE(value);
+		if (value)
+		{
+			if (!WriteFile(hFile, key, value*sizeof(TCHAR), &written, NULL))
+				return false;
+			if (!I->second.SaveToDisk(hFile))
+				return false;
+		}
+	}
+	value = (int)m_childDirectories.size();
+	WRITEVALUETOFILE(value);
+	for (ChildDirStatus::iterator I = m_childDirectories.begin(); I != m_childDirectories.end(); ++I)
+	{
+		CString path = I->first.GetWinPathString();
+		value = path.GetLength();
+		WRITEVALUETOFILE(value);
+		if (value)
+		{
+			if (!WriteFile(hFile, path, value*sizeof(TCHAR), &written, NULL))
+				return false;
+			svn_wc_status_kind status = I->second;
+			WRITEVALUETOFILE(status);
+		}
+	}
+	WRITEVALUETOFILE(m_entriesFileTime);
+	WRITEVALUETOFILE(m_propsDirTime);
+	value = m_directoryPath.GetWinPathString().GetLength();
+	WRITEVALUETOFILE(value);
+	if (value)
+	{
+		if (!WriteFile(hFile, m_directoryPath.GetWinPathString(), value*sizeof(TCHAR), &written, NULL))
+			return false;
+	}
+	if (!m_ownStatus.SaveToDisk(hFile))
+		return false;
+	WRITEVALUETOFILE(m_currentFullStatus);
+	WRITEVALUETOFILE(m_bCurrentFullStatusValid);
+	WRITEVALUETOFILE(m_mostImportantFileStatus);
+	return true;
+}
+
+BOOL CCachedDirectory::LoadFromDisk(HANDLE hFile)
+{
+#define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) return false;
+	DWORD read = 0;
+	int value = 0;
+	LOADVALUEFROMFILE(value);
+	if (value != 0)
+		return false;		// not the correct version
+	int mapsize = 0;
+	LOADVALUEFROMFILE(mapsize);
+	for (int i=0; i<mapsize; ++i)
+	{
+		LOADVALUEFROMFILE(value);
+		if (value)
+		{
+			CString sKey;
+			if (!ReadFile(hFile, sKey.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+			{
+				sKey.ReleaseBuffer(0);
+				return false;
+			}
+			sKey.ReleaseBuffer(value);
+			CStatusCacheEntry entry;
+			if (!entry.LoadFromDisk(hFile))
+				return false;
+			m_entryCache[sKey] = entry;
+		}
+	}
+	LOADVALUEFROMFILE(mapsize);
+	for (int i=0; i<mapsize; ++i)
+	{
+		LOADVALUEFROMFILE(value);
+		if (value)
+		{
+			CString sPath;
+			if (!ReadFile(hFile, sPath.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+			{
+				sPath.ReleaseBuffer(0);
+				return false;
+			}
+			sPath.ReleaseBuffer(value);
+			svn_wc_status_kind status;
+			LOADVALUEFROMFILE(status);
+			m_childDirectories[CTSVNPath(sPath)] = status;
+		}
+	}
+	LOADVALUEFROMFILE(m_entriesFileTime);
+	LOADVALUEFROMFILE(m_propsDirTime);
+	LOADVALUEFROMFILE(value);
+	if (value)
+	{
+		CString sPath;
+		if (!ReadFile(hFile, sPath.GetBuffer(value), value*sizeof(TCHAR), &read, NULL))
+		{
+			sPath.ReleaseBuffer(0);
+			return false;
+		}
+		sPath.ReleaseBuffer(value);
+		m_directoryPath.SetFromWin(sPath);
+	}
+	if (!m_ownStatus.LoadFromDisk(hFile))
+		return false;
+
+	LOADVALUEFROMFILE(m_currentFullStatus);
+	LOADVALUEFROMFILE(m_bCurrentFullStatusValid);
+	LOADVALUEFROMFILE(m_mostImportantFileStatus);
+	return true;
+
+}
+
 CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bool bRecursive)
 {
 	CString strCacheKey;

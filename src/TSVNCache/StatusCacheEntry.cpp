@@ -35,6 +35,67 @@ CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status_t* pSVNStatus,__int64 l
 	m_discardAtTime = GetTickCount()+600000;
 }
 
+bool CStatusCacheEntry::SaveToDisk(HANDLE hFile)
+{
+#define WRITEVALUETOFILE(x) if (!WriteFile(hFile, &x, sizeof(x), &written, NULL)) return false;
+#define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (!WriteFile(hFile, x, value, &written, NULL)) return false;}
+	DWORD written = 0;
+	int value = 0;
+	WRITEVALUETOFILE(value); // 'version' of this save-format
+	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
+	WRITEVALUETOFILE(m_lastWriteTime);
+	WRITEVALUETOFILE(m_bSet);
+	WRITEVALUETOFILE(m_bSVNEntryFieldSet);
+	WRITEVALUETOFILE(m_commitRevision);
+	WRITESTRINGTOFILE(m_sUrl);
+
+	// now save the status struct (without the entry field, because we don't use that)
+	WRITEVALUETOFILE(m_svnStatus.copied);
+	WRITEVALUETOFILE(m_svnStatus.locked);
+	WRITEVALUETOFILE(m_svnStatus.prop_status);
+	WRITEVALUETOFILE(m_svnStatus.repos_prop_status);
+	WRITEVALUETOFILE(m_svnStatus.repos_text_status);
+	WRITEVALUETOFILE(m_svnStatus.switched);
+	WRITEVALUETOFILE(m_svnStatus.text_status);
+	return true;
+}
+
+bool CStatusCacheEntry::LoadFromDisk(HANDLE hFile)
+{
+#define LOADVALUEFROMFILE(x) if (!ReadFile(hFile, &x, sizeof(x), &read, NULL)) return false;
+	DWORD read = 0;
+	int value = 0;
+	LOADVALUEFROMFILE(value);
+	if (value != 0)
+		return false;		// not the correct version
+	LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
+	LOADVALUEFROMFILE(m_lastWriteTime);
+	LOADVALUEFROMFILE(m_bSet);
+	LOADVALUEFROMFILE(m_bSVNEntryFieldSet);
+	LOADVALUEFROMFILE(m_commitRevision);
+	LOADVALUEFROMFILE(value);
+	if (value != 0)
+	{
+		if (value > INTERNET_MAX_URL_LENGTH)
+			return false;		// invalid length for an url
+		if (!ReadFile(hFile, m_sUrl.GetBuffer(value), value, &read, NULL))
+		{
+			m_sUrl.ReleaseBuffer(0);
+			return false;
+		}
+		m_sUrl.ReleaseBuffer(value);
+	}
+	LOADVALUEFROMFILE(m_svnStatus.copied);
+	LOADVALUEFROMFILE(m_svnStatus.locked);
+	LOADVALUEFROMFILE(m_svnStatus.prop_status);
+	LOADVALUEFROMFILE(m_svnStatus.repos_prop_status);
+	LOADVALUEFROMFILE(m_svnStatus.repos_text_status);
+	LOADVALUEFROMFILE(m_svnStatus.switched);
+	LOADVALUEFROMFILE(m_svnStatus.text_status);
+	m_svnStatus.entry = NULL;
+	return true;
+}
+
 void CStatusCacheEntry::SetStatus(const svn_wc_status_t* pSVNStatus)
 {
 	if(pSVNStatus == NULL)
