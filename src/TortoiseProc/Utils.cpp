@@ -596,6 +596,8 @@ CString CUtils::WritePathsToTempFile(CString paths)
 
 CString CUtils::GetLongPathname(const CString& path)
 {
+	if (path.IsEmpty())
+		return path;
 	TCHAR pathbuf[MAX_PATH];
 	TCHAR pathbufcanonicalized[MAX_PATH];
 	DWORD ret = 0;
