@@ -19,7 +19,6 @@
 #include "afxwin.h"
 #include "HistoryCombo.h"
 #include "Balloon.h"
-#include "DirFileList.h"
 #include "afxcmn.h"
 #include "ResizableDialog.h"
 #include "SpellEdit.h"

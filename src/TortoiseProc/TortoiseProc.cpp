@@ -24,7 +24,6 @@
 #include "SysImageList.h"
 #include "UnicodeUtils.h"
 #include "CrashReport.h"
-#include "DirFileList.h"
 #include "SVNProperties.h"
 #include "Blame.h"
 
@@ -83,8 +82,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		CString sVer = _T(STRPRODUCTVER);
 		sVer = sVer.Left(sVer.ReverseFind(','));
 		CString sFileVer = CUtils::GetVersionFromFile(langDll);
-		sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
-		if (sFileVer.Compare(sVer)!=0)
+		int commaIndex = sFileVer.ReverseFind(',');
+		if (commaIndex==-1 || sFileVer.Left(commaIndex).Compare(sVer)!=0)
 		{
 			FreeLibrary(hInst);
 			hInst = NULL;

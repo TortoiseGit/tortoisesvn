@@ -22,7 +22,6 @@
 #include "svn.h"
 #include "UnicodeUtils.h"
 #include <shlwapi.h>
-#include "DirFileList.h"
 
 SVN::SVN(void)
 {

@@ -23,7 +23,6 @@
 #include "svn.h"
 #include "UnicodeUtils.h"
 #include <shlwapi.h>
-#include "DirFileList.h"
 #include "MessageBox.h"
 
 BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase) 

@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseMerge.h"
-#include "DirFileList.h"
+#include "DirFileEnum.h"
 #include "version.h"
 #include "Utils.h"
 #include "SetMainPage.h"
@@ -165,31 +165,27 @@ BOOL CSetMainPage::OnInitDialog()
 	CRegString str(_T("Software\\TortoiseSVN\\Directory"),_T(""), FALSE, HKEY_LOCAL_MACHINE);
 	CString path = str;
 	path = path + _T("\\Languages\\");
-	CDirFileList list;
-	list.BuildList(path, FALSE, FALSE);
+	CSimpleFileFind finder(path, _T("*.dll"));
 	int langcount = 1;
-	for (int i=0; i<list.GetCount(); i++)
+	while (finder.FindNextFileNoDirectories())
 	{
-		CString file = list.GetAt(i);
-		if (file.Right(3).CompareNoCase(_T("dll"))==0)
+		CString file = finder.GetFilePath();
+		CString filename = finder.GetFileName();
+		if (filename.Left(13).CompareNoCase(_T("TortoiseMerge"))==0)
 		{
-			CString filename = file.Mid(file.ReverseFind('\\')+1);
-			if (filename.Left(13).CompareNoCase(_T("TortoiseMerge"))==0)
-			{
-				CString sVer = _T(STRPRODUCTVER);
-				sVer = sVer.Left(sVer.ReverseFind(','));
-				CString sFileVer = CUtils::GetVersionFromFile(file);
-				sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
-				if (sFileVer.Compare(sVer)!=0)
-					continue;
-				DWORD loc = _tstoi(filename.Mid(13));
-				TCHAR buf[MAX_PATH];
-				GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
-				m_LanguageCombo.AddString(buf);
-				m_LanguageCombo.SetItemData(langcount++, loc);
-			} // if (filename.Left(12).CompareNoCase(_T("TortoiseProc"))==0) 
-		} // if (file.Right(3).CompareNoCase(_T("dll"))==0) 
-	} // for (int i=0; i<list.GetCount(); i++) 
+			CString sVer = _T(STRPRODUCTVER);
+			sVer = sVer.Left(sVer.ReverseFind(','));
+			CString sFileVer = CUtils::GetVersionFromFile(file);
+			sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
+			if (sFileVer.Compare(sVer)!=0)
+				continue;
+			DWORD loc = _tstoi(filename.Mid(13));
+			TCHAR buf[MAX_PATH];
+			GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
+			m_LanguageCombo.AddString(buf);
+			m_LanguageCombo.SetItemData(langcount++, loc);
+		} // if (filename.Left(12).CompareNoCase(_T("TortoiseProc"))==0) 
+	} // while (finder.FindNextFileNoDirectories())
 	
 	for (int i=0; i<m_LanguageCombo.GetCount(); i++)
 	{
