@@ -198,7 +198,14 @@ BOOL CLogDlg::OnInitDialog()
 
 	CString sTitle;
 	GetWindowText(sTitle);
-	SetWindowText(sTitle + _T(" - ") + m_path.GetFilename());
+	if(m_path.IsDirectory())
+	{
+		SetWindowText(sTitle + _T(" - ") + m_path.GetWinPathString());
+	}
+	else
+	{
+		SetWindowText(sTitle + _T(" - ") + m_path.GetFilename());
+	}
 
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MSGVIEW, TOP_LEFT, MIDDLE_RIGHT);
