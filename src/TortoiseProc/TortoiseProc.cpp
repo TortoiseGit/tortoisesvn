@@ -1065,8 +1065,11 @@ BOOL CTortoiseProcApp::InitInstance()
 			progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
 			//progDlg.SetAnimation(IDR_ANIMATION);
 
+			path = path.TrimRight('\\');
+			SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
+			CString sDir = path.Mid(path.ReverseFind('\\')+1);
 			SVN svn;
-			if (!svn.Diff(path, SVN::REV_BASE, path, SVN::REV_WC, TRUE, FALSE, FALSE, _T(""), ofn.lpstrFile))
+			if (!svn.Diff(sDir, SVN::REV_BASE, sDir, SVN::REV_WC, TRUE, FALSE, FALSE, _T(""), ofn.lpstrFile))
 			{
 				progDlg.Stop();
 				::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
