@@ -16,7 +16,7 @@ set OFile=product.nsh
 del ..\bin\Tortoise*.dll
 del ..\bin\LanguagePack*.exe
 
-FOR /F "eol=# tokens=1,2,3,4,5,6 delims=;" %%i in (Languages.txt) do call :doit %%i %%j %%k %%l "%%m" "%%n" %1
+FOR /F "eol=# tokens=1,2,3,4,5,6 delims=;" %%i in (Languages.txt) do call :doit %%i %%j %%k %%l %%m %%n %1
 
 :end
 endlocal

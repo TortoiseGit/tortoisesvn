@@ -33,7 +33,7 @@ echo Total=!total! >> %LogFile%
 echo. >> %LogFile%
 
 rem fourth parameter is needed with quotes!
-FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j "%%m" %%m
+FOR /F "eol=# delims=; tokens=1,2,3,4,5" %%i in (Languages.txt) do call :doit %%i %%j %%m %%m
 
 del _Tortois_*.po /Q
 del *.mo

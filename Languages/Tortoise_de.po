@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-02-07 12:00+0100\n"
+"PO-Revision-Date: 2005-02-11 08:45+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -141,10 +141,6 @@ msgstr "&CD-ROM"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "&Abbrechen"
-
-#: Control-ID:1066
-msgid "&Close windows automatically"
-msgstr "&Fenster automatisch schließen"
 
 #: ID:76
 msgid "&Compare Revisions"
@@ -801,6 +797,21 @@ msgstr "Autor:                         Stefan Küng"
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
 msgstr "Autoren:                     Stefan Küng, Tim Kemp"
 
+# Control-ID:1123,
+#: ID:222
+msgid "Auto-close if no conflicts"
+msgstr "Schließen, falls keine Konflikte"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no errors"
+msgstr "Schließen, falls keine Fehler"
+
+# ID:222,
+#: ID:222
+msgid "Auto-close if no merges, adds or deletes"
+msgstr "Schließen, falls kein Löschen, Hinzufügen oder Zusammenführen"
+
 #: Control-ID:1067
 msgid "Automatically resolve conflicted subversion status on save"
 msgstr "Konfliktstatus beim Speichern automatisch aufheben"
@@ -982,8 +993,8 @@ msgid ""
 "Check if you want the progress dialog to close\n"
 "automatically after the operation finishes."
 msgstr ""
-"Wählen Sie diese Option, wenn sich der Fortschrittsdialog\n"
-"automatisch nach dem Ende der Operation schließen soll."
+"Wählen Sie, wie sich die Fortschrittsanzeige nach\n"
+"dem Ende der Operation verhalten soll."
 
 #: ID:9
 msgid "Check out a working copy from a repository"
@@ -1069,6 +1080,11 @@ msgstr "Klicke auf \"Erweitert\" um ein alternatives Merge Programm für Dateity
 #: ID:257
 msgid "Clipboard"
 msgstr "Zwischenablage"
+
+# ID:222,
+#: ID:222
+msgid "Close manually"
+msgstr "Manuell schließen"
 
 #: ID:3825
 msgid "Close the active window and prompts to save the documents"
@@ -1335,11 +1351,6 @@ msgid ""
 msgstr ""
 "Auswahl in die Zwischenablage verschieben\n"
 "Ausschneiden"
-
-# Control-ID:1123,
-#: Control-ID:1123
-msgid "D&on't close on conflicts"
-msgstr "Bei K&onflikten nicht schließen"
 
 #: ID:76
 msgid "Date"
@@ -2429,6 +2440,11 @@ msgstr "Programm"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programme (*.exe)|*.*|Alle Dateien (*.*)|*.*||"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Progress dialog:"
+msgstr "Fortschrittsanzeige:"
+
 #: Control-ID:65535
 #: Dlg-ID:177
 msgid "Properties"
@@ -3313,10 +3329,10 @@ msgstr ""
 #: ID:88
 msgid ""
 "The target folder is not empty!\n"
-"Are you sure you want to check out into that folder?"
+"Are you sure you want to checkout/export into that folder?"
 msgstr ""
 "Der Zielordner ist nicht leer!\n"
-"Sind Sie sicher, dass Sie in diesen Ordner auschecken wollen?"
+"Sind Sie sicher, dass Sie in diesen Ordner auschecken/exportieren wollen?"
 
 #: ID:81
 msgid ""
