@@ -317,8 +317,8 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Icon Overlays"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "show changed directories",IDC_CHANGEDDIRS,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,16,97,10
+    CONTROL         "indicate folders with changed contents",IDC_CHANGEDDIRS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,16,139,10
     CONTROL         "removable drives",IDC_REMOVABLE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,30,71,10
     CONTROL         "network drives",IDC_NETWORK,"Button",BS_AUTOCHECKBOX | 
