@@ -774,10 +774,6 @@ msgstr "For hver linje i filen vises hvem, hvornår og i hvilken revision, der s
 msgid "Br&owse..."
 msgstr "Ge&nnemse..."
 
-#: Dlg-ID:142,
-msgid "Branch / Tag"
-msgstr "Lav forgrening/mærkat"
-
 #: ID:115,
 msgid "Branch / Tag created successfully!"
 msgstr "Forgrening/mærkat blev oprettet."
@@ -892,7 +888,7 @@ msgstr "Check versionsarkiv"
 
 #: ID:13,
 msgid "Check for Modifications"
-msgstr "Check for opdateringer"
+msgstr "Check for ændringer"
 
 #: Control-ID:1073,
 msgid "Check for newer &versions"
@@ -1073,6 +1069,10 @@ msgstr "Kopieret"
 msgid "Copied remotely"
 msgstr "Kopieret på server"
 
+#: Dlg-ID:142,
+msgid "Copy (Branch / Tag)"
+msgstr "Kopier (Lav forgrening/mærkat)"
+
 #: ID:76,
 msgid "Copy From Path"
 msgstr "Kopier fra sti"
@@ -1157,10 +1157,6 @@ msgstr "Udskriftsjobbet kunne ikke startes."
 msgid "Could not start thread!"
 msgstr "Tråden kunne ikke startes!"
 
-#: Control-ID:65535,
-msgid "Create Branch/Tag on the server from:"
-msgstr "Opret forgrening/mærkat på serveren fra:"
-
 #: ID:13,
 msgid "Create Patch..."
 msgstr "Opret korrekturark..."
@@ -1172,6 +1168,10 @@ msgstr "Opret versionsarkiv"
 #: ID:8,
 msgid "Create Repository here"
 msgstr "Opret versionsarkiv her"
+
+#: Control-ID:65535,
+msgid "Create copy in the repository from:"
+msgstr "Opret kopi i versionsarkivet fra:"
 
 #: ID:126,
 #, fuzzy
@@ -1574,8 +1574,8 @@ msgid "H&ead Revision"
 msgstr "&Nyeste revision"
 
 #: Control-ID:1182,
-msgid "HEAD revision on the server"
-msgstr "HEAD-revision på serveren"
+msgid "HEAD revision of repository"
+msgstr "HEAD-revision af versionsarkivet"
 
 #: ID:238,
 msgid "Head revision of the repository is: %d"
@@ -1948,10 +1948,6 @@ msgstr "OVR"
 #: ID:219,
 msgid "One or more files are in a conflicted state."
 msgstr "En eller flere filer indeholder konflikter."
-
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "Enkeltvejs-&differens"
 
 #: Control-ID:1073,
 msgid "Only check out the top folder"
@@ -2676,8 +2672,8 @@ msgid "Skipped missing target"
 msgstr "Sprang over manglende element"
 
 #: Control-ID:1185,
-msgid "Specific revision on the server"
-msgstr "Specifik revision på serveren"
+msgid "Specific repository revision"
+msgstr "Specifik revision af versionsarkivet"
 
 #: ID:79,
 msgid "Specify the files or folders which TortoiseSVN\nshould exclude from version control.\nSeparate the patterns with a space."
@@ -2982,6 +2978,10 @@ msgstr "Optimer TortoiseSVN"
 #: Control-ID:65535,
 msgid "Two File Diff"
 msgstr "To-fils-sammenligning"
+
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "Tovejs-&differens"
 
 #: Dlg-ID:164,
 msgid "URL"
