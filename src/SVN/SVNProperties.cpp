@@ -73,22 +73,11 @@ svn_error_t*	SVNProperties::Refresh()
 
 #ifdef _MFC_VER
 
-void SVNProperties::SaveAuthentication(BOOL save)
-{
-	if (save)
-	{
-		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, NULL);
-	}
-	else
-	{
-		svn_auth_set_parameter(ctx.auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, (void *) "");
-	}
-}
-
 SVNProperties::SVNProperties(const TCHAR * filepath, SVNRev rev)
 : m_rev(SVNRev::REV_WC)
 {
 	m_rev = rev;
+	m_app = NULL;
 #else
 
 SVNProperties::SVNProperties(const TCHAR * filepath)
