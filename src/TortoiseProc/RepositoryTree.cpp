@@ -22,6 +22,7 @@
 #include "RepositoryTree.h"
 #include "SysImageList.h"
 #include "UnicodeUtils.h"
+#include "WaitCursorEx.h"
 
 #include "shlobj.h"
 #include "utils.h"
@@ -277,11 +278,12 @@ void CRepositoryTree::DeleteChildItems(HTREEITEM hItem)
 
 void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
 {
+	CWaitCursorEx wait_cursor;
+
 	CStringArray entries;
 	CString folder = MakeUrl(hItem);
 
 	m_svn.m_app = &theApp;
-	theApp.DoWaitCursor(1);
 
 	if (m_svn.Ls(folder, m_Revision, entries, true))
 	{
@@ -301,8 +303,6 @@ void CRepositoryTree::LoadChildItems(HTREEITEM hItem)
 			}
 		}
 	}
-
-	theApp.DoWaitCursor(-1);
 
 	// Mark item as "successfully read"
 	SetItemData(GetItemIndex(hItem), 1);
