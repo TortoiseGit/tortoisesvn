@@ -445,7 +445,7 @@ BOOL CPatch::PatchFile(CString sPath, CString sSavePath, CString sBaseFile)
 			{
 			case PATCHSTATE_REMOVED:
 				{
-					if (lAddLine > PatchLines.GetCount())
+					if ((lAddLine > PatchLines.GetCount())||(PatchLines.GetCount()==0))
 					{
 						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, _T(""), sPatchLine);
 						return FALSE; 
