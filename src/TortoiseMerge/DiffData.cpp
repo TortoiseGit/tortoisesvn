@@ -18,10 +18,13 @@
 //
 #include "StdAfx.h"
 #include "diff.h"
+#include "CApr.h"
 #include "TempFiles.h"
 #include "registry.h"
 #include "Resource.h"
 #include ".\diffdata.h"
+
+CApr theApr;
 
 int CDiffData::abort_on_pool_failure (int retcode)
 {
@@ -155,7 +158,6 @@ BOOL CDiffData::Load()
 	apr_pool_t * pool;
 	svn_error_t * svnerr = NULL;
 
-	apr_initialize();
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 
 	m_arBaseFile.RemoveAll();
@@ -258,7 +260,6 @@ BOOL CDiffData::Load()
 				sMsg += CString(svnerr->message);
 			} // while (m_err->child)
 			apr_pool_destroy (pool);					// free the allocated memory
-			apr_terminate();
 			m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 			return FALSE;
 		} // if (m_svnerr)
@@ -433,7 +434,6 @@ BOOL CDiffData::Load()
 				sMsg += CString(svnerr->message);
 			} // while (m_err->child)
 			apr_pool_destroy (pool);					// free the allocated memory
-			apr_terminate();
 			m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
 			return FALSE;
 		} // if (m_svnerr)
@@ -707,7 +707,6 @@ BOOL CDiffData::Load()
 	//#endregion
 
 	apr_pool_destroy (pool);					// free the allocated memory
-	apr_terminate();
 	return TRUE;
 }
 

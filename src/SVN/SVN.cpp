@@ -28,7 +28,6 @@ SVN::SVN(void)
 {
 	m_app = NULL;
 	hWnd = NULL;
-	apr_initialize();
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
 	Err = svn_config_ensure(NULL, parentpool);
@@ -42,7 +41,6 @@ SVN::SVN(void)
 		::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		svn_pool_destroy (pool);
 		svn_pool_destroy (parentpool);
-		apr_terminate();
 		exit(-1);
 	} // if (Err != 0) 
 	// set up authentication
@@ -114,7 +112,6 @@ SVN::~SVN(void)
 {
 	svn_pool_destroy (pool);
 	svn_pool_destroy (parentpool);
-	apr_terminate();
 }
 
 void SVN::SaveAuthentication(BOOL save)
@@ -701,7 +698,6 @@ BOOL SVN::CreateRepository(CString path)
 	svn_repos_t * repo;
 	svn_error_t * err;
 	apr_hash_t *config;
-	apr_initialize();
 	localpool = svn_pool_create (NULL);
 	apr_hash_t *fs_config = apr_hash_make (localpool);;
 
@@ -715,7 +711,6 @@ BOOL SVN::CreateRepository(CString path)
 	if (err != NULL)
 	{
 		svn_pool_destroy(localpool);
-		apr_terminate();
 		return FALSE;
 	} // if (err != NULL)
 
@@ -723,11 +718,9 @@ BOOL SVN::CreateRepository(CString path)
 	if (err != NULL)
 	{
 		svn_pool_destroy(localpool);
-		apr_terminate();
 		return FALSE;
 	} // if (err != NULL) 
 	svn_pool_destroy(localpool);
-	apr_terminate();
 	return TRUE;
 }
 
@@ -1197,7 +1190,6 @@ CString SVN::GetPristinePath(CString wcPath)
 {
 	apr_pool_t * localpool;
 	svn_error_t * err;
-	apr_initialize();
 	localpool = svn_pool_create (NULL);
 	const char* pristinePath = NULL;
 	CString temp;
@@ -1207,13 +1199,11 @@ CString SVN::GetPristinePath(CString wcPath)
 	if (err != NULL)
 	{
 		svn_pool_destroy(localpool);
-		apr_terminate();
 		return temp;
 	}
 	if (pristinePath != NULL)
 		temp = CUnicodeUtils::GetUnicode(pristinePath);
 	svn_pool_destroy(localpool);
-	apr_terminate();
 	return temp;
 }
 
@@ -1222,7 +1212,6 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 	svn_wc_adm_access_t *adm_access;          
 	apr_pool_t * localpool;
 	svn_error_t * err;
-	apr_initialize();
 	localpool = svn_pool_create(NULL);
 	const char * translatedPath = NULL;
 	preparePath(sFile);
@@ -1241,7 +1230,6 @@ BOOL SVN::GetTranslatedFile(CString& sTranslatedFile, CString sFile, BOOL bForce
 
 error:
 	svn_pool_destroy(localpool);
-	apr_terminate();
 	return FALSE;
 }
 

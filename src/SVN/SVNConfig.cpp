@@ -24,7 +24,6 @@
 SVNConfig::SVNConfig(void)
 {
 	svn_error_t * err;
-	apr_initialize();
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
 	err = svn_config_ensure(NULL, parentpool);
@@ -37,7 +36,6 @@ SVNConfig::SVNConfig(void)
 	{
 		svn_pool_destroy (pool);
 		svn_pool_destroy (parentpool);
-		apr_terminate();
 		exit(-1);
 	} // if (err != 0) 
 }
@@ -46,7 +44,6 @@ SVNConfig::~SVNConfig(void)
 {
 	svn_pool_destroy (pool);
 	svn_pool_destroy (parentpool);
-	apr_terminate();
 }
 
 BOOL SVNConfig::MatchIgnorePattern(CString sFilepath)

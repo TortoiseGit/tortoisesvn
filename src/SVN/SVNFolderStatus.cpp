@@ -115,7 +115,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		::CloseHandle(TSVNMutex);
 	}
 
-	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
 
@@ -162,7 +161,6 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		m_TimeStamp = GetTickCount();
 		svn_pool_destroy (pool);				//free allocated memory
 		ClearPool();
-		apr_terminate();
 		return &dirstat;
 	} // if (isFolder) 
 
@@ -203,12 +201,10 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	{
 		svn_pool_destroy (pool);				//free allocated memory
 		ClearPool();
-		apr_terminate();
 		return &invalidstatus;	
 	}
 
 	svn_pool_destroy (pool);				//free allocated memory
-	apr_terminate();
 	m_TimeStamp = GetTickCount();
 	filestatuscache * ret = NULL;
 	std::map<stdstring, filestatuscache>::iterator iter;

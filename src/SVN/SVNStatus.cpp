@@ -29,7 +29,6 @@
 
 SVNStatus::SVNStatus(void)
 {
-	apr_initialize();
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
 #ifdef _MFC_VER
@@ -85,7 +84,6 @@ SVNStatus::SVNStatus(void)
 	{
 		::MessageBox(NULL, this->GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
 		svn_pool_destroy (m_pool);					// free the allocated memory
-		apr_terminate();
 		exit(-1);
 	} // if (m_err) 
 
@@ -104,7 +102,6 @@ SVNStatus::SVNStatus(void)
 SVNStatus::~SVNStatus(void)
 {
 	svn_pool_destroy (m_pool);					// free the allocated memory
-	apr_terminate();
 }
 
 void SVNStatus::ClearPool()
@@ -201,7 +198,6 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
 	if ((isDir)&&(!recursive))
 		return svn_wc_status_normal;
 
-	apr_initialize();
 	pool = svn_pool_create (NULL);				// create the memory pool
 	memset (&ctx, 0, sizeof (ctx));
 
@@ -229,12 +225,10 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const TCHAR * path, BOOL recursive)
 	if (err != NULL)
 	{
 		svn_pool_destroy (pool);				//free allocated memory
-		apr_terminate();
 		return svn_wc_status_unversioned;	
 	}
 
 	svn_pool_destroy (pool);				//free allocated memory
-	apr_terminate();
 	return statuskind;
 }
 

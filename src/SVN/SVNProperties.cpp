@@ -61,7 +61,6 @@ svn_error_t*	SVNProperties::Refresh()
 
 SVNProperties::SVNProperties(const TCHAR * filepath)
 {
-	apr_initialize();
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 	svn_config_ensure(NULL, m_pool);
 	memset (&m_ctx, 0, sizeof (m_ctx));
@@ -102,7 +101,6 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 SVNProperties::~SVNProperties(void)
 {
 	svn_pool_destroy (m_pool);					// free the allocated memory
-	apr_terminate();
 }
 
 int SVNProperties::GetCount()

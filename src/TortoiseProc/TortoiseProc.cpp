@@ -19,6 +19,7 @@
 
 #include "stdafx.h"
 #include "TortoiseProc.h"
+#include "CApr.h"
 #include "messagebox.h"
 #include "SysImageList.h"
 #include "UnicodeUtils.h"
@@ -54,6 +55,7 @@ CTortoiseProcApp::CTortoiseProcApp()
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
 HWND hWndExplorer;
+CApr theApr;
 
 CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TortoiseSVN : " STRPRODUCTVER);// crash
 
