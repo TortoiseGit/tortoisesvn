@@ -65,7 +65,7 @@
 class CSVNPropertyPage
 {
 public:
-	CSVNPropertyPage(const stdstring &filename);
+	CSVNPropertyPage(const std::vector<stdstring> &filenames);
 	virtual ~CSVNPropertyPage();
 
 	/**
@@ -79,7 +79,7 @@ public:
 	 */
 	virtual BOOL PageProc(HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam);
 
-	virtual const stdstring &GetFilename() const { return filename; }
+	//virtual const stdstring &GetFilename() const { return filename; }
 
 protected:
 	/**
@@ -90,8 +90,14 @@ protected:
 
 	static void Unescape(LPTSTR psz);
 
+	struct listproperty
+	{
+		stdstring name;
+		stdstring value;
+		int		  count;
+	};
 	HWND m_hwnd;
-	const stdstring filename;
+	std::vector<stdstring> filenames;
 	TCHAR stringtablebuffer[255];
 
 };
