@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_TW\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-09-09 10:21+0800\n"
+"PO-Revision-Date: 2004-09-13 17:58+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -501,7 +501,7 @@ msgstr " : 工作複本"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
@@ -1611,11 +1611,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "是否要儲存你所做的異動?"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "取消送交時不清除紀錄訊息"
-
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
@@ -1933,6 +1928,11 @@ msgstr ""
 msgid "Help"
 msgstr "說明"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Hint: Press F5 to refresh the selected subtree"
+msgstr "小提示: 按下 F5 可以重新整理選擇的子樹"
+
 # ID:82,
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -1981,18 +1981,6 @@ msgid ""
 msgstr ""
 "如果設定, TortoiseSVN 會把檔案時間設定至上次\n"
 "提交的時間. 如果不設定, 則使用目前的時間."
-
-# ID:80,
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"如果你取消送交, 你所輸入的紀錄訊息會被保存\n"
-"並在下次送交時自動填入.\n"
-"你可以進行修改或是直接使用."
 
 # ID:73,
 #: ID:73
@@ -2309,6 +2297,11 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "尚未指定命令值!"
+
+# ID:113,
+#: ID:82
+msgid "No differences found!"
+msgstr "找不到差異!"
 
 # ID:3843,#:
 # ID:3843,
@@ -3497,8 +3490,12 @@ msgstr "\"====\" 行應該出現在第 %d 行!"
 
 # ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "\"Index: \" 行找不到!"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"找不到 \"Index: \" 行!\n"
+"這可能不是差異檔, 或是沒有差異."
 
 # ID:63,
 #: ID:63

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-08 19:35+0100\n"
+"PO-Revision-Date: 2004-09-13 12:17+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -498,14 +498,14 @@ msgstr ": copia di lavoro"
 #: ID:88
 msgid ""
 "<b>ATTENTION:</b> Only use the Relocate command if the original repository has moved to a new URL.\n"
-"If you use Relocate to direct you working copy to another repository or branch,\n"
+"If you use Relocate to direct your working copy to another repository or branch,\n"
 "this <b>will corrupt your working copy!</b>\n"
 "To associate your working copy with another branch, use the Switch command.\n"
 "Are you sure you want to relocate?"
 msgstr ""
-"<b>ATTENZIONE!</b> Utilizzare il comando Sposta solo se il repository originale ha cambiato URL.\n"
-"Se si utilizza \"Sposta\" per indirizzare la propria copia di lavoro su un'altro Repository o su un ramo,\n"
-"l'operazione in corso <b>corromperà la copia di lavoro!</b>\n"
+"<b>ATTENZIONE:</b> Utilizzare il comando Sposta solo se il repository originale ha cambiato URL.\n"
+"Se si utilizza \"Sposta\" per indirizzare la propria copia di lavoro su un'altro Repository o su un'altro ramo,\n"
+"si rischia di <b>danneggiare la copia di lavoro!</b>\n"
 "Per associare la copia di lavoro con un'altro ramo utilizzare il comando \"Cambia\".\n"
 "Si è sicuri di voler proseguire?"
 
@@ -1609,11 +1609,6 @@ msgstr ""
 msgid "Do you want to save your changes?"
 msgstr "Si desidera salvare i cambiamenti?"
 
-# Control-ID:1061,
-#: Control-ID:1061
-msgid "Don't &remove log messages when cancelling a commit"
-msgstr "Non &rimuovere i commenti quando un invio viene annullato"
-
 # Control-ID:1073,
 #: Control-ID:1073
 msgid "Don't convert files when diffing against BASE"
@@ -1932,6 +1927,11 @@ msgstr ""
 msgid "Help"
 msgstr "Aiuto"
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Hint: Press F5 to refresh the selected subtree"
+msgstr "Suggerimento: premere F5 per aggiornare la visualizzazione del sottoramo selezionato."
+
 # ID:82,
 #: ID:82
 msgid "Hostname mismatch (%s)"
@@ -1980,19 +1980,6 @@ msgid ""
 msgstr ""
 "Se specificato, TortoiseSVN imposterà la data e l'ora dei file alla data\n"
 "del loro ultimo invio. Se nulla viene specificato TortoiseSVN userà la data e l'ora corrente."
-
-# ID:80,
-#: ID:80
-msgid ""
-"If you cancel a commit, the log message you have entered is saved\n"
-"and filled in the edit box on the next commit.\n"
-"You can then either edit that message or use\n"
-"it unchanged."
-msgstr ""
-"Se si annulla un invio il commento inserito verrà salvato\n"
-"e riproposto come commento nel prossimo invio.\n"
-"A quel punto si potrà decidere di modificarlo o di usarlo\n"
-"così come proposto."
 
 # ID:73,
 #: ID:73
@@ -2309,6 +2296,11 @@ msgstr ""
 #: ID:81
 msgid "No command value specified!"
 msgstr "Nessun valore di comando specificato!"
+
+# ID:113,
+#: ID:82
+msgid "No differences found!"
+msgstr "Nessuna differenza riscontrata!"
 
 # ID:3843,#:
 # ID:3843,
@@ -3499,8 +3491,12 @@ msgstr "Atteso \"====\" alla linea %d !"
 
 # ID:63,
 #: ID:63
-msgid "The line \"Index: \" was not found!"
-msgstr "La linea \"Index: \" non è stata trovata!"
+msgid ""
+"The line \"Index: \" was not found!\n"
+"Either this is not a diff file or the diff is empty."
+msgstr ""
+"La linea \"Index: \" non è stata trovata!\n"
+"Il file potrebbe essere vuoto oppure non essere un file di confronto valido."
 
 # ID:63,
 #: ID:63
