@@ -34,7 +34,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	, m_URLTo(_T(""))
 	, StartRev(0)
 	, EndRev(_T("HEAD"))
-	, m_bUseFromURL(FALSE)
+	, m_bUseFromURL(TRUE)
 	, m_bDryRun(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -150,9 +150,10 @@ BOOL CMergeDlg::OnInitDialog()
 	m_URLCombo2.LoadHistory(_T("repoURLS"), _T("url"));
 	m_URLCombo2.SetWindowText(m_URLTo);
 
+	GetDlgItem(IDC_URLCOMBO2)->EnableWindow(FALSE);
 	// set head revision as default revision
-	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-	CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
+	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+	CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
