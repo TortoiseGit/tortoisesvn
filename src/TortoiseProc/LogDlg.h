@@ -39,6 +39,7 @@
 #define	ID_REFRESH	   11
 #define ID_OPEN		   12
 #define ID_REPOBROWSE  13
+#define ID_DELETE	   14
 
 #define ID_DIFF			20
 

@@ -276,6 +276,11 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			{
 				temp.LoadString(IDS_REPOBROWSE_OPEN);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+			} // if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_deleted))
+			if (wcStatus == svn_wc_status_unversioned)
+			{
+				temp.LoadString(IDS_REPOBROWSE_DELETE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DELETE, temp);
 			}
 			temp.LoadString(IDS_MENUREFRESH);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);
@@ -316,6 +321,27 @@ void CLogPromptDlg::OnNMRclickFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			case ID_OPEN:
 				{
 					ShellExecute(this->m_hWnd, _T("open"), filepath, NULL, NULL, SW_SHOW);
+				}
+				break;
+			case ID_DELETE:
+				{
+					TCHAR buf[MAX_PATH];
+					ZeroMemory(buf, sizeof(buf));
+					_tcsncpy(buf, filepath, MAX_PATH);
+					SHFILEOPSTRUCT fileop;
+					fileop.hwnd = this->m_hWnd;
+					fileop.wFunc = FO_DELETE;
+					fileop.pFrom = buf;
+					fileop.pTo = _T("");
+					fileop.fFlags = FOF_ALLOWUNDO | FOF_NO_CONNECTED_ELEMENTS;
+					fileop.lpszProgressTitle = _T("deleting file");
+					SHFileOperation(&fileop);
+
+					if (! fileop.fAnyOperationsAborted)
+					{
+						m_ListCtrl.DeleteItem(selIndex);
+						m_arData.RemoveAt(selIndex);
+					} // if (! fileop.fAnyOperationsAborted) 
 				}
 				break;
 			default:
