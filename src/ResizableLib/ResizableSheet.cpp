@@ -2,8 +2,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -161,7 +164,7 @@ void CResizableSheet::PresetLayout()
 	}
 
 	// add a callback for active page (which can change at run-time)
-	AddAnchorCallback(1);
+	m_nCallbackID = AddAnchorCallback();
 
 	// use *total* parent size to have correct margins
 	CRect rectPage, rectSheet;
@@ -187,7 +190,7 @@ void CResizableSheet::PresetLayout()
 
 BOOL CResizableSheet::ArrangeLayoutCallback(LAYOUTINFO &layout) const
 {
-	if (layout.nCallbackID != 1)	// we only added 1 callback
+	if (layout.nCallbackID != m_nCallbackID)	// we only added 1 callback
 		return CResizableLayout::ArrangeLayoutCallback(layout);
 
 	// set layout info for active page

@@ -2,8 +2,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -67,7 +70,9 @@ typedef struct tagLAYOUTINFO
 	RESIZEPROPERTIES properties;
 
 	tagLAYOUTINFO() : hWnd(NULL), nCallbackID(0), bMsgSupport(FALSE)
-	{ }
+	{
+		sWndClass[0] = 0;
+	}
 
 	tagLAYOUTINFO(HWND hwnd, ANCHOR tl_type, SIZE tl_margin, 
 		ANCHOR br_type, SIZE br_margin)
@@ -147,7 +152,7 @@ protected:
 	}
 
 	// add a callback (control ID or HWND is unknown or may change)
-	void AddAnchorCallback(UINT nCallbackID);
+	UINT AddAnchorCallback();
 
 	// get rect of an anchored window, given the parent's client area
 	BOOL GetAnchorPosition(HWND hWnd, const CRect &rectParent,

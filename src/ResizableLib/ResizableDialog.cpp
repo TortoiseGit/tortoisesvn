@@ -2,8 +2,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -71,7 +74,7 @@ BOOL CResizableDialog::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (!CDialog::OnNcCreate(lpCreateStruct))
 		return FALSE;
-	
+
 	// child dialogs don't want resizable border or size grip,
 	// nor they can handle the min/max size constraints
 	BOOL bChild = lpCreateStruct->style & WS_CHILD;

@@ -7,8 +7,11 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -53,6 +56,7 @@ private:
 	BOOL m_bSavePage;
 
 	// layout vars
+	UINT m_nCallbackID;
 	CSize m_sizePageTL, m_sizePageBR;
 	BOOL m_bLayoutDone;
 

@@ -59,18 +59,19 @@ typedef struct tagREFRESHPROPERTY
 
 
 // registered message to communicate with the library
-const UINT WMU_RESIZESUPPORT = ::RegisterWindowMessage(TEXT("WMU_RESIZESUPPORT"));
+extern const UINT WMU_RESIZESUPPORT;
 
 // if the message is implemented the returned value must be non-zero
 // the default window procedure returns zero for unhandled messages
 
 // wParam is one of the following RSZSUP_* values, lParam as specified
-
-#define RSZSUP_QUERYPROPERTIES	101	// lParam = LPRESIZEPROPERTIES
-#define RSZSUP_LIKESCLIPPING	102	// lParam = LPCLIPPINGPROPERTY
-#define RSZSUP_NEEDSREFRESH		103	// lParam = LPREFRESHPROPERTY
-#define RSZSUP_SHEETPAGEEXHACK	104	// lParam = HWND (source prop.page)
-
+enum ResizeSupport
+{
+	RSZSUP_QUERYPROPERTIES	= 101,	// lParam = LPRESIZEPROPERTIES
+	RSZSUP_LIKESCLIPPING	= 102,	// lParam = LPCLIPPINGPROPERTY
+	RSZSUP_NEEDSREFRESH		= 103,	// lParam = LPREFRESHPROPERTY
+	RSZSUP_SHEETPAGEEXHACK	= 104,	// lParam = HWND (source prop.page)
+};
 
 /////////////////////////////////////////////////////////////////////////////
 // utility functions

@@ -2,8 +2,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -133,6 +136,8 @@ void InitRealVersions()
 	CheckCommCtrlsVersion();
 	CheckOsVersion();
 
+	// set real version values
+
 	realWINVER = MAKEWORD(CNV_OS_VER(g_osviWindows.dwMinorVersion),
 		CNV_OS_VER(g_osviWindows.dwMajorVersion));
 
@@ -153,15 +158,6 @@ void InitRealVersions()
 #ifdef _WIN32_IE
 	switch (g_dviCommCtrls.dwMajorVersion)
 	{
-	case 6:
-		real_WIN32_IE = 0x0600;
-		break;
-	case 5:
-		if (g_dviCommCtrls.dwMinorVersion > 80)
-			real_WIN32_IE = 0x0501;
-		else
-			real_WIN32_IE = 0x0500;
-		break;
 	case 4:
 		switch (g_dviCommCtrls.dwMinorVersion)
 		{
@@ -177,6 +173,15 @@ void InitRealVersions()
 		default:
 			real_WIN32_IE = 0x0200;
 		}
+		break;
+	case 5:
+		if (g_dviCommCtrls.dwMinorVersion > 80)
+			real_WIN32_IE = 0x0501;
+		else
+			real_WIN32_IE = 0x0500;
+		break;
+	case 6:
+		real_WIN32_IE = 0x0600;	// includes checks for 0x0560 (IE6)
 		break;
 	default:
 		real_WIN32_IE = 0;

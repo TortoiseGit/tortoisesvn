@@ -2,8 +2,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -39,7 +42,8 @@ CResizableGrip::~CResizableGrip()
 
 void CResizableGrip::UpdateSizeGrip()
 {
-	ASSERT(::IsWindow(m_wndGrip.m_hWnd));
+	if (!::IsWindow(m_wndGrip.m_hWnd))
+		return;
 
 	// size-grip goes bottom right in the client area
 	// (any right-to-left adjustment should go here)
@@ -116,7 +120,8 @@ BOOL CResizableGrip::SetSizeGripBkMode(int nBkMode)
 
 void CResizableGrip::SetSizeGripShape(BOOL bTriangular)
 {
-	m_wndGrip.SetTriangularShape(bTriangular);
+	if (::IsWindow(m_wndGrip.m_hWnd))
+		m_wndGrip.SetTriangularShape(bTriangular);
 }
 
 BOOL CResizableGrip::CreateSizeGrip(BOOL bVisible /*= TRUE*/,

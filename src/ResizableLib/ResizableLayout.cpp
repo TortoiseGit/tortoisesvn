@@ -2,8 +2,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -89,16 +92,17 @@ void CResizableLayout::AddAnchor(HWND hWnd, ANCHOR anchorTypeTL, ANCHOR anchorTy
 	m_mapLayout.SetAt(hWnd, pos);
 }
 
-void CResizableLayout::AddAnchorCallback(UINT nCallbackID)
+UINT CResizableLayout::AddAnchorCallback()
 {
 	// one callback control cannot rely upon another callback control's
 	// size and/or position (they're updated all together at the end)
-	// it can however use a non-callback control, which is updated before
+	// it can however use a non-callback control, calling GetAnchorPosition()
 
 	// add to the list
 	LAYOUTINFO layout;
-	layout.nCallbackID = nCallbackID;
+	layout.nCallbackID = m_listLayoutCB.GetCount() + 1;
 	m_listLayoutCB.AddTail(layout);
+	return layout.nCallbackID;
 }
 
 BOOL CResizableLayout::ArrangeLayoutCallback(LAYOUTINFO& /*layout*/) const
@@ -177,6 +181,11 @@ void CResizableLayout::ClipChildWindow(const LAYOUTINFO& layout,
 	// obtain window position
 	CRect rect;
 	::GetWindowRect(layout.hWnd, &rect);
+#if (_WIN32_WINNT >= 0x0501)
+	// TODO: decide when to clip client only or non-client too (themes?)
+	if (real_WIN32_WINNT >= 0x501)
+		::SendMessage(layout.hWnd, WM_NCCALCSIZE, FALSE, (LPARAM)&rect);
+#endif
 	::MapWindowPoints(NULL, GetResizableWnd()->m_hWnd, (LPPOINT)&rect, 2);
 
 	// use window region if any
@@ -245,10 +254,11 @@ void CResizableLayout::GetClippingRegion(CRgn* pRegion) const
 		if (::IsWindowVisible(layout.hWnd))
 			ClipChildWindow(layout, pRegion);
 	}
-
+/*
 	// fix for RTL layouts (1 pixel of horz offset)
 	if (pWnd->GetExStyle() & WS_EX_LAYOUTRTL)
 		pRegion->OffsetRgn(-1,0);
+*/
 }
 
 // enable/restore clipping on the specified DC when appropriate
@@ -581,7 +591,11 @@ void CResizableLayout::HandleNcCalcSize(BOOL bAfterDefault, LPNCCALCSIZE_PARAMS 
 {
 	// prevent useless complication when size is not changing
 	// prevent recursion when resetting the window region
-	if (m_bNoRecursion || (lpncsp->lppos->flags & SWP_NOSIZE))
+	if ((lpncsp->lppos->flags & SWP_NOSIZE)
+#if(_WIN32_WINNT >= 0x0501)
+		|| m_bNoRecursion
+#endif
+		)
 		return;
 
 	if (!bAfterDefault)
@@ -593,7 +607,7 @@ void CResizableLayout::HandleNcCalcSize(BOOL bAfterDefault, LPNCCALCSIZE_PARAMS 
 	{
 		if (lResult != 0)
 		{
-			// default processing already uses an advanced policy
+			// default processing already uses an advanced validation policy
 			return;
 		}
 		// default calculated client rect
@@ -608,6 +622,7 @@ void CResizableLayout::HandleNcCalcSize(BOOL bAfterDefault, LPNCCALCSIZE_PARAMS 
 		lResult = WVR_VALIDRECTS;
 
 // TODO: only if themed frame. what about custom wnd region?
+#if(_WIN32_WINNT >= 0x0501)
 		CWnd* pWnd = GetResizableWnd();
 		DWORD dwStyle = pWnd->GetStyle();
 		if ((dwStyle & (WS_CAPTION|WS_MAXIMIZE)) == WS_CAPTION)
@@ -616,5 +631,6 @@ void CResizableLayout::HandleNcCalcSize(BOOL bAfterDefault, LPNCCALCSIZE_PARAMS 
 			pWnd->SetWindowRgn(NULL, FALSE);
 			m_bNoRecursion = FALSE;
 		}
+#endif
 	}
 }

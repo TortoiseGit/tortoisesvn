@@ -23,7 +23,7 @@ CResizableSheetState::~CResizableSheetState()
 // either in the registry or a private .INI file
 // depending on your application settings
 
-#define ACTIVEPAGE 	_T("ActivePage")
+#define ACTIVEPAGE_ENT 	_T("ActivePage")
 
 BOOL CResizableSheetState::SavePage(LPCTSTR pszName)
 {
@@ -43,7 +43,7 @@ BOOL CResizableSheetState::SavePage(LPCTSTR pszName)
 
 	CString data, id;
 	_itot(page, data.GetBuffer(10), 10);
-	id = CString(pszName) + ACTIVEPAGE;
+	id = CString(pszName) + ACTIVEPAGE_ENT;
 	return WriteState(id, data);
 }
 
@@ -52,7 +52,7 @@ BOOL CResizableSheetState::LoadPage(LPCTSTR pszName)
 	// restore active page, zero (the first) if not found
 
 	CString data, id;
-	id = CString(pszName) + ACTIVEPAGE;
+	id = CString(pszName) + ACTIVEPAGE_ENT;
 	if (!ReadState(id, data))
 		return FALSE;
 	

@@ -2,8 +2,11 @@
 //
 /////////////////////////////////////////////////////////////////////////////
 //
+// This file is part of ResizableLib
+// http://sourceforge.net/projects/resizablelib
+//
 // Copyright (C) 2000-2004 by Paolo Messina
-// (http://www.geocities.com/ppescher - ppescher@hotmail.com)
+// http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
 // You may not use this file except in compliance with the License. 
@@ -179,6 +182,7 @@ static UINT _propButtons[] =
 	IDOK, IDCANCEL, ID_APPLY_NOW, IDHELP,
 	ID_WIZBACK, ID_WIZNEXT, ID_WIZFINISH
 };
+const int _propButtonsCount = sizeof(_propButtons)/sizeof(UINT);
 
 // horizontal line in wizard mode
 #define ID_WIZLINE		ID_WIZFINISH+1
@@ -202,7 +206,7 @@ void CResizableSheetEx::PresetLayout()
 	}
 
 	// add a callback for active page (which can change at run-time)
-	AddAnchorCallback(1);
+	m_nCallbackID = AddAnchorCallback();
 
 	// use *total* parent size to have correct margins
 	CRect rectPage, rectSheet;
@@ -216,7 +220,7 @@ void CResizableSheetEx::PresetLayout()
 	m_sizePageBR = rectPage.BottomRight() - rectSheet.BottomRight();
 
 	// add all possible buttons, if they exist
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < _propButtonsCount; i++)
 	{
 		if (NULL != GetDlgItem(_propButtons[i]))
 			AddAnchor(_propButtons[i], BOTTOM_RIGHT);
@@ -225,7 +229,7 @@ void CResizableSheetEx::PresetLayout()
 
 BOOL CResizableSheetEx::ArrangeLayoutCallback(LAYOUTINFO &layout) const
 {
-	if (layout.nCallbackID != 1)	// we only added 1 callback
+	if (layout.nCallbackID != m_nCallbackID)	// we only added 1 callback
 		return CResizableLayout::ArrangeLayoutCallback(layout);
 
 	// set layout info for active page
