@@ -15,8 +15,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+#ifndef __RepositoryBrowser_h
+#define __RepositoryBrowser_h
+
 #pragma once
-#include "repositorytree.h"
+#include "SVNRev.h"
+#include "RepositoryTree.h"
+#include "RepositoryBar.h"
 #include "ResizableDialog.h"
 
 
@@ -30,6 +36,7 @@
 #define ID_POPMKDIR			8
 #define ID_POPGNUDIFF		9
 #define ID_POPDIFF			10
+
 
 /**
  * \ingroup TortoiseProc
@@ -59,7 +66,8 @@ class CRepositoryBrowser : public CResizableDialog
 	DECLARE_DYNAMIC(CRepositoryBrowser)
 
 public:
-	CRepositoryBrowser(const CString& strUrl, CWnd* pParent = NULL);   // standard constructor
+	CRepositoryBrowser(const CString& strUrl);					//!< standalone repository browser
+	CRepositoryBrowser(const CString& strUrl, CWnd* pParent);	//!< dependent repository browser
 	virtual ~CRepositoryBrowser();
 
 // Dialog Data
@@ -68,21 +76,27 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
+	virtual void OnOK();
 
 	HICON m_hIcon;
 
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 
-	CRepositoryTree m_treeRepository;
-	CStringArray	m_templist;
+	CRepositoryTree		m_treeRepository;
+	CRepositoryBar		m_barRepository;
+	CRepositoryBarCnr	m_cnrRepositoryBar;
+	CStringArray		m_templist;
 
 public:
-	BOOL m_bStandAlone;
 	CString m_strUrl;
-	LONG m_nRevision;
+	SVNRev m_Revision;
+
+private:
+	bool m_bStandAlone;
 };
+
+#endif /*__RepositoryBrowser_h*/

@@ -996,11 +996,12 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString url;
 			SVNStatus status;
 			long reporev;
-			if ((reporev = status.GetStatus(path)) != -2)
+			if (!path.IsEmpty() && (reporev = status.GetStatus(path)) != -2)
 			{
 				if (status.status->entry)
 					url = status.status->entry->url;
-			} // if (status.GetStatus(path)!=-2)
+			} // if (!path.IsEmpty() && status.GetStatus(path)!=-2)
+/*
 			if (url.IsEmpty())
 			{
 				CURLDlg urldlg;
@@ -1012,14 +1013,14 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 				url = urldlg.m_url;
 			} // if (dlg.m_strUrl.IsEmpty())
+*/
 			CRepositoryBrowser dlg(url);
-			dlg.m_bStandAlone = TRUE;
 			CString val = parser.GetVal(_T("rev"));
 			long rev = _tstol(val);
 			if (rev != 0)
-				dlg.m_nRevision = rev;
+				dlg.m_Revision = SVNRev(rev);
 			else if (reporev > 0)
-				dlg.m_nRevision = reporev;
+				dlg.m_Revision = SVNRev(reporev);
 			dlg.DoModal();
 		}
 		//#endregion 

@@ -759,8 +759,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						} // if (m_hasWC)
 
 						CRepositoryBrowser dlg(url);
-						dlg.m_nRevision = rev;
-						dlg.m_bStandAlone = TRUE;
+						dlg.m_Revision = SVNRev(rev);
 						dlg.DoModal();
 					}
 					break;

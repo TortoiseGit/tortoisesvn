@@ -23,20 +23,32 @@
 #include "MessageBox.h"
 #include "InputDlg.h"
 #include "LogDlg.h"
-#include ".\repositorybrowser.h"
 
 
 // CRepositoryBrowser dialog
 
 IMPLEMENT_DYNAMIC(CRepositoryBrowser, CResizableDialog)
-CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl, CWnd* pParent /*=NULL*/)
-	: CResizableDialog(CRepositoryBrowser::IDD, pParent),
-	m_treeRepository(strUrl)
-	, m_strUrl(_T(""))
-	, m_nRevision(SVNRev::REV_HEAD)
+
+CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl)
+	: CResizableDialog(CRepositoryBrowser::IDD, NULL)
+	, m_treeRepository(strUrl)
+	, m_cnrRepositoryBar(&m_barRepository)
+	, m_strUrl(strUrl)
+	, m_Revision(SVNRev::REV_HEAD)
+	, m_bStandAlone(true)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-	m_bStandAlone = FALSE;
+}
+
+CRepositoryBrowser::CRepositoryBrowser(const CString& strUrl, CWnd* pParent)
+	: CResizableDialog(CRepositoryBrowser::IDD, pParent)
+	, m_treeRepository(strUrl)
+	, m_cnrRepositoryBar(&m_barRepository)
+	, m_strUrl(strUrl)
+	, m_Revision(SVNRev::REV_HEAD)
+	, m_bStandAlone(false)
+{
+	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
@@ -52,12 +64,10 @@ void CRepositoryBrowser::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_REPOS_TREE, m_treeRepository);
-	DDX_Text(pDX, IDC_URL, m_strUrl);
 }
 
 
 BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableDialog)
-	ON_NOTIFY(RVN_SELECTIONCHANGED, IDC_REPOS_TREE, OnTvnSelchangedReposTree)
 	ON_WM_SIZE()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
@@ -108,57 +118,39 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	m_treeRepository.Init(m_nRevision);
+	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
+	m_barRepository.Create(&m_cnrRepositoryBar, 12345);
+	m_barRepository.AssocTree(&m_treeRepository);
+	m_treeRepository.Init(m_Revision);
 
-	CString temp1, temp2;
-	temp1.LoadString(IDS_REPO_BROWSEREV);
-	if (m_nRevision == SVNRev::REV_HEAD)
-		temp2 = _T("HEAD");
-	else
-		temp2.Format(_T("%ld"), m_nRevision);
-	temp1 += temp2;
-	GetDlgItem(IDC_REVTEXT)->SetWindowText(temp1);
+	if (m_strUrl.IsEmpty())
+	{
+		SVNUrl current_url = m_barRepository.GetCurrentUrl();
+		m_strUrl = current_url.GetPath();
+		m_Revision = current_url.GetRevision();
+	}
+
+	m_barRepository.GotoUrl(SVNUrl(m_strUrl, m_Revision));
 
 	if (m_bStandAlone)
 	{
 		GetDlgItem(IDCANCEL)->ShowWindow(FALSE);
-		GetDlgItem(IDC_URL)->ShowWindow(FALSE);
-		GetDlgItem(IDC_STATICURL)->ShowWindow(FALSE);
 
-		// reposition remaining items
-		CRect rect_tree, rect_url, rect_cancel;
-		GetDlgItem(IDC_REPOS_TREE)->GetWindowRect(rect_tree);
-		GetDlgItem(IDC_URL)->GetWindowRect(rect_url);
+		// reposition buttons
+		CRect rect_cancel;
 		GetDlgItem(IDCANCEL)->GetWindowRect(rect_cancel);
-		ScreenToClient(rect_tree);
-		ScreenToClient(rect_url);
 		ScreenToClient(rect_cancel);
 		GetDlgItem(IDOK)->MoveWindow(rect_cancel);
-		GetDlgItem(IDC_REPOS_TREE)->MoveWindow(rect_tree.left, rect_tree.top,
-			rect_tree.Width(), rect_url.bottom - rect_tree.top);
 	}
 
 	AddAnchor(IDC_REPOS_TREE, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_STATICURL, BOTTOM_LEFT);
-	AddAnchor(IDC_URL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_REPOS_BAR_CNR, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	EnableSaveRestore(_T("RepositoryBrowser"));
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
-}
-
-void CRepositoryBrowser::OnTvnSelchangedReposTree(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMREPORTVIEW pNMRV = reinterpret_cast<LPNMREPORTVIEW>(pNMHDR);
-	
-	if (pNMRV->nState & RVIS_FOCUSED) {
-		m_strUrl = m_treeRepository.GetFolderUrl(pNMRV->hItem);
-		UpdateData(FALSE);
-	}
-
-	*pResult = 0;
 }
 
 void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
@@ -202,7 +194,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 				temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPSHOWLOG, temp);		// "Show Log..."
 
-				if (m_nRevision == SVNRev::REV_HEAD)
+				if (m_Revision.IsHead())
 				{
 					temp.LoadString(IDS_REPOBROWSE_OPEN);
 					if ((bFolder)&&(url.Left(4).CompareNoCase(_T("http"))!=0))
@@ -233,7 +225,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 
 					temp.LoadString(IDS_REPOBROWSE_COPY);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPCOPYTO, temp);		// "Copy To..."
-				} // if (m_nRevision == SVNRev::REV_HEAD)
+				} // if (m_Revision.IsHead()
 			} // if (uSelCount == 1)
 			if (uSelCount == 2)
 			{
@@ -316,13 +308,13 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 						SVN svn;
 						svn.m_app = &theApp;
 						theApp.DoWaitCursor(1);
-						if (!svn.Cat(url, m_nRevision, tempfile))
+						if (!svn.Cat(url, m_Revision, tempfile))
 						{
 							delete [] pszFilters;
 							theApp.DoWaitCursor(-1);
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
-						} // if (!svn.Cat(url, m_nRevision, tempfile)) 
+						} // if (!svn.Cat(url, m_Revision, tempfile)) 
 						theApp.DoWaitCursor(-1);
 					} // if (GetSaveFileName(&ofn)==TRUE) 
 					delete [] pszFilters;
@@ -331,7 +323,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 			case ID_POPSHOWLOG:
 				{
 					CLogDlg dlg;
-					dlg.SetParams(url, m_nRevision, 0, FALSE);
+					dlg.SetParams(url, m_Revision, 0, FALSE);
 					dlg.DoModal();
 				}
 				break;
@@ -357,7 +349,8 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
 						} // if (!svn.Remove(url, TRUE)) 
-						m_treeRepository.Refresh(hSelItem);
+						m_treeRepository.DeleteUrl(url);
+						*pResult = 1; // mark HTREEITEM as deleted
 					} // if (dlg.DoModal()==IDOK) 
 					theApp.DoWaitCursor(-1);
 				}
@@ -418,7 +411,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
 							} // if (!svn.Import(path, url, _T("adding file remotely"), FALSE)) 
-							m_treeRepository.Refresh(hSelItem);
+							m_treeRepository.AddFile(url+_T("/")+filename);
 						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (GetOpenFileName(&ofn)==TRUE) 
@@ -477,7 +470,10 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
 							} // if (!svn.Copy(url, dlg.m_name, SVNRev::REV_HEAD, _T("copy remotely"))) 
-							m_treeRepository.Refresh(hSelItem);
+							if (bFolder)
+								m_treeRepository.AddFolder(dlg.m_name);
+							else
+								m_treeRepository.AddFile(dlg.m_name);
 						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
@@ -505,7 +501,7 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								return;
 							} // if (!svn.MakeDir(url+_T("/")+dlg.m_name, _T("created directory remotely"))) 
-							m_treeRepository.RefreshMe(hSelItem);
+							m_treeRepository.AddFolder(url+_T("/")+dlg.m_name);
 						} // if (input.DoModal() == IDOK) 
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
@@ -516,12 +512,12 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 					CString tempfile = CUtils::GetTempFile();
 					tempfile += _T(".diff");
 					SVN svn;
-					if (!svn.Diff(url1, m_nRevision, url2, m_nRevision, TRUE, FALSE, TRUE, _T(""), tempfile))
+					if (!svn.Diff(url1, m_Revision, url2, m_Revision, TRUE, FALSE, TRUE, _T(""), tempfile))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile);
 						break;		//exit
-					} // if (!Diff(url1, m_nRevision, url2, m_nRevision, TRUE, FALSE, TRUE, _T(""), tempfile)) 
+					} // if (!Diff(url1, m_Revision, url2, m_Revision, TRUE, FALSE, TRUE, _T(""), tempfile)) 
 					else
 					{
 						m_templist.Add(tempfile);
@@ -534,20 +530,20 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 				{
 					CString tempfile1 = CUtils::GetTempFile();
 					SVN svn;
-					if (!svn.Cat(url1, m_nRevision, tempfile1))
+					if (!svn.Cat(url1, m_Revision, tempfile1))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile1);
 						break;		//exit
-					} // if (!Cat(url1, m_nRevision, tempfile1))
+					} // if (!Cat(url1, m_Revision, tempfile1))
 					m_templist.Add(tempfile1);
 					CString tempfile2 = CUtils::GetTempFile();
-					if (!svn.Cat(url2, m_nRevision, tempfile2))
+					if (!svn.Cat(url2, m_Revision, tempfile2))
 					{
 						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						DeleteFile(tempfile2);
 						break;		//exit
-					} // if (!Cat(url2, m_nRevision, tempfile2)) 
+					} // if (!Cat(url2, m_Revision, tempfile2)) 
 					CString ext = CUtils::GetFileExtFromPath(url1);
 					CUtils::StartDiffViewer(tempfile2, tempfile1, FALSE, url1, url2, ext);
 					theApp.DoWaitCursor(-1);
@@ -557,4 +553,11 @@ void CRepositoryBrowser::OnRVNItemRClickReposTree(NMHDR *pNMHDR, LRESULT *pResul
 			GetDlgItem(IDOK)->EnableWindow(TRUE);
 		} // if (popup.CreatePopupMenu()) 
 	} // if (hSelItem) 
+}
+
+void CRepositoryBrowser::OnOK()
+{
+	m_strUrl = m_barRepository.GetCurrentUrl().GetPath(true);
+	m_barRepository.SaveHistory();
+	CResizableDialog::OnOK();
 }

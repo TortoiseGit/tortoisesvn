@@ -155,6 +155,7 @@
 #define IDC_SELECTALL                   1067
 #define IDC_SSHCLIENT                   1068
 #define IDC_SSHBROWSE                   1069
+#define IDC_REPOS_BAR_CNR               1070
 #define IDC_DEFAULTLOG                  1071
 #define IDC_CHECK1                      1073
 #define IDC_MENU24                      1073
@@ -231,6 +232,7 @@
 #define IDS_SVN_USERCANCELLED           1181
 #define IDS_LOG_SIZE                    1182
 #define IDS_REPO_BROWSEREV              1190
+#define IDS_REPO_BROWSEURL              1191
 #define IDS_SSL_CERTIFICATETYPE         1200
 #define IDS_SSL_ACCEPTQUESTION          1201
 #define IDS_SSL_CLIENTCERTIFICATEFILENAME 1202
