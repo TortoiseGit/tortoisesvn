@@ -24,6 +24,7 @@
 #include "LogPromptDlg.h"
 #include "UnicodeUtils.h"
 #include ".\logpromptdlg.h"
+#include "DirFileEnum.h"
 
 
 // CLogPromptDlg dialog
@@ -546,12 +547,11 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							{
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 								//we have an unversioned folder -> get all files in it recursively!
-								CDirFileList	filelist;
-								filelist.BuildList(temp, TRUE, TRUE);
 								int count = pDlg->m_ListCtrl.GetItemCount();
-								for (int i=0; i<filelist.GetSize(); i++)
+								CDirFileEnum filefinder(temp);
+								CString filename;
+								while (filefinder.NextFile(filename))
 								{
-									CString filename = filelist.GetAt(i);
 									filename.Replace('\\', '/');
 									if (!CCheckTempFiles::IsTemp(filename))
 									{
@@ -565,7 +565,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 										SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 										pDlg->m_ListCtrl.SetItemText(count++, 1, buf);
 									} // if (!CCheckTempFiles::IsTemp(filename))
-								} // for (int i=0; i<filelist.GetSize(); i++) 
+								} // while (filefinder.NextFile(filename))
 							} // if (bIsFolder) 
 							else
 								pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
@@ -629,12 +629,15 @@ void CLogPromptDlg::OnBnClickedSelectall()
 {
 	UpdateData();
 	theApp.DoWaitCursor(1);
-	for (int i=0; i<m_ListCtrl.GetItemCount(); i++)
+	m_ListCtrl.SetRedraw(false);
+	int itemCount = m_ListCtrl.GetItemCount();
+	for (int i=0; i<itemCount; i++)
 	{
 		m_ListCtrl.SetCheck(i, m_bSelectAll);
 		Data * data = m_arData.GetAt(i);
 		data->checked = m_bSelectAll;
 	}
+	m_ListCtrl.SetRedraw(true);
 	theApp.DoWaitCursor(-1);
 }
 

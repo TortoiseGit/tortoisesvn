@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "CheckTempFiles.h"
-#include "DirFileList.h"
+#include "DirFileEnum.h"
 #include "AddDlg.h"
 #include ".\adddlg.h"
 
@@ -161,10 +161,13 @@ void CAddDlg::OnBnClickedSelectall()
 {
 	UpdateData();
 	theApp.DoWaitCursor(1);
-	for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
+	m_addListCtrl.SetRedraw(false);
+	int itemCount = m_addListCtrl.GetItemCount();
+	for (int i=0; i<itemCount; i++)
 	{
 		m_addListCtrl.SetCheck(i, m_bSelectAll);
 	}
+	m_addListCtrl.SetRedraw(true);
 	theApp.DoWaitCursor(-1);
 }
 
@@ -245,19 +248,18 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 					if (bIsDir)
 					{
 						//we have an unversioned folder -> get all files in it recursively!
-						CDirFileList	filelist;
-						filelist.BuildList(strLine, TRUE, TRUE);
 						int count = pDlg->m_addListCtrl.GetItemCount();
-						for (int i=0; i<filelist.GetSize(); i++)
+						CDirFileEnum filefinder(strLine);
+						CString filename;
+						while (filefinder.NextFile(filename))
 						{
-							CString filename = filelist.GetAt(i);
 							if (!CCheckTempFiles::IsTemp(filename))
 							{
 								pDlg->m_arFileList.Add(filename);
 								pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
 								pDlg->m_addListCtrl.SetCheck(count++);
 							} // if (!CCheckTempFiles::IsTemp(filename)) 
-						} // for (int i=0; i<filelist.GetSize(); i++) 
+						} // while (filefinder.NextFile(filename))
 					} // if (bIsDir) 
 				} // if (!SVNStatus::IsImportant(stat)) 
 				while ((s = status.GetNextFileStatus(&strbuf)) != NULL)
@@ -276,19 +278,18 @@ DWORD WINAPI AddThread(LPVOID pVoid)
 						if (bIsDir)
 						{
 							//we have an unversioned folder -> get all files in it recursively!
-							CDirFileList	filelist;
-							filelist.BuildList(temp, TRUE, TRUE);
 							int count = pDlg->m_addListCtrl.GetItemCount();
-							for (int i=0; i<filelist.GetSize(); i++)
+							CDirFileEnum filefinder(temp);
+							CString filename;
+							while (filefinder.NextFile(filename))
 							{
-								CString filename = filelist.GetAt(i);
 								if (!CCheckTempFiles::IsTemp(filename))
 								{
 									pDlg->m_arFileList.Add(filename);
 									pDlg->m_addListCtrl.InsertItem(count, filename.Right(filename.GetLength() - strLine.ReverseFind('\\') - 1));
 									pDlg->m_addListCtrl.SetCheck(count++);
 								} // if (!CCheckTempFiles::IsTemp(filename)) 
-							} // for (int i=0; i<filelist.GetSize(); i++) 
+							} // while (filefinder.NextFile(filename))
 						} // if (bIsDir) 
 					} // if (!SVNStatus::IsImportant(stat)) 
 				} // while ((s = status.GetNextFileStatus(buf)) != NULL)

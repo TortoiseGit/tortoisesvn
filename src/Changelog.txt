@@ -20,6 +20,10 @@
 - ADD: TortoiseMerge can now handle UTF8 files. (Stefan)
 - ADD: Selecting of lines and copying them to the
        clipboard in TortoiseMerge. (Stefan)
+- CHG: Use of an iterator to gather all the files
+       needed for import/commit/add. This saves a lot
+       of memory and is also a big speedup for large
+       directories. (Jon Foster)
 - CHG: The log message editboxes now do "soft-wrap",
        i.e. the logmessage is wrapped at the right
        end of the dialog box. (Stefan)

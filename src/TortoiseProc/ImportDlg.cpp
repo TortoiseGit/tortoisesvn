@@ -22,6 +22,7 @@
 #include "ImportDlg.h"
 #include "RepositoryBrowser.h"
 #include ".\importdlg.h"
+#include "DirFileEnum.h"
 
 
 // CImportDlg dialog
@@ -107,17 +108,19 @@ BOOL CImportDlg::OnInitDialog()
 	m_FileList.InsertColumn(0, temp);
 
 	m_FileList.SetRedraw(false);
-
-	CDirFileList filelist;
-	filelist.BuildList(m_path, TRUE, TRUE);
-	for (int i=0; i<filelist.GetCount(); i++)
+	CDirFileEnum filefinder(m_path);
+	CString filename;
+	int itemCount = 0;
+	while (filefinder.NextFile(filename))
 	{
-		if (CCheckTempFiles::IsTemp(filelist.GetAt(i)))
+		if (CCheckTempFiles::IsTemp(filename))
 		{
-			m_FileList.InsertItem(m_FileList.GetItemCount(), filelist.GetAt(i));
-			m_FileList.SetCheck(m_FileList.GetItemCount()-1, TRUE);
+			m_FileList.InsertItem(itemCount, filename);
+			m_FileList.SetCheck(itemCount, TRUE);
+			itemCount++;
 		}
 	}
+
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_FileList.GetDlgItem(0)))->GetItemCount()-1;
 	int col;
