@@ -559,7 +559,6 @@ void CMainFrame::SaveFile(CString sFilePath)
 			case CDiffData::DIFFSTATE_CONFLICTED:
 			case CDiffData::DIFFSTATE_CONFLICTEMPTY:
 			case CDiffData::DIFFSTATE_EMPTY:
-			case CDiffData::DIFFSTATE_IDENTICAL:
 			case CDiffData::DIFFSTATE_IDENTICALADDED:
 			case CDiffData::DIFFSTATE_NORMAL:
 			case CDiffData::DIFFSTATE_THEIRSADDED:

@@ -196,9 +196,6 @@
 				RelativePath=".\RightView.cpp">
 			</File>
 			<File
-				RelativePath=".\SetColor2Page.cpp">
-			</File>
-			<File
 				RelativePath=".\SetColorPage.cpp">
 			</File>
 			<File
@@ -312,9 +309,6 @@
 				RelativePath="..\Utils\registry.h">
 			</File>
 			<File
-				RelativePath="..\Languages\resource.h">
-			</File>
-			<File
 				RelativePath=".\Resource.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -334,10 +328,10 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\RightView.h">
+				RelativePath="..\Languages\resource.h">
 			</File>
 			<File
-				RelativePath=".\SetColor2Page.h">
+				RelativePath=".\RightView.h">
 			</File>
 			<File
 				RelativePath=".\SetColorPage.h">
@@ -406,10 +400,10 @@
 			RelativePath="..\Languages\res\download.avi">
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseMerge.manifest">
+			RelativePath=".\res\TortoiseMerge.manifest">
 		</File>
 		<File
-			RelativePath=".\res\TortoiseMerge.manifest">
+			RelativePath="..\Languages\res\TortoiseMerge.manifest">
 		</File>
 	</Files>
 	<Globals>

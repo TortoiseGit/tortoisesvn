@@ -51,16 +51,11 @@ protected:
 
 protected:
 	BOOL m_bInit;
-	CColourPickerXP m_cBkUnknown;
-	CColourPickerXP m_cFgUnknown;
 	CColourPickerXP m_cBkNormal;
-	CColourPickerXP m_cFgNormal;
 	CColourPickerXP m_cBkRemoved;
-	CColourPickerXP m_cBkWhitespaceRemoved;
 	CColourPickerXP m_cBkAdded;
-	CColourPickerXP m_cBkWhitespaceAdded;
-	CColourPickerXP m_cFgRemoved;
-	CColourPickerXP m_cFgWhitespaceRemoved;
-	CColourPickerXP m_cFgAdded;
-	CColourPickerXP m_cFgWhitespaceAdded;
+	CColourPickerXP m_cBkWhitespaces;
+	CColourPickerXP m_cBkWhitespaceDiff;
+	CColourPickerXP m_cBkEmpty;
+	CColourPickerXP m_cBkConflict;
 };

@@ -16,7 +16,6 @@
 #define IDD_ABOUT                       136
 #define IDR_DOWNLOAD                    136
 #define IDD_SETCOLORPAGE                137
-#define IDD_SETCOLOR2PAGE               138
 #define IDB_LOGOFLIPPED                 168
 #define IDS_SELECTFILE                  200
 #define IDC_BASEFILEEDIT                1000
@@ -63,7 +62,9 @@
 #define IDC_BKREMOVED                   1031
 #define IDC_FGREMOVED                   1032
 #define IDC_BKWHITESPACEREMOVED         1033
+#define IDC_BKWHITESPACES               1033
 #define IDC_FGWHITESPACEREMOVED         1034
+#define IDC_BKWHITESPACEDIFF            1034
 #define IDC_BKADDED                     1035
 #define IDC_FGADDED                     1037
 #define IDC_BKWHITESPACEADDED           1038
