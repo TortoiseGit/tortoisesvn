@@ -1126,35 +1126,41 @@ CString SVN::GetPristinePath(CString wcPath)
 
 void SVN::UpdateShell(CString path)
 {
+	//updating the left pane (tree view) of the explorer
+	//is more difficult (if not impossible) than I thought.
+	//Using SHChangeNotify() doesn't work at all. I found that
+	//the shell receives the message, but then checks the files/folders
+	//itself for changes. And since the folders which are shown
+	//in the tree view haven't changed the icon-overlay is
+	//not updated!
+	//a workaround for this problem would be if this method would
+	//rename the folders, do a SHChangeNotify(SHCNE_RMDIR, ...),
+	//rename the folders back and do an SHChangeNotify(SHCNE_UPDATEDIR, ...)
+	//
+	//But I'm not sure if that is really a good workaround - it'll possibly
+	//slows down the explorer and also causes more HD usage.
+	//
+	//So this method only updates the files and folders in the normal
+	//explorer view by telling the explorer that the folder icon itself
+	//has changed.
 	preparePath(path);
-	if (PathIsDirectory(path))
-	{
-		SHChangeNotify(SHCNE_ATTRIBUTES | SHCNF_FLUSHNOWAIT, SHCNF_PATH, path, NULL);
-		//if recursive overlay is set, then all folders above 
-		//and below this folder also "changed" and need to be updated
+	SHFILEINFO    sfi;
+	SHGetFileInfo(
+		(LPCTSTR)path, 
+		FILE_ATTRIBUTE_DIRECTORY,
+		&sfi, 
+		sizeof(SHFILEINFO), 
+		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+	SHFILEINFO    sfiopen;
+	SHGetFileInfo(
+		(LPCTSTR)path, 
+		FILE_ATTRIBUTE_DIRECTORY,
+		&sfiopen, 
+		sizeof(SHFILEINFO), 
+		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | SHGFI_OPENICON);
 
-		//first check all folders below
-		//CDirFileList list;
-		//list.BuildList(path, TRUE, TRUE);
-		//for (int i=0; i<list.GetCount(); i++)
-		//{
-		//	CString folder = list.GetAt(i);
-		//	if (PathIsDirectory(folder))
-		//	{
-		//		SHChangeNotify(SHCNE_ATTRIBUTES, SHCNF_PATH, folder, NULL);
-		//	}
-		//} // for (int i=0; i<list.GetCount(); i++) 
-
-		//check the folders above
-		CString folder = path;
-		do
-		{
-			folder = folder.Left(folder.ReverseFind('/'));
-			SHChangeNotify(SHCNE_ATTRIBUTES | SHCNF_FLUSHNOWAIT, SHCNF_PATH, folder, NULL);
-		} while (PathFileExists(folder + _T("/.svn")));
-	}
-	else
-		SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH, path, NULL);
+	SHChangeNotify(SHCNE_UPDATEIMAGE | SHCNF_FLUSH, SHCNF_DWORD, NULL, (LPCVOID)sfi.iIcon);
+	SHChangeNotify(SHCNE_UPDATEIMAGE | SHCNF_FLUSH, SHCNF_DWORD, NULL, (LPCVOID)sfiopen.iIcon);
 }
 
 typedef struct
