@@ -1,10 +1,17 @@
+First, you need to install some utilities/programs:
+- Install VS.NET2003
 - Install Python 2.2. You can get it from here:
   http://www.python.org/windows/
+- Set the path where you installed python to the PATH environement variable.
 - Install Perl. Get it from http://www.activestate.com/Products/ActivePerl/
-- create a new folder on your harddisk, e.g. SVN.
-  Now checkout the subversion source into this folder
-  svn co http://svn.collab.net/repos/svn/branches/1.0.x Subversion
-  Or if you're using TortoiseSVN to checkout the sources
+- Get the WiX tools from http://wix.sourceforge.net and unzip them. Then add
+  it to the PATH environement variable.
+You may have to logoff/logon to make the new environement variables take effect!
+
+- create a new folder on your harddisk, e.g. SVN. Make sure you have at least
+  1.5 GB of free space left!!!
+- Now checkout the subversion source into SVN\Subversion.
+  If you're using TortoiseSVN to checkout the sources
   then right-click into the SVN folder and select "checkout".
   In the dialog enter the URL and add "\Subversion" to
   the checkout path.
@@ -20,39 +27,21 @@
   SVN\Subversion\httpd-2.0.xx\srclib\apr-iconv to SVN\Subversion\apr-iconv
   SVN\Subversion\httpd-2.0.xx\srclib\apr-util to SVN\Subversion\apr-util
   Now open the Apache.dsw file and compile apache.
+- create a new folder in SVN called 'common'
 - Download the openssl source package from
-  http://www.openssl.org/source/ and unzip it to SVN\common
-  open a dos prompt and go to SVN\common\openssl
-  run the file <installdir_of_vs.net>\Common7\Tools\vsvars32.bat
-  > perl Configure VC-WIN32
-  > ms\do_masm
-  > nmake -f ms\ntdll.mak
-  don't close the dos-prompt, you'll need it later.
+  http://www.openssl.org/source/ and unzip it to SVN\common, then rename
+  the folder from openssl-0.9.xx to openssl
 - Download the zlib source from 
   http://www.gzip.org/zlib/ and unzip it to SVN\common\zlib
-  Copy the file zlib\win32\Makefile.msc to zlib\
-  > nmake /f Makefile.msc
-  > copy zlib.lib zlibstat.lib
 - Download the newest neon source from 
   http://www.webdav.org/neon/ and unzip it into SVN\Subversion
   then rename the folder neon-0.xx.x to neon.
-- in the dos-prompt cd to SVN\Subversion. Then type
-  > python gen-make.py -t vcproj --with-openssl=PathTo\Common\openssl --with-zlib=PathTo\Common\zlib
-  this will create all the project files for visual studio.
-  Open VS.NET and then open the *.sln file. Build the project called __ALL__.
-  This will build all other projects in the workspace too.
-  Now you have successfully compiled Subversion!
-- Checkout the TortoiseSVN sources from the Subversion repository.
-  You need a subversion client to do this. Check it out to
+- Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
-  Open the solution file and compile.
 - To compile the crashrpt project for TortoiseSVN, you'll need the WTL.
-  You can get that library from here:
-  http://download.microsoft.com/download/VisualStudioNET/Install/7.0/WXP/EN-US/WTL70.exe
-  But the crashrpt project is not needed for TortoiseSVN to compile.
+  You can get that library from here: http://wtl.sourceforge.net/
+  Unzip it and then add the path to the VS.NET include path.
 
-CAUTION:
-If you have both VS.NET2002 and VS.NET2003 installed (or once had) make sure
-you build all libraries with the same version! Always check in the about
-box of the IDE which version you're actually using to compile a library
-so you don't mix up.
+Now, if you got some time left you can run the build.bat script to compile
+TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
+how fast your computer is!
