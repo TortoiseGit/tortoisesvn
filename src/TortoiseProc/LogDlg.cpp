@@ -295,7 +295,10 @@ DWORD WINAPI LogThread(LPVOID pVoid)
 			pDlg->m_endrev = r + pDlg->m_endrev;
 		} // if (r != (-2))
 		if (pDlg->m_endrev <= 0)
+		{
 			pDlg->m_endrev = 1;
+			pDlg->m_bShowedAll = TRUE;
+		}
 	}
 	//disable the "Get All" button while we're receiving
 	//log messages.
