@@ -720,6 +720,29 @@ SSPIOfferBasic On
 							is not secured with SSL.
 						</para>
 					</listitem>
+					<listitem>
+						<para>
+						In the ssl "standard" setup there's often the 
+						following statement in apache's virtual ssl host:
+<screen>
+SetEnvIf User-Agent ".*MSIE.*" \
+             nokeepalive ssl-unclean-shutdown \
+             downgrade-1.0 force-response-1.0
+</screen>
+						There are (were?) good reasons for this configuration, 
+						see
+						<ulink url="http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49">
+							<citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle>
+						</ulink>
+						But if you want ntlm authentication you have to use keepalive:
+						<ulink url="http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp">
+							<citetitle>http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/qos_enablekeepalives.asp</citetitle>
+						</ulink>
+						If You uncomment the whole "SetEnvIf" You should be able to
+						authenticate IE with windows authentication over SSL against 
+						the apache on Win32 with included mod_auth_sspi.
+						</para>
+					</listitem>
 				</itemizedlist>
 			</para>
 		</important>
