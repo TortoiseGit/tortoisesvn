@@ -372,9 +372,11 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->checked = false;
 	entry->inexternal = bInExternal;
 	entry->direct = bDirectItem;
+	entry->lRevision = 0;
 	if (pSVNStatus->entry)
 	{
 		entry->isfolder = (pSVNStatus->entry->kind == svn_node_dir);
+		entry->lRevision = pSVNStatus->entry->revision;
 
 		if (pSVNStatus->entry->url)
 		{
@@ -428,6 +430,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 			entry->inexternal = false;
 			entry->direct = false;
 			entry->isfolder = filefinder.IsDirectory(); 
+			entry->lRevision = 0;
 
 			m_arStatusArray.push_back(entry);
 			if (entry->isfolder)
@@ -1041,6 +1044,22 @@ void CSVNStatusListCtrl::BuildStatistics()
 			} // switch (entry->status) 
 		} // if (entry) 
 	} // for (int i=0; i < (int)m_arStatusArray.size(); ++i)
+}
+
+void CSVNStatusListCtrl::GetMinMaxRevisions(LONG& lMin, LONG& lMax)
+{
+	lMin = LONG_MAX;
+	lMax = 0;
+	for (int i=0; i < (int)m_arStatusArray.size(); ++i)
+	{
+		const FileEntry * entry = m_arStatusArray[i];
+		
+		if ((entry)&&(entry->lRevision))
+		{
+			lMin = min(lMin, entry->lRevision);
+			lMax = max(lMax, entry->lRevision);
+		}	
+	}
 }
 
 void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
@@ -1906,7 +1925,7 @@ CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
 }
 
 
-///< Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
+/// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
 void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList)
 {
 	pathList.Clear();

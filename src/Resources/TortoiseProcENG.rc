@@ -62,7 +62,7 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -1719,7 +1719,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOSTATUS_HEADREV  "Head revision of the repository is: %d"
+    IDS_REPOSTATUS_HEADREV  "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %d"
+    IDS_REPOSTATUS_WCINFO   "Lowest Revision: %ld - Highest Revision: %ld"
 END
 
 STRINGTABLE 
@@ -1826,12 +1827,12 @@ BEGIN
     IDS_LOGPROMPT_POPUP_PASTEFILELIST "Paste filename list"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -1874,7 +1875,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

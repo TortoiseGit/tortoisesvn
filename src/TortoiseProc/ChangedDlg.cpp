@@ -102,11 +102,18 @@ UINT CChangedDlg::ChangedStatusThread()
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
 	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
 	m_FileListCtrl.Show(dwShow);
-
+	LONG lMin, lMax;
+	m_FileListCtrl.GetMinMaxRevisions(lMin, lMax);
 	if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
 	{
 		CString temp;
-		temp.Format(IDS_REPOSTATUS_HEADREV, LONG(m_FileListCtrl.m_HeadRev));
+		temp.Format(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
+		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
+	}
+	else
+	{
+		CString temp;
+		temp.Format(IDS_REPOSTATUS_WCINFO, lMin, lMax);
 		GetDlgItem(IDC_SUMMARYTEXT)->SetWindowText(temp);
 	}
 
