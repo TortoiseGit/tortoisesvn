@@ -45,6 +45,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isNormal = false;
 	isIgnored = false;
 	isInVersionedFolder = false;
+	isAdded = false;
 
 	// get selected files/folders
 	if (pDataObj)
@@ -102,6 +103,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							isNormal = true;
 						if (status == svn_wc_status_conflicted)
 							isConflicted = true;
+						if (status == svn_wc_status_added)
+							isAdded = true;
 					}
 				} // for (int i = 0; i < count; i++)
 				GlobalUnlock ( drop );
@@ -138,6 +141,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							isNormal = true;
 						if (status == svn_wc_status_conflicted)
 							isConflicted = true;
+						if (status == svn_wc_status_added)
+							isAdded = true;
 					}
 				} // for (int i = 0; i < count; ++i)
 				ItemIDList child (GetPIDLItem (cida, 0), &parent);
@@ -206,6 +211,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			if (status == svn_wc_status_ignored)
 				isIgnored = true;
 			isFolder = true;
+			if (status == svn_wc_status_added)
+				isAdded = true;
 		}
 	}
 	if ((isFolder == true)&&(isIgnored == true))
@@ -368,11 +375,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		//if they are versioned, they also can be exported to an unversioned location
 		UINT idCmd = idCmdFirst;
 
-		if ((isInSVN)&&(isFolderInSVN))
+		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded))
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, DropMove);
-		if ((isInSVN)&&(isFolderInSVN))
+		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded))
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, DropCopy);
-		if ((isInSVN)&&(isFolderInSVN))
+		if ((isInSVN)&&(isFolderInSVN)&&(!isAdded))
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, DropCopyAdd);
 		if (isInSVN)
 			InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, DropExport);
@@ -448,13 +455,13 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	}
 
-	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder)&&(!isConflicted))
+	if ((isInSVN)&&(!isNormal)&&(isOnlyOneItemSelected)&&(!isFolder)&&(!isConflicted)&&(!isAdded))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUDIFF),INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
 
 	if (files_.size() == 2)	//compares the two selected files
 		InsertSVNMenu(ownerdrawn, HMENU(MENUDIFF), INDEXMENU(MENUDIFF), idCmd++, IDS_MENUDIFF, IDI_DIFF, idCmdFirst, Diff);
 
-	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
+	if (((isInSVN)&&(isOnlyOneItemSelected)&&(!isAdded))||((isFolder)&&(isFolderInSVN)&&(!isAdded)))
 		InsertSVNMenu(ownerdrawn, HMENU(MENULOG), INDEXMENU(MENULOG), idCmd++, IDS_MENULOG, IDI_LOG, idCmdFirst, Log);
 
 	if ((isOnlyOneItemSelected)||(isFolder))
@@ -477,9 +484,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 	if (isInSVN)
 		InsertSVNMenu(ownerdrawn, HMENU(MENUUPDATEEXT), INDEXMENU(MENUUPDATEEXT), idCmd++, IDS_MENUUPDATEEXT, IDI_UPDATE, idCmdFirst, UpdateExt);
-	if ((isInSVN)&&(isOnlyOneItemSelected))
+	if ((isInSVN)&&(isOnlyOneItemSelected)&&(!isAdded))
 		InsertSVNMenu(ownerdrawn, HMENU(MENURENAME), INDEXMENU(MENURENAME), idCmd++, IDS_MENURENAME, IDI_RENAME, idCmdFirst, Rename);
-	if (isInSVN)
+	if ((isInSVN)&&(!isAdded))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUREMOVE), INDEXMENU(MENUREMOVE), idCmd++, IDS_MENUREMOVE, IDI_DELETE, idCmdFirst, Remove);
 	if (((isInSVN)&&(!isNormal))||((isFolder)&&(isFolderInSVN)))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, Revert);
@@ -493,11 +500,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	}
 
-	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
+	if ((isInSVN)&&(((isOnlyOneItemSelected)&&(!isAdded))||((isFolder)&&(isFolderInSVN))))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCOPY), INDEXMENU(MENUCOPY), idCmd++, IDS_MENUBRANCH, IDI_COPY, idCmdFirst, Copy);
-	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
+	if ((isInSVN)&&(((isOnlyOneItemSelected)&&(!isAdded))||((isFolder)&&(isFolderInSVN))))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUSWITCH), INDEXMENU(MENUSWITCH), idCmd++, IDS_MENUSWITCH, IDI_SWITCH, idCmdFirst, Switch);
-	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
+	if ((isInSVN)&&(((isOnlyOneItemSelected)&&(!isAdded))||((isFolder)&&(isFolderInSVN))))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUMERGE), INDEXMENU(MENUMERGE), idCmd++, IDS_MENUMERGE, IDI_MERGE, idCmdFirst, Merge);
 	if (isFolder)
 		InsertSVNMenu(ownerdrawn, HMENU(MENUEXPORT), INDEXMENU(MENUEXPORT), idCmd++, IDS_MENUEXPORT, IDI_EXPORT, idCmdFirst, Export);
@@ -517,7 +524,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, HMENU(MENUADD), INDEXMENU(MENUADD), idCmd++, IDS_MENUADD, IDI_ADD, idCmdFirst, Add);
 	if ((!isInSVN)&&(isFolder))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIMPORT), INDEXMENU(MENUIMPORT), idCmd++, IDS_MENUIMPORT, IDI_IMPORT, idCmdFirst, Import);
-	if ((isInSVN)&&(!isFolder))
+	if ((isInSVN)&&(!isFolder)&&(!isAdded))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUBLAME), INDEXMENU(MENUBLAME), idCmd++, IDS_MENUBLAME, IDI_BLAME, idCmdFirst, Blame);
 	if ((!isInSVN)&&(!isIgnored)&&(isInVersionedFolder)&&(!isOnlyOneItemSelected))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUIGNORE), INDEXMENU(MENUIGNORE), idCmd++, IDS_MENUIGNORE, IDI_IGNORE, idCmdFirst, Ignore);
@@ -583,9 +590,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		lastSeparator = idCmd++;
 	} // if ((idCmd != (lastSeparator + 1)) && (indexSubMenu != 0))
 
-	if ((isInSVN)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
+	if ((isInSVN)&&(!isAdded)&&((isOnlyOneItemSelected)||((isFolder)&&(isFolderInSVN))))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUCREATEPATCH), INDEXMENU(MENUCREATEPATCH), idCmd++, IDS_MENUCREATEPATCH, IDI_CREATEPATCH, idCmdFirst, CreatePatch);
-	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
+	if ((isInSVN)&&(!isAdded)&&(isFolder)&&(isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, HMENU(MENUAPPLYPATCH), INDEXMENU(MENUAPPLYPATCH), idCmd++, IDS_MENUAPPLYPATCH, IDI_PATCH, idCmdFirst, ApplyPatch);
 
 	//---- separator 

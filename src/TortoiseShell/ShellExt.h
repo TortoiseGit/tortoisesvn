@@ -142,6 +142,7 @@ protected:
 	bool isInVersionedFolder;
 	bool isFolderInSVN;
 	bool isNormal;
+	bool isAdded;
 	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring filepath;				///< holds the last file/dir path
