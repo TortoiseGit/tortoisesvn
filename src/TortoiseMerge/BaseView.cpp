@@ -1283,7 +1283,8 @@ void CBaseView::OnMergeNextdifference()
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
-		ScrollAllToLine(nTopPos);
+		ScrollAllToLine(nTopPos, FALSE);
+		RecalcVertScrollBar(TRUE);
 		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
@@ -1328,7 +1329,8 @@ void CBaseView::OnMergePreviousdifference()
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
-		ScrollAllToLine(nTopPos);
+		ScrollAllToLine(nTopPos, FALSE);
+		RecalcVertScrollBar(TRUE);
 		Invalidate();
 	} // if ((m_arLineStates)&&(nCenterPos < m_arLineStates->GetCount())) 
 }
