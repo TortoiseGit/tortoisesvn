@@ -172,10 +172,12 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 			ClearPool();
 			return &dirstat;
 		} // if (shellCache.IsRecursive())
+		if (m_bColumnProvider)
+			return &invalidstatus;
 	} // if (isFolder) 
 
-	//it's a file, not a folder. So fill in the cache with
-	//all files inside the same folder as the asked file is
+	//Fill in the cache with
+	//all files inside the same folder as the asked file/folder is
 	//since subversion can do this in one step
 	TCHAR pathbuf[MAX_PATH+4];
 	_tcscpy(pathbuf, filepath);
@@ -237,10 +239,11 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 	return SVNFOLDERSTATUS_CACHETIMEOUT;
 }
 
-filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
+filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath,  BOOL bColumnProvider)
 {
 	TCHAR * filepathnonconst = (LPTSTR)filepath;
 
+	m_bColumnProvider = bColumnProvider;
 	//first change the filename to 'internal' format
 	for (UINT i=0; i<_tcsclen(filepath); i++)
 	{

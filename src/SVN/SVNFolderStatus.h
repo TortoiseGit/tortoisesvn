@@ -163,13 +163,14 @@ class SVNFolderStatus :  public CApr, public SVNStatus
 public:
 	SVNFolderStatus(void);
 	~SVNFolderStatus(void);
-	filestatuscache *	GetFullStatus(LPCTSTR filepath);
+	filestatuscache *	GetFullStatus(LPCTSTR filepath, BOOL bColumnProvider = FALSE);
 
 private:
 	filestatuscache *	BuildCache(LPCTSTR filepath);
 	DWORD				GetTimeoutValue();
 	static void			fillstatusmap (void *baton, const char *path, svn_wc_status_t *status);
 	
+	BOOL				m_bColumnProvider;
 	std::map<stdstring, filestatuscache> m_cache;
 	DWORD				m_TimeStamp;
 	filestatuscache		invalidstatus;

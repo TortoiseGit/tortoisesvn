@@ -354,7 +354,7 @@ void CShellExt::GetColumnStatus(stdstring path)
 		return;
 	LoadLangDll();
 	columnfilepath = path;
-	filestatuscache * status = g_CachedStatus.GetFullStatus(path.c_str());
+	filestatuscache * status = g_CachedStatus.GetFullStatus(path.c_str(), TRUE);
 	filestatus = status->status;
 
 #ifdef UNICODE
