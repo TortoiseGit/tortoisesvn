@@ -91,10 +91,10 @@ public:
 	DECLARE_DYNAMIC(CSVNProgressDlg)
 
 public:
-	class Data
+	class NotificationData
 	{
 	public:
-		CString					path;
+		CTSVNPath				path;
 		svn_wc_notify_action_t	action;
 		svn_node_kind_t			kind;
 		CString					mime_type;
@@ -124,7 +124,7 @@ public:
 
 protected:
 	//implement the virtual methods from SVN base class
-	virtual BOOL Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
+	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& mime_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
 	virtual BOOL Cancel();
 	virtual void OnCancel();
 
@@ -171,7 +171,7 @@ public:
 
 private:
 
-	CArray<Data *, Data *>		m_arData;
+	CArray<NotificationData *, NotificationData *>		m_arData;
 
 	CListCtrl	m_ProgList;
 	CWinThread* m_pThread;

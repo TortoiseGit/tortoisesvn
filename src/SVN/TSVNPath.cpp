@@ -24,7 +24,12 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath)
 void CTSVNPath::SetFromSVN(const char* pPath)
 {
 	Reset();
-	m_sFwdslashPath = CString(pPath);
+
+	WCHAR buf[MAX_PATH*4];
+	if (!MultiByteToWideChar(CP_UTF8, 0, pPath, -1, buf, MAX_PATH*4))
+		buf[0] = 0;
+
+	m_sFwdslashPath = CString(buf);
 }
 void CTSVNPath::SetFromSVN(const CString& sPath)
 {

@@ -82,14 +82,14 @@ BOOL CBlame::Cancel()
 	return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CString& logfile, BOOL showprogress /* = TRUE */)
+CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, CString& logfile, BOOL showprogress /* = TRUE */)
 {
 	BOOL extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	CString temp;
 	m_sSavePath = CUtils::GetTempFile();
 	if (m_sSavePath.IsEmpty())
 		return _T("");
-	temp = CUtils::GetFileExtFromPath(path);
+	temp = path.GetFileExtension();
 	if (!temp.IsEmpty() && !extBlame)
 		m_sSavePath += temp;
 	if (!m_saveFile.Open(m_sSavePath, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
@@ -115,7 +115,7 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CS
 	}
 	m_nHeadRev = GetHEADRevision(path);
 	m_progressDlg.SetProgress((DWORD)0, (DWORD)m_nHeadRev);
-	if (!this->Blame(path, startrev, endrev))
+	if (!this->Blame(CTSVNPath(path), startrev, endrev))
 	{
 		m_saveFile.Close();
 		DeleteFile(m_sSavePath);
@@ -146,7 +146,7 @@ CString CBlame::BlameToTempFile(CString path, SVNRev startrev, SVNRev endrev, CS
 	return m_sSavePath;
 }
 
-BOOL CBlame::Notify(const CString& /*path*/, svn_wc_notify_action_t /*action*/, svn_node_kind_t /*kind*/, const CString& /*myme_type*/, svn_wc_notify_state_t /*content_state*/, svn_wc_notify_state_t /*prop_state*/, LONG rev)
+BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/, svn_node_kind_t /*kind*/, const CString& /*myme_type*/, svn_wc_notify_state_t /*content_state*/, svn_wc_notify_state_t /*prop_state*/, LONG rev)
 {
 	CString temp;
 	temp.Format(IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);

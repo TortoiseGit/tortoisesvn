@@ -1279,7 +1279,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				CBlame blame;
 				CString tempfile;
 				CString logfile;
-				tempfile = blame.BlameToTempFile(path, dlg.StartRev, dlg.EndRev, logfile, TRUE);
+				tempfile = blame.BlameToTempFile(CTSVNPath(path), dlg.StartRev, dlg.EndRev, logfile, TRUE);
 				if (!tempfile.IsEmpty())
 				{
 					if (logfile.IsEmpty())

@@ -745,7 +745,7 @@ void CRepositoryBrowser::ShowContextMenu(CPoint pt, LRESULT *pResult)
 						CBlame blame;
 						CString tempfile;
 						CString logfile;
-						tempfile = blame.BlameToTempFile(url, dlg.StartRev, dlg.EndRev, logfile, TRUE);
+						tempfile = blame.BlameToTempFile(CTSVNPath(url), dlg.StartRev, dlg.EndRev, logfile, TRUE);
 						if (!tempfile.IsEmpty())
 						{
 							if (logfile.IsEmpty())

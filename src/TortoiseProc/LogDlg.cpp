@@ -396,7 +396,7 @@ UINT CLogDlg::LogThread()
 	CString temp;
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	GetDlgItem(IDOK)->SetWindowText(temp);
-	long r = GetHEADRevision(m_path.GetSVNPathString());
+	long r = GetHEADRevision(m_path);
 	if (m_startrev == -1)
 		m_startrev = r;
 	if (m_endrev < (-5) || m_bStrict)
@@ -1017,7 +1017,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-						filepath = GetRepositoryRoot(filepath);
+						filepath = GetRepositoryRoot(CTSVNPath(filepath));
 						temp = temp.Mid(temp.Find(' '));
 						if (temp.Find('(')>=0)
 						{
@@ -1059,7 +1059,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-						filepath = GetRepositoryRoot(filepath);
+						filepath = GetRepositoryRoot(CTSVNPath(filepath));
 						temp = temp.Mid(temp.Find(' '));
 						if (temp.Find('(')>=0)
 						{
@@ -1154,7 +1154,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 						CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
-						filepath = GetRepositoryRoot(filepath);
+						filepath = GetRepositoryRoot(CTSVNPath(filepath));
 						temp = temp.Mid(temp.Find(' '));
 						if (temp.Find('(')>=0)
 						{
@@ -1478,7 +1478,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, long rev)
 	}
 	CString temp = m_LogMsgCtrl.GetItemText(selIndex, 0);
 	m_bCancelled = FALSE;
-	filepath = GetRepositoryRoot(filepath);
+	filepath = GetRepositoryRoot(CTSVNPath(filepath));
 	temp = temp.Mid(temp.Find(' '));
 	if (temp.Find(_T(" (from "))>=0)
 	{

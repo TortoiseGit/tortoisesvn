@@ -68,7 +68,7 @@ public:
 	~SVN(void);
 
 	virtual BOOL Cancel();
-	virtual BOOL Notify(const CString& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
+	virtual BOOL Notify(const CTSVNPath& path, svn_wc_notify_action_t action, svn_node_kind_t kind, const CString& myme_type, svn_wc_notify_state_t content_state, svn_wc_notify_state_t prop_state, LONG rev);
 	virtual BOOL Log(LONG rev, const CString& author, const CString& date, const CString& message, const CString& cpaths, apr_time_t time, int filechanges, BOOL copies);
 	virtual BOOL BlameCallback(LONG linenumber, LONG revision, const CString& author, const CString& date, const CStringA& line);
 
@@ -409,7 +409,7 @@ public:
 	 * \param startrev the revision from which the check is done from
 	 * \param endrev the end revision where the check is stopped
 	 */
-	BOOL Blame(CString path, SVNRev startrev, SVNRev endrev);
+	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev);
 	/**
 	 * Checks if a windows path is a local repository
 	 */
@@ -419,7 +419,7 @@ public:
 	 * Finds the repository root of a given url. 
 	 * \return The root url or an empty string
 	 */
-	CString GetRepositoryRoot(CString url);
+	CString GetRepositoryRoot(const CTSVNPath& url);
 
 	/**
 	 * Checks if a file:/// url points to a BDB repository.
@@ -430,7 +430,7 @@ public:
 	 * Returns the HEAD revision of the URL or WC-Path.
 	 * Or -1 if the function failed.
 	 */
-	LONG GetHEADRevision(CString url);
+	LONG GetHEADRevision(const CTSVNPath& url);
 
 	/**
 	 * Set the revision property \a sName to the new value \a sValue.
