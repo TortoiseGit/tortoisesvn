@@ -287,7 +287,7 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	std::map<stdstring, filestatuscache> * cache = (std::map<stdstring, filestatuscache> *)(&Stat->m_cache);
 	filestatuscache s;
 	TCHAR * key = NULL;
-	if (status->entry)
+	if ((status)&&(status->entry))
 	{
 		s.author = Stat->authors.GetString(status->entry->cmt_author);
 		s.url = Stat->urls.GetString(status->entry->url);
@@ -300,8 +300,11 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 		s.rev = -1;
 	}
 	s.status = svn_wc_status_unversioned;
-	s.status = SVNStatus::GetMoreImportant(s.status, status->text_status);
-	s.status = SVNStatus::GetMoreImportant(s.status, status->prop_status);
+	if (status)
+	{
+		s.status = SVNStatus::GetMoreImportant(s.status, status->text_status);
+		s.status = SVNStatus::GetMoreImportant(s.status, status->prop_status);
+	}
 	s.askedcounter = SVNFOLDERSTATUS_CACHETIMES;
 	stdstring str;
 	if (path)
