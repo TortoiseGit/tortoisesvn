@@ -329,7 +329,7 @@ bool CTSVNPathList::LoadFromTemporaryFile(const CString& sFilename)
 	}
 	catch (CFileException* pE)
 	{
-		TRACE("CFileException loading target file\n");
+		TRACE("CFileException loading target file list\n");
 		pE->Delete();
 		return false;
 	}
