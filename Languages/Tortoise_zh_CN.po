@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2004-11-09 17:03+0800\n"
+"PO-Revision-Date: 2004-11-25 09:40+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: zcecil <zcecil@csie.org>\n"
 "MIME-Version: 1.0\n"
@@ -178,11 +178,6 @@ msgstr "光驱(&R)"
 #: Control-ID:2
 msgid "&Cancel"
 msgstr "取消(&C)"
-
-# Control-ID:1074,
-#: Control-ID:1074
-msgid "&Checkout directory:"
-msgstr "取出至目录(&C):"
 
 # Control-ID:1066,
 #: Control-ID:1066
@@ -391,6 +386,12 @@ msgstr "SSH 用户端(&S):"
 msgid "&Save Ctrl-S"
 msgstr "储存(&S) Ctrl-S"
 
+# Control-ID:1023,#:
+# Control-ID:1023,
+#: Control-ID:1023
+msgid "&Save authentication"
+msgstr "储存认证(&S)"
+
 # Control-ID:1012,
 #: Control-ID:1012
 msgid "&Set"
@@ -497,6 +498,11 @@ msgstr "..."
 #: ID:151
 msgid ": Revision %d"
 msgstr ": 版本 %d"
+
+# ID:151,
+#: ID:151
+msgid ": working base"
+msgstr ": 工作基础版本"
 
 # ID:151,
 #: ID:151
@@ -647,7 +653,6 @@ msgstr ""
 # ID:73,#:
 # Dlg-ID:155,
 #: ID:8
-#: ID:73
 #: Dlg-ID:155
 msgid "Add"
 msgstr "加入"
@@ -683,6 +688,7 @@ msgid "Add/Edit Extension Specific Diff/Merge Program"
 msgstr "加入/编辑针对扩展名的差异比对/合并工具"
 
 # Control-ID:65535,
+#: ID:73
 #: Control-ID:65535
 msgid "Added"
 msgstr "加入的"
@@ -756,6 +762,11 @@ msgstr "所有档案 (*.*)"
 #: ID:157
 msgid "All Files (*.*)|*.*||"
 msgstr "所有档案 (*.*)|*.*||"
+
+# ID:82,
+#: ID:82
+msgid "All files are already under version control. There's nothing to add!"
+msgstr "所有档案都已在版本控制下. 没有可以新增的项目!"
 
 # ID:3867,#:
 # ID:3868,#:
@@ -877,6 +888,11 @@ msgstr "套用补缀..."
 #: Control-ID:65535
 msgid "Apply Unified Diff"
 msgstr "套用单一差异档"
+
+# ID:145,
+#: ID:145
+msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
+msgstr "确定要把冲突的档案(们)标记为已解决吗?"
 
 # ID:79,
 #: ID:79
@@ -1097,10 +1113,15 @@ msgstr "检查更新"
 msgid "Check For Updates..."
 msgstr "检查更新..."
 
+# ID:8,
+#: Control-ID:1132
+msgid "Check Repository"
+msgstr "检查档案库"
+
 # ID:13,
 #: ID:13
-msgid "Check for Updates"
-msgstr "检查更新"
+msgid "Check for Modifications"
+msgstr "检查异动"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -1154,6 +1175,11 @@ msgstr "正在检查是否有更新版本的 TortoiseSVN..."
 #: Dlg-ID:133
 msgid "Checkout"
 msgstr "取出"
+
+# Control-ID:1074,
+#: Control-ID:1074
+msgid "Checkout &directory:"
+msgstr "取出目录(&C):"
 
 # ID:8,
 #: ID:8
@@ -1295,15 +1321,15 @@ msgstr "快显菜单"
 msgid "Continue"
 msgstr "继续"
 
+# ID:74,
+#: ID:73
+msgid "Copied"
+msgstr "已复制"
+
 # ID:126,
 #: ID:126
 msgid "Copied remotely"
 msgstr "远程复制完成"
-
-# ID:73,
-#: ID:73
-msgid "Copy"
-msgstr "复制"
 
 # ID:151,
 #: ID:101
@@ -1509,9 +1535,15 @@ msgstr "预设的纪录讯息数目(&N)"
 # ID:73,#:
 # ID:101,
 #: ID:11
-#: ID:73
 msgid "Delete"
 msgstr "删除"
+
+# ID:11,#:
+# ID:73,#:
+# ID:101,
+#: ID:73
+msgid "Deleted"
+msgstr "已删除"
 
 # ID:11,
 #: ID:11
@@ -1975,6 +2007,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "图型类别:"
 
+# Control-ID:1032,#:
+# Control-ID:1019,#:
+# Control-ID:1019,
+#: Control-ID:1032
+msgid "H&ead Revision"
+msgstr "最新版本(&E)"
+
 # ID:12,
 #: ID:238
 msgid "Head revision of the repository is: %d"
@@ -2045,6 +2084,11 @@ msgstr ""
 #: ID:73
 msgid "Ignore"
 msgstr "忽略"
+
+# Control-ID:1021,
+#: ID:15
+msgid "Ignore %d items"
+msgstr "忽略 %d 项"
 
 # Control-ID:1021,
 #: Control-ID:1021
@@ -2865,11 +2909,6 @@ msgstr "档案库"
 msgid "Repository Browser"
 msgstr "档案库浏览器"
 
-# ID:74,
-#: ID:74
-msgid "Resolve"
-msgstr "解决"
-
 # Control-ID:1067,
 #: Control-ID:1067
 msgid "Resolve conflicted subversion status on save"
@@ -2877,6 +2916,7 @@ msgstr "储存时解除 subversion 的冲突状态"
 
 # ID:8,
 #: ID:8
+#: ID:74
 msgid "Resolved"
 msgstr "解决"
 
@@ -2885,15 +2925,15 @@ msgstr "解决"
 msgid "Resolves conflicted files"
 msgstr "解决有冲突的档案"
 
-# ID:73,
-#: ID:73
-msgid "Restore"
-msgstr "还原"
-
 # ID:3826,
 #: ID:3826
 msgid "Restore the window to normal size"
 msgstr "还原窗口至一般大小"
+
+# ID:73,
+#: ID:73
+msgid "Restored"
+msgstr "还原"
 
 # ID:73,
 #: ID:73
@@ -2904,9 +2944,15 @@ msgstr "重试"
 # ID:73,#:
 # Dlg-ID:175,
 #: ID:8
-#: ID:73
 #: Dlg-ID:175
 msgid "Revert"
+msgstr "复原"
+
+# ID:8,#:
+# ID:73,#:
+# Dlg-ID:175,
+#: ID:73
+msgid "Reverted"
 msgstr "复原"
 
 # ID:9,
@@ -3343,8 +3389,8 @@ msgstr "大小"
 
 # ID:74,
 #: ID:74
-msgid "Skip"
-msgstr "跳过"
+msgid "Skipped"
+msgstr "略过"
 
 # ID:79,
 #: ID:79
@@ -3908,7 +3954,6 @@ msgstr "未命名"
 # ID:74,#:
 # Dlg-ID:152,
 #: ID:8
-#: ID:74
 #: Dlg-ID:152
 msgid "Update"
 msgstr "更新"
@@ -3917,6 +3962,13 @@ msgstr "更新"
 #: ID:11
 msgid "Update To Revision..."
 msgstr "更新至版本..."
+
+# ID:8,#:
+# ID:74,#:
+# Dlg-ID:152,
+#: ID:74
+msgid "Updated"
+msgstr "更新"
 
 # ID:11,
 #: ID:11
