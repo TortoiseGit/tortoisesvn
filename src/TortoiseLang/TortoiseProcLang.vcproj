@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="TortoiseLang"
+	Name="TortoiseProcLang"
 	ProjectGUID="{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}"
 	Keyword="Win32Proj">
 	<Platforms>
@@ -31,13 +31,13 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/TortoiseLang.dll"
+				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="$(OutDir)/TortoiseLang.pdb"
 				SubSystem="2"
 				ResourceOnlyDLL="TRUE"
-				ImportLibrary="$(OutDir)/TortoiseLang.lib"
+				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -79,7 +79,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/TortoiseLang.dll"
+				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="1"
 				IgnoreAllDefaultLibraries="TRUE"
 				GenerateDebugInformation="FALSE"
@@ -87,7 +87,7 @@
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				ResourceOnlyDLL="TRUE"
-				ImportLibrary="$(OutDir)/TortoiseLang.lib"
+				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"/>

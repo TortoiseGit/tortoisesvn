@@ -38,15 +38,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrashRpt", "crashrpt\CrashR
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseLang", "TortoiseLang\TortoiseLang.vcproj", "{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoisePlink", "TortoisePlink\TortoisePlink.vcproj", "{B439B09E-7390-4CEB-A1DD-745CF976F2BB}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseMerge", "TortoiseMerge\TortoiseMerge.vcproj", "{8ABB4F84-891A-4748-8507-F5494842173E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseProcLang", "TortoiseLang\TortoiseProcLang.vcproj", "{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseMergeLang", "TortoiseLang\TortoiseMergeLang.vcproj", "{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -84,12 +88,6 @@ Global
 		{13BC1836-2726-45C4-9249-5BA2BBBF8328}.Release.Build.0 = Release|Win32
 		{13BC1836-2726-45C4-9249-5BA2BBBF8328}.Release_MBCS.ActiveCfg = Release|Win32
 		{13BC1836-2726-45C4-9249-5BA2BBBF8328}.Release_MBCS.Build.0 = Release|Win32
-		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Debug.ActiveCfg = Debug|Win32
-		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Debug.Build.0 = Debug|Win32
-		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release.ActiveCfg = Release|Win32
-		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release.Build.0 = Release|Win32
-		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release_MBCS.ActiveCfg = Release_MBCS|Win32
-		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release_MBCS.Build.0 = Release_MBCS|Win32
 		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Debug.ActiveCfg = Debug|Win32
 		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Debug.Build.0 = Debug|Win32
 		{B439B09E-7390-4CEB-A1DD-745CF976F2BB}.Release.ActiveCfg = Release|Win32
@@ -102,6 +100,18 @@ Global
 		{8ABB4F84-891A-4748-8507-F5494842173E}.Release.Build.0 = Release|Win32
 		{8ABB4F84-891A-4748-8507-F5494842173E}.Release_MBCS.ActiveCfg = Release|Win32
 		{8ABB4F84-891A-4748-8507-F5494842173E}.Release_MBCS.Build.0 = Release|Win32
+		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Debug.ActiveCfg = Debug|Win32
+		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Debug.Build.0 = Debug|Win32
+		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release.ActiveCfg = Release|Win32
+		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release.Build.0 = Release|Win32
+		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release_MBCS.ActiveCfg = Release_MBCS|Win32
+		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}.Release_MBCS.Build.0 = Release_MBCS|Win32
+		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}.Debug.ActiveCfg = Debug|Win32
+		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}.Debug.Build.0 = Debug|Win32
+		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}.Release.ActiveCfg = Release|Win32
+		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}.Release.Build.0 = Release|Win32
+		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}.Release_MBCS.ActiveCfg = Release_MBCS|Win32
+		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}.Release_MBCS.Build.0 = Release_MBCS|Win32
 	EndGlobalSection
 	GlobalSection(SolutionItems) = postSolution
 		build.txt = build.txt

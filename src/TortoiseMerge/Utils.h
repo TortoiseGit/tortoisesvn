@@ -21,4 +21,6 @@ public:
 	 * \return TRUE if successful
 	 */
 	static BOOL GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd = NULL);
+	static CString GetVersionFromFile(const CString & p_strDateiname);
+
 };

@@ -95,6 +95,8 @@
 #define IDC_BKYOURSREMOVED              1060
 #define IDC_BUTTON22                    1061
 #define IDC_FGYOURSREMOVED              1061
+#define IDC_COMBO1                      1062
+#define IDC_LANGUAGECOMBO               1062
 #define IDC_VERSIONBOX                  1075
 #define IDS_ERR_DIFF_DIFF               1080
 #define IDC_WEBLINK                     1084
@@ -132,7 +134,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        137
 #define _APS_NEXT_COMMAND_VALUE         32784
-#define _APS_NEXT_CONTROL_VALUE         1062
+#define _APS_NEXT_CONTROL_VALUE         1063
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -1,6 +1,7 @@
 #pragma once
 #include "resource.h"
 #include "registry.h"
+#include "afxwin.h"
 
 // CSetMainPage dialog
 
@@ -29,6 +30,8 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
+	DWORD			m_dwLanguage;
+	CRegDWORD		m_regLanguage;
 	BOOL			m_bBackup;
 	CRegDWORD		m_regBackup;
 	BOOL			m_bFirstDiffOnLoad;
@@ -42,6 +45,7 @@ protected:
 	DWORD			m_nIgnoreWS;
 	CRegDWORD		m_regIgnoreWS;
 	
+	CComboBox		m_LanguageCombo;
 public:
 	afx_msg void OnBnClickedBackup();
 	afx_msg void OnBnClickedIgnorelf();

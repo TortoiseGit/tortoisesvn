@@ -3,6 +3,7 @@
 #include "MainFrm.h"
 #include "AboutDlg.h"
 #include "CmdLineParser.h"
+#include "version.h"
 
 
 #ifdef _DEBUG
@@ -27,6 +28,36 @@ CCrashReport g_crasher("steveking@gmx.ch", "Crashreport for TortoiseMerge");
 // CTortoiseMergeApp initialization
 BOOL CTortoiseMergeApp::InitInstance()
 {
+	//set the resource dll for the required language
+	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseMerge\\LanguageID"), 1033);
+	long langId = loc;
+	CString langDll;
+	HINSTANCE hInst = NULL;
+	do
+	{
+		langDll.Format(_T("Languages\\TortoiseMerge%d.dll"), langId);
+		
+		hInst = LoadLibrary(langDll);
+		if (CUtils::GetVersionFromFile(langDll).Compare(_T(STRPRODUCTVER_INCVERSION))!=0)
+		{
+			FreeLibrary(hInst);
+			hInst = NULL;
+		}
+		if (hInst != NULL)
+			AfxSetResourceHandle(hInst);
+		else
+		{
+			DWORD lid = SUBLANGID(langId);
+			lid--;
+			if (lid > 0)
+			{
+				langId = MAKELANGID(PRIMARYLANGID(langId), lid);
+			}
+			else
+				langId = 0;
+		}
+	} while ((hInst == NULL) && (langId != 0));
+
 	// InitCommonControls() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
