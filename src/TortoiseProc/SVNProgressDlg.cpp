@@ -1137,10 +1137,19 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (m_ProgList.GetSelectedCount() == 1)
 				{
 					const NotificationData * data = m_arData[selIndex];
-					if ((data)&&(!data->path.IsDirectory())&&(data->action == svn_wc_notify_update_update))
+					if ((data)&&(!data->path.IsDirectory()))
 					{
-						temp.LoadString(IDS_LOG_POPUP_COMPARE);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+						if (data->action == svn_wc_notify_update_update)
+						{
+							temp.LoadString(IDS_LOG_POPUP_COMPARE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							if (data->bConflictedActionItem)
+							{
+								popup.SetDefaultItem(ID_COMPARE, FALSE);
+								temp.LoadString(IDS_MENUCONFLICT);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITCONFLICT, temp);
+							}
+						}
 
 						int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 						GetDlgItem(IDOK)->EnableWindow(FALSE);
@@ -1166,6 +1175,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetFileOrDirectoryName());
 									CUtils::StartExtDiff(tempfile, data->path, revname, wcname);
 								}
+							}
+							break;
+						case ID_EDITCONFLICT:
+							{
+								SVN::StartConflictEditor(data->path);
 							}
 							break;
 						}

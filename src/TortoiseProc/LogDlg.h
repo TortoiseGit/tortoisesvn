@@ -47,7 +47,7 @@
 #define ID_EDITLOG     19
 
 #define ID_DIFF			20
-
+#define ID_EDITCONFLICT	21
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
