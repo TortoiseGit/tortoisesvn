@@ -272,7 +272,6 @@ DWORD SVNFolderStatus::GetTimeoutValue()
 
 filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 {
-	TCHAR * filename;
 	TCHAR * filepathnonconst = (LPTSTR)filepath;
 
 	//first change the filename to 'internal' format
@@ -281,9 +280,8 @@ filestatuscache * SVNFolderStatus::GetFullStatus(LPCTSTR filepath)
 		if (filepath[i] == _T('\\'))
 			filepathnonconst[i] = _T('/');
 	} // for (int i=0; i<_tcsclen(filename); i++)
-	filename = _tcsrchr(filepath, _T('/')) + 1;
 
-	if (! shellCache.IsPathAllowed(filename))
+	if (! shellCache.IsPathAllowed(filepath))
 		return &invalidstatus;
 
 
