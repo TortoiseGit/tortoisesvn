@@ -101,30 +101,34 @@ void CRepositoryTree::OnTvnItemexpanding(NMHDR *pNMHDR, LRESULT *pResult)
 					if (temp.GetAt(0) == 'd')
 					{
 						//temp = temp.Right(temp.GetLength()-1);
-						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1))))
+						HTREEITEM item;
+						if ((item = ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1)))!=NULL)
 						{
-							HTREEITEM hItem = InsertItem(temp, m_nIconFolder, m_nIconFolder, pNMTreeView->itemNew.hItem, TVI_SORT);
-							SetItemState(hItem, 1, TVIF_CHILDREN);
-							InsertItem(_T("Dummy"), hItem);
-							SetItemData(hItem, 0);
+							DeleteItem(item);
 						}
-					}
+						HTREEITEM hItem = InsertItem(temp, m_nIconFolder, m_nIconFolder, pNMTreeView->itemNew.hItem, TVI_SORT);
+						SetItemState(hItem, 1, TVIF_CHILDREN);
+						InsertItem(_T("Dummy"), hItem);
+						SetItemData(hItem, 0);
+					} // if (temp.GetAt(0) == 'd') 
 					if (temp.GetAt(0) == 'f')
 					{
 						//temp = temp.Right(temp.GetLength()-1);
-						if (!(ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1))))
+						HTREEITEM item;
+						if ((item = ItemExists(pNMTreeView->itemNew.hItem, temp.Mid(1)))!=NULL)
 						{
-							SHFILEINFO    sfi;
-							SHGetFileInfo(
-								(LPCTSTR)temp, 
-								FILE_ATTRIBUTE_NORMAL,
-								&sfi, 
-								sizeof(SHFILEINFO), 
-								SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
+							DeleteItem(item);
+						} 
+						SHFILEINFO    sfi;
+						SHGetFileInfo(
+							(LPCTSTR)temp, 
+							FILE_ATTRIBUTE_NORMAL,
+							&sfi, 
+							sizeof(SHFILEINFO), 
+							SHGFI_ICON | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
 
-							HTREEITEM hItem = InsertItem(temp, sfi.iIcon, sfi.iIcon, pNMTreeView->itemNew.hItem, TVI_SORT);
-						} // if (!(ItemExists(pNMTreeView->itemNew.hItem, temp)))
-					}
+						HTREEITEM hItem = InsertItem(temp, sfi.iIcon, sfi.iIcon, pNMTreeView->itemNew.hItem, TVI_SORT);
+					} // if (temp.GetAt(0) == 'f') 
 				} // for (int i = 0; i < entries.GetCount(); ++i) 
 				HTREEITEM hCurrent = GetNextItem(pNMTreeView->itemNew.hItem, TVGN_CHILD);
 				while (hCurrent != NULL)
@@ -229,16 +233,16 @@ void CRepositoryTree::OnTvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
-BOOL CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
+HTREEITEM CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
 {
 	HTREEITEM hCurrent = GetNextItem(parent, TVGN_CHILD);
 	while (hCurrent != NULL)
 	{
 		if (GetItemText(hCurrent).CompareNoCase(item)==0)
-			return TRUE;
+			return hCurrent;
 		hCurrent = GetNextItem(hCurrent, TVGN_NEXT);
 	} // while (hCurrent != NULL)
-	return FALSE;
+	return NULL;
 }
 
 void CRepositoryTree::Refresh(HTREEITEM hItem)
