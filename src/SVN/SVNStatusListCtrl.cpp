@@ -439,7 +439,7 @@ BOOL CSVNStatusListCtrl::GetStatus(CString sFilePath, bool bUpdate /* = FALSE */
 									entry->checked = FALSE;
 									entry->inexternal = FALSE;
 									entry->direct = FALSE;
-									entry->isfolder = PathIsDirectory(strbuf);
+									entry->isfolder = PathIsDirectory(filename);
 									m_arStatusArray.Add(entry);
 								}
 							} // while (filefinder.NextFile(filename))
