@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-10-05 10:07+0100\n"
+"PO-Revision-Date: 2004-10-18 10:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -725,11 +725,6 @@ msgstr "S&uchen..."
 msgid "B&uiltin"
 msgstr "I&ntern"
 
-# ID:213,
-#: ID:213
-msgid "BDB"
-msgstr "BDB"
-
 #: Control-ID:1015
 msgid "Backup original file"
 msgstr "Erstelle Sicherheitskopie"
@@ -737,6 +732,11 @@ msgstr "Erstelle Sicherheitskopie"
 #: Control-ID:65535
 msgid "Base File:"
 msgstr "Basis Datei:"
+
+# Control-ID:1128,
+#: Control-ID:1128
+msgid "Berkeley Database (BDB)"
+msgstr "Berkeley Datenbank (BDB)"
 
 #: Dlg-ID:162
 msgid "Blame"
@@ -838,7 +838,7 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Zertifikat noch nicht gültig. Gültig von: %s"
 
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Zertifikate|*.p12;*.pkcs12;*.pfx|Alle Dateien|*.*||"
 
 #: ID:3825
@@ -1154,6 +1154,10 @@ msgstr "Thread konnte nicht gestartet werden!"
 msgid "Create Patch..."
 msgstr "Erzeuge Patch..."
 
+#: Dlg-ID:178
+msgid "Create Repository"
+msgstr "Projektarchiv erstellen"
+
 #: ID:8
 msgid "Create Repository here"
 msgstr "Projektarchiv hier erstellen"
@@ -1454,11 +1458,6 @@ msgstr "Extern"
 #: Control-ID:65535
 msgid "External Program:"
 msgstr "Externes Programm:"
-
-# ID:213,
-#: ID:213
-msgid "FSFS"
-msgstr "FSFS"
 
 #: ID:74
 msgid "Failed Revert"
@@ -1865,6 +1864,11 @@ msgstr "N&ächster Konflikt"
 msgid "NUM"
 msgstr "NUM"
 
+# Control-ID:1129,
+#: Control-ID:1129
+msgid "Native Filesystem (FSFS)"
+msgstr "Eigenes Dateisystem (fsfs)"
+
 #: Dlg-ID:102
 msgid "Network"
 msgstr "Netzwerk"
@@ -2007,11 +2011,6 @@ msgstr "Passwort:"
 #: Control-ID:1031
 msgid "Paste Changed Filenames"
 msgstr "Geänderte Dateinamen einfügen"
-
-# Control-ID:1121,
-#: Control-ID:1121
-msgid "Paste Log &template in english"
-msgstr "Log-&Schablone auf englisch einfügen."
 
 #: ID:376
 msgid "Patch All"
@@ -2450,6 +2449,10 @@ msgstr "Speichern unter..."
 msgid "Save changes to %1?"
 msgstr "Änderungen in %1 speichern?"
 
+#: ID:232
+msgid "Save client certificate path"
+msgstr "Client Zertifikatsdatei speichen"
+
 #: ID:3601
 msgid ""
 "Save the modified file\n"
@@ -2526,6 +2529,11 @@ msgstr ""
 "Markiert das gesamte Dokument\n"
 "Alles markieren"
 
+# ID:213,
+#: Control-ID:65535
+msgid "Select the type of repository you want to create:"
+msgstr "Wählen Sie die Art des Projektarchivs das sie erstellen möchten:"
+
 #: ID:3866
 msgid "Send Mail failed to send message."
 msgstr "Send Mail konnte Nachricht nicht senden."
@@ -2555,8 +2563,12 @@ msgstr "Einstellungen"
 #: ID:115
 msgid ""
 "Shall the log stop on a copy?\n"
-"Click <b>Yes</b> if you need to find out where a branch started."
-msgstr "Soll das Log bei einer Kopie anhalten?Wählen Sie <b>Ja</b>, wenn Sie herausfinden wollen, wann eine Verzweigung erstellt wurde."
+"Click <b>Yes</b> if you need to find out where a branch started.\n"
+"Click <b>No</b> if you want to see all log entries."
+msgstr ""
+"Soll das Log bei einer Kopie anhalten?\n"
+"Wählen Sie <b>Ja</b>, wenn Sie herausfinden wollen, wann eine Verzweigung erstellt wurde.\n"
+"Wählen Sie <b>Nein</b>, wenn Sie alle Einträge sehen wollen."
 
 #: ID:101
 msgid "Sho&w Properties"
@@ -3179,6 +3191,11 @@ msgstr "Verwende \"E&igenen\" Textblock vor \"Anderen\""
 msgid "Use th&is text block"
 msgstr "Verwende &diesen Textblock"
 
+# ID:251,
+#: ID:251
+msgid "Use this &whole file"
+msgstr "Verwende die &ganze Datei"
+
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "URL der Arbeitskopie an geänderte URL des Projektarchivs anpassen."
@@ -3237,11 +3254,6 @@ msgstr "Besuchen Sie unsere Webseite"
 #: ID:219
 msgid "Warning!"
 msgstr "Warnung!"
-
-# ID:213,
-#: ID:213
-msgid "What repository type do you want to create?"
-msgstr "Was für ein Projektarchiv möchten Sie erstellen?"
 
 #: Control-ID:65535
 msgid "Whitespace diff"
@@ -3338,6 +3350,19 @@ msgstr "eine unbenannte Datei"
 #: Control-ID:1085
 msgid "and support the developers"
 msgstr "und unterstützen Sie die Entwickler"
+
+# ID:15,
+#: ID:15
+msgid ""
+"bugtraq:append\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
+"log message. The default is \"true\" which means the bugtracking ID\n"
+"is appended to the log message."
+msgstr ""
+"bugtraq:append\n"
+"Auf 'false' setzen, wenn Sie die bugtraq:message am Anfang der Log-Meldung\n"
+"haben wollen. Die Vorgabe ist 'true', was bedeutet, dass der Eintrag an\n"
+"die Log-Meldung angehängt wird."
 
 # ID:14,
 #: ID:14
@@ -3540,6 +3565,17 @@ msgstr "nach %s"
 # ID:15,
 #: ID:15
 msgid ""
+"tsvn:logfilelistenglish\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"in the commit dialog."
+msgstr ""
+"tsvn:logfilelistenglish\n"
+"Auf 'false' setzen, wenn Sie nicht wollen, dass die Liste der geänderten\n"
+"Dateien auf Englisch in den Übertragen-Dialog eingefügt wird."
+
+# ID:15,
+#: ID:15
+msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
@@ -3567,6 +3603,15 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Wert für die maximale Breite der Log-Meldung in Zeichen.\n"
 "Eine Begrenzungslinie wird an dieser Stelle angezeigt. Der Standardwert beträgt 80 Zeichen."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:warnifnoissue\n"
+"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+"tsvn:warnifnoissue\n"
+"Auf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Bug-ID im Übertragen-Dialog eingegeben wird."
 
 #: Control-ID:1112
 msgid "your version is:"
