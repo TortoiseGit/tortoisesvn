@@ -15,17 +15,17 @@
 		</para>
 		<para>
 		Dieses Kaptiel ist eine kurze, beiläufige Einführung in Subversion.
-		Falls Sie noch nie etwas von Versionskontrolle gehört haben dann ist
-		diese Kaptile definitiv etwas für Sie.
+		Falls Sie noch nie etwas von Versionskontrolle gehört haben, dann ist
+		dieses Kapitel definitiv etwas für Sie.
 		Wir beginnen mit einer Diskussion über allgemeine Konzepte der
 		Versionskontrolle, arbeiten uns dann vor in die spezifischen Ideen
 		hinter Subversion und zeigen ein paar einfache Beispiele zur Benutzung
 		von Subversion.
 		</para>
 		<para>
-		Obwohl die hier gezeigten Beispiele Personen zeigen welche mit
-		Sourcecode arbeiten beachten Sie bitte dass Subversion <emphasis>
-		irgendwelche</emphasis> Daten verarbeiten kann &mdash; es ist nicht
+		Obwohl die hier gezeigten Beispiele Personen zeigen, die mit
+		Sourcecode arbeiten, beachten Sie bitte, dass Subversion <emphasis>
+		jegliche</emphasis> Daten verarbeiten kann &mdash; es ist nicht
 		auf Sourcecode beschränkt.
 		</para>
 	</simplesect>
@@ -33,13 +33,13 @@
 		<title>Die Datenbank</title>
 		<para>
 		Subversion ist ein zentralisiertes System für die Verteilung von
-		Informationen. In seinem Kern ist eine Datenbank, welches die 
+		Informationen. In seinem Kern ist eine Datenbank, welche die
 		Informationen in Form eines Dateisystem-Baums &mdash; einer typischen
-		Hierarchie von Dateien und Ordnern abspeichert. Irgendeine Anzahl von
-		Clients kontaktieren die Datenbank und lesen und schreiben von/in
-		diese Dateien. Durch ein Schreiben von Daten stellt ein Client diese
-		Daten auch anderen zur Verfügung, durch Lesen von Daten bekommt ein
-		Client die Informationen von anderen.
+		Hierarchie von Dateien und Ordnern &mdash; abspeichert. Eine beliebige
+		Anzahl von Clients kontaktiert die Datenbank und liest und schreibt
+		von/in diese Dateien. Durch ein Schreiben von Daten stellt ein Client
+		diese Daten auch anderen zur Verfügung, durch Lesen von Daten bekommt
+		ein Client die Informationen von anderen.
 		</para>
 		<figure id="tsvn-ch2-dia1">
 			<title>Ein typisches Client/Server System</title>
@@ -48,22 +48,21 @@
 		<para>
 		Warum ist dies so interessant? Bis jetzt klingt dies alles wie die
 		Definition eines typischen Dateiservers. Und tatsächlich <emphasis>ist
-		</emphasis> die Datenbank eine Art Dateiserver, aber es ist nicht ein
-		typischer Dateiserver. Was die Subversion Datenbank so speziell macht
-		ist dass diese <emphasis>jede Änderung speichert</emphasis> welche
-		je gemacht wird: jede Änderung an einer Datei, sogar Änderungen am
-		Dateibaum selbst wie das Hinzufügen, Löschen oder Umbenennen/Verschieben
-		von Dateien und Ordnern.
+		</emphasis> die Datenbank eine Art Dateiserver, aber sie ist kein
+		typischer Dateiserver. Was die Subversion Datenbank so speziell macht,
+		ist, dass diese <emphasis>jede je gemachte ?nderung speichert</emphasis>:
+		jede ?nderung an einer Datei, sogar ?nderungen am Dateibaum selbst wie das
+		Hinzufügen, Löschen oder Umbenennen/Verschieben von Dateien und Ordnern.
 		</para>
 		<para>
-		Wenn ein Client Daten von der Datenbank liest so sieht er normalerweise
+		Wenn ein Client Daten von der Datenbank liest, so sieht er normalerweise
 		nur die aktuellste Version des Dateisystembaums. Aber ein Clientprogramm
-		hat auch die Möglichkeit <emphasis>vorige</emphasis> Versionen zu
+		hat auch die Möglichkeit, <emphasis>frühere</emphasis> Versionen zu
 		sehen. Zum Beispiel kann ein Client Fragen stellen wie "Was enthielt
-		dieser Ordner letzten Mittwoch?", oder "Wer war die letzte Person 
-		welche diese Datei geändert hat und was für Änderungen waren dies?".
-		Dies sind die Art von Fragen welche das Herz eines Versionkontrollsystems
-		bilden: Systeme welche gebaut wurden um Änderungen aufzuzeichnen und
+		dieser Ordner letzten Mittwoch?", oder "Wer war die letzte Person,
+		welche diese Datei geändert hat und was für ?nderungen waren dies?".
+		Dies sind die Art von Fragen, die das Herz eines Versionskontrollsystems
+		bilden: Systeme, welche gebaut wurden um ?nderungen aufzuzeichnen und
 		über die Zeit hinweg zu verfolgen.
 		</para>
 	</sect1>
@@ -72,26 +71,26 @@
 		<title>Versionskontroll-Modelle</title>
 		<para>
 		Alle Versionskontrollsysteme haben ein gemeinsames, grundlegendes
-		Problem zu lösen: Wie kann das System verschiedenen Benutzern erlauben
-		die Informationen zu teilen, aber gleichzeitig verhindern dass die
+		Problem zu lösen: Wie kann das System verschiedenen Benutzern erlauben,
+		die Informationen zu teilen, aber gleichzeitig verhindern, dass die
 		Benutzer sich gegenseitig auf die Füsse treten? Es ist viel zu einfach
-		für Benutzer ungewollt Änderungen von anderen Benutzern zu überschreiben.
+		für Benutzer, ungewollt ?nderungen von anderen Benutzern zu überschreiben.
         </para>
 		<sect2 id="tsvn-ch-2-sect-2.1">
 			<title>Das Problem des Filesharing</title>
 			<para>
-			Stellen Sie sich folgende Szene vor: angenommen wir haben zwei
-			Mitarbeiter, Harry und Sally. Sie beide beschliessen dieselbe
-			Datei gleichzeitig zu ändern. Wenn Harry seine Änderungen zuerst
+			Stellen Sie sich folgende Szene vor: angenommen, wir haben zwei
+			Mitarbeiter, Harry und Sally. Sie beide beschliessen, dieselbe
+			Datei gleichzeitig zu ändern. Wenn Harry seine ?nderungen zuerst
 			in die Datenbank speichert, dann ist es möglich (ein paar Augenblicke
-			später) dass Sally ungewollt diese Änderungen durch ihre eigenen
-			überschreibt. Obwohl die Änderungen von Harry nicht verloren sind
+			später), dass Sally ungewollt diese ?nderungen durch ihre eigenen
+			überschreibt. Obwohl die ?nderungen von Harry nicht verloren sind
 			(das Versionskontrollsystem speichert <emphasis>alle</emphasis>
-			Änderungen) werden Harry's Änderungen in der aktuellsten Version
-			von Sally nicht vorhanden sein, weil Sally diese Änderungen nie
-			gesehen hat. Harry's Änderungen sind also trotzdem verloren &mdash;
+			?nderungen), werden Harry's ?nderungen in der aktuellsten Version
+			von Sally nicht vorhanden sein, weil Sally diese ?nderungen nie
+			gesehen hat. Harry's ?nderungen sind also trotzdem verloren &mdash;
 			oder zumindest fehlen diese in der aktuellsten Version.
-			Dies ist definitiv eine Situation welche wir verhindern wollen!
+			Dies ist definitiv eine Situation, die wir verhindern wollen!
 			</para>
 			<figure id="tsvn-ch2-dia2">
 				<title>Das zu verhindernde Problem</title>
@@ -99,143 +98,143 @@
 			</figure>
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-2.2">
-			<title>Die Sperren-Ändern-Freigeben Lösung</title>
+			<title>Die Sperren-?ndern-Freigeben Lösung</title>
 			<para>
-			Viele Versionskontrollsysteme nutzen ein sperren-ändern-freigeben 
+			Viele Versionskontrollsysteme nutzen ein sperren-ändern-freigeben
 			Modell, was eine sehr einfache Lösung ist. In einem solchen System
 			kann jeweils nur eine einzige Person eine Datei ändern. Zuerst muss
-			Harry die Datei sperren bevor er mit dem Ändern beginnen kann. 
+			Harry die Datei sperren, bevor er mit dem ?ndern beginnen kann.
 			Sperren ist so ähnlich wie das Ausleihen eines Buchs aus der
 			Bibliothek; wenn Harry die Datei gesperrt hat, dann kann Sally
-			keine Änderungen an dieser Datei mehr vornehmen. Wenn sie es
-			dennoch versucht kriegt sie eine Fehlermeldung. Alles was sie
-			tun kann ist die Datei lesen und zu warten bis Harry die Datei
+			keine ?nderungen an dieser Datei mehr vornehmen. Wenn sie es
+			dennoch versucht, kriegt sie eine Fehlermeldung. Alles, was sie
+			tun kann, ist die Datei lesen und zu warten, bis Harry die Datei
 			wieder freigegeben hat (das Buch in die Bibliothek zurückgebracht
-			hat). Danach kann Sally die Datei sperren und ihre Änderungen
+			hat). Danach kann Sally die Datei sperren und ihre ?nderungen
 			vornehmen.
 			</para>
 			<figure id="tsvn-ch2-dia3">
-				<title>Die Sperren-Ändern-Freigeben Lösung</title>
+				<title>Die Sperren-?ndern-Freigeben Lösung</title>
 				<graphic fileref="images/ch02dia3.png"/>
 			</figure>
 			<para>
-			Das Problem mit der Sperren-Ändern-Freigeben Lösung ist dass diese
-			zu restriktiv ist und oft zu einem Hinderniss für die Benutzer
+			Das Problem mit der Sperren-?ndern-Freigeben Lösung ist, dass diese
+			zu restriktiv ist und oft zu einem Hindernis für die Benutzer
 			wird:
 			</para>
 			<itemizedlist>
 				<listitem>
 					<para>
 					<emphasis>Sperren kann administrative Probleme auslösen.
-					</emphasis> Manchmal wird Harry eine Datei sperren und 
-					dann vergessen diese wieder freizugeben. In der 
-					Zwischenzeit wartet Sally bis sie diese Datei ändern kann, 
+					</emphasis> Manchmal wird Harry eine Datei sperren und
+					dann vergessen, diese wieder freizugeben. In der
+					Zwischenzeit wartet Sally bis sie diese Datei ändern kann,
 					aber durch die Sperre von Harry sind ihr die Hände gebunden.
-					Und dann geht Harry in die Ferien. Nun braucht Sally einen 
-					Administrator um die Sperre von Harry aufzuheben. Diese 
+					Und dann geht Harry in die Ferien. Nun braucht Sally einen
+					Administrator, um die Sperre von Harry aufzuheben. Diese
 					Situation führt zu unnötigen Verzögerungen und verschwendet
 					Zeit.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					<emphasis>Sperren kann zu unnötiger serieller 
+					<emphasis>Sperren kann zu unnötiger serieller
 					Arbeitsweise führen</emphasis>
-					Was wenn Harry den Anfang einer Textdatei ändert, und 
-					Sally möchte das Ende dieser Textdatei ändern? Diese
-					Änderungen stören sich überhaupt nicht und könnten sehr
-					einfach gleichzeitig ausgeführt werden, in der Annahme
-					dass diese Änderungen ohne Probleme zusammengemischt
+					Was, wenn Harry den Anfang einer Textdatei ändert und
+					Sally das Ende dieser Textdatei ändern möchte? Diese
+					?nderungen stören sich überhaupt nicht und könnten sehr
+					einfach gleichzeitig ausgeführt werden, in der Annahme,
+					dass diese ?nderungen ohne Probleme zusammengemischt
 					werden. Es ist in dieser Situation völlig unnötig zu
-					warten bis der eine mit der Arbeit fertig ist.
+					warten, bis der eine mit der Arbeit fertig ist.
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-					<emphasis>Sperren kann ein falsches Gefühl von Sicherheit 
+					<emphasis>Sperren kann ein falsches Gefühl von Sicherheit
 					erzeugen</emphasis>
-					Angenommen Harry sperrt und ändert eine Datei A, während
-					Sally eine Datei B gesperrt hat und ändert. Aber angenommen
-					diese beiden Dateien sind nicht unabhängig voneinander, und
-					die Änderungen an der einen Datei sind nicht kompatibel
-					mit den Änderungen an der anderen Datei. Plötzlich 
+					Angenommen, Harry sperrt und ändert eine Datei A, während
+					Sally eine Datei B gesperrt hat und ändert. Aber angenommen,
+					diese beiden Dateien sind nicht unabhängig voneinander und
+					die ?nderungen an der einen Datei sind nicht kompatibel
+					mit den ?nderungen an der anderen Datei. Plötzlich
 					funktionieren die Dateien A und B nicht mehr zusammen.
-					Das Sperr-System konnte diese Problem nicht verhindern 
+					Das Sperr-System konnte dieses Problem nicht verhindern
 					&mdash; es spiegelte sogar eine falsche Sicherheit vor.
 					Es ist einfach für Harry und Sally anzunehmen, dass durch
-					das Sperren von Dateien jeder Änderungen sicher durchführen
+					das Sperren von Dateien jeder ?nderungen sicher durchführen
 					kann.
 					</para>
 				</listitem>
 			</itemizedlist>
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-2.3">
-			<title>Die Kopie-Ändern-Mischen Lösung</title>
+			<title>Die Kopie-?ndern-Mischen Lösung</title>
 			<para>
 			Subversion, CVS und andere Versionskontrollsysteme nutzen ein
-			Kopie-Ändern-Mischen Modell als Alternative zur Sperr-Lösung.
+			Kopie-?ndern-Mischen Modell als Alternative zur Sperr-Lösung.
 			In diesem Modell hat jeder Benutzer eine persönliche <firstterm>
 			Arbeitskopie</firstterm> des Projekts. Die Benutzer arbeiten dann
-			parallel und ändern jeweils ihre persönliche Arbeitskopie. 
-			Schliesslich werden diese privaten Arbeitskopien zusammengemsicht
-			zu einer endgültigen Version. Das Versionskontrollsystem hilft
-			beim Mischen, überlässt die endgültige Kontrolle aber dem Benutzer
-			selbst.
+			parallel und ändern jeweils ihre persönliche Arbeitskopie.
+			Schliesslich werden diese privaten Arbeitskopien zusammengeführt
+			&mdash; gemischt &mdash; zu einer endgültigen Version. Das
+			Versionskontrollsystem hilft beim Mischen, überlässt die endgültige
+			Kontrolle aber dem Benutzer selbst.
 			</para>
 			<para>
-			Hier ein Beispiel. Angenommen Harry und Sally haben jeder eine
+			Hier ein Beispiel. Angenommen, Harry und Sally haben jeder eine
 			private Arbeitskopie von demselben Projekt. Sie arbeiten parallel
 			und ändern dieselbe Datei A in ihren Arbeitskopien. Sally speichert
-			ihre Änderungen zuerst in der Datenbank. Wenn Harry nun dasselbe
-			versucht, kriegt er eine Meldung von der Datenbank dass seine
+			ihre ?nderungen zuerst in der Datenbank. Wenn Harry nun dasselbe
+			versucht, bekommt er eine Meldung von der Datenbank, dass seine
 			Datei nicht aktuell ist. In anderen Worten, die Datei A wurde
-			irgendwie in der Datenbank verändert seit er sie das letzte Mal 
+			irgendwie in der Datenbank verändert, seit er sie das letzte Mal
 			aktualisiert hat. Also <firstterm>aktualisiert</firstterm>
 			Harry seine Arbeitskopie mit der Datenbank und <firstterm>mischt
-			</firstterm> die Änderungen in der Datenbank mit seinen eigenen.
-			Die Wahrscheinlichkeit dass die Änderungen von Sally sich nicht
-			mit seinen eigenen beissen sind gross, und so kann Harry gleich
+			</firstterm> die ?nderungen in der Datenbank mit seinen eigenen.
+			Die Wahrscheinlichkeit, dass die ?nderungen von Sally sich nicht
+			mit seinen eigenen beissen, ist gross, und so kann Harry gleich
 			danach die Datei in der Datenbank speichern.
 			</para>
 			<figure id="tsvn-ch2-dia4">
-				<title>Die Kopie-Ändern-Mischen Lösung</title>
+				<title>Die Kopie-?ndern-Mischen Lösung</title>
 				<graphic fileref="images/ch02dia4.png"/>
 			</figure>
 			<figure id="tsvn-ch2-dia5">
-				<title>&hellip;Kopie-Ändern-Mischen fortgesetzt</title>
+				<title>&hellip;Kopie-?ndern-Mischen fortgesetzt</title>
 				<graphic fileref="images/ch02dia5.png"/>
 			</figure>
 			<para>
-			Aber was wenn die Änderungen von Sally sich mit Harry's Änderungen
+			Aber was, wenn die ?nderungen von Sally sich mit Harry's ?nderungen
 			<emphasis>tatsächlich</emphasis> beissen? Was dann? Diese Situation
-			wird ein <firstterm>Konflikt</firstterm> genannt und ist 
-			üblicherweise kein grosses Problem. 
-			Wenn Harry seine Arbeitskopie aktualisiert und die Änderungen von
-			Sally mit den seinen mischt, seine Kopie der Datei A wird als 
-			"In Konflikt" markiert; er kann dann beide Versionen der Datei
-			ansehen und die Änderungen manuell wählen zwischen den Änderungen
-			von Sally oder seinen eigenen.
-			Beachten Sie dass Software solche Konflikte nicht selbst lösen kann;
-			nur Menschen sind in der Lage die Änderungen auch zu verstehen und
+			wird ein <firstterm>Konflikt</firstterm> genannt und ist
+			üblicherweise kein grosses Problem.
+			Wenn Harry in diesem Falle seine Arbeitskopie aktualisiert und die
+			?nderungen von Sally mit den seinen mischt, wird seine Kopie der
+			Datei A als"In Konflikt" markiert; er kann dann beide Versionen der
+			Dateiansehen und manuell wählen zwischen den ?nderungen von Sally
+			oder seinen eigenen.
+			Beachten Sie, dass Software solche Konflikte nicht selbst lösen kann;
+			nur Menschen sind in der Lage, die ?nderungen auch zu verstehen und
 			die notwendigen intelligenten Entscheidungen zu treffen (vielleicht
 			durch ein Gespräch mit Sally).
 			</para>
 			<para>
-			Das Kopie-Ändern-Mischen Modell mag ein wenig chaotisch aussehen,
+			Das Kopie-?ndern-Mischen Modell mag ein wenig chaotisch aussehen,
 			aber in der Praxis bewährt es sich sehr gut. Benutzer können
 			parallel arbeiten, müssen niemals aufeinander warten. Wenn sie
-			an denselben Dateien arbeiten stellt sich heraus dass die meiste
-			Zeit keine Konflikte auftreten. Und die Zeit die benötigt wird
-			um einen der wirklich seltenen Konflikte zu lösen ist viel kleiner
-			als die Zeit welche auf die Freigabe einer gesperrten Datei gewartet
+			an denselben Dateien arbeiten, stellt sich heraus, dass die meiste
+			Zeit keine Konflikte auftreten. Und die Zeit, die benötigt wird,
+			um einen der wirklich seltenen Konflikte zu lösen, ist viel kleiner
+			als die Zeit, welche auf die Freigabe einer gesperrten Datei gewartet
 			wird.
 			</para>
 			<para>
 			Schlussendlich hängt alles von einem einzigen kritischen Faktor
 			ab: Kommunikation unter den Benutzern. Wenn die Benutzer nur
-			schlecht miteinander kommunizieren werden vermehrt Konflikte
+			schlecht miteinander kommunizieren, werden vermehrt Konflikte
 			auftreten. Kein System kann Benutzer zur Kommunikation zwingen,
-			und kein System kann logische Konflikte erkennen. 
+			und kein System kann logische Konflikte erkennen.
 			</para>
 		</sect2>
 	</sect1>
@@ -245,34 +244,34 @@
 		<sect2 id="tsvn-ch-2-sect-3.1">
 			<title>Arbeitskopie</title>
 			<para>
-			Sie haben bereits über Arbeitskopien gelesen; Nun werden wir
-			zeigen wie ein Subversionprogramm diese erstellt und benutzt.
+			Sie haben bereits über Arbeitskopien gelesen; nun werden wir
+			zeigen, wie ein Subversionprogramm diese erstellt und benutzt.
 			</para>
 			<para>
-			Eine Subversion Arbeitskopie ist eine ganz normale Ordnerstruktur
+			Eine Subversion-Arbeitskopie ist eine ganz normale Ordnerstruktur
 			auf einem lokalen Dateisystem, welches eine Anzahl von Dateien
 			enthält. Sie können diese Dateien ändern wie Sie wollen, und falls
-			dies Sourcecode Dateien sind können Sie diese kompilieren wie sonst
+			dies Sourcecode-Dateien sind, können Sie diese kompilieren wie sonst
 			auch. Ihre Arbeitskopie ist Ihr eigenes privates Arbeitsfeld:
-			Subversion wird nie Änderungen von anderen einfügen oder Ihre
-			Änderungen anderen zur Verfügung stellen ohne dass Sie Subversion
+			Subversion wird nie ?nderungen von anderen einfügen oder Ihre
+			?nderungen anderen zur Verfügung stellen, ohne dass Sie Subversion
 			explizit dazu auffordern.
 			</para>
 			<para>
-			Nachdem Sie einige Änderungen an den Dateien in Ihrer Arbeitskopie
-			vorgenommen haben und Sie überprüft haben dass diese immer noch
-			korrekt funktionieren (z.B. ohne Fehler kompilierbar sind) stellt
-			Ihnen Subversion Befehle zur Verfügung, um Ihre Änderungen zu
-			publizieren (durch Speichern in der zentralen Datenbank), d.h. 
-			anderen zur Verfügung zu stellen. Falls andere Benutzer deren
-			Änderungen veröffentlichen möchten stellt Subversion Befehle
-			zur Verfügung mit welchen Sie diese Änderungen in Ihre Arbeitskopie
+			Nachdem Sie einige ?nderungen an den Dateien in Ihrer Arbeitskopie
+			vorgenommen haben und Sie überprüft haben, dass diese immer noch
+			korrekt funktionieren (z. B. ohne Fehler kompilierbar sind), stellt
+			Ihnen Subversion Befehle zur Verfügung, um Ihre ?nderungen zu
+			publizieren (durch Speichern in der zentralen Datenbank), d. h.,
+			anderen zur Verfügung zu stellen. Falls andere Benutzer ihre
+			?nderungen veröffentlicht haben, stellt Subversion Befehle
+			zur Verfügung, mit denen Sie diese ?nderungen in Ihre Arbeitskopie
 			einfügen können (durch Lesen von der zentralen Datenbank).
 			</para>
 			<para>
 			Eine Arbeitskopie enthält immer auch zusätzliche Dateien, erstellt
 			und verwaltet von Subversion, um diese Befehle ausführen zu können.
-			Genauer enthält jeder Ordner in Ihrer Arbeitskopie einen Unterordner
+			Genauer gesagt enthält jeder Ordner in Ihrer Arbeitskopie einen Unterordner
 			mit Namen <filename>.svn</filename>, auch bekannt als der <firstterm>
 			Administrative Ordner</firstterm> der Arbeitskopie. Die Dateien in
 			jedem administrativen Ordner helfen Subversion dabei zu erkennen,
@@ -280,14 +279,14 @@
 			der Datenbank durch andere Benutzer geändert haben.
 			</para>
 			<para>
-			Eine typische Subversion Datenbank enthält oft Dateien (oder 
+			Eine typische Subversion Datenbank enthält oft Dateien (oder
 			Sourcecode) von mehreren Projekten; normalerweise ist jedes Projekt
 			ein Unterordner in der Dateisystemstruktur. In einem solchen
 			Umfeld enthält eine Arbeitskopie normalerweise nur einen solchen
 			Unterordner der Datenbank.
 			</para>
 			<para>
-			Als Beispiel nehmen Sie an dass Sie eine Datenbank haben welche zwei
+			Als Beispiel nehmen Sie an, dass Sie eine Datenbank haben, die zwei
 			Softwareprojekte enthält.
 			</para>
 			<figure id="tsvn-ch2-dia6">
@@ -300,7 +299,7 @@
 			</filename>
 			</para>
 			<para>
-			Um eine Arbeitskopie zu erhalten müssen Sie einen dieser Unterordner
+			Um eine Arbeitskopie zu erhalten, müssen Sie einen dieser Unterordner
 			aus der Datenbank <firstterm>Auschecken</firstterm>.
 			</para>
 			<sidebar id="tsvn-ch-02-sidebar-1">
@@ -308,13 +307,9 @@
 				<para>
 				Auf Subversion Datenbanken kann mittels vieler verschiedener
 				Methoden zugegriffen werden &mdash; lokal oder durch verschiedene
-				Netzwerk Protokolle. Eine Datenbankposition aber ist immer eine
-				URL. Das URL Schema 
-				Subversion repositories can be accessed through many
-          different methods &mdash; on local disk, or through various
-          network protocols.  A repository location, however, is
-          always a URL.  The URL schema zeigt die Zugriffsmethode:
-          </para>
+				Netzwerk-Protokolle. Eine Datenbankposition aber ist immer eine
+				URL. Das URL Schema zeigt die Zugriffsmethode:
+				</para>
 				<table id="tsvn-ch-02-table-1">
 					<title>Datenbank Zugriffs-URLs</title>
 					<tgroup cols="2">
@@ -342,7 +337,7 @@
 								<entry>
 									<literal>https://</literal>
 								</entry>
-								<entry>gleich wie <literal>http://</literal>, aber mit SSL Verschlüsselung
+								<entry>gleich wie <literal>http://</literal>, aber mit SSL-Verschlüsselung
 								</entry>
 							</row>
 							<row>
@@ -363,17 +358,19 @@
 					</tgroup>
 				</table>
 				<para>
-				Für den grössten Teil, Subversion URLs nutzen die Standard Syntax
-				und erlauben dass Servernamen und Portnummern als Teil der URL
-				angegeben werden. Beachten Sie dass die <literal>file:</literal>
-				Zugriffsmethode nur möglich ist wenn die Datenbank auf demselben
-				Rechner liegt wie das Clientprogramm.
+				In den weitaus meisten Fällen nutzen Subversion URLs die Standardsyntax
+				und erlauben, dass Servernamen und Portnummern als Teil der URL
+				angegeben werden. Beachten Sie jedoch, dass die <literal>file:///
+				</literal> Zugriffsmethode nur möglich ist, wenn die Datenbank auf
+				demselben Rechner liegt wie das Clientprogramm. Mit <literal>file:///
+				</literal> darf nicht auf Datenbanken auf freigegebenen Netzlaufwerken
+				zugegriffen werden!
 				</para>
 				<para>
-				Zudem müssen Benutzer des <literal>file:</literal> Schemas auf
+				Zudem müssen Benutzer des <literal>file:///</literal> Schemas auf
 				Windowsrechnern eine nicht offizielle <quote>Standard</quote>
-				Syntax für die URL verwenden. Jede der folgenden URLS funktioniert
-				wo <literal>X</literal> das Laufwerk mit der Datenbank ist:
+				Syntax für die URL verwenden. Jede der folgenden URLs funktioniert,
+				wobei <literal>X</literal> das Laufwerk mit der Datenbank ist:
 				</para>
 				<screen>
 file:///X:/path/to/repos
@@ -382,71 +379,71 @@ file:///X|/path/to/repos
 &hellip;
 </screen>
 				<para>
-				Beachten Sie dass die URL normale Schrägstriche verwendet, obwohl
+				Beachten Sie, dass die URL normale Schrägstriche verwendet, obwohl
 				Windows-Pfade mit Gegenschrägstrichen angegeben werden.
 				</para>
 			</sidebar>
 			<para>
-			Angenommen Sie machen Änderungen an der Datei <filename>button.c
+			Angenommen, Sie machen ?nderungen an der Datei <filename>button.c
 			</filename>. Da der <filename>.svn</filename> Ordner den Originalinhalt
-			und das Änderungsdatum gespeichert hat kann Subversion feststellen
+			und das ?nderungsdatum gespeichert hat, kann Subversion feststellen,
 			dass Sie diese Datei geändert haben. Jedoch wird Subversion diese
-			Änderungen nicht veröffentlichen bis Sie Subversion
+			?nderungen erst veröffentlichen, wenn Sie Subversion
 			dazu explizit auffordern. Der Vorgang des Veröffentlichens ist
-			allgemein unter dem Begriff <firstterm>Übertragen</firstterm> (engl.
+			allgemein unter dem Begriff <firstterm>?bertragen</firstterm> (engl.
 			<literal>committing</literal>) bekannt.
 			</para>
 			<para>
-			Um Ihre Änderungen anderen zur Verfügung zu stellen können Sie den
-			Befehl <command>Übertragen</command> verwenden.
+			Um Ihre ?nderungen anderen zur Verfügung zu stellen, können Sie den
+			Befehl <command>?bertragen</command> verwenden.
 			</para>
 			<para>
-			Danach sind Ihre Änderungen an der Datei <filename>button.c</filename>
+			Danach sind Ihre ?nderungen an der Datei <filename>button.c</filename>
 			in der Datenbank abgespeichert; falls jemand anders nun eine neue
-			Arbeitskopie von <filename>/calc</filename> auscheckt wird dieser
-			Ihre letzten Änderungen an der Datei <filename>button.c</filename>
+			Arbeitskopie von <filename>/calc</filename> auscheckt, wird diese
+			Ihre letzten ?nderungen an der Datei <filename>button.c</filename>
 			mitenthalten.
 			</para>
 			<para>
-			Nehmen Sie an Sie haben eine Mitarbeiterin, Sally, welche eine
-			Arbeitskopie von <filename>/calc</filename>augecheckt hat zur 
-			selben Zeit wie Sie. Wenn Sie Ihre Änderungen übertragen, bleibt
+			Nehmen Sie an, Sie haben eine Mitarbeiterin, Sally, die eine
+			Arbeitskopie von <filename>/calc</filename> zur selben Zeit wie Sie
+			ausgecheckt hat. Wenn Sie Ihre ?nderungen übertragen, bleibt
 			die Arbeitskopie von Sally unverändert. Subversion ändert an einer
-			Arbeitskopie nur dann etwas wenn Sie es ausdrücklich dazu auffordern.
+			Arbeitskopie nur dann etwas, wenn Sie es ausdrücklich dazu auffordern.
 			</para>
 			<para>
-			Um ihre Arbeitskopie auf den neuesten Stand zu bringen sagt Sally
-			Subversion dass es ihre Arbeitskopie <firstterm>aktualisieren
+			Um ihre Arbeitskopie auf den neuesten Stand zu bringen, sagt Sally
+			Subversion, dass es ihre Arbeitskopie <firstterm>aktualisieren
 			</firstterm> soll mittels des <command>Aktualisieren</command>
-			Befehls. Dies wird Ihre Änderungen in die Arbeitskopie von Sally
-			einfügen, sowie natürlich alle anderen Änderungen, welche andere
+			Befehls. Dies wird Ihre ?nderungen in die Arbeitskopie von Sally
+			einfügen, sowie natürlich alle weiteren ?nderungen, welche andere
 			vorgenommen haben seit Sally ihre Arbeitskopie das letzte mal
 			aktualisiert hat.
 			</para>
 			<para>
-			Beachten Sie dass Sally nicht angeben muss welche Dateien genau
+			Beachten Sie, dass Sally nicht angeben muss, welche Dateien genau
 			Subversion aktualisieren soll; Subversion nutzt die Informationen
-			im <filename>.svn</filename> Ordner und weiter Informationen aus
-			der Datenbank um dies selbst festzustellen.
+			im <filename>.svn</filename> Ordner und weitere Informationen aus
+			der Datenbank, um dies selbst festzustellen.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-ch-2-sect-3.2">
 			<title>Revisionen</title>
 			<para>
-			Ein <command>Übertragen</command> Befehl kann Änderungen an beliebig
-			vielen Dateien und Ordnern übertragen als eine einzige 
+			Ein <command>?bertragen</command> Befehl kann ?nderungen an beliebig
+			vielen Dateien und Ordnern übertragen als eine einzige
 			atomare Operation. In Ihrer Arbeitskopie können Sie Dateien ändern,
 			erstellen, löschen, umbenennen und verschieben und dann alle diese
-			Änderungen in einem einzigen Schritt übertragen.
+			?nderungen in einem einzigen Schritt übertragen.
 			</para>
 			<para>
-			In der Datenbank wird jede Übertragung als eine einzige atomare
-			Transaktion behandelt: entweder werden alle Änderungen abgespeichert
+			In der Datenbank wird jede ?bertragung als eine einzige atomare
+			Transaktion behandelt: entweder werden alle ?nderungen abgespeichert
 			oder gar keine. Subversion stellt dies sogar im Falle von Systemabstürzen,
 			Netzwerkproblemen, Stromausfällen oder anderen Problemen sicher.
 			</para>
 			<para>
-			Jedesmal wenn eine Datenbank eine Übertragung akzeptiert wird 
+			Jedesmal wenn eine Datenbank eine ?bertragung akzeptiert, wird
 			dadurch ein neuer Zustand der Dateistruktur erzeugt. Ein solcher
 			Zustand wird <firstterm>Revision</firstterm> genannt.
 			Jeder Revision wird eine natürliche Zahl zugeordnet, jeweils um
@@ -455,12 +452,12 @@ file:///X|/path/to/repos
 			Revision 0 enthält nichts ausser einem leeren Hauptverzeichnis.
 			</para>
 			<para>
-			Ein möglicher Weg um sich die Datenbank vorzustellen ist als eine
+			Ein möglicher Weg, um sich die Datenbank vorzustellen, ist als eine
 			Reihe von Bäumen. Stellen Sie sich eine Reihe von Revisionsnummern
-			vor, beginnend mit 0, sich ausbreitend von links nach rechts. Jede
-			Revisionsnummer hat einen Dateisystembaum welcher an dieser Reihe
+			vor, beginnend mit 0, sich von links nach rechts ausbreitend. Jede
+			Revisionsnummer hat einen Dateisystembaum, welcher an dieser Reihe
 			hängt, und jeder dieser Bäume ist eine <quote>Momentaufnahme</quote>
-			davon wie die Datenbank nach jeder Übertragung ausgesehen hat.
+			davon, wie die Datenbank nach der jeweiligen ?bertragung ausgesehen hat.
 			</para>
 			<figure id="tsvn-ch2-dia7">
 				<title>Die Datenbank</title>
@@ -469,26 +466,26 @@ file:///X|/path/to/repos
 			<sidebar>
 				<title>Globale Revisionsnummern</title>
 				<para>
-				Entgegen vielen bekannten Versionskontrollsystemen stellt eine
+				Anders als in vielen bekannten Versionskontrollsystemen stellt eine
 				Revisionsnummer den Zustand eines <emphasis>ganzen Dateibaumes
 				</emphasis> dar, nicht nur von einzelnen Dateien. Jede Revision
 				ist ein ganzer Dateibaum, ein bestimmter Zustand der Datenbank
-				nach einer Übertragung. Eine andere Möglichkeit sich eine
-				Revision vorzustellen ist dass eine Revision N den Zustand
-				der Datenbank nach der N-ten Übertragung darstellt.
-				Wenn ein Subversion Benutzer von "Revision 5 der Datei <filename>
-				foo.c</filename>" spricht meint er in Wirklichkeit den Zustand
+				nach einer ?bertragung. Eine andere Möglichkeit, sich eine
+				Revision vorzustellen, ist, dass eine Revision N den Zustand
+				der Datenbank nach der N-ten ?bertragung darstellt.
+				Wenn ein Subversion-Benutzer von <quote>Revision 5 der Datei <filename>
+				foo.c</filename></quote> spricht, meint er in Wirklichkeit den Zustand
 				der Datei <filename>foo.c</filename> wie sie in Revision 5
-				ausgesehen hat. Beachten Sie dass zwei verschiedene Revisionen
+				ausgesehen hat. Beachten Sie, dass zwei verschiedene Revisionen
 				einer Datei <emphasis>nicht</emphasis> unterschiedlich sein
 				müssen!
 				</para>
 			</sidebar>
 			<para>
-			Es ist wichtig zu beachten dass Arbeitskopien nicht immer mit einer
+			Es ist wichtig zu beachten, dass Arbeitskopien nicht immer mit einer
 			einzigen Revision der Datenbank übereinstimmen; sie können Dateien
-			von verschiedenen Revisionen enthalten. Zum Beispiel nehmen Sie an
-			Sie haben eine Arbeitskopie ausgecheckt von einer Datenbank bei
+			von verschiedenen Revisionen enthalten. Nehmen Sie zum Beispiel an,
+			Sie haben aus einer Datenbank eine Arbeitskopie ausgecheckt, bei
 			welcher die neueste Revision die 4 ist:
 			</para>
 <screen>
@@ -498,10 +495,10 @@ calc/Makefile:4
 </screen>
 			<para>
 			In diesem Moment entspricht die Arbeitskopie exakt der Revision 4
-			in der Datenbank. Nun nehmen Sie an Sie ändern die Datei 
-			<filename>button.c</filename> und übertragen diese Änderungen.
-			Nehmen Sie weiter an dass keine weitern Änderungen vorgenommen
-			wurden und Ihre Übertragung eine neue Revision 5 in der Datenbank
+			in der Datenbank. Nun nehmen Sie an, Sie ändern die Datei
+			<filename>button.c</filename> und übertragen diese ?nderungen.
+			Nehmen Sie weiter an, dass keine weitern ?nderungen vorgenommen
+			wurden und Ihre ?bertragung eine neue Revision 5 in der Datenbank
 			erstellt. Ihre Arbeitskopie wird dann so aussehen:
 			</para>
 <screen>
@@ -510,9 +507,9 @@ calc/Makefile:4
      button.c:5
 </screen>
 			<para>
-			Nehmen Sie nun an, dass jetzt Sally Änderungen an der Datei
+			Nehmen Sie nun an, dass jetzt Sally ?nderungen an der Datei
 			<filename>integer.c</filename> überträgt und damit eine Revision 6
-			erstellt. Wenn Sie nun Ihre Arbeitskopie aktualisieren wird dies
+			erstellt. Wenn Sie nun Ihre Arbeitskopie aktualisieren, wird dies
 			dann so aussehen:
 			</para>
 <screen>
@@ -521,14 +518,14 @@ calc/Makefile:6
      button.c:6
 </screen>
 			<para>
-			Sally's Änderungen an der Datei <filename>integer.c</filename> werden
-			in Ihre Arbeitskopie eingefügt, und Ihre Änderungen in der Datei
+			Sally's ?nderungen an der Datei <filename>integer.c</filename> werden
+			in Ihre Arbeitskopie eingefügt, und Ihre ?nderungen in der Datei
 			<filename>button.c</filename> werden immer noch vorhanden sein.
 			In diesem Beispiel ist der Inhalt der Datei <filename>Makefile
 			</filename> identisch in den Revisionen 4, 5 und 6, aber Subversion
 			markiert Ihre lokale Kopie von <filename>Makefile</filename> mit
-			Revision 6 um zu zeigen dass diese immer noch aktuell ist. Also
-			nachdem Sie eine saubere Aktualisierung durchgeführt haben wird
+			Revision 6 um zu zeigen, dass diese immer noch aktuell ist. Also
+			nachdem Sie eine saubere Aktualisierung durchgeführt haben, wird
 			Ihre Arbeitskopie exakt einer Revision in der Datenbank entsprechen.
 			</para>
 		</sect2>
@@ -536,7 +533,7 @@ calc/Makefile:6
 			<title>Wie Arbeitskopien die Datenbank verfolgen</title>
 			<para>
 			Für jede Datei in einer Arbeitskopie zeichnet Subversion zwei
-			wesentliche Informationen im <filename>.svn</filename> 
+			wesentliche Informationen im <filename>.svn</filename>
 			Administrationsordner auf:
 			</para>
 			<itemizedlist>
@@ -546,14 +543,14 @@ calc/Makefile:6
 					</para>
 				</listitem>
 				<listitem>
-					<para>Der Zeitpunkt an dem die Datei zum letzten Mal mit
+					<para>Der Zeitpunkt, an dem die Datei zum letzten Mal mit
 					der Datenbank aktualisiert wurde.
 					</para>
 				</listitem>
 			</itemizedlist>
 			<para>
-			Mittels dieser Informationen ist Subversion in der Lage, durch 
-			Anfragen bei der Datenbank herauszufinden in welchem der folgenden
+			Mittels dieser Informationen ist Subversion in der Lage, durch
+			Anfragen bei der Datenbank herauszufinden, in welchem der folgenden
 			vier Zustände eine Datei ist:
 			</para>
 			<variablelist>
@@ -562,8 +559,8 @@ calc/Makefile:6
 					<listitem>
 						<para>
 						Die Datei wurde weder lokal noch in der Datenbank
-						verändert. Eine <command>Übertragung</command>
-						und auch eine <command>Aktualisierung</command>dieser 
+						verändert. Eine <command>?bertragung</command>
+						und auch eine <command>Aktualisierung</command>dieser
 						Datei bewirkt nichts.
 						</para>
 					</listitem>
@@ -573,20 +570,20 @@ calc/Makefile:6
 					<listitem>
 						<para>
 						Die Datei wurde lokal verändert, aber nicht in der
-						Datenbank. Eine <command>Übertragung</command> bewirkt
-						ein speichern dieser Änderungen in der Datenbank. Eine
+						Datenbank. Eine <command>?bertragung</command> bewirkt
+						ein Speichern dieser ?nderungen in der Datenbank. Eine
 						<command>Aktualisierung</command> hingegen bewirkt nichts.
 						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Unverändert aber nicht aktuell</term>
+					<term>Unverändert, aber nicht aktuell</term>
 					<listitem>
 						<para>
 						Die Datei wurde lokal nicht verändert, jedoch gibt es
-						Änderungen an der Datei in der Datenbank. Eine 
-						<command>Übertragung</command> bewirkt nichts, jedoch
-						wird ein <command>Aktualisieren</command> die Änderungen
+						?nderungen an der Datei in der Datenbank. Eine
+						<command>?bertragung</command> bewirkt nichts, jedoch
+						wird ein <command>Aktualisieren</command> die ?nderungen
 						von der Datenbank in die lokale Kopie der Datei einfügen.
 						</para>
 					</listitem>
@@ -596,12 +593,12 @@ calc/Makefile:6
 					<listitem>
 						<para>
 						Die Datei wurde lokal und in der Datenbank verändert.
-						Ein <command>Übertragen</command> wird fehlschlagen mit
+						Ein <command>?bertragen</command> wird fehlschlagen mit
 						einer Fehlermeldung. Die Datei muss zuerst <command>
-						Aktualisiert</command> werden, um die Änderungen von
+						Aktualisiert</command> werden, um die ?nderungen von
 						der Datenbank in die lokale Kopie einzufügen. Falls
-						Subversion nicht in der Lage sein sollte diese
-						Änderungen selbst zu vermischen muss der Benutzer den
+						Subversion nicht in der Lage sein sollte, diese
+						?nderungen selbst zu vermischen, muss der Benutzer den
 						Konflikt manuell lösen.
 						</para>
 					</listitem>
@@ -612,7 +609,7 @@ calc/Makefile:6
 	<sect1 id="tsvn-ch-2-sect-4">
 		<title>Zusammenfassung</title>
 		<para>
-		Wir haben eine Anzahl von grundlegenden Subversion Konzepten in diesem
+		Wir haben eine Anzahl von grundlegenden Subversion-Konzepten in diesem
 		Kapitel behandelt:
 		</para>
 		<itemizedlist>
@@ -624,15 +621,15 @@ calc/Makefile:6
 			</listitem>
 			<listitem>
 				<para>
-				Wir haben einige einfache Beispiele gezeigt wie zwei Mitarbeiter
-				Subversion benutzen können um Änderungen zur Verfügung zu stellen
-				und Änderungen von anderen zu übernehmen mittels des 
-				Kopie-Ändern-Mischen Modells.
+				Wir haben einige einfache Beispiele gezeigt, wie zwei Mitarbeiter
+				Subversion benutzen können, um ?nderungen zur Verfügung zu stellen
+				und ?nderungen von anderen zu übernehmen mittels des
+				Kopie-?ndern-Mischen Modells.
 				</para>
 			</listitem>
 			<listitem>
 				<para>
-				Wir sprachen ein wenig darüber wie Subversion Informationen
+				Wir sprachen ein wenig darüber, wie Subversion Informationen
 				in der Arbeitskopie verfolgt und verwaltet.
 				</para>
 			</listitem>
@@ -640,8 +637,8 @@ calc/Makefile:6
 	</sect1>
 </chapter>
 <!--
-local variables: 
+local variables:
 sgml-parent-document: ("book.xml" "chapter")
 end:
 -->
-                            
+

@@ -329,8 +329,10 @@
           <literal>file:</literal> access method is valid only for
           locations on the same server as the client &mdash; in fact, in
           accordance with convention, the server name portion of the
-          URL is required to be either absent or
-          <literal>localhost</literal>.</para>
+          URL is required to be either absent or <literal>localhost</literal>.
+		  Take great care that the <literal>file:</literal> access method may not be
+		  used to access repositories located on drives shared over the network!
+		  </para>
 				<para>Also, users of the <literal>file:</literal> scheme on
           Windows platforms will need to use an unofficially
           <quote>standard</quote> syntax for accessing repositories
@@ -561,8 +563,7 @@ calc/Makefile:6
 	</sect1>
 </chapter>
 <!--
-local variables: 
+local variables:
 sgml-parent-document: ("book.xml" "chapter")
 end:
 -->
-  
