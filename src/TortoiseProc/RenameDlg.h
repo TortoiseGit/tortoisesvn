@@ -26,4 +26,5 @@ protected:
 public:
 	CString m_name;
 	CString m_windowtitle;
+	CString m_label;
 };

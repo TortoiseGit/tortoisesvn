@@ -925,6 +925,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			{
 				CRenameDlg rendlg;
 				rendlg.m_windowtitle.LoadString(IDS_PROC_ENTERURL);
+				rendlg.m_label.LoadString(IDS_PROC_ENTERURLLABEL);
 				if (rendlg.DoModal() != IDOK)
 				{
 					if (TSVNMutex)

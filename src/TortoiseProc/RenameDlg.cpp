@@ -78,6 +78,8 @@ BOOL CRenameDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	if (!m_windowtitle.IsEmpty())
 		this->SetWindowText(m_windowtitle);
+	if (!m_label.IsEmpty())
+		GetDlgItem(IDC_LABEL)->SetWindowText(m_label);
 	CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE

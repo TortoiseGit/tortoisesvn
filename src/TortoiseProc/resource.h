@@ -144,6 +144,7 @@
 #define IDC_MENU24                      1073
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
+#define IDC_LABEL                       1076
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -302,6 +303,7 @@
 #define IDS_BLAME_PROGRESSINFO          2101
 #define IDS_BLAME_PROGRESSCANCEL        2102
 #define IDS_LOG_COMPAREWITHBASE         2200
+#define IDS_PROC_ENTERURLLABEL          2300
 
 // Next default values for new objects
 // 
@@ -309,7 +311,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        164
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1076
+#define _APS_NEXT_CONTROL_VALUE         1077
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
