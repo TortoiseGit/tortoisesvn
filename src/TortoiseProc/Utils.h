@@ -145,4 +145,9 @@ public:
 	static BOOL CheckForEmptyDiff(CString sDiffPath);
 
 	static void RemoveAccelerators(CString& text);
+
+	/**
+	 * Writes an ASCII CString to the clipboard in CF_TEXT format
+	 */
+	static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
 };

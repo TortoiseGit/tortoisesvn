@@ -64,6 +64,9 @@
 #define PWND (hWndExplorer ? CWnd::FromHandle(hWndExplorer) : NULL)
 #define EXPLORERHWND (IsWindow(hWndExplorer) ? hWndExplorer : NULL)
 
+// This is a fake filename which we use to fill-in the create-patch file-open dialog
+#define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME		_T(".TSVNPatchToClipboard")
+
 BEGIN_MESSAGE_MAP(CTortoiseProcApp, CWinApp)
 	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
 END_MESSAGE_MAP()
@@ -1304,77 +1307,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		//#region createpatch
 		if (comVal.Compare(_T("createpatch"))==0)
 		{
-			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
-			OPENFILENAME ofn;		// common dialog box structure
-			TCHAR szFile[MAX_PATH];  // buffer for file name
-			ZeroMemory(szFile, sizeof(szFile));
-			// Initialize OPENFILENAME
-			ZeroMemory(&ofn, sizeof(OPENFILENAME));
-			//ofn.lStructSize = sizeof(OPENFILENAME);
-			ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
-			ofn.hwndOwner = (EXPLORERHWND);
-			ofn.lpstrFile = szFile;
-			ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-			CString temp;
-			temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-			CUtils::RemoveAccelerators(temp);
-			if (temp.IsEmpty())
-				ofn.lpstrTitle = NULL;
-			else
-				ofn.lpstrTitle = temp;
-			ofn.Flags = OFN_OVERWRITEPROMPT;
-
-			CString sFilter;
-			sFilter.LoadString(IDS_PATCHFILEFILTER);
-			TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-			_tcscpy (pszFilters, sFilter);
-			// Replace '|' delimeters with '\0's
-			TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-			while (ptr != pszFilters)
-			{
-				if (*ptr == '|')
-					*ptr = '\0';
-				ptr--;
-			} // while (ptr != pszFilters) 
-			ofn.lpstrFilter = pszFilters;
-			ofn.nFilterIndex = 1;
-			// Display the Open dialog box. 
-			if (GetSaveFileName(&ofn)==FALSE)
-			{
-				delete [] pszFilters;
-				return FALSE;
-			} // if (GetSaveFileName(&ofn)==FALSE)
-			delete [] pszFilters;
-
-			CProgressDlg progDlg;
-			temp.LoadString(IDS_PROC_SAVEPATCHTO);
-			progDlg.SetLine(1, temp, true);
-			progDlg.SetLine(2, ofn.lpstrFile, true);
-			temp.LoadString(IDS_PROC_PATCHTITLE);
-			progDlg.SetTitle(temp);
-			progDlg.SetShowProgressBar(false);
-			progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
-			//progDlg.SetAnimation(IDR_ANIMATION);
-
-			path = path.TrimRight('\\');
-			CString sDir;
-			if (!PathIsDirectory(path))
-			{
-				SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
-				sDir = path.Mid(path.ReverseFind('\\')+1);
-			}
-			else
-				SetCurrentDirectory(path);
-
-			SVN svn;
-			if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, _T(""), ofn.lpstrFile))
-			{
-				progDlg.Stop();
-				::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				DeleteFile(ofn.lpstrFile);
-			} // if (!svn.Diff(path, SVNRev::REV_WC, path, SVNRev::REV_BASE, TRUE, FALSE, FALSE, _T(""), sSavePath))
-			progDlg.Stop();
-		} // if (comVal.Compare(_T("cat"))==0) 
+			CreatePatch(parser);
+		} // if (comVal.Compare(_T("createpatch"))==0) 
 		//#endregion
 		//#region updatecheck
 		if (comVal.Compare(_T("updatecheck"))==0)
@@ -1435,3 +1369,142 @@ BOOL CTortoiseProcApp::InitInstance()
 	// application, rather than start the application's message pump.
 	return FALSE;
 }
+
+
+UINT_PTR CALLBACK 
+CTortoiseProcApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM /*lParam*/)
+{
+	if(uiMsg ==	WM_COMMAND && LOWORD(wParam) == IDC_PATCH_TO_CLIPBOARD)
+	{
+		HWND hFileDialog = GetParent(hDlg);
+		
+		CString strFilename = CUtils::GetTempFile() + PATCH_TO_CLIPBOARD_PSEUDO_FILENAME;
+
+		CommDlg_OpenSave_SetControlText(hFileDialog, edt1, (LPCTSTR)strFilename);   
+
+		PostMessage(hFileDialog, WM_COMMAND, MAKEWPARAM(IDOK, BM_CLICK), (LPARAM)(GetDlgItem(hDlg, IDOK)));
+	}
+	return 0;
+}
+
+void 
+CTortoiseProcApp::CreatePatch(const CCmdLineParser& parser)
+{
+	CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
+	OPENFILENAME ofn;		// common dialog box structure
+	TCHAR szFile[MAX_PATH];  // buffer for file name
+	ZeroMemory(szFile, sizeof(szFile));
+	// Initialize OPENFILENAME
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	//ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.lStructSize = OPENFILENAME_SIZE_VERSION_400;		//to stay compatible with NT4
+	ofn.hwndOwner = (EXPLORERHWND);
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+	CString temp;
+	temp.LoadString(IDS_REPOBROWSE_SAVEAS);
+	CUtils::RemoveAccelerators(temp);
+	if (temp.IsEmpty())
+		ofn.lpstrTitle = NULL;
+	else
+		ofn.lpstrTitle = temp;
+	ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLETEMPLATE | OFN_EXPLORER | OFN_ENABLEHOOK;
+
+	ofn.hInstance = AfxGetResourceHandle();
+	ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
+	ofn.lpfnHook = CreatePatchFileOpenHook;
+
+	CString sFilter;
+	sFilter.LoadString(IDS_PATCHFILEFILTER);
+	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
+	_tcscpy (pszFilters, sFilter);
+	// Replace '|' delimeters with '\0's
+	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
+	while (ptr != pszFilters)
+	{
+		if (*ptr == '|')
+			*ptr = '\0';
+		ptr--;
+	} // while (ptr != pszFilters) 
+	ofn.lpstrFilter = pszFilters;
+	ofn.nFilterIndex = 1;
+	// Display the Open dialog box. 
+	if (GetSaveFileName(&ofn)==FALSE)
+	{
+		delete [] pszFilters;
+		return;
+	} // if (GetSaveFileName(&ofn)==FALSE)
+	delete [] pszFilters;
+
+	bool bToClipboard = _tcsstr(ofn.lpstrFile, PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
+
+	CProgressDlg progDlg;
+	temp.LoadString(IDS_PROC_SAVEPATCHTO);
+	progDlg.SetLine(1, temp, true);
+	CString strProgressDest(ofn.lpstrFile);
+	if(bToClipboard)
+	{
+		strProgressDest.LoadString(IDS_CLIPBOARD_PROGRESS_DEST);
+	}
+	progDlg.SetLine(2, strProgressDest, true);
+	temp.LoadString(IDS_PROC_PATCHTITLE);
+	progDlg.SetTitle(temp);
+	progDlg.SetShowProgressBar(false);
+	progDlg.ShowModeless(CWnd::FromHandle(EXPLORERHWND));
+	//progDlg.SetAnimation(IDR_ANIMATION);
+
+
+	CString strTempPatchFile = CUtils::GetTempFile();
+
+	path = path.TrimRight('\\');
+	CString sDir;
+	if (!PathIsDirectory(path))
+	{
+		SetCurrentDirectory(path.Left(path.ReverseFind('\\')));
+		sDir = path.Mid(path.ReverseFind('\\')+1);
+	}
+	else
+		SetCurrentDirectory(path);
+
+	SVN svn;
+	if (!svn.Diff(sDir, SVNRev::REV_BASE, sDir, SVNRev::REV_WC, TRUE, FALSE, FALSE, _T(""), strTempPatchFile))
+	{
+		progDlg.Stop();
+		::MessageBox((EXPLORERHWND), svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+	} // if (!svn.Diff(path, SVNRev::REV_WC, path, SVNRev::REV_BASE, TRUE, FALSE, FALSE, _T(""), sSavePath))
+
+	if(bToClipboard)
+	{
+		// The user actually asked for the patch to be written to the clipboard
+
+		CStringA sClipdata;
+
+		FILE* inFile = _tfopen(strTempPatchFile, _T("rb"));
+		if(inFile)
+		{
+			char chunkBuffer[16384];
+			while(!feof(inFile))
+			{
+				size_t readLength = fread(chunkBuffer, 1, sizeof(chunkBuffer), inFile);
+
+				sClipdata += CStringA(chunkBuffer, (int)readLength);
+			}
+			fclose(inFile);
+
+			CUtils::WriteAsciiStringToClipboard(sClipdata);
+
+		}
+	}
+	else
+	{
+		// We should copy the temporary file to the user's selected file
+		CopyFile(strTempPatchFile, ofn.lpstrFile, FALSE);
+	}
+
+	progDlg.Stop();
+	DeleteFile(strTempPatchFile);
+
+}
+
+
+

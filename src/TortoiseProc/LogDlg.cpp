@@ -500,18 +500,7 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 							m_arLogPaths.GetAt(nItem));
 						sClipdata +=  CStringA(sLogCopyText);
 					}
-					if (OpenClipboard())
-					{
-						EmptyClipboard();
-						HGLOBAL hClipboardData;
-						hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
-						char * pchData;
-						pchData = (char*)GlobalLock(hClipboardData);
-						strcpy(pchData, (LPCSTR)sClipdata);
-						GlobalUnlock(hClipboardData);
-						SetClipboardData(CF_TEXT,hClipboardData);
-						CloseClipboard();
-					} // if (OpenClipboard()) 
+					CUtils::WriteAsciiStringToClipboard(sClipdata);
 				}
 			}
 		}

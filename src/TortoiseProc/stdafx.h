@@ -94,6 +94,7 @@
 #include <shlguid.h>
 #include <uxtheme.h>
 #include <tmschema.h>
+#include <dlgs.h>
 #pragma warning(pop)
 
 #pragma warning(push)

@@ -721,3 +721,26 @@ void CUtils::RemoveAccelerators(CString& text)
 		pos++;
 	}
 }
+
+
+bool CUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwningWnd)
+{
+	//TODO The error handling in here is not exactly sparkling!
+
+	if (OpenClipboard(hOwningWnd))
+	{
+		EmptyClipboard();
+		HGLOBAL hClipboardData;
+		hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
+		char * pchData;
+		pchData = (char*)GlobalLock(hClipboardData);
+		strcpy(pchData, (LPCSTR)sClipdata);
+		GlobalUnlock(hClipboardData);
+		SetClipboardData(CF_TEXT,hClipboardData);
+		CloseClipboard();
+
+		return true;
+	} // if (OpenClipboard()) 
+
+	return false;
+}

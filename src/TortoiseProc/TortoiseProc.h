@@ -67,6 +67,10 @@
  * or makes your car start emitting strange noises when you start it up.
  * This code has no bugs, just undocumented features!
  */
+
+// Fwd references for classes
+class CCmdLineParser;
+
 class CTortoiseProcApp : public CWinApp
 {
 public:
@@ -79,6 +83,11 @@ public:
 
 	void CrashProgram();
 // Implementation
+
+private:
+	static UINT_PTR CALLBACK CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
+	void CreatePatch(const CCmdLineParser& parser);
+
 
 	DECLARE_MESSAGE_MAP()
 private:

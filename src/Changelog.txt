@@ -2,6 +2,8 @@
 - ADD: A warning is shown if you try to update a locally
        modified working copy to another (earlier) revision. (Stefan)
 - ADD: Statistic graphs, generated from the log dialog. (Stefan)
+- ADD: It's possible to save the created patch directly to the
+       clipboard. (Will Dean)
 - CHG: The log dialog has now a checkbox for stop-on-copy
        instead of a messagebox question. (Stefan)
 - CHG: Removed the _tsvnexcluderecursive and _tsvnexcludethis

@@ -45,6 +45,7 @@
 #define IDD_PROPERTIES                  177
 #define IDD_REPOCREATE                  178
 #define IDD_STATGRAPH                   179
+#define IDD_PATCH_FILE_OPEN_CUSTOM      180
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -194,6 +195,7 @@
 #define IDC_GRAPH                       1131
 #define IDC_BUTTON1                     1132
 #define IDC_STATBUTTON                  1132
+#define IDC_PATCH_TO_CLIPBOARD          1132
 #define IDC_GRAPHCOMBO                  1133
 #define IDC_GRAPHTYPELABEL              1134
 #define IDS_MSGBOX_DONOTSHOWAGAIN       1153
@@ -445,12 +447,13 @@
 #define IDS_SVNERR_RUNCLEANUP           4001
 #define IDS_SVNERR_UPDATEFIRST          4002
 #define IDS_SVNERR_CLEANUPORFRESHCHECKOUT 4003
+#define IDS_CLIPBOARD_PROGRESS_DEST     4100
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        180
+#define _APS_NEXT_RESOURCE_VALUE        181
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1135
 #define _APS_NEXT_SYMED_VALUE           101

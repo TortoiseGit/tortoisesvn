@@ -970,18 +970,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 								sAction, sPath, sMime);
 							sClipdata +=  CStringA(sLogCopyText);
 						}
-						if (OpenClipboard())
-						{
-							EmptyClipboard();
-							HGLOBAL hClipboardData;
-							hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
-							char * pchData;
-							pchData = (char*)GlobalLock(hClipboardData);
-							strcpy(pchData, (LPCSTR)sClipdata);
-							GlobalUnlock(hClipboardData);
-							SetClipboardData(CF_TEXT,hClipboardData);
-							CloseClipboard();
-						} // if (OpenClipboard()) 
+						CUtils::WriteAsciiStringToClipboard(sClipdata);
 					}
 				} // if (GetKeyState(VK_CONTROL)&0x8000)
 			} // if (selIndex >= 0)
