@@ -206,6 +206,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		return;
 	if ((pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED))
 		return;
+	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	Data * data = m_arData.GetAt(pNMLV->iItem);
 	//was the item checked?
 	if (m_ListCtrl.GetCheck(pNMLV->iItem))
@@ -361,6 +362,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		data->checked = FALSE;
 		m_nSelected--;
 	} 
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	CString sStats;
 	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, m_nTotal);
 	GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
