@@ -1031,8 +1031,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString path = parser.GetVal(_T("path"));
 			CString url;
 			SVNStatus status;
-			long reporev;
-			if (!path.IsEmpty() && (reporev = status.GetStatus(path)) != -2)
+			if (!path.IsEmpty() && (status.GetStatus(path)) != -2)
 			{
 				if (status.status->entry)
 					url = status.status->entry->url;
@@ -1055,8 +1054,6 @@ BOOL CTortoiseProcApp::InitInstance()
 			SVNRev rev(SVNRev::REV_HEAD);
 			if (rev_val != 0)
 				rev = SVNRev(rev_val);
-			else if (reporev > 0)
-				rev = SVNRev(reporev);
 			CRepositoryBrowser dlg(SVNUrl(url, rev));
 			dlg.DoModal();
 		}
