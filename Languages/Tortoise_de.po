@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2004-09-13 15:37+0100\n"
+"PO-Revision-Date: 2004-10-01 10:33+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: Lübbe Onken <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,6 +84,11 @@ msgstr "%d Dateien gewählt, %d Dateien insgesamt"
 msgid "%s - at revision: %d"
 msgstr "%s - in Revision: %d"
 
+# ID:151,
+#: ID:151
+msgid "%s : Remote File"
+msgstr "%s : Datei auf dem Server"
+
 #: ID:151
 msgid "%s : Working Base"
 msgstr "%s : Basis"
@@ -145,7 +150,7 @@ msgid "&Close windows automatically"
 msgstr "&Fenster automatisch schließen"
 
 #: ID:76
-msgid "&Compare revisions"
+msgid "&Compare Revisions"
 msgstr "Revisionen &vergleichen"
 
 #: ID:101
@@ -338,7 +343,7 @@ msgid "&Unknown drives"
 msgstr "&Unbekannte Laufwerke"
 
 #: ID:76
-msgid "&Update item to revision"
+msgid "&Update Item To Revision"
 msgstr "&Aktualisiere Objekt zu Revision"
 
 #: Control-ID:65535
@@ -452,7 +457,7 @@ msgstr ""
 "(z.B. Notepad.exe)."
 
 #: ID:101
-msgid "A&dd folder..."
+msgid "A&dd Folder..."
 msgstr "&Neuer Ordner..."
 
 #: Control-ID:1093
@@ -512,7 +517,7 @@ msgid "Add"
 msgstr "Hinzufügen"
 
 #: ID:101
-msgid "Add &file..."
+msgid "Add &File..."
 msgstr "Datei hinzu&fügen..."
 
 #: ID:110
@@ -791,7 +796,7 @@ msgid "C&reate Folder..."
 msgstr "&Neuer Ordner..."
 
 #: ID:77
-msgid "C&reate Tag from revision"
+msgid "C&reate Tag From Revision"
 msgstr "E&rstelle Markierung von Revision"
 
 #: ID:3697
@@ -833,7 +838,7 @@ msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Zertifikat noch nicht gültig. Gültig von: %s"
 
 #: ID:157
-msgid "Certificates|*.p12;*.pkcs12|All|*.*||"
+msgid "Certificates|*.p12;*.pkcs12*.pfx|All|*.*||"
 msgstr "Zertifikate|*.p12;*.pkcs12|Alle Dateien|*.*||"
 
 #: ID:3825
@@ -987,13 +992,13 @@ msgstr "Übertragen"
 msgid "Compare Whitespaces"
 msgstr "Vergleiche Leerzeichen"
 
+#: ID:138
+msgid "Compare With B&ase"
+msgstr "Vergleiche mit B&asis"
+
 #: ID:76
 msgid "Compare with &working copy"
 msgstr "Vergleiche mit &Arbeitskopie"
-
-#: ID:138
-msgid "Compare with B&ase"
-msgstr "Vergleiche mit B&asis"
 
 #: ID:12
 msgid "Compares the file with the last commited version to show you the changes you made"
@@ -1006,6 +1011,10 @@ msgstr "Fertig"
 #: Control-ID:65535
 msgid "Conflicted"
 msgstr "Conflicted"
+
+#: ID:188
+msgid "Conflicts: %d"
+msgstr "Konflikte: %d"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1023,6 +1032,10 @@ msgstr "Datei im Projektarchiv kopiert"
 #: ID:73
 msgid "Copy"
 msgstr "Kopieren"
+
+#: ID:101
+msgid "Copy To Working Copy..."
+msgstr "Kopiere zur Arbeitskopie.."
 
 #: ID:13
 msgid "Copy files in Subversion to here"
@@ -1538,6 +1551,14 @@ msgstr "Hole Dateiinformation..."
 msgid "Getting log info..."
 msgstr "Hole Log-Information..."
 
+#: ID:2051
+msgid ""
+"Go to the next conflict\n"
+"next conflict"
+msgstr ""
+"Gehe zum nächsten Konflikt\n"
+"nächster Konflikt"
+
 #: ID:2049
 msgid ""
 "Go to the next difference\n"
@@ -1545,6 +1566,14 @@ msgid ""
 msgstr ""
 "Gehe zum nächsten Unterschied\n"
 "nächster Unterschied"
+
+#: ID:2051
+msgid ""
+"Go to the previous conflict\n"
+"previous conflict"
+msgstr ""
+"Gehe zum vorherigen Konflikt\n"
+"vorheriger Konflikt"
 
 #: ID:2049
 msgid ""
@@ -1560,7 +1589,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 # Control-ID:65535,
-#: Control-ID:65535
+#: Control-ID:1127
 msgid "Hint: Press F5 to refresh the selected subtree"
 msgstr "Hinweis: Drücken Sie F5, um den gewählten Teilbaum zu aktualisieren"
 
@@ -1721,6 +1750,11 @@ msgstr "Letzte gespeicherte Revision"
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Startet das externe Diff / Merge Programm, um den Konflikt zu bearbeiten."
 
+# ID:188,
+#: ID:188
+msgid "Left View: "
+msgstr "Linke Ansicht:"
+
 #: ID:3605
 msgid ""
 "List Help topics\n"
@@ -1794,10 +1828,6 @@ msgstr "Meldung"
 msgid "Mime Type"
 msgstr "Mime Typ"
 
-#: Control-ID:65535
-msgid "Minimum logsize in chars"
-msgstr "Minimale Log Größe in Zeichen"
-
 #: Control-ID:1082
 #: Control-ID:1023
 msgid "Misc"
@@ -1826,6 +1856,10 @@ msgstr "Verschiebe %s"
 #: ID:80
 msgid "Moving..."
 msgstr "Verschieben..."
+
+#: MenuEntry
+msgid "N&ext Conflict"
+msgstr "N&ächster Konflikt"
 
 #: ID:3697
 msgid "NUM"
@@ -1878,7 +1912,7 @@ msgstr "Kein Fehler aufgetreten."
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
-"to do for TortoiseSVN here..."
+"for TortoiseSVN to do here..."
 msgstr ""
 "Es wurden keine Dateien / Ordner seit dem letzten Übertragen verändert.\n"
 "Es gibt nix zu tun für TortoiseSVN..."
@@ -1954,6 +1988,10 @@ msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
 msgid "Out of memory."
 msgstr "Zu wenig Speicher."
 
+#: MenuEntry
+msgid "P&revious Conflict"
+msgstr "V&orheriger Konflikt"
+
 #: ID:76
 msgid "PEM"
 msgstr "PEM"
@@ -1966,15 +2004,14 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Passwort:"
 
+#: Control-ID:1031
+msgid "Paste Changed Filenames"
+msgstr "Geänderte Dateienamen einfügen"
+
 # Control-ID:1121,
 #: Control-ID:1121
 msgid "Paste Log &template in english"
 msgstr "Log-&Schablone auf englisch einfügen."
-
-# Control-ID:1031,
-#: Control-ID:1031
-msgid "Paste Status Template"
-msgstr "Füge Log-&Schablone ein"
 
 #: ID:376
 msgid "Patch All"
@@ -2304,6 +2341,11 @@ msgstr "Revision / Autor:"
 msgid "Revision: "
 msgstr "Revision:"
 
+# ID:188,
+#: ID:188
+msgid "Right View: "
+msgstr "Rechte Ansicht:"
+
 #: MenuEntry
 msgid "S&ettings"
 msgstr "&Einstellungen"
@@ -2392,13 +2434,13 @@ msgstr "SVN kurze URL"
 msgid "Save &As..."
 msgstr "Speichern &unter..."
 
-#: ID:101
-msgid "Save &as..."
-msgstr "Speichern &unter..."
-
 #: ID:3841
 msgid "Save As"
 msgstr "Speichern unter"
+
+#: ID:76
+msgid "Save Revision &To..."
+msgstr "Speichere Revision &unter..."
 
 #: ID:313
 msgid "Save as..."
@@ -2407,10 +2449,6 @@ msgstr "Speichern unter..."
 #: ID:3857
 msgid "Save changes to %1?"
 msgstr "Änderungen in %1 speichern?"
-
-#: ID:76
-msgid "Save revision &to..."
-msgstr "Speichere Revision &unter..."
 
 #: ID:3601
 msgid ""
@@ -2536,6 +2574,7 @@ msgstr "Kurze URL von Subversion Objekten"
 msgid "Show &Differences"
 msgstr "Zeige &Unterschiede"
 
+#: ID:101
 #: Control-ID:1031
 #: Control-ID:1034
 msgid "Show &Log"
@@ -2545,7 +2584,6 @@ msgstr "Zeige &Log"
 msgid "Show &Log..."
 msgstr "Zeige &Log..."
 
-#: ID:101
 #: Control-ID:1016
 msgid "Show &log"
 msgstr "Zeige &Log"
@@ -2892,13 +2930,18 @@ msgstr ""
 "Diese Dateien werden <b>nicht</b> aufgelistet.\n"
 "Sie müssen diese Änderungen separat übertragen."
 
+# ID:66,
 #: ID:66
 msgid ""
 "There are still unresolved conflicts in line %d!\n"
-"Please resolve those conflicts first before saving."
+"You should resolve those conflicts first before saving.\n"
+"Do you want to save the file with the conflicts still there?\n"
+"If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"In Zeile %d befinden sich noch nicht aufgelöste Konflikte!\n"
-"Bitte lösen Sie diese vor dem Speichern auf."
+"Es gibt immer noch nicht aufgelöste Konflikte in Zeile %d!\n"
+"Sie sollten diese Konflikte vor dem Speichern auflösen.\n"
+"Wollen Sie die Datei mitsamt den Konflikten speichern?\n"
+"Wenn Sie JA wählen, müssen Sie die Konflikte von Hand in einem anderen Editor auflösen!"
 
 #: ID:188
 msgid "Thesaurus"
@@ -3221,7 +3264,7 @@ msgid "Yes"
 msgstr "Ja"
 
 #: ID:145
-msgid "Yes to all"
+msgid "Yes To All"
 msgstr "Ja für alle"
 
 #: ID:201
@@ -3493,6 +3536,37 @@ msgstr ""
 #: ID:80
 msgid "to %s"
 msgstr "nach %s"
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logminsize\n"
+"Minimum size in chars a log message must have before a commit is allowed."
+msgstr ""
+"tsvn:logminsize\n"
+"Minimale Anzahl von Zeichen, die eine Log-Meldung bei der Übertragung haben muss."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logtemplate\n"
+"String which is inserted in the log message boxes in the commit dialogs.\n"
+"Use this as a log message templates for users to fill in."
+msgstr ""
+"tsvn:logtemplate\n"
+"Text, der automatisch beim Übertragen in die Dialoge eingetragen wird.\n"
+"Verwenden Sie dies als Schablone, die die Anwender ausfüllen können."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:logwidthmarker\n"
+"Set this to the number of chars the log message should not exceed its width.\n"
+"A faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgstr ""
+"tsvn:logwidthmarker\n"
+"Wert für die maximale Breite der Log-Meldung in Zeichen.\n"
+"Eine Begrenzungslinie wird an dieser Stelle angezeigt. Der Standardwert beträgt 80 Zeichen."
 
 #: Control-ID:1112
 msgid "your version is:"
