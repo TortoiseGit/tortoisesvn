@@ -45,6 +45,8 @@
 #define IDS_MENUDESCCOMMIT              138
 #define IDI_SETTINGS                    138
 #define IDS_MENUDESCADD                 139
+#define IDI_ICON1                       139
+#define IDI_CREATEREPOS                 139
 #define IDS_MENUDESCREVERT              140
 #define IDS_MENUDESCCLEANUP             141
 #define IDS_MENUDESCRESOLVE             142
@@ -112,7 +114,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        139
+#define _APS_NEXT_RESOURCE_VALUE        140
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           101

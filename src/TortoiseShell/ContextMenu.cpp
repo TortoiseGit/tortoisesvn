@@ -281,7 +281,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	}
 
 	if ((!isInSVN)&&(isFolder)&&(!isFolderInSVN))
-		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION, idCmd++, IDS_MENUCREATEREPOS, idCmdFirst, CreateRepos);
+		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUCREATEREPOS, idCmdFirst, CreateRepos);
 	if (!isInSVN)
 		InsertSVNMenu(subMenu, indexSubMenu++, MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUADD, idCmdFirst, Add);
 	if (((isInSVN)&&(!isNormal))||((isFolder)&&(isFolderInSVN)))
@@ -835,6 +835,10 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 		case Commit:
 			MAKESTRING(IDS_MENUCOMMIT);
 			resource = MAKEINTRESOURCE(IDI_COMMIT);
+			break;
+		case CreateRepos:
+			MAKESTRING(IDS_MENUCREATEREPOS);
+			resource = MAKEINTRESOURCE(IDI_CREATEREPOS);
 			break;
 		case Add:
 			MAKESTRING(IDS_MENUADD);
