@@ -1985,62 +1985,62 @@ Rev Log-Meldungen
 					<title>Der Einstellungsdialog, Diff/Merge Seite</title>
 					<graphic fileref="images/SettingsProgs.png"/>
 				</figure>
-### Translate ###
-				Here you can define your own diff/merge programs that TortoiseSVN should use.
-				The basic setting is to use the builtin TortoiseMerge which is installed alongside TortoiseSVN.
+				Hier können Sie Ihre eigenen Diff/Merge Programme definieren, die <application>TortoiseSVN</application>
+				benutzen soll. In der Standardeinstellung wird das mitgelieferte Programm 
+				<application>TortoiseMerge</application> benutzt.
 				<variablelist>
 					<varlistentry>
-						<term>Diff Program</term>
+						<term>Diff Programm</term>
 						<listitem>
 							<para>
-							An external diff program used for comparing different revisions of files.
-							You can specify the following parameters to the path:
+							Ein externes Diff Programm um verschiedene Revisionen einer Datei zu vergleichen. 
+							Sie können folgende Parameter im Pfad angeben: 
 							<variablelist>
 								<varlistentry>
 									<term>%base</term>
-									<listitem>the original file without your changes</listitem>
+									<listitem>Die Originaldatei ohne Ihre Änderungen</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%mine</term>
-									<listitem>your own file, with your changes</listitem>
+									<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
 								</varlistentry>
 							</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>
 					<varlistentry>
-						<term>Merge Program</term>
+						<term>Merge Programm</term>
 						<listitem>
 							<para>
-							An external merge program used to resolve conflicted files. You can specify the 
-							following parameters to the path. The order of the parameters depends on the 
-							merge program you use.
+							Ein externes Merge Programm um Konflikte in Dateien aufzulösen. 
+							Sie können folgende Parameter im Pfad angeben: (Die Reihenfolge hängt vom Merge Programm ab)
 							<variablelist>
 								<varlistentry>
 									<term>%base</term>
-									<listitem>the original file without your or the others changes</listitem>
+									<listitem>Die Originaldatei ohne Ihre oder die anderen Änderungen</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%mine</term>
-									<listitem> your own file, with your changes</listitem>
+									<listitem>Ihre eigene Datei mit Ihren Änderungen</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%theirs</term>
-									<listitem> the file as it is in the repository</listitem>
+									<listitem>Die Datei wie Sie im Projektarchiv ist</listitem>
 								</varlistentry>
 								<varlistentry>
 									<term>%merged</term>
-									<listitem> the conflicted file, the result of the merge operation</listitem>
+									<listitem>Die Konfliktdatei (das Ergebnis der Merge Operation)</listitem>
 								</varlistentry>
 							</variablelist>
 							</para>
 						</listitem>
 					</varlistentry>
 					<varlistentry>
-						<term>Diff Viewer</term>
+						<term>Diff Betrachter</term>
 						<listitem>
 							<para>
-							A viewer program for GNU diff files (patch files). If you don't have one use NotePad. No Parameters.
+							Ein Programm um GNU diff Dateien (Patch Dateien) zu betrachten. 
+							Als Standard ist Notepad eingestellt. Sie brauchen keine Parameter anzugeben. 
 							</para>
 						</listitem>
 					</varlistentry>
