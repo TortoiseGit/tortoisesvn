@@ -220,15 +220,16 @@ BEGIN
                     LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,6,
                     93,287,109
     LTEXT           "To see the changes you made, double click on the files above.",
-                    IDC_HINTLABEL,6,230,287,20
+                    IDC_HINTLABEL,6,240,165,28
     DEFPUSHBUTTON   "&OK",IDOK,186,254,50,14
     PUSHBUTTON      "&Cancel",IDCANCEL,243,254,50,14
     EDITTEXT        IDC_COMMIT_TO,6,17,287,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
     CONTROL         "Select / Deselect &All",IDC_SELECTALL,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,6,209,230,10
-    ICON            IDI_INFO,IDC_INFOPIC,252,206,21,20,SS_NOTIFY | 
+                    BS_AUTOCHECKBOX | WS_TABSTOP,6,213,230,10
+    ICON            IDI_INFO,IDC_INFOPIC,252,212,21,20,SS_NOTIFY | 
                     SS_CENTERIMAGE | SS_REALSIZEIMAGE,WS_EX_TRANSPARENT
+    LTEXT           "",IDC_STATISTICS,6,202,287,8,0,WS_EX_RIGHT
 END
 
 IDD_MERGE DIALOGEX 0, 0, 300, 163
@@ -1229,6 +1230,7 @@ END
 STRINGTABLE 
 BEGIN
     IDS_LOGPROMPT_EXTERNALS "There are changes inside one or more directories which you have included with svn:externals.\nThose files are <b>not</b> listed for commit. You need to commit those files separately."
+    IDS_LOGPROMPT_STATISTICSFORMAT "%d files selected, %d files total"
 END
 
 #endif    // English (U.S.) resources

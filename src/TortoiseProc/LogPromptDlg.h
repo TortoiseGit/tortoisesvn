@@ -107,6 +107,8 @@ public:
 	LONG			m_nDeleted;
 	LONG			m_nConflicted;
 	CBalloon		m_tooltips;
+	LONG			m_nTotal;
+	LONG			m_nSelected;
 private:
 	HANDLE			m_hThread;
 	BOOL			m_bSelectAll;

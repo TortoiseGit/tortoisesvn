@@ -35,6 +35,8 @@ CLogPromptDlg::CLogPromptDlg(CWnd* pParent /*=NULL*/)
 	: CResizableDialog(CLogPromptDlg::IDD, pParent)
 	, m_sLogMessage(_T(""))
 	, m_bSelectAll(TRUE)
+	, m_nTotal(0)
+	, m_nSelected(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_templist.RemoveAll();
@@ -224,6 +226,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						m_ListCtrl.SetCheck(i, TRUE);
 						d->checked = TRUE;
+						m_nSelected++;
 					} // if (CUtils::PathIsParent(t, folderpath)) 
 				}
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
@@ -245,6 +248,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 						{
 							m_ListCtrl.SetCheck(j, TRUE);
 							dd->checked = TRUE;
+							m_nSelected++;
 						} // if (t.CompareNoCase(tt.Left(t.GetLength()))==0) 
 					} // if (!m_ListCtrl.GetCheck(j)) 
 				} // for (j=0; j<m_ListCtrl.GetItemCount(); j++) 
@@ -264,6 +268,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 						{
 							m_ListCtrl.SetCheck(i, TRUE);
 							d->checked = TRUE;
+							m_nSelected++;
 							//now we need to check all children of this parent folder
 							for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
 							{
@@ -275,6 +280,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 									{
 										m_ListCtrl.SetCheck(j, TRUE);
 										dd->checked = TRUE;
+										m_nSelected++;
 									} // if (t.CompareNoCase(tt.Left(t.GetLength()))==0) 
 								} // if (!m_ListCtrl.GetCheck(j)) 
 							} // for (j=0; j<m_ListCtrl.GetItemCount(); j++) 
@@ -284,6 +290,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		} // if (data->status == svn_wc_status_deleted) 
 		data->checked = TRUE;
+		m_nSelected++;
 	} // if (m_ListCtrl.GetCheck(pNMLV->iItem)) 
 	else
 	{
@@ -302,6 +309,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 					{
 						m_ListCtrl.SetCheck(i, FALSE);
 						d->checked = FALSE;
+						m_nSelected--;
 					} // if (CUtils::PathIsParent(folderpath, t)) 
 				} // if (m_ListCtrl.GetCheck(i)) 
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
@@ -323,6 +331,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 						{
 							m_ListCtrl.SetCheck(i, FALSE);
 							d->checked = FALSE;
+							m_nSelected--;
 							//now we need to check all children of this parent folder
 							t += _T("\\");
 							for (int j=0; j<m_ListCtrl.GetItemCount(); j++)
@@ -335,6 +344,7 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 									{
 										m_ListCtrl.SetCheck(j, FALSE);
 										dd->checked = FALSE;
+										m_nSelected--;
 									} // if (t.CompareNoCase(tt.Left(t.GetLength()))==0) 
 								} // if (m_ListCtrl.GetCheck(j)) 
 							} // for (j=0; j<m_ListCtrl.GetItemCount(); j++) 
@@ -344,7 +354,11 @@ void CLogPromptDlg::OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 			} // for (int i=0; i<m_addListCtrl.GetItemCount(); i++)
 		} 
 		data->checked = FALSE;
+		m_nSelected--;
 	} 
+	CString sStats;
+	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, m_nTotal);
+	GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
 }
 
 void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
@@ -408,6 +422,9 @@ void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								//since the entry got reverted we need to remove
 								//it from the list too
+								m_nTotal--;
+								if (m_ListCtrl.GetCheck(selIndex))
+									m_nSelected--;
 								m_ListCtrl.DeleteItem(selIndex);
 								m_arData.RemoveAt(selIndex);
 							}
@@ -445,6 +462,9 @@ void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
 						if (! fileop.fAnyOperationsAborted)
 						{
+							if (m_ListCtrl.GetCheck(selIndex))
+								m_nSelected--;
+							m_nTotal--;
 							m_ListCtrl.DeleteItem(selIndex);
 							m_arData.RemoveAt(selIndex);
 						} // if (! fileop.fAnyOperationsAborted) 
@@ -459,6 +479,9 @@ void CLogPromptDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			} // if (popup.CreatePopupMenu())
 		} // if (selIndex >= 0)
 	}
+	CString sStats;
+	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, m_nTotal);
+	GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
 }
 
 void CLogPromptDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -665,11 +688,13 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->m_arData.Add(data);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
+					pDlg->m_nTotal++;
 					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 					if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
 						_tcscat(buf, _T("(P only)"));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					pDlg->m_ListCtrl.SetCheck(count);
+					pDlg->m_nSelected++;
 					data->checked = TRUE;
 				} // if (SVNStatus::IsImportant(stat)) 
 				if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))
@@ -684,6 +709,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					pDlg->m_arData.Add(data);
 					int count = pDlg->m_ListCtrl.GetItemCount();
 					pDlg->m_ListCtrl.InsertItem(count, strLine.Right(strLine.GetLength() - strLine.ReverseFind('/') - 1));
+					pDlg->m_nTotal++;
 					SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 					pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 				} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
@@ -748,11 +774,13 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
 						else
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
+						pDlg->m_nTotal++;
 						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 						if ((stat == s->prop_status)&&(!SVNStatus::IsImportant(s->text_status)))
 							_tcscat(buf, _T("(P only)"));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 						pDlg->m_ListCtrl.SetCheck(count);
+						pDlg->m_nSelected++;
 						data->checked = TRUE;
 					} // if (SVNStatus::IsImportant(stat)) 
 					if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))
@@ -769,6 +797,7 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 						if (bIsFolder)
 						{
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - strLine.GetLength() - 1));
+							pDlg->m_nTotal++;
 							//we have an unversioned folder -> get all files in it recursively!
 							int count = pDlg->m_ListCtrl.GetItemCount();
 							CDirFileEnum filefinder(temp);
@@ -790,7 +819,10 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 							} // while (filefinder.NextFile(filename))
 						} // if (bIsFolder) 
 						else
+						{
 							pDlg->m_ListCtrl.InsertItem(count, temp.Right(temp.GetLength() - temp.ReverseFind('/') - 1));
+							pDlg->m_nTotal++;
+						}
 						SVNStatus::GetStatusString(AfxGetResourceHandle(), stat, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID()));
 						pDlg->m_ListCtrl.SetItemText(count, 1, buf);
 					} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
@@ -882,6 +914,9 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 		sConflicted, pDlg->m_nConflicted
 		);
 	pDlg->m_tooltips.AddTool(pDlg->GetDlgItem(IDC_INFOPIC), sToolTip);
+	CString sStats;
+	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, pDlg->m_nSelected, pDlg->m_nTotal);
+	pDlg->GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
 	return 0;
 }
 
@@ -918,8 +953,17 @@ void CLogPromptDlg::OnBnClickedSelectall()
 		m_ListCtrl.SetCheck(i, m_bSelectAll);
 		Data * data = m_arData.GetAt(i);
 		data->checked = m_bSelectAll;
-	}
+	} // for (int i=0; i<itemCount; i++)
+	if (m_bSelectAll)
+		m_nSelected = m_nTotal;
+	else
+		m_nSelected = 0;
 	m_ListCtrl.SetRedraw(true);
+
+	CString sStats;
+	sStats.Format(IDS_LOGPROMPT_STATISTICSFORMAT, m_nSelected, m_nTotal);
+	GetDlgItem(IDC_STATISTICS)->SetWindowText(sStats);
+
 	theApp.DoWaitCursor(-1);
 }
 

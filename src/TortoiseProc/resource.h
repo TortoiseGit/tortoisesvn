@@ -41,7 +41,6 @@
 #define IDB_TTF_BMP                     169
 #define IDD_SETTINGSPROGSADV            170
 #define IDD_TOOLASSOC                   171
-#define IDI_ICON1                       172
 #define IDI_INFO                        172
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -199,6 +198,7 @@
 #define IDC_SHORTDATEFORMAT             1105
 #define IDC_SUMMARYTEXT                 1106
 #define IDC_INFOPIC                     1107
+#define IDC_STATISTICS                  1108
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -388,6 +388,7 @@
 #define IDS_PATCHFILEFILTER             2503
 #define IDS_CHECKUPDATE_SUMMARY         2600
 #define IDS_LOGPROMPT_EXTERNALS         2700
+#define IDS_LOGPROMPT_STATISTICSFORMAT  2701
 
 // Next default values for new objects
 // 
@@ -395,7 +396,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        173
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1108
+#define _APS_NEXT_CONTROL_VALUE         1109
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
