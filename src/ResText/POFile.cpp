@@ -152,9 +152,24 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath)
 	File.close();
 	File.imbue(std::locale(std::locale(), new utf8_conversion()));
 	File.open(filepath, std::ios_base::app);
+	File << _T("# SOME DESCRIPTIVE TITLE.\n");
+	File << _T("# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER\n");
+	File << _T("# This file is distributed under the same license as the PACKAGE package.\n");
+	File << _T("# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.\n");
+	File << _T("#\n");
+	File << _T("#, fuzzy\n");
 	File << _T("msgid \"\"\n");
 	File << _T("msgstr \"\"\n");
-	File << _T("\"Content-Type: text/plain; charset=utf-8\\n\"\n\n");
+	File << _T("\"Project-Id-Version: PACKAGE VERSION\\n\"\n");
+	File << _T("\"Report-Msgid-Bugs-To: \\n\"\n");
+	File << _T("\"POT-Creation-Date: 1900-01-01 00:00+0000\\n\"\n");
+	File << _T("\"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n\"\n");
+	File << _T("\"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n\"\n");
+	File << _T("\"Language-Team: LANGUAGE <LL@li.org>\\n\"\n");
+	File << _T("\"MIME-Version: 1.0\\n\"\n");
+	File << _T("\"Content-Type: text/plain; charset=UTF-8\\n\"\n");
+	File << _T("\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
+
 	for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
 	{
 		if (I->first.size() == 0)
