@@ -78,7 +78,7 @@ BOOL CPropDlg::OnInitDialog()
 
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	DWORD dwThreadId;
-	if ((m_hThread = CreateThread(NULL, 0, &PropThread, this, 0, &dwThreadId))==0)
+	if ((m_hThread = CreateThread(NULL, 0, PropThreadEntry, this, 0, &dwThreadId))==0)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
@@ -101,35 +101,37 @@ void CPropDlg::OnOK()
 		CResizableDialog::OnOK();
 }
 
-DWORD WINAPI PropThread(LPVOID pVoid)
+DWORD WINAPI CPropDlg::PropThreadEntry(LPVOID pVoid)
 {
-	CPropDlg*	pDlg;
-	pDlg = (CPropDlg*)pVoid;
+	return ((CPropDlg*)pVoid)->PropThread();
+}
 
+DWORD CPropDlg::PropThread()
+{
 	// to make gettext happy
 	SetThreadLocale(CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033));
 
-	SVNProperties props(pDlg->m_sPath, pDlg->m_rev);
-	pDlg->m_proplist.SetRedraw(false);
+	SVNProperties props(m_sPath, m_rev);
+	m_proplist.SetRedraw(false);
 	for (int i=0; i<props.GetCount(); ++i)
 	{
 		CString name = props.GetItemName(i).c_str();
 		CString val = CUnicodeUtils::GetUnicode((char *)props.GetItemValue(i).c_str());
 		val.Replace('\n', ' ');
 		val.Replace('\r', ' ');
-		pDlg->m_proplist.InsertItem(i, name);
-		pDlg->m_proplist.SetItemText(i, 1, val);
+		m_proplist.InsertItem(i, name);
+		m_proplist.SetItemText(i, 1, val);
 	}
 	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(pDlg->m_proplist.GetDlgItem(0)))->GetItemCount()-1;
+	int maxcol = ((CHeaderCtrl*)(m_proplist.GetDlgItem(0)))->GetItemCount()-1;
 	int col;
 	for (col = mincol; col <= maxcol; col++)
 	{
-		pDlg->m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+		m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
 	}
 
-	pDlg->m_proplist.SetRedraw(true);
-	pDlg->GetDlgItem(IDOK)->EnableWindow(TRUE);
+	m_proplist.SetRedraw(true);
+	GetDlgItem(IDOK)->EnableWindow(TRUE);
 	return 0;
 }
 

@@ -34,6 +34,11 @@ public:
 // Dialog Data
 	enum { IDD = IDD_PROPERTIES };
 
+
+private:
+	static DWORD WINAPI PropThreadEntry(LPVOID pVoid);
+	DWORD PropThread();
+
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
@@ -44,11 +49,11 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-	HANDLE		m_hThread;
 public:
-	CListCtrl	m_proplist;
 	CString		m_sPath;
 	SVNRev		m_rev;
+private:
+	HANDLE		m_hThread;
+	CListCtrl	m_proplist;
 };
 
-DWORD WINAPI PropThread(LPVOID pVoid);
