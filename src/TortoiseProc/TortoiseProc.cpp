@@ -485,14 +485,27 @@ BOOL CTortoiseProcApp::InitInstance()
 		{
 			CString path = CUtils::GetLongPathname(parser.GetVal(_T("path")));
 			path.Replace('/', '\\');
-			CString fstype = _T("bdb");
-			if (CMessageBox::Show(EXPLORERHWND, IDS_REPOCREATE_WHICHTYPE, IDS_APPNAME, 1, MAKEINTRESOURCE(MB_ICONQUESTION), IDS_REPOCREATE_TYPE_BDB, IDS_REPOCREATE_TYPE_FSFS)==2)
-				fstype = _T("fsfs");
-			if (GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE)
+
+			CRepoCreateDlg dlg;
+			if (dlg.DoModal() == IDOK)
 			{
-				if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATESHAREWARN, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
+				if (GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE)
 				{
-					if (!SVN::CreateRepository(path, fstype))
+					if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATESHAREWARN, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
+					{
+						if (!SVN::CreateRepository(path, dlg.RepoType))
+						{
+							CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
+						}
+						else
+						{
+							CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
+						}
+					} 
+				}
+				else
+				{
+					if (!SVN::CreateRepository(path, dlg.RepoType))
 					{
 						CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
 					}
@@ -500,17 +513,6 @@ BOOL CTortoiseProcApp::InitInstance()
 					{
 						CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
 					}
-				} // if (CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATESHAREWARN, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES) 
-			} // if (GetDriveType(path.Left(path.Find('\\')+1))==DRIVE_REMOTE) 
-			else
-			{
-				if (!SVN::CreateRepository(path, fstype))
-				{
-					CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
-				}
-				else
-				{
-					CMessageBox::Show(EXPLORERHWND, IDS_PROC_REPOCREATEFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
 				}
 			}
 		} // if (comVal.Compare(_T("repocreate"))==0) 

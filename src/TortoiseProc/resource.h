@@ -43,6 +43,7 @@
 #define IDD_CHECKFORUPDATES             174
 #define IDD_REVERT                      175
 #define IDD_PROPERTIES                  177
+#define IDD_REPOCREATE                  178
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -187,6 +188,8 @@
 #define IDC_CHECK1                      1126
 #define IDC_TEXTBLAME                   1126
 #define IDC_F5HINT                      1127
+#define IDC_RADIOBDB                    1128
+#define IDC_RADIOFSFS                   1129
 #define IDS_MSGBOX_ABORT                1154
 #define IDS_MSGBOX_RETRY                1155
 #define IDS_MSGBOX_IGNORE               1156
@@ -265,7 +268,6 @@
 #define IDS_SETTINGS_EXTDIFFBROWSE_TT   1246
 #define IDS_SETTINGS_CHANGEDDIRS_TT     1247
 #define IDS_SETTINGS_TEMPEXTENSIONS_TT  1248
-#define IDS_SETTINGS_ADDBEFORECOMMIT_TT 1249
 #define IDS_SETTINGS_EXTMERGE_TT        1250
 #define IDS_SETTINGS_PROXYSERVER_TT     1251
 #define IDS_SETTINGS_DIFFVIEWER_TT      1252
@@ -293,7 +295,6 @@
 #define IDS_PROC_MOVINGPROG             1275
 #define IDS_PROC_CPYMVPROG2             1276
 #define IDS_PROC_ENTERURL               1277
-#define IDS_SETTINGS_NOREMOVELOGMSG_TT  1278
 #define IDS_SETTINGS_SHORTDATEFORMAT_TT 1279
 #define IDS_ERR_THREADSTARTFAILED       1281
 #define IDS_ERR_EXTDIFFSTART            1282
@@ -420,9 +421,6 @@
 #define IDS_STATUSLIST_COLURL           3307
 #define IDS_STATUSLIST_MULTIPLETARGETS  3320
 #define IDS_STATUSLIST_PROPONLY         3321
-#define IDS_REPOCREATE_WHICHTYPE        3400
-#define IDS_REPOCREATE_TYPE_BDB         3401
-#define IDS_REPOCREATE_TYPE_FSFS        3402
 #define IDS_PROGRS_CONFLICTSOCCURED_WARNING 3500
 #define IDS_PROGRS_CONFLICTSOCCURED     3501
 #define IDS_PROGRS_PATHATREV            3600
@@ -436,9 +434,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        178
+#define _APS_NEXT_RESOURCE_VALUE        179
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1128
+#define _APS_NEXT_CONTROL_VALUE         1130
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

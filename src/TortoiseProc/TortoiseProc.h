@@ -50,6 +50,7 @@
 #include "URLDlg.h"
 #include "CheckForUpdatesDlg.h"
 #include "RevertDlg.h"
+#include "RepoCreateDlg.h"
 
 /**
  * \ingroup TortoiseProc

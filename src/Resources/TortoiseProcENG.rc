@@ -1440,13 +1440,6 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_REPOCREATE_WHICHTYPE "What repository type do you want to create?"
-    IDS_REPOCREATE_TYPE_BDB "BDB"
-    IDS_REPOCREATE_TYPE_FSFS "FSFS"
-END
-
-STRINGTABLE 
-BEGIN
     IDS_SVNERR_CHECKPATHORURL "Check the path and/or URL you've entered."
     IDS_SVNERR_RUNCLEANUP   "Please execute the ""Cleanup"" command."
     IDS_SVNERR_UPDATEFIRST  "You have to update your working copy first."
@@ -1498,6 +1491,48 @@ END
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
 #endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_REPOCREATE DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Create Repository"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,9,69,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,68,69,50,14
+    PUSHBUTTON      "&Help",IDHELP,127,69,50,14
+    LTEXT           "Select the type of repository you want to create:",
+                    IDC_STATIC,7,7,172,20
+    CONTROL         "Berkeley Database (BDB)",IDC_RADIOBDB,"Button",
+                    BS_AUTORADIOBUTTON,7,33,172,10
+    CONTROL         "Native Filesystem (FSFS)",IDC_RADIOFSFS,"Button",
+                    BS_AUTORADIOBUTTON,7,46,172,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_REPOCREATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
