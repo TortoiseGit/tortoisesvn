@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2004-09-01 11:56+0100\n"
+"PO-Revision-Date: 2004-09-07 16:50+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <luebbe@tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -555,6 +555,12 @@ msgstr "Ajouté"
 msgid "Added a file remotely"
 msgstr "Ajouté un fichier à distance"
 
+#: ID:145
+msgid ""
+"Added the file(s)\n"
+"%sto the ignore list."
+msgstr "Ont été ajoutés le(s) fichier(s) %s à la liste des 'ignorés'"
+
 #: ID:9
 msgid "Adds file(s) to Subversion control"
 msgstr "Ajouter des fichiers sous contrôle de Subversion"
@@ -963,6 +969,10 @@ msgstr "Couleurs"
 #: ID:3857
 msgid "Command failed."
 msgstr "Echec de la commande."
+
+#: Control-ID:1125
+msgid "Comment History:"
+msgstr "Commentaire d'historique:"
 
 #: Control-ID:1110
 msgid "Commit to:"
@@ -1533,6 +1543,10 @@ msgstr "Obtention du fichier %s"
 #: ID:132
 msgid "Getting file info..."
 msgstr "Réception fichier info..."
+
+#: ID:132
+msgid "Getting log info..."
+msgstr "Réception des infos du journal..."
 
 #: ID:2049
 msgid ""
@@ -3094,6 +3108,11 @@ msgstr "Url:"
 msgid "Use Magnifier on Locatorbar"
 msgstr "Utiliser la mise en évidence sur la barre de positionnement"
 
+# Control-ID:1126,
+#: Control-ID:1126
+msgid "Use Text viewer to view blames"
+msgstr "Utiliser le visualisateur texte pour voir les condamnations"
+
 #: Control-ID:1073
 msgid "Use \"From:\" URL"
 msgstr "&Utiliser l'URL \"Depuis:\""
@@ -3107,28 +3126,28 @@ msgid "Use strikeout for deleted lines"
 msgstr "Barrer les lignes effacées"
 
 #: ID:251
-msgid "Use text block from \"theirs\""
-msgstr "Utilisez le bloc de texte depuis \"le leur\""
+msgid "Use text block from \"&theirs\""
+msgstr "Utilisez le bloc de texte depuis \"le &leur\""
 
 #: ID:251
-msgid "Use text block from \"theirs\" before \"yours\""
-msgstr "Utiliser le bloc de texte des autres avant le vôtre"
+msgid "Use text block from \"&yours\""
+msgstr "Utilisez le bloc de texte depuis \"le &votre\""
 
 #: ID:251
-msgid "Use text block from \"yours\""
-msgstr "Utilisez le bloc de texte depuis \"le votre\""
+msgid "Use text block from \"t&heirs\" before \"yours\""
+msgstr "Utiliser le bloc de texte des \"a&utres\" avant le \"vôtre\""
 
 #: ID:251
-msgid "Use text block from \"yours\" before \"theirs\""
-msgstr "Utiliser votre bloc de texte avant celui des autres"
+msgid "Use text block from \"y&ours\" before \"theirs\""
+msgstr "Utiliser \"v&otre\" bloc de texte avant celui des \"autres\""
+
+#: ID:251
+msgid "Use th&is text block"
+msgstr "Ut&ilisez ce bloc de texte"
 
 #: ID:12
 msgid "Use this if the URL of the repository has changed"
 msgstr "Utiliser ceci si l'URL du repository a changé"
-
-#: ID:251
-msgid "Use this text block"
-msgstr "Utilisez ce bloc de texte"
 
 #: Control-ID:65535
 msgid "Used for comparing different revisions of files."
