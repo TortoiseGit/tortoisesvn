@@ -123,6 +123,8 @@ public:
 //	afx_msg void OnLvnItemActivateLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 DWORD WINAPI LogThread(LPVOID pVoid);

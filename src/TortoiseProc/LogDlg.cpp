@@ -55,6 +55,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableDialog)
 	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
 	ON_NOTIFY(LVN_ITEMCHANGING, IDC_LOGMSG, OnLvnItemchangingLogmsg)
 	ON_NOTIFY(NM_RCLICK, IDC_LOGMSG, OnNMRclickLogmsg)
+	ON_NOTIFY(NM_CLICK, IDC_LOGMSG, OnNMClickLogmsg)
+	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, OnLvnKeydownLogmsg)
 END_MESSAGE_MAP()
 
 
@@ -303,7 +305,6 @@ void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	*pResult = 0;
 }
-
 
 void CLogDlg::OnNMRclickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
@@ -598,8 +599,55 @@ void CLogDlg::OnLvnItemchangingLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	*pResult = 0;
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-	if (pNMLV->iItem < m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	if (pNMLV->iItem == m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	{
 		*pResult = 1;
+	}
+}
+
+void CLogDlg::OnNMClickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	if (m_LogMsgCtrl.GetSelectionMark() < m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	{
+		//*pResult = 1;
+		for (int i=0; i<m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
+		{
+			m_LogMsgCtrl.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+		}
+	} // if (pNMLV->iItem < (m_arFileListStarts.GetAt(m_LogList.GetSelectionMark())-1))
+	*pResult = 0;
+}
+
+void CLogDlg::OnLvnKeydownLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
+
+	if (m_LogMsgCtrl.GetSelectionMark() < m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()))
+	{
+		if (pLVKeyDow->wVKey == 0x43)		// c-key
+		{
+			if (GetKeyState(VK_CONTROL)!=0)
+			{
+				CStringA msg;
+				for (int i=0; i<m_arFileListStarts.GetAt(m_LogList.GetSelectionMark()); i++)
+				{
+					msg += m_LogMsgCtrl.GetItemText(i, 0);
+					msg += "\n";
+				}
+				CSharedFile sf(GMEM_MOVEABLE | GMEM_SHARE | GMEM_ZEROINIT);
+				sf.Write(msg, msg.GetLength());
+				if (sf.GetLength() > 0)
+				{
+					OpenClipboard();
+					EmptyClipboard();
+					SetClipboardData(CF_TEXT, sf.Detach());
+					CloseClipboard();
+				} // if (sf.GetLength() > 0) 
+			} // if (GetKeyState(VK_CONTROL)!=0) 
+		} // if (pLVKeyDow->wVKey == 0x43)		// c-key 
+	} // if (m_LogMsgCtrl.GetSelectionMark() < m_arFileListStarts.GetAt(m_LogList.GetSelectionMark())) 
+
+	*pResult = 0;
 }
 
 void CLogDlg::OnNMRclickLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
@@ -769,6 +817,8 @@ BOOL CLogDlg::StartDiff(CString path1, LONG rev1, CString path2, LONG rev2)
 	theApp.DoWaitCursor(-1);
 	return FALSE;
 }
+
+
 
 
 
