@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-01-13 11:29+0100\n"
+"PO-Revision-Date: 2005-01-17 11:27+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4082,6 +4082,17 @@ msgstr ""
 "tsvn:logwidthmarker\n"
 "Saisissez ici le nombre de caractères que le message de journal ne doit pas excèder en longueur.\n"
 "Une ligne s'effaçant est affichée dans le dialogue de livraison à cette position. La valeur par défaut est 80 caractères."
+
+# ID:15,
+#: ID:15
+msgid ""
+"tsvn:projectlanguage\n"
+"Set this to the language number you want your log messages written in.\n"
+"TortoiseSVN will then load the appropriate spell checker module if available."
+msgstr ""
+"tsvn:projectlanguage\n"
+"Mettez ceci au numéro du langage dans lequel vous souhaitez écrire vos commentaires.\n"
+"TortoiseSVN chargera le module de correction orthographique approprié s'il est disponible."
 
 # ID:15,
 #: ID:15
