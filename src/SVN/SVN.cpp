@@ -176,7 +176,7 @@ BOOL SVN::Remove(CString path, BOOL force)
 	preparePath(path);
 
 	svn_client_commit_info_t *commit_info = NULL;
-
+	ctx.log_msg_baton = logMessage("removing remotely");
 	Err = svn_client_delete (&commit_info, target(path), force,
 							&ctx,
 							pool);
@@ -299,7 +299,7 @@ BOOL SVN::Move(CString srcPath, CString destPath, BOOL force)
 	preparePath(srcPath);
 	preparePath(destPath);
 	svn_client_commit_info_t *commit_info = NULL;
-
+	ctx.log_msg_baton = logMessage("moving/renaming remotely");
 	Err = svn_client_move (&commit_info,
 							CUnicodeUtils::GetUTF8(srcPath),
 							getRevision (-1),
@@ -325,7 +325,7 @@ BOOL SVN::MakeDir(CString path, CString message)
 	preparePath(path);
 
 	svn_client_commit_info_t *commit_info = NULL;
-
+	ctx.log_msg_baton = logMessage("creating directory remotely");
 	Err = svn_client_mkdir (&commit_info,
 							target(path),
 							&ctx,

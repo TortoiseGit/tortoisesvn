@@ -864,6 +864,8 @@ BOOL CTortoiseProcApp::InitInstance()
 			CString mine;
 			CString base;
 			CString merge = parser.GetVal(_T("path"));
+			CString path = merge.Left(merge.ReverseFind('\\'));
+			path = path + _T("\\");
 
 			//we have the conflicted file (%merged)
 			//now look for the other required files
@@ -874,14 +876,17 @@ BOOL CTortoiseProcApp::InitInstance()
 				if (stat.status->entry->conflict_new)
 				{
 					theirs = stat.status->entry->conflict_new;
+					theirs = path + theirs;
 				}
 				if (stat.status->entry->conflict_old)
 				{
 					base = stat.status->entry->conflict_old;
+					base = path + base;
 				}
 				if (stat.status->entry->conflict_wrk)
 				{
 					mine = stat.status->entry->conflict_wrk;
+					mine = path + mine;
 				}
 			}
 			CUtils::StartExtMerge(base, theirs, mine, merge);
@@ -946,6 +951,30 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.m_path = path;
 			dlg.DoModal();
 		} // if (comVal.Compare(_T("repostatus"))==0)
+		//#endregion 
+		//#region repobrowser
+		if (comVal.Compare(_T("repobrowser"))==0)
+		{
+			CString path = parser.GetVal(_T("path"));
+			CString url;
+			SVNStatus status;
+			if (status.GetStatus(path)!=-2)
+			{
+				if (status.status->entry)
+					url = status.status->entry->url;
+			} // if (status.GetStatus(path)!=-2)
+			if (url.IsEmpty())
+			{
+				CRenameDlg rendlg;
+				rendlg.m_windowtitle.LoadString(IDS_PROC_ENTERURL);
+				if (rendlg.DoModal() != IDOK)
+					return FALSE;
+				url = rendlg.m_name;
+			} // if (dlg.m_strUrl.IsEmpty())
+			CRepositoryBrowser dlg(url);
+			dlg.m_bStandAlone = TRUE;
+			dlg.DoModal();
+		}
 		//#endregion 
 		//#region ignore
 		if (comVal.Compare(_T("ignore"))==0)

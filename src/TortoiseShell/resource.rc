@@ -54,6 +54,7 @@ IDI_RELOCATE            ICON                    "..\\Icons\\menurelocate.ico"
 IDI_HELP                ICON                    "..\\Icons\\menuhelp.ico"
 IDI_SHOWCHANGED         ICON                    "..\\Icons\\menushowchanged.ico"
 IDI_IGNORE              ICON                    "..\\Icons\\menuignore.ico"
+IDI_REPOBROWSE          ICON                    "..\\Icons\\menurepobrowse.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -278,6 +279,8 @@ BEGIN
     IDS_DROPCOPYMENU        "copy files in Subversion to here"
     IDS_PROPWAITCANCEL      "Please wait while cancelling..."
     IDS_SETPROPTITLE        "Setting Properties..."
+    IDS_MENUREPOBROWSE      "Repo-Browser"
+    IDS_MENUDESCREPOBROWSE  "Opens the repository browser to tweak the repository online"
     IDS_STATUSEXTERNAL      "external"
 END
 
@@ -312,7 +315,7 @@ END
 // Generated from the TEXTINCLUDE 3 resource.
 //
 
-#include "resource.rc2"
+
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
 

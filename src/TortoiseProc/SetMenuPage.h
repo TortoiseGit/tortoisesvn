@@ -49,6 +49,7 @@ protected:
 	BOOL m_bMenu20;
 	BOOL m_bMenu21;
 	BOOL m_bMenu22;
+	BOOL m_bMenu23;
 public:
 	afx_msg void OnBnClickedMenu1();
 	afx_msg void OnBnClickedMenu2();
@@ -72,5 +73,6 @@ public:
 	afx_msg void OnBnClickedMenu20();
 	afx_msg void OnBnClickedMenu21();
 	afx_msg void OnBnClickedMenu22();
+	afx_msg void OnBnClickedMenu23();
 	virtual BOOL OnApply();
 };

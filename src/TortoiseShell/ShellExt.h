@@ -120,7 +120,8 @@ protected:
 		Relocate,
 		Help,
 		ShowChanged,
-		Ignore
+		Ignore,
+		RepoBrowse
 	};
 
 	FileState m_State;

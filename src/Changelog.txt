@@ -4,8 +4,14 @@
        URLs which had escaped chars in it. (Stefan)
 - BUG: If the "X"-Button of the progress window was
        pressed twice the window just hang. (Stefan)
+- BUG: The external merge program was started
+       with the filenames only instead of the
+       full filepaths. (Stefan)
 - ADD: Branch/Tag is available for single files
        too, not just folders. (Stefan)
+- ADD: Several new commands for the repository
+       browser. Also a new command in the context
+       menu to start the repo browser. (Stefan)
 
 Version 0.19
 - BUG: The conflicted files weren't always determined

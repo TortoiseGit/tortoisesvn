@@ -403,6 +403,11 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			InsertSVNMenu(HMENU(MENULOG), INDEXMENU(MENULOG), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENULOG, idCmdFirst, Log);
 		else
 			InsertSVNMenuBMP(HMENU(MENULOG), INDEXMENU(MENULOG), idCmd++, IDS_MENULOG, IDI_LOG, idCmdFirst, Log);
+	if ((isOnlyOneItemSelected)&&(isFolder))
+		if (ownerdrawn)
+			InsertSVNMenu(HMENU(MENUREPOBROWSE), INDEXMENU(MENUREPOBROWSE), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUREPOBROWSE, idCmdFirst, RepoBrowse);
+		else
+			InsertSVNMenuBMP(HMENU(MENUREPOBROWSE), INDEXMENU(MENUREPOBROWSE), idCmd++, IDS_MENUREPOBROWSE, IDI_REPOBROWSE, idCmdFirst, RepoBrowse);
 	if (((isInSVN)&&(isOnlyOneItemSelected))||((isFolder)&&(isFolderInSVN)))
 		if (ownerdrawn)
 			InsertSVNMenu(HMENU(MENUSHOWCHANGED), INDEXMENU(MENUSHOWCHANGED), MF_STRING|MF_BYPOSITION|MF_OWNERDRAW, idCmd++, IDS_MENUSHOWCHANGED, idCmdFirst, ShowChanged);
@@ -796,6 +801,14 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 							svnCmd += folder_.c_str();
 						svnCmd += _T("\"");
 						break;
+					case RepoBrowse:
+						svnCmd += _T("repobrowser /path:\"");
+						if (files_.size() > 0)
+							svnCmd += files_.front().c_str();
+						else
+							svnCmd += folder_.c_str();
+						svnCmd += _T("\"");
+						break;
 					default:
 						break;
 					//#endregion
@@ -917,6 +930,9 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			break;
 		case ShowChanged:
 			MAKESTRING(IDS_MENUDESCSHOWCHANGED);
+			break;
+		case RepoBrowse:
+			MAKESTRING(IDS_MENUDESCREPOBROWSE);
 			break;
 		case Ignore:
 			MAKESTRING(IDS_MENUDESCIGNORE);
@@ -1226,6 +1242,11 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			MAKESTRING(IDS_MENUSHOWCHANGED);
 			resource = MAKEINTRESOURCE(IDI_SHOWCHANGED);
 			SETSPACE(MENUSHOWCHANGED);
+			break;
+		case RepoBrowse:
+			MAKESTRING(IDS_MENUREPOBROWSE);
+			resource = MAKEINTRESOURCE(IDI_REPOBROWSE);
+			SETSPACE(MENUREPOBROWSE);
 			break;
 		case Ignore:
 			MAKESTRING(IDS_MENUIGNORE);

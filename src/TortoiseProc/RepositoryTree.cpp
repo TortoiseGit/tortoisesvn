@@ -238,23 +238,13 @@ BOOL CRepositoryTree::ItemExists(HTREEITEM parent, CString item)
 	return FALSE;
 }
 
-//void CRepositoryTree::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
-//{
-//	*pResult = 0;
-//	HTREEITEM selItem = TreeView_GetSelection(m_hWnd);
-//	CString execUrl;
-//
-//	TVITEM Item;
-//	Item.mask = TVIF_IMAGE;
-//	Item.hItem = selItem;
-//	GetItem(&Item);
-//	if (Item.iImage == m_nIconFolder)
-//	{
-//		return;
-//	}
-//	execUrl = MakeUrl(selItem);
-//	if (execUrl.Left(4).CompareNoCase(_T("http"))==0)
-//	{
-//		ShellExecute(NULL, _T("open"), execUrl, NULL, NULL, SW_SHOWNORMAL);
-//	} // if (m_strUrl.Left(4).CompareNoCase(_T("http"))==0)
-//}
+void CRepositoryTree::Refresh(HTREEITEM hItem)
+{
+	if (!ItemHasChildren(hItem))
+	{
+		hItem = GetParentItem(hItem);
+	}
+	Expand(hItem, TVE_COLLAPSERESET | TVE_COLLAPSE);
+	SetItemData(hItem, 0);
+	Expand(hItem, TVE_EXPAND);
+}

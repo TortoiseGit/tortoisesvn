@@ -34,6 +34,7 @@ CSetMenuPage::CSetMenuPage()
 	, m_bMenu20(FALSE)
 	, m_bMenu21(FALSE)
 	, m_bMenu22(FALSE)
+	, m_bMenu23(FALSE)
 {
 	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 
@@ -59,6 +60,7 @@ CSetMenuPage::CSetMenuPage()
 	m_bMenu20 = (topmenu & MENUADD) ? TRUE : FALSE;
 	m_bMenu21 = (topmenu & MENUIMPORT) ? TRUE : FALSE;
 	m_bMenu22 = (topmenu & MENUIGNORE) ? TRUE : FALSE;
+	m_bMenu23 = (topmenu & MENUREPOBROWSE) ? TRUE : FALSE;
 
 	this->m_pPSP->dwFlags &= ~PSP_HASHELP;
 }
@@ -92,6 +94,7 @@ void CSetMenuPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_MENU20, m_bMenu20);
 	DDX_Check(pDX, IDC_MENU21, m_bMenu21);
 	DDX_Check(pDX, IDC_MENU22, m_bMenu22);
+	DDX_Check(pDX, IDC_MENU23, m_bMenu23);
 }
 
 
@@ -118,6 +121,7 @@ BEGIN_MESSAGE_MAP(CSetMenuPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_MENU20, OnBnClickedMenu20)
 	ON_BN_CLICKED(IDC_MENU21, OnBnClickedMenu21)
 	ON_BN_CLICKED(IDC_MENU22, OnBnClickedMenu22)
+	ON_BN_CLICKED(IDC_MENU23, OnBnClickedMenu23)
 END_MESSAGE_MAP()
 
 void CSetMenuPage::SaveData()
@@ -145,6 +149,7 @@ void CSetMenuPage::SaveData()
 	topmenu |= (m_bMenu20 ? MENUADD : 0);
 	topmenu |= (m_bMenu21 ? MENUIMPORT : 0);
 	topmenu |= (m_bMenu22 ? MENUIGNORE : 0);
+	topmenu |= (m_bMenu23 ? MENUREPOBROWSE : 0);
 	CRegDWORD regtopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 	regtopmenu = topmenu;
 }
@@ -266,6 +271,11 @@ void CSetMenuPage::OnBnClickedMenu21()
 }
 
 void CSetMenuPage::OnBnClickedMenu22()
+{
+	SetModified();
+}
+
+void CSetMenuPage::OnBnClickedMenu23()
 {
 	SetModified();
 }

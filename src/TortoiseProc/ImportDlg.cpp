@@ -32,6 +32,7 @@ CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
 {
 	m_message.LoadString(IDS_IMPORT_DEFAULTMSG);
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_url = _T("");
 }
 
 CImportDlg::~CImportDlg()
@@ -65,7 +66,13 @@ BOOL CImportDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
-	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
+	if (m_url.IsEmpty())
+		m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
+	else
+	{
+		m_URLCombo.SetWindowText(m_url);
+		m_URLCombo.EnableWindow(FALSE);
+	}
 
 	//set the listcontrol to support checkboxes
 	m_FileList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT);
@@ -161,9 +168,12 @@ HCURSOR CImportDlg::OnQueryDragIcon()
 
 void CImportDlg::OnOK()
 {
-	m_URLCombo.SaveHistory();
-	m_url = m_URLCombo.GetString();
-	UpdateData();
+	if (m_URLCombo.IsWindowEnabled())
+	{
+		m_URLCombo.SaveHistory();
+		m_url = m_URLCombo.GetString();
+		UpdateData();
+	}
 
 	// first we check the size of all filepaths together
 	DWORD len = 0;

@@ -404,7 +404,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,146,65,50,14
 END
 
-IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 164
+IDD_SETTINGSMENU DIALOGEX 0, 0, 280, 172
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Menu Layout"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
@@ -424,15 +424,15 @@ BEGIN
     CONTROL         "Check for Updates",IDC_MENU6,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,7,83,110,10
     CONTROL         "Edit Conflicts",IDC_MENU7,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,94,110,10
+                    WS_TABSTOP,7,106,110,10
     CONTROL         "Update To Revision...",IDC_MENU8,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,7,105,110,10
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,117,110,10
     CONTROL         "Rename...",IDC_MENU9,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,116,110,10
+                    WS_TABSTOP,7,128,110,10
     CONTROL         "Delete",IDC_MENU10,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,127,110,10
+                    WS_TABSTOP,7,139,110,10
     CONTROL         "Resolved",IDC_MENU11,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,7,138,110,10
+                    WS_TABSTOP,7,150,110,10
     CONTROL         "Revert",IDC_MENU12,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,28,117,10
     CONTROL         "Clean Up",IDC_MENU13,"Button",BS_AUTOCHECKBOX | 
@@ -455,6 +455,8 @@ BEGIN
                     WS_TABSTOP,124,127,117,10
     CONTROL         "Add To Ignore List",IDC_MENU22,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,124,138,117,10
+    CONTROL         "Repo-Browser",IDC_MENU23,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,95,110,10
 END
 
 IDD_SIMPLEPROMPT DIALOGEX 0, 0, 220, 84
@@ -663,7 +665,7 @@ BEGIN
         VERTGUIDE, 117
         VERTGUIDE, 124
         TOPMARGIN, 7
-        BOTTOMMARGIN, 157
+        BOTTOMMARGIN, 165
         HORZGUIDE, 28
     END
 
@@ -854,6 +856,12 @@ BEGIN
     IDS_REPOBROWSE_SAVEAS   "save as..."
     IDS_REPOBROWSE_SHOWLOG  "show log"
     IDS_REPOBROWSE_OPEN     "open"
+    IDS_REPOBROWSE_COPY     "Copy To..."
+    IDS_REPOBROWSE_DELETE   "Delete"
+    IDS_REPOBROWSE_IMPORT   "Add file..."
+    IDS_REPOBROWSE_RENAME   "Rename..."
+    IDS_REPOBROWSE_MKDIR    "Create Folder..."
+    IDS_REPOBROWSE_IMPORTFOLDER "Add folder..."
 END
 
 STRINGTABLE 
@@ -903,6 +911,7 @@ BEGIN
     IDS_SSL_REJECT          "Reject"
     IDS_ERR_SSL_NOTYETVALID "Certificate not yet valid. Valid from: %s"
     IDS_ERR_SSL_EXPIRED     "Certificate expired. Valid until: %s"
+    IDS_PROC_ENTERURL       "Enter URL"
 END
 
 #endif    // English (U.S.) resources

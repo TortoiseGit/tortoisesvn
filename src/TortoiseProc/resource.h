@@ -128,6 +128,7 @@
 #define IDC_CHECK2                      1061
 #define IDC_NOREMOVELOGMSG              1061
 #define IDC_MENU2                       1061
+#define IDC_MENU23                      1063
 #define IDS_AUTH_USERNAME               1100
 #define IDS_AUTH_PASSWORD               1101
 #define IDS_MSGBOX_ABORT                1154
@@ -245,6 +246,7 @@
 #define IDS_SSL_REJECT                  1300
 #define IDS_ERR_SSL_NOTYETVALID         1301
 #define IDS_ERR_SSL_EXPIRED             1302
+#define IDS_PROC_ENTERURL               1303
 #define IDS_WARN_FOLDERNOTEXIST         1400
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_IMPORT_TT_MODULENAMECHECK   1510
@@ -252,6 +254,12 @@
 #define IDS_REPOBROWSE_SAVEAS           1600
 #define IDS_REPOBROWSE_SHOWLOG          1601
 #define IDS_REPOBROWSE_OPEN             1602
+#define IDS_REPOBROWSE_COPY             1603
+#define IDS_REPOBROWSE_DELETE           1604
+#define IDS_REPOBROWSE_IMPORT           1605
+#define IDS_REPOBROWSE_RENAME           1606
+#define IDS_REPOBROWSE_MKDIR            1607
+#define IDS_REPOBROWSE_IMPORTFOLDER     1608
 #define IDS_ABOUTVERSION                1700
 #define IDS_LOG_POPUP_DIFF              1800
 #define IDS_LOG_POPUP_REVERTREV         1801
@@ -268,7 +276,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        161
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1063
+#define _APS_NEXT_CONTROL_VALUE         1064
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

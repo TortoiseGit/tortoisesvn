@@ -43,7 +43,7 @@
 #define MENURELOCATE		0x00080000
 #define MENUSHOWCHANGED		0x00100000
 #define MENUIGNORE			0x00200000
-
+#define MENUREPOBROWSE		0x00400000
 
 /**
  * Since we need an own COM-object for every different

@@ -67,8 +67,13 @@ public:
 	enum { IDD = IDD_IMPORT };
 
 protected:
-	HICON m_hIcon;
+	CBalloon	m_tooltips;
+	CButton		m_butBrowse;
+	HICON		m_hIcon;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	afx_msg void OnBnClickedBrowse();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	virtual void OnOK();
 	virtual BOOL OnInitDialog();
@@ -81,11 +86,5 @@ public:
 	CString m_message;
 	CHistoryCombo m_URLCombo;
 	CListCtrl m_FileList;
-protected:
-	CBalloon	m_tooltips;
-public:
-	CButton m_butBrowse;
-	afx_msg void OnBnClickedBrowse();
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	afx_msg void OnLvnItemchangedFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+
 };
