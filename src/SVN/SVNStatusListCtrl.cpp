@@ -1094,7 +1094,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (popup.CreatePopupMenu())
 			{
 				CString temp;
-				if ((wcStatus > svn_wc_status_normal)&&(wcStatus != svn_wc_status_added)
+				if ((wcStatus > svn_wc_status_normal)
 					&&(wcStatus != svn_wc_status_missing)&&(wcStatus != svn_wc_status_deleted))
 				{
 					if (GetSelectedCount() == 1)
@@ -1547,8 +1547,6 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 	ASSERT(entry != NULL);
 	if (entry == NULL)
 		return;
-	if (entry->status == svn_wc_status_added)
-		return;		//we don't compare an added file to itself
 	if (entry->status == svn_wc_status_deleted)
 		return;		//we don't compare a deleted file (nothing) with something
 	if (entry->status == svn_wc_status_unversioned)
@@ -1707,7 +1705,6 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 		if (m_arListArray.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
 		{
 			FileEntry * entry = GetListEntry((int)pLVCD->nmcd.dwItemSpec);
-			ASSERT(entry != NULL);
 			if (entry == NULL)
 				return;
 
