@@ -101,6 +101,11 @@ SVNStatus::~SVNStatus(void)
 	apr_terminate();
 }
 
+void SVNStatus::ClearPool()
+{
+	svn_pool_clear(m_pool);
+}
+
 #ifdef _MFC_VER
 void SVNStatus::SaveAuthentication(BOOL save)
 {

@@ -148,6 +148,11 @@ public:
 	svn_wc_status_t * GetNextFileStatus(const TCHAR ** retPath);
 
 	/**
+	 * Clears the memory pool.
+	 */
+	void ClearPool();
+
+	/**
 	 * This member variable hold the status of the last call to GetStatus().
 	 */
 	svn_wc_status_t *			status;				///< the status result of GetStatus()
