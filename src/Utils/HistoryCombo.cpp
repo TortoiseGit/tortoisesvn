@@ -19,6 +19,7 @@
 #include "HistoryCombo.h"
 #include "SysImageList.h"
 #include "shlwapi.h"
+#include "registry.h"
 
 #define MAX_HISTORY_ITEMS 25
 
@@ -132,7 +133,6 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 
 	m_sSection = lpszSection;
 	m_sKeyPrefix = lpszKeyPrefix;
-	CWinApp* pApp = AfxGetApp();
 
 	int n = 0;
 	CString sText;
@@ -140,8 +140,8 @@ CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 	{
 		//keys are of form <lpszKeyPrefix><entrynumber>
 		CString sKey;
-		sKey.Format(_T("%s%d"), m_sKeyPrefix, n++);
-		sText = pApp->GetProfileString(m_sSection, sKey);
+		sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n++);
+		sText = CRegString(sKey);
 		if (!sText.IsEmpty())
 			AddString(sText);
 	} while (!sText.IsEmpty() && n < m_nMaxHistoryItems);
@@ -164,9 +164,6 @@ void CHistoryCombo::SaveHistory()
 	if (m_sSection.IsEmpty())
 		return;
 
-	CWinApp* pApp = AfxGetApp();
-	ASSERT(pApp);
-
 	//add the current item to the history
 	CString sCurItem;
 	GetWindowText(sCurItem);
@@ -178,20 +175,22 @@ void CHistoryCombo::SaveHistory()
 	for (int n = 0; n < nMax; n++)
 	{
 		CString sKey;
-		sKey.Format(_T("%s%d"), m_sKeyPrefix, n);
+		sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n);
 		CString sText;
 		GetLBText(n, sText);
-		pApp->WriteProfileString(m_sSection, sKey, sText);
+		CRegString regkey = CRegString(sKey);
+		regkey = sText;
 	}
 	//remove items exceeding the max number of history items
 	for (n = nMax; ; n++)
 	{
 		CString sKey;
-		sKey.Format(_T("%s%d"), m_sKeyPrefix, n);
-		CString sText = pApp->GetProfileString(m_sSection, sKey);
+		sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n);
+		CRegString regkey = CRegString(sKey);
+		CString sText = regkey;
 		if (sText.IsEmpty())
 			break;
-		pApp->WriteProfileString(m_sSection, sKey, NULL); // remove entry
+		regkey.removeValue(); // remove entry
 	}
 }
 
@@ -201,16 +200,15 @@ void CHistoryCombo::ClearHistory(BOOL bDeleteRegistryEntries/*=TRUE*/)
 	if (! m_sSection.IsEmpty() && bDeleteRegistryEntries)
 	{
 		//remove profile entries
-		CWinApp* pApp = AfxGetApp();
-		ASSERT(pApp);
 		CString sKey;
 		for (int n = 0; ; n++)
 		{
-			sKey.Format(_T("%s%d"), m_sKeyPrefix, n);
-			CString sText = pApp->GetProfileString(m_sSection, sKey);
+			sKey.Format(_T("%s\\%s%d"), m_sSection, m_sKeyPrefix, n);
+			CRegString regkey = CRegString(sKey);
+			CString sText = regkey;
 			if (sText.IsEmpty())
 				break;
-			pApp->WriteProfileString(m_sSection, sKey, NULL); // remove entry
+			regkey.removeValue(); // remove entry
 		}
 	}
 }

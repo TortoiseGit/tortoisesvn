@@ -174,7 +174,7 @@ BOOL CLogPromptDlg::OnInitDialog()
 		m_LogMessage.SetMarginLine(m_ProjectProperties.nLogWidthMarker);
 	}
 	m_LogMessage.SetWindowText(m_ProjectProperties.sLogTemplate);
-	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
+	m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 	
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);

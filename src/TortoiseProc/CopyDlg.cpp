@@ -136,12 +136,12 @@ BOOL CCopyDlg::OnInitDialog()
 		this->EndDialog(IDCANCEL);		//exit
 	} // if ((rev == (-2))||(status.status->entry == NULL))
 	m_URLCombo.SetURLHistory(TRUE);
-	m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
+	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.AddString(m_wcURL, 0);
 	m_URLCombo.SelectString(-1, m_wcURL);
 	GetDlgItem(IDC_FROMURL)->SetWindowText(m_wcURL);
 
-	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
+	m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 
 	m_ProjectProperties.ReadProps(m_path);
 	if (m_ProjectProperties.sMessage.IsEmpty())

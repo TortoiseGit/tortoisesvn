@@ -10,6 +10,8 @@
 - CHG: Removed the _tsvnexcluderecursive and _tsvnexcludethis
        filehandling. Use the paths in the settings dialog
        instead. (Stefan)
+- CHG: The log message history isn't limited to 255 chars
+       for each entry. (Stefan)
 - BUG: After a merge dry-run, the wc URL wasn't shown
        correctly. This bug didn't affect the actual
        merge, only the UI. (Stefan)

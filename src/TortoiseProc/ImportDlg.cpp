@@ -91,7 +91,7 @@ BOOL CImportDlg::OnInitDialog()
 	if (m_url.IsEmpty())
 	{
 		m_URLCombo.SetURLHistory(TRUE);
-		m_URLCombo.LoadHistory(_T("repoURLS"), _T("url"));
+		m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	}
 	else
 	{
@@ -100,7 +100,7 @@ BOOL CImportDlg::OnInitDialog()
 	}
 
 	m_tooltips.Create(this);
-	m_OldLogs.LoadHistory(_T("commit"), _T("logmsgs"));
+	m_OldLogs.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 	m_ProjectProperties.ReadProps(m_path);
 	if (m_ProjectProperties.nLogWidthMarker)
 	{
