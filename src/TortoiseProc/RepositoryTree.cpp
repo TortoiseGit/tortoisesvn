@@ -245,3 +245,10 @@ void CRepositoryTree::Refresh(HTREEITEM hItem)
 	SetItemData(hItem, 0);
 	Expand(hItem, TVE_EXPAND);
 }
+
+void CRepositoryTree::RefreshMe(HTREEITEM hItem)
+{
+	Expand(hItem, TVE_COLLAPSERESET | TVE_COLLAPSE);
+	SetItemData(hItem, 0);
+	Expand(hItem, TVE_EXPAND);
+}

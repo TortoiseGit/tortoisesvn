@@ -67,6 +67,7 @@ public:
 	CString GetFolderUrl(HTREEITEM hItem);
 	BOOL ItemExists(HTREEITEM parent, CString item);
 	void Refresh(HTREEITEM hItem);
+	void RefreshMe(HTREEITEM hItem);
 
 private:
 	CString		m_strUrl;

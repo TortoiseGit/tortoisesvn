@@ -389,7 +389,7 @@ void CRepositoryBrowser::OnNMRclickReposTree(NMHDR *pNMHDR, LRESULT *pResult)
 							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							return;
 						} // if (!svn.MakeDir(url+_T("/")+dlg.m_name, _T("created directory remotely"))) 
-						m_treeRepository.Refresh(hSelItem);
+						m_treeRepository.RefreshMe(hSelItem);
 						theApp.DoWaitCursor(-1);
 					} // if (dlg.DoModal() == IDOK) 
 				}

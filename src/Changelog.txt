@@ -35,6 +35,10 @@
        all menu entries in the submenu. If
        any other setting was made first then
        everything was ok. (Stefan)
+- BUG: When creating a folder on the repository
+       root in the browser the refresh function
+       went too far up. (Stefan)
+       
 
 Version 0.21
 - ADD: If multiple targets are selected for
