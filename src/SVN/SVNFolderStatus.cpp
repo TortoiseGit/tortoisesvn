@@ -233,6 +233,23 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(LPCTSTR filepath, BOOL 
 		m_mostRecentPath = filepath;
 		m_mostRecentStatus = ret;
 	}
+	else
+	{
+		// for SUBST'ed drives, Subversion doesn't return a path with a backslash
+		// e.g. G:\ but only G: when fetching the status. So search for that
+		// path too before giving up.
+		// This is especially true when right-clicking directly on a SUBST'ed
+		// drive to get the context menu
+		if (_tcslen(filepath)==3)
+		{
+			if ((iter = m_cache.find(pathbuf)) != m_cache.end())
+			{
+				ret = &iter->second;
+				m_mostRecentPath = filepath;
+				m_mostRecentStatus = ret;
+			}
+		}		
+	}
 	ClearPool();
 	if (ret)
 		return ret;
