@@ -329,6 +329,7 @@ BOOL CUtils::StartTextViewer(CString file)
 	if (viewer.Find(_T("%1")) >= 0)
 	{
 		viewer.Replace(_T("%1"),  _T("\"")+file+_T("\""));
+		viewer.Replace(_T("\"\""), _T("\""));
 	}
 	else
 	{

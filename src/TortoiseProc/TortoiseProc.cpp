@@ -94,7 +94,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		if (hInst != NULL)
 		{
 			AfxSetResourceHandle(hInst);
-			SetThreadLocale(langId);
+			//SetThreadLocale(langId);
 		}
 		else
 		{

@@ -163,7 +163,7 @@ SVNProperties::SVNProperties(const TCHAR * filepath)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
-	SVN::UseIEProxySettings(m_ctx.config);
+	//SVN::UseIEProxySettings(m_ctx.config);
 #endif
 	svn_auth_open (&m_auth_baton, providers, m_pool);
 

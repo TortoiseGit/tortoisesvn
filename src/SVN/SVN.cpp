@@ -113,7 +113,7 @@ SVN::SVN(void)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
-	UseIEProxySettings(ctx.config);
+	//UseIEProxySettings(ctx.config);
 }
 
 SVN::~SVN(void)

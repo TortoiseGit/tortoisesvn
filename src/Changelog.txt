@@ -1,3 +1,9 @@
+Version 1.0.8
+- CHG: The OK button in the commit dialog is enabled by default,
+       the default minimum logsize is now zero. (Stefan)
+- BUG: Some IE proxy settings weren't used correctly. This
+       lead to TSVN not able to connect to repositories. (Stefan)
+
 Version 1.0.7
 - ADD: in the "check for updates" dialog a new
        context menu command to show the log. (Stefan)

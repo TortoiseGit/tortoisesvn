@@ -154,6 +154,14 @@ BOOL CLogPromptDlg::OnInitDialog()
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0) > 0)
+	{
+		GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
+	else
+	{
+		GetDlgItem(IDOK)->EnableWindow(TRUE);
+	}
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
@@ -372,7 +380,7 @@ void CLogPromptDlg::OnEnChangeLogmessage()
 {
 	CString sTemp;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (DWORD(sTemp.GetLength()) > CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 10))
+	if (DWORD(sTemp.GetLength()) > CRegDWORD(_T("Software\\TortoiseSVN\\MinLogSize"), 0))
 	{
 		GetDlgItem(IDOK)->EnableWindow(TRUE);
 	}
