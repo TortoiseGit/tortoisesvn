@@ -37,6 +37,17 @@
     <Property Id="FolderForm_PrevArgs">WelcomeForm</Property>
     <Property Id="FolderForm_NextArgs">ConfirmInstallForm</Property>
     <Property Id="ConfirmInstallForm_PrevArgs">FolderForm</Property>
+    <Property Id="VERSIONIE">
+      <RegistrySearch Id="RegSearchIeVersion" Root="HKLM" Key="SOFTWARE\Microsoft\Internet Explorer" Name="Version" Type="registry" />
+    </Property>
+    <Property Id="VERSIONSHELL">
+      <DirectorySearch Id="DirSearchShellDll" Path="[SystemFolder]">
+        <FileSearch Id="DirSearchShellDll" Name="shell32.dll" MinVersion="4.72.0.0" />
+      </DirectorySearch>
+    </Property>
+    <Condition Message="[ProductName] needs at least Internet Explorer 5">NOT ((VERSIONIE&lt;&lt;"1") OR (VERSIONIE&lt;&lt;"2") OR (VERSIONIE&lt;&lt;"3") OR (VERSIONIE&lt;&lt;"4"))</Condition>
+    <Condition Message="[ProductName] needs at least shell32.dll version 4.72">NOT (""=VERSIONSHELL)</Condition>
+
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Component Id="C__infofiles" Guid="625A2E1E-90D3-4107-8AE8-C5C37975FEA0" >
         <File Id="F__changelog" Name="CHANGE~1.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
