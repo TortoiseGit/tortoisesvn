@@ -270,7 +270,7 @@ BOOL CUtils::StartDiffViewer(const CTSVNPath& file, const CTSVNPath& dir, BOOL b
 			}
 			viewer = _T("\"") + viewer + _T("\"");
 			viewer = viewer + _T(" /base:%base /yours:%mine /basename:%bname /yoursname:%yname");
-		} // if (diffexe == "")
+		} 
 		if (viewer.Find(_T("%base")) >= 0)
 		{
 			viewer.Replace(_T("%base"),  _T("\"")+file.GetWinPathString()+_T("\""));
