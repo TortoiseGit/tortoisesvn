@@ -361,7 +361,7 @@ BEGIN
     CONTROL         "",IDC_REPOS_BAR_CNR,"Static",SS_OWNERDRAW | WS_TABSTOP,
                     7,6,401,16
     LTEXT           "Hint: Press F5 to refresh the selected subtree",
-                    IDC_STATIC,7,255,217,17
+                    IDC_F5HINT,7,255,217,17
 END
 
 IDD_SETTINGSMAIN DIALOGEX 0, 0, 300, 217
