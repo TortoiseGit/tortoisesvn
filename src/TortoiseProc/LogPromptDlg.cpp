@@ -971,6 +971,10 @@ DWORD WINAPI StatusThread(LPVOID pVoid)
 					} // if ((stat == svn_wc_status_unversioned)&&(CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE)))   
 				} // while ((s = status.GetNextFileStatus(&strbuf)) != NULL) 
 			} // if (s!=0) 
+			else
+			{
+				CMessageBox::Show(pDlg->m_hWnd, status.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+			}
 		} // while (file.ReadString(strLine)) 
 		file.Close();
 	}
