@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-02 11:54+0100\n"
+"PO-Revision-Date: 2005-03-18 15:14+0100\n"
 "Last-Translator: Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,17 @@ msgid ""
 msgstr ""
 "%s\n"
 "Voulez-vous le supprimer de toute façon?"
+
+# ID:69,
+#: ID:69
+msgid ""
+"%s\n"
+"is a directory, not a file!\n"
+"TortoiseMerge can't diff directories."
+msgstr ""
+"%s\n"
+"est un répertoire, non un fichier!\n"
+"TortoiseMerge ne peut faire de diff sur des répertoires."
 
 #: MenuEntry
 msgid "&About TortoiseMerge..."
@@ -426,6 +437,7 @@ msgstr "- %d"
 # Control-ID:1104,
 #: Control-ID:1035
 #: Control-ID:1036
+#: Control-ID:1187
 #: Control-ID:1021
 #: Control-ID:1022
 #: Control-ID:1089
@@ -623,8 +635,12 @@ msgstr "Ajouté un répertoire à distance"
 #: ID:145
 msgid ""
 "Added the file(s)\n"
-"%sto the ignore list."
-msgstr "Ont été ajoutés le(s) fichier(s) %s à la liste des 'ignorés'"
+"%s\n"
+"to the ignore list."
+msgstr ""
+"Ont été ajoutés le(s) fichier(s)\n"
+"%s\n"
+"à la liste des ignorés"
 
 #: ID:263
 msgid "Adding"
@@ -859,22 +875,9 @@ msgstr "Condamne chaque ligne d'un fichier pour un auteur"
 msgid "Br&owse..."
 msgstr "&Naviguer..."
 
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "Branche / Etiquette"
-
 #: ID:115
 msgid "Branch / Tag created successfully!"
 msgstr "Branche / Etiquette créée avec succès!"
-
-# Control-ID:1073,
-#: Control-ID:1182
-msgid "Branch/Tag directly on the server (HEAD revision)"
-msgstr "Créer la branche/Etiquette directement sur le serveur (HEAD révision)"
-
-#: Control-ID:1183
-msgid "Branch/Tag the working copy"
-msgstr "Créer la branche/Etiquette de la version locale"
 
 #: ID:9
 msgid "Branch/Tag..."
@@ -1148,8 +1151,8 @@ msgid "Compare with &working copy"
 msgstr "Comparaison avec la copie &locale"
 
 #: ID:12
-msgid "Compares the file with the last commited version to show you the changes you made"
-msgstr "Compare le fichier avec la dernière version mise à jour pour voir vos modifications"
+msgid "Compares the file with the last committed revision to show you the changes you made"
+msgstr "Compare le fichier avec la dernière version mise à jour pour afficher les changements que vous avez fait"
 
 #: ID:74
 msgid "Completed"
@@ -1189,6 +1192,10 @@ msgstr "Copié"
 #: ID:126
 msgid "Copied remotely"
 msgstr "Copié à distance"
+
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "Copier (Branche / Etiquette)"
 
 # ID:76,
 #: ID:76
@@ -1253,6 +1260,10 @@ msgstr ""
 "Ne peut pas ouvrir le fichier\n"
 "%s"
 
+#: ID:82
+msgid "Could not remove %s from the ignored list"
+msgstr "Ne peut pas retirer %s de la liste des ignorés"
+
 #: ID:81
 msgid ""
 "Could not retrieve URL of the file!\n"
@@ -1263,10 +1274,10 @@ msgstr ""
 
 #: ID:66
 msgid ""
-"Could not retrieve version %s of the file %s.\n"
+"Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
-"Ne peut pas récupérer la version %s du fichier %s.\n"
+"Ne peut pas récupérer la révision %s du fichier %s.\n"
 "L'application du patch n'est pas possible!"
 
 #: ID:64
@@ -1322,6 +1333,10 @@ msgstr "Créer un repository"
 #: ID:8
 msgid "Create Repository here"
 msgstr "Créer un repository ici"
+
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "Créer une copie dans le repository depuis:"
 
 #: ID:126
 msgid "Created folder remotely"
@@ -1509,6 +1524,10 @@ msgstr "E&xterne"
 msgid "EXT"
 msgstr "EXT"
 
+#: ID:113
+msgid "Edit Author"
+msgstr "Editer l'Auteur"
+
 #: ID:12
 msgid "Edit Conflicts"
 msgstr "Editer conflits"
@@ -1520,6 +1539,19 @@ msgstr "Edition diff programme selon extension"
 #: ID:110
 msgid "Edit Extension Specific Merge Program"
 msgstr "Edition programme de fusion selon extension"
+
+#: ID:113
+msgid "Edit Log Message"
+msgstr "Editer un commentaire"
+
+# ID:115,
+#: ID:115
+msgid "Edit author name"
+msgstr "Editer le nom de l'auteur"
+
+#: ID:115
+msgid "Edit log message"
+msgstr "Editer un commentaire"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -1652,8 +1684,8 @@ msgid "Fetching File..."
 msgstr "Récupération fichier..."
 
 #: ID:313
-msgid "Fetching version %s of file:"
-msgstr "Récupération de la version %s du fichier:"
+msgid "Fetching revision %s of file:"
+msgstr "Récupération de la révision %s du fichier:"
 
 #: ID:63
 #: ID:74
@@ -1777,9 +1809,9 @@ msgstr "Type de graphique"
 msgid "H&ead Revision"
 msgstr "D&ernière Révision"
 
-#: ID:238
-msgid "Head revision of the repository is: %d"
-msgstr "La révision principale du repository est: %d"
+#: Control-ID:1182
+msgid "HEAD revision in the repository"
+msgstr "Révision HEAD dans le repository"
 
 #: ID:12
 #: Control-ID:1004
@@ -2040,6 +2072,16 @@ msgstr "Journal"
 msgid "Look and Feel"
 msgstr "Apparence et comportement"
 
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "Plus basse Révision: %ld - Plus haute Révision: %ld"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "Plus basse Révision: %ld - Plus haute Révision: %ld - Dernière révision: %ld"
+
 #: ID:3866
 msgid "Mail system DLL is invalid."
 msgstr "La DLL du système de mail n'est pas valide."
@@ -2256,10 +2298,6 @@ msgstr "RFP"
 msgid "One or more files are in a conflicted state."
 msgstr "Un ou plusieurs fichiers sont en état de conflit."
 
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "&Diff unidirectionnel"
-
 #: Control-ID:1073
 msgid "Only check out the top folder"
 msgstr "Extraire seulement le répertoire de tête"
@@ -2321,9 +2359,9 @@ msgstr "PKCS12"
 msgid "Password:"
 msgstr "Mot de passe:"
 
-#: Control-ID:1031
-msgid "Paste Changed Filenames"
-msgstr "Coller les noms de fichiers modifiés"
+#: ID:172
+msgid "Paste filename list"
+msgstr "Coller la liste des noms de fichiers"
 
 #: ID:376
 msgid "Patch All"
@@ -2555,6 +2593,10 @@ msgstr "Status distant"
 msgid "Remote Text Status"
 msgstr "Status des propriétés textes distantes"
 
+#: ID:15
+msgid "Remove From Ignore List"
+msgstr "Retirer de la liste des ignorés"
+
 #: Control-ID:65535
 msgid "Removed"
 msgstr "Supprimé"
@@ -2562,6 +2604,20 @@ msgstr "Supprimé"
 #: ID:126
 msgid "Removed file/folder"
 msgstr "Fichier/répertoire effacé"
+
+#: ID:145
+msgid ""
+"Removed the file(s)\n"
+"%s\n"
+"from the ignored list."
+msgstr ""
+"Ont été retirés le(s) fichier(s)\n"
+"%s\n"
+"de la liste des ignorés"
+
+#: ID:15
+msgid "Removes the file or filemask from the list of ignored items"
+msgstr "Retire le fichier ou le filtre de fichier de la liste des ignorés"
 
 #: Dlg-ID:151
 msgid "Rename"
@@ -2938,8 +2994,8 @@ msgid "Short &date/time format in log messages"
 msgstr "Format cours des &dates dans les commentaires"
 
 #: ID:12
-msgid "Short Url of subversion items"
-msgstr "URL simplifié de l'élément subversion"
+msgid "Short Url of Subversion items"
+msgstr "URL courte des éléments Subversion"
 
 #: Control-ID:1031
 msgid "Show &All"
@@ -3049,14 +3105,18 @@ msgstr "Omis"
 msgid "Skipped missing target"
 msgstr "Evité, cible absente "
 
+#: Control-ID:1185
+msgid "Specific revision in repository"
+msgstr "Révision spécifique dans le repository"
+
 #: ID:79
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-" should exclude from version control.\n"
+"should exclude from version control.\n"
 "Separate the patterns with a space."
 msgstr ""
 "Spécifiez les fichiers ou répertoires que TortoiseSVN\n"
-" doit exclure du contrôle de version.\n"
+"doit exclure du contrôle de version.\n"
 "Séparez les filtres avec un espace."
 
 # Control-ID:65535,
@@ -3299,6 +3359,21 @@ msgstr ""
 "%s\n"
 "ne correspondent pas!"
 
+# ID:88,
+#: ID:88
+msgid ""
+"The path/url you've entered seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later.\n"
+"\n"
+"A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Le chemin /url que vous avez entré semble illégal sous Windows!\n"
+"Vous pouvez quand même essayer, mais vous aurez peut-être une erreur plus tard.\n"
+"\n"
+"Un chemin valide sous windows ne doit pas contenir '<>|\"?*:' ou l'un des noms de periphériques suivant:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
 # ID:314,
 #: ID:314
 msgid ""
@@ -3384,6 +3459,17 @@ msgstr ""
 #: ID:188
 msgid "Thesaurus"
 msgstr "Dictionnaire de synonymes"
+
+# ID:82,
+#: ID:82
+msgid ""
+"This is not a valid path!\n"
+"A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+"Ce n'est pas un chemin valide!\n"
+"Un chemin valide sous windows ne doit pas contenir '<>|\"?*:' ou l'un des noms de periphériques suivant:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #: Control-ID:65535
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -3506,13 +3592,17 @@ msgstr "Ajuster TortoiseSVN"
 msgid "Two File Diff"
 msgstr "Deux fichiers différents"
 
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "&Diff bidirectionnel"
+
 #: Dlg-ID:164
 msgid "URL"
 msgstr "URL"
 
 #: ID:12
-msgid "URL of subversion items"
-msgstr "URL de l'élément subversion"
+msgid "URL of Subversion items"
+msgstr "URL des éléments Subversion"
 
 #: Control-ID:65535
 #: Control-ID:1076
@@ -3762,6 +3852,10 @@ msgstr "Différence d'espacements"
 msgid "Whitespaces"
 msgstr "Espacements"
 
+#: Control-ID:1183
+msgid "Working copy"
+msgstr "Copie locale"
+
 #: ID:80
 msgid ""
 "Working copy relocated to\n"
@@ -3779,8 +3873,8 @@ msgid "Yes To All"
 msgstr "Oui Pour Tous"
 
 #: ID:201
-msgid "You already have the most current version installed."
-msgstr "Vous avez déjà la version la plus récente installée."
+msgid "You already have the latest version installed."
+msgstr "Vous avez déjà la dernière version installée."
 
 #: ID:144
 msgid ""
@@ -3861,12 +3955,12 @@ msgstr ""
 "n 'apparaitra pas exactement comme cela était dans la révision vers laquelle vous mettez à jour!"
 
 #: MenuEntry
-msgid "Zoom &In"
-msgstr "Agrand&ir"
+msgid "Zoom &In\tCtrl-+"
+msgstr "Agrand&ir\tCtrl-+"
 
 #: MenuEntry
-msgid "Zoom &Out"
-msgstr "&Rétrécir"
+msgid "Zoom &Out\tCtrl--"
+msgstr "&Rétrécir\tCtrl--"
 
 #: ID:10
 msgid "added"
@@ -4085,19 +4179,19 @@ msgstr ""
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head version of the object.\n"
+"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
 "Author, LastChangedBy\t\tThe last person to modify the file.\n"
 "Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
 "Rev, LastChangedRevision\tThe last revision the object changed.\n"
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
-"svn:keywords\r\n"
-"Mots clés à être étendus. Les mots clés valides sont:\r\n"
-"URL, HeadURL\t\t\tL'URL pour la version version principale de l'object.\r\n"
-"Author, LastChangedBy\t\tLa dernière personne ayant modifié l'objet.\r\n"
-"Date, LastChangedDate\t\tLa date de dernière modification de l'objet.\r\n"
-"Rev, LastChangedRevision\tLa dernière révision de l'objet.\r\n"
-"Id\t\t\t\tUne version comprimé des précédants mots clés."
+"svn:keywords\n"
+"Mots clés a être étendus. Les mots clés valides sont:\n"
+"URL, HeadURL\t\t\tL'URL pour la dernière révision de l'object.\n"
+"Author, LastChangedBy\t\tLa dernière personne ayant modifié l'objet.\n"
+"Date, LastChangedDate\t\tLa date de dernière modification de l'objet.\n"
+"Rev, LastChangedRevision\tLa dernière révision de l'objet.\n"
+"Id\t\t\t\tUne version comprimée des 4précédants mots clés."
 
 #: ID:14
 msgid ""
