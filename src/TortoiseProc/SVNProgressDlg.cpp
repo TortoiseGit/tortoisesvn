@@ -794,6 +794,10 @@ int CSVNProgressDlg::SortCompare(const void * pElem1, const void * pElem2)
 			CString t1 = GetActionText(pData1->action, pData1->content_state, pData1->prop_state);
 			CString t2 = GetActionText(pData2->action, pData2->content_state, pData2->prop_state);
 			result = t1.Compare(t2);
+			if (result == 0)
+			{
+				result = pData1->path.Compare(pData2->path);
+			}
 		}
 		break;
 	case 1:		//path column
@@ -804,6 +808,10 @@ int CSVNProgressDlg::SortCompare(const void * pElem1, const void * pElem2)
 	case 2:		//mime-type column
 		{
 			result = pData1->mime_type.Compare(pData2->mime_type);
+			if (result == 0)
+			{
+				result = pData1->path.Compare(pData2->path);
+			}
 		}
 		break;
 	default:
