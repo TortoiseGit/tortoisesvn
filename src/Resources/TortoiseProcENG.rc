@@ -244,7 +244,7 @@ BEGIN
                     NOT WS_BORDER | NOT WS_TABSTOP
     EDITTEXT        IDC_LOGMESSAGE,6,30,287,86,ES_MULTILINE | ES_AUTOVSCROLL | 
                     ES_WANTRETURN | WS_VSCROLL
-    LTEXT           "Comment History:",IDC_CHIST,6,122,84,8
+    LTEXT           "Log Message History:",IDC_CHIST,6,122,101,8
     CONTROL         "",IDC_OLDLOGS,"ComboBoxEx32",CBS_DROPDOWNLIST | 
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP,116,119,177,104
     CONTROL         "",IDC_FILELIST,"SysListView32",LVS_REPORT | 
