@@ -5,7 +5,7 @@ CVS
 - BUG: fixed some bugs in the repository browser. (Stefan)
 - BUG: deselecting a file inside a folder in the
        add dialog lead to deactivation of _all_
-       files which started with the same path, eve
+       files which started with the same path, even
        if they weren't in the same folder. (Stefan)
 - BUG: menu entries were shown twice for "link" files
        like .lnk and .rdp. This solves issue 52. (Stefan)
@@ -16,6 +16,8 @@ CVS
 - CHG: time/date is now shown using the local
        format. This solves issue 49. (Stefan)
 - CHG: removed dependency to msimg32.dll. (Stefan)
+- CHG: the commit dialog shows the modified files
+       with path. (Stefan)
 - ADD: repository browser works with svn://
        svn+ssl:// (Stefan)
 - ADD: enhanced the repository browser with a
