@@ -948,8 +948,8 @@
 					<graphic fileref="images/Merge.png"/>
 				</figure>
 				To merge revisions you need to go to a working copy of the
-				branch in which you want to receive the changes, (normally the trunk)
-				and select <menuchoice><guimenuitem>Merge</guimenuitem></menuchoice> from the context menu.
+				branch in which you want to receive the changes, (normally the trunk).
+				Select <menuchoice><guimenuitem>Merge</guimenuitem></menuchoice> from the context menu.
 				<orderedlist>
 					<listitem>
 						<para>In the <guilabel>Merge current branch with</guilabel> field enter the full
@@ -962,8 +962,8 @@
 						This is the revision <emphasis>before</emphasis> the changes you want to merge.
 						Revision numbers are auto-incremented after each commit. You want
 						to start merging the changes before the revision number is auto-incremented.
-						Click <guibutton>Find</guibutton> if you don't remember to browse the logs for the merge
-						directory containing the changes. This will probably never be from
+						Click <guibutton>Find</guibutton> if you need to browse the logs to find this revision
+						number. This will probably never be from
 						revision 0.</para>
 					</listitem>
 					<listitem>
@@ -974,21 +974,20 @@
 					<listitem>
 						<para>Click <guibutton>OK</guibutton> to complete the merge and enter a log message. Your
 						log message should <emphasis>always</emphasis> include the revision numbers of this merge.
-						The reason for this is that when you want to apply another merge at a
-						later time you will need to know what you have already merged. You
-						can't apply a change more than once and unfortunately merge information
-						is not stored by Subversion. See the Subversion book for more information
-						about this, (search for "repeated merge problem")</para>
+						If you want to apply another merge at a later time you will need to know what you
+						have already merged. You can't apply a change more than once.
+                        Unfortunately merge information is not stored by Subversion. See the 
+						Subversion book for more information about this, (search for "repeated merge problem").
+                        </para>
 					</listitem>
 				</orderedlist>
 				The merge is now complete. It's a good idea to have a look at the merge and see if it's
-				as expected. Merging is usually quite complicated and conflicts can arise often if
+				as expected. Merging is usually quite complicated. Conflicts often arise if
 				the branch has drifted far from the trunk.
 				<para>
-				If you want to keep this branch up to date with the trunk you should always merge changes from truck to
-				the branch immediately after merging from the branch to the trunk. Use this method
-				and local changes won't get in your way. Of course you should still avoid re-merging
-				trunk changes, as explained above.
+				If you want to keep this branch up to date with the trunk, you should immediately merge 
+				changes from truck back to the this branch. Use this method and local changes won't get
+				in your way. Of course, you should still avoid re-merging trunk changes, as explained above.
 				</para>
 				<para>
 				<note>
