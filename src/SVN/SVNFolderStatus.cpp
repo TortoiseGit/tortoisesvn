@@ -162,6 +162,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 		m_cache[filepath] = dirstat;
 		m_TimeStamp = GetTickCount();
 		svn_pool_destroy (pool);				//free allocated memory
+		ClearPool();
 		apr_terminate();
 		return &dirstat;
 	}
@@ -204,6 +205,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	if (err != NULL)
 	{
 		svn_pool_destroy (pool);				//free allocated memory
+		ClearPool();
 		apr_terminate();
 		return &invalidstatus;	
 	}
@@ -217,6 +219,7 @@ filestatuscache * SVNFolderStatus::BuildCache(LPCTSTR filepath)
 	{
 		ret = (filestatuscache *)&iter->second;
 	}
+	ClearPool();
 	if (ret)
 		return ret;
 	return &invalidstatus;
