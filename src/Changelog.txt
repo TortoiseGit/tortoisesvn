@@ -23,6 +23,8 @@
 - CHG: Don't use the %APPDATA% env but the shell API to
        get the path to the config file in the settings
        dialog. (Stefan)
+- BUG: TortoiseMerge could save merges to the wrong file
+       if the app wasn't quit between diffs/merges. (Stefan)
 - BUG: The context menu key didn't work in the
        repository browser. (Stefan)
 - BUG: TSVN could crash if a revprop did not exist. (Stefan)

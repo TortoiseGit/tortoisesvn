@@ -334,6 +334,7 @@ void CMainFrame::OnFileOpen()
 	this->m_Data.m_sYourFile = dlg.m_sYourFile;
 	this->m_Data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
 	this->m_Data.m_sPatchPath = dlg.m_sPatchDirectory;
+	this->m_Data.m_sMergedFile.Empty();
 	this->m_Data.m_sBaseName.Empty();
 	this->m_Data.m_sTheirName.Empty();
 	this->m_Data.m_sYourName.Empty();
