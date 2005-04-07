@@ -563,7 +563,7 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,146,97,50,14
     CONTROL         "Only update the top folder",IDC_NON_RECURSIVE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,63,189,10
-    CONTROL         "Ommit externals",IDC_NOEXTERNALS,"Button",
+    CONTROL         "Omit externals",IDC_NOEXTERNALS,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,7,77,189,10
 END
 
