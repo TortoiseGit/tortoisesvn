@@ -358,6 +358,10 @@
  * could be used in other programs too.
  */
 
+/**
+ * \defgroup SVN SVN
+ * Wrappers for the Subversion API.
+ */
 
 
 

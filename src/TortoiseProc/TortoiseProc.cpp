@@ -49,6 +49,7 @@
 #include "RevisionGraphDlg.h"
 #include "BrowseFolder.h"
 #include "SVNStatus.h"
+#include "SVNInfo.h"
 #include "Utils.h"
 #include "SoundUtils.h"
 #include "libintl.h"

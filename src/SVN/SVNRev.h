@@ -21,7 +21,7 @@
 
 
 /**
- * \ingroup TortoiseProc
+ * \ingroup SVN
  * SVNRev represents a subversion revision. A subversion revision can
  * be either a simple revision number, a date or a string with one
  * of the following keywords:
@@ -62,6 +62,8 @@ class SVNRev
 public:
 	SVNRev(LONG nRev);
 	SVNRev(CString sRev);
+	SVNRev(svn_opt_revision_t revision) {rev = revision;}
+	SVNRev(){rev.kind = svn_opt_revision_unspecified;}
 	~SVNRev();
 
 	BOOL IsValid() const {return m_bIsValid;}
