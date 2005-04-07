@@ -24,6 +24,8 @@
 #include "svn_utf.h"
 
 extern BOOL bHasMods;
+extern long lowestupdate;
+extern long highestupdate;
 extern apr_time_t WCDate;
 
 #pragma warning(push)
@@ -37,6 +39,14 @@ void getallstatus(void * baton, const char * /*path*/, svn_wc_status_t * status)
 		{
 			*rev = status->entry->cmt_rev;
 			WCDate = status->entry->cmt_date;
+		}
+		if (highestupdate < status->entry->revision)
+		{
+			highestupdate = status->entry->revision;
+		}
+		if (lowestupdate > status->entry->revision || lowestupdate == 0)
+		{
+			lowestupdate = status->entry->revision;
 		}
 		switch (status->text_status)
 		{

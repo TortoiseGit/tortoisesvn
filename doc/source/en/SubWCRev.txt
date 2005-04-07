@@ -5,7 +5,7 @@ SubWCRev is Windows console program which can be used to read the status
 of a Subversion working copy and optionally perform keyword substitution
 in a template file.
 
-usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-n|-d]
+usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]
 
 Params:
 WorkingCopyPath    :   path to a Subversion working copy
@@ -13,6 +13,8 @@ SrcVersionFile     :   path to a template header file
 DstVersionFile     :   path to where to save the resulting header file
 -n                 :   if given, then SubWCRev will error if the working
                        copy contains local modifications
+-m                 :   if given, then SubWCRev will error if the working
+                       copy contains mixed revisions
 -d                 :   if given, then SubWCRev will only do its job if
                        DstVersionFile does not exist
 
@@ -26,6 +28,13 @@ If a source and destination files are supplied, SubWCRev copies source
 to destination, performing keyword substitution as follows:
 
 $WCREV$ is replaced with the highest version number in the working copy.
+This is the highest commited revision, not the update revision.
+
+$WCRANGE$ is replaced with the update revision range in the working copy.
+If the working copy is in a consistent state, this will be a single revision.
+If the working copy contains mixed revisions, either due to being out of date,
+or due to a deliberate update-to-revision, then the range will be shown
+in the form 100:200
 
 $WCDATE$ is replaced with the commit date/time of that revision in
 international format, ie. yyyy-mm-dd hh:mm:ss
@@ -33,14 +42,22 @@ international format, ie. yyyy-mm-dd hh:mm:ss
 $WCMODS?TrueText:FalseText$ is replaced with TrueText if there are
 local modifications, or FalseText if not.
 
+$WCMIXED?TrueText:FalseText$ is replaced with TrueText if there are
+mixed update revisions, or FalseText if not.
+
 Finally, an optional switch may be added to abort SubWCRev if certain
 conditions are not met.
 
 The -n switch causes SubWCRev to abort with ERRORLEVEL 7 if there are
 any local modifications.
 
+The -m switch causes SubWCRev to abort with ERRORLEVEL 7 if there are
+mixed update revisions.
+
 The -d switch causes SubWCRev to abort with ERRORLEVEL 8 if the destination
 file already exists.
+
+These 3 switches should be combined if more than one is required, eg. -nm.
 
 -------------------------------------------------------------------------------
 SubWCRev was written by Stefan Küng for the TortoiseSVN project.

@@ -31,8 +31,12 @@
 #define VERDEF		"$WCREV$"
 #define DATEDEF		"$WCDATE$"
 #define MODDEF		"$WCMODS?"
+#define RANGEDEF	"$WCRANGE$"
+#define MIXEDDEF	"$WCMIXED?"
 
 BOOL bHasMods;
+LONG lowestupdate;
+LONG highestupdate;
 apr_time_t WCDate;
 
 svn_error_t *
@@ -42,7 +46,7 @@ svn_status (       const char *path,
                    svn_client_ctx_t *ctx,
                    apr_pool_t *pool);
 
-int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, unsigned long rev)
+int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, long lowest, unsigned long rev)
 { 
 	char * pBuild = pBuf + index;
 	int bEof = pBuild - pBuf >= (int)filelength;
@@ -53,9 +57,16 @@ int RevDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 	}
 	if (!bEof)
 	{
-		//replace the $WCREV$ string with the actual revision number
-		char destbuf[20];
-		sprintf(destbuf, "%Ld", rev);
+		//replace the $WCxxx$ string with the actual revision number
+		char destbuf[40];
+		if (lowest == -1 || lowest == rev)
+		{
+			sprintf(destbuf, "%Ld", rev);
+		}
+		else
+		{
+			sprintf(destbuf, "%Ld:%Ld", lowest, rev);
+		}
 		if (strlen(def) > strlen(destbuf))
 		{
 			memmove(pBuild, pBuild + (strlen(def)-strlen(destbuf)), filelength - abs((long)(pBuf - pBuild)));
@@ -118,7 +129,7 @@ int DateDefine(char * def, char * pBuf, unsigned long & index, unsigned long & f
 	return TRUE;
 }
 
-int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL /*mods*/)
+int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & filelength, BOOL isTrue)
 { 
 	char * pBuild = pBuf + index;
 	int bEof = pBuild - pBuf >= (int)filelength;
@@ -147,20 +158,20 @@ int ModDefine(char * def, char * pBuf, unsigned long & index, unsigned long & fi
 		if (*pSplit == '$')
 			return FALSE;		// No split - malformed so give up.
 
-		if (bHasMods)
+		if (isTrue)
 		{
-			// Replace $WCMODS?TrueText:FalseText$ with TrueText
+			// Replace $WCxxx?TrueText:FalseText$ with TrueText
 			memmove(pSplit, pEnd + 1, filelength - abs((long)(pBuf - pBuild)));
 			memmove(pBuild, pBuild + strlen(def), filelength - abs((long)(pBuf - pBuild)));
 			filelength = filelength - strlen(def) - (pEnd - pSplit) - 1;
 		}
 		else
 		{
-			// Replace $WCMODS?TrueText:FalseText$ with FalseText
+			// Replace $WCxxx?TrueText:FalseText$ with FalseText
 			memmove(pEnd, pEnd + 1, filelength - abs((long)(pBuf - pBuild)));
 			memmove(pBuild, pSplit + 1, filelength - abs((long)(pBuf - pBuild)));
 			filelength = filelength - (pSplit - pBuild) - 2;
-		} // if (bHasMods)
+		} // if (isTrue)
 	} // if (!bEof)
 	else
 		return FALSE;
@@ -188,14 +199,19 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf(_T("The commit date/time of the highest revision is used to replace\n"));
 		printf(_T("all occurrences of \"$WCDATE$\". The modification status is used\n"));
 		printf(_T("to replace all occurrences of \"$WCMODS?TrueText:FalseText$\" with\n"));
-		printf(_T("TrueText if there are local modifications, or FalseText if not.\n\n"));
-		printf(_T("usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-n|-d]\n\n"));
+		printf(_T("TrueText if there are local modifications, or FalseText if not.\n"));
+		printf(_T("The update revision range is used to replace all occurrences of\n"));
+		printf(_T("\"$WCRANGE$\", and all occurrences of \"$WCMIXED?TrueText:FalseText$\"\n"));
+		printf(_T("are replaced with TrueText if updates are mixed, or FalseText if not.\n\n"));
+		printf(_T("usage: SubWCRev WorkingCopyPath [SrcVersionFile] [DstVersionFile] [-nmd]\n\n"));
 		printf(_T("Params:\n"));
 		printf(_T("WorkingCopyPath    :   path to a Subversion working copy\n"));
 		printf(_T("SrcVersionFile     :   path to a template header file\n"));
 		printf(_T("DstVersionFile     :   path to where to save the resulting header file\n"));
 		printf(_T("-n                 :   if given, then SubWCRev will error if the working\n"));
 		printf(_T("                       copy contains local modifications\n"));
+		printf(_T("-m                 :   if given, then SubWCRev will error if the working\n"));
+		printf(_T("                       copy contains mixed revisions\n"));
 		printf(_T("-d                 :   if given, then SubWCRev will only do its job if\n"));
 		printf(_T("                       DstVersionFile does not exist\n"));
 		return 1;
@@ -205,8 +221,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	const TCHAR * dst = NULL;
 	const TCHAR * wc = NULL;
 	BOOL bErrOnMods = FALSE;
+	BOOL bErrOnMixed = FALSE;
 	bHasMods = FALSE;
 	WCDate = 0;
+	lowestupdate = 0;
+	highestupdate = 0;
 	if (argc == 2)
 	{
 		wc = argv[1];
@@ -216,11 +235,17 @@ int _tmain(int argc, _TCHAR* argv[])
 		wc = argv[1];
 		src = argv[2];
 		dst = argv[3];
-		if ((argc == 5) && (strcmp(argv[4], "-n")==0))
-			bErrOnMods = TRUE;
-		if ((argc == 5) && (strcmp(argv[4], "-d")==0))
-			if (PathFileExists(dst))
-				return 0;
+		// Check for flags in argv[4]
+		if ((argc == 5) && (argv[4][0] == '-'))
+		{
+			if (strchr(argv[4], 'n') != 0)
+				bErrOnMods = TRUE;
+			if (strchr(argv[4], 'm') != 0)
+				bErrOnMixed = TRUE;
+			if (strchr(argv[4], 'd') != 0)
+				if (PathFileExists(dst))
+					return 0;
+		}
 		if (!PathFileExists(src))
 		{
 			printf(_T("file %s does not exist\n"), src);
@@ -307,9 +332,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf("%s has local modifications!\n", wcfullpath);
 		return 7;
 	}
+	if (bErrOnMixed && (lowestupdate != highestupdate))
+	{
+		printf("%s has mixed revisions %Ld:%Ld!\n", wcfullpath, lowestupdate, highestupdate);
+		return 7;
+	}
 
-	printf("%s is at revision: %Ld%s\n", wcfullpath, highestrev,
+	printf("%s is at revision %Ld%s\n", wcfullpath, highestrev,
 		bHasMods ? " with local modifications" : "");
+	if (lowestupdate != highestupdate)
+	{
+		printf("Mixed revision range %Ld:%Ld\n", lowestupdate, highestupdate);
+	}
 	
 	if (argc==2)
 	{
@@ -320,13 +354,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	unsigned long index = 0;
 	
-	while (RevDefine(VERDEF, pBuf, index, filelength, highestrev));
+	while (RevDefine(VERDEF, pBuf, index, filelength, -1, highestrev));
+	
+	index = 0;
+	while (RevDefine(RANGEDEF, pBuf, index, filelength, lowestupdate, highestupdate));
 	
 	index = 0;
 	while (DateDefine(DATEDEF, pBuf, index, filelength, WCDate));
 	
 	index = 0;
 	while (ModDefine(MODDEF, pBuf, index, filelength, bHasMods));
+	
+	index = 0;
+	while (ModDefine(MIXEDDEF, pBuf, index, filelength, lowestupdate != highestupdate));
 	
 	hFile = CreateFile(dst, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
