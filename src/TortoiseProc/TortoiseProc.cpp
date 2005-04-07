@@ -1628,6 +1628,8 @@ void CTortoiseProcApp::CheckUpgrade()
 		// remove all saved dialog positions
 		CRegString(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\")).removeKey();
 		CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay")).removeValue();
+		// remove the external cache key
+		CRegDWORD(_T("Software\\TortoiseSVN\\ExternalCache")).removeValue();
 	}
 	
 	// set the current version so we don't come here again until the next update!
