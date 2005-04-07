@@ -27,8 +27,6 @@
 #include "MessageBox.h"
 #include "Utils.h"
 
-#include "auth_providers.h"
-
 SVNPrompt::SVNPrompt()
 {
 	m_app = NULL;
@@ -50,7 +48,9 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 
 	/* The main disk-caching auth providers, for both
 	'username/password' creds and 'username' creds.  */
-	tsvn_client_get_simple_provider (&provider, pool);
+	svn_client_get_windows_simple_provider (&provider, pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
+	svn_client_get_simple_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_client_get_username_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
@@ -65,7 +65,7 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 
 	/* Two prompting providers, one for username/password, one for
 	just username. */
-	tsvn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 2, /* retry limit */ pool);
+	svn_client_get_simple_prompt_provider (&provider, (svn_auth_simple_prompt_func_t)simpleprompt, this, 2, /* retry limit */ pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_client_get_username_prompt_provider (&provider, (svn_auth_username_prompt_func_t)userprompt, this, 2, /* retry limit */ pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
