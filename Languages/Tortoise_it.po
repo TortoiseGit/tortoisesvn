@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-03-27 18:03+0100\n"
+"PO-Revision-Date: 2005-04-07 10:28+0100\n"
 "Last-Translator: Luca Berti <lucaberti@freesurf.ch>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -145,6 +145,10 @@ msgstr ""
 "TortoiseMerge non può effettuare confronti su directory."
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "&Informazioni su TortoiseMerge..."
 
@@ -226,6 +230,11 @@ msgstr "&Modifica..."
 msgid "&Enable Proxy Server"
 msgstr "&Abilita il server proxy"
 
+# Control-ID:1031,
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Esci"
+
 # Control-ID:1092,
 #: Control-ID:1092
 msgid "&External"
@@ -267,7 +276,6 @@ msgstr "&Revisione di testa"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -959,6 +967,15 @@ msgstr "Analizza i dati della revisione..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "Applica un file unificato di confronto alla copia di lavoro"
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"Applica le proprietà in maniera ricorsiva a tutti i file/a tutte le cartelle.\n"
+"Le proprietà bugtraq e tsvn: saranno applicate solo alle cartelle."
+
 # ID:13,
 #: ID:13
 msgid "Apply Patch..."
@@ -1161,6 +1178,11 @@ msgstr "Annullamento della biasma SVN..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "Annullamento operazione..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Cascaded Context Menu"
+msgstr "Menu contestuale a tendina"
 
 # ID:82,
 #: ID:82
@@ -1427,11 +1449,6 @@ msgstr "In conflitto"
 #: ID:188
 msgid "Conflicts: %d"
 msgstr "Conflitti: %d"
-
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "Menu contestuale"
 
 # ID:73,
 #: ID:73
@@ -1799,10 +1816,12 @@ msgstr "Non visualizzare più questo messaggio"
 # ID:76,
 #: ID:76
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
 msgstr ""
-"Si è sicuri di voler cancellare tutte le modifiche\n"
+"Si è sicuri di voler ripristinare le modifiche di\n"
+"%s\n"
 "apportate in questa revisione?"
 
 # ID:76,
@@ -1999,6 +2018,7 @@ msgstr "Esporta un repository in una copia di lavoro senza le cartelle di ammini
 
 # ID:74,
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "Estensione"
 
@@ -2434,6 +2454,11 @@ msgstr ""
 msgid "Jump to first difference when loading"
 msgstr "Vai derettamente alla prima differenza durante il caricamento"
 
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "Mantieni blocchi"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Language:"
@@ -2491,6 +2516,17 @@ msgid ""
 msgstr ""
 "Posizione in cui verranno salvati i contenuti\n"
 "del Repository selezionato."
+
+# ID:3857,#:
+# ID:3857,
+#: ID:263
+msgid "Lock failed"
+msgstr "Blocco fallito"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "Bloccato da %s"
 
 # ID:126,
 #: ID:126
@@ -2795,6 +2831,11 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:13,
+#: Control-ID:1202
+msgid "Omit externals"
+msgstr "Tralascia esterni"
+
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
@@ -2855,6 +2896,11 @@ msgstr "Apre Repository Browser per personalizzare il browser online"
 #: ID:3843
 msgid "Out of memory."
 msgstr "Memoria insufficente."
+
+# ID:207,
+#: ID:207
+msgid "Owner"
+msgstr "Proprietario"
 
 # ID:12,
 #: MenuEntry
@@ -4050,6 +4096,17 @@ msgid "The file is too large to open."
 msgstr "Il file è troppo grande per essere aperto."
 
 # ID:80,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"Il file o la cartella\n"
+"%s\n"
+"presenta modifiche. Si è sicuri di volerlo spostare?"
+
+# ID:80,
 #: ID:80
 msgid ""
 "The file\n"
@@ -4489,6 +4546,18 @@ msgstr ""
 "Organo di emissione del certificato non riconosciuto:\n"
 "  Impronta: %s\n"
 "  Nome: %s"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:264
+msgid "Unlock failed"
+msgstr "Sblocco fallito"
+
+# ID:11,#:
+# Control-ID:1002,
+#: ID:263
+msgid "Unlocked"
+msgstr "Sbloccato"
 
 # ID:3841,#:
 # ID:3841,
