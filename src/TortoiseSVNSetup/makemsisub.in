@@ -1,0 +1,5 @@
+echo light.bat
+candle -nologo -out Setup.wixobj Setup_good.wxs
+light -nologo -out ..\..\bin\TortoiseSVN-1.2.0.$WCREV$-dev-UNICODE_svn-1.1.2.msi Setup.wixobj
+del Setup.wixobj
+del Setup_good.wxs
