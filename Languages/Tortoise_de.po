@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2005-04-06 08:56+0100\n"
+"PO-Revision-Date: 2005-04-07 09:38+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2021,6 +2021,11 @@ msgstr ""
 msgid "Jump to first difference when loading"
 msgstr "Springe zum ersten Unterschied beim Laden"
 
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "Sperren beibehalten"
+
 #: Control-ID:65535
 msgid "Language:"
 msgstr "Sprache:"
@@ -2071,6 +2076,15 @@ msgid ""
 msgstr ""
 "Zielordner, in dem die Dateien aus dem gewählten\n"
 "Projektarchiv gespeichert werden."
+
+#: ID:263
+msgid "Lock failed"
+msgstr "Sperren fehlgeschlagen"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "Gesperrt durch %s"
 
 #: ID:126
 msgid "Log"
@@ -2377,6 +2391,11 @@ msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
 #: ID:3843
 msgid "Out of memory."
 msgstr "Zu wenig Speicher."
+
+# ID:207,
+#: ID:207
+msgid "Owner"
+msgstr "Eigner"
 
 #: MenuEntry
 msgid "P&revious Conflict"
@@ -3735,6 +3754,14 @@ msgstr ""
 "Zertifikat von unbekannter Stelle zertifiziert.\n"
 "  Fingerabdruck: %s\n"
 "  Ermittelter Name: %s"
+
+#: ID:264
+msgid "Unlock failed"
+msgstr "Entsperren fehlgeschlagen"
+
+#: ID:263
+msgid "Unlocked"
+msgstr "Entsperrt"
 
 #: ID:3841
 msgid "Untitled"

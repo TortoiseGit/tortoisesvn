@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2005-03-15 11:03+0900\n"
+"PO-Revision-Date: 2005-04-07 00:52+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -146,6 +146,10 @@ msgstr ""
 "TortoiseMerge는 디렉토리에 대한 diff를 지원하지 않습니다."
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge에 대하여(&A)..."
 
@@ -225,6 +229,11 @@ msgstr "편집(&E)..."
 msgid "&Enable Proxy Server"
 msgstr "프록시 서버 활성화(&E)"
 
+# Control-ID:1031,
+#: MenuEntry
+msgid "&Exit"
+msgstr "종료(&E)"
+
 # Control-ID:1092,
 #: Control-ID:1092
 msgid "&External"
@@ -266,7 +275,6 @@ msgstr "&HEAD 리비전"
 
 # Control-ID:9,#:
 # Control-ID:57670,#:
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -949,6 +957,15 @@ msgstr "리비전 데이터 분석..."
 msgid "Applies a unified diff file to the working copy"
 msgstr "작업 사본에 Unified diff 파일을 적용합니다."
 
+# ID:15,
+#: ID:15
+msgid ""
+"Applies the properties recursively to all files/folders.\n"
+"bugtraq: and tsvn: properties are only applied to folders."
+msgstr ""
+"속성을 하위 파일 및 폴더에 재귀적으로 적용합니다.\n"
+"bugtraq: and tsvn: 속성은 폴더에만 적용됩니다."
+
 # ID:13,
 #: ID:13
 msgid "Apply Patch..."
@@ -990,6 +1007,11 @@ msgstr "작성자"
 #: Control-ID:65535
 msgid "Author:                        Stefan Kueng"
 msgstr "작성자:                         Stefan Kueng"
+
+# ID:76,
+#: ID:116
+msgid "Authors"
+msgstr "작성자"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1060,11 +1082,6 @@ msgstr "소스 파일의 각 행에 대해 마지막으로 수정한 사람을 �
 #: Control-ID:1003
 msgid "Br&owse..."
 msgstr "찾아보기(&O)"
-
-# Dlg-ID:142,
-#: Dlg-ID:142
-msgid "Branch / Tag"
-msgstr "브랜치 / 태그 만들기"
 
 # ID:115,
 #: ID:115
@@ -1152,6 +1169,11 @@ msgstr "SVN 수정한 사람 보기 취소중..."
 #: ID:270
 msgid "Cancelling operation..."
 msgstr "취소중..."
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Cascaded Context Menu"
+msgstr "중첩된 컨텍스트 메뉴"
 
 # ID:82,
 #: ID:82
@@ -1419,11 +1441,6 @@ msgstr "충돌"
 msgid "Conflicts: %d"
 msgstr "충돌: %d"
 
-# Control-ID:65535,
-#: Control-ID:65535
-msgid "Context Menu"
-msgstr "컨텍스트 메뉴"
-
 # ID:73,
 #: ID:73
 msgid "Continue"
@@ -1448,6 +1465,11 @@ msgstr "복사됨"
 #: ID:126
 msgid "Copied remotely"
 msgstr "원격 복사됨"
+
+# Dlg-ID:142,
+#: Dlg-ID:142
+msgid "Copy (Branch / Tag)"
+msgstr "복사하기 (브랜치/태그 만들기)"
 
 # ID:76,
 #: ID:76
@@ -1595,11 +1617,6 @@ msgstr "프린트 작업을 시작할 수 없습니다."
 msgid "Could not start thread!"
 msgstr "쓰레드를 시작시킬 수 없습니다!"
 
-# Control-ID:1073,
-#: Control-ID:65535
-msgid "Create Branch/Tag on the server from:"
-msgstr "서버에 직접 브랜치/태그 만들기 원본:"
-
 # ID:13,
 #: ID:13
 msgid "Create Patch..."
@@ -1612,8 +1629,13 @@ msgstr "저장소 생성"
 
 # ID:8,
 #: ID:8
-msgid "Create Repository here"
-msgstr "현재 위치에 저장소 생성"
+msgid "Create Repository here..."
+msgstr "현재 위치에 저장소 생성..."
+
+# Control-ID:1073,
+#: Control-ID:65535
+msgid "Create copy in the repository from:"
+msgstr "서버에 직접 사본 만들기. 원본:"
 
 # ID:126,
 #: ID:126
@@ -1784,11 +1806,13 @@ msgstr "다시는 이 메시지를 표시하지 않음"
 # ID:76,
 #: ID:76
 msgid ""
-"Do you really want to revert all changes\n"
+"Do you really want to revert all changes to\n"
+"%s\n"
 "which were made in this revision?"
 msgstr ""
-"이번 리비전에서 만든 모든 것을 \n"
-"되돌리시겠습니까?"
+"이번 리비전에서 변경한 모든 것을 \n"
+"%s\n"
+"로 되돌리시겠습니까?"
 
 # ID:76,
 #: ID:76
@@ -1984,6 +2008,7 @@ msgstr "svn 관리 폴더를 제외한 깨끗한 사본 얻기"
 
 # ID:74,
 #: ID:74
+#: ID:207
 msgid "Extension"
 msgstr "확장자"
 
@@ -2098,6 +2123,11 @@ msgid "For Help, press F1"
 msgstr "도움말 F1"
 
 # Control-ID:65535,
+#: Control-ID:1200
+msgid "From:"
+msgstr "원본:"
+
+# Control-ID:65535,
 #: Control-ID:65535
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "시작: (병합할 범위의 시작 URL과 리비전)"
@@ -2193,13 +2223,8 @@ msgstr "H&EAD 리비전"
 
 # ID:12,
 #: Control-ID:1182
-msgid "HEAD revision on the server"
+msgid "HEAD revision in the repository"
 msgstr "저장소의 최신 리비전"
-
-# ID:12,
-#: ID:238
-msgid "Head revision of the repository is: %d"
-msgstr "저장소의 최신 리비전: %d"
 
 # ID:12,#:
 # Control-ID:1004,
@@ -2500,6 +2525,16 @@ msgstr "로그 메시지"
 msgid "Look and Feel"
 msgstr "모양"
 
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld"
+msgstr "최하위 리비전: %ld - 최상위 리비전: %ld"
+
+# ID:238,
+#: ID:238
+msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
+msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신 리비전: %ld"
+
 # ID:3866,#:
 # ID:3866,
 #: ID:3866
@@ -2559,6 +2594,16 @@ msgstr "병합"
 #: ID:76
 msgid "Message"
 msgstr "메시지"
+
+# ID:76,
+#: ID:116
+msgid "Messages"
+msgstr "메시지"
+
+# ID:116,
+#: ID:116
+msgid "Messages, Authors And Paths"
+msgstr "로그 메시지, 작성자, 경로"
 
 # ID:78,
 #: ID:78
@@ -2757,14 +2802,15 @@ msgstr "확인"
 msgid "OVR"
 msgstr "OVR"
 
+# ID:13,
+#: Control-ID:1202
+msgid "Omit externals"
+msgstr "외부 경로는 누락시킴"
+
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
 msgstr "한 개 이상의 파일이 충돌 상태입니다."
-
-#: MenuEntry
-msgid "Oneway &Diff"
-msgstr "단일 윈도우에서 비교(&D)"
 
 # Control-ID:1073,
 #: Control-ID:1073
@@ -2860,6 +2906,11 @@ msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 # ID:77,
 #: ID:77
 msgid "Path"
+msgstr "경로"
+
+# ID:77,
+#: ID:116
+msgid "Paths"
 msgstr "경로"
 
 # ID:157,
@@ -3261,10 +3312,14 @@ msgstr "재시도"
 # ID:8,#:
 # ID:73,#:
 # Dlg-ID:175,
-#: ID:8
 #: Dlg-ID:175
 msgid "Revert"
 msgstr "되돌리기"
+
+# ID:77,
+#: ID:8
+msgid "Revert..."
+msgstr "되돌리기..."
 
 # ID:8,#:
 # ID:73,#:
@@ -3777,7 +3832,7 @@ msgstr "없는 개체는 건너뜀"
 
 # Control-ID:1185,
 #: Control-ID:1185
-msgid "Specific revision on the server"
+msgid "Specific revision in repository"
 msgstr "서버상 특정 리비전"
 
 # ID:79,
@@ -3956,11 +4011,13 @@ msgstr "텍스트 상태:"
 msgid ""
 "The File\n"
 "%s\n"
-"is not a valid text file!"
+"is not a valid text file!\n"
+"Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
-"이 파일은\n"
+"파일\n"
 "%s\n"
-"처리가능한 파일이 아닙니다."
+"은/는 올바른 텍스트 파일이 아닙니다.\n"
+"UTF16과 UTF32 파일은 바이너리로 취급됩니다."
 
 # ID:80,
 #: ID:80
@@ -4001,6 +4058,17 @@ msgstr "패치 파일에 없는 파일입니다.: %s "
 #: ID:3857
 msgid "The file is too large to open."
 msgstr "너무 커서 열수가 없습니다."
+
+# ID:145,
+#: ID:145
+msgid ""
+"The file or folder\n"
+"%s\n"
+"has local modifications. Do you really want to move this file?"
+msgstr ""
+"파일 또는 폴더\n"
+"%s\n"
+"에 수정된 것이 있습니다. 정말 이동시키시겠습니까?"
 
 # ID:80,
 #: ID:80
@@ -4227,6 +4295,11 @@ msgstr "세 파일 비교"
 msgid "To see the changes you made, double click on the files above."
 msgstr "바뀐 부분을 보고 싶을 경우 위 파일들을 더블 클릭하십시오."
 
+# Control-ID:1201,
+#: Control-ID:1201
+msgid "To:"
+msgstr "대상:"
+
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "To: (end URL and revision of the range to merge)"
@@ -4330,6 +4403,10 @@ msgstr "TortoiseSVN 설정 변경"
 #: Control-ID:65535
 msgid "Two File Diff"
 msgstr "두 파일 비교"
+
+#: MenuEntry
+msgid "Two-way &Diff"
+msgstr "단일 윈도우에서 비교(&D)"
 
 # Dlg-ID:164,
 #: Dlg-ID:164

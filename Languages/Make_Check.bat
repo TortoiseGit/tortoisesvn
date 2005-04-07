@@ -4,7 +4,8 @@ rem Script to build the language dlls
 SETLOCAL ENABLEDELAYEDEXPANSION
 if "%TortoiseVars%"=="" call ..\TortoiseVars.bat
 set LogFile=statusreport.txt
-set TmpFile=statusreport.tmp
+set TmpFileDone=statusreport.tm1
+set TmpFileReview=statusreport.tm2
 set LotsOfBlanks="                              "
 
 rem Count all messages in PO Template file
@@ -27,6 +28,7 @@ echo Total=!total! >> %LogFile%
 echo. >> %LogFile%
 echo Language : translated - fuzzy - untranslated - missing accelerator keys >> %LogFile%
 echo. >> %LogFile%
+echo Incomplete: >> %Logfile%
 
 echo.
 echo Translation Status report for r!version:~0,4!
@@ -62,10 +64,14 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (Languages.txt) DO (
 
     if !errsum! EQU 0 (
       echo !LANGNAME! !total! - OK
-      echo %%j ^(%%i^) >> %TmpFile% 
+      echo %%j ^(%%i^) >> %TmpFileDone% 
     ) else (
       echo !LANGNAME! !tra! - !fuz! - !unt! - !errors!
-      echo !LANGNAME! !tra! - !fuz! - !unt! - !errors! >> %LogFile% 
+      if !total! EQU !tra! (
+        echo !LANGNAME! !tra! - !fuz! - !unt! - !errors! >> %TmpFileReview% 
+      ) else (
+        echo !LANGNAME! !tra! - !fuz! - !unt! - !errors! >> %LogFile% 
+      )
     )
   ) ELSE (
     echo !LANGNAME! !POFILE! not found
@@ -74,11 +80,15 @@ FOR /F "eol=# delims=	; tokens=1,5" %%i IN (Languages.txt) DO (
 )
 
 echo. >> %Logfile%
-echo Finished: >> %Logfile%
-echo. >> %Logfile%
-type %TmpFile% >> %LogFile%
+echo Needs review: >> %Logfile%
+type %TmpFileReview% >> %LogFile%
 
-del %TmpFile%
+echo. >> %Logfile%
+echo Finished: >> %Logfile%
+type %TmpFileDone% >> %LogFile%
+
+del %TmpFileReview%
+del %TmpFileDone%
 del _Tortois_*.po /Q
 del *.mo
 
