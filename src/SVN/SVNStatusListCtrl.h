@@ -68,7 +68,7 @@ SVNSLC_SHOWIGNORED|SVNSLC_SHOWOBSTRUCTED|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINCOMPLE
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /**
- * \ingroup TortoiseProc
+ * \ingroup SVN
  * A List control, based on the MFC CListCtrl which shows a list of
  * files with their Subversion status. The control also provides a context
  * menu to do some Subversion tasks on the selected files.

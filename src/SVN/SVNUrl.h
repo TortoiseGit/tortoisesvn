@@ -24,7 +24,7 @@
 
 
 /**
- * \ingroup TortoiseProc
+ * \ingroup SVN
  * SVNUrl is a specialized CString class which is aware of Subversion URLs.
  * In addition to the normal conventions for URLs, SVNUrls may include a
  * revision information in the form "PATH?REV".

@@ -31,7 +31,7 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									void *baton, apr_pool_t * pool);
 
 /**
- * \ingroup TortoiseProc
+ * \ingroup SVN
  * This class provides all Subversion commands as methods and adds some helper
  * methods to the Subversion commands. Also provides virtual methods for the
  * callbacks Subversion uses. This class can't be used directly but must be
