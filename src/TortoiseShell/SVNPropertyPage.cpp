@@ -570,6 +570,8 @@ void CSVNPropertyPage::InitWorkfileView()
 	{
 		if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
 		{
+			TCHAR buf[MAX_PROP_STRING_LENGTH];
+			__time64_t	time;
 			if (svn.status->entry != NULL)
 			{
 				if (svn.status->entry->kind == svn_node_file)
@@ -579,8 +581,6 @@ void CSVNPropertyPage::InitWorkfileView()
 					::EnableWindow(recursivewnd, FALSE);					
 				}
 				LoadLangDll();
-				TCHAR buf[MAX_PROP_STRING_LENGTH];
-				__time64_t	time;
 				_stprintf(buf, _T("%d"), svn.status->entry->revision);
 				SetDlgItemText(m_hwnd, IDC_REVISION, buf);
 				if (svn.status->entry->url)
@@ -681,7 +681,22 @@ void CSVNPropertyPage::InitWorkfileView()
 				//now adjust the column widths
 				ListView_SetColumnWidth(lvh, 0, LVSCW_AUTOSIZE_USEHEADER);
 				ListView_SetColumnWidth(lvh, 1, LVSCW_AUTOSIZE_USEHEADER);
-			} // if (svn.status->entry != NULL) 
+			} // if (svn.status->entry != NULL)
+			if (svn.status->repos_lock)
+			{
+				if (svn.status->repos_lock->owner)
+#ifdef UNICODE
+					SetDlgItemText(m_hwnd, IDC_LOCKOWNER, UTF8ToWide(svn.status->repos_lock->owner).c_str());
+#else
+					SetDlgItemText(m_hwnd, IDC_LOCKOWNER, svn.status->repos_lock->owner);
+#endif
+				time = (__time64_t)svn.status->repos_lock->creation_date/1000000L;
+				Time64ToTimeString(time, buf);
+				SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
+				time = (__time64_t)svn.status->repos_lock->expiration_date/1000000L;
+				Time64ToTimeString(time, buf);
+				SetDlgItemText(m_hwnd, IDC_LOCKEXPDATE, buf);
+			}
 		} // if (svn.GetStatus(filename.c_str())>(-2)) 
 	} // if (filenames.size() == 1) 
 	else if (filenames.size() != 0)
