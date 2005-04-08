@@ -125,16 +125,13 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus)
 			m_sUrl = pSVNStatus->entry->url;
 			m_commitRevision = pSVNStatus->entry->cmt_rev;
 			m_bSVNEntryFieldSet = true;
+			m_sOwner = pSVNStatus->entry->lock_owner;
 		}
 		else
 		{
 			m_sUrl.Empty();
 			m_commitRevision = 0;
 			m_bSVNEntryFieldSet = false;
-		}
-		if ((pSVNStatus->repos_lock)&&(pSVNStatus->repos_lock->owner))
-		{
-			m_sOwner = pSVNStatus->repos_lock->owner;
 		}
 		m_svnStatus.entry = NULL;
 	}
