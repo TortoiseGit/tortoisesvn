@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2005-04-04 20:24+0100\n"
+"PO-Revision-Date: 2005-04-08 20:34+0100\n"
 "Last-Translator: Jostein Chr. Andersen <jostein@josander.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -161,6 +161,10 @@ msgstr ""
 "TortoiseMerge kan ikke diffe kataloger."
 
 #: MenuEntry
+msgid "&?"
+msgstr "&?"
+
+#: MenuEntry
 msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
@@ -226,6 +230,10 @@ msgstr "&Rediger..."
 msgid "&Enable Proxy Server"
 msgstr "&Aktiver mellomtjener"
 
+#: MenuEntry
+msgid "&Exit"
+msgstr "&Avslutt"
+
 #: Control-ID:1092
 msgid "&External"
 msgstr "&Ekstern"
@@ -256,7 +264,6 @@ msgstr "&Fra AK på adressen:"
 msgid "&Head Revision"
 msgstr "&Hovedrevisjon"
 
-#: Control-ID:9
 #: Control-ID:57670
 #: MenuEntry
 msgid "&Help"
@@ -668,14 +675,14 @@ msgid "Added a folder remotely"
 msgstr "La til en mappe eksternt"
 
 #: ID:145
-#, fuzzy
 msgid ""
 "Added the file(s)\n"
 "%s\n"
 "to the ignore list."
 msgstr ""
-"La til valgt(e) fil(er)\n"
-"%si ignorerings-listen."
+"La til filen(e)\n"
+"%s\n"
+"i ignorerings-listen."
 
 #: ID:263
 msgid "Adding"
@@ -822,6 +829,8 @@ msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
 msgstr ""
+"Legger egenskapene rekursivt til alle filer/mapper.\n"
+"bugtraq: og tsvn: Egenskapene legges bare til mapper."
 
 #: ID:13
 msgid "Apply Patch..."
@@ -858,9 +867,8 @@ msgid "Author:                        Stefan Kueng"
 msgstr "Forfatter:                      Stefan Kueng"
 
 #: ID:116
-#, fuzzy
 msgid "Authors"
-msgstr "Forfatter"
+msgstr "Forfattere"
 
 #: Control-ID:65535
 msgid "Authors:                      Stefan Kueng, Tim Kemp"
@@ -996,9 +1004,8 @@ msgstr "Avbryter operasjon..."
 
 # Control-ID:65535,
 #: Control-ID:65535
-#, fuzzy
 msgid "Cascaded Context Menu"
-msgstr "Sammenhengsmeny"
+msgstr "Overlappende sammenhengsmeny"
 
 #: ID:82
 msgid "Certificate expired or not yet valid"
@@ -1206,9 +1213,8 @@ msgid "Compare with &working copy"
 msgstr "Sammenlign med &arbeidskopi"
 
 #: ID:12
-#, fuzzy
 msgid "Compares the file with the last committed revision to show you the changes you made"
-msgstr "Sammenligner filen med den siste innsendte versjonen for å vise forandringene dine"
+msgstr "Sammenligner filen med den siste innsendte versjonen for å vise dine siste forandringer."
 
 #: ID:74
 msgid "Completed"
@@ -1245,9 +1251,8 @@ msgid "Copied remotely"
 msgstr "Kopiert eksternt"
 
 #: Dlg-ID:142
-#, fuzzy
 msgid "Copy (Branch / Tag)"
-msgstr "Forgrening/Merke"
+msgstr "Kopier (forgrening/merke)"
 
 # ID:76,
 #: ID:76
@@ -1313,9 +1318,8 @@ msgstr ""
 "%s"
 
 #: ID:82
-#, fuzzy
 msgid "Could not remove %s from the ignored list"
-msgstr "Fikk ikke lagt %s i ignoreringslisten!"
+msgstr "Kunne ikke fjerne %s fra ignoreringslisten"
 
 #: ID:81
 msgid ""
@@ -1326,12 +1330,11 @@ msgstr ""
 "%s"
 
 #: ID:66
-#, fuzzy
 msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
-"Versjon %s av filen %s kunne ikke hentes.\n"
+"Revisjonen %s av filen %s kunne ikke hentes.\n"
 "Lapping (patching) er ikke mulig!"
 
 #: ID:64
@@ -1385,14 +1388,12 @@ msgid "Create Repository"
 msgstr "Lag depot"
 
 #: ID:8
-#, fuzzy
 msgid "Create Repository here..."
-msgstr "Lag depot her"
+msgstr "Lag depot her..."
 
 #: Control-ID:65535
-#, fuzzy
 msgid "Create copy in the repository from:"
-msgstr "Lag depot her"
+msgstr "Lag kopi i depotet fra:"
 
 #: ID:126
 msgid "Created folder remotely"
@@ -1529,14 +1530,14 @@ msgid "Do not show this message again"
 msgstr "Ikke vis denne beskjeden igjen"
 
 #: ID:76
-#, fuzzy
 msgid ""
 "Do you really want to revert all changes to\n"
 "%s\n"
 "which were made in this revision?"
 msgstr ""
-"Er du sikker på at du vil tilbakestille alt\n"
-"som var gjort i denne revisjonen?"
+"Er du sikker på at du vil tilbakestille forandringene til\n"
+"%s\n"
+"som ble gjort i denne revisjonen?"
 
 #: ID:76
 msgid "Do you want to proceed?"
@@ -1584,9 +1585,8 @@ msgid "EXT"
 msgstr "EXT"
 
 #: ID:113
-#, fuzzy
 msgid "Edit Author"
-msgstr "Forfatter"
+msgstr "Rediger forfatter"
 
 #: ID:12
 msgid "Edit Conflicts"
@@ -1601,19 +1601,17 @@ msgid "Edit Extension Specific Merge Program"
 msgstr "Rediger et filendelse-spesifikt flette-program"
 
 #: ID:113
-#, fuzzy
 msgid "Edit Log Message"
-msgstr "Skriv loggmelding"
+msgstr "Rediger loggmelding"
 
 # ID:115,
 #: ID:115
 msgid "Edit author name"
-msgstr ""
+msgstr "Rediger forfatternavn"
 
 #: ID:115
-#, fuzzy
 msgid "Edit log message"
-msgstr "Skriv loggmelding"
+msgstr "Rediger loggmelding"
 
 #: ID:79
 msgid "Either the name or IP of the proxy server"
@@ -1747,9 +1745,8 @@ msgid "Fetching File..."
 msgstr "Henter fil..."
 
 #: ID:313
-#, fuzzy
 msgid "Fetching revision %s of file:"
-msgstr "Henter versjon %s av filen:"
+msgstr "Henter revisjon %s av filen:"
 
 #: ID:63
 #: ID:74
@@ -1793,9 +1790,8 @@ msgid "For Help, press F1"
 msgstr "Trykk på F1 for hjelp"
 
 #: Control-ID:1200
-#, fuzzy
 msgid "From:"
-msgstr "&Fra adresse"
+msgstr "Fra:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -1879,9 +1875,8 @@ msgid "H&ead Revision"
 msgstr "&Hovedrevisjon"
 
 #: Control-ID:1182
-#, fuzzy
 msgid "HEAD revision in the repository"
-msgstr "Bruk denne hvis depotets plassering er forandret"
+msgstr "Hovedrevisjon i depotet"
 
 #: ID:12
 #: Control-ID:1004
@@ -2071,6 +2066,11 @@ msgstr ""
 msgid "Jump to first difference when loading"
 msgstr "Hopp til første forskjell ved innlasting"
 
+# Control-ID:1203,
+#: Control-ID:1203
+msgid "Keep Locks"
+msgstr "Behold sperringer"
+
 #: Control-ID:65535
 msgid "Language:"
 msgstr "Språk:"
@@ -2122,6 +2122,30 @@ msgstr ""
 "Plasseringen som inneholdet i\n"
 "depoets adresse lagres til."
 
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock creation date:"
+msgstr "Opprettelsdato for sperre:"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock exp. date:"
+msgstr "Sperren utgår:"
+
+#: ID:263
+msgid "Lock failed"
+msgstr "Sperringen feilet"
+
+# Control-ID:65535,
+#: Control-ID:65535
+msgid "Lock owner:"
+msgstr "Sperrens eier:"
+
+# ID:263,
+#: ID:263
+msgid "Locked by %s"
+msgstr "Sperret av %s"
+
 #: ID:126
 msgid "Log"
 msgstr "Logg:"
@@ -2146,12 +2170,12 @@ msgstr "Utseende og følelse"
 # ID:238,
 #: ID:238
 msgid "Lowest Revision: %ld - Highest Revision: %ld"
-msgstr ""
+msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld"
 
 # ID:238,
 #: ID:238
 msgid "Lowest Revision: %ld - Highest Revision: %ld - Head revision: %ld"
-msgstr ""
+msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld - Hoved-(HEAD) revisjon: %ld"
 
 #: ID:3866
 msgid "Mail system DLL is invalid."
@@ -2204,14 +2228,13 @@ msgid "Message"
 msgstr "Melding"
 
 #: ID:116
-#, fuzzy
 msgid "Messages"
-msgstr "Melding"
+msgstr "Meldinger"
 
 # ID:116,
 #: ID:116
 msgid "Messages, Authors And Paths"
-msgstr ""
+msgstr "Meldinger, forfattere og stier"
 
 #: ID:78
 msgid "Mime Type"
@@ -2380,6 +2403,10 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
+#: Control-ID:1202
+msgid "Omit externals"
+msgstr "Utelukk eksterne"
+
 # ID:219,
 #: ID:219
 msgid "One or more files are in a conflicted state."
@@ -2430,6 +2457,11 @@ msgstr "Åpner depot-utforskeren slik at depoet kan jobbes med når tilkoblet"
 msgid "Out of memory."
 msgstr "Ikke mer minne."
 
+# ID:207,
+#: ID:207
+msgid "Owner"
+msgstr "Eier"
+
 #: MenuEntry
 msgid "P&revious Conflict"
 msgstr "&Forrige konflikt"
@@ -2449,9 +2481,8 @@ msgid "Password:"
 msgstr "Passord:"
 
 #: ID:172
-#, fuzzy
 msgid "Paste filename list"
-msgstr "Lim inn forandrede filnavn"
+msgstr "Lim inn filnavnlisten"
 
 #: ID:376
 msgid "Patch All"
@@ -2466,9 +2497,8 @@ msgid "Path"
 msgstr "Filsti"
 
 #: ID:116
-#, fuzzy
 msgid "Paths"
-msgstr "Filsti"
+msgstr "Stier"
 
 # ID:157,
 #: ID:157
@@ -2690,9 +2720,8 @@ msgid "Remote Text Status"
 msgstr "Tekst-status, eksternt"
 
 #: ID:15
-#, fuzzy
 msgid "Remove From Ignore List"
-msgstr "Legg til i ignoreringslisten"
+msgstr "Fjrel fra ignoreringslisten"
 
 #: Control-ID:65535
 msgid "Removed"
@@ -3364,6 +3393,10 @@ msgid ""
 "is not a valid text file!\n"
 "Note that UTF16 and UTF32 files are treated as binary too."
 msgstr ""
+"Filen\n"
+"%s\n"
+"er ikke en gyldig tekstfil!\n"
+"Merk at UTF-16 og UTF-32 også behandles som binærfiler."
 
 #: ID:80
 msgid "The Repository was successfully created."
@@ -3404,6 +3437,9 @@ msgid ""
 "%s\n"
 "has local modifications. Do you really want to move this file?"
 msgstr ""
+"Filen eller mappen\n"
+"%s\n"
+"har lokale endringer. Er du dikker på at du vil flytte denne?"
 
 #: ID:80
 msgid ""
@@ -3615,7 +3651,7 @@ msgstr "Dobbelt-klikk på filene ovenfor for å se dine forandringer"
 # Control-ID:1201,
 #: Control-ID:1201
 msgid "To:"
-msgstr ""
+msgstr "Til:"
 
 # Control-ID:65535,
 #: Control-ID:65535
@@ -3793,6 +3829,14 @@ msgstr ""
 "Ukjent sertifikat-utsteder.\n"
 "  Fingeravtrykk: %s\n"
 "  Enestående navn: %s"
+
+#: ID:264
+msgid "Unlock failed"
+msgstr "Oppheving av sperring feilet"
+
+#: ID:263
+msgid "Unlocked"
+msgstr "Sperring opphevet"
 
 #: ID:3841
 msgid "Untitled"
