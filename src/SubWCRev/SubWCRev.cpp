@@ -327,24 +327,33 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		return 9;
 	}
-	if ((bErrOnMods)&&(bHasMods))
+	
+	printf(_T("SubWCRev: '%s'\n"), wcfullpath);
+	
+	if (bErrOnMods && bHasMods)
 	{
-		printf("%s has local modifications!\n", wcfullpath);
+		printf(_T("Working copy has local modifications!\n"));
 		return 7;
 	}
+	
 	if (bErrOnMixed && (lowestupdate != highestupdate))
 	{
-		printf("%s has mixed revisions %Ld:%Ld!\n", wcfullpath, lowestupdate, highestupdate);
+		printf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), lowestupdate, highestupdate);
 		return 7;
 	}
 
-	printf("%s is at revision %Ld%s\n", wcfullpath, highestrev,
-		bHasMods ? " with local modifications" : "");
+	printf(_T("Last committed at revision %Ld\n"), highestrev);
+
 	if (lowestupdate != highestupdate)
 	{
-		printf("Mixed revision range %Ld:%Ld\n", lowestupdate, highestupdate);
+		printf(_T("Mixed revision range %Ld:%Ld\n"), lowestupdate, highestupdate);
 	}
 	
+	if (bHasMods)
+	{
+		printf(_T("Local modifications found\n"));
+	}
+
 	if (argc==2)
 	{
 		return 0;
