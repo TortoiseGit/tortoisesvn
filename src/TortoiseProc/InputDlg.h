@@ -45,9 +45,11 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CString m_sInputText;
-	CString m_sHintText;
-	CString m_sTitle;
-	CSciEdit	m_cInput;
+	CString				m_sInputText;
+	CString				m_sHintText;
+	CString				m_sTitle;
+	CString				m_sCheckText;
+	int					m_iCheck;
+	CSciEdit			m_cInput;
 	ProjectProperties * m_pProjectProperties;
 };
