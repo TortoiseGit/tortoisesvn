@@ -34,7 +34,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../ext/gettext/lib/intl.lib"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Debug\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Debug\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Debug\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Debug\libapr.lib ../../../Subversion\apr-util\Debug\libaprutil.lib ../../../Subversion\apr-iconv\Debug\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"
@@ -90,7 +90,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../ext/gettext/lib/intl.lib"
+				AdditionalDependencies="shlwapi.lib Version.lib ../../../Subversion\Release\subversion\libsvn_diff\libsvn_diff-1.lib ../../../Subversion\Release\subversion\libsvn_subr\libsvn_subr-1.lib ../../../Subversion\Release\subversion\libsvn_client\libsvn_client-1.lib ../../../Subversion\apr\Release\libapr.lib ../../../Subversion\apr-util\Release\libaprutil.lib ../../../Subversion\apr-iconv\Release\libapriconv.lib ../../ext/svn-win32-libintl/lib/intl3_svn.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="TRUE"
 				SubSystem="2"

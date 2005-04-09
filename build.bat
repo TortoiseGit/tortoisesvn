@@ -8,8 +8,8 @@ rem
 @if "%VSINSTALLDIR%"=="" call "%VS71COMNTOOLS%\vsvars32.bat"
 if "%TortoiseVars%"=="" call TortoiseVars.bat
 
-set INCLUDE=%~dp0ext\gettext\include;%INCLUDE%
-set LIB=%~dp0ext\gettext\lib;%LIB%
+set INCLUDE=%~dp0ext\svn-win32-libintl\inc;%INCLUDE%
+set LIB=%~dp0ext\svn-win32-libintl\lib;%LIB%
 
 if "%1"=="" (
   SET _RELEASE=ON
@@ -115,7 +115,7 @@ if DEFINED _DEBUG (
   if EXIST bin\debug\bin rmdir /S /Q bin\debug\bin > NUL
   mkdir bin\debug\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\debug\bin /Y > NUL
-  copy .\ext\gettext\bin\intl.dll bin\debug\bin /Y > NUL
+  copy .\ext\svn-win32-libintl\bin\intl3_svn.dll bin\debug\bin /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42d.dll bin\debug\bin /Y > NUL
   copy ..\Subversion\apr\Debug\libapr.dll bin\Debug\bin /Y > NUL 
   copy ..\Subversion\apr-util\Debug\libaprutil.dll bin\Debug\bin /Y > NUL 
@@ -128,7 +128,7 @@ if DEFINED _RELEASE (
   if EXIST bin\release\bin rmdir /S /Q bin\release\bin > NUL
   mkdir bin\release\bin > NUL
   copy ..\Common\openssl\out32dll\*.dll bin\release\bin /Y > NUL
-  copy .\ext\gettext\bin\intl.dll bin\release\bin /Y > NUL
+  copy .\ext\svn-win32-libintl\bin\intl3_svn.dll bin\release\bin /Y > NUL
   copy ..\Subversion\db4-win32\bin\libdb42.dll bin\release\bin /Y > NUL
   copy ..\Subversion\apr\Release\libapr.dll bin\Release\bin /Y > NUL 
   copy ..\Subversion\apr-util\Release\libaprutil.dll bin\Release\bin /Y > NUL 
