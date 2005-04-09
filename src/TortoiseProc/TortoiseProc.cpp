@@ -47,6 +47,7 @@
 #include "BlameDlg.h"
 #include "CheckForUpdatesDlg.h"
 #include "RevisionGraphDlg.h"
+#include "InputDlg.h"
 #include "BrowseFolder.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
@@ -116,7 +117,9 @@ typedef enum
 	cmdCat,
 	cmdCreatePatch,
 	cmdUpdateCheck,
-	cmdRevisionGraph
+	cmdRevisionGraph,
+	cmdLock,
+	cmdUnlock
 } TSVNCommand;
 
 static const struct CommandInfo
@@ -165,6 +168,8 @@ static const struct CommandInfo
 	{	cmdCreatePatch,		_T("createpatch"),		false	},
 	{	cmdUpdateCheck,		_T("updatecheck"),		false	},
 	{	cmdRevisionGraph,	_T("revisiongraph"),	false	},
+	{	cmdLock,			_T("lock"),				true	},
+	{	cmdUnlock,			_T("unlock"),			true	},
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -1401,13 +1406,40 @@ BOOL CTortoiseProcApp::InitInstance()
 			dlg.DoModal();
 		} 
 		//#endregion
+		//#region lock
+		if (command == cmdLock)
+		{
+			CInputDlg inpDlg;
+			inpDlg.m_sTitle.LoadString(IDS_MENU_LOCK);
+			inpDlg.m_sHintText.LoadString(IDS_LOCK_MESSAGEHINT);
+			inpDlg.m_sCheckText.LoadString(IDS_LOCK_STEALCHECK);
+			ProjectProperties props;
+			props.ReadPropsPathList(pathList);
+			props.nMinLogSize = 0;		// the lock message is optional, so no minimum!
+			inpDlg.m_pProjectProperties = &props;
+			if (inpDlg.DoModal()==IDOK)
+			{
+				CSVNProgressDlg progDlg;
+				progDlg.SetParams(CSVNProgressDlg::Lock, inpDlg.m_iCheck ? ProgOptLockForce : 0, pathList, CString(), inpDlg.m_sInputText);
+				progDlg.DoModal();
+			}
+		}
+		//#endregion
+		//#region unlock
+		if (command == cmdUnlock)
+		{
+			CSVNProgressDlg progDlg;
+			progDlg.SetParams(CSVNProgressDlg::Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, pathList);
+			progDlg.DoModal();
+		} 
+		//#endregion
 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);
 	} 
 
 	// Look for temporary files left around by TortoiseSVN and
-	// remove them. But only delete 'old' files because the some
+	// remove them. But only delete 'old' files because some
 	// apps might still be needing the recent ones.
 	{
 		DWORD len = ::GetTempPath(0, NULL);

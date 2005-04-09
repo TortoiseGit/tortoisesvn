@@ -96,6 +96,7 @@ typedef struct FileStatusCacheEntry
 	svn_wc_status_kind		status;
 	const char*				author;		///< points to a (possibly) shared value
 	const char*				url;		///< points to a (possibly) shared value
+	const char*				owner;		///< points to a (possible) lock owner
 	svn_revnum_t			rev;
 	int						askedcounter;
 	svn_lock_t *			lock;
@@ -166,6 +167,7 @@ private:
 	
 	StringPool		authors;       
 	StringPool		urls;
+	StringPool		owners;
 	char			emptyString[1];
 
 	stdstring		sCacheKey;

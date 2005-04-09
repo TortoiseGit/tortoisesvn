@@ -32,10 +32,12 @@ typedef enum
 	ProgOptNone = 0,
 	ProgOptRecursive = 0x01,
 	ProgOptNonRecursive = 0x00,
-	// Don't actually do the merge - just practice it
+	/// Don't actually do the merge - just practice it
 	ProgOptDryRun = 0x04,
 	ProgOptIgnoreExternals = 0x08,
-	ProgOptKeeplocks = 0x10
+	ProgOptKeeplocks = 0x10,
+	/// for locking this means steal the lock, for unlocking it means breaking the lock
+	ProgOptLockForce = 0x20
 } ProgressOptions;
 
 typedef enum
@@ -92,7 +94,9 @@ public:
 		Enum_Merge = 10,
 		Copy = 11,
 		Relocate = 12,
-		Rename = 13
+		Rename = 13,
+		Lock = 14,
+		Unlock = 15
 	} Command;
 
 private:

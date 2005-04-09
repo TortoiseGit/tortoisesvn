@@ -744,6 +744,10 @@ msgstr ""
 msgid "Branch/Tag..."
 msgstr ""
 
+#: ID:16,
+msgid "Break Lock"
+msgstr ""
+
 #: Control-ID:1009,
 msgid "Bro&wse..."
 msgstr ""
@@ -1332,6 +1336,10 @@ msgstr ""
 msgid "Enter URL"
 msgstr ""
 
+#: ID:313,
+msgid "Enter a lock message (optional):"
+msgstr ""
+
 #: ID:3603,
 msgid "Erase everything\nErase All"
 msgstr ""
@@ -1488,6 +1496,10 @@ msgstr ""
 msgid "Generating Patchfile..."
 msgstr ""
 
+#: ID:16,
+msgid "Get Lock"
+msgstr ""
+
 #: ID:119,
 msgid "Getting File %s"
 msgstr ""
@@ -1574,6 +1586,10 @@ msgstr ""
 
 #: ID:195,
 msgid "If set, TortoiseSVN will set the filetimes to the time they\nwere last committed. If not set, TortoiseSVN uses the current time."
+msgstr ""
+
+#: ID:251,
+msgid "If you want to break the lock, you have to hold the SHIFT key down\nwhile you right-click on the file in explorer to get that menu."
 msgstr ""
 
 #: ID:73,
@@ -1704,12 +1720,12 @@ msgstr ""
 msgid "Location where the contents of the\nrepository URL will be saved to."
 msgstr ""
 
-#: Control-ID:65535,
-msgid "Lock creation date:"
+#: ID:221,
+msgid "Lock"
 msgstr ""
 
 #: Control-ID:65535,
-msgid "Lock exp. date:"
+msgid "Lock creation date:"
 msgstr ""
 
 #: ID:263,
@@ -1722,6 +1738,10 @@ msgstr ""
 
 #: ID:263,
 msgid "Locked by %s"
+msgstr ""
+
+#: ID:16,
+msgid "Locks files for other users and makes it editable by you."
 msgstr ""
 
 #: ID:126,
@@ -2178,6 +2198,18 @@ msgstr ""
 
 #: ID:82,
 msgid "Reject"
+msgstr ""
+
+#: ID:16,
+msgid "Release Lock"
+msgstr ""
+
+#: ID:16,
+msgid "Releases locks even if you're not the owner of the locks (breaks them)."
+msgstr ""
+
+#: ID:16,
+msgid "Releases locks on files so other users can edit them again."
 msgstr ""
 
 #: MenuEntry
@@ -2696,6 +2728,10 @@ msgstr ""
 msgid "Status of item in SVN"
 msgstr ""
 
+#: ID:313,
+msgid "Steal the lock"
+msgstr ""
+
 #: Control-ID:1130,
 msgid "Stop On Copy/Rename"
 msgstr ""
@@ -3038,6 +3074,10 @@ msgstr ""
 
 #: ID:81,
 msgid "Unknown certificate issuer.\n  Fingerprint: %s\n  Distinguished name: %s"
+msgstr ""
+
+#: ID:221,
+msgid "Unlock"
 msgstr ""
 
 #: ID:264,

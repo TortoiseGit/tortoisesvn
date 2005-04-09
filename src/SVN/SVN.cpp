@@ -243,6 +243,10 @@ CString SVN::GetErrorString(svn_error_t * Err)
 		default:
 			break;
 		}
+		if (SVN_ERR_IS_UNLOCK_ERROR(Err))
+		{
+			temp.LoadString(IDS_SVNERR_UNLOCKFAILED);
+		}
 		if (!temp.IsEmpty())
 		{
 			msg += _T("\n") + temp;
@@ -1015,6 +1019,18 @@ svn_error_t* SVN::blameReceiver(void* baton,
 		return svn_error_create(SVN_ERR_CANCELLED, NULL, "error in blame callback");
 	}
 	return error;
+}
+
+BOOL SVN::Lock(const CTSVNPathList& pathList, BOOL bStealLock, const CString& comment /* = CString( */)
+{
+	Err = svn_client_lock(MakePathArray(pathList), CUnicodeUtils::GetUTF8(comment), bStealLock, m_pctx, pool);
+	return (Err == NULL);	
+}
+
+BOOL SVN::Unlock(const CTSVNPathList& pathList, BOOL bBreakLock)
+{
+	Err = svn_client_unlock(MakePathArray(pathList), bBreakLock, m_pctx, pool);
+	return (Err == NULL);
 }
 
 svn_error_t* SVN::logReceiver(void* baton, 

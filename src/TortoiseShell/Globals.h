@@ -45,6 +45,8 @@
 #define MENUCREATEPATCH		0x01000000
 #define MENUAPPLYPATCH		0x02000000
 #define MENUREVISIONGRAPH	0x04000000
+#define MENULOCK			0x08000000
+#define MENUUNLOCK			0x10000000
 
 /**
  * Since we need an own COM-object for every different

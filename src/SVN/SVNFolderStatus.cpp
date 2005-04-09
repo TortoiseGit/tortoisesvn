@@ -277,11 +277,13 @@ const FileStatusCacheEntry * SVNFolderStatus::GetFullStatus(const CTSVNPath& fil
 			filestat.author = authors.GetString(fullStatus.m_status.entry->cmt_author);
 			filestat.url = urls.GetString(fullStatus.m_status.entry->url);
 			filestat.rev = fullStatus.m_status.entry->cmt_rev;
+			filestat.owner = owners.GetString(fullStatus.m_owner);
 		}
 		else
 		{
 			filestat.author = authors.GetString(NULL);
 			filestat.url = urls.GetString(NULL);
+			filestat.owner = owners.GetString(NULL);
 			filestat.rev = -1;
 		}
 		filestat.status = svn_wc_status_unversioned;

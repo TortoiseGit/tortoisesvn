@@ -43,7 +43,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	isIgnored = false;
 	isInVersionedFolder = false;
 	isAdded = false;
-
+	isLocked = false;
+	
 	// get selected files/folders
 	if (pDataObj)
 	{
@@ -101,6 +102,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								if (s)
 								{
 									status = s->status;
+									isLocked = (strlen(s->owner)!=0);
 								}
 								// if the status is unversioned and the item is a folder,
 								// it still could be versioned! That's because svn_client_status()
@@ -163,6 +165,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								if (s)
 								{
 									status = s->status;
+									isLocked = (strlen(s->owner)!=0);
 								}
 								// if the status is unversioned and the item is a folder,
 								// it still could be versioned! That's because svn_client_status()
@@ -231,6 +234,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 			if (s)
 			{
 				status = s->status;
+				isLocked = (strlen(s->owner)!=0);
 			}
 		}
 		catch ( ... )
@@ -597,6 +601,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUREVERT), HMENU(MENUREVERT), INDEXMENU(MENUREVERT), idCmd++, IDS_MENUREVERT, IDI_REVERT, idCmdFirst, Revert);
 	if ((isInSVN)&&(isFolder)&&(isFolderInSVN))
 		InsertSVNMenu(ownerdrawn, ISTOP(MENUCLEANUP), HMENU(MENUCLEANUP), INDEXMENU(MENUCLEANUP), idCmd++, IDS_MENUCLEANUP, IDI_CLEANUP, idCmdFirst, Cleanup);
+	if ((isInSVN)&&(!isFolder))
+		InsertSVNMenu(ownerdrawn, ISTOP(MENULOCK), HMENU(MENULOCK), INDEXMENU(MENULOCK), idCmd++, IDS_MENU_LOCK, IDI_LOCK, idCmdFirst, Lock);
+	if ((isInSVN)&&(!isFolder)&&(isLocked)&&(!(uFlags & CMF_EXTENDEDVERBS)))
+		InsertSVNMenu(ownerdrawn, ISTOP(MENUUNLOCK), HMENU(MENUUNLOCK), INDEXMENU(MENUUNLOCK), idCmd++, IDS_MENU_UNLOCK, IDI_UNLOCK, idCmdFirst, Unlock);
+	if ((isInSVN)&&(!isFolder)&&(isLocked)&&(uFlags & CMF_EXTENDEDVERBS))
+		InsertSVNMenu(ownerdrawn, ISTOP(MENUUNLOCK), HMENU(MENUUNLOCK), INDEXMENU(MENUUNLOCK), idCmd++, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK, idCmdFirst, UnlockForce);
 
 	//---- separator 
 	if ((idCmd != (UINT)(lastSeparator + 1)) && (indexSubMenu != 0))
@@ -1133,6 +1143,24 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 							svnCmd += folder_;
 						svnCmd += _T("\"");
 						break;
+					case Lock:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("lock /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						break;
+					case Unlock:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("unlock /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\"");
+						break;
+					case UnlockForce:
+						tempfile = WriteFileListToTempFile();
+						svnCmd += _T("unlock /path:\"");
+						svnCmd += tempfile;
+						svnCmd += _T("\" /force");
+						break;
 					default:
 						break;
 					//#endregion
@@ -1281,6 +1309,15 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 			break;
 		case RevisionGraph:
 			MAKESTRING(IDS_MENUDESCREVISIONGRAPH);
+			break;
+		case Lock:
+			MAKESTRING(IDS_MENUDESC_LOCK);
+			break;
+		case Unlock:
+			MAKESTRING(IDS_MENUDESC_UNLOCK);
+			break;
+		case UnlockForce:
+			MAKESTRING(IDS_MENUDESC_UNLOCKFORCE);
 			break;
 		default:
 			MAKESTRING(IDS_MENUDESCDEFAULT);
@@ -1669,6 +1706,24 @@ LPCTSTR CShellExt::GetMenuTextFromResource(int id)
 			resource = MAKEINTRESOURCE(IDI_REVISIONGRAPH);
 			SETSPACE(MENUREVISIONGRAPH);
 			PREPENDSVN(MENUREVISIONGRAPH);
+			break;
+		case Lock:
+			MAKESTRING(IDS_MENU_LOCK);
+			resource = MAKEINTRESOURCE(IDI_LOCK);
+			SETSPACE(MENULOCK);
+			PREPENDSVN(MENULOCK);
+			break;
+		case Unlock:
+			MAKESTRING(IDS_MENU_UNLOCK);
+			resource = MAKEINTRESOURCE(IDI_UNLOCK);
+			SETSPACE(MENUUNLOCK);
+			PREPENDSVN(MENUUNLOCK);
+			break;
+		case UnlockForce:
+			MAKESTRING(IDS_MENU_UNLOCKFORCE);
+			resource = MAKEINTRESOURCE(IDI_UNLOCK);
+			SETSPACE(MENUUNLOCK);
+			PREPENDSVN(MENUUNLOCK);
 			break;
 		default:
 			return NULL;

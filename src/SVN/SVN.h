@@ -428,6 +428,25 @@ public:
 	 * \param endrev the end revision where the check is stopped
 	 */
 	BOOL Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev);
+	
+	/**
+	 * Lock a file for exclusive use so no other users are allowed to edit
+	 * the same file. A commit of a locked file is rejected if the lock isn't
+	 * owned by the committer himself.
+	 * \param pathList a list of filepaths to lock
+	 * \param bStealLock if TRUE, an already existing lock is overwritten
+	 * \param comment a comment to assign to the lock. Only used by svnserve!
+	 */
+	BOOL Lock(const CTSVNPathList& pathList, BOOL bStealLock, const CString& comment = CString());
+	
+	/**
+	 * Removes existing locks from files.
+	 * \param pathList a list of filepaths to remove the lock from
+	 * \param bBreakLock if TRUE, the locks are removed even if the committer
+	 * isn't the owner of the locks!
+	 */
+	BOOL Unlock(const CTSVNPathList& pathList, BOOL bBreakLock);
+	
 	/**
 	 * Checks if a windows path is a local repository
 	 */

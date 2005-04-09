@@ -150,6 +150,12 @@
 #define IDS_MENUUNIGNORE                237
 #define IDS_MENUDESCUNIGNORE            238
 #define IDS_TT_RECURSIVE                239
+#define IDS_MENU_LOCK                   240
+#define IDS_MENU_UNLOCK                 241
+#define IDS_MENUDESC_LOCK               242
+#define IDS_MENUDESC_UNLOCK             243
+#define IDS_MENU_UNLOCKFORCE            244
+#define IDS_MENUDESC_UNLOCKFORCE        245
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003
@@ -173,16 +179,16 @@
 #define IDI_CREATEPATCH                 5150
 #define IDI_ICON1                       5151
 #define IDI_REVISIONGRAPH               5151
+#define IDI_LOCK                        5152
+#define IDI_UNLOCK                      5153
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
-#define IDC_EDIT3                       11021
-#define IDC_LOCKEXPDATE                 11021
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5152
+#define _APS_NEXT_RESOURCE_VALUE        5154
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11020
 #define _APS_NEXT_SYMED_VALUE           5101

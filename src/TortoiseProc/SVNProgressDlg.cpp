@@ -882,6 +882,28 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 		}
 		break;
+		case Lock:
+		{
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_LOCK);
+			SetWindowText(sWindowTitle);
+			if (!m_pSvn->Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
+			{
+				ReportSVNError();
+				break;
+			}
+		}
+		break;
+		case Unlock:
+		{
+			sWindowTitle.LoadString(IDS_PROGRS_TITLE_UNLOCK);
+			SetWindowText(sWindowTitle);
+			if (!m_pSvn->Unlock(m_targetPathList, m_options & ProgOptLockForce))
+			{
+				ReportSVNError();
+				break;
+			}
+		}
+		break;
 	}
 	temp.LoadString(IDS_PROGRS_TITLEFIN);
 	sWindowTitle = sWindowTitle + _T(" ") + temp;

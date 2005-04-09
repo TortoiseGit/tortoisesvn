@@ -307,6 +307,7 @@
 #define IDS_IMPORT_DEFAULTMSG           1205
 #define IDS_LOG_COPYFROM                1206
 #define IDS_LOG_MESSAGE                 1207
+#define IDC_CHECKBOX                    1207
 #define IDS_LOG_REVISION                1208
 #define IDS_LOG_AUTHOR                  1209
 #define IDS_LOG_DATE                    1210
@@ -539,6 +540,8 @@
 #define IDS_PROGRS_CONFLICTSOCCURED     3501
 #define IDS_PROGRS_DRYRUN               3502
 #define IDS_PROGRS_TITLE_RENAME         3530
+#define IDS_PROGRS_TITLE_LOCK           3531
+#define IDS_PROGRS_TITLE_UNLOCK         3532
 #define IDS_PROGRS_CLOSE_MANUAL         3540
 #define IDS_PROGRS_CLOSE_NOERROR        3541
 #define IDS_PROGRS_CLOSE_NOCONFLICTS    3542
@@ -558,6 +561,7 @@
 #define IDS_SVNERR_RUNCLEANUP           4001
 #define IDS_SVNERR_UPDATEFIRST          4002
 #define IDS_SVNERR_CLEANUPORFRESHCHECKOUT 4003
+#define IDS_SVNERR_UNLOCKFAILED         4004
 #define IDS_CLIPBOARD_PROGRESS_DEST     4100
 #define IDS_SVNACTION_SKIPMISSING       4200
 #define IDS_SVNACTION_ADDING            4201
@@ -584,6 +588,8 @@
 #define IDS_REVGRAPH_ERR_NOENCODER      4362
 #define IDS_REVGRAPH_ERR_NODC           4363
 #define IDS_REVGRAPH_ERR_NOGRAPH        4363
+#define IDS_LOCK_MESSAGEHINT            5000
+#define IDS_LOCK_STEALCHECK             5001
 #define IDS_SCIEDIT_UNDO                6000
 #define IDS_SCIEDIT_REDO                6001
 #define IDS_SCIEDIT_CUT                 6002
@@ -600,9 +606,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        187
+#define _APS_NEXT_RESOURCE_VALUE        188
 #define _APS_NEXT_COMMAND_VALUE         32783
-#define _APS_NEXT_CONTROL_VALUE         1204
+#define _APS_NEXT_CONTROL_VALUE         1208
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

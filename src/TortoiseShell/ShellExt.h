@@ -124,7 +124,10 @@ protected:
 		RevisionGraph,
 		UnIgnoreSub,
 		UnIgnoreCaseSensitive,
-		UnIgnore
+		UnIgnore,
+		Lock,
+		Unlock,
+		UnlockForce
 	};
 
 	FileState m_State;
@@ -142,6 +145,7 @@ protected:
 	bool isFolderInSVN;
 	bool isNormal;
 	bool isAdded;
+	bool isLocked;
 	int space;
 	TCHAR stringtablebuffer[255];
 	stdstring columnfilepath;		///< holds the last file/dir path for the column provider

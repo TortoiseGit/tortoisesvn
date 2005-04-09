@@ -59,6 +59,8 @@ IDI_BLAME               ICON                    "..\\Resources\\menublame.ico"
 IDI_PATCH               ICON                    "..\\Resources\\menupatch.ico"
 IDI_CREATEPATCH         ICON                    "..\\Resources\\menudiff.ico"
 IDI_REVISIONGRAPH       ICON                    "..\\Resources\\menurevisiongraph.ico"
+IDI_LOCK                ICON                    "..\\Resources\\menulock.ico"
+IDI_UNLOCK              ICON                    "..\\Resources\\menuunlock.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -113,14 +115,11 @@ BEGIN
     LTEXT           "Lock creation date:",IDC_STATIC,4,78,76,8
     EDITTEXT        IDC_LOCKDATE,80,79,163,12,ES_AUTOHSCROLL | ES_READONLY | 
                     NOT WS_BORDER
-    LTEXT           "Lock exp. date:",IDC_STATIC,4,91,76,8
-    EDITTEXT        IDC_LOCKEXPDATE,80,91,163,12,ES_AUTOHSCROLL | 
-                    ES_READONLY | NOT WS_BORDER
-    PUSHBUTTON      "Show &log",IDC_SHOWLOG,4,110,239,14
-    GROUPBOX        "Properties",IDC_STATIC,4,128,239,144
+    PUSHBUTTON      "Show &log",IDC_SHOWLOG,4,93,239,14
+    GROUPBOX        "Properties",IDC_STATIC,4,113,239,159
     CONTROL         "",IDC_PROPLIST,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | 
-                    WS_BORDER | WS_TABSTOP,11,139,225,48
+                    WS_BORDER | WS_TABSTOP,11,124,225,63
     COMBOBOX        IDC_EDITNAME,12,193,107,88,CBS_DROPDOWN | 
                     CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDITVALUE,11,209,225,41,ES_MULTILINE | 
@@ -339,6 +338,17 @@ BEGIN
     IDS_MENUUNIGNORE        "Remove From Ignore List"
     IDS_MENUDESCUNIGNORE    "Removes the file or filemask from the list of ignored items"
     IDS_TT_RECURSIVE        "Applies the properties recursively to all files/folders.\nbugtraq: and tsvn: properties are only applied to folders."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MENU_LOCK           "Get Lock"
+    IDS_MENU_UNLOCK         "Release Lock"
+    IDS_MENUDESC_LOCK       "Locks files for other users and makes it editable by you."
+    IDS_MENUDESC_UNLOCK     "Releases locks on files so other users can edit them again."
+    IDS_MENU_UNLOCKFORCE    "Break Lock"
+    IDS_MENUDESC_UNLOCKFORCE 
+                            "Releases locks even if you're not the owner of the locks (breaks them)."
 END
 
 #endif    // English (U.S.) resources

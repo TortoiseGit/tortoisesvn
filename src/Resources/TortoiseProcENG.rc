@@ -594,6 +594,8 @@ BEGIN
     PUSHBUTTON      "&Cancel",IDCANCEL,180,92,50,14
     CONTROL         "Scintilla",IDC_INPUTTEXT,"Scintilla",WS_TABSTOP,7,19,
                     223,68,WS_EX_STATICEDGE
+    CONTROL         "",IDC_CHECKBOX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    96,104,10
 END
 
 IDD_BLAME DIALOGEX 0, 0, 311, 94
@@ -1704,6 +1706,7 @@ BEGIN
     IDS_SVNERR_UPDATEFIRST  "You have to update your working copy first."
     IDS_SVNERR_CLEANUPORFRESHCHECKOUT 
                             "Try a ""Cleanup"". If that doesn't work you need to do a fresh checkout."
+    IDS_SVNERR_UNLOCKFAILED "If you want to break the lock, you have to hold the SHIFT key down\nwhile you right-click on the file in explorer to get that menu."
 END
 
 STRINGTABLE 
@@ -1841,6 +1844,8 @@ END
 STRINGTABLE 
 BEGIN
     IDS_PROGRS_TITLE_RENAME "SVN Rename/Move"
+    IDS_PROGRS_TITLE_LOCK   "Lock"
+    IDS_PROGRS_TITLE_UNLOCK "Unlock"
 END
 
 STRINGTABLE 
@@ -1867,6 +1872,12 @@ END
 STRINGTABLE 
 BEGIN
     IDS_SVNACTION_FAILEDUNLOCK "Unlock failed"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_LOCK_MESSAGEHINT    "Enter a lock message (optional):"
+    IDS_LOCK_STEALCHECK     "Steal the lock"
 END
 
 #endif    // English (U.S.) resources
