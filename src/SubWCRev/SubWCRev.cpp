@@ -34,6 +34,18 @@
 #define RANGEDEF	"$WCRANGE$"
 #define MIXEDDEF	"$WCMIXED?"
 
+// Internal error codes
+#define ERR_SYNTAX		1	// Syntax error
+#define ERR_FNF			2	// File/folder not found
+#define ERR_OPEN		3	// File open error
+#define ERR_ALLOC		4	// Memory allocation error
+#define ERR_READ		5	// File read/write/size error
+#define ERR_SVN_ERR		6	// SVN error
+// Documented error codes
+#define ERR_SVN_MODS	7	// Local mods found (-n)
+#define ERR_SVN_MIXED	8	// Mixed rev WC found (-m)
+#define ERR_OUT_EXISTS	9	// Output file already exists (-d)
+
 BOOL bHasMods;
 LONG lowestupdate;
 LONG highestupdate;
@@ -214,7 +226,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf(_T("                       copy contains mixed revisions\n"));
 		printf(_T("-d                 :   if given, then SubWCRev will only do its job if\n"));
 		printf(_T("                       DstVersionFile does not exist\n"));
-		return 1;
+		return ERR_SYNTAX;
 	}
 	// we have three parameters
 	const TCHAR * src = NULL;
@@ -244,19 +256,19 @@ int _tmain(int argc, _TCHAR* argv[])
 				bErrOnMixed = TRUE;
 			if (strchr(argv[4], 'd') != 0)
 				if (PathFileExists(dst))
-					return 0;
+					return ERR_OUT_EXISTS;
 		}
 		if (!PathFileExists(src))
 		{
 			printf(_T("file %s does not exist\n"), src);
-			return 2;			// file does not exist
+			return ERR_FNF;		// file does not exist
 		}
 	}
 
 	if (!PathFileExists(wc))
 	{
 		printf(_T("directory or file %s does not exist\n"), wc);
-		return 2;			// dir does not exist
+		return ERR_FNF;			// dir does not exist
 	}
 	char * pBuf = NULL;
 	unsigned long readlength = 0;
@@ -269,28 +281,29 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (hFile == INVALID_HANDLE_VALUE)
 		{
 			printf(_T("unable to open input file %s\n"), src);
-			return 3;			// error opening file
+			return ERR_OPEN;		// error opening file
 		}
 		filelength = GetFileSize(hFile, NULL);
 		if (filelength == INVALID_FILE_SIZE)
 		{
 			printf(_T("could not determine filesize of %s\n"), src);
-			return 4;
+			return ERR_READ;
 		}
 		pBuf = new char[filelength+1000];		//we might be increasing the filesize!
 		if (pBuf == NULL)
 		{
 			printf(_T("could not allocate enough memory!\n"));
+			return ERR_ALLOC;
 		}
 		if (!ReadFile(hFile, pBuf, filelength, &readlength, NULL))
 		{
 			printf(_T("could not read the file %s\n"), src);
-			return 5;
+			return ERR_READ;
 		}
 		if (readlength != filelength)
 		{
 			printf(_T("could not read the file %s to the end!\n"), src);
-			return 6;
+			return ERR_READ;
 		}
 		CloseHandle(hFile);
 
@@ -325,7 +338,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	apr_terminate2();
 	if (svnerr)
 	{
-		return 9;
+		return ERR_SVN_ERR;
 	}
 	
 	printf(_T("SubWCRev: '%s'\n"), wcfullpath);
@@ -333,13 +346,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (bErrOnMods && bHasMods)
 	{
 		printf(_T("Working copy has local modifications!\n"));
-		return 7;
+		return ERR_SVN_MODS;
 	}
 	
 	if (bErrOnMixed && (lowestupdate != highestupdate))
 	{
 		printf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), lowestupdate, highestupdate);
-		return 7;
+		return ERR_SVN_MIXED;
 	}
 
 	printf(_T("Last committed at revision %Ld\n"), highestrev);
@@ -347,6 +360,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (lowestupdate != highestupdate)
 	{
 		printf(_T("Mixed revision range %Ld:%Ld\n"), lowestupdate, highestupdate);
+	}
+	else
+	{
+		printf(_T("Updated to revision %Ld\n"), highestupdate);
 	}
 	
 	if (bHasMods)
@@ -381,7 +398,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
 		printf(_T("unable to open input file %s for writing\n"), dst);
-		return 8;			// error opening file
+		return ERR_OPEN;
 	}
 	WriteFile(hFile, pBuf, filelength, &readlength, NULL);
 	CloseHandle(hFile);

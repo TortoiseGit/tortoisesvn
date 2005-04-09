@@ -20,15 +20,15 @@ DstVersionFile     :   path to where to save the resulting header file
 
 
 SubWCRev reads the Subversion status of all files in a working copy, excluding
-externals. It records the highest revision number found, and the commit
+externals. It records the highest commit revision number found, and the commit
 timestamp of that revision, and also whether there are local modifications in
-the working copy. The revision number and mod status are displayed on stdout.
+the working copy, or mixed update revisions. The revision number, update
+revision range and modification status are displayed on stdout.
 
 If a source and destination files are supplied, SubWCRev copies source
 to destination, performing keyword substitution as follows:
 
-$WCREV$ is replaced with the highest version number in the working copy.
-This is the highest commited revision, not the update revision.
+$WCREV$ is replaced with the highest commit revision in the working copy.
 
 $WCRANGE$ is replaced with the update revision range in the working copy.
 If the working copy is in a consistent state, this will be a single revision.
@@ -51,10 +51,10 @@ conditions are not met.
 The -n switch causes SubWCRev to abort with ERRORLEVEL 7 if there are
 any local modifications.
 
-The -m switch causes SubWCRev to abort with ERRORLEVEL 7 if there are
+The -m switch causes SubWCRev to abort with ERRORLEVEL 8 if there are
 mixed update revisions.
 
-The -d switch causes SubWCRev to abort with ERRORLEVEL 8 if the destination
+The -d switch causes SubWCRev to abort with ERRORLEVEL 9 if the destination
 file already exists.
 
 These 3 switches should be combined if more than one is required, eg. -nm.
