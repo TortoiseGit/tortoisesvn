@@ -151,7 +151,7 @@ void CChangedDlg::OnBnClickedCheckrepo()
 void CChangedDlg::OnBnClickedShowunversioned()
 {
 	UpdateData();
-	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL;
+	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS;
 	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
 	m_FileListCtrl.Show(dwShow);
 	m_regAddBeforeCommit = m_bShowUnversioned;
