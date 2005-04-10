@@ -1706,7 +1706,7 @@ BEGIN
     IDS_SVNERR_UPDATEFIRST  "You have to update your working copy first."
     IDS_SVNERR_CLEANUPORFRESHCHECKOUT 
                             "Try a ""Cleanup"". If that doesn't work you need to do a fresh checkout."
-    IDS_SVNERR_UNLOCKFAILED "If you want to break the lock, you have to hold the SHIFT key down\nwhile you right-click on the file in explorer to get that menu."
+    IDS_SVNERR_UNLOCKFAILED "If you want to break the lock, use the ""Check For Modifiations"" dialog."
 END
 
 STRINGTABLE 

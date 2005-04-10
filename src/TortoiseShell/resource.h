@@ -156,6 +156,7 @@
 #define IDS_MENUDESC_UNLOCK             243
 #define IDS_MENU_UNLOCKFORCE            244
 #define IDS_MENUDESC_UNLOCKFORCE        245
+#define IDS_MENU_LOCKFORCE              246
 #define IDC_REVISION                    1001
 #define IDC_LOCKED                      1002
 #define IDC_REPOURL                     1003

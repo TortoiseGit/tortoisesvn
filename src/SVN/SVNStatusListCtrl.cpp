@@ -34,6 +34,7 @@
 #include "TSVNPath.h"
 #include "Registry.h"
 #include "SVNStatus.h"
+#include "InputDlg.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 			= ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -50,6 +51,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
 #define IDSVNLC_IGNOREMASK	    10
 #define IDSVNLC_ADD			    11
 #define IDSVNLC_RESOLVECONFLICT 12
+#define IDSVNLC_LOCK			13
+#define IDSVNLC_LOCKFORCE		14
+#define IDSVNLC_UNLOCK			15
+#define IDSVNLC_UNLOCKFORCE		16
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCLICKA, 0, OnHdnItemclick)
@@ -1165,6 +1170,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
 						}
+						popup.AppendMenu(MF_SEPARATOR);
 					}
 				}
 				if (wcStatus > svn_wc_status_normal)
@@ -1218,15 +1224,28 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				if ((wcStatus == svn_wc_status_conflicted)&&(GetSelectedCount()==1))
 				{
+					popup.AppendMenu(MF_SEPARATOR);
+					
 					temp.LoadString(IDS_MENUCONFLICT);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EDITCONFLICT, temp);
 					temp.LoadString(IDS_MENURESOLVE);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
 				}
+				popup.AppendMenu(MF_SEPARATOR);
+				temp.LoadString(IDS_MENU_LOCK);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);					
+				if (!entry->lock_owner.IsEmpty())
+				{
+					temp.LoadString(IDS_MENU_UNLOCK);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);					
+					temp.LoadString(IDS_MENU_UNLOCKFORCE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);					
+				}
 				int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 				m_bBlock = TRUE;
 				AfxGetApp()->DoWaitCursor(1);
 				int iItemCountBeforeMenuCmd = GetItemCount();
+				bool bForce = false;
 				switch (cmd)
 				{
 				case IDSVNLC_REVERT:
@@ -1649,6 +1668,39 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						Show(m_dwShow);
 					}
 					break;
+				case IDSVNLC_LOCK:
+				{
+					CTSVNPathList itemsToLock;
+					FillListOfSelectedItemPaths(itemsToLock);
+					CInputDlg inpDlg;
+					inpDlg.m_sTitle.LoadString(IDS_MENU_LOCK);
+					inpDlg.m_sHintText.LoadString(IDS_LOCK_MESSAGEHINT);
+					inpDlg.m_sCheckText.LoadString(IDS_LOCK_STEALCHECK);
+					ProjectProperties props;
+					props.ReadPropsPathList(itemsToLock);
+					props.nMinLogSize = 0;		// the lock message is optional, so no minimum!
+					inpDlg.m_pProjectProperties = &props;
+					if (inpDlg.DoModal()==IDOK)
+					{
+						CSVNProgressDlg progDlg;
+						progDlg.SetParams(CSVNProgressDlg::Lock, inpDlg.m_iCheck ? ProgOptLockForce : 0, itemsToLock, CString(), inpDlg.m_sInputText);
+						progDlg.DoModal();
+						// refresh!
+					}
+				}
+				break;
+				case IDSVNLC_UNLOCKFORCE:
+					bForce = true;
+				case IDSVNLC_UNLOCK:
+				{
+					CTSVNPathList itemsToUnlock;
+					FillListOfSelectedItemPaths(itemsToUnlock);
+					CSVNProgressDlg progDlg;
+					progDlg.SetParams(CSVNProgressDlg::Unlock, bForce ? ProgOptLockForce : 0, itemsToUnlock);
+					progDlg.DoModal();
+					// refresh!
+				}
+				break;
 				default:
 					m_bBlock = FALSE;
 					break;
