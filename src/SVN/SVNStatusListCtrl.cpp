@@ -401,17 +401,20 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			else
 				m_sURL.LoadString(IDS_STATUSLIST_MULTIPLETARGETS);
 		}
+		if (pSVNStatus->entry->lock_owner)
+			entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_owner);
+		if (pSVNStatus->entry->lock_token)
+			entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_token);
 	}
 	else
 	{
 		entry->isfolder = path.IsDirectory();
 	}
-
 	if (pSVNStatus->repos_lock)
 	{
-		if (pSVNStatus->repos_lock->owner)
+		if (entry->lock_owner.IsEmpty() && (pSVNStatus->repos_lock->owner))
 			entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->owner);
-		if (pSVNStatus->repos_lock->token)
+		if (entry->lock_token.IsEmpty() && (pSVNStatus->repos_lock->token))
 			entry->lock_token = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
 	}
 
@@ -606,7 +609,9 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 			continue;
 		svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
 		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
-
+		if (entry->IsLocked())
+			showFlags |= SVNSLC_SHOWLOCKS;
+			
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
 		if(status != svn_wc_status_ignored || (entry->direct))
 		{
@@ -620,7 +625,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/)
 				AddEntry(entry, langID, listIndex++);
 			}
 		}
-	} // for (int i=0; i<m_arStatusArray.GetCount(); ++i)
+	}
 
 	SetItemCount(listIndex);
 
@@ -705,6 +710,10 @@ void CSVNStatusListCtrl::AddEntry(const FileEntry * entry, WORD langID, int list
 	if (m_dwColumns & SVNSLC_COLURL)
 	{
 		SetItemText(index, nCol++, entry->url);
+	}
+	if (m_dwColumns & SVNSLC_COLOWNER)
+	{
+		SetItemText(index, nCol++, entry->lock_owner);
 	}
 	SetCheck(index, entry->checked);
 	if (entry->checked)

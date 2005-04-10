@@ -50,6 +50,7 @@ class SVNStatus;
 #define SVNSLC_SHOWINCOMPLETE	0x000001000
 #define SVNSLC_SHOWINEXTERNALS	0x000002000
 #define SVNSLC_SHOWDIRECTS		0x000004000
+#define SVNSLC_SHOWLOCKS		0x000008000
 
 #define SVNSLC_SHOWVERSIONED (SVNSLC_SHOWNORMAL|SVNSLC_SHOWMODIFIED|\
 SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWMISSING|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|\
@@ -124,6 +125,10 @@ public:
 		CString GetRelativeSVNPath() const
 		{
 			return path.GetSVNPathString().Mid(basepath.GetSVNPathString().GetLength()+1);
+		}
+		const bool IsLocked() const
+		{
+			return !lock_owner.IsEmpty();
 		}
 	private:
 		CTSVNPath				path;					///< full path of the file
